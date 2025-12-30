@@ -407,7 +407,7 @@ define { ptr, ptr } @_ZN3gmx4Bias22calcForceAndUpdateBiasEPKdNS_8ArrayRefIS1_EES
   br label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit
 
 _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i, %74, %80, %86, %.loopexit.split.loop.exit35.i.i.i.i.i.i, %.loopexit.split.loop.exit37.i.i.i.i.i.i, %.loopexit.split.loop.exit39.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i.i, %80 ], [ %spec.select.i.i.i.i.i.i, %86 ], [ %92, %.loopexit.split.loop.exit39.i.i.i.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %74 ], [ %91, %.loopexit.split.loop.exit37.i.i.i.i.i.i ], [ %90, %.loopexit.split.loop.exit35.i.i.i.i.i.i ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %74 ], [ %.sroa.025.1.i.i.i.i.i.i, %80 ], [ %spec.select.i.i.i.i.i.i, %86 ], [ %90, %.loopexit.split.loop.exit35.i.i.i.i.i.i ], [ %91, %.loopexit.split.loop.exit37.i.i.i.i.i.i ], [ %92, %.loopexit.split.loop.exit39.i.i.i.i.i.i ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not = icmp eq ptr %46, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not, label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread, label %93
 
@@ -811,7 +811,7 @@ _ZNK3gmx10BiasParams22isUpdateFreeEnergyStepEl.exit.thread: ; preds = %253, %_ZN
   br label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit80
 
 _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit80:        ; preds = %.lr.ph.i.i.i.i.i.i71, %323, %329, %335, %.loopexit.split.loop.exit35.i.i.i.i.i.i79, %.loopexit.split.loop.exit37.i.i.i.i.i.i78, %.loopexit.split.loop.exit39.i.i.i.i.i.i77
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i67 = phi ptr [ %.sroa.025.1.i.i.i.i.i.i68, %329 ], [ %spec.select.i.i.i.i.i.i66, %335 ], [ %341, %.loopexit.split.loop.exit39.i.i.i.i.i.i77 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i64, %323 ], [ %340, %.loopexit.split.loop.exit37.i.i.i.i.i.i78 ], [ %339, %.loopexit.split.loop.exit35.i.i.i.i.i.i79 ], [ %.sroa.025.044.i.i.i.i.i.i73, %.lr.ph.i.i.i.i.i.i71 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i67 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i64, %323 ], [ %.sroa.025.1.i.i.i.i.i.i68, %329 ], [ %spec.select.i.i.i.i.i.i66, %335 ], [ %339, %.loopexit.split.loop.exit35.i.i.i.i.i.i79 ], [ %340, %.loopexit.split.loop.exit37.i.i.i.i.i.i78 ], [ %341, %.loopexit.split.loop.exit39.i.i.i.i.i.i77 ], [ %.sroa.025.044.i.i.i.i.i.i73, %.lr.ph.i.i.i.i.i.i71 ]
   %.not133 = icmp eq ptr %295, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i67
   br i1 %.not133, label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit80.thread, label %342
 
@@ -1834,7 +1834,7 @@ _ZNSt12_Vector_baseIN3gmx9DimParamsESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; p
   br i1 %.not.i.i6.i, label %.body, label %.body.sink.split
 
 32:                                               ; preds = %.noexc5.i, %_ZNSt12_Vector_baseIN3gmx9DimParamsESaIS1_EE11_M_allocateEm.exit.thread.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3gmx9DimParamsESaIS1_EE11_M_allocateEm.exit.thread.i.i ], [ %scevgep.i.i, %.noexc5.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %.noexc5.i ], [ null, %_ZNSt12_Vector_baseIN3gmx9DimParamsESaIS1_EE11_M_allocateEm.exit.thread.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %33, align 8, !tbaa !96
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1950,7 +1950,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc40
   br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i41
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i41: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc40, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-  %.0.i.i.i.i.i = phi ptr [ %100, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %97, %.noexc40 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %97, %.noexc40 ], [ %100, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %.0.i.i.i.i.i, ptr %101, align 8, !tbaa !105
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -1987,7 +1987,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43: ; preds = %.noexc48
   br label %115
 
 115:                                              ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43, %.noexc48, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i46
-  %.0.i.i.i.i.i45 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i46 ], [ %111, %.noexc48 ], [ %114, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43 ]
+  %.0.i.i.i.i.i45 = phi ptr [ %111, %.noexc48 ], [ %114, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43 ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i46 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store ptr %.0.i.i.i.i.i45, ptr %116, align 8, !tbaa !105
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -2173,7 +2173,7 @@ _ZNSt10unique_ptrIN3gmx10BiasWriterESt14default_deleteIS1_EED2Ev.exit: ; preds =
   ret void
 
 .body53:                                          ; preds = %195, %148, %193, %181, %197, %191
-  %.pn.pn = phi { ptr, i32 } [ %192, %191 ], [ %149, %148 ], [ %196, %195 ], [ %194, %193 ], [ %198, %197 ], [ %182, %181 ]
+  %.pn.pn = phi { ptr, i32 } [ %192, %191 ], [ %196, %195 ], [ %194, %193 ], [ %149, %148 ], [ %198, %197 ], [ %182, %181 ]
   %199 = load ptr, ptr %105, align 8, !tbaa !102
   %.not.i.i.i62 = icmp eq ptr %199, null
   br i1 %.not.i.i.i62, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %200

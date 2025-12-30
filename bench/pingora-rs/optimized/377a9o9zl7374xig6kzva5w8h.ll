@@ -219,9 +219,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2e40954222f6b640E.exit"
 
 31:                                               ; preds = %"_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17h544425327d2e67a0E.exit.i.i.i.i.i", %29
-  %.sroa.9.1.i.i = phi i64 [ %.sroa.8.0.copyload5.i.i.i, %29 ], [ undef, %"_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17h544425327d2e67a0E.exit.i.i.i.i.i" ]
-  %.sroa.75.1.i.i = phi ptr [ %.sroa.7.0.copyload3.i.i.i, %29 ], [ undef, %"_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17h544425327d2e67a0E.exit.i.i.i.i.i" ]
-  %.sroa.03.0.i.i = phi i64 [ %30, %29 ], [ -9223372036854775807, %"_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17h544425327d2e67a0E.exit.i.i.i.i.i" ]
+  %.sroa.9.1.i.i = phi i64 [ undef, %"_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17h544425327d2e67a0E.exit.i.i.i.i.i" ], [ %.sroa.8.0.copyload5.i.i.i, %29 ]
+  %.sroa.75.1.i.i = phi ptr [ undef, %"_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17h544425327d2e67a0E.exit.i.i.i.i.i" ], [ %.sroa.7.0.copyload3.i.i.i, %29 ]
+  %.sroa.03.0.i.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17h544425327d2e67a0E.exit.i.i.i.i.i" ], [ %30, %29 ]
   store i64 %.sroa.03.0.i.i, ptr %0, align 8, !alias.scope !80, !noalias !79
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.75.1.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !80, !noalias !79
@@ -270,7 +270,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
           to label %15 unwind label %38, !noalias !84
 
 15:                                               ; preds = %34, %.invoke.i
-  %.sroa.02.0.i = phi i8 [ %14, %.invoke.i ], [ %37, %34 ]
+  %.sroa.02.0.i = phi i8 [ %37, %34 ], [ %14, %.invoke.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !84
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !88
@@ -378,7 +378,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %51, %48, %44, %42, %25, %57
-  %.pn17 = phi { ptr, i32 } [ %58, %57 ], [ %49, %48 ], [ %26, %25 ], [ %39, %42 ], [ %39, %44 ], [ %49, %51 ], [ %.pn17.ph, %.thread.sink.split ]
+  %.pn17 = phi { ptr, i32 } [ %58, %57 ], [ %26, %25 ], [ %39, %42 ], [ %39, %44 ], [ %49, %48 ], [ %49, %51 ], [ %.pn17.ph, %.thread.sink.split ]
   resume { ptr, i32 } %.pn17
 
 57:                                               ; preds = %4

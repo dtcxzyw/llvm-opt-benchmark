@@ -250,7 +250,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_resident_set_memory
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %21, %26, %29, %37, %43, %17, %.critedge
-  %.023 = phi i32 [ %10, %.critedge ], [ %20, %17 ], [ 0, %43 ], [ -22, %37 ], [ -22, %21 ], [ -22, %29 ], [ -22, %26 ], [ -22, %.preheader ]
+  %.023 = phi i32 [ %10, %.critedge ], [ %20, %17 ], [ 0, %43 ], [ -22, %37 ], [ -22, %29 ], [ -22, %26 ], [ -22, %21 ], [ -22, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.023
 }
@@ -330,7 +330,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_uptime(ptr noundef 
   br label %25
 
 25:                                               ; preds = %6, %.critedge8, %.critedge
-  %.03 = phi i32 [ 0, %.critedge8 ], [ %22, %.critedge ], [ 0, %6 ]
+  %.03 = phi i32 [ %22, %.critedge ], [ 0, %.critedge8 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.03
@@ -391,7 +391,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %24, %.lr.ph.i
-  %.0.lcssa.i = phi i32 [ %.010.i, %.lr.ph.i ], [ %25, %24 ]
+  %.0.lcssa.i = phi i32 [ %25, %24 ], [ %.010.i, %.lr.ph.i ]
   %27 = icmp eq i32 %.0.lcssa.i, 0
   br i1 %27, label %uv__cpu_num.exit.thread, label %28
 
@@ -549,7 +549,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   br label %76
 
 .outer34._crit_edge.i:                            ; preds = %.split41.split.us.i, %63, %.lr.ph.split.split.i, %.outer34._crit_edge.loopexit94.i, %.outer34._crit_edge.loopexit93.i, %.outer34._crit_edge.loopexit91.i
-  %.029.ph.lcssa37.i = phi i32 [ %.0.lcssa.i, %63 ], [ %72, %.outer34._crit_edge.loopexit94.i ], [ %.0.lcssa.i, %.lr.ph.split.split.i ], [ %71, %.outer34._crit_edge.loopexit93.i ], [ %70, %.outer34._crit_edge.loopexit91.i ], [ %.0.lcssa.i, %.split41.split.us.i ]
+  %.029.ph.lcssa37.i = phi i32 [ %70, %.outer34._crit_edge.loopexit91.i ], [ %71, %.outer34._crit_edge.loopexit93.i ], [ %72, %.outer34._crit_edge.loopexit94.i ], [ %.0.lcssa.i, %.lr.ph.split.split.i ], [ %.0.lcssa.i, %63 ], [ %.0.lcssa.i, %.split41.split.us.i ]
   %75 = call i32 @fclose(ptr noundef nonnull %33)
   %.not32.i = icmp eq i32 %.029.ph.lcssa37.i, 0
   br i1 %.not32.i, label %81, label %76
@@ -749,7 +749,7 @@ read_speeds.exit:                                 ; preds = %read_cpufreq.exit.i
   br label %141
 
 141:                                              ; preds = %uv__cpu_num.exit.thread, %28, %read_speeds.exit, %126
-  %.019 = phi i32 [ -5, %uv__cpu_num.exit.thread ], [ -12, %28 ], [ %.171, %126 ], [ 0, %read_speeds.exit ]
+  %.019 = phi i32 [ -12, %28 ], [ %.171, %126 ], [ 0, %read_speeds.exit ], [ -5, %uv__cpu_num.exit.thread ]
   %142 = call i32 @fclose(ptr noundef nonnull %15)
   %.not25 = icmp eq i32 %142, 0
   br i1 %.not25, label %147, label %143
@@ -1003,7 +1003,7 @@ uv__ifaddr_exclude.exit70.thread:                 ; preds = %86, %67, %62, %.lr.
   br i1 %.not59, label %._crit_edge98, label %.lr.ph97, !llvm.loop !69
 
 ._crit_edge98:                                    ; preds = %uv__ifaddr_exclude.exit70.thread, %.preheader80, %.preheader
-  %91 = phi ptr [ null, %.preheader80 ], [ null, %.preheader ], [ %.294.pre, %uv__ifaddr_exclude.exit70.thread ]
+  %91 = phi ptr [ null, %.preheader ], [ null, %.preheader80 ], [ %.294.pre, %uv__ifaddr_exclude.exit70.thread ]
   call void @freeifaddrs(ptr noundef %91) #13
   br label %92
 
@@ -1112,7 +1112,7 @@ uv__read_proc_meminfo.exit:                       ; preds = %5
   br label %22
 
 22:                                               ; preds = %12, %uv__read_proc_meminfo.exit, %15
-  %.0 = phi i64 [ %11, %uv__read_proc_meminfo.exit ], [ %21, %15 ], [ 0, %12 ]
+  %.0 = phi i64 [ %21, %15 ], [ %11, %uv__read_proc_meminfo.exit ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -1168,7 +1168,7 @@ uv__read_proc_meminfo.exit:                       ; preds = %5
   br label %22
 
 22:                                               ; preds = %12, %uv__read_proc_meminfo.exit, %15
-  %.0 = phi i64 [ %11, %uv__read_proc_meminfo.exit ], [ %21, %15 ], [ 0, %12 ]
+  %.0 = phi i64 [ %21, %15 ], [ %11, %uv__read_proc_meminfo.exit ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }

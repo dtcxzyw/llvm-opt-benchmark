@@ -180,7 +180,7 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit45:    ; preds = %_ZN5boost6system10e
   br label %54
 
 53:                                               ; preds = %switch.hole_check99, %44, %switch.hole_check90, %36, %switch.hole_check81, %28, %switch.lookup100, %switch.lookup, %switch.lookup82, %switch.lookup91
-  %.029.ph = phi i16 [ %41, %44 ], [ %41, %switch.lookup91 ], [ %switch.load, %28 ], [ %33, %switch.lookup82 ], [ %33, %36 ], [ %switch.load, %switch.lookup ], [ %49, %switch.lookup100 ], [ %switch.load, %switch.hole_check81 ], [ %33, %switch.hole_check90 ], [ %41, %switch.hole_check99 ]
+  %.029.ph = phi i16 [ %41, %44 ], [ %33, %36 ], [ %switch.load, %28 ], [ %41, %switch.lookup91 ], [ %33, %switch.lookup82 ], [ %switch.load, %switch.lookup ], [ %49, %switch.lookup100 ], [ %switch.load, %switch.hole_check81 ], [ %33, %switch.hole_check90 ], [ %41, %switch.hole_check99 ]
   %.sroa.0.0.insert.insert = tail call i16 @llvm.bswap.i16(i16 %.029.ph)
   store i16 %.sroa.0.0.insert.insert, ptr %0, align 8
   br label %54

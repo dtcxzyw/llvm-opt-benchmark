@@ -311,7 +311,7 @@ invoke.cont8.loopexit.split.loop.exit117:         ; preds = %if.end.i.i.i.i.i
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont8.loopexit.split.loop.exit, %invoke.cont8.loopexit.split.loop.exit115, %invoke.cont8.loopexit.split.loop.exit117, %sw.bb.i.i.i.i.i, %sw.bb21.i.i.i.i.i, %sw.bb26.i.i.i.i.i
-  %retval.0.i.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i.i, %sw.bb21.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i, %sw.bb26.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit117 ], [ %incdec.ptr5.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit115 ], [ %incdec.ptr9.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit ], [ %__first.addr.056.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i, %sw.bb21.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i, %sw.bb26.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit115 ], [ %incdec.ptr.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit117 ], [ %__first.addr.056.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.0.i.i.i.i.i
   br i1 %cmp.i.i, label %if.then10, label %if.else126
 
@@ -894,8 +894,8 @@ if.else.i37:                                      ; preds = %if.end.i31
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then5.i40, %if.else.i37, %if.then5.i23, %if.else.i20
-  %add.ptr.i33.sink = phi ptr [ %call2.i15, %if.then5.i23 ], [ %call2.i15, %if.else.i20 ], [ %add.ptr.i33, %if.else.i37 ], [ %add.ptr.i33, %if.then5.i40 ]
-  %add.ptr10.sink.i39.sink = phi ptr [ %add.ptr8.i26, %if.then5.i23 ], [ %add.ptr10.i21, %if.else.i20 ], [ %add.ptr10.i38, %if.else.i37 ], [ %add.ptr8.i43, %if.then5.i40 ]
+  %add.ptr.i33.sink = phi ptr [ %call2.i15, %if.else.i20 ], [ %call2.i15, %if.then5.i23 ], [ %add.ptr.i33, %if.else.i37 ], [ %add.ptr.i33, %if.then5.i40 ]
+  %add.ptr10.sink.i39.sink = phi ptr [ %add.ptr10.i21, %if.else.i20 ], [ %add.ptr8.i26, %if.then5.i23 ], [ %add.ptr10.i38, %if.else.i37 ], [ %add.ptr8.i43, %if.then5.i40 ]
   %host_24 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i33.sink, ptr %host_24, align 8
   %ref.tmp20.sroa.3.0.host_24.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1068,7 +1068,7 @@ cond.false.i.i:                                   ; preds = %if.end.i.i
   br label %_ZNK5folly5RangeIPKcE4findEc.exit
 
 _ZNK5folly5RangeIPKcE4findEc.exit:                ; preds = %_ZN8proxygen8ParseURL13stripBracketsEv.exit, %if.end.i.i, %cond.false.i.i
-  %retval.0.i.i = phi i1 [ %7, %cond.false.i.i ], [ true, %if.end.i.i ], [ true, %_ZN8proxygen8ParseURL13stripBracketsEv.exit ]
+  %retval.0.i.i = phi i1 [ true, %if.end.i.i ], [ %7, %cond.false.i.i ], [ true, %_ZN8proxygen8ParseURL13stripBracketsEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !37
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #20, !noalias !40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %retval.sroa.0.0.copyload.i.i, i64 noundef %.pre8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)

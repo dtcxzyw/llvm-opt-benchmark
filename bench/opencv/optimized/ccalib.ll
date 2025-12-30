@@ -3007,7 +3007,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit220: ; preds = %_ZNSt6v
   br label %298
 
 298:                                              ; preds = %294, %296
-  %.pn135.pn = phi { ptr, i32 } [ %295, %294 ], [ %297, %296 ]
+  %.pn135.pn = phi { ptr, i32 } [ %297, %296 ], [ %295, %294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -3619,13 +3619,13 @@ _ZNSt6vectorIcSaIcEED2Ev.exit257:                 ; preds = %560, %563
   br label %._crit_edge290.thread
 
 ._crit_edge290.thread:                            ; preds = %.preheader280, %339, %384, %388, %575, %372, %._crit_edge290, %290
-  %.2 = phi i1 [ false, %._crit_edge290 ], [ false, %290 ], [ false, %339 ], [ false, %388 ], [ false, %372 ], [ false, %384 ], [ %578, %575 ], [ false, %.preheader280 ]
+  %.2 = phi i1 [ false, %290 ], [ false, %._crit_edge290 ], [ false, %339 ], [ false, %372 ], [ false, %384 ], [ %578, %575 ], [ false, %388 ], [ false, %.preheader280 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %thread-pre-split
 
 579:                                              ; preds = %347, %373, %375, %386, %574, %558, %438, %377, %299, %298
-  %.pn168.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn135.pn, %298 ], [ %300, %299 ], [ %348, %347 ], [ %376, %375 ], [ %374, %373 ], [ %378, %377 ], [ %387, %386 ], [ %439, %438 ], [ %.pn166, %574 ], [ %559, %558 ]
+  %.pn168.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %300, %299 ], [ %.pn135.pn, %298 ], [ %376, %375 ], [ %374, %373 ], [ %348, %347 ], [ %378, %377 ], [ %387, %386 ], [ %439, %438 ], [ %.pn166, %574 ], [ %559, %558 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %594
@@ -4413,7 +4413,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destr
   br label %247
 
 247:                                              ; preds = %246, %134, %132
-  %.pn61 = phi { ptr, i32 } [ %133, %132 ], [ %.pn58.pn, %246 ], [ %135, %134 ]
+  %.pn61 = phi { ptr, i32 } [ %.pn58.pn, %246 ], [ %135, %134 ], [ %133, %132 ]
   %248 = load ptr, ptr %22, align 8, !tbaa !188
   %.not.i.i.i79 = icmp eq ptr %248, null
   br i1 %.not.i.i.i79, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit80, label %249

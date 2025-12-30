@@ -166,7 +166,7 @@ define hidden zeroext i1 @SDL_SYS_RemovePath(ptr noundef readonly captures(none)
   br label %11
 
 11:                                               ; preds = %1, %4, %8
-  %.0 = phi i1 [ true, %4 ], [ %10, %8 ], [ true, %1 ]
+  %.0 = phi i1 [ %10, %8 ], [ true, %4 ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -302,7 +302,7 @@ define hidden zeroext i1 @SDL_SYS_CreateDirectory(ptr noundef readonly captures(
   br label %21
 
 21:                                               ; preds = %1, %18, %17
-  %.2 = phi i1 [ true, %17 ], [ %20, %18 ], [ true, %1 ]
+  %.2 = phi i1 [ %20, %18 ], [ true, %17 ], [ true, %1 ]
   ret i1 %.2
 }
 
@@ -446,8 +446,8 @@ define hidden noundef ptr @SDL_SYS_GetCurrentDirectory() local_unnamed_addr #0 {
   store i8 0, ptr %25, align 1
   br label %.thread
 
-.thread:                                          ; preds = %12, %._crit_edge, %19, %23
-  %.2 = phi ptr [ %5, %19 ], [ %5, %23 ], [ null, %._crit_edge ], [ null, %12 ]
+.thread:                                          ; preds = %._crit_edge, %12, %19, %23
+  %.2 = phi ptr [ %5, %23 ], [ %5, %19 ], [ null, %12 ], [ null, %._crit_edge ]
   ret ptr %.2
 }
 

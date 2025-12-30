@@ -76,7 +76,7 @@ define noundef ptr @d2i_KeyParams(i32 noundef %0, ptr noundef captures(address_i
   br label %34
 
 34:                                               ; preds = %31, %33, %28, %29, %9
-  %.021 = phi ptr [ null, %9 ], [ %.0, %28 ], [ %.0, %29 ], [ null, %33 ], [ null, %31 ]
+  %.021 = phi ptr [ null, %9 ], [ %.0, %29 ], [ %.0, %28 ], [ null, %33 ], [ null, %31 ]
   ret ptr %.021
 }
 

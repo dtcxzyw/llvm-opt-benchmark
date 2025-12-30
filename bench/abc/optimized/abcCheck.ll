@@ -668,7 +668,7 @@ Abc_NtkCheckPos.exit.thread:                      ; preds = %.critedge.preheader
   br i1 %276, label %.lr.ph, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %272, %Abc_NtkCheckPos.exit.thread, %.preheader219
-  %277 = phi ptr [ %200, %Abc_NtkCheckPos.exit.thread ], [ %260, %.preheader219 ], [ %273, %272 ]
+  %277 = phi ptr [ %260, %.preheader219 ], [ %200, %Abc_NtkCheckPos.exit.thread ], [ %273, %272 ]
   %.val106 = load i32, ptr %0, align 8, !tbaa !3
   %.not215 = icmp eq i32 %.val106, 1
   %278 = getelementptr i8, ptr %0, i64 120
@@ -743,7 +743,7 @@ Abc_NtkCheckNet.exit:                             ; preds = %299, %293, %289
   br label %Abc_NtkCheckNames.exit.thread
 
 .critedge2:                                       ; preds = %Abc_NtkCheckNet.exit, %284, %304
-  %308 = phi ptr [ %277, %304 ], [ %285, %284 ], [ %285, %Abc_NtkCheckNet.exit ]
+  %308 = phi ptr [ %285, %284 ], [ %277, %304 ], [ %285, %Abc_NtkCheckNet.exit ]
   %.val109 = load i32, ptr %0, align 8, !tbaa !3
   %.not217 = icmp eq i32 %.val109, 3
   br i1 %.not217, label %312, label %.preheader
@@ -1167,8 +1167,8 @@ Abc_NtkCheckLatch.exit._crit_edge:                ; preds = %Abc_NtkCheckLatch.e
   %499 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %497)
   br label %Abc_NtkCheckNames.exit.thread
 
-Abc_NtkCheckNames.exit.thread:                    ; preds = %270, %Abc_NtkCheckLatch.exit, %.thread, %Abc_NtkCheckPos.exit.thread, %Abc_ObjNameNet.exit47.i, %Abc_ObjNameNet.exit.i, %392, %330, %253, %208, %231, %223, %217, %185, %148, %164, %157, %Vec_IntFree.exit61.i, %133, %Vec_IntFree.exit.i, %104, %77, %Abc_NtkCheckLatch.exit.thread, %Abc_NtkCheckNet.exit.thread, %495, %498, %312, %Abc_NtkCheckPos.exit, %Abc_NtkCheckNames.exit, %492, %305, %40, %27, %14, %7, %2
-  %.071 = phi i32 [ 0, %14 ], [ 0, %27 ], [ 0, %40 ], [ 0, %185 ], [ 1, %Abc_NtkCheckPos.exit ], [ 1, %Abc_NtkCheckPos.exit.thread ], [ 0, %253 ], [ 0, %Abc_ObjNameNet.exit47.i ], [ 0, %492 ], [ 0, %Abc_NtkCheckNet.exit.thread ], [ 0, %312 ], [ 0, %305 ], [ 0, %Vec_IntFree.exit61.i ], [ 0, %Abc_NtkCheckNames.exit ], [ 0, %2 ], [ 0, %7 ], [ 1, %498 ], [ 1, %495 ], [ 0, %Abc_NtkCheckLatch.exit.thread ], [ 0, %77 ], [ 0, %104 ], [ 0, %Vec_IntFree.exit.i ], [ 0, %133 ], [ 0, %157 ], [ 0, %164 ], [ 0, %148 ], [ 0, %217 ], [ 0, %223 ], [ 0, %231 ], [ 0, %208 ], [ 0, %330 ], [ 0, %392 ], [ 0, %Abc_ObjNameNet.exit.i ], [ 0, %.thread ], [ 0, %Abc_NtkCheckLatch.exit ], [ 0, %270 ]
+Abc_NtkCheckNames.exit.thread:                    ; preds = %270, %Abc_NtkCheckLatch.exit, %.thread, %Abc_NtkCheckPos.exit.thread, %392, %Abc_ObjNameNet.exit47.i, %Abc_ObjNameNet.exit.i, %330, %253, %208, %231, %223, %217, %185, %148, %164, %157, %133, %Vec_IntFree.exit61.i, %Vec_IntFree.exit.i, %104, %77, %Abc_NtkCheckLatch.exit.thread, %Abc_NtkCheckNet.exit.thread, %495, %498, %312, %Abc_NtkCheckPos.exit, %Abc_NtkCheckNames.exit, %492, %305, %40, %27, %14, %7, %2
+  %.071 = phi i32 [ 0, %14 ], [ 0, %27 ], [ 0, %40 ], [ 0, %492 ], [ 0, %305 ], [ 0, %7 ], [ 0, %2 ], [ 0, %Abc_NtkCheckNames.exit ], [ 1, %Abc_NtkCheckPos.exit ], [ 0, %312 ], [ 1, %498 ], [ 1, %495 ], [ 0, %Abc_NtkCheckNet.exit.thread ], [ 0, %Abc_NtkCheckLatch.exit.thread ], [ 0, %77 ], [ 0, %104 ], [ 0, %Vec_IntFree.exit.i ], [ 0, %Vec_IntFree.exit61.i ], [ 0, %133 ], [ 0, %157 ], [ 0, %164 ], [ 0, %148 ], [ 0, %185 ], [ 0, %217 ], [ 0, %223 ], [ 0, %231 ], [ 0, %208 ], [ 0, %253 ], [ 0, %330 ], [ 0, %Abc_ObjNameNet.exit.i ], [ 0, %Abc_ObjNameNet.exit47.i ], [ 0, %392 ], [ 1, %Abc_NtkCheckPos.exit.thread ], [ 0, %.thread ], [ 0, %Abc_NtkCheckLatch.exit ], [ 0, %270 ]
   ret i32 %.071
 }
 
@@ -1500,7 +1500,7 @@ Vec_IntFind.exit87:                               ; preds = %65, %Vec_IntFind.ex
   br label %.loopexit90
 
 .loopexit90:                                      ; preds = %.loopexit, %112, %.loopexit90.sink.split, %.critedge2._crit_edge, %11
-  %.065 = phi i32 [ %.263.lcssa, %.critedge2._crit_edge ], [ 0, %.loopexit90.sink.split ], [ 1, %11 ], [ %.263.lcssa, %112 ], [ %.263.lcssa, %.loopexit ]
+  %.065 = phi i32 [ 1, %11 ], [ %.263.lcssa, %.critedge2._crit_edge ], [ 0, %.loopexit90.sink.split ], [ %.263.lcssa, %112 ], [ %.263.lcssa, %.loopexit ]
   ret i32 %.065
 }
 
@@ -1760,7 +1760,7 @@ Abc_NtkComparePis.exit:                           ; preds = %28, %.preheader.i
   br i1 %61, label %.lr.ph.i25, label %Abc_NtkComparePos.exit, !llvm.loop !73
 
 Abc_NtkComparePos.exit:                           ; preds = %58, %50, %40, %20, %10, %Abc_NtkComparePis.exit, %.preheader.i24, %32
-  %.0 = phi i32 [ 0, %20 ], [ 0, %32 ], [ 1, %Abc_NtkComparePis.exit ], [ 0, %50 ], [ 1, %.preheader.i24 ], [ 0, %10 ], [ 0, %40 ], [ 1, %58 ]
+  %.0 = phi i32 [ 0, %32 ], [ 1, %.preheader.i24 ], [ 1, %Abc_NtkComparePis.exit ], [ 0, %10 ], [ 0, %20 ], [ 0, %40 ], [ 0, %50 ], [ 1, %58 ]
   ret i32 %.0
 }
 
@@ -1831,7 +1831,7 @@ define range(i32 0, 2) i32 @Abc_NtkIsAcyclicHierarchy_rec(ptr noundef captures(n
   br i1 %29, label %.lr.ph, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %17, %22, %25, %.preheader, %4, %1
-  %.014 = phi i32 [ 1, %4 ], [ 1, %1 ], [ 1, %.preheader ], [ 0, %22 ], [ 0, %17 ], [ 1, %25 ]
+  %.014 = phi i32 [ 1, %1 ], [ 1, %4 ], [ 1, %.preheader ], [ 0, %17 ], [ 0, %22 ], [ 1, %25 ]
   ret i32 %.014
 }
 

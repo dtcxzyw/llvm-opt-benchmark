@@ -746,7 +746,7 @@ _ZN5boost10filesystem4pathD2Ev.exit120:           ; preds = %_ZN5boost10filesyst
   br i1 %257, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !21
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %254, %252, %248, %244, %239
-  %.0.i.i = phi i32 [ %253, %252 ], [ %245, %244 ], [ %249, %248 ], [ 1, %239 ], [ %256, %254 ]
+  %.0.i.i = phi i32 [ %245, %244 ], [ %249, %248 ], [ %253, %252 ], [ 1, %239 ], [ %256, %254 ]
   %.lobit.i = lshr i32 %240, 31
   %258 = add i32 %.0.i.i, %.lobit.i
   %259 = zext i32 %258 to i64

@@ -1720,7 +1720,7 @@ define dso_local i32 @drm_atomic_connector_commit_dpms(ptr noundef %0, ptr nound
   br label %62
 
 62:                                               ; preds = %.loopexit, %35
-  %63 = phi i32 [ %61, %.loopexit ], [ %37, %35 ]
+  %63 = phi i32 [ %37, %35 ], [ %61, %.loopexit ]
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.thread, label %.thread10
 
@@ -2485,7 +2485,7 @@ define dso_local i32 @drm_atomic_set_property(ptr noundef %0, ptr noundef %1, pt
   br label %.thread
 
 .thread:                                          ; preds = %414, %411, %351, %367, %435, %422, %451, %444, %399, %387, %375, %359
-  %459 = phi i32 [ -22, %451 ], [ %362, %359 ], [ %377, %375 ], [ %389, %387 ], [ %401, %399 ], [ 0, %351 ], [ %445, %444 ], [ 0, %422 ], [ 0, %435 ], [ 0, %367 ], [ -14, %414 ], [ 0, %411 ]
+  %459 = phi i32 [ %362, %359 ], [ %377, %375 ], [ %389, %387 ], [ %401, %399 ], [ %445, %444 ], [ -22, %451 ], [ 0, %422 ], [ 0, %435 ], [ 0, %367 ], [ 0, %351 ], [ -14, %414 ], [ 0, %411 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %744
 
@@ -3315,7 +3315,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   br i1 %180, label %149, label %.thread
 
 .thread:                                          ; preds = %177, %173, %.preheader55, %171
-  %.ph = phi i32 [ -2, %171 ], [ -14, %173 ], [ -14, %.preheader55 ], [ %179, %177 ]
+  %.ph = phi i32 [ -2, %171 ], [ -14, %.preheader55 ], [ -14, %173 ], [ %179, %177 ]
   call void @drm_mode_object_put(ptr noundef nonnull %120) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread49
@@ -3470,7 +3470,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   br i1 %267, label %select.unfold.i, label %275
 
 select.unfold.i:                                  ; preds = %264, %255, %251
-  %.ph27.i = phi i32 [ %252, %251 ], [ -14, %255 ], [ -12, %264 ]
+  %.ph27.i = phi i32 [ -14, %255 ], [ %252, %251 ], [ -12, %264 ]
   %268 = getelementptr inbounds nuw i8, ptr %249, i64 56
   %269 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %268, i32 -1, ptr nonnull elementtype(i32) %268) #11, !srcloc !37
   %270 = icmp eq i32 %269, 1
@@ -3587,7 +3587,7 @@ select.unfold.i:                                  ; preds = %264, %255, %251
   br i1 %333, label %select.unfold41.i, label %341
 
 select.unfold41.i:                                ; preds = %330, %321, %317
-  %.ph.i = phi i32 [ %318, %317 ], [ -14, %321 ], [ -12, %330 ]
+  %.ph.i = phi i32 [ -14, %321 ], [ %318, %317 ], [ -12, %330 ]
   %334 = getelementptr inbounds nuw i8, ptr %315, i64 56
   %335 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %334, i32 -1, ptr nonnull elementtype(i32) %334) #11, !srcloc !37
   %336 = icmp eq i32 %335, 1
@@ -3711,14 +3711,14 @@ set_async_flip.exit:                              ; preds = %set_async_flip.exit
   br label %393
 
 393:                                              ; preds = %391, %389, %384
-  %394 = phi i32 [ %392, %391 ], [ %385, %384 ], [ %390, %389 ]
+  %394 = phi i32 [ %385, %384 ], [ %390, %389 ], [ %392, %391 ]
   %395 = icmp eq i32 %394, 0
   br i1 %395, label %401, label %.thread49
 
-.thread49:                                        ; preds = %.preheader63, %245, %239, %220, %305, %311, %340, %273, %337, %274, %339, %.thread38.i, %271, %354, %.thread, %125, %134, %146, %393
-  %396 = phi i32 [ %394, %393 ], [ -14, %146 ], [ %.ph, %.thread ], [ -12, %305 ], [ -2, %125 ], [ -2, %134 ], [ %.ph.i, %339 ], [ %236, %.thread38.i ], [ -12, %245 ], [ %.ph27.i, %271 ], [ %.ph.i, %340 ], [ %.ph27.i, %273 ], [ -22, %354 ], [ %.ph.i, %337 ], [ %.ph27.i, %274 ], [ -12, %311 ], [ -12, %220 ], [ -12, %239 ], [ -14, %.preheader63 ]
-  %.053 = phi i32 [ %.8, %393 ], [ 0, %146 ], [ 0, %.thread ], [ %.3, %305 ], [ 0, %125 ], [ 0, %134 ], [ %306, %339 ], [ %.5, %.thread38.i ], [ %.5, %245 ], [ %240, %271 ], [ %306, %340 ], [ %240, %273 ], [ %.2, %354 ], [ %306, %337 ], [ %240, %274 ], [ %.3, %311 ], [ %.5, %220 ], [ %.5, %239 ], [ 0, %.preheader63 ]
-  %.03052 = phi ptr [ %.838, %393 ], [ null, %146 ], [ null, %.thread ], [ %.333, %305 ], [ null, %125 ], [ null, %134 ], [ %309, %339 ], [ %.535, %.thread38.i ], [ %.535, %239 ], [ %243, %271 ], [ %309, %340 ], [ %243, %273 ], [ %.232, %354 ], [ %309, %337 ], [ %243, %274 ], [ %309, %311 ], [ %.535, %220 ], [ %243, %245 ], [ null, %.preheader63 ]
+.thread49:                                        ; preds = %.preheader63, %245, %239, %220, %311, %305, %337, %339, %340, %271, %273, %274, %.thread38.i, %354, %.thread, %125, %134, %146, %393
+  %396 = phi i32 [ %394, %393 ], [ %.ph, %.thread ], [ -2, %125 ], [ -2, %134 ], [ -14, %146 ], [ %.ph.i, %337 ], [ %.ph.i, %339 ], [ %.ph.i, %340 ], [ %.ph27.i, %271 ], [ %.ph27.i, %273 ], [ %.ph27.i, %274 ], [ %236, %.thread38.i ], [ -22, %354 ], [ -12, %305 ], [ -12, %311 ], [ -12, %220 ], [ -12, %239 ], [ -12, %245 ], [ -14, %.preheader63 ]
+  %.053 = phi i32 [ %.8, %393 ], [ 0, %.thread ], [ 0, %125 ], [ 0, %134 ], [ 0, %146 ], [ %306, %337 ], [ %306, %339 ], [ %306, %340 ], [ %240, %271 ], [ %240, %273 ], [ %240, %274 ], [ %.5, %.thread38.i ], [ %.2, %354 ], [ %.3, %305 ], [ %.3, %311 ], [ %.5, %220 ], [ %.5, %239 ], [ %.5, %245 ], [ 0, %.preheader63 ]
+  %.03052 = phi ptr [ %.838, %393 ], [ null, %.thread ], [ null, %125 ], [ null, %134 ], [ null, %146 ], [ %309, %337 ], [ %309, %339 ], [ %309, %340 ], [ %243, %271 ], [ %243, %273 ], [ %243, %274 ], [ %.535, %.thread38.i ], [ %.232, %354 ], [ %309, %311 ], [ %.333, %305 ], [ %243, %245 ], [ %.535, %239 ], [ %.535, %220 ], [ null, %.preheader63 ]
   %397 = load ptr, ptr %100, align 8
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 728
   %399 = load i32, ptr %398, align 8

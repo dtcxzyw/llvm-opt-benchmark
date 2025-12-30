@@ -274,12 +274,12 @@ default.unreachable30:                            ; preds = %30
   br label %_ZL12__kernel_cosdd.exit26
 
 _ZL12__kernel_cosdd.exit26:                       ; preds = %130, %152, %159
-  %.0.i25 = phi double [ %170, %159 ], [ %158, %152 ], [ 1.000000e+00, %130 ]
+  %.0.i25 = phi double [ %158, %152 ], [ %170, %159 ], [ 1.000000e+00, %130 ]
   %171 = fneg double %.0.i25
   br label %_ZL12__kernel_sinddi.exit
 
 _ZL12__kernel_sinddi.exit:                        ; preds = %90, %83, %61, %40, %34, %11, %6, %_ZL12__kernel_cosdd.exit26, %_ZL12__kernel_sinddi.exit18, %28
-  %.0 = phi double [ %171, %_ZL12__kernel_cosdd.exit26 ], [ %29, %28 ], [ %25, %11 ], [ %33, %34 ], [ %129, %_ZL12__kernel_sinddi.exit18 ], [ %0, %6 ], [ %60, %40 ], [ %101, %90 ], [ %89, %83 ], [ 1.000000e+00, %61 ]
+  %.0 = phi double [ %29, %28 ], [ %129, %_ZL12__kernel_sinddi.exit18 ], [ %171, %_ZL12__kernel_cosdd.exit26 ], [ %25, %11 ], [ %0, %6 ], [ %60, %40 ], [ %33, %34 ], [ %89, %83 ], [ %101, %90 ], [ 1.000000e+00, %61 ]
   ret double %.0
 }
 
@@ -671,9 +671,9 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   br label %_ZL7scalbnAdi.exit.i
 
 .thread.i.i:                                      ; preds = %187, %._crit_edge.i
-  %.01844.i.i = phi i32 [ %.sroa.0.4.extract.trunc.i.i.i, %._crit_edge.i ], [ %.sroa.0.4.extract.trunc.i23.i.i, %187 ]
-  %.01943.i.i = phi i32 [ %182, %._crit_edge.i ], [ %192, %187 ]
-  %.03842.i.i = phi double [ %179, %._crit_edge.i ], [ %188, %187 ]
+  %.01844.i.i = phi i32 [ %.sroa.0.4.extract.trunc.i23.i.i, %187 ], [ %.sroa.0.4.extract.trunc.i.i.i, %._crit_edge.i ]
+  %.01943.i.i = phi i32 [ %192, %187 ], [ %182, %._crit_edge.i ]
+  %.03842.i.i = phi double [ %188, %187 ], [ %179, %._crit_edge.i ]
   %195 = add nsw i32 %.01943.i.i, %130
   %196 = icmp sgt i32 %195, 2046
   br i1 %196, label %197, label %200
@@ -723,7 +723,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   br label %_ZL7scalbnAdi.exit.i
 
 _ZL7scalbnAdi.exit.i:                             ; preds = %213, %210, %202, %197, %193, %183
-  %.0.i.i = phi double [ %220, %213 ], [ %179, %183 ], [ %194, %193 ], [ %199, %197 ], [ %207, %202 ], [ %212, %210 ]
+  %.0.i.i = phi double [ %194, %193 ], [ %199, %197 ], [ %207, %202 ], [ %212, %210 ], [ %220, %213 ], [ %179, %183 ]
   %221 = fmul double %.0.i.i, 1.250000e-01
   %222 = tail call double @llvm.floor.f64(double %221)
   %223 = fmul double %222, 8.000000e+00
@@ -954,9 +954,9 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %264
   br label %_ZL7scalbnAdi.exit304.i
 
 .thread.i292.i:                                   ; preds = %308, %.critedge271.i
-  %.01844.i293.i = phi i32 [ %.sroa.0.4.extract.trunc.i.i287.i, %.critedge271.i ], [ %.sroa.0.4.extract.trunc.i23.i291.i, %308 ]
-  %.01943.i294.i = phi i32 [ %303, %.critedge271.i ], [ %313, %308 ]
-  %.03842.i295.i = phi double [ %.1227.i, %.critedge271.i ], [ %309, %308 ]
+  %.01844.i293.i = phi i32 [ %.sroa.0.4.extract.trunc.i23.i291.i, %308 ], [ %.sroa.0.4.extract.trunc.i.i287.i, %.critedge271.i ]
+  %.01943.i294.i = phi i32 [ %313, %308 ], [ %303, %.critedge271.i ]
+  %.03842.i295.i = phi double [ %309, %308 ], [ %.1227.i, %.critedge271.i ]
   %316 = sub nsw i32 %.01943.i294.i, %130
   %317 = icmp sgt i32 %316, 2046
   br i1 %317, label %318, label %321
@@ -1006,7 +1006,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %264
   br label %_ZL7scalbnAdi.exit304.i
 
 _ZL7scalbnAdi.exit304.i:                          ; preds = %334, %331, %323, %318, %314, %304
-  %.0.i288.i = phi double [ %341, %334 ], [ %.1227.i, %304 ], [ %315, %314 ], [ %320, %318 ], [ %328, %323 ], [ %333, %331 ]
+  %.0.i288.i = phi double [ %315, %314 ], [ %320, %318 ], [ %328, %323 ], [ %333, %331 ], [ %341, %334 ], [ %.1227.i, %304 ]
   %342 = fcmp ult double %.0.i288.i, 0x4170000000000000
   br i1 %342, label %354, label %343
 
@@ -1036,8 +1036,8 @@ _ZL7scalbnAdi.exit304.i:                          ; preds = %334, %331, %323, %3
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %354, %343
-  %.2233.i = phi i32 [ %.0231.i, %354 ], [ %351, %343 ], [ %357, %.loopexit.loopexit.i ]
-  %.1230.i = phi i32 [ %130, %354 ], [ %.neg262.i, %343 ], [ %.0229.i, %.loopexit.loopexit.i ]
+  %.2233.i = phi i32 [ %351, %343 ], [ %.0231.i, %354 ], [ %357, %.loopexit.loopexit.i ]
+  %.1230.i = phi i32 [ %.neg262.i, %343 ], [ %130, %354 ], [ %.0229.i, %.loopexit.loopexit.i ]
   %358 = add nsw i32 %.1230.i, 1023
   %359 = icmp sgt i32 %.1230.i, 1023
   br i1 %359, label %_ZL7scalbnAdi.exit318.i, label %360
@@ -1067,7 +1067,7 @@ _ZL7scalbnAdi.exit304.i:                          ; preds = %334, %331, %323, %3
   br label %_ZL7scalbnAdi.exit318.i
 
 _ZL7scalbnAdi.exit318.i:                          ; preds = %367, %365, %362, %.loopexit.i
-  %.0.i313.i = phi double [ %371, %367 ], [ 0x7FF0000000000000, %.loopexit.i ], [ %364, %362 ], [ 0.000000e+00, %365 ]
+  %.0.i313.i = phi double [ %364, %362 ], [ %371, %367 ], [ 0x7FF0000000000000, %.loopexit.i ], [ 0.000000e+00, %365 ]
   %372 = icmp sgt i32 %.2233.i, -1
   br i1 %372, label %.lr.ph59.preheader.i, label %._crit_edge70.i.thread
 
@@ -1186,7 +1186,7 @@ _ZL17__kernel_rem_pio2PdS_iiiPKi.exit:            ; preds = %.lr.ph76.i, %._crit
   br label %412
 
 412:                                              ; preds = %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit, %91, %32, %37, %19, %24, %408, %103, %97, %11
-  %.0 = phi i32 [ 0, %11 ], [ %49, %91 ], [ 1, %19 ], [ %100, %97 ], [ -1, %32 ], [ 0, %103 ], [ %411, %408 ], [ 1, %24 ], [ -1, %37 ], [ %406, %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit ]
+  %.0 = phi i32 [ 0, %11 ], [ %100, %97 ], [ 0, %103 ], [ %411, %408 ], [ 1, %24 ], [ 1, %19 ], [ -1, %37 ], [ -1, %32 ], [ %49, %91 ], [ %406, %_ZL17__kernel_rem_pio2PdS_iiiPKi.exit ]
   ret i32 %.0
 }
 
@@ -1416,7 +1416,7 @@ _ZL12__kernel_sinddi.exit:                        ; preds = %92, %98
   br label %_ZL12__kernel_cosdd.exit28
 
 _ZL12__kernel_cosdd.exit28:                       ; preds = %120, %142, %149
-  %.0.i27 = phi double [ %160, %149 ], [ %148, %142 ], [ 1.000000e+00, %120 ]
+  %.0.i27 = phi double [ %148, %142 ], [ %160, %149 ], [ 1.000000e+00, %120 ]
   %161 = fneg double %.0.i27
   br label %_ZL12__kernel_cosdd.exit
 
@@ -1456,7 +1456,7 @@ default.unreachable35:                            ; preds = %47
   br label %_ZL12__kernel_cosdd.exit
 
 _ZL12__kernel_cosdd.exit:                         ; preds = %168, %162, %80, %73, %51, %31, %24, %6, %_ZL12__kernel_cosdd.exit28, %_ZL12__kernel_sinddi.exit, %45
-  %.0 = phi double [ 1.000000e+00, %51 ], [ %46, %45 ], [ 1.000000e+00, %6 ], [ %119, %_ZL12__kernel_sinddi.exit ], [ %161, %_ZL12__kernel_cosdd.exit28 ], [ %42, %31 ], [ %30, %24 ], [ %91, %80 ], [ %79, %73 ], [ %188, %168 ], [ %50, %162 ]
+  %.0 = phi double [ %46, %45 ], [ %119, %_ZL12__kernel_sinddi.exit ], [ %161, %_ZL12__kernel_cosdd.exit28 ], [ %30, %24 ], [ %42, %31 ], [ 1.000000e+00, %6 ], [ %79, %73 ], [ %91, %80 ], [ 1.000000e+00, %51 ], [ %188, %168 ], [ %50, %162 ]
   ret double %.0
 }
 
@@ -1636,7 +1636,7 @@ define internal fastcc noundef double @_ZL12__kernel_tanddi(double noundef %0, d
   br label %105
 
 105:                                              ; preds = %89, %17, %91, %75, %19, %14
-  %.0 = phi double [ %16, %14 ], [ %104, %91 ], [ %33, %19 ], [ %88, %75 ], [ %0, %17 ], [ %74, %89 ]
+  %.0 = phi double [ %16, %14 ], [ %33, %19 ], [ %88, %75 ], [ %104, %91 ], [ %0, %17 ], [ %74, %89 ]
   ret double %.0
 }
 

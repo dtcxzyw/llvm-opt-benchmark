@@ -323,8 +323,8 @@ thread-pre-split:                                 ; preds = %22
   br label %.invoke
 
 .invoke:                                          ; preds = %37, %43, %45, %46, %47, %51
-  %53 = phi ptr [ %.sroa.345.0.copyload, %51 ], [ %.sroa.749.0.copyload, %43 ], [ %.sroa.345.0.copyload, %47 ], [ @anon.bb3e50c887ff5180082248a5cf6b7603.1, %45 ], [ @anon.bb3e50c887ff5180082248a5cf6b7603.2, %46 ], [ @anon.bb3e50c887ff5180082248a5cf6b7603.0, %37 ]
-  %54 = phi i64 [ %.sroa.547.0.copyload, %51 ], [ %.sroa.8.0.copyload, %43 ], [ %.sroa.547.0.copyload, %47 ], [ 1, %45 ], [ 2, %46 ], [ %41, %37 ]
+  %53 = phi ptr [ %.sroa.345.0.copyload, %51 ], [ %.sroa.749.0.copyload, %43 ], [ @anon.bb3e50c887ff5180082248a5cf6b7603.1, %45 ], [ @anon.bb3e50c887ff5180082248a5cf6b7603.2, %46 ], [ %.sroa.345.0.copyload, %47 ], [ @anon.bb3e50c887ff5180082248a5cf6b7603.0, %37 ]
+  %54 = phi i64 [ %.sroa.547.0.copyload, %51 ], [ %.sroa.8.0.copyload, %43 ], [ 1, %45 ], [ 2, %46 ], [ %.sroa.547.0.copyload, %47 ], [ %41, %37 ]
   invoke void @_ZN3std4path7PathBuf5_push17hed0ac1997e1d518cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %54)
           to label %_ZN3std4path7PathBuf4push17ha3b7c8aa17f0f4e8E.exit.backedge unwind label %.loopexit
 

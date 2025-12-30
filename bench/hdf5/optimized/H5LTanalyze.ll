@@ -187,7 +187,7 @@ H5LTyy_create_buffer.exit:                        ; preds = %35
   br label %.loopexit116.preheader
 
 .loopexit116.preheader:                           ; preds = %._crit_edge515, %44
-  %.ph = phi ptr [ %.pre511.pre, %._crit_edge515 ], [ %49, %44 ]
+  %.ph = phi ptr [ %49, %44 ], [ %.pre511.pre, %._crit_edge515 ]
   br label %.loopexit116
 
 .loopexit116:                                     ; preds = %.loopexit116.backedge, %.loopexit116.preheader
@@ -272,12 +272,6 @@ H5LTyy_create_buffer.exit:                        ; preds = %35
   %96 = load i16, ptr %95, align 2, !tbaa !26
   %.not65 = icmp eq i16 %96, 361
   br i1 %.not65, label %.preheader.outer, label %55, !llvm.loop !30
-
-.preheader.outer.backedge:                        ; preds = %._crit_edge.i107, %yy_get_next_buffer.exit.thread112, %yy_try_NUL_trans.exit
-  %.249.ph.be = phi ptr [ %232, %yy_try_NUL_trans.exit ], [ %464, %yy_get_next_buffer.exit.thread112 ], [ %464, %._crit_edge.i107 ]
-  %.144.ph.be = phi ptr [ %229, %yy_try_NUL_trans.exit ], [ %462, %yy_get_next_buffer.exit.thread112 ], [ %462, %._crit_edge.i107 ]
-  %.3.ph.be = phi i32 [ %.016.lcssa.i, %yy_try_NUL_trans.exit ], [ %465, %yy_get_next_buffer.exit.thread112 ], [ %506, %._crit_edge.i107 ]
-  br label %.preheader.outer
 
 .preheader.outer:                                 ; preds = %._crit_edge, %.preheader.outer.backedge
   %.249.ph = phi ptr [ %.249.ph.be, %.preheader.outer.backedge ], [ %93, %._crit_edge ]
@@ -827,9 +821,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i72, %280
   br label %.loopexit117.backedge
 
 .loopexit117.backedge:                            ; preds = %._crit_edge.i91, %301, %411
-  %.047.be = phi ptr [ %303, %301 ], [ %418, %411 ], [ %418, %._crit_edge.i91 ]
-  %.043.be = phi ptr [ %229, %301 ], [ %410, %411 ], [ %410, %._crit_edge.i91 ]
-  %.035.be = phi i32 [ %302, %301 ], [ %419, %411 ], [ %460, %._crit_edge.i91 ]
+  %.047.be = phi ptr [ %418, %411 ], [ %303, %301 ], [ %418, %._crit_edge.i91 ]
+  %.043.be = phi ptr [ %410, %411 ], [ %229, %301 ], [ %410, %._crit_edge.i91 ]
+  %.035.be = phi i32 [ %419, %411 ], [ %302, %301 ], [ %460, %._crit_edge.i91 ]
   br label %.loopexit117
 
 304:                                              ; preds = %216
@@ -1151,6 +1145,12 @@ yy_get_next_buffer.exit.thread112:                ; preds = %315, %yy_get_next_b
   %466 = icmp ult ptr %462, %464
   br i1 %466, label %.lr.ph25.i97, label %.preheader.outer.backedge
 
+.preheader.outer.backedge:                        ; preds = %._crit_edge.i107, %yy_get_next_buffer.exit.thread112, %yy_try_NUL_trans.exit
+  %.249.ph.be = phi ptr [ %232, %yy_try_NUL_trans.exit ], [ %464, %yy_get_next_buffer.exit.thread112 ], [ %464, %._crit_edge.i107 ]
+  %.144.ph.be = phi ptr [ %229, %yy_try_NUL_trans.exit ], [ %462, %yy_get_next_buffer.exit.thread112 ], [ %462, %._crit_edge.i107 ]
+  %.3.ph.be = phi i32 [ %.016.lcssa.i, %yy_try_NUL_trans.exit ], [ %465, %yy_get_next_buffer.exit.thread112 ], [ %506, %._crit_edge.i107 ]
+  br label %.preheader.outer
+
 .lr.ph25.i97:                                     ; preds = %yy_get_next_buffer.exit.thread112, %._crit_edge.i107
   %.01523.i98 = phi ptr [ %507, %._crit_edge.i107 ], [ %462, %yy_get_next_buffer.exit.thread112 ]
   %.01622.i99 = phi i32 [ %506, %._crit_edge.i107 ], [ %465, %yy_get_next_buffer.exit.thread112 ]
@@ -1248,7 +1248,7 @@ default.unreachable544:                           ; preds = %yy_get_next_buffer.
   br label %509
 
 509:                                              ; preds = %yy_get_previous_state.exit94, %.loopexit898, %.loopexit698, %.loopexit563, %.loopexit315, %.loopexit, %201, %194, %193, %192, %191, %190, %189, %182, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117
-  %.0 = phi i32 [ 0, %201 ], [ 258, %.loopexit ], [ 259, %.loopexit315 ], [ 260, %.loopexit563 ], [ 261, %.loopexit698 ], [ 262, %.loopexit898 ], [ 264, %117 ], [ 265, %118 ], [ 266, %119 ], [ 267, %120 ], [ 268, %121 ], [ 269, %122 ], [ 270, %123 ], [ 271, %124 ], [ 272, %125 ], [ 273, %126 ], [ 274, %127 ], [ 275, %128 ], [ 276, %129 ], [ 277, %130 ], [ 278, %131 ], [ 279, %132 ], [ 280, %133 ], [ 281, %134 ], [ 282, %135 ], [ 283, %136 ], [ 284, %137 ], [ 285, %138 ], [ 286, %139 ], [ 287, %140 ], [ 288, %141 ], [ 289, %142 ], [ 290, %143 ], [ 291, %144 ], [ 292, %145 ], [ 293, %146 ], [ 294, %147 ], [ 295, %148 ], [ 296, %149 ], [ 297, %150 ], [ 298, %151 ], [ 299, %152 ], [ 300, %153 ], [ 301, %154 ], [ 302, %155 ], [ 303, %156 ], [ 304, %157 ], [ 305, %158 ], [ 306, %159 ], [ 307, %160 ], [ 308, %161 ], [ 310, %162 ], [ 311, %163 ], [ 312, %164 ], [ 313, %165 ], [ 314, %166 ], [ 315, %167 ], [ 316, %168 ], [ 309, %169 ], [ 320, %170 ], [ 321, %171 ], [ 322, %172 ], [ 323, %173 ], [ 324, %174 ], [ 317, %175 ], [ 318, %176 ], [ 319, %177 ], [ 326, %178 ], [ 325, %182 ], [ 123, %189 ], [ 125, %190 ], [ 91, %191 ], [ 93, %192 ], [ 58, %193 ], [ 59, %194 ], [ 263, %yy_get_previous_state.exit94 ]
+  %.0 = phi i32 [ 264, %117 ], [ 265, %118 ], [ 266, %119 ], [ 267, %120 ], [ 268, %121 ], [ 269, %122 ], [ 270, %123 ], [ 271, %124 ], [ 272, %125 ], [ 273, %126 ], [ 274, %127 ], [ 275, %128 ], [ 276, %129 ], [ 277, %130 ], [ 278, %131 ], [ 279, %132 ], [ 280, %133 ], [ 281, %134 ], [ 282, %135 ], [ 283, %136 ], [ 284, %137 ], [ 285, %138 ], [ 286, %139 ], [ 287, %140 ], [ 288, %141 ], [ 289, %142 ], [ 290, %143 ], [ 291, %144 ], [ 292, %145 ], [ 293, %146 ], [ 294, %147 ], [ 295, %148 ], [ 296, %149 ], [ 297, %150 ], [ 298, %151 ], [ 299, %152 ], [ 300, %153 ], [ 301, %154 ], [ 302, %155 ], [ 303, %156 ], [ 304, %157 ], [ 305, %158 ], [ 306, %159 ], [ 307, %160 ], [ 308, %161 ], [ 310, %162 ], [ 311, %163 ], [ 312, %164 ], [ 313, %165 ], [ 314, %166 ], [ 315, %167 ], [ 316, %168 ], [ 309, %169 ], [ 320, %170 ], [ 321, %171 ], [ 322, %172 ], [ 323, %173 ], [ 324, %174 ], [ 317, %175 ], [ 318, %176 ], [ 319, %177 ], [ 326, %178 ], [ 325, %182 ], [ 123, %189 ], [ 125, %190 ], [ 91, %191 ], [ 93, %192 ], [ 58, %193 ], [ 59, %194 ], [ 0, %201 ], [ 258, %.loopexit ], [ 259, %.loopexit315 ], [ 260, %.loopexit563 ], [ 261, %.loopexit698 ], [ 262, %.loopexit898 ], [ 263, %yy_get_previous_state.exit94 ]
   ret i32 %.0
 }
 

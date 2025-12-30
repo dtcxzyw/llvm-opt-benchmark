@@ -627,14 +627,14 @@ define internal fastcc i32 @blk_lookup_devt(ptr noundef readonly captures(none) 
   %30 = or i32 %29, %27
   br label %.outer.backedge
 
+.outer.backedge:                                  ; preds = %24, %31
+  %.ph.be = phi i32 [ 0, %31 ], [ %30, %24 ]
+  br label %.outer
+
 31:                                               ; preds = %20
   %32 = call i32 @part_devt(ptr noundef %10, i8 noundef zeroext %4) #12
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %.outer.backedge, label %.loopexit
-
-.outer.backedge:                                  ; preds = %31, %24
-  %.ph.be = phi i32 [ %30, %24 ], [ 0, %31 ]
-  br label %.outer
 
 .loopexit:                                        ; preds = %31, %5
   %33 = phi i32 [ %.ph, %5 ], [ %32, %31 ]

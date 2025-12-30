@@ -131,7 +131,7 @@ define void @_ZN6LibRaw15raw2image_startEv(ptr noundef nonnull align 8 captures(
   br label %55
 
 55:                                               ; preds = %42, %50, %24
-  %56 = phi i16 [ 1, %42 ], [ %54, %50 ], [ 0, %24 ]
+  %56 = phi i16 [ 0, %24 ], [ 1, %42 ], [ %54, %50 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 381492
   store i16 %56, ptr %57, align 4, !tbaa !77
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -241,7 +241,7 @@ define noundef i32 @_ZN6LibRaw9raw2imageEv(ptr noundef nonnull align 8 dereferen
           to label %421 unwind label %36
 
 .critedge:                                        ; preds = %29, %38, %17, %13
-  %.076 = phi i1 [ true, %38 ], [ false, %17 ], [ false, %13 ], [ true, %29 ]
+  %.076 = phi i1 [ false, %17 ], [ false, %13 ], [ true, %38 ], [ true, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %40 = load i32, ptr %39, align 8, !tbaa !89
   %.not117 = icmp eq i32 %40, 0
@@ -827,7 +827,7 @@ define noundef i32 @_ZN6LibRaw9raw2imageEv(ptr noundef nonnull align 8 dereferen
   br label %397
 
 397:                                              ; preds = %68, %396, %36, %34
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ], [ %.pn.pn, %396 ], [ %69, %68 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ], [ %.pn.pn, %396 ], [ %69, %68 ]
   %.079 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
   %.083 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   %398 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #13
@@ -904,7 +904,7 @@ define noundef i32 @_ZN6LibRaw9raw2imageEv(ptr noundef nonnull align 8 dereferen
           to label %418 unwind label %410
 
 418:                                              ; preds = %.invoke, %406, %417, %416, %415, %414, %413, %412, %409
-  %.3 = phi i32 [ -2, %417 ], [ -100011, %416 ], [ -100013, %409 ], [ -100007, %412 ], [ -100012, %413 ], [ -1, %406 ], [ -100008, %.invoke ], [ -100009, %414 ], [ -100010, %415 ]
+  %.3 = phi i32 [ -100013, %409 ], [ -100007, %412 ], [ -100012, %413 ], [ -100009, %414 ], [ -100010, %415 ], [ -100011, %416 ], [ -2, %417 ], [ -1, %406 ], [ -100008, %.invoke ]
   call void @__cxa_end_catch() #13
   br label %421
 
@@ -915,11 +915,11 @@ define noundef i32 @_ZN6LibRaw9raw2imageEv(ptr noundef nonnull align 8 dereferen
           to label %422 unwind label %423
 
 421:                                              ; preds = %.thread139, %395, %1, %418, %402
-  %.0 = phi i32 [ %.3, %418 ], [ -4, %1 ], [ -100007, %402 ], [ 0, %395 ], [ %.089142, %.thread139 ]
+  %.0 = phi i32 [ -100007, %402 ], [ %.3, %418 ], [ -4, %1 ], [ 0, %395 ], [ %.089142, %.thread139 ]
   ret i32 %.0
 
 422:                                              ; preds = %419, %410, %403
-  %.merged = phi { ptr, i32 } [ %.pn.pn.pn.pn, %403 ], [ %411, %410 ], [ %420, %419 ]
+  %.merged = phi { ptr, i32 } [ %411, %410 ], [ %.pn.pn.pn.pn, %403 ], [ %420, %419 ]
   resume { ptr, i32 } %.merged
 
 423:                                              ; preds = %419
@@ -1124,7 +1124,7 @@ define void @_ZN6LibRaw19copy_fuji_uncroppedEPtS0_(ptr noundef nonnull readonly 
   br i1 %100, label %35, label %.critedge, !llvm.loop !111
 
 .critedge:                                        ; preds = %35, %95
-  %.039.lcssa = phi i16 [ %.1, %95 ], [ %.03947, %35 ]
+  %.039.lcssa = phi i16 [ %.03947, %35 ], [ %.1, %95 ]
   %101 = load i16, ptr %2, align 2, !tbaa !98
   %102 = icmp ult i16 %101, %.039.lcssa
   br i1 %102, label %103, label %.critedge.thread
@@ -1233,7 +1233,7 @@ define void @_ZN6LibRaw10copy_bayerEPtS0_(ptr noundef nonnull align 8 dereferenc
   br i1 %62, label %.lr.ph, label %.critedge, !llvm.loop !113
 
 .critedge:                                        ; preds = %.lr.ph, %30
-  %.028.lcssa = phi i16 [ %.1, %30 ], [ %.02836, %.lr.ph ]
+  %.028.lcssa = phi i16 [ %.02836, %.lr.ph ], [ %.1, %30 ]
   %63 = load i16, ptr %2, align 2, !tbaa !98
   %64 = icmp ult i16 %63, %.028.lcssa
   br i1 %64, label %65, label %.critedge.thread
@@ -1333,7 +1333,7 @@ define noundef i32 @_ZN6LibRaw12raw2image_exEi(ptr noundef nonnull align 8 deref
           to label %489 unwind label %40
 
 .critedge:                                        ; preds = %33, %42, %21, %17
-  %.0105 = phi i1 [ true, %42 ], [ false, %21 ], [ false, %17 ], [ true, %33 ]
+  %.0105 = phi i1 [ false, %21 ], [ false, %17 ], [ true, %42 ], [ true, %33 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 5160
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 5168
   %45 = load i32, ptr %44, align 8, !tbaa !115
@@ -2121,7 +2121,7 @@ _ZN6LibRaw3FCFEii.exit:                           ; preds = %314, %317
   br label %473
 
 473:                                              ; preds = %126, %472, %215, %40, %38
-  %.pn182.pn = phi { ptr, i32 } [ %39, %38 ], [ %41, %40 ], [ %127, %126 ], [ %.pn.pn, %472 ], [ %216, %215 ]
+  %.pn182.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %127, %126 ], [ %.pn.pn, %472 ], [ %216, %215 ]
   %.0111 = extractvalue { ptr, i32 } %.pn182.pn, 1
   %474 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI17LibRaw_exceptions) #13
   %475 = icmp eq i32 %.0111, %474
@@ -2184,12 +2184,12 @@ _ZN6LibRaw3FCFEii.exit:                           ; preds = %314, %317
           to label %488 unwind label %480
 
 488:                                              ; preds = %.invoke287, %476, %487, %486, %485, %484, %483, %482, %479
-  %.3 = phi i32 [ -2, %487 ], [ -100011, %486 ], [ -100013, %479 ], [ -100007, %482 ], [ -100012, %483 ], [ -1, %476 ], [ -100008, %.invoke287 ], [ -100009, %484 ], [ -100010, %485 ]
+  %.3 = phi i32 [ -100013, %479 ], [ -100007, %482 ], [ -100012, %483 ], [ -100009, %484 ], [ -100010, %485 ], [ -100011, %486 ], [ -2, %487 ], [ -1, %476 ], [ -100008, %.invoke287 ]
   call void @__cxa_end_catch() #13
   br label %489
 
 489:                                              ; preds = %.thread198, %470, %2, %488
-  %.0 = phi i32 [ -4, %2 ], [ %.3, %488 ], [ 0, %470 ], [ %.0118201, %.thread198 ]
+  %.0 = phi i32 [ %.3, %488 ], [ -4, %2 ], [ 0, %470 ], [ %.0118201, %.thread198 ]
   ret i32 %.0
 
 490:                                              ; preds = %480, %473

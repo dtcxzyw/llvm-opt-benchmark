@@ -394,7 +394,7 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6
   br label %99
 
 99:                                               ; preds = %.loopexit35, %.loopexit.split-lp, %.loopexit36, %.loopexit.split-lp37
-  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ], [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit, %.loopexit35 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit38, %.loopexit36 ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp37 ], [ %lpad.loopexit, %.loopexit35 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %100 = load ptr, ptr %4, align 8, !tbaa !32
   %.not.i.i.i16 = icmp eq ptr %100, null
   br i1 %.not.i.i.i16, label %102, label %101

@@ -225,7 +225,7 @@ define internal range(i32 -1094995529, 1) i32 @pmp_header(ptr noundef %0) #1 {
   br i1 %88, label %.lr.ph98, label %.critedge, !llvm.loop !50
 
 .critedge:                                        ; preds = %80, %.lr.ph98, %.preheader, %.split.us, %.split96.us, %78, %1
-  %.0 = phi i32 [ -1094995529, %.split96.us ], [ -1094995529, %.split.us ], [ -12, %1 ], [ -1094995529, %78 ], [ 0, %.preheader ], [ 0, %80 ], [ -12, %.lr.ph98 ]
+  %.0 = phi i32 [ -12, %1 ], [ -1094995529, %78 ], [ -1094995529, %.split96.us ], [ -1094995529, %.split.us ], [ 0, %.preheader ], [ 0, %80 ], [ -12, %.lr.ph98 ]
   ret i32 %.0
 }
 
@@ -336,8 +336,8 @@ define internal range(i32 -2147483648, 1) i32 @pmp_packet(ptr noundef %0, ptr no
   store i32 %57, ptr %34, align 4, !tbaa !53
   br label %.thread
 
-.thread:                                          ; preds = %28, %14, %2, %56
-  %.0 = phi i32 [ -541478725, %2 ], [ %.040, %56 ], [ -12, %28 ], [ -1094995529, %14 ]
+.thread:                                          ; preds = %14, %28, %2, %56
+  %.0 = phi i32 [ %.040, %56 ], [ -541478725, %2 ], [ -1094995529, %14 ], [ -12, %28 ]
   ret i32 %.0
 }
 

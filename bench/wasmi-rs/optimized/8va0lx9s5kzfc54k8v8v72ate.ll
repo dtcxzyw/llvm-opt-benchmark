@@ -732,7 +732,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %47, %43
-  %.sroa.3.0.i.ph.i = phi i64 [ %53, %47 ], [ %.sroa.6.113.i.i, %43 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.113.i.i, %43 ], [ %53, %47 ]
   %62 = load ptr, ptr %6, align 8, !nonnull !18, !align !58, !noundef !18
   %63 = load i64, ptr %7, align 8, !noundef !18
   call void @llvm.experimental.noalias.scope.decl(metadata !59)

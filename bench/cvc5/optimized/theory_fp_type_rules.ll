@@ -1040,7 +1040,7 @@ _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %_ZStlsISt11char_tr
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %57, %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %_ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit, %110, %112, %37, %39
-  %119 = phi i1 [ false, %37 ], [ false, %110 ], [ false, %39 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit ], [ false, %112 ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split ], [ true, %57 ]
+  %119 = phi i1 [ false, %39 ], [ false, %37 ], [ false, %112 ], [ false, %110 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split ], [ true, %57 ]
   %120 = load ptr, ptr %8, align 8, !tbaa !3
   %121 = load i64, ptr %120, align 8
   %122 = and i64 %121, 1152920405095219200
@@ -1356,9 +1356,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60: ; preds = %91, %
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %29
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %.critedge, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %.sink97 = phi i32 [ %106, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60 ], [ %35, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %116, %.critedge ]
-  %.sink = phi i64 [ %103, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60 ], [ %32, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %113, %.critedge ]
-  %.sink92 = phi ptr [ %102, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60 ], [ %31, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %112, %.critedge ]
+  %.sink97 = phi i32 [ %35, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %106, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60 ], [ %116, %.critedge ]
+  %.sink = phi i64 [ %32, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %103, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60 ], [ %113, %.critedge ]
+  %.sink92 = phi ptr [ %31, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %102, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60 ], [ %112, %.critedge ]
   %121 = add nuw nsw i32 %.sink97, 1
   %122 = zext nneg i32 %121 to i64
   %123 = shl nuw nsw i64 %122, 40
@@ -1545,7 +1545,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %37, %36
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %41
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %.noexc, %55, %49, %57, %_ZN4cvc58internal6theory2fp19isMaybeRoundingModeERKNS0_8TypeNodeE.exit
-  %59 = phi i1 [ false, %55 ], [ true, %_ZN4cvc58internal6theory2fp19isMaybeRoundingModeERKNS0_8TypeNodeE.exit ], [ false, %57 ], [ false, %49 ], [ true, %.noexc ]
+  %59 = phi i1 [ true, %_ZN4cvc58internal6theory2fp19isMaybeRoundingModeERKNS0_8TypeNodeE.exit ], [ false, %57 ], [ false, %49 ], [ false, %55 ], [ true, %.noexc ]
   %60 = load ptr, ptr %9, align 8, !tbaa !3
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, 1152920405095219200
@@ -1818,9 +1818,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83: ; preds = %158, 
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit74 unwind label %96
 
 _ZN4cvc58internal8TypeNode4nullEv.exit74.sink.split: ; preds = %.critedge, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72
-  %.sink124 = phi i32 [ %173, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83 ], [ %102, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72 ], [ %183, %.critedge ]
-  %.sink = phi i64 [ %170, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83 ], [ %99, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72 ], [ %180, %.critedge ]
-  %.sink119 = phi ptr [ %169, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83 ], [ %98, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72 ], [ %179, %.critedge ]
+  %.sink124 = phi i32 [ %102, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72 ], [ %173, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83 ], [ %183, %.critedge ]
+  %.sink = phi i64 [ %99, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72 ], [ %170, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83 ], [ %180, %.critedge ]
+  %.sink119 = phi ptr [ %98, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72 ], [ %169, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83 ], [ %179, %.critedge ]
   %188 = add nuw nsw i32 %.sink124, 1
   %189 = zext nneg i32 %188 to i64
   %190 = shl nuw nsw i64 %189, 40
@@ -8159,7 +8159,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit56: ; preds = %94, %
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %28
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %.invoke, %75, %.thread, %112, %106, %42, %36, %.critedge
-  %115 = phi i1 [ true, %.critedge ], [ false, %112 ], [ true, %75 ], [ false, %36 ], [ false, %42 ], [ false, %.invoke ], [ false, %106 ], [ true, %.thread ]
+  %115 = phi i1 [ true, %.critedge ], [ false, %36 ], [ false, %42 ], [ false, %106 ], [ false, %112 ], [ true, %.thread ], [ true, %75 ], [ false, %.invoke ]
   %116 = load ptr, ptr %8, align 8, !tbaa !3
   %117 = load i64, ptr %116, align 8
   %118 = and i64 %117, 1152920405095219200
@@ -9008,7 +9008,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %83, %
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %35
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %.invoke, %99, %93, %.thread, %49, %43, %81
-  %102 = phi i1 [ true, %81 ], [ true, %.thread ], [ false, %99 ], [ false, %43 ], [ false, %49 ], [ false, %.invoke ], [ false, %93 ]
+  %102 = phi i1 [ true, %81 ], [ false, %43 ], [ false, %49 ], [ true, %.thread ], [ false, %93 ], [ false, %99 ], [ false, %.invoke ]
   %103 = load ptr, ptr %8, align 8, !tbaa !3
   %104 = load i64, ptr %103, align 8
   %105 = and i64 %104, 1152920405095219200

@@ -260,7 +260,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_set_callback_data(ptr nound
   br label %archive_read_set_callback_data2.exit
 
 archive_read_set_callback_data2.exit:             ; preds = %2, %12, %14
-  %.1.i = phi i32 [ -30, %12 ], [ -30, %2 ], [ 0, %14 ]
+  %.1.i = phi i32 [ -30, %12 ], [ 0, %14 ], [ -30, %2 ]
   ret i32 %.1.i
 }
 
@@ -699,7 +699,7 @@ choose_format.exit:                               ; preds = %159
   br label %read_client_close_proxy.exit
 
 read_client_close_proxy.exit:                     ; preds = %.lr.ph.i, %179, %164, %195, %190, %.preheader.i, %19, %34, %1, %.loopexit81, %.loopexit, %8
-  %.1 = phi i32 [ -30, %8 ], [ -30, %34 ], [ -30, %1 ], [ 0, %179 ], [ -30, %.loopexit81 ], [ -30, %.loopexit ], [ %18, %19 ], [ %18, %.preheader.i ], [ 0, %190 ], [ 0, %195 ], [ 0, %164 ], [ %18, %.lr.ph.i ]
+  %.1 = phi i32 [ -30, %8 ], [ -30, %.loopexit81 ], [ -30, %.loopexit ], [ -30, %1 ], [ -30, %34 ], [ %18, %19 ], [ %18, %.preheader.i ], [ 0, %190 ], [ 0, %195 ], [ 0, %164 ], [ 0, %179 ], [ %18, %.lr.ph.i ]
   ret i32 %.1
 }
 
@@ -1321,7 +1321,7 @@ define dso_local i64 @archive_read_data(ptr noundef %0, ptr noundef writeonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %._crit_edge, %31, %25
-  %.0 = phi i64 [ %.066.lcssa, %._crit_edge ], [ %26, %25 ], [ -10, %31 ], [ %.06688, %18 ]
+  %.0 = phi i64 [ %26, %25 ], [ -10, %31 ], [ %.066.lcssa, %._crit_edge ], [ %.06688, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -1529,7 +1529,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_read_register_format(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %12, %34, %23
-  %.1 = phi i32 [ -30, %12 ], [ 0, %23 ], [ -30, %34 ], [ -20, %16 ]
+  %.1 = phi i32 [ 0, %23 ], [ -30, %34 ], [ -30, %12 ], [ -20, %16 ]
   ret i32 %.1
 }
 
@@ -1581,7 +1581,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_read_register_bidder(ptr nound
   br label %23
 
 23:                                               ; preds = %17, %4, %22, %21
-  %.1 = phi i32 [ -30, %21 ], [ -30, %4 ], [ -30, %22 ], [ 0, %17 ]
+  %.1 = phi i32 [ -30, %21 ], [ -30, %22 ], [ -30, %4 ], [ 0, %17 ]
   ret i32 %.1
 }
 
@@ -1802,7 +1802,7 @@ client_open_proxy.exit.i:                         ; preds = %98, %94
   br label %client_switch_proxy.exit
 
 client_switch_proxy.exit:                         ; preds = %85, %client_open_proxy.exit.i
-  %.025.i = phi i32 [ %100, %client_open_proxy.exit.i ], [ %87, %85 ]
+  %.025.i = phi i32 [ %87, %85 ], [ %100, %client_open_proxy.exit.i ]
   %101 = icmp eq i32 %.025.i, 0
   br i1 %101, label %.backedge, label %102
 
@@ -1926,7 +1926,7 @@ client_switch_proxy.exit:                         ; preds = %85, %client_open_pr
   br i1 %or.cond, label %25, label %._crit_edge
 
 150:                                              ; preds = %30, %35, %118, %116, %124, %122, %102, %103, %64, %65, %56, %57, %19, %20, %22
-  %.0 = phi ptr [ null, %102 ], [ %24, %22 ], [ null, %118 ], [ null, %19 ], [ null, %56 ], [ null, %64 ], [ null, %20 ], [ null, %57 ], [ null, %65 ], [ null, %103 ], [ null, %122 ], [ null, %124 ], [ null, %116 ], [ %33, %35 ], [ %33, %30 ]
+  %.0 = phi ptr [ %24, %22 ], [ null, %20 ], [ null, %19 ], [ null, %57 ], [ null, %56 ], [ null, %65 ], [ null, %64 ], [ null, %103 ], [ null, %102 ], [ null, %122 ], [ null, %124 ], [ null, %116 ], [ null, %118 ], [ %33, %35 ], [ %33, %30 ]
   ret ptr %.0
 }
 
@@ -2190,7 +2190,7 @@ client_open_proxy.exit.i.i:                       ; preds = %125, %121
   br label %client_switch_proxy.exit.i
 
 client_switch_proxy.exit.i:                       ; preds = %client_open_proxy.exit.i.i, %112
-  %.025.i.i = phi i32 [ %127, %client_open_proxy.exit.i.i ], [ %114, %112 ]
+  %.025.i.i = phi i32 [ %114, %112 ], [ %127, %client_open_proxy.exit.i.i ]
   %128 = icmp eq i32 %.025.i.i, 0
   br i1 %128, label %87, label %129
 
@@ -2228,7 +2228,7 @@ client_switch_proxy.exit.i:                       ; preds = %client_open_proxy.e
   br label %.outer.i
 
 advance_file_pointer.exit:                        ; preds = %6, %32, %client_skip_proxy.exit.thread.i, %client_skip_proxy.exit.thread106.i, %92, %129, %132
-  %.0.i = phi i64 [ %138, %132 ], [ -1, %6 ], [ %.0.i104.i, %client_skip_proxy.exit.thread.i ], [ %.1.i, %32 ], [ %90, %92 ], [ %.3.ph.i, %129 ], [ %79, %client_skip_proxy.exit.thread106.i ]
+  %.0.i = phi i64 [ %.0.i104.i, %client_skip_proxy.exit.thread.i ], [ %90, %92 ], [ %.3.ph.i, %129 ], [ %138, %132 ], [ -1, %6 ], [ %.1.i, %32 ], [ %79, %client_skip_proxy.exit.thread106.i ]
   %146 = icmp eq i64 %.0.i, %1
   br i1 %146, label %150, label %147
 
@@ -2413,7 +2413,7 @@ client_open_proxy.exit.i:                         ; preds = %82, %78
   br label %client_switch_proxy.exit
 
 client_switch_proxy.exit:                         ; preds = %69, %client_open_proxy.exit.i
-  %.025.i = phi i32 [ %84, %client_open_proxy.exit.i ], [ %71, %69 ]
+  %.025.i = phi i32 [ %71, %69 ], [ %84, %client_open_proxy.exit.i ]
   %.not159 = icmp eq i32 %.025.i, 0
   br i1 %.not159, label %client_switch_proxy.exit.client_switch_proxy.exit.thread_crit_edge, label %85
 
@@ -2566,7 +2566,7 @@ client_open_proxy.exit.i167:                      ; preds = %155, %151
   br label %client_switch_proxy.exit169
 
 client_switch_proxy.exit169:                      ; preds = %142, %client_open_proxy.exit.i167
-  %.025.i162 = phi i32 [ %157, %client_open_proxy.exit.i167 ], [ %144, %142 ]
+  %.025.i162 = phi i32 [ %144, %142 ], [ %157, %client_open_proxy.exit.i167 ]
   %.not154 = icmp eq i32 %.025.i162, 0
   br i1 %.not154, label %client_switch_proxy.exit169.client_switch_proxy.exit169.thread_crit_edge, label %158
 
@@ -2694,7 +2694,7 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %client_seek_proxy.exit171, %client_seek_proxy.exit, %client_seek_proxy.exit171.thread, %client_seek_proxy.exit.thread, %201, %208, %13, %196, %113, %109, %9, %3, %6, %194, %158, %85
-  %.0127 = phi i64 [ %92, %client_seek_proxy.exit ], [ -30, %3 ], [ %199, %196 ], [ %86, %85 ], [ -25, %9 ], [ -25, %client_seek_proxy.exit.thread ], [ -30, %109 ], [ -30, %13 ], [ %159, %158 ], [ %114, %113 ], [ %195, %194 ], [ -30, %6 ], [ -25, %client_seek_proxy.exit171.thread ], [ %206, %208 ], [ %206, %201 ], [ %165, %client_seek_proxy.exit171 ]
+  %.0127 = phi i64 [ %86, %85 ], [ %159, %158 ], [ %195, %194 ], [ -30, %6 ], [ -30, %3 ], [ -25, %9 ], [ -30, %109 ], [ %114, %113 ], [ %199, %196 ], [ -30, %13 ], [ %206, %208 ], [ %206, %201 ], [ -25, %client_seek_proxy.exit.thread ], [ -25, %client_seek_proxy.exit171.thread ], [ %92, %client_seek_proxy.exit ], [ %165, %client_seek_proxy.exit171 ]
   ret i64 %.0127
 }
 
@@ -2953,7 +2953,7 @@ __archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %25, %clo
   br label %70
 
 70:                                               ; preds = %1, %3, %._crit_edge
-  %.0 = phi i32 [ -30, %3 ], [ %.152, %._crit_edge ], [ 0, %1 ]
+  %.0 = phi i32 [ %.152, %._crit_edge ], [ -30, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -3035,7 +3035,7 @@ archive_read_data_skip.exit.thread.fold.split:    ; preds = %.loopexit.i
   br label %archive_read_data_skip.exit.thread
 
 archive_read_data_skip.exit.thread:               ; preds = %.loopexit.i, %archive_read_data_skip.exit.thread.fold.split, %7
-  %.037 = phi i32 [ 0, %.loopexit.i ], [ 0, %7 ], [ %.012.i, %archive_read_data_skip.exit.thread.fold.split ]
+  %.037 = phi i32 [ 0, %7 ], [ 0, %.loopexit.i ], [ %.012.i, %archive_read_data_skip.exit.thread.fold.split ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %25 = load ptr, ptr %24, align 8, !tbaa !53
   %26 = load i64, ptr %25, align 8, !tbaa !76

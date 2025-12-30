@@ -456,7 +456,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -901,7 +901,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -1346,7 +1346,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -2223,7 +2223,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -3149,7 +3149,7 @@ _ZN12clap_builder7builder14possible_value13PossibleValue4help17h0fb9a3cd2ac8a405
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %78, %86, %102, %.body.i.i.i, %138, %155
-  %eh.lpad-body = phi { ptr, i32 } [ %156, %155 ], [ %139, %138 ], [ %87, %86 ], [ %103, %102 ], [ %117, %.body.i.i.i ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %79, %78 ], [ %87, %86 ], [ %103, %102 ], [ %117, %.body.i.i.i ], [ %139, %138 ], [ %156, %155 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #16
           to label %common.resume unwind label %160
 
@@ -3594,7 +3594,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -4039,7 +4039,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -4672,7 +4672,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -5117,7 +5117,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -5562,7 +5562,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -6007,7 +6007,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -6963,7 +6963,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -7408,7 +7408,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -7944,7 +7944,7 @@ _ZN12clap_builder7builder14possible_value13PossibleValue4help17h0fb9a3cd2ac8a405
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %78, %86, %102, %.body.i.i.i, %138, %155
-  %eh.lpad-body = phi { ptr, i32 } [ %156, %155 ], [ %139, %138 ], [ %87, %86 ], [ %103, %102 ], [ %117, %.body.i.i.i ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %79, %78 ], [ %87, %86 ], [ %103, %102 ], [ %117, %.body.i.i.i ], [ %139, %138 ], [ %156, %155 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #16
           to label %common.resume unwind label %160
 
@@ -8813,7 +8813,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -9383,7 +9383,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -9828,7 +9828,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -10455,7 +10455,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -11263,7 +11263,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -11708,7 +11708,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -12711,7 +12711,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -13052,7 +13052,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i: ; pr
           to label %104 unwind label %101
 
 47:                                               ; preds = %35, %36, %39, %41
-  %.sink.i = phi i64 [ %43, %41 ], [ %38, %36 ], [ %.val8.i, %39 ], [ 0, %35 ]
+  %.sink.i = phi i64 [ %43, %41 ], [ %.val8.i, %39 ], [ %38, %36 ], [ 0, %35 ]
   %48 = tail call i64 @llvm.uadd.sat.i64(i64 %.sink.i, i64 1)
   %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %48, i64 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3674
@@ -13902,7 +13902,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h87777401ed1cea80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -14172,7 +14172,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 common.resume:                                    ; preds = %85, %.body, %22, %27
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %27 ], [ %.pn.ph, %85 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %27 ], [ %23, %22 ], [ %.pn.ph, %85 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hfebc4a7973893608E.exit.i.i.i": ; preds = %13
@@ -14325,7 +14325,7 @@ common.resume:                                    ; preds = %85, %.body, %22, %2
   br label %.body
 
 .body:                                            ; preds = %46, %68, %73, %80
-  %eh.lpad-body = phi { ptr, i32 } [ %81, %80 ], [ %69, %68 ], [ %69, %73 ], [ %.pn.i.i, %46 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %81, %80 ], [ %69, %73 ], [ %69, %68 ], [ %.pn.i.i, %46 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17hb25be8ef51cf0251E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #16
           to label %common.resume unwind label %83
 
@@ -14501,7 +14501,7 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   br label %50
 
 50:                                               ; preds = %48, %33, %20
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %21, %20 ], [ %49, %48 ], [ %34, %33 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %49, %48 ], [ %34, %33 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn.i.i.i.i
 
 51:                                               ; preds = %47, %32, %19
@@ -14710,7 +14710,7 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   br label %62
 
 62:                                               ; preds = %60, %45, %17
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %18, %17 ], [ %61, %60 ], [ %46, %45 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %61, %60 ], [ %46, %45 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn.i.i.i.i
 
 63:                                               ; preds = %59, %44, %16
@@ -14883,7 +14883,7 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   br label %50
 
 50:                                               ; preds = %48, %33, %20
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %21, %20 ], [ %49, %48 ], [ %34, %33 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %49, %48 ], [ %34, %33 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn.i.i.i.i
 
 51:                                               ; preds = %47, %32, %19

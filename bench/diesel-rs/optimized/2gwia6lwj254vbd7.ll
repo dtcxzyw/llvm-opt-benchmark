@@ -1610,7 +1610,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread247, %142, %203, %.thread290, %218, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %219, %218 ], [ %eh.lpad-body.i, %.body.i ], [ %204, %203 ], [ %.pn80250, %.thread247 ], [ %.pn294, %.thread290 ], [ %143, %142 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %219, %218 ], [ %.pn80250, %.thread247 ], [ %143, %142 ], [ %204, %203 ], [ %.pn294, %.thread290 ]
   resume { ptr, i32 } %common.resume.op
 
 75:                                               ; preds = %44, %.loopexit.i
@@ -1651,7 +1651,7 @@ common.resume:                                    ; preds = %.thread247, %142, %
   store i64 -9223372036854775807, ptr %0, align 8
   br label %"_ZN4core3ptr106drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$GT$17h6335f7e81e95f6faE.exit"
 
-.thread258:                                       ; preds = %123, %92, %75, %120
+.thread258:                                       ; preds = %75, %92, %120, %123
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread247
@@ -1920,7 +1920,7 @@ common.resume:                                    ; preds = %.thread247, %142, %
   store ptr %.071, ptr %.sroa.435.0..sroa_idx, align 8
   br label %"_ZN4core3ptr106drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$GT$17h6335f7e81e95f6faE.exit"
 
-.thread299:                                       ; preds = %179, %152, %176
+.thread299:                                       ; preds = %152, %176, %179
   %lpad.thr_comm297 = landingpad { ptr, i32 }
           cleanup
   br label %.thread290
@@ -2213,7 +2213,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread257, %.thread294, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn298, %.thread294 ], [ %.pn89260, %.thread257 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn89260, %.thread257 ], [ %.pn298, %.thread294 ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %13, %44
@@ -2257,7 +2257,7 @@ common.resume:                                    ; preds = %.thread257, %.threa
   store i64 %.sroa.7.i.sroa.8.0.copyload, ptr %.sroa.3185.0..sroa_idx, align 8
   br label %157
 
-.thread262:                                       ; preds = %97, %65, %50, %94
+.thread262:                                       ; preds = %50, %65, %94, %97
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread257
@@ -2492,7 +2492,7 @@ common.resume:                                    ; preds = %.thread257, %.threa
   store i64 -9223372036854775798, ptr %0, align 8
   br label %157
 
-.thread303:                                       ; preds = %144, %115, %141
+.thread303:                                       ; preds = %115, %141, %144
   %lpad.thr_comm301 = landingpad { ptr, i32 }
           cleanup
   br label %.thread294
@@ -2709,7 +2709,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread246, %.thread283, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn287, %.thread283 ], [ %.pn77249, %.thread246 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn77249, %.thread246 ], [ %.pn287, %.thread283 ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %13, %44
@@ -2755,7 +2755,7 @@ common.resume:                                    ; preds = %.thread246, %.threa
   store i64 1, ptr %0, align 8
   br label %153
 
-.thread251:                                       ; preds = %95, %67, %50, %92
+.thread251:                                       ; preds = %50, %67, %92, %95
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread246
@@ -2980,7 +2980,7 @@ common.resume:                                    ; preds = %.thread246, %.threa
   store i64 0, ptr %0, align 8
   br label %153
 
-.thread292:                                       ; preds = %141, %113, %138
+.thread292:                                       ; preds = %113, %138, %141
   %lpad.thr_comm290 = landingpad { ptr, i32 }
           cleanup
   br label %.thread283
@@ -3913,7 +3913,7 @@ _ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9
   br label %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57
 
 _ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit: ; preds = %29, %6
-  %.sroa.6.0 = phi i32 [ %31, %29 ], [ %8, %6 ]
+  %.sroa.6.0 = phi i32 [ %8, %6 ], [ %31, %29 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
   %trunc49 = trunc nuw i32 %5 to i8
   switch i8 %trunc49, label %_ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402.exit [
@@ -3943,21 +3943,21 @@ _ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9
 37:                                               ; preds = %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit
   br label %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57
 
-_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57: ; preds = %17, %18, %16, %15, %22, %21, %23, %20, %19, %13, %12, %14, %3, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread77, %37, %36, %35, %34, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit
-  %.sroa.6.064 = phi i32 [ %.sroa.6.0, %36 ], [ %.sroa.6.0, %34 ], [ %.sroa.6.0, %35 ], [ 0, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread77 ], [ %.sroa.6.0, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ 0, %15 ], [ 0, %13 ], [ 0, %19 ], [ %.sroa.6.0, %37 ], [ 0, %3 ], [ 0, %14 ], [ 0, %12 ], [ 0, %23 ], [ 32, %20 ], [ 32, %22 ], [ 0, %21 ], [ 32, %16 ], [ 0, %17 ], [ 32, %18 ]
-  %.sroa.0.062 = phi i32 [ %5, %36 ], [ %5, %34 ], [ %5, %35 ], [ 5, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread77 ], [ %5, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ 1, %15 ], [ 12, %13 ], [ 3, %19 ], [ %5, %37 ], [ 11, %3 ], [ 7, %14 ], [ 10, %12 ], [ 4, %23 ], [ 3, %20 ], [ 8, %22 ], [ 8, %21 ], [ 1, %16 ], [ 2, %17 ], [ 2, %18 ]
-  %.sroa.7.0.i.ph.i = phi i64 [ 8, %36 ], [ 2, %34 ], [ 4, %35 ], [ 8, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread77 ], [ 1, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ 1, %15 ], [ 48, %13 ], [ 4, %19 ], [ 48, %37 ], [ 48, %3 ], [ 48, %14 ], [ 48, %12 ], [ 4, %23 ], [ 4, %20 ], [ 8, %22 ], [ 8, %21 ], [ 1, %16 ], [ 2, %17 ], [ 2, %18 ]
+_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57: ; preds = %18, %17, %16, %15, %22, %21, %23, %20, %19, %14, %13, %12, %3, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread77, %37, %36, %35, %34, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit
+  %.sroa.6.064 = phi i32 [ %.sroa.6.0, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ %.sroa.6.0, %34 ], [ %.sroa.6.0, %35 ], [ %.sroa.6.0, %36 ], [ %.sroa.6.0, %37 ], [ 0, %3 ], [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %23 ], [ 32, %20 ], [ 0, %19 ], [ 32, %22 ], [ 0, %21 ], [ 0, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread77 ], [ 32, %16 ], [ 0, %15 ], [ 32, %18 ], [ 0, %17 ]
+  %.sroa.0.062 = phi i32 [ %5, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ %5, %34 ], [ %5, %35 ], [ %5, %36 ], [ %5, %37 ], [ 11, %3 ], [ 10, %12 ], [ 12, %13 ], [ 7, %14 ], [ 4, %23 ], [ 3, %20 ], [ 3, %19 ], [ 8, %22 ], [ 8, %21 ], [ 5, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread77 ], [ 1, %16 ], [ 1, %15 ], [ 2, %18 ], [ 2, %17 ]
+  %.sroa.7.0.i.ph.i = phi i64 [ 1, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ 2, %34 ], [ 4, %35 ], [ 8, %36 ], [ 48, %37 ], [ 48, %3 ], [ 48, %12 ], [ 48, %13 ], [ 48, %14 ], [ 4, %23 ], [ 4, %20 ], [ 4, %19 ], [ 8, %22 ], [ 8, %21 ], [ 8, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread77 ], [ 1, %16 ], [ 1, %15 ], [ 2, %18 ], [ 2, %17 ]
   %38 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb98e93f08ac7f736E"(i64 noundef %.sroa.7.0.i.ph.i, i1 noundef zeroext true), !noalias !633
   %39 = extractvalue { i64, ptr } %38, 0
   %40 = extractvalue { i64, ptr } %38, 1
   br label %_ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402.exit
 
-_ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402.exit: ; preds = %28, %26, %25, %24, %27, %3, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57
-  %.sroa.6.054 = phi i32 [ %.sroa.6.064, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ %.sroa.6.0, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ 256, %28 ], [ 0, %26 ], [ 2048, %27 ], [ 0, %25 ], [ 0, %24 ], [ 0, %3 ]
-  %.sroa.0.053 = phi i32 [ %.sroa.0.062, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ %5, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ 254, %28 ], [ 252, %26 ], [ 254, %27 ], [ 254, %25 ], [ 246, %24 ], [ 16, %3 ]
-  %.sroa.6.sroa.0.0.i = phi ptr [ %40, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ undef, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ undef, %28 ], [ undef, %26 ], [ undef, %27 ], [ undef, %25 ], [ undef, %24 ], [ undef, %3 ]
-  %.sroa.6.sroa.4.0.i = phi i64 [ %.sroa.7.0.i.ph.i, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ undef, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ undef, %28 ], [ undef, %26 ], [ undef, %27 ], [ undef, %25 ], [ undef, %24 ], [ undef, %3 ]
-  %.sroa.01.0.i = phi i64 [ %39, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ -9223372036854775808, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ -9223372036854775808, %28 ], [ -9223372036854775808, %26 ], [ -9223372036854775808, %27 ], [ -9223372036854775808, %25 ], [ -9223372036854775808, %24 ], [ -9223372036854775808, %3 ]
+_ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402.exit: ; preds = %28, %27, %26, %25, %24, %3, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57
+  %.sroa.6.054 = phi i32 [ %.sroa.6.064, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ %.sroa.6.0, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ 256, %28 ], [ 2048, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %3 ]
+  %.sroa.0.053 = phi i32 [ %.sroa.0.062, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ %5, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ 254, %28 ], [ 254, %27 ], [ 252, %26 ], [ 254, %25 ], [ 246, %24 ], [ 16, %3 ]
+  %.sroa.6.sroa.0.0.i = phi ptr [ %40, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ undef, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ undef, %28 ], [ undef, %27 ], [ undef, %26 ], [ undef, %25 ], [ undef, %24 ], [ undef, %3 ]
+  %.sroa.6.sroa.4.0.i = phi i64 [ %.sroa.7.0.i.ph.i, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ undef, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ undef, %28 ], [ undef, %27 ], [ undef, %26 ], [ undef, %25 ], [ undef, %24 ], [ undef, %3 ]
+  %.sroa.01.0.i = phi i64 [ %39, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit.thread57 ], [ -9223372036854775808, %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata5flags17hb2e05bae9b6f3a61E.exit ], [ -9223372036854775808, %28 ], [ -9223372036854775808, %27 ], [ -9223372036854775808, %26 ], [ -9223372036854775808, %25 ], [ -9223372036854775808, %24 ], [ -9223372036854775808, %3 ]
   %41 = icmp eq i64 %.sroa.01.0.i, -9223372036854775808
   %..sroa.6.sroa.4.0.i = select i1 %41, i64 0, i64 %.sroa.6.sroa.4.0.i
   %..sroa.6.sroa.0.0.i = select i1 %41, ptr inttoptr (i64 1 to ptr), ptr %.sroa.6.sroa.0.0.i
@@ -4051,7 +4051,7 @@ define hidden void @_ZN6diesel5mysql10connection4bind8BindData5value17h1038345a5
   br label %16
 
 16:                                               ; preds = %5, %2, %8
-  %.sink = phi i8 [ 20, %2 ], [ %13, %8 ], [ 20, %5 ]
+  %.sink = phi i8 [ %13, %8 ], [ 20, %2 ], [ 20, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %17, align 8
   ret void
@@ -4892,10 +4892,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %32
 
 32:                                               ; preds = %26, %.thread41
-  %33 = phi i64 [ %..val2.i.pre, %26 ], [ undef, %.thread41 ]
-  %34 = phi i1 [ %30, %26 ], [ true, %.thread41 ]
-  %35 = phi ptr [ %31, %26 ], [ %23, %.thread41 ]
-  %36 = phi ptr [ %spec.select, %26 ], [ null, %.thread41 ]
+  %33 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %26 ]
+  %34 = phi i1 [ true, %.thread41 ], [ %30, %26 ]
+  %35 = phi ptr [ %23, %.thread41 ], [ %31, %26 ]
+  %36 = phi ptr [ null, %.thread41 ], [ %spec.select, %26 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %.in, align 8, !nonnull !4, !align !14, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5036,10 +5036,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %31
 
 31:                                               ; preds = %25, %.thread41
-  %32 = phi i64 [ %..val2.i.pre, %25 ], [ undef, %.thread41 ]
-  %33 = phi i1 [ %29, %25 ], [ true, %.thread41 ]
-  %34 = phi ptr [ %30, %25 ], [ %22, %.thread41 ]
-  %35 = phi ptr [ %spec.select, %25 ], [ null, %.thread41 ]
+  %32 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %25 ]
+  %33 = phi i1 [ true, %.thread41 ], [ %29, %25 ]
+  %34 = phi ptr [ %22, %.thread41 ], [ %30, %25 ]
+  %35 = phi ptr [ null, %.thread41 ], [ %spec.select, %25 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %.in, align 8, !nonnull !4, !align !14, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5180,10 +5180,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %31
 
 31:                                               ; preds = %25, %.thread41
-  %32 = phi i64 [ %..val2.i.pre, %25 ], [ undef, %.thread41 ]
-  %33 = phi i1 [ %29, %25 ], [ true, %.thread41 ]
-  %34 = phi ptr [ %30, %25 ], [ %22, %.thread41 ]
-  %35 = phi ptr [ %spec.select, %25 ], [ null, %.thread41 ]
+  %32 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %25 ]
+  %33 = phi i1 [ true, %.thread41 ], [ %29, %25 ]
+  %34 = phi ptr [ %22, %.thread41 ], [ %30, %25 ]
+  %35 = phi ptr [ null, %.thread41 ], [ %spec.select, %25 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %.in, align 8, !nonnull !4, !align !14, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7486,7 +7486,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %189, %203, %210, %183, %163, %151, %134, %91, %79, %60, %32
-  %common.resume.op = phi { ptr, i32 } [ %211, %210 ], [ %33, %32 ], [ %61, %60 ], [ %80, %79 ], [ %92, %91 ], [ %135, %134 ], [ %152, %151 ], [ %164, %163 ], [ %184, %183 ], [ %204, %203 ], [ %190, %189 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %61, %60 ], [ %80, %79 ], [ %92, %91 ], [ %135, %134 ], [ %152, %151 ], [ %164, %163 ], [ %184, %183 ], [ %211, %210 ], [ %204, %203 ], [ %190, %189 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.exit110": ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit
@@ -8151,7 +8151,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %190, %204, %211, %184, %164, %150, %133, %90, %76, %57, %29
-  %common.resume.op = phi { ptr, i32 } [ %212, %211 ], [ %30, %29 ], [ %58, %57 ], [ %77, %76 ], [ %91, %90 ], [ %134, %133 ], [ %151, %150 ], [ %165, %164 ], [ %185, %184 ], [ %205, %204 ], [ %191, %190 ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %58, %57 ], [ %77, %76 ], [ %91, %90 ], [ %134, %133 ], [ %151, %150 ], [ %165, %164 ], [ %185, %184 ], [ %212, %211 ], [ %205, %204 ], [ %191, %190 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.exit110": ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit

@@ -567,7 +567,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   br i1 %exitcond159.not, label %.loopexit143, label %68, !llvm.loop !13
 
 .loopexit143:                                     ; preds = %75, %51, %45, %73
-  %.0131 = phi i32 [ 1, %51 ], [ 0, %45 ], [ %74, %73 ], [ 0, %75 ]
+  %.0131 = phi i32 [ %74, %73 ], [ 0, %45 ], [ 1, %51 ], [ 0, %75 ]
   %77 = sext i32 %.0131 to i64
   %78 = getelementptr inbounds %struct.data_type, ptr %7, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -1169,8 +1169,8 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   br label %66
 
 66:                                               ; preds = %54, %59, %56
-  %.173 = phi i32 [ %65, %59 ], [ %.07289, %54 ], [ %.07289, %56 ]
-  %.1 = phi i32 [ %.07190, %59 ], [ %spec.select, %54 ], [ %.07190, %56 ]
+  %.173 = phi i32 [ %.07289, %56 ], [ %65, %59 ], [ %.07289, %54 ]
+  %.1 = phi i32 [ %.07190, %56 ], [ %.07190, %59 ], [ %spec.select, %54 ]
   %67 = add i32 %.07488, 1
   %exitcond.not = icmp eq i32 %.07488, %smax
   br i1 %exitcond.not, label %68, label %47, !llvm.loop !20
@@ -1367,7 +1367,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
@@ -3503,8 +3503,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %528, label %.body325.i, label %.body328.i
 
 .body325.i:                                       ; preds = %.body328.i, %524, %.body
-  %.pn.i = phi { ptr, i32 } [ %441, %.body ], [ %525, %524 ], [ %444, %.body328.i ]
-  %529 = phi i1 [ false, %.body ], [ false, %524 ], [ true, %.body328.i ]
+  %.pn.i = phi { ptr, i32 } [ %525, %524 ], [ %441, %.body ], [ %444, %.body328.i ]
+  %529 = phi i1 [ false, %524 ], [ false, %.body ], [ true, %.body328.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #19
   br label %.body320.i
 
@@ -3757,13 +3757,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %533, label %common.resume, label %.preheader.i
 
 common.resume.sink.split:                         ; preds = %.body116, %454, %.body128, %586
-  %.sink = phi ptr [ %42, %.body128 ], [ %42, %586 ], [ %47, %454 ], [ %47, %.body116 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %543, %.body128 ], [ %587, %586 ], [ %455, %454 ], [ %91, %.body116 ]
+  %.sink = phi ptr [ %42, %586 ], [ %42, %.body128 ], [ %47, %454 ], [ %47, %.body116 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %587, %586 ], [ %543, %.body128 ], [ %455, %454 ], [ %91, %.body116 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %.preheader.i, %.preheader.i8, %common.resume.sink.split, %.body.i5, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.i6, %.body.i5 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.i6, %.preheader.i8 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.i6, %.body.i5 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.i6, %.preheader.i8 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit.i
@@ -4067,8 +4067,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %596, label %.body32.i, label %.body35.i
 
 .body32.i:                                        ; preds = %.body35.i, %592, %.body119
-  %.pn.i11 = phi { ptr, i32 } [ %573, %.body119 ], [ %593, %592 ], [ %576, %.body35.i ]
-  %597 = phi i1 [ false, %.body119 ], [ false, %592 ], [ true, %.body35.i ]
+  %.pn.i11 = phi { ptr, i32 } [ %593, %592 ], [ %573, %.body119 ], [ %576, %.body35.i ]
+  %597 = phi i1 [ false, %592 ], [ false, %.body119 ], [ true, %.body35.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #19
   br label %.body27.i
 

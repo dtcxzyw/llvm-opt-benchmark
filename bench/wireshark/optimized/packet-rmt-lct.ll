@@ -225,8 +225,8 @@ define hidden i32 @lct_ext_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.thread, %12
-  %.0104.lcssa = phi i32 [ %.0104110, %12 ], [ %19, %.thread ]
-  %.0102.lcssa = phi i32 [ %.0102111, %12 ], [ %18, %.thread ]
+  %.0104.lcssa = phi i32 [ %19, %.thread ], [ %.0104110, %12 ]
+  %.0102.lcssa = phi i32 [ %18, %.thread ], [ %.0102111, %12 ]
   %21 = icmp eq i32 %.0104.lcssa, 0
   br i1 %21, label %._crit_edge.thread, label %22
 
@@ -653,7 +653,7 @@ proto_item_set_generated.exit229:                 ; preds = %proto_item_set_gene
   unreachable
 
 133:                                              ; preds = %129, %124, %119
-  %.0203 = phi i64 [ %132, %129 ], [ %123, %119 ], [ %128, %124 ]
+  %.0203 = phi i64 [ %123, %119 ], [ %128, %124 ], [ %132, %129 ]
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %135 = load ptr, ptr %134, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %135, i32 noundef 25, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, i64 noundef %.0203)
@@ -716,7 +716,7 @@ proto_item_set_generated.exit229:                 ; preds = %proto_item_set_gene
   br label %172
 
 161:                                              ; preds = %137, %156, %157
-  %.sink245 = phi i32 [ 6, %157 ], [ 4, %156 ], [ 2, %137 ]
+  %.sink245 = phi i32 [ 4, %156 ], [ 6, %157 ], [ 2, %137 ]
   %162 = load i32, ptr @hf_toi64, align 4
   %163 = add nuw nsw i32 %.1, %.sink245
   %164 = tail call ptr @proto_tree_add_item(ptr noundef %.0205, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 8, i32 noundef 0)

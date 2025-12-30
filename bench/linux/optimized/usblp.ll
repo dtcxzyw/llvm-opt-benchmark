@@ -380,7 +380,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr readnone captures(none) %1)
   br label %212
 
 .thread:                                          ; preds = %152, %139, %148, %144
-  %157 = phi i32 [ 2, %144 ], [ 1, %148 ], [ 3, %152 ], [ %136, %139 ]
+  %157 = phi i32 [ 1, %148 ], [ 2, %144 ], [ 3, %152 ], [ %136, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %158 = load ptr, ptr %29, align 8
@@ -858,12 +858,12 @@ define internal range(i64 -22, 2147483648) i64 @usblp_read(ptr noundef readonly 
   br i1 %60, label %.thread, label %.thread6
 
 .thread:                                          ; preds = %.split.us, %31, %35, %.split, %53, %49, %57
-  %.us-phi = phi i32 [ -4, %49 ], [ -4, %53 ], [ -11, %57 ], [ -19, %.split ], [ -4, %35 ], [ -19, %.split.us ], [ -4, %31 ]
+  %.us-phi = phi i32 [ -4, %49 ], [ -4, %53 ], [ -19, %.split ], [ -11, %57 ], [ -4, %31 ], [ -4, %35 ], [ -19, %.split.us ]
   call void @mutex_unlock(ptr noundef nonnull %20) #11
   br label %.thread6
 
 .thread6:                                         ; preds = %43, %39, %57, %.thread, %11
-  %61 = phi i32 [ %.us-phi, %.thread ], [ -4, %11 ], [ 0, %57 ], [ -4, %43 ], [ 0, %39 ]
+  %61 = phi i32 [ %.us-phi, %.thread ], [ -4, %11 ], [ 0, %57 ], [ 0, %39 ], [ -4, %43 ]
   %62 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %63 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %62, i32 0, ptr nonnull elementtype(i32) %62) #11, !srcloc !19
   call void @remove_wait_queue(ptr noundef nonnull %19, ptr noundef nonnull %5) #11
@@ -1121,8 +1121,8 @@ define internal i64 @usblp_write(ptr noundef readonly captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %31, %95, %42, %87, %92, %.loopexit
-  %100 = phi i32 [ -12, %42 ], [ %99, %.loopexit ], [ -28, %92 ], [ %85, %87 ], [ -12, %31 ], [ -5, %95 ]
-  %101 = phi i64 [ %32, %42 ], [ %32, %.loopexit ], [ %94, %92 ], [ %90, %87 ], [ %32, %95 ], [ %32, %31 ]
+  %100 = phi i32 [ %99, %.loopexit ], [ -28, %92 ], [ %85, %87 ], [ -12, %42 ], [ -12, %31 ], [ -5, %95 ]
+  %101 = phi i64 [ %32, %.loopexit ], [ %94, %92 ], [ %90, %87 ], [ %32, %42 ], [ %32, %95 ], [ %32, %31 ]
   %.fr = freeze i64 %101
   tail call void @mutex_unlock(ptr noundef nonnull %7) #11
   %102 = sext i32 %100 to i64
@@ -1131,7 +1131,7 @@ define internal i64 @usblp_write(ptr noundef readonly captures(none) %0, ptr nou
   br label %.thread9
 
 .thread9:                                         ; preds = %.thread, %4, %.thread11, %.loopexit13
-  %104 = phi i64 [ %98, %.loopexit13 ], [ %spec.select, %.thread ], [ -4, %4 ], [ %17, %.thread11 ]
+  %104 = phi i64 [ %98, %.loopexit13 ], [ %17, %.thread11 ], [ -4, %4 ], [ %spec.select, %.thread ]
   ret i64 %104
 }
 
@@ -1939,7 +1939,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @usblp_wwait(ptr noundef %0
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %34, %30, %26, %.split.us, %98, %.split, %94, %90
-  %.ph = phi i32 [ -19, %.split ], [ %spec.select, %98 ], [ -4, %90 ], [ -4, %94 ], [ -4, %30 ], [ -19, %.split.us ], [ 0, %34 ], [ -4, %26 ]
+  %.ph = phi i32 [ -4, %90 ], [ -4, %94 ], [ -19, %.split ], [ %spec.select, %98 ], [ 0, %34 ], [ -4, %26 ], [ -4, %30 ], [ -19, %.split.us ]
   call void @mutex_unlock(ptr noundef nonnull %10) #11
   br label %.loopexit
 

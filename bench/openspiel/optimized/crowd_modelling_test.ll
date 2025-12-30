@@ -565,7 +565,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit34.i: ; p
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i25, %583, %.body.i1, %277, %.body.i, %.body23.i, %196, %.body.i13
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i2, %.body.i1 ], [ %.pn.i, %.body.i ], [ %.pn6.pn.pn.i14, %.body.i13 ], [ %.pn15.pn.pn.i, %196 ], [ %.pn10.i, %.body23.i ], [ %.pn6.pn.i, %277 ], [ %.pn6.pn.i31, %583 ], [ %.pn.i26, %.body.i25 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn6.pn.pn.i14, %.body.i13 ], [ %.pn15.pn.pn.i, %196 ], [ %.pn10.i, %.body23.i ], [ %.pn.i, %.body.i ], [ %.pn6.pn.i, %277 ], [ %.pn.i2, %.body.i1 ], [ %.pn6.pn.i31, %583 ], [ %.pn.i26, %.body.i25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel15crowd_modelling12_GLOBAL__N_18TestLoadEv.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit28.i, %166, %179, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -1091,8 +1091,8 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit23.i: ; preds = %379, %376
   br label %.body.i13
 
 .body.i13:                                        ; preds = %384, %372, %370, %368, %283, %279
-  %.sink.i = phi ptr [ %40, %370 ], [ %40, %368 ], [ %40, %279 ], [ %43, %372 ], [ %43, %283 ], [ %43, %384 ]
-  %.pn6.pn.pn.i14 = phi { ptr, i32 } [ %371, %370 ], [ %369, %368 ], [ %280, %279 ], [ %373, %372 ], [ %284, %283 ], [ %.pn6.i18, %384 ]
+  %.sink.i = phi ptr [ %40, %368 ], [ %40, %279 ], [ %40, %370 ], [ %43, %372 ], [ %43, %283 ], [ %43, %384 ]
+  %.pn6.pn.pn.i14 = phi { ptr, i32 } [ %369, %368 ], [ %280, %279 ], [ %371, %370 ], [ %373, %372 ], [ %284, %283 ], [ %.pn6.i18, %384 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #15
   br label %common.resume
 

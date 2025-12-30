@@ -233,8 +233,8 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread
 
 .thread:                                          ; preds = %55, %59
-  %75 = phi i64 [ %56, %55 ], [ %.pre27, %59 ]
-  %76 = phi i32 [ 4, %55 ], [ %69, %59 ]
+  %75 = phi i64 [ %.pre27, %59 ], [ %56, %55 ]
+  %76 = phi i32 [ %69, %59 ], [ 4, %55 ]
   %77 = lshr i64 %75, 56
   %78 = and i64 %77, 3
   %79 = load volatile i64, ptr %13, align 8
@@ -257,7 +257,7 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread, %88, %82
-  %89 = phi i64 [ %86, %82 ], [ %86, %88 ], [ -1, %.thread ]
+  %89 = phi i64 [ %86, %88 ], [ %86, %82 ], [ -1, %.thread ]
   %90 = getelementptr i8, ptr %39, i64 -13440
   %91 = shl i64 %89, 32
   %92 = ashr exact i64 %91, 32
@@ -307,7 +307,7 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread12
 
 .thread12:                                        ; preds = %110, %121, %117
-  %.shrunk24 = phi i32 [ %119, %117 ], [ %119, %121 ], [ 1, %110 ]
+  %.shrunk24 = phi i32 [ %119, %121 ], [ %119, %117 ], [ 1, %110 ]
   %122 = zext i32 %.shrunk24 to i64
   %123 = sext i32 %.shrunk24 to i64
   tail call void @__mod_node_page_state(ptr noundef %90, i32 noundef %111, i64 noundef %123) #10
@@ -399,8 +399,8 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread13
 
 .thread13:                                        ; preds = %157, %160
-  %176 = phi i64 [ %149, %157 ], [ %.pre, %160 ]
-  %177 = phi i32 [ 4, %157 ], [ %170, %160 ]
+  %176 = phi i64 [ %.pre, %160 ], [ %149, %157 ]
+  %177 = phi i32 [ %170, %160 ], [ 4, %157 ]
   %178 = lshr i64 %176, 56
   %179 = and i64 %178, 3
   %180 = load volatile i64, ptr %13, align 8
@@ -423,7 +423,7 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread13, %189, %183
-  %190 = phi i64 [ %187, %183 ], [ %187, %189 ], [ -1, %.thread13 ]
+  %190 = phi i64 [ %187, %189 ], [ %187, %183 ], [ -1, %.thread13 ]
   %191 = getelementptr i8, ptr %39, i64 -13440
   %192 = shl i64 %190, 32
   %193 = ashr exact i64 %192, 32
@@ -481,7 +481,7 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread15
 
 .thread15:                                        ; preds = %217, %228, %224
-  %.shrunk = phi i32 [ %226, %224 ], [ %226, %228 ], [ 1, %217 ]
+  %.shrunk = phi i32 [ %226, %228 ], [ %226, %224 ], [ 1, %217 ]
   %229 = zext i32 %.shrunk to i64
   %230 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %191, i32 noundef %218, i64 noundef %230) #10
@@ -648,7 +648,7 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread16
 
 .thread16:                                        ; preds = %317, %328, %324
-  %.shrunk25 = phi i32 [ %326, %324 ], [ %326, %328 ], [ 1, %317 ]
+  %.shrunk25 = phi i32 [ %326, %328 ], [ %326, %324 ], [ 1, %317 ]
   %329 = zext i32 %.shrunk25 to i64
   %330 = getelementptr i8, ptr %273, i64 -13440
   %331 = sext i32 %.shrunk25 to i64
@@ -835,8 +835,8 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread19
 
 .thread19:                                        ; preds = %424, %428
-  %444 = phi i64 [ %425, %424 ], [ %.pre28, %428 ]
-  %445 = phi i32 [ 4, %424 ], [ %438, %428 ]
+  %444 = phi i64 [ %.pre28, %428 ], [ %425, %424 ]
+  %445 = phi i32 [ %438, %428 ], [ 4, %424 ]
   %446 = lshr i64 %444, 56
   %447 = and i64 %446, 3
   %448 = load volatile i64, ptr %13, align 8
@@ -859,7 +859,7 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread20
 
 .thread20:                                        ; preds = %.thread19, %457, %451
-  %458 = phi i64 [ %455, %451 ], [ %455, %457 ], [ -1, %.thread19 ]
+  %458 = phi i64 [ %455, %457 ], [ %455, %451 ], [ -1, %.thread19 ]
   %459 = getelementptr i8, ptr %386, i64 -13440
   %460 = shl i64 %458, 32
   %461 = ashr exact i64 %460, 32
@@ -909,7 +909,7 @@ define internal fastcc void @mlock_folio_batch(ptr noundef %0) unnamed_addr #0 a
   br label %.thread21
 
 .thread21:                                        ; preds = %479, %490, %486
-  %.shrunk26 = phi i32 [ %488, %486 ], [ %488, %490 ], [ 1, %479 ]
+  %.shrunk26 = phi i32 [ %488, %490 ], [ %488, %486 ], [ 1, %479 ]
   %491 = zext i32 %.shrunk26 to i64
   %492 = sext i32 %.shrunk26 to i64
   tail call void @__mod_node_page_state(ptr noundef %459, i32 noundef %480, i64 noundef %492) #10

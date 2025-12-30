@@ -238,8 +238,8 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   store i64 %.0, ptr %37, align 8, !tbaa !9
   br label %.thread
 
-.thread:                                          ; preds = %26, %29, %32, %18, %42, %35
-  %.not4850 = phi i1 [ true, %35 ], [ false, %42 ], [ true, %18 ], [ true, %32 ], [ true, %29 ], [ true, %26 ]
+.thread:                                          ; preds = %18, %26, %29, %32, %42, %35
+  %.not4850 = phi i1 [ false, %42 ], [ true, %35 ], [ true, %32 ], [ true, %29 ], [ true, %26 ], [ true, %18 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !9
   %45 = tail call noalias ptr @malloc(i64 noundef %44) #18
@@ -272,7 +272,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   br label %56
 
 56:                                               ; preds = %.thread52, %53, %54, %48, %51, %10
-  %.043 = phi i32 [ 0, %48 ], [ -30, %10 ], [ 0, %51 ], [ -30, %54 ], [ -30, %53 ], [ -30, %.thread52 ]
+  %.043 = phi i32 [ -30, %10 ], [ 0, %51 ], [ 0, %48 ], [ -30, %54 ], [ -30, %53 ], [ -30, %.thread52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.043
 }
@@ -636,7 +636,7 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
   br label %archive_read_open_filenames_w.exit
 
 archive_read_open_filenames_w.exit:               ; preds = %34, %33, %.critedge.i, %47
-  %.3.i = phi i32 [ -30, %47 ], [ -30, %33 ], [ %46, %.critedge.i ], [ -30, %34 ]
+  %.3.i = phi i32 [ -30, %47 ], [ %46, %.critedge.i ], [ -30, %33 ], [ -30, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.3.i
 }

@@ -685,7 +685,7 @@ bytestream2_get_byte.exit117:                     ; preds = %278, %279
   unreachable
 
 .loopexit133:                                     ; preds = %bytestream2_get_byte.exit117, %296, %293, %290, %288, %rescale.exit
-  %.096 = phi i32 [ %298, %296 ], [ %289, %288 ], [ %37, %rescale.exit ], [ %292, %290 ], [ %295, %293 ], [ %37, %bytestream2_get_byte.exit117 ]
+  %.096 = phi i32 [ %289, %288 ], [ %37, %rescale.exit ], [ %292, %290 ], [ %295, %293 ], [ %298, %296 ], [ %37, %bytestream2_get_byte.exit117 ]
   %300 = icmp slt i32 %.096, 0
   br i1 %300, label %387, label %301
 
@@ -862,7 +862,7 @@ scaleup.exit:                                     ; preds = %.lr.ph35.i, %.prehe
   br label %387
 
 387:                                              ; preds = %.loopexit133, %43, %35, %bytestream2_get_le32.exit, %switch.early.test, %switch.early.test, %.loopexit
-  %.0 = phi i32 [ %386, %.loopexit ], [ -1094995529, %bytestream2_get_le32.exit ], [ %37, %35 ], [ -1094995529, %43 ], [ -1094995529, %switch.early.test ], [ -1094995529, %switch.early.test ], [ %.096, %.loopexit133 ]
+  %.0 = phi i32 [ %386, %.loopexit ], [ -1094995529, %switch.early.test ], [ -1094995529, %switch.early.test ], [ -1094995529, %bytestream2_get_le32.exit ], [ %37, %35 ], [ -1094995529, %43 ], [ %.096, %.loopexit133 ]
   ret i32 %.0
 }
 
@@ -1428,7 +1428,7 @@ bytestream2_get_byte.exit52:                      ; preds = %102
   br label %bytestream2_get_le16.exit
 
 bytestream2_get_le16.exit:                        ; preds = %bytestream2_get_byte.exit52, %111, %110
-  %.047 = phi i32 [ %105, %bytestream2_get_byte.exit52 ], [ 0, %110 ], [ %114, %111 ]
+  %.047 = phi i32 [ 0, %110 ], [ %114, %111 ], [ %105, %bytestream2_get_byte.exit52 ]
   %115 = load i32, ptr %15, align 8, !tbaa !50
   %.not.i59 = icmp eq i32 %115, 0
   br i1 %.not.i59, label %116, label %bytestream2_put_byte.exit
@@ -1490,7 +1490,7 @@ bytestream2_put_byte.exit:                        ; preds = %124, %bytestream2_g
   br i1 %143, label %40, label %bytestream2_put_byte.exit.thread, !llvm.loop !71
 
 bytestream2_put_byte.exit.thread:                 ; preds = %read_bits2.exit, %bytestream2_get_byte.exit52, %bytestream2_put_byte.exit, %40, %bytestream2_skip_p.exit, %bytestream2_get_byte.exit52.thread
-  %.4 = phi i32 [ 0, %bytestream2_get_byte.exit52.thread ], [ 0, %bytestream2_skip_p.exit ], [ 0, %bytestream2_put_byte.exit ], [ 0, %bytestream2_get_byte.exit52 ], [ -1094995529, %read_bits2.exit ], [ -1094995529, %40 ]
+  %.4 = phi i32 [ 0, %bytestream2_get_byte.exit52.thread ], [ 0, %bytestream2_skip_p.exit ], [ -1094995529, %read_bits2.exit ], [ 0, %bytestream2_get_byte.exit52 ], [ 0, %bytestream2_put_byte.exit ], [ -1094995529, %40 ]
   ret i32 %.4
 }
 
@@ -2156,7 +2156,7 @@ bytestream2_put_byte.exit177:                     ; preds = %320
   br label %bytestream2_put_byte.exit179
 
 bytestream2_put_byte.exit177.thread:              ; preds = %320, %317, %328, %bytestream2_put_byte.exit177
-  %337 = phi ptr [ %327, %bytestream2_put_byte.exit177 ], [ %327, %328 ], [ %318, %317 ], [ %318, %320 ]
+  %337 = phi ptr [ %327, %328 ], [ %327, %bytestream2_put_byte.exit177 ], [ %318, %317 ], [ %318, %320 ]
   store i32 1, ptr %16, align 8, !tbaa !50
   br label %bytestream2_put_byte.exit179
 
@@ -2189,8 +2189,8 @@ bytestream2_get_byte.exit159:                     ; preds = %340
   br label %350
 
 350:                                              ; preds = %bytestream2_get_byte.exit159, %bytestream2_get_byte.exit159.thread
-  %351 = phi i32 [ %349, %bytestream2_get_byte.exit159 ], [ -1, %bytestream2_get_byte.exit159.thread ]
-  %352 = phi i32 [ %spec.select, %bytestream2_get_byte.exit159 ], [ 2, %bytestream2_get_byte.exit159.thread ]
+  %351 = phi i32 [ -1, %bytestream2_get_byte.exit159.thread ], [ %349, %bytestream2_get_byte.exit159 ]
+  %352 = phi i32 [ 2, %bytestream2_get_byte.exit159.thread ], [ %spec.select, %bytestream2_get_byte.exit159 ]
   tail call fastcc void @lz_copy(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %351, i32 noundef %352)
   br label %bytestream2_put_byte.exit.thread21
 
@@ -2412,8 +2412,8 @@ bytestream2_get_byte.exit:                        ; preds = %453, %454
   br label %bytestream2_put_byte.exit.thread21
 
 bytestream2_put_byte.exit.thread21:               ; preds = %bytestream2_put_byte.exit179, %bytestream2_put_byte.exit175, %297, %350, %118, %115, %bytestream2_put_byte.exit, %460, %234, %243
-  %.sroa.30.16 = phi i8 [ %.sroa.30.15, %460 ], [ %.sroa.30.4, %bytestream2_put_byte.exit ], [ %.sroa.30.2, %118 ], [ %.sroa.30.9, %350 ], [ %.sroa.30.4, %bytestream2_put_byte.exit175 ], [ %.sroa.30.8, %234 ], [ %.sroa.30.8, %243 ], [ %.sroa.30.2, %115 ], [ %.sroa.30.10, %297 ], [ %.sroa.30.10, %bytestream2_put_byte.exit179 ]
-  %.sroa.0.16 = phi i32 [ %.sroa.0.15, %460 ], [ %.sroa.0.4, %bytestream2_put_byte.exit ], [ %.sroa.0.2, %118 ], [ %.sroa.0.9, %350 ], [ %.sroa.0.4, %bytestream2_put_byte.exit175 ], [ %.sroa.0.8, %234 ], [ %.sroa.0.8, %243 ], [ %.sroa.0.2, %115 ], [ %.sroa.0.10, %297 ], [ %.sroa.0.10, %bytestream2_put_byte.exit179 ]
+  %.sroa.30.16 = phi i8 [ %.sroa.30.15, %460 ], [ %.sroa.30.4, %bytestream2_put_byte.exit ], [ %.sroa.30.8, %234 ], [ %.sroa.30.8, %243 ], [ %.sroa.30.2, %115 ], [ %.sroa.30.2, %118 ], [ %.sroa.30.10, %297 ], [ %.sroa.30.9, %350 ], [ %.sroa.30.4, %bytestream2_put_byte.exit175 ], [ %.sroa.30.10, %bytestream2_put_byte.exit179 ]
+  %.sroa.0.16 = phi i32 [ %.sroa.0.15, %460 ], [ %.sroa.0.4, %bytestream2_put_byte.exit ], [ %.sroa.0.8, %234 ], [ %.sroa.0.8, %243 ], [ %.sroa.0.2, %115 ], [ %.sroa.0.2, %118 ], [ %.sroa.0.10, %297 ], [ %.sroa.0.9, %350 ], [ %.sroa.0.4, %bytestream2_put_byte.exit175 ], [ %.sroa.0.10, %bytestream2_put_byte.exit179 ]
   %461 = load ptr, ptr %44, align 8, !tbaa !49
   %462 = load ptr, ptr %5, align 8, !tbaa !47
   %463 = ptrtoint ptr %461 to i64
@@ -2424,7 +2424,7 @@ bytestream2_put_byte.exit.thread21:               ; preds = %bytestream2_put_byt
   br i1 %467, label %53, label %.thread45, !llvm.loop !74
 
 .thread45:                                        ; preds = %bytestream2_put_byte.exit, %300, %bytestream2_put_byte.exit.thread21, %53, %fill_bits32.exit
-  %.12 = phi i32 [ 0, %fill_bits32.exit ], [ 0, %bytestream2_put_byte.exit.thread21 ], [ 0, %300 ], [ -1094995529, %53 ], [ -1094995529, %bytestream2_put_byte.exit ]
+  %.12 = phi i32 [ 0, %fill_bits32.exit ], [ -1094995529, %53 ], [ 0, %bytestream2_put_byte.exit.thread21 ], [ 0, %300 ], [ -1094995529, %bytestream2_put_byte.exit ]
   ret i32 %.12
 }
 

@@ -7682,8 +7682,8 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   br label %.loopexit
 
 91:                                               ; preds = %55, %53
-  %92 = phi i32 [ %45, %55 ], [ %54, %53 ]
-  %93 = phi i32 [ %48, %55 ], [ %44, %53 ]
+  %92 = phi i32 [ %54, %53 ], [ %45, %55 ]
+  %93 = phi i32 [ %44, %53 ], [ %48, %55 ]
   %94 = icmp ult i32 %92, %93
   br i1 %94, label %43, label %._crit_edge, !llvm.loop !210
 

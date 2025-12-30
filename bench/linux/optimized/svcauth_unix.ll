@@ -99,7 +99,7 @@ define dso_local ptr @unix_domain_find(ptr noundef %0) #0 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %1, %6, %4
-  %8 = phi ptr [ %23, %4 ], [ %23, %6 ], [ %2, %1 ]
+  %8 = phi ptr [ %23, %6 ], [ %23, %4 ], [ %2, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, @svcauth_unix
@@ -1254,7 +1254,7 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %18, %76, %71, %67, %.loopexit, %41, %36, %26, %14, %9, %1
-  %81 = phi i32 [ 1, %1 ], [ 1, %9 ], [ 1, %14 ], [ 1, %21 ], [ 1, %18 ], [ 1, %36 ], [ 7, %41 ], [ 1, %.loopexit ], [ 7, %67 ], [ 7, %71 ], [ 1, %26 ], [ %79, %76 ]
+  %81 = phi i32 [ 1, %1 ], [ 1, %9 ], [ 1, %14 ], [ 1, %36 ], [ 7, %41 ], [ 1, %.loopexit ], [ 7, %67 ], [ 7, %71 ], [ 1, %26 ], [ %79, %76 ], [ 1, %18 ], [ 1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

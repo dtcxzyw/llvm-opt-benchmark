@@ -208,7 +208,7 @@ change_path.exit:                                 ; preds = %12, %24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %27, %28, %0, %26, %11
-  %.0 = phi i32 [ 0, %0 ], [ 1, %27 ], [ 0, %26 ], [ 0, %11 ], [ 1, %28 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %11 ], [ 0, %0 ], [ 1, %28 ], [ 1, %27 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -390,7 +390,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br label %74
 
 74:                                               ; preds = %46, %69, %11, %73, %64, %55, %45, %38, %29, %20, %15, %12
-  %.0 = phi i32 [ 0, %15 ], [ 1, %11 ], [ 0, %73 ], [ 0, %64 ], [ 0, %55 ], [ 0, %45 ], [ 0, %38 ], [ 0, %29 ], [ 0, %20 ], [ 0, %12 ], [ 1, %69 ], [ 1, %46 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %73 ], [ 0, %64 ], [ 0, %55 ], [ 0, %45 ], [ 0, %38 ], [ 0, %29 ], [ 0, %20 ], [ 0, %12 ], [ 1, %11 ], [ 1, %69 ], [ 1, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -435,7 +435,7 @@ define internal range(i32 0, 2) i32 @test_check_null_numbers() #1 {
   br i1 %.not4, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %12, %15, %0, %4, %9
-  %.str.74.sink = phi ptr [ @.str.72, %0 ], [ @.str.72, %9 ], [ @.str.72, %4 ], [ @.str.74, %15 ], [ @.str.74, %12 ]
+  %.str.74.sink = phi ptr [ @.str.72, %9 ], [ @.str.72, %4 ], [ @.str.72, %0 ], [ @.str.74, %15 ], [ @.str.74, %12 ]
   call void (ptr, ...) @test_note(ptr noundef nonnull %.str.74.sink) #8
   br label %20
 
@@ -498,7 +498,7 @@ define internal range(i32 0, 2) i32 @test_check_overflow() #1 {
   br label %25
 
 25:                                               ; preds = %._crit_edge, %0, %9
-  %.02 = phi i32 [ 0, %0 ], [ %., %._crit_edge ], [ 0, %9 ]
+  %.02 = phi i32 [ 0, %9 ], [ 0, %0 ], [ %., %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.02
@@ -538,7 +538,7 @@ define internal range(i32 0, 2) i32 @test_available_providers() #1 {
   br i1 %.not4, label %16, label %.sink.split
 
 .sink.split:                                      ; preds = %13, %10, %3, %6
-  %.str.82.sink = phi ptr [ @.str.80, %10 ], [ @.str.78, %3 ], [ @.str.78, %6 ], [ @.str.82, %13 ]
+  %.str.82.sink = phi ptr [ @.str.78, %6 ], [ @.str.78, %3 ], [ @.str.80, %10 ], [ @.str.82, %13 ]
   tail call void (ptr, ...) @test_note(ptr noundef nonnull %.str.82.sink) #8
   br label %16
 

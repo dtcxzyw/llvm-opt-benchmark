@@ -486,7 +486,7 @@ define internal fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %0, i32 noundef %
   br label %.thread7
 
 .thread7:                                         ; preds = %58, %56, %.thread8, %61
-  %72 = phi i1 [ false, %61 ], [ true, %.thread8 ], [ false, %56 ], [ false, %58 ]
+  %72 = phi i1 [ true, %.thread8 ], [ false, %61 ], [ false, %56 ], [ false, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
@@ -1320,7 +1320,7 @@ define internal fastcc ptr @__nf_conntrack_find_get(ptr noundef readonly capture
   br label %nf_ct_put.exit
 
 nf_ct_put.exit:                                   ; preds = %.loopexit11, %193, %192, %190, %185, %181, %130, %106
-  %194 = phi ptr [ %34, %181 ], [ null, %130 ], [ null, %193 ], [ null, %106 ], [ null, %185 ], [ null, %190 ], [ null, %192 ], [ null, %.loopexit11 ]
+  %194 = phi ptr [ %34, %181 ], [ null, %130 ], [ null, %106 ], [ null, %185 ], [ null, %190 ], [ null, %192 ], [ null, %193 ], [ null, %.loopexit11 ]
   ret ptr %194
 }
 
@@ -3725,7 +3725,7 @@ init_conntrack.exit.thread:                       ; preds = %125, %120
   br label %335
 
 .thread12:                                        ; preds = %306, %279, %285, %301, %298
-  %330 = phi i32 [ 1, %279 ], [ 1, %298 ], [ 1, %301 ], [ 1, %285 ], [ %307, %306 ]
+  %330 = phi i32 [ 1, %298 ], [ 1, %301 ], [ 1, %285 ], [ 1, %279 ], [ %307, %306 ]
   %331 = icmp eq i32 %236, 3
   br i1 %331, label %332, label %335
 
@@ -4753,8 +4753,8 @@ thread-pre-split:                                 ; preds = %10, %0
   br label %56
 
 .thread5:                                         ; preds = %10, %8, %4, %thread-pre-split
-  %15 = phi i32 [ %13, %thread-pre-split ], [ 1, %8 ], [ 1, %4 ], [ 1, %10 ]
-  %16 = phi i32 [ %12, %thread-pre-split ], [ 65536, %8 ], [ 262144, %4 ], [ 1024, %10 ]
+  %15 = phi i32 [ %13, %thread-pre-split ], [ 1, %4 ], [ 1, %8 ], [ 1, %10 ]
+  %16 = phi i32 [ %12, %thread-pre-split ], [ 262144, %4 ], [ 65536, %8 ], [ 1024, %10 ]
   %17 = add nuw nsw i32 %16, 511
   %18 = and i32 %17, 1073741312
   store i32 %18, ptr @nf_conntrack_htable_size, align 4
@@ -5658,7 +5658,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @early_drop(ptr noundef reado
   br label %nf_ct_gc_expired.exit
 
 nf_ct_gc_expired.exit:                            ; preds = %146, %148, %97, %96, %94, %89, %70, %149, %140, %127, %107, %103, %98
-  %150 = phi i32 [ %141, %149 ], [ %41, %107 ], [ %41, %127 ], [ %41, %103 ], [ %41, %98 ], [ %141, %140 ], [ %41, %97 ], [ %41, %70 ], [ %41, %89 ], [ %41, %94 ], [ %41, %96 ], [ %141, %148 ], [ %141, %146 ]
+  %150 = phi i32 [ %41, %107 ], [ %41, %127 ], [ %41, %103 ], [ %41, %98 ], [ %141, %140 ], [ %141, %149 ], [ %41, %70 ], [ %41, %89 ], [ %41, %94 ], [ %41, %96 ], [ %41, %97 ], [ %141, %148 ], [ %141, %146 ]
   %151 = load volatile ptr, ptr %40, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = and i64 %152, 1
@@ -6070,9 +6070,9 @@ define internal void @gc_worker(ptr noundef %0) #0 align 16 {
   br label %.thread27
 
 .thread15:                                        ; preds = %186, %188, %154, %156, %90, %80, %108, %92, %112, %139, %149, %157, %180, %189, %104
-  %.ph19 = phi i64 [ %101, %104 ], [ %101, %189 ], [ %101, %154 ], [ %101, %180 ], [ %101, %157 ], [ %58, %90 ], [ %101, %149 ], [ %101, %139 ], [ %101, %112 ], [ %101, %92 ], [ %101, %108 ], [ %58, %80 ], [ %101, %156 ], [ %101, %188 ], [ %101, %186 ]
-  %.ph20 = phi i64 [ %103, %104 ], [ %103, %189 ], [ %103, %154 ], [ %103, %180 ], [ %103, %157 ], [ %57, %90 ], [ %103, %149 ], [ %103, %139 ], [ %103, %112 ], [ %103, %92 ], [ %103, %108 ], [ %57, %80 ], [ %103, %156 ], [ %103, %188 ], [ %103, %186 ]
-  %.ph21 = phi i32 [ %56, %104 ], [ %181, %189 ], [ %56, %154 ], [ %181, %180 ], [ %56, %157 ], [ %91, %90 ], [ %56, %149 ], [ %56, %139 ], [ %56, %112 ], [ %56, %92 ], [ %56, %108 ], [ %56, %80 ], [ %56, %156 ], [ %181, %188 ], [ %181, %186 ]
+  %.ph19 = phi i64 [ %101, %104 ], [ %101, %189 ], [ %101, %180 ], [ %101, %157 ], [ %101, %149 ], [ %101, %139 ], [ %101, %112 ], [ %101, %92 ], [ %101, %108 ], [ %58, %80 ], [ %58, %90 ], [ %101, %156 ], [ %101, %154 ], [ %101, %188 ], [ %101, %186 ]
+  %.ph20 = phi i64 [ %103, %104 ], [ %103, %189 ], [ %103, %180 ], [ %103, %157 ], [ %103, %149 ], [ %103, %139 ], [ %103, %112 ], [ %103, %92 ], [ %103, %108 ], [ %57, %80 ], [ %57, %90 ], [ %103, %156 ], [ %103, %154 ], [ %103, %188 ], [ %103, %186 ]
+  %.ph21 = phi i32 [ %56, %104 ], [ %181, %189 ], [ %181, %180 ], [ %56, %157 ], [ %56, %149 ], [ %56, %139 ], [ %56, %112 ], [ %56, %92 ], [ %56, %108 ], [ %56, %80 ], [ %91, %90 ], [ %56, %156 ], [ %56, %154 ], [ %181, %188 ], [ %181, %186 ]
   %199 = load volatile ptr, ptr %55, align 8
   %200 = ptrtoint ptr %199 to i64
   %201 = and i64 %200, 1
@@ -6145,7 +6145,7 @@ define internal void @gc_worker(ptr noundef %0) #0 align 16 {
   br label %.thread29
 
 .thread29:                                        ; preds = %.thread27.thread, %239, %237
-  %240 = phi i64 [ 0, %237 ], [ %228, %239 ], [ 0, %.thread27.thread ]
+  %240 = phi i64 [ %228, %239 ], [ 0, %237 ], [ 0, %.thread27.thread ]
   %241 = load ptr, ptr @system_power_efficient_wq, align 8
   %242 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %241, ptr noundef %0, i64 noundef %240) #17
   br label %243
@@ -6653,7 +6653,7 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
   br label %.thread13
 
 .thread13:                                        ; preds = %88, %90, %.thread11, %91, %74, %68, %66, %64, %9
-  %92 = phi i1 [ true, %9 ], [ false, %66 ], [ false, %68 ], [ true, %74 ], [ false, %.thread11 ], [ true, %91 ], [ false, %64 ], [ true, %90 ], [ true, %88 ]
+  %92 = phi i1 [ true, %9 ], [ false, %66 ], [ false, %68 ], [ true, %74 ], [ true, %91 ], [ false, %64 ], [ false, %.thread11 ], [ true, %90 ], [ true, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %92
 }

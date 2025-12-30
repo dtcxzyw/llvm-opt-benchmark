@@ -131,7 +131,7 @@ return.fold.split51:                              ; preds = %entry, %entry, %ent
   br label %return
 
 return:                                           ; preds = %entry, %return.fold.split51, %return.fold.split, %if.end62, %if.then60, %if.then18
-  %retval.0 = phi i32 [ 1, %if.end62 ], [ 1, %entry ], [ %add.i46, %if.then60 ], [ %add.i, %if.then18 ], [ 0, %return.fold.split ], [ 2, %return.fold.split51 ]
+  %retval.0 = phi i32 [ %add.i, %if.then18 ], [ %add.i46, %if.then60 ], [ 1, %if.end62 ], [ 1, %entry ], [ 0, %return.fold.split ], [ 2, %return.fold.split51 ]
   ret i32 %retval.0
 }
 
@@ -250,7 +250,7 @@ if.end62:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end62, %if.then60, %if.then54, %if.then48, %if.then42, %if.then36, %if.then30, %if.then24, %_ZNK6hermes10SwitchInst12getSuccessorEj.exit, %if.then
-  %retval.0 = phi ptr [ %2, %if.then ], [ %18, %if.end62 ], [ %call61, %if.then60 ], [ %4, %_ZNK6hermes10SwitchInst12getSuccessorEj.exit ], [ %6, %if.then24 ], [ %8, %if.then30 ], [ %10, %if.then36 ], [ %12, %if.then42 ], [ %14, %if.then48 ], [ %16, %if.then54 ]
+  %retval.0 = phi ptr [ %2, %if.then ], [ %4, %_ZNK6hermes10SwitchInst12getSuccessorEj.exit ], [ %6, %if.then24 ], [ %8, %if.then30 ], [ %10, %if.then36 ], [ %12, %if.then42 ], [ %14, %if.then48 ], [ %16, %if.then54 ], [ %call61, %if.then60 ], [ %18, %if.end62 ]
   ret ptr %retval.0
 }
 
@@ -537,7 +537,7 @@ if.end6:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end, %entry
-  %retval.0 = phi i32 [ %., %if.end6 ], [ 3, %entry ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ 3, %entry ], [ 0, %if.end ], [ %., %if.end6 ]
   ret i32 %retval.0
 }
 
@@ -825,7 +825,7 @@ sw.epilog:                                        ; preds = %sw.bb25, %lor.lhs.f
   br label %return
 
 return:                                           ; preds = %if.end30, %lor.lhs.false37, %lor.lhs.false10, %if.end35, %if.end19, %if.end8, %land.lhs.true, %entry, %entry, %sw.epilog, %sw.bb1
-  %retval.0 = phi i32 [ %spec.select1, %lor.lhs.false37 ], [ 0, %sw.bb1 ], [ 3, %entry ], [ 3, %sw.epilog ], [ 0, %land.lhs.true ], [ 3, %if.end35 ], [ 3, %if.end8 ], [ 0, %if.end19 ], [ 0, %if.end30 ], [ 3, %entry ], [ %spec.select, %lor.lhs.false10 ]
+  %retval.0 = phi i32 [ 0, %sw.bb1 ], [ 3, %sw.epilog ], [ 3, %entry ], [ 3, %entry ], [ 0, %land.lhs.true ], [ 3, %if.end8 ], [ 0, %if.end19 ], [ 3, %if.end35 ], [ %spec.select, %lor.lhs.false10 ], [ %spec.select1, %lor.lhs.false37 ], [ 0, %if.end30 ]
   ret i32 %retval.0
 }
 
@@ -2463,7 +2463,7 @@ for.cond.backedge:                                ; preds = %for.end57, %if.end3
   br label %for.cond, !llvm.loop !23
 
 return:                                           ; preds = %for.end57, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__middle, %for.body.i ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__first, %if.else ], [ %__middle, %for.body.i ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
   ret ptr %retval.0
 }
 

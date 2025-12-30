@@ -1272,7 +1272,7 @@ define dso_local void @ata_sff_lost_interrupt(ptr noundef %0) #1 align 16 {
   br label %.thread
 
 35:                                               ; preds = %26, %32
-  %36 = phi i8 [ %34, %32 ], [ %27, %26 ]
+  %36 = phi i8 [ %27, %26 ], [ %34, %32 ]
   %37 = icmp sgt i8 %36, -1
   br i1 %37, label %38, label %.thread
 
@@ -2568,8 +2568,8 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
   br label %.loopexit15.split.us
 
 .loopexit15.split.us:                             ; preds = %.loopexit15.split.us.sink.split, %85, %412, %385
-  %282 = phi i32 [ 4, %412 ], [ 4, %385 ], [ 3, %85 ], [ 4, %.loopexit15.split.us.sink.split ]
-  %283 = phi i8 [ %406, %412 ], [ %.fr37, %385 ], [ %.fr37, %85 ], [ %.ph82, %.loopexit15.split.us.sink.split ]
+  %282 = phi i32 [ 4, %385 ], [ 4, %412 ], [ 3, %85 ], [ 4, %.loopexit15.split.us.sink.split ]
+  %283 = phi i8 [ %.fr37, %385 ], [ %406, %412 ], [ %.fr37, %85 ], [ %.ph82, %.loopexit15.split.us.sink.split ]
   store i32 %282, ptr %45, align 16
   br label %.loopexit.backedge
 
@@ -3468,7 +3468,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__ata_sff_port_intr(ptr noun
   br label %58
 
 58:                                               ; preds = %55, %49
-  %59 = phi i8 [ %57, %55 ], [ %50, %49 ]
+  %59 = phi i8 [ %50, %49 ], [ %57, %55 ]
   %60 = icmp sgt i8 %59, -1
   br i1 %60, label %..thread_crit_edge, label %.thread5
 
@@ -3664,7 +3664,7 @@ define dso_local range(i32 0, 2) i32 @ata_sff_interrupt(i32 %0, ptr noundef %1) 
   br label %88
 
 88:                                               ; preds = %85, %79
-  %89 = phi i8 [ %87, %85 ], [ %80, %79 ]
+  %89 = phi i8 [ %80, %79 ], [ %87, %85 ]
   %90 = icmp sgt i8 %89, -1
   br i1 %90, label %..thread_crit_edge.i, label %.thread5.i
 
@@ -3969,7 +3969,7 @@ define dso_local i32 @ata_sff_wait_after_reset(ptr noundef %0, i32 noundef %1, i
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %42, %39, %3
-  %46 = phi i32 [ %40, %39 ], [ %6, %3 ], [ %40, %42 ], [ %31, %30 ]
+  %46 = phi i32 [ %6, %3 ], [ %40, %42 ], [ %40, %39 ], [ %31, %30 ]
   ret i32 %46
 }
 

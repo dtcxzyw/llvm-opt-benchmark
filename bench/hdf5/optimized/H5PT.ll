@@ -164,7 +164,7 @@ define i64 @H5PTcreate(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 nound
   br label %.thread103
 
 .thread103:                                       ; preds = %5, %13, %16, %.thread96.thread, %58, %61
-  %.040 = phi i64 [ %57, %58 ], [ -1, %61 ], [ -1, %.thread96.thread ], [ -1, %16 ], [ -1, %13 ], [ -1, %5 ]
+  %.040 = phi i64 [ -1, %61 ], [ %57, %58 ], [ -1, %.thread96.thread ], [ -1, %16 ], [ -1, %13 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -426,7 +426,7 @@ define i64 @H5PTcreate_fl(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 no
   br label %.thread103
 
 .thread103:                                       ; preds = %5, %13, %16, %.thread96.thread, %56, %59
-  %.042 = phi i64 [ %55, %56 ], [ -1, %59 ], [ -1, %.thread96.thread ], [ -1, %16 ], [ -1, %13 ], [ -1, %5 ]
+  %.042 = phi i64 [ -1, %59 ], [ %55, %56 ], [ -1, %.thread96.thread ], [ -1, %16 ], [ -1, %13 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -535,7 +535,7 @@ define i64 @H5PTopen(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not44 = icmp eq i64 %31, -1
   br i1 %.not44, label %.thread82.thread102, label %.thread75
 
-.thread75:                                        ; preds = %36, %33, %51
+.thread75:                                        ; preds = %33, %36, %51
   %52 = call i32 @H5Sclose(i64 noundef %31) #7
   br label %.thread82.thread102
 
@@ -544,7 +544,7 @@ define i64 @H5PTopen(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not46 = icmp eq i64 %23, -1
   br i1 %.not46, label %.thread109, label %.thread82.thread102
 
-.thread82.thread102:                              ; preds = %51, %.thread75, %.thread82.thread106, %.thread82
+.thread82.thread102:                              ; preds = %.thread75, %51, %.thread82.thread106, %.thread82
   %54 = call i32 @H5Tclose(i64 noundef %23) #7
   br label %.thread109
 
@@ -561,7 +561,7 @@ define i64 @H5PTopen(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.thread87
 
 .thread87:                                        ; preds = %11, %8, %2, %57, %44, %47
-  %.033 = phi i64 [ %43, %44 ], [ -1, %47 ], [ -1, %57 ], [ -1, %2 ], [ -1, %8 ], [ -1, %11 ]
+  %.033 = phi i64 [ -1, %47 ], [ %43, %44 ], [ -1, %57 ], [ -1, %2 ], [ -1, %8 ], [ -1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.033
 }
@@ -600,7 +600,7 @@ define range(i32 -1, 1) i32 @H5PTclose(i64 noundef %0) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %1, %5, %8, %12
-  %.0 = phi i32 [ 0, %8 ], [ 0, %12 ], [ -1, %5 ], [ -1, %1 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %8 ], [ -1, %5 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -636,7 +636,7 @@ define range(i32 -1, 1) i32 @H5PTappend(i64 noundef %0, i64 noundef %1, ptr noun
   br label %20
 
 20:                                               ; preds = %3, %9, %7, %17
-  %.0 = phi i32 [ 0, %7 ], [ 0, %17 ], [ -1, %9 ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %7 ], [ -1, %9 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -674,7 +674,7 @@ define range(i32 -1, 1) i32 @H5PTget_next(i64 noundef %0, i64 noundef %1, ptr no
   br label %22
 
 22:                                               ; preds = %3, %9, %7, %19
-  %.0 = phi i32 [ 0, %7 ], [ 0, %19 ], [ -1, %9 ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %7 ], [ -1, %9 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -789,7 +789,7 @@ define range(i32 -1, 1) i32 @H5PTget_num_packets(i64 noundef %0, ptr noundef wri
   br label %10
 
 10:                                               ; preds = %2, %6, %7
-  %.0 = phi i32 [ 0, %6 ], [ 0, %7 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %6 ], [ -1, %2 ]
   ret i32 %.0
 }
 

@@ -484,7 +484,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %94, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %Vec_IntPush.exit, %Vec_IntPush.exit45, %Vec_IntPush.exit38
-  %.025 = phi i32 [ 0, %Vec_IntPush.exit ], [ %35, %Vec_IntPush.exit38 ], [ %56, %Vec_IntPush.exit45 ], [ %56, %.lr.ph ]
+  %.025 = phi i32 [ %35, %Vec_IntPush.exit38 ], [ 0, %Vec_IntPush.exit ], [ %56, %Vec_IntPush.exit45 ], [ %56, %.lr.ph ]
   ret i32 %.025
 }
 
@@ -648,7 +648,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   br label %101
 
 101:                                              ; preds = %.sink.split, %88, %86, %37, %34, %.lr.ph.split.us121
-  %.2.us = phi i32 [ %.1113.us, %.lr.ph.split.us121 ], [ %.1113.us, %86 ], [ %.1113.us, %34 ], [ %.1113.us, %37 ], [ %.1113.us, %88 ], [ %.2.us.ph, %.sink.split ]
+  %.2.us = phi i32 [ %.1113.us, %.lr.ph.split.us121 ], [ %.1113.us, %37 ], [ %.1113.us, %88 ], [ %.1113.us, %86 ], [ %.1113.us, %34 ], [ %.2.us.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121, !llvm.loop !29

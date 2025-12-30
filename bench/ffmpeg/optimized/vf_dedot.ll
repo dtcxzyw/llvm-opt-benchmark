@@ -245,7 +245,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %select.unfold
 
 select.unfold:                                    ; preds = %60, %62, %80, %83, %98, %57, %54, %51, %48, %45
-  %.188 = phi i32 [ %.087136, %62 ], [ %.087136, %45 ], [ %66, %83 ], [ %66, %80 ], [ %66, %98 ], [ %.087136, %57 ], [ %.087136, %54 ], [ %.087136, %51 ], [ %.087136, %48 ], [ -12, %60 ]
+  %.188 = phi i32 [ %66, %83 ], [ %66, %80 ], [ %66, %98 ], [ %.087136, %57 ], [ %.087136, %54 ], [ %.087136, %51 ], [ %.087136, %48 ], [ %.087136, %45 ], [ %.087136, %62 ], [ -12, %60 ]
   call void @av_frame_free(ptr noundef nonnull %46) #8
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %100 = load ptr, ptr %99, align 8, !tbaa !26
@@ -272,8 +272,8 @@ select.unfold:                                    ; preds = %60, %62, %80, %83, 
   %111 = call i32 @ff_filter_frame(ptr noundef %12, ptr noundef nonnull %109) #8
   br label %.thread120
 
-.thread120:                                       ; preds = %select.unfold, %110
-  %.2.ph = phi i32 [ %111, %110 ], [ %.188, %select.unfold ]
+.thread120:                                       ; preds = %110, %select.unfold
+  %.2.ph = phi i32 [ %.188, %select.unfold ], [ %111, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %148
 
@@ -347,7 +347,7 @@ select.unfold:                                    ; preds = %60, %62, %80, %83, 
   br label %148
 
 148:                                              ; preds = %.thread120, %16, %145, %119, %124, %20, %147, %144, %142
-  %.186 = phi i32 [ 0, %16 ], [ %21, %20 ], [ 0, %147 ], [ 0, %119 ], [ 0, %142 ], [ 0, %144 ], [ %.2.ph, %.thread120 ], [ 0, %124 ], [ -1497649742, %145 ]
+  %.186 = phi i32 [ 0, %147 ], [ 0, %142 ], [ 0, %144 ], [ 0, %16 ], [ %21, %20 ], [ 0, %124 ], [ 0, %119 ], [ -1497649742, %145 ], [ %.2.ph, %.thread120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

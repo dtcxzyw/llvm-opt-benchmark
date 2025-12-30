@@ -153,7 +153,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %21
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %_ZN5draco16DirectBitDecoder5ClearEv.exit, %28, %21, %15
-  %.0 = phi i1 [ true, %28 ], [ false, %15 ], [ false, %21 ], [ false, %_ZN5draco16DirectBitDecoder5ClearEv.exit ], [ false, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+  %.0 = phi i1 [ false, %15 ], [ false, %21 ], [ true, %28 ], [ false, %_ZN5draco16DirectBitDecoder5ClearEv.exit ], [ false, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   ret i1 %.0
 }
 
@@ -203,7 +203,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !9
   br label %41
 

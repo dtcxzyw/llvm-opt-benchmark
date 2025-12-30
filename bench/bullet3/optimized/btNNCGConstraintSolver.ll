@@ -1353,7 +1353,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit402: ; preds = %228
   br i1 %exitcond622.not, label %.loopexit491, label %465, !llvm.loop !85
 
 .loopexit491:                                     ; preds = %432, %504, %331, %._crit_edge533
-  %.7 = phi float [ %.10, %504 ], [ %.8.lcssa, %._crit_edge533 ], [ %.0358.lcssa, %331 ], [ %.4, %432 ]
+  %.7 = phi float [ %.8.lcssa, %._crit_edge533 ], [ %.0358.lcssa, %331 ], [ %.10, %504 ], [ %.4, %432 ]
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %506 = load i32, ptr %505, align 4, !tbaa !4
   %507 = icmp sgt i32 %506, 0

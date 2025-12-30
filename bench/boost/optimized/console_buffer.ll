@@ -157,7 +157,7 @@ _ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit: ; preds = %
   br label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
 
 _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %59, %55, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread, %47, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit
-  %.010 = phi i32 [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit ], [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread ], [ 0, %47 ], [ 0, %55 ], [ 0, %59 ]
+  %.010 = phi i32 [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit ], [ 0, %47 ], [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread ], [ 0, %55 ], [ 0, %59 ]
   ret i32 %.010
 }
 
@@ -348,7 +348,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %_ZN5boos
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit
 
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit: ; preds = %9, %17, %19, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit, %52, %49, %40, %37, %28, %24, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread, %2
-  %.034 = phi i32 [ -2, %2 ], [ %63, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %20, %19 ], [ -1, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ -1, %52 ], [ -2, %24 ], [ -1, %28 ], [ -1, %40 ], [ -2, %49 ], [ -2, %37 ], [ -1, %17 ], [ -1, %9 ]
+  %.034 = phi i32 [ -2, %2 ], [ %20, %19 ], [ -1, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ -2, %24 ], [ -1, %28 ], [ -2, %37 ], [ -1, %40 ], [ -2, %49 ], [ -1, %52 ], [ %63, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ -1, %17 ], [ -1, %9 ]
   ret i32 %.034
 }
 
@@ -458,7 +458,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %_ZNSt6vectorIcSaIcE
   br label %39
 
 39:                                               ; preds = %2, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit, %10
-  %.0 = phi i32 [ 0, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit ], [ 0, %10 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -538,7 +538,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
 
 23:                                               ; preds = %21
   %24 = trunc nuw nsw i32 %spec.store.select to i8
-  %.020.add42 = add nuw nsw i64 %.020.idx51, 1
+  %.020.add43 = add nuw nsw i64 %.020.idx51, 1
   store i8 %24, ptr %.020.ptr52, align 1, !tbaa !21
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
@@ -555,7 +555,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %32 = trunc i32 %spec.store.select to i8
   %33 = and i8 %32, 63
   %34 = or disjoint i8 %33, -128
-  %.020.add41 = add nuw nsw i64 %.020.idx51, 2
+  %.020.add42 = add nuw nsw i64 %.020.idx51, 2
   store i8 %34, ptr %31, align 1, !tbaa !21
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
@@ -578,7 +578,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %47 = trunc i32 %spec.store.select to i8
   %48 = and i8 %47, 63
   %49 = or disjoint i8 %48, -128
-  %.020.add = add nuw nsw i64 %.020.idx51, 3
+  %.020.add41 = add nuw nsw i64 %.020.idx51, 3
   store i8 %49, ptr %38, align 1, !tbaa !21
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
@@ -601,12 +601,12 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %63 = trunc i32 %spec.store.select to i8
   %64 = and i8 %63, 63
   %65 = or disjoint i8 %64, -128
-  %.020.add43 = add nuw nsw i64 %.020.idx51, 4
+  %.020.add = add nuw nsw i64 %.020.idx51, 4
   store i8 %65, ptr %62, align 1, !tbaa !21
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %50, %39, %27, %23, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
-  %.2.idx = phi i64 [ %.020.idx51, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit ], [ %.020.add43, %50 ], [ %.020.add42, %23 ], [ %.020.add41, %27 ], [ %.020.add, %39 ]
+  %.2.idx = phi i64 [ %.020.idx51, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit ], [ %.020.add43, %23 ], [ %.020.add42, %27 ], [ %.020.add41, %39 ], [ %.020.add, %50 ]
   %.020.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.2.idx
   %.not = icmp eq ptr %17, %16
   br i1 %.not, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit

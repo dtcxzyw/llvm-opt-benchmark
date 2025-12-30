@@ -585,7 +585,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   unreachable
 
 objectNamesToOids.exit:                           ; preds = %._crit_edge.us.i, %.lr.ph83.i, %.lr.ph.i63, %38, %88, %.lr.ph114.i, %.lr.ph126.i, %.lr.ph138.i, %.lr.ph54.split.i, %.lr.ph54.split.us59.split.i, %.lr.ph54.split.us.split.i, %92, %.lr.ph54.split.us67.i, %.lr.ph106.i, %65, %.lr.ph118.i, %53, %.lr.ph130.i, %.preheader.i, %.lr.ph.i, %.preheader88.i
-  %.0.lcssa.i.sink = phi ptr [ %49, %.lr.ph138.i ], [ %.5.i, %88 ], [ %126, %.lr.ph83.i ], [ %.5.us101.i, %38 ], [ null, %.preheader.i ], [ null, %.lr.ph130.i ], [ null, %53 ], [ null, %.lr.ph118.i ], [ null, %65 ], [ null, %.lr.ph106.i ], [ null, %.preheader88.i ], [ null, %.lr.ph.i ], [ %115, %.lr.ph.i63 ], [ null, %92 ], [ %61, %.lr.ph126.i ], [ null, %.lr.ph54.split.us59.split.i ], [ null, %.lr.ph54.split.us.split.i ], [ null, %.lr.ph54.split.i ], [ %74, %.lr.ph114.i ], [ null, %.lr.ph54.split.us67.i ], [ %.2.lcssa.us.i, %._crit_edge.us.i ]
+  %.0.lcssa.i.sink = phi ptr [ null, %.preheader.i ], [ null, %.lr.ph130.i ], [ null, %53 ], [ null, %.lr.ph118.i ], [ null, %65 ], [ null, %.lr.ph106.i ], [ null, %.preheader88.i ], [ null, %.lr.ph.i ], [ null, %92 ], [ null, %.lr.ph54.split.us.split.i ], [ null, %.lr.ph54.split.us59.split.i ], [ null, %.lr.ph54.split.i ], [ null, %.lr.ph54.split.us67.i ], [ %49, %.lr.ph138.i ], [ %61, %.lr.ph126.i ], [ %74, %.lr.ph114.i ], [ %.5.i, %88 ], [ %.5.us101.i, %38 ], [ %115, %.lr.ph.i63 ], [ %126, %.lr.ph83.i ], [ %.2.lcssa.us.i, %._crit_edge.us.i ]
   %171 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.lcssa.i.sink, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -706,8 +706,8 @@ objectNamesToOids.exit:                           ; preds = %._crit_edge.us.i, %
   unreachable
 
 218:                                              ; preds = %.critedge, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200
-  %219 = phi i64 [ -12289, %213 ], [ -263, %200 ], [ -3585, %201 ], [ -257, %202 ], [ -129, %203 ], [ -257, %204 ], [ -7, %205 ], [ -769, %206 ], [ -129, %207 ], [ -129, %208 ], [ -513, %209 ], [ -257, %210 ], [ -257, %211 ], [ -257, %212 ], [ -16768, %.critedge ]
-  %.044 = phi ptr [ @.str.17, %213 ], [ @.str.4, %200 ], [ @.str.5, %201 ], [ @.str.6, %202 ], [ @.str.7, %203 ], [ @.str.8, %204 ], [ @.str.9, %205 ], [ @.str.10, %206 ], [ @.str.11, %207 ], [ @.str.12, %208 ], [ @.str.13, %209 ], [ @.str.14, %210 ], [ @.str.15, %211 ], [ @.str.16, %212 ], [ @.str.3, %.critedge ]
+  %219 = phi i64 [ -263, %200 ], [ -3585, %201 ], [ -257, %202 ], [ -129, %203 ], [ -257, %204 ], [ -7, %205 ], [ -769, %206 ], [ -129, %207 ], [ -129, %208 ], [ -513, %209 ], [ -257, %210 ], [ -257, %211 ], [ -257, %212 ], [ -12289, %213 ], [ -16768, %.critedge ]
+  %.044 = phi ptr [ @.str.4, %200 ], [ @.str.5, %201 ], [ @.str.6, %202 ], [ @.str.7, %203 ], [ @.str.8, %204 ], [ @.str.9, %205 ], [ @.str.10, %206 ], [ @.str.11, %207 ], [ @.str.12, %208 ], [ @.str.13, %209 ], [ @.str.14, %210 ], [ @.str.15, %211 ], [ @.str.16, %212 ], [ @.str.17, %213 ], [ @.str.3, %.critedge ]
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, null
@@ -919,7 +919,7 @@ define internal fastcc range(i64 1, 16385) i64 @string_to_privilege(ptr noundef 
   unreachable
 
 53:                                               ; preds = %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i64 [ 8192, %43 ], [ 1, %1 ], [ 2, %4 ], [ 4, %7 ], [ 8, %10 ], [ 16, %13 ], [ 32, %16 ], [ 64, %19 ], [ 128, %22 ], [ 256, %25 ], [ 512, %28 ], [ 1024, %31 ], [ 1024, %34 ], [ 2048, %37 ], [ 4096, %40 ], [ 16384, %46 ]
+  %.0 = phi i64 [ 1, %1 ], [ 2, %4 ], [ 4, %7 ], [ 8, %10 ], [ 16, %13 ], [ 32, %16 ], [ 64, %19 ], [ 128, %22 ], [ 256, %25 ], [ 512, %28 ], [ 1024, %31 ], [ 1024, %34 ], [ 2048, %37 ], [ 4096, %40 ], [ 8192, %43 ], [ 16384, %46 ]
   ret i64 %.0
 }
 
@@ -1604,7 +1604,7 @@ expand_col_privileges.exit.i:                     ; preds = %267, %.lr.ph.i157.i
   br i1 %351, label %.lr.ph50.i.i, label %merge_acl_with_grant.exit.i
 
 merge_acl_with_grant.exit.i:                      ; preds = %347, %.lr.ph55.i.i, %.lr.ph.split.split.i.i, %.lr.ph.split.us.split.i.i, %306
-  %.032.lcssa.i.i = phi ptr [ %.049.i.i, %306 ], [ %.049.i.i, %.lr.ph.split.split.i.i ], [ %.049.i.i, %.lr.ph.split.us.split.i.i ], [ %336, %.lr.ph55.i.i ], [ %348, %347 ]
+  %.032.lcssa.i.i = phi ptr [ %.049.i.i, %306 ], [ %.049.i.i, %.lr.ph.split.us.split.i.i ], [ %.049.i.i, %.lr.ph.split.split.i.i ], [ %336, %.lr.ph55.i.i ], [ %348, %347 ]
   %352 = call i32 @aclmembers(ptr noundef %.032.lcssa.i.i, ptr noundef nonnull %28) #10
   %353 = getelementptr inbounds nuw i8, ptr %.032.lcssa.i.i, i64 16
   %354 = load i32, ptr %353, align 4
@@ -2259,8 +2259,8 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
   unreachable
 
 81:                                               ; preds = %.critedge98, %76, %75, %74, %73, %72, %71
-  %.078 = phi ptr [ @.str.10, %76 ], [ @.str.4, %71 ], [ @.str.7, %72 ], [ @.str.11, %73 ], [ @.str.12, %74 ], [ @.str.14, %75 ], [ @.str.3, %.critedge98 ]
-  %82 = phi i64 [ -769, %76 ], [ -263, %71 ], [ -129, %72 ], [ -129, %73 ], [ -129, %74 ], [ -257, %75 ], [ -16512, %.critedge98 ]
+  %.078 = phi ptr [ @.str.4, %71 ], [ @.str.7, %72 ], [ @.str.11, %73 ], [ @.str.12, %74 ], [ @.str.14, %75 ], [ @.str.10, %76 ], [ @.str.3, %.critedge98 ]
+  %82 = phi i64 [ -263, %71 ], [ -129, %72 ], [ -129, %73 ], [ -129, %74 ], [ -257, %75 ], [ -769, %76 ], [ -16512, %.critedge98 ]
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
@@ -2738,8 +2738,8 @@ define internal fastcc void @SetDefaultACL(ptr noundef nonnull readonly captures
   unreachable
 
 39:                                               ; preds = %29, %23, %28, %27, %26
-  %.sink = phi i64 [ 16511, %23 ], [ 256, %28 ], [ 128, %27 ], [ 262, %26 ], [ 768, %29 ]
-  %.087 = phi i64 [ 114, %23 ], [ 84, %28 ], [ 102, %27 ], [ 83, %26 ], [ 110, %29 ]
+  %.sink = phi i64 [ 256, %28 ], [ 128, %27 ], [ 262, %26 ], [ 16511, %23 ], [ 768, %29 ]
+  %.087 = phi i64 [ 84, %28 ], [ 102, %27 ], [ 83, %26 ], [ 114, %23 ], [ 110, %29 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i8, ptr %40, align 8, !range !4, !noundef !5
   %42 = trunc nuw i8 %41 to i1
@@ -3402,7 +3402,7 @@ define internal fastcc i64 @pg_class_aclmask_ext(i32 noundef %0, i32 noundef %1,
   br label %30
 
 30:                                               ; preds = %27, %24, %22, %15
-  %.047 = phi i64 [ %spec.select, %27 ], [ %2, %15 ], [ %2, %24 ], [ %2, %22 ]
+  %.047 = phi i64 [ %2, %24 ], [ %2, %22 ], [ %2, %15 ], [ %spec.select, %27 ]
   %31 = tail call zeroext i1 @superuser_arg(i32 noundef %1) #10
   br i1 %31, label %32, label %33
 
@@ -3630,7 +3630,7 @@ define internal fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i
   br label %pg_namespace_aclmask_ext.exit
 
 pg_namespace_aclmask_ext.exit:                    ; preds = %9, %16, %18, %24, %48, %53, %55
-  %.0.i = phi i64 [ 0, %24 ], [ %17, %16 ], [ %19, %18 ], [ %3, %9 ], [ %46, %48 ], [ %56, %55 ], [ %46, %53 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %19, %18 ], [ 0, %24 ], [ %3, %9 ], [ %56, %55 ], [ %46, %53 ], [ %46, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %159
 
@@ -3787,7 +3787,7 @@ pg_namespace_aclmask_ext.exit:                    ; preds = %9, %16, %18, %24, %
   br label %pg_type_aclmask_ext.exit
 
 pg_type_aclmask_ext.exit:                         ; preds = %57, %63, %.thread.i, %.thread71.i, %128
-  %.0.i51 = phi i64 [ 0, %63 ], [ %126, %128 ], [ 0, %.thread71.i ], [ 0, %.thread.i ], [ %3, %57 ]
+  %.0.i51 = phi i64 [ %126, %128 ], [ 0, %63 ], [ %3, %57 ], [ 0, %.thread.i ], [ 0, %.thread71.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %159
 
@@ -3855,7 +3855,7 @@ pg_type_aclmask_ext.exit:                         ; preds = %57, %63, %.thread.i
   br label %159
 
 159:                                              ; preds = %129, %158, %136, %pg_type_aclmask_ext.exit, %pg_namespace_aclmask_ext.exit
-  %.0 = phi i64 [ %.0.i51, %pg_type_aclmask_ext.exit ], [ %156, %158 ], [ 0, %136 ], [ %.0.i, %pg_namespace_aclmask_ext.exit ], [ %3, %129 ]
+  %.0 = phi i64 [ %156, %158 ], [ 0, %136 ], [ %.0.i, %pg_namespace_aclmask_ext.exit ], [ %.0.i51, %pg_type_aclmask_ext.exit ], [ %3, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
@@ -4148,7 +4148,7 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   br label %70
 
 70:                                               ; preds = %68, %69, %.lr.ph.split.split.us
-  %.2.ph.us64 = phi i32 [ %.03355.us57, %69 ], [ %.03355.us57, %.lr.ph.split.split.us ], [ 0, %68 ]
+  %.2.ph.us64 = phi i32 [ %.03355.us57, %.lr.ph.split.split.us ], [ %.03355.us57, %69 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %71 = add i16 %.03454.us58, 1
   %.not41.us65 = icmp sgt i16 %71, %24
@@ -4214,14 +4214,14 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   br label %.loopexit
 
 95:                                               ; preds = %93, %94, %83, %.lr.ph.split.split
-  %.2.ph = phi i32 [ %.03355, %83 ], [ %.03355, %.lr.ph.split.split ], [ 1, %94 ], [ 0, %93 ]
+  %.2.ph = phi i32 [ %.03355, %.lr.ph.split.split ], [ %.03355, %83 ], [ 1, %94 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %96 = add i16 %.03454, 1
   %.not41 = icmp sgt i16 %96, %24
   br i1 %.not41, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %70, %46, %95, %15, %.split.us, %10
-  %.032 = phi i32 [ 1, %10 ], [ %.us-phi, %.split.us ], [ 1, %15 ], [ 1, %46 ], [ %.2.ph, %95 ], [ %.2.ph.us64, %70 ]
+  %.032 = phi i32 [ 1, %10 ], [ %.us-phi, %.split.us ], [ 1, %15 ], [ %.2.ph, %95 ], [ 1, %46 ], [ %.2.ph.us64, %70 ]
   ret i32 %.032
 }
 
@@ -4614,7 +4614,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %72, %71, %58, %56, %51, %48, %45, %42, %74, %14
-  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ %73, %72 ], [ 0, %71 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
+  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ 0, %71 ], [ %73, %72 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
   ret i64 %.0
 }
 
@@ -4706,7 +4706,7 @@ define dso_local ptr @get_user_default_acl(i32 noundef %0, i32 noundef %1, i32 n
   br label %13
 
 13:                                               ; preds = %8, %12, %11, %10, %9
-  %.0 = phi i64 [ 110, %12 ], [ 83, %9 ], [ 102, %10 ], [ 84, %11 ], [ 114, %8 ]
+  %.0 = phi i64 [ 83, %9 ], [ 102, %10 ], [ 84, %11 ], [ 110, %12 ], [ 114, %8 ]
   %14 = zext i32 %1 to i64
   %15 = tail call ptr @SearchSysCache3(i32 noundef 22, i64 noundef %14, i64 noundef 0, i64 noundef %.0) #10
   %.not.i = icmp eq ptr %15, null
@@ -5521,7 +5521,7 @@ define internal fastcc ptr @merge_acl_with_grant(ptr noundef %0, i1 noundef zero
   br i1 %32, label %.split.us, label %36
 
 .critedge:                                        ; preds = %.lr.ph55, %36, %.lr.ph.split.us.split, %.lr.ph.split.split, %8
-  %.032.lcssa = phi ptr [ %0, %8 ], [ %0, %.lr.ph.split.split ], [ %0, %.lr.ph.split.us.split ], [ %37, %36 ], [ %25, %.lr.ph55 ]
+  %.032.lcssa = phi ptr [ %0, %8 ], [ %0, %.lr.ph.split.us.split ], [ %0, %.lr.ph.split.split ], [ %37, %36 ], [ %25, %.lr.ph55 ]
   ret ptr %.032.lcssa
 
 .split.us:                                        ; preds = %.lr.ph50
@@ -5872,7 +5872,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @restrict_and_check_grant(i1
   unreachable
 
 27:                                               ; preds = %10, %23, %19, %18, %17, %16, %15, %14, %13, %12
-  %.0 = phi i64 [ 52776558145536, %23 ], [ 70914205040767, %12 ], [ 1125281431814, %13 ], [ 15393162792448, %14 ], [ 549755814016, %15 ], [ 1099511628032, %16 ], [ 25769803782, %17 ], [ 3298534884096, %18 ], [ 2199023256064, %19 ], [ 167503724583, %10 ]
+  %.0 = phi i64 [ 70914205040767, %12 ], [ 1125281431814, %13 ], [ 15393162792448, %14 ], [ 549755814016, %15 ], [ 1099511628032, %16 ], [ 25769803782, %17 ], [ 3298534884096, %18 ], [ 2199023256064, %19 ], [ 52776558145536, %23 ], [ 167503724583, %10 ]
   %28 = icmp eq i64 %1, 0
   br i1 %28, label %29, label %94
 

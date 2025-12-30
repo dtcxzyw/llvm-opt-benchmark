@@ -723,7 +723,7 @@ invoke.cont68:                                    ; preds = %invoke.cont68.loope
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont68, %if.end49, %if.end42
-  %retval.1 = phi i1 [ false, %if.end49 ], [ false, %if.end42 ], [ true, %invoke.cont68 ]
+  %retval.1 = phi i1 [ false, %if.end42 ], [ false, %if.end49 ], [ true, %invoke.cont68 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nanos_part) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %seconds_part) #15
   br label %return

@@ -488,8 +488,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %8, %3
   br label %21
 
 21:                                               ; preds = %18, %12
-  %.087.i = phi i64 [ 4, %12 ], [ %19, %18 ]
-  %.0.i = phi i32 [ %0, %12 ], [ %20, %18 ]
+  %.087.i = phi i64 [ %19, %18 ], [ 4, %12 ]
+  %.0.i = phi i32 [ %20, %18 ], [ %0, %12 ]
   %22 = icmp samesign ult i32 %.0.i, 2
   br i1 %22, label %.thread, label %.preheader31
 
@@ -518,7 +518,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %8, %3
   br i1 %30, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %29, %21
-  %.0.i29 = phi i32 [ %.0.i, %21 ], [ %.0.i, %29 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i29 = phi i32 [ %.0.i, %29 ], [ %.0.i, %21 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i29, i32 noundef 2, i32 noundef 3) #9
   unreachable
 
@@ -872,7 +872,7 @@ ossl_x509name_cmp0.exit:                          ; preds = %9
   br label %16
 
 16:                                               ; preds = %15, %ossl_x509name_cmp0.exit, %2
-  %.0 = phi i64 [ 4, %2 ], [ %., %15 ], [ -1, %ossl_x509name_cmp0.exit ]
+  %.0 = phi i64 [ 4, %2 ], [ -1, %ossl_x509name_cmp0.exit ], [ %., %15 ]
   ret i64 %.0
 }
 

@@ -423,7 +423,7 @@ define void @"_ZN79_$LT$uv_git_types..GitUrl$u20$as$u20$core..convert..TryFrom$L
           cleanup
   br label %.thread37
 
-.thread44.loopexit.split-lp:                      ; preds = %68, %31, %17, %39, %72
+.thread44.loopexit.split-lp:                      ; preds = %72, %68, %39, %31, %17
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread37

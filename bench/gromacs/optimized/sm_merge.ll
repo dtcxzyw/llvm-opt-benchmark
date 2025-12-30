@@ -295,13 +295,13 @@ define internal void @_ZL10init_mergePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr 
   ret void
 
 .sink.split51:                                    ; preds = %42, %.sink.split50, %22, %.sink.split
-  %.sink = phi ptr [ %15, %22 ], [ %15, %.sink.split ], [ %35, %.sink.split50 ], [ %35, %42 ]
-  %.pn26.pn.pn.ph = phi { ptr, i32 } [ %23, %22 ], [ %.pn26.pn36.ph, %.sink.split ], [ %.pn.pn43.ph, %.sink.split50 ], [ %43, %42 ]
+  %.sink = phi ptr [ %15, %.sink.split ], [ %15, %22 ], [ %35, %.sink.split50 ], [ %35, %42 ]
+  %.pn26.pn.pn.ph = phi { ptr, i32 } [ %.pn26.pn36.ph, %.sink.split ], [ %23, %22 ], [ %.pn.pn43.ph, %.sink.split50 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #16
   br label %45
 
 45:                                               ; preds = %.sink.split51, %42, %22
-  %.pn26.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %23, %22 ], [ %.pn26.pn.pn.ph, %.sink.split51 ]
+  %.pn26.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %43, %42 ], [ %.pn26.pn.pn.ph, %.sink.split51 ]
   resume { ptr, i32 } %.pn26.pn.pn
 
 46:                                               ; preds = %39, %19

@@ -108,7 +108,7 @@ define ptr @ASN1_UTCTIME_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   br label %ASN1_UTCTIME_adj.exit
 
 ASN1_UTCTIME_adj.exit:                            ; preds = %2, %7
-  %.0.i = phi ptr [ null, %2 ], [ %8, %7 ]
+  %.0.i = phi ptr [ %8, %7 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
@@ -140,7 +140,7 @@ define ptr @ASN1_UTCTIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64
   br label %16
 
 16:                                               ; preds = %12, %4, %14
-  %.0 = phi ptr [ null, %4 ], [ %15, %14 ], [ null, %12 ]
+  %.0 = phi ptr [ %15, %14 ], [ null, %4 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -199,7 +199,7 @@ ossl_asn1_utctime_to_tm.exit:                     ; preds = %2
   br label %ossl_asn1_utctime_to_tm.exit.thread
 
 ossl_asn1_utctime_to_tm.exit.thread:              ; preds = %2, %21, %16, %14, %11, %ossl_asn1_utctime_to_tm.exit
-  %.0 = phi i32 [ -2, %ossl_asn1_utctime_to_tm.exit ], [ -2, %14 ], [ %., %21 ], [ 1, %16 ], [ -2, %11 ], [ -2, %2 ]
+  %.0 = phi i32 [ -2, %ossl_asn1_utctime_to_tm.exit ], [ -2, %11 ], [ -2, %14 ], [ 1, %16 ], [ %., %21 ], [ -2, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

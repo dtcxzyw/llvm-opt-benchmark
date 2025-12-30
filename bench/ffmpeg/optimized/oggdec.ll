@@ -481,7 +481,7 @@ ogg_reset.exit.i:                                 ; preds = %168, %141
   br label %.thread.i
 
 .thread.i:                                        ; preds = %210, %.thread93.i, %205, %202, %197, %185, %182
-  %.3.i = phi i32 [ %.277.i, %185 ], [ %.277.i, %182 ], [ %.277.i, %.thread93.i ], [ %211, %210 ], [ %.277.i, %205 ], [ %204, %202 ], [ %.277.i, %197 ]
+  %.3.i = phi i32 [ %.277.i, %182 ], [ %.277.i, %185 ], [ %.277.i, %.thread93.i ], [ %211, %210 ], [ %.277.i, %205 ], [ %204, %202 ], [ %.277.i, %197 ]
   %212 = icmp sgt i32 %.3.i, 0
   br i1 %212, label %180, label %.critedge.i
 
@@ -489,8 +489,8 @@ ogg_reset.exit.i:                                 ; preds = %168, %141
   call fastcc void @ogg_restore(ptr noundef nonnull %0)
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %81, %._crit_edge.i, %.critedge.i, %78, %75, %._crit_edge
-  %.0.ph = phi i32 [ 0, %.critedge.i ], [ 0, %._crit_edge ], [ 0, %75 ], [ 0, %78 ], [ %139, %._crit_edge.i ], [ %82, %81 ]
+.critedge.sink.split:                             ; preds = %81, %._crit_edge.i, %78, %75, %._crit_edge, %.critedge.i
+  %.0.ph = phi i32 [ 0, %.critedge.i ], [ 0, %._crit_edge ], [ 0, %75 ], [ 0, %78 ], [ %82, %81 ], [ %139, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
@@ -640,44 +640,44 @@ ogg_reset.exit:                                   ; preds = %37, %10
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !91
   switch i32 %79, label %ogg_validate_keyframe.exit [
-    i32 30, label %91
-    i32 139, label %80
+    i32 30, label %80
+    i32 139, label %90
   ]
 
 80:                                               ; preds = %72
   %81 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %82 = load i32, ptr %81, align 8, !tbaa !94
-  %83 = and i32 %82, 1
-  %84 = load ptr, ptr %71, align 8, !tbaa !95
-  %85 = sext i32 %67 to i64
-  %86 = getelementptr inbounds i8, ptr %84, i64 %85
-  %87 = load i8, ptr %86, align 1, !tbaa !11
-  %88 = and i8 %87, 1
-  %89 = xor i8 %88, 1
-  %90 = zext nneg i8 %89 to i32
-  %.not18.i = icmp eq i32 %83, %90
-  br i1 %.not18.i, label %ogg_validate_keyframe.exit, label %101
+  %83 = load ptr, ptr %71, align 8, !tbaa !95
+  %84 = sext i32 %67 to i64
+  %85 = getelementptr inbounds i8, ptr %83, i64 %84
+  %86 = load i8, ptr %85, align 1, !tbaa !11
+  %87 = and i8 %86, 64
+  %.not16.i = icmp eq i8 %87, 0
+  %88 = trunc i32 %82 to i1
+  %89 = xor i1 %.not16.i, %88
+  br i1 %89, label %._crit_edge.i, label %ogg_validate_keyframe.exit
 
-91:                                               ; preds = %72
-  %92 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %93 = load i32, ptr %92, align 8, !tbaa !94
+._crit_edge.i:                                    ; preds = %80
+  %.pre.i = and i32 %82, 1
+  br label %101
+
+90:                                               ; preds = %72
+  %91 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %92 = load i32, ptr %91, align 8, !tbaa !94
+  %93 = and i32 %92, 1
   %94 = load ptr, ptr %71, align 8, !tbaa !95
   %95 = sext i32 %67 to i64
   %96 = getelementptr inbounds i8, ptr %94, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !11
-  %98 = and i8 %97, 64
-  %.not16.i = icmp eq i8 %98, 0
-  %99 = trunc i32 %93 to i1
-  %100 = xor i1 %.not16.i, %99
-  br i1 %100, label %._crit_edge.i, label %ogg_validate_keyframe.exit
+  %98 = and i8 %97, 1
+  %99 = xor i8 %98, 1
+  %100 = zext nneg i8 %99 to i32
+  %.not18.i = icmp eq i32 %93, %100
+  br i1 %.not18.i, label %ogg_validate_keyframe.exit, label %101
 
-._crit_edge.i:                                    ; preds = %91
-  %.pre.i = and i32 %93, 1
-  br label %101
-
-101:                                              ; preds = %._crit_edge.i, %80
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %83, %80 ]
-  %102 = phi i32 [ %93, %._crit_edge.i ], [ %82, %80 ]
+101:                                              ; preds = %90, %._crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %93, %90 ]
+  %102 = phi i32 [ %82, %._crit_edge.i ], [ %92, %90 ]
   %103 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %104 = xor i32 %102, 1
   store i32 %104, ptr %103, align 8, !tbaa !94
@@ -686,7 +686,7 @@ ogg_reset.exit:                                   ; preds = %37, %10
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.20, ptr noundef nonnull %105) #9
   br label %ogg_validate_keyframe.exit
 
-ogg_validate_keyframe.exit:                       ; preds = %62, %72, %80, %91, %101
+ogg_validate_keyframe.exit:                       ; preds = %62, %72, %80, %90, %101
   %106 = getelementptr inbounds nuw i8, ptr %65, i64 380
   %107 = load i32, ptr %106, align 4, !tbaa !96
   %.not55 = icmp eq i32 %107, 0
@@ -778,7 +778,7 @@ ogg_validate_keyframe.exit:                       ; preds = %62, %72, %80, %91, 
   br label %.critedge62
 
 .critedge62:                                      ; preds = %50, %.critedge.backedge, %148, %156, %141, %151, %112
-  %.0 = phi i32 [ -12, %141 ], [ %68, %148 ], [ %154, %151 ], [ %114, %112 ], [ %68, %156 ], [ %60, %.critedge.backedge ], [ %51, %50 ]
+  %.0 = phi i32 [ %114, %112 ], [ %154, %151 ], [ -12, %141 ], [ %68, %156 ], [ %68, %148 ], [ %60, %.critedge.backedge ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1160,44 +1160,44 @@ ogg_reset.exit:                                   ; preds = %38, %4
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !91
   switch i32 %81, label %ogg_validate_keyframe.exit [
-    i32 30, label %93
-    i32 139, label %82
+    i32 30, label %82
+    i32 139, label %92
   ]
 
 82:                                               ; preds = %74
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %84 = load i32, ptr %83, align 8, !tbaa !94
-  %85 = and i32 %84, 1
-  %86 = load ptr, ptr %73, align 8, !tbaa !95
-  %87 = sext i32 %69 to i64
-  %88 = getelementptr inbounds i8, ptr %86, i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !11
-  %90 = and i8 %89, 1
-  %91 = xor i8 %90, 1
-  %92 = zext nneg i8 %91 to i32
-  %.not18.i = icmp eq i32 %85, %92
-  br i1 %.not18.i, label %ogg_validate_keyframe.exit, label %103
+  %85 = load ptr, ptr %73, align 8, !tbaa !95
+  %86 = sext i32 %69 to i64
+  %87 = getelementptr inbounds i8, ptr %85, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !11
+  %89 = and i8 %88, 64
+  %.not16.i = icmp eq i8 %89, 0
+  %90 = trunc i32 %84 to i1
+  %91 = xor i1 %.not16.i, %90
+  br i1 %91, label %._crit_edge.i, label %ogg_validate_keyframe.exit
 
-93:                                               ; preds = %74
-  %94 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %95 = load i32, ptr %94, align 8, !tbaa !94
+._crit_edge.i:                                    ; preds = %82
+  %.pre.i = and i32 %84, 1
+  br label %103
+
+92:                                               ; preds = %74
+  %93 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %94 = load i32, ptr %93, align 8, !tbaa !94
+  %95 = and i32 %94, 1
   %96 = load ptr, ptr %73, align 8, !tbaa !95
   %97 = sext i32 %69 to i64
   %98 = getelementptr inbounds i8, ptr %96, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !11
-  %100 = and i8 %99, 64
-  %.not16.i = icmp eq i8 %100, 0
-  %101 = trunc i32 %95 to i1
-  %102 = xor i1 %.not16.i, %101
-  br i1 %102, label %._crit_edge.i, label %ogg_validate_keyframe.exit
+  %100 = and i8 %99, 1
+  %101 = xor i8 %100, 1
+  %102 = zext nneg i8 %101 to i32
+  %.not18.i = icmp eq i32 %95, %102
+  br i1 %.not18.i, label %ogg_validate_keyframe.exit, label %103
 
-._crit_edge.i:                                    ; preds = %93
-  %.pre.i = and i32 %95, 1
-  br label %103
-
-103:                                              ; preds = %._crit_edge.i, %82
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %85, %82 ]
-  %104 = phi i32 [ %95, %._crit_edge.i ], [ %84, %82 ]
+103:                                              ; preds = %92, %._crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %95, %92 ]
+  %104 = phi i32 [ %84, %._crit_edge.i ], [ %94, %92 ]
   %105 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %106 = xor i32 %104, 1
   store i32 %106, ptr %105, align 8, !tbaa !94
@@ -1206,7 +1206,7 @@ ogg_reset.exit:                                   ; preds = %38, %4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.20, ptr noundef nonnull %107) #9
   br label %ogg_validate_keyframe.exit
 
-ogg_validate_keyframe.exit:                       ; preds = %67, %74, %82, %93, %103
+ogg_validate_keyframe.exit:                       ; preds = %67, %74, %82, %92, %103
   %108 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %109 = load i32, ptr %108, align 8, !tbaa !94
   %110 = and i32 %109, 1
@@ -1232,13 +1232,13 @@ ogg_validate_keyframe.exit:                       ; preds = %67, %74, %82, %93, 
   br label %.thread
 
 .thread:                                          ; preds = %54, %111, %118, %113, %116
-  %.128 = phi i64 [ %112, %111 ], [ %.027.ph, %116 ], [ %.027.ph, %113 ], [ %.027.ph, %118 ], [ %.027.ph, %54 ]
-  %.2 = phi i64 [ %68, %111 ], [ -9223372036854775808, %116 ], [ %68, %113 ], [ %68, %118 ], [ -9223372036854775808, %54 ]
+  %.128 = phi i64 [ %.027.ph, %116 ], [ %.027.ph, %113 ], [ %.027.ph, %118 ], [ %112, %111 ], [ %.027.ph, %54 ]
+  %.2 = phi i64 [ -9223372036854775808, %116 ], [ %68, %113 ], [ %68, %118 ], [ %68, %111 ], [ -9223372036854775808, %54 ]
   %.not37 = icmp eq i64 %.2, -9223372036854775808
   br i1 %.not37, label %.outer, label %.critedge, !llvm.loop !111
 
 .critedge:                                        ; preds = %.thread, %50, %52
-  %.1 = phi i64 [ -9223372036854775808, %50 ], [ -9223372036854775808, %52 ], [ %.2, %.thread ]
+  %.1 = phi i64 [ -9223372036854775808, %52 ], [ -9223372036854775808, %50 ], [ %.2, %.thread ]
   %119 = load ptr, ptr %8, align 8, !tbaa !12
   %120 = load ptr, ptr %10, align 8, !tbaa !58
   %121 = call i64 @avio_seek(ptr noundef %120, i64 noundef 0, i32 noundef 1) #9
@@ -1693,7 +1693,7 @@ ogg_find_codec.exit:                              ; preds = %46
   br label %.loopexit164
 
 .loopexit164:                                     ; preds = %33, %.lr.ph, %.loopexit, %170, %133, %90, %52
-  %.0 = phi i32 [ 0, %.loopexit ], [ %88, %90 ], [ %18, %.lr.ph ], [ %131, %133 ], [ 0, %52 ], [ 0, %170 ], [ 0, %33 ]
+  %.0 = phi i32 [ %88, %90 ], [ %131, %133 ], [ 0, %52 ], [ 0, %170 ], [ 0, %.loopexit ], [ %18, %.lr.ph ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2134,7 +2134,7 @@ data_packets_seen.exit:                           ; preds = %152
   br label %buf_realloc.exit
 
 buf_realloc.exit:                                 ; preds = %54, %109, %62, %214, %167, %160, %143, %137, %127, %83, %.thread, %15
-  %.0 = phi i32 [ %17, %15 ], [ -12, %109 ], [ -1094995529, %.thread ], [ 0, %214 ], [ %85, %83 ], [ %63, %62 ], [ %130, %127 ], [ 0, %137 ], [ 0, %143 ], [ %.1161, %160 ], [ %165, %167 ], [ -541478725, %54 ]
+  %.0 = phi i32 [ %17, %15 ], [ -1094995529, %.thread ], [ %85, %83 ], [ %130, %127 ], [ 0, %137 ], [ 0, %143 ], [ %.1161, %160 ], [ %165, %167 ], [ 0, %214 ], [ %63, %62 ], [ -12, %109 ], [ -541478725, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2266,7 +2266,7 @@ ogg_find_codec.exit.thread:                       ; preds = %15, %ogg_find_codec
   br label %30
 
 30:                                               ; preds = %ogg_find_codec.exit.thread, %25, %21, %10
-  %.0 = phi i32 [ -1163346256, %10 ], [ -1094995529, %21 ], [ 0, %25 ], [ -22, %ogg_find_codec.exit.thread ]
+  %.0 = phi i32 [ -1163346256, %10 ], [ 0, %25 ], [ -1094995529, %21 ], [ -22, %ogg_find_codec.exit.thread ]
   ret i32 %.0
 }
 

@@ -934,7 +934,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h15633a8327a09b05E
   br label %"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f64_gt28_$u7b$$u7b$closure$u7d$$u7d$17he23f9979d6275325E.exit"
 
 "_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f64_gt28_$u7b$$u7b$closure$u7d$$u7d$17he23f9979d6275325E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %49, %56, %14, %24, %31, %9
-  %.sink.i = phi i8 [ 1, %14 ], [ 0, %9 ], [ 1, %31 ], [ 1, %24 ], [ 1, %56 ], [ 1, %49 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %31 ], [ 1, %24 ], [ 1, %14 ], [ 1, %56 ], [ 1, %49 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink.i, ptr %57, align 1, !alias.scope !108, !noalias !111
   store i8 0, ptr %0, align 8, !alias.scope !108, !noalias !111
@@ -1463,7 +1463,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1f62a5f5d4af20f6E
   br label %"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f32_gt28_$u7b$$u7b$closure$u7d$$u7d$17hdeec73f0b6dd39b0E.exit"
 
 "_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f32_gt28_$u7b$$u7b$closure$u7d$$u7d$17hdeec73f0b6dd39b0E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %48, %55, %13, %23, %30, %9
-  %.sink.i = phi i8 [ 1, %13 ], [ 0, %9 ], [ 1, %30 ], [ 1, %23 ], [ 1, %55 ], [ 1, %48 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %30 ], [ 1, %23 ], [ 1, %13 ], [ 1, %55 ], [ 1, %48 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink.i, ptr %56, align 1, !alias.scope !213, !noalias !216
   store i8 0, ptr %0, align 8, !alias.scope !213, !noalias !216
@@ -2347,7 +2347,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h37439297534f531aE
   br label %"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f64_lt28_$u7b$$u7b$closure$u7d$$u7d$17he9724ffce82ce1ccE.exit"
 
 "_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f64_lt28_$u7b$$u7b$closure$u7d$$u7d$17he9724ffce82ce1ccE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %49, %56, %14, %24, %31, %9
-  %.sink.i = phi i8 [ 1, %14 ], [ 0, %9 ], [ 1, %31 ], [ 1, %24 ], [ 1, %56 ], [ 1, %49 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %31 ], [ 1, %24 ], [ 1, %14 ], [ 1, %56 ], [ 1, %49 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink.i, ptr %57, align 1, !alias.scope !373, !noalias !376
   store i8 0, ptr %0, align 8, !alias.scope !373, !noalias !376
@@ -3250,7 +3250,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h48e8e910f66753bfE
   br label %"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f64_lt28_$u7b$$u7b$closure$u7d$$u7d$17hee38940975f35cdfE.exit"
 
 "_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f64_lt28_$u7b$$u7b$closure$u7d$$u7d$17hee38940975f35cdfE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %48, %55, %13, %23, %30, %9
-  %.sink.i = phi i8 [ 1, %13 ], [ 0, %9 ], [ 1, %30 ], [ 1, %23 ], [ 1, %55 ], [ 1, %48 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %30 ], [ 1, %23 ], [ 1, %13 ], [ 1, %55 ], [ 1, %48 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink.i, ptr %56, align 1, !alias.scope !539, !noalias !542
   store i8 0, ptr %0, align 8, !alias.scope !539, !noalias !542
@@ -6803,7 +6803,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hbc46de3f0f81f92dE
   br label %"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f32_lt28_$u7b$$u7b$closure$u7d$$u7d$17h9c1ed71e9c310531E.exit"
 
 "_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f32_lt28_$u7b$$u7b$closure$u7d$$u7d$17h9c1ed71e9c310531E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %48, %55, %13, %23, %30, %9
-  %.sink.i = phi i8 [ 1, %13 ], [ 0, %9 ], [ 1, %30 ], [ 1, %23 ], [ 1, %55 ], [ 1, %48 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %30 ], [ 1, %23 ], [ 1, %13 ], [ 1, %55 ], [ 1, %48 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink.i, ptr %56, align 1, !alias.scope !1182, !noalias !1185
   store i8 0, ptr %0, align 8, !alias.scope !1182, !noalias !1185
@@ -6939,7 +6939,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hbc58d893f4582fc3E
   br label %"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f64_gt28_$u7b$$u7b$closure$u7d$$u7d$17h48c54163dc259811E.exit"
 
 "_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f64_gt28_$u7b$$u7b$closure$u7d$$u7d$17h48c54163dc259811E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %48, %55, %13, %23, %30, %9
-  %.sink.i = phi i8 [ 1, %13 ], [ 0, %9 ], [ 1, %30 ], [ 1, %23 ], [ 1, %55 ], [ 1, %48 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %30 ], [ 1, %23 ], [ 1, %13 ], [ 1, %55 ], [ 1, %48 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink.i, ptr %56, align 1, !alias.scope !1206, !noalias !1209
   store i8 0, ptr %0, align 8, !alias.scope !1206, !noalias !1209
@@ -7075,7 +7075,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hbe090c8a3276eb2cE
   br label %"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f32_lt28_$u7b$$u7b$closure$u7d$$u7d$17h22653eec3c90896cE.exit"
 
 "_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f32_lt28_$u7b$$u7b$closure$u7d$$u7d$17h22653eec3c90896cE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %49, %56, %14, %24, %31, %9
-  %.sink.i = phi i8 [ 1, %14 ], [ 0, %9 ], [ 1, %31 ], [ 1, %24 ], [ 1, %56 ], [ 1, %49 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %31 ], [ 1, %24 ], [ 1, %14 ], [ 1, %56 ], [ 1, %49 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink.i, ptr %57, align 1, !alias.scope !1230, !noalias !1233
   store i8 0, ptr %0, align 8, !alias.scope !1230, !noalias !1233
@@ -8024,7 +8024,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd40c3c690d78b484E
   br label %"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f32_gt28_$u7b$$u7b$closure$u7d$$u7d$17hfe7e7705656200f9E.exit"
 
 "_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$wasmparser..readers..core..operators..VisitOperator$u20$for$u20$wasmi..engine..translator..FuncTranslator$GT$12visit_f32_gt28_$u7b$$u7b$closure$u7d$$u7d$17hfe7e7705656200f9E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %49, %56, %14, %24, %31, %9
-  %.sink.i = phi i8 [ 1, %14 ], [ 0, %9 ], [ 1, %31 ], [ 1, %24 ], [ 1, %56 ], [ 1, %49 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %31 ], [ 1, %24 ], [ 1, %14 ], [ 1, %56 ], [ 1, %49 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink.i, ptr %57, align 1, !alias.scope !1409, !noalias !1412
   store i8 0, ptr %0, align 8, !alias.scope !1409, !noalias !1412
@@ -9932,7 +9932,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not, label %31, label %30
 
 30:                                               ; preds = %60, %57, %28, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit20", %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit"
-  %.sroa.03.0 = phi ptr [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit" ], [ %44, %42 ], [ %29, %28 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit20" ], [ %67, %60 ], [ %59, %57 ]
+  %.sroa.03.0 = phi ptr [ %44, %42 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit20" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit" ], [ %29, %28 ], [ %67, %60 ], [ %59, %57 ]
   ret ptr %.sroa.03.0
 
 31:                                               ; preds = %28
@@ -10086,7 +10086,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not, label %35, label %34
 
 34:                                               ; preds = %32, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit35", %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit34", %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit"
-  %.sroa.03.0 = phi ptr [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit" ], [ %45, %43 ], [ %.sroa.03.1, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit35" ], [ null, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit34" ], [ %33, %32 ]
+  %.sroa.03.0 = phi ptr [ %45, %43 ], [ %.sroa.03.1, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit35" ], [ null, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit34" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha7760c041bf18197E.exit" ], [ %33, %32 ]
   ret ptr %.sroa.03.0
 
 35:                                               ; preds = %32
@@ -10557,7 +10557,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br label %41
 
 _ZN5wasmi6engine10translator14FuncTranslator19alloc_branch_params17hed65e88737f2d039E.exit.thread: ; preds = %57, %54, %84, %78, %71, %42, %31
-  %.sroa.03.1 = phi ptr [ %83, %78 ], [ %38, %31 ], [ %43, %42 ], [ %89, %84 ], [ %77, %71 ], [ %64, %57 ], [ %56, %54 ]
+  %.sroa.03.1 = phi ptr [ %38, %31 ], [ %43, %42 ], [ %77, %71 ], [ %83, %78 ], [ %89, %84 ], [ %64, %57 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %41
 
@@ -11274,7 +11274,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %185, label %186, label %189
 
 189:                                              ; preds = %195, %188, %186, %145
-  %.sroa.0.1.i = phi ptr [ %149, %145 ], [ %182, %195 ], [ null, %188 ], [ %187, %186 ]
+  %.sroa.0.1.i = phi ptr [ %182, %195 ], [ %149, %145 ], [ null, %188 ], [ %187, %186 ]
   %190 = load i32, ptr %25, align 8, !range !1743, !alias.scope !1857, !noalias !1847, !noundef !14
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57.i", label %192
@@ -11303,7 +11303,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   unreachable
 
 common.resume:                                    ; preds = %.thread.i.i.i, %120, %123, %198
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %120 ], [ %199, %198 ], [ %lpad.phi.i, %123 ], [ %.pn75.i.i.i, %.thread.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %199, %198 ], [ %lpad.phi.i, %123 ], [ %lpad.phi.i, %120 ], [ %.pn75.i.i.i, %.thread.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 198:                                              ; preds = %109, %97
@@ -11313,7 +11313,7 @@ common.resume:                                    ; preds = %.thread.i.i.i, %120
           to label %common.resume unwind label %196
 
 _ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit: ; preds = %53, %85, %86, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57.i"
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57.i" ], [ null, %85 ], [ %80, %86 ], [ %58, %53 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57.i" ], [ %80, %86 ], [ null, %85 ], [ %58, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit
 
@@ -11634,7 +11634,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_else_only17h445f4
           to label %.sink.split.i.i.i unwind label %270
 
 .sink.split.i.i.i:                                ; preds = %333, %332, %321, %319, %318, %297
-  %.sroa.0.0.ph.i.i.i = phi ptr [ %290, %332 ], [ %317, %321 ], [ %317, %333 ], [ %296, %297 ], [ null, %319 ], [ null, %318 ]
+  %.sroa.0.0.ph.i.i.i = phi ptr [ %317, %333 ], [ %317, %321 ], [ %296, %297 ], [ %290, %332 ], [ null, %319 ], [ null, %318 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1893
   call void @"_ZN4core3ptr42drop_in_place$LT$wasmi..engine..Engine$GT$17h573f030729ecf630E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1893
@@ -11697,7 +11697,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_else_only17h445f4
           to label %.thread.i.i.i unwind label %334
 
 _ZN5wasmi6engine10translator14FuncTranslator34translate_end_if_then_missing_else17h477d5fc40deb466fE.exit.i.i: ; preds = %.sink.split.i.i.i, %252, %243, %238
-  %.sroa.0.0.i.i.i = phi ptr [ %242, %238 ], [ %259, %252 ], [ %249, %243 ], [ %.sroa.0.0.ph.i.i.i, %.sink.split.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %242, %238 ], [ %249, %243 ], [ %259, %252 ], [ %.sroa.0.0.ph.i.i.i, %.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1884
   br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f715b8c280eaE.exit.i
 
@@ -11802,7 +11802,7 @@ _ZN5wasmi6engine10translator14FuncTranslator34translate_end_if_then_missing_else
   br label %_ZN5wasmi6engine10translator14FuncTranslator31translate_end_if_then_with_else17h3443901dd29a255aE.exit.i.i
 
 _ZN5wasmi6engine10translator14FuncTranslator31translate_end_if_then_with_else17h3443901dd29a255aE.exit.i.i: ; preds = %387, %368, %362
-  %.sroa.0.0.i2.i.i = phi ptr [ null, %368 ], [ %385, %387 ], [ %367, %362 ]
+  %.sroa.0.0.i2.i.i = phi ptr [ %385, %387 ], [ null, %368 ], [ %367, %362 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1884
   br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f715b8c280eaE.exit.i
 
@@ -11812,7 +11812,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f
   br label %_ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit
 
 _ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit: ; preds = %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f715b8c280eaE.exit.i, %218, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_else_only17h445f4d05625f69e7E.exit.i, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit
-  %.sroa.02.0 = phi ptr [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit ], [ %223, %218 ], [ %217, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_else_only17h445f4d05625f69e7E.exit.i ], [ %.sroa.0.0.i1.i, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f715b8c280eaE.exit.i ]
+  %.sroa.02.0 = phi ptr [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit ], [ %.sroa.0.0.i1.i, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_then_else17h32d0f715b8c280eaE.exit.i ], [ %223, %218 ], [ %217, %_ZN5wasmi6engine10translator14FuncTranslator26translate_end_if_else_only17h445f4d05625f69e7E.exit.i ]
   %.not = icmp eq ptr %.sroa.02.0, null
   br i1 %.not, label %_ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit.thread, label %388
 
@@ -12140,7 +12140,7 @@ _ZN5wasmi6engine10translator14FuncTranslator15push_base_instr17hee06ea64564e6534
   br label %.sink.split
 
 139:                                              ; preds = %.invoke, %_ZN5wasmi6engine10translator14FuncTranslator15push_base_instr17hee06ea64564e6534E.exit, %118, %112, %106
-  %.sroa.0.1 = phi ptr [ %116, %112 ], [ %105, %106 ], [ %132, %_ZN5wasmi6engine10translator14FuncTranslator15push_base_instr17hee06ea64564e6534E.exit ], [ %103, %.invoke ], [ %122, %118 ]
+  %.sroa.0.1 = phi ptr [ %105, %106 ], [ %116, %112 ], [ %122, %118 ], [ %132, %_ZN5wasmi6engine10translator14FuncTranslator15push_base_instr17hee06ea64564e6534E.exit ], [ %103, %.invoke ]
   %140 = load i32, ptr %7, align 8, !range !1743, !alias.scope !1925, !noundef !14
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit71", label %142
@@ -12411,7 +12411,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
           to label %98 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1934
 
 98:                                               ; preds = %96, %94, %92, %90, %88
-  %.sroa.0.2.i = phi ptr [ %97, %96 ], [ %95, %94 ], [ %91, %90 ], [ %93, %92 ], [ %89, %88 ]
+  %.sroa.0.2.i = phi ptr [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %89, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1936
   br label %_ZN5wasmi6engine10translator14FuncTranslator18translate_br_table17h347a79dde5478a35E.exit
 
@@ -12515,7 +12515,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   resume { ptr, i32 } %lpad.phi.i
 
 _ZN5wasmi6engine10translator14FuncTranslator18translate_br_table17h347a79dde5478a35E.exit: ; preds = %60, %98, %.invoke.i, %124
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.2.i, %98 ], [ %51, %60 ], [ %117, %124 ], [ %123, %.invoke.i ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.2.i, %98 ], [ %117, %124 ], [ %51, %60 ], [ %123, %.invoke.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1936
   call void @"_ZN4core3ptr42drop_in_place$LT$wasmi..engine..Engine$GT$17h573f030729ecf630E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14), !noalias !1934
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1936
@@ -12560,7 +12560,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not, label %13, label %12
 
 .sink.split:                                      ; preds = %63, %33, %60
-  %.sroa.0.0.ph = phi ptr [ %62, %60 ], [ %35, %33 ], [ %68, %63 ]
+  %.sroa.0.0.ph = phi ptr [ %35, %33 ], [ %62, %60 ], [ %68, %63 ]
   call void @"_ZN4core3ptr46drop_in_place$LT$wasmi..func..ty..FuncType$GT$17h12d45bbe09c061bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %12
@@ -12644,7 +12644,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
           to label %51 unwind label %20
 
 51:                                               ; preds = %55, %53, %49, %47
-  %.sroa.011.0 = phi i64 [ %50, %49 ], [ %54, %53 ], [ %48, %47 ], [ %56, %55 ]
+  %.sroa.011.0 = phi i64 [ %48, %47 ], [ %50, %49 ], [ %54, %53 ], [ %56, %55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 272
   invoke void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0fe88762d0E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(88) %52, i64 %.sroa.011.0)
@@ -12709,7 +12709,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not, label %18, label %17
 
 .sink.split:                                      ; preds = %90, %46, %57, %79, %85
-  %.sroa.0.0.ph = phi ptr [ %83, %79 ], [ %48, %46 ], [ %89, %85 ], [ %61, %57 ], [ %95, %90 ]
+  %.sroa.0.0.ph = phi ptr [ %48, %46 ], [ %61, %57 ], [ %83, %79 ], [ %89, %85 ], [ %95, %90 ]
   call void @"_ZN4core3ptr46drop_in_place$LT$wasmi..func..ty..FuncType$GT$17h12d45bbe09c061bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %17
@@ -12846,7 +12846,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
           to label %72 unwind label %28
 
 72:                                               ; preds = %77, %75, %70, %68
-  %.sroa.017.0 = phi i64 [ %71, %70 ], [ %76, %75 ], [ %69, %68 ], [ %78, %77 ]
+  %.sroa.017.0 = phi i64 [ %69, %68 ], [ %71, %70 ], [ %76, %75 ], [ %78, %77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 272
   invoke void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0fe88762d0E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(88) %73, i64 %.sroa.017.0)
@@ -12981,8 +12981,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
           to label %38 unwind label %19
 
 38:                                               ; preds = %42, %40, %36, %34
-  %.sroa.07.0 = phi i64 [ 99, %36 ], [ 96, %40 ], [ 98, %34 ], [ 97, %42 ]
-  %.sroa.59.0 = phi i32 [ %37, %36 ], [ %41, %40 ], [ %35, %34 ], [ %43, %42 ]
+  %.sroa.07.0 = phi i64 [ 98, %34 ], [ 99, %36 ], [ 96, %40 ], [ 97, %42 ]
+  %.sroa.59.0 = phi i32 [ %35, %34 ], [ %37, %36 ], [ %41, %40 ], [ %43, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.sroa.523.0.insert.ext = zext i32 %.sroa.59.0 to i64
@@ -13168,7 +13168,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br label %57
 
 57:                                               ; preds = %55, %54, %60, %56
-  %.sroa.013.0 = phi i64 [ 100, %54 ], [ 103, %60 ], [ 101, %56 ], [ 102, %55 ]
+  %.sroa.013.0 = phi i64 [ 103, %60 ], [ 101, %56 ], [ 100, %54 ], [ 102, %55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.sroa.538.0.insert.ext = zext i32 %17 to i64
@@ -13315,7 +13315,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %13, label %15, label %18
 
 14:                                               ; preds = %_ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit, %18, %2, %26, %15
-  %.sroa.0.0 = phi ptr [ %17, %15 ], [ null, %2 ], [ %28, %26 ], [ %61, %_ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit ], [ null, %18 ]
+  %.sroa.0.0 = phi ptr [ %17, %15 ], [ %28, %26 ], [ null, %2 ], [ null, %18 ], [ %61, %_ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit ]
   ret ptr %.sroa.0.0
 
 15:                                               ; preds = %10
@@ -13435,7 +13435,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not, label %12, label %.sink.split
 
 .sink.split:                                      ; preds = %30, %8, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit, %33
-  %.sroa.0.0.ph = phi ptr [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit ], [ null, %33 ], [ %32, %30 ], [ %10, %8 ]
+  %.sroa.0.0.ph = phi ptr [ null, %33 ], [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit ], [ %32, %30 ], [ %10, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11
 
@@ -13708,7 +13708,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not, label %27, label %21
 
 .sink.split:                                      ; preds = %71, %32, %57, %64, %36, %35
-  %.sroa.0.0.ph = phi ptr [ null, %35 ], [ %spec.select, %71 ], [ %34, %32 ], [ %44, %36 ], [ %.sroa.0.3, %57 ], [ %.sroa.0.4, %64 ]
+  %.sroa.0.0.ph = phi ptr [ null, %35 ], [ %.sroa.0.3, %57 ], [ %.sroa.0.4, %64 ], [ %34, %32 ], [ %44, %36 ], [ %spec.select, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %20
 
@@ -13860,7 +13860,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2075
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14101,7 +14101,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2091
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14342,7 +14342,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2107
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14583,7 +14583,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2123
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14824,7 +14824,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2139
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -15065,7 +15065,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2155
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -15306,7 +15306,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2171
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -15547,7 +15547,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2187
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -15788,7 +15788,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2203
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -16029,7 +16029,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2219
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -16270,7 +16270,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2235
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -16511,7 +16511,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2251
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -16752,7 +16752,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2267
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -16993,7 +16993,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2283
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -17337,7 +17337,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %21, label %23, label %26
 
 .sink.split:                                      ; preds = %57, %23, %30, %47, %44, %52
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %57 ], [ %25, %23 ], [ %32, %30 ], [ %46, %44 ], [ null, %47 ], [ %56, %52 ]
+  %.sroa.0.0.ph = phi ptr [ %25, %23 ], [ %32, %30 ], [ %46, %44 ], [ null, %47 ], [ %56, %52 ], [ %spec.select, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %22
 
@@ -19172,7 +19172,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %23, label %25, label %28
 
 .sink.split:                                      ; preds = %65, %25, %33, %41, %54, %59
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %65 ], [ %27, %25 ], [ %35, %33 ], [ %43, %41 ], [ %64, %59 ], [ %58, %54 ]
+  %.sroa.0.0.ph = phi ptr [ %27, %25 ], [ %35, %33 ], [ %43, %41 ], [ %58, %54 ], [ %64, %59 ], [ %spec.select, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %24
@@ -19367,7 +19367,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %38, label %40, label %43
 
 .sink.split:                                      ; preds = %79, %40, %48, %51, %68, %73
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %79 ], [ %42, %40 ], [ %50, %48 ], [ %78, %73 ], [ %57, %51 ], [ %72, %68 ]
+  %.sroa.0.0.ph = phi ptr [ %42, %40 ], [ %50, %48 ], [ %57, %51 ], [ %72, %68 ], [ %78, %73 ], [ %spec.select, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -19509,7 +19509,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %24, label %26, label %29
 
 .sink.split:                                      ; preds = %61, %26, %36, %52
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %61 ], [ %28, %26 ], [ %38, %36 ], [ %56, %52 ]
+  %.sroa.0.0.ph = phi ptr [ %28, %26 ], [ %38, %36 ], [ %56, %52 ], [ %spec.select, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %25
@@ -19641,7 +19641,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %22, label %24, label %27
 
 .sink.split:                                      ; preds = %65, %24, %32, %40, %53, %58
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %65 ], [ %26, %24 ], [ %34, %32 ], [ %42, %40 ], [ %64, %58 ], [ %57, %53 ]
+  %.sroa.0.0.ph = phi ptr [ %26, %24 ], [ %34, %32 ], [ %42, %40 ], [ %57, %53 ], [ %64, %58 ], [ %spec.select, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %23
@@ -19835,7 +19835,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %36, label %38, label %41
 
 .sink.split:                                      ; preds = %78, %38, %46, %49, %66, %71
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %78 ], [ %40, %38 ], [ %48, %46 ], [ %77, %71 ], [ %55, %49 ], [ %70, %66 ]
+  %.sroa.0.0.ph = phi ptr [ %40, %38 ], [ %48, %46 ], [ %55, %49 ], [ %70, %66 ], [ %77, %71 ], [ %spec.select, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -19989,7 +19989,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %24, label %26, label %29
 
 .sink.split:                                      ; preds = %67, %26, %35, %52, %62
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %67 ], [ %28, %26 ], [ %37, %35 ], [ %54, %52 ], [ %66, %62 ]
+  %.sroa.0.0.ph = phi ptr [ %28, %26 ], [ %37, %35 ], [ %54, %52 ], [ %66, %62 ], [ %spec.select, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
@@ -20265,7 +20265,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %22, label %24, label %27
 
 .sink.split:                                      ; preds = %54, %24, %38, %51
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %54 ], [ %26, %24 ], [ %40, %38 ], [ %53, %51 ]
+  %.sroa.0.0.ph = phi ptr [ %26, %24 ], [ %40, %38 ], [ %53, %51 ], [ %spec.select, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -20416,7 +20416,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %25, label %27, label %30
 
 .sink.split:                                      ; preds = %81, %27, %40, %53, %64, %76, %47
-  %.sroa.0.0.ph = phi ptr [ %68, %64 ], [ %29, %27 ], [ %80, %76 ], [ %44, %40 ], [ %spec.select65, %81 ], [ %spec.select, %47 ], [ %61, %53 ]
+  %.sroa.0.0.ph = phi ptr [ %29, %27 ], [ %44, %40 ], [ %61, %53 ], [ %68, %64 ], [ %80, %76 ], [ %spec.select, %47 ], [ %spec.select65, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -20660,7 +20660,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2464
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -20901,7 +20901,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2480
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -21142,7 +21142,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2496
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -21383,7 +21383,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2512
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -21624,7 +21624,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2528
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -21865,7 +21865,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2544
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -22106,7 +22106,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2560
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -22347,7 +22347,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2576
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -22588,7 +22588,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2592
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -22829,7 +22829,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2608
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -23070,7 +23070,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2624
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -23311,7 +23311,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2640
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -23552,7 +23552,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br i1 %.not.i, label %30, label %25
 
 .sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %.sroa.0.3.i, %104 ], [ null, %87 ], [ %69, %65 ], [ %77, %72 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %126, %121 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2656
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -23988,7 +23988,7 @@ _ZN4core5array11try_from_fn17h8cdd6d98be5e57beE.exit: ; preds = %38
   br i1 %or.cond, label %47, label %50
 
 _ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit: ; preds = %73, %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit", %115, %109, %94, %85, %2, %82, %74
-  %.sroa.0.0 = phi ptr [ %.sroa.03.0.i, %115 ], [ %76, %74 ], [ %84, %82 ], [ null, %2 ], [ %91, %85 ], [ %103, %94 ], [ %114, %109 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit" ], [ null, %66 ], [ null, %73 ]
+  %.sroa.0.0 = phi ptr [ %76, %74 ], [ %84, %82 ], [ null, %2 ], [ %91, %85 ], [ %103, %94 ], [ %114, %109 ], [ %.sroa.03.0.i, %115 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit" ], [ null, %66 ], [ null, %73 ]
   ret ptr %.sroa.0.0
 
 47:                                               ; preds = %_ZN4core5array11try_from_fn17h8cdd6d98be5e57beE.exit
@@ -24418,7 +24418,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -24645,7 +24645,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -24836,7 +24836,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -25027,7 +25027,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -25218,7 +25218,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -25409,7 +25409,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -25600,7 +25600,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -25791,7 +25791,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -25982,7 +25982,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -26173,7 +26173,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -26364,7 +26364,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -26555,7 +26555,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -26746,7 +26746,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -26937,7 +26937,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -27128,7 +27128,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -27319,7 +27319,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -27510,7 +27510,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -27701,7 +27701,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -27892,7 +27892,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -28083,7 +28083,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -28274,7 +28274,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -28465,7 +28465,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -28656,7 +28656,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -28847,7 +28847,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -29038,7 +29038,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -29229,7 +29229,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -29420,7 +29420,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -29611,7 +29611,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -29802,7 +29802,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -29993,7 +29993,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -30184,7 +30184,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -30375,7 +30375,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -30566,7 +30566,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -30757,7 +30757,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -30948,7 +30948,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -31139,7 +31139,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -31330,7 +31330,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -31521,7 +31521,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -31712,7 +31712,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -31903,7 +31903,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -32094,7 +32094,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -32285,7 +32285,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -32476,7 +32476,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -32667,7 +32667,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -32858,7 +32858,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -33049,7 +33049,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -33240,7 +33240,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -33431,7 +33431,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -33622,7 +33622,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -33819,7 +33819,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -34010,7 +34010,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -34201,7 +34201,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -34392,7 +34392,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -34625,7 +34625,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -34816,7 +34816,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -35025,7 +35025,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -35216,7 +35216,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -35407,7 +35407,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -35598,7 +35598,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -35789,7 +35789,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -35980,7 +35980,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -36171,7 +36171,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -36362,7 +36362,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -36553,7 +36553,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -36744,7 +36744,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -36935,7 +36935,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -37150,7 +37150,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -37353,7 +37353,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -37544,7 +37544,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -37777,7 +37777,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -37968,7 +37968,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -38159,7 +38159,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -38350,7 +38350,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -38541,7 +38541,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -38732,7 +38732,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -38923,7 +38923,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -39114,7 +39114,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -39305,7 +39305,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -39496,7 +39496,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -39687,7 +39687,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -39878,7 +39878,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -40069,7 +40069,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -40260,7 +40260,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -40451,7 +40451,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -40642,7 +40642,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -40911,7 +40911,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -41102,7 +41102,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -41293,7 +41293,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -41484,7 +41484,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -41675,7 +41675,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -41866,7 +41866,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -42057,7 +42057,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -42248,7 +42248,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -42439,7 +42439,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -42630,7 +42630,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -42821,7 +42821,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -43012,7 +43012,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -43269,7 +43269,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -43460,7 +43460,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -43651,7 +43651,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -43842,7 +43842,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -44033,7 +44033,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -44224,7 +44224,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -44415,7 +44415,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -44648,7 +44648,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -44839,7 +44839,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -45030,7 +45030,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -45221,7 +45221,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -45412,7 +45412,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -45603,7 +45603,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -45794,7 +45794,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -45985,7 +45985,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -46218,7 +46218,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -46409,7 +46409,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -46600,7 +46600,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -46791,7 +46791,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -46982,7 +46982,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -47173,7 +47173,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -47364,7 +47364,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -47555,7 +47555,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -47914,7 +47914,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   br label %"_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit"
 
 "_ZN5wasmi6engine10translator4simd59_$LT$impl$u20$wasmi..engine..translator..FuncTranslator$GT$21translate_simd_binary17h7e4f451f637ca013E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i", %44, %51, %1, %52, %60, %68, %77, %80
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %54, %52 ], [ %62, %60 ], [ %70, %68 ], [ %79, %77 ], [ null, %80 ], [ null, %1 ], [ null, %51 ], [ null, %44 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -47980,7 +47980,7 @@ define internal fastcc noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd59
   br i1 %or.cond47, label %35, label %38
 
 _ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit: ; preds = %61, %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit", %99, %93, %81, %3, %78, %70, %62
-  %.sroa.0.0 = phi ptr [ %.sroa.03.0.i, %99 ], [ %64, %62 ], [ %72, %70 ], [ %80, %78 ], [ null, %3 ], [ %87, %81 ], [ %98, %93 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit" ], [ null, %54 ], [ null, %61 ]
+  %.sroa.0.0 = phi ptr [ %64, %62 ], [ %72, %70 ], [ %80, %78 ], [ null, %3 ], [ %87, %81 ], [ %98, %93 ], [ %.sroa.03.0.i, %99 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit" ], [ null, %54 ], [ null, %61 ]
   ret ptr %.sroa.0.0
 
 35:                                               ; preds = %25
@@ -48721,7 +48721,7 @@ _ZN5wasmi6engine10translator14FuncTranslator4init17h907816771d4df405E.exit: ; pr
           to label %125 unwind label %114
 
 .body.thread:                                     ; preds = %.body.i, %125
-  %.pn19 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %.pn.ph, %125 ]
+  %.pn19 = phi { ptr, i32 } [ %.pn.ph, %125 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %.pn19
 
 125:                                              ; preds = %124
@@ -49136,7 +49136,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   br i1 %79, label %"_ZN94_$LT$core..slice..iter..Windows$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h207e538fb278233cE.exit.i", label %.lr.ph.i
 
 "_ZN94_$LT$core..slice..iter..Windows$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h207e538fb278233cE.exit.i": ; preds = %75, %.noexc28
-  %.sroa.01.0.lcssa.i = phi i64 [ %.sroa.01.019.i, %.noexc28 ], [ %78, %75 ]
+  %.sroa.01.0.lcssa.i = phi i64 [ %78, %75 ], [ %.sroa.01.019.i, %.noexc28 ]
   %.not5.i26 = icmp ugt i64 %.sroa.01.0.lcssa.i, %.sroa.6.0
   br i1 %.not5.i26, label %81, label %83, !prof !1897
 
@@ -49188,7 +49188,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit31"
 
 "_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit31": ; preds = %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit31.sink.split", %.thread, %118
-  %.sroa.0.1 = phi ptr [ null, %.thread ], [ %.sroa.0.0, %118 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit31.sink.split" ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %118 ], [ null, %.thread ], [ %.sroa.0.1.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit31.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.sroa.0.1
 
@@ -49427,7 +49427,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %62, %57
-  %.sroa.0.0.ph = phi ptr [ null, %62 ], [ %59, %57 ], [ %.sroa.0.0.ph.ph, %.sink.split.sink.split ]
+  %.sroa.0.0.ph = phi ptr [ %59, %57 ], [ null, %62 ], [ %.sroa.0.0.ph.ph, %.sink.split.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
@@ -49520,7 +49520,7 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTr
   br label %44
 
 44:                                               ; preds = %12, %45, %42
-  %.sroa.0.0 = phi ptr [ null, %42 ], [ %37, %45 ], [ %17, %12 ]
+  %.sroa.0.0 = phi ptr [ %37, %45 ], [ null, %42 ], [ %17, %12 ]
   ret ptr %.sroa.0.0
 
 45:                                               ; preds = %35
@@ -49672,8 +49672,8 @@ define hidden { i64, i64 } @_ZN5wasmi6engine10translator14FuncTranslator17effect
   br i1 %or.cond.not, label %39, label %36
 
 36:                                               ; preds = %39, %33, %26, %18
-  %.sroa.6.0 = phi i64 [ %spec.select, %39 ], [ undef, %18 ], [ undef, %26 ], [ undef, %33 ]
-  %.sroa.0.0 = phi i64 [ %spec.select8, %39 ], [ 0, %18 ], [ 0, %26 ], [ 0, %33 ]
+  %.sroa.6.0 = phi i64 [ undef, %18 ], [ undef, %26 ], [ undef, %33 ], [ %spec.select, %39 ]
+  %.sroa.0.0 = phi i64 [ 0, %18 ], [ 0, %26 ], [ 0, %33 ], [ %spec.select8, %39 ]
   %37 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %38 = insertvalue { i64, i64 } %37, i64 %.sroa.6.0, 1
   ret { i64, i64 } %38
@@ -49736,7 +49736,7 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTr
   br i1 %.not, label %34, label %29
 
 .sink.split:                                      ; preds = %_ZN5wasmi6engine10translator14FuncTranslator19translate_fstore_at17h6e4a902405aa403eE.exit, %91, %110, %34, %104, %117, %126, %48, %54, %57, %132
-  %.sroa.0.0.ph = phi ptr [ null, %132 ], [ %93, %91 ], [ %131, %126 ], [ %41, %34 ], [ %109, %104 ], [ %123, %117 ], [ %.sroa.0.2, %110 ], [ %.sroa.0.0.i66, %_ZN5wasmi6engine10translator14FuncTranslator19translate_fstore_at17h6e4a902405aa403eE.exit ], [ %56, %54 ], [ null, %57 ], [ null, %48 ]
+  %.sroa.0.0.ph = phi ptr [ null, %132 ], [ %93, %91 ], [ %.sroa.0.2, %110 ], [ %.sroa.0.0.i66, %_ZN5wasmi6engine10translator14FuncTranslator19translate_fstore_at17h6e4a902405aa403eE.exit ], [ %41, %34 ], [ %109, %104 ], [ %123, %117 ], [ %131, %126 ], [ %56, %54 ], [ null, %57 ], [ null, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   br label %28
@@ -50018,7 +50018,7 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTr
   br i1 %29, label %31, label %32
 
 .sink.split:                                      ; preds = %87, %49, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit93", %56, %63, %70, %81, %98, %93
-  %.sroa.0.0.ph = phi ptr [ %spec.select, %87 ], [ %50, %49 ], [ %102, %98 ], [ %94, %93 ], [ %.sroa.0.2, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit93" ], [ %86, %81 ], [ %60, %56 ], [ %67, %63 ], [ %74, %70 ]
+  %.sroa.0.0.ph = phi ptr [ %50, %49 ], [ %.sroa.0.2, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit93" ], [ %60, %56 ], [ %67, %63 ], [ %74, %70 ], [ %86, %81 ], [ %102, %98 ], [ %94, %93 ], [ %spec.select, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -50635,7 +50635,7 @@ _ZN5wasmi6engine10translator14FuncTranslator15push_base_instr17hee06ea64564e6534
   br label %51
 
 51:                                               ; preds = %49, %22, %38, %46, %32
-  %.sroa.0.1 = phi ptr [ %31, %32 ], [ %48, %46 ], [ %40, %38 ], [ null, %49 ], [ %23, %22 ]
+  %.sroa.0.1 = phi ptr [ %40, %38 ], [ %48, %46 ], [ %31, %32 ], [ null, %49 ], [ %23, %22 ]
   call void @"_ZN4core3ptr42drop_in_place$LT$wasmi..engine..Engine$GT$17h573f030729ecf630E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.0.1
@@ -50911,9 +50911,9 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   br label %67
 
 67:                                               ; preds = %112, %105, %103, %95, %84, %82, %65
-  %.sroa.027.0 = phi i64 [ 519, %65 ], [ 519, %84 ], [ 511, %95 ], [ 519, %105 ], [ 512, %82 ], [ 513, %103 ], [ 519, %112 ]
-  %.sroa.828.0 = phi i16 [ %66, %65 ], [ %90, %84 ], [ undef, %95 ], [ %111, %105 ], [ undef, %82 ], [ undef, %103 ], [ %118, %112 ]
-  %.sroa.12.0 = phi i32 [ undef, %65 ], [ undef, %84 ], [ %96, %95 ], [ undef, %105 ], [ %83, %82 ], [ %104, %103 ], [ undef, %112 ]
+  %.sroa.027.0 = phi i64 [ 519, %65 ], [ 512, %82 ], [ 519, %84 ], [ 511, %95 ], [ 513, %103 ], [ 519, %105 ], [ 519, %112 ]
+  %.sroa.828.0 = phi i16 [ %66, %65 ], [ undef, %82 ], [ %90, %84 ], [ undef, %95 ], [ undef, %103 ], [ %111, %105 ], [ %118, %112 ]
+  %.sroa.12.0 = phi i32 [ undef, %65 ], [ %83, %82 ], [ undef, %84 ], [ %96, %95 ], [ %104, %103 ], [ undef, %105 ], [ undef, %112 ]
   %.sroa.547.0.insert.ext = zext i32 %.sroa.12.0 to i64
   %.sroa.547.0.insert.shift = shl nuw i64 %.sroa.547.0.insert.ext, 32
   %.sroa.446.0.insert.ext = zext i16 %.sroa.828.0 to i64
@@ -51070,12 +51070,12 @@ _ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple1
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57"
 
 "_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57": ; preds = %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57.sink.split", %126, %131
-  %.sroa.0.1 = phi ptr [ null, %126 ], [ %.sroa.0.0, %131 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57.sink.split" ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %131 ], [ null, %126 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.sroa.0.1
 
 131:                                              ; preds = %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit, %119, %112, %105, %84, %56
-  %.sroa.0.0 = phi ptr [ %58, %56 ], [ %109, %105 ], [ %116, %112 ], [ %123, %119 ], [ %88, %84 ], [ %125, %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit ]
+  %.sroa.0.0 = phi ptr [ %58, %56 ], [ %88, %84 ], [ %109, %105 ], [ %116, %112 ], [ %123, %119 ], [ %125, %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit ]
   %132 = load i32, ptr %13, align 8, !range !1743, !alias.scope !4886, !noundef !14
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57", label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit57.sink.split"
@@ -51292,12 +51292,12 @@ _ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple1
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit39"
 
 "_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit39": ; preds = %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit39.sink.split", %89, %94
-  %.sroa.0.3 = phi ptr [ null, %89 ], [ %.sroa.0.0, %94 ], [ %.sroa.0.3.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit39.sink.split" ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %94 ], [ null, %89 ], [ %.sroa.0.3.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit39.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.sroa.0.3
 
 94:                                               ; preds = %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit, %63, %83, %72, %54
-  %.sroa.0.0 = phi ptr [ %56, %54 ], [ %85, %83 ], [ %65, %63 ], [ %74, %72 ], [ %88, %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit ]
+  %.sroa.0.0 = phi ptr [ %56, %54 ], [ %65, %63 ], [ %74, %72 ], [ %85, %83 ], [ %88, %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit ]
   %95 = load i32, ptr %11, align 8, !range !1743, !alias.scope !4906, !noundef !14
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit39", label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit39.sink.split"
@@ -51535,12 +51535,12 @@ _ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple1
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit44"
 
 "_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit44": ; preds = %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit44.sink.split", %101, %106
-  %.sroa.0.4 = phi ptr [ null, %101 ], [ %.sroa.0.0, %106 ], [ %.sroa.0.4.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit44.sink.split" ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.0, %106 ], [ null, %101 ], [ %.sroa.0.4.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit44.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.sroa.0.4
 
 106:                                              ; preds = %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit, %66, %88, %92, %75, %56
-  %.sroa.0.0 = phi ptr [ %58, %56 ], [ %96, %92 ], [ %68, %66 ], [ %77, %75 ], [ %85, %88 ], [ %100, %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit ]
+  %.sroa.0.0 = phi ptr [ %58, %56 ], [ %68, %66 ], [ %77, %75 ], [ %85, %88 ], [ %96, %92 ], [ %100, %_ZN5wasmi6engine10translator14FuncTranslator33translate_br_table_targets_simple17h9fe971c64721a177E.exit ]
   %107 = load i32, ptr %13, align 8, !range !1743, !alias.scope !4926, !noundef !14
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit44", label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit44.sink.split"
@@ -51728,11 +51728,11 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit.
   unreachable
 
 common.resume:                                    ; preds = %120, %124, %53, %57
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %54, %57 ], [ %121, %124 ], [ %121, %120 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %57 ], [ %54, %53 ], [ %121, %124 ], [ %121, %120 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5wasmi6engine10translator14FuncTranslator23translate_br_table_span17h31e869034d000b84E.exit: ; preds = %78, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit29.sink.split.i", %83
-  %.sroa.0.1.i = phi ptr [ null, %78 ], [ %.sroa.0.0.i, %83 ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit29.sink.split.i" ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %83 ], [ null, %78 ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit29.sink.split.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !4929
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %151
@@ -51876,7 +51876,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit.
   unreachable
 
 _ZN5wasmi6engine10translator14FuncTranslator23translate_br_table_many17hdfac5ac4a73d177dE.exit: ; preds = %141, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit22.sink.split.i", %146
-  %.sroa.0.1.i9 = phi ptr [ null, %141 ], [ %.sroa.0.0.i7, %146 ], [ %.sroa.0.1.ph.i8, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit22.sink.split.i" ]
+  %.sroa.0.1.i9 = phi ptr [ %.sroa.0.0.i7, %146 ], [ null, %141 ], [ %.sroa.0.1.ph.i8, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit22.sink.split.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4953
   br label %151
 
@@ -51969,7 +51969,7 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTr
   br i1 %or.cond, label %31, label %32
 
 _ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit: ; preds = %84, %77, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit124", %155, %145, %138, %131, %120, %108, %96, %.thread, %3
-  %.sroa.0.0 = phi ptr [ %spec.select, %155 ], [ null, %3 ], [ %92, %.thread ], [ %104, %96 ], [ %116, %108 ], [ %128, %120 ], [ %135, %131 ], [ %142, %138 ], [ %154, %145 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit124" ], [ null, %77 ], [ null, %84 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %92, %.thread ], [ %104, %96 ], [ %116, %108 ], [ %128, %120 ], [ %135, %131 ], [ %142, %138 ], [ %154, %145 ], [ %spec.select, %155 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit124" ], [ null, %77 ], [ null, %84 ]
   ret ptr %.sroa.0.0
 
 31:                                               ; preds = %27
@@ -52160,7 +52160,7 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a2
   br i1 %90, label %_ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit, label %95
 
 95:                                               ; preds = %.thread, %31, %32
-  %.sroa.0100.0 = phi i16 [ %.sroa.01.0.copyload, %31 ], [ %.sroa.01.0.copyload, %32 ], [ %94, %.thread ]
+  %.sroa.0100.0 = phi i16 [ %.sroa.01.0.copyload, %32 ], [ %.sroa.01.0.copyload, %31 ], [ %94, %.thread ]
   %.not121 = icmp eq i8 %.sroa.420.0.copyload, 7
   br i1 %.not121, label %107, label %96
 
@@ -52353,7 +52353,7 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTr
   br i1 %.not, label %29, label %28
 
 _ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit: ; preds = %104, %97, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit83", %105, %30, %113, %45, %3, %139, %138
-  %.sroa.0.0 = phi ptr [ %.sroa.931.0.mux, %30 ], [ %53, %45 ], [ %.sroa.940.0.mux, %105 ], [ %121, %113 ], [ %.sroa.0.1, %139 ], [ null, %138 ], [ null, %3 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit83" ], [ null, %97 ], [ null, %104 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %139 ], [ null, %138 ], [ null, %3 ], [ %.sroa.931.0.mux, %30 ], [ %53, %45 ], [ %.sroa.940.0.mux, %105 ], [ %121, %113 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3f8e98510cec7a52E.exit83" ], [ null, %97 ], [ null, %104 ]
   ret ptr %.sroa.0.0
 
 28:                                               ; preds = %25
@@ -52388,8 +52388,8 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a2
   br i1 %brmerge, label %_ZN5wasmi6engine10translator5stack8provider13ProviderStack4push17h7b1e81d289a1a247E.exit, label %45
 
 38:                                               ; preds = %113, %45, %29
-  %.sroa.070.0 = phi i16 [ %.sroa.01.0.copyload, %45 ], [ %.sroa.01.0.copyload, %29 ], [ %123, %113 ]
-  %.sroa.072.0 = phi i16 [ %55, %45 ], [ %.sroa.014.0.copyload, %29 ], [ %.sroa.014.0.copyload, %113 ]
+  %.sroa.070.0 = phi i16 [ %.sroa.01.0.copyload, %29 ], [ %.sroa.01.0.copyload, %45 ], [ %123, %113 ]
+  %.sroa.072.0 = phi i16 [ %.sroa.014.0.copyload, %29 ], [ %55, %45 ], [ %.sroa.014.0.copyload, %113 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN5wasmi6engine10translator5stack10ValueStack14push_dynamic_n17h5131ecc6351f5bb8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(248) %26, i64 noundef 2)

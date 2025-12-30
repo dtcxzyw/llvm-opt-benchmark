@@ -1209,7 +1209,7 @@ define void @_ZN8uu_mkdir6uu_app17hae33f3d3d2a08902E(ptr noalias noundef writeon
   ret void
 
 .body:                                            ; preds = %165, %146, %114, %82, %48, %176, %175, %174, %173, %170
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body69.ph, %170 ], [ %147, %146 ], [ %eh.lpad-body59.ph, %173 ], [ %115, %114 ], [ %eh.lpad-body42.ph, %174 ], [ %83, %82 ], [ %eh.lpad-body27.ph, %175 ], [ %49, %48 ], [ %177, %176 ], [ %166, %165 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body69.ph, %170 ], [ %eh.lpad-body59.ph, %173 ], [ %eh.lpad-body42.ph, %174 ], [ %eh.lpad-body27.ph, %175 ], [ %177, %176 ], [ %49, %48 ], [ %83, %82 ], [ %115, %114 ], [ %147, %146 ], [ %166, %165 ]
   resume { ptr, i32 } %.pn
 
 170:                                              ; preds = %151, %160
@@ -1307,7 +1307,7 @@ define { ptr, ptr } @_ZN8uu_mkdir4exec17h1181429af72e6218E(ptr noalias noundef r
           to label %44 unwind label %42
 
 .body:                                            ; preds = %61, %69, %42, %51
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %62, %61 ], [ %43, %42 ], [ %62, %69 ]
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %43, %42 ], [ %62, %69 ], [ %62, %61 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #14
           to label %87 unwind label %78
 
@@ -1785,7 +1785,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN4core3ptr90drop
   unreachable
 
 common.resume:                                    ; preds = %174, %122, %96, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha8c8a9da53d6e9aeE.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %123, %122 ], [ %97, %96 ], [ %133, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha8c8a9da53d6e9aeE.exit.i" ], [ %lpad.thr_comm.split-lp, %174 ]
+  %common.resume.op = phi { ptr, i32 } [ %133, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha8c8a9da53d6e9aeE.exit.i" ], [ %97, %96 ], [ %123, %122 ], [ %lpad.thr_comm.split-lp, %174 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6uucore4mods5error12USimpleError3new17he8d764edf273611cE.exit: ; preds = %.noexc.i
@@ -1794,8 +1794,8 @@ _ZN6uucore4mods5error12USimpleError3new17he8d764edf273611cE.exit: ; preds = %.no
   br label %100
 
 100:                                              ; preds = %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit.thread", %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit", %.thread75.thread, %164, %139, %_ZN6uucore4mods5error12USimpleError3new17he8d764edf273611cE.exit
-  %.sroa.8.0 = phi ptr [ @anon.3100d3c7a950257f32df72b802172ca2.7.llvm.1259343436056973864, %_ZN6uucore4mods5error12USimpleError3new17he8d764edf273611cE.exit ], [ %.sroa.8.182, %.thread75.thread ], [ @anon.254c1ce08f6f1a5effddeda4a76dd85f.3, %164 ], [ %140, %139 ], [ undef, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit" ], [ undef, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit.thread" ]
-  %.sroa.018.0 = phi ptr [ %93, %_ZN6uucore4mods5error12USimpleError3new17he8d764edf273611cE.exit ], [ %.sroa.018.183, %.thread75.thread ], [ %165, %164 ], [ %137, %139 ], [ null, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit" ], [ null, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit.thread" ]
+  %.sroa.8.0 = phi ptr [ %.sroa.8.182, %.thread75.thread ], [ @anon.254c1ce08f6f1a5effddeda4a76dd85f.3, %164 ], [ %140, %139 ], [ @anon.3100d3c7a950257f32df72b802172ca2.7.llvm.1259343436056973864, %_ZN6uucore4mods5error12USimpleError3new17he8d764edf273611cE.exit ], [ undef, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit" ], [ undef, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit.thread" ]
+  %.sroa.018.0 = phi ptr [ %.sroa.018.183, %.thread75.thread ], [ %165, %164 ], [ %137, %139 ], [ %93, %_ZN6uucore4mods5error12USimpleError3new17he8d764edf273611cE.exit ], [ null, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit" ], [ null, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.exit.thread" ]
   %101 = insertvalue { ptr, ptr } poison, ptr %.sroa.018.0, 0
   %102 = insertvalue { ptr, ptr } %101, ptr %.sroa.8.0, 1
   ret { ptr, ptr } %102

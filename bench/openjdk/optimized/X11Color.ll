@@ -170,8 +170,8 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   br label %38
 
 38:                                               ; preds = %34, %.lr.ph105, %22, %28
-  %.173 = phi i32 [ %.072101, %.lr.ph105 ], [ %spec.select, %34 ], [ %.072101, %28 ], [ %.072101, %22 ]
-  %.171 = phi i32 [ %.070102, %.lr.ph105 ], [ %spec.select89, %34 ], [ %.070102, %28 ], [ %.070102, %22 ]
+  %.173 = phi i32 [ %.072101, %28 ], [ %.072101, %22 ], [ %.072101, %.lr.ph105 ], [ %spec.select, %34 ]
+  %.171 = phi i32 [ %.070102, %28 ], [ %.070102, %22 ], [ %.070102, %.lr.ph105 ], [ %spec.select89, %34 ]
   %39 = add nuw nsw i32 %.068103, 1
   %40 = getelementptr inbounds nuw i8, ptr %.0104, i64 4
   %exitcond111.not = icmp eq i32 %39, %17
@@ -228,7 +228,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %63, %65, %32, %38, %.preheader92, %.preheader
-  %.076 = phi i32 [ 0, %.preheader92 ], [ %.173, %38 ], [ 0, %.preheader ], [ %.068103, %32 ], [ %.375, %65 ], [ %.16997, %63 ]
+  %.076 = phi i32 [ 0, %.preheader ], [ 0, %.preheader92 ], [ %.068103, %32 ], [ %.173, %38 ], [ %.16997, %63 ], [ %.375, %65 ]
   ret i32 %.076
 }
 
@@ -880,8 +880,8 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %276, label %._crit_edge485, label %277
 
 277:                                              ; preds = %274, %270, %266, %.lr.ph484.split.us.split.us
-  %.1361.us.us = phi i32 [ %spec.select411.us.us, %274 ], [ %.0360481.us.us, %270 ], [ %.0360481.us.us, %.lr.ph484.split.us.split.us ], [ %.0360481.us.us, %266 ]
-  %.2.us.us = phi i32 [ %.13479.us.us, %274 ], [ %.0359482.us.us, %270 ], [ %.0359482.us.us, %.lr.ph484.split.us.split.us ], [ %.0359482.us.us, %266 ]
+  %.1361.us.us = phi i32 [ %.0360481.us.us, %270 ], [ %.0360481.us.us, %266 ], [ %.0360481.us.us, %.lr.ph484.split.us.split.us ], [ %spec.select411.us.us, %274 ]
+  %.2.us.us = phi i32 [ %.0359482.us.us, %270 ], [ %.0359482.us.us, %266 ], [ %.0359482.us.us, %.lr.ph484.split.us.split.us ], [ %.13479.us.us, %274 ]
   %278 = add nuw nsw i32 %.13479.us.us, 1
   %279 = getelementptr inbounds nuw i8, ptr %.0362480.us.us, i64 4
   %exitcond551.not = icmp eq i32 %278, %261
@@ -912,8 +912,8 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %291, label %._crit_edge485, label %292
 
 292:                                              ; preds = %289, %283, %.lr.ph484.split.us.split
-  %.1361.us = phi i32 [ %spec.select411.us, %289 ], [ %.0360481.us, %283 ], [ %.0360481.us, %.lr.ph484.split.us.split ]
-  %.2.us = phi i32 [ %.13479.us, %289 ], [ %.0359482.us, %283 ], [ %.0359482.us, %.lr.ph484.split.us.split ]
+  %.1361.us = phi i32 [ %.0360481.us, %283 ], [ %.0360481.us, %.lr.ph484.split.us.split ], [ %spec.select411.us, %289 ]
+  %.2.us = phi i32 [ %.0359482.us, %283 ], [ %.0359482.us, %.lr.ph484.split.us.split ], [ %.13479.us, %289 ]
   %293 = add nuw nsw i32 %.13479.us, 1
   %294 = getelementptr inbounds nuw i8, ptr %.0362480.us, i64 4
   %exitcond550.not = icmp eq i32 %293, %261
@@ -961,8 +961,8 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %311, label %._crit_edge485, label %312
 
 312:                                              ; preds = %309, %305, %301, %298, %.lr.ph484.split.split.us
-  %.1361.us497 = phi i32 [ %.0360481.us491, %.lr.ph484.split.split.us ], [ %.0360481.us491, %298 ], [ %spec.select411.us496, %309 ], [ %.0360481.us491, %301 ], [ %.0360481.us491, %305 ]
-  %.2.us498 = phi i32 [ %.0359482.us490, %.lr.ph484.split.split.us ], [ %.0359482.us490, %298 ], [ %.13479.us493, %309 ], [ %.0359482.us490, %301 ], [ %.0359482.us490, %305 ]
+  %.1361.us497 = phi i32 [ %.0360481.us491, %.lr.ph484.split.split.us ], [ %.0360481.us491, %298 ], [ %.0360481.us491, %305 ], [ %.0360481.us491, %301 ], [ %spec.select411.us496, %309 ]
+  %.2.us498 = phi i32 [ %.0359482.us490, %.lr.ph484.split.split.us ], [ %.0359482.us490, %298 ], [ %.0359482.us490, %305 ], [ %.0359482.us490, %301 ], [ %.13479.us493, %309 ]
   %313 = add nuw nsw i32 %.13479.us493, 1
   %314 = getelementptr inbounds nuw i8, ptr %.0362480.us492, i64 4
   %exitcond549.not = icmp eq i32 %313, %261
@@ -1004,15 +1004,15 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br i1 %331, label %._crit_edge485, label %332
 
 332:                                              ; preds = %329, %321, %325, %.lr.ph484.split.split, %318
-  %.1361 = phi i32 [ %.0360481, %.lr.ph484.split.split ], [ %.0360481, %318 ], [ %spec.select411, %329 ], [ %.0360481, %321 ], [ %.0360481, %325 ]
-  %.2 = phi i32 [ %.0359482, %.lr.ph484.split.split ], [ %.0359482, %318 ], [ %.13479, %329 ], [ %.0359482, %321 ], [ %.0359482, %325 ]
+  %.1361 = phi i32 [ %.0360481, %.lr.ph484.split.split ], [ %.0360481, %318 ], [ %.0360481, %325 ], [ %.0360481, %321 ], [ %spec.select411, %329 ]
+  %.2 = phi i32 [ %.0359482, %.lr.ph484.split.split ], [ %.0359482, %318 ], [ %.0359482, %325 ], [ %.0359482, %321 ], [ %.13479, %329 ]
   %333 = add nuw nsw i32 %.13479, 1
   %334 = getelementptr inbounds nuw i8, ptr %.0362480, i64 4
   %exitcond548.not = icmp eq i32 %333, %261
   br i1 %exitcond548.not, label %._crit_edge485, label %.lr.ph484.split.split, !llvm.loop !24
 
 ._crit_edge485:                                   ; preds = %332, %329, %312, %309, %292, %289, %277, %274, %258
-  %.1 = phi i32 [ 0, %258 ], [ %.2.us498, %312 ], [ %.13479.us, %289 ], [ %.13479.us.us, %274 ], [ %.2.us.us, %277 ], [ %.2.us, %292 ], [ %.13479.us493, %309 ], [ %.13479, %329 ], [ %.2, %332 ]
+  %.1 = phi i32 [ 0, %258 ], [ %.13479.us.us, %274 ], [ %.2.us.us, %277 ], [ %.13479.us, %289 ], [ %.2.us, %292 ], [ %.13479.us493, %309 ], [ %.2.us498, %312 ], [ %.13479, %329 ], [ %.2, %332 ]
   %335 = trunc i32 %.1 to i8
   %336 = getelementptr inbounds nuw i8, ptr %259, i64 32
   %337 = load ptr, ptr %336, align 8
@@ -1318,7 +1318,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph457, %493, %.loopexit.sink.split, %._crit_edge453, %.loopexit431, %1
-  %.0357 = phi i32 [ 1, %._crit_edge453 ], [ 0, %1 ], [ 0, %.loopexit.sink.split ], [ 1, %493 ], [ 1, %.loopexit431 ], [ 1, %.lr.ph457 ]
+  %.0357 = phi i32 [ 0, %1 ], [ 1, %.loopexit431 ], [ 1, %._crit_edge453 ], [ 0, %.loopexit.sink.split ], [ 1, %493 ], [ 1, %.lr.ph457 ]
   ret i32 %.0357
 }
 
@@ -1940,8 +1940,8 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br i1 %277, label %281, label %278
 
 278:                                              ; preds = %275, %265, %269
-  %.1215 = phi i32 [ %.0214276, %265 ], [ %.0214276, %269 ], [ %spec.select, %275 ]
-  %.2 = phi i32 [ %.0213277, %265 ], [ %.0213277, %269 ], [ %.0218274, %275 ]
+  %.1215 = phi i32 [ %.0214276, %269 ], [ %.0214276, %265 ], [ %spec.select, %275 ]
+  %.2 = phi i32 [ %.0213277, %269 ], [ %.0213277, %265 ], [ %.0218274, %275 ]
   %279 = add nuw nsw i32 %.0218274, 1
   %280 = getelementptr inbounds nuw i8, ptr %.0216275, i64 4
   %exitcond286.not = icmp eq i32 %279, %.
@@ -2142,7 +2142,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br label %386
 
 386:                                              ; preds = %2, %381, %376, %361, %349, %340, %257, %193, %184, %174, %161, %getColorSpace.exit.thread, %124, %114, %75, %59, %38, %23
-  %.0 = phi ptr [ null, %349 ], [ null, %23 ], [ null, %59 ], [ null, %75 ], [ null, %124 ], [ %385, %381 ], [ null, %114 ], [ null, %38 ], [ null, %getColorSpace.exit.thread ], [ null, %161 ], [ null, %174 ], [ null, %184 ], [ null, %193 ], [ null, %257 ], [ null, %361 ], [ null, %376 ], [ null, %340 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %59 ], [ null, %75 ], [ null, %124 ], [ %385, %381 ], [ null, %114 ], [ null, %38 ], [ null, %getColorSpace.exit.thread ], [ null, %161 ], [ null, %174 ], [ null, %184 ], [ null, %193 ], [ null, %257 ], [ null, %361 ], [ null, %376 ], [ null, %340 ], [ null, %349 ], [ null, %2 ]
   ret ptr %.0
 }
 

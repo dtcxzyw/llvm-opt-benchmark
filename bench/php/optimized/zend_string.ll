@@ -556,7 +556,7 @@ zend_string_delref.exit.i:                        ; preds = %._crit_edge45
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %73, %72, %zend_interned_string_ht_lookup.exit26, %44, %43, %zend_interned_string_ht_lookup.exit, %1, %90
-  %.016 = phi ptr [ %.0, %90 ], [ %0, %1 ], [ %30, %44 ], [ %30, %zend_interned_string_ht_lookup.exit ], [ %30, %43 ], [ %59, %zend_interned_string_ht_lookup.exit26 ], [ %59, %72 ], [ %59, %73 ]
+  %.016 = phi ptr [ %.0, %90 ], [ %0, %1 ], [ %30, %zend_interned_string_ht_lookup.exit ], [ %30, %43 ], [ %30, %44 ], [ %59, %zend_interned_string_ht_lookup.exit26 ], [ %59, %72 ], [ %59, %73 ]
   ret ptr %.016
 }
 

@@ -683,7 +683,7 @@ thread-pre-split.thread:                          ; preds = %list_length.exit, %
   br label %.thread41
 
 .thread41:                                        ; preds = %45, %.lr.ph53, %.thread41.sink.split, %8, %thread-pre-split.thread, %.lr.ph
-  %.1 = phi ptr [ null, %8 ], [ %.1.ph, %.thread41.sink.split ], [ null, %.lr.ph ], [ null, %thread-pre-split.thread ], [ null, %45 ], [ %51, %.lr.ph53 ]
+  %.1 = phi ptr [ null, %thread-pre-split.thread ], [ null, %.lr.ph ], [ null, %8 ], [ %.1.ph, %.thread41.sink.split ], [ null, %45 ], [ %51, %.lr.ph53 ]
   ret ptr %.1
 }
 
@@ -855,7 +855,7 @@ thread-pre-split.i:                               ; preds = %83
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %95, %86, %79, %74
-  %.sink.i = phi i8 [ 1, %86 ], [ 1, %95 ], [ 1, %74 ], [ %81, %79 ]
+  %.sink.i = phi i8 [ 1, %95 ], [ 1, %86 ], [ 1, %74 ], [ %81, %79 ]
   store i8 %.sink.i, ptr %51, align 8
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %99 = load ptr, ptr %98, align 8
@@ -1039,7 +1039,7 @@ add_join_rel.exit:                                ; preds = %169, %175
   br label %191
 
 191:                                              ; preds = %add_join_rel.exit, %180, %10, %11
-  %.0 = phi ptr [ %9, %10 ], [ %9, %11 ], [ %14, %180 ], [ %14, %add_join_rel.exit ]
+  %.0 = phi ptr [ %9, %11 ], [ %9, %10 ], [ %14, %180 ], [ %14, %add_join_rel.exit ]
   ret ptr %.0
 }
 
@@ -1524,7 +1524,7 @@ find_base_rel.exit:                               ; preds = %120
   br label %201
 
 201:                                              ; preds = %find_base_rel.exit, %34, %88, %194
-  %.2 = phi i64 [ %.01641, %34 ], [ %.3, %194 ], [ %98, %88 ], [ %.01641, %find_base_rel.exit ]
+  %.2 = phi i64 [ %.3, %194 ], [ %98, %88 ], [ %.01641, %34 ], [ %.01641, %find_base_rel.exit ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv2640, 1
   %202 = load i32, ptr %13, align 4
   %203 = sext i32 %202 to i64
@@ -1777,7 +1777,7 @@ define internal fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr no
   br i1 %151, label %.loopexit, label %152
 
 152:                                              ; preds = %147, %141, %136, %133, %117, %115, %112, %84, %80, %60, %53, %48, %44
-  %.2129.ph.i = phi i32 [ %.0127226.i37, %84 ], [ %.0127226.i37, %48 ], [ %.0127226.i37, %53 ], [ %.0127226.i37, %60 ], [ %.0127226.i37, %133 ], [ %.0127226.i37, %141 ], [ %148, %147 ], [ %.0127226.i37, %117 ], [ %.0127226.i37, %136 ], [ %.0127226.i37, %115 ], [ %.0127226.i37, %112 ], [ %.0127226.i37, %80 ], [ %.0127226.i37, %44 ]
+  %.2129.ph.i = phi i32 [ %148, %147 ], [ %.0127226.i37, %141 ], [ %.0127226.i37, %133 ], [ %.0127226.i37, %136 ], [ %.0127226.i37, %117 ], [ %.0127226.i37, %115 ], [ %.0127226.i37, %112 ], [ %.0127226.i37, %80 ], [ %.0127226.i37, %84 ], [ %.0127226.i37, %60 ], [ %.0127226.i37, %53 ], [ %.0127226.i37, %44 ], [ %.0127226.i37, %48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i36, 1
   %153 = load i32, ptr %29, align 4
   %154 = sext i32 %153 to i64
@@ -1935,7 +1935,7 @@ define internal fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr no
   %235 = icmp slt i64 %indvars.iv.next270.i, %234
   br i1 %235, label %163, label %have_partkey_equi_join.exit.thread, !llvm.loop !6
 
-have_partkey_equi_join.exit.thread:               ; preds = %122, %184, %179, %173, %232, %.lr.ph239.i, %.critedge177.i, %._crit_edge.i
+have_partkey_equi_join.exit.thread:               ; preds = %122, %184, %232, %173, %179, %.lr.ph239.i, %.critedge177.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %318
 
@@ -2260,7 +2260,7 @@ thread-pre-split.i:                               ; preds = %75
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %87, %78, %71, %66
-  %.sink.i = phi i8 [ 1, %78 ], [ 1, %87 ], [ 1, %66 ], [ %73, %71 ]
+  %.sink.i = phi i8 [ 1, %87 ], [ 1, %78 ], [ 1, %66 ], [ %73, %71 ]
   store i8 %.sink.i, ptr %36, align 8
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %91 = load ptr, ptr %90, align 8
@@ -2508,7 +2508,7 @@ define dso_local ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, 
   %21 = tail call zeroext i1 @bms_equal(ptr noundef %20, ptr noundef nonnull %2) #6
   br i1 %21, label %find_param_path_info.exit, label %12
 
-.loopexit:                                        ; preds = %12, %.lr.ph.i, %5
+.loopexit:                                        ; preds = %12, %5, %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @bms_union(ptr noundef %23, ptr noundef nonnull %2) #6
@@ -2630,7 +2630,7 @@ define dso_local ptr @find_param_path_info(ptr noundef readonly captures(none) %
   br i1 %18, label %._crit_edge24, label %9
 
 ._crit_edge24:                                    ; preds = %.lr.ph31, %9, %.lr.ph, %2
-  %19 = phi ptr [ null, %.lr.ph ], [ null, %2 ], [ null, %9 ], [ %15, %.lr.ph31 ]
+  %19 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ null, %9 ], [ %15, %.lr.ph31 ]
   ret ptr %19
 }
 
@@ -2785,8 +2785,8 @@ define dso_local ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, 
   br label %89
 
 89:                                               ; preds = %.lr.ph150, %87, %83
-  %.1100 = phi ptr [ %.099134149, %87 ], [ %86, %83 ], [ %.099134149, %.lr.ph150 ]
-  %.3 = phi ptr [ %88, %87 ], [ %.2136147, %83 ], [ %.2136147, %.lr.ph150 ]
+  %.1100 = phi ptr [ %86, %83 ], [ %.099134149, %87 ], [ %.099134149, %.lr.ph150 ]
+  %.3 = phi ptr [ %.2136147, %83 ], [ %88, %87 ], [ %.2136147, %.lr.ph150 ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %90 = load i32, ptr %49, align 4
   %91 = sext i32 %90 to i64
@@ -2836,7 +2836,7 @@ define dso_local ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, 
   br i1 %117, label %.lr.ph163, label %.critedge123
 
 .critedge123:                                     ; preds = %114, %.lr.ph137, %.critedge, %93, %.lr.ph155, %.critedge121
-  %.4 = phi ptr [ %.3, %.critedge121 ], [ %.3, %93 ], [ %.3, %.lr.ph155 ], [ %.098.lcssa, %.lr.ph137 ], [ %.098.lcssa, %.critedge ], [ %.6, %114 ]
+  %.4 = phi ptr [ %.3, %.critedge121 ], [ %.3, %93 ], [ %.3, %.lr.ph155 ], [ %.098.lcssa, %.critedge ], [ %.098.lcssa, %.lr.ph137 ], [ %.6, %114 ]
   %118 = load ptr, ptr %6, align 8
   %119 = tail call ptr @list_concat(ptr noundef %.4, ptr noundef %118) #6
   store ptr %119, ptr %6, align 8
@@ -2873,8 +2873,8 @@ define dso_local ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, 
   %.pre = load ptr, ptr %6, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph.i, %.critedge123
-  %136 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %119, %.lr.ph.i ], [ %119, %.critedge123 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.critedge123, %.lr.ph.i
+  %136 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %119, %.critedge123 ], [ %119, %.lr.ph.i ]
   %137 = tail call double @get_parameterized_joinrel_size(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %136) #6
   %138 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 277, ptr %138, align 4
@@ -2933,7 +2933,7 @@ define dso_local ptr @get_appendrel_parampathinfo(ptr noundef captures(none) %0,
   %20 = tail call zeroext i1 @bms_equal(ptr noundef %19, ptr noundef nonnull %1) #6
   br i1 %20, label %find_param_path_info.exit, label %11
 
-.loopexit:                                        ; preds = %11, %.lr.ph.i, %4
+.loopexit:                                        ; preds = %11, %4, %.lr.ph.i
   %21 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 277, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -3054,7 +3054,7 @@ list_head.exit.thread:                            ; preds = %.lr.ph59, %list_hea
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %.lr.ph70, %31, %.lr.ph, %7, %.lr.ph62, %1, %53
-  %.0 = phi ptr [ %55, %53 ], [ null, %1 ], [ %27, %.lr.ph70 ], [ %15, %7 ], [ %15, %.lr.ph62 ], [ null, %31 ], [ null, %.lr.ph ], [ %.1, %49 ]
+  %.0 = phi ptr [ %55, %53 ], [ null, %1 ], [ %15, %7 ], [ %15, %.lr.ph62 ], [ null, %31 ], [ null, %.lr.ph ], [ %27, %.lr.ph70 ], [ %.1, %49 ]
   ret ptr %.0
 }
 
@@ -3247,7 +3247,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nou
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread58, %.critedge.thread58.loopexit.us, %.critedge.thread.loopexit96, %.critedge.thread.loopexit94, %.critedge.thread.loopexit, %.preheader
-  %.4 = phi i32 [ -1, %.critedge.thread58.loopexit.us ], [ -1, %.preheader ], [ %73, %.critedge.thread.loopexit ], [ %74, %.critedge.thread.loopexit94 ], [ %75, %.critedge.thread.loopexit96 ], [ -1, %.critedge.thread58 ]
+  %.4 = phi i32 [ -1, %.preheader ], [ %73, %.critedge.thread.loopexit ], [ %74, %.critedge.thread.loopexit94 ], [ %75, %.critedge.thread.loopexit96 ], [ -1, %.critedge.thread58.loopexit.us ], [ -1, %.critedge.thread58 ]
   ret i32 %.4
 }
 

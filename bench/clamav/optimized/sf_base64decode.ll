@@ -122,8 +122,8 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
   %75 = select i1 %73, i1 %74, i1 false
   br i1 %75, label %17, label %._crit_edge
 
-._crit_edge:                                      ; preds = %26, %71, %55, %45, %31, %5
-  %76 = phi i32 [ 0, %5 ], [ 0, %31 ], [ 0, %71 ], [ 0, %55 ], [ -1, %26 ], [ 0, %45 ]
+._crit_edge:                                      ; preds = %26, %55, %71, %45, %31, %5
+  %76 = phi i32 [ 0, %5 ], [ 0, %31 ], [ 0, %71 ], [ 0, %45 ], [ 0, %55 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %76
 }

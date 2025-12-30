@@ -142,7 +142,7 @@ _ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14i
   br label %_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit19
 
 _ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit19: ; preds = %46, %48, %52, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i18
-  %.pn33 = phi { ptr, i32 } [ %53, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i18 ], [ %53, %52 ], [ %47, %46 ], [ %49, %48 ]
+  %.pn33 = phi { ptr, i32 } [ %53, %52 ], [ %53, %_ZNKSt14default_deleteIA_N5ceres8internal8CellInfoEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i18 ], [ %47, %46 ], [ %49, %48 ]
   store ptr null, ptr %17, align 8, !tbaa !44
   %54 = load ptr, ptr %16, align 8, !tbaa !43
   %.not.i20 = icmp eq ptr %54, null

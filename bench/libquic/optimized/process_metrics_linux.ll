@@ -1044,7 +1044,7 @@ _ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br label %61
 
 _ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.preheader.i, %_ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %44, %36, %33
-  %.327 = phi i32 [ %.024.ph, %33 ], [ %.024.ph, %44 ], [ %spec.select, %_ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.024.ph, %36 ], [ %.024.ph, %.preheader.i ]
+  %.327 = phi i32 [ %.024.ph, %33 ], [ %.024.ph, %36 ], [ %.024.ph, %44 ], [ %spec.select, %_ZN4base16ParseProcStatCPUERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.024.ph, %.preheader.i ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %59 = load ptr, ptr %6, align 8, !tbaa !23
@@ -1348,7 +1348,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
   br i1 %103, label %.thread, label %.thread42
 
 .thread:                                          ; preds = %.lr.ph.split, %98, %95, %101
-  %.02041 = phi ptr [ %49, %98 ], [ %48, %101 ], [ %50, %95 ], [ %1, %.lr.ph.split ]
+  %.02041 = phi ptr [ %48, %101 ], [ %50, %95 ], [ %49, %98 ], [ %1, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %104 = load ptr, ptr %92, align 8, !tbaa !23
   store ptr %104, ptr %7, align 8, !tbaa !34
@@ -1607,7 +1607,7 @@ sub_2:                                            ; preds = %sub_117
   br label %.tail15
 
 .tail15:                                          ; preds = %sub_0, %sub_117, %sub_2
-  %.not11 = phi i32 [ %47, %sub_2 ], [ 1, %sub_117 ], [ 1, %sub_0 ]
+  %.not11 = phi i32 [ 1, %sub_117 ], [ %47, %sub_2 ], [ 1, %sub_0 ]
   %spec.select = add nuw nsw i32 %.not11, %.07.ph
   br label %.outer, !llvm.loop !59
 
@@ -1644,7 +1644,7 @@ _ZN4base14DirReaderLinux4NextEv.exit:             ; preds = %28
   unreachable
 
 _ZN4base14DirReaderLinuxD2Ev.exit:                ; preds = %9, %_ZN4base14DirReaderLinux4NextEv.exit, %51, %52, %.thread7.i
-  %.029 = phi i32 [ %.07.ph, %.thread7.i ], [ %.07.ph, %_ZN4base14DirReaderLinux4NextEv.exit ], [ %.07.ph, %51 ], [ %.07.ph, %52 ], [ -1, %9 ]
+  %.029 = phi i32 [ %.07.ph, %_ZN4base14DirReaderLinux4NextEv.exit ], [ %.07.ph, %51 ], [ %.07.ph, %52 ], [ %.07.ph, %.thread7.i ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2352,7 +2352,7 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
   br label %141
 
 .thread:                                          ; preds = %124, %118, %112, %106, %100, %94, %88, %82, %76, %70, %64, %130
-  %.044 = phi ptr [ %36, %130 ], [ %1, %64 ], [ %38, %118 ], [ %39, %112 ], [ %40, %106 ], [ %41, %100 ], [ %42, %94 ], [ %43, %88 ], [ %44, %82 ], [ %45, %76 ], [ %46, %70 ], [ %37, %124 ]
+  %.044 = phi ptr [ %36, %130 ], [ %1, %64 ], [ %46, %70 ], [ %45, %76 ], [ %44, %82 ], [ %43, %88 ], [ %42, %94 ], [ %41, %100 ], [ %40, %106 ], [ %39, %112 ], [ %38, %118 ], [ %37, %124 ]
   %133 = load ptr, ptr %4, align 8, !tbaa !33
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = invoke noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull %.044)
@@ -2802,7 +2802,7 @@ define noundef zeroext i1 @_ZN4base15IsValidDiskNameERKNSt7__cxx1112basic_string
   br i1 %or.cond41.not, label %24, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %24, %.preheader, %20, %18
-  %.2 = phi i1 [ false, %20 ], [ false, %18 ], [ true, %.preheader ], [ %isdigit, %24 ]
+  %.2 = phi i1 [ false, %18 ], [ false, %20 ], [ true, %.preheader ], [ %isdigit, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit26
 
@@ -3075,8 +3075,8 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br i1 %or.cond112.not, label %.lr.ph32.i, label %.loopexit.i, !llvm.loop !97
 
 .loopexit.i:                                      ; preds = %.lr.ph32.i, %.noexc43..loopexit.i_crit_edge, %.preheader.i, %84
-  %.pre74 = phi ptr [ %.pre74.pre, %.noexc43..loopexit.i_crit_edge ], [ %.pre75.pre, %84 ], [ %.pre74.pre80, %.preheader.i ], [ %.pre74.pre80, %.lr.ph32.i ]
-  %.2.i = phi i1 [ false, %.noexc43..loopexit.i_crit_edge ], [ false, %84 ], [ true, %.preheader.i ], [ %isdigit.i, %.lr.ph32.i ]
+  %.pre74 = phi ptr [ %.pre75.pre, %84 ], [ %.pre74.pre, %.noexc43..loopexit.i_crit_edge ], [ %.pre74.pre80, %.preheader.i ], [ %.pre74.pre80, %.lr.ph32.i ]
+  %.2.i = phi i1 [ false, %84 ], [ false, %.noexc43..loopexit.i_crit_edge ], [ true, %.preheader.i ], [ %isdigit.i, %.lr.ph32.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4base15IsValidDiskNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -3256,7 +3256,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %177, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
-  %.pn = phi { ptr, i32 } [ %178, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %178, %177 ]
+  %.pn = phi { ptr, i32 } [ %178, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %178, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %187
 

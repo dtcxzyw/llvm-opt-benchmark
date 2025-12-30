@@ -49,7 +49,7 @@ define range(i32 0, 2) i32 @av_strstart(ptr noundef %0, ptr noundef readonly cap
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph, %12, %.critedge
-  %.not14 = phi i32 [ 1, %.critedge ], [ %14, %12 ], [ 0, %.lr.ph ]
+  %.not14 = phi i32 [ %14, %12 ], [ 1, %.critedge ], [ 0, %.lr.ph ]
   ret i32 %.not14
 }
 
@@ -98,7 +98,7 @@ define range(i32 0, 2) i32 @av_stristart(ptr noundef %0, ptr noundef readonly ca
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph, %18, %.critedge
-  %.not14 = phi i32 [ 1, %.critedge ], [ %20, %18 ], [ 0, %.lr.ph ]
+  %.not14 = phi i32 [ %20, %18 ], [ 1, %.critedge ], [ 0, %.lr.ph ]
   ret i32 %.not14
 }
 
@@ -704,7 +704,7 @@ define ptr @av_basename(ptr noundef readonly %0) local_unnamed_addr #11 {
   br label %8
 
 8:                                                ; preds = %5, %1, %2
-  %.0 = phi ptr [ @.str.1, %1 ], [ %spec.select, %5 ], [ @.str.1, %2 ]
+  %.0 = phi ptr [ @.str.1, %2 ], [ @.str.1, %1 ], [ %spec.select, %5 ]
   ret ptr %.0
 }
 
@@ -868,7 +868,7 @@ av_strlcpy.exit66:                                ; preds = %.critedge.i47, %.cr
   br label %52
 
 52:                                               ; preds = %16, %av_strlcpy.exit66, %8, %13, %6, %3
-  %.0 = phi ptr [ %4, %3 ], [ null, %8 ], [ %7, %6 ], [ null, %13 ], [ %18, %av_strlcpy.exit66 ], [ null, %16 ]
+  %.0 = phi ptr [ %7, %6 ], [ %4, %3 ], [ null, %13 ], [ null, %8 ], [ %18, %av_strlcpy.exit66 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -995,7 +995,7 @@ av_strncasecmp.exit:                              ; preds = %.preheader.i
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %43, %5, %.thread, %2
-  %.0 = phi i32 [ %42, %.thread ], [ 0, %2 ], [ 0, %5 ], [ 0, %43 ]
+  %.0 = phi i32 [ 0, %2 ], [ %42, %.thread ], [ 0, %5 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -1218,7 +1218,7 @@ select.unfold65.preheader:                        ; preds = %.lr.ph72.split, %.c
   br i1 %.not58, label %.critedge, label %.lr.ph72.split
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph72.split, %21, %select.unfold65.preheader.us, %.lr.ph72.split.us, %3
-  %.3 = phi i32 [ 1, %21 ], [ 0, %3 ], [ 0, %select.unfold65.preheader.us ], [ 0, %.lr.ph72.split.us ], [ 0, %.lr.ph72.split ], [ 0, %.critedge2 ]
+  %.3 = phi i32 [ 0, %3 ], [ 0, %.lr.ph72.split.us ], [ 0, %select.unfold65.preheader.us ], [ 1, %21 ], [ 0, %.lr.ph72.split ], [ 0, %.critedge2 ]
   ret i32 %.3
 }
 

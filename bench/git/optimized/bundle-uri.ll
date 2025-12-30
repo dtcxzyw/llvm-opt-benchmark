@@ -652,7 +652,7 @@ find_temp_filename.exit:                          ; preds = %17
   br label %download_https_uri_to_file.exit.i
 
 download_https_uri_to_file.exit.i:                ; preds = %73, %.thread40.i.i, %.thread.i.i, %36
-  %.019.i.i = phi i32 [ %.mux.i.i, %.thread.i.i ], [ 1, %36 ], [ %.01833.i.i, %73 ], [ 1, %.thread40.i.i ]
+  %.019.i.i = phi i32 [ 1, %36 ], [ %.mux.i.i, %.thread.i.i ], [ %.01833.i.i, %73 ], [ 1, %.thread40.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %copy_uri_to_file.exit
@@ -833,7 +833,7 @@ define internal fastcc void @unbundle_all_bundles(ptr noundef %0, ptr noundef no
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %for_all_bundles_in_list.exit, label %14
 
-14:                                               ; preds = %.lr.ph.i, %8, %12
+14:                                               ; preds = %8, %.lr.ph.i, %12
   %15 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i.backedge
@@ -978,8 +978,8 @@ for_all_bundles_in_list.exit.thread:              ; preds = %hashmap_get_size.ex
   %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %.sroa.9.0
   store ptr %.0913.i, ptr %19, align 8, !tbaa !49
   %20 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
-  %.not.i90 = icmp eq ptr %20, null
-  br i1 %.not.i90, label %for_all_bundles_in_list.exit, label %.preheader, !llvm.loop !21
+  %.not.i91 = icmp eq ptr %20, null
+  br i1 %.not.i91, label %for_all_bundles_in_list.exit, label %.preheader, !llvm.loop !21
 
 for_all_bundles_in_list.exit:                     ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -991,8 +991,8 @@ for_all_bundles_in_list.exit:                     ; preds = %.preheader
   br label %88
 
 22:                                               ; preds = %for_all_bundles_in_list.exit
-  %.not103 = icmp eq i64 %.sroa.9.0, 0
-  br i1 %.not103, label %sane_qsort.exit, label %23
+  %.not104 = icmp eq i64 %.sroa.9.0, 0
+  br i1 %.not104, label %sane_qsort.exit, label %23
 
 23:                                               ; preds = %22
   call void @qsort(ptr noundef nonnull %16, i64 noundef range(i64 1, 0) %18, i64 noundef 8, ptr noundef nonnull @compare_creation_token_decreasing) #16
@@ -1104,8 +1104,8 @@ _.exit:                                           ; preds = %53, %55
   br label %70
 
 70:                                               ; preds = %46, %.thread, %59, %64, %66
-  %.3 = phi i64 [ %.03566, %.thread ], [ %.03566, %46 ], [ %.03566, %64 ], [ %spec.select, %66 ], [ %.03566, %59 ]
-  %.234 = phi i32 [ %.03267, %.thread ], [ 1, %46 ], [ 1, %64 ], [ -1, %66 ], [ %.03267, %59 ]
+  %.3 = phi i64 [ %.03566, %.thread ], [ %.03566, %59 ], [ %.03566, %46 ], [ %.03566, %64 ], [ %spec.select, %66 ]
+  %.234 = phi i32 [ %.03267, %.thread ], [ %.03267, %59 ], [ 1, %46 ], [ 1, %64 ], [ -1, %66 ]
   %71 = add nsw i32 %.234, %.03168
   %72 = icmp sgt i32 %71, -1
   %73 = sext i32 %71 to i64
@@ -1129,25 +1129,25 @@ _.exit:                                           ; preds = %53, %55
 
 81:                                               ; preds = %77
   %82 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
-  %.not4.i91 = icmp eq i32 %82, 0
-  br i1 %.not4.i91, label %_.exit93, label %83
+  %.not4.i92 = icmp eq i32 %82, 0
+  br i1 %.not4.i92, label %_.exit94, label %83
 
 83:                                               ; preds = %81
   %84 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #16
-  br label %_.exit93
+  br label %_.exit94
 
-_.exit93:                                         ; preds = %81, %83
-  %.0.i92 = phi ptr [ %84, %83 ], [ @.str.48, %81 ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i92) #16
+_.exit94:                                         ; preds = %81, %83
+  %.0.i93 = phi ptr [ %84, %83 ], [ @.str.48, %81 ]
+  call void (ptr, ...) @warning(ptr noundef %.0.i93) #16
   br label %85
 
-85:                                               ; preds = %_.exit93, %77
+85:                                               ; preds = %_.exit94, %77
   call void @strbuf_release(ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread53.thread
 
 .thread53.thread:                                 ; preds = %.lr.ph, %_.exit, %85, %.thread53
-  %.03161 = phi i32 [ %71, %.thread53 ], [ %71, %85 ], [ %.03168, %_.exit ], [ %.03168, %.lr.ph ]
+  %.03161 = phi i32 [ %71, %85 ], [ %71, %.thread53 ], [ %.03168, %_.exit ], [ %.03168, %.lr.ph ]
   call void @free(ptr noundef %16) #16
   %86 = icmp sgt i32 %.03161, -1
   %87 = zext i1 %86 to i32
@@ -1425,7 +1425,7 @@ define internal fastcc range(i32 -1, 1) i32 @bundle_list_update(ptr noundef %0, 
   br label %21
 
 21:                                               ; preds = %17, %20
-  %.1 = phi i32 [ -1, %17 ], [ 0, %20 ]
+  %.1 = phi i32 [ 0, %20 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
@@ -1553,7 +1553,7 @@ _.exit:                                           ; preds = %72, %74
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %67, %69, %_.exit, %60, %32, %39, %26, %30, %28, %3, %63, %21
-  %.029 = phi i32 [ %.1, %21 ], [ 0, %69 ], [ -1, %60 ], [ 0, %32 ], [ 0, %63 ], [ 0, %39 ], [ 0, %26 ], [ -1, %3 ], [ -1, %28 ], [ 0, %30 ], [ 0, %67 ], [ 0, %_.exit ], [ 0, %34 ]
+  %.029 = phi i32 [ 0, %63 ], [ %.1, %21 ], [ -1, %3 ], [ -1, %28 ], [ 0, %30 ], [ 0, %26 ], [ 0, %39 ], [ 0, %32 ], [ -1, %60 ], [ 0, %_.exit ], [ 0, %69 ], [ 0, %67 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1724,7 +1724,7 @@ skip_prefix.exit:                                 ; preds = %30, %strbuf_setlen.
   br i1 %56, label %.lr.ph33, label %.critedge
 
 .critedge:                                        ; preds = %skip_prefix.exit, %.lr.ph, %15, %13, %2
-  %.0 = phi i32 [ 1, %13 ], [ 1, %2 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 0, %skip_prefix.exit ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 0, %skip_prefix.exit ]
   call void @strbuf_release(ptr noundef nonnull %4) #16
   call void @bundle_header_release(ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

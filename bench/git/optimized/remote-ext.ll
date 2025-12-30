@@ -349,7 +349,7 @@ strbuf_addch.exit78.i.i.i.i:                      ; preds = %strbuf_avail.exit.t
   br label %102
 
 102:                                              ; preds = %strbuf_addch.exit78.i.i.i.i, %92, %90, %88, %strbuf_addch.exit.i.i.i.i, %78
-  %.3.i.i.i.i = phi i32 [ 0, %strbuf_addch.exit78.i.i.i.i ], [ 0, %78 ], [ 0, %90 ], [ 0, %88 ], [ 0, %strbuf_addch.exit.i.i.i.i ], [ 1, %92 ]
+  %.3.i.i.i.i = phi i32 [ 0, %strbuf_addch.exit78.i.i.i.i ], [ 0, %90 ], [ 0, %88 ], [ 0, %strbuf_addch.exit.i.i.i.i ], [ 0, %78 ], [ 1, %92 ]
   %103 = add i64 %.154100.i.i.i.i, 1
   %104 = getelementptr inbounds nuw i8, ptr %.017.i.i.i, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !11

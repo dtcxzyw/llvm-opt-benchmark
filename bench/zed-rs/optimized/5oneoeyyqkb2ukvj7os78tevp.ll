@@ -241,7 +241,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %67 = icmp eq ptr %66, null
   br i1 %67, label %181, label %183
 
-68:                                               ; preds = %52, %49
+68:                                               ; preds = %49, %52
   %69 = load ptr, ptr %26, align 8, !nonnull !20, !align !21, !noundef !20
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !nonnull !20, !noundef !20
@@ -533,7 +533,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread:                                          ; preds = %176, %180, %111
-  %.pn1846 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %176 ], [ %.pn, %111 ], [ %lpad.thr_comm.split-lp, %180 ]
+  %.pn1846 = phi { ptr, i32 } [ %.pn, %111 ], [ %lpad.thr_comm.split-lp, %180 ], [ %lpad.thr_comm.split-lp, %176 ]
   resume { ptr, i32 } %.pn1846
 
 176:                                              ; preds = %109
@@ -597,8 +597,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.sroa.09.0, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.sroa.09.0, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -1371,8 +1371,8 @@ define hidden { i32, i32 } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17
   br label %41
 
 41:                                               ; preds = %35, %32, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit"
-  %.sroa.4.0 = phi i32 [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit" ], [ %., %35 ], [ undef, %32 ]
-  %.sroa.0.0 = phi i32 [ 2, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit" ], [ %not.trunc, %35 ], [ 1, %32 ]
+  %.sroa.4.0 = phi i32 [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit" ], [ undef, %32 ], [ %., %35 ]
+  %.sroa.0.0 = phi i32 [ 2, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit" ], [ 1, %32 ], [ %not.trunc, %35 ]
   %42 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %43 = insertvalue { i32, i32 } %42, i32 %.sroa.4.0, 1
   ret { i32, i32 } %43
@@ -1430,8 +1430,8 @@ define hidden { i32, i32 } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   br label %25
 
 25:                                               ; preds = %21, %6, %14, %19, %2
-  %.sroa.5.0 = phi i32 [ %1, %2 ], [ %., %21 ], [ %1, %6 ], [ %1, %19 ], [ %1, %14 ]
-  %.sroa.0.0 = phi i32 [ 1, %2 ], [ %22, %21 ], [ 1, %6 ], [ 0, %19 ], [ 0, %14 ]
+  %.sroa.5.0 = phi i32 [ %1, %2 ], [ %1, %19 ], [ %1, %14 ], [ %1, %6 ], [ %., %21 ]
+  %.sroa.0.0 = phi i32 [ 1, %2 ], [ 0, %19 ], [ 0, %14 ], [ 1, %6 ], [ %22, %21 ]
   %26 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %27 = insertvalue { i32, i32 } %26, i32 %.sroa.5.0, 1
   ret { i32, i32 } %27
@@ -2228,8 +2228,8 @@ define hidden { i32, i32 } @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send1
           to label %30 unwind label %28
 
 25:                                               ; preds = %21, %19, %15, %7, %2
-  %.sroa.5.0.i = phi i32 [ %1, %2 ], [ %..i, %21 ], [ %1, %7 ], [ %1, %19 ], [ %1, %15 ]
-  %.sroa.0.0.i = phi i32 [ 1, %2 ], [ %22, %21 ], [ 1, %7 ], [ 0, %19 ], [ 0, %15 ]
+  %.sroa.5.0.i = phi i32 [ %1, %2 ], [ %1, %19 ], [ %1, %15 ], [ %1, %7 ], [ %..i, %21 ]
+  %.sroa.0.0.i = phi i32 [ 1, %2 ], [ 0, %19 ], [ 0, %15 ], [ 1, %7 ], [ %22, %21 ]
   %26 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %27 = insertvalue { i32, i32 } %26, i32 %.sroa.5.0.i, 1
   call void @"_ZN4core3ptr64drop_in_place$LT$futures_channel..oneshot..Sender$LT$i32$GT$$GT$17hc3ee90410afdaa8dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
@@ -3161,7 +3161,7 @@ define hidden void @_ZN3std6thread7Builder16spawn_unchecked_17hde572169023315c7E
   %66 = load i64, ptr %65, align 8
   br label %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h759586ddc12f5bbdE.exit"
 
-.thread76:                                        ; preds = %56, %27, %52
+.thread76:                                        ; preds = %27, %52, %56
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread72
@@ -3481,8 +3481,8 @@ define hidden void @_ZN3std6thread7Builder16spawn_unchecked_17hde572169023315c7E
           to label %175 unwind label %159
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h6896584fa8705b14E.exit59": ; preds = %128, %.body36, %161, %175, %179
-  %.pn.pn92 = phi { ptr, i32 } [ %.pn.pn.ph, %175 ], [ %.pn.pn.ph, %179 ], [ %162, %161 ], [ %132, %.body36 ], [ %129, %128 ]
-  %.sroa.019.390 = phi i1 [ true, %175 ], [ true, %179 ], [ false, %161 ], [ false, %.body36 ], [ false, %128 ]
+  %.pn.pn92 = phi { ptr, i32 } [ %.pn.pn.ph, %179 ], [ %.pn.pn.ph, %175 ], [ %132, %.body36 ], [ %162, %161 ], [ %129, %128 ]
+  %.sroa.019.390 = phi i1 [ true, %179 ], [ true, %175 ], [ false, %.body36 ], [ false, %161 ], [ false, %128 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !449)
   call void @llvm.experimental.noalias.scope.decl(metadata !452)
   %171 = load ptr, ptr %17, align 8, !alias.scope !455, !nonnull !20, !noundef !20
@@ -3566,7 +3566,7 @@ define hidden void @_ZN3std6thread7Builder16spawn_unchecked_17hde572169023315c7E
           to label %.thread108 unwind label %159
 
 .thread114:                                       ; preds = %154, %149, %.thread108, %188
-  %.pn33107111 = phi { ptr, i32 } [ %.pn33107112, %.thread108 ], [ %.pn.pn.pn84, %188 ], [ %150, %149 ], [ %150, %154 ]
+  %.pn33107111 = phi { ptr, i32 } [ %.pn33107112, %.thread108 ], [ %.pn.pn.pn84, %188 ], [ %150, %154 ], [ %150, %149 ]
   resume { ptr, i32 } %.pn33107111
 
 .thread108:                                       ; preds = %193, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hca4f089f706dda26E.exit", %190, %188
@@ -3786,7 +3786,7 @@ default.unreachable:                              ; preds = %1
   br i1 %.sroa.015.0.i, label %81, label %89
 
 75:                                               ; preds = %23, %14, %13
-  %.sroa.015.0.i = phi i1 [ false, %23 ], [ false, %14 ], [ true, %13 ]
+  %.sroa.015.0.i = phi i1 [ false, %14 ], [ true, %13 ], [ false, %23 ]
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !513)
@@ -5681,8 +5681,8 @@ define hidden { i32, i32 } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hbb96d37f91b0a512E.llvm.8057950957586141309.exit"
 
 "_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hbb96d37f91b0a512E.llvm.8057950957586141309.exit": ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit.i", %34, %37
-  %.sroa.4.0.i = phi i32 [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit.i" ], [ %..i, %37 ], [ undef, %34 ]
-  %.sroa.0.0.i = phi i32 [ 2, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit.i" ], [ %not.trunc.i, %37 ], [ 1, %34 ]
+  %.sroa.4.0.i = phi i32 [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit.i" ], [ undef, %34 ], [ %..i, %37 ]
+  %.sroa.0.0.i = phi i32 [ 2, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit.i" ], [ 1, %34 ], [ %not.trunc.i, %37 ]
   %42 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %43 = insertvalue { i32, i32 } %42, i32 %.sroa.4.0.i, 1
   ret { i32, i32 } %43

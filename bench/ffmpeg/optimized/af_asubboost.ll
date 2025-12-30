@@ -188,7 +188,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   br label %41
 
 41:                                               ; preds = %2, %39, %28
-  %.0 = phi i32 [ -12, %28 ], [ %40, %39 ], [ %14, %2 ]
+  %.0 = phi i32 [ %40, %39 ], [ -12, %28 ], [ %14, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

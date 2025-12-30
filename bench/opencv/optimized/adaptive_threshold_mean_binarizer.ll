@@ -682,7 +682,7 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exi
   br label %163
 
 163:                                              ; preds = %160, %_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBufferToMatEPhRN2cv3MatEii.exit, %155
-  %164 = phi i1 [ false, %_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBufferToMatEPhRN2cv3MatEii.exit ], [ true, %160 ], [ false, %155 ]
+  %164 = phi i1 [ true, %160 ], [ false, %_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBufferToMatEPhRN2cv3MatEii.exit ], [ false, %155 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
@@ -744,7 +744,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %163, %.thread
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit51
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit51:         ; preds = %180, %176, %43
-  %.pn37.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %.pn37.pn.pn.pn.pn, %180 ], [ %.pn37.pn.pn.pn.pn, %176 ]
+  %.pn37.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %.pn37.pn.pn.pn.pn, %176 ], [ %.pn37.pn.pn.pn.pn, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn37.pn.pn.pn.pn.pn
 

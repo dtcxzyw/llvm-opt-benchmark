@@ -823,7 +823,7 @@ define hidden noundef ptr @_ZN7datalog18check_table_plugin11mk_union_fnERKNS_10t
   br label %17
 
 17:                                               ; preds = %.sink.split, %4, %12
-  %.0 = phi ptr [ null, %4 ], [ null, %12 ], [ %16, %.sink.split ]
+  %.0 = phi ptr [ null, %12 ], [ null, %4 ], [ %16, %.sink.split ]
   ret ptr %.0
 }
 

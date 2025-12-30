@@ -130,7 +130,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %or.cond, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.lr.ph.i.split
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit": ; preds = %.lr.ph.i.split, %.backedge.i.us, %17, %3
-  %.lcssa.i = phi i1 [ false, %3 ], [ true, %17 ], [ false, %.backedge.i.us ], [ %25, %.lr.ph.i.split ]
+  %.lcssa.i = phi i1 [ false, %3 ], [ false, %.backedge.i.us ], [ true, %17 ], [ %25, %.lr.ph.i.split ]
   ret i1 %.lcssa.i
 }
 
@@ -174,7 +174,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br label %"_ZN70_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf57f2649b13a5006E.llvm.2822928188824460994.exit"
 
 "_ZN70_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf57f2649b13a5006E.llvm.2822928188824460994.exit": ; preds = %2, %13, %14, %19
-  %.0.i = phi i1 [ true, %13 ], [ false, %2 ], [ %24, %19 ], [ false, %14 ]
+  %.0.i = phi i1 [ false, %2 ], [ true, %13 ], [ %24, %19 ], [ false, %14 ]
   ret i1 %.0.i
 }
 
@@ -256,7 +256,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53e62d8adfb352d7E.llvm.2822928188824460994.exit.sink.split", label %13
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53e62d8adfb352d7E.llvm.2822928188824460994.exit.sink.split": ; preds = %.backedge, %25, %21
-  %.lcssa.ph = phi i1 [ true, %25 ], [ true, %21 ], [ false, %.backedge ]
+  %.lcssa.ph = phi i1 [ true, %21 ], [ true, %25 ], [ false, %.backedge ]
   store ptr %15, ptr %0, align 8, !alias.scope !81
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53e62d8adfb352d7E.llvm.2822928188824460994.exit"
 
@@ -374,7 +374,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$grep_printer..hyperlink..Part$u20$a
   br i1 %or.cond, label %13, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hbad53d0ec412d8f8E.llvm.2822928188824460994.exit"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hbad53d0ec412d8f8E.llvm.2822928188824460994.exit": ; preds = %18, %13, %12, %2
-  %.0 = phi i1 [ true, %12 ], [ false, %2 ], [ %23, %18 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %12 ], [ %23, %18 ], [ false, %13 ]
   ret i1 %.0
 
 13:                                               ; preds = %12

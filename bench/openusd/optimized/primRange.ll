@@ -456,7 +456,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorC2EPKS0_PKNS_12Usd_P
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit: ; preds = %42, %38
-  %.ph = phi i1 [ %or.cond, %42 ], [ false, %38 ]
+  %.ph = phi i1 [ false, %38 ], [ %or.cond, %42 ]
   %.not.i.i.i5 = icmp eq i32 %4, 0
   br i1 %.not.i.i.i5, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit6, label %45
 

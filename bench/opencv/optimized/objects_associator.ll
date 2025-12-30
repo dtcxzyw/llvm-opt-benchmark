@@ -1159,7 +1159,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev.exit235:      ; preds = %_ZSt8_DestroyIPSt6v
   br label %.body194
 
 .body194:                                         ; preds = %482, %451
-  %.pn129 = phi { ptr, i32 } [ %452, %451 ], [ %483, %482 ]
+  %.pn129 = phi { ptr, i32 } [ %483, %482 ], [ %452, %451 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #21
   br label %484
 
@@ -1218,7 +1218,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit237:                 ; preds = %489, %488, %161
   br label %.body
 
 .body:                                            ; preds = %491, %_ZNSt6vectorIiSaIiEED2Ev.exit237, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit247
-  %.pn140.pn.pn.pn = phi { ptr, i32 } [ %62, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit247 ], [ %.pn140.pn.pn, %491 ], [ %.pn140.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit237 ]
+  %.pn140.pn.pn.pn = phi { ptr, i32 } [ %62, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit247 ], [ %.pn140.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit237 ], [ %.pn140.pn.pn, %491 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %499
 

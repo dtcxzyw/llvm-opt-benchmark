@@ -302,7 +302,7 @@ _dictNextExp.exit:                                ; preds = %9, %11, %13
   br i1 %.not56, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader, %60, %29, %24, %_dictNextExp.exit, %21, %59
-  %.0 = phi i32 [ 1, %29 ], [ 1, %_dictNextExp.exit ], [ 1, %24 ], [ 0, %59 ], [ 1, %21 ], [ 0, %60 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %59 ], [ 1, %21 ], [ 1, %_dictNextExp.exit ], [ 1, %24 ], [ 1, %29 ], [ 0, %60 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -455,7 +455,7 @@ define dso_local range(i32 0, 2) i32 @dictRehash(ptr noundef %0, i32 noundef %1)
   br label %dictCheckRehashingCompleted.exit
 
 dictCheckRehashingCompleted.exit:                 ; preds = %53, %67, %.critedge, %25, %29, %2, %20
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %2 ], [ 0, %25 ], [ 0, %20 ], [ 0, %29 ], [ 0, %67 ], [ 1, %53 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %2 ], [ 0, %29 ], [ 0, %25 ], [ 0, %67 ], [ 1, %.critedge ], [ 1, %53 ]
   ret i32 %.0
 }
 
@@ -640,7 +640,7 @@ define internal fastcc void @rehashEntriesInBucketAtIndex(ptr noundef captures(n
   br label %dictGetNext.exit
 
 dictGetNext.exit:                                 ; preds = %12, %17, %22
-  %.0.i = phi ptr [ %24, %22 ], [ %21, %17 ], [ null, %12 ]
+  %.0.i = phi ptr [ %21, %17 ], [ %24, %22 ], [ null, %12 ]
   %25 = and i64 %13, 1
   %.not.i52 = icmp eq i64 %25, 0
   br i1 %.not.i52, label %26, label %dictGetKey.exit
@@ -671,7 +671,7 @@ dictGetNext.exit:                                 ; preds = %12, %17, %22
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %dictGetNext.exit, %28, %33, %37
-  %.0.i53 = phi ptr [ %38, %37 ], [ %30, %28 ], [ %36, %33 ], [ %.060, %dictGetNext.exit ]
+  %.0.i53 = phi ptr [ %30, %28 ], [ %36, %33 ], [ %38, %37 ], [ %.060, %dictGetNext.exit ]
   %39 = load i8, ptr %8, align 1, !tbaa !13
   %40 = load i8, ptr %7, align 2, !tbaa !13
   %41 = icmp sgt i8 %39, %40
@@ -808,7 +808,7 @@ encodeMaskedPtr.exit:                             ; preds = %71
   br label %dictSetNext.exit
 
 dictSetNext.exit:                                 ; preds = %100, %96, %88, %68, %encodeMaskedPtr.exit, %79
-  %.1 = phi ptr [ %84, %79 ], [ %.0.i53, %68 ], [ %.060, %100 ], [ %77, %encodeMaskedPtr.exit ], [ %.060, %88 ], [ %.060, %96 ]
+  %.1 = phi ptr [ %84, %79 ], [ %77, %encodeMaskedPtr.exit ], [ %.0.i53, %68 ], [ %.060, %88 ], [ %.060, %96 ], [ %.060, %100 ]
   %102 = load ptr, ptr %9, align 8, !tbaa !11
   %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %55
   store ptr %.1, ptr %103, align 8, !tbaa !31
@@ -970,7 +970,7 @@ define dso_local range(i32 0, 2) i32 @_dictBucketRehash(ptr noundef %0, i64 noun
   br label %dictCheckRehashingCompleted.exit
 
 dictCheckRehashingCompleted.exit:                 ; preds = %44, %36, %23, %6, %32, %28, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %28 ], [ 0, %6 ], [ 0, %23 ], [ 0, %32 ], [ 1, %36 ], [ 1, %44 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %23 ], [ 0, %6 ], [ 0, %32 ], [ 0, %28 ], [ 1, %36 ], [ 1, %44 ]
   ret i32 %.0
 }
 
@@ -1258,7 +1258,7 @@ dictGetKeyCmpFunc.exit:                           ; preds = %43, %46
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %.lr.ph, %72, %77, %81
-  %.0.i69 = phi ptr [ %82, %81 ], [ %74, %72 ], [ %80, %77 ], [ %.05176, %.lr.ph ]
+  %.0.i69 = phi ptr [ %74, %72 ], [ %80, %77 ], [ %82, %81 ], [ %.05176, %.lr.ph ]
   %83 = icmp eq ptr %1, %.0.i69
   br i1 %83, label %86, label %84
 
@@ -1282,11 +1282,11 @@ dictGetKey.exit:                                  ; preds = %.lr.ph, %72, %77, %
 dictGetNext.exit:                                 ; preds = %88
   %90 = and i64 %68, 4
   %.not5.i = icmp eq i64 %90, 0
-  %91 = getelementptr inbounds nuw i8, ptr %.05176, i64 16
-  %92 = and i64 %68, -8
-  %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %.0.i73.in = select i1 %.not5.i, ptr %91, ptr %94
+  %91 = and i64 %68, -8
+  %92 = inttoptr i64 %91 to ptr
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.05176, i64 16
+  %.0.i73.in = select i1 %.not5.i, ptr %94, ptr %93
   %.0.i73 = load ptr, ptr %.0.i73.in, align 8, !tbaa !31
   %.not60 = icmp eq ptr %.0.i73, null
   br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !53
@@ -1842,7 +1842,7 @@ dictGetKeyCmpFunc.exit:                           ; preds = %43, %46
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %.lr.ph, %72, %77, %81
-  %.0.i75 = phi ptr [ %82, %81 ], [ %74, %72 ], [ %80, %77 ], [ %.059102, %.lr.ph ]
+  %.0.i75 = phi ptr [ %74, %72 ], [ %80, %77 ], [ %82, %81 ], [ %.059102, %.lr.ph ]
   %83 = icmp eq ptr %1, %.0.i75
   br i1 %83, label %86, label %84
 
@@ -1879,7 +1879,7 @@ dictGetKey.exit:                                  ; preds = %.lr.ph, %72, %77, %
   br label %dictGetNext.exit
 
 dictGetNext.exit:                                 ; preds = %89, %92, %97
-  %.0.i79 = phi ptr [ %99, %97 ], [ %96, %92 ], [ null, %89 ]
+  %.0.i79 = phi ptr [ %96, %92 ], [ %99, %97 ], [ null, %89 ]
   %100 = ptrtoint ptr %.057103 to i64
   %101 = and i64 %100, 4
   %.not7.i81 = icmp eq i64 %101, 0
@@ -1918,7 +1918,7 @@ dictGetNext.exit:                                 ; preds = %89, %92, %97
   br label %dictGetNext.exit85
 
 dictGetNext.exit85:                               ; preds = %108, %111, %116
-  %.0.i83 = phi ptr [ %118, %116 ], [ %115, %111 ], [ null, %108 ]
+  %.0.i83 = phi ptr [ %115, %111 ], [ %118, %116 ], [ null, %108 ]
   %119 = load ptr, ptr %87, align 8, !tbaa !11
   %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %63
   store ptr %.0.i83, ptr %120, align 8, !tbaa !31
@@ -1964,7 +1964,7 @@ dictSetNext.exit:                                 ; preds = %106, %102, %dictGet
   br label %dictGetKey.exit.i
 
 dictGetKey.exit.i:                                ; preds = %137, %133, %128, %125
-  %.0.i.i = phi ptr [ %138, %137 ], [ %130, %128 ], [ %136, %133 ], [ %.059102, %125 ]
+  %.0.i.i = phi ptr [ %130, %128 ], [ %136, %133 ], [ %138, %137 ], [ %.059102, %125 ]
   tail call void %124(ptr noundef nonnull %0, ptr noundef %.0.i.i) #25
   %.pre.i87 = load ptr, ptr %0, align 8, !tbaa !16
   br label %139
@@ -2043,8 +2043,8 @@ _dictShrinkIfNeeded.exit:                         ; preds = %160
   %.154 = phi i64 [ %.053107, %52 ], [ %63, %._crit_edge ]
   br i1 %51, label %50, label %_dictShrinkIfNeeded.exit.thread, !llvm.loop !58
 
-_dictShrinkIfNeeded.exit.thread:                  ; preds = %._crit_edge, %168, %dictFreeUnlinkedEntry.exit, %158, %3
-  %.0 = phi ptr [ null, %3 ], [ %.059102, %158 ], [ %.059102, %dictFreeUnlinkedEntry.exit ], [ null, %168 ], [ null, %._crit_edge ]
+_dictShrinkIfNeeded.exit.thread:                  ; preds = %._crit_edge, %168, %158, %dictFreeUnlinkedEntry.exit, %3
+  %.0 = phi ptr [ null, %3 ], [ %.059102, %dictFreeUnlinkedEntry.exit ], [ %.059102, %158 ], [ null, %168 ], [ null, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -2098,7 +2098,7 @@ define dso_local void @dictFreeUnlinkedEntry(ptr noundef %0, ptr noundef %1) loc
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %8, %13, %18, %22
-  %.0.i = phi ptr [ %23, %22 ], [ %15, %13 ], [ %21, %18 ], [ %1, %8 ]
+  %.0.i = phi ptr [ %15, %13 ], [ %21, %18 ], [ %23, %22 ], [ %1, %8 ]
   tail call void %7(ptr noundef nonnull %0, ptr noundef %.0.i) #25
   %.pre = load ptr, ptr %0, align 8, !tbaa !16
   br label %24
@@ -2175,7 +2175,7 @@ define dso_local ptr @dictGetKey(ptr noundef %0) local_unnamed_addr #11 {
   br label %17
 
 17:                                               ; preds = %1, %15, %11, %6
-  %.0 = phi ptr [ %16, %15 ], [ %8, %6 ], [ %14, %11 ], [ %0, %1 ]
+  %.0 = phi ptr [ %8, %6 ], [ %14, %11 ], [ %16, %15 ], [ %0, %1 ]
   ret ptr %.0
 }
 
@@ -2246,7 +2246,7 @@ define dso_local noundef i32 @_dictClear(ptr noundef %0, i32 noundef %1, ptr nou
   br label %dictGetNext.exit
 
 dictGetNext.exit:                                 ; preds = %.preheader, %30, %35
-  %.0.i = phi ptr [ %37, %35 ], [ %34, %30 ], [ null, %.preheader ]
+  %.0.i = phi ptr [ %34, %30 ], [ %37, %35 ], [ null, %.preheader ]
   %38 = load ptr, ptr %0, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !56
@@ -2284,7 +2284,7 @@ dictGetNext.exit:                                 ; preds = %.preheader, %30, %3
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %41, %45, %50, %54
-  %.0.i48 = phi ptr [ %55, %54 ], [ %47, %45 ], [ %53, %50 ], [ %.03553, %41 ]
+  %.0.i48 = phi ptr [ %47, %45 ], [ %53, %50 ], [ %55, %54 ], [ %.03553, %41 ]
   tail call void %40(ptr noundef nonnull %0, ptr noundef %.0.i48) #25
   %.pre = load ptr, ptr %0, align 8, !tbaa !16
   br label %56
@@ -2524,7 +2524,7 @@ _dictRehashStepIfNeeded.exit:                     ; preds = %dictGetKeyCmpFunc.e
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %.lr.ph, %63, %68, %72
-  %.0.i56 = phi ptr [ %73, %72 ], [ %65, %63 ], [ %71, %68 ], [ %.04071, %.lr.ph ]
+  %.0.i56 = phi ptr [ %65, %63 ], [ %71, %68 ], [ %73, %72 ], [ %.04071, %.lr.ph ]
   %74 = and i64 %59, 3
   %.not.i59 = icmp eq i64 %74, 0
   br i1 %.not.i59, label %75, label %dictGetNext.exit
@@ -2547,7 +2547,7 @@ dictGetKey.exit:                                  ; preds = %.lr.ph, %63, %68, %
   br label %dictGetNext.exit
 
 dictGetNext.exit:                                 ; preds = %dictGetKey.exit, %77, %82
-  %.0.i60 = phi ptr [ %84, %82 ], [ %81, %77 ], [ null, %dictGetKey.exit ]
+  %.0.i60 = phi ptr [ %81, %77 ], [ %84, %82 ], [ null, %dictGetKey.exit ]
   tail call void @llvm.prefetch.p0(ptr %.0.i60, i32 0, i32 3, i32 1)
   %85 = icmp eq ptr %1, %.0.i56
   br i1 %85, label %dictGetNext.exit64.thread, label %86
@@ -2581,7 +2581,7 @@ dictGetNext.exit64:                               ; preds = %88
   %.145 = phi i64 [ %.04472, %43 ], [ %54, %._crit_edge ]
   br i1 %42, label %41, label %dictGetNext.exit64.thread, !llvm.loop !62
 
-dictGetNext.exit64.thread:                        ; preds = %._crit_edge, %95, %86, %dictGetNext.exit, %3
+dictGetNext.exit64.thread:                        ; preds = %._crit_edge, %95, %dictGetNext.exit, %86, %3
   %.0 = phi ptr [ null, %3 ], [ %.04071, %86 ], [ %.04071, %dictGetNext.exit ], [ null, %95 ], [ null, %._crit_edge ]
   ret ptr %.0
 }
@@ -2818,7 +2818,7 @@ dictGetKeyCmpFunc.exit:                           ; preds = %30, %33
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %.lr.ph92, %60, %65, %69
-  %.0.i59 = phi ptr [ %70, %69 ], [ %62, %60 ], [ %68, %65 ], [ %55, %.lr.ph92 ]
+  %.0.i59 = phi ptr [ %62, %60 ], [ %68, %65 ], [ %70, %69 ], [ %55, %.lr.ph92 ]
   %71 = icmp eq ptr %1, %.0.i59
   br i1 %71, label %.thread, label %72
 
@@ -2908,7 +2908,7 @@ define dso_local void @dictTwoPhaseUnlinkFree(ptr noundef %0, ptr noundef %1, pt
   br label %dictGetNext.exit
 
 dictGetNext.exit:                                 ; preds = %6, %16, %21
-  %.0.i = phi ptr [ %23, %21 ], [ %20, %16 ], [ null, %6 ]
+  %.0.i = phi ptr [ %20, %16 ], [ %23, %21 ], [ null, %6 ]
   store ptr %.0.i, ptr %2, align 8, !tbaa !31
   %24 = load ptr, ptr %0, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -2947,7 +2947,7 @@ dictGetNext.exit:                                 ; preds = %6, %16, %21
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %27, %31, %36, %40
-  %.0.i21 = phi ptr [ %41, %40 ], [ %33, %31 ], [ %39, %36 ], [ %1, %27 ]
+  %.0.i21 = phi ptr [ %33, %31 ], [ %39, %36 ], [ %41, %40 ], [ %1, %27 ]
   tail call void %26(ptr noundef nonnull %0, ptr noundef %.0.i21) #25
   %.pre = load ptr, ptr %0, align 8, !tbaa !16
   br label %42
@@ -3656,7 +3656,7 @@ dictFingerprint.exit:                             ; preds = %46
   br label %dictGetNext.exit
 
 dictGetNext.exit:                                 ; preds = %96, %101, %106
-  %.0.i = phi ptr [ %108, %106 ], [ %105, %101 ], [ null, %96 ]
+  %.0.i = phi ptr [ %105, %101 ], [ %108, %106 ], [ null, %96 ]
   store ptr %.0.i, ptr %4, align 8, !tbaa !75
   br label %.loopexit
 
@@ -3795,11 +3795,11 @@ dictGetNext.exit.thread:                          ; preds = %72
 dictGetNext.exit:                                 ; preds = %72
   %76 = and i64 %73, 4
   %.not5.i = icmp eq i64 %76, 0
-  %77 = getelementptr inbounds nuw i8, ptr %.162, i64 16
-  %78 = and i64 %73, -8
-  %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %.0.i.in = select i1 %.not5.i, ptr %77, ptr %80
+  %77 = and i64 %73, -8
+  %78 = inttoptr i64 %77 to ptr
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.162, i64 16
+  %.0.i.in = select i1 %.not5.i, ptr %80, ptr %79
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !31
   %81 = add nuw nsw i32 %.03961, 1
   %.not51 = icmp eq ptr %.0.i, null
@@ -3844,7 +3844,7 @@ dictGetNext.exit:                                 ; preds = %72
   br label %dictGetNext.exit56
 
 dictGetNext.exit56:                               ; preds = %.lr.ph, %92, %97
-  %.0.i54 = phi ptr [ %99, %97 ], [ %96, %92 ], [ null, %.lr.ph ]
+  %.0.i54 = phi ptr [ %96, %92 ], [ %99, %97 ], [ null, %.lr.ph ]
   %.not52 = icmp eq i32 %87, 0
   br i1 %.not52, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
@@ -3976,7 +3976,7 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   br i1 %.not110, label %.thread, label %55
 
 55:                                               ; preds = %49, %46, %.preheader124
-  %.281 = phi i64 [ %.180136, %.preheader124 ], [ %.180136, %46 ], [ %47, %49 ]
+  %.281 = phi i64 [ %.180136, %46 ], [ %.180136, %.preheader124 ], [ %47, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %25, i64 %.194134
   %57 = load i8, ptr %56, align 1, !tbaa !13
   %58 = icmp ne i8 %57, -1
@@ -4037,11 +4037,11 @@ dictGetNext.exit.thread:                          ; preds = %80
 dictGetNext.exit:                                 ; preds = %80
   %84 = and i64 %81, 4
   %.not5.i = icmp eq i64 %84, 0
-  %85 = getelementptr inbounds nuw i8, ptr %.077133, i64 16
-  %86 = and i64 %81, -8
-  %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %.0.i.in = select i1 %.not5.i, ptr %85, ptr %88
+  %85 = and i64 %81, -8
+  %86 = inttoptr i64 %85 to ptr
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.077133, i64 16
+  %.0.i.in = select i1 %.not5.i, ptr %88, ptr %87
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !31
   %89 = add i64 %.490132, 1
   %.not112 = icmp eq ptr %.0.i, null
@@ -4053,9 +4053,9 @@ dictGetNext.exit:                                 ; preds = %80
   br i1 %.not113, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %.loopexit, %70, %68, %55, %49
-  %.288 = phi i64 [ %.187135, %55 ], [ %.187135, %49 ], [ %.187135, %70 ], [ %.187135, %68 ], [ %90, %.loopexit ]
-  %.382 = phi i64 [ %.281, %55 ], [ %.180136, %49 ], [ %72, %70 ], [ %.281, %68 ], [ %.281, %.loopexit ]
-  %.2 = phi i64 [ %.1137, %55 ], [ %.1137, %49 ], [ 0, %70 ], [ %69, %68 ], [ 0, %.loopexit ]
+  %.288 = phi i64 [ %.187135, %55 ], [ %.187135, %49 ], [ %.187135, %68 ], [ %.187135, %70 ], [ %90, %.loopexit ]
+  %.382 = phi i64 [ %.281, %55 ], [ %.180136, %49 ], [ %.281, %68 ], [ %72, %70 ], [ %.281, %.loopexit ]
+  %.2 = phi i64 [ %.1137, %55 ], [ %.1137, %49 ], [ %69, %68 ], [ 0, %70 ], [ 0, %.loopexit ]
   br i1 %or.cond, label %.preheader124, label %91, !llvm.loop !82
 
 91:                                               ; preds = %.thread
@@ -4064,12 +4064,12 @@ dictGetNext.exit:                                 ; preds = %80
   br i1 %93, label %43, label %.critedge.loopexit148, !llvm.loop !83
 
 .critedge.loopexit148:                            ; preds = %43, %91
-  %.6.ph = phi i64 [ %.288, %91 ], [ %.086138, %43 ]
+  %.6.ph = phi i64 [ %.086138, %43 ], [ %.288, %91 ]
   %94 = tail call i64 @llvm.umin.i64(i64 %.6.ph, i64 %spec.select122)
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %.critedge.loopexit148, %39
-  %.6 = phi i64 [ %94, %.critedge.loopexit148 ], [ 0, %39 ], [ %spec.select122, %.loopexit ]
+  %.6 = phi i64 [ 0, %39 ], [ %94, %.critedge.loopexit148 ], [ %spec.select122, %.loopexit ]
   %95 = trunc nuw i64 %.6 to i32
   ret i32 %95
 }
@@ -4179,11 +4179,11 @@ dictGetNext.exit.thread:                          ; preds = %.lr.ph147
 dictGetNext.exit:                                 ; preds = %.lr.ph147
   %40 = and i64 %38, 4
   %.not5.i = icmp eq i64 %40, 0
-  %41 = getelementptr inbounds nuw i8, ptr %.093145, i64 16
-  %42 = and i64 %38, -8
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.0.i.in = select i1 %.not5.i, ptr %41, ptr %44
+  %41 = and i64 %38, -8
+  %42 = inttoptr i64 %41 to ptr
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.093145, i64 16
+  %.0.i.in = select i1 %.not5.i, ptr %44, ptr %43
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !31
   tail call void %2(ptr noundef %4, ptr noundef nonnull %.093145) #25
   %.not107 = icmp eq ptr %.0.i, null
@@ -4309,11 +4309,11 @@ dictGetNext.exit122.thread:                       ; preds = %.lr.ph
 dictGetNext.exit122:                              ; preds = %.lr.ph
   %115 = and i64 %113, 4
   %.not5.i121 = icmp eq i64 %115, 0
-  %116 = getelementptr inbounds nuw i8, ptr %.1140, i64 16
-  %117 = and i64 %113, -8
-  %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %.0.i120.in = select i1 %.not5.i121, ptr %116, ptr %119
+  %116 = and i64 %113, -8
+  %117 = inttoptr i64 %116 to ptr
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.1140, i64 16
+  %.0.i120.in = select i1 %.not5.i121, ptr %119, ptr %118
   %.0.i120 = load ptr, ptr %.0.i120.in, align 8, !tbaa !31
   tail call void %2(ptr noundef %4, ptr noundef nonnull %.1140) #25
   %.not111 = icmp eq ptr %.0.i120, null
@@ -4352,11 +4352,11 @@ dictGetNext.exit126.thread:                       ; preds = %.lr.ph143
 dictGetNext.exit126:                              ; preds = %.lr.ph143
   %128 = and i64 %126, 4
   %.not5.i125 = icmp eq i64 %128, 0
-  %129 = getelementptr inbounds nuw i8, ptr %.2142, i64 16
-  %130 = and i64 %126, -8
-  %131 = inttoptr i64 %130 to ptr
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %.0.i124.in = select i1 %.not5.i125, ptr %129, ptr %132
+  %129 = and i64 %126, -8
+  %130 = inttoptr i64 %129 to ptr
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.2142, i64 16
+  %.0.i124.in = select i1 %.not5.i125, ptr %132, ptr %131
   %.0.i124 = load ptr, ptr %.0.i124.in, align 8, !tbaa !31
   tail call void %2(ptr noundef %4, ptr noundef nonnull %.2142) #25
   %.not112 = icmp eq ptr %.0.i124, null
@@ -4476,7 +4476,7 @@ define internal fastcc void @dictDefragBucket(ptr noundef captures(address_is_nu
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %10, %15, %20, %24
-  %.0.i = phi ptr [ %25, %24 ], [ %17, %15 ], [ %23, %20 ], [ %9, %10 ]
+  %.0.i = phi ptr [ %17, %15 ], [ %23, %20 ], [ %25, %24 ], [ %9, %10 ]
   %26 = tail call ptr %5(ptr noundef %.0.i) #25
   br label %27
 
@@ -4590,7 +4590,7 @@ encodeMaskedPtr.exit:                             ; preds = %50
   br label %65
 
 65:                                               ; preds = %57, %58, %63, %62
-  %.043 = phi ptr [ %.1, %57 ], [ %60, %62 ], [ %60, %63 ], [ %.1, %58 ]
+  %.043 = phi ptr [ %60, %63 ], [ %60, %62 ], [ %.1, %58 ], [ %.1, %57 ]
   %.not65 = icmp eq ptr %.043, null
   br i1 %.not65, label %..thread_crit_edge, label %66
 
@@ -4612,11 +4612,11 @@ encodeMaskedPtr.exit:                             ; preds = %50
 dictGetNextRef.exit:                              ; preds = %.thread
   %70 = and i64 %68, 4
   %.not5.i = icmp eq i64 %70, 0
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %72 = and i64 %68, -8
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %.0.i68 = select i1 %.not5.i, ptr %71, ptr %74
+  %71 = and i64 %68, -8
+  %72 = inttoptr i64 %71 to ptr
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %.0.i68 = select i1 %.not5.i, ptr %74, ptr %73
   %75 = load ptr, ptr %.0.i68, align 8, !tbaa !31
   %.not52 = icmp eq ptr %75, null
   br i1 %.not52, label %.critedge, label %.lr.ph88, !llvm.loop !93
@@ -4741,7 +4741,7 @@ dictExpand.exit.sink.split:                       ; preds = %48, %8
   br label %dictExpand.exit
 
 dictExpand.exit:                                  ; preds = %dictExpand.exit.sink.split, %12, %48, %dictTypeResizeAllowed.exit.thread, %8, %.thread, %dictTypeResizeAllowed.exit, %1
-  %.0 = phi i32 [ 0, %dictTypeResizeAllowed.exit ], [ 1, %12 ], [ 0, %1 ], [ 0, %48 ], [ 1, %.thread ], [ 0, %8 ], [ 0, %dictTypeResizeAllowed.exit.thread ], [ 0, %dictExpand.exit.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %dictTypeResizeAllowed.exit ], [ 1, %.thread ], [ 0, %8 ], [ 0, %dictTypeResizeAllowed.exit.thread ], [ 0, %48 ], [ 1, %12 ], [ 0, %dictExpand.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -4846,7 +4846,7 @@ dictTypeResizeAllowed.exit.thread.thread:         ; preds = %21, %dictTypeResize
   br label %dictShrink.exit
 
 dictShrink.exit:                                  ; preds = %12, %49, %dictTypeResizeAllowed.exit.thread.thread, %dictTypeResizeAllowed.exit.thread, %.thread, %dictTypeResizeAllowed.exit, %4, %1
-  %.0 = phi i32 [ 0, %dictTypeResizeAllowed.exit ], [ 0, %1 ], [ 0, %4 ], [ 1, %12 ], [ 1, %.thread ], [ 0, %dictTypeResizeAllowed.exit.thread ], [ 0, %dictTypeResizeAllowed.exit.thread.thread ], [ 0, %49 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 0, %dictTypeResizeAllowed.exit ], [ 1, %.thread ], [ 0, %dictTypeResizeAllowed.exit.thread ], [ 0, %dictTypeResizeAllowed.exit.thread.thread ], [ 0, %49 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -4990,7 +4990,7 @@ define dso_local ptr @dictFindByHashAndPtr(ptr noundef readonly captures(none) %
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %.lr.ph, %34, %39, %43
-  %.0.i = phi ptr [ %44, %43 ], [ %36, %34 ], [ %42, %39 ], [ %.02432, %.lr.ph ]
+  %.0.i = phi ptr [ %36, %34 ], [ %42, %39 ], [ %44, %43 ], [ %.02432, %.lr.ph ]
   %45 = icmp eq ptr %1, %.0.i
   br i1 %45, label %.loopexit, label %46
 
@@ -5002,11 +5002,11 @@ dictGetKey.exit:                                  ; preds = %.lr.ph, %34, %39, %
 dictGetNext.exit:                                 ; preds = %46
   %48 = and i64 %30, 4
   %.not5.i = icmp eq i64 %48, 0
-  %49 = getelementptr inbounds nuw i8, ptr %.02432, i64 16
-  %50 = and i64 %30, -8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %.0.i28.in = select i1 %.not5.i, ptr %49, ptr %52
+  %49 = and i64 %30, -8
+  %50 = inttoptr i64 %49 to ptr
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.02432, i64 16
+  %.0.i28.in = select i1 %.not5.i, ptr %52, ptr %51
   %.0.i28 = load ptr, ptr %.0.i28.in, align 8, !tbaa !31
   %.not = icmp eq ptr %.0.i28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
@@ -5018,7 +5018,7 @@ dictGetNext.exit:                                 ; preds = %46
   br i1 %or.cond, label %.backedge.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %dictGetKey.exit, %3
-  %.023 = phi ptr [ %.02432, %dictGetKey.exit ], [ null, %3 ], [ null, %._crit_edge ]
+  %.023 = phi ptr [ null, %3 ], [ %.02432, %dictGetKey.exit ], [ null, %._crit_edge ]
   ret ptr %.023
 }
 
@@ -5184,11 +5184,11 @@ define dso_local noalias noundef ptr @dictGetStatsHt(ptr noundef readonly captur
 dictGetNext.exit:                                 ; preds = %36
   %40 = and i64 %38, 4
   %.not5.i = icmp eq i64 %40, 0
-  %41 = getelementptr inbounds nuw i8, ptr %.04147, i64 16
-  %42 = and i64 %38, -8
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.0.i.in = select i1 %.not5.i, ptr %41, ptr %44
+  %41 = and i64 %38, -8
+  %42 = inttoptr i64 %41 to ptr
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.04147, i64 16
+  %.0.i.in = select i1 %.not5.i, ptr %44, ptr %43
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !31
   %.not46 = icmp eq ptr %.0.i, null
   br i1 %.not46, label %dictGetNext.exit.thread, label %36, !llvm.loop !107

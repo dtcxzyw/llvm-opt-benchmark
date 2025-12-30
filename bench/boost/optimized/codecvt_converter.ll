@@ -736,7 +736,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
   ret void
 
 _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit12: ; preds = %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i30, %.body24.thread, %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11, %.body.thread
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11 ], [ %.pn4567.ph.i, %.body.thread ], [ %lpad.thr_comm.split-lp50, %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i30 ], [ %.pn4567.ph.i15, %.body24.thread ]
+  %.pn = phi { ptr, i32 } [ %.pn4567.ph.i, %.body.thread ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11 ], [ %.pn4567.ph.i15, %.body24.thread ], [ %lpad.thr_comm.split-lp50, %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i30 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1019,21 +1019,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %36 = load ptr, ptr %6, align 8, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = icmp eq ptr %36, %37
-  br i1 %38, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %34
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %34
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %.0, label %41, label %59
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34
   %39 = load i64, ptr %37, align 8, !tbaa !18
   %40 = add i64 %39, 1
   call void @_ZdlPvm(ptr noundef %36, i64 noundef %40) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.0, label %41, label %59
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %41, label %59
-
-41:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn22 = phi { ptr, i32 } [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+41:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn22 = phi { ptr, i32 } [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %30) #19
   br label %59
 
@@ -1112,8 +1112,8 @@ _ZN5boost6locale4util14simple_codecvtIwEC2ERKNSt7__cxx1112basic_stringIcSt11char
 58:                                               ; preds = %57, %_ZN5boost6locale4util14simple_codecvtIwEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit, %_ZN5boost6locale4util14simple_codecvtIcEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
   ret void
 
-59:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %41, %.body18, %.body
-  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body19, %.body18 ], [ %eh.lpad-body, %.body ], [ %.pn22, %41 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+59:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %41, %.body18, %.body
+  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body19, %.body18 ], [ %eh.lpad-body, %.body ], [ %.pn22, %41 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn15
 
 60:                                               ; preds = %32
@@ -2030,7 +2030,7 @@ _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %7
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %43, %32, %21, %.thread, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit, %4
-  %.0 = phi i32 [ -1, %4 ], [ -2, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ -2, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit ], [ 1, %.thread ], [ 2, %21 ], [ 3, %32 ], [ 4, %43 ]
+  %.0 = phi i32 [ -1, %4 ], [ -2, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit ], [ -2, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ 1, %.thread ], [ 2, %21 ], [ 3, %32 ], [ 4, %43 ]
   ret i32 %.0
 }
 
@@ -2157,13 +2157,13 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %63, %65, %67
-  %.0.i43 = phi i32 [ 2, %65 ], [ 1, %63 ], [ %..i42, %67 ]
+  %.0.i43 = phi i32 [ 1, %63 ], [ 2, %65 ], [ %..i42, %67 ]
   %.not = icmp eq i32 %.0.i43, %.0.i.ph.ph51
   %.0. = select i1 %.not, i32 %60, i32 -1, !prof !65
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit: ; preds = %9, %17, %19, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit, %56, %52, %49, %40, %37, %28, %24, %2
-  %.032 = phi i32 [ -2, %2 ], [ -2, %37 ], [ %20, %19 ], [ -1, %52 ], [ %.0., %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit ], [ -1, %56 ], [ -2, %24 ], [ -1, %28 ], [ -1, %40 ], [ -2, %49 ], [ -1, %17 ], [ -1, %9 ]
+  %.032 = phi i32 [ -2, %2 ], [ %20, %19 ], [ -2, %24 ], [ -1, %28 ], [ -2, %37 ], [ -1, %40 ], [ -2, %49 ], [ -1, %52 ], [ -1, %56 ], [ %.0., %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit ], [ -1, %17 ], [ -1, %9 ]
   ret i32 %.032
 }
 
@@ -3299,8 +3299,8 @@ _ZN5boost6locale12utf8_codecvtIwE12from_unicodeERNS2_10state_typeEjPcPKc.exit: ;
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %13, label %._crit_edge
 
-_ZN5boost6locale12utf8_codecvtIwE12from_unicodeERNS2_10state_typeEjPcPKc.exit.thread39.thread: ; preds = %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.i, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i, %13
-  %.130.ph = phi i32 [ 2, %13 ], [ 1, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i ], [ 1, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.i ]
+_ZN5boost6locale12utf8_codecvtIwE12from_unicodeERNS2_10state_typeEjPcPKc.exit.thread39.thread: ; preds = %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.i, %13
+  %.130.ph = phi i32 [ 2, %13 ], [ 1, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.i ], [ 1, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i ]
   store ptr %.050, ptr %4, align 8, !tbaa !15
   store ptr %.02549, ptr %7, align 8, !tbaa !15
   br label %72

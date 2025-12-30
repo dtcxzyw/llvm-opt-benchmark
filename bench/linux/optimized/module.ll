@@ -200,8 +200,8 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   br label %60
 
 60:                                               ; preds = %.sink.split, %51, %49, %26
-  %61 = phi i64 [ %47, %49 ], [ %47, %51 ], [ %47, %26 ], [ %59, %.sink.split ]
-  %62 = phi i64 [ 4, %49 ], [ 4, %51 ], [ 8, %26 ], [ %.ph47, %.sink.split ]
+  %61 = phi i64 [ %47, %26 ], [ %47, %49 ], [ %47, %51 ], [ %59, %.sink.split ]
+  %62 = phi i64 [ 8, %26 ], [ 4, %49 ], [ 4, %51 ], [ %.ph47, %.sink.split ]
   %63 = call i32 @bcmp(ptr noundef %37, ptr noundef nonnull dereferenceable(1) %7, i64 %62)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %67, label %65
@@ -229,7 +229,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %69, %65, %55, %75, %11
-  %78 = phi i32 [ -8, %75 ], [ 0, %11 ], [ -8, %65 ], [ -8, %55 ], [ 0, %69 ]
+  %78 = phi i32 [ -8, %75 ], [ 0, %11 ], [ -8, %55 ], [ -8, %65 ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %9, label %80, label %79

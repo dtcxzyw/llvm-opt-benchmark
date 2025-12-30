@@ -72,7 +72,7 @@ ext_list_free.exit.sink.split:                    ; preds = %12, %5
   br label %ext_list_free.exit
 
 ext_list_free.exit:                               ; preds = %ext_list_free.exit.sink.split, %12, %5, %9
-  %.0 = phi i32 [ 1, %9 ], [ 0, %12 ], [ 0, %5 ], [ 0, %ext_list_free.exit.sink.split ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %5 ], [ 0, %12 ], [ 0, %ext_list_free.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -164,7 +164,7 @@ define hidden ptr @X509V3_EXT_get_nid(i32 noundef %0) local_unnamed_addr #0 {
   br label %bsearch.exit
 
 bsearch.exit:                                     ; preds = %13, %20, %18, %1, %22
-  %.0 = phi ptr [ null, %1 ], [ null, %20 ], [ %25, %22 ], [ null, %18 ], [ %10, %13 ]
+  %.0 = phi ptr [ %25, %22 ], [ null, %1 ], [ null, %18 ], [ null, %20 ], [ %10, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -236,7 +236,7 @@ define hidden ptr @X509V3_EXT_get(ptr noundef readonly captures(none) %0) local_
   br label %X509V3_EXT_get_nid.exit
 
 X509V3_EXT_get_nid.exit:                          ; preds = %17, %7, %22, %24, %26
-  %.0.i = phi ptr [ null, %7 ], [ null, %24 ], [ %29, %26 ], [ null, %22 ], [ %14, %17 ]
+  %.0.i = phi ptr [ %29, %26 ], [ null, %7 ], [ null, %22 ], [ null, %24 ], [ %14, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
@@ -302,7 +302,7 @@ X509V3_EXT_get_nid.exit.thread13:                 ; preds = %14
   %.not8.i = icmp eq i32 %22, 0
   br i1 %.not8.i, label %X509V3_EXT_get_nid.exit.thread, label %X509V3_EXT_get_nid.exit
 
-X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %21, %19
+X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %19, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
@@ -429,7 +429,7 @@ X509V3_EXT_get_nid.exit.thread12:                 ; preds = %14
   %.not8.i = icmp eq i32 %22, 0
   br i1 %.not8.i, label %X509V3_EXT_get_nid.exit.thread, label %X509V3_EXT_get_nid.exit
 
-X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %21, %19
+X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %19, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %26
@@ -555,7 +555,7 @@ X509V3_EXT_get.exit.thread16:                     ; preds = %18
   %.not8.i.i = icmp eq i32 %26, 0
   br i1 %.not8.i.i, label %X509V3_EXT_get.exit.thread13, label %X509V3_EXT_get.exit
 
-X509V3_EXT_get.exit.thread13:                     ; preds = %8, %25, %23
+X509V3_EXT_get.exit.thread13:                     ; preds = %8, %23, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %X509V3_EXT_get.exit.thread
@@ -722,7 +722,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br label %44
 
 44:                                               ; preds = %42, %43, %.split.us, %32, %7, %8, %40
-  %.033 = phi ptr [ %41, %40 ], [ null, %.split.us ], [ null, %7 ], [ null, %8 ], [ null, %32 ], [ null, %43 ], [ null, %42 ]
+  %.033 = phi ptr [ %41, %40 ], [ null, %8 ], [ null, %7 ], [ null, %32 ], [ null, %.split.us ], [ null, %43 ], [ null, %42 ]
   ret ptr %.033
 }
 
@@ -794,7 +794,7 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
   br label %38
 
 .thread52:                                        ; preds = %.thread, %.thread48
-  %28 = phi ptr [ %19, %.thread ], [ %20, %.thread48 ]
+  %28 = phi ptr [ %20, %.thread48 ], [ %19, %.thread ]
   %29 = load ptr, ptr %0, align 8, !tbaa !41
   %.not35 = icmp eq ptr %29, null
   br i1 %.not35, label %30, label %32
@@ -823,7 +823,7 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
   br label %38
 
 38:                                               ; preds = %35, %37, %32, %30, %22, %12, %11, %21
-  %.0 = phi i32 [ 0, %21 ], [ -1, %30 ], [ 1, %11 ], [ %., %12 ], [ %.42, %32 ], [ %.41, %22 ], [ 0, %37 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %21 ], [ 1, %11 ], [ %., %12 ], [ %.41, %22 ], [ -1, %30 ], [ %.42, %32 ], [ 0, %37 ], [ 0, %35 ]
   ret i32 %.0
 }
 

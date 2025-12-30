@@ -265,7 +265,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %common.resume
 
 common.resume:                                    ; preds = %81, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit166, %40, %43
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %41, %43 ], [ %.pn84.pn.pn.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit166 ], [ %82, %81 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %43 ], [ %41, %40 ], [ %.pn84.pn.pn.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit166 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit: ; preds = %34
@@ -1611,7 +1611,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit162:             ; preds = %571, %576, %583
   br i1 %.not204, label %._crit_edge.loopexit, label %.lr.ph
 
 .body:                                            ; preds = %526, %443, %360, %277, %194, %111, %.body159, %.body147, %.body135, %.body123, %.body111, %.body99
-  %.pn84.pn.pn.pn = phi { ptr, i32 } [ %.pn84.pn.pn, %.body159 ], [ %444, %443 ], [ %.pn80.pn.pn, %.body147 ], [ %361, %360 ], [ %.pn76.pn.pn, %.body135 ], [ %278, %277 ], [ %.pn72.pn.pn, %.body123 ], [ %195, %194 ], [ %.pn68.pn.pn, %.body111 ], [ %112, %111 ], [ %.pn.pn.pn, %.body99 ], [ %527, %526 ]
+  %.pn84.pn.pn.pn = phi { ptr, i32 } [ %.pn84.pn.pn, %.body159 ], [ %.pn80.pn.pn, %.body147 ], [ %.pn76.pn.pn, %.body135 ], [ %.pn72.pn.pn, %.body123 ], [ %.pn68.pn.pn, %.body111 ], [ %.pn.pn.pn, %.body99 ], [ %112, %111 ], [ %195, %194 ], [ %278, %277 ], [ %361, %360 ], [ %444, %443 ], [ %527, %526 ]
   %598 = load ptr, ptr %6, align 8, !tbaa !33
   %.not.i.i.i163 = icmp eq ptr %598, null
   br i1 %.not.i.i.i163, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit164, label %599
@@ -2039,7 +2039,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %87, %.loopexit2, %.loopexit.split-lp3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54
-  %.pn27 = phi { ptr, i32 } [ %lpad.phi11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54 ], [ %lpad.loopexit.split-lp5, %.loopexit.split-lp3 ], [ %lpad.loopexit4, %.loopexit2 ], [ %lpad.phi11, %87 ]
+  %.pn27 = phi { ptr, i32 } [ %lpad.phi11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54 ], [ %lpad.loopexit4, %.loopexit2 ], [ %lpad.loopexit.split-lp5, %.loopexit.split-lp3 ], [ %lpad.phi11, %87 ]
   %92 = load ptr, ptr %8, align 8, !tbaa !15
   %93 = icmp eq ptr %92, %16
   br i1 %93, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
@@ -2293,7 +2293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   ret void
 
 169:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit12, %.loopexit.split-lp13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %157, %155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
-  %.pn31.pn.pn = phi { ptr, i32 } [ %156, %155 ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ], [ %158, %157 ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn31.pn.pn = phi { ptr, i32 } [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ], [ %158, %157 ], [ %156, %155 ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %170 = load ptr, ptr %6, align 8, !tbaa !15
   %171 = icmp eq ptr %170, %11
   br i1 %171, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85

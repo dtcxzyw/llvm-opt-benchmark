@@ -88,7 +88,7 @@ select.unfold.i:                                  ; preds = %.split.split.split.
   br i1 %exitcond65.not.i, label %_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit, label %.split.split.split.i, !llvm.loop !9
 
 _ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit: ; preds = %13, %select.unfold.us54.i, %6, %select.unfold.us49.i, %.split.split.split.i, %select.unfold.i
-  %.us-phi.i = phi ptr [ %3, %6 ], [ %17, %.split.split.split.i ], [ null, %select.unfold.i ], [ null, %select.unfold.us49.i ], [ %10, %13 ], [ null, %select.unfold.us54.i ]
+  %.us-phi.i = phi ptr [ null, %select.unfold.i ], [ %17, %.split.split.split.i ], [ null, %select.unfold.us49.i ], [ %3, %6 ], [ null, %select.unfold.us54.i ], [ %10, %13 ]
   ret ptr %.us-phi.i
 }
 
@@ -282,7 +282,7 @@ select.unfold:                                    ; preds = %.split.split.split
   br i1 %exitcond65.not, label %.split42.us, label %.split.split.split, !llvm.loop !9
 
 .split42.us:                                      ; preds = %select.unfold.us54, %92, %85, %select.unfold.us49, %select.unfold, %.split.split.split, %select.unfold.us45, %78, %49, %select.unfold.us
-  %.us-phi = phi ptr [ %82, %85 ], [ %96, %.split.split.split ], [ null, %select.unfold.us ], [ null, %select.unfold.us45 ], [ %9, %49 ], [ %53, %78 ], [ null, %select.unfold ], [ null, %select.unfold.us49 ], [ null, %select.unfold.us54 ], [ %89, %92 ]
+  %.us-phi = phi ptr [ %9, %49 ], [ null, %select.unfold.us ], [ %53, %78 ], [ null, %select.unfold.us45 ], [ %96, %.split.split.split ], [ null, %select.unfold ], [ %82, %85 ], [ null, %select.unfold.us49 ], [ %89, %92 ], [ null, %select.unfold.us54 ]
   ret ptr %.us-phi
 }
 
@@ -322,7 +322,7 @@ select.unfold.i:                                  ; preds = %.split.split.split.
   br i1 %exitcond65.not.i, label %_ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit, label %.split.split.split.i, !llvm.loop !9
 
 _ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit: ; preds = %6, %select.unfold.us49.i, %.split.split.split.i, %select.unfold.i
-  %.us-phi.i = phi ptr [ %10, %.split.split.split.i ], [ null, %select.unfold.i ], [ null, %select.unfold.us49.i ], [ %3, %6 ]
+  %.us-phi.i = phi ptr [ null, %select.unfold.i ], [ %10, %.split.split.split.i ], [ null, %select.unfold.us49.i ], [ %3, %6 ]
   ret ptr %.us-phi.i
 }
 
@@ -363,7 +363,7 @@ define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizont
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1, %6, %5, %4
-  %.0 = phi i32 [ 6, %6 ], [ 2, %4 ], [ %3, %1 ], [ 4, %5 ]
+  %.0 = phi i32 [ 2, %4 ], [ 4, %5 ], [ 6, %6 ], [ %3, %1 ]
   ret i32 %.0
 }
 
@@ -418,7 +418,7 @@ define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19vertical
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1, %1, %6, %5, %4
-  %.0 = phi i32 [ 6, %6 ], [ 1, %1 ], [ 2, %4 ], [ 4, %5 ], [ 1, %1 ]
+  %.0 = phi i32 [ 2, %4 ], [ 4, %5 ], [ 6, %6 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %.0
 }
 

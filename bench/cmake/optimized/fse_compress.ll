@@ -327,7 +327,7 @@ define dso_local i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %17
 
 17:                                               ; preds = %.sink.split, %7, %5
-  %.0 = phi i64 [ -1, %7 ], [ -44, %5 ], [ %16, %.sink.split ]
+  %.0 = phi i64 [ -44, %5 ], [ -1, %7 ], [ %16, %.sink.split ]
   ret i64 %.0
 }
 
@@ -567,7 +567,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.thread178, %50, %81, %.lr.ph209.split, %6, %96, %.critedge._crit_edge, %99
-  %.3 = phi i64 [ %104, %99 ], [ -1, %.critedge._crit_edge ], [ -70, %96 ], [ -70, %.lr.ph209.split ], [ -1, %6 ], [ -70, %81 ], [ -1, %.thread178 ], [ -70, %50 ]
+  %.3 = phi i64 [ %104, %99 ], [ -1, %.critedge._crit_edge ], [ -70, %96 ], [ -1, %6 ], [ -70, %.lr.ph209.split ], [ -1, %.thread178 ], [ -70, %50 ], [ -70, %81 ]
   ret i64 %.3
 }
 
@@ -953,7 +953,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   br label %select.unfold
 
 select.unfold:                                    ; preds = %30, %169, %181, %152, %.preheader153.i, %103, %137, %183, %11, %9, %6
-  %.0 = phi i64 [ -1, %11 ], [ -1, %6 ], [ -44, %9 ], [ %27, %152 ], [ %27, %.preheader153.i ], [ %27, %183 ], [ %27, %181 ], [ %27, %137 ], [ %27, %103 ], [ -1, %169 ], [ 0, %30 ]
+  %.0 = phi i64 [ -1, %6 ], [ -44, %9 ], [ -1, %11 ], [ %27, %183 ], [ %27, %137 ], [ %27, %103 ], [ %27, %.preheader153.i ], [ %27, %152 ], [ -1, %169 ], [ %27, %181 ], [ 0, %30 ]
   ret i64 %.0
 }
 

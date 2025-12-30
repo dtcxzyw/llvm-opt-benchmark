@@ -1054,7 +1054,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.t
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_134InternalGetDefaultEventEngineIfAnyEv.exit
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_134InternalGetDefaultEventEngineIfAnyEv.exit: ; preds = %29, %26, %21, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEON9grpc_core6detail21MatchPointerExtractorIJZNS6_12_GLOBAL__N_134InternalGetDefaultEventEngineIfAnyEvE3$_0ZNSD_34InternalGetDefaultEventEngineIfAnyEvE3$_1EEERSt7variantIJSt8weak_ptrIS7_ES8_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SM_.exit.i.i.i.i"
-  %31 = phi ptr [ %20, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEON9grpc_core6detail21MatchPointerExtractorIJZNS6_12_GLOBAL__N_134InternalGetDefaultEventEngineIfAnyEvE3$_0ZNSD_34InternalGetDefaultEventEngineIfAnyEvE3$_1EEERSt7variantIJSt8weak_ptrIS7_ES8_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SM_.exit.i.i.i.i" ], [ %.val.i.i.i.i, %21 ], [ %.val.i.i.i.i, %26 ], [ %.pr.pre, %29 ]
+  %31 = phi ptr [ %.val.i.i.i.i, %21 ], [ %20, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEON9grpc_core6detail21MatchPointerExtractorIJZNS6_12_GLOBAL__N_134InternalGetDefaultEventEngineIfAnyEvE3$_0ZNSD_34InternalGetDefaultEventEngineIfAnyEvE3$_1EEERSt7variantIJSt8weak_ptrIS7_ES8_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SM_.exit.i.i.i.i" ], [ %.val.i.i.i.i, %26 ], [ %.pr.pre, %29 ]
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %32, label %_ZNSt7variantIJSt8weak_ptrIN17grpc_event_engine12experimental11EventEngineEESt10shared_ptrIS3_EEE7emplaceIS4_JRS6_EEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISB_EERSB_E4typeEDpOSC_.exit
 
@@ -1283,8 +1283,8 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_134InternalGetDefaultEventEngineIfAnyEv.exit
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_134InternalGetDefaultEventEngineIfAnyEv.exit: ; preds = %11, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %26, %23, %19, %6
-  %.sroa.0.0 = phi ptr [ %.val.i.i.i.i, %23 ], [ %.val.i.i.i.i, %19 ], [ %.val.i.i.i.i, %26 ], [ %spec.select, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %6 ], [ null, %11 ]
-  %.sroa.7.2 = phi ptr [ %.val6.i.i.i.i, %23 ], [ null, %19 ], [ %.val6.i.i.i.i, %26 ], [ %7, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %6 ], [ null, %11 ]
+  %.sroa.0.0 = phi ptr [ %.val.i.i.i.i, %19 ], [ %.val.i.i.i.i, %26 ], [ %.val.i.i.i.i, %23 ], [ null, %6 ], [ %spec.select, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %11 ]
+  %.sroa.7.2 = phi ptr [ null, %19 ], [ %.val6.i.i.i.i, %26 ], [ %.val6.i.i.i.i, %23 ], [ null, %6 ], [ %7, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %11 ]
   store ptr %.sroa.0.0, ptr %2, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !29
@@ -2798,7 +2798,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit29:             ; preds = %27, %28
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %33, %34, %.thread.i, %35, %39, %42, %45
-  %.sroa.04.0.i = phi i64 [ %spec.select.i, %34 ], [ %spec.select, %33 ], [ -9223372036854775808, %35 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %42 ], [ %46, %45 ], [ 9223372036854775807, %39 ]
+  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %35 ], [ %46, %45 ], [ 9223372036854775807, %39 ], [ -9223372036854775808, %42 ], [ %spec.select.i, %34 ], [ %spec.select, %33 ]
   %47 = sub nsw i64 0, %.sroa.04.0.i
   %48 = icmp eq i64 %.sroa.04.0.i, -9223372036854775807
   %or.cond.i.i30 = or i1 %17, %48

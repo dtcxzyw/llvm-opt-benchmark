@@ -79,7 +79,7 @@ evp_pkey_ctx_getset_ecdh_param_checks.exit:       ; preds = %18, %15, %11
   br label %evp_pkey_ctx_getset_ecdh_param_checks.exit.thread
 
 evp_pkey_ctx_getset_ecdh_param_checks.exit.thread: ; preds = %18, %10, %21, %25, %evp_pkey_ctx_getset_ecdh_param_checks.exit
-  %.0 = phi i32 [ -2, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ %23, %21 ], [ -2, %25 ], [ -1, %18 ], [ -2, %10 ]
+  %.0 = phi i32 [ -2, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ -2, %25 ], [ %23, %21 ], [ -1, %18 ], [ -2, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -164,7 +164,7 @@ evp_pkey_ctx_getset_ecdh_param_checks.exit:       ; preds = %17, %14, %10
   br label %evp_pkey_ctx_getset_ecdh_param_checks.exit.thread
 
 evp_pkey_ctx_getset_ecdh_param_checks.exit.thread: ; preds = %17, %9, %21, %22, %evp_pkey_ctx_getset_ecdh_param_checks.exit
-  %.09 = phi i32 [ -1, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ %spec.store.select, %22 ], [ -2, %21 ], [ -1, %17 ], [ -2, %9 ]
+  %.09 = phi i32 [ -2, %21 ], [ %spec.store.select, %22 ], [ -1, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ -1, %17 ], [ -2, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.09
@@ -261,7 +261,7 @@ evp_pkey_ctx_getset_ecdh_param_checks.exit:       ; preds = %19, %16, %12
   br label %evp_pkey_ctx_getset_ecdh_param_checks.exit.thread
 
 evp_pkey_ctx_getset_ecdh_param_checks.exit.thread: ; preds = %19, %11, %22, %26, %evp_pkey_ctx_getset_ecdh_param_checks.exit
-  %.0 = phi i32 [ -2, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ %24, %22 ], [ -2, %26 ], [ -1, %19 ], [ -2, %11 ]
+  %.0 = phi i32 [ -2, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ -2, %26 ], [ %24, %22 ], [ -1, %19 ], [ -2, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -339,7 +339,7 @@ evp_pkey_ctx_getset_ecdh_param_checks.exit:       ; preds = %18, %15, %11
   br label %evp_pkey_ctx_getset_ecdh_param_checks.exit.thread
 
 evp_pkey_ctx_getset_ecdh_param_checks.exit.thread: ; preds = %18, %10, %22, %26, %23, %evp_pkey_ctx_getset_ecdh_param_checks.exit
-  %.09 = phi i32 [ -1, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ -1, %23 ], [ -2, %22 ], [ 1, %26 ], [ -1, %18 ], [ -2, %10 ]
+  %.09 = phi i32 [ -2, %22 ], [ 1, %26 ], [ -1, %23 ], [ -1, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ -1, %18 ], [ -2, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.09
@@ -407,7 +407,7 @@ evp_pkey_ctx_getset_ecdh_param_checks.exit:       ; preds = %18, %15, %11
   br label %evp_pkey_ctx_getset_ecdh_param_checks.exit.thread
 
 evp_pkey_ctx_getset_ecdh_param_checks.exit.thread: ; preds = %18, %10, %evp_pkey_ctx_getset_ecdh_param_checks.exit, %23, %24
-  %.0 = phi i32 [ %22, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ 1, %24 ], [ -2, %23 ], [ -1, %18 ], [ -2, %10 ]
+  %.0 = phi i32 [ 1, %24 ], [ -2, %23 ], [ %22, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ -1, %18 ], [ -2, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -481,7 +481,7 @@ evp_pkey_ctx_getset_ecdh_param_checks.exit:       ; preds = %17, %14, %10
   br label %evp_pkey_ctx_getset_ecdh_param_checks.exit.thread
 
 evp_pkey_ctx_getset_ecdh_param_checks.exit.thread: ; preds = %17, %9, %22, %21, %evp_pkey_ctx_getset_ecdh_param_checks.exit
-  %.011 = phi i32 [ %spec.select, %22 ], [ -1, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ -2, %21 ], [ -1, %17 ], [ -2, %9 ]
+  %.011 = phi i32 [ -2, %21 ], [ %spec.select, %22 ], [ -1, %evp_pkey_ctx_getset_ecdh_param_checks.exit ], [ -1, %17 ], [ -2, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.011
 }

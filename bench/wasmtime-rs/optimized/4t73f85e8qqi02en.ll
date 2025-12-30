@@ -297,7 +297,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.threa
   unreachable
 
 common.resume:                                    ; preds = %47, %19
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %20, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %48, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.i
@@ -2151,7 +2151,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
   br label %28
 
 24:                                               ; preds = %22, %.thread.i.i.i.i
-  %.011.i.i = phi i64 [ %23, %22 ], [ %21, %.thread.i.i.i.i ]
+  %.011.i.i = phi i64 [ %21, %.thread.i.i.i.i ], [ %23, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !377
   store i64 %.011.i.i, ptr %14, align 8, !noalias !377
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2227,7 +2227,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
   unreachable
 
 common.resume:                                    ; preds = %113, %47, %58
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %48, %47 ], [ %114, %113 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %59, %58 ], [ %114, %113 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$3new17hb81d7c1d54e57135E.exit.i.i.i": ; preds = %.noexc.i.i.i.i
@@ -2611,7 +2611,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
   br label %11
 
 11:                                               ; preds = %_ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.1804880793895523134.exit, %.thread.i.i, %9
-  %.0 = phi i64 [ %10, %9 ], [ %8, %.thread.i.i ], [ -1, %_ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.1804880793895523134.exit ]
+  %.0 = phi i64 [ %8, %.thread.i.i ], [ %10, %9 ], [ -1, %_ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.1804880793895523134.exit ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = icmp eq i64 %.0, %13

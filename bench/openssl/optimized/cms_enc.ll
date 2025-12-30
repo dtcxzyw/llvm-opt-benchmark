@@ -142,8 +142,8 @@ select.unfold:                                    ; preds = %30
   br i1 %76, label %.thread128.sink.split, label %77
 
 77:                                               ; preds = %55, %64, %70, %67, %54
-  %.090 = phi ptr [ null, %64 ], [ null, %54 ], [ %4, %70 ], [ %4, %67 ], [ %5, %55 ]
-  %.089 = phi i32 [ 0, %64 ], [ 0, %54 ], [ 0, %70 ], [ 0, %67 ], [ %52, %55 ]
+  %.090 = phi ptr [ null, %54 ], [ %4, %70 ], [ %4, %67 ], [ null, %64 ], [ %5, %55 ]
+  %.089 = phi i32 [ 0, %54 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ %52, %55 ]
   %78 = load ptr, ptr %3, align 8, !tbaa !20
   %79 = call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %78) #4
   %80 = icmp slt i32 %79, 1
@@ -275,20 +275,20 @@ select.unfold:                                    ; preds = %30
   br label %149
 
 .thread128.sink.split:                            ; preds = %134, %120, %114, %107, %108, %70, %59, %50, %41, %46, %select.unfold, %37
-  %.sink150 = phi i32 [ 73, %37 ], [ 169, %120 ], [ 79, %select.unfold ], [ 86, %41 ], [ 103, %59 ], [ 92, %50 ], [ 111, %70 ], [ 149, %107 ], [ 163, %114 ], [ 86, %46 ], [ 149, %108 ], [ 181, %134 ]
-  %.sink = phi i32 [ 148, %37 ], [ 524301, %120 ], [ 101, %select.unfold ], [ 194, %41 ], [ 102, %59 ], [ 524294, %50 ], [ 184, %70 ], [ 118, %107 ], [ 101, %114 ], [ 194, %46 ], [ 118, %108 ], [ 102, %134 ]
-  %.083119.ph.ph = phi ptr [ null, %37 ], [ %32, %120 ], [ %32, %select.unfold ], [ %32, %41 ], [ %32, %59 ], [ %32, %50 ], [ %32, %70 ], [ %32, %107 ], [ %32, %114 ], [ %32, %46 ], [ %32, %108 ], [ %32, %134 ]
-  %.091.ph.ph = phi ptr [ null, %37 ], [ %.3, %120 ], [ null, %select.unfold ], [ null, %41 ], [ null, %59 ], [ null, %50 ], [ null, %70 ], [ %.2, %107 ], [ %.3, %114 ], [ null, %46 ], [ %.2, %108 ], [ %.3, %134 ]
-  %.088.ph.ph = phi i64 [ 0, %37 ], [ %82, %120 ], [ 0, %select.unfold ], [ 0, %41 ], [ 0, %59 ], [ 0, %50 ], [ 0, %70 ], [ %82, %107 ], [ %82, %114 ], [ 0, %46 ], [ %82, %108 ], [ %82, %134 ]
+  %.sink150 = phi i32 [ 73, %37 ], [ 79, %select.unfold ], [ 86, %46 ], [ 86, %41 ], [ 92, %50 ], [ 103, %59 ], [ 111, %70 ], [ 149, %108 ], [ 149, %107 ], [ 163, %114 ], [ 169, %120 ], [ 181, %134 ]
+  %.sink = phi i32 [ 148, %37 ], [ 101, %select.unfold ], [ 194, %46 ], [ 194, %41 ], [ 524294, %50 ], [ 102, %59 ], [ 184, %70 ], [ 118, %108 ], [ 118, %107 ], [ 101, %114 ], [ 524301, %120 ], [ 102, %134 ]
+  %.083119.ph.ph = phi ptr [ null, %37 ], [ %32, %select.unfold ], [ %32, %46 ], [ %32, %41 ], [ %32, %50 ], [ %32, %59 ], [ %32, %70 ], [ %32, %108 ], [ %32, %107 ], [ %32, %114 ], [ %32, %120 ], [ %32, %134 ]
+  %.091.ph.ph = phi ptr [ null, %37 ], [ null, %select.unfold ], [ null, %46 ], [ null, %41 ], [ null, %50 ], [ null, %59 ], [ null, %70 ], [ %.2, %108 ], [ %.2, %107 ], [ %.3, %114 ], [ %.3, %120 ], [ %.3, %134 ]
+  %.088.ph.ph = phi i64 [ 0, %37 ], [ 0, %select.unfold ], [ 0, %46 ], [ 0, %41 ], [ 0, %50 ], [ 0, %59 ], [ 0, %70 ], [ %82, %108 ], [ %82, %107 ], [ %82, %114 ], [ %82, %120 ], [ %82, %134 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink150, ptr noundef nonnull @__func__.ossl_cms_EncryptedContent_init_bio) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #4
   br label %.thread128
 
 .thread128:                                       ; preds = %.thread128.sink.split, %55, %77, %86, %89, %127
-  %.083119.ph = phi ptr [ %32, %127 ], [ %32, %89 ], [ %32, %86 ], [ %32, %55 ], [ %32, %77 ], [ %.083119.ph.ph, %.thread128.sink.split ]
-  %.091.ph = phi ptr [ %.3, %127 ], [ %87, %89 ], [ null, %86 ], [ null, %55 ], [ null, %77 ], [ %.091.ph.ph, %.thread128.sink.split ]
-  %.088.ph = phi i64 [ %82, %127 ], [ %82, %89 ], [ %82, %86 ], [ 0, %55 ], [ 0, %77 ], [ %.088.ph.ph, %.thread128.sink.split ]
+  %.083119.ph = phi ptr [ %32, %89 ], [ %32, %86 ], [ %32, %127 ], [ %32, %77 ], [ %32, %55 ], [ %.083119.ph.ph, %.thread128.sink.split ]
+  %.091.ph = phi ptr [ %87, %89 ], [ null, %86 ], [ %.3, %127 ], [ null, %77 ], [ null, %55 ], [ %.091.ph.ph, %.thread128.sink.split ]
+  %.088.ph = phi i64 [ %82, %89 ], [ %82, %86 ], [ %82, %127 ], [ 0, %77 ], [ 0, %55 ], [ %.088.ph.ph, %.thread128.sink.split ]
   call void @EVP_CIPHER_free(ptr noundef %.083119.ph) #4
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %145 = load ptr, ptr %144, align 8, !tbaa !16
@@ -525,7 +525,7 @@ define range(i32 0, 2) i32 @CMS_EncryptedData_set1_key(ptr noundef %0, ptr nound
   br label %ossl_cms_EncryptedContent_init.exit
 
 ossl_cms_EncryptedContent_init.exit:              ; preds = %41, %31, %25, %14, %43, %13, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %13 ], [ 0, %43 ], [ 1, %25 ], [ 0, %14 ], [ 0, %31 ], [ 1, %41 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %43 ], [ 0, %7 ], [ 0, %14 ], [ 1, %25 ], [ 0, %31 ], [ 1, %41 ]
   ret i32 %.0
 }
 

@@ -361,13 +361,13 @@ _ZN3gmx8SetAtoms5atomsEv.exit38:                  ; preds = %38
   ret void
 
 .sink.split72:                                    ; preds = %63, %.sink.split69, %50, %.sink.split68, %33, %.sink.split
-  %.sink73 = phi ptr [ %43, %50 ], [ %26, %33 ], [ %26, %.sink.split ], [ %43, %.sink.split68 ], [ %56, %.sink.split69 ], [ %56, %63 ]
-  %.pn33.pn.pn.ph = phi { ptr, i32 } [ %51, %50 ], [ %34, %33 ], [ %.pn30.pn50.ph, %.sink.split ], [ %.pn.pn57.ph, %.sink.split68 ], [ %.pn33.pn64.ph, %.sink.split69 ], [ %64, %63 ]
+  %.sink73 = phi ptr [ %26, %.sink.split ], [ %26, %33 ], [ %43, %.sink.split68 ], [ %43, %50 ], [ %56, %.sink.split69 ], [ %56, %63 ]
+  %.pn33.pn.pn.ph = phi { ptr, i32 } [ %.pn30.pn50.ph, %.sink.split ], [ %34, %33 ], [ %.pn.pn57.ph, %.sink.split68 ], [ %51, %50 ], [ %.pn33.pn64.ph, %.sink.split69 ], [ %64, %63 ]
   call void @__cxa_free_exception(ptr %.sink73) #20
   br label %67
 
 67:                                               ; preds = %.sink.split72, %63, %50, %33
-  %.pn33.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %64, %63 ], [ %51, %50 ], [ %.pn33.pn.pn.ph, %.sink.split72 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %34, %33 ], [ %51, %50 ], [ %.pn33.pn.pn.ph, %.sink.split72 ]
   resume { ptr, i32 } %.pn33.pn.pn
 
 68:                                               ; preds = %60, %47, %30

@@ -500,8 +500,8 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef %7) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %119, %.lr.ph.split, %108, %.lr.ph.split.us, %var_read_metadata.exit178, %set_channels.exit.thread, %14, %8, %64, %16, %55, %204, %206, %196, %194, %160, %158, %139, %207, %192, %188, %156, %153
-  %.3 = phi i32 [ %199, %196 ], [ 0, %204 ], [ -1163346256, %207 ], [ %141, %139 ], [ -1094995529, %153 ], [ -1163346256, %156 ], [ -12, %158 ], [ -1094995529, %188 ], [ -1163346256, %192 ], [ -12, %194 ], [ %163, %160 ], [ -12, %16 ], [ 0, %206 ], [ -1094995529, %set_channels.exit.thread ], [ -12, %14 ], [ -1094995529, %8 ], [ -1094995529, %55 ], [ -1094995529, %64 ], [ 0, %108 ], [ 0, %var_read_metadata.exit178 ], [ -1094995529, %.lr.ph.split.us ], [ 0, %119 ], [ -1094995529, %.lr.ph.split ]
+.critedge:                                        ; preds = %119, %.lr.ph.split, %108, %.lr.ph.split.us, %var_read_metadata.exit178, %set_channels.exit.thread, %64, %16, %8, %14, %55, %204, %206, %196, %194, %160, %158, %139, %207, %192, %188, %156, %153
+  %.3 = phi i32 [ -1163346256, %207 ], [ -1094995529, %153 ], [ -1163346256, %156 ], [ -1094995529, %188 ], [ -1163346256, %192 ], [ %141, %139 ], [ -12, %158 ], [ %163, %160 ], [ -12, %194 ], [ %199, %196 ], [ 0, %206 ], [ 0, %204 ], [ -1094995529, %set_channels.exit.thread ], [ -1094995529, %64 ], [ -12, %16 ], [ -1094995529, %8 ], [ -12, %14 ], [ -1094995529, %55 ], [ 0, %var_read_metadata.exit178 ], [ 0, %108 ], [ -1094995529, %.lr.ph.split.us ], [ 0, %119 ], [ -1094995529, %.lr.ph.split ]
   ret i32 %.3
 }
 
@@ -609,7 +609,7 @@ define internal i32 @mv_read_packet(ptr noundef readonly captures(none) %0, ptr 
   br label %72
 
 72:                                               ; preds = %66, %42, %33, %48, %40
-  %.0 = phi i32 [ -5, %33 ], [ 0, %48 ], [ %41, %40 ], [ %46, %42 ], [ %., %66 ]
+  %.0 = phi i32 [ 0, %48 ], [ %41, %40 ], [ -5, %33 ], [ %46, %42 ], [ %., %66 ]
   ret i32 %.0
 }
 
@@ -736,8 +736,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_table(ptr noundef %0,
   %24 = call i64 @avio_skip(ptr noundef %6, i64 noundef %23) #8
   br label %25
 
-.thread:                                          ; preds = %13, %11, %18
-  %.1.ph = phi i32 [ -1094995529, %18 ], [ -1094995529, %13 ], [ -541478725, %11 ]
+.thread:                                          ; preds = %11, %13, %18
+  %.1.ph = phi i32 [ -1094995529, %18 ], [ -541478725, %11 ], [ -1094995529, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -1184,7 +1184,7 @@ var_read_int.exit80.thread:                       ; preds = %120, %119, %var_rea
   br label %.critedge
 
 .critedge:                                        ; preds = %99, %98, %92, %var_read_int.exit69.thread, %var_read_string.exit.i64, %62, %61, %var_read_int.exit, %var_read_int.exit61, %var_read_int.exit56, %113, %var_read_int.exit80.thread, %var_read_int.exit80, %var_read_int.exit75, %117
-  %.0 = phi i32 [ -1094995529, %var_read_int.exit75 ], [ 0, %var_read_string.exit.i64 ], [ -1094995529, %117 ], [ -1094995529, %var_read_int.exit80 ], [ 0, %var_read_int.exit80.thread ], [ 0, %113 ], [ 0, %var_read_int.exit56 ], [ 0, %var_read_int.exit ], [ 0, %var_read_int.exit61 ], [ 0, %61 ], [ 0, %62 ], [ -1094995529, %var_read_int.exit69.thread ], [ 0, %92 ], [ -1094995529, %98 ], [ -1094995529, %99 ]
+  %.0 = phi i32 [ -1094995529, %117 ], [ -1094995529, %var_read_int.exit75 ], [ -1094995529, %var_read_int.exit80 ], [ 0, %var_read_int.exit80.thread ], [ 0, %113 ], [ 0, %var_read_int.exit56 ], [ 0, %var_read_int.exit61 ], [ 0, %var_read_int.exit ], [ 0, %61 ], [ 0, %62 ], [ 0, %var_read_string.exit.i64 ], [ -1094995529, %var_read_int.exit69.thread ], [ 0, %92 ], [ -1094995529, %98 ], [ -1094995529, %99 ]
   ret i32 %.0
 }
 
@@ -1625,7 +1625,7 @@ var_read_string.exit.i108:                        ; preds = %193, %190
   br label %.critedge
 
 .critedge:                                        ; preds = %156, %155, %27, %26, %var_read_int.exit, %var_read_float.exit, %var_read_float.exit95, %170, %179, %var_read_int.exit105, %203, %var_read_int.exit100, %var_read_int.exit90, %76, %185, %186, %var_read_string.exit.i108, %201, %175
-  %.1 = phi i32 [ -12, %175 ], [ 0, %var_read_int.exit ], [ -1094995529, %201 ], [ 0, %var_read_string.exit.i108 ], [ 0, %186 ], [ 0, %185 ], [ -1094995529, %27 ], [ 0, %76 ], [ 0, %var_read_int.exit90 ], [ 0, %var_read_int.exit100 ], [ 0, %203 ], [ 0, %var_read_int.exit105 ], [ 0, %179 ], [ 0, %170 ], [ 0, %var_read_float.exit95 ], [ 0, %var_read_float.exit ], [ -1094995529, %26 ], [ 0, %155 ], [ 0, %156 ]
+  %.1 = phi i32 [ -12, %175 ], [ -1094995529, %201 ], [ 0, %var_read_string.exit.i108 ], [ 0, %186 ], [ 0, %185 ], [ 0, %76 ], [ 0, %var_read_int.exit90 ], [ 0, %var_read_int.exit100 ], [ 0, %203 ], [ 0, %var_read_int.exit105 ], [ 0, %179 ], [ 0, %170 ], [ 0, %var_read_float.exit95 ], [ 0, %var_read_float.exit ], [ 0, %var_read_int.exit ], [ -1094995529, %26 ], [ -1094995529, %27 ], [ 0, %155 ], [ 0, %156 ]
   ret i32 %.1
 }
 

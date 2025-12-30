@@ -2809,8 +2809,8 @@ define hidden void @_ZN4ncnn12draw_text_c1EPhiiiPKciiij(ptr noundef captures(non
   br i1 %exitcond102.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !76
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph92, %30, %27, %25, %23
-  %.186 = phi i32 [ %.08596, %27 ], [ %.08596, %25 ], [ %24, %23 ], [ %.08596, %30 ], [ %.08596, %.lr.ph92 ], [ %.08596, %._crit_edge.us ]
-  %.1 = phi i32 [ %.08498, %27 ], [ %26, %25 ], [ %5, %23 ], [ %35, %30 ], [ %35, %.lr.ph92 ], [ %35, %._crit_edge.us ]
+  %.186 = phi i32 [ %.08596, %27 ], [ %24, %23 ], [ %.08596, %25 ], [ %.08596, %30 ], [ %.08596, %.lr.ph92 ], [ %.08596, %._crit_edge.us ]
+  %.1 = phi i32 [ %.08498, %27 ], [ %5, %23 ], [ %26, %25 ], [ %35, %30 ], [ %35, %.lr.ph92 ], [ %35, %._crit_edge.us ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
   br i1 %exitcond107.not, label %._crit_edge, label %20, !llvm.loop !77
@@ -2949,8 +2949,8 @@ define hidden void @_ZN4ncnn12draw_text_c2EPhiiiPKciiij(ptr noundef captures(non
   br i1 %exitcond107.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !79
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph97, %31, %28, %26, %24
-  %.191 = phi i32 [ %.090101, %28 ], [ %.090101, %26 ], [ %25, %24 ], [ %.090101, %31 ], [ %.090101, %.lr.ph97 ], [ %.090101, %._crit_edge.us ]
-  %.1 = phi i32 [ %.089103, %28 ], [ %27, %26 ], [ %5, %24 ], [ %36, %31 ], [ %36, %.lr.ph97 ], [ %36, %._crit_edge.us ]
+  %.191 = phi i32 [ %.090101, %28 ], [ %25, %24 ], [ %.090101, %26 ], [ %.090101, %31 ], [ %.090101, %.lr.ph97 ], [ %.090101, %._crit_edge.us ]
+  %.1 = phi i32 [ %.089103, %28 ], [ %5, %24 ], [ %27, %26 ], [ %36, %31 ], [ %36, %.lr.ph97 ], [ %36, %._crit_edge.us ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
   br i1 %exitcond112.not, label %._crit_edge, label %21, !llvm.loop !80
@@ -3100,8 +3100,8 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr noundef captures(non
   br i1 %exitcond112.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !82
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph102, %32, %29, %27, %25
-  %.196 = phi i32 [ %.095106, %29 ], [ %.095106, %27 ], [ %26, %25 ], [ %.095106, %32 ], [ %.095106, %.lr.ph102 ], [ %.095106, %._crit_edge.us ]
-  %.1 = phi i32 [ %.094108, %29 ], [ %28, %27 ], [ %5, %25 ], [ %37, %32 ], [ %37, %.lr.ph102 ], [ %37, %._crit_edge.us ]
+  %.196 = phi i32 [ %.095106, %29 ], [ %26, %25 ], [ %.095106, %27 ], [ %.095106, %32 ], [ %.095106, %.lr.ph102 ], [ %.095106, %._crit_edge.us ]
+  %.1 = phi i32 [ %.094108, %29 ], [ %5, %25 ], [ %28, %27 ], [ %37, %32 ], [ %37, %.lr.ph102 ], [ %37, %._crit_edge.us ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
   br i1 %exitcond117.not, label %._crit_edge, label %22, !llvm.loop !83
@@ -3261,8 +3261,8 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr noundef captures(non
   br i1 %exitcond117.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !85
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph107, %32, %29, %27, %25
-  %.1101 = phi i32 [ %.0100111, %29 ], [ %.0100111, %27 ], [ %26, %25 ], [ %.0100111, %32 ], [ %.0100111, %.lr.ph107 ], [ %.0100111, %._crit_edge.us ]
-  %.1 = phi i32 [ %.099113, %29 ], [ %28, %27 ], [ %5, %25 ], [ %37, %32 ], [ %37, %.lr.ph107 ], [ %37, %._crit_edge.us ]
+  %.1101 = phi i32 [ %.0100111, %29 ], [ %26, %25 ], [ %.0100111, %27 ], [ %.0100111, %32 ], [ %.0100111, %.lr.ph107 ], [ %.0100111, %._crit_edge.us ]
+  %.1 = phi i32 [ %.099113, %29 ], [ %5, %25 ], [ %28, %27 ], [ %37, %32 ], [ %37, %.lr.ph107 ], [ %37, %._crit_edge.us ]
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
   br i1 %exitcond122.not, label %._crit_edge, label %22, !llvm.loop !86
@@ -3684,8 +3684,8 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   br i1 %exitcond682.not, label %.loopexit, label %194, !llvm.loop !101
 
 .loopexit:                                        ; preds = %238, %180, %129, %.lr.ph587.preheader, %84
-  %.1397 = phi ptr [ %.0396644, %84 ], [ %.0394645, %129 ], [ %.0394645, %.lr.ph587.preheader ], [ %.0396644, %180 ], [ %.0396644, %238 ]
-  %.1395 = phi ptr [ %.0394645, %84 ], [ %.0396644, %129 ], [ %.0396644, %.lr.ph587.preheader ], [ %.0394645, %180 ], [ %.0394645, %238 ]
+  %.1397 = phi ptr [ %.0396644, %84 ], [ %.0394645, %.lr.ph587.preheader ], [ %.0394645, %129 ], [ %.0396644, %180 ], [ %.0396644, %238 ]
+  %.1395 = phi ptr [ %.0394645, %84 ], [ %.0396644, %.lr.ph587.preheader ], [ %.0396644, %129 ], [ %.0394645, %180 ], [ %.0394645, %238 ]
   %260 = add nsw i32 %.0400642, 1
   %261 = icmp slt i32 %260, %6
   br i1 %261, label %262, label %.loopexit._crit_edge

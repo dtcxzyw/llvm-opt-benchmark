@@ -184,7 +184,7 @@ define dso_local i32 @appendStringInfoVA(ptr noundef captures(none) %0, ptr noun
   br label %26
 
 26:                                               ; preds = %3, %21, %18
-  %.0 = phi i32 [ %25, %21 ], [ 0, %18 ], [ 32, %3 ]
+  %.0 = phi i32 [ 0, %18 ], [ %25, %21 ], [ 32, %3 ]
   ret i32 %.0
 }
 

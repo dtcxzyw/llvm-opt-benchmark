@@ -143,9 +143,9 @@ cdata_getptr.exit.i:                              ; preds = %50, %46
   br label %ctype_rawchild.exit.i
 
 ctype_rawchild.exit.i:                            ; preds = %.preheader.i, %76, %68, %cdata_getptr.exit.i, %ctype_raw.exit.i
-  %78 = phi ptr [ %73, %68 ], [ %32, %cdata_getptr.exit.i ], [ %32, %ctype_raw.exit.i ], [ %73, %76 ], [ %32, %.preheader.i ]
-  %.094.i = phi ptr [ %70, %68 ], [ %.0.i104.i, %cdata_getptr.exit.i ], [ %40, %ctype_raw.exit.i ], [ %70, %76 ], [ %.0.i104.i, %.preheader.i ]
-  %.092.i = phi ptr [ %75, %68 ], [ %.0.i.i, %cdata_getptr.exit.i ], [ %.0.i.i, %ctype_raw.exit.i ], [ %75, %76 ], [ %57, %.preheader.i ]
+  %78 = phi ptr [ %32, %cdata_getptr.exit.i ], [ %32, %ctype_raw.exit.i ], [ %73, %76 ], [ %73, %68 ], [ %32, %.preheader.i ]
+  %.094.i = phi ptr [ %.0.i104.i, %cdata_getptr.exit.i ], [ %40, %ctype_raw.exit.i ], [ %70, %76 ], [ %70, %68 ], [ %.0.i104.i, %.preheader.i ]
+  %.092.i = phi ptr [ %.0.i.i, %cdata_getptr.exit.i ], [ %.0.i.i, %ctype_raw.exit.i ], [ %75, %76 ], [ %75, %68 ], [ %57, %.preheader.i ]
   %79 = load i32, ptr %.092.i, align 8, !tbaa !41
   %.mask101.i = and i32 %79, -268435456
   %80 = icmp eq i32 %.mask101.i, 1342177280
@@ -230,9 +230,9 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   br label %387
 
 .thread111.i.sink.split:                          ; preds = %94, %ctype_rawchild.exit.i, %86, %91
-  %.sink104 = phi ptr [ %.193.i, %ctype_rawchild.exit.i ], [ %93, %91 ], [ %88, %86 ], [ null, %94 ]
-  %.sink = phi ptr [ %.094.i, %ctype_rawchild.exit.i ], [ null, %91 ], [ %.088123.i, %86 ], [ inttoptr (i64 1 to ptr), %94 ]
-  %.5.i.ph = phi i32 [ %.089122.i, %ctype_rawchild.exit.i ], [ %.089122.i, %91 ], [ %.089122.i, %86 ], [ 0, %94 ]
+  %.sink104 = phi ptr [ %93, %91 ], [ %88, %86 ], [ %.193.i, %ctype_rawchild.exit.i ], [ null, %94 ]
+  %.sink = phi ptr [ null, %91 ], [ %.088123.i, %86 ], [ %.094.i, %ctype_rawchild.exit.i ], [ inttoptr (i64 1 to ptr), %94 ]
+  %.5.i.ph = phi i32 [ %.089122.i, %91 ], [ %.089122.i, %86 ], [ %.089122.i, %ctype_rawchild.exit.i ], [ 0, %94 ]
   %123 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   store ptr %.sink104, ptr %123, align 8, !tbaa !49
   store ptr %.sink, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !50
@@ -311,7 +311,7 @@ switch.early.test:                                ; preds = %.thread111.i.thread
   br label %154
 
 154:                                              ; preds = %151, %149, %146
-  %155 = phi i32 [ 12, %146 ], [ 11, %149 ], [ %153, %151 ]
+  %155 = phi i32 [ 11, %149 ], [ %153, %151 ], [ 12, %146 ]
   %156 = load ptr, ptr %14, align 8, !tbaa !40
   %157 = zext nneg i32 %155 to i64
   %158 = getelementptr inbounds nuw %struct.CType, ptr %156, i64 %157
@@ -724,7 +724,7 @@ carith_int64.exit:                                ; preds = %162, %169, %178, %2
   %379 = call i32 @lj_gc_step(ptr noundef nonnull %0) #8
   br label %carith_ptr.exit
 
-carith_ptr.exit.thread:                           ; preds = %324, %336, %348, %299, %296, %322, %339
+carith_ptr.exit.thread:                           ; preds = %296, %299, %322, %324, %339, %336, %348
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %387
 
@@ -1310,7 +1310,7 @@ define hidden i64 @lj_carith_powi64(i64 noundef %0, i64 noundef %1) local_unname
   br label %lj_carith_powu64.exit
 
 lj_carith_powu64.exit:                            ; preds = %._crit_edge33.i, %._crit_edge.i, %6, %2, %11, %8, %7
-  %.0 = phi i64 [ 9223372036854775807, %6 ], [ 1, %2 ], [ 1, %7 ], [ %10, %8 ], [ 0, %11 ], [ %.020.lcssa.i, %._crit_edge.i ], [ %27, %._crit_edge33.i ]
+  %.0 = phi i64 [ 1, %7 ], [ %10, %8 ], [ 0, %11 ], [ 1, %2 ], [ 9223372036854775807, %6 ], [ %27, %._crit_edge33.i ], [ %.020.lcssa.i, %._crit_edge.i ]
   ret i64 %.0
 }
 

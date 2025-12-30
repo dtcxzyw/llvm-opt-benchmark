@@ -192,17 +192,17 @@ zend_parse_arg_obj_or_str.exit:                   ; preds = %30
   br label %41
 
 41:                                               ; preds = %14, %37, %35
-  %.071 = phi i32 [ 1, %14 ], [ 9, %35 ], [ 6, %37 ]
-  %.070 = phi ptr [ null, %14 ], [ null, %35 ], [ %40, %37 ]
-  %.068 = phi i32 [ 0, %14 ], [ 33, %35 ], [ 0, %37 ]
-  %.067 = phi ptr [ null, %14 ], [ %19, %35 ], [ %19, %37 ]
-  %.066 = phi i32 [ 0, %14 ], [ 2, %35 ], [ 2, %37 ]
+  %.071 = phi i32 [ 1, %14 ], [ 6, %37 ], [ 9, %35 ]
+  %.070 = phi ptr [ null, %14 ], [ %40, %37 ], [ null, %35 ]
+  %.068 = phi i32 [ 0, %14 ], [ 0, %37 ], [ 33, %35 ]
+  %.067 = phi ptr [ null, %14 ], [ %19, %37 ], [ %19, %35 ]
+  %.066 = phi i32 [ 0, %14 ], [ 2, %37 ], [ 2, %35 ]
   call void @zend_wrong_parameter_error(i32 noundef %.071, i32 noundef %.066, ptr noundef %.070, i32 noundef %.068, ptr noundef %.067) #9
   br label %123
 
 .critedge.sink.split:                             ; preds = %32, %30, %24, %25, %instanceof_function.exit.instanceof_function.exit.thread_crit_edge
-  %storemerge.i.sink = phi ptr [ null, %24 ], [ null, %instanceof_function.exit.instanceof_function.exit.thread_crit_edge ], [ null, %25 ], [ %33, %32 ], [ null, %30 ]
-  %.0.ph = phi ptr [ %.pre96, %24 ], [ %.pre, %instanceof_function.exit.instanceof_function.exit.thread_crit_edge ], [ %.pre96, %25 ], [ null, %32 ], [ null, %30 ]
+  %storemerge.i.sink = phi ptr [ null, %instanceof_function.exit.instanceof_function.exit.thread_crit_edge ], [ null, %25 ], [ null, %24 ], [ %33, %32 ], [ null, %30 ]
+  %.0.ph = phi ptr [ %.pre, %instanceof_function.exit.instanceof_function.exit.thread_crit_edge ], [ %.pre96, %25 ], [ %.pre96, %24 ], [ null, %32 ], [ null, %30 ]
   store ptr %storemerge.i.sink, ptr %3, align 8, !tbaa !13
   br label %.critedge
 

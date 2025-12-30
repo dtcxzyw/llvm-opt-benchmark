@@ -139,7 +139,7 @@ define noundef zeroext i1 @_ZNK6open3d13visualization14ViewParameters18ConvertTo
   br label %40
 
 40:                                               ; preds = %36, %32, %28, %24, %16
-  %.011 = phi i1 [ false, %32 ], [ %39, %36 ], [ false, %28 ], [ false, %24 ], [ false, %16 ]
+  %.011 = phi i1 [ false, %16 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ %39, %36 ]
   ret i1 %.011
 
 41:                                               ; preds = %22, %20
@@ -281,7 +281,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization14ViewParameters20ConvertFro
   br label %52
 
 52:                                               ; preds = %47, %51, %46, %41, %36, %21, %8
-  %.014 = phi i1 [ false, %8 ], [ false, %51 ], [ false, %46 ], [ false, %41 ], [ false, %36 ], [ false, %21 ], [ true, %47 ]
+  %.014 = phi i1 [ false, %51 ], [ false, %46 ], [ false, %41 ], [ false, %36 ], [ false, %21 ], [ false, %8 ], [ true, %47 ]
   ret i1 %.014
 
 53:                                               ; preds = %31, %26

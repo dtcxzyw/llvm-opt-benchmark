@@ -140,7 +140,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br label %24
 
 24:                                               ; preds = %15, %21, %12, %5, %22
-  %.013 = phi i1 [ false, %5 ], [ false, %12 ], [ %23, %22 ], [ true, %21 ], [ false, %15 ]
+  %.013 = phi i1 [ %23, %22 ], [ false, %15 ], [ false, %5 ], [ false, %12 ], [ true, %21 ]
   ret i1 %.013
 }
 
@@ -207,7 +207,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   %.not16.not.i11 = icmp eq i8 %29, 0
   br i1 %.not16.not.i11, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread
 
-_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread: ; preds = %2, %18, %21, %24
+_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread: ; preds = %2, %24, %18, %21
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit: ; preds = %8, %12, %.thread, %24, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread
@@ -329,7 +329,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit._crit_edge: ; preds = %_ZN4llvm7msgpack
   br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
 
 _ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %28, %31, %34, %._crit_edge.i.i.i.i.i, %42, %46, %50
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.038.1.i.i.i.i.i, %46 ], [ %spec.select.i.i.i.i.i, %50 ], [ %23, %._crit_edge.i.i.i.i.i ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %42 ], [ %.sroa.038.048.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %42 ], [ %.sroa.038.1.i.i.i.i.i, %46 ], [ %23, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %50 ], [ %.sroa.038.048.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ]
   %52 = icmp eq ptr %23, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br label %53
 
@@ -423,7 +423,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit: ; preds = %33, %32, %26, %23, %15, %13
-  %.0.i = phi i1 [ %14, %13 ], [ false, %15 ], [ false, %23 ], [ %34, %33 ], [ true, %32 ], [ false, %26 ]
+  %.0.i = phi i1 [ %14, %13 ], [ %34, %33 ], [ false, %26 ], [ false, %15 ], [ false, %23 ], [ true, %32 ]
   ret i1 %.0.i
 }
 
@@ -639,8 +639,8 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
   %73 = call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.13, i64 8, i1 noundef zeroext false, i8 noundef zeroext 3, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %12)
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
-_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit: ; preds = %46, %41, %32, %22, %37, %39, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit30, %52, %54, %58, %62, %66, %68, %70, %72, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %39 ], [ false, %52 ], [ false, %54 ], [ false, %58 ], [ false, %70 ], [ %73, %72 ], [ false, %68 ], [ false, %66 ], [ false, %62 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit30 ], [ false, %37 ], [ false, %32 ], [ false, %22 ], [ false, %41 ], [ false, %46 ]
+_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit: ; preds = %41, %46, %32, %22, %37, %39, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit30, %52, %54, %58, %62, %66, %68, %70, %72, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %37 ], [ false, %39 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit30 ], [ false, %52 ], [ false, %54 ], [ false, %58 ], [ false, %62 ], [ false, %66 ], [ false, %68 ], [ false, %70 ], [ %73, %72 ], [ false, %22 ], [ false, %32 ], [ false, %46 ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -852,8 +852,8 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   %103 = call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier18verifyIntegerEntryERNS_7msgpack10MapDocNodeENS_9StringRefEb(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.34, i64 24, i1 noundef zeroext false)
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
-_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread: ; preds = %37, %28, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit, %19, %_ZN4llvm7msgpack7DocNode6getMapEb.exit, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43 ], [ false, %100 ], [ %103, %102 ], [ false, %98 ], [ false, %96 ], [ false, %94 ], [ false, %92 ], [ false, %90 ], [ false, %88 ], [ false, %86 ], [ false, %84 ], [ false, %82 ], [ false, %80 ], [ false, %78 ], [ false, %76 ], [ false, %74 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit ], [ false, %_ZN4llvm7msgpack7DocNode6getMapEb.exit ], [ false, %19 ], [ false, %37 ]
+_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread: ; preds = %37, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit, %28, %_ZN4llvm7msgpack7DocNode6getMapEb.exit, %19, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45 ], [ false, %74 ], [ false, %76 ], [ false, %78 ], [ false, %80 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ false, %98 ], [ false, %100 ], [ %103, %102 ], [ false, %19 ], [ false, %_ZN4llvm7msgpack7DocNode6getMapEb.exit ], [ false, %28 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit ], [ false, %37 ]
   ret i1 %.0
 }
 
@@ -1153,7 +1153,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
 "_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit92", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit94", %114, %120, %126
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.1.i.i.i.i.i.i.i.i, %120 ], [ %spec.select.i.i.i.i.i.i.i.i, %126 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, %114 ], [ %132, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit94" ], [ %131, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit92" ], [ %130, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit" ], [ %.sroa.038.048.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, %114 ], [ %.sroa.038.1.i.i.i.i.i.i.i.i, %120 ], [ %spec.select.i.i.i.i.i.i.i.i, %126 ], [ %130, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit" ], [ %131, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit92" ], [ %132, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit94" ], [ %.sroa.038.048.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   %133 = icmp eq ptr %.pre9.i.i.i, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i
   br i1 %133, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
@@ -1252,12 +1252,12 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53
 
 _ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53: ; preds = %153, %150, %147, %.lr.ph.i.i.i.i.i.i.i.i56, %169, %165, %161, %._crit_edge.i.i.i.i.i.i.i.i48
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i54 = phi ptr [ %.sroa.038.1.i.i.i.i.i.i.i.i55, %165 ], [ %spec.select.i.i.i.i.i.i.i.i52, %169 ], [ %.pre9.i.i.i43, %._crit_edge.i.i.i.i.i.i.i.i48 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i50, %161 ], [ %.sroa.038.048.i.i.i.i.i.i.i.i58, %.lr.ph.i.i.i.i.i.i.i.i56 ], [ %148, %147 ], [ %151, %150 ], [ %154, %153 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i54 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i50, %161 ], [ %.sroa.038.1.i.i.i.i.i.i.i.i55, %165 ], [ %.pre9.i.i.i43, %._crit_edge.i.i.i.i.i.i.i.i48 ], [ %spec.select.i.i.i.i.i.i.i.i52, %169 ], [ %.sroa.038.048.i.i.i.i.i.i.i.i58, %.lr.ph.i.i.i.i.i.i.i.i56 ], [ %148, %147 ], [ %151, %150 ], [ %154, %153 ]
   %171 = icmp eq ptr %.pre9.i.i.i43, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i54
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread, %138, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8, %72, %43, %40, %37, %._crit_edge.i.i.i.i.i.i.i.i, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit, %_ZN4llvm7msgpack7DocNode6getMapEb.exit, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit", %2
-  %.0 = phi i1 [ false, %2 ], [ false, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit" ], [ false, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit" ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8 ], [ false, %72 ], [ false, %_ZN4llvm7msgpack7DocNode6getMapEb.exit ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit ], [ false, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i ], [ false, %._crit_edge.i.i.i.i.i.i.i.i ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread ], [ false, %138 ], [ %171, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit" ], [ false, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit" ], [ false, %_ZN4llvm7msgpack7DocNode6getMapEb.exit ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit ], [ false, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i ], [ false, %._crit_edge.i.i.i.i.i.i.i.i ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %72 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8 ], [ false, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread ], [ false, %138 ], [ %171, %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i53 ]
   ret i1 %.0
 }
 
@@ -1445,7 +1445,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i238.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_0clES6_.exit"
 
 "_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_0clES6_.exit": ; preds = %1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i158.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i174.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i182.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i190.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i198.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i206.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i214.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i222.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i230.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit233.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i238.i
-  %.sroa.66.30.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit233.i ], [ 0, %1 ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i238.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i230.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i222.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i214.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i206.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i158.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i190.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i182.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i174.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i198.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6.i ]
+  %.sroa.66.30.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit233.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i230.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i222.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i214.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i206.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i158.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i198.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i190.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i182.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i174.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i238.i ], [ 0, %1 ]
   %35 = icmp samesign ugt i16 %.sroa.66.30.i, 255
   %36 = trunc i16 %.sroa.66.30.i to i1
   %.0.i.i = and i1 %35, %36
@@ -1500,7 +1500,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i:        ; preds = %_ZN4llvmeqENS_9Stri
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_1clES6_.exit"
 
 "_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_1clES6_.exit": ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit33.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i
-  %.sroa.16.5.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit33.i ], [ 0, %2 ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i ]
+  %.sroa.16.5.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit33.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i ], [ 0, %2 ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i ]
   %11 = icmp samesign ugt i16 %.sroa.16.5.i, 255
   %12 = trunc i16 %.sroa.16.5.i to i1
   %.0.i.i = and i1 %11, %12
@@ -1538,7 +1538,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i:        ; preds = %_ZN4llvmeqENS_9Stri
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_2clES6_.exit"
 
 "_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_2clES6_.exit": ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit9.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i
-  %.sroa.10.2.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit9.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i ], [ 0, %2 ]
+  %.sroa.10.2.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit9.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 0, %2 ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i ]
   %8 = icmp samesign ugt i16 %.sroa.10.2.i, 255
   %9 = trunc i16 %.sroa.10.2.i to i1
   %.0.i.i = and i1 %8, %9
@@ -1576,7 +1576,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i:        ; preds = %_ZN4llvmeqENS_9Stri
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_3clES6_.exit"
 
 "_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_3clES6_.exit": ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit9.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i
-  %.sroa.10.2.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit9.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i ], [ 0, %2 ]
+  %.sroa.10.2.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit9.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 0, %2 ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i ]
   %8 = icmp samesign ugt i16 %.sroa.10.2.i, 255
   %9 = trunc i16 %.sroa.10.2.i to i1
   %.0.i.i = and i1 %8, %9
@@ -1632,7 +1632,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i:        ; preds = %1
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_0clES6_.exit"
 
 "_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_0clES6_.exit": ; preds = %1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit33.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i
-  %.sroa.16.5.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit33.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i ], [ 0, %1 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
+  %.sroa.16.5.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit33.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i ], [ 0, %1 ]
   %10 = icmp samesign ugt i16 %.sroa.16.5.i, 255
   %11 = trunc i16 %.sroa.16.5.i to i1
   %.0.i.i = and i1 %10, %11
@@ -1886,7 +1886,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 _ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i: ; preds = %17, %14, %11, %.lr.ph.i.i.i.i.i.i.i, %33, %29, %25, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.1.i.i.i.i.i.i.i, %29 ], [ %spec.select.i.i.i.i.i.i.i, %33 ], [ %.pre9.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i, %25 ], [ %18, %17 ], [ %15, %14 ], [ %12, %11 ], [ %.sroa.038.048.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i, %25 ], [ %.sroa.038.1.i.i.i.i.i.i.i, %29 ], [ %.pre9.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %33 ], [ %18, %17 ], [ %15, %14 ], [ %12, %11 ], [ %.sroa.038.048.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %35 = icmp eq ptr %.pre9.i.i, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_2clES6_.exit"
 
@@ -2103,7 +2103,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 _ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i: ; preds = %98, %92, %89, %86, %69, %63, %60, %57, %40, %34, %31, %28, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %9, %34 ], [ %41, %63 ], [ %9, %._crit_edge.i.i.i.i.i.i.i ], [ %9, %28 ], [ %9, %31 ], [ %41, %40 ], [ %41, %57 ], [ %41, %60 ], [ %8, %98 ], [ %70, %69 ], [ %70, %86 ], [ %70, %89 ], [ %70, %92 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %9, %._crit_edge.i.i.i.i.i.i.i ], [ %9, %28 ], [ %9, %31 ], [ %9, %34 ], [ %41, %40 ], [ %41, %57 ], [ %41, %60 ], [ %41, %63 ], [ %8, %98 ], [ %70, %69 ], [ %70, %86 ], [ %70, %89 ], [ %70, %92 ]
   %99 = icmp eq ptr %8, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_3clES6_.exit"
 
@@ -2320,7 +2320,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 _ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i: ; preds = %98, %92, %89, %86, %69, %63, %60, %57, %40, %34, %31, %28, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %9, %34 ], [ %41, %63 ], [ %9, %._crit_edge.i.i.i.i.i.i.i ], [ %9, %28 ], [ %9, %31 ], [ %41, %40 ], [ %41, %57 ], [ %41, %60 ], [ %8, %98 ], [ %70, %69 ], [ %70, %86 ], [ %70, %89 ], [ %70, %92 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %9, %._crit_edge.i.i.i.i.i.i.i ], [ %9, %28 ], [ %9, %31 ], [ %9, %34 ], [ %41, %40 ], [ %41, %57 ], [ %41, %60 ], [ %41, %63 ], [ %8, %98 ], [ %70, %69 ], [ %70, %86 ], [ %70, %89 ], [ %70, %92 ]
   %99 = icmp eq ptr %8, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
   br label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_4clES6_.exit"
 

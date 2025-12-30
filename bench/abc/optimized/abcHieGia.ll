@@ -1524,8 +1524,8 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %101, %103, %93, %95
-  %.sink155 = phi ptr [ %96, %95 ], [ %94, %93 ], [ %102, %101 ], [ %104, %103 ]
-  %.sink = phi i32 [ 16, %95 ], [ 16, %93 ], [ %98, %101 ], [ %98, %103 ]
+  %.sink155 = phi ptr [ %94, %93 ], [ %96, %95 ], [ %102, %101 ], [ %104, %103 ]
+  %.sink = phi i32 [ 16, %93 ], [ 16, %95 ], [ %98, %101 ], [ %98, %103 ]
   store ptr %.sink155, ptr %28, align 8, !tbaa !71
   store i32 %.sink, ptr %25, align 8, !tbaa !70
   br label %Vec_IntPush.exit
@@ -1610,11 +1610,11 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond.not, label %.critedge2, label %120, !llvm.loop !95
 
 .critedge2:                                       ; preds = %.cont, %Vec_IntStart.exit83, %.lr.ph125, %.critedge
-  %.sroa.5103.0.lcssa154 = phi i32 [ %.sroa.5103.0.lcssa.ph, %.critedge ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5103.0.lcssa.ph, %.lr.ph125 ], [ %.sroa.5103.0.lcssa.ph, %.cont ]
-  %.sroa.0102.0.lcssa153 = phi i32 [ %.sroa.0102.0.lcssa.ph, %.critedge ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0102.0.lcssa.ph, %.lr.ph125 ], [ %.sroa.0102.0.lcssa.ph, %.cont ]
-  %132 = phi ptr [ %.val59142, %.critedge ], [ %27, %Vec_IntStart.exit83 ], [ %.val59142, %.lr.ph125 ], [ %.val59142, %.cont ]
-  %.sroa.0.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %Vec_IntStart.exit83 ], [ 0, %.lr.ph125 ], [ %.sroa.0.1, %.cont ]
-  %.sroa.5.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %Vec_IntStart.exit83 ], [ 0, %.lr.ph125 ], [ %.sroa.5.1, %.cont ]
+  %.sroa.5103.0.lcssa154 = phi i32 [ %.sroa.5103.0.lcssa.ph, %.critedge ], [ %.sroa.5103.0.lcssa.ph, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5103.0.lcssa.ph, %.cont ]
+  %.sroa.0102.0.lcssa153 = phi i32 [ %.sroa.0102.0.lcssa.ph, %.critedge ], [ %.sroa.0102.0.lcssa.ph, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0102.0.lcssa.ph, %.cont ]
+  %132 = phi ptr [ %.val59142, %.critedge ], [ %.val59142, %.lr.ph125 ], [ %27, %Vec_IntStart.exit83 ], [ %.val59142, %.cont ]
+  %.sroa.0.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.0.1, %.cont ]
+  %.sroa.5.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph125 ], [ 0, %Vec_IntStart.exit83 ], [ %.sroa.5.1, %.cont ]
   %133 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.sroa.0.0.lcssa, i32 noundef %.sroa.0102.0.lcssa153, i32 noundef %.sroa.5.0.lcssa, i32 noundef %.sroa.5103.0.lcssa154)
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !71
@@ -1677,7 +1677,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.exit.i, %7
-  %10 = phi ptr [ %6, %7 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %1 ]
+  %10 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %6, %7 ], [ null, %1 ]
   %11 = tail call ptr @Gia_ManStart(i32 noundef %.val78) #15
   %12 = load ptr, ptr %0, align 8, !tbaa !74
   %.not.i92 = icmp eq ptr %12, null
@@ -2109,7 +2109,7 @@ define i32 @Abc_NtkFlattenHierarchyGia_rec(ptr noundef %0, ptr noundef %1, ptr n
   br label %65
 
 common.ret.sink.split:                            ; preds = %63, %44, %42, %21, %13, %.critedge
-  %.sink = phi i32 [ %20, %13 ], [ %41, %21 ], [ %76, %.critedge ], [ %43, %42 ], [ %64, %63 ], [ %59, %44 ]
+  %.sink = phi i32 [ %76, %.critedge ], [ %20, %13 ], [ %43, %42 ], [ %41, %21 ], [ %64, %63 ], [ %59, %44 ]
   store i32 %.sink, ptr %5, align 8, !tbaa !11
   br label %common.ret
 

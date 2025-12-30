@@ -241,10 +241,10 @@ define noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) %0, ptr
   br label %28
 
 24:                                               ; preds = %15, %11, %8
-  %.sink41 = phi i32 [ 128, %11 ], [ 115, %8 ], [ 132, %15 ]
-  %.sink = phi i32 [ 524301, %11 ], [ 524303, %8 ], [ 524303, %15 ]
-  %.022.ph = phi ptr [ null, %11 ], [ null, %8 ], [ %13, %15 ]
-  %.0.ph = phi ptr [ %.1, %11 ], [ null, %8 ], [ %.1, %15 ]
+  %.sink41 = phi i32 [ 115, %8 ], [ 128, %11 ], [ 132, %15 ]
+  %.sink = phi i32 [ 524303, %8 ], [ 524301, %11 ], [ 524303, %15 ]
+  %.022.ph = phi ptr [ null, %8 ], [ null, %11 ], [ %13, %15 ]
+  %.0.ph = phi ptr [ null, %8 ], [ %.1, %11 ], [ %.1, %15 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink41, ptr noundef nonnull @__func__.X509v3_add_ext) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #6
@@ -258,7 +258,7 @@ define noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) %0, ptr
   br label %28
 
 28:                                               ; preds = %23, %24, %27, %19, %22
-  %.021 = phi ptr [ %.1, %19 ], [ %.1, %22 ], [ null, %27 ], [ null, %24 ], [ null, %23 ]
+  %.021 = phi ptr [ %.1, %22 ], [ %.1, %19 ], [ null, %27 ], [ null, %24 ], [ null, %23 ]
   ret ptr %.021
 }
 
@@ -497,7 +497,7 @@ X509_EXTENSION_set_object.exit.thread:            ; preds = %13, %17, %X509_EXTE
   br label %33
 
 33:                                               ; preds = %30, %32, %25, %26, %29, %12
-  %.018 = phi ptr [ null, %12 ], [ %.0, %25 ], [ %.0, %29 ], [ %.0, %26 ], [ null, %32 ], [ null, %30 ]
+  %.018 = phi ptr [ null, %12 ], [ %.0, %29 ], [ %.0, %26 ], [ %.0, %25 ], [ null, %32 ], [ null, %30 ]
   ret ptr %.018
 }
 
@@ -559,7 +559,7 @@ define range(i32 0, 2) i32 @X509_EXTENSION_set_data(ptr noundef %0, ptr noundef 
   br label %10
 
 10:                                               ; preds = %4, %2
-  %.0 = phi i32 [ %., %4 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %2 ], [ %., %4 ]
   ret i32 %.0
 }
 

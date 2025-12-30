@@ -183,8 +183,8 @@ define dso_local void @display_ini_entries(ptr noundef readonly captures(address
   br label %php_ini_displayer_cb.exit
 
 .thread.i:                                        ; preds = %45, %43
-  %.01838.i = phi i64 [ %.33.i, %43 ], [ %47, %45 ]
-  %.01937.i = phi ptr [ %.str.22..str.2332.i, %43 ], [ %41, %45 ]
+  %.01838.i = phi i64 [ %47, %45 ], [ %.33.i, %43 ]
+  %.01937.i = phi ptr [ %41, %45 ], [ %.str.22..str.2332.i, %43 ]
   %50 = tail call i64 @php_output_write(ptr noundef nonnull %.01937.i, i64 noundef %.01838.i) #16
   br label %php_ini_displayer_cb.exit
 
@@ -263,8 +263,8 @@ php_ini_displayer_cb.exit:                        ; preds = %36, %49, %.thread.i
   br label %php_ini_displayer_cb.exit56
 
 .thread.i47:                                      ; preds = %77, %75, %67, %63
-  %.01838.i48 = phi i64 [ %65, %63 ], [ %79, %77 ], [ %..i, %67 ], [ %.33.i55, %75 ]
-  %.01937.i49 = phi ptr [ %61, %63 ], [ %73, %77 ], [ %.str.22..str.23.i, %67 ], [ %.str.22..str.2332.i54, %75 ]
+  %.01838.i48 = phi i64 [ %79, %77 ], [ %65, %63 ], [ %.33.i55, %75 ], [ %..i, %67 ]
+  %.01937.i49 = phi ptr [ %73, %77 ], [ %61, %63 ], [ %.str.22..str.2332.i54, %75 ], [ %.str.22..str.23.i, %67 ]
   %82 = tail call i64 @php_output_write(ptr noundef nonnull %.01937.i49, i64 noundef %.01838.i48) #16
   br label %php_ini_displayer_cb.exit56
 
@@ -319,8 +319,8 @@ php_ini_displayer_cb.exit56:                      ; preds = %53, %81, %.thread.i
   br label %php_ini_displayer_cb.exit69
 
 .thread.i61:                                      ; preds = %102, %100
-  %.01838.i62 = phi i64 [ %.33.i68, %100 ], [ %104, %102 ]
-  %.01937.i63 = phi ptr [ %.str.22..str.2332.i67, %100 ], [ %98, %102 ]
+  %.01838.i62 = phi i64 [ %104, %102 ], [ %.33.i68, %100 ]
+  %.01937.i63 = phi ptr [ %98, %102 ], [ %.str.22..str.2332.i67, %100 ]
   %107 = tail call i64 @php_output_write(ptr noundef nonnull %.01937.i63, i64 noundef %.01838.i62) #16
   br label %php_ini_displayer_cb.exit69
 
@@ -399,8 +399,8 @@ php_ini_displayer_cb.exit69:                      ; preds = %93, %106, %.thread.
   br label %php_ini_displayer_cb.exit89
 
 .thread.i75:                                      ; preds = %134, %132, %124, %120
-  %.01838.i76 = phi i64 [ %122, %120 ], [ %136, %134 ], [ %..i82, %124 ], [ %.33.i88, %132 ]
-  %.01937.i77 = phi ptr [ %118, %120 ], [ %130, %134 ], [ %.str.22..str.23.i81, %124 ], [ %.str.22..str.2332.i87, %132 ]
+  %.01838.i76 = phi i64 [ %136, %134 ], [ %122, %120 ], [ %.33.i88, %132 ], [ %..i82, %124 ]
+  %.01937.i77 = phi ptr [ %130, %134 ], [ %118, %120 ], [ %.str.22..str.2332.i87, %132 ], [ %.str.22..str.23.i81, %124 ]
   %139 = tail call i64 @php_output_write(ptr noundef nonnull %.01937.i77, i64 noundef %.01838.i76) #16
   br label %php_ini_displayer_cb.exit89
 
@@ -409,7 +409,7 @@ php_ini_displayer_cb.exit89:                      ; preds = %110, %138, %.thread
   br label %141
 
 141:                                              ; preds = %php_ini_displayer_cb.exit56, %php_ini_displayer_cb.exit89, %16, %.lr.ph
-  %.1 = phi i8 [ %.03992, %16 ], [ %.03992, %.lr.ph ], [ 0, %php_ini_displayer_cb.exit89 ], [ 0, %php_ini_displayer_cb.exit56 ]
+  %.1 = phi i8 [ %.03992, %.lr.ph ], [ %.03992, %16 ], [ 0, %php_ini_displayer_cb.exit89 ], [ 0, %php_ini_displayer_cb.exit56 ]
   %142 = getelementptr inbounds nuw i8, ptr %.04091, i64 32
   %.not43 = icmp eq ptr %142, %12
   br i1 %.not43, label %._crit_edge, label %.lr.ph
@@ -612,9 +612,9 @@ append_ini_path.exit206:                          ; preds = %43, %45
   br label %51
 
 51:                                               ; preds = %17, %append_ini_path.exit206
-  %or.cond = phi i1 [ %50, %append_ini_path.exit206 ], [ false, %17 ]
-  %.0130 = phi ptr [ %22, %append_ini_path.exit206 ], [ null, %17 ]
-  %.0 = phi ptr [ %.1, %append_ini_path.exit206 ], [ null, %17 ]
+  %or.cond = phi i1 [ false, %17 ], [ %50, %append_ini_path.exit206 ]
+  %.0130 = phi ptr [ null, %17 ], [ %22, %append_ini_path.exit206 ]
+  %.0 = phi ptr [ null, %17 ], [ %.1, %append_ini_path.exit206 ]
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8, !tbaa !65
   br i1 %or.cond, label %52, label %77
 
@@ -685,10 +685,10 @@ append_ini_path.exit206:                          ; preds = %43, %45
   br i1 %.not183261274, label %.thread282, label %78
 
 77:                                               ; preds = %.thread, %72, %51
-  %.0130262 = phi ptr [ %.0130263272, %.thread ], [ %.0130, %51 ], [ %.0130263272, %72 ]
-  %.not183260 = phi i1 [ %.not183261274, %.thread ], [ %.not168, %51 ], [ %.not183261274, %72 ]
-  %.0142 = phi ptr [ %71, %.thread ], [ null, %51 ], [ null, %72 ]
-  %.0136 = phi ptr [ %68, %.thread ], [ null, %51 ], [ null, %72 ]
+  %.0130262 = phi ptr [ %.0130263272, %.thread ], [ %.0130263272, %72 ], [ %.0130, %51 ]
+  %.not183260 = phi i1 [ %.not183261274, %.thread ], [ %.not183261274, %72 ], [ %.not168, %51 ]
+  %.0142 = phi ptr [ %71, %.thread ], [ null, %72 ], [ null, %51 ]
+  %.0136 = phi ptr [ %68, %.thread ], [ null, %72 ], [ null, %51 ]
   br i1 %.not183260, label %79, label %78
 
 78:                                               ; preds = %.thread220, %74, %77
@@ -707,9 +707,9 @@ append_ini_path.exit206:                          ; preds = %43, %45
   br label %80
 
 79:                                               ; preds = %78, %77
-  %.0136281 = phi ptr [ %.0136, %77 ], [ %.0136280, %78 ]
-  %.0142279 = phi ptr [ %.0142, %77 ], [ %.0142278, %78 ]
-  %.0147277 = phi i1 [ false, %77 ], [ %.0147276, %78 ]
+  %.0136281 = phi ptr [ %.0136280, %78 ], [ %.0136, %77 ]
+  %.0142279 = phi ptr [ %.0142278, %78 ], [ %.0142, %77 ]
+  %.0147277 = phi i1 [ %.0147276, %78 ], [ false, %77 ]
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8, !tbaa !65
   %.not184 = icmp eq ptr %.0136281, null
   br i1 %.not184, label %111, label %80
@@ -1378,8 +1378,8 @@ zend_string_dup.exit111:                          ; preds = %95, %100
   br label %155
 
 134:                                              ; preds = %128, %122
-  %.084 = phi ptr [ %123, %122 ], [ %130, %128 ]
-  %.082 = phi i64 [ %124, %122 ], [ %133, %128 ]
+  %.084 = phi ptr [ %130, %128 ], [ %123, %122 ]
+  %.082 = phi i64 [ %133, %128 ], [ %124, %122 ]
   %.not121 = icmp eq i64 %.082, 0
   br i1 %.not121, label %155, label %.preheader
 

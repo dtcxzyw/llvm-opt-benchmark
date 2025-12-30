@@ -507,7 +507,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeCompareLevelsDecrease(ptr noundef readonly 
   br label %26
 
 26:                                               ; preds = %25, %21, %19, %2
-  %.0 = phi i32 [ -1, %21 ], [ -1, %2 ], [ 1, %19 ], [ %., %25 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %19 ], [ -1, %21 ], [ %., %25 ]
   ret i32 %.0
 }
 
@@ -870,7 +870,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %129, %127
   br i1 %173, label %.lr.ph.i18, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit, !llvm.loop !43
 
 Ivy_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %117, %.lr.ph.i18, %170
-  %174 = phi i32 [ %146, %.lr.ph.i18 ], [ %146, %170 ], [ %113, %117 ]
+  %174 = phi i32 [ %146, %170 ], [ %146, %.lr.ph.i18 ], [ %113, %117 ]
   %175 = icmp sgt i32 %174, 1
   br i1 %175, label %19, label %._crit_edge, !llvm.loop !44
 
@@ -1063,7 +1063,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %25, %24, %.preheader47, %77, %86, %Vec_PtrPush.exit
-  %.034 = phi i32 [ %90, %86 ], [ 0, %24 ], [ -1, %77 ], [ 0, %Vec_PtrPush.exit ], [ 0, %.preheader47 ], [ -1, %25 ], [ 1, %20 ]
+  %.034 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %90, %86 ], [ -1, %77 ], [ 0, %.preheader47 ], [ -1, %25 ], [ 0, %24 ], [ 1, %20 ]
   ret i32 %.034
 }
 

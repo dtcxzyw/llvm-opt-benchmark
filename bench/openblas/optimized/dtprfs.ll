@@ -98,7 +98,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not516, label %59, label %.thread
 
 .thread.sink.split:                               ; preds = %52, %49, %46, %43, %41, %38, %33
-  %.sink = phi i32 [ -1, %33 ], [ -2, %38 ], [ -4, %43 ], [ -8, %49 ], [ -5, %46 ], [ -3, %41 ], [ -10, %52 ]
+  %.sink = phi i32 [ -1, %33 ], [ -2, %38 ], [ -3, %41 ], [ -4, %43 ], [ -5, %46 ], [ -8, %49 ], [ -10, %52 ]
   store i32 %.sink, ptr %14, align 4, !tbaa !3
   br label %.thread
 
@@ -778,7 +778,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not544646, label %.loopexit550.backedge, label %.lr.ph649.preheader
 
 .loopexit550.backedge:                            ; preds = %.lr.ph649, %346, %._crit_edge654
-  %.be = phi i32 [ %.pre815.pre, %._crit_edge654 ], [ %350, %346 ], [ %350, %.lr.ph649 ]
+  %.be = phi i32 [ %350, %346 ], [ %.pre815.pre, %._crit_edge654 ], [ %350, %.lr.ph649 ]
   br label %.loopexit550
 
 .lr.ph649.preheader:                              ; preds = %346

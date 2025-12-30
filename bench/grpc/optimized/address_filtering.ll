@@ -974,7 +974,7 @@ _ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_
   br label %.thread
 
 .thread:                                          ; preds = %20, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit.i.i
-  %42 = phi i1 [ %41, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit.i.i ], [ true, %20 ]
+  %42 = phi i1 [ true, %20 ], [ %41, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %42, ptr noundef nonnull %6, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(32) %21) #23
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i64, ptr %43, align 8, !tbaa !32
@@ -1296,8 +1296,8 @@ _ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_
   br label %127
 
 127:                                              ; preds = %119, %75, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit51, %123, %97, %79, %53, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit, %30
-  %.sroa.086.0 = phi ptr [ %32, %30 ], [ %spec.select, %75 ], [ null, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit ], [ %spec.select88, %119 ], [ %81, %79 ], [ %55, %53 ], [ %1, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit51 ], [ %125, %123 ], [ null, %97 ]
-  %.sroa.12.0 = phi ptr [ %33, %30 ], [ %spec.select87, %75 ], [ %11, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit ], [ %spec.select89, %119 ], [ %82, %79 ], [ %55, %53 ], [ null, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit51 ], [ %126, %123 ], [ %99, %97 ]
+  %.sroa.086.0 = phi ptr [ %32, %30 ], [ null, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit ], [ %81, %79 ], [ %55, %53 ], [ %125, %123 ], [ null, %97 ], [ %1, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit51 ], [ %spec.select, %75 ], [ %spec.select88, %119 ]
+  %.sroa.12.0 = phi ptr [ %33, %30 ], [ %11, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit ], [ %82, %79 ], [ %55, %53 ], [ %126, %123 ], [ %99, %97 ], [ null, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit51 ], [ %spec.select87, %75 ], [ %spec.select89, %119 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.086.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1463,8 +1463,8 @@ _ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_
   br label %54
 
 54:                                               ; preds = %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18, %._crit_edge.thread
-  %.sroa.032.0 = phi ptr [ %spec.select, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18 ], [ null, %._crit_edge.thread ]
-  %.sroa.4.0 = phi ptr [ %spec.select35, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18 ], [ %.033.lcssa54, %._crit_edge.thread ]
+  %.sroa.032.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18 ]
+  %.sroa.4.0 = phi ptr [ %.033.lcssa54, %._crit_edge.thread ], [ %spec.select35, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.032.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2180,7 +2180,7 @@ _ZNSt6vectorIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit.i.i.i.i: ; pre
   br label %_ZN9grpc_core13RefCountedPtrINS_19HierarchicalPathArgEED2Ev.exit37.i.i.i.i
 
 _ZN9grpc_core13RefCountedPtrINS_19HierarchicalPathArgEED2Ev.exit37.i.i.i.i: ; preds = %151, %123
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %124, %123 ], [ %152, %151 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %152, %151 ], [ %124, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %153
 

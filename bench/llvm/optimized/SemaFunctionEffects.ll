@@ -1629,8 +1629,8 @@ _ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread.i.i: ; preds = %_ZNK5clang13CX
   br label %201
 
 201:                                              ; preds = %199, %195, %192
-  %.sroa.7.0.i.i = phi i64 [ %.sroa.7.0.copyload.i.i, %192 ], [ %.sroa.7.0.copyload34.i.i, %199 ], [ %.sroa.7.0.copyload32.i.i, %195 ]
-  %.sroa.028.0.i.i = phi ptr [ %.sroa.028.0.copyload.i.i, %192 ], [ %.sroa.028.0.copyload30.i.i, %199 ], [ %.sroa.028.0.copyload29.i.i, %195 ]
+  %.sroa.7.0.i.i = phi i64 [ %.sroa.7.0.copyload34.i.i, %199 ], [ %.sroa.7.0.copyload32.i.i, %195 ], [ %.sroa.7.0.copyload.i.i, %192 ]
+  %.sroa.028.0.i.i = phi ptr [ %.sroa.028.0.copyload30.i.i, %199 ], [ %.sroa.028.0.copyload29.i.i, %195 ], [ %.sroa.028.0.copyload.i.i, %192 ]
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.i.i, i64 %.sroa.7.0.i.i
   %.not9.i.i.i.i = icmp samesign eq i64 %.sroa.7.0.i.i, 0
   br i1 %.not9.i.i.i.i, label %_ZN12_GLOBAL__N_112CallableInfoC2ERKN5clang4DeclENS_15SpecialFuncTypeE.exit.i, label %.lr.ph.i.i.i78.i
@@ -1935,7 +1935,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i.i.i: ; preds = %32
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit.i.i
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit.i.i: ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i, %322, %319, %.critedge.i.i
-  %.0.i50.i.i = phi i64 [ 4, %.critedge.i.i ], [ 1, %322 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i ], [ 0, %319 ], [ %spec.select.i.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i.i.i ]
+  %.0.i50.i.i = phi i64 [ 4, %.critedge.i.i ], [ 0, %319 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i ], [ 1, %322 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i.i.i ], [ %spec.select.i.i.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ]
   %338 = load i8, ptr %59, align 8, !tbaa !47, !range !50, !noundef !51
   %339 = trunc nuw i8 %338 to i1
   br i1 %339, label %340, label %392
@@ -2164,7 +2164,7 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i.i: ; preds = %_ZNKSt6bitset
   br i1 %.not.i52.i, label %.loopexit.i.i, label %.lr.ph.i51.i
 
 .loopexit.i.i:                                    ; preds = %238, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i.i, %439, %.critedge40.i.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.i.i, %229
-  %441 = phi i64 [ %.pre69.i, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i.i ], [ %.pre69.i, %439 ], [ %.pre69.i, %229 ], [ %.pre.i, %.critedge40.i.i ], [ %.pre69.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.i.i ], [ %.pre69.i, %238 ]
+  %441 = phi i64 [ %.pre.i, %.critedge40.i.i ], [ %.pre69.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.i.i ], [ %.pre69.i, %229 ], [ %.pre69.i, %439 ], [ %.pre69.i, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i.i ], [ %.pre69.i, %238 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.sroa.0.0.copyload.i53.i = load i64, ptr %33, align 8
   store i64 %441, ptr %16, align 8
@@ -3064,7 +3064,7 @@ _ZNKSt14default_deleteIN4llvm11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEEclEP
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %_ZNKSt14default_deleteIN4llvm11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEEclEPS4_.exit.i.i.i16.i.i, %789, %787, %_ZN12_GLOBAL__N_120EffectToViolationMapD2Ev.exit.i.i.i9
-  %.sink.i.i10 = phi i64 [ 56, %787 ], [ 56, %_ZN12_GLOBAL__N_120EffectToViolationMapD2Ev.exit.i.i.i9 ], [ 16, %789 ], [ 16, %_ZNKSt14default_deleteIN4llvm11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEEclEPS4_.exit.i.i.i16.i.i ]
+  %.sink.i.i10 = phi i64 [ 56, %_ZN12_GLOBAL__N_120EffectToViolationMapD2Ev.exit.i.i.i9 ], [ 56, %787 ], [ 16, %789 ], [ 16, %_ZNKSt14default_deleteIN4llvm11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEEclEPS4_.exit.i.i.i16.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %770, i64 noundef %.sink.i.i10) #24
   br label %797
 
@@ -3394,16 +3394,16 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_ba
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit54, %130
-  %.ph.be = phi i32 [ %131, %130 ], [ %129, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit54 ]
-  %.sroa.789.0.ph.be = phi i64 [ %132, %130 ], [ %.sroa.789.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit54 ]
-  %.sroa.779.0.ph.be = add i64 %.sroa.779.0.ph, 1
-  br label %.outer
-
-130:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit, %60
-  %131 = phi i32 [ %79, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit ], [ %36, %60 ]
+130:                                              ; preds = %60, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit
+  %131 = phi i32 [ %36, %60 ], [ %79, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit ]
   %132 = add i64 %.sroa.789.0, 1
   br label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %130, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit54
+  %.ph.be = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit54 ], [ %131, %130 ]
+  %.sroa.789.0.ph.be = phi i64 [ %.sroa.789.0, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_backERKS3_.exit54 ], [ %132, %130 ]
+  %.sroa.779.0.ph.be = add i64 %.sroa.779.0.ph, 1
+  br label %.outer
 
 133:                                              ; preds = %38
   ret void
@@ -3453,7 +3453,7 @@ _ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit: ; preds =
   br i1 %.not, label %.loopexit, label %15
 
 .thread:                                          ; preds = %15, %..thread_crit_edge, %11, %7
-  %18 = phi i32 [ %.pre, %..thread_crit_edge ], [ %9, %7 ], [ 0, %11 ], [ 0, %15 ]
+  %18 = phi i32 [ %.pre, %..thread_crit_edge ], [ 0, %11 ], [ %9, %7 ], [ 0, %15 ]
   %19 = icmp ne i32 %18, 1
   br label %.loopexit
 
@@ -3491,7 +3491,7 @@ switch.lookup:                                    ; preds = %5
   br label %10
 
 10:                                               ; preds = %switch.lookup, %5
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %5 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -4088,8 +4088,8 @@ _ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread: ; preds = %26, %_ZNK5clang13C
   br label %44
 
 44:                                               ; preds = %38, %42, %35
-  %.sroa.7.0 = phi i64 [ %.sroa.7.0.copyload, %35 ], [ %.sroa.7.0.copyload34, %42 ], [ %.sroa.7.0.copyload32, %38 ]
-  %.sroa.028.0 = phi ptr [ %.sroa.028.0.copyload, %35 ], [ %.sroa.028.0.copyload30, %42 ], [ %.sroa.028.0.copyload29, %38 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.0.copyload34, %42 ], [ %.sroa.7.0.copyload32, %38 ], [ %.sroa.7.0.copyload, %35 ]
+  %.sroa.028.0 = phi ptr [ %.sroa.028.0.copyload30, %42 ], [ %.sroa.028.0.copyload29, %38 ], [ %.sroa.028.0.copyload, %35 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.028.0, i64 %.sroa.7.0
   %.not9.i.i = icmp samesign eq i64 %.sroa.7.0, 0
   br i1 %.not9.i.i, label %_ZN5clang21FunctionEffectKindSetC2ENS_18FunctionEffectsRefE.exit, label %.lr.ph.i.i
@@ -4697,7 +4697,7 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us.i: ; preds = %_ZNKSt6bitse
   br label %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.us.i
 
 _ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.us.i: ; preds = %93, %._crit_edge._crit_edge57.i.i.i.i.i.i.us.i, %._crit_edge._crit_edge.i.i.i.i.i.i.us.i, %87
-  %.028.i.i.i.i.i.i.us.i = phi ptr [ %.1.i.i.i.i.i.i.us.i, %._crit_edge._crit_edge.i.i.i.i.i.i.us.i ], [ %79, %93 ], [ %.2.i.i.i.i.i.i.us.i, %._crit_edge._crit_edge57.i.i.i.i.i.i.us.i ], [ %.val7.i.i.i, %87 ]
+  %.028.i.i.i.i.i.i.us.i = phi ptr [ %79, %93 ], [ %.val7.i.i.i, %87 ], [ %.1.i.i.i.i.i.i.us.i, %._crit_edge._crit_edge.i.i.i.i.i.i.us.i ], [ %.2.i.i.i.i.i.i.us.i, %._crit_edge._crit_edge57.i.i.i.i.i.i.us.i ]
   %.not.i.i.us.i = icmp eq ptr %.028.i.i.i.i.i.i.us.i, %81
   %94 = icmp eq ptr %.028.i.i.i.i.i.i.us.i, null
   %or.cond.us.i = or i1 %.not.i.i.us.i, %94
@@ -4826,7 +4826,7 @@ _ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20Effect
   br label %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i
 
 _ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i: ; preds = %110, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit83, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit85, %131, %._crit_edge._crit_edge57.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i, %125
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %79, %131 ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i, %125 ], [ %134, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit85 ], [ %133, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit83 ], [ %132, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %.02950.i.i.i.i.i.i.i, %110 ]
+  %.028.i.i.i.i.i.i.i = phi ptr [ %79, %131 ], [ %scevgep.i.i.i.i.i.i.i, %125 ], [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i.i ], [ %132, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %133, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit83 ], [ %134, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.i.loopexit.split.loop.exit85 ], [ %.02950.i.i.i.i.i.i.i, %110 ]
   %.not.i.i.i = icmp eq ptr %.028.i.i.i.i.i.i.i, %81
   %135 = icmp eq ptr %.028.i.i.i.i.i.i.i, null
   %or.cond.i = or i1 %.not.i.i.i, %135
@@ -4872,7 +4872,7 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i: ; preds = %_ZNKSt6bitsetIL
   br i1 %.not.i, label %_ZN12_GLOBAL__N_124CompleteFunctionAnalysisC2ERN5clang10ASTContextEONS_23PendingFunctionAnalysisENS1_21FunctionEffectKindSetES6_.exit, label %.lr.ph.i.i.i.i.i.i.i10
 
 _ZN12_GLOBAL__N_124CompleteFunctionAnalysisC2ERN5clang10ASTContextEONS_23PendingFunctionAnalysisENS1_21FunctionEffectKindSetES6_.exit: ; preds = %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i, %146, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us22.i, %105, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us.i, %75, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.._crit_edge_crit_edge.i
-  %148 = phi ptr [ %.pre.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.._crit_edge_crit_edge.i ], [ null, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us.i ], [ %.val.i9, %146 ], [ null, %75 ], [ %.val.i9, %105 ], [ %.val.i9, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us22.i ], [ %.val.i9, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i ]
+  %148 = phi ptr [ %.pre.i, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit.._crit_edge_crit_edge.i ], [ null, %75 ], [ null, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us.i ], [ %.val.i9, %105 ], [ %.val.i9, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.us22.i ], [ %.val.i9, %146 ], [ %.val.i9, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit.i ]
   %149 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %150, align 8, !tbaa !791
@@ -5924,7 +5924,7 @@ _ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loo
   br label %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit
 
 _ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit: ; preds = %13, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit27, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit29, %29, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i, %37
-  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %10, %37 ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %29 ], [ %40, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit29 ], [ %38, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit ], [ %39, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit27 ], [ %.02950.i.i.i.i.i, %13 ]
+  %.028.i.i.i.i.i = phi ptr [ %10, %37 ], [ %.029.lcssa.i.i.i.i.i, %29 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %38, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit ], [ %39, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit27 ], [ %40, %_ZN12_GLOBAL__N_120EffectToViolationMap6lookupEN5clang14FunctionEffectE.exit.loopexit.split.loop.exit29 ], [ %.02950.i.i.i.i.i, %13 ]
   %41 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %.val7.i, i64 %9
   %.not.i6 = icmp eq ptr %.028.i.i.i.i.i, %41
   %.not8 = icmp eq ptr %.028.i.i.i.i.i, null
@@ -6257,7 +6257,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i: ; preds = %155
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit: ; preds = %139, %147, %152, %155, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i
-  %.0.i = phi i64 [ 4, %147 ], [ 5, %139 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i ], [ 0, %152 ], [ %spec.select.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i ], [ 1, %155 ]
+  %.0.i = phi i64 [ 5, %139 ], [ 4, %147 ], [ 0, %152 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i ], [ 1, %155 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i ], [ %spec.select.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ]
   %171 = load i8, ptr %57, align 8, !tbaa !47, !range !50, !noundef !51
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %173, label %225
@@ -6712,7 +6712,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i120: ; preds = %371
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit129
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit129: ; preds = %355, %363, %368, %371, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i123, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i126, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i120
-  %.0.i121 = phi i64 [ 4, %363 ], [ 5, %355 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i123 ], [ 0, %368 ], [ %spec.select.i128, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i126 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i120 ], [ 1, %371 ]
+  %.0.i121 = phi i64 [ 5, %355 ], [ 4, %363 ], [ 0, %368 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i123 ], [ 1, %371 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i120 ], [ %spec.select.i128, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i126 ]
   %387 = load i8, ptr %63, align 8, !tbaa !47, !range !50, !noundef !51
   %388 = trunc nuw i8 %387 to i1
   br i1 %388, label %389, label %441
@@ -7018,7 +7018,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i151: ; preds = %514
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit160
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit160: ; preds = %495, %506, %511, %514, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i154, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i157, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i151
-  %.0.i152 = phi i64 [ 4, %506 ], [ 5, %495 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i154 ], [ 0, %511 ], [ %spec.select.i159, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i157 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i151 ], [ 1, %514 ]
+  %.0.i152 = phi i64 [ 5, %495 ], [ 4, %506 ], [ 0, %511 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i154 ], [ 1, %514 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i151 ], [ %spec.select.i159, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i157 ]
   %530 = load i8, ptr %69, align 8, !tbaa !47, !range !50, !noundef !51
   %531 = trunc nuw i8 %530 to i1
   br i1 %531, label %532, label %584
@@ -7263,7 +7263,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i173: ; preds = %631
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit182
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit182: ; preds = %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit172, %628, %631, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i176, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i179, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i173
-  %.0.i174 = phi i64 [ 4, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit172 ], [ 1, %631 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i176 ], [ 0, %628 ], [ %spec.select.i181, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i179 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i173 ]
+  %.0.i174 = phi i64 [ 4, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit172 ], [ 0, %628 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i176 ], [ 1, %631 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i173 ], [ %spec.select.i181, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i179 ]
   %647 = load i8, ptr %69, align 8, !tbaa !47, !range !50, !noundef !51
   %648 = trunc nuw i8 %647 to i1
   br i1 %648, label %649, label %701
@@ -8050,7 +8050,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i221: ; preds = %100
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit230
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit230: ; preds = %995, %1004, %1007, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i224, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i227, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i221
-  %.0.i222 = phi i64 [ 4, %995 ], [ 1, %1007 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i224 ], [ 0, %1004 ], [ %spec.select.i229, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i227 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i221 ]
+  %.0.i222 = phi i64 [ 4, %995 ], [ 0, %1004 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i224 ], [ 1, %1007 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i221 ], [ %spec.select.i229, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i227 ]
   %1023 = load i8, ptr %122, align 8, !tbaa !47, !range !50, !noundef !51
   %1024 = trunc nuw i8 %1023 to i1
   br i1 %1024, label %1025, label %1077
@@ -8469,7 +8469,7 @@ _ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20Effect
   br label %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i
 
 _ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i: ; preds = %1184, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit865, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit867, %1208, %._crit_edge._crit_edge57.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %1200
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %1181, %1208 ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %1200 ], [ %1211, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit867 ], [ %1209, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit ], [ %1210, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit865 ], [ %.02950.i.i.i.i.i.i, %1184 ]
+  %.028.i.i.i.i.i.i = phi ptr [ %1181, %1208 ], [ %.029.lcssa.i.i.i.i.i.i, %1200 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i ], [ %1209, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit ], [ %1210, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit865 ], [ %1211, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i.loopexit.split.loop.exit867 ], [ %.02950.i.i.i.i.i.i, %1184 ]
   %1212 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %.val7.i.i, i64 %1180
   %.not.i.i261 = icmp ne ptr %.028.i.i.i.i.i.i, %1212
   %1213 = icmp ne ptr %.028.i.i.i.i.i.i, null
@@ -8548,7 +8548,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i262: ; preds = %122
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit271
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit271: ; preds = %1217, %1225, %1228, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i265, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i268, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i262
-  %.0.i263 = phi i64 [ 4, %1217 ], [ 1, %1228 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i265 ], [ 0, %1225 ], [ %spec.select.i270, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i268 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i262 ]
+  %.0.i263 = phi i64 [ 4, %1217 ], [ 0, %1225 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i265 ], [ 1, %1228 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i262 ], [ %spec.select.i270, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i268 ]
   %1244 = load i8, ptr %91, align 8, !tbaa !47, !range !50, !noundef !51
   %1245 = trunc nuw i8 %1244 to i1
   br i1 %1245, label %1246, label %1298
@@ -9058,7 +9058,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i307: ; preds = %147
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit316
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit316: ; preds = %1459, %1466, %1471, %1474, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i310, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i313, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i307
-  %.0.i308 = phi i64 [ 4, %1466 ], [ 5, %1459 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i310 ], [ 0, %1471 ], [ %spec.select.i315, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i313 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i307 ], [ 1, %1474 ]
+  %.0.i308 = phi i64 [ 5, %1459 ], [ 4, %1466 ], [ 0, %1471 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i310 ], [ 1, %1474 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i307 ], [ %spec.select.i315, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i313 ]
   %1490 = load i8, ptr %79, align 8, !tbaa !47, !range !50, !noundef !51
   %1491 = trunc nuw i8 %1490 to i1
   br i1 %1491, label %1492, label %1544
@@ -9483,7 +9483,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i334: ; preds = %167
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit343
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit343: ; preds = %1660, %1669, %1674, %1677, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i337, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i340, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i334
-  %.0.i335 = phi i64 [ 4, %1669 ], [ 5, %1660 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i337 ], [ 0, %1674 ], [ %spec.select.i342, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i340 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i334 ], [ 1, %1677 ]
+  %.0.i335 = phi i64 [ 5, %1660 ], [ 4, %1669 ], [ 0, %1674 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i337 ], [ 1, %1677 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i334 ], [ %spec.select.i342, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i340 ]
   %1693 = load i8, ptr %97, align 8, !tbaa !47, !range !50, !noundef !51
   %1694 = trunc nuw i8 %1693 to i1
   br i1 %1694, label %1695, label %1747
@@ -9728,7 +9728,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i356: ; preds = %179
   br label %_ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit365
 
 _ZN12_GLOBAL__N_18Analyzer19GetCallableDeclKindEPKN5clang4DeclEPKNS_9ViolationE.exit365: ; preds = %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit355, %1791, %1794, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i359, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i362, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i356
-  %.0.i357 = phi i64 [ 4, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit355 ], [ 1, %1794 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i359 ], [ 0, %1791 ], [ %spec.select.i364, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i362 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i356 ]
+  %.0.i357 = phi i64 [ 4, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit355 ], [ 0, %1791 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i359 ], [ 1, %1794 ], [ 2, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread.fold.split.i356 ], [ %spec.select.i364, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i362 ]
   %1810 = load i8, ptr %97, align 8, !tbaa !47, !range !50, !noundef !51
   %1811 = trunc nuw i8 %1810 to i1
   br i1 %1811, label %1812, label %1864
@@ -10070,7 +10070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %1956
 
-.thread:                                          ; preds = %1175, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit206, %1147, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit260, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit219, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit
+.thread:                                          ; preds = %1175, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_19ViolationELj1EEEZNS2_20EffectToViolationMap6lookupEN5clang14FunctionEffectEEUlRKT_E_EEDaOS9_T0_.exit.i.i, %1147, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit260, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit219, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit, %_ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit206
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %.loopexit
 
@@ -14661,7 +14661,7 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit: ; preds = %_ZNKSt6bitsetILm4
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %12, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit, %50, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit, %_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor12addViolationEbN5clang14FunctionEffectENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.exit
-  %52 = phi ptr [ %8, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit ], [ %8, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit ], [ %.pre, %_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor12addViolationEbN5clang14FunctionEffectENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.exit ], [ %8, %50 ], [ %8, %12 ]
+  %52 = phi ptr [ %8, %_ZNK5clang21FunctionEffectKindSet5beginEv.exit ], [ %.pre, %_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor12addViolationEbN5clang14FunctionEffectENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE.exit ], [ %8, %50 ], [ %8, %_ZN5clang21FunctionEffectKindSet8iteratorppEv.exit ], [ %8, %12 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !780
   br label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i.i27
@@ -14920,7 +14920,7 @@ _ZN12_GLOBAL__N_125getBuiltinFunctionEffectsEj.exit.thread: ; preds = %10, %10, 
 _ZN12_GLOBAL__N_125getBuiltinFunctionEffectsEj.exit: ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %13, align 8
-  br label %.critedge.thread
+  br label %.thread
 
 14:                                               ; preds = %10
   %15 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl10isNoReturnEv(ptr noundef nonnull align 8 dereferenceable(168) %4) #21
@@ -14935,7 +14935,7 @@ _ZN12_GLOBAL__N_125getBuiltinFunctionEffectsEj.exit: ; preds = %10
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %.not18 = icmp eq i64 %23, 0
-  br i1 %.not18, label %.critedge.thread, label %24
+  br i1 %.not18, label %.thread, label %24
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -14968,7 +14968,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7.i: ; preds = %
   %.1.i10.i = phi ptr [ %39, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i ], [ %28, %24 ]
   %40 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i10.i) #21
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.critedge.thread, label %42
+  br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7.i
   %43 = load i32, ptr %5, align 4
@@ -15002,7 +15002,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7.i: ; preds = %
 
 _ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit: ; preds = %.lr.ph.i.i.i.i.i.i
   %.not27 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %51
-  br i1 %.not27, label %.critedge, label %.critedge.thread
+  br i1 %.not27, label %.critedge, label %.thread
 
 .critedge:                                        ; preds = %56, %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit, %14, %_ZN12_GLOBAL__N_125getBuiltinFunctionEffectsEj.exit.thread, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, %42, %45, %31, %3
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15012,9 +15012,9 @@ _ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit: ; preds = %.lr.ph.i
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload = load i64, ptr %62, align 8, !tbaa !43
   tail call fastcc void @_ZN12_GLOBAL__N_18Analyzer10followCallERKNS_12CallableInfoERNS_23PendingFunctionAnalysisES3_N5clang14SourceLocationEbNS_13ViolationSiteE(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2, i64 %.sroa.0.0.copyload)
-  br label %.critedge.thread
+  br label %.thread
 
-.critedge.thread:                                 ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7.i, %_ZN12_GLOBAL__N_125getBuiltinFunctionEffectsEj.exit, %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit, %16, %.critedge
+.thread:                                          ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7.i, %_ZN12_GLOBAL__N_125getBuiltinFunctionEffectsEj.exit, %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit, %16, %.critedge
   ret void
 }
 

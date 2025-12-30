@@ -1308,8 +1308,8 @@ _ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_
   unreachable
 
 _ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit: ; preds = %._ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit_crit_edge, %28, %27
-  %38 = phi i32 [ 0, %28 ], [ %26, %27 ], [ %.pre, %._ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit_crit_edge ]
-  %.012 = phi i32 [ %spec.select, %28 ], [ 0, %27 ], [ 0, %._ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit_crit_edge ]
+  %38 = phi i32 [ %.pre, %._ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit_crit_edge ], [ %26, %27 ], [ 0, %28 ]
+  %.012 = phi i32 [ 0, %._ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit_crit_edge ], [ 0, %27 ], [ %spec.select, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = icmp ne i32 %38, 0
   %40 = load i8, ptr %8, align 1, !range !21
@@ -1334,7 +1334,7 @@ _ZN5boost7process2v15child7_exitedEv.exit11:      ; preds = %_ZN5boost7process2v
   br label %_ZN5boost7process2v15child7_exitedEv.exit.thread
 
 _ZN5boost7process2v15child7_exitedEv.exit.thread: ; preds = %7, %_ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit, %_ZN5boost7process2v15child7_exitedEv.exit11, %48, %_ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit.thread, %2, %_ZN5boost7process2v15child7_exitedEv.exit
-  %.0 = phi i1 [ false, %7 ], [ false, %_ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit ], [ false, %_ZN5boost7process2v15child7_exitedEv.exit ], [ false, %2 ], [ true, %_ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit.thread ], [ false, %48 ], [ false, %_ZN5boost7process2v15child7_exitedEv.exit11 ]
+  %.0 = phi i1 [ false, %_ZN5boost7process2v15child7_exitedEv.exit ], [ false, %2 ], [ true, %_ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit.thread ], [ false, %48 ], [ false, %_ZN5boost7process2v15child7_exitedEv.exit11 ], [ false, %_ZN5boost7process2v16detail5posix10is_runningERKNS3_12child_handleERiRSt10error_code.exit ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -3012,7 +3012,7 @@ common.resume:                                    ; preds = %.body, %.body76, %1
   br label %common.resume
 
 .body:                                            ; preds = %91, %32, %59, %30
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %31, %30 ], [ %92, %91 ], [ %33, %32 ]
+  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %60, %59 ], [ %33, %32 ], [ %92, %91 ]
   call void @_ZZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJEEENS5_11filter_viewIKNS7_IJRNS3_11cmd_setter_IcEERKNS2_15throw_on_error_EEEENS2_14is_initializerIN4mpl_3argILin1EEEEEEEEEE6invokeENSJ_5bool_ILb0EEESR_EN10pipe_guardD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
@@ -3452,7 +3452,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
   br label %.body
 
 .body:                                            ; preds = %114, %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40, %112, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn25 = phi { ptr, i32 } [ %lpad.phi66, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40 ], [ %113, %112 ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %lpad.phi, %81 ], [ %lpad.phi66, %114 ]
+  %.pn25 = phi { ptr, i32 } [ %113, %112 ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %lpad.phi66, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40 ], [ %lpad.phi, %81 ], [ %lpad.phi66, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45
 
@@ -4262,7 +4262,7 @@ _ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit: ; preds = %_ZN5boost9algorit
   br label %.body
 
 .body:                                            ; preds = %53, %51, %47, %34, %31
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %48, %53 ], [ %32, %34 ], [ %48, %47 ], [ %48, %51 ]
+  %.pn = phi { ptr, i32 } [ %32, %34 ], [ %32, %31 ], [ %48, %47 ], [ %48, %51 ], [ %48, %53 ]
   br i1 %17, label %_ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit10, label %54
 
 54:                                               ; preds = %.body.thread, %.body
@@ -4828,8 +4828,8 @@ _ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i: ; pre
   br label %_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit
 
 _ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit: ; preds = %28, %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i, %42
-  %.sroa.0.0.i.i22 = phi ptr [ %37, %42 ], [ %37, %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i ], [ %2, %28 ]
-  %.sroa.3.0.i.i21 = phi ptr [ %38, %42 ], [ %38, %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i ], [ %2, %28 ]
+  %.sroa.0.0.i.i22 = phi ptr [ %37, %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i ], [ %37, %42 ], [ %2, %28 ]
+  %.sroa.3.0.i.i21 = phi ptr [ %38, %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i ], [ %38, %42 ], [ %2, %28 ]
   %43 = load ptr, ptr %25, align 8, !tbaa !156
   store ptr %43, ptr %23, align 8
   store ptr %.sroa.0.0.i.i22, ptr %24, align 8
@@ -5664,8 +5664,8 @@ _ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i, %54, %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us, %49, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i.loopexit.us, %.lr.ph.split, %56, %_ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit
-  %.sroa.3.0 = phi ptr [ %2, %_ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit ], [ %57, %56 ], [ %.023.us, %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us ], [ %13, %.lr.ph.split ], [ %scevgep34, %49 ], [ %.023.us, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i.loopexit.us ], [ %scevgep, %54 ], [ %.023, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i ]
-  %.sroa.0.0 = phi ptr [ %2, %_ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit ], [ %13, %56 ], [ %13, %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us ], [ %13, %.lr.ph.split ], [ %13, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i.loopexit.us ], [ %13, %49 ], [ %13, %54 ], [ %13, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i ]
+  %.sroa.3.0 = phi ptr [ %2, %_ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit ], [ %57, %56 ], [ %13, %.lr.ph.split ], [ %.023.us, %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us ], [ %scevgep34, %49 ], [ %.023.us, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i.loopexit.us ], [ %.023, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i ], [ %scevgep, %54 ]
+  %.sroa.0.0 = phi ptr [ %2, %_ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit ], [ %13, %56 ], [ %13, %.lr.ph.split ], [ %13, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i.loopexit.us ], [ %13, %49 ], [ %13, %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us ], [ %13, %54 ], [ %13, %_ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit.i.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5872,7 +5872,7 @@ _ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit: ; preds = %_ZN9__gnu_cxx5__o
   br label %.body
 
 .body:                                            ; preds = %70, %68, %.body6, %32, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %eh.lpad-body714, %70 ], [ %30, %32 ], [ %53, %.body6 ], [ %eh.lpad-body714, %68 ]
+  %.pn = phi { ptr, i32 } [ %30, %32 ], [ %30, %29 ], [ %53, %.body6 ], [ %eh.lpad-body714, %68 ], [ %eh.lpad-body714, %70 ]
   br i1 %17, label %_ZN5boost9algorithm6detail10is_any_ofFIcED2Ev.exit12, label %71
 
 71:                                               ; preds = %.body.thread, %.body
@@ -6196,7 +6196,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit124, %.loopexit.loopexit.split.loop.exit126, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit89, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit89.thread
-  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79 ], [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit89.thread ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit89 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69 ], [ %114, %.loopexit.loopexit.split.loop.exit126 ], [ %112, %.loopexit.loopexit.split.loop.exit ], [ %113, %.loopexit.loopexit.split.loop.exit124 ], [ %.029106, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit ]
+  %.028 = phi ptr [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit89.thread ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit89 ], [ %112, %.loopexit.loopexit.split.loop.exit ], [ %113, %.loopexit.loopexit.split.loop.exit124 ], [ %114, %.loopexit.loopexit.split.loop.exit126 ], [ %.029106, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit ]
   ret ptr %.028
 }
 
@@ -7243,7 +7243,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPcN9__gnu_cxx5__ops15_Iter_le
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPclcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !213
 
 _ZSt13__adjust_heapIPclcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %39 ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %39 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 %.013.lcssa.i.i.us
   store i8 %20, ptr %42, align 1, !tbaa !34
   %.not.us = icmp eq i64 %.013.us, 0

@@ -1074,7 +1074,7 @@ define internal void @rsa_parse_uat() #0 {
   br label %26
 
 26:                                               ; preds = %.sink.split, %22, %19
-  %.039 = phi ptr [ %23, %22 ], [ %20, %19 ], [ %.039.ph, %.sink.split ]
+  %.039 = phi ptr [ %20, %19 ], [ %23, %22 ], [ %.039.ph, %.sink.split ]
   %27 = call i32 @fclose(ptr noundef nonnull %11)
   %.not47.not = icmp eq ptr %.039, null
   br i1 %.not47.not, label %54, label %28
@@ -1774,7 +1774,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   br label %get_version_traits.exit
 
 get_version_traits.exit:                          ; preds = %75, %80, %82, %84, %86, %88, %90, %92, %94, %96, %97, %99, %101
-  %.sroa.0.0.i = phi i32 [ 851947, %96 ], [ 256, %75 ], [ %103, %101 ], [ 1048555, %99 ], [ 917483, %97 ], [ 589803, %94 ], [ 589675, %92 ], [ 65387, %90 ], [ 16235, %88 ], [ 8043, %86 ], [ 7467, %84 ], [ 7434, %82 ], [ 266, %80 ]
+  %.sroa.0.0.i = phi i32 [ 851947, %96 ], [ 1048555, %99 ], [ 917483, %97 ], [ 589803, %94 ], [ 589675, %92 ], [ 65387, %90 ], [ 16235, %88 ], [ 8043, %86 ], [ 7467, %84 ], [ 7434, %82 ], [ 266, %80 ], [ 256, %75 ], [ %103, %101 ]
   switch i8 %76, label %144 [
     i8 1, label %104
     i8 10, label %123
@@ -2914,7 +2914,7 @@ dissect_client_packet.exit.i:                     ; preds = %713, %675
   br label %get_version_traits.exit434
 
 get_version_traits.exit434:                       ; preds = %720, %730, %732, %734, %736, %738, %740, %742, %744, %746, %747, %749, %751
-  %.sroa.0.0.i431 = phi i64 [ 42950524907, %746 ], [ 42949673216, %720 ], [ %spec.select.i433, %751 ], [ 42950721515, %749 ], [ 42950590443, %747 ], [ 42950262763, %744 ], [ 42950262635, %742 ], [ 42949738347, %740 ], [ 42949689195, %738 ], [ 42949681003, %736 ], [ 42949680427, %734 ], [ 42949680394, %732 ], [ 42949673226, %730 ]
+  %.sroa.0.0.i431 = phi i64 [ 42950524907, %746 ], [ 42950721515, %749 ], [ 42950590443, %747 ], [ 42950262763, %744 ], [ 42950262635, %742 ], [ 42949738347, %740 ], [ 42949689195, %738 ], [ 42949681003, %736 ], [ 42949680427, %734 ], [ 42949680394, %732 ], [ 42949673226, %730 ], [ 42949673216, %720 ], [ %spec.select.i433, %751 ]
   store i64 %.sroa.0.0.i431, ptr %62, align 8
   %753 = load i32, ptr @hf_tibia_proto_version, align 4
   %754 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %753, ptr noundef %0, i32 noundef %726, i32 noundef 2, i32 noundef -2147483648)
@@ -3355,7 +3355,7 @@ get_version_traits.exit434:                       ; preds = %720, %730, %732, %7
   br label %1017
 
 1017:                                             ; preds = %935, %1011, %1013, %937
-  %.14 = phi i32 [ %1007, %937 ], [ %.13, %1011 ], [ %1016, %1013 ], [ %.13, %935 ]
+  %.14 = phi i32 [ %1007, %937 ], [ %1016, %1013 ], [ %.13, %1011 ], [ %.13, %935 ]
   %1018 = load i32, ptr %62, align 8
   %1019 = and i32 %1018, 2
   %.not415 = icmp eq i32 %1019, 0
@@ -3384,7 +3384,7 @@ get_version_traits.exit434:                       ; preds = %720, %730, %732, %7
   br label %dissect_game_packet.exit
 
 dissect_game_packet.exit:                         ; preds = %811, %804, %.thread442, %dissect_client_packet.exit.i, %dissect_gameserv_packet.exit.i, %451, %dissect_loginserv_packet.exit.i, %288, %274, %proto_item_set_generated.exit138.i, %1029, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.4379, %.thread442 ], [ %20, %1029 ], [ %285, %288 ], [ %445, %dissect_loginserv_packet.exit.i ], [ %674, %dissect_gameserv_packet.exit.i ], [ %719, %dissect_client_packet.exit.i ], [ %454, %451 ], [ -1, %proto_item_set_generated.exit138.i ], [ %.1376, %274 ], [ %.4379, %804 ], [ %.4379, %811 ]
+  %.0 = phi i32 [ 0, %4 ], [ %20, %1029 ], [ %285, %288 ], [ %445, %dissect_loginserv_packet.exit.i ], [ %674, %dissect_gameserv_packet.exit.i ], [ %719, %dissect_client_packet.exit.i ], [ %454, %451 ], [ %.1376, %274 ], [ -1, %proto_item_set_generated.exit138.i ], [ %.4379, %.thread442 ], [ %.4379, %804 ], [ %.4379, %811 ]
   ret i32 %.0
 }
 

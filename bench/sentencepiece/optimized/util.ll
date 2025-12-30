@@ -176,7 +176,7 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %22
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt13random_deviceclEv.exit, %_ZNSt13random_deviceD2Ev.exit, %.body
-  %.07 = phi i32 [ %20, %_ZNSt13random_deviceD2Ev.exit ], [ %21, %_ZNSt13random_deviceclEv.exit ], [ %32, %.body ]
+  %.07 = phi i32 [ %20, %_ZNSt13random_deviceD2Ev.exit ], [ %32, %.body ], [ %21, %_ZNSt13random_deviceclEv.exit ]
   ret i32 %.07
 }
 
@@ -341,7 +341,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
   br label %89
 
 89:                                               ; preds = %88, %54, %.critedge, %.thread55, %9
-  %.0 = phi i32 [ %11, %9 ], [ 65533, %.thread55 ], [ %27, %.critedge ], [ %45, %54 ], [ %78, %88 ]
+  %.0 = phi i32 [ %11, %9 ], [ 65533, %.thread55 ], [ %45, %54 ], [ %78, %88 ], [ %27, %.critedge ]
   ret i32 %.0
 }
 
@@ -1232,9 +1232,9 @@ define void @_ZN13sentencepiece4util13StrSplitAsCSVB5cxx11ESt17basic_string_view
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %51, %.loopexit.loopexit146.split.loop.exit, %.loopexit.loopexit146.split.loop.exit148, %.loopexit.loopexit146.split.loop.exit151, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit159, %.loopexit.loopexit.split.loop.exit161, %82, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %71, %120, %._crit_edge._crit_edge52.i.i.i42, %._crit_edge._crit_edge.i.i.i46, %109
-  %.4 = phi ptr [ %25, %120 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %25, %82 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %.029.lcssa.i.i.i, %71 ], [ %.2.i.i.i44, %._crit_edge._crit_edge52.i.i.i42 ], [ %.029.lcssa.i.i.i41, %109 ], [ %.02946.i.i.i, %51 ], [ %.1.i.i.i48, %._crit_edge._crit_edge.i.i.i46 ], [ %122, %.loopexit.loopexit.split.loop.exit159 ], [ %123, %.loopexit.loopexit.split.loop.exit161 ], [ %121, %.loopexit.loopexit.split.loop.exit ], [ %124, %.loopexit.loopexit146.split.loop.exit ], [ %125, %.loopexit.loopexit146.split.loop.exit148 ], [ %126, %.loopexit.loopexit146.split.loop.exit151 ], [ %.02946.i.i.i52, %89 ]
-  %.025 = phi ptr [ %.028110, %120 ], [ %35, %._crit_edge._crit_edge.i.i.i ], [ %35, %82 ], [ %35, %._crit_edge._crit_edge52.i.i.i ], [ %35, %71 ], [ %.028110, %._crit_edge._crit_edge52.i.i.i42 ], [ %.028110, %109 ], [ %35, %51 ], [ %.028110, %._crit_edge._crit_edge.i.i.i46 ], [ %35, %.loopexit.loopexit.split.loop.exit159 ], [ %35, %.loopexit.loopexit.split.loop.exit161 ], [ %35, %.loopexit.loopexit.split.loop.exit ], [ %.028110, %.loopexit.loopexit146.split.loop.exit ], [ %.028110, %.loopexit.loopexit146.split.loop.exit148 ], [ %.028110, %.loopexit.loopexit146.split.loop.exit151 ], [ %.028110, %89 ]
-  %.1 = phi ptr [ %25, %120 ], [ %.0.lcssa, %._crit_edge._crit_edge.i.i.i ], [ %.0.lcssa, %82 ], [ %.0.lcssa, %._crit_edge._crit_edge52.i.i.i ], [ %.0.lcssa, %71 ], [ %.2.i.i.i44, %._crit_edge._crit_edge52.i.i.i42 ], [ %.029.lcssa.i.i.i41, %109 ], [ %.0.lcssa, %51 ], [ %.1.i.i.i48, %._crit_edge._crit_edge.i.i.i46 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit159 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit161 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit ], [ %124, %.loopexit.loopexit146.split.loop.exit ], [ %125, %.loopexit.loopexit146.split.loop.exit148 ], [ %126, %.loopexit.loopexit146.split.loop.exit151 ], [ %.02946.i.i.i52, %89 ]
+  %.4 = phi ptr [ %25, %82 ], [ %.029.lcssa.i.i.i, %71 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %25, %120 ], [ %.029.lcssa.i.i.i41, %109 ], [ %.1.i.i.i48, %._crit_edge._crit_edge.i.i.i46 ], [ %.2.i.i.i44, %._crit_edge._crit_edge52.i.i.i42 ], [ %121, %.loopexit.loopexit.split.loop.exit ], [ %122, %.loopexit.loopexit.split.loop.exit159 ], [ %123, %.loopexit.loopexit.split.loop.exit161 ], [ %124, %.loopexit.loopexit146.split.loop.exit ], [ %125, %.loopexit.loopexit146.split.loop.exit148 ], [ %126, %.loopexit.loopexit146.split.loop.exit151 ], [ %.02946.i.i.i, %51 ], [ %.02946.i.i.i52, %89 ]
+  %.025 = phi ptr [ %35, %82 ], [ %35, %71 ], [ %35, %._crit_edge._crit_edge.i.i.i ], [ %35, %._crit_edge._crit_edge52.i.i.i ], [ %.028110, %120 ], [ %.028110, %109 ], [ %.028110, %._crit_edge._crit_edge.i.i.i46 ], [ %.028110, %._crit_edge._crit_edge52.i.i.i42 ], [ %35, %.loopexit.loopexit.split.loop.exit ], [ %35, %.loopexit.loopexit.split.loop.exit159 ], [ %35, %.loopexit.loopexit.split.loop.exit161 ], [ %.028110, %.loopexit.loopexit146.split.loop.exit ], [ %.028110, %.loopexit.loopexit146.split.loop.exit148 ], [ %.028110, %.loopexit.loopexit146.split.loop.exit151 ], [ %35, %51 ], [ %.028110, %89 ]
+  %.1 = phi ptr [ %.0.lcssa, %82 ], [ %.0.lcssa, %71 ], [ %.0.lcssa, %._crit_edge._crit_edge.i.i.i ], [ %.0.lcssa, %._crit_edge._crit_edge52.i.i.i ], [ %25, %120 ], [ %.029.lcssa.i.i.i41, %109 ], [ %.1.i.i.i48, %._crit_edge._crit_edge.i.i.i46 ], [ %.2.i.i.i44, %._crit_edge._crit_edge52.i.i.i42 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit159 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit161 ], [ %124, %.loopexit.loopexit146.split.loop.exit ], [ %125, %.loopexit.loopexit146.split.loop.exit148 ], [ %126, %.loopexit.loopexit146.split.loop.exit151 ], [ %.0.lcssa, %51 ], [ %.02946.i.i.i52, %89 ]
   store i8 0, ptr %.1, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %27, ptr %7, align 8, !tbaa !3

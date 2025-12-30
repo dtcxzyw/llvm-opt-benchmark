@@ -112,7 +112,7 @@ define i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %ZSTD_estimateSubBlockSize_literal.exit.i.i
 
 ZSTD_estimateSubBlockSize_literal.exit.i.i:       ; preds = %75, %68, %65, %64, %63
-  %.020.i.i.i = phi i64 [ 0, %75 ], [ 1, %64 ], [ %49, %63 ], [ %74, %68 ], [ %49, %65 ]
+  %.020.i.i.i = phi i64 [ 1, %64 ], [ 0, %75 ], [ %49, %63 ], [ %74, %68 ], [ %49, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %76 = getelementptr inbounds nuw i8, ptr %31, i64 2064
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 144
@@ -833,7 +833,7 @@ ZSTD_updateRep.exit.i:                            ; preds = %.sink.split.i.i, %3
   br label %ZSTD_compressSubBlock_multi.exit
 
 ZSTD_compressSubBlock_multi.exit:                 ; preds = %.critedge.i, %374, %ZSTD_noCompressBlock.exit.i, %309, %ZSTD_needSequenceEntropyTables.exit.i, %301, %298, %257, %152, %6
-  %.1 = phi i64 [ %27, %6 ], [ %286, %.critedge.i ], [ %377, %374 ], [ 0, %301 ], [ %244, %257 ], [ %315, %ZSTD_noCompressBlock.exit.i ], [ 0, %ZSTD_needSequenceEntropyTables.exit.i ], [ 0, %152 ], [ 0, %298 ], [ -70, %309 ]
+  %.1 = phi i64 [ %27, %6 ], [ %377, %374 ], [ %286, %.critedge.i ], [ 0, %ZSTD_needSequenceEntropyTables.exit.i ], [ %315, %ZSTD_noCompressBlock.exit.i ], [ %244, %257 ], [ 0, %152 ], [ 0, %298 ], [ 0, %301 ], [ -70, %309 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i64 %.1
 }
@@ -1000,7 +1000,7 @@ default.unreachable:                              ; preds = %74
   br label %ZSTD_compressSubBlock_literal.exit
 
 ZSTD_compressSubBlock_literal.exit:               ; preds = %37, %39, %63, %72, %101
-  %.0.i = phi i64 [ %38, %37 ], [ %40, %39 ], [ %104, %101 ], [ %73, %72 ], [ %64, %63 ]
+  %.0.i = phi i64 [ %38, %37 ], [ %40, %39 ], [ %104, %101 ], [ %64, %63 ], [ %73, %72 ]
   %105 = icmp ult i64 %.0.i, -119
   br i1 %105, label %106, label %.thread70
 
@@ -1148,8 +1148,8 @@ ZSTD_compressSubBlock_sequences.exit.thread.thread92: ; preds = %133, %ZSTD_comp
   store i8 %191, ptr %192, align 1, !tbaa !55
   br label %.thread70
 
-.thread70:                                        ; preds = %108, %138, %.thread11.i, %175, %169, %ZSTD_compressSubBlock_sequences.exit.thread, %ZSTD_compressSubBlock_sequences.exit, %57, %106, %ZSTD_compressSubBlock_literal.exit, %ZSTD_compressSubBlock_sequences.exit.thread.thread92
-  %.2 = phi i64 [ %185, %ZSTD_compressSubBlock_sequences.exit.thread.thread92 ], [ 0, %57 ], [ %.0.i, %ZSTD_compressSubBlock_literal.exit ], [ 0, %106 ], [ 0, %175 ], [ 0, %ZSTD_compressSubBlock_sequences.exit.thread ], [ %181, %ZSTD_compressSubBlock_sequences.exit ], [ 0, %169 ], [ -70, %108 ], [ %143, %138 ], [ %165, %.thread11.i ]
+.thread70:                                        ; preds = %.thread11.i, %138, %108, %175, %169, %ZSTD_compressSubBlock_sequences.exit.thread, %ZSTD_compressSubBlock_sequences.exit, %57, %106, %ZSTD_compressSubBlock_literal.exit, %ZSTD_compressSubBlock_sequences.exit.thread.thread92
+  %.2 = phi i64 [ %185, %ZSTD_compressSubBlock_sequences.exit.thread.thread92 ], [ 0, %106 ], [ %.0.i, %ZSTD_compressSubBlock_literal.exit ], [ 0, %57 ], [ 0, %ZSTD_compressSubBlock_sequences.exit.thread ], [ %181, %ZSTD_compressSubBlock_sequences.exit ], [ 0, %169 ], [ 0, %175 ], [ %165, %.thread11.i ], [ %143, %138 ], [ -70, %108 ]
   ret i64 %.2
 }
 

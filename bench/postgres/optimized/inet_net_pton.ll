@@ -456,7 +456,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   br label %206
 
 206:                                              ; preds = %203, %201, %199, %.thread149.i
-  %.391.i = phi i64 [ 24, %201 ], [ 32, %.thread149.i ], [ 8, %199 ], [ %205, %203 ]
+  %.391.i = phi i64 [ 32, %.thread149.i ], [ 8, %199 ], [ 24, %201 ], [ %205, %203 ]
   %207 = ptrtoint ptr %.285.i to i64
   %208 = ptrtoint ptr %2 to i64
   %209 = sub i64 %207, %208
@@ -496,7 +496,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   br i1 %224, label %.lr.ph203.i, label %inet_net_pton_ipv4.exit, !llvm.loop !10
 
 .loopexit.sink.split.i:                           ; preds = %118, %164, %161, %.critedge2.i, %143, %188, %.lr.ph203.i, %.thread143.i, %.critedge136.i, %173, %135, %130, %.preheader158.i, %91
-  %.sink.i = phi i32 [ 2, %135 ], [ 90, %.critedge136.i ], [ 90, %130 ], [ 90, %.lr.ph203.i ], [ 2, %161 ], [ 2, %.preheader158.i ], [ 2, %173 ], [ 2, %.thread143.i ], [ 2, %143 ], [ 2, %188 ], [ 90, %91 ], [ 90, %.critedge2.i ], [ 2, %164 ], [ 90, %118 ]
+  %.sink.i = phi i32 [ 2, %.preheader158.i ], [ 2, %173 ], [ 2, %.thread143.i ], [ 2, %135 ], [ 90, %.critedge136.i ], [ 90, %130 ], [ 90, %91 ], [ 90, %.lr.ph203.i ], [ 2, %188 ], [ 2, %143 ], [ 90, %.critedge2.i ], [ 2, %164 ], [ 2, %161 ], [ 90, %118 ]
   %225 = tail call ptr @__errno_location() #7
   store i32 %.sink.i, ptr %225, align 4
   br label %inet_net_pton_ipv4.exit
@@ -519,7 +519,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   br label %inet_net_pton_ipv4.exit
 
 inet_net_pton_ipv4.exit:                          ; preds = %218, %.loopexit.sink.split.i, %214, %.loopexit89.i, %.critedge3.i, %.lr.ph.preheader.i, %.preheader.i, %228, %230, %232
-  %.0 = phi i32 [ -1, %232 ], [ %.246.i, %.lr.ph.preheader.i ], [ %231, %230 ], [ %229, %228 ], [ -1, %.critedge3.i ], [ -1, %.loopexit89.i ], [ %.246.i, %.preheader.i ], [ %.290.i, %214 ], [ -1, %.loopexit.sink.split.i ], [ %.290.i, %218 ]
+  %.0 = phi i32 [ -1, %232 ], [ %229, %228 ], [ %231, %230 ], [ -1, %.critedge3.i ], [ -1, %.loopexit89.i ], [ %.246.i, %.preheader.i ], [ %.246.i, %.lr.ph.preheader.i ], [ %.290.i, %214 ], [ -1, %.loopexit.sink.split.i ], [ %.290.i, %218 ]
   ret i32 %.0
 }
 
@@ -546,8 +546,8 @@ define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr 
   br i1 %.not, label %.lr.ph.preheader, label %getv4.exit.thread126
 
 .lr.ph.preheader:                                 ; preds = %6, %8
-  %.ph = phi i8 [ 58, %8 ], [ %7, %6 ]
-  %.075211.ph = phi ptr [ %9, %8 ], [ %0, %6 ]
+  %.ph = phi i8 [ %7, %6 ], [ 58, %8 ]
+  %.075211.ph = phi ptr [ %0, %6 ], [ %9, %8 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %getv4.exit
@@ -761,12 +761,12 @@ getbits.exit.i:                                   ; preds = %45, %getbits.exit.o
   br i1 %102, label %getv4.exit.thread126, label %getv4.exit.thread136
 
 getv4.exit:                                       ; preds = %26, %.thread, %31
-  %.283.idx = phi i64 [ %.081.idx209, %.thread ], [ %.add, %31 ], [ %.081.idx209, %26 ]
-  %.280 = phi ptr [ %.078210, %.thread ], [ %.078210, %31 ], [ %.081.ptr.ptr215, %26 ]
-  %.176 = phi ptr [ %.075211, %.thread ], [ %12, %31 ], [ %12, %26 ]
-  %.272 = phi i32 [ 1, %.thread ], [ 0, %31 ], [ 0, %26 ]
-  %.2 = phi i32 [ %21, %.thread ], [ 0, %31 ], [ %.068213, %26 ]
-  %.167 = phi i32 [ %22, %.thread ], [ 0, %31 ], [ %.066214, %26 ]
+  %.283.idx = phi i64 [ %.add, %31 ], [ %.081.idx209, %.thread ], [ %.081.idx209, %26 ]
+  %.280 = phi ptr [ %.078210, %31 ], [ %.078210, %.thread ], [ %.081.ptr.ptr215, %26 ]
+  %.176 = phi ptr [ %12, %31 ], [ %.075211, %.thread ], [ %12, %26 ]
+  %.272 = phi i32 [ 0, %31 ], [ 1, %.thread ], [ 0, %26 ]
+  %.2 = phi i32 [ 0, %31 ], [ %21, %.thread ], [ %.068213, %26 ]
+  %.167 = phi i32 [ 0, %31 ], [ %22, %.thread ], [ %.066214, %26 ]
   %.081.ptr.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.283.idx
   %103 = load i8, ptr %12, align 1
   %.not91 = icmp eq i8 %103, 0
@@ -806,9 +806,9 @@ getv4.exit.thread136.thread:                      ; preds = %77, %106, %getv4.ex
   br label %getv4.exit.thread136.thread.thread
 
 getv4.exit.thread136.thread.thread:               ; preds = %getv4.exit.thread136.thread, %84
-  %.3.idx293 = phi i64 [ %.3.idx, %getv4.exit.thread136.thread ], [ %.081.add, %84 ]
-  %.078200291 = phi ptr [ %.078200, %getv4.exit.thread136.thread ], [ %.078210, %84 ]
-  %112 = phi i32 [ %spec.select, %getv4.exit.thread136.thread ], [ 128, %84 ]
+  %.3.idx293 = phi i64 [ %.081.add, %84 ], [ %.3.idx, %getv4.exit.thread136.thread ]
+  %.078200291 = phi ptr [ %.078210, %84 ], [ %.078200, %getv4.exit.thread136.thread ]
+  %112 = phi i32 [ 128, %84 ], [ %spec.select, %getv4.exit.thread136.thread ]
   %.not101 = icmp eq ptr %.078200291, null
   br i1 %.not101, label %126, label %113
 
@@ -854,7 +854,7 @@ getv4.exit.thread136.thread.thread:               ; preds = %getv4.exit.thread13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
   br label %130
 
-getv4.exit.thread126:                             ; preds = %.thread, %24, %26, %27, %90, %88, %93, %53, %45, %42, %66, %64, %69, %6, %77, %79, %101, %35, %113, %126, %104, %8
+getv4.exit.thread126:                             ; preds = %.thread, %24, %27, %26, %90, %88, %93, %53, %42, %45, %69, %66, %64, %6, %77, %79, %101, %35, %113, %126, %104, %8
   %127 = tail call ptr @__errno_location() #7
   store i32 2, ptr %127, align 4
   br label %130

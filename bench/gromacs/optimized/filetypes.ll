@@ -227,7 +227,7 @@ _Z7ftp2exti.exit:                                 ; preds = %2
   br label %13
 
 13:                                               ; preds = %1, %2, %_Z7ftp2exti.exit, %6, %5, %4, %3
-  %.0 = phi ptr [ %spec.select.i, %_Z7ftp2exti.exit ], [ @.str.121, %2 ], [ @.str.122, %3 ], [ @.str.123, %4 ], [ @.str.124, %5 ], [ @.str.125, %6 ], [ @.str.1, %1 ]
+  %.0 = phi ptr [ %spec.select.i, %_Z7ftp2exti.exit ], [ @.str.122, %3 ], [ @.str.123, %4 ], [ @.str.124, %5 ], [ @.str.125, %6 ], [ @.str.121, %2 ], [ @.str.1, %1 ]
   ret ptr %.0
 }
 
@@ -764,7 +764,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %128, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
-  %.pn25 = phi { ptr, i32 } [ %129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %129, %128 ]
+  %.pn25 = phi { ptr, i32 } [ %129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %129, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -808,7 +808,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit59:        ; preds = %_ZNSt10filesystem7_
   br label %144
 
 144:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit38, %1, %_ZNSt10filesystem7__cxx114pathD2Ev.exit59
-  %.015 = phi i32 [ 44, %1 ], [ %.016.lcssa, %_ZNSt10filesystem7__cxx114pathD2Ev.exit59 ], [ 44, %_ZNSt10filesystem7__cxx114pathD2Ev.exit38 ]
+  %.015 = phi i32 [ %.016.lcssa, %_ZNSt10filesystem7__cxx114pathD2Ev.exit59 ], [ 44, %1 ], [ 44, %_ZNSt10filesystem7__cxx114pathD2Ev.exit38 ]
   ret i32 %.015
 
 145:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %86

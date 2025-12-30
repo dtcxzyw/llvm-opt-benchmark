@@ -2363,8 +2363,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   br label %743
 
 743:                                              ; preds = %742, %738
-  %.sink1149 = phi float [ %., %742 ], [ 0xC7EFFFFFE0000000, %738 ]
-  %.sink1146 = phi float [ %.1150, %742 ], [ 0x47EFFFFFE0000000, %738 ]
+  %.sink1149 = phi float [ 0xC7EFFFFFE0000000, %738 ], [ %., %742 ]
+  %.sink1146 = phi float [ 0x47EFFFFFE0000000, %738 ], [ %.1150, %742 ]
   store float %.sink1149, ptr %741, align 4, !tbaa !57
   %.sink1148.in = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sink1148 = load ptr, ptr %.sink1148.in, align 8, !tbaa !114
@@ -2559,7 +2559,7 @@ _Z16btNormalizeAnglef.exit33:                     ; preds = %47, %49, %51
   br label %57
 
 57:                                               ; preds = %31, %3, %_Z16btNormalizeAnglef.exit33, %_Z16btNormalizeAnglef.exit29
-  %.0 = phi float [ %0, %3 ], [ %30, %_Z16btNormalizeAnglef.exit29 ], [ %56, %_Z16btNormalizeAnglef.exit33 ], [ %0, %31 ]
+  %.0 = phi float [ %30, %_Z16btNormalizeAnglef.exit29 ], [ %56, %_Z16btNormalizeAnglef.exit33 ], [ %0, %3 ], [ %0, %31 ]
   ret float %.0
 }
 

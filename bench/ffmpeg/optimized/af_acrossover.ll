@@ -280,7 +280,7 @@ parse_gains.exit:                                 ; preds = %69, %.loopexit.i
   br i1 %82, label %74, label %.loopexit
 
 .loopexit:                                        ; preds = %80, %74, %.preheader, %.thread60, %.thread, %parse_gains.exit, %1
-  %.0 = phi i32 [ -22, %.thread ], [ -12, %1 ], [ -12, %.thread60 ], [ %.2.i, %parse_gains.exit ], [ 0, %.preheader ], [ %81, %74 ], [ %81, %80 ]
+  %.0 = phi i32 [ -12, %1 ], [ %.2.i, %parse_gains.exit ], [ -22, %.thread ], [ -12, %.thread60 ], [ 0, %.preheader ], [ %81, %74 ], [ %81, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -588,7 +588,7 @@ filter_frame.exit:                                ; preds = %.lr.ph63.i, %.threa
   br i1 %.not57, label %107, label %.loopexit, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.lr.ph78, %103, %118, %.preheader64, %.preheader62, %.preheader, %117, %filter_frame.exit, %.critedge60
-  %.3 = phi i32 [ 0, %117 ], [ %26, %.critedge60 ], [ %.1.i, %filter_frame.exit ], [ 0, %.preheader ], [ -1497649742, %.preheader62 ], [ -1497649742, %118 ], [ 0, %.preheader64 ], [ 0, %103 ], [ 0, %.lr.ph78 ]
+  %.3 = phi i32 [ %26, %.critedge60 ], [ %.1.i, %filter_frame.exit ], [ 0, %117 ], [ 0, %.preheader ], [ -1497649742, %.preheader62 ], [ 0, %.preheader64 ], [ -1497649742, %118 ], [ 0, %103 ], [ 0, %.lr.ph78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -966,7 +966,7 @@ calc_q_factors.exit:                              ; preds = %25, %1
   br label %230
 
 230:                                              ; preds = %222, %._crit_edge102
-  %.0 = phi i32 [ %., %222 ], [ -558323010, %._crit_edge102 ]
+  %.0 = phi i32 [ -558323010, %._crit_edge102 ], [ %., %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

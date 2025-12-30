@@ -85,7 +85,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_convers
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit: ; preds = %3, %46, %43, %41, %36, %33, %30, %28, %24, %7
-  %.0 = phi double [ %45, %43 ], [ %6, %36 ], [ %6, %7 ], [ 0x7FF0000000000000, %24 ], [ 0.000000e+00, %28 ], [ %35, %33 ], [ %32, %30 ], [ 0.000000e+00, %41 ], [ %48, %46 ], [ %6, %3 ]
+  %.0 = phi double [ %6, %7 ], [ %32, %30 ], [ %35, %33 ], [ 0.000000e+00, %28 ], [ 0x7FF0000000000000, %24 ], [ %6, %36 ], [ %45, %43 ], [ %48, %46 ], [ 0.000000e+00, %41 ], [ %6, %3 ]
   ret double %.0
 }
 
@@ -305,9 +305,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6Vec
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
-  %102 = phi i32 [ %101, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ], [ %2, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ]
-  %spec.select.sink.i102.i = phi i64 [ %spec.select.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ]
-  %103 = phi i64 [ 4, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ]
+  %102 = phi i32 [ %2, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ %101, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
+  %spec.select.sink.i102.i = phi i64 [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ %spec.select.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
+  %103 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ 4, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
   %104 = icmp ult i64 %spec.select.sink.i102.i, 18014398509481984
   br i1 %104, label %.lr.ph.i.i15, label %.preheader.i.i
 
@@ -748,7 +748,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6V
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %48, %52, %54, %57, %60, %65, %67, %70
-  %.0.i = phi double [ %69, %67 ], [ %30, %60 ], [ %30, %31 ], [ 0x7FF0000000000000, %48 ], [ 0.000000e+00, %52 ], [ %59, %57 ], [ %56, %54 ], [ 0.000000e+00, %65 ], [ %72, %70 ], [ %30, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
+  %.0.i = phi double [ %30, %31 ], [ %56, %54 ], [ %59, %57 ], [ 0.000000e+00, %52 ], [ 0x7FF0000000000000, %48 ], [ %30, %60 ], [ %69, %67 ], [ %72, %70 ], [ 0.000000e+00, %65 ], [ %30, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.0.i
 }
@@ -877,8 +877,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDouble
   br i1 %28, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double14PreviousDoubleEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double14PreviousDoubleEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double14PreviousDoubleEv.exit: ; preds = %25, %15, %20, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit
-  %.sink = phi i64 [ 1, %20 ], [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit ], [ -1, %15 ], [ -1, %25 ]
-  %.0.i5071 = phi double [ 0.000000e+00, %20 ], [ %23, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit ], [ 0x7FF0000000000000, %15 ], [ %27, %25 ]
+  %.sink = phi i64 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit ], [ 1, %20 ], [ -1, %15 ], [ -1, %25 ]
+  %.0.i5071 = phi double [ %23, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit ], [ 0.000000e+00, %20 ], [ 0x7FF0000000000000, %15 ], [ %27, %25 ]
   %29 = add nsw i64 %.sink, %16
   %.0.i51 = bitcast i64 %29 to double
   %30 = fcmp ult double %.0.i51, 0x47EFFFFFE0000000
@@ -994,7 +994,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18SanitizedDoubleto
   br label %78
 
 78:                                               ; preds = %74, %73, %70, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18SanitizedDoubletofEd.exit59, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18SanitizedDoubletofEd.exit
-  %.0 = phi float [ %.046, %73 ], [ %.0.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18SanitizedDoubletofEd.exit ], [ %.0.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18SanitizedDoubletofEd.exit59 ], [ %.0.i52, %70 ], [ %..046, %74 ]
+  %.0 = phi float [ %.0.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18SanitizedDoubletofEd.exit ], [ %.0.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18SanitizedDoubletofEd.exit59 ], [ %.0.i52, %70 ], [ %.046, %73 ], [ %..046, %74 ]
   ret float %.0
 }
 

@@ -237,7 +237,7 @@ Py_DECREF.exit18:                                 ; preds = %19, %23, %26
   br label %29
 
 29:                                               ; preds = %8, %Py_DECREF.exit18, %Py_DECREF.exit, %5, %1
-  %.0 = phi i32 [ -1, %5 ], [ -1, %1 ], [ -1, %8 ], [ -1, %Py_DECREF.exit ], [ %., %Py_DECREF.exit18 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %8 ], [ -1, %Py_DECREF.exit ], [ %., %Py_DECREF.exit18 ]
   ret i32 %.0
 }
 
@@ -502,7 +502,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
   br label %_random_Random_setstate_impl.exit
 
 _random_Random_setstate_impl.exit:                ; preds = %19, %7, %12, %29, %.thread.i, %.loopexit.loopexit.i
-  %.0.i = phi ptr [ null, %12 ], [ null, %7 ], [ @_Py_NoneStruct, %.loopexit.loopexit.i ], [ null, %.thread.i ], [ null, %29 ], [ null, %19 ]
+  %.0.i = phi ptr [ null, %12 ], [ null, %.thread.i ], [ null, %7 ], [ null, %29 ], [ @_Py_NoneStruct, %.loopexit.loopexit.i ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
@@ -1060,13 +1060,13 @@ init_genrand.exit.i:                              ; preds = %157
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %132, %136, %.thread81, %206, %209
-  %.03179 = phi i32 [ %.03188, %209 ], [ -1, %132 ], [ %.03188, %.thread81 ], [ %.03188, %206 ], [ -1, %136 ]
-  %.03478 = phi ptr [ %148, %209 ], [ null, %132 ], [ %148, %.thread81 ], [ %148, %206 ], [ null, %136 ]
+  %.03179 = phi i32 [ %.03188, %.thread81 ], [ %.03188, %206 ], [ %.03188, %209 ], [ -1, %136 ], [ -1, %132 ]
+  %.03478 = phi ptr [ %148, %.thread81 ], [ %148, %206 ], [ %148, %209 ], [ null, %136 ], [ null, %132 ]
   tail call void @PyMem_Free(ptr noundef %.03478) #8
   br label %210
 
 210:                                              ; preds = %random_seed_urandom.exit, %random_seed_time_pid.exit, %random_seed_time_pid.exit.thread69, %random_seed_time_pid.exit.thread, %Py_XDECREF.exit
-  %.0 = phi i32 [ -1, %random_seed_time_pid.exit.thread69 ], [ -1, %random_seed_time_pid.exit.thread ], [ %.03179, %Py_XDECREF.exit ], [ 0, %random_seed_time_pid.exit ], [ 0, %random_seed_urandom.exit ]
+  %.0 = phi i32 [ %.03179, %Py_XDECREF.exit ], [ -1, %random_seed_time_pid.exit.thread ], [ -1, %random_seed_time_pid.exit.thread69 ], [ 0, %random_seed_time_pid.exit ], [ 0, %random_seed_urandom.exit ]
   ret i32 %.0
 }
 

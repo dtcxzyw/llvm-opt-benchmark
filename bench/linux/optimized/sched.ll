@@ -13288,7 +13288,7 @@ define internal void @trace_event_raw_event_xs_stream_read_data(ptr noundef %0, 
   br label %63
 
 63:                                               ; preds = %.thread, %53
-  %64 = phi ptr [ @.str.89, %.thread ], [ %62, %53 ]
+  %64 = phi ptr [ %62, %53 ], [ @.str.89, %.thread ]
   %.pn.in = and i32 %46, 65535
   %.pn = zext nneg i32 %.pn.in to i64
   %65 = getelementptr i8, ptr %42, i64 %.pn
@@ -13402,7 +13402,7 @@ define internal void @perf_trace_xs_stream_read_data(ptr noundef %0, ptr noundef
   br label %72
 
 72:                                               ; preds = %.thread2, %62
-  %73 = phi ptr [ @.str.89, %.thread2 ], [ %71, %62 ]
+  %73 = phi ptr [ %71, %62 ], [ @.str.89, %.thread2 ]
   %.pn.in = and i32 %27, 65535
   %.pn = zext nneg i32 %.pn.in to i64
   %74 = getelementptr i8, ptr %45, i64 %.pn
@@ -20571,7 +20571,7 @@ define dso_local noundef range(i32 -12, 1) i32 @rpc_malloc(ptr noundef readonly 
   br label %32
 
 32:                                               ; preds = %30, %27
-  %33 = phi ptr [ %31, %30 ], [ %29, %27 ]
+  %33 = phi ptr [ %29, %27 ], [ %31, %30 ]
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread, label %.thread3
 
@@ -20668,8 +20668,8 @@ define dso_local noundef nonnull ptr @rpc_new_task(ptr noundef readonly captures
   br label %100
 
 .thread:                                          ; preds = %1, %4, %15
-  %28 = phi ptr [ %13, %4 ], [ %17, %15 ], [ %2, %1 ]
-  %29 = phi i16 [ 128, %4 ], [ 128, %15 ], [ 0, %1 ]
+  %28 = phi ptr [ %17, %15 ], [ %13, %4 ], [ %2, %1 ]
+  %29 = phi i16 [ 128, %15 ], [ 128, %4 ], [ 0, %1 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %28, i8 0, i64 224, i1 false)
   store volatile i32 1, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64

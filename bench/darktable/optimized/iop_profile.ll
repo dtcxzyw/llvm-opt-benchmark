@@ -624,7 +624,7 @@ _clear_lut_curves.exit93.i:                       ; preds = %168, %108, %81
   br label %234
 
 234:                                              ; preds = %216, %209
-  %235 = phi reassoc nsz arcp contract afn float [ %215, %209 ], [ %233, %216 ]
+  %235 = phi reassoc nsz arcp contract afn float [ %233, %216 ], [ %215, %209 ]
   %236 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
   store float %235, ptr %236, align 4, !tbaa !14
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1968,7 +1968,7 @@ dt_apply_transposed_color_matrix.exit.i25.i:      ; preds = %342
   br label %_transform_matrix.exit
 
 _transform_matrix.exit:                           ; preds = %dt_XYZ_to_Lab.exit.i.i, %dt_XYZ_to_Lab.exit44.i.i, %401, %396, %382, %371, %359, %._crit_edge.i.i, %119, %.preheader.i.i
-  %404 = phi ptr [ @.str.3, %371 ], [ @.str.3, %.preheader.i.i ], [ @.str.3, %119 ], [ @.str.3, %dt_XYZ_to_Lab.exit44.i.i ], [ @.str.21, %401 ], [ @.str.3, %._crit_edge.i.i ], [ @.str.3, %359 ], [ @.str.21, %382 ], [ @.str.21, %396 ], [ @.str.3, %dt_XYZ_to_Lab.exit.i.i ]
+  %404 = phi ptr [ @.str.3, %.preheader.i.i ], [ @.str.3, %119 ], [ @.str.3, %._crit_edge.i.i ], [ @.str.3, %359 ], [ @.str.3, %371 ], [ @.str.21, %382 ], [ @.str.21, %396 ], [ @.str.21, %401 ], [ @.str.3, %dt_XYZ_to_Lab.exit44.i.i ], [ @.str.3, %dt_XYZ_to_Lab.exit.i.i ]
   %405 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !64
   %406 = and i32 %405, 16
   %.not83.not = icmp eq i32 %406, 0
@@ -2399,7 +2399,7 @@ dt_colormatrix_mul.exit.i:                        ; preds = %91
   br label %229
 
 229:                                              ; preds = %219, %194, %.preheader88.i
-  %230 = phi reassoc nsz arcp contract afn float [ %228, %219 ], [ %218, %194 ], [ %191, %.preheader88.i ]
+  %230 = phi reassoc nsz arcp contract afn float [ %218, %194 ], [ %228, %219 ], [ %191, %.preheader88.i ]
   %231 = getelementptr inbounds nuw float, ptr %15, i64 %.06990.i
   store float %230, ptr %231, align 4, !tbaa !14, !noalias !160
   %232 = add nuw nsw i64 %.06990.i, 1
@@ -2493,7 +2493,7 @@ dt_apply_transposed_color_matrix.exit.preheader.i: ; preds = %237, %dt_apply_tra
   br label %dt_apply_transposed_color_matrix.exit.i
 
 dt_apply_transposed_color_matrix.exit.i:          ; preds = %283, %258, %dt_apply_transposed_color_matrix.exit.preheader.i
-  %293 = phi reassoc nsz arcp contract afn float [ %292, %283 ], [ %282, %258 ], [ %255, %dt_apply_transposed_color_matrix.exit.preheader.i ]
+  %293 = phi reassoc nsz arcp contract afn float [ %282, %258 ], [ %292, %283 ], [ %255, %dt_apply_transposed_color_matrix.exit.preheader.i ]
   %294 = getelementptr inbounds nuw float, ptr %186, i64 %.06792.i
   store float %293, ptr %294, align 4, !tbaa !14, !alias.scope !158, !noalias !155
   %295 = add nuw nsw i64 %.06792.i, 1

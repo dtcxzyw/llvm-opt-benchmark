@@ -373,7 +373,7 @@ _ZN12_GLOBAL__N_12pwEfi.exit:                     ; preds = %65
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %96, %99, %109, %111, %120, %134, %137
-  %.0.i.i.i = phi i16 [ %92, %120 ], [ %106, %99 ], [ %110, %109 ], [ %119, %111 ], [ %97, %96 ], [ %138, %137 ], [ %132, %134 ]
+  %.0.i.i.i = phi i16 [ %106, %99 ], [ %110, %109 ], [ %119, %111 ], [ %97, %96 ], [ %92, %120 ], [ %138, %137 ], [ %132, %134 ]
   store i16 %.0.i.i.i, ptr %78, align 2, !tbaa !4
   %139 = getelementptr inbounds nuw i8, ptr %78, i64 2
   %140 = load i16, ptr %139, align 2, !tbaa !15
@@ -460,7 +460,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %96, %99, %109, %111
   br label %_ZN9Imath_3_24halfaSEf.exit87
 
 _ZN9Imath_3_24halfaSEf.exit87:                    ; preds = %156, %159, %169, %171, %180, %194, %197
-  %.0.i.i.i86 = phi i16 [ %152, %180 ], [ %166, %159 ], [ %170, %169 ], [ %179, %171 ], [ %157, %156 ], [ %198, %197 ], [ %192, %194 ]
+  %.0.i.i.i86 = phi i16 [ %166, %159 ], [ %170, %169 ], [ %179, %171 ], [ %157, %156 ], [ %152, %180 ], [ %198, %197 ], [ %192, %194 ]
   store i16 %.0.i.i.i86, ptr %139, align 2, !tbaa !4
   %199 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %200 = load i16, ptr %199, align 2, !tbaa !15
@@ -547,7 +547,7 @@ _ZN9Imath_3_24halfaSEf.exit87:                    ; preds = %156, %159, %169, %1
   br label %_ZN9Imath_3_24halfaSEf.exit91
 
 _ZN9Imath_3_24halfaSEf.exit91:                    ; preds = %216, %219, %229, %231, %240, %254, %257
-  %.0.i.i.i90 = phi i16 [ %212, %240 ], [ %226, %219 ], [ %230, %229 ], [ %239, %231 ], [ %217, %216 ], [ %258, %257 ], [ %252, %254 ]
+  %.0.i.i.i90 = phi i16 [ %226, %219 ], [ %230, %229 ], [ %239, %231 ], [ %217, %216 ], [ %212, %240 ], [ %258, %257 ], [ %252, %254 ]
   store i16 %.0.i.i.i90, ptr %199, align 2, !tbaa !4
   %259 = getelementptr inbounds nuw i8, ptr %78, i64 6
   %260 = load i16, ptr %259, align 2, !tbaa !15
@@ -634,7 +634,7 @@ _ZN9Imath_3_24halfaSEf.exit91:                    ; preds = %216, %219, %229, %2
   br label %_ZN9Imath_3_24halfaSEf.exit95
 
 _ZN9Imath_3_24halfaSEf.exit95:                    ; preds = %276, %279, %289, %291, %300, %314, %317
-  %.0.i.i.i94 = phi i16 [ %272, %300 ], [ %286, %279 ], [ %290, %289 ], [ %299, %291 ], [ %277, %276 ], [ %318, %317 ], [ %312, %314 ]
+  %.0.i.i.i94 = phi i16 [ %286, %279 ], [ %290, %289 ], [ %299, %291 ], [ %277, %276 ], [ %272, %300 ], [ %318, %317 ], [ %312, %314 ]
   store i16 %.0.i.i.i94, ptr %259, align 2, !tbaa !4
   br label %319
 
@@ -943,7 +943,7 @@ _ZN12_GLOBAL__N_12pwEfi.exit.i:                   ; preds = %133
   br label %_ZN9Imath_3_24halfaSEf.exit.i
 
 _ZN9Imath_3_24halfaSEf.exit.i:                    ; preds = %192, %189, %175, %166, %164, %154, %151
-  %.0.i.i.i.i = phi i16 [ %147, %175 ], [ %161, %154 ], [ %165, %164 ], [ %174, %166 ], [ %152, %151 ], [ %193, %192 ], [ %187, %189 ]
+  %.0.i.i.i.i = phi i16 [ %161, %154 ], [ %165, %164 ], [ %174, %166 ], [ %152, %151 ], [ %147, %175 ], [ %193, %192 ], [ %187, %189 ]
   store i16 %.0.i.i.i.i, ptr %gep23.i, align 2, !tbaa !4
   store float %118, ptr %gep.i, align 4, !tbaa !20
   br label %194
@@ -1043,9 +1043,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_14mndlIN7Imf_3_44RgbaEEEvRNS1_7Arra
   br label %._crit_edge10.us
 
 ._crit_edge10.us:                                 ; preds = %.preheader.lr.ph.us, %._crit_edge10.us.loopexit, %44
-  %52 = phi i64 [ 0, %44 ], [ %51, %._crit_edge10.us.loopexit ], [ 0, %.preheader.lr.ph.us ]
-  %53 = phi i64 [ 0, %44 ], [ %50, %._crit_edge10.us.loopexit ], [ 0, %.preheader.lr.ph.us ]
-  %54 = phi i64 [ 0, %44 ], [ %49, %._crit_edge10.us.loopexit ], [ 0, %.preheader.lr.ph.us ]
+  %52 = phi i64 [ %51, %._crit_edge10.us.loopexit ], [ 0, %44 ], [ 0, %.preheader.lr.ph.us ]
+  %53 = phi i64 [ %50, %._crit_edge10.us.loopexit ], [ 0, %44 ], [ 0, %.preheader.lr.ph.us ]
+  %54 = phi i64 [ %49, %._crit_edge10.us.loopexit ], [ 0, %44 ], [ 0, %.preheader.lr.ph.us ]
   %55 = getelementptr inbounds nuw %union.imath_half_uif, ptr %36, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !17
   %57 = fmul float %31, %56
@@ -1126,7 +1126,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_14mndlIN7Imf_3_44RgbaEEEvRNS1_7Arra
   br label %_ZN9Imath_3_24halfmLEf.exit.i.us
 
 _ZN9Imath_3_24halfmLEf.exit.i.us:                 ; preds = %102, %99, %97, %88, %82, %79, %65
-  %.0.i.i.i.i.us = phi i16 [ %63, %65 ], [ %109, %102 ], [ %98, %97 ], [ %96, %88 ], [ %100, %99 ], [ %83, %82 ], [ %77, %79 ]
+  %.0.i.i.i.i.us = phi i16 [ %109, %102 ], [ %98, %97 ], [ %96, %88 ], [ %100, %99 ], [ %63, %65 ], [ %83, %82 ], [ %77, %79 ]
   store i16 %.0.i.i.i.i.us, ptr %46, align 2, !tbaa !4
   %110 = getelementptr inbounds nuw %union.imath_half_uif, ptr %36, i64 %53
   %111 = load float, ptr %110, align 4, !tbaa !17
@@ -1208,7 +1208,7 @@ _ZN9Imath_3_24halfmLEf.exit.i.us:                 ; preds = %102, %99, %97, %88,
   br label %_ZN9Imath_3_24halfmLEf.exit11.i.us
 
 _ZN9Imath_3_24halfmLEf.exit11.i.us:               ; preds = %157, %154, %152, %143, %137, %134, %120
-  %.0.i.i.i10.i.us = phi i16 [ %118, %120 ], [ %164, %157 ], [ %153, %152 ], [ %151, %143 ], [ %155, %154 ], [ %138, %137 ], [ %132, %134 ]
+  %.0.i.i.i10.i.us = phi i16 [ %164, %157 ], [ %153, %152 ], [ %151, %143 ], [ %155, %154 ], [ %118, %120 ], [ %138, %137 ], [ %132, %134 ]
   store i16 %.0.i.i.i10.i.us, ptr %47, align 2, !tbaa !4
   %165 = getelementptr inbounds nuw %union.imath_half_uif, ptr %36, i64 %52
   %166 = load float, ptr %165, align 4, !tbaa !17
@@ -1290,7 +1290,7 @@ _ZN9Imath_3_24halfmLEf.exit11.i.us:               ; preds = %157, %154, %152, %1
   br label %_ZN9Imath_3_24halfmLEf.exit15.i.us
 
 _ZN9Imath_3_24halfmLEf.exit15.i.us:               ; preds = %212, %209, %207, %198, %192, %189, %175
-  %.0.i.i.i14.i.us = phi i16 [ %173, %175 ], [ %219, %212 ], [ %208, %207 ], [ %206, %198 ], [ %210, %209 ], [ %193, %192 ], [ %187, %189 ]
+  %.0.i.i.i14.i.us = phi i16 [ %219, %212 ], [ %208, %207 ], [ %206, %198 ], [ %210, %209 ], [ %173, %175 ], [ %193, %192 ], [ %187, %189 ]
   store i16 %.0.i.i.i14.i.us, ptr %48, align 2, !tbaa !4
   %220 = getelementptr inbounds nuw i8, ptr %46, i64 6
   %221 = load i16, ptr %220, align 2, !tbaa !15
@@ -1375,7 +1375,7 @@ _ZN9Imath_3_24halfmLEf.exit15.i.us:               ; preds = %212, %209, %207, %1
   br label %_ZN12_GLOBAL__N_15scaleEfRN7Imf_3_44RgbaE.exit.us
 
 _ZN12_GLOBAL__N_15scaleEfRN7Imf_3_44RgbaE.exit.us: ; preds = %270, %267, %265, %256, %250, %247, %233
-  %.0.i.i.i18.i.us = phi i16 [ %231, %233 ], [ %277, %270 ], [ %266, %265 ], [ %264, %256 ], [ %268, %267 ], [ %251, %250 ], [ %245, %247 ]
+  %.0.i.i.i18.i.us = phi i16 [ %277, %270 ], [ %266, %265 ], [ %264, %256 ], [ %268, %267 ], [ %231, %233 ], [ %251, %250 ], [ %245, %247 ]
   store i16 %.0.i.i.i18.i.us, ptr %220, align 2, !tbaa !4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1474,7 +1474,7 @@ _ZN12_GLOBAL__N_15scaleEfRN7Imf_3_44RgbaE.exit.us: ; preds = %270, %267, %265, %
   br label %_ZN9Imath_3_24halfaSEf.exit.i.us.us
 
 _ZN9Imath_3_24halfaSEf.exit.i.us.us:              ; preds = %326, %324, %317, %315, %311, %308, %296
-  %.0.i.i.i.i75.us.us = phi i16 [ 0, %296 ], [ %333, %326 ], [ %306, %308 ], [ %323, %317 ], [ 31744, %324 ], [ %312, %311 ], [ 31744, %315 ]
+  %.0.i.i.i.i75.us.us = phi i16 [ %333, %326 ], [ %323, %317 ], [ 31744, %324 ], [ 0, %296 ], [ %312, %311 ], [ %306, %308 ], [ 31744, %315 ]
   store i16 %.0.i.i.i.i75.us.us, ptr %280, align 2, !tbaa !4
   %334 = fmul float %293, 4.000000e+00
   %335 = fptosi float %334 to i32
@@ -1566,7 +1566,7 @@ _ZN9Imath_3_24halfaSEf.exit.i.us.us:              ; preds = %326, %324, %317, %3
   br label %_ZN9Imath_3_24halfpLEf.exit.i.us.us
 
 _ZN9Imath_3_24halfpLEf.exit.i.us.us:              ; preds = %391, %388, %386, %377, %371, %368, %354
-  %.0.i.i.i11.i.us.us = phi i16 [ %352, %354 ], [ %398, %391 ], [ %387, %386 ], [ %385, %377 ], [ %389, %388 ], [ %372, %371 ], [ %366, %368 ]
+  %.0.i.i.i11.i.us.us = phi i16 [ %398, %391 ], [ %387, %386 ], [ %385, %377 ], [ %389, %388 ], [ %352, %354 ], [ %372, %371 ], [ %366, %368 ]
   store i16 %.0.i.i.i11.i.us.us, ptr %46, align 2, !tbaa !4
   %399 = fadd float %334, 0x3FD5554760000000
   %400 = fptosi float %399 to i32
@@ -1658,7 +1658,7 @@ _ZN9Imath_3_24halfpLEf.exit.i.us.us:              ; preds = %391, %388, %386, %3
   br label %_ZN9Imath_3_24halfpLEf.exit15.i.us.us
 
 _ZN9Imath_3_24halfpLEf.exit15.i.us.us:            ; preds = %456, %453, %451, %442, %436, %433, %419
-  %.0.i.i.i14.i78.us.us = phi i16 [ %417, %419 ], [ %463, %456 ], [ %452, %451 ], [ %450, %442 ], [ %454, %453 ], [ %437, %436 ], [ %431, %433 ]
+  %.0.i.i.i14.i78.us.us = phi i16 [ %463, %456 ], [ %452, %451 ], [ %450, %442 ], [ %454, %453 ], [ %417, %419 ], [ %437, %436 ], [ %431, %433 ]
   store i16 %.0.i.i.i14.i78.us.us, ptr %47, align 2, !tbaa !4
   %464 = fadd float %334, 0x3FE5555C60000000
   %465 = fptosi float %464 to i32
@@ -1750,7 +1750,7 @@ _ZN9Imath_3_24halfpLEf.exit15.i.us.us:            ; preds = %456, %453, %451, %4
   br label %_ZN12_GLOBAL__N_13addEfRN7Imf_3_44RgbaE.exit.us.us
 
 _ZN12_GLOBAL__N_13addEfRN7Imf_3_44RgbaE.exit.us.us: ; preds = %521, %518, %516, %507, %501, %498, %484
-  %.0.i.i.i18.i81.us.us = phi i16 [ %482, %484 ], [ %528, %521 ], [ %517, %516 ], [ %515, %507 ], [ %519, %518 ], [ %502, %501 ], [ %496, %498 ]
+  %.0.i.i.i18.i81.us.us = phi i16 [ %528, %521 ], [ %517, %516 ], [ %515, %507 ], [ %519, %518 ], [ %482, %484 ], [ %502, %501 ], [ %496, %498 ]
   store i16 %.0.i.i.i18.i81.us.us, ptr %48, align 2, !tbaa !4
   %529 = add nuw nsw i32 %.0705.us.us, 1
   %exitcond.not = icmp eq i32 %529, %spec.store.select1
@@ -1943,7 +1943,7 @@ define dso_local void @_Z10drawImage6RN7Imf_3_47Array2DI2GZEEii(ptr noundef nonn
   br label %_ZN12_GLOBAL__N_15scaleEfR2GZ.exit.us.i
 
 _ZN12_GLOBAL__N_15scaleEfR2GZ.exit.us.i:          ; preds = %75, %72, %70, %61, %55, %52, %38
-  %.0.i.i.i.i.us.i = phi i16 [ %36, %38 ], [ %82, %75 ], [ %71, %70 ], [ %69, %61 ], [ %73, %72 ], [ %56, %55 ], [ %50, %52 ]
+  %.0.i.i.i.i.us.i = phi i16 [ %82, %75 ], [ %71, %70 ], [ %69, %61 ], [ %73, %72 ], [ %36, %38 ], [ %56, %55 ], [ %50, %52 ]
   store i16 %.0.i.i.i.i.us.i, ptr %22, align 2, !tbaa !4
   %83 = fmul float %93, 0x3FBC71C740000000
   store float %83, ptr %23, align 4, !tbaa !32
@@ -2057,7 +2057,7 @@ _ZN12_GLOBAL__N_15scaleEfR2GZ.exit.us.i:          ; preds = %75, %72, %70, %61, 
   br label %_ZN12_GLOBAL__N_13addEfR2GZ.exit.us.i
 
 _ZN12_GLOBAL__N_13addEfR2GZ.exit.us.i:            ; preds = %150, %147, %145, %136, %130, %127, %113
-  %158 = phi i16 [ %111, %113 ], [ %157, %150 ], [ %146, %145 ], [ %144, %136 ], [ %148, %147 ], [ %131, %130 ], [ %125, %127 ]
+  %158 = phi i16 [ %157, %150 ], [ %146, %145 ], [ %144, %136 ], [ %148, %147 ], [ %111, %113 ], [ %131, %130 ], [ %125, %127 ]
   store i16 %158, ptr %22, align 2, !tbaa !4
   store float %93, ptr %23, align 4, !tbaa !32
   %159 = add nuw nsw i32 %.0707.us.i, 1
@@ -2208,7 +2208,7 @@ define dso_local void @_Z10drawImage7RN7Imf_3_45ArrayINS_4RgbaEEEiii(ptr noundef
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %33, %36, %46, %48, %57, %71, %74
-  %.0.i.i.i = phi i16 [ %29, %57 ], [ %43, %36 ], [ %47, %46 ], [ %56, %48 ], [ %34, %33 ], [ %75, %74 ], [ %69, %71 ]
+  %.0.i.i.i = phi i16 [ %43, %36 ], [ %47, %46 ], [ %56, %48 ], [ %34, %33 ], [ %29, %57 ], [ %75, %74 ], [ %69, %71 ]
   store i16 %.0.i.i.i, ptr %17, align 2, !tbaa !4
   %76 = fmul float %sqrt, 0x3FBC28F5C0000000
   %77 = tail call noundef float @sinf(float noundef %76) #13, !tbaa !10
@@ -2294,7 +2294,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %33, %36, %46, %48, 
   br label %_ZN9Imath_3_24halfaSEf.exit29
 
 _ZN9Imath_3_24halfaSEf.exit29:                    ; preds = %92, %95, %105, %107, %116, %130, %133
-  %.0.i.i.i28 = phi i16 [ %88, %116 ], [ %102, %95 ], [ %106, %105 ], [ %115, %107 ], [ %93, %92 ], [ %134, %133 ], [ %128, %130 ]
+  %.0.i.i.i28 = phi i16 [ %102, %95 ], [ %106, %105 ], [ %115, %107 ], [ %93, %92 ], [ %88, %116 ], [ %134, %133 ], [ %128, %130 ]
   store i16 %.0.i.i.i28, ptr %82, align 2, !tbaa !4
   %135 = fmul float %sqrt, 0x3FBEB851E0000000
   %136 = tail call noundef float @sinf(float noundef %135) #13, !tbaa !10
@@ -2380,7 +2380,7 @@ _ZN9Imath_3_24halfaSEf.exit29:                    ; preds = %92, %95, %105, %107
   br label %_ZN9Imath_3_24halfaSEf.exit33
 
 _ZN9Imath_3_24halfaSEf.exit33:                    ; preds = %151, %154, %164, %166, %175, %189, %192
-  %.0.i.i.i32 = phi i16 [ %147, %175 ], [ %161, %154 ], [ %165, %164 ], [ %174, %166 ], [ %152, %151 ], [ %193, %192 ], [ %187, %189 ]
+  %.0.i.i.i32 = phi i16 [ %161, %154 ], [ %165, %164 ], [ %174, %166 ], [ %152, %151 ], [ %147, %175 ], [ %193, %192 ], [ %187, %189 ]
   store i16 %.0.i.i.i32, ptr %141, align 2, !tbaa !4
   %194 = getelementptr inbounds nuw i8, ptr %17, i64 6
   store i16 15360, ptr %194, align 2, !tbaa !4

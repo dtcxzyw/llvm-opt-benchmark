@@ -382,7 +382,7 @@ syrk_beta.exit:                                   ; preds = %49, %41, %38, %37
   br label %101
 
 101:                                              ; preds = %93, %96, %98
-  %.0278 = phi i64 [ %94, %96 ], [ %100, %98 ], [ 384, %93 ]
+  %.0278 = phi i64 [ %100, %98 ], [ %94, %96 ], [ 384, %93 ]
   %102 = getelementptr double, ptr %12, i64 %.0279370
   %103 = getelementptr double, ptr %102, i64 %84
   %104 = tail call i32 @dgemm_incopy(i64 noundef %.0278, i64 noundef %.1273, ptr noundef %103, i64 noundef %16, ptr noundef %3) #7
@@ -595,7 +595,7 @@ syrk_beta.exit:                                   ; preds = %49, %41, %38, %37
   br label %200
 
 200:                                              ; preds = %.lr.ph368, %193, %195
-  %.2274 = phi i64 [ %191, %193 ], [ %199, %195 ], [ 192, %.lr.ph368 ]
+  %.2274 = phi i64 [ %199, %195 ], [ %191, %193 ], [ 192, %.lr.ph368 ]
   %201 = mul nsw i64 %.0275367, %16
   %202 = getelementptr double, ptr %102, i64 %201
   %203 = tail call i32 @dgemm_incopy(i64 noundef %.0278, i64 noundef %.2274, ptr noundef %202, i64 noundef %16, ptr noundef %3) #7

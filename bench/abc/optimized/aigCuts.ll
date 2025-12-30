@@ -1038,13 +1038,13 @@ define internal fastcc range(i32 0, 2) i32 @Aig_CutMergeOrdered(ptr noundef read
   br i1 %106, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %56, %37, %102, %.preheader102, %.preheader101, %64
-  %.0.lcssa.sink = phi i8 [ %6, %.preheader102 ], [ %65, %64 ], [ %.0.lcssa, %102 ], [ %6, %37 ], [ %6, %.preheader101 ], [ %6, %56 ]
+  %.0.lcssa.sink = phi i8 [ %65, %64 ], [ %6, %.preheader101 ], [ %6, %.preheader102 ], [ %.0.lcssa, %102 ], [ %6, %37 ], [ %6, %56 ]
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 23
   store i8 %.0.lcssa.sink, ptr %107, align 1, !tbaa !35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %32, %.loopexit.sink.split, %.critedge._crit_edge, %102
-  %.096 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %102 ], [ 0, %.critedge._crit_edge ], [ 0, %32 ], [ 0, %54 ]
+  %.096 = phi i32 [ 0, %102 ], [ 0, %.critedge._crit_edge ], [ 1, %.loopexit.sink.split ], [ 0, %32 ], [ 0, %54 ]
   ret i32 %.096
 }
 
@@ -1716,7 +1716,7 @@ Aig_CutFindFree.exit:                             ; preds = %.lr.ph.i53, %._crit
   br i1 %or.cond127, label %Aig_CutMerge.exit.thread, label %Aig_CutMergeOrdered.exit116
 
 Aig_CutMergeOrdered.exit116:                      ; preds = %244, %226, %159, %252, %.preheader102.i, %.preheader101.i, %.critedge._crit_edge.i, %167, %.preheader102.i91, %.critedge._crit_edge.i73
-  %.0.lcssa.sink.i.sink = phi i8 [ %131, %159 ], [ %131, %.preheader102.i91 ], [ %168, %167 ], [ %.0.lcssa.i76, %.critedge._crit_edge.i73 ], [ %132, %.preheader102.i ], [ %253, %252 ], [ %.0.lcssa.i65, %.critedge._crit_edge.i ], [ %131, %226 ], [ %131, %.preheader101.i ], [ %132, %244 ]
+  %.0.lcssa.sink.i.sink = phi i8 [ %168, %167 ], [ %131, %.preheader102.i91 ], [ %.0.lcssa.i76, %.critedge._crit_edge.i73 ], [ %253, %252 ], [ %131, %.preheader101.i ], [ %132, %.preheader102.i ], [ %.0.lcssa.i65, %.critedge._crit_edge.i ], [ %131, %159 ], [ %131, %226 ], [ %132, %244 ]
   %291 = getelementptr inbounds nuw i8, ptr %.016.i, i64 23
   store i8 %.0.lcssa.sink.i.sink, ptr %291, align 1, !tbaa !35
   %292 = load i32, ptr %74, align 4, !tbaa !56

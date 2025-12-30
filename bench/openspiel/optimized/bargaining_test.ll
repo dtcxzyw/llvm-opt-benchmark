@@ -218,7 +218,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl7debian214flags_internal7Flag
   br label %_ZNSt16allocator_traitsISaIbEE8allocateERS0_m.exit
 
 _ZNSt16allocator_traitsISaIbEE8allocateERS0_m.exit: ; preds = %7, %18, %4, %30, %29, %25, %22, %17, %16, %13, %10, %9
-  %.0 = phi ptr [ null, %30 ], [ null, %18 ], [ null, %9 ], [ null, %10 ], [ null, %13 ], [ inttoptr (i64 80 to ptr), %29 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIbE9dummy_varE, %16 ], [ @_ZTIb, %17 ], [ %2, %22 ], [ inttoptr (i64 1 to ptr), %4 ], [ null, %25 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %30 ], [ null, %9 ], [ null, %10 ], [ null, %13 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIbE9dummy_varE, %16 ], [ @_ZTIb, %17 ], [ %2, %22 ], [ null, %25 ], [ inttoptr (i64 80 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %4 ], [ null, %18 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1406,12 +1406,12 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit113.i: ; preds = %526, %523
   br label %.body.i
 
 common.resume:                                    ; preds = %.body.i72, %1481, %.body.i43, %1185, %.body.i25, %971, %.body.i14, %793, %553, %_ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit15.i, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn21.pn.pn.i, %.body.i ], [ %.pn.i44, %.body.i43 ], [ %554, %553 ], [ %.pn.i15, %.body.i14 ], [ %.pn.i26, %.body.i25 ], [ %.pn.i, %_ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit15.i ], [ %.pn10.pn.i, %793 ], [ %.pn9.pn.pn.pn.i, %971 ], [ %.pn10.pn.pn.i48, %1185 ], [ %.pn10.pn.pn.i78, %1481 ], [ %.pn.i73, %.body.i72 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn21.pn.pn.i, %.body.i ], [ %.pn.i, %_ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit15.i ], [ %554, %553 ], [ %.pn10.pn.i, %793 ], [ %.pn.i15, %.body.i14 ], [ %.pn9.pn.pn.pn.i, %971 ], [ %.pn.i26, %.body.i25 ], [ %.pn10.pn.pn.i48, %1185 ], [ %.pn.i44, %.body.i43 ], [ %.pn10.pn.pn.i78, %1481 ], [ %.pn.i73, %.body.i72 ]
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %531, %519, %518, %506, %505, %493, %492, %480, %478, %476, %391, %305, %219, %.body, %.body111
-  %.sink.i = phi ptr [ %96, %518 ], [ %91, %505 ], [ %86, %492 ], [ %83, %478 ], [ %83, %476 ], [ %83, %.body111 ], [ %86, %480 ], [ %86, %.body ], [ %91, %493 ], [ %91, %219 ], [ %96, %506 ], [ %96, %305 ], [ %101, %519 ], [ %101, %391 ], [ %101, %531 ]
-  %.pn21.pn.pn.i = phi { ptr, i32 } [ %.pn18.i, %518 ], [ %.pn15.i, %505 ], [ %.pn12.i, %492 ], [ %479, %478 ], [ %477, %476 ], [ %124, %.body111 ], [ %481, %480 ], [ %134, %.body ], [ %494, %493 ], [ %220, %219 ], [ %507, %506 ], [ %306, %305 ], [ %520, %519 ], [ %392, %391 ], [ %.pn21.i, %531 ]
+  %.sink.i = phi ptr [ %83, %476 ], [ %83, %.body111 ], [ %83, %478 ], [ %86, %480 ], [ %86, %.body ], [ %86, %492 ], [ %91, %493 ], [ %91, %219 ], [ %91, %505 ], [ %96, %506 ], [ %96, %305 ], [ %96, %518 ], [ %101, %519 ], [ %101, %391 ], [ %101, %531 ]
+  %.pn21.pn.pn.i = phi { ptr, i32 } [ %477, %476 ], [ %124, %.body111 ], [ %479, %478 ], [ %481, %480 ], [ %134, %.body ], [ %.pn12.i, %492 ], [ %494, %493 ], [ %220, %219 ], [ %.pn15.i, %505 ], [ %507, %506 ], [ %306, %305 ], [ %.pn18.i, %518 ], [ %520, %519 ], [ %392, %391 ], [ %.pn21.i, %531 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #17
   br label %common.resume
 
@@ -1726,7 +1726,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   unreachable
 
 _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit15.i: ; preds = %644, %641, %557, %555
-  %.pn.i = phi { ptr, i32 } [ %556, %555 ], [ %558, %557 ], [ %642, %641 ], [ %642, %644 ]
+  %.pn.i = phi { ptr, i32 } [ %558, %557 ], [ %556, %555 ], [ %642, %641 ], [ %642, %644 ]
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %70) #17
   br label %common.resume
 
@@ -1958,7 +1958,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split.i: ; preds = %722, %681
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.i:      ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split.i, %720, %679
-  %.1.i = phi i32 [ %708, %720 ], [ %.024.i, %679 ], [ %.1.ph.i, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split.i ]
+  %.1.i = phi i32 [ %.024.i, %679 ], [ %708, %720 ], [ %.1.ph.i, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split.i ]
   %735 = icmp sgt i32 %.1.i, 0
   br i1 %735, label %660, label %736, !llvm.loop !8
 
@@ -2079,7 +2079,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel10bargaining12_GLOBAL__N_122BargainingMaxTurnsTestEv.exit
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit16.i:    ; preds = %746, %727, %724, %705, %692, %689, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn10.i = phi { ptr, i32 } [ %747, %746 ], [ %725, %727 ], [ %706, %705 ], [ %690, %692 ], [ %690, %689 ], [ %725, %724 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn10.i = phi { ptr, i32 } [ %706, %705 ], [ %747, %746 ], [ %690, %689 ], [ %690, %692 ], [ %725, %724 ], [ %725, %727 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %789 = load ptr, ptr %63, align 8
   %.not.i21.i = icmp eq ptr %789, null
   br i1 %.not.i21.i, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit23.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i22.i
@@ -2974,7 +2974,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel10bargaining12_GLOBAL__N_129BargainingProbEndContinueTestEv.exit
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i55:  ; preds = %1125, %1086, %1081, %1078, %1049, %.loopexit.split-lp.i53, %.loopexit.i58
-  %.pn10.i56 = phi { ptr, i32 } [ %1050, %1049 ], [ %1079, %1081 ], [ %1087, %1086 ], [ %1126, %1125 ], [ %1079, %1078 ], [ %lpad.loopexit.i59, %.loopexit.i58 ], [ %lpad.loopexit.split-lp.i54, %.loopexit.split-lp.i53 ]
+  %.pn10.i56 = phi { ptr, i32 } [ %1050, %1049 ], [ %1087, %1086 ], [ %1126, %1125 ], [ %1079, %1078 ], [ %1079, %1081 ], [ %lpad.loopexit.i59, %.loopexit.i58 ], [ %lpad.loopexit.split-lp.i54, %.loopexit.split-lp.i53 ]
   %1174 = load ptr, ptr %37, align 8
   %.not.i.i.i26.i = icmp eq ptr %1174, null
   br i1 %.not.i.i.i26.i, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit17.i, label %1175
@@ -2989,7 +2989,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i55:  ; preds = %1125, %1086, %1081,
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit17.i
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit17.i:    ; preds = %1175, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i55, %1043, %1040, %1038
-  %.pn10.pn.i49 = phi { ptr, i32 } [ %1041, %1043 ], [ %1039, %1038 ], [ %1041, %1040 ], [ %.pn10.i56, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i55 ], [ %.pn10.i56, %1175 ]
+  %.pn10.pn.i49 = phi { ptr, i32 } [ %1039, %1038 ], [ %1041, %1040 ], [ %1041, %1043 ], [ %.pn10.i56, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i55 ], [ %.pn10.i56, %1175 ]
   %1181 = load ptr, ptr %35, align 8
   %.not.i28.i = icmp eq ptr %1181, null
   br i1 %.not.i28.i, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit30.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i29.i
@@ -3664,7 +3664,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel10bargaining12_GLOBAL__N_124BargainingProbEndEndTestEv.exit
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i86:  ; preds = %1421, %1406, %1391, %1385, %1382, %1351, %1339, %1300, %1295, %1292, %1263, %.loopexit.split-lp.i84, %.loopexit.i89
-  %.pn10.i87 = phi { ptr, i32 } [ %1264, %1263 ], [ %1383, %1385 ], [ %1301, %1300 ], [ %1293, %1295 ], [ %1340, %1339 ], [ %1352, %1351 ], [ %1392, %1391 ], [ %1422, %1421 ], [ %1407, %1406 ], [ %1293, %1292 ], [ %1383, %1382 ], [ %lpad.loopexit.i90, %.loopexit.i89 ], [ %lpad.loopexit.split-lp.i85, %.loopexit.split-lp.i84 ]
+  %.pn10.i87 = phi { ptr, i32 } [ %1264, %1263 ], [ %1301, %1300 ], [ %1340, %1339 ], [ %1352, %1351 ], [ %1392, %1391 ], [ %1422, %1421 ], [ %1407, %1406 ], [ %1293, %1292 ], [ %1293, %1295 ], [ %1383, %1382 ], [ %1383, %1385 ], [ %lpad.loopexit.i90, %.loopexit.i89 ], [ %lpad.loopexit.split-lp.i85, %.loopexit.split-lp.i84 ]
   %1470 = load ptr, ptr %10, align 8
   %.not.i.i.i30.i = icmp eq ptr %1470, null
   br i1 %.not.i.i.i30.i, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit17.i79, label %1471
@@ -3679,7 +3679,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i86:  ; preds = %1421, %1406, %1391,
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit17.i79
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit17.i79:  ; preds = %1471, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i86, %1257, %1254, %1252
-  %.pn10.pn.i80 = phi { ptr, i32 } [ %1255, %1257 ], [ %1253, %1252 ], [ %1255, %1254 ], [ %.pn10.i87, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i86 ], [ %.pn10.i87, %1471 ]
+  %.pn10.pn.i80 = phi { ptr, i32 } [ %1253, %1252 ], [ %1255, %1254 ], [ %1255, %1257 ], [ %.pn10.i87, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit21.i86 ], [ %.pn10.i87, %1471 ]
   %1477 = load ptr, ptr %8, align 8
   %.not.i32.i = icmp eq ptr %1477, null
   br i1 %.not.i32.i, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit34.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i33.i

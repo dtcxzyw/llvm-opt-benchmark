@@ -1395,8 +1395,8 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_Z8dBoxBox2RK9btVector3P
   br label %666
 
 666:                                              ; preds = %.loopexit982, %664, %665
-  %.0654 = phi i64 [ 0, %665 ], [ 0, %664 ], [ 1, %.loopexit982 ]
-  %.0653 = phi i64 [ 1, %665 ], [ 2, %664 ], [ 2, %.loopexit982 ]
+  %.0654 = phi i64 [ 0, %664 ], [ 0, %665 ], [ 1, %.loopexit982 ]
+  %.0653 = phi i64 [ 2, %664 ], [ 1, %665 ], [ 2, %.loopexit982 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %667 = getelementptr inbounds nuw float, ptr %.0664955, i64 %.0654
   %668 = load float, ptr %24, align 4, !tbaa !14
@@ -1858,7 +1858,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_Z8dBoxBox2RK9btVector3P
   br label %926
 
 926:                                              ; preds = %577, %925, %234, %268, %293, %318, %342, %366, %390, %415, %440, %464, %218, %202, %186, %174, %162, %13
-  %.0643 = phi i32 [ 0, %218 ], [ 0, %13 ], [ 0, %162 ], [ 0, %174 ], [ 0, %186 ], [ 0, %202 ], [ 0, %440 ], [ 0, %234 ], [ 0, %268 ], [ 0, %293 ], [ 0, %318 ], [ 0, %342 ], [ 0, %366 ], [ 0, %390 ], [ 0, %415 ], [ 1, %577 ], [ %.2, %925 ], [ 0, %464 ]
+  %.0643 = phi i32 [ 0, %13 ], [ 0, %162 ], [ 0, %174 ], [ 0, %186 ], [ 0, %202 ], [ 0, %218 ], [ 1, %577 ], [ %.2, %925 ], [ 0, %234 ], [ 0, %268 ], [ 0, %293 ], [ 0, %318 ], [ 0, %342 ], [ 0, %366 ], [ 0, %390 ], [ 0, %415 ], [ 0, %440 ], [ 0, %464 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0643
@@ -1985,7 +1985,7 @@ define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef no
   br i1 %5, label %.preheader152, label %.thread145, !llvm.loop !45
 
 .thread145:                                       ; preds = %60, %35, %16
-  %.1103 = phi i32 [ %21, %16 ], [ %51, %35 ], [ %.4106.lcssa, %60 ]
+  %.1103 = phi i32 [ %51, %35 ], [ %21, %16 ], [ %.4106.lcssa, %60 ]
   %.not117 = icmp eq ptr %.194167, %2
   br i1 %.not117, label %65, label %61
 

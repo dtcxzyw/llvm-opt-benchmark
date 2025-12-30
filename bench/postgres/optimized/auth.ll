@@ -460,7 +460,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   br label %auth_peer.exit
 
 auth_peer.exit:                                   ; preds = %161, %162, %165, %166, %172, %175, %181, %183, %187
-  %.0.i = phi i32 [ -1, %172 ], [ -1, %162 ], [ %195, %187 ], [ -1, %165 ], [ -1, %166 ], [ -1, %161 ], [ -1, %175 ], [ -1, %183 ], [ -1, %181 ]
+  %.0.i = phi i32 [ %195, %187 ], [ -1, %165 ], [ -1, %166 ], [ -1, %161 ], [ -1, %162 ], [ -1, %175 ], [ -1, %172 ], [ -1, %183 ], [ -1, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -672,17 +672,17 @@ auth_peer.exit:                                   ; preds = %161, %162, %165, %1
   br label %.thread50.sink.split.i
 
 .thread50.sink.split.i:                           ; preds = %298, %290, %277, %260, %248
-  %.sink.i = phi i32 [ 1802, %298 ], [ 1775, %277 ], [ 1792, %290 ], [ 1741, %248 ], [ 1753, %260 ]
+  %.sink.i = phi i32 [ 1802, %298 ], [ 1775, %277 ], [ 1792, %290 ], [ 1753, %260 ], [ 1741, %248 ]
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.ident_inet) #15
   br label %.thread50.i
 
 .thread50.i:                                      ; preds = %.thread50.sink.split.i, %296, %.critedge44.i, %.critedge5.i, %.critedge.i, %258, %246
-  %.030.shrunk54.i = phi i1 [ true, %.critedge44.i ], [ false, %.critedge5.i ], [ false, %246 ], [ false, %258 ], [ false, %296 ], [ false, %.critedge.i ], [ false, %.thread50.sink.split.i ]
+  %.030.shrunk54.i = phi i1 [ false, %246 ], [ false, %258 ], [ true, %.critedge44.i ], [ false, %296 ], [ false, %.critedge.i ], [ false, %.critedge5.i ], [ false, %.thread50.sink.split.i ]
   %300 = call i32 @close(i32 noundef %232) #15
   br label %.threadthread-pre-split.i
 
 .threadthread-pre-split.i:                        ; preds = %.thread50.i, %236, %234, %217
-  %.030.shrunk48.ph.i = phi i1 [ false, %236 ], [ false, %234 ], [ false, %217 ], [ %.030.shrunk54.i, %.thread50.i ]
+  %.030.shrunk48.ph.i = phi i1 [ false, %234 ], [ false, %236 ], [ false, %217 ], [ %.030.shrunk54.i, %.thread50.i ]
   %.pr.i = load ptr, ptr %31, align 8
   br label %.thread.i
 
@@ -834,7 +834,7 @@ sendAuthRequest.exit.i.i:                         ; preds = %353, %341
   br label %CheckMD5Auth.exit.i
 
 CheckMD5Auth.exit.i:                              ; preds = %360, %sendAuthRequest.exit.i.i, %336, %334
-  %.010.i.i = phi i32 [ -1, %334 ], [ %.0.i.i, %360 ], [ -1, %336 ], [ -2, %sendAuthRequest.exit.i.i ]
+  %.010.i.i = phi i32 [ %.0.i.i, %360 ], [ -1, %336 ], [ -1, %334 ], [ -2, %sendAuthRequest.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %363
 
@@ -1859,7 +1859,7 @@ list_length.exit77.i:                             ; preds = %list_length.exit74.
   br label %list_length.exit77.thread.i
 
 list_length.exit77.thread.i:                      ; preds = %844, %list_length.exit77.i, %list_length.exit74.thread.i
-  %.149.ph.i = phi ptr [ %..i78.i, %844 ], [ %.048107.i102, %list_length.exit77.i ], [ %.048107.i102, %list_length.exit74.thread.i ]
+  %.149.ph.i = phi ptr [ %.048107.i102, %list_length.exit77.i ], [ %..i78.i, %844 ], [ %.048107.i102, %list_length.exit74.thread.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i100, 1
   %850 = load i32, ptr %461, align 4
   %851 = sext i32 %850 to i64
@@ -1871,7 +1871,7 @@ list_length.exit77.thread.i:                      ; preds = %844, %list_length.e
   br label %CheckPWChallengeAuth.exit.thread
 
 CheckPWChallengeAuth.exit:                        ; preds = %63, %63, %811, %395, %367, %ident_inet.exit, %auth_peer.exit
-  %.0 = phi i32 [ 0, %395 ], [ 0, %367 ], [ %.0.i, %auth_peer.exit ], [ %.0.i77, %ident_inet.exit ], [ 0, %811 ], [ 0, %63 ], [ 0, %63 ]
+  %.0 = phi i32 [ %.0.i, %auth_peer.exit ], [ %.0.i77, %ident_inet.exit ], [ 0, %367 ], [ 0, %395 ], [ 0, %811 ], [ 0, %63 ], [ 0, %63 ]
   %853 = load i8, ptr @Log_connections, align 1, !range !5, !noundef !6
   %854 = trunc nuw i8 %853 to i1
   %855 = icmp eq i32 %.0, 0
@@ -1900,9 +1900,9 @@ CheckPWChallengeAuth.exit:                        ; preds = %63, %63, %811, %395
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.ClientAuthentication) #15
   br label %CheckPWChallengeAuth.exit.thread
 
-CheckPWChallengeAuth.exit.thread:                 ; preds = %814, %411, %403, %._crit_edge.i, %438, %409, %401, %sendAuthRequest.exit.i86, %391, %sendAuthRequest.exit.i, %365, %.thread22.i, %63, %858, %860, %CheckPWChallengeAuth.exit
-  %872 = phi i1 [ %855, %CheckPWChallengeAuth.exit ], [ true, %858 ], [ true, %860 ], [ false, %63 ], [ false, %.thread22.i ], [ false, %365 ], [ false, %sendAuthRequest.exit.i ], [ false, %391 ], [ false, %sendAuthRequest.exit.i86 ], [ false, %401 ], [ false, %409 ], [ false, %438 ], [ false, %._crit_edge.i ], [ false, %403 ], [ false, %411 ], [ false, %814 ]
-  %.096 = phi i32 [ %.0, %CheckPWChallengeAuth.exit ], [ 0, %858 ], [ 0, %860 ], [ -1, %63 ], [ -1, %.thread22.i ], [ %.018.i, %365 ], [ -2, %sendAuthRequest.exit.i ], [ %393, %391 ], [ -2, %sendAuthRequest.exit.i86 ], [ -1, %401 ], [ -1, %409 ], [ -1, %438 ], [ -1, %._crit_edge.i ], [ -1, %403 ], [ -1, %411 ], [ -1, %814 ]
+CheckPWChallengeAuth.exit.thread:                 ; preds = %814, %sendAuthRequest.exit.i86, %409, %411, %401, %403, %._crit_edge.i, %438, %.thread22.i, %391, %sendAuthRequest.exit.i, %365, %63, %858, %860, %CheckPWChallengeAuth.exit
+  %872 = phi i1 [ true, %858 ], [ true, %860 ], [ %855, %CheckPWChallengeAuth.exit ], [ false, %63 ], [ false, %365 ], [ false, %sendAuthRequest.exit.i ], [ false, %391 ], [ false, %.thread22.i ], [ false, %438 ], [ false, %._crit_edge.i ], [ false, %403 ], [ false, %401 ], [ false, %411 ], [ false, %409 ], [ false, %sendAuthRequest.exit.i86 ], [ false, %814 ]
+  %.096 = phi i32 [ 0, %858 ], [ 0, %860 ], [ %.0, %CheckPWChallengeAuth.exit ], [ -1, %63 ], [ %.018.i, %365 ], [ -2, %sendAuthRequest.exit.i ], [ %393, %391 ], [ -1, %.thread22.i ], [ -1, %438 ], [ -1, %._crit_edge.i ], [ -1, %403 ], [ -1, %401 ], [ -1, %411 ], [ -1, %409 ], [ -2, %sendAuthRequest.exit.i86 ], [ -1, %814 ]
   %873 = load ptr, ptr @ClientAuthentication_hook, align 8
   %.not76 = icmp eq ptr %873, null
   br i1 %.not76, label %875, label %874
@@ -2185,7 +2185,7 @@ define internal fastcc ptr @recv_password_packet() unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %0, %31, %10
-  %.0 = phi ptr [ %32, %31 ], [ null, %10 ], [ null, %0 ]
+  %.0 = phi ptr [ null, %10 ], [ %32, %31 ], [ null, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0
 }

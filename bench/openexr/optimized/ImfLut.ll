@@ -1027,7 +1027,7 @@ define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %72, %69, %55, %46, %44, %34, %31, %1
-  %.sroa.06.0 = phi i16 [ 0, %1 ], [ %27, %55 ], [ %41, %34 ], [ %45, %44 ], [ %54, %46 ], [ %32, %31 ], [ %73, %72 ], [ %67, %69 ]
+  %.sroa.06.0 = phi i16 [ 0, %1 ], [ %41, %34 ], [ %45, %44 ], [ %54, %46 ], [ %32, %31 ], [ %27, %55 ], [ %73, %72 ], [ %67, %69 ]
   ret i16 %.sroa.06.0
 }
 

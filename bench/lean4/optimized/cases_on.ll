@@ -304,7 +304,7 @@ _ZN4lean7sstreamlsIA31_cEERS0_RKT_.exit:          ; preds = %_ZN4lean7sstreamlsI
           cleanup
   br label %52
 
-.thread445:                                       ; preds = %_ZN4lean7sstreamlsIA31_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA16_cEERS0_RKT_.exit, %45, %_ZN4lean7sstreamlsIA11_cEERS0_RKT_.exit, %_ZN4lean7sstreamC2Ev.exit
+.thread445:                                       ; preds = %_ZN4lean7sstreamlsIA11_cEERS0_RKT_.exit, %_ZN4lean7sstreamC2Ev.exit, %45, %_ZN4lean7sstreamlsIA16_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA31_cEERS0_RKT_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4lean7sstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %5) #18
@@ -3038,7 +3038,7 @@ _ZN4lean10object_refD2Ev.exit441:                 ; preds = %_ZN4lean10object_re
   br label %1082
 
 1082:                                             ; preds = %452, %511, %1081, %550
-  %.pn143.pn = phi { ptr, i32 } [ %.pn134.pn.pn.pn.pn, %1081 ], [ %551, %550 ], [ %453, %452 ], [ %.pn140.pn, %511 ]
+  %.pn143.pn = phi { ptr, i32 } [ %551, %550 ], [ %.pn134.pn.pn.pn.pn, %1081 ], [ %453, %452 ], [ %.pn140.pn, %511 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN4lean6bufferINS_4nameELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %25) #18
@@ -4330,7 +4330,7 @@ _ZN4lean10object_refD2Ev.exit113:                 ; preds = %_ZN4lean10object_re
   br label %321
 
 321:                                              ; preds = %.loopexit, %.loopexit.split-lp, %320, %218
-  %.pn35 = phi { ptr, i32 } [ %.pn31, %218 ], [ %.pn33, %320 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn35 = phi { ptr, i32 } [ %.pn33, %320 ], [ %.pn31, %218 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
   br label %322
 
@@ -6218,7 +6218,7 @@ _ZN4lean10object_refD2Ev.exit154:                 ; preds = %_ZN4lean10object_re
   ret ptr %.0
 
 328:                                              ; preds = %326, %321, %316, %311, %306, %301, %296, %291, %286, %281, %276, %271, %266, %257, %255, %253, %251, %244
-  %.merged = phi { ptr, i32 } [ %.pn140.pn, %321 ], [ %.pn137.pn, %316 ], [ %.pn134.pn, %311 ], [ %.pn131.pn, %306 ], [ %.pn128.pn, %301 ], [ %.pn125.pn, %296 ], [ %.pn122.pn, %291 ], [ %.pn119.pn, %286 ], [ %.pn116.pn, %281 ], [ %.pn113.pn, %276 ], [ %.pn110.pn, %271 ], [ %.pn106.pn.pn, %266 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %.pn.pn, %244 ], [ %.pn143.pn, %326 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn, %244 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %.pn106.pn.pn, %266 ], [ %.pn110.pn, %271 ], [ %.pn113.pn, %276 ], [ %.pn116.pn, %281 ], [ %.pn119.pn, %286 ], [ %.pn122.pn, %291 ], [ %.pn125.pn, %296 ], [ %.pn128.pn, %301 ], [ %.pn131.pn, %306 ], [ %.pn134.pn, %311 ], [ %.pn137.pn, %316 ], [ %.pn140.pn, %321 ], [ %.pn143.pn, %326 ]
   resume { ptr, i32 } %.merged
 
 329:                                              ; preds = %326, %321, %316, %311, %306, %301, %296, %291, %286, %281, %276, %271, %266, %257, %255, %253, %251
@@ -6489,7 +6489,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4lean4nameEN9__gnu_cxx
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit60, %.loopexit.loopexit.split.loop.exit62, %44, %38, %32, %48
-  %.028 = phi ptr [ %.1, %38 ], [ %1, %48 ], [ %.2, %44 ], [ %.029.lcssa, %32 ], [ %51, %.loopexit.loopexit.split.loop.exit62 ], [ %49, %.loopexit.loopexit.split.loop.exit ], [ %50, %.loopexit.loopexit.split.loop.exit60 ], [ %.02952, %.lr.ph ]
+  %.028 = phi ptr [ %1, %48 ], [ %.029.lcssa, %32 ], [ %.1, %38 ], [ %.2, %44 ], [ %49, %.loopexit.loopexit.split.loop.exit ], [ %50, %.loopexit.loopexit.split.loop.exit60 ], [ %51, %.loopexit.loopexit.split.loop.exit62 ], [ %.02952, %.lr.ph ]
   ret ptr %.028
 }
 

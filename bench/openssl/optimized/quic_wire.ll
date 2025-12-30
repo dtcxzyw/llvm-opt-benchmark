@@ -213,7 +213,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_ack(ptr noundef %0, i32 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.lr.ph, %48, %52, %56, %8, %23, %25, %27, %30, %3, %60
-  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 1, %60 ], [ 0, %52 ], [ 0, %30 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %48 ], [ 0, %56 ], [ 0, %.lr.ph ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 1, %60 ], [ 0, %3 ], [ 0, %30 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %8 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %.lr.ph ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -250,7 +250,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_reset_stream(ptr noundef
   br label %15
 
 15:                                               ; preds = %11, %2, %4, %7
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %11 ], [ 0, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %2 ], [ %spec.select, %11 ]
   ret i32 %.0
 }
 
@@ -275,7 +275,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_stop_sending(ptr noundef
   br label %11
 
 11:                                               ; preds = %7, %2, %4
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 
@@ -300,7 +300,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_crypto_hdr(ptr noundef %
   br label %11
 
 11:                                               ; preds = %7, %2, %4
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 
@@ -324,7 +324,7 @@ define range(i64 0, 18) i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr
   br label %ossl_quic_vlint_encode_len.exit
 
 ossl_quic_vlint_encode_len.exit:                  ; preds = %1, %4, %6, %8
-  %.0.i = phi i64 [ 4, %6 ], [ 1, %1 ], [ 2, %4 ], [ %..i, %8 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 2, %4 ], [ 4, %6 ], [ %..i, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !32
   %12 = icmp ult i64 %11, 64
@@ -344,7 +344,7 @@ ossl_quic_vlint_encode_len.exit:                  ; preds = %1, %4, %6, %8
   br label %ossl_quic_vlint_encode_len.exit16
 
 ossl_quic_vlint_encode_len.exit16:                ; preds = %ossl_quic_vlint_encode_len.exit, %13, %15, %17
-  %.0.i15 = phi i64 [ 4, %15 ], [ 1, %ossl_quic_vlint_encode_len.exit ], [ 2, %13 ], [ %..i14, %17 ]
+  %.0.i15 = phi i64 [ 1, %ossl_quic_vlint_encode_len.exit ], [ 2, %13 ], [ 4, %15 ], [ %..i14, %17 ]
   %19 = icmp eq i64 %.0.i, 0
   %20 = icmp eq i64 %.0.i15, 0
   %or.cond3 = or i1 %19, %20
@@ -398,8 +398,8 @@ ossl_quic_wire_encode_frame_crypto_hdr.exit:      ; preds = %5
   %21 = load ptr, ptr %3, align 8, !tbaa !33
   br label %ossl_quic_wire_encode_frame_crypto_hdr.exit.thread
 
-ossl_quic_wire_encode_frame_crypto_hdr.exit.thread: ; preds = %5, %2, %ossl_quic_wire_encode_frame_crypto_hdr.exit, %11, %20
-  %.0 = phi ptr [ %21, %20 ], [ null, %11 ], [ null, %ossl_quic_wire_encode_frame_crypto_hdr.exit ], [ null, %2 ], [ null, %5 ]
+ossl_quic_wire_encode_frame_crypto_hdr.exit.thread: ; preds = %2, %5, %ossl_quic_wire_encode_frame_crypto_hdr.exit, %11, %20
+  %.0 = phi ptr [ %21, %20 ], [ null, %11 ], [ null, %ossl_quic_wire_encode_frame_crypto_hdr.exit ], [ null, %5 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -424,7 +424,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_new_token(ptr noundef %0
   br label %9
 
 9:                                                ; preds = %7, %3, %5
-  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %7 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 
@@ -483,7 +483,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef %
   br label %29
 
 29:                                               ; preds = %24, %19, %2, %14, %28
-  %.016 = phi i32 [ 1, %28 ], [ 0, %19 ], [ 0, %2 ], [ 0, %14 ], [ 0, %24 ]
+  %.016 = phi i32 [ 1, %28 ], [ 0, %14 ], [ 0, %2 ], [ 0, %19 ], [ 0, %24 ]
   ret i32 %.016
 }
 
@@ -505,7 +505,7 @@ define range(i64 0, 26) i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr
   %9 = icmp ult i64 %2, 4611686018427387904
   br i1 %9, label %select.unfold, label %ossl_quic_vlint_encode_len.exit
 
-select.unfold:                                    ; preds = %8, %6, %1, %4
+select.unfold:                                    ; preds = %8, %1, %4, %6
   %.0.i.ph = phi i64 [ 5, %6 ], [ 3, %4 ], [ 2, %1 ], [ 9, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !35
@@ -528,7 +528,7 @@ select.unfold:                                    ; preds = %8, %6, %1, %4
   %19 = icmp ult i64 %11, 4611686018427387904
   br i1 %19, label %ossl_quic_vlint_encode_len.exit24.thread, label %ossl_quic_vlint_encode_len.exit
 
-ossl_quic_vlint_encode_len.exit24.thread:         ; preds = %18, %14, %12, %16, %select.unfold
+ossl_quic_vlint_encode_len.exit24.thread:         ; preds = %18, %16, %14, %12, %select.unfold
   %.014 = phi i64 [ 0, %select.unfold ], [ 4, %16 ], [ 2, %14 ], [ 1, %12 ], [ 8, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i8, ptr %20, align 8
@@ -554,14 +554,14 @@ ossl_quic_vlint_encode_len.exit24.thread:         ; preds = %18, %14, %12, %16, 
   %32 = icmp ult i64 %25, 4611686018427387904
   br i1 %32, label %ossl_quic_vlint_encode_len.exit27.thread, label %ossl_quic_vlint_encode_len.exit
 
-ossl_quic_vlint_encode_len.exit27.thread:         ; preds = %31, %27, %23, %29, %ossl_quic_vlint_encode_len.exit24.thread
+ossl_quic_vlint_encode_len.exit27.thread:         ; preds = %31, %29, %27, %23, %ossl_quic_vlint_encode_len.exit24.thread
   %.0 = phi i64 [ 0, %ossl_quic_vlint_encode_len.exit24.thread ], [ 4, %29 ], [ 2, %27 ], [ 1, %23 ], [ 8, %31 ]
   %33 = add nuw nsw i64 %.014, %.0.i.ph
   %34 = add nuw nsw i64 %33, %.0
   br label %ossl_quic_vlint_encode_len.exit
 
 ossl_quic_vlint_encode_len.exit:                  ; preds = %31, %18, %8, %ossl_quic_vlint_encode_len.exit27.thread
-  %.015 = phi i64 [ %34, %ossl_quic_vlint_encode_len.exit27.thread ], [ 0, %18 ], [ 0, %8 ], [ 0, %31 ]
+  %.015 = phi i64 [ %34, %ossl_quic_vlint_encode_len.exit27.thread ], [ 0, %8 ], [ 0, %18 ], [ 0, %31 ]
   ret i64 %.015
 }
 
@@ -598,7 +598,7 @@ define ptr @ossl_quic_wire_encode_frame_stream(ptr noundef %0, ptr noundef reado
   br label %17
 
 17:                                               ; preds = %5, %2, %15
-  %.0 = phi ptr [ null, %2 ], [ %16, %15 ], [ null, %5 ]
+  %.0 = phi ptr [ %16, %15 ], [ null, %2 ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -638,7 +638,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_max_stream_data(ptr noun
   br label %9
 
 9:                                                ; preds = %7, %3, %5
-  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %7 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 
@@ -696,7 +696,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_stream_data_blocked(ptr 
   br label %9
 
 9:                                                ; preds = %7, %3, %5
-  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %7 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 
@@ -768,7 +768,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_new_conn_id(ptr noundef 
   br label %27
 
 27:                                               ; preds = %24, %6, %8, %11, %15, %19, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ %spec.select, %24 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %24 ]
   ret i32 %.0
 }
 
@@ -872,7 +872,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_conn_close(ptr noundef %
   br label %27
 
 27:                                               ; preds = %22, %18, %14, %2, %7
-  %.0 = phi i32 [ 0, %18 ], [ 0, %14 ], [ 0, %2 ], [ 0, %7 ], [ %spec.select, %22 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 0, %14 ], [ 0, %18 ], [ %spec.select, %22 ]
   ret i32 %.0
 }
 
@@ -925,7 +925,7 @@ define ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef %0, i64 noun
   br label %17
 
 17:                                               ; preds = %15, %16, %13, %4, %7
-  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ null, %7 ], [ %.pre, %16 ], [ %.pre16, %15 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %4 ], [ null, %13 ], [ %.pre, %16 ], [ %.pre16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -956,7 +956,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_transport_param_int(ptr nounde
   br label %ossl_quic_vlint_encode_len.exit
 
 ossl_quic_vlint_encode_len.exit:                  ; preds = %5, %7, %9, %11
-  %.0.i = phi i64 [ 4, %9 ], [ 1, %5 ], [ 2, %7 ], [ %..i, %11 ]
+  %.0.i = phi i64 [ 1, %5 ], [ 2, %7 ], [ 4, %9 ], [ %..i, %11 ]
   %13 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %.0.i) #12
   %.not6 = icmp eq i32 %13, 0
   br i1 %.not6, label %16, label %14
@@ -968,7 +968,7 @@ ossl_quic_vlint_encode_len.exit:                  ; preds = %5, %7, %9, %11
   br label %16
 
 16:                                               ; preds = %14, %3, %ossl_quic_vlint_encode_len.exit
-  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %14 ], [ 0, %ossl_quic_vlint_encode_len.exit ]
+  %.0 = phi i32 [ 0, %ossl_quic_vlint_encode_len.exit ], [ 0, %3 ], [ %spec.select, %14 ]
   ret i32 %.0
 }
 
@@ -1020,7 +1020,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_transport_param_cid(ptr nounde
   br label %ossl_quic_wire_encode_transport_param_bytes.exit
 
 ossl_quic_wire_encode_transport_param_bytes.exit: ; preds = %7, %11, %17, %19
-  %.0.i = phi i32 [ 0, %17 ], [ 0, %7 ], [ 0, %11 ], [ %21, %19 ]
+  %.0.i = phi i32 [ 0, %11 ], [ 0, %7 ], [ 0, %17 ], [ %21, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %22
 
@@ -1070,14 +1070,14 @@ define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_header(ptr noundef readonl
   br label %ossl_quic_vlint_encode_len.exit.i
 
 ossl_quic_vlint_encode_len.exit.i:                ; preds = %22, %20, %18, %16
-  %.0.i.i = phi i64 [ 4, %20 ], [ 1, %16 ], [ 2, %18 ], [ %..i.i, %22 ]
+  %.0.i.i = phi i64 [ 1, %16 ], [ 2, %18 ], [ 4, %20 ], [ %..i.i, %22 ]
   %24 = icmp eq i64 %.0.i.i, %12
   %25 = zext i1 %24 to i32
   store i32 %25, ptr %2, align 4, !tbaa !57
   br label %PACKET_peek_quic_vlint_ex.exit
 
 PACKET_peek_quic_vlint_ex.exit:                   ; preds = %3, %6, %14, %ossl_quic_vlint_encode_len.exit.i
-  %.0.i = phi i32 [ 0, %6 ], [ 0, %3 ], [ 1, %ossl_quic_vlint_encode_len.exit.i ], [ 1, %14 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %ossl_quic_vlint_encode_len.exit.i ], [ 1, %14 ]
   ret i32 %.0.i
 }
 
@@ -1266,8 +1266,8 @@ PACKET_get_quic_vlint.exit:                       ; preds = %39
   store i64 %72, ptr %1, align 8, !tbaa !56
   br label %expect_frame_header_mask.exit.thread
 
-expect_frame_header_mask.exit.thread:             ; preds = %61, %57, %50, %.lr.ph, %39, %35, %28, %24, %17, %2, %4, %11, %._crit_edge
-  %.04 = phi i32 [ 0, %39 ], [ 1, %._crit_edge ], [ 0, %28 ], [ 0, %17 ], [ 0, %2 ], [ 0, %24 ], [ 0, %11 ], [ 0, %4 ], [ 0, %35 ], [ 0, %.lr.ph ], [ 0, %50 ], [ 0, %57 ], [ 0, %61 ]
+expect_frame_header_mask.exit.thread:             ; preds = %61, %57, %50, %.lr.ph, %39, %35, %28, %24, %17, %4, %2, %11, %._crit_edge
+  %.04 = phi i32 [ 1, %._crit_edge ], [ 0, %11 ], [ 0, %2 ], [ 0, %4 ], [ 0, %17 ], [ 0, %24 ], [ 0, %28 ], [ 0, %35 ], [ 0, %39 ], [ 0, %.lr.ph ], [ 0, %50 ], [ 0, %57 ], [ 0, %61 ]
   ret i32 %.04
 }
 
@@ -1564,7 +1564,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
   br label %181
 
 181:                                              ; preds = %172, %176
-  %.150 = phi i64 [ %.049144, %172 ], [ %177, %176 ]
+  %.150 = phi i64 [ %177, %176 ], [ %.049144, %172 ]
   %exitcond.not = icmp eq i64 %173, %62
   br i1 %exitcond.not, label %._crit_edge.thread172, label %.lr.ph.split, !llvm.loop !59
 
@@ -1648,14 +1648,14 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
   store i8 %213, ptr %211, align 8
   br label %.critedge
 
-.critedge81:                                      ; preds = %193, %195, %191
+.critedge81:                                      ; preds = %191, %193, %195
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
-.critedge:                                        ; preds = %161, %.lr.ph.split, %140, %147, %154, %125, %118, %111, %104, %.lr.ph.split.us, %68, %61, %54, %47, %40, %33, %26, %4, %18, %10, %210, %209, %208, %.critedge81, %75
-  %.0 = phi i32 [ 0, %33 ], [ 0, %.critedge81 ], [ 1, %210 ], [ 0, %75 ], [ 0, %54 ], [ 0, %40 ], [ 0, %26 ], [ 0, %4 ], [ 1, %208 ], [ 1, %209 ], [ 0, %47 ], [ 0, %68 ], [ 0, %61 ], [ 0, %10 ], [ 0, %18 ], [ 0, %125 ], [ 0, %.lr.ph.split.us ], [ 0, %104 ], [ 0, %111 ], [ 0, %118 ], [ 0, %154 ], [ 0, %147 ], [ 0, %140 ], [ 0, %.lr.ph.split ], [ 0, %161 ]
+.critedge:                                        ; preds = %161, %.lr.ph.split, %140, %147, %154, %125, %118, %111, %104, %.lr.ph.split.us, %68, %61, %54, %47, %40, %33, %26, %10, %4, %18, %210, %209, %208, %.critedge81, %75
+  %.0 = phi i32 [ 0, %75 ], [ 0, %.critedge81 ], [ 1, %208 ], [ 1, %209 ], [ 1, %210 ], [ 0, %18 ], [ 0, %4 ], [ 0, %10 ], [ 0, %26 ], [ 0, %33 ], [ 0, %40 ], [ 0, %47 ], [ 0, %54 ], [ 0, %61 ], [ 0, %68 ], [ 0, %.lr.ph.split.us ], [ 0, %104 ], [ 0, %111 ], [ 0, %118 ], [ 0, %125 ], [ 0, %154 ], [ 0, %147 ], [ 0, %140 ], [ 0, %.lr.ph.split ], [ 0, %161 ]
   ret i32 %.0
 }
 
@@ -1754,7 +1754,7 @@ PACKET_get_quic_vlint.exit15:                     ; preds = %49
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %34, %26, %19, %5, %2, %PACKET_get_quic_vlint.exit15, %41, %49, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %49 ], [ 0, %19 ], [ 0, %5 ], [ 1, %PACKET_get_quic_vlint.exit15 ], [ 0, %41 ], [ 0, %2 ], [ 0, %34 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit15 ], [ 0, %41 ], [ 0, %49 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -1831,7 +1831,7 @@ PACKET_get_quic_vlint.exit9:                      ; preds = %34
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %19, %5, %2, %PACKET_get_quic_vlint.exit9, %26, %34, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %34 ], [ 0, %5 ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %26 ], [ 0, %2 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %26 ], [ 0, %34 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1933,7 +1933,7 @@ PACKET_forward.exit:                              ; preds = %54
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %35, %27, %20, %6, %3, %52, %PACKET_forward.exit, %54, %42, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %54 ], [ 0, %expect_frame_header.exit ], [ 1, %52 ], [ 0, %42 ], [ 0, %20 ], [ 0, %6 ], [ 1, %PACKET_forward.exit ], [ 0, %3 ], [ 0, %35 ], [ 0, %27 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %42 ], [ 0, %54 ], [ 1, %PACKET_forward.exit ], [ 1, %52 ], [ 0, %3 ], [ 0, %6 ], [ 0, %20 ], [ 0, %27 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -1999,7 +1999,7 @@ PACKET_forward.exit:                              ; preds = %27
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_forward.exit, %27, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %27 ], [ 0, %expect_frame_header.exit ], [ 0, %6 ], [ 1, %PACKET_forward.exit ], [ 0, %3 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_forward.exit ], [ 0, %27 ], [ 0, %3 ], [ 0, %6 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -2185,8 +2185,8 @@ PACKET_forward.exit:                              ; preds = %.thread54.thread, %
   store i64 %95, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header_mask.exit.thread
 
-expect_frame_header_mask.exit.thread:             ; preds = %.thread54, %63, %60, %39, %37, %22, %3, %14, %6, %89, %PACKET_forward.exit, %.thread, %79
-  %.0 = phi i32 [ 0, %39 ], [ 0, %.thread ], [ 0, %79 ], [ 0, %22 ], [ 1, %89 ], [ 0, %3 ], [ 0, %63 ], [ 1, %PACKET_forward.exit ], [ 0, %6 ], [ 0, %14 ], [ 0, %.thread54 ], [ 0, %37 ], [ 0, %60 ]
+expect_frame_header_mask.exit.thread:             ; preds = %.thread54, %63, %60, %39, %37, %22, %6, %3, %14, %89, %PACKET_forward.exit, %.thread, %79
+  %.0 = phi i32 [ 0, %79 ], [ 0, %.thread ], [ 1, %PACKET_forward.exit ], [ 1, %89 ], [ 0, %14 ], [ 0, %3 ], [ 0, %6 ], [ 0, %22 ], [ 0, %37 ], [ 0, %39 ], [ 0, %60 ], [ 0, %63 ], [ 0, %.thread54 ]
   ret i32 %.0
 }
 
@@ -2241,7 +2241,7 @@ PACKET_get_quic_vlint.exit:                       ; preds = %19
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_quic_vlint.exit, %19, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %19 ], [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %19 ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2317,7 +2317,7 @@ PACKET_get_quic_vlint.exit9:                      ; preds = %34
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_get_quic_vlint.exit9, %27, %34, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %34 ], [ 0, %6 ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %27 ], [ 0, %3 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %27 ], [ 0, %34 ], [ 0, %3 ], [ 0, %6 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -2372,8 +2372,8 @@ PACKET_get_quic_vlint.exit:                       ; preds = %21
   store i64 %32, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header_mask.exit.thread
 
-expect_frame_header_mask.exit.thread:             ; preds = %2, %5, %13, %PACKET_get_quic_vlint.exit, %21
-  %.0 = phi i32 [ 0, %21 ], [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %2 ], [ 0, %13 ], [ 0, %5 ]
+expect_frame_header_mask.exit.thread:             ; preds = %5, %2, %13, %PACKET_get_quic_vlint.exit, %21
+  %.0 = phi i32 [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %21 ], [ 0, %13 ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2428,7 +2428,7 @@ PACKET_get_quic_vlint.exit:                       ; preds = %19
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_quic_vlint.exit, %19, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %19 ], [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %19 ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2504,7 +2504,7 @@ PACKET_get_quic_vlint.exit9:                      ; preds = %34
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_get_quic_vlint.exit9, %27, %34, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %34 ], [ 0, %6 ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %27 ], [ 0, %3 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %27 ], [ 0, %34 ], [ 0, %3 ], [ 0, %6 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -2559,8 +2559,8 @@ PACKET_get_quic_vlint.exit:                       ; preds = %21
   store i64 %32, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header_mask.exit.thread
 
-expect_frame_header_mask.exit.thread:             ; preds = %2, %5, %13, %PACKET_get_quic_vlint.exit, %21
-  %.0 = phi i32 [ 0, %21 ], [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %2 ], [ 0, %13 ], [ 0, %5 ]
+expect_frame_header_mask.exit.thread:             ; preds = %5, %2, %13, %PACKET_get_quic_vlint.exit, %21
+  %.0 = phi i32 [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %21 ], [ 0, %13 ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2695,7 +2695,7 @@ PACKET_copy_bytes.exit31:                         ; preds = %68
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %54, %34, %26, %19, %5, %2, %PACKET_copy_bytes.exit31, %68, %expect_frame_header.exit, %41, %PACKET_get_1.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %26 ], [ 0, %34 ], [ 0, %PACKET_get_1.exit ], [ 0, %41 ], [ 0, %19 ], [ 0, %5 ], [ 0, %68 ], [ 1, %PACKET_copy_bytes.exit31 ], [ 0, %2 ], [ 0, %54 ]
+  %.0 = phi i32 [ 0, %PACKET_get_1.exit ], [ 0, %41 ], [ 0, %expect_frame_header.exit ], [ 1, %PACKET_copy_bytes.exit31 ], [ 0, %68 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ], [ 0, %54 ]
   ret i32 %.0
 }
 
@@ -2753,7 +2753,7 @@ PACKET_get_quic_vlint.exit:                       ; preds = %19
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_quic_vlint.exit, %19, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %19 ], [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit ], [ 0, %19 ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2841,7 +2841,7 @@ PACKET_get_net_8.exit:                            ; preds = %expect_frame_header
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_net_8.exit, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %5 ], [ 1, %PACKET_get_net_8.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_net_8.exit ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2929,7 +2929,7 @@ PACKET_get_net_8.exit:                            ; preds = %expect_frame_header
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_net_8.exit, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %5 ], [ 1, %PACKET_get_net_8.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_net_8.exit ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -3063,8 +3063,8 @@ PACKET_get_quic_vlint.exit20:                     ; preds = %43
   store i64 %68, ptr %78, align 8, !tbaa !49
   br label %expect_frame_header_mask.exit.thread
 
-expect_frame_header_mask.exit.thread:             ; preds = %67, %59, %57, %43, %41, %22, %expect_frame_header_mask.exit, %2, %13, %5, %74
-  %.0 = phi i32 [ 0, %22 ], [ 1, %74 ], [ 0, %43 ], [ 0, %59 ], [ 0, %2 ], [ 0, %5 ], [ 0, %13 ], [ 0, %expect_frame_header_mask.exit ], [ 0, %41 ], [ 0, %57 ], [ 0, %67 ]
+expect_frame_header_mask.exit.thread:             ; preds = %67, %59, %57, %43, %41, %22, %expect_frame_header_mask.exit, %5, %2, %13, %74
+  %.0 = phi i32 [ 1, %74 ], [ 0, %13 ], [ 0, %2 ], [ 0, %5 ], [ 0, %expect_frame_header_mask.exit ], [ 0, %22 ], [ 0, %41 ], [ 0, %43 ], [ 0, %57 ], [ 0, %59 ], [ 0, %67 ]
   ret i32 %.0
 }
 
@@ -3199,7 +3199,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_peek_transport_param(ptr noundef read
   br label %PACKET_peek_quic_vlint.exit
 
 PACKET_peek_quic_vlint.exit:                      ; preds = %2, %5, %13
-  %.0.i.i = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %13 ]
+  %.0.i.i = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %13 ]
   ret i32 %.0.i.i
 }
 
@@ -3265,7 +3265,7 @@ define ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef captures(non
   br label %PACKET_get_quic_vlint.exit.thread
 
 PACKET_get_quic_vlint.exit.thread:                ; preds = %28, %21, %14, %6, %3, %35, %38
-  %.0 = phi ptr [ %31, %35 ], [ null, %21 ], [ null, %6 ], [ %31, %38 ], [ null, %3 ], [ null, %14 ], [ null, %28 ]
+  %.0 = phi ptr [ %31, %38 ], [ %31, %35 ], [ null, %3 ], [ null, %6 ], [ null, %14 ], [ null, %21 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -3349,8 +3349,8 @@ ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %38, %35
   %. = zext i1 %.not3 to i32
   br label %ossl_quic_wire_decode_transport_param_bytes.exit.thread
 
-ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %40, %ossl_quic_wire_decode_transport_param_bytes.exit, %28, %14, %3, %6, %21, %47
-  %.0 = phi i32 [ 0, %28 ], [ %., %47 ], [ 0, %21 ], [ 0, %6 ], [ 0, %3 ], [ 0, %14 ], [ 0, %ossl_quic_wire_decode_transport_param_bytes.exit ], [ 0, %40 ]
+ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %40, %ossl_quic_wire_decode_transport_param_bytes.exit, %28, %21, %14, %6, %3, %47
+  %.0 = phi i32 [ %., %47 ], [ 0, %3 ], [ 0, %6 ], [ 0, %14 ], [ 0, %21 ], [ 0, %28 ], [ 0, %ossl_quic_wire_decode_transport_param_bytes.exit ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -3425,8 +3425,8 @@ ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %35, %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %31, i64 %29, i1 false)
   br label %ossl_quic_wire_decode_transport_param_bytes.exit.thread
 
-ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %28, %14, %3, %6, %21, %ossl_quic_wire_decode_transport_param_bytes.exit, %40
-  %.0 = phi i32 [ 1, %40 ], [ 0, %ossl_quic_wire_decode_transport_param_bytes.exit ], [ 0, %21 ], [ 0, %6 ], [ 0, %3 ], [ 0, %14 ], [ 0, %28 ]
+ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %28, %21, %14, %6, %3, %ossl_quic_wire_decode_transport_param_bytes.exit, %40
+  %.0 = phi i32 [ 1, %40 ], [ 0, %ossl_quic_wire_decode_transport_param_bytes.exit ], [ 0, %3 ], [ 0, %6 ], [ 0, %14 ], [ 0, %21 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -3542,8 +3542,8 @@ PACKET_get_1.exit:                                ; preds = %ossl_quic_wire_deco
   store i8 %60, ptr %65, align 2, !tbaa !65
   br label %ossl_quic_wire_decode_transport_param_bytes.exit.thread
 
-ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %68, %64, %13, %2, %5, %20, %27, %PACKET_get_1.exit, %ossl_quic_wire_decode_transport_param_bytes.exit, %72
-  %.0 = phi i32 [ 1, %72 ], [ 0, %ossl_quic_wire_decode_transport_param_bytes.exit ], [ 0, %64 ], [ 0, %2 ], [ 0, %PACKET_get_1.exit ], [ 0, %68 ], [ 0, %13 ], [ 0, %27 ], [ 0, %20 ], [ 0, %5 ]
+ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %68, %64, %27, %20, %13, %5, %2, %PACKET_get_1.exit, %ossl_quic_wire_decode_transport_param_bytes.exit, %72
+  %.0 = phi i32 [ 1, %72 ], [ 0, %ossl_quic_wire_decode_transport_param_bytes.exit ], [ 0, %PACKET_get_1.exit ], [ 0, %2 ], [ 0, %5 ], [ 0, %13 ], [ 0, %20 ], [ 0, %27 ], [ 0, %64 ], [ 0, %68 ]
   ret i32 %.0
 }
 

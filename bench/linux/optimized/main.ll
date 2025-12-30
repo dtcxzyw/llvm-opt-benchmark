@@ -2050,7 +2050,7 @@ define dso_local i32 @do_one_initcall(ptr noundef %0) local_unnamed_addr #1 alig
   br i1 %85, label %.lr.ph, label %.critedge, !prof !64, !llvm.loop !65
 
 .critedge:                                        ; preds = %.lr.ph, %70, %66
-  %86 = phi i8 [ 0, %66 ], [ 112, %70 ], [ 112, %.lr.ph ]
+  %86 = phi i8 [ 112, %70 ], [ 0, %66 ], [ 112, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !13
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #26, !srcloc !22

@@ -111,8 +111,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.loopexit
 
 36:                                               ; preds = %.thread36, %.lr.ph
-  %.126 = phi i32 [ %.02541, %.thread36 ], [ 1, %.lr.ph ]
-  %.3 = phi i32 [ %.2, %.thread36 ], [ %.02442, %.lr.ph ]
+  %.126 = phi i32 [ 1, %.lr.ph ], [ %.02541, %.thread36 ]
+  %.3 = phi i32 [ %.02442, %.lr.ph ], [ %.2, %.thread36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = icmp ne i32 %.3, 0
   %38 = icmp samesign ult i64 %indvars.iv.next, %6

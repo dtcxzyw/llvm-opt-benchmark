@@ -305,7 +305,7 @@ define internal range(i32 0, 2) i32 @test_x509_time(i32 noundef %0) #0 {
   br i1 %.not40, label %.critedge.thread44, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %17, %25, %36, %27, %.critedge
-  %.043 = phi i32 [ 0, %.critedge ], [ 0, %36 ], [ 1, %27 ], [ 0, %25 ], [ 1, %17 ]
+  %.043 = phi i32 [ 0, %.critedge ], [ 1, %27 ], [ 0, %25 ], [ 0, %36 ], [ 1, %17 ]
   tail call void @ASN1_TIME_free(ptr noundef nonnull %.031) #5
   br label %.critedge.thread44
 
@@ -428,7 +428,7 @@ define internal range(i32 0, 2) i32 @test_x509_time_print_rfc_822(i32 noundef %0
   br label %27
 
 27:                                               ; preds = %23, %15, %19, %13, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %15 ], [ 0, %13 ], [ 0, %1 ], [ %spec.select, %23 ]
   %28 = call i32 @BIO_free(ptr noundef %4) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -482,7 +482,7 @@ define internal range(i32 0, 2) i32 @test_x509_time_print_iso_8601(i32 noundef %
   br label %27
 
 27:                                               ; preds = %23, %15, %19, %13, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %15 ], [ 0, %13 ], [ 0, %1 ], [ %spec.select, %23 ]
   %28 = call i32 @BIO_free(ptr noundef %4) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

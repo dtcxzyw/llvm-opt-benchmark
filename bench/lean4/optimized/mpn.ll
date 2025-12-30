@@ -677,8 +677,8 @@ _ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i:            ; preds = %.lr.ph.i69.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %213, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %213, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i
-  %221 = phi ptr [ %120, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i ], [ %120, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i ], [ %192, %213 ]
-  %222 = phi ptr [ %121, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i ], [ %121, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i ], [ %193, %213 ]
+  %221 = phi ptr [ %120, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i ], [ %120, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i ], [ %192, %213 ]
+  %222 = phi ptr [ %121, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i ], [ %121, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i ], [ %193, %213 ]
   %223 = add i64 %.0649.i, -1
   %.not.i81 = icmp eq i64 %.0649.i, 0
   br i1 %.not.i81, label %_ZN4leanL5div_1ERNS_10mpn_bufferEjPj.exit, label %119, !llvm.loop !35
@@ -980,7 +980,7 @@ define internal fastcc noundef i64 @_ZN4leanL13div_normalizeEPKjmS1_mRNS_10mpn_b
   br i1 %.not69, label %._crit_edge83, label %.lr.ph82, !llvm.loop !41
 
 .loopexit:                                        ; preds = %31, %.preheader, %37, %._crit_edge83
-  %.1 = phi i64 [ 0, %37 ], [ %.062.lcssa, %._crit_edge83 ], [ 0, %.preheader ], [ 0, %31 ]
+  %.1 = phi i64 [ %.062.lcssa, %._crit_edge83 ], [ 0, %37 ], [ 0, %.preheader ], [ 0, %31 ]
   ret i64 %.1
 }
 

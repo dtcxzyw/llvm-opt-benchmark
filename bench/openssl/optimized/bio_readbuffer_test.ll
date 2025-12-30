@@ -279,10 +279,10 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %47, %43, %45, %37, %83, %._crit_edge, %.loopexit57, %25, %16, %21, %1, %9, %12
-  %.035 = phi i32 [ 0, %9 ], [ 0, %1 ], [ %spec.select, %._crit_edge ], [ 0, %.loopexit57 ], [ 0, %25 ], [ 0, %21 ], [ 0, %16 ], [ 0, %12 ], [ 0, %83 ], [ 0, %37 ], [ 0, %45 ], [ 0, %43 ], [ 0, %47 ], [ 0, %61 ]
-  %.032 = phi ptr [ %7, %9 ], [ %7, %1 ], [ null, %._crit_edge ], [ null, %.loopexit57 ], [ null, %25 ], [ null, %21 ], [ null, %16 ], [ %7, %12 ], [ null, %83 ], [ null, %37 ], [ null, %45 ], [ null, %43 ], [ null, %47 ], [ null, %61 ]
-  %.031 = phi ptr [ null, %9 ], [ null, %1 ], [ %26, %._crit_edge ], [ %26, %.loopexit57 ], [ %26, %25 ], [ %23, %21 ], [ null, %16 ], [ null, %12 ], [ %26, %83 ], [ %26, %37 ], [ %26, %45 ], [ %26, %43 ], [ %26, %47 ], [ %26, %61 ]
-  %.030 = phi ptr [ null, %9 ], [ null, %1 ], [ null, %._crit_edge ], [ null, %.loopexit57 ], [ null, %25 ], [ %19, %21 ], [ %19, %16 ], [ null, %12 ], [ null, %83 ], [ null, %37 ], [ null, %45 ], [ null, %43 ], [ null, %47 ], [ null, %61 ]
+  %.035 = phi i32 [ 0, %.loopexit57 ], [ 0, %25 ], [ 0, %21 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %._crit_edge ], [ 0, %83 ], [ 0, %37 ], [ 0, %45 ], [ 0, %43 ], [ 0, %47 ], [ 0, %61 ]
+  %.032 = phi ptr [ null, %.loopexit57 ], [ null, %25 ], [ null, %21 ], [ null, %16 ], [ %7, %12 ], [ %7, %9 ], [ %7, %1 ], [ null, %._crit_edge ], [ null, %83 ], [ null, %37 ], [ null, %45 ], [ null, %43 ], [ null, %47 ], [ null, %61 ]
+  %.031 = phi ptr [ %26, %.loopexit57 ], [ %26, %25 ], [ %23, %21 ], [ null, %16 ], [ null, %12 ], [ null, %9 ], [ null, %1 ], [ %26, %._crit_edge ], [ %26, %83 ], [ %26, %37 ], [ %26, %45 ], [ %26, %43 ], [ %26, %47 ], [ %26, %61 ]
+  %.030 = phi ptr [ null, %.loopexit57 ], [ null, %25 ], [ %19, %21 ], [ %19, %16 ], [ null, %12 ], [ null, %9 ], [ null, %1 ], [ null, %._crit_edge ], [ null, %83 ], [ null, %37 ], [ null, %45 ], [ null, %43 ], [ null, %47 ], [ null, %61 ]
   %96 = call i32 @BIO_free(ptr noundef %.032) #4
   call void @BIO_free_all(ptr noundef %.031) #4
   %97 = call i32 @BIO_free(ptr noundef %.030) #4

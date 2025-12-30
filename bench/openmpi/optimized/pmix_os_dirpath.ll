@@ -122,7 +122,7 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   br label %44
 
 44:                                               ; preds = %4, %2, %._crit_edge, %40, %12
-  %.0 = phi i32 [ -2, %12 ], [ -27, %2 ], [ -2, %40 ], [ 0, %._crit_edge ], [ 0, %4 ]
+  %.0 = phi i32 [ -2, %40 ], [ 0, %._crit_edge ], [ -2, %12 ], [ -27, %2 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -330,7 +330,7 @@ sub_150.us:                                       ; preds = %.tail.us
   br label %.split82.us
 
 .split82.us:                                      ; preds = %.outer.loopexit.split.us, %.backedge.us, %.outer.loopexit.split.us73, %.backedge.us74, %36, %.split.us, %.preheader
-  %.2 = phi i32 [ -1, %36 ], [ -1, %.split.us ], [ -1, %.outer.loopexit.split.us73 ], [ 0, %.preheader ], [ %.037.ph64, %.backedge.us ], [ %.037.ph64.us, %.backedge.us74 ], [ -1, %.outer.loopexit.split.us ]
+  %.2 = phi i32 [ -1, %.split.us ], [ 0, %.preheader ], [ -1, %36 ], [ %.037.ph64.us, %.backedge.us74 ], [ -1, %.outer.loopexit.split.us73 ], [ %.037.ph64, %.backedge.us ], [ -1, %.outer.loopexit.split.us ]
   %67 = tail call i32 @closedir(ptr noundef nonnull %6)
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2648), align 8, !tbaa !14
   %69 = icmp eq ptr %68, null
@@ -346,7 +346,7 @@ sub_150.us:                                       ; preds = %.tail.us
   br label %74
 
 74:                                               ; preds = %70, %72, %5, %3
-  %.0 = phi i32 [ -1, %5 ], [ -1, %3 ], [ %.2, %72 ], [ %.2, %70 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %5 ], [ %.2, %72 ], [ %.2, %70 ]
   ret i32 %.0
 }
 
@@ -415,7 +415,7 @@ sub_117:                                          ; preds = %.tail
   br i1 %.not12, label %.sink.split, label %sub_0, !llvm.loop !27
 
 .sink.split:                                      ; preds = %16, %.tail15, %sub_117, %sub_0, %.preheader
-  %.0.ph = phi i1 [ true, %.preheader ], [ false, %.tail15 ], [ false, %sub_0 ], [ false, %sub_117 ], [ true, %16 ]
+  %.0.ph = phi i1 [ true, %.preheader ], [ false, %sub_0 ], [ false, %sub_117 ], [ false, %.tail15 ], [ true, %16 ]
   %18 = tail call i32 @closedir(ptr noundef nonnull %3)
   br label %19
 

@@ -349,7 +349,7 @@ _ZN6icu_7712LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit: ; preds =
   br label %52
 
 52:                                               ; preds = %16, %_ZN6icu_7712LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit, %6, %15
-  %.0 = phi ptr [ null, %6 ], [ null, %15 ], [ %.1, %_ZN6icu_7712LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit ], [ %3, %16 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %6 ], [ %.1, %_ZN6icu_7712LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit ], [ %3, %16 ]
   ret ptr %.0
 
 53:                                               ; preds = %34, %42, %25
@@ -572,7 +572,7 @@ ustrcase_getTitleBreakIterator_77.exit.thread30:  ; preds = %13, %ustrcase_getTi
   br label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %7, %ustrcase_getTitleBreakIterator_77.exit, %34, %36
-  %.01937 = phi i32 [ %28, %36 ], [ %28, %34 ], [ 0, %ustrcase_getTitleBreakIterator_77.exit ], [ 0, %7 ]
+  %.01937 = phi i32 [ %28, %34 ], [ %28, %36 ], [ 0, %ustrcase_getTitleBreakIterator_77.exit ], [ 0, %7 ]
   ret i32 %.01937
 
 .body:                                            ; preds = %29, %32
@@ -589,7 +589,7 @@ _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %7, %ustrcase_
   br label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit23
 
 _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit23: ; preds = %16, %.body, %41
-  %.pn.pn40 = phi { ptr, i32 } [ %.pn, %41 ], [ %.pn, %.body ], [ %17, %16 ]
+  %.pn.pn40 = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn, %41 ], [ %17, %16 ]
   resume { ptr, i32 } %.pn.pn40
 }
 
@@ -712,7 +712,7 @@ _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit29: ; preds = %20
   br label %59
 
 58:                                               ; preds = %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit29.thread, %6, %51
-  %.025 = phi i32 [ 0, %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit29.thread ], [ %50, %51 ], [ 0, %6 ]
+  %.025 = phi i32 [ %50, %51 ], [ 0, %6 ], [ 0, %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit29.thread ]
   ret i32 %.025
 
 59:                                               ; preds = %57, %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit

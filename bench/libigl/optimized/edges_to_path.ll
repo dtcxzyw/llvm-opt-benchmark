@@ -277,7 +277,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit11
   br i1 %exitcond92.not.i.i.i.i, label %.loopexit195, label %.lr.ph85.i.i.i.i, !llvm.loop !25
 
 .loopexit195:                                     ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %98, %105
-  %.2.i.i.i.i = phi i32 [ %110, %.lr.ph85.i.i.i.i ], [ %106, %105 ], [ %99, %98 ], [ %103, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %106, %105 ], [ %99, %98 ], [ %110, %.lr.ph85.i.i.i.i ], [ %103, %.lr.ph80.i.i.i.i ]
   %112 = add nsw i32 %.2.i.i.i.i, 1
   %113 = sext i32 %112 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -444,8 +444,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %157
   br i1 %165, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread275, %.thread, %163
-  %166 = phi i64 [ 0, %.thread ], [ %156, %.thread275 ], [ %164, %163 ], [ %164, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i274 = phi ptr [ null, %.thread ], [ null, %.thread275 ], [ %160, %163 ], [ %160, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %166 = phi i64 [ 0, %.thread ], [ %164, %163 ], [ %156, %.thread275 ], [ %164, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i274 = phi ptr [ null, %.thread ], [ %160, %163 ], [ null, %.thread275 ], [ %160, %.lr.ph.i.i.i.i.i.i.i.i ]
   %167 = icmp slt i64 %166, %152
   br i1 %167, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE4evalEv.exit
 
@@ -1019,7 +1019,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEaSERKS3_.exit: ;
   br label %393
 
 393:                                              ; preds = %392, %325, %322, %320
-  %.pn102 = phi { ptr, i32 } [ %.pn92.pn.pn, %320 ], [ %.pn99.pn, %392 ], [ %326, %325 ], [ %323, %322 ]
+  %.pn102 = phi { ptr, i32 } [ %.pn99.pn, %392 ], [ %326, %325 ], [ %323, %322 ], [ %.pn92.pn.pn, %320 ]
   %394 = load ptr, ptr %15, align 8, !tbaa !46
   call void @free(ptr noundef %394) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1428,7 +1428,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit11
   br i1 %exitcond92.not.i.i.i.i, label %.loopexit193, label %.lr.ph85.i.i.i.i, !llvm.loop !25
 
 .loopexit193:                                     ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %98, %105
-  %.2.i.i.i.i = phi i32 [ %110, %.lr.ph85.i.i.i.i ], [ %106, %105 ], [ %99, %98 ], [ %103, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %106, %105 ], [ %99, %98 ], [ %110, %.lr.ph85.i.i.i.i ], [ %103, %.lr.ph80.i.i.i.i ]
   %112 = add nsw i32 %.2.i.i.i.i, 1
   %113 = sext i32 %112 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -2118,7 +2118,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEaSERKS3_.exit: ;
   br label %376
 
 376:                                              ; preds = %375, %308, %305, %303
-  %.pn102 = phi { ptr, i32 } [ %.pn92.pn.pn, %303 ], [ %.pn99.pn, %375 ], [ %309, %308 ], [ %306, %305 ]
+  %.pn102 = phi { ptr, i32 } [ %.pn99.pn, %375 ], [ %309, %308 ], [ %306, %305 ], [ %.pn92.pn.pn, %303 ]
   %377 = load ptr, ptr %15, align 8, !tbaa !46
   call void @free(ptr noundef %377) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

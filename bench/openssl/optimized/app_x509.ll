@@ -109,7 +109,7 @@ mk_octet_string.exit:                             ; preds = %11
   br label %18
 
 18:                                               ; preds = %4, %15, %mk_octet_string.exit
-  %.1 = phi i32 [ 1, %mk_octet_string.exit ], [ 0, %15 ], [ -2, %4 ]
+  %.1 = phi i32 [ 0, %15 ], [ 1, %mk_octet_string.exit ], [ -2, %4 ]
   ret i32 %.1
 }
 
@@ -154,7 +154,7 @@ mk_octet_string.exit:                             ; preds = %11
   br label %18
 
 18:                                               ; preds = %4, %15, %mk_octet_string.exit
-  %.1 = phi i32 [ 1, %mk_octet_string.exit ], [ 0, %15 ], [ -2, %4 ]
+  %.1 = phi i32 [ 0, %15 ], [ 1, %mk_octet_string.exit ], [ -2, %4 ]
   ret i32 %.1
 }
 

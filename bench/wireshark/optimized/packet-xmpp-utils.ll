@@ -243,12 +243,12 @@ define hidden void @xmpp_gtalk_session_track(ptr noundef readonly captures(none)
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @g_list_find_custom(ptr noundef %9, ptr noundef %5, ptr noundef nonnull @xmpp_element_t_cmp)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.critedge, label %11
+  br i1 %.not, label %.thread, label %11
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %10, align 8
   %.not22 = icmp eq ptr %12, null
-  br i1 %.not22, label %.critedge, label %13
+  br i1 %.not22, label %.thread, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -257,7 +257,7 @@ define hidden void @xmpp_gtalk_session_track(ptr noundef readonly captures(none)
   %17 = load i16, ptr %16, align 1
   %18 = and i16 %17, 8
   %.not23 = icmp eq i16 %18, 0
-  br i1 %.not23, label %19, label %.critedge
+  br i1 %.not23, label %19, label %.thread
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -279,7 +279,7 @@ define hidden void @xmpp_gtalk_session_track(ptr noundef readonly captures(none)
   %28 = load ptr, ptr %.012.i, align 8
   %29 = tail call i32 @strcmp(ptr noundef %28, ptr noundef nonnull dereferenceable(30) @.str.5) #11
   %.not25 = icmp eq i32 %29, 0
-  br i1 %.not25, label %xmpp_get_attr.exit.thread, label %.critedge
+  br i1 %.not25, label %xmpp_get_attr.exit.thread, label %.thread
 
 xmpp_get_attr.exit.thread:                        ; preds = %23, %26
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -292,7 +292,7 @@ xmpp_get_attr.exit.thread:                        ; preds = %23, %26
   %34 = load ptr, ptr %30, align 8
   %35 = tail call ptr @g_hash_table_find(ptr noundef %34, ptr noundef nonnull @attr_find_pred, ptr noundef nonnull @.str)
   %.not9.i32 = icmp eq ptr %35, null
-  br i1 %.not9.i32, label %.critedge, label %36
+  br i1 %.not9.i32, label %.thread, label %36
 
 36:                                               ; preds = %33, %xmpp_get_attr.exit.thread
   %.012.i30 = phi ptr [ %35, %33 ], [ %32, %xmpp_get_attr.exit.thread ]
@@ -301,30 +301,30 @@ xmpp_get_attr.exit.thread:                        ; preds = %23, %26
   %38 = load ptr, ptr %20, align 8
   %39 = tail call ptr @g_hash_table_lookup(ptr noundef %38, ptr noundef nonnull @.str)
   %.not.i34 = icmp eq ptr %39, null
-  br i1 %.not.i34, label %40, label %43
+  br i1 %.not.i34, label %40, label %.critedge
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %20, align 8
   %42 = tail call ptr @g_hash_table_find(ptr noundef %41, ptr noundef nonnull @attr_find_pred, ptr noundef nonnull @.str)
   %.not9.i38 = icmp eq ptr %42, null
-  br i1 %.not9.i38, label %.critedge, label %43
+  br i1 %.not9.i38, label %.thread, label %.critedge
 
-43:                                               ; preds = %40, %36
+.critedge:                                        ; preds = %40, %36
   %.012.i36 = phi ptr [ %42, %40 ], [ %39, %36 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.012.i36, i64 24
-  store i8 1, ptr %44, align 8
-  %45 = tail call ptr @wmem_file_scope()
-  %46 = load ptr, ptr %.012.i30, align 8
-  %47 = tail call noalias ptr @wmem_strdup(ptr noundef %45, ptr noundef %46)
-  %48 = tail call ptr @wmem_file_scope()
-  %49 = load ptr, ptr %.012.i36, align 8
-  %50 = tail call noalias ptr @wmem_strdup(ptr noundef %48, ptr noundef %49)
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %52 = load ptr, ptr %51, align 8
-  tail call void @wmem_tree_insert_string(ptr noundef %52, ptr noundef %47, ptr noundef %50, i32 noundef 1)
-  br label %.critedge
+  %43 = getelementptr inbounds nuw i8, ptr %.012.i36, i64 24
+  store i8 1, ptr %43, align 8
+  %44 = tail call ptr @wmem_file_scope()
+  %45 = load ptr, ptr %.012.i30, align 8
+  %46 = tail call noalias ptr @wmem_strdup(ptr noundef %44, ptr noundef %45)
+  %47 = tail call ptr @wmem_file_scope()
+  %48 = load ptr, ptr %.012.i36, align 8
+  %49 = tail call noalias ptr @wmem_strdup(ptr noundef %47, ptr noundef %48)
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %51 = load ptr, ptr %50, align 8
+  tail call void @wmem_tree_insert_string(ptr noundef %51, ptr noundef %46, ptr noundef %49, i32 noundef 1)
+  br label %.thread
 
-.critedge:                                        ; preds = %40, %33, %3, %26, %11, %13, %43
+.thread:                                          ; preds = %40, %33, %3, %11, %13, %.critedge, %26
   ret void
 }
 
@@ -1958,7 +1958,7 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr noundef readonly 
   br i1 %.not20.i133.us, label %113, label %xmpp_get_attr_ext.exit134.us
 
 xmpp_get_attr_ext.exit134.us:                     ; preds = %60, %66, %48, %51
-  %.023.i131.us.sink = phi ptr [ %50, %48 ], [ %53, %51 ], [ %68, %66 ], [ %65, %60 ]
+  %.023.i131.us.sink = phi ptr [ %53, %51 ], [ %50, %48 ], [ %68, %66 ], [ %65, %60 ]
   %69 = getelementptr inbounds nuw i8, ptr %.023.i131.us.sink, i64 24
   store i8 1, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %28, i64 16

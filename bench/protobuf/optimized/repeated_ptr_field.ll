@@ -394,7 +394,7 @@ if.end25.i:                                       ; preds = %if.else18.i, %if.th
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIPFPvPNS0_5ArenaEEEEPDaT_.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIPFPvPNS0_5ArenaEEEEPDaT_.exit: ; preds = %if.then.i, %if.then7.i, %if.then21.i, %if.end25.i
-  %retval.0.i = phi ptr [ %call3.i, %if.then.i ], [ %9, %if.then21.i ], [ %call35.i, %if.end25.i ], [ %1, %if.then7.i ]
+  %retval.0.i = phi ptr [ %call3.i, %if.then.i ], [ %call35.i, %if.end25.i ], [ %9, %if.then21.i ], [ %1, %if.then7.i ]
   ret ptr %retval.0.i
 }
 
@@ -550,7 +550,7 @@ if.end25.i:                                       ; preds = %if.else18.i, %if.th
   br label %"_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIZNS2_10AddMessageEPKNS0_11MessageLiteEE3$_0EEPDaT_.exit"
 
 "_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIZNS2_10AddMessageEPKNS0_11MessageLiteEE3$_0EEPDaT_.exit": ; preds = %if.then.i, %if.then7.i, %if.then21.i, %if.end25.i
-  %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %10, %if.then21.i ], [ %call.i15.i, %if.end25.i ], [ %1, %if.then7.i ]
+  %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %call.i15.i, %if.end25.i ], [ %10, %if.then21.i ], [ %1, %if.then7.i ]
   ret ptr %retval.0.i
 }
 

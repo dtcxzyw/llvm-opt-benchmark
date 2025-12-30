@@ -679,9 +679,9 @@ get_coeff.exit.i.us:                              ; preds = %202, %184
   br label %338
 
 338:                                              ; preds = %336, %323, %321, %302
-  %339 = phi i32 [ %295, %336 ], [ %334, %323 ], [ %314, %321 ], [ %spec.select.i.i163.i.us, %302 ]
-  %340 = phi i32 [ %296, %336 ], [ %334, %323 ], [ %315, %321 ], [ %spec.select.i.i163.i.us, %302 ]
-  %.1.i158.i.us = phi i32 [ %.03137.i154.i.us, %336 ], [ 1, %323 ], [ 1, %321 ], [ %.03137.i154.i.us, %302 ]
+  %339 = phi i32 [ %295, %336 ], [ %314, %321 ], [ %334, %323 ], [ %spec.select.i.i163.i.us, %302 ]
+  %340 = phi i32 [ %296, %336 ], [ %315, %321 ], [ %334, %323 ], [ %spec.select.i.i163.i.us, %302 ]
+  %.1.i158.i.us = phi i32 [ %.03137.i154.i.us, %336 ], [ 1, %321 ], [ 1, %323 ], [ %.03137.i154.i.us, %302 ]
   %indvars.iv.next.i159.i.us = add nsw i64 %indvars.iv.i153.i.us, -1
   %.not40.i160.i.us = icmp eq i64 %indvars.iv.i153.i.us, 0
   br i1 %.not40.i160.i.us, label %read_vec_pos.exit.i.us.preheader, label %.preheader201.i.us, !llvm.loop !64
@@ -769,14 +769,14 @@ get_coeff.exit.i.us:                              ; preds = %202, %184
   br label %390
 
 390:                                              ; preds = %388, %375, %373, %355
-  %391 = phi i32 [ %349, %388 ], [ %386, %375 ], [ %367, %373 ], [ %spec.select.i.i151.i.us, %355 ]
-  %.1.i.i.us = phi i32 [ %.03137.i.i.us, %388 ], [ 1, %375 ], [ 1, %373 ], [ %.03137.i.i.us, %355 ]
+  %391 = phi i32 [ %349, %388 ], [ %367, %373 ], [ %386, %375 ], [ %spec.select.i.i151.i.us, %355 ]
+  %.1.i.i.us = phi i32 [ %.03137.i.i.us, %388 ], [ 1, %373 ], [ 1, %375 ], [ %.03137.i.i.us, %355 ]
   %indvars.iv.next.i.i.us = add nsw i64 %indvars.iv.i.i.us, -1
   %.not40.i.i.us = icmp eq i64 %indvars.iv.i.i.us, 0
   br i1 %.not40.i.i.us, label %read_vec_pos.exit.i.us.preheader, label %.preheader200.i.us, !llvm.loop !64
 
 read_vec_pos.exit.i.us.preheader:                 ; preds = %338, %390, %341, %284
-  %.ph = phi i32 [ %391, %390 ], [ %spec.select.i152.i.us, %284 ], [ %.lcssa187190.us, %341 ], [ %339, %338 ]
+  %.ph = phi i32 [ %.lcssa187190.us, %341 ], [ %spec.select.i152.i.us, %284 ], [ %391, %390 ], [ %339, %338 ]
   br label %read_vec_pos.exit.i.us
 
 read_vec_pos.exit.i.us:                           ; preds = %read_vec_pos.exit.i.us.preheader, %get_value_cached.exit.i.us
@@ -950,8 +950,8 @@ select.unfold.i.us:                               ; preds = %446, %445
   br label %get_value_cached.exit173.us217.i.us
 
 get_value_cached.exit173.us217.i.us:              ; preds = %497, %485
-  %499 = phi i32 [ %spec.select.i.i169.us.i.us, %497 ], [ %495, %485 ]
-  %.0.i172.us.i.us = phi i32 [ %498, %497 ], [ %496, %485 ]
+  %499 = phi i32 [ %495, %485 ], [ %spec.select.i.i169.us.i.us, %497 ]
+  %.0.i172.us.i.us = phi i32 [ %496, %485 ], [ %498, %497 ]
   %500 = trunc i32 %.0.i172.us.i.us to i8
   %501 = getelementptr inbounds nuw i8, ptr %474, i64 1
   store i8 %500, ptr %474, align 1, !tbaa !39
@@ -1088,9 +1088,9 @@ get_value_cached.exit173.us.us.i.us:              ; preds = %get_value_cached.ex
   br label %567
 
 567:                                              ; preds = %565, %552, %550, %531
-  %568 = phi i32 [ %524, %565 ], [ %563, %552 ], [ %543, %550 ], [ %spec.select.i.i185.i.us, %531 ]
-  %569 = phi i32 [ %525, %565 ], [ %563, %552 ], [ %544, %550 ], [ %spec.select.i.i185.i.us, %531 ]
-  %.1.i180.i.us = phi i32 [ %.03137.i176.i.us, %565 ], [ 1, %552 ], [ 1, %550 ], [ %.03137.i176.i.us, %531 ]
+  %568 = phi i32 [ %524, %565 ], [ %543, %550 ], [ %563, %552 ], [ %spec.select.i.i185.i.us, %531 ]
+  %569 = phi i32 [ %525, %565 ], [ %544, %550 ], [ %563, %552 ], [ %spec.select.i.i185.i.us, %531 ]
+  %.1.i180.i.us = phi i32 [ %.03137.i176.i.us, %565 ], [ 1, %550 ], [ 1, %552 ], [ %.03137.i176.i.us, %531 ]
   %indvars.iv.next.i181.i.us = add nsw i64 %indvars.iv.i175.i.us, -1
   %.not40.i182.i.us = icmp eq i64 %indvars.iv.i175.i.us, 0
   br i1 %.not40.i182.i.us, label %read_vec_pos.exit187.i.us, label %.preheader203.i.us, !llvm.loop !64
@@ -1166,8 +1166,8 @@ read_vec_pos.exit187.i.us:                        ; preds = %567
   br label %get_value_cached.exit192.us227.i.us
 
 get_value_cached.exit192.us227.i.us:              ; preds = %612, %600
-  %614 = phi i32 [ %spec.select.i.i188.us.i.us, %612 ], [ %610, %600 ]
-  %.0.i191.us.i.us = phi i32 [ %613, %612 ], [ %611, %600 ]
+  %614 = phi i32 [ %610, %600 ], [ %spec.select.i.i188.us.i.us, %612 ]
+  %.0.i191.us.i.us = phi i32 [ %611, %600 ], [ %613, %612 ]
   %615 = trunc i32 %.0.i191.us.i.us to i8
   %616 = getelementptr inbounds nuw i8, ptr %589, i64 1
   store i8 %615, ptr %589, align 1, !tbaa !39
@@ -1206,9 +1206,9 @@ get_value_cached.exit192.us.us.i.us:              ; preds = %get_value_cached.ex
   br i1 %exitcond297.not.i.us, label %.loopexit.i130.us, label %.preheader198.us.i.us, !llvm.loop !70
 
 .loopexit.i130.us:                                ; preds = %436, %._crit_edge223.us.i.us, %.split.us.i.us
-  %.lcssa197199.lcssa205.us = phi i32 [ %.lcssa197199.us, %._crit_edge223.us.i.us ], [ %.lcssa191193.us, %.split.us.i.us ], [ %431, %436 ]
-  %.2121.i.us = phi i32 [ %.pre-phi316.i.us, %._crit_edge223.us.i.us ], [ %.0119235.i.us, %.split.us.i.us ], [ %.0119235.i.us, %436 ]
-  %.2118.i.us = phi i32 [ %.1117196.i.us, %._crit_edge223.us.i.us ], [ 16, %.split.us.i.us ], [ %.0116236.i.us, %436 ]
+  %.lcssa197199.lcssa205.us = phi i32 [ %.lcssa191193.us, %.split.us.i.us ], [ %.lcssa197199.us, %._crit_edge223.us.i.us ], [ %431, %436 ]
+  %.2121.i.us = phi i32 [ %.0119235.i.us, %.split.us.i.us ], [ %.pre-phi316.i.us, %._crit_edge223.us.i.us ], [ %.0119235.i.us, %436 ]
+  %.2118.i.us = phi i32 [ 16, %.split.us.i.us ], [ %.1117196.i.us, %._crit_edge223.us.i.us ], [ %.0116236.i.us, %436 ]
   %621 = add nuw nsw i32 %.1130234.i.us, 1
   %exitcond298.not.i.us = icmp eq i32 %621, 16
   br i1 %exitcond298.not.i.us, label %.preheader197.i.us, label %235, !llvm.loop !71
@@ -1478,7 +1478,7 @@ mss4_update_dc_cache.exit.us:                     ; preds = %714, %mss4_decode_d
   br label %744
 
 744:                                              ; preds = %._crit_edge213, %.loopexit167, %84, %69, %60, %43, %743, %.split.us, %.loopexit, %59, %52, %50, %42, %22
-  %.0 = phi i32 [ -1094995529, %22 ], [ -1094995529, %42 ], [ %18, %743 ], [ -1094995529, %50 ], [ -1094995529, %52 ], [ -1094995529, %43 ], [ -1094995529, %60 ], [ %., %84 ], [ %73, %69 ], [ -1094995529, %.loopexit167 ], [ -1094995529, %.loopexit ], [ -1094995529, %59 ], [ -1094995529, %.split.us ], [ %741, %._crit_edge213 ]
+  %.0 = phi i32 [ -1094995529, %22 ], [ -1094995529, %42 ], [ -1094995529, %50 ], [ -1094995529, %52 ], [ -1094995529, %.loopexit ], [ -1094995529, %.split.us ], [ %18, %743 ], [ -1094995529, %59 ], [ -1094995529, %43 ], [ -1094995529, %60 ], [ %73, %69 ], [ %., %84 ], [ -1094995529, %.loopexit167 ], [ %741, %._crit_edge213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
@@ -1662,9 +1662,9 @@ define internal fastcc range(i32 -1, 1) i32 @mss4_decode_dct(ptr noundef nonnull
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %33, %8
-  %.064.i.i = phi i32 [ %12, %8 ], [ %35, %33 ]
-  %.062.i.i = phi i32 [ %28, %8 ], [ %49, %33 ]
-  %.0.i.i = phi i32 [ %31, %8 ], [ %52, %33 ]
+  %.064.i.i = phi i32 [ %35, %33 ], [ %12, %8 ]
+  %.062.i.i = phi i32 [ %49, %33 ], [ %28, %8 ]
+  %.0.i.i = phi i32 [ %52, %33 ], [ %31, %8 ]
   %53 = add i32 %.0.i.i, %.064.i.i
   %54 = tail call i32 @llvm.umin.i32(i32 %14, i32 %53)
   store i32 %54, ptr %11, align 8, !tbaa !55
@@ -1787,9 +1787,9 @@ get_coeff.exit:                                   ; preds = %get_vlc2.exit.i, %5
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %96, %115
-  %.064.i = phi i32 [ %97, %96 ], [ %117, %115 ]
-  %.062.i = phi i32 [ %110, %96 ], [ %131, %115 ]
-  %.0.i = phi i32 [ %113, %96 ], [ %134, %115 ]
+  %.064.i = phi i32 [ %117, %115 ], [ %97, %96 ]
+  %.062.i = phi i32 [ %131, %115 ], [ %110, %96 ]
+  %.0.i = phi i32 [ %134, %115 ], [ %113, %96 ]
   %135 = add i32 %.0.i, %.064.i
   %136 = tail call i32 @llvm.umin.i32(i32 %98, i32 %135)
   store i32 %136, ptr %11, align 8, !tbaa !55
@@ -1863,7 +1863,7 @@ get_coeff_bits.exit:                              ; preds = %140, %143
   br label %.loopexit
 
 .loopexit:                                        ; preds = %get_coeff_bits.exit, %get_vlc2.exit, %.loopexit.loopexit, %170
-  %.0 = phi i32 [ %.062.i, %.loopexit.loopexit ], [ %172, %170 ], [ -1, %get_vlc2.exit ], [ -1, %get_coeff_bits.exit ]
+  %.0 = phi i32 [ %172, %170 ], [ %.062.i, %.loopexit.loopexit ], [ -1, %get_vlc2.exit ], [ -1, %get_coeff_bits.exit ]
   ret i32 %.0
 }
 

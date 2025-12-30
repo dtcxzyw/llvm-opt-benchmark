@@ -309,7 +309,7 @@ Gia_ObjIsXor.exit:                                ; preds = %23
   br label %52
 
 52:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread
-  %53 = phi i32 [ %spec.select, %Gia_ObjIsXor.exit ], [ %44, %Gia_ObjIsXor.exit.thread ]
+  %53 = phi i32 [ %44, %Gia_ObjIsXor.exit.thread ], [ %spec.select, %Gia_ObjIsXor.exit ]
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw nsw i64 %54, 62
   %56 = and i64 %.val35.fr, -4611686018427387905
@@ -318,7 +318,7 @@ Gia_ObjIsXor.exit:                                ; preds = %23
   br label %58
 
 58:                                               ; preds = %2, %52, %19, %12
-  %.0 = phi i32 [ %53, %52 ], [ %16, %12 ], [ %22, %19 ], [ 0, %2 ]
+  %.0 = phi i32 [ %16, %12 ], [ %22, %19 ], [ %53, %52 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1505,7 +1505,7 @@ Abc_TtIsConst1.exit:                              ; preds = %39, %.lr.ph.i, %25,
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %27, %Abc_TtIsConst1.exit, %.lr.ph.preheader.i43
-  %.262 = phi i32 [ %.2.ph, %.lr.ph.preheader.i43 ], [ %.2.ph, %Abc_TtIsConst1.exit ], [ 1, %27 ]
+  %.262 = phi i32 [ %.2.ph, %Abc_TtIsConst1.exit ], [ %.2.ph, %.lr.ph.preheader.i43 ], [ 1, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val38 = load i32, ptr %15, align 4, !tbaa !15
   %51 = sext i32 %.val38 to i64
@@ -1822,7 +1822,7 @@ Gia_ObjIsHead.exit:                               ; preds = %.lr.ph32
   br i1 %32, label %.lr.ph, label %Gia_ObjIsHead.exit.thread, !llvm.loop !82
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %.lr.ph, %.lr.ph32, %Gia_ObjIsHead.exit
-  %33 = phi ptr [ %16, %Gia_ObjIsHead.exit ], [ %16, %.lr.ph32 ], [ %28, %.lr.ph ]
+  %33 = phi ptr [ %16, %.lr.ph32 ], [ %16, %Gia_ObjIsHead.exit ], [ %28, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = getelementptr i8, ptr %33, i64 24
   %.val = load i32, ptr %34, align 8, !tbaa !26

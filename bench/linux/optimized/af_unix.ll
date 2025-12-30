@@ -261,7 +261,7 @@ define dso_local i32 @__unix_dgram_recvmsg(ptr noundef %0, ptr noundef %1, i64 n
   br label %182
 
 .thread12:                                        ; preds = %.thread, %48, %45, %.split17.us
-  %.ph13 = phi ptr [ %27, %48 ], [ %27, %.split17.us ], [ %27, %45 ], [ %40, %.thread ]
+  %.ph13 = phi ptr [ %27, %.split17.us ], [ %27, %45 ], [ %27, %48 ], [ %40, %.thread ]
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !14
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %76 = load volatile ptr, ptr %75, align 8
@@ -1079,8 +1079,8 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread32, %.thread33, %75, %.loopexit58.split.loop.exit123
-  %207 = phi i32 [ -104, %75 ], [ %206, %.loopexit58.split.loop.exit123 ], [ 0, %.thread33 ], [ 0, %.thread32 ]
-  %208 = phi i32 [ %76, %75 ], [ %117, %.loopexit58.split.loop.exit123 ], [ %117, %.thread33 ], [ %117, %.thread32 ]
+  %207 = phi i32 [ %206, %.loopexit58.split.loop.exit123 ], [ -104, %75 ], [ 0, %.thread33 ], [ 0, %.thread32 ]
+  %208 = phi i32 [ %117, %.loopexit58.split.loop.exit123 ], [ %76, %75 ], [ %117, %.thread33 ], [ %117, %.thread32 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %48) #19
   br label %.thread42
 
@@ -1356,8 +1356,8 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br label %.thread42
 
 .thread42:                                        ; preds = %350, %346, %131, %.thread31, %238, %233, %228, %366, %322, %243, %.thread31.thread, %374, %319, %.loopexit
-  %375 = phi i32 [ %76, %.thread31.thread ], [ %76, %.thread31 ], [ %321, %319 ], [ %208, %.loopexit ], [ %110, %238 ], [ %324, %374 ], [ %110, %243 ], [ %324, %322 ], [ %324, %366 ], [ %110, %228 ], [ %110, %233 ], [ %324, %346 ], [ %324, %350 ], [ %117, %131 ]
-  %376 = phi i32 [ 0, %.thread31.thread ], [ 0, %.thread31 ], [ 0, %319 ], [ %207, %.loopexit ], [ 0, %238 ], [ 0, %374 ], [ 0, %243 ], [ 0, %322 ], [ 0, %366 ], [ 0, %228 ], [ 0, %233 ], [ 0, %346 ], [ 0, %350 ], [ -11, %131 ]
+  %375 = phi i32 [ %324, %374 ], [ %321, %319 ], [ %208, %.loopexit ], [ %76, %.thread31.thread ], [ %110, %243 ], [ %324, %322 ], [ %324, %366 ], [ %110, %228 ], [ %110, %233 ], [ %110, %238 ], [ %76, %.thread31 ], [ %324, %350 ], [ %324, %346 ], [ %117, %131 ]
+  %376 = phi i32 [ 0, %374 ], [ 0, %319 ], [ %207, %.loopexit ], [ 0, %.thread31.thread ], [ 0, %243 ], [ 0, %322 ], [ 0, %366 ], [ 0, %228 ], [ 0, %233 ], [ 0, %238 ], [ 0, %.thread31 ], [ 0, %350 ], [ 0, %346 ], [ -11, %131 ]
   call void @mutex_unlock(ptr noundef nonnull %39) #19
   %377 = load ptr, ptr %57, align 8
   %378 = icmp eq ptr %377, null
@@ -1379,16 +1379,16 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   call void @__scm_destroy(ptr noundef nonnull %4) #19
   br label %.thread44
 
-.thread44:                                        ; preds = %.critedge, %204, %384, %380, %379
-  %385 = phi i32 [ %376, %384 ], [ %376, %379 ], [ %376, %380 ], [ %200, %204 ], [ %200, %.critedge ]
-  %386 = phi i32 [ %375, %384 ], [ %375, %379 ], [ %375, %380 ], [ %117, %204 ], [ %117, %.critedge ]
+.thread44:                                        ; preds = %204, %.critedge, %384, %380, %379
+  %385 = phi i32 [ %376, %379 ], [ %376, %380 ], [ %376, %384 ], [ %200, %.critedge ], [ %200, %204 ]
+  %386 = phi i32 [ %375, %379 ], [ %375, %380 ], [ %375, %384 ], [ %117, %.critedge ], [ %117, %204 ]
   %.fr = freeze i32 %386
   %387 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %387, i32 %385, i32 %.fr
   br label %.thread46
 
 .thread46:                                        ; preds = %.thread44, %2, %20
-  %388 = phi i32 [ %spec.select, %.thread44 ], [ %21, %20 ], [ -22, %2 ]
+  %388 = phi i32 [ -22, %2 ], [ %21, %20 ], [ %spec.select, %.thread44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %388
 }
@@ -2258,7 +2258,7 @@ define internal i32 @unix_bind(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread16
 
 .thread16:                                        ; preds = %212, %214, %109, %8, %16, %13, %215, %197, %.thread17, %11
-  %216 = phi i32 [ %12, %11 ], [ %209, %215 ], [ %108, %.thread17 ], [ 0, %197 ], [ -22, %8 ], [ -12, %109 ], [ -22, %13 ], [ -22, %16 ], [ %209, %214 ], [ %209, %212 ]
+  %216 = phi i32 [ %12, %11 ], [ %108, %.thread17 ], [ 0, %197 ], [ %209, %215 ], [ -22, %13 ], [ -22, %16 ], [ -22, %8 ], [ -12, %109 ], [ %209, %214 ], [ %209, %212 ]
   ret i32 %216
 }
 
@@ -2385,7 +2385,7 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.thread18
 
 .thread18:                                        ; preds = %129, %131, %116, %118, %73, %75, %77
-  %79 = phi i64 [ %78, %77 ], [ %63, %73 ], [ %102, %116 ], [ %63, %75 ], [ %102, %118 ], [ %63, %131 ], [ %63, %129 ]
+  %79 = phi i64 [ %78, %77 ], [ %63, %75 ], [ %63, %73 ], [ %102, %118 ], [ %102, %116 ], [ %63, %131 ], [ %63, %129 ]
   %80 = load i16, ptr %50, align 2
   %81 = zext i16 %80 to i32
   %82 = tail call fastcc ptr @unix_find_other(ptr noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef %81)
@@ -2579,8 +2579,8 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.thread27
 
 173:                                              ; preds = %.critedge, %170, %.loopexit, %.loopexit29, %46
-  %174 = phi i32 [ %168, %.loopexit ], [ %172, %.critedge ], [ -12, %46 ], [ %60, %.loopexit29 ], [ %168, %170 ]
-  %175 = phi ptr [ null, %.loopexit ], [ %62, %.critedge ], [ null, %46 ], [ null, %.loopexit29 ], [ %62, %170 ]
+  %174 = phi i32 [ -12, %46 ], [ %60, %.loopexit29 ], [ %168, %170 ], [ %168, %.loopexit ], [ %172, %.critedge ]
+  %175 = phi ptr [ null, %46 ], [ null, %.loopexit29 ], [ %62, %170 ], [ null, %.loopexit ], [ %62, %.critedge ]
   tail call void @kfree_skb_reason(ptr noundef %47, i32 noundef 2) #19
   %176 = icmp eq ptr %41, null
   br i1 %176, label %178, label %177
@@ -2613,7 +2613,7 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.thread27
 
 .thread27:                                        ; preds = %184, %186, %.thread25, %187, %178, %152
-  %188 = phi i32 [ 0, %152 ], [ %174, %178 ], [ %.ph, %.thread25 ], [ %174, %187 ], [ %174, %186 ], [ %174, %184 ]
+  %188 = phi i32 [ 0, %152 ], [ %174, %178 ], [ %174, %187 ], [ %.ph, %.thread25 ], [ %174, %186 ], [ %174, %184 ]
   ret i32 %188
 }
 
@@ -2779,7 +2779,7 @@ define internal i32 @unix_accept(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %59
 
 59:                                               ; preds = %19, %4, %10, %51
-  %60 = phi i32 [ 0, %51 ], [ -95, %4 ], [ %spec.select, %19 ], [ -22, %10 ]
+  %60 = phi i32 [ 0, %51 ], [ -22, %10 ], [ -95, %4 ], [ %spec.select, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %60
 }
@@ -2884,7 +2884,7 @@ define internal i32 @unix_getname(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %50, %52, %54, %53
-  %55 = phi i32 [ %46, %53 ], [ -107, %54 ], [ %46, %52 ], [ %46, %50 ]
+  %55 = phi i32 [ -107, %54 ], [ %46, %53 ], [ %46, %52 ], [ %46, %50 ]
   ret i32 %55
 }
 
@@ -4489,7 +4489,7 @@ define internal fastcc i32 @unix_autobind(ptr noundef %0) unnamed_addr #0 align 
   br label %.thread10
 
 .thread10:                                        ; preds = %103, %105, %109, %.loopexit, %106, %13, %9
-  %112 = phi i32 [ 0, %9 ], [ -12, %13 ], [ 0, %.loopexit ], [ -28, %106 ], [ 0, %109 ], [ -28, %105 ], [ -28, %103 ]
+  %112 = phi i32 [ 0, %9 ], [ -12, %13 ], [ -28, %106 ], [ 0, %109 ], [ 0, %.loopexit ], [ -28, %105 ], [ -28, %103 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #19
   br label %113
 
@@ -4846,7 +4846,7 @@ define internal fastcc ptr @unix_find_other(ptr noundef readonly captures(none) 
   br label %.thread14
 
 .thread14:                                        ; preds = %77, %79, %.thread12, %80, %25, %15
-  %81 = phi i32 [ %23, %15 ], [ -111, %.thread12 ], [ -111, %25 ], [ -91, %80 ], [ -91, %79 ], [ -91, %77 ]
+  %81 = phi i32 [ %23, %15 ], [ -111, %25 ], [ -91, %80 ], [ -111, %.thread12 ], [ -91, %79 ], [ -91, %77 ]
   call void @path_put(ptr noundef nonnull %5) #19
   br label %82
 
@@ -5948,7 +5948,7 @@ define internal i32 @unix_dgram_connect(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.thread19
 
 .thread19:                                        ; preds = %174, %176, %154, %156, %177, %164, %158, %157, %.loopexit, %29, %11, %4
-  %178 = phi i32 [ -22, %4 ], [ -22, %11 ], [ %44, %.loopexit ], [ %30, %29 ], [ 0, %158 ], [ 0, %157 ], [ 0, %164 ], [ 0, %154 ], [ %167, %177 ], [ 0, %156 ], [ %167, %176 ], [ %167, %174 ]
+  %178 = phi i32 [ -22, %4 ], [ -22, %11 ], [ %44, %.loopexit ], [ %30, %29 ], [ 0, %157 ], [ 0, %164 ], [ %167, %177 ], [ 0, %158 ], [ 0, %156 ], [ 0, %154 ], [ %167, %176 ], [ %167, %174 ]
   ret i32 %178
 }
 
@@ -6690,12 +6690,12 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   call void @_raw_spin_unlock(ptr noundef nonnull %142) #19
   br label %.loopexit28
 
-.loopexit28:                                      ; preds = %255, %248, %167, %191, %184, %.thread22, %.split71.us
+.loopexit28:                                      ; preds = %255, %248, %167, %184, %191, %.thread22, %.split71.us
   call void @_raw_spin_unlock(ptr noundef nonnull %168) #19
   br label %.critedge
 
 .critedge:                                        ; preds = %267, %276, %246, %151, %241, %245, %.loopexit28, %166, %159, %119, %115
-  %302 = phi ptr [ %51, %115 ], [ %51, %119 ], [ %163, %166 ], [ %163, %.loopexit28 ], [ null, %159 ], [ null, %245 ], [ null, %241 ], [ null, %246 ], [ null, %151 ], [ %163, %276 ], [ %163, %267 ]
+  %302 = phi ptr [ %51, %115 ], [ %51, %119 ], [ %163, %166 ], [ %163, %.loopexit28 ], [ null, %159 ], [ null, %245 ], [ null, %241 ], [ null, %151 ], [ null, %246 ], [ %163, %276 ], [ %163, %267 ]
   call void @kfree_skb_reason(ptr noundef nonnull %88, i32 noundef 2) #19
   br label %304
 
@@ -6704,7 +6704,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.thread24
 
 304:                                              ; preds = %.critedge, %82, %68, %65
-  %305 = phi ptr [ %302, %.critedge ], [ %51, %65 ], [ %51, %68 ], [ %51, %82 ]
+  %305 = phi ptr [ %51, %68 ], [ %51, %82 ], [ %302, %.critedge ], [ %51, %65 ]
   %306 = icmp eq ptr %305, null
   br i1 %306, label %.thread24, label %307
 
@@ -6727,7 +6727,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   call void @sk_free(ptr noundef nonnull %305) #19
   br label %.thread24
 
-.thread24:                                        ; preds = %311, %313, %303, %.thread18, %.thread, %314, %304
+.thread24:                                        ; preds = %311, %313, %.thread18, %303, %.thread, %314, %304
   %315 = load ptr, ptr %4, align 8
   call void @put_pid(ptr noundef %315) #19
   store ptr null, ptr %4, align 8
@@ -7489,7 +7489,7 @@ define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr n
   br i1 %105, label %.loopexit, label %72, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.loopexit23, %.preheader21, %.loopexit19, %.preheader, %56, %49, %7
-  %106 = phi ptr [ null, %7 ], [ %53, %49 ], [ null, %56 ], [ %89, %.preheader21 ], [ %32, %.preheader ], [ null, %.loopexit19 ], [ null, %.loopexit23 ]
+  %106 = phi ptr [ null, %7 ], [ %53, %49 ], [ null, %56 ], [ %32, %.preheader ], [ null, %.loopexit19 ], [ %89, %.preheader21 ], [ null, %.loopexit23 ]
   ret ptr %106
 }
 

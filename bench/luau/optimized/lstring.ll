@@ -392,7 +392,7 @@ _Z11luaS_resizeP9lua_Statei.exit:                 ; preds = %._crit_edge.i, %.pr
   br label %100
 
 100:                                              ; preds = %57, %48, %.critedge, %_Z11luaS_resizeP9lua_Statei.exit
-  %.1 = phi ptr [ %1, %.critedge ], [ %1, %_Z11luaS_resizeP9lua_Statei.exit ], [ %.03749, %48 ], [ %.03749, %57 ]
+  %.1 = phi ptr [ %1, %_Z11luaS_resizeP9lua_Statei.exit ], [ %1, %.critedge ], [ %.03749, %48 ], [ %.03749, %57 ]
   ret ptr %.1
 }
 
@@ -630,7 +630,7 @@ _Z11luaS_resizeP9lua_Statei.exit.i:               ; preds = %._crit_edge.i.i, %.
   br label %_ZL7newlstrP9lua_StatePKcmj.exit
 
 _ZL7newlstrP9lua_StatePKcmj.exit:                 ; preds = %_Z11luaS_resizeP9lua_Statei.exit.i, %62, %56, %47
-  %.1 = phi ptr [ %.02130, %56 ], [ %.02130, %47 ], [ %66, %62 ], [ %66, %_Z11luaS_resizeP9lua_Statei.exit.i ]
+  %.1 = phi ptr [ %.02130, %47 ], [ %.02130, %56 ], [ %66, %62 ], [ %66, %_Z11luaS_resizeP9lua_Statei.exit.i ]
   ret ptr %.1
 }
 

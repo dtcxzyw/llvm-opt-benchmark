@@ -722,7 +722,7 @@ cmd_show_ref__patterns.exit:                      ; preds = %.thread.i12, %.thre
   br label %cmd_show_ref__verify.exit
 
 cmd_show_ref__verify.exit:                        ; preds = %thread-pre-split.i, %245, %cmd_show_ref__patterns.exit, %cmd_show_ref__exists.exit, %cmd_show_ref__exclude_existing.exit
-  %.0 = phi i32 [ 0, %cmd_show_ref__exclude_existing.exit ], [ %..i, %cmd_show_ref__patterns.exit ], [ %.0.i, %cmd_show_ref__exists.exit ], [ 1, %245 ], [ 0, %thread-pre-split.i ]
+  %.0 = phi i32 [ 0, %cmd_show_ref__exclude_existing.exit ], [ %.0.i, %cmd_show_ref__exists.exit ], [ %..i, %cmd_show_ref__patterns.exit ], [ 1, %245 ], [ 0, %thread-pre-split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

@@ -294,7 +294,7 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   br label %138
 
 138:                                              ; preds = %134, %97, %86, %72, %64, %52, %41, %33, %25
-  %.071 = phi ptr [ null, %33 ], [ null, %52 ], [ null, %64 ], [ null, %72 ], [ null, %86 ], [ %84, %97 ], [ %84, %134 ], [ null, %25 ], [ null, %41 ]
+  %.071 = phi ptr [ null, %33 ], [ null, %52 ], [ null, %64 ], [ null, %72 ], [ null, %86 ], [ %84, %97 ], [ %84, %134 ], [ null, %41 ], [ null, %25 ]
   %139 = load ptr, ptr %5, align 8
   %.not84 = icmp eq ptr %139, null
   br i1 %.not84, label %.thread, label %140
@@ -523,8 +523,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %32
 
 32:                                               ; preds = %15, %16, %31
-  %.0102 = phi i32 [ 0, %16 ], [ 0, %31 ], [ 128, %15 ]
-  %.196 = phi i32 [ 2, %16 ], [ 2, %31 ], [ 0, %15 ]
+  %.0102 = phi i32 [ 0, %31 ], [ 0, %16 ], [ 128, %15 ]
+  %.196 = phi i32 [ 2, %31 ], [ 2, %16 ], [ 0, %15 ]
   %33 = getelementptr i8, ptr %1, i64 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 697
   %35 = load i8, ptr %34, align 1, !tbaa !48
@@ -821,7 +821,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %.thread123
 
 .thread123:                                       ; preds = %27, %103, %88, %79, %70, %64, %56, %.thread141, %5, %204, %.thread130
-  %.089 = phi i32 [ -1, %204 ], [ %.1139, %.thread130 ], [ -1, %.thread141 ], [ 0, %5 ], [ -1, %56 ], [ -1, %64 ], [ -1, %70 ], [ -1, %79 ], [ -1, %88 ], [ -1, %103 ], [ -1, %27 ]
+  %.089 = phi i32 [ -1, %204 ], [ %.1139, %.thread130 ], [ 0, %5 ], [ -1, %.thread141 ], [ -1, %56 ], [ -1, %64 ], [ -1, %70 ], [ -1, %79 ], [ -1, %88 ], [ -1, %103 ], [ -1, %27 ]
   ret i32 %.089
 }
 
@@ -1205,8 +1205,8 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   %200 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__man_remove, i32 noundef 635, i64 noundef %198, i64 noundef %199, ptr noundef nonnull @.str.10) #5
   br label %.thread
 
-.thread:                                          ; preds = %110, %98, %23, %161, %154, %147, %84, %75, %66, %60, %52, %184, %194, %197
-  %.2 = phi i32 [ -1, %197 ], [ -1, %194 ], [ -1, %52 ], [ 0, %184 ], [ -1, %110 ], [ -1, %98 ], [ -1, %23 ], [ -1, %161 ], [ -1, %154 ], [ -1, %147 ], [ -1, %84 ], [ -1, %75 ], [ -1, %66 ], [ -1, %60 ]
+.thread:                                          ; preds = %23, %110, %98, %161, %154, %147, %84, %75, %66, %60, %52, %184, %194, %197
+  %.2 = phi i32 [ -1, %197 ], [ -1, %194 ], [ 0, %184 ], [ -1, %23 ], [ -1, %110 ], [ -1, %98 ], [ -1, %161 ], [ -1, %154 ], [ -1, %147 ], [ -1, %84 ], [ -1, %75 ], [ -1, %66 ], [ -1, %60 ], [ -1, %52 ]
   %201 = load ptr, ptr %3, align 8, !tbaa !65
   %.not96 = icmp eq ptr %201, null
   br i1 %.not96, label %211, label %202

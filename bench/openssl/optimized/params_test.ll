@@ -736,7 +736,7 @@ init_app_variables.exit80:                        ; preds = %92, %95, %99
   br label %194
 
 194:                                              ; preds = %134, %init_object.exit, %25, %190, %193
-  %.0 = phi i32 [ %.2, %190 ], [ 1, %193 ], [ 1, %init_object.exit ], [ 1, %25 ], [ 1, %134 ]
+  %.0 = phi i32 [ %.2, %190 ], [ 1, %193 ], [ 1, %25 ], [ 1, %init_object.exit ], [ 1, %134 ]
   %195 = load ptr, ptr %3, align 8, !tbaa !27
   call void @BN_free(ptr noundef %195) #7
   store ptr null, ptr %3, align 8, !tbaa !27
@@ -937,7 +937,7 @@ sub_166:                                          ; preds = %.tail59, %sub_161
   br i1 %.not, label %.critedge, label %sub_0, !llvm.loop !47
 
 .critedge:                                        ; preds = %37, %51, %.tail64.thread, %67, %2
-  %.1 = phi i32 [ 1, %2 ], [ 0, %67 ], [ 0, %51 ], [ 1, %.tail64.thread ], [ 0, %37 ]
+  %.1 = phi i32 [ 1, %2 ], [ 0, %67 ], [ 1, %.tail64.thread ], [ 0, %51 ], [ 0, %37 ]
   ret i32 %.1
 }
 
@@ -1126,7 +1126,7 @@ sub_165:                                          ; preds = %.tail58, %sub_160
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %36, %58, %75, %.tail63.thread, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %.tail63.thread ], [ 0, %58 ], [ 0, %75 ], [ 0, %36 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %.tail63.thread ], [ 0, %75 ], [ 0, %58 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -1270,7 +1270,7 @@ define internal range(i32 0, 2) i32 @api_set_params(ptr noundef %0, ptr noundef 
   br label %58
 
 58:                                               ; preds = %46, %54, %48, %.critedge, %28, %20, %12, %5
-  %.026 = phi i32 [ 0, %48 ], [ 0, %.critedge ], [ 1, %46 ], [ 0, %20 ], [ 0, %12 ], [ 0, %5 ], [ 0, %28 ], [ 1, %54 ]
+  %.026 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %20 ], [ 0, %28 ], [ 0, %.critedge ], [ 0, %48 ], [ 1, %54 ], [ 1, %46 ]
   ret i32 %.026
 }
 
@@ -1367,7 +1367,7 @@ define internal range(i32 0, 2) i32 @api_get_params(ptr noundef %0, ptr noundef 
   br label %55
 
 55:                                               ; preds = %47, %39, %30, %21, %12, %4, %54
-  %.0 = phi i32 [ 1, %54 ], [ 0, %39 ], [ 0, %30 ], [ 0, %21 ], [ 0, %12 ], [ 0, %4 ], [ 0, %47 ]
+  %.0 = phi i32 [ 1, %54 ], [ 0, %4 ], [ 0, %12 ], [ 0, %21 ], [ 0, %30 ], [ 0, %39 ], [ 0, %47 ]
   ret i32 %.0
 }
 

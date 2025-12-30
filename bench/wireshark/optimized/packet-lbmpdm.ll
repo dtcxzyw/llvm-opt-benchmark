@@ -320,7 +320,7 @@ define hidden noundef zeroext i1 @lbmpdm_verify_payload(ptr noundef %0, i32 noun
   br label %check_lbmpdm_encoding.exit
 
 check_lbmpdm_encoding.exit:                       ; preds = %18, %26, %23, %4, %31
-  %.0 = phi i1 [ false, %26 ], [ false, %23 ], [ true, %31 ], [ false, %4 ], [ false, %18 ]
+  %.0 = phi i1 [ true, %31 ], [ false, %4 ], [ false, %23 ], [ false, %26 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -1003,7 +1003,7 @@ switch.lookup:                                    ; preds = %383
   br label %390
 
 390:                                              ; preds = %383, %switch.lookup
-  %.sink301.i = phi i16 [ 17, %383 ], [ %switch.load, %switch.lookup ]
+  %.sink301.i = phi i16 [ %switch.load, %switch.lookup ], [ 17, %383 ]
   store i16 %.sink301.i, ptr %387, align 4
   %391 = load i8, ptr %374, align 1
   %392 = icmp eq i8 %391, 1
@@ -1076,7 +1076,7 @@ dissect_segment_data.exit.sink.split:             ; preds = %112, %127, %417
   br label %dissect_segment_data.exit
 
 dissect_segment_data.exit:                        ; preds = %410, %220, %153, %dissect_segment_data.exit.sink.split, %297, %.preheader.i92, %.preheader.i
-  %.sroa.10101.1 = phi ptr [ %.sroa.10101.0107, %297 ], [ %204, %220 ], [ %.sroa.10101.0107, %dissect_segment_data.exit.sink.split ], [ %.sroa.10101.0107, %153 ], [ %.sroa.10101.0107, %.preheader.i ], [ %204, %.preheader.i92 ], [ %.sroa.10101.0107, %410 ]
+  %.sroa.10101.1 = phi ptr [ %.sroa.10101.0107, %.preheader.i ], [ %204, %.preheader.i92 ], [ %.sroa.10101.0107, %297 ], [ %.sroa.10101.0107, %dissect_segment_data.exit.sink.split ], [ %.sroa.10101.0107, %153 ], [ %204, %220 ], [ %.sroa.10101.0107, %410 ]
   %435 = add i32 %111, %.1108
   %436 = sub i32 %.086109, %111
   %437 = add i32 %111, %.085110
@@ -1247,9 +1247,9 @@ proto_item_set_generated.exit75:                  ; preds = %proto_item_set_gene
   br label %65
 
 65:                                               ; preds = %proto_item_set_generated.exit75, %57, %61
-  %.065 = phi i32 [ %1, %57 ], [ %64, %61 ], [ %1, %proto_item_set_generated.exit75 ]
-  %.064 = phi i32 [ %55, %57 ], [ %55, %61 ], [ 1, %proto_item_set_generated.exit75 ]
-  %.062 = phi i32 [ 0, %57 ], [ 4, %61 ], [ 0, %proto_item_set_generated.exit75 ]
+  %.065 = phi i32 [ %64, %61 ], [ %1, %57 ], [ %1, %proto_item_set_generated.exit75 ]
+  %.064 = phi i32 [ %55, %61 ], [ %55, %57 ], [ 1, %proto_item_set_generated.exit75 ]
+  %.062 = phi i32 [ 4, %61 ], [ 0, %57 ], [ 0, %proto_item_set_generated.exit75 ]
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 20

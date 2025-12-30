@@ -473,8 +473,8 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly captures(address
   br label %.thread264
 
 .thread264:                                       ; preds = %224, %.loopexit, %230
-  %.1178276 = phi i32 [ -1, %230 ], [ -1, %.loopexit ], [ 0, %224 ]
-  %.0196275 = phi ptr [ %.3199.ph, %230 ], [ %.3199.ph, %.loopexit ], [ %.4200, %224 ]
+  %.1178276 = phi i32 [ -1, %.loopexit ], [ -1, %230 ], [ 0, %224 ]
+  %.0196275 = phi ptr [ %.3199.ph, %.loopexit ], [ %.3199.ph, %230 ], [ %.4200, %224 ]
   %.not250 = icmp eq ptr %.0196275, null
   br i1 %.not250, label %.thread264.thread, label %244
 

@@ -59,7 +59,7 @@ define hidden range(i32 0, 2) i32 @WebPReportProgress(ptr noundef %0, i32 nounde
   br label %WebPEncodingSetError.exit
 
 WebPEncodingSetError.exit:                        ; preds = %15, %11, %3, %4, %9, %6
-  %.0 = phi i32 [ 1, %3 ], [ 1, %6 ], [ 1, %9 ], [ 1, %4 ], [ 0, %11 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %9 ], [ 1, %4 ], [ 1, %3 ], [ 0, %11 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -291,8 +291,8 @@ WebPEncodingSetError.exit:                        ; preds = %4
   %106 = tail call i32 @VP8LEncodeImage(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
   br label %.critedge86
 
-.critedge86:                                      ; preds = %92, %90, %26, %23, %12, %9, %54, %65, %71, %105, %99, %13, %2, %WebPEncodingSetError.exit
-  %.0 = phi i32 [ 0, %54 ], [ 0, %WebPEncodingSetError.exit ], [ 0, %12 ], [ 0, %99 ], [ 0, %13 ], [ 0, %26 ], [ 0, %2 ], [ %106, %105 ], [ 0, %71 ], [ 0, %65 ], [ 0, %9 ], [ 0, %23 ], [ %94, %92 ], [ 0, %90 ]
+.critedge86:                                      ; preds = %92, %90, %26, %23, %12, %9, %65, %54, %71, %105, %99, %13, %2, %WebPEncodingSetError.exit
+  %.0 = phi i32 [ 0, %WebPEncodingSetError.exit ], [ 0, %2 ], [ 0, %13 ], [ 0, %99 ], [ %106, %105 ], [ 0, %71 ], [ 0, %54 ], [ 0, %65 ], [ 0, %9 ], [ 0, %12 ], [ 0, %23 ], [ 0, %26 ], [ %94, %92 ], [ 0, %90 ]
   ret i32 %.0
 }
 

@@ -726,7 +726,7 @@ BufferGetPage.exit128:                            ; preds = %163, %169
   unreachable
 
 .thread:                                          ; preds = %42, %57, %148, %192
-  %.0 = phi i32 [ 0, %57 ], [ %161, %192 ], [ %62, %148 ], [ %14, %42 ]
+  %.0 = phi i32 [ %161, %192 ], [ %62, %148 ], [ 0, %57 ], [ %14, %42 ]
   ret i32 %.0
 }
 
@@ -945,7 +945,7 @@ BTPageGetDeleteXid.exit:                          ; preds = %48, %58
   br label %79
 
 79:                                               ; preds = %76, %69, %72, %67, %61, %BTPageGetDeleteXid.exit
-  %80 = phi i8 [ 1, %67 ], [ 0, %BTPageGetDeleteXid.exit ], [ 0, %61 ], [ %78, %76 ], [ 0, %72 ], [ 0, %69 ]
+  %80 = phi i8 [ 0, %61 ], [ 0, %BTPageGetDeleteXid.exit ], [ 1, %67 ], [ %78, %76 ], [ 0, %69 ], [ 0, %72 ]
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %80, ptr %81, align 8
   tail call void @XLogBeginInsert() #9
@@ -1765,7 +1765,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   br label %47
 
 47:                                               ; preds = %44, %37, %40, %35, %29, %BufferGetPage.exit
-  %48 = phi i8 [ 1, %35 ], [ 0, %BufferGetPage.exit ], [ 0, %29 ], [ %46, %44 ], [ 0, %40 ], [ 0, %37 ]
+  %48 = phi i8 [ 0, %29 ], [ 0, %BufferGetPage.exit ], [ 1, %35 ], [ %46, %44 ], [ 0, %37 ], [ 0, %40 ]
   %49 = load i32, ptr @wal_level, align 4
   %50 = icmp sgt i32 %49, 0
   %spec.select = select i1 %50, i32 %26, i32 0
@@ -2232,9 +2232,9 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %192, %BTreeTupleIsP
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %206, %._crit_edge, %266, %262, %BTreeTupleIsPosting.exit.thread, %202, %177
-  %.193 = phi i32 [ %.092130, %177 ], [ %.092130, %BTreeTupleIsPosting.exit.thread ], [ %.092130, %202 ], [ %.092130, %._crit_edge ], [ %.092130, %262 ], [ %267, %266 ], [ %.092130, %206 ]
-  %.186 = phi i32 [ %.085131, %177 ], [ %.085131, %BTreeTupleIsPosting.exit.thread ], [ %203, %202 ], [ %.085131, %._crit_edge ], [ %263, %262 ], [ %.085131, %266 ], [ %.085131, %206 ]
-  %.1 = phi i16 [ %.082132, %177 ], [ %.082132, %BTreeTupleIsPosting.exit.thread ], [ %.082132, %202 ], [ %185, %._crit_edge ], [ %185, %262 ], [ %185, %266 ], [ %185, %206 ]
+  %.193 = phi i32 [ %.092130, %177 ], [ %.092130, %202 ], [ %.092130, %BTreeTupleIsPosting.exit.thread ], [ %.092130, %._crit_edge ], [ %.092130, %262 ], [ %267, %266 ], [ %.092130, %206 ]
+  %.186 = phi i32 [ %.085131, %177 ], [ %203, %202 ], [ %.085131, %BTreeTupleIsPosting.exit.thread ], [ %.085131, %._crit_edge ], [ %263, %262 ], [ %.085131, %266 ], [ %.085131, %206 ]
+  %.1 = phi i16 [ %.082132, %177 ], [ %.082132, %202 ], [ %.082132, %BTreeTupleIsPosting.exit.thread ], [ %185, %._crit_edge ], [ %185, %262 ], [ %185, %266 ], [ %185, %206 ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %270 = load i32, ptr %53, align 4
   %271 = sext i32 %270 to i64
@@ -2997,7 +2997,7 @@ _bt_mark_page_halfdead.exit:                      ; preds = %350, %358, %361, %B
   %.pre = load i16, ptr %54, align 4
   br label %416
 
-.loopexit:                                        ; preds = %_bt_leftsib_splitflag.exit.i.i, %224, %181, %298, %183, %189, %tailrecurse._crit_edge.i.i
+.loopexit:                                        ; preds = %_bt_leftsib_splitflag.exit.i.i, %224, %298, %183, %181, %189, %tailrecurse._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #9
   call void @ReleaseBuffer(i32 noundef %.0) #9
@@ -3108,11 +3108,11 @@ BufferGetPage.exit.i77:                           ; preds = %431, %427
   br label %.thread.i
 
 .thread.i:                                        ; preds = %476, %468, %452
-  %.not274340.i = phi i1 [ true, %468 ], [ false, %476 ], [ true, %452 ]
-  %.0255339.i = phi i32 [ %425, %468 ], [ %446, %476 ], [ %425, %452 ]
-  %.0256338.i = phi i32 [ %473, %468 ], [ %473, %476 ], [ %447, %452 ]
-  %.0265337.i = phi i32 [ %475, %468 ], [ %475, %476 ], [ 0, %452 ]
-  %.0266335.i = phi i32 [ %454, %468 ], [ %454, %476 ], [ %.0, %452 ]
+  %.not274340.i = phi i1 [ false, %476 ], [ true, %468 ], [ true, %452 ]
+  %.0255339.i = phi i32 [ %446, %476 ], [ %425, %468 ], [ %425, %452 ]
+  %.0256338.i = phi i32 [ %473, %476 ], [ %473, %468 ], [ %447, %452 ]
+  %.0265337.i = phi i32 [ %475, %476 ], [ %475, %468 ], [ 0, %452 ]
+  %.0266335.i = phi i32 [ %454, %476 ], [ %454, %468 ], [ %.0, %452 ]
   %.not275.i = icmp eq i32 %.0256338.i, 0
   br i1 %.not275.i, label %.loopexit.i, label %477
 
@@ -4008,7 +4008,7 @@ _bt_unlink_halfdead_page.exit:                    ; preds = %902, %915
   call void @_bt_checkpage(ptr noundef %0, i32 noundef %943)
   br label %36
 
-_bt_unlink_halfdead_page.exit.thread:             ; preds = %941, %515, %514, %646, %645, %.thread, %.loopexit, %94, %79
+_bt_unlink_halfdead_page.exit.thread:             ; preds = %941, %515, %514, %645, %646, %.thread, %.loopexit, %94, %79
   ret void
 }
 

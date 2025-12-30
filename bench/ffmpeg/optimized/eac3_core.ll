@@ -150,7 +150,7 @@ define internal range(i32 -2147483648, 1) i32 @eac3_core_filter(ptr noundef %0, 
   br label %74
 
 74:                                               ; preds = %.thread, %31, %72, %2, %73
-  %.031 = phi i32 [ %6, %2 ], [ -1094995529, %73 ], [ 0, %.thread ], [ 0, %72 ], [ 0, %31 ]
+  %.031 = phi i32 [ -1094995529, %73 ], [ %6, %2 ], [ 0, %72 ], [ 0, %31 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.031

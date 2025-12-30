@@ -358,8 +358,8 @@ fmap_readn.exit.thread.i:                         ; preds = %65, %63
   br i1 %97, label %58, label %fmap_readn.exit.thread66.i
 
 fmap_readn.exit.thread66.i:                       ; preds = %96, %82, %61
-  %.145.i = phi i32 [ 0, %61 ], [ %78, %82 ], [ %78, %96 ]
-  %.143.i = phi i64 [ %.042.i, %61 ], [ %.042.i, %82 ], [ %.2.i, %96 ]
+  %.145.i = phi i32 [ %78, %82 ], [ %78, %96 ], [ 0, %61 ]
+  %.143.i = phi i64 [ %.042.i, %82 ], [ %.2.i, %96 ], [ %.042.i, %61 ]
   %98 = call i32 @inflateEnd(ptr noundef nonnull %8) #8
   %or.cond.i = icmp ugt i32 %.145.i, 1
   %99 = icmp ne i32 %98, 0
@@ -432,7 +432,7 @@ fmap_readn.exit.thread66.i:                       ; preds = %96, %82, %61
   br label %scancws.exit
 
 scancws.exit:                                     ; preds = %33, %37, %52, %fmap_readn.exit.thread.i, %88, %102, %128, %130
-  %.0.i263 = phi i32 [ %32, %33 ], [ %..i, %37 ], [ %118, %130 ], [ %.72.i, %52 ], [ %.74.i, %88 ], [ %.73.i, %fmap_readn.exit.thread.i ], [ 10, %128 ], [ %.75.i, %102 ]
+  %.0.i263 = phi i32 [ %32, %33 ], [ %118, %130 ], [ 10, %128 ], [ %..i, %37 ], [ %.72.i, %52 ], [ %.73.i, %fmap_readn.exit.thread.i ], [ %.74.i, %88 ], [ %.75.i, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -769,7 +769,7 @@ fmap_readn.exit91.thread.i:                       ; preds = %207, %205
   br label %scanzws.exit
 
 scanzws.exit:                                     ; preds = %138, %142, %fmap_readn.exit.thread.i272, %fmap_readn.exit86.thread.i, %fmap_readn.exit86.thread95.i, %194, %fmap_readn.exit91.thread.i, %227, %240, %266, %268
-  %.0.i265 = phi i32 [ %137, %138 ], [ %..i267, %142 ], [ %.131.i, %240 ], [ %.125.i, %fmap_readn.exit.thread.i272 ], [ %.130.i, %227 ], [ %.126.i, %fmap_readn.exit86.thread.i ], [ 10, %266 ], [ %.127.i, %fmap_readn.exit86.thread95.i ], [ %256, %268 ], [ %.128.i, %194 ], [ %.129.i, %fmap_readn.exit91.thread.i ]
+  %.0.i265 = phi i32 [ %137, %138 ], [ %256, %268 ], [ 10, %266 ], [ %..i267, %142 ], [ %.125.i, %fmap_readn.exit.thread.i272 ], [ %.126.i, %fmap_readn.exit86.thread.i ], [ %.127.i, %fmap_readn.exit86.thread95.i ], [ %.128.i, %194 ], [ %.129.i, %fmap_readn.exit91.thread.i ], [ %.130.i, %227 ], [ %.131.i, %240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1474,7 +1474,7 @@ fmap_readn.exit389.thread:                        ; preds = %510, %fmap_readn.ex
   br label %.backedge
 
 .critedge:                                        ; preds = %fmap_readn.exit328, %.backedge, %.preheader, %fmap_readn.exit354.thread, %fmap_readn.exit359.thread, %fmap_readn.exit364.thread, %fmap_readn.exit369.thread, %fmap_readn.exit283.thread, %fmap_readn.exit288.thread, %fmap_readn.exit293.thread, %fmap_readn.exit298.thread, %456, %fmap_readn.exit318, %fmap_readn.exit389.thread, %fmap_readn.exit384.thread, %fmap_readn.exit379.thread, %fmap_readn.exit374.thread, %452, %fmap_readn.exit348.thread, %fmap_readn.exit343.thread, %fmap_readn.exit338.thread, %fmap_readn.exit333.thread, %fmap_readn.exit328.thread, %fmap_readn.exit323.thread, %fmap_readn.exit318.thread, %fmap_readn.exit313.thread, %fmap_readn.exit308.thread, %fmap_readn.exit303.thread, %283, %276, %scanzws.exit, %scancws.exit, %fmap_readn.exit.thread
-  %.0 = phi i32 [ 0, %fmap_readn.exit.thread ], [ 0, %276 ], [ %.0.i263, %scancws.exit ], [ 0, %fmap_readn.exit318 ], [ 26, %452 ], [ 26, %fmap_readn.exit283.thread ], [ 26, %fmap_readn.exit389.thread ], [ 26, %fmap_readn.exit384.thread ], [ 26, %fmap_readn.exit379.thread ], [ 26, %fmap_readn.exit374.thread ], [ 26, %fmap_readn.exit348.thread ], [ 26, %fmap_readn.exit343.thread ], [ 26, %fmap_readn.exit338.thread ], [ 26, %fmap_readn.exit333.thread ], [ 26, %fmap_readn.exit328.thread ], [ 26, %fmap_readn.exit323.thread ], [ %.0.i265, %scanzws.exit ], [ 26, %fmap_readn.exit318.thread ], [ 26, %fmap_readn.exit313.thread ], [ 26, %fmap_readn.exit308.thread ], [ 26, %fmap_readn.exit303.thread ], [ 26, %fmap_readn.exit359.thread ], [ 26, %283 ], [ 26, %fmap_readn.exit354.thread ], [ 0, %456 ], [ 26, %fmap_readn.exit298.thread ], [ 26, %fmap_readn.exit293.thread ], [ 26, %fmap_readn.exit288.thread ], [ 26, %fmap_readn.exit369.thread ], [ 26, %fmap_readn.exit364.thread ], [ 0, %.preheader ], [ 0, %.backedge ], [ 0, %fmap_readn.exit328 ]
+  %.0 = phi i32 [ 0, %fmap_readn.exit.thread ], [ 0, %276 ], [ 26, %452 ], [ 26, %fmap_readn.exit389.thread ], [ 26, %fmap_readn.exit384.thread ], [ 26, %fmap_readn.exit379.thread ], [ 26, %fmap_readn.exit374.thread ], [ 26, %fmap_readn.exit348.thread ], [ 26, %fmap_readn.exit343.thread ], [ 26, %fmap_readn.exit338.thread ], [ 26, %fmap_readn.exit333.thread ], [ 26, %fmap_readn.exit328.thread ], [ 26, %fmap_readn.exit323.thread ], [ 26, %fmap_readn.exit318.thread ], [ 26, %fmap_readn.exit313.thread ], [ 26, %fmap_readn.exit308.thread ], [ 26, %fmap_readn.exit303.thread ], [ 26, %283 ], [ %.0.i265, %scanzws.exit ], [ %.0.i263, %scancws.exit ], [ 0, %fmap_readn.exit318 ], [ 0, %456 ], [ 26, %fmap_readn.exit298.thread ], [ 26, %fmap_readn.exit293.thread ], [ 26, %fmap_readn.exit288.thread ], [ 26, %fmap_readn.exit283.thread ], [ 26, %fmap_readn.exit369.thread ], [ 26, %fmap_readn.exit364.thread ], [ 26, %fmap_readn.exit359.thread ], [ 26, %fmap_readn.exit354.thread ], [ 0, %.preheader ], [ 0, %.backedge ], [ 0, %fmap_readn.exit328 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }

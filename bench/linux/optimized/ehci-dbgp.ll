@@ -996,7 +996,7 @@ dbgp_control_msg.exit.thread37:                   ; preds = %217, %203, %233
   br i1 %294, label %.thread, label %173
 
 .thread:                                          ; preds = %138, %31, %.thread6, %292, %150
-  %295 = phi i32 [ -19, %150 ], [ 0, %292 ], [ -19, %31 ], [ -19, %.thread6 ], [ -5, %138 ]
+  %295 = phi i32 [ -19, %150 ], [ 0, %292 ], [ -19, %.thread6 ], [ -19, %31 ], [ -5, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %295
 }
@@ -1305,7 +1305,7 @@ define internal fastcc range(i32 -250000, 16) i32 @dbgp_wait_until_done(i32 noun
   br label %.thread5
 
 .thread5:                                         ; preds = %48, %53, %.thread5.loopexit.split.loop.exit, %38, %42
-  %60 = phi i32 [ -250000, %38 ], [ -250000, %42 ], [ %59, %.thread5.loopexit.split.loop.exit ], [ %50, %53 ], [ %50, %48 ]
+  %60 = phi i32 [ -250000, %42 ], [ -250000, %38 ], [ %59, %.thread5.loopexit.split.loop.exit ], [ %50, %53 ], [ %50, %48 ]
   ret i32 %60
 }
 

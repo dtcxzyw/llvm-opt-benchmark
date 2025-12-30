@@ -215,7 +215,7 @@ define internal ptr @H5O__mdci_decode(ptr noundef %0, ptr readnone captures(none
   br label %.thread
 
 .thread:                                          ; preds = %99, %33, %26, %22, %75, %108, %73, %118, %6
-  %.039 = phi ptr [ null, %118 ], [ null, %22 ], [ null, %6 ], [ %31, %75 ], [ null, %26 ], [ %31, %108 ], [ %31, %73 ], [ null, %33 ], [ %31, %99 ]
+  %.039 = phi ptr [ null, %118 ], [ null, %6 ], [ %31, %75 ], [ %31, %108 ], [ %31, %73 ], [ null, %33 ], [ null, %26 ], [ null, %22 ], [ %31, %99 ]
   ret ptr %.039
 }
 

@@ -179,7 +179,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr n
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %55, %._crit_edge
-  %.0.lcssa32 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %55 ], [ 0, %2 ]
+  %.0.lcssa32 = phi i32 [ %.0.lcssa, %55 ], [ %.0.lcssa, %._crit_edge ], [ 0, %2 ]
   ret i32 %.0.lcssa32
 }
 
@@ -254,7 +254,7 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr noundef readonly captu
   br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 .loopexit:                                        ; preds = %26, %4, %.thread, %2
-  %.0 = phi ptr [ null, %.thread ], [ null, %2 ], [ %3, %4 ], [ %.130, %26 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %.thread ], [ %3, %4 ], [ %.130, %26 ]
   ret ptr %.0
 }
 

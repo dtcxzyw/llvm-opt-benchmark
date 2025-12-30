@@ -144,7 +144,7 @@ define range(i32 -1, 1) i32 @H5FS_debug(ptr noundef %0, i64 noundef %1, ptr noun
   br label %76
 
 76:                                               ; preds = %.thread68, %24, %72, %12
-  %.0 = phi i32 [ -1, %72 ], [ 0, %24 ], [ -1, %.thread68 ], [ 0, %12 ]
+  %.0 = phi i32 [ -1, %72 ], [ 0, %24 ], [ 0, %12 ], [ -1, %.thread68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

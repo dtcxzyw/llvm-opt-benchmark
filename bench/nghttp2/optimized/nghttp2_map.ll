@@ -243,7 +243,7 @@ define hidden range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures(no
   br label %insert.exit
 
 insert.exit:                                      ; preds = %42, %20, %17, %.loopexit
-  %.0 = phi i32 [ %19, %17 ], [ %21, %20 ], [ 0, %.loopexit ], [ -501, %42 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ %19, %17 ], [ %21, %20 ], [ -501, %42 ]
   ret i32 %.0
 }
 
@@ -424,7 +424,7 @@ define hidden ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i32 
   br i1 %35, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %.lr.ph.preheader, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %29 ], [ null, %.lr.ph ], [ %24, %.lr.ph.preheader ]
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %.lr.ph ], [ null, %29 ], [ %24, %.lr.ph.preheader ]
   ret ptr %.0
 }
 

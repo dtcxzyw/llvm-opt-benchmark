@@ -267,7 +267,7 @@ define internal range(i32 -2147483648, 1) i32 @aac_adtstoasc_filter(ptr noundef 
   br label %102
 
 102:                                              ; preds = %100, %43, %18, %2, %101
-  %.0 = phi i32 [ 0, %18 ], [ %9, %2 ], [ %.041, %101 ], [ 0, %100 ], [ 0, %43 ]
+  %.0 = phi i32 [ %.041, %101 ], [ %9, %2 ], [ 0, %18 ], [ 0, %100 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

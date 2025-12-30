@@ -103,7 +103,7 @@ define dso_local i64 @cliWriteConn(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %22, %25, %29, %33, %37
-  %.0.i = phi i64 [ %39, %37 ], [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ]
   %40 = icmp ugt i64 %.0.i, %2
   br i1 %40, label %41, label %hi_sdslen.exit.thread
 
@@ -168,7 +168,7 @@ hi_sdslen.exit.thread:                            ; preds = %16, %hi_sdslen.exit
   br label %hi_sdslen.exit24
 
 hi_sdslen.exit24:                                 ; preds = %53, %56, %60, %64, %68
-  %.0.i23 = phi i64 [ %70, %68 ], [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ]
+  %.0.i23 = phi i64 [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ]
   %71 = icmp ugt i64 %.0.i23, %2
   br i1 %71, label %72, label %hi_sdslen.exit24.thread
 
@@ -218,13 +218,13 @@ default.unreachable:                              ; preds = %hi_sdslen.exit24.th
   unreachable
 
 hi_sdslen.exit26:                                 ; preds = %48, %75, %78, %82, %86, %90
-  %.0.i25 = phi i64 [ %92, %90 ], [ %77, %75 ], [ %81, %78 ], [ %85, %82 ], [ %89, %86 ], [ 0, %48 ]
+  %.0.i25 = phi i64 [ %77, %75 ], [ %81, %78 ], [ %85, %82 ], [ %89, %86 ], [ %92, %90 ], [ 0, %48 ]
   call void @hi_sdsclear(ptr noundef nonnull %46) #12
   %93 = sub i64 %2, %.0.i25
   br label %94
 
 94:                                               ; preds = %41, %hi_sdslen.exit.thread, %hi_sdslen.exit26, %72, %47
-  %.0 = phi i64 [ %93, %hi_sdslen.exit26 ], [ %2, %47 ], [ 0, %72 ], [ -1, %hi_sdslen.exit.thread ], [ -1, %41 ]
+  %.0 = phi i64 [ %2, %47 ], [ 0, %72 ], [ %93, %hi_sdslen.exit26 ], [ -1, %hi_sdslen.exit.thread ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }

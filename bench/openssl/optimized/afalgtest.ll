@@ -99,8 +99,8 @@ define internal range(i32 0, 2) i32 @test_afalg_aes_cbc(i32 noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %1, %12, %10, %8
-  %.014 = phi ptr [ %13, %12 ], [ %9, %8 ], [ %11, %10 ], [ null, %1 ]
-  %.013 = phi ptr [ @test_afalg_aes_cbc.encresult_256, %12 ], [ @test_afalg_aes_cbc.encresult_128, %8 ], [ @test_afalg_aes_cbc.encresult_192, %10 ], [ null, %1 ]
+  %.014 = phi ptr [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ null, %1 ]
+  %.013 = phi ptr [ @test_afalg_aes_cbc.encresult_128, %8 ], [ @test_afalg_aes_cbc.encresult_192, %10 ], [ @test_afalg_aes_cbc.encresult_256, %12 ], [ null, %1 ]
   %15 = tail call ptr @EVP_CIPHER_CTX_new() #3
   %16 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 82, ptr noundef nonnull @.str.5, ptr noundef %15) #3
   %.not = icmp eq i32 %16, 0
@@ -196,7 +196,7 @@ define internal range(i32 0, 2) i32 @test_afalg_aes_cbc(i32 noundef %0) #0 {
   br label %73
 
 73:                                               ; preds = %71, %66, %41, %46, %52, %58, %36, %17, %23, %28
-  %.0 = phi i32 [ 0, %17 ], [ %spec.select, %71 ], [ 0, %66 ], [ 0, %58 ], [ 0, %52 ], [ 0, %46 ], [ 0, %41 ], [ 0, %36 ], [ 0, %28 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %66 ], [ 0, %58 ], [ 0, %52 ], [ 0, %46 ], [ 0, %41 ], [ 0, %36 ], [ 0, %28 ], [ 0, %23 ], [ 0, %17 ], [ %spec.select, %71 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %15) #3
   br label %74
 

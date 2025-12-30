@@ -1426,7 +1426,7 @@ Py_DECREF.exit:                                   ; preds = %25, %22, %20, %.thr
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %34, %31, %29, %Py_DECREF.exit, %1, %12
-  %.0 = phi ptr [ null, %1 ], [ null, %12 ], [ %27, %Py_DECREF.exit ], [ %27, %29 ], [ %27, %31 ], [ %27, %34 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %1 ], [ %27, %Py_DECREF.exit ], [ %27, %29 ], [ %27, %31 ], [ %27, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1498,7 +1498,7 @@ define internal ptr @method_getattro(ptr noundef %0, ptr noundef %1) #0 {
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %20, %17, %14, %10, %5, %21
-  %.0 = phi ptr [ null, %5 ], [ %24, %21 ], [ %9, %10 ], [ %15, %14 ], [ %15, %17 ], [ %15, %20 ]
+  %.0 = phi ptr [ %24, %21 ], [ null, %5 ], [ %9, %10 ], [ %15, %14 ], [ %15, %17 ], [ %15, %20 ]
   ret ptr %.0
 }
 
@@ -1591,7 +1591,7 @@ define internal noundef ptr @method_richcompare(ptr noundef readonly captures(no
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %30, %25, %23, %5, %7, %3
-  %.018 = phi ptr [ @_Py_NotImplementedStruct, %5 ], [ null, %23 ], [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %7 ], [ %.017, %25 ], [ %.017, %30 ]
+  %.018 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %7 ], [ @_Py_NotImplementedStruct, %5 ], [ null, %23 ], [ %.017, %25 ], [ %.017, %30 ]
   ret ptr %.018
 }
 
@@ -1753,7 +1753,7 @@ _Py_NewRef.exit16.i:                              ; preds = %54, %_Py_NewRef.exi
   br label %method_new_impl.exit
 
 method_new_impl.exit:                             ; preds = %29, %24, %42, %_Py_NewRef.exit16.i, %16, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %16 ], [ null, %29 ], [ null, %24 ], [ null, %42 ], [ %.0.i20, %_Py_NewRef.exit16.i ]
+  %.0 = phi ptr [ null, %16 ], [ null, %12 ], [ null, %29 ], [ null, %24 ], [ %.0.i20, %_Py_NewRef.exit16.i ], [ null, %42 ]
   ret ptr %.0
 }
 
@@ -2019,7 +2019,7 @@ define internal ptr @instancemethod_getattro(ptr noundef %0, ptr noundef %1) #0 
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %20, %17, %14, %10, %5, %21
-  %.0 = phi ptr [ null, %5 ], [ %23, %21 ], [ %9, %10 ], [ %15, %14 ], [ %15, %17 ], [ %15, %20 ]
+  %.0 = phi ptr [ %23, %21 ], [ null, %5 ], [ %9, %10 ], [ %15, %14 ], [ %15, %17 ], [ %15, %20 ]
   ret ptr %.0
 }
 
@@ -2085,7 +2085,7 @@ define internal noundef ptr @instancemethod_richcompare(ptr noundef readonly cap
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %21, %16, %9, %5, %7, %3
-  %.0 = phi ptr [ null, %9 ], [ @_Py_NotImplementedStruct, %5 ], [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %7 ], [ %.014, %16 ], [ %.014, %21 ]
+  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %7 ], [ @_Py_NotImplementedStruct, %5 ], [ null, %9 ], [ %.014, %16 ], [ %.014, %21 ]
   ret ptr %.0
 }
 
@@ -2190,7 +2190,7 @@ _Py_NewRef.exit16.i:                              ; preds = %34, %_Py_NewRef.exi
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit16.i, %22, %9, %6
-  %.0 = phi ptr [ %.val, %9 ], [ %.val, %6 ], [ null, %22 ], [ %.0.i, %_Py_NewRef.exit16.i ]
+  %.0 = phi ptr [ %.val, %6 ], [ %.val, %9 ], [ %.0.i, %_Py_NewRef.exit16.i ], [ null, %22 ]
   ret ptr %.0
 }
 
@@ -2288,7 +2288,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %30, %27
   br label %instancemethod_new_impl.exit
 
 instancemethod_new_impl.exit:                     ; preds = %_Py_NewRef.exit.i.i, %24, %22, %16, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %16 ], [ null, %22 ], [ null, %24 ], [ %25, %_Py_NewRef.exit.i.i ]
+  %.0 = phi ptr [ null, %16 ], [ null, %12 ], [ null, %22 ], [ null, %24 ], [ %25, %_Py_NewRef.exit.i.i ]
   ret ptr %.0
 }
 

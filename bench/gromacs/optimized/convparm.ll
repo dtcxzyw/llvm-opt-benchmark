@@ -93,7 +93,7 @@ define noundef zeroext i1 @_Z28shouldConvertInteractionTypei(i32 noundef %0) loc
   br label %13
 
 13:                                               ; preds = %8, %10, %1
-  %14 = phi i1 [ false, %1 ], [ %12, %10 ], [ true, %8 ]
+  %14 = phi i1 [ false, %1 ], [ true, %8 ], [ %12, %10 ]
   ret i1 %14
 }
 
@@ -1500,8 +1500,8 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %337, %332, %323
   br i1 %586, label %_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %568, %583, %578, %.thread62.i, %.preheader.i, %.thread.i, %.loopexit.i
-  %587 = phi ptr [ %.pre27, %.loopexit.i ], [ %569, %583 ], [ %569, %578 ], [ %569, %.thread62.i ], [ %.pre27, %.preheader.i ], [ %.pre26, %.thread.i ], [ %.pre27, %568 ]
-  %588 = phi ptr [ %.pre, %.loopexit.i ], [ %570, %583 ], [ %570, %578 ], [ %570, %.thread62.i ], [ %.pre, %.preheader.i ], [ %.pre25, %.thread.i ], [ %.pre, %568 ]
+  %587 = phi ptr [ %569, %583 ], [ %569, %578 ], [ %569, %.thread62.i ], [ %.pre27, %.preheader.i ], [ %.pre26, %.thread.i ], [ %.pre27, %.loopexit.i ], [ %.pre27, %568 ]
+  %588 = phi ptr [ %570, %583 ], [ %570, %578 ], [ %570, %.thread62.i ], [ %.pre, %.preheader.i ], [ %.pre25, %.thread.i ], [ %.pre, %.loopexit.i ], [ %.pre, %568 ]
   %589 = ptrtoint ptr %588 to i64
   %590 = ptrtoint ptr %587 to i64
   %591 = sub i64 %589, %590
@@ -1631,12 +1631,12 @@ _ZL12assign_paramiP9t_iparamsN3gmx8ArrayRefIKfEE15CombinationRuled.exit.loopexit
   %643 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit
 
-_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.thread: ; preds = %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.i.i, %339
+_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.thread: ; preds = %_ZL8IS_ANGLEi.exit.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %339
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZL18append_interactionP15InteractionListiN3gmx8ArrayRefIKiEE.exit
 
 _ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit: ; preds = %583, %621, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %_ZL12assign_paramiP9t_iparamsN3gmx8ArrayRefIKfEE15CombinationRuled.exit.loopexit.i
-  %.0.i = phi i32 [ %576, %583 ], [ %593, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %643, %_ZL12assign_paramiP9t_iparamsN3gmx8ArrayRefIKfEE15CombinationRuled.exit.loopexit.i ], [ %593, %621 ]
+  %.0.i = phi i32 [ %576, %583 ], [ %593, %621 ], [ %593, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %643, %_ZL12assign_paramiP9t_iparamsN3gmx8ArrayRefIKfEE15CombinationRuled.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %644 = icmp slt i32 %.0.i, 0
   %or.cond.not = or i1 %5, %644

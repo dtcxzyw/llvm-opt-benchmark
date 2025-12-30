@@ -2294,8 +2294,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %._crit_edge198
 
 ._crit_edge198:                                   ; preds = %79, %100, %103
-  %106 = phi float [ %92, %100 ], [ %101, %103 ], [ %90, %79 ]
-  %.2258 = phi i32 [ %.125792, %100 ], [ %105, %103 ], [ %.125792, %79 ]
+  %106 = phi float [ %101, %103 ], [ %92, %100 ], [ %90, %79 ]
+  %.2258 = phi i32 [ %105, %103 ], [ %.125792, %100 ], [ %.125792, %79 ]
   %107 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv161
   %108 = load float, ptr %107, align 4, !tbaa !109
   %109 = fadd float %108, %106

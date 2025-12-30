@@ -2503,7 +2503,7 @@ define internal range(i32 0, 2) i32 @netlogon_auth_equal(ptr noundef readonly ca
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %42, %35, %33, %14, %6, %2
-  %43 = phi i32 [ 0, %14 ], [ 0, %2 ], [ 0, %6 ], [ 0, %42 ], [ 1, %35 ], [ 1, %33 ]
+  %43 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %14 ], [ 0, %42 ], [ 1, %35 ], [ 1, %33 ]
   ret i32 %43
 }
 
@@ -2773,8 +2773,8 @@ define internal fastcc noundef i32 @netlogon_dissect_CLAIMS_SET_BUFFER(ptr nound
   %28 = add i32 %2, %1
   br label %32
 
-.thread3:                                         ; preds = %22, %16, %19, %23
-  %.05 = phi ptr [ %24, %23 ], [ %21, %22 ], [ %15, %16 ], [ %18, %19 ]
+.thread3:                                         ; preds = %22, %19, %16, %23
+  %.05 = phi ptr [ %24, %23 ], [ %21, %22 ], [ %18, %19 ], [ %15, %16 ]
   %29 = add i32 %2, %1
   %30 = call i32 @nt_dissect_MIDL_NDRHEADERBLOB(ptr noundef %4, ptr noundef nonnull %.05, i32 noundef 0, ptr noundef nonnull %7)
   call void @init_ndr_pointer_list(ptr noundef nonnull %9)
@@ -2783,7 +2783,7 @@ define internal fastcc noundef i32 @netlogon_dissect_CLAIMS_SET_BUFFER(ptr nound
   br label %32
 
 32:                                               ; preds = %6, %.thread3, %.thread
-  %.042 = phi i32 [ %29, %.thread3 ], [ %28, %.thread ], [ %1, %6 ]
+  %.042 = phi i32 [ %28, %.thread ], [ %29, %.thread3 ], [ %1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3774,7 +3774,7 @@ define internal noundef i32 @netlogon_dissect_netrserverauthenticate3_rqst(ptr n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %8, %17 ], [ %21, %19 ], [ %26, %24 ], [ %8, %22 ]
+  %.0 = phi i32 [ %8, %17 ], [ %21, %19 ], [ %8, %22 ], [ %26, %24 ]
   %28 = load i32, ptr @hf_netlogon_acct_name, align 4
   %29 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.211, i32 noundef %28, i32 noundef 0)
   %30 = load ptr, ptr %9, align 8
@@ -3810,7 +3810,7 @@ define internal noundef i32 @netlogon_dissect_netrserverauthenticate3_rqst(ptr n
   br label %47
 
 47:                                               ; preds = %42, %44, %37, %39
-  %.1 = phi i32 [ %29, %37 ], [ %41, %39 ], [ %46, %44 ], [ %29, %42 ]
+  %.1 = phi i32 [ %29, %37 ], [ %41, %39 ], [ %29, %42 ], [ %46, %44 ]
   %48 = load i32, ptr @hf_netlogon_secure_channel_type, align 4
   %49 = tail call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %48, ptr noundef null)
   %50 = load ptr, ptr %9, align 8
@@ -3846,7 +3846,7 @@ define internal noundef i32 @netlogon_dissect_netrserverauthenticate3_rqst(ptr n
   br label %67
 
 67:                                               ; preds = %62, %64, %57, %59
-  %.2 = phi i32 [ %49, %57 ], [ %61, %59 ], [ %66, %64 ], [ %49, %62 ]
+  %.2 = phi i32 [ %49, %57 ], [ %61, %59 ], [ %49, %62 ], [ %66, %64 ]
   %68 = load i32, ptr @hf_netlogon_computer_name, align 4
   %69 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.2, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.252, i32 noundef %68, i32 noundef 0)
   %70 = load i32, ptr @hf_client_credential, align 4
@@ -4266,7 +4266,7 @@ select.unfold.i:                                  ; preds = %162
   br label %195
 
 184:                                              ; preds = %.thread.thread.i, %select.unfold.i
-  %.2204.i = phi i32 [ %179, %.thread.thread.i ], [ %.1165.i, %select.unfold.i ]
+  %.2204.i = phi i32 [ %.1165.i, %select.unfold.i ], [ %179, %.thread.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not194.i = icmp eq ptr %.0173.i, null
@@ -4866,7 +4866,7 @@ define internal noundef i32 @netlogon_dissect_netrserverauthenticatekerberos_rqs
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %10, %18 ], [ %22, %20 ], [ %27, %25 ], [ %10, %23 ]
+  %.0 = phi i32 [ %10, %18 ], [ %22, %20 ], [ %10, %23 ], [ %27, %25 ]
   %29 = load i32, ptr @hf_netlogon_acct_name, align 4
   %30 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.211, i32 noundef %29, i32 noundef 0)
   %31 = load ptr, ptr %7, align 8
@@ -4902,7 +4902,7 @@ define internal noundef i32 @netlogon_dissect_netrserverauthenticatekerberos_rqs
   br label %48
 
 48:                                               ; preds = %43, %45, %38, %40
-  %.1 = phi i32 [ %30, %38 ], [ %42, %40 ], [ %47, %45 ], [ %30, %43 ]
+  %.1 = phi i32 [ %30, %38 ], [ %42, %40 ], [ %30, %43 ], [ %47, %45 ]
   %49 = load i32, ptr @hf_netlogon_secure_channel_type, align 4
   %50 = tail call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %49, ptr noundef null)
   %51 = load ptr, ptr %7, align 8
@@ -4938,7 +4938,7 @@ define internal noundef i32 @netlogon_dissect_netrserverauthenticatekerberos_rqs
   br label %68
 
 68:                                               ; preds = %63, %65, %58, %60
-  %.2 = phi i32 [ %50, %58 ], [ %62, %60 ], [ %67, %65 ], [ %50, %63 ]
+  %.2 = phi i32 [ %50, %58 ], [ %62, %60 ], [ %50, %63 ], [ %67, %65 ]
   %69 = load i32, ptr @hf_netlogon_computer_name, align 4
   %70 = tail call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %.2, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_ndr_wchar_cvstring, i32 noundef 1, ptr noundef nonnull @.str.252, i32 noundef %69, ptr noundef nonnull @cb_wstr_postprocess, ptr noundef nonnull inttoptr (i64 805306369 to ptr))
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -5837,8 +5837,8 @@ define internal void @dissect_ndr_lm_nt_byte_array(ptr noundef %0, ptr noundef %
   br label %31
 
 31:                                               ; preds = %28, %26, %23, %21
-  %.1.v = phi i32 [ 12, %26 ], [ 24, %23 ], [ 24, %21 ], [ 12, %28 ]
-  %.0 = phi i32 [ %5, %26 ], [ %25, %23 ], [ %5, %21 ], [ %30, %28 ]
+  %.1.v = phi i32 [ 24, %23 ], [ 24, %21 ], [ 12, %28 ], [ 12, %26 ]
+  %.0 = phi i32 [ %25, %23 ], [ %5, %21 ], [ %30, %28 ], [ %5, %26 ]
   %.1 = add i32 %.0, %.1.v
   %32 = sub i32 %6, %.1
   %33 = tail call i32 @llvm.umin.i32(i32 %32, i32 10240)
@@ -6679,7 +6679,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %select.unfold.
   br i1 %133, label %.thread, label %134
 
 .thread:                                          ; preds = %130, %106, %112, %119, %126
-  %.2112.ph = phi i32 [ 0, %106 ], [ 0, %126 ], [ 0, %119 ], [ 0, %112 ], [ 1, %130 ]
+  %.2112.ph = phi i32 [ 0, %126 ], [ 0, %119 ], [ 0, %112 ], [ 0, %106 ], [ 1, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit
@@ -9119,7 +9119,7 @@ select.unfold.i:                                  ; preds = %42, %38
   br i1 %.not.i, label %find_global_netlogon_auth_vars.exit, label %35, !llvm.loop !11
 
 find_global_netlogon_auth_vars.exit:              ; preds = %35, %42, %select.unfold.i
-  %.013.lcssa.i = phi ptr [ %.2.i, %select.unfold.i ], [ %.01321.i, %42 ], [ %.01321.i, %35 ]
+  %.013.lcssa.i = phi ptr [ %.01321.i, %42 ], [ %.01321.i, %35 ], [ %.2.i, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %45 = icmp eq ptr %.013.lcssa.i, null
   br i1 %45, label %46, label %49
@@ -9812,7 +9812,7 @@ select.unfold.i:                                  ; preds = %43, %39
   br i1 %.not.i, label %find_global_netlogon_auth_vars.exit, label %36, !llvm.loop !11
 
 find_global_netlogon_auth_vars.exit:              ; preds = %36, %43, %select.unfold.i
-  %.013.lcssa.i = phi ptr [ %.2.i, %select.unfold.i ], [ %.01321.i, %43 ], [ %.01321.i, %36 ]
+  %.013.lcssa.i = phi ptr [ %.01321.i, %43 ], [ %.01321.i, %36 ], [ %.2.i, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = icmp eq ptr %.013.lcssa.i, null
   br i1 %46, label %67, label %47
@@ -10119,7 +10119,7 @@ uncrypt_sequence_aes.exit.i:                      ; preds = %111, %107, %100, %9
   br label %uncrypt_sequence_md5.exit.i
 
 uncrypt_sequence_md5.exit.i:                      ; preds = %126, %118, %116, %114
-  %.0.i10.i = phi i64 [ 0, %116 ], [ 0, %114 ], [ %.pre.i.i, %126 ], [ %.075, %118 ]
+  %.0.i10.i = phi i64 [ 0, %114 ], [ 0, %116 ], [ %.pre.i.i, %126 ], [ %.075, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -10397,7 +10397,7 @@ prepare_decryption_cipher.exit:                   ; preds = %71
   br label %95
 
 95:                                               ; preds = %.sink.split, %15, %4
-  %.0 = phi ptr [ null, %15 ], [ null, %4 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %4 ], [ null, %15 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

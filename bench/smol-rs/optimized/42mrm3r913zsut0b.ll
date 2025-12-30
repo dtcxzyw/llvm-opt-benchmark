@@ -218,8 +218,8 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13w
   br label %22
 
 22:                                               ; preds = %20, %.thread.i.i
-  %.sroa.01.06.i.i = phi i64 [ %.sroa.01.0.i.i, %20 ], [ 1, %.thread.i.i ]
-  %23 = phi i64 [ %spec.select.i.i, %20 ], [ 24, %.thread.i.i ]
+  %.sroa.01.06.i.i = phi i64 [ 1, %.thread.i.i ], [ %.sroa.01.0.i.i, %20 ]
+  %23 = phi i64 [ 24, %.thread.i.i ], [ %spec.select.i.i, %20 ]
   %.sroa.5.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i8, i64 %23
   %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i.i, ptr noundef %.sroa.5.0.i.i)
           to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit" unwind label %25, !noalias !44
@@ -550,7 +550,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   br label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
 
 "_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit": ; preds = %39, %52, %56, %61, %66
-  %.04.i = phi i1 [ false, %66 ], [ true, %39 ], [ false, %52 ], [ false, %56 ], [ false, %61 ]
+  %.04.i = phi i1 [ false, %52 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ true, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
 }
@@ -627,7 +627,7 @@ define hidden void @"_ZN14event_listener22EventListener$LT$T$GT$6listen17h38504a
   br label %"_ZN14event_listener14Event$LT$T$GT$5inner17hb6a2b1266ddccc8cE.exit"
 
 "_ZN14event_listener14Event$LT$T$GT$5inner17hb6a2b1266ddccc8cE.exit": ; preds = %2, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0efe5785251ec4ccE.exit.i", %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hd957adfad4458f36E.exit.i"
-  %.0.i = phi ptr [ %9, %2 ], [ %19, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hd957adfad4458f36E.exit.i" ], [ %.sroa.5.0..sroa_idx.i.i, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0efe5785251ec4ccE.exit.i" ]
+  %.0.i = phi ptr [ %19, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hd957adfad4458f36E.exit.i" ], [ %9, %2 ], [ %.sroa.5.0..sroa_idx.i.i, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0efe5785251ec4ccE.exit.i" ]
   %25 = getelementptr inbounds i8, ptr %.0.i, i64 -16
   %26 = icmp ne ptr %.0.i, null
   call void @llvm.assume(i1 %26)
@@ -721,7 +721,7 @@ define hidden void @"_ZN14event_listener22EventListener$LT$T$GT$6listen17h38504a
           to label %.noexc unwind label %107
 
 .thread:                                          ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfd0cd8b3aa33ecb3E.exit", %40, %37, %.noexc
-  %61 = phi ptr [ %35, %40 ], [ %35, %.noexc ], [ %35, %37 ], [ %25, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfd0cd8b3aa33ecb3E.exit" ]
+  %61 = phi ptr [ %35, %.noexc ], [ %35, %37 ], [ %35, %40 ], [ %25, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfd0cd8b3aa33ecb3E.exit" ]
   store ptr %61, ptr %30, align 8, !alias.scope !156
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -848,7 +848,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
   unreachable
 
 "_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hd957adfad4458f36E.exit": ; preds = %.body.i, %41, %107, %111
-  %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %107 ], [ %84, %.body.i ], [ %lpad.thr_comm.split-lp, %111 ], [ %42, %41 ]
+  %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %111 ], [ %lpad.thr_comm.split-lp, %107 ], [ %42, %41 ], [ %84, %.body.i ]
   resume { ptr, i32 } %eh.lpad-body24
 
 107:                                              ; preds = %60, %50, %33
@@ -1490,7 +1490,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
           to label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.llvm.6090777742988092048.exit" unwind label %94
 
 94:                                               ; preds = %114, %104, %93, %85, %32
-  %.026 = phi i8 [ 1, %114 ], [ 1, %32 ], [ 0, %93 ], [ 0, %85 ], [ 1, %104 ]
+  %.026 = phi i8 [ 1, %32 ], [ 0, %85 ], [ 0, %93 ], [ 1, %104 ], [ 1, %114 ]
   %95 = landingpad { ptr, i32 }
           cleanup
   br label %62
@@ -1690,8 +1690,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   br label %22
 
 22:                                               ; preds = %20, %.thread.i
-  %.sroa.01.06.i = phi i64 [ %.sroa.01.0.i, %20 ], [ 1, %.thread.i ]
-  %23 = phi i64 [ %spec.select.i, %20 ], [ 24, %.thread.i ]
+  %.sroa.01.06.i = phi i64 [ 1, %.thread.i ], [ %.sroa.01.0.i, %20 ]
+  %23 = phi i64 [ 24, %.thread.i ], [ %spec.select.i, %20 ]
   %.sroa.5.0.i = getelementptr inbounds nuw i8, ptr %6, i64 %23
   %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %1, i64 %.val, i32 noundef %.val10, ptr noalias noundef readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i, ptr noundef %.sroa.5.0.i)
           to label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit" unwind label %25

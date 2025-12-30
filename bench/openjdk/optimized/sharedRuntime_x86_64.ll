@@ -3761,42 +3761,42 @@ _ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4
   %.not17.i = icmp ult ptr %325, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %326 = ptrtoint ptr %325 to i64
   %327 = trunc i64 %326 to i32
-  br i1 %.not17.i, label %328, label %331
+  br i1 %.not17.i, label %341, label %328
 
 328:                                              ; preds = %322
-  %329 = sub i32 %327, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %330 = ashr i32 %329, 1
-  %or.cond.i.i.i = icmp ult i32 %330, 32
-  %spec.select.i.i.i = select i1 %or.cond.i.i.i, i32 %330, i32 -1
-  br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
-
-331:                                              ; preds = %322
-  %332 = sub i32 %327, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
-  %333 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  %334 = mul nsw i32 %333, %332
-  %335 = add nsw i32 %334, 8
+  %329 = sub i32 %327, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
+  %330 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
+  %331 = mul nsw i32 %330, %329
+  %332 = add nsw i32 %331, 8
   store i32 4, ptr %15, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 -1, ptr %336, align 4
-  %337 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 -1, ptr %337, align 8
-  %338 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i32 -1, ptr %338, align 4
-  %339 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 %335, ptr %339, align 8
-  %340 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store i8 0, ptr %340, align 4
-  %341 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %341, align 8
-  %342 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr null, ptr %342, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store i32 0, ptr %343, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 -1, ptr %333, align 4
+  %334 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i32 -1, ptr %334, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  store i32 -1, ptr %335, align 4
+  %336 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i32 %332, ptr %336, align 8
+  %337 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  store i8 0, ptr %337, align 4
+  %338 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %338, align 8
+  %339 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store ptr null, ptr %339, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i32 0, ptr %340, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, ptr noundef nonnull %15) #14
   br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
 
-.thread11.i:                                      ; preds = %331, %328, %319
-  %.sroa.0.115.i = phi i32 [ %spec.select.i.i.i, %328 ], [ 3, %331 ], [ -1, %319 ]
+341:                                              ; preds = %322
+  %342 = sub i32 %327, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %343 = ashr i32 %342, 1
+  %or.cond.i.i.i = icmp ult i32 %343, 32
+  %spec.select.i.i.i = select i1 %or.cond.i.i.i, i32 %343, i32 -1
+  br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
+
+.thread11.i:                                      ; preds = %341, %328, %319
+  %.sroa.0.115.i = phi i32 [ %spec.select.i.i.i, %341 ], [ 3, %328 ], [ -1, %319 ]
   %344 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %345 = load ptr, ptr %344, align 8
   %.not18.i = icmp ult ptr %345, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
@@ -3817,9 +3817,9 @@ _ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4
   %spec.select.i.i39.i = select i1 %or.cond.i.i38.i, i32 %352, i32 -1
   br label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
 
-_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit: ; preds = %328, %331, %348
-  %.sroa.0.114.i = phi i32 [ %.sroa.0.115.i, %348 ], [ 3, %331 ], [ %spec.select.i.i.i, %328 ]
-  %.sroa.013.0.i = phi i32 [ %spec.select.i.i39.i, %348 ], [ -1, %331 ], [ -1, %328 ]
+_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit: ; preds = %328, %341, %348
+  %.sroa.0.114.i = phi i32 [ %.sroa.0.115.i, %348 ], [ %spec.select.i.i.i, %341 ], [ 3, %328 ]
+  %.sroa.013.0.i = phi i32 [ %spec.select.i.i39.i, %348 ], [ -1, %341 ], [ -1, %328 ]
   call void @_ZN13MethodHandles31generate_method_handle_dispatchEP14MacroAssembler13vmIntrinsicID8RegisterS3_b(ptr noundef nonnull %0, i32 noundef %314, i32 %.sroa.013.0.i, i32 %.sroa.0.114.i, i1 noundef zeroext true) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %353 = load ptr, ptr %308, align 8
@@ -4089,8 +4089,8 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %.lr.ph677
   br i1 %exitcond692.not, label %.preheader16.loopexit.i, label %.lr.ph.i, !llvm.loop !33
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %.lr.ph677, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.25.1 = phi ptr [ %488, %.preheader16.i ], [ %488, %.lr.ph19.preheader.i ], [ %.sroa.25.0672, %.lr.ph677 ]
-  %.sroa.14.1 = phi i32 [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.14.0673, %.lr.ph677 ]
+  %.sroa.25.1 = phi ptr [ %488, %.lr.ph19.preheader.i ], [ %488, %.preheader16.i ], [ %.sroa.25.0672, %.lr.ph677 ]
+  %.sroa.14.1 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.14.0673, %.lr.ph677 ]
   %501 = getelementptr inbounds nuw i32, ptr %.sroa.25.1, i64 %indvars.iv690
   store i32 %.0654675, ptr %501, align 4
   %502 = zext i32 %.sroa.14.1 to i64
@@ -5254,7 +5254,7 @@ _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %._ZN13GrowableArray
   br label %953
 
 953:                                              ; preds = %297, %301, %302, %289, %_ZN13GrowableArrayIiED2Ev.exit, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
-  %.0 = phi ptr [ %952, %_ZN13GrowableArrayIiED2Ev.exit ], [ null, %289 ], [ %362, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit ], [ %295, %297 ], [ %295, %302 ], [ %295, %301 ]
+  %.0 = phi ptr [ %362, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit ], [ %952, %_ZN13GrowableArrayIiED2Ev.exit ], [ null, %289 ], [ %295, %302 ], [ %295, %301 ], [ %295, %297 ]
   ret ptr %.0
 }
 
@@ -9238,7 +9238,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -9396,7 +9396,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -9574,7 +9574,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 

@@ -353,11 +353,11 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   br label %.thread197
 
 .thread197:                                       ; preds = %38, %39, %.thread, %53
-  %71 = phi i1 [ true, %53 ], [ false, %38 ], [ false, %.thread ], [ false, %39 ]
-  %72 = phi i1 [ false, %53 ], [ false, %38 ], [ false, %.thread ], [ true, %39 ]
-  %.2195 = phi nsz <4 x float> [ %69, %53 ], [ %.0193.lcssa, %38 ], [ %.0193.lcssa, %.thread ], [ %51, %39 ]
-  %.3192 = phi nsz <8 x float> [ %70, %53 ], [ %.0189.lcssa, %38 ], [ %37, %.thread ], [ %52, %39 ]
-  %.1150 = phi nsz float [ %67, %53 ], [ %.0149.lcssa, %38 ], [ %.0149.lcssa, %.thread ], [ %.0149.lcssa, %39 ]
+  %71 = phi i1 [ true, %53 ], [ false, %.thread ], [ false, %39 ], [ false, %38 ]
+  %72 = phi i1 [ false, %53 ], [ false, %.thread ], [ true, %39 ], [ false, %38 ]
+  %.2195 = phi nsz <4 x float> [ %69, %53 ], [ %.0193.lcssa, %.thread ], [ %51, %39 ], [ %.0193.lcssa, %38 ]
+  %.3192 = phi nsz <8 x float> [ %70, %53 ], [ %37, %.thread ], [ %52, %39 ], [ %.0189.lcssa, %38 ]
+  %.1150 = phi nsz float [ %67, %53 ], [ %.0149.lcssa, %.thread ], [ %.0149.lcssa, %39 ], [ %.0149.lcssa, %38 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader201, label %73
 
@@ -868,11 +868,11 @@ define internal void @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatERKNS_
   br label %.thread197.i
 
 .thread197.i:                                     ; preds = %95, %81, %80, %.thread.i
-  %113 = phi i1 [ true, %95 ], [ false, %80 ], [ false, %.thread.i ], [ false, %81 ]
-  %114 = phi i1 [ false, %95 ], [ false, %80 ], [ false, %.thread.i ], [ true, %81 ]
-  %.2195.i = phi nsz <4 x float> [ %111, %95 ], [ %.0193.lcssa.i, %80 ], [ %.0193.lcssa.i, %.thread.i ], [ %93, %81 ]
-  %.3192.i = phi nsz <8 x float> [ %112, %95 ], [ %.0189.lcssa.i, %80 ], [ %79, %.thread.i ], [ %94, %81 ]
-  %.1150.i = phi nsz float [ %109, %95 ], [ %.0149.lcssa.i, %80 ], [ %.0149.lcssa.i, %.thread.i ], [ %.0149.lcssa.i, %81 ]
+  %113 = phi i1 [ true, %95 ], [ false, %.thread.i ], [ false, %81 ], [ false, %80 ]
+  %114 = phi i1 [ false, %95 ], [ false, %.thread.i ], [ true, %81 ], [ false, %80 ]
+  %.2195.i = phi nsz <4 x float> [ %111, %95 ], [ %.0193.lcssa.i, %.thread.i ], [ %93, %81 ], [ %.0193.lcssa.i, %80 ]
+  %.3192.i = phi nsz <8 x float> [ %112, %95 ], [ %79, %.thread.i ], [ %94, %81 ], [ %.0189.lcssa.i, %80 ]
+  %.1150.i = phi nsz float [ %109, %95 ], [ %.0149.lcssa.i, %.thread.i ], [ %.0149.lcssa.i, %81 ], [ %.0149.lcssa.i, %80 ]
   %.not.i24 = icmp eq ptr %44, null
   br i1 %.not.i24, label %.preheader201.i, label %115
 

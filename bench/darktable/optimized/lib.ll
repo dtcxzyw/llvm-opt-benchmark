@@ -2122,7 +2122,7 @@ define internal noundef i32 @_presets_popup_callback(ptr noundef %0, ptr readnon
   br label %86
 
 86:                                               ; preds = %82, %81, %79
-  %.2109.i = phi i32 [ %.0107123.i, %81 ], [ %77, %82 ], [ %77, %79 ]
+  %.2109.i = phi i32 [ %77, %82 ], [ %.0107123.i, %81 ], [ %77, %79 ]
   %87 = load ptr, ptr %4, align 8, !tbaa !63
   %88 = call ptr @sqlite3_column_blob(ptr noundef %87, i32 noundef 1) #19
   %89 = load ptr, ptr %4, align 8, !tbaa !63
@@ -2799,7 +2799,7 @@ _lib_position.exit166:                            ; preds = %152, %155, %157
   store ptr %195, ptr %109, align 8, !tbaa !72
   br label %.critedge155
 
-.critedge155.critedge:                            ; preds = %92, %88
+.critedge155.critedge:                            ; preds = %88, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge155
 
@@ -3062,7 +3062,7 @@ dt_lib_is_visible_in_view.exit:                   ; preds = %50, %56, %58
   br label %88
 
 88:                                               ; preds = %3, %78, %8, %86, %82, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %3 ], [ 1, %78 ], [ 1, %82 ], [ 0, %8 ], [ 1, %86 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %78 ], [ 0, %8 ], [ 1, %86 ], [ 1, %82 ], [ 0, %5 ]
   ret i32 %.0
 }
 

@@ -197,7 +197,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captur
   br i1 %exitcond103.not, label %.loopexit, label %70, !llvm.loop !17
 
 .loopexit:                                        ; preds = %70, %35, %31, %28, %26, %27, %19, %9
-  %.0 = phi i32 [ %., %19 ], [ 0, %9 ], [ 0, %28 ], [ 1, %26 ], [ 0, %31 ], [ 0, %35 ], [ 1, %27 ], [ 1, %70 ]
+  %.0 = phi i32 [ 0, %9 ], [ %., %19 ], [ 1, %27 ], [ 1, %26 ], [ 0, %28 ], [ 0, %31 ], [ 0, %35 ], [ 1, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -302,7 +302,7 @@ define range(i32 0, 2) i32 @tls1_cbc_remove_padding_and_mac(ptr noundef captures
   br label %ssl3_cbc_copy_mac.exit
 
 ssl3_cbc_copy_mac.exit:                           ; preds = %26, %25, %.split, %20, %.split46, %9, %32
-  %.0 = phi i32 [ 0, %9 ], [ 1, %32 ], [ %54, %.split46 ], [ 1, %25 ], [ 0, %.split ], [ 1, %26 ], [ 1, %20 ]
+  %.0 = phi i32 [ 1, %32 ], [ 0, %9 ], [ %54, %.split46 ], [ 0, %.split ], [ 1, %26 ], [ 1, %25 ], [ 1, %20 ]
   ret i32 %.0
 }
 

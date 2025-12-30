@@ -677,7 +677,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter14expandAddTPRelERKN4llvm6MCInstERNS1_15Sm
   %247 = load i64, ptr %246, align 8, !tbaa !27
   %248 = and i64 %247, 70368744177664
   %.not113.i = icmp eq i64 %248, 0
-  br i1 %.not113.i, label %.critedge.i, label %249
+  br i1 %.not113.i, label %switch.lookup, label %249
 
 249:                                              ; preds = %245, %241
   %250 = add i32 %236, -51
@@ -691,7 +691,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter14expandAddTPRelERKN4llvm6MCInstERNS1_15Sm
   %or.cond111.i = icmp ult i32 %253, 8
   %254 = icmp eq i32 %236, 43
   %or.cond112.i = select i1 %or.cond111.i, i1 %254, i1 false
-  br i1 %or.cond112.i, label %_ZN4llvm13MCInstBuilderD2Ev.exit.i54, label %.critedge.i
+  br i1 %or.cond112.i, label %_ZN4llvm13MCInstBuilderD2Ev.exit.i54, label %switch.lookup
 
 _ZN4llvm13MCInstBuilderD2Ev.exit.i54:             ; preds = %252, %249
   %.sroa.0104.0.i = phi i32 [ %236, %249 ], [ %238, %252 ]
@@ -761,7 +761,7 @@ _ZN4llvm6MCInstD2Ev.exit.i:                       ; preds = %280, %_ZN4llvm7supp
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit88.i
 
-.critedge.i:                                      ; preds = %252, %245
+switch.lookup:                                    ; preds = %252, %245
   %281 = sext i32 %25 to i64
   %282 = getelementptr i32, ptr @switch.table._ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE, i64 %281
   %switch.gep = getelementptr i8, ptr %282, i64 -1632
@@ -780,8 +780,8 @@ _ZN4llvm6MCInstD2Ev.exit.i:                       ; preds = %280, %_ZN4llvm7supp
 286:                                              ; preds = %232
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit64.i
 
-_ZN4llvm13MCInstBuilderD2Ev.exit64.i:             ; preds = %232, %.critedge.i, %286, %285, %284
-  %.0.i.i = phi i32 [ 11951, %286 ], [ %switch.load, %.critedge.i ], [ 11947, %285 ], [ 11950, %284 ], [ 11946, %232 ]
+_ZN4llvm13MCInstBuilderD2Ev.exit64.i:             ; preds = %232, %switch.lookup, %286, %285, %284
+  %.0.i.i = phi i32 [ 11950, %284 ], [ 11947, %285 ], [ 11951, %286 ], [ %switch.load, %switch.lookup ], [ 11946, %232 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %287 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -15931,8 +15931,8 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getI
   br label %63
 
 63:                                               ; preds = %42, %38, %35, %58, %.fold.split, %29, %32, %37, %40, %41, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %59, %61, %62, %60
-  %.145 = phi i1 [ false, %29 ], [ true, %38 ], [ false, %59 ], [ false, %60 ], [ false, %61 ], [ false, %62 ], [ false, %58 ], [ false, %53 ], [ false, %32 ], [ false, %52 ], [ false, %51 ], [ false, %50 ], [ false, %49 ], [ true, %48 ], [ true, %37 ], [ false, %.fold.split ], [ true, %40 ], [ false, %41 ], [ true, %42 ], [ true, %44 ], [ false, %45 ], [ false, %46 ], [ true, %47 ], [ true, %35 ]
-  %.4 = phi i32 [ 154, %29 ], [ %spec.select51, %38 ], [ 143, %59 ], [ 144, %60 ], [ 145, %61 ], [ 130, %62 ], [ 142, %58 ], [ 154, %53 ], [ 154, %32 ], [ 153, %52 ], [ 152, %51 ], [ 151, %50 ], [ 150, %49 ], [ 147, %48 ], [ 128, %37 ], [ 154, %.fold.split ], [ 132, %40 ], [ 135, %41 ], [ %spec.select52, %42 ], [ 136, %44 ], [ 140, %45 ], [ 141, %46 ], [ 146, %47 ], [ %spec.select, %35 ]
+  %.145 = phi i1 [ false, %59 ], [ false, %60 ], [ false, %61 ], [ false, %62 ], [ false, %53 ], [ false, %32 ], [ false, %52 ], [ false, %51 ], [ false, %50 ], [ false, %49 ], [ true, %37 ], [ true, %40 ], [ false, %41 ], [ true, %44 ], [ false, %45 ], [ false, %46 ], [ true, %47 ], [ true, %48 ], [ false, %29 ], [ false, %58 ], [ false, %.fold.split ], [ true, %35 ], [ true, %38 ], [ true, %42 ]
+  %.4 = phi i32 [ 143, %59 ], [ 144, %60 ], [ 145, %61 ], [ 130, %62 ], [ 154, %53 ], [ 154, %32 ], [ 153, %52 ], [ 152, %51 ], [ 151, %50 ], [ 150, %49 ], [ 128, %37 ], [ 132, %40 ], [ 135, %41 ], [ 136, %44 ], [ 140, %45 ], [ 141, %46 ], [ 146, %47 ], [ 147, %48 ], [ 154, %29 ], [ 142, %58 ], [ 154, %.fold.split ], [ %spec.select, %35 ], [ %spec.select51, %38 ], [ %spec.select52, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %64, align 8, !tbaa !38

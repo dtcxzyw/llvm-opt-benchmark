@@ -543,7 +543,7 @@ skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
   br label %skip_prefix.exit.thread.i
 
 skip_prefix.exit.preheader._crit_edge.i:          ; preds = %skip_prefix.exit.preheader.i, %skip_prefix.exit.i18, %skip_prefix.exit.preheader.us.i, %skip_prefix.exit.us.i
-  %.07.i.lcssa.lcssa.i = phi ptr [ %scevgep66.i, %skip_prefix.exit.preheader.us.i ], [ %scevgep.i15, %skip_prefix.exit.i18 ], [ %scevgep66.i, %skip_prefix.exit.us.i ], [ %scevgep.i15, %skip_prefix.exit.preheader.i ]
+  %.07.i.lcssa.lcssa.i = phi ptr [ %scevgep66.i, %skip_prefix.exit.us.i ], [ %scevgep66.i, %skip_prefix.exit.preheader.us.i ], [ %scevgep.i15, %skip_prefix.exit.i18 ], [ %scevgep.i15, %skip_prefix.exit.preheader.i ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load ptr, ptr %109, align 8, !tbaa !41
   %111 = load ptr, ptr %110, align 8, !tbaa !42
@@ -562,7 +562,7 @@ skip_prefix.exit.thread.i:                        ; preds = %95, %.critedge.i
   br label %handshake_capabilities.exit
 
 handshake_capabilities.exit:                      ; preds = %skip_prefix.exit.thread.i, %skip_prefix.exit.thread.us.i, %.loopexit.sink.split.i, %.preheader38.i, %handshake_version.exit.thread
-  %115 = phi i32 [ 1, %handshake_version.exit.thread ], [ 1, %.loopexit.sink.split.i ], [ 0, %skip_prefix.exit.thread.us.i ], [ 0, %.preheader38.i ], [ 0, %skip_prefix.exit.thread.i ]
+  %115 = phi i32 [ 1, %handshake_version.exit.thread ], [ 0, %.preheader38.i ], [ 1, %.loopexit.sink.split.i ], [ 0, %skip_prefix.exit.thread.us.i ], [ 0, %skip_prefix.exit.thread.i ]
   %116 = tail call i32 @sigchain_pop(i32 noundef 13) #12
   ret i32 %115
 }

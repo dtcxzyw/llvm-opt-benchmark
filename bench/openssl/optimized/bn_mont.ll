@@ -97,12 +97,12 @@ define range(i32 0, 2) i32 @bn_mul_mont_fixed_top(ptr noundef %0, ptr noundef %1
   br label %55
 
 55:                                               ; preds = %53, %51, %49, %44
-  %.042 = phi i32 [ 0, %44 ], [ 0, %51 ], [ %54, %53 ], [ 0, %49 ]
+  %.042 = phi i32 [ 0, %44 ], [ 0, %49 ], [ 0, %51 ], [ %54, %53 ]
   tail call void @BN_CTX_end(ptr noundef %4) #5
   br label %56
 
 56:                                               ; preds = %36, %18, %55, %28
-  %.0 = phi i32 [ %.042, %55 ], [ 1, %28 ], [ 0, %18 ], [ 0, %36 ]
+  %.0 = phi i32 [ 1, %28 ], [ %.042, %55 ], [ 0, %18 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -246,7 +246,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   br i1 %exitcond97.not, label %.loopexit, label %58, !llvm.loop !20
 
 .loopexit:                                        ; preds = %58, %47, %._crit_edge87, %10, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %._crit_edge87 ], [ 0, %10 ], [ 1, %47 ], [ 1, %58 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %10 ], [ 0, %._crit_edge87 ], [ 1, %47 ], [ 1, %58 ]
   ret i32 %.0
 }
 
@@ -497,7 +497,7 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
   %56 = load i64, ptr %55, align 8, !tbaa !15
   br label %57
 
-.thread:                                          ; preds = %46, %44, %40, %37, %23, %48
+.thread:                                          ; preds = %23, %37, %40, %44, %46, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
@@ -548,12 +548,12 @@ define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %1, ptr 
   br label %80
 
 80:                                               ; preds = %.thread, %64, %57, %10, %7, %._crit_edge
-  %.053 = phi i32 [ 0, %7 ], [ 1, %._crit_edge ], [ 0, %64 ], [ 0, %57 ], [ 0, %.thread ], [ 0, %10 ]
+  %.053 = phi i32 [ 0, %7 ], [ 1, %._crit_edge ], [ 0, %64 ], [ 0, %57 ], [ 0, %10 ], [ 0, %.thread ]
   call void @BN_CTX_end(ptr noundef %2) #5
   br label %81
 
 81:                                               ; preds = %3, %80
-  %.051 = phi i32 [ 0, %3 ], [ %.053, %80 ]
+  %.051 = phi i32 [ %.053, %80 ], [ 0, %3 ]
   ret i32 %.051
 }
 
@@ -621,7 +621,7 @@ define noundef ptr @BN_MONT_CTX_copy(ptr noundef %0, ptr noundef %1) local_unnam
   br label %24
 
 24:                                               ; preds = %12, %8, %4, %2, %16
-  %.0 = phi ptr [ %0, %2 ], [ %0, %16 ], [ null, %8 ], [ null, %4 ], [ null, %12 ]
+  %.0 = phi ptr [ %0, %16 ], [ %0, %2 ], [ null, %4 ], [ null, %8 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -721,7 +721,7 @@ BN_MONT_CTX_free.exit30:                          ; preds = %31, %34
   br label %BN_MONT_CTX_free.exit
 
 BN_MONT_CTX_free.exit:                            ; preds = %9, %28, %25, %22, %19, %6, %4, %37
-  %.020 = phi ptr [ null, %4 ], [ %7, %6 ], [ %.0, %37 ], [ null, %22 ], [ null, %28 ], [ null, %19 ], [ null, %25 ], [ null, %9 ]
+  %.020 = phi ptr [ %.0, %37 ], [ null, %4 ], [ %7, %6 ], [ null, %19 ], [ null, %22 ], [ null, %25 ], [ null, %28 ], [ null, %9 ]
   ret ptr %.020
 }
 
@@ -804,7 +804,7 @@ define range(i32 0, 2) i32 @ossl_bn_mont_ctx_eq(ptr noundef %0, ptr noundef %1) 
   br label %24
 
 24:                                               ; preds = %19, %14, %9, %5, %2
-  %.0 = phi i32 [ 0, %14 ], [ 0, %2 ], [ 0, %5 ], [ 0, %9 ], [ %., %19 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %9 ], [ 0, %14 ], [ %., %19 ]
   ret i32 %.0
 }
 

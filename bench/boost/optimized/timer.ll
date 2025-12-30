@@ -377,7 +377,7 @@ _ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_5timer4implEEEPT_v.e
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit
 
 _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit: ; preds = %2, %6, %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_5timer4implEEEPT_v.exit
-  %9 = phi ptr [ %5, %6 ], [ null, %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_5timer4implEEEPT_v.exit ], [ null, %2 ]
+  %9 = phi ptr [ null, %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_5timer4implEEEPT_v.exit ], [ %5, %6 ], [ null, %2 ]
   store ptr %9, ptr %0, align 8, !tbaa !10
   ret void
 }
@@ -455,7 +455,7 @@ _ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i: ; preds = %17, %13
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit
 
 _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit: ; preds = %15, %17, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i, %19
-  %.sroa.015.0.i.i = phi i64 [ 9223372036854775807, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i ], [ 9223372036854775806, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i ], [ -9223372036854775808, %15 ], [ %20, %19 ], [ %switch.select33.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i ], [ -9223372036854775808, %17 ]
+  %.sroa.015.0.i.i = phi i64 [ 9223372036854775807, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i ], [ 9223372036854775806, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i ], [ -9223372036854775808, %17 ], [ -9223372036854775808, %15 ], [ %switch.select33.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %21, align 4, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix10attributes20attribute_value_implINS_10posix_time13time_durationEEE, i64 16), ptr %3, align 8, !tbaa !8

@@ -442,7 +442,7 @@ ossl_quic_reactor_tick.exit:                      ; preds = %.lr.ph.i.i, %31, %4
   br i1 %75, label %poll_two_descriptors.exit, label %poll_descriptor_to_fd.exit.i
 
 poll_descriptor_to_fd.exit.i:                     ; preds = %73, %68
-  %.sink.i.i = phi i32 [ %74, %73 ], [ -1, %68 ]
+  %.sink.i.i = phi i32 [ -1, %68 ], [ %74, %73 ]
   %76 = load i32, ptr %24, align 8, !tbaa !25
   switch i32 %76, label %poll_two_descriptors.exit [
     i32 0, label %poll_descriptor_to_fd.exit10.i
@@ -455,7 +455,7 @@ poll_descriptor_to_fd.exit.i:                     ; preds = %73, %68
   br i1 %79, label %poll_two_descriptors.exit, label %poll_descriptor_to_fd.exit10.i
 
 poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descriptor_to_fd.exit.i
-  %.sink.i8.i = phi i32 [ %78, %77 ], [ -1, %poll_descriptor_to_fd.exit.i ]
+  %.sink.i8.i = phi i32 [ -1, %poll_descriptor_to_fd.exit.i ], [ %78, %77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %80 = icmp eq i32 %.sink.i.i, %.sink.i8.i
@@ -495,7 +495,7 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   br label %93
 
 93:                                               ; preds = %91, %86, %81
-  %.045.i.i = phi i64 [ %spec.select.i.i, %91 ], [ %.1.i.i, %86 ], [ %spec.select64.i.i, %81 ]
+  %.045.i.i = phi i64 [ %.1.i.i, %86 ], [ %spec.select.i.i, %91 ], [ %spec.select64.i.i, %81 ]
   br i1 %28, label %.thread.i.i, label %97
 
 .thread.i.i:                                      ; preds = %93
@@ -572,9 +572,9 @@ poll_two_fds.exit.i:                              ; preds = %97, %116
   br label %poll_two_descriptors.exit
 
 poll_two_descriptors.exit:                        ; preds = %68, %73, %poll_descriptor_to_fd.exit.i, %77, %poll_two_fds.exit.i
-  %119 = phi i8 [ %.pre40, %poll_two_fds.exit.i ], [ %62, %73 ], [ %62, %68 ], [ %62, %poll_descriptor_to_fd.exit.i ], [ %62, %77 ]
-  %120 = phi i64 [ %.pre, %poll_two_fds.exit.i ], [ %69, %73 ], [ %69, %68 ], [ %69, %poll_descriptor_to_fd.exit.i ], [ %69, %77 ]
-  %.0.i = phi i1 [ %.0.i11.i, %poll_two_fds.exit.i ], [ true, %73 ], [ true, %68 ], [ true, %poll_descriptor_to_fd.exit.i ], [ true, %77 ]
+  %119 = phi i8 [ %.pre40, %poll_two_fds.exit.i ], [ %62, %68 ], [ %62, %73 ], [ %62, %poll_descriptor_to_fd.exit.i ], [ %62, %77 ]
+  %120 = phi i64 [ %.pre, %poll_two_fds.exit.i ], [ %69, %68 ], [ %69, %73 ], [ %69, %poll_descriptor_to_fd.exit.i ], [ %69, %77 ]
+  %.0.i = phi i1 [ %.0.i11.i, %poll_two_fds.exit.i ], [ true, %68 ], [ true, %73 ], [ true, %poll_descriptor_to_fd.exit.i ], [ true, %77 ]
   store i64 %120, ptr %20, align 8, !tbaa !20
   %121 = and i8 %119, 48
   %or.cond.not.i = icmp eq i8 %121, 48
@@ -606,7 +606,7 @@ ossl_quic_reactor_leave_blocking_section.exit:    ; preds = %.lr.ph.i, %poll_two
   br i1 %.0.i, label %133, label %29
 
 133:                                              ; preds = %61, %ossl_quic_reactor_leave_blocking_section.exit, %59
-  %.0 = phi i32 [ %60, %59 ], [ 0, %61 ], [ 0, %ossl_quic_reactor_leave_blocking_section.exit ]
+  %.0 = phi i32 [ %60, %59 ], [ 0, %ossl_quic_reactor_leave_blocking_section.exit ], [ 0, %61 ]
   ret i32 %.0
 }
 

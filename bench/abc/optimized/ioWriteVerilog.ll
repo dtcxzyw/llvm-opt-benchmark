@@ -1855,7 +1855,7 @@ Io_WriteVerilogGetName.exit516.i:                 ; preds = %610, %._crit_edge49
   br label %666
 
 666:                                              ; preds = %663, %647, %631
-  %667 = phi ptr [ %665, %663 ], [ @.str.73, %647 ], [ @.str.73, %631 ]
+  %667 = phi ptr [ @.str.73, %647 ], [ @.str.73, %631 ], [ %665, %663 ]
   %668 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.72, ptr noundef nonnull %667) #11
   br label %671
 

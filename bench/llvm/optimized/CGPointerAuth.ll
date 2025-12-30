@@ -139,7 +139,7 @@ default.unreachable:                              ; preds = %5
   unreachable
 
 41:                                               ; preds = %5, %34, %_ZN5clang7CodeGen13CodeGenModule31getPointerAuthDeclDiscriminatorENS_10GlobalDeclE.exit, %10
-  %.0 = phi ptr [ %40, %34 ], [ %17, %10 ], [ %33, %_ZN5clang7CodeGen13CodeGenModule31getPointerAuthDeclDiscriminatorENS_10GlobalDeclE.exit ], [ null, %5 ]
+  %.0 = phi ptr [ %17, %10 ], [ %33, %_ZN5clang7CodeGen13CodeGenModule31getPointerAuthDeclDiscriminatorENS_10GlobalDeclE.exit ], [ %40, %34 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -678,8 +678,8 @@ define dso_local { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule32getPointerAuthI
   br label %_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
 _ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %2, %3, %14
-  %.sroa.65.0.i = phi ptr [ null, %2 ], [ %17, %14 ], [ null, %3 ]
-  %.sroa.6.sroa.0.0.i = phi i64 [ 0, %2 ], [ %16, %14 ], [ 0, %3 ]
+  %.sroa.65.0.i = phi ptr [ %17, %14 ], [ null, %2 ], [ null, %3 ]
+  %.sroa.6.sroa.0.0.i = phi i64 [ %16, %14 ], [ 0, %2 ], [ 0, %3 ]
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.6.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.sroa.65.0.i, 1
   ret { i64, ptr } %.fca.1.insert.i
@@ -727,8 +727,8 @@ define dso_local { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule25getPointerAuthI
   br label %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
 _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %2, %13, %15, %26
-  %.sroa.67.0.i = phi ptr [ null, %2 ], [ null, %13 ], [ null, %15 ], [ %29, %26 ]
-  %.sroa.6.sroa.0.0.i = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %15 ], [ %28, %26 ]
+  %.sroa.67.0.i = phi ptr [ null, %2 ], [ null, %13 ], [ %29, %26 ], [ null, %15 ]
+  %.sroa.6.sroa.0.0.i = phi i64 [ 0, %2 ], [ 0, %13 ], [ %28, %26 ], [ 0, %15 ]
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.6.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.sroa.67.0.i, 1
   ret { i64, ptr } %.fca.1.insert.i
@@ -946,16 +946,16 @@ _ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit: ; preds = %
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !624
   %60 = icmp ult i32 %59, 65
-  br i1 %60, label %_ZL14isZeroConstantPKN4llvm5ValueE.exit, label %61
+  br i1 %60, label %61, label %_ZL14isZeroConstantPKN4llvm5ValueE.exit
 
 61:                                               ; preds = %56
-  %62 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %57) #12
-  %63 = icmp eq i32 %62, %59
+  %62 = load i64, ptr %57, align 8, !tbaa !3
+  %63 = icmp eq i64 %62, 0
   br i1 %63, label %223, label %.critedge65
 
 _ZL14isZeroConstantPKN4llvm5ValueE.exit:          ; preds = %56
-  %64 = load i64, ptr %57, align 8, !tbaa !3
-  %65 = icmp eq i64 %64, 0
+  %64 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %57) #12
+  %65 = icmp eq i32 %64, %59
   br i1 %65, label %223, label %.critedge65
 
 66:                                               ; preds = %52
@@ -972,16 +972,16 @@ _ZL14isZeroConstantPKN4llvm5ValueE.exit:          ; preds = %56
   %72 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %73 = load i32, ptr %72, align 8, !tbaa !624
   %74 = icmp ult i32 %73, 65
-  br i1 %74, label %_ZL14isZeroConstantPKN4llvm5ValueE.exit70, label %75
+  br i1 %74, label %75, label %_ZL14isZeroConstantPKN4llvm5ValueE.exit70
 
 75:                                               ; preds = %70
-  %76 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %71) #12
-  %77 = icmp eq i32 %76, %73
+  %76 = load i64, ptr %71, align 8, !tbaa !3
+  %77 = icmp eq i64 %76, 0
   br i1 %77, label %223, label %.critedge65
 
 _ZL14isZeroConstantPKN4llvm5ValueE.exit70:        ; preds = %70
-  %78 = load i64, ptr %71, align 8, !tbaa !3
-  %79 = icmp eq i64 %78, 0
+  %78 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %71) #12
+  %79 = icmp eq i32 %78, %73
   br i1 %79, label %223, label %.critedge65
 
 .critedge65:                                      ; preds = %68, %54, %_ZL14isZeroConstantPKN4llvm5ValueE.exit, %61, %36, %75, %66, %_ZL14isZeroConstantPKN4llvm5ValueE.exit70, %_ZL17equalAuthPoliciesRKN5clang7CodeGen17CGPointerAuthInfoES3_.exit
@@ -1273,7 +1273,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit78: ; preds = %20
   br label %223
 
 223:                                              ; preds = %75, %61, %34, %_ZL14isZeroConstantPKN4llvm5ValueE.exit, %_ZL14isZeroConstantPKN4llvm5ValueE.exit70, %46, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit78, %137, %16
-  %.0 = phi ptr [ %1, %16 ], [ %1, %34 ], [ %1, %46 ], [ %1, %_ZL14isZeroConstantPKN4llvm5ValueE.exit ], [ %1, %_ZL14isZeroConstantPKN4llvm5ValueE.exit70 ], [ %142, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit78 ], [ %.052, %137 ], [ %1, %61 ], [ %1, %75 ]
+  %.0 = phi ptr [ %1, %16 ], [ %1, %34 ], [ %1, %_ZL14isZeroConstantPKN4llvm5ValueE.exit ], [ %1, %_ZL14isZeroConstantPKN4llvm5ValueE.exit70 ], [ %1, %46 ], [ %142, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit78 ], [ %.052, %137 ], [ %1, %61 ], [ %1, %75 ]
   ret ptr %.0
 }
 
@@ -1756,7 +1756,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang7CodeGen13CodeGenModule3
   br label %24
 
 24:                                               ; preds = %8, %21, %23
-  %.032 = phi i32 [ 0, %23 ], [ %22, %21 ], [ %20, %8 ]
+  %.032 = phi i32 [ %22, %21 ], [ 0, %23 ], [ %20, %8 ]
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 256
@@ -1849,10 +1849,10 @@ _ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit: ; pred
 .fold.split:                                      ; preds = %61
   br label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread: ; preds = %39, %61, %.fold.split, %63, %66, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %28, %24
-  %.4 = phi i32 [ %.032, %.fold.split ], [ %.032, %24 ], [ %.032, %28 ], [ %.032, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 0, %66 ], [ %65, %63 ], [ %20, %61 ], [ %.032, %39 ]
-  %.331 = phi i1 [ %spec.select, %.fold.split ], [ %15, %24 ], [ %15, %28 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %spec.select, %66 ], [ %spec.select, %63 ], [ %spec.select, %61 ], [ %15, %39 ]
-  %.3 = phi i32 [ %.2, %.fold.split ], [ %13, %24 ], [ %13, %28 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.2, %66 ], [ %.2, %63 ], [ %.2, %61 ], [ %13, %39 ]
+_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread: ; preds = %39, %61, %.fold.split, %63, %66, %28, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %24
+  %.4 = phi i32 [ %.032, %24 ], [ %.032, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.032, %28 ], [ %.032, %.fold.split ], [ %20, %61 ], [ 0, %66 ], [ %65, %63 ], [ %.032, %39 ]
+  %.331 = phi i1 [ %15, %24 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %15, %28 ], [ %spec.select, %.fold.split ], [ %spec.select, %61 ], [ %spec.select, %66 ], [ %spec.select, %63 ], [ %15, %39 ]
+  %.3 = phi i32 [ %13, %24 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %13, %28 ], [ %.2, %.fold.split ], [ %.2, %61 ], [ %.2, %66 ], [ %.2, %63 ], [ %13, %39 ]
   %67 = select i1 %.331, i32 3, i32 1
   %68 = shl nuw nsw i32 %.3, 6
   %69 = or disjoint i32 %68, %67
@@ -1978,8 +1978,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclESt8optionalINS2_20P
   br label %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread
 
 _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread: ; preds = %7, %54, %58, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit, %16
-  %.sroa.08.0 = phi i64 [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ %59, %58 ], [ 0, %16 ], [ %56, %54 ], [ 0, %7 ]
-  %.sroa.6.sroa.0.0 = phi i64 [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ %.sroa.414.0.extract.shift, %58 ], [ 0, %16 ], [ %57, %54 ], [ 0, %7 ]
+  %.sroa.08.0 = phi i64 [ 0, %16 ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ %56, %54 ], [ %59, %58 ], [ 0, %7 ]
+  %.sroa.6.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ %57, %54 ], [ %.sroa.414.0.extract.shift, %58 ], [ 0, %7 ]
   %.sroa.08.0.insert.ext = and i64 %.sroa.08.0, 4294967295
   %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.6.sroa.0.0, %.sroa.08.0.insert.ext
   ret i64 %.sroa.08.0.insert.insert
@@ -2137,8 +2137,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction24authPointerToP
   br label %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
 _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %19, %23, %34
-  %.sroa.67.0.i = phi ptr [ %37, %34 ], [ null, %19 ], [ null, %23 ]
-  %.sroa.6.sroa.0.0.i = phi i64 [ %36, %34 ], [ 0, %19 ], [ 0, %23 ]
+  %.sroa.67.0.i = phi ptr [ null, %19 ], [ %37, %34 ], [ null, %23 ]
+  %.sroa.6.sroa.0.0.i = phi i64 [ 0, %19 ], [ %36, %34 ], [ 0, %23 ]
   store i64 %.sroa.6.sroa.0.0.i, ptr %5, align 8
   store ptr %.sroa.67.0.i, ptr %7, align 8, !tbaa !619
   %38 = and i64 %.sroa.6.sroa.0.0.i, 3
@@ -2189,8 +2189,8 @@ _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
   br label %70
 
 70:                                               ; preds = %66, %55, %51
-  %.sroa.67.0.i22 = phi ptr [ %69, %66 ], [ null, %51 ], [ null, %55 ]
-  %.sroa.6.sroa.0.0.i23 = phi i64 [ %68, %66 ], [ 0, %51 ], [ 0, %55 ]
+  %.sroa.67.0.i22 = phi ptr [ null, %51 ], [ %69, %66 ], [ null, %55 ]
+  %.sroa.6.sroa.0.0.i23 = phi i64 [ 0, %51 ], [ %68, %66 ], [ 0, %55 ]
   store i64 %.sroa.6.sroa.0.0.i23, ptr %6, align 8
   store ptr %.sroa.67.0.i22, ptr %8, align 8, !tbaa !619
   %71 = and i64 %.sroa.6.sroa.0.0.i23, 3
@@ -2368,7 +2368,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24authPointerToPointerC
   br label %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
 _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %34, %23, %19, %5
-  %.sroa.039.0 = phi i1 [ true, %5 ], [ %38, %34 ], [ true, %19 ], [ true, %23 ]
+  %.sroa.039.0 = phi i1 [ true, %5 ], [ true, %19 ], [ %38, %34 ], [ true, %23 ]
   %39 = and i64 %4, -16
   %40 = inttoptr i64 %39 to ptr
   %41 = load ptr, ptr %40, align 16, !tbaa !361
@@ -2412,7 +2412,7 @@ _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
   br label %69
 
 69:                                               ; preds = %64, %53, %49
-  %.sroa.6.sroa.0.0.i17 = phi i1 [ %68, %64 ], [ true, %49 ], [ true, %53 ]
+  %.sroa.6.sroa.0.0.i17 = phi i1 [ true, %49 ], [ %68, %64 ], [ true, %53 ]
   br i1 %.sroa.039.0, label %70, label %.thread
 
 .thread59:                                        ; preds = %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
@@ -2700,8 +2700,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21getAsNaturalAddressOf
   br label %_ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit
 
 _ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit: ; preds = %7, %18
-  %.sroa.65.0.i.i = phi ptr [ null, %7 ], [ %23, %18 ]
-  %.sroa.6.sroa.0.0.i.i = phi i64 [ 0, %7 ], [ %22, %18 ]
+  %.sroa.65.0.i.i = phi ptr [ %23, %18 ], [ null, %7 ]
+  %.sroa.6.sroa.0.0.i.i = phi i64 [ %22, %18 ], [ 0, %7 ]
   store i64 %.sroa.6.sroa.0.0.i.i, ptr %5, align 8
   br label %24
 
@@ -2780,8 +2780,8 @@ define dso_local noundef ptr @_ZNK5clang7CodeGen6LValue10getPointerERNS0_15CodeG
   br label %_ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit.i.i
 
 _ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit.i.i: ; preds = %20, %9
-  %.sroa.65.0.i.i.i.i = phi ptr [ null, %9 ], [ %25, %20 ]
-  %.sroa.6.sroa.0.0.i.i.i.i = phi i64 [ 0, %9 ], [ %24, %20 ]
+  %.sroa.65.0.i.i.i.i = phi ptr [ %25, %20 ], [ null, %9 ]
+  %.sroa.6.sroa.0.0.i.i.i.i = phi i64 [ %24, %20 ], [ 0, %9 ]
   store i64 %.sroa.6.sroa.0.0.i.i.i.i, ptr %3, align 8, !noalias !764
   br label %_ZNK5clang7CodeGen6LValue19emitResignedPointerENS_8QualTypeERNS0_15CodeGenFunctionE.exit
 
@@ -2840,8 +2840,8 @@ define dso_local noundef ptr @_ZNK5clang7CodeGen6LValue19emitResignedPointerENS_
   br label %_ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit.i
 
 _ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit.i: ; preds = %20, %9
-  %.sroa.65.0.i.i.i = phi ptr [ null, %9 ], [ %25, %20 ]
-  %.sroa.6.sroa.0.0.i.i.i = phi i64 [ 0, %9 ], [ %24, %20 ]
+  %.sroa.65.0.i.i.i = phi ptr [ %25, %20 ], [ null, %9 ]
+  %.sroa.6.sroa.0.0.i.i.i = phi i64 [ %24, %20 ], [ 0, %9 ]
   store i64 %.sroa.6.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !767
   br label %_ZN5clang7CodeGen15CodeGenFunction21getAsNaturalAddressOfENS0_7AddressENS_8QualTypeE.exit
 
@@ -3113,7 +3113,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13get
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ false, %22 ], [ false, %20 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ]
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 

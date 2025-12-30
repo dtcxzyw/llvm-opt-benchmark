@@ -63,7 +63,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br i1 %17, label %.lr.ph166, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
-  %.sroa.049.0.ph.lcssa87 = phi ptr [ %.sroa.049.0.ph92, %.loopexit ], [ null, %2 ], [ %.sroa.049.0.ph.be, %.outer.backedge ]
+  %.sroa.049.0.ph.lcssa87 = phi ptr [ null, %2 ], [ %.sroa.049.0.ph92, %.loopexit ], [ %.sroa.049.0.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
   br label %71
@@ -195,8 +195,8 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   unreachable
 
 .outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %48, %42, %40
-  %.sroa.049.0.ph.be = phi ptr [ %33, %42 ], [ %33, %40 ], [ %.sroa.049.1, %48 ], [ %.sroa.049.1, %._crit_edge.loopexit.i ]
-  %.sroa.0.0.ph.be = phi i32 [ %.sroa.0.088.lcssa, %42 ], [ %.sroa.0.088.lcssa, %40 ], [ 1, %48 ], [ %50, %._crit_edge.loopexit.i ]
+  %.sroa.049.0.ph.be = phi ptr [ %33, %40 ], [ %33, %42 ], [ %.sroa.049.1, %48 ], [ %.sroa.049.1, %._crit_edge.loopexit.i ]
+  %.sroa.0.0.ph.be = phi i32 [ %.sroa.0.088.lcssa, %40 ], [ %.sroa.0.088.lcssa, %42 ], [ 1, %48 ], [ %50, %._crit_edge.loopexit.i ]
   %59 = load atomic i64, ptr %3 acquire, align 128
   %60 = load atomic ptr, ptr %5 acquire, align 8
   %61 = and i64 %59, 1
@@ -912,7 +912,7 @@ _ZN4core3ops8function6FnOnce9call_once17h83de175e453a05fbE.exit.thread2.i.i: ; p
   unreachable
 
 "_ZN4core3ptr54drop_in_place$LT$std..sync..mpmc..context..Context$GT$17h37af6a460c31eb5eE.exit.i.i.i": ; preds = %171, %168, %150, %145
-  %.pn16.i.i.i = phi { ptr, i32 } [ %lpad.loopexit, %168 ], [ %146, %145 ], [ %146, %150 ], [ %lpad.loopexit, %171 ]
+  %.pn16.i.i.i = phi { ptr, i32 } [ %146, %150 ], [ %146, %145 ], [ %lpad.loopexit, %171 ], [ %lpad.loopexit, %168 ]
   resume { ptr, i32 } %.pn16.i.i.i
 
 158:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h83de175e453a05fbE.exit.thread2.i.i
@@ -1063,7 +1063,7 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
   unreachable
 
 common.resume:                                    ; preds = %132, %158, %28, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %47, %.body.i ], [ %29, %28 ], [ %133, %132 ], [ %159, %158 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %47, %.body.i ], [ %133, %132 ], [ %159, %158 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46528684e0ca80a6E.exit.i": ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17h475b447e7a5ab2a9E.exit.i"

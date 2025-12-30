@@ -3120,8 +3120,8 @@ someip_lookup_service_name.exit:                  ; preds = %proto_item_set_hidd
   br label %proto_item_set_hidden.exit198
 
 proto_item_set_hidden.exit198:                    ; preds = %52, %proto_item_set_hidden.exit, %59, %55, %49, %someip_lookup_service_name.exit
-  %.not219 = phi i1 [ false, %59 ], [ true, %someip_lookup_service_name.exit ], [ false, %49 ], [ false, %55 ], [ true, %proto_item_set_hidden.exit ], [ false, %52 ]
-  %.0.i218 = phi ptr [ %48, %59 ], [ null, %someip_lookup_service_name.exit ], [ %48, %49 ], [ %48, %55 ], [ null, %proto_item_set_hidden.exit ], [ %48, %52 ]
+  %.not219 = phi i1 [ true, %someip_lookup_service_name.exit ], [ false, %49 ], [ false, %55 ], [ false, %59 ], [ true, %proto_item_set_hidden.exit ], [ false, %52 ]
+  %.0.i218 = phi ptr [ null, %someip_lookup_service_name.exit ], [ %48, %49 ], [ %48, %55 ], [ %48, %59 ], [ null, %proto_item_set_hidden.exit ], [ %48, %52 ]
   %63 = load i32, ptr @hf_someip_methodid, align 4
   %64 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %63, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
   %65 = load i32, ptr %6, align 4
@@ -3173,8 +3173,8 @@ someip_lookup_method_name.exit:                   ; preds = %proto_item_set_hidd
   br label %proto_item_set_hidden.exit205
 
 proto_item_set_hidden.exit205:                    ; preds = %79, %proto_item_set_hidden.exit198, %86, %82, %76, %someip_lookup_method_name.exit
-  %.not189223 = phi i1 [ false, %86 ], [ true, %someip_lookup_method_name.exit ], [ false, %76 ], [ false, %82 ], [ true, %proto_item_set_hidden.exit198 ], [ false, %79 ]
-  %.0.i199222 = phi ptr [ %75, %86 ], [ null, %someip_lookup_method_name.exit ], [ %75, %76 ], [ %75, %82 ], [ null, %proto_item_set_hidden.exit198 ], [ %75, %79 ]
+  %.not189223 = phi i1 [ true, %someip_lookup_method_name.exit ], [ false, %76 ], [ false, %82 ], [ false, %86 ], [ true, %proto_item_set_hidden.exit198 ], [ false, %79 ]
+  %.0.i199222 = phi ptr [ null, %someip_lookup_method_name.exit ], [ %75, %76 ], [ %75, %82 ], [ %75, %86 ], [ null, %proto_item_set_hidden.exit198 ], [ %75, %79 ]
   %90 = load i32, ptr @hf_someip_length, align 4
   %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %90, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9)
   %92 = load i32, ptr %9, align 4
@@ -3491,7 +3491,7 @@ proto_item_set_generated.exit215:                 ; preds = %187, %203, %206
   br label %276
 
 276:                                              ; preds = %4, %273, %109, %94
-  %.0 = phi i32 [ %275, %273 ], [ %20, %94 ], [ %20, %109 ], [ %20, %4 ]
+  %.0 = phi i32 [ %20, %94 ], [ %20, %109 ], [ %275, %273 ], [ %20, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4878,12 +4878,12 @@ check_filter_string.exit.thread:                  ; preds = %30, %check_filter_s
   br label %.sink.split
 
 .sink.split:                                      ; preds = %check_filter_string.exit, %9, %17, %27, %56
-  %.sink = phi ptr [ %57, %56 ], [ %11, %9 ], [ %29, %27 ], [ %19, %17 ], [ %.0.i, %check_filter_string.exit ]
+  %.sink = phi ptr [ %57, %56 ], [ %29, %27 ], [ %19, %17 ], [ %11, %9 ], [ %.0.i, %check_filter_string.exit ]
   store ptr %.sink, ptr %1, align 8
   br label %58
 
 58:                                               ; preds = %.sink.split, %check_filter_string.exit.thread, %51
-  %.0 = phi i1 [ true, %check_filter_string.exit.thread ], [ true, %51 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %51 ], [ true, %check_filter_string.exit.thread ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -5294,7 +5294,7 @@ check_filter_string.exit.thread:                  ; preds = %22, %check_filter_s
   br label %.sink.split
 
 .sink.split:                                      ; preds = %check_filter_string.exit, %9, %19, %46, %54, %66
-  %.sink = phi ptr [ %67, %66 ], [ %56, %54 ], [ %48, %46 ], [ %11, %9 ], [ %21, %19 ], [ %.0.i, %check_filter_string.exit ]
+  %.sink = phi ptr [ %67, %66 ], [ %56, %54 ], [ %48, %46 ], [ %21, %19 ], [ %11, %9 ], [ %.0.i, %check_filter_string.exit ]
   store ptr %.sink, ptr %1, align 8
   br label %68
 
@@ -6033,7 +6033,7 @@ define internal noundef zeroext i1 @update_someip_parameter_enum(ptr noundef rea
   br i1 %23, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %20, %16, %9, %13, %2, %6
-  %.str.413.sink = phi ptr [ @.str.412, %16 ], [ @.str.411, %9 ], [ @.str.398, %2 ], [ @.str.398, %6 ], [ @.str.411, %13 ], [ @.str.413, %20 ]
+  %.str.413.sink = phi ptr [ @.str.398, %6 ], [ @.str.398, %2 ], [ @.str.411, %13 ], [ @.str.411, %9 ], [ @.str.412, %16 ], [ @.str.413, %20 ]
   %24 = load i32, ptr %0, align 8
   %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.413.sink, i32 noundef %24)
   store ptr %25, ptr %1, align 8
@@ -6828,7 +6828,7 @@ test_someip.exit:                                 ; preds = %10
   br label %test_someip.exit.thread
 
 test_someip.exit.thread:                          ; preds = %10, %7, %4, %test_someip.exit, %16
-  %.0.i9 = phi i1 [ true, %16 ], [ false, %test_someip.exit ], [ false, %4 ], [ false, %7 ], [ false, %10 ]
+  %.0.i9 = phi i1 [ false, %test_someip.exit ], [ true, %16 ], [ false, %4 ], [ false, %7 ], [ false, %10 ]
   ret i1 %.0.i9
 }
 
@@ -7332,7 +7332,7 @@ get_union_config.exit.i:                          ; preds = %82
   br label %dissect_someip_payload_peek_length_of_length.exit
 
 dissect_someip_payload_peek_length_of_length.exit: ; preds = %50, %71, %80, %89
-  %.0.i.in = phi ptr [ %72, %71 ], [ %81, %80 ], [ %90, %89 ], [ %51, %50 ]
+  %.0.i.in = phi ptr [ %51, %50 ], [ %72, %71 ], [ %81, %80 ], [ %90, %89 ]
   %.0.i = load i32, ptr %.0.i.in, align 4
   switch i32 %.0.i, label %.thread [
     i32 8, label %91
@@ -7357,7 +7357,7 @@ dissect_someip_payload_peek_length_of_length.exit: ; preds = %50, %71, %80, %89
   %101 = add i32 %100, 4
   br label %118
 
-.thread:                                          ; preds = %dissect_someip_payload_peek_length_of_length.exit, %27, %get_union_config.exit.i, %get_string_config.exit.i, %get_array_config.exit.i, %get_struct_config.exit.i, %._crit_edge.i, %73, %43, %52, %82, %67
+.thread:                                          ; preds = %dissect_someip_payload_peek_length_of_length.exit, %27, %get_string_config.exit.i, %get_array_config.exit.i, %get_struct_config.exit.i, %get_union_config.exit.i, %._crit_edge.i, %43, %52, %73, %82, %67
   %102 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_someip_payload_config_error, ptr noundef %0, i32 noundef %.086110, i32 noundef 2, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.351)
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %104 = load ptr, ptr %103, align 8
@@ -7387,7 +7387,7 @@ default.unreachable138:                           ; preds = %.lr.ph111
   unreachable
 
 118:                                              ; preds = %91, %95, %99, %115, %111, %107, %24
-  %.089 = phi i32 [ %117, %115 ], [ %26, %24 ], [ %94, %91 ], [ %98, %95 ], [ %101, %99 ], [ %110, %107 ], [ %114, %111 ]
+  %.089 = phi i32 [ %26, %24 ], [ %94, %91 ], [ %98, %95 ], [ %101, %99 ], [ %110, %107 ], [ %114, %111 ], [ %117, %115 ]
   %119 = add i32 %.089, 2
   %120 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.086110, i32 noundef %119)
   %.not = icmp eq ptr %.090, null
@@ -7478,12 +7478,12 @@ proto_item_set_hidden.exit.i:                     ; preds = %136, %142, %145
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %149, %.preheader100, %.preheader
-  %.288 = phi i32 [ %150, %149 ], [ %3, %.preheader ], [ %3, %.preheader100 ], [ %166, %.lr.ph ]
+  %.288 = phi i32 [ %3, %.preheader ], [ %3, %.preheader100 ], [ %150, %149 ], [ %166, %.lr.ph ]
   %167 = sub i32 %.288, %3
   br label %168
 
 168:                                              ; preds = %.thread, %153, %7, %.loopexit
-  %.085 = phi i32 [ %106, %.thread ], [ %167, %.loopexit ], [ 0, %7 ], [ 0, %153 ]
+  %.085 = phi i32 [ %167, %.loopexit ], [ 0, %7 ], [ 0, %153 ], [ %106, %.thread ]
   ret i32 %.085
 }
 
@@ -7651,8 +7651,8 @@ get_base_type_config.exit.i:                      ; preds = %48
   br label %94
 
 94:                                               ; preds = %92, %90, %82, %78, %76
-  %.1.i = phi ptr [ %93, %92 ], [ %84, %82 ], [ %91, %90 ], [ %77, %76 ], [ %79, %78 ]
-  %.069.not.i = phi i1 [ true, %92 ], [ true, %82 ], [ true, %90 ], [ false, %76 ], [ false, %78 ]
+  %.1.i = phi ptr [ %84, %82 ], [ %91, %90 ], [ %93, %92 ], [ %77, %76 ], [ %79, %78 ]
+  %.069.not.i = phi i1 [ true, %82 ], [ true, %90 ], [ true, %92 ], [ false, %76 ], [ false, %78 ]
   %95 = icmp slt i32 %8, 0
   br i1 %95, label %dissect_someip_payload_add_wtlv_if_needed.exit.i, label %96
 
@@ -7725,7 +7725,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i: ; preds = %proto_item_set_hidd
   br label %dissect_someip_payload_base_type.exit
 
 dissect_someip_payload_base_type.exit:            ; preds = %114, %37, %38, %get_enum_config.exit.i, %48, %get_base_type_config.exit.i, %55, %dissect_someip_payload_add_wtlv_if_needed.exit.i, %.preheader.i, %119, %122
-  %.073.i = phi i32 [ 0, %get_enum_config.exit.i ], [ 0, %37 ], [ 0, %get_base_type_config.exit.i ], [ 0, %55 ], [ %61, %dissect_someip_payload_add_wtlv_if_needed.exit.i ], [ %61, %119 ], [ %61, %122 ], [ 0, %48 ], [ 0, %38 ], [ %61, %.preheader.i ], [ %61, %114 ]
+  %.073.i = phi i32 [ 0, %get_enum_config.exit.i ], [ 0, %37 ], [ 0, %get_base_type_config.exit.i ], [ 0, %55 ], [ %61, %dissect_someip_payload_add_wtlv_if_needed.exit.i ], [ %61, %119 ], [ %61, %122 ], [ 0, %38 ], [ 0, %48 ], [ %61, %.preheader.i ], [ %61, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %dissect_someip_payload_typedef.exit
@@ -7878,7 +7878,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i59: ; preds = %159, %.thread.i
   br label %202
 
 202:                                              ; preds = %197, %194, %189
-  %.084.i = phi i32 [ 2, %189 ], [ %201, %197 ], [ 0, %194 ]
+  %.084.i = phi i32 [ %201, %197 ], [ 2, %189 ], [ 0, %194 ]
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %204 = load ptr, ptr %203, align 8
   %205 = call ptr @tvb_get_string_enc(ptr noundef %204, ptr noundef %0, i32 noundef %.089.i, i32 noundef %.086.i, i32 noundef %.084.i)
@@ -8432,7 +8432,7 @@ dissect_someip_payload_type_field.exit.thread:    ; preds = %445
   br label %dissect_someip_payload_typedef.exit
 
 proto_item_set_hidden.exit.sink.split.i:          ; preds = %465, %459, %453
-  %.sink37.i = phi ptr [ %461, %459 ], [ %455, %453 ], [ %467, %465 ]
+  %.sink37.i = phi ptr [ %455, %453 ], [ %461, %459 ], [ %467, %465 ]
   %471 = getelementptr inbounds nuw i8, ptr %.sink37.i, i64 28
   %472 = load i32, ptr %471, align 4
   %473 = or i32 %472, 1
@@ -8518,7 +8518,7 @@ dissect_someip_payload_type_field.exit:           ; preds = %450, %453, %456, %4
   br label %dissect_someip_payload_typedef.exit
 
 dissect_someip_payload_typedef.exit:              ; preds = %305, %216, %18, %504, %442, %437, %390, %dissect_someip_payload_type_field.exit.thread, %379, %376, %354, %get_struct_config.exit, %359, %299, %231, %get_array_config.exit, %.loopexit.i, %185, %176, %172, %get_string_config.exit.i, %123, %25, %get_typedef_config.exit, %509, %dissect_someip_payload_base_type.exit
-  %.0 = phi i32 [ 0, %509 ], [ %352, %359 ], [ %.073.i, %dissect_someip_payload_base_type.exit ], [ 0, %dissect_someip_payload_type_field.exit.thread ], [ 0, %123 ], [ 0, %18 ], [ %33, %25 ], [ 0, %get_typedef_config.exit ], [ 0, %get_string_config.exit.i ], [ 0, %185 ], [ %215, %.loopexit.i ], [ 0, %172 ], [ %170, %176 ], [ %.1.i69, %299 ], [ 0, %231 ], [ 0, %get_array_config.exit ], [ 0, %get_struct_config.exit ], [ 0, %354 ], [ 0, %216 ], [ %378, %376 ], [ %380, %379 ], [ 0, %390 ], [ 0, %437 ], [ %508, %504 ], [ 0, %442 ], [ 0, %305 ]
+  %.0 = phi i32 [ 0, %509 ], [ %.073.i, %dissect_someip_payload_base_type.exit ], [ %33, %25 ], [ 0, %get_typedef_config.exit ], [ 0, %get_string_config.exit.i ], [ 0, %185 ], [ %215, %.loopexit.i ], [ 0, %172 ], [ %170, %176 ], [ 0, %123 ], [ 0, %231 ], [ %.1.i69, %299 ], [ 0, %get_array_config.exit ], [ 0, %get_struct_config.exit ], [ 0, %354 ], [ %378, %376 ], [ %380, %379 ], [ %352, %359 ], [ 0, %390 ], [ 0, %437 ], [ %508, %504 ], [ 0, %442 ], [ 0, %dissect_someip_payload_type_field.exit.thread ], [ 0, %18 ], [ 0, %216 ], [ 0, %305 ]
   call void @decrement_dissection_depth(ptr noundef %1)
   ret i32 %.0
 }
@@ -8602,7 +8602,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @dissect_someip_payload_len
   br label %34
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %22, %16, %10
-  %.sink37 = phi ptr [ %18, %16 ], [ %12, %10 ], [ %24, %22 ]
+  %.sink37 = phi ptr [ %12, %10 ], [ %18, %16 ], [ %24, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sink37, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = or i32 %30, 1
@@ -8717,7 +8717,7 @@ define internal fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr
   br label %dissect_someip_payload_array_payload.exit
 
 dissect_someip_payload_array_payload.exit:        ; preds = %.critedge.i, %21, %52
-  %.055.i = phi i32 [ %26, %21 ], [ %.052.i, %52 ], [ 1, %.critedge.i ]
+  %.055.i = phi i32 [ %.052.i, %52 ], [ %26, %21 ], [ 1, %.critedge.i ]
   %54 = add i32 %.055.i, %3
   br label %.loopexit
 
@@ -8834,7 +8834,7 @@ dissect_someip_payload_array_dim_length.exit:     ; preds = %78, %85, %88
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !33
 
 .loopexit:                                        ; preds = %97, %.lr.ph97, %.preheader, %101, %dissect_someip_payload_array_payload.exit
-  %.0 = phi i32 [ %54, %dissect_someip_payload_array_payload.exit ], [ %112, %.lr.ph97 ], [ %3, %101 ], [ %3, %.preheader ], [ %99, %97 ]
+  %.0 = phi i32 [ %54, %dissect_someip_payload_array_payload.exit ], [ %3, %101 ], [ %3, %.preheader ], [ %112, %.lr.ph97 ], [ %99, %97 ]
   %114 = sub i32 %.0, %3
   br label %115
 
@@ -9339,7 +9339,7 @@ define internal zeroext i1 @test_someip(ptr readnone captures(none) %0, ptr noun
   br label %17
 
 17:                                               ; preds = %12, %10, %7, %4
-  %.0 = phi i1 [ %.not5, %12 ], [ false, %4 ], [ false, %7 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ false, %10 ], [ %.not5, %12 ]
   ret i1 %.0
 }
 
@@ -9649,8 +9649,8 @@ get_base_type_config.exit.i:                      ; preds = %50
   br label %get_param_attributes.exit
 
 get_param_attributes.exit:                        ; preds = %41, %get_string_config.exit.i, %47, %56, %63, %67, %71, %75, %79, %83, %87, %91, %95, %99, %103, %107, %111, %115, %119, %123, %127
-  %.sroa.28.1.i = phi ptr [ null, %get_string_config.exit.i ], [ %49, %47 ], [ null, %41 ], [ %58, %123 ], [ %58, %56 ], [ %58, %63 ], [ %58, %67 ], [ %58, %71 ], [ %58, %75 ], [ %58, %79 ], [ %58, %83 ], [ %58, %87 ], [ %58, %91 ], [ %58, %95 ], [ %58, %99 ], [ %58, %103 ], [ %58, %107 ], [ %58, %111 ], [ %58, %115 ], [ %58, %119 ], [ %58, %127 ]
-  %.sroa.0.0.insert.insert.i = phi i64 [ 26, %get_string_config.exit.i ], [ 26, %47 ], [ 26, %41 ], [ 22, %123 ], [ 4294967300, %56 ], [ 4294967301, %63 ], [ 4294967302, %67 ], [ 4294967303, %71 ], [ 4294967304, %75 ], [ 4294967305, %79 ], [ 4294967306, %83 ], [ 4294967307, %87 ], [ 4294967308, %91 ], [ 4294967309, %95 ], [ 4294967310, %99 ], [ 4294967311, %103 ], [ 4294967312, %107 ], [ 4294967313, %111 ], [ 4294967314, %115 ], [ 4294967315, %119 ], [ %..i, %127 ]
+  %.sroa.28.1.i = phi ptr [ %49, %47 ], [ null, %get_string_config.exit.i ], [ %58, %56 ], [ %58, %63 ], [ %58, %67 ], [ %58, %71 ], [ %58, %75 ], [ %58, %79 ], [ %58, %83 ], [ %58, %87 ], [ %58, %91 ], [ %58, %95 ], [ %58, %99 ], [ %58, %103 ], [ %58, %107 ], [ %58, %111 ], [ %58, %115 ], [ %58, %119 ], [ %58, %123 ], [ %58, %127 ], [ null, %41 ]
+  %.sroa.0.0.insert.insert.i = phi i64 [ 26, %47 ], [ 26, %get_string_config.exit.i ], [ 4294967300, %56 ], [ 4294967301, %63 ], [ 4294967302, %67 ], [ 4294967303, %71 ], [ 4294967304, %75 ], [ 4294967305, %79 ], [ 4294967306, %83 ], [ 4294967307, %87 ], [ 4294967308, %91 ], [ 4294967309, %95 ], [ 4294967310, %99 ], [ 4294967311, %103 ], [ 4294967312, %107 ], [ 4294967313, %111 ], [ 4294967314, %115 ], [ 4294967315, %119 ], [ 22, %123 ], [ %..i, %127 ], [ 26, %41 ]
   %131 = icmp eq ptr %0, null
   %132 = and i64 %.sroa.0.0.insert.insert.i, 31
   %133 = icmp eq i64 %132, 0
@@ -9697,8 +9697,8 @@ get_param_attributes.exit:                        ; preds = %41, %get_string_con
   store ptr null, ptr %153, align 8
   br label %get_param_attributes.exit.thread
 
-get_param_attributes.exit.thread:                 ; preds = %.lr.ph.i, %50, %get_enum_config.exit.i, %28, %get_base_type_config.exit.i, %40, %get_param_attributes.exit, %145
-  %.0 = phi ptr [ %135, %145 ], [ null, %get_param_attributes.exit ], [ null, %40 ], [ null, %get_base_type_config.exit.i ], [ null, %28 ], [ null, %get_enum_config.exit.i ], [ null, %50 ], [ null, %.lr.ph.i ]
+get_param_attributes.exit.thread:                 ; preds = %.lr.ph.i, %50, %28, %get_enum_config.exit.i, %get_base_type_config.exit.i, %40, %get_param_attributes.exit, %145
+  %.0 = phi ptr [ %135, %145 ], [ null, %get_param_attributes.exit ], [ null, %40 ], [ null, %get_base_type_config.exit.i ], [ null, %get_enum_config.exit.i ], [ null, %28 ], [ null, %50 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

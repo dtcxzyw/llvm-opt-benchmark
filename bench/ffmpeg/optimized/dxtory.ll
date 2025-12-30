@@ -633,12 +633,12 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %358, label %.preheader175.i, label %._crit_edge187.i, !llvm.loop !40
 
 ._crit_edge187.i:                                 ; preds = %334, %._crit_edge.us.us.i, %.preheader175.lr.ph.split.us.split.i, %212
-  %.0162.lcssa.i = phi ptr [ %229, %212 ], [ %279, %._crit_edge.us.us.i ], [ %scevgep250.i, %.preheader175.lr.ph.split.us.split.i ], [ %349, %334 ]
-  %.0160.lcssa.i = phi ptr [ %234, %212 ], [ %283, %._crit_edge.us.us.i ], [ %scevgep251.i, %.preheader175.lr.ph.split.us.split.i ], [ %353, %334 ]
-  %.0159.lcssa.i = phi ptr [ %236, %212 ], [ %286, %._crit_edge.us.us.i ], [ %scevgep252.i, %.preheader175.lr.ph.split.us.split.i ], [ %356, %334 ]
-  %.0158.lcssa.i = phi ptr [ %226, %212 ], [ %278, %._crit_edge.us.us.i ], [ %scevgep249.i, %.preheader175.lr.ph.split.us.split.i ], [ %348, %334 ]
-  %.0157.lcssa.i = phi ptr [ %222, %212 ], [ %277, %._crit_edge.us.us.i ], [ %scevgep.i81, %.preheader175.lr.ph.split.us.split.i ], [ %347, %334 ]
-  %.0151.lcssa.i = phi ptr [ %189, %212 ], [ %272, %._crit_edge.us.us.i ], [ %189, %.preheader175.lr.ph.split.us.split.i ], [ %343, %334 ]
+  %.0162.lcssa.i = phi ptr [ %229, %212 ], [ %scevgep250.i, %.preheader175.lr.ph.split.us.split.i ], [ %279, %._crit_edge.us.us.i ], [ %349, %334 ]
+  %.0160.lcssa.i = phi ptr [ %234, %212 ], [ %scevgep251.i, %.preheader175.lr.ph.split.us.split.i ], [ %283, %._crit_edge.us.us.i ], [ %353, %334 ]
+  %.0159.lcssa.i = phi ptr [ %236, %212 ], [ %scevgep252.i, %.preheader175.lr.ph.split.us.split.i ], [ %286, %._crit_edge.us.us.i ], [ %356, %334 ]
+  %.0158.lcssa.i = phi ptr [ %226, %212 ], [ %scevgep249.i, %.preheader175.lr.ph.split.us.split.i ], [ %278, %._crit_edge.us.us.i ], [ %348, %334 ]
+  %.0157.lcssa.i = phi ptr [ %222, %212 ], [ %scevgep.i81, %.preheader175.lr.ph.split.us.split.i ], [ %277, %._crit_edge.us.us.i ], [ %347, %334 ]
+  %.0151.lcssa.i = phi ptr [ %189, %212 ], [ %189, %.preheader175.lr.ph.split.us.split.i ], [ %272, %._crit_edge.us.us.i ], [ %343, %334 ]
   %.not.i73 = icmp eq i32 %218, 0
   br i1 %.not.i73, label %dxtory_decode_v1_420.exit.thread95.sink.split, label %.preheader173.i
 
@@ -772,7 +772,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %exitcond276.not.i, label %.split.us.i, label %.preheader.split.split.i, !llvm.loop !43
 
 .split.us.i:                                      ; preds = %.preheader.split.split.us.i, %.preheader.split.us.i, %.preheader.split.split.i
-  %.us-phi213.i = phi ptr [ %402, %.preheader.split.us.i ], [ %417, %.preheader.split.split.i ], [ %411, %.preheader.split.split.us.i ]
+  %.us-phi213.i = phi ptr [ %417, %.preheader.split.split.i ], [ %402, %.preheader.split.us.i ], [ %411, %.preheader.split.split.us.i ]
   %418 = load i8, ptr %.us-phi213.i, align 1, !tbaa !16
   %419 = xor i8 %418, -128
   %420 = sext i32 %221 to i64
@@ -928,7 +928,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %dxtory_decode_v1_420.exit.thread
 
 dxtory_decode_v1_420.exit:                        ; preds = %506, %502, %498, %494, %490, %426, %184, %19, %15
-  %.0 = phi i32 [ %18, %15 ], [ %22, %19 ], [ %509, %506 ], [ %187, %184 ], [ %501, %498 ], [ %429, %426 ], [ %505, %502 ], [ %493, %490 ], [ %497, %494 ]
+  %.0 = phi i32 [ %18, %15 ], [ %22, %19 ], [ %187, %184 ], [ %429, %426 ], [ %493, %490 ], [ %497, %494 ], [ %501, %498 ], [ %505, %502 ], [ %509, %506 ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %dxtory_decode_v1_420.exit.thread95, label %dxtory_decode_v1_420.exit.thread
 
@@ -941,8 +941,8 @@ dxtory_decode_v1_420.exit.thread95:               ; preds = %dxtory_decode_v1_42
   %511 = load i32, ptr %7, align 8, !tbaa !15
   br label %dxtory_decode_v1_420.exit.thread
 
-dxtory_decode_v1_420.exit.thread:                 ; preds = %443, %442, %207, %41, %208, %42, %dxtory_decode_v1_420.exit, %dxtory_decode_v1_420.exit.thread95, %510, %10
-  %.072 = phi i32 [ -1094995529, %10 ], [ -1163346256, %510 ], [ %511, %dxtory_decode_v1_420.exit.thread95 ], [ %.0, %dxtory_decode_v1_420.exit ], [ %445, %443 ], [ -1094995529, %442 ], [ -1094995529, %207 ], [ -1094995529, %41 ], [ %210, %208 ], [ %44, %42 ]
+dxtory_decode_v1_420.exit.thread:                 ; preds = %443, %442, %208, %207, %42, %41, %dxtory_decode_v1_420.exit, %dxtory_decode_v1_420.exit.thread95, %510, %10
+  %.072 = phi i32 [ -1094995529, %10 ], [ -1163346256, %510 ], [ %511, %dxtory_decode_v1_420.exit.thread95 ], [ %.0, %dxtory_decode_v1_420.exit ], [ %445, %443 ], [ -1094995529, %442 ], [ %210, %208 ], [ -1094995529, %207 ], [ %44, %42 ], [ -1094995529, %41 ]
   ret i32 %.072
 }
 
@@ -1063,7 +1063,7 @@ define internal fastcc range(i64 -6442450944, 6442450942) i64 @get_raw_size(i32 
   br label %33
 
 33:                                               ; preds = %3, %22, %12, %8, %4
-  %.0 = phi i64 [ %32, %22 ], [ %7, %4 ], [ %11, %8 ], [ %21, %12 ], [ 0, %3 ]
+  %.0 = phi i64 [ %7, %4 ], [ %11, %8 ], [ %21, %12 ], [ %32, %22 ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -1420,7 +1420,7 @@ check_slice_size.exit:                            ; preds = %82, %77
   br label %load_buffer.exit.thread
 
 load_buffer.exit.thread:                          ; preds = %37, %bytestream2_get_le32.exit, %check_slice_size.exit, %76, %73, %26, %bytestream2_get_le16.exit.i.thread, %55, %47, %103
-  %.051 = phi i32 [ 0, %103 ], [ -1094995529, %76 ], [ -1094995529, %check_slice_size.exit ], [ -1094995529, %47 ], [ %57, %55 ], [ -1094995529, %bytestream2_get_le16.exit.i.thread ], [ -1163346256, %26 ], [ -1094995529, %73 ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %37 ]
+  %.051 = phi i32 [ 0, %103 ], [ -1094995529, %47 ], [ %57, %55 ], [ -1163346256, %26 ], [ -1094995529, %bytestream2_get_le16.exit.i.thread ], [ -1094995529, %73 ], [ -1094995529, %76 ], [ -1094995529, %check_slice_size.exit ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.051
@@ -1672,7 +1672,7 @@ decode_sym.exit53.us:                             ; preds = %113, %get_unary.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph64.split.us, %._crit_edge.us, %.lr.ph64.split, %5
-  %.028.lcssa = phi i32 [ 0, %5 ], [ %spec.select, %.lr.ph64.split ], [ %.02861.us, %.lr.ph64.split.us ], [ %3, %._crit_edge.us ]
+  %.028.lcssa = phi i32 [ 0, %5 ], [ %spec.select, %.lr.ph64.split ], [ %3, %._crit_edge.us ], [ %.02861.us, %.lr.ph64.split.us ]
   ret i32 %.028.lcssa
 }
 
@@ -3832,7 +3832,7 @@ decode_sym.exit277:                               ; preds = %504, %get_unary.exi
   br label %522
 
 522:                                              ; preds = %._crit_edge333, %decode_sym.exit277, %.critedge
-  %.1128 = phi i32 [ %.0127.lcssa, %.critedge ], [ %3, %._crit_edge333 ], [ %3, %decode_sym.exit277 ]
+  %.1128 = phi i32 [ %.0127.lcssa, %.critedge ], [ %3, %decode_sym.exit277 ], [ %3, %._crit_edge333 ]
   ret i32 %.1128
 }
 
@@ -4103,7 +4103,7 @@ decode_sym.exit67.us:                             ; preds = %129, %get_unary.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph80.split.us, %._crit_edge.us, %.lr.ph80.split, %5
-  %.042.lcssa = phi i32 [ 0, %5 ], [ %spec.select, %.lr.ph80.split ], [ %.04275.us, %.lr.ph80.split.us ], [ %3, %._crit_edge.us ]
+  %.042.lcssa = phi i32 [ 0, %5 ], [ %spec.select, %.lr.ph80.split ], [ %3, %._crit_edge.us ], [ %.04275.us, %.lr.ph80.split.us ]
   ret i32 %.042.lcssa
 }
 
@@ -4365,7 +4365,7 @@ decode_sym_565.exit30.us:                         ; preds = %112, %get_unary.exi
   br label %dx2_decode_slice_5x5.exit
 
 dx2_decode_slice_5x5.exit:                        ; preds = %.lr.ph47.split.us, %._crit_edge.us, %.lr.ph47.split, %5
-  %.038.i.lcssa = phi i32 [ 0, %5 ], [ %spec.select, %.lr.ph47.split ], [ %.038.i44.us, %.lr.ph47.split.us ], [ %3, %._crit_edge.us ]
+  %.038.i.lcssa = phi i32 [ 0, %5 ], [ %spec.select, %.lr.ph47.split ], [ %3, %._crit_edge.us ], [ %.038.i44.us, %.lr.ph47.split.us ]
   ret i32 %.038.i.lcssa
 }
 
@@ -4637,7 +4637,7 @@ decode_sym_565.exit30.us:                         ; preds = %112, %get_unary.exi
   br label %dx2_decode_slice_5x5.exit
 
 dx2_decode_slice_5x5.exit:                        ; preds = %.lr.ph47.split.us, %._crit_edge.us, %.lr.ph47.split, %5
-  %.038.i.lcssa = phi i32 [ 0, %5 ], [ %spec.select, %.lr.ph47.split ], [ %.038.i44.us, %.lr.ph47.split.us ], [ %3, %._crit_edge.us ]
+  %.038.i.lcssa = phi i32 [ 0, %5 ], [ %spec.select, %.lr.ph47.split ], [ %3, %._crit_edge.us ], [ %.038.i44.us, %.lr.ph47.split.us ]
   ret i32 %.038.i.lcssa
 }
 

@@ -514,7 +514,7 @@ indent.exit103:                                   ; preds = %indent.exit103.back
   br i1 %.not29.i, label %write_subgs.exit, label %indent.exit103.backedge
 
 indent.exit103.backedge:                          ; preds = %112, %.thread
-  %.026.i121.be = phi ptr [ %117, %.thread ], [ %113, %112 ]
+  %.026.i121.be = phi ptr [ %113, %112 ], [ %117, %.thread ]
   br label %indent.exit103, !llvm.loop !112
 
 .thread:                                          ; preds = %indent.exit103
@@ -1149,7 +1149,7 @@ gv_strdup.exit.i:                                 ; preds = %gv_alloc.exit.i
   br label %insert.exit
 
 insert.exit:                                      ; preds = %gv_strdup.exit.i, %22, %19, %5, %3
-  %.014 = phi i32 [ %1, %3 ], [ %6, %5 ], [ %6, %19 ], [ %6, %22 ], [ %6, %gv_strdup.exit.i ]
+  %.014 = phi i32 [ %6, %5 ], [ %1, %3 ], [ %6, %19 ], [ %6, %22 ], [ %6, %gv_strdup.exit.i ]
   %40 = tail call ptr @agfstsubg(ptr noundef %0) #15
   %.not1617 = icmp eq ptr %40, null
   br i1 %.not1617, label %._crit_edge, label %.lr.ph

@@ -771,7 +771,7 @@ u_isUAlphabetic_77.exit:                          ; preds = %3, %7, %14
   br label %u_isdigit_77.exit
 
 u_isdigit_77.exit:                                ; preds = %12, %.sink.split.i
-  %66 = phi i64 [ 4876, %12 ], [ %65, %.sink.split.i ]
+  %66 = phi i64 [ %65, %.sink.split.i ], [ 4876, %12 ]
   %67 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !3
   %69 = and i16 %68, 31
@@ -1195,7 +1195,7 @@ switch.early.test:                                ; preds = %32
   br label %46
 
 46:                                               ; preds = %.thread, %switch.early.test, %40, %42
-  %47 = phi i8 [ 1, %switch.early.test ], [ %45, %42 ], [ 0, %40 ], [ 0, %.thread ]
+  %47 = phi i8 [ 1, %switch.early.test ], [ 0, %40 ], [ %45, %42 ], [ 0, %.thread ]
   ret i8 %47
 }
 
@@ -1426,7 +1426,7 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
   br label %25
 
 25:                                               ; preds = %7, %5
-  %26 = phi i64 [ %24, %7 ], [ 4876, %5 ]
+  %26 = phi i64 [ 4876, %5 ], [ %24, %7 ]
   %27 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !3
   %29 = and i16 %28, 31
@@ -2232,7 +2232,7 @@ switch.lookup:                                    ; preds = %82
   unreachable
 
 114:                                              ; preds = %._crit_edge, %102, %76, %78, %80, %32, %104, %92, %switch.lookup, %56, %51, %46, %41
-  %.0 = phi double [ %81, %80 ], [ %43, %41 ], [ %48, %46 ], [ %53, %51 ], [ %63, %56 ], [ 0xC19D6F3454000000, %32 ], [ %89, %switch.lookup ], [ %101, %92 ], [ %113, %104 ], [ %.058.lcssa, %._crit_edge ], [ %77, %76 ], [ %79, %78 ], [ 0xC19D6F3454000000, %102 ]
+  %.0 = phi double [ %43, %41 ], [ %48, %46 ], [ %53, %51 ], [ %63, %56 ], [ %89, %switch.lookup ], [ %101, %92 ], [ %113, %104 ], [ 0xC19D6F3454000000, %32 ], [ %.058.lcssa, %._crit_edge ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ 0xC19D6F3454000000, %102 ]
   ret double %.0
 }
 
@@ -2337,7 +2337,7 @@ u_charDigitValue_77.exit:                         ; preds = %16, %.sink.split.i
   br label %58
 
 58:                                               ; preds = %55, %2, %u_charDigitValue_77.exit, %49, %53, %45
-  %.0 = phi i32 [ %46, %45 ], [ %50, %49 ], [ %54, %53 ], [ -1, %2 ], [ %spec.select, %55 ], [ %42, %u_charDigitValue_77.exit ]
+  %.0 = phi i32 [ %46, %45 ], [ %50, %49 ], [ %54, %53 ], [ %42, %u_charDigitValue_77.exit ], [ %spec.select, %55 ], [ -1, %2 ]
   %59 = sext i8 %1 to i32
   %sext = shl i32 %.0, 24
   %60 = ashr exact i32 %sext, 24
@@ -2368,7 +2368,7 @@ define range(i32 -2147483600, -2147483648) i32 @u_forDigit_77(i32 noundef %0, i8
   br label %12
 
 12:                                               ; preds = %2, %10, %8
-  %.0 = phi i32 [ %11, %10 ], [ %9, %8 ], [ 0, %2 ]
+  %.0 = phi i32 [ %9, %8 ], [ %11, %10 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -2459,7 +2459,7 @@ define range(i32 0, 49764914) i32 @uprv_getMaxValues_77(i32 noundef %0) local_un
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi i32 [ 0, %4 ], [ 338, %3 ], [ 49764913, %2 ], [ 20687, %1 ]
+  %.0 = phi i32 [ 0, %4 ], [ 49764913, %2 ], [ 338, %3 ], [ 20687, %1 ]
   ret i32 %.0
 }
 
@@ -2625,7 +2625,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %12, %16, %21
   br label %56
 
 56:                                               ; preds = %51, %u_getUnicodeProperties_77.exit, %47, %49, %2, %4, %9
-  %.0 = phi i32 [ -1, %2 ], [ -1, %9 ], [ -1, %4 ], [ %55, %51 ], [ %45, %u_getUnicodeProperties_77.exit ], [ 0, %47 ], [ 1, %49 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %4 ], [ -1, %2 ], [ %55, %51 ], [ %45, %u_getUnicodeProperties_77.exit ], [ 0, %47 ], [ 1, %49 ]
   ret i32 %.0
 }
 
@@ -2839,7 +2839,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   br label %.backedge.preheader
 
 .backedge.preheader:                              ; preds = %63, %59
-  %.131.ph = phi ptr [ %67, %63 ], [ %61, %59 ]
+  %.131.ph = phi ptr [ %61, %59 ], [ %67, %63 ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
@@ -2874,7 +2874,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %58, %57, %.thread36, %4, %6, %14
-  %.0 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 1, %57 ], [ 1, %58 ], [ %78, %.thread36 ], [ %76, %71 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %6 ], [ 0, %4 ], [ 1, %58 ], [ 1, %57 ], [ %78, %.thread36 ], [ %76, %71 ]
   ret i32 %.0
 }
 

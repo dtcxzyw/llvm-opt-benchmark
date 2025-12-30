@@ -522,8 +522,8 @@ default.unreachable295:                           ; preds = %._crit_edge277.thre
   br label %170
 
 170:                                              ; preds = %._crit_edge277, %167, %._crit_edge, %64
-  %.1228.sink = phi i32 [ %21, %._crit_edge ], [ %71, %64 ], [ %122, %167 ], [ %89, %._crit_edge277 ]
-  %.1226.sink = phi i32 [ %23, %._crit_edge ], [ %73, %64 ], [ %134, %167 ], [ %102, %._crit_edge277 ]
+  %.1228.sink = phi i32 [ %71, %64 ], [ %21, %._crit_edge ], [ %122, %167 ], [ %89, %._crit_edge277 ]
+  %.1226.sink = phi i32 [ %73, %64 ], [ %23, %._crit_edge ], [ %134, %167 ], [ %102, %._crit_edge277 ]
   store i32 %.1228.sink, ptr %4, align 1
   store i32 %.1226.sink, ptr %9, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

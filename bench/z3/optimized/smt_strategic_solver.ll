@@ -523,7 +523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %26
 
 26:                                               ; preds = %7, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %12
-  %.0 = phi i1 [ %14, %12 ], [ true, %2 ], [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %7 ]
+  %.0 = phi i1 [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %12 ], [ true, %2 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -619,7 +619,7 @@ _ZNK10sat_params3eufEv.exit:                      ; preds = %12
           to label %19 unwind label %10
 
 19:                                               ; preds = %17, %15, %8
-  %.0 = phi ptr [ %16, %15 ], [ %9, %8 ], [ %18, %17 ]
+  %.0 = phi ptr [ %9, %8 ], [ %16, %15 ], [ %18, %17 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -1047,7 +1047,7 @@ _ZN3refI6tacticEaSEPS0_.exit68:                   ; preds = %140, %141
   br label %.thread77
 
 .thread77:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZN3refI6tacticEaSEPS0_.exit68
-  %145 = phi ptr [ %139, %_ZN3refI6tacticEaSEPS0_.exit68 ], [ %107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ]
+  %145 = phi ptr [ %107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %139, %_ZN3refI6tacticEaSEPS0_.exit68 ]
   %146 = invoke noundef ptr @_Z16mk_tactic2solverR11ast_managerP6tacticRK10params_refbbbRK6symbol(ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef %145, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %147 unwind label %134
 
@@ -1271,7 +1271,7 @@ _ZN7obj_mapI4exprjED2Ev.exit.i.i.i:               ; preds = %186, %181
   unreachable
 
 _ZN3refI6tacticED2Ev.exit:                        ; preds = %133, %209, %210, %215
-  %.1107 = phi ptr [ %208, %215 ], [ %208, %209 ], [ %208, %210 ], [ %132, %133 ]
+  %.1107 = phi ptr [ %208, %209 ], [ %208, %210 ], [ %208, %215 ], [ %132, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -1279,7 +1279,7 @@ _ZN3refI6tacticED2Ev.exit:                        ; preds = %133, %209, %210, %2
   ret ptr %.1107
 
 .body:                                            ; preds = %134, %206, %74, %78, %76, %136, %122
-  %.pn45 = phi { ptr, i32 } [ %77, %76 ], [ %137, %136 ], [ %.pn41.pn.pn, %122 ], [ %75, %74 ], [ %79, %78 ], [ %135, %134 ], [ %.pn.pn.pn.pn.i, %206 ]
+  %.pn45 = phi { ptr, i32 } [ %137, %136 ], [ %.pn41.pn.pn, %122 ], [ %75, %74 ], [ %79, %78 ], [ %77, %76 ], [ %135, %134 ], [ %.pn.pn.pn.pn.i, %206 ]
   call void @_ZN3refI6tacticED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #16
@@ -1407,7 +1407,7 @@ _ZNK15parallel_params6enableEv.exit12:            ; preds = %28
           to label %33 unwind label %20
 
 33:                                               ; preds = %24, %_ZNK15parallel_params6enableEv.exit12, %31, %18
-  %.0 = phi ptr [ %32, %31 ], [ %19, %18 ], [ null, %_ZNK15parallel_params6enableEv.exit12 ], [ null, %24 ]
+  %.0 = phi ptr [ %19, %18 ], [ %32, %31 ], [ null, %_ZNK15parallel_params6enableEv.exit12 ], [ null, %24 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

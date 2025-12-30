@@ -54,7 +54,7 @@ define internal i32 @parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %17
 
 17:                                               ; preds = %7, %4, %9
-  %.0 = phi i32 [ 0, %4 ], [ %16, %9 ], [ 0, %7 ]
+  %.0 = phi i32 [ %16, %9 ], [ 0, %4 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -518,8 +518,8 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph.split.split.
   br label %get_bits_long.exit49.i
 
 get_bits_long.exit49.i:                           ; preds = %286, %282
-  %.sroa.6.2.i = phi i32 [ %300, %286 ], [ %285, %282 ]
-  %.0.i48.i = phi i32 [ %301, %286 ], [ %283, %282 ]
+  %.sroa.6.2.i = phi i32 [ %285, %282 ], [ %300, %286 ]
+  %.0.i48.i = phi i32 [ %283, %282 ], [ %301, %286 ]
   %302 = getelementptr inbounds nuw i8, ptr %274, i64 4
   store i32 %.0.i48.i, ptr %302, align 4, !tbaa !50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -689,7 +689,7 @@ rtp_parse_mp4_au.exit:                            ; preds = %95, %84, %74, %68, 
   br label %385
 
 385:                                              ; preds = %360, %375, %328, %34, %378, %359, %355, %343, %342, %338, %326, %315, %rtp_parse_mp4_au.exit, %60, %33, %29, %16
-  %.0 = phi i32 [ -1, %rtp_parse_mp4_au.exit ], [ -1094995529, %326 ], [ -1094995529, %338 ], [ %340, %342 ], [ 0, %343 ], [ 1, %34 ], [ -1094995529, %315 ], [ -1094995529, %355 ], [ %357, %359 ], [ 1, %378 ], [ -11, %328 ], [ -1094995529, %16 ], [ -1094995529, %29 ], [ %31, %33 ], [ 0, %60 ], [ 0, %375 ], [ 0, %360 ]
+  %.0 = phi i32 [ -1, %rtp_parse_mp4_au.exit ], [ -1094995529, %326 ], [ -1094995529, %338 ], [ %340, %342 ], [ 0, %343 ], [ -1094995529, %315 ], [ -1094995529, %355 ], [ %357, %359 ], [ 1, %378 ], [ -1094995529, %16 ], [ -1094995529, %29 ], [ %31, %33 ], [ 0, %60 ], [ 1, %34 ], [ -11, %328 ], [ 0, %375 ], [ 0, %360 ]
   ret i32 %.0
 }
 
@@ -814,7 +814,7 @@ split:                                            ; preds = %32
   br label %parse_fmtp_config.exit.thread
 
 parse_fmtp_config.exit.thread:                    ; preds = %45, %10, %.thread, %17, %53, %.loopexit
-  %.0 = phi i32 [ -1094995529, %.thread ], [ %12, %10 ], [ 0, %17 ], [ 0, %.loopexit ], [ 0, %53 ], [ -12, %45 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %53 ], [ 0, %17 ], [ -1094995529, %.thread ], [ %12, %10 ], [ -12, %45 ]
   ret i32 %.0
 }
 

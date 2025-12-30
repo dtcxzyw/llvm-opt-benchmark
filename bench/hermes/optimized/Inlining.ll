@@ -267,7 +267,7 @@ for.inc43.i:                                      ; preds = %for.inc40.i, %for.b
   br i1 %cmp23.not.i, label %cleanup.i, label %for.body24.i
 
 cleanup.i:                                        ; preds = %for.inc43.i, %sw.bb33.i, %for.body30.i, %for.body30.i, %for.body30.i, %for.body30.i, %if.end16.i
-  %cmp23.not25.i = phi i1 [ false, %sw.bb33.i ], [ true, %if.end16.i ], [ false, %for.body30.i ], [ false, %for.body30.i ], [ false, %for.body30.i ], [ false, %for.body30.i ], [ true, %for.inc43.i ]
+  %cmp23.not25.i = phi i1 [ true, %if.end16.i ], [ false, %for.body30.i ], [ false, %for.body30.i ], [ false, %for.body30.i ], [ false, %for.body30.i ], [ false, %sw.bb33.i ], [ true, %for.inc43.i ]
   %34 = load ptr, ptr %ref.tmp.i, align 8
   %cmp.i.i.i20.i = icmp eq ptr %34, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i20.i, label %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit, label %if.then.i.i.i
@@ -749,7 +749,7 @@ if.end13.i.i27.i453:                              ; preds = %if.end9.i.i21.i447
   br i1 %cmp.i.i.i37.i463, label %if.end12.i418, label %if.end9.i.i21.i447, !llvm.loop !6
 
 if.end12.i418:                                    ; preds = %if.end13.i.i.i407, %if.end13.i.i27.i453, %if.then.i816, %if.then12.i.i40.i464, %if.end.i.i11.i437, %if.then10.i435, %if.else.i428, %if.then12.i.i.i425, %if.end.i.i.i391, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit827
-  %TheBucket.addr.0.i419 = phi ptr [ %cond.sink.i.i.i.i132.i, %if.else.i428 ], [ null, %if.then.i816 ], [ %cond.i.i.i427, %if.then12.i.i.i425 ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit827 ], [ %add.ptr21.i.i.i399, %if.end.i.i.i391 ], [ %cond.i.i42.i466, %if.then12.i.i40.i464 ], [ null, %if.then10.i435 ], [ %add.ptr21.i.i19.i445, %if.end.i.i11.i437 ], [ %add.ptr.i.i36.i462, %if.end13.i.i27.i453 ], [ %add.ptr.i.i.i416, %if.end13.i.i.i407 ]
+  %TheBucket.addr.0.i419 = phi ptr [ %cond.sink.i.i.i.i132.i, %if.else.i428 ], [ %cond.i.i.i427, %if.then12.i.i.i425 ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit827 ], [ %add.ptr21.i.i.i399, %if.end.i.i.i391 ], [ %cond.i.i42.i466, %if.then12.i.i40.i464 ], [ null, %if.then10.i435 ], [ %add.ptr21.i.i19.i445, %if.end.i.i11.i437 ], [ null, %if.then.i816 ], [ %add.ptr.i.i36.i462, %if.end13.i.i27.i453 ], [ %add.ptr.i.i.i416, %if.end13.i.i.i407 ]
   %84 = load i32, ptr %NumEntries.i.i.i382, align 8
   %add.i.i420 = add i32 %84, 1
   store i32 %add.i.i420, ptr %NumEntries.i.i.i382, align 8
@@ -1104,7 +1104,7 @@ if.end13.i.i27.i367:                              ; preds = %if.end9.i.i21.i361
   br i1 %cmp.i.i.i37.i377, label %if.end12.i332, label %if.end9.i.i21.i361, !llvm.loop !6
 
 if.end12.i332:                                    ; preds = %if.end13.i.i.i321, %if.end13.i.i27.i367, %if.then.i726, %if.then12.i.i40.i378, %if.end.i.i11.i351, %if.then10.i349, %if.else.i342, %if.then12.i.i.i339, %if.end.i.i.i305, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit737
-  %TheBucket.addr.0.i333 = phi ptr [ %cond.sink.i.i.i.i174.i, %if.else.i342 ], [ null, %if.then.i726 ], [ %cond.i.i.i341, %if.then12.i.i.i339 ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit737 ], [ %add.ptr21.i.i.i313, %if.end.i.i.i305 ], [ %cond.i.i42.i380, %if.then12.i.i40.i378 ], [ null, %if.then10.i349 ], [ %add.ptr21.i.i19.i359, %if.end.i.i11.i351 ], [ %add.ptr.i.i36.i376, %if.end13.i.i27.i367 ], [ %add.ptr.i.i.i330, %if.end13.i.i.i321 ]
+  %TheBucket.addr.0.i333 = phi ptr [ %cond.sink.i.i.i.i174.i, %if.else.i342 ], [ %cond.i.i.i341, %if.then12.i.i.i339 ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit737 ], [ %add.ptr21.i.i.i313, %if.end.i.i.i305 ], [ %cond.i.i42.i380, %if.then12.i.i40.i378 ], [ null, %if.then10.i349 ], [ %add.ptr21.i.i19.i359, %if.end.i.i11.i351 ], [ null, %if.then.i726 ], [ %add.ptr.i.i36.i376, %if.end13.i.i27.i367 ], [ %add.ptr.i.i.i330, %if.end13.i.i.i321 ]
   %124 = load i32, ptr %NumEntries.i.i.i382, align 8
   %add.i.i334 = add i32 %124, 1
   store i32 %add.i.i334, ptr %NumEntries.i.i.i382, align 8
@@ -1530,7 +1530,7 @@ if.end13.i.i27.i281:                              ; preds = %if.end9.i.i21.i275
   br i1 %cmp.i.i.i37.i291, label %if.end12.i246, label %if.end9.i.i21.i275, !llvm.loop !6
 
 if.end12.i246:                                    ; preds = %if.end13.i.i.i235, %if.end13.i.i27.i281, %if.then.i636, %if.then12.i.i40.i292, %if.end.i.i11.i265, %if.then10.i263, %if.else.i256, %if.then12.i.i.i253, %if.end.i.i.i219, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit647
-  %TheBucket.addr.0.i247 = phi ptr [ %cond.sink.i.i.i.i254.i, %if.else.i256 ], [ null, %if.then.i636 ], [ %cond.i.i.i255, %if.then12.i.i.i253 ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit647 ], [ %add.ptr21.i.i.i227, %if.end.i.i.i219 ], [ %cond.i.i42.i294, %if.then12.i.i40.i292 ], [ null, %if.then10.i263 ], [ %add.ptr21.i.i19.i273, %if.end.i.i11.i265 ], [ %add.ptr.i.i36.i290, %if.end13.i.i27.i281 ], [ %add.ptr.i.i.i244, %if.end13.i.i.i235 ]
+  %TheBucket.addr.0.i247 = phi ptr [ %cond.sink.i.i.i.i254.i, %if.else.i256 ], [ %cond.i.i.i255, %if.then12.i.i.i253 ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit647 ], [ %add.ptr21.i.i.i227, %if.end.i.i.i219 ], [ %cond.i.i42.i294, %if.then12.i.i40.i292 ], [ null, %if.then10.i263 ], [ %add.ptr21.i.i19.i273, %if.end.i.i11.i265 ], [ null, %if.then.i636 ], [ %add.ptr.i.i36.i290, %if.end13.i.i27.i281 ], [ %add.ptr.i.i.i244, %if.end13.i.i.i235 ]
   %174 = load i32, ptr %NumEntries.i.i.i382, align 8
   %add.i.i248 = add i32 %174, 1
   store i32 %add.i.i248, ptr %NumEntries.i.i.i382, align 8
@@ -2167,7 +2167,7 @@ if.end13.i.i27.i.i:                               ; preds = %if.end9.i.i21.i.i
   br i1 %cmp.i.i.i37.i.i, label %if.end12.i.i, label %if.end9.i.i21.i.i, !llvm.loop !6
 
 if.end12.i.i:                                     ; preds = %if.end13.i.i.i.i, %if.end13.i.i27.i.i, %if.then.i111, %if.then.i198, %if.then12.i.i40.i.i, %if.end.i.i11.i.i, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit, %if.else.i419.i, %if.then12.i.i.i.i, %if.end.i.i.i.i, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit209
-  %TheBucket.addr.0.i.i = phi ptr [ %cond.sink.i.i.i.i317.i, %if.else.i419.i ], [ null, %if.then.i111 ], [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit209 ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %cond.i.i42.i.i, %if.then12.i.i40.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit ], [ %add.ptr21.i.i19.i.i, %if.end.i.i11.i.i ], [ %add.ptr.i.i36.i.i, %if.end13.i.i27.i.i ], [ null, %if.then.i198 ], [ %add.ptr.i.i.i.i, %if.end13.i.i.i.i ]
+  %TheBucket.addr.0.i.i = phi ptr [ %cond.sink.i.i.i.i317.i, %if.else.i419.i ], [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit209 ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %cond.i.i42.i.i, %if.then12.i.i40.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit ], [ %add.ptr21.i.i19.i.i, %if.end.i.i11.i.i ], [ null, %if.then.i198 ], [ null, %if.then.i111 ], [ %add.ptr.i.i36.i.i, %if.end13.i.i27.i.i ], [ %add.ptr.i.i.i.i, %if.end13.i.i.i.i ]
   %249 = load i32, ptr %NumEntries.i.i.i382, align 8
   %add.i.i.i = add i32 %249, 1
   store i32 %add.i.i.i, ptr %NumEntries.i.i.i382, align 8
@@ -2642,7 +2642,7 @@ if.end13.i.i27.i492.i:                            ; preds = %if.end9.i.i21.i486.
   br i1 %cmp.i.i.i37.i502.i, label %if.end12.i457.i, label %if.end9.i.i21.i486.i, !llvm.loop !6
 
 if.end12.i457.i:                                  ; preds = %if.end13.i.i.i446.i, %if.end13.i.i27.i492.i, %if.then12.i.i40.i503.i, %if.end.i.i11.i476.i, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit.i, %if.then.i546.i, %if.else.i467.i, %if.then12.i.i.i464.i, %if.end.i.i.i430.i, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit639.i, %if.then.i628.i
-  %TheBucket.addr.0.i458.i = phi ptr [ %cond.sink.i.i.i.i357.i, %if.else.i467.i ], [ null, %if.then.i546.i ], [ %cond.i.i.i466.i, %if.then12.i.i.i464.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit639.i ], [ %add.ptr21.i.i.i438.i, %if.end.i.i.i430.i ], [ %cond.i.i42.i505.i, %if.then12.i.i40.i503.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit.i ], [ %add.ptr21.i.i19.i484.i, %if.end.i.i11.i476.i ], [ %add.ptr.i.i36.i501.i, %if.end13.i.i27.i492.i ], [ null, %if.then.i628.i ], [ %add.ptr.i.i.i455.i, %if.end13.i.i.i446.i ]
+  %TheBucket.addr.0.i458.i = phi ptr [ %cond.sink.i.i.i.i357.i, %if.else.i467.i ], [ %cond.i.i.i466.i, %if.then12.i.i.i464.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit639.i ], [ %add.ptr21.i.i.i438.i, %if.end.i.i.i430.i ], [ %cond.i.i42.i505.i, %if.then12.i.i40.i503.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit.i ], [ %add.ptr21.i.i19.i484.i, %if.end.i.i11.i476.i ], [ null, %if.then.i628.i ], [ null, %if.then.i546.i ], [ %add.ptr.i.i36.i501.i, %if.end13.i.i27.i492.i ], [ %add.ptr.i.i.i455.i, %if.end13.i.i.i446.i ]
   %294 = load i32, ptr %NumEntries.i.i.i382, align 8
   %add.i.i459.i = add i32 %294, 1
   store i32 %add.i.i459.i, ptr %NumEntries.i.i.i382, align 8
@@ -3000,7 +3000,7 @@ if.end13.i.i27.i:                                 ; preds = %if.end9.i.i21.i
   br i1 %cmp.i.i.i37.i, label %if.end12.i, label %if.end9.i.i21.i, !llvm.loop !6
 
 if.end12.i:                                       ; preds = %if.end13.i.i.i, %if.end13.i.i27.i, %if.then.i546, %if.then12.i.i40.i, %if.end.i.i11.i, %if.then10.i, %if.else.i, %if.then12.i.i.i, %if.end.i.i.i58, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit557
-  %TheBucket.addr.0.i = phi ptr [ %cond.sink.i.i.i.i399.i, %if.else.i ], [ null, %if.then.i546 ], [ %cond.i.i.i, %if.then12.i.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit557 ], [ %add.ptr21.i.i.i, %if.end.i.i.i58 ], [ %cond.i.i42.i, %if.then12.i.i40.i ], [ null, %if.then10.i ], [ %add.ptr21.i.i19.i, %if.end.i.i11.i ], [ %add.ptr.i.i36.i, %if.end13.i.i27.i ], [ %add.ptr.i.i.i61, %if.end13.i.i.i ]
+  %TheBucket.addr.0.i = phi ptr [ %cond.sink.i.i.i.i399.i, %if.else.i ], [ %cond.i.i.i, %if.then12.i.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE4growEj.exit557 ], [ %add.ptr21.i.i.i, %if.end.i.i.i58 ], [ %cond.i.i42.i, %if.then12.i.i40.i ], [ null, %if.then10.i ], [ %add.ptr21.i.i19.i, %if.end.i.i11.i ], [ null, %if.then.i546 ], [ %add.ptr.i.i36.i, %if.end13.i.i27.i ], [ %add.ptr.i.i.i61, %if.end13.i.i.i ]
   %331 = load i32, ptr %NumEntries.i.i.i382, align 8
   %add.i.i63 = add i32 %331, 1
   store i32 %add.i.i63, ptr %NumEntries.i.i.i382, align 8
@@ -3216,7 +3216,7 @@ for.cond.while.condthread-pre-split.loopexit_crit_edge: ; preds = %_ZN4llvh23Sma
   br label %while.condthread-pre-split, !llvm.loop !14
 
 while.condthread-pre-split:                       ; preds = %if.end13.i.i.i.i, %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.while.condthread-pre-split_crit_edge, %for.cond.while.condthread-pre-split.loopexit_crit_edge, %if.end.i.i.i.i
-  %.pr = phi i32 [ %.pr.pre, %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.while.condthread-pre-split_crit_edge ], [ %sub.i, %if.end.i.i.i.i ], [ %add.i32, %for.cond.while.condthread-pre-split.loopexit_crit_edge ], [ %sub.i, %if.end13.i.i.i.i ]
+  %.pr = phi i32 [ %.pr.pre, %_ZN6hermes10successorsEPNS_10BasicBlockE.exit.while.condthread-pre-split_crit_edge ], [ %add.i32, %for.cond.while.condthread-pre-split.loopexit_crit_edge ], [ %sub.i, %if.end.i.i.i.i ], [ %sub.i, %if.end13.i.i.i.i ]
   %tobool.not.i = icmp eq i32 %.pr, 0
   br i1 %tobool.not.i, label %while.end, label %while.body
 
@@ -3527,9 +3527,9 @@ if.end13.i.i40:                                   ; preds = %if.end9.i.i34
   br i1 %cmp.i.i.i50, label %if.end12, label %if.end9.i.i34, !llvm.loop !20
 
 if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i40, %if.then12.i.i53, %if.end.i.i24, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
-  %bf.clear.i.i.i.pre-phi = phi i32 [ %bf.clear.i.i.i.i17, %if.end13.i.i40 ], [ %bf.clear.i.i, %if.else ], [ %bf.clear.i.i.i.i17, %if.then12.i.i53 ], [ %bf.clear.i.i.i.i17, %if.end.i.i24 ], [ %bf.clear.i.i.i.i17, %if.then10 ], [ %bf.clear.i.i.i.i, %if.then12.i.i ], [ %bf.clear.i.i.i.i, %if.end.i.i ], [ %bf.clear.i.i.i.i, %if.then ], [ %bf.clear.i.i.i.i, %if.end13.i.i ]
-  %bf.load.i.i.i = phi i32 [ %bf.load.i.i.i.i16, %if.end13.i.i40 ], [ %bf.load.i.i, %if.else ], [ %bf.load.i.i.i.i16, %if.then12.i.i53 ], [ %bf.load.i.i.i.i16, %if.end.i.i24 ], [ %bf.load.i.i.i.i16, %if.then10 ], [ %bf.load.i.i.i.i, %if.then12.i.i ], [ %bf.load.i.i.i.i, %if.end.i.i ], [ %bf.load.i.i.i.i, %if.then ], [ %bf.load.i.i.i.i, %if.end13.i.i ]
-  %TheBucket.addr.0 = phi ptr [ %add.ptr.i.i49, %if.end13.i.i40 ], [ %TheBucket, %if.else ], [ %cond.i.i55, %if.then12.i.i53 ], [ %add.ptr25.i.i32, %if.end.i.i24 ], [ null, %if.then10 ], [ %cond.i.i10, %if.then12.i.i ], [ %add.ptr25.i.i, %if.end.i.i ], [ null, %if.then ], [ %add.ptr.i.i, %if.end13.i.i ]
+  %bf.clear.i.i.i.pre-phi = phi i32 [ %bf.clear.i.i.i.i17, %if.then12.i.i53 ], [ %bf.clear.i.i.i.i17, %if.end.i.i24 ], [ %bf.clear.i.i.i.i17, %if.then10 ], [ %bf.clear.i.i.i.i, %if.then12.i.i ], [ %bf.clear.i.i.i.i, %if.end.i.i ], [ %bf.clear.i.i.i.i, %if.then ], [ %bf.clear.i.i, %if.else ], [ %bf.clear.i.i.i.i17, %if.end13.i.i40 ], [ %bf.clear.i.i.i.i, %if.end13.i.i ]
+  %bf.load.i.i.i = phi i32 [ %bf.load.i.i.i.i16, %if.then12.i.i53 ], [ %bf.load.i.i.i.i16, %if.end.i.i24 ], [ %bf.load.i.i.i.i16, %if.then10 ], [ %bf.load.i.i.i.i, %if.then12.i.i ], [ %bf.load.i.i.i.i, %if.end.i.i ], [ %bf.load.i.i.i.i, %if.then ], [ %bf.load.i.i, %if.else ], [ %bf.load.i.i.i.i16, %if.end13.i.i40 ], [ %bf.load.i.i.i.i, %if.end13.i.i ]
+  %TheBucket.addr.0 = phi ptr [ %cond.i.i55, %if.then12.i.i53 ], [ %add.ptr25.i.i32, %if.end.i.i24 ], [ null, %if.then10 ], [ %cond.i.i10, %if.then12.i.i ], [ %add.ptr25.i.i, %if.end.i.i ], [ null, %if.then ], [ %TheBucket, %if.else ], [ %add.ptr.i.i49, %if.end13.i.i40 ], [ %add.ptr.i.i, %if.end13.i.i ]
   %bf.lshr.i.i.i = and i32 %bf.load.i.i.i, -2
   %bf.value.i.i.i = add i32 %bf.lshr.i.i.i, 2
   %bf.set.i.i.i = or disjoint i32 %bf.value.i.i.i, %bf.clear.i.i.i.pre-phi
@@ -3606,7 +3606,7 @@ if.then17:                                        ; preds = %for.body
   br label %if.end23
 
 if.end23:                                         ; preds = %for.body, %for.body, %if.then17
-  %TmpEnd.1 = phi ptr [ %TmpEnd.033, %for.body ], [ %TmpEnd.033, %for.body ], [ %incdec.ptr, %if.then17 ]
+  %TmpEnd.1 = phi ptr [ %TmpEnd.033, %for.body ], [ %incdec.ptr, %if.then17 ], [ %TmpEnd.033, %for.body ]
   %P.0.add = add nuw nsw i64 %P.0.idx32, 8
   %cmp12.not = icmp eq i64 %P.0.add, 32
   br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !24
@@ -4204,7 +4204,7 @@ if.end39.sink.split:                              ; preds = %if.end13.i.i.i.i, %
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.sink.split, %if.else18, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit
-  %newOp.0 = phi ptr [ %call2, %if.else18 ], [ %call2, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ], [ %25, %if.end39.sink.split ]
+  %newOp.0 = phi ptr [ %call2, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ], [ %call2, %if.else18 ], [ %25, %if.end39.sink.split ]
   %26 = load i32, ptr %Size.i.i, align 8
   %27 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %26, %27
@@ -4366,7 +4366,7 @@ if.end13.i.i27:                                   ; preds = %if.end9.i.i21
   br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !6
 
 if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i27, %if.then12.i.i40, %if.end.i.i11, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i42, %if.then12.i.i40 ], [ null, %if.then10 ], [ %add.ptr21.i.i19, %if.end.i.i11 ], [ %add.ptr.i.i, %if.end13.i.i ]
+  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i42, %if.then12.i.i40 ], [ null, %if.then10 ], [ %add.ptr21.i.i19, %if.end.i.i11 ], [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %add.ptr.i.i, %if.end13.i.i ]
   %17 = load i32, ptr %NumEntries.i.i, align 8
   %add.i = add i32 %17, 1
   store i32 %add.i, ptr %NumEntries.i.i, align 8
@@ -4576,7 +4576,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry, %if.then4.i, %if.end.i, %if.then.i
-  %phi.call = phi ptr [ %this, %if.end.i ], [ %call3.i, %if.then.i ], [ %this, %if.then4.i ], [ %this, %entry ]
+  %phi.call = phi ptr [ %call3.i, %if.then.i ], [ %this, %if.then4.i ], [ %this, %if.end.i ], [ %this, %entry ]
   ret ptr %phi.call
 }
 

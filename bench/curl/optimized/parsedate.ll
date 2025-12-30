@@ -222,9 +222,9 @@ checktz.exit:                                     ; preds = %54
   br label %.thread303
 
 .thread303:                                       ; preds = %40, %.preheader.i, %checktz.exit
-  %.1125310 = phi i32 [ %.2126, %.preheader.i ], [ %.2126, %checktz.exit ], [ %.01725.i, %40 ]
-  %.1130309 = phi i32 [ %.0710.i, %.preheader.i ], [ %.2131, %checktz.exit ], [ %.0129381, %40 ]
-  %.1171308 = phi i32 [ %.0170377, %.preheader.i ], [ %61, %checktz.exit ], [ %.0170377, %40 ]
+  %.1125310 = phi i32 [ %.2126, %checktz.exit ], [ %.2126, %.preheader.i ], [ %.01725.i, %40 ]
+  %.1130309 = phi i32 [ %.2131, %checktz.exit ], [ %.0710.i, %.preheader.i ], [ %.0129381, %40 ]
+  %.1171308 = phi i32 [ %61, %checktz.exit ], [ %.0170377, %.preheader.i ], [ %.0170377, %40 ]
   %62 = getelementptr inbounds nuw i8, ptr %.4277, i64 %.0142
   br label %.critedge223
 
@@ -378,9 +378,9 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   br label %._crit_edge396
 
 ._crit_edge396:                                   ; preds = %123, %133, %136, %129
-  %.pre-phi402 = phi i64 [ %128, %129 ], [ 4, %133 ], [ 4, %136 ], [ %128, %123 ]
-  %.6176 = phi i32 [ -1, %129 ], [ -1, %133 ], [ %144, %136 ], [ %.0170377, %123 ]
-  %.3146 = phi i8 [ 0, %129 ], [ 0, %133 ], [ 1, %136 ], [ 0, %123 ]
+  %.pre-phi402 = phi i64 [ 4, %133 ], [ 4, %136 ], [ %128, %129 ], [ %128, %123 ]
+  %.6176 = phi i32 [ -1, %133 ], [ %144, %136 ], [ -1, %129 ], [ %.0170377, %123 ]
+  %.3146 = phi i8 [ 0, %133 ], [ 1, %136 ], [ 0, %129 ], [ 0, %123 ]
   %145 = icmp eq i64 %.pre-phi402, 8
   %146 = icmp eq i32 %.0178376, -1
   %or.cond13 = select i1 %145, i1 %146, i1 false
@@ -452,15 +452,15 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   br i1 %162, label %.thread327, label %175
 
 .thread327:                                       ; preds = %oneortwodigit.exit20.thread.i, %100, %104, %oneortwodigit.exit23.i, %.thread320, %174
-  %.3276.ph = phi ptr [ %.pre, %174 ], [ %.pre, %.thread320 ], [ %110, %oneortwodigit.exit23.i ], [ %.229.i, %100 ], [ %.229.i, %oneortwodigit.exit20.thread.i ], [ %107, %104 ]
-  %.3270.ph = phi i32 [ %.0267373, %174 ], [ %.0267373, %.thread320 ], [ %.0.i.i, %oneortwodigit.exit23.i ], [ %.0.i.i, %100 ], [ %.0.i.i, %oneortwodigit.exit20.thread.i ], [ %.0.i.i, %104 ]
-  %.3264.ph = phi i32 [ %.0261374, %174 ], [ %.0261374, %.thread320 ], [ %.0.i1930.i, %oneortwodigit.exit23.i ], [ %.0.i1930.i, %100 ], [ %.0.i1930.i, %oneortwodigit.exit20.thread.i ], [ %.0.i1930.i, %104 ]
-  %.3.ph = phi i32 [ %.0375, %174 ], [ %.0375, %.thread320 ], [ %114, %oneortwodigit.exit23.i ], [ 0, %100 ], [ 0, %oneortwodigit.exit20.thread.i ], [ %106, %104 ]
-  %.8186.ph = phi i32 [ %.5183, %174 ], [ %.7185, %.thread320 ], [ %.0178376, %oneortwodigit.exit23.i ], [ %.0178376, %100 ], [ %.0178376, %oneortwodigit.exit20.thread.i ], [ %.0178376, %104 ]
-  %.7177.ph = phi i32 [ %.6176, %174 ], [ %.6176, %.thread320 ], [ %.0170377, %oneortwodigit.exit23.i ], [ %.0170377, %100 ], [ %.0170377, %oneortwodigit.exit20.thread.i ], [ %.0170377, %104 ]
-  %.7169.ph = phi i32 [ %.5167, %174 ], [ %spec.select228, %.thread320 ], [ %.0162378, %oneortwodigit.exit23.i ], [ %.0162378, %100 ], [ %.0162378, %oneortwodigit.exit20.thread.i ], [ %.0162378, %104 ]
-  %.8161.ph = phi i32 [ %.6159, %174 ], [ %.6159, %.thread320 ], [ %.0153379, %oneortwodigit.exit23.i ], [ %.0153379, %100 ], [ %.0153379, %oneortwodigit.exit20.thread.i ], [ %.0153379, %104 ]
-  %.8.ph = phi i32 [ %.7136, %174 ], [ %.7136, %.thread320 ], [ %.0129381, %oneortwodigit.exit23.i ], [ %.0129381, %100 ], [ %.0129381, %oneortwodigit.exit20.thread.i ], [ %.0129381, %104 ]
+  %.3276.ph = phi ptr [ %.pre, %.thread320 ], [ %.pre, %174 ], [ %110, %oneortwodigit.exit23.i ], [ %.229.i, %100 ], [ %.229.i, %oneortwodigit.exit20.thread.i ], [ %107, %104 ]
+  %.3270.ph = phi i32 [ %.0267373, %.thread320 ], [ %.0267373, %174 ], [ %.0.i.i, %oneortwodigit.exit23.i ], [ %.0.i.i, %100 ], [ %.0.i.i, %oneortwodigit.exit20.thread.i ], [ %.0.i.i, %104 ]
+  %.3264.ph = phi i32 [ %.0261374, %.thread320 ], [ %.0261374, %174 ], [ %.0.i1930.i, %oneortwodigit.exit23.i ], [ %.0.i1930.i, %100 ], [ %.0.i1930.i, %oneortwodigit.exit20.thread.i ], [ %.0.i1930.i, %104 ]
+  %.3.ph = phi i32 [ %.0375, %.thread320 ], [ %.0375, %174 ], [ %114, %oneortwodigit.exit23.i ], [ 0, %100 ], [ 0, %oneortwodigit.exit20.thread.i ], [ %106, %104 ]
+  %.8186.ph = phi i32 [ %.7185, %.thread320 ], [ %.5183, %174 ], [ %.0178376, %oneortwodigit.exit23.i ], [ %.0178376, %100 ], [ %.0178376, %oneortwodigit.exit20.thread.i ], [ %.0178376, %104 ]
+  %.7177.ph = phi i32 [ %.6176, %.thread320 ], [ %.6176, %174 ], [ %.0170377, %oneortwodigit.exit23.i ], [ %.0170377, %100 ], [ %.0170377, %oneortwodigit.exit20.thread.i ], [ %.0170377, %104 ]
+  %.7169.ph = phi i32 [ %spec.select228, %.thread320 ], [ %.5167, %174 ], [ %.0162378, %oneortwodigit.exit23.i ], [ %.0162378, %100 ], [ %.0162378, %oneortwodigit.exit20.thread.i ], [ %.0162378, %104 ]
+  %.8161.ph = phi i32 [ %.6159, %.thread320 ], [ %.6159, %174 ], [ %.0153379, %oneortwodigit.exit23.i ], [ %.0153379, %100 ], [ %.0153379, %oneortwodigit.exit20.thread.i ], [ %.0153379, %104 ]
+  %.8.ph = phi i32 [ %.7136, %.thread320 ], [ %.7136, %174 ], [ %.0129381, %oneortwodigit.exit23.i ], [ %.0129381, %100 ], [ %.0129381, %oneortwodigit.exit20.thread.i ], [ %.0129381, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge223
 
@@ -469,16 +469,16 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   br label %.critedge229
 
 .critedge223:                                     ; preds = %.thread327, %.thread303, %63
-  %.1274 = phi ptr [ %62, %.thread303 ], [ %.3276.ph, %.thread327 ], [ %.4277, %63 ]
-  %.1268 = phi i32 [ %.0267373, %.thread303 ], [ %.3270.ph, %.thread327 ], [ %.0267373, %63 ]
-  %.1262 = phi i32 [ %.0261374, %.thread303 ], [ %.3264.ph, %.thread327 ], [ %.0261374, %63 ]
-  %.1 = phi i32 [ %.0375, %.thread303 ], [ %.3.ph, %.thread327 ], [ %.0375, %63 ]
-  %.2180 = phi i32 [ %.0178376, %.thread303 ], [ %.8186.ph, %.thread327 ], [ %.0178376, %63 ]
-  %.3173 = phi i32 [ %.1171308, %.thread303 ], [ %.7177.ph, %.thread327 ], [ %.0170377, %63 ]
-  %.2164 = phi i32 [ %.0162378, %.thread303 ], [ %.7169.ph, %.thread327 ], [ %.0162378, %63 ]
-  %.2155 = phi i32 [ %.0153379, %.thread303 ], [ %.8161.ph, %.thread327 ], [ %.0153379, %63 ]
-  %.4133 = phi i32 [ %.1130309, %.thread303 ], [ %.8.ph, %.thread327 ], [ %.0129381, %63 ]
-  %.4128 = phi i32 [ %.1125310, %.thread303 ], [ %.0124382, %.thread327 ], [ %.0124382, %63 ]
+  %.1274 = phi ptr [ %62, %.thread303 ], [ %.4277, %63 ], [ %.3276.ph, %.thread327 ]
+  %.1268 = phi i32 [ %.0267373, %.thread303 ], [ %.0267373, %63 ], [ %.3270.ph, %.thread327 ]
+  %.1262 = phi i32 [ %.0261374, %.thread303 ], [ %.0261374, %63 ], [ %.3264.ph, %.thread327 ]
+  %.1 = phi i32 [ %.0375, %.thread303 ], [ %.0375, %63 ], [ %.3.ph, %.thread327 ]
+  %.2180 = phi i32 [ %.0178376, %.thread303 ], [ %.0178376, %63 ], [ %.8186.ph, %.thread327 ]
+  %.3173 = phi i32 [ %.1171308, %.thread303 ], [ %.0170377, %63 ], [ %.7177.ph, %.thread327 ]
+  %.2164 = phi i32 [ %.0162378, %.thread303 ], [ %.0162378, %63 ], [ %.7169.ph, %.thread327 ]
+  %.2155 = phi i32 [ %.0153379, %.thread303 ], [ %.0153379, %63 ], [ %.8161.ph, %.thread327 ]
+  %.4133 = phi i32 [ %.1130309, %.thread303 ], [ %.0129381, %63 ], [ %.8.ph, %.thread327 ]
+  %.4128 = phi i32 [ %.1125310, %.thread303 ], [ %.0124382, %63 ], [ %.0124382, %.thread327 ]
   %176 = add nuw nsw i32 %.0151380, 1
   %177 = load i8, ptr %.1274, align 1, !tbaa !7
   %178 = icmp ne i8 %177, 0
@@ -555,7 +555,7 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   br label %.critedge229
 
 .critedge229:                                     ; preds = %.loopexit, %.critedge, %56, %175, %185, %._crit_edge, %190
-  %.7 = phi i32 [ -1, %185 ], [ 0, %190 ], [ -1, %._crit_edge ], [ -1, %175 ], [ -1, %56 ], [ -1, %.critedge ], [ -1, %.loopexit ]
+  %.7 = phi i32 [ 0, %190 ], [ -1, %._crit_edge ], [ -1, %185 ], [ -1, %175 ], [ -1, %56 ], [ -1, %.critedge ], [ -1, %.loopexit ]
   ret i32 %.7
 }
 

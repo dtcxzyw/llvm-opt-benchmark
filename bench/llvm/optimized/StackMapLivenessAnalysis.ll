@@ -627,7 +627,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i: ; preds
   br i1 %.not.i, label %_ZN12_GLOBAL__N_116StackMapLiveness17calculateLivenessERN4llvm15MachineFunctionE.exit, label %27
 
 _ZN12_GLOBAL__N_116StackMapLiveness17calculateLivenessERN4llvm15MachineFunctionE.exit: ; preds = %._crit_edge.i, %19, %6, %2
-  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ false, %19 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %19 ], [ %.1.lcssa.i, %._crit_edge.i ]
   ret i1 %.0
 }
 

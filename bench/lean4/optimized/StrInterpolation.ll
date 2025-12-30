@@ -619,8 +619,8 @@ lean_dec.exit129:                                 ; preds = %184, %183, %181, %l
   br label %lean_dec.exit127
 
 lean_dec.exit127:                                 ; preds = %lean_string_utf8_at_end.exit, %19, %204, %203, %201
-  %.0110246 = phi ptr [ %.0110.lcssa, %201 ], [ %.0110.lcssa, %19 ], [ %.0110.lcssa, %204 ], [ %.0110.lcssa, %203 ], [ %.0110257, %lean_string_utf8_at_end.exit ]
-  %.0103240 = phi ptr [ %.0103.lcssa, %201 ], [ %.0103.lcssa, %19 ], [ %.0103.lcssa, %204 ], [ %.0103.lcssa, %203 ], [ %.0103258, %lean_string_utf8_at_end.exit ]
+  %.0110246 = phi ptr [ %.0110.lcssa, %19 ], [ %.0110.lcssa, %204 ], [ %.0110.lcssa, %203 ], [ %.0110.lcssa, %201 ], [ %.0110257, %lean_string_utf8_at_end.exit ]
+  %.0103240 = phi ptr [ %.0103.lcssa, %19 ], [ %.0103.lcssa, %204 ], [ %.0103.lcssa, %203 ], [ %.0103.lcssa, %201 ], [ %.0103258, %lean_string_utf8_at_end.exit ]
   %205 = ptrtoint ptr %4 to i64
   %206 = and i64 %205, 1
   %.not210 = icmp eq i64 %206, 0
@@ -754,8 +754,8 @@ lean_dec.exit136:                                 ; preds = %lean_dec.exit140, %
   %.not = icmp eq i64 %257, 0
   br i1 %.not, label %._crit_edge, label %lean_string_utf8_at_end.exit
 
-258:                                              ; preds = %lean_dec.exit129, %lean_dec.exit132, %lean_alloc_closure.exit, %lean_dec.exit137, %94, %93, %91, %150, %149, %147, %197, %196, %194, %253, %252, %250, %lean_dec.exit123
-  %.6.ph = phi ptr [ %244, %lean_dec.exit123 ], [ %244, %250 ], [ %244, %252 ], [ %244, %253 ], [ %188, %194 ], [ %188, %196 ], [ %188, %197 ], [ %141, %147 ], [ %141, %149 ], [ %141, %150 ], [ %49, %91 ], [ %49, %93 ], [ %49, %94 ], [ %49, %lean_dec.exit137 ], [ %167, %lean_alloc_closure.exit ], [ %141, %lean_dec.exit132 ], [ %188, %lean_dec.exit129 ]
+258:                                              ; preds = %lean_alloc_closure.exit, %94, %93, %91, %lean_dec.exit137, %150, %149, %147, %lean_dec.exit132, %197, %196, %194, %lean_dec.exit129, %253, %252, %250, %lean_dec.exit123
+  %.6.ph = phi ptr [ %244, %lean_dec.exit123 ], [ %244, %250 ], [ %244, %252 ], [ %244, %253 ], [ %188, %lean_dec.exit129 ], [ %188, %194 ], [ %188, %196 ], [ %188, %197 ], [ %141, %lean_dec.exit132 ], [ %141, %147 ], [ %141, %149 ], [ %141, %150 ], [ %49, %lean_dec.exit137 ], [ %49, %91 ], [ %49, %93 ], [ %49, %94 ], [ %167, %lean_alloc_closure.exit ]
   ret ptr %.6.ph
 }
 

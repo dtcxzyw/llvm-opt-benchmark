@@ -403,8 +403,8 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %157, %168
-  %.2261 = phi i32 [ %.0259, %168 ], [ %164, %157 ], [ %171, %.loopexit.loopexit ]
-  %.1238 = phi i32 [ %19, %168 ], [ %165, %157 ], [ %.0237, %.loopexit.loopexit ]
+  %.2261 = phi i32 [ %164, %157 ], [ %.0259, %168 ], [ %171, %.loopexit.loopexit ]
+  %.1238 = phi i32 [ %165, %157 ], [ %19, %168 ], [ %.0237, %.loopexit.loopexit ]
   %.2261.fr = freeze i32 %.2261
   %172 = tail call double @SDL_uclibc_scalbn(double noundef 1.000000e+00, i32 noundef %.1238) #6
   %173 = icmp sgt i32 %.2261.fr, -1
@@ -618,7 +618,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %236, label %.lr.ph372, label %._crit_edge373, !llvm.loop !23
 
 ._crit_edge373:                                   ; preds = %.lr.ph372, %.preheader298, %.preheader297
-  %.7.lcssa = phi double [ 0.000000e+00, %.preheader298 ], [ 0.000000e+00, %.preheader297 ], [ %235, %.lr.ph372 ]
+  %.7.lcssa = phi double [ 0.000000e+00, %.preheader297 ], [ 0.000000e+00, %.preheader298 ], [ %235, %.lr.ph372 ]
   %237 = icmp eq i32 %.0236291, 0
   %238 = load double, ptr %9, align 16
   br i1 %237, label %239, label %244

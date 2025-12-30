@@ -534,7 +534,7 @@ SizeASNLength.exit:                               ; preds = %41, %BytePrecision.
   br i1 %116, label %.lr.ph.i, label %SizeASN_CalcDataLength.exit, !llvm.loop !19
 
 SizeASN_CalcDataLength.exit:                      ; preds = %71, %74, %113, %.lr.ph.i, %.preheader, %82, %61
-  %.3 = phi i32 [ %.085128, %61 ], [ %.085128, %82 ], [ %.085128, %.preheader ], [ %.085128, %113 ], [ %.085128, %.lr.ph.i ], [ %.4123, %71 ], [ %78, %74 ]
+  %.3 = phi i32 [ %.085128, %61 ], [ %.085128, %82 ], [ %.085128, %.preheader ], [ %.085128, %.lr.ph.i ], [ %.085128, %113 ], [ %.4123, %71 ], [ %78, %74 ]
   %117 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %118 = load i8, ptr %117, align 1, !tbaa !13
   %119 = icmp eq i8 %118, 1
@@ -568,8 +568,8 @@ SizeASN_CalcDataLength.exit:                      ; preds = %71, %74, %113, %.lr
   br label %132
 
 132:                                              ; preds = %128, %120, %126, %123
-  %.184 = phi i32 [ 0, %120 ], [ %spec.select, %128 ], [ 0, %126 ], [ 0, %123 ]
-  %.1 = phi i32 [ %122, %120 ], [ %129, %128 ], [ %122, %126 ], [ %122, %123 ]
+  %.184 = phi i32 [ 0, %126 ], [ 0, %123 ], [ 0, %120 ], [ %spec.select, %128 ]
+  %.1 = phi i32 [ %122, %126 ], [ %122, %123 ], [ %122, %120 ], [ %129, %128 ]
   %133 = icmp ugt i32 %.1, 127
   br i1 %133, label %.preheader.i108, label %SizeASNLength.exit114
 
@@ -612,8 +612,8 @@ SizeASNLength.exit114:                            ; preds = %SizeASN_CalcDataLen
   br label %SizeASN_Num.exit
 
 SizeASN_Num.exit:                                 ; preds = %37, %35, %34, %19, %18, %14, %144, %147, %58, %SizeASNLength.exit, %11
-  %.2 = phi i32 [ %.085128, %11 ], [ %.3, %144 ], [ %.085128, %19 ], [ %.085128, %SizeASNLength.exit ], [ %.085128, %58 ], [ %.3, %147 ], [ %.085128, %14 ], [ %.085128, %18 ], [ %.085128, %34 ], [ %.085128, %35 ], [ %.085128, %37 ]
-  %.083 = phi i32 [ 0, %11 ], [ %141, %144 ], [ %spec.select.i, %19 ], [ %57, %SizeASNLength.exit ], [ %60, %58 ], [ %148, %147 ], [ 3, %14 ], [ 4, %18 ], [ %.0.i99, %34 ], [ %36, %35 ], [ %spec.select.i104, %37 ]
+  %.2 = phi i32 [ %.085128, %11 ], [ %.085128, %SizeASNLength.exit ], [ %.085128, %58 ], [ %.3, %147 ], [ %.3, %144 ], [ %.085128, %14 ], [ %.085128, %18 ], [ %.085128, %19 ], [ %.085128, %34 ], [ %.085128, %35 ], [ %.085128, %37 ]
+  %.083 = phi i32 [ 0, %11 ], [ %57, %SizeASNLength.exit ], [ %60, %58 ], [ %148, %147 ], [ %141, %144 ], [ 3, %14 ], [ 4, %18 ], [ %spec.select.i, %19 ], [ %.0.i99, %34 ], [ %36, %35 ], [ %spec.select.i104, %37 ]
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.083, ptr %149, align 4, !tbaa !17
   %150 = add i32 %.083, %.2
@@ -713,14 +713,14 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
   br i1 %.not39.i, label %.lr.ph.preheader.i, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.preheader.i, %42, %34
-  %.032.sink.i = phi i8 [ 0, %42 ], [ 0, %34 ], [ %.133.i, %.preheader.i ]
+  %.032.sink.i = phi i8 [ 0, %34 ], [ 0, %42 ], [ %.133.i, %.preheader.i ]
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %.032.sink.i, ptr %43, align 1, !tbaa !3
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %29, %42, %.sink.split.i
-  %.137.i = phi i64 [ 2, %29 ], [ 2, %42 ], [ 3, %.sink.split.i ]
-  %.2.i = phi i8 [ 1, %29 ], [ 1, %42 ], [ 2, %.sink.split.i ]
+  %.137.i = phi i64 [ 2, %42 ], [ 2, %29 ], [ 3, %.sink.split.i ]
+  %.2.i = phi i8 [ 1, %42 ], [ 1, %29 ], [ 2, %.sink.split.i ]
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %.2.i, ptr %44, align 1, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 %.137.i
@@ -773,15 +773,15 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
   br i1 %.not39.i140, label %69, label %.sink.split.i141
 
 .sink.split.i141:                                 ; preds = %.preheader.i155, %65, %56
-  %.032.sink.i142 = phi i8 [ 0, %65 ], [ 0, %56 ], [ %.133.i156, %.preheader.i155 ]
+  %.032.sink.i142 = phi i8 [ 0, %56 ], [ 0, %65 ], [ %.133.i156, %.preheader.i155 ]
   %.2.ph.i143 = add i8 %.034.i134, 1
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %.032.sink.i142, ptr %68, align 1, !tbaa !3
   br label %69
 
 69:                                               ; preds = %.sink.split.i141, %65, %55
-  %.137.i144 = phi i32 [ 2, %55 ], [ 2, %65 ], [ 3, %.sink.split.i141 ]
-  %.2.i145 = phi i8 [ %.034.i134, %55 ], [ %.034.i134, %65 ], [ %.2.ph.i143, %.sink.split.i141 ]
+  %.137.i144 = phi i32 [ 2, %65 ], [ 2, %55 ], [ 3, %.sink.split.i141 ]
+  %.2.i145 = phi i8 [ %.034.i134, %65 ], [ %.034.i134, %55 ], [ %.2.ph.i143, %.sink.split.i141 ]
   %70 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %.2.i145, ptr %70, align 1, !tbaa !3
   %71 = icmp sgt i32 %indvars.iv43.in.i133, 7
@@ -1122,7 +1122,7 @@ define range(i32 -140, 1) i32 @GetASN_BitString(ptr noundef readonly captures(no
   br label %20
 
 20:                                               ; preds = %10, %5, %3
-  %.0 = phi i32 [ -140, %5 ], [ -140, %3 ], [ %., %10 ]
+  %.0 = phi i32 [ -140, %3 ], [ -140, %5 ], [ %., %10 ]
   ret i32 %.0
 }
 
@@ -1372,8 +1372,8 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
   br i1 %or.cond55.i, label %115, label %GetLength_ex.exit.thread
 
 115:                                              ; preds = %._crit_edge.i, %81
-  %.240.i = phi i32 [ %.139.lcssa.i, %._crit_edge.i ], [ %86, %81 ]
-  %.2.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %79, %81 ]
+  %.240.i = phi i32 [ %86, %81 ], [ %.139.lcssa.i, %._crit_edge.i ]
+  %.2.i = phi i32 [ %79, %81 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %116 = add i32 %.2.i, %.240.i
   %117 = icmp ugt i32 %116, %78
   br i1 %117, label %GetLength_ex.exit.thread, label %GetLength_ex.exit
@@ -1525,7 +1525,7 @@ GetASN_BitString.exit:                            ; preds = %160
   br label %._crit_edge.i191
 
 .lr.ph.preheader.i192:                            ; preds = %187, %184, %181
-  %.025.ph.i = phi i32 [ 3, %187 ], [ 1, %181 ], [ 2, %184 ]
+  %.025.ph.i = phi i32 [ 3, %187 ], [ 2, %184 ], [ 1, %181 ]
   %191 = add nuw nsw i32 %.025.ph.i, 1
   %192 = add i32 %191, %.02645.i
   br label %.lr.ph.i193
@@ -1572,8 +1572,8 @@ GetASN_BitString.exit:                            ; preds = %160
   br i1 %.not.i195, label %GetASN_UTF8String.exit, label %GetLength_ex.exit.thread
 
 GetASN_UTF8String.exit:                           ; preds = %._crit_edge.i191, %GetASN_Integer.exit.thread243.thread, %136, %207, %174, %GetASN_BitString.exit, %203, %GetASN_Integer.exit, %GetASN_Integer.exit.thread243
-  %.0232 = phi i32 [ %.240.i, %207 ], [ 1, %136 ], [ %.240.i, %203 ], [ %152, %GetASN_Integer.exit.thread243 ], [ %.240.i, %GetASN_Integer.exit.thread243.thread ], [ 1, %GetASN_Integer.exit ], [ %161, %GetASN_BitString.exit ], [ 0, %174 ], [ %.240.i, %._crit_edge.i191 ]
-  %.2231 = phi i32 [ %.2.i, %207 ], [ %.2.i, %136 ], [ %.2.i, %203 ], [ %151, %GetASN_Integer.exit.thread243 ], [ %.2.i, %GetASN_Integer.exit.thread243.thread ], [ %.2.i, %GetASN_Integer.exit ], [ %170, %GetASN_BitString.exit ], [ %.2.i, %174 ], [ %.2.i, %._crit_edge.i191 ]
+  %.0232 = phi i32 [ %.240.i, %203 ], [ %152, %GetASN_Integer.exit.thread243 ], [ 1, %GetASN_Integer.exit ], [ %161, %GetASN_BitString.exit ], [ 0, %174 ], [ %.240.i, %207 ], [ 1, %136 ], [ %.240.i, %GetASN_Integer.exit.thread243.thread ], [ %.240.i, %._crit_edge.i191 ]
+  %.2231 = phi i32 [ %.2.i, %203 ], [ %151, %GetASN_Integer.exit.thread243 ], [ %.2.i, %GetASN_Integer.exit ], [ %170, %GetASN_BitString.exit ], [ %.2.i, %174 ], [ %.2.i, %207 ], [ %.2.i, %136 ], [ %.2.i, %GetASN_Integer.exit.thread243.thread ], [ %.2.i, %._crit_edge.i191 ]
   %212 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %213 = load i8, ptr %212, align 1
   %214 = and i8 %213, 2
@@ -1919,8 +1919,8 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
   br label %.loopexit260
 
 .loopexit260:                                     ; preds = %363, %366, %.lr.ph313, %..loopexit260.loopexit_crit_edge, %..loopexit260.loopexit_crit_edge544, %.preheader261, %.preheader259, %GetASN_StoreData.exit, %215
-  %.1 = phi i32 [ %353, %GetASN_StoreData.exit ], [ %.2231, %215 ], [ %.0318, %.preheader259 ], [ %.0318, %.lr.ph313 ], [ %353, %.preheader261 ], [ %.0318, %..loopexit260.loopexit_crit_edge544 ], [ %.0318, %..loopexit260.loopexit_crit_edge ], [ %353, %366 ], [ %353, %363 ]
-  %.2145 = phi i32 [ %.1144321, %GetASN_StoreData.exit ], [ %.1144321, %215 ], [ %.1144321, %.preheader259 ], [ %.1144321, %.lr.ph313 ], [ %.1144321, %.preheader261 ], [ %368, %..loopexit260.loopexit_crit_edge544 ], [ %19, %..loopexit260.loopexit_crit_edge ], [ %.1147.in306, %363 ], [ %19, %366 ]
+  %.1 = phi i32 [ %353, %GetASN_StoreData.exit ], [ %.2231, %215 ], [ %.0318, %.preheader259 ], [ %353, %.preheader261 ], [ %.0318, %..loopexit260.loopexit_crit_edge544 ], [ %.0318, %..loopexit260.loopexit_crit_edge ], [ %.0318, %.lr.ph313 ], [ %353, %366 ], [ %353, %363 ]
+  %.2145 = phi i32 [ %.1144321, %GetASN_StoreData.exit ], [ %.1144321, %215 ], [ %.1144321, %.preheader259 ], [ %.1144321, %.preheader261 ], [ %368, %..loopexit260.loopexit_crit_edge544 ], [ %19, %..loopexit260.loopexit_crit_edge ], [ %.1144321, %.lr.ph313 ], [ %.1147.in306, %363 ], [ %19, %366 ]
   %369 = add nsw i32 %.2145, 1
   %370 = icmp slt i32 %369, %2
   br i1 %370, label %.lr.ph322, label %._crit_edge, !llvm.loop !44
@@ -1945,7 +1945,7 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
   br i1 %378, label %GetLength_ex.exit.thread, label %372
 
 .loopexit:                                        ; preds = %372, %14, %._crit_edge
-  %.0.lcssa428 = phi i32 [ %11, %14 ], [ %.1, %._crit_edge ], [ %.1, %372 ]
+  %.0.lcssa428 = phi i32 [ %.1, %._crit_edge ], [ %11, %14 ], [ %.1, %372 ]
   br label %380
 
 379:                                              ; preds = %380
@@ -1962,8 +1962,8 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
   store i32 %.0.lcssa428, ptr %5, align 4, !tbaa !22
   br label %GetLength_ex.exit.thread
 
-GetLength_ex.exit.thread:                         ; preds = %.preheader.i198, %312, %311, %322, %287, %281, %278, %266, %249, %232, %225, %205, %207, %160, %153, %155, %150, %137, %127, %145, %.thread68.i, %99, %._crit_edge.i, %115, %77, %93, %69, %187, %300, %197, %.lr.ph.i193, %.lr.ph327, %380, %297, %GetOID.exit.i, %64, %61, %59, %384
-  %.2 = phi i32 [ 0, %384 ], [ -132, %59 ], [ -140, %61 ], [ %switch.select186, %64 ], [ -140, %380 ], [ -148, %GetOID.exit.i ], [ -140, %187 ], [ -140, %197 ], [ -142, %297 ], [ -140, %.lr.ph327 ], [ -140, %300 ], [ -140, %.lr.ph.i193 ], [ -140, %232 ], [ -140, %249 ], [ -132, %266 ], [ -140, %278 ], [ -140, %281 ], [ -110, %287 ], [ -146, %322 ], [ -140, %311 ], [ -192, %312 ], [ -140, %.preheader.i198 ], [ -140, %207 ], [ -140, %225 ], [ -140, %153 ], [ -140, %155 ], [ -140, %127 ], [ -140, %137 ], [ -146, %150 ], [ -140, %99 ], [ -140, %._crit_edge.i ], [ -140, %115 ], [ -140, %77 ], [ -140, %93 ], [ -140, %69 ], [ -140, %160 ], [ -146, %145 ], [ -140, %205 ], [ -140, %.thread68.i ]
+GetLength_ex.exit.thread:                         ; preds = %.preheader.i198, %322, %312, %311, %287, %281, %278, %266, %249, %232, %225, %207, %205, %160, %155, %153, %150, %145, %137, %127, %.thread68.i, %93, %99, %._crit_edge.i, %115, %77, %69, %187, %300, %.lr.ph.i193, %197, %.lr.ph327, %380, %GetOID.exit.i, %297, %64, %61, %59, %384
+  %.2 = phi i32 [ 0, %384 ], [ -132, %59 ], [ -140, %61 ], [ %switch.select186, %64 ], [ -148, %GetOID.exit.i ], [ -142, %297 ], [ -140, %380 ], [ -140, %.lr.ph327 ], [ -140, %197 ], [ -140, %.lr.ph.i193 ], [ -140, %300 ], [ -140, %187 ], [ -140, %225 ], [ -140, %232 ], [ -140, %249 ], [ -132, %266 ], [ -140, %278 ], [ -140, %281 ], [ -110, %287 ], [ -140, %311 ], [ -192, %312 ], [ -146, %322 ], [ -140, %.preheader.i198 ], [ -140, %207 ], [ -140, %205 ], [ -140, %160 ], [ -140, %155 ], [ -140, %153 ], [ -140, %127 ], [ -140, %137 ], [ -146, %145 ], [ -146, %150 ], [ -140, %.thread68.i ], [ -140, %93 ], [ -140, %99 ], [ -140, %._crit_edge.i ], [ -140, %115 ], [ -140, %77 ], [ -140, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.2
@@ -2049,8 +2049,8 @@ define range(i32 -140, -2147483648) i32 @GetLength_ex(ptr noundef readonly captu
   br i1 %or.cond55, label %42, label %.thread
 
 42:                                               ; preds = %._crit_edge, %9
-  %.240 = phi i32 [ %.139.lcssa, %._crit_edge ], [ %13, %9 ]
-  %.2 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %7, %9 ]
+  %.240 = phi i32 [ %13, %9 ], [ %.139.lcssa, %._crit_edge ]
+  %.2 = phi i32 [ %7, %9 ], [ %.1.lcssa, %._crit_edge ]
   %.not48 = icmp ne i32 %4, 0
   %43 = add i32 %.2, %.240
   %44 = icmp ugt i32 %43, %3
@@ -2067,7 +2067,7 @@ define range(i32 -140, -2147483648) i32 @GetLength_ex(ptr noundef readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %.thread68, %._crit_edge, %26, %20, %45, %46, %42, %5
-  %.041 = phi i32 [ -140, %20 ], [ -132, %5 ], [ -132, %42 ], [ %.240, %46 ], [ 0, %45 ], [ -140, %._crit_edge ], [ -132, %26 ], [ -132, %.thread68 ]
+  %.041 = phi i32 [ -132, %5 ], [ -132, %42 ], [ %.240, %46 ], [ 0, %45 ], [ -140, %._crit_edge ], [ -132, %26 ], [ -140, %20 ], [ -132, %.thread68 ]
   ret i32 %.041
 }
 
@@ -2151,8 +2151,8 @@ define range(i32 -140, -2147483648) i32 @GetLength(ptr noundef readonly captures
   br i1 %or.cond55.i, label %41, label %GetLength_ex.exit
 
 41:                                               ; preds = %._crit_edge.i, %8
-  %.240.i = phi i32 [ %.139.lcssa.i, %._crit_edge.i ], [ %12, %8 ]
-  %.2.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %6, %8 ]
+  %.240.i = phi i32 [ %12, %8 ], [ %.139.lcssa.i, %._crit_edge.i ]
+  %.2.i = phi i32 [ %6, %8 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %42 = add i32 %.2.i, %.240.i
   %43 = icmp ugt i32 %42, %3
   br i1 %43, label %GetLength_ex.exit, label %44
@@ -2167,7 +2167,7 @@ define range(i32 -140, -2147483648) i32 @GetLength(ptr noundef readonly captures
   br label %GetLength_ex.exit
 
 GetLength_ex.exit:                                ; preds = %4, %19, %25, %.thread68.i, %._crit_edge.i, %41, %44, %45
-  %.041.i = phi i32 [ -140, %19 ], [ -132, %4 ], [ -132, %41 ], [ %.240.i, %45 ], [ 0, %44 ], [ -140, %._crit_edge.i ], [ -132, %25 ], [ -132, %.thread68.i ]
+  %.041.i = phi i32 [ -132, %4 ], [ -132, %41 ], [ %.240.i, %45 ], [ 0, %44 ], [ -140, %._crit_edge.i ], [ -132, %25 ], [ -140, %19 ], [ -132, %.thread68.i ]
   ret i32 %.041.i
 }
 
@@ -2294,8 +2294,8 @@ GetASNTag.exit.i:                                 ; preds = %.thread.i.i
   br i1 %or.cond55.i.i, label %49, label %GetASNHeader_ex.exit
 
 49:                                               ; preds = %._crit_edge.i.i, %16
-  %.240.i.i = phi i32 [ %.139.lcssa.i.i, %._crit_edge.i.i ], [ %20, %16 ]
-  %.2.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %14, %16 ]
+  %.240.i.i = phi i32 [ %20, %16 ], [ %.139.lcssa.i.i, %._crit_edge.i.i ]
+  %.2.i.i = phi i32 [ %14, %16 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %50 = add i32 %.2.i.i, %.240.i.i
   %51 = icmp ugt i32 %50, %4
   br i1 %51, label %GetASNHeader_ex.exit, label %52
@@ -2329,7 +2329,7 @@ select.unfold.i:                                  ; preds = %56, %GetLength_ex.e
   br label %GetASNHeader_ex.exit
 
 GetASNHeader_ex.exit:                             ; preds = %5, %7, %.thread.i.i, %GetASNTag.exit.i, %27, %33, %.thread68.i.i, %._crit_edge.i.i, %49, %GetLength_ex.exit.thread51.i, %54, %56, %select.unfold.i
-  %.4.i = phi i32 [ %.240.i.i, %select.unfold.i ], [ -140, %GetLength_ex.exit.thread51.i ], [ -140, %54 ], [ -140, %56 ], [ -140, %.thread68.i.i ], [ -140, %33 ], [ -140, %._crit_edge.i.i ], [ -140, %49 ], [ -140, %GetASNTag.exit.i ], [ -140, %27 ], [ -140, %7 ], [ -140, %.thread.i.i ], [ -140, %5 ]
+  %.4.i = phi i32 [ %.240.i.i, %select.unfold.i ], [ -140, %56 ], [ -140, %54 ], [ -140, %.thread68.i.i ], [ -140, %27 ], [ -140, %33 ], [ -140, %._crit_edge.i.i ], [ -140, %49 ], [ -140, %GetASNTag.exit.i ], [ -140, %GetLength_ex.exit.thread51.i ], [ -140, %7 ], [ -140, %.thread.i.i ], [ -140, %5 ]
   ret i32 %.4.i
 }
 
@@ -2428,8 +2428,8 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
   br i1 %or.cond55.i.i.i, label %48, label %GetASNHeader.exit
 
 48:                                               ; preds = %._crit_edge.i.i.i, %15
-  %.240.i.i.i = phi i32 [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %19, %15 ]
-  %.2.i.i.i = phi i32 [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %13, %15 ]
+  %.240.i.i.i = phi i32 [ %19, %15 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.2.i.i.i = phi i32 [ %13, %15 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = add i32 %.2.i.i.i, %.240.i.i.i
   %50 = icmp ugt i32 %49, %3
   br i1 %50, label %GetASNHeader.exit, label %select.unfold.i.i
@@ -2440,7 +2440,7 @@ select.unfold.i.i:                                ; preds = %48
   br label %GetASNHeader.exit
 
 GetASNHeader.exit:                                ; preds = %4, %6, %.thread.i.i.i, %GetASNTag.exit.i.i, %26, %32, %.thread68.i.i.i, %._crit_edge.i.i.i, %48, %select.unfold.i.i
-  %.4.i.i = phi i32 [ %.240.i.i.i, %select.unfold.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %.thread68.i.i.i ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %26 ]
+  %.4.i.i = phi i32 [ %.240.i.i.i, %select.unfold.i.i ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ]
   ret i32 %.4.i.i
 }
 
@@ -2539,8 +2539,8 @@ GetASNTag.exit.i:                                 ; preds = %.thread.i.i
   br i1 %or.cond55.i.i, label %49, label %GetASNHeader_ex.exit
 
 49:                                               ; preds = %._crit_edge.i.i, %16
-  %.240.i.i = phi i32 [ %.139.lcssa.i.i, %._crit_edge.i.i ], [ %20, %16 ]
-  %.2.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %14, %16 ]
+  %.240.i.i = phi i32 [ %20, %16 ], [ %.139.lcssa.i.i, %._crit_edge.i.i ]
+  %.2.i.i = phi i32 [ %14, %16 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %.not48.i.i = icmp ne i32 %4, 0
   %50 = add i32 %.2.i.i, %.240.i.i
   %51 = icmp ugt i32 %50, %3
@@ -2553,7 +2553,7 @@ select.unfold.i:                                  ; preds = %49
   br label %GetASNHeader_ex.exit
 
 GetASNHeader_ex.exit:                             ; preds = %5, %7, %.thread.i.i, %GetASNTag.exit.i, %27, %33, %.thread68.i.i, %._crit_edge.i.i, %49, %select.unfold.i
-  %.4.i = phi i32 [ %.240.i.i, %select.unfold.i ], [ -140, %7 ], [ -140, %.thread.i.i ], [ -140, %5 ], [ -140, %.thread68.i.i ], [ -140, %33 ], [ -140, %._crit_edge.i.i ], [ -140, %49 ], [ -140, %GetASNTag.exit.i ], [ -140, %27 ]
+  %.4.i = phi i32 [ %.240.i.i, %select.unfold.i ], [ -140, %.thread68.i.i ], [ -140, %27 ], [ -140, %33 ], [ -140, %._crit_edge.i.i ], [ -140, %49 ], [ -140, %GetASNTag.exit.i ], [ -140, %7 ], [ -140, %.thread.i.i ], [ -140, %5 ]
   ret i32 %.4.i
 }
 
@@ -2652,8 +2652,8 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
   br i1 %or.cond55.i.i.i, label %48, label %GetASNHeader.exit
 
 48:                                               ; preds = %._crit_edge.i.i.i, %15
-  %.240.i.i.i = phi i32 [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %19, %15 ]
-  %.2.i.i.i = phi i32 [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %13, %15 ]
+  %.240.i.i.i = phi i32 [ %19, %15 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.2.i.i.i = phi i32 [ %13, %15 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = add i32 %.2.i.i.i, %.240.i.i.i
   %50 = icmp ugt i32 %49, %3
   br i1 %50, label %GetASNHeader.exit, label %select.unfold.i.i
@@ -2664,7 +2664,7 @@ select.unfold.i.i:                                ; preds = %48
   br label %GetASNHeader.exit
 
 GetASNHeader.exit:                                ; preds = %4, %6, %.thread.i.i.i, %GetASNTag.exit.i.i, %26, %32, %.thread68.i.i.i, %._crit_edge.i.i.i, %48, %select.unfold.i.i
-  %.4.i.i = phi i32 [ %.240.i.i.i, %select.unfold.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %.thread68.i.i.i ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %26 ]
+  %.4.i.i = phi i32 [ %.240.i.i.i, %select.unfold.i.i ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ]
   ret i32 %.4.i.i
 }
 
@@ -2763,8 +2763,8 @@ GetASNTag.exit.i:                                 ; preds = %.thread.i.i
   br i1 %or.cond55.i.i, label %49, label %GetASNHeader_ex.exit
 
 49:                                               ; preds = %._crit_edge.i.i, %16
-  %.240.i.i = phi i32 [ %.139.lcssa.i.i, %._crit_edge.i.i ], [ %20, %16 ]
-  %.2.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %14, %16 ]
+  %.240.i.i = phi i32 [ %20, %16 ], [ %.139.lcssa.i.i, %._crit_edge.i.i ]
+  %.2.i.i = phi i32 [ %14, %16 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %.not48.i.i = icmp ne i32 %4, 0
   %50 = add i32 %.2.i.i, %.240.i.i
   %51 = icmp ugt i32 %50, %3
@@ -2777,7 +2777,7 @@ select.unfold.i:                                  ; preds = %49
   br label %GetASNHeader_ex.exit
 
 GetASNHeader_ex.exit:                             ; preds = %5, %7, %.thread.i.i, %GetASNTag.exit.i, %27, %33, %.thread68.i.i, %._crit_edge.i.i, %49, %select.unfold.i
-  %.4.i = phi i32 [ %.240.i.i, %select.unfold.i ], [ -140, %7 ], [ -140, %.thread.i.i ], [ -140, %5 ], [ -140, %.thread68.i.i ], [ -140, %33 ], [ -140, %._crit_edge.i.i ], [ -140, %49 ], [ -140, %GetASNTag.exit.i ], [ -140, %27 ]
+  %.4.i = phi i32 [ %.240.i.i, %select.unfold.i ], [ -140, %.thread68.i.i ], [ -140, %27 ], [ -140, %33 ], [ -140, %._crit_edge.i.i ], [ -140, %49 ], [ -140, %GetASNTag.exit.i ], [ -140, %7 ], [ -140, %.thread.i.i ], [ -140, %5 ]
   ret i32 %.4.i
 }
 
@@ -2876,8 +2876,8 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
   br i1 %or.cond55.i.i.i, label %48, label %GetASNHeader.exit
 
 48:                                               ; preds = %._crit_edge.i.i.i, %15
-  %.240.i.i.i = phi i32 [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %19, %15 ]
-  %.2.i.i.i = phi i32 [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %13, %15 ]
+  %.240.i.i.i = phi i32 [ %19, %15 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.2.i.i.i = phi i32 [ %13, %15 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = add i32 %.2.i.i.i, %.240.i.i.i
   %50 = icmp ugt i32 %49, %3
   br i1 %50, label %GetASNHeader.exit, label %select.unfold.i.i
@@ -2888,7 +2888,7 @@ select.unfold.i.i:                                ; preds = %48
   br label %GetASNHeader.exit
 
 GetASNHeader.exit:                                ; preds = %4, %6, %.thread.i.i.i, %GetASNTag.exit.i.i, %26, %32, %.thread68.i.i.i, %._crit_edge.i.i.i, %48, %select.unfold.i.i
-  %.4.i.i = phi i32 [ %.240.i.i.i, %select.unfold.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %.thread68.i.i.i ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %26 ]
+  %.4.i.i = phi i32 [ %.240.i.i.i, %select.unfold.i.i ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ]
   ret i32 %.4.i.i
 }
 
@@ -2987,8 +2987,8 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
   br i1 %or.cond55.i.i.i, label %48, label %GetASNHeader.exit.thread
 
 48:                                               ; preds = %._crit_edge.i.i.i, %15
-  %.240.i.i.i = phi i32 [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %19, %15 ]
-  %49 = phi i32 [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %13, %15 ]
+  %.240.i.i.i = phi i32 [ %19, %15 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %49 = phi i32 [ %13, %15 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %50 = add i32 %49, %.240.i.i.i
   %51 = icmp ugt i32 %50, %3
   br i1 %51, label %GetASNHeader.exit.thread, label %52
@@ -3037,8 +3037,8 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
 .thread24:                                        ; preds = %54, %58, %68, %63, %52
   br label %GetASNHeader.exit.thread
 
-GetASNHeader.exit.thread:                         ; preds = %26, %GetASNTag.exit.i.i, %48, %._crit_edge.i.i.i, %32, %.thread68.i.i.i, %4, %.thread.i.i.i, %6, %68, %58, %.thread24
-  %.0 = phi i32 [ 0, %.thread24 ], [ -146, %68 ], [ -146, %58 ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %.thread68.i.i.i ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %26 ]
+GetASNHeader.exit.thread:                         ; preds = %4, %.thread.i.i.i, %6, %GetASNTag.exit.i.i, %48, %._crit_edge.i.i.i, %32, %26, %.thread68.i.i.i, %68, %58, %.thread24
+  %.0 = phi i32 [ 0, %.thread24 ], [ -146, %58 ], [ -146, %68 ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ]
   ret i32 %.0
 }
 
@@ -3128,7 +3128,7 @@ define noundef nonnull ptr @GetSigName(i32 noundef %0) local_unnamed_addr #7 {
   br label %22
 
 22:                                               ; preds = %1, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @sigUnknownName, %21 ], [ @sigSha3_512wEcdsaName, %20 ], [ @sigSha1wRsaName, %2 ], [ @sigSha224wRsaName, %3 ], [ @sigSha256wRsaName, %4 ], [ @sigSha384wRsaName, %5 ], [ @sigSha512wRsaName, %6 ], [ @sigSha3_224wRsaName, %7 ], [ @sigSha3_256wRsaName, %8 ], [ @sigSha3_384wRsaName, %9 ], [ @sigSha3_512wRsaName, %10 ], [ @sigRsaSsaPssName, %11 ], [ @sigSha1wEcdsaName, %12 ], [ @sigSha224wEcdsaName, %13 ], [ @sigSha256wEcdsaName, %14 ], [ @sigSha384wEcdsaName, %15 ], [ @sigSha512wEcdsaName, %16 ], [ @sigSha3_224wEcdsaName, %17 ], [ @sigSha3_256wEcdsaName, %18 ], [ @sigSha3_384wEcdsaName, %19 ], [ @sigMd5wRsaName, %1 ]
+  %.0 = phi ptr [ @sigUnknownName, %21 ], [ @sigSha1wRsaName, %2 ], [ @sigSha224wRsaName, %3 ], [ @sigSha256wRsaName, %4 ], [ @sigSha384wRsaName, %5 ], [ @sigSha512wRsaName, %6 ], [ @sigSha3_224wRsaName, %7 ], [ @sigSha3_256wRsaName, %8 ], [ @sigSha3_384wRsaName, %9 ], [ @sigSha3_512wRsaName, %10 ], [ @sigRsaSsaPssName, %11 ], [ @sigSha1wEcdsaName, %12 ], [ @sigSha224wEcdsaName, %13 ], [ @sigSha256wEcdsaName, %14 ], [ @sigSha384wEcdsaName, %15 ], [ @sigSha512wEcdsaName, %16 ], [ @sigSha3_224wEcdsaName, %17 ], [ @sigSha3_256wEcdsaName, %18 ], [ @sigSha3_384wEcdsaName, %19 ], [ @sigSha3_512wEcdsaName, %20 ], [ @sigMd5wRsaName, %1 ]
   ret ptr %.0
 }
 
@@ -3313,7 +3313,7 @@ define range(i32 -192, 1) i32 @CheckBitString(ptr noundef %0, ptr noundef captur
   br label %.thread
 
 .thread:                                          ; preds = %10, %6, %21, %22
-  %.01321 = phi i32 [ 0, %22 ], [ 0, %21 ], [ %8, %6 ], [ -146, %10 ]
+  %.01321 = phi i32 [ 0, %21 ], [ 0, %22 ], [ %8, %6 ], [ -146, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.01321
 }
@@ -3398,7 +3398,7 @@ BytePrecision.exit.i:                             ; preds = %15, %.preheader.i
   br label %29
 
 29:                                               ; preds = %10, %.thread.i, %.loopexit.loopexit31.i
-  %.020.i.ph = phi i32 [ %28, %.loopexit.loopexit31.i ], [ 1, %10 ], [ 1, %.thread.i ]
+  %.020.i.ph = phi i32 [ 1, %.thread.i ], [ %28, %.loopexit.loopexit31.i ], [ 1, %10 ]
   %30 = add i32 %.020.i.ph, 1
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 %31
@@ -3406,7 +3406,7 @@ BytePrecision.exit.i:                             ; preds = %15, %.preheader.i
   br label %SetLength.exit
 
 SetLength.exit:                                   ; preds = %.lr.ph.split.us.preheader.i, %18, %4, %29
-  %.020.i17 = phi i32 [ %.020.i.ph, %29 ], [ 1, %4 ], [ 1, %18 ], [ %22, %.lr.ph.split.us.preheader.i ]
+  %.020.i17 = phi i32 [ %.020.i.ph, %29 ], [ 1, %4 ], [ %22, %.lr.ph.split.us.preheader.i ], [ 1, %18 ]
   %33 = add i32 %.020.i17, 2
   ret i32 %33
 }
@@ -3479,7 +3479,7 @@ BytePrecision.exit:                               ; preds = %.preheader, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.loopexit.loopexit31, %.lr.ph.split.us.preheader, %13, %4, %5
-  %.020 = phi i32 [ 1, %4 ], [ 1, %5 ], [ 1, %13 ], [ %17, %.lr.ph.split.us.preheader ], [ %23, %.loopexit.loopexit31 ], [ 1, %.thread ]
+  %.020 = phi i32 [ 1, %5 ], [ 1, %4 ], [ 1, %13 ], [ %17, %.lr.ph.split.us.preheader ], [ %23, %.loopexit.loopexit31 ], [ 1, %.thread ]
   ret i32 %.020
 }
 
@@ -4061,8 +4061,8 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
   br i1 %or.cond55.i.i.i, label %48, label %GetASNHeader.exit
 
 48:                                               ; preds = %._crit_edge.i.i.i, %15
-  %.240.i.i.i = phi i32 [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %19, %15 ]
-  %.2.i.i.i = phi i32 [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %13, %15 ]
+  %.240.i.i.i = phi i32 [ %19, %15 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.2.i.i.i = phi i32 [ %13, %15 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.240.i.i.i.fr = freeze i32 %.240.i.i.i
   %.2.i.i.i.fr = freeze i32 %.2.i.i.i
   %49 = add i32 %.2.i.i.i.fr, %.240.i.i.i.fr
@@ -4086,7 +4086,7 @@ select.unfold.i.i:                                ; preds = %52
   br label %GetASNHeader.exit
 
 GetASNHeader.exit:                                ; preds = %48, %4, %6, %.thread.i.i.i, %GetASNTag.exit.i.i, %26, %32, %.thread68.i.i.i, %._crit_edge.i.i.i, %52, %select.unfold.i.i
-  %.4.i.i = phi i32 [ %57, %select.unfold.i.i ], [ -140, %4 ], [ -140, %.thread.i.i.i ], [ -140, %52 ], [ -140, %.thread68.i.i.i ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %48 ], [ -140, %GetASNTag.exit.i.i ], [ -140, %26 ], [ -140, %6 ]
+  %.4.i.i = phi i32 [ %57, %select.unfold.i.i ], [ -140, %52 ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %48 ]
   ret i32 %.4.i.i
 }
 
@@ -4167,7 +4167,7 @@ BytePrecision.exit.i:                             ; preds = %12, %.preheader.i
   br label %SetLength.exit
 
 SetLength.exit:                                   ; preds = %3, %7, %15, %.thread.i, %.lr.ph.split.us.preheader.i, %.loopexit.loopexit31.i
-  %.020.i = phi i32 [ 1, %.thread.i ], [ 1, %7 ], [ 1, %15 ], [ %19, %.lr.ph.split.us.preheader.i ], [ %25, %.loopexit.loopexit31.i ], [ 1, %3 ]
+  %.020.i = phi i32 [ 1, %7 ], [ 1, %15 ], [ %19, %.lr.ph.split.us.preheader.i ], [ %25, %.loopexit.loopexit31.i ], [ 1, %.thread.i ], [ 1, %3 ]
   %26 = add nsw i32 %.020.i, 1
   ret i32 %26
 }
@@ -4624,11 +4624,11 @@ DecodeRsaPssParams.exit:                          ; preds = %RsaPssHashOidToMgf1
   br i1 %or.cond11, label %.thread58, label %.thread
 
 85:                                               ; preds = %35, %75, %72
-  %.2 = phi i32 [ %spec.select48, %72 ], [ %spec.select48, %75 ], [ %spec.select47, %35 ]
+  %.2 = phi i32 [ %spec.select47, %35 ], [ %spec.select48, %75 ], [ %spec.select48, %72 ]
   %86 = icmp eq i32 %.2, 0
   br i1 %86, label %.thread, label %.thread58
 
-.thread:                                          ; preds = %DecodeRsaPssParams.exit.thread52, %28, %78, %27, %85
+.thread:                                          ; preds = %DecodeRsaPssParams.exit.thread52, %78, %28, %27, %85
   store i32 %.037, ptr %3, align 4, !tbaa !22
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 288
   %88 = load ptr, ptr %87, align 16, !tbaa !3
@@ -4641,8 +4641,8 @@ DecodeRsaPssParams.exit:                          ; preds = %RsaPssHashOidToMgf1
   %94 = load i32, ptr %93, align 8, !tbaa !3
   br label %.thread58
 
-.thread58:                                        ; preds = %DecodeRsaPssParams.exit, %28, %78, %14, %DecodeRsaPssParams.exit.thread, %.thread, %85, %5
-  %.0 = phi i32 [ -140, %DecodeRsaPssParams.exit ], [ -173, %5 ], [ %94, %.thread ], [ %.2, %85 ], [ -140, %DecodeRsaPssParams.exit.thread ], [ -140, %78 ], [ %.136, %14 ], [ -140, %28 ]
+.thread58:                                        ; preds = %DecodeRsaPssParams.exit, %78, %28, %14, %DecodeRsaPssParams.exit.thread, %.thread, %85, %5
+  %.0 = phi i32 [ -140, %DecodeRsaPssParams.exit ], [ -173, %5 ], [ %94, %.thread ], [ %.2, %85 ], [ -140, %DecodeRsaPssParams.exit.thread ], [ %.136, %14 ], [ -140, %28 ], [ -140, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4698,7 +4698,7 @@ switch.lookup:                                    ; preds = %17
   br label %RsaPssHashOidToType.exit
 
 RsaPssHashOidToType.exit:                         ; preds = %switch.lookup, %9
-  %.133 = phi i32 [ %14, %9 ], [ 0, %switch.lookup ]
+  %.133 = phi i32 [ 0, %switch.lookup ], [ %14, %9 ]
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 393
   %23 = load i8, ptr %22, align 1
   %24 = icmp ne i8 %23, 0
@@ -4727,7 +4727,7 @@ RsaPssHashOidToMgf1.exit:                         ; preds = %RsaPssHashOidToType
   br label %RsaPssHashOidToMgf1.exit.thread
 
 RsaPssHashOidToMgf1.exit.thread:                  ; preds = %17, %5, %25, %RsaPssHashOidToMgf1.exit, %29
-  %.327 = phi i32 [ 0, %29 ], [ %.133, %RsaPssHashOidToMgf1.exit ], [ -140, %25 ], [ -140, %17 ], [ -173, %5 ]
+  %.327 = phi i32 [ %.133, %RsaPssHashOidToMgf1.exit ], [ 0, %29 ], [ -140, %25 ], [ -140, %17 ], [ -173, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.327
@@ -4896,8 +4896,8 @@ define i32 @wc_CreatePKCS8Key(ptr noundef %0, ptr noundef writeonly captures(add
   br label %OidFromId.exit.sink.split
 
 OidFromId.exit.sink.split:                        ; preds = %22, %28, %27, %26
-  %.sink = phi i32 [ 9, %28 ], [ 9, %26 ], [ 7, %27 ], [ 9, %22 ]
-  %.ph = phi ptr [ @keyDhOid, %28 ], [ @keyRsaPssOid, %26 ], [ @keyEcdsaOid, %27 ], [ @keyRsaOid, %22 ]
+  %.sink = phi i32 [ 9, %26 ], [ 7, %27 ], [ 9, %28 ], [ 9, %22 ]
+  %.ph = phi ptr [ @keyRsaPssOid, %26 ], [ @keyEcdsaOid, %27 ], [ @keyDhOid, %28 ], [ @keyRsaOid, %22 ]
   store i32 %.sink, ptr %25, align 16, !tbaa !22
   br label %OidFromId.exit
 
@@ -5028,7 +5028,7 @@ define i32 @wc_CheckPrivateKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %62
 
 37:                                               ; preds = %25, %28, %31, %33
-  %.130 = phi i32 [ %26, %25 ], [ -120, %31 ], [ %29, %28 ], [ %spec.select, %33 ]
+  %.130 = phi i32 [ %29, %28 ], [ %26, %25 ], [ -120, %31 ], [ %spec.select, %33 ]
   %38 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %8) #23
   %39 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5097,7 +5097,7 @@ define i32 @wc_CheckPrivateKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %62
 
 62:                                               ; preds = %16, %37, %60, %.thread, %.critedge, %6
-  %.031 = phi i32 [ %41, %.critedge ], [ -173, %6 ], [ %.132.ph, %.thread ], [ %.130, %37 ], [ %.6, %60 ], [ 0, %16 ]
+  %.031 = phi i32 [ -173, %6 ], [ %41, %.critedge ], [ %.132.ph, %.thread ], [ %.130, %37 ], [ %.6, %60 ], [ 0, %16 ]
   ret i32 %.031
 }
 
@@ -5171,7 +5171,7 @@ define range(i32 -192, 1) i32 @wc_RsaPublicKeyDecode(ptr noundef %0, ptr noundef
   br label %wc_RsaPublicKeyDecodeRaw.exit
 
 wc_RsaPublicKeyDecodeRaw.exit:                    ; preds = %.sink.split.i, %28, %20, %13, %10, %4
-  %.07 = phi i32 [ -173, %4 ], [ %11, %10 ], [ -110, %20 ], [ -173, %13 ], [ 0, %28 ], [ %.0.ph.i, %.sink.split.i ]
+  %.07 = phi i32 [ -173, %4 ], [ %11, %10 ], [ -173, %13 ], [ -110, %20 ], [ 0, %28 ], [ %.0.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5431,7 +5431,7 @@ wc_RsaPrivateKeyDecode.exit:                      ; preds = %10
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %36, %20, %34, %10, %6
-  %.0 = phi i32 [ -125, %10 ], [ -173, %34 ], [ -173, %6 ], [ -125, %20 ], [ %39, %36 ], [ 1, %16 ]
+  %.0 = phi i32 [ -173, %6 ], [ -125, %10 ], [ -125, %20 ], [ -173, %34 ], [ %39, %36 ], [ 1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -5557,7 +5557,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   br label %.thread53.thread
 
 .thread53.thread:                                 ; preds = %28, %.thread, %ForceZero.exit
-  %.460 = phi i32 [ %.1, %28 ], [ %.4, %ForceZero.exit ], [ -125, %.thread ]
+  %.460 = phi i32 [ %.4, %ForceZero.exit ], [ -125, %.thread ], [ %.1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -5605,8 +5605,8 @@ define i32 @wc_EncryptPKCS8Key(ptr noundef readonly captures(address_is_null) %0
   br label %GetAlgoV2.exit.thread
 
 GetAlgoV2.exit.thread:                            ; preds = %24, %.sink.split.i
-  %.0489534 = phi ptr [ @blkAes256CbcOid, %24 ], [ @blkAes128CbcOid, %.sink.split.i ]
-  %.0493530 = phi i32 [ 4, %24 ], [ 5, %.sink.split.i ]
+  %.0489534 = phi ptr [ @blkAes128CbcOid, %.sink.split.i ], [ @blkAes256CbcOid, %24 ]
+  %.0493530 = phi i32 [ 5, %.sink.split.i ], [ 4, %24 ]
   %27 = sub i32 0, %1
   %28 = and i32 %27, 15
   %29 = add i32 %spec.select141, 4
@@ -5741,7 +5741,7 @@ SetLength.exit153:                                ; preds = %63, %BytePrecision.
   br i1 %.not26.wide.i.i.i.i, label %.thread.i.i156, label %.lr.ph.split.i.i.i.i, !llvm.loop !48
 
 .thread.i.i156:                                   ; preds = %74, %.lr.ph.split.i.i.i.i, %SetLength.exit.thread, %.thread.i.i.i.i
-  %82 = phi i32 [ %53, %.thread.i.i.i.i ], [ %53, %.lr.ph.split.i.i.i.i ], [ %55, %SetLength.exit.thread ], [ %53, %74 ]
+  %82 = phi i32 [ %53, %.thread.i.i.i.i ], [ %55, %SetLength.exit.thread ], [ %53, %.lr.ph.split.i.i.i.i ], [ %53, %74 ]
   store i8 48, ptr %2, align 1, !tbaa !3
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %84 = icmp ult i32 %82, 128
@@ -5796,7 +5796,7 @@ SetLength.exit153:                                ; preds = %63, %BytePrecision.
   br label %SetSequence.exit
 
 SetSequence.exit:                                 ; preds = %.thread.i.i.i.i164.thread, %85, %.thread.i.i.i.i164, %.loopexit.loopexit31.i.i.i.i172
-  %.0.i.i.i173 = phi i32 [ 2, %.thread.i.i.i.i164 ], [ %100, %.loopexit.loopexit31.i.i.i.i172 ], [ 2, %.thread.i.i.i.i164.thread ], [ 2, %85 ]
+  %.0.i.i.i173 = phi i32 [ 2, %85 ], [ %100, %.loopexit.loopexit31.i.i.i.i172 ], [ 2, %.thread.i.i.i.i164 ], [ 2, %.thread.i.i.i.i164.thread ]
   %101 = sub i32 %82, %40
   %102 = add i32 %101, %.0.i.i.i173
   %103 = zext i32 %102 to i64
@@ -5885,7 +5885,7 @@ SetSequence.exit:                                 ; preds = %.thread.i.i.i.i164.
   br label %SetSequence.exit223
 
 SetSequence.exit223:                              ; preds = %.thread.i.i.i.i210.thread, %120, %.thread.i.i.i.i210, %.loopexit.loopexit31.i.i.i.i218
-  %.0.i.i.i219 = phi i32 [ 2, %.thread.i.i.i.i210 ], [ %135, %.loopexit.loopexit31.i.i.i.i218 ], [ 2, %120 ], [ 2, %.thread.i.i.i.i210.thread ]
+  %.0.i.i.i219 = phi i32 [ 2, %120 ], [ %135, %.loopexit.loopexit31.i.i.i.i218 ], [ 2, %.thread.i.i.i.i210 ], [ 2, %.thread.i.i.i.i210.thread ]
   %136 = add i32 %.0.i.i.i219, %.0.i.i.i173
   %137 = zext i32 %136 to i64
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 %137
@@ -5954,7 +5954,7 @@ SetSequence.exit223:                              ; preds = %.thread.i.i.i.i210.
   br label %SetSequence.exit269
 
 SetSequence.exit269:                              ; preds = %.thread.i.i.i.i256.thread, %149, %.thread.i.i.i.i256, %.loopexit.loopexit31.i.i.i.i264
-  %.0.i.i.i265 = phi i32 [ 2, %.thread.i.i.i.i256 ], [ %164, %.loopexit.loopexit31.i.i.i.i264 ], [ 2, %149 ], [ 2, %.thread.i.i.i.i256.thread ]
+  %.0.i.i.i265 = phi i32 [ 2, %149 ], [ %164, %.loopexit.loopexit31.i.i.i.i264 ], [ 2, %.thread.i.i.i.i256 ], [ 2, %.thread.i.i.i.i256.thread ]
   %165 = add i32 %.0.i.i.i265, %143
   %166 = zext i32 %165 to i64
   %167 = getelementptr inbounds nuw i8, ptr %2, i64 %166
@@ -6012,7 +6012,7 @@ SetSequence.exit269:                              ; preds = %.thread.i.i.i.i256.
   br label %SetSequence.exit292
 
 SetSequence.exit292:                              ; preds = %.thread.i.i.i.i279.thread, %170, %.thread.i.i.i.i279, %.loopexit.loopexit31.i.i.i.i287
-  %.0.i.i.i288 = phi i32 [ 2, %.thread.i.i.i.i279 ], [ %185, %.loopexit.loopexit31.i.i.i.i287 ], [ 2, %170 ], [ 2, %.thread.i.i.i.i279.thread ]
+  %.0.i.i.i288 = phi i32 [ 2, %170 ], [ %185, %.loopexit.loopexit31.i.i.i.i287 ], [ 2, %.thread.i.i.i.i279 ], [ 2, %.thread.i.i.i.i279.thread ]
   %186 = add i32 %.0.i.i.i288, %165
   %187 = zext i32 %186 to i64
   %188 = getelementptr inbounds nuw i8, ptr %2, i64 %187
@@ -6080,7 +6080,7 @@ SetSequence.exit292:                              ; preds = %.thread.i.i.i.i279.
   br label %SetSequence.exit319
 
 SetSequence.exit319:                              ; preds = %.thread.i.i.i.i306.thread, %198, %.thread.i.i.i.i306, %.loopexit.loopexit31.i.i.i.i314
-  %.0.i.i.i315 = phi i32 [ 2, %.thread.i.i.i.i306 ], [ %213, %.loopexit.loopexit31.i.i.i.i314 ], [ 2, %198 ], [ 2, %.thread.i.i.i.i306.thread ]
+  %.0.i.i.i315 = phi i32 [ 2, %198 ], [ %213, %.loopexit.loopexit31.i.i.i.i314 ], [ 2, %.thread.i.i.i.i306 ], [ 2, %.thread.i.i.i.i306.thread ]
   %214 = add i32 %.0.i.i.i315, %193
   %215 = zext i32 %214 to i64
   %216 = getelementptr inbounds nuw i8, ptr %2, i64 %215
@@ -6138,7 +6138,7 @@ SetSequence.exit319:                              ; preds = %.thread.i.i.i.i306.
   br label %SetOctetString.exit342
 
 SetOctetString.exit342:                           ; preds = %.thread.i.i.i.i329.thread, %219, %.thread.i.i.i.i329, %.loopexit.loopexit31.i.i.i.i337
-  %.0.i.i.i338 = phi i32 [ 2, %.thread.i.i.i.i329 ], [ %234, %.loopexit.loopexit31.i.i.i.i337 ], [ 2, %219 ], [ 2, %.thread.i.i.i.i329.thread ]
+  %.0.i.i.i338 = phi i32 [ 2, %219 ], [ %234, %.loopexit.loopexit31.i.i.i.i337 ], [ 2, %.thread.i.i.i.i329 ], [ 2, %.thread.i.i.i.i329.thread ]
   %235 = add i32 %.0.i.i.i338, %214
   %236 = zext i32 %235 to i64
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 %236
@@ -6290,13 +6290,13 @@ BytePrecision.exit.i346:                          ; preds = %245, %.preheader.i3
   br label %SetOctetString.exit440
 
 SetOctetString.exit440:                           ; preds = %.thread.i.i.i.i427.thread, %293, %.thread.i.i.i.i427, %.loopexit.loopexit31.i.i.i.i435
-  %.0.i.i.i436 = phi i32 [ 2, %.thread.i.i.i.i427 ], [ %308, %.loopexit.loopexit31.i.i.i.i435 ], [ 2, %293 ], [ 2, %.thread.i.i.i.i427.thread ]
+  %.0.i.i.i436 = phi i32 [ 2, %293 ], [ %308, %.loopexit.loopexit31.i.i.i.i435 ], [ 2, %.thread.i.i.i.i427 ], [ 2, %.thread.i.i.i.i427.thread ]
   %309 = add i32 %288, %.2128
   %310 = add i32 %309, %.0.i.i.i436
   br label %.thread710
 
-.thread710:                                       ; preds = %250, %BytePrecision.exit.i346, %14, %SetLength.exit153, %24, %20, %21, %22, %GetAlgoV2.exit.thread, %111, %.thread620, %SetLength.exit153.thread, %SetOctetString.exit440, %.loopexit
-  %.1125 = phi i32 [ -173, %14 ], [ %310, %SetOctetString.exit440 ], [ %269, %.loopexit ], [ -202, %SetLength.exit153 ], [ -154, %21 ], [ -202, %SetLength.exit153.thread ], [ %114, %.thread620 ], [ %112, %111 ], [ %37, %GetAlgoV2.exit.thread ], [ -133, %24 ], [ -133, %20 ], [ -133, %22 ], [ -140, %250 ], [ -132, %BytePrecision.exit.i346 ]
+.thread710:                                       ; preds = %250, %BytePrecision.exit.i346, %14, %SetLength.exit153, %24, %21, %20, %22, %GetAlgoV2.exit.thread, %111, %.thread620, %SetLength.exit153.thread, %SetOctetString.exit440, %.loopexit
+  %.1125 = phi i32 [ %310, %SetOctetString.exit440 ], [ %269, %.loopexit ], [ -202, %SetLength.exit153 ], [ -202, %SetLength.exit153.thread ], [ %114, %.thread620 ], [ %112, %111 ], [ %37, %GetAlgoV2.exit.thread ], [ -133, %24 ], [ -133, %22 ], [ -133, %20 ], [ -154, %21 ], [ -173, %14 ], [ -140, %250 ], [ -132, %BytePrecision.exit.i346 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.1125
@@ -6314,7 +6314,7 @@ define range(i32 2, 1) i32 @SetOctetString(i32 noundef %0, ptr noundef writeonly
   br i1 %4, label %SetHeader.exit, label %.preheader.i.i.preheader.i
 
 .preheader.i.i.preheader.i:                       ; preds = %.thread.i, %3
-  %.ph.i = phi ptr [ %5, %.thread.i ], [ null, %3 ]
+  %.ph.i = phi ptr [ null, %3 ], [ %5, %.thread.i ]
   br label %.preheader.i.i.i
 
 .thread.i:                                        ; preds = %2
@@ -6381,7 +6381,7 @@ BytePrecision.exit.i.i.i:                         ; preds = %12, %.preheader.i.i
   br label %SetHeader.exit
 
 SetHeader.exit:                                   ; preds = %3, %7, %15, %.thread.i.i.i, %.lr.ph.split.us.preheader.i.i.i, %.loopexit.loopexit31.i.i.i
-  %.0.i.i = phi i32 [ 1, %.thread.i.i.i ], [ %25, %.loopexit.loopexit31.i.i.i ], [ 1, %3 ], [ 1, %7 ], [ 1, %15 ], [ %19, %.lr.ph.split.us.preheader.i.i.i ]
+  %.0.i.i = phi i32 [ 1, %7 ], [ 1, %15 ], [ %19, %.lr.ph.split.us.preheader.i.i.i ], [ %25, %.loopexit.loopexit31.i.i.i ], [ 1, %.thread.i.i.i ], [ 1, %3 ]
   %26 = add i32 %.0.i.i, 1
   ret i32 %26
 }
@@ -6396,7 +6396,7 @@ define range(i32 2, 1) i32 @SetSequence(i32 noundef %0, ptr noundef writeonly ca
   br i1 %4, label %SetHeader.exit, label %.preheader.i.i.preheader.i
 
 .preheader.i.i.preheader.i:                       ; preds = %.thread.i, %3
-  %.ph.i = phi ptr [ %5, %.thread.i ], [ null, %3 ]
+  %.ph.i = phi ptr [ null, %3 ], [ %5, %.thread.i ]
   br label %.preheader.i.i.i
 
 .thread.i:                                        ; preds = %2
@@ -6463,7 +6463,7 @@ BytePrecision.exit.i.i.i:                         ; preds = %12, %.preheader.i.i
   br label %SetHeader.exit
 
 SetHeader.exit:                                   ; preds = %3, %7, %15, %.thread.i.i.i, %.lr.ph.split.us.preheader.i.i.i, %.loopexit.loopexit31.i.i.i
-  %.0.i.i = phi i32 [ 1, %.thread.i.i.i ], [ %25, %.loopexit.loopexit31.i.i.i ], [ 1, %3 ], [ 1, %7 ], [ 1, %15 ], [ %19, %.lr.ph.split.us.preheader.i.i.i ]
+  %.0.i.i = phi i32 [ 1, %7 ], [ 1, %15 ], [ %19, %.lr.ph.split.us.preheader.i.i.i ], [ %25, %.loopexit.loopexit31.i.i.i ], [ 1, %.thread.i.i.i ], [ 1, %3 ]
   %26 = add i32 %.0.i.i, 1
   ret i32 %26
 }
@@ -6558,8 +6558,8 @@ define i32 @wc_DecryptPKCS8Key(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br i1 %or.cond55.i.i.i.i, label %43, label %.thread
 
 43:                                               ; preds = %._crit_edge.i.i.i.i, %12
-  %.240.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %15, %12 ]
-  %.2.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ 2, %12 ]
+  %.240.i.i.i.i = phi i32 [ %15, %12 ], [ %.139.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ 2, %12 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %44 = add nuw i32 %.2.i.i.i.i, %.240.i.i.i.i
   %45 = icmp ugt i32 %44, %1
   br i1 %45, label %.thread, label %GetSequence.exit
@@ -6650,15 +6650,15 @@ GetSequence.exit:                                 ; preds = %43
   br i1 %or.cond55.i.i.i.i43, label %85, label %.thread
 
 85:                                               ; preds = %._crit_edge.i.i.i.i39, %55
-  %.240.i.i.i.i26 = phi i32 [ %.139.lcssa.i.i.i.i41, %._crit_edge.i.i.i.i39 ], [ %57, %55 ]
-  %.2.i.i.i.i27 = phi i32 [ %.1.lcssa.i.i.i.i42, %._crit_edge.i.i.i.i39 ], [ 2, %55 ]
+  %.240.i.i.i.i26 = phi i32 [ %57, %55 ], [ %.139.lcssa.i.i.i.i41, %._crit_edge.i.i.i.i39 ]
+  %.2.i.i.i.i27 = phi i32 [ 2, %55 ], [ %.1.lcssa.i.i.i.i42, %._crit_edge.i.i.i.i39 ]
   %86 = add nuw i32 %.2.i.i.i.i27, %.240.i.i.i.i26
   %87 = icmp ugt i32 %86, %49
   %spec.select = select i1 %87, i32 -140, i32 %86
   br label %.thread
 
-.thread:                                          ; preds = %85, %._crit_edge.i.i.i.i39, %70, %.thread68.i.i.i.i44, %64, %.thread.i.i.i.i23, %43, %._crit_edge.i.i.i.i, %28, %.thread68.i.i.i.i, %22, %.thread.i.i.i.i, %7, %GetSequence.exit, %4
-  %.017 = phi i32 [ -173, %4 ], [ %spec.select, %85 ], [ -140, %70 ], [ %49, %GetSequence.exit ], [ -140, %7 ], [ -140, %.thread.i.i.i.i ], [ -140, %22 ], [ -140, %.thread68.i.i.i.i ], [ -140, %28 ], [ -140, %._crit_edge.i.i.i.i ], [ -140, %43 ], [ -140, %._crit_edge.i.i.i.i39 ], [ -140, %.thread.i.i.i.i23 ], [ -140, %64 ], [ -140, %.thread68.i.i.i.i44 ]
+.thread:                                          ; preds = %85, %.thread.i.i.i.i23, %._crit_edge.i.i.i.i39, %70, %64, %.thread68.i.i.i.i44, %.thread.i.i.i.i, %7, %43, %._crit_edge.i.i.i.i, %28, %22, %.thread68.i.i.i.i, %GetSequence.exit, %4
+  %.017 = phi i32 [ -173, %4 ], [ %49, %GetSequence.exit ], [ -140, %.thread68.i.i.i.i ], [ -140, %22 ], [ -140, %28 ], [ -140, %._crit_edge.i.i.i.i ], [ -140, %43 ], [ -140, %7 ], [ -140, %.thread.i.i.i.i ], [ -140, %.thread68.i.i.i.i44 ], [ -140, %64 ], [ -140, %70 ], [ -140, %._crit_edge.i.i.i.i39 ], [ -140, %.thread.i.i.i.i23 ], [ %spec.select, %85 ]
   ret i32 %.017
 }
 
@@ -6797,8 +6797,8 @@ CheckAlgo.exit:                                   ; preds = %24
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %40, i64 %68, i1 false)
   br label %.thread87
 
-.thread87:                                        ; preds = %24, %23, %14, %4, %36, %62, %63, %67
-  %.5 = phi i32 [ %41, %67 ], [ %65, %63 ], [ %50, %62 ], [ -143, %36 ], [ -133, %24 ], [ -154, %23 ], [ -133, %14 ], [ %12, %4 ]
+.thread87:                                        ; preds = %24, %14, %23, %4, %36, %62, %63, %67
+  %.5 = phi i32 [ %41, %67 ], [ %65, %63 ], [ %50, %62 ], [ -143, %36 ], [ -133, %24 ], [ -133, %14 ], [ -154, %23 ], [ %12, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6960,8 +6960,8 @@ CheckAlgo.exit:                                   ; preds = %19, %13
   %spec.select102 = select i1 %57, i32 %37, i32 %.fr
   br label %.thread95.thread
 
-.thread95.thread:                                 ; preds = %.thread95, %39, %38, %CheckAlgo.exit, %45
-  %58 = phi i32 [ %47, %45 ], [ %spec.select102, %.thread95 ], [ -173, %39 ], [ -202, %38 ], [ %spec.store.select8, %CheckAlgo.exit ]
+.thread95.thread:                                 ; preds = %.thread95, %39, %CheckAlgo.exit, %38, %45
+  %58 = phi i32 [ -173, %39 ], [ %spec.store.select8, %CheckAlgo.exit ], [ -202, %38 ], [ %47, %45 ], [ %spec.select102, %.thread95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %58
@@ -7010,8 +7010,8 @@ define range(i32 -192, 1) i32 @wc_RsaPublicKeyDecode_ex(ptr noundef %0, ptr noun
   ]
 
 28:                                               ; preds = %25, %25, %20
-  %.175 = phi i32 [ 0, %25 ], [ 0, %25 ], [ %.1, %20 ]
-  %.045 = phi i32 [ %27, %25 ], [ %27, %25 ], [ 645, %20 ]
+  %.175 = phi i32 [ 0, %25 ], [ %.1, %20 ], [ 0, %25 ]
+  %.045 = phi i32 [ %27, %25 ], [ 645, %20 ], [ %27, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 193
   %31 = load i8, ptr %30, align 1
@@ -7092,7 +7092,7 @@ RsaPssHashOidToMgf1.exit.thread28.i:              ; preds = %64, %RsaPssHashOidT
   br label %DecodeRsaPssParams.exit
 
 DecodeRsaPssParams.exit:                          ; preds = %58, %64, %RsaPssHashOidToMgf1.exit.i, %RsaPssHashOidToMgf1.exit.thread28.i
-  %.327.i = phi i32 [ 0, %RsaPssHashOidToMgf1.exit.thread28.i ], [ %55, %RsaPssHashOidToMgf1.exit.i ], [ -140, %64 ], [ -140, %58 ]
+  %.327.i = phi i32 [ %55, %RsaPssHashOidToMgf1.exit.i ], [ 0, %RsaPssHashOidToMgf1.exit.thread28.i ], [ -140, %64 ], [ -140, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %68
@@ -7143,7 +7143,7 @@ DecodeRsaPssParams.exit:                          ; preds = %58, %64, %RsaPssHas
   br label %.thread62
 
 .thread62:                                        ; preds = %7, %25, %33, %68, %83, %82
-  %.364 = phi i32 [ 0, %82 ], [ %.3, %68 ], [ 0, %83 ], [ -140, %33 ], [ -140, %25 ], [ -173, %7 ]
+  %.364 = phi i32 [ %.3, %68 ], [ 0, %83 ], [ 0, %82 ], [ -140, %33 ], [ -140, %25 ], [ -173, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.364
 }
@@ -7191,7 +7191,7 @@ define range(i32 -173, 1) i32 @wc_RsaPublicKeyDecodeRaw(ptr noundef %0, i32 noun
   br label %20
 
 20:                                               ; preds = %.sink.split, %17, %9, %5
-  %.0 = phi i32 [ -110, %9 ], [ -173, %5 ], [ 0, %17 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -173, %5 ], [ -110, %9 ], [ 0, %17 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -7483,7 +7483,7 @@ CopyString.exit:                                  ; preds = %19
   br i1 %.not.i17, label %FreeAltNames.exit, label %.lr.ph.i, !llvm.loop !86
 
 FreeAltNames.exit:                                ; preds = %31, %2, %CopyString.exit
-  %.0 = phi ptr [ null, %2 ], [ %3, %CopyString.exit ], [ null, %31 ]
+  %.0 = phi ptr [ %3, %CopyString.exit ], [ null, %2 ], [ null, %31 ]
   ret ptr %.0
 }
 
@@ -7997,7 +7997,7 @@ BytePrecision.exit.i.i.i66:                       ; preds = %85, %.preheader.i.i
   br label %100
 
 100:                                              ; preds = %.loopexit.loopexit31.i.i.i, %.thread.i.i.i, %80
-  %.020.i.i.i = phi i32 [ 2, %.thread.i.i.i ], [ 2, %80 ], [ %99, %.loopexit.loopexit31.i.i.i ]
+  %.020.i.i.i = phi i32 [ 2, %80 ], [ %99, %.loopexit.loopexit31.i.i.i ], [ 2, %.thread.i.i.i ]
   %101 = zext i32 %.fr117 to i64
   %102 = icmp ult i64 %.047, %101
   br i1 %102, label %.thread109.thread, label %103
@@ -8012,9 +8012,9 @@ BytePrecision.exit.i.i.i66:                       ; preds = %85, %.preheader.i.i
   br label %SetCurve.exit73
 
 SetCurve.exit73:                                  ; preds = %76, %88, %.lr.ph.split.us.preheader.i.i.i70, %103
-  %.020.i.i.i.pn = phi i32 [ %.020.i.i.i, %103 ], [ 2, %76 ], [ %92, %.lr.ph.split.us.preheader.i.i.i70 ], [ 2, %88 ]
-  %.020.i.i.i.pn.fr = freeze i32 %.020.i.i.i.pn
-  %.0.i68 = add i32 %.020.i.i.i.pn.fr, %.fr117
+  %.020.i.i.ph.i71.pn = phi i32 [ %.020.i.i.i, %103 ], [ 2, %76 ], [ %92, %.lr.ph.split.us.preheader.i.i.i70 ], [ 2, %88 ]
+  %.020.i.i.ph.i71.pn.fr = freeze i32 %.020.i.i.ph.i71.pn
+  %.0.i68 = add i32 %.020.i.i.ph.i71.pn.fr, %.fr117
   %spec.select = call i32 @llvm.smin.i32(i32 %.0.i68, i32 0)
   br label %109
 
@@ -8036,8 +8036,8 @@ SetCurve.exit73:                                  ; preds = %76, %88, %.lr.ph.sp
   %spec.select116 = select i1 %113, i32 %114, i32 %.7.fr
   br label %.thread109.thread
 
-.thread109.thread:                                ; preds = %.thread109, %68, %69, %100, %60
-  %115 = phi i32 [ -132, %60 ], [ %spec.select116, %.thread109 ], [ -173, %68 ], [ -173, %69 ], [ -132, %100 ]
+.thread109.thread:                                ; preds = %.thread109, %69, %68, %100, %60
+  %115 = phi i32 [ -173, %69 ], [ -173, %68 ], [ -132, %100 ], [ -132, %60 ], [ %spec.select116, %.thread109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %115
@@ -8223,8 +8223,8 @@ define internal fastcc range(i32 -192, 1) i32 @GetCertName(ptr noundef writeonly
   br i1 %or.cond55.i.i, label %54, label %.thread
 
 54:                                               ; preds = %._crit_edge.i.i, %21
-  %.240.i.i = phi i32 [ %.139.lcssa.i.i, %._crit_edge.i.i ], [ %25, %21 ]
-  %55 = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %19, %21 ]
+  %.240.i.i = phi i32 [ %25, %21 ], [ %.139.lcssa.i.i, %._crit_edge.i.i ]
+  %55 = phi i32 [ %19, %21 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %56 = add i32 %55, %.240.i.i
   %.not16.i = icmp eq i32 %56, %6
   br i1 %.not16.i, label %GetASN_Sequence.exit.thread40, label %.thread
@@ -8363,9 +8363,9 @@ GetASN_Sequence.exit.thread40:                    ; preds = %54
   br i1 %.not8.i, label %GetRDN.exit, label %.thread.i26
 
 .thread.i26:                                      ; preds = %116, %115, %110, %.critedge78.i, %.critedge.i, %103, %101, %99
-  %.06215.i = phi ptr [ %118, %116 ], [ @.str.26, %103 ], [ @.str.25, %101 ], [ @.str.24, %99 ], [ @.str.31, %115 ], [ @.str.30, %110 ], [ @.str.28, %.critedge78.i ], [ @.str.27, %.critedge.i ]
-  %.06314.i = phi i8 [ %98, %116 ], [ 4, %103 ], [ 5, %101 ], [ 14, %99 ], [ 16, %115 ], [ 15, %110 ], [ 16, %.critedge78.i ], [ 15, %.critedge.i ]
-  %.06413.i = phi i32 [ %92, %116 ], [ 258, %103 ], [ 18, %101 ], [ 256, %99 ], [ %114, %115 ], [ %114, %110 ], [ 19, %.critedge78.i ], [ 20, %.critedge.i ]
+  %.06215.i = phi ptr [ %118, %116 ], [ @.str.30, %110 ], [ @.str.28, %.critedge78.i ], [ @.str.27, %.critedge.i ], [ @.str.26, %103 ], [ @.str.25, %101 ], [ @.str.24, %99 ], [ @.str.31, %115 ]
+  %.06314.i = phi i8 [ %98, %116 ], [ 15, %110 ], [ 16, %.critedge78.i ], [ 15, %.critedge.i ], [ 4, %103 ], [ 5, %101 ], [ 14, %99 ], [ 16, %115 ]
+  %.06413.i = phi i32 [ %92, %116 ], [ %114, %110 ], [ 19, %.critedge78.i ], [ 20, %.critedge.i ], [ 258, %103 ], [ 18, %101 ], [ 256, %99 ], [ %114, %115 ]
   %119 = load ptr, ptr %65, align 16, !tbaa !3
   %120 = load i32, ptr %69, align 8, !tbaa !3
   br i1 %.not47, label %121, label %SetSubject.exit.i
@@ -8409,7 +8409,7 @@ SetSubject.exit.i:                                ; preds = %124, %122, %121, %.
   br label %GetRDN.exit
 
 GetRDN.exit:                                      ; preds = %82, %85, %99, %.critedge79.i, %129, %SetSubject.exit.i, %116, %110, %108, %94, %89, %79
-  %.233 = phi i32 [ %.13248, %110 ], [ %.13248, %79 ], [ %.13248, %94 ], [ %.13248, %116 ], [ %137, %129 ], [ %.13248, %SetSubject.exit.i ], [ %.13248, %89 ], [ %.13248, %108 ], [ %.13248, %.critedge79.i ], [ %.13248, %99 ], [ %.13248, %85 ], [ %.13248, %82 ]
+  %.233 = phi i32 [ %.13248, %79 ], [ %.13248, %94 ], [ %.13248, %116 ], [ %137, %129 ], [ %.13248, %SetSubject.exit.i ], [ %.13248, %89 ], [ %.13248, %110 ], [ %.13248, %108 ], [ %.13248, %.critedge79.i ], [ %.13248, %99 ], [ %.13248, %85 ], [ %.13248, %82 ]
   %138 = load i32, ptr %9, align 4
   %139 = icmp ult i32 %138, %6
   br i1 %139, label %76, label %GetASN_Sequence.exit.thread71, !llvm.loop !115
@@ -8426,8 +8426,8 @@ GetASN_Sequence.exit.thread:                      ; preds = %62, %GetASN_Sequenc
   store i32 %141, ptr %5, align 4, !tbaa !22
   br label %.thread
 
-.thread:                                          ; preds = %.critedge79.i, %76, %7, %.thread68.i.i, %38, %._crit_edge.i.i, %54, %.thread.i, %32, %17, %15, %GetASN_Sequence.exit.thread
-  %.246 = phi i32 [ 0, %GetASN_Sequence.exit.thread ], [ -140, %7 ], [ -132, %15 ], [ -140, %17 ], [ -140, %32 ], [ -140, %.thread.i ], [ -140, %54 ], [ -140, %._crit_edge.i.i ], [ -140, %38 ], [ -140, %.thread68.i.i ], [ -140, %.critedge79.i ], [ %77, %76 ]
+.thread:                                          ; preds = %.critedge79.i, %76, %7, %.thread68.i.i, %32, %38, %._crit_edge.i.i, %54, %.thread.i, %17, %15, %GetASN_Sequence.exit.thread
+  %.246 = phi i32 [ 0, %GetASN_Sequence.exit.thread ], [ -132, %15 ], [ -140, %17 ], [ -140, %.thread.i ], [ -140, %54 ], [ -140, %._crit_edge.i.i ], [ -140, %38 ], [ -140, %32 ], [ -140, %.thread68.i.i ], [ -140, %7 ], [ -140, %.critedge79.i ], [ %77, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.246
@@ -8629,7 +8629,7 @@ define range(i32 0, 2) i32 @ExtractDate(ptr noundef readonly captures(none) %0, 
   br label %GetTime.exit.thread
 
 GetTime.exit.thread:                              ; preds = %95, %111, %72, %91, %50, %68, %38, %46, %16, %23, %128, %115
-  %.0 = phi i32 [ 0, %115 ], [ 0, %16 ], [ 0, %38 ], [ 0, %50 ], [ 0, %72 ], [ %., %128 ], [ 0, %23 ], [ 0, %46 ], [ 0, %68 ], [ 0, %91 ], [ 0, %111 ], [ 0, %95 ]
+  %.0 = phi i32 [ 0, %115 ], [ %., %128 ], [ 0, %23 ], [ 0, %16 ], [ 0, %46 ], [ 0, %38 ], [ 0, %68 ], [ 0, %50 ], [ 0, %91 ], [ 0, %72 ], [ 0, %111 ], [ 0, %95 ]
   ret i32 %.0
 }
 
@@ -9046,8 +9046,8 @@ DateLessThan.exit.thread:                         ; preds = %111, %81, %89, %95,
 DateGreaterThan.exit.thread:                      ; preds = %145, %115, %123, %129, %135, %141
   br label %.critedge
 
-.critedge:                                        ; preds = %139, %61, %71, %59, %74, %64, %56, %67, %30, %41, %19, %26, %87, %93, %99, %105, %111, %121, %127, %145, %133, %DateGreaterThan.exit.thread, %DateLessThan.exit.thread, %ValidateGmtime.exit, %14, %wc_Time.exit
-  %.0 = phi i32 [ 0, %14 ], [ 0, %ValidateGmtime.exit ], [ 0, %30 ], [ 0, %DateLessThan.exit.thread ], [ 0, %DateGreaterThan.exit.thread ], [ 0, %wc_Time.exit ], [ 0, %19 ], [ 1, %87 ], [ 1, %133 ], [ 0, %71 ], [ 1, %145 ], [ 0, %61 ], [ 1, %127 ], [ 1, %121 ], [ 1, %139 ], [ 1, %111 ], [ 1, %105 ], [ 1, %99 ], [ 1, %93 ], [ 0, %26 ], [ 0, %41 ], [ 0, %67 ], [ 0, %56 ], [ 0, %64 ], [ 0, %74 ], [ 0, %59 ]
+.critedge:                                        ; preds = %139, %56, %59, %61, %64, %67, %71, %74, %30, %41, %19, %26, %87, %93, %99, %105, %111, %121, %127, %145, %133, %DateGreaterThan.exit.thread, %DateLessThan.exit.thread, %ValidateGmtime.exit, %14, %wc_Time.exit
+  %.0 = phi i32 [ 0, %wc_Time.exit ], [ 0, %14 ], [ 0, %ValidateGmtime.exit ], [ 0, %DateLessThan.exit.thread ], [ 0, %DateGreaterThan.exit.thread ], [ 1, %133 ], [ 1, %145 ], [ 1, %127 ], [ 1, %121 ], [ 1, %111 ], [ 1, %105 ], [ 1, %99 ], [ 1, %93 ], [ 1, %87 ], [ 0, %26 ], [ 0, %19 ], [ 0, %41 ], [ 0, %30 ], [ 0, %74 ], [ 0, %71 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %59 ], [ 0, %56 ], [ 1, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9171,7 +9171,7 @@ define range(i32 -192, 1) i32 @wc_GetDateInfo(ptr noundef %0, i32 noundef %1, pt
   br label %GetDateInfo.exit
 
 GetDateInfo.exit:                                 ; preds = %5, %8, %19, %20
-  %.039.i = phi i32 [ %9, %8 ], [ 0, %19 ], [ 0, %20 ], [ -173, %5 ]
+  %.039.i = phi i32 [ 0, %19 ], [ 0, %20 ], [ %9, %8 ], [ -173, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.039.i
@@ -9354,7 +9354,7 @@ define internal fastcc i32 @DecodeCertInternal(ptr noundef %0, i32 noundef %1, p
   br label %CheckDate.exit
 
 CheckDate.exit:                                   ; preds = %79, %.thread.i, %93
-  %.2.i = phi i1 [ %.not15.i, %.thread.i ], [ true, %93 ], [ true, %79 ]
+  %.2.i = phi i1 [ true, %93 ], [ %.not15.i, %.thread.i ], [ true, %79 ]
   %98 = icmp ne i32 %1, 0
   %or.cond4 = and i1 %98, %.2.i
   %99 = icmp ne i32 %1, 5
@@ -9595,9 +9595,9 @@ IsSigAlgoECC.exit:                                ; preds = %170, %170, %170, %1
   br label %.thread272
 
 .thread272:                                       ; preds = %180, %205, %181, %156, %218, %219, %215, %213
-  %.4275 = phi i32 [ %.4, %213 ], [ 0, %215 ], [ 0, %219 ], [ 0, %218 ], [ -140, %205 ], [ -152, %156 ], [ -140, %181 ], [ -140, %180 ]
-  %.0167 = phi i32 [ 0, %213 ], [ %217, %215 ], [ %217, %219 ], [ %217, %218 ], [ 0, %205 ], [ 0, %156 ], [ 0, %181 ], [ 0, %180 ]
-  %.1166 = phi i32 [ %.0165, %213 ], [ 0, %215 ], [ 1, %219 ], [ 1, %218 ], [ %.0165, %205 ], [ %.0165, %156 ], [ %.0165, %181 ], [ %.0165, %180 ]
+  %.4275 = phi i32 [ %.4, %213 ], [ 0, %215 ], [ 0, %219 ], [ 0, %218 ], [ -152, %156 ], [ -140, %181 ], [ -140, %205 ], [ -140, %180 ]
+  %.0167 = phi i32 [ 0, %213 ], [ %217, %215 ], [ %217, %219 ], [ %217, %218 ], [ 0, %156 ], [ 0, %181 ], [ 0, %205 ], [ 0, %180 ]
+  %.1166 = phi i32 [ %.0165, %213 ], [ 0, %215 ], [ 1, %219 ], [ 1, %218 ], [ %.0165, %156 ], [ %.0165, %181 ], [ %.0165, %205 ], [ %.0165, %180 ]
   %220 = or i32 %.1166, %.4275
   %or.cond18.not190 = icmp eq i32 %220, 0
   %221 = getelementptr inbounds nuw i8, ptr %43, i64 1048
@@ -9790,8 +9790,8 @@ IsSigAlgoECC.exit:                                ; preds = %170, %170, %170, %1
   br i1 %or.cond55.i.i.i, label %320, label %GetCertKey.exit
 
 320:                                              ; preds = %._crit_edge.i.i.i, %287
-  %.240.i.i.i = phi i32 [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %291, %287 ]
-  %.2.i.i.i = phi i32 [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %285, %287 ]
+  %.240.i.i.i = phi i32 [ %291, %287 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.2.i.i.i = phi i32 [ %285, %287 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %321 = add i32 %.2.i.i.i, %.240.i.i.i
   %.not16.i.i = icmp eq i32 %321, %.0167
   br i1 %.not16.i.i, label %322, label %GetCertKey.exit
@@ -9981,18 +9981,18 @@ StoreRsaKey.exit.i:                               ; preds = %370, %367
   br label %StoreEccKey.exit.i
 
 StoreEccKey.exit.i:                               ; preds = %394, %389, %376
-  %.3.i.i = phi i32 [ %380, %376 ], [ %.2.i.i, %394 ], [ -125, %389 ]
+  %.3.i.i = phi i32 [ %.2.i.i, %394 ], [ %380, %376 ], [ -125, %389 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %398
 
 398:                                              ; preds = %StoreEccKey.exit.i, %StoreRsaKey.exit.i, %328
-  %.034.i = phi i32 [ %.3.i.i, %StoreEccKey.exit.i ], [ %368, %StoreRsaKey.exit.i ], [ -148, %328 ]
+  %.034.i = phi i32 [ %368, %StoreRsaKey.exit.i ], [ %.3.i.i, %StoreEccKey.exit.i ], [ -148, %328 ]
   %399 = load i32, ptr %35, align 4, !tbaa !22
   store i32 %399, ptr %45, align 4, !tbaa !22
   br label %GetCertKey.exit
 
 GetCertKey.exit:                                  ; preds = %276, %279, %281, %.thread.i.i, %298, %304, %.thread68.i.i.i, %._crit_edge.i.i.i, %320, %GetAlgoId.exit.thread.i, %366, %398
-  %.0.i = phi i32 [ -140, %366 ], [ -140, %276 ], [ -140, %GetAlgoId.exit.thread.i ], [ %.034.i, %398 ], [ -140, %279 ], [ -140, %.thread68.i.i.i ], [ -140, %304 ], [ -140, %._crit_edge.i.i.i ], [ -140, %320 ], [ -140, %.thread.i.i ], [ -140, %298 ], [ -140, %281 ]
+  %.0.i = phi i32 [ %.034.i, %398 ], [ -140, %366 ], [ -140, %276 ], [ -140, %GetAlgoId.exit.thread.i ], [ -140, %.thread68.i.i.i ], [ -140, %298 ], [ -140, %304 ], [ -140, %._crit_edge.i.i.i ], [ -140, %320 ], [ -140, %.thread.i.i ], [ -140, %281 ], [ -140, %279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %400
 
@@ -10334,8 +10334,8 @@ DecodeCrlDist.exit.i.i:                           ; preds = %521, %513
   br i1 %or.cond55.i.i.i.i, label %568, label %588
 
 568:                                              ; preds = %._crit_edge.i.i.i58.i, %537
-  %.240.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i, %._crit_edge.i.i.i58.i ], [ %540, %537 ]
-  %.2.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i58.i ], [ 2, %537 ]
+  %.240.i.i.i.i = phi i32 [ %540, %537 ], [ %.139.lcssa.i.i.i.i, %._crit_edge.i.i.i58.i ]
+  %.2.i.i.i.i = phi i32 [ 2, %537 ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i58.i ]
   %569 = add nuw i32 %.2.i.i.i.i, %.240.i.i.i.i
   %.not16.i.i.i = icmp eq i32 %569, %476
   br i1 %.not16.i.i.i, label %570, label %588
@@ -10487,8 +10487,8 @@ DecodeAuthInfo.exit.i:                            ; preds = %585, %570
   br i1 %or.cond55.i.i.i.i.i, label %632, label %DecodeAltNames.exit.i.i
 
 632:                                              ; preds = %._crit_edge.i.i.i.i.i, %601
-  %.240.i.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %604, %601 ]
-  %.2.i.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ 2, %601 ]
+  %.240.i.i.i.i.i = phi i32 [ %604, %601 ], [ %.139.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %.2.i.i.i.i.i = phi i32 [ 2, %601 ], [ %.1.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.240.i.i.fr.i.i.i = freeze i32 %.240.i.i.i.i.i
   %633 = add nuw i32 %.2.i.i.i.i.i, %.240.i.i.fr.i.i.i
   %.not16.i.i.i.i = icmp eq i32 %633, %476
@@ -10656,8 +10656,8 @@ GetASN_Sequence.exit.i.i.i:                       ; preds = %632
   br i1 %or.cond55.i.i.i.i.i.i, label %704, label %.loopexit.sink.split.i.i.i
 
 704:                                              ; preds = %._crit_edge.i.i.i.i.i.i, %671
-  %.240.i.i.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %675, %671 ]
-  %.2.i.i.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %669, %671 ]
+  %.240.i.i.i.i.i.i = phi i32 [ %675, %671 ], [ %.139.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi i32 [ %669, %671 ], [ %.1.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %705 = add i32 %.2.i.i.i.i.i.i, %.240.i.i.i.i.i.i
   %.not16.i.i.i.i.i = icmp eq i32 %705, %663
   br i1 %.not16.i.i.i.i.i, label %GetASN_Sequence.exit.i.i.i.i, label %.loopexit.sink.split.i.i.i
@@ -10746,7 +10746,7 @@ GetASN_Sequence.exit.i.i.i.i:                     ; preds = %704
   br i1 %745, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !152
 
 ._crit_edge.i.i.i.i:                              ; preds = %743, %.lr.ph.i.i.i.i
-  %.0.lcssa.i.i.i.i = phi i32 [ %.0127.i.i.i.i, %.lr.ph.i.i.i.i ], [ %744, %743 ]
+  %.0.lcssa.i.i.i.i = phi i32 [ %744, %743 ], [ %.0127.i.i.i.i, %.lr.ph.i.i.i.i ]
   %746 = icmp eq i32 %.0.lcssa.i.i.i.i, 0
   %747 = icmp eq i32 %.0.lcssa.i.i.i.i, %643
   %or.cond.i.i.i.i = or i1 %746, %747
@@ -10797,7 +10797,7 @@ GetASN_Sequence.exit.i.i.i.i:                     ; preds = %704
   br label %DecodeGeneralName.exit.i.i.i
 
 DecodeGeneralName.exit.thread79.sink.split.i.i.i: ; preds = %757, %725, %709, %649
-  %.lcssa94.sink.i.i.i = phi ptr [ %724, %725 ], [ %648, %649 ], [ %708, %709 ], [ %756, %757 ]
+  %.lcssa94.sink.i.i.i = phi ptr [ %648, %649 ], [ %708, %709 ], [ %724, %725 ], [ %756, %757 ]
   call void @wolfSSL_Free(ptr noundef nonnull %.lcssa94.sink.i.i.i) #23
   br label %.loopexit.sink.split.i.i.i
 
@@ -10809,12 +10809,12 @@ DecodeGeneralName.exit.i.i.i:                     ; preds = %770, %763, %731, %7
   br i1 %772, label %636, label %DecodeAltNames.exit.i.i
 
 .loopexit.sink.split.i.i.i:                       ; preds = %753, %748, %._crit_edge.i.i.i.i, %721, %GetASN_Sequence.exit.i.i.i.i, %704, %._crit_edge.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i, %688, %682, %.thread.i.i.i.i.i, %665, %662, %645, %.preheader.i.i.i.i, %638, %636, %DecodeGeneralName.exit.thread79.sink.split.i.i.i
-  %.3.ph.i.i.i = phi i32 [ -125, %DecodeGeneralName.exit.thread79.sink.split.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i.i ], [ -140, %688 ], [ -140, %.thread68.i.i.i.i.i.i ], [ -125, %753 ], [ -140, %662 ], [ -125, %645 ], [ -125, %721 ], [ -125, %GetASN_Sequence.exit.i.i.i.i ], [ -161, %748 ], [ -161, %._crit_edge.i.i.i.i ], [ %639, %638 ], [ -161, %.preheader.i.i.i.i ], [ -140, %665 ], [ -140, %682 ], [ -140, %.thread.i.i.i.i.i ], [ -140, %704 ], [ -161, %636 ]
+  %.3.ph.i.i.i = phi i32 [ -125, %DecodeGeneralName.exit.thread79.sink.split.i.i.i ], [ -161, %.preheader.i.i.i.i ], [ -125, %753 ], [ -125, %721 ], [ -125, %GetASN_Sequence.exit.i.i.i.i ], [ -125, %645 ], [ -140, %662 ], [ -140, %665 ], [ -140, %.thread.i.i.i.i.i ], [ -140, %704 ], [ -140, %._crit_edge.i.i.i.i.i.i ], [ -140, %688 ], [ -140, %682 ], [ -140, %.thread68.i.i.i.i.i.i ], [ -161, %._crit_edge.i.i.i.i ], [ -161, %748 ], [ %639, %638 ], [ -161, %636 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %DecodeAltNames.exit.i.i
 
 DecodeAltNames.exit.i.i:                          ; preds = %DecodeGeneralName.exit.i.i.i, %.loopexit.sink.split.i.i.i, %GetASN_Sequence.exit.i.i.i, %632, %._crit_edge.i.i.i.i.i, %.thread68.i.i.i.i.i, %617, %611, %598, %593
-  %.3.i.i.i = phi i32 [ -140, %593 ], [ -140, %598 ], [ %.3.ph.i.i.i, %.loopexit.sink.split.i.i.i ], [ -140, %617 ], [ -140, %GetASN_Sequence.exit.i.i.i ], [ -140, %611 ], [ -140, %.thread68.i.i.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i ], [ -140, %632 ], [ 0, %DecodeGeneralName.exit.i.i.i ]
+  %.3.i.i.i = phi i32 [ -140, %GetASN_Sequence.exit.i.i.i ], [ -140, %598 ], [ -140, %611 ], [ -140, %.thread68.i.i.i.i.i ], [ -140, %._crit_edge.i.i.i.i.i ], [ -140, %632 ], [ -140, %617 ], [ -140, %593 ], [ %.3.ph.i.i.i, %.loopexit.sink.split.i.i.i ], [ 0, %DecodeGeneralName.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %DecodeExtensionType.exit.i
 
@@ -10962,8 +10962,8 @@ DecodeAuthKeyId.exit.i:                           ; preds = %789, %781
   br i1 %or.cond55.i.i.i.i.i50.i, label %836, label %DecodeSubjKeyId.exit.thread.i
 
 836:                                              ; preds = %._crit_edge.i.i.i.i.i46.i, %805
-  %.240.i.i.i.i.i32.i = phi i32 [ %.139.lcssa.i.i.i.i.i48.i, %._crit_edge.i.i.i.i.i46.i ], [ %808, %805 ]
-  %.2.i.i.i.i.i33.i = phi i32 [ %.1.lcssa.i.i.i.i.i49.i, %._crit_edge.i.i.i.i.i46.i ], [ 2, %805 ]
+  %.240.i.i.i.i.i32.i = phi i32 [ %808, %805 ], [ %.139.lcssa.i.i.i.i.i48.i, %._crit_edge.i.i.i.i.i46.i ]
+  %.2.i.i.i.i.i33.i = phi i32 [ 2, %805 ], [ %.1.lcssa.i.i.i.i.i49.i, %._crit_edge.i.i.i.i.i46.i ]
   %837 = add nuw i32 %.2.i.i.i.i.i33.i, %.240.i.i.i.i.i32.i
   %838 = icmp ugt i32 %837, %476
   br i1 %838, label %DecodeSubjKeyId.exit.thread.i, label %GetOctetString.exit.i.i
@@ -11142,8 +11142,8 @@ DecodeKeyUsage.exit.i.i:                          ; preds = %862, %857, %851
   br i1 %or.cond55.i.i.i145.i.i, label %910, label %928
 
 910:                                              ; preds = %._crit_edge.i.i.i141.i.i, %879
-  %.240.i.i.i127.i.i = phi i32 [ %.139.lcssa.i.i.i143.i.i, %._crit_edge.i.i.i141.i.i ], [ %882, %879 ]
-  %.2.i.i.i128.i.i = phi i32 [ %.1.lcssa.i.i.i144.i.i, %._crit_edge.i.i.i141.i.i ], [ 2, %879 ]
+  %.240.i.i.i127.i.i = phi i32 [ %882, %879 ], [ %.139.lcssa.i.i.i143.i.i, %._crit_edge.i.i.i141.i.i ]
+  %.2.i.i.i128.i.i = phi i32 [ 2, %879 ], [ %.1.lcssa.i.i.i144.i.i, %._crit_edge.i.i.i141.i.i ]
   %911 = add nuw i32 %.2.i.i.i128.i.i, %.240.i.i.i127.i.i
   %.not16.i.i129.i.i = icmp eq i32 %911, %476
   br i1 %.not16.i.i129.i.i, label %912, label %928
@@ -11400,8 +11400,8 @@ DecodeNsCertType.exit.i.i:                        ; preds = %962
   br i1 %or.cond55.i.i.i.i.i.i.i, label %1012, label %DecodeExtensionType.exit.i
 
 1012:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i, %981
-  %.240.i.i.i.i.i.i.i = phi i32 [ %.139.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %984, %981 ]
-  %.2.i.i.i.i.i.i.i = phi i32 [ %.1.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ 2, %981 ]
+  %.240.i.i.i.i.i.i.i = phi i32 [ %984, %981 ], [ %.139.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi i32 [ 2, %981 ], [ %.1.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %1013 = add nuw i32 %.2.i.i.i.i.i.i.i, %.240.i.i.i.i.i.i.i
   %1014 = icmp ugt i32 %1013, %476
   %1015 = icmp eq i32 %.240.i.i.i.i.i.i.i, 0
@@ -11499,8 +11499,8 @@ DecodeNsCertType.exit.i.i:                        ; preds = %962
   br i1 %or.cond55.i.i.i166.i.i, label %1057, label %DecodeExtensionType.exit.i
 
 1057:                                             ; preds = %._crit_edge.i.i.i162.i.i, %1025
-  %.240.i.i.i148.i.i = phi i32 [ %.139.lcssa.i.i.i164.i.i, %._crit_edge.i.i.i162.i.i ], [ %1028, %1025 ]
-  %.2.i.i.i149.i.i = phi i32 [ %.1.lcssa.i.i.i165.i.i, %._crit_edge.i.i.i162.i.i ], [ %1023, %1025 ]
+  %.240.i.i.i148.i.i = phi i32 [ %1028, %1025 ], [ %.139.lcssa.i.i.i164.i.i, %._crit_edge.i.i.i162.i.i ]
+  %.2.i.i.i149.i.i = phi i32 [ %1023, %1025 ], [ %.1.lcssa.i.i.i165.i.i, %._crit_edge.i.i.i162.i.i ]
   %1058 = add nuw i32 %.2.i.i.i149.i.i, %.240.i.i.i148.i.i
   %1059 = icmp ugt i32 %1058, %476
   br i1 %1059, label %DecodeExtensionType.exit.i, label %1060
@@ -11524,7 +11524,7 @@ DecodePolicyConstraints.exit.i.i:                 ; preds = %1060
   br label %DecodeExtensionType.exit.i
 
 DecodeExtensionType.exit.i:                       ; preds = %1065, %DecodePolicyConstraints.exit.i.i, %1060, %1057, %._crit_edge.i.i.i162.i.i, %.thread68.i.i.i167.i.i, %1041, %1035, %1021, %1016, %1012, %._crit_edge.i.i.i.i.i.i.i, %.thread68.i.i.i.i.i.i.i, %997, %991, %.thread.i.i.i.i.i.i.i, %973, %969, %968, %DecodeNsCertType.exit.i.i, %957, %953, %DecodeNameConstraints.exit.i.i, %929, %928, %DecodeExtKeyUsage.exit.i.i, %868, %DecodeKeyUsage.exit.i.i, %847, %846, %DecodeSubjKeyId.exit.thread.i, %DecodeSubjKeyId.exit.i, %843, %GetOctetString.exit.i.i, %796, %792, %DecodeAuthKeyId.exit.i, %DecodeAuthKeyId.exit.thread.i, %777, %773, %DecodeAltNames.exit.i.i, %589, %588, %DecodeAuthInfo.exit.i, %529, %525, %DecodeCrlDist.exit.i.i, %509, %508, %DecodeBasicCaConstraint.exit.i.i, %DecodeBasicCaConstraint.exit.thread170.i.i, %480
-  %.0.i.i210 = phi i32 [ 0, %DecodeNsCertType.exit.i.i ], [ -144, %953 ], [ -144, %480 ], [ -144, %509 ], [ -144, %525 ], [ -144, %589 ], [ -144, %773 ], [ -144, %792 ], [ -144, %847 ], [ -144, %868 ], [ -144, %929 ], [ -144, %969 ], [ %spec.select115.i.i, %846 ], [ %spec.select119.i.i, %DecodeNameConstraints.exit.i.i ], [ %spec.select122.i.i, %1065 ], [ 0, %DecodeAuthKeyId.exit.thread.i ], [ 0, %DecodeBasicCaConstraint.exit.thread170.i.i ], [ %spec.select108.i.i, %DecodeCrlDist.exit.i.i ], [ 0, %DecodeExtKeyUsage.exit.i.i ], [ -160, %529 ], [ %.3.i.i.i, %DecodeAltNames.exit.i.i ], [ -140, %.thread68.i.i.i167.i.i ], [ %spec.select116.i.i, %DecodeKeyUsage.exit.i.i ], [ -160, %777 ], [ 0, %DecodeAuthInfo.exit.i ], [ 0, %957 ], [ -160, %796 ], [ -140, %508 ], [ 0, %DecodeBasicCaConstraint.exit.i.i ], [ -140, %928 ], [ -140, %968 ], [ 0, %DecodePolicyConstraints.exit.i.i ], [ -140, %991 ], [ -140, %1057 ], [ -140, %._crit_edge.i.i.i162.i.i ], [ -140, %1016 ], [ -140, %1041 ], [ -140, %1060 ], [ -140, %1035 ], [ -140, %.thread.i.i.i.i.i.i.i ], [ -140, %973 ], [ -140, %.thread68.i.i.i.i.i.i.i ], [ -140, %997 ], [ -140, %._crit_edge.i.i.i.i.i.i.i ], [ -140, %1012 ], [ -140, %1021 ], [ -140, %588 ], [ 0, %843 ], [ %spec.select.i, %DecodeAuthKeyId.exit.i ], [ -140, %DecodeSubjKeyId.exit.thread.i ], [ 0, %DecodeSubjKeyId.exit.i ], [ 0, %GetOctetString.exit.i.i ]
+  %.0.i.i210 = phi i32 [ -144, %480 ], [ -144, %509 ], [ -144, %525 ], [ -144, %589 ], [ -144, %773 ], [ -144, %792 ], [ -144, %847 ], [ -144, %868 ], [ -144, %929 ], [ -144, %953 ], [ -144, %969 ], [ -160, %529 ], [ %.3.i.i.i, %DecodeAltNames.exit.i.i ], [ -160, %777 ], [ -160, %796 ], [ 0, %957 ], [ %spec.select108.i.i, %DecodeCrlDist.exit.i.i ], [ %spec.select115.i.i, %846 ], [ %spec.select116.i.i, %DecodeKeyUsage.exit.i.i ], [ %spec.select119.i.i, %DecodeNameConstraints.exit.i.i ], [ %spec.select122.i.i, %1065 ], [ -140, %508 ], [ 0, %DecodeBasicCaConstraint.exit.i.i ], [ 0, %DecodeBasicCaConstraint.exit.thread170.i.i ], [ -140, %928 ], [ 0, %DecodeExtKeyUsage.exit.i.i ], [ -140, %968 ], [ 0, %DecodeNsCertType.exit.i.i ], [ 0, %DecodePolicyConstraints.exit.i.i ], [ -140, %1016 ], [ -140, %.thread68.i.i.i.i.i.i.i ], [ -140, %991 ], [ -140, %997 ], [ -140, %._crit_edge.i.i.i.i.i.i.i ], [ -140, %1012 ], [ -140, %.thread.i.i.i.i.i.i.i ], [ -140, %973 ], [ -140, %.thread68.i.i.i167.i.i ], [ -140, %1035 ], [ -140, %1041 ], [ -140, %._crit_edge.i.i.i162.i.i ], [ -140, %1057 ], [ -140, %1021 ], [ -140, %1060 ], [ -140, %588 ], [ 0, %DecodeAuthInfo.exit.i ], [ 0, %DecodeAuthKeyId.exit.thread.i ], [ -140, %DecodeSubjKeyId.exit.thread.i ], [ 0, %DecodeSubjKeyId.exit.i ], [ 0, %GetOctetString.exit.i.i ], [ 0, %843 ], [ %spec.select.i, %DecodeAuthKeyId.exit.i ]
   %1066 = load i32, ptr %30, align 4, !tbaa !22
   %1067 = add i32 %1066, %476
   store i32 %1067, ptr %30, align 4, !tbaa !22
@@ -11568,13 +11568,13 @@ DecodeCertExtensions.exit.thread:                 ; preds = %406
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1075, %DecodeCertExtensions.exit.thread
-  %.sink = phi i32 [ %spec.select407, %1075 ], [ 0, %DecodeCertExtensions.exit.thread ]
-  %.15.ph = phi i32 [ %spec.select408, %1075 ], [ -173, %DecodeCertExtensions.exit.thread ]
+  %.sink = phi i32 [ 0, %DecodeCertExtensions.exit.thread ], [ %spec.select407, %1075 ]
+  %.15.ph = phi i32 [ -173, %DecodeCertExtensions.exit.thread ], [ %spec.select408, %1075 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !22
   br label %1077
 
 1077:                                             ; preds = %.sink.split, %DecodeCertExtensions.exit.thread, %DecodeCertExtensions.exit, %403, %400
-  %.15 = phi i32 [ %.14, %400 ], [ 0, %403 ], [ -173, %DecodeCertExtensions.exit.thread ], [ %.lcssa76.i, %DecodeCertExtensions.exit ], [ %.15.ph, %.sink.split ]
+  %.15 = phi i32 [ %.14, %400 ], [ %.lcssa76.i, %DecodeCertExtensions.exit ], [ 0, %403 ], [ -173, %DecodeCertExtensions.exit.thread ], [ %.15.ph, %.sink.split ]
   %1078 = or i32 %.15, %.1166
   %or.cond35.not194 = icmp eq i32 %1078, 0
   %1079 = icmp ne i32 %.0159259, 0
@@ -11680,7 +11680,7 @@ BytePrecision.exit.i:                             ; preds = %14, %.preheader.i
   br label %SetLength.exit
 
 SetLength.exit:                                   ; preds = %.loopexit.loopexit31.i, %.lr.ph.split.us.preheader.i, %.thread.i, %17, %9, %8, %4, %5
-  %.0 = phi i32 [ 1, %4 ], [ 1, %5 ], [ 1, %8 ], [ 1, %9 ], [ 1, %17 ], [ %21, %.lr.ph.split.us.preheader.i ], [ %27, %.loopexit.loopexit31.i ], [ 1, %.thread.i ]
+  %.0 = phi i32 [ 1, %5 ], [ 1, %4 ], [ 1, %9 ], [ 1, %8 ], [ 1, %17 ], [ %21, %.lr.ph.split.us.preheader.i ], [ %27, %.loopexit.loopexit31.i ], [ 1, %.thread.i ]
   ret i32 %.0
 }
 
@@ -11696,7 +11696,7 @@ define range(i32 2, 1) i32 @SetHeader(i8 noundef zeroext %0, i32 noundef %1, ptr
   br i1 %or.cond, label %SetLengthEx.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %.thread8, %5
-  %.ph = phi ptr [ %7, %.thread8 ], [ null, %5 ]
+  %.ph = phi ptr [ null, %5 ], [ %7, %.thread8 ]
   br label %.preheader.i.i
 
 .thread:                                          ; preds = %4
@@ -11771,7 +11771,7 @@ BytePrecision.exit.i.i:                           ; preds = %15, %.preheader.i.i
   br label %SetLengthEx.exit
 
 SetLengthEx.exit:                                 ; preds = %5, %8, %10, %18, %.thread.i.i, %.lr.ph.split.us.preheader.i.i, %.loopexit.loopexit31.i.i
-  %.0.i = phi i32 [ 1, %.thread.i.i ], [ 1, %8 ], [ 1, %5 ], [ 1, %10 ], [ 1, %18 ], [ %22, %.lr.ph.split.us.preheader.i.i ], [ %28, %.loopexit.loopexit31.i.i ]
+  %.0.i = phi i32 [ 1, %8 ], [ 1, %10 ], [ 1, %18 ], [ %22, %.lr.ph.split.us.preheader.i.i ], [ %28, %.loopexit.loopexit31.i.i ], [ 1, %.thread.i.i ], [ 1, %5 ]
   %29 = add i32 %.0.i, 1
   ret i32 %29
 }
@@ -11788,7 +11788,7 @@ define range(i32 2, 1) i32 @SetSequenceEx(i32 noundef %0, ptr noundef writeonly 
   br i1 %or.cond.i, label %SetHeader.exit, label %.preheader.i.i.preheader.i
 
 .preheader.i.i.preheader.i:                       ; preds = %.thread8.i, %4
-  %.ph.i = phi ptr [ %6, %.thread8.i ], [ null, %4 ]
+  %.ph.i = phi ptr [ null, %4 ], [ %6, %.thread8.i ]
   br label %.preheader.i.i.i
 
 .thread.i:                                        ; preds = %3
@@ -11863,7 +11863,7 @@ BytePrecision.exit.i.i.i:                         ; preds = %14, %.preheader.i.i
   br label %SetHeader.exit
 
 SetHeader.exit:                                   ; preds = %4, %7, %9, %17, %.thread.i.i.i, %.lr.ph.split.us.preheader.i.i.i, %.loopexit.loopexit31.i.i.i
-  %.0.i.i = phi i32 [ 1, %.thread.i.i.i ], [ 1, %7 ], [ 1, %4 ], [ 1, %9 ], [ 1, %17 ], [ %21, %.lr.ph.split.us.preheader.i.i.i ], [ %27, %.loopexit.loopexit31.i.i.i ]
+  %.0.i.i = phi i32 [ 1, %7 ], [ 1, %9 ], [ 1, %17 ], [ %21, %.lr.ph.split.us.preheader.i.i.i ], [ %27, %.loopexit.loopexit31.i.i.i ], [ 1, %.thread.i.i.i ], [ 1, %4 ]
   %28 = add i32 %.0.i.i, 1
   ret i32 %28
 }
@@ -11891,7 +11891,7 @@ define range(i32 2, 1) i32 @SetOctetStringEx(i32 noundef %0, ptr noundef writeon
   br i1 %9, label %SetOctetString.exit, label %.preheader.i.i.preheader.i.i
 
 .preheader.i.i.preheader.i.i:                     ; preds = %.thread.i.i, %8
-  %.ph.i.i = phi ptr [ %10, %.thread.i.i ], [ null, %8 ]
+  %.ph.i.i = phi ptr [ null, %8 ], [ %10, %.thread.i.i ]
   br label %.preheader.i.i.i.i
 
 .thread.i.i:                                      ; preds = %7
@@ -11958,7 +11958,7 @@ BytePrecision.exit.i.i.i.i:                       ; preds = %17, %.preheader.i.i
   br label %SetOctetString.exit
 
 SetOctetString.exit:                              ; preds = %8, %12, %20, %.thread.i.i.i.i, %.lr.ph.split.us.preheader.i.i.i.i, %.loopexit.loopexit31.i.i.i.i
-  %.0.i.i.i = phi i32 [ 1, %.thread.i.i.i.i ], [ %30, %.loopexit.loopexit31.i.i.i.i ], [ 1, %8 ], [ 1, %12 ], [ 1, %20 ], [ %24, %.lr.ph.split.us.preheader.i.i.i.i ]
+  %.0.i.i.i = phi i32 [ 1, %12 ], [ 1, %20 ], [ %24, %.lr.ph.split.us.preheader.i.i.i.i ], [ %30, %.loopexit.loopexit31.i.i.i.i ], [ 1, %.thread.i.i.i.i ], [ 1, %8 ]
   %31 = add i32 %.0.i.i.i, 1
   br label %SetHeader.exit
 
@@ -11977,7 +11977,7 @@ define range(i32 2, 1) i32 @SetSet(i32 noundef %0, ptr noundef writeonly capture
   br i1 %4, label %SetHeader.exit, label %.preheader.i.i.preheader.i
 
 .preheader.i.i.preheader.i:                       ; preds = %.thread.i, %3
-  %.ph.i = phi ptr [ %5, %.thread.i ], [ null, %3 ]
+  %.ph.i = phi ptr [ null, %3 ], [ %5, %.thread.i ]
   br label %.preheader.i.i.i
 
 .thread.i:                                        ; preds = %2
@@ -12044,7 +12044,7 @@ BytePrecision.exit.i.i.i:                         ; preds = %12, %.preheader.i.i
   br label %SetHeader.exit
 
 SetHeader.exit:                                   ; preds = %3, %7, %15, %.thread.i.i.i, %.lr.ph.split.us.preheader.i.i.i, %.loopexit.loopexit31.i.i.i
-  %.0.i.i = phi i32 [ 1, %.thread.i.i.i ], [ %25, %.loopexit.loopexit31.i.i.i ], [ 1, %3 ], [ 1, %7 ], [ 1, %15 ], [ %19, %.lr.ph.split.us.preheader.i.i.i ]
+  %.0.i.i = phi i32 [ 1, %7 ], [ 1, %15 ], [ %19, %.lr.ph.split.us.preheader.i.i.i ], [ %25, %.loopexit.loopexit31.i.i.i ], [ 1, %.thread.i.i.i ], [ 1, %3 ]
   %26 = add i32 %.0.i.i, 1
   ret i32 %26
 }
@@ -12081,7 +12081,7 @@ define range(i32 2, 1) i32 @SetImplicit(i8 noundef zeroext %0, i8 noundef zeroex
   br i1 %or.cond.i, label %SetHeader.exit, label %.preheader.i.i.preheader.i
 
 .preheader.i.i.preheader.i:                       ; preds = %.thread8.i, %17
-  %.ph.i = phi ptr [ %19, %.thread8.i ], [ null, %17 ]
+  %.ph.i = phi ptr [ null, %17 ], [ %19, %.thread8.i ]
   br label %.preheader.i.i.i
 
 .thread.i:                                        ; preds = %15
@@ -12155,7 +12155,7 @@ BytePrecision.exit.i.i.i:                         ; preds = %27, %.preheader.i.i
   br label %SetHeader.exit
 
 SetHeader.exit:                                   ; preds = %17, %20, %22, %30, %.thread.i.i.i, %.lr.ph.split.us.preheader.i.i.i, %.loopexit.loopexit31.i.i.i
-  %.0.i.i = phi i32 [ 1, %.thread.i.i.i ], [ 1, %20 ], [ 1, %17 ], [ 1, %22 ], [ 1, %30 ], [ %34, %.lr.ph.split.us.preheader.i.i.i ], [ %40, %.loopexit.loopexit31.i.i.i ]
+  %.0.i.i = phi i32 [ 1, %20 ], [ 1, %22 ], [ 1, %30 ], [ %34, %.lr.ph.split.us.preheader.i.i.i ], [ %40, %.loopexit.loopexit31.i.i.i ], [ 1, %.thread.i.i.i ], [ 1, %17 ]
   %41 = add i32 %.0.i.i, 1
   ret i32 %41
 }
@@ -12172,7 +12172,7 @@ define range(i32 2, 1) i32 @SetExplicit(i8 noundef zeroext %0, i32 noundef %1, p
   br i1 %or.cond.i, label %SetHeader.exit, label %.preheader.i.i.preheader.i
 
 .preheader.i.i.preheader.i:                       ; preds = %.thread8.i, %5
-  %.ph.i = phi ptr [ %8, %.thread8.i ], [ null, %5 ]
+  %.ph.i = phi ptr [ null, %5 ], [ %8, %.thread8.i ]
   br label %.preheader.i.i.i
 
 .thread.i:                                        ; preds = %4
@@ -12248,7 +12248,7 @@ BytePrecision.exit.i.i.i:                         ; preds = %16, %.preheader.i.i
   br label %SetHeader.exit
 
 SetHeader.exit:                                   ; preds = %5, %9, %11, %19, %.thread.i.i.i, %.lr.ph.split.us.preheader.i.i.i, %.loopexit.loopexit31.i.i.i
-  %.0.i.i = phi i32 [ 1, %.thread.i.i.i ], [ 1, %9 ], [ 1, %5 ], [ 1, %11 ], [ 1, %19 ], [ %23, %.lr.ph.split.us.preheader.i.i.i ], [ %29, %.loopexit.loopexit31.i.i.i ]
+  %.0.i.i = phi i32 [ 1, %9 ], [ 1, %11 ], [ 1, %19 ], [ %23, %.lr.ph.split.us.preheader.i.i.i ], [ %29, %.loopexit.loopexit31.i.i.i ], [ 1, %.thread.i.i.i ], [ 1, %5 ]
   %30 = add i32 %.0.i.i, 1
   ret i32 %30
 }
@@ -12330,7 +12330,7 @@ IsSigAlgoECC.exit.thread:                         ; preds = %15, %11, %IsSigAlgo
   br label %31
 
 31:                                               ; preds = %22, %24, %26
-  %.0 = phi i32 [ 0, %24 ], [ 0, %26 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %24 ], [ 1, %22 ]
   %32 = zext nneg i32 %.0 to i64
   %33 = getelementptr inbounds nuw %struct.ASNItem, ptr @algoIdASN, i64 %32
   %34 = getelementptr inbounds nuw %struct.ASNSetData, ptr %6, i64 %32
@@ -12431,8 +12431,8 @@ define i32 @wc_EncodeSignature(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br label %OidFromId.exit.sink.split
 
 OidFromId.exit.sink.split:                        ; preds = %4, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10
-  %.sink = phi i32 [ 9, %20 ], [ 5, %10 ], [ 9, %11 ], [ 9, %12 ], [ 9, %13 ], [ 9, %14 ], [ 9, %15 ], [ 9, %16 ], [ 9, %17 ], [ 9, %18 ], [ 9, %19 ], [ 8, %4 ]
-  %.ph = phi ptr [ @hashSha3_512hOid, %20 ], [ @hashSha1hOid, %10 ], [ @hashSha224hOid, %11 ], [ @hashSha256hOid, %12 ], [ @hashSha384hOid, %13 ], [ @hashSha512_224hOid, %14 ], [ @hashSha512_256hOid, %15 ], [ @hashSha512hOid, %16 ], [ @hashSha3_224hOid, %17 ], [ @hashSha3_256hOid, %18 ], [ @hashSha3_384hOid, %19 ], [ @hashMd5hOid, %4 ]
+  %.sink = phi i32 [ 5, %10 ], [ 9, %11 ], [ 9, %12 ], [ 9, %13 ], [ 9, %14 ], [ 9, %15 ], [ 9, %16 ], [ 9, %17 ], [ 9, %18 ], [ 9, %19 ], [ 9, %20 ], [ 8, %4 ]
+  %.ph = phi ptr [ @hashSha1hOid, %10 ], [ @hashSha224hOid, %11 ], [ @hashSha256hOid, %12 ], [ @hashSha384hOid, %13 ], [ @hashSha512_224hOid, %14 ], [ @hashSha512_256hOid, %15 ], [ @hashSha512hOid, %16 ], [ @hashSha3_224hOid, %17 ], [ @hashSha3_256hOid, %18 ], [ @hashSha3_384hOid, %19 ], [ @hashSha3_512hOid, %20 ], [ @hashMd5hOid, %4 ]
   store i32 %.sink, ptr %9, align 16, !tbaa !22
   br label %OidFromId.exit
 
@@ -12552,7 +12552,7 @@ define i32 @ParseCert(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nounde
   br label %43
 
 43:                                               ; preds = %29, %31, %38, %26, %34, %11, %4
-  %.0 = phi i32 [ -125, %34 ], [ %5, %4 ], [ -125, %11 ], [ %5, %26 ], [ %5, %38 ], [ %5, %31 ], [ %5, %29 ]
+  %.0 = phi i32 [ %5, %4 ], [ -125, %11 ], [ -125, %34 ], [ %5, %26 ], [ %5, %38 ], [ %5, %31 ], [ %5, %29 ]
   ret i32 %.0
 }
 
@@ -12731,7 +12731,7 @@ thread-pre-split:                                 ; preds = %.thread
   br label %80
 
 80:                                               ; preds = %.thread253, %._crit_edge208, %switch.early.test, %switch.early.test, %60
-  %81 = phi i32 [ %.pre209, %._crit_edge208 ], [ %58, %switch.early.test ], [ %58, %60 ], [ %.pre210, %.thread253 ], [ %58, %switch.early.test ]
+  %81 = phi i32 [ %.pre209, %._crit_edge208 ], [ %58, %switch.early.test ], [ %58, %switch.early.test ], [ %58, %60 ], [ %.pre210, %.thread253 ]
   %82 = and i32 %81, 32
   %.not161 = icmp eq i32 %82, 0
   br i1 %.not161, label %87, label %83
@@ -12787,7 +12787,7 @@ thread-pre-split:                                 ; preds = %.thread
   br label %112
 
 112:                                              ; preds = %87, %104, %95, %91, %13
-  %.0136 = phi i32 [ 0, %13 ], [ %.2, %104 ], [ %.2, %95 ], [ %.2, %91 ], [ %.2, %87 ]
+  %.0136 = phi i32 [ %.2, %104 ], [ %.2, %95 ], [ %.2, %91 ], [ %.2, %87 ], [ 0, %13 ]
   %.not198 = icmp eq i32 %2, 0
   br i1 %.not198, label %ConfirmNameConstraints.exit, label %switch.early.test174
 
@@ -13213,8 +13213,8 @@ ConfirmSignature.exit.thread190:                  ; preds = %311
   call void @FreeSignatureCtx(ptr noundef nonnull %14)
   br label %315
 
-ConfirmSignature.exit.thread187:                  ; preds = %DecodeRsaPssParams.exit.thread4.i, %150, %196, %202, %152, %311, %271, %.thread.i, %.thread19.i, %switch.lookup263, %DecodeRsaPssParams.exit.i, %DecodeRsaPssParams.exit.thread.i
-  %.8.i.ph = phi i32 [ -140, %DecodeRsaPssParams.exit.thread.i ], [ %171, %DecodeRsaPssParams.exit.i ], [ %195, %switch.lookup263 ], [ -140, %DecodeRsaPssParams.exit.thread4.i ], [ %.5.ph.i, %.thread19.i ], [ %.3.ph.i, %.thread.i ], [ -155, %271 ], [ -155, %311 ], [ -125, %152 ], [ -148, %202 ], [ %201, %196 ], [ -155, %150 ]
+ConfirmSignature.exit.thread187:                  ; preds = %DecodeRsaPssParams.exit.thread4.i, %150, %196, %152, %271, %311, %.thread.i, %.thread19.i, %202, %DecodeRsaPssParams.exit.thread.i, %switch.lookup263, %DecodeRsaPssParams.exit.i
+  %.8.i.ph = phi i32 [ %171, %DecodeRsaPssParams.exit.i ], [ %195, %switch.lookup263 ], [ -140, %DecodeRsaPssParams.exit.thread.i ], [ -140, %DecodeRsaPssParams.exit.thread4.i ], [ -148, %202 ], [ %.5.ph.i, %.thread19.i ], [ %.3.ph.i, %.thread.i ], [ -155, %311 ], [ -155, %271 ], [ -125, %152 ], [ %201, %196 ], [ -155, %150 ]
   call void @FreeSignatureCtx(ptr noundef nonnull %14)
   br label %ConfirmSignature.exit.thread
 
@@ -13473,7 +13473,7 @@ PermittedListOk.exit67.i:                         ; preds = %419
   br i1 %exitcond.not.i, label %ConfirmNameConstraints.exit, label %336, !llvm.loop !182
 
 ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %102, %323, %315, %switch.early.test174, %switch.early.test174, %112
-  %.4 = phi i32 [ %.2, %102 ], [ %.5, %315 ], [ %.0136, %switch.early.test174 ], [ %.0136, %112 ], [ %.0136, %switch.early.test174 ], [ %.5, %323 ], [ %.5, %.critedge.i ]
+  %.4 = phi i32 [ %.5, %315 ], [ %.0136, %switch.early.test174 ], [ %.0136, %112 ], [ %.0136, %switch.early.test174 ], [ %.5, %323 ], [ %.2, %102 ], [ %.5, %.critedge.i ]
   %421 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %422 = load i32, ptr %421, align 8, !tbaa !161
   %423 = icmp ne i32 %422, 0
@@ -13488,8 +13488,8 @@ ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %102, 
   %.4. = select i1 %.not170, i32 %.4, i32 %427
   br label %ConfirmSignature.exit.thread
 
-ConfirmSignature.exit.thread:                     ; preds = %336, %PermittedListOk.exit67.i, %PermittedListOk.exit.i, %400, %364, %316, %117, %ConfirmSignature.exit.thread187, %425, %ConfirmNameConstraints.exit, %113, %102, %56, %31, %25, %5, %ConfirmSignature.exit
-  %.0 = phi i32 [ -173, %5 ], [ -226, %31 ], [ %.3, %56 ], [ -188, %113 ], [ %.4., %425 ], [ %422, %ConfirmNameConstraints.exit ], [ -238, %102 ], [ %.8.i, %ConfirmSignature.exit ], [ -173, %117 ], [ %20, %25 ], [ %.8.i.ph, %ConfirmSignature.exit.thread187 ], [ -198, %316 ], [ -198, %PermittedListOk.exit.i ], [ -198, %364 ], [ -198, %400 ], [ -198, %PermittedListOk.exit67.i ], [ -198, %336 ]
+ConfirmSignature.exit.thread:                     ; preds = %PermittedListOk.exit67.i, %336, %PermittedListOk.exit.i, %400, %364, %316, %117, %ConfirmSignature.exit.thread187, %425, %ConfirmNameConstraints.exit, %113, %102, %56, %31, %25, %5, %ConfirmSignature.exit
+  %.0 = phi i32 [ %.8.i, %ConfirmSignature.exit ], [ -173, %5 ], [ %20, %25 ], [ -226, %31 ], [ %.3, %56 ], [ -238, %102 ], [ -188, %113 ], [ %422, %ConfirmNameConstraints.exit ], [ %.4., %425 ], [ %.8.i.ph, %ConfirmSignature.exit.thread187 ], [ -173, %117 ], [ -198, %316 ], [ -198, %364 ], [ -198, %400 ], [ -198, %PermittedListOk.exit.i ], [ -198, %336 ], [ -198, %PermittedListOk.exit67.i ]
   ret i32 %.0
 }
 
@@ -14001,7 +14001,7 @@ define range(i32 -173, 1) i32 @AllocDer(ptr noundef captures(address_is_null) %0
   br label %12
 
 12:                                               ; preds = %5, %11, %10, %9, %8, %7, %6
-  %.021 = phi i32 [ 3, %11 ], [ 10, %10 ], [ 2, %6 ], [ 22, %7 ], [ 21, %8 ], [ 37, %9 ], [ 1, %5 ]
+  %.021 = phi i32 [ 3, %11 ], [ 2, %6 ], [ 22, %7 ], [ 21, %8 ], [ 37, %9 ], [ 10, %10 ], [ 1, %5 ]
   %13 = zext i32 %1 to i64
   %14 = add nuw nsw i64 %13, 32
   %15 = tail call ptr @wolfSSL_Malloc(i64 noundef %14) #23
@@ -14025,7 +14025,7 @@ define range(i32 -173, 1) i32 @AllocDer(ptr noundef captures(address_is_null) %0
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %4, %16
-  %.1 = phi i32 [ 0, %16 ], [ -125, %12 ], [ -173, %4 ]
+  %.1 = phi i32 [ -173, %4 ], [ 0, %16 ], [ -125, %12 ]
   ret i32 %.1
 }
 
@@ -14376,12 +14376,12 @@ define range(i32 -173, 1) i32 @wc_PemGetHeaderFooter(i32 noundef %0, ptr noundef
   br i1 %.not57, label %37, label %.sink.split
 
 .sink.split:                                      ; preds = %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6
-  %.str.9.sink = phi ptr [ @.str.17, %33 ], [ @.str.15, %30 ], [ @.str.13, %27 ], [ @.str.23, %24 ], [ @.str.11, %21 ], [ @.str.19, %18 ], [ @.str.5, %15 ], [ @.str.3, %12 ], [ @.str.7, %9 ], [ @.str.1, %6 ], [ @.str.9, %36 ]
+  %.str.9.sink = phi ptr [ @.str.1, %6 ], [ @.str.7, %9 ], [ @.str.3, %12 ], [ @.str.5, %15 ], [ @.str.19, %18 ], [ @.str.11, %21 ], [ @.str.23, %24 ], [ @.str.13, %27 ], [ @.str.15, %30 ], [ @.str.17, %33 ], [ @.str.9, %36 ]
   store ptr %.str.9.sink, ptr %2, align 8, !tbaa !49
   br label %37
 
 37:                                               ; preds = %.sink.split, %3, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6
-  %.0 = phi i32 [ 0, %36 ], [ 0, %33 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ -173, %3 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ -173, %3 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -14436,8 +14436,8 @@ switch.lookup:                                    ; preds = %7
   br i1 %22, label %23, label %wc_PemGetHeaderFooter.exit.thread
 
 23:                                               ; preds = %21, %19, %17, %.lr.ph.split.us
-  %.1116.us = phi ptr [ @.str.20, %21 ], [ @.str.14, %.lr.ph.split.us ], [ @.str.16, %17 ], [ @.str.18, %19 ]
-  %.1.us = phi ptr [ @.str.21, %21 ], [ @.str.15, %.lr.ph.split.us ], [ @.str.17, %17 ], [ @.str.19, %19 ]
+  %.1116.us = phi ptr [ @.str.14, %.lr.ph.split.us ], [ @.str.16, %17 ], [ @.str.18, %19 ], [ @.str.20, %21 ]
+  %.1.us = phi ptr [ @.str.15, %.lr.ph.split.us ], [ @.str.17, %17 ], [ @.str.19, %19 ], [ @.str.21, %21 ]
   %24 = tail call ptr @mystrnstr(ptr noundef %0, ptr noundef nonnull %.1116.us, i32 noundef %11) #23
   %.not91.us = icmp eq ptr %24, null
   br i1 %.not91.us, label %.lr.ph.split.us, label %.critedge
@@ -14545,7 +14545,7 @@ condstore.split:                                  ; preds = %SkipEndOfLineChars.
   br i1 %exitcond.not.i104, label %SkipEndOfLineChars.exit105, label %.lr.ph.i101, !llvm.loop !203
 
 SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.critedge2.i103
-  %.0.lcssa.i98 = phi ptr [ %scevgep.i100, %.critedge2.i103 ], [ %.09.i102, %.lr.ph.i101 ]
+  %.0.lcssa.i98 = phi ptr [ %.09.i102, %.lr.ph.i101 ], [ %scevgep.i100, %.critedge2.i103 ]
   %61 = icmp ult ptr %.0.lcssa.i98, %10
   br i1 %61, label %62, label %65
 
@@ -14557,7 +14557,7 @@ SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.crit
   br label %65
 
 65:                                               ; preds = %62, %SkipEndOfLineChars.exit105, %52
-  %.074 = phi ptr [ %54, %52 ], [ %spec.select, %62 ], [ %.0.lcssa.i98, %SkipEndOfLineChars.exit105 ]
+  %.074 = phi ptr [ %.0.lcssa.i98, %SkipEndOfLineChars.exit105 ], [ %54, %52 ], [ %spec.select, %62 ]
   %.not94 = icmp eq ptr %5, null
   br i1 %.not94, label %70, label %66
 
@@ -14611,7 +14611,7 @@ SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.crit
   br label %wc_PemGetHeaderFooter.exit.thread
 
 wc_PemGetHeaderFooter.exit.thread:                ; preds = %.lr.ph.split.split, %21, %7, %.lr.ph, %85, %93, %88, %79, %75, %70, %50, %51
-  %.0 = phi i32 [ -173, %7 ], [ -132, %50 ], [ -132, %70 ], [ %77, %75 ], [ 0, %93 ], [ -132, %79 ], [ 0, %85 ], [ -132, %51 ], [ 0, %88 ], [ -162, %.lr.ph ], [ -162, %21 ], [ -162, %.lr.ph.split.split ]
+  %.0 = phi i32 [ -132, %51 ], [ -132, %50 ], [ -132, %70 ], [ %77, %75 ], [ -132, %79 ], [ 0, %88 ], [ 0, %93 ], [ 0, %85 ], [ -173, %7 ], [ -162, %.lr.ph ], [ -162, %21 ], [ -162, %.lr.ph.split.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -14795,7 +14795,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   br label %FreeDer.exit
 
 FreeDer.exit:                                     ; preds = %ForceZero.exit.i, %27, %9, %5
-  %.013 = phi i32 [ -173, %9 ], [ -173, %5 ], [ %14, %27 ], [ %.019, %ForceZero.exit.i ]
+  %.013 = phi i32 [ -173, %5 ], [ -173, %9 ], [ %14, %27 ], [ %.019, %ForceZero.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.013
@@ -14918,7 +14918,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   br label %FreeDer.exit
 
 FreeDer.exit:                                     ; preds = %ForceZero.exit.i, %24, %10, %5
-  %.028 = phi i32 [ -173, %10 ], [ -173, %5 ], [ %13, %24 ], [ %.035, %ForceZero.exit.i ]
+  %.028 = phi i32 [ -173, %5 ], [ -173, %10 ], [ %13, %24 ], [ %.035, %ForceZero.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.028
 }
@@ -14972,7 +14972,7 @@ define range(i32 -202, 1) i32 @wc_GetPubKeyDerFromCert(ptr noundef readonly capt
   br label %23
 
 23:                                               ; preds = %.sink.split, %.thread, %17, %10, %3, %7
-  %.018 = phi i32 [ -173, %10 ], [ -173, %3 ], [ -173, %7 ], [ -173, %17 ], [ -173, %.thread ], [ %.018.ph, %.sink.split ]
+  %.018 = phi i32 [ -173, %7 ], [ -173, %3 ], [ -173, %10 ], [ -173, %17 ], [ -173, %.thread ], [ %.018.ph, %.sink.split ]
   ret i32 %.018
 }
 
@@ -15011,7 +15011,7 @@ define range(i32 -2147483648, 1) i32 @StoreECC_DSA_Sig(ptr noundef %0, ptr nound
   br label %20
 
 20:                                               ; preds = %17, %14, %19, %4
-  %.1 = phi i32 [ 0, %19 ], [ -132, %4 ], [ %15, %14 ], [ -192, %17 ]
+  %.1 = phi i32 [ 0, %19 ], [ %15, %14 ], [ -132, %4 ], [ -192, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
@@ -15245,8 +15245,8 @@ define range(i32 -173, 1) i32 @wc_EccPublicKeyDecode(ptr noundef %0, ptr noundef
   br i1 %.not42, label %.thread, label %.thread62
 
 .thread:                                          ; preds = %17, %11
-  %.0.sroa.phi55 = phi ptr [ %.0.sroa.gep, %17 ], [ %.0.sroa.gep48, %11 ]
-  %.031.sroa.phi53 = phi ptr [ %.031.sroa.gep, %17 ], [ %.031.sroa.gep46, %11 ]
+  %.0.sroa.phi55 = phi ptr [ %.0.sroa.gep48, %11 ], [ %.0.sroa.gep, %17 ]
+  %.031.sroa.phi53 = phi ptr [ %.031.sroa.gep46, %11 ], [ %.031.sroa.gep, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %.031.sroa.phi53, i64 33
   %21 = load i8, ptr %20, align 1, !tbaa !34
   %.not43 = icmp eq i8 %21, 0
@@ -15275,7 +15275,7 @@ define range(i32 -173, 1) i32 @wc_EccPublicKeyDecode(ptr noundef %0, ptr noundef
   br label %.thread62
 
 .thread62:                                        ; preds = %4, %22, %17, %.thread, %29
-  %.3 = phi i32 [ %spec.store.select6, %29 ], [ -144, %22 ], [ -140, %17 ], [ -140, %.thread ], [ -173, %4 ]
+  %.3 = phi i32 [ %spec.store.select6, %29 ], [ -140, %.thread ], [ -140, %17 ], [ -144, %22 ], [ -173, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
@@ -15556,7 +15556,7 @@ BytePrecision.exit.i.i.i76:                       ; preds = %100, %.preheader.i.
   br label %115
 
 115:                                              ; preds = %.loopexit.loopexit31.i.i.i, %.thread.i.i.i, %95
-  %.020.i.i.i = phi i32 [ 2, %.thread.i.i.i ], [ 2, %95 ], [ %114, %.loopexit.loopexit31.i.i.i ]
+  %.020.i.i.i = phi i32 [ 2, %95 ], [ %114, %.loopexit.loopexit31.i.i.i ], [ 2, %.thread.i.i.i ]
   %116 = zext i32 %.fr143 to i64
   %117 = icmp ult i64 %85, %116
   br i1 %117, label %.thread122.thread, label %118
@@ -15571,9 +15571,9 @@ BytePrecision.exit.i.i.i76:                       ; preds = %100, %.preheader.i.
   br label %SetCurve.exit83
 
 SetCurve.exit83:                                  ; preds = %91, %103, %.lr.ph.split.us.preheader.i.i.i80, %118
-  %.020.i.i.i.pn = phi i32 [ %.020.i.i.i, %118 ], [ 2, %91 ], [ %107, %.lr.ph.split.us.preheader.i.i.i80 ], [ 2, %103 ]
-  %.020.i.i.i.pn.fr = freeze i32 %.020.i.i.i.pn
-  %.0.i78 = add i32 %.020.i.i.i.pn.fr, %.fr143
+  %.020.i.i.ph.i81.pn = phi i32 [ %.020.i.i.i, %118 ], [ 2, %91 ], [ %107, %.lr.ph.split.us.preheader.i.i.i80 ], [ 2, %103 ]
+  %.020.i.i.ph.i81.pn.fr = freeze i32 %.020.i.i.ph.i81.pn
+  %.0.i78 = add i32 %.020.i.i.ph.i81.pn.fr, %.fr143
   %124 = icmp sgt i32 %.0.i78, -1
   br i1 %124, label %.thread131, label %.thread122.thread
 
@@ -15601,7 +15601,7 @@ SetCurve.exit83:                                  ; preds = %91, %103, %.lr.ph.s
   br label %.thread122.thread
 
 .thread122.thread:                                ; preds = %32, %11, %5, %14, %.thread122, %SetCurve.exit83, %82, %115, %68
-  %136 = phi i32 [ -173, %11 ], [ %spec.select, %.thread122 ], [ -202, %68 ], [ -173, %82 ], [ -132, %115 ], [ %.0.i78, %SetCurve.exit83 ], [ -173, %14 ], [ -173, %5 ], [ -173, %32 ]
+  %136 = phi i32 [ -173, %82 ], [ -132, %115 ], [ -202, %68 ], [ %.0.i78, %SetCurve.exit83 ], [ %spec.select, %.thread122 ], [ -173, %14 ], [ -173, %5 ], [ -173, %11 ], [ -173, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -15790,7 +15790,7 @@ define internal fastcc i32 @eccToPKCS8(ptr noundef %0, ptr noundef %1, ptr nound
   br label %66
 
 66:                                               ; preds = %60, %24, %19, %4, %14, %65, %59, %55, %46, %30
-  %.0 = phi i32 [ %63, %65 ], [ -173, %4 ], [ %22, %19 ], [ %28, %30 ], [ -140, %46 ], [ -202, %55 ], [ -132, %59 ], [ -125, %24 ], [ -173, %14 ], [ %63, %60 ]
+  %.0 = phi i32 [ %28, %30 ], [ -140, %46 ], [ -202, %55 ], [ -132, %59 ], [ %63, %65 ], [ -173, %14 ], [ -173, %4 ], [ %22, %19 ], [ -125, %24 ], [ %63, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -16026,8 +16026,8 @@ define internal fastcc range(i32 -198, 1) i32 @DecodeSubtree(ptr noundef nonnull
   br i1 %or.cond55.i.i.i, label %67, label %.loopexit.sink.split
 
 67:                                               ; preds = %._crit_edge.i.i.i, %36
-  %.240.i.i.i = phi i32 [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %39, %36 ]
-  %.2.i.i.i = phi i32 [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ], [ 2, %36 ]
+  %.240.i.i.i = phi i32 [ %39, %36 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.2.i.i.i = phi i32 [ 2, %36 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %68 = add nuw i32 %.2.i.i.i, %.240.i.i.i
   %69 = icmp ugt i32 %68, %30
   br i1 %69, label %.loopexit.sink.split, label %70
@@ -16037,8 +16037,8 @@ define internal fastcc range(i32 -198, 1) i32 @DecodeSubtree(ptr noundef nonnull
   br label %72
 
 72:                                               ; preds = %70, %24
-  %.16.ph.i = phi i64 [ %71, %70 ], [ 0, %24 ]
-  %.029.ph.i = phi i32 [ %.240.i.i.i, %70 ], [ %30, %24 ]
+  %.16.ph.i = phi i64 [ 0, %24 ], [ %71, %70 ]
+  %.029.ph.i = phi i32 [ %30, %24 ], [ %.240.i.i.i, %70 ]
   %73 = call ptr @wolfSSL_Malloc(i64 noundef 24) #23
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.loopexit.sink.split, label %GetASN_Sequence.exit.i
@@ -16080,14 +16080,14 @@ DecodeSubtreeGeneralName.exit:                    ; preds = %81, %22
   %91 = icmp ult i32 %90, %1
   br i1 %91, label %17, label %.loopexit
 
-.loopexit.sink.split:                             ; preds = %.thread68.i.i.i, %52, %._crit_edge.i.i.i, %67, %72, %46, %33, %19, %32, %17, %80
-  %.4.ph = phi i32 [ -125, %80 ], [ -198, %17 ], [ -140, %32 ], [ %20, %19 ], [ -140, %33 ], [ -140, %46 ], [ -125, %72 ], [ -140, %67 ], [ -140, %._crit_edge.i.i.i ], [ -140, %52 ], [ -140, %.thread68.i.i.i ]
+.loopexit.sink.split:                             ; preds = %72, %.thread68.i.i.i, %46, %52, %._crit_edge.i.i.i, %67, %33, %32, %19, %17, %80
+  %.4.ph = phi i32 [ -125, %80 ], [ -198, %17 ], [ %20, %19 ], [ -140, %32 ], [ -140, %33 ], [ -140, %67 ], [ -140, %._crit_edge.i.i.i ], [ -140, %52 ], [ -140, %46 ], [ -140, %.thread68.i.i.i ], [ -125, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %DecodeSubtreeGeneralName.exit, %.loopexit.sink.split, %3
-  %.4 = phi i32 [ %.4.ph, %.loopexit.sink.split ], [ 0, %3 ], [ 0, %DecodeSubtreeGeneralName.exit ]
+  %.4 = phi i32 [ 0, %3 ], [ %.4.ph, %.loopexit.sink.split ], [ 0, %DecodeSubtreeGeneralName.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
@@ -16170,14 +16170,14 @@ define internal fastcc i32 @HashForSignature(ptr noundef nonnull %0, i32 noundef
   br i1 %36, label %.sink.split, label %37
 
 .sink.split:                                      ; preds = %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  %.sink80 = phi i32 [ 422, %31 ], [ 421, %28 ], [ 420, %25 ], [ 416, %22 ], [ 415, %19 ], [ 414, %16 ], [ 417, %13 ], [ 88, %10 ], [ 649, %7 ], [ 423, %34 ]
-  %.sink = phi i32 [ 48, %31 ], [ 32, %28 ], [ 28, %25 ], [ 64, %22 ], [ 48, %19 ], [ 32, %16 ], [ 28, %13 ], [ 20, %10 ], [ 16, %7 ], [ 64, %34 ]
+  %.sink80 = phi i32 [ 649, %7 ], [ 88, %10 ], [ 417, %13 ], [ 414, %16 ], [ 415, %19 ], [ 416, %22 ], [ 420, %25 ], [ 421, %28 ], [ 422, %31 ], [ 423, %34 ]
+  %.sink = phi i32 [ 16, %7 ], [ 20, %10 ], [ 28, %13 ], [ 32, %16 ], [ 48, %19 ], [ 64, %22 ], [ 28, %25 ], [ 32, %28 ], [ 48, %31 ], [ 64, %34 ]
   store i32 %.sink80, ptr %4, align 4, !tbaa !22
   store i32 %.sink, ptr %5, align 4, !tbaa !22
   br label %37
 
 37:                                               ; preds = %.sink.split, %6, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  %.0 = phi i32 [ %35, %34 ], [ %29, %28 ], [ %8, %7 ], [ %23, %22 ], [ %11, %10 ], [ -232, %6 ], [ %14, %13 ], [ %26, %25 ], [ %17, %16 ], [ %32, %31 ], [ %20, %19 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ %8, %7 ], [ %11, %10 ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ], [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ], [ -232, %6 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -16300,13 +16300,13 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   br label %40
 
 40:                                               ; preds = %._crit_edge96.thread, %._crit_edge96
-  %.066 = phi i32 [ %2, %._crit_edge96 ], [ %39, %._crit_edge96.thread ]
-  %.065 = phi ptr [ %1, %._crit_edge96 ], [ %38, %._crit_edge96.thread ]
+  %.066 = phi i32 [ %39, %._crit_edge96.thread ], [ %2, %._crit_edge96 ]
+  %.065 = phi ptr [ %38, %._crit_edge96.thread ], [ %1, %._crit_edge96 ]
   br i1 %.not, label %.thread, label %44
 
 .thread:                                          ; preds = %19, %40
-  %.06588 = phi ptr [ %1, %19 ], [ %.065, %40 ]
-  %.06687 = phi i32 [ %2, %19 ], [ %.066, %40 ]
+  %.06588 = phi ptr [ %.065, %40 ], [ %1, %19 ]
+  %.06687 = phi i32 [ %.066, %40 ], [ %2, %19 ]
   %41 = sub nsw i32 %.06687, %4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %.06588, i64 %42
@@ -16346,7 +16346,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   br i1 %61, label %48, label %.loopexit, !llvm.loop !214
 
 .loopexit:                                        ; preds = %48, %57, %44, %14, %5, %10, %15
-  %.0 = phi i32 [ 0, %10 ], [ %18, %15 ], [ 0, %5 ], [ 0, %14 ], [ 1, %44 ], [ 0, %48 ], [ 1, %57 ]
+  %.0 = phi i32 [ %18, %15 ], [ 0, %14 ], [ 0, %10 ], [ 0, %5 ], [ 1, %44 ], [ 0, %48 ], [ 1, %57 ]
   ret i32 %.0
 }
 

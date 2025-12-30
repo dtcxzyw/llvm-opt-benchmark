@@ -687,7 +687,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit30.i: ; p
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i130, %1278, %.body.i98, %1102, %.body.i71, %852, %.body.i24, %595, %.body.i1, %438, %.body.i, %281
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i99, %.body.i98 ], [ %.pn.i, %.body.i ], [ %.pn.i2, %.body.i1 ], [ %.pn.i25, %.body.i24 ], [ %.pn.i72, %.body.i71 ], [ %.pn9.pn.pn.i, %281 ], [ %.pn14.pn.i, %438 ], [ %.pn14.pn.i33, %595 ], [ %.pn26.pn.pn.pn.i, %852 ], [ %.pn15.pn.i, %1102 ], [ %.pn13.pn.i, %1278 ], [ %.pn.i131, %.body.i130 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn9.pn.pn.i, %281 ], [ %.pn.i, %.body.i ], [ %.pn14.pn.i, %438 ], [ %.pn.i2, %.body.i1 ], [ %.pn14.pn.i33, %595 ], [ %.pn.i25, %.body.i24 ], [ %.pn26.pn.pn.pn.i, %852 ], [ %.pn.i72, %.body.i71 ], [ %.pn15.pn.i, %1102 ], [ %.pn.i99, %.body.i98 ], [ %.pn13.pn.i, %1278 ], [ %.pn.i131, %.body.i130 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel12_GLOBAL__N_136TabularSarsaTest_Catch_Lambda00_LossEv.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel10algorithms18TabularSarsaSolverESt14default_deleteIS2_EED2Ev.exit.i, %257, %270, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i26.i
@@ -2317,7 +2317,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel12_GLOBAL__N_149TabularSarsaTest_Catch_Lambda01FasterThanLambda00Ev.exit
 
 .loopexit.split-lp.i80:                           ; preds = %811, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit67.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52.i, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i89
-  %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52.i ], [ %812, %811 ], [ %.pn24.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit67.i ], [ %lpad.loopexit.i90, %.loopexit.i89 ], [ %lpad.loopexit80.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp81.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52.i ], [ %.pn24.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit67.i ], [ %812, %811 ], [ %lpad.loopexit.i90, %.loopexit.i89 ], [ %lpad.loopexit80.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp81.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   call void @_ZNSt10unique_ptrIN10open_spiel10algorithms18TabularSarsaSolverESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #19
   br label %851
 
@@ -2970,7 +2970,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel12_GLOBAL__N_139TabularSarsaTest_TicTacToe_Lambda01_WinEv.exit
 
 .body25.i:                                        ; preds = %1054, %1036, %.loopexit.split-lp.i121, %.loopexit.i111, %991, %989
-  %.pn13.i = phi { ptr, i32 } [ %1055, %1054 ], [ %1037, %1036 ], [ %lpad.phi.i.i, %989 ], [ %lpad.phi.i.i, %991 ], [ %lpad.loopexit.i112, %.loopexit.i111 ], [ %lpad.loopexit.split-lp.i122, %.loopexit.split-lp.i121 ]
+  %.pn13.i = phi { ptr, i32 } [ %1055, %1054 ], [ %1037, %1036 ], [ %lpad.phi.i.i, %991 ], [ %lpad.phi.i.i, %989 ], [ %lpad.loopexit.i112, %.loopexit.i111 ], [ %lpad.loopexit.split-lp.i122, %.loopexit.split-lp.i121 ]
   %1097 = load ptr, ptr %40, align 8
   %.not.i39.i = icmp eq ptr %1097, null
   br i1 %.not.i39.i, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit41.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i40.i
@@ -4454,7 +4454,7 @@ _ZNK4absl7debian213hash_internal8HashImplISt4pairINSt7__cxx1112basic_stringIcSt1
   br label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdEEvE5applyINS1_12raw_hash_setISC_NS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEE12EqualElementISB_EEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOST_DpOSU_.exit
 
 _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdEEvE5applyINS1_12raw_hash_setISC_NS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEE12EqualElementISB_EEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOST_DpOSU_.exit: ; preds = %49, %54
-  %56 = phi i1 [ true, %49 ], [ %55, %54 ]
+  %56 = phi i1 [ %55, %54 ], [ true, %49 ]
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %58 = load i64, ptr %57, align 8
   %59 = load i64, ptr %7, align 8

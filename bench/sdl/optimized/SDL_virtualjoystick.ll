@@ -100,7 +100,7 @@ switch.lookup:                                    ; preds = %17
   br label %22
 
 22:                                               ; preds = %17, %switch.lookup, %12
-  %.0123 = phi ptr [ %switch.load, %switch.lookup ], [ %16, %12 ], [ @.str.12, %17 ]
+  %.0123 = phi ptr [ %16, %12 ], [ %switch.load, %switch.lookup ], [ @.str.12, %17 ]
   %23 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %.0123) #8
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %23, ptr %24, align 8
@@ -1058,7 +1058,7 @@ define hidden zeroext i1 @SDL_SendJoystickVirtualSensorDataInner(ptr noundef rea
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %25, %9
-  %.0 = phi i1 [ true, %25 ], [ false, %17 ], [ %10, %9 ]
+  %.0 = phi i1 [ true, %25 ], [ %10, %9 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -2533,7 +2533,7 @@ VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %2
   br label %.thread549
 
 .thread549:                                       ; preds = %.thread523, %233, %241, %249, %257, %265, %.thread551, %273, %VIRTUAL_HWDataForIndex.exit, %9
-  %.0200 = phi i1 [ false, %VIRTUAL_HWDataForIndex.exit ], [ false, %9 ], [ true, %273 ], [ true, %.thread551 ], [ true, %265 ], [ true, %257 ], [ true, %249 ], [ true, %241 ], [ true, %233 ], [ true, %.thread523 ]
+  %.0200 = phi i1 [ false, %9 ], [ false, %VIRTUAL_HWDataForIndex.exit ], [ true, %273 ], [ true, %.thread551 ], [ true, %265 ], [ true, %257 ], [ true, %249 ], [ true, %241 ], [ true, %233 ], [ true, %.thread523 ]
   ret i1 %.0200
 }
 

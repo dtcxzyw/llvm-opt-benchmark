@@ -359,7 +359,7 @@ define hidden noundef ptr @_ZN5uu_cp8platform5linux5clone17hf978d13e1dd848e8E(pt
   br label %49
 
 .sink.split:                                      ; preds = %49, %34, %21
-  %.3.ph = phi ptr [ %26, %21 ], [ null, %34 ], [ %.2, %49 ]
+  %.3.ph = phi ptr [ null, %34 ], [ %26, %21 ], [ %.2, %49 ]
   %55 = call noundef i32 @close(i32 noundef %13), !noalias !4
   br label %56
 
@@ -614,7 +614,7 @@ define hidden noundef ptr @_ZN5uu_cp8platform5linux24sparse_copy_without_hole17h
   br label %93
 
 93:                                               ; preds = %33, %102, %97, %92
-  %.2 = phi ptr [ %75, %92 ], [ %106, %102 ], [ %101, %97 ], [ %37, %33 ]
+  %.2 = phi ptr [ %106, %102 ], [ %101, %97 ], [ %75, %92 ], [ %37, %33 ]
   %94 = invoke noundef i32 @close(i32 noundef %.sroa.64.0)
           to label %.sink.split unwind label %22
 
@@ -821,7 +821,7 @@ define hidden noundef ptr @_ZN5uu_cp8platform5linux11sparse_copy17haf112e2359598
           to label %.sink.split unwind label %24
 
 .sink.split:                                      ; preds = %66, %88, %26
-  %.3.ph = phi ptr [ %31, %26 ], [ %.2, %88 ], [ null, %66 ]
+  %.3.ph = phi ptr [ %.2, %88 ], [ %31, %26 ], [ null, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %69 = load i32, ptr %15, align 4, !noundef !4
   %70 = call noundef i32 @close(i32 noundef %69), !noalias !4
@@ -882,8 +882,8 @@ define hidden noundef ptr @_ZN5uu_cp8platform5linux11sparse_copy17haf112e2359598
   br label %88
 
 88:                                               ; preds = %51, %38, %93, %86
-  %89 = phi i32 [ %.pre, %86 ], [ %29, %93 ], [ %29, %38 ], [ %29, %51 ]
-  %.2 = phi ptr [ %87, %86 ], [ %97, %93 ], [ %41, %38 ], [ %55, %51 ]
+  %89 = phi i32 [ %29, %93 ], [ %.pre, %86 ], [ %29, %38 ], [ %29, %51 ]
+  %.2 = phi ptr [ %97, %93 ], [ %87, %86 ], [ %41, %38 ], [ %55, %51 ]
   %90 = invoke noundef i32 @close(i32 noundef %89)
           to label %.sink.split unwind label %24
 
@@ -1204,8 +1204,8 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit55.
   br i1 %110, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.i, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit55.thread103.i
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.i: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit55.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i, %83, %83
-  %.29296.i = phi i64 [ 0, %83 ], [ %.292101.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i ], [ %.292101123.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit55.i ], [ 0, %83 ], [ %.292101.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i ]
-  %111 = phi i64 [ %85, %83 ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i ], [ %108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit55.i ], [ %85, %83 ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i ]
+  %.29296.i = phi i64 [ %.292101123.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit55.i ], [ 0, %83 ], [ 0, %83 ], [ %.292101.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i ], [ %.292101.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i ]
+  %111 = phi i64 [ %108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit55.i ], [ %85, %83 ], [ %85, %83 ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i ]
   switch i64 %111, label %112 [
     i64 0, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread.i
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit61.thread.i
@@ -1235,7 +1235,7 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit61.i
   ]
 
 _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit61.thread.i: ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit61.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.i
-  %.29296119.i = phi i64 [ %.29296121.i, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit61.i ], [ %.29296.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.i ], [ %.29296.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.i ], [ %.29296120.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread.i ], [ %.29296120.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread.i ]
+  %.29296119.i = phi i64 [ %.29296121.i, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit61.i ], [ %.29296120.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread.i ], [ %.29296120.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread.i ], [ %.29296.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.i ], [ %.29296.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !166
   invoke void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %9, i1 noundef zeroext true, i32 noundef %46, i32 noundef %50, i64 noundef -1)
           to label %.noexc65 unwind label %138

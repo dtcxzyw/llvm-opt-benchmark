@@ -347,8 +347,8 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br i1 %.not214, label %.loopexit227, label %146
 
 146:                                              ; preds = %140, %138, %.loopexit
-  %.4171 = phi i32 [ 0, %.loopexit ], [ %.1168, %138 ], [ 0, %140 ]
-  %.1160 = phi i32 [ %.0159252, %.loopexit ], [ %.0159252, %138 ], [ 0, %140 ]
+  %.4171 = phi i32 [ %.1168, %138 ], [ 0, %.loopexit ], [ 0, %140 ]
+  %.1160 = phi i32 [ %.0159252, %138 ], [ %.0159252, %.loopexit ], [ 0, %140 ]
   %.not215 = icmp eq i32 %.1163, 0
   br i1 %.not215, label %155, label %147
 
@@ -366,8 +366,8 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br i1 %.not216, label %.loopexit227, label %155
 
 155:                                              ; preds = %149, %146, %147
-  %.4166 = phi i32 [ 0, %146 ], [ %.1163, %147 ], [ 0, %149 ]
-  %.2161 = phi i32 [ %.1160, %146 ], [ %.1160, %147 ], [ 0, %149 ]
+  %.4166 = phi i32 [ %.1163, %147 ], [ 0, %146 ], [ 0, %149 ]
+  %.2161 = phi i32 [ %.1160, %147 ], [ %.1160, %146 ], [ 0, %149 ]
   %156 = icmp samesign ugt i32 %.0172.in249, 1
   br i1 %156, label %.lr.ph254, label %._crit_edge, !llvm.loop !19
 
@@ -378,14 +378,14 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %.loopexit227
 
 .loopexit227:                                     ; preds = %.lr.ph, %77, %.lr.ph236, %104, %149, %140, %111, %._crit_edge, %.loopexit228, %95, %91, %86, %68, %64, %59, %20, %90, %63
-  %.0177 = phi i32 [ 0, %20 ], [ 1, %63 ], [ 0, %95 ], [ 0, %149 ], [ 1, %90 ], [ 0, %91 ], [ 0, %.lr.ph236 ], [ 0, %86 ], [ 0, %68 ], [ 0, %64 ], [ 0, %59 ], [ %spec.select220, %._crit_edge ], [ 0, %.loopexit228 ], [ 0, %111 ], [ 0, %140 ], [ 0, %104 ], [ 0, %77 ], [ 0, %.lr.ph ]
-  %.0 = phi ptr [ null, %20 ], [ %.1, %63 ], [ %.1, %95 ], [ %.1, %149 ], [ %.1, %90 ], [ %.1, %91 ], [ %.1, %.lr.ph236 ], [ %.1, %86 ], [ %.1, %68 ], [ %.1, %64 ], [ %.1, %59 ], [ %.1, %._crit_edge ], [ %.1, %.loopexit228 ], [ %.1, %111 ], [ %.1, %140 ], [ %.1, %104 ], [ %.1, %77 ], [ %.1, %.lr.ph ]
+  %.0177 = phi i32 [ 0, %20 ], [ 1, %63 ], [ 1, %90 ], [ 0, %.loopexit228 ], [ 0, %95 ], [ 0, %91 ], [ 0, %86 ], [ 0, %68 ], [ 0, %64 ], [ 0, %59 ], [ %spec.select220, %._crit_edge ], [ 0, %111 ], [ 0, %140 ], [ 0, %149 ], [ 0, %104 ], [ 0, %.lr.ph236 ], [ 0, %77 ], [ 0, %.lr.ph ]
+  %.0 = phi ptr [ null, %20 ], [ %.1, %63 ], [ %.1, %90 ], [ %.1, %.loopexit228 ], [ %.1, %95 ], [ %.1, %91 ], [ %.1, %86 ], [ %.1, %68 ], [ %.1, %64 ], [ %.1, %59 ], [ %.1, %._crit_edge ], [ %.1, %111 ], [ %.1, %140 ], [ %.1, %149 ], [ %.1, %104 ], [ %.1, %.lr.ph236 ], [ %.1, %77 ], [ %.1, %.lr.ph ]
   %158 = icmp eq ptr %7, null
   br i1 %158, label %.thread, label %159
 
 .thread:                                          ; preds = %28, %31, %.loopexit227
-  %.0225 = phi ptr [ %.0, %.loopexit227 ], [ null, %28 ], [ %29, %31 ]
-  %.0177224 = phi i32 [ %.0177, %.loopexit227 ], [ 0, %28 ], [ 0, %31 ]
+  %.0225 = phi ptr [ %.0, %.loopexit227 ], [ %29, %31 ], [ null, %28 ]
+  %.0177224 = phi i32 [ %.0177, %.loopexit227 ], [ 0, %31 ], [ 0, %28 ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.0225) #4
   br label %159
 

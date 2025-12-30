@@ -846,7 +846,7 @@ transform_bdpcm.exit.i.i:                         ; preds = %313, %309, %291
   br label %derive_scale_m.exit.i.i.i
 
 derive_scale_m.exit.i.i.i:                        ; preds = %409, %407, %404, %._crit_edge74.i.i.i.i, %363, %358, %352, %349
-  %.050.i.i.i.i = phi ptr [ @ff_vvc_default_scale_m, %363 ], [ @ff_vvc_default_scale_m, %349 ], [ @ff_vvc_default_scale_m, %358 ], [ @ff_vvc_default_scale_m, %352 ], [ %9, %409 ], [ %9, %407 ], [ %9, %404 ], [ %9, %._crit_edge74.i.i.i.i ]
+  %.050.i.i.i.i = phi ptr [ @ff_vvc_default_scale_m, %363 ], [ @ff_vvc_default_scale_m, %358 ], [ @ff_vvc_default_scale_m, %352 ], [ @ff_vvc_default_scale_m, %349 ], [ %9, %409 ], [ %9, %407 ], [ %9, %404 ], [ %9, %._crit_edge74.i.i.i.i ]
   %414 = load ptr, ptr %10, align 8, !tbaa !4
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 1928
   %416 = load ptr, ptr %415, align 8, !tbaa !18
@@ -1084,7 +1084,7 @@ derive_qp.exit.i.i.i:                             ; preds = %464, %456
   br i1 %.not31.not.i.i.i, label %529, label %._crit_edge.loopexit.i.i.i, !llvm.loop !160
 
 dequant.exit.i.i:                                 ; preds = %._crit_edge.i.i.i, %.lr.ph43.i.i.i, %derive_qp.exit.i.i.i
-  %562 = phi i32 [ %494, %.lr.ph43.i.i.i ], [ %494, %derive_qp.exit.i.i.i ], [ %525, %._crit_edge.i.i.i ]
+  %562 = phi i32 [ %494, %derive_qp.exit.i.i.i ], [ %494, %.lr.ph43.i.i.i ], [ %525, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not44.i.i.i.i, label %563, label %itx_2d.exit.i.i
 
@@ -1187,7 +1187,7 @@ dequant.exit.i.i:                                 ; preds = %._crit_edge.i.i.i, 
   br label %derive_ilfnst_pred_mode_intra.exit.i.i.i
 
 derive_ilfnst_pred_mode_intra.exit.i.i.i:         ; preds = %633, %627, %621, %618, %566
-  %.0.i.i65.i.i = phi i32 [ 0, %566 ], [ %619, %618 ], [ %638, %633 ], [ 0, %621 ], [ 1, %627 ]
+  %.0.i.i65.i.i = phi i32 [ %619, %618 ], [ %638, %633 ], [ 0, %621 ], [ 1, %627 ], [ 0, %566 ]
   %639 = zext i8 %421 to i32
   %640 = call i32 @ff_vvc_wide_angle_mode_mapping(ptr noundef %420, i32 noundef %568, i32 noundef %570, i32 noundef %639, i32 noundef %.0.i.i65.i.i) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1458,8 +1458,8 @@ ilfnst_transform.exit.i.i:                        ; preds = %712, %706, %667
   br label %derive_transform_type.exit.i.i
 
 derive_transform_type.exit.i.i:                   ; preds = %777, %766, %.critedge.thread.i.i.i, %728, %722
-  %.1.i.i = phi i32 [ %782, %777 ], [ 0, %722 ], [ 0, %728 ], [ %773, %766 ], [ %..i.i, %.critedge.thread.i.i.i ]
-  %.0113.i.i = phi i32 [ %784, %777 ], [ 0, %722 ], [ 0, %728 ], [ %776, %766 ], [ %.207.i.i, %.critedge.thread.i.i.i ]
+  %.1.i.i = phi i32 [ %782, %777 ], [ 0, %728 ], [ 0, %722 ], [ %773, %766 ], [ %..i.i, %.critedge.thread.i.i.i ]
+  %.0113.i.i = phi i32 [ %784, %777 ], [ 0, %728 ], [ 0, %722 ], [ %776, %766 ], [ %.207.i.i, %.critedge.thread.i.i.i ]
   %785 = getelementptr inbounds nuw i8, ptr %278, i64 12
   %786 = load i32, ptr %785, align 4, !tbaa !117
   %787 = icmp sgt i32 %786, 1

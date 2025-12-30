@@ -379,7 +379,7 @@ X11_CheckCurrentDesktop.exit.thread:              ; preds = %128, %123, %X11_Che
   br label %140
 
 140:                                              ; preds = %X11_CheckCurrentDesktop.exit.thread, %137, %11, %0, %23, %15, %10
-  %.0 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %15 ], [ null, %0 ], [ null, %10 ], [ %12, %137 ], [ %12, %X11_CheckCurrentDesktop.exit.thread ]
+  %.0 = phi ptr [ null, %23 ], [ null, %15 ], [ null, %10 ], [ null, %0 ], [ null, %11 ], [ %12, %137 ], [ %12, %X11_CheckCurrentDesktop.exit.thread ]
   ret ptr %.0
 }
 

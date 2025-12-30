@@ -110,7 +110,7 @@ define dso_local i64 @insn_get_seg_base(ptr noundef readonly captures(none) %0, 
   br label %20
 
 20:                                               ; preds = %18, %16, %14, %12, %8, %4
-  %21 = phi i16 [ %7, %4 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %8 ]
+  %21 = phi i16 [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %8 ], [ %7, %4 ]
   %22 = icmp slt i16 %21, 0
   br i1 %22, label %.thread, label %23
 
@@ -266,7 +266,7 @@ define dso_local i64 @insn_get_seg_base(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread4, %2, %.thread7, %.critedge, %98, %58, %57, %51, %50, %44, %42, %36, %35, %20
-  %108 = phi i64 [ %107, %98 ], [ -1, %20 ], [ 0, %35 ], [ -1, %58 ], [ -1, %.thread7 ], [ %41, %36 ], [ %41, %42 ], [ %49, %44 ], [ %49, %50 ], [ %56, %51 ], [ %56, %57 ], [ -1, %.critedge ], [ -1, %2 ], [ %spec.select, %.thread4 ]
+  %108 = phi i64 [ %107, %98 ], [ -1, %20 ], [ 0, %35 ], [ -1, %58 ], [ %41, %36 ], [ %41, %42 ], [ %49, %44 ], [ %49, %50 ], [ %56, %51 ], [ %56, %57 ], [ -1, %.critedge ], [ -1, %.thread7 ], [ -1, %2 ], [ %spec.select, %.thread4 ]
   ret i64 %108
 }
 
@@ -355,8 +355,8 @@ define dso_local range(i32 -32768, 133) i32 @insn_get_code_seg_params(ptr nounde
   br label %54
 
 54:                                               ; preds = %45, %36
-  %55 = phi i32 [ %37, %36 ], [ %53, %45 ]
-  %56 = phi i1 [ %38, %36 ], [ false, %45 ]
+  %55 = phi i32 [ %53, %45 ], [ %37, %36 ]
+  %56 = phi i1 [ false, %45 ], [ %38, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %57 = and i32 %55, 2048
   %58 = icmp eq i32 %57, 0
@@ -884,7 +884,7 @@ get_eff_addr_reg.exit:                            ; preds = %128, %138, %140
   br label %get_eff_addr_reg.exit.thread
 
 get_eff_addr_reg.exit.thread:                     ; preds = %158, %125, %127, %109, %106, %._crit_edge, %153, %150, %147
-  %168 = phi i64 [ -1, %150 ], [ -1, %153 ], [ %167, %._crit_edge ], [ -1, %158 ], [ -1, %147 ], [ -1, %106 ], [ -1, %109 ], [ -1, %127 ], [ -1, %125 ]
+  %168 = phi i64 [ -1, %153 ], [ %167, %._crit_edge ], [ -1, %147 ], [ -1, %150 ], [ -1, %106 ], [ -1, %109 ], [ -1, %127 ], [ -1, %125 ], [ -1, %158 ]
   %169 = inttoptr i64 %168 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1002,7 +1002,7 @@ get_eff_addr_reg.exit5:                           ; preds = %197, %207, %209
   br label %get_eff_addr_reg.exit5.thread
 
 get_eff_addr_reg.exit5.thread:                    ; preds = %194, %196, %178, %175, %226, %222, %219, %216
-  %230 = phi i64 [ -1, %219 ], [ -1, %222 ], [ %229, %226 ], [ -1, %216 ], [ -1, %175 ], [ -1, %178 ], [ -1, %196 ], [ -1, %194 ]
+  %230 = phi i64 [ -1, %222 ], [ %229, %226 ], [ -1, %216 ], [ -1, %219 ], [ -1, %175 ], [ -1, %178 ], [ -1, %196 ], [ -1, %194 ]
   %231 = inttoptr i64 %230 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1227,8 +1227,8 @@ define dso_local noundef range(i32 0, 7) i32 @insn_decode_mmio(ptr noundef %0, p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %21, %23, %16, %5, %.thread3, %.thread6, %.thread9, %.thread15
-  %.sink = phi i32 [ 1, %.thread15 ], [ 1, %5 ], [ 1, %.thread9 ], [ 1, %.thread6 ], [ 1, %.thread3 ], [ 1, %16 ], [ 2, %19 ], [ 2, %21 ], [ %27, %23 ]
-  %.ph = phi i32 [ 5, %.thread15 ], [ 1, %5 ], [ 6, %.thread9 ], [ 3, %.thread6 ], [ 2, %.thread3 ], [ 4, %16 ], [ 4, %19 ], [ 5, %21 ], [ %24, %23 ]
+  %.sink = phi i32 [ 1, %.thread15 ], [ 1, %.thread9 ], [ 1, %.thread6 ], [ 1, %.thread3 ], [ 1, %5 ], [ 1, %16 ], [ 2, %19 ], [ 2, %21 ], [ %27, %23 ]
+  %.ph = phi i32 [ 5, %.thread15 ], [ 6, %.thread9 ], [ 3, %.thread6 ], [ 2, %.thread3 ], [ 1, %5 ], [ 4, %16 ], [ 4, %19 ], [ 5, %21 ], [ %24, %23 ]
   store i32 %.sink, ptr %1, align 4
   br label %28
 
@@ -1328,7 +1328,7 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef
   br label %44
 
 44:                                               ; preds = %.thread4, %42, %7, %4
-  %45 = phi i32 [ %5, %4 ], [ -22, %7 ], [ -22, %.thread4 ], [ 0, %42 ]
+  %45 = phi i32 [ %5, %4 ], [ -22, %7 ], [ 0, %42 ], [ -22, %.thread4 ]
   ret i32 %45
 }
 
@@ -1545,8 +1545,8 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   %spec.select = select i1 %89, i32 0, i32 %61
   br label %resolve_default_seg.exit.thread
 
-resolve_default_seg.exit.thread:                  ; preds = %87, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %78, %85, %72, %72, %71, %77, %86, %31, %24, %9, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30
-  %90 = phi i32 [ %spec.select, %87 ], [ 5, %30 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 4, %78 ], [ 4, %85 ], [ 3, %72 ], [ 3, %72 ], [ 0, %71 ], [ 4, %77 ], [ 2, %86 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 4, %31 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 0, %24 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ %16, %9 ]
+resolve_default_seg.exit.thread:                  ; preds = %87, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %82, %78, %85, %72, %72, %71, %77, %86, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %31, %24, %9
+  %90 = phi i32 [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 5, %82 ], [ 4, %78 ], [ 4, %85 ], [ 3, %72 ], [ 3, %72 ], [ 0, %71 ], [ 4, %77 ], [ 2, %86 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 4, %31 ], [ 0, %24 ], [ %16, %9 ], [ %spec.select, %87 ]
   %91 = tail call i64 @insn_get_seg_base(ptr noundef nonnull %1, i32 noundef %90)
   store i64 %91, ptr %3, align 8
   %92 = icmp eq i64 %91, -1
@@ -1596,7 +1596,7 @@ resolve_default_seg.exit.thread:                  ; preds = %87, %82, %82, %82, 
   br label %112
 
 112:                                              ; preds = %110, %108, %106, %104, %100, %96
-  %113 = phi i16 [ %99, %96 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %100 ]
+  %113 = phi i16 [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %100 ], [ %99, %96 ]
   %114 = icmp slt i16 %113, 0
   br i1 %114, label %.thread21, label %115
 
@@ -1718,7 +1718,7 @@ resolve_default_seg.exit.thread:                  ; preds = %87, %82, %82, %82, 
   br label %resolve_default_seg.exit.thread13
 
 resolve_default_seg.exit.thread13:                ; preds = %60, %72, %73, %178, %176, %.thread25, %93, %resolve_default_seg.exit.thread, %5
-  %179 = phi i32 [ -22, %5 ], [ -22, %72 ], [ -22, %resolve_default_seg.exit.thread ], [ 0, %93 ], [ 0, %.thread25 ], [ -22, %178 ], [ 0, %176 ], [ -22, %73 ], [ -22, %60 ]
+  %179 = phi i32 [ -22, %5 ], [ -22, %resolve_default_seg.exit.thread ], [ 0, %93 ], [ -22, %178 ], [ 0, %176 ], [ 0, %.thread25 ], [ -22, %73 ], [ -22, %72 ], [ -22, %60 ]
   ret i32 %179
 }
 

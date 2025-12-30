@@ -746,14 +746,14 @@ define { i64, double } @"_ZN114_$LT$statrs..distribution..geometric..Geometric$u
 10:                                               ; preds = %5
   %11 = bitcast double %.val to i64
   %.not.i = icmp ugt i64 %11, 4607182418800017408
-  br i1 %.not.i, label %12, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
+  br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i64 %11, 4607182418800017413
+  %13 = icmp samesign ugt i64 %11, 4607182418800017403
   br i1 %13, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %10
-  %14 = icmp samesign ugt i64 %11, 4607182418800017403
+  %14 = icmp ult i64 %11, 4607182418800017413
   br i1 %14, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3": ; preds = %5, %12, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
@@ -825,10 +825,10 @@ define noundef double @"_ZN110_$LT$statrs..distribution..geometric..Geometric$u2
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %8
   %13 = bitcast double %.val1 to i64
   %.not.i = icmp ugt i64 %13, 4607182418800017408
-  %14 = add i64 %13, -4607182418800017408
-  %15 = icmp ult i64 %14, 5
-  %16 = icmp samesign ugt i64 %13, 4607182418800017403
-  %.sroa.0.0.shrunk.i = select i1 %.not.i, i1 %15, i1 %16
+  %14 = icmp samesign ugt i64 %13, 4607182418800017403
+  %15 = add i64 %13, -4607182418800017408
+  %16 = icmp ult i64 %15, 5
+  %.sroa.0.0.shrunk.i = select i1 %.not.i, i1 %16, i1 %14
   %17 = icmp eq i64 %1, 1
   %or.cond = and i1 %17, %.sroa.0.0.shrunk.i
   br i1 %or.cond, label %19, label %.thread
@@ -844,17 +844,17 @@ define noundef double @"_ZN110_$LT$statrs..distribution..geometric..Geometric$u2
 .thread:                                          ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
   %20 = bitcast double %.val1 to i64
   %.not.i6 = icmp ugt i64 %20, 4607182418800017408
-  br i1 %.not.i6, label %21, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7"
+  br i1 %.not.i6, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7", label %21
 
 21:                                               ; preds = %.thread
-  %22 = icmp ult i64 %20, 4607182418800017413
+  %22 = icmp samesign ugt i64 %20, 4607182418800017403
   br i1 %22, label %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread10"
   br label %19
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7": ; preds = %.thread
-  %23 = icmp samesign ugt i64 %20, 4607182418800017403
+  %23 = icmp ult i64 %20, 4607182418800017413
   br i1 %23, label %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15": ; preds = %8, %21, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7"
@@ -1569,14 +1569,14 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
 20:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
   %21 = bitcast double %3 to i64
   %.not.i86 = icmp ugt i64 %21, 4607182418800017408
-  br i1 %.not.i86, label %22, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87"
+  br i1 %.not.i86, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87", label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ult i64 %21, 4607182418800017413
+  %23 = icmp samesign ugt i64 %21, 4607182418800017403
   br i1 %23, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87": ; preds = %20
-  %24 = icmp samesign ugt i64 %21, 4607182418800017403
+  %24 = icmp ult i64 %21, 4607182418800017413
   br i1 %24, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94": ; preds = %22, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87"
@@ -1597,7 +1597,7 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   br label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %14, %22, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94"
-  %.sroa.061.0 = phi double [ %38, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87" ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0.000000e+00, %14 ]
+  %.sroa.061.0 = phi double [ %38, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87" ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ]
   %39 = fadd double %1, 1.000000e+00
   %40 = fadd double %1, %2
   %41 = fadd double %40, 2.000000e+00

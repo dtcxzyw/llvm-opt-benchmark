@@ -739,7 +739,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %return, !llvm.loop !7
 
 return.sink.split:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i31, %if.else, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then3
-  %or17.sink = phi i8 [ %or17, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i ], [ %or17, %if.then3 ], [ %and, %if.else ], [ %and, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i31 ]
+  %or17.sink = phi i8 [ %or17, %if.then3 ], [ %or17, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i ], [ %and, %if.else ], [ %and, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i31 ]
   %mData.i7.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %mData.i7.i, align 8
   store i8 %or17.sink, ptr %19, align 1

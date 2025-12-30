@@ -37,7 +37,7 @@ define noundef i32 @ungetwc_unlocked(i32 noundef %0, ptr noundef captures(none) 
   br label %24
 
 24:                                               ; preds = %11, %8, %2, %17
-  %.0 = phi i32 [ -1, %8 ], [ -1, %2 ], [ %0, %17 ], [ -1, %11 ]
+  %.0 = phi i32 [ %0, %17 ], [ -1, %2 ], [ -1, %8 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -88,7 +88,7 @@ define noundef i32 @ungetwc(i32 noundef %0, ptr noundef captures(address_is_null
   br label %ungetwc_unlocked.exit
 
 ungetwc_unlocked.exit:                            ; preds = %6, %11, %14, %20
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %6 ], [ %0, %20 ], [ -1, %14 ]
+  %.0.i = phi i32 [ %0, %20 ], [ -1, %6 ], [ -1, %11 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @funlockfile(ptr noundef nonnull %1)
   br label %27

@@ -646,7 +646,7 @@ define ptr @dt_image_cache_testget(ptr noundef %0, i32 noundef %1, i8 noundef si
   br label %18
 
 18:                                               ; preds = %15, %14, %11, %8, %5
-  %.0 = phi ptr [ null, %8 ], [ null, %5 ], [ %16, %15 ], [ null, %14 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %8 ], [ %16, %15 ], [ null, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 

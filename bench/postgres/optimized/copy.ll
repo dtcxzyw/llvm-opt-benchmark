@@ -609,8 +609,8 @@ free_copy_options.exit73:                         ; preds = %249, %252, %250, %2
   call void @free(ptr noundef nonnull %8) #11
   br label %parse_slash_copy.exit.thread
 
-parse_slash_copy.exit.thread:                     ; preds = %free_copy_options.exit.i, %6, %free_copy_options.exit71, %free_copy_options.exit73, %free_copy_options.exit
-  %.0 = phi i1 [ %.051, %free_copy_options.exit73 ], [ false, %free_copy_options.exit71 ], [ false, %free_copy_options.exit ], [ false, %6 ], [ false, %free_copy_options.exit.i ]
+parse_slash_copy.exit.thread:                     ; preds = %6, %free_copy_options.exit.i, %free_copy_options.exit71, %free_copy_options.exit73, %free_copy_options.exit
+  %.0 = phi i1 [ %.051, %free_copy_options.exit73 ], [ false, %free_copy_options.exit ], [ false, %free_copy_options.exit71 ], [ false, %free_copy_options.exit.i ], [ false, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
@@ -922,9 +922,9 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   br label %70
 
 70:                                               ; preds = %.thread101, %63, %45, %40
-  %.168 = phi i1 [ true, %40 ], [ %or.cond79, %63 ], [ %.269104, %.thread101 ], [ false, %45 ]
-  %.162 = phi i32 [ %.06194, %40 ], [ %.263, %63 ], [ %.263105, %.thread101 ], [ %48, %45 ]
-  %.159 = phi i1 [ %.05895, %40 ], [ true, %63 ], [ true, %.thread101 ], [ false, %45 ]
+  %.168 = phi i1 [ true, %40 ], [ %.269104, %.thread101 ], [ %or.cond79, %63 ], [ false, %45 ]
+  %.162 = phi i32 [ %.06194, %40 ], [ %.263105, %.thread101 ], [ %.263, %63 ], [ %48, %45 ]
+  %.159 = phi i1 [ %.05895, %40 ], [ true, %.thread101 ], [ true, %63 ], [ false, %45 ]
   %71 = icmp sgt i32 %.162, 8186
   %72 = icmp sgt i32 %.162, 0
   %or.cond3 = and i1 %72, %.168

@@ -616,7 +616,7 @@ define linkonce_odr hidden void @_ZN2cv3hfs14HfsSegmentImplC2Eiifififii(ptr noun
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %35, %34
-  %37 = phi ptr [ %.pr.pre.i.i.i.i, %35 ], [ %31, %34 ]
+  %37 = phi ptr [ %31, %34 ], [ %.pr.pre.i.i.i.i, %35 ]
   %.not8.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %38
 

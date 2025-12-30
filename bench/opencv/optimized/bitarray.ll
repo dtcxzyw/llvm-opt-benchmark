@@ -547,7 +547,7 @@ _ZN5zxing8BitArray12getNextUnsetEi.exit.thr_comm: ; preds = %66, %67
   br i1 %3, label %76, label %74
 
 _ZN5zxing8BitArray12getNextUnsetEi.exit:          ; preds = %59, %58
-  %.0 = phi i32 [ %57, %58 ], [ %65, %59 ]
+  %.0 = phi i32 [ %65, %59 ], [ %57, %58 ]
   br i1 %3, label %74, label %76
 
 74:                                               ; preds = %_ZN5zxing8BitArray12getNextUnsetEi.exit.thr_comm, %_ZN5zxing8BitArray12getNextUnsetEi.exit

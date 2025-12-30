@@ -853,7 +853,7 @@ _ZNK12_GLOBAL__N_112IRNormalizer8isOutputEPKN4llvm11InstructionE.exit.thread.i.i
   br i1 %114, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !118
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i: ; preds = %111, %109, %105, %101, %.critedge.i.i
-  %.0.i.i.i.i = phi i32 [ %110, %109 ], [ %102, %101 ], [ %106, %105 ], [ 1, %.critedge.i.i ], [ %113, %111 ]
+  %.0.i.i.i.i = phi i32 [ %102, %101 ], [ %106, %105 ], [ %110, %109 ], [ 1, %.critedge.i.i ], [ %113, %111 ]
   %115 = zext i32 %.0.i.i.i.i to i64
   store ptr %63, ptr %22, align 8, !tbaa !120, !alias.scope !115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %115, i8 noundef signext 0) #21
@@ -1187,7 +1187,7 @@ _ZN4llvm15SmallVectorImplIPNS_11InstructionEE12assignRemoteEOS3_.exit.i.i: ; pre
   br label %_ZSt4moveIPPN4llvm11InstructionES3_ET0_T_S5_S4_.exit.i.i
 
 _ZSt4moveIPPN4llvm11InstructionES3_ET0_T_S5_S4_.exit.i.i: ; preds = %_ZN4llvm12instructionsERNS_8FunctionE.exit.i.i, %246, %245
-  %248 = phi i32 [ 0, %245 ], [ %216, %246 ], [ 0, %_ZN4llvm12instructionsERNS_8FunctionE.exit.i.i ]
+  %248 = phi i32 [ %216, %246 ], [ 0, %245 ], [ 0, %_ZN4llvm12instructionsERNS_8FunctionE.exit.i.i ]
   store i32 %248, ptr %30, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplIPNS_11InstructionEEaSEOS3_.exit.sink.split.i
 
@@ -3341,7 +3341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %211, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !118
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %208, %206, %202, %198, %._crit_edge124.i
-  %.0.i.i.i = phi i32 [ %207, %206 ], [ %199, %198 ], [ %203, %202 ], [ 1, %._crit_edge124.i ], [ %210, %208 ]
+  %.0.i.i.i = phi i32 [ %199, %198 ], [ %203, %202 ], [ %207, %206 ], [ 1, %._crit_edge124.i ], [ %210, %208 ]
   %212 = zext i32 %.0.i.i.i to i64
   %213 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %213, ptr %23, align 8, !tbaa !120, !alias.scope !238
@@ -4281,7 +4281,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %572, %576
   br i1 %606, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i52, !llvm.loop !118
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %603, %601, %597, %593, %._crit_edge149
-  %.0.i.i = phi i32 [ %602, %601 ], [ %594, %593 ], [ %598, %597 ], [ 1, %._crit_edge149 ], [ %605, %603 ]
+  %.0.i.i = phi i32 [ %594, %593 ], [ %598, %597 ], [ %602, %601 ], [ 1, %._crit_edge149 ], [ %605, %603 ]
   %607 = zext i32 %.0.i.i to i64
   %608 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %608, ptr %12, align 8, !tbaa !120, !alias.scope !257
@@ -4540,7 +4540,7 @@ _ZN4llvm11SmallStringILj512EE6appendENS_9StringRefE.exit35: ; preds = %_ZN4llvm1
   store i64 %722, ptr %589, align 8, !tbaa !221
   br label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
-_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %702, %699, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %_ZN4llvm11SmallStringILj512EE6appendENS_9StringRefE.exit35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %699, %702, %_ZN4llvm11SmallStringILj512EE6appendENS_9StringRefE.exit35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %723 = load i64, ptr %589, align 8, !tbaa !221
   %724 = add i64 %723, 1
   %725 = load i64, ptr %590, align 8, !tbaa !222
@@ -5219,7 +5219,7 @@ _ZSt4copyIPPPN4llvm11InstructionES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Dequ
   br label %_ZSt4copyIPPPN4llvm11InstructionES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPPN4llvm11InstructionES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN4llvm11InstructionES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %53, %_ZSt4copyIPPPN4llvm11InstructionES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPPN4llvm11InstructionES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !150
   %60 = load ptr, ptr %.0, align 8, !tbaa !149
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -2157,7 +2157,7 @@ get_se_golomb_long.exit:                          ; preds = %1397, %1452, %1456
   br i1 %.not221.not, label %1397, label %1395, !llvm.loop !77
 
 .thread497:                                       ; preds = %1395, %1310, %1308
-  %1482 = phi i32 [ %.pre571, %1308 ], [ %spec.select.i464, %1310 ], [ %1474, %1395 ]
+  %1482 = phi i32 [ %spec.select.i464, %1310 ], [ %.pre571, %1308 ], [ %1474, %1395 ]
   %1483 = lshr i32 %1482, 3
   %1484 = zext nneg i32 %1483 to i64
   %1485 = getelementptr inbounds nuw i8, ptr %.pre572, i64 %1484
@@ -2191,19 +2191,19 @@ get_se_golomb_long.exit:                          ; preds = %1397, %1452, %1456
   br label %get_ue_golomb.exit.thread
 
 .loopexit.sink.split:                             ; preds = %.thread487, %1091, %1051
-  %.sink613 = phi i64 [ 88, %1091 ], [ 84, %1051 ], [ 100, %.thread487 ]
-  %.sink = phi i32 [ -1094995529, %1091 ], [ -1094995529, %1051 ], [ -1, %.thread487 ]
+  %.sink613 = phi i64 [ 84, %1051 ], [ 88, %1091 ], [ 100, %.thread487 ]
+  %.sink = phi i32 [ -1094995529, %1051 ], [ -1094995529, %1091 ], [ -1, %.thread487 ]
   %1503 = getelementptr inbounds nuw i8, ptr %43, i64 %.sink613
   store i32 %.sink, ptr %1503, align 4, !tbaa !58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1264, %1279, %get_ue_golomb.exit478, %.loopexit.sink.split, %1269, %get_ue_golomb.exit462, %get_ue_golomb_long.exit448, %get_ue_golomb.exit430, %get_ue_golomb.exit418, %44, %1496
-  %.0191 = phi i32 [ -1094995529, %get_ue_golomb.exit418 ], [ -1094995529, %44 ], [ -1094995529, %get_ue_golomb.exit430 ], [ -1094995529, %get_ue_golomb_long.exit448 ], [ %1498, %1496 ], [ %1281, %1279 ], [ -1094995529, %get_ue_golomb.exit462 ], [ -1094995529, %.loopexit.sink.split ], [ -1094995529, %get_ue_golomb.exit478 ], [ -1094995529, %1269 ], [ %1266, %1264 ]
+  %.0191 = phi i32 [ %1498, %1496 ], [ -1094995529, %44 ], [ -1094995529, %get_ue_golomb.exit418 ], [ -1094995529, %get_ue_golomb.exit430 ], [ -1094995529, %get_ue_golomb_long.exit448 ], [ -1094995529, %get_ue_golomb.exit462 ], [ -1094995529, %1269 ], [ -1094995529, %.loopexit.sink.split ], [ -1094995529, %get_ue_golomb.exit478 ], [ %1281, %1279 ], [ %1266, %1264 ]
   tail call void @av_free(ptr noundef nonnull %43) #5
   br label %get_ue_golomb.exit.thread
 
 get_ue_golomb.exit.thread:                        ; preds = %26, %42, %get_ue_golomb.exit, %.loopexit, %1500
-  %.0194 = phi i32 [ -12, %42 ], [ %.0191, %.loopexit ], [ -1094995529, %get_ue_golomb.exit ], [ 0, %1500 ], [ -1094995529, %26 ]
+  %.0194 = phi i32 [ %.0191, %.loopexit ], [ 0, %1500 ], [ -1094995529, %get_ue_golomb.exit ], [ -12, %42 ], [ -1094995529, %26 ]
   ret i32 %.0194
 }
 
@@ -3540,7 +3540,7 @@ get_ue_golomb_long.exit121:                       ; preds = %get_ue_golomb_long.
   br label %607
 
 607:                                              ; preds = %._crit_edge126, %get_ue_golomb_long.exit121, %349, %329
-  %.0 = phi i32 [ %351, %349 ], [ %331, %329 ], [ 0, %get_ue_golomb_long.exit121 ], [ 0, %._crit_edge126 ]
+  %.0 = phi i32 [ %331, %329 ], [ %351, %349 ], [ 0, %get_ue_golomb_long.exit121 ], [ 0, %._crit_edge126 ]
   ret i32 %.0
 }
 
@@ -4169,7 +4169,7 @@ get_ue_golomb.exit196:                            ; preds = %361, %371
   br i1 %388, label %351, label %.loopexit253, !llvm.loop !128
 
 .loopexit253:                                     ; preds = %get_ue_golomb.exit196, %.preheader252, %295
-  %389 = phi i32 [ %spec.select.i172, %295 ], [ %.promoted258, %.preheader252 ], [ %386, %get_ue_golomb.exit196 ]
+  %389 = phi i32 [ %.promoted258, %.preheader252 ], [ %spec.select.i172, %295 ], [ %386, %get_ue_golomb.exit196 ]
   %390 = lshr i32 %389, 3
   %391 = zext nneg i32 %390 to i64
   %392 = getelementptr inbounds nuw i8, ptr %48, i64 %391
@@ -4531,7 +4531,7 @@ get_ue_golomb.exit238:                            ; preds = %589, %599
   br label %get_ue_golomb.exit.thread
 
 get_ue_golomb.exit.thread:                        ; preds = %26, %42, %get_ue_golomb.exit, %619, %615
-  %.087 = phi i32 [ -1094995529, %get_ue_golomb.exit ], [ -1094995529, %619 ], [ 0, %615 ], [ -12, %42 ], [ -1094995529, %26 ]
+  %.087 = phi i32 [ -1094995529, %619 ], [ 0, %615 ], [ -1094995529, %get_ue_golomb.exit ], [ -12, %42 ], [ -1094995529, %26 ]
   ret i32 %.087
 }
 

@@ -82,7 +82,7 @@ watcher_root_RB_MINMAX.exit.preheader:            ; preds = %10
   br i1 %28, label %22, label %watcher_root_RB_NEXT.exit, !llvm.loop !32
 
 watcher_root_RB_NEXT.exit:                        ; preds = %.preheader.i, %22, %25, %19
-  %.1.i = phi ptr [ null, %22 ], [ %18, %19 ], [ %24, %25 ], [ %.0.i69, %.preheader.i ]
+  %.1.i = phi ptr [ %18, %19 ], [ null, %22 ], [ %24, %25 ], [ %.0.i69, %.preheader.i ]
   %29 = getelementptr inbounds nuw i8, ptr %.05774, i64 48
   store i32 1, ptr %29, align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %.05774, i64 32
@@ -953,7 +953,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   br label %.critedge.i.i
 
 278:                                              ; preds = %220, %216, %124, %120
-  %.2.sink.i.i = phi ptr [ %.0.i.i, %120 ], [ %.0.i.i, %124 ], [ %.2.i.i, %220 ], [ %.2.i.i, %216 ]
+  %.2.sink.i.i = phi ptr [ %.0.i.i, %124 ], [ %.0.i.i, %120 ], [ %.2.i.i, %220 ], [ %.2.i.i, %216 ]
   %279 = getelementptr inbounds nuw i8, ptr %.2.sink.i.i, i64 24
   store i32 1, ptr %279, align 8, !tbaa !46
   %.1180.in.i.i = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 16
@@ -1419,7 +1419,7 @@ watcher_root_RB_INSERT_COLOR.exit.i:              ; preds = %.backedge.i.i, %.lr
   br label %find_watcher.exit
 
 find_watcher.exit:                                ; preds = %35, %55, %watcher_root_RB_INSERT_COLOR.exit.i
-  %.045 = phi ptr [ %41, %55 ], [ %41, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %.093.i.i, %35 ]
+  %.045 = phi ptr [ %41, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %41, %55 ], [ %.093.i.i, %35 ]
   %181 = load i32, ptr %5, align 8, !tbaa !36
   %182 = and i32 %181, 4
   %.not52 = icmp eq i32 %182, 0
@@ -1461,7 +1461,7 @@ find_watcher.exit:                                ; preds = %35, %55, %watcher_r
   br label %202
 
 202:                                              ; preds = %.loopexit, %init_inotify.exit, %4, %191, %26
-  %.0 = phi i32 [ %20, %init_inotify.exit ], [ -22, %4 ], [ %29, %26 ], [ 0, %191 ], [ -12, %.loopexit ]
+  %.0 = phi i32 [ %29, %26 ], [ 0, %191 ], [ -22, %4 ], [ %20, %init_inotify.exit ], [ -12, %.loopexit ]
   ret i32 %.0
 }
 

@@ -121,7 +121,7 @@ define range(i32 0, 2) i32 @engine_add_dynamic_id(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %28, %25, %._crit_edge, %32
-  %.021 = phi i32 [ 0, %28 ], [ 0, %._crit_edge ], [ 0, %25 ], [ 1, %32 ], [ 0, %27 ], [ 0, %.lr.ph ]
+  %.021 = phi i32 [ 0, %._crit_edge ], [ 0, %25 ], [ 1, %32 ], [ 0, %27 ], [ 0, %28 ], [ 0, %.lr.ph ]
   br i1 %.not, label %38, label %35
 
 35:                                               ; preds = %.loopexit
@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @engine_add_dynamic_id(ptr noundef %0, ptr noundef %1
   br label %38
 
 38:                                               ; preds = %.loopexit, %35, %11, %5, %3
-  %.022 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %11 ], [ %.021, %35 ], [ %.021, %.loopexit ]
+  %.022 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %11 ], [ %.021, %35 ], [ %.021, %.loopexit ]
   ret i32 %.022
 }
 
@@ -500,13 +500,13 @@ engine_list_add.exit:                             ; preds = %36, %48
   br label %51
 
 CRYPTO_DOWN_REF.exit.i.sink.split:                ; preds = %45, %33, %28
-  %.sink12.ph = phi i32 [ 97, %33 ], [ 89, %28 ], [ 106, %45 ]
+  %.sink12.ph = phi i32 [ 89, %28 ], [ 97, %33 ], [ 106, %45 ]
   fence acquire
   br label %CRYPTO_DOWN_REF.exit.i
 
 CRYPTO_DOWN_REF.exit.i:                           ; preds = %CRYPTO_DOWN_REF.exit.i.sink.split, %45, %33, %28, %._crit_edge.i
-  %.sink12 = phi i32 [ 97, %33 ], [ 89, %28 ], [ 73, %._crit_edge.i ], [ 106, %45 ], [ %.sink12.ph, %CRYPTO_DOWN_REF.exit.i.sink.split ]
-  %.sink = phi i32 [ 110, %33 ], [ 110, %28 ], [ 103, %._crit_edge.i ], [ 110, %45 ], [ 110, %CRYPTO_DOWN_REF.exit.i.sink.split ]
+  %.sink12 = phi i32 [ 73, %._crit_edge.i ], [ 89, %28 ], [ 97, %33 ], [ 106, %45 ], [ %.sink12.ph, %CRYPTO_DOWN_REF.exit.i.sink.split ]
+  %.sink = phi i32 [ 103, %._crit_edge.i ], [ 110, %28 ], [ 110, %33 ], [ 110, %45 ], [ 110, %CRYPTO_DOWN_REF.exit.i.sink.split ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.engine_list_add) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef %.sink, ptr noundef null) #4
@@ -693,7 +693,7 @@ define ptr @ENGINE_by_id(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge47
 
 .critedge47:                                      ; preds = %23, %24
-  %.131 = phi ptr [ %21, %23 ], [ %.03053, %24 ]
+  %.131 = phi ptr [ %.03053, %24 ], [ %21, %23 ]
   %27 = load ptr, ptr @global_engine_lock, align 8, !tbaa !21
   %28 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %27) #4
   br label %51
@@ -754,7 +754,7 @@ define ptr @ENGINE_by_id(ptr noundef %0) local_unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %.critedge47, %47, %10, %49, %9, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ %.131, %.critedge47 ], [ null, %49 ], [ null, %9 ], [ %38, %47 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %49 ], [ null, %9 ], [ null, %10 ], [ %.131, %.critedge47 ], [ %38, %47 ]
   ret ptr %.0
 }
 

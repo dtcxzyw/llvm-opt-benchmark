@@ -2829,7 +2829,7 @@ define hidden i32 @s7comm_decode_ud_cpu_szl_subfunc(ptr noundef %0, ptr noundef 
   br label %s7comm_get_szl_id_index_description_text.exit
 
 s7comm_get_szl_id_index_description_text.exit:    ; preds = %25, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47
-  %szl_xy1c_index_names.sink.i = phi ptr [ @szl_xy1c_index_names, %47 ], [ @szl_0111_index_names, %25 ], [ @szl_0132_index_names, %46 ], [ @szl_0131_index_names, %45 ], [ @szl_0524_index_names, %44 ], [ @szl_0222_index_names, %43 ], [ @szl_0121_index_names, %42 ], [ @szl_0119_0174_ledid_index_names, %41 ], [ @szl_0118_index_names, %40 ], [ @szl_0116_index_names, %39 ], [ @szl_0115_index_names, %38 ], [ @szl_0114_index_names, %37 ], [ @szl_0113_index_names, %36 ], [ @szl_0112_index_names, %35 ]
+  %szl_xy1c_index_names.sink.i = phi ptr [ @szl_xy1c_index_names, %47 ], [ @szl_0132_index_names, %46 ], [ @szl_0131_index_names, %45 ], [ @szl_0524_index_names, %44 ], [ @szl_0222_index_names, %43 ], [ @szl_0121_index_names, %42 ], [ @szl_0119_0174_ledid_index_names, %41 ], [ @szl_0118_index_names, %40 ], [ @szl_0116_index_names, %39 ], [ @szl_0115_index_names, %38 ], [ @szl_0114_index_names, %37 ], [ @szl_0113_index_names, %36 ], [ @szl_0112_index_names, %35 ], [ @szl_0111_index_names, %25 ]
   %48 = zext i16 %31 to i32
   %49 = tail call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull %szl_xy1c_index_names.sink.i, ptr noundef nonnull @.str.1788)
   %.not215 = icmp eq ptr %49, null
@@ -2925,7 +2925,7 @@ s7comm_get_szl_id_index_description_text.exit.thread: ; preds = %.s7comm_get_szl
   br label %s7comm_get_szl_id_index_description_text.exit219
 
 s7comm_get_szl_id_index_description_text.exit219: ; preds = %56, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78
-  %szl_xy1c_index_names.sink.i217 = phi ptr [ @szl_xy1c_index_names, %78 ], [ @szl_0111_index_names, %56 ], [ @szl_0132_index_names, %77 ], [ @szl_0131_index_names, %76 ], [ @szl_0524_index_names, %75 ], [ @szl_0222_index_names, %74 ], [ @szl_0121_index_names, %73 ], [ @szl_0119_0174_ledid_index_names, %72 ], [ @szl_0118_index_names, %71 ], [ @szl_0116_index_names, %70 ], [ @szl_0115_index_names, %69 ], [ @szl_0114_index_names, %68 ], [ @szl_0113_index_names, %67 ], [ @szl_0112_index_names, %66 ]
+  %szl_xy1c_index_names.sink.i217 = phi ptr [ @szl_xy1c_index_names, %78 ], [ @szl_0132_index_names, %77 ], [ @szl_0131_index_names, %76 ], [ @szl_0524_index_names, %75 ], [ @szl_0222_index_names, %74 ], [ @szl_0121_index_names, %73 ], [ @szl_0119_0174_ledid_index_names, %72 ], [ @szl_0118_index_names, %71 ], [ @szl_0116_index_names, %70 ], [ @szl_0115_index_names, %69 ], [ @szl_0114_index_names, %68 ], [ @szl_0113_index_names, %67 ], [ @szl_0112_index_names, %66 ], [ @szl_0111_index_names, %56 ]
   %79 = zext i16 %62 to i32
   %80 = tail call ptr @val_to_str_const(i32 noundef %79, ptr noundef nonnull %szl_xy1c_index_names.sink.i217, ptr noundef nonnull @.str.1788)
   %.not = icmp eq ptr %80, null
@@ -3491,7 +3491,7 @@ s7comm_decode_szl_id_xy91_idx_0000.exit:          ; preds = %349, %349, %364, %3
   br label %386
 
 386:                                              ; preds = %385, %384, %383, %382, %381, %380, %379, %378
-  %.0.i223 = phi ptr [ @.str.1851, %385 ], [ @.str.1850, %384 ], [ @.str.1845, %379 ], [ @.str.1846, %380 ], [ @.str.1847, %381 ], [ @.str.1848, %382 ], [ @.str.1849, %383 ], [ @.str.1844, %378 ]
+  %.0.i223 = phi ptr [ @.str.1851, %385 ], [ @.str.1845, %379 ], [ @.str.1846, %380 ], [ @.str.1847, %381 ], [ @.str.1848, %382 ], [ @.str.1849, %383 ], [ @.str.1850, %384 ], [ @.str.1844, %378 ]
   %387 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_0, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %388 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %387, ptr noundef %0, i32 noundef %.1232, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %23)
@@ -4302,7 +4302,7 @@ s7comm_decode_szl_id_0x94_idx_xxxx.exit:          ; preds = %.loopexit.i, %674
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.preheader, %7, %101, %793, %s7comm_get_szl_id_index_description_text.exit.thread
-  %.0206 = phi i32 [ %34, %s7comm_get_szl_id_index_description_text.exit.thread ], [ %6, %7 ], [ %94, %101 ], [ %6, %793 ], [ %94, %.preheader ], [ %.3, %.thread ]
+  %.0206 = phi i32 [ %34, %s7comm_get_szl_id_index_description_text.exit.thread ], [ %94, %101 ], [ %6, %793 ], [ %6, %7 ], [ %94, %.preheader ], [ %.3, %.thread ]
   ret i32 %.0206
 }
 

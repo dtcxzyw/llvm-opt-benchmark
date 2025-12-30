@@ -165,7 +165,7 @@ define hidden noundef i64 @_ZN4core3ptr12align_offset17h7c60ce3beb60297dE(ptr no
   br i1 %7, label %9, label %18
 
 8:                                                ; preds = %9, %_ZN4core3ptr12align_offset7mod_inv17h013d61a74e4005d4E.llvm.12590180234123606466.exit
-  %.0 = phi i64 [ %spec.select, %9 ], [ %34, %_ZN4core3ptr12align_offset7mod_inv17h013d61a74e4005d4E.llvm.12590180234123606466.exit ]
+  %.0 = phi i64 [ %34, %_ZN4core3ptr12align_offset7mod_inv17h013d61a74e4005d4E.llvm.12590180234123606466.exit ], [ %spec.select, %9 ]
   ret i64 %.0
 
 9:                                                ; preds = %2
@@ -1547,7 +1547,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   br label %122
 
 122:                                              ; preds = %118, %120, %51
-  %.0 = phi i64 [ 2, %118 ], [ %., %120 ], [ 1, %51 ]
+  %.0 = phi i64 [ 1, %51 ], [ %., %120 ], [ 2, %118 ]
   %123 = icmp samesign ult i64 %.sroa.5.0, %.0
   br i1 %123, label %38, label %53
 
@@ -5162,7 +5162,7 @@ _ZN16wasmtime_runtime9component17ComponentInstance14instance_flags17h70614a7d14f
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %31
 
-115:                                              ; preds = %33, %6, %25
+115:                                              ; preds = %33, %25, %6
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %116 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !888
@@ -5181,7 +5181,7 @@ _ZN16wasmtime_runtime9component17ComponentInstance14instance_flags17h70614a7d14f
   unreachable
 
 .critedge:                                        ; preds = %.noexc15, %124, %113, %.noexc32.i
-  %eh.lpad-body20 = phi { ptr, i32 } [ %.pn.ph.i, %113 ], [ %.pn.ph.i, %.noexc32.i ], [ %lpad.thr_comm, %.noexc15 ], [ %lpad.thr_comm, %124 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %.pn.ph.i, %.noexc32.i ], [ %.pn.ph.i, %113 ], [ %lpad.thr_comm, %124 ], [ %lpad.thr_comm, %.noexc15 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 .noexc15:                                         ; preds = %118, %115

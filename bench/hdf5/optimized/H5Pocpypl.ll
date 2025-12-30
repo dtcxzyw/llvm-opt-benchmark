@@ -101,14 +101,14 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_reg_prop(ptr noundef %0) #0 {
   br i1 %16, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %14, %11, %8
-  %.sink = phi i32 [ 166, %11 ], [ 157, %8 ], [ 173, %14 ]
+  %.sink = phi i32 [ 157, %8 ], [ 166, %11 ], [ 173, %14 ]
   %17 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %18 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__ocpy_reg_prop, i32 noundef %.sink, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.23) #8
   br label %20
 
 20:                                               ; preds = %.sink.split, %14, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %14 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %1 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

@@ -1047,7 +1047,7 @@ do_compute_shiftstate.exit.sink.split:            ; preds = %2, %6, %74
   br label %do_compute_shiftstate.exit
 
 do_compute_shiftstate.exit:                       ; preds = %68, %34, %do_compute_shiftstate.exit.sink.split, %40, %7, %2
-  %79 = phi i32 [ 0, %7 ], [ 0, %do_compute_shiftstate.exit.sink.split ], [ -22, %2 ], [ 0, %40 ], [ 0, %34 ], [ 0, %68 ]
+  %79 = phi i32 [ -22, %2 ], [ 0, %7 ], [ 0, %40 ], [ 0, %do_compute_shiftstate.exit.sink.split ], [ 0, %34 ], [ 0, %68 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %5) #19
   ret i32 %79
 }
@@ -1389,7 +1389,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   br label %141
 
 141:                                              ; preds = %.critedge, %140, %130, %92, %87, %78, %74, %46, %44, %35, %10, %4
-  %142 = phi i32 [ %43, %35 ], [ -14, %4 ], [ -1, %46 ], [ -1, %44 ], [ 0, %10 ], [ 0, %74 ], [ 0, %140 ], [ -1, %130 ], [ -1, %.critedge ], [ %86, %78 ], [ %91, %87 ], [ -12, %92 ]
+  %142 = phi i32 [ %43, %35 ], [ -14, %4 ], [ -1, %46 ], [ -1, %44 ], [ 0, %10 ], [ 0, %74 ], [ 0, %140 ], [ -1, %130 ], [ %86, %78 ], [ %91, %87 ], [ -12, %92 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %142
 }
@@ -1479,13 +1479,13 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   br label %52
 
 52:                                               ; preds = %21, %32, %33, %49, %11
-  %53 = phi i32 [ 0, %11 ], [ 0, %49 ], [ -14, %32 ], [ -28, %21 ], [ %37, %33 ]
-  %54 = phi ptr [ null, %11 ], [ %51, %49 ], [ %19, %32 ], [ %19, %21 ], [ %19, %33 ]
+  %53 = phi i32 [ 0, %11 ], [ 0, %49 ], [ -28, %21 ], [ %37, %33 ], [ -14, %32 ]
+  %54 = phi ptr [ null, %11 ], [ %51, %49 ], [ %19, %21 ], [ %19, %33 ], [ %19, %32 ]
   tail call void @kfree(ptr noundef %54) #19
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %52, %46, %40, %38, %3
-  %55 = phi i32 [ %53, %52 ], [ %48, %46 ], [ -12, %17 ], [ -14, %3 ], [ -1, %40 ], [ -1, %38 ]
+  %55 = phi i32 [ %53, %52 ], [ %48, %46 ], [ -14, %3 ], [ -1, %40 ], [ -1, %38 ], [ -12, %17 ]
   ret i32 %55
 }
 
@@ -4628,8 +4628,8 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
   br label %45
 
 45:                                               ; preds = %32, %.thread7
-  %46 = phi i1 [ %36, %32 ], [ false, %.thread7 ]
-  %47 = phi i32 [ %spec.select, %32 ], [ %31, %.thread7 ]
+  %46 = phi i1 [ false, %.thread7 ], [ %36, %32 ]
+  %47 = phi i32 [ %31, %.thread7 ], [ %spec.select, %32 ]
   store i32 %47, ptr @shift_state, align 4
   %48 = icmp eq i32 %47, %6
   %49 = select i1 %46, i1 true, i1 %48

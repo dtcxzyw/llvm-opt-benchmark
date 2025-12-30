@@ -1434,7 +1434,7 @@ _ZN5arrow7is_listENS_4Type4typeE.exit:            ; preds = %.preheader
   br label %.preheader, !llvm.loop !112
 
 .critedge10:                                      ; preds = %_ZN5arrow7is_listENS_4Type4typeE.exit, %13, %3
-  %.lcssa.sink = phi ptr [ %10, %13 ], [ %10, %3 ], [ %17, %_ZN5arrow7is_listENS_4Type4typeE.exit ]
+  %.lcssa.sink = phi ptr [ %10, %3 ], [ %10, %13 ], [ %17, %_ZN5arrow7is_listENS_4Type4typeE.exit ]
   store ptr null, ptr %0, align 8, !tbaa !74
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.lcssa.sink, ptr %23, align 8, !tbaa !77
@@ -3275,8 +3275,8 @@ define noundef zeroext i1 @_ZN5arrow7compute8internal24CommonTemporalResolutionE
   br label %23
 
 23:                                               ; preds = %.lr.ph, %22, %19, %16, %13, %10, %9
-  %24 = phi i32 [ %5, %22 ], [ %.sroa.speculated, %19 ], [ %.sroa.speculated46, %9 ], [ %.sroa.speculated42, %10 ], [ %.sroa.speculated38, %13 ], [ %.sroa.speculated34, %16 ], [ %5, %.lr.ph ]
-  %.1 = phi i1 [ %.051, %22 ], [ true, %19 ], [ true, %9 ], [ true, %10 ], [ true, %13 ], [ true, %16 ], [ true, %.lr.ph ]
+  %24 = phi i32 [ %5, %22 ], [ %.sroa.speculated46, %9 ], [ %.sroa.speculated42, %10 ], [ %.sroa.speculated38, %13 ], [ %.sroa.speculated34, %16 ], [ %.sroa.speculated, %19 ], [ %5, %.lr.ph ]
+  %.1 = phi i1 [ %.051, %22 ], [ true, %9 ], [ true, %10 ], [ true, %13 ], [ true, %16 ], [ true, %19 ], [ true, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %.02750, i64 24
   %.not = icmp eq ptr %25, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
@@ -3376,7 +3376,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %.thread115
 
-40:                                               ; preds = %36, %14, %.lr.ph, %30, %33, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100
+40:                                               ; preds = %14, %30, %33, %36, %.lr.ph, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100
   %.299.ph = phi i32 [ %.sroa.speculated, %36 ], [ %.sroa.speculated67, %33 ], [ %.sroa.speculated71, %30 ], [ %.sroa.speculated75, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.sroa.speculated79, %14 ], [ %.097136, %.lr.ph ]
   %.251.ph = phi i1 [ %.049138, %36 ], [ true, %33 ], [ true, %30 ], [ %.049138, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.049138, %14 ], [ %.049138, %.lr.ph ]
   %.248.ph = phi i1 [ true, %36 ], [ %.046139, %33 ], [ %.046139, %30 ], [ %.046139, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread100 ], [ %.046139, %14 ], [ %.046139, %.lr.ph ]
@@ -3613,10 +3613,10 @@ define void @_ZN5arrow7compute8internal12CommonBinaryEPKNS_10TypeHolderEm(ptr de
 11:                                               ; preds = %.lr.ph
   br label %12
 
-12:                                               ; preds = %11, %8, %9, %10, %.lr.ph
-  %.222.ph = phi i1 [ false, %.lr.ph ], [ false, %10 ], [ %.02076, %9 ], [ false, %8 ], [ false, %11 ]
-  %.219.ph = phi i8 [ %.01777, %.lr.ph ], [ 0, %10 ], [ %.01777, %9 ], [ %.01777, %8 ], [ 0, %11 ]
-  %.2.ph = phi i1 [ %.079, %.lr.ph ], [ %.079, %10 ], [ false, %9 ], [ false, %8 ], [ false, %11 ]
+12:                                               ; preds = %8, %9, %10, %11, %.lr.ph
+  %.222.ph = phi i1 [ false, %.lr.ph ], [ false, %11 ], [ false, %10 ], [ %.02076, %9 ], [ false, %8 ]
+  %.219.ph = phi i8 [ %.01777, %.lr.ph ], [ 0, %11 ], [ 0, %10 ], [ %.01777, %9 ], [ %.01777, %8 ]
+  %.2.ph = phi i1 [ %.079, %.lr.ph ], [ false, %11 ], [ %.079, %10 ], [ false, %9 ], [ false, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %.01678, i64 24
   %.not = icmp eq ptr %13, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
@@ -4245,8 +4245,8 @@ _ZN5arrow6ResultIiED2Ev.exit107:                  ; preds = %_ZN5arrow26MaxDecim
   br label %180
 
 180:                                              ; preds = %170, %174, %171
-  %.053 = phi i32 [ 0, %170 ], [ %172, %171 ], [ %179, %174 ]
-  %.052 = phi i32 [ 0, %170 ], [ %173, %171 ], [ 0, %174 ]
+  %.053 = phi i32 [ %172, %171 ], [ %179, %174 ], [ 0, %170 ]
+  %.052 = phi i32 [ %173, %171 ], [ 0, %174 ], [ 0, %170 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %181 = add nsw i32 %.053, %.057
   %182 = add nsw i32 %.053, %.0
@@ -4856,7 +4856,7 @@ define void @_ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm(ptr 
   %spec.select = select i1 %16, i32 24, i32 %.049175
   br label %17
 
-17:                                               ; preds = %13, %.lr.ph, %11
+17:                                               ; preds = %.lr.ph, %11, %13
   %.2.ph = phi i32 [ %.sroa.speculated142, %13 ], [ %.0150172, %11 ], [ %.0150172, %.lr.ph ]
   %.353.ph = phi i1 [ %.050174, %13 ], [ %.050174, %11 ], [ true, %.lr.ph ]
   %.3.ph = phi i32 [ %spec.select, %13 ], [ %.049175, %11 ], [ %.049175, %.lr.ph ]
@@ -5396,7 +5396,7 @@ define noundef zeroext i1 @_ZN5arrow7compute8internal10HasDecimalERKSt6vectorINS
   br i1 %.not13.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %1
-  %.sroa.08.014 = phi ptr [ %9, %.lr.ph ], [ %2, %1 ]
+  %.sroa.08.014 = phi ptr [ %2, %1 ], [ %9, %.lr.ph ]
   %5 = load ptr, ptr %.sroa.08.014, align 8, !tbaa !77
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !98
@@ -5532,7 +5532,7 @@ define void @_ZN5arrow7compute8internal35PromoteIntegerForDurationArithmeticEPSt
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit39", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit41", %31, %36, %41
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.1.i.i.i.i.i, %36 ], [ %spec.select.i.i.i.i.i, %41 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %31 ], [ %46, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit41" ], [ %45, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit39" ], [ %44, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit" ], [ %.sroa.037.056.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %31 ], [ %.sroa.037.1.i.i.i.i.i, %36 ], [ %spec.select.i.i.i.i.i, %41 ], [ %44, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit39" ], [ %46, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN5arrow10TypeHolderESt6vectorIS3_SaIS3_EEEEZNS2_7compute8internal35PromoteIntegerForDurationArithmeticEPS7_E3$_0EbT_SD_T0_.exit.loopexit.split.loop.exit41" ], [ %.sroa.037.056.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not = icmp eq ptr %4, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   %.not1928 = icmp eq ptr %2, %4
   %or.cond = or i1 %.not, %.not1928

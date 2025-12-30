@@ -80,7 +80,7 @@ define hidden zeroext i16 @inStream_skipBytes(ptr noundef captures(none) %0, i32
   br label %readBytes.exit
 
 readBytes.exit:                                   ; preds = %2, %9, %10
-  %.0.i = phi i16 [ 0, %10 ], [ 113, %9 ], [ %4, %2 ]
+  %.0.i = phi i16 [ 113, %9 ], [ 0, %10 ], [ %4, %2 ]
   ret i16 %.0.i
 }
 
@@ -506,7 +506,7 @@ inStream_readLong.exit:                           ; preds = %5
   br label %inStream_readLong.exit.thread
 
 inStream_readLong.exit.thread:                    ; preds = %2, %9, %inStream_readLong.exit, %25, %24, %18
-  %.0 = phi ptr [ %16, %25 ], [ null, %inStream_readLong.exit ], [ null, %18 ], [ null, %24 ], [ null, %9 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %24 ], [ %16, %25 ], [ null, %inStream_readLong.exit ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -606,8 +606,8 @@ inStream_readLong.exit.i:                         ; preds = %5
   store i16 21, ptr %3, align 4
   br label %inStream_readObjectRef.exit.thread
 
-inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %24, %18, %inStream_readLong.exit.i, %25, %27
-  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %inStream_readLong.exit.i ], [ null, %18 ], [ null, %24 ], [ null, %9 ], [ null, %2 ]
+inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_readLong.exit.i, %24, %18, %25, %27
+  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %18 ], [ null, %24 ], [ null, %inStream_readLong.exit.i ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -671,8 +671,8 @@ inStream_readLong.exit.i:                         ; preds = %5
   store i16 10, ptr %3, align 4
   br label %inStream_readObjectRef.exit.thread
 
-inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %24, %18, %inStream_readLong.exit.i, %25, %27
-  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %inStream_readLong.exit.i ], [ null, %18 ], [ null, %24 ], [ null, %9 ], [ null, %2 ]
+inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_readLong.exit.i, %24, %18, %25, %27
+  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %18 ], [ null, %24 ], [ null, %inStream_readLong.exit.i ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -736,8 +736,8 @@ inStream_readLong.exit.i:                         ; preds = %5
   store i16 11, ptr %3, align 4
   br label %inStream_readObjectRef.exit.thread
 
-inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %24, %18, %inStream_readLong.exit.i, %25, %27
-  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %inStream_readLong.exit.i ], [ null, %18 ], [ null, %24 ], [ null, %9 ], [ null, %2 ]
+inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_readLong.exit.i, %24, %18, %25, %27
+  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %18 ], [ null, %24 ], [ null, %inStream_readLong.exit.i ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -801,8 +801,8 @@ inStream_readLong.exit.i:                         ; preds = %5
   store i16 506, ptr %3, align 4
   br label %inStream_readObjectRef.exit.thread
 
-inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %24, %18, %inStream_readLong.exit.i, %25, %27
-  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %inStream_readLong.exit.i ], [ null, %18 ], [ null, %24 ], [ null, %9 ], [ null, %2 ]
+inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_readLong.exit.i, %24, %18, %25, %27
+  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %18 ], [ null, %24 ], [ null, %inStream_readLong.exit.i ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -866,8 +866,8 @@ inStream_readLong.exit.i:                         ; preds = %5
   store i16 507, ptr %3, align 4
   br label %inStream_readObjectRef.exit.thread
 
-inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %24, %18, %inStream_readLong.exit.i, %25, %27
-  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %inStream_readLong.exit.i ], [ null, %18 ], [ null, %24 ], [ null, %9 ], [ null, %2 ]
+inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_readLong.exit.i, %24, %18, %25, %27
+  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %18 ], [ null, %24 ], [ null, %inStream_readLong.exit.i ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -931,8 +931,8 @@ inStream_readLong.exit.i:                         ; preds = %5
   store i16 508, ptr %3, align 4
   br label %inStream_readObjectRef.exit.thread
 
-inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %24, %18, %inStream_readLong.exit.i, %25, %27
-  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %inStream_readLong.exit.i ], [ null, %18 ], [ null, %24 ], [ null, %9 ], [ null, %2 ]
+inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_readLong.exit.i, %24, %18, %25, %27
+  %.0 = phi ptr [ null, %27 ], [ %16, %25 ], [ null, %18 ], [ null, %24 ], [ null, %inStream_readLong.exit.i ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1251,7 +1251,7 @@ inStream_readLong.exit.i:                         ; preds = %17
   br label %inStream_readObjectRef.exit
 
 inStream_readObjectRef.exit:                      ; preds = %14, %20, %inStream_readLong.exit.i, %29, %35, %36
-  %.0.i58 = phi i64 [ %37, %36 ], [ 0, %inStream_readLong.exit.i ], [ 0, %29 ], [ 0, %35 ], [ 0, %20 ], [ 0, %14 ]
+  %.0.i58 = phi i64 [ 0, %29 ], [ 0, %35 ], [ %37, %36 ], [ 0, %inStream_readLong.exit.i ], [ 0, %20 ], [ 0, %14 ]
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc34 = trunc i64 %.0.i58 to i8
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4356 = lshr i64 %.0.i58, 8
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc44 = trunc i64 %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4356 to i16
@@ -1471,10 +1471,10 @@ inStream_readShort.exit:                          ; preds = %88, %93, %94
   br label %inStream_readByte.exit62
 
 inStream_readByte.exit62:                         ; preds = %8, %1, %105, %104, %99, %45, %44, %39, %inStream_readObjectRef.exit, %111, %inStream_readShort.exit, %inStream_readLong.exit, %inStream_readInt.exit, %63, %60, %inStream_readChar.exit
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %45 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc26, %inStream_readObjectRef.exit ], [ 0, %111 ], [ 0, %105 ], [ 0, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %60 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc28, %63 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift23, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc30, %inStream_readLong.exit ], [ 0, %inStream_readShort.exit ], [ 0, %8 ], [ 0, %39 ], [ 0, %44 ], [ 0, %99 ], [ 0, %104 ], [ 0, %1 ]
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %45 ], [ %.sroa.0.sroa.11.0.extract.shift, %inStream_readObjectRef.exit ], [ 0, %111 ], [ 0, %105 ], [ 0, %inStream_readChar.exit ], [ 0, %60 ], [ %.sroa.0.sroa.11.0.extract.shift15, %63 ], [ 0, %inStream_readInt.exit ], [ %.sroa.0.sroa.11.0.extract.shift17, %inStream_readLong.exit ], [ 0, %inStream_readShort.exit ], [ 0, %8 ], [ 0, %39 ], [ 0, %44 ], [ 0, %99 ], [ 0, %104 ], [ 0, %1 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %.0.copyload.i61, %45 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc34, %inStream_readObjectRef.exit ], [ undef, %111 ], [ %110, %105 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc32, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc35, %63 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc33, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc36, %inStream_readLong.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc31, %inStream_readShort.exit ], [ 0, %8 ], [ 0, %39 ], [ 0, %44 ], [ 0, %99 ], [ 0, %104 ], [ 0, %1 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %45 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc44, %inStream_readObjectRef.exit ], [ 0, %111 ], [ 0, %105 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc40, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc46, %63 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc42, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc48, %inStream_readLong.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift37, %inStream_readShort.exit ], [ 0, %8 ], [ 0, %39 ], [ 0, %44 ], [ 0, %99 ], [ 0, %104 ], [ 0, %1 ]
+  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc26, %inStream_readObjectRef.exit ], [ 0, %111 ], [ 0, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %60 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc28, %63 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift23, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc30, %inStream_readLong.exit ], [ 0, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %99 ], [ 0, %104 ], [ 0, %105 ], [ 0, %1 ], [ 0, %8 ]
+  %.sroa.0.sroa.11.0 = phi i64 [ %.sroa.0.sroa.11.0.extract.shift, %inStream_readObjectRef.exit ], [ 0, %111 ], [ 0, %inStream_readChar.exit ], [ 0, %60 ], [ %.sroa.0.sroa.11.0.extract.shift15, %63 ], [ 0, %inStream_readInt.exit ], [ %.sroa.0.sroa.11.0.extract.shift17, %inStream_readLong.exit ], [ 0, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %99 ], [ 0, %104 ], [ 0, %105 ], [ 0, %1 ], [ 0, %8 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc34, %inStream_readObjectRef.exit ], [ undef, %111 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc32, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc35, %63 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc33, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc36, %inStream_readLong.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc31, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ %.0.copyload.i61, %45 ], [ 0, %99 ], [ 0, %104 ], [ %110, %105 ], [ 0, %1 ], [ 0, %8 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc44, %inStream_readObjectRef.exit ], [ 0, %111 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc40, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc46, %63 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc42, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc48, %inStream_readLong.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift37, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %99 ], [ 0, %104 ], [ 0, %105 ], [ 0, %1 ], [ 0, %8 ]
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, 8
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext

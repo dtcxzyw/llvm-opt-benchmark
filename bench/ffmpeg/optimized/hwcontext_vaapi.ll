@@ -164,7 +164,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br label %124
 
 23:                                               ; preds = %14, %9
-  %24 = phi i32 [ 40, %9 ], [ 16, %14 ]
+  %24 = phi i32 [ 16, %14 ], [ 40, %9 ]
   %.not152 = icmp eq ptr %1, null
   br i1 %.not152, label %29, label %25
 
@@ -450,7 +450,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br label %124
 
 124:                                              ; preds = %104, %119, %111, %112, %4, %.critedge, %110, %22
-  %.0 = phi i32 [ -22, %22 ], [ %123, %.critedge ], [ -542398533, %119 ], [ -12, %4 ], [ -1313558101, %110 ], [ -22, %111 ], [ -22, %112 ], [ -542398533, %104 ]
+  %.0 = phi i32 [ -22, %22 ], [ %123, %.critedge ], [ -542398533, %119 ], [ -1313558101, %110 ], [ -12, %4 ], [ -22, %112 ], [ -22, %111 ], [ -542398533, %104 ]
   ret i32 %.0
 }
 
@@ -551,7 +551,7 @@ define internal range(i32 -38, 1) i32 @vaapi_device_derive(ptr noundef %0, ptr n
   br label %46
 
 46:                                               ; preds = %31, %4, %13, %43, %44, %36, %35
-  %.2 = phi i32 [ -12, %35 ], [ -22, %13 ], [ %45, %44 ], [ -5, %43 ], [ -22, %31 ], [ -12, %36 ], [ -38, %4 ]
+  %.2 = phi i32 [ -22, %13 ], [ %45, %44 ], [ -5, %43 ], [ -22, %31 ], [ -12, %36 ], [ -12, %35 ], [ -38, %4 ]
   ret i32 %.2
 }
 
@@ -854,7 +854,7 @@ vaapi_pix_fmt_from_fourcc.exit:                   ; preds = %42
   br label %vaapi_pix_fmt_from_fourcc.exit.thread
 
 vaapi_pix_fmt_from_fourcc.exit.thread:            ; preds = %41, %vaapi_pix_fmt_from_fourcc.exit, %35, %47, %50, %53, %56
-  %.1 = phi i32 [ %.082119, %35 ], [ %.082119, %56 ], [ %.082119, %53 ], [ %.082119, %47 ], [ %.082119, %50 ], [ %46, %vaapi_pix_fmt_from_fourcc.exit ], [ %.082119, %41 ]
+  %.1 = phi i32 [ %.082119, %35 ], [ %.082119, %47 ], [ %.082119, %50 ], [ %.082119, %53 ], [ %.082119, %56 ], [ %46, %vaapi_pix_fmt_from_fourcc.exit ], [ %.082119, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !68
@@ -948,8 +948,8 @@ vaapi_pix_fmt_from_fourcc.exit109:                ; preds = %75
   br label %vaapi_pix_fmt_from_fourcc.exit109.thread
 
 vaapi_pix_fmt_from_fourcc.exit109.thread:         ; preds = %74, %._crit_edge122, %._crit_edge122.thread, %.lr.ph128
-  %91 = phi i32 [ %68, %._crit_edge122 ], [ %68, %.lr.ph128 ], [ %.pre, %._crit_edge122.thread ], [ %68, %74 ]
-  %.184 = phi i32 [ %.083127, %._crit_edge122 ], [ %.083127, %.lr.ph128 ], [ %88, %._crit_edge122.thread ], [ %.083127, %74 ]
+  %91 = phi i32 [ %68, %.lr.ph128 ], [ %.pre, %._crit_edge122.thread ], [ %68, %._crit_edge122 ], [ %68, %74 ]
+  %.184 = phi i32 [ %.083127, %.lr.ph128 ], [ %88, %._crit_edge122.thread ], [ %.083127, %._crit_edge122 ], [ %.083127, %74 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next149, %92
@@ -1062,7 +1062,7 @@ vaapi_pix_fmt_from_fourcc.exit109.thread:         ; preds = %74, %._crit_edge122
   br label %134
 
 134:                                              ; preds = %130, %96, %61, %18, %132, %33, %16
-  %.088 = phi i32 [ 0, %132 ], [ -12, %96 ], [ -12, %61 ], [ -38, %16 ], [ -38, %33 ], [ -12, %18 ], [ -12, %130 ]
+  %.088 = phi i32 [ 0, %132 ], [ -38, %16 ], [ -38, %33 ], [ -12, %18 ], [ -12, %61 ], [ -12, %96 ], [ -12, %130 ]
   call void @av_freep(ptr noundef nonnull %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1376,7 +1376,7 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
   br label %138
 
 .sink.split:                                      ; preds = %94, %.thread118, %88
-  %.str.59.sink = phi ptr [ @.str.58, %.thread118 ], [ @.str.57, %88 ], [ @.str.59, %94 ]
+  %.str.59.sink = phi ptr [ @.str.57, %88 ], [ @.str.58, %.thread118 ], [ @.str.59, %94 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.59.sink) #12
   br label %135
 
@@ -1597,7 +1597,7 @@ define internal i32 @vaapi_transfer_data_to(ptr noundef %0, ptr noundef %1, ptr 
   br label %30
 
 30:                                               ; preds = %16, %3, %10, %29
-  %.013 = phi i32 [ -22, %3 ], [ %.0, %29 ], [ -22, %10 ], [ -12, %16 ]
+  %.013 = phi i32 [ %.0, %29 ], [ -22, %10 ], [ -22, %3 ], [ -12, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
@@ -1652,7 +1652,7 @@ define internal i32 @vaapi_transfer_data_from(ptr noundef %0, ptr noundef %1, pt
   br label %30
 
 30:                                               ; preds = %16, %3, %10, %29
-  %.013 = phi i32 [ -22, %3 ], [ %.0, %29 ], [ -22, %10 ], [ -12, %16 ]
+  %.013 = phi i32 [ %.0, %29 ], [ -22, %10 ], [ -22, %3 ], [ -12, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
@@ -2128,7 +2128,7 @@ vaapi_format_from_fourcc.exit.i:                  ; preds = %47
   br label %vaapi_map_from_drm.exit
 
 vaapi_map_from_drm.exit:                          ; preds = %42, %.thread.i, %212, %.thread179.i, %221
-  %.0.i = phi i32 [ -22, %42 ], [ -5, %212 ], [ -22, %.thread.i ], [ 0, %221 ], [ %219, %.thread179.i ]
+  %.0.i = phi i32 [ -22, %42 ], [ -5, %212 ], [ 0, %221 ], [ -22, %.thread.i ], [ %219, %.thread179.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %233
 
@@ -2339,7 +2339,7 @@ vaapi_map_to_drm_esh.exit.thread20.i:             ; preds = %25
   br i1 %101, label %95, label %vaapi_map_to_drm_esh.exit.i, !llvm.loop !188
 
 vaapi_map_to_drm_esh.exit.thread.i:               ; preds = %84, %29, %23
-  %.068.i.ph.i = phi i32 [ -5, %29 ], [ 0, %84 ], [ -5, %23 ]
+  %.068.i.ph.i = phi i32 [ 0, %84 ], [ -5, %29 ], [ -5, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %vaapi_map_to_drm.exit
@@ -2605,7 +2605,7 @@ vaapi_get_image_format.exit.i:                    ; preds = %214, %4
   br label %vaapi_map_to_drm.exit
 
 vaapi_map_to_drm.exit:                            ; preds = %213, %219, %vaapi_get_image_format.exit.i, %204, %vaapi_map_to_drm_abh.exit.i, %vaapi_map_to_drm_esh.exit.i, %vaapi_map_to_drm_esh.exit.thread.i
-  %.0 = phi i32 [ %.068.i.ph.i, %vaapi_map_to_drm_esh.exit.thread.i ], [ %.0.i.i, %vaapi_map_to_drm_abh.exit.i ], [ %.065.i.i, %vaapi_map_to_drm_esh.exit.i ], [ %218, %vaapi_get_image_format.exit.i ], [ %220, %219 ], [ -38, %204 ], [ -38, %213 ]
+  %.0 = phi i32 [ %.0.i.i, %vaapi_map_to_drm_abh.exit.i ], [ %.065.i.i, %vaapi_map_to_drm_esh.exit.i ], [ %.068.i.ph.i, %vaapi_map_to_drm_esh.exit.thread.i ], [ %218, %vaapi_get_image_format.exit.i ], [ %220, %219 ], [ -38, %204 ], [ -38, %213 ]
   ret i32 %.0
 }
 
@@ -2871,7 +2871,7 @@ define internal ptr @vaapi_pool_alloc(ptr noundef %0, i64 %1) #0 {
   br label %56
 
 56:                                               ; preds = %40, %48, %13, %37, %29
-  %.0 = phi ptr [ null, %37 ], [ null, %29 ], [ null, %13 ], [ %36, %48 ], [ %36, %40 ]
+  %.0 = phi ptr [ null, %29 ], [ null, %37 ], [ null, %13 ], [ %36, %48 ], [ %36, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -3203,7 +3203,7 @@ vaapi_format_from_fourcc.exit:                    ; preds = %127
   br label %vaapi_get_image_format.exit.thread
 
 vaapi_get_image_format.exit.thread:               ; preds = %37, %126, %vaapi_format_from_fourcc.exit, %28, %131, %42, %26, %4, %148
-  %.0 = phi i32 [ -22, %4 ], [ -22, %26 ], [ %.0110, %148 ], [ -12, %42 ], [ -38, %28 ], [ 0, %131 ], [ 0, %vaapi_format_from_fourcc.exit ], [ 0, %126 ], [ -38, %37 ]
+  %.0 = phi i32 [ %.0110, %148 ], [ -22, %4 ], [ -22, %26 ], [ -12, %42 ], [ 0, %131 ], [ 0, %vaapi_format_from_fourcc.exit ], [ -38, %28 ], [ 0, %126 ], [ -38, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -654,8 +654,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3
   br label %.critedge54.thread.sink.split
 
 .critedge54.thread.sink.split:                    ; preds = %22, %.critedge54.thread.sink.split.sink.split, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit
-  %.sink = phi i16 [ %207, %.critedge54.thread.sink.split.sink.split ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit ], [ %.040159, %22 ]
-  %.ph = phi ptr [ %121, %.critedge54.thread.sink.split.sink.split ], [ %121, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit ], [ %12, %22 ]
+  %.sink = phi i16 [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit ], [ %207, %.critedge54.thread.sink.split.sink.split ], [ %.040159, %22 ]
+  %.ph = phi ptr [ %121, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit ], [ %121, %.critedge54.thread.sink.split.sink.split ], [ %12, %22 ]
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 98
   store i16 %.sink, ptr %208, align 2, !tbaa !58
   br label %.critedge54.thread

@@ -369,7 +369,7 @@ parse_dispatch_option.exit:                       ; preds = %113
   tail call void @PostgresSingleUserMain(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %126) #18
   unreachable
 
-parse_dispatch_option.exit.thread:                ; preds = %118, %.critedge28.thread, %.critedge28.thread.thread, %.critedge28
+parse_dispatch_option.exit.thread:                ; preds = %118, %.critedge28, %.critedge28.thread, %.critedge28.thread.thread
   tail call void @PostmasterMain(i32 noundef %0, ptr noundef nonnull %5) #18
   unreachable
 

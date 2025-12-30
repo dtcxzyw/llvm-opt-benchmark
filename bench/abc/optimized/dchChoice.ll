@@ -353,7 +353,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %13, %7, %Aig_ObjRep
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %1
-  %str.1.sink = phi ptr [ %spec.select, %.critedge ], [ @str, %1 ]
+  %str.1.sink = phi ptr [ @str, %1 ], [ %spec.select, %.critedge ]
   %puts49 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
   ret void
 }
@@ -545,7 +545,7 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
   br label %94
 
 94:                                               ; preds = %.critedge, %.critedge.thread
-  %str.3.sink = phi ptr [ %spec.select, %.critedge ], [ @str.2, %.critedge.thread ]
+  %str.3.sink = phi ptr [ @str.2, %.critedge.thread ], [ %spec.select, %.critedge ]
   %puts48 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.3.sink)
   ret void
 }
@@ -724,7 +724,7 @@ Aig_ObjEquiv.exit.thread:                         ; preds = %58, %Aig_ObjEquiv.e
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %56, %55, %34, %35, %23, %24, %10, %9, %Aig_ObjEquiv.exit.thread
-  %.047 = phi i32 [ 0, %56 ], [ 0, %55 ], [ 0, %34 ], [ 1, %Aig_ObjEquiv.exit.thread ], [ 0, %23 ], [ 1, %3 ], [ 0, %9 ], [ 0, %10 ], [ 0, %24 ], [ 0, %35 ]
+  %.047 = phi i32 [ 1, %Aig_ObjEquiv.exit.thread ], [ 0, %9 ], [ 0, %10 ], [ 0, %24 ], [ 0, %23 ], [ 0, %35 ], [ 0, %34 ], [ 0, %55 ], [ 0, %56 ], [ 1, %3 ]
   ret i32 %.047
 }
 
@@ -898,7 +898,7 @@ Aig_ObjEquiv.exit:                                ; preds = %25
   br i1 %31, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %25, %Aig_ObjEquiv.exit, %6, %9, %11, %13, %19, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %25 ], [ 0, %6 ], [ 1, %9 ], [ 0, %11 ], [ 1, %13 ], [ 1, %19 ], [ 0, %Aig_ObjEquiv.exit ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %25 ], [ 1, %19 ], [ 1, %13 ], [ 0, %11 ], [ 1, %9 ], [ 0, %6 ], [ 0, %Aig_ObjEquiv.exit ]
   ret i32 %.0
 }
 
@@ -1002,8 +1002,8 @@ Aig_ObjRepr.exit:                                 ; preds = %4
   br label %175
 
 Aig_ObjRepr.exit.thread:                          ; preds = %11, %4, %Aig_ObjRepr.exit
-  %.not74 = phi i1 [ true, %Aig_ObjRepr.exit ], [ false, %11 ], [ true, %4 ]
-  %26 = phi ptr [ null, %Aig_ObjRepr.exit ], [ %10, %11 ], [ null, %4 ]
+  %.not74 = phi i1 [ true, %Aig_ObjRepr.exit ], [ true, %4 ], [ false, %11 ]
+  %26 = phi ptr [ null, %Aig_ObjRepr.exit ], [ null, %4 ], [ %10, %11 ]
   %27 = getelementptr i8, ptr %2, i64 8
   %.val59 = load ptr, ptr %27, align 8, !tbaa !22
   %28 = ptrtoint ptr %.val59 to i64

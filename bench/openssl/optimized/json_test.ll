@@ -396,7 +396,7 @@ helper_set_flags.exit.i:                          ; preds = %24, %18
   br label %helper_ensure.exit.i
 
 helper_ensure.exit.i:                             ; preds = %39, %37, %29, %25
-  %.0.i.i = phi i32 [ 1, %25 ], [ 1, %39 ], [ 0, %37 ], [ 0, %29 ]
+  %.0.i.i = phi i32 [ 1, %39 ], [ 0, %37 ], [ 1, %25 ], [ 0, %29 ]
   %40 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 572, ptr noundef nonnull @.str.4, i32 noundef %.0.i.i) #6
   %.not280.i = icmp eq i32 %40, 0
   br i1 %.not280.i, label %.thread351.i, label %.thread.i
@@ -439,7 +439,7 @@ helper_ensure.exit.i:                             ; preds = %39, %37, %29, %25
   br label %helper_ensure.exit303.i
 
 helper_ensure.exit303.i:                          ; preds = %54, %52, %44, %41
-  %.0.i300.i = phi i32 [ 1, %41 ], [ 1, %54 ], [ 0, %52 ], [ 0, %44 ]
+  %.0.i300.i = phi i32 [ 1, %54 ], [ 0, %52 ], [ 1, %41 ], [ 0, %44 ]
   %55 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 582, ptr noundef nonnull @.str.4, i32 noundef %.0.i300.i) #6
   %.not279.i = icmp eq i32 %55, 0
   br i1 %.not279.i, label %.thread351.i, label %.thread336.i
@@ -486,7 +486,7 @@ helper_ensure.exit303.i:                          ; preds = %54, %52, %44, %41
   br label %helper_ensure.exit308.i
 
 helper_ensure.exit308.i:                          ; preds = %71, %69, %61, %58
-  %.0.i305.i = phi i32 [ 1, %58 ], [ 1, %71 ], [ 0, %69 ], [ 0, %61 ]
+  %.0.i305.i = phi i32 [ 1, %71 ], [ 0, %69 ], [ 1, %58 ], [ 0, %61 ]
   %72 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 592, ptr noundef nonnull @.str.4, i32 noundef %.0.i305.i) #6
   %.not278.i = icmp eq i32 %72, 0
   br i1 %.not278.i, label %.thread351.i, label %.thread339.i
@@ -532,7 +532,7 @@ helper_ensure.exit308.i:                          ; preds = %71, %69, %61, %58
   br label %helper_ensure.exit313.i
 
 helper_ensure.exit313.i:                          ; preds = %87, %85, %77, %74
-  %.0.i310.i = phi i32 [ 1, %74 ], [ 1, %87 ], [ 0, %85 ], [ 0, %77 ]
+  %.0.i310.i = phi i32 [ 1, %87 ], [ 0, %85 ], [ 1, %74 ], [ 0, %77 ]
   %88 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 602, ptr noundef nonnull @.str.4, i32 noundef %.0.i310.i) #6
   %.not277.i = icmp eq i32 %88, 0
   br i1 %.not277.i, label %.thread351.i, label %.thread342.i
@@ -578,7 +578,7 @@ helper_ensure.exit313.i:                          ; preds = %87, %85, %77, %74
   br label %helper_ensure.exit318.i
 
 helper_ensure.exit318.i:                          ; preds = %103, %101, %93, %90
-  %.0.i315.i = phi i32 [ 1, %90 ], [ 1, %103 ], [ 0, %101 ], [ 0, %93 ]
+  %.0.i315.i = phi i32 [ 1, %103 ], [ 0, %101 ], [ 1, %90 ], [ 0, %93 ]
   %104 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @.str.4, i32 noundef %.0.i315.i) #6
   %.not276.i = icmp eq i32 %104, 0
   br i1 %.not276.i, label %.thread351.i, label %.thread345.i
@@ -624,7 +624,7 @@ helper_ensure.exit318.i:                          ; preds = %103, %101, %93, %90
   br label %helper_ensure.exit323.i
 
 helper_ensure.exit323.i:                          ; preds = %120, %118, %110, %107
-  %.0.i320.i = phi i32 [ 1, %107 ], [ 1, %120 ], [ 0, %118 ], [ 0, %110 ]
+  %.0.i320.i = phi i32 [ 1, %120 ], [ 0, %118 ], [ 1, %107 ], [ 0, %110 ]
   %121 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 624, ptr noundef nonnull @.str.4, i32 noundef %.0.i320.i) #6
   %.not275.i = icmp eq i32 %121, 0
   br i1 %.not275.i, label %.thread351.i, label %.thread348.i
@@ -669,7 +669,7 @@ helper_ensure.exit323.i:                          ; preds = %120, %118, %110, %1
   br label %helper_ensure.exit328.i
 
 helper_ensure.exit328.i:                          ; preds = %136, %134, %126, %124
-  %.0.i325.i = phi i32 [ 1, %124 ], [ 1, %136 ], [ 0, %134 ], [ 0, %126 ]
+  %.0.i325.i = phi i32 [ 1, %136 ], [ 0, %134 ], [ 1, %124 ], [ 0, %126 ]
   %137 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 634, ptr noundef nonnull @.str.4, i32 noundef %.0.i325.i) #6
   %.not.i = icmp eq i32 %137, 0
   br i1 %.not.i, label %.thread351.i, label %138
@@ -686,8 +686,8 @@ helper_ensure.exit328.i:                          ; preds = %136, %134, %126, %1
   br i1 %.not274.i, label %.thread351.i, label %.backedge
 
 .backedge:                                        ; preds = %138, %.thread348.i, %.thread345.i, %.thread342.i, %.thread339.i, %.thread336.i, %.thread.i, %helper_set_flags.exit.i
-  %.0265.i.be = phi i64 [ %19, %helper_set_flags.exit.i ], [ %26, %.thread.i ], [ %56, %.thread336.i ], [ %73, %.thread339.i ], [ %89, %.thread342.i ], [ %105, %.thread345.i ], [ %123, %.thread348.i ], [ %139, %138 ]
-  %.0264.i.be = phi i32 [ %.0264.i, %helper_set_flags.exit.i ], [ %.0264.i, %.thread.i ], [ %.0264.i, %.thread336.i ], [ %.0264.i, %.thread339.i ], [ %.0264.i, %.thread342.i ], [ %.0264.i, %.thread345.i ], [ %.0264.i, %.thread348.i ], [ %141, %138 ]
+  %.0265.i.be = phi i64 [ %19, %helper_set_flags.exit.i ], [ %139, %138 ], [ %26, %.thread.i ], [ %56, %.thread336.i ], [ %73, %.thread339.i ], [ %89, %.thread342.i ], [ %105, %.thread345.i ], [ %123, %.thread348.i ]
+  %.0264.i.be = phi i32 [ %.0264.i, %helper_set_flags.exit.i ], [ %141, %138 ], [ %.0264.i, %.thread.i ], [ %.0264.i, %.thread336.i ], [ %.0264.i, %.thread339.i ], [ %.0264.i, %.thread342.i ], [ %.0264.i, %.thread345.i ], [ %.0264.i, %.thread348.i ]
   br label %15
 
 144:                                              ; preds = %15
@@ -725,7 +725,7 @@ helper_ensure.exit328.i:                          ; preds = %136, %134, %126, %1
   br label %helper_ensure.exit333.i
 
 helper_ensure.exit333.i:                          ; preds = %157, %155, %147, %145
-  %.0.i330.i = phi i32 [ 1, %145 ], [ 1, %157 ], [ 0, %155 ], [ 0, %147 ]
+  %.0.i330.i = phi i32 [ 1, %157 ], [ 0, %155 ], [ 1, %145 ], [ 0, %147 ]
   %158 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 651, ptr noundef nonnull @.str.4, i32 noundef %.0.i330.i) #6
   %.not281.i = icmp eq i32 %158, 0
   br i1 %.not281.i, label %.thread351.i, label %159

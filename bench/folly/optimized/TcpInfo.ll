@@ -509,7 +509,7 @@ _ZN5folly7TcpInfoD2Ev.exit:                       ; preds = %152, %.thread66, %1
   br label %169
 
 159:                                              ; preds = %58, %74, %56
-  %.pn36.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ], [ %.pn.pn.pn, %74 ]
+  %.pn36.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn, %74 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %160 = load i8, ptr %16, align 8, !tbaa !49, !range !44, !noundef !45
   %161 = trunc nuw i8 %160 to i1

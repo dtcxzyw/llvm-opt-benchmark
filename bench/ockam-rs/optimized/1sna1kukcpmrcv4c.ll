@@ -3830,7 +3830,7 @@ define hidden void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$11coordinates17h080
   br label %46
 
 46:                                               ; preds = %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit17", %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit", %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit18", %35
-  %.sink = phi i8 [ 2, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit18" ], [ 0, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit" ], [ 3, %35 ], [ 1, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit17" ]
+  %.sink = phi i8 [ 2, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit18" ], [ 3, %35 ], [ 0, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit" ], [ 1, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit17" ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -5772,7 +5772,7 @@ common.resume:                                    ; preds = %37, %.body, %27
   br label %99
 
 .body:                                            ; preds = %67, %63, %53, %74
-  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %75, %74 ], [ %64, %63 ], [ %54, %53 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %68, %67 ], [ %64, %63 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ecdsa..signing..SigningKey$LT$p256..NistP256$GT$$GT$17h3456f474606d5b3cE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %20) #28
           to label %common.resume unwind label %44
 
@@ -5964,7 +5964,7 @@ define void @_ZN11ockam_vault8software17vault_for_signing17vault_for_signing23So
   unreachable
 
 common.resume:                                    ; preds = %46, %56, %30, %37
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %31, %30 ], [ %47, %46 ], [ %57, %56 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %38, %37 ], [ %47, %46 ], [ %57, %56 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update17hcd06cf2ea5cb7eceE.exit.i": ; preds = %24
@@ -6357,7 +6357,7 @@ default.unreachable1.i.i:                         ; preds = %4
   br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
 
 _ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i: ; preds = %10, %9, %7, %4
-  %.0.i.i = phi i64 [ %8, %7 ], [ 65, %10 ], [ 32, %9 ], [ 16, %4 ]
+  %.0.i.i = phi i64 [ %8, %7 ], [ 32, %9 ], [ 65, %10 ], [ 16, %4 ]
   %.not.i = icmp eq i64 %.val, %.0.i.i
   br i1 %.not.i, label %26, label %11
 
@@ -6779,9 +6779,9 @@ common.ret:                                       ; preds = %69, %41
   ret void
 
 41:                                               ; preds = %.loopexit132, %205, %.loopexit141, %.loopexit136
-  %.sroa.0119.0 = phi i8 [ 0, %.loopexit141 ], [ 0, %.loopexit136 ], [ 1, %205 ], [ 1, %.loopexit132 ]
-  %.sroa.6120.0 = phi i8 [ 0, %.loopexit141 ], [ 1, %.loopexit136 ], [ undef, %205 ], [ undef, %.loopexit132 ]
-  %.sroa.10122.0 = phi ptr [ %.sroa.0.sroa.2.0.copyload, %.loopexit141 ], [ %.sroa.5124.0.copyload, %.loopexit136 ], [ %.sroa.3.0.copyload, %205 ], [ %128, %.loopexit132 ]
+  %.sroa.0119.0 = phi i8 [ 0, %.loopexit136 ], [ 0, %.loopexit141 ], [ 1, %205 ], [ 1, %.loopexit132 ]
+  %.sroa.6120.0 = phi i8 [ 1, %.loopexit136 ], [ 0, %.loopexit141 ], [ undef, %205 ], [ undef, %.loopexit132 ]
+  %.sroa.10122.0 = phi ptr [ %.sroa.5124.0.copyload, %.loopexit136 ], [ %.sroa.0.sroa.2.0.copyload, %.loopexit141 ], [ %.sroa.3.0.copyload, %205 ], [ %128, %.loopexit132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   store i8 %.sroa.0119.0, ptr %0, align 8
   %.sroa.6120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7022,7 +7022,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
           to label %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit" unwind label %107
 
 .body54:                                          ; preds = %76, %80, %107, %.body60
-  %.pn41 = phi { ptr, i32 } [ %108, %107 ], [ %.pn39, %.body60 ], [ %77, %76 ], [ %81, %80 ]
+  %.pn41 = phi { ptr, i32 } [ %108, %107 ], [ %.pn39, %.body60 ], [ %81, %80 ], [ %77, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   invoke void @"_ZN4core3ptr94drop_in_place$LT$ockam_vault..software..vault_for_signing..types..EdDSACurve25519SecretKey$GT$17hb6f57eff29fb39eaE"(ptr noalias noundef nonnull align 1 dereferenceable(32) %35) #28
           to label %116 unwind label %117
@@ -7343,7 +7343,7 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   br label %.body71
 
 182:                                              ; preds = %123, %.body71
-  %.pn30 = phi { ptr, i32 } [ %124, %123 ], [ %.pn28, %.body71 ]
+  %.pn30 = phi { ptr, i32 } [ %.pn28, %.body71 ], [ %124, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   invoke void @"_ZN4core3ptr99drop_in_place$LT$ockam_vault..software..vault_for_signing..types..ECDSASHA256CurveP256SecretKey$GT$17hade0b359c15f5289E"(ptr noalias noundef nonnull align 1 dereferenceable(32) %31) #28
           to label %.loopexit.split-lp unwind label %117
@@ -7410,7 +7410,7 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   br label %41
 
 .body71:                                          ; preds = %177, %172, %150, %137, %180
-  %.pn28 = phi { ptr, i32 } [ %173, %172 ], [ %181, %180 ], [ %178, %177 ], [ %151, %150 ], [ %138, %137 ]
+  %.pn28 = phi { ptr, i32 } [ %181, %180 ], [ %178, %177 ], [ %138, %137 ], [ %151, %150 ], [ %173, %172 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ecdsa..signing..SigningKey$LT$p256..NistP256$GT$$GT$17h3456f474606d5b3cE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %30) #28
           to label %182 unwind label %117
@@ -7453,7 +7453,7 @@ _ZN6digest11FixedOutput14finalize_fixed17h93c960ed3c11944eE.llvm.793950472229766
   br i1 %trunc22, label %.body51, label %203
 
 .body51:                                          ; preds = %51, %65, %70, %203, %201, %200, %199
-  %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %201 ], [ %.pn43.pn, %199 ], [ %.pn43.pn, %203 ], [ %.pn43.pn, %200 ], [ %66, %65 ], [ %52, %51 ], [ %71, %70 ]
+  %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %201 ], [ %.pn43.pn, %199 ], [ %.pn43.pn, %203 ], [ %.pn43.pn, %200 ], [ %52, %51 ], [ %71, %70 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   store i8 2, ptr %38, align 8
   resume { ptr, i32 } %.pn43.pn.pn
@@ -7801,7 +7801,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   br label %79
 
 76:                                               ; preds = %80, %79
-  %.pn13 = phi { ptr, i32 } [ %.pn, %80 ], [ %.pn11, %79 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn11, %79 ], [ %.pn, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %81
 
@@ -7831,7 +7831,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   br label %86
 
 79:                                               ; preds = %74, %72
-  %.pn11 = phi { ptr, i32 } [ %73, %72 ], [ %75, %74 ]
+  %.pn11 = phi { ptr, i32 } [ %75, %74 ], [ %73, %72 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ecdsa..signing..SigningKey$LT$p256..NistP256$GT$$GT$17h3456f474606d5b3cE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %20) #28
           to label %76 unwind label %57
 
@@ -7841,7 +7841,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   br label %76
 
 81:                                               ; preds = %222, %.body43, %54, %76, %28
-  %.pn23.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %.pn13, %76 ], [ %.pn19, %54 ], [ %223, %222 ], [ %.pn21, %.body43 ]
+  %.pn23.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %.pn19, %54 ], [ %.pn13, %76 ], [ %223, %222 ], [ %.pn21, %.body43 ]
   store i8 2, ptr %24, align 8
   resume { ptr, i32 } %.pn23.pn.pn
 
@@ -7979,8 +7979,8 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   br label %142
 
 .body.i:                                          ; preds = %162, %158, %151, %118
-  %125 = phi ptr [ %143, %158 ], [ %143, %151 ], [ %143, %162 ], [ %87, %118 ]
-  %.pn40.i = phi { ptr, i32 } [ %159, %158 ], [ %152, %151 ], [ %163, %162 ], [ %119, %118 ]
+  %125 = phi ptr [ %143, %151 ], [ %87, %118 ], [ %143, %162 ], [ %143, %158 ]
+  %.pn40.i = phi { ptr, i32 } [ %152, %151 ], [ %119, %118 ], [ %163, %162 ], [ %159, %158 ]
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #28
           to label %131 unwind label %211, !noalias !2080
 
@@ -8217,8 +8217,8 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   br label %.thread74
 
 .loopexit.split-lp.i:                             ; preds = %213, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %131
-  %209 = phi ptr [ %132, %131 ], [ %132, %213 ], [ %127, %.loopexit.i ], [ %127, %.loopexit.split-lp.loopexit.i ], [ %127, %.loopexit.split-lp.loopexit.split-lp.i ]
-  %.pn45.i = phi { ptr, i32 } [ %.pn42.pn.i, %131 ], [ %.pn42.pn.i, %213 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit85.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp86.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %209 = phi ptr [ %132, %213 ], [ %132, %131 ], [ %127, %.loopexit.i ], [ %127, %.loopexit.split-lp.loopexit.i ], [ %127, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn45.i = phi { ptr, i32 } [ %.pn42.pn.i, %213 ], [ %.pn42.pn.i, %131 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit85.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp86.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 155
   store i8 0, ptr %210, align 1, !noalias !2069
   store i8 2, ptr %209, align 4, !noalias !2069
@@ -8299,7 +8299,7 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   br label %27
 
 .body43:                                          ; preds = %215, %.loopexit.split-lp.i
-  %.pn21 = phi { ptr, i32 } [ %.pn45.i, %.loopexit.split-lp.i ], [ %216, %215 ]
+  %.pn21 = phi { ptr, i32 } [ %216, %215 ], [ %.pn45.i, %.loopexit.split-lp.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.962)
   invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$ockam_vault..software..vault_for_signing..vault_for_signing..SoftwareVaultForSigning..import_key..$u7b$$u7b$closure$u7d$$u7d$$GT$17h493cb8bf6ad8d261E"(ptr noundef nonnull align 8 %1) #28
           to label %81 unwind label %57
@@ -8398,7 +8398,7 @@ common.ret:                                       ; preds = %39, %"_ZN4core3ptr8
   br label %19
 
 .loopexit.split-lp:                               ; preds = %21, %35, %40, %43, %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %.pn13.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp39, %.loopexit.split-lp.loopexit.split-lp ], [ %44, %43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit38, %.loopexit.split-lp.loopexit ], [ %36, %35 ], [ %22, %21 ], [ %41, %40 ]
+  %.pn13.pn = phi { ptr, i32 } [ %44, %43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit38, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp39, %.loopexit.split-lp.loopexit.split-lp ], [ %22, %21 ], [ %41, %40 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn13.pn
@@ -8796,7 +8796,7 @@ common.ret:                                       ; preds = %60, %13
   br label %43
 
 .body28:                                          ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %61, %56, %29, %48
-  %.pn21 = phi { ptr, i32 } [ %30, %29 ], [ %57, %56 ], [ %49, %48 ], [ %62, %61 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit39, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp40, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn21 = phi { ptr, i32 } [ %49, %48 ], [ %30, %29 ], [ %62, %61 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit39, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp40, %.loopexit.split-lp.loopexit.split-lp ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E"(ptr noalias noundef align 8 dereferenceable(32) %36) #28
           to label %37 unwind label %112

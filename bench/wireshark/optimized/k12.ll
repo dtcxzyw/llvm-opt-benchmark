@@ -618,7 +618,7 @@ memiszero.exit:                                   ; preds = %41
   br label %349
 
 349:                                              ; preds = %9, %7, %339, %312, %305, %279, %241, %236, %230, %227, %182, %177, %151, %130, %121, %._crit_edge, %101
-  %.0 = phi i32 [ %., %7 ], [ -1, %._crit_edge ], [ -1, %121 ], [ -1, %130 ], [ -1, %151 ], [ -1, %177 ], [ 1, %339 ], [ -1, %182 ], [ 0, %227 ], [ 0, %230 ], [ -1, %236 ], [ -1, %241 ], [ -1, %305 ], [ -1, %312 ], [ -1, %279 ], [ -1, %101 ], [ 0, %9 ]
+  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %121 ], [ -1, %130 ], [ -1, %151 ], [ -1, %177 ], [ 1, %339 ], [ -1, %182 ], [ 0, %227 ], [ 0, %230 ], [ -1, %236 ], [ -1, %241 ], [ -1, %305 ], [ -1, %312 ], [ -1, %279 ], [ -1, %101 ], [ %., %7 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -801,7 +801,7 @@ define internal fastcc i32 @get_record(ptr noundef captures(none) %0, ptr nounde
   br i1 %.not, label %.loopexit, label %64, !llvm.loop !10
 
 .loopexit:                                        ; preds = %73, %71, %69, %66, %25, %23, %56, %47
-  %.085 = phi i32 [ -1, %47 ], [ -1, %56 ], [ %spec.select, %66 ], [ -1, %25 ], [ -1, %23 ], [ %77, %73 ], [ -1, %69 ], [ -1, %71 ]
+  %.085 = phi i32 [ -1, %47 ], [ -1, %56 ], [ -1, %23 ], [ -1, %25 ], [ %spec.select, %66 ], [ %77, %73 ], [ -1, %71 ], [ -1, %69 ]
   ret i32 %.085
 }
 
@@ -959,7 +959,7 @@ define internal noundef zeroext i1 @k12_read(ptr noundef readonly captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %86, %24, %21, %._crit_edge
-  %.0 = phi i1 [ false, %._crit_edge ], [ %87, %86 ], [ false, %21 ], [ false, %24 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %21 ], [ false, %24 ], [ %87, %86 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -994,7 +994,7 @@ define internal noundef zeroext i1 @k12_seek_read(ptr noundef readonly captures(
   br label %23
 
 23:                                               ; preds = %12, %5, %19, %18
-  %.0 = phi i1 [ %22, %19 ], [ false, %5 ], [ false, %18 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %18 ], [ %22, %19 ], [ false, %5 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -1378,7 +1378,7 @@ define internal noundef zeroext i1 @k12_dump_open(ptr noundef %0, ptr noundef %1
   br label %16
 
 16:                                               ; preds = %5, %3, %8
-  %.0 = phi i1 [ false, %3 ], [ true, %8 ], [ false, %5 ]
+  %.0 = phi i1 [ true, %8 ], [ false, %3 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -1541,7 +1541,7 @@ define internal noundef zeroext i1 @k12_dump_finish(ptr noundef %0, ptr noundef 
   br label %41
 
 41:                                               ; preds = %33, %30, %25, %22, %20, %17, %13, %8, %3, %37
-  %.0 = phi i1 [ false, %3 ], [ false, %13 ], [ false, %20 ], [ false, %25 ], [ true, %37 ], [ false, %30 ], [ false, %22 ], [ false, %17 ], [ false, %8 ], [ false, %33 ]
+  %.0 = phi i1 [ true, %37 ], [ false, %3 ], [ false, %8 ], [ false, %13 ], [ false, %17 ], [ false, %20 ], [ false, %22 ], [ false, %25 ], [ false, %30 ], [ false, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1732,7 +1732,7 @@ define internal fastcc noundef zeroext i1 @k12_dump_record(ptr noundef %0, i32 n
   br label %37
 
 37:                                               ; preds = %26, %18, %16, %13, %29
-  %.0 = phi i1 [ true, %29 ], [ false, %16 ], [ false, %13 ], [ false, %18 ], [ false, %26 ]
+  %.0 = phi i1 [ true, %29 ], [ false, %13 ], [ false, %16 ], [ false, %18 ], [ false, %26 ]
   ret i1 %.0
 }
 

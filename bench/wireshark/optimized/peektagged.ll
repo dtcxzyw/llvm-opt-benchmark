@@ -284,7 +284,7 @@ switch.lookup:                                    ; preds = %76
   br label %92
 
 92:                                               ; preds = %wtap_file_read_pattern.exit, %wtap_file_read_number.exit, %73, %70, %61, %57, %53, %49, %13, %11, %90, %72, %68, %63, %59, %55, %51, %.thread, %wtap_file_read_number.exit.thread96
-  %.0 = phi i32 [ %., %11 ], [ 0, %13 ], [ -1, %73 ], [ %spec.select, %wtap_file_read_pattern.exit ], [ 0, %wtap_file_read_number.exit.thread96 ], [ -1, %.thread ], [ -1, %wtap_file_read_number.exit ], [ -1, %51 ], [ %50, %49 ], [ -1, %55 ], [ %54, %53 ], [ -1, %59 ], [ %58, %57 ], [ -1, %63 ], [ -1, %68 ], [ %62, %61 ], [ -1, %72 ], [ 1, %90 ], [ %71, %70 ]
+  %.0 = phi i32 [ 0, %wtap_file_read_number.exit.thread96 ], [ -1, %.thread ], [ -1, %51 ], [ -1, %55 ], [ -1, %59 ], [ -1, %63 ], [ -1, %68 ], [ -1, %72 ], [ 1, %90 ], [ %., %11 ], [ 0, %13 ], [ -1, %wtap_file_read_number.exit ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %71, %70 ], [ -1, %73 ], [ %spec.select, %wtap_file_read_pattern.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -443,7 +443,7 @@ define internal noundef zeroext i1 @peektagged_read(ptr noundef readonly capture
   br label %14
 
 14:                                               ; preds = %10, %5, %13
-  %.0 = phi i1 [ false, %5 ], [ true, %13 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %13 ], [ false, %5 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -471,7 +471,7 @@ define internal noundef zeroext i1 @peektagged_seek_read(ptr noundef readonly ca
   br label %18
 
 18:                                               ; preds = %10, %14, %17, %5
-  %.0 = phi i1 [ false, %14 ], [ false, %5 ], [ false, %17 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -930,12 +930,12 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr noundef 
   br label %161
 
 161:                                              ; preds = %155, %142, %135, %133, %149, %144, %.thread210, %.thread212, %138, %130
-  %.sroa.6355.3 = phi i32 [ 0, %142 ], [ 4, %144 ], [ 4, %149 ], [ %.sroa.6355.0, %130 ], [ 6, %.thread210 ], [ 5, %.thread212 ], [ %.sroa.6355.0, %138 ], [ %.sroa.6355.0, %135 ], [ %.sroa.6355.0, %133 ], [ 0, %155 ]
-  %.sroa.17.sroa.0.4 = phi i8 [ %.sroa.17.sroa.0.0, %142 ], [ %145, %144 ], [ %150, %149 ], [ %.sroa.17.sroa.0.0, %130 ], [ %159, %.thread210 ], [ %160, %.thread212 ], [ %.sroa.17.sroa.0.0, %138 ], [ %136, %135 ], [ %.sroa.17.sroa.0.0, %133 ], [ %.sroa.17.sroa.0.0, %155 ]
-  %.sroa.17.sroa.30.3 = phi i8 [ %.sroa.17.sroa.30.0, %142 ], [ %148, %144 ], [ %.sroa.17.sroa.30.0, %149 ], [ %.sroa.17.sroa.30.0, %130 ], [ %.sroa.17.sroa.30.0, %.thread210 ], [ %.sroa.17.sroa.30.0, %.thread212 ], [ %.sroa.17.sroa.30.0, %138 ], [ %.sroa.17.sroa.30.0, %135 ], [ %.sroa.17.sroa.30.0, %133 ], [ %.sroa.17.sroa.30.0, %155 ]
-  %.sroa.44.0 = phi i16 [ 0, %142 ], [ 0, %144 ], [ 0, %149 ], [ 0, %130 ], [ 0, %.thread210 ], [ 0, %.thread212 ], [ 0, %138 ], [ %137, %135 ], [ 0, %133 ], [ 0, %155 ]
-  %.sroa.54370.3 = phi i16 [ %139, %142 ], [ %139, %144 ], [ %139, %149 ], [ %.sroa.54370.0, %130 ], [ %139, %.thread210 ], [ %139, %.thread212 ], [ %139, %138 ], [ %.sroa.54370.0, %135 ], [ %.sroa.54370.0, %133 ], [ %139, %155 ]
-  %.sroa.82.0 = phi i16 [ %140, %142 ], [ %140, %144 ], [ %140, %149 ], [ 0, %130 ], [ %140, %.thread210 ], [ %140, %.thread212 ], [ %140, %138 ], [ 0, %135 ], [ 0, %133 ], [ %140, %155 ]
+  %.sroa.6355.3 = phi i32 [ 0, %142 ], [ 4, %144 ], [ 4, %149 ], [ 6, %.thread210 ], [ 5, %.thread212 ], [ %.sroa.6355.0, %138 ], [ %.sroa.6355.0, %135 ], [ %.sroa.6355.0, %133 ], [ %.sroa.6355.0, %130 ], [ 0, %155 ]
+  %.sroa.17.sroa.0.4 = phi i8 [ %.sroa.17.sroa.0.0, %142 ], [ %145, %144 ], [ %150, %149 ], [ %159, %.thread210 ], [ %160, %.thread212 ], [ %.sroa.17.sroa.0.0, %138 ], [ %136, %135 ], [ %.sroa.17.sroa.0.0, %133 ], [ %.sroa.17.sroa.0.0, %130 ], [ %.sroa.17.sroa.0.0, %155 ]
+  %.sroa.17.sroa.30.3 = phi i8 [ %.sroa.17.sroa.30.0, %142 ], [ %148, %144 ], [ %.sroa.17.sroa.30.0, %149 ], [ %.sroa.17.sroa.30.0, %.thread210 ], [ %.sroa.17.sroa.30.0, %.thread212 ], [ %.sroa.17.sroa.30.0, %138 ], [ %.sroa.17.sroa.30.0, %135 ], [ %.sroa.17.sroa.30.0, %133 ], [ %.sroa.17.sroa.30.0, %130 ], [ %.sroa.17.sroa.30.0, %155 ]
+  %.sroa.44.0 = phi i16 [ 0, %142 ], [ 0, %144 ], [ 0, %149 ], [ 0, %.thread210 ], [ 0, %.thread212 ], [ 0, %138 ], [ %137, %135 ], [ 0, %133 ], [ 0, %130 ], [ 0, %155 ]
+  %.sroa.54370.3 = phi i16 [ %139, %142 ], [ %139, %144 ], [ %139, %149 ], [ %139, %.thread210 ], [ %139, %.thread212 ], [ %139, %138 ], [ %.sroa.54370.0, %135 ], [ %.sroa.54370.0, %133 ], [ %.sroa.54370.0, %130 ], [ %139, %155 ]
+  %.sroa.82.0 = phi i16 [ %140, %142 ], [ %140, %144 ], [ %140, %149 ], [ %140, %.thread210 ], [ %140, %.thread212 ], [ %140, %138 ], [ 0, %135 ], [ 0, %133 ], [ 0, %130 ], [ %140, %155 ]
   %162 = and i16 %.sroa.54370.3, 3
   switch i16 %162, label %.thread213 [
     i16 2, label %163
@@ -970,9 +970,9 @@ switch.lookup:                                    ; preds = %168
   br label %.thread213
 
 .thread213:                                       ; preds = %168, %switch.lookup, %161, %163, %165
-  %.sroa.54370.4 = phi i16 [ %.sroa.54370.3, %163 ], [ %166, %165 ], [ %.sroa.54370.3, %168 ], [ %spec.select539, %switch.lookup ], [ %.sroa.54370.3, %161 ]
-  %.sroa.73.3 = phi i16 [ %.sroa.73.0, %163 ], [ %167, %165 ], [ %.sroa.73.0, %168 ], [ %.sroa.73.0, %switch.lookup ], [ %.sroa.73.0, %161 ]
-  %.sroa.78.3 = phi i32 [ %.sroa.78.0, %163 ], [ %.sroa.78.0, %165 ], [ %.sroa.78.0, %168 ], [ %spec.select540, %switch.lookup ], [ %.sroa.78.0, %161 ]
+  %.sroa.54370.4 = phi i16 [ %.sroa.54370.3, %163 ], [ %166, %165 ], [ %.sroa.54370.3, %168 ], [ %.sroa.54370.3, %161 ], [ %spec.select539, %switch.lookup ]
+  %.sroa.73.3 = phi i16 [ %.sroa.73.0, %163 ], [ %167, %165 ], [ %.sroa.73.0, %168 ], [ %.sroa.73.0, %161 ], [ %.sroa.73.0, %switch.lookup ]
+  %.sroa.78.3 = phi i32 [ %.sroa.78.0, %163 ], [ %.sroa.78.0, %165 ], [ %.sroa.78.0, %168 ], [ %.sroa.78.0, %161 ], [ %spec.select540, %switch.lookup ]
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 -1, ptr %173, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
@@ -1085,7 +1085,7 @@ switch.lookup:                                    ; preds = %168
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5, %202, %._crit_edge, %16, %196, %183, %125, %107, %102, %98, %94, %36, %30, %24
-  %.0142 = phi i32 [ -1, %107 ], [ -1, %._crit_edge ], [ %.0143., %202 ], [ 0, %183 ], [ 0, %196 ], [ -1, %125 ], [ -1, %102 ], [ -1, %98 ], [ -1, %94 ], [ -1, %24 ], [ -1, %30 ], [ -1, %36 ], [ -1, %16 ], [ -1, %5 ]
+  %.0142 = phi i32 [ -1, %107 ], [ 0, %183 ], [ 0, %196 ], [ -1, %125 ], [ -1, %102 ], [ -1, %98 ], [ -1, %94 ], [ -1, %24 ], [ -1, %30 ], [ -1, %36 ], [ -1, %16 ], [ -1, %._crit_edge ], [ %.0143., %202 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.54.sroa.10)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0142

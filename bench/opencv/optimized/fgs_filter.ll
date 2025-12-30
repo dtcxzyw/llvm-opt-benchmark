@@ -589,7 +589,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %94, %97
   br label %177
 
 177:                                              ; preds = %130, %176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn37.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %.pn37, %176 ], [ %131, %130 ]
+  %.pn37.pn.pn = phi { ptr, i32 } [ %.pn35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn37, %176 ], [ %131, %130 ]
   resume { ptr, i32 } %.pn37.pn.pn
 }
 
@@ -1172,7 +1172,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc79, %188
   br label %.body
 
 .body:                                            ; preds = %152, %162, %189, %139, %137
-  %.pn60 = phi { ptr, i32 } [ %138, %137 ], [ %.pn58, %189 ], [ %140, %139 ], [ %153, %152 ], [ %163, %162 ]
+  %.pn60 = phi { ptr, i32 } [ %.pn58, %189 ], [ %140, %139 ], [ %138, %137 ], [ %153, %152 ], [ %163, %162 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #25
   br label %190
 
@@ -1297,7 +1297,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit89:        ; preds = %_ZSt8_DestroyIPN2cv
   ret void
 
 226:                                              ; preds = %203, %205, %212, %190, %125, %92, %87, %81
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %.pn48, %87 ], [ %93, %92 ], [ %204, %203 ], [ %206, %205 ], [ %213, %212 ], [ %.pn60.pn, %190 ], [ %126, %125 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn48, %87 ], [ %93, %92 ], [ %82, %81 ], [ %206, %205 ], [ %213, %212 ], [ %204, %203 ], [ %.pn60.pn, %190 ], [ %126, %125 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #25

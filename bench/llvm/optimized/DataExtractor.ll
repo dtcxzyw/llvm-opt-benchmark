@@ -278,7 +278,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %13, %_ZNK4llvm13Dat
   br label %_ZNK4llvm13DataExtractor4getUIhEET_PmPNS_5ErrorE.exit.us.i
 
 _ZNK4llvm13DataExtractor4getUIhEET_PmPNS_5ErrorE.exit.us.i: ; preds = %19, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %.0.i.us.i = phi i8 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ], [ %23, %19 ]
+  %.0.i.us.i = phi i8 [ %23, %19 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i8 %.0.i.us.i, ptr %.02026.us.i, align 1, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 1
   %.not.us.i = icmp eq ptr %24, %14
@@ -290,7 +290,7 @@ _ZNK4llvm13DataExtractor4getUIhEET_PmPNS_5ErrorE.exit.us.i: ; preds = %19, %_ZL7
   br label %_ZNK4llvm13DataExtractor5getUsIhEEPT_PmS3_jPNS_5ErrorE.exit
 
 _ZNK4llvm13DataExtractor5getUsIhEEPT_PmS3_jPNS_5ErrorE.exit: ; preds = %4, %._crit_edge.i
-  %.0.i = phi ptr [ null, %4 ], [ %2, %._crit_edge.i ]
+  %.0.i = phi ptr [ %2, %._crit_edge.i ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -432,8 +432,8 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us:  ; preds = %.lr.ph.i, %_ZNK4llv
   br label %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us
 
 _ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i.us: ; preds = %24, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us
-  %28 = phi i64 [ %19, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ], [ %25, %24 ]
-  %.0.i.us.i.us = phi i16 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ], [ %27, %24 ]
+  %28 = phi i64 [ %25, %24 ], [ %19, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ]
+  %.0.i.us.i.us = phi i16 [ %27, %24 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ]
   store i16 %.0.i.us.i.us, ptr %.02026.us.i.us, align 2, !tbaa !69
   %29 = getelementptr inbounds nuw i8, ptr %.02026.us.i.us, i64 2
   %.not.us.i.us = icmp eq ptr %29, %15
@@ -458,8 +458,8 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %.lr.ph.i, %_ZNK4llv
   br label %_ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i
 
 _ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i: ; preds = %35, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %39 = phi i64 [ %30, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ], [ %36, %35 ]
-  %.0.i.us.i = phi i16 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ], [ %rev.i.i.i.i.us.i, %35 ]
+  %39 = phi i64 [ %36, %35 ], [ %30, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
+  %.0.i.us.i = phi i16 [ %rev.i.i.i.i.us.i, %35 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i16 %.0.i.us.i, ptr %.02026.us.i, align 2, !tbaa !69
   %40 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 2
   %.not.us.i = icmp eq ptr %40, %15
@@ -471,7 +471,7 @@ _ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i: ; preds = %35, %_ZL7
   br label %_ZNK4llvm13DataExtractor5getUsItEEPT_PmS3_jPNS_5ErrorE.exit
 
 _ZNK4llvm13DataExtractor5getUsItEEPT_PmS3_jPNS_5ErrorE.exit: ; preds = %4, %._crit_edge.i
-  %.0.i = phi ptr [ null, %4 ], [ %2, %._crit_edge.i ]
+  %.0.i = phi ptr [ %2, %._crit_edge.i ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -599,8 +599,8 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us:  ; preds = %.lr.ph.i, %_ZNK4llv
   br label %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us
 
 _ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i.us: ; preds = %24, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us
-  %28 = phi i64 [ %19, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ], [ %25, %24 ]
-  %.0.i.us.i.us = phi i32 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ], [ %27, %24 ]
+  %28 = phi i64 [ %25, %24 ], [ %19, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ]
+  %.0.i.us.i.us = phi i32 [ %27, %24 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ]
   store i32 %.0.i.us.i.us, ptr %.02026.us.i.us, align 4, !tbaa !72
   %29 = getelementptr inbounds nuw i8, ptr %.02026.us.i.us, i64 4
   %.not.us.i.us = icmp eq ptr %29, %15
@@ -625,8 +625,8 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %.lr.ph.i, %_ZNK4llv
   br label %_ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i
 
 _ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i: ; preds = %35, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %40 = phi i64 [ %30, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ], [ %36, %35 ]
-  %.0.i.us.i = phi i32 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ], [ %39, %35 ]
+  %40 = phi i64 [ %36, %35 ], [ %30, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
+  %.0.i.us.i = phi i32 [ %39, %35 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i32 %.0.i.us.i, ptr %.02026.us.i, align 4, !tbaa !72
   %41 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 4
   %.not.us.i = icmp eq ptr %41, %15
@@ -638,7 +638,7 @@ _ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i: ; preds = %35, %_ZL7
   br label %_ZNK4llvm13DataExtractor5getUsIjEEPT_PmS3_jPNS_5ErrorE.exit
 
 _ZNK4llvm13DataExtractor5getUsIjEEPT_PmS3_jPNS_5ErrorE.exit: ; preds = %4, %._crit_edge.i
-  %.0.i = phi ptr [ null, %4 ], [ %2, %._crit_edge.i ]
+  %.0.i = phi ptr [ %2, %._crit_edge.i ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -721,7 +721,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us:  ; preds = %.lr.ph.i, %_ZNK4llv
   br label %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us
 
 _ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i.us: ; preds = %24, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us
-  %.0.i.us.i.us = phi i64 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ], [ %27, %24 ]
+  %.0.i.us.i.us = phi i64 [ %27, %24 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i.us ]
   store i64 %.0.i.us.i.us, ptr %.02026.us.i.us, align 8, !tbaa !62
   %28 = getelementptr inbounds nuw i8, ptr %.02026.us.i.us, i64 8
   %.not.us.i.us = icmp eq ptr %28, %15
@@ -746,7 +746,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %.lr.ph.i, %_ZNK4llv
   br label %_ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i
 
 _ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i: ; preds = %34, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
-  %.0.i.us.i = phi i64 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ], [ %38, %34 ]
+  %.0.i.us.i = phi i64 [ %38, %34 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i64 %.0.i.us.i, ptr %.02026.us.i, align 8, !tbaa !62
   %39 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 8
   %.not.us.i = icmp eq ptr %39, %15
@@ -758,7 +758,7 @@ _ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i: ; preds = %34, %_ZL7
   br label %_ZNK4llvm13DataExtractor5getUsImEEPT_PmS3_jPNS_5ErrorE.exit
 
 _ZNK4llvm13DataExtractor5getUsImEEPT_PmS3_jPNS_5ErrorE.exit: ; preds = %4, %._crit_edge.i
-  %.0.i = phi ptr [ null, %4 ], [ %2, %._crit_edge.i ]
+  %.0.i = phi ptr [ %2, %._crit_edge.i ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -883,7 +883,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26:      ; preds = %_ZL7isErrorPN4llvm5
   unreachable
 
 _ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit: ; preds = %34, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16, %21, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11, %10, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i, %48, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23
-  %.0 = phi i64 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23 ], [ %spec.select.i.i28, %48 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i ], [ %16, %10 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11 ], [ %29, %21 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16 ], [ %43, %34 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19 ]
+  %.0 = phi i64 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23 ], [ %spec.select.i.i28, %48 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i ], [ %16, %10 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11 ], [ %29, %21 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16 ], [ %43, %34 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19 ]
   ret i64 %.0
 }
 
@@ -987,7 +987,7 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef
   unreachable
 
 _ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit: ; preds = %37, %31, %23, %17, %11, %6, %52, %46
-  %.0 = phi i64 [ %spec.select.i.i12, %52 ], [ %16, %11 ], [ %30, %23 ], [ 0, %46 ], [ 0, %6 ], [ 0, %17 ], [ 0, %31 ], [ %45, %37 ]
+  %.0 = phi i64 [ %spec.select.i.i12, %52 ], [ 0, %46 ], [ %16, %11 ], [ 0, %6 ], [ %30, %23 ], [ 0, %17 ], [ %45, %37 ], [ 0, %31 ]
   ret i64 %.0
 }
 
@@ -1125,8 +1125,8 @@ define dso_local { ptr, i64 } @_ZNK4llvm13DataExtractor20getFixedLengthStringEPm
   br label %_ZNK4llvm13DataExtractor8getBytesEPmmPNS_5ErrorE.exit
 
 _ZNK4llvm13DataExtractor8getBytesEPmmPNS_5ErrorE.exit: ; preds = %5, %15
-  %.sroa.6.0.i = phi i64 [ 0, %5 ], [ %.sroa.speculated.i.i, %15 ]
-  %.sroa.09.0.i = phi ptr [ null, %5 ], [ %17, %15 ]
+  %.sroa.6.0.i = phi i64 [ %.sroa.speculated.i.i, %15 ], [ 0, %5 ]
+  %.sroa.09.0.i = phi ptr [ %17, %15 ], [ null, %5 ]
   store ptr %.sroa.09.0.i, ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.6.0.i, ptr %19, align 8
@@ -1184,8 +1184,8 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread:            ; preds = %4, %_ZL7isErrorPN4l
   br label %16
 
 16:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread, %_ZL7isErrorPN4llvm5ErrorE.exit, %8
-  %.sroa.6.0 = phi i64 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit ], [ %.sroa.speculated.i, %8 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread ]
-  %.sroa.09.0 = phi ptr [ null, %_ZL7isErrorPN4llvm5ErrorE.exit ], [ %13, %8 ], [ null, %_ZL7isErrorPN4llvm5ErrorE.exit.thread ]
+  %.sroa.6.0 = phi i64 [ %.sroa.speculated.i, %8 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread ]
+  %.sroa.09.0 = phi ptr [ %13, %8 ], [ null, %_ZL7isErrorPN4llvm5ErrorE.exit ], [ null, %_ZL7isErrorPN4llvm5ErrorE.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.09.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert

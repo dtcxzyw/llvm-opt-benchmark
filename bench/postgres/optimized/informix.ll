@@ -30,7 +30,7 @@ define range(i32 -1201, 1) i32 @decadd(ptr noundef %0, ptr noundef %1, ptr nound
   br label %10
 
 10:                                               ; preds = %3, %9, %8, %7
-  %.0 = phi i32 [ 0, %9 ], [ -1201, %7 ], [ -1, %8 ], [ -1200, %3 ]
+  %.0 = phi i32 [ -1201, %7 ], [ -1, %8 ], [ 0, %9 ], [ -1200, %3 ]
   ret i32 %.0
 }
 
@@ -82,10 +82,10 @@ define internal fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.sink.split.sink.split.sink.split
 
 .sink.split.sink.split.sink.split:                ; preds = %21, %24, %19, %17
-  %.sink37 = phi ptr [ %9, %19 ], [ %9, %17 ], [ %15, %24 ], [ %15, %21 ]
-  %.sink36.ph = phi ptr [ %12, %19 ], [ %12, %17 ], [ %9, %24 ], [ %9, %21 ]
-  %.sink.ph.ph = phi ptr [ %15, %19 ], [ %15, %17 ], [ %12, %24 ], [ %12, %21 ]
-  %.0.ph.ph.ph = phi i32 [ -1211, %19 ], [ -1211, %17 ], [ %22, %24 ], [ %22, %21 ]
+  %.sink37 = phi ptr [ %9, %17 ], [ %9, %19 ], [ %15, %24 ], [ %15, %21 ]
+  %.sink36.ph = phi ptr [ %12, %17 ], [ %12, %19 ], [ %9, %24 ], [ %9, %21 ]
+  %.sink.ph.ph = phi ptr [ %15, %17 ], [ %15, %19 ], [ %12, %24 ], [ %12, %21 ]
+  %.0.ph.ph.ph = phi i32 [ -1211, %17 ], [ -1211, %19 ], [ %22, %24 ], [ %22, %21 ]
   tail call void @PGTYPESnumeric_free(ptr noundef nonnull %.sink37) #18
   br label %.sink.split.sink.split
 
@@ -103,7 +103,7 @@ define internal fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %26
 
 26:                                               ; preds = %.sink.split, %8, %4, %6
-  %.0 = phi i32 [ -1211, %8 ], [ 0, %4 ], [ 0, %6 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ -1211, %8 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -210,7 +210,7 @@ ecpg_strndup.exit.thread:                         ; preds = %5
   br label %22
 
 22:                                               ; preds = %ecpg_strndup.exit.thread, %18, %20
-  %.013 = phi i32 [ %spec.select, %20 ], [ -1201, %ecpg_strndup.exit.thread ], [ %switch.select20, %18 ]
+  %.013 = phi i32 [ %spec.select, %20 ], [ %switch.select20, %18 ], [ -1201, %ecpg_strndup.exit.thread ]
   tail call void @free(ptr noundef %11) #18
   br label %23
 
@@ -476,7 +476,7 @@ define range(i32 -1211, 1) i32 @dectoasc(ptr noundef %0, ptr noundef %1, i32 nou
   br label %31
 
 31:                                               ; preds = %17, %6, %4, %29, %28, %11
-  %.0 = phi i32 [ -1211, %6 ], [ 0, %4 ], [ -1211, %11 ], [ -1, %28 ], [ 0, %29 ], [ -1, %17 ]
+  %.0 = phi i32 [ -1211, %11 ], [ -1, %28 ], [ 0, %29 ], [ 0, %4 ], [ -1211, %6 ], [ -1, %17 ]
   ret i32 %.0
 }
 
@@ -545,7 +545,7 @@ define i32 @dectoint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %2, %8, %7
-  %.0 = phi i32 [ %spec.store.select, %8 ], [ -1211, %7 ], [ -1211, %2 ]
+  %.0 = phi i32 [ -1211, %7 ], [ %spec.store.select, %8 ], [ -1211, %2 ]
   ret i32 %.0
 }
 
@@ -579,7 +579,7 @@ define i32 @dectolong(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %2, %8, %7
-  %.0 = phi i32 [ %spec.store.select, %8 ], [ -1211, %7 ], [ -1211, %2 ]
+  %.0 = phi i32 [ -1211, %7 ], [ %spec.store.select, %8 ], [ -1211, %2 ]
   ret i32 %.0
 }
 
@@ -624,7 +624,7 @@ switch.lookup:                                    ; preds = %6
   br label %rdefmtdate.exit
 
 rdefmtdate.exit:                                  ; preds = %6, %switch.lookup, %2
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ], [ -1204, %6 ]
+  %.0.i = phi i32 [ 0, %2 ], [ %switch.load, %switch.lookup ], [ -1204, %6 ]
   ret i32 %.0.i
 }
 
@@ -649,7 +649,7 @@ switch.lookup:                                    ; preds = %7
   br label %11
 
 11:                                               ; preds = %7, %switch.lookup, %3
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %3 ], [ -1204, %7 ]
+  %.0 = phi i32 [ 0, %3 ], [ %switch.load, %switch.lookup ], [ -1204, %7 ]
   ret i32 %.0
 }
 
@@ -1048,11 +1048,11 @@ getRightMostDot.exit:                             ; preds = %58, %54
   br label %85
 
 85:                                               ; preds = %.thread161, %._crit_edge206
-  %86 = phi i8 [ %83, %.thread161 ], [ %.pre, %._crit_edge206 ]
-  %.not144172 = phi i1 [ false, %.thread161 ], [ true, %._crit_edge206 ]
-  %.1130157169 = phi i32 [ 1, %.thread161 ], [ 0, %._crit_edge206 ]
-  %.1127160166 = phi i32 [ %.1127160167, %.thread161 ], [ %.0126191, %._crit_edge206 ]
-  %.0 = phi i8 [ %spec.select219, %.thread161 ], [ %.pre, %._crit_edge206 ]
+  %86 = phi i8 [ %.pre, %._crit_edge206 ], [ %83, %.thread161 ]
+  %.not144172 = phi i1 [ true, %._crit_edge206 ], [ false, %.thread161 ]
+  %.1130157169 = phi i32 [ 0, %._crit_edge206 ], [ 1, %.thread161 ]
+  %.1127160166 = phi i32 [ %.0126191, %._crit_edge206 ], [ %.1127160167, %.thread161 ]
+  %.0 = phi i8 [ %.pre, %._crit_edge206 ], [ %spec.select219, %.thread161 ]
   %or.cond = and i1 %.not140, %64
   %87 = icmp ne i32 %.1127160166, 0
   %or.cond3 = select i1 %or.cond, i1 %87, i1 false

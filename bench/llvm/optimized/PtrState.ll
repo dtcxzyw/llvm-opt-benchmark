@@ -131,7 +131,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm7objca
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %49, %47, %42, %40, %35, %33, %28, %26, %21, %19, %14, %12
-  %.0 = phi ptr [ %0, %49 ], [ %0, %35 ], [ %41, %40 ], [ %0, %42 ], [ %48, %47 ], [ %13, %12 ], [ %0, %14 ], [ %20, %19 ], [ %0, %21 ], [ %27, %26 ], [ %0, %28 ], [ %34, %33 ]
+  %.0 = phi ptr [ %13, %12 ], [ %0, %14 ], [ %20, %19 ], [ %0, %21 ], [ %27, %26 ], [ %0, %28 ], [ %34, %33 ], [ %0, %35 ], [ %41, %40 ], [ %0, %42 ], [ %48, %47 ], [ %0, %49 ]
   ret ptr %.0
 }
 
@@ -653,8 +653,8 @@ define dso_local void @_ZN4llvm7objcarc8PtrState5MergeERKS1_b(ptr noundef nonnul
   %or.cond13.i = and i1 %25, %26
   br i1 %or.cond13.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread10
 
-_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread: ; preds = %22, %17, %24
-  %.0.i.ph = phi i32 [ 4, %24 ], [ %16, %17 ], [ %15, %22 ]
+_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread: ; preds = %22, %24, %17
+  %.0.i.ph = phi i32 [ %16, %17 ], [ 4, %24 ], [ %15, %22 ]
   %27 = trunc nuw i32 %.0.i.ph to i8
   store i8 %27, ptr %4, align 2
   %28 = load i8, ptr %1, align 8, !tbaa !41, !range !23, !noundef !24
@@ -1297,7 +1297,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %
   br label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit
 
 _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit: ; preds = %_ZNK4llvm4User10getOperandEj.exit.i, %35, %38, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %46
-  %.2.i = phi i32 [ %47, %46 ], [ 21, %38 ], [ 21, %35 ], [ 21, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ 21, %_ZNK4llvm4User10getOperandEj.exit.i ]
+  %.2.i = phi i32 [ 21, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ 21, %35 ], [ 21, %38 ], [ %47, %46 ], [ 21, %_ZNK4llvm4User10getOperandEj.exit.i ]
   %48 = call noundef zeroext i1 @_ZN4llvm7objcarc6CanUseEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE(ptr noundef nonnull %33, ptr noundef %3, ptr noundef nonnull align 1 %4, i32 noundef %.2.i) #8
   br i1 %48, label %49, label %_ZN4llvm7objcarcL18getreturnRVOperandERKNS_11InstructionENS0_11ARCInstKindE.exit.thread
 
@@ -1375,9 +1375,9 @@ _ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11I
   br label %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit
 
 _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit: ; preds = %.preheader.i.i.i, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, %24
-  %28 = phi ptr [ %17, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %17, %24 ], [ %.pre84, %.preheader.i.i.i ]
-  %.sroa.066.0 = phi ptr [ %.sroa.038.0, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %.sroa.038.0, %24 ], [ %27, %.preheader.i.i.i ]
-  %.sroa.10.0 = phi i64 [ %.sroa.10.8.insert.ext74, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %.sroa.10.8.insert.ext74, %24 ], [ 0, %.preheader.i.i.i ]
+  %28 = phi ptr [ %17, %24 ], [ %17, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %.pre84, %.preheader.i.i.i ]
+  %.sroa.066.0 = phi ptr [ %.sroa.038.0, %24 ], [ %.sroa.038.0, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ %27, %.preheader.i.i.i ]
+  %.sroa.10.0 = phi i64 [ %.sroa.10.8.insert.ext74, %24 ], [ %.sroa.10.8.insert.ext74, %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit ], [ 0, %.preheader.i.i.i ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %.not = icmp eq ptr %.sroa.066.0, %29
   br i1 %.not, label %32, label %30
@@ -1657,7 +1657,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   br label %_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit
 
 _ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %73, %3
-  %.0 = phi i1 [ false, %3 ], [ %7, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %7, %73 ], [ %7, %.lr.ph.i.i.i ]
+  %.0 = phi i1 [ false, %3 ], [ %7, %73 ], [ %7, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %7, %.lr.ph.i.i.i ]
   store i8 1, ptr %0, align 8, !tbaa !41
   ret i1 %.0
 }
@@ -1891,7 +1891,7 @@ _ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit: ; pr
   br label %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit.thread
 
 _ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %33, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit, %9, %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit, %6
-  %.0 = phi i1 [ true, %33 ], [ false, %6 ], [ true, %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit ], [ false, %9 ], [ true, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit ], [ true, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi i1 [ false, %6 ], [ true, %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit ], [ false, %9 ], [ true, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit ], [ true, %33 ], [ true, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0
 }
 

@@ -469,7 +469,7 @@ _ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.ex
   br label %.thread
 
 .thread:                                          ; preds = %160, %165, %154, %150, %174, %78, %159, %129, %._crit_edge26, %41
-  %.06 = phi i1 [ false, %159 ], [ false, %78 ], [ true, %154 ], [ true, %41 ], [ false, %._crit_edge26 ], [ false, %129 ], [ true, %174 ], [ true, %150 ], [ false, %165 ], [ false, %160 ]
+  %.06 = phi i1 [ false, %159 ], [ true, %41 ], [ false, %._crit_edge26 ], [ false, %129 ], [ false, %78 ], [ true, %174 ], [ true, %150 ], [ true, %154 ], [ false, %165 ], [ false, %160 ]
   ret i1 %.06
 }
 

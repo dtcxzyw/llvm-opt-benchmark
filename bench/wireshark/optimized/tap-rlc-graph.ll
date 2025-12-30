@@ -67,7 +67,7 @@ define hidden zeroext i1 @compare_rlc_headers(i8 noundef zeroext %0, i8 noundef 
   br label %28
 
 28:                                               ; preds = %24, %15, %21, %13
-  %.0 = phi i1 [ false, %13 ], [ %spec.select31, %24 ], [ %spec.select, %15 ], [ false, %21 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %21 ], [ %spec.select, %15 ], [ %spec.select31, %24 ]
   ret i1 %.0
 }
 
@@ -203,7 +203,7 @@ define hidden ptr @select_rlc_lte_session(ptr noundef %0, ptr noundef writeonly 
   br label %76
 
 76:                                               ; preds = %11, %3, %43, %41, %37, %17
-  %.0 = phi ptr [ null, %3 ], [ null, %37 ], [ null, %41 ], [ %75, %43 ], [ null, %17 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %37 ], [ null, %41 ], [ %75, %43 ], [ null, %17 ], [ null, %3 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -498,7 +498,7 @@ define hidden noundef zeroext i1 @rlc_graph_segment_list_get(ptr noundef %0, ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %38, %4, %42
-  %.0 = phi i1 [ false, %42 ], [ true, %38 ], [ false, %9 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %42 ], [ false, %4 ], [ true, %38 ], [ false, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

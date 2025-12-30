@@ -95,7 +95,7 @@ define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr noundef readonly capture
   br label %compare_ipv6.exit
 
 compare_ipv6.exit:                                ; preds = %11, %17, %30
-  %.2.i = phi i32 [ %29, %17 ], [ 0, %30 ], [ 1, %11 ]
+  %.2.i = phi i32 [ 0, %30 ], [ %29, %17 ], [ 1, %11 ]
   %31 = icmp eq i32 %.2.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %31

@@ -1979,10 +1979,10 @@ is_device.exit.thread.split.us:                   ; preds = %34, %.lr.ph, %38
   br i1 %.not71.us, label %.split.split.us, label %.lr.ph, !llvm.loop !87
 
 .split.split.us:                                  ; preds = %.outer32.us, %.outer32, %.backedge, %.outer32.us.preheader, %.split40
-  %.us-phi = phi i32 [ %.260, %.outer32 ], [ 0, %.split40 ], [ %.159.ph.us20, %.backedge ], [ 0, %.outer32.us.preheader ], [ %.260.us, %.outer32.us ]
-  %.us-phi35 = phi i32 [ %.254, %.outer32 ], [ 0, %.split40 ], [ %.153.ph.us21, %.backedge ], [ 0, %.outer32.us.preheader ], [ %.254.us, %.outer32.us ]
-  %.us-phi36 = phi ptr [ %.248, %.outer32 ], [ null, %.split40 ], [ %.147.ph.us22, %.backedge ], [ null, %.outer32.us.preheader ], [ %.248.us, %.outer32.us ]
-  %.us-phi37 = phi ptr [ %.2, %.outer32 ], [ null, %.split40 ], [ %.1.ph.us23, %.backedge ], [ null, %.outer32.us.preheader ], [ %.2.us, %.outer32.us ]
+  %.us-phi = phi i32 [ 0, %.split40 ], [ 0, %.outer32.us.preheader ], [ %.159.ph.us20, %.backedge ], [ %.260, %.outer32 ], [ %.260.us, %.outer32.us ]
+  %.us-phi35 = phi i32 [ 0, %.split40 ], [ 0, %.outer32.us.preheader ], [ %.153.ph.us21, %.backedge ], [ %.254, %.outer32 ], [ %.254.us, %.outer32.us ]
+  %.us-phi36 = phi ptr [ null, %.split40 ], [ null, %.outer32.us.preheader ], [ %.147.ph.us22, %.backedge ], [ %.248, %.outer32 ], [ %.248.us, %.outer32.us ]
+  %.us-phi37 = phi ptr [ null, %.split40 ], [ null, %.outer32.us.preheader ], [ %.1.ph.us23, %.backedge ], [ %.2, %.outer32 ], [ %.2.us, %.outer32.us ]
   br i1 %.not72, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %9, %.split.split.us
@@ -2055,8 +2055,8 @@ is_device.exit.thread.split.us:                   ; preds = %34, %.lr.ph, %38
   br i1 %.not73, label %.loopexit, label %.lr.ph29, !llvm.loop !88
 
 is_device.exit85.thread:                          ; preds = %64, %55, %55, %55, %55, %55, %58, %52
-  %.us-phi69 = phi ptr [ %51, %55 ], [ %51, %52 ], [ %51, %58 ], [ %51, %55 ], [ %51, %55 ], [ %51, %55 ], [ %51, %55 ], [ %61, %64 ]
-  %.us-phi70 = phi i32 [ 1, %55 ], [ 0, %52 ], [ %60, %58 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %64 ]
+  %.us-phi69 = phi ptr [ %51, %52 ], [ %51, %58 ], [ %51, %55 ], [ %51, %55 ], [ %51, %55 ], [ %51, %55 ], [ %51, %55 ], [ %61, %64 ]
+  %.us-phi70 = phi i32 [ 0, %52 ], [ %60, %58 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %64 ]
   %.not79 = icmp eq ptr %.450.ph, null
   %.pre82 = load ptr, ptr %.us-phi69, align 8, !tbaa !16
   br i1 %.not79, label %71, label %68
@@ -2082,10 +2082,10 @@ is_device.exit85.thread:                          ; preds = %64, %55, %55, %55, 
   br label %.thread16
 
 .thread16:                                        ; preds = %.thread91, %68, %.loopexit41
-  %.527 = phi ptr [ %77, %.loopexit41 ], [ %.4.ph.ph, %68 ], [ %.4.ph.ph, %.thread91 ]
-  %.55125 = phi ptr [ %.pre82, %.loopexit41 ], [ %.450.ph, %68 ], [ %.450.ph, %.thread91 ]
-  %.55724 = phi i32 [ %.us-phi70, %.loopexit41 ], [ %.456.ph.ph, %68 ], [ %.456.ph.ph, %.thread91 ]
-  %.56322 = phi i32 [ 0, %.loopexit41 ], [ %.462.ph.ph, %68 ], [ %.462.ph.ph, %.thread91 ]
+  %.527 = phi ptr [ %.4.ph.ph, %68 ], [ %77, %.loopexit41 ], [ %.4.ph.ph, %.thread91 ]
+  %.55125 = phi ptr [ %.450.ph, %68 ], [ %.pre82, %.loopexit41 ], [ %.450.ph, %.thread91 ]
+  %.55724 = phi i32 [ %.456.ph.ph, %68 ], [ %.us-phi70, %.loopexit41 ], [ %.456.ph.ph, %.thread91 ]
+  %.56322 = phi i32 [ %.462.ph.ph, %68 ], [ 0, %.loopexit41 ], [ %.462.ph.ph, %.thread91 ]
   %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre82, ptr noundef nonnull dereferenceable(1) %.55125) #18
   %79 = icmp eq i32 %78, 0
   %spec.select = select i1 %79, i32 1, i32 %.165.ph.ph
@@ -2572,8 +2572,8 @@ define range(i32 -2147483647, -2147483648) i32 @init_report(ptr noundef %0, ptr 
   br label %46
 
 46:                                               ; preds = %.thread, %45, %32
-  %.125 = phi i32 [ %.02456, %45 ], [ 1, %.thread ], [ %.02456, %32 ]
-  %.123 = phi ptr [ %.02257, %45 ], [ %.02257, %.thread ], [ %33, %32 ]
+  %.125 = phi i32 [ %.02456, %45 ], [ %.02456, %32 ], [ 1, %.thread ]
+  %.123 = phi ptr [ %.02257, %45 ], [ %33, %32 ], [ %.02257, %.thread ]
   %47 = load ptr, ptr %5, align 8, !tbaa !13
   call void @av_free(ptr noundef %47) #17
   %48 = load ptr, ptr %4, align 8, !tbaa !13
@@ -2583,8 +2583,8 @@ define range(i32 -2147483647, -2147483648) i32 @init_report(ptr noundef %0, ptr 
   br i1 %.not31, label %.critedge, label %.lr.ph, !llvm.loop !109
 
 .critedge:                                        ; preds = %.lr.ph, %46, %11, %20, %21
-  %.02450 = phi i32 [ %.02456, %21 ], [ %.02456, %20 ], [ 0, %11 ], [ %.02456, %.lr.ph ], [ %.125, %46 ]
-  %.02247 = phi ptr [ %.02257, %21 ], [ %.02257, %20 ], [ null, %11 ], [ %.02257, %.lr.ph ], [ %.123, %46 ]
+  %.02450 = phi i32 [ %.02456, %20 ], [ %.02456, %21 ], [ 0, %11 ], [ %.02456, %.lr.ph ], [ %.125, %46 ]
+  %.02247 = phi ptr [ %.02257, %20 ], [ %.02257, %21 ], [ null, %11 ], [ %.02257, %.lr.ph ], [ %.123, %46 ]
   call void @av_bprint_init(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1) #17
   %.not.i = icmp eq ptr %.02247, null
   %50 = select i1 %.not.i, ptr @.str.44, ptr %.02247
@@ -2639,7 +2639,7 @@ define range(i32 -2147483647, -2147483648) i32 @init_report(ptr noundef %0, ptr 
   br label %.backedge
 
 .backedge:                                        ; preds = %73, %72, %63, %62, %59
-  %.0.i.be = phi ptr [ %60, %59 ], [ %60, %62 ], [ %60, %63 ], [ %60, %72 ], [ %57, %73 ]
+  %.0.i.be = phi ptr [ %60, %62 ], [ %60, %63 ], [ %60, %72 ], [ %57, %73 ], [ %60, %59 ]
   br label %56, !llvm.loop !117
 
 expand_filename_template.exit:                    ; preds = %56, %59
@@ -2705,7 +2705,7 @@ expand_filename_template.exit:                    ; preds = %56, %59
   br label %105
 
 105:                                              ; preds = %42, %91, %103, %2, %85, %76
-  %.0 = phi i32 [ -22, %42 ], [ 0, %2 ], [ %88, %85 ], [ -12, %76 ], [ 0, %103 ], [ 0, %91 ]
+  %.0 = phi i32 [ %88, %85 ], [ -12, %76 ], [ -22, %42 ], [ 0, %2 ], [ 0, %103 ], [ 0, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3125,7 +3125,7 @@ show_sinks_sources_parse_arg.exit:                ; preds = %9, %11, %14, %18
   %.not22 = icmp eq ptr %38, null
   br i1 %.not22, label %.critedge26, label %.lr.ph31, !llvm.loop !131
 
-.critedge26:                                      ; preds = %.critedge, %.critedge.preheader, %17, %7
+.critedge26:                                      ; preds = %.critedge, %.critedge.preheader, %7, %17
   %.1.i28 = phi i32 [ -12, %7 ], [ %15, %17 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
   call void @av_dict_free(ptr noundef nonnull %5) #17
   %39 = load ptr, ptr %4, align 8, !tbaa !13
@@ -3294,7 +3294,7 @@ show_sinks_sources_parse_arg.exit:                ; preds = %9, %11, %14, %18
   %.not20 = icmp eq ptr %36, null
   br i1 %.not20, label %.critedge24, label %.lr.ph29, !llvm.loop !135
 
-.critedge24:                                      ; preds = %.critedge, %.critedge.preheader, %17, %7
+.critedge24:                                      ; preds = %.critedge, %.critedge.preheader, %7, %17
   %.1.i26 = phi i32 [ -12, %7 ], [ %15, %17 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
   call void @av_dict_free(ptr noundef nonnull %5) #17
   %37 = load ptr, ptr %4, align 8, !tbaa !13

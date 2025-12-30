@@ -614,9 +614,9 @@ correct_untracked_entries.exit.thread:            ; preds = %._crit_edge
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %.critedge2.i.loopexit, %.lr.ph46.preheader.i, %..critedge2.i.loopexit_crit_edge, %.critedge._crit_edge.i, %197
-  %.135.lcssa65.i = phi i32 [ %.135.lcssa.ph.i, %197 ], [ %.135.lcssa66.i, %.critedge._crit_edge.i ], [ %.135.lcssa66.i, %.lr.ph46.preheader.i ], [ %.135.lcssa66.i, %..critedge2.i.loopexit_crit_edge ], [ %.135.lcssa66.i, %.critedge2.i.loopexit ]
-  %.137.i = phi i32 [ %.03650.i, %197 ], [ %203, %.critedge._crit_edge.i ], [ %203, %.lr.ph46.preheader.i ], [ %203, %..critedge2.i.loopexit_crit_edge ], [ %203, %.critedge2.i.loopexit ]
-  %.2.i = phi i32 [ %.052.i, %197 ], [ %.052.i, %.critedge._crit_edge.i ], [ %.052.i, %.lr.ph46.preheader.i ], [ %222, %..critedge2.i.loopexit_crit_edge ], [ %223, %.critedge2.i.loopexit ]
+  %.135.lcssa65.i = phi i32 [ %.135.lcssa.ph.i, %197 ], [ %.135.lcssa66.i, %.critedge._crit_edge.i ], [ %.135.lcssa66.i, %..critedge2.i.loopexit_crit_edge ], [ %.135.lcssa66.i, %.lr.ph46.preheader.i ], [ %.135.lcssa66.i, %.critedge2.i.loopexit ]
+  %.137.i = phi i32 [ %.03650.i, %197 ], [ %203, %.critedge._crit_edge.i ], [ %203, %..critedge2.i.loopexit_crit_edge ], [ %203, %.lr.ph46.preheader.i ], [ %203, %.critedge2.i.loopexit ]
+  %.2.i = phi i32 [ %.052.i, %197 ], [ %.052.i, %.critedge._crit_edge.i ], [ %222, %..critedge2.i.loopexit_crit_edge ], [ %.052.i, %.lr.ph46.preheader.i ], [ %223, %.critedge2.i.loopexit ]
   %224 = add nsw i32 %.2.i, 1
   %225 = load i32, ptr %168, align 4, !tbaa !64
   %226 = icmp slt i32 %224, %225
@@ -889,7 +889,7 @@ _.exit.sink.split:                                ; preds = %337
   br label %_.exit
 
 _.exit:                                           ; preds = %337, %_.exit.sink.split
-  %343 = phi ptr [ %.str.80..str.79, %337 ], [ %342, %_.exit.sink.split ]
+  %343 = phi ptr [ %342, %_.exit.sink.split ], [ %.str.80..str.79, %337 ]
   %344 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %343, ptr noundef %339)
   br label %368
 
@@ -943,7 +943,7 @@ _.exit85.sink.split:                              ; preds = %360
   br label %_.exit85
 
 _.exit85:                                         ; preds = %360, %_.exit85.sink.split
-  %366 = phi ptr [ %.str.80..str.79136, %360 ], [ %365, %_.exit85.sink.split ]
+  %366 = phi ptr [ %365, %_.exit85.sink.split ], [ %.str.80..str.79136, %360 ]
   %367 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %366, ptr noundef %362)
   br label %368
 
@@ -1085,7 +1085,7 @@ skip_prefix.exit:                                 ; preds = %14
   br label %37
 
 37:                                               ; preds = %32, %23, %25, %19, %35, %30, %10, %6
-  %.0 = phi i32 [ %7, %6 ], [ 0, %10 ], [ 0, %19 ], [ %36, %35 ], [ 0, %30 ], [ -1, %23 ], [ %28, %25 ], [ -1, %32 ]
+  %.0 = phi i32 [ %7, %6 ], [ %36, %35 ], [ 0, %30 ], [ 0, %10 ], [ %28, %25 ], [ -1, %23 ], [ 0, %19 ], [ -1, %32 ]
   ret i32 %.0
 }
 
@@ -1192,7 +1192,7 @@ _.exit.sink.split:                                ; preds = %19
   br label %_.exit
 
 _.exit:                                           ; preds = %19, %_.exit.sink.split
-  %25 = phi ptr [ %.str.75..str.74, %19 ], [ %24, %_.exit.sink.split ]
+  %25 = phi ptr [ %24, %_.exit.sink.split ], [ %.str.75..str.74, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !89
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef %27)
@@ -1405,7 +1405,7 @@ _.exit108:                                        ; preds = %107, %113
   br label %116, !llvm.loop !93
 
 116:                                              ; preds = %.critedge, %_.exit108, %92, %97
-  %.4 = phi i32 [ %.1134, %.critedge ], [ %spec.select, %92 ], [ %spec.select, %97 ], [ 1, %_.exit108 ]
+  %.4 = phi i32 [ %spec.select, %97 ], [ %spec.select, %92 ], [ 1, %_.exit108 ], [ %.1134, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %117 = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %32) #16
   %.not79 = icmp eq ptr %117, null
@@ -1471,7 +1471,7 @@ _.exit114.sink.split:                             ; preds = %138
   br label %_.exit114
 
 _.exit114:                                        ; preds = %138, %_.exit114.sink.split
-  %141 = phi ptr [ %.str.78..str.77, %138 ], [ %140, %_.exit114.sink.split ]
+  %141 = phi ptr [ %140, %_.exit114.sink.split ], [ %.str.78..str.77, %138 ]
   %142 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %141)
   br label %.sink.split
 
@@ -1536,7 +1536,7 @@ _.exit120:                                        ; preds = %148, %154
   br label %_.exit123.us
 
 _.exit123.us:                                     ; preds = %162, %.lr.ph136.split.us
-  %164 = phi ptr [ @.str.80, %.lr.ph136.split.us ], [ %163, %162 ]
+  %164 = phi ptr [ %163, %162 ], [ @.str.80, %.lr.ph136.split.us ]
   %165 = load ptr, ptr %11, align 8, !tbaa !59
   %166 = getelementptr inbounds nuw %struct.string_list_item, ptr %165, i64 %indvars.iv140
   %167 = load ptr, ptr %166, align 8, !tbaa !60
@@ -1557,7 +1557,7 @@ _.exit123.us:                                     ; preds = %162, %.lr.ph136.spl
   br label %_.exit123
 
 _.exit123:                                        ; preds = %172, %.lr.ph136.split
-  %174 = phi ptr [ @.str.79, %.lr.ph136.split ], [ %173, %172 ]
+  %174 = phi ptr [ %173, %172 ], [ @.str.79, %.lr.ph136.split ]
   %175 = load ptr, ptr %11, align 8, !tbaa !59
   %176 = getelementptr inbounds nuw %struct.string_list_item, ptr %175, i64 %indvars.iv
   %177 = load ptr, ptr %176, align 8, !tbaa !60
@@ -1568,13 +1568,13 @@ _.exit123:                                        ; preds = %172, %.lr.ph136.spl
   br i1 %180, label %.lr.ph136.split, label %.thread, !llvm.loop !98
 
 .thread.sink.split:                               ; preds = %143, %144, %18, %_.exit, %_.exit102
-  %.sink = phi i32 [ 0, %18 ], [ 0, %_.exit102 ], [ 0, %_.exit ], [ 1, %144 ], [ 1, %143 ]
-  %.069.ph = phi i32 [ 0, %18 ], [ %36, %_.exit102 ], [ 0, %_.exit ], [ %.2, %144 ], [ %.2, %143 ]
+  %.sink = phi i32 [ 0, %_.exit102 ], [ 0, %_.exit ], [ 0, %18 ], [ 1, %144 ], [ 1, %143 ]
+  %.069.ph = phi i32 [ %36, %_.exit102 ], [ 0, %_.exit ], [ 0, %18 ], [ %.2, %144 ], [ %.2, %143 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %_.exit123, %_.exit123.us, %.thread.sink.split, %.preheader, %33, %34, %158
-  %.069 = phi i32 [ %.6, %_.exit123.us ], [ %.6, %158 ], [ 0, %34 ], [ %.069.ph, %.thread.sink.split ], [ 0, %33 ], [ %.6, %.preheader ], [ %.6, %_.exit123 ]
+  %.069 = phi i32 [ %.6, %158 ], [ 0, %34 ], [ 0, %33 ], [ %.6, %.preheader ], [ %.069.ph, %.thread.sink.split ], [ %.6, %_.exit123.us ], [ %.6, %_.exit123 ]
   call void @strbuf_release(ptr noundef nonnull %8) #16
   call void @strbuf_release(ptr noundef nonnull %9) #16
   call void @strbuf_release(ptr noundef nonnull %7) #16
@@ -2494,7 +2494,7 @@ _.exit.sink.split.i:                              ; preds = %158
   br label %prompt_help_cmd.exit
 
 prompt_help_cmd.exit:                             ; preds = %158, %_.exit.sink.split.i
-  %166 = phi ptr [ %.str.68..str.67.i, %158 ], [ %165, %_.exit.sink.split.i ]
+  %166 = phi ptr [ %165, %_.exit.sink.split.i ], [ %.str.68..str.67.i, %158 ]
   %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %166)
   %168 = load i32, ptr @clean_use_color, align 4, !tbaa !11
   %169 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %168) #16

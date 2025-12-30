@@ -138,7 +138,7 @@ event_is_bubbled.exit:                            ; preds = %54, %49
   br label %tailrecurse.i
 
 event_send_core.exit:                             ; preds = %54, %51, %46, %13, %16, %18, %24, %lv_obj_event_base.exit.i, %lv_obj_event_base.exit.thread.i, %38, %40, %43
-  %.0.i = phi i32 [ 0, %16 ], [ 1, %13 ], [ %39, %38 ], [ %23, %18 ], [ 0, %lv_obj_event_base.exit.i ], [ 1, %24 ], [ 1, %lv_obj_event_base.exit.thread.i ], [ 1, %40 ], [ 1, %43 ], [ 1, %46 ], [ 1, %51 ], [ 1, %54 ]
+  %.0.i = phi i32 [ 1, %13 ], [ 0, %16 ], [ 1, %24 ], [ %23, %18 ], [ 1, %lv_obj_event_base.exit.thread.i ], [ 0, %lv_obj_event_base.exit.i ], [ 1, %40 ], [ %39, %38 ], [ 1, %43 ], [ 1, %46 ], [ 1, %51 ], [ 1, %54 ]
   call void @lv_event_pop(ptr noundef nonnull %4) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %57
@@ -354,7 +354,7 @@ lv_obj_get_event_dsc.exit.thread:                 ; preds = %.lr.ph.split, %15, 
   br i1 %exitcond.not, label %lv_obj_remove_event.exit, label %.lr.ph.splitthread-pre-split, !llvm.loop !30
 
 lv_obj_remove_event.exit:                         ; preds = %lv_obj_get_event_dsc.exit.thread, %3, %.lr.ph, %lv_obj_get_event_count.exit, %20, %.critedge
-  %24 = phi i1 [ true, %.critedge ], [ true, %20 ], [ false, %lv_obj_get_event_count.exit ], [ false, %3 ], [ false, %.lr.ph ], [ false, %lv_obj_get_event_dsc.exit.thread ]
+  %24 = phi i1 [ true, %20 ], [ true, %.critedge ], [ false, %lv_obj_get_event_count.exit ], [ false, %.lr.ph ], [ false, %3 ], [ false, %lv_obj_get_event_dsc.exit.thread ]
   ret i1 %24
 }
 
@@ -470,7 +470,7 @@ lv_obj_get_event_dsc.exit.thread:                 ; preds = %.lr.ph.split, %lv_o
   br i1 %34, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %lv_obj_get_event_dsc.exit.thread, %4, %.lr.ph, %lv_obj_get_event_count.exit
-  %.0.lcssa = phi i32 [ 0, %lv_obj_get_event_count.exit ], [ 0, %4 ], [ 0, %.lr.ph ], [ %.1, %lv_obj_get_event_dsc.exit.thread ]
+  %.0.lcssa = phi i32 [ 0, %lv_obj_get_event_count.exit ], [ 0, %.lr.ph ], [ 0, %4 ], [ %.1, %lv_obj_get_event_dsc.exit.thread ]
   ret i32 %.0.lcssa
 }
 
@@ -576,7 +576,7 @@ define i32 @lv_event_get_key(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %1, %7, %5
-  %.1 = phi i32 [ 0, %5 ], [ %8, %7 ], [ 0, %1 ]
+  %.1 = phi i32 [ %8, %7 ], [ 0, %5 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -597,7 +597,7 @@ define i32 @lv_event_get_rotary_diff(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %1, %7, %5
-  %.1 = phi i32 [ 0, %5 ], [ %8, %7 ], [ 0, %1 ]
+  %.1 = phi i32 [ %8, %7 ], [ 0, %5 ], [ 0, %1 ]
   ret i32 %.1
 }
 

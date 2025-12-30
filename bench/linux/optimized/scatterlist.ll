@@ -155,7 +155,7 @@ define dso_local i32 @sg_nents(ptr noundef readonly captures(address) %0) #1 ali
   br label %17
 
 17:                                               ; preds = %14, %9
-  %18 = phi ptr [ %10, %9 ], [ %16, %14 ]
+  %18 = phi ptr [ %16, %14 ], [ %10, %9 ]
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread, label %.preheader, !llvm.loop !7
 
@@ -204,7 +204,7 @@ define dso_local i32 @sg_nents_for_len(ptr noundef readonly captures(address) %0
   br label %27
 
 27:                                               ; preds = %24, %19
-  %28 = phi ptr [ %20, %19 ], [ %26, %24 ]
+  %28 = phi ptr [ %26, %24 ], [ %20, %19 ]
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %.preheader, !llvm.loop !10
 
@@ -1208,7 +1208,7 @@ define dso_local ptr @sgl_alloc_order(i64 noundef %0, i32 noundef %1, i1 noundef
   br label %63
 
 63:                                               ; preds = %60, %55
-  %64 = phi ptr [ %56, %55 ], [ %62, %60 ]
+  %64 = phi ptr [ %62, %60 ], [ %56, %55 ]
   %65 = icmp ne i32 %52, 2147483647
   %66 = icmp ne ptr %64, null
   %67 = and i1 %65, %66
@@ -1318,7 +1318,7 @@ define dso_local void @sgl_free_order(ptr noundef %0, i32 noundef %1) #2 align 1
   br label %24
 
 24:                                               ; preds = %21, %16
-  %25 = phi ptr [ %17, %16 ], [ %23, %21 ]
+  %25 = phi ptr [ %23, %21 ], [ %17, %16 ]
   %26 = icmp ne i32 %13, 2147483647
   %27 = icmp ne ptr %25, null
   %28 = and i1 %26, %27
@@ -1376,7 +1376,7 @@ define dso_local void @sgl_free_n_order(ptr noundef %0, i32 noundef %1, i32 noun
   br label %27
 
 27:                                               ; preds = %24, %19
-  %28 = phi ptr [ %20, %19 ], [ %26, %24 ]
+  %28 = phi ptr [ %26, %24 ], [ %20, %19 ]
   %29 = icmp slt i32 %16, %1
   %30 = icmp ne ptr %28, null
   %31 = and i1 %29, %30
@@ -1432,7 +1432,7 @@ define dso_local void @sgl_free(ptr noundef %0) #2 align 16 {
   br label %23
 
 23:                                               ; preds = %20, %15
-  %24 = phi ptr [ %16, %15 ], [ %22, %20 ]
+  %24 = phi ptr [ %22, %20 ], [ %16, %15 ]
   %25 = icmp ne i32 %12, 2147483647
   %26 = icmp ne ptr %24, null
   %27 = and i1 %25, %26
@@ -1519,7 +1519,7 @@ define dso_local noundef zeroext i1 @__sg_page_iter_next(ptr noundef captures(no
   br label %40
 
 40:                                               ; preds = %37, %32
-  %41 = phi ptr [ %33, %32 ], [ %39, %37 ]
+  %41 = phi ptr [ %39, %37 ], [ %33, %32 ]
   store ptr %41, ptr %0, align 8
   %42 = add i32 %15, -1
   store i32 %42, ptr %2, align 4
@@ -1596,7 +1596,7 @@ define dso_local noundef zeroext i1 @__sg_page_iter_dma_next(ptr noundef capture
   br label %40
 
 40:                                               ; preds = %37, %32
-  %41 = phi ptr [ %33, %32 ], [ %39, %37 ]
+  %41 = phi ptr [ %39, %37 ], [ %33, %32 ]
   store ptr %41, ptr %0, align 8
   %42 = add i32 %15, -1
   store i32 %42, ptr %2, align 4
@@ -1885,7 +1885,7 @@ define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr noundef ca
   br label %45
 
 45:                                               ; preds = %42, %37
-  %46 = phi ptr [ %38, %37 ], [ %44, %42 ]
+  %46 = phi ptr [ %44, %42 ], [ %38, %37 ]
   store ptr %46, ptr %6, align 8
   %47 = add i32 %20, -1
   store i32 %47, ptr %7, align 4
@@ -1917,7 +1917,7 @@ define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr noundef ca
   br label %.critedge
 
 .critedge:                                        ; preds = %45, %.thread, %1, %.critedge2, %10, %5
-  %66 = phi i1 [ false, %5 ], [ false, %10 ], [ true, %1 ], [ true, %.critedge2 ], [ false, %.thread ], [ false, %45 ]
+  %66 = phi i1 [ false, %5 ], [ false, %10 ], [ true, %.critedge2 ], [ true, %1 ], [ false, %.thread ], [ false, %45 ]
   ret i1 %66
 }
 
@@ -2136,7 +2136,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br label %59
 
 59:                                               ; preds = %56, %51
-  %60 = phi ptr [ %52, %51 ], [ %58, %56 ]
+  %60 = phi ptr [ %58, %56 ], [ %52, %51 ]
   store ptr %60, ptr %9, align 8
   %61 = add i32 %36, -1
   store i32 %61, ptr %10, align 4
@@ -2166,12 +2166,12 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br label %79
 
 79:                                               ; preds = %.lr.ph, %.critedge7
-  %80 = phi i32 [ 1, %.critedge7 ], [ %26, %.lr.ph ]
-  %81 = phi i32 [ %70, %.critedge7 ], [ %25, %.lr.ph ]
-  %82 = phi i32 [ %69, %.critedge7 ], [ %24, %.lr.ph ]
-  %83 = phi ptr [ %35, %.critedge7 ], [ %23, %.lr.ph ]
-  %84 = phi i32 [ %36, %.critedge7 ], [ %22, %.lr.ph ]
-  %85 = phi i32 [ %78, %.critedge7 ], [ %21, %.lr.ph ]
+  %80 = phi i32 [ %26, %.lr.ph ], [ 1, %.critedge7 ]
+  %81 = phi i32 [ %25, %.lr.ph ], [ %70, %.critedge7 ]
+  %82 = phi i32 [ %24, %.lr.ph ], [ %69, %.critedge7 ]
+  %83 = phi ptr [ %23, %.lr.ph ], [ %35, %.critedge7 ]
+  %84 = phi i32 [ %22, %.lr.ph ], [ %36, %.critedge7 ]
+  %85 = phi i32 [ %21, %.lr.ph ], [ %78, %.critedge7 ]
   %86 = zext i32 %85 to i64
   %87 = tail call i64 @llvm.smin.i64(i64 %20, i64 %86)
   %88 = trunc i64 %87 to i32
@@ -2231,7 +2231,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br i1 %121, label %.preheader.split, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader.split, %111, %97, %.preheader.split.us, %._crit_edge
-  %122 = phi i64 [ 0, %._crit_edge ], [ %94, %.preheader.split.us ], [ %106, %97 ], [ %120, %111 ], [ %108, %.preheader.split ]
+  %122 = phi i64 [ 0, %._crit_edge ], [ %106, %97 ], [ %94, %.preheader.split.us ], [ %120, %111 ], [ %108, %.preheader.split ]
   %123 = load i64, ptr %13, align 8
   %124 = load i64, ptr %14, align 8
   %125 = icmp ugt i64 %123, %124
@@ -2287,7 +2287,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %59, %46, %130, %141, %147, %127
-  %150 = phi i64 [ %122, %141 ], [ %122, %127 ], [ %122, %130 ], [ 0, %59 ], [ %122, %147 ], [ 0, %46 ], [ 0, %28 ]
+  %150 = phi i64 [ %122, %127 ], [ %122, %147 ], [ %122, %141 ], [ %122, %130 ], [ 0, %46 ], [ 0, %59 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %150
 }
@@ -2395,7 +2395,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br label %56
 
 56:                                               ; preds = %53, %48
-  %57 = phi ptr [ %49, %48 ], [ %55, %53 ]
+  %57 = phi ptr [ %55, %53 ], [ %49, %48 ]
   store ptr %57, ptr %6, align 8
   %58 = add i32 %33, -1
   store i32 %58, ptr %7, align 4
@@ -2425,12 +2425,12 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br label %76
 
 76:                                               ; preds = %.lr.ph, %.critedge7
-  %77 = phi i32 [ 1, %.critedge7 ], [ %23, %.lr.ph ]
-  %78 = phi i32 [ %67, %.critedge7 ], [ %22, %.lr.ph ]
-  %79 = phi i32 [ %66, %.critedge7 ], [ %21, %.lr.ph ]
-  %80 = phi ptr [ %32, %.critedge7 ], [ %20, %.lr.ph ]
-  %81 = phi i32 [ %33, %.critedge7 ], [ %19, %.lr.ph ]
-  %82 = phi i32 [ %75, %.critedge7 ], [ %18, %.lr.ph ]
+  %77 = phi i32 [ %23, %.lr.ph ], [ 1, %.critedge7 ]
+  %78 = phi i32 [ %22, %.lr.ph ], [ %67, %.critedge7 ]
+  %79 = phi i32 [ %21, %.lr.ph ], [ %66, %.critedge7 ]
+  %80 = phi ptr [ %20, %.lr.ph ], [ %32, %.critedge7 ]
+  %81 = phi i32 [ %19, %.lr.ph ], [ %33, %.critedge7 ]
+  %82 = phi i32 [ %18, %.lr.ph ], [ %75, %.critedge7 ]
   %83 = zext i32 %82 to i64
   %84 = tail call i64 @llvm.smin.i64(i64 %17, i64 %83)
   %85 = trunc i64 %84 to i32
@@ -2478,7 +2478,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %._crit_edge, %104, %.loopexit
-  %105 = phi i64 [ %.ph, %.loopexit ], [ %.ph, %104 ], [ 0, %._crit_edge ]
+  %105 = phi i64 [ %.ph, %104 ], [ %.ph, %.loopexit ], [ 0, %._crit_edge ]
   %106 = load ptr, ptr %12, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.critedge, label %108
@@ -2522,7 +2522,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %56, %43, %108, %119, %125, %.loopexit.thread
-  %128 = phi i64 [ %105, %119 ], [ %105, %.loopexit.thread ], [ %105, %108 ], [ 0, %56 ], [ %105, %125 ], [ 0, %43 ], [ 0, %25 ]
+  %128 = phi i64 [ %105, %.loopexit.thread ], [ %105, %125 ], [ %105, %119 ], [ %105, %108 ], [ 0, %43 ], [ 0, %56 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %128
 }
@@ -2761,7 +2761,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   br label %103
 
 156:                                              ; preds = %134, %103
-  %157 = phi i64 [ %150, %134 ], [ %107, %103 ]
+  %157 = phi i64 [ %107, %103 ], [ %150, %134 ]
   %158 = icmp sgt i64 %157, 0
   br i1 %158, label %159, label %.thread31
 
@@ -2906,7 +2906,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   br label %174
 
 259:                                              ; preds = %255, %174
-  %260 = phi i64 [ %207, %255 ], [ %180, %174 ]
+  %260 = phi i64 [ %180, %174 ], [ %207, %255 ]
   %261 = icmp sgt i64 %260, 0
   br i1 %261, label %262, label %.thread31
 
@@ -3127,7 +3127,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %392, label %.loopexit41, label %285, !llvm.loop !75
 
 .loopexit41:                                      ; preds = %.loopexit40, %332, %306, %296
-  %393 = phi i64 [ %290, %296 ], [ %290, %306 ], [ %348, %332 ], [ %353, %.loopexit40 ]
+  %393 = phi i64 [ %290, %296 ], [ %290, %306 ], [ %353, %.loopexit40 ], [ %348, %332 ]
   call void @__rcu_read_unlock() #16
   %394 = icmp sgt i64 %393, 0
   br i1 %394, label %395, label %396

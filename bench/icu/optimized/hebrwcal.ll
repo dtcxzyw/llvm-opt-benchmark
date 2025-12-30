@@ -189,7 +189,7 @@ define void @_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode(
   br label %37
 
 37:                                               ; preds = %30, %28
-  %.2 = phi i64 [ %spec.select, %30 ], [ %.138, %28 ]
+  %.2 = phi i64 [ %.138, %28 ], [ %spec.select, %30 ]
   %38 = icmp slt i64 %.2, 13
   br i1 %38, label %.loopexit, label %39
 
@@ -252,7 +252,7 @@ define void @_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode(
   br label %66
 
 66:                                               ; preds = %59, %57
-  %.6 = phi i64 [ %spec.select49, %59 ], [ %.5, %57 ]
+  %.6 = phi i64 [ %.5, %57 ], [ %spec.select49, %59 ]
   %67 = icmp sgt i64 %.6, -1
   br i1 %67, label %.loopexit, label %68
 
@@ -505,7 +505,7 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %._crit_ed
   br label %_ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode.exit
 
 _ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode.exit: ; preds = %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i, %33, %4, %42
-  %.0 = phi i32 [ 0, %4 ], [ %46, %42 ], [ %41, %33 ], [ 0, %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i ]
+  %.0 = phi i32 [ %46, %42 ], [ 0, %4 ], [ %41, %33 ], [ 0, %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i ]
   ret i32 %.0
 }
 
@@ -850,7 +850,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_111startOfYearEiR10UE
   br label %.thread
 
 .thread:                                          ; preds = %26, %36, %33
-  %.2 = phi i64 [ %spec.select50, %26 ], [ %spec.select, %36 ], [ %.143, %33 ]
+  %.2 = phi i64 [ %.143, %33 ], [ %spec.select, %36 ], [ %spec.select50, %26 ]
   %45 = add i64 %.2, 2147483648
   %or.cond9 = icmp ult i64 %45, 4294967296
   br i1 %or.cond9, label %.thread49, label %47
@@ -865,7 +865,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_111startOfYearEiR10UE
   br label %48
 
 48:                                               ; preds = %6, %.thread49, %47, %2
-  %.040 = phi i32 [ 0, %47 ], [ 0, %2 ], [ %46, %.thread49 ], [ %3, %6 ]
+  %.040 = phi i32 [ 0, %47 ], [ 0, %2 ], [ %3, %6 ], [ %46, %.thread49 ]
   ret i32 %.040
 }
 
@@ -905,7 +905,7 @@ define noundef i32 @_ZN6icu_7714HebrewCalendar21handleGetExtendedYearER10UErrorC
   br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
 _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %19, %15, %12, %8, %2
-  %.0 = phi i32 [ 1, %8 ], [ 0, %2 ], [ %14, %12 ], [ %21, %19 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %2 ], [ %14, %12 ], [ 1, %8 ], [ %21, %19 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -1055,7 +1055,7 @@ thread-pre-split:                                 ; preds = %48
   br label %.critedge
 
 .critedge:                                        ; preds = %75, %._crit_edge, %59, %5, %51, %37, %17
-  %.0 = phi i64 [ 0, %5 ], [ 0, %17 ], [ 0, %37 ], [ 0, %51 ], [ 0, %59 ], [ %76, %75 ], [ 0, %._crit_edge ]
+  %.0 = phi i64 [ 0, %17 ], [ 0, %37 ], [ 0, %51 ], [ 0, %5 ], [ %76, %75 ], [ 0, %._crit_edge ], [ 0, %59 ]
   ret i64 %.0
 }
 
@@ -1343,7 +1343,7 @@ define noundef i32 @_ZNK6icu_7714HebrewCalendar16internalGetMonthER10UErrorCode(
   br label %32
 
 32:                                               ; preds = %.thread, %27, %2, %30
-  %.09 = phi i32 [ %29, %27 ], [ %31, %30 ], [ 0, %2 ], [ %.1.ph, %.thread ]
+  %.09 = phi i32 [ %31, %30 ], [ %29, %27 ], [ 0, %2 ], [ %.1.ph, %.thread ]
   ret i32 %.09
 }
 

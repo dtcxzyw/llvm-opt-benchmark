@@ -300,7 +300,7 @@ define dso_local range(i32 -22, 1) i32 @dm_io(ptr noundef readonly captures(none
   br label %108
 
 108:                                              ; preds = %4, %98, %97, %87
-  %109 = phi i32 [ %88, %87 ], [ -5, %97 ], [ 0, %98 ], [ -22, %4 ]
+  %109 = phi i32 [ %88, %87 ], [ 0, %98 ], [ -5, %97 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %109
 }

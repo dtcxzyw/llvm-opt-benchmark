@@ -168,7 +168,7 @@ define dso_local ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br label %.thread
 
 .split153:                                        ; preds = %.lr.ph190, %.lr.ph175.preheader, %.lr.ph190.preheader, %.lr.ph175.preheader.preheader
-  %.us-phi154 = phi i64 [ %49, %.lr.ph175.preheader ], [ %74, %.lr.ph175.preheader.preheader ], [ %63, %.lr.ph190.preheader ], [ %71, %.lr.ph190 ]
+  %.us-phi154 = phi i64 [ %74, %.lr.ph175.preheader.preheader ], [ %63, %.lr.ph190.preheader ], [ %49, %.lr.ph175.preheader ], [ %71, %.lr.ph190 ]
   %55 = and i64 %.us-phi154, 2147483647
   %56 = getelementptr inbounds nuw i8, ptr %.077.ph195, i64 %55
   %57 = sub i64 %.078.ph193, %55
@@ -358,7 +358,7 @@ define dso_local ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br label %.thread
 
 .split203.us:                                     ; preds = %.lr.ph241, %.lr.ph226.preheader, %.lr.ph241.preheader, %.lr.ph226.preheader.preheader
-  %.us-phi204 = phi i64 [ %116, %.lr.ph226.preheader ], [ %98, %.lr.ph226.preheader.preheader ], [ %87, %.lr.ph241.preheader ], [ %95, %.lr.ph241 ]
+  %.us-phi204 = phi i64 [ %98, %.lr.ph226.preheader.preheader ], [ %87, %.lr.ph241.preheader ], [ %116, %.lr.ph226.preheader ], [ %95, %.lr.ph241 ]
   %122 = and i64 %.us-phi204, 2147483647
   %123 = getelementptr inbounds nuw i8, ptr %.075.ph246, i64 %122
   %124 = sub i64 %.076.ph244, %122
@@ -377,8 +377,8 @@ define dso_local ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2
 .lr.ph198.backedge:                               ; preds = %128, %125
   br label %.lr.ph198, !llvm.loop !12
 
-.thread:                                          ; preds = %.split203.us, %.outer118._crit_edge, %.split206.us, %121, %111, %106, %.split135.us, %26, %39, %44, %.split156, %54
-  %.080 = phi ptr [ %84, %106 ], [ %84, %111 ], [ null, %26 ], [ null, %.outer118._crit_edge ], [ null, %54 ], [ %84, %.split206.us ], [ %84, %121 ], [ null, %.split135.us ], [ null, %39 ], [ null, %44 ], [ null, %.split156 ], [ %84, %.split203.us ]
+.thread:                                          ; preds = %.split203.us, %.outer118._crit_edge, %.split206.us, %121, %111, %106, %26, %.split135.us, %39, %44, %54, %.split156
+  %.080 = phi ptr [ null, %.outer118._crit_edge ], [ %84, %.split206.us ], [ %84, %121 ], [ %84, %111 ], [ %84, %106 ], [ null, %26 ], [ null, %.split135.us ], [ null, %39 ], [ null, %44 ], [ null, %54 ], [ null, %.split156 ], [ %84, %.split203.us ]
   %129 = tail call i32 @close(i32 noundef %6) #8
   br label %.thread115
 
@@ -448,7 +448,7 @@ _sack_try_connection.exit:                        ; preds = %11
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._sack_connect, ptr noundef nonnull %3) #8
   br label %27
 
-24:                                               ; preds = %10, %20, %7
+24:                                               ; preds = %7, %10, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %25, label %1, !llvm.loop !13
@@ -644,7 +644,7 @@ define dso_local i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .split114:                                        ; preds = %.lr.ph151, %.lr.ph136.preheader, %.lr.ph151.preheader, %.lr.ph136.preheader.preheader
-  %.us-phi115 = phi i64 [ %52, %.lr.ph136.preheader ], [ %77, %.lr.ph136.preheader.preheader ], [ %66, %.lr.ph151.preheader ], [ %74, %.lr.ph151 ]
+  %.us-phi115 = phi i64 [ %77, %.lr.ph136.preheader.preheader ], [ %66, %.lr.ph151.preheader ], [ %52, %.lr.ph136.preheader ], [ %74, %.lr.ph151 ]
   %58 = and i64 %.us-phi115, 2147483647
   %59 = getelementptr inbounds nuw i8, ptr %.056.ph156, i64 %58
   %60 = sub i64 %.057.ph154, %58
@@ -720,7 +720,7 @@ define dso_local i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %83, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.outer._crit_edge, %.split96.us, %29, %42, %47, %.split117, %57
+.thread:                                          ; preds = %.outer._crit_edge, %29, %.split96.us, %42, %47, %57, %.split117
   %84 = tail call i32 @close(i32 noundef %4) #8
   br label %.thread85
 

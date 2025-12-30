@@ -482,7 +482,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm10DataLayout20getManglingComponent
   br label %15
 
 15:                                               ; preds = %1, %.fold.split, %13, %9
-  %.0 = phi ptr [ %.str.4..str.5, %13 ], [ @.str, %1 ], [ %.str.2..str.3, %9 ], [ @.str.1, %.fold.split ]
+  %.0 = phi ptr [ %.str.2..str.3, %9 ], [ @.str, %1 ], [ %.str.4..str.5, %13 ], [ @.str.1, %.fold.split ]
   ret ptr %.0
 }
 
@@ -1138,7 +1138,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit
 
 _ZNK4llvm10DataLayout14getPointerSpecEj.exit:     ; preds = %162, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i, %174
-  %.1.i = phi ptr [ %spec.select.i, %174 ], [ %.pre.i33, %162 ], [ %.pre.i33, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ]
+  %.1.i = phi ptr [ %.pre.i33, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ], [ %.pre.i33, %162 ], [ %spec.select.i, %174 ]
   %177 = getelementptr inbounds nuw i8, ptr %.1.i, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !32
   %179 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
@@ -1273,7 +1273,7 @@ define dso_local noundef nonnull align 8 dereferenceable(496) ptr @_ZN4llvm10Dat
   br i1 %.not.i9.i15.i7.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !138
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i6.i.i, %.lr.ph.i6.i12.i3.i.i, %16, %14
-  %.pn14.i.i = phi ptr [ %15, %14 ], [ %10, %16 ], [ %17, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
+  %.pn14.i.i = phi ptr [ %15, %14 ], [ %10, %16 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ], [ %17, %.critedge2.i8.i14.i6.i.i ]
   %.pn12.i.i = phi ptr [ %15, %14 ], [ %17, %16 ], [ %17, %.lr.ph.i6.i12.i3.i.i ], [ %17, %.critedge2.i8.i14.i6.i.i ]
   %20 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
   %.not8.i = icmp eq ptr %.pn14.i.i, %20
@@ -1734,19 +1734,19 @@ define dso_local noundef zeroext i1 @_ZNK4llvm10DataLayouteqERKS0_(ptr noundef n
   %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.06.0.copyload, 8
   %27 = and i16 %.sroa.07.0.copyload, 256
   %.not.i = icmp eq i16 %27, 0
-  br i1 %.not.i, label %_ZN4llvmeqENS_10MaybeAlignES0_.exit, label %28
+  br i1 %.not.i, label %28, label %_ZN4llvmeqENS_10MaybeAlignES0_.exit
 
 28:                                               ; preds = %24
-  %.sroa.0.0.extract.trunc.i = trunc i16 %.sroa.06.0.copyload to i8
-  %.sroa.03.0.extract.trunc.i = trunc i16 %.sroa.07.0.copyload to i8
   %29 = trunc i16 %.sroa.2.0.extract.shift.i to i1
-  %30 = icmp eq i8 %.sroa.03.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
-  %or.cond.i = and i1 %30, %29
-  br i1 %or.cond.i, label %32, label %80
+  br i1 %29, label %80, label %32
 
 _ZN4llvmeqENS_10MaybeAlignES0_.exit:              ; preds = %24
-  %31 = trunc i16 %.sroa.2.0.extract.shift.i to i1
-  br i1 %31, label %80, label %32
+  %.sroa.0.0.extract.trunc.i = trunc i16 %.sroa.06.0.copyload to i8
+  %.sroa.03.0.extract.trunc.i = trunc i16 %.sroa.07.0.copyload to i8
+  %30 = trunc i16 %.sroa.2.0.extract.shift.i to i1
+  %31 = icmp eq i8 %.sroa.03.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
+  %or.cond.i = and i1 %31, %30
+  br i1 %or.cond.i, label %32, label %80
 
 32:                                               ; preds = %28, %_ZN4llvmeqENS_10MaybeAlignES0_.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -1756,19 +1756,19 @@ _ZN4llvmeqENS_10MaybeAlignES0_.exit:              ; preds = %24
   %.sroa.2.0.extract.shift.i23 = lshr i16 %.sroa.04.0.copyload, 8
   %35 = and i16 %.sroa.05.0.copyload, 256
   %.not.i24 = icmp eq i16 %35, 0
-  br i1 %.not.i24, label %_ZN4llvmeqENS_10MaybeAlignES0_.exit28, label %36
+  br i1 %.not.i24, label %36, label %_ZN4llvmeqENS_10MaybeAlignES0_.exit28
 
 36:                                               ; preds = %32
-  %.sroa.0.0.extract.trunc.i25 = trunc i16 %.sroa.04.0.copyload to i8
-  %.sroa.03.0.extract.trunc.i26 = trunc i16 %.sroa.05.0.copyload to i8
   %37 = trunc i16 %.sroa.2.0.extract.shift.i23 to i1
-  %38 = icmp eq i8 %.sroa.03.0.extract.trunc.i26, %.sroa.0.0.extract.trunc.i25
-  %or.cond.i27 = and i1 %38, %37
-  br i1 %or.cond.i27, label %40, label %80
+  br i1 %37, label %80, label %40
 
 _ZN4llvmeqENS_10MaybeAlignES0_.exit28:            ; preds = %32
-  %39 = trunc i16 %.sroa.2.0.extract.shift.i23 to i1
-  br i1 %39, label %80, label %40
+  %.sroa.0.0.extract.trunc.i25 = trunc i16 %.sroa.04.0.copyload to i8
+  %.sroa.03.0.extract.trunc.i26 = trunc i16 %.sroa.05.0.copyload to i8
+  %38 = trunc i16 %.sroa.2.0.extract.shift.i23 to i1
+  %39 = icmp eq i8 %.sroa.03.0.extract.trunc.i26, %.sroa.0.0.extract.trunc.i25
+  %or.cond.i27 = and i1 %39, %38
+  br i1 %or.cond.i27, label %40, label %80
 
 40:                                               ; preds = %36, %_ZN4llvmeqENS_10MaybeAlignES0_.exit28
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4561,7 +4561,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %14, %2, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit
-  %.1 = phi ptr [ %spec.select, %14 ], [ %.pre, %2 ], [ %.pre, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit ]
+  %.1 = phi ptr [ %.pre, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit ], [ %.pre, %2 ], [ %spec.select, %14 ]
   ret ptr %.1
 }
 
@@ -4648,7 +4648,7 @@ define dso_local void @_ZN4llvm10DataLayoutD2Ev(ptr noundef nonnull readonly ali
   br i1 %.not.i9.i15.i7.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !138
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEPNS_12StructLayoutENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i6.i.i, %.lr.ph.i6.i12.i3.i.i, %15, %13
-  %.pn14.i.i = phi ptr [ %14, %13 ], [ %9, %15 ], [ %16, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
+  %.pn14.i.i = phi ptr [ %14, %13 ], [ %9, %15 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ], [ %16, %.critedge2.i8.i14.i6.i.i ]
   %.pn12.i.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ %16, %.lr.ph.i6.i12.i3.i.i ], [ %16, %.critedge2.i8.i14.i6.i.i ]
   %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %12
   %.not8.i = icmp eq ptr %.pn14.i.i, %19
@@ -4868,7 +4868,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit
 
 _ZNK4llvm10DataLayout14getPointerSpecEj.exit:     ; preds = %2, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i, %14
-  %.1.i = phi ptr [ %spec.select.i, %14 ], [ %.pre.i, %2 ], [ %.pre.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ]
+  %.1.i = phi ptr [ %.pre.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ], [ %.pre.i, %2 ], [ %spec.select.i, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %.sroa.0.0.copyload = load i8, ptr %17, align 4, !tbaa !23
   ret i8 %.sroa.0.0.copyload
@@ -4920,7 +4920,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit
 
 _ZNK4llvm10DataLayout14getPointerSpecEj.exit:     ; preds = %2, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i, %14
-  %.1.i = phi ptr [ %spec.select.i, %14 ], [ %.pre.i, %2 ], [ %.pre.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ]
+  %.1.i = phi ptr [ %.pre.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ], [ %.pre.i, %2 ], [ %spec.select.i, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 9
   %.sroa.0.0.copyload = load i8, ptr %17, align 1, !tbaa !23
   ret i8 %.sroa.0.0.copyload
@@ -4972,7 +4972,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit
 
 _ZNK4llvm10DataLayout14getPointerSpecEj.exit:     ; preds = %2, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i, %14
-  %.1.i = phi ptr [ %spec.select.i, %14 ], [ %.pre.i, %2 ], [ %.pre.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ]
+  %.1.i = phi ptr [ %.pre.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ], [ %.pre.i, %2 ], [ %spec.select.i, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !32
   %19 = icmp ne i32 %18, 0
@@ -5047,7 +5047,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit
 
 _ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i, %24
-  %.1.i.i = phi ptr [ %spec.select.i.i3, %24 ], [ %.pre.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %.pre.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ]
+  %.1.i.i = phi ptr [ %.pre.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ], [ %.pre.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %spec.select.i.i3, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !32
   ret i32 %28
@@ -5099,7 +5099,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout14getPointerSpecEj.exit
 
 _ZNK4llvm10DataLayout14getPointerSpecEj.exit:     ; preds = %2, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i, %14
-  %.1.i = phi ptr [ %spec.select.i, %14 ], [ %.pre.i, %2 ], [ %.pre.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ]
+  %.1.i = phi ptr [ %.pre.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i ], [ %.pre.i, %2 ], [ %spec.select.i, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !33
   %19 = icmp ne i32 %18, 0
@@ -5174,7 +5174,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout18getIndexSizeInBitsEj.exit
 
 _ZNK4llvm10DataLayout18getIndexSizeInBitsEj.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i, %24
-  %.1.i.i = phi ptr [ %spec.select.i.i3, %24 ], [ %.pre.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %.pre.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ]
+  %.1.i.i = phi ptr [ %.pre.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ], [ %.pre.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %spec.select.i.i3, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !33
   ret i32 %28
@@ -5273,7 +5273,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit
 
 _ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit: ; preds = %14, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i, %26
-  %.1.i.i = phi ptr [ %spec.select.i.i, %26 ], [ %.pre.i.i53, %14 ], [ %.pre.i.i53, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ]
+  %.1.i.i = phi ptr [ %.pre.i.i53, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ], [ %.pre.i.i53, %14 ], [ %spec.select.i.i, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %.sroa.0.0.copyload.i54 = load i8, ptr %29, align 4, !tbaa !23
   br label %_ZN4llvm12PowerOf2CeilEm.exit
@@ -5320,7 +5320,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit
 
 _ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit: ; preds = %30, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i69, %42
-  %.1.i.i74 = phi ptr [ %spec.select.i.i73, %42 ], [ %.pre.i.i53, %30 ], [ %.pre.i.i53, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i69 ]
+  %.1.i.i74 = phi ptr [ %.pre.i.i53, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i69 ], [ %.pre.i.i53, %30 ], [ %spec.select.i.i73, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %.1.i.i74, i64 9
   %.sroa.0.0.copyload.i75 = load i8, ptr %45, align 1, !tbaa !23
   br label %_ZN4llvm12PowerOf2CeilEm.exit
@@ -5563,7 +5563,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout13PrimitiveSpecELj10EEER
   unreachable
 
 _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %tailrecurse, %140, %136, %111, %108, %133, %105, %49, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit, %8, %10, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
-  %.sroa.0118.0 = phi i8 [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0.copyload.i51, %10 ], [ -1, %108 ], [ -1, %136 ], [ %.sroa.0.0.copyload.i54, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit ], [ %.sroa.speculated, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %.sroa.0.0.copyload.i79, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit ], [ 0, %49 ], [ %107, %105 ], [ %135, %133 ], [ %.sroa.0.0.copyload.i75, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit ], [ %115, %111 ], [ %144, %140 ], [ 6, %tailrecurse ]
+  %.sroa.0118.0 = phi i8 [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0.copyload.i51, %10 ], [ %.sroa.speculated, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %.sroa.0.0.copyload.i79, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit ], [ %.sroa.0.0.copyload.i75, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit ], [ %.sroa.0.0.copyload.i54, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit ], [ 0, %49 ], [ %107, %105 ], [ %135, %133 ], [ %115, %111 ], [ -1, %108 ], [ %144, %140 ], [ -1, %136 ], [ 6, %tailrecurse ]
   ret i8 %.sroa.0118.0
 }
 
@@ -5646,7 +5646,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit
 
 _ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit: ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i, %22
-  %.1.i.i = phi ptr [ %spec.select.i.i, %22 ], [ %.pre.i.i66, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %.pre.i.i66, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ]
+  %.1.i.i = phi ptr [ %.pre.i.i66, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ], [ %.pre.i.i66, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %spec.select.i.i, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !32
   %27 = zext i32 %26 to i64
@@ -5768,8 +5768,8 @@ _ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit: ; preds = %50, %_
   unreachable
 
 87:                                               ; preds = %2, %2, %83, %72, %71, %70, %69, %68, %67, %64, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit, %28, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit, %6
-  %.sroa.081.0 = phi i64 [ %9, %6 ], [ %27, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit ], [ %44, %28 ], [ %63, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %66, %64 ], [ %.fca.0.extract, %83 ], [ 32, %67 ], [ 64, %68 ], [ 128, %69 ], [ 8192, %70 ], [ 80, %71 ], [ %81, %72 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %6 ], [ 0, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit ], [ %35, %28 ], [ %.sroa.6.0.copyload.i.i.i.i, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ 0, %64 ], [ %.fca.1.extract, %83 ], [ 0, %67 ], [ 0, %68 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ %82, %72 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.081.0 = phi i64 [ %9, %6 ], [ %27, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit ], [ %44, %28 ], [ %63, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %66, %64 ], [ 32, %67 ], [ 64, %68 ], [ 128, %69 ], [ 8192, %70 ], [ 80, %71 ], [ %81, %72 ], [ %.fca.0.extract, %83 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %6 ], [ 0, %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit ], [ %35, %28 ], [ %.sroa.6.0.copyload.i.i.i.i, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ 0, %64 ], [ 0, %67 ], [ 0, %68 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ %82, %72 ], [ %.fca.1.extract, %83 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.081.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -5829,7 +5829,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit
 
 _ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit: ; preds = %3, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i, %15
-  %.1.i.i = phi ptr [ %spec.select.i.i, %15 ], [ %.pre.i.i, %3 ], [ %.pre.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ]
+  %.1.i.i = phi ptr [ %.pre.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ], [ %.pre.i.i, %3 ], [ %spec.select.i.i, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !32
   %20 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %19) #21
@@ -5902,7 +5902,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout24getPointerTypeSizeInBitsEPNS_4TypeE.exit
 
 _ZNK4llvm10DataLayout24getPointerTypeSizeInBitsEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i.i, %24
-  %.1.i.i.i = phi ptr [ %spec.select.i.i3.i, %24 ], [ %.pre.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ %.pre.i.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.pre.i.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i.i ], [ %.pre.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ %spec.select.i.i3.i, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !32
   %29 = load ptr, ptr %1, align 8, !tbaa !317
@@ -6049,7 +6049,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout18getIndexSizeInBitsEj.exit
 
 _ZNK4llvm10DataLayout18getIndexSizeInBitsEj.exit: ; preds = %3, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i, %15
-  %.1.i.i = phi ptr [ %spec.select.i.i, %15 ], [ %.pre.i.i, %3 ], [ %.pre.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ]
+  %.1.i.i = phi ptr [ %.pre.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i ], [ %.pre.i.i, %3 ], [ %spec.select.i.i, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !33
   %20 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %19) #21
@@ -6120,7 +6120,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN1
   br label %_ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE.exit
 
 _ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i.i, %24
-  %.1.i.i.i = phi ptr [ %spec.select.i.i3.i, %24 ], [ %.pre.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ %.pre.i.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.pre.i.i.i, %_ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout11PointerSpecELj8EEERjN12_GLOBAL__N_120LessPointerAddrSpaceEEEDaOT_OT0_T1_.exit.i.i.i ], [ %.pre.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ %spec.select.i.i3.i, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !33
   %29 = load ptr, ptr %1, align 8, !tbaa !317
@@ -6315,7 +6315,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE26getSequentialElementStrideE
   br label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread
 
 _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %47, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit, %_ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE26getSequentialElementStrideERKNS_10DataLayoutE.exit
-  %.1 = phi i64 [ %.058, %47 ], [ %79, %_ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE26getSequentialElementStrideERKNS_10DataLayoutE.exit ], [ %.058, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ]
+  %.1 = phi i64 [ %79, %_ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE26getSequentialElementStrideERKNS_10DataLayoutE.exit ], [ %.058, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ %.058, %47 ]
   %80 = icmp ne i64 %15, 4
   %.not.not.i.i35 = or i1 %80, %.not53
   br i1 %.not.not.i.i35, label %81, label %_ZNK4llvm25generic_gep_type_iteratorIPKPNS_5ValueEE14getIndexedTypeEv.exit.i36
@@ -6952,7 +6952,7 @@ define dso_local i8 @_ZNK4llvm10DataLayout17getPreferredAlignEPKNS_14GlobalVaria
   br label %18
 
 18:                                               ; preds = %12, %16
-  %.sroa.011.1 = phi i8 [ %9, %12 ], [ %.sroa.011.0.copyload13.sroa.speculated, %16 ]
+  %.sroa.011.1 = phi i8 [ %.sroa.011.0.copyload13.sroa.speculated, %16 ], [ %9, %12 ]
   %19 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %1) #21
   br label %29
 
@@ -6980,7 +6980,7 @@ define dso_local i8 @_ZNK4llvm10DataLayout17getPreferredAlignEPKNS_14GlobalVaria
   br label %29
 
 29:                                               ; preds = %18, %25, %.thread23, %10
-  %.sroa.011.0 = phi i8 [ %.sroa.011.1, %18 ], [ %22, %.thread23 ], [ %9, %10 ], [ %spec.select, %25 ]
+  %.sroa.011.0 = phi i8 [ %.sroa.011.1, %18 ], [ %9, %10 ], [ %22, %.thread23 ], [ %spec.select, %25 ]
   ret i8 %.sroa.011.0
 }
 

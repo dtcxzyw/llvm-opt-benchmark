@@ -102,7 +102,7 @@ define i32 @Dch_NodeHash(ptr noundef readonly captures(none) %0, ptr noundef rea
   br i1 %exitcond40.not, label %.loopexit, label %.lr.ph31, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader25, %.preheader
-  %.1 = phi i32 [ %34, %.lr.ph31 ], [ 0, %.preheader ], [ 0, %.preheader25 ], [ %27, %.lr.ph ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader25 ], [ %34, %.lr.ph31 ], [ %27, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -169,7 +169,7 @@ define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr noundef readonly captures(none) 
   br i1 %.not17, label %23, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %.lr.ph29, %23, %.preheader22, %.preheader
-  %.0 = phi i32 [ 1, %.preheader22 ], [ 1, %23 ], [ 1, %.preheader ], [ 0, %.lr.ph29 ], [ 1, %20 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 1, %.preheader22 ], [ 0, %.lr.ph29 ], [ 1, %23 ], [ 0, %.lr.ph ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -249,7 +249,7 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr noundef readonly captures(none
   br i1 %.not24, label %34, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %.lr.ph38, %34, %.preheader31, %.preheader
-  %.0 = phi i32 [ 1, %.preheader31 ], [ 1, %34 ], [ 1, %.preheader ], [ 0, %.lr.ph38 ], [ 1, %28 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 1, %.preheader31 ], [ 0, %.lr.ph38 ], [ 1, %34 ], [ 0, %.lr.ph ], [ 1, %28 ]
   ret i32 %.0
 }
 

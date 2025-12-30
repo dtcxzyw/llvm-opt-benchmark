@@ -1766,7 +1766,7 @@ define void @_ZNK3gmx20SelectionTreeElement18checkUnsortedAtomsEbPNS_20Exception
   br label %22
 
 22:                                               ; preds = %14, %14, %14, %14, %.fold.split, %3, %15
-  %23 = phi i1 [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %3 ], [ %21, %15 ], [ false, %.fold.split ]
+  %23 = phi i1 [ true, %14 ], [ %21, %15 ], [ true, %3 ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ false, %.fold.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load ptr, ptr %24, align 8, !tbaa !65

@@ -245,7 +245,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr nounde
   br label %45
 
 45:                                               ; preds = %5, %43, %42
-  %.016 = phi i32 [ 0, %5 ], [ %.1, %42 ], [ 0, %43 ]
+  %.016 = phi i32 [ %.1, %42 ], [ 0, %43 ], [ 0, %5 ]
   ret i32 %.016
 }
 
@@ -328,7 +328,7 @@ define internal range(i32 -1, 2) i32 @H5G__compact_remove_common_cb(ptr noundef 
   br label %27
 
 27:                                               ; preds = %17, %23, %10, %3
-  %.0 = phi i32 [ -1, %23 ], [ 0, %3 ], [ 0, %10 ], [ 1, %17 ]
+  %.0 = phi i32 [ -1, %23 ], [ 0, %10 ], [ 0, %3 ], [ 1, %17 ]
   ret i32 %.0
 }
 

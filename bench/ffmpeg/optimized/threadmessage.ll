@@ -72,7 +72,7 @@ define range(i32 -2147483647, -2147483648) i32 @av_thread_message_queue_alloc(pt
   br label %36
 
 36:                                               ; preds = %6, %3, %34, %30, %22, %16, %11
-  %.0 = phi i32 [ -22, %3 ], [ %12, %11 ], [ %18, %16 ], [ %25, %22 ], [ 0, %34 ], [ -12, %30 ], [ -12, %6 ]
+  %.0 = phi i32 [ %12, %11 ], [ %18, %16 ], [ %25, %22 ], [ 0, %34 ], [ -12, %30 ], [ -22, %3 ], [ -12, %6 ]
   ret i32 %.0
 }
 
@@ -244,7 +244,7 @@ define i32 @av_thread_message_queue_send(ptr noundef %0, ptr noundef %1, i32 nou
   br label %av_thread_message_queue_send_locked.exit
 
 av_thread_message_queue_send_locked.exit:         ; preds = %12, %3, %.lr.ph.split.i, %.critedge.i, %17
-  %.0.i = phi i32 [ %.pr.i, %.critedge.i ], [ 0, %17 ], [ -11, %.lr.ph.split.i ], [ %7, %3 ], [ %14, %12 ]
+  %.0.i = phi i32 [ 0, %17 ], [ %.pr.i, %.critedge.i ], [ %7, %3 ], [ -11, %.lr.ph.split.i ], [ %14, %12 ]
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #5
   ret i32 %.0.i
 }

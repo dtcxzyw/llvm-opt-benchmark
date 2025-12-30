@@ -399,7 +399,7 @@ _ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit:   ; preds = %.lr.ph.i, %_ZN11duc
   br label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit
 
 _ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit: ; preds = %113, %95, %68, %50, %38, %20, %70, %161, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread
-  %.0 = phi i64 [ -70, %70 ], [ -70, %20 ], [ -70, %50 ], [ %125, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread ], [ %162, %161 ], [ %27, %38 ], [ %57, %68 ], [ -70, %95 ], [ %102, %113 ]
+  %.0 = phi i64 [ %125, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread ], [ %162, %161 ], [ -70, %70 ], [ %27, %38 ], [ -70, %20 ], [ %57, %68 ], [ -70, %50 ], [ -70, %95 ], [ %102, %113 ]
   ret i64 %.0
 }
 

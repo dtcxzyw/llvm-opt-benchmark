@@ -245,7 +245,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br i1 %.sroa.18.0.in.i, label %15, label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
 "_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h8cd59a3a2ad2cce9E.exit": ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit, %.lr.ph.i.i, %4, %18
-  %or.cond.not25 = phi i1 [ true, %.lr.ph.i.i ], [ true, %18 ], [ false, %4 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
+  %or.cond.not25 = phi i1 [ true, %18 ], [ false, %4 ], [ true, %.lr.ph.i.i ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
   ret i1 %or.cond.not25
 
 15:                                               ; preds = %11
@@ -512,7 +512,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i:
   unreachable
 
 "_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear17hce45450e6713bcb5E.exit": ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i, %45, %31, %26, %15, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %45 ], [ false, %31 ], [ false, %26 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i ]
+  %.0 = phi i1 [ false, %2 ], [ true, %45 ], [ false, %31 ], [ false, %26 ], [ false, %15 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i ]
   ret i1 %.0
 }
 
@@ -585,7 +585,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.15887933665
   br label %11
 
 11:                                               ; preds = %_ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.15887933665536463318.exit, %.thread.i.i, %9
-  %.0 = phi i64 [ %10, %9 ], [ %8, %.thread.i.i ], [ -1, %_ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.15887933665536463318.exit ]
+  %.0 = phi i64 [ %8, %.thread.i.i ], [ %10, %9 ], [ -1, %_ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.15887933665536463318.exit ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8, !noundef !8
   %14 = icmp eq i64 %.0, %13
@@ -696,7 +696,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   ret void
 
 common.resume:                                    ; preds = %33, %27, %71
-  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %28, %27 ], [ %34, %33 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %72, %71 ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 31:                                               ; preds = %13
@@ -2771,7 +2771,7 @@ define internal fastcc noundef zeroext i1 @_ZN10ockam_core14access_control5cache
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dd321b0191f323aE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dd321b0191f323aE.exit": ; preds = %21, %13, %9, %2, %37, %33, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit", %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit9", %25, %29
-  %.0 = phi i1 [ false, %9 ], [ false, %29 ], [ false, %25 ], [ false, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit9" ], [ false, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit" ], [ false, %33 ], [ %44, %37 ], [ false, %2 ], [ false, %13 ], [ false, %21 ]
+  %.0 = phi i1 [ false, %29 ], [ false, %25 ], [ false, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit9" ], [ false, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit" ], [ %44, %37 ], [ false, %33 ], [ false, %2 ], [ false, %9 ], [ false, %13 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -2922,7 +2922,7 @@ common.resume:                                    ; preds = %34, %13
   br label %.thread
 
 .thread:                                          ; preds = %31, %.noexc22, %.noexc24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5ba7c40c04e59ddeE.exit"
-  %.016 = phi i1 [ true, %.noexc22 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5ba7c40c04e59ddeE.exit" ], [ false, %.noexc24 ], [ false, %31 ]
+  %.016 = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5ba7c40c04e59ddeE.exit" ], [ false, %.noexc24 ], [ true, %.noexc22 ], [ false, %31 ]
   %53 = trunc nuw i8 %21 to i1
   br i1 %53, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i, label %54
 
@@ -3838,9 +3838,9 @@ common.ret:                                       ; preds = %41, %7
   ret void
 
 7:                                                ; preds = %16, %44, %68
-  %.sroa.027.0 = phi i8 [ 0, %44 ], [ 1, %68 ], [ 0, %16 ]
-  %.sroa.4.0 = phi i8 [ 0, %44 ], [ undef, %68 ], [ 1, %16 ]
-  %.sroa.628.0 = phi ptr [ undef, %44 ], [ %.sroa.326.0.copyload, %68 ], [ undef, %16 ]
+  %.sroa.027.0 = phi i8 [ 1, %68 ], [ 0, %44 ], [ 0, %16 ]
+  %.sroa.4.0 = phi i8 [ undef, %68 ], [ 0, %44 ], [ 1, %16 ]
+  %.sroa.628.0 = phi ptr [ %.sroa.326.0.copyload, %68 ], [ undef, %44 ], [ undef, %16 ]
   store i8 %.sroa.027.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
@@ -3867,7 +3867,7 @@ common.ret:                                       ; preds = %41, %7
   br i1 %19, label %7, label %48
 
 .body22:                                          ; preds = %42, %37, %46, %29
-  %.pn19 = phi { ptr, i32 } [ %47, %46 ], [ %38, %37 ], [ %43, %42 ], [ %30, %29 ]
+  %.pn19 = phi { ptr, i32 } [ %30, %29 ], [ %47, %46 ], [ %43, %42 ], [ %38, %37 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn19
 
@@ -4086,9 +4086,9 @@ common.ret:                                       ; preds = %41, %7
   ret void
 
 7:                                                ; preds = %16, %44, %68
-  %.sroa.027.0 = phi i8 [ 0, %44 ], [ 1, %68 ], [ 0, %16 ]
-  %.sroa.4.0 = phi i8 [ 0, %44 ], [ undef, %68 ], [ 1, %16 ]
-  %.sroa.628.0 = phi ptr [ undef, %44 ], [ %.sroa.326.0.copyload, %68 ], [ undef, %16 ]
+  %.sroa.027.0 = phi i8 [ 1, %68 ], [ 0, %44 ], [ 0, %16 ]
+  %.sroa.4.0 = phi i8 [ undef, %68 ], [ 0, %44 ], [ 1, %16 ]
+  %.sroa.628.0 = phi ptr [ %.sroa.326.0.copyload, %68 ], [ undef, %44 ], [ undef, %16 ]
   store i8 %.sroa.027.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
@@ -4115,7 +4115,7 @@ common.ret:                                       ; preds = %41, %7
   br i1 %19, label %7, label %48
 
 .body22:                                          ; preds = %42, %37, %46, %29
-  %.pn19 = phi { ptr, i32 } [ %47, %46 ], [ %38, %37 ], [ %43, %42 ], [ %30, %29 ]
+  %.pn19 = phi { ptr, i32 } [ %30, %29 ], [ %47, %46 ], [ %43, %42 ], [ %38, %37 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn19
 
@@ -4386,9 +4386,9 @@ common.ret:                                       ; preds = %55, %7
   ret void
 
 7:                                                ; preds = %60, %58, %17, %68
-  %.sroa.026.0 = phi i8 [ 1, %68 ], [ 0, %58 ], [ 0, %17 ], [ 0, %60 ]
-  %.sroa.5.0 = phi i8 [ undef, %68 ], [ 0, %58 ], [ 1, %17 ], [ 1, %60 ]
-  %.sroa.827.0 = phi ptr [ %.sroa.325.0.copyload, %68 ], [ undef, %58 ], [ undef, %17 ], [ undef, %60 ]
+  %.sroa.026.0 = phi i8 [ 1, %68 ], [ 0, %17 ], [ 0, %58 ], [ 0, %60 ]
+  %.sroa.5.0 = phi i8 [ undef, %68 ], [ 1, %17 ], [ 0, %58 ], [ 1, %60 ]
+  %.sroa.827.0 = phi ptr [ %.sroa.325.0.copyload, %68 ], [ undef, %17 ], [ undef, %58 ], [ undef, %60 ]
   store i8 %.sroa.026.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 1
@@ -4440,7 +4440,7 @@ common.ret:                                       ; preds = %55, %7
   br label %36
 
 .body21:                                          ; preds = %56, %51, %43, %27, %15, %66
-  %.pn19 = phi { ptr, i32 } [ %57, %56 ], [ %44, %43 ], [ %67, %66 ], [ %52, %51 ], [ %16, %15 ], [ %28, %27 ]
+  %.pn19 = phi { ptr, i32 } [ %67, %66 ], [ %16, %15 ], [ %44, %43 ], [ %28, %27 ], [ %57, %56 ], [ %52, %51 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn19
 
@@ -4633,9 +4633,9 @@ common.ret:                                       ; preds = %55, %7
   ret void
 
 7:                                                ; preds = %60, %58, %17, %68
-  %.sroa.026.0 = phi i8 [ 1, %68 ], [ 0, %58 ], [ 0, %17 ], [ 0, %60 ]
-  %.sroa.5.0 = phi i8 [ undef, %68 ], [ 0, %58 ], [ 1, %17 ], [ 1, %60 ]
-  %.sroa.827.0 = phi ptr [ %.sroa.325.0.copyload, %68 ], [ undef, %58 ], [ undef, %17 ], [ undef, %60 ]
+  %.sroa.026.0 = phi i8 [ 1, %68 ], [ 0, %17 ], [ 0, %58 ], [ 0, %60 ]
+  %.sroa.5.0 = phi i8 [ undef, %68 ], [ 1, %17 ], [ 0, %58 ], [ 1, %60 ]
+  %.sroa.827.0 = phi ptr [ %.sroa.325.0.copyload, %68 ], [ undef, %17 ], [ undef, %58 ], [ undef, %60 ]
   store i8 %.sroa.026.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 1
@@ -4687,7 +4687,7 @@ common.ret:                                       ; preds = %55, %7
   br label %36
 
 .body21:                                          ; preds = %56, %51, %43, %27, %15, %66
-  %.pn19 = phi { ptr, i32 } [ %57, %56 ], [ %44, %43 ], [ %67, %66 ], [ %52, %51 ], [ %16, %15 ], [ %28, %27 ]
+  %.pn19 = phi { ptr, i32 } [ %67, %66 ], [ %16, %15 ], [ %44, %43 ], [ %28, %27 ], [ %57, %56 ], [ %52, %51 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn19
 
@@ -5072,9 +5072,9 @@ default.unreachable19:                            ; preds = %3
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8contains17h4c28611bd3c17b15E.exit": ; preds = %40, %.backedge.i.i.i, %16, %12
-  %.sroa.613.0 = phi ptr [ undef, %16 ], [ %13, %12 ], [ undef, %.backedge.i.i.i ], [ undef, %40 ]
-  %.sroa.4.0 = phi i8 [ 0, %16 ], [ undef, %12 ], [ 1, %40 ], [ 0, %.backedge.i.i.i ]
-  %.sroa.0.0 = phi i8 [ 0, %16 ], [ 1, %12 ], [ 0, %.backedge.i.i.i ], [ 0, %40 ]
+  %.sroa.613.0 = phi ptr [ %13, %12 ], [ undef, %16 ], [ undef, %.backedge.i.i.i ], [ undef, %40 ]
+  %.sroa.4.0 = phi i8 [ undef, %12 ], [ 0, %16 ], [ 1, %40 ], [ 0, %.backedge.i.i.i ]
+  %.sroa.0.0 = phi i8 [ 1, %12 ], [ 0, %16 ], [ 0, %.backedge.i.i.i ], [ 0, %40 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
@@ -5230,7 +5230,7 @@ default.unreachable8:                             ; preds = %3
   unreachable
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hae5ad27cc4435b11E.exit.thread": ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hae5ad27cc4435b11E.exit", %6, %15
-  %.sroa.3.0 = phi i8 [ %spec.select, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hae5ad27cc4435b11E.exit" ], [ 0, %15 ], [ 0, %6 ]
+  %.sroa.3.0 = phi i8 [ 0, %15 ], [ 0, %6 ], [ %spec.select, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hae5ad27cc4435b11E.exit" ]
   store i8 0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 1
@@ -5436,9 +5436,9 @@ default.unreachable15:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %40, %39, %31, %14
-  %.sroa.811.0 = phi ptr [ %15, %14 ], [ undef, %39 ], [ undef, %31 ], [ undef, %40 ]
-  %.sroa.5.0 = phi i8 [ undef, %14 ], [ 1, %39 ], [ 1, %31 ], [ 0, %40 ]
-  %.sroa.0.0 = phi i8 [ 1, %14 ], [ 0, %39 ], [ 0, %31 ], [ 0, %40 ]
+  %.sroa.811.0 = phi ptr [ %15, %14 ], [ undef, %31 ], [ undef, %39 ], [ undef, %40 ]
+  %.sroa.5.0 = phi i8 [ undef, %14 ], [ 1, %31 ], [ 1, %39 ], [ 0, %40 ]
+  %.sroa.0.0 = phi i8 [ 1, %14 ], [ 0, %31 ], [ 0, %39 ], [ 0, %40 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 1
@@ -5448,7 +5448,7 @@ default.unreachable15:                            ; preds = %3
   ret void
 
 7:                                                ; preds = %16, %29, %42, %37
-  %.pn9 = phi { ptr, i32 } [ %38, %37 ], [ %17, %16 ], [ %30, %29 ], [ %43, %42 ]
+  %.pn9 = phi { ptr, i32 } [ %43, %42 ], [ %38, %37 ], [ %30, %29 ], [ %17, %16 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn9
 

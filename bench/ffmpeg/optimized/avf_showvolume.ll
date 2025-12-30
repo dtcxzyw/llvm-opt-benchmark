@@ -1345,7 +1345,7 @@ drawtext.exit.i..critedge.i_crit_edge:            ; preds = %drawtext.exit.i
   br label %.critedge.i, !llvm.loop !97
 
 .critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge, %drawtext.exit.i..critedge.i_crit_edge
-  %720 = phi i32 [ %718, %drawtext.exit.i..critedge.i_crit_edge ], [ %602, %.lr.ph.preheader ], [ %718, %..critedge.i.loopexit_crit_edge ], [ %718, %.lr.ph ]
+  %720 = phi i32 [ %718, %drawtext.exit.i..critedge.i_crit_edge ], [ %718, %..critedge.i.loopexit_crit_edge ], [ %602, %.lr.ph.preheader ], [ %718, %.lr.ph ]
   %721 = icmp sgt i32 %720, 0
   br i1 %721, label %.lr.ph424.i, label %.critedge2.i
 
@@ -1611,7 +1611,7 @@ filter_frame.exit:                                ; preds = %53, %.loopexit.i, %
   br label %852
 
 852:                                              ; preds = %847, %18, %.critedge34, %.critedge, %851, %844, %filter_frame.exit
-  %.125 = phi i32 [ 0, %18 ], [ %.0.i, %filter_frame.exit ], [ 0, %844 ], [ 0, %851 ], [ %21, %.critedge ], [ 0, %847 ], [ -1497649742, %.critedge34 ]
+  %.125 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %844 ], [ 0, %851 ], [ 0, %847 ], [ 0, %18 ], [ %21, %.critedge ], [ -1497649742, %.critedge34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.125
 }
@@ -1725,7 +1725,7 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
   br label %69
 
 69:                                               ; preds = %46, %37, %32, %23, %1, %68
-  %.0 = phi i32 [ -12, %32 ], [ 0, %68 ], [ -558323010, %37 ], [ -12, %23 ], [ -12, %1 ], [ -12, %46 ]
+  %.0 = phi i32 [ 0, %68 ], [ -12, %1 ], [ -12, %23 ], [ -12, %32 ], [ -558323010, %37 ], [ -12, %46 ]
   ret i32 %.0
 }
 

@@ -2323,8 +2323,8 @@ ifInputVectorsAreConsistent.exit.thread105.us172.i.i.i: ; preds = %1077
   br i1 %exitcond256.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.us.i.i.i, !llvm.loop !157
 
 .split.us.i.i.i:                                  ; preds = %1077, %1042, %1032, %.loopexit.us.us.us.i.i.i
-  %.us-phi117.i.i.i = phi ptr [ %1029, %1032 ], [ %1038, %1042 ], [ %946, %.loopexit.us.us.us.i.i.i ], [ %1074, %1077 ]
-  %.us-phi118.i.i.i = phi ptr [ %1034, %1032 ], [ %1044, %1042 ], [ %951, %.loopexit.us.us.us.i.i.i ], [ %1079, %1077 ]
+  %.us-phi117.i.i.i = phi ptr [ %946, %.loopexit.us.us.us.i.i.i ], [ %1029, %1032 ], [ %1038, %1042 ], [ %1074, %1077 ]
+  %.us-phi118.i.i.i = phi ptr [ %951, %.loopexit.us.us.us.i.i.i ], [ %1034, %1032 ], [ %1044, %1042 ], [ %1079, %1077 ]
   %1082 = load double, ptr %82, align 8, !tbaa !69
   %1083 = getelementptr inbounds nuw i8, ptr %.us-phi117.i.i.i, i64 24
   %1084 = load double, ptr %1083, align 8, !tbaa !166
@@ -2470,7 +2470,7 @@ backtrackBysatCounterExamples.exit.i.i:           ; preds = %backtrackBysatCount
   br label %1139
 
 1139:                                             ; preds = %1137, %.loopexit.i.i
-  %1140 = phi i32 [ %929, %.loopexit.i.i ], [ %.pre.i.i, %1137 ]
+  %1140 = phi i32 [ %.pre.i.i, %1137 ], [ %929, %.loopexit.i.i ]
   %1141 = load i32, ptr %161, align 8, !tbaa !95
   %1142 = load ptr, ptr %277, align 8, !tbaa !121
   %1143 = sext i32 %925 to i64
@@ -2650,7 +2650,7 @@ backtrack_bad.exit.thread.i:                      ; preds = %backtrack_bad.exit.
 do_search.exit:                                   ; preds = %900, %update_theta.exit.i
   br label %420, !llvm.loop !171
 
-.loopexit:                                        ; preds = %476, %480, %.preheader.i, %.unprepare_permutation.exit90.loopexit_crit_edge.i
+.loopexit:                                        ; preds = %480, %476, %.unprepare_permutation.exit90.loopexit_crit_edge.i, %.preheader.i
   ret void
 }
 
@@ -2886,7 +2886,7 @@ check_mapping.exit33:                             ; preds = %116, %.critedge.i26
   br i1 %.not14, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %check_mapping.exit, %check_mapping.exit33, %12, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %check_mapping.exit33 ], [ 1, %12 ], [ 0, %check_mapping.exit ]
+  %.0 = phi i32 [ 1, %1 ], [ 1, %12 ], [ 0, %check_mapping.exit33 ], [ 0, %check_mapping.exit ]
   ret i32 %.0
 }
 
@@ -3178,7 +3178,7 @@ Abc_NtkCecSat_saucy.exit.thread44:                ; preds = %81
   store ptr null, ptr %103, align 8, !tbaa !181
   br label %Abc_NtkCecSat_saucy.exit
 
-Abc_NtkCecSat_saucy.exit.thread:                  ; preds = %._crit_edge.thread.i, %._crit_edge.i29
+Abc_NtkCecSat_saucy.exit.thread:                  ; preds = %._crit_edge.i29, %._crit_edge.thread.i
   tail call void @Abc_NtkDelete(ptr noundef nonnull %78) #26
   br label %113
 
@@ -3269,7 +3269,7 @@ Abc_NtkCecSat_saucy.exit:                         ; preds = %102, %._crit_edge57
   br label %154
 
 154:                                              ; preds = %151, %148, %147
-  %.1.i = phi i32 [ %.02638.i, %147 ], [ %.02638.i, %148 ], [ %153, %151 ]
+  %.1.i = phi i32 [ %.02638.i, %147 ], [ %153, %151 ], [ %.02638.i, %148 ]
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %155 = load ptr, ptr %126, align 8, !tbaa !154
   %156 = getelementptr i8, ptr %155, i64 4
@@ -3286,7 +3286,7 @@ Abc_NtkCecSat_saucy.exit:                         ; preds = %102, %._crit_edge57
   br i1 %161, label %.lr.ph.preheader.i, label %reduceDB.exit, !llvm.loop !185
 
 reduceDB.exit:                                    ; preds = %check_mapping.exit, %._crit_edge.i38, %Abc_NtkCecSat_saucy.exit.thread44, %Abc_NtkCecSat_saucy.exit, %113
-  %.0 = phi i32 [ 0, %._crit_edge.i38 ], [ 0, %113 ], [ 1, %Abc_NtkCecSat_saucy.exit.thread44 ], [ %99, %Abc_NtkCecSat_saucy.exit ], [ 0, %check_mapping.exit ]
+  %.0 = phi i32 [ 0, %113 ], [ %99, %Abc_NtkCecSat_saucy.exit ], [ 1, %Abc_NtkCecSat_saucy.exit.thread44 ], [ 0, %._crit_edge.i38 ], [ 0, %check_mapping.exit ]
   ret i32 %.0
 }
 
@@ -4762,7 +4762,7 @@ add_diff.exit.i34.i:                              ; preds = %175, %167, %163, %.
   br i1 %exitcond51.not.i43.i, label %fix_diffs.exit, label %.preheader.i38.i, !llvm.loop !215
 
 fix_diffs.exit:                                   ; preds = %.preheader.i38.i, %fix_diff_subtract.exit.i, %93, %90, %split_common.exit, %4, %12, %17
-  %.0 = phi i32 [ 0, %4 ], [ 0, %17 ], [ 0, %12 ], [ 1, %split_common.exit ], [ 1, %90 ], [ 1, %93 ], [ 1, %fix_diff_subtract.exit.i ], [ 1, %.preheader.i38.i ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %12 ], [ 0, %4 ], [ 1, %split_common.exit ], [ 1, %90 ], [ 1, %93 ], [ 1, %fix_diff_subtract.exit.i ], [ 1, %.preheader.i38.i ]
   ret i32 %.0
 }
 
@@ -8491,7 +8491,7 @@ ref_single_cell.exit:                             ; preds = %99
   br i1 %128, label %121, label %refine_cell.exit, !llvm.loop !273
 
 refine_cell.exit:                                 ; preds = %121, %introsort.exit.i, %.critedge.i
-  %.0.lcssa.i35 = phi i32 [ 1, %introsort.exit.i ], [ %.0.lcssa.i, %.critedge.i ], [ %.0.lcssa.i, %121 ]
+  %.0.lcssa.i35 = phi i32 [ %.0.lcssa.i, %.critedge.i ], [ 1, %introsort.exit.i ], [ %.0.lcssa.i, %121 ]
   store i32 0, ptr %88, align 8, !tbaa !92
   ret i32 %.0.lcssa.i35
 }
@@ -8625,7 +8625,7 @@ sift_down.exit.i:                                 ; preds = %39, %32
   br label %median.exit
 
 median.exit:                                      ; preds = %54, %55, %56, %57
-  %.0.i = phi i32 [ %45, %56 ], [ %..i, %55 ], [ %49, %54 ], [ %.26.i, %57 ]
+  %.0.i = phi i32 [ %49, %54 ], [ %..i, %55 ], [ %45, %56 ], [ %.26.i, %57 ]
   br label %58
 
 58:                                               ; preds = %70, %median.exit
@@ -8893,8 +8893,8 @@ introsort.exit.i:                                 ; preds = %.critedge.i.i.i, %l
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %127
 
-ref_nonsingle_cell.exit.thread:                   ; preds = %._crit_edge119.i, %._crit_edge134.i, %ref_nonsingle_cell.exit
-  %.092.i122 = phi i32 [ %229, %ref_nonsingle_cell.exit ], [ 1, %._crit_edge134.i ], [ 1, %._crit_edge119.i ]
+ref_nonsingle_cell.exit.thread:                   ; preds = %._crit_edge134.i, %._crit_edge119.i, %ref_nonsingle_cell.exit
+  %.092.i122 = phi i32 [ %229, %ref_nonsingle_cell.exit ], [ 1, %._crit_edge119.i ], [ 1, %._crit_edge134.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i80, 1
   %124 = load i32, ptr %114, align 8, !tbaa !92
   %125 = sext i32 %124 to i64
@@ -9160,7 +9160,7 @@ ref_nonsingle_cell.exit:                          ; preds = %._crit_edge134.i
   br i1 %242, label %235, label %refine_cell.exit, !llvm.loop !273
 
 refine_cell.exit:                                 ; preds = %235, %introsort.exit.i, %.critedge.i
-  %.0.lcssa.i124 = phi i32 [ 1, %introsort.exit.i ], [ %.0.lcssa.i, %.critedge.i ], [ %.0.lcssa.i, %235 ]
+  %.0.lcssa.i124 = phi i32 [ %.0.lcssa.i, %.critedge.i ], [ 1, %introsort.exit.i ], [ %.0.lcssa.i, %235 ]
   store i32 0, ptr %114, align 8, !tbaa !92
   br i1 %.not75, label %.loopexit, label %.lr.ph90
 
@@ -9747,8 +9747,8 @@ define internal fastcc noalias noundef ptr @assignRandomBitsToCells(ptr noundef 
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %32, %34, %24, %26
-  %.sink16 = phi ptr [ %27, %26 ], [ %25, %24 ], [ %33, %32 ], [ %35, %34 ]
-  %.sink = phi i32 [ 16, %26 ], [ 16, %24 ], [ %29, %32 ], [ %29, %34 ]
+  %.sink16 = phi ptr [ %25, %24 ], [ %27, %26 ], [ %33, %32 ], [ %35, %34 ]
+  %.sink = phi i32 [ 16, %24 ], [ 16, %26 ], [ %29, %32 ], [ %29, %34 ]
   store ptr %.sink16, ptr %6, align 8, !tbaa !53
   store i32 %.sink, ptr %3, align 8, !tbaa !234
   br label %Vec_IntPush.exit
@@ -10696,7 +10696,7 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %generateProperInputVector.exit.thread, label %.lr.ph32, !llvm.loop !313
 
-generateProperInputVector.exit.thread:            ; preds = %.lr.ph32, %generateProperInputVector.exit.thread82, %.preheader, %42, %43, %generateProperInputVector.exit
+generateProperInputVector.exit.thread:            ; preds = %.lr.ph32, %generateProperInputVector.exit.thread82, %.preheader, %43, %42, %generateProperInputVector.exit
   %.0 = phi ptr [ null, %generateProperInputVector.exit ], [ null, %42 ], [ null, %43 ], [ %165, %.preheader ], [ null, %generateProperInputVector.exit.thread82 ], [ %165, %.lr.ph32 ]
   ret ptr %.0
 }
@@ -11022,8 +11022,8 @@ define internal fastcc range(i32 0, 2) i32 @descend(ptr noundef %0, ptr noundef 
   br label %Vec_IntPush.exit.sink.split.i
 
 Vec_IntPush.exit.sink.split.i:                    ; preds = %109, %107, %101, %99
-  %.sink.i = phi i32 [ 16, %99 ], [ 16, %101 ], [ %104, %109 ], [ %104, %107 ]
-  %.pre.i71.ph.i = phi ptr [ %100, %99 ], [ %102, %101 ], [ %110, %109 ], [ %108, %107 ]
+  %.sink.i = phi i32 [ 16, %101 ], [ 16, %99 ], [ %104, %109 ], [ %104, %107 ]
+  %.pre.i71.ph.i = phi ptr [ %102, %101 ], [ %100, %99 ], [ %110, %109 ], [ %108, %107 ]
   store i32 %.sink.i, ptr %68, align 8, !tbaa !234
   br label %Vec_IntPush.exit.i
 
@@ -11386,8 +11386,8 @@ check_OPP_only_has_swaps.exit.thread:             ; preds = %check_OPP_only_has_
   %or.cond98.i = select i1 %.not96.i, i1 %.not97.i, i1 false
   br i1 %or.cond98.i, label %191, label %double_check_OPP_isomorphism.exit, !llvm.loop !325
 
-double_check_OPP_isomorphism.exit:                ; preds = %191, %._crit_edge108.i, %._crit_edge124.i, %Vec_IntFree.exit54.i, %check_OPP_only_has_swaps.exit.thread, %60, %57, %4
-  %.0 = phi i32 [ 0, %Vec_IntFree.exit54.i ], [ 0, %4 ], [ 0, %60 ], [ 0, %57 ], [ 1, %check_OPP_only_has_swaps.exit.thread ], [ 0, %._crit_edge124.i ], [ 0, %._crit_edge108.i ], [ 1, %191 ]
+double_check_OPP_isomorphism.exit:                ; preds = %191, %._crit_edge124.i, %._crit_edge108.i, %Vec_IntFree.exit54.i, %check_OPP_only_has_swaps.exit.thread, %60, %57, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %57 ], [ 0, %60 ], [ 1, %check_OPP_only_has_swaps.exit.thread ], [ 0, %Vec_IntFree.exit54.i ], [ 0, %._crit_edge108.i ], [ 0, %._crit_edge124.i ], [ 1, %191 ]
   ret i32 %.0
 }
 
@@ -12599,8 +12599,8 @@ orbit_prune.exit55.i.i:                           ; preds = %409
   br i1 %exitcond.not.i65.i.i, label %do_backtrack.exit, label %.lr.ph.i59.i.i, !llvm.loop !341
 
 do_backtrack.exit:                                ; preds = %443, %385, %theta_prune.exit.thread.i.i, %296, %find_min.exit.i.i, %362, %386, %orbit_prune.exit55.i.i, %416
-  %444 = phi ptr [ %244, %296 ], [ %302, %416 ], [ %244, %theta_prune.exit.thread.i.i ], [ %302, %orbit_prune.exit55.i.i ], [ %302, %386 ], [ %302, %find_min.exit.i.i ], [ %302, %385 ], [ %302, %362 ], [ %302, %443 ]
-  %445 = phi i32 [ -1, %296 ], [ -1, %416 ], [ -1, %theta_prune.exit.thread.i.i ], [ -1, %orbit_prune.exit55.i.i ], [ -1, %386 ], [ %360, %find_min.exit.i.i ], [ %.1.i.i58.i, %385 ], [ -1, %362 ], [ %.1.i63.i.i, %443 ]
+  %444 = phi ptr [ %244, %theta_prune.exit.thread.i.i ], [ %244, %296 ], [ %302, %orbit_prune.exit55.i.i ], [ %302, %362 ], [ %302, %find_min.exit.i.i ], [ %302, %416 ], [ %302, %386 ], [ %302, %385 ], [ %302, %443 ]
+  %445 = phi i32 [ -1, %theta_prune.exit.thread.i.i ], [ -1, %296 ], [ -1, %orbit_prune.exit55.i.i ], [ -1, %362 ], [ %360, %find_min.exit.i.i ], [ -1, %416 ], [ -1, %386 ], [ %.1.i.i58.i, %385 ], [ %.1.i63.i.i, %443 ]
   %.not9 = icmp eq i32 %445, -1
   br i1 %.not9, label %36, label %do_backtrack.exit.thread, !llvm.loop !342
 

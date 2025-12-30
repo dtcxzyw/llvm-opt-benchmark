@@ -442,8 +442,8 @@ define internal fastcc i32 @fat_mirror_bhs(ptr noundef readonly captures(none) %
   br i1 %74, label %75, label %22, !llvm.loop !11
 
 75:                                               ; preds = %71, %68, %22
-  %76 = phi i1 [ %73, %71 ], [ %24, %22 ], [ %24, %68 ]
-  %77 = phi i32 [ 0, %71 ], [ -12, %22 ], [ %69, %68 ]
+  %76 = phi i1 [ %24, %22 ], [ %24, %68 ], [ %73, %71 ]
+  %77 = phi i32 [ -12, %22 ], [ %69, %68 ], [ 0, %71 ]
   br i1 %76, label %.loopexit, label %.thread.us
 
 .thread.us:                                       ; preds = %75
@@ -714,8 +714,8 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   br label %139
 
 139:                                              ; preds = %.thread21, %.preheader26
-  %140 = phi i32 [ %129, %.thread21 ], [ %80, %.preheader26 ]
-  %141 = phi i32 [ %137, %.thread21 ], [ %82, %.preheader26 ]
+  %140 = phi i32 [ %80, %.preheader26 ], [ %129, %.thread21 ]
+  %141 = phi i32 [ %82, %.preheader26 ], [ %137, %.thread21 ]
   %142 = add i32 %81, 1
   %143 = sext i32 %142 to i64
   %144 = load i64, ptr %39, align 8
@@ -1923,8 +1923,8 @@ fat_ent_reada.exit:                               ; preds = %93, %116
   br label %.thread33
 
 .thread33:                                        ; preds = %196, %.loopexit39, %154, %84, %252, %250, %228, %225, %223
-  %253 = phi i64 [ %179, %225 ], [ %179, %223 ], [ %179, %228 ], [ %251, %250 ], [ %179, %252 ], [ 0, %84 ], [ %142, %154 ], [ %95, %.loopexit39 ], [ %179, %196 ]
-  %254 = phi i32 [ 0, %225 ], [ 0, %223 ], [ %249, %228 ], [ 0, %250 ], [ 0, %252 ], [ 0, %84 ], [ %176, %154 ], [ %140, %.loopexit39 ], [ -512, %196 ]
+  %253 = phi i64 [ %179, %225 ], [ %179, %223 ], [ %179, %228 ], [ %251, %250 ], [ %179, %252 ], [ 0, %84 ], [ %142, %154 ], [ %179, %196 ], [ %95, %.loopexit39 ]
+  %254 = phi i32 [ 0, %225 ], [ 0, %223 ], [ %249, %228 ], [ 0, %250 ], [ 0, %252 ], [ 0, %84 ], [ %176, %154 ], [ -512, %196 ], [ %140, %.loopexit39 ]
   store ptr null, ptr %45, align 8
   %255 = load i32, ptr %44, align 8
   %256 = icmp sgt i32 %255, 0

@@ -201,7 +201,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_create(ptr noundef readonly c
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %31, %36, %43, %48
-  %.0.i = phi i32 [ %40, %36 ], [ %35, %31 ], [ %47, %43 ], [ %51, %48 ]
+  %.0.i = phi i32 [ %35, %31 ], [ %40, %36 ], [ %47, %43 ], [ %51, %48 ]
   %52 = add nuw nsw i32 %.0.i, 8
   %53 = lshr i32 %52, 3
   %54 = tail call i32 @llvm.umin.i32(i32 %53, i32 7)
@@ -1035,7 +1035,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_copy_setup(ptr noundef readon
   br label %32
 
 32:                                               ; preds = %2, %18, %31
-  %.07 = phi i32 [ 0, %2 ], [ %.1, %31 ], [ -1, %18 ]
+  %.07 = phi i32 [ %.1, %31 ], [ -1, %18 ], [ 0, %2 ]
   ret i32 %.07
 }
 
@@ -1270,7 +1270,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_dest(ptr noundef readonly cap
   br label %H5D__bt2_idx_close.exit.thread
 
 H5D__bt2_idx_close.exit.thread:                   ; preds = %21, %34, %17, %37, %8, %1
-  %.0 = phi i32 [ -1, %17 ], [ -1, %37 ], [ 0, %1 ], [ 0, %8 ], [ 0, %34 ], [ 0, %21 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %37 ], [ 0, %8 ], [ 0, %1 ], [ 0, %34 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -1368,7 +1368,7 @@ define internal noalias ptr @H5D__bt2_crt_context(ptr noundef readonly captures(
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %40, %45, %52, %57
-  %.0.i = phi i32 [ %49, %45 ], [ %44, %40 ], [ %56, %52 ], [ %60, %57 ]
+  %.0.i = phi i32 [ %44, %40 ], [ %49, %45 ], [ %56, %52 ], [ %60, %57 ]
   %61 = add nuw nsw i32 %.0.i, 8
   %62 = lshr i32 %61, 3
   %63 = add nuw nsw i32 %62, 1
@@ -1478,7 +1478,7 @@ define internal noundef i32 @H5D__bt2_compare(ptr noundef readonly captures(addr
   br i1 %.not.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !85
 
 H5VM_vector_cmp_u.exit:                           ; preds = %.lr.ph.i, %20, %22, %10, %14, %.preheader.i
-  %.0.i = phi i32 [ 0, %10 ], [ 1, %14 ], [ 0, %.preheader.i ], [ -1, %.lr.ph.i ], [ 0, %22 ], [ 1, %20 ]
+  %.0.i = phi i32 [ 0, %10 ], [ 1, %14 ], [ 0, %.preheader.i ], [ 1, %20 ], [ -1, %.lr.ph.i ], [ 0, %22 ]
   store i32 %.0.i, ptr %2, align 4, !tbaa !83
   br label %25
 

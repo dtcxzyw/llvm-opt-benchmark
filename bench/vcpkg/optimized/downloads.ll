@@ -7407,7 +7407,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit239:                 ; preds = %_ZN5vcpkg30FullyBuf
   br label %1049
 
 1049:                                             ; preds = %183, %213, %234, %1048, %980, %922, %859, %818, %769, %706, %665, %616, %553, %511, %462, %399, %357, %308
-  %.pn131.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %308 ], [ %.pn122.pn, %1048 ], [ %.pn118.pn, %980 ], [ %.pn114.pn, %922 ], [ %.pn111.pn, %859 ], [ %.pn108.pn, %818 ], [ %.pn104.pn, %769 ], [ %.pn101.pn, %706 ], [ %.pn98.pn, %665 ], [ %.pn94.pn, %616 ], [ %.pn91.pn, %553 ], [ %.pn88.pn, %511 ], [ %.pn84.pn, %462 ], [ %.pn81.pn, %399 ], [ %.pn78.pn, %357 ], [ %.pn131.pn, %234 ], [ %.pn128.pn, %213 ], [ %.pn125.pn, %183 ]
+  %.pn131.pn.pn.pn = phi { ptr, i32 } [ %.pn122.pn, %1048 ], [ %.pn118.pn, %980 ], [ %.pn114.pn, %922 ], [ %.pn111.pn, %859 ], [ %.pn108.pn, %818 ], [ %.pn104.pn, %769 ], [ %.pn101.pn, %706 ], [ %.pn98.pn, %665 ], [ %.pn94.pn, %616 ], [ %.pn91.pn, %553 ], [ %.pn88.pn, %511 ], [ %.pn84.pn, %462 ], [ %.pn81.pn, %399 ], [ %.pn78.pn, %357 ], [ %.pn.pn, %308 ], [ %.pn131.pn, %234 ], [ %.pn128.pn, %213 ], [ %.pn125.pn, %183 ]
   call void @_ZN5vcpkg30FullyBufferedDiagnosticContextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1050 = load ptr, ptr %19, align 8, !tbaa !132
@@ -7808,7 +7808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread: ; preds
   br label %.body
 
 .body:                                            ; preds = %.body120.thread, %59, %146
-  %.pn = phi { ptr, i32 } [ %147, %146 ], [ %58, %.body120.thread ], [ %53, %59 ]
+  %.pn = phi { ptr, i32 } [ %147, %146 ], [ %53, %59 ], [ %58, %.body120.thread ]
   br label %148
 
 148:                                              ; preds = %148, %.body

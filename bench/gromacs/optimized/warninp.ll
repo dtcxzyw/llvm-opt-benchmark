@@ -467,7 +467,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %123
   ret void
 
 129:                                              ; preds = %111, %85
-  %.pn12 = phi { ptr, i32 } [ %112, %111 ], [ %86, %85 ]
+  %.pn12 = phi { ptr, i32 } [ %86, %85 ], [ %112, %111 ]
   %130 = load ptr, ptr %10, align 8, !tbaa !27
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %132 = icmp eq ptr %130, %131

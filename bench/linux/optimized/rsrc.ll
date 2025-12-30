@@ -560,7 +560,7 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr noundef captures(none)
   br label %.thread14
 
 .thread14:                                        ; preds = %.loopexit35, %31, %26, %16
-  %125 = phi i32 [ -22, %26 ], [ -6, %16 ], [ %spec.select, %.loopexit35 ], [ 0, %31 ]
+  %125 = phi i32 [ -6, %16 ], [ -22, %26 ], [ 0, %31 ], [ %spec.select, %.loopexit35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %235
 
@@ -738,7 +738,7 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr noundef captures(none)
   br i1 %230, label %.loopexit36, label %150, !llvm.loop !33
 
 .thread17:                                        ; preds = %183, %180, %178, %164, %169, %187, %.thread24, %210, %168
-  %.ph26 = phi i32 [ %208, %210 ], [ -14, %168 ], [ -75, %183 ], [ -14, %180 ], [ -14, %178 ], [ -14, %169 ], [ -14, %164 ], [ -22, %187 ], [ %189, %.thread24 ]
+  %.ph26 = phi i32 [ -14, %168 ], [ %208, %210 ], [ -75, %183 ], [ -14, %178 ], [ -14, %180 ], [ -14, %164 ], [ -14, %169 ], [ -22, %187 ], [ %189, %.thread24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %231 = trunc i64 %151 to i32
@@ -752,7 +752,7 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr noundef captures(none)
   br label %.thread29
 
 .thread29:                                        ; preds = %.loopexit36, %141, %136, %126
-  %234 = phi i32 [ -22, %136 ], [ -6, %126 ], [ %spec.select31, %.loopexit36 ], [ 0, %141 ]
+  %234 = phi i32 [ -6, %126 ], [ -22, %136 ], [ 0, %141 ], [ %spec.select31, %.loopexit36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %235
@@ -1164,7 +1164,7 @@ thread-pre-split:                                 ; preds = %66, %.thread10
   br i1 %87, label %.thread, label %.split, !llvm.loop !35
 
 .thread:                                          ; preds = %.split, %.thread10, %thread-pre-split, %83, %61, %63, %66, %.thread10.critedge.us, %40, %45
-  %.us-phi = phi i32 [ %43, %40 ], [ -22, %.thread10.critedge.us ], [ 0, %45 ], [ -22, %.thread10 ], [ 0, %83 ], [ %54, %.split ], [ %81, %thread-pre-split ], [ -14, %61 ], [ -14, %63 ], [ -75, %66 ]
+  %.us-phi = phi i32 [ 0, %45 ], [ %43, %40 ], [ -22, %.thread10.critedge.us ], [ 0, %83 ], [ %54, %.split ], [ %81, %thread-pre-split ], [ -22, %.thread10 ], [ -14, %63 ], [ -14, %61 ], [ -75, %66 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
@@ -1354,7 +1354,7 @@ define dso_local noundef i32 @io_files_update(ptr noundef %0, i32 noundef %1) lo
   br label %63
 
 63:                                               ; preds = %.thread3, %58, %.thread
-  %64 = phi i32 [ %51, %.thread ], [ %57, %.thread3 ], [ %62, %58 ]
+  %64 = phi i32 [ %51, %.thread ], [ %62, %58 ], [ %57, %.thread3 ]
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %75
 
@@ -2805,8 +2805,8 @@ thread-pre-split:                                 ; preds = %79, %76, %85, %14
   br label %.thread35
 
 .thread35:                                        ; preds = %321, %310, %314, %.thread37, %337
-  %344 = phi ptr [ null, %337 ], [ %342, %.thread37 ], [ %12, %314 ], [ %12, %310 ], [ %12, %321 ]
-  %345 = phi i32 [ 0, %337 ], [ %343, %.thread37 ], [ 0, %314 ], [ 0, %310 ], [ 0, %321 ]
+  %344 = phi ptr [ %342, %.thread37 ], [ null, %337 ], [ %12, %314 ], [ %12, %310 ], [ %12, %321 ]
+  %345 = phi i32 [ %343, %.thread37 ], [ 0, %337 ], [ 0, %314 ], [ 0, %310 ], [ 0, %321 ]
   tail call void @kvfree(ptr noundef %344) #12
   br label %346
 

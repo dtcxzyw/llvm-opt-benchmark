@@ -475,8 +475,8 @@ _ZTWN7rocksdb10perf_levelE.exit18:                ; preds = %33, %34
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %38, %28
-  %.sink33 = phi i64 [ 576, %38 ], [ 568, %28 ], [ %.sink33.ph, %.sink.split.sink.split ]
-  %.0.ph = phi i1 [ false, %38 ], [ true, %28 ], [ %21, %.sink.split.sink.split ]
+  %.sink33 = phi i64 [ 568, %28 ], [ 576, %38 ], [ %.sink33.ph, %.sink.split.sink.split ]
+  %.0.ph = phi i1 [ true, %28 ], [ false, %38 ], [ %21, %.sink.split.sink.split ]
   %39 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink33
   %41 = load i64, ptr %40, align 8, !tbaa !41
@@ -485,7 +485,7 @@ _ZTWN7rocksdb10perf_levelE.exit18:                ; preds = %33, %34
   br label %43
 
 43:                                               ; preds = %.sink.split, %_ZTWN7rocksdb10perf_levelE.exit, %_ZTWN7rocksdb10perf_levelE.exit18, %13, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %_ZTWN7rocksdb10perf_levelE.exit18 ], [ true, %_ZTWN7rocksdb10perf_levelE.exit ], [ true, %13 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i1 [ true, %8 ], [ true, %_ZTWN7rocksdb10perf_levelE.exit ], [ false, %_ZTWN7rocksdb10perf_levelE.exit18 ], [ true, %13 ], [ %.0.ph, %.sink.split ]
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !40
   %.not.i.i = icmp eq ptr %45, null
@@ -1365,7 +1365,7 @@ _ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEED2Ev.exit: ; preds = %239
   ret void
 
 257:                                              ; preds = %.loopexit, %.loopexit.split-lp, %222, %86, %199
-  %.pn35.pn = phi { ptr, i32 } [ %223, %222 ], [ %87, %86 ], [ %200, %199 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn35.pn = phi { ptr, i32 } [ %200, %199 ], [ %87, %86 ], [ %223, %222 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.pr.i.i70 = load i64, ptr %10, align 8, !tbaa !120
   %.not1.i.i71 = icmp eq i64 %.pr.i.i70, 0
   br i1 %.not1.i.i71, label %258, label %.lr.ph.preheader.i.i72

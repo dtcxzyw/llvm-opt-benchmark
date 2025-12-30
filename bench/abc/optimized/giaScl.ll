@@ -114,7 +114,7 @@ Gia_ObjFanin2.exit:                               ; preds = %53
   br label %73
 
 73:                                               ; preds = %4, %2, %70
-  %.0 = phi i32 [ 0, %2 ], [ %72, %70 ], [ 0, %4 ]
+  %.0 = phi i32 [ %72, %70 ], [ 0, %2 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -175,7 +175,7 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %1
-  %26 = phi i32 [ %4, %1 ], [ %4, %.lr.ph.preheader ], [ %23, %..critedge.loopexit_crit_edge ], [ %23, %.lr.ph ]
+  %26 = phi i32 [ %4, %1 ], [ %23, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %27 = getelementptr i8, ptr %0, i64 56
   %.val47 = load i32, ptr %27, align 8, !tbaa !35
   %.not37 = icmp eq i32 %.val47, 0
@@ -479,7 +479,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %19, %Gia_ObjIsRo.ex
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %Gia_ObjIsRo.exit.thread, %tailrecurse, %3, %Vec_IntPush.exit
-  %accumulator.tr.ph32 = phi i32 [ %accumulator.tr.ph37, %Vec_IntPush.exit ], [ %accumulator.tr.ph37, %tailrecurse ], [ 0, %3 ], [ %75, %Gia_ObjIsRo.exit.thread ]
+  %accumulator.tr.ph32 = phi i32 [ %accumulator.tr.ph37, %Vec_IntPush.exit ], [ 0, %3 ], [ %accumulator.tr.ph37, %tailrecurse ], [ %75, %Gia_ObjIsRo.exit.thread ]
   ret i32 %accumulator.tr.ph32
 }
 
@@ -684,7 +684,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   br label %.critedge2
 
 .critedge2:                                       ; preds = %2, %.critedge2.loopexit, %.lr.ph117
-  %.065.lcssa = phi i64 [ %45, %.critedge2.loopexit ], [ 8, %.lr.ph117 ], [ 8, %2 ]
+  %.065.lcssa = phi i64 [ 8, %.lr.ph117 ], [ %45, %.critedge2.loopexit ], [ 8, %2 ]
   %46 = getelementptr i8, ptr %0, i64 64
   %.val94 = load ptr, ptr %46, align 8, !tbaa !43
   %47 = getelementptr i8, ptr %.val94, i64 4
@@ -783,7 +783,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.lr.ph126, %.critedge4.loopexit, %.critedge2
-  %.063.lcssa = phi i1 [ %98, %.critedge4.loopexit ], [ false, %.critedge2 ], [ false, %.lr.ph126 ]
+  %.063.lcssa = phi i1 [ false, %.critedge2 ], [ %98, %.critedge4.loopexit ], [ false, %.lr.ph126 ]
   %.not79 = icmp eq ptr %51, null
   br i1 %.not79, label %100, label %99
 
@@ -942,7 +942,7 @@ define ptr @Gia_ManSeqStructSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %50, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %34, %.lr.ph43, %.preheader.split.us, %.preheader.split, %26, %7
-  %.0 = phi ptr [ %9, %7 ], [ %.031, %26 ], [ %40, %.preheader.split ], [ %28, %.preheader.split.us ], [ %36, %34 ], [ %32, %.lr.ph43 ], [ %44, %.lr.ph ], [ %48, %46 ]
+  %.0 = phi ptr [ %9, %7 ], [ %.031, %26 ], [ %28, %.preheader.split.us ], [ %40, %.preheader.split ], [ %32, %.lr.ph43 ], [ %36, %34 ], [ %48, %46 ], [ %44, %.lr.ph ]
   ret ptr %.0
 }
 

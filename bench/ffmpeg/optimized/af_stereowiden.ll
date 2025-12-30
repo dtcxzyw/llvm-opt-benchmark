@@ -229,7 +229,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   br label %24
 
 24:                                               ; preds = %18, %1, %22
-  %.0 = phi i32 [ -22, %1 ], [ 0, %22 ], [ -12, %18 ]
+  %.0 = phi i32 [ 0, %22 ], [ -22, %1 ], [ -12, %18 ]
   ret i32 %.0
 }
 

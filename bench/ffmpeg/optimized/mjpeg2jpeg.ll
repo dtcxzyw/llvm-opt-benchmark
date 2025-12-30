@@ -115,7 +115,7 @@ define internal i32 @mjpeg2jpeg_filter(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %61, label %.thread29, label %62
 
 .thread29.sink.split:                             ; preds = %23, %11, %6
-  %.str.1.sink = phi ptr [ @.str.2, %11 ], [ @.str.1, %6 ], [ @.str.1, %23 ]
+  %.str.1.sink = phi ptr [ @.str.1, %6 ], [ @.str.2, %11 ], [ @.str.1, %23 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.1.sink) #4
   br label %.thread29
 

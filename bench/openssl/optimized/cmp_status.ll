@@ -395,7 +395,7 @@ CMP_PKIFAILUREINFO_to_string.exit:                ; preds = %27, %36
   br i1 %exitcond158.not, label %.loopexit, label %62, !llvm.loop !16
 
 .loopexit:                                        ; preds = %switch.lookup180, %34, %70, %62, %72, %ossl_cmp_PKIStatus_to_string.exit, %50, %53, %57, %42, %45, %19, %22, %switch.lookup, %13, %5
-  %.092 = phi ptr [ %3, %50 ], [ null, %5 ], [ null, %switch.lookup ], [ null, %19 ], [ null, %57 ], [ null, %42 ], [ null, %53 ], [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %13 ], [ null, %22 ], [ %3, %72 ], [ null, %45 ], [ null, %62 ], [ null, %70 ], [ null, %34 ], [ null, %switch.lookup180 ]
+  %.092 = phi ptr [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %5 ], [ null, %13 ], [ null, %switch.lookup ], [ null, %22 ], [ null, %19 ], [ null, %45 ], [ null, %42 ], [ null, %57 ], [ null, %53 ], [ %3, %50 ], [ null, %70 ], [ null, %62 ], [ %3, %72 ], [ null, %34 ], [ null, %switch.lookup180 ]
   ret ptr %.092
 }
 
@@ -503,7 +503,7 @@ define ptr @OSSL_CMP_STATUSINFO_new(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !17
 
 .loopexit31:                                      ; preds = %33, %30, %20, %16, %11, %14, %6, %3
-  %.020 = phi ptr [ null, %3 ], [ null, %11 ], [ %12, %16 ], [ %12, %14 ], [ null, %6 ], [ %12, %20 ], [ null, %30 ], [ null, %33 ]
+  %.020 = phi ptr [ null, %3 ], [ null, %11 ], [ %12, %16 ], [ %12, %20 ], [ %12, %14 ], [ null, %6 ], [ null, %30 ], [ null, %33 ]
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %4) #3
   tail call void @ASN1_UTF8STRING_free(ptr noundef %.020) #3
   br label %.loopexit

@@ -567,7 +567,7 @@ unpinStreamBuffer.exit.i:                         ; preds = %28
   br label %pinStreamBuffer.exit
 
 pinStreamBuffer.exit:                             ; preds = %28, %41, %unpinStreamBuffer.exit.i, %21, %18, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %21 ], [ 1, %18 ], [ 0, %unpinStreamBuffer.exit.i ], [ 0, %41 ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %18 ], [ 1, %21 ], [ 0, %unpinStreamBuffer.exit.i ], [ 0, %41 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -2113,7 +2113,7 @@ define internal fastcc noundef ptr @initImageioData(ptr noundef %0, ptr noundef 
   br label %50
 
 50:                                               ; preds = %3, %43, %38, %14
-  %.0 = phi ptr [ %4, %43 ], [ null, %14 ], [ null, %38 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %38 ], [ %4, %43 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2871,7 +2871,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
   br label %read_icc_profile.exit
 
 read_icc_profile.exit:                            ; preds = %RELEASE_ARRAYS.exit147, %284, %290, %295, %._crit_edge.i, %300, %309, %314, %320, %327, %334, %._crit_edge116.i
-  %.0.i148 = phi ptr [ null, %290 ], [ null, %295 ], [ null, %284 ], [ %325, %._crit_edge116.i ], [ null, %300 ], [ null, %309 ], [ null, %314 ], [ null, %320 ], [ null, %327 ], [ null, %334 ], [ null, %._crit_edge.i ], [ null, %RELEASE_ARRAYS.exit147 ]
+  %.0.i148 = phi ptr [ null, %290 ], [ null, %295 ], [ null, %284 ], [ null, %300 ], [ null, %309 ], [ null, %314 ], [ null, %320 ], [ null, %327 ], [ null, %334 ], [ %325, %._crit_edge116.i ], [ null, %._crit_edge.i ], [ null, %RELEASE_ARRAYS.exit147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %349 = load ptr, ptr %0, align 8
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 1824
@@ -2958,7 +2958,7 @@ unpinStreamBuffer.exit.i151:                      ; preds = %380, %378
   br label %RELEASE_ARRAYS.exit142
 
 RELEASE_ARRAYS.exit142:                           ; preds = %392, %unpinStreamBuffer.exit.i151, %117, %unpinStreamBuffer.exit.i140, %read_icc_profile.exit, %RELEASE_ARRAYS.exit, %45, %92, %10
-  %.0 = phi i8 [ 0, %10 ], [ 0, %RELEASE_ARRAYS.exit ], [ 0, %92 ], [ 0, %read_icc_profile.exit ], [ 0, %45 ], [ 1, %117 ], [ 1, %unpinStreamBuffer.exit.i140 ], [ 0, %unpinStreamBuffer.exit.i151 ], [ 0, %392 ]
+  %.0 = phi i8 [ 0, %10 ], [ 0, %92 ], [ 0, %45 ], [ 0, %RELEASE_ARRAYS.exit ], [ 0, %read_icc_profile.exit ], [ 1, %unpinStreamBuffer.exit.i140 ], [ 1, %117 ], [ 0, %unpinStreamBuffer.exit.i151 ], [ 0, %392 ]
   ret i8 %.0
 }
 
@@ -3770,7 +3770,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %46
 
 46:                                               ; preds = %40, %44, %34, %38
-  %.051 = phi ptr [ %36, %34 ], [ %39, %38 ], [ %45, %44 ], [ %42, %40 ]
+  %.051 = phi ptr [ %39, %38 ], [ %36, %34 ], [ %45, %44 ], [ %42, %40 ]
   br label %47
 
 47:                                               ; preds = %46, %47
@@ -3847,7 +3847,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %30
 
 30:                                               ; preds = %24, %28, %18, %22
-  %.0 = phi ptr [ %20, %18 ], [ %23, %22 ], [ %29, %28 ], [ %26, %24 ]
+  %.0 = phi ptr [ %23, %22 ], [ %20, %18 ], [ %29, %28 ], [ %26, %24 ]
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1384
   %33 = load ptr, ptr %32, align 8
@@ -3915,7 +3915,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %64
 
 64:                                               ; preds = %58, %62, %52, %56
-  %.1 = phi ptr [ %54, %52 ], [ %57, %56 ], [ %63, %62 ], [ %60, %58 ]
+  %.1 = phi ptr [ %57, %56 ], [ %54, %52 ], [ %63, %62 ], [ %60, %58 ]
   %65 = load ptr, ptr %0, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1384
   %67 = load ptr, ptr %66, align 8
@@ -5807,7 +5807,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   br label %365
 
 365:                                              ; preds = %61, %362, %268, %228, %217, %143, %125, %118, %._crit_edge469, %84, %72, %60, %44, %33
-  %.0371 = phi i8 [ 0, %33 ], [ 0, %44 ], [ 0, %60 ], [ %220, %217 ], [ 0, %72 ], [ 0, %84 ], [ 0, %._crit_edge469 ], [ %120, %118 ], [ %127, %125 ], [ %146, %143 ], [ %234, %228 ], [ %364, %362 ], [ %272, %268 ], [ 0, %61 ]
+  %.0371 = phi i8 [ 0, %33 ], [ 0, %44 ], [ 0, %60 ], [ 0, %72 ], [ 0, %84 ], [ 0, %._crit_edge469 ], [ %120, %118 ], [ %127, %125 ], [ %146, %143 ], [ %234, %228 ], [ %364, %362 ], [ %272, %268 ], [ %220, %217 ], [ 0, %61 ]
   ret i8 %.0371
 }
 

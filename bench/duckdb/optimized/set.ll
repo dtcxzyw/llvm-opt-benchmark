@@ -865,7 +865,7 @@ _ZN10duckdb_re212RegexpStatusD2Ev.exit:           ; preds = %223, %_ZNSt7__cxx11
   br label %232
 
 231:                                              ; preds = %148, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit62, %146, %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71, %122, %78, %76
-  %.pn43.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn, %122 ], [ %79, %78 ], [ %77, %76 ], [ %147, %146 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ], [ %170, %169 ], [ %.pn39, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit62 ], [ %149, %148 ]
+  %.pn43.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn, %122 ], [ %79, %78 ], [ %77, %76 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ], [ %170, %169 ], [ %147, %146 ], [ %.pn39, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit62 ], [ %149, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN10duckdb_re212RegexpStatusD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1159,7 +1159,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit:  ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit25
 
 _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit25: ; preds = %76, %78
-  %.pn17 = phi { ptr, i32 } [ %77, %76 ], [ %79, %78 ]
+  %.pn17 = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ]
   tail call void @_ZdlPv(ptr noundef nonnull %47) #20
   br label %81
 
@@ -1562,13 +1562,13 @@ _ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit:     ; preds = %144, %119
   br i1 %.not36, label %149, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit, %118, %116
-  %.sink = phi i32 [ 0, %118 ], [ 2, %116 ], [ 0, %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit ]
-  %.1.ph = phi i1 [ false, %118 ], [ false, %116 ], [ true, %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit ]
+  %.sink = phi i32 [ 2, %116 ], [ 0, %118 ], [ 0, %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit ]
+  %.1.ph = phi i1 [ false, %116 ], [ false, %118 ], [ true, %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit ]
   store i32 %.sink, ptr %3, align 4, !tbaa !86
   br label %149
 
 149:                                              ; preds = %.sink.split, %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit, %118, %116
-  %.1 = phi i1 [ false, %118 ], [ false, %116 ], [ true, %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i1 [ false, %116 ], [ false, %118 ], [ true, %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit ], [ %.1.ph, %.sink.split ]
   %.not.i73 = icmp eq ptr %63, null
   br i1 %.not.i73, label %_ZNSt10unique_ptrIN10duckdb_re210SparseSetTIvEESt14default_deleteIS2_EED2Ev.exit, label %150
 
@@ -1605,7 +1605,7 @@ _ZNSt10unique_ptrIN10duckdb_re210SparseSetTIvEESt14default_deleteIS2_EED2Ev.exit
   br label %158
 
 157:                                              ; preds = %109, %115, %143, %.body, %59
-  %.pn40.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %eh.lpad-body, %.body ], [ %.pn40, %115 ], [ %.pn, %143 ], [ %110, %109 ]
+  %.pn40.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %60, %59 ], [ %.pn40, %115 ], [ %.pn, %143 ], [ %110, %109 ]
   call void @_ZNSt10unique_ptrIN10duckdb_re210SparseSetTIvEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2232,7 +2232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
   br label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEaSEOS9_.exit.i
 
 _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10duckdb_re26RegexpEEaSEOS9_.exit.i: ; preds = %88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i, %79
-  %91 = phi ptr [ %.pre.i.i.i16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i ], [ %77, %79 ], [ %59, %88 ]
+  %91 = phi ptr [ %.pre.i.i.i16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i ], [ %59, %88 ], [ %77, %79 ]
   store i64 0, ptr %16, align 8, !tbaa !66
   store i8 0, ptr %91, align 1, !tbaa !68
   %92 = load ptr, ptr %14, align 8, !tbaa !74

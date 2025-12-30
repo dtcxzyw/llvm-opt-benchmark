@@ -2191,7 +2191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426: ; preds = %54
   br label %555
 
 555:                                              ; preds = %496, %554, %397, %462, %393, %391
-  %.pn249.pn.pn.pn.pn = phi { ptr, i32 } [ %398, %397 ], [ %394, %393 ], [ %392, %391 ], [ %.pn241.pn.pn, %462 ], [ %.pn249.pn.pn, %554 ], [ %497, %496 ]
+  %.pn249.pn.pn.pn.pn = phi { ptr, i32 } [ %394, %393 ], [ %392, %391 ], [ %.pn241.pn.pn, %462 ], [ %398, %397 ], [ %.pn249.pn.pn, %554 ], [ %497, %496 ]
   %.16 = extractvalue { ptr, i32 } %.pn249.pn.pn.pn.pn, 0
   %.16157 = extractvalue { ptr, i32 } %.pn249.pn.pn.pn.pn, 1
   %556 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #27
@@ -2951,7 +2951,7 @@ _ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
   br label %841
 
 817:                                              ; preds = %736, %794, %726, %728, %672, %674, %620, %389
-  %.pn290.pn.pn.pn.pn = phi { ptr, i32 } [ %727, %726 ], [ %673, %672 ], [ %390, %389 ], [ %.pn263, %620 ], [ %.pn273, %674 ], [ %.pn284, %728 ], [ %.pn290.pn.pn, %794 ], [ %737, %736 ]
+  %.pn290.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn263, %620 ], [ %390, %389 ], [ %.pn273, %674 ], [ %673, %672 ], [ %.pn284, %728 ], [ %727, %726 ], [ %.pn290.pn.pn, %794 ], [ %737, %736 ]
   call void @_ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
   br label %818
 
@@ -3009,7 +3009,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i505: ; preds = %837, %8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %819) #27
   br label %849
 
-841:                                              ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %173, %_ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %162
+841:                                              ; preds = %173, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %_ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %162
   %842 = add nuw i64 %.0212723, 1
   %843 = load ptr, ptr %58, align 8, !tbaa !30
   %844 = load ptr, ptr %7, align 8, !tbaa !33
@@ -3855,7 +3855,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv15VideoParame
   ret i1 %.not297672
 
 1166:                                             ; preds = %1061, %1128, %969, %1058, %853, %946, %857, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit370, %818, %231, %170, %298, %239, %965, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit543
-  %.pn326.pn.pn = phi { ptr, i32 } [ %240, %239 ], [ %.pn324, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit543 ], [ %858, %857 ], [ %970, %969 ], [ %966, %965 ], [ %.pn326, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit370 ], [ %.pn290.pn.pn.pn.pn.pn, %818 ], [ %171, %170 ], [ %.pn.pn.pn, %231 ], [ %.pn233.pn.pn, %298 ], [ %854, %853 ], [ %.pn303.pn.pn, %946 ], [ %.pn319.pn.pn, %1058 ], [ %.pn310.pn.pn, %1128 ], [ %1062, %1061 ]
+  %.pn326.pn.pn = phi { ptr, i32 } [ %.pn324, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit543 ], [ %966, %965 ], [ %.pn326, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit370 ], [ %.pn290.pn.pn.pn.pn.pn, %818 ], [ %.pn.pn.pn, %231 ], [ %171, %170 ], [ %.pn233.pn.pn, %298 ], [ %240, %239 ], [ %854, %853 ], [ %.pn303.pn.pn, %946 ], [ %858, %857 ], [ %.pn319.pn.pn, %1058 ], [ %970, %969 ], [ %.pn310.pn.pn, %1128 ], [ %1062, %1061 ]
   call void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   br label %1167
 
@@ -5380,7 +5380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414: ; preds = %55
   br label %563
 
 563:                                              ; preds = %504, %562, %405, %470, %401, %399
-  %.pn235.pn.pn.pn.pn = phi { ptr, i32 } [ %406, %405 ], [ %402, %401 ], [ %400, %399 ], [ %.pn227.pn.pn, %470 ], [ %.pn235.pn.pn, %562 ], [ %505, %504 ]
+  %.pn235.pn.pn.pn.pn = phi { ptr, i32 } [ %402, %401 ], [ %400, %399 ], [ %.pn227.pn.pn, %470 ], [ %406, %405 ], [ %.pn235.pn.pn, %562 ], [ %505, %504 ]
   %.17 = extractvalue { ptr, i32 } %.pn235.pn.pn.pn.pn, 0
   %.17143 = extractvalue { ptr, i32 } %.pn235.pn.pn.pn.pn, 1
   %564 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #27
@@ -6150,7 +6150,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i489: ; preds = %821, %8
   br i1 %.not286, label %170, label %.critedge, !llvm.loop !182
 
 833:                                              ; preds = %744, %802, %734, %736, %680, %682, %628, %397
-  %.pn276.pn.pn.pn.pn = phi { ptr, i32 } [ %735, %734 ], [ %681, %680 ], [ %398, %397 ], [ %.pn249, %628 ], [ %.pn259, %682 ], [ %.pn270, %736 ], [ %.pn276.pn.pn, %802 ], [ %745, %744 ]
+  %.pn276.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn249, %628 ], [ %398, %397 ], [ %.pn259, %682 ], [ %681, %680 ], [ %.pn270, %736 ], [ %735, %734 ], [ %.pn276.pn.pn, %802 ], [ %745, %744 ]
   call void @_ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #27
   br label %834
 
@@ -6872,7 +6872,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit577: ; preds
   br label %1146
 
 .loopexit:                                        ; preds = %825, %953, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit550, %1045, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit577
-  %.not286655 = phi i1 [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit577 ], [ false, %953 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit550 ], [ false, %1045 ], [ true, %825 ]
+  %.not286655 = phi i1 [ false, %953 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit550 ], [ false, %1045 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit577 ], [ true, %825 ]
   %1110 = load ptr, ptr %8, align 8, !tbaa !33
   %1111 = load ptr, ptr %71, align 8, !tbaa !30
   %.not4.i.i.i.i = icmp eq ptr %1110, %1111
@@ -6980,7 +6980,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv15VideoParame
   ret i1 %.not286655
 
 1146:                                             ; preds = %837, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit526, %930, %841, %1039, %950, %1109, %1042, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358, %834, %240, %179, %306, %248
-  %.pn311.pn.pn = phi { ptr, i32 } [ %249, %248 ], [ %.pn283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358 ], [ %.pn276.pn.pn.pn.pn.pn, %834 ], [ %180, %179 ], [ %.pn.pn.pn, %240 ], [ %.pn219.pn.pn, %306 ], [ %.pn311, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit526 ], [ %842, %841 ], [ %951, %950 ], [ %838, %837 ], [ %.pn291.pn.pn, %930 ], [ %.pn306.pn.pn, %1039 ], [ %.pn297.pn.pn, %1109 ], [ %1043, %1042 ]
+  %.pn311.pn.pn = phi { ptr, i32 } [ %.pn283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358 ], [ %.pn276.pn.pn.pn.pn.pn, %834 ], [ %.pn.pn.pn, %240 ], [ %180, %179 ], [ %.pn219.pn.pn, %306 ], [ %249, %248 ], [ %.pn311, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit526 ], [ %838, %837 ], [ %.pn291.pn.pn, %930 ], [ %842, %841 ], [ %.pn306.pn.pn, %1039 ], [ %951, %950 ], [ %.pn297.pn.pn, %1109 ], [ %1043, %1042 ]
   call void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #27
   br label %1147
 
@@ -8354,7 +8354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437: ; preds = %54
   br label %559
 
 559:                                              ; preds = %500, %558, %401, %466, %397, %395
-  %.pn260.pn.pn.pn.pn = phi { ptr, i32 } [ %402, %401 ], [ %398, %397 ], [ %396, %395 ], [ %.pn252.pn.pn, %466 ], [ %.pn260.pn.pn, %558 ], [ %501, %500 ]
+  %.pn260.pn.pn.pn.pn = phi { ptr, i32 } [ %398, %397 ], [ %396, %395 ], [ %.pn252.pn.pn, %466 ], [ %402, %401 ], [ %.pn260.pn.pn, %558 ], [ %501, %500 ]
   %.16 = extractvalue { ptr, i32 } %.pn260.pn.pn.pn.pn, 0
   %.16167 = extractvalue { ptr, i32 } %.pn260.pn.pn.pn.pn, 1
   %560 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #27
@@ -9114,7 +9114,7 @@ _ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
   br label %845
 
 821:                                              ; preds = %740, %798, %730, %732, %676, %678, %624, %393
-  %.pn301.pn.pn.pn.pn = phi { ptr, i32 } [ %731, %730 ], [ %677, %676 ], [ %394, %393 ], [ %.pn274, %624 ], [ %.pn284, %678 ], [ %.pn295, %732 ], [ %.pn301.pn.pn, %798 ], [ %741, %740 ]
+  %.pn301.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn274, %624 ], [ %394, %393 ], [ %.pn284, %678 ], [ %677, %676 ], [ %.pn295, %732 ], [ %731, %730 ], [ %.pn301.pn.pn, %798 ], [ %741, %740 ]
   call void @_ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
   br label %822
 
@@ -9172,7 +9172,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i516: ; preds = %841, %8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %823) #27
   br label %853
 
-845:                                              ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %178, %_ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %167
+845:                                              ; preds = %178, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %_ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %167
   %846 = add nuw i64 %.0223734, 1
   %847 = load ptr, ptr %63, align 8, !tbaa !30
   %848 = load ptr, ptr %7, align 8, !tbaa !33
@@ -10017,7 +10017,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv15VideoParame
   ret i1 %.not308683
 
 1169:                                             ; preds = %1064, %1131, %972, %1061, %857, %950, %861, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381, %822, %236, %175, %302, %244, %968, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit554
-  %.pn337.pn.pn = phi { ptr, i32 } [ %245, %244 ], [ %.pn335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit554 ], [ %862, %861 ], [ %973, %972 ], [ %969, %968 ], [ %.pn337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381 ], [ %.pn301.pn.pn.pn.pn.pn, %822 ], [ %176, %175 ], [ %.pn.pn.pn, %236 ], [ %.pn244.pn.pn, %302 ], [ %858, %857 ], [ %.pn314.pn.pn, %950 ], [ %.pn330.pn.pn, %1061 ], [ %.pn321.pn.pn, %1131 ], [ %1065, %1064 ]
+  %.pn337.pn.pn = phi { ptr, i32 } [ %.pn335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit554 ], [ %969, %968 ], [ %.pn337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381 ], [ %.pn301.pn.pn.pn.pn.pn, %822 ], [ %.pn.pn.pn, %236 ], [ %176, %175 ], [ %.pn244.pn.pn, %302 ], [ %245, %244 ], [ %858, %857 ], [ %.pn314.pn.pn, %950 ], [ %862, %861 ], [ %.pn330.pn.pn, %1061 ], [ %973, %972 ], [ %.pn321.pn.pn, %1131 ], [ %1065, %1064 ]
   call void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   br label %1170
 
@@ -10637,7 +10637,7 @@ define noundef double @_ZNK2cv12VideoCapture3getEi(ptr noundef nonnull readonly 
   br label %26
 
 26:                                               ; preds = %.thread, %12, %21, %20
-  %.1 = phi double [ 0.000000e+00, %20 ], [ %25, %21 ], [ -1.000000e+00, %.thread ], [ %19, %12 ]
+  %.1 = phi double [ %25, %21 ], [ 0.000000e+00, %20 ], [ -1.000000e+00, %.thread ], [ %19, %12 ]
   ret double %.1
 }
 
@@ -11421,7 +11421,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParame
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit749, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit751, %226, %221, %216
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %221 ], [ %spec.select.i.i.i.i, %226 ], [ %.sroa.032.0.lcssa.i.i.i.i, %216 ], [ %231, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit751 ], [ %229, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %230, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit749 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %216 ], [ %.sroa.032.1.i.i.i.i, %221 ], [ %spec.select.i.i.i.i, %226 ], [ %229, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %230, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit749 ], [ %231, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i.loopexit.split.loop.exit751 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %189
   br i1 %.not.i, label %_ZNK2cv15VideoParameters3getIbEET_iS2_.exit, label %232
 
@@ -12564,7 +12564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit394: ; preds = %61
   br label %623
 
 623:                                              ; preds = %564, %622, %463, %_ZNSt6vectorIiSaIiEED2Ev.exit367, %385, %450, %381, %379
-  %.pn230.pn.pn.pn.pn = phi { ptr, i32 } [ %464, %463 ], [ %386, %385 ], [ %382, %381 ], [ %380, %379 ], [ %.pn213.pn.pn, %450 ], [ %.pn221.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit367 ], [ %.pn230.pn.pn, %622 ], [ %565, %564 ]
+  %.pn230.pn.pn.pn.pn = phi { ptr, i32 } [ %382, %381 ], [ %380, %379 ], [ %.pn213.pn.pn, %450 ], [ %386, %385 ], [ %.pn221.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit367 ], [ %464, %463 ], [ %.pn230.pn.pn, %622 ], [ %565, %564 ]
   %.12 = extractvalue { ptr, i32 } %.pn230.pn.pn.pn.pn, 0
   %.12143 = extractvalue { ptr, i32 } %.pn230.pn.pn.pn.pn, 1
   %624 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #27
@@ -13282,7 +13282,7 @@ _ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
   br label %921
 
 869:                                              ; preds = %788, %846, %779, %778, %729, %728, %680, %377
-  %.pn267.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn257.pn.pn.pn, %778 ], [ %.pn247.pn.pn.pn, %728 ], [ %.pn239.pn.pn.pn, %680 ], [ %378, %377 ], [ %730, %729 ], [ %780, %779 ], [ %.pn267.pn.pn, %846 ], [ %789, %788 ]
+  %.pn267.pn.pn.pn.pn = phi { ptr, i32 } [ %378, %377 ], [ %.pn239.pn.pn.pn, %680 ], [ %730, %729 ], [ %.pn247.pn.pn.pn, %728 ], [ %780, %779 ], [ %.pn257.pn.pn.pn, %778 ], [ %.pn267.pn.pn, %846 ], [ %789, %788 ]
   call void @_ZNSt12__shared_ptrIN2cv8IBackendELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #27
   br label %870
 
@@ -13964,7 +13964,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv15VideoParame
   ret i1 %1118
 
 1127:                                             ; preds = %1049, %1116, %957, %1046, %161, %923, %953
-  %.pn289.pn.pn.pn = phi { ptr, i32 } [ %954, %953 ], [ %162, %161 ], [ %958, %957 ], [ %.pn289.pn, %923 ], [ %.pn284.pn.pn, %1046 ], [ %.pn275.pn.pn, %1116 ], [ %1050, %1049 ]
+  %.pn289.pn.pn.pn = phi { ptr, i32 } [ %954, %953 ], [ %.pn289.pn, %923 ], [ %162, %161 ], [ %.pn284.pn.pn, %1046 ], [ %958, %957 ], [ %.pn275.pn.pn, %1116 ], [ %1050, %1049 ]
   %1128 = load ptr, ptr %9, align 8, !tbaa !144
   %.not.i.i.i.i542 = icmp eq ptr %1128, null
   br i1 %.not.i.i.i.i542, label %_ZN2cv15VideoParametersD2Ev.exit543, label %1129
@@ -14461,7 +14461,7 @@ define noundef double @_ZNK2cv11VideoWriter3getEi(ptr noundef nonnull readonly a
   br label %20
 
 20:                                               ; preds = %.thread, %7, %14, %15
-  %.05 = phi double [ 0.000000e+00, %14 ], [ %19, %15 ], [ -1.000000e+00, %.thread ], [ %13, %7 ]
+  %.05 = phi double [ %19, %15 ], [ 0.000000e+00, %14 ], [ -1.000000e+00, %.thread ], [ %13, %7 ]
   ret double %.05
 }
 

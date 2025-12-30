@@ -768,7 +768,7 @@ if.then124:                                       ; preds = %land.lhs.true
   br label %if.end126
 
 if.end126:                                        ; preds = %for.body107, %if.then124, %land.lhs.true
-  %show_min.0 = phi float [ %62, %land.lhs.true ], [ 0.000000e+00, %if.then124 ], [ %62, %for.body107 ]
+  %show_min.0 = phi float [ 0.000000e+00, %if.then124 ], [ %62, %land.lhs.true ], [ %62, %for.body107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %buf)
   %64 = call nsz float @llvm.floor.f32(float %63)
   %cmp127 = fcmp nsz oeq float %64, %63

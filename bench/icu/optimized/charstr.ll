@@ -155,7 +155,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -764,7 +764,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit20: ; preds = %46, %49
   br label %52
 
 52:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit20, %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit, %7, %4, %51
-  %.0 = phi i8 [ 0, %4 ], [ 0, %51 ], [ 1, %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit ], [ 1, %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit20 ], [ 1, %7 ]
+  %.0 = phi i8 [ 0, %51 ], [ 0, %4 ], [ 1, %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit ], [ 1, %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit20 ], [ 1, %7 ]
   ret i8 %.0
 }
 
@@ -1015,7 +1015,7 @@ define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6a
   br label %63
 
 63:                                               ; preds = %19, %52, %48, %32, %33, %4, %45, %13
-  %.0 = phi ptr [ %44, %45 ], [ %0, %13 ], [ %0, %4 ], [ %0, %33 ], [ %0, %32 ], [ %0, %48 ], [ %0, %52 ], [ %0, %19 ]
+  %.0 = phi ptr [ %0, %13 ], [ %44, %45 ], [ %0, %4 ], [ %0, %33 ], [ %0, %32 ], [ %0, %48 ], [ %0, %52 ], [ %0, %19 ]
   ret ptr %.0
 }
 
@@ -1273,7 +1273,7 @@ define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %9, %11
-  %.0.i = phi ptr [ %13, %11 ], [ %10, %9 ], [ null, %3 ]
+  %.0.i = phi ptr [ %10, %9 ], [ %13, %11 ], [ null, %3 ]
   %14 = icmp slt i16 %5, 0
   %15 = ashr i16 %5, 5
   %16 = sext i16 %15 to i32

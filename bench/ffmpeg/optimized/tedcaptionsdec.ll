@@ -479,9 +479,9 @@ skip_spaces.exit.i86.i:                           ; preds = %select.unfold39
   br i1 %184, label %.lr.ph.i88.i, label %parse_boolean.exit.i, !llvm.loop !36
 
 parse_boolean.exit.i:                             ; preds = %171, %141, %.parse_boolean.exit_crit_edge.i, %._crit_edge.i.i
-  %.pr.i93.i = phi i32 [ %152, %141 ], [ %.pr.i93.pre.i, %.parse_boolean.exit_crit_edge.i ], [ %116, %._crit_edge.i.i ], [ %182, %171 ]
-  %.1109.i = phi i64 [ %145, %141 ], [ %.0108176.i, %.parse_boolean.exit_crit_edge.i ], [ %.0108176.i, %._crit_edge.i.i ], [ %.0108176.i, %171 ]
-  %.1.i = phi i64 [ %.0107177.i, %141 ], [ %.0107177.i, %.parse_boolean.exit_crit_edge.i ], [ %.0107177.i, %._crit_edge.i.i ], [ %175, %171 ]
+  %.pr.i93.i = phi i32 [ %.pr.i93.pre.i, %.parse_boolean.exit_crit_edge.i ], [ %116, %._crit_edge.i.i ], [ %152, %141 ], [ %182, %171 ]
+  %.1109.i = phi i64 [ %.0108176.i, %.parse_boolean.exit_crit_edge.i ], [ %.0108176.i, %._crit_edge.i.i ], [ %145, %141 ], [ %.0108176.i, %171 ]
+  %.1.i = phi i64 [ %.0107177.i, %.parse_boolean.exit_crit_edge.i ], [ %.0107177.i, %._crit_edge.i.i ], [ %.0107177.i, %141 ], [ %175, %171 ]
   br label %select.unfold40
 
 select.unfold40:                                  ; preds = %.critedge.i.i, %parse_boolean.exit.i
@@ -646,12 +646,12 @@ skip_spaces.exit103.i:                            ; preds = %select.unfold42
   %253 = icmp slt i32 %251, 0
   br i1 %253, label %select.unfold45, label %.thread53
 
-.thread53:                                        ; preds = %210, %._crit_edge.i.i, %skip_spaces.exit.i81.i, %155, %skip_spaces.exit.i86.i, %.lr.ph.i88.i, %.lr.ph.i82.i, %skip_spaces.exit.i78.i, %.lr.ph.i.i, %252, %208, %79
+.thread53:                                        ; preds = %210, %skip_spaces.exit.i86.i, %skip_spaces.exit.i81.i, %._crit_edge.i.i, %155, %.lr.ph.i88.i, %.lr.ph.i82.i, %skip_spaces.exit.i78.i, %.lr.ph.i.i, %208, %79, %252
   %254 = call i32 @av_bprint_finalize(ptr noundef nonnull %23, ptr noundef null) #7
   br label %.sink.split
 
-select.unfold45:                                  ; preds = %81, %191, %122, %252, %208, %79, %244, %247
-  %.041.i.ph = phi i32 [ %201, %208 ], [ %72, %79 ], [ %248, %247 ], [ %199, %191 ], [ %245, %244 ], [ %251, %252 ], [ %123, %122 ], [ %91, %81 ]
+select.unfold45:                                  ; preds = %81, %191, %122, %208, %79, %252, %244, %247
+  %.041.i.ph = phi i32 [ %248, %247 ], [ %245, %244 ], [ %251, %252 ], [ %72, %79 ], [ %201, %208 ], [ %199, %191 ], [ %123, %122 ], [ %91, %81 ]
   %255 = call i32 @av_bprint_finalize(ptr noundef nonnull %23, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -659,7 +659,7 @@ select.unfold45:                                  ; preds = %81, %191, %122, %25
   %256 = icmp eq i32 %.041.i.ph, -1094995529
   br i1 %256, label %257, label %289
 
-.sink.split:                                      ; preds = %select.unfold, %select.unfold35, %43, %53, %.thread53
+.sink.split:                                      ; preds = %select.unfold, %select.unfold35, %53, %43, %.thread53
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -728,7 +728,7 @@ select.unfold45:                                  ; preds = %81, %191, %122, %25
   br label %289
 
 289:                                              ; preds = %.thread55, %select.unfold45, %257, %1, %._crit_edge
-  %.0 = phi i32 [ -12, %1 ], [ 0, %._crit_edge ], [ -1094995529, %257 ], [ %.041.i.ph, %select.unfold45 ], [ -12, %.thread55 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %1 ], [ -1094995529, %257 ], [ %.041.i.ph, %select.unfold45 ], [ -12, %.thread55 ]
   ret i32 %.0
 }
 
@@ -1062,7 +1062,7 @@ av_bprint_utf8.exit:                              ; preds = %54
   br label %expect_byte.exit.thread
 
 av_bprint_utf8.exit.thread.sink.split:            ; preds = %.lr.ph, %42, %64
-  %.lcssa93.sink = phi i32 [ %40, %42 ], [ %62, %64 ], [ %31, %.lr.ph ]
+  %.lcssa93.sink = phi i32 [ %62, %64 ], [ %40, %42 ], [ %31, %.lr.ph ]
   %90 = trunc i32 %.lcssa93.sink to i8
   call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %90, i32 noundef 1) #7
   br label %av_bprint_utf8.exit.thread
@@ -1141,7 +1141,7 @@ av_bprint_utf8.exit.thread:                       ; preds = %.lr.ph.i, %av_bprin
   br label %expect_byte.exit.thread
 
 expect_byte.exit.thread:                          ; preds = %33, %107, %21, %av_bprint_utf8.exit, %117, %120
-  %.040 = phi i32 [ %spec.select63, %21 ], [ -12, %117 ], [ %spec.select, %av_bprint_utf8.exit ], [ %spec.select64, %107 ], [ 0, %120 ], [ -1094995529, %33 ]
+  %.040 = phi i32 [ %spec.select, %av_bprint_utf8.exit ], [ 0, %120 ], [ -12, %117 ], [ %spec.select63, %21 ], [ %spec.select64, %107 ], [ -1094995529, %33 ]
   ret i32 %.040
 }
 

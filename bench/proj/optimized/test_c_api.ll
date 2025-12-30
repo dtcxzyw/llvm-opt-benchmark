@@ -38110,7 +38110,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit970: ; preds = %1947
   br label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit846
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit846: ; preds = %1445, %1387, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit970, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit952, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit931, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit907, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit883, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit836, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit818, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit797, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit773, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit749, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit725, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit683, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit629, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit575
-  %.pn454.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn454.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit970 ], [ %.pn442.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit952 ], [ %.pn427.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit931 ], [ %.pn412.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit907 ], [ %.pn396.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit883 ], [ %.pn376.pn.pn, %1387 ], [ %.pn252.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit575 ], [ %.pn369.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit836 ], [ %.pn357.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit818 ], [ %.pn342.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit797 ], [ %.pn327.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit773 ], [ %.pn312.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit749 ], [ %.pn297.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit725 ], [ %.pn282.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit683 ], [ %.pn267.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit629 ], [ %.pn382.pn.pn, %1445 ]
+  %.pn454.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn454.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit970 ], [ %.pn442.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit952 ], [ %.pn427.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit931 ], [ %.pn412.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit907 ], [ %.pn396.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit883 ], [ %.pn369.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit836 ], [ %.pn357.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit818 ], [ %.pn342.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit797 ], [ %.pn327.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit773 ], [ %.pn312.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit749 ], [ %.pn297.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit725 ], [ %.pn282.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit683 ], [ %.pn267.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit629 ], [ %.pn252.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit575 ], [ %.pn376.pn.pn, %1387 ], [ %.pn382.pn.pn, %1445 ]
   resume { ptr, i32 } %.pn454.pn.pn.pn.pn
 }
 
@@ -50972,7 +50972,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit813: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit814: ; preds = %1509, %975, %921
-  %.pn256.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %922, %921 ], [ %.pn203.pn.pn, %975 ], [ %.pn256.pn.pn.pn.pn.pn, %1509 ]
+  %.pn256.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn203.pn.pn, %975 ], [ %922, %921 ], [ %.pn256.pn.pn.pn.pn.pn, %1509 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %1514
 
@@ -50990,7 +50990,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit814: ; preds = %1509, %975, %921
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit815: ; preds = %1514, %817, %767
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %768, %767 ], [ %.pn189.pn.pn, %817 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn, %1514 ]
+  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn189.pn.pn, %817 ], [ %768, %767 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn, %1514 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %1519
 
@@ -51012,7 +51012,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit815: ; preds = %1514, %817, %767
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit816: ; preds = %1520, %608, %557
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %558, %557 ], [ %.pn170.pn.pn, %608 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1520 ]
+  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn170.pn.pn, %608 ], [ %558, %557 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1520 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %1525 = invoke ptr @proj_destroy(ptr noundef %547)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit817 unwind label %1526
@@ -51025,7 +51025,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit816: ; preds = %1520, %608, %557
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit817: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit816, %556, %503
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %504, %503 ], [ %.pn166.pn.pn, %556 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit816 ]
+  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn166.pn.pn, %556 ], [ %504, %503 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit816 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1529
 
@@ -51047,7 +51047,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit817: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit818: ; preds = %1530, %350, %300
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %301, %300 ], [ %.pn147.pn.pn, %350 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1530 ]
+  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn147.pn.pn, %350 ], [ %301, %300 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1530 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %1535
 
@@ -51064,7 +51064,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit818: ; preds = %1530, %350, %300
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit819: ; preds = %1535, %_ZN7testing7MessageD2Ev.exit314, %202
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %202 ], [ %.pn139.pn, %_ZN7testing7MessageD2Ev.exit314 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1535 ]
+  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn139.pn, %_ZN7testing7MessageD2Ev.exit314 ], [ %.pn.pn, %202 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1535 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
@@ -58312,7 +58312,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit405: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit406: ; preds = %791, %726, %674
-  %.pn127.pn.pn.pn.pn = phi { ptr, i32 } [ %675, %674 ], [ %.pn123.pn.pn, %726 ], [ %.pn127.pn.pn.pn, %791 ]
+  %.pn127.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn123.pn.pn, %726 ], [ %675, %674 ], [ %.pn127.pn.pn.pn, %791 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %796
 
@@ -58337,7 +58337,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit406: ; preds = %791, %726, %674
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit407: ; preds = %797, %242, %192
-  %.pn127.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %193, %192 ], [ %.pn75.pn.pn, %242 ], [ %.pn127.pn.pn.pn.pn.pn.pn, %797 ]
+  %.pn127.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn75.pn.pn, %242 ], [ %193, %192 ], [ %.pn127.pn.pn.pn.pn.pn.pn, %797 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %802 = invoke ptr @proj_destroy(ptr noundef %184)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit408 unwind label %803
@@ -58350,7 +58350,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit407: ; preds = %797, %242, %192
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit408: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit407, %_ZN7testing7MessageD2Ev.exit163, %143
-  %.pn127.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %143 ], [ %.pn72.pn, %_ZN7testing7MessageD2Ev.exit163 ], [ %.pn127.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit407 ]
+  %.pn127.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %_ZN7testing7MessageD2Ev.exit163 ], [ %.pn.pn, %143 ], [ %.pn127.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit407 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn127.pn.pn.pn.pn.pn.pn.pn.pn
 }
@@ -58853,7 +58853,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i30.i: ; preds = %204,
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.preheader.i, %.thread52.i, %.thread.i
-  %.pn.pn.pn.pn.pn36.i = phi { ptr, i32 } [ %210, %.thread.i ], [ %.pn.i, %.thread52.i ], [ %220, %.preheader.preheader.i ]
+  %.pn.pn.pn.pn.pn36.i = phi { ptr, i32 } [ %210, %.thread.i ], [ %220, %.preheader.preheader.i ], [ %.pn.i, %.thread52.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !556
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !556
   br label %221
@@ -60503,7 +60503,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit269: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit270: ; preds = %740, %689, %637
-  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %638, %637 ], [ %.pn90.pn.pn, %689 ], [ %.pn96.pn.pn, %740 ]
+  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn90.pn.pn, %689 ], [ %638, %637 ], [ %.pn96.pn.pn, %740 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %745
 
@@ -60520,7 +60520,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit270: ; preds = %740, %689, %637
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit271: ; preds = %745, %541, %489
-  %.pn96.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %490, %489 ], [ %.pn74.pn.pn, %541 ], [ %.pn96.pn.pn.pn.pn, %745 ]
+  %.pn96.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %541 ], [ %490, %489 ], [ %.pn96.pn.pn.pn.pn, %745 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %750
 
@@ -60537,7 +60537,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit271: ; preds = %745, %541, %489
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit272: ; preds = %750, %_ZN7testing7MessageD2Ev.exit125, %297
-  %.pn96.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %297 ], [ %.pn53.pn, %_ZN7testing7MessageD2Ev.exit125 ], [ %.pn96.pn.pn.pn.pn.pn.pn, %750 ]
+  %.pn96.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn, %_ZN7testing7MessageD2Ev.exit125 ], [ %.pn.pn, %297 ], [ %.pn96.pn.pn.pn.pn.pn.pn, %750 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 }
@@ -61920,7 +61920,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit184: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit185: ; preds = %414, %358, %284
-  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %285, %284 ], [ %.pn51.pn.pn, %358 ], [ %.pn58.pn.pn, %414 ]
+  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn51.pn.pn, %358 ], [ %285, %284 ], [ %.pn58.pn.pn, %414 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %419
 
@@ -61937,7 +61937,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit185: ; preds = %414, %358, %284
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186: ; preds = %419, %231, %157
-  %.pn58.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %158, %157 ], [ %.pn40.pn.pn, %231 ], [ %.pn58.pn.pn.pn.pn, %419 ]
+  %.pn58.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn, %231 ], [ %158, %157 ], [ %.pn58.pn.pn.pn.pn, %419 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %424 = invoke ptr @proj_destroy(ptr noundef %149)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit187 unwind label %425
@@ -61950,7 +61950,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186: ; preds = %419, %231, %157
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit187: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186, %_ZN7testing7MessageD2Ev.exit85, %108
-  %.pn58.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %108 ], [ %.pn37.pn, %_ZN7testing7MessageD2Ev.exit85 ], [ %.pn58.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186 ]
+  %.pn58.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %_ZN7testing7MessageD2Ev.exit85 ], [ %.pn.pn, %108 ], [ %.pn58.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn58.pn.pn.pn.pn.pn.pn
 }
@@ -63364,7 +63364,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit184: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit185: ; preds = %420, %364, %290
-  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %291, %290 ], [ %.pn51.pn.pn, %364 ], [ %.pn58.pn.pn, %420 ]
+  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn51.pn.pn, %364 ], [ %291, %290 ], [ %.pn58.pn.pn, %420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %425
 
@@ -63381,7 +63381,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit185: ; preds = %420, %364, %290
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186: ; preds = %425, %237, %163
-  %.pn58.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %164, %163 ], [ %.pn40.pn.pn, %237 ], [ %.pn58.pn.pn.pn.pn, %425 ]
+  %.pn58.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn, %237 ], [ %164, %163 ], [ %.pn58.pn.pn.pn.pn, %425 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %430 = invoke ptr @proj_destroy(ptr noundef %155)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit187 unwind label %431
@@ -63394,7 +63394,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186: ; preds = %425, %237, %163
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit187: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186, %_ZN7testing7MessageD2Ev.exit85, %114
-  %.pn58.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %114 ], [ %.pn37.pn, %_ZN7testing7MessageD2Ev.exit85 ], [ %.pn58.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186 ]
+  %.pn58.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %_ZN7testing7MessageD2Ev.exit85 ], [ %.pn.pn, %114 ], [ %.pn58.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn58.pn.pn.pn.pn.pn.pn
 }
@@ -64216,7 +64216,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit104: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit105: ; preds = %273, %221, %147
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %.pn26.pn.pn, %221 ], [ %.pn33.pn.pn, %273 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn, %221 ], [ %148, %147 ], [ %.pn33.pn.pn, %273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %278 = invoke ptr @proj_destroy(ptr noundef %139)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit106 unwind label %279
@@ -64229,7 +64229,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit105: ; preds = %273, %221, %147
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit106: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit105, %_ZN7testing7MessageD2Ev.exit54, %98
-  %.pn33.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %98 ], [ %.pn23.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %.pn33.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit105 ]
+  %.pn33.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn23.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %.pn.pn, %98 ], [ %.pn33.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn33.pn.pn.pn.pn
 }
@@ -69466,7 +69466,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit:    ; preds = %_ZN7testing15Assert
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit195: ; preds = %308, %251, %200
-  %.pn78.pn.pn.pn.pn = phi { ptr, i32 } [ %201, %200 ], [ %.pn74.pn.pn, %251 ], [ %.pn78.pn.pn.pn, %308 ]
+  %.pn78.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %251 ], [ %201, %200 ], [ %.pn78.pn.pn.pn, %308 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %320
 
@@ -71090,7 +71090,7 @@ _ZN7testing8internal11CmpHelperNEIP8PJconstsDnEENS_15AssertionResultEPKcS6_RKT_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit470: ; preds = %393, %331, %278
-  %.pn194.pn.pn.pn = phi { ptr, i32 } [ %279, %278 ], [ %.pn188.pn.pn, %331 ], [ %.pn194.pn.pn, %393 ]
+  %.pn194.pn.pn.pn = phi { ptr, i32 } [ %.pn188.pn.pn, %331 ], [ %279, %278 ], [ %.pn194.pn.pn, %393 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1881
 
@@ -75886,7 +75886,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit1024: ; preds = %1868, %_ZN7testing
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit1025: ; preds = %1876, %449, %398
-  %.pn356.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %399, %398 ], [ %.pn199.pn.pn, %449 ], [ %.pn356.pn.pn.pn.pn.pn, %1876 ]
+  %.pn356.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn199.pn.pn, %449 ], [ %399, %398 ], [ %.pn356.pn.pn.pn.pn.pn, %1876 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1881
 
@@ -76509,7 +76509,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit68:  ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit69:  ; preds = %196, %_ZN7testing7MessageD2Ev.exit41, %93
-  %.pn21.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %93 ], [ %.pn18.pn, %_ZN7testing7MessageD2Ev.exit41 ], [ %.pn21.pn.pn.pn, %196 ]
+  %.pn21.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn, %_ZN7testing7MessageD2Ev.exit41 ], [ %.pn.pn, %93 ], [ %.pn21.pn.pn.pn, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn21.pn.pn.pn.pn
 }
@@ -79002,7 +79002,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422: ; preds = %813, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i420, %155, %153
-  %.pn136.pn.pn = phi { ptr, i32 } [ %154, %153 ], [ %156, %155 ], [ %.pn136.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i420 ], [ %.pn136.pn, %813 ]
+  %.pn136.pn.pn = phi { ptr, i32 } [ %156, %155 ], [ %154, %153 ], [ %.pn136.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i420 ], [ %.pn136.pn, %813 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %818 = invoke ptr @proj_destroy(ptr noundef %121)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit423 unwind label %819
@@ -79317,7 +79317,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %68, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
-  %.pn = phi { ptr, i32 } [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %69, %68 ]
+  %.pn = phi { ptr, i32 } [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %69, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %129
 
@@ -79708,7 +79708,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %185, %.loopexit90, %.loopexit.split-lp91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
-  %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ], [ %lpad.loopexit92, %.loopexit90 ], [ %.pn24.pn.pn, %185 ]
+  %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70 ], [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ], [ %.pn24.pn.pn, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %190 = load ptr, ptr %18, align 8, !tbaa !46
   %.not.i.i73 = icmp eq ptr %190, null
@@ -82082,7 +82082,7 @@ _ZN7testing8internal11CmpHelperGEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit391: ; preds = %620, %499, %449
-  %.pn142.pn.pn.pn.pn = phi { ptr, i32 } [ %450, %449 ], [ %.pn130.pn.pn, %499 ], [ %.pn142.pn.pn.pn, %620 ]
+  %.pn142.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn130.pn.pn, %499 ], [ %450, %449 ], [ %.pn142.pn.pn.pn, %620 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %912
 
@@ -82807,7 +82807,7 @@ _ZN7testing8internal11CmpHelperGEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit4
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit483: ; preds = %852, %794, %731
-  %.pn163.pn.pn.pn = phi { ptr, i32 } [ %732, %731 ], [ %.pn156.pn.pn, %794 ], [ %.pn163.pn.pn, %852 ]
+  %.pn163.pn.pn.pn = phi { ptr, i32 } [ %.pn156.pn.pn, %794 ], [ %732, %731 ], [ %.pn163.pn.pn, %852 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %857
 
@@ -83022,7 +83022,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit499: ; preds = %912, %303, %251
-  %.pn169.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %252, %251 ], [ %.pn108.pn.pn, %303 ], [ %.pn169.pn.pn.pn.pn, %912 ]
+  %.pn169.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn108.pn.pn, %303 ], [ %252, %251 ], [ %.pn169.pn.pn.pn.pn, %912 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %916
 
@@ -83039,7 +83039,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit499: ; preds = %912, %303, %251
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit500: ; preds = %916, %248, %187
-  %.pn169.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %188, %187 ], [ %.pn104.pn.pn, %248 ], [ %.pn169.pn.pn.pn.pn.pn.pn, %916 ]
+  %.pn169.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn104.pn.pn, %248 ], [ %188, %187 ], [ %.pn169.pn.pn.pn.pn.pn.pn, %916 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %921 = invoke ptr @proj_destroy(ptr noundef %178)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit501 unwind label %922
@@ -83052,7 +83052,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit500: ; preds = %916, %248, %187
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit501: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit500, %186, %134
-  %.pn169.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn100.pn.pn, %186 ], [ %.pn169.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit500 ]
+  %.pn169.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn100.pn.pn, %186 ], [ %135, %134 ], [ %.pn169.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit500 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %126)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit502 unwind label %925
@@ -86756,7 +86756,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit265: ; preds = %476, %421, %371
-  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %372, %371 ], [ %.pn78.pn.pn, %421 ], [ %.pn82.pn.pn, %476 ]
+  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %.pn78.pn.pn, %421 ], [ %372, %371 ], [ %.pn82.pn.pn, %476 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %481
 
@@ -86774,7 +86774,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit265: ; preds = %476, %421, %371
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit266: ; preds = %481, %264, %212
-  %.pn82.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %213, %212 ], [ %.pn66.pn.pn, %264 ], [ %.pn82.pn.pn.pn.pn, %481 ]
+  %.pn82.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn66.pn.pn, %264 ], [ %213, %212 ], [ %.pn82.pn.pn.pn.pn, %481 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %485
 
@@ -86791,7 +86791,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit266: ; preds = %481, %264, %212
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit267: ; preds = %485, %209, %148
-  %.pn82.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %.pn62.pn.pn, %209 ], [ %.pn82.pn.pn.pn.pn.pn.pn, %485 ]
+  %.pn82.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn62.pn.pn, %209 ], [ %149, %148 ], [ %.pn82.pn.pn.pn.pn.pn.pn, %485 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %490 = invoke ptr @proj_destroy(ptr noundef %139)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit268 unwind label %491
@@ -86804,7 +86804,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit267: ; preds = %485, %209, %148
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit268: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit267, %147, %95
-  %.pn82.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %.pn58.pn.pn, %147 ], [ %.pn82.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit267 ]
+  %.pn82.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn, %147 ], [ %96, %95 ], [ %.pn82.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit267 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %87)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit269 unwind label %494
@@ -88140,7 +88140,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit238: ; preds = %428, %370, %317
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %318, %317 ], [ %.pn69.pn.pn, %370 ], [ %.pn75.pn.pn, %428 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %.pn69.pn.pn, %370 ], [ %318, %317 ], [ %.pn75.pn.pn, %428 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %433
 
@@ -88158,7 +88158,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit238: ; preds = %428, %370, %317
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit239: ; preds = %433, %262, %210
-  %.pn75.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %211, %210 ], [ %.pn61.pn.pn, %262 ], [ %.pn75.pn.pn.pn.pn, %433 ]
+  %.pn75.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn61.pn.pn, %262 ], [ %211, %210 ], [ %.pn75.pn.pn.pn.pn, %433 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %437
 
@@ -88175,7 +88175,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit239: ; preds = %433, %262, %210
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit240: ; preds = %437, %207, %146
-  %.pn75.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %.pn57.pn.pn, %207 ], [ %.pn75.pn.pn.pn.pn.pn.pn, %437 ]
+  %.pn75.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn, %207 ], [ %147, %146 ], [ %.pn75.pn.pn.pn.pn.pn.pn, %437 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %442 = invoke ptr @proj_destroy(ptr noundef %137)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit241 unwind label %443
@@ -88188,7 +88188,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit240: ; preds = %437, %207, %146
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit241: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit240, %145, %93
-  %.pn75.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %.pn53.pn.pn, %145 ], [ %.pn75.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit240 ]
+  %.pn75.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn, %145 ], [ %94, %93 ], [ %.pn75.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %85)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit242 unwind label %446
@@ -89161,7 +89161,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit160: ; preds = %305, %252, %200
-  %.pn47.pn.pn.pn.pn = phi { ptr, i32 } [ %201, %200 ], [ %.pn43.pn.pn, %252 ], [ %.pn47.pn.pn.pn, %305 ]
+  %.pn47.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn, %252 ], [ %201, %200 ], [ %.pn47.pn.pn.pn, %305 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %309
 
@@ -89178,7 +89178,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit160: ; preds = %305, %252, %200
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161: ; preds = %309, %197, %136
-  %.pn47.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %.pn39.pn.pn, %197 ], [ %.pn47.pn.pn.pn.pn.pn, %309 ]
+  %.pn47.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %197 ], [ %137, %136 ], [ %.pn47.pn.pn.pn.pn.pn, %309 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %314 = invoke ptr @proj_destroy(ptr noundef %127)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit162 unwind label %315
@@ -89191,7 +89191,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161: ; preds = %309, %197, %136
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit162: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161, %135, %83
-  %.pn47.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %.pn35.pn.pn, %135 ], [ %.pn47.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161 ]
+  %.pn47.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %135 ], [ %84, %83 ], [ %.pn47.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %75)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit163 unwind label %318
@@ -90163,7 +90163,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit160: ; preds = %307, %254, %202
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %203, %202 ], [ %.pn43.pn.pn, %254 ], [ %.pn49.pn.pn, %307 ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn, %254 ], [ %203, %202 ], [ %.pn49.pn.pn, %307 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %311
 
@@ -90180,7 +90180,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit160: ; preds = %307, %254, %202
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161: ; preds = %311, %199, %135
-  %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %.pn39.pn.pn, %199 ], [ %.pn49.pn.pn.pn.pn, %311 ]
+  %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %199 ], [ %136, %135 ], [ %.pn49.pn.pn.pn.pn, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %316 = invoke ptr @proj_destroy(ptr noundef %126)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit162 unwind label %317
@@ -90193,7 +90193,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161: ; preds = %311, %199, %135
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit162: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161, %134, %82
-  %.pn49.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %.pn35.pn.pn, %134 ], [ %.pn49.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161 ]
+  %.pn49.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %134 ], [ %83, %82 ], [ %.pn49.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %74)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit163 unwind label %320
@@ -91167,7 +91167,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit160: ; preds = %307, %254, %202
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %203, %202 ], [ %.pn43.pn.pn, %254 ], [ %.pn49.pn.pn, %307 ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn, %254 ], [ %203, %202 ], [ %.pn49.pn.pn, %307 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %311
 
@@ -91184,7 +91184,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit160: ; preds = %307, %254, %202
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161: ; preds = %311, %199, %135
-  %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %.pn39.pn.pn, %199 ], [ %.pn49.pn.pn.pn.pn, %311 ]
+  %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %199 ], [ %136, %135 ], [ %.pn49.pn.pn.pn.pn, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %316 = invoke ptr @proj_destroy(ptr noundef %126)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit162 unwind label %317
@@ -91197,7 +91197,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161: ; preds = %311, %199, %135
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit162: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161, %134, %82
-  %.pn49.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %.pn35.pn.pn, %134 ], [ %.pn49.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161 ]
+  %.pn49.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %134 ], [ %83, %82 ], [ %.pn49.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %74)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit163 unwind label %320
@@ -92604,7 +92604,7 @@ _ZN7testing8internal11CmpHelperNEIP28PJ_OPERATION_FACTORY_CONTEXTDnEENS_15Assert
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit503: ; preds = %506, %443, %381
-  %.pn189.pn.pn.pn = phi { ptr, i32 } [ %382, %381 ], [ %.pn182.pn.pn, %443 ], [ %.pn189.pn.pn, %506 ]
+  %.pn189.pn.pn.pn = phi { ptr, i32 } [ %.pn182.pn.pn, %443 ], [ %382, %381 ], [ %.pn189.pn.pn, %506 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %511
 
@@ -92621,7 +92621,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit503: ; preds = %506, %443, %381
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit504: ; preds = %511, %333, %281
-  %.pn189.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %282, %281 ], [ %.pn172.pn.pn, %333 ], [ %.pn189.pn.pn.pn.pn, %511 ]
+  %.pn189.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn172.pn.pn, %333 ], [ %282, %281 ], [ %.pn189.pn.pn.pn.pn, %511 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %270)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit505 unwind label %515
@@ -92634,7 +92634,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit504: ; preds = %511, %333, %281
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit505: ; preds = %_ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit504, %280, %226
-  %.pn189.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %227, %226 ], [ %.pn168.pn.pn, %280 ], [ %.pn189.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit504 ]
+  %.pn189.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn168.pn.pn, %280 ], [ %227, %226 ], [ %.pn189.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit504 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1302
 
@@ -93540,7 +93540,7 @@ _ZN7testing8internal11CmpHelperNEIP28PJ_OPERATION_FACTORY_CONTEXTDnEENS_15Assert
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit617: ; preds = %803, %740, %678
-  %.pn218.pn.pn.pn = phi { ptr, i32 } [ %679, %678 ], [ %.pn211.pn.pn, %740 ], [ %.pn218.pn.pn, %803 ]
+  %.pn218.pn.pn.pn = phi { ptr, i32 } [ %.pn211.pn.pn, %740 ], [ %679, %678 ], [ %.pn218.pn.pn, %803 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %808
 
@@ -93557,7 +93557,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit617: ; preds = %803, %740, %678
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit618: ; preds = %808, %630, %578
-  %.pn218.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %579, %578 ], [ %.pn201.pn.pn, %630 ], [ %.pn218.pn.pn.pn.pn, %808 ]
+  %.pn218.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn201.pn.pn, %630 ], [ %579, %578 ], [ %.pn218.pn.pn.pn.pn, %808 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %812
 
@@ -93574,7 +93574,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit618: ; preds = %808, %630, %578
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit619: ; preds = %812, %575, %518
-  %.pn218.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %519, %518 ], [ %.pn197.pn.pn, %575 ], [ %.pn218.pn.pn.pn.pn.pn.pn, %812 ]
+  %.pn218.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn197.pn.pn, %575 ], [ %519, %518 ], [ %.pn218.pn.pn.pn.pn.pn.pn, %812 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %1302
 
@@ -94262,7 +94262,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit667: ; preds = %_ZN12_GLOBAL__N_14
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit669: ; preds = %1030, %975, %934
-  %.pn248.pn.pn.pn = phi { ptr, i32 } [ %935, %934 ], [ %.pn241.pn.pn, %975 ], [ %.pn248.pn.pn, %1030 ]
+  %.pn248.pn.pn.pn = phi { ptr, i32 } [ %.pn241.pn.pn, %975 ], [ %935, %934 ], [ %.pn248.pn.pn, %1030 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %1035
 
@@ -94279,7 +94279,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit669: ; preds = %1030, %975, %934
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit670: ; preds = %1035, %895, %860
-  %.pn248.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %861, %860 ], [ %.pn231.pn.pn, %895 ], [ %.pn248.pn.pn.pn.pn, %1035 ]
+  %.pn248.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn231.pn.pn, %895 ], [ %861, %860 ], [ %.pn248.pn.pn.pn.pn, %1035 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %1039
 
@@ -94297,7 +94297,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit670: ; preds = %1035, %895, %860
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit671: ; preds = %1039, %857, %816
-  %.pn248.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %817, %816 ], [ %.pn227.pn.pn, %857 ], [ %.pn248.pn.pn.pn.pn.pn.pn, %1039 ]
+  %.pn248.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn227.pn.pn, %857 ], [ %817, %816 ], [ %.pn248.pn.pn.pn.pn.pn.pn, %1039 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %1302
 
@@ -95180,7 +95180,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit731: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit732: ; preds = %1289, %1205, %1164
-  %.pn278.pn.pn.pn = phi { ptr, i32 } [ %1165, %1164 ], [ %.pn271.pn.pn, %1205 ], [ %.pn278.pn.pn, %1289 ]
+  %.pn278.pn.pn.pn = phi { ptr, i32 } [ %.pn271.pn.pn, %1205 ], [ %1165, %1164 ], [ %.pn278.pn.pn, %1289 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %1294
 
@@ -95197,7 +95197,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit732: ; preds = %1289, %1205, %1164
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit733: ; preds = %1294, %1125, %1090
-  %.pn278.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1091, %1090 ], [ %.pn261.pn.pn, %1125 ], [ %.pn278.pn.pn.pn.pn, %1294 ]
+  %.pn278.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn261.pn.pn, %1125 ], [ %1091, %1090 ], [ %.pn278.pn.pn.pn.pn, %1294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %1298
 
@@ -95215,7 +95215,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit733: ; preds = %1294, %1125, %1090
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit734: ; preds = %1298, %1087, %1043
-  %.pn278.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1044, %1043 ], [ %.pn257.pn.pn, %1087 ], [ %.pn278.pn.pn.pn.pn.pn.pn, %1298 ]
+  %.pn278.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn257.pn.pn, %1087 ], [ %1044, %1043 ], [ %.pn278.pn.pn.pn.pn.pn.pn, %1298 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %1302
 
@@ -95232,7 +95232,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit734: ; preds = %1298, %1087, %1043
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit735: ; preds = %1302, %225, %173
-  %.pn278.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %174, %173 ], [ %.pn164.pn.pn, %225 ], [ %.pn278.pn.pn.pn.pn.pn.pn.pn.pn, %1302 ]
+  %.pn278.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn164.pn.pn, %225 ], [ %174, %173 ], [ %.pn278.pn.pn.pn.pn.pn.pn.pn.pn, %1302 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1307 = invoke ptr @proj_destroy(ptr noundef %165)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit736 unwind label %1308
@@ -96216,7 +96216,7 @@ _ZN7testing8internal11CmpHelperNEIP11PJ_OBJ_LISTDnEENS_15AssertionResultEPKcS6_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit228: ; preds = %327, %271, %219
-  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %220, %219 ], [ %.pn74.pn.pn, %271 ], [ %.pn80.pn.pn, %327 ]
+  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %271 ], [ %220, %219 ], [ %.pn80.pn.pn, %327 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %553
 
@@ -96566,7 +96566,7 @@ _ZN7testing8internal11CmpHelperNEIP11PJ_OBJ_LISTDnEENS_15AssertionResultEPKcS6_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit268: ; preds = %439, %383, %331
-  %.pn91.pn.pn.pn = phi { ptr, i32 } [ %332, %331 ], [ %.pn85.pn.pn, %383 ], [ %.pn91.pn.pn, %439 ]
+  %.pn91.pn.pn.pn = phi { ptr, i32 } [ %.pn85.pn.pn, %383 ], [ %332, %331 ], [ %.pn91.pn.pn, %439 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %553
 
@@ -96935,7 +96935,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit305: ; preds = %549, %495, %443
-  %.pn102.pn.pn.pn = phi { ptr, i32 } [ %444, %443 ], [ %.pn96.pn.pn, %495 ], [ %.pn102.pn.pn, %549 ]
+  %.pn102.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %495 ], [ %444, %443 ], [ %.pn102.pn.pn, %549 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %553
 
@@ -96952,7 +96952,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit305: ; preds = %549, %495, %443
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit306: ; preds = %553, %216, %155
-  %.pn102.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %156, %155 ], [ %.pn70.pn.pn, %216 ], [ %.pn102.pn.pn.pn.pn, %553 ]
+  %.pn102.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn, %216 ], [ %156, %155 ], [ %.pn102.pn.pn.pn.pn, %553 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %558 = invoke ptr @proj_destroy(ptr noundef %146)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit307 unwind label %559
@@ -96965,7 +96965,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit306: ; preds = %553, %216, %155
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit307: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit306, %154, %102
-  %.pn102.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %.pn66.pn.pn, %154 ], [ %.pn102.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit306 ]
+  %.pn102.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn66.pn.pn, %154 ], [ %103, %102 ], [ %.pn102.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit306 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %94)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit308 unwind label %562
@@ -105075,7 +105075,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit595: ; preds = %1061
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit596: ; preds = %1068, %799, %749
-  %.pn213.pn.pn = phi { ptr, i32 } [ %750, %749 ], [ %.pn185.pn.pn, %799 ], [ %.pn213.pn, %1068 ]
+  %.pn213.pn.pn = phi { ptr, i32 } [ %.pn185.pn.pn, %799 ], [ %750, %749 ], [ %.pn213.pn, %1068 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %1073
 
@@ -107772,7 +107772,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit:    ; preds = %852, %_ZN7testing15
   br label %858
 
 858:                                              ; preds = %332, %_ZN7testing7MessageD2Ev.exit269, %420, %467, %_ZN7testing7MessageD2Ev.exit321, %580, %_ZN7testing7MessageD2Ev.exit369, %666, %715, %766, %813, %857, %331, %_ZN7testing7MessageD2Ev.exit224, %218
-  %.pn153.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn88.pn.pn.pn, %218 ], [ %.pn99.pn.pn, %331 ], [ %.pn93.pn.pn, %_ZN7testing7MessageD2Ev.exit224 ], [ %.pn153.pn.pn, %857 ], [ %.pn147.pn.pn, %813 ], [ %.pn140.pn.pn.pn, %766 ], [ %.pn134.pn.pn.pn, %715 ], [ %.pn130.pn.pn, %666 ], [ %.pn126.pn.pn, %_ZN7testing7MessageD2Ev.exit369 ], [ %333, %332 ], [ %.pn122.pn.pn, %580 ], [ %.pn116.pn.pn, %_ZN7testing7MessageD2Ev.exit321 ], [ %.pn111.pn.pn.pn, %467 ], [ %.pn107.pn.pn, %420 ], [ %.pn103.pn.pn, %_ZN7testing7MessageD2Ev.exit269 ]
+  %.pn153.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn99.pn.pn, %331 ], [ %.pn93.pn.pn, %_ZN7testing7MessageD2Ev.exit224 ], [ %.pn88.pn.pn.pn, %218 ], [ %.pn153.pn.pn, %857 ], [ %.pn147.pn.pn, %813 ], [ %.pn140.pn.pn.pn, %766 ], [ %.pn134.pn.pn.pn, %715 ], [ %.pn130.pn.pn, %666 ], [ %.pn126.pn.pn, %_ZN7testing7MessageD2Ev.exit369 ], [ %333, %332 ], [ %.pn122.pn.pn, %580 ], [ %.pn116.pn.pn, %_ZN7testing7MessageD2Ev.exit321 ], [ %.pn111.pn.pn.pn, %467 ], [ %.pn107.pn.pn, %420 ], [ %.pn103.pn.pn, %_ZN7testing7MessageD2Ev.exit269 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %859
 
@@ -114437,7 +114437,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit725: ; preds = %1214
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit727: ; preds = %1232, %1135, %1100
-  %.pn263.pn.pn.pn.pn = phi { ptr, i32 } [ %1101, %1100 ], [ %.pn253.pn.pn, %1135 ], [ %.pn263.pn.pn.pn, %1232 ]
+  %.pn263.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn253.pn.pn, %1135 ], [ %1101, %1100 ], [ %.pn263.pn.pn.pn, %1232 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %1237
 
@@ -117359,7 +117359,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit:    ; preds = %226
   br label %232
 
 232:                                              ; preds = %133, %179, %231, %180, %132, %78
-  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %78 ], [ %.pn38.pn.pn.pn, %132 ], [ %134, %133 ], [ %.pn43.pn.pn, %179 ], [ %181, %180 ], [ %.pn47.pn.pn.pn, %231 ]
+  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn38.pn.pn.pn, %132 ], [ %.pn.pn.pn, %78 ], [ %.pn43.pn.pn, %179 ], [ %134, %133 ], [ %181, %180 ], [ %.pn47.pn.pn.pn, %231 ]
   %233 = invoke ptr @proj_destroy(ptr noundef %23)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit124 unwind label %234
 
@@ -131470,7 +131470,7 @@ _ZN7testing8internal11CmpHelperNEIP8PJconstsDnEENS_15AssertionResultEPKcS6_RKT_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit721: ; preds = %1296, %235, %182
-  %.pn232.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %183, %182 ], [ %.pn134.pn.pn, %235 ], [ %.pn232.pn.pn.pn.pn, %1296 ]
+  %.pn232.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn134.pn.pn, %235 ], [ %183, %182 ], [ %.pn232.pn.pn.pn.pn, %1296 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1301 = invoke ptr @proj_destroy(ptr noundef %174)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit722 unwind label %1302
@@ -140257,7 +140257,7 @@ _ZN7testing8internal11CmpHelperNEIP8PJconstsDnEENS_15AssertionResultEPKcS6_RKT_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit378: ; preds = %530, %302, %251
-  %.pn139.pn.pn.pn.pn = phi { ptr, i32 } [ %252, %251 ], [ %.pn119.pn.pn, %302 ], [ %.pn139.pn.pn.pn, %530 ]
+  %.pn139.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn119.pn.pn, %302 ], [ %252, %251 ], [ %.pn139.pn.pn.pn, %530 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %535
 
@@ -142147,7 +142147,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit608: ; preds = %1116
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit609: ; preds = %1122, %644, %593
-  %.pn191.pn.pn.pn.pn = phi { ptr, i32 } [ %594, %593 ], [ %.pn151.pn.pn, %644 ], [ %.pn191.pn.pn.pn, %1122 ]
+  %.pn191.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn151.pn.pn, %644 ], [ %594, %593 ], [ %.pn191.pn.pn.pn, %1122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %1127
 
@@ -143812,7 +143812,7 @@ _ZN7testing8internal11CmpHelperNEIP8PJconstsDnEENS_15AssertionResultEPKcS6_RKT_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit379: ; preds = %550, %322, %271
-  %.pn139.pn.pn.pn.pn = phi { ptr, i32 } [ %272, %271 ], [ %.pn119.pn.pn, %322 ], [ %.pn139.pn.pn.pn, %550 ]
+  %.pn139.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn119.pn.pn, %322 ], [ %272, %271 ], [ %.pn139.pn.pn.pn, %550 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %555
 
@@ -145702,7 +145702,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit609: ; preds = %1136
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit610: ; preds = %1142, %664, %613
-  %.pn191.pn.pn.pn.pn = phi { ptr, i32 } [ %614, %613 ], [ %.pn151.pn.pn, %664 ], [ %.pn191.pn.pn.pn, %1142 ]
+  %.pn191.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn151.pn.pn, %664 ], [ %614, %613 ], [ %.pn191.pn.pn.pn, %1142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %1147
 
@@ -157297,7 +157297,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit347: ; preds = %603
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit348: ; preds = %608, %537, %486
-  %.pn107.pn.pn.pn.pn = phi { ptr, i32 } [ %487, %486 ], [ %.pn103.pn.pn, %537 ], [ %.pn107.pn.pn.pn, %608 ]
+  %.pn107.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn103.pn.pn, %537 ], [ %487, %486 ], [ %.pn107.pn.pn.pn, %608 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %613
 
@@ -157314,7 +157314,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit348: ; preds = %608, %537, %486
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit349: ; preds = %613, %434, %383
-  %.pn107.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %384, %383 ], [ %.pn94.pn.pn, %434 ], [ %.pn107.pn.pn.pn.pn.pn, %613 ]
+  %.pn107.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn, %434 ], [ %384, %383 ], [ %.pn107.pn.pn.pn.pn.pn, %613 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %618
 
@@ -160775,7 +160775,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit:    ; preds = %169
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit86: ; preds = %174, %127, %75
-  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn22.pn.pn, %127 ], [ %.pn28.pn.pn, %174 ]
+  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %127 ], [ %76, %75 ], [ %.pn28.pn.pn, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %178
 
@@ -169553,7 +169553,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit729
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit729: ; preds = %680, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i727
-  %.pn496 = phi { ptr, i32 } [ %681, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i727 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %681, %680 ]
+  %.pn496 = phi { ptr, i32 } [ %681, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i727 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %681, %680 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %769
 
@@ -169845,7 +169845,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit760
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit760: ; preds = %770, %.loopexit1710, %.loopexit.split-lp1711, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i758
-  %.pn528 = phi { ptr, i32 } [ %771, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i758 ], [ %lpad.loopexit.split-lp1713, %.loopexit.split-lp1711 ], [ %lpad.loopexit1712, %.loopexit1710 ], [ %771, %770 ]
+  %.pn528 = phi { ptr, i32 } [ %771, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i758 ], [ %lpad.loopexit1712, %.loopexit1710 ], [ %lpad.loopexit.split-lp1713, %.loopexit.split-lp1711 ], [ %771, %770 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %837
 
@@ -170066,7 +170066,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit786
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit786: ; preds = %838, %.loopexit1715, %.loopexit.split-lp1716, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i784
-  %.pn534 = phi { ptr, i32 } [ %839, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i784 ], [ %lpad.loopexit.split-lp1718, %.loopexit.split-lp1716 ], [ %lpad.loopexit1717, %.loopexit1715 ], [ %839, %838 ]
+  %.pn534 = phi { ptr, i32 } [ %839, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i784 ], [ %lpad.loopexit1717, %.loopexit1715 ], [ %lpad.loopexit.split-lp1718, %.loopexit.split-lp1716 ], [ %839, %838 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %885
 
@@ -171424,7 +171424,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i93
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit937
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit937: ; preds = %1271, %.loopexit1725, %.loopexit.split-lp1726, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i935
-  %.pn568.pn.pn.pn = phi { ptr, i32 } [ %.pn568.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i935 ], [ %lpad.loopexit.split-lp1728, %.loopexit.split-lp1726 ], [ %lpad.loopexit1727, %.loopexit1725 ], [ %.pn568.pn.pn, %1271 ]
+  %.pn568.pn.pn.pn = phi { ptr, i32 } [ %.pn568.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i935 ], [ %lpad.loopexit1727, %.loopexit1725 ], [ %lpad.loopexit.split-lp1728, %.loopexit.split-lp1726 ], [ %.pn568.pn.pn, %1271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   %1276 = load ptr, ptr %87, align 8, !tbaa !46
   %.not.i.i938 = icmp eq ptr %1276, null
@@ -172154,7 +172154,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1021
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1021: ; preds = %1507, %.loopexit1705, %.loopexit.split-lp1706, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1019
-  %.pn514 = phi { ptr, i32 } [ %1508, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1019 ], [ %lpad.loopexit.split-lp1708, %.loopexit.split-lp1706 ], [ %lpad.loopexit1707, %.loopexit1705 ], [ %1508, %1507 ]
+  %.pn514 = phi { ptr, i32 } [ %1508, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1019 ], [ %lpad.loopexit1707, %.loopexit1705 ], [ %lpad.loopexit.split-lp1708, %.loopexit.split-lp1706 ], [ %1508, %1507 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %1544
 
@@ -172731,7 +172731,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088: ; preds = %1693, %.loopexit1700, %.loopexit.split-lp1701, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1086
-  %.pn579.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn579.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1086 ], [ %lpad.loopexit.split-lp1703, %.loopexit.split-lp1701 ], [ %lpad.loopexit1702, %.loopexit1700 ], [ %.pn579.pn.pn.pn, %1693 ]
+  %.pn579.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn579.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1086 ], [ %lpad.loopexit1702, %.loopexit1700 ], [ %lpad.loopexit.split-lp1703, %.loopexit.split-lp1701 ], [ %.pn579.pn.pn.pn, %1693 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %1962
 
@@ -173584,7 +173584,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %1961, label %_ZN7testing15AssertionResultD2Ev.exit1224, label %2022
 
 1962:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1100, %_ZN7testing7MessageD2Ev.exit1117, %_ZN7testing7MessageD2Ev.exit1134, %_ZN7testing7MessageD2Ev.exit1151, %_ZN7testing7MessageD2Ev.exit1168, %_ZN7testing7MessageD2Ev.exit1185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088, %769, %_ZN7testing7MessageD2Ev.exit718, %_ZN7testing7MessageD2Ev.exit705, %_ZN7testing7MessageD2Ev.exit692
-  %.pn579.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn362.pn, %_ZN7testing7MessageD2Ev.exit692 ], [ %.pn368.pn, %_ZN7testing7MessageD2Ev.exit718 ], [ %.pn365.pn, %_ZN7testing7MessageD2Ev.exit705 ], [ %.pn371.pn.pn, %_ZN7testing7MessageD2Ev.exit1100 ], [ %.pn391.pn.pn, %_ZN7testing7MessageD2Ev.exit1185 ], [ %.pn387.pn.pn, %_ZN7testing7MessageD2Ev.exit1168 ], [ %.pn383.pn.pn, %_ZN7testing7MessageD2Ev.exit1151 ], [ %.pn379.pn.pn, %_ZN7testing7MessageD2Ev.exit1134 ], [ %.pn375.pn.pn, %_ZN7testing7MessageD2Ev.exit1117 ], [ %.pn579.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088 ], [ %.pn498.pn.pn, %769 ]
+  %.pn579.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn368.pn, %_ZN7testing7MessageD2Ev.exit718 ], [ %.pn365.pn, %_ZN7testing7MessageD2Ev.exit705 ], [ %.pn362.pn, %_ZN7testing7MessageD2Ev.exit692 ], [ %.pn391.pn.pn, %_ZN7testing7MessageD2Ev.exit1185 ], [ %.pn387.pn.pn, %_ZN7testing7MessageD2Ev.exit1168 ], [ %.pn383.pn.pn, %_ZN7testing7MessageD2Ev.exit1151 ], [ %.pn379.pn.pn, %_ZN7testing7MessageD2Ev.exit1134 ], [ %.pn375.pn.pn, %_ZN7testing7MessageD2Ev.exit1117 ], [ %.pn371.pn.pn, %_ZN7testing7MessageD2Ev.exit1100 ], [ %.pn579.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088 ], [ %.pn498.pn.pn, %769 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %3164
@@ -176107,7 +176107,7 @@ _ZN7testing8internal11CmpHelperNEIPP13PROJ_CRS_INFODnEENS_15AssertionResultEPKcS
   br i1 %2777, label %.critedge598, label %2779
 
 2778:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1419, %_ZN7testing7MessageD2Ev.exit1432, %_ZN7testing7MessageD2Ev.exit1446, %_ZN7testing7MessageD2Ev.exit1460, %_ZN7testing7MessageD2Ev.exit1406, %_ZN7testing7MessageD2Ev.exit1392
-  %.pn476.pn.pn.pn = phi { ptr, i32 } [ %.pn427.pn, %_ZN7testing7MessageD2Ev.exit1392 ], [ %.pn430.pn, %_ZN7testing7MessageD2Ev.exit1406 ], [ %.pn476.pn, %_ZN7testing7MessageD2Ev.exit1460 ], [ %.pn473.pn, %_ZN7testing7MessageD2Ev.exit1446 ], [ %.pn470.pn, %_ZN7testing7MessageD2Ev.exit1432 ], [ %.pn467.pn, %_ZN7testing7MessageD2Ev.exit1419 ]
+  %.pn476.pn.pn.pn = phi { ptr, i32 } [ %.pn430.pn, %_ZN7testing7MessageD2Ev.exit1406 ], [ %.pn427.pn, %_ZN7testing7MessageD2Ev.exit1392 ], [ %.pn476.pn, %_ZN7testing7MessageD2Ev.exit1460 ], [ %.pn473.pn, %_ZN7testing7MessageD2Ev.exit1446 ], [ %.pn470.pn, %_ZN7testing7MessageD2Ev.exit1432 ], [ %.pn467.pn, %_ZN7testing7MessageD2Ev.exit1419 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %199)
   call void @llvm.lifetime.end.p0(ptr nonnull %198)
   call void @llvm.lifetime.end.p0(ptr nonnull %197)
@@ -176922,7 +176922,7 @@ _ZN7testing15AssertionResultD2Ev.exit1555:        ; preds = %3028, %_ZNKSt14defa
   br i1 %3045, label %3071, label %3047
 
 3046:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1508, %_ZN7testing7MessageD2Ev.exit1522, %_ZN7testing7MessageD2Ev.exit1536, %_ZN7testing7MessageD2Ev.exit1550, %_ZN7testing7MessageD2Ev.exit1494, %_ZN7testing7MessageD2Ev.exit1480
-  %.pn462.pn.pn.pn = phi { ptr, i32 } [ %.pn433.pn, %_ZN7testing7MessageD2Ev.exit1480 ], [ %.pn436.pn, %_ZN7testing7MessageD2Ev.exit1494 ], [ %.pn462.pn, %_ZN7testing7MessageD2Ev.exit1550 ], [ %.pn459.pn, %_ZN7testing7MessageD2Ev.exit1536 ], [ %.pn456.pn, %_ZN7testing7MessageD2Ev.exit1522 ], [ %.pn453.pn, %_ZN7testing7MessageD2Ev.exit1508 ]
+  %.pn462.pn.pn.pn = phi { ptr, i32 } [ %.pn436.pn, %_ZN7testing7MessageD2Ev.exit1494 ], [ %.pn433.pn, %_ZN7testing7MessageD2Ev.exit1480 ], [ %.pn462.pn, %_ZN7testing7MessageD2Ev.exit1550 ], [ %.pn459.pn, %_ZN7testing7MessageD2Ev.exit1536 ], [ %.pn456.pn, %_ZN7testing7MessageD2Ev.exit1522 ], [ %.pn453.pn, %_ZN7testing7MessageD2Ev.exit1508 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %222)
   call void @llvm.lifetime.end.p0(ptr nonnull %221)
   call void @llvm.lifetime.end.p0(ptr nonnull %220)
@@ -180496,7 +180496,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %492, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i305
-  %.pn110 = phi { ptr, i32 } [ %493, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i305 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %493, %492 ]
+  %.pn110 = phi { ptr, i32 } [ %493, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i305 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %493, %492 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %586
 
@@ -180806,7 +180806,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %588, %.loopexit498, %.loopexit.split-lp499, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i339
-  %.pn116 = phi { ptr, i32 } [ %589, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i339 ], [ %lpad.loopexit.split-lp501, %.loopexit.split-lp499 ], [ %lpad.loopexit500, %.loopexit498 ], [ %589, %588 ]
+  %.pn116 = phi { ptr, i32 } [ %589, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i339 ], [ %lpad.loopexit500, %.loopexit498 ], [ %lpad.loopexit.split-lp501, %.loopexit.split-lp499 ], [ %589, %588 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %655
 
@@ -181027,7 +181027,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit367
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit367: ; preds = %656, %.loopexit503, %.loopexit.split-lp504, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i365
-  %.pn122 = phi { ptr, i32 } [ %657, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i365 ], [ %lpad.loopexit.split-lp506, %.loopexit.split-lp504 ], [ %lpad.loopexit505, %.loopexit503 ], [ %657, %656 ]
+  %.pn122 = phi { ptr, i32 } [ %657, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i365 ], [ %lpad.loopexit505, %.loopexit503 ], [ %lpad.loopexit.split-lp506, %.loopexit.split-lp504 ], [ %657, %656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %703
 
@@ -181520,7 +181520,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426: ; preds = %812, %.loopexit508, %.loopexit.split-lp509, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i424
-  %.pn138 = phi { ptr, i32 } [ %813, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i424 ], [ %lpad.loopexit.split-lp511, %.loopexit.split-lp509 ], [ %lpad.loopexit510, %.loopexit508 ], [ %813, %812 ]
+  %.pn138 = phi { ptr, i32 } [ %813, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i424 ], [ %lpad.loopexit510, %.loopexit508 ], [ %lpad.loopexit.split-lp511, %.loopexit.split-lp509 ], [ %813, %812 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %859
 
@@ -182049,7 +182049,7 @@ _ZN7testing15AssertionResultD2Ev.exit483:         ; preds = %.critedge167, %972,
   ret void
 
 983:                                              ; preds = %_ZN7testing7MessageD2Ev.exit478, %_ZN7testing7MessageD2Ev.exit461, %_ZN7testing7MessageD2Ev.exit447, %859, %_ZN7testing7MessageD2Ev.exit408, %_ZN7testing7MessageD2Ev.exit388, %703, %655, %587, %586, %_ZN7testing7MessageD2Ev.exit296, %_ZN7testing7MessageD2Ev.exit283, %_ZN7testing7MessageD2Ev.exit270
-  %.pn147.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn101.pn, %_ZN7testing7MessageD2Ev.exit270 ], [ %.pn107.pn, %_ZN7testing7MessageD2Ev.exit296 ], [ %.pn104.pn, %_ZN7testing7MessageD2Ev.exit283 ], [ %.pn134.pn.pn, %_ZN7testing7MessageD2Ev.exit478 ], [ %.pn147.pn, %_ZN7testing7MessageD2Ev.exit461 ], [ %.pn144.pn, %_ZN7testing7MessageD2Ev.exit447 ], [ %.pn140.pn.pn, %859 ], [ %.pn131.pn, %_ZN7testing7MessageD2Ev.exit408 ], [ %.pn128.pn, %_ZN7testing7MessageD2Ev.exit388 ], [ %.pn124.pn.pn, %703 ], [ %.pn118.pn.pn, %655 ], [ %lpad.phi497, %587 ], [ %.pn112.pn.pn, %586 ]
+  %.pn147.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn107.pn, %_ZN7testing7MessageD2Ev.exit296 ], [ %.pn104.pn, %_ZN7testing7MessageD2Ev.exit283 ], [ %.pn101.pn, %_ZN7testing7MessageD2Ev.exit270 ], [ %.pn134.pn.pn, %_ZN7testing7MessageD2Ev.exit478 ], [ %.pn147.pn, %_ZN7testing7MessageD2Ev.exit461 ], [ %.pn144.pn, %_ZN7testing7MessageD2Ev.exit447 ], [ %.pn140.pn.pn, %859 ], [ %.pn131.pn, %_ZN7testing7MessageD2Ev.exit408 ], [ %.pn128.pn, %_ZN7testing7MessageD2Ev.exit388 ], [ %.pn124.pn.pn, %703 ], [ %.pn118.pn.pn, %655 ], [ %lpad.phi497, %587 ], [ %.pn112.pn.pn, %586 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %984
@@ -184987,7 +184987,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211: ; preds = %399, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i209
-  %.pn73 = phi { ptr, i32 } [ %400, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i209 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %400, %399 ]
+  %.pn73 = phi { ptr, i32 } [ %400, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i209 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %400, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %465
 
@@ -185333,7 +185333,7 @@ _ZN7testing15AssertionResultD2Ev.exit249:         ; preds = %._crit_edge, %501, 
   ret void
 
 512:                                              ; preds = %_ZN7testing7MessageD2Ev.exit244, %466, %465, %_ZN7testing7MessageD2Ev.exit200, %_ZN7testing7MessageD2Ev.exit187, %_ZN7testing7MessageD2Ev.exit174
-  %.pn79.pn.pn = phi { ptr, i32 } [ %.pn60.pn, %_ZN7testing7MessageD2Ev.exit174 ], [ %.pn66.pn, %_ZN7testing7MessageD2Ev.exit200 ], [ %.pn63.pn, %_ZN7testing7MessageD2Ev.exit187 ], [ %.pn69.pn.pn, %_ZN7testing7MessageD2Ev.exit244 ], [ %lpad.phi260, %466 ], [ %.pn75.pn.pn, %465 ]
+  %.pn79.pn.pn = phi { ptr, i32 } [ %.pn66.pn, %_ZN7testing7MessageD2Ev.exit200 ], [ %.pn63.pn, %_ZN7testing7MessageD2Ev.exit187 ], [ %.pn60.pn, %_ZN7testing7MessageD2Ev.exit174 ], [ %.pn69.pn.pn, %_ZN7testing7MessageD2Ev.exit244 ], [ %lpad.phi260, %466 ], [ %.pn75.pn.pn, %465 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %513
@@ -190250,7 +190250,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit288: ; preds = %540
   br label %546
 
 546:                                              ; preds = %459, %499, %545, %252, %292, %336, %458, %251, %203, %155
-  %.pn111.pn.pn.pn.pn = phi { ptr, i32 } [ %253, %252 ], [ %.pn73.pn.pn, %155 ], [ %.pn82.pn.pn.pn, %251 ], [ %.pn77.pn.pn.pn, %203 ], [ %.pn101.pn.pn.pn, %458 ], [ %.pn91.pn.pn, %336 ], [ %.pn87.pn.pn, %292 ], [ %.pn111.pn.pn, %545 ], [ %.pn107.pn.pn, %499 ], [ %460, %459 ]
+  %.pn111.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn.pn, %251 ], [ %.pn77.pn.pn.pn, %203 ], [ %.pn73.pn.pn, %155 ], [ %.pn101.pn.pn.pn, %458 ], [ %.pn91.pn.pn, %336 ], [ %.pn87.pn.pn, %292 ], [ %253, %252 ], [ %.pn111.pn.pn, %545 ], [ %.pn107.pn.pn, %499 ], [ %460, %459 ]
   %547 = invoke ptr @proj_destroy(ptr noundef %98)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit289 unwind label %548
 
@@ -191356,7 +191356,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit162: ; preds = %314
   br label %320
 
 320:                                              ; preds = %233, %273, %319, %232, %184, %135
-  %.pn59.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %135 ], [ %.pn50.pn.pn.pn, %232 ], [ %.pn45.pn.pn.pn, %184 ], [ %.pn59.pn.pn, %319 ], [ %.pn55.pn.pn, %273 ], [ %234, %233 ]
+  %.pn59.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn, %232 ], [ %.pn45.pn.pn.pn, %184 ], [ %.pn41.pn.pn, %135 ], [ %.pn59.pn.pn, %319 ], [ %.pn55.pn.pn, %273 ], [ %234, %233 ]
   %321 = invoke ptr @proj_destroy(ptr noundef %79)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit163 unwind label %322
 
@@ -192699,7 +192699,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit229: ; preds = %417
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit230: ; preds = %423, %245, %194
-  %.pn73.pn.pn.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %.pn58.pn.pn, %245 ], [ %.pn73.pn.pn.pn, %423 ]
+  %.pn73.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn, %245 ], [ %195, %194 ], [ %.pn73.pn.pn.pn, %423 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %428
 
@@ -200063,7 +200063,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit644: ; preds = %1154, %888, %852
-  %.pn212.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %853, %852 ], [ %.pn192.pn.pn, %888 ], [ %.pn212.pn.pn.pn.pn, %1154 ]
+  %.pn212.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn192.pn.pn, %888 ], [ %853, %852 ], [ %.pn212.pn.pn.pn.pn, %1154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %1159
 
@@ -200080,7 +200080,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit644: ; preds = %1154, %888, %852
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit645: ; preds = %1159, %646, %594
-  %.pn212.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %595, %594 ], [ %.pn164.pn.pn, %646 ], [ %.pn212.pn.pn.pn.pn.pn.pn, %1159 ]
+  %.pn212.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn164.pn.pn, %646 ], [ %595, %594 ], [ %.pn212.pn.pn.pn.pn.pn.pn, %1159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %1164
 
@@ -200097,7 +200097,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit645: ; preds = %1159, %646, %594
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit646: ; preds = %1164, %539, %487
-  %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %488, %487 ], [ %.pn154.pn.pn, %539 ], [ %.pn212.pn.pn.pn.pn.pn.pn.pn.pn, %1164 ]
+  %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn154.pn.pn, %539 ], [ %488, %487 ], [ %.pn212.pn.pn.pn.pn.pn.pn.pn.pn, %1164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %1168
 
@@ -200114,7 +200114,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit646: ; preds = %1164, %539, %487
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit647: ; preds = %1168, %484, %423
-  %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %424, %423 ], [ %.pn150.pn.pn, %484 ], [ %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1168 ]
+  %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn150.pn.pn, %484 ], [ %424, %423 ], [ %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %1173 = invoke ptr @proj_destroy(ptr noundef %414)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit648 unwind label %1174
@@ -200127,7 +200127,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit647: ; preds = %1168, %484, %423
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit648: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit647, %422, %370
-  %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %371, %370 ], [ %.pn146.pn.pn, %422 ], [ %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit647 ]
+  %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn146.pn.pn, %422 ], [ %371, %370 ], [ %.pn212.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit647 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   invoke void @proj_operation_factory_context_destroy(ptr noundef %362)
           to label %_ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit649 unwind label %1177
@@ -205104,7 +205104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309: ; preds = %61
   unreachable
 
 _ZN12_GLOBAL__N_14CApi15PjContextKeeperD2Ev.exit310: ; preds = %615, %477, %435, %386
-  %.pn103.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %387, %386 ], [ %.pn95.pn.pn, %477 ], [ %.pn90.pn.pn.pn, %435 ], [ %.pn103.pn.pn.pn.pn, %615 ]
+  %.pn103.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn, %477 ], [ %.pn90.pn.pn.pn, %435 ], [ %387, %386 ], [ %.pn103.pn.pn.pn.pn, %615 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %620
 
@@ -207772,7 +207772,7 @@ _ZN12_GLOBAL__N_14CApi15PjContextKeeperD2Ev.exit105: ; preds = %_ZN12_GLOBAL__N_
   unreachable
 
 _ZN12_GLOBAL__N_14CApi15PjContextKeeperD2Ev.exit106: ; preds = %229, %124, %74
-  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %.pn25.pn.pn, %124 ], [ %.pn37.pn.pn.pn, %229 ]
+  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn, %124 ], [ %75, %74 ], [ %.pn37.pn.pn.pn, %229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %234
 
@@ -221964,7 +221964,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit192: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit193: ; preds = %391, %236, %183
-  %.pn64.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn48.pn.pn, %236 ], [ %.pn64.pn.pn.pn.pn, %391 ]
+  %.pn64.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn, %236 ], [ %184, %183 ], [ %.pn64.pn.pn.pn.pn, %391 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %396
 
@@ -223345,7 +223345,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit228: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit229: ; preds = %437, %278, %225
-  %.pn74.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %226, %225 ], [ %.pn58.pn.pn, %278 ], [ %.pn74.pn.pn.pn.pn, %437 ]
+  %.pn74.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn, %278 ], [ %226, %225 ], [ %.pn74.pn.pn.pn.pn, %437 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %442
 
@@ -224583,7 +224583,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit192: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit193: ; preds = %391, %236, %183
-  %.pn64.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn48.pn.pn, %236 ], [ %.pn64.pn.pn.pn.pn, %391 ]
+  %.pn64.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn, %236 ], [ %184, %183 ], [ %.pn64.pn.pn.pn.pn, %391 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %396
 
@@ -226060,7 +226060,7 @@ _ZN7testing8internal11CmpHelperNEIP8PJconstsDnEENS_15AssertionResultEPKcS6_RKT_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit309: ; preds = %491, %431, %378
-  %.pn107.pn.pn.pn = phi { ptr, i32 } [ %379, %378 ], [ %.pn101.pn.pn, %431 ], [ %.pn107.pn.pn, %491 ]
+  %.pn107.pn.pn.pn = phi { ptr, i32 } [ %.pn101.pn.pn, %431 ], [ %379, %378 ], [ %.pn107.pn.pn, %491 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %496
 
@@ -226090,7 +226090,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit310: ; preds = %496, %175
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit311: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit310, %174, %121
-  %.pn107.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %122, %121 ], [ %.pn78.pn.pn, %174 ], [ %.pn107.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit310 ]
+  %.pn107.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn78.pn.pn, %174 ], [ %122, %121 ], [ %.pn107.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %831
 
@@ -227102,7 +227102,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit425: ; preds = %816, %_ZN7testing15
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit426: ; preds = %821, %761, %708
-  %.pn140.pn.pn.pn = phi { ptr, i32 } [ %709, %708 ], [ %.pn134.pn.pn, %761 ], [ %.pn140.pn.pn, %821 ]
+  %.pn140.pn.pn.pn = phi { ptr, i32 } [ %.pn134.pn.pn, %761 ], [ %709, %708 ], [ %.pn140.pn.pn, %821 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %826
 
@@ -228671,7 +228671,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit264: ; preds = %500, %306
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit265: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit264, %305, %252
-  %.pn80.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %253, %252 ], [ %.pn66.pn.pn, %305 ], [ %.pn80.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit264 ]
+  %.pn80.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn66.pn.pn, %305 ], [ %253, %252 ], [ %.pn80.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit264 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %509
 
@@ -235048,7 +235048,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit424: ; preds = %745, %441, %440
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit425: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit424, %392, %341
-  %.pn137.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %342, %341 ], [ %.pn105.pn.pn, %392 ], [ %.pn137.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit424 ]
+  %.pn137.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn105.pn.pn, %392 ], [ %342, %341 ], [ %.pn137.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit424 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %753
 
@@ -235065,7 +235065,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit425: ; preds = %_ZN12_GLOBAL__N_14
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit426: ; preds = %753, %338, %278
-  %.pn137.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %279, %278 ], [ %.pn101.pn.pn, %338 ], [ %.pn137.pn.pn.pn.pn.pn.pn.pn.pn, %753 ]
+  %.pn137.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn101.pn.pn, %338 ], [ %279, %278 ], [ %.pn137.pn.pn.pn.pn.pn.pn.pn.pn, %753 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %757
 
@@ -239042,7 +239042,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit724: ; preds = %1261, %976, %975
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit725: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit724, %927, %876
-  %.pn232.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %877, %876 ], [ %.pn204.pn.pn, %927 ], [ %.pn232.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit724 ]
+  %.pn232.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn204.pn.pn, %927 ], [ %877, %876 ], [ %.pn232.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit724 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %1269
 
@@ -239099,7 +239099,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit727: ; preds = %1276, %536, %535
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit728: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit727, %487, %436
-  %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %437, %436 ], [ %.pn166.pn.pn, %487 ], [ %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit727 ]
+  %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn166.pn.pn, %487 ], [ %437, %436 ], [ %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit727 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %1284
 
@@ -239116,7 +239116,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit728: ; preds = %_ZN12_GLOBAL__N_14
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit729: ; preds = %1284, %433, %373
-  %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %374, %373 ], [ %.pn162.pn.pn, %433 ], [ %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1284 ]
+  %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn162.pn.pn, %433 ], [ %374, %373 ], [ %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1284 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %1288
 
@@ -241087,7 +241087,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit346: ; preds = %620, %406, %405
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit347: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit346, %356, %305
-  %.pn119.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %306, %305 ], [ %.pn95.pn.pn, %356 ], [ %.pn119.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit346 ]
+  %.pn119.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn, %356 ], [ %306, %305 ], [ %.pn119.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit346 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %628
 
@@ -241104,7 +241104,7 @@ _ZN12_GLOBAL__N_14CApi13ObjListKeeperD2Ev.exit347: ; preds = %_ZN12_GLOBAL__N_14
   unreachable
 
 _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit348: ; preds = %628, %302, %243
-  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %244, %243 ], [ %.pn91.pn.pn, %302 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn, %628 ]
+  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn, %302 ], [ %244, %243 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn, %628 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %632 = invoke ptr @proj_destroy(ptr noundef %221)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit349 unwind label %633
@@ -241153,7 +241153,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit351: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit352: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit351, %230, %160
-  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %161, %160 ], [ %.pn87.pn.pn, %230 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit351 ]
+  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn87.pn.pn, %230 ], [ %161, %160 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit351 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %648 = invoke ptr @proj_destroy(ptr noundef %151)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit353 unwind label %649
@@ -241166,7 +241166,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit352: ; preds = %_ZN12_GLOBAL__N_14C
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit353: ; preds = %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit352, %159, %107
-  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %108, %107 ], [ %.pn83.pn.pn, %159 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit352 ]
+  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn83.pn.pn, %159 ], [ %108, %107 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit352 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %652 = invoke ptr @proj_destroy(ptr noundef %99)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit354 unwind label %653
@@ -247939,7 +247939,7 @@ _ZN7testing8internal11CmpHelperNEIP8PJconstsDnEENS_15AssertionResultEPKcS6_RKT_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit330: ; preds = %438, %205, %155
-  %.pn114.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %156, %155 ], [ %.pn94.pn.pn, %205 ], [ %.pn114.pn.pn.pn.pn, %438 ]
+  %.pn114.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn, %205 ], [ %156, %155 ], [ %.pn114.pn.pn.pn.pn, %438 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %443
 
@@ -255858,7 +255858,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit439
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit439: ; preds = %608, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i437
-  %.pn170 = phi { ptr, i32 } [ %609, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i437 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %609, %608 ]
+  %.pn170 = phi { ptr, i32 } [ %609, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i437 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %609, %608 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %656
 
@@ -257795,7 +257795,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit:    ; preds = %1186
   br label %1194
 
 1194:                                             ; preds = %693, %761, %815, %862, %1193, %481, %357, %231
-  %.pn230.pn.pn = phi { ptr, i32 } [ %.pn134.pn.pn, %231 ], [ %.pn160, %481 ], [ %.pn148, %357 ], [ %.pn230, %1193 ], [ %.pn198, %862 ], [ %.pn192, %815 ], [ %.pn186, %761 ], [ %.pn180, %693 ]
+  %.pn230.pn.pn = phi { ptr, i32 } [ %.pn160, %481 ], [ %.pn148, %357 ], [ %.pn134.pn.pn, %231 ], [ %.pn230, %1193 ], [ %.pn198, %862 ], [ %.pn192, %815 ], [ %.pn186, %761 ], [ %.pn180, %693 ]
   %1195 = invoke ptr @proj_destroy(ptr noundef %182)
           to label %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit671 unwind label %1196
 
@@ -284318,7 +284318,7 @@ _ZN7testing8internal11CmpHelperNEIP8PJconstsDnEENS_15AssertionResultEPKcS6_RKT_R
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit119: ; preds = %185, %130, %80
-  %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %.pn38.pn.pn, %130 ], [ %.pn42.pn.pn.pn, %185 ]
+  %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn.pn, %130 ], [ %81, %80 ], [ %.pn42.pn.pn.pn, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %297
 
@@ -284656,7 +284656,7 @@ _ZN12_GLOBAL__N_14CApi13ContextKeeperD2Ev.exit:   ; preds = %288, %_ZN7testing15
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit156: ; preds = %292, %241, %190
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %191, %190 ], [ %.pn48.pn.pn, %241 ], [ %.pn52.pn.pn.pn, %292 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn, %241 ], [ %191, %190 ], [ %.pn52.pn.pn.pn, %292 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %297
 
@@ -286098,7 +286098,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit232: ; preds = %_ZN7testing15Assert
   unreachable
 
 _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit114: ; preds = %477, %387, %333, %276, %219, %162, %105, %_ZN7testing7MessageD2Ev.exit210
-  %.pn87.pn.pn.pn = phi { ptr, i32 } [ %.pn78.pn.pn, %387 ], [ %.pn82.pn, %_ZN7testing7MessageD2Ev.exit210 ], [ %.pn72.pn.pn, %333 ], [ %.pn66.pn.pn, %276 ], [ %.pn60.pn.pn, %219 ], [ %.pn54.pn.pn, %162 ], [ %.pn48.pn.pn, %105 ], [ %.pn87.pn.pn, %477 ]
+  %.pn87.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn, %_ZN7testing7MessageD2Ev.exit210 ], [ %.pn48.pn.pn, %105 ], [ %.pn54.pn.pn, %162 ], [ %.pn60.pn.pn, %219 ], [ %.pn66.pn.pn, %276 ], [ %.pn72.pn.pn, %333 ], [ %.pn78.pn.pn, %387 ], [ %.pn87.pn.pn, %477 ]
   resume { ptr, i32 } %.pn87.pn.pn.pn
 }
 
@@ -286882,9 +286882,9 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EED2Ev.exit:         ; preds = %_ZNSt6vectorIP6pj_c
   br label %_ZNSt6vectorIP6pj_ctxSaIS1_EED2Ev.exit134
 
 232:                                              ; preds = %98, %_ZN7testing7MessageD2Ev.exit103, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit130, %230, %216
-  %.sroa.13.2233 = phi ptr [ %.sroa.13.5, %216 ], [ %.sroa.13.5, %230 ], [ %.sroa.13.2289, %_ZN7testing7MessageD2Ev.exit103 ], [ %.sroa.13.2289, %98 ], [ %.sroa.13.2289309, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit130 ]
-  %.sroa.0150.2203 = phi ptr [ %.sroa.0150.5, %216 ], [ %.sroa.0150.5, %230 ], [ %.sroa.0150.2291, %_ZN7testing7MessageD2Ev.exit103 ], [ %.sroa.0150.2291, %98 ], [ %.sroa.0150.2291, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit130 ]
-  %.pn61 = phi { ptr, i32 } [ %217, %216 ], [ %231, %230 ], [ %.pn49.pn.pn, %_ZN7testing7MessageD2Ev.exit103 ], [ %99, %98 ], [ %.pn57.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit130 ]
+  %.sroa.13.2233 = phi ptr [ %.sroa.13.5, %216 ], [ %.sroa.13.5, %230 ], [ %.sroa.13.2289309, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit130 ], [ %.sroa.13.2289, %_ZN7testing7MessageD2Ev.exit103 ], [ %.sroa.13.2289, %98 ]
+  %.sroa.0150.2203 = phi ptr [ %.sroa.0150.5, %216 ], [ %.sroa.0150.5, %230 ], [ %.sroa.0150.2291, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit130 ], [ %.sroa.0150.2291, %_ZN7testing7MessageD2Ev.exit103 ], [ %.sroa.0150.2291, %98 ]
+  %.pn61 = phi { ptr, i32 } [ %217, %216 ], [ %231, %230 ], [ %.pn57.pn, %_ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit130 ], [ %.pn49.pn.pn, %_ZN7testing7MessageD2Ev.exit103 ], [ %99, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not.i.i.i133 = icmp eq ptr %.sroa.0150.2203, null
   br i1 %.not.i.i.i133, label %_ZNSt6vectorIP6pj_ctxSaIS1_EED2Ev.exit134, label %233
@@ -287140,7 +287140,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6vectorISt6thr
   unreachable
 
 .body:                                            ; preds = %56, %54, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %55, %54 ], [ %20, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %lpad.phi, %56 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %20, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %20, %19 ], [ %lpad.phi, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %72
 
@@ -287468,7 +287468,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit.i.i.i.i.i: ; preds = %_ZN7testing1
   br i1 %78, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !2223
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i: ; preds = %75, %73, %69, %65
-  %.0.i.i.i.i.i.i.i = phi i32 [ %74, %73 ], [ %66, %65 ], [ %70, %69 ], [ %77, %75 ]
+  %.0.i.i.i.i.i.i.i = phi i32 [ %66, %65 ], [ %70, %69 ], [ %74, %73 ], [ %77, %75 ]
   %79 = zext i32 %.0.i.i.i.i.i.i.i to i64
   store ptr %15, ptr %9, align 8, !tbaa !4, !alias.scope !2220
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %79, i8 noundef signext 45)

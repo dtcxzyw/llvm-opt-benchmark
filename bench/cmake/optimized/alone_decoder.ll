@@ -250,7 +250,7 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   br label %.critedge
 
 .critedge:                                        ; preds = %50, %29, %86, %.critedge4, %.lr.ph111, %79, %9, %.critedge91, %.critedge4.thread
-  %.1 = phi i32 [ %91, %.critedge91 ], [ %96, %.critedge4.thread ], [ 0, %9 ], [ 7, %79 ], [ 6, %86 ], [ 7, %50 ], [ 0, %.lr.ph111 ], [ 7, %29 ], [ 11, %.critedge4 ]
+  %.1 = phi i32 [ %96, %.critedge4.thread ], [ %91, %.critedge91 ], [ 0, %9 ], [ 7, %79 ], [ 0, %.lr.ph111 ], [ 11, %.critedge4 ], [ 6, %86 ], [ 7, %29 ], [ 7, %50 ]
   ret i32 %.1
 }
 

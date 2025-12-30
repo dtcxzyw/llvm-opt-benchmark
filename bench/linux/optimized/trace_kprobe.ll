@@ -606,7 +606,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %83, %86, %89, %72, %70, %46, %43, %41, %17, %13
-  %93 = phi i64 [ %80, %72 ], [ %48, %46 ], [ %45, %43 ], [ %42, %41 ], [ %22, %17 ], [ 0, %13 ], [ %71, %70 ], [ %85, %83 ], [ %88, %86 ], [ %92, %89 ]
+  %93 = phi i64 [ %48, %46 ], [ %45, %43 ], [ %42, %41 ], [ %22, %17 ], [ 0, %13 ], [ %71, %70 ], [ %80, %72 ], [ %85, %83 ], [ %88, %86 ], [ %92, %89 ]
   %94 = getelementptr i8, ptr %11, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %93, ptr %9, align 8
@@ -1166,7 +1166,7 @@ thread-pre-split:                                 ; preds = %206, %208, %216, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %224, %165, %.loopexit21
-  %450 = phi i32 [ %449, %.loopexit21 ], [ -84, %224 ], [ -84, %165 ], [ %153, %150 ]
+  %450 = phi i32 [ %449, %.loopexit21 ], [ -84, %165 ], [ -84, %224 ], [ %153, %150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit23
 
@@ -2700,7 +2700,7 @@ define internal noundef range(i32 -16, 1) i32 @trace_kprobe_release(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %22, %19, %15, %55, %49
-  %60 = phi i32 [ 0, %49 ], [ 0, %55 ], [ -16, %15 ], [ -16, %19 ], [ -16, %22 ]
+  %60 = phi i32 [ 0, %55 ], [ 0, %49 ], [ -16, %15 ], [ -16, %19 ], [ -16, %22 ]
   ret i32 %60
 }
 
@@ -3067,8 +3067,8 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
   br label %.thread28
 
 .thread24:                                        ; preds = %113, %60, %.thread21
-  %118 = phi ptr [ null, %60 ], [ %73, %.thread21 ], [ %73, %113 ]
-  %119 = phi i8 [ %19, %60 ], [ %88, %.thread21 ], [ %88, %113 ]
+  %118 = phi ptr [ %73, %.thread21 ], [ null, %60 ], [ %73, %113 ]
+  %119 = phi i8 [ %88, %.thread21 ], [ %19, %60 ], [ %88, %113 ]
   call void @trace_probe_log_set_index(i32 noundef 0) #20
   %120 = load ptr, ptr %4, align 8
   %121 = icmp eq ptr %120, null
@@ -3902,7 +3902,7 @@ define internal i32 @kprobe_register(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %46, label %disable_trace_kprobe.exit, label %.preheader.i, !llvm.loop !58
 
 disable_trace_kprobe.exit:                        ; preds = %42, %16, %26, %17, %8, %6, %4, %3
-  %47 = phi i32 [ 0, %3 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ -19, %16 ], [ 0, %17 ], [ 0, %26 ], [ 0, %42 ]
+  %47 = phi i32 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ 0, %3 ], [ -19, %16 ], [ 0, %26 ], [ 0, %17 ], [ 0, %42 ]
   ret i32 %47
 }
 

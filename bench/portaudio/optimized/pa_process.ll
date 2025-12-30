@@ -333,7 +333,7 @@ CalculateFrameShift.exit:                         ; preds = %.lr.ph.i, %LCM.exit
   br label %198
 
 182:                                              ; preds = %170, %166, %139, %135, %132, %124, %120, %85, %82
-  %.0181.ph = phi i32 [ -9992, %170 ], [ %83, %82 ], [ -9992, %124 ], [ %133, %132 ], [ -9992, %166 ], [ -9992, %139 ], [ %137, %135 ], [ -9992, %120 ], [ %87, %85 ]
+  %.0181.ph = phi i32 [ -9992, %170 ], [ -9992, %166 ], [ -9992, %139 ], [ %137, %135 ], [ %133, %132 ], [ -9992, %124 ], [ -9992, %120 ], [ %87, %85 ], [ %83, %82 ]
   %.pr = load ptr, ptr %22, align 8, !tbaa !32
   %.not212 = icmp eq ptr %.pr, null
   br i1 %.not212, label %.thread222, label %183
@@ -343,7 +343,7 @@ CalculateFrameShift.exit:                         ; preds = %.lr.ph.i, %LCM.exit
   br label %.thread222
 
 .thread222:                                       ; preds = %89, %183, %182
-  %.0181225 = phi i32 [ %.0181.ph, %182 ], [ %.0181.ph, %183 ], [ -9992, %89 ]
+  %.0181225 = phi i32 [ %.0181.ph, %183 ], [ %.0181.ph, %182 ], [ -9992, %89 ]
   %184 = load ptr, ptr %23, align 8, !tbaa !33
   %.not213 = icmp eq ptr %184, null
   br i1 %.not213, label %186, label %185
@@ -950,9 +950,9 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr noundef captures(none
   br label %30
 
 30:                                               ; preds = %26, %28, %25
-  %31 = phi i64 [ %.092, %25 ], [ %.pre, %28 ], [ %27, %26 ]
-  %.090 = phi ptr [ %3, %25 ], [ %20, %28 ], [ %19, %26 ]
-  %.089 = phi ptr [ null, %25 ], [ %29, %28 ], [ %23, %26 ]
+  %31 = phi i64 [ %.pre, %28 ], [ %.092, %25 ], [ %27, %26 ]
+  %.090 = phi ptr [ %20, %28 ], [ %3, %25 ], [ %19, %26 ]
+  %.089 = phi ptr [ %29, %28 ], [ null, %25 ], [ %23, %26 ]
   %32 = load i64, ptr %13, align 8, !tbaa !48
   %.not113 = icmp eq i64 %32, 0
   %.088 = select i1 %.not113, ptr %15, ptr %13
@@ -1060,7 +1060,7 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr noundef captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %68, %66, %83, %91, %70, %78, %51, %42
-  %.1 = phi i64 [ %88, %83 ], [ %57, %51 ], [ %48, %42 ], [ %67, %66 ], [ %69, %68 ], [ %82, %78 ], [ %75, %70 ], [ %95, %91 ], [ %40, %30 ]
+  %.1 = phi i64 [ %57, %51 ], [ %48, %42 ], [ %67, %66 ], [ %69, %68 ], [ %82, %78 ], [ %75, %70 ], [ %95, %91 ], [ %88, %83 ], [ %40, %30 ]
   ret i64 %.1
 }
 
@@ -1200,10 +1200,10 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   br label %80
 
 80:                                               ; preds = %46, %48, %50, %53, %.loopexit269
-  %.1222 = phi ptr [ %43, %46 ], [ %79, %.loopexit269 ], [ %43, %53 ], [ %43, %50 ], [ %43, %48 ]
-  %.0213 = phi i32 [ %40, %46 ], [ 1, %.loopexit269 ], [ %40, %53 ], [ %40, %50 ], [ %40, %48 ]
-  %.0212 = phi i32 [ %45, %46 ], [ %58, %.loopexit269 ], [ %45, %53 ], [ %45, %50 ], [ %45, %48 ]
-  %.2 = phi i32 [ %.0, %46 ], [ %.3, %.loopexit269 ], [ %.0, %53 ], [ %.0, %50 ], [ %.0, %48 ]
+  %.1222 = phi ptr [ %79, %.loopexit269 ], [ %43, %53 ], [ %43, %50 ], [ %43, %48 ], [ %43, %46 ]
+  %.0213 = phi i32 [ 1, %.loopexit269 ], [ %40, %53 ], [ %40, %50 ], [ %40, %48 ], [ %40, %46 ]
+  %.0212 = phi i32 [ %58, %.loopexit269 ], [ %45, %53 ], [ %45, %50 ], [ %45, %48 ], [ %45, %46 ]
+  %.2 = phi i32 [ %.3, %.loopexit269 ], [ %.0, %53 ], [ %.0, %50 ], [ %.0, %48 ], [ %.0, %46 ]
   %81 = load ptr, ptr %15, align 8, !tbaa !34
   %82 = load ptr, ptr %81, align 8, !tbaa !49
   %.not233 = icmp eq ptr %82, null
@@ -1221,7 +1221,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   %.0212358 = phi i32 [ %45, %.thread ], [ %.0212, %80 ]
   %.0213356 = phi i32 [ %40, %.thread ], [ %.0213, %80 ]
   %.0216354 = phi ptr [ %83, %.thread ], [ %43, %80 ]
-  %.1222352 = phi ptr [ %83, %.thread ], [ %.1222, %80 ]
+  %.1222351 = phi ptr [ %83, %.thread ], [ %.1222, %80 ]
   %86 = trunc i64 %..1206 to i32
   %87 = zext i32 %.0212358 to i64
   br label %88
@@ -1242,7 +1242,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   br i1 %.not234, label %.lr.ph, label %.preheader267
 
 .preheader267:                                    ; preds = %.thread, %94
-  %.1222351368 = phi ptr [ %.1222, %94 ], [ %83, %.thread ]
+  %.1222352368 = phi ptr [ %.1222, %94 ], [ %83, %.thread ]
   %95 = load i32, ptr %18, align 4, !tbaa !25
   %96 = zext i32 %95 to i64
   %factor.op.mul = mul i64 %..1206, %96
@@ -1294,8 +1294,8 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   br i1 %123, label %106, label %.loopexit264, !llvm.loop !68
 
 .loopexit264:                                     ; preds = %99, %106, %88, %38
-  %.0221 = phi ptr [ null, %38 ], [ %.1222, %106 ], [ %.1222352, %88 ], [ %.1222351368, %99 ]
-  %.1 = phi i32 [ %.0, %38 ], [ 0, %106 ], [ %.2360, %88 ], [ 1, %99 ]
+  %.0221 = phi ptr [ null, %38 ], [ %.1222351, %88 ], [ %.1222, %106 ], [ %.1222352368, %99 ]
+  %.1 = phi i32 [ %.0, %38 ], [ %.2360, %88 ], [ 0, %106 ], [ 1, %99 ]
   %124 = load i32, ptr %22, align 8, !tbaa !15
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %158, label %126
@@ -1377,8 +1377,8 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   br label %158
 
 158:                                              ; preds = %.loopexit264, %.loopexit260, %137, %135
-  %.0220 = phi ptr [ %157, %.loopexit260 ], [ %136, %135 ], [ %138, %137 ], [ null, %.loopexit264 ]
-  %.1199 = phi i32 [ %.2200, %.loopexit260 ], [ 1, %135 ], [ %.0198, %137 ], [ %.0198, %.loopexit264 ]
+  %.0220 = phi ptr [ %136, %135 ], [ %138, %137 ], [ %157, %.loopexit260 ], [ null, %.loopexit264 ]
+  %.1199 = phi i32 [ 1, %135 ], [ %.0198, %137 ], [ %.2200, %.loopexit260 ], [ %.0198, %.loopexit264 ]
   %159 = load ptr, ptr %30, align 8, !tbaa !46
   %160 = load ptr, ptr %31, align 8, !tbaa !56
   %161 = load i64, ptr %32, align 8, !tbaa !60

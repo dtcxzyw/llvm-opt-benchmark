@@ -1454,7 +1454,7 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
   br label %h264_user_data_unregistered.exit.i.i
 
 h264_user_data_unregistered.exit.i.i:             ; preds = %.lr.ph.i.i.i, %.lr.ph150.i.i.i, %150, %146, %137, %107, %71, %55
-  %.2.i.i.i = phi i32 [ %44, %146 ], [ %59, %55 ], [ %102, %.lr.ph150.i.i.i ], [ %145, %137 ], [ %153, %150 ], [ %65, %71 ], [ %116, %107 ], [ %134, %.lr.ph.i.i.i ]
+  %.2.i.i.i = phi i32 [ %59, %55 ], [ %145, %137 ], [ %153, %150 ], [ %44, %146 ], [ %65, %71 ], [ %116, %107 ], [ %102, %.lr.ph150.i.i.i ], [ %134, %.lr.ph.i.i.i ]
   %154 = shl i32 %.2.i.i.i, 3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_h264_sei_message.exit
@@ -1634,8 +1634,8 @@ define internal fastcc noundef range(i32 -268435456, 268435456) i32 @dissect_h26
   br label %.thread.i
 
 .thread.i:                                        ; preds = %78, %77
-  %.119.i = phi i32 [ %83, %78 ], [ 0, %77 ]
-  %85 = phi i32 [ %spec.select.i, %78 ], [ %.01621.i, %77 ]
+  %.119.i = phi i32 [ 0, %77 ], [ %83, %78 ]
+  %85 = phi i32 [ %.01621.i, %77 ], [ %spec.select.i, %78 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %dissect_h264_scaling_list.exit, label %77, !llvm.loop !12
@@ -1669,8 +1669,8 @@ dissect_h264_scaling_list.exit:                   ; preds = %.thread.i
   br label %.thread.i202
 
 .thread.i202:                                     ; preds = %89, %88
-  %.119.i203 = phi i32 [ %94, %89 ], [ 0, %88 ]
-  %96 = phi i32 [ %spec.select.i201, %89 ], [ %.01621.i198, %88 ]
+  %.119.i203 = phi i32 [ 0, %88 ], [ %94, %89 ]
+  %96 = phi i32 [ %.01621.i198, %88 ], [ %spec.select.i201, %89 ]
   %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i196, 1
   %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, 64
   br i1 %exitcond.not.i205, label %dissect_h264_scaling_list.exit206, label %88, !llvm.loop !12
@@ -2116,7 +2116,7 @@ more_rbsp_data.exit:                              ; preds = %.lr.ph.i
   br label %more_rbsp_data.exit.thread
 
 more_rbsp_data.exit.thread:                       ; preds = %61, %26, %75
-  %78 = phi i32 [ %.pre, %75 ], [ %53, %26 ], [ %53, %61 ]
+  %78 = phi i32 [ %53, %26 ], [ %.pre, %75 ], [ %53, %61 ]
   %79 = load i32, ptr @hf_h264_rbsp_stop_bit, align 4
   %80 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %79, ptr noundef %1, i32 noundef %78, i32 noundef 1, i32 noundef 0)
   %81 = add i32 %78, 1
@@ -2915,8 +2915,8 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   unreachable
 
 .thread:                                          ; preds = %6, %15, %20, %10
-  %.not300 = phi i1 [ true, %10 ], [ false, %15 ], [ false, %20 ], [ true, %6 ]
-  %.0299 = phi ptr [ null, %10 ], [ %11, %15 ], [ %11, %20 ], [ null, %6 ]
+  %.not300 = phi i1 [ false, %15 ], [ false, %20 ], [ true, %10 ], [ true, %6 ]
+  %.0299 = phi ptr [ %11, %15 ], [ %11, %20 ], [ null, %10 ], [ null, %6 ]
   %25 = load i32, ptr %4, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
@@ -3181,17 +3181,17 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   br label %.preheader326
 
 .preheader326:                                    ; preds = %133, %141, %143
-  %.0248311.ph = phi i32 [ %142, %141 ], [ %145, %143 ], [ 0, %133 ]
+  %.0248311.ph = phi i32 [ %145, %143 ], [ %142, %141 ], [ 0, %133 ]
   %146 = add i32 %49, %48
   %147 = icmp ult i32 %.0255330, 2147483647
   br i1 %147, label %.lr.ph335.preheader, label %.preheader
 
-.lr.ph335.preheader:                              ; preds = %119, %116, %.preheader326
-  %.1253.ph378 = phi i32 [ %135, %.preheader326 ], [ -2147483648, %116 ], [ -2147483648, %119 ]
-  %.0254309.ph377 = phi i32 [ %137, %.preheader326 ], [ -1, %116 ], [ -1, %119 ]
-  %.0250310.ph375 = phi i32 [ %.1251, %.preheader326 ], [ 1, %116 ], [ 0, %119 ]
-  %.0248311.ph374 = phi i32 [ %.0248311.ph, %.preheader326 ], [ %spec.select296, %116 ], [ 0, %119 ]
-  %.ph372 = phi i32 [ %146, %.preheader326 ], [ %118, %116 ], [ %120, %119 ]
+.lr.ph335.preheader:                              ; preds = %116, %119, %.preheader326
+  %.1253.ph378 = phi i32 [ %135, %.preheader326 ], [ -2147483648, %119 ], [ -2147483648, %116 ]
+  %.0254309.ph377 = phi i32 [ %137, %.preheader326 ], [ -1, %119 ], [ -1, %116 ]
+  %.0250310.ph375 = phi i32 [ %.1251, %.preheader326 ], [ 0, %119 ], [ 1, %116 ]
+  %.0248311.ph374 = phi i32 [ %.0248311.ph, %.preheader326 ], [ 0, %119 ], [ %spec.select296, %116 ]
+  %.ph372 = phi i32 [ %146, %.preheader326 ], [ %120, %119 ], [ %118, %116 ]
   br label %.lr.ph335
 
 148:                                              ; preds = %103
@@ -3362,7 +3362,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   br label %215
 
 215:                                              ; preds = %._crit_edge344, %89, %97, %95, %70, %81, %75, %214, %212, %.thread318, %.thread313
-  %.0246 = phi i32 [ %.0248311.ph373, %212 ], [ 0, %70 ], [ %.0248308316, %.thread313 ], [ -1, %.thread318 ], [ %.0254309.ph376, %214 ], [ 0, %75 ], [ 0, %81 ], [ 0, %95 ], [ 0, %97 ], [ 0, %89 ], [ 0, %._crit_edge344 ]
+  %.0246 = phi i32 [ %.0248308316, %.thread313 ], [ -1, %.thread318 ], [ %.0254309.ph376, %214 ], [ %.0248311.ph373, %212 ], [ 0, %75 ], [ 0, %81 ], [ 0, %70 ], [ 0, %95 ], [ 0, %97 ], [ 0, %89 ], [ 0, %._crit_edge344 ]
   ret i32 %.0246
 }
 

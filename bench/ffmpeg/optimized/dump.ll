@@ -1015,7 +1015,7 @@ dump_metadata.exit188.i:                          ; preds = %232, %230, %220
   br label %.thread.i
 
 .thread.i:                                        ; preds = %269, %276, %.lr.ph217.split.i
-  %279 = phi i32 [ %.pre268.i, %276 ], [ %251, %.lr.ph217.split.i ], [ %251, %269 ]
+  %279 = phi i32 [ %251, %.lr.ph217.split.i ], [ %.pre268.i, %276 ], [ %251, %269 ]
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %280 = zext i32 %279 to i64
   %281 = icmp samesign ult i64 %indvars.iv.next253.i, %280
@@ -2659,7 +2659,7 @@ print_peak.exit16.i:                              ; preds = %80, %79
   br i1 %.not27.i106, label %252, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.._crit_edge.i_crit_edge, %246
-  %247 = phi double [ %245, %.._crit_edge.i_crit_edge ], [ 0.000000e+00, %246 ]
+  %247 = phi double [ 0.000000e+00, %246 ], [ %245, %.._crit_edge.i_crit_edge ]
   %248 = sitofp i32 %239 to double
   %249 = fmul nsz double %248, 0x3EF0000000000000
   %250 = sitofp i32 %243 to double

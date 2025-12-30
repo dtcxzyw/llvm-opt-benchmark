@@ -5110,8 +5110,8 @@ if.end.i32:                                       ; preds = %_ZNK4llvh12DenseMap
   br label %return
 
 return:                                           ; preds = %if.end, %_ZNK6hermes18SourceErrorManager12getSourceUrlEj.exit, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30, %if.end.i32, %entry, %lor.lhs.false
-  %retval.sroa.0.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %if.end ], [ %10, %_ZNK6hermes18SourceErrorManager12getSourceUrlEj.exit ], [ %call.i.i34, %if.end.i32 ], [ @.str.7, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30 ]
-  %retval.sroa.3.0 = phi i64 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ %11, %_ZNK6hermes18SourceErrorManager12getSourceUrlEj.exit ], [ %call2.i.i35, %if.end.i32 ], [ 0, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30 ]
+  %retval.sroa.0.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ null, %if.end ], [ %10, %_ZNK6hermes18SourceErrorManager12getSourceUrlEj.exit ], [ %call.i.i34, %if.end.i32 ], [ @.str.7, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30 ]
+  %retval.sroa.3.0 = phi i64 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ %11, %_ZNK6hermes18SourceErrorManager12getSourceUrlEj.exit ], [ %call2.i.i35, %if.end.i32 ], [ 0, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -6336,7 +6336,7 @@ _ZSt4copyIPPN4llvh12SMDiagnosticES3_ET0_T_S5_S4_.exit30: ; preds = %_ZNSt11_Dequ
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN4llvh12SMDiagnosticES3_ET0_T_S5_S4_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4llvh12SMDiagnosticES3_ET0_T_S5_S4_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4llvh12SMDiagnosticES3_ET0_T_S5_S4_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

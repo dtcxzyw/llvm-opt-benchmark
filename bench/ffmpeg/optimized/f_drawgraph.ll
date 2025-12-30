@@ -174,7 +174,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %28, %42, %44, %46, %11
-  %.032 = phi i32 [ -22, %11 ], [ -12, %28 ], [ 0, %46 ], [ -12, %44 ], [ -12, %42 ], [ %17, %15 ]
+  %.032 = phi i32 [ -22, %11 ], [ 0, %46 ], [ -12, %44 ], [ -12, %42 ], [ -12, %28 ], [ %17, %15 ]
   ret i32 %.032
 }
 
@@ -633,7 +633,7 @@ clear_image.exit308thread-pre-split:              ; preds = %._crit_edge.i302, %
   br label %clear_image.exit308
 
 clear_image.exit308:                              ; preds = %.lr.ph, %.lr.ph332, %clear_image.exit308thread-pre-split, %180, %.thread316
-  %234 = phi i32 [ %.pr, %clear_image.exit308thread-pre-split ], [ %210, %.lr.ph332 ], [ %197, %.thread316 ], [ %182, %180 ], [ %195, %.lr.ph ]
+  %234 = phi i32 [ %.pr, %clear_image.exit308thread-pre-split ], [ %182, %180 ], [ %197, %.thread316 ], [ %210, %.lr.ph332 ], [ %195, %.lr.ph ]
   %235 = load i32, ptr %119, align 8, !tbaa !71
   %236 = add nsw i32 %234, -1
   %237 = sitofp i32 %236 to float
@@ -683,7 +683,7 @@ clear_image.exit308:                              ; preds = %.lr.ph, %.lr.ph332,
   br i1 %262, label %255, label %.loopexit317, !llvm.loop !75
 
 .loopexit317:                                     ; preds = %255, %249, %248
-  %263 = phi i32 [ %234, %248 ], [ %234, %249 ], [ %261, %255 ]
+  %263 = phi i32 [ %234, %249 ], [ %234, %248 ], [ %261, %255 ]
   %264 = load ptr, ptr %.0235, align 8, !tbaa !27
   %265 = load i32, ptr %123, align 8, !tbaa !30
   %266 = mul nsw i32 %265, %246
@@ -946,7 +946,7 @@ split:                                            ; preds = %276, %282
   br label %394
 
 394:                                              ; preds = %384, %375, %363, %26, %32, %40, %48, %387, %77
-  %.1 = phi i32 [ -12, %26 ], [ 0, %363 ], [ %393, %387 ], [ 0, %375 ], [ -12, %77 ], [ -12, %48 ], [ -12, %40 ], [ -12, %32 ], [ -12, %384 ]
+  %.1 = phi i32 [ %393, %387 ], [ -12, %77 ], [ -12, %48 ], [ -12, %40 ], [ -12, %32 ], [ -12, %26 ], [ 0, %363 ], [ 0, %375 ], [ -12, %384 ]
   ret i32 %.1
 }
 

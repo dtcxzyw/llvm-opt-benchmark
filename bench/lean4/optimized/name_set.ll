@@ -127,7 +127,7 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i: ; preds 
           cleanup
   br label %61
 
-42:                                               ; preds = %.noexc, %.lr.ph.i.i, %.noexc12
+42:                                               ; preds = %.noexc12, %.lr.ph.i.i, %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN4lean4nameC1ERKS0_j(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.0922)
           to label %43 unwind label %56

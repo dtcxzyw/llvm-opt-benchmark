@@ -187,7 +187,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %35, %37
   br label %60
 
 60:                                               ; preds = %51, %49
-  %.sroa.013.0 = phi i64 [ 0, %49 ], [ %59, %51 ]
+  %.sroa.013.0 = phi i64 [ %59, %51 ], [ 0, %49 ]
   %61 = tail call i32 @f64_to_f32(i64 %.sroa.013.0)
   %62 = lshr i64 %1, 7
   %63 = and i64 %62, 31
@@ -620,7 +620,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %37, %39
   br label %62
 
 62:                                               ; preds = %53, %51
-  %.sroa.014.0 = phi i64 [ 0, %51 ], [ %61, %53 ]
+  %.sroa.014.0 = phi i64 [ %61, %53 ], [ 0, %51 ]
   %63 = tail call i32 @f64_to_f32(i64 %.sroa.014.0)
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -808,7 +808,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !44
@@ -1188,7 +1188,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %35, %37
   br label %77
 
 77:                                               ; preds = %68, %58
-  %.sroa.021.0 = phi i64 [ 0, %58 ], [ %76, %68 ]
+  %.sroa.021.0 = phi i64 [ %76, %68 ], [ 0, %58 ]
   %78 = tail call i32 @f64_to_f32(i64 %.sroa.021.0)
   %.not.i72 = icmp eq i64 %42, 0
   br i1 %.not.i72, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %79
@@ -1648,7 +1648,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %37, %39
   br label %79
 
 79:                                               ; preds = %70, %60
-  %.sroa.022.0 = phi i64 [ 0, %60 ], [ %78, %70 ]
+  %.sroa.022.0 = phi i64 [ %78, %70 ], [ 0, %60 ]
   %80 = tail call i32 @f64_to_f32(i64 %.sroa.022.0)
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -2270,8 +2270,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

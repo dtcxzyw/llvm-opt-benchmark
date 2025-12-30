@@ -84,9 +84,9 @@ define noundef i32 @print_param_types(ptr noundef %0, ptr noundef readonly captu
   br label %24
 
 24:                                               ; preds = %23, %22, %21, %20, %19, %18, %.lr.ph
-  %.3.i = phi ptr [ @.str.1, %23 ], [ @.str.1, %20 ], [ @.str.1, %.lr.ph ], [ @.str.11, %18 ], [ @.str.13, %19 ], [ @.str.15, %21 ], [ @.str.1, %22 ]
-  %.039.i = phi ptr [ @.str.17, %23 ], [ @.str.14, %20 ], [ @.str.12, %.lr.ph ], [ @.str.12, %18 ], [ @.str.14, %19 ], [ @.str.16, %21 ], [ @.str.16, %22 ]
-  %.not.i = phi i1 [ false, %23 ], [ true, %20 ], [ true, %.lr.ph ], [ true, %18 ], [ true, %19 ], [ true, %21 ], [ true, %22 ]
+  %.3.i = phi ptr [ @.str.1, %23 ], [ @.str.11, %18 ], [ @.str.1, %.lr.ph ], [ @.str.13, %19 ], [ @.str.1, %20 ], [ @.str.15, %21 ], [ @.str.1, %22 ]
+  %.039.i = phi ptr [ @.str.17, %23 ], [ @.str.12, %18 ], [ @.str.12, %.lr.ph ], [ @.str.14, %19 ], [ @.str.14, %20 ], [ @.str.16, %21 ], [ @.str.16, %22 ]
+  %.not.i = phi i1 [ false, %23 ], [ true, %18 ], [ true, %.lr.ph ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ]
   %25 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 200, ptr noundef nonnull @.str.18, ptr noundef nonnull %15) #5
   %26 = icmp sgt i32 %25, 0
   %27 = zext nneg i32 %25 to i64

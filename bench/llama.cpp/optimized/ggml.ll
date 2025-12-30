@@ -721,7 +721,7 @@ define ptr @ggml_aligned_malloc(i64 noundef %0) local_unnamed_addr #3 {
   br label %9
 
 9:                                                ; preds = %5, %8, %7
-  %.0 = phi ptr [ @.str.3, %5 ], [ @.str.4, %7 ], [ @.str.5, %8 ]
+  %.0 = phi ptr [ @.str.4, %7 ], [ @.str.5, %8 ], [ @.str.3, %5 ]
   %10 = uitofp i64 %0 to double
   %11 = fmul double %10, 0x3EB0000000000000
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.ggml_aligned_malloc, ptr noundef nonnull %.0, double noundef %11)
@@ -1988,7 +1988,7 @@ ggml_is_empty.exit:                               ; preds = %4
   br label %ggml_is_empty.exit14
 
 ggml_is_empty.exit14:                             ; preds = %.preheader, %12, %17, %24, %31
-  %38 = phi i1 [ %37, %31 ], [ false, %24 ], [ false, %17 ], [ false, %12 ], [ %11, %.preheader ]
+  %38 = phi i1 [ false, %24 ], [ false, %17 ], [ false, %12 ], [ %37, %31 ], [ %11, %.preheader ]
   ret i1 %38
 }
 
@@ -2076,7 +2076,7 @@ ggml_malloc.exit:                                 ; preds = %20
   br label %38
 
 38:                                               ; preds = %37, %36, %34
-  %.0.i = phi ptr [ @.str.3, %34 ], [ @.str.4, %36 ], [ @.str.5, %37 ]
+  %.0.i = phi ptr [ @.str.4, %36 ], [ @.str.5, %37 ], [ @.str.3, %34 ]
   %39 = uitofp i64 %29 to double
   %40 = fmul double %39, 0x3EB0000000000000
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.ggml_aligned_malloc, ptr noundef nonnull %.0.i, double noundef %40)
@@ -2247,7 +2247,7 @@ ggml_get_first_tensor.exit:                       ; preds = %.lr.ph.i
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %ggml_nbytes.exit, %49, %1, %ggml_get_first_tensor.exit
-  %.0.lcssa = phi i64 [ 0, %ggml_get_first_tensor.exit ], [ %44, %49 ], [ %44, %ggml_nbytes.exit ], [ 0, %1 ], [ 0, %8 ]
+  %.0.lcssa = phi i64 [ 0, %ggml_get_first_tensor.exit ], [ 0, %1 ], [ %44, %49 ], [ %44, %ggml_nbytes.exit ], [ 0, %8 ]
   ret i64 %.0.lcssa
 
 .lr.ph:                                           ; preds = %.lr.ph.i11, %ggml_get_first_tensor.exit
@@ -2554,8 +2554,8 @@ ggml_nbytes.exit:                                 ; preds = %48, %64
   br label %81
 
 81:                                               ; preds = %.thread, %77
-  %spec.select94 = phi ptr [ null, %77 ], [ %spec.select, %.thread ]
-  %.073 = phi i64 [ %spec.select90, %77 ], [ 0, %.thread ]
+  %spec.select94 = phi ptr [ %spec.select, %.thread ], [ null, %77 ]
+  %.073 = phi i64 [ 0, %.thread ], [ %spec.select90, %77 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !67
   %84 = icmp eq ptr %83, null
@@ -13461,7 +13461,7 @@ ggml_hash_find.exit663.i:                         ; preds = %274, %271, %263, %g
   br label %293
 
 293:                                              ; preds = %289, %281, %ggml_hash_find.exit663.i
-  %294 = phi i1 [ false, %281 ], [ %292, %289 ], [ false, %ggml_hash_find.exit663.i ]
+  %294 = phi i1 [ false, %281 ], [ false, %ggml_hash_find.exit663.i ], [ %292, %289 ]
   %295 = icmp ne i64 %257, -1
   %or.cond3.i = and i1 %236, %295
   br i1 %or.cond3.i, label %296, label %308
@@ -13484,7 +13484,7 @@ ggml_hash_find.exit663.i:                         ; preds = %274, %271, %263, %g
   br label %308
 
 308:                                              ; preds = %304, %296, %293
-  %309 = phi i1 [ false, %296 ], [ %307, %304 ], [ false, %293 ]
+  %309 = phi i1 [ false, %296 ], [ false, %293 ], [ %307, %304 ]
   %310 = icmp ne i64 %279, -1
   %or.cond5.i = and i1 %258, %310
   br i1 %or.cond5.i, label %311, label %323
@@ -13507,7 +13507,7 @@ ggml_hash_find.exit663.i:                         ; preds = %274, %271, %263, %g
   br label %323
 
 323:                                              ; preds = %319, %311, %308
-  %324 = phi i1 [ false, %311 ], [ %322, %319 ], [ false, %308 ]
+  %324 = phi i1 [ false, %311 ], [ false, %308 ], [ %322, %319 ]
   %325 = getelementptr inbounds nuw i8, ptr %180, i64 80
   %326 = load i32, ptr %325, align 8, !tbaa !55
   switch i32 %326, label %1251 [
@@ -16756,7 +16756,7 @@ define ptr @ggml_graph_get_tensor(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not27, label %.thread, label %19
 
 .thread:                                          ; preds = %14, %19, %20, %.preheader
-  %.3 = phi ptr [ null, %.preheader ], [ %22, %20 ], [ null, %19 ], [ %16, %14 ]
+  %.3 = phi ptr [ null, %.preheader ], [ null, %19 ], [ %22, %20 ], [ %16, %14 ]
   ret ptr %.3
 }
 
@@ -17537,7 +17537,7 @@ ggml_graph_get_grad.exit.i.i:                     ; preds = %292, %280, %299, %2
   br i1 %.not.i.i134, label %.lr.ph.i17.i, label %273
 
 .lr.ph.i17.i:                                     ; preds = %ggml_graph_get_grad.exit.i.i, %273
-  %303 = phi ptr [ %276, %ggml_graph_get_grad.exit.i.i ], [ null, %273 ]
+  %303 = phi ptr [ null, %273 ], [ %276, %ggml_graph_get_grad.exit.i.i ]
   br label %305
 
 304:                                              ; preds = %ggml_graph_get_grad.exit.i24.i

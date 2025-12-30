@@ -1596,8 +1596,8 @@ define hidden range(i64 0, 8589934592) i64 @_ZNK7nanogui13TabWidgetBase15tab_at_
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %62, %18, %38, %42, %52, %59, %11
-  %.sroa.0.0 = phi i64 [ 4294967295, %11 ], [ %.032, %38 ], [ %.032, %59 ], [ %.032, %52 ], [ %.032, %42 ], [ 4294967295, %18 ], [ 4294967295, %62 ]
-  %.sroa.4.0 = phi i64 [ 0, %11 ], [ 0, %38 ], [ %61, %59 ], [ 0, %52 ], [ 0, %42 ], [ 0, %18 ], [ 0, %62 ]
+  %.sroa.0.0 = phi i64 [ 4294967295, %11 ], [ %.032, %59 ], [ %.032, %52 ], [ %.032, %42 ], [ %.032, %38 ], [ 4294967295, %18 ], [ 4294967295, %62 ]
+  %.sroa.4.0 = phi i64 [ 0, %11 ], [ %61, %59 ], [ 0, %52 ], [ 0, %42 ], [ 0, %38 ], [ 0, %18 ], [ 0, %62 ]
   %.sroa.0.0.insert.ext = and i64 %.sroa.0.0, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
@@ -1695,8 +1695,8 @@ define hidden noundef zeroext i1 @_ZN7nanogui13TabWidgetBase18mouse_button_event
   br i1 %exitcond.not.i, label %_ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit: ; preds = %64, %5, %25, %45, %49, %59, %62
-  %.sroa.0.0.i = phi i64 [ 4294967295, %5 ], [ %.032.i, %45 ], [ %.032.i, %62 ], [ %.032.i, %59 ], [ %.032.i, %49 ], [ 4294967295, %25 ], [ 4294967295, %64 ]
-  %.sroa.4.0.i = phi i1 [ false, %5 ], [ false, %45 ], [ %.not30.i, %62 ], [ false, %59 ], [ false, %49 ], [ false, %25 ], [ false, %64 ]
+  %.sroa.0.0.i = phi i64 [ 4294967295, %5 ], [ %.032.i, %62 ], [ %.032.i, %59 ], [ %.032.i, %49 ], [ %.032.i, %45 ], [ 4294967295, %25 ], [ 4294967295, %64 ]
+  %.sroa.4.0.i = phi i1 [ false, %5 ], [ %.not30.i, %62 ], [ false, %59 ], [ false, %49 ], [ false, %45 ], [ false, %25 ], [ false, %64 ]
   %.sroa.0114.0.extract.trunc = trunc i64 %.sroa.0.0.i to i32
   %66 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -2208,8 +2208,8 @@ define hidden noundef zeroext i1 @_ZN7nanogui13TabWidgetBase18mouse_motion_event
   br i1 %exitcond.not.i, label %_ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit: ; preds = %55, %5, %31, %35, %45, %52
-  %.sroa.0.0.i = phi i64 [ 4294967295, %5 ], [ %.032.i, %31 ], [ %.032.i, %52 ], [ %.032.i, %45 ], [ %.032.i, %35 ], [ 4294967295, %55 ]
-  %.sroa.4.0.i = phi i1 [ false, %5 ], [ false, %31 ], [ %.not30.i, %52 ], [ false, %45 ], [ false, %35 ], [ false, %55 ]
+  %.sroa.0.0.i = phi i64 [ %.032.i, %52 ], [ %.032.i, %45 ], [ %.032.i, %35 ], [ %.032.i, %31 ], [ 4294967295, %5 ], [ 4294967295, %55 ]
+  %.sroa.4.0.i = phi i1 [ %.not30.i, %52 ], [ false, %45 ], [ false, %35 ], [ false, %31 ], [ false, %5 ], [ false, %55 ]
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.i to i32
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %58 = load i32, ptr %57, align 8
@@ -2305,7 +2305,7 @@ _ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit: ; preds 
   br label %112
 
 112:                                              ; preds = %59, %86, %80, %79, %110, %108
-  %.0 = phi i1 [ %111, %110 ], [ true, %108 ], [ true, %79 ], [ true, %80 ], [ true, %86 ], [ true, %59 ]
+  %.0 = phi i1 [ true, %108 ], [ %111, %110 ], [ true, %79 ], [ true, %80 ], [ true, %86 ], [ true, %59 ]
   ret i1 %.0
 }
 
@@ -2501,14 +2501,14 @@ _ZNK7nanogui13TabWidgetBase11selected_idEv.exit:  ; preds = %._crit_edge, %25
   br label %_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit.thread, !llvm.loop !16
 
 _ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit: ; preds = %54, %37, %49
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %37 ], [ %50, %49 ], [ %56, %54 ]
+  %.sroa.06.1.i.i = phi ptr [ %50, %49 ], [ %.sroa.06.0.i.i, %37 ], [ %56, %54 ]
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 88
   store i8 1, ptr %64, align 8
   br label %_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit.thread
 
-_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %36, %41, %..loopexit_crit_edge21.i.i.i.i, %1, %_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit
+_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %36, %..loopexit_crit_edge21.i.i.i.i, %41, %1, %_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit
   ret void
 }
 
@@ -2620,7 +2620,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stE
   resume { ptr, i32 } %31
 
 _ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %19, %14, %.loopexit.i.i
-  %.0.i.pn.i.i = phi ptr [ %30, %.loopexit.i.i ], [ %15, %14 ], [ %21, %19 ]
+  %.0.i.pn.i.i = phi ptr [ %15, %14 ], [ %30, %.loopexit.i.i ], [ %21, %19 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store ptr %3, ptr %.0.i.i, align 8
   %32 = load ptr, ptr %0, align 8
@@ -2700,7 +2700,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stE
   resume { ptr, i32 } %40
 
 _ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %28, %23, %.loopexit.i.i
-  %.0.i.pn.i.i = phi ptr [ %39, %.loopexit.i.i ], [ %24, %23 ], [ %30, %28 ]
+  %.0.i.pn.i.i = phi ptr [ %24, %23 ], [ %39, %.loopexit.i.i ], [ %30, %28 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store ptr %2, ptr %.0.i.i, align 8
   %41 = load ptr, ptr %0, align 8
@@ -2771,7 +2771,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stE
   resume { ptr, i32 } %29
 
 _ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %17, %12, %.loopexit.i.i
-  %.0.i.pn.i.i = phi ptr [ %28, %.loopexit.i.i ], [ %13, %12 ], [ %19, %17 ]
+  %.0.i.pn.i.i = phi ptr [ %13, %12 ], [ %28, %.loopexit.i.i ], [ %19, %17 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   %30 = load ptr, ptr %.0.i.i, align 8
   %31 = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -3523,7 +3523,7 @@ _ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stE
   br label %_ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread
 
 _ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %22, %5, %_ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiPN7nanogui6WidgetEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

@@ -489,7 +489,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br label %.body.i
 
 .body.i:                                          ; preds = %423, %297, %230, %221, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i.i, %297 ], [ %222, %221 ], [ %.pn161.pn.i.i, %423 ], [ %231, %230 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit123.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit126.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit128.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit132.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit134.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp135.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %231, %230 ], [ %222, %221 ], [ %lpad.phi.i.i, %297 ], [ %.pn161.pn.i.i, %423 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit123.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit126.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit128.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit132.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit134.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp135.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %109) #6
           to label %642 unwind label %640, !noalias !6
 
@@ -1128,7 +1128,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br i1 %359, label %.invoke329.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd99ef32853d54d57E.exit.i.i"
 
 .invoke329.i:                                     ; preds = %.noexc12.i, %.noexc75.i, %.noexc71.i, %.noexc68.i, %.noexc65.i, %.noexc88.i, %.noexc84.i, %.noexc80.i, %.noexc95.i, %639, %.noexc44.i, %.noexc42.i, %.noexc38.i, %.noexc36.i, %.noexc34.i, %.noexc32.i, %.noexc30.i, %.noexc22.i, %.noexc20.i, %.noexc18.i, %.noexc16.i, %.noexc14.i, %.noexc7.i, %.noexc5.i, %.noexc3.i
-  %360 = phi ptr [ @anon.792701b81ad76444630bbc03b8bdde37.10, %.noexc3.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.31, %.noexc22.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.109, %.noexc88.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.115, %.noexc95.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.16, %.noexc7.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.13, %.noexc5.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.99, %.noexc71.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.78, %.noexc44.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.75, %.noexc42.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.72, %.noexc38.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.69, %.noexc36.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.66, %.noexc34.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.63, %.noexc32.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.60, %.noexc30.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.4, %639 ], [ @anon.792701b81ad76444630bbc03b8bdde37.28, %.noexc20.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.25, %.noexc18.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.22, %.noexc16.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.19, %.noexc14.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.104, %.noexc80.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.106, %.noexc84.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.92, %.noexc65.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.100, %.noexc75.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.95, %.noexc68.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.35, %.noexc12.i ]
+  %360 = phi ptr [ @anon.792701b81ad76444630bbc03b8bdde37.4, %639 ], [ @anon.792701b81ad76444630bbc03b8bdde37.60, %.noexc30.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.63, %.noexc32.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.66, %.noexc34.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.69, %.noexc36.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.72, %.noexc38.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.75, %.noexc42.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.78, %.noexc44.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.10, %.noexc3.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.13, %.noexc5.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.16, %.noexc7.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.19, %.noexc14.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.22, %.noexc16.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.25, %.noexc18.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.28, %.noexc20.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.31, %.noexc22.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.115, %.noexc95.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.109, %.noexc88.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.106, %.noexc84.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.104, %.noexc80.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.100, %.noexc75.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.99, %.noexc71.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.95, %.noexc68.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.92, %.noexc65.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.35, %.noexc12.i ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.792701b81ad76444630bbc03b8bdde37.0, i64 43, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.792701b81ad76444630bbc03b8bdde37.2, ptr nonnull align 8 %360) #7
           to label %.cont330.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !6
 
@@ -1136,9 +1136,9 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   unreachable
 
 .invoke.i:                                        ; preds = %.noexc59.i, %.noexc77.i, %.noexc91.i, %.noexc90.i
-  %361 = phi i64 [ %344, %.noexc90.i ], [ %322, %.noexc77.i ], [ %350, %.noexc91.i ], [ %289, %.noexc59.i ]
-  %362 = phi i64 [ %291, %.noexc90.i ], [ %291, %.noexc77.i ], [ %351, %.noexc91.i ], [ %291, %.noexc59.i ]
-  %363 = phi ptr [ @anon.792701b81ad76444630bbc03b8bdde37.110, %.noexc90.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.101, %.noexc77.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.111, %.noexc91.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.82, %.noexc59.i ]
+  %361 = phi i64 [ %350, %.noexc91.i ], [ %344, %.noexc90.i ], [ %322, %.noexc77.i ], [ %289, %.noexc59.i ]
+  %362 = phi i64 [ %351, %.noexc91.i ], [ %291, %.noexc90.i ], [ %291, %.noexc77.i ], [ %291, %.noexc59.i ]
+  %363 = phi ptr [ @anon.792701b81ad76444630bbc03b8bdde37.111, %.noexc91.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.110, %.noexc90.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.101, %.noexc77.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.82, %.noexc59.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %361, i64 %362, ptr nonnull align 8 %363) #7
           to label %.cont.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !6
 
@@ -1435,7 +1435,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
           to label %467 unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !6
 
 .loopexit.split-lp.i101.i:                        ; preds = %625, %.thread.i.i, %544, %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i102.i
-  %.pn159.i.i = phi { ptr, i32 } [ %626, %625 ], [ %.pn176.i.i, %.thread.i.i ], [ %lpad.thr_comm.split-lp.i.i, %544 ], [ %lpad.loopexit.i103.i, %.loopexit.i102.i ], [ %lpad.loopexit195.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp196.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
+  %.pn159.i.i = phi { ptr, i32 } [ %.pn176.i.i, %.thread.i.i ], [ %lpad.thr_comm.split-lp.i.i, %544 ], [ %626, %625 ], [ %lpad.loopexit.i103.i, %.loopexit.i102.i ], [ %lpad.loopexit195.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp196.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %49) #6
           to label %427 unwind label %587, !noalias !6
 
@@ -1527,9 +1527,9 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br i1 %501, label %505, label %.invoke615.i.i, !prof !13
 
 .invoke615.i.i:                                   ; preds = %511, %.noexc171.i.i, %484, %609, %.noexc166.i.i
-  %502 = phi i64 [ %490, %.noexc166.i.i ], [ %608, %609 ], [ %510, %511 ], [ 0, %484 ], [ %498, %.noexc171.i.i ]
-  %503 = phi i64 [ %492, %.noexc166.i.i ], [ %448, %609 ], [ %448, %511 ], [ 0, %484 ], [ %500, %.noexc171.i.i ]
-  %504 = phi ptr [ @anon.792701b81ad76444630bbc03b8bdde37.150, %.noexc166.i.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.147, %609 ], [ @anon.792701b81ad76444630bbc03b8bdde37.132, %511 ], [ @anon.792701b81ad76444630bbc03b8bdde37.131, %484 ], [ @anon.792701b81ad76444630bbc03b8bdde37.150, %.noexc171.i.i ]
+  %502 = phi i64 [ %490, %.noexc166.i.i ], [ %608, %609 ], [ %498, %.noexc171.i.i ], [ 0, %484 ], [ %510, %511 ]
+  %503 = phi i64 [ %492, %.noexc166.i.i ], [ %448, %609 ], [ %500, %.noexc171.i.i ], [ 0, %484 ], [ %448, %511 ]
+  %504 = phi ptr [ @anon.792701b81ad76444630bbc03b8bdde37.150, %.noexc166.i.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.147, %609 ], [ @anon.792701b81ad76444630bbc03b8bdde37.150, %.noexc171.i.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.131, %484 ], [ @anon.792701b81ad76444630bbc03b8bdde37.132, %511 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %502, i64 %503, ptr nonnull align 8 %504) #7
           to label %.cont616.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !6
 
@@ -2212,7 +2212,7 @@ define internal fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait
   br i1 %78, label %141, label %140
 
 79:                                               ; preds = %84, %133, %99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd99ef32853d54d57E.exit62", %85, %81, %71
-  %.0 = phi i8 [ %.2, %133 ], [ 1, %99 ], [ 1, %85 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd99ef32853d54d57E.exit62" ], [ 1, %84 ], [ 1, %81 ], [ 1, %71 ]
+  %.0 = phi i8 [ %.2, %133 ], [ 1, %99 ], [ 1, %85 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd99ef32853d54d57E.exit62" ], [ 1, %81 ], [ 1, %71 ], [ 1, %84 ]
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %77

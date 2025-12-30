@@ -1376,8 +1376,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit43: ; preds = %_ZN32pxrInt
   br label %.body
 
 .body:                                            ; preds = %140, %153, %198, %50, %63, %196
-  %.sink = phi ptr [ %6, %50 ], [ %6, %196 ], [ %6, %63 ], [ %7, %198 ], [ %7, %153 ], [ %7, %140 ]
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %197, %196 ], [ %64, %63 ], [ %199, %198 ], [ %154, %153 ], [ %141, %140 ]
+  %.sink = phi ptr [ %6, %196 ], [ %6, %63 ], [ %6, %50 ], [ %7, %198 ], [ %7, %153 ], [ %7, %140 ]
+  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %64, %63 ], [ %51, %50 ], [ %199, %198 ], [ %154, %153 ], [ %141, %140 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #16
   resume { ptr, i32 } %.pn
 }
@@ -2000,7 +2000,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %158, %153, %71, %85, %.body38
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %eh.lpad-body39, %.body38 ], [ %72, %71 ], [ %154, %158 ], [ %154, %153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body39, %.body38 ], [ %72, %71 ], [ %86, %85 ], [ %154, %153 ], [ %154, %158 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #16
   br label %164
 

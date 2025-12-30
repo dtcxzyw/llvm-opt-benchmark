@@ -2385,7 +2385,7 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$quinn_proto..crypto..KeyPai
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7"
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7" ], [ %15, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7" ], [ %38, %37 ], [ %15, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$quinn_proto..crypto..HeaderKey$GT$$GT$17h6da731bc89781ddcE.exit10": ; preds = %29, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i.i9"
@@ -2501,7 +2501,7 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$quinn_proto..crypto..KeyPai
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7"
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7" ], [ %15, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7" ], [ %38, %37 ], [ %15, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$quinn_proto..crypto..PacketKey$GT$$GT$17h4aedc1c0b4ddd754E.exit10": ; preds = %29, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i.i9"
@@ -4744,7 +4744,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$rustls..quic..Direc
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7"
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7" ], [ %15, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7" ], [ %38, %37 ], [ %15, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..quic..PacketKey$GT$$GT$17hb757b229c00d97faE.exit": ; preds = %29, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i.i8"
@@ -5563,7 +5563,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$rustls..common_stat
   unreachable
 
 .body:                                            ; preds = %.body.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %.body.i ], [ %39, %38 ], [ %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7.i" ]
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7.i" ], [ %39, %38 ], [ %16, %.body.i ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %49 = load i64, ptr %48, align 8, !range !63, !alias.scope !775, !noundef !10
   %50 = icmp eq i64 %49, -9223372036854775808
@@ -5983,7 +5983,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$quinn_proto..connection..Con
   br label %.body
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i", %37, %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$quinn_proto..config..transport..TransportConfig$GT$$GT$17hbafe8c4468f18836E.exit"
-  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$quinn_proto..config..transport..TransportConfig$GT$$GT$17hbafe8c4468f18836E.exit" ], [ %38, %37 ], [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i" ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$quinn_proto..config..transport..TransportConfig$GT$$GT$17hbafe8c4468f18836E.exit" ], [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i" ], [ %38, %37 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$quinn_proto..connection..paths..PathData$GT$17h89a17c2a48ba1017E"(ptr noalias noundef nonnull align 8 dereferenceable(400) %0) #21
           to label %45 unwind label %224
 
@@ -9752,7 +9752,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$quinn_proto..token_memory_ca
   br label %"_ZN4core3ptr98drop_in_place$LT$std..sync..poison..mutex..Mutex$LT$quinn_proto..token_memory_cache..State$GT$$GT$17h6c7d36b0968c80b7E.exit"
 
 common.resume.i.i.i:                              ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i.i.i.i.i.i", %10, %4
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %11, %10 ], [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i.i.i.i.i.i" ], [ %5, %4 ]
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i.i.i.i.i.i" ], [ %11, %10 ], [ %5, %4 ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 17:                                               ; preds = %4
@@ -10052,7 +10052,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$quinn_proto..connection..pac
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7"
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7" ], [ %15, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i7" ], [ %38, %37 ], [ %15, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$quinn_proto..crypto..PacketKey$GT$$GT$17h4aedc1c0b4ddd754E.exit": ; preds = %29, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i.i8"
@@ -13366,7 +13366,7 @@ define hidden void @_ZN11quinn_proto10connection6spaces18PacketNumberFilter3new1
   br label %.preheader.i
 
 "_ZN4core3num21_$LT$impl$u20$u64$GT$11checked_pow17hd5ea0944360548b4E.exit": ; preds = %4, %7, %10
-  %.sroa.04.0.i = phi i64 [ %8, %7 ], [ -1, %10 ], [ -1, %4 ]
+  %.sroa.04.0.i = phi i64 [ -1, %10 ], [ %8, %7 ], [ -1, %4 ]
   %16 = tail call noundef i64 @_ZN4rand3rng3Rng12random_range17h200fe33c8ef4a462E(ptr noalias noundef nonnull align 16 dereferenceable(320) %1, i64 noundef 0, i64 noundef %.sroa.04.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4d1af44ccda3402e8c417f5eb083f41d.235)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %16, ptr %17, align 8
@@ -13574,7 +13574,7 @@ define hidden noundef i64 @_ZN11quinn_proto10connection6spaces18PacketNumberFilt
   br label %.preheader.i
 
 "_ZN4core3num21_$LT$impl$u20$u64$GT$11checked_pow17hd5ea0944360548b4E.exit": ; preds = %77, %80, %83, %70
-  %.sroa.04.0.i = phi i64 [ 1, %70 ], [ %81, %80 ], [ -1, %77 ], [ -1, %83 ]
+  %.sroa.04.0.i = phi i64 [ 1, %70 ], [ -1, %77 ], [ %81, %80 ], [ -1, %83 ]
   br label %.preheader.i72
 
 .preheader.i72:                                   ; preds = %"_ZN4core3num21_$LT$impl$u20$u64$GT$11checked_pow17hd5ea0944360548b4E.exit", %99
@@ -13607,7 +13607,7 @@ define hidden noundef i64 @_ZN11quinn_proto10connection6spaces18PacketNumberFilt
   br label %.preheader.i72
 
 "_ZN4core3num21_$LT$impl$u20$u64$GT$11checked_pow17hd5ea0944360548b4E.exit80": ; preds = %90, %93, %96
-  %.sroa.04.0.i79 = phi i64 [ %94, %93 ], [ -1, %96 ], [ -1, %90 ]
+  %.sroa.04.0.i79 = phi i64 [ -1, %96 ], [ %94, %93 ], [ -1, %90 ]
   %102 = call noundef i64 @_ZN4rand3rng3Rng12random_range17h200fe33c8ef4a462E(ptr noalias noundef nonnull align 16 dereferenceable(320) %1, i64 noundef %.sroa.04.0.i, i64 noundef %.sroa.04.0.i79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4d1af44ccda3402e8c417f5eb083f41d.241)
   store i64 %102, ptr %20, align 8
   store i32 %74, ptr %72, align 8

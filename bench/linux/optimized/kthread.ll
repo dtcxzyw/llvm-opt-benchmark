@@ -1700,7 +1700,7 @@ define dso_local ptr @kthread_create_worker_on_cpu(i32 noundef %0, i32 noundef %
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread, %29, %28
-  %43 = phi ptr [ %23, %.thread ], [ %21, %29 ], [ %21, %28 ]
+  %43 = phi ptr [ %21, %29 ], [ %21, %28 ], [ %23, %.thread ]
   store i32 %1, ptr %6, align 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %43, ptr %44, align 8
@@ -1739,7 +1739,7 @@ define dso_local noundef zeroext i1 @kthread_queue_work(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %2, %10, %7
-  %12 = phi i1 [ false, %7 ], [ true, %10 ], [ false, %2 ]
+  %12 = phi i1 [ true, %10 ], [ false, %7 ], [ false, %2 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %4) #16
   ret i1 %12
 }
@@ -1929,7 +1929,7 @@ define dso_local noundef zeroext i1 @kthread_queue_delayed_work(ptr noundef %0, 
   br label %.thread
 
 .thread:                                          ; preds = %3, %11, %8
-  %12 = phi i1 [ false, %8 ], [ true, %11 ], [ false, %3 ]
+  %12 = phi i1 [ true, %11 ], [ false, %8 ], [ false, %3 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %5) #16
   ret i1 %12
 }

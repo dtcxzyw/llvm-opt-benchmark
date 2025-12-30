@@ -74,7 +74,7 @@ define i32 @OSSL_trace_get_category_num(ptr noundef %0) local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %9
-  %.06 = phi i32 [ -1, %1 ], [ %11, %9 ], [ -1, %3 ]
+  %.06 = phi i32 [ %11, %9 ], [ -1, %1 ], [ -1, %3 ]
   ret i32 %.06
 }
 

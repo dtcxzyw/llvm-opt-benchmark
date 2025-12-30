@@ -746,7 +746,7 @@ define hidden range(i32 0, 2) i32 @ssl_add_cert_chain(ptr noundef readonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %.preheader, %._crit_edge, %.critedge, %19, %12
-  %.029 = phi i32 [ 0, %12 ], [ 0, %19 ], [ 1, %._crit_edge ], [ 0, %.critedge ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %22 ]
+  %.029 = phi i32 [ 0, %12 ], [ 0, %19 ], [ 0, %.critedge ], [ 1, %._crit_edge ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %22 ]
   ret i32 %.029
 }
 

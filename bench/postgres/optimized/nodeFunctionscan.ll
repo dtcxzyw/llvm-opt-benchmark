@@ -740,8 +740,8 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   br i1 %141, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph93, %slot_getallattrs.exit, %98
-  %.2 = phi i32 [ %107, %.lr.ph93 ], [ %.08296, %98 ], [ %.08296, %slot_getallattrs.exit ], [ %138, %.lr.ph ]
-  %.180 = phi i1 [ %.07997, %.lr.ph93 ], [ %.07997, %98 ], [ false, %slot_getallattrs.exit ], [ false, %.lr.ph ]
+  %.2 = phi i32 [ %.08296, %98 ], [ %.08296, %slot_getallattrs.exit ], [ %107, %.lr.ph93 ], [ %138, %.lr.ph ]
+  %.180 = phi i1 [ %.07997, %98 ], [ false, %slot_getallattrs.exit ], [ %.07997, %.lr.ph93 ], [ false, %.lr.ph ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %142 = load i32, ptr %43, align 8
   %143 = sext i32 %142 to i64

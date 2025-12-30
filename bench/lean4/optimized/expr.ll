@@ -274,7 +274,7 @@ define hidden noundef zeroext i1 @_ZN4leaneqERKNS_7literalES2_(ptr noundef nonnu
   unreachable
 
 _ZN4leaneqERKNS_10string_refES2_.exit:            ; preds = %.critedge.i.i.i, %31, %20, %16, %10, %2
-  %.0 = phi i1 [ %21, %20 ], [ false, %2 ], [ true, %10 ], [ false, %16 ], [ %32, %31 ], [ %33, %.critedge.i.i.i ]
+  %.0 = phi i1 [ false, %2 ], [ true, %10 ], [ false, %16 ], [ %21, %20 ], [ %32, %31 ], [ %33, %.critedge.i.i.i ]
   ret i1 %.0
 }
 
@@ -3308,7 +3308,7 @@ define hidden void @_ZN4lean14update_bindingERKNS_4exprES2_S2_(ptr dead_on_unwin
   br label %_ZN4lean12binding_infoERKNS_4exprE.exit
 
 _ZN4lean12binding_infoERKNS_4exprE.exit:          ; preds = %19, %21, %22
-  %23 = phi ptr [ %.pre.i.i, %22 ], [ %5, %19 ], [ %5, %21 ]
+  %23 = phi ptr [ %5, %19 ], [ %5, %21 ], [ %.pre.i.i, %22 ]
   %24 = tail call zeroext i8 @lean_expr_binder_info(ptr noundef %23)
   %25 = zext i8 %24 to i32
   %.mask = and i32 %.val.i.i.i, -16777216
@@ -5207,7 +5207,7 @@ _ZN4leaneqERKNS_3natEj.exit.i.i.i:                ; preds = %.critedge.i.i.i.i.i
   br label %"_ZSt10__invoke_rIbRZN4lean14has_loose_bvarERKNS0_4exprEjE3$_0JS3_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit"
 
 "_ZSt10__invoke_rIbRZN4lean14has_loose_bvarERKNS0_4exprEjE3$_0JS3_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit": ; preds = %3, %8, %_ZN4lean20get_loose_bvar_rangeERKNS_4exprE.exit.i.i.i, %26, %39, %_ZN4leaneqERKNS_3natEj.exit.i.i.i, %44
-  %.0.i.i.i = phi i1 [ false, %3 ], [ false, %_ZN4lean20get_loose_bvar_rangeERKNS_4exprE.exit.i.i.i ], [ false, %8 ], [ true, %_ZN4leaneqERKNS_3natEj.exit.i.i.i ], [ true, %44 ], [ true, %26 ], [ true, %39 ]
+  %.0.i.i.i = phi i1 [ false, %3 ], [ false, %8 ], [ false, %_ZN4lean20get_loose_bvar_rangeERKNS_4exprE.exit.i.i.i ], [ true, %_ZN4leaneqERKNS_3natEj.exit.i.i.i ], [ true, %44 ], [ true, %26 ], [ true, %39 ]
   ret i1 %.0.i.i.i
 }
 
@@ -5465,7 +5465,7 @@ _ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i:     ; preds = %_ZN4leangeERKNS_3na
           to label %80 unwind label %118, !noalias !140
 
 80:                                               ; preds = %.critedge.i.i.i.i.i.i, %74, %71
-  %.1.i.i.i.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %71 ], [ %78, %74 ], [ %79, %.critedge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %78, %74 ], [ inttoptr (i64 1 to ptr), %71 ], [ %79, %.critedge.i.i.i.i.i.i ]
   store ptr %.1.i.i.i.i.i.i, ptr %6, align 8, !tbaa !10, !alias.scope !153, !noalias !140
   %81 = ptrtoint ptr %.1.i.i.i.i.i.i to i64
   %82 = and i64 %81, 1
@@ -5822,7 +5822,7 @@ _ZN4leangeERKNS_3natEj.exit._crit_edge.i.i.i:     ; preds = %_ZN4leangeERKNS_3na
           to label %84 unwind label %106, !noalias !175
 
 84:                                               ; preds = %.critedge.i.i.i.i.i.i, %81, %77
-  %85 = phi ptr [ %82, %81 ], [ %80, %77 ], [ %83, %.critedge.i.i.i.i.i.i ]
+  %85 = phi ptr [ %80, %77 ], [ %82, %81 ], [ %83, %.critedge.i.i.i.i.i.i ]
   store ptr %85, ptr %6, align 8, !tbaa !10, !alias.scope !188, !noalias !175
   %86 = ptrtoint ptr %85 to i64
   %87 = and i64 %86, 1
@@ -6001,7 +6001,7 @@ _ZN4lean10object_refD2Ev.exit.i.i.i.i:            ; preds = %.preheader.i.i.i
   br label %"_ZSt10__invoke_rIbRZN4lean23has_expr_metavar_strictERKNS0_4exprEE3$_0JS3_EENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit"
 
 "_ZSt10__invoke_rIbRZN4lean23has_expr_metavar_strictERKNS0_4exprEE3$_0JS3_EENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit": ; preds = %.preheader.i.i.i, %2, %5, %_ZN4lean10object_refD2Ev.exit.i.i.i.i, %23, %25, %26
-  %.0.i.i.i = phi i1 [ false, %2 ], [ false, %26 ], [ false, %5 ], [ false, %_ZN4lean10object_refD2Ev.exit.i.i.i.i ], [ false, %23 ], [ false, %25 ], [ true, %.preheader.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %5 ], [ false, %2 ], [ false, %_ZN4lean10object_refD2Ev.exit.i.i.i.i ], [ false, %23 ], [ false, %25 ], [ false, %26 ], [ true, %.preheader.i.i.i ]
   ret i1 %.0.i.i.i
 }
 

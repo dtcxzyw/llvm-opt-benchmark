@@ -439,7 +439,7 @@ _points_to_transform.exit:                        ; preds = %8
   br label %58
 
 58:                                               ; preds = %_points_to_transform.exit, %.loopexit, %56
-  %.0 = phi i32 [ 0, %_points_to_transform.exit ], [ 0, %56 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 0, %56 ], [ 0, %_points_to_transform.exit ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -640,7 +640,7 @@ _points_to_transform.exit.i:                      ; preds = %17
   br label %_circle_get_points_source.exit
 
 _circle_get_points_source.exit:                   ; preds = %105, %104, %_points_to_transform.exit.i, %107, %113, %114
-  %.0 = phi i32 [ 0, %107 ], [ %122, %114 ], [ 1, %113 ], [ 0, %105 ], [ 1, %104 ], [ 0, %_points_to_transform.exit.i ]
+  %.0 = phi i32 [ %122, %114 ], [ 1, %113 ], [ 0, %107 ], [ 0, %105 ], [ 1, %104 ], [ 0, %_points_to_transform.exit.i ]
   ret i32 %.0
 }
 
@@ -2005,7 +2005,7 @@ define internal range(i32 0, 2) i32 @_circle_events_mouse_moved(ptr noundef %0, 
   br label %84
 
 84:                                               ; preds = %69, %83, %81
-  %85 = phi reassoc nsz arcp contract afn float [ 0x3F40624DE0000000, %81 ], [ %79, %83 ], [ %73, %69 ]
+  %85 = phi reassoc nsz arcp contract afn float [ %79, %83 ], [ 0x3F40624DE0000000, %81 ], [ %73, %69 ]
   store float %85, ptr %77, align 4, !tbaa !16
   tail call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #13
   tail call void (...) @dt_control_queue_redraw_center() #13
@@ -2044,7 +2044,7 @@ define internal range(i32 0, 2) i32 @_circle_events_mouse_moved(ptr noundef %0, 
   br label %109
 
 109:                                              ; preds = %90, %108, %106
-  %110 = phi reassoc nsz arcp contract afn float [ 0x3F50624DE0000000, %106 ], [ %104, %108 ], [ %94, %90 ]
+  %110 = phi reassoc nsz arcp contract afn float [ %104, %108 ], [ 0x3F50624DE0000000, %106 ], [ %94, %90 ]
   store float %110, ptr %100, align 4, !tbaa !21
   tail call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #13
   tail call void (...) @dt_control_queue_redraw_center() #13
@@ -2195,7 +2195,7 @@ define internal range(i32 0, 2) i32 @_circle_events_mouse_moved(ptr noundef %0, 
   br label %192
 
 192:                                              ; preds = %189, %186
-  %.1 = phi i32 [ %., %189 ], [ 0, %186 ]
+  %.1 = phi i32 [ 0, %186 ], [ %., %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2378,7 +2378,7 @@ define internal range(i32 0, 2) i32 @_circle_events_mouse_scrolled(ptr noundef %
   br label %.critedge
 
 .critedge:                                        ; preds = %89, %49, %66, %76, %93, %47
-  %.0 = phi i32 [ 1, %47 ], [ 1, %66 ], [ 0, %49 ], [ 1, %93 ], [ 1, %76 ], [ 0, %89 ]
+  %.0 = phi i32 [ 1, %47 ], [ 1, %93 ], [ 1, %76 ], [ 1, %66 ], [ 0, %49 ], [ 0, %89 ]
   ret i32 %.0
 }
 
@@ -2822,12 +2822,12 @@ define internal range(i32 0, 2) i32 @_circle_events_button_pressed(ptr noundef %
   store ptr %243, ptr %247, align 8, !tbaa !165
   br label %.critedge
 
-.critedge:                                        ; preds = %175, %.preheader, %._crit_edge, %163, %167, %198, %202, %207, %.critedge185, %216
+.critedge:                                        ; preds = %175, %.preheader, %._crit_edge, %167, %163, %198, %202, %207, %.critedge185, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
 .thread:                                          ; preds = %31, %83, %78, %72, %41, %86, %.critedge, %103, %99, %34, %80, %11
-  %.0 = phi i32 [ 0, %11 ], [ 1, %86 ], [ 1, %103 ], [ 1, %.critedge ], [ 1, %99 ], [ 0, %34 ], [ 0, %80 ], [ 0, %31 ], [ 1, %83 ], [ 1, %78 ], [ 1, %72 ], [ 1, %41 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %86 ], [ 1, %.critedge ], [ 1, %103 ], [ 1, %99 ], [ 0, %80 ], [ 0, %34 ], [ 0, %31 ], [ 1, %83 ], [ 1, %78 ], [ 1, %72 ], [ 1, %41 ]
   ret i32 %.0
 }
 

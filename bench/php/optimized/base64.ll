@@ -440,9 +440,9 @@ default.unreachable:                              ; preds = %.loopexit76
   br i1 %.not.i110130, label %.outer77._crit_edge, label %.lr.ph112.lr.ph
 
 .outer77._crit_edge:                              ; preds = %.outer, %.split, %.backedge, %.outer.us, %.split.us.us.us, %.backedge.us.us.us
-  %.046.i.ph.lcssa98 = phi i64 [ %.046.i.ph152.us, %.split.us.us.us ], [ %60, %.outer.us ], [ %.046.i.ph152, %.split ], [ %.046.i.ph152.us, %.backedge.us.us.us ], [ %.046.i.ph152, %.backedge ], [ %122, %.outer ]
-  %.0.i.ph.lcssa96 = phi i64 [ %.0.i.ph154.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph154, %.split ], [ %.0.i.ph154.us, %.backedge.us.us.us ], [ %.0.i.ph154, %.backedge ], [ %.1.i, %.outer ]
-  %.045.i.ph80.lcssa93 = phi i64 [ %74, %.split.us.us.us ], [ 0, %.outer.us ], [ %86, %.split ], [ %.045.i.ph80132.us.us, %.backedge.us.us.us ], [ %.045.i.ph80132, %.backedge ], [ %.045.i.ph80132, %.outer ]
+  %.046.i.ph.lcssa98 = phi i64 [ %.046.i.ph152.us, %.backedge.us.us.us ], [ %.046.i.ph152.us, %.split.us.us.us ], [ %60, %.outer.us ], [ %.046.i.ph152, %.backedge ], [ %.046.i.ph152, %.split ], [ %122, %.outer ]
+  %.0.i.ph.lcssa96 = phi i64 [ %.0.i.ph154.us, %.backedge.us.us.us ], [ %.0.i.ph154.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph154, %.backedge ], [ %.0.i.ph154, %.split ], [ %.1.i, %.outer ]
+  %.045.i.ph80.lcssa93 = phi i64 [ %.045.i.ph80132.us.us, %.backedge.us.us.us ], [ %74, %.split.us.us.us ], [ 0, %.outer.us ], [ %.045.i.ph80132, %.backedge ], [ %86, %.split ], [ %.045.i.ph80132, %.outer ]
   %124 = and i64 %.046.i.ph.lcssa98, 3
   %125 = icmp eq i64 %124, 1
   %or.cond55.i = select i1 %2, i1 %125, i1 false
@@ -468,7 +468,7 @@ default.unreachable:                              ; preds = %.loopexit76
   br label %134
 
 .thread233:                                       ; preds = %.thread, %130, %126
-  %.0.i.ph.lcssa96231238 = phi i64 [ %.0.i.ph.lcssa96, %126 ], [ %.0.i.ph.lcssa96, %130 ], [ %.065.lcssa, %.thread ]
+  %.0.i.ph.lcssa96231238 = phi i64 [ %.0.i.ph.lcssa96, %130 ], [ %.0.i.ph.lcssa96, %126 ], [ %.065.lcssa, %.thread ]
   %133 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa96231238
   store i8 0, ptr %133, align 1, !tbaa !9
   store i64 %.0.i.ph.lcssa96231238, ptr %8, align 8, !tbaa !13
@@ -939,9 +939,9 @@ default.unreachable:                              ; preds = %.loopexit115
   br i1 %.not.i149169, label %.outer116._crit_edge, label %.lr.ph151.lr.ph
 
 .outer116._crit_edge:                             ; preds = %.outer, %.split, %.backedge, %.outer.us, %.split.us.us.us, %.backedge.us.us.us
-  %.046.i.ph.lcssa137 = phi i64 [ %.046.i.ph191.us, %.split.us.us.us ], [ %74, %.outer.us ], [ %.046.i.ph191, %.split ], [ %.046.i.ph191.us, %.backedge.us.us.us ], [ %.046.i.ph191, %.backedge ], [ %136, %.outer ]
-  %.0.i.ph.lcssa135 = phi i64 [ %.0.i.ph193.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph193, %.split ], [ %.0.i.ph193.us, %.backedge.us.us.us ], [ %.0.i.ph193, %.backedge ], [ %.1.i, %.outer ]
-  %.045.i.ph119.lcssa132 = phi i64 [ %88, %.split.us.us.us ], [ 0, %.outer.us ], [ %100, %.split ], [ %.045.i.ph119171.us.us, %.backedge.us.us.us ], [ %.045.i.ph119171, %.backedge ], [ %.045.i.ph119171, %.outer ]
+  %.046.i.ph.lcssa137 = phi i64 [ %.046.i.ph191.us, %.backedge.us.us.us ], [ %.046.i.ph191.us, %.split.us.us.us ], [ %74, %.outer.us ], [ %.046.i.ph191, %.backedge ], [ %.046.i.ph191, %.split ], [ %136, %.outer ]
+  %.0.i.ph.lcssa135 = phi i64 [ %.0.i.ph193.us, %.backedge.us.us.us ], [ %.0.i.ph193.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph193, %.backedge ], [ %.0.i.ph193, %.split ], [ %.1.i, %.outer ]
+  %.045.i.ph119.lcssa132 = phi i64 [ %.045.i.ph119171.us.us, %.backedge.us.us.us ], [ %88, %.split.us.us.us ], [ 0, %.outer.us ], [ %.045.i.ph119171, %.backedge ], [ %100, %.split ], [ %.045.i.ph119171, %.outer ]
   %138 = and i64 %.046.i.ph.lcssa137, 3
   %139 = icmp eq i64 %138, 1
   %or.cond55.i = select i1 %2, i1 %139, i1 false
@@ -967,7 +967,7 @@ default.unreachable:                              ; preds = %.loopexit115
   br label %148
 
 .thread272:                                       ; preds = %.thread, %144, %140
-  %.0.i.ph.lcssa135270277 = phi i64 [ %.0.i.ph.lcssa135, %140 ], [ %.0.i.ph.lcssa135, %144 ], [ %.0104.lcssa, %.thread ]
+  %.0.i.ph.lcssa135270277 = phi i64 [ %.0.i.ph.lcssa135, %144 ], [ %.0.i.ph.lcssa135, %140 ], [ %.0104.lcssa, %.thread ]
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa135270277
   store i8 0, ptr %147, align 1, !tbaa !9
   store i64 %.0.i.ph.lcssa135270277, ptr %8, align 8, !tbaa !13
@@ -1055,9 +1055,9 @@ define dso_local noundef ptr @php_base64_encode_avx2(ptr noundef readonly captur
   br i1 %58, label %.lr.ph47.preheader, label %._crit_edge
 
 .lr.ph47.preheader:                               ; preds = %.lr.ph, %13, %.loopexit
-  %.0.i46.ph = phi ptr [ %0, %.loopexit ], [ %31, %13 ], [ %54, %.lr.ph ]
-  %.030.i45.ph = phi ptr [ %11, %.loopexit ], [ %32, %13 ], [ %55, %.lr.ph ]
-  %.031.i44.ph = phi i64 [ %1, %.loopexit ], [ %33, %13 ], [ %56, %.lr.ph ]
+  %.0.i46.ph = phi ptr [ %31, %13 ], [ %0, %.loopexit ], [ %54, %.lr.ph ]
+  %.030.i45.ph = phi ptr [ %32, %13 ], [ %11, %.loopexit ], [ %55, %.lr.ph ]
+  %.031.i44.ph = phi i64 [ %33, %13 ], [ %1, %.loopexit ], [ %56, %.lr.ph ]
   br label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
@@ -1626,9 +1626,9 @@ default.unreachable:                              ; preds = %.loopexit94
   br i1 %.not.i128148, label %.outer95._crit_edge, label %.lr.ph130.lr.ph
 
 .outer95._crit_edge:                              ; preds = %.outer, %.split, %.backedge, %.outer.us, %.split.us.us.us, %.backedge.us.us.us
-  %.046.i.ph.lcssa116 = phi i64 [ %.046.i.ph170.us, %.split.us.us.us ], [ %71, %.outer.us ], [ %.046.i.ph170, %.split ], [ %.046.i.ph170.us, %.backedge.us.us.us ], [ %.046.i.ph170, %.backedge ], [ %133, %.outer ]
-  %.0.i.ph.lcssa114 = phi i64 [ %.0.i.ph172.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph172, %.split ], [ %.0.i.ph172.us, %.backedge.us.us.us ], [ %.0.i.ph172, %.backedge ], [ %.1.i, %.outer ]
-  %.045.i.ph98.lcssa111 = phi i64 [ %85, %.split.us.us.us ], [ 0, %.outer.us ], [ %97, %.split ], [ %.045.i.ph98150.us.us, %.backedge.us.us.us ], [ %.045.i.ph98150, %.backedge ], [ %.045.i.ph98150, %.outer ]
+  %.046.i.ph.lcssa116 = phi i64 [ %.046.i.ph170.us, %.backedge.us.us.us ], [ %.046.i.ph170.us, %.split.us.us.us ], [ %71, %.outer.us ], [ %.046.i.ph170, %.backedge ], [ %.046.i.ph170, %.split ], [ %133, %.outer ]
+  %.0.i.ph.lcssa114 = phi i64 [ %.0.i.ph172.us, %.backedge.us.us.us ], [ %.0.i.ph172.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph172, %.backedge ], [ %.0.i.ph172, %.split ], [ %.1.i, %.outer ]
+  %.045.i.ph98.lcssa111 = phi i64 [ %.045.i.ph98150.us.us, %.backedge.us.us.us ], [ %85, %.split.us.us.us ], [ 0, %.outer.us ], [ %.045.i.ph98150, %.backedge ], [ %97, %.split ], [ %.045.i.ph98150, %.outer ]
   %135 = and i64 %.046.i.ph.lcssa116, 3
   %136 = icmp eq i64 %135, 1
   %or.cond55.i = select i1 %2, i1 %136, i1 false
@@ -1654,7 +1654,7 @@ default.unreachable:                              ; preds = %.loopexit94
   br label %145
 
 .thread251:                                       ; preds = %.thread, %141, %137
-  %.0.i.ph.lcssa114249256 = phi i64 [ %.0.i.ph.lcssa114, %137 ], [ %.0.i.ph.lcssa114, %141 ], [ %.083.lcssa, %.thread ]
+  %.0.i.ph.lcssa114249256 = phi i64 [ %.0.i.ph.lcssa114, %141 ], [ %.0.i.ph.lcssa114, %137 ], [ %.083.lcssa, %.thread ]
   %144 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa114249256
   store i8 0, ptr %144, align 1, !tbaa !9
   store i64 %.0.i.ph.lcssa114249256, ptr %8, align 8, !tbaa !13
@@ -1941,9 +1941,9 @@ default.unreachable:                              ; preds = %.loopexit54
   br i1 %.not.i88108, label %.outer55._crit_edge, label %.lr.ph90.lr.ph
 
 .outer55._crit_edge:                              ; preds = %.outer, %.split, %.backedge, %.outer.us, %.split.us.us.us, %.backedge.us.us.us
-  %.046.i.ph.lcssa76 = phi i64 [ %.046.i.ph130.us, %.split.us.us.us ], [ %69, %.outer.us ], [ %.046.i.ph130, %.split ], [ %.046.i.ph130.us, %.backedge.us.us.us ], [ %.046.i.ph130, %.backedge ], [ %131, %.outer ]
-  %.0.i.ph.lcssa74 = phi i64 [ %.0.i.ph132.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph132, %.split ], [ %.0.i.ph132.us, %.backedge.us.us.us ], [ %.0.i.ph132, %.backedge ], [ %.1.i, %.outer ]
-  %.045.i.ph58.lcssa71 = phi i64 [ %83, %.split.us.us.us ], [ 0, %.outer.us ], [ %95, %.split ], [ %.045.i.ph58110.us.us, %.backedge.us.us.us ], [ %.045.i.ph58110, %.backedge ], [ %.045.i.ph58110, %.outer ]
+  %.046.i.ph.lcssa76 = phi i64 [ %.046.i.ph130.us, %.backedge.us.us.us ], [ %.046.i.ph130.us, %.split.us.us.us ], [ %69, %.outer.us ], [ %.046.i.ph130, %.backedge ], [ %.046.i.ph130, %.split ], [ %131, %.outer ]
+  %.0.i.ph.lcssa74 = phi i64 [ %.0.i.ph132.us, %.backedge.us.us.us ], [ %.0.i.ph132.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph132, %.backedge ], [ %.0.i.ph132, %.split ], [ %.1.i, %.outer ]
+  %.045.i.ph58.lcssa71 = phi i64 [ %.045.i.ph58110.us.us, %.backedge.us.us.us ], [ %83, %.split.us.us.us ], [ 0, %.outer.us ], [ %.045.i.ph58110, %.backedge ], [ %95, %.split ], [ %.045.i.ph58110, %.outer ]
   %133 = and i64 %.046.i.ph.lcssa76, 3
   %134 = icmp eq i64 %133, 1
   %or.cond55.i = select i1 %2, i1 %134, i1 false
@@ -1969,7 +1969,7 @@ default.unreachable:                              ; preds = %.loopexit54
   br label %143
 
 .thread211:                                       ; preds = %.thread, %139, %135
-  %.0.i.ph.lcssa74209216 = phi i64 [ %.0.i.ph.lcssa74, %135 ], [ %.0.i.ph.lcssa74, %139 ], [ %.043.lcssa, %.thread ]
+  %.0.i.ph.lcssa74209216 = phi i64 [ %.0.i.ph.lcssa74, %139 ], [ %.0.i.ph.lcssa74, %135 ], [ %.043.lcssa, %.thread ]
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa74209216
   store i8 0, ptr %142, align 1, !tbaa !9
   store i64 %.0.i.ph.lcssa74209216, ptr %8, align 8, !tbaa !13
@@ -2341,9 +2341,9 @@ default.unreachable:                              ; preds = %.loopexit13
   br i1 %.not.i3755, label %.outer14._crit_edge, label %.lr.ph.lr.ph
 
 .outer14._crit_edge:                              ; preds = %.outer, %.split, %.backedge, %.outer.us, %.split.us.us.us, %.backedge.us.us.us
-  %.046.i.ph.lcssa35 = phi i64 [ %.046.i.ph77.us, %.split.us.us.us ], [ %40, %.outer.us ], [ %.046.i.ph77, %.split ], [ %.046.i.ph77.us, %.backedge.us.us.us ], [ %.046.i.ph77, %.backedge ], [ %102, %.outer ]
-  %.0.i.ph.lcssa33 = phi i64 [ %.0.i.ph79.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph79, %.split ], [ %.0.i.ph79.us, %.backedge.us.us.us ], [ %.0.i.ph79, %.backedge ], [ %.1.i, %.outer ]
-  %.045.i.ph17.lcssa30 = phi i64 [ %54, %.split.us.us.us ], [ 0, %.outer.us ], [ %66, %.split ], [ %.045.i.ph1757.us.us, %.backedge.us.us.us ], [ %.045.i.ph1757, %.backedge ], [ %.045.i.ph1757, %.outer ]
+  %.046.i.ph.lcssa35 = phi i64 [ %.046.i.ph77.us, %.backedge.us.us.us ], [ %.046.i.ph77.us, %.split.us.us.us ], [ %40, %.outer.us ], [ %.046.i.ph77, %.backedge ], [ %.046.i.ph77, %.split ], [ %102, %.outer ]
+  %.0.i.ph.lcssa33 = phi i64 [ %.0.i.ph79.us, %.backedge.us.us.us ], [ %.0.i.ph79.us, %.split.us.us.us ], [ %.1.i.us, %.outer.us ], [ %.0.i.ph79, %.backedge ], [ %.0.i.ph79, %.split ], [ %.1.i, %.outer ]
+  %.045.i.ph17.lcssa30 = phi i64 [ %.045.i.ph1757.us.us, %.backedge.us.us.us ], [ %54, %.split.us.us.us ], [ 0, %.outer.us ], [ %.045.i.ph1757, %.backedge ], [ %66, %.split ], [ %.045.i.ph1757, %.outer ]
   %104 = and i64 %.046.i.ph.lcssa35, 3
   %105 = icmp eq i64 %104, 1
   %or.cond55.i = select i1 %2, i1 %105, i1 false
@@ -2369,7 +2369,7 @@ default.unreachable:                              ; preds = %.loopexit13
   br label %114
 
 .thread:                                          ; preds = %zend_string_alloc.exit, %110, %106
-  %.0.i.ph.lcssa33147153 = phi i64 [ %.0.i.ph.lcssa33, %106 ], [ %.0.i.ph.lcssa33, %110 ], [ 0, %zend_string_alloc.exit ]
+  %.0.i.ph.lcssa33147153 = phi i64 [ %.0.i.ph.lcssa33, %110 ], [ %.0.i.ph.lcssa33, %106 ], [ 0, %zend_string_alloc.exit ]
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i.ph.lcssa33147153
   store i8 0, ptr %113, align 1, !tbaa !9
   store i64 %.0.i.ph.lcssa33147153, ptr %8, align 8, !tbaa !13
@@ -2511,10 +2511,10 @@ zend_parse_arg_bool_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_bool
   br label %.critedge
 
 .thread87:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_string.exit, %8
-  %.098 = phi i32 [ 0, %8 ], [ 1, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05497 = phi i32 [ 1, %8 ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  %.05596 = phi ptr [ null, %8 ], [ %10, %zend_parse_arg_string.exit ], [ %23, %zend_parse_arg_bool_ex.exit ]
-  %.05695 = phi i32 [ 0, %8 ], [ 4, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.098 = phi i32 [ 1, %zend_parse_arg_string.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05497 = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.05596 = phi ptr [ %10, %zend_parse_arg_string.exit ], [ null, %8 ], [ %23, %zend_parse_arg_bool_ex.exit ]
+  %.05695 = phi i32 [ 4, %zend_parse_arg_string.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05497, i32 noundef %.098, ptr noundef null, i32 noundef %.05695, ptr noundef %.05596) #11
   br label %36
 
@@ -2578,7 +2578,7 @@ define internal nonnull ptr @resolve_base64_encode() #7 {
   br label %12
 
 12:                                               ; preds = %9, %6, %3, %0
-  %.0 = phi ptr [ @php_base64_encode_avx2, %6 ], [ @php_base64_encode_avx512_vbmi, %0 ], [ @php_base64_encode_avx512, %3 ], [ %php_base64_encode_default.php_base64_encode_ssse3, %9 ]
+  %.0 = phi ptr [ @php_base64_encode_avx512_vbmi, %0 ], [ @php_base64_encode_avx512, %3 ], [ @php_base64_encode_avx2, %6 ], [ %php_base64_encode_default.php_base64_encode_ssse3, %9 ]
   ret ptr %.0
 }
 
@@ -2616,7 +2616,7 @@ define internal nonnull ptr @resolve_base64_decode() #7 {
   br label %12
 
 12:                                               ; preds = %9, %6, %3, %0
-  %.0 = phi ptr [ @php_base64_decode_ex_avx2, %6 ], [ @php_base64_decode_ex_avx512_vbmi, %0 ], [ @php_base64_decode_ex_avx512, %3 ], [ %php_base64_decode_ex_default.php_base64_decode_ex_ssse3, %9 ]
+  %.0 = phi ptr [ @php_base64_decode_ex_avx512_vbmi, %0 ], [ @php_base64_decode_ex_avx512, %3 ], [ @php_base64_decode_ex_avx2, %6 ], [ %php_base64_decode_ex_default.php_base64_decode_ex_ssse3, %9 ]
   ret ptr %.0
 }
 

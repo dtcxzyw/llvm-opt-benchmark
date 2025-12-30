@@ -357,8 +357,8 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   br label %51
 
 51:                                               ; preds = %._crit_edge148, %37, %44
-  %.0138 = phi double [ %50, %44 ], [ %41, %37 ], [ 0.000000e+00, %._crit_edge148 ]
-  %.0133 = phi double [ %48, %44 ], [ %43, %37 ], [ 1.000000e+00, %._crit_edge148 ]
+  %.0138 = phi double [ %41, %37 ], [ %50, %44 ], [ 0.000000e+00, %._crit_edge148 ]
+  %.0133 = phi double [ %43, %37 ], [ %48, %44 ], [ 1.000000e+00, %._crit_edge148 ]
   %.idx172 = shl nuw nsw i64 %indvars.iv159, 4
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx172
   store double %.0133, ptr %52, align 8, !tbaa !10
@@ -458,8 +458,8 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   br label %110
 
 110:                                              ; preds = %._crit_edge, %96, %103
-  %.1139 = phi double [ %109, %103 ], [ %100, %96 ], [ 0.000000e+00, %._crit_edge ]
-  %.1134 = phi double [ %107, %103 ], [ %102, %96 ], [ 1.000000e+00, %._crit_edge ]
+  %.1139 = phi double [ %100, %96 ], [ %109, %103 ], [ 0.000000e+00, %._crit_edge ]
+  %.1134 = phi double [ %102, %96 ], [ %107, %103 ], [ 1.000000e+00, %._crit_edge ]
   %111 = shl nsw i32 %62, 1
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds double, ptr %2, i64 %112
@@ -479,7 +479,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.preheader144, %110, %121
-  %.2 = phi i32 [ 0, %110 ], [ %0, %121 ], [ 0, %.preheader144 ], [ %.1, %51 ]
+  %.2 = phi i32 [ %0, %121 ], [ 0, %110 ], [ 0, %.preheader144 ], [ %.1, %51 ]
   ret i32 %.2
 }
 
@@ -575,7 +575,7 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %.lr.ph56.preheader, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge, %4
-  %.0 = phi i32 [ 0, %4 ], [ %0, %.lr.ph56.preheader ], [ %47, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %4 ], [ %47, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge ], [ %0, %.lr.ph56.preheader ], [ 0, %32 ]
   ret i32 %.0
 }
 

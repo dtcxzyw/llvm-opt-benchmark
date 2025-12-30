@@ -2338,7 +2338,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit153:         ; preds = %_ZNSt7__cxx1112basi
   br label %.critedge63
 
 .critedge63:                                      ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit93, %_ZN5clang17DiagnosticBuilderD2Ev.exit153, %1017, %1028, %1025, %1023, %_ZN5clang17DiagnosticBuilderD2Ev.exit139, %.critedge, %_ZN5clang17DiagnosticBuilderD2Ev.exit107, %_ZN5clang17DiagnosticBuilderD2Ev.exit74
-  %.0 = phi i1 [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit74 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit93 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit107 ], [ false, %.critedge ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit139 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit153 ], [ true, %1017 ], [ true, %1028 ], [ false, %1025 ], [ false, %1023 ]
+  %.0 = phi i1 [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit74 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit93 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit107 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit139 ], [ false, %.critedge ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit153 ], [ true, %1017 ], [ true, %1028 ], [ false, %1025 ], [ false, %1023 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i1 %.0
@@ -15215,7 +15215,7 @@ switch.lookup:                                    ; preds = %0
   br label %16
 
 16:                                               ; preds = %switch.lookup, %0, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.0 = phi i32 [ 14, %15 ], [ 15, %0 ], [ %switch.load, %switch.lookup ], [ 13, %14 ], [ 4, %5 ], [ 5, %6 ], [ 6, %7 ], [ 7, %8 ], [ 8, %9 ], [ 9, %10 ], [ 10, %11 ], [ 11, %12 ], [ 12, %13 ]
+  %.0 = phi i32 [ 4, %5 ], [ 5, %6 ], [ 6, %7 ], [ 7, %8 ], [ 8, %9 ], [ 9, %10 ], [ 10, %11 ], [ 11, %12 ], [ 12, %13 ], [ 13, %14 ], [ 14, %15 ], [ 15, %0 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -19679,7 +19679,7 @@ _ZL14computeODRHashPKN5clang4DeclE.exit854:       ; preds = %_ZN4llvm16FoldingSe
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit": ; preds = %1514, %1516, %1522, %1523, %1526, %1527
-  %.1.i = phi i1 [ %1529, %1527 ], [ %1518, %1516 ], [ false, %1526 ], [ false, %1514 ], [ false, %1522 ], [ %1525, %1523 ]
+  %.1.i = phi i1 [ false, %1526 ], [ %1529, %1527 ], [ %1518, %1516 ], [ false, %1514 ], [ %1525, %1523 ], [ false, %1522 ]
   %1530 = getelementptr inbounds nuw i8, ptr %1485, i64 28
   %1531 = load i32, ptr %1530, align 4
   %1532 = and i32 %1531, 127
@@ -19724,7 +19724,7 @@ _ZL14computeODRHashPKN5clang4DeclE.exit854:       ; preds = %_ZN4llvm16FoldingSe
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit866"
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit866": ; preds = %1534, %1536, %1542, %1543, %1546, %1547
-  %.1.i862 = phi i1 [ %1549, %1547 ], [ %1538, %1536 ], [ false, %1546 ], [ false, %1534 ], [ false, %1542 ], [ %1545, %1543 ]
+  %.1.i862 = phi i1 [ false, %1546 ], [ %1549, %1547 ], [ %1538, %1536 ], [ false, %1534 ], [ %1545, %1543 ], [ false, %1542 ]
   %1550 = getelementptr inbounds nuw i8, ptr %1484, i64 40
   %.sroa.0.0.copyload.i867 = load i64, ptr %1550, align 8, !tbaa !21
   %1551 = getelementptr inbounds nuw i8, ptr %1485, i64 40
@@ -19751,8 +19751,8 @@ _ZL14computeODRHashPKN5clang4DeclE.exit854:       ; preds = %_ZN4llvm16FoldingSe
   br label %1559
 
 1559:                                             ; preds = %1557, %1552, %1555
-  %.01828 = phi i64 [ %spec.select, %1557 ], [ %1556, %1555 ], [ 1, %1552 ]
-  %.0 = phi i32 [ %spec.select1838, %1557 ], [ %not., %1555 ], [ %not., %1552 ]
+  %.01828 = phi i64 [ 1, %1552 ], [ %1556, %1555 ], [ %spec.select, %1557 ]
+  %.0 = phi i32 [ %not., %1552 ], [ %not., %1555 ], [ %spec.select1838, %1557 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %1560 = getelementptr inbounds nuw i8, ptr %1484, i64 24
   %.sroa.0.0.copyload.i870 = load i32, ptr %1560, align 8, !tbaa !82
@@ -21165,7 +21165,7 @@ _ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit910: ; preds = %
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %78) #20
   br label %.critedge560.thread
 
-.critedge560.thread:                              ; preds = %2018, %2031, %2038, %2045, %2057, %_ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit906, %2060, %2112, %2102, %_ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit908, %2095, %2172, %2176
+.critedge560.thread:                              ; preds = %2018, %2031, %2038, %2045, %2057, %2060, %2112, %_ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit908, %_ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit906, %2095, %2102, %2172, %2176
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.critedge558
@@ -21370,7 +21370,7 @@ _ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit910: ; preds = %
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit"
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit": ; preds = %2261, %2266, %2267
-  %.0.i928 = phi i64 [ 2, %2267 ], [ 1, %2266 ], [ 0, %2261 ]
+  %.0.i928 = phi i64 [ 1, %2266 ], [ 2, %2267 ], [ 0, %2261 ]
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %87, i64 noundef %.0.i928, i32 noundef 2)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %87) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
@@ -21395,7 +21395,7 @@ _ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit910: ; preds = %
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit930"
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit930": ; preds = %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit", %2270, %2271
-  %.0.i929 = phi i64 [ 2, %2271 ], [ 1, %2270 ], [ 0, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit" ]
+  %.0.i929 = phi i64 [ 1, %2270 ], [ 2, %2271 ], [ 0, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit" ]
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %88, i64 noundef %.0.i929, i32 noundef 2)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %88) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
@@ -30367,7 +30367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i303: ; preds = %
   store ptr null, ptr %30, align 8, !tbaa !34
   br label %.critedge143
 
-.critedge143:                                     ; preds = %1229, %1226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i303, %_ZN5clang17DiagnosticBuilderD2Ev.exit212, %_ZN5clang17DiagnosticBuilderD2Ev.exit291, %_ZN5clang17DiagnosticBuilderD2Ev.exit268, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit236.thread, %_ZN5clang17DiagnosticBuilderD2Ev.exit247, %_ZN5clang17DiagnosticBuilderD2Ev.exit190
+.critedge143:                                     ; preds = %1229, %1226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i303, %_ZN5clang17DiagnosticBuilderD2Ev.exit212, %_ZN5clang17DiagnosticBuilderD2Ev.exit291, %_ZN5clang17DiagnosticBuilderD2Ev.exit268, %_ZN5clang17DiagnosticBuilderD2Ev.exit247, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit236.thread, %_ZN5clang17DiagnosticBuilderD2Ev.exit190
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %1230 = load ptr, ptr %15, align 8, !tbaa !58
   %1231 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -33748,7 +33748,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit211:         ; preds = %_ZNSt7__cxx1112basi
   br i1 %exitcond.not, label %.thread648, label %758, !llvm.loop !463
 
 .thread648:                                       ; preds = %1331, %.preheader, %_ZN5clang17DiagnosticBuilderD2Ev.exit194, %_ZN5clang17DiagnosticBuilderD2Ev.exit211, %_ZN5clang17DiagnosticBuilderD2Ev.exit180, %_ZN5clang17DiagnosticBuilderD2Ev.exit164
-  %.3 = phi i1 [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit164 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit194 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit180 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit211 ], [ false, %.preheader ], [ false, %1331 ]
+  %.3 = phi i1 [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit164 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit180 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit211 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit194 ], [ false, %.preheader ], [ false, %1331 ]
   %1332 = load ptr, ptr %21, align 8, !tbaa !54
   %1333 = icmp eq ptr %1332, %584
   br i1 %1333, label %_ZN4llvm11SmallVectorISt4pairIPKN5clang16EnumConstantDeclEjELj4EED2Ev.exit, label %1334
@@ -35162,7 +35162,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %_ZNK5clang4Type5get
   %.not96 = icmp eq i32 %101, %102
   br i1 %.not96, label %._ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread_crit_edge, label %104
 
-_ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread.thr_comm: ; preds = %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i, %87, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit
+_ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread.thr_comm: ; preds = %87, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit
   %.not498 = icmp eq ptr %52, null
   br i1 %.not498, label %._ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread_crit_edge, label %104
 
@@ -38974,7 +38974,7 @@ _ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit: ; preds =
   br i1 %.not50, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !534
 
 _ZSt4copyIN4llvm16pointer_iteratorIPKN5clang16TemplateArgumentES5_EEPS5_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit
-  %.0 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit ], [ %45, %.lr.ph.i.i.i.i.i.i.i.i ], [ %45, %_ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit ], [ %45, %._crit_edge ], [ %45, %.lr.ph.i.i.i.i.i ]
+  %.0 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit ], [ %45, %_ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit ], [ %45, %._crit_edge ], [ %45, %.lr.ph.i.i.i.i.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
   ret ptr %.0
 }
 

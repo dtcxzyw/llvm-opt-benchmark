@@ -202,7 +202,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom8loadMeshEP9rcContextRKNSt7__c
   br label %52
 
 52:                                               ; preds = %32, %51, %30
-  %.0 = phi i1 [ false, %30 ], [ false, %51 ], [ true, %32 ]
+  %.0 = phi i1 [ false, %51 ], [ false, %30 ], [ true, %32 ]
   ret i1 %.0
 }
 
@@ -365,9 +365,9 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11loadGeomSetEP9rcContextRKNSt
   br label %81
 
 81:                                               ; preds = %76, %74, %72, %.lr.ph.i
-  %.119.i = phi i8 [ %.01824.i, %.lr.ph.i ], [ 0, %76 ], [ %.01824.i, %72 ], [ 1, %74 ]
-  %.117.i = phi i1 [ false, %.lr.ph.i ], [ %80, %76 ], [ %not..i, %72 ], [ false, %74 ]
-  %.1.i = phi i32 [ %.01526.i, %.lr.ph.i ], [ %77, %76 ], [ %.01526.i, %72 ], [ %.01526.i, %74 ]
+  %.119.i = phi i8 [ %.01824.i, %.lr.ph.i ], [ 1, %74 ], [ %.01824.i, %72 ], [ 0, %76 ]
+  %.117.i = phi i1 [ false, %.lr.ph.i ], [ false, %74 ], [ %not..i, %72 ], [ %80, %76 ]
+  %.1.i = phi i32 [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %74 ], [ %.01526.i, %72 ], [ %77, %76 ]
   %82 = icmp uge ptr %71, %39
   %.not22.i = select i1 %.117.i, i1 true, i1 %82
   br i1 %.not22.i, label %_ZL8parseRowPcS_S_i.exit, label %.lr.ph.i, !llvm.loop !5
@@ -549,9 +549,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %161
 
 161:                                              ; preds = %156, %154, %152, %.lr.ph.i82
-  %.119.i86 = phi i8 [ %.01824.i85, %.lr.ph.i82 ], [ 0, %156 ], [ %.01824.i85, %152 ], [ 1, %154 ]
-  %.117.i87 = phi i1 [ false, %.lr.ph.i82 ], [ %160, %156 ], [ %not..i91, %152 ], [ false, %154 ]
-  %.1.i88 = phi i32 [ %.01526.i84, %.lr.ph.i82 ], [ %157, %156 ], [ %.01526.i84, %152 ], [ %.01526.i84, %154 ]
+  %.119.i86 = phi i8 [ %.01824.i85, %.lr.ph.i82 ], [ 1, %154 ], [ %.01824.i85, %152 ], [ 0, %156 ]
+  %.117.i87 = phi i1 [ false, %.lr.ph.i82 ], [ false, %154 ], [ %not..i91, %152 ], [ %160, %156 ]
+  %.1.i88 = phi i32 [ %.01526.i84, %.lr.ph.i82 ], [ %.01526.i84, %154 ], [ %.01526.i84, %152 ], [ %157, %156 ]
   %162 = icmp uge ptr %151, %39
   %.not22.i89 = select i1 %.117.i87, i1 true, i1 %162
   br i1 %.not22.i89, label %._crit_edge.loopexit.i90, label %.lr.ph.i82, !llvm.loop !5
@@ -582,7 +582,7 @@ _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edg
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZL8parseRowPcS_S_i.exit92, %.preheader, %139, %_ZL8parseRowPcS_S_i.exit, %105, %102, %172, %136, %96
-  %.1 = phi ptr [ %71, %96 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %105 ], [ %71, %102 ], [ %71, %.preheader ], [ %71, %136 ], [ %71, %172 ], [ %71, %139 ], [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ]
+  %.1 = phi ptr [ %71, %96 ], [ %71, %105 ], [ %71, %102 ], [ %71, %136 ], [ %71, %172 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %139 ], [ %71, %.preheader ], [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ]
   %174 = icmp ult ptr %.1, %39
   br i1 %174, label %69, label %._crit_edge, !llvm.loop !9
 
@@ -684,7 +684,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
           to label %28 unwind label %21
 
 28:                                               ; preds = %23, %26, %19
-  %.1 = phi i1 [ %27, %26 ], [ %20, %19 ], [ false, %23 ]
+  %.1 = phi i1 [ %20, %19 ], [ %27, %26 ], [ false, %23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %29
 
@@ -1213,9 +1213,9 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %43, %33, %39
   store float %190, ptr %3, align 4
   br label %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread
 
-_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread: ; preds = %167, %182, %158, %.lr.ph, %189, %192
-  %193 = phi float [ %99, %189 ], [ %190, %192 ], [ %99, %.lr.ph ], [ %99, %158 ], [ %99, %182 ], [ %99, %167 ]
-  %.2 = phi i1 [ true, %189 ], [ true, %192 ], [ %.162, %.lr.ph ], [ %.162, %158 ], [ %.162, %182 ], [ %.162, %167 ]
+_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread: ; preds = %182, %167, %158, %.lr.ph, %189, %192
+  %193 = phi float [ %190, %192 ], [ %99, %189 ], [ %99, %.lr.ph ], [ %99, %158 ], [ %99, %167 ], [ %99, %182 ]
+  %.2 = phi i1 [ true, %192 ], [ true, %189 ], [ %.162, %.lr.ph ], [ %.162, %158 ], [ %.162, %167 ], [ %.162, %182 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %194 = icmp samesign ult i64 %indvars.iv.next, %98
   br i1 %194, label %.lr.ph, label %._crit_edge, !llvm.loop !15

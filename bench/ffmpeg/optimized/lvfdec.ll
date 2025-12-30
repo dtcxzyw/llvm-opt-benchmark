@@ -30,7 +30,7 @@ define internal range(i32 0, 51) i32 @lvf_probe(ptr noundef readonly captures(no
   br label %9
 
 9:                                                ; preds = %5, %1
-  %.0 = phi i32 [ %spec.select, %5 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %5 ]
   ret i32 %.0
 }
 
@@ -167,7 +167,7 @@ define internal range(i32 -1163346256, 1) i32 @lvf_read_header(ptr noundef %0) #
   br i1 %.not50, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %23, %45, %75, %10, %1, %74, %71, %9
-  %.0 = phi i32 [ -1163346256, %9 ], [ -1163346256, %74 ], [ -1094995529, %1 ], [ 0, %71 ], [ -541478725, %10 ], [ -12, %45 ], [ -12, %23 ], [ -541478725, %75 ]
+  %.0 = phi i32 [ -1163346256, %9 ], [ -1163346256, %74 ], [ 0, %71 ], [ -1094995529, %1 ], [ -541478725, %10 ], [ -12, %23 ], [ -12, %45 ], [ -541478725, %75 ]
   ret i32 %.0
 }
 
@@ -250,7 +250,7 @@ define internal i32 @lvf_read_packet(ptr noundef readonly captures(none) %0, ptr
   br i1 %43, label %.loopexit, label %6, !llvm.loop !51
 
 .loopexit:                                        ; preds = %6, %38, %9, %17, %.loopexit35, %33
-  %.0 = phi i32 [ -1094995529, %.loopexit35 ], [ -1094995529, %17 ], [ %27, %33 ], [ -541478725, %6 ], [ -541478725, %9 ], [ %42, %38 ]
+  %.0 = phi i32 [ %27, %33 ], [ -1094995529, %.loopexit35 ], [ -1094995529, %17 ], [ -541478725, %6 ], [ %42, %38 ], [ -541478725, %9 ]
   ret i32 %.0
 }
 

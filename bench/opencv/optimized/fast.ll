@@ -534,7 +534,7 @@ _ZN12_GLOBAL__N_111cornerScoreILi8EEEiPKhPKii.exit.i: ; preds = %339
   br label %.thread.i
 
 350:                                              ; preds = %282, %274
-  %.1143.i = phi i32 [ 0, %274 ], [ %283, %282 ]
+  %.1143.i = phi i32 [ %283, %282 ], [ 0, %274 ]
   %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
   %exitcond235.not.i = icmp eq i64 %indvars.iv.next233.i, 13
   br i1 %exitcond235.not.i, label %.thread.i, label %274, !llvm.loop !52
@@ -685,7 +685,7 @@ _ZN12_GLOBAL__N_111cornerScoreILi8EEEiPKhPKii.exit186.i: ; preds = %420
   br label %.thread216.i
 
 431:                                              ; preds = %362, %354
-  %.1137.i = phi i32 [ 0, %354 ], [ %363, %362 ]
+  %.1137.i = phi i32 [ %363, %362 ], [ 0, %354 ]
   %indvars.iv.next237.i = add nuw nsw i64 %indvars.iv236.i, 1
   %exitcond239.not.i = icmp eq i64 %indvars.iv.next237.i, 13
   br i1 %exitcond239.not.i, label %.thread216.i, label %354, !llvm.loop !53
@@ -1150,7 +1150,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   br label %.thread.i37
 
 728:                                              ; preds = %715, %707
-  %.1143.i36 = phi i32 [ 0, %707 ], [ %716, %715 ]
+  %.1143.i36 = phi i32 [ %716, %715 ], [ 0, %707 ]
   %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
   %exitcond209.not.i = icmp eq i64 %indvars.iv.next207.i, 19
   br i1 %exitcond209.not.i, label %.thread.i37, label %707, !llvm.loop !60
@@ -1201,7 +1201,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   br label %.thread190.i
 
 753:                                              ; preds = %740, %732
-  %.1137.i39 = phi i32 [ 0, %732 ], [ %741, %740 ]
+  %.1137.i39 = phi i32 [ %741, %740 ], [ 0, %732 ]
   %indvars.iv.next211.i = add nuw nsw i64 %indvars.iv210.i, 1
   %exitcond213.not.i = icmp eq i64 %indvars.iv.next211.i, 19
   br i1 %exitcond213.not.i, label %.thread190.i, label %732, !llvm.loop !61
@@ -1666,7 +1666,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   br label %.thread.i78
 
 1050:                                             ; preds = %1037, %1029
-  %.1143.i75 = phi i32 [ 0, %1029 ], [ %1038, %1037 ]
+  %.1143.i75 = phi i32 [ %1038, %1037 ], [ 0, %1029 ]
   %indvars.iv.next207.i76 = add nuw nsw i64 %indvars.iv206.i73, 1
   %exitcond209.not.i77 = icmp eq i64 %indvars.iv.next207.i76, 25
   br i1 %exitcond209.not.i77, label %.thread.i78, label %1029, !llvm.loop !68
@@ -1717,7 +1717,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   br label %.thread190.i85
 
 1075:                                             ; preds = %1062, %1054
-  %.1137.i82 = phi i32 [ 0, %1054 ], [ %1063, %1062 ]
+  %.1137.i82 = phi i32 [ %1063, %1062 ], [ 0, %1054 ]
   %indvars.iv.next211.i83 = add nuw nsw i64 %indvars.iv210.i80, 1
   %exitcond213.not.i84 = icmp eq i64 %indvars.iv.next211.i83, 25
   br i1 %exitcond213.not.i84, label %.thread190.i85, label %1054, !llvm.loop !69

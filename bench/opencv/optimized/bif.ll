@@ -491,7 +491,7 @@ _ZNSt6vectorIN12_GLOBAL__N_17BIFImpl10UnitParamsESaIS2_EE9push_backERKS2_.exit.u
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i, %127, %.split94.us.i.i, %.loopexit.split.us.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %128, %127 ], [ %120, %.split94.us.i.i ], [ %lpad.loopexit.us.i.i, %.loopexit.split.us.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %120, %.split94.us.i.i ], [ %128, %127 ], [ %lpad.loopexit.us.i.i, %.loopexit.split.us.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %45) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -513,7 +513,7 @@ _ZNSt6vectorIN12_GLOBAL__N_17BIFImpl10UnitParamsESaIS2_EE9push_backERKS2_.exit.u
   br label %.body.i
 
 .body.i:                                          ; preds = %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %.pn53.pn.i.i, %141 ], [ %.pn46.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn53.pn.i.i, %141 ], [ %.pn46.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.i.i ], [ %.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ]
   %142 = load ptr, ptr %13, align 8, !tbaa !29
   %143 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %144 = load ptr, ptr %143, align 8, !tbaa !27
@@ -1193,7 +1193,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us.us.us.us.i:         ; preds = %_ZN2cv3Mat2atIfEERT
   br label %_ZN2cv3Mat2atIfEERT_i.exit.us.us.us.i
 
 _ZN2cv3Mat2atIfEERT_i.exit.us.us.us.i:            ; preds = %247, %236
-  %.0.i.us.us.us.i = phi ptr [ %246, %236 ], [ %250, %247 ]
+  %.0.i.us.us.us.i = phi ptr [ %250, %247 ], [ %246, %236 ]
   %251 = fptrunc double %sqrt.us.us.us.i to float
   store float %251, ptr %.0.i.us.us.us.i, align 4, !tbaa !82
   %indvars.iv.next143.i = add nsw i64 %indvars.iv142.i, 1
@@ -1316,7 +1316,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us126.i:               ; preds = %_ZN2cv3Mat2atIfEERT
   br label %317
 
 317:                                              ; preds = %315, %313, %311
-  %.pn86.pn.i = phi { ptr, i32 } [ %312, %311 ], [ %314, %313 ], [ %316, %315 ]
+  %.pn86.pn.i = phi { ptr, i32 } [ %314, %313 ], [ %312, %311 ], [ %316, %315 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #23
@@ -1548,7 +1548,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %.body
 
 .body:                                            ; preds = %318, %389, %345
-  %.pn43 = phi { ptr, i32 } [ %346, %345 ], [ %.pn38.pn.pn.pn, %389 ], [ %.pn86.pn.pn.i, %318 ]
+  %.pn43 = phi { ptr, i32 } [ %.pn38.pn.pn.pn, %389 ], [ %346, %345 ], [ %.pn86.pn.pn.i, %318 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #23
   br label %390
 

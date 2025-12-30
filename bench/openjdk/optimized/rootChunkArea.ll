@@ -682,7 +682,7 @@ _ZN9metaspace19FreeChunkListVector6removeEPNS_9MetachunkE.exit: ; preds = %89, %
   br i1 %133, label %.thread, label %33, !llvm.loop !8
 
 .thread:                                          ; preds = %123, %51, %._crit_edge
-  %.14957 = phi ptr [ %.048.lcssa, %51 ], [ %.048.lcssa, %._crit_edge ], [ %.045., %123 ]
+  %.14957 = phi ptr [ %.048.lcssa, %._crit_edge ], [ %.048.lcssa, %51 ], [ %.045., %123 ]
   ret ptr %.14957
 }
 
@@ -885,7 +885,7 @@ _ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit: ; pred
   br label %127
 
 127:                                              ; preds = %112, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit, %22, %16, %3
-  %.0 = phi i1 [ false, %16 ], [ false, %22 ], [ false, %3 ], [ true, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit ], [ true, %112 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %16 ], [ false, %22 ], [ true, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit ], [ true, %112 ]
   ret i1 %.0
 }
 

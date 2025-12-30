@@ -227,7 +227,7 @@ _ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit: ; preds = %33, %_ZNKSt7__
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
 _ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit: ; preds = %82, %81, %80, %79, %79, %78, %77, %76, %76, %75, %59, %58, %55, %54, %53, %52, %51, %45, %38, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
-  %.0 = phi i32 [ 10, %58 ], [ 0, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit ], [ 0, %59 ], [ 0, %38 ], [ 12, %51 ], [ 11, %52 ], [ 1, %53 ], [ 9, %54 ], [ %..i2, %55 ], [ 13, %45 ], [ 4, %79 ], [ 0, %78 ], [ 6, %81 ], [ 2, %77 ], [ 0, %82 ], [ 3, %76 ], [ 5, %80 ], [ 3, %76 ], [ 4, %79 ], [ 0, %75 ]
+  %.0 = phi i32 [ 0, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit ], [ 0, %59 ], [ 12, %51 ], [ 11, %52 ], [ 1, %53 ], [ 9, %54 ], [ 10, %58 ], [ 13, %45 ], [ %..i2, %55 ], [ 0, %38 ], [ 0, %78 ], [ 2, %77 ], [ 0, %82 ], [ 5, %80 ], [ 6, %81 ], [ 3, %76 ], [ 3, %76 ], [ 4, %79 ], [ 4, %79 ], [ 0, %75 ]
   ret i32 %.0
 }
 

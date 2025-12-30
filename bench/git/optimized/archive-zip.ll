@@ -493,17 +493,17 @@ zlib_deflate_raw.exit:                            ; preds = %115
   br label %.thread563
 
 .thread563:                                       ; preds = %zlib_deflate_raw.exit, %zlib_deflate_raw.exit.thread, %47, %47, %119, %120, %103
-  %121 = phi i64 [ %6, %47 ], [ %.pre627, %119 ], [ %98, %103 ], [ %6, %47 ], [ %.pre626, %zlib_deflate_raw.exit.thread ], [ %.pre627, %zlib_deflate_raw.exit ], [ %.pre627, %120 ]
-  %.0185555579.shrunk = phi i32 [ 16, %47 ], [ %.in, %119 ], [ %.in, %103 ], [ 16, %47 ], [ %.in, %zlib_deflate_raw.exit.thread ], [ %.in, %zlib_deflate_raw.exit ], [ %.in, %120 ]
-  %.0180556578 = phi i64 [ %25, %47 ], [ %.1181, %119 ], [ %.1181, %103 ], [ %25, %47 ], [ %.1181, %zlib_deflate_raw.exit.thread ], [ %.1181, %zlib_deflate_raw.exit ], [ %.1181, %120 ]
-  %.0170559577 = phi ptr [ null, %47 ], [ %.1171, %119 ], [ %.1171, %103 ], [ null, %47 ], [ %.1171, %zlib_deflate_raw.exit.thread ], [ %.1171, %zlib_deflate_raw.exit ], [ %.1171, %120 ]
-  %.1167560576 = phi i64 [ %.0166, %47 ], [ %.3169, %119 ], [ %.3169, %103 ], [ %.0166, %47 ], [ %.3169, %zlib_deflate_raw.exit.thread ], [ %.3169, %zlib_deflate_raw.exit ], [ %.3169, %120 ]
-  %.0160561575 = phi i32 [ -1, %47 ], [ %.1161, %119 ], [ %.1161, %103 ], [ -1, %47 ], [ %.1161, %zlib_deflate_raw.exit.thread ], [ %.1161, %zlib_deflate_raw.exit ], [ %.1161, %120 ]
-  %.0156562574 = phi i32 [ 0, %47 ], [ %.1157541, %119 ], [ %.1157541, %103 ], [ 0, %47 ], [ %.1157541, %zlib_deflate_raw.exit.thread ], [ %.1157541, %zlib_deflate_raw.exit ], [ %.1157541, %120 ]
-  %.0533 = phi i64 [ 0, %47 ], [ %118, %119 ], [ %99, %103 ], [ 0, %47 ], [ %.pre626, %zlib_deflate_raw.exit.thread ], [ %.pre627, %zlib_deflate_raw.exit ], [ %.pre627, %120 ]
-  %.2179 = phi i32 [ 0, %47 ], [ 8, %119 ], [ %.1178, %103 ], [ 0, %47 ], [ 0, %zlib_deflate_raw.exit.thread ], [ 0, %zlib_deflate_raw.exit ], [ 0, %120 ]
-  %.3176 = phi ptr [ null, %47 ], [ %110, %119 ], [ %5, %103 ], [ null, %47 ], [ %5, %zlib_deflate_raw.exit.thread ], [ %5, %zlib_deflate_raw.exit ], [ %5, %120 ]
-  %.0172 = phi ptr [ null, %47 ], [ %110, %119 ], [ null, %103 ], [ null, %47 ], [ null, %zlib_deflate_raw.exit.thread ], [ null, %zlib_deflate_raw.exit ], [ %110, %120 ]
+  %121 = phi i64 [ %.pre627, %119 ], [ %98, %103 ], [ %6, %47 ], [ %6, %47 ], [ %.pre626, %zlib_deflate_raw.exit.thread ], [ %.pre627, %zlib_deflate_raw.exit ], [ %.pre627, %120 ]
+  %.0185555579.shrunk = phi i32 [ %.in, %119 ], [ %.in, %103 ], [ 16, %47 ], [ 16, %47 ], [ %.in, %zlib_deflate_raw.exit.thread ], [ %.in, %zlib_deflate_raw.exit ], [ %.in, %120 ]
+  %.0180556578 = phi i64 [ %.1181, %119 ], [ %.1181, %103 ], [ %25, %47 ], [ %25, %47 ], [ %.1181, %zlib_deflate_raw.exit.thread ], [ %.1181, %zlib_deflate_raw.exit ], [ %.1181, %120 ]
+  %.0170559577 = phi ptr [ %.1171, %119 ], [ %.1171, %103 ], [ null, %47 ], [ null, %47 ], [ %.1171, %zlib_deflate_raw.exit.thread ], [ %.1171, %zlib_deflate_raw.exit ], [ %.1171, %120 ]
+  %.1167560576 = phi i64 [ %.3169, %119 ], [ %.3169, %103 ], [ %.0166, %47 ], [ %.0166, %47 ], [ %.3169, %zlib_deflate_raw.exit.thread ], [ %.3169, %zlib_deflate_raw.exit ], [ %.3169, %120 ]
+  %.0160561575 = phi i32 [ %.1161, %119 ], [ %.1161, %103 ], [ -1, %47 ], [ -1, %47 ], [ %.1161, %zlib_deflate_raw.exit.thread ], [ %.1161, %zlib_deflate_raw.exit ], [ %.1161, %120 ]
+  %.0156562574 = phi i32 [ %.1157541, %119 ], [ %.1157541, %103 ], [ 0, %47 ], [ 0, %47 ], [ %.1157541, %zlib_deflate_raw.exit.thread ], [ %.1157541, %zlib_deflate_raw.exit ], [ %.1157541, %120 ]
+  %.0533 = phi i64 [ %118, %119 ], [ %99, %103 ], [ 0, %47 ], [ 0, %47 ], [ %.pre626, %zlib_deflate_raw.exit.thread ], [ %.pre627, %zlib_deflate_raw.exit ], [ %.pre627, %120 ]
+  %.2179 = phi i32 [ 8, %119 ], [ %.1178, %103 ], [ 0, %47 ], [ 0, %47 ], [ 0, %zlib_deflate_raw.exit.thread ], [ 0, %zlib_deflate_raw.exit ], [ 0, %120 ]
+  %.3176 = phi ptr [ %110, %119 ], [ %5, %103 ], [ null, %47 ], [ null, %47 ], [ %5, %zlib_deflate_raw.exit.thread ], [ %5, %zlib_deflate_raw.exit ], [ %5, %120 ]
+  %.0172 = phi ptr [ %110, %119 ], [ null, %103 ], [ null, %47 ], [ null, %47 ], [ null, %zlib_deflate_raw.exit.thread ], [ null, %zlib_deflate_raw.exit ], [ %110, %120 ]
   store i16 21589, ptr %15, align 2
   %122 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 5, ptr %122, align 2
@@ -887,9 +887,9 @@ entry_is_binary.exit246:                          ; preds = %238, %235, %223
   br label %290
 
 290:                                              ; preds = %.thread587, %.thread584, %287, %286
-  %.2 = phi i64 [ %191, %.thread584 ], [ %263, %.thread587 ], [ 0, %286 ], [ %.0533, %287 ]
-  %.3183 = phi i64 [ %.2182.lcssa, %.thread584 ], [ %.4184.lcssa, %.thread587 ], [ %.0180556578, %286 ], [ %.0180556578, %287 ]
-  %.4164 = phi i32 [ %.2162.lcssa, %.thread584 ], [ %.5165.lcssa, %.thread587 ], [ %.0160561575, %286 ], [ %.0160561575, %287 ]
+  %.2 = phi i64 [ 0, %286 ], [ %.0533, %287 ], [ %191, %.thread584 ], [ %263, %.thread587 ]
+  %.3183 = phi i64 [ %.0180556578, %286 ], [ %.0180556578, %287 ], [ %.2182.lcssa, %.thread584 ], [ %.4184.lcssa, %.thread587 ]
+  %.4164 = phi i32 [ %.0160561575, %286 ], [ %.0160561575, %287 ], [ %.2162.lcssa, %.thread584 ], [ %.5165.lcssa, %.thread587 ]
   call void @free(ptr noundef %.0172) #8
   %291 = icmp ugt i64 %.2, 4294967295
   %292 = load i64, ptr %13, align 8
@@ -1688,7 +1688,7 @@ strbuf_add_le.exit522:                            ; preds = %strbuf_addch.exit.i
   br label %566
 
 566:                                              ; preds = %284, %209, %.thread542, %strbuf_add_le.exit522, %_.exit235, %_.exit228
-  %.0 = phi i32 [ -1, %_.exit228 ], [ 0, %strbuf_add_le.exit522 ], [ %210, %209 ], [ %285, %284 ], [ -1, %.thread542 ], [ -1, %_.exit235 ]
+  %.0 = phi i32 [ -1, %_.exit228 ], [ 0, %strbuf_add_le.exit522 ], [ %210, %209 ], [ %285, %284 ], [ -1, %_.exit235 ], [ -1, %.thread542 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

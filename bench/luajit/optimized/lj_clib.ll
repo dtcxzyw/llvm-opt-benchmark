@@ -359,7 +359,7 @@ clib_resolve_lds.exit.thread38.i:                 ; preds = %clib_check_lds.exit
   br label %clib_resolve_lds.exit.thread.i
 
 clib_resolve_lds.exit.thread.i:                   ; preds = %79, %clib_resolve_lds.exit.thread38.i, %40, %38, %35, %33
-  %.0.i = phi ptr [ %80, %79 ], [ %34, %clib_resolve_lds.exit.thread38.i ], [ %34, %38 ], [ %34, %35 ], [ null, %33 ], [ %34, %40 ]
+  %.0.i = phi ptr [ %80, %79 ], [ %34, %38 ], [ %34, %35 ], [ null, %33 ], [ %34, %clib_resolve_lds.exit.thread38.i ], [ %34, %40 ]
   %.not31.i = icmp eq ptr %.0.i, null
   %spec.store.select.i = select i1 %.not31.i, ptr @.str.1, ptr %.0.i
   call void @lj_err_callermsg(ptr noundef %0, ptr noundef nonnull %spec.store.select.i) #10

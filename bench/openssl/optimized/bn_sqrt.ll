@@ -414,16 +414,16 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.preheader, %143, %104, %.loopexit.sink.split.loopexit357, %162, %110
-  %.sink343 = phi i32 [ 353, %162 ], [ 230, %110 ], [ 215, %.loopexit.sink.split.loopexit357 ], [ 203, %104 ], [ 322, %143 ], [ 322, %.preheader ]
-  %.sink = phi i32 [ 111, %162 ], [ 112, %110 ], [ 113, %.loopexit.sink.split.loopexit357 ], [ 112, %104 ], [ 111, %143 ], [ 111, %.preheader ]
+  %.sink343 = phi i32 [ 230, %110 ], [ 353, %162 ], [ 215, %.loopexit.sink.split.loopexit357 ], [ 203, %104 ], [ 322, %143 ], [ 322, %.preheader ]
+  %.sink = phi i32 [ 112, %110 ], [ 111, %162 ], [ 113, %.loopexit.sink.split.loopexit357 ], [ 112, %104 ], [ 111, %143 ], [ 111, %.preheader ]
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink343, ptr noundef nonnull @__func__.BN_mod_sqrt) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef %.sink, ptr noundef null) #2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %101, %85, %99, %93, %87, %158, %156, %._crit_edge321, %145, %137, %139, %.lr.ph320, %.loopexit.sink.split, %12, %27, %45, %.thread290, %160, %57, %54, %52, %76, %74, %72, %70, %68, %66, %63, %61, %59, %134, %130, %128, %126, %120, %116, %122, %112, %108, %106, %78
-  %.1215.ph = phi ptr [ %.3292, %78 ], [ %.3292, %52 ], [ %.3292, %54 ], [ %.3292, %57 ], [ %.3292, %70 ], [ %.3292, %106 ], [ %.3292, %108 ], [ %.3292, %112 ], [ %.3292, %122 ], [ %.3292, %116 ], [ %.3292, %120 ], [ %.3292, %126 ], [ %.3292, %128 ], [ %.3292, %130 ], [ null, %12 ], [ %.3292, %158 ], [ %.3292, %160 ], [ %.3292, %.thread290 ], [ null, %45 ], [ %.3292, %.loopexit.sink.split ], [ null, %27 ], [ %.3292, %72 ], [ %.3292, %134 ], [ %.3292, %74 ], [ %.3292, %76 ], [ %.3292, %.lr.ph320 ], [ %.3292, %137 ], [ %.3292, %59 ], [ %.3292, %61 ], [ %.3292, %63 ], [ %.3292, %66 ], [ %.3292, %68 ], [ %.3292, %139 ], [ %.3292, %145 ], [ %.3292, %._crit_edge321 ], [ %.3292, %156 ], [ %.3292, %87 ], [ %.3292, %93 ], [ %.3292, %99 ], [ %.3292, %85 ], [ %.3292, %101 ]
-  %.not284.ph = phi i1 [ false, %78 ], [ false, %52 ], [ false, %54 ], [ false, %57 ], [ false, %70 ], [ false, %106 ], [ false, %108 ], [ false, %112 ], [ false, %122 ], [ false, %116 ], [ false, %120 ], [ false, %126 ], [ false, %128 ], [ false, %130 ], [ true, %12 ], [ false, %158 ], [ false, %160 ], [ false, %.thread290 ], [ false, %45 ], [ false, %.loopexit.sink.split ], [ true, %27 ], [ false, %72 ], [ false, %134 ], [ false, %74 ], [ false, %76 ], [ false, %.lr.ph320 ], [ false, %137 ], [ false, %59 ], [ false, %61 ], [ false, %63 ], [ false, %66 ], [ false, %68 ], [ false, %139 ], [ false, %145 ], [ false, %._crit_edge321 ], [ false, %156 ], [ false, %87 ], [ false, %93 ], [ false, %99 ], [ false, %85 ], [ false, %101 ]
+.loopexit:                                        ; preds = %101, %85, %99, %93, %87, %158, %156, %._crit_edge321, %145, %137, %139, %.lr.ph320, %.loopexit.sink.split, %12, %27, %45, %160, %57, %54, %52, %76, %74, %72, %70, %68, %66, %63, %61, %59, %134, %130, %128, %126, %120, %116, %122, %112, %108, %106, %78, %.thread290
+  %.1215.ph = phi ptr [ %.3292, %.thread290 ], [ %.3292, %78 ], [ %.3292, %106 ], [ %.3292, %108 ], [ %.3292, %112 ], [ %.3292, %122 ], [ %.3292, %116 ], [ %.3292, %120 ], [ %.3292, %126 ], [ %.3292, %128 ], [ %.3292, %130 ], [ %.3292, %134 ], [ %.3292, %59 ], [ %.3292, %61 ], [ %.3292, %63 ], [ %.3292, %66 ], [ %.3292, %68 ], [ %.3292, %70 ], [ %.3292, %72 ], [ %.3292, %74 ], [ %.3292, %76 ], [ %.3292, %52 ], [ %.3292, %54 ], [ %.3292, %57 ], [ %.3292, %160 ], [ null, %45 ], [ null, %27 ], [ null, %12 ], [ %.3292, %.loopexit.sink.split ], [ %.3292, %.lr.ph320 ], [ %.3292, %139 ], [ %.3292, %137 ], [ %.3292, %145 ], [ %.3292, %._crit_edge321 ], [ %.3292, %156 ], [ %.3292, %158 ], [ %.3292, %87 ], [ %.3292, %93 ], [ %.3292, %99 ], [ %.3292, %85 ], [ %.3292, %101 ]
+  %.not284.ph = phi i1 [ false, %.thread290 ], [ false, %78 ], [ false, %106 ], [ false, %108 ], [ false, %112 ], [ false, %122 ], [ false, %116 ], [ false, %120 ], [ false, %126 ], [ false, %128 ], [ false, %130 ], [ false, %134 ], [ false, %59 ], [ false, %61 ], [ false, %63 ], [ false, %66 ], [ false, %68 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ false, %76 ], [ false, %52 ], [ false, %54 ], [ false, %57 ], [ false, %160 ], [ false, %45 ], [ true, %27 ], [ true, %12 ], [ false, %.loopexit.sink.split ], [ false, %.lr.ph320 ], [ false, %139 ], [ false, %137 ], [ false, %145 ], [ false, %._crit_edge321 ], [ false, %156 ], [ false, %158 ], [ false, %87 ], [ false, %93 ], [ false, %99 ], [ false, %85 ], [ false, %101 ]
   %.not283 = icmp eq ptr %.1215.ph, %0
   br i1 %.not283, label %165, label %164
 
@@ -439,12 +439,12 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %.thread306
 
 .thread306:                                       ; preds = %.thread306.sink.split, %35, %162, %164, %165
-  %.4309 = phi ptr [ null, %164 ], [ null, %165 ], [ %.3292, %162 ], [ null, %35 ], [ %.3292, %.thread306.sink.split ]
+  %.4309 = phi ptr [ null, %165 ], [ null, %164 ], [ %.3292, %162 ], [ null, %35 ], [ %.3292, %.thread306.sink.split ]
   tail call void @BN_CTX_end(ptr noundef %3) #2
   br label %166
 
 166:                                              ; preds = %164, %165, %.thread306, %.thread287, %33, %34, %.thread, %18, %19, %20
-  %.0213 = phi ptr [ %.2289, %.thread287 ], [ null, %18 ], [ %.0214286, %.thread ], [ null, %20 ], [ null, %33 ], [ null, %19 ], [ null, %34 ], [ %.4309, %.thread306 ], [ null, %165 ], [ null, %164 ]
+  %.0213 = phi ptr [ null, %20 ], [ null, %19 ], [ null, %18 ], [ %.0214286, %.thread ], [ null, %34 ], [ null, %33 ], [ %.2289, %.thread287 ], [ %.4309, %.thread306 ], [ null, %165 ], [ null, %164 ]
   ret ptr %.0213
 }
 

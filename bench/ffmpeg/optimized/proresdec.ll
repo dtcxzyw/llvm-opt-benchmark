@@ -104,8 +104,8 @@ define internal noundef i32 @decode_init(ptr noundef initializes((652, 656), (68
   br label %.thread
 
 .thread:                                          ; preds = %14, %12, %13, %8, %9, %10, %11
-  %16 = phi i32 [ 10, %8 ], [ %.pre, %14 ], [ 12, %12 ], [ 10, %11 ], [ 10, %10 ], [ 10, %9 ], [ 12, %13 ]
-  %17 = phi ptr [ @unpack_alpha_10, %8 ], [ %spec.select28, %14 ], [ @unpack_alpha_12, %12 ], [ @unpack_alpha_10, %11 ], [ @unpack_alpha_10, %10 ], [ @unpack_alpha_10, %9 ], [ @unpack_alpha_12, %13 ]
+  %16 = phi i32 [ 10, %11 ], [ 10, %10 ], [ 10, %9 ], [ 10, %8 ], [ 12, %13 ], [ 12, %12 ], [ %.pre, %14 ]
+  %17 = phi ptr [ @unpack_alpha_10, %11 ], [ @unpack_alpha_10, %10 ], [ @unpack_alpha_10, %9 ], [ @unpack_alpha_10, %8 ], [ @unpack_alpha_12, %13 ], [ @unpack_alpha_12, %12 ], [ %spec.select28, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 424
   store ptr %17, ptr %18, align 8, !tbaa !35
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, i32 noundef %16) #10
@@ -608,8 +608,8 @@ decode_frame_header.exit:                         ; preds = %144, %141
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %.096.lcssa140.i, i32 noundef %.pre142.i) #10
   br label %decode_picture_header.exit.thread
 
-decode_picture_header.exit.thread:                ; preds = %216, %221, %256, %259, %266, %227, %176, %167, %._crit_edge
-  %.0.i5769 = phi i32 [ -1094995529, %176 ], [ -1094995529, %256 ], [ -1094995529, %259 ], [ -1094995529, %167 ], [ -1094995529, %._crit_edge ], [ -1094995529, %266 ], [ -1094995529, %227 ], [ -12, %216 ], [ -22, %221 ]
+decode_picture_header.exit.thread:                ; preds = %221, %216, %256, %259, %266, %227, %176, %167, %._crit_edge
+  %.0.i5769 = phi i32 [ -1094995529, %256 ], [ -1094995529, %259 ], [ -1094995529, %266 ], [ -1094995529, %227 ], [ -1094995529, %176 ], [ -1094995529, %167 ], [ -1094995529, %._crit_edge ], [ -12, %216 ], [ -22, %221 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #10
   br label %decode_frame_header.exit.thread
 
@@ -694,7 +694,7 @@ decode_picture.exit.thread:                       ; preds = %._crit_edge.i65, %.
   br label %decode_frame_header.exit.thread
 
 decode_frame_header.exit.thread:                  ; preds = %._crit_edge.i, %140, %124, %61, %31, %25, %decode_frame_header.exit, %303, %288, %decode_picture_header.exit.thread, %15
-  %.0 = phi i32 [ -1094995529, %15 ], [ %304, %303 ], [ %147, %decode_frame_header.exit ], [ %.0.i5769, %decode_picture_header.exit.thread ], [ %286, %288 ], [ %46, %._crit_edge.i ], [ -1094995529, %140 ], [ -1094995529, %124 ], [ -1094995529, %61 ], [ -1163346256, %31 ], [ -1094995529, %25 ]
+  %.0 = phi i32 [ -1094995529, %15 ], [ %.0.i5769, %decode_picture_header.exit.thread ], [ %286, %288 ], [ %304, %303 ], [ %147, %decode_frame_header.exit ], [ %46, %._crit_edge.i ], [ -1094995529, %140 ], [ -1094995529, %124 ], [ -1094995529, %61 ], [ -1163346256, %31 ], [ -1094995529, %25 ]
   ret i32 %.0
 }
 
@@ -875,8 +875,8 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %.critedge.split.loop.exit119, %.critedge.split.loop.exit
-  %.273.lcssa = phi i32 [ %87, %.critedge.split.loop.exit119 ], [ %86, %.critedge.split.loop.exit ], [ %smax, %71 ]
-  %88 = phi i32 [ %spec.select.i83, %.critedge.split.loop.exit119 ], [ %.sink, %.critedge.split.loop.exit ], [ %.sink, %71 ]
+  %.273.lcssa = phi i32 [ %86, %.critedge.split.loop.exit ], [ %87, %.critedge.split.loop.exit119 ], [ %smax, %71 ]
+  %88 = phi i32 [ %.sink, %.critedge.split.loop.exit ], [ %spec.select.i83, %.critedge.split.loop.exit119 ], [ %.sink, %71 ]
   %89 = lshr i32 %88, 3
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 %90
@@ -998,7 +998,7 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit100, %.loopexit.loopexit99, %.loopexit.loopexit98, %.loopexit.loopexit, %.preheader84, %.preheader
-  %.7 = phi i32 [ %142, %.loopexit.loopexit ], [ %.273.lcssa, %.preheader ], [ %144, %.loopexit.loopexit99 ], [ %.273.lcssa, %.preheader84 ], [ %143, %.loopexit.loopexit98 ], [ %145, %.loopexit.loopexit100 ]
+  %.7 = phi i32 [ %.273.lcssa, %.preheader ], [ %.273.lcssa, %.preheader84 ], [ %142, %.loopexit.loopexit ], [ %143, %.loopexit.loopexit98 ], [ %144, %.loopexit.loopexit99 ], [ %145, %.loopexit.loopexit100 ]
   %146 = icmp slt i32 %.7, %2
   br i1 %146, label %18, label %147, !llvm.loop !86
 
@@ -1280,8 +1280,8 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   br label %172
 
 172:                                              ; preds = %169, %164
-  %.0138.i.i = phi i32 [ 6, %169 ], [ %168, %164 ]
-  %.0129.i.i = phi i32 [ %171, %169 ], [ %167, %164 ]
+  %.0138.i.i = phi i32 [ %168, %164 ], [ 6, %169 ]
+  %.0129.i.i = phi i32 [ %167, %164 ], [ %171, %169 ]
   %173 = lshr i32 %.0129.i.i, 1
   %174 = and i32 %.0129.i.i, 1
   %175 = sub nsw i32 0, %174
@@ -1612,9 +1612,9 @@ decode_dc_coeffs.exit.i:                          ; preds = %230, %172
   br label %382
 
 382:                                              ; preds = %377, %373, %363
-  %.1171.i.i = phi i32 [ %379, %377 ], [ %370, %363 ], [ %375, %373 ]
-  %.3169.i.i = phi i32 [ %381, %377 ], [ %372, %363 ], [ %.203.i.i, %373 ]
-  %.1164.i.i = phi i32 [ %378, %377 ], [ %369, %363 ], [ %356, %373 ]
+  %.1171.i.i = phi i32 [ %370, %363 ], [ %379, %377 ], [ %375, %373 ]
+  %.3169.i.i = phi i32 [ %372, %363 ], [ %381, %377 ], [ %.203.i.i, %373 ]
+  %.1164.i.i = phi i32 [ %369, %363 ], [ %378, %377 ], [ %356, %373 ]
   %383 = add i32 %.1164.i.i, 1
   %384 = lshr i32 %326, %249
   %385 = ashr i32 %.1171.i.i, 31
@@ -1676,7 +1676,7 @@ decode_ac_coeffs.exit.i:                          ; preds = %382, %269, %decode_
   %424 = icmp ult i32 %422, %423
   br i1 %424, label %409, label %.loopexit194, !llvm.loop !93
 
-decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %327, %160
+decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %160, %327
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %505
 
@@ -1843,7 +1843,7 @@ decode_slice_alpha.exit:                          ; preds = %500
   br label %505
 
 505:                                              ; preds = %decode_slice_luma.exit.thread, %436, %431, %504, %56
-  %.0 = phi i32 [ -1094995529, %56 ], [ %434, %431 ], [ 0, %504 ], [ -1094995529, %decode_slice_luma.exit.thread ], [ %439, %436 ]
+  %.0 = phi i32 [ -1094995529, %56 ], [ 0, %504 ], [ %434, %431 ], [ %439, %436 ], [ -1094995529, %decode_slice_luma.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -1924,8 +1924,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_slice_chroma(ptr no
   br label %48
 
 48:                                               ; preds = %45, %40
-  %.0138.i = phi i32 [ 6, %45 ], [ %44, %40 ]
-  %.0129.i = phi i32 [ %47, %45 ], [ %43, %40 ]
+  %.0138.i = phi i32 [ %44, %40 ], [ 6, %45 ]
+  %.0129.i = phi i32 [ %43, %40 ], [ %47, %45 ]
   %49 = lshr i32 %.0129.i, 1
   %50 = and i32 %.0129.i, 1
   %51 = sub nsw i32 0, %50
@@ -2256,9 +2256,9 @@ decode_dc_coeffs.exit:                            ; preds = %106, %48
   br label %258
 
 258:                                              ; preds = %249, %253, %239
-  %.1171.i = phi i32 [ %255, %253 ], [ %246, %239 ], [ %251, %249 ]
-  %.3169.i = phi i32 [ %257, %253 ], [ %248, %239 ], [ %.203.i, %249 ]
-  %.1164.i = phi i32 [ %254, %253 ], [ %245, %239 ], [ %232, %249 ]
+  %.1171.i = phi i32 [ %246, %239 ], [ %255, %253 ], [ %251, %249 ]
+  %.3169.i = phi i32 [ %248, %239 ], [ %257, %253 ], [ %.203.i, %249 ]
+  %.1164.i = phi i32 [ %245, %239 ], [ %254, %253 ], [ %232, %249 ]
   %259 = add i32 %.1164.i, 1
   %260 = lshr i32 %202, %125
   %261 = ashr i32 %.1171.i, 31
@@ -2323,8 +2323,8 @@ decode_ac_coeffs.exit:                            ; preds = %145, %258, %decode_
   %296 = icmp ult i32 %294, %295
   br i1 %296, label %.preheader, label %decode_dc_coeffs.exit.thread, !llvm.loop !102
 
-decode_dc_coeffs.exit.thread:                     ; preds = %84, %178, %234, %293, %decode_ac_coeffs.exit, %203, %36
-  %.0 = phi i32 [ 0, %decode_ac_coeffs.exit ], [ -1094995529, %203 ], [ -1094995529, %36 ], [ -1094995529, %178 ], [ 0, %293 ], [ -1094995529, %234 ], [ -1094995529, %84 ]
+decode_dc_coeffs.exit.thread:                     ; preds = %84, %234, %178, %293, %decode_ac_coeffs.exit, %203, %36
+  %.0 = phi i32 [ -1094995529, %36 ], [ -1094995529, %203 ], [ 0, %decode_ac_coeffs.exit ], [ 0, %293 ], [ -1094995529, %178 ], [ -1094995529, %234 ], [ -1094995529, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

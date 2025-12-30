@@ -882,7 +882,7 @@ xwrite.exit:                                      ; preds = %15
   br i1 %.not, label %.critedge, label %6, !llvm.loop !17
 
 .critedge:                                        ; preds = %19, %3, %xwrite.exit, %17
-  %.2 = phi i64 [ -1, %17 ], [ -1, %xwrite.exit ], [ 0, %3 ], [ %22, %19 ]
+  %.2 = phi i64 [ -1, %xwrite.exit ], [ -1, %17 ], [ 0, %3 ], [ %22, %19 ]
   ret i64 %.2
 }
 
@@ -931,7 +931,7 @@ xpread.exit:                                      ; preds = %.loopexit
   br i1 %.not, label %xpread.exit.thread32, label %.lr.ph, !llvm.loop !18
 
 xpread.exit.thread32:                             ; preds = %xpread.exit, %.loopexit, %8, %4
-  %.2 = phi i64 [ -1, %8 ], [ 0, %4 ], [ %16, %xpread.exit ], [ %.02045, %.loopexit ]
+  %.2 = phi i64 [ 0, %4 ], [ -1, %8 ], [ %16, %xpread.exit ], [ %.02045, %.loopexit ]
   ret i64 %.2
 }
 
@@ -1231,7 +1231,7 @@ define dso_local range(i32 -1, -2147483648) i32 @git_mkstemps_mode(ptr noundef c
   br label %36
 
 36:                                               ; preds = %.thread, %.loopexit, %16, %9
-  %.023 = phi i32 [ -1, %9 ], [ -1, %16 ], [ %.2.ph, %.thread ], [ -1, %.loopexit ]
+  %.023 = phi i32 [ -1, %9 ], [ -1, %16 ], [ -1, %.loopexit ], [ %.2.ph, %.thread ]
   ret i32 %.023
 }
 
@@ -1303,7 +1303,7 @@ handle_nonblock.exit.i:                           ; preds = %17
   br label %25
 
 25:                                               ; preds = %3, %._crit_edge, %19
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %19 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %19 ], [ 0, %._crit_edge ], [ -1, %3 ]
   ret i32 %.0
 }
 

@@ -763,7 +763,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %38, %40, %42, %43
   br label %64
 
 64:                                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %56, %61
-  %.0 = phi double [ %58, %56 ], [ %63, %61 ], [ 0.000000e+00, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %.0 = phi double [ %63, %61 ], [ %58, %56 ], [ 0.000000e+00, %_ZNK9Imath_3_14halfcvfEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %.0, ptr %5, align 8, !tbaa !3
   %65 = load ptr, ptr %22, align 8, !tbaa !60

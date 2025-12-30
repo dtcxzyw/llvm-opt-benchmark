@@ -457,9 +457,9 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit21: ; preds
   br i1 %.not43, label %._crit_edge66, label %.lr.ph65
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit23: ; preds = %.loopexit, %.loopexit.split-lp, %77, %74, %86, %72
-  %.sroa.15.054 = phi ptr [ %.sroa.15.0.lcssa85, %77 ], [ %.sroa.15.0.lcssa85, %86 ], [ %.sroa.15.1, %72 ], [ %.sroa.15.0.lcssa85, %74 ], [ %.sroa.10.059, %.loopexit ], [ %.sroa.10.059, %.loopexit.split-lp ]
-  %.sroa.034.048 = phi ptr [ %.sroa.034.0.lcssa87, %77 ], [ %.sroa.034.0.lcssa87, %86 ], [ %.sroa.034.1, %72 ], [ %.sroa.034.0.lcssa87, %74 ], [ %.sroa.034.060, %.loopexit ], [ %.sroa.034.060, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %75, %77 ], [ %87, %86 ], [ %73, %72 ], [ %75, %74 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.054 = phi ptr [ %.sroa.15.0.lcssa85, %86 ], [ %.sroa.15.1, %72 ], [ %.sroa.15.0.lcssa85, %74 ], [ %.sroa.15.0.lcssa85, %77 ], [ %.sroa.10.059, %.loopexit ], [ %.sroa.10.059, %.loopexit.split-lp ]
+  %.sroa.034.048 = phi ptr [ %.sroa.034.0.lcssa87, %86 ], [ %.sroa.034.1, %72 ], [ %.sroa.034.0.lcssa87, %74 ], [ %.sroa.034.0.lcssa87, %77 ], [ %.sroa.034.060, %.loopexit ], [ %.sroa.034.060, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %73, %72 ], [ %75, %74 ], [ %75, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i24 = icmp eq ptr %.sroa.034.048, null
   br i1 %.not.i.i.i24, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit25, label %90
 
@@ -944,9 +944,9 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit: ; preds =
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit17
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit17: ; preds = %.loopexit, %.loopexit.split-lp, %102, %99, %97
-  %.sroa.15.050 = phi ptr [ %.sroa.15.0.lcssa77, %102 ], [ %.sroa.15.1, %97 ], [ %.sroa.15.0.lcssa77, %99 ], [ %.sroa.10.055, %.loopexit ], [ %.sroa.10.055, %.loopexit.split-lp ]
-  %.sroa.033.044 = phi ptr [ %.sroa.033.0.lcssa79, %102 ], [ %.sroa.033.1, %97 ], [ %.sroa.033.0.lcssa79, %99 ], [ %.sroa.033.056, %.loopexit ], [ %.sroa.033.056, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %100, %102 ], [ %98, %97 ], [ %100, %99 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.050 = phi ptr [ %.sroa.15.1, %97 ], [ %.sroa.15.0.lcssa77, %99 ], [ %.sroa.15.0.lcssa77, %102 ], [ %.sroa.10.055, %.loopexit ], [ %.sroa.10.055, %.loopexit.split-lp ]
+  %.sroa.033.044 = phi ptr [ %.sroa.033.1, %97 ], [ %.sroa.033.0.lcssa79, %99 ], [ %.sroa.033.0.lcssa79, %102 ], [ %.sroa.033.056, %.loopexit ], [ %.sroa.033.056, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %100, %99 ], [ %100, %102 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i18 = icmp eq ptr %.sroa.033.044, null
   br i1 %.not.i.i.i18, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit19, label %107
 
@@ -1031,7 +1031,7 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit15: ; preds
   ret void
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit19: ; preds = %138, %136, %107, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit17
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %107 ], [ %.pn, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit17 ], [ %137, %136 ], [ %137, %138 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit17 ], [ %.pn, %107 ], [ %137, %136 ], [ %137, %138 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1307,7 +1307,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb12Customizable12IsInstanceOf
   br label %22
 
 22:                                               ; preds = %21, %18, %6, %2
-  %.0 = phi i1 [ true, %6 ], [ false, %2 ], [ false, %21 ], [ true, %18 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %21 ], [ true, %18 ]
   ret i1 %.0
 }
 

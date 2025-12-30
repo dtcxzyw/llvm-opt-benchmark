@@ -459,7 +459,7 @@ define dso_local zeroext i16 @gintuple_get_attrnum(ptr noundef readonly captures
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %47, %29, %32, %35, %38, %43, %45, %50
-  %.1.i = phi i64 [ %44, %43 ], [ %51, %50 ], [ %46, %45 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %39, %38 ], [ 0, %47 ]
+  %.1.i = phi i64 [ %51, %50 ], [ %46, %45 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %39, %38 ], [ %44, %43 ], [ 0, %47 ]
   %52 = trunc i64 %.1.i to i16
   br label %53
 
@@ -659,9 +659,9 @@ index_getattr.exit:                               ; preds = %.index_getattr.exit
   %107 = load i8, ptr %106, align 1
   br label %index_getattr.exit.thread
 
-index_getattr.exit.thread:                        ; preds = %93, %88, %85, %82, %79, %102, %95, %44, %39, %36, %33, %30, %51, %46, %index_getattr.exit
-  %.022 = phi i64 [ 0, %index_getattr.exit ], [ %89, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %96, %95 ], [ %103, %102 ], [ %94, %93 ], [ %40, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %47, %46 ], [ %52, %51 ], [ %45, %44 ]
-  %storemerge = phi i8 [ %107, %index_getattr.exit ], [ 0, %88 ], [ 0, %85 ], [ 0, %82 ], [ 0, %79 ], [ 0, %95 ], [ 0, %102 ], [ 0, %93 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %46 ], [ 0, %51 ], [ 0, %44 ]
+index_getattr.exit.thread:                        ; preds = %95, %93, %88, %85, %82, %79, %102, %46, %44, %39, %36, %33, %30, %51, %index_getattr.exit
+  %.022 = phi i64 [ 0, %index_getattr.exit ], [ %94, %93 ], [ %89, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %96, %95 ], [ %103, %102 ], [ %45, %44 ], [ %40, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %47, %46 ], [ %52, %51 ]
+  %storemerge = phi i8 [ %107, %index_getattr.exit ], [ 0, %93 ], [ 0, %88 ], [ 0, %85 ], [ 0, %82 ], [ 0, %79 ], [ 0, %95 ], [ 0, %102 ], [ 0, %44 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %46 ], [ 0, %51 ]
   store i8 %storemerge, ptr %2, align 1
   ret i64 %.022
 }
@@ -1185,7 +1185,7 @@ define internal i32 @cmpEntries(ptr noundef readonly captures(none) %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %11, %10, %.thread14, %12
-  %.013 = phi i32 [ %19, %12 ], [ 0, %.thread14 ], [ -1, %11 ], [ 1, %10 ]
+  %.013 = phi i32 [ 0, %.thread14 ], [ %19, %12 ], [ -1, %11 ], [ 1, %10 ]
   ret i32 %.013
 }
 

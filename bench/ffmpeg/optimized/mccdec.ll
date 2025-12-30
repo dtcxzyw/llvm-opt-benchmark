@@ -294,7 +294,7 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   br i1 %.not105, label %.thread126, label %.lr.ph
 
 .thread126:                                       ; preds = %.thread, %85, %94, %97, %51
-  %.181 = phi i32 [ 0, %51 ], [ 0, %85 ], [ %.080135, %94 ], [ 0, %97 ], [ %.5, %.thread ]
+  %.181 = phi i32 [ 0, %51 ], [ 0, %97 ], [ %.080135, %94 ], [ 0, %85 ], [ %.5, %.thread ]
   %116 = sext i32 %.181 to i64
   %117 = getelementptr inbounds i8, ptr %2, i64 %116
   store i8 0, ptr %117, align 1, !tbaa !44
@@ -336,8 +336,8 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   br label %132
 
 132:                                              ; preds = %.thread126, %47, %26, %128, %.thread157
-  %.sroa.6.1 = phi i32 [ %.sroa.6.2, %.thread157 ], [ %.sroa.6.0144, %47 ], [ %.sroa.6.0144, %128 ], [ %.sroa.6.0144, %26 ], [ %.sroa.6.0144, %.thread126 ]
-  %.sroa.053.1 = phi i32 [ %.sroa.053.2, %.thread157 ], [ %.sroa.053.0145, %47 ], [ %.sroa.053.0145, %128 ], [ %.sroa.053.0145, %26 ], [ %.sroa.053.0145, %.thread126 ]
+  %.sroa.6.1 = phi i32 [ %.sroa.6.0144, %128 ], [ %.sroa.6.2, %.thread157 ], [ %.sroa.6.0144, %26 ], [ %.sroa.6.0144, %47 ], [ %.sroa.6.0144, %.thread126 ]
+  %.sroa.053.1 = phi i32 [ %.sroa.053.0145, %128 ], [ %.sroa.053.2, %.thread157 ], [ %.sroa.053.0145, %26 ], [ %.sroa.053.0145, %47 ], [ %.sroa.053.0145, %.thread126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -351,7 +351,7 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
   br label %134
 
 134:                                              ; preds = %.thread130, %1, %._crit_edge
-  %.0 = phi i32 [ -12, %.thread130 ], [ 0, %._crit_edge ], [ -12, %1 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %1 ], [ -12, %.thread130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

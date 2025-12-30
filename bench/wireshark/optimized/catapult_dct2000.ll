@@ -126,7 +126,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   br label %.thread
 
 38:                                               ; preds = %16, %thread-pre-split.thread.i, %33
-  %.1.ph = phi i32 [ %19, %16 ], [ %34, %33 ], [ %.062, %thread-pre-split.thread.i ]
+  %.1.ph = phi i32 [ %19, %16 ], [ %.062, %thread-pre-split.thread.i ], [ %34, %33 ]
   %39 = icmp ult i32 %.1.ph, 18
   %40 = icmp sgt i32 %.1.ph, 149
   %or.cond = or i1 %39, %40
@@ -318,7 +318,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   %120 = icmp eq i32 %bcmp17.i, 0
   br i1 %120, label %122, label %get_file_time_stamp.exit.thread
 
-get_file_time_stamp.exit.thread:                  ; preds = %95, %.thread68, %119
+get_file_time_stamp.exit.thread:                  ; preds = %.thread68, %95, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -333,7 +333,7 @@ get_file_time_stamp.exit.thread:                  ; preds = %95, %.thread68, %11
   br label %.thread
 
 122:                                              ; preds = %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97
-  %.sink.i = phi i32 [ 0, %97 ], [ 2, %101 ], [ 4, %105 ], [ 6, %109 ], [ 8, %113 ], [ 10, %117 ], [ 9, %115 ], [ 7, %111 ], [ 5, %107 ], [ 3, %103 ], [ 1, %99 ], [ 11, %119 ]
+  %.sink.i = phi i32 [ 0, %97 ], [ 1, %99 ], [ 2, %101 ], [ 3, %103 ], [ 4, %105 ], [ 5, %107 ], [ 6, %109 ], [ 7, %111 ], [ 8, %113 ], [ 9, %115 ], [ 10, %117 ], [ 11, %119 ]
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %.sink.i, ptr %123, align 8
   %124 = load i32, ptr %7, align 4
@@ -396,7 +396,7 @@ get_file_time_stamp.exit.thread:                  ; preds = %95, %.thread68, %11
   br label %.thread
 
 .thread:                                          ; preds = %thread-pre-split.i, %87, %35, %41, %38, %122, %121
-  %.0 = phi i32 [ %37, %35 ], [ 0, %38 ], [ 0, %121 ], [ 1, %122 ], [ 0, %41 ], [ %90, %87 ], [ 0, %thread-pre-split.i ]
+  %.0 = phi i32 [ 0, %121 ], [ 1, %122 ], [ 0, %38 ], [ 0, %41 ], [ %37, %35 ], [ %90, %87 ], [ 0, %thread-pre-split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
@@ -764,7 +764,7 @@ read_new_line.exit:                               ; preds = %30
   br label %73
 
 73:                                               ; preds = %read_new_line.exit, %5, %70, %69
-  %.0 = phi i1 [ false, %5 ], [ %67, %69 ], [ false, %70 ], [ false, %read_new_line.exit ]
+  %.0 = phi i1 [ %67, %69 ], [ false, %70 ], [ false, %5 ], [ false, %read_new_line.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1438,8 +1438,8 @@ sub_1472:                                         ; preds = %sub_0471
   br i1 %.not414, label %.thread, label %.critedge25
 
 .thread.sink.split:                               ; preds = %243, %237, %240, %234, %231, %225, %228, %222, %219, %216, %213, %205, %.tail, %.tail.thread, %189, %192, %195
-  %.sink = phi i32 [ 103, %237 ], [ 102, %234 ], [ 26, %231 ], [ 101, %225 ], [ 1, %222 ], [ 17, %219 ], [ 17, %216 ], [ 4, %213 ], [ 0, %205 ], [ 7, %.tail ], [ 7, %195 ], [ 7, %192 ], [ 7, %189 ], [ 7, %.tail.thread ], [ 101, %228 ], [ %spec.select831, %243 ], [ 103, %240 ]
-  %.0361461.ph = phi i1 [ false, %237 ], [ false, %234 ], [ false, %231 ], [ false, %225 ], [ false, %222 ], [ false, %219 ], [ true, %216 ], [ false, %213 ], [ false, %205 ], [ false, %.tail ], [ false, %195 ], [ false, %192 ], [ false, %189 ], [ false, %.tail.thread ], [ false, %228 ], [ false, %243 ], [ false, %240 ]
+  %.sink = phi i32 [ 7, %195 ], [ 7, %192 ], [ 7, %189 ], [ 7, %.tail.thread ], [ 7, %.tail ], [ 0, %205 ], [ 4, %213 ], [ 17, %216 ], [ 17, %219 ], [ 1, %222 ], [ 101, %228 ], [ 101, %225 ], [ 26, %231 ], [ 102, %234 ], [ 103, %240 ], [ 103, %237 ], [ %spec.select831, %243 ]
+  %.0361461.ph = phi i1 [ false, %195 ], [ false, %192 ], [ false, %189 ], [ false, %.tail.thread ], [ false, %.tail ], [ false, %205 ], [ false, %213 ], [ true, %216 ], [ false, %219 ], [ false, %222 ], [ false, %228 ], [ false, %225 ], [ false, %231 ], [ false, %234 ], [ false, %240 ], [ false, %237 ], [ false, %243 ]
   store i32 %.sink, ptr %9, align 4
   br label %.thread
 
@@ -1819,7 +1819,7 @@ sub_1477:                                         ; preds = %sub_0476
   br label %.critedge25
 
 .critedge25:                                      ; preds = %switch.early.test, %41, %60, %62, %switch.early.test451, %170, %173, %277, %335, %.lr.ph579, %.lr.ph593, %.preheader480, %.critedge30.thread, %.critedge3.thread.thread754, %259, %.thread777, %.critedge35, %392, %.critedge37, %443, %440, %.critedge30, %.critedge23, %309, %.critedge15, %150, %.critedge11, %.critedge11.thread, %107, %.critedge7, %.thread761, %.critedge3, %.critedge3.thread, %48, %.critedge.thread, %29, %278
-  %.0369 = phi i1 [ false, %.critedge30.thread ], [ false, %170 ], [ false, %309 ], [ false, %.critedge23 ], [ false, %259 ], [ false, %335 ], [ false, %.critedge30 ], [ false, %.critedge15 ], [ false, %278 ], [ false, %.lr.ph593 ], [ false, %48 ], [ false, %switch.early.test451 ], [ false, %.critedge3 ], [ false, %.thread761 ], [ false, %60 ], [ false, %.critedge7 ], [ false, %29 ], [ false, %107 ], [ false, %150 ], [ false, %277 ], [ false, %.critedge11 ], [ false, %.critedge.thread ], [ false, %.critedge3.thread ], [ false, %.critedge11.thread ], [ false, %392 ], [ false, %.thread777 ], [ false, %.preheader480 ], [ false, %.critedge35 ], [ false, %.critedge37 ], [ true, %440 ], [ true, %443 ], [ false, %.critedge3.thread.thread754 ], [ false, %.lr.ph579 ], [ false, %173 ], [ false, %62 ], [ false, %41 ], [ false, %switch.early.test ]
+  %.0369 = phi i1 [ false, %278 ], [ false, %29 ], [ false, %.critedge.thread ], [ false, %48 ], [ false, %.critedge3.thread ], [ false, %.critedge3 ], [ false, %.thread761 ], [ false, %.critedge7 ], [ false, %107 ], [ false, %.critedge11.thread ], [ false, %.critedge11 ], [ false, %150 ], [ false, %.critedge15 ], [ false, %309 ], [ false, %.critedge23 ], [ false, %.critedge30 ], [ false, %.thread777 ], [ false, %.critedge35 ], [ false, %392 ], [ false, %.critedge37 ], [ true, %443 ], [ true, %440 ], [ false, %259 ], [ false, %.critedge3.thread.thread754 ], [ false, %.critedge30.thread ], [ false, %.preheader480 ], [ false, %.lr.ph593 ], [ false, %.lr.ph579 ], [ false, %335 ], [ false, %277 ], [ false, %173 ], [ false, %170 ], [ false, %switch.early.test451 ], [ false, %62 ], [ false, %60 ], [ false, %41 ], [ false, %switch.early.test ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -2729,7 +2729,7 @@ define internal zeroext i1 @catapult_dct2000_dump(ptr noundef %0, ptr noundef %1
   br label %.loopexit144
 
 .loopexit144:                                     ; preds = %149, %.loopexit, %161, %136, %99, %92, %48, %38, %32, %30, %24, %19, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %19 ], [ false, %161 ], [ %169, %.loopexit ], [ false, %136 ], [ false, %24 ], [ false, %99 ], [ false, %92 ], [ false, %48 ], [ false, %38 ], [ false, %32 ], [ false, %30 ], [ false, %149 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %19 ], [ false, %24 ], [ false, %30 ], [ false, %32 ], [ false, %38 ], [ false, %48 ], [ false, %92 ], [ false, %99 ], [ false, %136 ], [ false, %161 ], [ %169, %.loopexit ], [ false, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

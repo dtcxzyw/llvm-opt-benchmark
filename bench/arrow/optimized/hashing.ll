@@ -283,9 +283,9 @@ define noundef i64 @_ZN5arrow8internal17ComputeBitmapHashEPKhmll(ptr noundef rea
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21, %20
-  %.sroa.6.0.lcssa.i = phi ptr [ %9, %21 ], [ %9, %20 ], [ %23, %.lr.ph.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.40.insert.ext.i, %21 ], [ undef, %20 ], [ %24, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %6, %21 ], [ %6, %20 ], [ %30, %.lr.ph.i ]
+  %.sroa.6.0.lcssa.i = phi ptr [ %9, %20 ], [ %9, %21 ], [ %23, %.lr.ph.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ undef, %20 ], [ %.sroa.23.40.insert.ext.i, %21 ], [ %24, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %6, %20 ], [ %6, %21 ], [ %30, %.lr.ph.i ]
   %.not29.i = icmp eq i64 %18, 0
   br i1 %.not29.i, label %_ZN5arrow8internal12_GLOBAL__N_118MurmurHashBitmap64EPKhmmm.exit, label %.preheader.i
 

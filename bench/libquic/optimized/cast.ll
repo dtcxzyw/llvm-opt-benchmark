@@ -2528,7 +2528,7 @@ define hidden void @CAST_cfb64_encrypt(ptr noundef readonly captures(none) %0, p
   br i1 %.not107, label %.loopexit, label %84, !llvm.loop !19
 
 .loopexit:                                        ; preds = %74, %132, %.preheader109, %.preheader
-  %.1101 = phi i32 [ %141, %132 ], [ %9, %.preheader ], [ %9, %.preheader109 ], [ %83, %74 ]
+  %.1101 = phi i32 [ %9, %.preheader ], [ %9, %.preheader109 ], [ %141, %132 ], [ %83, %74 ]
   store i32 %.1101, ptr %5, align 4, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void

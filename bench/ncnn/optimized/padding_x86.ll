@@ -478,7 +478,7 @@ _ZNK4ncnn3Mat5emptyEv.exit142:                    ; preds = %194
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread178
 
-.thread178:                                       ; preds = %_ZNK4ncnn3Mat5emptyEv.exit142, %207, %194
+.thread178:                                       ; preds = %207, %_ZNK4ncnn3Mat5emptyEv.exit142, %194
   %.9.ph = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit142 ], [ 0, %207 ], [ -100, %194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -625,7 +625,7 @@ _ZNK4ncnn3Mat5emptyEv.exit144:                    ; preds = %261
   br label %293
 
 276:                                              ; preds = %.thread188, %272
-  %.12 = phi i32 [ -100, %.thread188 ], [ %273, %272 ]
+  %.12 = phi i32 [ %273, %272 ], [ -100, %.thread188 ]
   %277 = load ptr, ptr %239, align 8, !tbaa !7
   %.not.i147 = icmp eq ptr %277, null
   br i1 %.not.i147, label %_ZN4ncnn3MatD2Ev.exit, label %278
@@ -712,14 +712,14 @@ _ZN4ncnn3MatD2Ev.exit145:                         ; preds = %295, %293, %301, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-.thread:                                          ; preds = %148, %164, %_ZNK4ncnn3Mat5emptyEv.exit141, %112, %128, %_ZNK4ncnn3Mat5emptyEv.exit, %.thread185, %.thread178, %_ZN4ncnn3MatD2Ev.exit
-  %.5 = phi i32 [ %.12, %_ZN4ncnn3MatD2Ev.exit ], [ %.10.ph, %.thread185 ], [ %.9.ph, %.thread178 ], [ -100, %112 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %128 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit141 ], [ 0, %164 ], [ -100, %148 ]
+.thread:                                          ; preds = %148, %_ZNK4ncnn3Mat5emptyEv.exit141, %164, %112, %_ZNK4ncnn3Mat5emptyEv.exit, %128, %.thread185, %.thread178, %_ZN4ncnn3MatD2Ev.exit
+  %.5 = phi i32 [ %.12, %_ZN4ncnn3MatD2Ev.exit ], [ %.9.ph, %.thread178 ], [ %.10.ph, %.thread185 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %128 ], [ -100, %112 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit141 ], [ 0, %164 ], [ -100, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releaseEv.exit153, %32, %90, %.thread
-  %.0106 = phi i32 [ %.5, %.thread ], [ %91, %90 ], [ 0, %32 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit153 ]
+  %.0106 = phi i32 [ %91, %90 ], [ %.5, %.thread ], [ 0, %32 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit153 ]
   ret i32 %.0106
 }
 
@@ -1211,7 +1211,7 @@ _ZNK4ncnn3Mat5emptyEv.exit137:                    ; preds = %222
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread162
 
-.thread162:                                       ; preds = %_ZNK4ncnn3Mat5emptyEv.exit137, %235, %222
+.thread162:                                       ; preds = %235, %_ZNK4ncnn3Mat5emptyEv.exit137, %222
   %.7.ph = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit137 ], [ 0, %235 ], [ -100, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1370,7 +1370,7 @@ _ZNK4ncnn3Mat5emptyEv.exit139:                    ; preds = %301
   br label %333
 
 316:                                              ; preds = %.thread172, %312
-  %.10 = phi i32 [ -100, %.thread172 ], [ %313, %312 ]
+  %.10 = phi i32 [ %313, %312 ], [ -100, %.thread172 ]
   %317 = load ptr, ptr %279, align 8, !tbaa !7
   %.not.i141 = icmp eq ptr %317, null
   br i1 %.not.i141, label %_ZN4ncnn3MatD2Ev.exit, label %318
@@ -1457,8 +1457,8 @@ _ZN4ncnn3MatD2Ev.exit140:                         ; preds = %335, %333, %341, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-_ZN4ncnnL31padding_constant_pack8_int8_sseERKNS_3MatERS0_iiiil.exit.thread: ; preds = %._crit_edge.us56.i, %..preheader3_crit_edge.us42.i, %._crit_edge.us45.us.i, %..preheader2_crit_edge.us.i, %._crit_edge.us29.i.loopexit.us202, %..preheader2_crit_edge.us.i.us, %._crit_edge.us29.i.loopexit.us.us, %148, %166, %_ZNK4ncnn3Mat5emptyEv.exit136, %44, %.preheader4.lr.ph.split.split.i, %58, %_ZNK4ncnn3Mat5emptyEv.exit, %.thread169, %.thread162, %_ZN4ncnn3MatD2Ev.exit
-  %.3 = phi i32 [ %.10, %_ZN4ncnn3MatD2Ev.exit ], [ %.8.ph, %.thread169 ], [ %.7.ph, %.thread162 ], [ -100, %44 ], [ 0, %._crit_edge.us29.i.loopexit.us202 ], [ 0, %.preheader4.lr.ph.split.split.i ], [ 0, %..preheader3_crit_edge.us42.i ], [ 0, %..preheader2_crit_edge.us.i ], [ -100, %148 ], [ 0, %58 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit136 ], [ 0, %166 ], [ 0, %._crit_edge.us29.i.loopexit.us.us ], [ 0, %..preheader2_crit_edge.us.i.us ], [ 0, %._crit_edge.us45.us.i ], [ 0, %._crit_edge.us56.i ]
+_ZN4ncnnL31padding_constant_pack8_int8_sseERKNS_3MatERS0_iiiil.exit.thread: ; preds = %._crit_edge.us56.i, %..preheader3_crit_edge.us42.i, %._crit_edge.us45.us.i, %..preheader2_crit_edge.us.i, %._crit_edge.us29.i.loopexit.us202, %..preheader2_crit_edge.us.i.us, %._crit_edge.us29.i.loopexit.us.us, %148, %_ZNK4ncnn3Mat5emptyEv.exit136, %166, %44, %.preheader4.lr.ph.split.split.i, %58, %_ZNK4ncnn3Mat5emptyEv.exit, %.thread169, %.thread162, %_ZN4ncnn3MatD2Ev.exit
+  %.3 = phi i32 [ %.10, %_ZN4ncnn3MatD2Ev.exit ], [ %.7.ph, %.thread162 ], [ %.8.ph, %.thread169 ], [ 0, %.preheader4.lr.ph.split.split.i ], [ 0, %58 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %44 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit136 ], [ 0, %166 ], [ -100, %148 ], [ 0, %._crit_edge.us29.i.loopexit.us.us ], [ 0, %..preheader2_crit_edge.us.i.us ], [ 0, %._crit_edge.us29.i.loopexit.us202 ], [ 0, %..preheader2_crit_edge.us.i ], [ 0, %._crit_edge.us45.us.i ], [ 0, %..preheader3_crit_edge.us42.i ], [ 0, %._crit_edge.us56.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.3
@@ -1609,7 +1609,7 @@ define internal fastcc void @_ZN4ncnnL26padding_constant_pack4_sseERKNS_3MatERS0
   br i1 %52, label %.lr.ph16, label %.preheader3
 
 .preheader:                                       ; preds = %.preheader3, %._crit_edge.us45, %._crit_edge.us, %.preheader5.lr.ph.split.split, %.preheader6
-  %.146.lcssa = phi ptr [ %.045.lcssa, %.preheader6 ], [ %.4.lcssa.us, %._crit_edge.us ], [ %.045.lcssa, %.preheader5.lr.ph.split.split ], [ %35, %._crit_edge.us45 ], [ %.3.lcssa, %.preheader3 ]
+  %.146.lcssa = phi ptr [ %.045.lcssa, %.preheader6 ], [ %.045.lcssa, %.preheader5.lr.ph.split.split ], [ %.4.lcssa.us, %._crit_edge.us ], [ %35, %._crit_edge.us45 ], [ %.3.lcssa, %.preheader3 ]
   %53 = icmp sgt i32 %8, 0
   br i1 %53, label %.lr.ph60, label %._crit_edge
 
@@ -1958,7 +1958,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   br i1 %139, label %.preheader6.i, label %.preheader4.i
 
 .preheader4.i:                                    ; preds = %.preheader5.i, %._crit_edge.us41.i, %._crit_edge.us.i, %.lr.ph22.split.split.i, %131
-  %.093.lcssa.i = phi ptr [ %67, %131 ], [ %.3.lcssa.us.i, %._crit_edge.us.i ], [ %67, %.lr.ph22.split.split.i ], [ %153, %._crit_edge.us41.i ], [ %167, %.preheader5.i ]
+  %.093.lcssa.i = phi ptr [ %67, %131 ], [ %67, %.lr.ph22.split.split.i ], [ %.3.lcssa.us.i, %._crit_edge.us.i ], [ %153, %._crit_edge.us41.i ], [ %167, %.preheader5.i ]
   %160 = icmp sgt i32 %100, 0
   br i1 %160, label %.lr.ph68.i, label %._crit_edge69.i
 
@@ -2282,8 +2282,8 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   br label %.lr.ph15.i
 
 .preheader6.i40:                                  ; preds = %.preheader7.i, %._crit_edge.us46.i, %._crit_edge.us.i58, %.preheader9.lr.ph.split.split.split.us.i, %201
-  %.097.lcssa.i = phi ptr [ %67, %201 ], [ %.3100.lcssa.us.i, %._crit_edge.us.i58 ], [ %67, %.preheader9.lr.ph.split.split.split.us.i ], [ %239, %._crit_edge.us46.i ], [ %267, %.preheader7.i ]
-  %.0.lcssa.i = phi ptr [ %209, %201 ], [ %217, %._crit_edge.us.i58 ], [ %scevgep.i, %.preheader9.lr.ph.split.split.split.us.i ], [ %245, %._crit_edge.us46.i ], [ %263, %.preheader7.i ]
+  %.097.lcssa.i = phi ptr [ %67, %201 ], [ %67, %.preheader9.lr.ph.split.split.split.us.i ], [ %.3100.lcssa.us.i, %._crit_edge.us.i58 ], [ %239, %._crit_edge.us46.i ], [ %267, %.preheader7.i ]
+  %.0.lcssa.i = phi ptr [ %209, %201 ], [ %scevgep.i, %.preheader9.lr.ph.split.split.split.us.i ], [ %217, %._crit_edge.us.i58 ], [ %245, %._crit_edge.us46.i ], [ %263, %.preheader7.i ]
   %258 = icmp sgt i32 %100, 0
   br i1 %258, label %.preheader5.lr.ph.i, label %._crit_edge77.i
 
@@ -2464,7 +2464,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge93.i, %.
   br label %_ZN4ncnn3MatD2Ev.exit27
 
 _ZN4ncnn3MatD2Ev.exit27:                          ; preds = %.lr.ph, %93, %_ZN4ncnn3MatD2Ev.exit
-  %309 = phi i32 [ %.pre, %_ZN4ncnn3MatD2Ev.exit ], [ %58, %93 ], [ %58, %.lr.ph ]
+  %309 = phi i32 [ %58, %93 ], [ %.pre, %_ZN4ncnn3MatD2Ev.exit ], [ %58, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %310 = sext i32 %309 to i64
   %.not.not = icmp slt i64 %indvars.iv, %310
@@ -2778,7 +2778,7 @@ define internal void @_ZNK4ncnn11Padding_x867forwardERKNS_3MatERS1_RKNS_6OptionE
   br label %.lr.ph16.i
 
 .preheader.i:                                     ; preds = %.preheader3.i, %._crit_edge.us45.i, %._crit_edge.us.i, %.preheader5.lr.ph.split.split.i, %.preheader6.i
-  %.146.lcssa.i = phi ptr [ %.045.lcssa.i, %.preheader6.i ], [ %.4.lcssa.us.i, %._crit_edge.us.i ], [ %.045.lcssa.i, %.preheader5.lr.ph.split.split.i ], [ %114, %._crit_edge.us45.i ], [ %127, %.preheader3.i ]
+  %.146.lcssa.i = phi ptr [ %.045.lcssa.i, %.preheader6.i ], [ %.045.lcssa.i, %.preheader5.lr.ph.split.split.i ], [ %.4.lcssa.us.i, %._crit_edge.us.i ], [ %114, %._crit_edge.us45.i ], [ %127, %.preheader3.i ]
   %123 = icmp sgt i32 %97, 0
   br i1 %123, label %.lr.ph60.i, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -3004,7 +3004,7 @@ define internal fastcc void @_ZN4ncnnL31padding_constant_pack8_int8_sseERKNS_3Ma
   br i1 %exitcond86.not, label %.preheader1, label %.preheader4.us49, !llvm.loop !62
 
 .preheader1:                                      ; preds = %._crit_edge.us56, %..preheader3_crit_edge.us42, %._crit_edge.us45.us, %._crit_edge.us29, %.preheader4.lr.ph.split.split, %.preheader5
-  %.2.lcssa = phi ptr [ %.042.lcssa, %.preheader5 ], [ %38, %..preheader3_crit_edge.us42 ], [ %.5.lcssa.us, %._crit_edge.us29 ], [ %.042.lcssa, %.preheader4.lr.ph.split.split ], [ %31, %._crit_edge.us45.us ], [ %42, %._crit_edge.us56 ]
+  %.2.lcssa = phi ptr [ %.042.lcssa, %.preheader5 ], [ %.042.lcssa, %.preheader4.lr.ph.split.split ], [ %.5.lcssa.us, %._crit_edge.us29 ], [ %31, %._crit_edge.us45.us ], [ %38, %..preheader3_crit_edge.us42 ], [ %42, %._crit_edge.us56 ]
   %45 = icmp sgt i32 %2, 0
   %46 = icmp sgt i32 %.44.val, 0
   %or.cond122 = select i1 %45, i1 %46, i1 false
@@ -3380,7 +3380,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   br i1 %exitcond113.not.i, label %.preheader6.i, label %.preheader9.us46.i, !llvm.loop !127
 
 .preheader6.i:                                    ; preds = %._crit_edge.us53.i, %..preheader7_crit_edge.us38.i, %._crit_edge.us42.us.i, %._crit_edge.us.i, %.preheader9.lr.ph.split.split.i, %132
-  %.072.lcssa.i = phi ptr [ %63, %132 ], [ %164, %..preheader7_crit_edge.us38.i ], [ %.3.lcssa.us.i, %._crit_edge.us.i ], [ %63, %.preheader9.lr.ph.split.split.i ], [ %153, %._crit_edge.us42.us.i ], [ %169, %._crit_edge.us53.i ]
+  %.072.lcssa.i = phi ptr [ %63, %132 ], [ %63, %.preheader9.lr.ph.split.split.i ], [ %.3.lcssa.us.i, %._crit_edge.us.i ], [ %153, %._crit_edge.us42.us.i ], [ %164, %..preheader7_crit_edge.us38.i ], [ %169, %._crit_edge.us53.i ]
   %172 = icmp sgt i32 %102, 0
   br i1 %172, label %.preheader5.lr.ph.i, label %._crit_edge73.i
 
@@ -3710,8 +3710,8 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   br i1 %exitcond130.not.i69, label %.preheader6.i47, label %.preheader9.us51.i, !llvm.loop !142
 
 .preheader6.i47:                                  ; preds = %..preheader7_crit_edge.us61.i, %..preheader8_crit_edge.us42.i, %..preheader7_crit_edge.us45.us.i, %._crit_edge.us.i75, %.preheader9.preheader.i, %204
-  %.089.lcssa.i = phi ptr [ %211, %204 ], [ %250, %..preheader8_crit_edge.us42.i ], [ %231, %._crit_edge.us.i75 ], [ %scevgep.i, %.preheader9.preheader.i ], [ %243, %..preheader7_crit_edge.us45.us.i ], [ %264, %..preheader7_crit_edge.us61.i ]
-  %.088.lcssa.i = phi ptr [ %63, %204 ], [ %249, %..preheader8_crit_edge.us42.i ], [ %222, %._crit_edge.us.i75 ], [ %63, %.preheader9.preheader.i ], [ %236, %..preheader7_crit_edge.us45.us.i ], [ %262, %..preheader7_crit_edge.us61.i ]
+  %.089.lcssa.i = phi ptr [ %211, %204 ], [ %scevgep.i, %.preheader9.preheader.i ], [ %231, %._crit_edge.us.i75 ], [ %243, %..preheader7_crit_edge.us45.us.i ], [ %250, %..preheader8_crit_edge.us42.i ], [ %264, %..preheader7_crit_edge.us61.i ]
+  %.088.lcssa.i = phi ptr [ %63, %204 ], [ %63, %.preheader9.preheader.i ], [ %222, %._crit_edge.us.i75 ], [ %236, %..preheader7_crit_edge.us45.us.i ], [ %249, %..preheader8_crit_edge.us42.i ], [ %262, %..preheader7_crit_edge.us61.i ]
   %266 = icmp sgt i32 %102, 0
   br i1 %266, label %.preheader5.lr.ph.i56, label %._crit_edge84.i
 
@@ -3865,7 +3865,7 @@ _ZN4ncnn3MatD2Ev.exit35:                          ; preds = %._crit_edge100.i, %
   br label %_ZN4ncnn3MatD2Ev.exit
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.lr.ph, %85, %_ZN4ncnn3MatD2Ev.exit35
-  %308 = phi i32 [ %.pre, %_ZN4ncnn3MatD2Ev.exit35 ], [ %56, %85 ], [ %56, %.lr.ph ]
+  %308 = phi i32 [ %56, %85 ], [ %.pre, %_ZN4ncnn3MatD2Ev.exit35 ], [ %56, %.lr.ph ]
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, 1
   %309 = sext i32 %308 to i64
   %.not.not = icmp slt i64 %indvars.iv174, %309
@@ -4176,7 +4176,7 @@ define internal void @_ZNK4ncnn11Padding_x8612forward_int8ERKNS_3MatERS1_RKNS_6O
   br i1 %exitcond95.not.i.us, label %.preheader1.i.us, label %.preheader4.us.i.us, !llvm.loop !62
 
 .preheader1.i.us:                                 ; preds = %._crit_edge.us56.i.us, %..preheader3_crit_edge.us42.i.us, %._crit_edge.us45.us.i.us, %._crit_edge.us29.i.us, %.preheader4.lr.ph.split.split.i.us, %.preheader5.i.us
-  %.2.lcssa.i.us = phi ptr [ %.042.lcssa.i.us, %.preheader5.i.us ], [ %110, %..preheader3_crit_edge.us42.i.us ], [ %.5.lcssa.us.i.us, %._crit_edge.us29.i.us ], [ %.042.lcssa.i.us, %.preheader4.lr.ph.split.split.i.us ], [ %116, %._crit_edge.us45.us.i.us ], [ %106, %._crit_edge.us56.i.us ]
+  %.2.lcssa.i.us = phi ptr [ %.042.lcssa.i.us, %.preheader5.i.us ], [ %.042.lcssa.i.us, %.preheader4.lr.ph.split.split.i.us ], [ %.5.lcssa.us.i.us, %._crit_edge.us29.i.us ], [ %116, %._crit_edge.us45.us.i.us ], [ %110, %..preheader3_crit_edge.us42.i.us ], [ %106, %._crit_edge.us56.i.us ]
   %128 = icmp sgt i32 %95, 0
   %or.cond122.i.us = select i1 %128, i1 %60, i1 false
   br i1 %or.cond122.i.us, label %.preheader.us.i.us, label %_ZN4ncnn3MatD2Ev.exit.us

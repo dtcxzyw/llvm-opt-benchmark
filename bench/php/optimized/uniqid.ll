@@ -80,15 +80,15 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %21
   br i1 %cond.fr76, label %.critedge, label %.thread86, !prof !13
 
 .thread86:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_string.exit, %10
-  %.05696 = phi i32 [ 0, %10 ], [ 1, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05895 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  %.05994 = phi ptr [ null, %10 ], [ %14, %zend_parse_arg_string.exit ], [ %24, %zend_parse_arg_bool_ex.exit ]
-  %.06093 = phi i32 [ 0, %10 ], [ 4, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05696 = phi i32 [ 1, %zend_parse_arg_string.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05895 = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 1, %10 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.05994 = phi ptr [ %14, %zend_parse_arg_string.exit ], [ null, %10 ], [ %24, %zend_parse_arg_bool_ex.exit ]
+  %.06093 = phi i32 [ 4, %zend_parse_arg_string.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05895, i32 noundef %.05696, ptr noundef null, i32 noundef %.06093, ptr noundef %.05994) #4
   br label %62
 
 .critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread97, %11, %zend_parse_arg_str_ex.exit.thread
-  %.1 = phi ptr [ %20, %.thread97 ], [ @.str, %11 ], [ %20, %zend_parse_arg_str_ex.exit.thread ], [ %20, %zend_parse_arg_bool_ex.exit ]
+  %.1 = phi ptr [ @.str, %11 ], [ %20, %zend_parse_arg_str_ex.exit.thread ], [ %20, %.thread97 ], [ %20, %zend_parse_arg_bool_ex.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %27
 

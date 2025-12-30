@@ -350,7 +350,7 @@ make_tc.exit67:                                   ; preds = %.preheader
   br label %204
 
 204:                                              ; preds = %159, %132, %196, %63, %35, %21
-  %.050 = phi i32 [ -1397118274, %21 ], [ -22, %63 ], [ -22, %35 ], [ -1397118274, %132 ], [ %203, %196 ], [ -1397118274, %159 ]
+  %.050 = phi i32 [ -1397118274, %21 ], [ -22, %63 ], [ %203, %196 ], [ -22, %35 ], [ -1397118274, %132 ], [ -1397118274, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -555,7 +555,7 @@ align_put_bits.exit:                              ; preds = %78, %95
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %align_put_bits.exit, %align_put_bits.exit.us, %40, %5
-  %.041 = phi i32 [ 0, %5 ], [ 0, %align_put_bits.exit.us ], [ -1397118274, %40 ], [ 0, %align_put_bits.exit ]
+  %.041 = phi i32 [ 0, %5 ], [ -1397118274, %40 ], [ 0, %align_put_bits.exit.us ], [ 0, %align_put_bits.exit ]
   ret i32 %.041
 }
 

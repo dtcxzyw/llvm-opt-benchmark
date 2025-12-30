@@ -442,7 +442,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3d5dc656c5dc7
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit": ; preds = %5, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit.sink.split"
-  %.sroa.7.0.i = phi i32 [ %8, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit.sink.split" ], [ undef, %5 ]
+  %.sroa.7.0.i = phi i32 [ undef, %5 ], [ %8, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit.sink.split" ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !82, !noalias !85, !noundef !7
   store i32 %6, ptr %0, align 8
@@ -894,7 +894,7 @@ default.unreachable1:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %2, %2, %7, %4
-  %.sroa.7.0 = phi i32 [ undef, %2 ], [ %6, %4 ], [ %9, %7 ], [ undef, %2 ]
+  %.sroa.7.0 = phi i32 [ %6, %4 ], [ %9, %7 ], [ undef, %2 ], [ undef, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !7
   store i32 %3, ptr %0, align 8

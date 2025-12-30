@@ -252,7 +252,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %65
 
 65:                                               ; preds = %1, %45, %44
-  %.0 = phi i32 [ 0, %45 ], [ -22, %44 ], [ %13, %1 ]
+  %.0 = phi i32 [ -22, %44 ], [ 0, %45 ], [ %13, %1 ]
   ret i32 %.0
 }
 
@@ -1671,7 +1671,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %13, %18, %16, %1
-  %.0 = phi i32 [ %34, %18 ], [ -541478725, %1 ], [ -12, %16 ], [ -541478725, %13 ], [ %11, %7 ]
+  %.0 = phi i32 [ -541478725, %1 ], [ -12, %16 ], [ %34, %18 ], [ -541478725, %13 ], [ %11, %7 ]
   ret i32 %.0
 }
 

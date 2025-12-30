@@ -1352,7 +1352,7 @@ _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %.lr.ph.i
   br i1 %15, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.preheader.i, !llvm.loop !19
 
 _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread: ; preds = %.preheader.i, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, %.split, %2
-  %.us-phi = phi i32 [ 0, %2 ], [ %.fr9, %.preheader.i ], [ %.018, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit ], [ 0, %.split ]
+  %.us-phi = phi i32 [ 0, %2 ], [ 0, %.split ], [ %.018, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit ], [ %.fr9, %.preheader.i ]
   ret i32 %.us-phi
 }
 
@@ -1408,7 +1408,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %1
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %1
-  %.sroa.0.0 = phi i32 [ %switch.load, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ 7, %1 ]
+  %.sroa.0.0 = phi i32 [ 7, %1 ], [ %switch.load, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ]
   ret i32 %.sroa.0.0
 }
 
@@ -2097,8 +2097,8 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread: ; preds = %_ZN
   br label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread.thread
 
 _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread.thread: ; preds = %37, %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread, %48, %45, %42, %36, %33, %28, %26, %18, %.loopexit, %8, %5
-  %.sroa.14.1 = phi i32 [ %.sroa.14.0.extract.trunc, %5 ], [ %.sroa.14.0.extract.trunc130, %48 ], [ %.sroa.01.0.copyload.i, %45 ], [ %.sroa.14.0.extract.trunc126, %42 ], [ %.sroa.14.0.extract.trunc124, %36 ], [ %.sroa.0.0.copyload.i87, %33 ], [ %.sroa.14.0.extract.trunc122, %28 ], [ %.sroa.14.0.extract.trunc120, %26 ], [ %.sroa.14.0.extract.trunc118, %18 ], [ %14, %.loopexit ], [ %.sroa.14.0.extract.trunc114, %8 ], [ 0, %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread ], [ %.sroa.0.0.copyload.i, %37 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.extract.trunc, %5 ], [ %.sroa.0.0.extract.trunc112, %48 ], [ %.sroa.01.0.copyload.i, %45 ], [ %.sroa.0.0.extract.trunc110, %42 ], [ %.sroa.0.0.extract.trunc109, %36 ], [ %.sroa.0.0.copyload.i86, %33 ], [ %.sroa.0.0.extract.trunc108, %28 ], [ %.sroa.0.0.extract.trunc107, %26 ], [ %.sroa.0.0.extract.trunc106, %18 ], [ %13, %.loopexit ], [ %.sroa.0.0.extract.trunc104, %8 ], [ 0, %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread ], [ %.sroa.0.0.copyload.i, %37 ]
+  %.sroa.14.1 = phi i32 [ %.sroa.14.0.extract.trunc130, %48 ], [ %.sroa.01.0.copyload.i, %45 ], [ %.sroa.14.0.extract.trunc126, %42 ], [ %.sroa.14.0.extract.trunc124, %36 ], [ %.sroa.0.0.copyload.i87, %33 ], [ %.sroa.14.0.extract.trunc122, %28 ], [ %.sroa.14.0.extract.trunc120, %26 ], [ %.sroa.14.0.extract.trunc118, %18 ], [ %14, %.loopexit ], [ %.sroa.14.0.extract.trunc114, %8 ], [ %.sroa.14.0.extract.trunc, %5 ], [ 0, %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread ], [ %.sroa.0.0.copyload.i, %37 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.extract.trunc112, %48 ], [ %.sroa.01.0.copyload.i, %45 ], [ %.sroa.0.0.extract.trunc110, %42 ], [ %.sroa.0.0.extract.trunc109, %36 ], [ %.sroa.0.0.copyload.i86, %33 ], [ %.sroa.0.0.extract.trunc108, %28 ], [ %.sroa.0.0.extract.trunc107, %26 ], [ %.sroa.0.0.extract.trunc106, %18 ], [ %13, %.loopexit ], [ %.sroa.0.0.extract.trunc104, %8 ], [ %.sroa.0.0.extract.trunc, %5 ], [ 0, %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread.thread ], [ %.sroa.0.0.copyload.i, %37 ]
   %.sroa.14.0.insert.ext = zext i32 %.sroa.14.1 to i64
   %.sroa.14.0.insert.shift = shl nuw i64 %.sroa.14.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.1 to i64

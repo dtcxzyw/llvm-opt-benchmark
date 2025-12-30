@@ -759,8 +759,8 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   br label %68
 
 68:                                               ; preds = %._crit_edge.us.us.us, %.thread.us.us.us, %62
-  %.271.us.us.us = phi nsz float [ %64, %62 ], [ %97, %._crit_edge.us.us.us ], [ %66, %.thread.us.us.us ]
-  %.268.us.us.us = phi nsz float [ %65, %62 ], [ %100, %._crit_edge.us.us.us ], [ %67, %.thread.us.us.us ]
+  %.271.us.us.us = phi nsz float [ %64, %62 ], [ %66, %.thread.us.us.us ], [ %97, %._crit_edge.us.us.us ]
+  %.268.us.us.us = phi nsz float [ %65, %62 ], [ %67, %.thread.us.us.us ], [ %100, %._crit_edge.us.us.us ]
   switch i32 %22, label %.thread93.us.us.us [
     i32 0, label %.thread91.us.us.us
     i32 1, label %74
@@ -792,7 +792,7 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   br label %.thread93.us.us.us
 
 .thread93.us.us.us:                               ; preds = %.thread91.us.us.us, %74, %69, %68
-  %.3.us.us.us = phi ptr [ %73, %69 ], [ %.063101.us.us.us, %68 ], [ %81, %.thread91.us.us.us ], [ %79, %74 ]
+  %.3.us.us.us = phi ptr [ %73, %69 ], [ %81, %.thread91.us.us.us ], [ %79, %74 ], [ %.063101.us.us.us, %68 ]
   %82 = getelementptr inbounds float, ptr %.062102.us.us.us, i64 %46
   %83 = add nuw nsw i32 %.072100.us.us.us, 1
   %exitcond178.not = icmp eq i32 %83, %32
@@ -1066,7 +1066,7 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.noexc39, %80
-  %97 = phi i32 [ %.pre, %80 ], [ %54, %.noexc39 ], [ %54, %.lr.ph ]
+  %97 = phi i32 [ %54, %.noexc39 ], [ %.pre, %80 ], [ %54, %.lr.ph ]
   %98 = add nuw i32 %.074, 1
   %99 = add i32 %97, 1
   %100 = icmp ult i32 %98, %99

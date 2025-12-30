@@ -1683,8 +1683,8 @@ define internal ptr @bool_converter(ptr readnone captures(none) %0, ptr noundef 
   br i1 %.not24, label %28, label %34
 
 28:                                               ; preds = %21, %26, %19, %12
-  %.017 = phi i32 [ %17, %21 ], [ 1, %12 ], [ %17, %19 ], [ %17, %26 ]
-  %.0 = phi i32 [ %24, %21 ], [ 1, %12 ], [ 1, %19 ], [ 1, %26 ]
+  %.017 = phi i32 [ 1, %12 ], [ %17, %19 ], [ %17, %26 ], [ %17, %21 ]
+  %.0 = phi i32 [ 1, %12 ], [ 1, %19 ], [ 1, %26 ], [ %24, %21 ]
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   %.017.fr = freeze i32 %.017
@@ -1808,7 +1808,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %PyObject_TypeCheck.
   unreachable
 
 PyByteArray_GET_SIZE.exit:                        ; preds = %24, %PyObject_TypeCheck.exit.thread, %31
-  %33 = phi ptr [ %.pre, %31 ], [ %.pre, %PyObject_TypeCheck.exit.thread ], [ %11, %24 ]
+  %33 = phi ptr [ %.pre, %PyObject_TypeCheck.exit.thread ], [ %.pre, %31 ], [ %11, %24 ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !22
   %.not188 = icmp eq i64 %35, 1
@@ -1994,7 +1994,7 @@ PyObject_TypeCheck.exit.i330:                     ; preds = %PyObject_TypeCheck.
   unreachable
 
 PyByteArray_GET_SIZE.exit336:                     ; preds = %80, %PyObject_TypeCheck.exit327.thread, %87
-  %89 = phi ptr [ %.pre449, %87 ], [ %.pre449, %PyObject_TypeCheck.exit327.thread ], [ %67, %80 ]
+  %89 = phi ptr [ %.pre449, %PyObject_TypeCheck.exit327.thread ], [ %.pre449, %87 ], [ %67, %80 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i64, ptr %90, align 8, !tbaa !22
   %.not192 = icmp eq i64 %91, 1
@@ -3161,7 +3161,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %char_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !29
 
 char_converter_impl.exit:                         ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit46.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit46.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %557, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit46.i ], [ null, %Py_DECREF.exit.i ], [ %557, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %578
@@ -3434,13 +3434,13 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %unsigned_char_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !33
 
 unsigned_char_converter_impl.exit:                ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %74, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %74, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread47
 
 .thread47:                                        ; preds = %31, %38, %.thread50, %14, %21, %.thread, %48, %unsigned_char_converter_impl.exit, %6
-  %.028 = phi ptr [ %.1.i, %unsigned_char_converter_impl.exit ], [ null, %6 ], [ null, %14 ], [ null, %48 ], [ null, %.thread ], [ null, %21 ], [ null, %.thread50 ], [ null, %38 ], [ null, %31 ]
+  %.028 = phi ptr [ %.1.i, %unsigned_char_converter_impl.exit ], [ null, %6 ], [ null, %48 ], [ null, %.thread ], [ null, %21 ], [ null, %14 ], [ null, %.thread50 ], [ null, %38 ], [ null, %31 ]
   ret ptr %.028
 }
 
@@ -3576,7 +3576,7 @@ define internal ptr @short_converter(ptr readnone captures(none) %0, ptr noundef
   unreachable
 
 short_converter_impl.exit:                        ; preds = %12, %20, %16, %41, %.preheader.split.i, %.preheader.i, %.preheader4.split.split.split.split.i, %27, %4
-  %.016 = phi ptr [ null, %4 ], [ null, %41 ], [ %26, %.preheader4.split.split.split.split.i ], [ null, %27 ], [ null, %.preheader.i ], [ null, %.preheader.split.i ], [ null, %16 ], [ null, %20 ], [ null, %12 ]
+  %.016 = phi ptr [ null, %4 ], [ null, %27 ], [ %26, %.preheader4.split.split.split.split.i ], [ null, %.preheader.split.i ], [ null, %41 ], [ null, %.preheader.i ], [ null, %16 ], [ null, %20 ], [ null, %12 ]
   ret ptr %.016
 }
 
@@ -3800,7 +3800,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %unsigned_short_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !40
 
 unsigned_short_converter_impl.exit:               ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %58, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %58, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
@@ -4146,7 +4146,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %int_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !48
 
 int_converter_impl.exit:                          ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %86, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %86, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %107
@@ -4376,7 +4376,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %unsigned_int_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !52
 
 unsigned_int_converter_impl.exit:                 ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %58, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %58, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
@@ -4502,7 +4502,7 @@ define internal ptr @long_converter(ptr readnone captures(none) %0, ptr noundef 
   unreachable
 
 long_converter_impl.exit:                         ; preds = %33, %.preheader.split.i, %.preheader.i, %.preheader4.split.split.split.split.i, %19, %12, %4
-  %.09 = phi ptr [ null, %4 ], [ null, %12 ], [ %17, %.preheader4.split.split.split.split.i ], [ null, %19 ], [ null, %.preheader.i ], [ null, %.preheader.split.i ], [ null, %33 ]
+  %.09 = phi ptr [ null, %12 ], [ null, %4 ], [ null, %19 ], [ %17, %.preheader4.split.split.split.split.i ], [ null, %.preheader.split.i ], [ null, %33 ], [ null, %.preheader.i ]
   ret ptr %.09
 }
 
@@ -4729,7 +4729,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %unsigned_long_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !57
 
 unsigned_long_converter_impl.exit:                ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %56, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %56, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
@@ -4855,7 +4855,7 @@ define internal ptr @long_long_converter(ptr readnone captures(none) %0, ptr nou
   unreachable
 
 long_long_converter_impl.exit:                    ; preds = %33, %.preheader.split.i, %.preheader.i, %.preheader4.split.split.split.split.i, %19, %12, %4
-  %.09 = phi ptr [ null, %4 ], [ null, %12 ], [ %17, %.preheader4.split.split.split.split.i ], [ null, %19 ], [ null, %.preheader.i ], [ null, %.preheader.split.i ], [ null, %33 ]
+  %.09 = phi ptr [ null, %12 ], [ null, %4 ], [ null, %19 ], [ %17, %.preheader4.split.split.split.split.i ], [ null, %.preheader.split.i ], [ null, %33 ], [ null, %.preheader.i ]
   ret ptr %.09
 }
 
@@ -5082,7 +5082,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %unsigned_long_long_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !64
 
 unsigned_long_long_converter_impl.exit:           ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %56, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %56, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
@@ -5354,13 +5354,13 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %py_ssize_t_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !68
 
 py_ssize_t_converter_impl.exit:                   ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %67, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %67, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
 88:                                               ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit46.thread, %py_ssize_t_converter_impl.exit, %7, %40
-  %.028 = phi ptr [ %.1.i, %py_ssize_t_converter_impl.exit ], [ null, %40 ], [ null, %Py_DECREF.exit46.thread ], [ null, %7 ], [ null, %Py_DECREF.exit.thread ]
+  %.028 = phi ptr [ %.1.i, %py_ssize_t_converter_impl.exit ], [ null, %40 ], [ null, %7 ], [ null, %Py_DECREF.exit46.thread ], [ null, %Py_DECREF.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.028
 }
@@ -5579,7 +5579,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %exitcond19.not.i, label %slice_index_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !72
 
 slice_index_converter_impl.exit:                  ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
-  %.1.i = phi ptr [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader3.i ], [ %53, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %53, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %74
@@ -5708,7 +5708,7 @@ define internal ptr @size_t_converter(ptr readnone captures(none) %0, ptr nounde
   unreachable
 
 size_t_converter_impl.exit:                       ; preds = %32, %.preheader.split.i, %.preheader.i, %.preheader4.split.split.split.split.i, %18, %9, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ %16, %.preheader4.split.split.split.split.i ], [ null, %18 ], [ null, %.preheader.i ], [ null, %.preheader.split.i ], [ null, %32 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %18 ], [ %16, %.preheader4.split.split.split.split.i ], [ null, %.preheader.split.i ], [ null, %32 ], [ null, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -5841,7 +5841,7 @@ PyFloat_AS_DOUBLE.exit:                           ; preds = %8
   unreachable
 
 float_converter_impl.exit:                        ; preds = %41, %.preheader.split.i, %.preheader.i, %.preheader4.split.split.split.split.i, %27, %18, %4
-  %.011 = phi ptr [ null, %4 ], [ null, %18 ], [ %26, %.preheader4.split.split.split.split.i ], [ null, %27 ], [ null, %.preheader.i ], [ null, %.preheader.split.i ], [ null, %41 ]
+  %.011 = phi ptr [ null, %18 ], [ null, %4 ], [ null, %27 ], [ %26, %.preheader4.split.split.split.split.i ], [ null, %.preheader.split.i ], [ null, %41 ], [ null, %.preheader.i ]
   ret ptr %.011
 }
 
@@ -5970,7 +5970,7 @@ PyFloat_AS_DOUBLE.exit:                           ; preds = %8
   unreachable
 
 double_converter_impl.exit:                       ; preds = %37, %.preheader.split.i, %.preheader.i, %.preheader4.split.split.split.split.i, %23, %16, %4
-  %.011 = phi ptr [ null, %4 ], [ null, %16 ], [ %21, %.preheader4.split.split.split.split.i ], [ null, %23 ], [ null, %.preheader.i ], [ null, %.preheader.split.i ], [ null, %37 ]
+  %.011 = phi ptr [ null, %16 ], [ null, %4 ], [ null, %23 ], [ %21, %.preheader4.split.split.split.split.i ], [ null, %.preheader.split.i ], [ null, %37 ], [ null, %.preheader.i ]
   ret ptr %.011
 }
 
@@ -6071,7 +6071,7 @@ define internal ptr @py_complex_converter(ptr readnone captures(none) %0, ptr no
   unreachable
 
 py_complex_converter_impl.exit:                   ; preds = %26, %.preheader.split.i, %.preheader.i, %.preheader4.split.split.split.split.i, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ %8, %.preheader4.split.split.split.split.i ], [ null, %12 ], [ null, %.preheader.i ], [ null, %.preheader.split.i ], [ null, %26 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ %8, %.preheader4.split.split.split.split.i ], [ null, %.preheader.split.i ], [ null, %26 ], [ null, %.preheader.i ]
   ret ptr %.0
 }
 
@@ -6242,7 +6242,7 @@ Py_DECREF.exit.i:                                 ; preds = %52, %49, %.lr.ph.i
   br i1 %exitcond10.not.i, label %str_converter_impl.exit, label %.lr.ph.i, !llvm.loop !82
 
 str_converter_impl.exit:                          ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %19
-  %.028.i = phi ptr [ null, %Py_DECREF.exit.i ], [ null, %19 ], [ %32, %PyTuple_SET_ITEM.exit.i ]
+  %.028.i = phi ptr [ null, %19 ], [ null, %Py_DECREF.exit.i ], [ %32, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
@@ -6422,7 +6422,7 @@ Py_DECREF.exit.i:                                 ; preds = %52, %49, %.lr.ph.i
   br i1 %exitcond10.not.i, label %str_converter_encoding_impl.exit, label %.lr.ph.i, !llvm.loop !84
 
 str_converter_encoding_impl.exit:                 ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %19
-  %.028.i = phi ptr [ null, %Py_DECREF.exit.i ], [ null, %19 ], [ %32, %PyTuple_SET_ITEM.exit.i ]
+  %.028.i = phi ptr [ null, %19 ], [ null, %Py_DECREF.exit.i ], [ %32, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = load ptr, ptr %5, align 8, !tbaa !80
   call void @PyMem_Free(ptr noundef %53) #10
@@ -6618,7 +6618,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   br i1 %47, label %Py_SIZE.exit.i.i, label %py_buffer_converter_impl.exit, !llvm.loop !91
 
 py_buffer_converter_impl.exit:                    ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %.preheader8.i, %.lr.ph.i, %.lr.ph.split.i, %31
-  %.1.i = phi ptr [ null, %.lr.ph.split.i ], [ null, %.lr.ph.i ], [ null, %Py_DECREF.exit.i ], [ null, %.preheader8.i ], [ null, %31 ], [ %33, %PyTuple_SET_ITEM.exit.i ]
+  %.1.i = phi ptr [ null, %.preheader8.i ], [ null, %.lr.ph.i ], [ null, %31 ], [ null, %.lr.ph.split.i ], [ null, %Py_DECREF.exit.i ], [ %33, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   br label %54
@@ -7823,7 +7823,7 @@ define internal ptr @posonly_varpos(ptr readnone captures(none) %0, ptr noundef 
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %3, %5, %13, %16, %19
-  %.01116 = phi ptr [ %14, %16 ], [ %14, %19 ], [ %14, %13 ], [ null, %5 ], [ null, %3 ]
+  %.01116 = phi ptr [ %14, %13 ], [ %14, %16 ], [ %14, %19 ], [ null, %5 ], [ null, %3 ]
   ret ptr %.01116
 }
 
@@ -7878,7 +7878,7 @@ define internal ptr @posonly_req_opt_varpos(ptr readnone captures(none) %0, ptr 
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %3, %16, %19, %22, %25
-  %.01424 = phi ptr [ %20, %22 ], [ %20, %25 ], [ %20, %19 ], [ null, %16 ], [ null, %3 ]
+  %.01424 = phi ptr [ %20, %19 ], [ %20, %22 ], [ %20, %25 ], [ null, %16 ], [ null, %3 ]
   ret ptr %.01424
 }
 
@@ -7938,7 +7938,7 @@ define internal ptr @posonly_poskw_varpos(ptr readnone captures(none) %0, ptr no
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %9, %22, %25, %28, %31
-  %.02232 = phi ptr [ %26, %28 ], [ %26, %31 ], [ %26, %25 ], [ null, %22 ], [ null, %9 ]
+  %.02232 = phi ptr [ %26, %25 ], [ %26, %28 ], [ %26, %31 ], [ null, %22 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.02232
 }
@@ -7997,7 +7997,7 @@ define internal ptr @poskw_varpos(ptr readnone captures(none) %0, ptr noundef %1
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %9, %20, %23, %26, %29
-  %.02030 = phi ptr [ %24, %26 ], [ %24, %29 ], [ %24, %23 ], [ null, %20 ], [ null, %9 ]
+  %.02030 = phi ptr [ %24, %23 ], [ %24, %26 ], [ %24, %29 ], [ null, %20 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.02030
 }
@@ -8110,7 +8110,7 @@ define internal ptr @poskw_varpos_kwonly_opt(ptr readnone captures(none) %0, ptr
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %23, %41, %29, %44, %48, %51
-  %.02949 = phi ptr [ %46, %48 ], [ %46, %51 ], [ %46, %44 ], [ null, %29 ], [ null, %41 ], [ null, %23 ]
+  %.02949 = phi ptr [ %46, %44 ], [ %46, %48 ], [ %46, %51 ], [ null, %29 ], [ null, %41 ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.02949
 }
@@ -8233,7 +8233,7 @@ define internal ptr @poskw_varpos_kwonly_opt2(ptr readnone captures(none) %0, pt
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %25, %45, %48, %51, %54
-  %.03356 = phi ptr [ %49, %51 ], [ %49, %54 ], [ %49, %48 ], [ null, %45 ], [ null, %25 ]
+  %.03356 = phi ptr [ %49, %48 ], [ %49, %51 ], [ %49, %54 ], [ null, %45 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.03356
 }
@@ -8323,7 +8323,7 @@ define internal ptr @varpos_kwonly_opt(ptr readnone captures(none) %0, ptr nound
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %.thread52, %18, %.thread41, %29, %32, %35
-  %.02347 = phi ptr [ %30, %32 ], [ %30, %35 ], [ %30, %29 ], [ null, %.thread41 ], [ null, %18 ], [ null, %.thread52 ]
+  %.02347 = phi ptr [ %30, %29 ], [ %30, %32 ], [ %30, %35 ], [ null, %.thread41 ], [ null, %18 ], [ null, %.thread52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.02347
 }
@@ -8421,7 +8421,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %13
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %18, %30, %33, %36, %39
-  %.02239 = phi ptr [ %34, %36 ], [ %34, %39 ], [ %34, %33 ], [ null, %30 ], [ null, %18 ]
+  %.02239 = phi ptr [ %34, %33 ], [ %34, %36 ], [ %34, %39 ], [ null, %30 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.02239
 }
@@ -8651,7 +8651,7 @@ define internal noundef ptr @gh_32092_oob(ptr readnone captures(none) %0, ptr no
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %.thread, %26, %29, %31, %34
-  %.03558 = phi ptr [ @_Py_NoneStruct, %31 ], [ @_Py_NoneStruct, %34 ], [ @_Py_NoneStruct, %29 ], [ null, %26 ], [ null, %.thread ]
+  %.03558 = phi ptr [ @_Py_NoneStruct, %29 ], [ @_Py_NoneStruct, %31 ], [ @_Py_NoneStruct, %34 ], [ null, %26 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.03558
 }
@@ -8738,7 +8738,7 @@ define internal noundef ptr @gh_32092_kw_pass(ptr readnone captures(none) %0, pt
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %.thread, %26, %29, %31, %34
-  %.02846 = phi ptr [ @_Py_NoneStruct, %31 ], [ @_Py_NoneStruct, %34 ], [ @_Py_NoneStruct, %29 ], [ null, %26 ], [ null, %.thread ]
+  %.02846 = phi ptr [ @_Py_NoneStruct, %29 ], [ @_Py_NoneStruct, %31 ], [ @_Py_NoneStruct, %34 ], [ null, %26 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.02846
 }
@@ -8911,7 +8911,7 @@ define internal ptr @null_or_tuple_for_varargs(ptr readnone captures(none) %0, p
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %23, %41, %29, %46, %50, %53
-  %.02949 = phi ptr [ %48, %50 ], [ %48, %53 ], [ %48, %46 ], [ null, %29 ], [ null, %41 ], [ null, %23 ]
+  %.02949 = phi ptr [ %48, %46 ], [ %48, %50 ], [ %48, %53 ], [ null, %29 ], [ null, %41 ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.02949
 }
@@ -8965,7 +8965,7 @@ define internal noundef ptr @clone_f1(ptr readnone captures(none) %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %21, %18, %10, %24, %17
-  %.0 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %10 ], [ null, %17 ], [ @_Py_NoneStruct, %21 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %17 ], [ null, %10 ], [ @_Py_NoneStruct, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -9019,7 +9019,7 @@ define internal noundef ptr @clone_f2(ptr readnone captures(none) %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %21, %18, %10, %24, %17
-  %.0 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %10 ], [ null, %17 ], [ @_Py_NoneStruct, %21 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %17 ], [ null, %10 ], [ @_Py_NoneStruct, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -9696,7 +9696,7 @@ PyTuple_GET_SIZE.exit42:                          ; preds = %28
   br label %40
 
 40:                                               ; preds = %.thread47, %.thread48, %37, %19
-  %.029 = phi ptr [ null, %37 ], [ null, %.thread48 ], [ null, %19 ], [ @_Py_NoneStruct, %.thread47 ]
+  %.029 = phi ptr [ null, %37 ], [ null, %19 ], [ null, %.thread48 ], [ @_Py_NoneStruct, %.thread47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.029
 }
@@ -9949,7 +9949,7 @@ PyTuple_GET_SIZE.exit65:                          ; preds = %27
   br label %46
 
 46:                                               ; preds = %.thread70, %.thread71, %43, %18
-  %.041 = phi ptr [ null, %43 ], [ null, %.thread71 ], [ null, %18 ], [ @_Py_NoneStruct, %.thread70 ]
+  %.041 = phi ptr [ null, %43 ], [ null, %18 ], [ null, %.thread71 ], [ @_Py_NoneStruct, %.thread70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.041
 }
@@ -10065,7 +10065,7 @@ PyTuple_GET_SIZE.exit45:                          ; preds = %28
   br label %42
 
 42:                                               ; preds = %.thread50, %.thread51, %39, %19
-  %.030 = phi ptr [ null, %39 ], [ null, %.thread51 ], [ null, %19 ], [ @_Py_NoneStruct, %.thread50 ]
+  %.030 = phi ptr [ null, %39 ], [ null, %19 ], [ null, %.thread51 ], [ @_Py_NoneStruct, %.thread50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.030
 }
@@ -10748,7 +10748,7 @@ define internal ptr @_testclinic_TestClass_defclass_varpos(ptr readnone captures
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %10, %.critedge, %15, %18, %21
-  %.01824 = phi ptr [ %16, %18 ], [ %16, %21 ], [ %16, %15 ], [ null, %.critedge ], [ null, %10 ]
+  %.01824 = phi ptr [ %16, %15 ], [ %16, %18 ], [ %16, %21 ], [ null, %.critedge ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.01824
 }
@@ -10797,7 +10797,7 @@ define internal ptr @_testclinic_TestClass_defclass_posonly_varpos(ptr readnone 
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %10, %.thread, %20, %23, %26
-  %.02231 = phi ptr [ %21, %23 ], [ %21, %26 ], [ %21, %20 ], [ null, %.thread ], [ null, %10 ]
+  %.02231 = phi ptr [ %21, %20 ], [ %21, %23 ], [ %21, %26 ], [ null, %.thread ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.02231
 }
@@ -10844,7 +10844,7 @@ _Py_NewRef.exit:                                  ; preds = %14
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %19, %14, %_Py_NewRef.exit, %12
-  %.01218 = phi ptr [ null, %12 ], [ %1, %19 ], [ %1, %14 ], [ %1, %_Py_NewRef.exit ]
+  %.01218 = phi ptr [ null, %12 ], [ %1, %_Py_NewRef.exit ], [ %1, %14 ], [ %1, %19 ]
   ret ptr %.01218
 }
 
@@ -10945,7 +10945,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %21
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %12, %PyTuple_GET_SIZE.exit, %30, %36, %39, %42
-  %.02035 = phi ptr [ %37, %39 ], [ %37, %42 ], [ %37, %36 ], [ null, %30 ], [ null, %PyTuple_GET_SIZE.exit ], [ null, %12 ]
+  %.02035 = phi ptr [ %37, %36 ], [ %37, %39 ], [ %37, %42 ], [ null, %30 ], [ null, %PyTuple_GET_SIZE.exit ], [ null, %12 ]
   ret ptr %.02035
 }
 
@@ -11071,7 +11071,7 @@ PyTuple_GET_SIZE.exit37:                          ; preds = %34
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %12, %PyTuple_GET_SIZE.exit, %41, %43, %46, %49
-  %.02243 = phi ptr [ %44, %46 ], [ %44, %49 ], [ %44, %43 ], [ null, %41 ], [ null, %PyTuple_GET_SIZE.exit ], [ null, %12 ]
+  %.02243 = phi ptr [ %44, %43 ], [ %44, %46 ], [ %44, %49 ], [ null, %41 ], [ null, %PyTuple_GET_SIZE.exit ], [ null, %12 ]
   ret ptr %.02243
 }
 
@@ -11147,7 +11147,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %11
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %18, %.thread, %25, %28, %31
-  %.02241 = phi ptr [ %26, %28 ], [ %26, %31 ], [ %26, %25 ], [ null, %.thread ], [ null, %18 ]
+  %.02241 = phi ptr [ %26, %25 ], [ %26, %28 ], [ %26, %31 ], [ null, %.thread ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.02241
 }
@@ -11332,7 +11332,7 @@ PyTuple_GET_SIZE.exit35:                          ; preds = %37
   br label %posonly_varpos_array_no_fastcall_impl.exit
 
 posonly_varpos_array_no_fastcall_impl.exit:       ; preds = %49, %46, %43, %PyTuple_GET_SIZE.exit35, %PyTuple_GET_SIZE.exit, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %PyTuple_GET_SIZE.exit ], [ null, %PyTuple_GET_SIZE.exit35 ], [ %44, %43 ], [ %44, %46 ], [ %44, %49 ]
+  %.0 = phi ptr [ null, %PyTuple_GET_SIZE.exit ], [ null, %12 ], [ null, %PyTuple_GET_SIZE.exit35 ], [ %44, %43 ], [ %44, %46 ], [ %44, %49 ]
   ret ptr %.0
 }
 
@@ -11445,9 +11445,9 @@ PyTuple_GET_SIZE.exit56:                          ; preds = %PyTuple_GET_SIZE.ex
   br label %PyTuple_GET_SIZE.exit62
 
 PyTuple_GET_SIZE.exit62:                          ; preds = %PyTuple_GET_SIZE.exit56, %PyTuple_GET_SIZE.exit50
-  %43 = phi ptr [ %31, %PyTuple_GET_SIZE.exit56 ], [ %spec.select, %PyTuple_GET_SIZE.exit50 ]
-  %.0256468 = phi ptr [ @_Py_FalseStruct, %PyTuple_GET_SIZE.exit56 ], [ %39, %PyTuple_GET_SIZE.exit50 ]
-  %44 = phi i64 [ %spec.select69, %PyTuple_GET_SIZE.exit56 ], [ %41, %PyTuple_GET_SIZE.exit50 ]
+  %43 = phi ptr [ %spec.select, %PyTuple_GET_SIZE.exit50 ], [ %31, %PyTuple_GET_SIZE.exit56 ]
+  %.0256468 = phi ptr [ %39, %PyTuple_GET_SIZE.exit50 ], [ @_Py_FalseStruct, %PyTuple_GET_SIZE.exit56 ]
+  %44 = phi i64 [ %41, %PyTuple_GET_SIZE.exit50 ], [ %spec.select69, %PyTuple_GET_SIZE.exit56 ]
   %45 = tail call ptr @_PyTuple_FromArray(ptr noundef %43, i64 noundef %44) #10
   %46 = icmp eq ptr %45, null
   br i1 %46, label %posonly_req_opt_varpos_array_no_fastcall_impl.exit, label %47
@@ -11469,7 +11469,7 @@ PyTuple_GET_SIZE.exit62:                          ; preds = %PyTuple_GET_SIZE.ex
   br label %posonly_req_opt_varpos_array_no_fastcall_impl.exit
 
 posonly_req_opt_varpos_array_no_fastcall_impl.exit: ; preds = %53, %50, %47, %PyTuple_GET_SIZE.exit62, %PyTuple_GET_SIZE.exit, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %PyTuple_GET_SIZE.exit ], [ null, %PyTuple_GET_SIZE.exit62 ], [ %48, %47 ], [ %48, %50 ], [ %48, %53 ]
+  %.0 = phi ptr [ null, %PyTuple_GET_SIZE.exit ], [ null, %12 ], [ null, %PyTuple_GET_SIZE.exit62 ], [ %48, %47 ], [ %48, %50 ], [ %48, %53 ]
   ret ptr %.0
 }
 
@@ -12218,7 +12218,7 @@ PyDict_GET_SIZE.exit50:                           ; preds = %27
   br label %40
 
 40:                                               ; preds = %.thread54, %.thread55, %37, %22
-  %.029 = phi i32 [ -1, %37 ], [ -1, %.thread55 ], [ -1, %22 ], [ 0, %.thread54 ]
+  %.029 = phi i32 [ -1, %37 ], [ -1, %22 ], [ -1, %.thread55 ], [ 0, %.thread54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.029
 }

@@ -188,7 +188,7 @@ define hidden i32 @fsrvp_dissect_struct_fssagent_share_mapping_1(ptr noundef %0,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -983,7 +983,7 @@ define internal i32 @fsrvp_dissect_element_GetShareMapping_ShareMapping_(ptr nou
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %fsrvp_dissect_fssagent_share_mapping.exit

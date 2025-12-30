@@ -836,7 +836,7 @@ invoke.cont514:                                   ; preds = %for.body.i396, %for
   br label %for.cond.i397
 
 for.cond.i397:                                    ; preds = %for.cond.i397, %invoke.cont514
-  %temp.sroa.0.0.in.i398 = phi ptr [ %temp.sroa.0.0.i399, %for.cond.i397 ], [ %ilist, %invoke.cont514 ]
+  %temp.sroa.0.0.in.i398 = phi ptr [ %ilist, %invoke.cont514 ], [ %temp.sroa.0.0.i399, %for.cond.i397 ]
   %temp.sroa.0.0.i399 = load ptr, ptr %temp.sroa.0.0.in.i398, align 8
   %cmp.i.not.i400 = icmp eq ptr %temp.sroa.0.0.i399, %ilist
   %cmp.i3.i402 = icmp eq ptr %temp.sroa.0.0.i399, null

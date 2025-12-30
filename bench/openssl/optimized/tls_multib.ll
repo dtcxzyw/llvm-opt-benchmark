@@ -79,7 +79,7 @@ tls_is_multiblock_capable.exit:                   ; preds = %23
   br label %39
 
 39:                                               ; preds = %34, %37
-  %.0 = phi i64 [ %., %34 ], [ %38, %37 ]
+  %.0 = phi i64 [ %38, %37 ], [ %., %34 ]
   ret i64 %.0
 }
 
@@ -268,7 +268,7 @@ tls_is_multiblock_capable.exit.i:                 ; preds = %43
   br i1 %or.cond3.i, label %.preheader.i, label %.loopexit, !llvm.loop !43
 
 tls_write_records_multiblock_int.exit.sink.split: ; preds = %83, %56, %79
-  %.sink = phi i32 [ 137, %56 ], [ 137, %79 ], [ 148, %83 ]
+  %.sink = phi i32 [ 137, %79 ], [ 137, %56 ], [ 148, %83 ]
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_write_records_multiblock_int) #3
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #3
@@ -288,7 +288,7 @@ tls_write_records_multiblock_int.exit:            ; preds = %tls_write_records_m
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %108
 
-.loopexit12:                                      ; preds = %.lr.ph.i, %12, %17, %33, %29, %._crit_edge.i, %43, %40, %3, %37
+.loopexit12:                                      ; preds = %.lr.ph.i, %12, %17, %43, %40, %37, %33, %29, %._crit_edge.i, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %107 = tail call i32 @tls_write_records_default(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3
@@ -299,7 +299,7 @@ tls_write_records_multiblock_int.exit:            ; preds = %tls_write_records_m
   br label %109
 
 109:                                              ; preds = %tls_write_records_multiblock_int.exit, %.loopexit12, %108
-  %.0 = phi i32 [ 0, %tls_write_records_multiblock_int.exit ], [ 1, %108 ], [ 0, %.loopexit12 ]
+  %.0 = phi i32 [ 1, %108 ], [ 0, %tls_write_records_multiblock_int.exit ], [ 0, %.loopexit12 ]
   ret i32 %.0
 }
 

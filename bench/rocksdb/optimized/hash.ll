@@ -370,7 +370,7 @@ _ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i:       ; preds = %149, %86
   br label %_ZL29ROCKSDB_XXPH3_64bits_withSeedPKvmm.exit
 
 _ZL29ROCKSDB_XXPH3_64bits_withSeedPKvmm.exit:     ; preds = %7, %30, %52, %77, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i, %210, %212
-  %.0.i = phi i64 [ %213, %212 ], [ %207, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %211, %210 ], [ %27, %7 ], [ %50, %30 ], [ %76, %52 ], [ %83, %77 ]
+  %.0.i = phi i64 [ %207, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %211, %210 ], [ %213, %212 ], [ %27, %7 ], [ %50, %30 ], [ %76, %52 ], [ %83, %77 ]
   ret i64 %.0.i
 }
 
@@ -621,7 +621,7 @@ _ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i:       ; preds = %129, %74
   br label %_ZL20ROCKSDB_XXPH3_64bitsPKvm.exit
 
 _ZL20ROCKSDB_XXPH3_64bitsPKvm.exit:               ; preds = %6, %27, %47, %48, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i, %182, %184
-  %.0.i = phi i64 [ %185, %184 ], [ %179, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %183, %182 ], [ %24, %6 ], [ %46, %27 ], [ %71, %48 ], [ 5999572062939766020, %47 ]
+  %.0.i = phi i64 [ %179, %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %183, %182 ], [ %185, %184 ], [ %24, %6 ], [ %46, %27 ], [ %71, %48 ], [ 5999572062939766020, %47 ]
   ret i64 %.0.i
 }
 

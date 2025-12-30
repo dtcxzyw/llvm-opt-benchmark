@@ -142,8 +142,8 @@ define dso_local noundef zeroext i1 @_ZNK4absl12Notification30WaitForNotificatio
   br label %.thread
 
 .thread:                                          ; preds = %9, %3
-  %.0.in10 = phi i1 [ %14, %9 ], [ true, %3 ]
-  %15 = phi ptr [ %spec.select12, %9 ], [ %0, %3 ]
+  %.0.in10 = phi i1 [ true, %3 ], [ %14, %9 ]
+  %15 = phi ptr [ %0, %3 ], [ %spec.select12, %9 ]
   call void @AbslInternalTraceContinue(ptr noundef %15, i32 noundef 2)
   ret i1 %.0.in10
 }
@@ -178,8 +178,8 @@ define dso_local noundef zeroext i1 @_ZNK4absl12Notification31WaitForNotificatio
   br label %.thread
 
 .thread:                                          ; preds = %9, %3
-  %.0.in10 = phi i1 [ %14, %9 ], [ true, %3 ]
-  %15 = phi ptr [ %spec.select12, %9 ], [ %0, %3 ]
+  %.0.in10 = phi i1 [ true, %3 ], [ %14, %9 ]
+  %15 = phi ptr [ %0, %3 ], [ %spec.select12, %9 ]
   call void @AbslInternalTraceContinue(ptr noundef %15, i32 noundef 2)
   ret i1 %.0.in10
 }

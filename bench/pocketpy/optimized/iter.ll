@@ -440,7 +440,7 @@ _ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %18, %14
   br label %"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
 
 "_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit": ; preds = %11, %12, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
-  %.0.i = phi i32 [ 0, %11 ], [ 1, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ 0, %12 ]
+  %.0.i = phi i32 [ 1, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ 0, %11 ], [ 0, %12 ]
   ret i32 %.0.i
 }
 

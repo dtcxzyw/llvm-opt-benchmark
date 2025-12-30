@@ -1969,7 +1969,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   ret void
 
 .body:                                            ; preds = %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
-  %.pn8 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19 ], [ %.pn6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12 ], [ %11, %10 ], [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %79, %78 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19 ], [ %11, %10 ], [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %79, %78 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn8
@@ -2022,7 +2022,7 @@ define noundef zeroext i1 @_ZNK5arrow7compute9InputType6EqualsERKS1_(ptr noundef
   br label %24
 
 24:                                               ; preds = %7, %4, %2, %23, %14, %8
-  %.0 = phi i1 [ %22, %14 ], [ true, %2 ], [ false, %23 ], [ false, %4 ], [ %13, %8 ], [ true, %7 ]
+  %.0 = phi i1 [ false, %23 ], [ %13, %8 ], [ %22, %14 ], [ true, %2 ], [ false, %4 ], [ true, %7 ]
   ret i1 %.0
 }
 
@@ -2584,27 +2584,27 @@ define noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature6EqualsERKS1_(ptr 
 29:                                               ; preds = %26
   switch i32 %27, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread14 [
     i32 0, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread
-    i32 1, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit
-    i32 2, label %30
+    i32 1, label %30
+    i32 2, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit
   ]
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !116
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !116
-  %35 = load ptr, ptr %32, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %34)
-  br i1 %38, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread14
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !196
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !196
+  %35 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef nonnull align 8 dereferenceable(72) %34, i1 noundef zeroext false)
+  br i1 %35, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread14
 
 _ZNK5arrow7compute9InputType6EqualsERKS1_.exit:   ; preds = %29
-  %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !196
-  %41 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !196
-  %43 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(72) %42, i1 noundef zeroext false)
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %37 = load ptr, ptr %36, align 8, !tbaa !116
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %39 = load ptr, ptr %38, align 8, !tbaa !116
+  %40 = load ptr, ptr %37, align 8, !tbaa !27
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %39)
   br i1 %43, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread14
 
 _ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread: ; preds = %29, %.lr.ph, %30, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit
@@ -2619,7 +2619,7 @@ _ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread: ; preds = %29, %.lr.ph, %
   br i1 %.not24, label %.lr.ph, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread14, !llvm.loop !246
 
 _ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread14: ; preds = %29, %26, %30, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread, %.preheader, %7, %2
-  %.010 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %.preheader ], [ false, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit ], [ false, %30 ], [ false, %26 ], [ false, %29 ], [ true, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread ]
+  %.010 = phi i1 [ false, %2 ], [ false, %7 ], [ true, %.preheader ], [ false, %29 ], [ false, %26 ], [ false, %30 ], [ false, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit ], [ true, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread ]
   ret i1 %.010
 }
 
@@ -2657,24 +2657,24 @@ define noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature13MatchesInputsERK
   %21 = load ptr, ptr %20, align 8, !tbaa !219
   %22 = load i32, ptr %19, align 8, !tbaa !189
   switch i32 %22, label %.thread [
-    i32 1, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
-    i32 2, label %23
+    i32 1, label %23
+    i32 2, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
     i32 0, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread
   ]
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !116
-  %26 = load ptr, ptr %25, align 8, !tbaa !27
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(72) %21)
-  br i1 %29, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread, label %.thread
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !196
+  %26 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(72) %21, i1 noundef zeroext false)
+  br i1 %26, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread, label %.thread
 
 _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit: ; preds = %10
-  %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !196
-  %32 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(72) %21, i1 noundef zeroext false)
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %28 = load ptr, ptr %27, align 8, !tbaa !116
+  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(72) %21)
   br i1 %32, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread, label %.thread
 
 _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread: ; preds = %10, %23, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
@@ -2716,24 +2716,24 @@ _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread: ; preds = %10,
   %57 = load ptr, ptr %56, align 8, !tbaa !219
   %58 = load i32, ptr %54, align 8, !tbaa !189
   switch i32 %58, label %.thread [
-    i32 1, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16
-    i32 2, label %59
+    i32 1, label %59
+    i32 2, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16
     i32 0, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread
   ]
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !116
-  %62 = load ptr, ptr %61, align 8, !tbaa !27
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(72) %57)
-  br i1 %65, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread, label %.thread
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !196
+  %62 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr noundef nonnull align 8 dereferenceable(72) %57, i1 noundef zeroext false)
+  br i1 %62, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread, label %.thread
 
 _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16: ; preds = %.lr.ph
-  %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !196
-  %68 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %67, ptr noundef nonnull align 8 dereferenceable(72) %57, i1 noundef zeroext false)
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !116
+  %65 = load ptr, ptr %64, align 8, !tbaa !27
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 8 dereferenceable(72) %57)
   br i1 %68, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread, label %.thread
 
 _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread: ; preds = %.lr.ph, %59, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16
@@ -2748,7 +2748,7 @@ _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread: ; preds = %.
   br i1 %76, label %.lr.ph, label %.thread, !llvm.loop !253
 
 .thread:                                          ; preds = %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16, %59, %.lr.ph, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit, %23, %10, %.preheader32, %.preheader, %41
-  %.113 = phi i1 [ false, %41 ], [ true, %.preheader32 ], [ false, %10 ], [ true, %.preheader ], [ false, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit ], [ true, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread ], [ false, %23 ], [ true, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread ], [ false, %59 ], [ false, %.lr.ph ], [ false, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16 ]
+  %.113 = phi i1 [ false, %41 ], [ true, %.preheader ], [ true, %.preheader32 ], [ true, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread ], [ false, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit ], [ false, %23 ], [ false, %10 ], [ true, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread ], [ false, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16 ], [ false, %59 ], [ false, %.lr.ph ]
   ret i1 %.113
 }
 
@@ -3097,7 +3097,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %122
   br label %.body
 
 .body:                                            ; preds = %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %12, %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
-  %.pn12.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ], [ %29, %28 ], [ %.pn12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %13, %12 ], [ %92, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %92, %91 ]
+  %.pn12.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ], [ %.pn12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %29, %28 ], [ %13, %12 ], [ %92, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %92, %91 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn12.pn.pn
@@ -5969,7 +5969,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5arrow7compute5match20RunEndEncodedM
   br label %34
 
 34:                                               ; preds = %2, %10, %22
-  %.0 = phi i1 [ %33, %22 ], [ false, %10 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %10 ], [ %33, %22 ], [ false, %2 ]
   ret i1 %.0
 }
 

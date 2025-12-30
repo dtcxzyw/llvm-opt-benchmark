@@ -70,7 +70,7 @@ _ZNK10sat_params3eufEv.exit:                      ; preds = %13
           to label %20 unwind label %11
 
 20:                                               ; preds = %18, %16, %9
-  %.0 = phi ptr [ %17, %16 ], [ %10, %9 ], [ %19, %18 ]
+  %.0 = phi ptr [ %10, %9 ], [ %17, %16 ], [ %19, %18 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

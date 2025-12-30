@@ -243,7 +243,7 @@ define zeroext i1 @lv_tree_walk(ptr noundef %0, i8 noundef zeroext %1, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %.loopexit.sink.split, %35, %6, %30, %33, %14, %12
-  %.042 = phi i1 [ %36, %35 ], [ false, %33 ], [ false, %14 ], [ true, %6 ], [ true, %.loopexit.sink.split ], [ false, %12 ], [ true, %30 ], [ false, %24 ]
+  %.042 = phi i1 [ false, %12 ], [ false, %14 ], [ false, %33 ], [ %36, %35 ], [ true, %30 ], [ true, %6 ], [ true, %.loopexit.sink.split ], [ false, %24 ]
   ret i1 %.042
 }
 

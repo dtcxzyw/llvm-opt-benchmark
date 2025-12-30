@@ -473,7 +473,7 @@ sw.bb13.i:                                        ; preds = %if.then48
   br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 _ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit: ; preds = %if.then48, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
-  %retval.0.i = phi i1 [ %cmp14.i, %sw.bb13.i ], [ %cmp.i28, %sw.bb.i ], [ %cmp2.i, %sw.bb1.i ], [ %cmp4.i, %sw.bb3.i ], [ %cmp6.i, %sw.bb5.i ], [ %cmp8.i, %sw.bb7.i ], [ %cmp10.i, %sw.bb9.i ], [ %cmp12.i, %sw.bb11.i ], [ false, %if.then48 ]
+  %retval.0.i = phi i1 [ %cmp.i28, %sw.bb.i ], [ %cmp2.i, %sw.bb1.i ], [ %cmp4.i, %sw.bb3.i ], [ %cmp6.i, %sw.bb5.i ], [ %cmp8.i, %sw.bb7.i ], [ %cmp10.i, %sw.bb9.i ], [ %cmp12.i, %sw.bb11.i ], [ %cmp14.i, %sw.bb13.i ], [ false, %if.then48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.i29)
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i30)
   store ptr %agg.tmp49.sroa.0.0.copyload, ptr %__args.i29, align 8

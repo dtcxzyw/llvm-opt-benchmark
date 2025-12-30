@@ -236,7 +236,7 @@ define hidden i32 @mbedtls_ecdh_read_params(ptr noundef %0, ptr noundef %1, ptr 
   br label %27
 
 27:                                               ; preds = %20, %10, %3, %22
-  %.0 = phi i32 [ -20096, %10 ], [ %9, %3 ], [ %26, %22 ], [ -20352, %20 ]
+  %.0 = phi i32 [ %26, %22 ], [ %9, %3 ], [ -20096, %10 ], [ -20352, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -307,7 +307,7 @@ define hidden i32 @mbedtls_ecdh_get_params(ptr noundef %0, ptr noundef %1, i32 n
   br label %ecdh_get_params_internal.exit
 
 ecdh_get_params_internal.exit:                    ; preds = %29, %26, %23, %17, %16, %8, %3
-  %.0 = phi i32 [ -20096, %8 ], [ -20352, %3 ], [ -20352, %17 ], [ -20352, %16 ], [ %25, %23 ], [ %32, %29 ], [ %28, %26 ]
+  %.0 = phi i32 [ -20352, %3 ], [ -20096, %8 ], [ -20352, %16 ], [ -20352, %17 ], [ %25, %23 ], [ %28, %26 ], [ %32, %29 ]
   ret i32 %.0
 }
 
@@ -449,7 +449,7 @@ mbedtls_ecdh_compute_shared.exit.i:               ; preds = %20
   br label %ecdh_calc_secret_internal.exit
 
 ecdh_calc_secret_internal.exit:                   ; preds = %38, %36, %23, %mbedtls_ecdh_compute_shared.exit.i, %mbedtls_ecdh_compute_shared.exit.thread.i, %10, %6
-  %.0 = phi i32 [ -20352, %6 ], [ %39, %38 ], [ %.0.i.i.ph.i, %mbedtls_ecdh_compute_shared.exit.thread.i ], [ %22, %mbedtls_ecdh_compute_shared.exit.i ], [ %37, %36 ], [ -20352, %10 ], [ -20352, %23 ]
+  %.0 = phi i32 [ -20352, %6 ], [ %37, %36 ], [ %39, %38 ], [ -20352, %10 ], [ %22, %mbedtls_ecdh_compute_shared.exit.i ], [ -20352, %23 ], [ %.0.i.i.ph.i, %mbedtls_ecdh_compute_shared.exit.thread.i ]
   ret i32 %.0
 }
 

@@ -404,7 +404,7 @@ _ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
 _ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit: ; preds = %switch.lookup.i, %9, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit, %12
-  %.0 = phi i16 [ %45, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit ], [ %..i1, %12 ], [ %30, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit ], [ %..i, %9 ], [ %switch.offset.i, %switch.lookup.i ]
+  %.0 = phi i16 [ %..i1, %12 ], [ %30, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit ], [ %45, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit ], [ %..i, %9 ], [ %switch.offset.i, %switch.lookup.i ]
   ret i16 %.0
 }
 

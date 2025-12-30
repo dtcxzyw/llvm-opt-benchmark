@@ -962,7 +962,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw7thumbOKEx(ptr noundef nonnull rea
   br label %63
 
 63:                                               ; preds = %16, %.thread, %54, %22, %59, %8, %11, %2
-  %.0 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 0, %11 ], [ 0, %16 ], [ %62, %59 ], [ 0, %22 ], [ 0, %54 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 0, %8 ], [ 0, %16 ], [ %62, %59 ], [ 0, %22 ], [ 0, %54 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -1117,7 +1117,7 @@ define noundef i32 @_ZN6LibRaw18dcraw_thumb_writerEPKc(ptr noundef nonnull align
           to label %66 unwind label %57
 
 66:                                               ; preds = %.invoke, %32, %65, %64, %63, %62, %61, %60, %59
-  %.2 = phi i32 [ -2, %65 ], [ -100011, %64 ], [ -100013, %59 ], [ -100007, %60 ], [ -100012, %61 ], [ -1, %32 ], [ -100008, %.invoke ], [ -100009, %62 ], [ -100010, %63 ]
+  %.2 = phi i32 [ -100013, %59 ], [ -100007, %60 ], [ -100012, %61 ], [ -100009, %62 ], [ -100010, %63 ], [ -100011, %64 ], [ -2, %65 ], [ -1, %32 ], [ -100008, %.invoke ]
   tail call void @__cxa_end_catch() #13
   br label %70
 
@@ -1128,7 +1128,7 @@ define noundef i32 @_ZN6LibRaw18dcraw_thumb_writerEPKc(ptr noundef nonnull align
           to label %69 unwind label %71
 
 69:                                               ; preds = %67, %57, %29
-  %.merged = phi { ptr, i32 } [ %20, %29 ], [ %58, %57 ], [ %68, %67 ]
+  %.merged = phi { ptr, i32 } [ %58, %57 ], [ %20, %29 ], [ %68, %67 ]
   resume { ptr, i32 } %.merged
 
 70:                                               ; preds = %5, %11, %53, %55, %28, %66, %2

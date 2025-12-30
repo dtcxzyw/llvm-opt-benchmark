@@ -734,7 +734,7 @@ define linkonce_odr hidden void @_ZN5clang4ento5check18ConstPointerEscape24_chec
   br i1 %.not.i9.i15.i7.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !52
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i, %.critedge2.i8.i14.i6.i.i, %22, %24
-  %.pn14.i.i = phi ptr [ %23, %22 ], [ %18, %24 ], [ %25, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
+  %.pn14.i.i = phi ptr [ %23, %22 ], [ %18, %24 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ], [ %25, %.critedge2.i8.i14.i6.i.i ]
   %.pn12.i.i = phi ptr [ %23, %22 ], [ %25, %24 ], [ %25, %.critedge2.i8.i14.i6.i.i ], [ %25, %.lr.ph.i6.i12.i3.i.i ]
   %28 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %18, i64 %21
   %.not1617 = icmp eq ptr %.pn14.i.i, %28
@@ -1836,7 +1836,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   br i1 %.not.i9.i15.i7.i.i, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !52
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i, %.critedge2.i8.i14.i6.i.i, %23, %25
-  %.pn14.i.i = phi ptr [ %24, %23 ], [ %19, %25 ], [ %26, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
+  %.pn14.i.i = phi ptr [ %24, %23 ], [ %19, %25 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ], [ %26, %.critedge2.i8.i14.i6.i.i ]
   %.pn12.i.i = phi ptr [ %24, %23 ], [ %26, %25 ], [ %26, %.critedge2.i8.i14.i6.i.i ], [ %26, %.lr.ph.i6.i12.i3.i.i ]
   %29 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %19, i64 %22
   %.not2627 = icmp eq ptr %.pn14.i.i, %29

@@ -2066,7 +2066,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %66
   %.not.i = icmp eq i64 %69, 0
   br i1 %.not.i, label %._crit_edge, label %grpc_slice_buffer_take_first.exit, !prof !79, !llvm.loop !80
 
-.critedge._crit_edge:                             ; preds = %52, %49, %55, %34, %.critedge.preheader
+.critedge._crit_edge:                             ; preds = %55, %52, %49, %34, %.critedge.preheader
   ret void
 }
 

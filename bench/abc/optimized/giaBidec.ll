@@ -1105,7 +1105,7 @@ Vec_IntSetEntry.exit121:                          ; preds = %196, %._crit_edge.i
   br i1 %243, label %195, label %.critedge2, !llvm.loop !50
 
 .critedge2:                                       ; preds = %Vec_IntSetEntry.exit121, %195, %Gia_ManTruthNot.exit, %select.unfold.preheader.i85, %27, %select.unfold.preheader.i, %24
-  %.0 = phi ptr [ %.0.i, %27 ], [ %.0.i, %select.unfold.preheader.i ], [ %.0.i, %select.unfold.preheader.i85 ], [ %.0.i, %24 ], [ %183, %Gia_ManTruthNot.exit ], [ %183, %195 ], [ %183, %Vec_IntSetEntry.exit121 ]
+  %.0 = phi ptr [ %.0.i, %24 ], [ %.0.i, %select.unfold.preheader.i ], [ %.0.i, %27 ], [ %.0.i, %select.unfold.preheader.i85 ], [ %183, %Gia_ManTruthNot.exit ], [ %183, %195 ], [ %183, %Vec_IntSetEntry.exit121 ]
   ret ptr %.0
 }
 

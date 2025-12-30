@@ -149,7 +149,7 @@ define dso_local noundef i64 @macaddr_in(ptr noundef readonly captures(none) %0)
   br label %69
 
 69:                                               ; preds = %44, %46, %28, %30, %49
-  %.0 = phi i64 [ %68, %49 ], [ 0, %28 ], [ 0, %30 ], [ 0, %46 ], [ 0, %44 ]
+  %.0 = phi i64 [ %68, %49 ], [ 0, %30 ], [ 0, %28 ], [ 0, %46 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -397,7 +397,7 @@ define dso_local range(i64 -1, 2) i64 @macaddr_cmp(ptr noundef readonly captures
   br label %macaddr_cmp_internal.exit
 
 macaddr_cmp_internal.exit:                        ; preds = %1, %33, %35, %63
-  %.0.i = phi i64 [ -1, %35 ], [ -1, %1 ], [ 1, %33 ], [ %65, %63 ]
+  %.0.i = phi i64 [ -1, %1 ], [ 1, %33 ], [ -1, %35 ], [ %65, %63 ]
   ret i64 %.0.i
 }
 
@@ -472,7 +472,7 @@ define dso_local range(i64 0, 2) i64 @macaddr_lt(ptr noundef readonly captures(n
   br label %macaddr_cmp_internal.exit
 
 macaddr_cmp_internal.exit:                        ; preds = %35, %1, %33
-  %.0.i = phi i64 [ %spec.select, %35 ], [ 1, %1 ], [ 0, %33 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 0, %33 ], [ %spec.select, %35 ]
   ret i64 %.0.i
 }
 
@@ -551,7 +551,7 @@ define dso_local range(i64 0, 2) i64 @macaddr_le(ptr noundef readonly captures(n
   br label %macaddr_cmp_internal.exit
 
 macaddr_cmp_internal.exit:                        ; preds = %1, %33, %35, %63
-  %.0.i = phi i64 [ 1, %35 ], [ 1, %1 ], [ 0, %33 ], [ %65, %63 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 0, %33 ], [ 1, %35 ], [ %65, %63 ]
   ret i64 %.0.i
 }
 
@@ -626,7 +626,7 @@ define dso_local range(i64 0, 2) i64 @macaddr_eq(ptr noundef readonly captures(n
   br label %macaddr_cmp_internal.exit
 
 macaddr_cmp_internal.exit:                        ; preds = %1, %32, %60
-  %.0.i = phi i64 [ 0, %32 ], [ 0, %1 ], [ %62, %60 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 0, %32 ], [ %62, %60 ]
   ret i64 %.0.i
 }
 
@@ -701,7 +701,7 @@ define dso_local range(i64 0, 2) i64 @macaddr_ge(ptr noundef readonly captures(n
   br label %macaddr_cmp_internal.exit
 
 macaddr_cmp_internal.exit:                        ; preds = %35, %1, %33
-  %.0.i = phi i64 [ %spec.select, %35 ], [ 0, %1 ], [ 1, %33 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 1, %33 ], [ %spec.select, %35 ]
   ret i64 %.0.i
 }
 
@@ -780,7 +780,7 @@ define dso_local range(i64 0, 2) i64 @macaddr_gt(ptr noundef readonly captures(n
   br label %macaddr_cmp_internal.exit
 
 macaddr_cmp_internal.exit:                        ; preds = %1, %33, %35, %63
-  %.0.i = phi i64 [ 0, %35 ], [ 0, %1 ], [ 1, %33 ], [ %65, %63 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 1, %33 ], [ 0, %35 ], [ %65, %63 ]
   ret i64 %.0.i
 }
 
@@ -855,7 +855,7 @@ define dso_local range(i64 0, 2) i64 @macaddr_ne(ptr noundef readonly captures(n
   br label %macaddr_cmp_internal.exit
 
 macaddr_cmp_internal.exit:                        ; preds = %1, %32, %60
-  %.0.i = phi i64 [ 1, %32 ], [ 1, %1 ], [ %62, %60 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 1, %32 ], [ %62, %60 ]
   ret i64 %.0.i
 }
 
@@ -1158,7 +1158,7 @@ define internal range(i32 -1, 2) i32 @macaddr_fast_cmp(i64 noundef %0, i64 nound
   br label %macaddr_cmp_internal.exit
 
 macaddr_cmp_internal.exit:                        ; preds = %3, %31, %33, %61
-  %.0.i = phi i32 [ -1, %33 ], [ -1, %3 ], [ 1, %31 ], [ %..i, %61 ]
+  %.0.i = phi i32 [ -1, %3 ], [ 1, %31 ], [ -1, %33 ], [ %..i, %61 ]
   ret i32 %.0.i
 }
 
@@ -1279,7 +1279,7 @@ define internal noundef zeroext i1 @macaddr_abbrev_abort(i32 noundef %0, ptr nou
   br label %49
 
 49:                                               ; preds = %43, %46, %44, %34, %37, %35, %2, %6, %9, %25
-  %.0 = phi i1 [ true, %34 ], [ false, %25 ], [ false, %2 ], [ false, %9 ], [ false, %6 ], [ true, %35 ], [ true, %37 ], [ false, %44 ], [ false, %46 ], [ false, %43 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %9 ], [ false, %6 ], [ false, %2 ], [ true, %35 ], [ true, %37 ], [ true, %34 ], [ false, %44 ], [ false, %46 ], [ false, %43 ]
   ret i1 %.0
 }
 

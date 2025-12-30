@@ -238,7 +238,7 @@ define internal range(i32 0, 2) i32 @cipher_hw_rc4_hmac_md5_cipher(ptr noundef %
   br label %122
 
 122:                                              ; preds = %120, %4, %121
-  %.0152 = phi i32 [ 0, %120 ], [ 1, %121 ], [ 0, %4 ]
+  %.0152 = phi i32 [ 1, %121 ], [ 0, %120 ], [ 0, %4 ]
   ret i32 %.0152
 }
 
@@ -287,7 +287,7 @@ define internal range(i32 0, 17) i32 @cipher_hw_rc4_hmac_md5_tls_init(ptr nounde
   br label %29
 
 29:                                               ; preds = %16, %3, %23
-  %.022 = phi i32 [ 0, %3 ], [ 16, %23 ], [ 0, %16 ]
+  %.022 = phi i32 [ 16, %23 ], [ 0, %3 ], [ 0, %16 ]
   ret i32 %.022
 }
 

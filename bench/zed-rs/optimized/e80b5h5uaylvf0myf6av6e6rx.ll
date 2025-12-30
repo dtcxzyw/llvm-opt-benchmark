@@ -110,8 +110,8 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit.i": ; preds = %26, %24, %2
-  %.sroa.4.0.i.i = phi i64 [ %30, %26 ], [ %12, %24 ], [ 0, %2 ]
-  %.sroa.0.0.i.i = phi ptr [ %31, %26 ], [ %25, %24 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.sroa.4.0.i.i = phi i64 [ %12, %24 ], [ %30, %26 ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi ptr [ %25, %24 ], [ %31, %26 ], [ inttoptr (i64 1 to ptr), %2 ]
   %32 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfaf1f4787fff8097E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
           to label %"_ZN94_$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$C$A$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h552ffa1be955f465E.llvm.2003563641925947959.exit" unwind label %33
 
@@ -496,11 +496,11 @@ define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcf576cf0c3bebd77E.llvm.2003563641925947959.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcf576cf0c3bebd77E.llvm.2003563641925947959.exit": ; preds = %4, %23, %15, %10
-  %.sroa.13.0 = phi i32 [ %35, %23 ], [ 0, %10 ], [ 0, %15 ], [ 0, %4 ]
-  %.sroa.11.0 = phi i32 [ %32, %23 ], [ 0, %10 ], [ %22, %15 ], [ 0, %4 ]
-  %.sroa.8.0 = phi i32 [ %29, %23 ], [ %14, %10 ], [ %20, %15 ], [ 0, %4 ]
-  %.sroa.0.0 = phi i32 [ %26, %23 ], [ %12, %10 ], [ %17, %15 ], [ %1, %4 ]
-  %36 = phi i8 [ 4, %23 ], [ 2, %10 ], [ 3, %15 ], [ 1, %4 ]
+  %.sroa.13.0 = phi i32 [ 0, %10 ], [ 0, %15 ], [ %35, %23 ], [ 0, %4 ]
+  %.sroa.11.0 = phi i32 [ 0, %10 ], [ %22, %15 ], [ %32, %23 ], [ 0, %4 ]
+  %.sroa.8.0 = phi i32 [ %14, %10 ], [ %20, %15 ], [ %29, %23 ], [ 0, %4 ]
+  %.sroa.0.0 = phi i32 [ %12, %10 ], [ %17, %15 ], [ %26, %23 ], [ %1, %4 ]
+  %36 = phi i8 [ 2, %10 ], [ 3, %15 ], [ 4, %23 ], [ 1, %4 ]
   %.sroa.11.0.insert.shift = shl nuw nsw i32 %.sroa.11.0, 16
   %.sroa.11.0.insert.insert = or i32 %.sroa.13.0, %.sroa.11.0.insert.shift
   %.sroa.8.0.insert.shift = shl nuw nsw i32 %.sroa.8.0, 8
@@ -698,8 +698,8 @@ define hidden { ptr, i64 } @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_
   br i1 %5, label %17, label %9
 
 6:                                                ; preds = %1, %19, %17
-  %.sroa.4.0 = phi i64 [ %23, %19 ], [ %2, %17 ], [ 0, %1 ]
-  %.sroa.0.0 = phi ptr [ %24, %19 ], [ %18, %17 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.sroa.4.0 = phi i64 [ %2, %17 ], [ %23, %19 ], [ 0, %1 ]
+  %.sroa.0.0 = phi ptr [ %18, %17 ], [ %24, %19 ], [ inttoptr (i64 1 to ptr), %1 ]
   %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %8
@@ -931,8 +931,8 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$tendril..tendril..Tendril$LT$tendri
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit": ; preds = %2, %15, %17
-  %.sroa.4.0.i = phi i64 [ %21, %17 ], [ %3, %15 ], [ 0, %2 ]
-  %.sroa.0.0.i = phi ptr [ %22, %17 ], [ %16, %15 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.sroa.4.0.i = phi i64 [ %3, %15 ], [ %21, %17 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi ptr [ %16, %15 ], [ %22, %17 ], [ inttoptr (i64 1 to ptr), %2 ]
   %23 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfaf1f4787fff8097E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %23
 }
@@ -1340,8 +1340,8 @@ define void @_ZN16html_to_markdown12html_element11HtmlElement4attr17h7bed20d13dd
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit.i.i": ; preds = %64, %62, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hd108dc33d0a9c091E.llvm.2003563641925947959.exit"
-  %.sroa.4.0.i.i.i = phi i64 [ %68, %64 ], [ %50, %62 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hd108dc33d0a9c091E.llvm.2003563641925947959.exit" ]
-  %.sroa.0.0.i.i.i8 = phi ptr [ %69, %64 ], [ %63, %62 ], [ inttoptr (i64 1 to ptr), %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hd108dc33d0a9c091E.llvm.2003563641925947959.exit" ]
+  %.sroa.4.0.i.i.i = phi i64 [ %50, %62 ], [ %68, %64 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hd108dc33d0a9c091E.llvm.2003563641925947959.exit" ]
+  %.sroa.0.0.i.i.i8 = phi ptr [ %63, %62 ], [ %69, %64 ], [ inttoptr (i64 1 to ptr), %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hd108dc33d0a9c091E.llvm.2003563641925947959.exit" ]
   %70 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfaf1f4787fff8097E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i8, i64 noundef %.sroa.4.0.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
           to label %"_ZN94_$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$C$A$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h552ffa1be955f465E.llvm.2003563641925947959.exit.i" unwind label %71, !noalias !206
 
@@ -1554,8 +1554,8 @@ define void @_ZN16html_to_markdown12html_element11HtmlElement7classes17he829ebe8
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit.i": ; preds = %55, %53, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h371e66fa56f508ccE.llvm.2003563641925947959.exit"
-  %.sroa.4.0.i.i = phi i64 [ %59, %55 ], [ %41, %53 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h371e66fa56f508ccE.llvm.2003563641925947959.exit" ]
-  %.sroa.0.0.i.i = phi ptr [ %60, %55 ], [ %54, %53 ], [ inttoptr (i64 1 to ptr), %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h371e66fa56f508ccE.llvm.2003563641925947959.exit" ]
+  %.sroa.4.0.i.i = phi i64 [ %41, %53 ], [ %59, %55 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h371e66fa56f508ccE.llvm.2003563641925947959.exit" ]
+  %.sroa.0.0.i.i = phi ptr [ %54, %53 ], [ %60, %55 ], [ inttoptr (i64 1 to ptr), %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h371e66fa56f508ccE.llvm.2003563641925947959.exit" ]
   store i64 0, ptr %3, align 8, !noalias !260
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.4.0.i.i, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !260
@@ -1691,8 +1691,8 @@ define hidden void @"_ZN16html_to_markdown12html_element11HtmlElement7classes28_
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h767d3e8e8a35c168E.llvm.2003563641925947959.exit": ; preds = %2, %17, %19
-  %.sroa.4.0.i = phi i64 [ %23, %19 ], [ %5, %17 ], [ 0, %2 ]
-  %.sroa.0.0.i = phi ptr [ %24, %19 ], [ %18, %17 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.sroa.4.0.i = phi i64 [ %5, %17 ], [ %23, %19 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi ptr [ %18, %17 ], [ %24, %19 ], [ inttoptr (i64 1 to ptr), %2 ]
   store i64 0, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.4.0.i, ptr %.sroa.42.0..sroa_idx, align 8
@@ -1931,8 +1931,8 @@ define hidden noundef zeroext i1 @"_ZN16html_to_markdown12html_element11HtmlElem
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %45, %43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9477b94c0be40568E.exit5"
-  %.sroa.4.0.i = phi i64 [ %49, %45 ], [ %31, %43 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9477b94c0be40568E.exit5" ]
-  %.sroa.0.0.i6 = phi ptr [ %50, %45 ], [ %44, %43 ], [ inttoptr (i64 1 to ptr), %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9477b94c0be40568E.exit5" ]
+  %.sroa.4.0.i = phi i64 [ %31, %43 ], [ %49, %45 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9477b94c0be40568E.exit5" ]
+  %.sroa.0.0.i6 = phi ptr [ %44, %43 ], [ %50, %45 ], [ inttoptr (i64 1 to ptr), %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9477b94c0be40568E.exit5" ]
   %51 = load ptr, ptr %0, align 8, !nonnull !8, !align !23, !noundef !8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i64, ptr %52, align 8, !noundef !8
@@ -2004,10 +2004,10 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i.i.i: ; preds 
   br i1 %79, label %select.unfold.i, label %77
 
 select.unfold.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i", %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i, %.preheader.i.i.i.i.i, %77, %68, %58
-  %80 = phi i64 [ %59, %58 ], [ %.sroa.4.0.i, %68 ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i ], [ %.sroa.4.0.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %75, %77 ]
-  %.lcssa2126.i = phi i64 [ %.lcssa212728.i, %58 ], [ %.lcssa212728.i, %68 ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ %.lcssa212728.i, %.preheader.i.i.i.i.i ], [ %.lcssa212728.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %.lcssa212728.i, %77 ]
-  %81 = phi i1 [ true, %58 ], [ true, %68 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ true, %.preheader.i.i.i.i.i ], [ true, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ true, %77 ]
-  %.pn34.i = phi i64 [ %.sroa.4.0.i, %58 ], [ %.sroa.4.0.i, %68 ], [ %76, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i ], [ %.sroa.4.0.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %.sroa.4.0.i, %77 ]
+  %80 = phi i64 [ %59, %58 ], [ %.sroa.4.0.i, %68 ], [ %75, %77 ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i ], [ %.sroa.4.0.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ]
+  %.lcssa2126.i = phi i64 [ %.lcssa212728.i, %58 ], [ %.lcssa212728.i, %68 ], [ %.lcssa212728.i, %77 ], [ %.lcssa212728.i, %.preheader.i.i.i.i.i ], [ %.lcssa212728.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ]
+  %81 = phi i1 [ true, %58 ], [ true, %68 ], [ true, %77 ], [ true, %.preheader.i.i.i.i.i ], [ true, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ]
+  %.pn34.i = phi i64 [ %.sroa.4.0.i, %58 ], [ %.sroa.4.0.i, %68 ], [ %.sroa.4.0.i, %77 ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i ], [ %.sroa.4.0.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %76, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ]
   %.sroa.4.0.i.i.ph.i = sub nuw i64 %.pn34.i, %.lcssa212728.i
   %.sroa.0.0.i.i.ph.i = getelementptr inbounds i8, ptr %.sroa.0.0.i6, i64 %.lcssa212728.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !375

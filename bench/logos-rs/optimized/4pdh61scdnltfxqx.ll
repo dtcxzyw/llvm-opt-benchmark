@@ -208,7 +208,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   br label %67
 
 .thread:                                          ; preds = %57, %70, %75
-  %.pn17 = phi { ptr, i32 } [ %71, %70 ], [ %lpad.phi, %75 ], [ %58, %57 ]
+  %.pn17 = phi { ptr, i32 } [ %lpad.phi, %75 ], [ %58, %57 ], [ %71, %70 ]
   resume { ptr, i32 } %.pn17
 
 .loopexit:                                        ; preds = %36, %40
@@ -276,7 +276,7 @@ define hidden i32 @_ZN13logos_codegen5graph4rope4Miss10take_first17h259b9550a3a6
   br label %10
 
 10:                                               ; preds = %1, %7, %4
-  %.sroa.0.0 = phi i32 [ %9, %7 ], [ %6, %4 ], [ %2, %1 ]
+  %.sroa.0.0 = phi i32 [ %6, %4 ], [ %9, %7 ], [ %2, %1 ]
   ret i32 %.sroa.0.0
 }
 
@@ -510,7 +510,7 @@ define hidden zeroext i1 @"_ZN73_$LT$logos_codegen..graph..rope..Rope$u20$as$u20
   br label %"_ZN73_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf58281b452b7c4dE.exit"
 
 "_ZN73_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf58281b452b7c4dE.exit": ; preds = %.sink.split.i, %22, %16, %2, %10
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %10 ], [ true, %22 ], [ false, %16 ], [ %28, %.sink.split.i ]
+  %.sroa.0.0 = phi i1 [ false, %10 ], [ false, %2 ], [ false, %16 ], [ true, %22 ], [ %28, %.sink.split.i ]
   ret i1 %.sroa.0.0
 }
 

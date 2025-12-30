@@ -407,8 +407,8 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit, %61, %45
-  %.sroa.4.0 = phi ptr [ undef, %61 ], [ %46, %45 ], [ %.pre, %._crit_edge.loopexit ], [ %1, %2 ]
-  %.sroa.0.0 = phi i64 [ 2, %61 ], [ 0, %45 ], [ 1, %._crit_edge.loopexit ], [ 1, %2 ]
+  %.sroa.4.0 = phi ptr [ %46, %45 ], [ undef, %61 ], [ %.pre, %._crit_edge.loopexit ], [ %1, %2 ]
+  %.sroa.0.0 = phi i64 [ 0, %45 ], [ 2, %61 ], [ 1, %._crit_edge.loopexit ], [ 1, %2 ]
   %65 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %66 = insertvalue { i64, ptr } %65, ptr %.sroa.4.0, 1
   ret { i64, ptr } %66

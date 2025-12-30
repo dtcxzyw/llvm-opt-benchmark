@@ -493,7 +493,7 @@ define dso_local void @input_handle_event(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %126, label %129, label %.split2
 
 .thread13:                                        ; preds = %120, %21, %30, %46, %93, %109, %102, %121, %72, %9
-  %.ph.ph = phi i32 [ 3, %72 ], [ 3, %120 ], [ 1, %21 ], [ 1, %30 ], [ 1, %46 ], [ 3, %93 ], [ 3, %109 ], [ 3, %102 ], [ 3, %121 ], [ 3, %9 ]
+  %.ph.ph = phi i32 [ 3, %120 ], [ 1, %21 ], [ 1, %30 ], [ 1, %46 ], [ 3, %93 ], [ 3, %109 ], [ 3, %102 ], [ 3, %121 ], [ 3, %72 ], [ 3, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.split2
 
@@ -3074,7 +3074,7 @@ define internal noundef range(i32 -22, 1) i32 @input_default_setkeycode(ptr noun
   br label %105
 
 105:                                              ; preds = %15, %.loopexit, %35, %.thread, %3
-  %106 = phi i32 [ -22, %3 ], [ 0, %.loopexit ], [ -22, %.thread ], [ -22, %35 ], [ -22, %15 ]
+  %106 = phi i32 [ -22, %3 ], [ -22, %.thread ], [ -22, %35 ], [ 0, %.loopexit ], [ -22, %15 ]
   ret i32 %106
 }
 
@@ -4123,7 +4123,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
   br i1 %149, label %.loopexit19, label %77, !llvm.loop !55
 
 .loopexit19:                                      ; preds = %59, %120, %.thread18, %71, %52, %51, %40
-  %150 = phi i32 [ 0, %40 ], [ %47, %52 ], [ %47, %51 ], [ %2, %71 ], [ %147, %.thread18 ], [ 0, %120 ], [ %47, %59 ]
+  %150 = phi i32 [ 0, %40 ], [ %47, %52 ], [ %47, %51 ], [ %2, %71 ], [ 0, %120 ], [ %147, %.thread18 ], [ %47, %59 ]
   tail call void @__rcu_read_unlock() #19
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %152 = load volatile i64, ptr %151, align 8
@@ -4444,7 +4444,7 @@ define internal i32 @input_dev_uevent(ptr noundef %0, ptr noundef %1) #0 align 1
   br label %140
 
 140:                                              ; preds = %61, %56, %41, %38, %138, %134, %126, %118, %110, %102, %94, %86, %78, %35, %28, %21, %2
-  %141 = phi i32 [ %136, %134 ], [ %128, %126 ], [ %120, %118 ], [ %112, %110 ], [ %104, %102 ], [ %96, %94 ], [ %88, %86 ], [ %80, %78 ], [ -12, %41 ], [ %139, %138 ], [ %36, %35 ], [ %29, %28 ], [ %22, %21 ], [ %16, %2 ], [ -12, %38 ], [ -12, %56 ], [ -12, %61 ]
+  %141 = phi i32 [ %136, %134 ], [ %128, %126 ], [ %120, %118 ], [ %112, %110 ], [ %104, %102 ], [ %96, %94 ], [ %88, %86 ], [ %80, %78 ], [ %36, %35 ], [ %29, %28 ], [ %22, %21 ], [ %16, %2 ], [ %139, %138 ], [ -12, %38 ], [ -12, %41 ], [ -12, %56 ], [ -12, %61 ]
   ret i32 %141
 }
 

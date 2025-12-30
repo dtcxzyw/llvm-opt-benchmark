@@ -51,7 +51,7 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeEN
   br i1 %or.cond54.i, label %.thread.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit
 
 .thread.i:                                        ; preds = %23, %.lr.ph.i
-  %.24551.i = phi i32 [ %22, %.lr.ph.i ], [ %.04358.i, %23 ]
+  %.24551.i = phi i32 [ %.04358.i, %23 ], [ %22, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %18
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
@@ -78,7 +78,7 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeEN
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   br label %38
 
-38:                                               ; preds = %._crit_edge.i, %34, %15
+38:                                               ; preds = %34, %._crit_edge.i, %15
   %.177.ph = phi ptr [ %4, %15 ], [ %37, %34 ], [ %4, %._crit_edge.i ]
   %.173.ph = phi i32 [ 0, %15 ], [ %.24551.i, %34 ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -139,7 +139,7 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeEN
   br i1 %or.cond.i, label %.critedge, label %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i: ; preds = %56, %54, %50
-  %.0.i41.i = phi i32 [ %57, %56 ], [ %55, %54 ], [ %51, %50 ]
+  %.0.i41.i = phi i32 [ %55, %54 ], [ %51, %50 ], [ %57, %56 ]
   %59 = zext nneg i32 %45 to i64
   %60 = zext nneg i32 %.0.i41.i to i64
   %61 = mul i64 %.02551.i, %60
@@ -317,12 +317,12 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %67, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i, %56, %.critedge.critedge, %._crit_edge107
-  %.3 = phi ptr [ %149, %._crit_edge107 ], [ null, %.critedge.critedge ], [ null, %67 ], [ null, %56 ], [ null, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i ], [ null, %40 ]
+  %.3 = phi ptr [ %149, %._crit_edge107 ], [ null, %.critedge.critedge ], [ null, %56 ], [ null, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i ], [ null, %67 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit: ; preds = %23, %.critedge, %28, %30, %1
-  %.0 = phi ptr [ null, %1 ], [ %.3, %.critedge ], [ null, %30 ], [ null, %28 ], [ null, %23 ]
+  %.0 = phi ptr [ null, %1 ], [ %.3, %.critedge ], [ null, %28 ], [ null, %30 ], [ null, %23 ]
   ret ptr %.0
 }
 

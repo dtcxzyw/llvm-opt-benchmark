@@ -90,13 +90,13 @@ define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr nound
   %64 = fcmp ult double %62, 0.000000e+00
   %65 = fcmp ugt double %62, %46
   %or.cond677 = or i1 %64, %65
-  br i1 %or.cond677, label %69, label %.critedge
+  br i1 %or.cond677, label %69, label %360
 
 66:                                               ; preds = %59
   %67 = fcmp ugt double %62, 0.000000e+00
   %68 = fcmp ult double %62, %46
   %or.cond678 = or i1 %67, %68
-  br i1 %or.cond678, label %69, label %.critedge
+  br i1 %or.cond678, label %69, label %360
 
 69:                                               ; preds = %63, %66, %54
   %70 = getelementptr inbounds nuw double, ptr %6, i64 %.0595
@@ -138,13 +138,13 @@ define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr nound
   %98 = fcmp ult double %96, 0.000000e+00
   %99 = fcmp ugt double %96, %80
   %or.cond681 = or i1 %98, %99
-  br i1 %or.cond681, label %103, label %.critedge
+  br i1 %or.cond681, label %103, label %360
 
 100:                                              ; preds = %93
   %101 = fcmp ugt double %96, 0.000000e+00
   %102 = fcmp ult double %96, %80
   %or.cond682 = or i1 %101, %102
-  br i1 %or.cond682, label %103, label %.critedge
+  br i1 %or.cond682, label %103, label %360
 
 103:                                              ; preds = %97, %100, %88
   %104 = fsub double %71, %33
@@ -170,7 +170,7 @@ define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr nound
   %121 = fcmp ult double %113, %110
   %122 = or i1 %120, %121
   %or.cond684 = select i1 %119, i1 true, i1 %122
-  br i1 %or.cond684, label %133, label %123
+  br i1 %or.cond684, label %.critedge, label %123
 
 123:                                              ; preds = %118, %103
   %124 = fneg double %106
@@ -182,341 +182,341 @@ define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr nound
   %128 = fcmp ult double %126, 0.000000e+00
   %129 = fcmp ugt double %126, %110
   %or.cond685 = or i1 %128, %129
-  br i1 %or.cond685, label %133, label %.critedge
+  br i1 %or.cond685, label %.critedge, label %360
 
 130:                                              ; preds = %123
   %131 = fcmp ugt double %126, 0.000000e+00
   %132 = fcmp ult double %126, %110
   %or.cond686 = or i1 %131, %132
-  br i1 %or.cond686, label %133, label %.critedge
+  br i1 %or.cond686, label %.critedge, label %360
 
-133:                                              ; preds = %127, %130, %118
-  %134 = getelementptr inbounds nuw double, ptr %3, i64 %.0595
-  %135 = load double, ptr %134, align 8, !tbaa !4
-  %136 = fsub double %135, %23
-  %137 = getelementptr inbounds nuw double, ptr %3, i64 %.0596
-  %138 = load double, ptr %137, align 8, !tbaa !4
-  %139 = fsub double %138, %28
-  %140 = fsub double %23, %33
-  %141 = fsub double %28, %38
-  %142 = fmul double %136, %44
-  %143 = tail call double @llvm.fmuladd.f64(double %139, double %36, double %142)
-  %144 = fneg double %141
-  %145 = fmul double %36, %144
-  %146 = tail call double @llvm.fmuladd.f64(double %41, double %140, double %145)
-  %147 = fcmp ule double %143, 0.000000e+00
-  %148 = fcmp ult double %146, 0.000000e+00
-  %149 = fcmp ugt double %146, %143
-  %150 = or i1 %148, %149
-  %or.cond687 = select i1 %147, i1 true, i1 %150
-  br i1 %or.cond687, label %151, label %156
+.critedge:                                        ; preds = %127, %130, %118
+  %133 = getelementptr inbounds nuw double, ptr %3, i64 %.0595
+  %134 = load double, ptr %133, align 8, !tbaa !4
+  %135 = fsub double %134, %23
+  %136 = getelementptr inbounds nuw double, ptr %3, i64 %.0596
+  %137 = load double, ptr %136, align 8, !tbaa !4
+  %138 = fsub double %137, %28
+  %139 = fsub double %23, %33
+  %140 = fsub double %28, %38
+  %141 = fmul double %135, %44
+  %142 = tail call double @llvm.fmuladd.f64(double %138, double %36, double %141)
+  %143 = fneg double %140
+  %144 = fmul double %36, %143
+  %145 = tail call double @llvm.fmuladd.f64(double %41, double %139, double %144)
+  %146 = fcmp ule double %142, 0.000000e+00
+  %147 = fcmp ult double %145, 0.000000e+00
+  %148 = fcmp ugt double %145, %142
+  %149 = or i1 %147, %148
+  %or.cond687 = select i1 %146, i1 true, i1 %149
+  br i1 %or.cond687, label %150, label %155
 
-151:                                              ; preds = %133
-  %152 = fcmp uge double %143, 0.000000e+00
-  %153 = fcmp ugt double %146, 0.000000e+00
-  %154 = fcmp ult double %146, %143
-  %155 = or i1 %153, %154
-  %or.cond688 = select i1 %152, i1 true, i1 %155
-  br i1 %or.cond688, label %166, label %156
+150:                                              ; preds = %.critedge
+  %151 = fcmp uge double %142, 0.000000e+00
+  %152 = fcmp ugt double %145, 0.000000e+00
+  %153 = fcmp ult double %145, %142
+  %154 = or i1 %152, %153
+  %or.cond688 = select i1 %151, i1 true, i1 %154
+  br i1 %or.cond688, label %165, label %155
 
-156:                                              ; preds = %151, %133
-  %157 = fneg double %140
-  %158 = fmul double %139, %157
-  %159 = tail call double @llvm.fmuladd.f64(double %136, double %141, double %158)
-  br i1 %147, label %163, label %160
+155:                                              ; preds = %150, %.critedge
+  %156 = fneg double %139
+  %157 = fmul double %138, %156
+  %158 = tail call double @llvm.fmuladd.f64(double %135, double %140, double %157)
+  br i1 %146, label %162, label %159
 
-160:                                              ; preds = %156
-  %161 = fcmp ult double %159, 0.000000e+00
-  %162 = fcmp ugt double %159, %143
-  %or.cond689 = or i1 %161, %162
-  br i1 %or.cond689, label %166, label %.critedge
+159:                                              ; preds = %155
+  %160 = fcmp ult double %158, 0.000000e+00
+  %161 = fcmp ugt double %158, %142
+  %or.cond689 = or i1 %160, %161
+  br i1 %or.cond689, label %165, label %360
 
-163:                                              ; preds = %156
-  %164 = fcmp ugt double %159, 0.000000e+00
-  %165 = fcmp ult double %159, %143
-  %or.cond690 = or i1 %164, %165
-  br i1 %or.cond690, label %166, label %.critedge
+162:                                              ; preds = %155
+  %163 = fcmp ugt double %158, 0.000000e+00
+  %164 = fcmp ult double %158, %142
+  %or.cond690 = or i1 %163, %164
+  br i1 %or.cond690, label %165, label %360
 
-166:                                              ; preds = %160, %163, %151
-  %167 = fsub double %23, %35
-  %168 = fsub double %28, %40
-  %169 = fmul double %136, %78
-  %170 = tail call double @llvm.fmuladd.f64(double %139, double %72, double %169)
-  %171 = fneg double %168
-  %172 = fmul double %72, %171
-  %173 = tail call double @llvm.fmuladd.f64(double %75, double %167, double %172)
-  %174 = fcmp ule double %170, 0.000000e+00
-  %175 = fcmp ult double %173, 0.000000e+00
-  %176 = fcmp ugt double %173, %170
-  %177 = or i1 %175, %176
-  %or.cond691 = select i1 %174, i1 true, i1 %177
-  br i1 %or.cond691, label %178, label %183
+165:                                              ; preds = %159, %162, %150
+  %166 = fsub double %23, %35
+  %167 = fsub double %28, %40
+  %168 = fmul double %135, %78
+  %169 = tail call double @llvm.fmuladd.f64(double %138, double %72, double %168)
+  %170 = fneg double %167
+  %171 = fmul double %72, %170
+  %172 = tail call double @llvm.fmuladd.f64(double %75, double %166, double %171)
+  %173 = fcmp ule double %169, 0.000000e+00
+  %174 = fcmp ult double %172, 0.000000e+00
+  %175 = fcmp ugt double %172, %169
+  %176 = or i1 %174, %175
+  %or.cond691 = select i1 %173, i1 true, i1 %176
+  br i1 %or.cond691, label %177, label %182
 
-178:                                              ; preds = %166
-  %179 = fcmp uge double %170, 0.000000e+00
-  %180 = fcmp ugt double %173, 0.000000e+00
-  %181 = fcmp ult double %173, %170
-  %182 = or i1 %180, %181
-  %or.cond692 = select i1 %179, i1 true, i1 %182
-  br i1 %or.cond692, label %193, label %183
+177:                                              ; preds = %165
+  %178 = fcmp uge double %169, 0.000000e+00
+  %179 = fcmp ugt double %172, 0.000000e+00
+  %180 = fcmp ult double %172, %169
+  %181 = or i1 %179, %180
+  %or.cond692 = select i1 %178, i1 true, i1 %181
+  br i1 %or.cond692, label %192, label %182
 
-183:                                              ; preds = %178, %166
-  %184 = fneg double %167
-  %185 = fmul double %139, %184
-  %186 = tail call double @llvm.fmuladd.f64(double %136, double %168, double %185)
-  br i1 %174, label %190, label %187
+182:                                              ; preds = %177, %165
+  %183 = fneg double %166
+  %184 = fmul double %138, %183
+  %185 = tail call double @llvm.fmuladd.f64(double %135, double %167, double %184)
+  br i1 %173, label %189, label %186
 
-187:                                              ; preds = %183
-  %188 = fcmp ult double %186, 0.000000e+00
-  %189 = fcmp ugt double %186, %170
-  %or.cond693 = or i1 %188, %189
-  br i1 %or.cond693, label %193, label %.critedge
+186:                                              ; preds = %182
+  %187 = fcmp ult double %185, 0.000000e+00
+  %188 = fcmp ugt double %185, %169
+  %or.cond693 = or i1 %187, %188
+  br i1 %or.cond693, label %192, label %360
 
-190:                                              ; preds = %183
-  %191 = fcmp ugt double %186, 0.000000e+00
-  %192 = fcmp ult double %186, %170
-  %or.cond694 = or i1 %191, %192
-  br i1 %or.cond694, label %193, label %.critedge
+189:                                              ; preds = %182
+  %190 = fcmp ugt double %185, 0.000000e+00
+  %191 = fcmp ult double %185, %169
+  %or.cond694 = or i1 %190, %191
+  br i1 %or.cond694, label %192, label %360
 
-193:                                              ; preds = %187, %190, %178
-  %194 = fsub double %23, %71
-  %195 = fsub double %28, %74
-  %196 = fmul double %136, %108
-  %197 = tail call double @llvm.fmuladd.f64(double %139, double %104, double %196)
-  %198 = fneg double %195
-  %199 = fmul double %104, %198
-  %200 = tail call double @llvm.fmuladd.f64(double %105, double %194, double %199)
-  %201 = fcmp ule double %197, 0.000000e+00
-  %202 = fcmp ult double %200, 0.000000e+00
-  %203 = fcmp ugt double %200, %197
-  %204 = or i1 %202, %203
-  %or.cond695 = select i1 %201, i1 true, i1 %204
-  br i1 %or.cond695, label %205, label %210
+192:                                              ; preds = %186, %189, %177
+  %193 = fsub double %23, %71
+  %194 = fsub double %28, %74
+  %195 = fmul double %135, %108
+  %196 = tail call double @llvm.fmuladd.f64(double %138, double %104, double %195)
+  %197 = fneg double %194
+  %198 = fmul double %104, %197
+  %199 = tail call double @llvm.fmuladd.f64(double %105, double %193, double %198)
+  %200 = fcmp ule double %196, 0.000000e+00
+  %201 = fcmp ult double %199, 0.000000e+00
+  %202 = fcmp ugt double %199, %196
+  %203 = or i1 %201, %202
+  %or.cond695 = select i1 %200, i1 true, i1 %203
+  br i1 %or.cond695, label %204, label %209
 
-205:                                              ; preds = %193
-  %206 = fcmp uge double %197, 0.000000e+00
-  %207 = fcmp ugt double %200, 0.000000e+00
-  %208 = fcmp ult double %200, %197
-  %209 = or i1 %207, %208
-  %or.cond696 = select i1 %206, i1 true, i1 %209
-  br i1 %or.cond696, label %220, label %210
+204:                                              ; preds = %192
+  %205 = fcmp uge double %196, 0.000000e+00
+  %206 = fcmp ugt double %199, 0.000000e+00
+  %207 = fcmp ult double %199, %196
+  %208 = or i1 %206, %207
+  %or.cond696 = select i1 %205, i1 true, i1 %208
+  br i1 %or.cond696, label %.critedge700, label %209
 
-210:                                              ; preds = %205, %193
-  %211 = fneg double %194
-  %212 = fmul double %139, %211
-  %213 = tail call double @llvm.fmuladd.f64(double %136, double %195, double %212)
-  br i1 %201, label %217, label %214
+209:                                              ; preds = %204, %192
+  %210 = fneg double %193
+  %211 = fmul double %138, %210
+  %212 = tail call double @llvm.fmuladd.f64(double %135, double %194, double %211)
+  br i1 %200, label %216, label %213
 
-214:                                              ; preds = %210
-  %215 = fcmp ult double %213, 0.000000e+00
-  %216 = fcmp ugt double %213, %197
-  %or.cond697 = or i1 %215, %216
-  br i1 %or.cond697, label %220, label %.critedge
+213:                                              ; preds = %209
+  %214 = fcmp ult double %212, 0.000000e+00
+  %215 = fcmp ugt double %212, %196
+  %or.cond697 = or i1 %214, %215
+  br i1 %or.cond697, label %.critedge700, label %360
 
-217:                                              ; preds = %210
-  %218 = fcmp ugt double %213, 0.000000e+00
-  %219 = fcmp ult double %213, %197
-  %or.cond698 = or i1 %218, %219
-  br i1 %or.cond698, label %220, label %.critedge
+216:                                              ; preds = %209
+  %217 = fcmp ugt double %212, 0.000000e+00
+  %218 = fcmp ult double %212, %196
+  %or.cond698 = or i1 %217, %218
+  br i1 %or.cond698, label %.critedge700, label %360
 
-220:                                              ; preds = %214, %217, %205
-  %221 = fsub double %25, %135
-  %222 = fsub double %30, %138
-  %223 = fsub double %135, %33
-  %224 = fsub double %138, %38
-  %225 = fmul double %221, %44
-  %226 = tail call double @llvm.fmuladd.f64(double %222, double %36, double %225)
-  %227 = fneg double %224
-  %228 = fmul double %36, %227
-  %229 = tail call double @llvm.fmuladd.f64(double %41, double %223, double %228)
-  %230 = fcmp ule double %226, 0.000000e+00
-  %231 = fcmp ult double %229, 0.000000e+00
-  %232 = fcmp ugt double %229, %226
-  %233 = or i1 %231, %232
-  %or.cond701 = select i1 %230, i1 true, i1 %233
-  br i1 %or.cond701, label %234, label %239
+.critedge700:                                     ; preds = %213, %216, %204
+  %219 = fsub double %25, %134
+  %220 = fsub double %30, %137
+  %221 = fsub double %134, %33
+  %222 = fsub double %137, %38
+  %223 = fmul double %219, %44
+  %224 = tail call double @llvm.fmuladd.f64(double %220, double %36, double %223)
+  %225 = fneg double %222
+  %226 = fmul double %36, %225
+  %227 = tail call double @llvm.fmuladd.f64(double %41, double %221, double %226)
+  %228 = fcmp ule double %224, 0.000000e+00
+  %229 = fcmp ult double %227, 0.000000e+00
+  %230 = fcmp ugt double %227, %224
+  %231 = or i1 %229, %230
+  %or.cond701 = select i1 %228, i1 true, i1 %231
+  br i1 %or.cond701, label %232, label %237
 
-234:                                              ; preds = %220
-  %235 = fcmp uge double %226, 0.000000e+00
-  %236 = fcmp ugt double %229, 0.000000e+00
-  %237 = fcmp ult double %229, %226
-  %238 = or i1 %236, %237
-  %or.cond702 = select i1 %235, i1 true, i1 %238
-  br i1 %or.cond702, label %249, label %239
+232:                                              ; preds = %.critedge700
+  %233 = fcmp uge double %224, 0.000000e+00
+  %234 = fcmp ugt double %227, 0.000000e+00
+  %235 = fcmp ult double %227, %224
+  %236 = or i1 %234, %235
+  %or.cond702 = select i1 %233, i1 true, i1 %236
+  br i1 %or.cond702, label %247, label %237
 
-239:                                              ; preds = %234, %220
-  %240 = fneg double %223
-  %241 = fmul double %222, %240
-  %242 = tail call double @llvm.fmuladd.f64(double %221, double %224, double %241)
-  br i1 %230, label %246, label %243
+237:                                              ; preds = %232, %.critedge700
+  %238 = fneg double %221
+  %239 = fmul double %220, %238
+  %240 = tail call double @llvm.fmuladd.f64(double %219, double %222, double %239)
+  br i1 %228, label %244, label %241
 
-243:                                              ; preds = %239
-  %244 = fcmp ult double %242, 0.000000e+00
-  %245 = fcmp ugt double %242, %226
-  %or.cond703 = or i1 %244, %245
-  br i1 %or.cond703, label %249, label %.critedge
+241:                                              ; preds = %237
+  %242 = fcmp ult double %240, 0.000000e+00
+  %243 = fcmp ugt double %240, %224
+  %or.cond703 = or i1 %242, %243
+  br i1 %or.cond703, label %247, label %360
 
-246:                                              ; preds = %239
-  %247 = fcmp ugt double %242, 0.000000e+00
-  %248 = fcmp ult double %242, %226
-  %or.cond704 = or i1 %247, %248
-  br i1 %or.cond704, label %249, label %.critedge
+244:                                              ; preds = %237
+  %245 = fcmp ugt double %240, 0.000000e+00
+  %246 = fcmp ult double %240, %224
+  %or.cond704 = or i1 %245, %246
+  br i1 %or.cond704, label %247, label %360
 
-249:                                              ; preds = %243, %246, %234
-  %250 = fsub double %135, %35
-  %251 = fsub double %138, %40
-  %252 = fmul double %221, %78
-  %253 = tail call double @llvm.fmuladd.f64(double %222, double %72, double %252)
-  %254 = fneg double %251
-  %255 = fmul double %72, %254
-  %256 = tail call double @llvm.fmuladd.f64(double %75, double %250, double %255)
-  %257 = fcmp ule double %253, 0.000000e+00
-  %258 = fcmp ult double %256, 0.000000e+00
-  %259 = fcmp ugt double %256, %253
-  %260 = or i1 %258, %259
-  %or.cond705 = select i1 %257, i1 true, i1 %260
-  br i1 %or.cond705, label %261, label %266
+247:                                              ; preds = %241, %244, %232
+  %248 = fsub double %134, %35
+  %249 = fsub double %137, %40
+  %250 = fmul double %219, %78
+  %251 = tail call double @llvm.fmuladd.f64(double %220, double %72, double %250)
+  %252 = fneg double %249
+  %253 = fmul double %72, %252
+  %254 = tail call double @llvm.fmuladd.f64(double %75, double %248, double %253)
+  %255 = fcmp ule double %251, 0.000000e+00
+  %256 = fcmp ult double %254, 0.000000e+00
+  %257 = fcmp ugt double %254, %251
+  %258 = or i1 %256, %257
+  %or.cond705 = select i1 %255, i1 true, i1 %258
+  br i1 %or.cond705, label %259, label %264
 
-261:                                              ; preds = %249
-  %262 = fcmp uge double %253, 0.000000e+00
-  %263 = fcmp ugt double %256, 0.000000e+00
-  %264 = fcmp ult double %256, %253
-  %265 = or i1 %263, %264
-  %or.cond706 = select i1 %262, i1 true, i1 %265
-  br i1 %or.cond706, label %276, label %266
+259:                                              ; preds = %247
+  %260 = fcmp uge double %251, 0.000000e+00
+  %261 = fcmp ugt double %254, 0.000000e+00
+  %262 = fcmp ult double %254, %251
+  %263 = or i1 %261, %262
+  %or.cond706 = select i1 %260, i1 true, i1 %263
+  br i1 %or.cond706, label %274, label %264
 
-266:                                              ; preds = %261, %249
-  %267 = fneg double %250
-  %268 = fmul double %222, %267
-  %269 = tail call double @llvm.fmuladd.f64(double %221, double %251, double %268)
-  br i1 %257, label %273, label %270
+264:                                              ; preds = %259, %247
+  %265 = fneg double %248
+  %266 = fmul double %220, %265
+  %267 = tail call double @llvm.fmuladd.f64(double %219, double %249, double %266)
+  br i1 %255, label %271, label %268
 
-270:                                              ; preds = %266
-  %271 = fcmp ult double %269, 0.000000e+00
-  %272 = fcmp ugt double %269, %253
-  %or.cond707 = or i1 %271, %272
-  br i1 %or.cond707, label %276, label %.critedge
+268:                                              ; preds = %264
+  %269 = fcmp ult double %267, 0.000000e+00
+  %270 = fcmp ugt double %267, %251
+  %or.cond707 = or i1 %269, %270
+  br i1 %or.cond707, label %274, label %360
 
-273:                                              ; preds = %266
-  %274 = fcmp ugt double %269, 0.000000e+00
-  %275 = fcmp ult double %269, %253
-  %or.cond708 = or i1 %274, %275
-  br i1 %or.cond708, label %276, label %.critedge
+271:                                              ; preds = %264
+  %272 = fcmp ugt double %267, 0.000000e+00
+  %273 = fcmp ult double %267, %251
+  %or.cond708 = or i1 %272, %273
+  br i1 %or.cond708, label %274, label %360
 
-276:                                              ; preds = %270, %273, %261
-  %277 = fsub double %135, %71
-  %278 = fsub double %138, %74
-  %279 = fmul double %221, %108
-  %280 = tail call double @llvm.fmuladd.f64(double %222, double %104, double %279)
-  %281 = fneg double %278
-  %282 = fmul double %104, %281
-  %283 = tail call double @llvm.fmuladd.f64(double %105, double %277, double %282)
-  %284 = fcmp ule double %280, 0.000000e+00
-  %285 = fcmp ult double %283, 0.000000e+00
-  %286 = fcmp ugt double %283, %280
-  %287 = or i1 %285, %286
-  %or.cond709 = select i1 %284, i1 true, i1 %287
-  br i1 %or.cond709, label %288, label %293
+274:                                              ; preds = %268, %271, %259
+  %275 = fsub double %134, %71
+  %276 = fsub double %137, %74
+  %277 = fmul double %219, %108
+  %278 = tail call double @llvm.fmuladd.f64(double %220, double %104, double %277)
+  %279 = fneg double %276
+  %280 = fmul double %104, %279
+  %281 = tail call double @llvm.fmuladd.f64(double %105, double %275, double %280)
+  %282 = fcmp ule double %278, 0.000000e+00
+  %283 = fcmp ult double %281, 0.000000e+00
+  %284 = fcmp ugt double %281, %278
+  %285 = or i1 %283, %284
+  %or.cond709 = select i1 %282, i1 true, i1 %285
+  br i1 %or.cond709, label %286, label %291
 
-288:                                              ; preds = %276
-  %289 = fcmp uge double %280, 0.000000e+00
-  %290 = fcmp ugt double %283, 0.000000e+00
-  %291 = fcmp ult double %283, %280
-  %292 = or i1 %290, %291
-  %or.cond710 = select i1 %289, i1 true, i1 %292
-  br i1 %or.cond710, label %303, label %293
+286:                                              ; preds = %274
+  %287 = fcmp uge double %278, 0.000000e+00
+  %288 = fcmp ugt double %281, 0.000000e+00
+  %289 = fcmp ult double %281, %278
+  %290 = or i1 %288, %289
+  %or.cond710 = select i1 %287, i1 true, i1 %290
+  br i1 %or.cond710, label %.critedge714, label %291
 
-293:                                              ; preds = %288, %276
-  %294 = fneg double %277
-  %295 = fmul double %222, %294
-  %296 = tail call double @llvm.fmuladd.f64(double %221, double %278, double %295)
-  br i1 %284, label %300, label %297
+291:                                              ; preds = %286, %274
+  %292 = fneg double %275
+  %293 = fmul double %220, %292
+  %294 = tail call double @llvm.fmuladd.f64(double %219, double %276, double %293)
+  br i1 %282, label %298, label %295
 
-297:                                              ; preds = %293
-  %298 = fcmp ult double %296, 0.000000e+00
-  %299 = fcmp ugt double %296, %280
-  %or.cond711 = or i1 %298, %299
-  br i1 %or.cond711, label %303, label %.critedge
+295:                                              ; preds = %291
+  %296 = fcmp ult double %294, 0.000000e+00
+  %297 = fcmp ugt double %294, %278
+  %or.cond711 = or i1 %296, %297
+  br i1 %or.cond711, label %.critedge714, label %360
 
-300:                                              ; preds = %293
-  %301 = fcmp ugt double %296, 0.000000e+00
-  %302 = fcmp ult double %296, %280
-  %or.cond712 = or i1 %301, %302
-  br i1 %or.cond712, label %303, label %.critedge
+298:                                              ; preds = %291
+  %299 = fcmp ugt double %294, 0.000000e+00
+  %300 = fcmp ult double %294, %278
+  %or.cond712 = or i1 %299, %300
+  br i1 %or.cond712, label %.critedge714, label %360
 
-303:                                              ; preds = %297, %300, %288
-  %304 = fsub double %40, %38
-  %305 = fsub double %35, %33
-  %306 = fneg double %305
-  %307 = fneg double %304
-  %308 = fmul double %38, %305
-  %309 = tail call double @llvm.fmuladd.f64(double %307, double %33, double %308)
-  %310 = fmul double %30, %306
-  %311 = tail call double @llvm.fmuladd.f64(double %304, double %25, double %310)
-  %312 = fadd double %311, %309
-  %313 = fsub double %74, %40
-  %314 = fsub double %71, %35
-  %315 = fneg double %314
-  %316 = fneg double %313
-  %317 = fmul double %40, %314
-  %318 = tail call double @llvm.fmuladd.f64(double %316, double %35, double %317)
-  %319 = fmul double %30, %315
-  %320 = tail call double @llvm.fmuladd.f64(double %313, double %25, double %319)
-  %321 = fadd double %320, %318
-  %322 = fmul double %312, %321
-  %323 = fcmp ogt double %322, 0.000000e+00
-  br i1 %323, label %324, label %.critedge716
+.critedge714:                                     ; preds = %295, %298, %286
+  %301 = fsub double %40, %38
+  %302 = fsub double %35, %33
+  %303 = fneg double %302
+  %304 = fneg double %301
+  %305 = fmul double %38, %302
+  %306 = tail call double @llvm.fmuladd.f64(double %304, double %33, double %305)
+  %307 = fmul double %30, %303
+  %308 = tail call double @llvm.fmuladd.f64(double %301, double %25, double %307)
+  %309 = fadd double %308, %306
+  %310 = fsub double %74, %40
+  %311 = fsub double %71, %35
+  %312 = fneg double %311
+  %313 = fneg double %310
+  %314 = fmul double %40, %311
+  %315 = tail call double @llvm.fmuladd.f64(double %313, double %35, double %314)
+  %316 = fmul double %30, %312
+  %317 = tail call double @llvm.fmuladd.f64(double %310, double %25, double %316)
+  %318 = fadd double %317, %315
+  %319 = fmul double %309, %318
+  %320 = fcmp ogt double %319, 0.000000e+00
+  br i1 %320, label %321, label %.critedge716
 
-324:                                              ; preds = %303
-  %325 = fsub double %38, %74
-  %326 = fsub double %33, %71
-  %327 = fneg double %326
-  %328 = fmul double %30, %327
-  %329 = tail call double @llvm.fmuladd.f64(double %325, double %25, double %328)
-  %330 = fneg double %325
-  %331 = fmul double %74, %326
-  %332 = tail call double @llvm.fmuladd.f64(double %330, double %71, double %331)
-  %333 = fadd double %329, %332
-  %334 = fmul double %312, %333
-  %335 = fcmp ogt double %334, 0.000000e+00
-  br i1 %335, label %.critedge, label %.critedge716
+321:                                              ; preds = %.critedge714
+  %322 = fsub double %38, %74
+  %323 = fsub double %33, %71
+  %324 = fneg double %323
+  %325 = fmul double %30, %324
+  %326 = tail call double @llvm.fmuladd.f64(double %322, double %25, double %325)
+  %327 = fneg double %322
+  %328 = fmul double %74, %323
+  %329 = tail call double @llvm.fmuladd.f64(double %327, double %71, double %328)
+  %330 = fadd double %326, %329
+  %331 = fmul double %309, %330
+  %332 = fcmp ogt double %331, 0.000000e+00
+  br i1 %332, label %360, label %.critedge716
 
-.critedge716:                                     ; preds = %324, %303
-  %336 = fneg double %26
-  %337 = fneg double %31
-  %338 = fmul double %26, %30
-  %339 = tail call double @llvm.fmuladd.f64(double %337, double %25, double %338)
-  %340 = fmul double %38, %336
-  %341 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %340)
-  %342 = fadd double %339, %341
-  %343 = fneg double %136
-  %344 = fneg double %139
-  %345 = fmul double %28, %136
-  %346 = tail call double @llvm.fmuladd.f64(double %344, double %23, double %345)
-  %347 = fmul double %38, %343
-  %348 = tail call double @llvm.fmuladd.f64(double %139, double %33, double %347)
-  %349 = fadd double %348, %346
-  %350 = fmul double %342, %349
-  %351 = fcmp ogt double %350, 0.000000e+00
-  br i1 %351, label %352, label %362
+.critedge716:                                     ; preds = %321, %.critedge714
+  %333 = fneg double %26
+  %334 = fneg double %31
+  %335 = fmul double %26, %30
+  %336 = tail call double @llvm.fmuladd.f64(double %334, double %25, double %335)
+  %337 = fmul double %38, %333
+  %338 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %337)
+  %339 = fadd double %336, %338
+  %340 = fneg double %135
+  %341 = fneg double %138
+  %342 = fmul double %28, %135
+  %343 = tail call double @llvm.fmuladd.f64(double %341, double %23, double %342)
+  %344 = fmul double %38, %340
+  %345 = tail call double @llvm.fmuladd.f64(double %138, double %33, double %344)
+  %346 = fadd double %345, %343
+  %347 = fmul double %339, %346
+  %348 = fcmp ogt double %347, 0.000000e+00
+  br i1 %348, label %349, label %359
 
-352:                                              ; preds = %.critedge716
-  %353 = fneg double %221
-  %354 = fmul double %38, %353
-  %355 = tail call double @llvm.fmuladd.f64(double %222, double %33, double %354)
-  %356 = fneg double %222
-  %357 = fmul double %138, %221
-  %358 = tail call double @llvm.fmuladd.f64(double %356, double %135, double %357)
-  %359 = fadd double %355, %358
-  %360 = fmul double %342, %359
-  %361 = fcmp ogt double %360, 0.000000e+00
-  br i1 %361, label %.critedge, label %362
+349:                                              ; preds = %.critedge716
+  %350 = fneg double %219
+  %351 = fmul double %38, %350
+  %352 = tail call double @llvm.fmuladd.f64(double %220, double %33, double %351)
+  %353 = fneg double %220
+  %354 = fmul double %137, %219
+  %355 = tail call double @llvm.fmuladd.f64(double %353, double %134, double %354)
+  %356 = fadd double %352, %355
+  %357 = fmul double %339, %356
+  %358 = fcmp ogt double %357, 0.000000e+00
+  br i1 %358, label %360, label %359
 
-362:                                              ; preds = %.critedge716, %352
-  br label %.critedge
+359:                                              ; preds = %.critedge716, %349
+  br label %360
 
-.critedge:                                        ; preds = %362, %352, %243, %246, %273, %297, %270, %300, %160, %163, %190, %214, %187, %217, %63, %66, %100, %127, %97, %130, %324
-  %.1 = phi i32 [ 1, %324 ], [ 1, %243 ], [ 1, %246 ], [ 1, %160 ], [ 1, %63 ], [ 1, %130 ], [ 1, %97 ], [ 1, %127 ], [ 1, %100 ], [ 1, %66 ], [ 1, %217 ], [ 1, %187 ], [ 1, %214 ], [ 1, %190 ], [ 1, %163 ], [ 1, %300 ], [ 1, %270 ], [ 1, %297 ], [ 1, %273 ], [ 0, %362 ], [ 1, %352 ]
+360:                                              ; preds = %359, %349, %321, %241, %244, %268, %271, %295, %298, %159, %162, %186, %189, %213, %216, %63, %66, %97, %100, %127, %130
+  %.1 = phi i32 [ 1, %130 ], [ 1, %127 ], [ 1, %100 ], [ 1, %97 ], [ 1, %66 ], [ 1, %63 ], [ 1, %216 ], [ 1, %213 ], [ 1, %189 ], [ 1, %186 ], [ 1, %162 ], [ 1, %159 ], [ 1, %298 ], [ 1, %295 ], [ 1, %271 ], [ 1, %268 ], [ 1, %244 ], [ 1, %241 ], [ 1, %321 ], [ 0, %359 ], [ 1, %349 ]
   ret i32 %.1
 }
 
@@ -864,7 +864,7 @@ define noundef range(i32 0, 2) i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef
   br label %259
 
 259:                                              ; preds = %192, %241, %239, %80, %6
-  %.0 = phi i32 [ 0, %80 ], [ 0, %6 ], [ %193, %192 ], [ %.3, %241 ], [ %240, %239 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %80 ], [ %193, %192 ], [ %.3, %241 ], [ %240, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1219,7 +1219,7 @@ define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonl
   br label %208
 
 208:                                              ; preds = %196, %188, %180, %172, %161, %149, %134, %122, %110, %96, %83, %70, %3
-  %.0 = phi i32 [ %207, %196 ], [ 0, %3 ], [ 0, %70 ], [ 0, %83 ], [ 0, %96 ], [ 0, %110 ], [ 0, %122 ], [ 0, %134 ], [ 0, %149 ], [ 0, %161 ], [ 0, %172 ], [ 0, %180 ], [ 0, %188 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %70 ], [ 0, %83 ], [ 0, %96 ], [ 0, %110 ], [ 0, %122 ], [ 0, %134 ], [ 0, %149 ], [ 0, %161 ], [ 0, %172 ], [ 0, %180 ], [ 0, %188 ], [ %207, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1274,7 +1274,7 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest8AABBAABBERKN5Ei
   br label %37
 
 37:                                               ; preds = %24, %30, %12, %18, %4, %8, %36
-  %.0 = phi i1 [ true, %36 ], [ false, %4 ], [ false, %12 ], [ false, %8 ], [ false, %18 ], [ false, %30 ], [ false, %24 ]
+  %.0 = phi i1 [ true, %36 ], [ false, %8 ], [ false, %4 ], [ false, %18 ], [ false, %12 ], [ false, %30 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -1587,7 +1587,7 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
   br label %85
 
 85:                                               ; preds = %24, %4, %36, %54
-  %.0 = phi double [ -1.000000e+00, %4 ], [ -2.000000e+00, %24 ], [ %.scalar.i, %54 ], [ -3.000000e+00, %36 ]
+  %.0 = phi double [ %.scalar.i, %54 ], [ -3.000000e+00, %36 ], [ -1.000000e+00, %4 ], [ -2.000000e+00, %24 ]
   ret double %.0
 }
 
@@ -1808,8 +1808,8 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest27LineSegmentsMinimu
   br label %139
 
 139:                                              ; preds = %130, %133, %135, %123, %121, %109, %112, %114, %101, %99, %88, %91, %93, %79, %77, %64, %67, %69, %56, %53, %62, %86, %116, %137
-  %.0188 = phi double [ %118, %116 ], [ 0.000000e+00, %101 ], [ 1.000000e+00, %88 ], [ %87, %86 ], [ 0.000000e+00, %79 ], [ 1.000000e+00, %64 ], [ %63, %62 ], [ 0.000000e+00, %56 ], [ 1.000000e+00, %109 ], [ %138, %137 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %53 ], [ 1.000000e+00, %69 ], [ 1.000000e+00, %67 ], [ 0.000000e+00, %77 ], [ 1.000000e+00, %93 ], [ 1.000000e+00, %91 ], [ 0.000000e+00, %99 ], [ 1.000000e+00, %114 ], [ 1.000000e+00, %112 ], [ 0.000000e+00, %121 ], [ 1.000000e+00, %135 ], [ 1.000000e+00, %133 ], [ 1.000000e+00, %130 ]
-  %.0 = phi double [ %117, %116 ], [ %105, %101 ], [ 0.000000e+00, %88 ], [ 1.000000e+00, %86 ], [ %83, %79 ], [ 1.000000e+00, %64 ], [ 0.000000e+00, %62 ], [ %59, %56 ], [ 0.000000e+00, %109 ], [ 0.000000e+00, %137 ], [ %127, %123 ], [ 1.000000e+00, %53 ], [ %70, %69 ], [ 0.000000e+00, %67 ], [ 0.000000e+00, %77 ], [ %94, %93 ], [ 1.000000e+00, %91 ], [ 0.000000e+00, %99 ], [ %115, %114 ], [ 1.000000e+00, %112 ], [ 0.000000e+00, %121 ], [ %136, %135 ], [ 1.000000e+00, %133 ], [ 0.000000e+00, %130 ]
+  %.0188 = phi double [ %118, %116 ], [ %87, %86 ], [ %63, %62 ], [ %138, %137 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %56 ], [ 1.000000e+00, %69 ], [ 1.000000e+00, %67 ], [ 1.000000e+00, %64 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %79 ], [ 1.000000e+00, %93 ], [ 1.000000e+00, %91 ], [ 1.000000e+00, %88 ], [ 0.000000e+00, %99 ], [ 0.000000e+00, %101 ], [ 1.000000e+00, %114 ], [ 1.000000e+00, %112 ], [ 1.000000e+00, %109 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %123 ], [ 1.000000e+00, %135 ], [ 1.000000e+00, %133 ], [ 1.000000e+00, %130 ]
+  %.0 = phi double [ %117, %116 ], [ 1.000000e+00, %86 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %137 ], [ 1.000000e+00, %53 ], [ %59, %56 ], [ %70, %69 ], [ 0.000000e+00, %67 ], [ 1.000000e+00, %64 ], [ 0.000000e+00, %77 ], [ %83, %79 ], [ %94, %93 ], [ 1.000000e+00, %91 ], [ 0.000000e+00, %88 ], [ 0.000000e+00, %99 ], [ %105, %101 ], [ %115, %114 ], [ 1.000000e+00, %112 ], [ 0.000000e+00, %109 ], [ 0.000000e+00, %121 ], [ %127, %123 ], [ %136, %135 ], [ 1.000000e+00, %133 ], [ 0.000000e+00, %130 ]
   %140 = fsub double 1.000000e+00, %.0
   %.sroa.3.16.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %140, i64 0
   %.sroa.917.48.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %.0, i64 0

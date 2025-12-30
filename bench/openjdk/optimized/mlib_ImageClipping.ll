@@ -106,7 +106,7 @@ define hidden range(i32 0, 3) i32 @mlib_ImageClippingMxN(ptr noundef %0, ptr nou
   br label %71
 
 71:                                               ; preds = %66, %67, %19, %18, %11
-  %.0 = phi i32 [ 1, %19 ], [ 2, %11 ], [ 0, %66 ], [ 1, %18 ], [ 0, %67 ]
+  %.0 = phi i32 [ 2, %11 ], [ 1, %18 ], [ 1, %19 ], [ 0, %67 ], [ 0, %66 ]
   ret i32 %.0
 }
 

@@ -513,7 +513,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %139, %.lr.ph.split.us, %90, %86, %63, %166, %160, %67, %39, %30, %Kit_DsdNtkObj.exit.thread
-  %.0 = phi ptr [ %25, %Kit_DsdNtkObj.exit.thread ], [ %38, %30 ], [ %52, %39 ], [ %182, %166 ], [ %75, %67 ], [ null, %63 ], [ null, %86 ], [ %165, %160 ], [ %107, %90 ], [ null, %.lr.ph.split.us ], [ null, %139 ]
+  %.0 = phi ptr [ %25, %Kit_DsdNtkObj.exit.thread ], [ %38, %30 ], [ %52, %39 ], [ %75, %67 ], [ %165, %160 ], [ %182, %166 ], [ null, %63 ], [ %107, %90 ], [ null, %86 ], [ null, %.lr.ph.split.us ], [ null, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

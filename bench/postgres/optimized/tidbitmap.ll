@@ -471,8 +471,8 @@ pagetable_iterate.exit.thread.i:                  ; preds = %124
   br label %tbm_lossify.exit
 
 tbm_lossify.exit:                                 ; preds = %63, %150, %pagetable_iterate.exit.thread.i, %pagetable_iterate.exit.thread.thread.i, %96, %tbm_page_is_lossy.exit
-  %.13348 = phi ptr [ null, %tbm_page_is_lossy.exit ], [ %.133, %150 ], [ %.133, %96 ], [ %.133, %pagetable_iterate.exit.thread.thread.i ], [ %.133, %pagetable_iterate.exit.thread.i ], [ null, %63 ]
-  %.2 = phi i32 [ %.1, %tbm_page_is_lossy.exit ], [ -1, %150 ], [ %.1, %96 ], [ -1, %pagetable_iterate.exit.thread.thread.i ], [ -1, %pagetable_iterate.exit.thread.i ], [ %22, %63 ]
+  %.13348 = phi ptr [ null, %tbm_page_is_lossy.exit ], [ %.133, %96 ], [ %.133, %pagetable_iterate.exit.thread.thread.i ], [ %.133, %pagetable_iterate.exit.thread.i ], [ %.133, %150 ], [ null, %63 ]
+  %.2 = phi i32 [ %.1, %tbm_page_is_lossy.exit ], [ %.1, %96 ], [ -1, %pagetable_iterate.exit.thread.thread.i ], [ -1, %pagetable_iterate.exit.thread.i ], [ -1, %150 ], [ %22, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !8
@@ -1538,7 +1538,7 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
 pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable_lookup.exit.i, %55, %21
   %66 = load i32, ptr %9, align 8
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %select.unfold, label %68
+  br i1 %67, label %select.unfold2, label %68
 
 68:                                               ; preds = %pagetable_lookup.exit.thread.i
   %69 = load i32, ptr %10, align 8
@@ -1548,7 +1548,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable
 71:                                               ; preds = %68
   %72 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %72, %.04321
-  br i1 %.not.i, label %tbm_page_is_lossy.exit, label %select.unfold
+  br i1 %.not.i, label %tbm_page_is_lossy.exit, label %select.unfold2
 
 73:                                               ; preds = %68
   %74 = load ptr, ptr %8, align 8
@@ -1570,7 +1570,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i8, ptr %87, align 4
   %89 = icmp eq i8 %88, 0
-  br i1 %89, label %select.unfold, label %.lr.ph.i.i.i63
+  br i1 %89, label %select.unfold2, label %.lr.ph.i.i.i63
 
 90:                                               ; preds = %.lr.ph.i.i.i63
   %91 = add i32 %.01422.i.i.i64, 1
@@ -1580,7 +1580,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i8, ptr %94, align 4
   %96 = icmp eq i8 %95, 0
-  br i1 %96, label %select.unfold, label %.lr.ph.i.i.i63
+  br i1 %96, label %select.unfold2, label %.lr.ph.i.i.i63
 
 .lr.ph.i.i.i63:                                   ; preds = %73, %90
   %97 = phi ptr [ %93, %90 ], [ %86, %73 ]
@@ -1593,16 +1593,16 @@ pagetable_lookup.exit.i68:                        ; preds = %.lr.ph.i.i.i63
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 5
   %101 = load i8, ptr %100, align 1, !range !4, !noundef !5
   %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %select.unfold, label %tbm_page_is_lossy.exit
+  br i1 %102, label %select.unfold2, label %tbm_page_is_lossy.exit
 
-select.unfold:                                    ; preds = %90, %pagetable_lookup.exit.i68, %71, %pagetable_lookup.exit.thread.i, %73
+select.unfold2:                                   ; preds = %90, %pagetable_lookup.exit.i68, %pagetable_lookup.exit.thread.i, %71, %73
   %103 = shl nuw i64 1, %indvars.iv34
   %104 = xor i64 %103, -1
   %105 = and i64 %.04420, %104
   br label %tbm_page_is_lossy.exit
 
-tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_lookup.exit.i68, %55, %select.unfold, %19
-  %.145 = phi i64 [ %.04420, %19 ], [ %105, %select.unfold ], [ %.04420, %55 ], [ %.04420, %pagetable_lookup.exit.i68 ], [ %.04420, %71 ]
+tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_lookup.exit.i68, %55, %select.unfold2, %19
+  %.145 = phi i64 [ %105, %select.unfold2 ], [ %.04420, %19 ], [ %.04420, %55 ], [ %.04420, %pagetable_lookup.exit.i68 ], [ %.04420, %71 ]
   %106 = add i32 %.04321, 1
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %107 = lshr i64 %.04619, 1
@@ -1787,8 +1787,8 @@ tbm_find_pageentry.exit92:                        ; preds = %165, %pagetable_loo
   store i8 %212, ptr %210, align 2
   br label %tbm_find_pageentry.exit92.thread
 
-tbm_find_pageentry.exit92.thread:                 ; preds = %186, %109, %pagetable_lookup.exit.i88, %168, %pagetable_lookup.exit.thread.i75, %165, %207, %tbm_page_is_lossy.exit79
-  %.052 = phi i1 [ true, %pagetable_lookup.exit.i88 ], [ false, %tbm_page_is_lossy.exit79 ], [ %spec.select60, %207 ], [ true, %165 ], [ true, %pagetable_lookup.exit.thread.i75 ], [ true, %168 ], [ %.148, %109 ], [ true, %186 ]
+tbm_find_pageentry.exit92.thread:                 ; preds = %186, %109, %pagetable_lookup.exit.i88, %168, %165, %pagetable_lookup.exit.thread.i75, %207, %tbm_page_is_lossy.exit79
+  %.052 = phi i1 [ false, %tbm_page_is_lossy.exit79 ], [ %spec.select60, %207 ], [ true, %pagetable_lookup.exit.thread.i75 ], [ true, %165 ], [ true, %168 ], [ true, %pagetable_lookup.exit.i88 ], [ %.148, %109 ], [ true, %186 ]
   ret i1 %.052
 }
 
@@ -2179,9 +2179,9 @@ pagetable_iterate.exit:                           ; preds = %64
   br label %100
 
 100:                                              ; preds = %99, %98
-  %.2111 = phi i32 [ %.0, %98 ], [ %.2119, %99 ]
-  %.283110 = phi i32 [ %.081, %98 ], [ %.283118, %99 ]
-  %.084109 = phi ptr [ null, %98 ], [ %.084117, %99 ]
+  %.2111 = phi i32 [ %.2119, %99 ], [ %.0, %98 ]
+  %.283110 = phi i32 [ %.283118, %99 ], [ %.081, %98 ]
+  %.084109 = phi ptr [ %.084117, %99 ], [ null, %98 ]
   %101 = icmp sgt i32 %.283110, 1
   br i1 %101, label %102, label %106
 

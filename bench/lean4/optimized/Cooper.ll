@@ -284,7 +284,7 @@ lean_int_sub.exit.thread62:                       ; preds = %29
   br label %lean_dec.exit27
 
 lean_dec.exit27:                                  ; preds = %46, %41, %55, %54, %52, %lean_int_sub.exit.thread62
-  %.0.i4161 = phi ptr [ %49, %55 ], [ %32, %lean_int_sub.exit.thread62 ], [ %49, %52 ], [ %49, %54 ], [ %47, %46 ], [ %45, %41 ]
+  %.0.i4161 = phi ptr [ %32, %lean_int_sub.exit.thread62 ], [ %49, %52 ], [ %49, %54 ], [ %49, %55 ], [ %47, %46 ], [ %45, %41 ]
   br i1 %.not.i38, label %.critedge.i46, label %56, !prof !4
 
 56:                                               ; preds = %lean_dec.exit27
@@ -334,7 +334,7 @@ lean_int_mul.exit47:                              ; preds = %67, %72, %.critedge
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %lean_int_mul.exit47, %79
-  %.1.i = phi ptr [ %75, %lean_int_mul.exit47 ], [ %81, %79 ]
+  %.1.i = phi ptr [ %81, %79 ], [ %75, %lean_int_mul.exit47 ]
   %82 = ptrtoint ptr %.0.i45 to i64
   %83 = and i64 %82, 1
   %.not.i49 = icmp eq i64 %83, 0
@@ -468,7 +468,7 @@ lean_dec.exit24:                                  ; preds = %133, %132, %130, %l
   br label %lean_nat_to_int.exit55
 
 lean_nat_to_int.exit55:                           ; preds = %lean_dec.exit24, %137
-  %.1.i54 = phi ptr [ %124, %lean_dec.exit24 ], [ %139, %137 ]
+  %.1.i54 = phi ptr [ %139, %137 ], [ %124, %lean_dec.exit24 ]
   %140 = ptrtoint ptr %.0.i4161 to i64
   %141 = and i64 %140, 1
   %.not.i56 = icmp eq i64 %141, 0
@@ -865,7 +865,7 @@ lean_int_mul.exit43:                              ; preds = %77, %82, %.critedge
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %lean_int_mul.exit43, %89
-  %.1.i = phi ptr [ %85, %lean_int_mul.exit43 ], [ %91, %89 ]
+  %.1.i = phi ptr [ %91, %89 ], [ %85, %lean_int_mul.exit43 ]
   %92 = ptrtoint ptr %.0.i41 to i64
   %93 = and i64 %92, 1
   %.not.i45 = icmp eq i64 %93, 0
@@ -1298,7 +1298,7 @@ lean_int_ediv.exit.thread11:                      ; preds = %27
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %51, %46, %31, %60, %59, %57, %lean_int_ediv.exit.thread11
-  %.1.i10 = phi ptr [ %54, %60 ], [ %30, %lean_int_ediv.exit.thread11 ], [ %54, %57 ], [ %54, %59 ], [ %52, %51 ], [ %50, %46 ], [ inttoptr (i64 1 to ptr), %31 ]
+  %.1.i10 = phi ptr [ %30, %lean_int_ediv.exit.thread11 ], [ %54, %57 ], [ %54, %59 ], [ %54, %60 ], [ %52, %51 ], [ %50, %46 ], [ inttoptr (i64 1 to ptr), %31 ]
   ret ptr %.1.i10
 }
 

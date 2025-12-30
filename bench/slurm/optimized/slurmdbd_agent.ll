@@ -435,7 +435,7 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   br i1 %63, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph.us, %.thread.split, %56, %.thread, %34, %21
-  %.125 = phi i32 [ 0, %21 ], [ %.024.ph39, %56 ], [ 0, %34 ], [ 0, %.thread ], [ %61, %.thread.split ], [ %45, %.lr.ph.us ]
+  %.125 = phi i32 [ 0, %21 ], [ 0, %34 ], [ 0, %.thread ], [ %.024.ph39, %56 ], [ %61, %.thread.split ], [ %45, %.lr.ph.us ]
   %64 = call i32 @slurm_get_log_level() #13
   %65 = icmp sgt i32 %64, 3
   br i1 %65, label %66, label %67
@@ -1700,7 +1700,7 @@ _process_id_rc_list.exit:                         ; preds = %_get_return_code.ex
   br label %.thread166
 
 .thread166:                                       ; preds = %322, %339, %_process_id_rc_list.exit
-  %.0.i153391393 = phi i32 [ %326, %_process_id_rc_list.exit ], [ 11, %339 ], [ -1, %322 ]
+  %.0.i153391393 = phi i32 [ 11, %339 ], [ %326, %_process_id_rc_list.exit ], [ -1, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %343
 
@@ -2225,7 +2225,7 @@ _save_dbd_rec.exit48:                             ; preds = %64, %82, %76, %78
   br i1 %.not3465, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.outer, %.backedge, %.preheader, %49, %_save_dbd_rec.exit48
-  %.0 = phi i32 [ 0, %49 ], [ %.1.ph68, %_save_dbd_rec.exit48 ], [ %.1.ph68, %.backedge ], [ 0, %.preheader ], [ %85, %.outer ]
+  %.0 = phi i32 [ 0, %49 ], [ %.1.ph68, %_save_dbd_rec.exit48 ], [ 0, %.preheader ], [ %.1.ph68, %.backedge ], [ %85, %.outer ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -2705,7 +2705,7 @@ define internal fastcc ptr @_load_dbd_rec(i32 noundef range(i32 0, -2147483648) 
   br label %39
 
 39:                                               ; preds = %.outer._crit_edge, %36, %38, %29, %31, %1, %10, %5
-  %.030 = phi ptr [ null, %36 ], [ null, %5 ], [ null, %10 ], [ null, %1 ], [ null, %29 ], [ null, %31 ], [ null, %38 ], [ %13, %.outer._crit_edge ]
+  %.030 = phi ptr [ null, %5 ], [ null, %10 ], [ null, %1 ], [ null, %31 ], [ null, %29 ], [ null, %38 ], [ null, %36 ], [ %13, %.outer._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.030
@@ -2764,7 +2764,7 @@ define internal range(i32 0, 2) i32 @_purge_agent_list_req(ptr noundef %0, ptr n
   br label %20
 
 20:                                               ; preds = %13, %10, %2, %19
-  %.0 = phi i32 [ 1, %10 ], [ 0, %19 ], [ 0, %2 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %2 ], [ 1, %10 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -445,7 +445,7 @@ sanitize_filter_ip.exit106:                       ; preds = %57, %59, %61
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %63, %90, %92, %84, %69, %73, %49, %52, %55, %121, %118, %114, %110
-  %.0 = phi ptr [ %123, %121 ], [ @.str, %63 ], [ @.str, %49 ], [ @.str, %92 ], [ @.str, %69 ], [ @.str, %84 ], [ @.str, %90 ], [ @.str, %110 ], [ @.str, %114 ], [ @.str, %118 ], [ @.str, %55 ], [ @.str, %52 ], [ @.str, %73 ], [ @.str, %.preheader ]
+  %.0 = phi ptr [ %123, %121 ], [ @.str, %110 ], [ @.str, %114 ], [ @.str, %118 ], [ @.str, %55 ], [ @.str, %52 ], [ @.str, %49 ], [ @.str, %73 ], [ @.str, %69 ], [ @.str, %84 ], [ @.str, %92 ], [ @.str, %90 ], [ @.str, %63 ], [ @.str, %.preheader ]
   ret ptr %.0
 }
 
@@ -567,7 +567,7 @@ define hidden ptr @get_open_dialog_initial_dir() local_unnamed_addr #0 {
   unreachable
 
 15:                                               ; preds = %7, %10, %2, %5, %12
-  %.0 = phi ptr [ %6, %5 ], [ %3, %2 ], [ %13, %12 ], [ %11, %10 ], [ %8, %7 ]
+  %.0 = phi ptr [ %6, %5 ], [ %3, %2 ], [ %11, %10 ], [ %13, %12 ], [ %8, %7 ]
   ret ptr %.0
 }
 

@@ -1353,7 +1353,7 @@ parse_multi_option.exit25:                        ; preds = %356
   store i32 %357, ptr %20, align 4
   br label %parse_option.exit
 
-match_argopt.exit31.thread:                       ; preds = %349, %352
+match_argopt.exit31.thread:                       ; preds = %352, %349
   %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %351, ptr noundef nonnull dereferenceable(7) @.str.185, i64 7)
   %.not.i20 = icmp eq i32 %bcmp.i19, 0
   br i1 %.not.i20, label %360, label %match_argopt.exit24.thread
@@ -1380,7 +1380,7 @@ parse_multi_option.exit18:                        ; preds = %364
   store i32 %365, ptr %26, align 4
   br label %parse_option.exit
 
-match_argopt.exit24.thread:                       ; preds = %match_argopt.exit31.thread, %360
+match_argopt.exit24.thread:                       ; preds = %360, %match_argopt.exit31.thread
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %351, ptr noundef nonnull dereferenceable(8) @.str.186, i64 8)
   %.not.i17 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i17, label %368, label %match_argopt.exit.thread
@@ -1407,7 +1407,7 @@ parse_multi_option.exit:                          ; preds = %372
   store i32 %373, ptr %25, align 8
   br label %parse_option.exit
 
-match_argopt.exit.thread:                         ; preds = %match_argopt.exit24.thread, %368
+match_argopt.exit.thread:                         ; preds = %368, %match_argopt.exit24.thread
   %376 = tail call fastcc ptr @match_argopt(ptr noundef nonnull @.str.187)
   %.not239.i = icmp eq ptr %376, null
   br i1 %.not239.i, label %379, label %377
@@ -3693,7 +3693,7 @@ define internal fastcc ptr @match_argopt(ptr noundef readonly captures(none) %0)
   br label %10
 
 10:                                               ; preds = %5, %1
-  %.0 = phi ptr [ %spec.select, %5 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %spec.select, %5 ]
   ret ptr %.0
 }
 

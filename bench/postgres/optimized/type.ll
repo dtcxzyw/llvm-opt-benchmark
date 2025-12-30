@@ -871,8 +871,8 @@ define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, p
   br label %42
 
 42:                                               ; preds = %22, %33, %34
-  %.062 = phi ptr [ null, %33 ], [ %41, %34 ], [ @struct_no_indicator, %22 ]
-  %.0 = phi ptr [ %7, %33 ], [ %26, %34 ], [ %7, %22 ]
+  %.062 = phi ptr [ %41, %34 ], [ null, %33 ], [ @struct_no_indicator, %22 ]
+  %.0 = phi ptr [ %26, %34 ], [ %7, %33 ], [ %7, %22 ]
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.06379 = load ptr, ptr %43, align 8
   %.not7380 = icmp eq ptr %.06379, null
@@ -1134,7 +1134,7 @@ sub_0158.thread:                                  ; preds = %sub_0154
   br label %sub_0158
 
 sub_0158:                                         ; preds = %83, %76
-  %86 = phi i8 [ %.pre, %83 ], [ %.pre170, %76 ]
+  %86 = phi i8 [ %.pre170, %76 ], [ %.pre, %83 ]
   %.not167 = icmp eq i8 %86, 48
   br i1 %.not167, label %sub_1159, label %.tail157
 

@@ -292,7 +292,7 @@ default.unreachable25:                            ; preds = %_ZN3std4sync6poison
   br label %47
 
 .thread:                                          ; preds = %25, %28, %16, %20, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5f67d8373ed1f40aE.exit19", %49
-  %.pn1224 = phi { ptr, i32 } [ %50, %49 ], [ %17, %16 ], [ %.pn10, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5f67d8373ed1f40aE.exit19" ], [ %17, %20 ], [ %.pn, %28 ], [ %.pn, %25 ]
+  %.pn1224 = phi { ptr, i32 } [ %50, %49 ], [ %.pn10, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5f67d8373ed1f40aE.exit19" ], [ %17, %20 ], [ %17, %16 ], [ %.pn, %28 ], [ %.pn, %25 ]
   resume { ptr, i32 } %.pn1224
 
 49:                                               ; preds = %13
@@ -734,7 +734,7 @@ default.unreachable301:                           ; preds = %tailrecurse
   unreachable
 
 .thread58.i.i:                                    ; preds = %220, %205, %.body.i.i, %187
-  %.pn61.i.i = phi { ptr, i32 } [ %188, %187 ], [ %eh.lpad-body.i.i, %205 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %221, %220 ]
+  %.pn61.i.i = phi { ptr, i32 } [ %188, %187 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i.i, %205 ], [ %221, %220 ]
   %.val.i.i = load ptr, ptr %74, align 8, !noalias !50, !nonnull !3, !noundef !3
   call void @Py_DecRef(ptr noundef nonnull %.val.i.i) #11, !noalias !50
   %218 = load i64, ptr %75, align 8, !range !13, !noalias !50, !noundef !3
@@ -846,7 +846,7 @@ default.unreachable301:                           ; preds = %tailrecurse
   unreachable
 
 _ZN4pyo33err9err_state10PyErrState13as_normalized17hb85ee411b217f105E.exit.i.i.i: ; preds = %236, %234
-  %.sroa.0.0.i.i.i.i = phi ptr [ %239, %236 ], [ %235, %234 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %235, %234 ], [ %239, %236 ]
   invoke void @_ZN4pyo33err9err_state20PyErrStateNormalized9clone_ref17hb469c4cdd474b0a1E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0.i.i.i.i)
           to label %.noexc35.i.i unwind label %274, !noalias !50
 
@@ -958,7 +958,7 @@ _ZN4pyo33err9err_state10PyErrState13as_normalized17hb85ee411b217f105E.exit.i.i.i
   br label %.body38.i.i
 
 .body38.i.i:                                      ; preds = %292, %283, %274, %273
-  %.pn8.i.i = phi { ptr, i32 } [ %284, %292 ], [ %284, %283 ], [ %275, %274 ], [ %.pn.i.i.i, %273 ]
+  %.pn8.i.i = phi { ptr, i32 } [ %284, %283 ], [ %284, %292 ], [ %275, %274 ], [ %.pn.i.i.i, %273 ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$pyo3..err..PyErr$GT$17h87a7cae6074b39b7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %70) #13
           to label %.body.i unwind label %216, !noalias !50
 
@@ -1039,7 +1039,7 @@ _ZN4pyo33err9err_state10PyErrState13as_normalized17hb85ee411b217f105E.exit.i.i.i
   br label %.body.i
 
 .body.i:                                          ; preds = %296, %295, %294, %.body38.i.i, %225, %222, %.thread58.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %297, %296 ], [ %lpad.thr_comm.i.i, %295 ], [ %226, %225 ], [ %.pn8.i.i, %.body38.i.i ], [ %.pn61.i.i, %222 ], [ %.pn61.i.i, %.thread58.i.i ], [ %lpad.thr_comm.split-lp70.i.i, %294 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %297, %296 ], [ %226, %225 ], [ %lpad.thr_comm.i.i, %295 ], [ %.pn61.i.i, %222 ], [ %.pn61.i.i, %.thread58.i.i ], [ %lpad.thr_comm.split-lp70.i.i, %294 ], [ %.pn8.i.i, %.body38.i.i ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$pyo3..gil..GILGuard$GT$17he9b18a0d0860566aE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %78) #13
           to label %common.resume unwind label %298, !noalias !42
 
@@ -1050,7 +1050,7 @@ _ZN4pyo33err9err_state10PyErrState13as_normalized17hb85ee411b217f105E.exit.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %.body75, %307, %314, %323, %329, %336, %342, %349, %355, %362, %368, %373, %399, %411, %407, %415, %422, %428, %435, %441, %448, %454, %461, %467, %474, %480, %487, %493, %500, %506, %513, %519, %526, %532, %.body.i, %300
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %301, %300 ], [ %308, %307 ], [ %533, %532 ], [ %324, %323 ], [ %520, %519 ], [ %337, %336 ], [ %507, %506 ], [ %350, %349 ], [ %494, %493 ], [ %363, %362 ], [ %481, %480 ], [ %400, %399 ], [ %408, %407 ], [ %468, %467 ], [ %eh.lpad-body76, %.body75 ], [ %369, %368 ], [ %423, %422 ], [ %455, %454 ], [ %436, %435 ], [ %442, %441 ], [ %449, %448 ], [ %429, %428 ], [ %462, %461 ], [ %416, %415 ], [ %475, %474 ], [ %408, %411 ], [ %488, %487 ], [ %374, %373 ], [ %501, %500 ], [ %356, %355 ], [ %514, %513 ], [ %343, %342 ], [ %527, %526 ], [ %330, %329 ], [ %315, %314 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %301, %300 ], [ %eh.lpad-body76, %.body75 ], [ %308, %307 ], [ %315, %314 ], [ %324, %323 ], [ %330, %329 ], [ %337, %336 ], [ %343, %342 ], [ %350, %349 ], [ %356, %355 ], [ %363, %362 ], [ %369, %368 ], [ %374, %373 ], [ %400, %399 ], [ %408, %411 ], [ %408, %407 ], [ %416, %415 ], [ %423, %422 ], [ %429, %428 ], [ %436, %435 ], [ %442, %441 ], [ %449, %448 ], [ %455, %454 ], [ %462, %461 ], [ %468, %467 ], [ %475, %474 ], [ %481, %480 ], [ %488, %487 ], [ %494, %493 ], [ %501, %500 ], [ %507, %506 ], [ %514, %513 ], [ %520, %519 ], [ %527, %526 ], [ %533, %532 ]
   resume { ptr, i32 } %common.resume.op
 
 300:                                              ; preds = %168
@@ -2974,7 +2974,7 @@ default.unreachable147:                           ; preds = %tailrecurse
   unreachable
 
 _ZN4pyo33err9err_state10PyErrState13as_normalized17hb85ee411b217f105E.exit.i.i.i: ; preds = %264, %262
-  %.sroa.0.0.i.i.i.i = phi ptr [ %267, %264 ], [ %263, %262 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %263, %262 ], [ %267, %264 ]
   invoke void @_ZN4pyo33err9err_state20PyErrStateNormalized9clone_ref17hb469c4cdd474b0a1E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0.i.i.i.i)
           to label %.noexc28.i.i unwind label %302, !noalias !563
 
@@ -3086,7 +3086,7 @@ _ZN4pyo33err9err_state10PyErrState13as_normalized17hb85ee411b217f105E.exit.i.i.i
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %320, %311, %302, %301
-  %.pn10.i.i = phi { ptr, i32 } [ %312, %320 ], [ %312, %311 ], [ %303, %302 ], [ %.pn.i.i.i, %301 ]
+  %.pn10.i.i = phi { ptr, i32 } [ %312, %311 ], [ %312, %320 ], [ %303, %302 ], [ %.pn.i.i.i, %301 ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$pyo3..err..PyErr$GT$17h87a7cae6074b39b7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %28) #13
           to label %.body.i unwind label %253, !noalias !563
 
@@ -3161,7 +3161,7 @@ _ZN4pyo33err9err_state10PyErrState13as_normalized17hb85ee411b217f105E.exit.i.i.i
   br label %.body.i
 
 .body.i:                                          ; preds = %323, %322, %.body.i.i, %257, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5f67d8373ed1f40aE.exit.i.i"
-  %eh.lpad-body.i = phi { ptr, i32 } [ %324, %323 ], [ %lpad.thr_comm.split-lp.i.i, %322 ], [ %.pn10.i.i, %.body.i.i ], [ %.pn.i.i, %257 ], [ %.pn.i.i, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5f67d8373ed1f40aE.exit.i.i" ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %324, %323 ], [ %lpad.thr_comm.split-lp.i.i, %322 ], [ %.pn.i.i, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5f67d8373ed1f40aE.exit.i.i" ], [ %.pn.i.i, %257 ], [ %.pn10.i.i, %.body.i.i ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$pyo3..gil..GILGuard$GT$17he9b18a0d0860566aE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %33) #13
           to label %common.resume unwind label %325, !noalias !540
 

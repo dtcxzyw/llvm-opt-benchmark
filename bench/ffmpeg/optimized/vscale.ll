@@ -993,7 +993,7 @@ isGray.exit.thread:                               ; preds = %59, %63
   br label %97
 
 97:                                               ; preds = %63, %90, %96, %95
-  %.0 = phi i32 [ %14, %63 ], [ %89, %90 ], [ %89, %95 ], [ %89, %96 ]
+  %.0 = phi i32 [ %89, %90 ], [ %89, %95 ], [ %89, %96 ], [ %14, %63 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %99 = load ptr, ptr %98, align 8, !tbaa !70
   %100 = sext i32 %.0 to i64

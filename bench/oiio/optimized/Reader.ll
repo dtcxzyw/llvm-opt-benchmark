@@ -499,7 +499,7 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %37
   br label %.thread65
 
 .thread65:                                        ; preds = %.thread, %97, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %79, %82, %61, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %4
-  %.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %4 ], [ false, %61 ], [ %104, %97 ], [ false, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %79 ], [ true, %82 ], [ false, %.thread ]
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ %104, %97 ], [ false, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %79 ], [ true, %82 ], [ false, %61 ], [ false, %.thread ]
   ret i1 %.0
 }
 

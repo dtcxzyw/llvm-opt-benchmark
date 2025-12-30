@@ -292,7 +292,7 @@ cmdline_add_arg.exit57:                           ; preds = %120
   br label %69
 
 cmdline_set_path.exit:                            ; preds = %extract_quotation.exit.i, %120, %112, %108, %99, %105, %get_argument.exit55, %extract_quotation.exit.i36, %56, %43, %36, %get_argument.exit
-  %.0 = phi i32 [ -30, %36 ], [ -25, %get_argument.exit ], [ -25, %108 ], [ -25, %extract_quotation.exit.i36 ], [ -30, %56 ], [ -30, %43 ], [ -30, %112 ], [ -30, %120 ], [ 0, %105 ], [ -25, %get_argument.exit55 ], [ 0, %99 ], [ -25, %extract_quotation.exit.i ]
+  %.0 = phi i32 [ -25, %get_argument.exit ], [ -30, %36 ], [ -30, %56 ], [ -30, %43 ], [ -25, %extract_quotation.exit.i36 ], [ -25, %108 ], [ -30, %112 ], [ -30, %120 ], [ 0, %99 ], [ 0, %105 ], [ -25, %get_argument.exit55 ], [ -25, %extract_quotation.exit.i ]
   call void @archive_string_free(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

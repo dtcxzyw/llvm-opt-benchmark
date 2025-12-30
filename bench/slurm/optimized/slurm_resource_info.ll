@@ -910,7 +910,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   br label %13
 
 13:                                               ; preds = %11, %.lr.ph107
-  %.156 = phi ptr [ %spec.select, %11 ], [ %.055105, %.lr.ph107 ]
+  %.156 = phi ptr [ %.055105, %.lr.ph107 ], [ %spec.select, %11 ]
   %14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.156, i32 noundef 42) #15
   %.not70 = icmp eq ptr %14, null
   br i1 %.not70, label %40, label %.preheader85
@@ -1030,7 +1030,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   br label %.thread77
 
 .thread77:                                        ; preds = %.loopexit, %57, %28, %45
-  %.060 = phi ptr [ null, %28 ], [ null, %45 ], [ %.pre, %57 ], [ %56, %.loopexit ]
+  %.060 = phi ptr [ null, %45 ], [ null, %28 ], [ %.pre, %57 ], [ %56, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1153,8 +1153,8 @@ define dso_local range(i32 -1, 1) i32 @xlate_cpu_bind_str(ptr noundef %0, ptr no
   br i1 %57, label %58, label %._crit_edge
 
 58:                                               ; preds = %52, %55, %50, %45, %37, %29, %21, %13
-  %.sink57 = phi i32 [ 32, %13 ], [ 16, %29 ], [ 2, %45 ], [ 524288, %50 ], [ 4, %37 ], [ 8, %21 ], [ 1, %55 ], [ 1, %52 ]
-  %.1 = phi i8 [ 1, %13 ], [ 1, %29 ], [ 1, %45 ], [ 1, %50 ], [ 1, %37 ], [ 1, %21 ], [ %.039, %55 ], [ %.039, %52 ]
+  %.sink57 = phi i32 [ 32, %13 ], [ 8, %21 ], [ 16, %29 ], [ 4, %37 ], [ 2, %45 ], [ 524288, %50 ], [ 1, %55 ], [ 1, %52 ]
+  %.1 = phi i8 [ 1, %13 ], [ 1, %21 ], [ 1, %29 ], [ 1, %37 ], [ 1, %45 ], [ 1, %50 ], [ %.039, %55 ], [ %.039, %52 ]
   %59 = load i32, ptr %1, align 4
   %60 = or i32 %59, %.sink57
   store i32 %60, ptr %1, align 4
@@ -1163,7 +1163,7 @@ define dso_local range(i32 -1, 1) i32 @xlate_cpu_bind_str(ptr noundef %0, ptr no
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %58, %13, %21, %29, %37, %45, %50, %55, %5
-  %.033 = phi i32 [ 0, %5 ], [ -1, %13 ], [ -1, %21 ], [ -1, %29 ], [ -1, %37 ], [ -1, %45 ], [ -1, %50 ], [ -1, %55 ], [ 0, %58 ]
+  %.033 = phi i32 [ 0, %5 ], [ -1, %55 ], [ -1, %50 ], [ -1, %45 ], [ -1, %37 ], [ -1, %29 ], [ -1, %21 ], [ -1, %13 ], [ 0, %58 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #14
   br label %62
 
@@ -1481,7 +1481,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br i1 %154, label %.lr.ph, label %.sink.split, !llvm.loop !19
 
 .sink.split:                                      ; preds = %153, %.lr.ph, %148, %128, %150, %36
-  %.0.ph = phi i32 [ 1, %36 ], [ -1, %128 ], [ -1, %150 ], [ -1, %148 ], [ %.pr, %153 ], [ 0, %.lr.ph ]
+  %.0.ph = phi i32 [ 1, %36 ], [ -1, %148 ], [ -1, %128 ], [ -1, %150 ], [ %.pr, %153 ], [ 0, %.lr.ph ]
   call void @slurm_xfree(ptr noundef nonnull %4) #14
   br label %155
 

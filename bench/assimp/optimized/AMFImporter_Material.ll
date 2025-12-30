@@ -492,7 +492,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i:              ; preds = %.lr.ph.i.i.i, %99, 
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i:             ; preds = %109, %113, %_ZNK4pugi8xml_text5_dataEv.exit.i.i, %102
-  %.0.i.i = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i ], [ %115, %113 ], [ 0.000000e+00, %102 ], [ 0.000000e+00, %109 ]
+  %.0.i.i = phi float [ %115, %113 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i ], [ 0.000000e+00, %102 ], [ 0.000000e+00, %109 ]
   store float %.0.i.i, ptr %52, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit
 
@@ -564,7 +564,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i68:            ; preds = %.lr.ph.i.i.i62, %13
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i66
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i66:           ; preds = %142, %146, %_ZNK4pugi8xml_text5_dataEv.exit.i.i68, %135
-  %.0.i.i67 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i68 ], [ %148, %146 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %142 ]
+  %.0.i.i67 = phi float [ %148, %146 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i68 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %142 ]
   store float %.0.i.i67, ptr %64, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit
 
@@ -626,7 +626,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i82:            ; preds = %.lr.ph.i.i.i76, %16
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i80
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i80:           ; preds = %171, %175, %_ZNK4pugi8xml_text5_dataEv.exit.i.i82, %164
-  %.0.i.i81 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i82 ], [ %177, %175 ], [ 0.000000e+00, %164 ], [ 0.000000e+00, %171 ]
+  %.0.i.i81 = phi float [ %177, %175 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i82 ], [ 0.000000e+00, %164 ], [ 0.000000e+00, %171 ]
   store float %.0.i.i81, ptr %63, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit
 
@@ -694,11 +694,11 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit: ; preds =
   br i1 %.sroa.10.0148, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread.sink.split
 
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread.sink.split: ; preds = %200, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit, %193, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96, %204
-  %.0.i.i95.sink = phi float [ 1.000000e+00, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %206, %204 ], [ 0.000000e+00, %193 ], [ 0.000000e+00, %200 ]
-  %.sroa.0.1131.ph = phi i1 [ %.sroa.0.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.0.0150, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.0.0150, %204 ], [ %.sroa.0.0150, %193 ], [ %.sroa.0.0150, %200 ]
-  %.sroa.6.1130.ph = phi i1 [ %.sroa.6.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.6.0149, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.6.0149, %204 ], [ %.sroa.6.0149, %193 ], [ %.sroa.6.0149, %200 ]
-  %.sroa.10.1129.ph = phi i1 [ false, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ true, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ true, %204 ], [ true, %193 ], [ true, %200 ]
-  %.sroa.8.1128.ph = phi i1 [ %.sroa.8.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.8.0147, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.8.0147, %204 ], [ %.sroa.8.0147, %193 ], [ %.sroa.8.0147, %200 ]
+  %.0.i.i95.sink = phi float [ %206, %204 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ 0.000000e+00, %193 ], [ 1.000000e+00, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ 0.000000e+00, %200 ]
+  %.sroa.0.1131.ph = phi i1 [ %.sroa.0.0150, %204 ], [ %.sroa.0.0150, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.0.0150, %193 ], [ %.sroa.0.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.0.0150, %200 ]
+  %.sroa.6.1130.ph = phi i1 [ %.sroa.6.0149, %204 ], [ %.sroa.6.0149, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.6.0149, %193 ], [ %.sroa.6.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.6.0149, %200 ]
+  %.sroa.10.1129.ph = phi i1 [ true, %204 ], [ true, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ true, %193 ], [ false, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ true, %200 ]
+  %.sroa.8.1128.ph = phi i1 [ %.sroa.8.0147, %204 ], [ %.sroa.8.0147, %_ZNK4pugi8xml_text5_dataEv.exit.i.i96 ], [ %.sroa.8.0147, %193 ], [ %.sroa.8.1, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit ], [ %.sroa.8.0147, %200 ]
   store float %.0.i.i95.sink, ptr %62, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread
 
@@ -773,7 +773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %22
   ret void
 
 231:                                              ; preds = %116, %118, %70, %223, %68
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %119, %118 ], [ %224, %223 ], [ %71, %70 ], [ %117, %116 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %71, %70 ], [ %224, %223 ], [ %117, %116 ], [ %119, %118 ]
   %232 = load ptr, ptr %5, align 8
   %233 = icmp eq ptr %232, %20
   br i1 %233, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107
@@ -1845,7 +1845,7 @@ _ZNK4pugi13xml_attribute7as_uintEj.exit149.thread: ; preds = %40
   br label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit163
 
 .loopexit:                                        ; preds = %213, %_ZNK4pugi8xml_node9attributeEPKc.exit118, %_ZN4pugi4impl14get_value_uintEPKc.exit.i132
-  %.0.i134 = phi i32 [ 0, %_ZNK4pugi8xml_node9attributeEPKc.exit118 ], [ %.0.i.i.i133, %_ZN4pugi4impl14get_value_uintEPKc.exit.i132 ], [ 0, %213 ]
+  %.0.i134 = phi i32 [ %.0.i.i.i133, %_ZN4pugi4impl14get_value_uintEPKc.exit.i132 ], [ 0, %_ZNK4pugi8xml_node9attributeEPKc.exit118 ], [ 0, %213 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.lr.ph.i153
 
@@ -1974,7 +1974,7 @@ _ZNK4pugi8xml_node9attributeEPKc.exit177:         ; preds = %317
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197
 
 _ZNK4pugi13xml_attribute7as_boolEb.exit.thread255: ; preds = %320, %_ZNK4pugi8xml_node9attributeEPKc.exit177, %324, %324, %324, %324, %324, %326, %313
-  %329 = phi i8 [ 0, %313 ], [ 1, %324 ], [ 0, %_ZNK4pugi8xml_node9attributeEPKc.exit177 ], [ 0, %326 ], [ 1, %324 ], [ 1, %324 ], [ 1, %324 ], [ 1, %324 ], [ 0, %320 ]
+  %329 = phi i8 [ 0, %313 ], [ 0, %_ZNK4pugi8xml_node9attributeEPKc.exit177 ], [ 1, %324 ], [ 0, %326 ], [ 1, %324 ], [ 1, %324 ], [ 1, %324 ], [ 1, %324 ], [ 0, %320 ]
   %330 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25
           to label %331 unwind label %351
 
@@ -2155,7 +2155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %3
           to label %.invoke unwind label %409
 
 .invoke:                                          ; preds = %349, %406, %378, %371, %365, %359
-  %408 = phi ptr [ %379, %378 ], [ %372, %371 ], [ %366, %365 ], [ %360, %359 ], [ %407, %406 ], [ %350, %349 ]
+  %408 = phi ptr [ %360, %359 ], [ %366, %365 ], [ %372, %371 ], [ %379, %378 ], [ %407, %406 ], [ %350, %349 ]
   invoke void @__cxa_throw(ptr nonnull %408, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
           to label %.cont unwind label %353
 
@@ -2252,7 +2252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %43
   br label %444
 
 444:                                              ; preds = %351, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194
-  %.pn44.pn.pn = phi { ptr, i32 } [ %352, %351 ], [ %.pn44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194 ]
+  %.pn44.pn.pn = phi { ptr, i32 } [ %.pn44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194 ], [ %352, %351 ]
   %445 = load ptr, ptr %6, align 8
   %446 = icmp eq ptr %445, %298
   br i1 %446, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i195
@@ -2264,7 +2264,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197: ; preds = %444, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i195, %327
-  %.pn44.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i195 ], [ %328, %327 ], [ %.pn44.pn.pn, %444 ]
+  %.pn44.pn.pn.pn = phi { ptr, i32 } [ %328, %327 ], [ %.pn44.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i195 ], [ %.pn44.pn.pn, %444 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %449 = load ptr, ptr %5, align 8
   %450 = icmp eq ptr %449, %31
@@ -2932,7 +2932,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i:              ; preds = %.lr.ph.i.i.i, %169,
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i:             ; preds = %179, %183, %_ZNK4pugi8xml_text5_dataEv.exit.i.i, %172
-  %.0.i.i = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i ], [ %185, %183 ], [ 0.000000e+00, %172 ], [ 0.000000e+00, %179 ]
+  %.0.i.i = phi float [ %185, %183 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i ], [ 0.000000e+00, %172 ], [ 0.000000e+00, %179 ]
   store float %.0.i.i, ptr %scevgep.i, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -2999,7 +2999,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i179:           ; preds = %.lr.ph.i.i.i173, %2
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i177
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i177:          ; preds = %210, %214, %_ZNK4pugi8xml_text5_dataEv.exit.i.i179, %203
-  %.0.i.i178 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i179 ], [ %216, %214 ], [ 0.000000e+00, %203 ], [ 0.000000e+00, %210 ]
+  %.0.i.i178 = phi float [ %216, %214 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i179 ], [ 0.000000e+00, %203 ], [ 0.000000e+00, %210 ]
   store float %.0.i.i178, ptr %140, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -3061,7 +3061,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i193:           ; preds = %.lr.ph.i.i.i187, %2
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i191
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i191:          ; preds = %239, %243, %_ZNK4pugi8xml_text5_dataEv.exit.i.i193, %232
-  %.0.i.i192 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i193 ], [ %245, %243 ], [ 0.000000e+00, %232 ], [ 0.000000e+00, %239 ]
+  %.0.i.i192 = phi float [ %245, %243 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i193 ], [ 0.000000e+00, %232 ], [ 0.000000e+00, %239 ]
   store float %.0.i.i192, ptr %139, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -3123,7 +3123,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i207:           ; preds = %.lr.ph.i.i.i201, %2
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i205
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i205:          ; preds = %268, %272, %_ZNK4pugi8xml_text5_dataEv.exit.i.i207, %261
-  %.0.i.i206 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i207 ], [ %274, %272 ], [ 0.000000e+00, %261 ], [ 0.000000e+00, %268 ]
+  %.0.i.i206 = phi float [ %274, %272 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i207 ], [ 0.000000e+00, %261 ], [ 0.000000e+00, %268 ]
   store float %.0.i.i206, ptr %138, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -3185,7 +3185,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i221:           ; preds = %.lr.ph.i.i.i215, %2
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i219
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i219:          ; preds = %297, %301, %_ZNK4pugi8xml_text5_dataEv.exit.i.i221, %290
-  %.0.i.i220 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i221 ], [ %303, %301 ], [ 0.000000e+00, %290 ], [ 0.000000e+00, %297 ]
+  %.0.i.i220 = phi float [ %303, %301 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i221 ], [ 0.000000e+00, %290 ], [ 0.000000e+00, %297 ]
   store float %.0.i.i220, ptr %137, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -3247,7 +3247,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i235:           ; preds = %.lr.ph.i.i.i229, %3
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i233
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i233:          ; preds = %326, %330, %_ZNK4pugi8xml_text5_dataEv.exit.i.i235, %319
-  %.0.i.i234 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i235 ], [ %332, %330 ], [ 0.000000e+00, %319 ], [ 0.000000e+00, %326 ]
+  %.0.i.i234 = phi float [ %332, %330 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i235 ], [ 0.000000e+00, %319 ], [ 0.000000e+00, %326 ]
   store float %.0.i.i234, ptr %136, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -3359,7 +3359,7 @@ _ZNK4pugi13xml_attribute4nameEv.exit261:          ; preds = %_ZNK4pugi13xml_attr
   br label %_ZNK4pugi13xml_attribute8as_floatEf.exit
 
 _ZNK4pugi13xml_attribute8as_floatEf.exit:         ; preds = %367, %364
-  %.0.i267 = phi float [ 0.000000e+00, %364 ], [ %369, %367 ]
+  %.0.i267 = phi float [ %369, %367 ], [ 0.000000e+00, %364 ]
   store float %.0.i267, ptr %scevgep.i, align 8
   br label %417
 
@@ -3386,7 +3386,7 @@ _ZNK4pugi13xml_attribute8as_floatEf.exit:         ; preds = %367, %364
   br label %_ZNK4pugi13xml_attribute8as_floatEf.exit274
 
 _ZNK4pugi13xml_attribute8as_floatEf.exit274:      ; preds = %378, %375
-  %.0.i273 = phi float [ 0.000000e+00, %375 ], [ %380, %378 ]
+  %.0.i273 = phi float [ %380, %378 ], [ 0.000000e+00, %375 ]
   store float %.0.i273, ptr %346, align 4
   br label %417
 
@@ -3407,7 +3407,7 @@ _ZNK4pugi13xml_attribute8as_floatEf.exit274:      ; preds = %378, %375
   br label %_ZNK4pugi13xml_attribute8as_floatEf.exit278
 
 _ZNK4pugi13xml_attribute8as_floatEf.exit278:      ; preds = %387, %384
-  %.0.i277 = phi float [ 0.000000e+00, %384 ], [ %389, %387 ]
+  %.0.i277 = phi float [ %389, %387 ], [ 0.000000e+00, %384 ]
   store float %.0.i277, ptr %345, align 8
   br label %417
 
@@ -3428,7 +3428,7 @@ _ZNK4pugi13xml_attribute8as_floatEf.exit278:      ; preds = %387, %384
   br label %_ZNK4pugi13xml_attribute8as_floatEf.exit282
 
 _ZNK4pugi13xml_attribute8as_floatEf.exit282:      ; preds = %396, %393
-  %.0.i281 = phi float [ 0.000000e+00, %393 ], [ %398, %396 ]
+  %.0.i281 = phi float [ %398, %396 ], [ 0.000000e+00, %393 ]
   store float %.0.i281, ptr %343, align 4
   br label %417
 
@@ -3449,7 +3449,7 @@ _ZNK4pugi13xml_attribute8as_floatEf.exit282:      ; preds = %396, %393
   br label %_ZNK4pugi13xml_attribute8as_floatEf.exit286
 
 _ZNK4pugi13xml_attribute8as_floatEf.exit286:      ; preds = %405, %402
-  %.0.i285 = phi float [ 0.000000e+00, %402 ], [ %407, %405 ]
+  %.0.i285 = phi float [ %407, %405 ], [ 0.000000e+00, %402 ]
   store float %.0.i285, ptr %344, align 4
   br label %417
 
@@ -3470,7 +3470,7 @@ _ZNK4pugi13xml_attribute8as_floatEf.exit286:      ; preds = %405, %402
   br label %_ZNK4pugi13xml_attribute8as_floatEf.exit290
 
 _ZNK4pugi13xml_attribute8as_floatEf.exit290:      ; preds = %414, %411
-  %.0.i289 = phi float [ 0.000000e+00, %411 ], [ %416, %414 ]
+  %.0.i289 = phi float [ %416, %414 ], [ 0.000000e+00, %411 ]
   store float %.0.i289, ptr %343, align 4
   br label %417
 
@@ -3607,7 +3607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
   ret void
 
 452:                                              ; preds = %186, %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %141, %426, %370, %126, %117, %50
-  %.pn94 = phi { ptr, i32 } [ %51, %50 ], [ %118, %117 ], [ %127, %126 ], [ %187, %186 ], [ %371, %370 ], [ %74, %73 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %142, %141 ], [ %427, %426 ]
+  %.pn94 = phi { ptr, i32 } [ %51, %50 ], [ %118, %117 ], [ %127, %126 ], [ %142, %141 ], [ %427, %426 ], [ %371, %370 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %74, %73 ], [ %187, %186 ]
   %453 = load ptr, ptr %10, align 8
   %454 = icmp eq ptr %453, %43
   br i1 %454, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit316, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i314
@@ -4578,7 +4578,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit56, %.loopexit.loopexit.split.loop.exit58, %44, %._crit_edge, %38, %32
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.1, %38 ], [ %spec.select, %44 ], [ %1, %._crit_edge ], [ %.sroa.031.0.lcssa, %32 ], [ %50, %.loopexit.loopexit.split.loop.exit58 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit56 ], [ %.sroa.031.050, %.lr.ph ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.0.lcssa, %32 ], [ %.sroa.031.1, %38 ], [ %1, %._crit_edge ], [ %spec.select, %44 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit56 ], [ %50, %.loopexit.loopexit.split.loop.exit58 ], [ %.sroa.031.050, %.lr.ph ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -4727,7 +4727,7 @@ define linkonce_odr hidden void @_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %78, %70, %59, %50, %38, %30, %22
-  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %46, %._crit_edge ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %10, %.lr.ph ]
+  %.sink = phi i64 [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %47, %50 ], [ %61, %59 ], [ %72, %70 ], [ %.pre, %78 ], [ %46, %._crit_edge ], [ %10, %.lr.ph ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

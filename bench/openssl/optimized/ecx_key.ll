@@ -54,7 +54,7 @@ switch.lookup:                                    ; preds = %7
   br label %25
 
 25:                                               ; preds = %17, %20, %4, %24
-  %.0 = phi ptr [ null, %4 ], [ null, %24 ], [ %5, %20 ], [ %5, %17 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %4 ], [ %5, %20 ], [ %5, %17 ]
   ret ptr %.0
 }
 

@@ -288,7 +288,7 @@ define noundef i32 @_ZN6icu_7716JapaneseCalendar20getDefaultDayInMonthEiiR10UErr
   br label %27
 
 27:                                               ; preds = %16, %19, %8, %24
-  %.1 = phi i32 [ 0, %8 ], [ %26, %24 ], [ 1, %19 ], [ 1, %16 ]
+  %.1 = phi i32 [ %26, %24 ], [ 0, %8 ], [ 1, %19 ], [ 1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
@@ -380,7 +380,7 @@ _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit9: ; preds = %_ZNK6
   br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
 _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %16, %12, %41, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit8, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit8 ], [ %.2, %41 ], [ %18, %16 ], [ 1970, %12 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.2, %41 ], [ 0, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit8 ], [ %18, %16 ], [ 1970, %12 ]
   ret i32 %.0
 }
 
@@ -499,7 +499,7 @@ define noundef i32 @_ZNK6icu_7716JapaneseCalendar14handleGetLimitE19UCalendarDat
   br label %20
 
 20:                                               ; preds = %11, %5, %18, %12, %6
-  %.0 = phi i32 [ %19, %18 ], [ %17, %12 ], [ %10, %6 ], [ 0, %5 ], [ 1, %11 ]
+  %.0 = phi i32 [ %19, %18 ], [ %10, %6 ], [ %17, %12 ], [ 0, %5 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -558,7 +558,7 @@ define noundef i32 @_ZNK6icu_7716JapaneseCalendar16getActualMaximumE19UCalendarD
   br label %35
 
 35:                                               ; preds = %17, %22, %7, %5
-  %.018 = phi i32 [ %6, %5 ], [ %spec.select, %22 ], [ %21, %17 ], [ 0, %7 ]
+  %.018 = phi i32 [ %6, %5 ], [ %21, %17 ], [ %spec.select, %22 ], [ 0, %7 ]
   ret i32 %.018
 }
 

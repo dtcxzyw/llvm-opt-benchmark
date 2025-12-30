@@ -233,7 +233,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %94
 
 94:                                               ; preds = %.thread71, %.outer._crit_edge, %.critedge67, %30, %23
-  %.149 = phi i1 [ false, %23 ], [ false, %30 ], [ false, %.critedge67 ], [ false, %.thread71 ], [ true, %.outer._crit_edge ]
+  %.149 = phi i1 [ false, %23 ], [ false, %30 ], [ false, %.critedge67 ], [ true, %.outer._crit_edge ], [ false, %.thread71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

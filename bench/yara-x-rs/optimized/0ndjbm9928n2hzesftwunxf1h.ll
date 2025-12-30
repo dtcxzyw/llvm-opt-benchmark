@@ -48,7 +48,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$protobuf..message_
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 64, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -105,7 +105,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$protobuf..message_
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 40, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -219,7 +219,7 @@ define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$protobuf..message_
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -276,7 +276,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$protobuf..message_
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -333,7 +333,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$protobuf..message_
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -446,7 +446,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$protobuf..message_
   unreachable
 
 32:                                               ; preds = %28, %.body.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %29, %28 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %29, %28 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 40, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -503,7 +503,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$protobuf..message_
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -1404,7 +1404,7 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit6.i.i.i"
 
 .invoke.i:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit4.i.i.i", %44, %39, %1, %1
-  %.sink9.i.i.sink.i = phi i64 [ 8, %1 ], [ 8, %39 ], [ 32, %44 ], [ 48, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit4.i.i.i" ], [ 8, %1 ]
+  %.sink9.i.i.sink.i = phi i64 [ 32, %44 ], [ 48, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf2a5d5bbaaa622d5E.exit4.i.i.i" ], [ 8, %39 ], [ 8, %1 ], [ 8, %1 ]
   %59 = getelementptr inbounds nuw i8, ptr %.val, i64 %.sink9.i.i.sink.i
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h297c8282c33d81bcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59, i64 noundef 1, i64 noundef 1)
           to label %"_ZN4core3ptr76drop_in_place$LT$alloc..boxed..Box$LT$protobuf..error..ProtobufError$GT$$GT$17hea2988f65aa9a5b7E.exit" unwind label %60
@@ -2320,7 +2320,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$protobuf..reflect..acc..Fiel
   br label %common.resume.i.i
 
 common.resume.i.i:                                ; preds = %68, %60, %47, %39, %26, %18
-  %common.resume.op.i.i = phi { ptr, i32 } [ %40, %39 ], [ %19, %18 ], [ %19, %26 ], [ %40, %47 ], [ %61, %68 ], [ %61, %60 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %40, %47 ], [ %40, %39 ], [ %61, %68 ], [ %61, %60 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 27:                                               ; preds = %1
@@ -4019,7 +4019,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$protobuf..reflect..
   unreachable
 
 common.resume:                                    ; preds = %104, %110, %51, %56, %26
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %27, %26 ], [ %52, %56 ], [ %111, %110 ], [ %105, %104 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %52, %56 ], [ %52, %51 ], [ %111, %110 ], [ %105, %104 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr64drop_in_place$LT$protobuf..reflect..dynamic..map..DynamicMap$GT$17h030bc0f7095fd77cE.exit": ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %8, %12, %"_ZN4core3ptr66drop_in_place$LT$protobuf..reflect..message..MessageDescriptor$GT$17h18d0668e699129d4E.exit.sink.split.i.i", %17, %21
@@ -5538,7 +5538,7 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$protobuf..descripto
   unreachable
 
 .body:                                            ; preds = %11, %3
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.16.val, i64 noundef 40, i64 noundef 8) #10
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$protobuf..special..SpecialFields$GT$17ha5b71936d4e27698E"(ptr %.24.val) #9
           to label %common.resume unwind label %20
@@ -5864,7 +5864,7 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$protobuf..reflect..
   br i1 %71, label %"_ZN4core3ptr76drop_in_place$LT$protobuf..reflect..field..index..ForwardProtobufTypeBox$GT$17h96d3c8e3949c45f2E.exit3.sink.split", label %"_ZN4core3ptr76drop_in_place$LT$protobuf..reflect..field..index..ForwardProtobufTypeBox$GT$17h96d3c8e3949c45f2E.exit3"
 
 "_ZN4core3ptr76drop_in_place$LT$protobuf..reflect..field..index..ForwardProtobufTypeBox$GT$17h96d3c8e3949c45f2E.exit3.sink.split": ; preds = %58, %67, %35, %44, %83, %92
-  %.sink.i.i.i8.sink = phi ptr [ %84, %83 ], [ %36, %35 ], [ %93, %92 ], [ %45, %44 ], [ %68, %67 ], [ %59, %58 ]
+  %.sink.i.i.i8.sink = phi ptr [ %93, %92 ], [ %84, %83 ], [ %45, %44 ], [ %36, %35 ], [ %68, %67 ], [ %59, %58 ]
   fence acquire
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h33b89bbc1da7137aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i.i8.sink)
   br label %"_ZN4core3ptr76drop_in_place$LT$protobuf..reflect..field..index..ForwardProtobufTypeBox$GT$17h96d3c8e3949c45f2E.exit3"
@@ -7468,7 +7468,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$protobuf..message_f
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -7779,7 +7779,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$protobuf..message_f
   unreachable
 
 112:                                              ; preds = %108, %99
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %.pn18.i.i.i, %99 ], [ %109, %108 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %109, %108 ], [ %.pn18.i.i.i, %99 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 304, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body.i.i
 

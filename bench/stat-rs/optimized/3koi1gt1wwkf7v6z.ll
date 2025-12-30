@@ -183,7 +183,7 @@ define noundef double @"_ZN126_$LT$statrs..distribution..discrete_uniform..Discr
   br label %19
 
 19:                                               ; preds = %5, %2, %18, %8
-  %.sroa.0.0 = phi double [ %16, %8 ], [ 0.000000e+00, %2 ], [ 1.000000e+00, %18 ], [ 1.000000e+00, %5 ]
+  %.sroa.0.0 = phi double [ 1.000000e+00, %18 ], [ %16, %8 ], [ 0.000000e+00, %2 ], [ 1.000000e+00, %5 ]
   ret double %.sroa.0.0
 }
 
@@ -214,7 +214,7 @@ define noundef double @"_ZN126_$LT$statrs..distribution..discrete_uniform..Discr
   br label %18
 
 18:                                               ; preds = %5, %2, %17, %8
-  %.sroa.0.0 = phi double [ %15, %8 ], [ 1.000000e+00, %2 ], [ 1.000000e+00, %17 ], [ 0.000000e+00, %5 ]
+  %.sroa.0.0 = phi double [ 1.000000e+00, %17 ], [ %15, %8 ], [ 1.000000e+00, %2 ], [ 0.000000e+00, %5 ]
   ret double %.sroa.0.0
 }
 
@@ -375,7 +375,7 @@ define void @_ZN6statrs12distribution13inverse_gamma12InverseGamma3new17hd5824c7
   br label %13
 
 13:                                               ; preds = %3, %4, %7, %10
-  %.sink = phi i64 [ 0, %7 ], [ 0, %4 ], [ 21, %10 ], [ 0, %3 ]
+  %.sink = phi i64 [ 21, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %3 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -629,14 +629,14 @@ define noundef double @"_ZN119_$LT$statrs..distribution..inverse_gamma..InverseG
 11:                                               ; preds = %7
   %12 = bitcast double %.val to i64
   %13 = icmp ult i64 %12, 4607182418800017409
-  br i1 %13, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %14
+  br i1 %13, label %14, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
 
 14:                                               ; preds = %11
-  %15 = icmp ult i64 %12, 4607182418800017413
+  %15 = icmp samesign ugt i64 %12, 4607182418800017403
   br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %11
-  %16 = icmp samesign ugt i64 %12, 4607182418800017403
+  %16 = icmp ult i64 %12, 4607182418800017413
   br i1 %16, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6": ; preds = %7, %14, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
@@ -666,7 +666,7 @@ define noundef double @"_ZN119_$LT$statrs..distribution..inverse_gamma..InverseG
   br label %37
 
 37:                                               ; preds = %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread"
-  %.sroa.0.0 = phi double [ %28, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6" ], [ %36, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread" ], [ 0.000000e+00, %2 ]
+  %.sroa.0.0 = phi double [ %36, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread" ], [ %28, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6" ], [ 0.000000e+00, %2 ]
   ret double %.sroa.0.0
 }
 
@@ -693,14 +693,14 @@ define noundef double @"_ZN119_$LT$statrs..distribution..inverse_gamma..InverseG
 11:                                               ; preds = %7
   %12 = bitcast double %.val.i to i64
   %13 = icmp ult i64 %12, 4607182418800017409
-  br i1 %13, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.i", label %14
+  br i1 %13, label %14, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.i"
 
 14:                                               ; preds = %11
-  %15 = icmp ult i64 %12, 4607182418800017413
+  %15 = icmp samesign ugt i64 %12, 4607182418800017403
   br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread.i", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.i": ; preds = %11
-  %16 = icmp samesign ugt i64 %12, 4607182418800017403
+  %16 = icmp ult i64 %12, 4607182418800017413
   br i1 %16, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread.i", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6.i": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.i", %14, %7
@@ -730,7 +730,7 @@ define noundef double @"_ZN119_$LT$statrs..distribution..inverse_gamma..InverseG
   br label %"_ZN119_$LT$statrs..distribution..inverse_gamma..InverseGamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17hbc97f5d6723605fbE.exit"
 
 "_ZN119_$LT$statrs..distribution..inverse_gamma..InverseGamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17hbc97f5d6723605fbE.exit": ; preds = %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6.i", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread.i"
-  %.sroa.0.0.i = phi double [ %28, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6.i" ], [ %36, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread.i" ], [ 0.000000e+00, %2 ]
+  %.sroa.0.0.i = phi double [ %36, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread.i" ], [ %28, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6.i" ], [ 0.000000e+00, %2 ]
   %37 = tail call noundef double @llvm.log.f64(double %.sroa.0.0.i)
   ret double %37
 }
@@ -790,7 +790,7 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
   br label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4
 
 _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4: ; preds = %.lr.ph.split.us.i, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit, %4, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit"
-  %storemerge = phi i64 [ 21, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit" ], [ 0, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit ], [ 0, %4 ], [ 0, %.lr.ph.split.us.i ]
+  %storemerge = phi i64 [ 21, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit" ], [ 0, %4 ], [ 0, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit ], [ 0, %.lr.ph.split.us.i ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -967,7 +967,7 @@ define void @"_ZN368_$LT$statrs..distribution..multinomial..Multinomial$u20$as$u
   unreachable
 
 .body.i:                                          ; preds = %34, %27
-  %eh.lpad-body.i = phi { ptr, i32 } [ %28, %27 ], [ %35, %34 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %35, %34 ], [ %28, %27 ]
   resume { ptr, i32 } %eh.lpad-body.i
 
 "_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE.exit": ; preds = %23
@@ -1571,7 +1571,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %10
   br label %_ZN6statrs12distribution6normal13cdf_unchecked17hd2819d6b1763c1ddE.exit
 
 _ZN6statrs12distribution6normal13cdf_unchecked17hd2819d6b1763c1ddE.exit: ; preds = %37, %35, %33, %26, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, %40
-  %.sroa.0.0 = phi double [ %24, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit ], [ %41, %40 ], [ %39, %37 ], [ 0x7FF8000000000000, %26 ], [ 0.000000e+00, %33 ], [ 1.000000e+00, %35 ]
+  %.sroa.0.0 = phi double [ %41, %40 ], [ %24, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit ], [ %39, %37 ], [ 0x7FF8000000000000, %26 ], [ 0.000000e+00, %33 ], [ 1.000000e+00, %35 ]
   ret double %.sroa.0.0
 }
 
@@ -1643,7 +1643,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %10
   br label %_ZN6statrs12distribution6normal12sf_unchecked17h0c729da1b4fd172fE.exit
 
 _ZN6statrs12distribution6normal12sf_unchecked17h0c729da1b4fd172fE.exit: ; preds = %37, %35, %33, %26, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, %40
-  %.sroa.0.0 = phi double [ %24, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit ], [ %41, %40 ], [ %39, %37 ], [ 0x7FF8000000000000, %26 ], [ 0.000000e+00, %33 ], [ 1.000000e+00, %35 ]
+  %.sroa.0.0 = phi double [ %41, %40 ], [ %24, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit ], [ %39, %37 ], [ 0x7FF8000000000000, %26 ], [ 0.000000e+00, %33 ], [ 1.000000e+00, %35 ]
   ret double %.sroa.0.0
 }
 
@@ -1858,7 +1858,7 @@ define noundef double @"_ZN113_$LT$statrs..distribution..students_t..StudentsT$u
   br label %42
 
 42:                                               ; preds = %2, %10, %32
-  %.sroa.0.0 = phi double [ %31, %10 ], [ %41, %32 ], [ 0.000000e+00, %2 ]
+  %.sroa.0.0 = phi double [ %41, %32 ], [ %31, %10 ], [ 0.000000e+00, %2 ]
   ret double %.sroa.0.0
 }
 
@@ -1914,7 +1914,7 @@ define noundef double @"_ZN113_$LT$statrs..distribution..students_t..StudentsT$u
   br label %44
 
 44:                                               ; preds = %2, %10, %34
-  %.sroa.0.0 = phi double [ %33, %10 ], [ %43, %34 ], [ 0xFFF0000000000000, %2 ]
+  %.sroa.0.0 = phi double [ %43, %34 ], [ %33, %10 ], [ 0xFFF0000000000000, %2 ]
   ret double %.sroa.0.0
 }
 

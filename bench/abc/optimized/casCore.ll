@@ -728,7 +728,7 @@ define ptr @Cudd_bddTransferPermute(ptr readnone captures(none) %0, ptr noundef 
   br label %cuddBddTransferPermute.exit
 
 cuddBddTransferPermute.exit:                      ; preds = %8, %._crit_edge.i, %25, %32
-  %.022.i = phi ptr [ null, %._crit_edge.i ], [ %11, %25 ], [ null, %8 ], [ null, %32 ]
+  %.022.i = phi ptr [ %11, %25 ], [ null, %._crit_edge.i ], [ null, %32 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = load i32, ptr %7, align 8, !tbaa !51
@@ -1187,7 +1187,7 @@ define internal fastcc ptr @cuddBddTransferPermuteRecur(ptr noundef %0, ptr noun
   br label %79
 
 79:                                               ; preds = %25, %75, %74, %62, %58, %45, %20, %14
-  %.0 = phi ptr [ %17, %14 ], [ %24, %20 ], [ %78, %75 ], [ null, %45 ], [ null, %58 ], [ null, %62 ], [ null, %74 ], [ null, %25 ]
+  %.0 = phi ptr [ %17, %14 ], [ %24, %20 ], [ null, %45 ], [ null, %58 ], [ null, %62 ], [ null, %74 ], [ %78, %75 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

@@ -107,8 +107,8 @@ define dso_local i32 @preempt_g_init() local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %20, %23, %6, %10
-  %.sink = phi i32 [ 1, %6 ], [ 0, %10 ], [ 2, %23 ], [ 2, %20 ]
-  %.1.ph = phi i32 [ 0, %6 ], [ -1, %10 ], [ %25, %23 ], [ 0, %20 ]
+  %.sink = phi i32 [ 0, %10 ], [ 1, %6 ], [ 2, %23 ], [ 2, %20 ]
+  %.1.ph = phi i32 [ -1, %10 ], [ 0, %6 ], [ %25, %23 ], [ 0, %20 ]
   store i32 %.sink, ptr @plugin_inited, align 4
   br label %26
 
@@ -252,7 +252,7 @@ slurm_preemption_enabled.exit:                    ; preds = %22
   br label %39
 
 39:                                               ; preds = %1, %.thread21, %25, %20, %15, %8
-  %.0 = phi ptr [ null, %8 ], [ %38, %.thread21 ], [ null, %25 ], [ null, %20 ], [ null, %15 ], [ null, %1 ]
+  %.0 = phi ptr [ %38, %.thread21 ], [ null, %25 ], [ null, %20 ], [ null, %15 ], [ null, %8 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -660,7 +660,7 @@ _job_check_grace.exit:                            ; preds = %9
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %59, %60, %57, %58, %43, %46, %34, %37, %_job_check_grace.exit, %4
-  %.027 = phi i32 [ -1, %_job_check_grace.exit ], [ -1, %4 ], [ 0, %58 ], [ 0, %57 ], [ %.3, %60 ], [ %.3, %59 ], [ 0, %43 ], [ 0, %46 ], [ 0, %34 ], [ 0, %37 ], [ -1, %12 ]
+  %.027 = phi i32 [ -1, %4 ], [ -1, %_job_check_grace.exit ], [ 0, %58 ], [ 0, %57 ], [ %.3, %60 ], [ %.3, %59 ], [ 0, %43 ], [ 0, %46 ], [ 0, %34 ], [ 0, %37 ], [ -1, %12 ]
   ret i32 %.027
 }
 
@@ -777,7 +777,7 @@ define internal range(i32 0, 2) i32 @_is_job_preempt_exempt_internal(ptr noundef
   br label %23
 
 23:                                               ; preds = %21, %15, %7, %4
-  %.0 = phi i32 [ 1, %4 ], [ 1, %7 ], [ %., %21 ], [ 1, %15 ]
+  %.0 = phi i32 [ 1, %4 ], [ 1, %7 ], [ 1, %15 ], [ %., %21 ]
   ret i32 %.0
 }
 
@@ -891,7 +891,7 @@ slurm_job_get_grace_time.exit:                    ; preds = %18, %21
   br label %52
 
 52:                                               ; preds = %48, %25, %6, %10
-  %.030 = phi i32 [ -1, %6 ], [ 1, %10 ], [ -1, %48 ], [ 1, %25 ]
+  %.030 = phi i32 [ 1, %10 ], [ -1, %6 ], [ -1, %48 ], [ 1, %25 ]
   ret i32 %.030
 }
 

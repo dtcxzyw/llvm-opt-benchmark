@@ -8588,7 +8588,7 @@ _ZN5clang14TypeLocBuilder4growEm.exit:            ; preds = %15, %26
   br label %49
 
 49:                                               ; preds = %38, %.sink.split
-  %50 = phi i64 [ %28, %38 ], [ %48, %.sink.split ]
+  %50 = phi i64 [ %48, %.sink.split ], [ %28, %38 ]
   %51 = load i32, ptr %33, align 8, !tbaa !32
   %52 = trunc i64 %2 to i32
   %53 = add i32 %51, %52

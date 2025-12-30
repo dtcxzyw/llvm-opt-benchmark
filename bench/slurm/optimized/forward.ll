@@ -1634,10 +1634,6 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   call fastcc void @_forward_msg_internal(ptr noundef %9, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %136, i32 noundef 0, i32 noundef %137)
   br label %.outer.outer.backedge
 
-.outer.outer.backedge:                            ; preds = %133, %185
-  %.0.ph.ph.be = phi ptr [ %182, %185 ], [ %130, %133 ]
-  br label %.outer.outer, !llvm.loop !17
-
 138:                                              ; preds = %112
   %139 = load ptr, ptr %2, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 12
@@ -1750,6 +1746,10 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 185:                                              ; preds = %180
   %186 = call i32 @close(i32 noundef %50) #10
   br label %.outer.outer.backedge
+
+.outer.outer.backedge:                            ; preds = %185, %133
+  %.0.ph.ph.be = phi ptr [ %130, %133 ], [ %182, %185 ]
+  br label %.outer.outer, !llvm.loop !17
 
 split:                                            ; preds = %163, %._crit_edge440
   %187 = phi i32 [ %169, %._crit_edge440 ], [ 1, %163 ]
@@ -1921,7 +1921,7 @@ split:                                            ; preds = %163, %._crit_edge44
   br label %.thread264
 
 .thread264:                                       ; preds = %.thread258, %._crit_edge364
-  %.2262268 = phi i32 [ %.0181.ph, %.thread258 ], [ %50, %._crit_edge364 ]
+  %.2262268 = phi i32 [ %50, %._crit_edge364 ], [ %.0181.ph, %.thread258 ]
   call void @free(ptr noundef %18) #10
   br label %.loopexit
 

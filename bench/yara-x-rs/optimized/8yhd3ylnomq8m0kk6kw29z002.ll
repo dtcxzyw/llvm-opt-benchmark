@@ -362,8 +362,8 @@ default.unreachable141:                           ; preds = %.backedge
   br label %93
 
 93:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i", %71, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i"
-  %94 = phi ptr [ %74, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i" ], [ %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i" ], [ %64, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i" ], [ %58, %71 ]
-  %.sroa.4.0.i.ph.i.i.i.i.i.i = phi i32 [ %81, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i" ], [ %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i" ], [ %69, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i" ], [ %72, %71 ]
+  %94 = phi ptr [ %64, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i" ], [ %74, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i" ], [ %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i" ], [ %58, %71 ]
+  %.sroa.4.0.i.ph.i.i.i.i.i.i = phi i32 [ %69, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i" ], [ %81, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i" ], [ %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i" ], [ %72, %71 ]
   %95 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 1114112
   call void @llvm.assume(i1 %95)
   %96 = ptrtoint ptr %94 to i64
@@ -417,7 +417,7 @@ default.unreachable141:                           ; preds = %.backedge
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i": ; preds = %114, %109, %106, %103
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i8 [ %108, %106 ], [ %113, %109 ], [ %105, %103 ], [ %119, %114 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i8 [ %113, %109 ], [ %105, %103 ], [ %119, %114 ], [ %108, %106 ]
   %120 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i to i1
   br i1 %120, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i", label %121
 
@@ -426,7 +426,7 @@ default.unreachable141:                           ; preds = %.backedge
   br i1 %122, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i", label %.lr.ph.i.i.i.i
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i": ; preds = %121, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i", %93, %93, %93, %93, %93, %93
-  %.sroa.4.0.i.i = phi i64 [ %55, %93 ], [ %55, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i" ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %45, %121 ]
+  %.sroa.4.0.i.i = phi i64 [ %55, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i" ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %45, %121 ]
   %123 = load i64, ptr %14, align 8, !alias.scope !7, !noalias !10, !noundef !5
   %spec.select.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %123, i64 %32)
   %124 = call i64 @llvm.usub.sat.i64(i64 %.sroa.4.0.i.i, i64 %spec.select.i.i.i)
@@ -884,7 +884,7 @@ default.unreachable1.i:                           ; preds = %134
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
 _ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit: ; preds = %134, %144, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209, %238, %239, %240, %241, %242, %244, %246, %248, %250, %252, %254, %256
-  %.sroa.066.0 = phi i8 [ 78, %242 ], [ 1, %144 ], [ 2, %145 ], [ 3, %146 ], [ 4, %147 ], [ 5, %148 ], [ 6, %149 ], [ 7, %150 ], [ 8, %151 ], [ 9, %152 ], [ 10, %153 ], [ 11, %154 ], [ 12, %155 ], [ 13, %156 ], [ 14, %157 ], [ 15, %158 ], [ 16, %159 ], [ 17, %160 ], [ 18, %161 ], [ 19, %162 ], [ 20, %163 ], [ 21, %164 ], [ 22, %165 ], [ 23, %166 ], [ 24, %167 ], [ 25, %168 ], [ 26, %169 ], [ 27, %170 ], [ 28, %171 ], [ 29, %172 ], [ 30, %173 ], [ 31, %174 ], [ 32, %175 ], [ 33, %176 ], [ 34, %177 ], [ 35, %178 ], [ 36, %179 ], [ 37, %180 ], [ 38, %181 ], [ 39, %182 ], [ 40, %183 ], [ 41, %184 ], [ 42, %185 ], [ 43, %186 ], [ 45, %187 ], [ 47, %188 ], [ 44, %189 ], [ 46, %190 ], [ 57, %191 ], [ 58, %192 ], [ 59, %193 ], [ 61, %194 ], [ 62, %195 ], [ 63, %196 ], [ 64, %197 ], [ 68, %198 ], [ 65, %199 ], [ 66, %200 ], [ 67, %201 ], [ 60, %202 ], [ 69, %203 ], [ 70, %204 ], [ 71, %205 ], [ 74, %206 ], [ 75, %207 ], [ 72, %208 ], [ 73, %209 ], [ 53, %244 ], [ 54, %246 ], [ 55, %248 ], [ 56, %250 ], [ 52, %252 ], [ 48, %254 ], [ 49, %256 ], [ 50, %238 ], [ 51, %239 ], [ 77, %240 ], [ 79, %241 ], [ 0, %134 ]
+  %.sroa.066.0 = phi i8 [ 1, %144 ], [ 2, %145 ], [ 3, %146 ], [ 4, %147 ], [ 5, %148 ], [ 6, %149 ], [ 7, %150 ], [ 8, %151 ], [ 9, %152 ], [ 10, %153 ], [ 11, %154 ], [ 12, %155 ], [ 13, %156 ], [ 14, %157 ], [ 15, %158 ], [ 16, %159 ], [ 17, %160 ], [ 18, %161 ], [ 19, %162 ], [ 20, %163 ], [ 21, %164 ], [ 22, %165 ], [ 23, %166 ], [ 24, %167 ], [ 25, %168 ], [ 26, %169 ], [ 27, %170 ], [ 28, %171 ], [ 29, %172 ], [ 30, %173 ], [ 31, %174 ], [ 32, %175 ], [ 33, %176 ], [ 34, %177 ], [ 35, %178 ], [ 36, %179 ], [ 37, %180 ], [ 38, %181 ], [ 39, %182 ], [ 40, %183 ], [ 41, %184 ], [ 42, %185 ], [ 43, %186 ], [ 45, %187 ], [ 47, %188 ], [ 44, %189 ], [ 46, %190 ], [ 57, %191 ], [ 58, %192 ], [ 59, %193 ], [ 61, %194 ], [ 62, %195 ], [ 63, %196 ], [ 64, %197 ], [ 68, %198 ], [ 65, %199 ], [ 66, %200 ], [ 67, %201 ], [ 60, %202 ], [ 69, %203 ], [ 70, %204 ], [ 71, %205 ], [ 74, %206 ], [ 75, %207 ], [ 72, %208 ], [ 73, %209 ], [ 53, %244 ], [ 54, %246 ], [ 55, %248 ], [ 56, %250 ], [ 52, %252 ], [ 48, %254 ], [ 49, %256 ], [ 50, %238 ], [ 51, %239 ], [ 77, %240 ], [ 79, %241 ], [ 78, %242 ], [ 0, %134 ]
   store i8 %.sroa.066.0, ptr %0, align 4
   %.sroa.8267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %142, ptr %.sroa.8267.0..sroa_idx, align 4
@@ -1011,7 +1011,7 @@ default.unreachable1.i53:                         ; preds = %288
   br label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
 
 _ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit: ; preds = %288, %302, %303, %305
-  %.sroa.077.0 = phi i8 [ 78, %303 ], [ 49, %305 ], [ 79, %302 ], [ 65, %288 ]
+  %.sroa.077.0 = phi i8 [ 49, %305 ], [ 79, %302 ], [ 78, %303 ], [ 65, %288 ]
   store i8 %.sroa.077.0, ptr %0, align 4
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %296, ptr %.sroa.778.0..sroa_idx, align 4
@@ -1672,7 +1672,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br i1 %.not, label %15, label %tailrecurse.backedge
 
 "_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1159_at1_ctx1150_x17h499710c9216c3bf4E.exit": ; preds = %tailrecurse.backedge145, %104, %101, %98, %94, %91, %88, %84, %80, %77, %74, %71, %67, %64, %61, %57, %54, %51, %48, %44, %40, %35, %32, %28, %tailrecurse.backedge, %22, %19, %1, %125, %120, %117, %112, %109, %107
-  %.sink318 = phi i64 [ 83, %107 ], [ 83, %1 ], [ 76, %112 ], [ 76, %117 ], [ 76, %120 ], [ 76, %109 ], [ 76, %125 ], [ 83, %19 ], [ 83, %22 ], [ 83, %tailrecurse.backedge ], [ 83, %28 ], [ 83, %32 ], [ 83, %35 ], [ 83, %40 ], [ 83, %44 ], [ 83, %48 ], [ 83, %51 ], [ 83, %54 ], [ 83, %57 ], [ 83, %61 ], [ 83, %64 ], [ 83, %67 ], [ 83, %71 ], [ 83, %74 ], [ 83, %77 ], [ 83, %80 ], [ 83, %84 ], [ 83, %88 ], [ 83, %91 ], [ 83, %94 ], [ 83, %98 ], [ 83, %101 ], [ 83, %104 ], [ 83, %tailrecurse.backedge145 ]
+  %.sink318 = phi i64 [ 76, %109 ], [ 76, %112 ], [ 76, %117 ], [ 76, %120 ], [ 76, %125 ], [ 83, %107 ], [ 83, %1 ], [ 83, %19 ], [ 83, %22 ], [ 83, %tailrecurse.backedge ], [ 83, %28 ], [ 83, %32 ], [ 83, %35 ], [ 83, %40 ], [ 83, %44 ], [ 83, %48 ], [ 83, %51 ], [ 83, %54 ], [ 83, %57 ], [ 83, %61 ], [ 83, %64 ], [ 83, %67 ], [ 83, %71 ], [ 83, %74 ], [ 83, %77 ], [ 83, %80 ], [ 83, %84 ], [ 83, %88 ], [ 83, %91 ], [ 83, %94 ], [ 83, %98 ], [ 83, %101 ], [ 83, %104 ], [ 83, %tailrecurse.backedge145 ]
   store i64 %.sink318, ptr %0, align 8
   ret void
 
@@ -1736,7 +1736,7 @@ default.unreachable275:                           ; preds = %22
   br i1 %or.cond11.i, label %tailrecurse.backedge145, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1159_at1_ctx1150_x17h499710c9216c3bf4E.exit"
 
 tailrecurse.backedge145:                          ; preds = %35, %104, %91, %77, %64, %54, %48
-  %.sink340 = phi i64 [ 5, %104 ], [ 5, %91 ], [ 4, %48 ], [ 3, %54 ], [ 4, %64 ], [ 5, %77 ], [ 4, %35 ]
+  %.sink340 = phi i64 [ 4, %48 ], [ 3, %54 ], [ 4, %64 ], [ 5, %77 ], [ 5, %91 ], [ 5, %104 ], [ 4, %35 ]
   %38 = add i64 %8, %.sink340
   store i64 %38, ptr %4, align 8
   %39 = icmp ult i64 %38, %3
@@ -5760,7 +5760,7 @@ default.unreachable68:                            ; preds = %.lr.ph, %71
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at1_ctx872_x17h3b8d17647c4975d2E.exit"
 
 tailrecurse.backedge:                             ; preds = %26, %97, %.lr.ph, %55, %43
-  %.sink81 = phi i64 [ 3, %97 ], [ 1, %.lr.ph ], [ 2, %43 ], [ 2, %55 ], [ 2, %26 ]
+  %.sink81 = phi i64 [ 2, %43 ], [ 2, %55 ], [ 1, %.lr.ph ], [ 3, %97 ], [ 2, %26 ]
   %35 = add i64 %12, %.sink81
   store i64 %35, ptr %6, align 8
   %36 = icmp ult i64 %35, %5
@@ -11133,7 +11133,7 @@ default.unreachable22:                            ; preds = %8
   br i1 %or.cond1.i, label %tailrecurse.backedge, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1195_at1_ctx1185_x17h6681fb2b77b34ff0E.exit"
 
 tailrecurse.backedge:                             ; preds = %24, %8, %40, %33
-  %.sink23 = phi i64 [ 1, %8 ], [ 2, %40 ], [ 3, %33 ], [ 3, %24 ]
+  %.sink23 = phi i64 [ 3, %33 ], [ 2, %40 ], [ 1, %8 ], [ 3, %24 ]
   %28 = add nuw i64 %9, %.sink23
   store i64 %28, ptr %4, align 8
   %29 = icmp ult i64 %28, %3
@@ -15337,7 +15337,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br i1 %7, label %.lr.ph208, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1075_ctx1074_x17h23408e40036ee9a7E.exit", %42, %tailrecurse.i, %1
-  %.lcssa = phi i64 [ %.promoted, %1 ], [ %5, %42 ], [ %5, %tailrecurse.i ], [ %.promoted.i204, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1075_ctx1074_x17h23408e40036ee9a7E.exit" ]
+  %.lcssa = phi i64 [ %.promoted, %1 ], [ %5, %tailrecurse.i ], [ %5, %42 ], [ %.promoted.i204, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1075_ctx1074_x17h23408e40036ee9a7E.exit" ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = sub nuw i64 %.lcssa, %9
@@ -17661,7 +17661,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   br i1 %or.cond1.i.i, label %tailrecurse.backedge.i, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1186_ctx1185_x17h371b1025167599e8E.exit"
 
 tailrecurse.backedge.i:                           ; preds = %49, %42, %33, %.lr.ph.i
-  %.sink23.i = phi i64 [ 1, %.lr.ph.i ], [ 2, %49 ], [ 3, %42 ], [ 3, %33 ]
+  %.sink23.i = phi i64 [ 3, %42 ], [ 2, %49 ], [ 1, %.lr.ph.i ], [ 3, %33 ]
   %37 = add nuw i64 %.sink23.i, %18
   store i64 %37, ptr %4, align 8, !alias.scope !3137
   %38 = icmp ult i64 %37, %3
@@ -17720,7 +17720,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit"
 
 "_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit": ; preds = %99, %96, %92, %89, %tailrecurse.backedge.i.i2, %83, %80, %77, %74, %.lr.ph.i.i1, %54, %51, %47, %44, %tailrecurse.backedge.i.i, %38, %35, %32, %29, %.lr.ph.i.i, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit.sink.split", %65, %20
-  %storemerge.i.sink = phi i64 [ 83, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit.sink.split" ], [ 79, %20 ], [ 79, %54 ], [ 79, %65 ], [ 79, %.lr.ph.i.i ], [ 79, %29 ], [ 79, %32 ], [ 79, %35 ], [ 79, %38 ], [ 79, %tailrecurse.backedge.i.i ], [ 79, %44 ], [ 79, %47 ], [ 79, %51 ], [ 79, %.lr.ph.i.i1 ], [ 79, %74 ], [ 79, %77 ], [ 79, %80 ], [ 79, %83 ], [ 79, %tailrecurse.backedge.i.i2 ], [ 79, %89 ], [ 79, %92 ], [ 79, %96 ], [ 79, %99 ]
+  %storemerge.i.sink = phi i64 [ 79, %20 ], [ 79, %65 ], [ 83, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit.sink.split" ], [ 79, %.lr.ph.i.i ], [ 79, %29 ], [ 79, %32 ], [ 79, %35 ], [ 79, %38 ], [ 79, %tailrecurse.backedge.i.i ], [ 79, %44 ], [ 79, %47 ], [ 79, %51 ], [ 79, %54 ], [ 79, %.lr.ph.i.i1 ], [ 79, %74 ], [ 79, %77 ], [ 79, %80 ], [ 79, %83 ], [ 79, %tailrecurse.backedge.i.i2 ], [ 79, %89 ], [ 79, %92 ], [ 79, %96 ], [ 79, %99 ]
   store i64 %storemerge.i.sink, ptr %0, align 8
   ret void
 
@@ -17792,7 +17792,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i1
   br i1 %or.cond1.i.i.i, label %tailrecurse.backedge.i.i, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit"
 
 tailrecurse.backedge.i.i:                         ; preds = %54, %47, %38, %.lr.ph.i.i
-  %.sink23.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ 2, %54 ], [ 3, %47 ], [ 3, %38 ]
+  %.sink23.i.i = phi i64 [ 3, %47 ], [ 2, %54 ], [ 1, %.lr.ph.i.i ], [ 3, %38 ]
   %42 = add nuw i64 %.sink23.i.i, %23
   store i64 %42, ptr %4, align 8, !alias.scope !3158
   %43 = icmp ult i64 %42, %3
@@ -17880,7 +17880,7 @@ tailrecurse.backedge.i.i:                         ; preds = %54, %47, %38, %.lr.
   br i1 %or.cond1.i.i.i5, label %tailrecurse.backedge.i.i2, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit"
 
 tailrecurse.backedge.i.i2:                        ; preds = %99, %92, %83, %.lr.ph.i.i1
-  %.sink23.i.i3 = phi i64 [ 1, %.lr.ph.i.i1 ], [ 2, %99 ], [ 3, %92 ], [ 3, %83 ]
+  %.sink23.i.i3 = phi i64 [ 3, %92 ], [ 2, %99 ], [ 1, %.lr.ph.i.i1 ], [ 3, %83 ]
   %87 = add nuw i64 %.sink23.i.i3, %68
   store i64 %87, ptr %4, align 8, !alias.scope !3177
   %88 = icmp ult i64 %87, %3
@@ -20547,7 +20547,7 @@ default.unreachable86:                            ; preds = %.lr.ph, %157, %93, 
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto100_at1_ctx68_x17h6e243fc12423f84fE.exit"
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %145, %124, %113, %50
-  %.sink99 = phi i64 [ 3, %145 ], [ 2, %124 ], [ 2, %50 ], [ 2, %113 ], [ 1, %.lr.ph ]
+  %.sink99 = phi i64 [ 2, %50 ], [ 2, %113 ], [ 2, %124 ], [ 3, %145 ], [ 1, %.lr.ph ]
   %23 = add i64 %12, %.sink99
   store i64 %23, ptr %6, align 8
   %24 = icmp ult i64 %23, %5
@@ -30889,7 +30889,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br i1 %7, label %.lr.ph228, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1089_ctx1088_x17h10467e0a39b49dd8E.exit", %220, %tailrecurse.i, %1
-  %.lcssa = phi i64 [ %.promoted, %1 ], [ %5, %220 ], [ %5, %tailrecurse.i ], [ %.promoted.i224, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1089_ctx1088_x17h10467e0a39b49dd8E.exit" ]
+  %.lcssa = phi i64 [ %.promoted, %1 ], [ %5, %tailrecurse.i ], [ %5, %220 ], [ %.promoted.i224, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1089_ctx1088_x17h10467e0a39b49dd8E.exit" ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = sub nuw i64 %.lcssa, %9
@@ -37479,7 +37479,7 @@ default.unreachable66:                            ; preds = %.lr.ph, %46
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto675_at1_ctx671_x17h44e1db3ab07dea06E.exit"
 
 tailrecurse.backedge:                             ; preds = %26, %.lr.ph, %92, %81, %74
-  %.sink79 = phi i64 [ 1, %.lr.ph ], [ 2, %92 ], [ 3, %74 ], [ 2, %81 ], [ 2, %26 ]
+  %.sink79 = phi i64 [ 3, %74 ], [ 2, %81 ], [ 2, %92 ], [ 1, %.lr.ph ], [ 2, %26 ]
   %35 = add i64 %12, %.sink79
   store i64 %35, ptr %6, align 8
   %36 = icmp ult i64 %35, %5
@@ -39310,7 +39310,7 @@ default.unreachable86:                            ; preds = %.lr.ph, %143, %95, 
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto339_at1_ctx269_x17h1ba4ce9f6e47446bE.exit"
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %164, %127, %115, %83
-  %.sink99 = phi i64 [ 2, %164 ], [ 2, %127 ], [ 3, %83 ], [ 2, %115 ], [ 1, %.lr.ph ]
+  %.sink99 = phi i64 [ 3, %83 ], [ 2, %115 ], [ 2, %127 ], [ 2, %164 ], [ 1, %.lr.ph ]
   %23 = add i64 %12, %.sink99
   store i64 %23, ptr %6, align 8
   %24 = icmp ult i64 %23, %5
@@ -40245,7 +40245,7 @@ default.unreachable192:                           ; preds = %21
   br i1 %or.cond9.i, label %tailrecurse.backedge101, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1129_at1_ctx1120_x17hac943c61b03ef7e8E.exit"
 
 tailrecurse.backedge101:                          ; preds = %37, %103, %89, %79, %69, %63, %50
-  %.sink236 = phi i64 [ 5, %103 ], [ 4, %89 ], [ 4, %50 ], [ 5, %63 ], [ 3, %69 ], [ 4, %79 ], [ 5, %37 ]
+  %.sink236 = phi i64 [ 4, %50 ], [ 5, %63 ], [ 3, %69 ], [ 4, %79 ], [ 4, %89 ], [ 5, %103 ], [ 5, %37 ]
   %40 = add i64 %8, %.sink236
   store i64 %40, ptr %4, align 8
   %41 = icmp ult i64 %40, %3
@@ -40797,7 +40797,7 @@ tailrecurse.backedge.i:                           ; preds = %165, %.lr.ph.i
   br i1 %or.cond5.i.i13, label %tailrecurse.backedge121.i, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1135_ctx1134_x17h1d9a485dffff560bE.exit"
 
 tailrecurse.backedge121.i:                        ; preds = %178, %247, %234, %220, %207, %197, %191
-  %.sink = phi i64 [ 5, %234 ], [ 5, %220 ], [ 4, %207 ], [ 3, %197 ], [ 4, %191 ], [ 5, %247 ], [ 4, %178 ]
+  %.sink = phi i64 [ 4, %191 ], [ 3, %197 ], [ 4, %207 ], [ 5, %220 ], [ 5, %234 ], [ 5, %247 ], [ 4, %178 ]
   %181 = add i64 %156, %.sink
   store i64 %181, ptr %4, align 8, !alias.scope !7703
   %182 = icmp ult i64 %181, %3
@@ -40943,7 +40943,7 @@ tailrecurse.backedge121.i:                        ; preds = %178, %247, %234, %2
   br i1 %261, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1143_at1_ctx1134_x17h69b7db34048f4599E.exit.sink.split.i", label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1135_ctx1134_x17h1d9a485dffff560bE.exit"
 
 "_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1135_ctx1134_x17h1d9a485dffff560bE.exit": ; preds = %171, %175, %178, %183, %187, %191, %194, %197, %200, %204, %207, %210, %214, %217, %220, %223, %227, %231, %234, %237, %241, %244, %247, %162, %165, %tailrecurse._crit_edge.i, %144, %148, %152, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1143_at1_ctx1134_x17h69b7db34048f4599E.exit.sink.split.i", %250, %254, %258
-  %.sink298.i = phi i64 [ 83, %254 ], [ 83, %250 ], [ 83, %152 ], [ 83, %148 ], [ 83, %258 ], [ 83, %tailrecurse._crit_edge.i ], [ 83, %144 ], [ 75, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1143_at1_ctx1134_x17h69b7db34048f4599E.exit.sink.split.i" ], [ 83, %165 ], [ 83, %162 ], [ 83, %247 ], [ 83, %244 ], [ 83, %241 ], [ 83, %237 ], [ 83, %234 ], [ 83, %231 ], [ 83, %227 ], [ 83, %223 ], [ 83, %220 ], [ 83, %217 ], [ 83, %214 ], [ 83, %210 ], [ 83, %207 ], [ 83, %204 ], [ 83, %200 ], [ 83, %197 ], [ 83, %194 ], [ 83, %191 ], [ 83, %187 ], [ 83, %183 ], [ 83, %178 ], [ 83, %175 ], [ 83, %171 ]
+  %.sink298.i = phi i64 [ 83, %254 ], [ 83, %250 ], [ 83, %258 ], [ 83, %144 ], [ 83, %148 ], [ 83, %tailrecurse._crit_edge.i ], [ 83, %152 ], [ 75, %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1143_at1_ctx1134_x17h69b7db34048f4599E.exit.sink.split.i" ], [ 83, %165 ], [ 83, %162 ], [ 83, %247 ], [ 83, %244 ], [ 83, %241 ], [ 83, %237 ], [ 83, %234 ], [ 83, %231 ], [ 83, %227 ], [ 83, %223 ], [ 83, %220 ], [ 83, %217 ], [ 83, %214 ], [ 83, %210 ], [ 83, %207 ], [ 83, %204 ], [ 83, %200 ], [ 83, %197 ], [ 83, %194 ], [ 83, %191 ], [ 83, %187 ], [ 83, %183 ], [ 83, %178 ], [ 83, %175 ], [ 83, %171 ]
   store i64 %.sink298.i, ptr %0, align 8, !alias.scope !7703
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1129_at217h0b6879dbedc82b3fE.exit"
 }
@@ -47334,7 +47334,7 @@ default.unreachable86:                            ; preds = %.lr.ph, %139, %106,
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto540_at1_ctx470_x17h6b276f9d1ca9dc39E.exit"
 
 tailrecurse.backedge:                             ; preds = %50, %169, %.lr.ph, %123, %89
-  %.sink99 = phi i64 [ 3, %169 ], [ 1, %.lr.ph ], [ 2, %89 ], [ 2, %123 ], [ 2, %50 ]
+  %.sink99 = phi i64 [ 2, %89 ], [ 2, %123 ], [ 1, %.lr.ph ], [ 3, %169 ], [ 2, %50 ]
   %59 = add i64 %12, %.sink99
   store i64 %59, ptr %6, align 8
   %60 = icmp ult i64 %59, %5
@@ -48206,7 +48206,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %50, label %tailrecurse.backedge.i.i.i.i, label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex10goto20_at117h113699b7c870e9ffE.exit.i"
 
 tailrecurse.backedge.i.i.i.i:                     ; preds = %69, %62, %47, %.lr.ph.i.i.i.i
-  %.sink7.i.i.i.i = phi i64 [ 3, %69 ], [ 3, %62 ], [ 1, %.lr.ph.i.i.i.i ], [ 2, %47 ]
+  %.sink7.i.i.i.i = phi i64 [ 1, %.lr.ph.i.i.i.i ], [ 3, %62 ], [ 3, %69 ], [ 2, %47 ]
   %51 = add nuw i64 %.sink7.i.i.i.i, %38
   store i64 %51, ptr %4, align 8, !alias.scope !9189
   %52 = icmp ult i64 %51, %3
@@ -48296,7 +48296,7 @@ tailrecurse.backedge.i.i.i.i:                     ; preds = %69, %62, %47, %.lr.
   br i1 %95, label %tailrecurse.backedge.i.i5.i.i, label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex10goto20_at117h113699b7c870e9ffE.exit.i"
 
 tailrecurse.backedge.i.i5.i.i:                    ; preds = %114, %107, %92, %.lr.ph.i.i2.i.i
-  %.sink7.i.i6.i.i = phi i64 [ 3, %114 ], [ 3, %107 ], [ 1, %.lr.ph.i.i2.i.i ], [ 2, %92 ]
+  %.sink7.i.i6.i.i = phi i64 [ 1, %.lr.ph.i.i2.i.i ], [ 3, %107 ], [ 3, %114 ], [ 2, %92 ]
   %96 = add nuw i64 %.sink7.i.i6.i.i, %83
   store i64 %96, ptr %4, align 8, !alias.scope !9211
   %97 = icmp ult i64 %96, %3
@@ -48340,7 +48340,7 @@ tailrecurse.backedge.i.i5.i.i:                    ; preds = %114, %107, %92, %.l
   br i1 %or.cond1.i.i.i4.i.i, label %tailrecurse.backedge.i.i5.i.i, label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex10goto20_at117h113699b7c870e9ffE.exit.i"
 
 "_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex10goto20_at117h113699b7c870e9ffE.exit.i": ; preds = %114, %111, %107, %104, %101, %98, %tailrecurse.backedge.i.i5.i.i, %92, %89, %.lr.ph.i.i2.i.i, %69, %66, %62, %59, %56, %53, %tailrecurse.backedge.i.i.i.i, %47, %44, %.lr.ph.i.i.i.i, %80, %35, %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex10goto21_at217h3c81e4d52cfe1527E.exit.sink.split.i.i"
-  %.sink.i1.sink.i.i = phi i8 [ 12, %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex10goto21_at217h3c81e4d52cfe1527E.exit.sink.split.i.i" ], [ 6, %35 ], [ 6, %69 ], [ 6, %80 ], [ 6, %.lr.ph.i.i.i.i ], [ 6, %44 ], [ 6, %47 ], [ 6, %tailrecurse.backedge.i.i.i.i ], [ 6, %53 ], [ 6, %56 ], [ 6, %59 ], [ 6, %62 ], [ 6, %66 ], [ 6, %.lr.ph.i.i2.i.i ], [ 6, %89 ], [ 6, %92 ], [ 6, %tailrecurse.backedge.i.i5.i.i ], [ 6, %98 ], [ 6, %101 ], [ 6, %104 ], [ 6, %107 ], [ 6, %111 ], [ 6, %114 ]
+  %.sink.i1.sink.i.i = phi i8 [ 6, %35 ], [ 6, %80 ], [ 12, %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex10goto21_at217h3c81e4d52cfe1527E.exit.sink.split.i.i" ], [ 6, %.lr.ph.i.i.i.i ], [ 6, %44 ], [ 6, %47 ], [ 6, %tailrecurse.backedge.i.i.i.i ], [ 6, %53 ], [ 6, %56 ], [ 6, %59 ], [ 6, %62 ], [ 6, %66 ], [ 6, %69 ], [ 6, %.lr.ph.i.i2.i.i ], [ 6, %89 ], [ 6, %92 ], [ 6, %tailrecurse.backedge.i.i5.i.i ], [ 6, %98 ], [ 6, %101 ], [ 6, %104 ], [ 6, %107 ], [ 6, %111 ], [ 6, %114 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sink.i1.sink.i.i, ptr %118, align 8, !alias.scope !9179
   br label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex6goto5117hfac03c85aa30ae4cE.exit"
@@ -49450,8 +49450,8 @@ tailrecurse.i.i110.i.i.i:                         ; preds = %.lr.ph.i.i109.i.i.i
   br label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex9goto2_at217h81ed472decc518d9E.exit.i.i"
 
 "_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex9goto2_at217h81ed472decc518d9E.exit.i.i": ; preds = %580, %575
-  %.sink6.i.i.i = phi i64 [ %spec.select.i.i.i, %580 ], [ 1, %575 ]
-  %.sink.i.i2.i = phi i8 [ %spec.select7.i.i.i, %580 ], [ 12, %575 ]
+  %.sink6.i.i.i = phi i64 [ 1, %575 ], [ %spec.select.i.i.i, %580 ]
+  %.sink.i.i2.i = phi i8 [ 12, %575 ], [ %spec.select7.i.i.i, %580 ]
   %584 = add i64 %.sink6.i.i.i, %5
   br label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex9goto3_at117h978f390694bb6157E.exit.i"
 
@@ -49487,8 +49487,8 @@ tailrecurse.i.i110.i.i.i:                         ; preds = %.lr.ph.i.i109.i.i.i
   br label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex9goto2_at117hb377d8f30b7ece38E.exit.i"
 
 "_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex9goto2_at117hb377d8f30b7ece38E.exit.i": ; preds = %594, %589, %586
-  %.sink5.i.i = phi i64 [ %spec.select.i.i, %594 ], [ %587, %586 ], [ %587, %589 ]
-  %.sink.i4.i = phi i8 [ %spec.select6.i.i, %594 ], [ 12, %586 ], [ 12, %589 ]
+  %.sink5.i.i = phi i64 [ %587, %589 ], [ %587, %586 ], [ %spec.select.i.i, %594 ]
+  %.sink.i4.i = phi i8 [ 12, %589 ], [ 12, %586 ], [ %spec.select6.i.i, %594 ]
   store i64 %.sink5.i.i, ptr %4, align 8, !alias.scope !9415
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sink.i4.i, ptr %599, align 8, !alias.scope !9415
@@ -49549,7 +49549,7 @@ tailrecurse.i.i110.i.i.i:                         ; preds = %.lr.ph.i.i109.i.i.i
   br i1 %626, label %tailrecurse.backedge.i.i.i, label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex10goto12_at117h42b733433c1486ecE.exit.i"
 
 tailrecurse.backedge.i.i.i:                       ; preds = %645, %638, %623, %.lr.ph.i.i7.i
-  %.sink7.i.i.i = phi i64 [ 3, %645 ], [ 3, %638 ], [ 1, %.lr.ph.i.i7.i ], [ 2, %623 ]
+  %.sink7.i.i.i = phi i64 [ 1, %.lr.ph.i.i7.i ], [ 3, %638 ], [ 3, %645 ], [ 2, %623 ]
   %627 = add nuw i64 %.sink7.i.i.i, %614
   store i64 %627, ptr %4, align 8, !alias.scope !9427
   %628 = icmp ult i64 %627, %3
@@ -49645,7 +49645,7 @@ tailrecurse.backedge.i.i.i:                       ; preds = %645, %638, %623, %.
   br i1 %671, label %tailrecurse.backedge.i.i, label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex14goto11_ctx10_x17h5d2d557b70aa082dE.exit.i"
 
 tailrecurse.backedge.i.i:                         ; preds = %690, %683, %668, %.lr.ph.i.i
-  %.sink7.i.i = phi i64 [ 3, %690 ], [ 3, %683 ], [ 1, %.lr.ph.i.i ], [ 2, %668 ]
+  %.sink7.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ 3, %683 ], [ 3, %690 ], [ 2, %668 ]
   %672 = add nuw i64 %.sink7.i.i, %659
   store i64 %672, ptr %4, align 8, !alias.scope !9443
   %673 = icmp ult i64 %672, %3
@@ -50606,7 +50606,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i1.i.i, %.
   ]
 
 tailrecurse.backedge.i.i:                         ; preds = %52, %45, %38, %.lr.ph.i.i
-  %.sink23.i.i = phi i64 [ 2, %52 ], [ 3, %45 ], [ 3, %38 ], [ 1, %.lr.ph.i.i ]
+  %.sink23.i.i = phi i64 [ 3, %38 ], [ 3, %45 ], [ 2, %52 ], [ 1, %.lr.ph.i.i ]
   %27 = add nuw i64 %.sink23.i.i, %21
   store i64 %27, ptr %4, align 8, !alias.scope !9603
   %28 = icmp ult i64 %27, %3
@@ -50731,7 +50731,7 @@ tailrecurse.backedge.i.i:                         ; preds = %52, %45, %38, %.lr.
   ]
 
 tailrecurse.backedge.i.i.i:                       ; preds = %109, %102, %95, %.lr.ph.i.i.i
-  %.sink23.i.i.i = phi i64 [ 2, %109 ], [ 3, %102 ], [ 3, %95 ], [ 1, %.lr.ph.i.i.i ]
+  %.sink23.i.i.i = phi i64 [ 3, %95 ], [ 3, %102 ], [ 2, %109 ], [ 1, %.lr.ph.i.i.i ]
   %84 = add nuw i64 %.sink23.i.i.i, %78
   store i64 %84, ptr %4, align 8, !alias.scope !9630
   %85 = icmp ult i64 %84, %3
@@ -51075,7 +51075,7 @@ tailrecurse.backedge.i.i.i:                       ; preds = %109, %102, %95, %.l
   br i1 %exitcond.not.i.i.i.i, label %"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex17goto11_at1_ctx2_x17h3681346da47a8b37E.exit.i.i", label %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h81a250a5e13b8cf9E.exit.i.i.i.i"
 
 "_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex17goto11_at1_ctx2_x17h3681346da47a8b37E.exit.i.i": ; preds = %.lr.ph.i.i.i.i, %248, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h81a250a5e13b8cf9E.exit.i.i.i.i", %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h81a250a5e13b8cf9E.exit.thread.sink.split.i.i.i.i", %.preheader.i.i.i.i, %141, %138
-  %.lcssa178.sink.i.sink.i.i.i = phi i64 [ %118, %141 ], [ %118, %138 ], [ %245, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h81a250a5e13b8cf9E.exit.i.i.i.i" ], [ %.lcssa101.promoted.i.i.i.i, %.preheader.i.i.i.i ], [ %.sink.i.i.i.i, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h81a250a5e13b8cf9E.exit.thread.sink.split.i.i.i.i" ], [ %3, %248 ], [ %150, %.lr.ph.i.i.i.i ]
+  %.lcssa178.sink.i.sink.i.i.i = phi i64 [ %118, %138 ], [ %118, %141 ], [ %.lcssa101.promoted.i.i.i.i, %.preheader.i.i.i.i ], [ %.sink.i.i.i.i, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h81a250a5e13b8cf9E.exit.thread.sink.split.i.i.i.i" ], [ %3, %248 ], [ %245, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h81a250a5e13b8cf9E.exit.i.i.i.i" ], [ %150, %.lr.ph.i.i.i.i ]
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %251 = load i64, ptr %250, align 8, !alias.scope !9660, !noundef !5
   %252 = sub nuw i64 %.lcssa178.sink.i.sink.i.i.i, %251
@@ -51433,7 +51433,7 @@ tailrecurse.backedge.i.i.i:                       ; preds = %109, %102, %95, %.l
   br i1 %exitcond.not.i.i6.i.i, label %"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex16goto4_at1_ctx2_x17h38cb22db4ddd6a4eE.exit.i.i", label %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h37b7bacf25d1e79eE.exit.i.i.i.i"
 
 "_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex16goto4_at1_ctx2_x17h38cb22db4ddd6a4eE.exit.i.i": ; preds = %276, %.lr.ph.i.i7.i.i, %453, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h37b7bacf25d1e79eE.exit.i.i.i.i", %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h37b7bacf25d1e79eE.exit.thread.sink.split.i.i.i.i", %.preheader.i.i3.i.i, %262, %257, %254
-  %.sink133.i.i.i = phi i64 [ %118, %254 ], [ %118, %262 ], [ %118, %257 ], [ %.lcssa117.promoted.i.i.i.i, %.preheader.i.i3.i.i ], [ %.sink.i.i8.i.i, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h37b7bacf25d1e79eE.exit.thread.sink.split.i.i.i.i" ], [ %446, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h37b7bacf25d1e79eE.exit.i.i.i.i" ], [ %3, %453 ], [ %271, %.lr.ph.i.i7.i.i ], [ %271, %276 ]
+  %.sink133.i.i.i = phi i64 [ %118, %257 ], [ %118, %262 ], [ %.lcssa117.promoted.i.i.i.i, %.preheader.i.i3.i.i ], [ %.sink.i.i8.i.i, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h37b7bacf25d1e79eE.exit.thread.sink.split.i.i.i.i" ], [ %118, %254 ], [ %3, %453 ], [ %446, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h37b7bacf25d1e79eE.exit.i.i.i.i" ], [ %271, %.lr.ph.i.i7.i.i ], [ %271, %276 ]
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %456 = load i64, ptr %455, align 8, !alias.scope !9674, !noundef !5
   %457 = sub nuw i64 %.sink133.i.i.i, %456
@@ -51499,7 +51499,7 @@ tailrecurse.backedge.i.i.i:                       ; preds = %109, %102, %95, %.l
   ]
 
 tailrecurse.backedge.i.i.i.i:                     ; preds = %506, %499, %492, %.lr.ph.i.i.i24.i
-  %.sink23.i.i.i.i = phi i64 [ 2, %506 ], [ 3, %499 ], [ 3, %492 ], [ 1, %.lr.ph.i.i.i24.i ]
+  %.sink23.i.i.i.i = phi i64 [ 3, %492 ], [ 3, %499 ], [ 2, %506 ], [ 1, %.lr.ph.i.i.i24.i ]
   %481 = add nuw i64 %.sink23.i.i.i.i, %475
   store i64 %481, ptr %4, align 8, !alias.scope !9696
   %482 = icmp ult i64 %481, %3
@@ -51587,7 +51587,7 @@ tailrecurse.backedge.i.i.i.i:                     ; preds = %506, %499, %492, %.
   ]
 
 tailrecurse.backedge.i.i2.i.i:                    ; preds = %551, %544, %537, %.lr.ph.i.i1.i.i
-  %.sink23.i.i3.i.i = phi i64 [ 2, %551 ], [ 3, %544 ], [ 3, %537 ], [ 1, %.lr.ph.i.i1.i.i ]
+  %.sink23.i.i3.i.i = phi i64 [ 3, %537 ], [ 3, %544 ], [ 2, %551 ], [ 1, %.lr.ph.i.i1.i.i ]
   %526 = add nuw i64 %.sink23.i.i3.i.i, %520
   store i64 %526, ptr %4, align 8, !alias.scope !9716
   %527 = icmp ult i64 %526, %3
@@ -51642,7 +51642,7 @@ tailrecurse.backedge.i.i2.i.i:                    ; preds = %551, %544, %537, %.
   br i1 %554, label %tailrecurse.backedge.i.i2.i.i, label %"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex10goto26_at117ha960d6dada0c4decE.exit.i"
 
 "_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex10goto26_at117ha960d6dada0c4decE.exit.i": ; preds = %551, %548, %544, %541, %537, %534, %531, %528, %tailrecurse.backedge.i.i2.i.i, %.lr.ph.i.i1.i.i, %506, %503, %499, %496, %492, %489, %486, %483, %tailrecurse.backedge.i.i.i.i, %.lr.ph.i.i.i24.i, %517, %472, %"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex10goto24_at217hc00d9d426e29667fE.exit.sink.split.i.i"
-  %storemerge.i.sink.i.i = phi i64 [ 6, %"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex10goto24_at217hc00d9d426e29667fE.exit.sink.split.i.i" ], [ 2, %472 ], [ 2, %506 ], [ 2, %517 ], [ 2, %.lr.ph.i.i.i24.i ], [ 2, %tailrecurse.backedge.i.i.i.i ], [ 2, %483 ], [ 2, %486 ], [ 2, %489 ], [ 2, %492 ], [ 2, %496 ], [ 2, %499 ], [ 2, %503 ], [ 2, %.lr.ph.i.i1.i.i ], [ 2, %tailrecurse.backedge.i.i2.i.i ], [ 2, %528 ], [ 2, %531 ], [ 2, %534 ], [ 2, %537 ], [ 2, %541 ], [ 2, %544 ], [ 2, %548 ], [ 2, %551 ]
+  %storemerge.i.sink.i.i = phi i64 [ 2, %472 ], [ 2, %517 ], [ 6, %"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex10goto24_at217hc00d9d426e29667fE.exit.sink.split.i.i" ], [ 2, %.lr.ph.i.i.i24.i ], [ 2, %tailrecurse.backedge.i.i.i.i ], [ 2, %483 ], [ 2, %486 ], [ 2, %489 ], [ 2, %492 ], [ 2, %496 ], [ 2, %499 ], [ 2, %503 ], [ 2, %506 ], [ 2, %.lr.ph.i.i1.i.i ], [ 2, %tailrecurse.backedge.i.i2.i.i ], [ 2, %528 ], [ 2, %531 ], [ 2, %534 ], [ 2, %537 ], [ 2, %541 ], [ 2, %544 ], [ 2, %548 ], [ 2, %551 ]
   store i64 %storemerge.i.sink.i.i, ptr %0, align 8, !alias.scope !9688
   br label %"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex6goto3417hd7d473f9c8485a0aE.exit"
 
@@ -51850,7 +51850,7 @@ define internal fastcc void @"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u
   br label %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h5d894ab1b2e766a1E.exit.thread"
 
 "_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h5d894ab1b2e766a1E.exit.thread": ; preds = %.lr.ph, %112, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h5d894ab1b2e766a1E.exit", %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h5d894ab1b2e766a1E.exit.thread.sink.split", %.preheader
-  %.lcssa178.sink = phi i64 [ %109, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h5d894ab1b2e766a1E.exit" ], [ %.lcssa101.promoted, %.preheader ], [ %.sink, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h5d894ab1b2e766a1E.exit.thread.sink.split" ], [ %4, %112 ], [ %10, %.lr.ph ]
+  %.lcssa178.sink = phi i64 [ %.lcssa101.promoted, %.preheader ], [ %.sink, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h5d894ab1b2e766a1E.exit.thread.sink.split" ], [ %4, %112 ], [ %109, %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h5d894ab1b2e766a1E.exit" ], [ %10, %.lr.ph ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %106 = load i64, ptr %105, align 8, !noundef !5
   %107 = sub nuw i64 %.lcssa178.sink, %106

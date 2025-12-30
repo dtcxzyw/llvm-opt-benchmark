@@ -3781,7 +3781,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %33, label %29
 
@@ -4216,7 +4216,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOID(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4297,7 +4297,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping(ptr noundef %0, i3
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4378,7 +4378,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4902,7 +4902,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4983,7 +4983,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAttributeValueCtr(ptr noundef %0, i3
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5064,7 +5064,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3(ptr noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %32, label %28
 
@@ -5153,7 +5153,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3Binary(ptr n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not78 = icmp eq ptr %3, null
   br i1 %.not78, label %32, label %28
 
@@ -5247,7 +5247,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttribute(ptr noundef %0, i32
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %33, label %29
 
@@ -5331,7 +5331,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttributeCtr(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5457,7 +5457,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -5653,7 +5653,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItemEx(ptr noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -6126,7 +6126,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr1(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -6209,7 +6209,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr6(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -6292,7 +6292,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1(
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -6375,7 +6375,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6(
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -6487,7 +6487,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr2(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -6568,7 +6568,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr7(ptr noundef %0, i32
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %34, label %30
 
@@ -6668,7 +6668,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr nounde
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %33, label %29
 
@@ -6779,7 +6779,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest1(ptr noundef %0, i
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %33, label %29
 
@@ -6900,7 +6900,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest2(ptr noundef %0, i
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %33, label %29
 
@@ -7025,7 +7025,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %33, label %29
 
@@ -7135,7 +7135,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaModRequest1(ptr noundef %0, i
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %34, label %30
 
@@ -7312,7 +7312,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %32, label %28
 
@@ -7402,7 +7402,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %33, label %29
 
@@ -7537,7 +7537,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogRequest1(ptr noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -7773,7 +7773,7 @@ define hidden i32 @drsuapi_dissect_struct_DsNameString(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -7855,7 +7855,7 @@ define hidden i32 @drsuapi_dissect_struct_DsNameRequest1(ptr noundef %0, i32 nou
   br label %30
 
 30:                                               ; preds = %25, %27, %20, %22
-  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %29, %27 ], [ %1, %25 ]
+  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %1, %25 ], [ %29, %27 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %35, label %31
 
@@ -7956,7 +7956,7 @@ define hidden i32 @drsuapi_dissect_struct_DsNameInfo1(ptr noundef %0, i32 nounde
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %33, label %29
 
@@ -8042,7 +8042,7 @@ define hidden i32 @drsuapi_dissect_struct_DsNameCtr1(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -8150,7 +8150,7 @@ define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnRequest1(ptr noundef 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %33, label %29
 
@@ -8293,7 +8293,7 @@ define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerRequest1(ptr noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -8456,7 +8456,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoRequest1(ptr noundef %0, i3
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %33, label %29
 
@@ -8540,7 +8540,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo1(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %32, label %28
 
@@ -8631,7 +8631,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr1(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -8712,7 +8712,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo2(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not114 = icmp eq ptr %3, null
   br i1 %.not114, label %32, label %28
 
@@ -8817,7 +8817,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr2(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -8898,7 +8898,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo3(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not120 = icmp eq ptr %3, null
   br i1 %.not120, label %32, label %28
 
@@ -9005,7 +9005,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr3(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -9086,7 +9086,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCConnection01(ptr noundef %0, i3
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %32, label %28
 
@@ -9178,7 +9178,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCConnectionCtr01(ptr noundef %0,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -9259,7 +9259,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -9366,7 +9366,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest2(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -9472,7 +9472,7 @@ define hidden i32 @drsuapi_dissect_struct_SecBuffer(ptr noundef %0, i32 noundef 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %33, label %29
 
@@ -9558,7 +9558,7 @@ define hidden i32 @drsuapi_dissect_struct_SecBufferDesc(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -9641,7 +9641,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest3(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -9782,7 +9782,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErr_V1(ptr noundef %0, 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %33, label %29
 
@@ -9876,7 +9876,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErrListItem_V1(ptr noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -9957,7 +9957,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Attr_V1(ptr nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -10040,7 +10040,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Name_V1(ptr nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -10239,7 +10239,7 @@ define hidden i32 @drsuapi_dissect_struct_DsaAddressListItem_V1(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -10322,7 +10322,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr nound
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not90 = icmp eq ptr %3, null
   br i1 %.not90, label %34, label %30
 
@@ -10425,7 +10425,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Referr_V1(ptr noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -10513,7 +10513,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
   br label %30
 
 30:                                               ; preds = %25, %27, %20, %22
-  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %29, %27 ], [ %1, %25 ]
+  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %1, %25 ], [ %29, %27 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %35, label %31
 
@@ -10581,7 +10581,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
   br label %63
 
 63:                                               ; preds = %60, %58, %55, %53
-  %.0.i.i = phi i32 [ %45, %53 ], [ %57, %55 ], [ %62, %60 ], [ %45, %58 ]
+  %.0.i.i = phi i32 [ %45, %53 ], [ %57, %55 ], [ %45, %58 ], [ %62, %60 ]
   %64 = load i32, ptr %10, align 4
   switch i32 %64, label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit [
     i32 1, label %65
@@ -10754,7 +10754,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr2(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not78 = icmp eq ptr %3, null
   br i1 %.not78, label %33, label %29
 
@@ -10852,7 +10852,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 nou
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %34, label %30
 
@@ -10917,7 +10917,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 nou
   br label %62
 
 62:                                               ; preds = %59, %57, %54, %52
-  %.0.i.i = phi i32 [ %44, %52 ], [ %56, %54 ], [ %61, %59 ], [ %44, %57 ]
+  %.0.i.i = phi i32 [ %44, %52 ], [ %56, %54 ], [ %44, %57 ], [ %61, %59 ]
   %63 = load i32, ptr %10, align 4
   %cond.i.i = icmp eq i32 %63, 1
   br i1 %cond.i.i, label %64, label %drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit
@@ -11154,7 +11154,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest1(ptr noundef %
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %33, label %29
 
@@ -11241,7 +11241,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest2(ptr noundef %
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %33, label %29
 
@@ -11675,7 +11675,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailure(ptr noundef %0,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -11762,7 +11762,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailuresCtr(ptr noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -11875,7 +11875,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOp(ptr noundef %0, i32 nounde
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not90 = icmp eq ptr %3, null
   br i1 %.not90, label %34, label %30
 
@@ -12000,7 +12000,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOpCtr(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -12879,7 +12879,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Ctr1(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -12960,7 +12960,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Request1(ptr noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -13096,7 +13096,7 @@ define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostCtr1(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -13179,7 +13179,7 @@ define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostRequest1(ptr noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -13264,7 +13264,7 @@ define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReqV1(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -13343,7 +13343,7 @@ define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReplyV1(ptr noundef %0, i32 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -15489,7 +15489,7 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_request(ptr noundef %0,
   br label %40
 
 40:                                               ; preds = %37, %35, %32, %30
-  %.0.i.i = phi i32 [ %21, %30 ], [ %34, %32 ], [ %39, %37 ], [ %21, %35 ]
+  %.0.i.i = phi i32 [ %21, %30 ], [ %34, %32 ], [ %21, %35 ], [ %39, %37 ]
   %41 = load i32, ptr %8, align 4
   %cond.i.i = icmp eq i32 %41, 1
   br i1 %cond.i.i, label %42, label %drsuapi_dissect_element_DsReplicaUpdateRefs_req.exit
@@ -15595,7 +15595,7 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 no
   br label %40
 
 40:                                               ; preds = %37, %35, %32, %30
-  %.0.i.i = phi i32 [ %21, %30 ], [ %34, %32 ], [ %39, %37 ], [ %21, %35 ]
+  %.0.i.i = phi i32 [ %21, %30 ], [ %34, %32 ], [ %21, %35 ], [ %39, %37 ]
   %41 = load i32, ptr %8, align 4
   switch i32 %41, label %drsuapi_dissect_element_DsReplicaAdd_req.exit [
     i32 1, label %42
@@ -15708,7 +15708,7 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_request(ptr noundef %0, i32 no
   br label %40
 
 40:                                               ; preds = %37, %35, %32, %30
-  %.0.i.i = phi i32 [ %21, %30 ], [ %34, %32 ], [ %39, %37 ], [ %21, %35 ]
+  %.0.i.i = phi i32 [ %21, %30 ], [ %34, %32 ], [ %21, %35 ], [ %39, %37 ]
   %41 = load i32, ptr %8, align 4
   %cond.i.i = icmp eq i32 %41, 1
   br i1 %cond.i.i, label %42, label %drsuapi_dissect_element_DsReplicaDel_req.exit
@@ -15814,7 +15814,7 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_request(ptr noundef %0, i32 no
   br label %40
 
 40:                                               ; preds = %37, %35, %32, %30
-  %.0.i.i = phi i32 [ %21, %30 ], [ %34, %32 ], [ %39, %37 ], [ %21, %35 ]
+  %.0.i.i = phi i32 [ %21, %30 ], [ %34, %32 ], [ %21, %35 ], [ %39, %37 ]
   %41 = load i32, ptr %8, align 4
   %cond.i.i = icmp eq i32 %41, 1
   br i1 %cond.i.i, label %42, label %drsuapi_dissect_element_DsReplicaMod_req.exit
@@ -16853,7 +16853,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaSync_req_(ptr noundef %0, 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsReplicaSyncRequest.exit
@@ -17101,7 +17101,7 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_req_(ptr noundef %
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsGetMembershipsRequest.exit
@@ -17181,7 +17181,7 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_ctr_(ptr noundef %
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsGetMembershipsCtr.exit
@@ -17261,7 +17261,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_req_(ptr noundef 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsGetNT4ChangeLogRequest.exit
@@ -17395,7 +17395,7 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_req_(ptr noundef %0, i
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsNameRequest.exit
@@ -17460,7 +17460,7 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_ctr_(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsCrackNames_ctr, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
@@ -17509,7 +17509,7 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_ctr_(ptr noundef %0, i
   br label %51
 
 51:                                               ; preds = %48, %46, %43, %41
-  %.0.i = phi i32 [ %33, %41 ], [ %45, %43 ], [ %50, %48 ], [ %33, %46 ]
+  %.0.i = phi i32 [ %33, %41 ], [ %45, %43 ], [ %33, %46 ], [ %50, %48 ]
   %52 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %52, 1
   br i1 %cond.i, label %53, label %drsuapi_dissect_DsNameCtr.exit
@@ -17596,7 +17596,7 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_req_(ptr noundef 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsWriteAccountSpnRequest.exit
@@ -17730,7 +17730,7 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_req_(ptr noundef %
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsRemoveDSServerRequest.exit
@@ -17864,7 +17864,7 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_req_(ptr 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsGetDCInfoRequest.exit
@@ -17948,7 +17948,7 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_ctr_(ptr 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %drsuapi_dissect_DsGetDCInfoCtr.exit [
     i32 1, label %35
@@ -18047,7 +18047,7 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_req_(ptr noundef %0, i32
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %drsuapi_dissect_DsAddEntryRequest.exit [
     i32 2, label %35
@@ -18134,7 +18134,7 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_ctr_(ptr noundef %0, i32
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %drsuapi_dissect_DsAddEntryCtr.exit [
     i32 2, label %35
@@ -18275,7 +18275,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_req_(ptr noundef %
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %drsuapi_dissect_DsReplicaGetInfoRequest.exit [
     i32 1, label %35
@@ -18366,7 +18366,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_info_(ptr noundef 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %drsuapi_dissect_DsReplicaInfo.exit [
     i32 0, label %35
@@ -18636,7 +18636,7 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_req_(ptr noundef 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsGetMemberships2Request.exit
@@ -18716,7 +18716,7 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_ctr_(ptr noundef 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_DsGetMemberships2Ctr.exit
@@ -18796,7 +18796,7 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_req_(ptr noundef %
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_QuerySitesByCostRequest.exit
@@ -18876,7 +18876,7 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_ctr_(ptr noundef %
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_QuerySitesByCostCtr.exit
@@ -18956,7 +18956,7 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReq_(ptr noundef %0, 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %34, 1
   br i1 %cond.i, label %35, label %drsuapi_dissect_ReadNgcKeyReq.exit
@@ -19025,7 +19025,7 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReply_(ptr noundef %0
   br label %28
 
 28:                                               ; preds = %25, %23, %20, %18
-  %.0.i = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0.i = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not38.i = icmp eq ptr %3, null
   br i1 %.not38.i, label %32, label %29
 
@@ -19069,7 +19069,7 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReply_(ptr noundef %0
   br label %50
 
 50:                                               ; preds = %47, %45, %42, %40
-  %.1.i = phi i32 [ %33, %40 ], [ %44, %42 ], [ %49, %47 ], [ %33, %45 ]
+  %.1.i = phi i32 [ %33, %40 ], [ %44, %42 ], [ %33, %45 ], [ %49, %47 ]
   %51 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %51, 1
   br i1 %cond.i, label %52, label %drsuapi_dissect_ReadNgcKeyReply.exit

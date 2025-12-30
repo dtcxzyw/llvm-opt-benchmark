@@ -145,7 +145,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc67.i
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc67.i
-  %.0.i.i.i.i.i.ph.i = phi ptr [ %65, %.noexc67.i ], [ %68, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.ph.i = phi ptr [ %68, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %65, %.noexc67.i ]
   %69 = zext i32 %57 to i64
   %70 = shl nuw nsw i64 %69, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %63, i8 -1, i64 %70, i1 false), !tbaa !128

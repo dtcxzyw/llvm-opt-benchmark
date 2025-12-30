@@ -409,7 +409,7 @@ parse_command.exit:                               ; preds = %69, %67, %41
   br label %.outer, !llvm.loop !23
 
 .loopexit:                                        ; preds = %get_capability.exit.i23, %46, %skip_prefix.exit.i.i20, %..loopexit.loopexit64_crit_edge
-  %73 = phi ptr [ %14, %skip_prefix.exit.i.i20 ], [ %.pre.pre, %..loopexit.loopexit64_crit_edge ], [ %14, %get_capability.exit.i23 ], [ null, %46 ]
+  %73 = phi ptr [ %.pre.pre, %..loopexit.loopexit64_crit_edge ], [ %14, %skip_prefix.exit.i.i20 ], [ null, %46 ], [ %14, %get_capability.exit.i23 ]
   call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef %73) #9
   unreachable
 

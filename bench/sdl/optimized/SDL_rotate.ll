@@ -1338,11 +1338,11 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   br i1 %716, label %.lr.ph263.split.i, label %._crit_edge264.i, !llvm.loop !15
 
 ._crit_edge264.i:                                 ; preds = %708, %679, %653, %.lr.ph269.split.i
-  %717 = phi i32 [ %607, %.lr.ph269.split.i ], [ %680, %679 ], [ %654, %653 ], [ %709, %708 ]
-  %718 = phi i32 [ %608, %.lr.ph269.split.i ], [ %681, %679 ], [ %654, %653 ], [ %710, %708 ]
-  %719 = phi i32 [ %609, %.lr.ph269.split.i ], [ %681, %679 ], [ %654, %653 ], [ %711, %708 ]
-  %720 = phi i32 [ %610, %.lr.ph269.split.i ], [ %681, %679 ], [ %654, %653 ], [ %711, %708 ]
-  %.3.lcssa.i167 = phi ptr [ %.2267.i, %.lr.ph269.split.i ], [ %684, %679 ], [ %657, %653 ], [ %714, %708 ]
+  %717 = phi i32 [ %607, %.lr.ph269.split.i ], [ %654, %653 ], [ %680, %679 ], [ %709, %708 ]
+  %718 = phi i32 [ %608, %.lr.ph269.split.i ], [ %654, %653 ], [ %681, %679 ], [ %710, %708 ]
+  %719 = phi i32 [ %609, %.lr.ph269.split.i ], [ %654, %653 ], [ %681, %679 ], [ %711, %708 ]
+  %720 = phi i32 [ %610, %.lr.ph269.split.i ], [ %654, %653 ], [ %681, %679 ], [ %711, %708 ]
+  %.3.lcssa.i167 = phi ptr [ %.2267.i, %.lr.ph269.split.i ], [ %657, %653 ], [ %684, %679 ], [ %714, %708 ]
   %721 = getelementptr inbounds i8, ptr %.3.lcssa.i167, i64 %451
   %722 = add nuw nsw i32 %.0234268.i, 1
   %723 = load i32, ptr %92, align 4
@@ -1360,7 +1360,7 @@ transformSurfaceY90.exit:                         ; preds = %._crit_edge.i162, %
   br label %.thread178
 
 .thread178:                                       ; preds = %37, %44, %31, %40, %transformSurfaceY90.exit, %727, %61, %28, %41, %9, %102
-  %.0 = phi ptr [ null, %61 ], [ null, %102 ], [ null, %28 ], [ null, %9 ], [ null, %41 ], [ null, %40 ], [ %.093187189, %transformSurfaceY90.exit ], [ %.093187189, %727 ], [ null, %31 ], [ null, %44 ], [ null, %37 ]
+  %.0 = phi ptr [ null, %102 ], [ null, %9 ], [ null, %41 ], [ null, %40 ], [ null, %28 ], [ null, %61 ], [ %.093187189, %727 ], [ %.093187189, %transformSurfaceY90.exit ], [ null, %31 ], [ null, %44 ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0

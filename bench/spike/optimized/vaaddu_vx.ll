@@ -351,7 +351,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaaddu_vxP
   br label %154
 
 154:                                              ; preds = %151, %147, %149, %145, %131
-  %.0134.off1 = phi i8 [ %extract.t195, %131 ], [ %extract.t197, %145 ], [ %extract.t199, %149 ], [ %spec.select232, %151 ], [ %extract.t195, %147 ]
+  %.0134.off1 = phi i8 [ %extract.t195, %131 ], [ %extract.t197, %145 ], [ %extract.t199, %149 ], [ %extract.t195, %147 ], [ %spec.select232, %151 ]
   store i8 %.0134.off1, ptr %132, align 1, !tbaa !150
   br label %227
 
@@ -402,7 +402,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaaddu_vxP
   br label %178
 
 178:                                              ; preds = %175, %171, %173, %169, %155
-  %.0135.off1 = phi i16 [ %extract.t177, %155 ], [ %extract.t179, %169 ], [ %extract.t181, %173 ], [ %spec.select235, %175 ], [ %extract.t177, %171 ]
+  %.0135.off1 = phi i16 [ %extract.t177, %155 ], [ %extract.t179, %169 ], [ %extract.t181, %173 ], [ %extract.t177, %171 ], [ %spec.select235, %175 ]
   store i16 %.0135.off1, ptr %156, align 2, !tbaa !151
   br label %227
 
@@ -453,7 +453,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaaddu_vxP
   br label %202
 
 202:                                              ; preds = %199, %195, %197, %193, %179
-  %.0131.off1 = phi i32 [ %extract.t159, %179 ], [ %extract.t161, %193 ], [ %extract.t163, %197 ], [ %spec.select238, %199 ], [ %extract.t159, %195 ]
+  %.0131.off1 = phi i32 [ %extract.t159, %179 ], [ %extract.t161, %193 ], [ %extract.t163, %197 ], [ %extract.t159, %195 ], [ %spec.select238, %199 ]
   store i32 %.0131.off1, ptr %180, align 4, !tbaa !153
   br label %227
 
@@ -503,7 +503,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaaddu_vxP
   br label %226
 
 226:                                              ; preds = %223, %219, %221, %217, %203
-  %.0130.off1 = phi i64 [ %extract.t, %203 ], [ %extract.t144, %217 ], [ %extract.t146, %221 ], [ %spec.select241, %223 ], [ %extract.t, %219 ]
+  %.0130.off1 = phi i64 [ %extract.t, %203 ], [ %extract.t144, %217 ], [ %extract.t146, %221 ], [ %extract.t, %219 ], [ %spec.select241, %223 ]
   store i64 %.0130.off1, ptr %204, align 8, !tbaa !149
   br label %227
 
@@ -589,7 +589,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !162
@@ -910,7 +910,7 @@ define noundef i64 @_Z20fast_rv64i_vaaddu_vxP11processor_t6insn_tm(ptr noundef %
   br label %152
 
 152:                                              ; preds = %149, %145, %147, %143, %129
-  %.0134.off1 = phi i8 [ %extract.t195, %129 ], [ %extract.t197, %143 ], [ %extract.t199, %147 ], [ %spec.select232, %149 ], [ %extract.t195, %145 ]
+  %.0134.off1 = phi i8 [ %extract.t195, %129 ], [ %extract.t197, %143 ], [ %extract.t199, %147 ], [ %extract.t195, %145 ], [ %spec.select232, %149 ]
   store i8 %.0134.off1, ptr %130, align 1, !tbaa !150
   br label %225
 
@@ -961,7 +961,7 @@ define noundef i64 @_Z20fast_rv64i_vaaddu_vxP11processor_t6insn_tm(ptr noundef %
   br label %176
 
 176:                                              ; preds = %173, %169, %171, %167, %153
-  %.0135.off1 = phi i16 [ %extract.t177, %153 ], [ %extract.t179, %167 ], [ %extract.t181, %171 ], [ %spec.select235, %173 ], [ %extract.t177, %169 ]
+  %.0135.off1 = phi i16 [ %extract.t177, %153 ], [ %extract.t179, %167 ], [ %extract.t181, %171 ], [ %extract.t177, %169 ], [ %spec.select235, %173 ]
   store i16 %.0135.off1, ptr %154, align 2, !tbaa !151
   br label %225
 
@@ -1012,7 +1012,7 @@ define noundef i64 @_Z20fast_rv64i_vaaddu_vxP11processor_t6insn_tm(ptr noundef %
   br label %200
 
 200:                                              ; preds = %197, %193, %195, %191, %177
-  %.0131.off1 = phi i32 [ %extract.t159, %177 ], [ %extract.t161, %191 ], [ %extract.t163, %195 ], [ %spec.select238, %197 ], [ %extract.t159, %193 ]
+  %.0131.off1 = phi i32 [ %extract.t159, %177 ], [ %extract.t161, %191 ], [ %extract.t163, %195 ], [ %extract.t159, %193 ], [ %spec.select238, %197 ]
   store i32 %.0131.off1, ptr %178, align 4, !tbaa !153
   br label %225
 
@@ -1062,7 +1062,7 @@ define noundef i64 @_Z20fast_rv64i_vaaddu_vxP11processor_t6insn_tm(ptr noundef %
   br label %224
 
 224:                                              ; preds = %221, %217, %219, %215, %201
-  %.0130.off1 = phi i64 [ %extract.t, %201 ], [ %extract.t144, %215 ], [ %extract.t146, %219 ], [ %spec.select241, %221 ], [ %extract.t, %217 ]
+  %.0130.off1 = phi i64 [ %extract.t, %201 ], [ %extract.t144, %215 ], [ %extract.t146, %219 ], [ %extract.t, %217 ], [ %spec.select241, %221 ]
   store i64 %.0130.off1, ptr %202, align 8, !tbaa !149
   br label %225
 
@@ -1355,7 +1355,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vaaddu_v
   br label %154
 
 154:                                              ; preds = %151, %147, %149, %145, %131
-  %.0134.off1 = phi i8 [ %extract.t195, %131 ], [ %extract.t197, %145 ], [ %extract.t199, %149 ], [ %spec.select232, %151 ], [ %extract.t195, %147 ]
+  %.0134.off1 = phi i8 [ %extract.t195, %131 ], [ %extract.t197, %145 ], [ %extract.t199, %149 ], [ %extract.t195, %147 ], [ %spec.select232, %151 ]
   store i8 %.0134.off1, ptr %132, align 1, !tbaa !150
   br label %227
 
@@ -1406,7 +1406,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vaaddu_v
   br label %178
 
 178:                                              ; preds = %175, %171, %173, %169, %155
-  %.0135.off1 = phi i16 [ %extract.t177, %155 ], [ %extract.t179, %169 ], [ %extract.t181, %173 ], [ %spec.select235, %175 ], [ %extract.t177, %171 ]
+  %.0135.off1 = phi i16 [ %extract.t177, %155 ], [ %extract.t179, %169 ], [ %extract.t181, %173 ], [ %extract.t177, %171 ], [ %spec.select235, %175 ]
   store i16 %.0135.off1, ptr %156, align 2, !tbaa !151
   br label %227
 
@@ -1457,7 +1457,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vaaddu_v
   br label %202
 
 202:                                              ; preds = %199, %195, %197, %193, %179
-  %.0131.off1 = phi i32 [ %extract.t159, %179 ], [ %extract.t161, %193 ], [ %extract.t163, %197 ], [ %spec.select238, %199 ], [ %extract.t159, %195 ]
+  %.0131.off1 = phi i32 [ %extract.t159, %179 ], [ %extract.t161, %193 ], [ %extract.t163, %197 ], [ %extract.t159, %195 ], [ %spec.select238, %199 ]
   store i32 %.0131.off1, ptr %180, align 4, !tbaa !153
   br label %227
 
@@ -1507,7 +1507,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vaaddu_v
   br label %226
 
 226:                                              ; preds = %223, %219, %221, %217, %203
-  %.0130.off1 = phi i64 [ %extract.t, %203 ], [ %extract.t144, %217 ], [ %extract.t146, %221 ], [ %spec.select241, %223 ], [ %extract.t, %219 ]
+  %.0130.off1 = phi i64 [ %extract.t, %203 ], [ %extract.t144, %217 ], [ %extract.t146, %221 ], [ %extract.t, %219 ], [ %spec.select241, %223 ]
   store i64 %.0130.off1, ptr %204, align 8, !tbaa !149
   br label %227
 
@@ -1798,7 +1798,7 @@ define noundef i64 @_Z22logged_rv64i_vaaddu_vxP11processor_t6insn_tm(ptr noundef
   br label %152
 
 152:                                              ; preds = %149, %145, %147, %143, %129
-  %.0134.off1 = phi i8 [ %extract.t195, %129 ], [ %extract.t197, %143 ], [ %extract.t199, %147 ], [ %spec.select232, %149 ], [ %extract.t195, %145 ]
+  %.0134.off1 = phi i8 [ %extract.t195, %129 ], [ %extract.t197, %143 ], [ %extract.t199, %147 ], [ %extract.t195, %145 ], [ %spec.select232, %149 ]
   store i8 %.0134.off1, ptr %130, align 1, !tbaa !150
   br label %225
 
@@ -1849,7 +1849,7 @@ define noundef i64 @_Z22logged_rv64i_vaaddu_vxP11processor_t6insn_tm(ptr noundef
   br label %176
 
 176:                                              ; preds = %173, %169, %171, %167, %153
-  %.0135.off1 = phi i16 [ %extract.t177, %153 ], [ %extract.t179, %167 ], [ %extract.t181, %171 ], [ %spec.select235, %173 ], [ %extract.t177, %169 ]
+  %.0135.off1 = phi i16 [ %extract.t177, %153 ], [ %extract.t179, %167 ], [ %extract.t181, %171 ], [ %extract.t177, %169 ], [ %spec.select235, %173 ]
   store i16 %.0135.off1, ptr %154, align 2, !tbaa !151
   br label %225
 
@@ -1900,7 +1900,7 @@ define noundef i64 @_Z22logged_rv64i_vaaddu_vxP11processor_t6insn_tm(ptr noundef
   br label %200
 
 200:                                              ; preds = %197, %193, %195, %191, %177
-  %.0131.off1 = phi i32 [ %extract.t159, %177 ], [ %extract.t161, %191 ], [ %extract.t163, %195 ], [ %spec.select238, %197 ], [ %extract.t159, %193 ]
+  %.0131.off1 = phi i32 [ %extract.t159, %177 ], [ %extract.t161, %191 ], [ %extract.t163, %195 ], [ %extract.t159, %193 ], [ %spec.select238, %197 ]
   store i32 %.0131.off1, ptr %178, align 4, !tbaa !153
   br label %225
 
@@ -1950,7 +1950,7 @@ define noundef i64 @_Z22logged_rv64i_vaaddu_vxP11processor_t6insn_tm(ptr noundef
   br label %224
 
 224:                                              ; preds = %221, %217, %219, %215, %201
-  %.0130.off1 = phi i64 [ %extract.t, %201 ], [ %extract.t144, %215 ], [ %extract.t146, %219 ], [ %spec.select241, %221 ], [ %extract.t, %217 ]
+  %.0130.off1 = phi i64 [ %extract.t, %201 ], [ %extract.t144, %215 ], [ %extract.t146, %219 ], [ %extract.t, %217 ], [ %spec.select241, %221 ]
   store i64 %.0130.off1, ptr %202, align 8, !tbaa !149
   br label %225
 
@@ -2259,7 +2259,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaaddu_vxP
   br label %161
 
 161:                                              ; preds = %158, %154, %156, %152, %139
-  %.0143.off1 = phi i8 [ %extract.t204, %139 ], [ %extract.t206, %152 ], [ %extract.t208, %156 ], [ %spec.select251, %158 ], [ %extract.t204, %154 ]
+  %.0143.off1 = phi i8 [ %extract.t204, %139 ], [ %extract.t206, %152 ], [ %extract.t208, %156 ], [ %extract.t204, %154 ], [ %spec.select251, %158 ]
   store i8 %.0143.off1, ptr %133, align 1, !tbaa !150
   br label %252
 
@@ -2325,7 +2325,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaaddu_vxP
   br label %191
 
 191:                                              ; preds = %188, %184, %186, %182, %169
-  %.0144.off1 = phi i16 [ %extract.t186, %169 ], [ %extract.t188, %182 ], [ %extract.t190, %186 ], [ %spec.select254, %188 ], [ %extract.t186, %184 ]
+  %.0144.off1 = phi i16 [ %extract.t186, %169 ], [ %extract.t188, %182 ], [ %extract.t190, %186 ], [ %extract.t186, %184 ], [ %spec.select254, %188 ]
   store i16 %.0144.off1, ptr %163, align 2, !tbaa !151
   br label %252
 
@@ -2391,7 +2391,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaaddu_vxP
   br label %221
 
 221:                                              ; preds = %218, %214, %216, %212, %199
-  %.0141.off1 = phi i32 [ %extract.t168, %199 ], [ %extract.t170, %212 ], [ %extract.t172, %216 ], [ %spec.select257, %218 ], [ %extract.t168, %214 ]
+  %.0141.off1 = phi i32 [ %extract.t168, %199 ], [ %extract.t170, %212 ], [ %extract.t172, %216 ], [ %extract.t168, %214 ], [ %spec.select257, %218 ]
   store i32 %.0141.off1, ptr %193, align 4, !tbaa !153
   br label %252
 
@@ -2456,7 +2456,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaaddu_vxP
   br label %251
 
 251:                                              ; preds = %248, %244, %246, %242, %229
-  %.0139.off1 = phi i64 [ %extract.t, %229 ], [ %extract.t153, %242 ], [ %extract.t155, %246 ], [ %spec.select260, %248 ], [ %extract.t, %244 ]
+  %.0139.off1 = phi i64 [ %extract.t, %229 ], [ %extract.t153, %242 ], [ %extract.t155, %246 ], [ %extract.t, %244 ], [ %spec.select260, %248 ]
   store i64 %.0139.off1, ptr %223, align 8, !tbaa !149
   br label %252
 
@@ -2763,7 +2763,7 @@ define noundef i64 @_Z20fast_rv64e_vaaddu_vxP11processor_t6insn_tm(ptr noundef %
   br label %159
 
 159:                                              ; preds = %156, %152, %154, %150, %137
-  %.0143.off1 = phi i8 [ %extract.t204, %137 ], [ %extract.t206, %150 ], [ %extract.t208, %154 ], [ %spec.select251, %156 ], [ %extract.t204, %152 ]
+  %.0143.off1 = phi i8 [ %extract.t204, %137 ], [ %extract.t206, %150 ], [ %extract.t208, %154 ], [ %extract.t204, %152 ], [ %spec.select251, %156 ]
   store i8 %.0143.off1, ptr %131, align 1, !tbaa !150
   br label %250
 
@@ -2829,7 +2829,7 @@ define noundef i64 @_Z20fast_rv64e_vaaddu_vxP11processor_t6insn_tm(ptr noundef %
   br label %189
 
 189:                                              ; preds = %186, %182, %184, %180, %167
-  %.0144.off1 = phi i16 [ %extract.t186, %167 ], [ %extract.t188, %180 ], [ %extract.t190, %184 ], [ %spec.select254, %186 ], [ %extract.t186, %182 ]
+  %.0144.off1 = phi i16 [ %extract.t186, %167 ], [ %extract.t188, %180 ], [ %extract.t190, %184 ], [ %extract.t186, %182 ], [ %spec.select254, %186 ]
   store i16 %.0144.off1, ptr %161, align 2, !tbaa !151
   br label %250
 
@@ -2895,7 +2895,7 @@ define noundef i64 @_Z20fast_rv64e_vaaddu_vxP11processor_t6insn_tm(ptr noundef %
   br label %219
 
 219:                                              ; preds = %216, %212, %214, %210, %197
-  %.0141.off1 = phi i32 [ %extract.t168, %197 ], [ %extract.t170, %210 ], [ %extract.t172, %214 ], [ %spec.select257, %216 ], [ %extract.t168, %212 ]
+  %.0141.off1 = phi i32 [ %extract.t168, %197 ], [ %extract.t170, %210 ], [ %extract.t172, %214 ], [ %extract.t168, %212 ], [ %spec.select257, %216 ]
   store i32 %.0141.off1, ptr %191, align 4, !tbaa !153
   br label %250
 
@@ -2960,7 +2960,7 @@ define noundef i64 @_Z20fast_rv64e_vaaddu_vxP11processor_t6insn_tm(ptr noundef %
   br label %249
 
 249:                                              ; preds = %246, %242, %244, %240, %227
-  %.0139.off1 = phi i64 [ %extract.t, %227 ], [ %extract.t153, %240 ], [ %extract.t155, %244 ], [ %spec.select260, %246 ], [ %extract.t, %242 ]
+  %.0139.off1 = phi i64 [ %extract.t, %227 ], [ %extract.t153, %240 ], [ %extract.t155, %244 ], [ %extract.t, %242 ], [ %spec.select260, %246 ]
   store i64 %.0139.off1, ptr %221, align 8, !tbaa !149
   br label %250
 
@@ -3269,7 +3269,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaaddu_v
   br label %161
 
 161:                                              ; preds = %158, %154, %156, %152, %139
-  %.0143.off1 = phi i8 [ %extract.t204, %139 ], [ %extract.t206, %152 ], [ %extract.t208, %156 ], [ %spec.select251, %158 ], [ %extract.t204, %154 ]
+  %.0143.off1 = phi i8 [ %extract.t204, %139 ], [ %extract.t206, %152 ], [ %extract.t208, %156 ], [ %extract.t204, %154 ], [ %spec.select251, %158 ]
   store i8 %.0143.off1, ptr %133, align 1, !tbaa !150
   br label %252
 
@@ -3335,7 +3335,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaaddu_v
   br label %191
 
 191:                                              ; preds = %188, %184, %186, %182, %169
-  %.0144.off1 = phi i16 [ %extract.t186, %169 ], [ %extract.t188, %182 ], [ %extract.t190, %186 ], [ %spec.select254, %188 ], [ %extract.t186, %184 ]
+  %.0144.off1 = phi i16 [ %extract.t186, %169 ], [ %extract.t188, %182 ], [ %extract.t190, %186 ], [ %extract.t186, %184 ], [ %spec.select254, %188 ]
   store i16 %.0144.off1, ptr %163, align 2, !tbaa !151
   br label %252
 
@@ -3401,7 +3401,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaaddu_v
   br label %221
 
 221:                                              ; preds = %218, %214, %216, %212, %199
-  %.0141.off1 = phi i32 [ %extract.t168, %199 ], [ %extract.t170, %212 ], [ %extract.t172, %216 ], [ %spec.select257, %218 ], [ %extract.t168, %214 ]
+  %.0141.off1 = phi i32 [ %extract.t168, %199 ], [ %extract.t170, %212 ], [ %extract.t172, %216 ], [ %extract.t168, %214 ], [ %spec.select257, %218 ]
   store i32 %.0141.off1, ptr %193, align 4, !tbaa !153
   br label %252
 
@@ -3466,7 +3466,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaaddu_v
   br label %251
 
 251:                                              ; preds = %248, %244, %246, %242, %229
-  %.0139.off1 = phi i64 [ %extract.t, %229 ], [ %extract.t153, %242 ], [ %extract.t155, %246 ], [ %spec.select260, %248 ], [ %extract.t, %244 ]
+  %.0139.off1 = phi i64 [ %extract.t, %229 ], [ %extract.t153, %242 ], [ %extract.t155, %246 ], [ %extract.t, %244 ], [ %spec.select260, %248 ]
   store i64 %.0139.off1, ptr %223, align 8, !tbaa !149
   br label %252
 
@@ -3773,7 +3773,7 @@ define noundef i64 @_Z22logged_rv64e_vaaddu_vxP11processor_t6insn_tm(ptr noundef
   br label %159
 
 159:                                              ; preds = %156, %152, %154, %150, %137
-  %.0143.off1 = phi i8 [ %extract.t204, %137 ], [ %extract.t206, %150 ], [ %extract.t208, %154 ], [ %spec.select251, %156 ], [ %extract.t204, %152 ]
+  %.0143.off1 = phi i8 [ %extract.t204, %137 ], [ %extract.t206, %150 ], [ %extract.t208, %154 ], [ %extract.t204, %152 ], [ %spec.select251, %156 ]
   store i8 %.0143.off1, ptr %131, align 1, !tbaa !150
   br label %250
 
@@ -3839,7 +3839,7 @@ define noundef i64 @_Z22logged_rv64e_vaaddu_vxP11processor_t6insn_tm(ptr noundef
   br label %189
 
 189:                                              ; preds = %186, %182, %184, %180, %167
-  %.0144.off1 = phi i16 [ %extract.t186, %167 ], [ %extract.t188, %180 ], [ %extract.t190, %184 ], [ %spec.select254, %186 ], [ %extract.t186, %182 ]
+  %.0144.off1 = phi i16 [ %extract.t186, %167 ], [ %extract.t188, %180 ], [ %extract.t190, %184 ], [ %extract.t186, %182 ], [ %spec.select254, %186 ]
   store i16 %.0144.off1, ptr %161, align 2, !tbaa !151
   br label %250
 
@@ -3905,7 +3905,7 @@ define noundef i64 @_Z22logged_rv64e_vaaddu_vxP11processor_t6insn_tm(ptr noundef
   br label %219
 
 219:                                              ; preds = %216, %212, %214, %210, %197
-  %.0141.off1 = phi i32 [ %extract.t168, %197 ], [ %extract.t170, %210 ], [ %extract.t172, %214 ], [ %spec.select257, %216 ], [ %extract.t168, %212 ]
+  %.0141.off1 = phi i32 [ %extract.t168, %197 ], [ %extract.t170, %210 ], [ %extract.t172, %214 ], [ %extract.t168, %212 ], [ %spec.select257, %216 ]
   store i32 %.0141.off1, ptr %191, align 4, !tbaa !153
   br label %250
 
@@ -3970,7 +3970,7 @@ define noundef i64 @_Z22logged_rv64e_vaaddu_vxP11processor_t6insn_tm(ptr noundef
   br label %249
 
 249:                                              ; preds = %246, %242, %244, %240, %227
-  %.0139.off1 = phi i64 [ %extract.t, %227 ], [ %extract.t153, %240 ], [ %extract.t155, %244 ], [ %spec.select260, %246 ], [ %extract.t, %242 ]
+  %.0139.off1 = phi i64 [ %extract.t, %227 ], [ %extract.t153, %240 ], [ %extract.t155, %244 ], [ %extract.t, %242 ], [ %spec.select260, %246 ]
   store i64 %.0139.off1, ptr %221, align 8, !tbaa !149
   br label %250
 
@@ -4255,8 +4255,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -173,7 +173,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
   br label %6
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4a6d0c087c3cdbf0E.llvm.15487262557860838494.exit": ; preds = %.sink.split.i.i, %14, %.sink.split.i7.i
-  %.0.i = phi ptr [ %.0.ph.i9.i, %.sink.split.i7.i ], [ null, %14 ], [ %.sink.i16.i, %.sink.split.i.i ]
+  %.0.i = phi ptr [ null, %14 ], [ %.0.ph.i9.i, %.sink.split.i7.i ], [ %.sink.i16.i, %.sink.split.i.i ]
   ret ptr %.0.i
 }
 
@@ -225,7 +225,7 @@ select.unfold:                                    ; preds = %.sink.split.i, %6
   br i1 %or.cond.i, label %14, label %22
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h3845c87d3b39174eE.exit: ; preds = %.sink.split.i, %.sink.split.i7, %14
-  %.0 = phi ptr [ %.0.ph.i9, %.sink.split.i7 ], [ null, %14 ], [ %.sink.i16, %.sink.split.i ]
+  %.0 = phi ptr [ null, %14 ], [ %.0.ph.i9, %.sink.split.i7 ], [ %.sink.i16, %.sink.split.i ]
   ret ptr %.0
 
 14:                                               ; preds = %select.unfold
@@ -1634,7 +1634,7 @@ define hidden void @_ZN5uu_od15multifilereader15MultifileReader9next_file17h2965
   ret void
 
 common.resume:                                    ; preds = %144, %132, %75, %.body, %.body44, %174, %.body32, %.body36
-  %common.resume.op = phi { ptr, i32 } [ %133, %132 ], [ %112, %.body36 ], [ %76, %75 ], [ %42, %.body ], [ %155, %.body44 ], [ %175, %174 ], [ %86, %.body32 ], [ %145, %144 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %.body ], [ %155, %.body44 ], [ %175, %174 ], [ %86, %.body32 ], [ %112, %.body36 ], [ %76, %75 ], [ %133, %132 ], [ %145, %144 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf4ef3b22b46ad701E.exit"
@@ -2052,7 +2052,7 @@ define void @"_ZN73_$LT$uu_od..multifilereader..MultifileReader$u20$as$u20$std..
   br label %36
 
 .loopexit25:                                      ; preds = %.loopexit, %53, %4
-  %.1 = phi i64 [ %3, %53 ], [ 0, %4 ], [ %.2, %.loopexit ]
+  %.1 = phi i64 [ 0, %4 ], [ %3, %53 ], [ %.2, %.loopexit ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.1, ptr %35, align 8
   store i64 0, ptr %0, align 8

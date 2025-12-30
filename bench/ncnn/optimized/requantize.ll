@@ -1131,7 +1131,7 @@ _ZN4ncnn3MatD2Ev.exit13:                          ; preds = %293, %290, %300, %3
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit12, %_ZN4ncnn3MatD2Ev.exit10, %_ZN4ncnn3MatD2Ev.exit, %_ZNK4ncnn3Mat5emptyEv.exit64, %_ZNK4ncnn3Mat5emptyEv.exit63, %_ZNK4ncnn3Mat5emptyEv.exit, %309
-  %.07 = phi i32 [ 0, %309 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit63 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit64 ], [ -100, %_ZN4ncnn3MatD2Ev.exit10 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit12 ]
+  %.07 = phi i32 [ 0, %309 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit63 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit64 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit10 ], [ -100, %_ZN4ncnn3MatD2Ev.exit12 ]
   ret i32 %.07
 
 310:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit13, %_ZN4ncnn3MatD2Ev.exit11, %_ZN4ncnn3MatD2Ev.exit9
@@ -1267,7 +1267,7 @@ _ZNK4ncnn3Mat5emptyEv.exit31:                     ; preds = %64
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %64, %49, %17, %61, %41, %76, %4, %_ZNK4ncnn3Mat5emptyEv.exit31, %_ZNK4ncnn3Mat5emptyEv.exit30, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit31 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit30 ], [ 0, %4 ], [ 0, %41 ], [ 0, %76 ], [ 0, %61 ], [ -100, %49 ], [ -100, %17 ], [ -100, %64 ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit30 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit31 ], [ 0, %4 ], [ 0, %41 ], [ 0, %76 ], [ 0, %61 ], [ -100, %17 ], [ -100, %49 ], [ -100, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1427,7 +1427,7 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPafffiRKNS_3MatEi(ptr noun
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %43, %.lr.ph, %14, %16, %22, %29, %30, %37, %51, %55
-  %.1 = phi nsz float [ %13, %.lr.ph ], [ %15, %14 ], [ %21, %16 ], [ %26, %29 ], [ %.026, %22 ], [ %36, %30 ], [ %42, %37 ], [ %58, %55 ], [ %13, %51 ], [ 0.000000e+00, %43 ]
+  %.1 = phi nsz float [ %13, %.lr.ph ], [ %15, %14 ], [ %21, %16 ], [ %26, %29 ], [ %.026, %22 ], [ %36, %30 ], [ %42, %37 ], [ %13, %51 ], [ %58, %55 ], [ 0.000000e+00, %43 ]
   %59 = fmul fast float %.1, %4
   %60 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %59)
   %61 = fptosi float %60 to i32

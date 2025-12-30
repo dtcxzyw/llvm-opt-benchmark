@@ -690,7 +690,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %79, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !34
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %76, %74, %70, %66, %61
-  %.0.i.i = phi i32 [ %75, %74 ], [ %67, %66 ], [ %71, %70 ], [ 1, %61 ], [ %78, %76 ]
+  %.0.i.i = phi i32 [ %67, %66 ], [ %71, %70 ], [ %75, %74 ], [ 1, %61 ], [ %78, %76 ]
   %.lobit.i = lshr i32 %62, 31
   %80 = add i32 %.0.i.i, %.lobit.i
   %81 = zext i32 %80 to i64

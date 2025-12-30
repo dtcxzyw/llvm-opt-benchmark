@@ -151,7 +151,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoER
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %18, %27, %25, %25, %25
-  %.0.i = phi i1 [ true, %25 ], [ false, %27 ], [ true, %25 ], [ true, %25 ], [ false, %18 ], [ false, %21 ]
+  %.0.i = phi i1 [ false, %27 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ false, %18 ], [ false, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %37, label %28
@@ -178,7 +178,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoER
   br label %37
 
 37:                                               ; preds = %34, %.loopexit
-  %38 = phi i1 [ %.0.i, %.loopexit ], [ %35, %34 ]
+  %38 = phi i1 [ %35, %34 ], [ %.0.i, %.loopexit ]
   %.not14 = icmp eq ptr %2, null
   br i1 %.not14, label %.critedge.thread, label %39
 
@@ -201,7 +201,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoER
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %6, %9, %.thread19, %37, %43
-  %.not16 = phi i1 [ true, %.thread19 ], [ true, %37 ], [ true, %43 ], [ false, %9 ], [ false, %6 ]
+  %.not16 = phi i1 [ true, %37 ], [ true, %43 ], [ true, %.thread19 ], [ false, %9 ], [ false, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.not16
 }

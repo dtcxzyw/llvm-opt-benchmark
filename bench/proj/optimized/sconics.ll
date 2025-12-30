@@ -128,7 +128,7 @@ define internal fastcc noundef ptr @_ZL16pj_sconics_setupP8PJconstsN13pj_sconics
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %20, %15, %7
-  %.str.14.sink.i = phi ptr [ @.str.11, %15 ], [ @.str.9, %7 ], [ @.str.14, %20 ]
+  %.str.14.sink.i = phi ptr [ @.str.9, %7 ], [ @.str.11, %15 ], [ @.str.14, %20 ]
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull %.str.14.sink.i)
   %41 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
   br label %170

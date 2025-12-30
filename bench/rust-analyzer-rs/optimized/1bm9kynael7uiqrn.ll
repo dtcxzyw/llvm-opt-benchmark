@@ -990,7 +990,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..node
   br i1 %87, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit.sink.split", label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit"
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit.sink.split": ; preds = %82, %76, %70, %64, %58, %52, %46, %40, %34, %28, %22, %16, %10, %4
-  %.sink = phi ptr [ %77, %76 ], [ %71, %70 ], [ %65, %64 ], [ %59, %58 ], [ %53, %52 ], [ %47, %46 ], [ %41, %40 ], [ %35, %34 ], [ %29, %28 ], [ %23, %22 ], [ %17, %16 ], [ %11, %10 ], [ %5, %4 ], [ %83, %82 ]
+  %.sink = phi ptr [ %5, %4 ], [ %11, %10 ], [ %17, %16 ], [ %23, %22 ], [ %29, %28 ], [ %35, %34 ], [ %41, %40 ], [ %47, %46 ], [ %53, %52 ], [ %59, %58 ], [ %65, %64 ], [ %71, %70 ], [ %77, %76 ], [ %83, %82 ]
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink), !noalias !9
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit"
 
@@ -2213,11 +2213,11 @@ define noundef nonnull ptr @_ZN6syntax3ast4make8ty_alias17h2c032afd309a5c11E(ptr
           to label %70 unwind label %68
 
 "_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit": ; preds = %468, %473, %459, %464, %.body152, %227, %161, %167, %.body, %119, %465, %446, %83, %68
-  %.185 = phi i8 [ %.084, %68 ], [ 1, %.body152 ], [ 0, %446 ], [ 0, %459 ], [ 0, %465 ], [ 1, %161 ], [ 1, %.body ], [ 1, %83 ], [ 1, %119 ], [ 1, %167 ], [ 1, %227 ], [ 0, %464 ], [ 0, %473 ], [ 0, %468 ]
-  %.180 = phi i8 [ %.079, %68 ], [ 0, %.body152 ], [ %.382, %446 ], [ %.382, %459 ], [ %.382, %465 ], [ 1, %161 ], [ 1, %.body ], [ 1, %83 ], [ 1, %119 ], [ 1, %167 ], [ 0, %227 ], [ %.382, %464 ], [ %.382, %473 ], [ %.382, %468 ]
-  %.174 = phi i8 [ %.073, %68 ], [ %.376, %.body152 ], [ %.376, %446 ], [ %.376, %459 ], [ %.376, %465 ], [ 0, %161 ], [ 1, %.body ], [ 1, %83 ], [ 1, %119 ], [ 0, %167 ], [ %.376, %227 ], [ %.376, %464 ], [ %.376, %473 ], [ %.376, %468 ]
-  %.1 = phi i8 [ %.0, %68 ], [ %.3, %.body152 ], [ %.3, %446 ], [ %.3, %459 ], [ %.3, %465 ], [ %.3, %161 ], [ 0, %.body ], [ 1, %83 ], [ 0, %119 ], [ %.3, %167 ], [ %.3, %227 ], [ %.3, %464 ], [ %.3, %473 ], [ %.3, %468 ]
-  %.pn108 = phi { ptr, i32 } [ %69, %68 ], [ %.pn96, %.body152 ], [ %447, %446 ], [ %447, %459 ], [ %.pn106, %465 ], [ %.pn93, %161 ], [ %.pn, %.body ], [ %84, %83 ], [ %.pn, %119 ], [ %.pn93, %167 ], [ %.pn96, %227 ], [ %447, %464 ], [ %.pn106, %473 ], [ %.pn106, %468 ]
+  %.185 = phi i8 [ %.084, %68 ], [ 0, %446 ], [ 0, %465 ], [ 1, %83 ], [ 1, %119 ], [ 1, %.body ], [ 1, %167 ], [ 1, %161 ], [ 1, %227 ], [ 1, %.body152 ], [ 0, %464 ], [ 0, %459 ], [ 0, %473 ], [ 0, %468 ]
+  %.180 = phi i8 [ %.079, %68 ], [ %.382, %446 ], [ %.382, %465 ], [ 1, %83 ], [ 1, %119 ], [ 1, %.body ], [ 1, %167 ], [ 1, %161 ], [ 0, %227 ], [ 0, %.body152 ], [ %.382, %464 ], [ %.382, %459 ], [ %.382, %473 ], [ %.382, %468 ]
+  %.174 = phi i8 [ %.073, %68 ], [ %.376, %446 ], [ %.376, %465 ], [ 1, %83 ], [ 1, %119 ], [ 1, %.body ], [ 0, %167 ], [ 0, %161 ], [ %.376, %227 ], [ %.376, %.body152 ], [ %.376, %464 ], [ %.376, %459 ], [ %.376, %473 ], [ %.376, %468 ]
+  %.1 = phi i8 [ %.0, %68 ], [ %.3, %446 ], [ %.3, %465 ], [ 1, %83 ], [ 0, %119 ], [ 0, %.body ], [ %.3, %167 ], [ %.3, %161 ], [ %.3, %227 ], [ %.3, %.body152 ], [ %.3, %464 ], [ %.3, %459 ], [ %.3, %473 ], [ %.3, %468 ]
+  %.pn108 = phi { ptr, i32 } [ %69, %68 ], [ %447, %446 ], [ %.pn106, %465 ], [ %84, %83 ], [ %.pn, %119 ], [ %.pn, %.body ], [ %.pn93, %167 ], [ %.pn93, %161 ], [ %.pn96, %227 ], [ %.pn96, %.body152 ], [ %447, %464 ], [ %447, %459 ], [ %.pn106, %473 ], [ %.pn106, %468 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #14
           to label %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit._crit_edge" unwind label %158
 
@@ -2226,10 +2226,10 @@ define noundef nonnull ptr @_ZN6syntax3ast4make8ty_alias17h2c032afd309a5c11E(ptr
   br label %491
 
 68:                                               ; preds = %458, %287, %279, %206, %157, %85, %6, %474
-  %.084 = phi i8 [ %.387, %474 ], [ %.387, %287 ], [ 0, %458 ], [ 1, %279 ], [ 1, %206 ], [ 1, %157 ], [ 1, %85 ], [ 1, %6 ]
-  %.079 = phi i8 [ %.382, %474 ], [ %.382, %287 ], [ %.382, %458 ], [ 0, %279 ], [ 1, %206 ], [ 1, %157 ], [ 1, %85 ], [ 1, %6 ]
-  %.073 = phi i8 [ %.376, %474 ], [ %.376, %287 ], [ %.376, %458 ], [ %.376, %279 ], [ 0, %206 ], [ 1, %157 ], [ 1, %85 ], [ 1, %6 ]
-  %.0 = phi i8 [ %.3, %474 ], [ %.3, %287 ], [ %.3, %458 ], [ %.3, %279 ], [ %.3, %206 ], [ 0, %157 ], [ 1, %85 ], [ 1, %6 ]
+  %.084 = phi i8 [ %.387, %474 ], [ 1, %6 ], [ 1, %85 ], [ 1, %157 ], [ 1, %206 ], [ 1, %279 ], [ %.387, %287 ], [ 0, %458 ]
+  %.079 = phi i8 [ %.382, %474 ], [ 1, %6 ], [ 1, %85 ], [ 1, %157 ], [ 1, %206 ], [ 0, %279 ], [ %.382, %287 ], [ %.382, %458 ]
+  %.073 = phi i8 [ %.376, %474 ], [ 1, %6 ], [ 1, %85 ], [ 1, %157 ], [ 0, %206 ], [ %.376, %279 ], [ %.376, %287 ], [ %.376, %458 ]
+  %.0 = phi i8 [ %.3, %474 ], [ 1, %6 ], [ 1, %85 ], [ 0, %157 ], [ %.3, %206 ], [ %.3, %279 ], [ %.3, %287 ], [ %.3, %458 ]
   %69 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit"
@@ -2673,7 +2673,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit139: ; pre
   br i1 %.not98, label %283, label %280
 
 .body152:                                         ; preds = %228, %215, %257, %242, %230
-  %.pn96 = phi { ptr, i32 } [ %231, %230 ], [ %258, %257 ], [ %243, %242 ], [ %229, %228 ], [ %216, %215 ]
+  %.pn96 = phi { ptr, i32 } [ %258, %257 ], [ %243, %242 ], [ %231, %230 ], [ %229, %228 ], [ %216, %215 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !611)
   call void @llvm.experimental.noalias.scope.decl(metadata !614)
   call void @llvm.experimental.noalias.scope.decl(metadata !617)
@@ -2970,7 +2970,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit161: ; pre
   unreachable
 
 .body179:                                         ; preds = %320, %296, %376, %360, %.body195
-  %.pn104 = phi { ptr, i32 } [ %.pn100, %.body195 ], [ %377, %376 ], [ %.pn102, %360 ], [ %321, %320 ], [ %297, %296 ]
+  %.pn104 = phi { ptr, i32 } [ %377, %376 ], [ %.pn102, %360 ], [ %.pn100, %.body195 ], [ %321, %320 ], [ %297, %296 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !693)
   call void @llvm.experimental.noalias.scope.decl(metadata !696)
   call void @llvm.experimental.noalias.scope.decl(metadata !699)
@@ -3230,7 +3230,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit204: ; pre
           to label %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WhereClause$GT$17hfd778e2afab7658cE.exit219" unwind label %399
 
 "_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WhereClause$GT$17hfd778e2afab7658cE.exit190": ; preds = %399, %309, %.body179, %319, %429, %414, %402
-  %.pn106 = phi { ptr, i32 } [ %.pn104, %.body179 ], [ %403, %402 ], [ %430, %429 ], [ %415, %414 ], [ %.pn104, %319 ], [ %310, %309 ], [ %400, %399 ]
+  %.pn106 = phi { ptr, i32 } [ %430, %429 ], [ %415, %414 ], [ %403, %402 ], [ %.pn104, %319 ], [ %.pn104, %.body179 ], [ %310, %309 ], [ %400, %399 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h679edb683ba0be6dE.llvm.7950680404849827918"(ptr noalias noundef nonnull align 8 dereferenceable(16) %47) #14
           to label %465 unwind label %158
 
@@ -3549,10 +3549,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit226: ; pre
   unreachable
 
 .body247:                                         ; preds = %526, %512, %507, %503, %558, %491
-  %.483 = phi i8 [ %.281, %491 ], [ %.281, %558 ], [ %.382, %503 ], [ %.382, %507 ], [ %.382, %512 ], [ %.382, %526 ]
-  %.477 = phi i8 [ %.275, %491 ], [ %.275, %558 ], [ %.376, %503 ], [ %.376, %507 ], [ %.376, %512 ], [ %.376, %526 ]
-  %.4 = phi i8 [ %.2, %491 ], [ %.2, %558 ], [ %.3, %503 ], [ %.3, %507 ], [ %.3, %512 ], [ %.3, %526 ]
-  %.pn112 = phi { ptr, i32 } [ %.pn110, %491 ], [ %.pn110, %558 ], [ %504, %503 ], [ %504, %507 ], [ %504, %512 ], [ %527, %526 ]
+  %.483 = phi i8 [ %.281, %558 ], [ %.281, %491 ], [ %.382, %503 ], [ %.382, %507 ], [ %.382, %512 ], [ %.382, %526 ]
+  %.477 = phi i8 [ %.275, %558 ], [ %.275, %491 ], [ %.376, %503 ], [ %.376, %507 ], [ %.376, %512 ], [ %.376, %526 ]
+  %.4 = phi i8 [ %.2, %558 ], [ %.2, %491 ], [ %.3, %503 ], [ %.3, %507 ], [ %.3, %512 ], [ %.3, %526 ]
+  %.pn112 = phi { ptr, i32 } [ %.pn110, %558 ], [ %.pn110, %491 ], [ %504, %503 ], [ %504, %507 ], [ %504, %512 ], [ %527, %526 ]
   %524 = icmp ne ptr %4, null
   %525 = trunc nuw i8 %.483 to i1
   %or.cond17 = select i1 %524, i1 %525, i1 false
@@ -3830,19 +3830,19 @@ define noundef nonnull ptr @_ZN6syntax3ast4make5impl_17h0e9f40401bcdde58E(ptr no
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha871a39cbce5b154E.exit"
 
 .body:                                            ; preds = %69, %58, %.body.i.i, %247, %.body82
-  %.149 = phi i1 [ %.250, %.body82 ], [ %.not55, %247 ], [ %.048, %69 ], [ true, %58 ], [ true, %.body.i.i ]
-  %.146 = phi i1 [ %.247, %.body82 ], [ %124, %247 ], [ %.045, %69 ], [ true, %58 ], [ true, %.body.i.i ]
-  %.1 = phi i1 [ true, %.body82 ], [ true, %247 ], [ %70, %69 ], [ false, %58 ], [ false, %.body.i.i ]
-  %.pn70 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body82 ], [ %.pn68, %247 ], [ %71, %69 ], [ %49, %58 ], [ %49, %.body.i.i ]
+  %.149 = phi i1 [ %.not55, %247 ], [ %.250, %.body82 ], [ %.048, %69 ], [ true, %58 ], [ true, %.body.i.i ]
+  %.146 = phi i1 [ %124, %247 ], [ %.247, %.body82 ], [ %.045, %69 ], [ true, %58 ], [ true, %.body.i.i ]
+  %.1 = phi i1 [ true, %247 ], [ true, %.body82 ], [ %70, %69 ], [ false, %58 ], [ false, %.body.i.i ]
+  %.pn70 = phi { ptr, i32 } [ %.pn68, %247 ], [ %.pn.pn.pn.pn, %.body82 ], [ %71, %69 ], [ %49, %58 ], [ %49, %.body.i.i ]
   %67 = load i64, ptr %5, align 8, !range !301, !noundef !9
   %68 = icmp ne i64 %67, -9223372036854775808
   %or.cond = and i1 %.149, %68
   br i1 %or.cond, label %266, label %264
 
 69:                                               ; preds = %250, %64
-  %.048 = phi i1 [ %.not55, %250 ], [ true, %64 ]
-  %.045 = phi i1 [ %124, %250 ], [ true, %64 ]
-  %70 = phi i1 [ true, %250 ], [ false, %64 ]
+  %.048 = phi i1 [ true, %64 ], [ %.not55, %250 ]
+  %.045 = phi i1 [ true, %64 ], [ %124, %250 ]
+  %70 = phi i1 [ false, %64 ], [ true, %250 ]
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4672,19 +4672,19 @@ define noundef nonnull ptr @_ZN6syntax3ast4make10impl_trait17h63a0fdba5f6d723eE(
   br i1 %88, label %.thread, label %93
 
 .body:                                            ; preds = %91, %78, %.body.i, %489, %.body133
-  %.190 = phi i1 [ %.291, %.body133 ], [ %.not95, %489 ], [ %.089, %91 ], [ true, %78 ], [ true, %.body.i ]
-  %.180 = phi i8 [ %.281, %.body133 ], [ 0, %489 ], [ %.0, %91 ], [ 1, %78 ], [ 1, %.body.i ]
-  %.176 = phi i8 [ 0, %.body133 ], [ 0, %489 ], [ %.0, %91 ], [ 1, %78 ], [ 1, %.body.i ]
-  %.1 = phi i8 [ %.2, %.body133 ], [ 0, %489 ], [ %.0, %91 ], [ 1, %78 ], [ 1, %.body.i ]
-  %.pn113 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body133 ], [ %.pn111, %489 ], [ %92, %91 ], [ %69, %78 ], [ %69, %.body.i ]
+  %.190 = phi i1 [ %.not95, %489 ], [ %.291, %.body133 ], [ %.089, %91 ], [ true, %78 ], [ true, %.body.i ]
+  %.180 = phi i8 [ 0, %489 ], [ %.281, %.body133 ], [ %.0, %91 ], [ 1, %78 ], [ 1, %.body.i ]
+  %.176 = phi i8 [ 0, %489 ], [ 0, %.body133 ], [ %.0, %91 ], [ 1, %78 ], [ 1, %.body.i ]
+  %.1 = phi i8 [ 0, %489 ], [ %.2, %.body133 ], [ %.0, %91 ], [ 1, %78 ], [ 1, %.body.i ]
+  %.pn113 = phi { ptr, i32 } [ %.pn111, %489 ], [ %.pn.pn.pn.pn.pn, %.body133 ], [ %92, %91 ], [ %69, %78 ], [ %69, %.body.i ]
   %89 = load i64, ptr %12, align 8, !range !301, !noundef !9
   %90 = icmp ne i64 %89, -9223372036854775808
   %or.cond = and i1 %.190, %90
   br i1 %or.cond, label %512, label %511
 
 91:                                               ; preds = %492, %84
-  %.089 = phi i1 [ %.not95, %492 ], [ true, %84 ]
-  %.0 = phi i8 [ 0, %492 ], [ 1, %84 ]
+  %.089 = phi i1 [ true, %84 ], [ %.not95, %492 ]
+  %.0 = phi i8 [ 1, %84 ], [ 0, %492 ]
   %92 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4980,9 +4980,9 @@ _ZN6syntax3ast9generated5nodes16GenericParamList14generic_params17hc02b52ae461c8
   unreachable
 
 .body138:                                         ; preds = %.body.i.i, %206, %165, %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit.i", %183, %219
-  %.392 = phi i1 [ %.493, %219 ], [ true, %183 ], [ true, %165 ], [ true, %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit.i" ], [ true, %206 ], [ true, %.body.i.i ]
-  %.382 = phi i8 [ %.483, %219 ], [ 1, %183 ], [ 1, %165 ], [ 1, %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit.i" ], [ 1, %206 ], [ 1, %.body.i.i ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %219 ], [ %184, %183 ], [ %.pn10.i, %165 ], [ %.pn10.i, %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit.i" ], [ %197, %206 ], [ %197, %.body.i.i ]
+  %.392 = phi i1 [ %.493, %219 ], [ true, %183 ], [ true, %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit.i" ], [ true, %165 ], [ true, %206 ], [ true, %.body.i.i ]
+  %.382 = phi i8 [ %.483, %219 ], [ 1, %183 ], [ 1, %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit.i" ], [ 1, %165 ], [ 1, %206 ], [ 1, %.body.i.i ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %219 ], [ %184, %183 ], [ %.pn10.i, %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit.i" ], [ %.pn10.i, %165 ], [ %197, %206 ], [ %197, %.body.i.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #14
           to label %.body133 unwind label %509
 
@@ -5163,7 +5163,7 @@ _ZN6syntax3ast9generated5nodes16GenericParamList14generic_params17hc02b52ae461c8
           to label %237 unwind label %235
 
 "_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WhereClause$GT$17hfd778e2afab7658cE.exit16.i": ; preds = %261, %.body.i145, %246, %239, %235
-  %.pn.i143 = phi { ptr, i32 } [ %240, %239 ], [ %236, %235 ], [ %240, %246 ], [ %eh.lpad-body.i, %261 ], [ %eh.lpad-body.i, %.body.i145 ]
+  %.pn.i143 = phi { ptr, i32 } [ %236, %235 ], [ %240, %246 ], [ %240, %239 ], [ %eh.lpad-body.i, %261 ], [ %eh.lpad-body.i, %.body.i145 ]
   %230 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %231 = load i32, ptr %230, align 4, !noalias !1306, !noundef !9
   %232 = add i32 %231, -1
@@ -5228,7 +5228,7 @@ _ZN6syntax3ast9generated5nodes16GenericParamList14generic_params17hc02b52ae461c8
   br label %.body.i145
 
 .body.i145:                                       ; preds = %307, %302, %298, %278, %273, %269, %254
-  %eh.lpad-body.i = phi { ptr, i32 } [ %270, %269 ], [ %255, %254 ], [ %270, %278 ], [ %270, %273 ], [ %299, %307 ], [ %299, %302 ], [ %299, %298 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %255, %254 ], [ %270, %278 ], [ %270, %273 ], [ %270, %269 ], [ %299, %307 ], [ %299, %302 ], [ %299, %298 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1341)
   call void @llvm.experimental.noalias.scope.decl(metadata !1344)
   call void @llvm.experimental.noalias.scope.decl(metadata !1347)
@@ -5464,8 +5464,8 @@ _ZN6syntax3ast9generated5nodes11WhereClause10predicates17h8b44152d73582159E.exit
   unreachable
 
 .body148:                                         ; preds = %347, %354, %329, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WhereClause$GT$17hfd778e2afab7658cE.exit.i", %338, %.body156
-  %.5 = phi i1 [ %.not95, %.body156 ], [ true, %338 ], [ true, %329 ], [ true, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WhereClause$GT$17hfd778e2afab7658cE.exit.i" ], [ true, %354 ], [ true, %347 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body156 ], [ %339, %338 ], [ %.pn13.i, %329 ], [ %.pn13.i, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WhereClause$GT$17hfd778e2afab7658cE.exit.i" ], [ %348, %354 ], [ %348, %347 ]
+  %.5 = phi i1 [ %.not95, %.body156 ], [ true, %338 ], [ true, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WhereClause$GT$17hfd778e2afab7658cE.exit.i" ], [ true, %329 ], [ true, %354 ], [ true, %347 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body156 ], [ %339, %338 ], [ %.pn13.i, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WhereClause$GT$17hfd778e2afab7658cE.exit.i" ], [ %.pn13.i, %329 ], [ %348, %354 ], [ %348, %347 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #14
           to label %219 unwind label %509
 
@@ -7108,22 +7108,22 @@ define noundef nonnull ptr @_ZN6syntax3ast4make8use_tree17h446bcd96c684dc31E(ptr
   br i1 %or.cond5, label %183, label %"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..Rename$GT$17h912cdce40a9372b0E.exit61"
 
 23:                                               ; preds = %139, %4
-  %.026 = phi i8 [ %.430, %139 ], [ 1, %4 ]
-  %.0 = phi i8 [ %.5, %139 ], [ 1, %4 ]
+  %.026 = phi i8 [ 1, %4 ], [ %.430, %139 ]
+  %.0 = phi i8 [ 1, %4 ], [ %.5, %139 ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %20
 
 .body:                                            ; preds = %117, %124, %74, %81, %38, %25, %56
-  %.329 = phi i8 [ 1, %56 ], [ 1, %74 ], [ 1, %38 ], [ %.228, %25 ], [ 1, %81 ], [ 0, %124 ], [ 0, %117 ]
-  %.4 = phi i8 [ 1, %56 ], [ 0, %74 ], [ 1, %38 ], [ %.3, %25 ], [ 0, %81 ], [ %.5, %124 ], [ %.5, %117 ]
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %75, %74 ], [ %39, %38 ], [ %26, %25 ], [ %75, %81 ], [ %118, %124 ], [ %118, %117 ]
+  %.329 = phi i8 [ 1, %56 ], [ %.228, %25 ], [ 1, %38 ], [ 1, %81 ], [ 1, %74 ], [ 0, %124 ], [ 0, %117 ]
+  %.4 = phi i8 [ 1, %56 ], [ %.3, %25 ], [ 1, %38 ], [ 0, %81 ], [ 0, %74 ], [ %.5, %124 ], [ %.5, %117 ]
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %26, %25 ], [ %39, %38 ], [ %75, %81 ], [ %75, %74 ], [ %118, %124 ], [ %118, %117 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #14
           to label %20 unwind label %96
 
 25:                                               ; preds = %138, %.noexc45, %104, %95, %58, %113
-  %.228 = phi i8 [ %.430, %113 ], [ 0, %138 ], [ 1, %.noexc45 ], [ 1, %95 ], [ 1, %58 ], [ 1, %104 ]
-  %.3 = phi i8 [ %.5, %113 ], [ %.5, %138 ], [ %.5, %.noexc45 ], [ 0, %95 ], [ 1, %58 ], [ %.5, %104 ]
+  %.228 = phi i8 [ %.430, %113 ], [ 1, %58 ], [ 1, %95 ], [ 1, %104 ], [ 1, %.noexc45 ], [ 0, %138 ]
+  %.3 = phi i8 [ %.5, %113 ], [ 1, %58 ], [ 0, %95 ], [ %.5, %104 ], [ %.5, %.noexc45 ], [ %.5, %138 ]
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8060,7 +8060,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make17record_expr_field17hea580b7562b
   unreachable
 
 .body:                                            ; preds = %65, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i", %36, %25, %44
-  %.pn16 = phi { ptr, i32 } [ %26, %25 ], [ %45, %44 ], [ %37, %36 ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ %.pn, %65 ]
+  %.pn16 = phi { ptr, i32 } [ %45, %44 ], [ %37, %36 ], [ %26, %25 ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ %.pn, %65 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2359)
   call void @llvm.experimental.noalias.scope.decl(metadata !2362)
   call void @llvm.experimental.noalias.scope.decl(metadata !2365)
@@ -9390,8 +9390,8 @@ define { i64, ptr } @_ZN6syntax3ast4make10expr_break17h3b300b367d0b373bE(ptr nou
   br i1 %or.cond5, label %102, label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87ac9ab3623e59cdE.exit53"
 
 16:                                               ; preds = %72, %3
-  %.022 = phi i8 [ %.224, %72 ], [ 1, %3 ]
-  %.0 = phi i8 [ %.3, %72 ], [ 1, %3 ]
+  %.022 = phi i8 [ 1, %3 ], [ %.224, %72 ]
+  %.0 = phi i8 [ 1, %3 ], [ %.3, %72 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %13
@@ -9474,15 +9474,15 @@ define { i64, ptr } @_ZN6syntax3ast4make10expr_break17h3b300b367d0b373bE(ptr nou
           to label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..Lifetime$GT$17h7c6f6ef3f6d3c404E.exit41" unwind label %45
 
 "_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..Lifetime$GT$17h7c6f6ef3f6d3c404E.exit": ; preds = %53, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i", %23, %30, %45
-  %.325 = phi i8 [ %.426, %45 ], [ 1, %23 ], [ 1, %30 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ 0, %53 ]
-  %.4 = phi i8 [ %.5, %45 ], [ 0, %23 ], [ 0, %30 ], [ %.3, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ %.3, %53 ]
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %24, %23 ], [ %24, %30 ], [ %54, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ %54, %53 ]
+  %.325 = phi i8 [ %.426, %45 ], [ 1, %30 ], [ 1, %23 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ 0, %53 ]
+  %.4 = phi i8 [ %.5, %45 ], [ 0, %30 ], [ 0, %23 ], [ %.3, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ %.3, %53 ]
+  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %24, %30 ], [ %24, %23 ], [ %54, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #14
           to label %13 unwind label %47
 
 45:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i43", %44, %49
-  %.426 = phi i8 [ %.224, %49 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i43" ], [ 1, %44 ]
-  %.5 = phi i8 [ %.3, %49 ], [ %.3, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i43" ], [ 0, %44 ]
+  %.426 = phi i8 [ %.224, %49 ], [ 1, %44 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i43" ]
+  %.5 = phi i8 [ %.3, %49 ], [ 0, %44 ], [ %.3, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i43" ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..Lifetime$GT$17h7c6f6ef3f6d3c404E.exit"
@@ -10301,7 +10301,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit: ; preds 
           to label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h908d2682be839749E.exit30" unwind label %49
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h908d2682be839749E.exit": ; preds = %53, %60, %26, %33, %94, %70, %49
-  %.pn20 = phi { ptr, i32 } [ %50, %49 ], [ %.pn, %94 ], [ %71, %70 ], [ %27, %26 ], [ %27, %33 ], [ %54, %60 ], [ %54, %53 ]
+  %.pn20 = phi { ptr, i32 } [ %50, %49 ], [ %.pn, %94 ], [ %71, %70 ], [ %27, %33 ], [ %27, %26 ], [ %54, %60 ], [ %54, %53 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2920)
   call void @llvm.experimental.noalias.scope.decl(metadata !2923)
   call void @llvm.experimental.noalias.scope.decl(metadata !2926)
@@ -14318,8 +14318,8 @@ define noundef nonnull ptr @_ZN6syntax3ast4make8let_stmt17h2a7165a024fa4a6dE(i64
           to label %108 unwind label %50
 
 33:                                               ; preds = %78, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i41", %52, %48, %6
-  %.021 = phi i8 [ %.324, %78 ], [ 1, %6 ], [ %.324, %52 ], [ %.324, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i41" ], [ 0, %48 ]
-  %.0 = phi i1 [ %37, %78 ], [ true, %6 ], [ true, %52 ], [ false, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i41" ], [ true, %48 ]
+  %.021 = phi i8 [ %.324, %52 ], [ 0, %48 ], [ 1, %6 ], [ %.324, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i41" ], [ %.324, %78 ]
+  %.0 = phi i1 [ true, %52 ], [ true, %48 ], [ true, %6 ], [ false, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i41" ], [ %37, %78 ]
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87ac9ab3623e59cdE.exit"
@@ -14695,7 +14695,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make13let_else_stmt17h89e392e50a92502
           to label %92 unwind label %51
 
 36:                                               ; preds = %62, %53, %49, %7
-  %.0 = phi i8 [ %.3, %62 ], [ 0, %49 ], [ %.3, %53 ], [ 1, %7 ]
+  %.0 = phi i8 [ %.3, %53 ], [ 0, %49 ], [ 1, %7 ], [ %.3, %62 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %35
@@ -15770,15 +15770,15 @@ define noundef nonnull ptr @_ZN6syntax3ast4make6trait_17hcf15a16af2867fd4E(i1 no
           to label %44 unwind label %42
 
 .body53:                                          ; preds = %.body48, %143, %133, %.body, %81, %42, %171
-  %.125 = phi i8 [ 1, %.body ], [ %.327, %171 ], [ %.327, %133 ], [ %.024, %42 ], [ 1, %81 ], [ 0, %143 ], [ 0, %.body48 ]
-  %.1 = phi i8 [ 0, %.body ], [ %.3, %171 ], [ %.3, %133 ], [ %.0, %42 ], [ 0, %81 ], [ %.3, %143 ], [ %.3, %.body48 ]
-  %.pn33 = phi { ptr, i32 } [ %.pn, %.body ], [ %172, %171 ], [ %134, %133 ], [ %43, %42 ], [ %.pn, %81 ], [ %.pn31, %143 ], [ %.pn31, %.body48 ]
+  %.125 = phi i8 [ %.327, %171 ], [ %.024, %42 ], [ 1, %81 ], [ 1, %.body ], [ %.327, %133 ], [ 0, %143 ], [ 0, %.body48 ]
+  %.1 = phi i8 [ %.3, %171 ], [ %.0, %42 ], [ 0, %81 ], [ 0, %.body ], [ %.3, %133 ], [ %.3, %143 ], [ %.3, %.body48 ]
+  %.pn33 = phi { ptr, i32 } [ %172, %171 ], [ %43, %42 ], [ %.pn, %81 ], [ %.pn, %.body ], [ %134, %133 ], [ %.pn31, %143 ], [ %.pn31, %.body48 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #14
           to label %202 unwind label %110
 
 42:                                               ; preds = %180, %170, %108, %70, %189, %45, %36
-  %.024 = phi i8 [ %.327, %189 ], [ %.327, %180 ], [ 1, %36 ], [ 0, %170 ], [ 1, %108 ], [ 1, %70 ], [ 1, %45 ]
-  %.0 = phi i8 [ %.3, %189 ], [ %.3, %180 ], [ 1, %36 ], [ %.3, %170 ], [ 0, %108 ], [ 1, %70 ], [ 1, %45 ]
+  %.024 = phi i8 [ %.327, %189 ], [ 1, %45 ], [ 1, %36 ], [ 1, %70 ], [ 1, %108 ], [ 0, %170 ], [ %.327, %180 ]
+  %.0 = phi i8 [ %.3, %189 ], [ 1, %45 ], [ 1, %36 ], [ 1, %70 ], [ 0, %108 ], [ %.3, %170 ], [ %.3, %180 ]
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body53
@@ -16673,7 +16673,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make10type_param17h2aebe7080310fcfdE(
   br label %45
 
 .body:                                            ; preds = %41, %25, %18, %65, %43
-  %.pn9 = phi { ptr, i32 } [ %44, %43 ], [ %.pn, %65 ], [ %42, %41 ], [ %19, %25 ], [ %19, %18 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %65 ], [ %44, %43 ], [ %42, %41 ], [ %19, %25 ], [ %19, %18 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4588)
   call void @llvm.experimental.noalias.scope.decl(metadata !4591)
   call void @llvm.experimental.noalias.scope.decl(metadata !4594)
@@ -17655,7 +17655,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit: ; preds 
           to label %"_ZN4core3ptr67drop_in_place$LT$syntax..ast..generated..nodes..RecordFieldList$GT$17hb29806eaee300f33E.exit25" unwind label %45
 
 "_ZN4core3ptr67drop_in_place$LT$syntax..ast..generated..nodes..RecordFieldList$GT$17hb29806eaee300f33E.exit": ; preds = %49, %56, %22, %29, %88, %66, %45
-  %.pn20 = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %88 ], [ %67, %66 ], [ %23, %22 ], [ %23, %29 ], [ %50, %56 ], [ %50, %49 ]
+  %.pn20 = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %88 ], [ %67, %66 ], [ %23, %29 ], [ %23, %22 ], [ %50, %56 ], [ %50, %49 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4912)
   call void @llvm.experimental.noalias.scope.decl(metadata !4915)
   call void @llvm.experimental.noalias.scope.decl(metadata !4918)
@@ -17942,9 +17942,9 @@ define noundef nonnull ptr @_ZN6syntax3ast4make3fn_17haa67e8388b0fcbffE(ptr noun
   br i1 %or.cond, label %275, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RetType$GT$17h9a3b792a23e170ecE.exit153"
 
 50:                                               ; preds = %225, %73, %47
-  %.066 = phi i1 [ %83, %225 ], [ true, %47 ], [ true, %73 ]
-  %.059 = phi i1 [ %57, %225 ], [ true, %47 ], [ true, %73 ]
-  %.0 = phi i1 [ %109, %225 ], [ true, %47 ], [ true, %73 ]
+  %.066 = phi i1 [ true, %47 ], [ true, %73 ], [ %83, %225 ]
+  %.059 = phi i1 [ true, %47 ], [ true, %73 ], [ %57, %225 ]
+  %.0 = phi i1 [ true, %47 ], [ true, %73 ], [ %109, %225 ]
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr68drop_in_place$LT$syntax..ast..generated..nodes..GenericParamList$GT$17h53e0910eefb7c8fbE.exit"
@@ -18891,8 +18891,8 @@ define noundef nonnull ptr @_ZN6syntax3ast4make7struct_17h9abe5825c01de5eeE(ptr 
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfa5cbbfd4a5fc070E.exit"
 
 .body:                                            ; preds = %62, %49, %.body.i.i, %124, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..Visibility$GT$17h6a06bfe318e9465bE.exit"
-  %.1 = phi i1 [ %64, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..Visibility$GT$17h6a06bfe318e9465bE.exit" ], [ %64, %124 ], [ %.0, %62 ], [ true, %49 ], [ true, %.body.i.i ]
-  %.pn24 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..Visibility$GT$17h6a06bfe318e9465bE.exit" ], [ %.pn22, %124 ], [ %63, %62 ], [ %40, %49 ], [ %40, %.body.i.i ]
+  %.1 = phi i1 [ %64, %124 ], [ %64, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..Visibility$GT$17h6a06bfe318e9465bE.exit" ], [ %.0, %62 ], [ true, %49 ], [ true, %.body.i.i ]
+  %.pn24 = phi { ptr, i32 } [ %.pn22, %124 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..Visibility$GT$17h6a06bfe318e9465bE.exit" ], [ %63, %62 ], [ %40, %49 ], [ %40, %.body.i.i ]
   %.val32 = load ptr, ptr %26, align 8, !nonnull !9, !noundef !9
   %58 = getelementptr inbounds nuw i8, ptr %.val32, i64 48
   %59 = load i32, ptr %58, align 4, !noalias !9, !noundef !9
@@ -18906,7 +18906,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make7struct_17h9abe5825c01de5eeE(ptr 
           to label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..FieldList$GT$17h37f54800ae55dd4bE.exit" unwind label %158
 
 62:                                               ; preds = %127, %55
-  %.0 = phi i1 [ %64, %127 ], [ true, %55 ]
+  %.0 = phi i1 [ true, %55 ], [ %64, %127 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -20270,8 +20270,8 @@ define noundef nonnull ptr @_ZN6syntax3ast4make10token_tree17hd1e2b738756262feE(
   br label %18
 
 18:                                               ; preds = %16, %17, %2
-  %.014 = phi i32 [ 91, %17 ], [ 123, %16 ], [ 40, %2 ]
-  %.0 = phi i32 [ 93, %17 ], [ 125, %16 ], [ 41, %2 ]
+  %.014 = phi i32 [ 123, %16 ], [ 91, %17 ], [ 40, %2 ]
+  %.0 = phi i32 [ 125, %16 ], [ 93, %17 ], [ 41, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %.014, ptr %14, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -20445,7 +20445,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit: ; preds 
   unreachable
 
 .thread:                                          ; preds = %23, %26, %50, %71
-  %.pn1729 = phi { ptr, i32 } [ %24, %23 ], [ %72, %71 ], [ %.pn, %50 ], [ %27, %26 ]
+  %.pn1729 = phi { ptr, i32 } [ %72, %71 ], [ %27, %26 ], [ %.pn, %50 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn1729
 
 71:                                               ; preds = %64

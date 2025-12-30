@@ -402,7 +402,7 @@ objlist_sync.exit81:                              ; preds = %.preheader, %._crit
   br label %._crit_edge99.thread
 
 ._crit_edge99.thread:                             ; preds = %3, %165, %._crit_edge99
-  %.046.lcssa130 = phi i32 [ %.1.lcssa, %._crit_edge99 ], [ %.1.lcssa, %165 ], [ 0, %3 ]
+  %.046.lcssa130 = phi i32 [ %.1.lcssa, %165 ], [ %.1.lcssa, %._crit_edge99 ], [ 0, %3 ]
   ret i32 %.046.lcssa130
 }
 

@@ -4774,8 +4774,8 @@ display_access_items.exit:                        ; preds = %40
   br label %.thread107
 
 .thread107:                                       ; preds = %.thread104, %display_access_items.exit, %31
-  %41 = phi i32 [ %27, %31 ], [ %27, %display_access_items.exit ], [ %29, %.thread104 ]
-  %42 = phi i32 [ %28, %31 ], [ %28, %display_access_items.exit ], [ %30, %.thread104 ]
+  %41 = phi i32 [ %27, %display_access_items.exit ], [ %27, %31 ], [ %29, %.thread104 ]
+  %42 = phi i32 [ %28, %display_access_items.exit ], [ %28, %31 ], [ %30, %.thread104 ]
   %43 = load i32, ptr @hf_nfs_access_supported, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %43, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   %45 = load i32, ptr @ett_nfs4_access_supp, align 4
@@ -4804,9 +4804,9 @@ switch.lookup:                                    ; preds = %47
   br i1 %exitcond.not.i83, label %display_access_items.exit84, label %47, !llvm.loop !14
 
 display_access_items.exit84:                      ; preds = %54, %.thread104, %24
-  %55 = phi i32 [ %30, %.thread104 ], [ %28, %24 ], [ %42, %54 ]
-  %56 = phi i32 [ %29, %.thread104 ], [ %27, %24 ], [ %41, %54 ]
-  %.0 = phi i32 [ %1, %.thread104 ], [ %1, %24 ], [ %21, %54 ]
+  %55 = phi i32 [ %28, %24 ], [ %30, %.thread104 ], [ %42, %54 ]
+  %56 = phi i32 [ %27, %24 ], [ %29, %.thread104 ], [ %41, %54 ]
+  %.0 = phi i32 [ %1, %24 ], [ %1, %.thread104 ], [ %21, %54 ]
   %.not78.not = icmp eq i32 %.070.ph, %56
   br i1 %.not78.not, label %59, label %57
 
@@ -5289,8 +5289,8 @@ define internal i32 @dissect_fhandle_data_SVR4(ptr noundef %0, ptr readnone capt
   br label %.thread
 
 .thread:                                          ; preds = %10, %23, %.thread141
-  %.0140 = phi i32 [ -2147483648, %10 ], [ 0, %.thread141 ], [ 0, %23 ]
-  %.2 = phi i1 [ %18, %10 ], [ false, %.thread141 ], [ %28, %23 ]
+  %.0140 = phi i32 [ 0, %.thread141 ], [ 0, %23 ], [ -2147483648, %10 ]
+  %.2 = phi i1 [ false, %.thread141 ], [ %28, %23 ], [ %18, %10 ]
   %29 = load i32, ptr @hf_nfs_fh_endianness, align 4
   %.0140.lobit = lshr exact i32 %.0140, 31
   %30 = zext nneg i32 %.0140.lobit to i64
@@ -5551,7 +5551,7 @@ define internal i32 @dissect_fhandle_data_LINUX_KNFSD_NEW(ptr noundef %0, ptr re
   br label %74
 
 74:                                               ; preds = %27, %26, %4, %72, %70
-  %.0 = phi i32 [ 1, %4 ], [ 2, %26 ], [ 12, %70 ], [ %73, %72 ], [ 3, %27 ]
+  %.0 = phi i32 [ 12, %70 ], [ %73, %72 ], [ 1, %4 ], [ 2, %26 ], [ 3, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -5843,7 +5843,7 @@ define internal i32 @dissect_fhandle_data_GLUSTER(ptr noundef %0, ptr noundef re
   br label %22
 
 22:                                               ; preds = %12, %17, %10, %5
-  %.0 = phi i32 [ %11, %10 ], [ %6, %5 ], [ 36, %17 ], [ 4, %12 ]
+  %.0 = phi i32 [ %11, %10 ], [ 36, %17 ], [ %6, %5 ], [ 4, %12 ]
   ret i32 %.0
 }
 
@@ -6589,7 +6589,7 @@ dissect_nfs2_status.exit:                         ; preds = %4, %11, %14
   br label %dissect_nfsdata_reduced.exit
 
 dissect_nfsdata_reduced.exit:                     ; preds = %26, %23, %28
-  %.0 = phi i32 [ 4, %28 ], [ %27, %26 ], [ %24, %23 ]
+  %.0 = phi i32 [ 4, %28 ], [ %24, %23 ], [ %27, %26 ]
   ret i32 %.0
 }
 
@@ -8191,7 +8191,7 @@ dissect_nfs3_post_op_attr.exit33:                 ; preds = %44, %50
   br label %dissect_nfsdata_reduced.exit
 
 dissect_nfsdata_reduced.exit:                     ; preds = %42, %39, %dissect_nfs3_post_op_attr.exit33
-  %.0 = phi i32 [ %.0.i32, %dissect_nfs3_post_op_attr.exit33 ], [ %43, %42 ], [ %40, %39 ]
+  %.0 = phi i32 [ %.0.i32, %dissect_nfs3_post_op_attr.exit33 ], [ %40, %39 ], [ %43, %42 ]
   ret i32 %.0
 }
 
@@ -11631,8 +11631,8 @@ dissect_nfs4_app_data_block.exit:                 ; preds = %751, %775, %778
   br label %dissect_nfs4_layoutreturn.exit
 
 dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %593, %._crit_edge.i, %536, %60, %68, %74, %94, %98, %101, %110, %111, %149, %260, %263, %267, %275, %301, %304, %307, %318, %327, %331, %332, %334, %337, %341, %346, %364, %369, %389, %396, %400, %dissect_nfs4_state_protect_a.exit, %438, %452, %456, %460, %494, %dissect_nfs4_newtime.exit, %596, %605, %614, %660, %667, %691, %725, %738, %dissect_nfs4_app_data_block.exit, %802, %805, %812, %817, %108, %105, %148, %147, %178, %177, %186, %184, %190, %187, %259, %257, %286, %277, %299, %288, %317, %315, %387, %371, %635, %626, %678, %669, %696, %693, %701, %698, %712, %703, %749, %740, %800, %798, %51
-  %.1895 = phi i32 [ %.0894971, %51 ], [ %.0894971, %60 ], [ %.0894971, %68 ], [ %.0894971, %74 ], [ %.0894971, %94 ], [ %.0894971, %98 ], [ %.0894971, %101 ], [ %.0894971, %108 ], [ %.0894971, %105 ], [ %.0894971, %110 ], [ %.0894971, %111 ], [ %.0894971, %147 ], [ %.0894971, %148 ], [ %.0894971, %149 ], [ %.0894971, %177 ], [ %.0894971, %178 ], [ %.0894971, %186 ], [ %.0894971, %184 ], [ %.0894971, %812 ], [ %.0894971, %190 ], [ %.0894971, %187 ], [ %.0894971, %259 ], [ %.0894971, %257 ], [ %.0894971, %260 ], [ %.0894971, %263 ], [ %.0894971, %267 ], [ %.0894971, %275 ], [ %.0894971, %805 ], [ %.0894971, %817 ], [ %.0894971, %286 ], [ %.0894971, %277 ], [ %.0894971, %299 ], [ %.0894971, %288 ], [ %.0894971, %802 ], [ %.0894971, %301 ], [ %.0894971, %304 ], [ %.0894971, %307 ], [ %.0894971, %317 ], [ %.0894971, %315 ], [ %.0894971, %318 ], [ %.0894971, %327 ], [ %.0894971, %331 ], [ %333, %332 ], [ %.0894971, %334 ], [ %.0894971, %337 ], [ %.0894971, %341 ], [ %.0894971, %346 ], [ %.0894971, %364 ], [ %.0894971, %369 ], [ %.0894971, %387 ], [ %.0894971, %371 ], [ %.0894971, %389 ], [ %.0894971, %396 ], [ %.0894971, %400 ], [ %.0894971, %dissect_nfs4_state_protect_a.exit ], [ %.0894971, %438 ], [ %.0894971, %452 ], [ %.0894971, %456 ], [ %.0894971, %460 ], [ %.0894971, %494 ], [ %.0894971, %dissect_nfs4_newtime.exit ], [ %.0894971, %798 ], [ %.0894971, %596 ], [ %.0894971, %605 ], [ %.0894971, %614 ], [ %.0894971, %635 ], [ %.0894971, %626 ], [ %.0894971, %660 ], [ %.0894971, %667 ], [ %.0894971, %678 ], [ %.0894971, %669 ], [ %.0894971, %691 ], [ %.0894971, %696 ], [ %.0894971, %693 ], [ %.0894971, %701 ], [ %.0894971, %698 ], [ %.0894971, %712 ], [ %.0894971, %703 ], [ %.0894971, %725 ], [ %.0894971, %738 ], [ %.0894971, %749 ], [ %.0894971, %740 ], [ %.0894971, %dissect_nfs4_app_data_block.exit ], [ %.0894971, %800 ], [ %.0894971, %536 ], [ %.0894971, %._crit_edge.i ], [ %.0894971, %593 ], [ %.0894971, %.lr.ph78.i ]
-  %.2 = phi i32 [ %55, %51 ], [ %67, %60 ], [ %71, %68 ], [ %80, %74 ], [ %97, %94 ], [ %100, %98 ], [ %102, %101 ], [ %106, %108 ], [ %106, %105 ], [ %55, %110 ], [ %113, %111 ], [ %.0.i, %147 ], [ %.0.i, %148 ], [ %161, %149 ], [ %173, %177 ], [ %173, %178 ], [ %181, %186 ], [ %181, %184 ], [ %816, %812 ], [ %188, %190 ], [ %188, %187 ], [ %.0.i961, %259 ], [ %.0.i961, %257 ], [ %262, %260 ], [ %266, %263 ], [ %274, %267 ], [ %276, %275 ], [ %811, %805 ], [ %819, %817 ], [ %284, %286 ], [ %284, %277 ], [ %297, %299 ], [ %297, %288 ], [ %804, %802 ], [ %303, %301 ], [ %306, %304 ], [ %309, %307 ], [ %312, %317 ], [ %312, %315 ], [ %322, %318 ], [ %330, %327 ], [ %55, %331 ], [ %55, %332 ], [ %336, %334 ], [ %340, %337 ], [ %343, %341 ], [ %363, %346 ], [ %368, %364 ], [ %370, %369 ], [ %385, %387 ], [ %385, %371 ], [ %395, %389 ], [ %399, %396 ], [ %407, %400 ], [ %437, %dissect_nfs4_state_protect_a.exit ], [ %451, %438 ], [ %455, %452 ], [ %457, %456 ], [ %493, %460 ], [ %509, %494 ], [ %535, %dissect_nfs4_newtime.exit ], [ %794, %798 ], [ %604, %596 ], [ %613, %605 ], [ %625, %614 ], [ %633, %635 ], [ %633, %626 ], [ %661, %660 ], [ %668, %667 ], [ %676, %678 ], [ %676, %669 ], [ %692, %691 ], [ %694, %696 ], [ %694, %693 ], [ %699, %701 ], [ %699, %698 ], [ %710, %712 ], [ %710, %703 ], [ %726, %725 ], [ %739, %738 ], [ %747, %749 ], [ %747, %740 ], [ %782, %dissect_nfs4_app_data_block.exit ], [ %794, %800 ], [ %546, %536 ], [ %579, %._crit_edge.i ], [ %595, %593 ], [ %591, %.lr.ph78.i ]
+  %.1895 = phi i32 [ %.0894971, %51 ], [ %.0894971, %60 ], [ %.0894971, %68 ], [ %.0894971, %74 ], [ %.0894971, %94 ], [ %.0894971, %98 ], [ %.0894971, %101 ], [ %.0894971, %108 ], [ %.0894971, %105 ], [ %.0894971, %110 ], [ %.0894971, %111 ], [ %.0894971, %147 ], [ %.0894971, %148 ], [ %.0894971, %149 ], [ %.0894971, %177 ], [ %.0894971, %178 ], [ %.0894971, %186 ], [ %.0894971, %184 ], [ %.0894971, %812 ], [ %.0894971, %190 ], [ %.0894971, %187 ], [ %.0894971, %259 ], [ %.0894971, %257 ], [ %.0894971, %260 ], [ %.0894971, %263 ], [ %.0894971, %267 ], [ %.0894971, %275 ], [ %.0894971, %805 ], [ %.0894971, %817 ], [ %.0894971, %286 ], [ %.0894971, %277 ], [ %.0894971, %299 ], [ %.0894971, %288 ], [ %.0894971, %802 ], [ %.0894971, %301 ], [ %.0894971, %304 ], [ %.0894971, %307 ], [ %.0894971, %317 ], [ %.0894971, %315 ], [ %.0894971, %318 ], [ %.0894971, %327 ], [ %.0894971, %331 ], [ %333, %332 ], [ %.0894971, %334 ], [ %.0894971, %337 ], [ %.0894971, %341 ], [ %.0894971, %346 ], [ %.0894971, %364 ], [ %.0894971, %369 ], [ %.0894971, %387 ], [ %.0894971, %371 ], [ %.0894971, %389 ], [ %.0894971, %396 ], [ %.0894971, %400 ], [ %.0894971, %dissect_nfs4_state_protect_a.exit ], [ %.0894971, %438 ], [ %.0894971, %452 ], [ %.0894971, %456 ], [ %.0894971, %460 ], [ %.0894971, %494 ], [ %.0894971, %dissect_nfs4_newtime.exit ], [ %.0894971, %596 ], [ %.0894971, %605 ], [ %.0894971, %614 ], [ %.0894971, %635 ], [ %.0894971, %626 ], [ %.0894971, %660 ], [ %.0894971, %667 ], [ %.0894971, %678 ], [ %.0894971, %669 ], [ %.0894971, %691 ], [ %.0894971, %696 ], [ %.0894971, %693 ], [ %.0894971, %701 ], [ %.0894971, %698 ], [ %.0894971, %712 ], [ %.0894971, %703 ], [ %.0894971, %725 ], [ %.0894971, %738 ], [ %.0894971, %749 ], [ %.0894971, %740 ], [ %.0894971, %dissect_nfs4_app_data_block.exit ], [ %.0894971, %800 ], [ %.0894971, %798 ], [ %.0894971, %536 ], [ %.0894971, %._crit_edge.i ], [ %.0894971, %593 ], [ %.0894971, %.lr.ph78.i ]
+  %.2 = phi i32 [ %55, %51 ], [ %67, %60 ], [ %71, %68 ], [ %80, %74 ], [ %97, %94 ], [ %100, %98 ], [ %102, %101 ], [ %106, %108 ], [ %106, %105 ], [ %55, %110 ], [ %113, %111 ], [ %.0.i, %147 ], [ %.0.i, %148 ], [ %161, %149 ], [ %173, %177 ], [ %173, %178 ], [ %181, %186 ], [ %181, %184 ], [ %816, %812 ], [ %188, %190 ], [ %188, %187 ], [ %.0.i961, %259 ], [ %.0.i961, %257 ], [ %262, %260 ], [ %266, %263 ], [ %274, %267 ], [ %276, %275 ], [ %811, %805 ], [ %819, %817 ], [ %284, %286 ], [ %284, %277 ], [ %297, %299 ], [ %297, %288 ], [ %804, %802 ], [ %303, %301 ], [ %306, %304 ], [ %309, %307 ], [ %312, %317 ], [ %312, %315 ], [ %322, %318 ], [ %330, %327 ], [ %55, %331 ], [ %55, %332 ], [ %336, %334 ], [ %340, %337 ], [ %343, %341 ], [ %363, %346 ], [ %368, %364 ], [ %370, %369 ], [ %385, %387 ], [ %385, %371 ], [ %395, %389 ], [ %399, %396 ], [ %407, %400 ], [ %437, %dissect_nfs4_state_protect_a.exit ], [ %451, %438 ], [ %455, %452 ], [ %457, %456 ], [ %493, %460 ], [ %509, %494 ], [ %535, %dissect_nfs4_newtime.exit ], [ %604, %596 ], [ %613, %605 ], [ %625, %614 ], [ %633, %635 ], [ %633, %626 ], [ %661, %660 ], [ %668, %667 ], [ %676, %678 ], [ %676, %669 ], [ %692, %691 ], [ %694, %696 ], [ %694, %693 ], [ %699, %701 ], [ %699, %698 ], [ %710, %712 ], [ %710, %703 ], [ %726, %725 ], [ %739, %738 ], [ %747, %749 ], [ %747, %740 ], [ %782, %dissect_nfs4_app_data_block.exit ], [ %794, %800 ], [ %794, %798 ], [ %546, %536 ], [ %579, %._crit_edge.i ], [ %595, %593 ], [ %591, %.lr.ph78.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !21
@@ -11646,8 +11646,8 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %593, %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %dissect_nfs4_layoutreturn.exit, %._crit_edge.split.loop.exit1060, %._crit_edge.split.loop.exit1057
-  %.0891.lcssa = phi i32 [ %821, %._crit_edge.split.loop.exit1060 ], [ %820, %._crit_edge.split.loop.exit1057 ], [ %.0890, %dissect_nfs4_layoutreturn.exit ]
-  %.0.lcssa = phi i32 [ %.0973, %._crit_edge.split.loop.exit1060 ], [ %.0973, %._crit_edge.split.loop.exit1057 ], [ %.2, %dissect_nfs4_layoutreturn.exit ]
+  %.0891.lcssa = phi i32 [ %820, %._crit_edge.split.loop.exit1057 ], [ %821, %._crit_edge.split.loop.exit1060 ], [ %.0890, %dissect_nfs4_layoutreturn.exit ]
+  %.0.lcssa = phi i32 [ %.0973, %._crit_edge.split.loop.exit1057 ], [ %.0973, %._crit_edge.split.loop.exit1060 ], [ %.2, %dissect_nfs4_layoutreturn.exit ]
   %.not993 = icmp eq i32 %.0891.lcssa, 0
   br i1 %.not993, label %._crit_edge992, label %.lr.ph987.preheader
 
@@ -11756,9 +11756,9 @@ proto_item_set_generated.exit:                    ; preds = %854, %851, %847, %8
   br i1 %exitcond1006.not, label %._crit_edge992, label %832, !llvm.loop !23
 
 ._crit_edge992:                                   ; preds = %868, %23, %._crit_edge
-  %.0886.lcssa1055 = phi i32 [ 5, %23 ], [ 5, %._crit_edge ], [ %spec.select, %868 ]
-  %.0891.lcssa10461054 = phi i32 [ 0, %23 ], [ 0, %._crit_edge ], [ %.0891.lcssa, %868 ]
-  %.0.lcssa10471053 = phi i32 [ %19, %23 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %868 ]
+  %.0886.lcssa1055 = phi i32 [ 5, %._crit_edge ], [ 5, %23 ], [ %spec.select, %868 ]
+  %.0891.lcssa10461054 = phi i32 [ 0, %._crit_edge ], [ 0, %23 ], [ %.0891.lcssa, %868 ]
+  %.0.lcssa10471053 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %19, %23 ], [ %.0.lcssa, %868 ]
   %869 = load ptr, ptr %24, align 8
   %870 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %869, i64 noundef 64) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %870, ptr noundef align 8 dereferenceable(64) %4, i64 64, i1 false)
@@ -12731,7 +12731,7 @@ dissect_nfs4_settime.exit:                        ; preds = %178, %184
   br label %dissect_nfs4_fattr_acl.exit
 
 dissect_nfs4_fattr_acl.exit:                      ; preds = %.lr.ph.i, %60, %8, %218, %215, %212, %210, %208, %205, %202, %199, %197, %194, %192, %189, %dissect_nfs4_settime.exit, %176, %168, %161, %158, %155, %152, %150, %147, %144, %141, %138, %135, %132, %129, %124, %121, %118, %115, %112, %109, %106, %103, %100, %98, %95, %92, %90, %87, %84, %81, %78, %75, %72, %69, %64, %44, %41, %38, %36, %33, %30, %27, %24, %21, %19, %17, %10
-  %.0 = phi i32 [ %1, %8 ], [ %11, %10 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %37, %36 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ %219, %218 ], [ %68, %64 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %91, %90 ], [ %94, %92 ], [ %97, %95 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %128, %124 ], [ %131, %129 ], [ %134, %132 ], [ %137, %135 ], [ %140, %138 ], [ %143, %141 ], [ %146, %144 ], [ %149, %147 ], [ %151, %150 ], [ %154, %152 ], [ %157, %155 ], [ %160, %158 ], [ %163, %161 ], [ %169, %168 ], [ %177, %176 ], [ %.0.i, %dissect_nfs4_settime.exit ], [ %191, %189 ], [ %193, %192 ], [ %196, %194 ], [ %198, %197 ], [ %201, %199 ], [ %204, %202 ], [ %207, %205 ], [ %209, %208 ], [ %211, %210 ], [ %214, %212 ], [ %217, %215 ], [ %61, %60 ], [ %62, %.lr.ph.i ]
+  %.0 = phi i32 [ %1, %8 ], [ %11, %10 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %37, %36 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ %68, %64 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %91, %90 ], [ %94, %92 ], [ %97, %95 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %128, %124 ], [ %131, %129 ], [ %134, %132 ], [ %137, %135 ], [ %140, %138 ], [ %143, %141 ], [ %146, %144 ], [ %149, %147 ], [ %151, %150 ], [ %154, %152 ], [ %157, %155 ], [ %160, %158 ], [ %163, %161 ], [ %169, %168 ], [ %177, %176 ], [ %.0.i, %dissect_nfs4_settime.exit ], [ %191, %189 ], [ %193, %192 ], [ %196, %194 ], [ %198, %197 ], [ %201, %199 ], [ %204, %202 ], [ %207, %205 ], [ %209, %208 ], [ %211, %210 ], [ %214, %212 ], [ %217, %215 ], [ %219, %218 ], [ %61, %60 ], [ %62, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -12948,8 +12948,8 @@ define internal fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %1, 
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %98, %105, %101, %89, %81, %69, %68
-  %.2202 = phi i8 [ %.0200286, %68 ], [ 1, %81 ], [ %.0200286, %69 ], [ 1, %89 ], [ 1, %101 ], [ 1, %105 ], [ 1, %98 ]
-  %.3192 = phi ptr [ %.1190288, %68 ], [ %83, %81 ], [ %.1190288, %69 ], [ %83, %89 ], [ %83, %101 ], [ %83, %105 ], [ %83, %98 ]
+  %.2202 = phi i8 [ 1, %81 ], [ %.0200286, %69 ], [ %.0200286, %68 ], [ 1, %89 ], [ 1, %101 ], [ 1, %105 ], [ 1, %98 ]
+  %.3192 = phi ptr [ %83, %81 ], [ %.1190288, %69 ], [ %.1190288, %68 ], [ %83, %89 ], [ %83, %101 ], [ %83, %105 ], [ %83, %98 ]
   %109 = shl nuw nsw i32 %.1225280, 5
   %.not253 = icmp eq ptr %.3192, null
   br label %110
@@ -13087,7 +13087,7 @@ proto_item_set_generated.exit:                    ; preds = %98, %105, %101, %89
   br i1 %exitcond298.not, label %._crit_edge292, label %66, !llvm.loop !34
 
 ._crit_edge292:                                   ; preds = %156, %._crit_edge, %50, %53
-  %.0211.lcssa = phi i32 [ %.0208, %._crit_edge ], [ %.0208, %53 ], [ %.0208, %50 ], [ %.1212, %156 ]
+  %.0211.lcssa = phi i32 [ %.0208, %53 ], [ %.0208, %50 ], [ %.0208, %._crit_edge ], [ %.1212, %156 ]
   br i1 %13, label %159, label %177
 
 159:                                              ; preds = %._crit_edge292
@@ -13376,8 +13376,8 @@ define internal fastcc i32 @dissect_nfs4_ace(ptr noundef %0, i32 noundef %1, ptr
   br label %45
 
 45:                                               ; preds = %42, %39, %36, %33, %32
-  %.241.i = phi ptr [ %35, %33 ], [ %38, %36 ], [ %.03944.i, %32 ], [ %41, %39 ], [ %44, %42 ]
-  %.2.i = phi ptr [ %34, %33 ], [ %37, %36 ], [ %.047.i, %32 ], [ %40, %39 ], [ %43, %42 ]
+  %.241.i = phi ptr [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %.03944.i, %32 ]
+  %.2.i = phi ptr [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %.047.i, %32 ]
   %46 = load i32, ptr @hf_nfs4_ace_permission, align 4
   %47 = tail call ptr @val_to_str(i32 noundef %7, ptr noundef nonnull @names_acetype4, ptr noundef nonnull @.str.2401)
   %48 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %27, i32 noundef %46, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %.03845.i, ptr noundef nonnull @.str.2405, ptr noundef %47, ptr noundef %.2.i, i32 noundef %.03845.i)
@@ -13704,7 +13704,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not5.i54, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
 proto_item_set_generated.exit.sink.split:         ; preds = %132, %126, %80, %63
-  %.sink74 = phi ptr [ %128, %126 ], [ %82, %80 ], [ %65, %63 ], [ %134, %132 ]
+  %.sink74 = phi ptr [ %65, %63 ], [ %82, %80 ], [ %128, %126 ], [ %134, %132 ]
   %135 = getelementptr inbounds nuw i8, ptr %.sink74, i64 28
   %136 = load i32, ptr %135, align 4
   %137 = or i32 %136, 2
@@ -14671,7 +14671,7 @@ dissect_nfs4_state_protect_r.exit:                ; preds = %312, %325, %328
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i484, %.lr.ph211.i, %508, %488, %487, %408
-  %.7.i = phi i32 [ %439, %.lr.ph211.i ], [ %.5.i, %487 ], [ %510, %508 ], [ %436, %408 ], [ %493, %488 ], [ %506, %.lr.ph.i484 ]
+  %.7.i = phi i32 [ %.5.i, %487 ], [ %510, %508 ], [ %436, %408 ], [ %493, %488 ], [ %439, %.lr.ph211.i ], [ %506, %.lr.ph.i484 ]
   %511 = add nuw i32 %.0185213.i, 1
   %exitcond233.not.i = icmp eq i32 %511, %395
   br i1 %exitcond233.not.i, label %dissect_nfsdata_reduced.exit, label %.lr.ph216.i, !llvm.loop !44
@@ -14911,7 +14911,7 @@ dissect_nfs4_vol_indices.exit48.i.i:              ; preds = %605, %596
   br label %dissect_nfs4_deviceaddr.exit
 
 dissect_nfs4_deviceaddr.exit:                     ; preds = %622, %.lr.ph40.i.i, %._crit_edge36.i.i, %._crit_edge.i.i, %._crit_edge.i23.i, %567, %625
-  %.0.i492 = phi i32 [ %627, %625 ], [ %565, %.lr.ph40.i.i ], [ %.2.lcssa.i.i, %._crit_edge36.i.i ], [ %537, %._crit_edge.i.i ], [ %555, %._crit_edge.i23.i ], [ %569, %567 ], [ %.1.i.i, %622 ]
+  %.0.i492 = phi i32 [ %627, %625 ], [ %537, %._crit_edge.i.i ], [ %555, %._crit_edge.i23.i ], [ %569, %567 ], [ %.2.lcssa.i.i, %._crit_edge36.i.i ], [ %565, %.lr.ph40.i.i ], [ %.1.i.i, %622 ]
   %628 = call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %.0.i492, ptr noundef %2, ptr noundef %61, ptr noundef null, ptr noundef nonnull @dissect_nfs4_notify_deviceid_bitmap.bitmap_info, i32 noundef 0, ptr noundef null)
   br label %dissect_nfsdata_reduced.exit
 
@@ -15130,7 +15130,7 @@ dissect_nfs4_listxattr_names.exit:                ; preds = %.lr.ph.i502, %729
   br label %dissect_nfsdata_reduced.exit
 
 dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %523, %519, %516, %512, %391, %247, %244, %239, %233, %203, %200, %659, %365, %286, %119, %82, %84, %89, %92, %104, %106, %108, %137, %dissect_nfs4_open_delegation.exit, %191, %249, %260, %281, %284, %294, %304, %dissect_nfs4_state_protect_r.exit, %350, %362, %dissect_nfs4_deviceaddr.exit, %dissect_nfs4_devicelist.exit, %643, %671, %678, %dissect_nfs4_offload_status_res.exit, %704, %124, %120, %122, %292, %287, %388, %369, %666, %660, %699, %698, %710, %709, %713, %712, %717, %716, %dissect_nfs4_listxattr_names.exit, %728, %746, %745, %81, %80
-  %.1 = phi i32 [ %77, %80 ], [ %77, %81 ], [ %83, %82 ], [ %88, %84 ], [ %91, %89 ], [ %103, %92 ], [ %105, %104 ], [ %107, %106 ], [ %116, %108 ], [ %123, %122 ], [ %77, %120 ], [ %136, %124 ], [ %77, %119 ], [ %138, %137 ], [ %.0.i, %dissect_nfs4_open_delegation.exit ], [ %192, %191 ], [ %754, %746 ], [ %77, %745 ], [ %744, %dissect_nfs4_listxattr_names.exit ], [ %77, %728 ], [ %725, %717 ], [ %77, %716 ], [ %679, %678 ], [ %201, %200 ], [ %240, %239 ], [ %715, %713 ], [ %77, %712 ], [ %257, %249 ], [ %278, %260 ], [ %283, %281 ], [ %285, %284 ], [ %291, %287 ], [ %293, %292 ], [ %77, %286 ], [ %303, %294 ], [ %311, %304 ], [ %349, %dissect_nfs4_state_protect_r.exit ], [ %361, %350 ], [ %711, %710 ], [ %77, %709 ], [ %708, %704 ], [ %364, %362 ], [ %387, %369 ], [ %390, %388 ], [ %368, %365 ], [ %245, %244 ], [ %522, %519 ], [ %515, %512 ], [ %628, %dissect_nfs4_deviceaddr.exit ], [ %642, %dissect_nfs4_devicelist.exit ], [ %658, %643 ], [ %703, %699 ], [ %77, %698 ], [ %665, %660 ], [ %670, %666 ], [ %77, %659 ], [ %677, %671 ], [ %.014.lcssa.i, %dissect_nfs4_offload_status_res.exit ], [ %204, %203 ], [ %238, %233 ], [ %248, %247 ], [ %398, %391 ], [ %518, %516 ], [ %524, %523 ], [ %.7.i, %.loopexit.i ]
+  %.1 = phi i32 [ %77, %80 ], [ %77, %81 ], [ %83, %82 ], [ %88, %84 ], [ %91, %89 ], [ %103, %92 ], [ %105, %104 ], [ %107, %106 ], [ %116, %108 ], [ %123, %122 ], [ %77, %120 ], [ %136, %124 ], [ %138, %137 ], [ %.0.i, %dissect_nfs4_open_delegation.exit ], [ %192, %191 ], [ %754, %746 ], [ %77, %745 ], [ %744, %dissect_nfs4_listxattr_names.exit ], [ %77, %728 ], [ %725, %717 ], [ %77, %716 ], [ %715, %713 ], [ %77, %712 ], [ %257, %249 ], [ %278, %260 ], [ %283, %281 ], [ %285, %284 ], [ %291, %287 ], [ %293, %292 ], [ %303, %294 ], [ %311, %304 ], [ %349, %dissect_nfs4_state_protect_r.exit ], [ %361, %350 ], [ %711, %710 ], [ %77, %709 ], [ %708, %704 ], [ %364, %362 ], [ %387, %369 ], [ %390, %388 ], [ %628, %dissect_nfs4_deviceaddr.exit ], [ %642, %dissect_nfs4_devicelist.exit ], [ %658, %643 ], [ %703, %699 ], [ %77, %698 ], [ %665, %660 ], [ %670, %666 ], [ %677, %671 ], [ %.014.lcssa.i, %dissect_nfs4_offload_status_res.exit ], [ %679, %678 ], [ %77, %119 ], [ %77, %286 ], [ %368, %365 ], [ %77, %659 ], [ %201, %200 ], [ %204, %203 ], [ %238, %233 ], [ %240, %239 ], [ %245, %244 ], [ %248, %247 ], [ %398, %391 ], [ %518, %516 ], [ %515, %512 ], [ %524, %523 ], [ %522, %519 ], [ %.7.i, %.loopexit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
@@ -15144,8 +15144,8 @@ dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %523, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %dissect_nfsdata_reduced.exit, %._crit_edge.split.loop.exit636, %._crit_edge.split.loop.exit633
-  %.0463.lcssa = phi i32 [ %758, %._crit_edge.split.loop.exit636 ], [ %757, %._crit_edge.split.loop.exit633 ], [ %.0462509, %dissect_nfsdata_reduced.exit ]
-  %.0.lcssa = phi i32 [ %.0528, %._crit_edge.split.loop.exit636 ], [ %.0528, %._crit_edge.split.loop.exit633 ], [ %.1, %dissect_nfsdata_reduced.exit ]
+  %.0463.lcssa = phi i32 [ %757, %._crit_edge.split.loop.exit633 ], [ %758, %._crit_edge.split.loop.exit636 ], [ %.0462509, %dissect_nfsdata_reduced.exit ]
+  %.0.lcssa = phi i32 [ %.0528, %._crit_edge.split.loop.exit633 ], [ %.0528, %._crit_edge.split.loop.exit636 ], [ %.1, %dissect_nfsdata_reduced.exit ]
   %.not548 = icmp eq i32 %.0463.lcssa, 0
   br i1 %.not548, label %._crit_edge547, label %.lr.ph542.preheader
 
@@ -15260,9 +15260,9 @@ proto_item_set_generated.exit:                    ; preds = %795, %792, %788, %7
   br i1 %exitcond574.not, label %._crit_edge547, label %769, !llvm.loop !57
 
 ._crit_edge547:                                   ; preds = %809, %36, %._crit_edge
-  %.0458.lcssa618 = phi i32 [ 5, %36 ], [ 5, %._crit_edge ], [ %spec.select, %809 ]
-  %.0463.lcssa609617 = phi i32 [ 0, %36 ], [ 0, %._crit_edge ], [ %.0463.lcssa, %809 ]
-  %.0.lcssa610616 = phi i32 [ %30, %36 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %809 ]
+  %.0458.lcssa618 = phi i32 [ 5, %._crit_edge ], [ 5, %36 ], [ %spec.select, %809 ]
+  %.0463.lcssa609617 = phi i32 [ 0, %._crit_edge ], [ 0, %36 ], [ %.0463.lcssa, %809 ]
+  %.0.lcssa610616 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %30, %36 ], [ %.0.lcssa, %809 ]
   %810 = load ptr, ptr %38, align 8
   %811 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %810, i64 noundef 64) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %811, ptr noundef align 8 dereferenceable(64) %4, i64 64, i1 false)
@@ -15675,7 +15675,7 @@ dissect_nfs4_status.exit.i:                       ; preds = %141, %138, %130
   br label %dissect_nfs4_cb_layoutrecall.exit.i
 
 dissect_nfs4_cb_layoutrecall.exit.i:              ; preds = %._crit_edge.i.i, %150, %148, %122, %93, %89, %82, %75, %65, %62, %57, %50, %.thread142.i
-  %.2.i = phi i32 [ %43, %50 ], [ %61, %57 ], [ %64, %62 ], [ %43, %.thread142.i ], [ %92, %89 ], [ %74, %65 ], [ %149, %148 ], [ %152, %150 ], [ %129, %122 ], [ %81, %75 ], [ %88, %82 ], [ %108, %93 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
+  %.2.i = phi i32 [ %43, %50 ], [ %61, %57 ], [ %64, %62 ], [ %92, %89 ], [ %149, %148 ], [ %152, %150 ], [ %129, %122 ], [ %43, %.thread142.i ], [ %81, %75 ], [ %88, %82 ], [ %74, %65 ], [ %108, %93 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %dissect_nfs4_cb_request.exit, label %33, !llvm.loop !61

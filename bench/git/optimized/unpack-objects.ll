@@ -2118,8 +2118,8 @@ resolve_delta.exit:                               ; preds = %27
   br label %.backedge67
 
 .backedge67:                                      ; preds = %resolve_delta.exit, %41
-  %39 = phi ptr [ %18, %41 ], [ %.pre, %resolve_delta.exit ]
-  %.0.i.be = phi ptr [ %42, %41 ], [ @delta_list, %resolve_delta.exit ]
+  %39 = phi ptr [ %.pre, %resolve_delta.exit ], [ %18, %41 ]
+  %.0.i.be = phi ptr [ @delta_list, %resolve_delta.exit ], [ %42, %41 ]
   %40 = load ptr, ptr %.0.i.be, align 8, !tbaa !69
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %added_object.exit, label %.lr.ph, !llvm.loop !85
@@ -2205,8 +2205,8 @@ resolve_delta.exit58:                             ; preds = %66
   br label %.backedge
 
 .backedge:                                        ; preds = %resolve_delta.exit58, %80
-  %78 = phi ptr [ %57, %80 ], [ %.pre81, %resolve_delta.exit58 ]
-  %.0.i46.be = phi ptr [ %81, %80 ], [ @delta_list, %resolve_delta.exit58 ]
+  %78 = phi ptr [ %.pre81, %resolve_delta.exit58 ], [ %57, %80 ]
+  %.0.i46.be = phi ptr [ @delta_list, %resolve_delta.exit58 ], [ %81, %80 ]
   %79 = load ptr, ptr %.0.i46.be, align 8, !tbaa !69
   %.not.i47 = icmp eq ptr %79, null
   br i1 %.not.i47, label %added_object.exit49, label %.lr.ph75, !llvm.loop !85
@@ -2546,7 +2546,7 @@ write_cached_object.exit:                         ; preds = %45
   br label %56
 
 56:                                               ; preds = %7, %4, %write_cached_object.exit, %27
-  %.0 = phi i32 [ 1, %4 ], [ 0, %write_cached_object.exit ], [ 0, %27 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %write_cached_object.exit ], [ 0, %27 ], [ 1, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 

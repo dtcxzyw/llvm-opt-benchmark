@@ -415,8 +415,8 @@ X11_XInput2PenWacomDeviceID.exit:                 ; preds = %X11_XInput2PenGetIn
   %160 = icmp eq i64 %146, %159
   br i1 %160, label %.thread, label %168
 
-.thread:                                          ; preds = %142, %155, %158
-  %.06489 = phi i32 [ 2, %158 ], [ 0, %142 ], [ 1, %155 ]
+.thread:                                          ; preds = %155, %142, %158
+  %.06489 = phi i32 [ 2, %158 ], [ 1, %155 ], [ 0, %142 ]
   %161 = call i32 @SDL_GetPenCapabilityFromAxis(i32 noundef %.06489) #9
   %162 = or i32 %161, %.06695
   %sext = shl i32 %144, 24
@@ -467,7 +467,7 @@ X11_XInput2PenWacomDeviceID.exit:                 ; preds = %X11_XInput2PenGetIn
   br label %X11_XInput2DeviceIsPen.exit.thread
 
 X11_XInput2DeviceIsPen.exit.thread:               ; preds = %.critedge.i, %24, %43, %X11_XInput2DeviceIsPen.exit, %20, %2, %181
-  %.0 = phi ptr [ %.1, %181 ], [ null, %20 ], [ %42, %X11_XInput2DeviceIsPen.exit ], [ null, %2 ], [ null, %43 ], [ null, %24 ], [ null, %.critedge.i ]
+  %.0 = phi ptr [ %.1, %181 ], [ null, %2 ], [ null, %20 ], [ %42, %X11_XInput2DeviceIsPen.exit ], [ null, %43 ], [ null, %24 ], [ null, %.critedge.i ]
   ret ptr %.0
 }
 
@@ -647,7 +647,7 @@ define hidden void @X11_PenAxesFromValuators(ptr noundef readonly captures(none)
   br label %44
 
 44:                                               ; preds = %41, %39, %37, %35, %32
-  %.1.i = phi float [ %34, %32 ], [ %43, %41 ], [ %38, %37 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %39 ]
+  %.1.i = phi float [ %34, %32 ], [ %38, %37 ], [ %43, %41 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %39 ]
   %cond.i = icmp eq i64 %indvars.iv.i, 4
   br i1 %cond.i, label %45, label %56
 

@@ -172,7 +172,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -668,7 +668,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %33, %37
-  %.0150 = phi i8 [ %43, %37 ], [ 0, %33 ], [ 0, %32 ]
+  %.0150 = phi i8 [ 0, %33 ], [ %43, %37 ], [ 0, %32 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1067,14 +1067,14 @@ switch.early.test:                                ; preds = %.critedge13
   %251 = add nsw i32 %.3159, -1
   br label %.thread252
 
-.thread252:                                       ; preds = %switch.early.test, %switch.early.test, %.critedge13, %230, %237, %247, %241, %93, %77, %250
-  %.2130267 = phi i32 [ %.0128367, %250 ], [ %.0128367, %237 ], [ %.0128367, %230 ], [ %.0128367, %241 ], [ %249, %247 ], [ -1, %93 ], [ %.0128367, %77 ], [ %.0128367, %switch.early.test ], [ %.0128367, %.critedge13 ], [ %.0128367, %switch.early.test ]
-  %.3139266 = phi i8 [ 0, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %241 ], [ 0, %247 ], [ %.2138366, %93 ], [ %.2138366, %77 ], [ 0, %switch.early.test ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
-  %.3146265 = phi i32 [ %.5148, %250 ], [ %.5148, %237 ], [ %.5148, %230 ], [ %.2145365, %241 ], [ %.2145365, %247 ], [ %.2145365, %93 ], [ %.2145365, %77 ], [ %.2145365, %switch.early.test ], [ %.2145365, %.critedge13 ], [ %.2145365, %switch.early.test ]
-  %.2152264 = phi i8 [ %.1151364, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %241 ], [ 0, %247 ], [ %.1151364, %93 ], [ %.1151364, %77 ], [ 0, %switch.early.test ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
-  %.1154263 = phi i1 [ %.0153363, %250 ], [ false, %237 ], [ false, %230 ], [ false, %241 ], [ false, %247 ], [ %.0153363, %93 ], [ %.0153363, %77 ], [ false, %switch.early.test ], [ false, %.critedge13 ], [ false, %switch.early.test ]
-  %.2158262 = phi i32 [ %251, %250 ], [ %239, %237 ], [ %.3159, %230 ], [ %.3159, %241 ], [ %.3159, %247 ], [ %94, %93 ], [ %.0156362, %77 ], [ %.3159, %switch.early.test ], [ %.3159, %.critedge13 ], [ %.3159, %switch.early.test ]
-  %.sroa.0215.1261 = phi i8 [ 0, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %241 ], [ %.sroa.0204.0.fr, %247 ], [ 0, %93 ], [ %.sroa.0215.0361, %77 ], [ 0, %switch.early.test ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
+.thread252:                                       ; preds = %switch.early.test, %switch.early.test, %.critedge13, %230, %237, %247, %241, %77, %93, %250
+  %.2130267 = phi i32 [ %.0128367, %250 ], [ %.0128367, %237 ], [ %.0128367, %230 ], [ %.0128367, %switch.early.test ], [ %.0128367, %241 ], [ %249, %247 ], [ %.0128367, %77 ], [ -1, %93 ], [ %.0128367, %.critedge13 ], [ %.0128367, %switch.early.test ]
+  %.3139266 = phi i8 [ 0, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %switch.early.test ], [ 0, %241 ], [ 0, %247 ], [ %.2138366, %77 ], [ %.2138366, %93 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
+  %.3146265 = phi i32 [ %.5148, %250 ], [ %.5148, %237 ], [ %.5148, %230 ], [ %.2145365, %switch.early.test ], [ %.2145365, %241 ], [ %.2145365, %247 ], [ %.2145365, %77 ], [ %.2145365, %93 ], [ %.2145365, %.critedge13 ], [ %.2145365, %switch.early.test ]
+  %.2152264 = phi i8 [ %.1151364, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %switch.early.test ], [ 0, %241 ], [ 0, %247 ], [ %.1151364, %77 ], [ %.1151364, %93 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
+  %.1154263 = phi i1 [ %.0153363, %250 ], [ false, %237 ], [ false, %230 ], [ false, %switch.early.test ], [ false, %241 ], [ false, %247 ], [ %.0153363, %77 ], [ %.0153363, %93 ], [ false, %.critedge13 ], [ false, %switch.early.test ]
+  %.2158262 = phi i32 [ %251, %250 ], [ %239, %237 ], [ %.3159, %230 ], [ %.3159, %switch.early.test ], [ %.3159, %241 ], [ %.3159, %247 ], [ %.0156362, %77 ], [ %94, %93 ], [ %.3159, %.critedge13 ], [ %.3159, %switch.early.test ]
+  %.sroa.0215.1261 = phi i8 [ 0, %250 ], [ 0, %237 ], [ 0, %230 ], [ 0, %switch.early.test ], [ 0, %241 ], [ %.sroa.0204.0.fr, %247 ], [ %.sroa.0215.0361, %77 ], [ 0, %93 ], [ 0, %.critedge13 ], [ 0, %switch.early.test ]
   %252 = add nsw i32 %.2158262, 1
   %253 = load i32, ptr %46, align 8, !tbaa !41
   %254 = load i32, ptr %49, align 4, !tbaa !40
@@ -1095,8 +1095,8 @@ switch.early.test:                                ; preds = %.critedge13
   tail call void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %257, i32 noundef %259, i32 noundef %256, i32 noundef %256)
   br label %.thread287
 
-.thread287:                                       ; preds = %233, %226, %131, %.thread235, %.critedge, %.critedge11, %.thread291
-  %cond290 = phi i1 [ false, %.thread291 ], [ true, %131 ], [ true, %.critedge11 ], [ true, %.critedge ], [ true, %.thread235 ], [ true, %226 ], [ true, %233 ]
+.thread287:                                       ; preds = %233, %226, %.critedge11, %.critedge, %131, %.thread235, %.thread291
+  %cond290 = phi i1 [ false, %.thread291 ], [ true, %.thread235 ], [ true, %131 ], [ true, %.critedge ], [ true, %.critedge11 ], [ true, %226 ], [ true, %233 ]
   ret i1 %cond290
 }
 
@@ -1224,7 +1224,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7731FormattedValueStringBuild
   br label %53
 
 53:                                               ; preds = %3, %52, %9
-  %.0 = phi i8 [ %.1, %52 ], [ 0, %9 ], [ 0, %3 ]
+  %.0 = phi i8 [ 0, %9 ], [ %.1, %52 ], [ 0, %3 ]
   ret i8 %.0
 }
 

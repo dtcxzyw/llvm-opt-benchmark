@@ -568,7 +568,7 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread29
 
 .thread29:                                        ; preds = %20, %.thread27, %98, %96, %67
-  %.ph32 = phi ptr [ %22, %.thread27 ], [ %74, %67 ], [ %22, %96 ], [ %22, %98 ], [ %22, %20 ]
+  %.ph32 = phi ptr [ %74, %67 ], [ %22, %96 ], [ %22, %98 ], [ %22, %.thread27 ], [ %22, %20 ]
   %102 = call ptr @ttm_resource_manager_next(ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %21) #6
   %103 = icmp eq ptr %102, null
   br i1 %103, label %.thread38, label %20, !llvm.loop !28
@@ -808,7 +808,7 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread45
 
 .thread45:                                        ; preds = %203, %189, %182, %216, %.loopexit, %.loopexit, %201, %195, %.thread43, %191
-  %218 = phi i32 [ %194, %.thread43 ], [ %192, %191 ], [ %196, %201 ], [ %215, %216 ], [ %215, %.loopexit ], [ -16, %189 ], [ %196, %195 ], [ %215, %.loopexit ], [ -16, %182 ], [ %205, %203 ]
+  %218 = phi i32 [ %194, %.thread43 ], [ %192, %191 ], [ %196, %201 ], [ %215, %216 ], [ %215, %.loopexit ], [ %196, %195 ], [ %215, %.loopexit ], [ -16, %182 ], [ -16, %189 ], [ %205, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -942,7 +942,7 @@ define internal fastcc i32 @ttm_bo_cleanup_refs(ptr noundef nonnull %0, i1 nound
   tail call void @_raw_spin_unlock(ptr noundef nonnull %41) #6
   br label %.thread
 
-.thread5:                                         ; preds = %25, %22, %33
+.thread5:                                         ; preds = %22, %25, %33
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2080
@@ -986,7 +986,7 @@ define internal fastcc i32 @ttm_bo_cleanup_refs(ptr noundef nonnull %0, i1 nound
   br label %.thread
 
 .thread:                                          ; preds = %20, %30, %18, %62, %60, %38
-  %65 = phi i32 [ -16, %38 ], [ 0, %60 ], [ 0, %62 ], [ -16, %20 ], [ 0, %30 ], [ %19, %18 ]
+  %65 = phi i32 [ -16, %38 ], [ 0, %62 ], [ 0, %60 ], [ -16, %20 ], [ 0, %30 ], [ %19, %18 ]
   ret i32 %65
 }
 
@@ -1153,7 +1153,7 @@ define dso_local i32 @ttm_bo_mem_space(ptr noundef %0, ptr noundef readonly capt
   br i1 %49, label %select.unfold, label %.thread18
 
 select.unfold:                                    ; preds = %48, %38, %26, %41
-  %.ph = phi i8 [ %28, %38 ], [ 1, %41 ], [ %28, %26 ], [ 1, %48 ]
+  %.ph = phi i8 [ 1, %41 ], [ %28, %26 ], [ %28, %38 ], [ 1, %48 ]
   %50 = add nuw i32 %27, 1
   %51 = load i32, ptr %1, align 8
   %52 = icmp ult i32 %50, %51
@@ -1233,7 +1233,7 @@ select.unfold:                                    ; preds = %48, %38, %26, %41
   br label %.thread18
 
 .thread18:                                        ; preds = %41, %48, %43, %.loopexit, %93, %.loopexit21, %4
-  %95 = phi i32 [ %9, %4 ], [ -12, %.loopexit21 ], [ -22, %93 ], [ %86, %.loopexit ], [ %46, %48 ], [ %42, %41 ], [ 0, %43 ]
+  %95 = phi i32 [ %9, %4 ], [ -12, %.loopexit21 ], [ -22, %93 ], [ %86, %.loopexit ], [ %42, %41 ], [ %46, %48 ], [ 0, %43 ]
   ret i32 %95
 }
 
@@ -1343,7 +1343,7 @@ define internal fastcc i32 @ttm_bo_add_move_fence(ptr noundef readonly captures(
   br label %.thread
 
 .thread:                                          ; preds = %49, %51, %38, %40, %53, %52, %41
-  %54 = phi i32 [ %46, %52 ], [ 0, %53 ], [ %35, %38 ], [ %35, %41 ], [ %35, %40 ], [ %46, %51 ], [ %46, %49 ]
+  %54 = phi i32 [ 0, %53 ], [ %35, %41 ], [ %46, %52 ], [ %35, %40 ], [ %35, %38 ], [ %46, %51 ], [ %46, %49 ]
   ret i32 %54
 }
 
@@ -1568,7 +1568,7 @@ define dso_local i32 @ttm_bo_init_reserved(ptr noundef %0, ptr noundef %1, i32 n
   br label %.thread2
 
 .thread2:                                         ; preds = %.thread, %44, %23
-  %46 = phi i32 [ %31, %23 ], [ %42, %.thread ], [ %40, %44 ]
+  %46 = phi i32 [ %31, %23 ], [ %40, %44 ], [ %42, %.thread ]
   tail call void @ttm_bo_put(ptr noundef %1)
   br label %47
 
@@ -1969,7 +1969,7 @@ ttm_bo_unmap_virtual.exit:                        ; preds = %ttm_bo_wait_ctx.exi
   br label %ttm_bo_wait_ctx.exit.thread15
 
 ttm_bo_wait_ctx.exit.thread15:                    ; preds = %120, %113, %.thread12, %153, %147, %ttm_bo_wait_ctx.exit
-  %157 = phi i64 [ %.ph, %.thread12 ], [ %122, %ttm_bo_wait_ctx.exit ], [ %156, %153 ], [ 0, %147 ], [ -16, %113 ], [ -16, %120 ]
+  %157 = phi i64 [ %122, %ttm_bo_wait_ctx.exit ], [ %156, %153 ], [ 0, %147 ], [ %.ph, %.thread12 ], [ -16, %113 ], [ -16, %120 ]
   %158 = icmp eq i8 %29, 0
   br i1 %158, label %161, label %159
 
@@ -1986,7 +1986,7 @@ ttm_bo_wait_ctx.exit.thread15:                    ; preds = %120, %113, %.thread
   br label %.thread
 
 .thread:                                          ; preds = %28, %47, %45, %3, %161, %87, %81, %79
-  %165 = phi i32 [ %91, %87 ], [ %164, %161 ], [ -16, %79 ], [ -16, %81 ], [ -16, %3 ], [ -16, %45 ], [ -16, %47 ], [ -16, %28 ]
+  %165 = phi i32 [ %91, %87 ], [ %164, %161 ], [ -16, %81 ], [ -16, %79 ], [ -16, %3 ], [ -16, %45 ], [ -16, %47 ], [ -16, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %165
 }

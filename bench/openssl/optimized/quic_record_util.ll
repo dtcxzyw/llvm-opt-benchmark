@@ -193,7 +193,7 @@ define range(i32 0, 2) i32 @ossl_quic_provide_initial_secret(ptr noundef %0, ptr
   br i1 %.not62, label %33, label %.critedge
 
 33:                                               ; preds = %30, %.thread65, %27, %24, %21, %15
-  %.0 = phi ptr [ %13, %.thread65 ], [ %13, %15 ], [ %13, %27 ], [ %13, %24 ], [ %13, %21 ], [ null, %30 ]
+  %.0 = phi ptr [ %13, %.thread65 ], [ %13, %27 ], [ %13, %24 ], [ %13, %21 ], [ %13, %15 ], [ null, %30 ]
   call void @EVP_MD_free(ptr noundef %.0) #5
   br label %.critedge
 

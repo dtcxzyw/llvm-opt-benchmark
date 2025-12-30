@@ -1286,7 +1286,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %59
   ret void
 
 78:                                               ; preds = %20, %75
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %76, %75 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %21, %20 ]
   %79 = load i64, ptr %10, align 8, !tbaa !147
   %80 = icmp ult i64 %79, 3
   br i1 %80, label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit32, label %81

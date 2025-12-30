@@ -274,8 +274,8 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit33: ; preds = %73, %93
   br label %_ZN6google8protobuflsERKNS0_7uint128Ei.exit
 
 _ZN6google8protobuflsERKNS0_7uint128Ei.exit:      ; preds = %118, %120, %123, %125
-  %.sroa.5.0.i = phi i64 [ 0, %123 ], [ %121, %120 ], [ %127, %125 ], [ %3, %118 ]
-  %.sroa.0.0.i = phi i64 [ 0, %123 ], [ %122, %120 ], [ 0, %125 ], [ %2, %118 ]
+  %.sroa.5.0.i = phi i64 [ %121, %120 ], [ %127, %125 ], [ 0, %123 ], [ %3, %118 ]
+  %.sroa.0.0.i = phi i64 [ %122, %120 ], [ 0, %125 ], [ 0, %123 ], [ %2, %118 ]
   %128 = icmp eq i64 %.sroa.5.0.i, %.sroa.9.069
   %129 = icmp ule i64 %.sroa.0.0.i, %.sroa.054.068
   %130 = icmp ule i64 %.sroa.5.0.i, %.sroa.9.069
@@ -767,8 +767,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i67: ; preds = %.noexc73, %16
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke: ; preds = %._crit_edge.i69, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i67, %._crit_edge.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i
-  %176 = phi i64 [ %.pre89, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ], [ %132, %._crit_edge.i ], [ 0, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i67 ], [ 0, %._crit_edge.i69 ]
-  %177 = phi i8 [ %.0.i.i.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ], [ %.pre.i, %._crit_edge.i ], [ %.0.i.i.i68, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i67 ], [ %.pre.i71, %._crit_edge.i69 ]
+  %176 = phi i64 [ %132, %._crit_edge.i ], [ %.pre89, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ], [ 0, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i67 ], [ 0, %._crit_edge.i69 ]
+  %177 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %.0.i.i.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ], [ %.0.i.i.i68, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i67 ], [ %.pre.i71, %._crit_edge.i69 ]
   %178 = sub i64 %131, %132
   %179 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %176, i64 noundef 0, i64 noundef %178, i8 noundef signext %177)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit unwind label %157

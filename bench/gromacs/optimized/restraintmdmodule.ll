@@ -341,8 +341,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %98, %96
   br i1 %123, label %113, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread, !llvm.loop !90
 
 _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %118, %101
-  %124 = phi i32 [ %106, %101 ], [ %.pre.i, %118 ]
-  %.0.i.i = phi ptr [ %104, %101 ], [ %119, %118 ]
+  %124 = phi i32 [ %.pre.i, %118 ], [ %106, %101 ]
+  %.0.i.i = phi ptr [ %119, %118 ], [ %104, %101 ]
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %_ZNK11gmx_ga2la_t4findEi.exit.i._ZNK11gmx_ga2la_t8findHomeEi.exit_crit_edge, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread
 
@@ -375,7 +375,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4f
   br label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit.thread:         ; preds = %120, %101, %_ZNK11gmx_ga2la_t4findEi.exit.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit
-  %139 = phi ptr [ %.pre127, %_ZNK11gmx_ga2la_t8findHomeEi.exit ], [ %85, %101 ], [ %85, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %85, %120 ]
+  %139 = phi ptr [ %85, %101 ], [ %85, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %.pre127, %_ZNK11gmx_ga2la_t8findHomeEi.exit ], [ %85, %120 ]
   %140 = load ptr, ptr %19, align 8, !tbaa !58
   %141 = getelementptr inbounds i8, ptr %140, i64 -16
   %142 = load i32, ptr %141, align 4, !tbaa !59
@@ -449,8 +449,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i80:      ; preds = %155, %153
   br i1 %180, label %170, label %_ZNK11gmx_ga2la_t8findHomeEi.exit88.thread, !llvm.loop !90
 
 _ZNK11gmx_ga2la_t4findEi.exit.i85:                ; preds = %175, %158
-  %181 = phi i32 [ %163, %158 ], [ %.pre.i84, %175 ]
-  %.0.i.i86 = phi ptr [ %161, %158 ], [ %176, %175 ]
+  %181 = phi i32 [ %.pre.i84, %175 ], [ %163, %158 ]
+  %.0.i.i86 = phi ptr [ %176, %175 ], [ %161, %158 ]
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %_ZNK11gmx_ga2la_t4findEi.exit.i85._ZNK11gmx_ga2la_t8findHomeEi.exit88_crit_edge, label %_ZNK11gmx_ga2la_t8findHomeEi.exit88.thread
 
@@ -1276,8 +1276,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %21, %19
   br i1 %46, label %36, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread, !llvm.loop !90
 
 _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %41, %24
-  %47 = phi i32 [ %29, %24 ], [ %.pre.i, %41 ]
-  %.0.i.i = phi ptr [ %27, %24 ], [ %42, %41 ]
+  %47 = phi i32 [ %.pre.i, %41 ], [ %29, %24 ]
+  %.0.i.i = phi ptr [ %42, %41 ], [ %27, %24 ]
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK11gmx_ga2la_t8findHomeEi.exit, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread
 

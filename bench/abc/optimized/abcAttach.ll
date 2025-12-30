@@ -711,7 +711,7 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
   br label %289
 
 289:                                              ; preds = %.critedge4, %237, %236, %93, %92, %288, %266, %10
-  %.092 = phi i32 [ 0, %10 ], [ 0, %288 ], [ 0, %93 ], [ 0, %266 ], [ 0, %237 ], [ 0, %92 ], [ 0, %236 ], [ 1, %.critedge4 ]
+  %.092 = phi i32 [ 0, %10 ], [ 0, %266 ], [ 0, %288 ], [ 0, %92 ], [ 0, %93 ], [ 0, %236 ], [ 0, %237 ], [ 1, %.critedge4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.092

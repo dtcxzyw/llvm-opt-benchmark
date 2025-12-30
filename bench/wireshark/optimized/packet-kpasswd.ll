@@ -246,7 +246,7 @@ dissect_kpasswd_krb_priv_message.exit:            ; preds = %32, %53
   br label %60
 
 60:                                               ; preds = %8, %dissect_kpasswd_krb_priv_message.exit, %15
-  %.070 = phi i32 [ %59, %dissect_kpasswd_krb_priv_message.exit ], [ %17, %15 ], [ -1, %8 ]
+  %.070 = phi i32 [ %17, %15 ], [ %59, %dissect_kpasswd_krb_priv_message.exit ], [ -1, %8 ]
   ret i32 %.070
 }
 

@@ -860,8 +860,8 @@ _ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_
   br label %_ZNSt8functionIFvRKiEEC2ERKS3_.exit.i.i
 
 _ZNSt8functionIFvRKiEEC2ERKS3_.exit.i.i:          ; preds = %_ZNSt8functionIFvRKiEEC2IRKS_IFviEEvEEOT_.exit.thread, %_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit
-  %25 = phi ptr [ null, %_ZNSt8functionIFvRKiEEC2IRKS_IFviEEvEEOT_.exit.thread ], [ @_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, %_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit ]
-  %26 = phi ptr [ null, %_ZNSt8functionIFvRKiEEC2IRKS_IFviEEvEEOT_.exit.thread ], [ @_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE9_M_invokeERKSt9_Any_dataS1_, %_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit ]
+  %25 = phi ptr [ @_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, %_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit ], [ null, %_ZNSt8functionIFvRKiEEC2IRKS_IFviEEvEEOT_.exit.thread ]
+  %26 = phi ptr [ @_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE9_M_invokeERKSt9_Any_dataS1_, %_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit ], [ null, %_ZNSt8functionIFvRKiEEC2IRKS_IFviEEvEEOT_.exit.thread ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !86

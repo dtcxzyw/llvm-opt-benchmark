@@ -690,7 +690,7 @@ _ZNSt8functionIFvvEED2Ev.exit87:                  ; preds = %207, %_ZNSt8functio
   br label %_ZNSt8functionIFvbEED2Ev.exit89
 
 _ZNSt8functionIFvbEED2Ev.exit89:                  ; preds = %.body40, %.body35, %218, %216
-  %.pn25 = phi { ptr, i32 } [ %219, %218 ], [ %.pn23, %.body40 ], [ %.pn21, %.body35 ], [ %217, %216 ]
+  %.pn25 = phi { ptr, i32 } [ %217, %216 ], [ %.pn23, %.body40 ], [ %.pn21, %.body35 ], [ %219, %218 ]
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %229 = load ptr, ptr %228, align 8
   %.not.i.i96 = icmp eq ptr %229, null

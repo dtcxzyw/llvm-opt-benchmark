@@ -176,8 +176,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %57
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %63
-  %.0.i1632 = phi i64 [ %61, %.thread ], [ %62, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %63 ]
-  %.0.i17 = phi ptr [ @.str.19, %.thread ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %63 ]
+  %.0.i1632 = phi i64 [ %62, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %63 ], [ %61, %.thread ]
+  %.0.i17 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %63 ], [ @.str.19, %.thread ]
   %66 = icmp ugt i64 %31, 107374182399
   br i1 %66, label %_Z24byte_size_in_proper_unitImET_S0_.exit20, label %67
 
@@ -201,8 +201,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit20:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit23
 
 _Z25proper_unit_for_byte_sizem.exit23:            ; preds = %.thread37, %_Z24byte_size_in_proper_unitImET_S0_.exit20, %71
-  %.0.i1936 = phi i64 [ %69, %.thread37 ], [ %70, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %spec.select.i18, %71 ]
-  %.0.i22 = phi ptr [ @.str.19, %.thread37 ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %.str.20..str.21.i21, %71 ]
+  %.0.i1936 = phi i64 [ %70, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %spec.select.i18, %71 ], [ %69, %.thread37 ]
+  %.0.i22 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %.str.20..str.21.i21, %71 ], [ @.str.19, %.thread37 ]
   %74 = icmp ugt i64 %33, 10737418239999
   br i1 %74, label %_Z24byte_size_in_proper_unitImET_S0_.exit26, label %75
 
@@ -226,8 +226,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit26:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit29
 
 _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread42, %_Z24byte_size_in_proper_unitImET_S0_.exit26, %79
-  %.0.i2541 = phi i64 [ %77, %.thread42 ], [ %78, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %79 ]
-  %.0.i28 = phi ptr [ @.str.19, %.thread42 ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.20..str.21.i27, %79 ]
+  %.0.i2541 = phi i64 [ %78, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %79 ], [ %77, %.thread42 ]
+  %.0.i28 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.20..str.21.i27, %79 ], [ @.str.19, %.thread42 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str, i64 noundef %.0.i1632, ptr noundef nonnull %.0.i17, i64 noundef %.0.i1936, ptr noundef nonnull %.0.i22, i64 noundef %.0.i2541, ptr noundef nonnull %.0.i28, double noundef %40)
   br label %82
 
@@ -386,8 +386,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %42
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %48
-  %.0.i32 = phi i64 [ %46, %.thread ], [ %47, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %48 ]
-  %.0.i17 = phi ptr [ @.str.19, %.thread ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %48 ]
+  %.0.i32 = phi i64 [ %47, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %48 ], [ %46, %.thread ]
+  %.0.i17 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %48 ], [ @.str.19, %.thread ]
   %51 = icmp ugt i64 %13, 107374182399
   br i1 %51, label %_Z24byte_size_in_proper_unitImET_S0_.exit20, label %52
 
@@ -411,8 +411,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit20:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit23
 
 _Z25proper_unit_for_byte_sizem.exit23:            ; preds = %.thread37, %_Z24byte_size_in_proper_unitImET_S0_.exit20, %56
-  %.0.i1936 = phi i64 [ %54, %.thread37 ], [ %55, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %spec.select.i18, %56 ]
-  %.0.i22 = phi ptr [ @.str.19, %.thread37 ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %.str.20..str.21.i21, %56 ]
+  %.0.i1936 = phi i64 [ %55, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %spec.select.i18, %56 ], [ %54, %.thread37 ]
+  %.0.i22 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %.str.20..str.21.i21, %56 ], [ @.str.19, %.thread37 ]
   %59 = icmp ugt i64 %15, 10737418239999
   br i1 %59, label %_Z24byte_size_in_proper_unitImET_S0_.exit26, label %60
 
@@ -436,8 +436,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit26:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit29
 
 _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread42, %_Z24byte_size_in_proper_unitImET_S0_.exit26, %64
-  %.0.i2541 = phi i64 [ %62, %.thread42 ], [ %63, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %64 ]
-  %.0.i28 = phi ptr [ @.str.19, %.thread42 ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.20..str.21.i27, %64 ]
+  %.0.i2541 = phi i64 [ %63, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %64 ], [ %62, %.thread42 ]
+  %.0.i28 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.20..str.21.i27, %64 ], [ @.str.19, %.thread42 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.4, i64 noundef %.0.i32, ptr noundef nonnull %.0.i17, i64 noundef %.0.i1936, ptr noundef nonnull %.0.i22, i64 noundef %.0.i2541, ptr noundef nonnull %.0.i28, double noundef %25)
   br label %67
 
@@ -521,8 +521,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %42
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %48
-  %.0.i32 = phi i64 [ %46, %.thread ], [ %47, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %48 ]
-  %.0.i17 = phi ptr [ @.str.19, %.thread ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %48 ]
+  %.0.i32 = phi i64 [ %47, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %48 ], [ %46, %.thread ]
+  %.0.i17 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %48 ], [ @.str.19, %.thread ]
   %51 = icmp ugt i64 %14, 107374182399
   br i1 %51, label %_Z24byte_size_in_proper_unitImET_S0_.exit20, label %52
 
@@ -546,8 +546,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit20:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit23
 
 _Z25proper_unit_for_byte_sizem.exit23:            ; preds = %.thread37, %_Z24byte_size_in_proper_unitImET_S0_.exit20, %56
-  %.0.i1936 = phi i64 [ %54, %.thread37 ], [ %55, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %spec.select.i18, %56 ]
-  %.0.i22 = phi ptr [ @.str.19, %.thread37 ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %.str.20..str.21.i21, %56 ]
+  %.0.i1936 = phi i64 [ %55, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %spec.select.i18, %56 ], [ %54, %.thread37 ]
+  %.0.i22 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit20 ], [ %.str.20..str.21.i21, %56 ], [ @.str.19, %.thread37 ]
   %59 = icmp ugt i64 %16, 10737418239999
   br i1 %59, label %_Z24byte_size_in_proper_unitImET_S0_.exit26, label %60
 
@@ -571,8 +571,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit26:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit29
 
 _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread42, %_Z24byte_size_in_proper_unitImET_S0_.exit26, %64
-  %.0.i2541 = phi i64 [ %62, %.thread42 ], [ %63, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %64 ]
-  %.0.i28 = phi ptr [ @.str.19, %.thread42 ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.20..str.21.i27, %64 ]
+  %.0.i2541 = phi i64 [ %63, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %64 ], [ %62, %.thread42 ]
+  %.0.i28 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.20..str.21.i27, %64 ], [ @.str.19, %.thread42 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.5, i64 noundef %.0.i32, ptr noundef nonnull %.0.i17, i64 noundef %.0.i1936, ptr noundef nonnull %.0.i22, i64 noundef %.0.i2541, ptr noundef nonnull %.0.i28, double noundef %25)
   br label %67
 
@@ -638,8 +638,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %24
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %30
-  %.0.i8 = phi i64 [ %28, %.thread ], [ %29, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %30 ]
-  %.0.i5 = phi ptr [ @.str.19, %.thread ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %30 ]
+  %.0.i8 = phi i64 [ %29, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %30 ], [ %28, %.thread ]
+  %.0.i5 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %30 ], [ @.str.19, %.thread ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %.0.i8, ptr noundef nonnull %.0.i5, double noundef 1.000000e+00)
   br label %33
 
@@ -702,8 +702,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %21
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %27
-  %.0.i6 = phi i64 [ %25, %.thread ], [ %26, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %27 ]
-  %.0.i3 = phi ptr [ @.str.19, %.thread ], [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %27 ]
+  %.0.i6 = phi i64 [ %26, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %27 ], [ %25, %.thread ]
+  %.0.i3 = phi ptr [ @.str.18, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.20..str.21.i, %27 ], [ @.str.19, %.thread ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %.0.i6, ptr noundef nonnull %.0.i3)
   br label %30
 

@@ -31,107 +31,107 @@ define void @dlarge_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %16 = load i32, ptr %2, align 4, !tbaa !3
   %spec.select = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
   %17 = icmp slt i32 %16, %spec.select
-  br i1 %17, label %.thread, label %21
+  br i1 %17, label %.thread, label %20
 
 .thread:                                          ; preds = %15, %6
-  %18 = phi i32 [ -1, %6 ], [ -3, %15 ]
-  store i32 %18, ptr %5, align 4, !tbaa !3
-  %19 = sub nsw i32 0, %18
-  store i32 %19, ptr %7, align 4, !tbaa !3
-  %20 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %7, i32 noundef 6) #4
+  %storemerge = phi i32 [ -1, %6 ], [ -3, %15 ]
+  store i32 %storemerge, ptr %5, align 4, !tbaa !3
+  %18 = sub nsw i32 0, %storemerge
+  store i32 %18, ptr %7, align 4, !tbaa !3
+  %19 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %7, i32 noundef 6) #4
   br label %.loopexit
 
-21:                                               ; preds = %15
+20:                                               ; preds = %15
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = zext nneg i32 %13 to i64
-  %24 = sext i32 %9 to i64
-  %invariant.gep = getelementptr double, ptr %11, i64 %24
-  br label %25
+.lr.ph:                                           ; preds = %20
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = zext nneg i32 %13 to i64
+  %23 = sext i32 %9 to i64
+  %invariant.gep = getelementptr double, ptr %11, i64 %23
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %44
-  %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %26 = load i32, ptr %0, align 4, !tbaa !3
-  %27 = trunc nuw nsw i64 %indvars.iv to i32
-  %reass.sub = sub i32 %26, %27
-  %28 = add i32 %reass.sub, 1
-  store i32 %28, ptr %7, align 4, !tbaa !3
+24:                                               ; preds = %.lr.ph, %43
+  %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %43 ]
+  %25 = load i32, ptr %0, align 4, !tbaa !3
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
+  %reass.sub = sub i32 %25, %26
+  %27 = add i32 %reass.sub, 1
+  store i32 %27, ptr %7, align 4, !tbaa !3
   call void @dlarnv_(ptr noundef nonnull @c__3, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %4) #4
-  %29 = load i32, ptr %0, align 4, !tbaa !3
-  %reass.sub89 = sub i32 %29, %27
-  %30 = add i32 %reass.sub89, 1
-  store i32 %30, ptr %7, align 4, !tbaa !3
-  %31 = call double @dnrm2_(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @c__1) #4
-  %32 = fcmp oeq double %31, 0.000000e+00
-  br i1 %32, label %44, label %33
+  %28 = load i32, ptr %0, align 4, !tbaa !3
+  %reass.sub89 = sub i32 %28, %26
+  %29 = add i32 %reass.sub89, 1
+  store i32 %29, ptr %7, align 4, !tbaa !3
+  %30 = call double @dnrm2_(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @c__1) #4
+  %31 = fcmp oeq double %30, 0.000000e+00
+  br i1 %31, label %43, label %32
 
-33:                                               ; preds = %25
-  %34 = load double, ptr %4, align 8, !tbaa !7
-  %35 = fcmp ult double %34, 0.000000e+00
-  %.neg = fneg double %31
-  %36 = fcmp oge double %31, 0.000000e+00
-  %37 = xor i1 %36, %35
-  %38 = select i1 %37, double %31, double %.neg
-  %39 = fadd double %34, %38
-  %40 = load i32, ptr %0, align 4, !tbaa !3
-  %41 = sub nsw i32 %40, %27
-  store i32 %41, ptr %7, align 4, !tbaa !3
-  %42 = fdiv double 1.000000e+00, %39
-  store double %42, ptr %8, align 8, !tbaa !7
-  call void @dscal_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %22, ptr noundef nonnull @c__1) #4
+32:                                               ; preds = %24
+  %33 = load double, ptr %4, align 8, !tbaa !7
+  %34 = fcmp ult double %33, 0.000000e+00
+  %.neg = fneg double %30
+  %35 = fcmp oge double %30, 0.000000e+00
+  %36 = xor i1 %35, %34
+  %37 = select i1 %36, double %30, double %.neg
+  %38 = fadd double %33, %37
+  %39 = load i32, ptr %0, align 4, !tbaa !3
+  %40 = sub nsw i32 %39, %26
+  store i32 %40, ptr %7, align 4, !tbaa !3
+  %41 = fdiv double 1.000000e+00, %38
+  store double %41, ptr %8, align 8, !tbaa !7
+  call void @dscal_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %21, ptr noundef nonnull @c__1) #4
   store double 1.000000e+00, ptr %4, align 8, !tbaa !7
-  %43 = fdiv double %39, %38
-  br label %44
+  %42 = fdiv double %38, %37
+  br label %43
 
-44:                                               ; preds = %25, %33
-  %.0 = phi double [ %43, %33 ], [ 0.000000e+00, %25 ]
-  %45 = load i32, ptr %0, align 4, !tbaa !3
-  %reass.sub90 = sub i32 %45, %27
-  %46 = add i32 %reass.sub90, 1
-  store i32 %46, ptr %7, align 4, !tbaa !3
+43:                                               ; preds = %24, %32
+  %.0 = phi double [ %42, %32 ], [ 0.000000e+00, %24 ]
+  %44 = load i32, ptr %0, align 4, !tbaa !3
+  %reass.sub90 = sub i32 %44, %26
+  %45 = add i32 %reass.sub90, 1
+  store i32 %45, ptr %7, align 4, !tbaa !3
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr double, ptr %12, i64 %47
-  %49 = getelementptr i8, ptr %48, i64 8
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull @c_b8, ptr noundef %gep, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b10, ptr noundef %49, ptr noundef nonnull @c__1) #4
-  %50 = load i32, ptr %0, align 4, !tbaa !3
-  %reass.sub91 = sub i32 %50, %27
-  %51 = add i32 %reass.sub91, 1
-  store i32 %51, ptr %7, align 4, !tbaa !3
-  %52 = fneg double %.0
-  store double %52, ptr %8, align 8, !tbaa !7
-  %53 = sext i32 %50 to i64
-  %54 = getelementptr double, ptr %12, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 8
-  call void @dger_(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef %55, ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull %2) #4
-  %56 = load i32, ptr %0, align 4, !tbaa !3
-  %reass.sub92 = sub i32 %56, %27
-  %57 = add i32 %reass.sub92, 1
-  store i32 %57, ptr %7, align 4, !tbaa !3
-  %58 = mul nsw i64 %indvars.iv, %24
-  %59 = getelementptr double, ptr %11, i64 %58
-  %60 = getelementptr i8, ptr %59, i64 8
-  %61 = sext i32 %56 to i64
-  %62 = getelementptr double, ptr %12, i64 %61
-  %63 = getelementptr i8, ptr %62, i64 8
-  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @c_b8, ptr noundef %60, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b10, ptr noundef %63, ptr noundef nonnull @c__1) #4
-  %64 = load i32, ptr %0, align 4, !tbaa !3
-  %reass.sub93 = sub i32 %64, %27
-  %65 = add i32 %reass.sub93, 1
-  store i32 %65, ptr %7, align 4, !tbaa !3
-  store double %52, ptr %8, align 8, !tbaa !7
-  %66 = sext i32 %64 to i64
-  %67 = getelementptr double, ptr %12, i64 %66
-  %68 = getelementptr i8, ptr %67, i64 8
-  call void @dger_(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %68, ptr noundef nonnull @c__1, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef %60, ptr noundef nonnull %2) #4
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr double, ptr %12, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 8
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull @c_b8, ptr noundef %gep, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b10, ptr noundef %48, ptr noundef nonnull @c__1) #4
+  %49 = load i32, ptr %0, align 4, !tbaa !3
+  %reass.sub91 = sub i32 %49, %26
+  %50 = add i32 %reass.sub91, 1
+  store i32 %50, ptr %7, align 4, !tbaa !3
+  %51 = fneg double %.0
+  store double %51, ptr %8, align 8, !tbaa !7
+  %52 = sext i32 %49 to i64
+  %53 = getelementptr double, ptr %12, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 8
+  call void @dger_(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef %54, ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull %2) #4
+  %55 = load i32, ptr %0, align 4, !tbaa !3
+  %reass.sub92 = sub i32 %55, %26
+  %56 = add i32 %reass.sub92, 1
+  store i32 %56, ptr %7, align 4, !tbaa !3
+  %57 = mul nsw i64 %indvars.iv, %23
+  %58 = getelementptr double, ptr %11, i64 %57
+  %59 = getelementptr i8, ptr %58, i64 8
+  %60 = sext i32 %55 to i64
+  %61 = getelementptr double, ptr %12, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 8
+  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @c_b8, ptr noundef %59, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b10, ptr noundef %62, ptr noundef nonnull @c__1) #4
+  %63 = load i32, ptr %0, align 4, !tbaa !3
+  %reass.sub93 = sub i32 %63, %26
+  %64 = add i32 %reass.sub93, 1
+  store i32 %64, ptr %7, align 4, !tbaa !3
+  store double %51, ptr %8, align 8, !tbaa !7
+  %65 = sext i32 %63 to i64
+  %66 = getelementptr double, ptr %12, i64 %65
+  %67 = getelementptr i8, ptr %66, i64 8
+  call void @dger_(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %67, ptr noundef nonnull @c__1, ptr noundef nonnull %4, ptr noundef nonnull @c__1, ptr noundef %59, ptr noundef nonnull %2) #4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %69 = icmp sgt i64 %indvars.iv, 1
-  br i1 %69, label %25, label %.loopexit, !llvm.loop !9
+  %68 = icmp sgt i64 %indvars.iv, 1
+  br i1 %68, label %24, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %44, %21, %.thread
+.loopexit:                                        ; preds = %43, %20, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

@@ -334,7 +334,7 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.preheader, %138, %96, %139, %20, %6, %4, %1
-  %.040 = phi ptr [ null, %6 ], [ null, %20 ], [ null, %138 ], [ null, %96 ], [ null, %4 ], [ null, %1 ], [ %21, %139 ], [ null, %.preheader ], [ null, %18 ]
+  %.040 = phi ptr [ null, %1 ], [ null, %4 ], [ null, %6 ], [ null, %20 ], [ %21, %139 ], [ null, %138 ], [ null, %96 ], [ null, %.preheader ], [ null, %18 ]
   ret ptr %.040
 }
 

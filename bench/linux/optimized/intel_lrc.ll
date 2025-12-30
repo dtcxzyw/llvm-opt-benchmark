@@ -247,7 +247,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %130, %123, %103, %.thread20
-  %134 = phi i32 [ %110, %123 ], [ %spec.select, %130 ], [ %110, %.thread20 ], [ %110, %103 ]
+  %134 = phi i32 [ %110, %.thread20 ], [ %110, %103 ], [ %110, %123 ], [ %spec.select, %130 ]
   %135 = getelementptr i8, ptr %0, i64 12
   store i32 %134, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -285,7 +285,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   br i1 %158, label %159, label %.critedge
 
 159:                                              ; preds = %.thread, %149, %151, %155
-  %160 = phi i64 [ 196, %155 ], [ 128, %.thread ], [ 112, %149 ], [ 100, %151 ]
+  %160 = phi i64 [ 128, %.thread ], [ 112, %149 ], [ 100, %151 ], [ 196, %155 ]
   %161 = getelementptr i32, ptr %0, i64 %160
   %162 = getelementptr i8, ptr %161, i64 4
   store i32 0, ptr %162, align 4
@@ -502,7 +502,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   br label %.thread22
 
 .thread22:                                        ; preds = %318, %316, %299
-  %322 = phi i64 [ %spec.select40, %318 ], [ 20, %299 ], [ 26, %316 ]
+  %322 = phi i64 [ 26, %316 ], [ 20, %299 ], [ %spec.select40, %318 ]
   %323 = getelementptr i32, ptr %0, i64 %322
   %324 = getelementptr i8, ptr %323, i64 4
   store i32 %311, ptr %324, align 4
@@ -529,9 +529,9 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %spec.select74 = select i1 %338, i64 28, i64 -1
   br label %.thread34.thread
 
-.thread34.thread:                                 ; preds = %333, %329, %.thread22, %331
-  %339 = phi i32 [ %335, %333 ], [ 2432, %331 ], [ 1664, %329 ], [ 832, %.thread22 ]
-  %340 = phi i64 [ %spec.select74, %333 ], [ 28, %331 ], [ 28, %329 ], [ 22, %.thread22 ]
+.thread34.thread:                                 ; preds = %333, %331, %329, %.thread22
+  %339 = phi i32 [ 2432, %331 ], [ 1664, %329 ], [ 832, %.thread22 ], [ %335, %333 ]
+  %340 = phi i64 [ 28, %331 ], [ 28, %329 ], [ 22, %.thread22 ], [ %spec.select74, %333 ]
   %341 = getelementptr i32, ptr %0, i64 %340
   %342 = getelementptr i8, ptr %341, i64 4
   store i32 %339, ptr %342, align 4
@@ -565,7 +565,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   br i1 %361, label %select.unfold36, label %367
 
 select.unfold36:                                  ; preds = %358, %343, %354, %356
-  %.ph38 = phi i64 [ 112, %343 ], [ 84, %356 ], [ 96, %354 ], [ 88, %358 ]
+  %.ph38 = phi i64 [ 84, %356 ], [ 96, %354 ], [ 112, %343 ], [ 88, %358 ]
   %362 = getelementptr i32, ptr %0, i64 %.ph38
   %363 = getelementptr i8, ptr %362, i64 4
   %364 = load i32, ptr %363, align 4
@@ -609,7 +609,7 @@ define dso_local void @lrc_reset_regs(ptr noundef readonly captures(none) %0, pt
   br i1 %22, label %select.unfold, label %28
 
 select.unfold:                                    ; preds = %19, %2, %15, %17
-  %.ph = phi i64 [ 112, %2 ], [ 84, %17 ], [ 96, %15 ], [ 88, %19 ]
+  %.ph = phi i64 [ 84, %17 ], [ 96, %15 ], [ 112, %2 ], [ 88, %19 ]
   %23 = getelementptr i32, ptr %4, i64 %.ph
   %24 = getelementptr i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
@@ -854,7 +854,7 @@ define dso_local i32 @lrc_alloc(ptr noundef captures(none) %0, ptr noundef %1) l
   br label %.thread17
 
 .thread17:                                        ; preds = %68, %97, %99, %100
-  %.in.in = phi ptr [ %89, %97 ], [ %89, %100 ], [ %89, %99 ], [ %71, %68 ]
+  %.in.in = phi ptr [ %89, %100 ], [ %89, %99 ], [ %89, %97 ], [ %71, %68 ]
   %.in = ptrtoint ptr %.in.in to i64
   %101 = trunc i64 %.in to i32
   %102 = getelementptr inbounds nuw i8, ptr %63, i64 184
@@ -1068,7 +1068,7 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %122, %120, %61
-  %125 = phi i64 [ %spec.select, %122 ], [ 20, %61 ], [ 26, %120 ]
+  %125 = phi i64 [ 26, %120 ], [ 20, %61 ], [ %spec.select, %122 ]
   %126 = getelementptr i32, ptr %99, i64 %125
   %127 = getelementptr i8, ptr %126, i64 4
   store i32 %115, ptr %127, align 4
@@ -1094,9 +1094,9 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
   %spec.select23 = select i1 %140, i64 28, i64 -1
   br label %.thread15.thread
 
-.thread15.thread:                                 ; preds = %136, %132, %.thread, %134
-  %141 = phi i32 [ %138, %136 ], [ 2432, %134 ], [ 1664, %132 ], [ 832, %.thread ]
-  %142 = phi i64 [ %spec.select23, %136 ], [ 28, %134 ], [ 28, %132 ], [ 22, %.thread ]
+.thread15.thread:                                 ; preds = %136, %134, %132, %.thread
+  %141 = phi i32 [ 2432, %134 ], [ 1664, %132 ], [ 832, %.thread ], [ %138, %136 ]
+  %142 = phi i64 [ 28, %134 ], [ 28, %132 ], [ 22, %.thread ], [ %spec.select23, %136 ]
   %143 = getelementptr i32, ptr %99, i64 %142
   %144 = getelementptr i8, ptr %143, i64 4
   store i32 %141, ptr %144, align 4
@@ -2217,7 +2217,7 @@ define dso_local void @lrc_check_regs(ptr noundef readonly captures(none) %0, pt
   br i1 %67, label %select.unfold, label %81
 
 select.unfold:                                    ; preds = %64, %48, %60, %62
-  %.ph = phi i64 [ 112, %48 ], [ 84, %62 ], [ 96, %60 ], [ 88, %64 ]
+  %.ph = phi i64 [ 84, %62 ], [ 96, %60 ], [ 112, %48 ], [ 88, %64 ]
   %68 = getelementptr i32, ptr %7, i64 %.ph
   %69 = getelementptr i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
@@ -2358,7 +2358,7 @@ define dso_local void @lrc_init_wa_ctx(ptr noundef %0) local_unnamed_addr #0 ali
   br label %46
 
 .thread:                                          ; preds = %18, %31, %33, %34
-  %.in.in = phi ptr [ %26, %31 ], [ %26, %34 ], [ %26, %33 ], [ %19, %18 ]
+  %.in.in = phi ptr [ %26, %34 ], [ %26, %33 ], [ %26, %31 ], [ %19, %18 ]
   %.in = ptrtoint ptr %.in.in to i64
   %36 = trunc i64 %.in to i32
   %37 = icmp eq i32 %36, 0

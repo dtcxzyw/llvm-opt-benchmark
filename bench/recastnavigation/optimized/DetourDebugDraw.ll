@@ -131,7 +131,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   br label %56
 
 56:                                               ; preds = %41, %45, %46
-  %.0156 = phi i32 [ %14, %45 ], [ %55, %46 ], [ %.mux, %41 ]
+  %.0156 = phi i32 [ %55, %46 ], [ %14, %45 ], [ %.mux, %41 ]
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 9
   %58 = load i8, ptr %57, align 1
   %.not200 = icmp eq i8 %58, 0
@@ -2152,7 +2152,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %33, %32, %.lr.ph228.split.us
-  %.0200.us = phi i32 [ %38, %33 ], [ 1073741824, %32 ], [ 1090502656, %.lr.ph228.split.us ]
+  %.0200.us = phi i32 [ 1073741824, %32 ], [ %38, %33 ], [ 1090502656, %.lr.ph228.split.us ]
   br label %39
 
 39:                                               ; preds = %.lr.ph.us, %47

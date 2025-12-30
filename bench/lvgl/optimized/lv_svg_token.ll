@@ -376,7 +376,7 @@ _svg_parser_comment.exit:                         ; preds = %._svg_parser_commen
   br i1 %138, label %20, label %_svg_parser_comment.exit.thread
 
 _svg_parser_comment.exit.thread:                  ; preds = %_svg_parser_comment.exit, %114, %_lv_svg_token_process.exit, %41
-  %.2 = phi i1 [ false, %114 ], [ false, %41 ], [ false, %_lv_svg_token_process.exit ], [ true, %_svg_parser_comment.exit ]
+  %.2 = phi i1 [ false, %41 ], [ false, %_lv_svg_token_process.exit ], [ false, %114 ], [ true, %_svg_parser_comment.exit ]
   call void @lv_array_deinit(ptr noundef nonnull %13) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

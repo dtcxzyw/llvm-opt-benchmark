@@ -109,7 +109,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %42
 
 42:                                               ; preds = %25, %31, %19, %35
-  %.028 = phi i32 [ -12, %19 ], [ %41, %35 ], [ %29, %25 ], [ %33, %31 ]
+  %.028 = phi i32 [ %41, %35 ], [ -12, %19 ], [ %29, %25 ], [ %33, %31 ]
   ret i32 %.028
 }
 
@@ -227,7 +227,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_definition(ptr nound
   br i1 %22, label %17, label %.loopexit
 
 .loopexit:                                        ; preds = %20, %17, %14, %12, %4, %.thread
-  %.2 = phi i32 [ -12, %.thread ], [ %15, %14 ], [ 0, %4 ], [ 0, %12 ], [ %21, %20 ], [ 0, %17 ]
+  %.2 = phi i32 [ -12, %.thread ], [ 0, %4 ], [ %15, %14 ], [ 0, %12 ], [ %21, %20 ], [ 0, %17 ]
   ret i32 %.2
 }
 
@@ -330,7 +330,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_mapping(ptr noundef %0, ptr 
   br label %38
 
 38:                                               ; preds = %.thread, %7, %._crit_edge, %._crit_edge.thread, %6
-  %.0 = phi i32 [ -22, %.thread ], [ 0, %._crit_edge ], [ -22, %._crit_edge.thread ], [ -22, %6 ], [ -12, %7 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -22, %._crit_edge.thread ], [ -22, %6 ], [ -12, %7 ], [ -22, %.thread ]
   ret i32 %.0
 }
 
@@ -474,7 +474,7 @@ define internal i32 @config_output(ptr noundef captures(none) initializes((36, 4
   br label %84
 
 84:                                               ; preds = %._crit_edge, %57, %46, %82
-  %.0 = phi i32 [ %60, %57 ], [ 0, %46 ], [ %83, %82 ], [ -12, %._crit_edge ]
+  %.0 = phi i32 [ %83, %82 ], [ 0, %46 ], [ %60, %57 ], [ -12, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -612,9 +612,9 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %.thread84
 
 .thread84:                                        ; preds = %..thread84_crit_edge, %53, %34
-  %76 = phi i32 [ %35, %53 ], [ %.pre140, %..thread84_crit_edge ], [ %35, %34 ]
-  %.45890 = phi i32 [ %.155113, %53 ], [ 1, %..thread84_crit_edge ], [ %.155113, %34 ]
-  %.56489 = phi i32 [ %.261112, %53 ], [ %.fr, %..thread84_crit_edge ], [ %.261112, %34 ]
+  %76 = phi i32 [ %35, %34 ], [ %.pre140, %..thread84_crit_edge ], [ %35, %53 ]
+  %.45890 = phi i32 [ %.155113, %34 ], [ 1, %..thread84_crit_edge ], [ %.155113, %53 ]
+  %.56489 = phi i32 [ %.261112, %34 ], [ %.fr, %..thread84_crit_edge ], [ %.261112, %53 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next135, %77
@@ -645,7 +645,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %24, %59, %57, %._crit_edge124, %._crit_edge124.thread
-  %.0 = phi i32 [ %.fr, %59 ], [ %.261.lcssa, %._crit_edge124 ], [ %.160.lcssa151, %._crit_edge124.thread ], [ -12, %57 ], [ %27, %24 ]
+  %.0 = phi i32 [ %.160.lcssa151, %._crit_edge124.thread ], [ %.261.lcssa, %._crit_edge124 ], [ %.fr, %59 ], [ -12, %57 ], [ %27, %24 ]
   ret i32 %.0
 }
 

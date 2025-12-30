@@ -933,7 +933,7 @@ retransmits_timed_out.exit15:                     ; preds = %463, %455, %.thread
   br label %529
 
 529:                                              ; preds = %509, %513, %523
-  %530 = phi i64 [ %528, %523 ], [ %518, %513 ], [ 37, %509 ]
+  %530 = phi i64 [ %518, %513 ], [ 37, %509 ], [ %528, %523 ]
   %531 = load ptr, ptr %2, align 8
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 432
   %533 = load ptr, ptr %532, align 8
@@ -1885,7 +1885,7 @@ define internal void @tcp_keepalive_timer(ptr noundef %0) #0 align 16 {
   br label %143
 
 143:                                              ; preds = %120, %123, %131, %140, %70, %65
-  %144 = phi i32 [ %66, %65 ], [ %66, %70 ], [ %142, %140 ], [ %129, %123 ], [ 500, %120 ], [ %133, %131 ]
+  %144 = phi i32 [ %66, %65 ], [ %142, %140 ], [ %66, %70 ], [ 500, %120 ], [ %133, %131 ], [ %129, %123 ]
   %145 = zext i32 %144 to i64
   tail call void @inet_csk_reset_keepalive_timer(ptr noundef %2, i64 noundef %145) #6
   br label %146

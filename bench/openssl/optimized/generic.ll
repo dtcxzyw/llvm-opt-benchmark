@@ -69,7 +69,7 @@ generic_free.exit:                                ; preds = %11
   br label %24
 
 24:                                               ; preds = %21, %generic_free.exit, %8, %3
-  %.016 = phi ptr [ null, %3 ], [ %12, %21 ], [ null, %8 ], [ null, %generic_free.exit ]
+  %.016 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %generic_free.exit ], [ %12, %21 ]
   ret ptr %.016
 }
 

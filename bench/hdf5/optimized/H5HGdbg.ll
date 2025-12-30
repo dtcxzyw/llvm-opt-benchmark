@@ -302,7 +302,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   br label %165
 
 165:                                              ; preds = %.thread132, %._crit_edge147, %161, %12
-  %.0 = phi i32 [ -1, %161 ], [ 0, %._crit_edge147 ], [ -1, %.thread132 ], [ 0, %12 ]
+  %.0 = phi i32 [ -1, %161 ], [ 0, %._crit_edge147 ], [ 0, %12 ], [ -1, %.thread132 ]
   ret i32 %.0
 }
 

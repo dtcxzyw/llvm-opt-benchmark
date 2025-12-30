@@ -94,7 +94,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_bool_flagEPKcS1_13JVMFlagOri
   br label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %16, %20, %23
-  %.0.i.i = phi i32 [ 7, %16 ], [ %24, %23 ], [ 3, %20 ]
+  %.0.i.i = phi i32 [ %24, %23 ], [ 7, %16 ], [ 3, %20 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %45
@@ -138,7 +138,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit15
 
 _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit15: ; preds = %36, %40, %43
-  %.0.i.i14 = phi i32 [ 7, %36 ], [ %44, %43 ], [ 3, %40 ]
+  %.0.i.i14 = phi i32 [ %44, %43 ], [ 7, %36 ], [ 3, %40 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i14, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
@@ -193,7 +193,7 @@ define hidden noundef i32 @_ZN14WriteableFlags12set_int_flagEPKcS1_13JVMFlagOrig
   br label %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %9, %14, %17
-  %.0.i.i = phi i32 [ 7, %9 ], [ %18, %17 ], [ 3, %14 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ 7, %9 ], [ 3, %14 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
@@ -238,7 +238,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_uint_flagEPKcS1_13JVMFlagOri
   br label %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %9, %14, %17
-  %.0.i.i = phi i32 [ 7, %9 ], [ %18, %17 ], [ 3, %14 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ 7, %9 ], [ 3, %14 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
@@ -280,7 +280,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_intx_flagEPKcS1_13JVMFlagOri
   br label %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %9, %14, %17
-  %.0.i.i = phi i32 [ 7, %9 ], [ %18, %17 ], [ 3, %14 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ 7, %9 ], [ 3, %14 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
@@ -322,7 +322,7 @@ define hidden noundef i32 @_ZN14WriteableFlags14set_uintx_flagEPKcS1_13JVMFlagOr
   br label %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %9, %14, %17
-  %.0.i.i = phi i32 [ 7, %9 ], [ %18, %17 ], [ 3, %14 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ 7, %9 ], [ 3, %14 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
@@ -364,7 +364,7 @@ define hidden noundef i32 @_ZN14WriteableFlags17set_uint64_t_flagEPKcS1_13JVMFla
   br label %_ZN14WriteableFlags13set_flag_implImLi5EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implImLi5EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %9, %14, %17
-  %.0.i.i = phi i32 [ 7, %9 ], [ %18, %17 ], [ 3, %14 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ 7, %9 ], [ 3, %14 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
@@ -398,7 +398,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implImLi5E
   br label %_ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit
 
 _ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit: ; preds = %4, %9, %12
-  %.0.i = phi i32 [ 7, %4 ], [ %13, %12 ], [ 3, %9 ]
+  %.0.i = phi i32 [ %13, %12 ], [ 7, %4 ], [ 3, %9 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(88) %3)
   ret i32 %.0.i
 }
@@ -431,7 +431,7 @@ define hidden noundef i32 @_ZN14WriteableFlags15set_size_t_flagEPKcS1_13JVMFlagO
   br label %_ZN14WriteableFlags13set_flag_implImLi6EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implImLi6EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %9, %14, %17
-  %.0.i.i = phi i32 [ 7, %9 ], [ %18, %17 ], [ 3, %14 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ 7, %9 ], [ 3, %14 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
@@ -465,7 +465,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implImLi6E
   br label %_ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit
 
 _ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit: ; preds = %4, %9, %12
-  %.0.i = phi i32 [ 7, %4 ], [ %13, %12 ], [ 3, %9 ]
+  %.0.i = phi i32 [ %13, %12 ], [ 7, %4 ], [ 3, %9 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(88) %3)
   ret i32 %.0.i
 }
@@ -498,7 +498,7 @@ define hidden noundef i32 @_ZN14WriteableFlags15set_double_flagEPKcS1_13JVMFlagO
   br label %_ZN14WriteableFlags13set_flag_implIdLi7EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIdLi7EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %9, %14, %17
-  %.0.i.i = phi i32 [ 7, %9 ], [ %18, %17 ], [ 3, %14 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ 7, %9 ], [ 3, %14 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
@@ -532,7 +532,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implIdLi7E
   br label %_ZN13JVMFlagAccess3setIdLi7EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit
 
 _ZN13JVMFlagAccess3setIdLi7EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit: ; preds = %4, %9, %12
-  %.0.i = phi i32 [ 7, %4 ], [ %13, %12 ], [ 3, %9 ]
+  %.0.i = phi i32 [ %13, %12 ], [ 7, %4 ], [ 3, %9 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(88) %3)
   ret i32 %.0.i
 }
@@ -742,7 +742,7 @@ define hidden noundef i32 @_ZN14WriteableFlags8set_flagEPKcS1_13JVMFlagOriginR12
   br label %_ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorEPS4_S3_13JVMFlagOriginR12FormatBufferILm80EEES7_SA_.exit
 
 _ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorEPS4_S3_13JVMFlagOriginR12FormatBufferILm80EEES7_SA_.exit: ; preds = %7, %15, %17, %18
-  %.0.i = phi i32 [ 1, %7 ], [ 7, %18 ], [ %16, %15 ], [ 4, %17 ]
+  %.0.i = phi i32 [ 1, %7 ], [ %16, %15 ], [ 4, %17 ], [ 7, %18 ]
   ret i32 %.0.i
 }
 
@@ -924,7 +924,7 @@ define hidden noundef i32 @_ZN14WriteableFlags8set_flagEPKc6jvalue13JVMFlagOrigi
   br label %_ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorEPS4_S3_13JVMFlagOriginR12FormatBufferILm80EEES7_SA_.exit
 
 _ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorEPS4_S3_13JVMFlagOriginR12FormatBufferILm80EEES7_SA_.exit: ; preds = %7, %15, %17, %18
-  %.0.i = phi i32 [ 1, %7 ], [ 7, %18 ], [ %16, %15 ], [ 4, %17 ]
+  %.0.i = phi i32 [ 1, %7 ], [ %16, %15 ], [ 4, %17 ], [ 7, %18 ]
   ret i32 %.0.i
 }
 
@@ -974,7 +974,7 @@ define hidden noundef i32 @_ZN14WriteableFlags20set_flag_from_jvalueEP7JVMFlagPK
   br label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %13, %22, %25
-  %.0.i.i = phi i32 [ 7, %13 ], [ %26, %25 ], [ 3, %22 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ 7, %13 ], [ 3, %22 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %116
@@ -1001,7 +1001,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br label %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %27, %34, %37
-  %.0.i.i59 = phi i32 [ 7, %27 ], [ %38, %37 ], [ 3, %34 ]
+  %.0.i.i59 = phi i32 [ %38, %37 ], [ 7, %27 ], [ 3, %34 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i59, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %116
@@ -1028,7 +1028,7 @@ _ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br label %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %39, %46, %49
-  %.0.i.i61 = phi i32 [ 7, %39 ], [ %50, %49 ], [ 3, %46 ]
+  %.0.i.i61 = phi i32 [ %50, %49 ], [ 7, %39 ], [ 3, %46 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i61, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %116
@@ -1054,7 +1054,7 @@ _ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br label %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %51, %57, %60
-  %.0.i.i63 = phi i32 [ 7, %51 ], [ %61, %60 ], [ 3, %57 ]
+  %.0.i.i63 = phi i32 [ %61, %60 ], [ 7, %51 ], [ 3, %57 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i63, ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
@@ -1080,7 +1080,7 @@ _ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br label %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
 
 _ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit: ; preds = %62, %68, %71
-  %.0.i.i65 = phi i32 [ 7, %62 ], [ %72, %71 ], [ 3, %68 ]
+  %.0.i.i65 = phi i32 [ %72, %71 ], [ 7, %62 ], [ 3, %68 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i65, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %116

@@ -410,8 +410,8 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   br label %99
 
 99:                                               ; preds = %26, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit, %63, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130
-  %.196 = phi i32 [ %3, %63 ], [ %80, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130 ], [ %41, %26 ], [ %3, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit ]
-  %.0 = phi i32 [ %2, %63 ], [ %2, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130 ], [ %24, %26 ], [ %24, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit ]
+  %.196 = phi i32 [ %80, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130 ], [ %3, %63 ], [ %41, %26 ], [ %3, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit ]
+  %.0 = phi i32 [ %2, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130 ], [ %2, %63 ], [ %24, %26 ], [ %24, %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit ]
   %100 = and i32 %.0, 207
   %narrow.i.i131.not = icmp eq i32 %100, 201
   br i1 %narrow.i.i131.not, label %101, label %143
@@ -505,8 +505,8 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   br label %162
 
 162:                                              ; preds = %138, %141, %143, %145
-  %.4 = phi i32 [ %.196, %143 ], [ %160, %145 ], [ %.297, %138 ], [ %.196, %141 ]
-  %.2 = phi i32 [ %.0, %143 ], [ %.0, %145 ], [ %.1, %138 ], [ %.1, %141 ]
+  %.4 = phi i32 [ %160, %145 ], [ %.196, %143 ], [ %.297, %138 ], [ %.196, %141 ]
+  %.2 = phi i32 [ %.0, %145 ], [ %.0, %143 ], [ %.1, %138 ], [ %.1, %141 ]
   %163 = and i32 %.2, 192
   %.not = icmp eq i32 %163, 192
   %164 = and i32 %.2, 15
@@ -540,7 +540,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   br i1 %.not116, label %.critedge, label %.loopexit.sink.split
 
 .critedge:                                        ; preds = %162, %171, %166
-  %.099136 = phi i32 [ %167, %166 ], [ 14, %171 ], [ -1, %162 ]
+  %.099136 = phi i32 [ 14, %171 ], [ %167, %166 ], [ -1, %162 ]
   %.not117 = icmp eq i32 %spec.select, %.099136
   br i1 %.not117, label %182, label %.loopexit.sink.split
 
@@ -760,7 +760,7 @@ define void @_ZN6icu_7711TailoredSet15comparePrefixesEiPKDsS2_(ptr noundef nonnu
   br label %98
 
 38:                                               ; preds = %27, %23
-  %.123 = phi ptr [ %spec.select, %27 ], [ %.022, %23 ]
+  %.123 = phi ptr [ %.022, %23 ], [ %spec.select, %27 ]
   %39 = icmp eq ptr %.019, null
   br i1 %39, label %40, label %43
 
@@ -773,7 +773,7 @@ define void @_ZN6icu_7711TailoredSet15comparePrefixesEiPKDsS2_(ptr noundef nonnu
   br i1 %.not31, label %43, label %.thread
 
 43:                                               ; preds = %42, %38
-  %.120 = phi ptr [ %9, %42 ], [ %.019, %38 ]
+  %.120 = phi ptr [ %.019, %38 ], [ %9, %42 ]
   %44 = icmp eq ptr %.123, %9
   %45 = icmp eq ptr %.120, %9
   %or.cond = and i1 %44, %45
@@ -875,8 +875,8 @@ _ZN6icu_7711TailoredSet9setPrefixERKNS_13UnicodeStringE.exit: ; preds = %.noexc3
   br label %.backedge
 
 .backedge:                                        ; preds = %93, %79, %73
-  %.022.be = phi ptr [ %.123, %79 ], [ null, %73 ], [ null, %93 ]
-  %.019.be = phi ptr [ null, %79 ], [ %.12042, %73 ], [ null, %93 ]
+  %.022.be = phi ptr [ null, %73 ], [ %.123, %79 ], [ null, %93 ]
+  %.019.be = phi ptr [ %.12042, %73 ], [ null, %79 ], [ null, %93 ]
   br label %23, !llvm.loop !58
 
 97:                                               ; preds = %43
@@ -1058,7 +1058,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %18
   br label %.body
 
 40:                                               ; preds = %31, %27
-  %.123 = phi ptr [ %spec.select, %31 ], [ %.022, %27 ]
+  %.123 = phi ptr [ %.022, %27 ], [ %spec.select, %31 ]
   %41 = icmp eq ptr %.019, null
   br i1 %41, label %42, label %45
 
@@ -1071,7 +1071,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %18
   br i1 %.not31, label %45, label %.thread
 
 45:                                               ; preds = %44, %40
-  %.120 = phi ptr [ %12, %44 ], [ %.019, %40 ]
+  %.120 = phi ptr [ %.019, %40 ], [ %12, %44 ]
   %46 = icmp eq ptr %.123, %12
   %47 = icmp eq ptr %.120, %12
   %or.cond = and i1 %46, %47
@@ -1230,7 +1230,7 @@ _ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit42: ; preds = %_ZN6
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %87, %105, %89
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %88, %87 ], [ %90, %89 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ], [ %106, %105 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #9
   br label %112
 
@@ -1723,7 +1723,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions12forCodePointEPKNS_13Collatio
   br label %_ZNK6icu_7713CollationData7getCE32Ei.exit
 
 _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %15, %20, %23
-  %41 = phi i32 [ %40, %23 ], [ %22, %20 ], [ 128, %15 ]
+  %41 = phi i32 [ 128, %15 ], [ %22, %20 ], [ %40, %23 ]
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i32, ptr %11, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !37
@@ -2317,7 +2317,7 @@ default.unreachable130:                           ; preds = %27
   unreachable
 
 236:                                              ; preds = %178, %173
-  %.1.in = phi ptr [ %179, %178 ], [ %177, %173 ]
+  %.1.in = phi ptr [ %177, %173 ], [ %179, %178 ]
   %.1 = load i32, ptr %.1.in, align 4, !tbaa !37
   %237 = and i32 %.1, 192
   %.not = icmp eq i32 %237, 192

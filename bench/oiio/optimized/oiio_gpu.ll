@@ -233,7 +233,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN11OpenImageIO6v3
   br label %54
 
 54:                                               ; preds = %50, %42, %46, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %.loopexit
-  %.4 = phi i1 [ %.not60, %.loopexit ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %42 ], [ true, %50 ], [ false, %46 ]
+  %.4 = phi i1 [ %.not60, %.loopexit ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %50 ], [ true, %42 ], [ false, %46 ]
   ret i1 %.4
 }
 

@@ -165,7 +165,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br label %61
 
 61:                                               ; preds = %44, %.critedge
-  %.054 = phi i32 [ 511, %44 ], [ %60, %.critedge ]
+  %.054 = phi i32 [ %60, %.critedge ], [ 511, %44 ]
   %62 = call i32 @umask(i32 noundef 9) #13
   %63 = call i32 @mkdir(ptr noundef %.055, i32 noundef %.054) #13
   %.not74 = icmp eq i32 %63, 0
@@ -296,7 +296,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br label %142
 
 142:                                              ; preds = %55, %127, %17, %.thread, %136, %123, %120, %113, %105, %94, %79, %8
-  %.0 = phi i32 [ -1, %8 ], [ %14, %.thread ], [ -1, %79 ], [ -1, %94 ], [ -1, %105 ], [ -1, %113 ], [ -1, %136 ], [ -1, %55 ], [ -1, %120 ], [ -1, %123 ], [ -2, %17 ], [ %77, %127 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %79 ], [ -1, %94 ], [ -1, %105 ], [ -1, %113 ], [ -1, %136 ], [ -1, %120 ], [ -1, %123 ], [ -2, %17 ], [ %14, %.thread ], [ -1, %55 ], [ %77, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

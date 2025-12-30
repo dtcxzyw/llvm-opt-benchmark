@@ -2070,7 +2070,7 @@ RSTRING_LENINT.exit108:                           ; preds = %RSTRING_PTR.exit106
   br label %RB_OBJ_FROZEN.exit.thread
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %1, %RB_FL_ABLE.exit.i, %307, %314, %311
-  %.0 = phi i64 [ 4, %1 ], [ 20, %311 ], [ 20, %314 ], [ 20, %307 ], [ 4, %RB_FL_ABLE.exit.i ]
+  %.0 = phi i64 [ 20, %311 ], [ 20, %314 ], [ 20, %307 ], [ 4, %RB_FL_ABLE.exit.i ], [ 4, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -2992,7 +2992,7 @@ rb_scan_args_n_opt.exit:
   br i1 %14, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread7, %10
-  %.0.i4 = phi i32 [ 0, %10 ], [ %.0.i11, %.thread7 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i4 = phi i32 [ %.0.i11, %.thread7 ], [ 0, %10 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i4, i32 noundef 1, i32 noundef 1) #10
   unreachable
 
@@ -3817,7 +3817,7 @@ RSTRING_PTR.exit:                                 ; preds = %RB_SYMBOL_P.exit.th
   unreachable
 
 48:                                               ; preds = %1, %.split14.us, %rb_num2int_inline.exit
-  %.05 = phi i32 [ %46, %.split14.us ], [ %19, %rb_num2int_inline.exit ], [ 0, %1 ]
+  %.05 = phi i32 [ %19, %rb_num2int_inline.exit ], [ %46, %.split14.us ], [ 0, %1 ]
   ret i32 %.05
 }
 
@@ -4740,7 +4740,7 @@ define internal i64 @ossl_call_tmp_dh_callback(i64 noundef %0) #0 {
   br label %27
 
 27:                                               ; preds = %8, %1
-  %.0 = phi i64 [ %spec.select, %8 ], [ 0, %1 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select, %8 ]
   ret i64 %.0
 }
 
@@ -5503,7 +5503,7 @@ no_exception_p.exit48:                            ; preds = %52
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.split.split, %no_exception_p.exit48, %no_exception_p.exit
-  %.0 = phi i64 [ %.pre, %no_exception_p.exit48 ], [ %.pre139, %no_exception_p.exit ], [ %0, %.lr.ph.split.split.split ], [ %0, %.lr.ph.split.us ]
+  %.0 = phi i64 [ %.pre139, %no_exception_p.exit ], [ %.pre, %no_exception_p.exit48 ], [ %0, %.lr.ph.split.split.split ], [ %0, %.lr.ph.split.us ]
   ret i64 %.0
 }
 
@@ -5677,7 +5677,7 @@ rb_scan_args_n_opt.exit73:                        ; preds = %4
   br i1 %23, label %rb_scan_args_set.exit71, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit73, %22, %13
-  %.0.i4994 = phi i32 [ 0, %13 ], [ %.0.i49179, %22 ], [ %0, %rb_scan_args_n_opt.exit73 ]
+  %.0.i4994 = phi i32 [ %.0.i49179, %22 ], [ 0, %13 ], [ %0, %rb_scan_args_n_opt.exit73 ]
   tail call void @rb_error_arity(i32 noundef %.0.i4994, i32 noundef 1, i32 noundef 2) #10
   unreachable
 
@@ -6011,8 +6011,8 @@ io_wait_writable.exit:                            ; preds = %150, %127
   call void (i64, ptr, ...) @rb_raise(i64 noundef %182, ptr noundef nonnull @.str.289) #10
   unreachable
 
-no_exception_p.exit.thread103:                    ; preds = %171, %no_exception_p.exit86, %105, %no_exception_p.exit81, %92, %65
-  %.0 = phi i64 [ %67, %65 ], [ 4, %171 ], [ %147, %no_exception_p.exit86 ], [ 4, %105 ], [ %124, %no_exception_p.exit81 ], [ %95, %92 ]
+no_exception_p.exit.thread103:                    ; preds = %171, %105, %no_exception_p.exit86, %no_exception_p.exit81, %92, %65
+  %.0 = phi i64 [ %67, %65 ], [ 4, %171 ], [ 4, %105 ], [ %147, %no_exception_p.exit86 ], [ %124, %no_exception_p.exit81 ], [ %95, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }

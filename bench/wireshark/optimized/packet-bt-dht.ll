@@ -208,7 +208,7 @@ test_bt_dht.exit:                                 ; preds = %13
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %test_bt_dht.exit.thread, label %test_bt_dht.exit.thread9
 
-test_bt_dht.exit.thread:                          ; preds = %10, %7, %13, %test_bt_dht.exit
+test_bt_dht.exit.thread:                          ; preds = %13, %10, %7, %test_bt_dht.exit
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef nonnull @.str.40)
@@ -260,7 +260,7 @@ test_bt_dht.exit:                                 ; preds = %13
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %test_bt_dht.exit.thread, label %test_bt_dht.exit.thread13
 
-test_bt_dht.exit.thread:                          ; preds = %10, %7, %13, %test_bt_dht.exit
+test_bt_dht.exit.thread:                          ; preds = %13, %10, %7, %test_bt_dht.exit
   %18 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4
@@ -737,7 +737,7 @@ sub_0135:                                         ; preds = %211
   br label %225
 
 225:                                              ; preds = %.thread, %222, %159, %154, %148, %146, %dissect_bt_dht_values.exit, %dissect_bt_dht_error.exit, %49
-  %.0100 = phi i32 [ %155, %154 ], [ %160, %159 ], [ %.1.ph, %.thread ], [ %224, %222 ], [ %50, %49 ], [ %.0.i75, %dissect_bt_dht_error.exit ], [ %.051.i, %dissect_bt_dht_values.exit ], [ %147, %146 ], [ %149, %148 ]
+  %.0100 = phi i32 [ %155, %154 ], [ %160, %159 ], [ %224, %222 ], [ %50, %49 ], [ %.0.i75, %dissect_bt_dht_error.exit ], [ %.051.i, %dissect_bt_dht_values.exit ], [ %147, %146 ], [ %149, %148 ], [ %.1.ph, %.thread ]
   %226 = icmp eq i32 %.0100, 0
   br i1 %226, label %227, label %229
 
@@ -859,7 +859,7 @@ sub_0151:                                         ; preds = %sub_0147, %249
   store ptr %284, ptr %9, align 8
   br label %286
 
-.thread120:                                       ; preds = %44, %227, %.loopexit, %42
+.thread120:                                       ; preds = %44, %.loopexit, %227, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %285 = call ptr @proto_tree_add_expert(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_int_string, ptr noundef %0, i32 noundef 0, i32 noundef -1)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -912,7 +912,7 @@ sub_0151:                                         ; preds = %sub_0147, %249
   br label %308
 
 308:                                              ; preds = %.thread120, %303, %._crit_edge, %22, %5
-  %.0 = phi i32 [ 0, %22 ], [ 0, %5 ], [ 0, %.thread120 ], [ %306, %303 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %22 ], [ %306, %303 ], [ 0, %._crit_edge ], [ 0, %.thread120 ]
   ret i32 %.0
 }
 
@@ -1012,7 +1012,7 @@ define internal fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef 
   br label %bencoded_string_length.exit.thread
 
 bencoded_string_length.exit.thread:               ; preds = %.lr.ph.i, %.critedge26.i, %7, %35, %22
-  %.0 = phi i32 [ 0, %22 ], [ %40, %35 ], [ 0, %7 ], [ 0, %.critedge26.i ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ %40, %35 ], [ 0, %22 ], [ 0, %7 ], [ 0, %.critedge26.i ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1093,7 +1093,7 @@ define internal fastcc noundef i32 @dissect_bencoded_list(ptr noundef %0, ptr no
   br label %39
 
 39:                                               ; preds = %30, %32, %9, %5, %35
-  %.0 = phi i32 [ 0, %30 ], [ 0, %5 ], [ 0, %9 ], [ %38, %35 ], [ 0, %32 ]
+  %.0 = phi i32 [ %38, %35 ], [ 0, %30 ], [ 0, %5 ], [ 0, %9 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

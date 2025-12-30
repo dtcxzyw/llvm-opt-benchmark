@@ -103,7 +103,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit, label %25
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit: ; preds = %12, %25, %27, %15
-  %.0 = phi i1 [ %.not.not.not.i7.not.not.not, %25 ], [ false, %15 ], [ %.not.not.not.i7.not.not.not, %27 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %15 ], [ %.not.not.not.i7.not.not.not, %27 ], [ %.not.not.not.i7.not.not.not, %25 ], [ true, %12 ]
   ret i1 %.0
 }
 

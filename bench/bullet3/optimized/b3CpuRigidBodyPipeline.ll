@@ -1788,7 +1788,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i141: ; preds = %695, %_ZNK20b
   br i1 %723, label %31, label %._crit_edge179, !llvm.loop !100
 
 724:                                              ; preds = %95, %121, %701, %49
-  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %702, %701 ], [ %122, %121 ], [ %96, %95 ]
+  %.pn.pn = phi { ptr, i32 } [ %702, %701 ], [ %50, %49 ], [ %122, %121 ], [ %96, %95 ]
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn

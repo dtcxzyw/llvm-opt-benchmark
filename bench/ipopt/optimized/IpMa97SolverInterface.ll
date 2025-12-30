@@ -7105,7 +7105,7 @@ define noundef range(i32 -1, 5) i32 @_ZN5Ipopt19Ma97SolverInterface14ScaleNameTo
   br label %13
 
 13:                                               ; preds = %10, %7, %4, %1
-  %.0 = phi i32 [ 2, %7 ], [ 0, %1 ], [ 1, %4 ], [ %., %10 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %4 ], [ 2, %7 ], [ %., %10 ]
   ret i32 %.0
 }
 
@@ -8292,7 +8292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %48
   br label %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %502, %499, %496, %492
-  %.0.i = phi i32 [ 2, %499 ], [ 0, %492 ], [ 1, %496 ], [ %..i, %502 ]
+  %.0.i = phi i32 [ 0, %492 ], [ 1, %496 ], [ 2, %499 ], [ %..i, %502 ]
   %505 = getelementptr inbounds nuw i32, ptr %447, i64 %indvars.iv
   store i32 %.0.i, ptr %505, align 4, !tbaa !57
   %506 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %indvars.iv
@@ -8361,7 +8361,7 @@ _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11
   br i1 %541, label %.sink.split, label %543
 
 .sink.split:                                      ; preds = %539, %536, %533, %530, %527, %524, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.sink493 = phi i32 [ 0, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 3, %524 ], [ 5, %530 ], [ 7, %536 ], [ 6, %533 ], [ 4, %527 ], [ 8, %539 ]
+  %.sink493 = phi i32 [ 0, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 3, %524 ], [ 4, %527 ], [ 5, %530 ], [ 6, %533 ], [ 7, %536 ], [ 8, %539 ]
   %542 = getelementptr inbounds nuw i32, ptr %448, i64 %indvars.iv
   store i32 %.sink493, ptr %542, align 4, !tbaa !63
   br label %543
@@ -8491,7 +8491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340: ; preds = %57
   br label %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit343
 
 _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit343: ; preds = %596, %593, %590, %584
-  %.0.i342 = phi i32 [ 2, %593 ], [ 0, %584 ], [ 1, %590 ], [ %..i341, %596 ]
+  %.0.i342 = phi i32 [ 0, %584 ], [ 1, %590 ], [ 2, %593 ], [ %..i341, %596 ]
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 340
   store i32 %.0.i342, ptr %599, align 4, !tbaa !62
   br label %.noexc.i345
@@ -8614,7 +8614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359: ; preds = %_Z
   ret i1 true
 
 646:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353, %583, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258
-  %.pn131.pn = phi { ptr, i32 } [ %.pn131, %583 ], [ %.pn129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353 ], [ %312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ], [ %451, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit310 ]
+  %.pn131.pn = phi { ptr, i32 } [ %.pn131, %583 ], [ %.pn129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353 ], [ %451, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit310 ], [ %312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258 ]
   %647 = load ptr, ptr %23, align 8, !tbaa !44
   %648 = icmp eq ptr %647, %261
   br i1 %648, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit362, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i360
@@ -8942,7 +8942,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %142, %138, %127
   br label %168
 
 168:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit, %62, %50, %22, %29, %31
-  %.0 = phi i32 [ 4, %62 ], [ 0, %22 ], [ 4, %50 ], [ %., %_ZN5Ipopt9TimedTask3EndEv.exit ], [ 0, %31 ], [ 0, %29 ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %29 ], [ 0, %22 ], [ 4, %50 ], [ 4, %62 ], [ %., %_ZN5Ipopt9TimedTask3EndEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

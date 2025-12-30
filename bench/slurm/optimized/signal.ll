@@ -538,7 +538,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_notify_job(i32 noundef %0, ptr noun
   br label %21
 
 21:                                               ; preds = %15, %2, %17
-  %.0 = phi i32 [ -1, %2 ], [ %20, %17 ], [ 0, %15 ]
+  %.0 = phi i32 [ %20, %17 ], [ -1, %2 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

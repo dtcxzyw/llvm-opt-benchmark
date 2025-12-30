@@ -352,7 +352,7 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07cd1
   unreachable
 
 "_ZN4core3ptr147drop_in_place$LT$crossterm..command..write_command_ansi$LT$crossterm..terminal..Clear$C$std..io..stdio..Stdout$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdddbbbe2c4f3cb09E.llvm.228285666965895176.exit": ; preds = %8, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i", %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h0af1324084cf6289E.llvm.228285666965895176.exit"
-  %.024 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i" ], [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h0af1324084cf6289E.llvm.228285666965895176.exit" ], [ %1, %8 ]
+  %.024 = phi ptr [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h0af1324084cf6289E.llvm.228285666965895176.exit" ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i" ], [ %1, %8 ]
   ret ptr %.024
 
 "_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h0af1324084cf6289E.llvm.228285666965895176.exit": ; preds = %2
@@ -410,7 +410,7 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h623bc
   unreachable
 
 "_ZN4core3ptr146drop_in_place$LT$crossterm..command..write_command_ansi$LT$crossterm..cursor..MoveTo$C$std..io..stdio..Stdout$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde239c15f4a71748E.llvm.228285666965895176.exit": ; preds = %8, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i", %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176.exit"
-  %.024 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i" ], [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176.exit" ], [ %1, %8 ]
+  %.024 = phi ptr [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176.exit" ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i" ], [ %1, %8 ]
   ret ptr %.024
 
 "_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176.exit": ; preds = %2
@@ -468,7 +468,7 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8a86a
   unreachable
 
 "_ZN4core3ptr146drop_in_place$LT$crossterm..command..write_command_ansi$LT$crossterm..cursor..MoveUp$C$std..io..stdio..Stdout$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7448afcf55e16c24E.llvm.228285666965895176.exit": ; preds = %8, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i", %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176.exit"
-  %.024 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i" ], [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176.exit" ], [ %1, %8 ]
+  %.024 = phi ptr [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176.exit" ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i" ], [ %1, %8 ]
   ret ptr %.024
 
 "_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176.exit": ; preds = %2
@@ -753,7 +753,7 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17hc669f4c9f
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8a86a26fa41a8c55E.llvm.228285666965895176.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8a86a26fa41a8c55E.llvm.228285666965895176.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i", %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176.exit.i", %21
-  %.024.i = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i" ], [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176.exit.i" ], [ %19, %21 ]
+  %.024.i = phi ptr [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176.exit.i" ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i" ], [ %19, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.024.i
 
@@ -869,7 +869,7 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17he538d8a21
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h623bc57023b8f9c9E.llvm.228285666965895176.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h623bc57023b8f9c9E.llvm.228285666965895176.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i", %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176.exit.i", %27
-  %.024.i = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i" ], [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176.exit.i" ], [ %25, %27 ]
+  %.024.i = phi ptr [ null, %"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176.exit.i" ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i" ], [ %25, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.024.i
 

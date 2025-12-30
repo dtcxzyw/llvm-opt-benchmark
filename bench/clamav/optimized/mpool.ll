@@ -203,7 +203,7 @@ define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly captures(addres
   br label %20
 
 20:                                               ; preds = %6, %3, %4, %19
-  %.0 = phi i32 [ 0, %19 ], [ -1, %3 ], [ -1, %4 ], [ -1, %6 ]
+  %.0 = phi i32 [ 0, %19 ], [ -1, %4 ], [ -1, %3 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -542,7 +542,7 @@ mpool_free.exit:                                  ; preds = %27
   br label %39
 
 39:                                               ; preds = %19, %from_bits.exit48, %27, %mpool_free.exit, %from_bits.exit.thread, %4
-  %.0 = phi ptr [ null, %27 ], [ %28, %mpool_free.exit ], [ %5, %4 ], [ null, %from_bits.exit.thread ], [ %1, %from_bits.exit48 ], [ %1, %19 ]
+  %.0 = phi ptr [ %28, %mpool_free.exit ], [ null, %from_bits.exit.thread ], [ %5, %4 ], [ null, %27 ], [ %1, %from_bits.exit48 ], [ %1, %19 ]
   ret ptr %.0
 }
 
@@ -618,7 +618,7 @@ mpool_realloc.exit:                               ; preds = %3
   %37 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %2)
   br label %mpool_free.exit
 
-38:                                               ; preds = %from_bits.exit.thread.i, %25
+38:                                               ; preds = %25, %from_bits.exit.thread.i
   %39 = getelementptr inbounds i8, ptr %1, i64 -1
   %40 = load i8, ptr %39, align 1, !tbaa !3
   %41 = load i8, ptr %5, align 1, !tbaa !3
@@ -634,7 +634,7 @@ mpool_realloc.exit:                               ; preds = %3
   br label %mpool_free.exit
 
 mpool_free.exit:                                  ; preds = %mpool_realloc.exit, %17, %from_bits.exit48.i, %mpool_free.exit.i, %38
-  %.0 = phi ptr [ null, %38 ], [ %37, %mpool_realloc.exit ], [ %26, %mpool_free.exit.i ], [ %1, %17 ], [ %1, %from_bits.exit48.i ]
+  %.0 = phi ptr [ null, %38 ], [ %1, %17 ], [ %1, %from_bits.exit48.i ], [ %26, %mpool_free.exit.i ], [ %37, %mpool_realloc.exit ]
   ret ptr %.0
 }
 
@@ -824,7 +824,7 @@ define ptr @cli_mpool_virname(ptr noundef captures(address, ret: address, proven
   br label %cli_mpool_strdup.exit
 
 cli_mpool_strdup.exit:                            ; preds = %18, %17, %3, %23, %22, %11
-  %.0 = phi ptr [ null, %3 ], [ %21, %23 ], [ null, %22 ], [ null, %11 ], [ null, %17 ], [ %16, %18 ]
+  %.0 = phi ptr [ %21, %23 ], [ null, %22 ], [ null, %11 ], [ null, %3 ], [ %16, %18 ], [ null, %17 ]
   ret ptr %.0
 }
 
@@ -882,7 +882,7 @@ mpool_free.exit:                                  ; preds = %10
   br label %mpool_calloc.exit.thread
 
 mpool_calloc.exit.thread:                         ; preds = %8, %6, %10, %mpool_free.exit, %5
-  %.0 = phi ptr [ null, %5 ], [ %9, %10 ], [ null, %mpool_free.exit ], [ null, %6 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %mpool_free.exit ], [ %9, %10 ], [ null, %6 ], [ null, %8 ]
   ret ptr %.0
 }
 

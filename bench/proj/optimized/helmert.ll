@@ -1113,14 +1113,14 @@ define internal fastcc noundef ptr @_ZL15read_conventionP8PJconsts(ptr noundef %
   br i1 %.not23, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %22, %15, %6
-  %.str.64.sink = phi ptr [ @.str.61, %6 ], [ @.str.64, %15 ], [ @.str.65, %22 ]
+  %.str.61.sink = phi ptr [ @.str.61, %6 ], [ @.str.64, %15 ], [ @.str.65, %22 ]
   %.sink27 = phi i32 [ 1026, %6 ], [ 1027, %15 ], [ 1027, %22 ]
-  tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull %.str.64.sink)
+  tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull %.str.61.sink)
   %25 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef %.sink27)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %1, %18, %22
-  %.1 = phi ptr [ %0, %1 ], [ %0, %22 ], [ %0, %18 ], [ %25, %.thread.sink.split ]
+  %.1 = phi ptr [ %0, %22 ], [ %0, %18 ], [ %0, %1 ], [ %25, %.thread.sink.split ]
   ret ptr %.1
 }
 

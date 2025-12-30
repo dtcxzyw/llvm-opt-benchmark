@@ -132,7 +132,7 @@ define internal range(i32 0, 2) i32 @fragment_addresses_equal(ptr noundef readon
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %48, %41, %39, %20, %12, %8, %2
-  %49 = phi i32 [ 0, %20 ], [ 0, %2 ], [ 0, %8 ], [ 0, %12 ], [ 0, %48 ], [ 1, %41 ], [ 1, %39 ]
+  %49 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %12 ], [ 0, %20 ], [ 0, %48 ], [ 1, %41 ], [ 1, %39 ]
   ret i32 %49
 }
 
@@ -382,7 +382,7 @@ define internal range(i32 0, 2) i32 @fragment_addresses_ports_equal(ptr noundef 
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %41, %33, %27, %20, %12, %8, %54, %48, %2
-  %61 = phi i32 [ 0, %48 ], [ 0, %20 ], [ %60, %54 ], [ 0, %2 ], [ 0, %8 ], [ 0, %12 ], [ 0, %27 ], [ 0, %33 ], [ 0, %41 ]
+  %61 = phi i32 [ 0, %48 ], [ 0, %2 ], [ %60, %54 ], [ 0, %8 ], [ 0, %12 ], [ 0, %20 ], [ 0, %27 ], [ 0, %33 ], [ 0, %41 ]
   ret i32 %61
 }
 
@@ -1737,7 +1737,7 @@ lookup_fd_head.exit:                              ; preds = %15, %21
   br label %79
 
 79:                                               ; preds = %.critedge.thread, %48, %49, %62, %43
-  %.051 = phi ptr [ null, %43 ], [ %24, %62 ], [ null, %48 ], [ %.050., %.critedge.thread ], [ null, %49 ]
+  %.051 = phi ptr [ null, %43 ], [ %24, %62 ], [ null, %49 ], [ null, %48 ], [ %.050., %.critedge.thread ]
   ret ptr %.051
 }
 
@@ -1899,7 +1899,7 @@ reassembled_table_insert.exit:                    ; preds = %45, %54, %65
   br label %83
 
 83:                                               ; preds = %76, %74, %80, %19
-  %.0 = phi ptr [ %25, %19 ], [ null, %74 ], [ %.1, %80 ], [ %.mux, %76 ]
+  %.0 = phi ptr [ %25, %19 ], [ %.1, %80 ], [ null, %74 ], [ %.mux, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.0
@@ -2156,8 +2156,8 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
   br i1 %122, label %.loopexit204, label %117, !llvm.loop !16
 
 .loopexit204:                                     ; preds = %119, %117, %106, %103
-  %.lcssa48.sink.i = phi ptr [ null, %103 ], [ %104, %106 ], [ null, %117 ], [ %118, %119 ]
-  %.1.lcssa.sink.i = phi ptr [ %0, %103 ], [ %0, %106 ], [ %.1.i, %117 ], [ %.1.i, %119 ]
+  %.lcssa48.sink.i = phi ptr [ %104, %106 ], [ null, %103 ], [ null, %117 ], [ %118, %119 ]
+  %.1.lcssa.sink.i = phi ptr [ %0, %106 ], [ %0, %103 ], [ %.1.i, %117 ], [ %.1.i, %119 ]
   store ptr %.lcssa48.sink.i, ptr %10, align 8
   store ptr %10, ptr %.1.lcssa.sink.i, align 8
   %123 = load i32, ptr %13, align 4
@@ -2278,8 +2278,8 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
   br i1 %174, label %.loopexit, label %169, !llvm.loop !16
 
 .loopexit:                                        ; preds = %171, %169, %158, %153
-  %.lcssa48.sink.i186 = phi ptr [ null, %153 ], [ %156, %158 ], [ null, %169 ], [ %170, %171 ]
-  %.1.lcssa.sink.i187 = phi ptr [ %0, %153 ], [ %0, %158 ], [ %.1.i184, %169 ], [ %.1.i184, %171 ]
+  %.lcssa48.sink.i186 = phi ptr [ %156, %158 ], [ null, %153 ], [ null, %169 ], [ %170, %171 ]
+  %.1.lcssa.sink.i187 = phi ptr [ %0, %158 ], [ %0, %153 ], [ %.1.i184, %169 ], [ %.1.i184, %171 ]
   store ptr %.lcssa48.sink.i186, ptr %10, align 8
   store ptr %10, ptr %.1.lcssa.sink.i187, align 8
   %175 = load i32, ptr %13, align 4
@@ -2559,7 +2559,7 @@ LINK_FRAG.exit203:                                ; preds = %.loopexit, %185, %.
   unreachable
 
 LINK_FRAG.exit:                                   ; preds = %._crit_edge.i.i, %133, %.loopexit204, %301, %204, %LINK_FRAG.exit203
-  %.0 = phi i1 [ true, %301 ], [ false, %LINK_FRAG.exit203 ], [ false, %204 ], [ true, %.loopexit204 ], [ true, %133 ], [ true, %._crit_edge.i.i ]
+  %.0 = phi i1 [ false, %LINK_FRAG.exit203 ], [ false, %204 ], [ true, %301 ], [ true, %.loopexit204 ], [ true, %133 ], [ true, %._crit_edge.i.i ]
   ret i1 %.0
 }
 
@@ -3048,8 +3048,8 @@ lookup_fd_head.exit:                              ; preds = %11, %19
   br i1 %158, label %.loopexit261.i, label %153, !llvm.loop !16
 
 .loopexit261.i:                                   ; preds = %155, %153, %143, %138
-  %.lcssa48.sink.i.i = phi ptr [ null, %138 ], [ %141, %143 ], [ %154, %155 ], [ null, %153 ]
-  %.1.lcssa.sink.i.i = phi ptr [ %.047, %138 ], [ %.047, %143 ], [ %.1.i.i, %153 ], [ %.1.i.i, %155 ]
+  %.lcssa48.sink.i.i = phi ptr [ %141, %143 ], [ null, %138 ], [ %154, %155 ], [ null, %153 ]
+  %.1.lcssa.sink.i.i = phi ptr [ %.047, %143 ], [ %.047, %138 ], [ %.1.i.i, %153 ], [ %.1.i.i, %155 ]
   store ptr %.lcssa48.sink.i.i, ptr %107, align 8
   store ptr %107, ptr %.1.lcssa.sink.i.i, align 8
   %159 = load i32, ptr %112, align 4
@@ -3328,8 +3328,8 @@ lookup_fd_head.exit:                              ; preds = %11, %19
   br i1 %277, label %.loopexit263.i, label %272, !llvm.loop !16
 
 .loopexit263.i:                                   ; preds = %274, %272, %261, %254
-  %.lcssa48.sink.i195.i = phi ptr [ null, %254 ], [ %259, %261 ], [ %273, %274 ], [ null, %272 ]
-  %.1.lcssa.sink.i196.i = phi ptr [ %.047, %254 ], [ %.047, %261 ], [ %.1.i193.i, %272 ], [ %.1.i193.i, %274 ]
+  %.lcssa48.sink.i195.i = phi ptr [ %259, %261 ], [ null, %254 ], [ %273, %274 ], [ null, %272 ]
+  %.1.lcssa.sink.i196.i = phi ptr [ %.047, %261 ], [ %.047, %254 ], [ %.1.i193.i, %272 ], [ %.1.i193.i, %274 ]
   store ptr %.lcssa48.sink.i195.i, ptr %107, align 8
   store ptr %107, ptr %.1.lcssa.sink.i196.i, align 8
   %278 = load i32, ptr %112, align 4
@@ -3435,8 +3435,8 @@ lookup_fd_head.exit:                              ; preds = %11, %19
   br i1 %319, label %.loopexit262.i, label %314, !llvm.loop !16
 
 .loopexit262.i:                                   ; preds = %316, %314, %.critedge164.i, %.preheader265.i
-  %.lcssa48.sink.i219.i = phi ptr [ null, %.preheader265.i ], [ %.1131288.i, %.critedge164.i ], [ %315, %316 ], [ null, %314 ]
-  %.1.lcssa.sink.i220.i = phi ptr [ %.047, %.preheader265.i ], [ %.047, %.critedge164.i ], [ %.1.i217.i, %314 ], [ %.1.i217.i, %316 ]
+  %.lcssa48.sink.i219.i = phi ptr [ %.1131288.i, %.critedge164.i ], [ null, %.preheader265.i ], [ %315, %316 ], [ null, %314 ]
+  %.1.lcssa.sink.i220.i = phi ptr [ %.047, %.critedge164.i ], [ %.047, %.preheader265.i ], [ %.1.i217.i, %314 ], [ %.1.i217.i, %316 ]
   store ptr %.lcssa48.sink.i219.i, ptr %107, align 8
   store ptr %107, ptr %.1.lcssa.sink.i220.i, align 8
   %320 = load i32, ptr %112, align 4
@@ -3562,8 +3562,8 @@ lookup_fd_head.exit:                              ; preds = %11, %19
   br i1 %372, label %.loopexit.i, label %367, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %369, %367, %356, %353
-  %.lcssa48.sink.i243.i = phi ptr [ null, %353 ], [ %354, %356 ], [ %368, %369 ], [ null, %367 ]
-  %.1.lcssa.sink.i244.i = phi ptr [ %.047, %353 ], [ %.047, %356 ], [ %.1.i241.i, %367 ], [ %.1.i241.i, %369 ]
+  %.lcssa48.sink.i243.i = phi ptr [ %354, %356 ], [ null, %353 ], [ %368, %369 ], [ null, %367 ]
+  %.1.lcssa.sink.i244.i = phi ptr [ %.047, %356 ], [ %.047, %353 ], [ %.1.i241.i, %367 ], [ %.1.i241.i, %369 ]
   store ptr %.lcssa48.sink.i243.i, ptr %107, align 8
   store ptr %107, ptr %.1.lcssa.sink.i244.i, align 8
   %373 = load i32, ptr %112, align 4
@@ -3675,8 +3675,8 @@ LINK_FRAG.exit260.i:                              ; preds = %._crit_edge.i.i255.
   call fastcc void @fragment_defragment_and_free(ptr noundef %.047, ptr noundef readonly %3)
   br label %fragment_add_seq_work.exit
 
-fragment_add_seq_work.exit:                       ; preds = %349, %LINK_FRAG.exit260.i, %.preheader.i, %._crit_edge299.i, %._crit_edge.i.i.i, %._crit_edge.i.i183.i, %304, %._crit_edge.i.i207.i, %414, %.loopexit261.i, %169, %.loopexit264.i, %226, %.loopexit263.i, %288, %.loopexit262.i, %330, %._crit_edge.i.i231.i, %29, %30, %34, %35, %45
-  %.048 = phi ptr [ %39, %45 ], [ %22, %34 ], [ null, %30 ], [ null, %29 ], [ %22, %35 ], [ null, %._crit_edge299.i ], [ null, %349 ], [ null, %LINK_FRAG.exit260.i ], [ null, %.preheader.i ], [ %.047, %._crit_edge.i.i.i ], [ %.047, %._crit_edge.i.i183.i ], [ %.047, %304 ], [ %.047, %._crit_edge.i.i207.i ], [ %.047, %414 ], [ %.047, %.loopexit261.i ], [ %.047, %169 ], [ %.047, %.loopexit264.i ], [ %.047, %226 ], [ %.047, %.loopexit263.i ], [ %.047, %288 ], [ %.047, %.loopexit262.i ], [ %.047, %330 ], [ %.047, %._crit_edge.i.i231.i ]
+fragment_add_seq_work.exit:                       ; preds = %349, %LINK_FRAG.exit260.i, %.preheader.i, %._crit_edge299.i, %304, %414, %.loopexit261.i, %169, %._crit_edge.i.i.i, %.loopexit264.i, %226, %._crit_edge.i.i183.i, %.loopexit263.i, %288, %._crit_edge.i.i207.i, %.loopexit262.i, %330, %._crit_edge.i.i231.i, %29, %30, %34, %35, %45
+  %.048 = phi ptr [ %39, %45 ], [ %22, %35 ], [ %22, %34 ], [ null, %30 ], [ null, %29 ], [ null, %349 ], [ null, %LINK_FRAG.exit260.i ], [ null, %.preheader.i ], [ null, %._crit_edge299.i ], [ %.047, %304 ], [ %.047, %414 ], [ %.047, %.loopexit261.i ], [ %.047, %169 ], [ %.047, %._crit_edge.i.i.i ], [ %.047, %.loopexit264.i ], [ %.047, %226 ], [ %.047, %._crit_edge.i.i183.i ], [ %.047, %.loopexit263.i ], [ %.047, %288 ], [ %.047, %._crit_edge.i.i207.i ], [ %.047, %.loopexit262.i ], [ %.047, %330 ], [ %.047, %._crit_edge.i.i231.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.048
 }
@@ -4253,8 +4253,8 @@ select.unfold:                                    ; preds = %.thread345, %.prehe
   br label %fragment_items_removed.exit.thread
 
 fragment_items_removed.exit.thread:               ; preds = %127, %.thread339, %.thread348, %186, %fragment_items_removed.exit, %157, %162, %160, %select.unfold
-  %.2236 = phi ptr [ %171, %.thread348 ], [ %191, %select.unfold ], [ %171, %186 ], [ %.1235, %160 ], [ %.1235, %162 ], [ %.1235, %157 ], [ %.1235, %fragment_items_removed.exit ], [ %.1235, %.thread339 ], [ %.1235, %127 ]
-  %.1222 = phi i32 [ %.2373, %.thread348 ], [ 1, %select.unfold ], [ %.2373, %186 ], [ 0, %160 ], [ 0, %162 ], [ 0, %157 ], [ 0, %fragment_items_removed.exit ], [ 0, %.thread339 ], [ 0, %127 ]
+  %.2236 = phi ptr [ %191, %select.unfold ], [ %.1235, %160 ], [ %.1235, %162 ], [ %.1235, %157 ], [ %.1235, %fragment_items_removed.exit ], [ %171, %186 ], [ %171, %.thread348 ], [ %.1235, %.thread339 ], [ %.1235, %127 ]
+  %.1222 = phi i32 [ 1, %select.unfold ], [ 0, %160 ], [ 0, %162 ], [ 0, %157 ], [ 0, %fragment_items_removed.exit ], [ %.2373, %186 ], [ %.2373, %.thread348 ], [ 0, %.thread339 ], [ 0, %127 ]
   br i1 %8, label %.preheader357, label %310
 
 .preheader357:                                    ; preds = %fragment_items_removed.exit.thread, %199
@@ -4878,7 +4878,7 @@ reassembled_table_insert.exit:                    ; preds = %39, %50, %61
   br label %63
 
 63:                                               ; preds = %lookup_fd_head.exit, %._crit_edge, %reassembled_table_insert.exit, %13
-  %.035 = phi ptr [ %19, %13 ], [ %29, %._crit_edge ], [ %29, %reassembled_table_insert.exit ], [ null, %lookup_fd_head.exit ]
+  %.035 = phi ptr [ %19, %13 ], [ %29, %reassembled_table_insert.exit ], [ %29, %._crit_edge ], [ null, %lookup_fd_head.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.035
@@ -5174,7 +5174,7 @@ define ptr @process_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %52, %49, %8, %46, %43, %44
-  %.1 = phi ptr [ %.0, %44 ], [ %.0, %43 ], [ null, %8 ], [ null, %46 ], [ null, %49 ], [ null, %52 ], [ null, %55 ]
+  %.1 = phi ptr [ %.0, %44 ], [ %.0, %43 ], [ null, %46 ], [ null, %8 ], [ null, %49 ], [ null, %52 ], [ null, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.1
 }
@@ -6189,11 +6189,11 @@ lookup_fd_head.exit.i:                            ; preds = %162, %153
   %200 = icmp sgt i32 %197, 0
   br i1 %200, label %.lr.ph.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %194, %183, %187, %34, %39, %.thread
-  %.0243410 = phi ptr [ %.2245323, %.thread ], [ null, %34 ], [ null, %39 ], [ %.0243421, %183 ], [ %.0243421, %187 ], [ %.0243421, %194 ]
-  %.0246.lcssa = phi i1 [ false, %.thread ], [ false, %34 ], [ false, %39 ], [ %.not303.not.not, %183 ], [ %.not303.not.not, %187 ], [ false, %194 ]
-  %.0235.lcssa = phi i32 [ %3, %.thread ], [ %3, %34 ], [ %3, %39 ], [ %170, %183 ], [ %170, %187 ], [ %3, %194 ]
-  %.0234.lcssa = phi i32 [ %2, %.thread ], [ %2, %34 ], [ %2, %39 ], [ %169, %183 ], [ %169, %187 ], [ %2, %194 ]
+._crit_edge:                                      ; preds = %194, %187, %183, %34, %39, %.thread
+  %.0243410 = phi ptr [ %.2245323, %.thread ], [ null, %39 ], [ null, %34 ], [ %.0243421, %183 ], [ %.0243421, %187 ], [ %.0243421, %194 ]
+  %.0246.lcssa = phi i1 [ false, %.thread ], [ false, %39 ], [ false, %34 ], [ %.not303.not.not, %183 ], [ %.not303.not.not, %187 ], [ false, %194 ]
+  %.0235.lcssa = phi i32 [ %3, %.thread ], [ %3, %39 ], [ %3, %34 ], [ %170, %183 ], [ %170, %187 ], [ %3, %194 ]
+  %.0234.lcssa = phi i32 [ %2, %.thread ], [ %2, %39 ], [ %2, %34 ], [ %169, %183 ], [ %169, %187 ], [ %2, %194 ]
   %201 = icmp slt i32 %.0235.lcssa, 1
   %or.cond5 = or i1 %201, %.0246.lcssa
   br i1 %or.cond5, label %239, label %202
@@ -6521,8 +6521,8 @@ define internal fastcc void @LINK_FRAG(ptr noundef captures(none) %0, ptr nounde
   br i1 %22, label %.loopexit, label %17, !llvm.loop !16
 
 .loopexit:                                        ; preds = %17, %19, %2, %5
-  %.lcssa48.sink = phi ptr [ %3, %2 ], [ %3, %5 ], [ %18, %19 ], [ %18, %17 ]
-  %.1.lcssa.sink = phi ptr [ %0, %2 ], [ %0, %5 ], [ %.1, %19 ], [ %.1, %17 ]
+  %.lcssa48.sink = phi ptr [ %3, %5 ], [ %3, %2 ], [ %18, %19 ], [ %18, %17 ]
+  %.1.lcssa.sink = phi ptr [ %0, %5 ], [ %0, %2 ], [ %.1, %19 ], [ %.1, %17 ]
   store ptr %.lcssa48.sink, ptr %1, align 8
   store ptr %1, ptr %.1.lcssa.sink, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 12

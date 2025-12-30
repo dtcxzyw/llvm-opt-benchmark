@@ -224,7 +224,7 @@ filter_frame.exit:                                ; preds = %21, %32
   br label %60
 
 60:                                               ; preds = %15, %56, %59, %57, %.critedge, %50, %filter_frame.exit
-  %.1 = phi i32 [ 0, %15 ], [ %.0.i, %filter_frame.exit ], [ 0, %50 ], [ %18, %.critedge ], [ 0, %57 ], [ 0, %59 ], [ 0, %56 ]
+  %.1 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %50 ], [ 0, %15 ], [ %18, %.critedge ], [ 0, %57 ], [ 0, %59 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -484,7 +484,7 @@ generate_hann_window.exit:                        ; preds = %72, %66
   br i1 %149, label %.loopexit, label %135
 
 .loopexit:                                        ; preds = %144, %138, %135, %.preheader, %119, %114, %108, %91, %generate_hann_window.exit, %25, %56, %58, %60, %62, %64, %1
-  %.095 = phi i32 [ -12, %119 ], [ -12, %56 ], [ -12, %114 ], [ -12, %108 ], [ -12, %91 ], [ -12, %generate_hann_window.exit ], [ -12, %25 ], [ -12, %1 ], [ -12, %64 ], [ -12, %62 ], [ -12, %60 ], [ -12, %58 ], [ 0, %.preheader ], [ %148, %144 ], [ %142, %138 ], [ 0, %135 ]
+  %.095 = phi i32 [ -12, %1 ], [ -12, %64 ], [ -12, %62 ], [ -12, %60 ], [ -12, %58 ], [ -12, %56 ], [ -12, %25 ], [ -12, %generate_hann_window.exit ], [ -12, %91 ], [ -12, %108 ], [ -12, %114 ], [ -12, %119 ], [ 0, %.preheader ], [ %148, %144 ], [ %142, %138 ], [ 0, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.095
 }

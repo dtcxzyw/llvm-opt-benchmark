@@ -380,7 +380,7 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
   br label %99
 
 99:                                               ; preds = %.critedge, %13, %96
-  %.0 = phi i32 [ 1, %13 ], [ %98, %96 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ %98, %96 ], [ 1, %13 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -486,9 +486,9 @@ ELgethash.exit:                                   ; preds = %1, %13, %22, %27
   %.pre73 = sext i32 %.pre70 to i64
   br label %48
 
-48:                                               ; preds = %34, %29, %47, %42
-  %.pre-phi = phi i64 [ %33, %34 ], [ %33, %29 ], [ %.pre73, %47 ], [ %33, %42 ]
-  %49 = phi i32 [ %30, %34 ], [ %30, %29 ], [ %.pre70, %47 ], [ %30, %42 ]
+48:                                               ; preds = %29, %34, %47, %42
+  %.pre-phi = phi i64 [ %33, %29 ], [ %33, %34 ], [ %.pre73, %47 ], [ %33, %42 ]
+  %49 = phi i32 [ %30, %29 ], [ %30, %34 ], [ %.pre70, %47 ], [ %30, %42 ]
   %50 = add nsw i64 %indvars.iv, %28
   %51 = icmp sgt i64 %50, -1
   %.not.i56 = icmp slt i64 %50, %.pre-phi
@@ -522,15 +522,15 @@ ELgethash.exit:                                   ; preds = %1, %13, %22, %27
   %.pre = load i32, ptr @ELhashsize, align 4
   br label %66
 
-66:                                               ; preds = %52, %48, %65, %60
-  %67 = phi i32 [ %49, %52 ], [ %49, %48 ], [ %.pre, %65 ], [ %49, %60 ]
+66:                                               ; preds = %48, %52, %65, %60
+  %67 = phi i32 [ %49, %48 ], [ %49, %52 ], [ %.pre, %65 ], [ %49, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %29
 
 ELgethash.exit55:                                 ; preds = %57, %39, %19
-  %68 = phi ptr [ %14, %19 ], [ %35, %39 ], [ %53, %57 ]
-  %69 = phi i32 [ %7, %19 ], [ %30, %39 ], [ %49, %57 ]
-  %.0 = phi ptr [ %17, %19 ], [ %37, %39 ], [ %55, %57 ]
+  %68 = phi ptr [ %14, %19 ], [ %53, %57 ], [ %35, %39 ]
+  %69 = phi i32 [ %7, %19 ], [ %49, %57 ], [ %30, %39 ]
+  %.0 = phi ptr [ %17, %19 ], [ %55, %57 ], [ %37, %39 ]
   %70 = load ptr, ptr @ELleftend, align 8, !tbaa !12
   %71 = icmp eq ptr %.0, %70
   %.pre71 = load ptr, ptr @ELrightend, align 8, !tbaa !12

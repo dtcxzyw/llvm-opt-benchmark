@@ -665,7 +665,7 @@ _ZTWN7rocksdb15iostats_contextE.exit17:           ; preds = %73, %75
   br i1 %.not, label %50, label %._crit_edge.loopexit
 
 .thread18:                                        ; preds = %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %.thread21, %3
-  %.010 = phi i1 [ false, %.thread21 ], [ false, %3 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ false, %50 ]
+  %.010 = phi i1 [ false, %3 ], [ false, %.thread21 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ false, %50 ]
   ret i1 %.010
 }
 

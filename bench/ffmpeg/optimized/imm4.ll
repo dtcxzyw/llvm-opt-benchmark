@@ -148,8 +148,8 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %59
 
 59:                                               ; preds = %54, %55, %56, %57, %58, %51, %40
-  %.075 = phi i32 [ %46, %40 ], [ 576, %58 ], [ 288, %57 ], [ 240, %54 ], [ 704, %55 ], [ 288, %56 ], [ 240, %51 ]
-  %.074 = phi i32 [ %44, %40 ], [ 704, %58 ], [ 704, %57 ], [ 704, %54 ], [ 480, %55 ], [ 352, %56 ], [ 352, %51 ]
+  %.075 = phi i32 [ %46, %40 ], [ 576, %58 ], [ 240, %54 ], [ 704, %55 ], [ 288, %56 ], [ 288, %57 ], [ 240, %51 ]
+  %.074 = phi i32 [ %44, %40 ], [ 704, %58 ], [ 704, %54 ], [ 480, %55 ], [ 352, %56 ], [ 704, %57 ], [ 352, %51 ]
   %60 = tail call i32 @llvm.umin.i32(i32 %34, i32 192)
   store i32 %60, ptr %39, align 8, !tbaa !42
   %61 = lshr exact i32 %60, 3
@@ -310,7 +310,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %156
 
 156:                                              ; preds = %151, %141, %138, %129, %119, %116, %18, %11, %4, %154, %150, %112, %102
-  %.0 = phi i32 [ -1094995529, %4 ], [ -12, %11 ], [ -1163346256, %102 ], [ -1094995529, %18 ], [ %117, %116 ], [ -1094995529, %119 ], [ %133, %129 ], [ %139, %138 ], [ %155, %154 ], [ %144, %141 ], [ -1094995529, %150 ], [ -1094995529, %112 ], [ %152, %151 ]
+  %.0 = phi i32 [ -1163346256, %102 ], [ %155, %154 ], [ -1094995529, %150 ], [ -1094995529, %112 ], [ -1094995529, %4 ], [ -12, %11 ], [ -1094995529, %18 ], [ %117, %116 ], [ -1094995529, %119 ], [ %133, %129 ], [ %139, %138 ], [ %144, %141 ], [ %152, %151 ]
   ret i32 %.0
 }
 
@@ -585,7 +585,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra(ptr noundef r
   br i1 %163, label %.preheader, label %.thread83, !llvm.loop !63
 
 .thread83:                                        ; preds = %._crit_edge, %94, %49, %.preheader.lr.ph, %23, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ 0, %.preheader.lr.ph ], [ 0, %23 ], [ %103, %94 ], [ %.0.i, %49 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ 0, %23 ], [ 0, %.preheader.lr.ph ], [ %.0.i, %49 ], [ %103, %94 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1112,8 +1112,8 @@ copy_block8.exit213:                              ; preds = %127, %copy_block8.e
   %374 = icmp slt i32 %373, %371
   br i1 %374, label %.preheader, label %copy_block8.exit213.thread, !llvm.loop !70
 
-copy_block8.exit213.thread:                       ; preds = %._crit_edge, %239, %164, %132, %190, %.preheader.lr.ph, %24, %12
-  %.0 = phi i32 [ -1094995529, %12 ], [ 0, %24 ], [ %255, %239 ], [ 0, %.preheader.lr.ph ], [ %193, %190 ], [ -1094995529, %132 ], [ %.0.i, %164 ], [ 0, %._crit_edge ]
+copy_block8.exit213.thread:                       ; preds = %._crit_edge, %239, %190, %164, %132, %.preheader.lr.ph, %24, %12
+  %.0 = phi i32 [ -1094995529, %12 ], [ 0, %24 ], [ 0, %.preheader.lr.ph ], [ -1094995529, %132 ], [ %.0.i, %164 ], [ %193, %190 ], [ %255, %239 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1341,7 +1341,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   store i16 %162, ptr %160, align 2, !tbaa !71
   br label %decode_block.exit.thread
 
-decode_block.exit.thread:                         ; preds = %._crit_edge.i, %.thread.i, %39
+decode_block.exit.thread:                         ; preds = %.thread.i, %._crit_edge.i, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %decode_block.exit, label %17, !llvm.loop !74

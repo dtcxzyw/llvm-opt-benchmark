@@ -456,7 +456,7 @@ define hidden i32 @VP8EncStartAlpha(ptr noundef %0) local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %1, %14, %18, %22
-  %.1 = phi i32 [ %17, %14 ], [ %23, %22 ], [ 1, %18 ], [ 1, %1 ]
+  %.1 = phi i32 [ %23, %22 ], [ 1, %18 ], [ %17, %14 ], [ 1, %1 ]
   ret i32 %.1
 }
 
@@ -630,7 +630,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
   br label %EncodeLossless.exit.thread
 
-EncodeLossless.exit.thread:                       ; preds = %32, %.critedge.i, %26, %24
+EncodeLossless.exit.thread:                       ; preds = %.critedge.i, %24, %26, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
@@ -677,10 +677,10 @@ EncodeLossless.exit.thread:                       ; preds = %32, %.critedge.i, %
   br label %101
 
 75:                                               ; preds = %58, %20, %73
-  %76 = phi ptr [ %.050, %20 ], [ %.050, %73 ], [ %54, %58 ]
-  %.049758894 = phi i32 [ 0, %20 ], [ 0, %73 ], [ 1, %58 ]
-  %77 = phi i1 [ true, %20 ], [ true, %73 ], [ false, %58 ]
-  %78 = phi i64 [ %15, %20 ], [ %15, %73 ], [ %71, %58 ]
+  %76 = phi ptr [ %.050, %73 ], [ %.050, %20 ], [ %54, %58 ]
+  %.049758894 = phi i32 [ 0, %73 ], [ 0, %20 ], [ 1, %58 ]
+  %77 = phi i1 [ true, %73 ], [ true, %20 ], [ false, %58 ]
+  %78 = phi i64 [ %15, %73 ], [ %15, %20 ], [ %71, %58 ]
   %79 = shl i32 %4, 2
   %80 = or disjoint i32 %.049758894, %79
   %81 = trunc i32 %80 to i8

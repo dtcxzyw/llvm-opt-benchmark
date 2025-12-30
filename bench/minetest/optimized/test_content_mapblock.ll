@@ -4952,7 +4952,7 @@ if.then.i.i.i466.5:                               ; preds = %_ZN7TileDefD2Ev.exi
   br label %ehcleanup104
 
 ehcleanup104:                                     ; preds = %_ZN7TileDefD2Ev.exit425, %_ZN7TileDefD2Ev.exit470.4, %if.then.i.i.i466.5, %lpad35
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp528, %lpad35 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7TileDefD2Ev.exit470.4 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i466.5 ], [ %lpad.thr_comm527, %_ZN7TileDefD2Ev.exit425 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp528, %lpad35 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i466.5 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7TileDefD2Ev.exit470.4 ], [ %lpad.thr_comm527, %_ZN7TileDefD2Ev.exit425 ]
   %295 = load ptr, ptr %.ptr152.5.ptr, align 8, !tbaa !7
   %cmp.i.i.i.i471 = icmp eq ptr %295, %107
   br i1 %cmp.i.i.i.i471, label %_ZN7TileDefD2Ev.exit476, label %if.then.i.i.i472
@@ -5007,7 +5007,7 @@ if.then.i.i.i472.5:                               ; preds = %_ZN7TileDefD2Ev.exi
   br label %ehcleanup111
 
 ehcleanup111:                                     ; preds = %_ZN7TileDefD2Ev.exit419, %_ZN7TileDefD2Ev.exit476.4, %if.then.i.i.i472.5, %lpad19
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp521, %lpad19 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7TileDefD2Ev.exit476.4 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i472.5 ], [ %lpad.thr_comm520, %_ZN7TileDefD2Ev.exit419 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp521, %lpad19 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i472.5 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7TileDefD2Ev.exit476.4 ], [ %lpad.thr_comm520, %_ZN7TileDefD2Ev.exit419 ]
   %301 = load ptr, ptr %.ptr.5.ptr, align 8, !tbaa !7
   %cmp.i.i.i.i477 = icmp eq ptr %301, %59
   br i1 %cmp.i.i.i.i477, label %_ZN7TileDefD2Ev.exit482, label %if.then.i.i.i478
@@ -5062,7 +5062,7 @@ if.then.i.i.i478.5:                               ; preds = %_ZN7TileDefD2Ev.exi
   br label %ehcleanup118
 
 ehcleanup118:                                     ; preds = %_ZN7TileDefD2Ev.exit, %_ZN7TileDefD2Ev.exit482.4, %if.then.i.i.i478.5, %lpad11
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %lpad11 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7TileDefD2Ev.exit482.4 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i478.5 ], [ %lpad.thr_comm, %_ZN7TileDefD2Ev.exit ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %lpad11 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i478.5 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7TileDefD2Ev.exit482.4 ], [ %lpad.thr_comm, %_ZN7TileDefD2Ev.exit ]
   %307 = load ptr, ptr %mesh, align 8, !tbaa !7
   %cmp.i.i.i483 = icmp eq ptr %307, %11
   br i1 %cmp.i.i.i483, label %ehcleanup119, label %if.then.i.i484
@@ -6666,7 +6666,7 @@ ehcleanup195.i.i.i.i:                             ; preds = %ehcleanup194.i.i.i.
   br label %ehcleanup197.i.i.i.i
 
 ehcleanup197.i.i.i.i:                             ; preds = %lpad9.i.i.i.i, %lpad2.i.i.i.i, %ehcleanup195.i.i.i.i, %lpad15.i.i.i.i, %if.then.i.i356.i.i.i.i, %if.then.i.i350.i.i.i.i
-  %.pn226.pn.pn.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn226.pn.pn.pn.pn.i.i.i.i, %ehcleanup195.i.i.i.i ], [ %62, %lpad15.i.i.i.i ], [ %60, %if.then.i.i356.i.i.i.i ], [ %58, %if.then.i.i350.i.i.i.i ], [ %58, %lpad2.i.i.i.i ], [ %60, %lpad9.i.i.i.i ]
+  %.pn226.pn.pn.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn226.pn.pn.pn.pn.i.i.i.i, %ehcleanup195.i.i.i.i ], [ %62, %lpad15.i.i.i.i ], [ %58, %if.then.i.i350.i.i.i.i ], [ %60, %if.then.i.i356.i.i.i.i ], [ %58, %lpad2.i.i.i.i ], [ %60, %lpad9.i.i.i.i ]
   call void @_ZN12DummyGameDefD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %gamedef.i.i.i.i) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %gamedef.i.i.i.i)
   resume { ptr, i32 } %.pn226.pn.pn.pn.pn.pn.pn.i.i.i.i
@@ -9691,7 +9691,7 @@ ehcleanup195.i.i.i.i:                             ; preds = %ehcleanup194.i.i.i.
   br label %ehcleanup197.i.i.i.i
 
 ehcleanup197.i.i.i.i:                             ; preds = %lpad9.i.i.i.i, %lpad2.i.i.i.i, %ehcleanup195.i.i.i.i, %lpad15.i.i.i.i, %if.then.i.i356.i.i.i.i, %if.then.i.i350.i.i.i.i
-  %.pn226.pn.pn.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn226.pn.pn.pn.pn.i.i.i.i, %ehcleanup195.i.i.i.i ], [ %52, %lpad15.i.i.i.i ], [ %50, %if.then.i.i356.i.i.i.i ], [ %48, %if.then.i.i350.i.i.i.i ], [ %48, %lpad2.i.i.i.i ], [ %50, %lpad9.i.i.i.i ]
+  %.pn226.pn.pn.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn226.pn.pn.pn.pn.i.i.i.i, %ehcleanup195.i.i.i.i ], [ %52, %lpad15.i.i.i.i ], [ %48, %if.then.i.i350.i.i.i.i ], [ %50, %if.then.i.i356.i.i.i.i ], [ %48, %lpad2.i.i.i.i ], [ %50, %lpad9.i.i.i.i ]
   call void @_ZN12DummyGameDefD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %gamedef.i.i.i.i) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %gamedef.i.i.i.i)
   resume { ptr, i32 } %.pn226.pn.pn.pn.pn.pn.pn.i.i.i.i

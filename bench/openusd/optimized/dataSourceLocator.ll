@@ -1628,8 +1628,8 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i
-  %43 = phi i64 [ %40, %.loopexit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ]
-  %44 = phi ptr [ %spec.select, %.loopexit ], [ %0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ]
+  %43 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ], [ %40, %.loopexit ]
+  %44 = phi ptr [ %0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ], [ %spec.select, %.loopexit ]
   %45 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %44, i64 %43
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %47 = load i32, ptr %46, align 4
@@ -2264,8 +2264,8 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i
-  %43 = phi i64 [ %40, %.loopexit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ]
-  %44 = phi ptr [ %spec.select, %.loopexit ], [ %0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ]
+  %43 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ], [ %40, %.loopexit ]
+  %44 = phi ptr [ %0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ], [ %spec.select, %.loopexit ]
   %45 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %44, i64 %43
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %47 = load i32, ptr %46, align 4
@@ -2332,7 +2332,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceL
   br i1 %or.cond.not, label %19, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %19, %6, %2
-  %.0 = phi i1 [ false, %6 ], [ true, %2 ], [ %27, %19 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %6 ], [ %27, %19 ]
   ret i1 %.0
 }
 
@@ -2639,9 +2639,9 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i7
-  %104 = phi i64 [ %101, %.loopexit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i7 ]
-  %105 = phi i32 [ %.pre25, %.loopexit ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i7 ]
-  %106 = phi ptr [ %spec.select, %.loopexit ], [ %0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i7 ]
+  %104 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i7 ], [ %101, %.loopexit ]
+  %105 = phi i32 [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i7 ], [ %.pre25, %.loopexit ]
+  %106 = phi ptr [ %0, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i7 ], [ %spec.select, %.loopexit ]
   %107 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %106, i64 %104
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %109 = load i32, ptr %108, align 4
@@ -2952,7 +2952,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread: ; preds = %7
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread22
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread22: ; preds = %67, %29, %63, %25, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit, %._crit_edge
-  %.011 = phi i1 [ %88, %._crit_edge ], [ false, %67 ], [ true, %29 ], [ true, %25 ], [ false, %63 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ]
+  %.011 = phi i1 [ %88, %._crit_edge ], [ false, %67 ], [ true, %29 ], [ false, %63 ], [ true, %25 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ]
   ret i1 %.011
 }
 
@@ -4139,7 +4139,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread: ; preds = %7
   br i1 %exitcond.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread22, label %12, !llvm.loop !25
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread22: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread, %27, %65, %31, %69, %6, %2
-  %.014 = phi i1 [ false, %2 ], [ false, %6 ], [ true, %31 ], [ false, %65 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread ], [ true, %27 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ], [ false, %69 ]
+  %.014 = phi i1 [ false, %2 ], [ false, %6 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread ], [ true, %27 ], [ false, %65 ], [ true, %31 ], [ false, %69 ]
   ret i1 %.014
 }
 
@@ -4378,7 +4378,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLo
   %.not12 = icmp eq ptr %128, %134
   br i1 %.not12, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge, label %38, !llvm.loop !26
 
-.critedge.loopexit:                               ; preds = %103, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.i, %107
+.critedge.loopexit:                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread.i, %103, %107
   %.pre = load i32, ptr %19, align 4
   %.pre54 = load ptr, ptr %0, align 8
   %.pre55 = load i32, ptr %8, align 8
@@ -4388,10 +4388,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLo
   br label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %.lr.ph92, %38, %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge, %.preheader, %.critedge.loopexit
-  %135 = phi i32 [ %.pre55, %.critedge.loopexit ], [ %30, %.preheader ], [ %30, %.lr.ph ], [ %132, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge ], [ %132, %38 ], [ %46, %.lr.ph92 ]
-  %136 = phi ptr [ %.pre54, %.critedge.loopexit ], [ %29, %.preheader ], [ %29, %.lr.ph ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge ], [ %131, %38 ], [ %45, %.lr.ph92 ]
-  %137 = phi i32 [ %.pre, %.critedge.loopexit ], [ %27, %.preheader ], [ %27, %.lr.ph ], [ %129, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge ], [ %129, %38 ], [ %44, %.lr.ph92 ]
-  %storemerge = phi ptr [ %43, %.critedge.loopexit ], [ %.promoted, %.preheader ], [ %.promoted, %.lr.ph ], [ %128, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge ], [ %128, %38 ], [ %43, %.lr.ph92 ]
+  %135 = phi i32 [ %.pre55, %.critedge.loopexit ], [ %30, %.preheader ], [ %132, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge ], [ %30, %.lr.ph ], [ %132, %38 ], [ %46, %.lr.ph92 ]
+  %136 = phi ptr [ %.pre54, %.critedge.loopexit ], [ %29, %.preheader ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge ], [ %29, %.lr.ph ], [ %131, %38 ], [ %45, %.lr.ph92 ]
+  %137 = phi i32 [ %.pre, %.critedge.loopexit ], [ %27, %.preheader ], [ %129, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge ], [ %27, %.lr.ph ], [ %129, %38 ], [ %44, %.lr.ph92 ]
+  %storemerge = phi ptr [ %43, %.critedge.loopexit ], [ %.promoted, %.preheader ], [ %128, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit..critedge.loopexit82_crit_edge ], [ %.promoted, %.lr.ph ], [ %128, %38 ], [ %43, %.lr.ph92 ]
   store ptr %storemerge, ptr %3, align 8
   %138 = icmp ult i32 %137, 9
   %spec.select.i.i17 = select i1 %138, ptr %0, ptr %136
@@ -5871,7 +5871,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit
   br i1 %103, label %93, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit30
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit30: ; preds = %70, %93, %95, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_.exit, %19, %28, %11, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit, %53, %_ZSt11lower_boundIPKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_PFbRS2_S4_EET_S7_S7_RKT0_T1_.exit, %82
-  %.0 = phi ptr [ %.1.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit ], [ %.1.i.i, %53 ], [ %52, %_ZSt11lower_boundIPKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_PFbRS2_S4_EET_S7_S7_RKT0_T1_.exit ], [ %12, %11 ], [ %.1.i.i, %93 ], [ %52, %82 ], [ %.01441, %19 ], [ %.01441, %28 ], [ %12, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_.exit ], [ %52, %95 ], [ %.1.i.i, %70 ]
+  %.0 = phi ptr [ %52, %82 ], [ %52, %_ZSt11lower_boundIPKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_PFbRS2_S4_EET_S7_S7_RKT0_T1_.exit ], [ %.1.i.i, %53 ], [ %.1.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit ], [ %12, %11 ], [ %.01441, %28 ], [ %12, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_.exit ], [ %.01441, %19 ], [ %.1.i.i, %93 ], [ %52, %95 ], [ %.1.i.i, %70 ]
   ret ptr %.0
 }
 
@@ -6209,7 +6209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLo
   %.not37 = icmp eq ptr %172, %178
   br i1 %.not37, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge, label %83, !llvm.loop !37
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit: ; preds = %147, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.i, %151
+_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokengtERKS0_.exit.thread.i, %147, %151
   %.pre117 = load i32, ptr %63, align 4
   %.pre118 = load ptr, ptr %0, align 8
   %.pre119 = load i32, ptr %4, align 8
@@ -6219,10 +6219,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLo
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread, !llvm.loop !37
 
 _ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread: ; preds = %.lr.ph161, %83, %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit, %.preheader
-  %179 = phi i32 [ %72, %.preheader ], [ %.pre119, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit ], [ %72, %.lr.ph ], [ %176, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge ], [ %176, %83 ], [ %90, %.lr.ph161 ]
-  %180 = phi ptr [ %73, %.preheader ], [ %.pre118, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit ], [ %73, %.lr.ph ], [ %175, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge ], [ %175, %83 ], [ %89, %.lr.ph161 ]
-  %181 = phi i32 [ %74, %.preheader ], [ %.pre117, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit ], [ %74, %.lr.ph ], [ %173, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge ], [ %173, %83 ], [ %88, %.lr.ph161 ]
-  %.13583 = phi ptr [ %.03493, %.preheader ], [ %.13586160, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit ], [ %.03493, %.lr.ph ], [ %172, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge ], [ %172, %83 ], [ %.13586160, %.lr.ph161 ]
+  %179 = phi i32 [ %72, %.preheader ], [ %.pre119, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit ], [ %176, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge ], [ %72, %.lr.ph ], [ %176, %83 ], [ %90, %.lr.ph161 ]
+  %180 = phi ptr [ %73, %.preheader ], [ %.pre118, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit ], [ %175, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge ], [ %73, %.lr.ph ], [ %175, %83 ], [ %89, %.lr.ph161 ]
+  %181 = phi i32 [ %74, %.preheader ], [ %.pre117, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit ], [ %173, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge ], [ %74, %.lr.ph ], [ %173, %83 ], [ %88, %.lr.ph161 ]
+  %.13583 = phi ptr [ %.03493, %.preheader ], [ %.13586160, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit ], [ %172, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit._ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread.loopexit153_crit_edge ], [ %.03493, %.lr.ph ], [ %172, %83 ], [ %.13586160, %.lr.ph161 ]
   %182 = icmp ult i32 %181, 9
   %spec.select.i.i49 = select i1 %182, ptr %0, ptr %180
   %183 = zext i32 %179 to i64
@@ -6325,7 +6325,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit
   br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread, label %.preheader, !llvm.loop !38
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit58, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit, %203, %226, %62
-  %.1 = phi i1 [ true, %203 ], [ false, %62 ], [ true, %226 ], [ true, %186 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit58 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit ]
+  %.1 = phi i1 [ false, %62 ], [ true, %226 ], [ true, %203 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L18_LessThanNotPrefixERKNS_19HdDataSourceLocatorES2_.exit.thread ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit58 ], [ true, %186 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %53, label %244, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59
 
@@ -6341,7 +6341,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59: ; preds = %_ZN
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator10IntersectsERKS0_.exit.thread: ; preds = %._crit_edge, %26, %38, %.lr.ph106, %12, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59
-  %.032 = phi i1 [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59 ], [ true, %26 ], [ false, %.lr.ph106 ], [ false, %12 ], [ true, %38 ], [ false, %._crit_edge ]
+  %.032 = phi i1 [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59 ], [ false, %12 ], [ false, %.lr.ph106 ], [ true, %38 ], [ true, %26 ], [ false, %._crit_edge ]
   ret i1 %.032
 }
 
@@ -6522,7 +6522,7 @@ _ZSt7advanceIPKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorElEvRT_T0
   br i1 %or.cond.not, label %90, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit28, !llvm.loop !12
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit28: ; preds = %90, %77, %73, %.loopexit
-  %100 = phi i1 [ false, %.loopexit ], [ false, %77 ], [ true, %73 ], [ %98, %90 ]
+  %100 = phi i1 [ false, %.loopexit ], [ true, %73 ], [ false, %77 ], [ %98, %90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %44, label %101, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
@@ -7203,7 +7203,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK32pxrInternal_v0_24_
   br i1 %34, label %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread: ; preds = %24, %26, %11, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit_crit_edge, %4
-  %.0 = phi ptr [ %7, %11 ], [ %5, %4 ], [ %.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit_crit_edge ], [ %5, %24 ], [ %7, %26 ]
+  %.0 = phi ptr [ %5, %4 ], [ %.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit_crit_edge ], [ %7, %11 ], [ %5, %24 ], [ %7, %26 ]
   ret ptr %.0
 }
 
@@ -9046,7 +9046,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit: ; preds
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit32
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit32: ; preds = %37, %34, %30, %._crit_edge
-  %.1 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %30 ], [ %.0.lcssa, %34 ], [ %36, %37 ]
+  %.1 = phi i64 [ %.0.lcssa, %30 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %34 ], [ %36, %37 ]
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 6, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 48

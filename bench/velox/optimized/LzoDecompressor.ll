@@ -481,10 +481,10 @@ cleanup.action:                                   ; preds = %ehcleanup187.thread
   br label %eh.resume
 
 if.end192:                                        ; preds = %if.end142, %if.end98
-  %matchLength.0.in = phi i32 [ %matchLength.3, %if.end142 ], [ %matchLength.1, %if.end98 ]
-  %matchOffset.0 = phi i32 [ %shr147, %if.end142 ], [ %dec, %if.end98 ]
-  %literalLength.2.in = phi i32 [ %conv144, %if.end142 ], [ %conv99, %if.end98 ]
-  %input.5 = phi ptr [ %add.ptr133, %if.end142 ], [ %add.ptr89, %if.end98 ]
+  %matchLength.0.in = phi i32 [ %matchLength.1, %if.end98 ], [ %matchLength.3, %if.end142 ]
+  %matchOffset.0 = phi i32 [ %dec, %if.end98 ], [ %shr147, %if.end142 ]
+  %literalLength.2.in = phi i32 [ %conv99, %if.end98 ], [ %conv144, %if.end142 ]
+  %input.5 = phi ptr [ %add.ptr89, %if.end98 ], [ %add.ptr133, %if.end142 ]
   %literalLength.2 = and i32 %literalLength.2.in, 3
   %matchLength.0 = add nsw i32 %matchLength.0.in, 2
   %cmp193.not = icmp eq i32 %matchLength.0, 0
@@ -634,9 +634,9 @@ while.body269:                                    ; preds = %while.cond267.prehe
   br i1 %cmp268, label %while.body269, label %if.end275, !llvm.loop !11
 
 if.end275:                                        ; preds = %while.body262, %while.body269, %while.body215, %while.cond260.preheader, %while.cond267.preheader, %while.cond213.preheader, %if.then66, %if.end26, %if.end192
-  %input.5199 = phi ptr [ %input.5, %if.end192 ], [ %input.5198, %while.cond213.preheader ], [ %input.5198, %while.cond267.preheader ], [ %input.2, %if.end26 ], [ %incdec.ptr, %if.then66 ], [ %input.5198, %while.cond260.preheader ], [ %input.5198, %while.body269 ], [ %input.5198, %while.body215 ], [ %input.5198, %while.body262 ]
-  %literalLength.2197 = phi i32 [ %literalLength.2, %if.end192 ], [ %literalLength.2196, %while.cond213.preheader ], [ %literalLength.2196, %while.cond267.preheader ], [ %add27, %if.end26 ], [ %sub, %if.then66 ], [ %literalLength.2196, %while.cond260.preheader ], [ %literalLength.2196, %while.body269 ], [ %literalLength.2196, %while.body215 ], [ %literalLength.2196, %while.body262 ]
-  %output.2 = phi ptr [ %output.1302.ph, %if.end192 ], [ %add.ptr198, %while.cond213.preheader ], [ %add.ptr198, %while.cond267.preheader ], [ %output.1302.ph, %if.end26 ], [ %output.1302.ph, %if.then66 ], [ %add.ptr198, %while.cond260.preheader ], [ %add.ptr198, %while.body269 ], [ %add.ptr198, %while.body215 ], [ %add.ptr198, %while.body262 ]
+  %input.5199 = phi ptr [ %input.5, %if.end192 ], [ %incdec.ptr, %if.then66 ], [ %input.2, %if.end26 ], [ %input.5198, %while.cond213.preheader ], [ %input.5198, %while.cond267.preheader ], [ %input.5198, %while.cond260.preheader ], [ %input.5198, %while.body215 ], [ %input.5198, %while.body269 ], [ %input.5198, %while.body262 ]
+  %literalLength.2197 = phi i32 [ %literalLength.2, %if.end192 ], [ %sub, %if.then66 ], [ %add27, %if.end26 ], [ %literalLength.2196, %while.cond213.preheader ], [ %literalLength.2196, %while.cond267.preheader ], [ %literalLength.2196, %while.cond260.preheader ], [ %literalLength.2196, %while.body215 ], [ %literalLength.2196, %while.body269 ], [ %literalLength.2196, %while.body262 ]
+  %output.2 = phi ptr [ %output.1302.ph, %if.end192 ], [ %output.1302.ph, %if.then66 ], [ %output.1302.ph, %if.end26 ], [ %add.ptr198, %while.cond213.preheader ], [ %add.ptr198, %while.cond267.preheader ], [ %add.ptr198, %while.cond260.preheader ], [ %add.ptr198, %while.body215 ], [ %add.ptr198, %while.body269 ], [ %add.ptr198, %while.body262 ]
   %idx.ext276 = zext i32 %literalLength.2197 to i64
   %add.ptr277 = getelementptr inbounds nuw i8, ptr %output.2, i64 %idx.ext276
   %cmp278 = icmp ugt ptr %add.ptr277, %add.ptr
@@ -744,7 +744,7 @@ return:                                           ; preds = %entry, %while.end32
   ret i64 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup187, %cleanup.action, %lpad320, %lpad291, %lpad205, %lpad162, %lpad140, %lpad96, %lpad52, %lpad36, %lpad
-  %.pn180 = phi { ptr, i32 } [ %5, %lpad ], [ %49, %lpad320 ], [ %33, %lpad205 ], [ %46, %lpad291 ], [ %32, %ehcleanup187 ], [ %11, %lpad36 ], [ %13, %lpad52 ], [ %19, %lpad96 ], [ %25, %lpad140 ], [ %27, %lpad162 ], [ %.pn.pn185, %cleanup.action ]
+  %.pn180 = phi { ptr, i32 } [ %5, %lpad ], [ %49, %lpad320 ], [ %33, %lpad205 ], [ %46, %lpad291 ], [ %11, %lpad36 ], [ %13, %lpad52 ], [ %19, %lpad96 ], [ %25, %lpad140 ], [ %27, %lpad162 ], [ %.pn.pn185, %cleanup.action ], [ %32, %ehcleanup187 ]
   resume { ptr, i32 } %.pn180
 
 unreachable:                                      ; preds = %invoke.cont186

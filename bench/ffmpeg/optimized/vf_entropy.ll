@@ -262,7 +262,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %113
 
 113:                                              ; preds = %96, %102, %.lr.ph.split.split
-  %.198 = phi nsz float [ %.097121, %.lr.ph.split.split ], [ %.097121, %96 ], [ %112, %102 ]
+  %.198 = phi nsz float [ %112, %102 ], [ %.097121, %96 ], [ %.097121, %.lr.ph.split.split ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
   br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !51

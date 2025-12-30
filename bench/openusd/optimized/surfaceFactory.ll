@@ -596,7 +596,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread: ; preds = %2, %12, %16, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit, %21
-  %.0 = phi i1 [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit ], [ %22, %21 ], [ true, %16 ], [ true, %12 ], [ false, %2 ]
+  %.0 = phi i1 [ %22, %21 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit ], [ true, %16 ], [ true, %12 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -1115,10 +1115,10 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %86, %37
-  %91 = phi ptr [ %50, %37 ], [ %50, %86 ], [ %.pre, %.thread.sink.split.i ]
-  %92 = phi i32 [ 8, %37 ], [ %83, %86 ], [ %83, %.thread.sink.split.i ]
-  %.087.lcssa184.i = phi i64 [ 8, %37 ], [ %78, %86 ], [ %78, %.thread.sink.split.i ]
-  %93 = phi ptr [ %46, %37 ], [ %46, %86 ], [ %.sink187.i, %.thread.sink.split.i ]
+  %91 = phi ptr [ %50, %86 ], [ %50, %37 ], [ %.pre, %.thread.sink.split.i ]
+  %92 = phi i32 [ %83, %86 ], [ 8, %37 ], [ %83, %.thread.sink.split.i ]
+  %.087.lcssa184.i = phi i64 [ %78, %86 ], [ 8, %37 ], [ %78, %.thread.sink.split.i ]
+  %93 = phi ptr [ %46, %86 ], [ %46, %37 ], [ %.sink187.i, %.thread.sink.split.i ]
   store i32 %92, ptr %47, align 8
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 138
   %.sroa.0.0.copyload.i.i = load i32, ptr %94, align 2
@@ -3088,7 +3088,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeigh
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %34, %.lr.ph.split.us, %20, %5
-  %.0 = phi i32 [ %23, %20 ], [ 0, %5 ], [ -1, %.lr.ph.split.us ], [ %37, %34 ], [ -1, %.lr.ph.split ]
+  %.0 = phi i32 [ 0, %5 ], [ %23, %20 ], [ -1, %.lr.ph.split.us ], [ %37, %34 ], [ -1, %.lr.ph.split ]
   ret i32 %.0
 }
 
@@ -3259,8 +3259,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
   br i1 %59, label %.thread26, label %74
 
 71:                                               ; preds = %.thread35, %64, %57
-  %72 = phi i1 [ %62, %.thread35 ], [ %59, %57 ], [ %59, %64 ]
-  %73 = phi i1 [ true, %.thread35 ], [ true, %57 ], [ false, %64 ]
+  %72 = phi i1 [ %59, %57 ], [ %59, %64 ], [ %62, %.thread35 ]
+  %73 = phi i1 [ true, %57 ], [ false, %64 ], [ true, %.thread35 ]
   br i1 %72, label %.thread26, label %74
 
 74:                                               ; preds = %68, %71
@@ -3270,7 +3270,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
   br i1 %.not22, label %80, label %.thread26
 
 .thread26:                                        ; preds = %.thread43, %.thread, %68, %74, %71
-  %77 = phi i1 [ %70, %68 ], [ %75, %74 ], [ %73, %71 ], [ true, %.thread ], [ %67, %.thread43 ]
+  %77 = phi i1 [ %75, %74 ], [ %73, %71 ], [ %70, %68 ], [ true, %.thread ], [ %67, %.thread43 ]
   %78 = tail call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25populateNonLinearSurfacesEiPNS2_10SurfaceSetE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef nonnull %2)
   %79 = select i1 %78, i1 %77, i1 false
   br i1 %79, label %81, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread
@@ -3283,7 +3283,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread: ; preds = %.thread26.thread, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.exit, %.thread26, %80, %81, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit, %3
-  %.0 = phi i1 [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit ], [ %78, %.thread26 ], [ false, %3 ], [ true, %81 ], [ true, %80 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.exit ], [ %65, %.thread26.thread ]
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit ], [ %78, %.thread26 ], [ true, %81 ], [ true, %80 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.exit ], [ %65, %.thread26.thread ]
   ret i1 %.0
 }
 
@@ -3847,7 +3847,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurfaceC2ERKS2_PKi.exit: ; preds = %_ZNK10OpenSu
   br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit, label %158, !llvm.loop !38
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit: ; preds = %.noexc65, %.noexc71, %183, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit95, %233, %.noexc94, %139, %111, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasLimitNeighborhoodERKNS1_12FaceTopologyE.exit, %138, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit, %41
-  %.0 = phi i1 [ false, %111 ], [ true, %138 ], [ true, %233 ], [ true, %41 ], [ false, %.noexc94 ], [ %or.cond7.not.i.not.not113, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasLimitNeighborhoodERKNS1_12FaceTopologyE.exit ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit ], [ false, %.noexc71 ], [ true, %139 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit95 ], [ false, %183 ], [ false, %.noexc65 ]
+  %.0 = phi i1 [ true, %41 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit ], [ %or.cond7.not.i.not.not113, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasLimitNeighborhoodERKNS1_12FaceTopologyE.exit ], [ true, %138 ], [ false, %111 ], [ true, %139 ], [ false, %.noexc94 ], [ false, %183 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit95 ], [ true, %233 ], [ false, %.noexc71 ], [ false, %.noexc65 ]
   %234 = load ptr, ptr %32, align 8
   call void @_ZdlPv(ptr noundef %234) #16
   store ptr %29, ptr %28, align 8

@@ -731,7 +731,7 @@ split:                                            ; preds = %318, %._crit_edge
   br label %342
 
 342:                                              ; preds = %98, %335, %split, %127, %124, %114, %101, %54
-  %343 = phi i64 [ -512, %127 ], [ %107, %101 ], [ %57, %54 ], [ %341, %335 ], [ %.pre-phi30, %split ], [ %116, %114 ], [ -11, %124 ], [ %67, %98 ]
+  %343 = phi i64 [ %107, %101 ], [ %57, %54 ], [ %341, %335 ], [ %.pre-phi30, %split ], [ %116, %114 ], [ -11, %124 ], [ -512, %127 ], [ %67, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %343
@@ -1115,8 +1115,8 @@ define internal i64 @n_tty_write(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %225, label %233, label %226
 
 .sink.split:                                      ; preds = %.thread23.thread28, %215, %167, %219, %.preheader
-  %.ph = phi i64 [ %200, %.preheader ], [ %165, %167 ], [ -11, %215 ], [ -11, %.thread23.thread28 ], [ -512, %219 ]
-  %.ph145 = phi ptr [ %195, %.preheader ], [ %81, %167 ], [ %210, %215 ], [ %210, %.thread23.thread28 ], [ %210, %219 ]
+  %.ph = phi i64 [ %200, %.preheader ], [ -512, %219 ], [ %165, %167 ], [ -11, %215 ], [ -11, %.thread23.thread28 ]
+  %.ph145 = phi ptr [ %195, %.preheader ], [ %210, %219 ], [ %81, %167 ], [ %210, %215 ], [ %210, %.thread23.thread28 ]
   call void @remove_wait_queue(ptr noundef nonnull %50, ptr noundef nonnull %5) #13
   br label %226
 
@@ -2032,10 +2032,10 @@ define internal fastcc zeroext i1 @canon_copy_from_read_buf(ptr noundef %0, ptr 
   br label %52
 
 52:                                               ; preds = %43, %35, %26
-  %53 = phi i64 [ %44, %43 ], [ %34, %26 ], [ %42, %35 ]
-  %54 = phi i64 [ %46, %43 ], [ %22, %26 ], [ %18, %35 ]
-  %55 = phi i1 [ true, %43 ], [ false, %26 ], [ false, %35 ]
-  %56 = phi i64 [ %spec.select, %43 ], [ %34, %26 ], [ %42, %35 ]
+  %53 = phi i64 [ %34, %26 ], [ %42, %35 ], [ %44, %43 ]
+  %54 = phi i64 [ %22, %26 ], [ %18, %35 ], [ %46, %43 ]
+  %55 = phi i1 [ false, %26 ], [ false, %35 ], [ true, %43 ]
+  %56 = phi i64 [ %34, %26 ], [ %42, %35 ], [ %spec.select, %43 ]
   %57 = load ptr, ptr %1, align 8
   %58 = load ptr, ptr %4, align 8
   %59 = sub nuw nsw i64 4096, %16
@@ -2417,8 +2417,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__process_echoes(
   br label %122
 
 99:                                               ; preds = %75, %79, %83, %71, %69
-  %.sink = phi i64 [ 2, %83 ], [ 3, %69 ], [ 2, %71 ], [ 2, %79 ], [ 2, %75 ]
-  %100 = phi i32 [ %88, %83 ], [ %70, %69 ], [ %16, %71 ], [ %16, %79 ], [ %16, %75 ]
+  %.sink = phi i64 [ 2, %83 ], [ 2, %71 ], [ 3, %69 ], [ 2, %79 ], [ 2, %75 ]
+  %100 = phi i32 [ %88, %83 ], [ %16, %71 ], [ %70, %69 ], [ %16, %79 ], [ %16, %75 ]
   %101 = add i64 %17, %.sink
   %.fr = freeze i32 %100
   %102 = icmp eq i32 %.fr, -61
@@ -2520,7 +2520,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__process_echoes(
   br i1 %160, label %138, label %.thread15, !llvm.loop !51
 
 .thread15:                                        ; preds = %22, %35, %99, %154, %.thread17
-  %161 = phi i64 [ %130, %.thread17 ], [ %155, %154 ], [ %17, %35 ], [ %17, %22 ], [ %101, %99 ]
+  %161 = phi i64 [ %130, %.thread17 ], [ %155, %154 ], [ %17, %22 ], [ %17, %35 ], [ %101, %99 ]
   %162 = phi i32 [ %131, %.thread17 ], [ %131, %154 ], [ %16, %99 ], [ %16, %35 ], [ %16, %22 ]
   store i64 %161, ptr %5, align 8
   %163 = sub i32 %4, %162
@@ -2796,7 +2796,7 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %40, %49, %44
-  %51 = phi i1 [ %46, %44 ], [ true, %49 ], [ false, %40 ]
+  %51 = phi i1 [ true, %49 ], [ %46, %44 ], [ false, %40 ]
   %52 = zext i1 %51 to i32
   %53 = xor i1 %51, true
   %54 = and i1 %4, %53
@@ -3051,7 +3051,7 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef
   br i1 %203, label %20, label %.thread7, !llvm.loop !56
 
 .thread7:                                         ; preds = %56, %196
-  %204 = phi i64 [ %21, %56 ], [ %200, %196 ]
+  %204 = phi i64 [ %200, %196 ], [ %21, %56 ]
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 428
   store i32 %57, ptr %205, align 4
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3733,8 +3733,8 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   br label %584
 
 .thread31:                                        ; preds = %.thread, %214, %206
-  %287 = phi ptr [ %203, %.thread ], [ %199, %206 ], [ %199, %214 ]
-  %288 = phi i1 [ false, %.thread ], [ true, %206 ], [ false, %214 ]
+  %287 = phi ptr [ %199, %206 ], [ %199, %214 ], [ %203, %.thread ]
+  %288 = phi i1 [ true, %206 ], [ false, %214 ], [ false, %.thread ]
   %289 = getelementptr inbounds nuw i8, ptr %184, i64 94
   %290 = getelementptr inbounds nuw i8, ptr %184, i64 93
   %291 = getelementptr inbounds nuw i8, ptr %184, i64 24
@@ -4200,8 +4200,8 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   br label %.loopexit35, !llvm.loop !65
 
 .loopexit35:                                      ; preds = %328, %293, %314, %.loopexit34..loopexit35.loopexit50_crit_edge
-  %565 = phi i64 [ %296, %314 ], [ %.pre63.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %296, %293 ], [ %296, %328 ]
-  %566 = phi i64 [ %295, %314 ], [ %.pre62.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %295, %293 ], [ %295, %328 ]
+  %565 = phi i64 [ %.pre63.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %296, %314 ], [ %296, %293 ], [ %296, %328 ]
+  %566 = phi i64 [ %.pre62.pre, %.loopexit34..loopexit35.loopexit50_crit_edge ], [ %295, %314 ], [ %295, %293 ], [ %295, %328 ]
   %567 = icmp eq i64 %566, %565
   br i1 %567, label %568, label %584
 

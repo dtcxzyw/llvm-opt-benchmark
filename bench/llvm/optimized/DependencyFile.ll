@@ -877,7 +877,7 @@ _ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread: ; preds = %18, %_ZL17isSpec
   br label %24
 
 24:                                               ; preds = %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit, %14, %8, %12
-  %.0 = phi i1 [ true, %8 ], [ false, %12 ], [ false, %14 ], [ false, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit ], [ %spec.select, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread ]
+  %.0 = phi i1 [ false, %12 ], [ true, %8 ], [ false, %14 ], [ false, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit ], [ %spec.select, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread ]
   ret i1 %.0
 }
 
@@ -1128,7 +1128,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %14, %16
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %52, %50, %43, %41, %23
-  %.1 = phi i32 [ %35, %43 ], [ %27, %23 ], [ %35, %41 ], [ %48, %52 ], [ %48, %50 ]
+  %.1 = phi i32 [ %27, %23 ], [ %35, %41 ], [ %35, %43 ], [ %48, %50 ], [ %48, %52 ]
   %54 = load ptr, ptr %8, align 8, !tbaa !769
   %55 = load ptr, ptr %7, align 8, !tbaa !765
   %56 = ptrtoint ptr %54 to i64

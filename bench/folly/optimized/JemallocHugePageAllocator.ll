@@ -680,7 +680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i: ; preds = %
   br label %245
 
 245:                                              ; preds = %241, %238, %229
-  %.13.i = phi i32 [ 0, %238 ], [ %244, %241 ], [ 0, %229 ]
+  %.13.i = phi i32 [ %244, %241 ], [ 0, %238 ], [ 0, %229 ]
   %246 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %246, ptr %17, align 8, !tbaa !77
   %247 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -1226,7 +1226,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
   br label %33
 
 33:                                               ; preds = %28, %26, %14
-  %.1 = phi i1 [ false, %26 ], [ false, %14 ], [ %32, %28 ]
+  %.1 = phi i1 [ false, %14 ], [ %32, %28 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34

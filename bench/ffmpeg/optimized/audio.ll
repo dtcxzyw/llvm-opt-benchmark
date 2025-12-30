@@ -103,7 +103,7 @@ define ptr @ff_default_get_audio_buffer(ptr noundef %0, i32 noundef %1) local_un
   store i32 -1, ptr %7, align 4, !tbaa !45
   %20 = call i32 @ff_frame_pool_get_audio_config(ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6) #5
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %.critedge, label %22
+  br i1 %21, label %35, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %4, align 4, !tbaa !45
@@ -121,11 +121,11 @@ define ptr @ff_default_get_audio_buffer(ptr noundef %0, i32 noundef %1) local_un
   %30 = load i32, ptr %6, align 4
   %.not35 = icmp eq i32 %30, %12
   %or.cond40 = select i1 %.not34, i1 %.not35, i1 false
-  br i1 %or.cond40, label %._crit_edge, label %31
+  br i1 %or.cond40, label %..critedge_crit_edge, label %31
 
-._crit_edge:                                      ; preds = %26
+..critedge_crit_edge:                             ; preds = %26
   %.pre.pre = load ptr, ptr %13, align 8, !tbaa !36
-  br label %35
+  br label %.critedge
 
 31:                                               ; preds = %26, %22
   call void @ff_frame_pool_uninit(ptr noundef nonnull %13) #5
@@ -134,18 +134,25 @@ define ptr @ff_default_get_audio_buffer(ptr noundef %0, i32 noundef %1) local_un
   %34 = call ptr @ff_frame_pool_audio_init(ptr noundef nonnull @av_buffer_allocz, i32 noundef %10, i32 noundef %1, i32 noundef %33, i32 noundef %12) #5
   store ptr %34, ptr %13, align 8, !tbaa !36
   %.not36 = icmp eq ptr %34, null
-  br i1 %.not36, label %.critedge, label %35
+  br i1 %.not36, label %35, label %.critedge
 
-35:                                               ; preds = %._crit_edge, %31
-  %.pre = phi ptr [ %.pre.pre, %._crit_edge ], [ %34, %31 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %31
+  %.pre = phi ptr [ %.pre.pre, %..critedge_crit_edge ], [ %34, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
-36:                                               ; preds = %35, %15
-  %37 = phi ptr [ %.pre, %35 ], [ %18, %15 ]
+35:                                               ; preds = %31, %19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %56
+
+36:                                               ; preds = %.critedge, %15
+  %37 = phi ptr [ %.pre, %.critedge ], [ %18, %15 ]
   %38 = call ptr @ff_frame_pool_get(ptr noundef %37) #5
   store ptr %38, ptr %3, align 8, !tbaa !33
   %.not37 = icmp eq ptr %38, null
@@ -180,15 +187,8 @@ define ptr @ff_default_get_audio_buffer(ptr noundef %0, i32 noundef %1) local_un
   %55 = call i32 @av_samples_set_silence(ptr noundef %52, i32 noundef 0, i32 noundef %1, i32 noundef %10, i32 noundef %54) #5
   br label %56
 
-.critedge:                                        ; preds = %31, %19
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %56
-
-56:                                               ; preds = %36, %.critedge, %15, %47, %46
-  %.030 = phi ptr [ null, %46 ], [ %38, %47 ], [ null, %15 ], [ null, %.critedge ], [ null, %36 ]
+56:                                               ; preds = %36, %35, %15, %47, %46
+  %.030 = phi ptr [ null, %46 ], [ %38, %47 ], [ null, %35 ], [ null, %15 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.030
 }

@@ -1352,8 +1352,8 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
   br label %124
 
 124:                                              ; preds = %120, %122
-  %.1101 = phi i32 [ %111, %122 ], [ %.0100168, %120 ]
-  %.198 = phi i32 [ %.097169, %122 ], [ %121, %120 ]
+  %.1101 = phi i32 [ %.0100168, %120 ], [ %111, %122 ]
+  %.198 = phi i32 [ %121, %120 ], [ %.097169, %122 ]
   %125 = icmp slt i32 %.198, %.1101
   br i1 %125, label %17, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit
 

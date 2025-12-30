@@ -89,7 +89,7 @@ switch.lookup:                                    ; preds = %5
   br label %23
 
 23:                                               ; preds = %1, %switch.lookup, %14
-  %.0 = phi i32 [ 0, %switch.lookup ], [ -1094995529, %14 ], [ -1313558101, %1 ]
+  %.0 = phi i32 [ -1094995529, %14 ], [ 0, %switch.lookup ], [ -1313558101, %1 ]
   ret i32 %.0
 }
 
@@ -210,7 +210,7 @@ compute_quant_matrix.exit:                        ; preds = %34
   br label %79
 
 79:                                               ; preds = %75, %72, %53, %compute_quant_matrix.exit, %27, %23, %17, %4, %12, %78
-  %.0 = phi i32 [ %73, %72 ], [ -1094995529, %4 ], [ -1094995529, %17 ], [ -1094995529, %23 ], [ %10, %27 ], [ -1094995529, %compute_quant_matrix.exit ], [ %62, %53 ], [ %10, %78 ], [ -1094995529, %12 ], [ %76, %75 ]
+  %.0 = phi i32 [ %10, %78 ], [ -1094995529, %12 ], [ -1094995529, %4 ], [ -1094995529, %17 ], [ -1094995529, %23 ], [ %10, %27 ], [ -1094995529, %compute_quant_matrix.exit ], [ %62, %53 ], [ %73, %72 ], [ %76, %75 ]
   ret i32 %.0
 }
 
@@ -734,8 +734,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_speedhq_field(ptr n
   br i1 %186, label %.thread, label %187
 
 187:                                              ; preds = %183, %168, %158
-  %.2183 = phi ptr [ %.1182278, %158 ], [ %.1182278, %168 ], [ %172, %183 ]
-  %.2180 = phi ptr [ %.1179279, %158 ], [ %.1179279, %168 ], [ %176, %183 ]
+  %.2183 = phi ptr [ %.1182278, %168 ], [ %.1182278, %158 ], [ %172, %183 ]
+  %.2180 = phi ptr [ %.1179279, %168 ], [ %.1179279, %158 ], [ %176, %183 ]
   %188 = getelementptr inbounds nuw i8, ptr %.0184277, i64 16
   %189 = getelementptr inbounds nuw i8, ptr %.2183, i64 8
   %190 = getelementptr inbounds nuw i8, ptr %.2180, i64 8
@@ -1091,7 +1091,7 @@ decode_alpha_block.exit246.thread:                ; preds = %335
   br i1 %.not221, label %.lr.ph, label %.thread250.loopexit, !llvm.loop !76
 
 .thread:                                          ; preds = %402, %398, %394, %391, %183, %179, %175, %171, %164, %160, %155, %152, %148, %144, %140, %.lr.ph
-  %.4.ph = phi i32 [ %400, %398 ], [ %396, %394 ], [ %392, %391 ], [ %185, %183 ], [ %181, %179 ], [ %177, %175 ], [ %173, %171 ], [ %166, %164 ], [ %162, %160 ], [ %156, %155 ], [ %153, %152 ], [ %150, %148 ], [ %146, %144 ], [ %142, %140 ], [ %138, %.lr.ph ], [ %404, %402 ]
+  %.4.ph = phi i32 [ %404, %402 ], [ %400, %398 ], [ %396, %394 ], [ %392, %391 ], [ %185, %183 ], [ %181, %179 ], [ %177, %175 ], [ %173, %171 ], [ %166, %164 ], [ %162, %160 ], [ %156, %155 ], [ %153, %152 ], [ %150, %148 ], [ %146, %144 ], [ %142, %140 ], [ %138, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %decode_speedhq_border.exit
@@ -1592,7 +1592,7 @@ decode_alpha_block.exit174.i:                     ; preds = %713
   br i1 %729, label %.thread.i, label %730
 
 .thread.i:                                        ; preds = %726, %722, %718, %715, %512, %508, %503, %500, %496, %492, %488, %485, %decode_alpha_block.exit174.thread.i, %decode_alpha_block.exit.thread.i
-  %.2.ph.i = phi i32 [ -1094995529, %decode_alpha_block.exit.thread.i ], [ -1094995529, %decode_alpha_block.exit174.thread.i ], [ %728, %726 ], [ %720, %718 ], [ %716, %715 ], [ %514, %512 ], [ %510, %508 ], [ %504, %503 ], [ %501, %500 ], [ %498, %496 ], [ %494, %492 ], [ %490, %488 ], [ %486, %485 ], [ %724, %722 ]
+  %.2.ph.i = phi i32 [ -1094995529, %decode_alpha_block.exit174.thread.i ], [ -1094995529, %decode_alpha_block.exit.thread.i ], [ %728, %726 ], [ %724, %722 ], [ %720, %718 ], [ %716, %715 ], [ %514, %512 ], [ %510, %508 ], [ %504, %503 ], [ %501, %500 ], [ %498, %496 ], [ %494, %492 ], [ %490, %488 ], [ %486, %485 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %decode_speedhq_border.exit
@@ -1606,7 +1606,7 @@ decode_alpha_block.exit174.i:                     ; preds = %713
   br i1 %.not154.i, label %448, label %decode_speedhq_border.exit, !llvm.loop !77
 
 decode_speedhq_border.exit:                       ; preds = %.critedge, %730, %413, %.thread.i, %434, %.thread, %._crit_edge, %416, %59, %35
-  %.0185 = phi i32 [ -1094995529, %59 ], [ -1094995529, %35 ], [ 0, %730 ], [ -1094995529, %413 ], [ %.4.ph, %.thread ], [ 0, %416 ], [ 0, %._crit_edge ], [ %.2.ph.i, %.thread.i ], [ 0, %434 ], [ -1094995529, %.critedge ]
+  %.0185 = phi i32 [ -1094995529, %413 ], [ -1094995529, %35 ], [ -1094995529, %59 ], [ 0, %416 ], [ 0, %._crit_edge ], [ %.4.ph, %.thread ], [ %.2.ph.i, %.thread.i ], [ 0, %434 ], [ 0, %730 ], [ -1094995529, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0185
@@ -1676,9 +1676,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_dct_block(ptr nound
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %32, %24
-  %.064.i.i = phi i32 [ %12, %24 ], [ %34, %32 ]
-  %.062.i.i = phi i32 [ %27, %24 ], [ %48, %32 ]
-  %.0.i.i = phi i32 [ %30, %24 ], [ %51, %32 ]
+  %.064.i.i = phi i32 [ %34, %32 ], [ %12, %24 ]
+  %.062.i.i = phi i32 [ %48, %32 ], [ %27, %24 ]
+  %.0.i.i = phi i32 [ %51, %32 ], [ %30, %24 ]
   %52 = add i32 %.0.i.i, %.064.i.i
   br label %82
 
@@ -1715,9 +1715,9 @@ get_vlc2.exit.i:                                  ; preds = %32, %24
   br label %get_vlc2.exit12.i
 
 get_vlc2.exit12.i:                                ; preds = %61, %53
-  %.064.i9.i = phi i32 [ %12, %53 ], [ %63, %61 ]
-  %.062.i10.i = phi i32 [ %56, %53 ], [ %77, %61 ]
-  %.0.i11.i = phi i32 [ %59, %53 ], [ %80, %61 ]
+  %.064.i9.i = phi i32 [ %63, %61 ], [ %12, %53 ]
+  %.062.i10.i = phi i32 [ %77, %61 ], [ %56, %53 ]
+  %.0.i11.i = phi i32 [ %80, %61 ], [ %59, %53 ]
   %81 = add i32 %.0.i11.i, %.064.i9.i
   br label %82
 

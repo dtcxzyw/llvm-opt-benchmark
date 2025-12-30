@@ -831,8 +831,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %251, %249
           to label %260 unwind label %191
 
 260:                                              ; preds = %174, %.thread, %257
-  %.141151 = phi i32 [ %.040, %257 ], [ %.040, %174 ], [ %spec.store.select, %.thread ]
-  %.139 = phi i32 [ %spec.store.select4, %257 ], [ %.038, %174 ], [ %.038, %.thread ]
+  %.141151 = phi i32 [ %.040, %257 ], [ %spec.store.select, %.thread ], [ %.040, %174 ]
+  %.139 = phi i32 [ %spec.store.select4, %257 ], [ %.038, %.thread ], [ %.038, %174 ]
   %or.cond6 = icmp eq i32 %178, 77
   %spec.select = xor i1 %.037, %or.cond6
   switch i32 %173, label %132 [
@@ -851,7 +851,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %251, %249
   br label %_ZNSolsEPFRSoS_E.exit
 
 262:                                              ; preds = %143, %153, %158, %160, %179, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, %255, %191, %141
-  %.pn91.pn.pn = phi { ptr, i32 } [ %142, %141 ], [ %154, %153 ], [ %188, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %.pn85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124 ], [ %180, %179 ], [ %144, %143 ], [ %161, %160 ], [ %159, %158 ], [ %192, %191 ], [ %256, %255 ]
+  %.pn91.pn.pn = phi { ptr, i32 } [ %142, %141 ], [ %188, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %.pn85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124 ], [ %180, %179 ], [ %144, %143 ], [ %161, %160 ], [ %159, %158 ], [ %154, %153 ], [ %192, %191 ], [ %256, %255 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #19

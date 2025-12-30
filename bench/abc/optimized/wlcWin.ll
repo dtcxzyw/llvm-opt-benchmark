@@ -30,7 +30,7 @@ define range(i32 0, 2) i32 @Wlc_ObjIsArithm(ptr noundef readonly captures(none) 
   br label %7
 
 7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %4
-  %8 = phi i32 [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ %6, %4 ]
+  %8 = phi i32 [ 1, %1 ], [ %6, %4 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %8
 }
 
@@ -51,7 +51,7 @@ define range(i32 0, 2) i32 @Wlc_ObjIsArithmReal(ptr noundef readonly captures(no
   br label %7
 
 7:                                                ; preds = %1, %1, %1, %1, %4
-  %8 = phi i32 [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ %6, %4 ]
+  %8 = phi i32 [ 1, %1 ], [ %6, %4 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %8
 }
 
@@ -92,7 +92,7 @@ define i32 @Wlc_ManCountArithmReal(ptr noundef readonly captures(none) %0, ptr n
   br label %Wlc_ObjIsArithmReal.exit
 
 Wlc_ObjIsArithmReal.exit:                         ; preds = %7, %7, %7, %7, %14
-  %17 = phi i32 [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ %16, %14 ]
+  %17 = phi i32 [ 1, %7 ], [ %16, %14 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ]
   %18 = add nuw nsw i32 %17, %.012
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -329,7 +329,7 @@ Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
   br i1 %exitcond40.not, label %.critedge, label %Wlc_ObjFaninId.exit, !llvm.loop !26
 
 .critedge:                                        ; preds = %Wlc_ObjHasArithm_rec.exit.thread.us29, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %Wlc_ObjHasArithm_rec.exit.thread, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %Wlc_ObjHasArithm_rec.exit.thread.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %2
-  %.08 = phi i32 [ 1, %tailrecurse.i.us20 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread ], [ 0, %2 ], [ 1, %tailrecurse.i ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us29 ]
+  %.08 = phi i32 [ 0, %2 ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us29 ]
   ret i32 %.08
 }
 
@@ -977,7 +977,7 @@ Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
   br label %Wlc_ObjIsArithmReal.exit.i
 
 Wlc_ObjIsArithmReal.exit.i:                       ; preds = %48, %41, %41, %41, %41
-  %51 = phi i32 [ 1, %41 ], [ 1, %41 ], [ 1, %41 ], [ 1, %41 ], [ %50, %48 ]
+  %51 = phi i32 [ 1, %41 ], [ %50, %48 ], [ 1, %41 ], [ 1, %41 ], [ 1, %41 ]
   %52 = add nuw nsw i32 %51, %.012.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

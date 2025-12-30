@@ -83,7 +83,7 @@ switch.lookup:                                    ; preds = %28
   br label %39
 
 39:                                               ; preds = %1, %37, %switch.lookup
-  %.0.shrunk = phi i1 [ %38, %37 ], [ %.0.in.i, %switch.lookup ], [ false, %1 ]
+  %.0.shrunk = phi i1 [ %.0.in.i, %switch.lookup ], [ %38, %37 ], [ false, %1 ]
   %.0 = zext i1 %.0.shrunk to i64
   ret i64 %.0
 }
@@ -1797,7 +1797,7 @@ define internal fastcc void @g_box_consider_split(ptr noundef nonnull captures(n
 float4_div.exit:                                  ; preds = %24, %26
   %29 = fpext float %20 to double
   %30 = fcmp ogt double %29, 3.000000e-01
-  br i1 %30, label %31, label %.critedge
+  br i1 %30, label %31, label %120
 
 31:                                               ; preds = %float4_div.exit
   %32 = icmp eq i32 %1, 0
@@ -1848,7 +1848,7 @@ float4_div.exit:                                  ; preds = %24, %26
   unreachable
 
 float8_mi.exit:                                   ; preds = %55, %47, %41, %33
-  %.051 = phi double [ %38, %41 ], [ %38, %33 ], [ %52, %47 ], [ %52, %55 ]
+  %.051 = phi double [ %38, %33 ], [ %38, %41 ], [ %52, %47 ], [ %52, %55 ]
   %61 = fsub double %4, %2
   %62 = tail call double @llvm.fabs.f64(double %61)
   %63 = fcmp oeq double %62, 0x7FF0000000000000
@@ -1911,7 +1911,7 @@ float8_div.exit:                                  ; preds = %80, %82
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %89 = load i8, ptr %88, align 8, !range !14, !noundef !15
   %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %114, label %91
+  br i1 %90, label %.critedge, label %91
 
 91:                                               ; preds = %float8_div.exit
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1923,17 +1923,17 @@ float8_div.exit:                                  ; preds = %80, %82
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %97 = load float, ptr %96, align 4
   %98 = fcmp ogt float %97, %87
-  br i1 %98, label %114, label %99
+  br i1 %98, label %.critedge, label %99
 
 99:                                               ; preds = %95
   %100 = fcmp oeq float %97, %87
-  br i1 %100, label %101, label %.critedge
+  br i1 %100, label %101, label %120
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %103 = load float, ptr %102, align 8
   %104 = fcmp ogt float %20, %103
-  br i1 %104, label %114, label %.critedge
+  br i1 %104, label %.critedge, label %120
 
 105:                                              ; preds = %91
   %.inv.i = fcmp oge double %75, 0xB690000000000000
@@ -1943,7 +1943,7 @@ float8_div.exit:                                  ; preds = %80, %82
   %.inv.i64 = fcmp oge float %107, 0.000000e+00
   %..i65 = select i1 %.inv.i64, float %107, float 0.000000e+00
   %108 = fcmp olt float %..i, %..i65
-  br i1 %108, label %114, label %109
+  br i1 %108, label %.critedge, label %109
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1951,25 +1951,25 @@ float8_div.exit:                                  ; preds = %80, %82
   %112 = fcmp ule double %.051, %111
   %113 = fcmp ugt float %..i, %..i65
   %or.cond = or i1 %113, %112
-  br i1 %or.cond, label %.critedge, label %114
+  br i1 %or.cond, label %120, label %.critedge
 
-114:                                              ; preds = %109, %105, %95, %101, %float8_div.exit
+.critedge:                                        ; preds = %109, %105, %95, %101, %float8_div.exit
   store i8 0, ptr %88, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %20, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %.051, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %87, ptr %117, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %2, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %4, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %1, ptr %120, align 8
-  br label %.critedge
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store float %20, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store double %.051, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store float %87, ptr %116, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store double %2, ptr %117, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store double %4, ptr %118, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %1, ptr %119, align 8
+  br label %120
 
-.critedge:                                        ; preds = %114, %99, %101, %109, %float4_div.exit
+120:                                              ; preds = %.critedge, %101, %99, %109, %float4_div.exit
   ret void
 }
 
@@ -2712,7 +2712,7 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   unreachable
 
 .sink.split:                                      ; preds = %101, %111, %116, %122, %92, %85, %80, %75, %65, %56, %39, %32, %27, %21, %146, %165
-  %.053.ph = phi i1 [ %168, %165 ], [ %149, %146 ], [ %96, %92 ], [ %26, %21 ], [ %31, %27 ], [ %38, %32 ], [ %45, %39 ], [ %74, %65 ], [ false, %56 ], [ false, %85 ], [ false, %80 ], [ false, %75 ], [ false, %116 ], [ false, %111 ], [ false, %101 ], [ %127, %122 ]
+  %.053.ph = phi i1 [ %168, %165 ], [ %149, %146 ], [ %26, %21 ], [ %31, %27 ], [ %38, %32 ], [ %45, %39 ], [ false, %56 ], [ %74, %65 ], [ false, %85 ], [ false, %80 ], [ false, %75 ], [ %96, %92 ], [ false, %116 ], [ false, %111 ], [ false, %101 ], [ %127, %122 ]
   store i8 0, ptr %10, align 1
   br label %172
 
@@ -2973,7 +2973,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   br label %float8_mi.exit
 
 float8_mi.exit:                                   ; preds = %92, %88, %79, %75, %53, %49, %39, %35, %25, %101, %5
-  %.0 = phi double [ %10, %5 ], [ %.3, %101 ], [ 0.000000e+00, %25 ], [ %36, %39 ], [ %50, %53 ], [ %76, %79 ], [ %36, %35 ], [ %50, %49 ], [ %76, %75 ], [ %89, %88 ], [ %89, %92 ]
+  %.0 = phi double [ %10, %5 ], [ %.3, %101 ], [ 0.000000e+00, %25 ], [ %36, %35 ], [ %36, %39 ], [ %50, %49 ], [ %50, %53 ], [ %76, %75 ], [ %76, %79 ], [ %89, %88 ], [ %89, %92 ]
   ret double %.0
 }
 
@@ -3341,7 +3341,7 @@ point_zorder_internal.exit23:                     ; preds = %ieee_float32_to_uin
   br label %118
 
 118:                                              ; preds = %116, %point_zorder_internal.exit23, %13
-  %.0 = phi i32 [ 1, %point_zorder_internal.exit23 ], [ 0, %13 ], [ %., %116 ]
+  %.0 = phi i32 [ 0, %13 ], [ 1, %point_zorder_internal.exit23 ], [ %., %116 ]
   ret i32 %.0
 }
 
@@ -3434,7 +3434,7 @@ float8_mi.exit12:                                 ; preds = %float8_mi.exit, %30
   unreachable
 
 float8_mul.exit:                                  ; preds = %43, %41, %16, %1, %8
-  %.0 = phi double [ 0x7FF0000000000000, %16 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %8 ], [ %36, %43 ], [ %36, %41 ]
+  %.0 = phi double [ 0.000000e+00, %8 ], [ 0.000000e+00, %1 ], [ 0x7FF0000000000000, %16 ], [ %36, %41 ], [ %36, %43 ]
   ret double %.0
 }
 

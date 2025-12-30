@@ -594,7 +594,7 @@ if.then.i17:                                      ; preds = %if.else16
   br label %if.end25.sink.split
 
 if.end25.sink.split:                              ; preds = %if.then.i17, %if.else16, %if.then.i, %if.then12, %if.then6, %if.end
-  %call.i15.sink = phi ptr [ %call.i, %if.then.i ], [ %1, %if.end ], [ %.pre, %if.then6 ], [ %call.i, %if.then12 ], [ %call.i15, %if.else16 ], [ %call.i15, %if.then.i17 ]
+  %call.i15.sink = phi ptr [ %.pre, %if.then6 ], [ %1, %if.end ], [ %call.i, %if.then12 ], [ %call.i, %if.then.i ], [ %call.i15, %if.else16 ], [ %call.i15, %if.then.i17 ]
   store ptr %call.i15.sink, ptr %CurArray.i, align 8
   br label %if.end25
 

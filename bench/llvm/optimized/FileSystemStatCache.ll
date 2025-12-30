@@ -213,8 +213,8 @@ _ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit: ; preds = 
   br label %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit, %.thread, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i, %62
-  %.sroa.959.3 = phi ptr [ %15, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i ], [ %15, %62 ], [ %spec.select, %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit ], [ %.sroa.31.0.copyload.i4984, %.thread ]
-  %.sroa.0.3 = phi i32 [ 0, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i ], [ 0, %62 ], [ %spec.select109, %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit ], [ %.sroa.0.0.copyload.i4782, %.thread ]
+  %.sroa.959.3 = phi ptr [ %15, %62 ], [ %15, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i ], [ %.sroa.31.0.copyload.i4984, %.thread ], [ %spec.select, %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit ]
+  %.sroa.0.3 = phi i32 [ 0, %62 ], [ 0, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i ], [ %.sroa.0.0.copyload.i4782, %.thread ], [ %spec.select109, %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit ]
   %75 = load i8, ptr %59, align 8
   %76 = trunc i8 %75 to i1
   br i1 %76, label %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit53, label %77

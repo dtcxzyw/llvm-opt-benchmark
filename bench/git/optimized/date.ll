@@ -233,7 +233,7 @@ define dso_local range(i64 -128849018880, 135291469762) i64 @tm_to_time_t(ptr no
   br label %43
 
 43:                                               ; preds = %7, %16, %20, %1, %23
-  %.023 = phi i64 [ %42, %23 ], [ -1, %1 ], [ -1, %7 ], [ -1, %20 ], [ -1, %16 ]
+  %.023 = phi i64 [ %42, %23 ], [ -1, %1 ], [ -1, %20 ], [ -1, %16 ], [ -1, %7 ]
   ret i64 %.023
 }
 
@@ -925,7 +925,7 @@ strbuf_addch.exit:                                ; preds = %109, %113
   br label %179
 
 179:                                              ; preds = %175, %173, %165, %159, %147
-  %.sroa.0.0.i = phi i8 [ %158, %165 ], [ %174, %173 ], [ %158, %147 ], [ %spec.select.i, %175 ], [ %158, %159 ]
+  %.sroa.0.0.i = phi i8 [ %158, %165 ], [ %174, %173 ], [ %158, %159 ], [ %158, %147 ], [ %spec.select.i, %175 ]
   %180 = and i8 %.sroa.0.0.i, 4
   %.not.i72 = icmp eq i8 %180, 0
   br i1 %.not.i72, label %182, label %181
@@ -1113,8 +1113,8 @@ tm_to_time_t.exit:                                ; preds = %23
   %56 = select i1 %48, i32 %55, i32 %54
   br label %tm_to_time_t.exit.thread
 
-tm_to_time_t.exit.thread:                         ; preds = %19, %23, %10, %2, %tm_to_time_t.exit, %46
-  %.012 = phi i32 [ %56, %46 ], [ 0, %tm_to_time_t.exit ], [ 0, %2 ], [ 0, %10 ], [ 0, %23 ], [ 0, %19 ]
+tm_to_time_t.exit.thread:                         ; preds = %10, %19, %23, %2, %tm_to_time_t.exit, %46
+  %.012 = phi i32 [ %56, %46 ], [ 0, %tm_to_time_t.exit ], [ 0, %2 ], [ 0, %23 ], [ 0, %19 ], [ 0, %10 ]
   ret i32 %.012
 }
 
@@ -1249,7 +1249,7 @@ define dso_local range(i32 -1, 1) i32 @parse_date_basic(ptr noundef %0, ptr noun
   store i32 %spec.select.i, ptr %2, align 4, !tbaa !17
   br label %match_object_header_date.exit
 
-match_object_header_date.exit.thread:             ; preds = %38, %19, %23, %29, %32
+match_object_header_date.exit.thread:             ; preds = %19, %29, %23, %32, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %48
 
@@ -1472,7 +1472,7 @@ match_string.exit84.thread.i:                     ; preds = %match_string.exit84
   br i1 %146, label %.split161.us.i, label %116
 
 .split161.us.i:                                   ; preds = %match_string.exit84.thread.i, %match_string.exit84.i
-  %.us-phi162.i = phi i32 [ %.012.i82.i, %match_string.exit84.i ], [ %.012.i82125.i, %match_string.exit84.thread.i ]
+  %.us-phi162.i = phi i32 [ %.012.i82125.i, %match_string.exit84.thread.i ], [ %.012.i82.i, %match_string.exit84.i ]
   br i1 %.not62, label %.split161.us.i.cont, label %.split161.us.i.cont.thread
 
 .split161.us.i.cont:                              ; preds = %.split161.us.i
@@ -1802,7 +1802,7 @@ skip_alpha.exit.i:                                ; preds = %match_string.exit11
   br label %.cont96.sink.split.i.i
 
 .cont96.sink.split.i.i:                           ; preds = %.then103.i.i, %301, %.then97.i.i
-  %.sroa.10.0.ph.sink.i.i = phi i32 [ %291, %301 ], [ %305, %.then103.i.i ], [ %300, %.then97.i.i ]
+  %.sroa.10.0.ph.sink.i.i = phi i32 [ %305, %.then103.i.i ], [ %300, %.then97.i.i ], [ %291, %301 ]
   store i32 %.sroa.10.0.ph.sink.i.i, ptr %11, align 4, !tbaa !4
   br label %set_date.exit.i
 
@@ -2004,9 +2004,9 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br label %match_digit.exit
 
 match_digit.exit:                                 ; preds = %.then80, %.else81, %.cont82.thread, %255, %271, %set_date.exit.i, %343, %.cont82, %358, %360, %363, %369, %379, %384, %.thread139.i, %388
-  %.3151 = phi i32 [ %.0148, %.cont82.thread ], [ %.0148, %.cont82 ], [ %.0148, %360 ], [ %.0148, %358 ], [ %.0148, %363 ], [ %.0148, %369 ], [ %.0148, %379 ], [ %.0148, %388 ], [ %.0148, %.then80 ], [ %.0148, %.thread139.i ], [ %.0148, %384 ], [ %.0148, %343 ], [ %.0148, %set_date.exit.i ], [ %.0148, %271 ], [ 1, %255 ], [ %.0148, %.else81 ]
-  %.7 = phi i32 [ %.1143, %.cont82.thread ], [ %.1143, %.cont82 ], [ %.1143, %360 ], [ %.1143, %358 ], [ %.1143, %363 ], [ %.1143, %369 ], [ %.1143, %379 ], [ %.1143, %388 ], [ %354, %.then80 ], [ %.1143, %.thread139.i ], [ %.1143, %384 ], [ %.1143, %343 ], [ %.1143, %set_date.exit.i ], [ %.1143, %271 ], [ %.1143, %255 ], [ %.1143, %.else81 ]
-  %.2.i69 = phi i32 [ 4, %.cont82.thread ], [ 4, %.cont82 ], [ 4, %360 ], [ 4, %358 ], [ %282, %363 ], [ %282, %369 ], [ 2, %379 ], [ %282, %388 ], [ 4, %.then80 ], [ %282, %.thread139.i ], [ 2, %384 ], [ %282, %343 ], [ %330, %set_date.exit.i ], [ %272, %271 ], [ %260, %255 ], [ 4, %.else81 ]
+  %.3151 = phi i32 [ %.0148, %.cont82 ], [ %.0148, %360 ], [ %.0148, %358 ], [ %.0148, %363 ], [ %.0148, %369 ], [ %.0148, %379 ], [ %.0148, %388 ], [ %.0148, %.thread139.i ], [ %.0148, %384 ], [ %.0148, %343 ], [ %.0148, %set_date.exit.i ], [ %.0148, %271 ], [ 1, %255 ], [ %.0148, %.cont82.thread ], [ %.0148, %.else81 ], [ %.0148, %.then80 ]
+  %.7 = phi i32 [ %.1143, %.cont82 ], [ %.1143, %360 ], [ %.1143, %358 ], [ %.1143, %363 ], [ %.1143, %369 ], [ %.1143, %379 ], [ %.1143, %388 ], [ %.1143, %.thread139.i ], [ %.1143, %384 ], [ %.1143, %343 ], [ %.1143, %set_date.exit.i ], [ %.1143, %271 ], [ %.1143, %255 ], [ %.1143, %.cont82.thread ], [ %.1143, %.else81 ], [ %354, %.then80 ]
+  %.2.i69 = phi i32 [ 4, %.cont82 ], [ 4, %360 ], [ 4, %358 ], [ %282, %363 ], [ %282, %369 ], [ 2, %379 ], [ %282, %388 ], [ %282, %.thread139.i ], [ 2, %384 ], [ %282, %343 ], [ %330, %set_date.exit.i ], [ %272, %271 ], [ %260, %255 ], [ 4, %.cont82.thread ], [ 4, %.else81 ], [ 4, %.then80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %435
 
@@ -2062,9 +2062,9 @@ match_digit.exit:                                 ; preds = %.then80, %.else81, 
   br label %420
 
 420:                                              ; preds = %413, %410, %407
-  %421 = phi ptr [ %402, %407 ], [ %402, %410 ], [ %417, %413 ]
-  %.017.i = phi i32 [ %409, %407 ], [ %401, %410 ], [ %401, %413 ]
-  %.016.i = phi i32 [ %408, %407 ], [ 0, %410 ], [ %spec.store.select.i, %413 ]
+  %421 = phi ptr [ %402, %407 ], [ %417, %413 ], [ %402, %410 ]
+  %.017.i = phi i32 [ %409, %407 ], [ %401, %413 ], [ %401, %410 ]
+  %.016.i = phi i32 [ %408, %407 ], [ %spec.store.select.i, %413 ], [ 0, %410 ]
   %422 = icmp slt i32 %.016.i, 60
   %423 = icmp slt i32 %.017.i, 24
   %or.cond.i73 = select i1 %422, i1 %423, i1 false
@@ -2157,7 +2157,7 @@ match_tz.exit:                                    ; preds = %.else, %424, %399, 
   br label %tm_to_time_t.exit
 
 tm_to_time_t.exit:                                ; preds = %438, %442, %449, %452, %455
-  %.023.i = phi i64 [ %474, %455 ], [ -1, %438 ], [ -1, %442 ], [ -1, %452 ], [ -1, %449 ]
+  %.023.i = phi i64 [ %474, %455 ], [ -1, %438 ], [ -1, %452 ], [ -1, %449 ], [ -1, %442 ]
   br i1 %.not, label %tm_to_time_t.exit.cont, label %tm_to_time_t.exit.else
 
 tm_to_time_t.exit.else:                           ; preds = %tm_to_time_t.exit
@@ -2299,7 +2299,7 @@ tm_to_time_t.exit.cont:                           ; preds = %tm_to_time_t.exit, 
   br label %.cont95.cont
 
 .cont95.cont:                                     ; preds = %.cont95.else, %.cont95, %.cont92.thread174, %.cont92.thread, %match_object_header_date.exit, %.cont92, %.cont125, %.cont129, %tm_to_time_t.exit.cont
-  %.0 = phi i32 [ 0, %match_object_header_date.exit ], [ -1, %.cont125 ], [ -1, %tm_to_time_t.exit.cont ], [ -1, %.cont129 ], [ 0, %.cont92.thread174 ], [ 0, %.cont92 ], [ 0, %.cont92.thread ], [ 0, %.cont95 ], [ 0, %.cont95.else ]
+  %.0 = phi i32 [ 0, %match_object_header_date.exit ], [ -1, %tm_to_time_t.exit.cont ], [ -1, %.cont129 ], [ -1, %.cont125 ], [ 0, %.cont92 ], [ 0, %.cont92.thread ], [ 0, %.cont92.thread174 ], [ 0, %.cont95 ], [ 0, %.cont95.else ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -3287,8 +3287,8 @@ update_tm.exit:                                   ; preds = %437, %441, %445
   br label %approxidate_alpha.exit.i
 
 approxidate_alpha.exit.i:                         ; preds = %update_tm.exit, %match_string.exit221.i.i, %419, %401, %334, %.thread231.i.i, %219, %match_string.exit163.i.i, %211, %.thread227.i.i, %.thread225.i.i, %129, %93, %approxidate_digit.exit.i
-  %.2.i = phi i32 [ 1, %129 ], [ %.0139.i, %93 ], [ 1, %approxidate_digit.exit.i ], [ %.0139.i, %match_string.exit221.i.i ], [ %.0139.i, %419 ], [ %.0139.i, %match_string.exit163.i.i ], [ %.0139.i, %211 ], [ 1, %update_tm.exit ], [ 1, %401 ], [ 1, %334 ], [ 1, %.thread231.i.i ], [ 1, %219 ], [ 1, %.thread227.i.i ], [ 1, %.thread225.i.i ]
-  %.1.i = phi ptr [ %96, %129 ], [ %94, %93 ], [ %.1.i.i, %approxidate_digit.exit.i ], [ %96, %match_string.exit221.i.i ], [ %96, %419 ], [ %96, %match_string.exit163.i.i ], [ %96, %211 ], [ %96, %update_tm.exit ], [ %96, %401 ], [ %96, %334 ], [ %96, %.thread231.i.i ], [ %96, %219 ], [ %96, %.thread227.i.i ], [ %96, %.thread225.i.i ]
+  %.2.i = phi i32 [ %.0139.i, %93 ], [ 1, %approxidate_digit.exit.i ], [ %.0139.i, %match_string.exit163.i.i ], [ %.0139.i, %211 ], [ %.0139.i, %match_string.exit221.i.i ], [ %.0139.i, %419 ], [ 1, %update_tm.exit ], [ 1, %401 ], [ 1, %334 ], [ 1, %.thread231.i.i ], [ 1, %219 ], [ 1, %.thread227.i.i ], [ 1, %.thread225.i.i ], [ 1, %129 ]
+  %.1.i = phi ptr [ %94, %93 ], [ %.1.i.i, %approxidate_digit.exit.i ], [ %96, %match_string.exit163.i.i ], [ %96, %211 ], [ %96, %match_string.exit221.i.i ], [ %96, %419 ], [ %96, %update_tm.exit ], [ %96, %401 ], [ %96, %334 ], [ %96, %.thread231.i.i ], [ %96, %219 ], [ %96, %.thread227.i.i ], [ %96, %.thread225.i.i ], [ %96, %129 ]
   %452 = load i8, ptr %.1.i, align 1, !tbaa !23
   %.not.i6 = icmp eq i8 %452, 0
   br i1 %.not.i6, label %._crit_edge.i, label %36
@@ -3735,9 +3735,9 @@ skip_prefix.exit74.i:                             ; preds = %76
   unreachable
 
 parse_date_type.exit:                             ; preds = %15, %skip_prefix.exit.i, %skip_prefix.exit30.i, %skip_prefix.exit34.i, %skip_prefix.exit38.i, %skip_prefix.exit42.i, %skip_prefix.exit46.i, %skip_prefix.exit50.i, %skip_prefix.exit54.i, %skip_prefix.exit58.i, %skip_prefix.exit62.i, %skip_prefix.exit66.i, %skip_prefix.exit70.i
-  %scevgep123.sink.i = phi ptr [ %scevgep113.i, %skip_prefix.exit58.i ], [ %scevgep105.i, %skip_prefix.exit54.i ], [ %scevgep113.i, %skip_prefix.exit50.i ], [ %scevgep107.i, %skip_prefix.exit46.i ], [ %scevgep105.i, %skip_prefix.exit42.i ], [ %scevgep107.i, %skip_prefix.exit38.i ], [ %scevgep105.i, %skip_prefix.exit34.i ], [ %scevgep103.i, %skip_prefix.exit30.i ], [ %scevgep101.i, %skip_prefix.exit.i ], [ %scevgep123.i, %skip_prefix.exit70.i ], [ %scevgep121.i, %skip_prefix.exit66.i ], [ %scevgep107.i, %skip_prefix.exit62.i ], [ %scevgep.i, %15 ]
-  %81 = phi i1 [ false, %skip_prefix.exit58.i ], [ false, %skip_prefix.exit54.i ], [ false, %skip_prefix.exit50.i ], [ false, %skip_prefix.exit46.i ], [ false, %skip_prefix.exit42.i ], [ false, %skip_prefix.exit38.i ], [ false, %skip_prefix.exit34.i ], [ false, %skip_prefix.exit30.i ], [ false, %skip_prefix.exit.i ], [ true, %skip_prefix.exit70.i ], [ false, %skip_prefix.exit66.i ], [ false, %skip_prefix.exit62.i ], [ false, %15 ]
-  %.0.i = phi i32 [ 1, %skip_prefix.exit58.i ], [ 0, %skip_prefix.exit54.i ], [ 3, %skip_prefix.exit50.i ], [ 6, %skip_prefix.exit46.i ], [ 6, %skip_prefix.exit42.i ], [ 4, %skip_prefix.exit38.i ], [ 4, %skip_prefix.exit34.i ], [ 5, %skip_prefix.exit30.i ], [ 5, %skip_prefix.exit.i ], [ 7, %skip_prefix.exit70.i ], [ 9, %skip_prefix.exit66.i ], [ 8, %skip_prefix.exit62.i ], [ 2, %15 ]
+  %scevgep123.sink.i = phi ptr [ %scevgep123.i, %skip_prefix.exit70.i ], [ %scevgep121.i, %skip_prefix.exit66.i ], [ %scevgep107.i, %skip_prefix.exit62.i ], [ %scevgep113.i, %skip_prefix.exit58.i ], [ %scevgep105.i, %skip_prefix.exit54.i ], [ %scevgep113.i, %skip_prefix.exit50.i ], [ %scevgep107.i, %skip_prefix.exit46.i ], [ %scevgep105.i, %skip_prefix.exit42.i ], [ %scevgep107.i, %skip_prefix.exit38.i ], [ %scevgep105.i, %skip_prefix.exit34.i ], [ %scevgep103.i, %skip_prefix.exit30.i ], [ %scevgep101.i, %skip_prefix.exit.i ], [ %scevgep.i, %15 ]
+  %81 = phi i1 [ true, %skip_prefix.exit70.i ], [ false, %skip_prefix.exit66.i ], [ false, %skip_prefix.exit62.i ], [ false, %skip_prefix.exit58.i ], [ false, %skip_prefix.exit54.i ], [ false, %skip_prefix.exit50.i ], [ false, %skip_prefix.exit46.i ], [ false, %skip_prefix.exit42.i ], [ false, %skip_prefix.exit38.i ], [ false, %skip_prefix.exit34.i ], [ false, %skip_prefix.exit30.i ], [ false, %skip_prefix.exit.i ], [ false, %15 ]
+  %.0.i = phi i32 [ 7, %skip_prefix.exit70.i ], [ 9, %skip_prefix.exit66.i ], [ 8, %skip_prefix.exit62.i ], [ 1, %skip_prefix.exit58.i ], [ 0, %skip_prefix.exit54.i ], [ 3, %skip_prefix.exit50.i ], [ 6, %skip_prefix.exit46.i ], [ 6, %skip_prefix.exit42.i ], [ 4, %skip_prefix.exit38.i ], [ 4, %skip_prefix.exit34.i ], [ 5, %skip_prefix.exit30.i ], [ 5, %skip_prefix.exit.i ], [ 2, %15 ]
   store i32 %.0.i, ptr %1, align 8, !tbaa !54
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %82, align 4, !tbaa !56
@@ -3903,7 +3903,7 @@ define dso_local void @datestamp(ptr noundef %0) local_unnamed_addr #1 {
   br label %tm_to_time_t.exit
 
 tm_to_time_t.exit:                                ; preds = %1, %12, %21, %25, %28
-  %.023.i = phi i64 [ %47, %28 ], [ -1, %1 ], [ -1, %12 ], [ -1, %25 ], [ -1, %21 ]
+  %.023.i = phi i64 [ %47, %28 ], [ -1, %1 ], [ -1, %25 ], [ -1, %21 ], [ -1, %12 ]
   %48 = load i64, ptr %3, align 8, !tbaa !24
   %49 = sub i64 %.023.i, %48
   %50 = trunc i64 %49 to i32
@@ -4115,7 +4115,7 @@ is_date_known.exit:                               ; preds = %48
   br label %set_date.exit
 
 set_date.exit:                                    ; preds = %.then97.i, %73, %.then103.i
-  %.sroa.10.0.ph.sink.i = phi i32 [ %62, %73 ], [ %77, %.then103.i ], [ %72, %.then97.i ]
+  %.sroa.10.0.ph.sink.i = phi i32 [ %77, %.then103.i ], [ %72, %.then97.i ], [ %62, %73 ]
   store i32 %.sroa.10.0.ph.sink.i, ptr %.sroa.10.0..sroa_idx.i, align 4, !tbaa !4
   br label %is_date_known.exit.thread
 
@@ -4166,11 +4166,11 @@ set_date.exit:                                    ; preds = %.then97.i, %73, %.t
   br label %set_date.exit63
 
 set_date.exit63:                                  ; preds = %.then97.i62, %85, %.then103.i59
-  %.sroa.10.0.ph.sink.i61 = phi i32 [ %62, %85 ], [ %89, %.then103.i59 ], [ %84, %.then97.i62 ]
+  %.sroa.10.0.ph.sink.i61 = phi i32 [ %89, %.then103.i59 ], [ %84, %.then97.i62 ], [ %62, %85 ]
   store i32 %.sroa.10.0.ph.sink.i61, ptr %.sroa.10.0..sroa_idx.i56, align 4, !tbaa !4
   br label %is_date_known.exit.thread
 
-set_date.exit63.thread:                           ; preds = %.thread69, %.thread, %87, %80, %78, %58
+set_date.exit63.thread:                           ; preds = %.thread69, %.thread, %80, %87, %78, %58
   %.not40 = icmp eq i8 %1, 46
   %90 = trunc i64 %.0 to i32
   %91 = load i64, ptr %9, align 8, !tbaa !24
@@ -4209,7 +4209,7 @@ is_date_known.exit.thread:                        ; preds = %45, %48, %.thread76
   br label %set_time.exit
 
 set_time.exit:                                    ; preds = %.thread76, %26, %104, %is_date_known.exit.thread
-  %.035 = phi i32 [ %111, %is_date_known.exit.thread ], [ 0, %26 ], [ 0, %104 ], [ 0, %.thread76 ]
+  %.035 = phi i32 [ %111, %is_date_known.exit.thread ], [ 0, %104 ], [ 0, %26 ], [ 0, %.thread76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.035
 }
@@ -4295,7 +4295,7 @@ define internal fastcc range(i32 -1, 2) i32 @set_date(i32 noundef %0, i32 nounde
   br label %.cont96.sink.split
 
 .cont.cont:                                       ; preds = %.thread163, %.thread183, %.thread156, %.cont94
-  %.sroa.10.0.ph = phi i32 [ %0, %.thread163 ], [ %26, %.thread183 ], [ %14, %.cont94 ], [ %18, %.thread156 ]
+  %.sroa.10.0.ph = phi i32 [ %26, %.thread183 ], [ %18, %.thread156 ], [ %14, %.cont94 ], [ %0, %.thread163 ]
   %28 = add i32 %.sroa.10.0.ph, -200
   %or.cond.i = icmp ult i32 %28, -130
   br i1 %or.cond.i, label %.cont107.cont, label %.cont114.cont
@@ -4347,12 +4347,12 @@ tm_to_time_t.exit:                                ; preds = %.cont114.cont
   br i1 %12, label %.cont96, label %.cont96.sink.split
 
 .cont96.sink.split:                               ; preds = %.cont107.cont, %20, %.then97, %.then103
-  %.sroa.10.0.ph.sink = phi i32 [ %0, %20 ], [ %27, %.then103 ], [ %19, %.then97 ], [ %.sroa.10.0.ph, %.cont107.cont ]
+  %.sroa.10.0.ph.sink = phi i32 [ %27, %.then103 ], [ %19, %.then97 ], [ %0, %20 ], [ %.sroa.10.0.ph, %.cont107.cont ]
   store i32 %.sroa.10.0.ph.sink, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !4
   br label %.cont96
 
 .cont96:                                          ; preds = %.cont96.sink.split, %23, %tm_to_time_t.exit, %.cont107.cont, %.thread178, %.cont111.cont, %6
-  %.1 = phi i32 [ -1, %6 ], [ -1, %.thread178 ], [ -1, %tm_to_time_t.exit ], [ -1, %23 ], [ 0, %.cont107.cont ], [ 1, %.cont111.cont ], [ 0, %.cont96.sink.split ]
+  %.1 = phi i32 [ -1, %6 ], [ -1, %23 ], [ -1, %tm_to_time_t.exit ], [ 0, %.cont107.cont ], [ -1, %.thread178 ], [ 1, %.cont111.cont ], [ 0, %.cont96.sink.split ]
   ret i32 %.1
 }
 

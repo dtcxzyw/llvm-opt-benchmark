@@ -409,7 +409,7 @@ define range(i32 -1, 1) i32 @H5ESget_count(i64 noundef %0, ptr noundef writeonly
   br label %52
 
 52:                                               ; preds = %.thread36, %.thread30
-  %.0162533 = phi i32 [ 0, %.thread36 ], [ -1, %.thread30 ]
+  %.0162533 = phi i32 [ -1, %.thread30 ], [ 0, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0162533
 }
@@ -510,7 +510,7 @@ define range(i32 -1, 1) i32 @H5ESget_op_counter(i64 noundef %0, ptr noundef writ
   br label %51
 
 51:                                               ; preds = %.thread36, %.thread30
-  %.0162533 = phi i32 [ 0, %.thread36 ], [ -1, %.thread30 ]
+  %.0162533 = phi i32 [ -1, %.thread30 ], [ 0, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0162533
 }
@@ -994,7 +994,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_status(i64 noundef %0, ptr noundef writ
   br label %52
 
 52:                                               ; preds = %.thread36, %.thread30
-  %.0162533 = phi i32 [ 0, %.thread36 ], [ -1, %.thread30 ]
+  %.0162533 = phi i32 [ -1, %.thread30 ], [ 0, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0162533
 }
@@ -1104,7 +1104,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_count(i64 noundef %0, ptr noundef write
   br label %56
 
 56:                                               ; preds = %.thread38, %.thread32
-  %.0182735 = phi i32 [ 0, %.thread38 ], [ -1, %.thread32 ]
+  %.0182735 = phi i32 [ -1, %.thread32 ], [ 0, %.thread38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0182735
 }

@@ -1704,7 +1704,7 @@ list_length.exit.i.i622:                          ; preds = %664, %658
   br label %.thread.i.i626
 
 .thread.i.i626:                                   ; preds = %700, %689, %686, %684, %.lr.ph48.i.i
-  %.2.i.i = phi ptr [ %.04246.i.i, %686 ], [ %.04246.i.i, %700 ], [ %.04246.i.i, %684 ], [ %699, %689 ], [ %.04246.i.i, %.lr.ph48.i.i ]
+  %.2.i.i = phi ptr [ %.04246.i.i, %700 ], [ %699, %689 ], [ %.04246.i.i, %686 ], [ %.04246.i.i, %.lr.ph48.i.i ], [ %.04246.i.i, %684 ]
   %indvars.iv.next.i.i627 = add nuw nsw i64 %indvars.iv.i.i625, 1
   %701 = load i32, ptr %675, align 4
   %702 = sext i32 %701 to i64
@@ -2155,7 +2155,7 @@ set_returning_clause_references.exit:             ; preds = %.thread.i.i626, %li
   br label %944
 
 944:                                              ; preds = %3, %.critedge602, %903, %901, %155, %87
-  %.0 = phi ptr [ %904, %903 ], [ %1, %.critedge602 ], [ %1, %87 ], [ %156, %155 ], [ %902, %901 ], [ null, %3 ]
+  %.0 = phi ptr [ %1, %.critedge602 ], [ %1, %87 ], [ %156, %155 ], [ %902, %901 ], [ %904, %903 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2298,8 +2298,8 @@ list_length.exit62.thread.thread:                 ; preds = %list_length.exit.th
   store i32 1, ptr %2, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %61, %57, %44, %52, %55, %list_length.exit62.thread.thread, %list_length.exit62.thread, %list_length.exit62, %5, %1, %.critedge60, %4
-  %.0 = phi i1 [ false, %list_length.exit62 ], [ false, %4 ], [ true, %1 ], [ false, %5 ], [ true, %.critedge60 ], [ false, %list_length.exit62.thread ], [ false, %list_length.exit62.thread.thread ], [ false, %55 ], [ false, %52 ], [ false, %44 ], [ false, %57 ], [ false, %61 ]
+.critedge:                                        ; preds = %57, %44, %61, %52, %55, %list_length.exit62.thread.thread, %list_length.exit62.thread, %list_length.exit62, %5, %1, %.critedge60, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %.critedge60 ], [ true, %1 ], [ false, %5 ], [ false, %list_length.exit62 ], [ false, %list_length.exit62.thread ], [ false, %list_length.exit62.thread.thread ], [ false, %55 ], [ false, %52 ], [ false, %61 ], [ false, %44 ], [ false, %57 ]
   ret i1 %.0
 }
 
@@ -2375,7 +2375,7 @@ list_length.exit:                                 ; preds = %5
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %34, %11, %5, %2, %list_length.exit, %38
-  %.3 = phi ptr [ %40, %38 ], [ null, %5 ], [ null, %2 ], [ null, %list_length.exit ], [ null, %11 ], [ null, %34 ]
+  %.3 = phi ptr [ %40, %38 ], [ null, %list_length.exit ], [ null, %2 ], [ null, %5 ], [ null, %11 ], [ null, %34 ]
   ret ptr %.3
 }
 
@@ -3068,7 +3068,7 @@ define internal zeroext i1 @flatten_rtes_walker(ptr noundef %0, ptr noundef %1) 
   br label %24
 
 24:                                               ; preds = %9, %12, %6, %2, %22, %18
-  %.0 = phi i1 [ %23, %22 ], [ false, %2 ], [ %21, %18 ], [ false, %6 ], [ false, %12 ], [ false, %9 ]
+  %.0 = phi i1 [ %21, %18 ], [ %23, %22 ], [ false, %2 ], [ false, %6 ], [ false, %12 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -4873,8 +4873,8 @@ search_indexed_tlist_for_sortgroupref.exit:       ; preds = %124
   %.pre = load ptr, ptr %99, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %112, %.lr.ph.i55
-  %135 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %100, %112 ], [ %100, %.lr.ph.i55 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph.i55, %112
+  %135 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %100, %.lr.ph.i55 ], [ %100, %112 ]
   %136 = load double, ptr %81, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
@@ -5153,7 +5153,7 @@ define internal ptr @convert_combining_aggrefs(ptr noundef %0, ptr noundef %1) #
   br label %21
 
 21:                                               ; preds = %2, %19, %7
-  %.0 = phi ptr [ %20, %19 ], [ %11, %7 ], [ null, %2 ]
+  %.0 = phi ptr [ %11, %7 ], [ %20, %19 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -5502,7 +5502,7 @@ offset_relid_set.exit:                            ; preds = %.lr.ph.i, %list_len
   br label %69
 
 69:                                               ; preds = %.thread, %offset_relid_set.exit, %67
-  %.1 = phi ptr [ %25, %.thread ], [ %1, %67 ], [ %1, %offset_relid_set.exit ]
+  %.1 = phi ptr [ %1, %67 ], [ %1, %offset_relid_set.exit ], [ %25, %.thread ]
   ret ptr %.1
 }
 
@@ -5639,7 +5639,7 @@ offset_relid_set.exit:                            ; preds = %.lr.ph.i, %list_len
   br label %69
 
 69:                                               ; preds = %.thread, %offset_relid_set.exit, %67
-  %.1 = phi ptr [ %25, %.thread ], [ %1, %67 ], [ %1, %offset_relid_set.exit ]
+  %.1 = phi ptr [ %1, %67 ], [ %1, %offset_relid_set.exit ], [ %25, %.thread ]
   ret ptr %.1
 }
 
@@ -5771,7 +5771,7 @@ find_minmax_agg_replacement_param.exit:           ; preds = %54
   %.not.not = icmp eq ptr %64, null
   br i1 %.not.not, label %.thread, label %65
 
-.thread:                                          ; preds = %59, %find_minmax_agg_replacement_param.exit, %30, %26, %list_length.exit.i, %36
+.thread:                                          ; preds = %59, %find_minmax_agg_replacement_param.exit, %list_length.exit.i, %26, %30, %36
   %.pr = load i32, ptr %.tr63, align 4
   br label %67
 
@@ -5865,7 +5865,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph10.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %2, %65, %16, %19, %112, %69, %23
-  %.0 = phi ptr [ %66, %65 ], [ %114, %112 ], [ %25, %23 ], [ %70, %69 ], [ %8, %16 ], [ %8, %19 ], [ null, %2 ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %25, %23 ], [ %70, %69 ], [ %114, %112 ], [ %66, %65 ], [ %8, %19 ], [ %8, %16 ], [ null, %2 ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -6135,7 +6135,7 @@ find_minmax_agg_replacement_param.exit:           ; preds = %77
   %.not54 = icmp eq ptr %87, null
   br i1 %.not54, label %.thread, label %88
 
-.thread:                                          ; preds = %82, %find_minmax_agg_replacement_param.exit, %53, %49, %list_length.exit.i, %59
+.thread:                                          ; preds = %82, %find_minmax_agg_replacement_param.exit, %list_length.exit.i, %49, %53, %59
   %.pr = load i32, ptr %.tr80, align 4
   br label %90
 
@@ -6206,7 +6206,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph10.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %24, %2, %88, %search_indexed_tlist_for_non_var.exit, %11, %.thread99, %46
-  %.0 = phi ptr [ %89, %88 ], [ %42, %search_indexed_tlist_for_non_var.exit ], [ %16, %11 ], [ %126, %.thread99 ], [ %48, %46 ], [ null, %2 ], [ null, %tailrecurse.backedge ], [ %27, %24 ]
+  %.0 = phi ptr [ %48, %46 ], [ %126, %.thread99 ], [ %89, %88 ], [ %16, %11 ], [ %42, %search_indexed_tlist_for_non_var.exit ], [ null, %2 ], [ null, %tailrecurse.backedge ], [ %27, %24 ]
   ret ptr %.0
 }
 
@@ -6307,7 +6307,7 @@ define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr noundef non
   br i1 %62, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %61, %5, %52, %59
-  %.0 = phi ptr [ %21, %52 ], [ %21, %59 ], [ null, %5 ], [ null, %61 ]
+  %.0 = phi ptr [ %21, %59 ], [ %21, %52 ], [ null, %5 ], [ null, %61 ]
   ret ptr %.0
 }
 
@@ -6407,7 +6407,7 @@ define internal fastcc ptr @search_indexed_tlist_for_phv(ptr noundef nonnull rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %3, %.lr.ph, %51
-  %55 = phi ptr [ %52, %51 ], [ null, %3 ], [ null, %.lr.ph ], [ null, %50 ]
+  %55 = phi ptr [ %52, %51 ], [ null, %.lr.ph ], [ null, %3 ], [ null, %50 ]
   ret ptr %55
 }
 
@@ -6490,7 +6490,7 @@ search_indexed_tlist_for_non_var.exit:            ; preds = %7
   br label %22
 
 22:                                               ; preds = %search_indexed_tlist_for_non_var.exit, %2, %20
-  %.0 = phi ptr [ null, %2 ], [ %21, %20 ], [ %14, %search_indexed_tlist_for_non_var.exit ]
+  %.0 = phi ptr [ %21, %20 ], [ null, %2 ], [ %14, %search_indexed_tlist_for_non_var.exit ]
   ret ptr %.0
 }
 
@@ -6790,7 +6790,7 @@ search_indexed_tlist_for_non_var.exit113.thread.thread: ; preds = %107, %search_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %82, %73, %2, %search_indexed_tlist_for_non_var.exit113, %search_indexed_tlist_for_non_var.exit, %.thread, %41, %61, %52, %search_indexed_tlist_for_non_var.exit113.thread.thread, %116
-  %.0 = phi ptr [ %38, %.thread ], [ %53, %52 ], [ %53, %61 ], [ %99, %search_indexed_tlist_for_non_var.exit ], [ %118, %116 ], [ %113, %search_indexed_tlist_for_non_var.exit113 ], [ %152, %search_indexed_tlist_for_non_var.exit113.thread.thread ], [ %45, %41 ], [ null, %2 ], [ %84, %82 ], [ null, %tailrecurse.backedge ], [ %75, %73 ]
+  %.0 = phi ptr [ %118, %116 ], [ %152, %search_indexed_tlist_for_non_var.exit113.thread.thread ], [ %38, %.thread ], [ %45, %41 ], [ %53, %61 ], [ %53, %52 ], [ %99, %search_indexed_tlist_for_non_var.exit ], [ %113, %search_indexed_tlist_for_non_var.exit113 ], [ null, %2 ], [ null, %tailrecurse.backedge ], [ %84, %82 ], [ %75, %73 ]
   ret ptr %.0
 }
 

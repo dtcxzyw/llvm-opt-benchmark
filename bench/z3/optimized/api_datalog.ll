@@ -641,7 +641,7 @@ _ZN10z3_log_ctxD2Ev.exit45:                       ; preds = %60, %61
           to label %69 unwind label %70
 
 _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %59, %50, %_ZNK9parameter7get_astEv.exit44, %30, %14, %66
-  %.2 = phi ptr [ null, %66 ], [ %.0.ph, %59 ], [ null, %30 ], [ null, %14 ], [ null, %50 ], [ %41, %_ZNK9parameter7get_astEv.exit44 ]
+  %.2 = phi ptr [ null, %66 ], [ %.0.ph, %59 ], [ null, %14 ], [ null, %30 ], [ null, %50 ], [ %41, %_ZNK9parameter7get_astEv.exit44 ]
   ret ptr %.2
 
 69:                                               ; preds = %67, %_ZN10z3_log_ctxD2Ev.exit45
@@ -886,7 +886,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %17, %15, %8
           to label %35 unwind label %36
 
 _ZN10z3_log_ctxD2Ev.exit25:                       ; preds = %27, %26, %7, %32
-  %.0 = phi i1 [ false, %7 ], [ false, %32 ], [ true, %26 ], [ true, %27 ]
+  %.0 = phi i1 [ false, %32 ], [ false, %7 ], [ true, %26 ], [ true, %27 ]
   ret i1 %.0
 
 35:                                               ; preds = %33, %_ZN10z3_log_ctxD2Ev.exit
@@ -1843,8 +1843,8 @@ _ZN13scoped_rlimitD2Ev.exit:                      ; preds = %_ZN9cancel_ehI8resl
   unreachable
 
 _ZN13scoped_rlimitD2Ev.exit45:                    ; preds = %54, %111, %42, %50, %46
-  %.030 = phi i32 [ %.636, %111 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ]
-  %.029 = phi ptr [ %.6, %111 ], [ %44, %42 ], [ %48, %46 ], [ %52, %50 ], [ %56, %54 ]
+  %.030 = phi i32 [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %.636, %111 ]
+  %.029 = phi ptr [ %44, %42 ], [ %48, %46 ], [ %52, %50 ], [ %56, %54 ], [ %.6, %111 ]
   br i1 %9, label %115, label %_ZN10z3_log_ctxD2Ev.exit46, !prof !166
 
 115:                                              ; preds = %_ZN13scoped_rlimitD2Ev.exit45.thread, %_ZN13scoped_rlimitD2Ev.exit45
@@ -2159,8 +2159,8 @@ _ZN9cancel_ehI8reslimitED2Ev.exit:                ; preds = %62, %65
   br label %83
 
 83:                                               ; preds = %33, %82
-  %.026 = phi i32 [ %36, %33 ], [ %.329, %82 ]
-  %.025 = phi ptr [ %35, %33 ], [ %.3, %82 ]
+  %.026 = phi i32 [ %.329, %82 ], [ %36, %33 ]
+  %.025 = phi ptr [ %.3, %82 ], [ %35, %33 ]
   br i1 %9, label %84, label %_ZN10z3_log_ctxD2Ev.exit37, !prof !166
 
 84:                                               ; preds = %.thread, %83
@@ -3018,7 +3018,7 @@ _ZN3api18fixedpoint_context8add_ruleEP4exprRK6symbol.exit: ; preds = %101
   ret ptr %.0
 
 120:                                              ; preds = %41, %110, %118, %65, %85, %25, %23
-  %.pn61 = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %42, %41 ], [ %86, %85 ], [ %111, %110 ], [ %119, %118 ], [ %66, %65 ]
+  %.pn61 = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %111, %110 ], [ %119, %118 ], [ %42, %41 ], [ %66, %65 ], [ %86, %85 ]
   call void @_ZN11cmd_contextD1Ev(ptr noundef nonnull align 8 dereferenceable(896) %5) #22
   br label %121
 
@@ -4507,7 +4507,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit82: ;
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 154:                                              ; preds = %91, %59, %94, %35
-  %.pn53.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %92, %91 ], [ %95, %94 ], [ %60, %59 ]
+  %.pn53.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %36, %35 ], [ %60, %59 ], [ %92, %91 ]
   call void @_ZN6vectorI6symbolLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
@@ -4517,7 +4517,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit82: ;
   br label %155
 
 155:                                              ; preds = %154, %33
-  %.pn53.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn53.pn.pn, %154 ]
+  %.pn53.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn, %154 ], [ %34, %33 ]
   %.037 = extractvalue { ptr, i32 } %.pn53.pn.pn.pn.pn.pn.pn.pn, 1
   br i1 %7, label %156, label %_ZN10z3_log_ctxD2Ev.exit83, !prof !166
 
@@ -6269,8 +6269,8 @@ _ZN13scoped_rlimitD2Ev.exit:                      ; preds = %_ZN9cancel_ehI8resl
   unreachable
 
 _ZN13scoped_rlimitD2Ev.exit43:                    ; preds = %47, %99, %39, %43
-  %.030 = phi i32 [ %.535, %99 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ]
-  %.029 = phi ptr [ %.5, %99 ], [ %41, %39 ], [ %45, %43 ], [ %49, %47 ]
+  %.030 = phi i32 [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %.535, %99 ]
+  %.029 = phi ptr [ %41, %39 ], [ %45, %43 ], [ %49, %47 ], [ %.5, %99 ]
   br i1 %9, label %103, label %_ZN10z3_log_ctxD2Ev.exit44, !prof !166
 
 103:                                              ; preds = %_ZN13scoped_rlimitD2Ev.exit43.thread, %_ZN13scoped_rlimitD2Ev.exit43
@@ -6682,7 +6682,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %98
 
 98:                                               ; preds = %97, %30
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %97 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %97 ], [ %31, %30 ]
   %.024 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn, 1
   br i1 %6, label %99, label %_ZN10z3_log_ctxD2Ev.exit35, !prof !166
 
@@ -7141,7 +7141,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %167
 
 167:                                              ; preds = %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, %.body, %63
-  %.pn33.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %.body ], [ %.pn33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %66, %65 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %64, %63 ], [ %.pn33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %66, %65 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #22
   br label %168
 
@@ -7155,7 +7155,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %169
 
 169:                                              ; preds = %168, %59
-  %.pn33.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn33.pn.pn.pn, %168 ]
+  %.pn33.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn, %168 ], [ %60, %59 ]
   %.021 = extractvalue { ptr, i32 } %.pn33.pn.pn.pn.pn.pn.pn.pn, 1
   br i1 %11, label %170, label %_ZN10z3_log_ctxD2Ev.exit57, !prof !166
 

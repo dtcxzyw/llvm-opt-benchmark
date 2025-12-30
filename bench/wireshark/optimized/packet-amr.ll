@@ -1093,8 +1093,8 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %50, label %.split, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %46, %.split, %.split.us, %26
-  %.us-phi = phi i32 [ %.1.us, %.split.us ], [ %.1.us, %26 ], [ %.1, %.split ], [ %.1, %46 ]
-  %.us-phi85 = phi i32 [ %24, %.split.us ], [ %24, %26 ], [ %44, %.split ], [ %44, %46 ]
+  %.us-phi = phi i32 [ %.1.us, %26 ], [ %.1.us, %.split.us ], [ %.1, %.split ], [ %.1, %46 ]
+  %.us-phi85 = phi i32 [ %24, %26 ], [ %24, %.split.us ], [ %44, %.split ], [ %44, %46 ]
   %51 = icmp sgt i32 %.us-phi, 0
   br i1 %51, label %52, label %57
 

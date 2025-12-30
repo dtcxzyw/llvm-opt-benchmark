@@ -1090,7 +1090,7 @@ _ZSt8_DestroyIPN5arrow7compute8internal19SelectionKernelDataES3_EvT_S5_RSaIT0_E.
   br label %_ZNSt6vectorIN5arrow7compute8internal19SelectionKernelDataESaIS3_EE5clearEv.exit
 
 _ZNSt6vectorIN5arrow7compute8internal19SelectionKernelDataESaIS3_EE5clearEv.exit: ; preds = %_ZSt11make_sharedIN5arrow7compute14VectorFunctionEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5ArityENS1_11FunctionDocERPKNS1_15FunctionOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.exit, %._crit_edge, %_ZSt8_DestroyIPN5arrow7compute8internal19SelectionKernelDataES3_EvT_S5_RSaIT0_E.exit.i.i
-  %44 = phi ptr [ %266, %_ZSt8_DestroyIPN5arrow7compute8internal19SelectionKernelDataES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %266, %._crit_edge ], [ %21, %_ZSt11make_sharedIN5arrow7compute14VectorFunctionEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5ArityENS1_11FunctionDocERPKNS1_15FunctionOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.exit ]
+  %44 = phi ptr [ %266, %._crit_edge ], [ %266, %_ZSt8_DestroyIPN5arrow7compute8internal19SelectionKernelDataES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %21, %_ZSt11make_sharedIN5arrow7compute14VectorFunctionEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5ArityENS1_11FunctionDocERPKNS1_15FunctionOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.exit ]
   store ptr %44, ptr %17, align 8, !tbaa !55
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %46 = load ptr, ptr %23, align 8, !tbaa !43
@@ -4349,7 +4349,7 @@ _ZN5arrow6StatusD2Ev.exit200.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %.critedge133.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !395
 
 .critedge133.i.i.i.i.i:                           ; preds = %530, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i, %.preheader241.i.i.i.i.i, %.preheader244.i.i.i.i.i, %.preheader235.i.i.i.i.i, %.preheader238.i.i.i.i.i, %.noexc15.i.i.i, %.preheader.i.i.i.i.i, %203
-  %.1.i.i.i.i.i = phi i64 [ %205, %203 ], [ %446, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i ], [ %218, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i ], [ %281, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i ], [ %335, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ %387, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.noexc15.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader235.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader238.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader241.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader244.i.i.i.i.i ], [ %531, %530 ]
+  %.1.i.i.i.i.i = phi i64 [ %205, %203 ], [ %.0107281.i.i.i.i.i, %.noexc15.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader235.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader238.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader241.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader244.i.i.i.i.i ], [ %218, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i ], [ %281, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i ], [ %335, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ %387, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i ], [ %446, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i ], [ %531, %530 ]
   %533 = load ptr, ptr %97, align 8, !tbaa !253, !noalias !254
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %535 = load i64, ptr %534, align 8, !tbaa !125, !noalias !254
@@ -4362,7 +4362,7 @@ _ZN5arrow6StatusD2Ev.exit200.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br label %.critedge147.i.i.i.i.i
 
 .critedge147.i.i.i.i.i:                           ; preds = %.noexc22.i.i.i, %.noexc21.i.i.i, %.noexc20.i.i.i, %.noexc19.i.i.i, %.noexc18.i.i.i, %.critedge147.sink.split.i.i.i.i.i
-  %537 = phi ptr [ %.pr224.i.i.i.i.i, %.noexc21.i.i.i ], [ %.pr223.i.i.i.i.i, %.noexc20.i.i.i ], [ %333, %.noexc19.i.i.i ], [ %.pr.i.i.i.i.i, %.noexc18.i.i.i ], [ %.pr.i.lcssa.sink.i.i.i.i.i, %.critedge147.sink.split.i.i.i.i.i ], [ %.pr225.i.i.i.i.i, %.noexc22.i.i.i ]
+  %537 = phi ptr [ %.pr.i.lcssa.sink.i.i.i.i.i, %.critedge147.sink.split.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %.noexc18.i.i.i ], [ %333, %.noexc19.i.i.i ], [ %.pr223.i.i.i.i.i, %.noexc20.i.i.i ], [ %.pr224.i.i.i.i.i, %.noexc21.i.i.i ], [ %.pr225.i.i.i.i.i, %.noexc22.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !254
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !254
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !254
@@ -5707,7 +5707,7 @@ _ZN5arrow6StatusD2Ev.exit200.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %.critedge133.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !566
 
 .critedge133.i.i.i.i.i:                           ; preds = %529, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i, %.preheader241.i.i.i.i.i, %.preheader244.i.i.i.i.i, %.preheader235.i.i.i.i.i, %.preheader238.i.i.i.i.i, %.noexc13.i.i.i, %.preheader.i.i.i.i.i, %203
-  %.1.i.i.i.i.i = phi i64 [ %205, %203 ], [ %445, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i ], [ %218, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i ], [ %280, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i ], [ %334, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ %386, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.noexc13.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader235.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader238.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader241.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader244.i.i.i.i.i ], [ %530, %529 ]
+  %.1.i.i.i.i.i = phi i64 [ %205, %203 ], [ %.0107281.i.i.i.i.i, %.noexc13.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader235.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader238.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader241.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader244.i.i.i.i.i ], [ %218, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i ], [ %280, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i ], [ %334, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ %386, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i ], [ %445, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i ], [ %530, %529 ]
   %532 = load ptr, ptr %97, align 8, !tbaa !451, !noalias !452
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 8
   %534 = load i64, ptr %533, align 8, !tbaa !125, !noalias !452
@@ -5720,7 +5720,7 @@ _ZN5arrow6StatusD2Ev.exit200.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br label %.critedge147.i.i.i.i.i
 
 .critedge147.i.i.i.i.i:                           ; preds = %.noexc20.i.i.i, %.noexc19.i.i.i, %.noexc18.i.i.i, %.noexc17.i.i.i, %.noexc16.i.i.i, %.critedge147.sink.split.i.i.i.i.i
-  %536 = phi ptr [ %.pr224.i.i.i.i.i, %.noexc19.i.i.i ], [ %.pr223.i.i.i.i.i, %.noexc18.i.i.i ], [ %332, %.noexc17.i.i.i ], [ %.pr.i.i.i.i.i, %.noexc16.i.i.i ], [ %.pr.i.lcssa.sink.i.i.i.i.i, %.critedge147.sink.split.i.i.i.i.i ], [ %.pr225.i.i.i.i.i, %.noexc20.i.i.i ]
+  %536 = phi ptr [ %.pr.i.lcssa.sink.i.i.i.i.i, %.critedge147.sink.split.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %.noexc16.i.i.i ], [ %332, %.noexc17.i.i.i ], [ %.pr223.i.i.i.i.i, %.noexc18.i.i.i ], [ %.pr224.i.i.i.i.i, %.noexc19.i.i.i ], [ %.pr225.i.i.i.i.i, %.noexc20.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !452
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !452
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !452
@@ -6812,7 +6812,7 @@ _ZN5arrow6StatusD2Ev.exit177.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br label %.critedge133.i.i.i.i.i
 
 .critedge133.i.i.i.i.i:                           ; preds = %.critedge133.i.i.loopexit9.i.i.i, %.critedge133.i.i.loopexit7.i.i.i, %.critedge133.i.i.loopexit5.i.i.i, %.critedge133.i.i.loopexit.i.i.i, %.critedge133.i.loopexit1.i.i.i.i, %.critedge133.i.loopexit.i.i.i.i, %.preheader212.i.i.i.i.i, %.preheader215.i.i.i.i.i, %.preheader207.i.i.i.i.i, %.preheader209.i.i.i.i.i, %.noexc12.i, %.preheader.i.i.i.i.i, %198
-  %.1.i.i.i.i.i = phi i64 [ %200, %198 ], [ %297, %.critedge133.i.i.loopexit.i.i.i ], [ %310, %.critedge133.i.i.loopexit5.i.i.i ], [ %330, %.critedge133.i.i.loopexit7.i.i.i ], [ %238, %.critedge133.i.loopexit.i.i.i.i ], [ %242, %.critedge133.i.loopexit1.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.noexc12.i ], [ %.0107248.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader207.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader209.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader212.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader215.i.i.i.i.i ], [ %383, %.critedge133.i.i.loopexit9.i.i.i ]
+  %.1.i.i.i.i.i = phi i64 [ %200, %198 ], [ %.0107248.i.i.i.i.i, %.noexc12.i ], [ %.0107248.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader207.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader209.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader212.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader215.i.i.i.i.i ], [ %238, %.critedge133.i.loopexit.i.i.i.i ], [ %242, %.critedge133.i.loopexit1.i.i.i.i ], [ %297, %.critedge133.i.i.loopexit.i.i.i ], [ %310, %.critedge133.i.i.loopexit5.i.i.i ], [ %330, %.critedge133.i.i.loopexit7.i.i.i ], [ %383, %.critedge133.i.i.loopexit9.i.i.i ]
   %385 = load ptr, ptr %38, align 8, !tbaa !636, !noalias !637
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %387 = load i64, ptr %386, align 8, !tbaa !125, !noalias !637
@@ -6820,7 +6820,7 @@ _ZN5arrow6StatusD2Ev.exit177.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %388, label %166, label %.critedge147.i.i.i.i.i, !llvm.loop !691
 
 .critedge147.i.i.i.i.i:                           ; preds = %.critedge133.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit173.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit157.i.i.i.i.i, %.noexc9.i
-  %389 = phi ptr [ %240, %_ZN5arrow6StatusD2Ev.exit157.i.i.i.i.i ], [ %346, %_ZN5arrow6StatusD2Ev.exit173.i.i.i.i.i ], [ %328, %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i.i ], [ null, %.noexc9.i ], [ %308, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ null, %.critedge133.i.i.i.i.i ]
+  %389 = phi ptr [ null, %.noexc9.i ], [ %240, %_ZN5arrow6StatusD2Ev.exit157.i.i.i.i.i ], [ %308, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ %328, %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i.i ], [ %346, %_ZN5arrow6StatusD2Ev.exit173.i.i.i.i.i ], [ null, %.critedge133.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !637
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !637
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !637
@@ -6938,7 +6938,7 @@ _ZN5arrow6StatusD2Ev.exit36.i.i:                  ; preds = %415, %411, %409
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %_ZN5arrow6StatusD2Ev.exit36.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %_ZN5arrow6StatusD2Ev.exit36.i.i ], [ %.pn.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i ], [ %.pn.i.i, %_ZN5arrow6StatusD2Ev.exit36.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewSelectionImplINS_12ListViewTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %27) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !577
   resume { ptr, i32 } %eh.lpad-body.i
@@ -7745,7 +7745,7 @@ _ZN5arrow6StatusD2Ev.exit177.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br label %.critedge133.i.i.i.i.i
 
 .critedge133.i.i.i.i.i:                           ; preds = %.critedge133.i.i.loopexit9.i.i.i, %.critedge133.i.i.loopexit7.i.i.i, %.critedge133.i.i.loopexit5.i.i.i, %.critedge133.i.i.loopexit.i.i.i, %.critedge133.i.loopexit1.i.i.i.i, %.critedge133.i.loopexit.i.i.i.i, %.preheader212.i.i.i.i.i, %.preheader215.i.i.i.i.i, %.preheader207.i.i.i.i.i, %.preheader209.i.i.i.i.i, %.noexc12.i, %.preheader.i.i.i.i.i, %198
-  %.1.i.i.i.i.i = phi i64 [ %200, %198 ], [ %297, %.critedge133.i.i.loopexit.i.i.i ], [ %310, %.critedge133.i.i.loopexit5.i.i.i ], [ %330, %.critedge133.i.i.loopexit7.i.i.i ], [ %238, %.critedge133.i.loopexit.i.i.i.i ], [ %242, %.critedge133.i.loopexit1.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.noexc12.i ], [ %.0107248.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader207.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader209.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader212.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader215.i.i.i.i.i ], [ %383, %.critedge133.i.i.loopexit9.i.i.i ]
+  %.1.i.i.i.i.i = phi i64 [ %200, %198 ], [ %.0107248.i.i.i.i.i, %.noexc12.i ], [ %.0107248.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader207.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader209.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader212.i.i.i.i.i ], [ %.0107248.i.i.i.i.i, %.preheader215.i.i.i.i.i ], [ %238, %.critedge133.i.loopexit.i.i.i.i ], [ %242, %.critedge133.i.loopexit1.i.i.i.i ], [ %297, %.critedge133.i.i.loopexit.i.i.i ], [ %310, %.critedge133.i.i.loopexit5.i.i.i ], [ %330, %.critedge133.i.i.loopexit7.i.i.i ], [ %383, %.critedge133.i.i.loopexit9.i.i.i ]
   %385 = load ptr, ptr %38, align 8, !tbaa !745, !noalias !746
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %387 = load i64, ptr %386, align 8, !tbaa !125, !noalias !746
@@ -7753,7 +7753,7 @@ _ZN5arrow6StatusD2Ev.exit177.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %388, label %166, label %.critedge147.i.i.i.i.i, !llvm.loop !800
 
 .critedge147.i.i.i.i.i:                           ; preds = %.critedge133.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit173.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit157.i.i.i.i.i, %.noexc9.i
-  %389 = phi ptr [ %240, %_ZN5arrow6StatusD2Ev.exit157.i.i.i.i.i ], [ %346, %_ZN5arrow6StatusD2Ev.exit173.i.i.i.i.i ], [ %328, %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i.i ], [ null, %.noexc9.i ], [ %308, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ null, %.critedge133.i.i.i.i.i ]
+  %389 = phi ptr [ null, %.noexc9.i ], [ %240, %_ZN5arrow6StatusD2Ev.exit157.i.i.i.i.i ], [ %308, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ %328, %_ZN5arrow6StatusD2Ev.exit169.i.i.i.i.i ], [ %346, %_ZN5arrow6StatusD2Ev.exit173.i.i.i.i.i ], [ null, %.critedge133.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !746
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !746
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !746
@@ -7871,7 +7871,7 @@ _ZN5arrow6StatusD2Ev.exit36.i.i:                  ; preds = %415, %411, %409
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %_ZN5arrow6StatusD2Ev.exit36.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %_ZN5arrow6StatusD2Ev.exit36.i.i ], [ %.pn.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i ], [ %.pn.i.i, %_ZN5arrow6StatusD2Ev.exit36.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN5arrow7compute8internal12_GLOBAL__N_121ListViewSelectionImplINS_17LargeListViewTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %27) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !701
   resume { ptr, i32 } %eh.lpad-body.i
@@ -8851,7 +8851,7 @@ _ZN5arrow6StatusD2Ev.exit179.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.preh
   br label %.critedge133.i.i.i.i.i
 
 .critedge133.i.i.i.i.i:                           ; preds = %463, %_ZN5arrow6StatusD2Ev.exit171.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit167.i.i.i.i.i, %368, %_ZN5arrow6StatusD2Ev.exit159.i.i.i.i.i, %.critedge133.i.loopexit.i.i.i.i, %.preheader211.i.i.i.i.i, %.preheader214.i.i.i.i.i, %.preheader206.i.i.i.i.i, %.preheader208.i.i.i.i.i, %.noexc22.i.i.i, %.preheader.i.i.i.i.i, %241
-  %.1.i.i.i.i.i = phi i64 [ %243, %241 ], [ %299, %_ZN5arrow6StatusD2Ev.exit159.i.i.i.i.i ], [ %369, %368 ], [ %382, %_ZN5arrow6StatusD2Ev.exit167.i.i.i.i.i ], [ %257, %.critedge133.i.loopexit.i.i.i.i ], [ %402, %_ZN5arrow6StatusD2Ev.exit171.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.noexc22.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader206.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader208.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader211.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader214.i.i.i.i.i ], [ %464, %463 ]
+  %.1.i.i.i.i.i = phi i64 [ %243, %241 ], [ %.0107249.i.i.i.i.i, %.noexc22.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader206.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader208.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader211.i.i.i.i.i ], [ %.0107249.i.i.i.i.i, %.preheader214.i.i.i.i.i ], [ %257, %.critedge133.i.loopexit.i.i.i.i ], [ %299, %_ZN5arrow6StatusD2Ev.exit159.i.i.i.i.i ], [ %369, %368 ], [ %382, %_ZN5arrow6StatusD2Ev.exit167.i.i.i.i.i ], [ %402, %_ZN5arrow6StatusD2Ev.exit171.i.i.i.i.i ], [ %464, %463 ]
   %466 = load ptr, ptr %135, align 8, !tbaa !882, !noalias !883
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   %468 = load i64, ptr %467, align 8, !tbaa !125, !noalias !884
@@ -10119,7 +10119,7 @@ _ZN5arrow6StatusD2Ev.exit190.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %.critedge133.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1115
 
 .critedge133.i.i.i.i.i:                           ; preds = %503, %_ZN5arrow6StatusD2Ev.exit180.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit164.i.i.i.i.i, %303, %_ZN5arrow6StatusD2Ev.exit155.i.i.i.i.i, %.preheader227.i.i.i.i.i, %.preheader230.i.i.i.i.i, %.preheader221.i.i.i.i.i, %.preheader224.i.i.i.i.i, %.noexc13.i.i.i, %.preheader.i.i.i.i.i, %201
-  %.1.i.i.i.i.i = phi i64 [ %203, %201 ], [ %454, %_ZN5arrow6StatusD2Ev.exit180.i.i.i.i.i ], [ %301, %_ZN5arrow6StatusD2Ev.exit155.i.i.i.i.i ], [ %305, %303 ], [ %363, %_ZN5arrow6StatusD2Ev.exit164.i.i.i.i.i ], [ %405, %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.noexc13.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader221.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader224.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader227.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader230.i.i.i.i.i ], [ %504, %503 ]
+  %.1.i.i.i.i.i = phi i64 [ %203, %201 ], [ %.0107269.i.i.i.i.i, %.noexc13.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader221.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader224.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader227.i.i.i.i.i ], [ %.0107269.i.i.i.i.i, %.preheader230.i.i.i.i.i ], [ %301, %_ZN5arrow6StatusD2Ev.exit155.i.i.i.i.i ], [ %305, %303 ], [ %363, %_ZN5arrow6StatusD2Ev.exit164.i.i.i.i.i ], [ %405, %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i.i ], [ %454, %_ZN5arrow6StatusD2Ev.exit180.i.i.i.i.i ], [ %504, %503 ]
   %506 = load ptr, ptr %95, align 8, !tbaa !1009, !noalias !1010
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 8
   %508 = load i64, ptr %507, align 8, !tbaa !125, !noalias !1010
@@ -10131,7 +10131,7 @@ _ZN5arrow6StatusD2Ev.exit190.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br label %.critedge147.i.i.i.i.i
 
 .critedge147.i.i.i.i.i:                           ; preds = %.noexc24.i.i.i, %_ZN5arrow6StatusD2Ev.exit186.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit178.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit170.i.i.i.i.i, %.noexc17.i.i.i, %_ZN5arrow6StatusD2Ev.exit158.i.i.i.i.i, %.noexc29.i.i.i, %._crit_edge.i.i.i.i.i
-  %510 = phi ptr [ %.pr.i.i.i.i, %.noexc29.i.i.i ], [ %452, %_ZN5arrow6StatusD2Ev.exit178.i.i.i.i.i ], [ %403, %_ZN5arrow6StatusD2Ev.exit170.i.i.i.i.i ], [ %334, %_ZN5arrow6StatusD2Ev.exit158.i.i.i.i.i ], [ null, %._crit_edge.i.i.i.i.i ], [ %361, %.noexc17.i.i.i ], [ %499, %_ZN5arrow6StatusD2Ev.exit186.i.i.i.i.i ], [ %501, %.noexc24.i.i.i ]
+  %510 = phi ptr [ null, %._crit_edge.i.i.i.i.i ], [ %.pr.i.i.i.i, %.noexc29.i.i.i ], [ %334, %_ZN5arrow6StatusD2Ev.exit158.i.i.i.i.i ], [ %361, %.noexc17.i.i.i ], [ %403, %_ZN5arrow6StatusD2Ev.exit170.i.i.i.i.i ], [ %452, %_ZN5arrow6StatusD2Ev.exit178.i.i.i.i.i ], [ %499, %_ZN5arrow6StatusD2Ev.exit186.i.i.i.i.i ], [ %501, %.noexc24.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1010
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1010
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1010
@@ -11364,7 +11364,7 @@ _ZN5arrow6StatusD2Ev.exit200.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %.critedge133.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1284
 
 .critedge133.i.i.i.i.i:                           ; preds = %530, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i, %.preheader241.i.i.i.i.i, %.preheader244.i.i.i.i.i, %.preheader235.i.i.i.i.i, %.preheader238.i.i.i.i.i, %.noexc15.i.i.i, %.preheader.i.i.i.i.i, %203
-  %.1.i.i.i.i.i = phi i64 [ %205, %203 ], [ %446, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i ], [ %218, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i ], [ %281, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i ], [ %335, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ %387, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.noexc15.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader235.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader238.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader241.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader244.i.i.i.i.i ], [ %531, %530 ]
+  %.1.i.i.i.i.i = phi i64 [ %205, %203 ], [ %.0107281.i.i.i.i.i, %.noexc15.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader235.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader238.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader241.i.i.i.i.i ], [ %.0107281.i.i.i.i.i, %.preheader244.i.i.i.i.i ], [ %218, %_ZN5arrow6StatusD2Ev.exit156.i.i.i.i.i ], [ %281, %_ZN5arrow6StatusD2Ev.exit161.i.i.i.i.i ], [ %335, %_ZN5arrow6StatusD2Ev.exit165.i.i.i.i.i ], [ %387, %_ZN5arrow6StatusD2Ev.exit176.i.i.i.i.i ], [ %446, %_ZN5arrow6StatusD2Ev.exit187.i.i.i.i.i ], [ %531, %530 ]
   %533 = load ptr, ptr %97, align 8, !tbaa !1172, !noalias !1173
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %535 = load i64, ptr %534, align 8, !tbaa !125, !noalias !1173
@@ -11377,7 +11377,7 @@ _ZN5arrow6StatusD2Ev.exit200.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   br label %.critedge147.i.i.i.i.i
 
 .critedge147.i.i.i.i.i:                           ; preds = %.noexc22.i.i.i, %.noexc21.i.i.i, %.noexc20.i.i.i, %.noexc19.i.i.i, %.noexc18.i.i.i, %.critedge147.sink.split.i.i.i.i.i
-  %537 = phi ptr [ %.pr224.i.i.i.i.i, %.noexc21.i.i.i ], [ %.pr223.i.i.i.i.i, %.noexc20.i.i.i ], [ %333, %.noexc19.i.i.i ], [ %.pr.i.i.i.i.i, %.noexc18.i.i.i ], [ %.pr.i.lcssa.sink.i.i.i.i.i, %.critedge147.sink.split.i.i.i.i.i ], [ %.pr225.i.i.i.i.i, %.noexc22.i.i.i ]
+  %537 = phi ptr [ %.pr.i.lcssa.sink.i.i.i.i.i, %.critedge147.sink.split.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %.noexc18.i.i.i ], [ %333, %.noexc19.i.i.i ], [ %.pr223.i.i.i.i.i, %.noexc20.i.i.i ], [ %.pr224.i.i.i.i.i, %.noexc21.i.i.i ], [ %.pr225.i.i.i.i.i, %.noexc22.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1173
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1173
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1173
@@ -32804,8 +32804,8 @@ _ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateE
           to label %_ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i unwind label %107
 
 _ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i
-  %73 = phi ptr [ %65, %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread ], [ %70, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i ]
-  %74 = phi ptr [ null, %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread ], [ %72, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i ]
+  %73 = phi ptr [ %70, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i ], [ %65, %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread ]
+  %74 = phi ptr [ %72, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread ]
   store ptr %74, ptr %73, align 8, !tbaa !1040
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %74, ptr %75, align 8, !tbaa !2373
@@ -39154,9 +39154,9 @@ _ZN5arrow6StatusD2Ev.exit97.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %204, %.critedge74.i.i, %.preheader.i.i, %80
-  %.148 = phi i64 [ %.047, %80 ], [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.6, %204 ], [ %117, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.1 = phi i32 [ %.0, %80 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %204 ], [ %101, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059138.i.i, %80 ], [ %.059138.i.i, %.preheader.i.i ], [ %220, %.critedge74.i.i ], [ %205, %204 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.148 = phi i64 [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.047, %80 ], [ %.6, %204 ], [ %117, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %80 ], [ %.4, %204 ], [ %101, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059138.i.i, %.preheader.i.i ], [ %220, %.critedge74.i.i ], [ %.059138.i.i, %80 ], [ %205, %204 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %221 = load ptr, ptr %45, align 8, !tbaa !1333, !noalias !2595
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = load i64, ptr %222, align 8, !tbaa !125, !noalias !2595
@@ -39599,9 +39599,9 @@ _ZN5arrow6StatusD2Ev.exit97.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %204, %.critedge74.i.i, %.preheader.i.i, %80
-  %.148 = phi i64 [ %.047, %80 ], [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.6, %204 ], [ %117, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.1 = phi i32 [ %.0, %80 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %204 ], [ %101, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059138.i.i, %80 ], [ %.059138.i.i, %.preheader.i.i ], [ %220, %.critedge74.i.i ], [ %205, %204 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.148 = phi i64 [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.047, %80 ], [ %.6, %204 ], [ %117, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %80 ], [ %.4, %204 ], [ %101, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059138.i.i, %.preheader.i.i ], [ %220, %.critedge74.i.i ], [ %.059138.i.i, %80 ], [ %205, %204 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %221 = load ptr, ptr %45, align 8, !tbaa !1333, !noalias !2642
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = load i64, ptr %222, align 8, !tbaa !125, !noalias !2642
@@ -40044,9 +40044,9 @@ _ZN5arrow6StatusD2Ev.exit97.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %204, %.critedge74.i.i, %.preheader.i.i, %80
-  %.148 = phi i64 [ %.047, %80 ], [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.6, %204 ], [ %117, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.1 = phi i32 [ %.0, %80 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %204 ], [ %101, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059138.i.i, %80 ], [ %.059138.i.i, %.preheader.i.i ], [ %220, %.critedge74.i.i ], [ %205, %204 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.148 = phi i64 [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.047, %80 ], [ %.6, %204 ], [ %117, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %80 ], [ %.4, %204 ], [ %101, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059138.i.i, %.preheader.i.i ], [ %220, %.critedge74.i.i ], [ %.059138.i.i, %80 ], [ %205, %204 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %221 = load ptr, ptr %45, align 8, !tbaa !1333, !noalias !2689
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = load i64, ptr %222, align 8, !tbaa !125, !noalias !2689
@@ -40486,9 +40486,9 @@ _ZN5arrow6StatusD2Ev.exit97.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %201, %.critedge74.i.i, %.preheader.i.i, %80
-  %.148 = phi i64 [ %.047, %80 ], [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.6, %201 ], [ %116, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.1 = phi i32 [ %.0, %80 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %201 ], [ %100, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059138.i.i, %80 ], [ %.059138.i.i, %.preheader.i.i ], [ %217, %.critedge74.i.i ], [ %202, %201 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.148 = phi i64 [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.047, %80 ], [ %.6, %201 ], [ %116, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %80 ], [ %.4, %201 ], [ %100, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059138.i.i, %.preheader.i.i ], [ %217, %.critedge74.i.i ], [ %.059138.i.i, %80 ], [ %202, %201 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %218 = load ptr, ptr %45, align 8, !tbaa !1333, !noalias !2736
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load i64, ptr %219, align 8, !tbaa !125, !noalias !2736
@@ -41328,9 +41328,9 @@ _ZN5arrow6StatusD2Ev.exit97.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %200, %.critedge74.i.i, %.preheader.i.i, %80
-  %.148 = phi i64 [ %.047, %80 ], [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.6, %200 ], [ %115, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.1 = phi i64 [ %.0, %80 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %200 ], [ %100, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059138.i.i, %80 ], [ %.059138.i.i, %.preheader.i.i ], [ %216, %.critedge74.i.i ], [ %201, %200 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.148 = phi i64 [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.047, %80 ], [ %.6, %200 ], [ %115, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %80 ], [ %.4, %200 ], [ %100, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059138.i.i, %.preheader.i.i ], [ %216, %.critedge74.i.i ], [ %.059138.i.i, %80 ], [ %201, %200 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %217 = load ptr, ptr %45, align 8, !tbaa !1383, !noalias !2799
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load i64, ptr %218, align 8, !tbaa !125, !noalias !2799
@@ -41769,9 +41769,9 @@ _ZN5arrow6StatusD2Ev.exit97.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %200, %.critedge74.i.i, %.preheader.i.i, %80
-  %.148 = phi i64 [ %.047, %80 ], [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.6, %200 ], [ %115, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.1 = phi i64 [ %.0, %80 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %200 ], [ %100, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059138.i.i, %80 ], [ %.059138.i.i, %.preheader.i.i ], [ %216, %.critedge74.i.i ], [ %201, %200 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.148 = phi i64 [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.047, %80 ], [ %.6, %200 ], [ %115, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %80 ], [ %.4, %200 ], [ %100, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059138.i.i, %.preheader.i.i ], [ %216, %.critedge74.i.i ], [ %.059138.i.i, %80 ], [ %201, %200 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %217 = load ptr, ptr %45, align 8, !tbaa !1383, !noalias !2846
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load i64, ptr %218, align 8, !tbaa !125, !noalias !2846
@@ -42210,9 +42210,9 @@ _ZN5arrow6StatusD2Ev.exit97.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %200, %.critedge74.i.i, %.preheader.i.i, %80
-  %.148 = phi i64 [ %.047, %80 ], [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.6, %200 ], [ %115, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.1 = phi i64 [ %.0, %80 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %200 ], [ %100, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059138.i.i, %80 ], [ %.059138.i.i, %.preheader.i.i ], [ %216, %.critedge74.i.i ], [ %201, %200 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.148 = phi i64 [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.047, %80 ], [ %.6, %200 ], [ %115, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %80 ], [ %.4, %200 ], [ %100, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059138.i.i, %.preheader.i.i ], [ %216, %.critedge74.i.i ], [ %.059138.i.i, %80 ], [ %201, %200 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %217 = load ptr, ptr %45, align 8, !tbaa !1383, !noalias !2893
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load i64, ptr %218, align 8, !tbaa !125, !noalias !2893
@@ -42648,9 +42648,9 @@ _ZN5arrow6StatusD2Ev.exit97.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %197, %.critedge74.i.i, %.preheader.i.i, %80
-  %.148 = phi i64 [ %.047, %80 ], [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.6, %197 ], [ %114, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.1 = phi i64 [ %.0, %80 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %197 ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059138.i.i, %80 ], [ %.059138.i.i, %.preheader.i.i ], [ %213, %.critedge74.i.i ], [ %198, %197 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.148 = phi i64 [ %.047, %.preheader.i.i ], [ %.047, %.critedge74.i.i ], [ %.047, %80 ], [ %.6, %197 ], [ %114, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %80 ], [ %.4, %197 ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059138.i.i, %.preheader.i.i ], [ %213, %.critedge74.i.i ], [ %.059138.i.i, %80 ], [ %198, %197 ], [ %86, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %214 = load ptr, ptr %45, align 8, !tbaa !1383, !noalias !2940
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load i64, ptr %215, align 8, !tbaa !125, !noalias !2940
@@ -43141,8 +43141,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc14
-  %.1 = phi i32 [ %.0, %.noexc14 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc14 ], [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc14 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %.059145.i.i, %.noexc14 ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %250 = load ptr, ptr %34, align 8, !tbaa !253, !noalias !2977
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i64, ptr %251, align 8, !tbaa !125, !noalias !2977
@@ -43769,8 +43769,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc14
-  %.1 = phi i32 [ %.0, %.noexc14 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc14 ], [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc14 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %.059145.i.i, %.noexc14 ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %250 = load ptr, ptr %34, align 8, !tbaa !253, !noalias !3011
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i64, ptr %251, align 8, !tbaa !125, !noalias !3011
@@ -44397,8 +44397,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc14
-  %.1 = phi i32 [ %.0, %.noexc14 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc14 ], [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc14 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %.059145.i.i, %.noexc14 ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %250 = load ptr, ptr %34, align 8, !tbaa !253, !noalias !3045
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i64, ptr %251, align 8, !tbaa !125, !noalias !3045
@@ -45022,8 +45022,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc14
-  %.1 = phi i32 [ %.0, %.noexc14 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %98, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc14 ], [ %.059145.i.i, %.preheader.i.i ], [ %246, %.critedge74.i.i ], [ %231, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc14 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %98, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %246, %.critedge74.i.i ], [ %.059145.i.i, %.noexc14 ], [ %231, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %247 = load ptr, ptr %34, align 8, !tbaa !253, !noalias !3079
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load i64, ptr %248, align 8, !tbaa !125, !noalias !3079
@@ -45650,8 +45650,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc12
-  %.1 = phi i64 [ %.0, %.noexc12 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc12 ], [ %.059145.i.i, %.preheader.i.i ], [ %247, %.critedge74.i.i ], [ %232, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc12 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %247, %.critedge74.i.i ], [ %.059145.i.i, %.noexc12 ], [ %232, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %248 = load ptr, ptr %34, align 8, !tbaa !451, !noalias !3113
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load i64, ptr %249, align 8, !tbaa !125, !noalias !3113
@@ -46279,8 +46279,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc12
-  %.1 = phi i64 [ %.0, %.noexc12 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc12 ], [ %.059145.i.i, %.preheader.i.i ], [ %247, %.critedge74.i.i ], [ %232, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc12 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %247, %.critedge74.i.i ], [ %.059145.i.i, %.noexc12 ], [ %232, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %248 = load ptr, ptr %34, align 8, !tbaa !451, !noalias !3147
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load i64, ptr %249, align 8, !tbaa !125, !noalias !3147
@@ -46908,8 +46908,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc12
-  %.1 = phi i64 [ %.0, %.noexc12 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc12 ], [ %.059145.i.i, %.preheader.i.i ], [ %247, %.critedge74.i.i ], [ %232, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc12 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %247, %.critedge74.i.i ], [ %.059145.i.i, %.noexc12 ], [ %232, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %248 = load ptr, ptr %34, align 8, !tbaa !451, !noalias !3181
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load i64, ptr %249, align 8, !tbaa !125, !noalias !3181
@@ -47534,8 +47534,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc12
-  %.1 = phi i64 [ %.0, %.noexc12 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %98, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc12 ], [ %.059145.i.i, %.preheader.i.i ], [ %244, %.critedge74.i.i ], [ %229, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc12 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %98, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %244, %.critedge74.i.i ], [ %.059145.i.i, %.noexc12 ], [ %229, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %245 = load ptr, ptr %34, align 8, !tbaa !451, !noalias !3215
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %247 = load i64, ptr %246, align 8, !tbaa !125, !noalias !3215
@@ -47981,8 +47981,8 @@ _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %154, %_ZN5arrow6Sta
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %151, %..critedge71.loopexit116_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %49
-  %.1 = phi i32 [ %.0, %49 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.3, %151 ]
-  %.463.i.i = phi i64 [ %.059127.i.i, %49 ], [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %152, %151 ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.0, %49 ], [ %.3, %151 ]
+  %.463.i.i = phi i64 [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %.059127.i.i, %49 ], [ %152, %151 ]
   %174 = load ptr, ptr %15, align 8, !tbaa !636, !noalias !3249
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !125, !noalias !3249
@@ -48269,8 +48269,8 @@ _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %154, %_ZN5arrow6Sta
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %151, %..critedge71.loopexit116_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %49
-  %.1 = phi i32 [ %.0, %49 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.3, %151 ]
-  %.463.i.i = phi i64 [ %.059127.i.i, %49 ], [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %152, %151 ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.0, %49 ], [ %.3, %151 ]
+  %.463.i.i = phi i64 [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %.059127.i.i, %49 ], [ %152, %151 ]
   %174 = load ptr, ptr %15, align 8, !tbaa !636, !noalias !3273
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !125, !noalias !3273
@@ -48557,8 +48557,8 @@ _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %154, %_ZN5arrow6Sta
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %151, %..critedge71.loopexit116_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %49
-  %.1 = phi i32 [ %.0, %49 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.3, %151 ]
-  %.463.i.i = phi i64 [ %.059127.i.i, %49 ], [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %152, %151 ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.0, %49 ], [ %.3, %151 ]
+  %.463.i.i = phi i64 [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %.059127.i.i, %49 ], [ %152, %151 ]
   %174 = load ptr, ptr %15, align 8, !tbaa !636, !noalias !3297
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !125, !noalias !3297
@@ -48842,8 +48842,8 @@ _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %151, %_ZN5arrow6Sta
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %148, %..critedge71.loopexit116_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %49
-  %.1 = phi i32 [ %.0, %49 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %170, %..critedge71.loopexit116_crit_edge.i.i ], [ %.3, %148 ]
-  %.463.i.i = phi i64 [ %.059127.i.i, %49 ], [ %.059127.i.i, %.preheader.i.i ], [ %169, %.critedge74.i.i ], [ %71, %..critedge71.loopexit116_crit_edge.i.i ], [ %149, %148 ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %170, %..critedge71.loopexit116_crit_edge.i.i ], [ %.0, %49 ], [ %.3, %148 ]
+  %.463.i.i = phi i64 [ %.059127.i.i, %.preheader.i.i ], [ %169, %.critedge74.i.i ], [ %71, %..critedge71.loopexit116_crit_edge.i.i ], [ %.059127.i.i, %49 ], [ %149, %148 ]
   %171 = load ptr, ptr %15, align 8, !tbaa !636, !noalias !3321
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load i64, ptr %172, align 8, !tbaa !125, !noalias !3321
@@ -49130,8 +49130,8 @@ _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %154, %_ZN5arrow6Sta
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %151, %..critedge71.loopexit116_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %49
-  %.1 = phi i64 [ %.0, %49 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.3, %151 ]
-  %.463.i.i = phi i64 [ %.059127.i.i, %49 ], [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %152, %151 ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.0, %49 ], [ %.3, %151 ]
+  %.463.i.i = phi i64 [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %.059127.i.i, %49 ], [ %152, %151 ]
   %174 = load ptr, ptr %15, align 8, !tbaa !745, !noalias !3345
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !125, !noalias !3345
@@ -49418,8 +49418,8 @@ _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %154, %_ZN5arrow6Sta
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %151, %..critedge71.loopexit116_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %49
-  %.1 = phi i64 [ %.0, %49 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.3, %151 ]
-  %.463.i.i = phi i64 [ %.059127.i.i, %49 ], [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %152, %151 ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.0, %49 ], [ %.3, %151 ]
+  %.463.i.i = phi i64 [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %.059127.i.i, %49 ], [ %152, %151 ]
   %174 = load ptr, ptr %15, align 8, !tbaa !745, !noalias !3369
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !125, !noalias !3369
@@ -49706,8 +49706,8 @@ _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %154, %_ZN5arrow6Sta
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %151, %..critedge71.loopexit116_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %49
-  %.1 = phi i64 [ %.0, %49 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.3, %151 ]
-  %.463.i.i = phi i64 [ %.059127.i.i, %49 ], [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %152, %151 ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %173, %..critedge71.loopexit116_crit_edge.i.i ], [ %.0, %49 ], [ %.3, %151 ]
+  %.463.i.i = phi i64 [ %.059127.i.i, %.preheader.i.i ], [ %172, %.critedge74.i.i ], [ %72, %..critedge71.loopexit116_crit_edge.i.i ], [ %.059127.i.i, %49 ], [ %152, %151 ]
   %174 = load ptr, ptr %15, align 8, !tbaa !745, !noalias !3393
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !125, !noalias !3393
@@ -49991,8 +49991,8 @@ _ZN5arrow6StatusD2Ev.exit93.i.i:                  ; preds = %151, %_ZN5arrow6Sta
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %148, %..critedge71.loopexit116_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %49
-  %.1 = phi i64 [ %.0, %49 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %170, %..critedge71.loopexit116_crit_edge.i.i ], [ %.3, %148 ]
-  %.463.i.i = phi i64 [ %.059127.i.i, %49 ], [ %.059127.i.i, %.preheader.i.i ], [ %169, %.critedge74.i.i ], [ %71, %..critedge71.loopexit116_crit_edge.i.i ], [ %149, %148 ]
+  %.1 = phi i64 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %170, %..critedge71.loopexit116_crit_edge.i.i ], [ %.0, %49 ], [ %.3, %148 ]
+  %.463.i.i = phi i64 [ %.059127.i.i, %.preheader.i.i ], [ %169, %.critedge74.i.i ], [ %71, %..critedge71.loopexit116_crit_edge.i.i ], [ %.059127.i.i, %49 ], [ %149, %148 ]
   %171 = load ptr, ptr %15, align 8, !tbaa !745, !noalias !3417
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load i64, ptr %172, align 8, !tbaa !125, !noalias !3417
@@ -50535,7 +50535,7 @@ _ZN5arrow6StatusD2Ev.exit107.i.i:                 ; preds = %.lr.ph.i.i.i.i.preh
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit90.i.i, %..critedge71.loopexit127_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc21
-  %.463.i.i = phi i64 [ %.059141.i.i, %.noexc21 ], [ %266, %.critedge74.i.i ], [ %.059141.i.i, %.preheader.i.i ], [ %.us-phi.i.i, %..critedge71.loopexit127_crit_edge.i.i ], [ %239, %_ZN5arrow6StatusD2Ev.exit90.i.i ]
+  %.463.i.i = phi i64 [ %266, %.critedge74.i.i ], [ %.059141.i.i, %.preheader.i.i ], [ %.us-phi.i.i, %..critedge71.loopexit127_crit_edge.i.i ], [ %.059141.i.i, %.noexc21 ], [ %239, %_ZN5arrow6StatusD2Ev.exit90.i.i ]
   %267 = load ptr, ptr %67, align 8, !tbaa !882, !noalias !3455
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load i64, ptr %268, align 8, !tbaa !125, !noalias !3455
@@ -50543,7 +50543,7 @@ _ZN5arrow6StatusD2Ev.exit107.i.i:                 ; preds = %.lr.ph.i.i.i.i.preh
   br i1 %270, label %104, label %.loopexit46, !llvm.loop !3495
 
 .loopexit46:                                      ; preds = %.critedge71.i.i, %.noexc27, %.noexc23, %.noexc19
-  %.pr.i.i102.lcssa.sink.i.i = phi ptr [ null, %.noexc19 ], [ %.pr.i.i102.i.i, %.noexc27 ], [ %.pr.i.i.i.i, %.noexc23 ], [ null, %.critedge71.i.i ]
+  %.pr.i.i102.lcssa.sink.i.i = phi ptr [ null, %.noexc19 ], [ %.pr.i.i.i.i, %.noexc23 ], [ %.pr.i.i102.i.i, %.noexc27 ], [ null, %.critedge71.i.i ]
   store ptr %.pr.i.i102.lcssa.sink.i.i, ptr %0, align 8, !tbaa !107, !alias.scope !3455
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3455
   br label %.critedge
@@ -51215,7 +51215,7 @@ _ZN5arrow6StatusD2Ev.exit107.i.i:                 ; preds = %.lr.ph.i.i.i.i.preh
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit90.i.i, %..critedge71.loopexit127_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc21
-  %.463.i.i = phi i64 [ %.059141.i.i, %.noexc21 ], [ %266, %.critedge74.i.i ], [ %.059141.i.i, %.preheader.i.i ], [ %.us-phi.i.i, %..critedge71.loopexit127_crit_edge.i.i ], [ %239, %_ZN5arrow6StatusD2Ev.exit90.i.i ]
+  %.463.i.i = phi i64 [ %266, %.critedge74.i.i ], [ %.059141.i.i, %.preheader.i.i ], [ %.us-phi.i.i, %..critedge71.loopexit127_crit_edge.i.i ], [ %.059141.i.i, %.noexc21 ], [ %239, %_ZN5arrow6StatusD2Ev.exit90.i.i ]
   %267 = load ptr, ptr %67, align 8, !tbaa !882, !noalias !3510
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load i64, ptr %268, align 8, !tbaa !125, !noalias !3510
@@ -51223,7 +51223,7 @@ _ZN5arrow6StatusD2Ev.exit107.i.i:                 ; preds = %.lr.ph.i.i.i.i.preh
   br i1 %270, label %104, label %.loopexit46, !llvm.loop !3549
 
 .loopexit46:                                      ; preds = %.critedge71.i.i, %.noexc27, %.noexc23, %.noexc19
-  %.pr.i.i102.lcssa.sink.i.i = phi ptr [ null, %.noexc19 ], [ %.pr.i.i102.i.i, %.noexc27 ], [ %.pr.i.i.i.i, %.noexc23 ], [ null, %.critedge71.i.i ]
+  %.pr.i.i102.lcssa.sink.i.i = phi ptr [ null, %.noexc19 ], [ %.pr.i.i.i.i, %.noexc23 ], [ %.pr.i.i102.i.i, %.noexc27 ], [ null, %.critedge71.i.i ]
   store ptr %.pr.i.i102.lcssa.sink.i.i, ptr %0, align 8, !tbaa !107, !alias.scope !3510
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3510
   br label %.critedge
@@ -51895,7 +51895,7 @@ _ZN5arrow6StatusD2Ev.exit107.i.i:                 ; preds = %.lr.ph.i.i.i.i.preh
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit90.i.i, %..critedge71.loopexit127_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc21
-  %.463.i.i = phi i64 [ %.059141.i.i, %.noexc21 ], [ %266, %.critedge74.i.i ], [ %.059141.i.i, %.preheader.i.i ], [ %.us-phi.i.i, %..critedge71.loopexit127_crit_edge.i.i ], [ %239, %_ZN5arrow6StatusD2Ev.exit90.i.i ]
+  %.463.i.i = phi i64 [ %266, %.critedge74.i.i ], [ %.059141.i.i, %.preheader.i.i ], [ %.us-phi.i.i, %..critedge71.loopexit127_crit_edge.i.i ], [ %.059141.i.i, %.noexc21 ], [ %239, %_ZN5arrow6StatusD2Ev.exit90.i.i ]
   %267 = load ptr, ptr %67, align 8, !tbaa !882, !noalias !3564
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load i64, ptr %268, align 8, !tbaa !125, !noalias !3564
@@ -51903,7 +51903,7 @@ _ZN5arrow6StatusD2Ev.exit107.i.i:                 ; preds = %.lr.ph.i.i.i.i.preh
   br i1 %270, label %104, label %.loopexit46, !llvm.loop !3603
 
 .loopexit46:                                      ; preds = %.critedge71.i.i, %.noexc27, %.noexc23, %.noexc19
-  %.pr.i.i102.lcssa.sink.i.i = phi ptr [ null, %.noexc19 ], [ %.pr.i.i102.i.i, %.noexc27 ], [ %.pr.i.i.i.i, %.noexc23 ], [ null, %.critedge71.i.i ]
+  %.pr.i.i102.lcssa.sink.i.i = phi ptr [ null, %.noexc19 ], [ %.pr.i.i.i.i, %.noexc23 ], [ %.pr.i.i102.i.i, %.noexc27 ], [ null, %.critedge71.i.i ]
   store ptr %.pr.i.i102.lcssa.sink.i.i, ptr %0, align 8, !tbaa !107, !alias.scope !3564
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3564
   br label %.critedge
@@ -52572,7 +52572,7 @@ _ZN5arrow6StatusD2Ev.exit107.i.i:                 ; preds = %.lr.ph.i.i.i.i.preh
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit90.i.i, %..critedge71.loopexit127_crit_edge.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc21
-  %.463.i.i = phi i64 [ %.059141.i.i, %.noexc21 ], [ %263, %.critedge74.i.i ], [ %.059141.i.i, %.preheader.i.i ], [ %.us-phi.i.i, %..critedge71.loopexit127_crit_edge.i.i ], [ %236, %_ZN5arrow6StatusD2Ev.exit90.i.i ]
+  %.463.i.i = phi i64 [ %263, %.critedge74.i.i ], [ %.059141.i.i, %.preheader.i.i ], [ %.us-phi.i.i, %..critedge71.loopexit127_crit_edge.i.i ], [ %.059141.i.i, %.noexc21 ], [ %236, %_ZN5arrow6StatusD2Ev.exit90.i.i ]
   %264 = load ptr, ptr %67, align 8, !tbaa !882, !noalias !3618
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load i64, ptr %265, align 8, !tbaa !125, !noalias !3618
@@ -52580,7 +52580,7 @@ _ZN5arrow6StatusD2Ev.exit107.i.i:                 ; preds = %.lr.ph.i.i.i.i.preh
   br i1 %267, label %104, label %.loopexit46, !llvm.loop !3657
 
 .loopexit46:                                      ; preds = %.critedge71.i.i, %.noexc27, %.noexc23, %.noexc19
-  %.pr.i.i102.lcssa.sink.i.i = phi ptr [ null, %.noexc19 ], [ %.pr.i.i102.i.i, %.noexc27 ], [ %.pr.i.i.i.i, %.noexc23 ], [ null, %.critedge71.i.i ]
+  %.pr.i.i102.lcssa.sink.i.i = phi ptr [ null, %.noexc19 ], [ %.pr.i.i.i.i, %.noexc23 ], [ %.pr.i.i102.i.i, %.noexc27 ], [ null, %.critedge71.i.i ]
   store ptr %.pr.i.i102.lcssa.sink.i.i, ptr %0, align 8, !tbaa !107, !alias.scope !3618
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3618
   br label %.critedge
@@ -53405,7 +53405,7 @@ _ZN5arrow6StatusD2Ev.exit116.i.i:                 ; preds = %.noexc26, %_ZN5arro
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit80.i.i, %337, %.critedge74.i.i, %.preheader.i.i, %.noexc13
-  %.463.i.i = phi i64 [ %345, %337 ], [ %417, %.critedge74.i.i ], [ %.059161.i.i, %.preheader.i.i ], [ %.059161.i.i, %.noexc13 ], [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ]
+  %.463.i.i = phi i64 [ %417, %.critedge74.i.i ], [ %.059161.i.i, %.preheader.i.i ], [ %.059161.i.i, %.noexc13 ], [ %345, %337 ], [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ]
   %418 = load ptr, ptr %36, align 8, !tbaa !1009, !noalias !3658
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load i64, ptr %419, align 8, !tbaa !125, !noalias !3658
@@ -53450,7 +53450,7 @@ _ZN5arrow6StatusD2Ev.exit116.i.i:                 ; preds = %.noexc26, %_ZN5arro
   br label %424
 
 .critedge:                                        ; preds = %.critedge71.i.i, %.noexc16, %.noexc26, %.noexc19, %.noexc22, %.noexc
-  %storemerge = phi ptr [ %.pr.i108.i.i, %.noexc26 ], [ %.pr.i.i.i, %.noexc16 ], [ %.pr.i86.i.i, %.noexc19 ], [ null, %.noexc ], [ %.pr.i98.i.i, %.noexc22 ], [ null, %.critedge71.i.i ]
+  %storemerge = phi ptr [ null, %.noexc ], [ %.pr.i98.i.i, %.noexc22 ], [ %.pr.i86.i.i, %.noexc19 ], [ %.pr.i108.i.i, %.noexc26 ], [ %.pr.i.i.i, %.noexc16 ], [ null, %.critedge71.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3658
   store ptr %storemerge, ptr %0, align 8, !tbaa !107
   call void @_ZN5arrow10UnionArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #28
@@ -54146,7 +54146,7 @@ _ZN5arrow6StatusD2Ev.exit116.i.i:                 ; preds = %.noexc26, %_ZN5arro
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit80.i.i, %337, %.critedge74.i.i, %.preheader.i.i, %.noexc13
-  %.463.i.i = phi i64 [ %345, %337 ], [ %417, %.critedge74.i.i ], [ %.059161.i.i, %.preheader.i.i ], [ %.059161.i.i, %.noexc13 ], [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ]
+  %.463.i.i = phi i64 [ %417, %.critedge74.i.i ], [ %.059161.i.i, %.preheader.i.i ], [ %.059161.i.i, %.noexc13 ], [ %345, %337 ], [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ]
   %418 = load ptr, ptr %36, align 8, !tbaa !1009, !noalias !3703
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load i64, ptr %419, align 8, !tbaa !125, !noalias !3703
@@ -54191,7 +54191,7 @@ _ZN5arrow6StatusD2Ev.exit116.i.i:                 ; preds = %.noexc26, %_ZN5arro
   br label %424
 
 .critedge:                                        ; preds = %.critedge71.i.i, %.noexc16, %.noexc26, %.noexc19, %.noexc22, %.noexc
-  %storemerge = phi ptr [ %.pr.i108.i.i, %.noexc26 ], [ %.pr.i.i.i, %.noexc16 ], [ %.pr.i86.i.i, %.noexc19 ], [ null, %.noexc ], [ %.pr.i98.i.i, %.noexc22 ], [ null, %.critedge71.i.i ]
+  %storemerge = phi ptr [ null, %.noexc ], [ %.pr.i98.i.i, %.noexc22 ], [ %.pr.i86.i.i, %.noexc19 ], [ %.pr.i108.i.i, %.noexc26 ], [ %.pr.i.i.i, %.noexc16 ], [ null, %.critedge71.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3703
   store ptr %storemerge, ptr %0, align 8, !tbaa !107
   call void @_ZN5arrow10UnionArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #28
@@ -54887,7 +54887,7 @@ _ZN5arrow6StatusD2Ev.exit116.i.i:                 ; preds = %.noexc26, %_ZN5arro
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit80.i.i, %337, %.critedge74.i.i, %.preheader.i.i, %.noexc13
-  %.463.i.i = phi i64 [ %345, %337 ], [ %417, %.critedge74.i.i ], [ %.059161.i.i, %.preheader.i.i ], [ %.059161.i.i, %.noexc13 ], [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ]
+  %.463.i.i = phi i64 [ %417, %.critedge74.i.i ], [ %.059161.i.i, %.preheader.i.i ], [ %.059161.i.i, %.noexc13 ], [ %345, %337 ], [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ]
   %418 = load ptr, ptr %36, align 8, !tbaa !1009, !noalias !3748
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load i64, ptr %419, align 8, !tbaa !125, !noalias !3748
@@ -54932,7 +54932,7 @@ _ZN5arrow6StatusD2Ev.exit116.i.i:                 ; preds = %.noexc26, %_ZN5arro
   br label %424
 
 .critedge:                                        ; preds = %.critedge71.i.i, %.noexc16, %.noexc26, %.noexc19, %.noexc22, %.noexc
-  %storemerge = phi ptr [ %.pr.i108.i.i, %.noexc26 ], [ %.pr.i.i.i, %.noexc16 ], [ %.pr.i86.i.i, %.noexc19 ], [ null, %.noexc ], [ %.pr.i98.i.i, %.noexc22 ], [ null, %.critedge71.i.i ]
+  %storemerge = phi ptr [ null, %.noexc ], [ %.pr.i98.i.i, %.noexc22 ], [ %.pr.i86.i.i, %.noexc19 ], [ %.pr.i108.i.i, %.noexc26 ], [ %.pr.i.i.i, %.noexc16 ], [ null, %.critedge71.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3748
   store ptr %storemerge, ptr %0, align 8, !tbaa !107
   call void @_ZN5arrow10UnionArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #28
@@ -55625,7 +55625,7 @@ _ZN5arrow6StatusD2Ev.exit116.i.i:                 ; preds = %.noexc26, %_ZN5arro
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit80.i.i, %334, %.critedge74.i.i, %.preheader.i.i, %.noexc13
-  %.463.i.i = phi i64 [ %342, %334 ], [ %414, %.critedge74.i.i ], [ %.059161.i.i, %.preheader.i.i ], [ %.059161.i.i, %.noexc13 ], [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ]
+  %.463.i.i = phi i64 [ %414, %.critedge74.i.i ], [ %.059161.i.i, %.preheader.i.i ], [ %.059161.i.i, %.noexc13 ], [ %342, %334 ], [ %85, %_ZN5arrow6StatusD2Ev.exit80.i.i ]
   %415 = load ptr, ptr %36, align 8, !tbaa !1009, !noalias !3793
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %417 = load i64, ptr %416, align 8, !tbaa !125, !noalias !3793
@@ -55670,7 +55670,7 @@ _ZN5arrow6StatusD2Ev.exit116.i.i:                 ; preds = %.noexc26, %_ZN5arro
   br label %421
 
 .critedge:                                        ; preds = %.critedge71.i.i, %.noexc16, %.noexc26, %.noexc19, %.noexc22, %.noexc
-  %storemerge = phi ptr [ %.pr.i108.i.i, %.noexc26 ], [ %.pr.i.i.i, %.noexc16 ], [ %.pr.i86.i.i, %.noexc19 ], [ null, %.noexc ], [ %.pr.i98.i.i, %.noexc22 ], [ null, %.critedge71.i.i ]
+  %storemerge = phi ptr [ null, %.noexc ], [ %.pr.i98.i.i, %.noexc22 ], [ %.pr.i86.i.i, %.noexc19 ], [ %.pr.i108.i.i, %.noexc26 ], [ %.pr.i.i.i, %.noexc16 ], [ null, %.critedge71.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3793
   store ptr %storemerge, ptr %0, align 8, !tbaa !107
   call void @_ZN5arrow10UnionArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #28
@@ -56992,7 +56992,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit107: ;
   br label %_ZN5arrow6StatusC2ERKS0_.exit
 
 436:                                              ; preds = %336, %381, %223, %221
-  %.pn43.pn.pn = phi { ptr, i32 } [ %222, %221 ], [ %224, %223 ], [ %.pn43, %381 ], [ %.pn35.pn.pn.pn.pn, %336 ]
+  %.pn43.pn.pn = phi { ptr, i32 } [ %224, %223 ], [ %222, %221 ], [ %.pn43, %381 ], [ %.pn35.pn.pn.pn.pn, %336 ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #28
   br label %437
 
@@ -58251,7 +58251,7 @@ _ZN5arrow6StatusD2Ev.exit95.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %141, %.critedge74.i.i, %.preheader.i.i, %.noexc13
-  %.463.i.i = phi i64 [ %.059129.i.i, %.preheader.i.i ], [ %162, %.critedge74.i.i ], [ %147, %141 ], [ %.059129.i.i, %.noexc13 ], [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ]
+  %.463.i.i = phi i64 [ %162, %.critedge74.i.i ], [ %.059129.i.i, %.preheader.i.i ], [ %.059129.i.i, %.noexc13 ], [ %147, %141 ], [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ]
   %163 = load ptr, ptr %32, align 8, !tbaa !1628, !noalias !3889
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i64, ptr %164, align 8, !tbaa !125, !noalias !3889
@@ -58596,7 +58596,7 @@ _ZN5arrow6StatusD2Ev.exit95.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %141, %.critedge74.i.i, %.preheader.i.i, %.noexc13
-  %.463.i.i = phi i64 [ %.059129.i.i, %.preheader.i.i ], [ %162, %.critedge74.i.i ], [ %147, %141 ], [ %.059129.i.i, %.noexc13 ], [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ]
+  %.463.i.i = phi i64 [ %162, %.critedge74.i.i ], [ %.059129.i.i, %.preheader.i.i ], [ %.059129.i.i, %.noexc13 ], [ %147, %141 ], [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ]
   %163 = load ptr, ptr %32, align 8, !tbaa !1628, !noalias !3907
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i64, ptr %164, align 8, !tbaa !125, !noalias !3907
@@ -58941,7 +58941,7 @@ _ZN5arrow6StatusD2Ev.exit95.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %141, %.critedge74.i.i, %.preheader.i.i, %.noexc13
-  %.463.i.i = phi i64 [ %.059129.i.i, %.preheader.i.i ], [ %162, %.critedge74.i.i ], [ %147, %141 ], [ %.059129.i.i, %.noexc13 ], [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ]
+  %.463.i.i = phi i64 [ %162, %.critedge74.i.i ], [ %.059129.i.i, %.preheader.i.i ], [ %.059129.i.i, %.noexc13 ], [ %147, %141 ], [ %86, %_ZN5arrow6StatusD2Ev.exit.i.i ]
   %163 = load ptr, ptr %32, align 8, !tbaa !1628, !noalias !3925
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i64, ptr %164, align 8, !tbaa !125, !noalias !3925
@@ -59283,7 +59283,7 @@ _ZN5arrow6StatusD2Ev.exit95.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %138, %.critedge74.i.i, %.preheader.i.i, %.noexc13
-  %.463.i.i = phi i64 [ %.059129.i.i, %.preheader.i.i ], [ %159, %.critedge74.i.i ], [ %144, %138 ], [ %.059129.i.i, %.noexc13 ], [ %85, %_ZN5arrow6StatusD2Ev.exit.i.i ]
+  %.463.i.i = phi i64 [ %159, %.critedge74.i.i ], [ %.059129.i.i, %.preheader.i.i ], [ %.059129.i.i, %.noexc13 ], [ %144, %138 ], [ %85, %_ZN5arrow6StatusD2Ev.exit.i.i ]
   %160 = load ptr, ptr %32, align 8, !tbaa !1628, !noalias !3943
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i64, ptr %161, align 8, !tbaa !125, !noalias !3943
@@ -60545,7 +60545,7 @@ _ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %_ZNK5arrow8internal
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %..critedge71.loopexit_crit_edge.i.i, %.noexc7, %.preheader.i.i, %.noexc6
-  %.463.i.i = phi i64 [ %.05923.i.i, %.preheader.i.i ], [ %129, %.noexc7 ], [ %130, %..critedge71.loopexit_crit_edge.i.i ], [ %spec.select.i.i, %.noexc6 ]
+  %.463.i.i = phi i64 [ %129, %.noexc7 ], [ %130, %..critedge71.loopexit_crit_edge.i.i ], [ %.05923.i.i, %.preheader.i.i ], [ %spec.select.i.i, %.noexc6 ]
   %131 = load ptr, ptr %32, align 8, !tbaa !1674, !noalias !3987
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !125, !noalias !3987
@@ -60835,7 +60835,7 @@ _ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %_ZNK5arrow8internal
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %..critedge71.loopexit_crit_edge.i.i, %.noexc7, %.preheader.i.i, %.noexc6
-  %.463.i.i = phi i64 [ %.05923.i.i, %.preheader.i.i ], [ %129, %.noexc7 ], [ %130, %..critedge71.loopexit_crit_edge.i.i ], [ %spec.select.i.i, %.noexc6 ]
+  %.463.i.i = phi i64 [ %129, %.noexc7 ], [ %130, %..critedge71.loopexit_crit_edge.i.i ], [ %.05923.i.i, %.preheader.i.i ], [ %spec.select.i.i, %.noexc6 ]
   %131 = load ptr, ptr %32, align 8, !tbaa !1674, !noalias !3999
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !125, !noalias !3999
@@ -61125,7 +61125,7 @@ _ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %_ZNK5arrow8internal
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %..critedge71.loopexit_crit_edge.i.i, %.noexc7, %.preheader.i.i, %.noexc6
-  %.463.i.i = phi i64 [ %.05923.i.i, %.preheader.i.i ], [ %129, %.noexc7 ], [ %130, %..critedge71.loopexit_crit_edge.i.i ], [ %spec.select.i.i, %.noexc6 ]
+  %.463.i.i = phi i64 [ %129, %.noexc7 ], [ %130, %..critedge71.loopexit_crit_edge.i.i ], [ %.05923.i.i, %.preheader.i.i ], [ %spec.select.i.i, %.noexc6 ]
   %131 = load ptr, ptr %32, align 8, !tbaa !1674, !noalias !4011
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !125, !noalias !4011
@@ -61414,7 +61414,7 @@ _ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %_ZNK5arrow8internal
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %..critedge71.loopexit_crit_edge.i.i, %.noexc7, %.preheader.i.i, %.noexc6
-  %.463.i.i = phi i64 [ %.05923.i.i, %.preheader.i.i ], [ %128, %.noexc7 ], [ %129, %..critedge71.loopexit_crit_edge.i.i ], [ %spec.select.i.i, %.noexc6 ]
+  %.463.i.i = phi i64 [ %128, %.noexc7 ], [ %129, %..critedge71.loopexit_crit_edge.i.i ], [ %.05923.i.i, %.preheader.i.i ], [ %spec.select.i.i, %.noexc6 ]
   %130 = load ptr, ptr %32, align 8, !tbaa !1674, !noalias !4023
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !125, !noalias !4023
@@ -61914,8 +61914,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc14
-  %.1 = phi i32 [ %.0, %.noexc14 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc14 ], [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc14 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %.059145.i.i, %.noexc14 ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %250 = load ptr, ptr %34, align 8, !tbaa !1172, !noalias !4029
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i64, ptr %251, align 8, !tbaa !125, !noalias !4029
@@ -62444,8 +62444,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc14
-  %.1 = phi i32 [ %.0, %.noexc14 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc14 ], [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc14 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %.059145.i.i, %.noexc14 ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %250 = load ptr, ptr %34, align 8, !tbaa !1172, !noalias !4063
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i64, ptr %251, align 8, !tbaa !125, !noalias !4063
@@ -62974,8 +62974,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc14
-  %.1 = phi i32 [ %.0, %.noexc14 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc14 ], [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc14 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %249, %.critedge74.i.i ], [ %.059145.i.i, %.noexc14 ], [ %234, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %250 = load ptr, ptr %34, align 8, !tbaa !1172, !noalias !4097
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i64, ptr %251, align 8, !tbaa !125, !noalias !4097
@@ -63501,8 +63501,8 @@ _ZN5arrow6StatusD2Ev.exit104.i.i:                 ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge71.i.i
 
 .critedge71.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i, %_ZN5arrow6StatusD2Ev.exit98.i.i, %.critedge74.i.i, %.preheader.i.i, %.noexc14
-  %.1 = phi i32 [ %.0, %.noexc14 ], [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %98, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
-  %.463.i.i = phi i64 [ %.059145.i.i, %.noexc14 ], [ %.059145.i.i, %.preheader.i.i ], [ %246, %.critedge74.i.i ], [ %231, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.1 = phi i32 [ %.0, %.preheader.i.i ], [ %.0, %.critedge74.i.i ], [ %.0, %.noexc14 ], [ %.4, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %98, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
+  %.463.i.i = phi i64 [ %.059145.i.i, %.preheader.i.i ], [ %246, %.critedge74.i.i ], [ %.059145.i.i, %.noexc14 ], [ %231, %_ZN5arrow6StatusD2Ev.exit98.i.i ], [ %84, %_ZN5arrow6StatusD2Ev.exit82.i.i ]
   %247 = load ptr, ptr %34, align 8, !tbaa !1172, !noalias !4131
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load i64, ptr %248, align 8, !tbaa !125, !noalias !4131

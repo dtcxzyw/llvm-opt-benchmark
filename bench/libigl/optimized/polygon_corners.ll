@@ -277,8 +277,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %21
   br i1 %38, label %.lr.ph85, label %._crit_edge, !llvm.loop !27
 
 39:                                               ; preds = %26, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i, %13
-  %.sroa.18.0 = phi ptr [ null, %13 ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.18.4, %26 ]
-  %.sroa.040.0 = phi ptr [ null, %13 ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.12.2, %26 ]
+  %.sroa.18.0 = phi ptr [ null, %13 ], [ %.sroa.18.4, %26 ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ]
+  %.sroa.040.0 = phi ptr [ null, %13 ], [ %.sroa.12.2, %26 ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ]
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %121

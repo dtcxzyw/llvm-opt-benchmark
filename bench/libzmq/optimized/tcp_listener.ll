@@ -329,7 +329,7 @@ define noundef i32 @_ZN3zmq14tcp_listener_t6acceptEv(ptr noundef nonnull readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %.critedge37, %15, %64, %67, %50, %52, %18, %15, %15, %15, %15, %15, %15, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %18 ], [ -1, %50 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ %13, %64 ], [ -1, %52 ], [ %13, %67 ], [ -1, %.critedge37 ], [ -1, %41 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %18 ], [ -1, %52 ], [ -1, %50 ], [ %13, %67 ], [ %13, %64 ], [ -1, %15 ], [ -1, %.critedge37 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

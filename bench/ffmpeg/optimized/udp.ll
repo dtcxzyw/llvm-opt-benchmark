@@ -169,7 +169,7 @@ udp_set_url.exit:                                 ; preds = %2
   br label %38
 
 38:                                               ; preds = %udp_set_url.exit.thread, %20, %24, %26, %33, %.critedge, %udp_set_url.exit
-  %.0 = phi i32 [ -5, %.critedge ], [ -5, %udp_set_url.exit ], [ 0, %33 ], [ 0, %26 ], [ 0, %24 ], [ 0, %20 ], [ -5, %udp_set_url.exit.thread ]
+  %.0 = phi i32 [ -5, %udp_set_url.exit ], [ -5, %.critedge ], [ 0, %33 ], [ 0, %26 ], [ 0, %24 ], [ 0, %20 ], [ -5, %udp_set_url.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -963,7 +963,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
   br label %udp_socket_create.exit.thread
 
 udp_socket_create.exit.thread:                    ; preds = %177, %60, %25, %32, %118, %124, %151, %113, %150, %udp_socket_create.exit.thread280, %376
-  %.0285 = phi i32 [ %.0.ph, %376 ], [ %27, %25 ], [ %34, %32 ], [ -22, %60 ], [ %120, %118 ], [ %126, %124 ], [ -22, %150 ], [ -5, %udp_socket_create.exit.thread280 ], [ -12, %113 ], [ %152, %151 ], [ -5, %177 ]
+  %.0285 = phi i32 [ %.0.ph, %376 ], [ %27, %25 ], [ %34, %32 ], [ -22, %60 ], [ %120, %118 ], [ %126, %124 ], [ %152, %151 ], [ -12, %113 ], [ -22, %150 ], [ -5, %udp_socket_create.exit.thread280 ], [ -5, %177 ]
   %378 = getelementptr inbounds nuw i8, ptr %14, i64 192
   call void @av_fifo_freep2(ptr noundef nonnull %378) #11
   %379 = getelementptr inbounds nuw i8, ptr %14, i64 66040
@@ -1123,7 +1123,7 @@ define internal i32 @udp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   br label %81
 
 81:                                               ; preds = %.thread, %78, %62, %74, %44, %41, %30
-  %.1 = phi i32 [ %.043, %30 ], [ %40, %41 ], [ -11, %44 ], [ %56, %.thread ], [ %77, %74 ], [ %., %78 ], [ %65, %62 ]
+  %.1 = phi i32 [ %.043, %30 ], [ %40, %41 ], [ -11, %44 ], [ %77, %74 ], [ %65, %62 ], [ %., %78 ], [ %56, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
@@ -1495,7 +1495,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   br label %19
 
 19:                                               ; preds = %.sink.split, %7, %3
-  %.012 = phi i32 [ 0, %7 ], [ 0, %3 ], [ %.012.ph, %.sink.split ]
+  %.012 = phi i32 [ 0, %3 ], [ 0, %7 ], [ %.012.ph, %.sink.split ]
   ret i32 %.012
 }
 
@@ -1635,7 +1635,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   br i1 %exitcond72.not, label %.loopexit, label %.lr.ph55.split, !llvm.loop !85
 
 .loopexit:                                        ; preds = %42, %56, %30, %.preheader49, %.preheader, %.thread46, %38
-  %.3 = phi i32 [ 0, %.preheader ], [ %.5.ph, %.thread46 ], [ %41, %38 ], [ 0, %.preheader49 ], [ 0, %56 ], [ 0, %30 ], [ 0, %42 ]
+  %.3 = phi i32 [ %41, %38 ], [ %.5.ph, %.thread46 ], [ 0, %.preheader ], [ 0, %.preheader49 ], [ 0, %30 ], [ 0, %56 ], [ 0, %42 ]
   ret i32 %.3
 }
 
@@ -1709,7 +1709,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_join_multica
   br label %35
 
 35:                                               ; preds = %23, %.thread17, %31, %19
-  %.2 = phi i32 [ %22, %19 ], [ %34, %31 ], [ 0, %.thread17 ], [ 0, %23 ]
+  %.2 = phi i32 [ %34, %31 ], [ %22, %19 ], [ 0, %.thread17 ], [ 0, %23 ]
   ret i32 %.2
 }
 
@@ -1942,8 +1942,8 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
   br label %111
 
 107:                                              ; preds = %96, %100, %100
-  %.384 = phi i32 [ %.182130, %100 ], [ %97, %96 ], [ %.182130, %100 ]
-  %.280 = phi ptr [ %.078131, %100 ], [ %99, %96 ], [ %.078131, %100 ]
+  %.384 = phi i32 [ %97, %96 ], [ %.182130, %100 ], [ %.182130, %100 ]
+  %.280 = phi ptr [ %99, %96 ], [ %.078131, %100 ], [ %.078131, %100 ]
   %.not110 = icmp eq i32 %.384, 0
   br i1 %.not110, label %._crit_edge134, label %.lr.ph133, !llvm.loop !90
 

@@ -567,7 +567,7 @@ define internal i32 @dissect_dcom_SpecialSystemProperties(ptr noundef %0, i32 no
   br label %45
 
 45:                                               ; preds = %36, %39, %41
-  %.092 = phi i32 [ %spec.store.select, %39 ], [ %spec.store.select, %41 ], [ %37, %36 ]
+  %.092 = phi i32 [ %spec.store.select, %41 ], [ %spec.store.select, %39 ], [ %37, %36 ]
   %46 = add i32 %.092, %1
   ret i32 %46
 }
@@ -611,7 +611,7 @@ define internal i32 @dissect_dcom_InstantiationInfo(ptr noundef %0, i32 noundef 
   br label %37
 
 37:                                               ; preds = %7, %31, %33
-  %.0 = phi i32 [ %spec.store.select, %31 ], [ %spec.store.select, %33 ], [ %29, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %33 ], [ %spec.store.select, %31 ], [ %29, %7 ]
   %38 = add i32 %.0, %1
   ret i32 %38
 }
@@ -649,7 +649,7 @@ define internal i32 @dissect_dcom_ActivationContextInfo(ptr noundef %0, i32 noun
   br label %31
 
 31:                                               ; preds = %7, %25, %27
-  %.0 = phi i32 [ %spec.store.select, %25 ], [ %spec.store.select, %27 ], [ %23, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %27 ], [ %spec.store.select, %25 ], [ %23, %7 ]
   %32 = add i32 %.0, %1
   ret i32 %32
 }
@@ -714,7 +714,7 @@ define internal i32 @dissect_dcom_SecurtiyInfo(ptr noundef %0, i32 noundef %1, p
   br label %25
 
 25:                                               ; preds = %7, %19, %21
-  %.0 = phi i32 [ %spec.store.select, %19 ], [ %spec.store.select, %21 ], [ %17, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %21 ], [ %spec.store.select, %19 ], [ %17, %7 ]
   %26 = add i32 %.0, %1
   ret i32 %26
 }
@@ -750,7 +750,7 @@ define internal i32 @dissect_dcom_LocationInfo(ptr noundef %0, i32 noundef %1, p
   br label %29
 
 29:                                               ; preds = %7, %23, %25
-  %.0 = phi i32 [ %spec.store.select, %23 ], [ %spec.store.select, %25 ], [ %21, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %25 ], [ %spec.store.select, %23 ], [ %21, %7 ]
   %30 = add i32 %.0, %1
   ret i32 %30
 }
@@ -780,7 +780,7 @@ define internal i32 @dissect_dcom_ScmRqstInfo(ptr noundef %0, i32 noundef %1, pt
   br label %23
 
 23:                                               ; preds = %7, %17, %19
-  %.0 = phi i32 [ %spec.store.select, %17 ], [ %spec.store.select, %19 ], [ %15, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %19 ], [ %spec.store.select, %17 ], [ %15, %7 ]
   %24 = add i32 %.0, %1
   ret i32 %24
 }
@@ -813,7 +813,7 @@ define internal i32 @dissect_dcom_PropsOutInfo(ptr noundef %0, i32 noundef %1, p
   br label %26
 
 26:                                               ; preds = %7, %20, %22
-  %.0 = phi i32 [ %spec.store.select, %20 ], [ %spec.store.select, %22 ], [ %18, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %22 ], [ %spec.store.select, %20 ], [ %18, %7 ]
   %27 = add i32 %.0, %1
   ret i32 %27
 }
@@ -843,7 +843,7 @@ define internal i32 @dissect_dcom_ScmReplyInfo(ptr noundef %0, i32 noundef %1, p
   br label %23
 
 23:                                               ; preds = %7, %17, %19
-  %.0 = phi i32 [ %spec.store.select, %17 ], [ %spec.store.select, %19 ], [ %15, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %19 ], [ %spec.store.select, %17 ], [ %15, %7 ]
   %24 = add i32 %.0, %1
   ret i32 %24
 }
@@ -877,7 +877,7 @@ define internal i32 @dissect_dcom_InstanceInfo(ptr noundef %0, i32 noundef %1, p
   br label %27
 
 27:                                               ; preds = %7, %21, %23
-  %.0 = phi i32 [ %spec.store.select, %21 ], [ %spec.store.select, %23 ], [ %19, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %23 ], [ %spec.store.select, %21 ], [ %19, %7 ]
   %28 = add i32 %.0, %1
   ret i32 %28
 }

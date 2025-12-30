@@ -718,7 +718,7 @@ tcp_peer_create_socket.exit:                      ; preds = %269, %260
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull %.str.57.sink, ptr noundef %325, ptr noundef %326, ptr noundef %329, i32 noundef %330) #15
   br label %331
 
-331:                                              ; preds = %.sink.split, %273, %296, %tcp_peer_event_init.exit.i
+331:                                              ; preds = %.sink.split, %296, %tcp_peer_event_init.exit.i, %273
   %332 = load i32, ptr %149, align 8, !tbaa !64
   %333 = getelementptr inbounds nuw i8, ptr %.1255.lcssa, i64 424
   %334 = tail call i32 @bind(i32 noundef %332, ptr nonnull %333, i32 noundef %237) #15
@@ -1291,7 +1291,7 @@ pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_fi
   br label %pmix_list_remove_first.exit.thread
 
 pmix_list_remove_first.exit.thread:               ; preds = %pmix_list_remove_first.exit, %pmix_obj_new_tma.exit323, %pmix_obj_new_tma.exit316, %98, %323, %379, %632, %572
-  %.1253 = phi ptr [ null, %98 ], [ %121, %572 ], [ %121, %632 ], [ %121, %pmix_obj_new_tma.exit316 ], [ %121, %379 ], [ %121, %323 ], [ %121, %pmix_obj_new_tma.exit323 ], [ %121, %pmix_list_remove_first.exit ]
+  %.1253 = phi ptr [ null, %98 ], [ %121, %572 ], [ %121, %632 ], [ %121, %pmix_obj_new_tma.exit316 ], [ %121, %323 ], [ %121, %379 ], [ %121, %pmix_obj_new_tma.exit323 ], [ %121, %pmix_list_remove_first.exit ]
   %634 = call i32 @pthread_mutex_lock(ptr noundef %2) #15
   %635 = icmp eq i32 %634, 35
   br i1 %635, label %636, label %pmix_obj_update.exit298
@@ -1346,7 +1346,7 @@ pmix_obj_run_destructors.exit329:                 ; preds = %.lr.ph.i326, %643
   br label %657
 
 657:                                              ; preds = %pmix_obj_update.exit298, %656, %654, %pmix_obj_update.exit, %421, %419, %596
-  %.0252 = phi ptr [ %121, %pmix_obj_update.exit ], [ %121, %596 ], [ %121, %419 ], [ %121, %421 ], [ %.1253, %654 ], [ %.1253, %656 ], [ %.1253, %pmix_obj_update.exit298 ]
+  %.0252 = phi ptr [ %121, %596 ], [ %121, %419 ], [ %121, %421 ], [ %121, %pmix_obj_update.exit ], [ %.1253, %654 ], [ %.1253, %656 ], [ %.1253, %pmix_obj_update.exit298 ]
   %.not296 = icmp eq ptr %.0252, null
   br i1 %.not296, label %659, label %658
 
@@ -1580,7 +1580,7 @@ define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_connect_ack(ptr noun
   br label %35
 
 35:                                               ; preds = %16, %11, %33
-  %.0 = phi i32 [ -2, %11 ], [ -12, %33 ], [ 0, %16 ]
+  %.0 = phi i32 [ -12, %33 ], [ -2, %11 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2462,7 +2462,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   br label %236
 
 236:                                              ; preds = %231, %235, %230, %89, %91, %31, %33, %44, %208, %195, %188, %161, %143, %121, %79, %26
-  %.0 = phi i32 [ -12, %26 ], [ 0, %79 ], [ -12, %31 ], [ -2, %143 ], [ -12, %195 ], [ 94, %208 ], [ -51, %89 ], [ 0, %230 ], [ -12, %188 ], [ -12, %161 ], [ 94, %121 ], [ -12, %44 ], [ -12, %33 ], [ -51, %91 ], [ 0, %235 ], [ 0, %231 ]
+  %.0 = phi i32 [ -12, %26 ], [ 0, %79 ], [ -2, %143 ], [ -12, %195 ], [ 94, %208 ], [ -12, %188 ], [ -12, %161 ], [ 94, %121 ], [ -12, %44 ], [ -12, %33 ], [ -12, %31 ], [ -51, %91 ], [ -51, %89 ], [ 0, %230 ], [ 0, %235 ], [ 0, %231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2652,8 +2652,8 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %89, ptr noundef nonnull @.str.71, ptr noundef %97, ptr noundef %103) #15
   br label %.thread55
 
-.thread55:                                        ; preds = %66, %72, %47, %64, %78, %46, %57, %._crit_edge, %90, %102
-  %104 = phi i1 [ false, %66 ], [ false, %72 ], [ false, %47 ], [ false, %64 ], [ false, %78 ], [ false, %46 ], [ false, %57 ], [ true, %._crit_edge ], [ true, %90 ], [ true, %102 ]
+.thread55:                                        ; preds = %64, %66, %72, %46, %47, %78, %57, %._crit_edge, %90, %102
+  %104 = phi i1 [ false, %64 ], [ false, %66 ], [ false, %72 ], [ false, %46 ], [ false, %47 ], [ false, %78 ], [ false, %57 ], [ true, %._crit_edge ], [ true, %90 ], [ true, %102 ]
   ret i1 %104
 }
 
@@ -3271,7 +3271,7 @@ tcp_peer_event_init.exit:                         ; preds = %21, %34, %42
   br label %77
 
 77:                                               ; preds = %61, %63, %69, %56, %60, %45
-  %.0 = phi i1 [ false, %45 ], [ true, %56 ], [ true, %60 ], [ false, %69 ], [ false, %63 ], [ false, %61 ]
+  %.0 = phi i1 [ false, %45 ], [ true, %60 ], [ true, %56 ], [ false, %69 ], [ false, %63 ], [ false, %61 ]
   ret i1 %.0
 }
 

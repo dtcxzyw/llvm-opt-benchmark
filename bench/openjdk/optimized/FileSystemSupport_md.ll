@@ -46,7 +46,7 @@ define hidden noundef ptr @basePath(ptr noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %1, %20, %12
-  %.0 = phi ptr [ %10, %20 ], [ null, %12 ], [ %0, %1 ]
+  %.0 = phi ptr [ null, %12 ], [ %10, %20 ], [ %0, %1 ]
   ret ptr %.0
 }
 
@@ -200,7 +200,7 @@ define internal fastcc noundef ptr @normalizePath(ptr noundef readonly captures(
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph44, !llvm.loop !9
 
 .loopexit:                                        ; preds = %38, %27, %3, %20, %14
-  %.0 = phi ptr [ %0, %3 ], [ %15, %14 ], [ null, %20 ], [ %18, %27 ], [ %18, %38 ]
+  %.0 = phi ptr [ %15, %14 ], [ null, %20 ], [ %0, %3 ], [ %18, %27 ], [ %18, %38 ]
   ret ptr %.0
 }
 

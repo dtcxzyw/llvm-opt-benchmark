@@ -156,7 +156,7 @@ define internal ptr @v2i_subject_alt(ptr noundef readnone captures(none) %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.preheader, %35, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %35 ], [ %4, %.preheader ], [ %4, %31 ]
+  %.0 = phi ptr [ null, %35 ], [ null, %6 ], [ %4, %.preheader ], [ %4, %31 ]
   ret ptr %.0
 }
 
@@ -312,7 +312,7 @@ copy_issuer.exit.thread:                          ; preds = %54, %16, %.critedge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %copy_issuer.exit, %.thread.us, %.preheader, %copy_issuer.exit.thread, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %copy_issuer.exit.thread ], [ %4, %.preheader ], [ %4, %.thread.us ], [ %4, %copy_issuer.exit ]
+  %.0 = phi ptr [ null, %copy_issuer.exit.thread ], [ null, %22 ], [ %4, %.preheader ], [ %4, %.thread.us ], [ %4, %copy_issuer.exit ]
   ret ptr %.0
 }
 
@@ -717,7 +717,7 @@ define hidden ptr @v2i_GENERAL_NAME_ex(ptr noundef %0, ptr noundef readnone capt
   br label %28
 
 26:                                               ; preds = %23, %21, %19, %17, %15, %13, %11
-  %.017 = phi i32 [ 4, %21 ], [ 7, %19 ], [ 8, %17 ], [ 2, %15 ], [ 6, %13 ], [ 1, %11 ], [ 0, %23 ]
+  %.017 = phi i32 [ 1, %11 ], [ 6, %13 ], [ 2, %15 ], [ 8, %17 ], [ 7, %19 ], [ 4, %21 ], [ 0, %23 ]
   %27 = tail call ptr @a2i_GENERAL_NAME(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %.017, ptr noundef nonnull %9, i32 noundef %4)
   br label %28
 
@@ -881,7 +881,7 @@ do_othername.exit:                                ; preds = %50
   %.not25.i.not = icmp eq ptr %64, null
   br i1 %.not25.i.not, label %do_othername.exit.thread, label %.critedge
 
-do_othername.exit.thread:                         ; preds = %38, %40, %50, %43, %do_othername.exit
+do_othername.exit.thread:                         ; preds = %50, %43, %40, %38, %do_othername.exit
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 148, ptr noundef nonnull @.str.25, i32 noundef 494) #7
   br label %74
 
@@ -907,7 +907,7 @@ do_othername.exit.thread:                         ; preds = %38, %40, %50, %43, 
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.25, i32 noundef 507) #7
   br label %74
 
-.critedge:                                        ; preds = %do_dirname.exit, %.thread, %do_othername.exit, %23, %69
+.critedge:                                        ; preds = %do_dirname.exit, %.thread, %23, %do_othername.exit, %69
   store i32 %3, ptr %.034, align 8, !tbaa !28
   br label %76
 
@@ -919,7 +919,7 @@ do_othername.exit.thread:                         ; preds = %38, %40, %50, %43, 
   br label %76
 
 76:                                               ; preds = %74, %75, %.critedge, %12, %7
-  %.0 = phi ptr [ null, %12 ], [ %.034, %.critedge ], [ null, %7 ], [ null, %75 ], [ null, %74 ]
+  %.0 = phi ptr [ %.034, %.critedge ], [ null, %12 ], [ null, %7 ], [ null, %75 ], [ null, %74 ]
   ret ptr %.0
 }
 
@@ -1067,7 +1067,7 @@ define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %.split.us, %4, %44
-  %.028 = phi i32 [ 1, %4 ], [ 0, %44 ], [ 1, %.split.us ], [ 1, %.split ]
+  %.028 = phi i32 [ 0, %44 ], [ 1, %4 ], [ 1, %.split.us ], [ 1, %.split ]
   ret i32 %.028
 }
 

@@ -261,7 +261,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h70b13a3c57a7f4cbE.exit"
 
 58:                                               ; preds = %36, %26
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi25.i, %36 ], [ %lpad.phi.i, %26 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i, %26 ], [ %lpad.phi25.i, %36 ]
   %59 = icmp ne ptr %.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %59)
   store i64 %.val20.i, ptr %.sroa.0.0.copyload, align 8, !noalias !41
@@ -828,7 +828,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc55a61ffb655c064E.exit"
 
 89:                                               ; preds = %59, %.body.i.i.i, %.loopexit.split-lp.i, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i, %.body.i.i.i ], [ %.pn.i.i.i, %59 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i, %59 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %90 = icmp ne ptr %.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %90)
   store i64 %.val20.i, ptr %.sroa.0.0.copyload, align 8, !noalias !100
@@ -3910,7 +3910,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN212_$LT$ruff_linter..rules..iso
   br label %15
 
 15:                                               ; preds = %2, %19, %13
-  %.sroa.81.0 = phi i32 [ %14, %13 ], [ %20, %19 ], [ %.sroa.525.0.extract.trunc, %2 ]
+  %.sroa.81.0 = phi i32 [ %20, %19 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
   %16 = zext i32 %.sroa.81.0 to i64
   %17 = shl nuw i64 %16, 32
   %18 = or disjoint i64 %17, 1
@@ -4385,7 +4385,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN230_$LT$ruff_linter..rules..fla
   br label %15
 
 15:                                               ; preds = %2, %19, %13
-  %.sroa.81.0 = phi i32 [ %14, %13 ], [ %20, %19 ], [ %.sroa.525.0.extract.trunc, %2 ]
+  %.sroa.81.0 = phi i32 [ %20, %19 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
   %16 = zext i32 %.sroa.81.0 to i64
   %17 = shl nuw i64 %16, 32
   %18 = or disjoint i64 %17, 1
@@ -6588,7 +6588,7 @@ define hidden { i32, i32 } @"_ZN9ruff_wasm1_78_$LT$impl$u20$serde..ser..Serializ
   ret { i32, i32 } %43
 
 44:                                               ; preds = %36, %30, %24, %18, %13
-  %.pn = phi { i32, i32 } [ %29, %30 ], [ %12, %13 ], [ %17, %18 ], [ %23, %24 ], [ %35, %36 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ]
   %.sroa.8.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %41
@@ -6738,7 +6738,7 @@ define hidden { i32, i32 } @"_ZN9ruff_wasm1_75_$LT$impl$u20$serde..ser..Serializ
   ret { i32, i32 } %31
 
 32:                                               ; preds = %24, %19, %13
-  %.pn = phi { i32, i32 } [ %18, %19 ], [ %12, %13 ], [ %23, %24 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %18, %19 ], [ %23, %24 ]
   %.sroa.6.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %29

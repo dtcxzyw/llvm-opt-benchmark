@@ -1215,7 +1215,7 @@ resolveAliasToConverter.exit96.i.i:               ; preds = %._crit_edge58.i71.i
   br label %519
 
 519:                                              ; preds = %.sink.split.i.i, %505, %487
-  %.1110.i.i = phi i16 [ %.0109119.i.i, %505 ], [ %.0112.i.i, %487 ], [ %.1110.ph.i.i, %.sink.split.i.i ]
+  %.1110.i.i = phi i16 [ %.0112.i.i, %487 ], [ %.0109119.i.i, %505 ], [ %.1110.ph.i.i, %.sink.split.i.i ]
   %.not51.i.i = icmp eq i16 %.042122.i.i, %.1108.i.i
   br i1 %.not51.i.i, label %536, label %520
 
@@ -2206,7 +2206,7 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   %119 = icmp samesign ult i64 %indvars.iv.next, %118
   br i1 %119, label %68, label %.thread, !llvm.loop !60
 
-.thread:                                          ; preds = %116, %.preheader, %85, %82, %98
+.thread:                                          ; preds = %116, %.preheader, %98, %85, %82
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %120 = load i16, ptr @converterCount, align 2, !tbaa !19
   %121 = zext i16 %120 to i64

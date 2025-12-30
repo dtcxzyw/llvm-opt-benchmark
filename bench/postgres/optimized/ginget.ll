@@ -396,13 +396,13 @@ BufferGetPage.exit.i.i:                           ; preds = %97, %91
   br label %221
 
 221:                                              ; preds = %.thread139.i.i, %142, %129
-  %.2111.i.i = phi i16 [ %.3112.i.i, %.thread139.i.i ], [ %143, %142 ], [ %.0109160.i.i, %129 ]
-  %.2.i.i = phi i16 [ %.3.i.i, %.thread139.i.i ], [ %.0107161.i.i, %142 ], [ %131, %129 ]
+  %.2111.i.i = phi i16 [ %143, %142 ], [ %.3112.i.i, %.thread139.i.i ], [ %.0109160.i.i, %129 ]
+  %.2.i.i = phi i16 [ %.0107161.i.i, %142 ], [ %.3.i.i, %.thread139.i.i ], [ %131, %129 ]
   %222 = icmp ult i16 %.2111.i.i, %.2.i.i
   br i1 %222, label %129, label %.thread143.i.thread.i
 
 .thread143.i.i:                                   ; preds = %217, %200, %197, %181, %175, %.thread.i.i
-  %.0.i.sink.i.i = phi i8 [ 1, %.thread.i.i ], [ 0, %175 ], [ 0, %217 ], [ 1, %200 ], [ 0, %181 ], [ 0, %197 ]
+  %.0.i.sink.i.i = phi i8 [ 0, %175 ], [ 1, %.thread.i.i ], [ 0, %217 ], [ 1, %200 ], [ 0, %197 ], [ 0, %181 ]
   %223 = load ptr, ptr %112, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 %117
   store i8 %.0.i.sink.i.i, ptr %224, align 1
@@ -493,7 +493,7 @@ BufferGetPage.exit.i.i:                           ; preds = %97, %91
   br i1 %or.cond.i136.i.i, label %matchPartialInPendingList.exit137.i.i, label %238, !llvm.loop !9
 
 matchPartialInPendingList.exit137.i.i:            ; preds = %274, %257, %254, %238, %229
-  %.0.i126.i.i = phi i8 [ 0, %229 ], [ 1, %257 ], [ 0, %238 ], [ 0, %254 ], [ 0, %274 ]
+  %.0.i126.i.i = phi i8 [ 0, %229 ], [ 0, %274 ], [ 1, %257 ], [ 0, %254 ], [ 0, %238 ]
   %276 = load ptr, ptr %112, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 %117
   store i8 %.0.i126.i.i, ptr %277, align 1
@@ -2597,7 +2597,7 @@ keyGetItem.exit.i:                                ; preds = %1253, %1191, %1072,
   br label %1331
 
 .thread:                                          ; preds = %.backedge.i, %994, %1325, %.loopexit
-  %.1.ph67 = phi i1 [ %.1.ph.ph, %.loopexit ], [ %.1.ph.ph, %1325 ], [ false, %994 ], [ false, %.backedge.i ]
+  %.1.ph67 = phi i1 [ %.1.ph.ph, %1325 ], [ %.1.ph.ph, %.loopexit ], [ false, %994 ], [ false, %.backedge.i ]
   call void @tbm_add_tuples(ptr noundef %1, ptr noundef nonnull %13, i32 noundef 1, i1 noundef zeroext %.1.ph67) #8
   br label %1331
 

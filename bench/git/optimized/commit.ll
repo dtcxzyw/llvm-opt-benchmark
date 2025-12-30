@@ -559,7 +559,7 @@ free_commit_list.exit.i:                          ; preds = %free_commit_list.ex
   br label %unparse_commit.exit
 
 unparse_commit.exit:                              ; preds = %free_commit_list.exit.i, %lookup_commit.exit.i, %14, %15
-  %.0 = phi i32 [ 1, %14 ], [ 1, %15 ], [ 0, %lookup_commit.exit.i ], [ 0, %free_commit_list.exit.i ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %14 ], [ 0, %lookup_commit.exit.i ], [ 0, %free_commit_list.exit.i ]
   ret i32 %.0
 }
 
@@ -686,7 +686,7 @@ st_mult.exit:                                     ; preds = %._crit_edge
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %._crit_edge.thread, %1, %6, %.loopexit
-  %.022 = phi ptr [ null, %1 ], [ null, %.loopexit ], [ null, %6 ], [ %.1, %._crit_edge.thread ]
+  %.022 = phi ptr [ null, %.loopexit ], [ null, %6 ], [ null, %1 ], [ %.1, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.022
@@ -1256,7 +1256,7 @@ define dso_local ptr @repo_get_commit_tree(ptr noundef %0, ptr noundef %1) local
   br label %12
 
 12:                                               ; preds = %2, %5, %8, %10
-  %.0 = phi ptr [ null, %8 ], [ %11, %10 ], [ null, %5 ], [ %4, %2 ]
+  %.0 = phi ptr [ %11, %10 ], [ null, %8 ], [ null, %5 ], [ %4, %2 ]
   ret ptr %.0
 }
 
@@ -1288,7 +1288,7 @@ define dso_local ptr @get_commit_tree_oid(ptr noundef %0) local_unnamed_addr #0 
   br label %repo_get_commit_tree.exit
 
 repo_get_commit_tree.exit:                        ; preds = %1, %5, %8, %10
-  %.0.i = phi ptr [ null, %8 ], [ %11, %10 ], [ null, %5 ], [ %4, %1 ]
+  %.0.i = phi ptr [ %11, %10 ], [ null, %8 ], [ null, %5 ], [ %4, %1 ]
   %.not = icmp eq ptr %.0.i, null
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %13 = select i1 %.not, ptr null, ptr %12
@@ -1633,14 +1633,14 @@ free_commit_list.exit:                            ; preds = %pop_commit.exit.i, 
   br label %109
 
 109:                                              ; preds = %94, %105
-  %.177 = phi ptr [ %.076113, %94 ], [ %108, %105 ]
+  %.177 = phi ptr [ %108, %105 ], [ %.076113, %94 ]
   %110 = getelementptr inbounds i8, ptr %95, i64 %59
   %111 = icmp ult ptr %110, %19
   br i1 %111, label %.lr.ph.split, label %.preheader
 
 .preheader:                                       ; preds = %109, %.lr.ph.split, %.thread145
-  %.074.lcssa151 = phi ptr [ %49, %.thread145 ], [ %95, %109 ], [ %.074114, %.lr.ph.split ]
-  %.076.lcssa150 = phi ptr [ %15, %.thread145 ], [ %.177, %109 ], [ %.076113, %.lr.ph.split ]
+  %.074.lcssa151 = phi ptr [ %49, %.thread145 ], [ %.074114, %.lr.ph.split ], [ %95, %109 ]
+  %.076.lcssa150 = phi ptr [ %15, %.thread145 ], [ %.076113, %.lr.ph.split ], [ %.177, %109 ]
   %112 = getelementptr inbounds nuw i8, ptr %51, i64 36
   %113 = load i32, ptr %112, align 4, !tbaa !9
   %.not95124 = icmp sgt i32 %113, 0
@@ -1692,7 +1692,7 @@ lookup_commit.exit:                               ; preds = %118, %121
   br i1 %.not95, label %115, label %.critedge104, !llvm.loop !92
 
 .critedge104:                                     ; preds = %127, %77, %.lr.ph.split.us, %52, %.preheader
-  %.074.lcssa152 = phi ptr [ %78, %77 ], [ %.074.lcssa151, %.preheader ], [ %49, %52 ], [ %.074114.us, %.lr.ph.split.us ], [ %.074.lcssa151, %127 ]
+  %.074.lcssa152 = phi ptr [ %.074.lcssa151, %.preheader ], [ %49, %52 ], [ %78, %77 ], [ %.074114.us, %.lr.ph.split.us ], [ %.074.lcssa151, %127 ]
   %133 = call fastcc i64 @parse_commit_date(ptr noundef %.074.lcssa152, ptr noundef nonnull %19)
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %133, ptr %134, align 8, !tbaa !93
@@ -1710,7 +1710,7 @@ lookup_commit.exit:                               ; preds = %118, %121
   br label %.thread
 
 .thread:                                          ; preds = %.split121.us, %.split.us, %123, %5, %136, %41, %35, %27
-  %.0 = phi i32 [ -1, %41 ], [ -1, %27 ], [ -1, %35 ], [ 0, %5 ], [ 0, %136 ], [ -1, %123 ], [ -1, %.split.us ], [ -1, %.split121.us ]
+  %.0 = phi i32 [ -1, %27 ], [ -1, %35 ], [ 0, %136 ], [ -1, %123 ], [ -1, %41 ], [ 0, %5 ], [ -1, %.split.us ], [ -1, %.split121.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1822,7 +1822,7 @@ define internal fastcc i64 @parse_commit_date(ptr noundef %0, ptr noundef %1) un
   br label %36
 
 36:                                               ; preds = %.critedge4, %.critedge2, %11, %10, %.critedge, %4, %2, %34
-  %.0 = phi i64 [ 0, %10 ], [ 0, %2 ], [ 0, %4 ], [ 0, %.critedge ], [ 0, %11 ], [ %35, %34 ], [ 0, %.critedge2 ], [ 0, %.critedge4 ]
+  %.0 = phi i64 [ %35, %34 ], [ 0, %2 ], [ 0, %4 ], [ 0, %.critedge ], [ 0, %10 ], [ 0, %11 ], [ 0, %.critedge2 ], [ 0, %.critedge4 ]
   ret i64 %.0
 }
 
@@ -2033,7 +2033,7 @@ get_cached_commit_buffer.exit.thread:             ; preds = %71, %82, %get_cache
   br label %96
 
 96:                                               ; preds = %56, %55, %24, %26, %_.exit, %unparse_commit.exit, %13, %4, %94, %get_cached_commit_buffer.exit.thread, %62
-  %.0 = phi i32 [ -1, %4 ], [ -1, %_.exit ], [ 0, %13 ], [ 0, %24 ], [ -1, %62 ], [ %67, %94 ], [ 0, %get_cached_commit_buffer.exit.thread ], [ -1, %unparse_commit.exit ], [ 0, %26 ], [ -1, %55 ], [ -1, %56 ]
+  %.0 = phi i32 [ -1, %62 ], [ %67, %94 ], [ 0, %get_cached_commit_buffer.exit.thread ], [ -1, %4 ], [ 0, %13 ], [ -1, %unparse_commit.exit ], [ -1, %_.exit ], [ 0, %26 ], [ 0, %24 ], [ -1, %55 ], [ -1, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2926,7 +2926,7 @@ author_date_slab_at.exit:                         ; preds = %56, %61
   store i64 %36, ptr %77, align 8, !tbaa !82
   br label %find_commit_header.exit.thread
 
-find_commit_header.exit.thread:                   ; preds = %7, %select.unfold.i, %35, %23, %author_date_slab_at.exit
+find_commit_header.exit.thread:                   ; preds = %select.unfold.i, %7, %35, %23, %author_date_slab_at.exit
   %78 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !12
@@ -3199,7 +3199,7 @@ define dso_local range(i32 -1, 2) i32 @compare_commits_by_gen_then_commit_date(p
   br label %17
 
 17:                                               ; preds = %15, %9, %7, %3
-  %.0 = phi i32 [ 1, %9 ], [ 1, %3 ], [ -1, %7 ], [ %., %15 ]
+  %.0 = phi i32 [ 1, %3 ], [ -1, %7 ], [ 1, %9 ], [ %., %15 ]
   ret i32 %.0
 }
 
@@ -4774,7 +4774,7 @@ strbuf_setlen.exit.i:                             ; preds = %33, %31
   br label %standard_header_field.exit.i
 
 standard_header_field.exit.i:                     ; preds = %44, %43
-  %.shrunk.i.in.i = phi i32 [ %bcmp13.i.i, %43 ], [ %bcmp15.i.i, %44 ]
+  %.shrunk.i.in.i = phi i32 [ %bcmp15.i.i, %44 ], [ %bcmp13.i.i, %43 ]
   %.shrunk.i.not.i = icmp eq i32 %.shrunk.i.in.i, 0
   br i1 %.shrunk.i.not.i, label %excluded_header_field.exit.i, label %standard_header_field.exit.thread68.i
 
@@ -4805,8 +4805,8 @@ standard_header_field.exit.thread68.i:            ; preds = %standard_header_fie
   br i1 %.not16.i63.i, label %excluded_header_field.exit.thread.i, label %.lr.ph.i.i
 
 excluded_header_field.exit.thread.i:              ; preds = %50, %.preheader.i.i, %standard_header_field.exit.thread68.i, %strbuf_setlen.exit.i
-  %.pre-phi79.i = phi i64 [ %35, %strbuf_setlen.exit.i ], [ %39, %.preheader.i.i ], [ %39, %standard_header_field.exit.thread68.i ], [ %39, %50 ]
-  %.047.i = phi ptr [ %20, %strbuf_setlen.exit.i ], [ %36, %.preheader.i.i ], [ %36, %standard_header_field.exit.thread68.i ], [ %36, %50 ]
+  %.pre-phi79.i = phi i64 [ %39, %.preheader.i.i ], [ %39, %standard_header_field.exit.thread68.i ], [ %35, %strbuf_setlen.exit.i ], [ %39, %50 ]
+  %.047.i = phi ptr [ %36, %.preheader.i.i ], [ %36, %standard_header_field.exit.thread68.i ], [ %20, %strbuf_setlen.exit.i ], [ %36, %50 ]
   %53 = call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #25
   %54 = call ptr @xmemdupz(ptr noundef nonnull %.04874.i, i64 noundef %.pre-phi79.i) #25
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -4827,13 +4827,13 @@ excluded_header_field.exit.sink.split.i:          ; preds = %excluded_header_fie
   br label %excluded_header_field.exit.i
 
 excluded_header_field.exit.i:                     ; preds = %49, %excluded_header_field.exit.sink.split.i, %excluded_header_field.exit.thread.i, %standard_header_field.exit.i, %42, %41, %40, %22
-  %.150.i = phi ptr [ null, %41 ], [ null, %22 ], [ null, %standard_header_field.exit.i ], [ null, %40 ], [ %.150.ph.i, %excluded_header_field.exit.sink.split.i ], [ %53, %excluded_header_field.exit.thread.i ], [ null, %42 ], [ null, %49 ]
-  %.1.i = phi ptr [ %.075.i, %41 ], [ %.075.i, %22 ], [ %.075.i, %standard_header_field.exit.i ], [ %.075.i, %40 ], [ %.1.ph.i, %excluded_header_field.exit.sink.split.i ], [ %53, %excluded_header_field.exit.thread.i ], [ %.075.i, %42 ], [ %.075.i, %49 ]
+  %.150.i = phi ptr [ null, %22 ], [ null, %standard_header_field.exit.i ], [ %53, %excluded_header_field.exit.thread.i ], [ null, %42 ], [ null, %41 ], [ null, %40 ], [ %.150.ph.i, %excluded_header_field.exit.sink.split.i ], [ null, %49 ]
+  %.1.i = phi ptr [ %.075.i, %22 ], [ %.075.i, %standard_header_field.exit.i ], [ %53, %excluded_header_field.exit.thread.i ], [ %.075.i, %42 ], [ %.075.i, %41 ], [ %.075.i, %40 ], [ %.1.ph.i, %excluded_header_field.exit.sink.split.i ], [ %.075.i, %49 ]
   %60 = icmp ult ptr %20, %9
   br i1 %60, label %13, label %.critedge.i, !llvm.loop !182
 
 .critedge.i:                                      ; preds = %excluded_header_field.exit.i, %13
-  %.049.lcssa.i = phi ptr [ %.150.i, %excluded_header_field.exit.i ], [ %.04973.i, %13 ]
+  %.049.lcssa.i = phi ptr [ %.04973.i, %13 ], [ %.150.i, %excluded_header_field.exit.i ]
   %.not55.i = icmp eq ptr %.049.lcssa.i, null
   br i1 %.not55.i, label %read_commit_extra_header_lines.exit, label %61
 
@@ -5389,7 +5389,7 @@ _.exit:                                           ; preds = %140, %143
   br label %159
 
 159:                                              ; preds = %.thread, %sign_commit_to_strbuf.exit, %153
-  %.073 = phi i32 [ -1, %.thread ], [ %158, %153 ], [ -1, %sign_commit_to_strbuf.exit ]
+  %.073 = phi i32 [ %158, %153 ], [ -1, %sign_commit_to_strbuf.exit ], [ -1, %.thread ]
   call void @free(ptr noundef %34) #25
   call void @strbuf_release(ptr noundef nonnull %12) #25
   call void @strbuf_release(ptr noundef nonnull %13) #25
@@ -5687,9 +5687,9 @@ define internal fastcc range(i32 0, 2) i32 @verify_utf8(ptr noundef nonnull %0) 
   br i1 %or.cond76.i, label %find_invalid_utf8.exit, label %53
 
 53:                                               ; preds = %44, %.lr.ph93.i
-  %.156.i = phi i32 [ %31, %44 ], [ %15, %.lr.ph93.i ]
-  %.151.i = phi i32 [ %32, %44 ], [ %14, %.lr.ph93.i ]
-  %.147.i = phi ptr [ %scevgep106.i, %44 ], [ %12, %.lr.ph93.i ]
+  %.156.i = phi i32 [ %15, %.lr.ph93.i ], [ %31, %44 ]
+  %.151.i = phi i32 [ %14, %.lr.ph93.i ], [ %32, %44 ]
+  %.147.i = phi ptr [ %12, %.lr.ph93.i ], [ %scevgep106.i, %44 ]
   %.not.i = icmp eq i32 %.151.i, 0
   br i1 %.not.i, label %find_invalid_utf8.exit.thread, label %.lr.ph93.i
 
@@ -5722,7 +5722,7 @@ find_invalid_utf8.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %.not88.i, label %find_invalid_utf8.exit.thread, label %.lr.ph93.i.preheader
 
 find_invalid_utf8.exit.thread:                    ; preds = %find_invalid_utf8.exit, %55, %53, %1
-  %.01938 = phi i32 [ %.01941, %53 ], [ 1, %1 ], [ %.01941, %find_invalid_utf8.exit ], [ 0, %55 ]
+  %.01938 = phi i32 [ 1, %1 ], [ %.01941, %53 ], [ %.01941, %find_invalid_utf8.exit ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.01938
 }
@@ -6026,8 +6026,8 @@ define dso_local i64 @ignored_log_message_bytes(ptr noundef %0, i64 noundef %1) 
   br label %28
 
 28:                                               ; preds = %20, %17, %26, %27, %22
-  %.138 = phi i32 [ 1, %22 ], [ 0, %26 ], [ 1, %20 ], [ %.03751, %17 ], [ 0, %27 ]
-  %.1 = phi i64 [ %.03652, %22 ], [ 0, %26 ], [ %spec.select49, %20 ], [ %spec.select, %17 ], [ 0, %27 ]
+  %.138 = phi i32 [ 0, %27 ], [ 1, %22 ], [ 0, %26 ], [ %.03751, %17 ], [ 1, %20 ]
+  %.1 = phi i64 [ 0, %27 ], [ %.03652, %22 ], [ 0, %26 ], [ %spec.select, %17 ], [ %spec.select49, %20 ]
   %.1.fr = freeze i64 %.1
   %29 = ptrtoint ptr %.0 to i64
   %30 = sub i64 %29, %5

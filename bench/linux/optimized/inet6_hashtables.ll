@@ -547,9 +547,9 @@ define dso_local ptr @inet6_lookup_run_sk_lookup(ptr noundef %0, i32 noundef %1,
   br label %60
 
 60:                                               ; preds = %55, %59, %53
-  %61 = phi ptr [ %spec.select, %55 ], [ %33, %59 ], [ %33, %53 ]
-  %62 = phi i8 [ %spec.select7, %55 ], [ %32, %59 ], [ %32, %53 ]
-  %63 = phi i8 [ %31, %55 ], [ 0, %59 ], [ %31, %53 ]
+  %61 = phi ptr [ %33, %59 ], [ %33, %53 ], [ %spec.select, %55 ]
+  %62 = phi i8 [ %32, %59 ], [ %32, %53 ], [ %spec.select7, %55 ]
+  %63 = phi i8 [ 0, %59 ], [ %31, %53 ], [ %31, %55 ]
   %64 = getelementptr i8, ptr %34, i64 24
   %65 = load volatile ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null

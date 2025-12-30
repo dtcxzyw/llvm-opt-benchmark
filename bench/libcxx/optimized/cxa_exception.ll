@@ -470,7 +470,7 @@ define dso_local ptr @__cxa_current_exception_type() local_unnamed_addr #9 {
   br label %13
 
 13:                                               ; preds = %10, %3, %6, %0
-  %.0 = phi ptr [ null, %0 ], [ null, %3 ], [ %12, %10 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %0 ], [ %12, %10 ], [ null, %3 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -632,7 +632,7 @@ define dso_local ptr @__cxa_current_primary_exception() local_unnamed_addr #2 pe
   br label %22
 
 22:                                               ; preds = %18, %4, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %19, %18 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %2 ], [ %19, %18 ], [ null, %4 ], [ null, %7 ]
   ret ptr %.0
 
 23:                                               ; preds = %0

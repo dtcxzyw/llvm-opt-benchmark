@@ -930,7 +930,7 @@ common.resume.i:                                  ; preds = %109, %.body.i, %30
   br i1 %81, label %.loopexit.i.i.i.sink.split, label %.lr.ph.i.i.i.i.i.i
 
 .body.i.i.i:                                      ; preds = %92, %82, %66
-  %.pn.i.i.i = phi { ptr, i32 } [ %93, %92 ], [ %67, %66 ], [ %83, %82 ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %93, %92 ], [ %83, %82 ], [ %67, %66 ]
   invoke void @"_ZN4core3ptr255drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$alloc..vec..into_iter..IntoIter$LT$alloc..rc..Rc$LT$syn..error..Error$GT$$GT$$C$dsl_auto_type..auto_type..expression_type_inference..infer_expression_type..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h29e687f6fe2369caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #13
           to label %.body.i unwind label %95, !noalias !117
 

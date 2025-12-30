@@ -1303,11 +1303,11 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
   unreachable
 
 .thread49:                                        ; preds = %.thread52, %71, %59
-  %.pn47 = phi { ptr, i32 } [ %72, %71 ], [ %60, %59 ], [ %.pn48, %.thread52 ]
+  %.pn47 = phi { ptr, i32 } [ %60, %59 ], [ %72, %71 ], [ %.pn48, %.thread52 ]
   resume { ptr, i32 } %.pn47
 
 .thread52:                                        ; preds = %.loopexit69, %.loopexit.split-lp, %.body38, %.body38.thread, %91
-  %.pn48 = phi { ptr, i32 } [ %92, %91 ], [ %eh.lpad-body3964, %.body38.thread ], [ %lpad.thr_comm.split-lp, %.body38 ], [ %lpad.loopexit, %.loopexit69 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %92, %91 ], [ %lpad.thr_comm.split-lp, %.body38 ], [ %eh.lpad-body3964, %.body38.thread ], [ %lpad.loopexit, %.loopexit69 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %146 = getelementptr inbounds nuw i8, ptr %16, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17he71d12f50d718b51E(ptr noalias noundef nonnull align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 1 %146, i64 noundef 112, i64 noundef 16)
           to label %.thread49 unwind label %144
@@ -1451,7 +1451,7 @@ define void @_ZN8uv_types4hash12HashStrategy3pin17h6e1ad01c514826aeE(ptr dead_on
   unreachable
 
 60:                                               ; preds = %2, %17, %16
-  %.sink = phi i64 [ 96, %2 ], [ 8, %17 ], [ 176, %16 ]
+  %.sink = phi i64 [ 8, %17 ], [ 176, %16 ], [ 96, %2 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %62 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %61)
   tail call void @_ZN21uv_distribution_types2id9VersionId8from_url17h2815b4d54f85f713E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %62)

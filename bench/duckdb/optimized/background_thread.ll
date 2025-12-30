@@ -1169,7 +1169,7 @@ malloc_mutex_lock.exit:                           ; preds = %26, %32
   br i1 %46, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %malloc_mutex_lock.exit, %20, %.lr.ph, %.preheader, %9, %atomic_store_b.exit
-  %.0 = phi i1 [ true, %9 ], [ true, %atomic_store_b.exit ], [ false, %.preheader ], [ true, %20 ], [ false, %malloc_mutex_lock.exit ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ true, %atomic_store_b.exit ], [ true, %9 ], [ false, %.preheader ], [ false, %malloc_mutex_lock.exit ], [ true, %20 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1430,7 +1430,7 @@ post_reentrancy.exit.i:                           ; preds = %35, %pre_reentrancy
   unreachable
 
 check_background_thread_creation.exit:            ; preds = %37, %39
-  %.134 = phi i32 [ %.033.ph51, %39 ], [ %38, %37 ]
+  %.134 = phi i32 [ %38, %37 ], [ %.033.ph51, %39 ]
   %43 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !17
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   tail call fastcc void @malloc_mutex_lock(ptr noundef nonnull %0, ptr noundef nonnull %44)
@@ -1680,7 +1680,7 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   br label %22
 
 22:                                               ; preds = %19, %.lr.ph.split.us
-  %.1.us = phi i64 [ %.02227.us, %.lr.ph.split.us ], [ %spec.select.us, %19 ]
+  %.1.us = phi i64 [ %spec.select.us, %19 ], [ %.02227.us, %.lr.ph.split.us ]
   %23 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
   %24 = trunc i64 %23 to i32
   %25 = add i32 %.02326.us, %24
@@ -1788,7 +1788,7 @@ background_thread_sleep.exit:                     ; preds = %54, %61
   br label %71
 
 71:                                               ; preds = %66, %.lr.ph.split, %68
-  %.1 = phi i64 [ %.02227, %.lr.ph.split ], [ %spec.select, %68 ], [ %.02227, %66 ]
+  %.1 = phi i64 [ %spec.select, %68 ], [ %.02227, %.lr.ph.split ], [ %.02227, %66 ]
   %72 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
   %73 = trunc i64 %72 to i32
   %74 = add i32 %.02326, %73

@@ -133,7 +133,7 @@ check_rng.exit19:                                 ; preds = %37, %38
   br label %46
 
 46:                                               ; preds = %check_rng.exit19, %1, %6, %11, %44
-  %.0 = phi ptr [ null, %1 ], [ null, %44 ], [ null, %11 ], [ null, %6 ], [ %12, %check_rng.exit19 ]
+  %.0 = phi ptr [ null, %44 ], [ null, %11 ], [ null, %6 ], [ null, %1 ], [ %12, %check_rng.exit19 ]
   ret ptr %.0
 }
 
@@ -352,7 +352,7 @@ define internal range(i32 0, 2) i32 @fake_rand_get_ctx_params(ptr noundef readon
   br label %17
 
 17:                                               ; preds = %14, %10, %4, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %10 ], [ 0, %4 ], [ 0, %14 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %4 ], [ 0, %10 ], [ 0, %14 ]
   ret i32 %.0
 }
 

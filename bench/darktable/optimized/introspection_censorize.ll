@@ -369,7 +369,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %145, label %.preheader.us.us.us, label %._crit_edge208.us.us
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader201.lr.ph, %57, %55
-  %.2 = phi ptr [ %.0168, %55 ], [ %56, %.preheader201.lr.ph ], [ %56, %57 ], [ %56, %._crit_edge.us ]
+  %.2 = phi ptr [ %.0168, %55 ], [ %56, %57 ], [ %56, %.preheader201.lr.ph ], [ %56, %._crit_edge.us ]
   %146 = fcmp reassoc nsz arcp contract afn une float %42, 0.000000e+00
   br i1 %146, label %147, label %155
 
@@ -699,7 +699,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %15
 
 15:                                               ; preds = %12, %2, %10, %6
-  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %12 ], [ %11, %10 ], [ %7, %6 ]
+  %.0 = phi ptr [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %12 ]
   ret ptr %.0
 }
 
@@ -729,7 +729,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ]
   ret ptr %.0
 }
 

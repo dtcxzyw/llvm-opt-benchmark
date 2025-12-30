@@ -1204,7 +1204,7 @@ flush_put_bits.exit:                              ; preds = %73, %56
   br label %87
 
 87:                                               ; preds = %37, %flush_put_bits.exit, %53, %12, %34, %11
-  %.0 = phi i32 [ -22, %11 ], [ %27, %12 ], [ -22, %34 ], [ -12, %53 ], [ 0, %flush_put_bits.exit ], [ 0, %37 ]
+  %.0 = phi i32 [ -22, %11 ], [ -22, %34 ], [ %27, %12 ], [ -12, %53 ], [ 0, %flush_put_bits.exit ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -2374,8 +2374,8 @@ define internal void @mpeg4_encode_mb(ptr noundef %0, ptr noundef captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %16, %4
-  %20 = phi ptr [ %spec.select518, %16 ], [ %14, %4 ]
-  %21 = phi ptr [ %spec.select668, %16 ], [ %14, %4 ]
+  %20 = phi ptr [ %14, %4 ], [ %spec.select518, %16 ]
+  %21 = phi ptr [ %14, %4 ], [ %spec.select668, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -3466,7 +3466,7 @@ get_p_cbp.exit:                                   ; preds = %525, %526
   store i32 1, ptr %623, align 8, !tbaa !167
   br label %625
 
-.critedge506:                                     ; preds = %574, %581, %578
+.critedge506:                                     ; preds = %574, %578, %581
   %.pre778 = load i32, ptr %566, align 8, !tbaa !167
   %624 = icmp eq i32 %.pre778, 1
   br i1 %624, label %625, label %.critedge508
@@ -4543,9 +4543,9 @@ put_bits.exit612:                                 ; preds = %1145, %1153, %1133
   br label %1267
 
 1267:                                             ; preds = %1266, %1265, %1243
-  %.038.i = phi i32 [ %1263, %1243 ], [ %spec.select.i622, %1266 ], [ %spec.select.i622, %1265 ]
-  %.037.i = phi i32 [ %1258, %1243 ], [ %spec.select43.i, %1266 ], [ %spec.select42.i, %1265 ]
-  %.0.i619 = phi i32 [ %1253, %1243 ], [ %spec.select44.i, %1266 ], [ %1253, %1265 ]
+  %.038.i = phi i32 [ %spec.select.i622, %1265 ], [ %1263, %1243 ], [ %spec.select.i622, %1266 ]
+  %.037.i = phi i32 [ %spec.select42.i, %1265 ], [ %1258, %1243 ], [ %spec.select43.i, %1266 ]
+  %.0.i619 = phi i32 [ %1253, %1265 ], [ %1253, %1243 ], [ %spec.select44.i, %1266 ]
   br i1 %1237, label %1268, label %ff_mpeg4_pred_dc.exit
 
 1268:                                             ; preds = %1267
@@ -4899,7 +4899,7 @@ get_block_rate.exit.i:                            ; preds = %1354, %1317
   br i1 %exitcond251.not.i, label %.loopexit224.i, label %1469, !llvm.loop !188
 
 .loopexit224.i:                                   ; preds = %1406, %1388, %1469, %1452
-  %.sink.i = phi ptr [ %1316, %1469 ], [ %1315, %1388 ], [ %1316, %1452 ], [ %1315, %1406 ]
+  %.sink.i = phi ptr [ %1316, %1452 ], [ %1316, %1469 ], [ %1315, %1388 ], [ %1315, %1406 ]
   %1494 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv256.i
   store ptr %.sink.i, ptr %1494, align 8, !tbaa !166
   br label %1495
@@ -5587,7 +5587,7 @@ restore_ac_coeffs.exit:                           ; preds = %.loopexit.i, %1834
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge503
 
-.critedge503:                                     ; preds = %626, %625, %150, %put_bits.exit, %54, %restore_ac_coeffs.exit, %1195, %400, %.critedge, %.critedge512
+.critedge503:                                     ; preds = %626, %625, %put_bits.exit, %150, %54, %restore_ac_coeffs.exit, %1195, %400, %.critedge, %.critedge512
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -7139,8 +7139,8 @@ put_bits.exit178:                                 ; preds = %572, %580, %562
   br label %put_bits.exit182
 
 put_bits.exit182:                                 ; preds = %610, %615, %593, %598, %601, %584
-  %.sink271 = phi i32 [ 31, %593 ], [ -2, %601 ], [ -1, %584 ], [ 31, %598 ], [ 30, %615 ], [ 30, %610 ]
-  %storemerge228 = phi i32 [ 0, %593 ], [ %602, %601 ], [ %585, %584 ], [ 0, %598 ], [ 0, %615 ], [ 0, %610 ]
+  %.sink271 = phi i32 [ -2, %601 ], [ -1, %584 ], [ 31, %598 ], [ 31, %593 ], [ 30, %615 ], [ 30, %610 ]
+  %storemerge228 = phi i32 [ %602, %601 ], [ %585, %584 ], [ 0, %598 ], [ 0, %593 ], [ 0, %615 ], [ 0, %610 ]
   %616 = add nsw i32 %581, %.sink271
   store i32 %storemerge228, ptr %10, align 8, !tbaa !58
   store i32 %616, ptr %11, align 4, !tbaa !57
@@ -7824,7 +7824,7 @@ define internal fastcc void @mpeg4_encode_blocks(ptr noundef captures(none) %0, 
   br label %mpeg4_get_block_length.exit
 
 mpeg4_get_block_length.exit:                      ; preds = %26, %32, %77
-  %.0.i = phi i32 [ %.0.i.i, %26 ], [ %.4.i, %77 ], [ 0, %32 ]
+  %.0.i = phi i32 [ %.4.i, %77 ], [ %.0.i.i, %26 ], [ 0, %32 ]
   %reass.sub.i = sub i32 %.0.i, %19
   %78 = add i32 %reass.sub.i, 32
   %79 = lshr i32 %78, 3
@@ -7982,7 +7982,7 @@ mpeg4_get_block_length.exit:                      ; preds = %26, %32, %77
   br label %mpeg4_get_block_length.exit78
 
 mpeg4_get_block_length.exit78:                    ; preds = %104, %107, %152
-  %.0.i61 = phi i32 [ %.0.i.i50, %104 ], [ %.4.i60, %152 ], [ 0, %107 ]
+  %.0.i61 = phi i32 [ %.4.i60, %152 ], [ %.0.i.i50, %104 ], [ 0, %107 ]
   %reass.sub.i79 = sub i32 %.0.i61, %99
   %153 = add i32 %reass.sub.i79, 32
   %154 = lshr i32 %153, 3
@@ -8131,8 +8131,8 @@ define internal fastcc void @mpeg4_encode_block(ptr noundef readonly captures(no
   br label %mpeg4_encode_dc.exit
 
 mpeg4_encode_dc.exit:                             ; preds = %29, %51, %61, %83
-  %.026.i.i8.sink.i = phi i32 [ %27, %51 ], [ %31, %29 ], [ %63, %61 ], [ %59, %83 ]
-  %.0.i.i9.sink.i = phi i32 [ %52, %51 ], [ %32, %29 ], [ %64, %61 ], [ %84, %83 ]
+  %.026.i.i8.sink.i = phi i32 [ %31, %29 ], [ %27, %51 ], [ %63, %61 ], [ %59, %83 ]
+  %.0.i.i9.sink.i = phi i32 [ %32, %29 ], [ %52, %51 ], [ %64, %61 ], [ %84, %83 ]
   store i32 %.026.i.i8.sink.i, ptr %5, align 8, !tbaa !58
   store i32 %.0.i.i9.sink.i, ptr %19, align 4, !tbaa !57
   %85 = icmp slt i32 %11, 1
@@ -8692,9 +8692,9 @@ get_rl_index.exit153:                             ; preds = %62
   br label %get_rl_index.exit153.thread
 
 get_rl_index.exit153.thread:                      ; preds = %62, %get_rl_index.exit153, %80, %53
-  %.pre186 = phi i32 [ %.pre186.pre189, %get_rl_index.exit153 ], [ %.pre186.pre189, %62 ], [ %.pre186.pre, %80 ], [ %.pre186.pre189, %53 ]
-  %.pre184 = phi ptr [ %.pre184.pre187, %get_rl_index.exit153 ], [ %.pre184.pre187, %62 ], [ %.pre184.pre, %80 ], [ %.pre184.pre187, %53 ]
-  %90 = phi i8 [ %54, %get_rl_index.exit153 ], [ %54, %62 ], [ %89, %80 ], [ %54, %53 ]
+  %.pre186 = phi i32 [ %.pre186.pre189, %get_rl_index.exit153 ], [ %.pre186.pre, %80 ], [ %.pre186.pre189, %53 ], [ %.pre186.pre189, %62 ]
+  %.pre184 = phi ptr [ %.pre184.pre187, %get_rl_index.exit153 ], [ %.pre184.pre, %80 ], [ %.pre184.pre187, %53 ], [ %.pre184.pre187, %62 ]
+  %90 = phi i8 [ %54, %get_rl_index.exit153 ], [ %89, %80 ], [ %54, %53 ], [ %54, %62 ]
   %91 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !166
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %13
@@ -8760,9 +8760,9 @@ get_rl_index.exit156:                             ; preds = %99
   br label %get_rl_index.exit156.thread
 
 get_rl_index.exit156.thread:                      ; preds = %99, %get_rl_index.exit156, %121, %get_rl_index.exit153.thread
-  %132 = phi i8 [ %90, %get_rl_index.exit156 ], [ %90, %99 ], [ %131, %121 ], [ %90, %get_rl_index.exit153.thread ]
-  %133 = phi i32 [ %.pre186, %get_rl_index.exit156 ], [ %.pre186, %99 ], [ %.pre185, %121 ], [ %.pre186, %get_rl_index.exit153.thread ]
-  %134 = phi ptr [ %.pre184, %get_rl_index.exit156 ], [ %.pre184, %99 ], [ %.pre183, %121 ], [ %.pre184, %get_rl_index.exit153.thread ]
+  %132 = phi i8 [ %90, %get_rl_index.exit156 ], [ %131, %121 ], [ %90, %get_rl_index.exit153.thread ], [ %90, %99 ]
+  %133 = phi i32 [ %.pre186, %get_rl_index.exit156 ], [ %.pre185, %121 ], [ %.pre186, %get_rl_index.exit153.thread ], [ %.pre186, %99 ]
+  %134 = phi ptr [ %.pre184, %get_rl_index.exit156 ], [ %.pre183, %121 ], [ %.pre184, %get_rl_index.exit153.thread ], [ %.pre184, %99 ]
   %135 = sext i32 %133 to i64
   %136 = getelementptr inbounds [2 x i16], ptr %134, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 2

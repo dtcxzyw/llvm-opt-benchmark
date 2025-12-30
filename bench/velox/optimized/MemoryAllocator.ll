@@ -389,8 +389,8 @@ return:                                           ; preds = %sw.default, %invoke
   ret void
 
 eh.resume:                                        ; preds = %lpad3, %lpad.i10, %lpad, %lpad.i
-  %ref.tmp2.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp, %lpad.i ], [ %ref.tmp2, %lpad.i10 ], [ %ref.tmp2, %lpad3 ]
-  %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i ], [ %2, %lpad.i10 ], [ %3, %lpad3 ]
+  %ref.tmp2.sink = phi ptr [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ], [ %ref.tmp2, %lpad.i10 ], [ %ref.tmp2, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ], [ %2, %lpad.i10 ], [ %3, %lpad3 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.sink) #13
   resume { ptr, i32 } %.pn
 }
@@ -809,7 +809,7 @@ land.rhs:                                         ; preds = %land.lhs.true5
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true5, %land.rhs, %entry
-  %3 = phi i1 [ true, %entry ], [ false, %land.lhs.true5 ], [ %cmp10, %land.rhs ], [ false, %lor.rhs ]
+  %3 = phi i1 [ true, %entry ], [ false, %land.lhs.true5 ], [ false, %lor.rhs ], [ %cmp10, %land.rhs ]
   ret i1 %3
 }
 
@@ -948,7 +948,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %if.then.i.i16, %lpad13, %if.then.i.i40, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %4, %if.then.i.i ], [ %12, %if.then.i.i16 ], [ %12, %lpad ], [ %30, %lpad13 ], [ %30, %if.then.i.i40 ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %if.then.i.i ], [ %4, %lpad.i ], [ %12, %lpad ], [ %12, %if.then.i.i16 ], [ %30, %lpad13 ], [ %30, %if.then.i.i40 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvlbEEC2ERKS1_.exit:               ; preds = %if.then, %invoke.cont.i
@@ -1117,7 +1117,7 @@ if.end23:                                         ; preds = %_ZNKSt8functionIFvl
   br label %return
 
 return:                                           ; preds = %if.then.i.i10, %invoke.cont, %_ZNSt8functionIFbRN8facebook5velox6memory10AllocationEEED2Ev.exit, %if.end23, %_ZNK8facebook5velox6memory10Allocation5emptyEv.exit
-  %retval.0 = phi i1 [ true, %_ZNSt8functionIFbRN8facebook5velox6memory10AllocationEEED2Ev.exit ], [ false, %_ZNK8facebook5velox6memory10Allocation5emptyEv.exit ], [ false, %if.end23 ], [ %call4, %invoke.cont ], [ %call4, %if.then.i.i10 ]
+  %retval.0 = phi i1 [ false, %_ZNK8facebook5velox6memory10Allocation5emptyEv.exit ], [ false, %if.end23 ], [ true, %_ZNSt8functionIFbRN8facebook5velox6memory10AllocationEEED2Ev.exit ], [ %call4, %invoke.cont ], [ %call4, %if.then.i.i10 ]
   ret i1 %retval.0
 }
 
@@ -1181,7 +1181,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %if.then.i.i20, %lpad14, %if.then.i.i38, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %4, %if.then.i.i ], [ %12, %if.then.i.i20 ], [ %12, %lpad ], [ %30, %lpad14 ], [ %30, %if.then.i.i38 ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %if.then.i.i ], [ %4, %lpad.i ], [ %12, %lpad ], [ %12, %if.then.i.i20 ], [ %30, %lpad14 ], [ %30, %if.then.i.i38 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvlbEEC2ERKS1_.exit:               ; preds = %if.then, %invoke.cont.i
@@ -1410,7 +1410,7 @@ _ZNKSt8functionIFvlbEEclElb.exit:                 ; preds = %if.end35
   br label %return
 
 return:                                           ; preds = %if.then.i.i14, %invoke.cont, %_ZNSt8functionIFbRN8facebook5velox6memory10AllocationEEED2Ev.exit, %_ZNKSt8functionIFvlbEEclElb.exit, %if.end35
-  %retval.0 = phi i1 [ true, %_ZNSt8functionIFbRN8facebook5velox6memory10AllocationEEED2Ev.exit ], [ false, %if.end35 ], [ false, %_ZNKSt8functionIFvlbEEclElb.exit ], [ %call4, %invoke.cont ], [ %call4, %if.then.i.i14 ]
+  %retval.0 = phi i1 [ false, %if.end35 ], [ false, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %_ZNSt8functionIFbRN8facebook5velox6memory10AllocationEEED2Ev.exit ], [ %call4, %invoke.cont ], [ %call4, %if.then.i.i14 ]
   ret i1 %retval.0
 }
 
@@ -1470,7 +1470,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %if.then.i.i11, %lpad11, %if.then.i.i26, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %4, %if.then.i.i ], [ %12, %if.then.i.i11 ], [ %12, %lpad ], [ %22, %lpad11 ], [ %22, %if.then.i.i26 ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %if.then.i.i ], [ %4, %lpad.i ], [ %12, %lpad ], [ %12, %if.then.i.i11 ], [ %22, %lpad11 ], [ %22, %if.then.i.i26 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvlbEEC2ERKS1_.exit:               ; preds = %if.then, %invoke.cont.i
@@ -1575,7 +1575,7 @@ terminate.lpad.i.i28:                             ; preds = %if.then.i.i26
   unreachable
 
 return:                                           ; preds = %if.then.i.i20, %invoke.cont12, %if.then.i.i5, %invoke.cont
-  %retval.0 = phi i1 [ %call4, %if.then.i.i5 ], [ %call4, %invoke.cont ], [ %call13, %invoke.cont12 ], [ %call13, %if.then.i.i20 ]
+  %retval.0 = phi i1 [ %call4, %invoke.cont ], [ %call4, %if.then.i.i5 ], [ %call13, %invoke.cont12 ], [ %call13, %if.then.i.i20 ]
   ret i1 %retval.0
 }
 
@@ -2901,7 +2901,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   unreachable
 
 common.resume.i.i.i:                              ; preds = %if.then.i.i9.i.i.i, %lpad.i.i.i, %if.then.i.i.i.i.i, %lpad.i.i.i.i
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %12, %lpad.i.i.i.i ], [ %12, %if.then.i.i.i.i.i ], [ %23, %lpad.i.i.i ], [ %23, %if.then.i.i9.i.i.i ]
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %12, %if.then.i.i.i.i.i ], [ %12, %lpad.i.i.i.i ], [ %23, %lpad.i.i.i ], [ %23, %if.then.i.i9.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 _ZNSt8functionIFvlbEEC2ERKS1_.exit.i.i.i:         ; preds = %invoke.cont.i.i.i.i, %entry
@@ -3052,7 +3052,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   unreachable
 
 common.resume.i.i.i:                              ; preds = %if.then.i.i9.i.i.i, %lpad.i.i.i, %if.then.i.i.i.i.i, %lpad.i.i.i.i
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %15, %lpad.i.i.i.i ], [ %15, %if.then.i.i.i.i.i ], [ %26, %lpad.i.i.i ], [ %26, %if.then.i.i9.i.i.i ]
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %15, %if.then.i.i.i.i.i ], [ %15, %lpad.i.i.i.i ], [ %26, %lpad.i.i.i ], [ %26, %if.then.i.i9.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 _ZNSt8functionIFvlbEEC2ERKS1_.exit.i.i.i:         ; preds = %invoke.cont.i.i.i.i, %entry
@@ -3200,7 +3200,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   unreachable
 
 common.resume.i.i.i:                              ; preds = %if.then.i.i9.i.i.i, %lpad.i.i.i, %if.then.i.i.i.i.i, %lpad.i.i.i.i
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %12, %lpad.i.i.i.i ], [ %12, %if.then.i.i.i.i.i ], [ %20, %lpad.i.i.i ], [ %20, %if.then.i.i9.i.i.i ]
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %12, %if.then.i.i.i.i.i ], [ %12, %lpad.i.i.i.i ], [ %20, %lpad.i.i.i ], [ %20, %if.then.i.i9.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 _ZNSt8functionIFvlbEEC2ERKS1_.exit.i.i.i:         ; preds = %invoke.cont.i.i.i.i, %entry

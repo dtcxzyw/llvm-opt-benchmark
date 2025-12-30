@@ -379,7 +379,7 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %129, %127, %114
-  %usb_hid_boot_mouse_input_report_handle.sink.i = phi ptr [ @usb_hid_boot_keyboard_output_report_handle, %127 ], [ @usb_hid_boot_keyboard_input_report_handle, %129 ], [ @usb_hid_boot_mouse_input_report_handle, %114 ]
+  %usb_hid_boot_mouse_input_report_handle.sink.i = phi ptr [ @usb_hid_boot_keyboard_input_report_handle, %129 ], [ @usb_hid_boot_keyboard_output_report_handle, %127 ], [ @usb_hid_boot_mouse_input_report_handle, %114 ]
   %130 = load ptr, ptr %usb_hid_boot_mouse_input_report_handle.sink.i, align 8
   %131 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
   %132 = tail call i32 @call_dissector_with_data(ptr noundef %130, ptr noundef %131, ptr noundef %1, ptr noundef %8, ptr noundef null)
@@ -387,7 +387,7 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_hid_data.exit
 
 dissect_hid_data.exit:                            ; preds = %.critedge, %.sink.split.i, %127, %114, %.thread140, %28, %37, %.thread137, %98, %85, %75, %63, %23, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %23 ], [ %133, %.sink.split.i ], [ %62, %.thread137 ], [ 2, %.thread140 ], [ %74, %63 ], [ 2, %75 ], [ 1, %85 ], [ 2, %98 ], [ 1, %37 ], [ 1, %28 ], [ 2, %114 ], [ 2, %127 ], [ 1, %.critedge ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %23 ], [ %62, %.thread137 ], [ %74, %63 ], [ 2, %75 ], [ 1, %85 ], [ 2, %98 ], [ 1, %37 ], [ 1, %28 ], [ 2, %.thread140 ], [ 2, %114 ], [ 2, %127 ], [ %133, %.sink.split.i ], [ 1, %.critedge ]
   ret i32 %.0
 }
 

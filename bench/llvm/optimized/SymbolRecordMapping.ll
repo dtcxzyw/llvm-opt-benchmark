@@ -2799,7 +2799,7 @@ _ZNSt6vectorIN4llvm8codeview20LocalVariableAddrGapESaIS2_EE9push_backERKS2_.exit
   %.pre = load ptr, ptr %13, align 8, !tbaa !82
   br label %56, !llvm.loop !181
 
-.critedge.thread:                                 ; preds = %78, %_ZNK4llvm18BinaryStreamReader5emptyEv.exit
+.critedge.thread:                                 ; preds = %_ZNK4llvm18BinaryStreamReader5emptyEv.exit, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm5ErrorD2Ev.exit32
 
@@ -5499,7 +5499,7 @@ switch.lookup4:                                   ; preds = %2
   br label %3
 
 3:                                                ; preds = %switch.lookup4, %switch.lookup, %2
-  %.0 = phi i16 [ %switch.masked8, %switch.lookup4 ], [ %switch.masked, %switch.lookup ], [ 0, %2 ]
+  %.0 = phi i16 [ 0, %2 ], [ %switch.masked, %switch.lookup ], [ %switch.masked8, %switch.lookup4 ]
   ret i16 %.0
 }
 
@@ -5546,7 +5546,7 @@ switch.lookup:                                    ; preds = %6
   br label %10
 
 10:                                               ; preds = %switch.lookup, %3, %8, %5, %4
-  %.0 = phi i8 [ 0, %8 ], [ %switch.masked, %switch.lookup ], [ 2, %4 ], [ 3, %5 ], [ 1, %3 ]
+  %.0 = phi i8 [ 0, %8 ], [ 2, %4 ], [ 3, %5 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.0
 }
 

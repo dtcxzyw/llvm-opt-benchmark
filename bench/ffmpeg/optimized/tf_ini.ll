@@ -60,8 +60,8 @@ define internal void @ini_print_section_header(ptr noundef %0, ptr readnone capt
   br label %tf_get_section.exit
 
 tf_get_section.exit:                              ; preds = %12, %.thread.i
-  %17 = phi i32 [ %7, %12 ], [ %.pre, %.thread.i ]
-  %.0.i = phi ptr [ %16, %12 ], [ null, %.thread.i ]
+  %17 = phi i32 [ %.pre, %.thread.i ], [ %7, %12 ]
+  %.0.i = phi ptr [ null, %.thread.i ], [ %16, %12 ]
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %tf_get_parent_section.exit, label %19
 
@@ -84,7 +84,7 @@ tf_get_section.exit:                              ; preds = %12, %.thread.i
   br label %tf_get_parent_section.exit
 
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %22, %.thread.i.i
-  %.0.i44 = phi ptr [ null, %tf_get_section.exit ], [ %26, %22 ], [ null, %.thread.i.i ]
+  %.0.i44 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %26, %22 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %92, label %27
 

@@ -383,7 +383,7 @@ define internal i32 @dissect_zabbix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %16
 
 16:                                               ; preds = %9, %7, %4, %12
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %15, %12 ], [ 0, %9 ]
+  %.0 = phi i32 [ %15, %12 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -652,7 +652,7 @@ zabbix_add_expert_info_if_too_large.exit828.thread868: ; preds = %79
   br label %971
 
 .thread:                                          ; preds = %zabbix_add_expert_info_if_too_large.exit828.thread891, %zabbix_add_expert_info_if_too_large.exit828.thread868
-  %.0670871873 = phi i32 [ 13, %zabbix_add_expert_info_if_too_large.exit828.thread891 ], [ 21, %zabbix_add_expert_info_if_too_large.exit828.thread868 ]
+  %.0670871873 = phi i32 [ 21, %zabbix_add_expert_info_if_too_large.exit828.thread868 ], [ 13, %zabbix_add_expert_info_if_too_large.exit828.thread891 ]
   %107 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0670871873)
   %108 = call ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %.0670871873, i32 noundef %107)
   %.not724 = icmp eq ptr %108, null
@@ -1012,7 +1012,7 @@ zabbix_add_expert_info_if_too_large.exit828.thread868: ; preds = %79
   br label %307
 
 307:                                              ; preds = %295, %298, %303, %292, %287
-  %.1685 = phi ptr [ null, %287 ], [ null, %292 ], [ %297, %303 ], [ %297, %298 ], [ null, %295 ]
+  %.1685 = phi ptr [ null, %292 ], [ null, %287 ], [ %297, %303 ], [ %297, %298 ], [ null, %295 ]
   %.not765 = icmp eq ptr %.1685, null
   %308 = select i1 %.not765, ptr @ZABBIX_UNKNOWN, ptr %.1685
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %63, ptr noundef nonnull @.str.163, ptr noundef nonnull %308)
@@ -1372,7 +1372,7 @@ zabbix_add_expert_info_if_too_large.exit828.thread868: ; preds = %79
   br label %496
 
 496:                                              ; preds = %493, %490
-  %.1673 = phi i32 [ %spec.select, %493 ], [ 1, %490 ]
+  %.1673 = phi i32 [ 1, %490 ], [ %spec.select, %493 ]
   %497 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %498 = load i32, ptr %497, align 8
   %499 = and i32 %498, 16
@@ -1676,8 +1676,8 @@ zabbix_add_expert_info_if_too_large.exit828.thread868: ; preds = %79
   br label %632
 
 632:                                              ; preds = %627, %623
-  %633 = phi i32 [ %628, %627 ], [ %622, %623 ]
-  %.2 = phi i32 [ %spec.select827, %627 ], [ 16, %623 ]
+  %633 = phi i32 [ %622, %623 ], [ %628, %627 ]
+  %.2 = phi i32 [ 16, %623 ], [ %spec.select827, %627 ]
   %634 = and i32 %633, 8
   %.not730 = icmp eq i32 %634, 0
   br i1 %.not730, label %637, label %635
@@ -2509,7 +2509,7 @@ proto_item_set_generated.exit861:                 ; preds = %988, %992, %995
   br label %1024
 
 1024:                                             ; preds = %20, %4, %17, %1011
-  %.0 = phi i32 [ 0, %4 ], [ %1023, %1011 ], [ 0, %17 ], [ 0, %20 ]
+  %.0 = phi i32 [ %1023, %1011 ], [ 0, %17 ], [ 0, %4 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

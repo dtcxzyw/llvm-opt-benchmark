@@ -532,7 +532,7 @@ define range(i32 0, 2) i32 @normalize(ptr noundef %0) local_unnamed_addr #0 {
   %19 = fcmp ugt double %18, -1.800000e+02
   br i1 %19, label %.loopexit, label %.lr.ph17.i, !llvm.loop !51
 
-angleSet.exit.thread:                             ; preds = %1, %4, %11
+angleSet.exit.thread:                             ; preds = %4, %1, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
@@ -671,7 +671,7 @@ angleSet.exit.thread:                             ; preds = %1, %4, %11
   br i1 %.not71, label %.thread, label %96, !llvm.loop !55
 
 .thread:                                          ; preds = %45, %96, %._crit_edge, %78, %angleSet.exit.thread, %47
-  %.0.shrunk = phi i1 [ false, %angleSet.exit.thread ], [ true, %78 ], [ %or.cond, %47 ], [ %or.cond, %._crit_edge ], [ true, %96 ], [ %or.cond, %45 ]
+  %.0.shrunk = phi i1 [ %or.cond, %47 ], [ false, %angleSet.exit.thread ], [ true, %78 ], [ %or.cond, %._crit_edge ], [ true, %96 ], [ %or.cond, %45 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -789,7 +789,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %47, %31, %34
-  %.1 = phi ptr [ %.056, %31 ], [ %.265, %34 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 408), %47 ]
+  %.1 = phi ptr [ %.265, %34 ], [ %.056, %31 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 408), %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !62
   %53 = icmp eq ptr %52, null
@@ -940,7 +940,7 @@ define i32 @removeOverlapWith(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %.not16.i, label %simpleScale.exit, label %.lr.ph.i, !llvm.loop !67
 
 simpleScale.exit:                                 ; preds = %.lr.ph.i, %10, %13, %16, %23, %27, %36
-  %.011.i = phi i32 [ 0, %10 ], [ 0, %23 ], [ 0, %27 ], [ 0, %16 ], [ 0, %13 ], [ 1, %36 ], [ 1, %.lr.ph.i ]
+  %.011.i = phi i32 [ 0, %16 ], [ 0, %23 ], [ 0, %27 ], [ 0, %13 ], [ 0, %10 ], [ 1, %36 ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %50 = add nuw nsw i32 %.011.i, %11
   %51 = load i32, ptr %1, align 8, !tbaa !56
@@ -1017,7 +1017,7 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %10, %13,
   br label %78
 
 78:                                               ; preds = %64, %64, %75, %74, %73, %71, %69, %67, %65
-  %.0 = phi i32 [ 0, %75 ], [ %66, %65 ], [ %68, %67 ], [ 0, %74 ], [ 0, %64 ], [ 0, %69 ], [ %72, %71 ], [ 0, %73 ], [ 0, %64 ]
+  %.0 = phi i32 [ 0, %75 ], [ %66, %65 ], [ %68, %67 ], [ 0, %69 ], [ %72, %71 ], [ 0, %73 ], [ 0, %74 ], [ 0, %64 ], [ 0, %64 ]
   %79 = add nsw i32 %.0, %50
   br label %489
 
@@ -1767,7 +1767,7 @@ newPos.exit.i:                                    ; preds = %378, %newpos.exit.u
   call void @edgeinit() #20
   br label %460
 
-460:                                              ; preds = %215, %217, %.thread69.i
+460:                                              ; preds = %217, %215, %.thread69.i
   %461 = load i64, ptr @nsites, align 8, !tbaa !68
   %.not.i50 = icmp eq i64 %461, 0
   br i1 %.not.i50, label %._crit_edge.i57, label %.lr.ph.i51
@@ -1796,7 +1796,7 @@ newPos.exit.i:                                    ; preds = %378, %newpos.exit.u
   br i1 %exitcond.not.i52, label %sAdjust.exit, label %463, !llvm.loop !122
 
 sAdjust.exit:                                     ; preds = %463, %198, %220
-  %.167.ph = phi i32 [ 0, %198 ], [ 0, %220 ], [ 1, %463 ]
+  %.167.ph = phi i32 [ 0, %220 ], [ 0, %198 ], [ 1, %463 ]
   %.pr68 = load i64, ptr @nsites, align 8, !tbaa !68
   %.not5.i54 = icmp eq i64 %.pr68, 0
   br i1 %.not5.i54, label %._crit_edge.i57, label %.lr.ph.i55
@@ -1836,7 +1836,7 @@ freeNodes.exit60:                                 ; preds = %._crit_edge.i57, %4
   br label %489
 
 489:                                              ; preds = %78, %freeNodes.exit, %freeNodes.exit60, %simpleScale.exit, %64, %2
-  %.031 = phi i32 [ 0, %2 ], [ %488, %freeNodes.exit60 ], [ %79, %78 ], [ %50, %simpleScale.exit ], [ %50, %freeNodes.exit ], [ %50, %64 ]
+  %.031 = phi i32 [ 0, %2 ], [ %79, %78 ], [ %50, %freeNodes.exit ], [ %488, %freeNodes.exit60 ], [ %50, %simpleScale.exit ], [ %50, %64 ]
   ret i32 %.031
 }
 
@@ -2869,7 +2869,7 @@ split:                                            ; preds = %.lr.ph
   br i1 %67, label %.lr.ph67, label %.loopexit, !llvm.loop !155
 
 .loopexit:                                        ; preds = %.lr.ph70, %.lr.ph67, %7, %9, %15
-  %.1 = phi ptr [ %8, %7 ], [ %8, %15 ], [ %8, %9 ], [ %.05561.ptr, %.lr.ph67 ], [ %.05564.ptr.ptr92, %.lr.ph70 ]
+  %.1 = phi ptr [ %8, %15 ], [ %8, %9 ], [ %8, %7 ], [ %.05561.ptr, %.lr.ph67 ], [ %.05564.ptr.ptr92, %.lr.ph70 ]
   %68 = icmp ult ptr %.1, %4
   br i1 %68, label %7, label %._crit_edge
 }
@@ -2981,7 +2981,7 @@ define internal range(i32 -1, 2) i32 @scomp(ptr noundef readonly captures(none) 
   br label %18
 
 18:                                               ; preds = %16, %12, %10, %2
-  %.0 = phi i32 [ -1, %12 ], [ -1, %2 ], [ 1, %10 ], [ %., %16 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %10 ], [ -1, %12 ], [ %., %16 ]
   ret i32 %.0
 }
 

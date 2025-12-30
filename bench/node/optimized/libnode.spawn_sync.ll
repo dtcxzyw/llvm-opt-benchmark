@@ -1355,7 +1355,7 @@ do.body99:                                        ; preds = %do.body93
   unreachable
 
 return:                                           ; preds = %do.body93, %if.then.i51, %if.then79, %if.then.i43, %if.then62, %if.then.i35, %if.then53, %if.then.i27, %if.then43, %if.then.i19, %if.then34, %if.end22, %if.then.i, %delete.end
-  %retval.sroa.0.0 = phi i16 [ 1, %if.then.i51 ], [ 1, %if.then.i43 ], [ 1, %if.then.i ], [ 0, %if.end22 ], [ 1, %if.then.i19 ], [ 1, %if.then.i27 ], [ 1, %if.then.i35 ], [ 1, %delete.end ], [ 1, %if.then34 ], [ 1, %if.then43 ], [ 1, %if.then53 ], [ 1, %if.then62 ], [ 1, %if.then79 ], [ 257, %do.body93 ]
+  %retval.sroa.0.0 = phi i16 [ 1, %delete.end ], [ 1, %if.then.i ], [ 0, %if.end22 ], [ 1, %if.then34 ], [ 1, %if.then.i19 ], [ 1, %if.then43 ], [ 1, %if.then.i27 ], [ 1, %if.then53 ], [ 1, %if.then.i35 ], [ 1, %if.then62 ], [ 1, %if.then.i43 ], [ 1, %if.then79 ], [ 1, %if.then.i51 ], [ 257, %do.body93 ]
   ret i16 %retval.sroa.0.0
 }
 
@@ -2174,7 +2174,7 @@ if.then635:                                       ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.then188, %if.then136, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit861, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868, %entry, %if.then635, %if.then201, %if.then98
-  %retval.sroa.0.0 = phi i64 [ -94489280511, %entry ], [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868 ], [ 0, %if.then188 ], [ %retval.sroa.0.0.insert.insert.i68, %if.then98 ], [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit861 ], [ 0, %if.then136 ], [ %retval.sroa.0.0.insert.insert.i115, %if.then635 ], [ %retval.sroa.0.0.insert.insert.i93, %if.then201 ], [ 1, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i68, %if.then98 ], [ %retval.sroa.0.0.insert.insert.i93, %if.then201 ], [ %retval.sroa.0.0.insert.insert.i115, %if.then635 ], [ -94489280511, %entry ], [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868 ], [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit861 ], [ 0, %if.then136 ], [ 0, %if.then188 ], [ 1, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #25
   ret i64 %retval.sroa.0.0
 }
@@ -2934,7 +2934,7 @@ if.end45:                                         ; preds = %if.end30
   br label %return
 
 return:                                           ; preds = %if.end30, %if.else, %if.end45
-  %retval.sroa.0.0 = phi i64 [ 0, %if.else ], [ 1, %if.end45 ], [ 0, %if.end30 ]
+  %retval.sroa.0.0 = phi i64 [ 1, %if.end45 ], [ 0, %if.else ], [ 0, %if.end30 ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -3112,7 +3112,7 @@ if.end5.i49:                                      ; preds = %if.end5.i
   br label %land.end
 
 land.end:                                         ; preds = %if.end.i, %entry, %if.end5.i49, %if.end5.i
-  %9 = phi i1 [ false, %if.end5.i ], [ true, %entry ], [ %cmp7.i50, %if.end5.i49 ], [ true, %if.end.i ]
+  %9 = phi i1 [ false, %if.end5.i ], [ %cmp7.i50, %if.end5.i49 ], [ true, %entry ], [ true, %if.end.i ]
   ret i1 %9
 }
 
@@ -4015,7 +4015,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %return, !llvm.loop !21
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %5, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %9 = load ptr, ptr %second, align 8
   %vtable = load ptr, ptr %9, align 8
@@ -4024,8 +4024,8 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
   %call10 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %permission, ptr noundef nonnull align 8 dereferenceable(16) %res) #25
   br label %return
 
-return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.then
-  %retval.0 = phi i1 [ %call10, %if.then ], [ false, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ false, %for.cond.i.i ], [ false, %if.end15.i.i ], [ false, %if.end3.i.i.i.i ]
+return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i, %if.then
+  %retval.0 = phi i1 [ %call10, %if.then ], [ false, %if.end15.i.i ], [ false, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ false, %for.cond.i.i ], [ false, %if.end3.i.i.i.i ]
   ret i1 %retval.0
 }
 

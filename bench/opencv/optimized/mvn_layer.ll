@@ -1207,7 +1207,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn12MVNLayerImpl13setActi
   br label %_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv.exit: ; preds = %30, %32, %38, %41
-  %.sroa.6.0.i = phi ptr [ %34, %38 ], [ null, %32 ], [ %34, %41 ], [ null, %30 ]
+  %.sroa.6.0.i = phi ptr [ null, %32 ], [ %34, %41 ], [ %34, %38 ], [ null, %30 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %31, ptr %43, align 8, !tbaa !83
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 320

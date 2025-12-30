@@ -186,7 +186,7 @@ define dso_local ptr @bio_f_tls_dump_filter() local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %0, %3, %6, %8, %11, %14, %17, %20
-  %.0 = phi ptr [ null, %3 ], [ %spec.select, %23 ], [ null, %20 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %6 ], [ %1, %0 ]
+  %.0 = phi ptr [ null, %20 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %6 ], [ null, %3 ], [ %1, %0 ], [ %spec.select, %23 ]
   ret ptr %.0
 }
 
@@ -537,7 +537,7 @@ define dso_local ptr @bio_s_mempacket_test() local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42, %0, %3, %6, %12, %18, %24, %30, %36
-  %.0 = phi ptr [ null, %3 ], [ %spec.select, %42 ], [ null, %36 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ null, %12 ], [ null, %6 ], [ %1, %0 ]
+  %.0 = phi ptr [ null, %36 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ null, %12 ], [ null, %6 ], [ null, %3 ], [ %1, %0 ], [ %spec.select, %42 ]
   ret ptr %.0
 }
 
@@ -722,7 +722,7 @@ define internal i32 @mempacket_test_read(ptr noundef %0, ptr noundef writeonly c
   br i1 %94, label %37, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %90, %31, %26, %14
-  %.1 = phi i32 [ %spec.select, %14 ], [ %spec.select, %26 ], [ %spec.select, %31 ], [ %.3, %90 ]
+  %.1 = phi i32 [ %spec.select, %26 ], [ %spec.select, %14 ], [ %spec.select, %31 ], [ %.3, %90 ]
   %95 = load ptr, ptr %6, align 8, !tbaa !28
   %96 = sext i32 %.1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %95, i64 %96, i1 false)
@@ -828,7 +828,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mempacket_test_ctrl(ptr 
   br label %38
 
 38:                                               ; preds = %4, %16, %20, %37, %34, %30, %27, %24, %14, %11, %6
-  %.0 = phi i64 [ 0, %37 ], [ %10, %6 ], [ %13, %11 ], [ 1, %14 ], [ 1, %34 ], [ %33, %30 ], [ %23, %20 ], [ 0, %16 ], [ 1, %24 ], [ 1, %27 ], [ 1, %4 ]
+  %.0 = phi i64 [ 0, %37 ], [ %10, %6 ], [ %13, %11 ], [ 1, %14 ], [ %23, %20 ], [ 1, %24 ], [ 1, %27 ], [ %33, %30 ], [ 1, %34 ], [ 0, %16 ], [ 1, %4 ]
   ret i64 %.0
 }
 
@@ -993,7 +993,7 @@ define dso_local range(i32 0, 2) i32 @mempacket_swap_epoch(ptr noundef %0) local
   br i1 %67, label %.loopexit, label %17, !llvm.loop !35
 
 .loopexit:                                        ; preds = %17, %63, %11, %54, %41, %39, %6, %1, %62, %53
-  %.0 = phi i32 [ 1, %54 ], [ 0, %1 ], [ 0, %6 ], [ 0, %62 ], [ 0, %41 ], [ 0, %39 ], [ 0, %53 ], [ 0, %11 ], [ 0, %63 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %53 ], [ 0, %62 ], [ 0, %1 ], [ 0, %6 ], [ 0, %39 ], [ 0, %41 ], [ 1, %54 ], [ 0, %11 ], [ 0, %63 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1055,7 +1055,7 @@ define dso_local range(i32 0, 2) i32 @mempacket_move_packet(ptr noundef %0, i32 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %11, %7, %3
-  %.025 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %11 ], [ 0, %7 ], [ 1, %.lr.ph ]
+  %.025 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 0, %11 ], [ 0, %14 ], [ 1, %.lr.ph ]
   ret i32 %.025
 }
 
@@ -1315,7 +1315,7 @@ mempacket_free.exit:                              ; preds = %119, %123
   br i1 %126, label %119, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %117, %72, %91, %95, %mempacket_free.exit, %88, %30, %23, %18, %5
-  %.0 = phi i32 [ %2, %91 ], [ -1, %5 ], [ -1, %18 ], [ -1, %23 ], [ -1, %mempacket_free.exit ], [ -1, %30 ], [ %2, %88 ], [ %2, %72 ], [ %2, %95 ], [ %2, %117 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %18 ], [ -1, %23 ], [ -1, %30 ], [ %2, %88 ], [ -1, %mempacket_free.exit ], [ %2, %95 ], [ %2, %91 ], [ %2, %72 ], [ %2, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1414,7 +1414,7 @@ define dso_local ptr @bio_s_always_retry() local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42, %0, %3, %6, %12, %18, %24, %30, %36
-  %.0 = phi ptr [ null, %3 ], [ %spec.select, %42 ], [ null, %36 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ null, %12 ], [ null, %6 ], [ %1, %0 ]
+  %.0 = phi ptr [ null, %36 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ null, %12 ], [ null, %6 ], [ null, %3 ], [ %1, %0 ], [ %spec.select, %42 ]
   ret ptr %.0
 }
 
@@ -1537,7 +1537,7 @@ define dso_local ptr @bio_s_maybe_retry() local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %0, %3, %6, %12, %18
-  %.0 = phi ptr [ null, %3 ], [ %spec.select, %24 ], [ null, %18 ], [ null, %12 ], [ null, %6 ], [ %1, %0 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %12 ], [ null, %6 ], [ null, %3 ], [ %1, %0 ], [ %spec.select, %24 ]
   ret ptr %.0
 }
 
@@ -1564,7 +1564,7 @@ define internal i32 @maybe_retry_write(ptr noundef %0, ptr noundef %1, i32 nound
   br label %14
 
 14:                                               ; preds = %3, %10, %9
-  %.0 = phi i32 [ %13, %10 ], [ -1, %9 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %9 ], [ %13, %10 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1605,7 +1605,7 @@ define internal i64 @maybe_retry_ctrl(ptr noundef %0, i32 noundef %1, i64 nounde
   br label %19
 
 19:                                               ; preds = %4, %16, %13, %8
-  %.0 = phi i64 [ -1, %13 ], [ %18, %16 ], [ 1, %8 ], [ 0, %4 ]
+  %.0 = phi i64 [ %18, %16 ], [ 1, %8 ], [ -1, %13 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -1666,7 +1666,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr no
   br i1 %.not66, label %.thread, label %20
 
 20:                                               ; preds = %10, %15, %9
-  %.048 = phi ptr [ null, %9 ], [ %13, %15 ], [ %11, %10 ]
+  %.048 = phi ptr [ %13, %15 ], [ null, %9 ], [ %11, %10 ]
   %.not67 = icmp eq ptr %6, null
   br i1 %.not67, label %26, label %21
 
@@ -1682,7 +1682,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr no
   br i1 %.not69, label %78, label %26
 
 26:                                               ; preds = %21, %23, %20
-  %.1 = phi ptr [ null, %20 ], [ %24, %23 ], [ %22, %21 ]
+  %.1 = phi ptr [ %24, %23 ], [ null, %20 ], [ %22, %21 ]
   %27 = icmp ne ptr %.048, null
   br i1 %27, label %28, label %44
 
@@ -1811,7 +1811,7 @@ define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %0, ptr no
   br label %87
 
 87:                                               ; preds = %82, %83, %86, %76, %77
-  %.050 = phi i32 [ 1, %76 ], [ 1, %77 ], [ 0, %86 ], [ 0, %83 ], [ 0, %82 ]
+  %.050 = phi i32 [ 1, %77 ], [ 1, %76 ], [ 0, %86 ], [ 0, %83 ], [ 0, %82 ]
   ret i32 %.050
 }
 
@@ -2402,10 +2402,10 @@ define dso_local range(i32 0, 2) i32 @create_bare_ssl_connection(ptr noundef %0,
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph.split, %21, %16, %23, %24
-  %.lcssa176 = phi i1 [ %18, %16 ], [ true, %24 ], [ true, %23 ], [ %20, %21 ], [ %20, %.lr.ph.split ]
-  %.097.lcssa175 = phi i32 [ 3, %16 ], [ %22, %24 ], [ %22, %23 ], [ 3, %.lr.ph.split ], [ %22, %21 ]
-  %.1103.lcssa173 = phi i32 [ %.0102, %16 ], [ %19, %24 ], [ %19, %23 ], [ %19, %21 ], [ %19, %.lr.ph.split ]
-  %.194 = phi i32 [ %.093, %16 ], [ 1, %24 ], [ 1, %23 ], [ %.093, %21 ], [ %.093, %.lr.ph.split ]
+  %.lcssa176 = phi i1 [ true, %24 ], [ true, %23 ], [ %18, %16 ], [ %20, %21 ], [ %20, %.lr.ph.split ]
+  %.097.lcssa175 = phi i32 [ %22, %24 ], [ %22, %23 ], [ 3, %16 ], [ 3, %.lr.ph.split ], [ %22, %21 ]
+  %.1103.lcssa173 = phi i32 [ %19, %24 ], [ %19, %23 ], [ %.0102, %16 ], [ %19, %21 ], [ %19, %.lr.ph.split ]
+  %.194 = phi i32 [ 1, %24 ], [ 1, %23 ], [ %.093, %16 ], [ %.093, %21 ], [ %.093, %.lr.ph.split ]
   %25 = icmp eq i32 %.097.lcssa175, %2
   %or.cond121 = and i1 %.not118, %25
   br i1 %or.cond121, label %.loopexit, label %.preheader
@@ -2443,9 +2443,9 @@ define dso_local range(i32 0, 2) i32 @create_bare_ssl_connection(ptr noundef %0,
   br label %38
 
 38:                                               ; preds = %31, %33, %36
-  %.2106 = phi i32 [ 0, %33 ], [ %.1105., %31 ], [ 0, %36 ]
-  %.2101 = phi i32 [ %34, %33 ], [ 0, %31 ], [ %34, %36 ]
-  %.3 = phi i32 [ 3, %33 ], [ %., %31 ], [ %37, %36 ]
+  %.2106 = phi i32 [ 0, %36 ], [ 0, %33 ], [ %.1105., %31 ]
+  %.2101 = phi i32 [ %34, %36 ], [ %34, %33 ], [ 0, %31 ]
+  %.3 = phi i32 [ %37, %36 ], [ 3, %33 ], [ %., %31 ]
   %.2101.fr = freeze i32 %.2101
   %39 = icmp slt i32 %.2101.fr, 1
   %40 = icmp eq i32 %.3, 3
@@ -2548,12 +2548,12 @@ switch.early.test.thread:                         ; preds = %28, %switch.early.t
   br i1 %68, label %16, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %67, %.critedge9.thread, %.critedge.thread, %43, %57, %61
-  %.095 = phi i32 [ 0, %57 ], [ 0, %61 ], [ 1, %67 ], [ 0, %43 ], [ 0, %.critedge9.thread ], [ 0, %.critedge.thread ]
+  %.095 = phi i32 [ 0, %61 ], [ 0, %57 ], [ 1, %67 ], [ 0, %.critedge9.thread ], [ 0, %.critedge.thread ], [ 0, %43 ]
   call void @BIO_ADDR_free(ptr noundef %.090) #14
   br label %69
 
 69:                                               ; preds = %10, %.loopexit, %9
-  %.091 = phi i32 [ %.095, %.loopexit ], [ 0, %10 ], [ 0, %9 ]
+  %.091 = phi i32 [ %.095, %.loopexit ], [ 0, %9 ], [ 0, %10 ]
   ret i32 %.091
 }
 
@@ -2695,7 +2695,7 @@ define dso_local noundef ptr @create_a_psk(ptr noundef %0, i64 noundef %1) local
   br label %27
 
 27:                                               ; preds = %21, %2, %26
-  %.013 = phi ptr [ null, %2 ], [ null, %26 ], [ %7, %21 ]
+  %.013 = phi ptr [ null, %26 ], [ null, %2 ], [ %7, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.013
 }

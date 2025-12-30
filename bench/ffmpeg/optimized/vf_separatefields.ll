@@ -280,7 +280,7 @@ flush_frame.exit:                                 ; preds = %84, %extract_field.
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %77, %55, %52, %12, %113, %.critedge, %115, %flush_frame.exit
-  %.1 = phi i32 [ 0, %12 ], [ -1497649742, %113 ], [ %.0.i28, %flush_frame.exit ], [ 0, %115 ], [ %13, %.critedge ], [ %53, %52 ], [ %78, %77 ], [ -12, %55 ]
+  %.1 = phi i32 [ %.0.i28, %flush_frame.exit ], [ 0, %115 ], [ 0, %12 ], [ %13, %.critedge ], [ -1497649742, %113 ], [ %78, %77 ], [ %53, %52 ], [ -12, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

@@ -882,7 +882,7 @@ _ZN16G1ConcurrentMark14do_yield_checkEv.exit:     ; preds = %2, %6, %9
   br label %47
 
 47:                                               ; preds = %43, %45, %27, %25, %_ZN16G1ConcurrentMark14do_yield_checkEv.exit
-  %.015 = phi i1 [ true, %_ZN16G1ConcurrentMark14do_yield_checkEv.exit ], [ false, %27 ], [ false, %25 ], [ %44, %43 ], [ %46, %45 ]
+  %.015 = phi i1 [ true, %_ZN16G1ConcurrentMark14do_yield_checkEv.exit ], [ false, %25 ], [ false, %27 ], [ %44, %43 ], [ %46, %45 ]
   ret i1 %.015
 }
 
@@ -1248,8 +1248,8 @@ _ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure20scan_from_pb_to_
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.16, i32 noundef %93, ptr noundef %95)
   br label %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure20scan_from_pb_to_tarsEP12G1HeapRegionPP12HeapWordImplS5_.exit.thread
 
-_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure20scan_from_pb_to_tarsEP12G1HeapRegionPP12HeapWordImplS5_.exit.thread: ; preds = %63, %88, %90, %92, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure20scan_from_pb_to_tarsEP12G1HeapRegionPP12HeapWordImplS5_.exit, %41, %38, %36
-  %.0 = phi i1 [ true, %38 ], [ false, %41 ], [ true, %92 ], [ true, %36 ], [ true, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure20scan_from_pb_to_tarsEP12G1HeapRegionPP12HeapWordImplS5_.exit ], [ false, %90 ], [ false, %88 ], [ false, %63 ]
+_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure20scan_from_pb_to_tarsEP12G1HeapRegionPP12HeapWordImplS5_.exit.thread: ; preds = %63, %90, %88, %92, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure20scan_from_pb_to_tarsEP12G1HeapRegionPP12HeapWordImplS5_.exit, %41, %38, %36
+  %.0 = phi i1 [ true, %36 ], [ true, %38 ], [ false, %41 ], [ true, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure20scan_from_pb_to_tarsEP12G1HeapRegionPP12HeapWordImplS5_.exit ], [ true, %92 ], [ false, %88 ], [ false, %90 ], [ false, %63 ]
   ret i1 %.0
 }
 
@@ -1500,7 +1500,7 @@ _ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure17scan_large_objec
   br label %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure17scan_large_objectEP12G1HeapRegionP7oopDesc9MemRegion.exit.thread
 
 _ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure17scan_large_objectEP12G1HeapRegionP7oopDesc9MemRegion.exit.thread: ; preds = %160, %159, %157, %164, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure17scan_large_objectEP12G1HeapRegionP7oopDesc9MemRegion.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %164 ], [ true, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure17scan_large_objectEP12G1HeapRegionP7oopDesc9MemRegion.exit ], [ false, %157 ], [ false, %159 ], [ false, %160 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure17scan_large_objectEP12G1HeapRegionP7oopDesc9MemRegion.exit ], [ true, %164 ], [ false, %157 ], [ false, %159 ], [ false, %160 ]
   ret i1 %.0
 }
 
@@ -1678,7 +1678,7 @@ _ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure18yield_if_necessa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure18yield_if_necessaryEv.exit, %100, %98
-  %.0 = phi i1 [ false, %100 ], [ false, %98 ], [ %12, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure18yield_if_necessaryEv.exit ], [ %12, %11 ]
+  %.0 = phi i1 [ false, %98 ], [ false, %100 ], [ %12, %_ZN23G1RebuildRSAndScrubTask32G1RebuildRSAndScrubRegionClosure18yield_if_necessaryEv.exit ], [ %12, %11 ]
   ret i1 %.0
 }
 
@@ -4028,7 +4028,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %129
 
 129:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -4135,7 +4135,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -4374,7 +4374,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -4472,7 +4472,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -5028,7 +5028,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -7818,7 +7818,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
-  %.0.i.i.i.i = phi i64 [ %48, %46 ], [ %.0917.i.i, %30 ]
+  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %30 ], [ %48, %46 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %25
   br i1 %.not.not.i.i, label %50, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
@@ -8061,7 +8061,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
-  %.0.i.i.i.i = phi i64 [ %48, %46 ], [ %.0917.i.i, %30 ]
+  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %30 ], [ %48, %46 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %25
   br i1 %.not.not.i.i, label %50, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
@@ -15502,7 +15502,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
-  %.0.i.i = phi i64 [ %27, %25 ], [ %.0917, %8 ]
+  %.0.i.i = phi i64 [ %.0917, %8 ], [ %27, %25 ]
   %.not.not = icmp ult i64 %.0.i.i, %3
   br i1 %.not.not, label %29, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
@@ -15904,7 +15904,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
-  %.0.i.i = phi i64 [ %27, %25 ], [ %.0917, %8 ]
+  %.0.i.i = phi i64 [ %.0917, %8 ], [ %27, %25 ]
   %.not.not = icmp ult i64 %.0.i.i, %3
   br i1 %.not.not, label %29, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 

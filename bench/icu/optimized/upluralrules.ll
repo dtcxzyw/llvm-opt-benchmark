@@ -166,7 +166,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -593,7 +593,7 @@ define noundef i32 @uplrules_select_77(ptr noundef %0, double noundef %1, ptr no
   resume { ptr, i32 } %20
 
 22:                                               ; preds = %5, %17, %15
-  %.0 = phi i32 [ %16, %17 ], [ 0, %15 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %15 ], [ %16, %17 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -658,7 +658,7 @@ define noundef i32 @uplrules_selectFormatted_77(ptr noundef %0, ptr noundef %1, 
   resume { ptr, i32 } %25
 
 27:                                               ; preds = %22, %16, %5, %15
-  %.0 = phi i32 [ 0, %5 ], [ 0, %15 ], [ %21, %22 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %5 ], [ %21, %22 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -715,7 +715,7 @@ define noundef i32 @uplrules_selectForRange_77(ptr noundef %0, ptr noundef %1, p
   resume { ptr, i32 } %22
 
 24:                                               ; preds = %5, %19, %15
-  %.0 = phi i32 [ %18, %19 ], [ 0, %15 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %15 ], [ %18, %19 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -900,7 +900,7 @@ define ptr @uplrules_getKeywords_77(ptr noundef %0, ptr noundef %1) local_unname
   br label %17
 
 17:                                               ; preds = %7, %8, %15, %14, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ %16, %15 ], [ null, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %14 ], [ %16, %15 ], [ null, %8 ]
   ret ptr %.0
 }
 

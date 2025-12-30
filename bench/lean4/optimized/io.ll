@@ -1592,9 +1592,9 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_try_lock(ptr noundef rea
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %20, %16, %8
-  %.sink16 = phi ptr [ %17, %16 ], [ %9, %8 ], [ %22, %20 ]
-  %.sink13 = phi i32 [ 131096, %16 ], [ 131096, %8 ], [ 16908312, %20 ]
-  %.sink = phi ptr [ inttoptr (i64 1 to ptr), %16 ], [ inttoptr (i64 3 to ptr), %8 ], [ %21, %20 ]
+  %.sink16 = phi ptr [ %9, %8 ], [ %17, %16 ], [ %22, %20 ]
+  %.sink13 = phi i32 [ 131096, %8 ], [ 131096, %16 ], [ 16908312, %20 ]
+  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %8 ], [ inttoptr (i64 1 to ptr), %16 ], [ %21, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
   store i32 1, ptr %.sink16, align 4, !tbaa !7
   store i32 %.sink13, ptr %25, align 4
@@ -1944,9 +1944,9 @@ _ZN4lean7dec_refEP11lean_object.exit:             ; preds = %28, %30, %31
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZN4lean7dec_refEP11lean_object.exit, %21, %15
-  %.sink29 = phi ptr [ %22, %21 ], [ %16, %15 ], [ %35, %_ZN4lean7dec_refEP11lean_object.exit ]
-  %.sink26 = phi i32 [ 131096, %21 ], [ 131096, %15 ], [ 16908312, %_ZN4lean7dec_refEP11lean_object.exit ]
-  %.sink = phi ptr [ %6, %21 ], [ %6, %15 ], [ %34, %_ZN4lean7dec_refEP11lean_object.exit ]
+  %.sink29 = phi ptr [ %16, %15 ], [ %22, %21 ], [ %35, %_ZN4lean7dec_refEP11lean_object.exit ]
+  %.sink26 = phi i32 [ 131096, %15 ], [ 131096, %21 ], [ 16908312, %_ZN4lean7dec_refEP11lean_object.exit ]
+  %.sink = phi ptr [ %6, %15 ], [ %6, %21 ], [ %34, %_ZN4lean7dec_refEP11lean_object.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
   store i32 1, ptr %.sink29, align 4, !tbaa !7
   store i32 %.sink26, ptr %38, align 4
@@ -2152,9 +2152,9 @@ _ZN4lean15decode_io_errorEiP11lean_object.exit:   ; preds = %29
   br label %57
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %.noexc21, %.noexc19, %.noexc17
-  %.sink40 = phi ptr [ %40, %.noexc19 ], [ %33, %.noexc17 ], [ %45, %.noexc21 ]
-  %.sink37 = phi i32 [ 131096, %.noexc19 ], [ 16908312, %.noexc17 ], [ 131096, %.noexc21 ]
-  %.sink = phi ptr [ %38, %.noexc19 ], [ %32, %.noexc17 ], [ %43, %.noexc21 ]
+  %.sink40 = phi ptr [ %33, %.noexc17 ], [ %40, %.noexc19 ], [ %45, %.noexc21 ]
+  %.sink37 = phi i32 [ 16908312, %.noexc17 ], [ 131096, %.noexc19 ], [ 131096, %.noexc21 ]
+  %.sink = phi ptr [ %32, %.noexc17 ], [ %38, %.noexc19 ], [ %43, %.noexc21 ]
   %50 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
   store i32 1, ptr %.sink40, align 4, !tbaa !7
   store i32 %.sink37, ptr %50, align 4
@@ -2615,8 +2615,8 @@ _ZN4lean7dec_refEP11lean_object.exit:             ; preds = %45, %47, %48
   br label %57
 
 57:                                               ; preds = %54, %38
-  %.127 = phi i64 [ %55, %54 ], [ %.02639, %38 ]
-  %.124 = phi ptr [ %56, %54 ], [ %.02340, %38 ]
+  %.127 = phi i64 [ %.02639, %38 ], [ %55, %54 ]
+  %.124 = phi ptr [ %.02340, %38 ], [ %56, %54 ]
   %.not = icmp eq i64 %.127, 0
   br i1 %.not, label %58, label %35, !llvm.loop !54
 
@@ -2633,9 +2633,9 @@ _ZN4lean7dec_refEP11lean_object.exit:             ; preds = %45, %47, %48
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %58, %_ZN4lean7dec_refEP11lean_object.exit, %17, %4
-  %.sink55 = phi ptr [ %22, %17 ], [ %11, %4 ], [ %51, %_ZN4lean7dec_refEP11lean_object.exit ], [ %60, %58 ]
-  %.sink52 = phi i32 [ 16908312, %17 ], [ 131096, %4 ], [ 16908312, %_ZN4lean7dec_refEP11lean_object.exit ], [ 131096, %58 ]
-  %.sink = phi ptr [ %21, %17 ], [ %5, %4 ], [ %50, %_ZN4lean7dec_refEP11lean_object.exit ], [ %27, %58 ]
+  %.sink55 = phi ptr [ %11, %4 ], [ %22, %17 ], [ %51, %_ZN4lean7dec_refEP11lean_object.exit ], [ %60, %58 ]
+  %.sink52 = phi i32 [ 131096, %4 ], [ 16908312, %17 ], [ 16908312, %_ZN4lean7dec_refEP11lean_object.exit ], [ 131096, %58 ]
+  %.sink = phi ptr [ %5, %4 ], [ %21, %17 ], [ %50, %_ZN4lean7dec_refEP11lean_object.exit ], [ %27, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %.sink55, i64 4
   store i32 1, ptr %.sink55, align 4, !tbaa !7
   store i32 %.sink52, ptr %63, align 4
@@ -2843,7 +2843,7 @@ _ZN4lean7sstreamD2Ev.exit:                        ; preds = %_ZNSt7__cxx1112basi
   br label %87
 
 87:                                               ; preds = %36, %38, %27, %29, %.body
-  %.pn13.pn = phi { ptr, i32 } [ %.pn13, %.body ], [ %37, %36 ], [ %28, %27 ], [ %39, %38 ], [ %30, %29 ]
+  %.pn13.pn = phi { ptr, i32 } [ %.pn13, %.body ], [ %30, %29 ], [ %28, %27 ], [ %39, %38 ], [ %37, %36 ]
   call void @_ZN4lean7sstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn13.pn
@@ -3401,7 +3401,7 @@ _ZL8lean_incP11lean_object.exit.us:               ; preds = %26, %25, %24
   br label %32
 
 32:                                               ; preds = %_ZL8lean_incP11lean_object.exit.us, %.tail28.us, %.tail.us
-  %.1.us = phi ptr [ %.01934.us, %.tail.us ], [ %31, %_ZL8lean_incP11lean_object.exit.us ], [ %.01934.us, %.tail28.us ]
+  %.1.us = phi ptr [ %31, %_ZL8lean_incP11lean_object.exit.us ], [ %.01934.us, %.tail28.us ], [ %.01934.us, %.tail.us ]
   %33 = tail call ptr @readdir(ptr noundef nonnull %5)
   %.not22.us = icmp eq ptr %33, null
   br i1 %.not22.us, label %._crit_edge, label %sub_0.us
@@ -3468,7 +3468,7 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %.tail28.thread
   br label %59
 
 59:                                               ; preds = %.tail, %.tail28, %_ZN4lean11alloc_cnstrEjjj.exit
-  %.1 = phi ptr [ %.01934, %.tail ], [ %58, %_ZN4lean11alloc_cnstrEjjj.exit ], [ %.01934, %.tail28 ]
+  %.1 = phi ptr [ %58, %_ZN4lean11alloc_cnstrEjjj.exit ], [ %.01934, %.tail28 ], [ %.01934, %.tail ]
   %60 = tail call ptr @readdir(ptr noundef nonnull %5)
   %.not22 = icmp eq ptr %60, null
   br i1 %.not22, label %._crit_edge, label %sub_0

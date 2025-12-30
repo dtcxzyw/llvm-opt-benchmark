@@ -148,7 +148,7 @@ define internal range(i32 0, 2) i32 @pkey_dh_copy(ptr noundef writeonly captures
   br label %pkey_dh_init.exit.thread
 
 pkey_dh_init.exit.thread:                         ; preds = %2, %45, %5, %54
-  %.0 = phi i32 [ 0, %45 ], [ 0, %5 ], [ 1, %54 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %54 ], [ 0, %5 ], [ 0, %45 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -277,7 +277,7 @@ define internal i32 @pkey_dh_paramgen(ptr noundef %0, ptr noundef %1) #1 {
   call void @DH_free(ptr noundef nonnull %32) #6
   br label %ffc_params_generate.exit.thread
 
-ffc_params_generate.exit.thread:                  ; preds = %31, %26, %.thread.i
+ffc_params_generate.exit.thread:                  ; preds = %.thread.i, %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @BN_GENCB_free(ptr noundef %.030) #6
   br label %73
@@ -315,7 +315,7 @@ ffc_params_generate.exit.thread:                  ; preds = %31, %26, %.thread.i
   br label %73
 
 73:                                               ; preds = %ffc_params_generate.exit.thread, %70, %72, %18, %11, %8, %64, %59
-  %.1 = phi i32 [ 0, %ffc_params_generate.exit.thread ], [ 0, %8 ], [ 0, %18 ], [ 1, %59 ], [ 0, %64 ], [ 1, %11 ], [ 0, %72 ], [ %69, %70 ]
+  %.1 = phi i32 [ 1, %59 ], [ 0, %64 ], [ 1, %11 ], [ 0, %8 ], [ 0, %18 ], [ 0, %72 ], [ %69, %70 ], [ 0, %ffc_params_generate.exit.thread ]
   ret i32 %.1
 }
 
@@ -376,7 +376,7 @@ define internal i32 @pkey_dh_keygen(ptr noundef readonly captures(none) %0, ptr 
   br label %30
 
 30:                                               ; preds = %25, %17, %27, %12
-  %.013 = phi i32 [ 0, %12 ], [ 0, %17 ], [ %29, %27 ], [ 0, %25 ]
+  %.013 = phi i32 [ 0, %12 ], [ %29, %27 ], [ 0, %17 ], [ 0, %25 ]
   ret i32 %.013
 }
 
@@ -523,7 +523,7 @@ define internal range(i32 -2147483648, 2) i32 @pkey_dh_derive(ptr noundef readon
   br label %75
 
 75:                                               ; preds = %20, %49, %74, %44, %41, %50, %52, %55, %37, %39, %27, %19, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %19 ], [ 1, %27 ], [ 0, %55 ], [ 1, %39 ], [ %.048, %37 ], [ 1, %49 ], [ 0, %41 ], [ 0, %50 ], [ 0, %52 ], [ %.149, %74 ], [ 0, %44 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %19 ], [ 1, %27 ], [ 1, %39 ], [ %.048, %37 ], [ 1, %49 ], [ %.149, %74 ], [ 0, %44 ], [ 0, %41 ], [ 0, %50 ], [ 0, %52 ], [ 0, %55 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -718,7 +718,7 @@ define internal i32 @pkey_dh_ctrl(ptr noundef readonly captures(none) %0, i32 no
   br label %84
 
 84:                                               ; preds = %66, %69, %54, %44, %4, %32, %34, %26, %28, %23, %18, %10, %7, %83, %80, %77, %71, %59, %56, %51, %49, %46, %40, %37, %31, %24, %21, %16, %14, %9
-  %.0 = phi i32 [ -2, %83 ], [ 1, %80 ], [ 1, %9 ], [ -2, %7 ], [ 1, %14 ], [ 1, %16 ], [ -2, %10 ], [ 1, %21 ], [ -2, %18 ], [ 1, %24 ], [ -2, %23 ], [ 1, %31 ], [ -2, %26 ], [ 1, %37 ], [ -2, %32 ], [ %43, %40 ], [ 1, %4 ], [ 1, %46 ], [ 1, %49 ], [ 1, %51 ], [ -2, %44 ], [ 1, %56 ], [ 1, %59 ], [ -2, %54 ], [ %76, %71 ], [ 1, %77 ], [ -2, %28 ], [ -2, %34 ], [ 1, %69 ], [ 1, %66 ]
+  %.0 = phi i32 [ -2, %83 ], [ 1, %9 ], [ 1, %14 ], [ 1, %16 ], [ 1, %21 ], [ 1, %24 ], [ 1, %31 ], [ 1, %37 ], [ %43, %40 ], [ 1, %46 ], [ 1, %49 ], [ 1, %51 ], [ 1, %56 ], [ 1, %59 ], [ %76, %71 ], [ 1, %77 ], [ 1, %80 ], [ -2, %7 ], [ -2, %10 ], [ -2, %18 ], [ -2, %23 ], [ -2, %28 ], [ -2, %26 ], [ -2, %34 ], [ -2, %32 ], [ 1, %4 ], [ -2, %44 ], [ -2, %54 ], [ 1, %69 ], [ 1, %66 ]
   ret i32 %.0
 }
 
@@ -820,7 +820,7 @@ define internal i32 @pkey_dh_ctrl_str(ptr noundef %0, ptr noundef readonly captu
   br label %59
 
 59:                                               ; preds = %52, %28, %29, %16, %13, %55, %48, %41, %34, %6
-  %.0 = phi i32 [ %9, %6 ], [ 1, %29 ], [ -2, %13 ], [ %37, %34 ], [ %44, %41 ], [ %51, %48 ], [ %58, %55 ], [ 1, %16 ], [ -2, %28 ], [ -2, %52 ]
+  %.0 = phi i32 [ %9, %6 ], [ %37, %34 ], [ %44, %41 ], [ %51, %48 ], [ %58, %55 ], [ 1, %16 ], [ -2, %13 ], [ -2, %28 ], [ 1, %29 ], [ -2, %52 ]
   ret i32 %.0
 }
 

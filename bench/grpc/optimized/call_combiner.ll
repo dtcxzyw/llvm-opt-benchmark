@@ -653,8 +653,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit26:         ; preds = %37, %40
   br label %56
 
 47:                                               ; preds = %30, %34, %_ZN4absl12lts_202407226StatusD2Ev.exit26, %_ZN4absl12lts_202407226StatusD2Ev.exit
-  %.116 = phi ptr [ %.015, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %.015, %34 ], [ %36, %_ZN4absl12lts_202407226StatusD2Ev.exit26 ], [ %.015, %30 ]
-  %48 = phi i1 [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ false, %34 ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit26 ], [ true, %30 ]
+  %.116 = phi ptr [ %.015, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %36, %_ZN4absl12lts_202407226StatusD2Ev.exit26 ], [ %.015, %34 ], [ %.015, %30 ]
+  %48 = phi i1 [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit26 ], [ false, %34 ], [ true, %30 ]
   %49 = load i64, ptr %3, align 8, !tbaa !17
   %50 = and i64 %49, 1
   %.not.i.i27 = icmp eq i64 %50, 0
@@ -820,7 +820,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit25:         ; preds = %45, %48
   br label %64
 
 55:                                               ; preds = %34, %37, %_ZN4absl12lts_202407226StatusD2Ev.exit25, %29
-  %56 = phi i1 [ false, %29 ], [ false, %37 ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit25 ], [ true, %34 ]
+  %56 = phi i1 [ false, %29 ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit25 ], [ false, %37 ], [ true, %34 ]
   %57 = load i64, ptr %4, align 8, !tbaa !17
   %58 = and i64 %57, 1
   %.not.i.i26 = icmp eq i64 %58, 0

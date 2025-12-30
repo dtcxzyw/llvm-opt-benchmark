@@ -134,8 +134,8 @@ define internal i32 @spki2typespki_decode(ptr noundef %0, ptr noundef %1, i32 %2
   br label %53
 
 53:                                               ; preds = %22, %41, %30, %45
-  %.017 = phi i32 [ 0, %30 ], [ %52, %45 ], [ 0, %41 ], [ 1, %22 ]
-  %.0 = phi ptr [ %28, %30 ], [ null, %45 ], [ %28, %41 ], [ null, %22 ]
+  %.017 = phi i32 [ %52, %45 ], [ 0, %41 ], [ 0, %30 ], [ 1, %22 ]
+  %.0 = phi ptr [ null, %45 ], [ %28, %41 ], [ %28, %30 ], [ null, %22 ]
   call void @ossl_X509_PUBKEY_INTERNAL_free(ptr noundef %.0) #5
   %54 = load ptr, ptr %8, align 8, !tbaa !15
   call void @CRYPTO_free(ptr noundef %54, ptr noundef nonnull @.str, i32 noundef 140) #5

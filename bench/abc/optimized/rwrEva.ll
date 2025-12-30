@@ -594,8 +594,8 @@ Abc_Clock.exit172:                                ; preds = %Abc_Clock.exit170, 
   br label %Rwr_CutEvaluate.exit
 
 Rwr_CutEvaluate.exit:                             ; preds = %.thread, %.critedge.i, %Abc_Clock.exit172
-  %.2184 = phi i32 [ %spec.select195, %.critedge.i ], [ %.0232, %Abc_Clock.exit172 ], [ 0, %.thread ]
-  %.0.i173 = phi ptr [ %spec.select196, %.critedge.i ], [ null, %Abc_Clock.exit172 ], [ %267, %.thread ]
+  %.2184 = phi i32 [ %.0232, %Abc_Clock.exit172 ], [ %spec.select195, %.critedge.i ], [ 0, %.thread ]
+  %.0.i173 = phi ptr [ null, %Abc_Clock.exit172 ], [ %spec.select196, %.critedge.i ], [ %267, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %302 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #14
   %303 = icmp slt i32 %302, 0

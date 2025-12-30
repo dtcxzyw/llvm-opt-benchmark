@@ -113,7 +113,7 @@ define range(i32 0, 3) i32 @H5SL_term_package() local_unnamed_addr #0 {
   br label %.thread19
 
 .thread19:                                        ; preds = %.thread15, %.thread, %17, %0
-  %.0 = phi i32 [ 0, %17 ], [ %.118, %.thread ], [ 0, %0 ], [ 1, %.thread15 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %0 ], [ %.118, %.thread ], [ 1, %.thread15 ]
   ret i32 %.0
 }
 
@@ -189,7 +189,7 @@ define ptr @H5SL_create(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %16, %26, %32, %10
-  %.1 = phi ptr [ null, %32 ], [ %14, %26 ], [ null, %10 ], [ null, %16 ]
+  %.1 = phi ptr [ null, %32 ], [ null, %10 ], [ %14, %26 ], [ null, %16 ]
   ret ptr %.1
 }
 
@@ -2898,7 +2898,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %spec.select1138 = select i1 %.not1005, ptr %.26.lcssa, ptr %.0774.lcssa
   br label %1461
 
-.thread1317:                                      ; preds = %1332, %1331
+.thread1317:                                      ; preds = %1331, %1332
   %.17751321 = phi ptr [ %1335, %1332 ], [ %.2776, %1331 ]
   %1346 = getelementptr inbounds nuw i8, ptr %.261507, i64 16
   %1347 = load i64, ptr %1346, align 8, !tbaa !36
@@ -3143,8 +3143,8 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   br label %.thread1155
 
 .thread1159:                                      ; preds = %1311, %1152, %978, %819, %660, %501, %332, %173, %14, %._crit_edge1516, %1467, %._crit_edge1535, %1302, %._crit_edge1554, %1137, %1142, %._crit_edge1573, %969, %._crit_edge1592, %810, %._crit_edge1611, %651, %._crit_edge1630, %489, %493, %._crit_edge1649, %323, %._crit_edge1668, %164, %10
-  %.0770 = phi i32 [ 0, %10 ], [ 0, %._crit_edge1535 ], [ 0, %._crit_edge1668 ], [ 0, %._crit_edge1649 ], [ %333, %._crit_edge1630 ], [ 0, %._crit_edge1611 ], [ 0, %._crit_edge1592 ], [ 0, %._crit_edge1573 ], [ 0, %._crit_edge1554 ], [ 0, %164 ], [ 0, %323 ], [ %333, %493 ], [ %333, %489 ], [ 0, %651 ], [ 0, %810 ], [ 0, %969 ], [ 0, %1142 ], [ 0, %1137 ], [ 0, %1302 ], [ 0, %1467 ], [ 0, %._crit_edge1516 ], [ 0, %1152 ], [ 0, %14 ], [ 0, %173 ], [ %333, %332 ], [ 0, %501 ], [ 0, %660 ], [ 0, %819 ], [ 0, %978 ], [ 0, %1311 ]
-  %.3 = phi ptr [ %12, %10 ], [ %.18131298, %._crit_edge1535 ], [ %.18201144, %._crit_edge1668 ], [ %.18831166, %._crit_edge1649 ], [ %.19101188, %._crit_edge1630 ], [ %.19041210, %._crit_edge1611 ], [ %.18921232, %._crit_edge1592 ], [ %.18761254, %._crit_edge1573 ], [ %.18291276, %._crit_edge1554 ], [ %.18201144, %164 ], [ %.18831166, %323 ], [ %.19101188, %493 ], [ %.19101188, %489 ], [ %.19041210, %651 ], [ %.18921232, %810 ], [ %.18761254, %969 ], [ %.18291276, %1142 ], [ %.18291276, %1137 ], [ %.18131298, %1302 ], [ %.17751320, %1467 ], [ %.17751320, %._crit_edge1516 ], [ %12, %1152 ], [ %12, %14 ], [ %12, %173 ], [ %12, %332 ], [ %12, %501 ], [ %12, %660 ], [ %12, %819 ], [ %12, %978 ], [ %12, %1311 ]
+  %.0770 = phi i32 [ 0, %10 ], [ 0, %164 ], [ 0, %._crit_edge1668 ], [ 0, %323 ], [ 0, %._crit_edge1649 ], [ %333, %493 ], [ %333, %489 ], [ %333, %._crit_edge1630 ], [ 0, %651 ], [ 0, %._crit_edge1611 ], [ 0, %810 ], [ 0, %._crit_edge1592 ], [ 0, %969 ], [ 0, %._crit_edge1573 ], [ 0, %1142 ], [ 0, %1137 ], [ 0, %._crit_edge1554 ], [ 0, %1302 ], [ 0, %._crit_edge1535 ], [ 0, %1467 ], [ 0, %._crit_edge1516 ], [ 0, %14 ], [ 0, %173 ], [ %333, %332 ], [ 0, %501 ], [ 0, %660 ], [ 0, %819 ], [ 0, %978 ], [ 0, %1152 ], [ 0, %1311 ]
+  %.3 = phi ptr [ %12, %10 ], [ %.18201144, %164 ], [ %.18201144, %._crit_edge1668 ], [ %.18831166, %323 ], [ %.18831166, %._crit_edge1649 ], [ %.19101188, %493 ], [ %.19101188, %489 ], [ %.19101188, %._crit_edge1630 ], [ %.19041210, %651 ], [ %.19041210, %._crit_edge1611 ], [ %.18921232, %810 ], [ %.18921232, %._crit_edge1592 ], [ %.18761254, %969 ], [ %.18761254, %._crit_edge1573 ], [ %.18291276, %1142 ], [ %.18291276, %1137 ], [ %.18291276, %._crit_edge1554 ], [ %.18131298, %1302 ], [ %.18131298, %._crit_edge1535 ], [ %.17751320, %1467 ], [ %.17751320, %._crit_edge1516 ], [ %12, %14 ], [ %12, %173 ], [ %12, %332 ], [ %12, %501 ], [ %12, %660 ], [ %12, %819 ], [ %12, %978 ], [ %12, %1152 ], [ %12, %1311 ]
   %1477 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1478 = load i32, ptr %1477, align 8, !tbaa !25
   %1479 = icmp slt i32 %1478, 0
@@ -3197,7 +3197,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   br label %.thread1155
 
 .thread1155:                                      ; preds = %1432, %1413, %1381, %1362, %1265, %1246, %1214, %1195, %1100, %1081, %1049, %1030, %932, %913, %881, %862, %773, %754, %722, %703, %614, %595, %563, %544, %452, %433, %401, %382, %286, %267, %235, %216, %127, %108, %76, %57, %1473, %1307, %1148, %974, %815, %656, %497, %328, %169, %3, %1500, %1484
-  %.0780 = phi ptr [ null, %1484 ], [ %1482, %1500 ], [ null, %3 ], [ null, %169 ], [ null, %328 ], [ null, %497 ], [ null, %656 ], [ null, %815 ], [ null, %974 ], [ null, %1148 ], [ null, %1307 ], [ null, %1473 ], [ null, %127 ], [ null, %286 ], [ null, %452 ], [ null, %614 ], [ null, %773 ], [ null, %932 ], [ null, %1100 ], [ null, %1265 ], [ null, %57 ], [ null, %76 ], [ null, %108 ], [ null, %216 ], [ null, %235 ], [ null, %267 ], [ null, %382 ], [ null, %401 ], [ null, %433 ], [ null, %544 ], [ null, %563 ], [ null, %595 ], [ null, %703 ], [ null, %722 ], [ null, %754 ], [ null, %862 ], [ null, %881 ], [ null, %913 ], [ null, %1030 ], [ null, %1049 ], [ null, %1081 ], [ null, %1195 ], [ null, %1214 ], [ null, %1246 ], [ null, %1362 ], [ null, %1381 ], [ null, %1413 ], [ null, %1432 ]
+  %.0780 = phi ptr [ null, %1484 ], [ %1482, %1500 ], [ null, %3 ], [ null, %169 ], [ null, %328 ], [ null, %497 ], [ null, %656 ], [ null, %815 ], [ null, %974 ], [ null, %1148 ], [ null, %1307 ], [ null, %1473 ], [ null, %57 ], [ null, %76 ], [ null, %108 ], [ null, %127 ], [ null, %216 ], [ null, %235 ], [ null, %267 ], [ null, %286 ], [ null, %382 ], [ null, %401 ], [ null, %433 ], [ null, %452 ], [ null, %544 ], [ null, %563 ], [ null, %595 ], [ null, %614 ], [ null, %703 ], [ null, %722 ], [ null, %754 ], [ null, %773 ], [ null, %862 ], [ null, %881 ], [ null, %913 ], [ null, %932 ], [ null, %1030 ], [ null, %1049 ], [ null, %1081 ], [ null, %1100 ], [ null, %1195 ], [ null, %1214 ], [ null, %1246 ], [ null, %1265 ], [ null, %1362 ], [ null, %1381 ], [ null, %1413 ], [ null, %1432 ]
   ret ptr %.0780
 }
 
@@ -4035,9 +4035,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %437, ptr %14, align 8, !tbaa !25
   br label %.thread3459
 
-.thread3459:                                      ; preds = %45, %.lr.ph4357, %44, %.preheader, %401, %212, %216, %242, %407, %433, %._crit_edge4358
-  %.126183464 = phi ptr [ %spec.select, %._crit_edge4358 ], [ %spec.select, %216 ], [ %spec.select, %242 ], [ %spec.select, %212 ], [ %spec.select, %407 ], [ %spec.select, %433 ], [ %spec.select, %401 ], [ %.126134370, %.preheader ], [ %.026174355, %.lr.ph4357 ], [ %38, %45 ], [ %.14356, %44 ]
-  %.126213463 = phi ptr [ %.226223457, %._crit_edge4358 ], [ %.226223457, %216 ], [ %.226223457, %242 ], [ %.226223457, %212 ], [ %.226223457, %407 ], [ %.226223457, %433 ], [ %.226223457, %401 ], [ %.126134370, %.preheader ], [ %.026204354, %.lr.ph4357 ], [ %.14356, %45 ], [ %.026204354, %44 ]
+.thread3459:                                      ; preds = %45, %44, %.lr.ph4357, %.preheader, %401, %212, %216, %242, %407, %433, %._crit_edge4358
+  %.126183464 = phi ptr [ %spec.select, %216 ], [ %spec.select, %242 ], [ %spec.select, %212 ], [ %spec.select, %407 ], [ %spec.select, %433 ], [ %spec.select, %401 ], [ %spec.select, %._crit_edge4358 ], [ %.126134370, %.preheader ], [ %.026174355, %.lr.ph4357 ], [ %.14356, %44 ], [ %38, %45 ]
+  %.126213463 = phi ptr [ %.226223457, %216 ], [ %.226223457, %242 ], [ %.226223457, %212 ], [ %.226223457, %407 ], [ %.226223457, %433 ], [ %.226223457, %401 ], [ %.226223457, %._crit_edge4358 ], [ %.126134370, %.preheader ], [ %.026204354, %.lr.ph4357 ], [ %.026204354, %44 ], [ %.14356, %45 ]
   %438 = getelementptr inbounds nuw i8, ptr %.126183464, i64 40
   %439 = load ptr, ptr %438, align 8, !tbaa !27
   %440 = getelementptr inbounds nuw ptr, ptr %439, i64 %33
@@ -4899,9 +4899,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %910, ptr %487, align 8, !tbaa !25
   br label %.thread3507
 
-.thread3507:                                      ; preds = %518, %.lr.ph4324, %517, %.preheader3887, %874, %685, %689, %715, %880, %906, %._crit_edge4325
-  %.127653512 = phi ptr [ %spec.select3439, %._crit_edge4325 ], [ %spec.select3439, %689 ], [ %spec.select3439, %715 ], [ %spec.select3439, %685 ], [ %spec.select3439, %880 ], [ %spec.select3439, %906 ], [ %spec.select3439, %874 ], [ %.127494337, %.preheader3887 ], [ %.027644322, %.lr.ph4324 ], [ %511, %518 ], [ %.54323, %517 ]
-  %.127683511 = phi ptr [ %.227693504, %._crit_edge4325 ], [ %.227693504, %689 ], [ %.227693504, %715 ], [ %.227693504, %685 ], [ %.227693504, %880 ], [ %.227693504, %906 ], [ %.227693504, %874 ], [ %.127494337, %.preheader3887 ], [ %.027674321, %.lr.ph4324 ], [ %.54323, %518 ], [ %.027674321, %517 ]
+.thread3507:                                      ; preds = %518, %517, %.lr.ph4324, %.preheader3887, %874, %685, %689, %715, %880, %906, %._crit_edge4325
+  %.127653512 = phi ptr [ %spec.select3439, %689 ], [ %spec.select3439, %715 ], [ %spec.select3439, %685 ], [ %spec.select3439, %880 ], [ %spec.select3439, %906 ], [ %spec.select3439, %874 ], [ %spec.select3439, %._crit_edge4325 ], [ %.127494337, %.preheader3887 ], [ %.027644322, %.lr.ph4324 ], [ %.54323, %517 ], [ %511, %518 ]
+  %.127683511 = phi ptr [ %.227693504, %689 ], [ %.227693504, %715 ], [ %.227693504, %685 ], [ %.227693504, %880 ], [ %.227693504, %906 ], [ %.227693504, %874 ], [ %.227693504, %._crit_edge4325 ], [ %.127494337, %.preheader3887 ], [ %.027674321, %.lr.ph4324 ], [ %.027674321, %517 ], [ %.54323, %518 ]
   %911 = getelementptr inbounds nuw i8, ptr %.127653512, i64 40
   %912 = load ptr, ptr %911, align 8, !tbaa !27
   %913 = getelementptr inbounds nuw ptr, ptr %912, i64 %506
@@ -5782,9 +5782,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %1394, ptr %960, align 8, !tbaa !25
   br label %.thread3555
 
-.thread3555:                                      ; preds = %1002, %.lr.ph4291, %1001, %.preheader3889, %1358, %1169, %1173, %1199, %1364, %1390, %._crit_edge4292
-  %.127803560 = phi ptr [ %spec.select3441, %._crit_edge4292 ], [ %spec.select3441, %1173 ], [ %spec.select3441, %1199 ], [ %spec.select3441, %1169 ], [ %spec.select3441, %1364 ], [ %spec.select3441, %1390 ], [ %spec.select3441, %1358 ], [ %.127754304, %.preheader3889 ], [ %.027794289, %.lr.ph4291 ], [ %990, %1002 ], [ %.94290, %1001 ]
-  %.127833559 = phi ptr [ %.227843552, %._crit_edge4292 ], [ %.227843552, %1173 ], [ %.227843552, %1199 ], [ %.227843552, %1169 ], [ %.227843552, %1364 ], [ %.227843552, %1390 ], [ %.227843552, %1358 ], [ %.127754304, %.preheader3889 ], [ %.027824288, %.lr.ph4291 ], [ %.94290, %1002 ], [ %.027824288, %1001 ]
+.thread3555:                                      ; preds = %1002, %1001, %.lr.ph4291, %.preheader3889, %1358, %1169, %1173, %1199, %1364, %1390, %._crit_edge4292
+  %.127803560 = phi ptr [ %spec.select3441, %1173 ], [ %spec.select3441, %1199 ], [ %spec.select3441, %1169 ], [ %spec.select3441, %1364 ], [ %spec.select3441, %1390 ], [ %spec.select3441, %1358 ], [ %spec.select3441, %._crit_edge4292 ], [ %.127754304, %.preheader3889 ], [ %.027794289, %.lr.ph4291 ], [ %.94290, %1001 ], [ %990, %1002 ]
+  %.127833559 = phi ptr [ %.227843552, %1173 ], [ %.227843552, %1199 ], [ %.227843552, %1169 ], [ %.227843552, %1364 ], [ %.227843552, %1390 ], [ %.227843552, %1358 ], [ %.227843552, %._crit_edge4292 ], [ %.127754304, %.preheader3889 ], [ %.027824288, %.lr.ph4291 ], [ %.027824288, %1001 ], [ %.94290, %1002 ]
   %1395 = getelementptr inbounds nuw i8, ptr %.127803560, i64 40
   %1396 = load ptr, ptr %1395, align 8, !tbaa !27
   %1397 = getelementptr inbounds nuw ptr, ptr %1396, i64 %985
@@ -6650,9 +6650,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %1869, ptr %1446, align 8, !tbaa !25
   br label %.thread3603
 
-.thread3603:                                      ; preds = %1477, %.lr.ph4253, %1476, %.preheader3890, %1833, %1644, %1648, %1674, %1839, %1865, %._crit_edge4254
-  %.128103608 = phi ptr [ %spec.select3443, %._crit_edge4254 ], [ %spec.select3443, %1648 ], [ %spec.select3443, %1674 ], [ %spec.select3443, %1644 ], [ %spec.select3443, %1839 ], [ %spec.select3443, %1865 ], [ %spec.select3443, %1833 ], [ %.127944266, %.preheader3890 ], [ %.028094251, %.lr.ph4253 ], [ %1470, %1477 ], [ %.134252, %1476 ]
-  %.128133607 = phi ptr [ %.228143600, %._crit_edge4254 ], [ %.228143600, %1648 ], [ %.228143600, %1674 ], [ %.228143600, %1644 ], [ %.228143600, %1839 ], [ %.228143600, %1865 ], [ %.228143600, %1833 ], [ %.127944266, %.preheader3890 ], [ %.028124250, %.lr.ph4253 ], [ %.134252, %1477 ], [ %.028124250, %1476 ]
+.thread3603:                                      ; preds = %1477, %1476, %.lr.ph4253, %.preheader3890, %1833, %1644, %1648, %1674, %1839, %1865, %._crit_edge4254
+  %.128103608 = phi ptr [ %spec.select3443, %1648 ], [ %spec.select3443, %1674 ], [ %spec.select3443, %1644 ], [ %spec.select3443, %1839 ], [ %spec.select3443, %1865 ], [ %spec.select3443, %1833 ], [ %spec.select3443, %._crit_edge4254 ], [ %.127944266, %.preheader3890 ], [ %.028094251, %.lr.ph4253 ], [ %.134252, %1476 ], [ %1470, %1477 ]
+  %.128133607 = phi ptr [ %.228143600, %1648 ], [ %.228143600, %1674 ], [ %.228143600, %1644 ], [ %.228143600, %1839 ], [ %.228143600, %1865 ], [ %.228143600, %1833 ], [ %.228143600, %._crit_edge4254 ], [ %.127944266, %.preheader3890 ], [ %.028124250, %.lr.ph4253 ], [ %.028124250, %1476 ], [ %.134252, %1477 ]
   %1870 = getelementptr inbounds nuw i8, ptr %.128103608, i64 40
   %1871 = load ptr, ptr %1870, align 8, !tbaa !27
   %1872 = getelementptr inbounds nuw ptr, ptr %1871, i64 %1465
@@ -7514,9 +7514,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %2342, ptr %1919, align 8, !tbaa !25
   br label %.thread3651
 
-.thread3651:                                      ; preds = %1950, %.lr.ph4220, %1949, %.preheader3892, %2306, %2117, %2121, %2147, %2312, %2338, %._crit_edge4221
-  %.128253656 = phi ptr [ %spec.select3445, %._crit_edge4221 ], [ %spec.select3445, %2121 ], [ %spec.select3445, %2147 ], [ %spec.select3445, %2117 ], [ %spec.select3445, %2312 ], [ %spec.select3445, %2338 ], [ %spec.select3445, %2306 ], [ %.128204233, %.preheader3892 ], [ %.028244218, %.lr.ph4220 ], [ %1943, %1950 ], [ %.174219, %1949 ]
-  %.128283655 = phi ptr [ %.228293648, %._crit_edge4221 ], [ %.228293648, %2121 ], [ %.228293648, %2147 ], [ %.228293648, %2117 ], [ %.228293648, %2312 ], [ %.228293648, %2338 ], [ %.228293648, %2306 ], [ %.128204233, %.preheader3892 ], [ %.028274217, %.lr.ph4220 ], [ %.174219, %1950 ], [ %.028274217, %1949 ]
+.thread3651:                                      ; preds = %1950, %1949, %.lr.ph4220, %.preheader3892, %2306, %2117, %2121, %2147, %2312, %2338, %._crit_edge4221
+  %.128253656 = phi ptr [ %spec.select3445, %2121 ], [ %spec.select3445, %2147 ], [ %spec.select3445, %2117 ], [ %spec.select3445, %2312 ], [ %spec.select3445, %2338 ], [ %spec.select3445, %2306 ], [ %spec.select3445, %._crit_edge4221 ], [ %.128204233, %.preheader3892 ], [ %.028244218, %.lr.ph4220 ], [ %.174219, %1949 ], [ %1943, %1950 ]
+  %.128283655 = phi ptr [ %.228293648, %2121 ], [ %.228293648, %2147 ], [ %.228293648, %2117 ], [ %.228293648, %2312 ], [ %.228293648, %2338 ], [ %.228293648, %2306 ], [ %.228293648, %._crit_edge4221 ], [ %.128204233, %.preheader3892 ], [ %.028274217, %.lr.ph4220 ], [ %.028274217, %1949 ], [ %.174219, %1950 ]
   %2343 = getelementptr inbounds nuw i8, ptr %.128253656, i64 40
   %2344 = load ptr, ptr %2343, align 8, !tbaa !27
   %2345 = getelementptr inbounds nuw ptr, ptr %2344, i64 %1938
@@ -8378,9 +8378,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %2815, ptr %2392, align 8, !tbaa !25
   br label %.thread3699
 
-.thread3699:                                      ; preds = %2423, %.lr.ph4187, %2422, %.preheader3894, %2779, %2590, %2594, %2620, %2785, %2811, %._crit_edge4188
-  %.128553704 = phi ptr [ %spec.select3447, %._crit_edge4188 ], [ %spec.select3447, %2594 ], [ %spec.select3447, %2620 ], [ %spec.select3447, %2590 ], [ %spec.select3447, %2785 ], [ %spec.select3447, %2811 ], [ %spec.select3447, %2779 ], [ %.128394200, %.preheader3894 ], [ %.028544185, %.lr.ph4187 ], [ %2416, %2423 ], [ %.214186, %2422 ]
-  %.128583703 = phi ptr [ %.228593696, %._crit_edge4188 ], [ %.228593696, %2594 ], [ %.228593696, %2620 ], [ %.228593696, %2590 ], [ %.228593696, %2785 ], [ %.228593696, %2811 ], [ %.228593696, %2779 ], [ %.128394200, %.preheader3894 ], [ %.028574184, %.lr.ph4187 ], [ %.214186, %2423 ], [ %.028574184, %2422 ]
+.thread3699:                                      ; preds = %2423, %2422, %.lr.ph4187, %.preheader3894, %2779, %2590, %2594, %2620, %2785, %2811, %._crit_edge4188
+  %.128553704 = phi ptr [ %spec.select3447, %2594 ], [ %spec.select3447, %2620 ], [ %spec.select3447, %2590 ], [ %spec.select3447, %2785 ], [ %spec.select3447, %2811 ], [ %spec.select3447, %2779 ], [ %spec.select3447, %._crit_edge4188 ], [ %.128394200, %.preheader3894 ], [ %.028544185, %.lr.ph4187 ], [ %.214186, %2422 ], [ %2416, %2423 ]
+  %.128583703 = phi ptr [ %.228593696, %2594 ], [ %.228593696, %2620 ], [ %.228593696, %2590 ], [ %.228593696, %2785 ], [ %.228593696, %2811 ], [ %.228593696, %2779 ], [ %.228593696, %._crit_edge4188 ], [ %.128394200, %.preheader3894 ], [ %.028574184, %.lr.ph4187 ], [ %.028574184, %2422 ], [ %.214186, %2423 ]
   %2816 = getelementptr inbounds nuw i8, ptr %.128553704, i64 40
   %2817 = load ptr, ptr %2816, align 8, !tbaa !27
   %2818 = getelementptr inbounds nuw ptr, ptr %2817, i64 %2411
@@ -9266,9 +9266,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %3304, ptr %2865, align 8, !tbaa !25
   br label %.thread3747
 
-.thread3747:                                      ; preds = %2912, %.lr.ph4154, %2911, %.preheader3896, %3268, %3079, %3083, %3109, %3274, %3300, %._crit_edge4155
-  %.128413752 = phi ptr [ %.228423745, %._crit_edge4155 ], [ %.228423745, %3083 ], [ %.228423745, %3109 ], [ %.228423745, %3079 ], [ %.228423745, %3274 ], [ %.228423745, %3300 ], [ %.228423745, %3268 ], [ %.128504164, %.preheader3896 ], [ %.028404151, %.lr.ph4154 ], [ %.254153, %2912 ], [ %.028404151, %2911 ]
-  %.128443751 = phi ptr [ %spec.select3449, %._crit_edge4155 ], [ %spec.select3449, %3083 ], [ %spec.select3449, %3109 ], [ %spec.select3449, %3079 ], [ %spec.select3449, %3274 ], [ %spec.select3449, %3300 ], [ %spec.select3449, %3268 ], [ %.128504164, %.preheader3896 ], [ %.028434150, %.lr.ph4154 ], [ %2898, %2912 ], [ %.254153, %2911 ]
+.thread3747:                                      ; preds = %2912, %2911, %.lr.ph4154, %.preheader3896, %3268, %3079, %3083, %3109, %3274, %3300, %._crit_edge4155
+  %.128413752 = phi ptr [ %.228423745, %3083 ], [ %.228423745, %3109 ], [ %.228423745, %3079 ], [ %.228423745, %3274 ], [ %.228423745, %3300 ], [ %.228423745, %3268 ], [ %.228423745, %._crit_edge4155 ], [ %.128504164, %.preheader3896 ], [ %.028404151, %.lr.ph4154 ], [ %.028404151, %2911 ], [ %.254153, %2912 ]
+  %.128443751 = phi ptr [ %spec.select3449, %3083 ], [ %spec.select3449, %3109 ], [ %spec.select3449, %3079 ], [ %spec.select3449, %3274 ], [ %spec.select3449, %3300 ], [ %spec.select3449, %3268 ], [ %spec.select3449, %._crit_edge4155 ], [ %.128504164, %.preheader3896 ], [ %.028434150, %.lr.ph4154 ], [ %.254153, %2911 ], [ %2898, %2912 ]
   %3305 = getelementptr inbounds nuw i8, ptr %.128443751, i64 40
   %3306 = load ptr, ptr %3305, align 8, !tbaa !27
   %3307 = getelementptr inbounds nuw ptr, ptr %3306, i64 %2893
@@ -10138,9 +10138,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %3783, ptr %3360, align 8, !tbaa !25
   br label %.thread3795
 
-.thread3795:                                      ; preds = %3391, %.lr.ph4117, %3390, %.preheader3898, %3747, %3558, %3562, %3588, %3753, %3779, %._crit_edge4118
-  %.127963800 = phi ptr [ %.227973793, %._crit_edge4118 ], [ %.227973793, %3562 ], [ %.227973793, %3588 ], [ %.227973793, %3558 ], [ %.227973793, %3753 ], [ %.227973793, %3779 ], [ %.227973793, %3747 ], [ %.128054127, %.preheader3898 ], [ %.027954114, %.lr.ph4117 ], [ %.294116, %3391 ], [ %.027954114, %3390 ]
-  %.127993799 = phi ptr [ %spec.select3451, %._crit_edge4118 ], [ %spec.select3451, %3562 ], [ %spec.select3451, %3588 ], [ %spec.select3451, %3558 ], [ %spec.select3451, %3753 ], [ %spec.select3451, %3779 ], [ %spec.select3451, %3747 ], [ %.128054127, %.preheader3898 ], [ %.027984113, %.lr.ph4117 ], [ %3384, %3391 ], [ %.294116, %3390 ]
+.thread3795:                                      ; preds = %3391, %3390, %.lr.ph4117, %.preheader3898, %3747, %3558, %3562, %3588, %3753, %3779, %._crit_edge4118
+  %.127963800 = phi ptr [ %.227973793, %3562 ], [ %.227973793, %3588 ], [ %.227973793, %3558 ], [ %.227973793, %3753 ], [ %.227973793, %3779 ], [ %.227973793, %3747 ], [ %.227973793, %._crit_edge4118 ], [ %.128054127, %.preheader3898 ], [ %.027954114, %.lr.ph4117 ], [ %.027954114, %3390 ], [ %.294116, %3391 ]
+  %.127993799 = phi ptr [ %spec.select3451, %3562 ], [ %spec.select3451, %3588 ], [ %spec.select3451, %3558 ], [ %spec.select3451, %3753 ], [ %spec.select3451, %3779 ], [ %spec.select3451, %3747 ], [ %spec.select3451, %._crit_edge4118 ], [ %.128054127, %.preheader3898 ], [ %.027984113, %.lr.ph4117 ], [ %.294116, %3390 ], [ %3384, %3391 ]
   %3784 = getelementptr inbounds nuw i8, ptr %.127993799, i64 40
   %3785 = load ptr, ptr %3784, align 8, !tbaa !27
   %3786 = getelementptr inbounds nuw ptr, ptr %3785, i64 %3379
@@ -11015,9 +11015,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 %4267, ptr %3833, align 8, !tbaa !25
   br label %.thread3843
 
-.thread3843:                                      ; preds = %.lr.ph4085, %3865, %.preheader3900, %3868, %4231, %4041, %4045, %4071, %4237, %4263, %._crit_edge
-  %.127513848 = phi ptr [ %.227523841, %._crit_edge ], [ %.227523841, %4045 ], [ %.227523841, %4071 ], [ %.227523841, %4041 ], [ %.227523841, %4237 ], [ %.227523841, %4263 ], [ %.227523841, %4231 ], [ %.334084, %3868 ], [ %.127604094, %.preheader3900 ], [ %.027504082, %3865 ], [ %.027504082, %.lr.ph4085 ]
-  %.127543847 = phi ptr [ %spec.select3453, %._crit_edge ], [ %spec.select3453, %4045 ], [ %spec.select3453, %4071 ], [ %spec.select3453, %4041 ], [ %spec.select3453, %4237 ], [ %spec.select3453, %4263 ], [ %spec.select3453, %4231 ], [ %3871, %3868 ], [ %.127604094, %.preheader3900 ], [ %.027534081, %.lr.ph4085 ], [ %.334084, %3865 ]
+.thread3843:                                      ; preds = %3865, %.lr.ph4085, %.preheader3900, %3868, %4231, %4041, %4045, %4071, %4237, %4263, %._crit_edge
+  %.127513848 = phi ptr [ %.227523841, %4045 ], [ %.227523841, %4071 ], [ %.227523841, %4041 ], [ %.227523841, %4237 ], [ %.227523841, %4263 ], [ %.227523841, %4231 ], [ %.227523841, %._crit_edge ], [ %.334084, %3868 ], [ %.127604094, %.preheader3900 ], [ %.027504082, %.lr.ph4085 ], [ %.027504082, %3865 ]
+  %.127543847 = phi ptr [ %spec.select3453, %4045 ], [ %spec.select3453, %4071 ], [ %spec.select3453, %4041 ], [ %spec.select3453, %4237 ], [ %spec.select3453, %4263 ], [ %spec.select3453, %4231 ], [ %spec.select3453, %._crit_edge ], [ %3871, %3868 ], [ %.127604094, %.preheader3900 ], [ %.334084, %3865 ], [ %.027534081, %.lr.ph4085 ]
   %4268 = getelementptr inbounds nuw i8, ptr %.127543847, i64 40
   %4269 = load ptr, ptr %4268, align 8, !tbaa !27
   %4270 = getelementptr inbounds nuw ptr, ptr %4269, i64 %3853
@@ -11098,7 +11098,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.thread3479
 
 .thread3479:                                      ; preds = %4207, %4188, %4155, %4136, %4016, %3997, %3964, %3945, %3723, %3704, %3671, %3652, %3533, %3514, %3481, %3462, %3244, %3225, %3192, %3173, %3054, %3035, %3002, %2983, %2755, %2736, %2703, %2684, %2565, %2546, %2513, %2494, %2282, %2263, %2230, %2211, %2092, %2073, %2040, %2021, %1809, %1790, %1757, %1738, %1619, %1600, %1567, %1548, %1334, %1315, %1282, %1263, %1144, %1125, %1092, %1073, %850, %831, %798, %779, %660, %641, %608, %589, %377, %358, %325, %306, %187, %168, %135, %116, %.thread3884, %4111, %.thread3866, %3914, %.thread3836, %3627, %.thread3818, %3431, %.thread3788, %3148, %.thread3770, %2952, %.thread3740, %2659, %.thread3722, %2463, %.thread3692, %2186, %.thread3674, %1990, %.thread3644, %1713, %.thread3626, %1517, %.thread3596, %1238, %.thread3578, %1042, %.thread3548, %754, %.thread3530, %558, %.thread3500, %281, %.thread3482, %85, %2, %9, %._crit_edge4372, %444, %13, %478, %._crit_edge4339, %917, %486, %951, %._crit_edge4306, %1401, %1405, %959, %1437, %._crit_edge4268, %1876, %1445, %1910, %._crit_edge4235, %2349, %1918, %2383, %._crit_edge4202, %2822, %2391, %2856, %._crit_edge4169, %3311, %3316, %2864, %3351, %._crit_edge4132, %3790, %3359, %3824, %._crit_edge4099, %4274, %3832, %4308
-  %.02576 = phi ptr [ null, %9 ], [ null, %2 ], [ null, %._crit_edge4132 ], [ null, %._crit_edge4372 ], [ null, %444 ], [ null, %._crit_edge4339 ], [ null, %917 ], [ null, %._crit_edge4306 ], [ null, %1401 ], [ null, %._crit_edge4268 ], [ null, %1876 ], [ null, %._crit_edge4235 ], [ null, %2349 ], [ null, %._crit_edge4202 ], [ null, %2822 ], [ null, %._crit_edge4169 ], [ null, %3311 ], [ null, %3790 ], [ %451, %478 ], [ null, %._crit_edge4099 ], [ null, %.thread3482 ], [ null, %85 ], [ null, %187 ], [ null, %.thread3500 ], [ null, %281 ], [ null, %13 ], [ %924, %951 ], [ null, %377 ], [ null, %.thread3530 ], [ null, %558 ], [ null, %660 ], [ null, %.thread3548 ], [ null, %754 ], [ null, %486 ], [ %1411, %1437 ], [ null, %850 ], [ null, %.thread3578 ], [ null, %1042 ], [ null, %1144 ], [ null, %.thread3596 ], [ null, %1238 ], [ null, %959 ], [ null, %1405 ], [ %1883, %1910 ], [ null, %1334 ], [ null, %.thread3626 ], [ null, %1517 ], [ null, %1619 ], [ null, %.thread3644 ], [ null, %1713 ], [ null, %1445 ], [ %2356, %2383 ], [ null, %1809 ], [ null, %.thread3674 ], [ null, %1990 ], [ null, %2092 ], [ null, %.thread3692 ], [ null, %2186 ], [ null, %1918 ], [ %2829, %2856 ], [ null, %2282 ], [ null, %.thread3722 ], [ null, %2463 ], [ null, %2565 ], [ null, %.thread3740 ], [ null, %2659 ], [ null, %2391 ], [ %3324, %3351 ], [ null, %2755 ], [ null, %.thread3770 ], [ null, %2952 ], [ null, %3054 ], [ null, %.thread3788 ], [ null, %3148 ], [ null, %2864 ], [ null, %3316 ], [ %3797, %3824 ], [ null, %3244 ], [ null, %.thread3818 ], [ null, %3431 ], [ null, %3533 ], [ null, %.thread3836 ], [ null, %3627 ], [ null, %3359 ], [ %4281, %4308 ], [ null, %3723 ], [ null, %.thread3866 ], [ null, %3914 ], [ null, %4016 ], [ null, %.thread3884 ], [ null, %4111 ], [ null, %3832 ], [ null, %4274 ], [ null, %116 ], [ null, %135 ], [ null, %168 ], [ null, %306 ], [ null, %325 ], [ null, %358 ], [ null, %589 ], [ null, %608 ], [ null, %641 ], [ null, %779 ], [ null, %798 ], [ null, %831 ], [ null, %1073 ], [ null, %1092 ], [ null, %1125 ], [ null, %1263 ], [ null, %1282 ], [ null, %1315 ], [ null, %1548 ], [ null, %1567 ], [ null, %1600 ], [ null, %1738 ], [ null, %1757 ], [ null, %1790 ], [ null, %2021 ], [ null, %2040 ], [ null, %2073 ], [ null, %2211 ], [ null, %2230 ], [ null, %2263 ], [ null, %2494 ], [ null, %2513 ], [ null, %2546 ], [ null, %2684 ], [ null, %2703 ], [ null, %2736 ], [ null, %2983 ], [ null, %3002 ], [ null, %3035 ], [ null, %3173 ], [ null, %3192 ], [ null, %3225 ], [ null, %3462 ], [ null, %3481 ], [ null, %3514 ], [ null, %3652 ], [ null, %3671 ], [ null, %3704 ], [ null, %3945 ], [ null, %3964 ], [ null, %3997 ], [ null, %4136 ], [ null, %4155 ], [ null, %4188 ], [ null, %4207 ]
+  %.02576 = phi ptr [ null, %9 ], [ null, %2 ], [ null, %85 ], [ null, %281 ], [ %451, %478 ], [ null, %13 ], [ null, %444 ], [ null, %._crit_edge4372 ], [ null, %558 ], [ null, %754 ], [ %924, %951 ], [ null, %486 ], [ null, %917 ], [ null, %._crit_edge4339 ], [ null, %1042 ], [ null, %1238 ], [ %1411, %1437 ], [ null, %959 ], [ null, %1405 ], [ null, %1401 ], [ null, %._crit_edge4306 ], [ null, %1517 ], [ null, %1713 ], [ %1883, %1910 ], [ null, %1445 ], [ null, %1876 ], [ null, %._crit_edge4268 ], [ null, %1990 ], [ null, %2186 ], [ %2356, %2383 ], [ null, %1918 ], [ null, %2349 ], [ null, %._crit_edge4235 ], [ null, %2463 ], [ null, %2659 ], [ %2829, %2856 ], [ null, %2391 ], [ null, %2822 ], [ null, %._crit_edge4202 ], [ null, %2952 ], [ null, %3148 ], [ %3324, %3351 ], [ null, %2864 ], [ null, %3316 ], [ null, %3311 ], [ null, %._crit_edge4169 ], [ null, %3431 ], [ null, %3627 ], [ %3797, %3824 ], [ null, %3359 ], [ null, %3790 ], [ null, %._crit_edge4132 ], [ null, %3914 ], [ null, %4111 ], [ %4281, %4308 ], [ null, %3832 ], [ null, %4274 ], [ null, %._crit_edge4099 ], [ null, %.thread3482 ], [ null, %.thread3500 ], [ null, %.thread3530 ], [ null, %.thread3548 ], [ null, %.thread3578 ], [ null, %.thread3596 ], [ null, %.thread3626 ], [ null, %.thread3644 ], [ null, %.thread3674 ], [ null, %.thread3692 ], [ null, %.thread3722 ], [ null, %.thread3740 ], [ null, %.thread3770 ], [ null, %.thread3788 ], [ null, %.thread3818 ], [ null, %.thread3836 ], [ null, %.thread3866 ], [ null, %.thread3884 ], [ null, %116 ], [ null, %135 ], [ null, %168 ], [ null, %187 ], [ null, %306 ], [ null, %325 ], [ null, %358 ], [ null, %377 ], [ null, %589 ], [ null, %608 ], [ null, %641 ], [ null, %660 ], [ null, %779 ], [ null, %798 ], [ null, %831 ], [ null, %850 ], [ null, %1073 ], [ null, %1092 ], [ null, %1125 ], [ null, %1144 ], [ null, %1263 ], [ null, %1282 ], [ null, %1315 ], [ null, %1334 ], [ null, %1548 ], [ null, %1567 ], [ null, %1600 ], [ null, %1619 ], [ null, %1738 ], [ null, %1757 ], [ null, %1790 ], [ null, %1809 ], [ null, %2021 ], [ null, %2040 ], [ null, %2073 ], [ null, %2092 ], [ null, %2211 ], [ null, %2230 ], [ null, %2263 ], [ null, %2282 ], [ null, %2494 ], [ null, %2513 ], [ null, %2546 ], [ null, %2565 ], [ null, %2684 ], [ null, %2703 ], [ null, %2736 ], [ null, %2755 ], [ null, %2983 ], [ null, %3002 ], [ null, %3035 ], [ null, %3054 ], [ null, %3173 ], [ null, %3192 ], [ null, %3225 ], [ null, %3244 ], [ null, %3462 ], [ null, %3481 ], [ null, %3514 ], [ null, %3533 ], [ null, %3652 ], [ null, %3671 ], [ null, %3704 ], [ null, %3723 ], [ null, %3945 ], [ null, %3964 ], [ null, %3997 ], [ null, %4016 ], [ null, %4136 ], [ null, %4155 ], [ null, %4188 ], [ null, %4207 ]
   ret ptr %.02576
 }
 
@@ -11525,7 +11525,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   br i1 %exitcond.not, label %.thread169, label %41, !llvm.loop !70
 
 .thread169:                                       ; preds = %237, %41, %30, %179, %160, %129, %110, %227, %78, %1, %13, %202
-  %.0125 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %227 ], [ null, %78 ], [ null, %160 ], [ null, %179 ], [ %21, %202 ], [ null, %129 ], [ null, %110 ], [ %21, %30 ], [ %21, %41 ], [ %21, %237 ]
+  %.0125 = phi ptr [ null, %227 ], [ null, %78 ], [ null, %13 ], [ null, %1 ], [ %21, %202 ], [ null, %110 ], [ null, %129 ], [ null, %160 ], [ null, %179 ], [ %21, %30 ], [ %21, %41 ], [ %21, %237 ]
   ret ptr %.0125
 }
 
@@ -12118,13 +12118,13 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   br i1 %273, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %268, %238, %211, %172, %146, %120, %95, %60, %34
-  %.sink462 = phi ptr [ %237, %238 ], [ %205, %211 ], [ %171, %172 ], [ %145, %146 ], [ %119, %120 ], [ %90, %95 ], [ %59, %60 ], [ %33, %34 ], [ %267, %268 ]
+  %.sink462 = phi ptr [ %33, %34 ], [ %59, %60 ], [ %90, %95 ], [ %119, %120 ], [ %145, %146 ], [ %171, %172 ], [ %205, %211 ], [ %237, %238 ], [ %267, %268 ]
   %274 = getelementptr inbounds nuw i8, ptr %.sink462, i64 8
   %275 = load ptr, ptr %274, align 8, !tbaa !35
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %._crit_edge, %268, %._crit_edge346, %238, %._crit_edge352, %206, %211, %._crit_edge358, %172, %._crit_edge364, %146, %._crit_edge370, %120, %._crit_edge376, %91, %95, %._crit_edge382, %60, %._crit_edge388, %34, %9, %2
-  %.0218 = phi ptr [ null, %2 ], [ null, %91 ], [ null, %120 ], [ null, %146 ], [ null, %172 ], [ null, %211 ], [ null, %206 ], [ null, %238 ], [ null, %268 ], [ null, %._crit_edge ], [ null, %._crit_edge346 ], [ null, %._crit_edge352 ], [ null, %._crit_edge358 ], [ null, %._crit_edge364 ], [ null, %._crit_edge370 ], [ null, %._crit_edge376 ], [ null, %._crit_edge382 ], [ null, %._crit_edge388 ], [ null, %9 ], [ null, %34 ], [ null, %60 ], [ null, %95 ], [ %275, %.thread.sink.split ]
+  %.0218 = phi ptr [ null, %2 ], [ null, %9 ], [ null, %34 ], [ null, %._crit_edge388 ], [ null, %60 ], [ null, %._crit_edge382 ], [ null, %95 ], [ null, %91 ], [ null, %._crit_edge376 ], [ null, %120 ], [ null, %._crit_edge370 ], [ null, %146 ], [ null, %._crit_edge364 ], [ null, %172 ], [ null, %._crit_edge358 ], [ null, %211 ], [ null, %206 ], [ null, %._crit_edge352 ], [ null, %238 ], [ null, %._crit_edge346 ], [ null, %268 ], [ null, %._crit_edge ], [ %275, %.thread.sink.split ]
   ret ptr %.0218
 }
 
@@ -12720,7 +12720,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %274 = icmp eq ptr %11, null
   br i1 %274, label %.thread.thread344, label %.thread.thread
 
-.thread.thread344:                                ; preds = %._crit_edge, %._crit_edge369, %._crit_edge375, %._crit_edge381, %._crit_edge387, %._crit_edge393, %._crit_edge399, %._crit_edge405, %._crit_edge363, %.thread
+.thread.thread344:                                ; preds = %._crit_edge, %._crit_edge363, %._crit_edge369, %._crit_edge375, %._crit_edge381, %._crit_edge387, %._crit_edge393, %._crit_edge399, %._crit_edge405, %.thread
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %276 = load ptr, ptr %275, align 8, !tbaa !33
   %277 = load ptr, ptr %10, align 8, !tbaa !32
@@ -12736,13 +12736,13 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   br i1 %.not287, label %283, label %.sink.split
 
 .sink.split:                                      ; preds = %.thread.thread, %.thread.thread344, %268, %238, %211, %172, %146, %120, %95, %60, %34
-  %.sink482 = phi ptr [ %237, %238 ], [ %205, %211 ], [ %171, %172 ], [ %145, %146 ], [ %119, %120 ], [ %90, %95 ], [ %59, %60 ], [ %33, %34 ], [ %276, %.thread.thread344 ], [ %267, %268 ], [ %279, %.thread.thread ]
+  %.sink482 = phi ptr [ %33, %34 ], [ %59, %60 ], [ %90, %95 ], [ %119, %120 ], [ %145, %146 ], [ %171, %172 ], [ %205, %211 ], [ %237, %238 ], [ %267, %268 ], [ %276, %.thread.thread344 ], [ %279, %.thread.thread ]
   %281 = getelementptr inbounds nuw i8, ptr %.sink482, i64 8
   %282 = load ptr, ptr %281, align 8, !tbaa !35
   br label %283
 
 283:                                              ; preds = %.sink.split, %2, %.thread.thread344, %.thread.thread
-  %.0225 = phi ptr [ null, %.thread.thread344 ], [ null, %2 ], [ null, %.thread.thread ], [ %282, %.sink.split ]
+  %.0225 = phi ptr [ null, %2 ], [ null, %.thread.thread344 ], [ null, %.thread.thread ], [ %282, %.sink.split ]
   ret ptr %.0225
 }
 
@@ -13269,13 +13269,13 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   br i1 %.not280, label %.thread.thread337, label %.thread.thread337.sink.split
 
 .thread.thread337.sink.split:                     ; preds = %._crit_edge363, %._crit_edge387, %219, %._crit_edge357, %._crit_edge369, %._crit_edge375, %._crit_edge381, %._crit_edge393, %._crit_edge399, %.thread
-  %.sink474 = phi ptr [ %80, %._crit_edge387 ], [ %143, %._crit_edge369 ], [ %122, %._crit_edge375 ], [ %101, %._crit_edge381 ], [ %11, %.thread ], [ %54, %._crit_edge393 ], [ %33, %._crit_edge399 ], [ %218, %219 ], [ %193, %._crit_edge357 ], [ %172, %._crit_edge363 ]
+  %.sink474 = phi ptr [ %11, %.thread ], [ %218, %219 ], [ %33, %._crit_edge399 ], [ %54, %._crit_edge393 ], [ %101, %._crit_edge381 ], [ %122, %._crit_edge375 ], [ %143, %._crit_edge369 ], [ %193, %._crit_edge357 ], [ %80, %._crit_edge387 ], [ %172, %._crit_edge363 ]
   %224 = getelementptr inbounds nuw i8, ptr %.sink474, i64 8
   %225 = load ptr, ptr %224, align 8, !tbaa !35
   br label %.thread.thread337
 
-.thread.thread337:                                ; preds = %.thread.thread337.sink.split, %._crit_edge, %._crit_edge363, %._crit_edge369, %._crit_edge375, %._crit_edge381, %._crit_edge387, %._crit_edge393, %._crit_edge399, %._crit_edge357, %2, %.thread
-  %.0220 = phi ptr [ null, %.thread ], [ null, %2 ], [ null, %._crit_edge357 ], [ null, %._crit_edge399 ], [ null, %._crit_edge393 ], [ null, %._crit_edge387 ], [ null, %._crit_edge381 ], [ null, %._crit_edge375 ], [ null, %._crit_edge369 ], [ null, %._crit_edge363 ], [ null, %._crit_edge ], [ %225, %.thread.thread337.sink.split ]
+.thread.thread337:                                ; preds = %.thread.thread337.sink.split, %._crit_edge, %._crit_edge357, %._crit_edge363, %._crit_edge369, %._crit_edge375, %._crit_edge381, %._crit_edge387, %._crit_edge393, %._crit_edge399, %2, %.thread
+  %.0220 = phi ptr [ null, %2 ], [ null, %.thread ], [ null, %._crit_edge399 ], [ null, %._crit_edge393 ], [ null, %._crit_edge387 ], [ null, %._crit_edge381 ], [ null, %._crit_edge375 ], [ null, %._crit_edge369 ], [ null, %._crit_edge363 ], [ null, %._crit_edge357 ], [ null, %._crit_edge ], [ %225, %.thread.thread337.sink.split ]
   ret ptr %.0220
 }
 
@@ -13895,7 +13895,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   br label %274
 
 274:                                              ; preds = %9, %.thread, %.thread297, %.thread300, %.thread303, %.thread306, %.thread309, %.thread312, %.thread315, %.thread318, %268, %238, %211, %172, %146, %120, %95, %60, %34, %2
-  %.0218 = phi ptr [ %267, %268 ], [ null, %2 ], [ %33, %34 ], [ %59, %60 ], [ %90, %95 ], [ %119, %120 ], [ %145, %146 ], [ %171, %172 ], [ %205, %211 ], [ %237, %238 ], [ null, %.thread318 ], [ null, %.thread315 ], [ null, %.thread312 ], [ null, %.thread309 ], [ null, %.thread306 ], [ null, %.thread303 ], [ null, %.thread300 ], [ null, %.thread297 ], [ null, %.thread ], [ null, %9 ]
+  %.0218 = phi ptr [ null, %2 ], [ %33, %34 ], [ %59, %60 ], [ %90, %95 ], [ %119, %120 ], [ %145, %146 ], [ %171, %172 ], [ %205, %211 ], [ %237, %238 ], [ %267, %268 ], [ null, %.thread318 ], [ null, %.thread315 ], [ null, %.thread312 ], [ null, %.thread309 ], [ null, %.thread306 ], [ null, %.thread303 ], [ null, %.thread300 ], [ null, %.thread297 ], [ null, %.thread ], [ null, %9 ]
   ret ptr %.0218
 }
 
@@ -14491,12 +14491,12 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %274 = icmp eq ptr %11, null
   br i1 %274, label %.thread.thread337, label %.thread.thread
 
-.thread.thread337:                                ; preds = %._crit_edge398, %._crit_edge, %._crit_edge362, %._crit_edge368, %._crit_edge374, %._crit_edge380, %._crit_edge356, %._crit_edge386, %._crit_edge392, %.thread
+.thread.thread337:                                ; preds = %._crit_edge, %._crit_edge356, %._crit_edge362, %._crit_edge368, %._crit_edge374, %._crit_edge380, %._crit_edge386, %._crit_edge392, %._crit_edge398, %.thread
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.sink.split
 
-.thread.thread:                                   ; preds = %268, %206, %91, %211, %172, %146, %120, %95, %60, %34, %238, %.thread
-  %.2236334 = phi ptr [ %11, %.thread ], [ %267, %268 ], [ %205, %206 ], [ %90, %91 ], [ %205, %211 ], [ %171, %172 ], [ %145, %146 ], [ %119, %120 ], [ %90, %95 ], [ %59, %60 ], [ %33, %34 ], [ %237, %238 ]
+.thread.thread:                                   ; preds = %268, %238, %211, %206, %172, %146, %120, %95, %91, %60, %34, %.thread
+  %.2236334 = phi ptr [ %11, %.thread ], [ %267, %268 ], [ %237, %238 ], [ %205, %211 ], [ %205, %206 ], [ %171, %172 ], [ %145, %146 ], [ %119, %120 ], [ %90, %95 ], [ %90, %91 ], [ %59, %60 ], [ %33, %34 ]
   %276 = getelementptr inbounds nuw i8, ptr %.2236334, i64 48
   br label %.sink.split
 
@@ -14509,7 +14509,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   br label %278
 
 278:                                              ; preds = %.sink.split, %268, %238, %211, %172, %146, %120, %95, %60, %34, %2
-  %.0225 = phi ptr [ %171, %172 ], [ null, %2 ], [ %267, %268 ], [ %237, %238 ], [ %205, %211 ], [ %33, %34 ], [ %59, %60 ], [ %90, %95 ], [ %119, %120 ], [ %145, %146 ], [ %., %.sink.split ]
+  %.0225 = phi ptr [ null, %2 ], [ %33, %34 ], [ %59, %60 ], [ %90, %95 ], [ %119, %120 ], [ %145, %146 ], [ %171, %172 ], [ %205, %211 ], [ %237, %238 ], [ %267, %268 ], [ %., %.sink.split ]
   ret ptr %.0225
 }
 
@@ -15024,7 +15024,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge354, %._crit_edge378, %._crit_edge348, %._crit_edge360, %._crit_edge366, %._crit_edge372, %._crit_edge384, %._crit_edge390, %219, %9, %._crit_edge, %2
-  %.0220 = phi ptr [ %33, %._crit_edge390 ], [ null, %2 ], [ %54, %._crit_edge384 ], [ %218, %219 ], [ null, %._crit_edge ], [ %80, %._crit_edge378 ], [ %101, %._crit_edge372 ], [ %172, %._crit_edge354 ], [ %143, %._crit_edge360 ], [ %122, %._crit_edge366 ], [ %11, %9 ], [ %193, %._crit_edge348 ]
+  %.0220 = phi ptr [ null, %2 ], [ %11, %9 ], [ null, %._crit_edge ], [ %218, %219 ], [ %33, %._crit_edge390 ], [ %54, %._crit_edge384 ], [ %101, %._crit_edge372 ], [ %122, %._crit_edge366 ], [ %143, %._crit_edge360 ], [ %193, %._crit_edge348 ], [ %80, %._crit_edge378 ], [ %172, %._crit_edge354 ]
   ret ptr %.0220
 }
 
@@ -15150,7 +15150,7 @@ define range(i32 -1, 1) i32 @H5SL_release(ptr noundef captures(none) %0) local_u
   br label %19
 
 19:                                               ; preds = %15, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ -1, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %12 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -15296,7 +15296,7 @@ define range(i32 -1, 1) i32 @H5SL_free(ptr noundef captures(none) %0, ptr nounde
   br label %21
 
 21:                                               ; preds = %17, %14, %11
-  %.0 = phi i32 [ 0, %11 ], [ -1, %17 ], [ 0, %14 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %14 ], [ 0, %11 ]
   ret i32 %.0
 }
 

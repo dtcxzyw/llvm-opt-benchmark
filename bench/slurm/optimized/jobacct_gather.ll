@@ -464,7 +464,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_unpack(ptr noundef captures(n
   br label %125
 
 125:                                              ; preds = %122, %123, %108, %112, %115, %10
-  %.0 = phi i32 [ 0, %108 ], [ 0, %10 ], [ -1, %112 ], [ -1, %115 ], [ -1, %123 ], [ -1, %122 ]
+  %.0 = phi i32 [ 0, %10 ], [ -1, %115 ], [ -1, %112 ], [ 0, %108 ], [ -1, %123 ], [ -1, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -1379,7 +1379,7 @@ jobacctinfo_create.exit:                          ; preds = %17, %24
   br label %65
 
 65:                                               ; preds = %57, %59, %_jobacct_shutdown_test.exit, %3, %64
-  %.0 = phi i32 [ -1, %_jobacct_shutdown_test.exit ], [ 0, %3 ], [ -1, %64 ], [ 0, %59 ], [ 0, %57 ]
+  %.0 = phi i32 [ -1, %64 ], [ 0, %3 ], [ -1, %_jobacct_shutdown_test.exit ], [ 0, %59 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -1532,7 +1532,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %10
   br label %39
 
 39:                                               ; preds = %16, %2, %_jobacct_shutdown_test.exit, %37
-  %.0 = phi ptr [ null, %2 ], [ %38, %37 ], [ null, %_jobacct_shutdown_test.exit ], [ null, %16 ]
+  %.0 = phi ptr [ %38, %37 ], [ null, %_jobacct_shutdown_test.exit ], [ null, %2 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -1813,7 +1813,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %8
   br label %37
 
 37:                                               ; preds = %.split30.us.thread, %18, %36, %.split30.us, %.split32.us, %30
-  %.016 = phi ptr [ %.us-phi, %30 ], [ %.us-phi, %.split32.us ], [ null, %36 ], [ null, %.split30.us ], [ null, %.split30.us.thread ], [ null, %18 ]
+  %.016 = phi ptr [ %.us-phi, %30 ], [ %.us-phi, %.split32.us ], [ null, %36 ], [ null, %.split30.us ], [ null, %18 ], [ null, %.split30.us.thread ]
   %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @task_list_lock) #10
   %.not27 = icmp eq i32 %38, 0
   br i1 %.not27, label %41, label %39
@@ -1825,7 +1825,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %8
   unreachable
 
 41:                                               ; preds = %37, %_jobacct_shutdown_test.exit, %1
-  %.0 = phi ptr [ null, %_jobacct_shutdown_test.exit ], [ null, %1 ], [ %.016, %37 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %_jobacct_shutdown_test.exit ], [ %.016, %37 ]
   ret ptr %.0
 }
 
@@ -1859,7 +1859,7 @@ define dso_local range(i32 -1, 1) i32 @jobacct_gather_set_proctrack_container_id
   br label %12
 
 12:                                               ; preds = %1, %11, %9
-  %.0 = phi i32 [ 0, %11 ], [ -1, %9 ], [ 0, %1 ]
+  %.0 = phi i32 [ -1, %9 ], [ 0, %11 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1895,7 +1895,7 @@ define dso_local range(i32 -1, 1) i32 @jobacct_gather_set_mem_limit(ptr noundef 
   br label %20
 
 20:                                               ; preds = %2, %12, %10
-  %.0 = phi i32 [ 0, %12 ], [ -1, %10 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %10 ], [ 0, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -2343,7 +2343,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_setinfo(ptr noundef %0, i32 n
   br label %106
 
 106:                                              ; preds = %.thread86, %.thread80, %105, %86, %91, %96, %14, %12, %15, %104, %101, %4
-  %.0 = phi i32 [ 0, %96 ], [ 0, %4 ], [ 0, %104 ], [ 0, %101 ], [ 0, %14 ], [ -1, %12 ], [ 0, %.thread86 ], [ 0, %15 ], [ 0, %86 ], [ 0, %91 ], [ -1, %105 ], [ -1, %.thread80 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %104 ], [ 0, %101 ], [ 0, %14 ], [ -1, %12 ], [ 0, %15 ], [ 0, %86 ], [ 0, %91 ], [ 0, %96 ], [ -1, %105 ], [ -1, %.thread80 ], [ 0, %.thread86 ]
   ret i32 %.0
 }
 
@@ -2512,7 +2512,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
   br label %.thread
 
 .split99.us:                                      ; preds = %.lr.ph136, %.lr.ph121.preheader, %.lr.ph136.preheader, %.lr.ph121.preheader.preheader
-  %.us-phi100 = phi i64 [ %52, %.lr.ph121.preheader ], [ %33, %.lr.ph121.preheader.preheader ], [ %21, %.lr.ph136.preheader ], [ %30, %.lr.ph136 ]
+  %.us-phi100 = phi i64 [ %33, %.lr.ph121.preheader.preheader ], [ %21, %.lr.ph136.preheader ], [ %52, %.lr.ph121.preheader ], [ %30, %.lr.ph136 ]
   %58 = and i64 %.us-phi100, 2147483647
   %59 = getelementptr inbounds nuw i8, ptr %.059.ph140, i64 %58
   %60 = sub i64 %.060.ph138, %58
@@ -2649,7 +2649,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
   br label %.thread
 
 .split149.us:                                     ; preds = %.lr.ph187, %.lr.ph172.preheader, %.lr.ph187.preheader, %.lr.ph172.preheader.preheader
-  %.us-phi150 = phi i64 [ %101, %.lr.ph172.preheader ], [ %82, %.lr.ph172.preheader.preheader ], [ %70, %.lr.ph187.preheader ], [ %79, %.lr.ph187 ]
+  %.us-phi150 = phi i64 [ %82, %.lr.ph172.preheader.preheader ], [ %70, %.lr.ph187.preheader ], [ %101, %.lr.ph172.preheader ], [ %79, %.lr.ph187 ]
   %107 = and i64 %.us-phi150, 2147483647
   %108 = getelementptr inbounds nuw i8, ptr %.056.ph193, i64 %107
   %109 = sub i64 %.057.ph191, %107
@@ -2734,7 +2734,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
   br label %145
 
 145:                                              ; preds = %.thread83, %117, %131, %136, %15, %13, %16, %144, %141, %4, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %4 ], [ 0, %144 ], [ 0, %141 ], [ 0, %15 ], [ -1, %13 ], [ 0, %.thread83 ], [ 0, %16 ], [ 0, %117 ], [ 0, %131 ], [ 0, %136 ]
+  %.0 = phi i32 [ -1, %.thread ], [ 0, %4 ], [ 0, %144 ], [ 0, %141 ], [ 0, %15 ], [ -1, %13 ], [ 0, %16 ], [ 0, %117 ], [ 0, %131 ], [ 0, %136 ], [ 0, %.thread83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

@@ -82,7 +82,7 @@ get_exception_class.exit.thread:                  ; preds = %2
   br label %get_exception_class.exit
 
 get_exception_class.exit:                         ; preds = %5, %8, %10, %13, %16, %18, %21, %24
-  %.0.i = phi ptr [ %26, %24 ], [ %23, %21 ], [ %7, %5 ], [ %9, %8 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %20, %18 ]
+  %.0.i = phi ptr [ %26, %24 ], [ %7, %5 ], [ %9, %8 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %20, %18 ], [ %23, %21 ]
   %27 = icmp eq ptr %.0.i, null
   br i1 %27, label %77, label %28
 
@@ -238,7 +238,7 @@ define hidden i64 @_pysqlite_long_as_int64(ptr noundef %0) local_unnamed_addr #0
   br label %11
 
 11:                                               ; preds = %7, %5, %9
-  %.0 = phi i64 [ -1, %5 ], [ -1, %9 ], [ %3, %7 ]
+  %.0 = phi i64 [ -1, %9 ], [ -1, %5 ], [ %3, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }

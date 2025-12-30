@@ -1171,7 +1171,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInst
   br label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit
 
 _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit: ; preds = %.preheader.i.i.i.i.i23, %128, %.preheader.i.i.i.i.i78.i, %423, %.preheader.i.i.i.i.i.i, %253, %.preheader.i.i.i.i58, %341, %320, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i44, %232, %242, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i.i, %259, %307, %314, %359, %403, %408, %412, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i92.i, %429, %436, %439, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInstrES3_S3_NS1_8RegisterE.exit.sink.split.i
-  %.0.i37 = phi i1 [ false, %.preheader.i.i.i.i58 ], [ false, %341 ], [ false, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit ], [ false, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i44 ], [ false, %253 ], [ false, %232 ], [ false, %242 ], [ false, %259 ], [ false, %.preheader.i.i.i.i.i.i ], [ false, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i.i ], [ false, %128 ], [ false, %307 ], [ true, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInstrES3_S3_NS1_8RegisterE.exit.sink.split.i ], [ false, %314 ], [ false, %359 ], [ false, %403 ], [ false, %408 ], [ false, %436 ], [ false, %423 ], [ false, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i92.i ], [ false, %439 ], [ false, %429 ], [ false, %412 ], [ false, %320 ], [ false, %.preheader.i.i.i.i.i78.i ], [ false, %.preheader.i.i.i.i.i23 ]
+  %.0.i37 = phi i1 [ false, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i44 ], [ false, %232 ], [ false, %259 ], [ false, %314 ], [ false, %307 ], [ false, %359 ], [ false, %242 ], [ false, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i.i ], [ false, %403 ], [ false, %408 ], [ false, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i92.i ], [ false, %439 ], [ false, %429 ], [ false, %436 ], [ false, %412 ], [ false, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit ], [ true, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt15foldLargeOffsetERN4llvm12MachineInstrES3_S3_NS1_8RegisterE.exit.sink.split.i ], [ false, %320 ], [ false, %341 ], [ false, %.preheader.i.i.i.i58 ], [ false, %253 ], [ false, %.preheader.i.i.i.i.i.i ], [ false, %423 ], [ false, %.preheader.i.i.i.i.i78.i ], [ false, %128 ], [ false, %.preheader.i.i.i.i.i23 ]
   %483 = load ptr, ptr %112, align 8, !tbaa !174
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 4
   %485 = load i32, ptr %484, align 4, !tbaa !175
@@ -1416,11 +1416,11 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %583, %58
   br label %.loopexit232.i
 
 .loopexit232.i:                                   ; preds = %.critedge127.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i, %571, %568, %561, %.preheader.i, %528
-  %592 = phi i24 [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %529, %528 ], [ %529, %571 ], [ %529, %561 ], [ %529, %568 ], [ %529, %.preheader.i ], [ %529, %.critedge127.i ]
-  %593 = phi i32 [ %591, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %530, %528 ], [ %530, %571 ], [ %530, %561 ], [ %530, %568 ], [ %530, %.preheader.i ], [ %530, %.critedge127.i ]
-  %.sroa.0184.7.ph.i = phi i64 [ %578, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %.sroa.0184.5254.i, %528 ], [ %.sroa.0184.5254.i, %571 ], [ %.sroa.0184.5254.i, %561 ], [ %.sroa.0184.5254.i, %568 ], [ %.sroa.0184.5254.i, %.preheader.i ], [ %.sroa.0184.5254.i, %.critedge127.i ]
-  %.sroa.7.6.ph.i = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %.sroa.7.4255.i, %528 ], [ %.sroa.7.4255.i, %571 ], [ %.sroa.7.4255.i, %561 ], [ %.sroa.7.4255.i, %568 ], [ %.sroa.7.4255.i, %.preheader.i ], [ %.sroa.7.4255.i, %.critedge127.i ]
-  %.1116.ph.i = phi i32 [ 2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %.0115257.i, %528 ], [ 2, %571 ], [ 2, %561 ], [ 2, %568 ], [ 0, %.preheader.i ], [ %542, %.critedge127.i ]
+  %592 = phi i24 [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %529, %561 ], [ %529, %571 ], [ %529, %568 ], [ %529, %528 ], [ %529, %.preheader.i ], [ %529, %.critedge127.i ]
+  %593 = phi i32 [ %591, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %530, %561 ], [ %530, %571 ], [ %530, %568 ], [ %530, %528 ], [ %530, %.preheader.i ], [ %530, %.critedge127.i ]
+  %.sroa.0184.7.ph.i = phi i64 [ %578, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %.sroa.0184.5254.i, %561 ], [ %.sroa.0184.5254.i, %571 ], [ %.sroa.0184.5254.i, %568 ], [ %.sroa.0184.5254.i, %528 ], [ %.sroa.0184.5254.i, %.preheader.i ], [ %.sroa.0184.5254.i, %.critedge127.i ]
+  %.sroa.7.6.ph.i = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ %.sroa.7.4255.i, %561 ], [ %.sroa.7.4255.i, %571 ], [ %.sroa.7.4255.i, %568 ], [ %.sroa.7.4255.i, %528 ], [ %.sroa.7.4255.i, %.preheader.i ], [ %.sroa.7.4255.i, %.critedge127.i ]
+  %.1116.ph.i = phi i32 [ 2, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i ], [ 2, %561 ], [ 2, %571 ], [ 2, %568 ], [ %.0115257.i, %528 ], [ 0, %.preheader.i ], [ %542, %.critedge127.i ]
   %594 = add i32 %.0117256.i, 1
   %595 = add i32 %594, %.1116.ph.i
   %596 = zext i24 %592 to i32
@@ -1537,7 +1537,7 @@ _ZNSt4pairIPKN4llvm12MachineInstrENS0_11SmallVectorIjLj12EEEED2Ev.exit.i: ; pred
 .critedge8.thread207.i:                           ; preds = %576, %558, %554, %_ZNSt4pairIPKN4llvm12MachineInstrENS0_11SmallVectorIjLj12EEEED2Ev.exit.i
   %.sroa.0184.5245.i = phi i64 [ %.sroa.0184.5.lcssa314.i, %_ZNSt4pairIPKN4llvm12MachineInstrENS0_11SmallVectorIjLj12EEEED2Ev.exit.i ], [ %.sroa.0184.5254.i, %554 ], [ %.sroa.0184.5254.i, %558 ], [ %.sroa.0184.5254.i, %576 ]
   %.not230240.i = phi i1 [ false, %_ZNSt4pairIPKN4llvm12MachineInstrENS0_11SmallVectorIjLj12EEEED2Ev.exit.i ], [ true, %554 ], [ true, %558 ], [ true, %576 ]
-  %.sroa.7.5213.i = phi i8 [ %.sroa.7.4.lcssa315.i, %_ZNSt4pairIPKN4llvm12MachineInstrENS0_11SmallVectorIjLj12EEEED2Ev.exit.i ], [ %.sroa.7.4255.i, %554 ], [ %.sroa.7.4255.i, %558 ], [ 1, %576 ]
+  %.sroa.7.5213.i = phi i8 [ %.sroa.7.4.lcssa315.i, %_ZNSt4pairIPKN4llvm12MachineInstrENS0_11SmallVectorIjLj12EEEED2Ev.exit.i ], [ %.sroa.7.4255.i, %554 ], [ 1, %576 ], [ %.sroa.7.4255.i, %558 ]
   %638 = load ptr, ptr %4, align 8, !tbaa !184
   %639 = icmp eq ptr %638, %17
   br i1 %639, label %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit.i, label %640
@@ -1583,7 +1583,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb
   br i1 %648, label %.backedge334, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb0EEppEv.exit.i, !llvm.loop !339
 
 ._crit_edge.i:                                    ; preds = %.preheader.i.i.i.i, %642, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit
-  %.sroa.0184.0.lcssa.i = phi i64 [ %.sroa.0184.2.i, %642 ], [ undef, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit ], [ undef, %.preheader.i.i.i.i ]
+  %.sroa.0184.0.lcssa.i = phi i64 [ undef, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit ], [ %.sroa.0184.2.i, %642 ], [ undef, %.preheader.i.i.i.i ]
   %649 = load ptr, ptr %34, align 8, !tbaa !174
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 56
   %651 = load i32, ptr %650, align 8, !tbaa !175
@@ -2029,7 +2029,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_11SmallVectorIjLj12EE
   br label %.loopexit235.i
 
 .loopexit235.i:                                   ; preds = %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit.i, %519, %515, %508, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb0EEppEv.exit.i, %879, %._crit_edge275.i, %._crit_edge.i
-  %.15.i = phi i1 [ false, %._crit_edge.i ], [ true, %879 ], [ true, %._crit_edge275.i ], [ false, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb0EEppEv.exit.i ], [ false, %508 ], [ false, %515 ], [ false, %519 ], [ false, %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit.i ]
+  %.15.i = phi i1 [ true, %879 ], [ true, %._crit_edge275.i ], [ false, %._crit_edge.i ], [ false, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb0EEppEv.exit.i ], [ false, %508 ], [ false, %515 ], [ false, %519 ], [ false, %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit.i ]
   %887 = load i32, ptr %24, align 8, !tbaa !334
   %888 = icmp eq i32 %887, 0
   %.pre1.i.i = load ptr, ptr %3, align 8, !tbaa !326
@@ -2082,8 +2082,8 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineIn
   %904 = or i1 %.1151, %903
   br label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
 
-_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread: ; preds = %.preheader.i.i.i.i.i, %77, %57, %96, %97, %106, %90, %44, %45, %33, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i, %.lr.ph, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineInstrES3_.exit
-  %.2 = phi i1 [ %904, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineInstrES3_.exit ], [ %.1151, %.lr.ph ], [ %.1151, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i ], [ %.1151, %33 ], [ %.1151, %45 ], [ %.1151, %44 ], [ %.1151, %90 ], [ %.1151, %106 ], [ %.1151, %97 ], [ %.1151, %96 ], [ %.1151, %57 ], [ %.1151, %77 ], [ %.1151, %.preheader.i.i.i.i.i ]
+_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread: ; preds = %.preheader.i.i.i.i.i, %77, %96, %44, %.lr.ph, %57, %106, %90, %97, %45, %33, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineInstrES3_.exit
+  %.2 = phi i1 [ %904, %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt17foldIntoMemoryOpsERN4llvm12MachineInstrES3_.exit ], [ %.1151, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i ], [ %.1151, %33 ], [ %.1151, %45 ], [ %.1151, %97 ], [ %.1151, %90 ], [ %.1151, %106 ], [ %.1151, %57 ], [ %.1151, %.lr.ph ], [ %.1151, %44 ], [ %.1151, %96 ], [ %.1151, %77 ], [ %.1151, %.preheader.i.i.i.i.i ]
   %905 = icmp ne ptr %.sroa.086.0152, null
   call void @llvm.assume(i1 %905)
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.086.0152, align 8

@@ -209,7 +209,7 @@ default.unreachable:                              ; preds = %67
   br i1 %exitcond.not, label %.loopexit, label %.preheader159.split, !llvm.loop !18
 
 .loopexit:                                        ; preds = %81, %41, %.split.us, %.split.us.thread
-  %.0118166 = phi i32 [ %.us-phi220, %.split.us.thread ], [ %.us-phi, %.split.us ], [ 14, %41 ], [ 14, %81 ]
+  %.0118166 = phi i32 [ %.us-phi, %.split.us ], [ %.us-phi220, %.split.us.thread ], [ 14, %41 ], [ 14, %81 ]
   %82 = zext nneg i32 %.0118166 to i64
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !16
@@ -343,8 +343,8 @@ default.unreachable:                              ; preds = %67
   %145 = zext i1 %144 to i32
   br label %.thread
 
-.thread:                                          ; preds = %59, %63, %52, %47, %.preheader159.split._crit_edge, %37, %33, %26, %21, %.preheader159.split.us._crit_edge, %125, %112, %107, %116, %138, %100, %5, %86, %.critedge, %94, %2, %143
-  %.0115 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %145, %143 ], [ 0, %94 ], [ 0, %.critedge ], [ 0, %86 ], [ 0, %100 ], [ 0, %138 ], [ 0, %125 ], [ 0, %37 ], [ 0, %116 ], [ 0, %107 ], [ 0, %112 ], [ 0, %.preheader159.split.us._crit_edge ], [ 0, %21 ], [ 0, %26 ], [ 0, %33 ], [ 0, %.preheader159.split._crit_edge ], [ 0, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %59 ]
+.thread:                                          ; preds = %59, %63, %52, %47, %.preheader159.split._crit_edge, %37, %33, %26, %21, %.preheader159.split.us._crit_edge, %116, %125, %112, %107, %138, %100, %5, %86, %.critedge, %94, %2, %143
+  %.0115 = phi i32 [ %145, %143 ], [ 0, %2 ], [ 0, %94 ], [ 0, %.critedge ], [ 0, %86 ], [ 0, %5 ], [ 0, %100 ], [ 0, %138 ], [ 0, %107 ], [ 0, %112 ], [ 0, %125 ], [ 0, %116 ], [ 0, %.preheader159.split.us._crit_edge ], [ 0, %21 ], [ 0, %26 ], [ 0, %33 ], [ 0, %37 ], [ 0, %.preheader159.split._crit_edge ], [ 0, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %59 ]
   ret i32 %.0115
 }
 
@@ -386,7 +386,7 @@ define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef %
   br label %14
 
 14:                                               ; preds = %2, %9, %12, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %9 ], [ 1, %12 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %12 ], [ 1, %9 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -491,7 +491,7 @@ define hidden ptr @ASN1_GENERALIZEDTIME_adj(ptr noundef captures(address_is_null
   br label %52
 
 52:                                               ; preds = %16, %.thread, %8, %34, %30
-  %.0 = phi ptr [ null, %.thread ], [ null, %8 ], [ null, %30 ], [ %.03140, %34 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %30 ], [ %.03140, %34 ], [ null, %8 ], [ null, %.thread ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

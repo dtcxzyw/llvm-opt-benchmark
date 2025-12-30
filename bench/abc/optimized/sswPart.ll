@@ -316,7 +316,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %56
   br label %._crit_edge55
 
 ._crit_edge55:                                    ; preds = %._crit_edge55.loopexit, %Vec_PtrDup.exit
-  %82 = phi ptr [ %60, %Vec_PtrDup.exit ], [ %.pre, %._crit_edge55.loopexit ]
+  %82 = phi ptr [ %.pre, %._crit_edge55.loopexit ], [ %60, %Vec_PtrDup.exit ]
   %.not.i46 = icmp eq ptr %82, null
   br i1 %.not.i46, label %Vec_PtrFree.exit, label %83
 

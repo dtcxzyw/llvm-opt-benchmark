@@ -284,7 +284,7 @@ get_tag.exit162:                                  ; preds = %26
   br label %aiff_codec_get_id.exit.i
 
 aiff_codec_get_id.exit.i:                         ; preds = %94, %92, %90, %87
-  %.0.i.i = phi i32 [ 65549, %92 ], [ 65540, %87 ], [ 65537, %90 ], [ %..i.i, %94 ]
+  %.0.i.i = phi i32 [ 65540, %87 ], [ 65537, %90 ], [ 65549, %92 ], [ %..i.i, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %.0.i.i, ptr %96, align 4, !tbaa !45
   %97 = call i32 @av_get_bits_per_sample(i32 noundef %.0.i.i) #7
@@ -389,7 +389,7 @@ aiff_codec_get_id.exit.i:                         ; preds = %94, %92, %90, %87
   %143 = call i64 @avio_skip(ptr noundef %34, i64 noundef %.1102.i) #7
   br label %get_aiff_header.exit
 
-get_aiff_header.exit.thread:                      ; preds = %68, %33, %66, %52
+get_aiff_header.exit.thread:                      ; preds = %33, %66, %68, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i64 -1094995529, ptr %25, align 8, !tbaa !49
   br label %get_tag.exit.thread
@@ -469,7 +469,7 @@ get_aiff_header.exit:                             ; preds = %141, %142
   br label %get_meta.exit
 
 180:                                              ; preds = %.thread.i, %168
-  %.017.i = phi i64 [ %176, %.thread.i ], [ %30, %168 ]
+  %.017.i = phi i64 [ %30, %168 ], [ %176, %.thread.i ]
   %181 = load ptr, ptr %4, align 8, !tbaa !12
   %182 = call i64 @avio_skip(ptr noundef %181, i64 noundef %.017.i) #7
   br label %get_meta.exit
@@ -499,7 +499,7 @@ get_aiff_header.exit:                             ; preds = %141, %142
   br label %get_meta.exit
 
 195:                                              ; preds = %.thread.i166, %183
-  %.017.i167 = phi i64 [ %191, %.thread.i166 ], [ %30, %183 ]
+  %.017.i167 = phi i64 [ %30, %183 ], [ %191, %.thread.i166 ]
   %196 = load ptr, ptr %4, align 8, !tbaa !12
   %197 = call i64 @avio_skip(ptr noundef %196, i64 noundef %.017.i167) #7
   br label %get_meta.exit
@@ -529,7 +529,7 @@ get_aiff_header.exit:                             ; preds = %141, %142
   br label %get_meta.exit
 
 210:                                              ; preds = %.thread.i170, %198
-  %.017.i171 = phi i64 [ %206, %.thread.i170 ], [ %30, %198 ]
+  %.017.i171 = phi i64 [ %30, %198 ], [ %206, %.thread.i170 ]
   %211 = load ptr, ptr %4, align 8, !tbaa !12
   %212 = call i64 @avio_skip(ptr noundef %211, i64 noundef %.017.i171) #7
   br label %get_meta.exit
@@ -559,7 +559,7 @@ get_aiff_header.exit:                             ; preds = %141, %142
   br label %get_meta.exit
 
 225:                                              ; preds = %.thread.i174, %213
-  %.017.i175 = phi i64 [ %221, %.thread.i174 ], [ %30, %213 ]
+  %.017.i175 = phi i64 [ %30, %213 ], [ %221, %.thread.i174 ]
   %226 = load ptr, ptr %4, align 8, !tbaa !12
   %227 = call i64 @avio_skip(ptr noundef %226, i64 noundef %.017.i175) #7
   br label %get_meta.exit
@@ -717,8 +717,8 @@ get_aiff_header.exit:                             ; preds = %141, %142
   br label %get_meta.exit
 
 get_meta.exit:                                    ; preds = %261, %225, %224, %210, %209, %195, %194, %180, %179, %293, %265, %284, %274, %158, %162, %146, %312, %.thread, %166
-  %.2138 = phi i64 [ %.0136202, %312 ], [ %.0136202, %146 ], [ %.0136202, %162 ], [ %.0136202, %158 ], [ %.0136202, %166 ], [ %.0136202, %293 ], [ %.0136202, %180 ], [ %.0136202, %195 ], [ %.0136202, %210 ], [ %237, %.thread ], [ %.0136202, %284 ], [ %.0136202, %274 ], [ %.0136202, %265 ], [ %.0136202, %179 ], [ %.0136202, %194 ], [ %.0136202, %209 ], [ %.0136202, %224 ], [ %.0136202, %225 ], [ %.0136202, %261 ]
-  %.2 = phi i32 [ %.1135203, %312 ], [ %.1135203, %146 ], [ %.1135203, %162 ], [ %.1135203, %158 ], [ %167, %166 ], [ %.1135203, %293 ], [ %.1135203, %180 ], [ %.1135203, %195 ], [ %.1135203, %210 ], [ %.1135203, %.thread ], [ %.1135203, %284 ], [ %.1135203, %274 ], [ %.1135203, %265 ], [ %.1135203, %179 ], [ %.1135203, %194 ], [ %.1135203, %209 ], [ %.1135203, %224 ], [ %.1135203, %225 ], [ %.1135203, %261 ]
+  %.2138 = phi i64 [ %.0136202, %312 ], [ %.0136202, %146 ], [ %.0136202, %162 ], [ %.0136202, %158 ], [ %.0136202, %166 ], [ %237, %.thread ], [ %.0136202, %284 ], [ %.0136202, %274 ], [ %.0136202, %265 ], [ %.0136202, %293 ], [ %.0136202, %179 ], [ %.0136202, %180 ], [ %.0136202, %194 ], [ %.0136202, %195 ], [ %.0136202, %209 ], [ %.0136202, %210 ], [ %.0136202, %224 ], [ %.0136202, %225 ], [ %.0136202, %261 ]
+  %.2 = phi i32 [ %.1135203, %312 ], [ %.1135203, %146 ], [ %.1135203, %162 ], [ %.1135203, %158 ], [ %167, %166 ], [ %.1135203, %.thread ], [ %.1135203, %284 ], [ %.1135203, %274 ], [ %.1135203, %265 ], [ %.1135203, %293 ], [ %.1135203, %179 ], [ %.1135203, %180 ], [ %.1135203, %194 ], [ %.1135203, %195 ], [ %.1135203, %209 ], [ %.1135203, %210 ], [ %.1135203, %224 ], [ %.1135203, %225 ], [ %.1135203, %261 ]
   %314 = and i64 %30, 1
   %.not159 = icmp eq i64 %314, 0
   br i1 %.not159, label %318, label %315
@@ -742,7 +742,7 @@ get_meta.exit:                                    ; preds = %261, %225, %224, %2
   br i1 %323, label %get_tag.exit.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %308, %242, %146, %._crit_edge, %296
-  %.1137 = phi i64 [ %.0136.lcssa, %._crit_edge ], [ %302, %296 ], [ %.0136202, %308 ], [ %237, %242 ], [ %.0136202, %146 ]
+  %.1137 = phi i64 [ %302, %296 ], [ %.0136.lcssa, %._crit_edge ], [ %.0136202, %308 ], [ %237, %242 ], [ %.0136202, %146 ]
   %324 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %325 = load ptr, ptr %324, align 8, !tbaa !31
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 156
@@ -795,7 +795,7 @@ get_meta.exit:                                    ; preds = %261, %225, %224, %2
   br label %get_tag.exit.thread
 
 get_tag.exit.thread:                              ; preds = %26, %293, %249, %247, %228, %get_aiff_header.exit, %1, %get_aiff_header.exit.thread, %337, %._crit_edge, %16, %14, %get_tag.exit, %342, %.thread187, %244, %157
-  %.0131 = phi i32 [ -1094995529, %get_tag.exit ], [ -1094995529, %.thread187 ], [ %322, %._crit_edge ], [ 0, %342 ], [ -1094995529, %1 ], [ -12, %16 ], [ %.0132, %157 ], [ -1094995529, %337 ], [ -1, %244 ], [ -1094995529, %get_aiff_header.exit.thread ], [ -1094995529, %14 ], [ -5, %26 ], [ %294, %293 ], [ %251, %249 ], [ -1094995529, %247 ], [ -1094995529, %228 ], [ %45, %get_aiff_header.exit ]
+  %.0131 = phi i32 [ -1094995529, %.thread187 ], [ 0, %342 ], [ %.0132, %157 ], [ -1, %244 ], [ -1094995529, %get_tag.exit ], [ -1094995529, %14 ], [ -12, %16 ], [ %322, %._crit_edge ], [ -1094995529, %337 ], [ -1094995529, %get_aiff_header.exit.thread ], [ -1094995529, %1 ], [ -5, %26 ], [ %294, %293 ], [ %251, %249 ], [ -1094995529, %247 ], [ -1094995529, %228 ], [ %45, %get_aiff_header.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0131
 }
@@ -881,7 +881,7 @@ define internal range(i32 -2147483648, 1) i32 @aiff_read_packet(ptr noundef %0, 
   br label %50
 
 50:                                               ; preds = %26, %23, %2, %41, %19
-  %.030 = phi i32 [ -1094995529, %19 ], [ -1094995529, %23 ], [ 0, %41 ], [ -541478725, %2 ], [ %31, %26 ]
+  %.030 = phi i32 [ 0, %41 ], [ -1094995529, %19 ], [ -541478725, %2 ], [ -1094995529, %23 ], [ %31, %26 ]
   ret i32 %.030
 }
 

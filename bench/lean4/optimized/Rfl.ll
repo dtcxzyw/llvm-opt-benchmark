@@ -1034,7 +1034,7 @@ lean_dec_ref.exit27:                              ; preds = %172, %171, %169, %_
   br label %179
 
 179:                                              ; preds = %.sink.split, %160, %93, %78, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %97, %93 ], [ %163, %160 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %83, %78 ], [ %.sink62, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %83, %78 ], [ %97, %93 ], [ %163, %160 ], [ %.sink62, %.sink.split ]
   ret ptr %.0
 }
 

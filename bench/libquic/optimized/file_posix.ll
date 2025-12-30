@@ -280,7 +280,7 @@ define noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 derefere
 
 .critedge.thread:                                 ; preds = %.critedge, %33, %25
   %36 = phi i32 [ -1, %25 ], [ %29, %33 ], [ %29, %.critedge ]
-  %.1 = phi i32 [ %.024, %25 ], [ %34, %33 ], [ %.024, %.critedge ]
+  %.1 = phi i32 [ %.024, %25 ], [ %.024, %.critedge ], [ %34, %33 ]
   %.not = icmp eq i32 %.1, 0
   %37 = select i1 %.not, i32 %36, i32 %.1
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
@@ -372,7 +372,7 @@ define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull alig
 
 .critedge.thread:                                 ; preds = %.critedge, %31, %23
   %34 = phi i32 [ -1, %23 ], [ %27, %31 ], [ %27, %.critedge ]
-  %.1 = phi i32 [ %.022, %23 ], [ %32, %31 ], [ %.022, %.critedge ]
+  %.1 = phi i32 [ %.022, %23 ], [ %.022, %.critedge ], [ %32, %31 ]
   %.not = icmp eq i32 %.1, 0
   %35 = select i1 %.not, i32 %34, i32 %.1
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
@@ -595,7 +595,7 @@ define noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 derefe
 
 .critedge.thread:                                 ; preds = %.critedge, %39, %31
   %42 = phi i32 [ -1, %31 ], [ %35, %39 ], [ %35, %.critedge ]
-  %.1 = phi i32 [ %.026, %31 ], [ %40, %39 ], [ %.026, %.critedge ]
+  %.1 = phi i32 [ %.026, %31 ], [ %.026, %.critedge ], [ %40, %39 ]
   %.not = icmp eq i32 %.1, 0
   %43 = select i1 %.not, i32 %42, i32 %.1
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
@@ -681,7 +681,7 @@ define noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull al
 
 .critedge.thread:                                 ; preds = %.critedge, %31, %23
   %34 = phi i32 [ -1, %23 ], [ %27, %31 ], [ %27, %.critedge ]
-  %.1 = phi i32 [ %.022, %23 ], [ %32, %31 ], [ %.022, %.critedge ]
+  %.1 = phi i32 [ %.022, %23 ], [ %.022, %.critedge ], [ %32, %31 ]
   %.not = icmp eq i32 %.1, 0
   %35 = select i1 %.not, i32 %34, i32 %.1
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13

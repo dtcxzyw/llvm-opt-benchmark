@@ -3674,7 +3674,7 @@ lean_alloc_ctor.exit76:                           ; preds = %lean_dec.exit
   br label %132
 
 132:                                              ; preds = %lean_dec.exit38, %lean_alloc_ctor.exit76, %lean_dec.exit41, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %68, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit41 ], [ %0, %lean_dec.exit38 ], [ %127, %lean_alloc_ctor.exit76 ]
+  %.1 = phi ptr [ %0, %lean_dec.exit41 ], [ %68, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit38 ], [ %127, %lean_alloc_ctor.exit76 ]
   ret ptr %.1
 }
 
@@ -3920,7 +3920,7 @@ lean_obj_tag.exit24.i43:                          ; preds = %93, %90
   br label %.critedge
 
 .critedge:                                        ; preds = %lean_obj_tag.exit24.i, %lean_obj_tag.exit20.i, %22, %.sink.split.i45, %lean_obj_tag.exit24.i43, %lean_obj_tag.exit20.i49, %lean_string_dec_eq.exit.thread54, %33, %34, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, %lean_string_dec_eq.exit
-  %.0 = phi i8 [ 0, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit ], [ 0, %lean_string_dec_eq.exit ], [ 0, %22 ], [ 0, %34 ], [ 0, %33 ], [ 0, %lean_string_dec_eq.exit.thread54 ], [ %102, %.sink.split.i45 ], [ 0, %lean_obj_tag.exit20.i49 ], [ 0, %lean_obj_tag.exit24.i43 ], [ 0, %lean_obj_tag.exit20.i ], [ 0, %lean_obj_tag.exit24.i ]
+  %.0 = phi i8 [ 0, %lean_string_dec_eq.exit ], [ 0, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit ], [ 0, %34 ], [ 0, %33 ], [ 0, %lean_string_dec_eq.exit.thread54 ], [ 0, %lean_obj_tag.exit20.i49 ], [ 0, %lean_obj_tag.exit24.i43 ], [ %102, %.sink.split.i45 ], [ 0, %22 ], [ 0, %lean_obj_tag.exit20.i ], [ 0, %lean_obj_tag.exit24.i ]
   ret i8 %.0
 }
 

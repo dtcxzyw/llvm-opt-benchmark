@@ -77,10 +77,10 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   br label %8
 
 6:                                                ; preds = %535, %72
-  %.1289 = phi ptr [ %.2290, %72 ], [ %513, %535 ]
-  %.1277 = phi ptr [ %73, %72 ], [ %514, %535 ]
-  %.1263 = phi i32 [ %66, %72 ], [ %536, %535 ]
-  %.1 = phi i32 [ -2, %72 ], [ %.8, %535 ]
+  %.1289 = phi ptr [ %513, %535 ], [ %.2290, %72 ]
+  %.1277 = phi ptr [ %514, %535 ], [ %73, %72 ]
+  %.1263 = phi i32 [ %536, %535 ], [ %66, %72 ]
+  %.1 = phi i32 [ %.8, %535 ], [ -2, %72 ]
   %7 = getelementptr inbounds nuw i8, ptr %.1289, i64 1
   br label %8
 
@@ -1356,8 +1356,8 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   unreachable
 
 .thread:                                          ; preds = %60, %59, %39, %38
-  %.0.i.sink = phi ptr [ %.0.i, %39 ], [ %.0.i, %38 ], [ %.0.i40, %59 ], [ %.0.i40, %60 ]
-  %.sink = phi ptr [ %34, %39 ], [ %34, %38 ], [ %55, %59 ], [ %55, %60 ]
+  %.0.i.sink = phi ptr [ %.0.i, %38 ], [ %.0.i, %39 ], [ %.0.i40, %59 ], [ %.0.i40, %60 ]
+  %.sink = phi ptr [ %34, %38 ], [ %34, %39 ], [ %55, %59 ], [ %55, %60 ]
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.sink, i64 8
   store ptr %.sink, ptr %67, align 8
   store i32 2, ptr %9, align 8

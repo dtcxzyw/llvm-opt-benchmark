@@ -916,7 +916,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN15pingora_runtime14No
           to label %170 unwind label %166, !noalias !31
 
 170:                                              ; preds = %168, %123
-  %.pn.i.i = phi { ptr, i32 } [ %124, %123 ], [ %169, %168 ]
+  %.pn.i.i = phi { ptr, i32 } [ %169, %168 ], [ %124, %123 ]
   %171 = atomicrmw sub ptr %121, i64 1 release, align 8, !noalias !73
   %172 = icmp eq i64 %171, 1
   br i1 %172, label %173, label %.noexc26.i.i
@@ -949,7 +949,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN15pingora_runtime14No
           to label %.thread73.i.i unwind label %166, !noalias !31
 
 common.resume.i:                                  ; preds = %217, %.body.i, %182, %176, %60
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i.i, %60 ], [ %.pn.pn.pn.pn.pn30.i.i, %176 ], [ %202, %.body.i ], [ %218, %217 ], [ %183, %182 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn30.i.i, %176 ], [ %.pn.pn.pn.pn.i.i, %60 ], [ %202, %.body.i ], [ %183, %182 ], [ %218, %217 ]
   resume { ptr, i32 } %common.resume.op.i
 
 176:                                              ; preds = %.thread.i.i, %60

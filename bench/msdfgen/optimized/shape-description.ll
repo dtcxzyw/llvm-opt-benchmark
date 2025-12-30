@@ -254,7 +254,7 @@ do.body.i25.backedge:                             ; preds = %do.body.i25, %do.bo
   br label %do.body.i25
 
 if.end24:                                         ; preds = %do.body.i, %do.body.i25, %if.end
-  %c.0 = phi i32 [ %call.i26, %do.body.i25 ], [ %conv, %if.end ], [ %call.i24, %do.body.i ]
+  %c.0 = phi i32 [ %conv, %if.end ], [ %call.i26, %do.body.i25 ], [ %call.i24, %do.body.i ]
   %cmp2536 = icmp eq i32 %c.0, 123
   br i1 %cmp2536, label %for.body, label %for.end
 
@@ -297,7 +297,7 @@ land.rhs:                                         ; preds = %if.end33
   br label %return
 
 return:                                           ; preds = %for.body, %if.end33, %land.rhs, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit, %if.then11, %if.then
-  %retval.0 = phi i1 [ %call2, %if.then ], [ %tobool36, %land.rhs ], [ %cmp13, %if.then11 ], [ false, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit ], [ false, %if.end33 ], [ false, %for.body ]
+  %retval.0 = phi i1 [ %call2, %if.then ], [ %cmp13, %if.then11 ], [ false, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit ], [ false, %if.end33 ], [ %tobool36, %land.rhs ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -642,8 +642,8 @@ lpad104:                                          ; preds = %sw.bb94
           cleanup
   br label %eh.resume
 
-return:                                           ; preds = %READ_CONTROL_POINTS, %sw.epilog.i, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38, %FINISH_EDGE, %if.end12, %do.body.i47, %do.body.i.i, %do.body.i11.i, %do.body.i15.i, %do.body.i51, %do.body.i57, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit, %if.else, %sw.default
-  %retval.0 = phi i1 [ %cmp5, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit ], [ false, %if.else ], [ %cmp41, %sw.default ], [ false, %do.body.i11.i ], [ false, %do.body.i47 ], [ false, %do.body.i.i ], [ false, %do.body.i51 ], [ false, %do.body.i15.i ], [ false, %do.body.i57 ], [ %cmp9.not, %if.end12 ], [ %cmp9.not, %FINISH_EDGE ], [ %cmp9.not, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38 ], [ %cmp9.not, %sw.epilog.i ], [ %cmp9.not, %READ_CONTROL_POINTS ]
+return:                                           ; preds = %sw.epilog.i, %READ_CONTROL_POINTS, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38, %FINISH_EDGE, %if.end12, %do.body.i47, %do.body.i.i, %do.body.i11.i, %do.body.i15.i, %do.body.i51, %do.body.i57, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit, %if.else, %sw.default
+  %retval.0 = phi i1 [ %cmp41, %sw.default ], [ %cmp5, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit ], [ false, %if.else ], [ false, %do.body.i57 ], [ false, %do.body.i51 ], [ false, %do.body.i15.i ], [ false, %do.body.i11.i ], [ false, %do.body.i.i ], [ false, %do.body.i47 ], [ %cmp9.not, %if.end12 ], [ %cmp9.not, %FINISH_EDGE ], [ %cmp9.not, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38 ], [ %cmp9.not, %READ_CONTROL_POINTS ], [ %cmp9.not, %sw.epilog.i ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad
@@ -1155,7 +1155,7 @@ sw.epilog.loopexit:                               ; preds = %do.body.i62, %do.bo
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.body.i62, %do.body.i62, %sw.epilog.loopexit, %sw.bb40, %sw.bb39
-  %color.2 = phi i32 [ 7, %sw.bb40 ], [ 6, %sw.epilog.loopexit ], [ 3, %sw.bb39 ], [ 5, %do.body.i62 ], [ 5, %do.body.i62 ]
+  %color.2 = phi i32 [ 3, %sw.bb39 ], [ 7, %sw.bb40 ], [ 6, %sw.epilog.loopexit ], [ 5, %do.body.i62 ], [ 5, %do.body.i62 ]
   store i8 1, ptr %colorsSpecified, align 1
   %input.promoted.i71 = load ptr, ptr %input, align 8
   br label %do.body.i72
@@ -1321,8 +1321,8 @@ do.body.i35.i.backedge:                           ; preds = %do.body.i35.i, %do.
   br label %do.body.i35.i
 
 sw.epilog50:                                      ; preds = %do.body.i35.i, %do.body.i.i, %do.body.i26.i
-  %input.promoted.i81 = phi ptr [ %incdec.ptr.i8.i, %do.body.i.i ], [ %incdec.ptr.i28.i, %do.body.i26.i ], [ %incdec.ptr.i37.i, %do.body.i35.i ]
-  %retval.0.i80 = phi i32 [ 1, %do.body.i.i ], [ 2, %do.body.i26.i ], [ 0, %do.body.i35.i ]
+  %input.promoted.i81 = phi ptr [ %incdec.ptr.i28.i, %do.body.i26.i ], [ %incdec.ptr.i8.i, %do.body.i.i ], [ %incdec.ptr.i37.i, %do.body.i35.i ]
+  %retval.0.i80 = phi i32 [ 2, %do.body.i26.i ], [ 1, %do.body.i.i ], [ 0, %do.body.i35.i ]
   br label %do.body.i82
 
 do.body.i82:                                      ; preds = %do.body.i82.backedge, %sw.epilog50
@@ -1484,8 +1484,8 @@ lpad104:                                          ; preds = %sw.bb94
           cleanup
   br label %eh.resume
 
-return:                                           ; preds = %_ZN7msdfgen9readCharSEPPKc.exit44, %do.body.i72, %do.body.i35.i, %do.body.i.i, %do.body.i26.i, %do.body.i82, %do.body.i106, %_ZN7msdfgen9readCharSEPPKc.exit44.thread, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit24.thread.i, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread.i, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit59.thread, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread, %_ZN7msdfgen9readCharSEPPKc.exit, %sw.default
-  %retval.0 = phi i1 [ %cmp5, %_ZN7msdfgen9readCharSEPPKc.exit ], [ false, %do.body.i106 ], [ %cmp41, %sw.default ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread.i ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit59.thread ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit24.thread.i ], [ false, %do.body.i82 ], [ false, %do.body.i35.i ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread ], [ false, %do.body.i26.i ], [ %cmp9.not126, %_ZN7msdfgen9readCharSEPPKc.exit44.thread ], [ false, %do.body.i72 ], [ false, %do.body.i.i ], [ %cmp9.not, %_ZN7msdfgen9readCharSEPPKc.exit44 ]
+return:                                           ; preds = %_ZN7msdfgen9readCharSEPPKc.exit44, %do.body.i72, %do.body.i35.i, %do.body.i.i, %do.body.i26.i, %do.body.i82, %do.body.i106, %_ZN7msdfgen9readCharSEPPKc.exit44.thread, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread.i, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit24.thread.i, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit59.thread, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread, %_ZN7msdfgen9readCharSEPPKc.exit, %sw.default
+  %retval.0 = phi i1 [ %cmp41, %sw.default ], [ %cmp5, %_ZN7msdfgen9readCharSEPPKc.exit ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit59.thread ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit24.thread.i ], [ false, %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread.i ], [ %cmp9.not126, %_ZN7msdfgen9readCharSEPPKc.exit44.thread ], [ false, %do.body.i106 ], [ false, %do.body.i82 ], [ false, %do.body.i26.i ], [ false, %do.body.i.i ], [ false, %do.body.i35.i ], [ false, %do.body.i72 ], [ %cmp9.not, %_ZN7msdfgen9readCharSEPPKc.exit44 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad
@@ -1542,7 +1542,7 @@ for.inc19.i:                                      ; preds = %for.inc19.loopexit.
   br i1 %cmp.i.not.i, label %_ZN7msdfgenL9isColoredERKNS_5ShapeE.exit, label %for.body.i, !llvm.loop !14
 
 _ZN7msdfgenL9isColoredERKNS_5ShapeE.exit:         ; preds = %for.inc19.i, %for.body15.i, %if.end
-  %cmp.i12.i = phi i1 [ true, %for.body15.i ], [ false, %if.end ], [ false, %for.inc19.i ]
+  %cmp.i12.i = phi i1 [ false, %if.end ], [ true, %for.body15.i ], [ false, %for.inc19.i ]
   %inverseYAxis = getelementptr inbounds nuw i8, ptr %shape, i64 24
   %8 = load i8, ptr %inverseYAxis, align 8
   %tobool = trunc i8 %8 to i1

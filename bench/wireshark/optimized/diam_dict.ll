@@ -1151,8 +1151,8 @@ ddict_open.exit:                                  ; preds = %478, %480
   br label %533
 
 533:                                              ; preds = %502, %518, %517
-  %534 = phi i64 [ %.pre1405, %517 ], [ %.pre1404, %518 ], [ %.pre1405, %502 ]
-  %535 = phi ptr [ %513, %517 ], [ %.pre.i581, %518 ], [ null, %502 ]
+  %534 = phi i64 [ %.pre1404, %518 ], [ %.pre1405, %517 ], [ %.pre1405, %502 ]
+  %535 = phi ptr [ %.pre.i581, %518 ], [ %513, %517 ], [ null, %502 ]
   %536 = getelementptr ptr, ptr %535, i64 %534
   store ptr %512, ptr %536, align 8
   %537 = load ptr, ptr %60, align 8
@@ -3208,7 +3208,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i775, %1517
   ]
 
 .backedge.sink.split1765.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %122
-  %.1507.ph.be = phi ptr [ %1467, %yy_try_NUL_trans.exit ], [ %.1507, %122 ], [ %1467, %yy_try_NUL_trans.exit ]
+  %.1507.ph.be = phi ptr [ %.1507, %122 ], [ %1467, %yy_try_NUL_trans.exit ], [ %1467, %yy_try_NUL_trans.exit ]
   br label %.backedge.sink.split1765
 
 1537:                                             ; preds = %yy_try_NUL_trans.exit
@@ -3218,9 +3218,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i775, %1517
   br label %.loopexit826.backedge
 
 .loopexit826.backedge:                            ; preds = %._crit_edge.i798, %1537, %1691
-  %.0506.be = phi ptr [ %1467, %1537 ], [ %1689, %1691 ], [ %1689, %._crit_edge.i798 ]
-  %.0499.be = phi ptr [ %1539, %1537 ], [ %1697, %1691 ], [ %1697, %._crit_edge.i798 ]
-  %.0495.be = phi i32 [ %1538, %1537 ], [ %1698, %1691 ], [ %1739, %._crit_edge.i798 ]
+  %.0506.be = phi ptr [ %1689, %1691 ], [ %1467, %1537 ], [ %1689, %._crit_edge.i798 ]
+  %.0499.be = phi ptr [ %1697, %1691 ], [ %1539, %1537 ], [ %1697, %._crit_edge.i798 ]
+  %.0495.be = phi i32 [ %1698, %1691 ], [ %1538, %1537 ], [ %1739, %._crit_edge.i798 ]
   br label %.loopexit826
 
 1540:                                             ; preds = %1452
@@ -3693,7 +3693,7 @@ yy_get_previous_state.exit801:                    ; preds = %yy_get_next_buffer.
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.51) #34
   unreachable
 
-.thread:                                          ; preds = %554, %121, %494, %.critedge, %491, %466, %570
+.thread:                                          ; preds = %554, %121, %491, %494, %.critedge, %466, %570
   ret i32 0
 }
 
@@ -4323,7 +4323,7 @@ define hidden void @DiamDict_push_buffer_state(ptr noundef %0, ptr noundef captu
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37
@@ -4532,7 +4532,7 @@ define hidden noundef ptr @DiamDict__scan_buffer(ptr noundef %0, i64 noundef %1,
   br label %53
 
 53:                                               ; preds = %16, %35, %34
-  %54 = phi ptr [ %28, %34 ], [ %.pre.i, %35 ], [ null, %16 ]
+  %54 = phi ptr [ %.pre.i, %35 ], [ %28, %34 ], [ null, %16 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr ptr, ptr %54, i64 %56
@@ -4564,7 +4564,7 @@ define hidden noundef ptr @DiamDict__scan_buffer(ptr noundef %0, i64 noundef %1,
   br label %DiamDict__switch_to_buffer.exit
 
 DiamDict__switch_to_buffer.exit:                  ; preds = %53, %.thread.i, %3, %5, %9
-  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %5 ], [ %14, %.thread.i ], [ %14, %53 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %3 ], [ %14, %.thread.i ], [ %14, %53 ]
   ret ptr %.0
 }
 
@@ -4985,7 +4985,7 @@ DiamDict__delete_buffer.exit.i:                   ; preds = %32, %.critedge.i.i
   br label %DiamDict_pop_buffer_state.exit
 
 DiamDict_pop_buffer_state.exit:                   ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
+  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

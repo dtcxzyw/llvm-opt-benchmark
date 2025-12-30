@@ -541,8 +541,8 @@ define noundef range(i32 0, 2) i32 @_ZN6icu_7735SimpleFilteredSentenceBreakItera
   br label %92
 
 _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %76, %69, %64, %54, %48, %44, %34
-  %.225 = phi i32 [ %.023, %34 ], [ %45, %44 ], [ %61, %54 ], [ %53, %48 ], [ %66, %64 ], [ %75, %69 ], [ %83, %76 ]
-  %.2 = phi i64 [ %.017, %34 ], [ %38, %44 ], [ %38, %54 ], [ %38, %48 ], [ %38, %64 ], [ %38, %69 ], [ %38, %76 ]
+  %.225 = phi i32 [ %.023, %34 ], [ %53, %48 ], [ %61, %54 ], [ %45, %44 ], [ %66, %64 ], [ %75, %69 ], [ %83, %76 ]
+  %.2 = phi i64 [ %.017, %34 ], [ %38, %48 ], [ %38, %54 ], [ %38, %44 ], [ %38, %64 ], [ %38, %69 ], [ %38, %76 ]
   %88 = and i32 %33, 1
   %.not29 = icmp eq i32 %88, 0
   br i1 %.not29, label %89, label %28
@@ -634,7 +634,7 @@ _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %76, %69, %64, %54, 
   br label %122
 
 122:                                              ; preds = %89, %91, %121, %.critedge
-  %.0 = phi i32 [ 1, %91 ], [ %.35, %.critedge ], [ 0, %121 ], [ 0, %89 ]
+  %.0 = phi i32 [ %.35, %.critedge ], [ 0, %121 ], [ 1, %91 ], [ 0, %89 ]
   ret i32 %.0
 
 123:                                              ; preds = %119, %92
@@ -2002,7 +2002,7 @@ _ZN6icu_7712LocalPointerINS_10UCharsTrieEE12adoptInsteadEPS1_.exit144: ; preds =
   br i1 %201, label %.thread, label %211
 
 .thread:                                          ; preds = %.critedge.preheader, %_ZN6icu_7712LocalPointerINS_10UCharsTrieEE12adoptInsteadEPS1_.exit144, %193
-  %202 = phi ptr [ %182, %193 ], [ %182, %_ZN6icu_7712LocalPointerINS_10UCharsTrieEE12adoptInsteadEPS1_.exit144 ], [ %45, %.critedge.preheader ]
+  %202 = phi ptr [ %182, %_ZN6icu_7712LocalPointerINS_10UCharsTrieEE12adoptInsteadEPS1_.exit144 ], [ %182, %193 ], [ %45, %.critedge.preheader ]
   %203 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 56) #14
   %204 = icmp eq ptr %203, null
   br i1 %204, label %thread-pre-split, label %205
@@ -2136,8 +2136,8 @@ _ZN6icu_7711LocalMemoryIiED2Ev.exit:              ; preds = %_ZN6icu_7712LocalPo
   br label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148
 
 _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148: ; preds = %21, %18, %.thread273
-  %.0272 = phi ptr [ %.0277, %.thread273 ], [ null, %21 ], [ null, %18 ]
-  %.sroa.0170.0271 = phi ptr [ %.sroa.0170.0276, %.thread273 ], [ %1, %21 ], [ %1, %18 ]
+  %.0272 = phi ptr [ %.0277, %.thread273 ], [ null, %18 ], [ null, %21 ]
+  %.sroa.0170.0271 = phi ptr [ %.sroa.0170.0276, %.thread273 ], [ %1, %18 ], [ %1, %21 ]
   br i1 %9, label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit149, label %243
 
 243:                                              ; preds = %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit148
@@ -2162,8 +2162,8 @@ _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %_ZN6icu_7712L
   ret ptr %.0272
 
 _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit: ; preds = %.thread178, %25
-  %.sroa.0170.2 = phi ptr [ %.sroa.0170.3, %.thread178 ], [ %1, %25 ]
-  %.pn122.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn122.pn.pn.pn.pn.pn, %.thread178 ], [ %26, %25 ]
+  %.sroa.0170.2 = phi ptr [ %1, %25 ], [ %.sroa.0170.3, %.thread178 ]
+  %.pn122.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn122.pn.pn.pn.pn.pn, %.thread178 ]
   br i1 %9, label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit150, label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit.thread
 
 _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit.thread: ; preds = %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit
@@ -2174,8 +2174,8 @@ _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit.thread: ; preds = %_Z
   br label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit150
 
 _ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit150: ; preds = %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit.thread, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit, %23
-  %.sroa.0170.1 = phi ptr [ %.sroa.0170.2, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit.thread ], [ %1, %23 ], [ %.sroa.0170.2, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit ]
-  %.pn122.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn122.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit.thread ], [ %24, %23 ], [ %.pn122.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit ]
+  %.sroa.0170.1 = phi ptr [ %1, %23 ], [ %.sroa.0170.2, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit ], [ %.sroa.0170.2, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit.thread ]
+  %.pn122.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn122.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit ], [ %.pn122.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit.thread ]
   %255 = icmp eq ptr %.sroa.0170.1, null
   br i1 %255, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit151, label %_ZN6icu_7712LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit150.thread
 

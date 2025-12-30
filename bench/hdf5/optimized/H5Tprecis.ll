@@ -557,7 +557,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_precision(ptr noundef nonn
   br label %67
 
 67:                                               ; preds = %61, %56
-  %.055 = phi i64 [ %spec.select, %61 ], [ 0, %56 ]
+  %.055 = phi i64 [ 0, %56 ], [ %spec.select, %61 ]
   %68 = add i64 %1, 7
   %69 = lshr i64 %68, 3
   %.054 = select i1 %60, i64 %69, i64 %58
@@ -621,7 +621,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_precision(ptr noundef nonn
   br label %104
 
 104:                                              ; preds = %21, %17, %88, %92, %100, %25, %45, %36, %96, %2
-  %.0 = phi i32 [ -1, %17 ], [ 0, %25 ], [ 0, %36 ], [ 0, %45 ], [ 0, %21 ], [ -1, %100 ], [ -1, %92 ], [ 0, %96 ], [ -1, %88 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %25 ], [ 0, %36 ], [ 0, %45 ], [ -1, %100 ], [ -1, %92 ], [ 0, %96 ], [ -1, %88 ], [ 0, %2 ], [ 0, %21 ]
   ret i32 %.0
 }
 

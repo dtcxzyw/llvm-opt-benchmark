@@ -307,7 +307,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6format11FormatToken10isTypeNameE
   br label %22
 
 22:                                               ; preds = %8, %15, %2, %6
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ %21, %15 ], [ false, %8 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %2 ], [ false, %8 ], [ %21, %15 ]
   ret i1 %.0
 }
 
@@ -358,7 +358,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %_ZSt7advanceI
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvm9StringRefEKS4_EEbT_RT0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvm9StringRefEKS4_EEbT_RT0_.exit.i: ; preds = %14, %.thread.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %.1.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %16, %14 ], [ 0, %.thread.i.i.i.i ]
+  %.1.i.i.i.i = phi i32 [ %16, %14 ], [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ 0, %.thread.i.i.i.i ]
   %17 = icmp slt i32 %.1.i.i.i.i, 0
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %19 = xor i64 %9, -1
@@ -442,8 +442,8 @@ _ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit.thread3: ; p
   %spec.select.i = or i1 %22, %23
   br label %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit.thread
 
-_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit.thread: ; preds = %6, %2, %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit.thread3, %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit
-  %24 = phi i1 [ true, %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit ], [ %spec.select.i, %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit.thread3 ], [ true, %2 ], [ true, %6 ]
+_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit.thread: ; preds = %2, %6, %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit.thread3, %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit
+  %24 = phi i1 [ true, %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit ], [ %spec.select.i, %_ZNK5clang6format11FormatToken10isTypeNameERKNS_11LangOptionsE.exit.thread3 ], [ true, %6 ], [ true, %2 ]
   ret i1 %24
 }
 
@@ -572,7 +572,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %17
   br label %_ZNK5clang6format11FormatToken10opensScopeEv.exit.thread
 
 _ZNK5clang6format11FormatToken10opensScopeEv.exit.thread: ; preds = %.thread.i, %.thread.i, %.thread.i, %31, %14, %14, %6, %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %25, %40, %38
-  %.0 = phi i1 [ true, %.thread.i ], [ true, %6 ], [ %or.cond, %31 ], [ true, %.thread.i ], [ true, %25 ], [ true, %14 ], [ true, %14 ], [ false, %38 ], [ %spec.select.i, %40 ], [ true, %.thread.i ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ]
+  %.0 = phi i1 [ true, %25 ], [ false, %38 ], [ %spec.select.i, %40 ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ true, %.thread.i ], [ true, %.thread.i ], [ true, %6 ], [ true, %14 ], [ true, %14 ], [ %or.cond, %31 ], [ true, %.thread.i ]
   ret i1 %.0
 }
 
@@ -768,7 +768,7 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread: ; preds = %67, 
   br i1 %.not51, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, label %51, !llvm.loop !176
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %.preheader61, %94, %.preheader, %28, %22, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %34, %4, %7
-  %.041 = phi i32 [ 0, %4 ], [ %96, %94 ], [ 0, %7 ], [ 0, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ 0, %28 ], [ 10000, %34 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.preheader61 ]
+  %.041 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %28 ], [ 0, %22 ], [ 0, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ 10000, %34 ], [ 0, %.preheader ], [ %96, %94 ], [ 0, %.preheader61 ]
   ret i32 %.041
 }
 
@@ -1055,9 +1055,9 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loo
   br label %.critedge, !llvm.loop !198
 
 .critedge:                                        ; preds = %83, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107, %.lr.ph177, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge, %.preheader
-  %.275.lcssa = phi i1 [ %.073190, %.preheader ], [ %.073190, %.lr.ph177 ], [ %79, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %.275175266, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %79, %83 ]
-  %.2.lcssa = phi ptr [ %.1191, %.preheader ], [ %.1191, %.lr.ph177 ], [ %.pre228, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %.2176265, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %.pre228, %83 ]
-  %.lcssa = phi i8 [ %77, %.preheader ], [ %77, %.lr.ph177 ], [ %94, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %87, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %94, %83 ]
+  %.275.lcssa = phi i1 [ %.073190, %.preheader ], [ %79, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %.073190, %.lr.ph177 ], [ %.275175266, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %79, %83 ]
+  %.2.lcssa = phi ptr [ %.1191, %.preheader ], [ %.pre228, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %.1191, %.lr.ph177 ], [ %.2176265, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %.pre228, %83 ]
+  %.lcssa = phi i8 [ %77, %.preheader ], [ %94, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %77, %.lr.ph177 ], [ %87, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %94, %83 ]
   %96 = load i64, ptr %51, align 8, !tbaa !195
   %97 = add i64 %96, 1
   %98 = load i64, ptr %52, align 8, !tbaa !196
@@ -1269,7 +1269,7 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit116.thread: ; preds = %1
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit111, %159, %192, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit111.thread, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit114, %188, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit116, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit116.thread
-  %.279 = phi ptr [ %169, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit114 ], [ %169, %188 ], [ %187, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit116.thread ], [ %169, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit116 ], [ %165, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit111.thread ], [ %169, %192 ], [ %.077, %159 ], [ %.077, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit111 ]
+  %.279 = phi ptr [ %169, %188 ], [ %187, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit116.thread ], [ %169, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit116 ], [ %169, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit114 ], [ %165, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit111.thread ], [ %169, %192 ], [ %.077, %159 ], [ %.077, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit111 ]
   %205 = getelementptr i8, ptr %.2.lcssa, i64 84
   %.2.val103 = load i32, ptr %205, align 4, !tbaa !165
   %206 = getelementptr i8, ptr %.2.lcssa, i64 108
@@ -1564,8 +1564,8 @@ _ZN4llvm15SmallVectorImplIjE6assignEmj.exit:      ; preds = %_ZN4llvm15SmallVect
   br label %"_ZZN5clang6format18CommaSeparatedList25precomputeFormattingInfosEPKNS0_11FormatTokenEENK3$_0clEv.exit"
 
 "_ZZN5clang6format18CommaSeparatedList25precomputeFormattingInfosEPKNS0_11FormatTokenEENK3$_0clEv.exit": ; preds = %.lr.ph.i, %_ZN4llvm15SmallVectorImplIjE6assignEmj.exit, %316, %._crit_edge, %.thread
-  %321 = phi ptr [ %.pre231, %._crit_edge ], [ %.pre231, %316 ], [ %.pre230, %.thread ], [ %.pre231, %_ZN4llvm15SmallVectorImplIjE6assignEmj.exit ], [ %.pre231, %.lr.ph.i ]
-  %.181 = phi i32 [ 11, %._crit_edge ], [ 13, %316 ], [ 0, %.thread ], [ 11, %_ZN4llvm15SmallVectorImplIjE6assignEmj.exit ], [ 13, %.lr.ph.i ]
+  %321 = phi ptr [ %.pre230, %.thread ], [ %.pre231, %._crit_edge ], [ %.pre231, %316 ], [ %.pre231, %_ZN4llvm15SmallVectorImplIjE6assignEmj.exit ], [ %.pre231, %.lr.ph.i ]
+  %.181 = phi i32 [ 0, %.thread ], [ 11, %._crit_edge ], [ 13, %316 ], [ 11, %_ZN4llvm15SmallVectorImplIjE6assignEmj.exit ], [ 13, %.lr.ph.i ]
   %322 = icmp eq ptr %321, %250
   br i1 %322, label %_ZN5clang6format18CommaSeparatedList12ColumnFormatD2Ev.exit, label %323
 
@@ -1783,7 +1783,7 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread17: ; preds = %20
   br label %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread
 
 _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread: ; preds = %11, %24, %26, %16, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit, %33, %34, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread17, %2
-  %.0 = phi i1 [ true, %11 ], [ true, %2 ], [ false, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit ], [ false, %16 ], [ false, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread17 ], [ true, %33 ], [ %37, %34 ], [ false, %26 ], [ false, %24 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit ], [ false, %16 ], [ true, %33 ], [ %37, %34 ], [ false, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread17 ], [ false, %26 ], [ false, %24 ], [ true, %11 ]
   ret i1 %.0
 }
 

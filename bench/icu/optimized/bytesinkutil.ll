@@ -155,7 +155,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -679,7 +679,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   br label %19
 
 19:                                               ; preds = %7, %16, %15
-  %.0 = phi i8 [ %18, %16 ], [ 0, %15 ], [ 0, %7 ]
+  %.0 = phi i8 [ 0, %15 ], [ %18, %16 ], [ 0, %7 ]
   ret i8 %.0
 }
 
@@ -862,7 +862,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil15appendUnchan
   br label %_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE.exit
 
 _ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE.exit: ; preds = %23, %20, %15, %6, %14
-  %.0 = phi i8 [ 0, %6 ], [ 0, %14 ], [ 1, %15 ], [ 1, %20 ], [ 1, %23 ]
+  %.0 = phi i8 [ 0, %14 ], [ 0, %6 ], [ 1, %15 ], [ 1, %20 ], [ 1, %23 ]
   ret i8 %.0
 }
 

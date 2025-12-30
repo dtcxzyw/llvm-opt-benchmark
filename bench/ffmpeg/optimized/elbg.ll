@@ -212,7 +212,7 @@ define range(i32 -34, 1) i32 @avpriv_elbg_do(ptr noundef captures(none) %0, ptr 
   br label %104
 
 104:                                              ; preds = %99, %85, %12, %.thread110, %77, %67, %57, %47, %37, %27
-  %.0 = phi i32 [ 0, %.thread110 ], [ -12, %12 ], [ -12, %77 ], [ -12, %67 ], [ -12, %57 ], [ -12, %47 ], [ -12, %37 ], [ -12, %27 ], [ -12, %99 ], [ -34, %85 ]
+  %.0 = phi i32 [ 0, %.thread110 ], [ -12, %77 ], [ -12, %67 ], [ -12, %57 ], [ -12, %47 ], [ -12, %37 ], [ -12, %27 ], [ -12, %12 ], [ -12, %99 ], [ -34, %85 ]
   ret i32 %.0
 }
 
@@ -409,7 +409,7 @@ define internal fastcc void @do_elbg(ptr noalias noundef nonnull captures(none) 
   br i1 %exitcond.not.i, label %distance_limited.exit, label %.lr.ph.i, !llvm.loop !41
 
 distance_limited.exit:                            ; preds = %.lr.ph.i, %69
-  %.2.i = phi i32 [ 2147483647, %.lr.ph.i ], [ %71, %69 ]
+  %.2.i = phi i32 [ %71, %69 ], [ 2147483647, %.lr.ph.i ]
   br i1 %22, label %.lr.ph.i126.us, label %._crit_edge
 
 .lr.ph.i126.us:                                   ; preds = %distance_limited.exit, %distance_limited.exit133.loopexit.us
@@ -888,9 +888,9 @@ vect_division.exit.i.i:                           ; preds = %241
   br i1 %exitcond200.not, label %get_new_centroids.exit.i.i.thread, label %.lr.ph79.i.i.i, !llvm.loop !63
 
 get_new_centroids.exit.i.i:                       ; preds = %.preheader.i73.i.i, %.preheader70.lr.ph.i.i.i
-  %.not76.i.i.i255 = phi i1 [ false, %.preheader70.lr.ph.i.i.i ], [ %.not76.i.i.i257, %.preheader.i73.i.i ]
-  %.075.i.i.i252 = phi ptr [ %.075.i.i.i, %.preheader70.lr.ph.i.i.i ], [ %.075.i.i.i253, %.preheader.i73.i.i ]
-  %290 = phi ptr [ %255, %.preheader70.lr.ph.i.i.i ], [ %259, %.preheader.i73.i.i ]
+  %.not76.i.i.i255 = phi i1 [ %.not76.i.i.i257, %.preheader.i73.i.i ], [ false, %.preheader70.lr.ph.i.i.i ]
+  %.075.i.i.i252 = phi ptr [ %.075.i.i.i253, %.preheader.i73.i.i ], [ %.075.i.i.i, %.preheader70.lr.ph.i.i.i ]
+  %290 = phi ptr [ %259, %.preheader.i73.i.i ], [ %255, %.preheader70.lr.ph.i.i.i ]
   %291 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i135
   %292 = load ptr, ptr %291, align 8, !tbaa !45
   %.not18.i.i.i = icmp eq ptr %292, null
@@ -1044,12 +1044,12 @@ eval_error_cell.exit96thread-pre-split.loopexit.i.i: ; preds = %distance_limited
   br label %eval_error_cell.exit96.i.i
 
 eval_error_cell.exit96.i.i:                       ; preds = %eval_error_cell.exit.i.i.thread, %eval_error_cell.exit.i.i.thread289, %eval_error_cell.exit96thread-pre-split.loopexit.i.i, %.lr.ph.i80.i.i, %eval_error_cell.exit.i.i
-  %357 = phi ptr [ %323, %.lr.ph.i80.i.i ], [ %323, %eval_error_cell.exit.i.i ], [ %332, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %329, %eval_error_cell.exit.i.i.thread ], [ %326, %eval_error_cell.exit.i.i.thread289 ]
-  %.not76.i.i.i255270284 = phi i1 [ %.not76.i.i.i255270, %.lr.ph.i80.i.i ], [ %.not76.i.i.i255270, %eval_error_cell.exit.i.i ], [ %.not76.i.i.i255270283299, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %.not76.i.i.i255, %eval_error_cell.exit.i.i.thread ], [ %.not76.i.i.i257264, %eval_error_cell.exit.i.i.thread289 ]
-  %.075.i.i.i252272282 = phi ptr [ %.075.i.i.i252272, %.lr.ph.i80.i.i ], [ %.075.i.i.i252272, %eval_error_cell.exit.i.i ], [ %.075.i.i.i252272281300, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %.075.i.i.i252, %eval_error_cell.exit.i.i.thread ], [ %.075.i.i.i253265, %eval_error_cell.exit.i.i.thread289 ]
-  %358 = phi ptr [ %321, %.lr.ph.i80.i.i ], [ %321, %eval_error_cell.exit.i.i ], [ %331, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %290, %eval_error_cell.exit.i.i.thread ], [ %260, %eval_error_cell.exit.i.i.thread289 ]
-  %359 = phi ptr [ %320, %.lr.ph.i80.i.i ], [ %320, %eval_error_cell.exit.i.i ], [ %330, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %291, %eval_error_cell.exit.i.i.thread ], [ %293, %eval_error_cell.exit.i.i.thread289 ]
-  %.2.i83.i.i = phi i32 [ %.2.i.i21.i, %.lr.ph.i80.i.i ], [ %.2.i.i21.i, %eval_error_cell.exit.i.i ], [ %356, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ 0, %eval_error_cell.exit.i.i.thread ], [ 0, %eval_error_cell.exit.i.i.thread289 ]
+  %357 = phi ptr [ %323, %.lr.ph.i80.i.i ], [ %323, %eval_error_cell.exit.i.i ], [ %332, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %326, %eval_error_cell.exit.i.i.thread289 ], [ %329, %eval_error_cell.exit.i.i.thread ]
+  %.not76.i.i.i255270284 = phi i1 [ %.not76.i.i.i255270, %.lr.ph.i80.i.i ], [ %.not76.i.i.i255270, %eval_error_cell.exit.i.i ], [ %.not76.i.i.i255270283299, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %.not76.i.i.i257264, %eval_error_cell.exit.i.i.thread289 ], [ %.not76.i.i.i255, %eval_error_cell.exit.i.i.thread ]
+  %.075.i.i.i252272282 = phi ptr [ %.075.i.i.i252272, %.lr.ph.i80.i.i ], [ %.075.i.i.i252272, %eval_error_cell.exit.i.i ], [ %.075.i.i.i252272281300, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %.075.i.i.i253265, %eval_error_cell.exit.i.i.thread289 ], [ %.075.i.i.i252, %eval_error_cell.exit.i.i.thread ]
+  %358 = phi ptr [ %321, %.lr.ph.i80.i.i ], [ %321, %eval_error_cell.exit.i.i ], [ %331, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %260, %eval_error_cell.exit.i.i.thread289 ], [ %290, %eval_error_cell.exit.i.i.thread ]
+  %359 = phi ptr [ %320, %.lr.ph.i80.i.i ], [ %320, %eval_error_cell.exit.i.i ], [ %330, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ %293, %eval_error_cell.exit.i.i.thread289 ], [ %291, %eval_error_cell.exit.i.i.thread ]
+  %.2.i83.i.i = phi i32 [ %.2.i.i21.i, %.lr.ph.i80.i.i ], [ %.2.i.i21.i, %eval_error_cell.exit.i.i ], [ %356, %eval_error_cell.exit96thread-pre-split.loopexit.i.i ], [ 0, %eval_error_cell.exit.i.i.thread289 ], [ 0, %eval_error_cell.exit.i.i.thread ]
   store i32 %.2.i83.i.i, ptr %36, align 4, !tbaa !40
   %360 = sext i32 %.2.i83.i.i to i64
   %361 = getelementptr inbounds i8, ptr %211, i64 %.idx
@@ -1095,7 +1095,7 @@ eval_error_cell.exit96.i.i:                       ; preds = %eval_error_cell.exi
   br i1 %exitcond.not.i.us.i110.i.i, label %distance_limited.exit.us.i.i.i, label %367, !llvm.loop !41
 
 distance_limited.exit.us.i.i.i:                   ; preds = %377, %367
-  %.2.i.us.i.i.i = phi i32 [ 2147483647, %367 ], [ %379, %377 ]
+  %.2.i.us.i.i.i = phi i32 [ %379, %377 ], [ 2147483647, %367 ]
   br label %380
 
 380:                                              ; preds = %390, %distance_limited.exit.us.i.i.i
@@ -1121,7 +1121,7 @@ distance_limited.exit.us.i.i.i:                   ; preds = %377, %367
   br i1 %exitcond.not.i72.us.i.i.i, label %.lr.ph.us.preheader.i.i.i, label %380, !llvm.loop !41
 
 .lr.ph.us.preheader.i.i.i:                        ; preds = %390, %380
-  %.2.i65.us.i.i.i = phi i32 [ 2147483647, %380 ], [ %392, %390 ]
+  %.2.i65.us.i.i.i = phi i32 [ %392, %390 ], [ 2147483647, %380 ]
   %.not18.us.i.i.i = icmp slt i32 %.2.i.us.i.i.i, %.2.i65.us.i.i.i
   %.sroa.speculated5.us.i.i.i = select i1 %.not18.us.i.i.i, ptr %361, ptr %362
   br label %.lr.ph.us.i.i.i
@@ -1265,7 +1265,7 @@ vect_division.exit88.i.i.i:                       ; preds = %423, %._crit_edge26
   br i1 %exitcond.not.i96.i.i.i, label %distance_limited.exit97.i.i.i, label %.lr.ph.i90.i.i.i, !llvm.loop !41
 
 distance_limited.exit97.i.i.i:                    ; preds = %445, %.lr.ph.i90.i.i.i
-  %.2.i89.i.i.i = phi i32 [ 2147483647, %.lr.ph.i90.i.i.i ], [ %447, %445 ]
+  %.2.i89.i.i.i = phi i32 [ %447, %445 ], [ 2147483647, %.lr.ph.i90.i.i.i ]
   br label %448
 
 448:                                              ; preds = %458, %distance_limited.exit97.i.i.i
@@ -1372,7 +1372,7 @@ simple_lbg.exit.i.i:                              ; preds = %._crit_edge26.threa
   br i1 %exitcond.not.i.us.i122.i.i, label %.lr.ph.i37.us.i.i.i, label %481, !llvm.loop !41
 
 .lr.ph.i37.us.i.i.i:                              ; preds = %491, %481
-  %.2.i.us.i120.i.i = phi i32 [ 2147483647, %481 ], [ %493, %491 ]
+  %.2.i.us.i120.i.i = phi i32 [ %493, %491 ], [ 2147483647, %481 ]
   br label %494
 
 494:                                              ; preds = %504, %.lr.ph.i37.us.i.i.i

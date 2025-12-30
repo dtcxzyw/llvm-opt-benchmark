@@ -1303,7 +1303,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   br label %_ZN5arrowL16offset_bit_widthENS_4Type4typeE.exit
 
 _ZN5arrowL16offset_bit_widthENS_4Type4typeE.exit: ; preds = %68, %68, %77
-  %.0.i53 = phi i64 [ 4, %68 ], [ 8, %77 ], [ 4, %68 ]
+  %.0.i53 = phi i64 [ 8, %77 ], [ 4, %68 ], [ 4, %68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %78 = add nsw i64 %3, 1
   %79 = mul nsw i64 %.0.i53, %78
@@ -2091,7 +2091,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev.exit116: ; preds = %_ZS
   ret void
 
 410:                                              ; preds = %66, %319, %23
-  %.pn46.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %67, %66 ], [ %.pn46, %319 ]
+  %.pn46.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn46, %319 ], [ %67, %66 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18

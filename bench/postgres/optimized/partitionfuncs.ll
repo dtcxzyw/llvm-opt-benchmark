@@ -180,7 +180,7 @@ list_length.exit:                                 ; preds = %35
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %.thread107, %.critedge.loopexit, %.lr.ph
-  %.063 = phi i64 [ 0, %55 ], [ 0, %.thread107 ], [ 0, %.lr.ph ], [ %77, %.critedge.loopexit ]
+  %.063 = phi i64 [ 0, %55 ], [ 0, %.lr.ph ], [ %77, %.critedge.loopexit ], [ 0, %.thread107 ]
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.063, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -286,7 +286,7 @@ check_rel_can_be_partition.exit.thread:           ; preds = %check_rel_can_be_pa
   br label %22
 
 22:                                               ; preds = %check_rel_can_be_partition.exit.thread, %14, %check_rel_can_be_partition.exit.thread12
-  %.0 = phi i64 [ 0, %check_rel_can_be_partition.exit.thread12 ], [ %21, %14 ], [ %5, %check_rel_can_be_partition.exit.thread ]
+  %.0 = phi i64 [ %21, %14 ], [ 0, %check_rel_can_be_partition.exit.thread12 ], [ %5, %check_rel_can_be_partition.exit.thread ]
   ret i64 %.0
 }
 

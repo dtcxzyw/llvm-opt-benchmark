@@ -107,9 +107,9 @@ define range(i32 -1163346256, 1) i32 @ff_dovi_configure_ext(ptr noundef captures
   unreachable
 
 31:                                               ; preds = %25, %22, %16, %29, %20
-  %.099 = phi i32 [ 8, %29 ], [ 5, %25 ], [ %21, %20 ], [ 10, %16 ], [ 5, %22 ]
+  %.099 = phi i32 [ %21, %20 ], [ 8, %29 ], [ 10, %16 ], [ 5, %22 ], [ 5, %25 ]
   %32 = icmp sgt i32 %4, -1
-  br i1 %32, label %33, label %select.unfold
+  br i1 %32, label %33, label %select.unfold131
 
 33:                                               ; preds = %31
   %34 = icmp eq i32 %.099, 9
@@ -119,9 +119,9 @@ define range(i32 -1163346256, 1) i32 @ff_dovi_configure_ext(ptr noundef captures
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %37 = load i32, ptr %36, align 4, !tbaa !27
   %.not112 = icmp eq i32 %37, 62
-  br i1 %.not112, label %select.unfold, label %.thread141
+  br i1 %.not112, label %select.unfold131, label %.thread141
 
-select.unfold:                                    ; preds = %35, %31
+select.unfold131:                                 ; preds = %35, %31
   switch i32 %.099, label %.thread141 [
     i32 4, label %38
     i32 7, label %38
@@ -130,7 +130,7 @@ select.unfold:                                    ; preds = %35, %31
     i32 8, label %47
   ]
 
-38:                                               ; preds = %select.unfold, %select.unfold
+38:                                               ; preds = %select.unfold131, %select.unfold131
   %39 = load i32, ptr %7, align 8, !tbaa !4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %139
@@ -140,7 +140,7 @@ select.unfold:                                    ; preds = %35, %31
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %42, i32 noundef 16, ptr noundef nonnull @.str.3) #12
   br label %141
 
-43:                                               ; preds = %select.unfold
+43:                                               ; preds = %select.unfold131
   br i1 %.not111.not, label %47, label %44
 
 44:                                               ; preds = %43
@@ -149,7 +149,7 @@ select.unfold:                                    ; preds = %35, %31
   %.not114 = icmp eq i8 %46, 0
   br i1 %.not114, label %47, label %.thread159
 
-47:                                               ; preds = %43, %44, %select.unfold
+47:                                               ; preds = %43, %44, %select.unfold131
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %49 = load i32, ptr %48, align 8, !tbaa !25
   switch i32 %49, label %.thread141 [
@@ -187,7 +187,7 @@ select.unfold:                                    ; preds = %35, %31
   %.not165 = icmp eq i32 %68, 1
   br i1 %.not165, label %.thread159, label %.thread141
 
-.thread141:                                       ; preds = %50, %16, %47, %33, %58, %35, %62, %select.unfold, %66
+.thread141:                                       ; preds = %50, %16, %47, %33, %58, %35, %62, %select.unfold131, %66
   %69 = load i32, ptr %7, align 8, !tbaa !4
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %139
@@ -197,8 +197,8 @@ select.unfold:                                    ; preds = %35, %31
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %72, i32 noundef 16, ptr noundef nonnull @.str.4) #12
   br label %141
 
-.thread159:                                       ; preds = %select.unfold, %44, %54, %58, %66
-  %.0102163 = phi i8 [ 2, %66 ], [ 0, %select.unfold ], [ 0, %44 ], [ 1, %54 ], [ 4, %58 ]
+.thread159:                                       ; preds = %select.unfold131, %58, %54, %44, %66
+  %.0102163 = phi i8 [ 2, %66 ], [ 0, %select.unfold131 ], [ 4, %58 ], [ 1, %54 ], [ 0, %44 ]
   %.not115 = icmp eq i32 %3, 0
   br i1 %.not115, label %86, label %73
 
@@ -344,7 +344,7 @@ select.unfold:                                    ; preds = %35, %31
   br label %141
 
 141:                                              ; preds = %.loopexit, %13, %139, %127, %126, %117, %80, %75, %71, %41
-  %.0 = phi i32 [ -1163346256, %41 ], [ -22, %71 ], [ 0, %139 ], [ -22, %75 ], [ -22, %80 ], [ 0, %127 ], [ -12, %126 ], [ -22, %13 ], [ -22, %117 ], [ -12, %.loopexit ]
+  %.0 = phi i32 [ -22, %71 ], [ 0, %139 ], [ -22, %75 ], [ -22, %80 ], [ 0, %127 ], [ -12, %126 ], [ -22, %117 ], [ -1163346256, %41 ], [ -22, %13 ], [ -12, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -840,8 +840,8 @@ try_reuse_ext.exit:                               ; preds = %.loopexit.i, %162, 
   br label %cmp_dm_level0.exit.thread
 
 cmp_dm_level0.exit.thread:                        ; preds = %80, %94, %99, %113, %116, %130, %try_reuse_ext.exit, %cmp_dm_level0.exit, %71
-  %.not490 = phi i1 [ true, %cmp_dm_level0.exit ], [ true, %71 ], [ %.2.i, %try_reuse_ext.exit ], [ true, %116 ], [ true, %99 ], [ true, %130 ], [ true, %113 ], [ true, %94 ], [ true, %80 ]
-  %.0429 = phi i32 [ 0, %cmp_dm_level0.exit ], [ 0, %71 ], [ %spec.select511, %try_reuse_ext.exit ], [ 0, %116 ], [ 0, %99 ], [ 0, %130 ], [ 0, %113 ], [ 0, %94 ], [ 0, %80 ]
+  %.not490 = phi i1 [ true, %cmp_dm_level0.exit ], [ true, %71 ], [ %.2.i, %try_reuse_ext.exit ], [ true, %130 ], [ true, %116 ], [ true, %113 ], [ true, %99 ], [ true, %94 ], [ true, %80 ]
+  %.0429 = phi i32 [ 0, %cmp_dm_level0.exit ], [ 0, %71 ], [ %spec.select511, %try_reuse_ext.exit ], [ 0, %130 ], [ 0, %116 ], [ 0, %113 ], [ 0, %99 ], [ 0, %94 ], [ 0, %80 ]
   %171 = load i32, ptr %53, align 8, !tbaa !84
   %.not492983 = icmp sgt i32 %171, 0
   br i1 %.not492983, label %.lr.ph, label %._crit_edge
@@ -911,9 +911,9 @@ ff_dovi_rpu_extension_is_static.exit.thread:      ; preds = %177
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %186, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %185) #12
   br label %3602
 
-187:                                              ; preds = %180, %180, %180, %180, %180, %181, %183
-  %.2441.ph = phi i32 [ %.0439985, %180 ], [ %.0439985, %180 ], [ %.0439985, %180 ], [ %.0439985, %180 ], [ %.0439985, %180 ], [ %.0439985, %181 ], [ %184, %183 ]
-  %.2432.ph = phi i32 [ %.0430986, %180 ], [ %.0430986, %180 ], [ %.0430986, %180 ], [ %.0430986, %180 ], [ %.0430986, %180 ], [ %182, %181 ], [ %.0430986, %183 ]
+187:                                              ; preds = %180, %180, %180, %180, %180, %183, %181
+  %.2441.ph = phi i32 [ %.0439985, %180 ], [ %.0439985, %180 ], [ %.0439985, %180 ], [ %.0439985, %180 ], [ %.0439985, %180 ], [ %184, %183 ], [ %.0439985, %181 ]
+  %.2432.ph = phi i32 [ %.0430986, %180 ], [ %.0430986, %180 ], [ %.0430986, %180 ], [ %.0430986, %180 ], [ %.0430986, %180 ], [ %.0430986, %183 ], [ %182, %181 ]
   %indvars.iv.next1061 = add nuw nsw i64 %indvars.iv1060, 1
   %exitcond1063.not = icmp eq i64 %indvars.iv.next1061, %wide.trip.count
   br i1 %exitcond1063.not, label %._crit_edge, label %177, !llvm.loop !99
@@ -4910,9 +4910,9 @@ put_bits.exit150.i:                               ; preds = %2444, %2436, %2427
   br i1 %exitcond.not.i729, label %.loopexit.i730, label %2419, !llvm.loop !166
 
 .loopexit.i730:                                   ; preds = %put_bits.exit150.i, %put_bits.exit73.i, %put_sbits.exit.i, %put_bits.exit106.i, %put_bits.exit122.i, %put_bits.exit138.i, %put_bits.exit.i724
-  %2447 = phi ptr [ %1883, %put_bits.exit.i724 ], [ %1959, %put_bits.exit73.i ], [ %2368, %put_bits.exit138.i ], [ %2272, %put_bits.exit122.i ], [ %2176, %put_bits.exit106.i ], [ %2128, %put_sbits.exit.i ], [ %2445, %put_bits.exit150.i ]
-  %2448 = phi i32 [ %.026.i.i.i725, %put_bits.exit.i724 ], [ %.026.i.i71.i, %put_bits.exit73.i ], [ %.026.i.i136.i, %put_bits.exit138.i ], [ %.026.i.i120.i, %put_bits.exit122.i ], [ %.026.i.i104.i, %put_bits.exit106.i ], [ %.026.i.i.i.i, %put_sbits.exit.i ], [ %.026.i.i148.i, %put_bits.exit150.i ]
-  %2449 = phi i32 [ %.0.i.i.i726, %put_bits.exit.i724 ], [ %1960, %put_bits.exit73.i ], [ %2369, %put_bits.exit138.i ], [ %2273, %put_bits.exit122.i ], [ %2177, %put_bits.exit106.i ], [ %2129, %put_sbits.exit.i ], [ %2446, %put_bits.exit150.i ]
+  %2447 = phi ptr [ %1883, %put_bits.exit.i724 ], [ %2368, %put_bits.exit138.i ], [ %2272, %put_bits.exit122.i ], [ %2176, %put_bits.exit106.i ], [ %2128, %put_sbits.exit.i ], [ %1959, %put_bits.exit73.i ], [ %2445, %put_bits.exit150.i ]
+  %2448 = phi i32 [ %.026.i.i.i725, %put_bits.exit.i724 ], [ %.026.i.i136.i, %put_bits.exit138.i ], [ %.026.i.i120.i, %put_bits.exit122.i ], [ %.026.i.i104.i, %put_bits.exit106.i ], [ %.026.i.i.i.i, %put_sbits.exit.i ], [ %.026.i.i71.i, %put_bits.exit73.i ], [ %.026.i.i148.i, %put_bits.exit150.i ]
+  %2449 = phi i32 [ %.0.i.i.i726, %put_bits.exit.i724 ], [ %2369, %put_bits.exit138.i ], [ %2273, %put_bits.exit122.i ], [ %2177, %put_bits.exit106.i ], [ %2129, %put_sbits.exit.i ], [ %1960, %put_bits.exit73.i ], [ %2446, %put_bits.exit150.i ]
   %2450 = shl nuw nsw i32 %.060.i, 3
   %2451 = load ptr, ptr %216, align 8, !tbaa !106
   %2452 = ptrtoint ptr %2447 to i64
@@ -5208,13 +5208,13 @@ ff_dovi_rpu_extension_is_static.exit733.thread:   ; preds = %2480
   br label %2582
 
 2582:                                             ; preds = %2487, %2581, %2580, %2579, %2576, %2574, %2571, %2568, %2565, %2562, %2559, %2555, %2554, %2551, %2549, %2546, %2543, %2540, %2537, %2534, %2530, %2527, %2524, %2521, %2518, %2515, %2512, %2509, %2506, %2503, %2500, %2497, %2494, %2491, %2488, %ff_dovi_rpu_extension_is_static.exit733.thread
-  %2583 = phi i1 [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2488 ], [ true, %2506 ], [ true, %2527 ], [ true, %2524 ], [ true, %2509 ], [ true, %2554 ], [ true, %2530 ], [ true, %2579 ], [ true, %2580 ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ true, %2521 ], [ true, %2518 ], [ true, %2515 ], [ true, %2512 ], [ true, %2551 ], [ true, %2549 ], [ true, %2546 ], [ true, %2543 ], [ true, %2540 ], [ true, %2537 ], [ true, %2534 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
-  %2584 = phi i1 [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2488 ], [ false, %2506 ], [ true, %2527 ], [ true, %2524 ], [ false, %2509 ], [ true, %2554 ], [ false, %2530 ], [ true, %2579 ], [ true, %2580 ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2521 ], [ false, %2518 ], [ false, %2515 ], [ false, %2512 ], [ false, %2551 ], [ false, %2549 ], [ false, %2546 ], [ false, %2543 ], [ false, %2540 ], [ false, %2537 ], [ false, %2534 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
-  %2585 = phi i1 [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2488 ], [ false, %2506 ], [ %.not160.i, %2527 ], [ false, %2524 ], [ false, %2509 ], [ true, %2554 ], [ false, %2530 ], [ true, %2579 ], [ true, %2580 ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2521 ], [ false, %2518 ], [ false, %2515 ], [ false, %2512 ], [ false, %2551 ], [ false, %2549 ], [ false, %2546 ], [ false, %2543 ], [ false, %2540 ], [ false, %2537 ], [ false, %2534 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
-  %2586 = phi i1 [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2488 ], [ false, %2506 ], [ true, %2527 ], [ false, %2524 ], [ false, %2509 ], [ true, %2554 ], [ false, %2530 ], [ true, %2579 ], [ true, %2580 ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2521 ], [ false, %2518 ], [ false, %2515 ], [ false, %2512 ], [ false, %2551 ], [ false, %2549 ], [ false, %2546 ], [ false, %2543 ], [ false, %2540 ], [ false, %2537 ], [ false, %2534 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
-  %2587 = phi i1 [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2488 ], [ false, %2506 ], [ true, %2527 ], [ true, %2524 ], [ false, %2509 ], [ true, %2554 ], [ true, %2530 ], [ true, %2579 ], [ true, %2580 ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2521 ], [ false, %2518 ], [ false, %2515 ], [ false, %2512 ], [ true, %2551 ], [ true, %2549 ], [ true, %2546 ], [ true, %2543 ], [ true, %2540 ], [ true, %2537 ], [ true, %2534 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
-  %2588 = phi i1 [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2488 ], [ true, %2506 ], [ true, %2527 ], [ true, %2524 ], [ true, %2509 ], [ true, %2554 ], [ true, %2530 ], [ true, %2579 ], [ true, %2580 ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ true, %2521 ], [ true, %2518 ], [ true, %2515 ], [ true, %2512 ], [ true, %2551 ], [ true, %2549 ], [ true, %2546 ], [ true, %2543 ], [ true, %2540 ], [ true, %2537 ], [ true, %2534 ], [ true, %2576 ], [ true, %2574 ], [ true, %2571 ], [ true, %2568 ], [ true, %2565 ], [ true, %2562 ], [ true, %2559 ], [ true, %2555 ], [ true, %2487 ]
-  %.0131.i = phi i32 [ 2, %2581 ], [ 5, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ 25, %2488 ], [ 19, %2506 ], [ %.161.i, %2527 ], [ 13, %2524 ], [ 19, %2509 ], [ 1, %2554 ], [ 17, %2530 ], [ 5, %2579 ], [ 4, %2580 ], [ 25, %2503 ], [ 25, %2500 ], [ 25, %2497 ], [ 25, %2494 ], [ 25, %2491 ], [ 19, %2521 ], [ 19, %2518 ], [ 19, %2515 ], [ 19, %2512 ], [ 17, %2551 ], [ 17, %2549 ], [ 17, %2546 ], [ 17, %2543 ], [ 17, %2540 ], [ 17, %2537 ], [ 17, %2534 ], [ 21, %2576 ], [ 21, %2574 ], [ 21, %2571 ], [ 21, %2568 ], [ 21, %2565 ], [ 21, %2562 ], [ 21, %2559 ], [ 21, %2555 ], [ 5, %2487 ]
+  %2583 = phi i1 [ true, %2554 ], [ true, %2579 ], [ true, %2580 ], [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2488 ], [ true, %2521 ], [ true, %2518 ], [ true, %2515 ], [ true, %2512 ], [ true, %2509 ], [ true, %2506 ], [ true, %2524 ], [ true, %2527 ], [ true, %2551 ], [ true, %2549 ], [ true, %2546 ], [ true, %2543 ], [ true, %2540 ], [ true, %2537 ], [ true, %2534 ], [ true, %2530 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
+  %2584 = phi i1 [ true, %2554 ], [ true, %2579 ], [ true, %2580 ], [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2488 ], [ false, %2521 ], [ false, %2518 ], [ false, %2515 ], [ false, %2512 ], [ false, %2509 ], [ false, %2506 ], [ true, %2524 ], [ true, %2527 ], [ false, %2551 ], [ false, %2549 ], [ false, %2546 ], [ false, %2543 ], [ false, %2540 ], [ false, %2537 ], [ false, %2534 ], [ false, %2530 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
+  %2585 = phi i1 [ true, %2554 ], [ true, %2579 ], [ true, %2580 ], [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2488 ], [ false, %2521 ], [ false, %2518 ], [ false, %2515 ], [ false, %2512 ], [ false, %2509 ], [ false, %2506 ], [ false, %2524 ], [ %.not160.i, %2527 ], [ false, %2551 ], [ false, %2549 ], [ false, %2546 ], [ false, %2543 ], [ false, %2540 ], [ false, %2537 ], [ false, %2534 ], [ false, %2530 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
+  %2586 = phi i1 [ true, %2554 ], [ true, %2579 ], [ true, %2580 ], [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2488 ], [ false, %2521 ], [ false, %2518 ], [ false, %2515 ], [ false, %2512 ], [ false, %2509 ], [ false, %2506 ], [ false, %2524 ], [ true, %2527 ], [ false, %2551 ], [ false, %2549 ], [ false, %2546 ], [ false, %2543 ], [ false, %2540 ], [ false, %2537 ], [ false, %2534 ], [ false, %2530 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
+  %2587 = phi i1 [ true, %2554 ], [ true, %2579 ], [ true, %2580 ], [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2488 ], [ false, %2521 ], [ false, %2518 ], [ false, %2515 ], [ false, %2512 ], [ false, %2509 ], [ false, %2506 ], [ true, %2524 ], [ true, %2527 ], [ true, %2551 ], [ true, %2549 ], [ true, %2546 ], [ true, %2543 ], [ true, %2540 ], [ true, %2537 ], [ true, %2534 ], [ true, %2530 ], [ false, %2576 ], [ false, %2574 ], [ false, %2571 ], [ false, %2568 ], [ false, %2565 ], [ false, %2562 ], [ false, %2559 ], [ false, %2555 ], [ true, %2487 ]
+  %2588 = phi i1 [ true, %2554 ], [ true, %2579 ], [ true, %2580 ], [ true, %2581 ], [ true, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ false, %2503 ], [ false, %2500 ], [ false, %2497 ], [ false, %2494 ], [ false, %2491 ], [ false, %2488 ], [ true, %2521 ], [ true, %2518 ], [ true, %2515 ], [ true, %2512 ], [ true, %2509 ], [ true, %2506 ], [ true, %2524 ], [ true, %2527 ], [ true, %2551 ], [ true, %2549 ], [ true, %2546 ], [ true, %2543 ], [ true, %2540 ], [ true, %2537 ], [ true, %2534 ], [ true, %2530 ], [ true, %2576 ], [ true, %2574 ], [ true, %2571 ], [ true, %2568 ], [ true, %2565 ], [ true, %2562 ], [ true, %2559 ], [ true, %2555 ], [ true, %2487 ]
+  %.0131.i = phi i32 [ 1, %2554 ], [ 5, %2579 ], [ 4, %2580 ], [ 2, %2581 ], [ 5, %ff_dovi_rpu_extension_is_static.exit733.thread ], [ 25, %2503 ], [ 25, %2500 ], [ 25, %2497 ], [ 25, %2494 ], [ 25, %2491 ], [ 25, %2488 ], [ 19, %2521 ], [ 19, %2518 ], [ 19, %2515 ], [ 19, %2512 ], [ 19, %2509 ], [ 19, %2506 ], [ 13, %2524 ], [ %.161.i, %2527 ], [ 17, %2551 ], [ 17, %2549 ], [ 17, %2546 ], [ 17, %2543 ], [ 17, %2540 ], [ 17, %2537 ], [ 17, %2534 ], [ 17, %2530 ], [ 21, %2576 ], [ 21, %2574 ], [ 21, %2571 ], [ 21, %2568 ], [ 21, %2565 ], [ 21, %2562 ], [ 21, %2559 ], [ 21, %2555 ], [ 5, %2487 ]
   %2589 = zext nneg i32 %.0131.i to i64
   %2590 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_len, i64 %2589
   %2591 = load i8, ptr %2590, align 1, !tbaa !51
@@ -6743,7 +6743,7 @@ ff_dovi_rpu_extension_is_static.exit733:          ; preds = %2487, %put_bits.exi
   br i1 %3456, label %2480, label %.loopexit960, !llvm.loop !170
 
 .loopexit960:                                     ; preds = %ff_dovi_rpu_extension_is_static.exit733, %2475, %._crit_edge1014
-  %3457 = phi i32 [ %1813, %._crit_edge1014 ], [ %2476, %2475 ], [ %3454, %ff_dovi_rpu_extension_is_static.exit733 ]
+  %3457 = phi i32 [ %2476, %2475 ], [ %1813, %._crit_edge1014 ], [ %3454, %ff_dovi_rpu_extension_is_static.exit733 ]
   %.not501 = icmp eq ptr %1499, null
   br i1 %.not501, label %.loopexit, label %3458
 
@@ -7067,9 +7067,9 @@ flush_put_bits.exit759:                           ; preds = %3531
   br label %3598
 
 3598:                                             ; preds = %3587, %3594
-  %3599 = phi i8 [ %3586, %3587 ], [ %3595, %3594 ]
-  %.1450 = phi ptr [ %.04491025, %3587 ], [ %.2451, %3594 ]
-  %.1428 = phi i32 [ %spec.select514, %3587 ], [ %3597, %3594 ]
+  %3599 = phi i8 [ %3595, %3594 ], [ %3586, %3587 ]
+  %.1450 = phi ptr [ %.2451, %3594 ], [ %.04491025, %3587 ]
+  %.1428 = phi i32 [ %3597, %3594 ], [ %spec.select514, %3587 ]
   store i8 %3599, ptr %.1450, align 1, !tbaa !51
   %indvars.iv.next1123 = add nuw nsw i64 %indvars.iv1122, 1
   %.0449 = getelementptr inbounds nuw i8, ptr %.1450, i64 1
@@ -7085,7 +7085,7 @@ flush_put_bits.exit759:                           ; preds = %3531
   br label %3602
 
 3602:                                             ; preds = %.thread, %3570, %3545, %.loopexit969, %69, %59, %42, %40, %26, %3600, %._crit_edge1028, %3558, %30, %11
-  %.0415 = phi i32 [ 0, %11 ], [ -1094995529, %30 ], [ 0, %3558 ], [ -12, %.loopexit969 ], [ 0, %._crit_edge1028 ], [ -12, %3545 ], [ 0, %3600 ], [ -12, %69 ], [ -1094995529, %.thread ], [ -12, %59 ], [ -22, %42 ], [ -12, %40 ], [ -22, %26 ], [ -12, %3570 ]
+  %.0415 = phi i32 [ -1094995529, %30 ], [ 0, %3558 ], [ 0, %._crit_edge1028 ], [ 0, %3600 ], [ 0, %11 ], [ -22, %26 ], [ -12, %40 ], [ -22, %42 ], [ -12, %59 ], [ -12, %69 ], [ -12, %.loopexit969 ], [ -12, %3545 ], [ -12, %3570 ], [ -1094995529, %.thread ]
   ret i32 %.0415
 }
 

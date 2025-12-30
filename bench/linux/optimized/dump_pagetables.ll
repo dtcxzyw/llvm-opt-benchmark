@@ -862,8 +862,8 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
   br i1 %255, label %.thread9, label %263
 
 256:                                              ; preds = %253, %250, %130
-  %.str.33.sink = phi ptr [ @.str.53, %250 ], [ @.str.33, %130 ], [ @.str.55, %253 ]
-  %257 = phi i32 [ %150, %250 ], [ %123, %130 ], [ %150, %253 ]
+  %.str.33.sink = phi ptr [ @.str.33, %130 ], [ @.str.53, %250 ], [ @.str.55, %253 ]
+  %257 = phi i32 [ %123, %130 ], [ %150, %250 ], [ %150, %253 ]
   %258 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %.str.33.sink) #9
   %259 = sext i32 %257 to i64
   %260 = getelementptr ptr, ptr @printk_prot.level_name, i64 %259
@@ -872,8 +872,8 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
   br label %.thread9
 
 263:                                              ; preds = %254, %251, %131
-  %.str.34.sink = phi ptr [ @.str.54, %251 ], [ @.str.34, %131 ], [ @.str.56, %254 ]
-  %264 = phi i32 [ %150, %251 ], [ %123, %131 ], [ %150, %254 ]
+  %.str.34.sink = phi ptr [ @.str.34, %131 ], [ @.str.54, %251 ], [ @.str.56, %254 ]
+  %264 = phi i32 [ %123, %131 ], [ %150, %251 ], [ %150, %254 ]
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull %.str.34.sink) #8
   %265 = sext i32 %264 to i64
   %266 = getelementptr ptr, ptr @printk_prot.level_name, i64 %265

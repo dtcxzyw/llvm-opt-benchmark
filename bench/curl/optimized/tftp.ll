@@ -153,7 +153,7 @@ tftp_perform.exit:                                ; preds = %.thread
   br label %21
 
 21:                                               ; preds = %tftp_perform.exit, %17, %9, %7
-  %.0 = phi i32 [ 71, %9 ], [ %8, %7 ], [ %12, %tftp_perform.exit ], [ %20, %17 ]
+  %.0 = phi i32 [ %8, %7 ], [ 71, %9 ], [ %12, %tftp_perform.exit ], [ %20, %17 ]
   ret i32 %.0
 }
 
@@ -288,7 +288,7 @@ define internal range(i32 0, 28) i32 @tftp_connect(ptr noundef %0, ptr noundef w
   br label %58
 
 58:                                               ; preds = %53, %23, %15, %2, %57
-  %.0 = phi i32 [ 0, %57 ], [ 7, %53 ], [ 27, %15 ], [ 27, %2 ], [ 27, %23 ]
+  %.0 = phi i32 [ 0, %57 ], [ 7, %53 ], [ 27, %2 ], [ 27, %15 ], [ 27, %23 ]
   ret i32 %.0
 }
 
@@ -698,8 +698,8 @@ tftp_parse_option_ack.exit.i:                     ; preds = %.critedge.i.i, %212
   %215 = call fastcc i32 @tftp_state_machine(ptr noundef %46, i32 noundef 5)
   br label %tftp_receive_packet.exit.thread
 
-tftp_receive_packet.exit.thread:                  ; preds = %89, %214, %tftp_option_get.exit.thread.i.i, %171, %174, %179, %168, %.critedge78.i.i
-  %.1.i.ph = phi i32 [ 71, %.critedge78.i.i ], [ 71, %168 ], [ 71, %179 ], [ 71, %174 ], [ 71, %171 ], [ 71, %tftp_option_get.exit.thread.i.i ], [ 42, %214 ], [ %88, %89 ]
+tftp_receive_packet.exit.thread:                  ; preds = %89, %214, %171, %174, %179, %168, %.critedge78.i.i, %tftp_option_get.exit.thread.i.i
+  %.1.i.ph = phi i32 [ 71, %tftp_option_get.exit.thread.i.i ], [ 71, %.critedge78.i.i ], [ 71, %168 ], [ 71, %179 ], [ 71, %174 ], [ 71, %171 ], [ 42, %214 ], [ %88, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %225
 
@@ -723,7 +723,7 @@ tftp_receive_packet.exit.thread:                  ; preds = %89, %214, %tftp_opt
   br label %225
 
 225:                                              ; preds = %tftp_receive_packet.exit.thread, %216, %34, %224, %220, %38, %33, %29, %26
-  %.0 = phi i32 [ 0, %29 ], [ %28, %26 ], [ 0, %33 ], [ %.1.i.ph, %tftp_receive_packet.exit.thread ], [ %219, %216 ], [ %37, %34 ], [ 0, %224 ], [ 0, %220 ], [ 0, %38 ]
+  %.0 = phi i32 [ %28, %26 ], [ 0, %33 ], [ 0, %29 ], [ %219, %216 ], [ %.1.i.ph, %tftp_receive_packet.exit.thread ], [ %37, %34 ], [ 0, %224 ], [ 0, %220 ], [ 0, %38 ]
   ret i32 %.0
 }
 
@@ -935,7 +935,7 @@ define internal fastcc range(i32 0, 75) i32 @tftp_translate_code(i32 noundef %0)
   br label %12
 
 12:                                               ; preds = %1, %2, %3, %4, %5, %6, %7, %8, %9, %10, %11
-  %.0 = phi i32 [ 42, %10 ], [ 0, %11 ], [ 69, %2 ], [ 70, %3 ], [ 71, %4 ], [ 72, %5 ], [ 73, %6 ], [ 74, %7 ], [ 28, %8 ], [ 7, %9 ], [ 68, %1 ]
+  %.0 = phi i32 [ 42, %10 ], [ 69, %2 ], [ 70, %3 ], [ 71, %4 ], [ 72, %5 ], [ 73, %6 ], [ 74, %7 ], [ 28, %8 ], [ 7, %9 ], [ 0, %11 ], [ 68, %1 ]
   ret i32 %.0
 }
 
@@ -1329,7 +1329,7 @@ define internal fastcc i32 @tftp_state_machine(ptr noundef %0, i32 noundef %1) u
   br label %tftp_send_first.exit
 
 tftp_send_first.exit:                             ; preds = %20, %34, %49, %.thread123.i, %136, %153, %155, %166, %168, %182, %184, %198, %200, %202, %203
-  %.0.i = phi i32 [ %39, %34 ], [ 0, %20 ], [ 71, %.thread123.i ], [ 71, %49 ], [ 0, %203 ], [ 0, %136 ], [ 0, %202 ], [ %154, %153 ], [ %167, %166 ], [ %183, %182 ], [ %156, %155 ], [ %169, %168 ], [ %185, %184 ], [ %201, %200 ], [ %199, %198 ]
+  %.0.i = phi i32 [ 0, %20 ], [ 71, %49 ], [ 71, %.thread123.i ], [ %39, %34 ], [ 0, %203 ], [ 0, %136 ], [ 0, %202 ], [ %156, %155 ], [ %154, %153 ], [ %169, %168 ], [ %167, %166 ], [ %185, %184 ], [ %183, %182 ], [ %201, %200 ], [ %199, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %222
@@ -1673,7 +1673,7 @@ define internal fastcc range(i32 0, 72) i32 @tftp_rx(ptr noundef %0, i32 noundef
   br label %179
 
 179:                                              ; preds = %75, %113, %157, %48, %44, %37, %36, %143, %141, %178, %153, %109, %71
-  %.0 = phi i32 [ 71, %178 ], [ 55, %71 ], [ 55, %153 ], [ 55, %109 ], [ 0, %141 ], [ 0, %143 ], [ 0, %36 ], [ 0, %37 ], [ 0, %44 ], [ 0, %48 ], [ 0, %157 ], [ 0, %113 ], [ 0, %75 ]
+  %.0 = phi i32 [ 71, %178 ], [ 55, %71 ], [ 55, %109 ], [ 55, %153 ], [ 0, %141 ], [ 0, %143 ], [ 0, %36 ], [ 0, %37 ], [ 0, %44 ], [ 0, %48 ], [ 0, %157 ], [ 0, %113 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2014,7 +2014,7 @@ define internal fastcc i32 @tftp_tx(ptr noundef %0, i32 noundef %1) unnamed_addr
   br label %.thread
 
 .thread:                                          ; preds = %99, %42, %59, %45, %130, %184, %205, %181, %161, %177, %126, %93
-  %.1 = phi i32 [ 55, %42 ], [ 0, %93 ], [ 55, %177 ], [ 55, %126 ], [ 0, %130 ], [ 0, %161 ], [ 0, %181 ], [ 0, %205 ], [ 0, %184 ], [ 0, %45 ], [ 55, %59 ], [ %104, %99 ]
+  %.1 = phi i32 [ 0, %93 ], [ 55, %126 ], [ 55, %177 ], [ 0, %161 ], [ 0, %181 ], [ 0, %205 ], [ 0, %184 ], [ 0, %130 ], [ 0, %45 ], [ 55, %59 ], [ 55, %42 ], [ %104, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

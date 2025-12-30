@@ -410,7 +410,7 @@ __mincore_unmapped_range.exit.sink.split:         ; preds = %78, %57
   br label %__mincore_unmapped_range.exit
 
 __mincore_unmapped_range.exit:                    ; preds = %__mincore_unmapped_range.exit.sink.split, %62, %78, %58, %32, %35, %50
-  %.sink = phi i8 [ %80, %78 ], [ 0, %32 ], [ 1, %58 ], [ 0, %35 ], [ %52, %50 ], [ %.sink.ph, %__mincore_unmapped_range.exit.sink.split ], [ 0, %62 ]
+  %.sink = phi i8 [ 0, %35 ], [ %52, %50 ], [ 0, %32 ], [ 1, %58 ], [ 0, %62 ], [ %80, %78 ], [ %.sink.ph, %__mincore_unmapped_range.exit.sink.split ]
   store i8 %.sink, ptr %23, align 1
   %85 = getelementptr i8, ptr %23, i64 1
   %86 = getelementptr i8, ptr %24, i64 8

@@ -318,8 +318,8 @@ define internal fastcc void @tea_crypt_ecb(ptr noundef readonly captures(none) %
   br i1 %exitcond83.not, label %.loopexit, label %.lr.ph77, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph77, %.preheader, %._crit_edge, %42
-  %.263 = phi i32 [ %.061.lcssa, %._crit_edge ], [ %49, %42 ], [ %19, %.preheader ], [ %67, %.lr.ph77 ]
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %45, %42 ], [ %16, %.preheader ], [ %59, %.lr.ph77 ]
+  %.263 = phi i32 [ %49, %42 ], [ %.061.lcssa, %._crit_edge ], [ %19, %.preheader ], [ %67, %.lr.ph77 ]
+  %.2 = phi i32 [ %45, %42 ], [ %.0.lcssa, %._crit_edge ], [ %16, %.preheader ], [ %59, %.lr.ph77 ]
   %69 = tail call i32 @llvm.bswap.i32(i32 %.2)
   store i32 %69, ptr %1, align 1, !tbaa !4
   %70 = tail call i32 @llvm.bswap.i32(i32 %.263)

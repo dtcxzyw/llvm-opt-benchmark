@@ -68,7 +68,7 @@ define dso_local noundef zeroext i1 @RS_isRegis(ptr noundef %0) local_unnamed_ad
   unreachable
 
 23:                                               ; preds = %17, %11, %9, %6, %15, %4
-  %.1 = phi i32 [ 4, %4 ], [ 2, %11 ], [ 1, %6 ], [ 3, %9 ], [ %.01726, %15 ], [ 4, %17 ]
+  %.1 = phi i32 [ 4, %4 ], [ %.01726, %15 ], [ 1, %6 ], [ 3, %9 ], [ 2, %11 ], [ 4, %17 ]
   %24 = tail call i32 @pg_mblen(ptr noundef nonnull %.027) #6
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %.027, i64 %25
@@ -81,7 +81,7 @@ define dso_local noundef zeroext i1 @RS_isRegis(ptr noundef %0) local_unnamed_ad
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %11, %6, %1, %._crit_edge.loopexit
-  %.018 = phi i1 [ %28, %._crit_edge.loopexit ], [ true, %1 ], [ false, %6 ], [ false, %11 ], [ false, %17 ]
+  %.018 = phi i1 [ true, %1 ], [ %28, %._crit_edge.loopexit ], [ false, %6 ], [ false, %11 ], [ false, %17 ]
   ret i1 %.018
 }
 
@@ -499,7 +499,7 @@ mb_strchr.exit:                                   ; preds = %.loopexit.i34, %.pr
   br i1 %.not31, label %mb_strchr.exit40, label %.lr.ph61, !llvm.loop !13
 
 mb_strchr.exit40:                                 ; preds = %mb_strchr.exit, %26, %.loopexit.i, %.preheader.i36, %.loopexit, %._crit_edge
-  %.028 = phi i1 [ true, %.loopexit ], [ false, %._crit_edge ], [ false, %.loopexit.i ], [ false, %.preheader.i36 ], [ true, %mb_strchr.exit ], [ false, %26 ]
+  %.028 = phi i1 [ false, %._crit_edge ], [ true, %.loopexit ], [ false, %.preheader.i36 ], [ false, %.loopexit.i ], [ true, %mb_strchr.exit ], [ false, %26 ]
   ret i1 %.028
 }
 

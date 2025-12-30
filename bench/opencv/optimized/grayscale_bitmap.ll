@@ -867,7 +867,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   ret void
 
 ._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %.preheader
-  %59 = phi i32 [ %56, %.critedge.us ], [ %22, %.preheader ], [ %86, %.critedge ]
+  %59 = phi i32 [ %22, %.preheader ], [ %56, %.critedge.us ], [ %86, %.critedge ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %60 = load i32, ptr %5, align 4, !tbaa !38
   %61 = sext i32 %60 to i64
@@ -962,7 +962,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !39
   br label %40
 

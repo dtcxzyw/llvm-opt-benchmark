@@ -299,8 +299,8 @@ ExecScanFetch.exit:                               ; preds = %17, %19
   call void @MemoryContextReset(ptr noundef %38) #5
   br label %17
 
-ExecScanExtended.exit:                            ; preds = %26, %22, %ExecScanFetch.exit, %ExecScanFetch.exit5
-  %.0.i = phi ptr [ %12, %ExecScanFetch.exit5 ], [ %20, %26 ], [ %20, %22 ], [ null, %ExecScanFetch.exit ]
+ExecScanExtended.exit:                            ; preds = %26, %ExecScanFetch.exit, %22, %ExecScanFetch.exit5
+  %.0.i = phi ptr [ %12, %ExecScanFetch.exit5 ], [ %20, %26 ], [ null, %ExecScanFetch.exit ], [ %20, %22 ]
   ret ptr %.0.i
 }
 
@@ -390,7 +390,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
   br i1 %.not.i, label %46, label %.split11.us
 
 .split11.us:                                      ; preds = %ExecScanFetch.exit, %35, %ExecScanFetch.exit.us, %27
-  %.us-phi = phi ptr [ null, %ExecScanFetch.exit.us ], [ %25, %27 ], [ null, %ExecScanFetch.exit ], [ %33, %35 ]
+  %.us-phi = phi ptr [ %25, %27 ], [ null, %ExecScanFetch.exit.us ], [ null, %ExecScanFetch.exit ], [ %33, %35 ]
   br i1 %11, label %39, label %ExecScanExtended.exit
 
 39:                                               ; preds = %.split11.us

@@ -187,7 +187,7 @@ convert_results.exit:                             ; preds = %convert_results.exi
   br i1 %.not34, label %.loopexit39, label %.lr.ph48, !llvm.loop !23
 
 .loopexit39:                                      ; preds = %.loopexit, %convert_results.exit, %7, %3, %10
-  %.029 = phi i32 [ -8, %3 ], [ %11, %10 ], [ -72, %7 ], [ 0, %convert_results.exit ], [ 0, %.loopexit ]
+  %.029 = phi i32 [ %11, %10 ], [ -8, %3 ], [ -72, %7 ], [ 0, %convert_results.exit ], [ 0, %.loopexit ]
   ret i32 %.029
 }
 
@@ -248,7 +248,7 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
   br label %27
 
 27:                                               ; preds = %15, %23, %20
-  %.0 = phi i32 [ %spec.select, %15 ], [ %.11, %23 ], [ %., %20 ]
+  %.0 = phi i32 [ %., %20 ], [ %.11, %23 ], [ %spec.select, %15 ]
   ret i32 %.0
 }
 

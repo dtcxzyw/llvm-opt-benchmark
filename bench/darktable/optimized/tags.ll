@@ -367,7 +367,7 @@ define range(i32 0, 2) i32 @dt_tag_new(ptr noundef %0, ptr noundef writeonly cap
   br label %136
 
 136:                                              ; preds = %134, %135, %2, %4, %39
-  %.0 = phi i32 [ 0, %2 ], [ 1, %39 ], [ 0, %4 ], [ 1, %135 ], [ 1, %134 ]
+  %.0 = phi i32 [ 1, %39 ], [ 0, %4 ], [ 0, %2 ], [ 1, %135 ], [ 1, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1171,7 +1171,7 @@ default.unreachable57:                            ; preds = %7
   unreachable
 
 _tag_add_tags_to_list.exit.thread61:              ; preds = %.thread, %_tag_add_tags_to_list.exit.thread, %_tag_add_tags_to_list.exit, %_tag_remove_tags_from_list.exit, %38, %41, %44
-  %.1 = phi i32 [ 1, %44 ], [ 1, %41 ], [ 1, %38 ], [ %spec.select43, %_tag_remove_tags_from_list.exit ], [ %.052, %_tag_add_tags_to_list.exit.thread ], [ 1, %_tag_add_tags_to_list.exit ], [ 1, %.thread ]
+  %.1 = phi i32 [ 1, %44 ], [ %spec.select43, %_tag_remove_tags_from_list.exit ], [ 1, %41 ], [ 1, %38 ], [ %.052, %_tag_add_tags_to_list.exit.thread ], [ 1, %_tag_add_tags_to_list.exit ], [ 1, %.thread ]
   %46 = load ptr, ptr %13, align 8, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !68
@@ -1786,7 +1786,7 @@ dt_tag_detach.exit:                               ; preds = %.lr.ph.split, %dt_t
   br i1 %87, label %dt_tag_detach.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %dt_tag_detach.exit, %dt_tag_detach.exit.us29, %dt_tag_detach.exit.us, %dt_tag_detach.exit.us.us, %48
-  %.019.lcssa = phi i32 [ 0, %48 ], [ 1, %dt_tag_detach.exit.us29 ], [ 1, %dt_tag_detach.exit.us ], [ 1, %dt_tag_detach.exit.us.us ], [ 1, %dt_tag_detach.exit ]
+  %.019.lcssa = phi i32 [ 0, %48 ], [ 1, %dt_tag_detach.exit.us.us ], [ 1, %dt_tag_detach.exit.us ], [ 1, %dt_tag_detach.exit.us29 ], [ 1, %dt_tag_detach.exit ]
   %88 = load ptr, ptr %6, align 8, !tbaa !52
   %89 = call i32 @sqlite3_finalize(ptr noundef %88) #11
   call void @g_free(ptr noundef %24) #11
@@ -2831,14 +2831,14 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   br label %153
 
 153:                                              ; preds = %98, %.loopexit93, %.loopexit, %141, %138
-  %.1 = phi ptr [ %.2, %138 ], [ %.056111, %98 ], [ %.2, %.loopexit93 ], [ %.7, %.loopexit ], [ %.2, %141 ]
+  %.1 = phi ptr [ %.2, %.loopexit93 ], [ %.7, %.loopexit ], [ %.2, %141 ], [ %.2, %138 ], [ %.056111, %98 ]
   %154 = getelementptr inbounds nuw i8, ptr %.058110, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !62
   %.not66 = icmp eq ptr %155, null
   br i1 %.not66, label %._crit_edge, label %98
 
 ._crit_edge:                                      ; preds = %153, %.preheader94, %.loopexit95
-  %.056.lcssa = phi ptr [ null, %.preheader94 ], [ null, %.loopexit95 ], [ %.1, %153 ]
+  %.056.lcssa = phi ptr [ null, %.loopexit95 ], [ null, %.preheader94 ], [ %.1, %153 ]
   br i1 %.not35.i, label %dt_tag_free_result.exit, label %156
 
 156:                                              ; preds = %._crit_edge
@@ -4524,11 +4524,11 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %.thread113
 
 .thread113:                                       ; preds = %59, %.thread128, %38, %30, %58
-  %.1125 = phi ptr [ %45, %58 ], [ %45, %59 ], [ %45, %.thread128 ], [ %.064139, %38 ], [ %.064139, %30 ]
-  %.170123 = phi i64 [ %.3, %58 ], [ %.069138, %59 ], [ %.3.ph, %.thread128 ], [ %.069138, %38 ], [ %.069138, %30 ]
-  %.066106121 = phi i32 [ %.066.ph, %58 ], [ %.066.ph, %59 ], [ %.066.ph, %.thread128 ], [ 0, %38 ], [ 0, %30 ]
-  %.065108119 = phi i32 [ 0, %58 ], [ 0, %59 ], [ 0, %.thread128 ], [ 1, %38 ], [ 1, %30 ]
-  %60 = phi i32 [ %16, %58 ], [ %spec.select130, %59 ], [ 0, %.thread128 ], [ 0, %38 ], [ 0, %30 ]
+  %.1125 = phi ptr [ %45, %58 ], [ %45, %.thread128 ], [ %.064139, %38 ], [ %.064139, %30 ], [ %45, %59 ]
+  %.170123 = phi i64 [ %.3, %58 ], [ %.3.ph, %.thread128 ], [ %.069138, %38 ], [ %.069138, %30 ], [ %.069138, %59 ]
+  %.066106121 = phi i32 [ %.066.ph, %58 ], [ %.066.ph, %.thread128 ], [ 0, %38 ], [ 0, %30 ], [ %.066.ph, %59 ]
+  %.065108119 = phi i32 [ 0, %58 ], [ 0, %.thread128 ], [ 1, %38 ], [ 1, %30 ], [ 0, %59 ]
+  %60 = phi i32 [ %16, %58 ], [ 0, %.thread128 ], [ 0, %38 ], [ 0, %30 ], [ %spec.select130, %59 ]
   %61 = call i64 @getline(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
   %.not81 = icmp eq i64 %61, -1
   br i1 %.not81, label %._crit_edge142, label %.lr.ph141
@@ -4735,7 +4735,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   br i1 %.not149, label %.critedge.loopexit, label %.lr.ph117
 
 .critedge.loopexit:                               ; preds = %47, %45, %.lr.ph117
-  %.076.lcssa.ph.in = phi i64 [ %indvars.iv, %45 ], [ %indvars.iv, %.lr.ph117 ], [ %indvars.iv.next, %47 ]
+  %.076.lcssa.ph.in = phi i64 [ %indvars.iv, %.lr.ph117 ], [ %indvars.iv, %45 ], [ %indvars.iv.next, %47 ]
   %.076.lcssa.ph = trunc i64 %.076.lcssa.ph.in to i32
   br label %.critedge.thread
 
@@ -4975,7 +4975,7 @@ define ptr @dt_tag_get_subtags(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   %64 = icmp eq i8 %63, 44
   br i1 %64, label %65, label %.critedge
 
-.critedge:                                        ; preds = %49, %54, %58, %60
+.critedge:                                        ; preds = %54, %49, %58, %60
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef nonnull @.str.67, ptr noundef %52) #11
   br label %65
 

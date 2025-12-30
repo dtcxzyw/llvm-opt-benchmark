@@ -555,17 +555,17 @@ define hidden void @"_ZN10vfs_notify11NotifyActor3run28_$u7b$$u7b$closure$u7d$$u
 84:                                               ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %50, %.noexc45
+.loopexit:                                        ; preds = %.noexc45, %50
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.noexc41, %34
+.loopexit.split-lp.loopexit:                      ; preds = %34, %.noexc41
   %lpad.loopexit76 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %72, %56, %20, %.noexc, %3, %15, %58, %.noexc47, %68
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %56, %3, %.noexc, %15, %20, %58, %.noexc47, %68, %72
   %lpad.loopexit.split-lp77 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

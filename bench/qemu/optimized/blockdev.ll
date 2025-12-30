@@ -886,7 +886,7 @@ define dso_local range(i32 -1, -2147483648) i32 @drive_get_max_bus(i32 noundef %
   br label %13
 
 13:                                               ; preds = %10, %.lr.ph, %7
-  %.1 = phi i32 [ %.0914, %.lr.ph ], [ %spec.select, %10 ], [ %.0914, %7 ]
+  %.1 = phi i32 [ %.0914, %7 ], [ %.0914, %.lr.ph ], [ %spec.select, %10 ]
   %14 = tail call ptr @blk_next(ptr noundef nonnull %.015) #14
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -1103,9 +1103,9 @@ qemu_opt_rename.exit:                             ; preds = %13
   br label %176
 
 60:                                               ; preds = %57, %55, %53
-  %61 = phi ptr [ @.str.72, %55 ], [ @.str.72, %53 ], [ @.str.71, %57 ]
-  %62 = phi ptr [ @.str.80, %55 ], [ @.str.80, %53 ], [ @.str.79, %57 ]
-  %.0185 = phi i32 [ 0, %55 ], [ 0, %53 ], [ 1, %57 ]
+  %61 = phi ptr [ @.str.72, %53 ], [ @.str.72, %55 ], [ @.str.71, %57 ]
+  %62 = phi ptr [ @.str.80, %53 ], [ @.str.80, %55 ], [ @.str.79, %57 ]
+  %.0185 = phi i32 [ 0, %53 ], [ 0, %55 ], [ 1, %57 ]
   %63 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %51, ptr noundef nonnull @.str.11, i1 noundef zeroext false) #14
   %64 = zext i1 %63 to i32
   %65 = or i32 %.0185, %64
@@ -1155,7 +1155,7 @@ qemu_opt_rename.exit:                             ; preds = %13
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %70
-  %.1184 = phi i32 [ %77, %.critedge.thread.loopexit ], [ %1, %70 ]
+  %.1184 = phi i32 [ %1, %70 ], [ %77, %.critedge.thread.loopexit ]
   %78 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.12, i64 noundef 0) #14
   %79 = trunc i64 %78 to i32
   %80 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.14, i64 noundef -1) #14
@@ -1546,7 +1546,7 @@ define internal fastcc ptr @blockdev_init(ptr noundef %0, ptr noundef %1, ptr no
   br label %account_get_opt.exit
 
 account_get_opt.exit:                             ; preds = %16, %19
-  %.0.i = phi i32 [ %..i, %19 ], [ 0, %16 ]
+  %.0.i = phi i32 [ 0, %16 ], [ %..i, %19 ]
   %21 = tail call ptr @qemu_opt_find(ptr noundef nonnull %11, ptr noundef nonnull @.str.170) #14
   %.not.i150 = icmp eq ptr %21, null
   br i1 %.not.i150, label %account_get_opt.exit153, label %22
@@ -1557,7 +1557,7 @@ account_get_opt.exit:                             ; preds = %16, %19
   br label %account_get_opt.exit153
 
 account_get_opt.exit153:                          ; preds = %account_get_opt.exit, %22
-  %.0.i152 = phi i32 [ %..i151, %22 ], [ 0, %account_get_opt.exit ]
+  %.0.i152 = phi i32 [ 0, %account_get_opt.exit ], [ %..i151, %22 ]
   %24 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %11, ptr noundef nonnull @.str.60, i1 noundef zeroext true) #14
   %25 = tail call ptr @qemu_opts_id(ptr noundef nonnull %11) #14
   call void @qdict_extract_subqdict(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull @.str.185) #14
@@ -2204,7 +2204,7 @@ define dso_local noalias noundef ptr @qmp_blockdev_snapshot_delete_internal_sync
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %29, %54, %15, %9, %28, %22, %20, %14
-  %.0 = phi ptr [ null, %9 ], [ null, %20 ], [ null, %28 ], [ null, %15 ], [ null, %22 ], [ null, %14 ], [ %30, %54 ], [ %30, %29 ]
+  %.0 = phi ptr [ null, %20 ], [ null, %28 ], [ null, %22 ], [ null, %14 ], [ null, %9 ], [ null, %15 ], [ %30, %54 ], [ %30, %29 ]
   call void @bdrv_graph_rdunlock_main_loop() #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3543,7 +3543,7 @@ define dso_local noalias noundef ptr @qmp_x_debug_block_dirty_bitmap_sha256(ptr 
   br label %14
 
 14:                                               ; preds = %9, %3, %12
-  %.0 = phi ptr [ null, %3 ], [ %13, %12 ], [ null, %9 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %3 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -4090,7 +4090,7 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
   br i1 %.not.i.i142, label %.preheader.backedge, label %87
 
 .preheader.backedge:                              ; preds = %85, %87
-  %.0118.be = phi ptr [ null, %85 ], [ %88, %87 ]
+  %.0118.be = phi ptr [ %88, %87 ], [ null, %85 ]
   br label %.preheader, !llvm.loop !22
 
 87:                                               ; preds = %85
@@ -4333,8 +4333,8 @@ bdrv_cow_bs.exit.thread:                          ; preds = %29, %bdrv_cow_bs.ex
   br label %41
 
 37:                                               ; preds = %bdrv_cow_bs.exit._crit_edge, %bdrv_cow_bs.exit.thread
-  %38 = phi i32 [ %.pre, %bdrv_cow_bs.exit._crit_edge ], [ %35, %bdrv_cow_bs.exit.thread ]
-  %39 = phi ptr [ %33, %bdrv_cow_bs.exit._crit_edge ], [ null, %bdrv_cow_bs.exit.thread ]
+  %38 = phi i32 [ %35, %bdrv_cow_bs.exit.thread ], [ %.pre, %bdrv_cow_bs.exit._crit_edge ]
+  %39 = phi ptr [ null, %bdrv_cow_bs.exit.thread ], [ %33, %bdrv_cow_bs.exit._crit_edge ]
   %.fr = freeze i32 %38
   %40 = icmp eq i32 %.fr, 2
   %spec.select = select i1 %40, ptr %8, ptr %39
@@ -5480,7 +5480,7 @@ qobject_type.exit.i:                              ; preds = %20
   br label %29
 
 29:                                               ; preds = %.thread, %._crit_edge
-  %.2 = phi ptr [ %.01630, %.thread ], [ null, %._crit_edge ]
+  %.2 = phi ptr [ null, %._crit_edge ], [ %.01630, %.thread ]
   call void @bdrv_reopen_queue_free(ptr noundef %.2) #14
   ret void
 }
@@ -5907,7 +5907,7 @@ define internal fastcc range(i32 -1, 4) i32 @parse_block_error_action(ptr nounde
   br label %14
 
 14:                                               ; preds = %10, %8, %6, %3, %12
-  %.0 = phi i32 [ -1, %12 ], [ 3, %8 ], [ 2, %6 ], [ 1, %3 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %12 ], [ 1, %3 ], [ 2, %6 ], [ 3, %8 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -6017,7 +6017,7 @@ qobject_check_type.exit36:                        ; preds = %qobject_type.exit
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %27, %2, %25, %21, %26
-  %.not7 = phi i1 [ false, %26 ], [ false, %25 ], [ false, %21 ], [ true, %2 ], [ true, %27 ]
+  %.not7 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %26 ], [ true, %2 ], [ true, %27 ]
   ret i1 %.not7
 }
 
@@ -6375,7 +6375,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
   br label %155
 
 155:                                              ; preds = %108, %129, %128, %119, %113, %107, %101, %93, %82
-  %.076 = phi ptr [ null, %93 ], [ null, %82 ], [ null, %113 ], [ null, %119 ], [ %154, %129 ], [ null, %128 ], [ null, %107 ], [ null, %101 ], [ null, %108 ]
+  %.076 = phi ptr [ null, %93 ], [ null, %113 ], [ null, %119 ], [ %154, %129 ], [ null, %128 ], [ null, %107 ], [ null, %101 ], [ null, %82 ], [ null, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.076
 }

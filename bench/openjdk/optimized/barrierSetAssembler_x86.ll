@@ -2409,9 +2409,9 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i, %434, %445
-  %.sroa.094.4 = phi i64 [ %438, %434 ], [ %449, %445 ], [ 0, %.preheader.i ]
-  %.sroa.7.4 = phi i32 [ %.sroa.7.0111, %434 ], [ %441, %445 ], [ %.sroa.7.3, %.preheader.i ]
-  %.sink.i = phi i32 [ %439, %434 ], [ %452, %445 ], [ -1, %.preheader.i ]
+  %.sroa.094.4 = phi i64 [ %449, %445 ], [ %438, %434 ], [ 0, %.preheader.i ]
+  %.sroa.7.4 = phi i32 [ %441, %445 ], [ %.sroa.7.0111, %434 ], [ %.sroa.7.3, %.preheader.i ]
+  %.sink.i = phi i32 [ %452, %445 ], [ %439, %434 ], [ -1, %.preheader.i ]
   %453 = icmp slt i32 %.sroa.11.0112, 616
   br i1 %453, label %454, label %_ZN7OptoReg8as_VMRegEi.exit
 
@@ -2650,9 +2650,9 @@ _ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit:
   unreachable
 
 _ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit: ; preds = %502, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit, %570, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit, %464, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit
-  %.131 = phi i32 [ %.030113, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.030113, %464 ], [ %.030113, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.030113, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %564, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %572, %570 ], [ %.030113, %502 ]
-  %.129 = phi i32 [ %.028114, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.028114, %464 ], [ %521, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.028114, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.028114, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.028114, %570 ], [ %.028114, %502 ]
-  %.1 = phi i32 [ %491, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0115, %464 ], [ %.0115, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0115, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.0115, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0115, %570 ], [ %.0115, %502 ]
+  %.131 = phi i32 [ %.030113, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.030113, %464 ], [ %.030113, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %564, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %572, %570 ], [ %.030113, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.030113, %502 ]
+  %.129 = phi i32 [ %.028114, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.028114, %464 ], [ %521, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.028114, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.028114, %570 ], [ %.028114, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.028114, %502 ]
+  %.1 = phi i32 [ %491, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0115, %464 ], [ %.0115, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0115, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0115, %570 ], [ %.0115, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.0115, %502 ]
   %.not98 = icmp eq i32 %.sink.i, -1
   br i1 %.not98, label %._crit_edge.loopexit, label %432, !llvm.loop !10
 

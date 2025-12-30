@@ -673,7 +673,7 @@ define hidden noundef ptr @_ZN13simple_parser10parse_exprER7scanner(ptr noundef 
   br label %_ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i
 
 _ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i: ; preds = %23, %20, %11
-  %.0.i.i.i.i.i.i.i = phi i32 [ %26, %23 ], [ %22, %20 ], [ -1640531495, %11 ]
+  %.0.i.i.i.i.i.i.i = phi i32 [ %22, %20 ], [ %26, %23 ], [ -1640531495, %11 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !19
   %29 = add i32 %28, -1
@@ -891,7 +891,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %109, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %354
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i, %56, %.lr.ph34.i.i.i, %.preheader.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i, %.lr.ph34.i.i.i, %56, %.preheader.i.i.i
   %122 = tail call ptr @__cxa_allocate_exception(i64 8) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13simple_parser12parser_errorE, i64 16), ptr %122, align 8, !tbaa !3
   tail call void @__cxa_throw(ptr nonnull %122, ptr nonnull @_ZTIN13simple_parser12parser_errorE, ptr nonnull @_ZNSt9exceptionD2Ev) #22
@@ -922,7 +922,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %109, %117
   br label %_ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i31
 
 _ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i31: ; preds = %135, %132, %123
-  %.0.i.i.i.i.i.i.i32 = phi i32 [ %138, %135 ], [ %134, %132 ], [ -1640531495, %123 ]
+  %.0.i.i.i.i.i.i.i32 = phi i32 [ %134, %132 ], [ %138, %135 ], [ -1640531495, %123 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %140 = load i32, ptr %139, align 8, !tbaa !19
   %141 = add i32 %140, -1
@@ -1042,7 +1042,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %194, ptr %191, align 4, !tbaa !47
   br label %354
 
-.loopexit101:                                     ; preds = %.lr.ph.i.i.i35, %168, %.lr.ph34.i.i.i40, %.preheader.i.i.i38
+.loopexit101:                                     ; preds = %.lr.ph.i.i.i35, %.lr.ph34.i.i.i40, %168, %.preheader.i.i.i38
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %128, label %_ZNK14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i, label %196
 
@@ -1063,7 +1063,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %_ZNK14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i
 
 _ZNK14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i: ; preds = %202, %199, %.loopexit101
-  %.0.i.i.i.i.i.i.i52 = phi i32 [ %205, %202 ], [ %201, %199 ], [ -1640531495, %.loopexit101 ]
+  %.0.i.i.i.i.i.i.i52 = phi i32 [ %201, %199 ], [ %205, %202 ], [ -1640531495, %.loopexit101 ]
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %207 = load i32, ptr %206, align 8, !tbaa !26
   %208 = add i32 %207, -1
@@ -1137,7 +1137,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_ha
   %238 = load ptr, ptr %237, align 8, !tbaa !35
   br label %354
 
-.loopexit97:                                      ; preds = %.lr.ph.i.i.i55, %235, %.lr.ph34.i.i.i60, %.preheader.i.i.i58
+.loopexit97:                                      ; preds = %.lr.ph.i.i.i55, %.lr.ph34.i.i.i60, %235, %.preheader.i.i.i58
   %239 = tail call ptr @__cxa_allocate_exception(i64 8) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13simple_parser12parser_errorE, i64 16), ptr %239, align 8, !tbaa !3
   tail call void @__cxa_throw(ptr nonnull %239, ptr nonnull @_ZTIN13simple_parser12parser_errorE, ptr nonnull @_ZNSt9exceptionD2Ev) #22
@@ -1402,7 +1402,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   unreachable
 
 354:                                              ; preds = %2, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit79, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit69, %.loopexit98, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit51, %_ZN6vectorIP4exprLb0EjED2Ev.exit
-  %.2 = phi ptr [ %83, %_ZN6vectorIP4exprLb0EjED2Ev.exit ], [ %324, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit79 ], [ %174, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit51 ], [ %238, %.loopexit98 ], [ %268, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit69 ], [ null, %2 ]
+  %.2 = phi ptr [ %83, %_ZN6vectorIP4exprLb0EjED2Ev.exit ], [ %174, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit51 ], [ %238, %.loopexit98 ], [ %268, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit69 ], [ %324, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit79 ], [ null, %2 ]
   ret ptr %.2
 
 355:                                              ; preds = %350, %294, %108
@@ -1612,7 +1612,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
   ret i1 %.0
 
 63:                                               ; preds = %34, %32, %60, %23
-  %.merged = phi { ptr, i32 } [ %61, %60 ], [ %24, %23 ], [ %35, %34 ], [ %33, %32 ]
+  %.merged = phi { ptr, i32 } [ %24, %23 ], [ %61, %60 ], [ %35, %34 ], [ %33, %32 ]
   call void @_ZN7scannerD2Ev(ptr noundef nonnull align 8 dereferenceable(388) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.merged
@@ -2237,7 +2237,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryI6symbol
   br label %_ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit
 
 _ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit: ; preds = %14, %21, %24
-  %.0.i.i.i.i = phi i32 [ %27, %24 ], [ %23, %21 ], [ -1640531495, %14 ]
+  %.0.i.i.i.i = phi i32 [ %23, %21 ], [ %27, %24 ], [ -1640531495, %14 ]
   %28 = load i32, ptr %9, align 8, !tbaa !19
   %29 = add i32 %28, -1
   %30 = and i32 %29, %.0.i.i.i.i
@@ -2539,7 +2539,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryI6symbol
   br label %_ZNK14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit
 
 _ZNK14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit: ; preds = %14, %21, %24
-  %.0.i.i.i.i = phi i32 [ %27, %24 ], [ %23, %21 ], [ -1640531495, %14 ]
+  %.0.i.i.i.i = phi i32 [ %23, %21 ], [ %27, %24 ], [ -1640531495, %14 ]
   %28 = load i32, ptr %9, align 8, !tbaa !26
   %29 = add i32 %28, -1
   %30 = and i32 %29, %.0.i.i.i.i

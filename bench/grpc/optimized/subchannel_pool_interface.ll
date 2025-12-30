@@ -79,7 +79,7 @@ define noundef zeroext i1 @_ZNK9grpc_core13SubchannelKeyltERKS0_(ptr noundef non
   br label %19
 
 19:                                               ; preds = %15, %10, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ true, %2 ], [ %18, %15 ], [ true, %10 ], [ false, %14 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %8 ], [ %18, %15 ], [ true, %10 ], [ false, %14 ]
   ret i1 %.0
 }
 

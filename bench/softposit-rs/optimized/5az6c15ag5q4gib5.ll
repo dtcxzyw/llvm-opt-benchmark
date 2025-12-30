@@ -52,7 +52,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %48, %14, %13, %6, %1, %17
-  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %.35, %48 ], [ %., %13 ], [ %.34, %14 ]
+  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %., %13 ], [ %.34, %14 ], [ %.35, %48 ]
   ret i16 %.0
 
 9:                                                ; preds = %6
@@ -132,7 +132,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %48, %14, %13, %6, %1, %17
-  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %.35, %48 ], [ %., %13 ], [ %.34, %14 ]
+  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %., %13 ], [ %.34, %14 ], [ %.35, %48 ]
   ret i16 %.0
 
 9:                                                ; preds = %6
@@ -874,7 +874,7 @@ define noundef i16 @"_ZN9softposit5p16e14math7atan_pi41_$LT$impl$u20$softposit..
   unreachable
 
 113:                                              ; preds = %136, %68, %86
-  %.370 = phi i64 [ %70, %68 ], [ %142, %136 ], [ %111, %86 ]
+  %.370 = phi i64 [ %142, %136 ], [ %111, %86 ], [ %70, %68 ]
   %114 = icmp ugt i64 %.370, 1
   br i1 %114, label %.preheader, label %143
 
@@ -1081,11 +1081,11 @@ define noundef i16 @"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16
   br label %48
 
 47:                                               ; preds = %18, %3, %48
-  %.0 = phi i16 [ 0, %3 ], [ %.0.i, %48 ], [ %0, %18 ]
+  %.0 = phi i16 [ %.0.i, %48 ], [ 0, %3 ], [ %0, %18 ]
   ret i16 %.0
 
 48:                                               ; preds = %17, %16, %._crit_edge, %44, %10, %22, %8
-  %.2 = phi i16 [ %spec.select, %16 ], [ %37, %._crit_edge ], [ 16384, %8 ], [ %46, %44 ], [ %., %22 ], [ 20480, %10 ], [ %spec.select63, %17 ]
+  %.2 = phi i16 [ 16384, %8 ], [ %37, %._crit_edge ], [ %46, %44 ], [ 20480, %10 ], [ %., %22 ], [ %spec.select63, %17 ], [ %spec.select, %16 ]
   %49 = sub i16 0, %.2
   %.0.i = select i1 %2, i16 %49, i16 %.2
   br label %47
@@ -1105,7 +1105,7 @@ define noundef i16 @"_ZN9softposit5p16e14math6cos_pi41_$LT$impl$u20$softposit..p
   br i1 %7, label %.thread94, label %8
 
 .thread94:                                        ; preds = %3, %49, %1, %93
-  %.0 = phi i16 [ %97, %93 ], [ -32768, %1 ], [ %52, %49 ], [ 16384, %3 ]
+  %.0 = phi i16 [ %97, %93 ], [ -32768, %1 ], [ 16384, %3 ], [ %52, %49 ]
   ret i16 %.0
 
 8:                                                ; preds = %3
@@ -1122,7 +1122,7 @@ define noundef i16 @"_ZN9softposit5p16e14math6cos_pi41_$LT$impl$u20$softposit..p
   br i1 %12, label %.lr.ph72, label %.loopexit.thread
 
 13:                                               ; preds = %39, %44
-  %.156 = phi i64 [ %43, %39 ], [ %48, %44 ]
+  %.156 = phi i64 [ %48, %44 ], [ %43, %39 ]
   %.156.fr = freeze i64 %.156
   %14 = lshr i64 %.156.fr, 27
   %15 = and i64 %.156.fr, 134217727
@@ -1241,9 +1241,9 @@ _ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit: ; preds = %53
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit, %53
-  %.053.lcssa103.sink = phi i64 [ 0, %53 ], [ %81, %._crit_edge ], [ 0, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ]
-  %.sink111 = phi i64 [ 12, %53 ], [ %spec.select112, %._crit_edge ], [ 12, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ]
-  %.7 = phi i64 [ 33554431, %53 ], [ %spec.select113, %._crit_edge ], [ %72, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ]
+  %.053.lcssa103.sink = phi i64 [ 0, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 0, %53 ], [ %81, %._crit_edge ]
+  %.sink111 = phi i64 [ 12, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 12, %53 ], [ %spec.select112, %._crit_edge ]
+  %.7 = phi i64 [ %72, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 33554431, %53 ], [ %spec.select113, %._crit_edge ]
   %82 = add nuw i64 %.053.lcssa103.sink, %.sink111
   %83 = or i64 %.7, 33554432
   %84 = add nuw i64 %82, 63
@@ -1307,7 +1307,7 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
   br label %13
 
 13:                                               ; preds = %6, %10, %8, %12, %170, %86
-  %.0 = phi i16 [ 16384, %10 ], [ %174, %170 ], [ 32767, %8 ], [ %90, %86 ], [ %., %12 ], [ 16384, %6 ]
+  %.0 = phi i16 [ %174, %170 ], [ %90, %86 ], [ %., %12 ], [ 32767, %8 ], [ 16384, %10 ], [ 16384, %6 ]
   ret i16 %.0
 
 14:                                               ; preds = %10
@@ -1333,8 +1333,8 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
   br i1 %22, label %.lr.ph104, label %.loopexit96
 
 .loopexit96:                                      ; preds = %.lr.ph, %.lr.ph104, %.preheader97, %.preheader95
-  %.287 = phi i64 [ %19, %.lr.ph104 ], [ %2, %.preheader95 ], [ %2, %.preheader97 ], [ %28, %.lr.ph ]
-  %.283 = phi i32 [ %20, %.lr.ph104 ], [ 9, %.preheader95 ], [ 7, %.preheader97 ], [ %29, %.lr.ph ]
+  %.287 = phi i64 [ %2, %.preheader95 ], [ %2, %.preheader97 ], [ %19, %.lr.ph104 ], [ %28, %.lr.ph ]
+  %.283 = phi i32 [ 9, %.preheader95 ], [ 7, %.preheader97 ], [ %20, %.lr.ph104 ], [ %29, %.lr.ph ]
   %23 = shl i64 %.287, 51
   %sext = ashr i64 %23, 63
   %24 = trunc nsw i64 %sext to i32
@@ -1595,7 +1595,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
   br label %13
 
 13:                                               ; preds = %6, %10, %8, %12, %161, %81
-  %.0 = phi i16 [ 16384, %10 ], [ %165, %161 ], [ 32767, %8 ], [ %85, %81 ], [ %., %12 ], [ 16384, %6 ]
+  %.0 = phi i16 [ %165, %161 ], [ %85, %81 ], [ %., %12 ], [ 32767, %8 ], [ 16384, %10 ], [ 16384, %6 ]
   ret i16 %.0
 
 14:                                               ; preds = %10
@@ -1621,8 +1621,8 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
   br i1 %22, label %.lr.ph98, label %.loopexit90
 
 .loopexit90:                                      ; preds = %.lr.ph, %.lr.ph98, %.preheader91, %.preheader89
-  %.282 = phi i64 [ %19, %.lr.ph98 ], [ %2, %.preheader89 ], [ %2, %.preheader91 ], [ %28, %.lr.ph ]
-  %.278 = phi i32 [ %20, %.lr.ph98 ], [ 9, %.preheader89 ], [ 7, %.preheader91 ], [ %29, %.lr.ph ]
+  %.282 = phi i64 [ %2, %.preheader89 ], [ %2, %.preheader91 ], [ %19, %.lr.ph98 ], [ %28, %.lr.ph ]
+  %.278 = phi i32 [ 9, %.preheader89 ], [ 7, %.preheader91 ], [ %20, %.lr.ph98 ], [ %29, %.lr.ph ]
   %23 = shl i64 %.282, 51
   %sext = ashr i64 %23, 63
   %24 = trunc nsw i64 %sext to i32
@@ -1935,7 +1935,7 @@ define noundef i16 @"_ZN9softposit5p16e14math5floor41_$LT$impl$u20$softposit..p1
   ret i16 %.0
 
 45:                                               ; preds = %14, %5, %._crit_edge, %41, %8, %19, %3
-  %.2 = phi i16 [ 0, %3 ], [ 16384, %5 ], [ %34, %._crit_edge ], [ %43, %41 ], [ 16384, %8 ], [ %spec.select, %14 ], [ %., %19 ]
+  %.2 = phi i16 [ 0, %3 ], [ %43, %41 ], [ %34, %._crit_edge ], [ 16384, %8 ], [ %., %19 ], [ %spec.select, %14 ], [ 16384, %5 ]
   %46 = sub i16 0, %.2
   %.0.i = select i1 %2, i16 %46, i16 %.2
   br label %44
@@ -1970,8 +1970,8 @@ define noundef i16 @"_ZN9softposit5p16e14math2ln41_$LT$impl$u20$softposit..p16e1
   br i1 %11, label %.lr.ph83, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph83, %.preheader76, %.preheader75
-  %.264 = phi i64 [ %8, %.lr.ph83 ], [ %3, %.preheader75 ], [ %3, %.preheader76 ], [ %17, %.lr.ph ]
-  %.2 = phi i32 [ %9, %.lr.ph83 ], [ -2, %.preheader75 ], [ 0, %.preheader76 ], [ %18, %.lr.ph ]
+  %.264 = phi i64 [ %3, %.preheader75 ], [ %3, %.preheader76 ], [ %8, %.lr.ph83 ], [ %17, %.lr.ph ]
+  %.2 = phi i32 [ -2, %.preheader75 ], [ 0, %.preheader76 ], [ %9, %.lr.ph83 ], [ %18, %.lr.ph ]
   %12 = trunc i64 %.264 to i32
   %13 = lshr i32 %12, 12
   %14 = and i32 %13, 1
@@ -2199,8 +2199,8 @@ define noundef i16 @"_ZN9softposit5p16e14math4log241_$LT$impl$u20$softposit..p16
   br i1 %11, label %.lr.ph79, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph79, %.preheader72, %.preheader71
-  %.259 = phi i64 [ %8, %.lr.ph79 ], [ %3, %.preheader71 ], [ %3, %.preheader72 ], [ %17, %.lr.ph ]
-  %.2 = phi i32 [ %9, %.lr.ph79 ], [ -2, %.preheader71 ], [ 0, %.preheader72 ], [ %18, %.lr.ph ]
+  %.259 = phi i64 [ %3, %.preheader71 ], [ %3, %.preheader72 ], [ %8, %.lr.ph79 ], [ %17, %.lr.ph ]
+  %.2 = phi i32 [ -2, %.preheader71 ], [ 0, %.preheader72 ], [ %9, %.lr.ph79 ], [ %18, %.lr.ph ]
   %12 = trunc i64 %.259 to i32
   %13 = lshr i32 %12, 12
   %14 = and i32 %13, 1
@@ -2452,13 +2452,13 @@ define noundef i16 @"_ZN9softposit5p16e14math5round41_$LT$impl$u20$softposit..p1
   br label %40
 
 40:                                               ; preds = %7, %5, %._crit_edge, %31, %37
-  %.136 = phi i16 [ %39, %37 ], [ 16384, %5 ], [ %25, %._crit_edge ], [ %25, %31 ], [ 20480, %7 ]
+  %.136 = phi i16 [ %25, %._crit_edge ], [ %25, %31 ], [ %39, %37 ], [ 16384, %5 ], [ 20480, %7 ]
   %41 = sub i16 0, %.136
   %.0.i = select i1 %2, i16 %41, i16 %.136
   br label %42
 
 42:                                               ; preds = %9, %1, %40
-  %.0 = phi i16 [ 0, %1 ], [ %.0.i, %40 ], [ %0, %9 ]
+  %.0 = phi i16 [ %.0.i, %40 ], [ 0, %1 ], [ %0, %9 ]
   ret i16 %.0
 }
 
@@ -2494,7 +2494,7 @@ define noundef i16 @"_ZN9softposit5p16e14math6sin_pi41_$LT$impl$u20$softposit..p
   br i1 %14, label %.lr.ph72, label %.loopexit.thread
 
 15:                                               ; preds = %6, %8, %101, %52
-  %.0 = phi i16 [ 0, %6 ], [ %106, %101 ], [ %., %8 ], [ %.052, %52 ]
+  %.0 = phi i16 [ %.052, %52 ], [ %106, %101 ], [ %., %8 ], [ 0, %6 ]
   ret i16 %.0
 
 .lr.ph72:                                         ; preds = %.preheader, %.lr.ph72
@@ -2676,7 +2676,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4sqrt41_$LT$impl$u20$softposit..p16
   br i1 %8, label %.lr.ph59, label %.lr.ph
 
 9:                                                ; preds = %5, %1, %96
-  %.0 = phi i16 [ -32768, %1 ], [ %99, %96 ], [ 0, %5 ]
+  %.0 = phi i16 [ %99, %96 ], [ -32768, %1 ], [ 0, %5 ]
   ret i16 %.0
 
 .lr.ph59:                                         ; preds = %7, %.lr.ph59
@@ -2801,7 +2801,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4sqrt41_$LT$impl$u20$softposit..p16
   br label %89
 
 89:                                               ; preds = %84, %87, %67
-  %.046 = phi i32 [ %spec.select, %84 ], [ %76, %67 ], [ %88, %87 ]
+  %.046 = phi i32 [ %88, %87 ], [ %76, %67 ], [ %spec.select, %84 ]
   %90 = and i16 %.043, 31
   %91 = zext nneg i16 %90 to i32
   %92 = lshr i32 65536, %91
@@ -2860,7 +2860,7 @@ define noundef i16 @"_ZN9softposit5p16e14math6tan_pi41_$LT$impl$u20$softposit..p
   br i1 %14, label %.lr.ph89, label %.loopexit.thread
 
 15:                                               ; preds = %37, %42
-  %.165 = phi i64 [ %41, %37 ], [ %46, %42 ]
+  %.165 = phi i64 [ %46, %42 ], [ %41, %37 ]
   %16 = and i64 %.165, 268435455
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %.thread, label %47
@@ -2926,7 +2926,7 @@ define noundef i16 @"_ZN9softposit5p16e14math6tan_pi41_$LT$impl$u20$softposit..p
   br i1 %49, label %.thread, label %50
 
 .thread:                                          ; preds = %6, %47, %15, %8, %126, %54
-  %.0 = phi i16 [ -32768, %47 ], [ %131, %126 ], [ %., %8 ], [ 0, %15 ], [ %56, %54 ], [ 0, %6 ]
+  %.0 = phi i16 [ %56, %54 ], [ %131, %126 ], [ %., %8 ], [ 0, %15 ], [ -32768, %47 ], [ 0, %6 ]
   ret i16 %.0
 
 50:                                               ; preds = %47
@@ -3345,7 +3345,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br label %108
 
 108:                                              ; preds = %2, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit", %57
-  %.044 = phi i16 [ %.0.i, %57 ], [ %.0.i69, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit" ], [ 0, %2 ]
+  %.044 = phi i16 [ %.0.i69, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit" ], [ %.0.i, %57 ], [ 0, %2 ]
   ret i16 %.044
 }
 
@@ -3564,7 +3564,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P1
   br i1 %or.cond1, label %10, label %11
 
 10:                                               ; preds = %7, %14, %16, %5
-  %.0 = phi i16 [ %6, %5 ], [ %17, %16 ], [ %15, %14 ], [ -32768, %7 ]
+  %.0 = phi i16 [ %6, %5 ], [ %15, %14 ], [ %17, %16 ], [ -32768, %7 ]
   ret i16 %.0
 
 11:                                               ; preds = %7
@@ -3595,7 +3595,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P1
   br i1 %or.cond1, label %9, label %12
 
 8:                                                ; preds = %2, %16, %18, %9
-  %.0 = phi i16 [ %19, %18 ], [ %11, %9 ], [ %17, %16 ], [ -32768, %2 ]
+  %.0 = phi i16 [ %11, %9 ], [ %17, %16 ], [ %19, %18 ], [ -32768, %2 ]
   ret i16 %.0
 
 9:                                                ; preds = %5
@@ -3927,7 +3927,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit80: ; preds
   br i1 %48, label %52, label %50
 
 49:                                               ; preds = %4, %2, %switch.early.test, %switch.early.test, %91
-  %.0 = phi i16 [ %.0.i, %91 ], [ -32768, %2 ], [ -32768, %switch.early.test ], [ -32768, %switch.early.test ], [ 0, %4 ]
+  %.0 = phi i16 [ %.0.i, %91 ], [ -32768, %switch.early.test ], [ -32768, %switch.early.test ], [ -32768, %2 ], [ 0, %4 ]
   ret i16 %.0
 
 50:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit80
@@ -3947,15 +3947,15 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit80: ; preds
   br label %59
 
 59:                                               ; preds = %55, %52
-  %.359 = phi i8 [ %53, %52 ], [ %spec.select64, %55 ]
-  %.3 = phi i8 [ 0, %52 ], [ %58, %55 ]
+  %.359 = phi i8 [ %spec.select64, %55 ], [ %53, %52 ]
+  %.3 = phi i8 [ %58, %55 ], [ 0, %52 ]
   %60 = shl nuw nsw i32 %46, 1
   br label %61
 
 61:                                               ; preds = %59, %50, %52
-  %.157 = phi i8 [ %43, %50 ], [ %53, %52 ], [ %.359, %59 ]
-  %.052 = phi i32 [ %46, %50 ], [ %46, %52 ], [ %60, %59 ]
-  %.1 = phi i8 [ %44, %50 ], [ 1, %52 ], [ %.3, %59 ]
+  %.157 = phi i8 [ %53, %52 ], [ %43, %50 ], [ %.359, %59 ]
+  %.052 = phi i32 [ %46, %52 ], [ %46, %50 ], [ %60, %59 ]
+  %.1 = phi i8 [ 1, %52 ], [ %44, %50 ], [ %.3, %59 ]
   %62 = icmp slt i8 %.157, 0
   br i1 %62, label %69, label %63
 
@@ -4006,7 +4006,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br label %91
 
 91:                                               ; preds = %90, %100, %75
-  %.055 = phi i16 [ %89, %75 ], [ %., %90 ], [ %103, %100 ]
+  %.055 = phi i16 [ %103, %100 ], [ %89, %75 ], [ %., %90 ]
   %92 = sub i16 0, %.055
   %.0.i = select i1 %10, i16 %92, i16 %.055
   br label %49
@@ -4425,7 +4425,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   br label %79
 
 79:                                               ; preds = %53, %9, %6, %55, %69
-  %.059 = phi i16 [ %78, %69 ], [ 32767, %6 ], [ %61, %55 ], [ 1, %9 ], [ %.055, %53 ]
+  %.059 = phi i16 [ %61, %55 ], [ %78, %69 ], [ 32767, %6 ], [ 1, %9 ], [ %.055, %53 ]
   %80 = sub i16 0, %.059
   %.not87 = icmp slt i32 %0, 0
   %.0.i = select i1 %.not87, i16 %80, i16 %.059
@@ -4524,7 +4524,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops75_$LT$impl$u20$core..ops..arith..Re
   br label %47
 
 47:                                               ; preds = %44, %._crit_edge.i.i, %22, %17, %16
-  %.2.i.i = phi i16 [ %spec.select.i.i, %16 ], [ %37, %._crit_edge.i.i ], [ %spec.select63.i.i, %17 ], [ %46, %44 ], [ %..i.i, %22 ]
+  %.2.i.i = phi i16 [ %37, %._crit_edge.i.i ], [ %46, %44 ], [ %..i.i, %22 ], [ %spec.select63.i.i, %17 ], [ %spec.select.i.i, %16 ]
   %48 = sub i16 0, %.2.i.i
   %.0.i.i.i = select i1 %6, i16 %48, i16 %.2.i.i
   br label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i"
@@ -4579,7 +4579,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops75_$LT$impl$u20$core..ops..arith..Re
   br i1 %73, label %._crit_edge.loopexit.i7.i, label %.lr.ph.i6.i
 
 "_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i": ; preds = %._crit_edge.i8.i, %55, %53, %51, %49, %47, %18, %7
-  %.0.i = phi i16 [ %3, %18 ], [ 0, %7 ], [ %.0.i.i.i, %47 ], [ %3, %55 ], [ 0, %49 ], [ 16384, %51 ], [ %69, %._crit_edge.i8.i ], [ 20480, %53 ]
+  %.0.i = phi i16 [ %.0.i.i.i, %47 ], [ 0, %7 ], [ %3, %18 ], [ %3, %55 ], [ 0, %49 ], [ %69, %._crit_edge.i8.i ], [ 16384, %51 ], [ 20480, %53 ]
   %74 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3mul17h427c2a52d0ede786E"(i16 noundef %.0.i, i16 noundef %1)
   %75 = icmp eq i16 %0, -32768
   %76 = icmp eq i16 %74, -32768
@@ -4612,7 +4612,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops75_$LT$impl$u20$core..ops..arith..Re
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3rem17h9c04e0182f45a0b2E.exit"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3rem17h9c04e0182f45a0b2E.exit": ; preds = %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", %80, %87, %89
-  %.0.i16.i = phi i16 [ %90, %89 ], [ %82, %80 ], [ %88, %87 ], [ -32768, %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i" ]
+  %.0.i16.i = phi i16 [ %82, %80 ], [ %88, %87 ], [ %90, %89 ], [ -32768, %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i" ]
   ret i16 %.0.i16.i
 }
 
@@ -4715,7 +4715,7 @@ define range(i32 0, -65535) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$n
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
 
 "_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit": ; preds = %6, %13, %19, %20, %23, %54
-  %.0.i = phi i16 [ %.023.i, %23 ], [ 0, %6 ], [ -32768, %13 ], [ %.35.i, %54 ], [ %..i, %19 ], [ %.34.i, %20 ]
+  %.0.i = phi i16 [ %.023.i, %23 ], [ 0, %6 ], [ -32768, %13 ], [ %..i, %19 ], [ %.34.i, %20 ], [ %.35.i, %54 ]
   %55 = zext i16 %.0.i to i32
   %56 = shl nuw i32 %55, 16
   br label %63
@@ -4890,7 +4890,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..si
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit": ; preds = %19, %17, %10, %5, %2
-  %.0 = phi i16 [ 0, %2 ], [ %20, %19 ], [ %12, %10 ], [ %18, %17 ], [ -32768, %5 ]
+  %.0 = phi i16 [ 0, %2 ], [ %12, %10 ], [ %18, %17 ], [ %20, %19 ], [ -32768, %5 ]
   ret i16 %.0
 }
 
@@ -5082,7 +5082,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %44
 
 44:                                               ; preds = %41, %._crit_edge.i, %19, %14, %8, %5, %3
-  %.2.i = phi i16 [ 0, %3 ], [ 16384, %5 ], [ %34, %._crit_edge.i ], [ %43, %41 ], [ 16384, %8 ], [ %spec.select.i, %14 ], [ %..i, %19 ]
+  %.2.i = phi i16 [ 0, %3 ], [ %43, %41 ], [ %34, %._crit_edge.i ], [ 16384, %8 ], [ %..i, %19 ], [ %spec.select.i, %14 ], [ 16384, %5 ]
   %45 = sub i16 0, %.2.i
   %.0.i.i = select i1 %2, i16 %45, i16 %.2.i
   br label %"_ZN9softposit5p16e14math5floor41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5floor17h77042295c054f3a6E.exit"
@@ -5187,13 +5187,13 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %47
 
 47:                                               ; preds = %44, %._crit_edge.i, %22, %17, %16, %10, %8
-  %.2.i = phi i16 [ %spec.select.i, %16 ], [ %37, %._crit_edge.i ], [ 16384, %8 ], [ %46, %44 ], [ %..i, %22 ], [ 20480, %10 ], [ %spec.select63.i, %17 ]
+  %.2.i = phi i16 [ 16384, %8 ], [ %37, %._crit_edge.i ], [ %46, %44 ], [ 20480, %10 ], [ %..i, %22 ], [ %spec.select63.i, %17 ], [ %spec.select.i, %16 ]
   %48 = sub i16 0, %.2.i
   %.0.i.i = select i1 %2, i16 %48, i16 %.2.i
   br label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit"
 
 "_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit": ; preds = %3, %18, %47
-  %.0.i = phi i16 [ 0, %3 ], [ %.0.i.i, %47 ], [ %0, %18 ]
+  %.0.i = phi i16 [ %.0.i.i, %47 ], [ 0, %3 ], [ %0, %18 ]
   ret i16 %.0.i
 }
 
@@ -5267,13 +5267,13 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %40
 
 40:                                               ; preds = %37, %31, %._crit_edge.i, %7, %5
-  %.136.i = phi i16 [ %39, %37 ], [ 16384, %5 ], [ %25, %._crit_edge.i ], [ %25, %31 ], [ 20480, %7 ]
+  %.136.i = phi i16 [ %25, %._crit_edge.i ], [ %25, %31 ], [ %39, %37 ], [ 16384, %5 ], [ 20480, %7 ]
   %41 = sub i16 0, %.136.i
   %.0.i.i = select i1 %2, i16 %41, i16 %.136.i
   br label %"_ZN9softposit5p16e14math5round41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5round17h4332c4379c223185E.exit"
 
 "_ZN9softposit5p16e14math5round41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5round17h4332c4379c223185E.exit": ; preds = %1, %9, %40
-  %.0.i = phi i16 [ 0, %1 ], [ %.0.i.i, %40 ], [ %0, %9 ]
+  %.0.i = phi i16 [ %.0.i.i, %40 ], [ 0, %1 ], [ %0, %9 ]
   ret i16 %.0.i
 }
 
@@ -5368,7 +5368,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %45
 
 45:                                               ; preds = %42, %._crit_edge.i, %20, %15, %14
-  %.2.i = phi i16 [ %spec.select.i, %14 ], [ %35, %._crit_edge.i ], [ %spec.select63.i, %15 ], [ %44, %42 ], [ %..i, %20 ]
+  %.2.i = phi i16 [ %35, %._crit_edge.i ], [ %44, %42 ], [ %..i, %20 ], [ %spec.select63.i, %15 ], [ %spec.select.i, %14 ]
   %46 = sub i16 0, %.2.i
   %.0.i.i = select i1 %4, i16 %46, i16 %.2.i
   br label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit"
@@ -5423,7 +5423,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %71, label %._crit_edge.loopexit.i7, label %.lr.ph.i6
 
 "_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit": ; preds = %47, %49, %._crit_edge.i8, %51, %53, %45, %16, %5
-  %.0 = phi i16 [ %0, %16 ], [ 0, %5 ], [ %.0.i.i, %45 ], [ %0, %53 ], [ 0, %47 ], [ 16384, %49 ], [ %67, %._crit_edge.i8 ], [ 20480, %51 ]
+  %.0 = phi i16 [ %.0.i.i, %45 ], [ 0, %5 ], [ %0, %16 ], [ %0, %53 ], [ 0, %47 ], [ %67, %._crit_edge.i8 ], [ 16384, %49 ], [ 20480, %51 ]
   ret i16 %.0
 }
 
@@ -5518,7 +5518,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %45
 
 45:                                               ; preds = %42, %._crit_edge.i.i, %20, %15, %14
-  %.2.i.i = phi i16 [ %spec.select.i.i, %14 ], [ %35, %._crit_edge.i.i ], [ %spec.select63.i.i, %15 ], [ %44, %42 ], [ %..i.i, %20 ]
+  %.2.i.i = phi i16 [ %35, %._crit_edge.i.i ], [ %44, %42 ], [ %..i.i, %20 ], [ %spec.select63.i.i, %15 ], [ %spec.select.i.i, %14 ]
   %46 = sub i16 0, %.2.i.i
   %.0.i.i.i = select i1 %4, i16 %46, i16 %.2.i.i
   br label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i"
@@ -5573,7 +5573,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %71, label %._crit_edge.loopexit.i7.i, label %.lr.ph.i6.i
 
 "_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i": ; preds = %._crit_edge.i8.i, %53, %51, %49, %47, %45, %16, %5
-  %.0.i = phi i16 [ %0, %16 ], [ 0, %5 ], [ %.0.i.i.i, %45 ], [ %0, %53 ], [ 0, %47 ], [ 16384, %49 ], [ %67, %._crit_edge.i8.i ], [ 20480, %51 ]
+  %.0.i = phi i16 [ %.0.i.i.i, %45 ], [ 0, %5 ], [ %0, %16 ], [ %0, %53 ], [ 0, %47 ], [ %67, %._crit_edge.i8.i ], [ 16384, %49 ], [ 20480, %51 ]
   %72 = icmp eq i16 %0, -32768
   %73 = icmp eq i16 %.0.i, -32768
   %or.cond.i15.i = or i1 %72, %73
@@ -5605,7 +5605,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %"_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5fract17h4b5421c3153de77aE.exit"
 
 "_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5fract17h4b5421c3153de77aE.exit": ; preds = %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", %77, %84, %86
-  %.0.i16.i = phi i16 [ %87, %86 ], [ %79, %77 ], [ %85, %84 ], [ -32768, %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i" ]
+  %.0.i16.i = phi i16 [ %79, %77 ], [ %85, %84 ], [ %87, %86 ], [ -32768, %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i" ]
   ret i16 %.0.i16.i
 }
 
@@ -5848,7 +5848,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i": ; preds = %10, %8, %5, %3
-  %.0.i.i = phi i16 [ 16384, %5 ], [ %11, %10 ], [ %9, %8 ], [ %4, %3 ]
+  %.0.i.i = phi i16 [ 16384, %5 ], [ %9, %8 ], [ %11, %10 ], [ %4, %3 ]
   %12 = tail call noundef i16 @"_ZN9softposit5p16e14math4sqrt41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4sqrt17h08570196c6173634E"(i16 noundef %.0.i.i)
   %13 = icmp eq i16 %0, 0
   %14 = icmp eq i16 %12, 0
@@ -5877,7 +5877,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit3.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit3.i": ; preds = %24, %22, %17, %15
-  %.0.i2.i = phi i16 [ %16, %15 ], [ %25, %24 ], [ %23, %22 ], [ -32768, %17 ]
+  %.0.i2.i = phi i16 [ %16, %15 ], [ %23, %22 ], [ %25, %24 ], [ -32768, %17 ]
   %26 = tail call noundef i16 @"_ZN9softposit5p16e14math2ln41_$LT$impl$u20$softposit..p16e1..P16E1$GT$2ln17h4e6b6bc5b4bdc5a8E"(i16 noundef %.0.i2.i)
   br label %"_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5asinh17hb7490dfe064c7ec8E.exit"
 
@@ -5914,7 +5914,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i": ; preds = %10, %8, %5, %3
-  %.0.i.i = phi i16 [ %11, %10 ], [ -16384, %5 ], [ %9, %8 ], [ %4, %3 ]
+  %.0.i.i = phi i16 [ -16384, %5 ], [ %9, %8 ], [ %11, %10 ], [ %4, %3 ]
   %12 = tail call noundef i16 @"_ZN9softposit5p16e14math4sqrt41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4sqrt17h08570196c6173634E"(i16 noundef %.0.i.i)
   switch i16 %12, label %13 [
     i16 0, label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i"
@@ -5938,7 +5938,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i": ; preds = %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.fold.split.i", %18, %16, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i"
-  %.0.i4.i = phi i16 [ %0, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i" ], [ %19, %18 ], [ %17, %16 ], [ -32768, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.fold.split.i" ]
+  %.0.i4.i = phi i16 [ %17, %16 ], [ %19, %18 ], [ %0, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i" ], [ -32768, %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.fold.split.i" ]
   %20 = tail call noundef i16 @"_ZN9softposit5p16e14math2ln41_$LT$impl$u20$softposit..p16e1..P16E1$GT$2ln17h4e6b6bc5b4bdc5a8E"(i16 noundef %.0.i4.i)
   br label %"_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5acosh17hfd3f17f7ce2d7d7dE.exit"
 

@@ -4375,7 +4375,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %51, %._crit_edge.i.
   br i1 %.not18, label %.critedge, label %101
 
 .critedge:                                        ; preds = %18, %104, %101, %Abc_NodeSetTravIdCurrent.exit, %Vec_PtrPush.exit.i, %3
-  %.015 = phi i32 [ 1, %Vec_PtrPush.exit.i ], [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %3 ], [ 1, %101 ], [ 0, %104 ], [ 1, %18 ]
+  %.015 = phi i32 [ 0, %3 ], [ 1, %Vec_PtrPush.exit.i ], [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %104 ], [ 1, %101 ], [ 1, %18 ]
   ret i32 %.015
 }
 

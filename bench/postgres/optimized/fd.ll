@@ -549,7 +549,7 @@ pg_fsync.exit.thread:                             ; preds = %.preheader.i.i, %.t
   br label %CloseTransientFile.exit65
 
 CloseTransientFile.exit65:                        ; preds = %.thread.i64, %75
-  %.2.i60 = phi i32 [ %69, %.thread.i64 ], [ %76, %75 ]
+  %.2.i60 = phi i32 [ %76, %75 ], [ %69, %.thread.i64 ]
   %.not58 = icmp eq i32 %.2.i60, 0
   br i1 %.not58, label %.sink.split, label %77
 
@@ -558,15 +558,15 @@ CloseTransientFile.exit65:                        ; preds = %.thread.i64, %75
   br i1 %78, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %77, %CloseTransientFile.exit, %21
-  %.str.5.sink = phi ptr [ @.str.4, %CloseTransientFile.exit ], [ @.str.3, %21 ], [ @.str.5, %77 ]
-  %.sink = phi i32 [ 3874, %CloseTransientFile.exit ], [ 3853, %21 ], [ 3882, %77 ]
+  %.str.5.sink = phi ptr [ @.str.3, %21 ], [ @.str.4, %CloseTransientFile.exit ], [ @.str.5, %77 ]
+  %.sink = phi i32 [ 3853, %21 ], [ 3874, %CloseTransientFile.exit ], [ 3882, %77 ]
   %79 = tail call i32 @errcode_for_file_access() #24
   %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.5.sink, ptr noundef %0) #24
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.fsync_fname_ext) #24
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %CloseTransientFile.exit, %77, %.sink.split.sink.split, %CloseTransientFile.exit65, %16, %11, %11
-  %.0 = phi i32 [ 0, %16 ], [ 0, %11 ], [ 0, %11 ], [ 0, %CloseTransientFile.exit65 ], [ -1, %.sink.split.sink.split ], [ -1, %77 ], [ -1, %CloseTransientFile.exit ], [ -1, %21 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %11 ], [ 0, %16 ], [ 0, %CloseTransientFile.exit65 ], [ -1, %.sink.split.sink.split ], [ -1, %77 ], [ -1, %CloseTransientFile.exit ], [ -1, %21 ]
   ret i32 %.0
 }
 
@@ -727,7 +727,7 @@ pg_fsync.exit.thread:                             ; preds = %.preheader.i.i, %18
   br label %CloseTransientFile.exit71
 
 CloseTransientFile.exit71:                        ; preds = %.thread.i70, %71
-  %.2.i66 = phi i32 [ %65, %.thread.i70 ], [ %72, %71 ]
+  %.2.i66 = phi i32 [ %72, %71 ], [ %65, %.thread.i70 ]
   %.not61 = icmp eq i32 %.2.i66, 0
   br i1 %.not61, label %78, label %73
 
@@ -781,7 +781,7 @@ fsync_parent_path.exit:                           ; preds = %88, %91
   br label %93
 
 93:                                               ; preds = %81, %83, %73, %75, %CloseTransientFile.exit, %49, %13, %15, %fsync_parent_path.exit, %86, %3
-  %.0 = phi i32 [ -1, %CloseTransientFile.exit ], [ -1, %13 ], [ -1, %73 ], [ -1, %3 ], [ %., %fsync_parent_path.exit ], [ -1, %86 ], [ -1, %15 ], [ -1, %49 ], [ -1, %75 ], [ -1, %83 ], [ -1, %81 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %86 ], [ %., %fsync_parent_path.exit ], [ -1, %15 ], [ -1, %13 ], [ -1, %49 ], [ -1, %CloseTransientFile.exit ], [ -1, %75 ], [ -1, %73 ], [ -1, %83 ], [ -1, %81 ]
   ret i32 %.0
 }
 
@@ -840,7 +840,7 @@ define dso_local i32 @CloseTransientFile(i32 noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %.thread, %21
-  %.2 = phi i32 [ %15, %.thread ], [ %22, %21 ]
+  %.2 = phi i32 [ %22, %21 ], [ %15, %.thread ]
   ret i32 %.2
 }
 
@@ -1012,8 +1012,8 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
   br i1 %.not.i, label %.split.us.i.preheader, label %5
 
 .split.us.i.preheader:                            ; preds = %0
-  %smax39 = call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count40 = zext nneg i32 %smax39 to i64
+  %smax21 = call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %wide.trip.count23 = zext nneg i32 %smax21 to i64
   br label %.split.us.i
 
 5:                                                ; preds = %0
@@ -1031,7 +1031,7 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
   br label %.split.i
 
 .split.us.i:                                      ; preds = %.split.us.i.preheader, %select.unfold.us.i
-  %indvars.iv36 = phi i64 [ 0, %.split.us.i.preheader ], [ %indvars.iv.next37, %select.unfold.us.i ]
+  %indvars.iv19 = phi i64 [ 0, %.split.us.i.preheader ], [ %indvars.iv.next20, %select.unfold.us.i ]
   %.035.us.i = phi i32 [ 0, %.split.us.i.preheader ], [ %spec.select.us.i, %select.unfold.us.i ]
   %.031.us.i = phi i32 [ 1024, %.split.us.i.preheader ], [ %.233.us.i, %select.unfold.us.i ]
   %.030.us.i = phi ptr [ %3, %.split.us.i.preheader ], [ %.2.us.i, %select.unfold.us.i ]
@@ -1048,7 +1048,7 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
 
 15:                                               ; preds = %12
   %16 = sext i32 %.031.us.i to i64
-  %.not45.us.i = icmp slt i64 %indvars.iv36, %16
+  %.not45.us.i = icmp slt i64 %indvars.iv19, %16
   br i1 %.not45.us.i, label %select.unfold.us.i, label %17
 
 17:                                               ; preds = %15
@@ -1059,7 +1059,7 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
   br label %select.unfold.us.i
 
 22:                                               ; preds = %12
-  %23 = trunc nuw nsw i64 %indvars.iv36 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv19 to i32
   %24 = tail call ptr @__errno_location() #25
   %25 = load i32, ptr %24, align 4
   %.off.us.i = add i32 %25, -23
@@ -1073,12 +1073,12 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
 select.unfold.us.i:                               ; preds = %17, %15
   %.233.us.i = phi i32 [ %18, %17 ], [ %.031.us.i, %15 ]
   %.2.us.i = phi ptr [ %21, %17 ], [ %.030.us.i, %15 ]
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %28 = getelementptr inbounds nuw i32, ptr %.2.us.i, i64 %indvars.iv36
+  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
+  %28 = getelementptr inbounds nuw i32, ptr %.2.us.i, i64 %indvars.iv19
   store i32 %13, ptr %28, align 4
   %spec.select.us.i = call i32 @llvm.smax.i32(i32 %.035.us.i, i32 %13)
-  %exitcond41.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count40
-  br i1 %exitcond41.not, label %.lr.ph.preheader.i, label %.split.us.i
+  %exitcond24.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count23
+  br i1 %exitcond24.not, label %.lr.ph.preheader.i, label %.split.us.i
 
 .split.i:                                         ; preds = %select.unfold.i, %.split.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold.i ], [ 0, %.split.preheader.i ]
@@ -1121,7 +1121,7 @@ select.unfold.i:                                  ; preds = %39, %37
   store i32 %29, ptr %44, align 4
   %spec.select.i = call i32 @llvm.smax.i32(i32 %.035.i, i32 %29)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.i..lr.ph.preheader.i_crit_edge, label %.split.i
+  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %.split.i
 
 .preheader.sink.split.i:                          ; preds = %35, %26
   %.038.lcssa.sink.i = phi i32 [ %23, %26 ], [ %32, %35 ]
@@ -1132,50 +1132,43 @@ select.unfold.i:                                  ; preds = %39, %37
   br label %.preheader.i
 
 .preheader.i.loopexit:                            ; preds = %.split.us.i
-  %46 = trunc nuw nsw i64 %indvars.iv36 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv19 to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.loopexit, %.preheader.sink.split.i, %35, %31, %26, %22
-  %.us-phi.i = phi i32 [ %32, %31 ], [ %.038.lcssa.sink.i, %.preheader.sink.split.i ], [ %23, %22 ], [ %23, %26 ], [ %32, %35 ], [ %46, %.preheader.i.loopexit ]
-  %.us-phi51.i = phi i32 [ %.035.i, %31 ], [ %.us-phi51.ph.i, %.preheader.sink.split.i ], [ %.035.us.i, %22 ], [ %.035.us.i, %26 ], [ %.035.i, %35 ], [ %.035.us.i, %.preheader.i.loopexit ]
-  %.us-phi52.i = phi ptr [ %.030.i, %31 ], [ %.us-phi52.ph.i, %.preheader.sink.split.i ], [ %.030.us.i, %22 ], [ %.030.us.i, %26 ], [ %.030.i, %35 ], [ %.030.us.i, %.preheader.i.loopexit ]
+  %.us-phi.i = phi i32 [ %23, %22 ], [ %23, %26 ], [ %32, %31 ], [ %32, %35 ], [ %.038.lcssa.sink.i, %.preheader.sink.split.i ], [ %46, %.preheader.i.loopexit ]
+  %.us-phi51.i = phi i32 [ %.035.us.i, %22 ], [ %.035.us.i, %26 ], [ %.035.i, %31 ], [ %.035.i, %35 ], [ %.us-phi51.ph.i, %.preheader.sink.split.i ], [ %.035.us.i, %.preheader.i.loopexit ]
+  %.us-phi52.i = phi ptr [ %.030.us.i, %22 ], [ %.030.us.i, %26 ], [ %.030.i, %31 ], [ %.030.i, %35 ], [ %.us-phi52.ph.i, %.preheader.sink.split.i ], [ %.030.us.i, %.preheader.i.loopexit ]
   %47 = icmp sgt i32 %.us-phi.i, 0
-  br i1 %47, label %.preheader.i..lr.ph.preheader.i_crit_edge, label %count_usable_fds.exit
+  br i1 %47, label %.lr.ph.preheader.i, label %count_usable_fds.exit
 
-.preheader.i..lr.ph.preheader.i_crit_edge:        ; preds = %select.unfold.i, %.preheader.i
-  %.us-phi52.i48 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.2.i, %select.unfold.i ]
-  %.us-phi51.i47 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %spec.select.i, %select.unfold.i ]
-  %.us-phi.i46 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %smax, %select.unfold.i ]
-  %.pre = zext nneg i32 %.us-phi.i46 to i64
-  br label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %select.unfold.us.i, %.preheader.i..lr.ph.preheader.i_crit_edge
-  %wide.trip.count.i.pre-phi = phi i64 [ %.pre, %.preheader.i..lr.ph.preheader.i_crit_edge ], [ %wide.trip.count40, %select.unfold.us.i ]
-  %.us-phi52.i12 = phi ptr [ %.us-phi52.i48, %.preheader.i..lr.ph.preheader.i_crit_edge ], [ %.2.us.i, %select.unfold.us.i ]
-  %.us-phi51.i10 = phi i32 [ %.us-phi51.i47, %.preheader.i..lr.ph.preheader.i_crit_edge ], [ %spec.select.us.i, %select.unfold.us.i ]
-  %.us-phi.i8 = phi i32 [ %.us-phi.i46, %.preheader.i..lr.ph.preheader.i_crit_edge ], [ %smax39, %select.unfold.us.i ]
+.lr.ph.preheader.i:                               ; preds = %select.unfold.i, %select.unfold.us.i, %.preheader.i
+  %.us-phi52.i34 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.2.us.i, %select.unfold.us.i ], [ %.2.i, %select.unfold.i ]
+  %.us-phi51.i32 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %spec.select.us.i, %select.unfold.us.i ], [ %spec.select.i, %select.unfold.i ]
+  %.us-phi.i30 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %smax21, %select.unfold.us.i ], [ %smax, %select.unfold.i ]
+  %wide.trip.count.i = zext nneg i32 %.us-phi.i30 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %48 = getelementptr inbounds nuw i32, ptr %.us-phi52.i12, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %.us-phi52.i34, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = call i32 @close(i32 noundef %49) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.pre-phi
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %count_usable_fds.exit, label %.lr.ph.i, !llvm.loop !10
 
 count_usable_fds.exit:                            ; preds = %.lr.ph.i, %.preheader.i
-  %.us-phi52.i11 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.us-phi52.i12, %.lr.ph.i ]
-  %.us-phi51.i9 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %.us-phi51.i10, %.lr.ph.i ]
-  %.us-phi.i7 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %.us-phi.i8, %.lr.ph.i ]
-  call void @pfree(ptr noundef %.us-phi52.i11) #24
-  %reass.sub.i = sub i32 %.us-phi51.i9, %.us-phi.i7
+  %.us-phi52.i33 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.us-phi52.i34, %.lr.ph.i ]
+  %.us-phi51.i31 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %.us-phi51.i32, %.lr.ph.i ]
+  %.us-phi.i29 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %.us-phi.i30, %.lr.ph.i ]
+  call void @pfree(ptr noundef %.us-phi52.i33) #24
+  %reass.sub.i = sub i32 %.us-phi51.i31, %.us-phi.i29
   %51 = add i32 %reass.sub.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %52 = load i32, ptr @max_files_per_process, align 4
   %53 = sub i32 %52, %51
-  %54 = call i32 @llvm.smin.i32(i32 %.us-phi.i7, i32 %53)
+  %54 = call i32 @llvm.smin.i32(i32 %.us-phi.i29, i32 %53)
   %55 = add i32 %54, -10
   store i32 %55, ptr @max_safe_fds, align 4
   %56 = icmp slt i32 %55, 48
@@ -1197,7 +1190,7 @@ count_usable_fds.exit:                            ; preds = %.lr.ph.i, %.prehead
 
 66:                                               ; preds = %64
   %67 = load i32, ptr @max_safe_fds, align 4
-  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %67, i32 noundef %.us-phi.i7, i32 noundef %51) #24
+  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %67, i32 noundef %.us-phi.i29, i32 noundef %51) #24
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1078, ptr noundef nonnull @__func__.set_max_safe_fds) #24
   br label %69
 
@@ -2147,7 +2140,7 @@ define dso_local noundef zeroext i1 @PathNameDeleteTemporaryFile(ptr noundef %0,
   br label %ReportTemporaryFileUsage.exit
 
 ReportTemporaryFileUsage.exit:                    ; preds = %16, %19, %32, %30, %.thread23, %36, %34, %14, %5
-  %.014 = phi i1 [ false, %14 ], [ false, %5 ], [ true, %30 ], [ true, %32 ], [ true, %34 ], [ true, %36 ], [ true, %.thread23 ], [ false, %19 ], [ false, %16 ]
+  %.014 = phi i1 [ false, %5 ], [ false, %14 ], [ true, %34 ], [ true, %36 ], [ true, %.thread23 ], [ true, %30 ], [ true, %32 ], [ false, %19 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.014
 }
@@ -2558,7 +2551,7 @@ pg_preadv.exit:                                   ; preds = %8, %30
   br i1 %33, label %pg_preadv.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %30, %pg_preadv.exit, %21, %pg_preadv.exit.us, %5
-  %.0 = phi i64 [ -1, %5 ], [ %18, %21 ], [ %18, %pg_preadv.exit.us ], [ %27, %pg_preadv.exit ], [ %27, %30 ]
+  %.0 = phi i64 [ -1, %5 ], [ %18, %pg_preadv.exit.us ], [ %18, %21 ], [ %27, %pg_preadv.exit ], [ %27, %30 ]
   ret i64 %.0
 }
 
@@ -2691,7 +2684,7 @@ pg_pwritev.exit:                                  ; preds = %38, %70
   br i1 %73, label %pg_pwritev.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %70, %48, %5, %.split47.us, %66, %61
-  %.0 = phi i64 [ %.us-phi, %.split47.us ], [ %.us-phi, %61 ], [ %.us-phi, %66 ], [ -1, %5 ], [ %45, %48 ], [ %54, %70 ]
+  %.0 = phi i64 [ %.us-phi, %61 ], [ %.us-phi, %66 ], [ %.us-phi, %.split47.us ], [ -1, %5 ], [ %45, %48 ], [ %54, %70 ]
   ret i64 %.0
 }
 
@@ -2768,7 +2761,7 @@ define dso_local range(i32 -1, 1) i32 @FileZero(i32 noundef %0, i64 noundef %1, 
   br label %22
 
 22:                                               ; preds = %16, %17, %21, %7, %4
-  %.0 = phi i32 [ -1, %17 ], [ -1, %4 ], [ -1, %7 ], [ -1, %21 ], [ 0, %16 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %7 ], [ -1, %21 ], [ -1, %17 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2837,7 +2830,7 @@ define dso_local range(i32 -1, 1) i32 @FileFallocate(i32 noundef %0, i64 noundef
   br label %FileZero.exit
 
 FileZero.exit:                                    ; preds = %8, %32, %29, %28, %20, %17, %15, %4
-  %.0 = phi i32 [ -1, %15 ], [ -1, %4 ], [ 0, %28 ], [ -1, %29 ], [ -1, %17 ], [ -1, %20 ], [ -1, %32 ], [ %13, %8 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %15 ], [ -1, %17 ], [ -1, %20 ], [ -1, %32 ], [ -1, %29 ], [ 0, %28 ], [ %13, %8 ]
   ret i32 %.0
 }
 
@@ -3126,7 +3119,7 @@ define internal fastcc noundef zeroext i1 @reserveAllocatedDesc() unnamed_addr #
   br label %23
 
 23:                                               ; preds = %.sink.split, %14, %18, %0
-  %.0 = phi i1 [ false, %18 ], [ false, %14 ], [ true, %0 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ true, %0 ], [ false, %18 ], [ false, %14 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -3366,7 +3359,7 @@ define dso_local i32 @FreeFile(ptr noundef captures(address) %0) local_unnamed_a
   br label %23
 
 23:                                               ; preds = %.thread, %21
-  %.2 = phi i32 [ %15, %.thread ], [ %22, %21 ]
+  %.2 = phi i32 [ %22, %21 ], [ %15, %.thread ]
   ret i32 %.2
 }
 
@@ -3576,7 +3569,7 @@ define dso_local ptr @ReadDirExtended(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %12, %.sink.split.sink.split, %10, %7
-  %.0 = phi ptr [ null, %10 ], [ %9, %7 ], [ null, %.sink.split.sink.split ], [ null, %12 ], [ null, %5 ]
+  %.0 = phi ptr [ %9, %7 ], [ null, %10 ], [ null, %.sink.split.sink.split ], [ null, %12 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -3634,7 +3627,7 @@ define dso_local i32 @FreeDir(ptr noundef captures(address) %0) local_unnamed_ad
   br label %25
 
 25:                                               ; preds = %.thread, %1, %23
-  %.0 = phi i32 [ %24, %23 ], [ %17, %.thread ], [ 0, %1 ]
+  %.0 = phi i32 [ %24, %23 ], [ 0, %1 ], [ %17, %.thread ]
   ret i32 %.0
 }
 
@@ -3689,7 +3682,7 @@ define dso_local i32 @ClosePipeStream(ptr noundef captures(address) %0) local_un
   br label %23
 
 23:                                               ; preds = %.thread, %21
-  %.2 = phi i32 [ %15, %.thread ], [ %22, %21 ]
+  %.2 = phi i32 [ %22, %21 ], [ %15, %.thread ]
   ret i32 %.2
 }
 
@@ -3891,9 +3884,9 @@ define dso_local void @AtEOSubXact_Files(i1 noundef zeroext %0, i32 noundef %1, 
   br label %23
 
 23:                                               ; preds = %.lr.ph.split, %20
-  %24 = phi i32 [ %13, %.lr.ph.split ], [ %.pre12, %20 ]
-  %25 = phi ptr [ %14, %.lr.ph.split ], [ %.pre, %20 ]
-  %.1 = phi i32 [ %.08, %.lr.ph.split ], [ %21, %20 ]
+  %24 = phi i32 [ %.pre12, %20 ], [ %13, %.lr.ph.split ]
+  %25 = phi ptr [ %.pre, %20 ], [ %14, %.lr.ph.split ]
+  %.1 = phi i32 [ %21, %20 ], [ %.08, %.lr.ph.split ]
   %26 = add i32 %.1, 1
   %27 = icmp ult i32 %26, %24
   br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
@@ -4406,7 +4399,7 @@ looks_like_temp_rel_name.exit:                    ; preds = %49, %63
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3464, ptr noundef nonnull @__func__.RemovePgTempRelationFilesInDbspace) #24
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %63, %39, %29, %.lr.ph.i, %43, %72, %70, %66, %looks_like_temp_rel_name.exit
+.backedge.i:                                      ; preds = %39, %29, %.lr.ph.i, %43, %63, %72, %70, %66, %looks_like_temp_rel_name.exit
   br i1 %14, label %75, label %80
 
 75:                                               ; preds = %.backedge.i
@@ -4661,7 +4654,7 @@ define dso_local zeroext i1 @looks_like_temp_rel_name(ptr noundef %0) local_unna
   br label %52
 
 52:                                               ; preds = %50, %24, %14, %1, %28, %48
-  %.034 = phi i1 [ false, %28 ], [ false, %1 ], [ false, %14 ], [ %.not46, %50 ], [ false, %24 ], [ false, %48 ]
+  %.034 = phi i1 [ false, %48 ], [ false, %28 ], [ false, %1 ], [ false, %14 ], [ false, %24 ], [ %.not46, %50 ]
   ret i1 %.034
 }
 
@@ -5035,7 +5028,7 @@ define internal void @pre_sync_fname(ptr noundef %0, i1 noundef zeroext %1, i32 
   br label %CloseTransientFile.exit
 
 CloseTransientFile.exit:                          ; preds = %.thread.i, %45
-  %.2.i = phi i32 [ %39, %.thread.i ], [ %46, %45 ]
+  %.2.i = phi i32 [ %46, %45 ], [ %39, %.thread.i ]
   %.not = icmp eq i32 %.2.i, 0
   br i1 %.not, label %.sink.split, label %47
 

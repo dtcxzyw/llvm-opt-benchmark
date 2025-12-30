@@ -900,7 +900,7 @@ define dso_local { i64, i32 } @DefineRelation(ptr noundef captures(none) %0, i8 
   br label %111
 
 111:                                              ; preds = %107, %97
-  %.0250 = phi i32 [ %110, %107 ], [ %98, %97 ]
+  %.0250 = phi i32 [ %98, %97 ], [ %110, %107 ]
   %.not289 = icmp eq i32 %.0250, 0
   br i1 %.not289, label %.thread352, label %116
 
@@ -989,7 +989,7 @@ define dso_local { i64, i32 } @DefineRelation(ptr noundef captures(none) %0, i8 
   br label %150
 
 150:                                              ; preds = %142, %145, %149
-  %.0261 = phi i32 [ %146, %145 ], [ %146, %149 ], [ 0, %142 ]
+  %.0261 = phi i32 [ %146, %149 ], [ %146, %145 ], [ 0, %142 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %26, align 8
@@ -1897,7 +1897,7 @@ MergeCheckConstraint.exit.i:                      ; preds = %._crit_edge.i.i, %6
   br i1 %638, label %.lr.ph717.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %MergeCheckConstraint.exit.i, %564, %.thread419.i
-  %.1290.i = phi ptr [ %.0289740.i636, %.thread419.i ], [ %.0289740.i636, %564 ], [ %.3292.i, %MergeCheckConstraint.exit.i ]
+  %.1290.i = phi ptr [ %.0289740.i636, %564 ], [ %.0289740.i636, %.thread419.i ], [ %.3292.i, %MergeCheckConstraint.exit.i ]
   br i1 %.not376.i, label %.split734.us.i, label %.lr.ph721.split.i
 
 .lr.ph721.split.i:                                ; preds = %.loopexit.i
@@ -2664,7 +2664,7 @@ MergeAttributes.exit:                             ; preds = %925, %.lr.ph796.spl
   br label %1011
 
 1011:                                             ; preds = %.sink.split1163, %996, %1006
-  %.0262 = phi i32 [ 0, %996 ], [ %.1263, %1006 ], [ %1010, %.sink.split1163 ]
+  %.0262 = phi i32 [ %.1263, %1006 ], [ 0, %996 ], [ %1010, %.sink.split1163 ]
   %1012 = call ptr @list_concat(ptr noundef %.0255.lcssa, ptr noundef %.0289.lcssa1020.i) #15
   %1013 = load ptr, ptr %26, align 8
   %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 33
@@ -4228,16 +4228,16 @@ thread-pre-split.i.i:                             ; preds = %174, %172, %170
   br i1 %.not31.i.i, label %177, label %GetForeignKeyActionTriggers.exit.i
 
 177:                                              ; preds = %176, %162, %159, %.lr.ph.i.i
-  %.1109.i = phi i32 [ %.0108.i, %.lr.ph.i.i ], [ %.3111.i, %176 ], [ %.0108.i, %162 ], [ %.0108.i, %159 ]
-  %.1.i = phi i32 [ %.0.i, %.lr.ph.i.i ], [ 0, %176 ], [ %.0.i, %162 ], [ %.0.i, %159 ]
+  %.1109.i = phi i32 [ %.3111.i, %176 ], [ %.0108.i, %162 ], [ %.0108.i, %159 ], [ %.0108.i, %.lr.ph.i.i ]
+  %.1.i = phi i32 [ 0, %176 ], [ %.0.i, %162 ], [ %.0.i, %159 ], [ %.0.i, %.lr.ph.i.i ]
   %178 = call ptr @systable_getnext(ptr noundef %149) #15
   %.not.i.i = icmp eq ptr %178, null
   br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %177, %.thread
-  %.0108.i.be = phi i32 [ 0, %.thread ], [ %.1109.i, %177 ]
-  %.0.i.be = phi i32 [ %.3.i, %.thread ], [ %.1.i, %177 ]
-  %.be = phi ptr [ %179, %.thread ], [ %178, %177 ]
+  %.0108.i.be = phi i32 [ %.1109.i, %177 ], [ 0, %.thread ]
+  %.0.i.be = phi i32 [ %.1.i, %177 ], [ %.3.i, %.thread ]
+  %.be = phi ptr [ %178, %177 ], [ %179, %.thread ]
   br label %.lr.ph.i.i
 
 .thread:                                          ; preds = %thread-pre-split.i.i
@@ -4867,7 +4867,7 @@ define internal fastcc signext i8 @GetAttributeCompression(i32 noundef %0, ptr n
   unreachable
 
 20:                                               ; preds = %14, %2, %4
-  %.0 = phi i8 [ 0, %2 ], [ 0, %4 ], [ %15, %14 ]
+  %.0 = phi i8 [ 0, %4 ], [ 0, %2 ], [ %15, %14 ]
   ret i8 %.0
 }
 
@@ -5005,7 +5005,7 @@ list_length.exit.thread:                          ; preds = %7, %list_length.exi
   unreachable
 
 35:                                               ; preds = %23, %30, %29, %28, %27, %26
-  %.0 = phi i8 [ 102, %30 ], [ 105, %26 ], [ 83, %27 ], [ 118, %28 ], [ 109, %29 ], [ 114, %23 ]
+  %.0 = phi i8 [ 105, %26 ], [ 83, %27 ], [ 118, %28 ], [ 109, %29 ], [ 102, %30 ], [ 114, %23 ]
   %36 = tail call ptr @new_object_addresses() #15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -5265,7 +5265,7 @@ define internal void @RangeVarCallbackForDropRelation(ptr noundef readonly captu
   br label %37
 
 37:                                               ; preds = %18, %34, %35
-  %.0 = phi i32 [ %36, %35 ], [ 105, %34 ], [ 114, %18 ]
+  %.0 = phi i32 [ 105, %34 ], [ %36, %35 ], [ 114, %18 ]
   %38 = load i8, ptr %3, align 4
   %39 = sext i8 %38 to i32
   %.not79 = icmp eq i32 %.0, %39
@@ -5991,8 +5991,8 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   br label %.critedge.thread.thread
 
 .critedge.thread.thread:                          ; preds = %.critedge.preheader, %105, %.critedge.thread
-  %.0193428 = phi ptr [ %.0193, %.critedge.thread ], [ %.0193, %105 ], [ %2, %.critedge.preheader ]
-  %.0196427 = phi ptr [ %.0196, %.critedge.thread ], [ %.0196, %105 ], [ %16, %.critedge.preheader ]
+  %.0193428 = phi ptr [ %.0193, %105 ], [ %.0193, %.critedge.thread ], [ %2, %.critedge.preheader ]
+  %.0196427 = phi ptr [ %.0196, %105 ], [ %.0196, %.critedge.thread ], [ %16, %.critedge.preheader ]
   br i1 %4, label %.preheader, label %.critedge249
 
 .preheader:                                       ; preds = %.critedge.thread.thread
@@ -6270,7 +6270,7 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   br label %233
 
 233:                                              ; preds = %.lr.ph458, %232, %202
-  %.1204 = phi ptr [ %.0203349457, %232 ], [ %.2205, %202 ], [ %.0203349457, %.lr.ph458 ]
+  %.1204 = phi ptr [ %.2205, %202 ], [ %.0203349457, %232 ], [ %.0203349457, %.lr.ph458 ]
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401456, 1
   %234 = load i32, ptr %144, align 4
   %235 = sext i32 %234 to i64
@@ -6670,7 +6670,7 @@ define dso_local noundef zeroext i1 @CheckRelationTableSpaceMove(ptr noundef rea
   unreachable
 
 43:                                               ; preds = %31, %35, %2, %8
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ true, %35 ], [ true, %31 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %2 ], [ true, %35 ], [ true, %31 ]
   ret i1 %.0
 }
 
@@ -7354,9 +7354,9 @@ define dso_local { i64, i32 } @RenameRelation(ptr noundef %0) local_unnamed_addr
   br label %31
 
 31:                                               ; preds = %.thread, %28
-  %.sroa.423.2 = phi i32 [ %.sroa.423.0.copyload, %.thread ], [ 0, %28 ]
-  %.sroa.022.sroa.0.2 = phi i64 [ %18, %.thread ], [ 1259, %28 ]
-  %.sroa.022.sroa.3.2 = phi i32 [ %.sroa.022.sroa.3.0.extract.trunc, %.thread ], [ %19, %28 ]
+  %.sroa.423.2 = phi i32 [ 0, %28 ], [ %.sroa.423.0.copyload, %.thread ]
+  %.sroa.022.sroa.0.2 = phi i64 [ 1259, %28 ], [ %18, %.thread ]
+  %.sroa.022.sroa.3.2 = phi i32 [ %19, %28 ], [ %.sroa.022.sroa.3.0.extract.trunc, %.thread ]
   %.sroa.022.sroa.3.0.insert.ext = zext i32 %.sroa.022.sroa.3.2 to i64
   %.sroa.022.sroa.3.0.insert.shift = shl nuw i64 %.sroa.022.sroa.3.0.insert.ext, 32
   %.sroa.022.sroa.0.0.insert.insert = or disjoint i64 %.sroa.022.sroa.3.0.insert.shift, %.sroa.022.sroa.0.2
@@ -7444,7 +7444,7 @@ define internal void @RangeVarCallbackForAlterRelation(ptr noundef readonly capt
   unreachable
 
 48:                                               ; preds = %33, %35, %40, %43
-  %.sink = phi i64 [ 4, %35 ], [ 24, %43 ], [ 4, %40 ], [ 4, %33 ]
+  %.sink = phi i64 [ 24, %43 ], [ 4, %40 ], [ 4, %35 ], [ 4, %33 ]
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %.0 = load i32, ptr %49, align 4
   %50 = icmp eq i32 %.0, 37
@@ -8576,8 +8576,8 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
   unreachable
 
 36:                                               ; preds = %26, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %.lr.ph32, %13, %18, %22, %21, %12
-  %37 = phi i32 [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %12 ], [ %6, %.lr.ph32 ], [ %6, %18 ], [ %6, %13 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %21 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %.pre, %22 ], [ %6, %.lr.ph32 ], [ %6, %26 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ]
-  %.016 = phi i32 [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 6, %12 ], [ 8, %.lr.ph32 ], [ %., %18 ], [ 8, %13 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 4, %21 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ %25, %22 ], [ 8, %.lr.ph32 ], [ %.21, %26 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ]
+  %37 = phi i32 [ %6, %12 ], [ %6, %18 ], [ %6, %13 ], [ %6, %21 ], [ %.pre, %22 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %.lr.ph32 ], [ %6, %26 ]
+  %.016 = phi i32 [ 6, %12 ], [ %., %18 ], [ 8, %13 ], [ 4, %21 ], [ %25, %22 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ 8, %.lr.ph32 ], [ %.21, %26 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.016, i32 %.0172530)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = sext i32 %37 to i64
@@ -9505,7 +9505,7 @@ define dso_local range(i32 1665, 1664) i32 @AlterTableMoveAll(ptr noundef %0) lo
   br label %100
 
 100:                                              ; preds = %75, %72, %66, %69, %43, %54, %58, %61, %98
-  %.1 = phi ptr [ %.07099, %72 ], [ %.07099, %43 ], [ %99, %98 ], [ %.07099, %61 ], [ %.07099, %58 ], [ %.07099, %54 ], [ %.07099, %69 ], [ %.07099, %66 ], [ %.07099, %75 ]
+  %.1 = phi ptr [ %99, %98 ], [ %.07099, %61 ], [ %.07099, %58 ], [ %.07099, %54 ], [ %.07099, %43 ], [ %.07099, %69 ], [ %.07099, %66 ], [ %.07099, %72 ], [ %.07099, %75 ]
   %101 = call ptr @heap_getnext(ptr noundef %40, i32 noundef 1) #15
   %.not84 = icmp eq ptr %101, null
   br i1 %.not84, label %._crit_edge, label %43
@@ -10515,7 +10515,7 @@ define dso_local zeroext i1 @PartConstraintImpliedByRelConstraint(ptr noundef re
   br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !47
 
 .loopexit:                                        ; preds = %44, %11, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %11 ], [ %.2, %44 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ null, %11 ], [ %.2, %44 ]
   %46 = tail call fastcc zeroext i1 @ConstraintImpliedByRelConstraint(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0)
   ret i1 %46
 }
@@ -10636,7 +10636,7 @@ define internal fastcc noundef nonnull ptr @storage_name(i8 noundef signext %0) 
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.132, %5 ], [ @.str.131, %4 ], [ @.str.129, %2 ], [ @.str.130, %3 ], [ @.str.128, %1 ]
+  %.0 = phi ptr [ @.str.132, %5 ], [ @.str.129, %2 ], [ @.str.130, %3 ], [ @.str.131, %4 ], [ @.str.128, %1 ]
   ret ptr %.0
 }
 
@@ -11451,8 +11451,8 @@ ATPrepChangePersistence.exit:                     ; preds = %127, %128, %._crit_
   unreachable
 
 248:                                              ; preds = %236, %237, %232, %233, %59, %99, %100, %93, %94, %82, %83, %79, %80, %76, %77, %73, %74, %70, %71, %243, %242, %241, %240, %239, %235, %231, %230, %229, %228, %225, %222, %213, %ATPrepChangePersistence.exit, %105, %104, %102, %98, %92, %91, %90, %89, %88, %87, %86, %85, %69, %65, %64, %63
-  %.0204 = phi ptr [ %60, %63 ], [ %60, %64 ], [ %60, %65 ], [ %60, %69 ], [ %60, %243 ], [ %60, %70 ], [ %60, %73 ], [ %60, %76 ], [ %60, %79 ], [ %60, %85 ], [ %60, %86 ], [ %60, %87 ], [ %60, %88 ], [ %60, %89 ], [ %60, %90 ], [ %60, %91 ], [ %60, %92 ], [ %60, %82 ], [ %60, %98 ], [ %60, %93 ], [ %103, %102 ], [ %60, %104 ], [ %60, %99 ], [ %60, %105 ], [ %60, %ATPrepChangePersistence.exit ], [ %60, %213 ], [ %60, %222 ], [ %60, %225 ], [ %60, %228 ], [ %60, %229 ], [ %60, %230 ], [ %60, %231 ], [ %60, %59 ], [ %60, %235 ], [ %60, %232 ], [ %60, %239 ], [ %60, %240 ], [ %60, %241 ], [ %60, %242 ], [ %60, %71 ], [ %60, %74 ], [ %60, %77 ], [ %60, %80 ], [ %60, %83 ], [ %60, %94 ], [ %60, %100 ], [ %60, %233 ], [ %60, %237 ], [ %60, %236 ]
-  %.0 = phi i64 [ 2, %63 ], [ 2, %64 ], [ %68, %65 ], [ 10, %69 ], [ 11, %243 ], [ 10, %70 ], [ 11, %73 ], [ 0, %76 ], [ 0, %79 ], [ 3, %85 ], [ 0, %86 ], [ 11, %87 ], [ 11, %88 ], [ 11, %89 ], [ 11, %90 ], [ 0, %91 ], [ 9, %92 ], [ 7, %82 ], [ 8, %98 ], [ 6, %93 ], [ 1, %102 ], [ 11, %104 ], [ 0, %99 ], [ 11, %105 ], [ 11, %ATPrepChangePersistence.exit ], [ 0, %213 ], [ 11, %222 ], [ 11, %225 ], [ 11, %228 ], [ 11, %229 ], [ 11, %230 ], [ 11, %231 ], [ 11, %59 ], [ 11, %235 ], [ 11, %232 ], [ 11, %239 ], [ 11, %240 ], [ 11, %241 ], [ 11, %242 ], [ 10, %71 ], [ 11, %74 ], [ 0, %77 ], [ 0, %80 ], [ 7, %83 ], [ 6, %94 ], [ 0, %100 ], [ 11, %233 ], [ 11, %237 ], [ 11, %236 ]
+  %.0204 = phi ptr [ %60, %63 ], [ %60, %64 ], [ %60, %65 ], [ %60, %69 ], [ %60, %85 ], [ %60, %86 ], [ %60, %87 ], [ %60, %88 ], [ %60, %89 ], [ %60, %90 ], [ %60, %91 ], [ %60, %92 ], [ %60, %98 ], [ %103, %102 ], [ %60, %104 ], [ %60, %105 ], [ %60, %ATPrepChangePersistence.exit ], [ %60, %213 ], [ %60, %222 ], [ %60, %225 ], [ %60, %228 ], [ %60, %229 ], [ %60, %230 ], [ %60, %231 ], [ %60, %235 ], [ %60, %239 ], [ %60, %240 ], [ %60, %241 ], [ %60, %242 ], [ %60, %243 ], [ %60, %71 ], [ %60, %70 ], [ %60, %74 ], [ %60, %73 ], [ %60, %77 ], [ %60, %76 ], [ %60, %80 ], [ %60, %79 ], [ %60, %83 ], [ %60, %82 ], [ %60, %94 ], [ %60, %93 ], [ %60, %100 ], [ %60, %99 ], [ %60, %59 ], [ %60, %233 ], [ %60, %232 ], [ %60, %237 ], [ %60, %236 ]
+  %.0 = phi i64 [ 2, %63 ], [ 2, %64 ], [ %68, %65 ], [ 10, %69 ], [ 3, %85 ], [ 0, %86 ], [ 11, %87 ], [ 11, %88 ], [ 11, %89 ], [ 11, %90 ], [ 0, %91 ], [ 9, %92 ], [ 8, %98 ], [ 1, %102 ], [ 11, %104 ], [ 11, %105 ], [ 11, %ATPrepChangePersistence.exit ], [ 0, %213 ], [ 11, %222 ], [ 11, %225 ], [ 11, %228 ], [ 11, %229 ], [ 11, %230 ], [ 11, %231 ], [ 11, %235 ], [ 11, %239 ], [ 11, %240 ], [ 11, %241 ], [ 11, %242 ], [ 11, %243 ], [ 10, %71 ], [ 10, %70 ], [ 11, %74 ], [ 11, %73 ], [ 0, %77 ], [ 0, %76 ], [ 0, %80 ], [ 0, %79 ], [ 7, %83 ], [ 7, %82 ], [ 6, %94 ], [ 6, %93 ], [ 0, %100 ], [ 0, %99 ], [ 11, %59 ], [ 11, %233 ], [ 11, %232 ], [ 11, %237 ], [ 11, %236 ]
   %249 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %.0
   %251 = load ptr, ptr %250, align 8
@@ -12454,8 +12454,8 @@ ATExecDropExpression.exit:                        ; preds = %526, %539
   br label %.thread.i238
 
 .thread.i238:                                     ; preds = %575, %573, %571, %562, %561
-  %.05473.i = phi i1 [ false, %571 ], [ false, %575 ], [ false, %573 ], [ true, %561 ], [ true, %562 ]
-  %.1.i239 = phi i32 [ %564, %571 ], [ 10000, %575 ], [ 10000, %573 ], [ 0, %561 ], [ 0, %562 ]
+  %.05473.i = phi i1 [ false, %575 ], [ false, %573 ], [ false, %571 ], [ true, %561 ], [ true, %562 ]
+  %.1.i239 = phi i32 [ 10000, %575 ], [ 10000, %573 ], [ %564, %571 ], [ 0, %561 ], [ 0, %562 ]
   %578 = call ptr @table_open(i32 noundef 1249, i32 noundef 3) #15
   %.not66.i240 = icmp eq ptr %545, null
   %579 = getelementptr inbounds nuw i8, ptr %154, i64 72
@@ -12880,7 +12880,7 @@ SetIndexStorageProperties.exit327:                ; preds = %.thread.i317, %.lr.
   unreachable
 
 GetAttributeCompression.exit:                     ; preds = %799, %803, %813
-  %.0.i312 = phi i8 [ 0, %799 ], [ 0, %803 ], [ %814, %813 ]
+  %.0.i312 = phi i8 [ 0, %803 ], [ 0, %799 ], [ %814, %813 ]
   %819 = getelementptr inbounds nuw i8, ptr %790, i64 85
   store i8 %.0.i312, ptr %819, align 1
   %820 = getelementptr inbounds nuw i8, ptr %777, i64 4
@@ -13226,7 +13226,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   br label %999
 
 999:                                              ; preds = %998, %992, %988
-  %.0.i210 = phi ptr [ %990, %992 ], [ %990, %998 ], [ %980, %988 ]
+  %.0.i210 = phi ptr [ %990, %998 ], [ %990, %992 ], [ %980, %988 ]
   %1000 = getelementptr inbounds nuw i8, ptr %963, i64 106
   %1001 = load i8, ptr %1000, align 2, !range !6, !noundef !7
   %1002 = trunc nuw i8 %1001 to i1
@@ -13845,7 +13845,7 @@ ATExecDropConstraint.exit:                        ; preds = %1148, %1158, %1160
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %1296, %1322, %1325, %1328, %1331, %1336, %1338, %1344, %1345
-  %.0.i301 = phi i64 [ %1297, %1296 ], [ %1346, %1345 ], [ 0, %1344 ], [ %1339, %1338 ], [ %1324, %1322 ], [ %1327, %1325 ], [ %1330, %1328 ], [ %1332, %1331 ], [ %1337, %1336 ]
+  %.0.i301 = phi i64 [ %1297, %1296 ], [ 0, %1344 ], [ %1346, %1345 ], [ %1339, %1338 ], [ %1324, %1322 ], [ %1327, %1325 ], [ %1330, %1328 ], [ %1332, %1331 ], [ %1337, %1336 ]
   %1347 = load i8, ptr %21, align 1, !range !6, !noundef !7
   %1348 = trunc nuw i8 %1347 to i1
   br i1 %1348, label %1376, label %1349
@@ -17166,7 +17166,7 @@ ATDetachCheckNoForeignKeyRefs.exit.i:             ; preds = %3072, %GetParentedF
   br i1 %.not25.i, label %PartConstraintImpliedByRelConstraint.exit, label %.lr.ph.i279, !llvm.loop !47
 
 PartConstraintImpliedByRelConstraint.exit:        ; preds = %3133, %3089, %3096, %3100
-  %.0.i278 = phi ptr [ null, %3089 ], [ null, %3096 ], [ null, %3100 ], [ %.2.i280, %3133 ]
+  %.0.i278 = phi ptr [ null, %3096 ], [ null, %3089 ], [ null, %3100 ], [ %.2.i280, %3133 ]
   %3135 = call ptr @list_copy(ptr noundef %.0.i278) #15
   %3136 = load ptr, ptr %3092, align 8
   %3137 = getelementptr inbounds nuw i8, ptr %3136, i64 16
@@ -17427,9 +17427,9 @@ ATExecDetachPartition.exit:                       ; preds = %ATDetachCheckNoFore
   br i1 %.not383.i, label %ATExecCmd.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %._crit_edge.i121, %2139, %2138, %2137, %1813, %1809, %1806, %1802, %1799, %1795, %1792, %1788, %1785, %1780, %1777, %1772, %1769, %1764, %1761, %1756, %1753, %1746, %1743, %1736, %1733, %1726, %1723, %1716, %1593, %1585, %1583, %1574, %1559, %3256, %3240, %ATExecDetachPartition.exit, %ATExecAttachPartitionIdx.exit, %ATExecAttachPartition.exit, %ATExecGenericOptions.exit, %ATExecForceNoForceRowSecurity.exit, %ATExecForceNoForceRowSecurity.exit110, %ATExecSetRowSecurity.exit, %ATExecSetRowSecurity.exit117, %ATExecDropOf.exit, %ATExecAddOf.exit, %ATExecDropInherit.exit, %ATExecAddInherit.exit, %ATExecSetRelOptions.exit.i, %1575, %1537, %1531, %1530, %ATExecClusterOn.exit, %1509, %ATExecAlterColumnGenericOptions.exit, %ATExecAlterColumnType.exit, %ATExecDropConstraint.exit, %1125, %ATExecAlterConstraint.exit, %ATExecAddIndexConstraint.exit, %957, %949, %945, %thread-pre-split.thread.i, %929, %ATExecAddIndex.exit, %ATExecAddIndex.exit221, %871, %SetIndexStorageProperties.exit, %SetIndexStorageProperties.exit327, %671, %665, %ATExecSetStatistics.exit, %ATExecDropExpression.exit, %ATExecSetExpression.exit, %361, %ATExecDropNotNull.exit, %265, %255, %245, %235, %ATExecColumnDefault.exit, %150, %150, %150
-  %.sroa.40.0403.i = phi i32 [ %.fca.1.extract209.i, %3256 ], [ 0, %3240 ], [ 0, %ATExecDetachPartition.exit ], [ 0, %ATExecAttachPartitionIdx.exit ], [ 0, %ATExecAttachPartition.exit ], [ %.sroa.40.0.copyload.i, %ATExecGenericOptions.exit ], [ %.sroa.40.0.copyload.i, %ATExecForceNoForceRowSecurity.exit ], [ %.sroa.40.0.copyload.i, %ATExecForceNoForceRowSecurity.exit110 ], [ %.sroa.40.0.copyload.i, %ATExecSetRowSecurity.exit ], [ %.sroa.40.0.copyload.i, %ATExecSetRowSecurity.exit117 ], [ %.sroa.40.0.copyload.i, %1813 ], [ %.sroa.40.0.copyload.i, %ATExecDropOf.exit ], [ %.sroa.2.0.copyload.i, %ATExecAddOf.exit ], [ 0, %ATExecDropInherit.exit ], [ 0, %ATExecAddInherit.exit ], [ %.sroa.40.0.copyload.i, %1806 ], [ %.sroa.40.0.copyload.i, %1799 ], [ %.sroa.40.0.copyload.i, %1792 ], [ %.sroa.40.0.copyload.i, %1785 ], [ %.sroa.40.0.copyload.i, %1777 ], [ %.sroa.40.0.copyload.i, %1769 ], [ %.sroa.40.0.copyload.i, %1761 ], [ %.sroa.40.0.copyload.i, %1753 ], [ %.sroa.40.0.copyload.i, %1743 ], [ %.sroa.40.0.copyload.i, %1733 ], [ %.sroa.40.0.copyload.i, %1723 ], [ %.sroa.40.0.copyload.i, %1593 ], [ %.sroa.40.0.copyload.i, %ATExecSetRelOptions.exit.i ], [ %.sroa.40.0.copyload.i, %1575 ], [ %.sroa.40.0.copyload.i, %1574 ], [ %.sroa.40.0.copyload.i, %1531 ], [ %.sroa.40.0.copyload.i, %1537 ], [ %167, %ATExecColumnDefault.exit ], [ %.sroa.40.0.copyload.i, %150 ], [ %.sroa.40.0.copyload.i, %150 ], [ %.sroa.40.0.copyload.i, %150 ], [ %.sroa.40.0.copyload.i, %1530 ], [ 0, %ATExecClusterOn.exit ], [ %.sroa.40.0.copyload.i, %1509 ], [ %.sroa.437.0.i, %ATExecAlterColumnGenericOptions.exit ], [ %1196, %ATExecAlterColumnType.exit ], [ %.sroa.40.0.copyload.i, %ATExecDropConstraint.exit ], [ %.fca.1.extract59.i, %1125 ], [ %.sroa.4.0.i, %ATExecAlterConstraint.exit ], [ %.fca.1.extract71.i, %ATExecAddIndexConstraint.exit ], [ %.fca.1.extract77.i, %957 ], [ %.fca.1.extract83.i, %949 ], [ %.fca.1.extract89.i, %945 ], [ %.fca.1.extract95.i, %thread-pre-split.thread.i ], [ %.fca.1.extract101.i, %929 ], [ %.fca.1.extract107.i, %ATExecAddIndex.exit ], [ %.fca.1.extract113.i, %ATExecAddIndex.exit221 ], [ %.fca.1.extract119.i, %871 ], [ %793, %SetIndexStorageProperties.exit ], [ %719, %SetIndexStorageProperties.exit327 ], [ %.fca.1.extract137.i, %671 ], [ %.fca.1.extract143.i, %665 ], [ %663, %ATExecSetStatistics.exit ], [ %.sroa.439.0.i, %ATExecDropExpression.exit ], [ %391, %ATExecSetExpression.exit ], [ %.fca.1.extract167.i, %361 ], [ %.sroa.443.0.i, %ATExecDropNotNull.exit ], [ %.fca.1.extract179.i, %265 ], [ %.fca.1.extract185.i, %255 ], [ %.fca.1.extract191.i, %245 ], [ %244, %235 ], [ %.sroa.40.0.copyload.i, %1559 ], [ %.sroa.40.0.copyload.i, %1583 ], [ %.sroa.40.0.copyload.i, %1585 ], [ %.sroa.40.0.copyload.i, %1716 ], [ %.sroa.40.0.copyload.i, %1726 ], [ %.sroa.40.0.copyload.i, %1736 ], [ %.sroa.40.0.copyload.i, %1746 ], [ %.sroa.40.0.copyload.i, %1756 ], [ %.sroa.40.0.copyload.i, %1764 ], [ %.sroa.40.0.copyload.i, %1772 ], [ %.sroa.40.0.copyload.i, %1780 ], [ %.sroa.40.0.copyload.i, %1788 ], [ %.sroa.40.0.copyload.i, %1795 ], [ %.sroa.40.0.copyload.i, %1802 ], [ %.sroa.40.0.copyload.i, %1809 ], [ %.sroa.40.0.copyload.i, %2137 ], [ %.sroa.40.0.copyload.i, %2138 ], [ %.sroa.40.0.copyload.i, %2139 ], [ %.sroa.40.0.copyload.i, %._crit_edge.i121 ]
-  %.sroa.0281.0402.i = phi i64 [ %.fca.0.extract208.i, %3256 ], [ %.sroa.06.0.insert.insert.i, %3240 ], [ %.sroa.040.0.insert.insert.i, %ATExecDetachPartition.exit ], [ %.sroa.068.0.insert.insert.i, %ATExecAttachPartitionIdx.exit ], [ %.sroa.0106.0.insert.insert.i, %ATExecAttachPartition.exit ], [ %.sroa.0281.0.copyload.i, %ATExecGenericOptions.exit ], [ %.sroa.0281.0.copyload.i, %ATExecForceNoForceRowSecurity.exit ], [ %.sroa.0281.0.copyload.i, %ATExecForceNoForceRowSecurity.exit110 ], [ %.sroa.0281.0.copyload.i, %ATExecSetRowSecurity.exit ], [ %.sroa.0281.0.copyload.i, %ATExecSetRowSecurity.exit117 ], [ %.sroa.0281.0.copyload.i, %1813 ], [ %.sroa.0281.0.copyload.i, %ATExecDropOf.exit ], [ %.sroa.0.0.copyload.i, %ATExecAddOf.exit ], [ %.sroa.06.0.insert.insert.i140, %ATExecDropInherit.exit ], [ %.sroa.025.0.insert.insert.i, %ATExecAddInherit.exit ], [ %.sroa.0281.0.copyload.i, %1806 ], [ %.sroa.0281.0.copyload.i, %1799 ], [ %.sroa.0281.0.copyload.i, %1792 ], [ %.sroa.0281.0.copyload.i, %1785 ], [ %.sroa.0281.0.copyload.i, %1777 ], [ %.sroa.0281.0.copyload.i, %1769 ], [ %.sroa.0281.0.copyload.i, %1761 ], [ %.sroa.0281.0.copyload.i, %1753 ], [ %.sroa.0281.0.copyload.i, %1743 ], [ %.sroa.0281.0.copyload.i, %1733 ], [ %.sroa.0281.0.copyload.i, %1723 ], [ %.sroa.0281.0.copyload.i, %1593 ], [ %.sroa.0281.0.copyload.i, %ATExecSetRelOptions.exit.i ], [ %.sroa.0281.0.copyload.i, %1575 ], [ %.sroa.0281.0.copyload.i, %1574 ], [ %.sroa.0281.0.copyload.i, %1531 ], [ %.sroa.0281.0.copyload.i, %1537 ], [ %.sroa.034.0.insert.insert.i, %ATExecColumnDefault.exit ], [ %.sroa.0281.0.copyload.i, %150 ], [ %.sroa.0281.0.copyload.i, %150 ], [ %.sroa.0281.0.copyload.i, %150 ], [ %.sroa.0281.0.copyload.i, %1530 ], [ %.sroa.010.0.insert.insert.i, %ATExecClusterOn.exit ], [ %.sroa.0281.0.copyload.i, %1509 ], [ %.sroa.036.sroa.0.0.insert.insert.i, %ATExecAlterColumnGenericOptions.exit ], [ %.sroa.0125.0.insert.insert.i, %ATExecAlterColumnType.exit ], [ %.sroa.0281.0.copyload.i, %ATExecDropConstraint.exit ], [ %.fca.0.extract58.i, %1125 ], [ %.sroa.050.sroa.0.0.insert.insert.i, %ATExecAlterConstraint.exit ], [ %.fca.0.extract70.i, %ATExecAddIndexConstraint.exit ], [ %.fca.0.extract76.i, %957 ], [ %.fca.0.extract82.i, %949 ], [ %.fca.0.extract88.i, %945 ], [ %.fca.0.extract94.i, %thread-pre-split.thread.i ], [ %.fca.0.extract100.i, %929 ], [ %.pre1509, %ATExecAddIndex.exit ], [ %.pre1508, %ATExecAddIndex.exit221 ], [ %.fca.0.extract118.i, %871 ], [ %.sroa.027.0.insert.insert.i, %SetIndexStorageProperties.exit ], [ %.sroa.025.0.insert.insert.i231, %SetIndexStorageProperties.exit327 ], [ %.fca.0.extract136.i, %671 ], [ %.fca.0.extract142.i, %665 ], [ %.sroa.052.0.insert.insert.i, %ATExecSetStatistics.exit ], [ %.sroa.038.sroa.0.0.insert.insert.i, %ATExecDropExpression.exit ], [ %.sroa.065.0.insert.insert.i, %ATExecSetExpression.exit ], [ %.fca.0.extract166.i, %361 ], [ %.sroa.042.sroa.0.0.insert.insert.i, %ATExecDropNotNull.exit ], [ %.fca.0.extract178.i, %265 ], [ %.fca.0.extract184.i, %255 ], [ %.fca.0.extract190.i, %245 ], [ %.sroa.06.0.insert.insert.i270, %235 ], [ %.sroa.0281.0.copyload.i, %1559 ], [ %.sroa.0281.0.copyload.i, %1583 ], [ %.sroa.0281.0.copyload.i, %1585 ], [ %.sroa.0281.0.copyload.i, %1716 ], [ %.sroa.0281.0.copyload.i, %1726 ], [ %.sroa.0281.0.copyload.i, %1736 ], [ %.sroa.0281.0.copyload.i, %1746 ], [ %.sroa.0281.0.copyload.i, %1756 ], [ %.sroa.0281.0.copyload.i, %1764 ], [ %.sroa.0281.0.copyload.i, %1772 ], [ %.sroa.0281.0.copyload.i, %1780 ], [ %.sroa.0281.0.copyload.i, %1788 ], [ %.sroa.0281.0.copyload.i, %1795 ], [ %.sroa.0281.0.copyload.i, %1802 ], [ %.sroa.0281.0.copyload.i, %1809 ], [ %.sroa.0281.0.copyload.i, %2137 ], [ %.sroa.0281.0.copyload.i, %2138 ], [ %.sroa.0281.0.copyload.i, %2139 ], [ %.sroa.0281.0.copyload.i, %._crit_edge.i121 ]
-  %3261 = phi ptr [ %.pre.i, %3256 ], [ %153, %3240 ], [ %2957, %ATExecDetachPartition.exit ], [ %2398, %ATExecAttachPartitionIdx.exit ], [ %2398, %ATExecAttachPartition.exit ], [ %153, %ATExecGenericOptions.exit ], [ %153, %ATExecForceNoForceRowSecurity.exit ], [ %153, %ATExecForceNoForceRowSecurity.exit110 ], [ %153, %ATExecSetRowSecurity.exit ], [ %153, %ATExecSetRowSecurity.exit117 ], [ %153, %1813 ], [ %153, %ATExecDropOf.exit ], [ %153, %ATExecAddOf.exit ], [ %153, %ATExecDropInherit.exit ], [ %153, %ATExecAddInherit.exit ], [ %153, %1806 ], [ %153, %1799 ], [ %153, %1792 ], [ %153, %1785 ], [ %153, %1777 ], [ %153, %1769 ], [ %153, %1761 ], [ %153, %1753 ], [ %153, %1743 ], [ %153, %1733 ], [ %153, %1723 ], [ %153, %1593 ], [ %153, %ATExecSetRelOptions.exit.i ], [ %153, %1575 ], [ %153, %1574 ], [ %153, %1531 ], [ %153, %1537 ], [ %153, %ATExecColumnDefault.exit ], [ %153, %150 ], [ %153, %150 ], [ %153, %150 ], [ %153, %1530 ], [ %153, %ATExecClusterOn.exit ], [ %153, %1509 ], [ %153, %ATExecAlterColumnGenericOptions.exit ], [ %153, %ATExecAlterColumnType.exit ], [ %153, %ATExecDropConstraint.exit ], [ %153, %1125 ], [ %153, %ATExecAlterConstraint.exit ], [ %153, %ATExecAddIndexConstraint.exit ], [ %153, %957 ], [ %153, %949 ], [ %153, %945 ], [ %938, %thread-pre-split.thread.i ], [ %153, %929 ], [ %153, %ATExecAddIndex.exit ], [ %153, %ATExecAddIndex.exit221 ], [ %153, %871 ], [ %153, %SetIndexStorageProperties.exit ], [ %153, %SetIndexStorageProperties.exit327 ], [ %153, %671 ], [ %153, %665 ], [ %153, %ATExecSetStatistics.exit ], [ %153, %ATExecDropExpression.exit ], [ %153, %ATExecSetExpression.exit ], [ %153, %361 ], [ %153, %ATExecDropNotNull.exit ], [ %153, %265 ], [ %256, %255 ], [ %246, %245 ], [ %153, %235 ], [ %153, %1559 ], [ %153, %1583 ], [ %153, %1585 ], [ %153, %1716 ], [ %153, %1726 ], [ %153, %1736 ], [ %153, %1746 ], [ %153, %1756 ], [ %153, %1764 ], [ %153, %1772 ], [ %153, %1780 ], [ %153, %1788 ], [ %153, %1795 ], [ %153, %1802 ], [ %153, %1809 ], [ %153, %2137 ], [ %153, %2138 ], [ %153, %2139 ], [ %153, %._crit_edge.i121 ]
+  %.sroa.40.0403.i = phi i32 [ %.fca.1.extract209.i, %3256 ], [ %.sroa.40.0.copyload.i, %1575 ], [ 0, %3240 ], [ 0, %ATExecDetachPartition.exit ], [ 0, %ATExecAttachPartitionIdx.exit ], [ 0, %ATExecAttachPartition.exit ], [ %.sroa.40.0.copyload.i, %ATExecGenericOptions.exit ], [ %.sroa.40.0.copyload.i, %ATExecForceNoForceRowSecurity.exit ], [ %.sroa.40.0.copyload.i, %ATExecForceNoForceRowSecurity.exit110 ], [ %.sroa.40.0.copyload.i, %ATExecSetRowSecurity.exit ], [ %.sroa.40.0.copyload.i, %ATExecSetRowSecurity.exit117 ], [ %.sroa.40.0.copyload.i, %ATExecDropOf.exit ], [ %.sroa.2.0.copyload.i, %ATExecAddOf.exit ], [ 0, %ATExecDropInherit.exit ], [ 0, %ATExecAddInherit.exit ], [ %.sroa.40.0.copyload.i, %ATExecSetRelOptions.exit.i ], [ %.sroa.40.0.copyload.i, %1531 ], [ %.sroa.40.0.copyload.i, %1537 ], [ %.sroa.40.0.copyload.i, %150 ], [ %.sroa.40.0.copyload.i, %150 ], [ %.sroa.40.0.copyload.i, %150 ], [ %.sroa.40.0.copyload.i, %1530 ], [ 0, %ATExecClusterOn.exit ], [ %.sroa.40.0.copyload.i, %1509 ], [ %.sroa.437.0.i, %ATExecAlterColumnGenericOptions.exit ], [ %1196, %ATExecAlterColumnType.exit ], [ %.sroa.40.0.copyload.i, %ATExecDropConstraint.exit ], [ %.fca.1.extract59.i, %1125 ], [ %.sroa.4.0.i, %ATExecAlterConstraint.exit ], [ %.fca.1.extract71.i, %ATExecAddIndexConstraint.exit ], [ %.fca.1.extract77.i, %957 ], [ %.fca.1.extract83.i, %949 ], [ %.fca.1.extract89.i, %945 ], [ %.fca.1.extract95.i, %thread-pre-split.thread.i ], [ %.fca.1.extract101.i, %929 ], [ %.fca.1.extract107.i, %ATExecAddIndex.exit ], [ %.fca.1.extract113.i, %ATExecAddIndex.exit221 ], [ %.fca.1.extract119.i, %871 ], [ %793, %SetIndexStorageProperties.exit ], [ %719, %SetIndexStorageProperties.exit327 ], [ %.fca.1.extract137.i, %671 ], [ %.fca.1.extract143.i, %665 ], [ %663, %ATExecSetStatistics.exit ], [ %.sroa.439.0.i, %ATExecDropExpression.exit ], [ %391, %ATExecSetExpression.exit ], [ %.fca.1.extract167.i, %361 ], [ %.sroa.443.0.i, %ATExecDropNotNull.exit ], [ %.fca.1.extract179.i, %265 ], [ %.fca.1.extract185.i, %255 ], [ %.fca.1.extract191.i, %245 ], [ %244, %235 ], [ %167, %ATExecColumnDefault.exit ], [ %.sroa.40.0.copyload.i, %1559 ], [ %.sroa.40.0.copyload.i, %1574 ], [ %.sroa.40.0.copyload.i, %1583 ], [ %.sroa.40.0.copyload.i, %1585 ], [ %.sroa.40.0.copyload.i, %1593 ], [ %.sroa.40.0.copyload.i, %1716 ], [ %.sroa.40.0.copyload.i, %1723 ], [ %.sroa.40.0.copyload.i, %1726 ], [ %.sroa.40.0.copyload.i, %1733 ], [ %.sroa.40.0.copyload.i, %1736 ], [ %.sroa.40.0.copyload.i, %1743 ], [ %.sroa.40.0.copyload.i, %1746 ], [ %.sroa.40.0.copyload.i, %1753 ], [ %.sroa.40.0.copyload.i, %1756 ], [ %.sroa.40.0.copyload.i, %1761 ], [ %.sroa.40.0.copyload.i, %1764 ], [ %.sroa.40.0.copyload.i, %1769 ], [ %.sroa.40.0.copyload.i, %1772 ], [ %.sroa.40.0.copyload.i, %1777 ], [ %.sroa.40.0.copyload.i, %1780 ], [ %.sroa.40.0.copyload.i, %1785 ], [ %.sroa.40.0.copyload.i, %1788 ], [ %.sroa.40.0.copyload.i, %1792 ], [ %.sroa.40.0.copyload.i, %1795 ], [ %.sroa.40.0.copyload.i, %1799 ], [ %.sroa.40.0.copyload.i, %1802 ], [ %.sroa.40.0.copyload.i, %1806 ], [ %.sroa.40.0.copyload.i, %1809 ], [ %.sroa.40.0.copyload.i, %1813 ], [ %.sroa.40.0.copyload.i, %2137 ], [ %.sroa.40.0.copyload.i, %2138 ], [ %.sroa.40.0.copyload.i, %2139 ], [ %.sroa.40.0.copyload.i, %._crit_edge.i121 ]
+  %.sroa.0281.0402.i = phi i64 [ %.fca.0.extract208.i, %3256 ], [ %.sroa.0281.0.copyload.i, %1575 ], [ %.sroa.06.0.insert.insert.i, %3240 ], [ %.sroa.040.0.insert.insert.i, %ATExecDetachPartition.exit ], [ %.sroa.068.0.insert.insert.i, %ATExecAttachPartitionIdx.exit ], [ %.sroa.0106.0.insert.insert.i, %ATExecAttachPartition.exit ], [ %.sroa.0281.0.copyload.i, %ATExecGenericOptions.exit ], [ %.sroa.0281.0.copyload.i, %ATExecForceNoForceRowSecurity.exit ], [ %.sroa.0281.0.copyload.i, %ATExecForceNoForceRowSecurity.exit110 ], [ %.sroa.0281.0.copyload.i, %ATExecSetRowSecurity.exit ], [ %.sroa.0281.0.copyload.i, %ATExecSetRowSecurity.exit117 ], [ %.sroa.0281.0.copyload.i, %ATExecDropOf.exit ], [ %.sroa.0.0.copyload.i, %ATExecAddOf.exit ], [ %.sroa.06.0.insert.insert.i140, %ATExecDropInherit.exit ], [ %.sroa.025.0.insert.insert.i, %ATExecAddInherit.exit ], [ %.sroa.0281.0.copyload.i, %ATExecSetRelOptions.exit.i ], [ %.sroa.0281.0.copyload.i, %1531 ], [ %.sroa.0281.0.copyload.i, %1537 ], [ %.sroa.0281.0.copyload.i, %150 ], [ %.sroa.0281.0.copyload.i, %150 ], [ %.sroa.0281.0.copyload.i, %150 ], [ %.sroa.0281.0.copyload.i, %1530 ], [ %.sroa.010.0.insert.insert.i, %ATExecClusterOn.exit ], [ %.sroa.0281.0.copyload.i, %1509 ], [ %.sroa.036.sroa.0.0.insert.insert.i, %ATExecAlterColumnGenericOptions.exit ], [ %.sroa.0125.0.insert.insert.i, %ATExecAlterColumnType.exit ], [ %.sroa.0281.0.copyload.i, %ATExecDropConstraint.exit ], [ %.fca.0.extract58.i, %1125 ], [ %.sroa.050.sroa.0.0.insert.insert.i, %ATExecAlterConstraint.exit ], [ %.fca.0.extract70.i, %ATExecAddIndexConstraint.exit ], [ %.fca.0.extract76.i, %957 ], [ %.fca.0.extract82.i, %949 ], [ %.fca.0.extract88.i, %945 ], [ %.fca.0.extract94.i, %thread-pre-split.thread.i ], [ %.fca.0.extract100.i, %929 ], [ %.pre1509, %ATExecAddIndex.exit ], [ %.pre1508, %ATExecAddIndex.exit221 ], [ %.fca.0.extract118.i, %871 ], [ %.sroa.027.0.insert.insert.i, %SetIndexStorageProperties.exit ], [ %.sroa.025.0.insert.insert.i231, %SetIndexStorageProperties.exit327 ], [ %.fca.0.extract136.i, %671 ], [ %.fca.0.extract142.i, %665 ], [ %.sroa.052.0.insert.insert.i, %ATExecSetStatistics.exit ], [ %.sroa.038.sroa.0.0.insert.insert.i, %ATExecDropExpression.exit ], [ %.sroa.065.0.insert.insert.i, %ATExecSetExpression.exit ], [ %.fca.0.extract166.i, %361 ], [ %.sroa.042.sroa.0.0.insert.insert.i, %ATExecDropNotNull.exit ], [ %.fca.0.extract178.i, %265 ], [ %.fca.0.extract184.i, %255 ], [ %.fca.0.extract190.i, %245 ], [ %.sroa.06.0.insert.insert.i270, %235 ], [ %.sroa.034.0.insert.insert.i, %ATExecColumnDefault.exit ], [ %.sroa.0281.0.copyload.i, %1559 ], [ %.sroa.0281.0.copyload.i, %1574 ], [ %.sroa.0281.0.copyload.i, %1583 ], [ %.sroa.0281.0.copyload.i, %1585 ], [ %.sroa.0281.0.copyload.i, %1593 ], [ %.sroa.0281.0.copyload.i, %1716 ], [ %.sroa.0281.0.copyload.i, %1723 ], [ %.sroa.0281.0.copyload.i, %1726 ], [ %.sroa.0281.0.copyload.i, %1733 ], [ %.sroa.0281.0.copyload.i, %1736 ], [ %.sroa.0281.0.copyload.i, %1743 ], [ %.sroa.0281.0.copyload.i, %1746 ], [ %.sroa.0281.0.copyload.i, %1753 ], [ %.sroa.0281.0.copyload.i, %1756 ], [ %.sroa.0281.0.copyload.i, %1761 ], [ %.sroa.0281.0.copyload.i, %1764 ], [ %.sroa.0281.0.copyload.i, %1769 ], [ %.sroa.0281.0.copyload.i, %1772 ], [ %.sroa.0281.0.copyload.i, %1777 ], [ %.sroa.0281.0.copyload.i, %1780 ], [ %.sroa.0281.0.copyload.i, %1785 ], [ %.sroa.0281.0.copyload.i, %1788 ], [ %.sroa.0281.0.copyload.i, %1792 ], [ %.sroa.0281.0.copyload.i, %1795 ], [ %.sroa.0281.0.copyload.i, %1799 ], [ %.sroa.0281.0.copyload.i, %1802 ], [ %.sroa.0281.0.copyload.i, %1806 ], [ %.sroa.0281.0.copyload.i, %1809 ], [ %.sroa.0281.0.copyload.i, %1813 ], [ %.sroa.0281.0.copyload.i, %2137 ], [ %.sroa.0281.0.copyload.i, %2138 ], [ %.sroa.0281.0.copyload.i, %2139 ], [ %.sroa.0281.0.copyload.i, %._crit_edge.i121 ]
+  %3261 = phi ptr [ %.pre.i, %3256 ], [ %153, %1575 ], [ %153, %3240 ], [ %2957, %ATExecDetachPartition.exit ], [ %2398, %ATExecAttachPartitionIdx.exit ], [ %2398, %ATExecAttachPartition.exit ], [ %153, %ATExecGenericOptions.exit ], [ %153, %ATExecForceNoForceRowSecurity.exit ], [ %153, %ATExecForceNoForceRowSecurity.exit110 ], [ %153, %ATExecSetRowSecurity.exit ], [ %153, %ATExecSetRowSecurity.exit117 ], [ %153, %ATExecDropOf.exit ], [ %153, %ATExecAddOf.exit ], [ %153, %ATExecDropInherit.exit ], [ %153, %ATExecAddInherit.exit ], [ %153, %ATExecSetRelOptions.exit.i ], [ %153, %1531 ], [ %153, %1537 ], [ %153, %150 ], [ %153, %150 ], [ %153, %150 ], [ %153, %1530 ], [ %153, %ATExecClusterOn.exit ], [ %153, %1509 ], [ %153, %ATExecAlterColumnGenericOptions.exit ], [ %153, %ATExecAlterColumnType.exit ], [ %153, %ATExecDropConstraint.exit ], [ %153, %1125 ], [ %153, %ATExecAlterConstraint.exit ], [ %153, %ATExecAddIndexConstraint.exit ], [ %153, %957 ], [ %153, %949 ], [ %153, %945 ], [ %938, %thread-pre-split.thread.i ], [ %153, %929 ], [ %153, %ATExecAddIndex.exit ], [ %153, %ATExecAddIndex.exit221 ], [ %153, %871 ], [ %153, %SetIndexStorageProperties.exit ], [ %153, %SetIndexStorageProperties.exit327 ], [ %153, %671 ], [ %153, %665 ], [ %153, %ATExecSetStatistics.exit ], [ %153, %ATExecDropExpression.exit ], [ %153, %ATExecSetExpression.exit ], [ %153, %361 ], [ %153, %ATExecDropNotNull.exit ], [ %153, %265 ], [ %256, %255 ], [ %246, %245 ], [ %153, %235 ], [ %153, %ATExecColumnDefault.exit ], [ %153, %1559 ], [ %153, %1574 ], [ %153, %1583 ], [ %153, %1585 ], [ %153, %1593 ], [ %153, %1716 ], [ %153, %1723 ], [ %153, %1726 ], [ %153, %1733 ], [ %153, %1736 ], [ %153, %1743 ], [ %153, %1746 ], [ %153, %1753 ], [ %153, %1756 ], [ %153, %1761 ], [ %153, %1764 ], [ %153, %1769 ], [ %153, %1772 ], [ %153, %1777 ], [ %153, %1780 ], [ %153, %1785 ], [ %153, %1788 ], [ %153, %1792 ], [ %153, %1795 ], [ %153, %1799 ], [ %153, %1802 ], [ %153, %1806 ], [ %153, %1809 ], [ %153, %1813 ], [ %153, %2137 ], [ %153, %2138 ], [ %153, %2139 ], [ %153, %._crit_edge.i121 ]
   call void @EventTriggerCollectAlterTableSubcmd(ptr noundef nonnull %3261, i64 %.sroa.0281.0402.i, i32 %.sroa.40.0403.i) #15
   br label %ATExecCmd.exit
 
@@ -17836,7 +17836,7 @@ define internal fastcc void @ATSimplePermissions(i32 noundef %0, ptr noundef %1,
   br label %17
 
 17:                                               ; preds = %3, %16, %15, %14, %13, %12, %11, %10, %9, %8
-  %.0 = phi i32 [ 0, %16 ], [ 128, %15 ], [ 256, %8 ], [ 2, %9 ], [ 4, %10 ], [ 8, %11 ], [ 64, %12 ], [ 16, %13 ], [ 32, %14 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %16 ], [ 256, %8 ], [ 2, %9 ], [ 4, %10 ], [ 8, %11 ], [ 64, %12 ], [ 16, %13 ], [ 32, %14 ], [ 128, %15 ], [ 1, %3 ]
   %18 = and i32 %.0, %2
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %36
@@ -18532,7 +18532,7 @@ switch.lookup:                                    ; preds = %55
   br label %64
 
 64:                                               ; preds = %55, %switch.lookup, %62, %.lr.ph46
-  %.0.us = phi i32 [ 9, %.lr.ph46 ], [ %switch.load, %switch.lookup ], [ 8, %62 ], [ 10, %55 ]
+  %.0.us = phi i32 [ 8, %62 ], [ 9, %.lr.ph46 ], [ %switch.load, %switch.lookup ], [ 10, %55 ]
   %65 = icmp slt i32 %.0.us, %4
   br i1 %65, label %.split.us, label %.thread.us
 
@@ -18587,7 +18587,7 @@ switch.lookup:                                    ; preds = %55
   ]
 
 .critedge61:                                      ; preds = %114, %76, %.lr.ph13.split.us.split, %.lr.ph13.split.split, %.critedge
-  %.051.lcssa = phi ptr [ null, %.critedge ], [ null, %.lr.ph13.split.split ], [ null, %.lr.ph13.split.us.split ], [ %.1.us, %76 ], [ %.1, %114 ]
+  %.051.lcssa = phi ptr [ null, %.critedge ], [ null, %.lr.ph13.split.us.split ], [ null, %.lr.ph13.split.split ], [ %.1.us, %76 ], [ %.1, %114 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %8, align 8
@@ -18616,7 +18616,7 @@ switch.lookup5:                                   ; preds = %91
   br label %98
 
 98:                                               ; preds = %91, %switch.lookup5, %.lr.ph39, %90
-  %.0 = phi i32 [ 9, %.lr.ph39 ], [ %switch.load7, %switch.lookup5 ], [ 8, %90 ], [ 10, %91 ]
+  %.0 = phi i32 [ 8, %90 ], [ 9, %.lr.ph39 ], [ %switch.load7, %switch.lookup5 ], [ 10, %91 ]
   %99 = icmp slt i32 %.0, %4
   br i1 %99, label %.split.us, label %.thread
 
@@ -18652,7 +18652,7 @@ switch.lookup5:                                   ; preds = %91
   br i1 %111, label %114, label %.split18.us
 
 .split18.us:                                      ; preds = %109, %.thread.thread, %73, %.thread.thread.us
-  %.us-phi19 = phi i32 [ %.024.us, %73 ], [ %.024.us, %.thread.thread.us ], [ %.024, %.thread.thread ], [ %.024, %109 ]
+  %.us-phi19 = phi i32 [ %.024.us, %.thread.thread.us ], [ %.024.us, %73 ], [ %.024, %.thread.thread ], [ %.024, %109 ]
   %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %113 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.224, i32 noundef %.us-phi19) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5783, ptr noundef nonnull @__func__.ATParseTransformCmd) #15
@@ -18957,7 +18957,7 @@ define internal fastcc void @ATPrepAlterColumnType(ptr noundef nonnull captures(
   br label %185
 
 185:                                              ; preds = %181, %.thread23.i, %169
-  %.320.in.i = phi ptr [ %170, %169 ], [ %175, %.thread23.i ], [ %.val.i, %181 ]
+  %.320.in.i = phi ptr [ %170, %169 ], [ %.val.i, %181 ], [ %175, %.thread23.i ]
   %.320.i = load ptr, ptr %.320.in.i, align 8
   br label %167
 
@@ -20078,9 +20078,9 @@ ATGetQueueEntry.exit:                             ; preds = %334, %._crit_edge.i
   br i1 %359, label %.lr.ph263, label %.critedge
 
 .critedge:                                        ; preds = %ATGetQueueEntry.exit, %.lr.ph, %303, %105, %109
-  %.sroa.5201.1 = phi i32 [ %.sroa.5201.0.copyload, %105 ], [ %.sroa.5201.0.copyload202, %109 ], [ %149, %303 ], [ %149, %.lr.ph ], [ %149, %ATGetQueueEntry.exit ]
-  %.sroa.0199.sroa.0.1 = phi i64 [ %.sroa.0199.0.copyload, %105 ], [ %.sroa.0199.0.copyload200, %109 ], [ 1259, %303 ], [ 1259, %.lr.ph ], [ 1259, %ATGetQueueEntry.exit ]
-  %.sroa.0199.sroa.4.1 = phi i32 [ %.sroa.0199.sroa.4.0.extract.trunc, %105 ], [ %.sroa.0199.sroa.4.0.extract.trunc205, %109 ], [ %19, %303 ], [ %19, %.lr.ph ], [ %19, %ATGetQueueEntry.exit ]
+  %.sroa.5201.1 = phi i32 [ %.sroa.5201.0.copyload202, %109 ], [ %.sroa.5201.0.copyload, %105 ], [ %149, %303 ], [ %149, %.lr.ph ], [ %149, %ATGetQueueEntry.exit ]
+  %.sroa.0199.sroa.0.1 = phi i64 [ %.sroa.0199.0.copyload200, %109 ], [ %.sroa.0199.0.copyload, %105 ], [ 1259, %303 ], [ 1259, %.lr.ph ], [ 1259, %ATGetQueueEntry.exit ]
+  %.sroa.0199.sroa.4.1 = phi i32 [ %.sroa.0199.sroa.4.0.extract.trunc205, %109 ], [ %.sroa.0199.sroa.4.0.extract.trunc, %105 ], [ %19, %303 ], [ %19, %.lr.ph ], [ %19, %ATGetQueueEntry.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.0199.sroa.4.0.insert.ext = zext i32 %.sroa.0199.sroa.4.1 to i64
   %.sroa.0199.sroa.4.0.insert.shift = shl nuw i64 %.sroa.0199.sroa.4.0.insert.ext, 32
@@ -20907,9 +20907,9 @@ define internal fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef nonnull captur
   br i1 %143, label %.lr.ph134, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph134, %129, %.lr.ph.split, %86, %84, %128
-  %.sroa.687.1 = phi i32 [ 0, %128 ], [ %.sroa.687.0.copyload, %84 ], [ 0, %86 ], [ 0, %129 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph134 ]
-  %.sroa.085.sroa.0.1 = phi i64 [ 2606, %128 ], [ %85, %84 ], [ 2606, %86 ], [ 2606, %129 ], [ 2606, %.lr.ph.split ], [ 2606, %.lr.ph134 ]
-  %.sroa.085.sroa.4.1 = phi i32 [ %124, %128 ], [ %.sroa.085.sroa.4.0.extract.trunc, %84 ], [ %89, %86 ], [ %124, %129 ], [ %124, %.lr.ph.split ], [ %124, %.lr.ph134 ]
+  %.sroa.687.1 = phi i32 [ 0, %128 ], [ 0, %86 ], [ %.sroa.687.0.copyload, %84 ], [ 0, %.lr.ph.split ], [ 0, %129 ], [ 0, %.lr.ph134 ]
+  %.sroa.085.sroa.0.1 = phi i64 [ 2606, %128 ], [ 2606, %86 ], [ %85, %84 ], [ 2606, %.lr.ph.split ], [ 2606, %129 ], [ 2606, %.lr.ph134 ]
+  %.sroa.085.sroa.4.1 = phi i32 [ %124, %128 ], [ %89, %86 ], [ %.sroa.085.sroa.4.0.extract.trunc, %84 ], [ %124, %.lr.ph.split ], [ %124, %129 ], [ %124, %.lr.ph134 ]
   %.sroa.085.sroa.4.0.insert.ext = zext i32 %.sroa.085.sroa.4.1 to i64
   %.sroa.085.sroa.4.0.insert.shift = shl nuw i64 %.sroa.085.sroa.4.0.insert.ext, 32
   %.sroa.085.sroa.0.0.insert.insert = or disjoint i64 %.sroa.085.sroa.4.0.insert.shift, %.sroa.085.sroa.0.1
@@ -22075,7 +22075,7 @@ transformFkeyGetPrimaryKey.exit.i:                ; preds = %._crit_edge.loopexi
   br i1 %395, label %transformFkeyCheckAttrs.exit.i, label %.thread94.i.i
 
 .thread94.i.i:                                    ; preds = %379, %.thread.i.i, %388, %372, %370, %368, %364, %360, %356, %345
-  %.272.ph.i.i = phi i1 [ %.070124.i485.i, %345 ], [ true, %.thread.i.i ], [ %.070124.i485.i, %360 ], [ %.070124.i485.i, %356 ], [ %.070124.i485.i, %364 ], [ %.070124.i485.i, %368 ], [ %.070124.i485.i, %370 ], [ %.070124.i485.i, %388 ], [ %.070124.i485.i, %372 ], [ %.070124.i485.i, %379 ]
+  %.272.ph.i.i = phi i1 [ true, %.thread.i.i ], [ %.070124.i485.i, %345 ], [ %.070124.i485.i, %360 ], [ %.070124.i485.i, %356 ], [ %.070124.i485.i, %364 ], [ %.070124.i485.i, %368 ], [ %.070124.i485.i, %370 ], [ %.070124.i485.i, %388 ], [ %.070124.i485.i, %372 ], [ %.070124.i485.i, %379 ]
   call void @ReleaseSysCache(ptr noundef nonnull %341) #15
   %indvars.iv.next157.i.i = add nuw nsw i64 %indvars.iv156.i484.i, 1
   %396 = load i32, ptr %330, align 4
@@ -24128,9 +24128,9 @@ ATGetQueueEntry.exit:                             ; preds = %103, %._crit_edge.i
   br i1 %128, label %.lr.ph115, label %.critedge75
 
 .critedge75:                                      ; preds = %ATGetQueueEntry.exit, %.lr.ph99, %.preheader, %.critedge.thread, %.split
-  %.sroa.4.082 = phi i32 [ %.sroa.4.0.lcssa81, %.split ], [ %.sroa.4.0.copyload, %.critedge.thread ], [ %.sroa.4.0.lcssa81, %.preheader ], [ %.sroa.4.0.lcssa81, %.lr.ph99 ], [ %.sroa.4.0.lcssa81, %ATGetQueueEntry.exit ]
-  %.sroa.066.sroa.0.080 = phi i64 [ %.sroa.066.sroa.0.0.lcssa79, %.split ], [ %16, %.critedge.thread ], [ %.sroa.066.sroa.0.0.lcssa79, %.preheader ], [ %.sroa.066.sroa.0.0.lcssa79, %.lr.ph99 ], [ %.sroa.066.sroa.0.0.lcssa79, %ATGetQueueEntry.exit ]
-  %.sroa.066.sroa.3.078 = phi i32 [ %.sroa.066.sroa.3.0.lcssa77, %.split ], [ %.sroa.066.sroa.3.0.extract.trunc, %.critedge.thread ], [ %.sroa.066.sroa.3.0.lcssa77, %.preheader ], [ %.sroa.066.sroa.3.0.lcssa77, %.lr.ph99 ], [ %.sroa.066.sroa.3.0.lcssa77, %ATGetQueueEntry.exit ]
+  %.sroa.4.082 = phi i32 [ %.sroa.4.0.copyload, %.critedge.thread ], [ %.sroa.4.0.lcssa81, %.split ], [ %.sroa.4.0.lcssa81, %.preheader ], [ %.sroa.4.0.lcssa81, %.lr.ph99 ], [ %.sroa.4.0.lcssa81, %ATGetQueueEntry.exit ]
+  %.sroa.066.sroa.0.080 = phi i64 [ %16, %.critedge.thread ], [ %.sroa.066.sroa.0.0.lcssa79, %.split ], [ %.sroa.066.sroa.0.0.lcssa79, %.preheader ], [ %.sroa.066.sroa.0.0.lcssa79, %.lr.ph99 ], [ %.sroa.066.sroa.0.0.lcssa79, %ATGetQueueEntry.exit ]
+  %.sroa.066.sroa.3.078 = phi i32 [ %.sroa.066.sroa.3.0.extract.trunc, %.critedge.thread ], [ %.sroa.066.sroa.3.0.lcssa77, %.split ], [ %.sroa.066.sroa.3.0.lcssa77, %.preheader ], [ %.sroa.066.sroa.3.0.lcssa77, %.lr.ph99 ], [ %.sroa.066.sroa.3.0.lcssa77, %ATGetQueueEntry.exit ]
   %.sroa.066.sroa.3.0.insert.ext = zext i32 %.sroa.066.sroa.3.078 to i64
   %.sroa.066.sroa.3.0.insert.shift = shl nuw i64 %.sroa.066.sroa.3.0.insert.ext, 32
   %.sroa.066.sroa.0.0.insert.insert = add nuw nsw i64 %.sroa.066.sroa.3.0.insert.shift, %.sroa.066.sroa.0.080
@@ -24325,7 +24325,7 @@ define internal fastcc range(i32 0, 33) i32 @transformColumnNameList(i32 noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit115, %.critedge.loopexit111, %.critedge.loopexit107, %.critedge.loopexit, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us.split, %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %5
-  %.026.lcssa = phi i32 [ 0, %5 ], [ %86, %.critedge.loopexit107 ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.us.split.split ], [ %85, %.critedge.loopexit ], [ %87, %.critedge.loopexit111 ], [ %88, %.critedge.loopexit115 ], [ 0, %.lr.ph.split.us.split.us.split ]
+  %.026.lcssa = phi i32 [ 0, %5 ], [ 0, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.split ], [ %85, %.critedge.loopexit ], [ %86, %.critedge.loopexit107 ], [ %87, %.critedge.loopexit111 ], [ %88, %.critedge.loopexit115 ]
   ret i32 %.026.lcssa
 
 .split.us:                                        ; preds = %.lr.ph72, %.lr.ph78, %.lr.ph95, %.lr.ph102
@@ -26207,7 +26207,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %70, %69, %56, %54, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ %71, %70 ], [ 0, %69 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
+  %.0 = phi i64 [ %13, %12 ], [ 0, %69 ], [ %71, %70 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
   ret i64 %.0
 }
 
@@ -27236,8 +27236,8 @@ define internal fastcc void @RemoveInheritance(ptr noundef readonly captures(non
   br i1 %exitcond.not, label %.loopexit.thread, label %147
 
 .loopexit:                                        ; preds = %.split170.split.us, %.split
-  %.4110 = phi ptr [ %152, %.split ], [ %.3109182, %.split170.split.us ]
-  %.6 = phi ptr [ %.3183, %.split ], [ %139, %.split170.split.us ]
+  %.4110 = phi ptr [ %.3109182, %.split170.split.us ], [ %152, %.split ]
+  %.6 = phi ptr [ %139, %.split170.split.us ], [ %.3183, %.split ]
   %154 = call ptr @heap_copytuple(ptr noundef nonnull %118) #15
   %155 = getelementptr i8, ptr %154, i64 16
   %.val = load ptr, ptr %155, align 8
@@ -27275,9 +27275,9 @@ define internal fastcc void @RemoveInheritance(ptr noundef readonly captures(non
   call void @heap_freetuple(ptr noundef nonnull %154) #15
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %153, %137, %.lr.ph165, %.lr.ph153, %.preheader137, %.preheader138, %173, %.lr.ph185
-  %.7113 = phi ptr [ %.3109182, %.lr.ph185 ], [ %.4110, %173 ], [ %.3109182, %137 ], [ %.3109182, %.preheader138 ], [ %.3109182, %.lr.ph165 ], [ %.3109182, %.lr.ph153 ], [ null, %.preheader137 ], [ %.3109182, %153 ]
-  %.7 = phi ptr [ %.3183, %.lr.ph185 ], [ %.6, %173 ], [ %.3183, %137 ], [ null, %.preheader138 ], [ %.3183, %.lr.ph165 ], [ %.3183, %.lr.ph153 ], [ %.3183, %.preheader137 ], [ %.3183, %153 ]
+.loopexit.thread:                                 ; preds = %153, %137, %.preheader137, %.lr.ph153, %.preheader138, %.lr.ph165, %173, %.lr.ph185
+  %.7113 = phi ptr [ %.3109182, %.lr.ph185 ], [ %.4110, %173 ], [ null, %.preheader137 ], [ %.3109182, %.lr.ph153 ], [ %.3109182, %.preheader138 ], [ %.3109182, %.lr.ph165 ], [ %.3109182, %137 ], [ %.3109182, %153 ]
+  %.7 = phi ptr [ %.3183, %.lr.ph185 ], [ %.6, %173 ], [ %.3183, %.preheader137 ], [ %.3183, %.lr.ph153 ], [ null, %.preheader138 ], [ %.3183, %.lr.ph165 ], [ %.3183, %137 ], [ %.3183, %153 ]
   %175 = call ptr @systable_getnext(ptr noundef %116) #15
   %.not125 = icmp eq ptr %175, null
   br i1 %.not125, label %._crit_edge186, label %.lr.ph185
@@ -29612,7 +29612,7 @@ slot_getallattrs.exit:                            ; preds = %194, %200
   br i1 %289, label %.lr.ph330, label %.critedge261
 
 .critedge261:                                     ; preds = %286, %.critedge259, %.lr.ph327, %191
-  %.0221 = phi ptr [ %.0216, %191 ], [ %.0217, %.critedge259 ], [ %.0217, %.lr.ph327 ], [ %.0217, %286 ]
+  %.0221 = phi ptr [ %.0216, %191 ], [ %.0217, %.lr.ph327 ], [ %.0217, %.critedge259 ], [ %.0217, %286 ]
   store ptr %.0221, ptr %178, align 8
   br i1 %.not247, label %.critedge263, label %.lr.ph332
 

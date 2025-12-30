@@ -96,7 +96,7 @@ thread-pre-split:                                 ; preds = %1
   br i1 %31, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %._crit_edge, %8
-  %.0 = phi i32 [ %9, %8 ], [ -1, %10 ], [ %.lcssa, %._crit_edge ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ %9, %8 ], [ %.lcssa, %._crit_edge ], [ -1, %10 ], [ -1, %.lr.ph ]
   ret i32 %.0
 }
 

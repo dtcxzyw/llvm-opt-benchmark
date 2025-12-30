@@ -318,7 +318,7 @@ define range(i32 -1, 1) i32 @H5HF__iblock_decr(ptr noundef %0) local_unnamed_add
   br label %H5HF__iblock_unpin.exit.thread
 
 H5HF__iblock_unpin.exit.thread:                   ; preds = %49, %54, %57, %67, %64, %8, %1
-  %.0 = phi i32 [ -1, %67 ], [ 0, %64 ], [ -1, %57 ], [ 0, %1 ], [ 0, %8 ], [ 0, %54 ], [ 0, %49 ]
+  %.0 = phi i32 [ -1, %67 ], [ 0, %64 ], [ -1, %57 ], [ 0, %8 ], [ 0, %1 ], [ 0, %54 ], [ 0, %49 ]
   ret i32 %.0
 }
 
@@ -1171,7 +1171,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_create(ptr noundef %0, ptr noundef
   br label %.thread136
 
 .thread136:                                       ; preds = %16, %160, %6, %174, %171
-  %.0111 = phi i32 [ -1, %174 ], [ -1, %171 ], [ -1, %16 ], [ 0, %6 ], [ 0, %160 ]
+  %.0111 = phi i32 [ -1, %174 ], [ -1, %171 ], [ 0, %6 ], [ 0, %160 ], [ -1, %16 ]
   ret i32 %.0111
 }
 
@@ -1808,8 +1808,8 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 no
   br label %282
 
 .thread:                                          ; preds = %.lr.ph158, %202, %190, %._crit_edge
-  %216 = phi i32 [ %170, %._crit_edge ], [ %203, %202 ], [ %170, %190 ], [ %203, %.lr.ph158 ]
-  %217 = phi ptr [ %169, %._crit_edge ], [ %199, %202 ], [ %169, %190 ], [ %199, %.lr.ph158 ]
+  %216 = phi i32 [ %203, %202 ], [ %170, %190 ], [ %170, %._crit_edge ], [ %203, %.lr.ph158 ]
+  %217 = phi ptr [ %199, %202 ], [ %169, %190 ], [ %169, %._crit_edge ], [ %199, %.lr.ph158 ]
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 304
   %219 = load i32, ptr %218, align 8, !tbaa !86
   %220 = load i32, ptr %25, align 8, !tbaa !30
@@ -2318,7 +2318,7 @@ H5HF__man_iblock_root_revert.exit.thread:         ; preds = %137, %133, %146
   br label %.thread137
 
 .thread121:                                       ; preds = %.thread150, %60, %.thread, %58, %56
-  %153 = phi ptr [ %53, %.thread ], [ %50, %60 ], [ %50, %58 ], [ %50, %56 ], [ %50, %.thread150 ]
+  %153 = phi ptr [ %50, %58 ], [ %50, %56 ], [ %53, %.thread ], [ %50, %60 ], [ %50, %.thread150 ]
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %155 = load i8, ptr %154, align 8, !tbaa !49, !range !7, !noundef !8
   %156 = trunc nuw i8 %155 to i1
@@ -2365,7 +2365,7 @@ H5HF__man_iblock_root_revert.exit.thread:         ; preds = %137, %133, %146
   br label %.thread137
 
 .thread129:                                       ; preds = %165, %169, %173, %.thread, %.thread121, %162, %159, %157, %.loopexit
-  %180 = phi ptr [ %153, %.thread121 ], [ %53, %.thread ], [ %153, %162 ], [ %153, %159 ], [ %153, %157 ], [ %50, %.loopexit ], [ %153, %173 ], [ %153, %169 ], [ %153, %165 ]
+  %180 = phi ptr [ %153, %.thread121 ], [ %153, %162 ], [ %153, %159 ], [ %153, %157 ], [ %50, %.loopexit ], [ %53, %.thread ], [ %153, %173 ], [ %153, %169 ], [ %153, %165 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %182 = load i8, ptr %181, align 8, !tbaa !49, !range !7, !noundef !8
   %183 = trunc nuw i8 %182 to i1
@@ -2654,7 +2654,7 @@ H5HF__man_iblock_root_revert.exit.thread:         ; preds = %137, %133, %146
   br label %.thread137
 
 .thread137:                                       ; preds = %278, %269, %258, %245, %176, %2, %290, %286, %194, %H5HF__man_iblock_root_revert.exit.thread, %334, %352, %348, %327
-  %.097 = phi i32 [ -1, %H5HF__man_iblock_root_revert.exit.thread ], [ -1, %286 ], [ 0, %2 ], [ -1, %176 ], [ 0, %290 ], [ -1, %194 ], [ 0, %334 ], [ -1, %327 ], [ -1, %348 ], [ 0, %352 ], [ -1, %245 ], [ -1, %258 ], [ -1, %269 ], [ -1, %278 ]
+  %.097 = phi i32 [ -1, %H5HF__man_iblock_root_revert.exit.thread ], [ -1, %286 ], [ 0, %290 ], [ -1, %194 ], [ -1, %176 ], [ 0, %2 ], [ -1, %327 ], [ -1, %348 ], [ 0, %352 ], [ 0, %334 ], [ -1, %245 ], [ -1, %258 ], [ -1, %269 ], [ -1, %278 ]
   ret i32 %.097
 }
 
@@ -2719,7 +2719,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_iblock_root_halve(ptr nou
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %20, %25, %32, %37
-  %.0.i = phi i32 [ %29, %25 ], [ %36, %32 ], [ %24, %20 ], [ %40, %37 ]
+  %.0.i = phi i32 [ %24, %20 ], [ %29, %25 ], [ %36, %32 ], [ %40, %37 ]
   %41 = shl nuw i32 2, %.0.i
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %43 = load ptr, ptr %42, align 8, !tbaa !61
@@ -3274,7 +3274,7 @@ H5HF__man_iblock_protect.exit:                    ; preds = %24, %35
   br label %H5HF__man_iblock_unprotect.exit.thread
 
 H5HF__man_iblock_unprotect.exit.thread:           ; preds = %103, %._crit_edge.i, %96, %5, %128
-  %.052 = phi i32 [ -1, %128 ], [ 0, %5 ], [ -1, %96 ], [ %.153.ph, %._crit_edge.i ], [ %.153.ph, %103 ]
+  %.052 = phi i32 [ -1, %128 ], [ -1, %96 ], [ 0, %5 ], [ %.153.ph, %._crit_edge.i ], [ %.153.ph, %103 ]
   ret i32 %.052
 }
 
@@ -3429,7 +3429,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   br label %.preheader67.lr.ph
 
 .preheader67.lr.ph:                               ; preds = %100, %95, %88, %83, %74, %69, %62, %57
-  %.0.i = phi i32 [ %92, %88 ], [ %66, %62 ], [ %78, %74 ], [ %61, %57 ], [ %73, %69 ], [ %87, %83 ], [ %99, %95 ], [ %103, %100 ]
+  %.0.i = phi i32 [ %61, %57 ], [ %66, %62 ], [ %73, %69 ], [ %78, %74 ], [ %87, %83 ], [ %92, %88 ], [ %99, %95 ], [ %103, %100 ]
   %104 = add i32 %46, %41
   %105 = sub i32 %.0.i, %104
   %106 = getelementptr inbounds nuw i8, ptr %16, i64 344
@@ -3495,7 +3495,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   br label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %._crit_edge, %129, %21
-  %.150.ph105 = phi i32 [ -1, %129 ], [ 0, %21 ], [ 0, %._crit_edge ]
+  %.150.ph105 = phi i32 [ 0, %21 ], [ -1, %129 ], [ 0, %._crit_edge ]
   %133 = load i8, ptr %8, align 1, !tbaa !3, !range !7, !noundef !8
   %134 = trunc nuw i8 %133 to i1
   %135 = getelementptr inbounds nuw i8, ptr %16, i64 336
@@ -3559,7 +3559,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   br i1 %172, label %.lr.ph88, label %H5HF__man_iblock_unprotect.exit.thread, !prof !116
 
 H5HF__man_iblock_unprotect.exit.thread:           ; preds = %._crit_edge.i, %160, %.preheader.thread106, %.lr.ph77.split.split, %.lr.ph77, %7
-  %.049 = phi i32 [ 0, %7 ], [ %.150.ph105, %.lr.ph77 ], [ -1, %.preheader.thread106 ], [ %.150.ph105, %.lr.ph77.split.split ], [ -1, %160 ], [ %.1507687, %._crit_edge.i ]
+  %.049 = phi i32 [ 0, %7 ], [ %.150.ph105, %.lr.ph77 ], [ %.150.ph105, %.lr.ph77.split.split ], [ -1, %.preheader.thread106 ], [ %.1507687, %._crit_edge.i ], [ -1, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.049
 }

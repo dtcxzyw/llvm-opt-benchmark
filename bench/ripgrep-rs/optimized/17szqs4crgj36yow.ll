@@ -220,7 +220,7 @@ define void @_ZN12grep_printer5jsont15base64_standard17h771c5c278aa03829E(ptr no
   br i1 %79, label %._crit_edge, label %.lr.ph
 
 .sink.split:                                      ; preds = %.noexc118, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i110", %.noexc78, %114
-  %.sink155 = phi i64 [ %119, %114 ], [ %.pre.i.i77, %.noexc78 ], [ %.pre.i.i117, %.noexc118 ], [ %165, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i110" ]
+  %.sink155 = phi i64 [ %.pre.i.i77, %.noexc78 ], [ %119, %114 ], [ %.pre.i.i117, %.noexc118 ], [ %165, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i110" ]
   %80 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %81 = getelementptr inbounds i8, ptr %80, i64 %.sink155
   store i8 61, ptr %81, align 1

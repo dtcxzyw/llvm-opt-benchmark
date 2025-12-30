@@ -88,7 +88,7 @@ define noundef ptr @dt_pwstorage_new() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %21, %18, %15, %11
-  %.026 = phi i32 [ %spec.select, %21 ], [ 1, %11 ], [ 2, %15 ], [ 2, %18 ]
+  %.026 = phi i32 [ 1, %11 ], [ 2, %15 ], [ 2, %18 ], [ %spec.select, %21 ]
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %26 = and i32 %25, 64
   %.not28 = icmp eq i32 %26, 0
@@ -129,7 +129,7 @@ define noundef ptr @dt_pwstorage_new() local_unnamed_addr #0 {
 default.unreachable39:                            ; preds = %39
   unreachable
 
-.thread:                                          ; preds = %37, %28, %34, %39
+.thread:                                          ; preds = %28, %34, %37, %39
   store i32 0, ptr %1, align 8, !tbaa !48
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %40, align 8, !tbaa !50

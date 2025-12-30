@@ -163,7 +163,7 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef captures(address_is_nul
   br i1 %96, label %.loopexit, label %70, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.thread9, %.thread10, %90, %.thread, %83, %.thread.thread, %13
-  %97 = phi ptr [ null, %13 ], [ %72, %.thread.thread ], [ %72, %.thread9 ], [ %72, %90 ], [ %72, %.thread ], [ %71, %.thread10 ], [ %72, %83 ]
+  %97 = phi ptr [ null, %13 ], [ %72, %.thread.thread ], [ %72, %.thread9 ], [ %72, %90 ], [ %72, %.thread ], [ %72, %83 ], [ %71, %.thread10 ]
   %98 = icmp eq ptr %97, null
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = select i1 %98, ptr %63, ptr %99
@@ -340,7 +340,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(ad
   br i1 %92, label %.thread9, label %65, !llvm.loop !8
 
 .thread9:                                         ; preds = %82, %86, %.thread, %77, %.thread5, %.thread15, %8, %4, %2
-  %93 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %.thread15 ], [ null, %.thread5 ], [ null, %82 ], [ null, %86 ], [ null, %.thread ], [ %66, %77 ]
+  %93 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %.thread15 ], [ null, %82 ], [ null, %86 ], [ null, %.thread ], [ %66, %77 ], [ null, %.thread5 ]
   ret ptr %93
 }
 
@@ -412,7 +412,7 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captur
   br i1 %41, label %.thread8, label %.lr.ph
 
 .thread8:                                         ; preds = %.thread4, %26, %.thread, %35, %31, %.thread21, %4, %2
-  %42 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.thread21 ], [ null, %35 ], [ null, %.thread ], [ %15, %26 ], [ null, %.thread4 ], [ null, %31 ]
+  %42 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.thread21 ], [ null, %.thread4 ], [ %15, %26 ], [ null, %.thread ], [ null, %35 ], [ null, %31 ]
   ret ptr %42
 }
 
@@ -996,13 +996,13 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   br label %.thread
 
 .thread:                                          ; preds = %33, %.thread.loopexit, %3, %7
-  %40 = phi ptr [ @.str.13, %3 ], [ @.str.14, %7 ], [ @.str.16, %.thread.loopexit ], [ @.str.15, %33 ]
-  %41 = phi i32 [ -22, %3 ], [ -22, %7 ], [ %35, %.thread.loopexit ], [ %35, %33 ]
+  %40 = phi ptr [ @.str.14, %7 ], [ @.str.13, %3 ], [ @.str.16, %.thread.loopexit ], [ @.str.15, %33 ]
+  %41 = phi i32 [ -22, %7 ], [ -22, %3 ], [ %35, %.thread.loopexit ], [ %35, %33 ]
   %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %40) #16
   br label %.thread9
 
 .thread9:                                         ; preds = %33, %.thread8, %.thread
-  %43 = phi i32 [ -12, %.thread8 ], [ %41, %.thread ], [ %35, %33 ]
+  %43 = phi i32 [ %41, %.thread ], [ -12, %.thread8 ], [ %35, %33 ]
   %44 = icmp eq ptr %0, null
   br i1 %44, label %.loopexit12, label %45
 
@@ -1196,7 +1196,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef capture
   br i1 %72, label %131, label %.thread9
 
 .thread9:                                         ; preds = %94, %98, %.thread, %.thread7, %.thread21, %102, %14
-  %103 = phi ptr [ null, %14 ], [ %78, %102 ], [ %78, %.thread21 ], [ %77, %.thread7 ], [ %78, %94 ], [ %78, %98 ], [ %78, %.thread ]
+  %103 = phi ptr [ null, %14 ], [ %78, %102 ], [ %78, %.thread21 ], [ %78, %94 ], [ %78, %98 ], [ %78, %.thread ], [ %77, %.thread7 ]
   %104 = icmp eq ptr %103, null
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %106 = select i1 %104, ptr %64, ptr %105
@@ -1352,7 +1352,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr readnone ca
   br label %.thread1
 
 .thread1:                                         ; preds = %30, %27, %3, %58, %53, %38
-  %65 = phi i32 [ 0, %58 ], [ -22, %3 ], [ -22, %27 ], [ -22, %38 ], [ -22, %53 ], [ -22, %30 ]
+  %65 = phi i32 [ -22, %38 ], [ -22, %53 ], [ 0, %58 ], [ -22, %3 ], [ -22, %27 ], [ -22, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %65
 }
@@ -1494,7 +1494,7 @@ thread-pre-split:                                 ; preds = %.preheader, %26
   store i32 %88, ptr %52, align 1
   br label %26
 
-avtab_write_item.exit.thread:                     ; preds = %thread-pre-split, %58, %69, %84, %61
+avtab_write_item.exit.thread:                     ; preds = %69, %84, %thread-pre-split, %58, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit4
 
@@ -1512,7 +1512,7 @@ avtab_write_item.exit.thread:                     ; preds = %thread-pre-split, %
   br i1 %93, label %.preheader, label %.loopexit4, !llvm.loop !18
 
 .loopexit4:                                       ; preds = %.loopexit, %avtab_write_item.exit.thread, %3, %8
-  %94 = phi i32 [ -22, %3 ], [ 0, %8 ], [ -22, %avtab_write_item.exit.thread ], [ 0, %.loopexit ]
+  %94 = phi i32 [ 0, %8 ], [ -22, %3 ], [ -22, %avtab_write_item.exit.thread ], [ 0, %.loopexit ]
   ret i32 %94
 }
 

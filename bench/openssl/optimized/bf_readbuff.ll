@@ -130,7 +130,7 @@ define internal i32 @readbuffer_read(ptr noundef %0, ptr noundef writeonly captu
   br label %18
 
 readbuffer_resize.exit:                           ; preds = %41, %20, %54, %6, %10, %3, %56
-  %.0 = phi i32 [ 0, %10 ], [ 0, %3 ], [ 0, %6 ], [ %58, %56 ], [ %.1, %54 ], [ 0, %41 ], [ %29, %20 ]
+  %.0 = phi i32 [ %58, %56 ], [ 0, %3 ], [ 0, %10 ], [ 0, %6 ], [ %.1, %54 ], [ 0, %41 ], [ %29, %20 ]
   ret i32 %.0
 }
 
@@ -312,7 +312,7 @@ define internal i32 @readbuffer_gets(ptr noundef %0, ptr noundef writeonly captu
   br label %readbuffer_resize.exit
 
 readbuffer_resize.exit:                           ; preds = %61, %6, %11, %3, %._crit_edge, %74, %49
-  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ %.1, %49 ], [ %76, %74 ], [ %.2, %._crit_edge ], [ 0, %11 ], [ 0, %61 ]
+  %.0 = phi i32 [ %.1, %49 ], [ %76, %74 ], [ %.2, %._crit_edge ], [ 0, %3 ], [ 0, %11 ], [ 0, %6 ], [ 0, %61 ]
   ret i32 %.0
 }
 
@@ -393,7 +393,7 @@ define internal i64 @readbuffer_ctrl(ptr noundef readonly captures(none) %0, i32
   br label %45
 
 45:                                               ; preds = %15, %26, %29, %44, %42, %33, %4, %4, %38, %17, %11, %7
-  %.0 = phi i64 [ 0, %38 ], [ 0, %17 ], [ 0, %7 ], [ 1, %11 ], [ 0, %44 ], [ %16, %15 ], [ 1, %26 ], [ %32, %29 ], [ %43, %42 ], [ %36, %33 ], [ 1, %4 ], [ 1, %4 ]
+  %.0 = phi i64 [ 0, %7 ], [ 1, %11 ], [ 0, %17 ], [ 0, %38 ], [ 0, %44 ], [ %16, %15 ], [ 1, %26 ], [ %32, %29 ], [ %43, %42 ], [ %36, %33 ], [ 1, %4 ], [ 1, %4 ]
   ret i64 %.0
 }
 
@@ -425,7 +425,7 @@ define internal range(i32 0, 2) i32 @readbuffer_new(ptr noundef writeonly captur
   br label %13
 
 13:                                               ; preds = %1, %9, %8
-  %.0 = phi i32 [ 1, %9 ], [ 0, %8 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %9 ], [ 0, %1 ]
   ret i32 %.0
 }
 

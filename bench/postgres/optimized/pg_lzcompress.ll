@@ -80,8 +80,8 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %40, %38, %36
-  %.0160211.ph = phi i32 [ %.0160210214217, %40 ], [ %34, %36 ], [ %34, %38 ]
-  %.0158.ph = phi i32 [ %., %40 ], [ 1024, %36 ], [ 2048, %38 ]
+  %.0160211.ph = phi i32 [ %.0160210214217, %40 ], [ %34, %38 ], [ %34, %36 ]
+  %.0158.ph = phi i32 [ %., %40 ], [ 2048, %38 ], [ 1024, %36 ]
   %42 = add nsw i32 %.0158.ph, -1
   %43 = shl nuw nsw i32 %.0158.ph, 1
   %44 = zext nneg i32 %43 to i64
@@ -234,7 +234,7 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %or.cond.us.i, label %130, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %105, %.preheader.us.i, %130, %.lr.ph15.us.i, %112, %109
-  %.1.us.i = phi i32 [ 0, %109 ], [ %.07222.us.i232, %112 ], [ %91, %130 ], [ %.06314.us.i, %.lr.ph15.us.i ], [ %.29.us.i, %.preheader.us.i ], [ %91, %105 ]
+  %.1.us.i = phi i32 [ 0, %109 ], [ %.07222.us.i232, %112 ], [ %.06314.us.i, %.lr.ph15.us.i ], [ %91, %130 ], [ %91, %105 ], [ %.29.us.i, %.preheader.us.i ]
   %120 = icmp sgt i32 %.1.us.i, %.07222.us.i232
   %spec.select.us.i = tail call i32 @llvm.smax.i32(i32 %.1.us.i, i32 %.07222.us.i232)
   %spec.select85.us.i = select i1 %120, i32 %98, i32 %.06924.us.i231
@@ -543,7 +543,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   br label %.loopexit227
 
 .loopexit227:                                     ; preds = %57, %53, %._crit_edge, %4, %12, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %4 ], [ -1, %12 ], [ %.196, %._crit_edge ], [ -1, %53 ], [ -1, %57 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %12 ], [ -1, %4 ], [ %.196, %._crit_edge ], [ -1, %53 ], [ -1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -704,7 +704,7 @@ define dso_local i32 @pglz_decompress(ptr noundef readonly captures(address) %0,
   br label %.critedge96
 
 .critedge96:                                      ; preds = %41, %44, %77, %78
-  %.5 = phi i32 [ -1, %77 ], [ %82, %78 ], [ -1, %44 ], [ -1, %41 ]
+  %.5 = phi i32 [ %82, %78 ], [ -1, %77 ], [ -1, %44 ], [ -1, %41 ]
   ret i32 %.5
 }
 

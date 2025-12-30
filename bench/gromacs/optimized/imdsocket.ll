@@ -296,7 +296,7 @@ define noundef range(i32 0, 2) i32 @_ZN3gmx15imdsock_destroyEPNS_9IMDSocketE(ptr
   br label %12
 
 12:                                               ; preds = %3, %1, %8
-  %.0 = phi i32 [ 1, %1 ], [ 0, %8 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %1 ], [ 1, %3 ]
   ret i32 %.0
 }
 

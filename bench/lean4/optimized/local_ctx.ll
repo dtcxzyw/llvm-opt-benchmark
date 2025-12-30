@@ -409,7 +409,7 @@ define hidden void @_ZN4lean10local_declC2ERKS0_RKNS_4exprE(ptr noundef nonnull 
   br label %_ZNK4lean10local_decl8get_infoEv.exit
 
 _ZNK4lean10local_decl8get_infoEv.exit:            ; preds = %8, %10, %11
-  %12 = phi ptr [ %.pre.i.i, %11 ], [ %4, %8 ], [ %4, %10 ]
+  %12 = phi ptr [ %4, %8 ], [ %4, %10 ], [ %.pre.i.i, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = ptrtoint ptr %6 to i64
@@ -1141,7 +1141,7 @@ _ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit:      ; preds = %_ZN4lean7sstreamlsI
           cleanup
   br label %63
 
-.thread24:                                        ; preds = %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA24_cEERS0_RKT_.exit, %_ZN4lean7sstreamC2Ev.exit
+.thread24:                                        ; preds = %_ZN4lean7sstreamC2Ev.exit, %_ZN4lean7sstreamlsIA24_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4lean7sstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %5) #13

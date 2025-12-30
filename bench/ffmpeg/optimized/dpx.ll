@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [23 x i8] c"Unsupported format %d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1635, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
+define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca [8 x ptr], align 16
   %6 = alloca [101 x i8], align 16
   %7 = alloca [33 x i8], align 16
@@ -326,7 +326,7 @@ define internal range(i32 1635, 0) i32 @decode_frame(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %772
 
-152:                                              ; preds = %150, %.thread649
+152:                                              ; preds = %.thread649, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %153 = icmp samesign ugt i32 %phi.call, 1967
   br i1 %153, label %154, label %.thread659
@@ -420,12 +420,12 @@ define internal range(i32 1635, 0) i32 @decode_frame(ptr noundef %0, ptr noundef
   br label %772
 
 192:                                              ; preds = %.thread659, %.thread659, %.thread659, %.thread659, %.thread659, %190, %189, %188, %187, %186
-  %.not416 = phi i1 [ false, %190 ], [ true, %186 ], [ true, %187 ], [ false, %188 ], [ false, %189 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ]
-  %193 = phi i1 [ true, %190 ], [ true, %186 ], [ true, %187 ], [ false, %188 ], [ true, %189 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ]
-  %194 = phi i1 [ true, %190 ], [ true, %186 ], [ true, %187 ], [ true, %188 ], [ true, %189 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ]
-  %195 = phi i1 [ true, %190 ], [ false, %186 ], [ true, %187 ], [ false, %188 ], [ false, %189 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ]
-  %196 = phi i1 [ false, %190 ], [ false, %186 ], [ false, %187 ], [ false, %188 ], [ false, %189 ], [ true, %.thread659 ], [ true, %.thread659 ], [ true, %.thread659 ], [ true, %.thread659 ], [ true, %.thread659 ]
-  %.0382 = phi i32 [ 4, %190 ], [ 3, %186 ], [ 4, %187 ], [ 2, %188 ], [ 3, %189 ], [ 1, %.thread659 ], [ 1, %.thread659 ], [ 1, %.thread659 ], [ 1, %.thread659 ], [ 1, %.thread659 ]
+  %.not416 = phi i1 [ true, %186 ], [ true, %187 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ]
+  %193 = phi i1 [ true, %186 ], [ true, %187 ], [ false, %188 ], [ true, %189 ], [ true, %190 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ]
+  %194 = phi i1 [ true, %186 ], [ true, %187 ], [ true, %188 ], [ true, %189 ], [ true, %190 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ]
+  %195 = phi i1 [ false, %186 ], [ true, %187 ], [ false, %188 ], [ false, %189 ], [ true, %190 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ], [ false, %.thread659 ]
+  %196 = phi i1 [ false, %186 ], [ false, %187 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ true, %.thread659 ], [ true, %.thread659 ], [ true, %.thread659 ], [ true, %.thread659 ], [ true, %.thread659 ]
+  %.0382 = phi i32 [ 3, %186 ], [ 4, %187 ], [ 2, %188 ], [ 3, %189 ], [ 4, %190 ], [ 1, %.thread659 ], [ 1, %.thread659 ], [ 1, %.thread659 ], [ 1, %.thread659 ], [ 1, %.thread659 ]
   switch i8 %58, label %772 [
     i8 8, label %197
     i8 10, label %201
@@ -1316,12 +1316,12 @@ read12in32.exit501.us:                            ; preds = %525, %522, %515, %5
   br label %572
 
 572:                                              ; preds = %.sink.split, %530, %399
-  %.13637.us = phi ptr [ %.10634.us, %399 ], [ %.12636.us, %530 ], [ %.13637.us.ph, %.sink.split ]
-  %.10614.us = phi i32 [ %.7611679.us, %399 ], [ %.9613.us, %530 ], [ %.10614.us.ph, %.sink.split ]
-  %.11.us = phi i32 [ %.8680.us, %399 ], [ %.10.us, %530 ], [ %.11.us.ph, %.sink.split ]
-  %.sroa.17.1.us = phi ptr [ %.sroa.17.0682.us, %399 ], [ %.sroa.17.0682.us, %530 ], [ %571, %.sink.split ]
-  %.sroa.12.3.us = phi ptr [ %.sroa.12.1.us, %399 ], [ %.sroa.12.2.us, %530 ], [ %.sroa.12.3.us.ph, %.sink.split ]
-  %.sroa.7.3.us = phi ptr [ %.sroa.7.1.us, %399 ], [ %.sroa.7.2.us, %530 ], [ %.sroa.7.3.us.ph, %.sink.split ]
+  %.13637.us = phi ptr [ %.12636.us, %530 ], [ %.10634.us, %399 ], [ %.13637.us.ph, %.sink.split ]
+  %.10614.us = phi i32 [ %.9613.us, %530 ], [ %.7611679.us, %399 ], [ %.10614.us.ph, %.sink.split ]
+  %.11.us = phi i32 [ %.10.us, %530 ], [ %.8680.us, %399 ], [ %.11.us.ph, %.sink.split ]
+  %.sroa.17.1.us = phi ptr [ %.sroa.17.0682.us, %530 ], [ %.sroa.17.0682.us, %399 ], [ %571, %.sink.split ]
+  %.sroa.12.3.us = phi ptr [ %.sroa.12.2.us, %530 ], [ %.sroa.12.1.us, %399 ], [ %.sroa.12.3.us.ph, %.sink.split ]
+  %.sroa.7.3.us = phi ptr [ %.sroa.7.2.us, %530 ], [ %.sroa.7.1.us, %399 ], [ %.sroa.7.3.us.ph, %.sink.split ]
   %.sroa.0.1.us = getelementptr inbounds nuw i8, ptr %.sroa.0.0685.us, i64 2
   %573 = add nuw nsw i32 %.1372681.us, 1
   %exitcond726.not = icmp eq i32 %573, %358
@@ -1759,7 +1759,7 @@ read10in32.exit465.us:                            ; preds = %653, %651
   br label %772
 
 772:                                              ; preds = %151, %341, %192, %68, %37, %.loopexit, %340, %.thread660, %230, %202, %191, %67, %26, %24, %16
-  %.0 = phi i32 [ -1094995529, %16 ], [ -1094995529, %26 ], [ -1094995529, %24 ], [ -1163346256, %67 ], [ %45, %37 ], [ -1163346256, %191 ], [ -1094995529, %68 ], [ -1094995529, %.thread660 ], [ -1163346256, %340 ], [ -1094995529, %192 ], [ %14, %.loopexit ], [ -1, %202 ], [ -1163346256, %230 ], [ %137, %151 ], [ %345, %341 ]
+  %.0 = phi i32 [ -1094995529, %16 ], [ -1094995529, %26 ], [ -1163346256, %67 ], [ -1163346256, %191 ], [ -1094995529, %.thread660 ], [ -1163346256, %340 ], [ %14, %.loopexit ], [ -1, %202 ], [ -1163346256, %230 ], [ %137, %151 ], [ -1094995529, %24 ], [ %45, %37 ], [ -1094995529, %68 ], [ -1094995529, %192 ], [ %345, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

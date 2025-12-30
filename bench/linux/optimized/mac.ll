@@ -642,7 +642,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   br label %51
 
 51:                                               ; preds = %12, %49
-  %52 = phi i32 [ %.pr, %49 ], [ %11, %12 ]
+  %52 = phi i32 [ %11, %12 ], [ %.pr, %49 ]
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %54, label %.thread7
 
@@ -891,7 +891,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   br label %.thread7.thread
 
 .thread7.thread:                                  ; preds = %54, %.thread7, %125, %.thread9, %172, %15, %33, %129, %120, %110, %75, %71, %67, %63, %58
-  %192 = phi i32 [ -3, %172 ], [ -3, %33 ], [ %61, %58 ], [ %65, %63 ], [ 0, %67 ], [ %73, %71 ], [ %77, %75 ], [ %113, %110 ], [ %121, %120 ], [ 0, %129 ], [ -3, %15 ], [ 0, %.thread9 ], [ 0, %125 ], [ 0, %.thread7 ], [ 0, %54 ]
+  %192 = phi i32 [ %61, %58 ], [ %65, %63 ], [ 0, %67 ], [ %73, %71 ], [ %77, %75 ], [ %113, %110 ], [ %121, %120 ], [ 0, %129 ], [ -3, %15 ], [ -3, %33 ], [ -3, %172 ], [ 0, %.thread9 ], [ 0, %125 ], [ 0, %.thread7 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1245,7 +1245,7 @@ define dso_local i32 @e1000e_setup_fiber_serdes_link(ptr noundef %0) local_unnam
   br label %11
 
 11:                                               ; preds = %1, %9, %10
-  %12 = phi i32 [ -2147483616, %1 ], [ -2147483360, %10 ], [ -2147483232, %9 ]
+  %12 = phi i32 [ -2147483360, %10 ], [ -2147483232, %9 ], [ -2147483616, %1 ]
   tail call void @__ew32(ptr noundef %0, i64 noundef 376, i32 noundef %12) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %12, ptr %13, align 8
@@ -1309,7 +1309,7 @@ define dso_local i32 @e1000e_setup_fiber_serdes_link(ptr noundef %0) local_unnam
   br label %48
 
 48:                                               ; preds = %1, %46, %40, %21
-  %49 = phi i32 [ 0, %46 ], [ 0, %21 ], [ %44, %40 ], [ -3, %1 ]
+  %49 = phi i32 [ 0, %21 ], [ %44, %40 ], [ 0, %46 ], [ -3, %1 ]
   ret i32 %49
 }
 

@@ -1089,7 +1089,7 @@ define internal i32 @php_whirlpool_unserialize(ptr noundef %0, i64 noundef %1, p
   br label %19
 
 19:                                               ; preds = %13, %7, %3, %10
-  %.012 = phi i32 [ %spec.select, %13 ], [ -1, %3 ], [ %8, %7 ], [ -2000, %10 ]
+  %.012 = phi i32 [ %8, %7 ], [ -1, %3 ], [ -2000, %10 ], [ %spec.select, %13 ]
   ret i32 %.012
 }
 

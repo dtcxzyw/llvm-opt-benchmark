@@ -351,7 +351,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
           to label %149 unwind label %147
 
 136:                                              ; preds = %131, %130
-  %.0161 = phi i8 [ %spec.select, %131 ], [ 1, %130 ]
+  %.0161 = phi i8 [ 1, %130 ], [ %spec.select, %131 ]
   %137 = getelementptr inbounds nuw i8, ptr %83, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %137, i64 32, i1 false)
   %138 = getelementptr inbounds nuw i8, ptr %83, i64 48
@@ -1192,8 +1192,8 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
           to label %205 unwind label %193
 
 .thread323:                                       ; preds = %339, %333, %.thread338, %330
-  %.pn238333 = phi { ptr, i32 } [ %lpad.thr_comm336, %.thread338 ], [ %.pn235.pn, %330 ], [ %.pn227.pn, %339 ], [ %334, %333 ]
-  %.11329 = phi i8 [ %.9.ph, %.thread338 ], [ 1, %330 ], [ %.13, %339 ], [ 0, %333 ]
+  %.pn238333 = phi { ptr, i32 } [ %.pn235.pn, %330 ], [ %lpad.thr_comm336, %.thread338 ], [ %.pn227.pn, %339 ], [ %334, %333 ]
+  %.11329 = phi i8 [ 1, %330 ], [ %.9.ph, %.thread338 ], [ %.13, %339 ], [ 0, %333 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$syn..error..Error$GT$$GT$$GT$17h1869ee7c7cb55d98E"(ptr nonnull align 8 %62) #7
           to label %404 unwind label %193
 
@@ -1946,12 +1946,12 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
           to label %.invoke316 unwind label %127
 
 158:                                              ; preds = %.invoke316, %198, %189, %208, %196, %187, %179, %168
-  %.1131 = phi i8 [ %.0130.ph, %.invoke316 ], [ %.0130.ph, %208 ], [ 1, %198 ], [ 1, %196 ], [ %.0130.ph, %189 ], [ %.0130.ph, %187 ], [ %.0130.ph, %168 ], [ %.0130.ph, %179 ]
-  %.sroa.0118.2 = phi i32 [ %.sroa.0118.0.ph, %.invoke316 ], [ %.sroa.0118.0.ph, %208 ], [ %.sroa.0118.0.ph, %198 ], [ %.fca.0.extract, %196 ], [ %.sroa.0118.0.ph, %189 ], [ %.sroa.0118.0.ph, %187 ], [ %.sroa.0118.0.ph, %168 ], [ %.sroa.0118.0.ph, %179 ]
-  %.sroa.5120.2 = phi i32 [ %.sroa.5120.0.ph, %.invoke316 ], [ %.sroa.5120.0.ph, %208 ], [ %.sroa.5120.0.ph, %198 ], [ %.fca.1.extract, %196 ], [ %.sroa.5120.0.ph, %189 ], [ %.sroa.5120.0.ph, %187 ], [ %.sroa.5120.0.ph, %168 ], [ %.sroa.5120.0.ph, %179 ]
-  %.1 = phi i8 [ %.0.ph, %.invoke316 ], [ %.0.ph, %208 ], [ %.0.ph, %198 ], [ %.0.ph, %196 ], [ 1, %189 ], [ 1, %187 ], [ %.0.ph, %168 ], [ %.0.ph, %179 ]
-  %.sroa.0125.2 = phi i32 [ %.sroa.0125.0.ph, %.invoke316 ], [ %.sroa.0125.0.ph, %208 ], [ %.sroa.0125.0.ph, %198 ], [ %.sroa.0125.0.ph, %196 ], [ %.sroa.0125.0.ph, %189 ], [ %.fca.0.extract123, %187 ], [ %.sroa.0125.0.ph, %168 ], [ %.sroa.0125.0.ph, %179 ]
-  %.sroa.5127.2 = phi i32 [ %.sroa.5127.0.ph, %.invoke316 ], [ %.sroa.5127.0.ph, %208 ], [ %.sroa.5127.0.ph, %198 ], [ %.sroa.5127.0.ph, %196 ], [ %.sroa.5127.0.ph, %189 ], [ %.fca.1.extract124, %187 ], [ %.sroa.5127.0.ph, %168 ], [ %.sroa.5127.0.ph, %179 ]
+  %.1131 = phi i8 [ %.0130.ph, %208 ], [ 1, %198 ], [ 1, %196 ], [ %.0130.ph, %189 ], [ %.0130.ph, %187 ], [ %.0130.ph, %179 ], [ %.0130.ph, %168 ], [ %.0130.ph, %.invoke316 ]
+  %.sroa.0118.2 = phi i32 [ %.sroa.0118.0.ph, %208 ], [ %.sroa.0118.0.ph, %198 ], [ %.fca.0.extract, %196 ], [ %.sroa.0118.0.ph, %189 ], [ %.sroa.0118.0.ph, %187 ], [ %.sroa.0118.0.ph, %179 ], [ %.sroa.0118.0.ph, %168 ], [ %.sroa.0118.0.ph, %.invoke316 ]
+  %.sroa.5120.2 = phi i32 [ %.sroa.5120.0.ph, %208 ], [ %.sroa.5120.0.ph, %198 ], [ %.fca.1.extract, %196 ], [ %.sroa.5120.0.ph, %189 ], [ %.sroa.5120.0.ph, %187 ], [ %.sroa.5120.0.ph, %179 ], [ %.sroa.5120.0.ph, %168 ], [ %.sroa.5120.0.ph, %.invoke316 ]
+  %.1 = phi i8 [ %.0.ph, %208 ], [ %.0.ph, %198 ], [ %.0.ph, %196 ], [ 1, %189 ], [ 1, %187 ], [ %.0.ph, %179 ], [ %.0.ph, %168 ], [ %.0.ph, %.invoke316 ]
+  %.sroa.0125.2 = phi i32 [ %.sroa.0125.0.ph, %208 ], [ %.sroa.0125.0.ph, %198 ], [ %.sroa.0125.0.ph, %196 ], [ %.sroa.0125.0.ph, %189 ], [ %.fca.0.extract123, %187 ], [ %.sroa.0125.0.ph, %179 ], [ %.sroa.0125.0.ph, %168 ], [ %.sroa.0125.0.ph, %.invoke316 ]
+  %.sroa.5127.2 = phi i32 [ %.sroa.5127.0.ph, %208 ], [ %.sroa.5127.0.ph, %198 ], [ %.sroa.5127.0.ph, %196 ], [ %.sroa.5127.0.ph, %189 ], [ %.fca.1.extract124, %187 ], [ %.sroa.5127.0.ph, %179 ], [ %.sroa.5127.0.ph, %168 ], [ %.sroa.5127.0.ph, %.invoke316 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4d27c8f4534fc6e3E"(ptr nonnull align 8 %38)
           to label %.outer unwind label %.thread180.loopexit.split-lp
 
@@ -2139,7 +2139,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
           to label %.invoke316 unwind label %127
 
 .invoke316:                                       ; preds = %209, %180, %169, %156
-  %210 = phi ptr [ %21, %180 ], [ %16, %169 ], [ %14, %156 ], [ %34, %209 ]
+  %210 = phi ptr [ %14, %156 ], [ %16, %169 ], [ %21, %180 ], [ %34, %209 ]
   invoke void @_ZN12darling_core5error11Accumulator4push17ha6e8eb8623cca1ddE(ptr nonnull align 8 %41, ptr nonnull align 8 %210)
           to label %158 unwind label %127
 
@@ -2156,7 +2156,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %.4146, label %.thread173.thread, label %110
 
 .thread:                                          ; preds = %.thread180.loopexit, %.thread180.loopexit.split-lp, %126, %69, %76, %81
-  %.pn155172 = phi { ptr, i32 } [ %82, %81 ], [ %.pn, %126 ], [ %70, %69 ], [ %77, %76 ], [ %lpad.loopexit, %.thread180.loopexit ], [ %lpad.loopexit.split-lp, %.thread180.loopexit.split-lp ]
+  %.pn155172 = phi { ptr, i32 } [ %.pn, %126 ], [ %70, %69 ], [ %77, %76 ], [ %82, %81 ], [ %lpad.loopexit, %.thread180.loopexit ], [ %lpad.loopexit.split-lp, %.thread180.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$darling_core..error..Accumulator$GT$17hc3038f3750324f2aE"(ptr nonnull align 8 %41) #7
           to label %.thread173.thread unwind label %107
 

@@ -118,10 +118,10 @@ define dso_local noundef zeroext i1 @_ZN5clang6format13matchFilePathEN4llvm9Stri
   br label %_ZNK4llvm9StringRef4findEcm.exit.loopexit, !llvm.loop !6
 
 _ZNK4llvm9StringRef4findEcm.exit.loopexit:        ; preds = %.lr.ph, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge, %.lr.ph.preheader
-  %.0129.lcssa.ph = phi i32 [ 1, %.lr.ph.preheader ], [ %56, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %56, %.lr.ph ]
-  %.4116.lcssa.ph = phi i32 [ %.0112258, %.lr.ph.preheader ], [ %55, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %55, %.lr.ph ]
-  %.lcssa221.ph = phi i32 [ %46, %.lr.ph.preheader ], [ %57, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %57, %.lr.ph ]
-  %.lcssa220.ph = phi i64 [ %47, %.lr.ph.preheader ], [ %58, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %58, %.lr.ph ]
+  %.0129.lcssa.ph = phi i32 [ %56, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ 1, %.lr.ph.preheader ], [ %56, %.lr.ph ]
+  %.4116.lcssa.ph = phi i32 [ %55, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %.0112258, %.lr.ph.preheader ], [ %55, %.lr.ph ]
+  %.lcssa221.ph = phi i32 [ %57, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %46, %.lr.ph.preheader ], [ %57, %.lr.ph ]
+  %.lcssa220.ph = phi i64 [ %58, %._ZNK4llvm9StringRef4findEcm.exit.loopexit_crit_edge ], [ %47, %.lr.ph.preheader ], [ %58, %.lr.ph ]
   %60 = icmp eq i32 %.0129.lcssa.ph, 2
   %61 = select i1 %60, i8 %45, i8 0
   br label %_ZNK4llvm9StringRef4findEcm.exit
@@ -222,8 +222,8 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   br label %.critedge7.us
 
 .critedge7.us:                                    ; preds = %.critedge7.us, %.critedge7.us.preheader
-  %108 = phi i64 [ %113, %.critedge7.us ], [ %107, %.critedge7.us.preheader ]
-  %.3126271.us = phi i32 [ %112, %.critedge7.us ], [ %.0123257, %.critedge7.us.preheader ]
+  %108 = phi i64 [ %107, %.critedge7.us.preheader ], [ %113, %.critedge7.us ]
+  %.3126271.us = phi i32 [ %.0123257, %.critedge7.us.preheader ], [ %112, %.critedge7.us ]
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 %108
   %110 = sub i64 %3, %108
   %111 = call noundef zeroext i1 @_ZN5clang6format13matchFilePathEN4llvm9StringRefES2_(ptr %105, i64 %106, ptr %109, i64 %110)
@@ -363,11 +363,11 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %.not155 = icmp eq i8 %23, %182
   br i1 %.not155, label %.critedge5, label %.thread214
 
-.critedge5:                                       ; preds = %33, %86, %.thread, %30, %177
-  %183 = phi ptr [ %.pre, %177 ], [ %16, %33 ], [ %16, %86 ], [ %180, %.thread ], [ %16, %30 ]
-  %184 = phi ptr [ %.pre, %177 ], [ %17, %33 ], [ %17, %86 ], [ %180, %.thread ], [ %17, %30 ]
-  %.1124209 = phi i32 [ %.0123257, %177 ], [ %.0123257, %33 ], [ %87, %86 ], [ %.0123257, %.thread ], [ %.0123257, %30 ]
-  %.14.in = phi i32 [ %179, %177 ], [ %.0112258, %33 ], [ %.6118, %86 ], [ %.0112258, %.thread ], [ %27, %30 ]
+.critedge5:                                       ; preds = %86, %33, %.thread, %30, %177
+  %183 = phi ptr [ %.pre, %177 ], [ %16, %86 ], [ %16, %33 ], [ %180, %.thread ], [ %16, %30 ]
+  %184 = phi ptr [ %.pre, %177 ], [ %17, %86 ], [ %17, %33 ], [ %180, %.thread ], [ %17, %30 ]
+  %.1124209 = phi i32 [ %.0123257, %177 ], [ %87, %86 ], [ %.0123257, %33 ], [ %.0123257, %.thread ], [ %.0123257, %30 ]
+  %.14.in = phi i32 [ %179, %177 ], [ %.6118, %86 ], [ %.0112258, %33 ], [ %.0112258, %.thread ], [ %27, %30 ]
   %.14 = add i32 %.14.in, 1
   %185 = add i32 %.1124209, 1
   %186 = zext i32 %185 to i64
@@ -403,8 +403,8 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %199 = icmp eq i64 %1, %.lcssa
   br label %.thread214
 
-.thread214:                                       ; preds = %74, %85, %177, %.thread, %26, %30, %142, %33, %15, %.critedge7, %.lr.ph272.split, %115, %.critedge7.us, %.loopexit.thread, %68, %92, %.loopexit, %.critedge9, %4
-  %.1 = phi i1 [ false, %4 ], [ %199, %.critedge9 ], [ %111, %.critedge7.us ], [ false, %.loopexit.thread ], [ true, %.critedge7 ], [ false, %.loopexit ], [ %70, %68 ], [ %93, %92 ], [ false, %.lr.ph272.split ], [ false, %115 ], [ false, %15 ], [ false, %33 ], [ false, %142 ], [ false, %30 ], [ false, %26 ], [ false, %.thread ], [ false, %177 ], [ false, %85 ], [ false, %74 ]
+.thread214:                                       ; preds = %74, %85, %177, %26, %.thread, %30, %142, %33, %15, %.critedge7, %115, %.lr.ph272.split, %.critedge7.us, %.loopexit.thread, %.loopexit, %68, %92, %.critedge9, %4
+  %.1 = phi i1 [ false, %4 ], [ %199, %.critedge9 ], [ false, %.loopexit.thread ], [ false, %.loopexit ], [ %70, %68 ], [ %93, %92 ], [ %111, %.critedge7.us ], [ true, %.critedge7 ], [ false, %115 ], [ false, %.lr.ph272.split ], [ false, %15 ], [ false, %33 ], [ false, %142 ], [ false, %30 ], [ false, %.thread ], [ false, %26 ], [ false, %177 ], [ false, %85 ], [ false, %74 ]
   ret i1 %.1
 }
 

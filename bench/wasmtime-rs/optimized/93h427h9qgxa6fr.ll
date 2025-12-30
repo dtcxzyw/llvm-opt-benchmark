@@ -173,7 +173,7 @@ define internal fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search
   br label %_ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E.exit
 
 _ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E.exit: ; preds = %27, %38, %30
-  %41 = phi i32 [ %33, %38 ], [ %33, %30 ], [ %2, %27 ]
+  %41 = phi i32 [ %33, %30 ], [ %33, %38 ], [ %2, %27 ]
   store i32 %41, ptr %12, align 4
   %42 = load i128, ptr %28, align 16, !noundef !12
   %43 = icmp eq i128 %42, 0
@@ -657,8 +657,8 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h9a7f42c6692dcaabE.llvm
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.358051856ba06694152837a06f3247e6.45.llvm.10542051026992468343, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb3c6c679d30fbac272368bec4720bf4.1.llvm.12584902720330826042) #12
   unreachable
 
-_ZN17cranelift_codegen2ir7builder11InstBuilder7uextend17h2dcd26178e33c185E.exit.sink.split: ; preds = %.noexc90, %.noexc69
-  %.sink = phi { i32, ptr } [ %140, %.noexc69 ], [ %162, %.noexc90 ]
+_ZN17cranelift_codegen2ir7builder11InstBuilder7uextend17h2dcd26178e33c185E.exit.sink.split: ; preds = %.noexc69, %.noexc90
+  %.sink = phi { i32, ptr } [ %162, %.noexc90 ], [ %140, %.noexc69 ]
   %133 = extractvalue { i32, ptr } %.sink, 0
   %134 = extractvalue { i32, ptr } %.sink, 1
   %135 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %134, i32 noundef %133)
@@ -776,7 +776,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d5202189
   ret void
 
 .body.thread:                                     ; preds = %58, %168, %41
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %168 ], [ %59, %58 ], [ %42, %41 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %168 ], [ %42, %41 ], [ %59, %58 ]
   resume { ptr, i32 } %.pn
 
 168:                                              ; preds = %43
@@ -1731,10 +1731,10 @@ _ZN18cranelift_frontend6switch6Switch17build_search_tree17h4d8d965e8cd512e0E.exi
   unreachable
 
 .thread39:                                        ; preds = %.body33, %184, %182, %.body.i, %323
-  %.pn38 = phi { ptr, i32 } [ %183, %182 ], [ %lpad.thr_comm, %323 ], [ %eh.lpad-body34, %.body33 ], [ %.pn.i, %.body.i ], [ %lpad.thr_comm.split-lp.i, %184 ]
+  %.pn38 = phi { ptr, i32 } [ %lpad.thr_comm, %323 ], [ %lpad.thr_comm.split-lp.i, %184 ], [ %183, %182 ], [ %.pn.i, %.body.i ], [ %eh.lpad-body34, %.body33 ]
   resume { ptr, i32 } %.pn38
 
-323:                                              ; preds = %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ba5a077310c4513E.exit.i", %54, %59, %63, %65, %314
+323:                                              ; preds = %54, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ba5a077310c4513E.exit.i", %59, %63, %65, %314
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$cranelift_frontend..switch..Switch$GT$17h7a7b3215dc42637aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #13

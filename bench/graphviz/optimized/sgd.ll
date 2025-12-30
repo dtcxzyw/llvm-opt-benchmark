@@ -481,7 +481,7 @@ bitarray_new.exit182.i:                           ; preds = %183
   br label %bitarray_reset.exit.i
 
 bitarray_reset.exit.i:                            ; preds = %214, %._crit_edge261.i, %bitarray_new.exit182.i
-  %216 = phi ptr [ %207, %214 ], [ %207, %._crit_edge261.i ], [ %206, %bitarray_new.exit182.i ]
+  %216 = phi ptr [ %207, %._crit_edge261.i ], [ %207, %214 ], [ %206, %bitarray_new.exit182.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %217 = load i64, ptr %216, align 8, !tbaa !58
   %218 = icmp ugt i64 %217, 64

@@ -517,8 +517,8 @@ select.unfold:                                    ; preds = %43, %5
   br label %220
 
 220:                                              ; preds = %213, %209
-  %221 = phi i8 [ %.pre.i, %213 ], [ %211, %209 ]
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %219, %213 ], [ %.sroa.4.113.i.i.i, %209 ]
+  %221 = phi i8 [ %211, %209 ], [ %.pre.i, %213 ]
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.113.i.i.i, %209 ], [ %219, %213 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %222 = getelementptr inbounds nuw i8, ptr %.val.i.i11, i64 %.sroa.3.0.i.i.ph.i
   %223 = and i8 %221, 1
@@ -605,7 +605,7 @@ select.unfold:                                    ; preds = %43, %5
   unreachable
 
 251:                                              ; preds = %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$$LP$u64$C$pingora_cache..eviction..simple_lru..Node$RP$$GT$$GT$17h1ee99eb32869684bE.exit.i", %248, %245
-  %.pn = phi { ptr, i32 } [ %136, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$$LP$u64$C$pingora_cache..eviction..simple_lru..Node$RP$$GT$$GT$17h1ee99eb32869684bE.exit.i" ], [ %246, %245 ], [ %246, %248 ]
+  %.pn = phi { ptr, i32 } [ %136, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$$LP$u64$C$pingora_cache..eviction..simple_lru..Node$RP$$GT$$GT$17h1ee99eb32869684bE.exit.i" ], [ %246, %248 ], [ %246, %245 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2119,7 +2119,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6e122d9f6a3d2203
   br label %.body
 
 .body:                                            ; preds = %26, %30, %32, %47, %48
-  %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %31, %30 ], [ %33, %32 ], [ %27, %26 ], [ %43, %47 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %33, %32 ], [ %31, %30 ], [ %27, %26 ], [ %43, %47 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17h489499e6335cf32cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #27
           to label %.thread unwind label %51
 
@@ -2137,7 +2137,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6e122d9f6a3d2203
   unreachable
 
 .thread:                                          ; preds = %.body, %53
-  %.pn6 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %54, %53 ]
+  %.pn6 = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn6
 
 53:                                               ; preds = %2
@@ -2281,7 +2281,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h703e45be3a1391da
   br label %.body
 
 .body:                                            ; preds = %26, %30, %32, %47, %48
-  %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %31, %30 ], [ %33, %32 ], [ %27, %26 ], [ %43, %47 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %33, %32 ], [ %31, %30 ], [ %27, %26 ], [ %43, %47 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17h489499e6335cf32cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #27
           to label %.thread unwind label %51
 
@@ -2299,7 +2299,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h703e45be3a1391da
   unreachable
 
 .thread:                                          ; preds = %53, %.body
-  %.pn7 = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body, %.body ]
+  %.pn7 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %54, %53 ]
   resume { ptr, i32 } %.pn7
 
 53:                                               ; preds = %2
@@ -2583,7 +2583,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h0c
   ret void
 
 57:                                               ; preds = %45, %41
-  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.19.i.i, %41 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %41 ], [ %51, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2760,8 +2760,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf4
   ret void
 
 54:                                               ; preds = %44, %40
-  %55 = phi i8 [ %.pre, %44 ], [ %42, %40 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.19.i.i, %40 ]
+  %55 = phi i8 [ %42, %40 ], [ %.pre, %44 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %40 ], [ %50, %44 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !450)
   %56 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %57 = and i8 %55, 1
@@ -3364,8 +3364,8 @@ _ZN13pingora_cache4lock11WritePermit3new17h962c4af75f826c12E.exit: ; preds = %_Z
   br label %.thread
 
 .thread:                                          ; preds = %178, %182
-  %189 = phi i8 [ %.pre.i, %182 ], [ %180, %178 ]
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %188, %182 ], [ %.sroa.6.19.i.i.i, %178 ]
+  %189 = phi i8 [ %180, %178 ], [ %.pre.i, %182 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.6.19.i.i.i, %178 ], [ %188, %182 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !552)
   %190 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.sroa.3.0.i.ph.i.i
   %191 = and i8 %189, 1
@@ -3461,7 +3461,7 @@ _ZN13pingora_cache4lock8LockStub9read_lock17hdaa36b303853db6fE.exit49: ; preds =
   br label %"_ZN4core3ptr180drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$u128$C$pingora_cache..lock..LockStub$GT$$GT$$GT$17h30880936ce474f04E.exit55"
 
 "_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$u128$C$pingora_cache..lock..LockStub$GT$$GT$$GT$17h1366c3c5a83bd691E.exit": ; preds = %112, %115, %56, %61
-  %.pn12 = phi { ptr, i32 } [ %57, %56 ], [ %57, %61 ], [ %.pn, %115 ], [ %.pn, %112 ]
+  %.pn12 = phi { ptr, i32 } [ %57, %61 ], [ %57, %56 ], [ %.pn, %115 ], [ %.pn, %112 ]
   resume { ptr, i32 } %.pn12
 
 _ZN13pingora_cache4lock8LockStub9read_lock17hdaa36b303853db6fE.exit: ; preds = %73

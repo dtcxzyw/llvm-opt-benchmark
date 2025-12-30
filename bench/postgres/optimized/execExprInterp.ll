@@ -339,7 +339,7 @@ ExecInitInterpreter.exit:                         ; preds = %1, %5
   br i1 %112, label %103, label %._crit_edge.loopexit, !llvm.loop !6
 
 .thread128.sink.split:                            ; preds = %87, %85, %82, %79, %77, %75, %73, %70, %67, %57, %55, %52, %38, %20, %._crit_edge, %92, %93, %94, %95, %96, %97
-  %ExecJustAssignScanVarVirt.sink = phi ptr [ @ExecJustAssignScanVarVirt, %97 ], [ @ExecJustAssignOuterVarVirt, %96 ], [ @ExecJustAssignInnerVarVirt, %95 ], [ @ExecJustScanVarVirt, %94 ], [ @ExecJustOuterVarVirt, %93 ], [ @ExecJustInnerVarVirt, %92 ], [ @ExecJustHashOuterVarVirt, %85 ], [ @ExecJustHashInnerVarVirt, %82 ], [ @ExecJustApplyFuncToCase, %79 ], [ @ExecJustAssignScanVar, %77 ], [ @ExecJustAssignOuterVar, %75 ], [ @ExecJustAssignInnerVar, %73 ], [ @ExecJustScanVar, %70 ], [ @ExecJustOuterVar, %67 ], [ @ExecJustInnerVar, %57 ], [ @ExecJustHashOuterVarStrict, %55 ], [ @ExecJustHashInnerVar, %52 ], [ @ExecJustHashOuterVar, %38 ], [ @ExecJustHashInnerVarWithIV, %20 ], [ @ExecInterpExpr, %._crit_edge ], [ @ExecJustConst, %87 ]
+  %ExecJustAssignScanVarVirt.sink = phi ptr [ @ExecJustAssignScanVarVirt, %97 ], [ @ExecJustAssignOuterVarVirt, %96 ], [ @ExecJustAssignInnerVarVirt, %95 ], [ @ExecJustScanVarVirt, %94 ], [ @ExecJustOuterVarVirt, %93 ], [ @ExecJustInnerVarVirt, %92 ], [ @ExecInterpExpr, %._crit_edge ], [ @ExecJustHashInnerVarWithIV, %20 ], [ @ExecJustHashOuterVar, %38 ], [ @ExecJustHashInnerVar, %52 ], [ @ExecJustHashOuterVarStrict, %55 ], [ @ExecJustInnerVar, %57 ], [ @ExecJustOuterVar, %67 ], [ @ExecJustScanVar, %70 ], [ @ExecJustAssignInnerVar, %73 ], [ @ExecJustAssignOuterVar, %75 ], [ @ExecJustAssignScanVar, %77 ], [ @ExecJustApplyFuncToCase, %79 ], [ @ExecJustHashInnerVarVirt, %82 ], [ @ExecJustHashOuterVarVirt, %85 ], [ @ExecJustConst, %87 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %ExecJustAssignScanVarVirt.sink, ptr %113, align 8
   br label %.thread128
@@ -1313,7 +1313,7 @@ slot_getsomeattrs.exit:                           ; preds = %54, %60
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %slot_getsomeattrs.exit, %slot_getsomeattrs.exit921, %slot_getsomeattrs.exit922, %slot_getsomeattrs.exit923, %slot_getsomeattrs.exit924, %94, %109, %124, %139, %154, %169, %171, %173, %175, %177, %179, %181, %199, %217, %235, %253, %271, %296, %300, %310, %.loopexit, %344, %ExecEvalFuncExprStrictFusage.exit, %395, %401, %419, %436, %442, %460, %462, %477, %485, %487, %498, %504, %511, %517, %528, %534, %536, %545, %ExecEvalRowNull.exit, %ExecEvalRowNotNull.exit, %626, %640, %654, %665, %ExecEvalParamExec.exit, %684, %686, %690, %701, %713, %733, %777, %ExecEvalCoerceViaIOSafe.exit, %855, %883, %913, %919, %926, %ExecEvalNextValueExpr.exit, %954, %964, %966, %ExecEvalArrayCoerce.exit, %995, %1026, %1045, %1055, %1061, %1084, %1086, %1088, %1090, %1092, %1116, %1118, %1124, %1128, %1130, %1132, %1134, %1146, %ExecEvalConstraintNotNull.exit, %1172, %1174, %1192, %1205, %1214, %1239, %1252, %1262, %1279, %1281, %1283, %1285, %1290, %1292, %1294, %ExecEvalGroupingFunc.exit, %1334, %1353, %1355, %1370, %1376, %1406, %._crit_edge958, %1423, %._crit_edge, %1440, %1446, %1512, %1556, %1558, %1669, %1720, %ExecAggPlainTransByRef.exit920, %1774, %1776, %1787, %1789, %1795, %1813
-  %.0905.be = phi ptr [ %61, %slot_getsomeattrs.exit ], [ %69, %slot_getsomeattrs.exit921 ], [ %77, %slot_getsomeattrs.exit922 ], [ %85, %slot_getsomeattrs.exit923 ], [ %93, %slot_getsomeattrs.exit924 ], [ %108, %94 ], [ %123, %109 ], [ %138, %124 ], [ %153, %139 ], [ %168, %154 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %198, %181 ], [ %216, %199 ], [ %234, %217 ], [ %252, %235 ], [ %270, %253 ], [ %281, %271 ], [ %299, %296 ], [ %309, %300 ], [ %322, %310 ], [ %343, %.loopexit ], [ %356, %344 ], [ %379, %ExecEvalFuncExprStrictFusage.exit ], [ %402, %401 ], [ %400, %395 ], [ %420, %419 ], [ %443, %442 ], [ %441, %436 ], [ %461, %460 ], [ %467, %462 ], [ %484, %477 ], [ %486, %485 ], [ %492, %487 ], [ %503, %498 ], [ %505, %504 ], [ %518, %517 ], [ %516, %511 ], [ %533, %528 ], [ %535, %534 ], [ %544, %536 ], [ %554, %545 ], [ %585, %ExecEvalRowNull.exit ], [ %616, %ExecEvalRowNotNull.exit ], [ %627, %626 ], [ %641, %640 ], [ %655, %654 ], [ %666, %665 ], [ %683, %ExecEvalParamExec.exit ], [ %685, %684 ], [ %689, %686 ], [ %700, %690 ], [ %712, %701 ], [ %720, %713 ], [ %737, %733 ], [ %778, %777 ], [ %829, %ExecEvalCoerceViaIOSafe.exit ], [ %858, %855 ], [ %886, %883 ], [ %925, %919 ], [ %918, %913 ], [ %927, %926 ], [ %1794, %1789 ], [ %948, %ExecEvalNextValueExpr.exit ], [ %963, %954 ], [ %965, %964 ], [ %967, %966 ], [ %994, %ExecEvalArrayCoerce.exit ], [ %1009, %995 ], [ %1033, %1026 ], [ %1050, %1045 ], [ %1060, %1055 ], [ %1062, %1061 ], [ %1085, %1084 ], [ %1087, %1086 ], [ %1089, %1088 ], [ %1091, %1090 ], [ %1111, %1092 ], [ %1117, %1116 ], [ %1123, %1118 ], [ %1127, %1124 ], [ %1837, %1813 ], [ %1812, %1795 ], [ %1145, %1134 ], [ %1153, %1146 ], [ %1171, %ExecEvalConstraintNotNull.exit ], [ %1173, %1172 ], [ %1181, %1174 ], [ %1197, %1192 ], [ %1213, %1205 ], [ %1221, %1214 ], [ %1245, %1239 ], [ %1261, %1252 ], [ %1278, %1262 ], [ %1129, %1128 ], [ %1131, %1130 ], [ %1133, %1132 ], [ %1280, %1279 ], [ %1282, %1281 ], [ %1284, %1283 ], [ %1289, %1285 ], [ %1291, %1290 ], [ %1293, %1292 ], [ %1308, %1294 ], [ %1333, %ExecEvalGroupingFunc.exit ], [ %1352, %1334 ], [ %1354, %1353 ], [ %1363, %1355 ], [ %1375, %1370 ], [ %1394, %1376 ], [ %1411, %1406 ], [ %1412, %._crit_edge958 ], [ %1428, %1423 ], [ %1429, %._crit_edge ], [ %1445, %1440 ], [ %1447, %1446 ], [ %1513, %1512 ], [ %1557, %1556 ], [ %1597, %1558 ], [ %1670, %1669 ], [ %1721, %1720 ], [ %1768, %ExecAggPlainTransByRef.exit920 ], [ %1775, %1774 ], [ %1781, %1776 ], [ %1788, %1787 ]
+  %.0905.be = phi ptr [ %61, %slot_getsomeattrs.exit ], [ %69, %slot_getsomeattrs.exit921 ], [ %77, %slot_getsomeattrs.exit922 ], [ %85, %slot_getsomeattrs.exit923 ], [ %93, %slot_getsomeattrs.exit924 ], [ %108, %94 ], [ %123, %109 ], [ %138, %124 ], [ %153, %139 ], [ %168, %154 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %198, %181 ], [ %216, %199 ], [ %234, %217 ], [ %252, %235 ], [ %270, %253 ], [ %281, %271 ], [ %299, %296 ], [ %309, %300 ], [ %322, %310 ], [ %343, %.loopexit ], [ %356, %344 ], [ %379, %ExecEvalFuncExprStrictFusage.exit ], [ %402, %401 ], [ %400, %395 ], [ %420, %419 ], [ %443, %442 ], [ %441, %436 ], [ %461, %460 ], [ %467, %462 ], [ %484, %477 ], [ %486, %485 ], [ %492, %487 ], [ %503, %498 ], [ %505, %504 ], [ %518, %517 ], [ %516, %511 ], [ %533, %528 ], [ %535, %534 ], [ %544, %536 ], [ %554, %545 ], [ %585, %ExecEvalRowNull.exit ], [ %616, %ExecEvalRowNotNull.exit ], [ %627, %626 ], [ %641, %640 ], [ %655, %654 ], [ %666, %665 ], [ %683, %ExecEvalParamExec.exit ], [ %685, %684 ], [ %689, %686 ], [ %700, %690 ], [ %712, %701 ], [ %720, %713 ], [ %737, %733 ], [ %778, %777 ], [ %829, %ExecEvalCoerceViaIOSafe.exit ], [ %858, %855 ], [ %886, %883 ], [ %925, %919 ], [ %918, %913 ], [ %927, %926 ], [ %948, %ExecEvalNextValueExpr.exit ], [ %963, %954 ], [ %965, %964 ], [ %967, %966 ], [ %994, %ExecEvalArrayCoerce.exit ], [ %1009, %995 ], [ %1033, %1026 ], [ %1050, %1045 ], [ %1060, %1055 ], [ %1062, %1061 ], [ %1085, %1084 ], [ %1087, %1086 ], [ %1089, %1088 ], [ %1091, %1090 ], [ %1111, %1092 ], [ %1117, %1116 ], [ %1123, %1118 ], [ %1127, %1124 ], [ %1837, %1813 ], [ %1812, %1795 ], [ %1145, %1134 ], [ %1153, %1146 ], [ %1171, %ExecEvalConstraintNotNull.exit ], [ %1173, %1172 ], [ %1181, %1174 ], [ %1197, %1192 ], [ %1213, %1205 ], [ %1221, %1214 ], [ %1245, %1239 ], [ %1261, %1252 ], [ %1278, %1262 ], [ %1129, %1128 ], [ %1131, %1130 ], [ %1133, %1132 ], [ %1280, %1279 ], [ %1282, %1281 ], [ %1284, %1283 ], [ %1289, %1285 ], [ %1291, %1290 ], [ %1293, %1292 ], [ %1308, %1294 ], [ %1333, %ExecEvalGroupingFunc.exit ], [ %1352, %1334 ], [ %1354, %1353 ], [ %1363, %1355 ], [ %1375, %1370 ], [ %1394, %1376 ], [ %1411, %1406 ], [ %1412, %._crit_edge958 ], [ %1428, %1423 ], [ %1429, %._crit_edge ], [ %1445, %1440 ], [ %1447, %1446 ], [ %1513, %1512 ], [ %1557, %1556 ], [ %1597, %1558 ], [ %1670, %1669 ], [ %1721, %1720 ], [ %1768, %ExecAggPlainTransByRef.exit920 ], [ %1775, %1774 ], [ %1781, %1776 ], [ %1788, %1787 ], [ %1794, %1789 ]
   br label %.backedge
 
 62:                                               ; preds = %.backedge
@@ -2142,7 +2142,7 @@ ExecEvalFuncExprStrictFusage.exit:                ; preds = %367, %.critedge.i
   br i1 %.not.us.i.i, label %ExecEvalRowNull.exit, label %.lr.ph.split.us.split.i.i, !llvm.loop !14
 
 ExecEvalRowNull.exit:                             ; preds = %579, %581, %555, %563
-  %.sink.i.i = phi i64 [ 1, %563 ], [ 1, %555 ], [ 1, %581 ], [ 0, %579 ]
+  %.sink.i.i = phi i64 [ 1, %563 ], [ 1, %555 ], [ 0, %579 ], [ 1, %581 ]
   %584 = load ptr, ptr %556, align 8
   store i64 %.sink.i.i, ptr %584, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2204,7 +2204,7 @@ ExecEvalRowNull.exit:                             ; preds = %579, %581, %555, %5
   br i1 %.not.i.i, label %ExecEvalRowNotNull.exit, label %.lr.ph.split.i.i, !llvm.loop !14
 
 ExecEvalRowNotNull.exit:                          ; preds = %610, %612, %586, %594
-  %.sink.i.i929 = phi i64 [ 1, %594 ], [ 0, %586 ], [ 1, %612 ], [ 0, %610 ]
+  %.sink.i.i929 = phi i64 [ 1, %594 ], [ 0, %586 ], [ 0, %610 ], [ 1, %612 ]
   %615 = load ptr, ptr %587, align 8
   store i64 %.sink.i.i929, ptr %615, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2752,7 +2752,7 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %797, %804, %820, %8
   unreachable
 
 ExecEvalNextValueExpr.exit:                       ; preds = %929, %935, %937
-  %.sink.i = phi i64 [ %936, %935 ], [ %938, %937 ], [ %932, %929 ]
+  %.sink.i = phi i64 [ %938, %937 ], [ %936, %935 ], [ %932, %929 ]
   %944 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %945 = load ptr, ptr %944, align 8
   store i64 %.sink.i, ptr %945, align 8
@@ -4868,7 +4868,7 @@ define dso_local void @ExecEvalNextValueExpr(ptr noundef readnone captures(none)
   unreachable
 
 16:                                               ; preds = %2, %10, %8
-  %.sink = phi i64 [ %9, %8 ], [ %11, %10 ], [ %5, %2 ]
+  %.sink = phi i64 [ %11, %10 ], [ %9, %8 ], [ %5, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   store i64 %.sink, ptr %18, align 8
@@ -4940,7 +4940,7 @@ define dso_local void @ExecEvalRowNull(ptr noundef readnone captures(none) %0, p
   br i1 %.not.us.i, label %ExecEvalRowNullInt.exit, label %.lr.ph.split.us.split.i, !llvm.loop !14
 
 ExecEvalRowNullInt.exit:                          ; preds = %29, %31, %3, %12
-  %.sink.i = phi i64 [ 1, %12 ], [ 1, %3 ], [ 0, %29 ], [ 1, %31 ]
+  %.sink.i = phi i64 [ 1, %12 ], [ 1, %3 ], [ 1, %31 ], [ 0, %29 ]
   %34 = load ptr, ptr %5, align 8
   store i64 %.sink.i, ptr %34, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5005,7 +5005,7 @@ define dso_local void @ExecEvalRowNotNull(ptr noundef readnone captures(none) %0
   br i1 %.not.i, label %ExecEvalRowNullInt.exit, label %.lr.ph.split.i, !llvm.loop !14
 
 ExecEvalRowNullInt.exit:                          ; preds = %29, %31, %3, %12
-  %.sink.i = phi i64 [ 1, %12 ], [ 0, %3 ], [ 0, %29 ], [ 1, %31 ]
+  %.sink.i = phi i64 [ 1, %12 ], [ 0, %3 ], [ 1, %31 ], [ 0, %29 ]
   %34 = load ptr, ptr %5, align 8
   store i64 %.sink.i, ptr %34, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -6041,7 +6041,7 @@ expanded_record_get_field.exit:                   ; preds = %76, %85
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %141, %169, %172, %175, %178, %183, %185, %197, %198
-  %.0.i61 = phi i64 [ %142, %141 ], [ %199, %198 ], [ 0, %197 ], [ %186, %185 ], [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %179, %178 ], [ %184, %183 ]
+  %.0.i61 = phi i64 [ %142, %141 ], [ 0, %197 ], [ %199, %198 ], [ %186, %185 ], [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %179, %178 ], [ %184, %183 ]
   %200 = load ptr, ptr %12, align 8
   store i64 %.0.i61, ptr %200, align 8
   br label %201
@@ -6603,7 +6603,7 @@ fetch_att.exit:                                   ; preds = %86, %89, %92, %95, 
   br label %145
 
 145:                                              ; preds = %133, %142, %139, %136
-  %146 = phi i64 [ %138, %136 ], [ %144, %142 ], [ %141, %139 ], [ %135, %133 ]
+  %146 = phi i64 [ %138, %136 ], [ %141, %139 ], [ %144, %142 ], [ %135, %133 ]
   %147 = inttoptr i64 %146 to ptr
   br label %148
 
@@ -6640,7 +6640,7 @@ fetch_att.exit:                                   ; preds = %86, %89, %92, %95, 
   br i1 %154, label %.sink.split.sink.split, label %159
 
 159:                                              ; preds = %.thread147, %151, %157, %158
-  %.2102 = phi i8 [ %.0100130, %158 ], [ %.0100130, %157 ], [ 1, %151 ], [ 1, %.thread147 ]
+  %.2102 = phi i8 [ %.0100130, %157 ], [ %.0100130, %158 ], [ 1, %151 ], [ 1, %.thread147 ]
   %160 = shl i32 %.092134, 1
   %161 = icmp eq i32 %160, 256
   %spec.select.idx = zext i1 %161 to i64
@@ -6653,8 +6653,8 @@ fetch_att.exit:                                   ; preds = %86, %89, %92, %95, 
   br i1 %exitcond.not, label %.sink.split.sink.split, label %78, !llvm.loop !22
 
 .sink.split.sink.split:                           ; preds = %157, %158, %159, %28
-  %.sink.shrunk = phi i1 [ %29, %28 ], [ %51, %159 ], [ true, %157 ], [ false, %158 ]
-  %.1101.ph.sink.ph = phi i8 [ 0, %28 ], [ %.2102, %159 ], [ 0, %157 ], [ 0, %158 ]
+  %.sink.shrunk = phi i1 [ %29, %28 ], [ %51, %159 ], [ false, %158 ], [ true, %157 ]
+  %.1101.ph.sink.ph = phi i8 [ 0, %28 ], [ %.2102, %159 ], [ 0, %158 ], [ 0, %157 ]
   %.sink = zext i1 %.sink.shrunk to i64
   %163 = load ptr, ptr %18, align 8
   store i64 %.sink, ptr %163, align 8
@@ -7003,7 +7003,7 @@ fetch_att.exit:                                   ; preds = %128, %131, %134, %1
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %178, %188, %185, %182
-  %191 = phi i64 [ %184, %182 ], [ %190, %188 ], [ %187, %185 ], [ %181, %178 ]
+  %191 = phi i64 [ %184, %182 ], [ %187, %185 ], [ %190, %188 ], [ %181, %178 ]
   %192 = inttoptr i64 %191 to ptr
   %193 = load ptr, ptr %44, align 8
   %194 = getelementptr i8, ptr %193, i64 40
@@ -7336,8 +7336,8 @@ saophash_lookup.exit:                             ; preds = %324
   br label %362
 
 362:                                              ; preds = %saophash_lookup.exit, %.loopexit, %360, %352
-  %.095 = phi i8 [ 0, %saophash_lookup.exit ], [ %348, %.loopexit ], [ %359, %352 ], [ %359, %360 ]
-  %.1 = phi i64 [ %.094, %saophash_lookup.exit ], [ %.094.mux, %.loopexit ], [ %357, %352 ], [ %361, %360 ]
+  %.095 = phi i8 [ 0, %saophash_lookup.exit ], [ %359, %352 ], [ %359, %360 ], [ %348, %.loopexit ]
+  %.1 = phi i64 [ %.094, %saophash_lookup.exit ], [ %357, %352 ], [ %361, %360 ], [ %.094.mux, %.loopexit ]
   %363 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %364 = load ptr, ptr %363, align 8
   store i64 %.1, ptr %364, align 8
@@ -7474,7 +7474,7 @@ list_length.exit:                                 ; preds = %12, %33
   br i1 %23, label %24, label %.critedge130
 
 .critedge130:                                     ; preds = %list_length.exit, %33
-  %.0.lcssa = phi ptr [ %.1, %33 ], [ %.0138, %list_length.exit ]
+  %.0.lcssa = phi ptr [ %.0138, %list_length.exit ], [ %.1, %33 ]
   %.not123 = icmp eq ptr %.0.lcssa, null
   br i1 %.not123, label %.critedge125, label %35
 
@@ -7672,8 +7672,8 @@ list_length.exit:                                 ; preds = %12, %33
   br label %147
 
 147:                                              ; preds = %133, %136, %141
-  %.0116 = phi i1 [ true, %136 ], [ false, %141 ], [ false, %133 ]
-  %.0115 = phi ptr [ null, %136 ], [ %146, %141 ], [ null, %133 ]
+  %.0116 = phi i1 [ false, %141 ], [ true, %136 ], [ false, %133 ]
+  %.0115 = phi ptr [ %146, %141 ], [ null, %136 ], [ null, %133 ]
   %148 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr %6, align 8
@@ -7921,8 +7921,8 @@ define dso_local void @ExecEvalJsonConstructor(ptr readnone captures(none) %0, p
   unreachable
 
 84:                                               ; preds = %76, %78, %65, %61, %63, %47, %30, %16
-  %.042 = phi i8 [ 0, %16 ], [ 0, %30 ], [ 1, %65 ], [ 1, %47 ], [ 0, %61 ], [ 0, %63 ], [ 0, %78 ], [ 0, %76 ]
-  %.0 = phi i64 [ %29, %16 ], [ %46, %30 ], [ 0, %65 ], [ 0, %47 ], [ %62, %61 ], [ %64, %63 ], [ %73, %78 ], [ %77, %76 ]
+  %.042 = phi i8 [ 0, %16 ], [ 0, %30 ], [ 1, %47 ], [ 0, %63 ], [ 0, %61 ], [ 1, %65 ], [ 0, %78 ], [ 0, %76 ]
+  %.0 = phi i64 [ %29, %16 ], [ %46, %30 ], [ 0, %47 ], [ %64, %63 ], [ %62, %61 ], [ 0, %65 ], [ %73, %78 ], [ %77, %76 ]
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8
   store i64 %.0, ptr %86, align 8
@@ -7988,12 +7988,12 @@ define dso_local void @ExecEvalJsonIsPredicate(ptr readnone captures(none) %0, p
   %25 = tail call i32 @json_get_first_token(ptr noundef %20, i1 noundef zeroext false) #19
   switch i32 %25, label %.thread36 [
     i32 3, label %26
-    i32 5, label %32
-    i32 1, label %29
-    i32 2, label %29
-    i32 9, label %29
-    i32 10, label %29
-    i32 11, label %29
+    i32 5, label %29
+    i32 1, label %32
+    i32 2, label %32
+    i32 9, label %32
+    i32 10, label %32
+    i32 11, label %32
   ]
 
 26:                                               ; preds = %24
@@ -8001,17 +8001,17 @@ define dso_local void @ExecEvalJsonIsPredicate(ptr readnone captures(none) %0, p
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %.thread, label %.thread36
 
-29:                                               ; preds = %24, %24, %24, %24, %24
+29:                                               ; preds = %24
   %30 = load i32, ptr %21, align 8
-  %31 = icmp eq i32 %30, 3
+  %31 = icmp eq i32 %30, 2
   br i1 %31, label %.thread, label %.thread36
 
-32:                                               ; preds = %24
+32:                                               ; preds = %24, %24, %24, %24, %24
   %33 = load i32, ptr %21, align 8
-  %34 = icmp eq i32 %33, 2
+  %34 = icmp eq i32 %33, 3
   br i1 %34, label %.thread, label %.thread36
 
-.thread:                                          ; preds = %18, %26, %29, %32
+.thread:                                          ; preds = %18, %29, %26, %32
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %36 = load i8, ptr %35, align 4, !range !8, !noundef !9
   %37 = trunc nuw i8 %36 to i1
@@ -8059,8 +8059,8 @@ define dso_local void @ExecEvalJsonIsPredicate(ptr readnone captures(none) %0, p
   %62 = icmp eq i32 %61, 1342177280
   br label %.thread36
 
-.thread36:                                        ; preds = %24, %26, %29, %13, %48, %53, %58, %44, %40, %32, %38, %.thread
-  %.2 = phi i1 [ false, %44 ], [ false, %32 ], [ true, %40 ], [ %39, %38 ], [ true, %.thread ], [ %62, %58 ], [ %52, %48 ], [ %57, %53 ], [ false, %13 ], [ false, %26 ], [ false, %29 ], [ false, %24 ]
+.thread36:                                        ; preds = %24, %29, %26, %13, %48, %53, %58, %44, %40, %32, %38, %.thread
+  %.2 = phi i1 [ %39, %38 ], [ true, %.thread ], [ false, %32 ], [ true, %40 ], [ %52, %48 ], [ %57, %53 ], [ %62, %58 ], [ false, %44 ], [ false, %13 ], [ false, %26 ], [ false, %29 ], [ false, %24 ]
   %63 = zext i1 %.2 to i64
   %64 = load ptr, ptr %5, align 8
   store i64 %63, ptr %64, align 8
@@ -8248,7 +8248,7 @@ define dso_local i32 @ExecEvalJsonExprPath(ptr readnone captures(none) %0, ptr n
   unreachable
 
 116:                                              ; preds = %69, %84, %100, %107, %93, %74, %34, %40, %46
-  %.097 = phi ptr [ null, %34 ], [ null, %46 ], [ null, %40 ], [ null, %69 ], [ null, %74 ], [ %88, %84 ], [ null, %93 ], [ %103, %100 ], [ %103, %107 ]
+  %.097 = phi ptr [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %69 ], [ null, %74 ], [ %88, %84 ], [ null, %93 ], [ %103, %100 ], [ %103, %107 ]
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = load i8, ptr %118, align 1, !range !8, !noundef !9
@@ -8387,7 +8387,7 @@ define dso_local i32 @ExecEvalJsonExprPath(ptr readnone captures(none) %0, ptr n
   br label %193
 
 193:                                              ; preds = %.sink.split, %189, %182, %165, %157
-  %.0 = phi i32 [ %187, %182 ], [ %159, %157 ], [ %167, %165 ], [ %15, %189 ], [ %192, %.sink.split ]
+  %.0 = phi i32 [ %159, %157 ], [ %167, %165 ], [ %187, %182 ], [ %15, %189 ], [ %192, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -8881,7 +8881,7 @@ define dso_local void @ExecEvalWholeRowVar(ptr noundef readonly captures(none) %
   br i1 %.not, label %.sink.split, label %204
 
 .sink.split:                                      ; preds = %16, %12, %9, %3, %8
-  %.sink147 = phi i64 [ 16, %3 ], [ 8, %9 ], [ 112, %12 ], [ 24, %8 ], [ 120, %16 ]
+  %.sink147 = phi i64 [ 24, %8 ], [ 16, %3 ], [ 8, %9 ], [ 112, %12 ], [ 120, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink147
   %21 = load ptr, ptr %20, align 8
   br label %22
@@ -9069,7 +9069,7 @@ define dso_local void @ExecEvalWholeRowVar(ptr noundef readonly captures(none) %
   br label %134
 
 134:                                              ; preds = %122, %131, %._crit_edge, %106, %107, %118
-  %.095 = phi ptr [ %113, %107 ], [ %53, %._crit_edge ], [ %113, %118 ], [ %53, %106 ], [ %113, %131 ], [ %113, %122 ]
+  %.095 = phi ptr [ %113, %118 ], [ %113, %107 ], [ %53, %106 ], [ %53, %._crit_edge ], [ %113, %131 ], [ %113, %122 ]
   %135 = tail call ptr @BlessTupleDesc(ptr noundef %.095) #19
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %135, ptr %136, align 8
@@ -9372,7 +9372,7 @@ define dso_local i64 @ExecAggCopyTransValue(ptr noundef readonly captures(none) 
   br label %36
 
 36:                                               ; preds = %6, %29, %22
-  %.0 = phi i64 [ %2, %22 ], [ %35, %29 ], [ 0, %6 ]
+  %.0 = phi i64 [ %35, %29 ], [ %2, %22 ], [ 0, %6 ]
   br i1 %5, label %49, label %37
 
 37:                                               ; preds = %36

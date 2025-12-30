@@ -568,7 +568,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   br label %.thread7
 
 .thread7:                                         ; preds = %80, %78, %82, %45, %40
-  %88 = phi i1 [ false, %40 ], [ true, %82 ], [ false, %45 ], [ false, %78 ], [ false, %80 ]
+  %88 = phi i1 [ false, %40 ], [ false, %45 ], [ true, %82 ], [ false, %78 ], [ false, %80 ]
   call void @_raw_spin_unlock(ptr noundef %0) #8
   %89 = and i64 %8, 512
   %90 = icmp eq i64 %89, 0
@@ -579,7 +579,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   br label %92
 
 92:                                               ; preds = %.thread7, %91, %34, %30, %4
-  %93 = phi i1 [ true, %30 ], [ true, %34 ], [ true, %4 ], [ %88, %91 ], [ %88, %.thread7 ]
+  %93 = phi i1 [ true, %4 ], [ true, %30 ], [ true, %34 ], [ %88, %91 ], [ %88, %.thread7 ]
   ret i1 %93
 }
 

@@ -878,7 +878,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit:           ; preds = %57, %_ZNK4llvm8MCSy
   br i1 %or.cond35, label %.thread, label %105
 
 .thread:                                          ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i, %63, %_ZNK4llvm8MCSymbol11isInSectionEv.exit, %._crit_edge51
-  %76 = phi ptr [ %.pre56, %._crit_edge51 ], [ %58, %63 ], [ %.pre55, %_ZNK4llvm8MCSymbol11isInSectionEv.exit ], [ %.pre55.pre, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i ]
+  %76 = phi ptr [ %58, %63 ], [ %.pre55, %_ZNK4llvm8MCSymbol11isInSectionEv.exit ], [ %.pre56, %._crit_edge51 ], [ %.pre55.pre, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4544
   %78 = tail call noundef i32 @_ZN4llvm11AddressPool8getIndexEPKNS_8MCSymbolEb(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull %3, i1 noundef zeroext false) #26
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1797,8 +1797,8 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i32: ; preds = %42, %3
   br label %_ZNK4llvm13DICommonBlock7getNameEv.exit.thread
 
 _ZNK4llvm13DICommonBlock7getNameEv.exit.thread:   ; preds = %49, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i32, %_ZNK4llvm13DICommonBlock7getNameEv.exit, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
-  %.sroa.050.0 = phi ptr [ @.str.9, %_ZNK4llvm13DICommonBlock7getNameEv.exit ], [ @.str.9, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ], [ %51, %49 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i32 ]
-  %.sroa.6.0 = phi i64 [ 6, %_ZNK4llvm13DICommonBlock7getNameEv.exit ], [ 6, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ], [ %52, %49 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i32 ]
+  %.sroa.050.0 = phi ptr [ @.str.9, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ], [ @.str.9, %_ZNK4llvm13DICommonBlock7getNameEv.exit ], [ %51, %49 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i32 ]
+  %.sroa.6.0 = phi i64 [ 6, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ], [ 6, %_ZNK4llvm13DICommonBlock7getNameEv.exit ], [ %52, %49 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i32 ]
   tail call void @_ZN4llvm9DwarfUnit9addStringERNS_3DIEENS_5dwarf9AttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %20, i16 noundef zeroext 3, ptr %.sroa.050.0, i64 %.sroa.6.0) #26
   %53 = load i64, ptr %7, align 8
   %54 = and i64 %53, 2
@@ -2019,7 +2019,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapI
   br label %73
 
 _ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm16DwarfCompileUnit20getAbstractScopeDIEsEv.exit, %2, %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit
-  %.024 = phi ptr [ null, %2 ], [ %1, %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit ], [ %.125, %_ZN4llvm16DwarfCompileUnit20getAbstractScopeDIEsEv.exit ], [ %.125, %.lr.ph.i.i.i.i ]
+  %.024 = phi ptr [ %1, %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit ], [ null, %2 ], [ %.125, %_ZN4llvm16DwarfCompileUnit20getAbstractScopeDIEsEv.exit ], [ %.125, %.lr.ph.i.i.i.i ]
   %72 = tail call noundef ptr @_ZN4llvm9DwarfUnit21getOrCreateContextDIEEPKNS_7DIScopeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %.024) #26
   br label %73
 
@@ -2326,7 +2326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread
 
-_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread: ; preds = %14, %24, %20, %31, %5, %5, %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread: ; preds = %24, %20, %14, %31, %5, %5, %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
   ret void
 }
 
@@ -2817,7 +2817,7 @@ _ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit: ; preds = %222, %223
   call void @_ZN4llvm9DwarfUnit16addConstantValueERNS_3DIEEbm(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %234, i64 noundef %238) #26
   br label %.loopexit
 
-239:                                              ; preds = %32, %_ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit, %37, %41, %.critedge118
+239:                                              ; preds = %_ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit, %32, %37, %41, %.critedge118
   %.sroa.0204.2.ph = phi ptr [ %.sroa.0204.0258, %.critedge118 ], [ %.sroa.0204.0258, %32 ], [ %.sroa.0204.0258, %37 ], [ %.sroa.0204.0258, %41 ], [ %.sroa.0204.3, %_ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit ]
   %.sroa.0211.2.ph = phi i32 [ %.sroa.0211.0259, %.critedge118 ], [ %.sroa.0211.0259, %32 ], [ %.sroa.0211.0259, %37 ], [ %.sroa.0211.0259, %41 ], [ %.sroa.0211.3, %_ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit ]
   %.sroa.4212.2.ph = phi i1 [ %.sroa.4212.0260, %.critedge118 ], [ %.sroa.4212.0260, %32 ], [ %.sroa.4212.0260, %37 ], [ %.sroa.4212.0260, %41 ], [ %.sroa.4212.3, %_ZN4llvm18DIExpressionCursorC2EPKNS_12DIExpressionE.exit ]
@@ -5268,8 +5268,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_10DIVariableELb1EE9push_backES3_.exit142.
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.sink.split.sink.split.i.i, %369, %311
-  %.sink259.i.i = phi i32 [ %371, %369 ], [ %313, %311 ], [ %.pre.i148.i.i, %.sink.split.sink.split.i.i ]
-  %.sink.i.i = phi i64 [ %370, %369 ], [ %312, %311 ], [ %.sink.ph.i.i, %.sink.split.sink.split.i.i ]
+  %.sink259.i.i = phi i32 [ %313, %311 ], [ %371, %369 ], [ %.pre.i148.i.i, %.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i64 [ %312, %311 ], [ %370, %369 ], [ %.sink.ph.i.i, %.sink.split.sink.split.i.i ]
   %375 = load ptr, ptr %18, align 8, !tbaa !25, !alias.scope !808, !noalias !776
   %376 = zext i32 %.sink259.i.i to i64
   %377 = getelementptr inbounds nuw ptr, ptr %375, i64 %376
@@ -5987,7 +5987,7 @@ _ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv.exit.thread1.i: ; pred
   br label %_ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv.exit.thread.i
 
 _ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv.exit.thread.i: ; preds = %706, %_ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv.exit.thread1.i, %701, %695
-  %.1.i = phi i1 [ false, %695 ], [ true, %701 ], [ true, %706 ], [ %.not.i.i.i75, %_ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv.exit.thread1.i ]
+  %.1.i = phi i1 [ false, %695 ], [ %.not.i.i.i75, %_ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv.exit.thread1.i ], [ true, %701 ], [ true, %706 ]
   %717 = load ptr, ptr %677, align 8, !tbaa !25
   %718 = icmp eq ptr %717, %678
   br i1 %718, label %"_ZZN4llvm16DwarfCompileUnit25createAndAddScopeChildrenEPNS_12LexicalScopeERNS_3DIEEENK3$_0clES2_.exit", label %719
@@ -7581,7 +7581,7 @@ _ZN4llvm15DwarfExpressionD2Ev.exit44:             ; preds = %_ZNK4llvm10DIVariab
   br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit90", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit92", %179, %185, %191
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %185 ], [ %.029.lcssa.i.i.i.i.i.i, %179 ], [ %.2.i.i.i.i.i.i, %191 ], [ %197, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit92" ], [ %196, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit90" ], [ %195, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %179 ], [ %.1.i.i.i.i.i.i, %185 ], [ %.2.i.i.i.i.i.i, %191 ], [ %195, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %196, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit90" ], [ %197, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit92" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not69 = icmp eq ptr %153, %.028.i.i.i.i.i.i
   br i1 %.not69, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.thread", label %261
 
@@ -9106,7 +9106,7 @@ _ZNK4llvm12DISubprogram14getDeclarationEv.exit.thread: ; preds = %3
   br label %_ZNK4llvm12DISubprogram8getScopeEv.exit
 
 _ZNK4llvm12DISubprogram8getScopeEv.exit:          ; preds = %_ZNK4llvm12DISubprogram14getDeclarationEv.exit, %_ZNK4llvm12DISubprogram14getDeclarationEv.exit.thread, %25, %22
-  %.sroa.0.0.i.i.i.i11.pn = phi ptr [ %24, %22 ], [ %29, %25 ], [ %14, %_ZNK4llvm12DISubprogram14getDeclarationEv.exit.thread ], [ %10, %_ZNK4llvm12DISubprogram14getDeclarationEv.exit ]
+  %.sroa.0.0.i.i.i.i11.pn = phi ptr [ %29, %25 ], [ %24, %22 ], [ %14, %_ZNK4llvm12DISubprogram14getDeclarationEv.exit.thread ], [ %10, %_ZNK4llvm12DISubprogram14getDeclarationEv.exit ]
   %.in = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i11.pn, i64 8
   %30 = load ptr, ptr %.in, align 8, !tbaa !508
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -9305,7 +9305,7 @@ _ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i25: ; preds = 
   br label %_ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit
 
 _ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit: ; preds = %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i25, %19
-  %.0.i = phi i16 [ %spec.select, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i25 ], [ 131, %19 ]
+  %.0.i = phi i16 [ 131, %19 ], [ %spec.select, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 4, !tbaa !751
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -9394,7 +9394,7 @@ _ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i29: ; preds = 
   br label %_ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit31
 
 _ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit31: ; preds = %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i29, %.critedge.thread
-  %.0.i28 = phi i16 [ %spec.select42, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i29 ], [ 127, %.critedge.thread ]
+  %.0.i28 = phi i16 [ 127, %.critedge.thread ], [ %spec.select42, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i29 ]
   call void @_ZN4llvm9DwarfUnit11addDIEEntryERNS_3DIEENS_5dwarf9AttributeES2_(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %18, i16 noundef zeroext %.0.i28, ptr noundef nonnull align 8 dereferenceable(48) %28) #26
   br label %64
 
@@ -9416,7 +9416,7 @@ _ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i33: ; preds = 
   br label %_ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit35
 
 _ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit35: ; preds = %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i33, %65
-  %.0.i32 = phi i16 [ %spec.select43, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i33 ], [ 130, %65 ]
+  %.0.i32 = phi i16 [ 130, %65 ], [ %spec.select43, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i33 ]
   call void @_ZN4llvm9DwarfUnit7addFlagERNS_3DIEENS_5dwarf9AttributeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %18, i16 noundef zeroext %.0.i32) #26
   %71 = load ptr, ptr %10, align 8, !tbaa !151
   %72 = call noundef zeroext i16 @_ZNK4llvm10DwarfDebug15getDwarfVersionEv(ptr noundef nonnull align 8 dereferenceable(5876) %71) #26
@@ -9463,7 +9463,7 @@ _ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i38: ; preds = 
   br label %_ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit40
 
 _ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit40: ; preds = %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i38, %.critedge24
-  %.0.i37 = phi i16 [ %spec.select44, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i38 ], [ 125, %.critedge24 ]
+  %.0.i37 = phi i16 [ 125, %.critedge24 ], [ %spec.select44, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i38 ]
   call void @_ZN4llvm16DwarfCompileUnit15addLabelAddressERNS_3DIEENS_5dwarf9AttributeEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(48) %18, i16 noundef zeroext %.0.i37, ptr noundef %4)
   br label %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit36.thread
 
@@ -9685,7 +9685,7 @@ _ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i17: ; preds = 
   br label %_ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit
 
 _ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE.exit: ; preds = %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i17, %_ZN4llvm11DbgValueLocD2Ev.exit
-  %.0.i = phi i16 [ %spec.select, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i17 ], [ 126, %_ZN4llvm11DbgValueLocD2Ev.exit ]
+  %.0.i = phi i16 [ 126, %_ZN4llvm11DbgValueLocD2Ev.exit ], [ %spec.select, %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.i17 ]
   call void @_ZN4llvm15DwarfExpression8finalizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #26
   %106 = load ptr, ptr %24, align 8, !tbaa !614
   call void @_ZN4llvm9DwarfUnit8addBlockERNS_3DIEENS_5dwarf9AttributeEPNS_6DIELocE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, i16 noundef zeroext %.0.i, ptr noundef %106) #26
@@ -9907,7 +9907,7 @@ _ZN4llvm8dyn_castINS_6DITypeENS_6DINodeEEEDcPT0_.exit: ; preds = %_ZNK4llvm16DII
   br label %102
 
 102:                                              ; preds = %46, %_ZN4llvm8dyn_castINS_6DITypeENS_6DINodeEEEDcPT0_.exit, %98, %100, %96, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit.thread, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit, %44
-  %.0 = phi ptr [ %45, %44 ], [ %47, %46 ], [ %93, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit ], [ %94, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit.thread ], [ %95, %_ZN4llvm8dyn_castINS_6DITypeENS_6DINodeEEEDcPT0_.exit ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ]
+  %.0 = phi ptr [ %45, %44 ], [ %47, %46 ], [ %94, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit.thread ], [ %93, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit ], [ %95, %_ZN4llvm8dyn_castINS_6DITypeENS_6DINodeEEEDcPT0_.exit ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ]
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %104 = load i32, ptr %103, align 4, !tbaa !535
   %105 = load i64, ptr %30, align 8
@@ -10892,7 +10892,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSec
   unreachable
 
 _ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv.exit.thread: ; preds = %17, %13, %7, %24, %27, %1, %1, %6
-  %.0 = phi i1 [ false, %1 ], [ true, %6 ], [ false, %1 ], [ false, %24 ], [ false, %13 ], [ false, %17 ], [ false, %7 ], [ %29, %27 ]
+  %.0 = phi i1 [ true, %6 ], [ false, %1 ], [ false, %1 ], [ false, %24 ], [ false, %7 ], [ %29, %27 ], [ false, %13 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -11231,7 +11231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread
 
-_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread: ; preds = %15, %25, %21, %32, %4, %4, %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread: ; preds = %25, %21, %15, %32, %4, %4, %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
   ret void
 }
 
@@ -11548,7 +11548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread
 
-_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread: ; preds = %13, %23, %19, %30, %4, %4, %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
+_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread: ; preds = %23, %19, %13, %30, %4, %4, %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
   ret void
 }
 
@@ -11916,7 +11916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread
 
-_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread: ; preds = %14, %24, %20, %31, %3, %3, %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
+_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit.thread: ; preds = %24, %20, %14, %31, %3, %3, %_ZNK4llvm16DwarfCompileUnit19hasDwarfPubSectionsEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
   ret void
 }
 
@@ -13225,7 +13225,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_15DILocalVariableE
   br label %34
 
 34:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %33, %29 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 64
   br i1 %.not31, label %25, label %27, !llvm.loop !1100
@@ -13658,7 +13658,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_11DbgVariableENS_6d
   br label %31
 
 31:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %30, %29 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %30, %29 ], [ %.02738, %27 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 8
   %.not31 = icmp eq i64 %.028.add, 64
   br i1 %.not31, label %25, label %27, !llvm.loop !1107
@@ -15426,7 +15426,7 @@ _ZN4llvm5APIntD2Ev.exit19.i.i:                    ; preds = %55, %.thread25.i.i
   br label %"_ZZN4llvm16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEENK3$_2clEjRNS_18DIExpressionCursorE.exit"
 
 "_ZZN4llvm16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEENK3$_2clEjRNS_18DIExpressionCursorE.exit": ; preds = %12, %_ZN4llvm5APIntD2Ev.exit.i.i, %_ZN4llvm5APIntD2Ev.exit19.i.i, %61
-  %.0.i.i = phi i1 [ false, %_ZN4llvm5APIntD2Ev.exit19.i.i ], [ true, %61 ], [ false, %_ZN4llvm5APIntD2Ev.exit.i.i ], [ false, %12 ]
+  %.0.i.i = phi i1 [ true, %61 ], [ false, %_ZN4llvm5APIntD2Ev.exit.i.i ], [ false, %_ZN4llvm5APIntD2Ev.exit19.i.i ], [ false, %12 ]
   ret i1 %.0.i.i
 }
 

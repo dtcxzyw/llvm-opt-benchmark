@@ -860,7 +860,7 @@ pkg_prependToList.exit.i:                         ; preds = %pkg_prependToList.e
   br label %pkg_listContains.exit
 
 pkg_listContains.exit:                            ; preds = %.lr.ph.i20, %.else.i, %46, %3, %11
-  %.0 = phi ptr [ %0, %11 ], [ %0, %3 ], [ %.019.i, %.else.i ], [ %.019.i, %46 ], [ %0, %.lr.ph.i20 ]
+  %.0 = phi ptr [ %0, %11 ], [ %0, %3 ], [ %.019.i, %46 ], [ %.019.i, %.else.i ], [ %0, %.lr.ph.i20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

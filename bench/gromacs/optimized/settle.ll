@@ -371,7 +371,7 @@ define void @_ZN3gmx10SettleDataC2ERK10gmx_mtop_t(ptr noundef nonnull align 8 de
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 62:                                               ; preds = %46, %59
-  %.pn.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %.pn, %59 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %59 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %63
 
@@ -419,7 +419,7 @@ define void @_ZN3gmx10SettleDataC2ERK10gmx_mtop_t(ptr noundef nonnull align 8 de
   br label %79
 
 79:                                               ; preds = %27, %63, %77, %75
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %78, %77 ], [ %.pn.pn.pn.pn, %63 ], [ %28, %27 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %.pn.pn.pn.pn, %63 ], [ %28, %27 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 208

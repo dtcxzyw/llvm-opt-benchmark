@@ -1767,7 +1767,7 @@ _ZNK4lean5level4kindEv.exit:                      ; preds = %_ZNSt13unordered_se
   br label %_ZN4lean3incEP11lean_object.exit.i.i
 
 _ZN4lean3incEP11lean_object.exit.i.i:             ; preds = %_ZNSt13unordered_setIN4lean5levelENS0_10level_hashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread, %.noexc, %66, %64
-  %68 = phi ptr [ %.pre.i.i, %.noexc ], [ %55, %64 ], [ %55, %66 ], [ %55, %_ZNSt13unordered_setIN4lean5levelENS0_10level_hashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread ]
+  %68 = phi ptr [ %55, %64 ], [ %55, %66 ], [ %.pre.i.i, %.noexc ], [ %55, %_ZNSt13unordered_setIN4lean5levelENS0_10level_hashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread ]
   %69 = load ptr, ptr %0, align 8, !tbaa !24
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, 1

@@ -755,12 +755,12 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph49, %276, %262, %._crit_edge
-  %280 = phi i32 [ %257, %276 ], [ %257, %262 ], [ %121, %._crit_edge ], [ %257, %.lr.ph49 ]
+  %280 = phi i32 [ %121, %._crit_edge ], [ %257, %262 ], [ %257, %276 ], [ %257, %.lr.ph49 ]
   %281 = icmp eq i32 %280, -35
   br i1 %281, label %.thread41, label %.thread43
 
 .thread41.sink.split:                             ; preds = %107, %103, %67, %63
-  %.sink = phi ptr [ %32, %67 ], [ %32, %63 ], [ %72, %103 ], [ %72, %107 ]
+  %.sink = phi ptr [ %32, %63 ], [ %32, %67 ], [ %72, %103 ], [ %72, %107 ]
   store ptr %.sink, ptr %27, align 8
   br label %.thread41
 
@@ -775,7 +775,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   br i1 %286, label %.thread43, label %28
 
 .thread43:                                        ; preds = %97, %57, %284, %.thread41, %.loopexit
-  %287 = phi i32 [ %282, %.thread41 ], [ %280, %.loopexit ], [ -11, %284 ], [ %82, %97 ], [ %42, %57 ]
+  %287 = phi i32 [ %282, %.thread41 ], [ %280, %.loopexit ], [ -11, %284 ], [ %42, %57 ], [ %82, %97 ]
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %287

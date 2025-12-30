@@ -1389,7 +1389,7 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
   br i1 %.not75, label %129, label %.loopexit
 
 .loopexit:                                        ; preds = %100, %108, %107, %123, %130, %129, %65, %73, %72, %37, %43, %42, %.preheader94, %.preheader89, %.preheader84, %.preheader
-  %.073 = phi i32 [ 0, %65 ], [ 1, %.preheader89 ], [ 0, %123 ], [ 1, %42 ], [ 0, %37 ], [ 1, %.preheader94 ], [ 0, %130 ], [ 1, %107 ], [ 1, %.preheader ], [ 1, %72 ], [ 1, %.preheader84 ], [ 0, %43 ], [ 0, %73 ], [ 1, %129 ], [ 0, %108 ], [ 0, %100 ]
+  %.073 = phi i32 [ 1, %.preheader ], [ 1, %.preheader84 ], [ 1, %.preheader89 ], [ 1, %.preheader94 ], [ 0, %43 ], [ 1, %42 ], [ 0, %37 ], [ 0, %73 ], [ 1, %72 ], [ 0, %65 ], [ 0, %130 ], [ 1, %129 ], [ 0, %123 ], [ 0, %108 ], [ 1, %107 ], [ 0, %100 ]
   ret i32 %.073
 }
 

@@ -169,11 +169,11 @@ define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %0, ptr noundef
   br label %61
 
 61:                                               ; preds = %58, %59, %47, %45, %27, %38, %40, %23, %25, %57, %22, %18, %13, %7
-  %62 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %25 ], [ null, %27 ], [ %.pre, %57 ], [ null, %7 ], [ %.pre, %47 ], [ %.pre, %45 ], [ null, %40 ], [ null, %38 ], [ null, %23 ], [ null, %13 ], [ %.pre, %59 ], [ %.pre, %58 ]
-  %.039 = phi ptr [ null, %18 ], [ null, %22 ], [ %24, %25 ], [ %24, %27 ], [ %24, %57 ], [ null, %7 ], [ %24, %47 ], [ %24, %45 ], [ %24, %40 ], [ %24, %38 ], [ null, %23 ], [ null, %13 ], [ %24, %59 ], [ %24, %58 ]
-  %.038 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %25 ], [ null, %27 ], [ %36, %57 ], [ null, %7 ], [ %36, %47 ], [ %36, %45 ], [ %36, %40 ], [ %36, %38 ], [ null, %23 ], [ null, %13 ], [ %36, %59 ], [ %36, %58 ]
-  %.037 = phi i32 [ 0, %18 ], [ 0, %22 ], [ 0, %25 ], [ 0, %27 ], [ 0, %57 ], [ 0, %7 ], [ 0, %47 ], [ 0, %45 ], [ 0, %40 ], [ 0, %38 ], [ 0, %23 ], [ 0, %13 ], [ 1, %59 ], [ 1, %58 ]
-  %.0 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %25 ], [ null, %27 ], [ %50, %57 ], [ null, %7 ], [ null, %47 ], [ null, %45 ], [ null, %40 ], [ null, %38 ], [ null, %23 ], [ null, %13 ], [ %50, %59 ], [ %50, %58 ]
+  %62 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %25 ], [ null, %27 ], [ %.pre, %57 ], [ %.pre, %47 ], [ %.pre, %45 ], [ null, %40 ], [ null, %38 ], [ null, %23 ], [ null, %13 ], [ null, %7 ], [ %.pre, %59 ], [ %.pre, %58 ]
+  %.039 = phi ptr [ null, %18 ], [ null, %22 ], [ %24, %25 ], [ %24, %27 ], [ %24, %57 ], [ %24, %47 ], [ %24, %45 ], [ %24, %40 ], [ %24, %38 ], [ null, %23 ], [ null, %13 ], [ null, %7 ], [ %24, %59 ], [ %24, %58 ]
+  %.038 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %25 ], [ null, %27 ], [ %36, %57 ], [ %36, %47 ], [ %36, %45 ], [ %36, %40 ], [ %36, %38 ], [ null, %23 ], [ null, %13 ], [ null, %7 ], [ %36, %59 ], [ %36, %58 ]
+  %.037 = phi i32 [ 0, %18 ], [ 0, %22 ], [ 0, %25 ], [ 0, %27 ], [ 0, %57 ], [ 0, %47 ], [ 0, %45 ], [ 0, %40 ], [ 0, %38 ], [ 0, %23 ], [ 0, %13 ], [ 0, %7 ], [ 1, %59 ], [ 1, %58 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %25 ], [ null, %27 ], [ %50, %57 ], [ null, %47 ], [ null, %45 ], [ null, %40 ], [ null, %38 ], [ null, %23 ], [ null, %13 ], [ null, %7 ], [ %50, %59 ], [ %50, %58 ]
   call void @BIO_free_all(ptr noundef %.0) #7
   call void @OPENSSL_sk_free(ptr noundef %.038) #7
   call void @OSSL_STACK_OF_X509_free(ptr noundef %62) #7
@@ -244,7 +244,7 @@ define internal fastcc range(i32 0, 2) i32 @ts_verify_cert(ptr noundef %0, ptr n
   br label %20
 
 20:                                               ; preds = %7, %14, %8, %18
-  %.016 = phi i32 [ 0, %8 ], [ 1, %18 ], [ 0, %14 ], [ 0, %7 ]
+  %.016 = phi i32 [ 1, %18 ], [ 0, %8 ], [ 0, %14 ], [ 0, %7 ]
   tail call void @X509_STORE_CTX_free(ptr noundef %5) #7
   ret i32 %.016
 }
@@ -418,7 +418,7 @@ ts_check_status_info.exit.thread:                 ; preds = %38, %19
   br label %42
 
 42:                                               ; preds = %ts_check_status_info.exit.thread, %40
-  %.0 = phi i32 [ 0, %ts_check_status_info.exit.thread ], [ %41, %40 ]
+  %.0 = phi i32 [ %41, %40 ], [ 0, %ts_check_status_info.exit.thread ]
   ret i32 %.0
 }
 
@@ -671,9 +671,9 @@ ts_check_nonces.exit:                             ; preds = %90, %86
   br label %106
 
 106:                                              ; preds = %ts_check_nonces.exit.thread, %ts_compute_imprint.exit.thread, %ts_check_policy.exit.thread, %98, %100, %84, %34, %15, %105, %97, %25
-  %.070 = phi ptr [ %.171, %97 ], [ %.171, %98 ], [ %.171, %105 ], [ %.171, %100 ], [ %.171, %ts_check_nonces.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %49, %84 ], [ null, %34 ], [ null, %ts_check_policy.exit.thread ], [ null, %25 ], [ null, %15 ]
-  %.069 = phi ptr [ %.1, %97 ], [ %.1, %98 ], [ %.1, %105 ], [ %.1, %100 ], [ %.1, %ts_check_nonces.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %67, %84 ], [ null, %34 ], [ null, %ts_check_policy.exit.thread ], [ null, %25 ], [ null, %15 ]
-  %.035 = phi i32 [ 0, %97 ], [ 1, %98 ], [ 0, %105 ], [ 1, %100 ], [ 0, %ts_check_nonces.exit.thread ], [ 0, %ts_compute_imprint.exit.thread ], [ 0, %84 ], [ 0, %34 ], [ 0, %ts_check_policy.exit.thread ], [ 0, %25 ], [ 0, %15 ]
+  %.070 = phi ptr [ %.171, %97 ], [ %.171, %98 ], [ %.171, %105 ], [ %.171, %100 ], [ %49, %84 ], [ null, %34 ], [ null, %25 ], [ null, %15 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %.171, %ts_check_nonces.exit.thread ]
+  %.069 = phi ptr [ %.1, %97 ], [ %.1, %98 ], [ %.1, %105 ], [ %.1, %100 ], [ %67, %84 ], [ null, %34 ], [ null, %25 ], [ null, %15 ], [ null, %ts_check_policy.exit.thread ], [ null, %ts_compute_imprint.exit.thread ], [ %.1, %ts_check_nonces.exit.thread ]
+  %.035 = phi i32 [ 0, %97 ], [ 1, %98 ], [ 0, %105 ], [ 1, %100 ], [ 0, %84 ], [ 0, %34 ], [ 0, %25 ], [ 0, %15 ], [ 0, %ts_check_policy.exit.thread ], [ 0, %ts_compute_imprint.exit.thread ], [ 0, %ts_check_nonces.exit.thread ]
   %107 = load ptr, ptr %6, align 8, !tbaa !26
   call void @X509_free(ptr noundef %107) #7
   call void @X509_ALGOR_free(ptr noundef %.070) #7
@@ -839,8 +839,8 @@ ts_find_name.exit.thread:                         ; preds = %14
   br i1 %.not, label %ts_find_name.exit, label %.preheader, !llvm.loop !82
 
 ts_find_name.exit:                                ; preds = %ts_find_name.exit.thread, %16, %12
-  %.01217 = phi ptr [ %.01219, %16 ], [ null, %12 ], [ null, %ts_find_name.exit.thread ]
-  %.1 = phi i32 [ 1, %16 ], [ 0, %12 ], [ 0, %ts_find_name.exit.thread ]
+  %.01217 = phi ptr [ null, %12 ], [ %.01219, %16 ], [ null, %ts_find_name.exit.thread ]
+  %.1 = phi i32 [ 0, %12 ], [ 1, %16 ], [ 0, %ts_find_name.exit.thread ]
   call void @GENERAL_NAMES_free(ptr noundef %.01217) #7
   br label %21
 

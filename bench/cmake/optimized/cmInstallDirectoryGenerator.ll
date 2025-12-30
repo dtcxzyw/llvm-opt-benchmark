@@ -1006,8 +1006,8 @@ _ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaI
   br label %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit
 
 _ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit: ; preds = %.noexc28, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit, %16, %_ZN6cmList5clearEv.exit.i.i
-  %94 = phi ptr [ null, %_ZN6cmList5clearEv.exit.i.i ], [ %.pre45, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit ], [ null, %16 ], [ %83, %.noexc28 ]
-  %95 = phi ptr [ null, %_ZN6cmList5clearEv.exit.i.i ], [ %.pre, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit ], [ null, %16 ], [ %84, %.noexc28 ]
+  %94 = phi ptr [ %.pre45, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit ], [ null, %16 ], [ null, %_ZN6cmList5clearEv.exit.i.i ], [ %83, %.noexc28 ]
+  %95 = phi ptr [ %.pre, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit ], [ null, %16 ], [ null, %_ZN6cmList5clearEv.exit.i.i ], [ %84, %.noexc28 ]
   store ptr %95, ptr %0, align 8, !tbaa !47
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %94, ptr %96, align 8, !tbaa !46
@@ -1513,7 +1513,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 
 .body:                                            ; preds = %87, %89, %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i
-  %.pn.pn = phi { ptr, i32 } [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i ], [ %46, %45 ], [ %90, %89 ], [ %88, %87 ]
+  %.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i ], [ %90, %89 ], [ %88, %87 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn

@@ -1364,7 +1364,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl7aobjectESaIS4_EE9push_b
   ret ptr %.0
 
 244:                                              ; preds = %242, %108, %171, %173, %101, %64, %25
-  %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %64 ], [ %26, %25 ], [ %102, %101 ], [ %109, %108 ], [ %172, %171 ], [ %174, %173 ], [ %.pn.pn.pn.pn.pn, %242 ]
+  %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %64 ], [ %102, %101 ], [ %26, %25 ], [ %109, %108 ], [ %172, %171 ], [ %174, %173 ], [ %.pn.pn.pn.pn.pn, %242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i8 1, ptr %18, align 4, !tbaa !86
   resume { ptr, i32 } %.pn67.pn.pn
@@ -1724,7 +1724,7 @@ select.unfold:                                    ; preds = %18, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIN5boost7archive6detail19basic_iarchive_impl12cobject_typeES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit: ; preds = %select.unfold, %28
-  %37 = phi i1 [ %36, %28 ], [ true, %select.unfold ]
+  %37 = phi i1 [ true, %select.unfold ], [ %36, %28 ]
   %38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %1, align 8, !tbaa !79

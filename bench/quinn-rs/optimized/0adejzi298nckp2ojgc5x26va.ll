@@ -1216,10 +1216,10 @@ define void @"_ZN79_$LT$quinn..runtime..tokio..TokioRuntime$u20$as$u20$quinn..ru
   ret void
 
 .body.thread:                                     ; preds = %32, %39
-  %eh.lpad-body41 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %39 ]
+  %eh.lpad-body41 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %33, %32 ]
   resume { ptr, i32 } %eh.lpad-body41
 
-39:                                               ; preds = %3, %9
+39:                                               ; preds = %9, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$std..net..udp..UdpSocket$GT$17hfbd14bae04559168E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %7) #18

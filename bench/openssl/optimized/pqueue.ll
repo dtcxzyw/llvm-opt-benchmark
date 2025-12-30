@@ -104,8 +104,8 @@ define noundef ptr @pqueue_insert(ptr noundef captures(none) %0, ptr noundef %1)
   store ptr %1, ptr %20, align 8, !tbaa !9
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %13, %12, %19, %7
-  %.0 = phi ptr [ %1, %7 ], [ %1, %13 ], [ %1, %19 ], [ %1, %12 ], [ null, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %12, %13, %19, %7
+  %.0 = phi ptr [ %1, %7 ], [ %1, %19 ], [ %1, %13 ], [ %1, %12 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 

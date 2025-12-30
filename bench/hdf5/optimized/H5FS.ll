@@ -254,7 +254,7 @@ define ptr @H5FS_create(ptr noundef %0, ptr noundef writeonly captures(address_i
   br label %.thread43
 
 .thread43:                                        ; preds = %67, %94, %20, %65, %96, %14
-  %.0 = phi ptr [ null, %96 ], [ null, %20 ], [ null, %67 ], [ null, %14 ], [ %18, %65 ], [ null, %94 ]
+  %.0 = phi ptr [ null, %96 ], [ null, %14 ], [ %18, %65 ], [ null, %20 ], [ null, %94 ], [ null, %67 ]
   ret ptr %.0
 }
 
@@ -381,7 +381,7 @@ define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %14, %.loopexit, %78, %4
-  %.0 = phi ptr [ null, %78 ], [ null, %14 ], [ null, %4 ], [ %12, %.loopexit ]
+  %.0 = phi ptr [ null, %78 ], [ null, %4 ], [ %12, %.loopexit ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -716,7 +716,7 @@ define range(i32 -1, 1) i32 @H5FS_delete(ptr noundef %0, i64 noundef %1) local_u
   br label %55
 
 55:                                               ; preds = %40, %36, %45, %44, %51, %27
-  %.2 = phi i32 [ -1, %27 ], [ -1, %51 ], [ 0, %45 ], [ 0, %44 ], [ -1, %40 ], [ 0, %36 ]
+  %.2 = phi i32 [ -1, %27 ], [ -1, %51 ], [ 0, %44 ], [ 0, %45 ], [ -1, %40 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
@@ -727,7 +727,7 @@ define range(i32 -1, 1) i32 @H5FS_delete(ptr noundef %0, i64 noundef %1) local_u
   br label %67
 
 60:                                               ; preds = %55, %19
-  %.132.ph = phi i32 [ %.2, %55 ], [ 0, %19 ]
+  %.132.ph = phi i32 [ 0, %19 ], [ %.2, %55 ]
   %61 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_FSPACE_HDR, i64 noundef %1, ptr noundef nonnull %17, i32 noundef 257) #6
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %67
@@ -981,7 +981,7 @@ define range(i32 -1, 1) i32 @H5FS_close(ptr noundef %0, ptr noundef %1) local_un
   br label %133
 
 133:                                              ; preds = %105, %114, %78, %87, %96, %8, %126, %129, %121, %61, %51, %41, %34
-  %.060 = phi i32 [ -1, %61 ], [ -1, %129 ], [ 0, %126 ], [ -1, %34 ], [ -1, %51 ], [ -1, %41 ], [ -1, %121 ], [ 0, %8 ], [ -1, %87 ], [ -1, %78 ], [ -1, %96 ], [ -1, %105 ], [ -1, %114 ]
+  %.060 = phi i32 [ -1, %61 ], [ -1, %129 ], [ 0, %126 ], [ -1, %34 ], [ -1, %51 ], [ -1, %41 ], [ -1, %121 ], [ 0, %8 ], [ -1, %78 ], [ -1, %87 ], [ -1, %96 ], [ -1, %105 ], [ -1, %114 ]
   ret i32 %.060
 }
 
@@ -1725,12 +1725,12 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   br label %158
 
 158:                                              ; preds = %.thread90, %124, %127, %154, %90
-  %.5 = phi i32 [ -1, %90 ], [ -1, %154 ], [ -1, %.thread90 ], [ 0, %127 ], [ 0, %124 ]
+  %.5 = phi i32 [ -1, %90 ], [ -1, %154 ], [ 0, %127 ], [ 0, %124 ], [ -1, %.thread90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %159
 
 159:                                              ; preds = %.thread86, %13, %84, %158
-  %.066 = phi i32 [ 0, %13 ], [ %.5, %158 ], [ 0, %84 ], [ -1, %.thread86 ]
+  %.066 = phi i32 [ %.5, %158 ], [ 0, %84 ], [ 0, %13 ], [ -1, %.thread86 ]
   ret i32 %.066
 }
 

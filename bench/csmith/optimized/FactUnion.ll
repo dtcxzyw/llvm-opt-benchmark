@@ -693,8 +693,8 @@ _ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit: ; preds = %tailrecurse.i, %86,
   br i1 %123, label %59, label %thread-pre-split, !llvm.loop !114
 
 thread-pre-split:                                 ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit, %.preheader, %54, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
-  %124 = phi ptr [ %.pre49, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %52, %54 ], [ %52, %.preheader ], [ %118, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
-  %.025.in = phi i64 [ %43, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %58, %54 ], [ 0, %.preheader ], [ %122, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
+  %124 = phi ptr [ %52, %54 ], [ %.pre49, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %52, %.preheader ], [ %118, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
+  %.025.in = phi i64 [ %58, %54 ], [ %43, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ 0, %.preheader ], [ %122, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
   %.not.i.i.i35 = icmp eq ptr %124, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit, label %125
 
@@ -1067,7 +1067,7 @@ define dso_local noundef zeroext i1 @_ZNK9FactUnion5implyERK4Fact(ptr noundef no
   br label %.thread
 
 .thread:                                          ; preds = %12, %17, %7, %22
-  %.06 = phi i1 [ true, %17 ], [ false, %22 ], [ true, %7 ], [ false, %12 ]
+  %.06 = phi i1 [ false, %22 ], [ true, %17 ], [ true, %7 ], [ false, %12 ]
   ret i1 %.06
 }
 
@@ -1132,7 +1132,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN9FactUnion4joinERK4Fact(ptr nou
   br label %25
 
 25:                                               ; preds = %2, %17, %21, %7
-  %.0 = phi i32 [ 1, %17 ], [ 0, %7 ], [ 1, %21 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %21 ], [ 1, %17 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1219,7 +1219,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
           to label %.thread unwind label %17
 
 .thread:                                          ; preds = %15, %30, %28, %36, %19
-  %.1 = phi ptr [ %.022, %19 ], [ %.022, %36 ], [ %31, %30 ], [ null, %28 ], [ %.022, %15 ]
+  %.1 = phi ptr [ %.022, %36 ], [ %.022, %19 ], [ %31, %30 ], [ null, %28 ], [ %.022, %15 ]
   call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = add nuw i64 %.01521, 1
@@ -1306,7 +1306,7 @@ define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8Variabl
   br label %_ZNK9FactUnion5implyERK4Fact.exit
 
 _ZNK9FactUnion5implyERK4Fact.exit:                ; preds = %8, %34, %.noexc9, %.noexc8, %.noexc7, %12
-  %35 = phi i1 [ false, %12 ], [ false, %.noexc8 ], [ true, %.noexc9 ], [ false, %34 ], [ true, %.noexc7 ], [ false, %8 ]
+  %35 = phi i1 [ false, %12 ], [ false, %34 ], [ true, %.noexc9 ], [ true, %.noexc7 ], [ false, %.noexc8 ], [ false, %8 ]
   call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %35

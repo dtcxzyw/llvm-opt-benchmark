@@ -19352,7 +19352,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -19516,7 +19516,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7ad77be70a1a8d7cE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7ad77be70a1a8d7cE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7ad77be70a1a8d7cE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -19844,7 +19844,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -20008,7 +20008,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb902745a2578f7e3E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb902745a2578f7e3E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb902745a2578f7e3E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -20336,7 +20336,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -20500,7 +20500,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hddc2e02685495b06E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hddc2e02685495b06E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hddc2e02685495b06E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -20828,7 +20828,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -20992,7 +20992,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h0f9f8a644521b2bfE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h0f9f8a644521b2bfE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h0f9f8a644521b2bfE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -21320,7 +21320,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -21484,7 +21484,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4dd911bf356f3be7E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4dd911bf356f3be7E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4dd911bf356f3be7E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -21812,7 +21812,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -21976,7 +21976,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h96b188bc1e0e420aE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h96b188bc1e0e420aE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h96b188bc1e0e420aE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -22304,7 +22304,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -22468,7 +22468,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2d8c5f87abe47dedE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2d8c5f87abe47dedE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2d8c5f87abe47dedE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -22796,7 +22796,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -22960,7 +22960,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h396866c8a66d9559E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h396866c8a66d9559E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h396866c8a66d9559E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -23288,7 +23288,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -23452,7 +23452,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h02c30844d0aeb76aE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h02c30844d0aeb76aE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h02c30844d0aeb76aE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -23780,7 +23780,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -23944,7 +23944,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5e023be7823260d1E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5e023be7823260d1E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5e023be7823260d1E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -24272,7 +24272,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -24436,7 +24436,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h26074fc6f8754c72E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h26074fc6f8754c72E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h26074fc6f8754c72E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -24764,7 +24764,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -24928,7 +24928,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h50475824d528414fE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h50475824d528414fE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h50475824d528414fE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -25256,7 +25256,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -25420,7 +25420,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1e5cbc432e37b1bfE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1e5cbc432e37b1bfE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1e5cbc432e37b1bfE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -25748,7 +25748,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -25912,7 +25912,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf76711a6f7fb811aE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf76711a6f7fb811aE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf76711a6f7fb811aE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -26240,7 +26240,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -26404,7 +26404,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17ha0f872c4d88826edE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17ha0f872c4d88826edE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17ha0f872c4d88826edE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -26732,7 +26732,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -26896,7 +26896,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hec777b951e4328e9E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hec777b951e4328e9E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hec777b951e4328e9E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -27224,7 +27224,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -27388,7 +27388,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5a4372187bd3dbdaE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5a4372187bd3dbdaE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5a4372187bd3dbdaE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -27716,7 +27716,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -27880,7 +27880,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h40041cad5f93f340E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h40041cad5f93f340E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h40041cad5f93f340E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -28208,7 +28208,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -28372,7 +28372,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h86a8d4cc8201b33dE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h86a8d4cc8201b33dE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h86a8d4cc8201b33dE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -28700,7 +28700,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -28864,7 +28864,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf6dad16f50088fc3E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf6dad16f50088fc3E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf6dad16f50088fc3E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -29192,7 +29192,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -29356,7 +29356,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h657fe2a2706fad77E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h657fe2a2706fad77E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h657fe2a2706fad77E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -29684,7 +29684,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -29848,7 +29848,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7c1b0bc85b7ce0b1E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7c1b0bc85b7ce0b1E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7c1b0bc85b7ce0b1E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -30176,7 +30176,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -30340,7 +30340,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17haa96ba9aa32cb421E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17haa96ba9aa32cb421E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17haa96ba9aa32cb421E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -30668,7 +30668,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -30832,7 +30832,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h332c8547a9484f5dE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h332c8547a9484f5dE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h332c8547a9484f5dE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -31160,7 +31160,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -31324,7 +31324,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1a16f6401717848aE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1a16f6401717848aE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1a16f6401717848aE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -31652,7 +31652,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -31816,7 +31816,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h9fc80442a4d4d3e3E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h9fc80442a4d4d3e3E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h9fc80442a4d4d3e3E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -32144,7 +32144,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -32308,7 +32308,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he26a5dd8e46ee966E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he26a5dd8e46ee966E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he26a5dd8e46ee966E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -32636,7 +32636,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -32800,7 +32800,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17had0d9d18d3de1819E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17had0d9d18d3de1819E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17had0d9d18d3de1819E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -33128,7 +33128,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -33292,7 +33292,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4e6105559c13620eE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4e6105559c13620eE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4e6105559c13620eE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -33620,7 +33620,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -33784,7 +33784,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5f390c4e48241b91E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5f390c4e48241b91E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5f390c4e48241b91E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -34112,7 +34112,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -34276,7 +34276,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hea7dd919c35a73abE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hea7dd919c35a73abE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hea7dd919c35a73abE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -34604,7 +34604,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -34768,7 +34768,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h30e54a4b57027f19E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h30e54a4b57027f19E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h30e54a4b57027f19E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -35096,7 +35096,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -35260,7 +35260,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17habce4e7dc9a6974bE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17habce4e7dc9a6974bE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17habce4e7dc9a6974bE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -35588,7 +35588,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -35752,7 +35752,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h14afe08a177d3af5E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h14afe08a177d3af5E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h14afe08a177d3af5E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -36080,7 +36080,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -36244,7 +36244,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfbca447eb627a109E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfbca447eb627a109E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfbca447eb627a109E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -36572,7 +36572,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -36736,7 +36736,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h64c2ce8da37c4b38E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h64c2ce8da37c4b38E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h64c2ce8da37c4b38E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -37064,7 +37064,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -37228,7 +37228,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2fe915a068d971b9E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2fe915a068d971b9E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2fe915a068d971b9E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 

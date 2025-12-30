@@ -992,7 +992,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit:      ; preds = %79
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   br label %88
 
-.critedge:                                        ; preds = %73, %75
+.critedge:                                        ; preds = %75, %73
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   br label %88
 
@@ -1633,8 +1633,8 @@ _ZN14BytecodeStream4nextEv.exit.thread:           ; preds = %96, %_ZN9Bytecodes9
   br label %115
 
 _ZN14BytecodeStream4nextEv.exit:                  ; preds = %99, %102
-  %.015.i = phi i32 [ %69, %99 ], [ %105, %102 ]
-  %.014.i = phi i32 [ %66, %99 ], [ %105, %102 ]
+  %.015.i = phi i32 [ %105, %102 ], [ %69, %99 ]
+  %.014.i = phi i32 [ %105, %102 ], [ %66, %99 ]
   store i32 %.014.i, ptr %18, align 4
   store i32 %.015.i, ptr %19, align 4
   %trunc = trunc nuw i32 %.015.i to i8
@@ -1655,7 +1655,7 @@ _ZN14BytecodeStream4nextEv.exit:                  ; preds = %99, %102
   br i1 %101, label %115, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %108, %107, %106, %_ZN14BytecodeStream4nextEv.exit
-  %.sink.i = phi i8 [ -22, %_ZN14BytecodeStream4nextEv.exit ], [ -20, %107 ], [ -21, %106 ], [ -19, %108 ]
+  %.sink.i = phi i8 [ -20, %107 ], [ -21, %106 ], [ -22, %_ZN14BytecodeStream4nextEv.exit ], [ -19, %108 ]
   %109 = load ptr, ptr %16, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
@@ -2032,7 +2032,7 @@ define hidden noundef zeroext i1 @_ZN15MetaspaceShared21may_be_eagerly_linkedEP1
   br label %12
 
 12:                                               ; preds = %6, %1, %11
-  %.0 = phi i1 [ false, %1 ], [ true, %11 ], [ false, %6 ]
+  %.0 = phi i1 [ true, %11 ], [ false, %1 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -2882,7 +2882,7 @@ define hidden void @_ZN15MetaspaceShared21get_default_classlistEPcm(ptr noundef 
   br label %26
 
 26:                                               ; preds = %15, %21, %12
-  %.0 = phi i64 [ %25, %21 ], [ %13, %12 ], [ %13, %15 ]
+  %.0 = phi i64 [ %25, %21 ], [ %13, %15 ], [ %13, %12 ]
   %27 = add i64 %1, -10
   %28 = icmp ult i64 %.0, %27
   br i1 %28, label %29, label %34
@@ -3175,9 +3175,9 @@ _ZN15MetaspaceShared19open_static_archiveEv.exit: ; preds = %0
   br label %28
 
 28:                                               ; preds = %23, %.thread56
-  %.sink72 = phi ptr [ %spec.select, %23 ], [ %2, %.thread56 ]
-  %.pn = phi ptr [ %27, %23 ], [ %22, %.thread56 ]
-  %29 = phi i1 [ %26, %23 ], [ false, %.thread56 ]
+  %.sink72 = phi ptr [ %2, %.thread56 ], [ %spec.select, %23 ]
+  %.pn = phi ptr [ %22, %.thread56 ], [ %27, %23 ]
+  %29 = phi i1 [ false, %.thread56 ], [ %26, %23 ]
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 80
   %30 = load ptr, ptr %.in, align 8
   %31 = tail call noundef ptr @_ZNK11FileMapInfo16last_core_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink72) #15
@@ -3314,8 +3314,8 @@ _ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38: ; preds = %86, %88
   br i1 %3, label %.thread57, label %94
 
 .thread57:                                        ; preds = %58, %50, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, %89
-  %.0.i445263 = phi ptr [ %.0.i4453, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ], [ %.0.i4453, %89 ], [ %.0.i4453, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %2, %50 ], [ %2, %58 ]
-  %.0305461 = phi ptr [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ], [ %.03055, %89 ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %11, %50 ], [ %11, %58 ]
+  %.0.i445263 = phi ptr [ %.0.i4453, %89 ], [ %.0.i4453, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.0.i4453, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ], [ %2, %50 ], [ %2, %58 ]
+  %.0305461 = phi ptr [ %.03055, %89 ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ], [ %11, %50 ], [ %11, %58 ]
   %90 = getelementptr inbounds nuw i8, ptr %.0.i445263, i64 2
   %91 = load i8, ptr %90, align 2
   %92 = trunc i8 %91 to i1
@@ -3327,8 +3327,8 @@ _ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38: ; preds = %86, %88
   br label %94
 
 94:                                               ; preds = %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, %93, %.thread57, %89
-  %.0305462 = phi ptr [ %.0305461, %.thread57 ], [ %.03055, %89 ], [ %.0305461, %93 ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ]
-  %.0 = phi i1 [ false, %.thread57 ], [ false, %89 ], [ true, %93 ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ]
+  %.0305462 = phi ptr [ %.0305461, %.thread57 ], [ %.0305461, %93 ], [ %.03055, %89 ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ]
+  %.0 = phi i1 [ false, %.thread57 ], [ true, %93 ], [ false, %89 ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ]
   %.not35 = icmp eq ptr %.0305462, null
   br i1 %.not35, label %100, label %95
 
@@ -3344,7 +3344,7 @@ _ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38: ; preds = %86, %88
   br label %100
 
 100:                                              ; preds = %99, %95, %94
-  %.1 = phi i1 [ %.0, %95 ], [ %.0, %94 ], [ true, %99 ]
+  %.1 = phi i1 [ %.0, %95 ], [ true, %99 ], [ %.0, %94 ]
   %101 = load i8, ptr @RequireSharedSpaces, align 1
   %102 = trunc i8 %101 to i1
   %or.cond = and i1 %.1, %102
@@ -3441,7 +3441,7 @@ _ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit: ; preds = %15, %17
   br label %18
 
 18:                                               ; preds = %6, %9, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, %3, %0
-  %.0 = phi ptr [ null, %3 ], [ null, %0 ], [ null, %9 ], [ null, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %7, %6 ]
+  %.0 = phi ptr [ null, %0 ], [ null, %3 ], [ null, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ null, %9 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -3620,7 +3620,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15MetaspaceShared12map_archivesEP1
   br label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit
 
 88:                                               ; preds = %54, %31, %29, %.critedge
-  %.038.ph = phi i32 [ %., %.critedge ], [ 1, %31 ], [ 1, %29 ], [ 1, %54 ]
+  %.038.ph = phi i32 [ %., %.critedge ], [ 1, %29 ], [ 1, %31 ], [ 1, %54 ]
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit, label %89
 
@@ -3690,12 +3690,12 @@ _ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43: ; preds = %_ZN15Metas
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %105, %94
-  %.sink.i = phi ptr [ %6, %105 ], [ %4, %94 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
+  %.sink.i = phi ptr [ %4, %94 ], [ %6, %105 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
   call void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %.sink.i) #15
   br label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit
 
 _ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit: ; preds = %.sink.split.i, %103, %83, %85, %26, %24, %21, %19, %15, %13
-  %.0 = phi i32 [ 1, %21 ], [ 1, %15 ], [ 1, %26 ], [ 1, %13 ], [ 1, %19 ], [ 1, %24 ], [ 0, %85 ], [ 0, %83 ], [ %.038.ph, %103 ], [ %.038.ph, %.sink.split.i ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %15 ], [ 1, %19 ], [ 1, %21 ], [ 1, %24 ], [ 1, %26 ], [ 0, %85 ], [ 0, %83 ], [ %.038.ph, %103 ], [ %.038.ph, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -3861,7 +3861,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %38, %41
   br label %86
 
 86:                                               ; preds = %71, %35, %84, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
-  %.0 = phi ptr [ %85, %84 ], [ null, %71 ], [ null, %35 ], [ %42, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit ]
+  %.0 = phi ptr [ %85, %84 ], [ %42, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit ], [ null, %35 ], [ null, %71 ]
   ret ptr %.0
 }
 
@@ -3918,7 +3918,7 @@ _ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit16: ; preds = %17
   br label %20
 
 20:                                               ; preds = %14, %12, %3, %19, %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit16, %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit
-  %.0 = phi i32 [ 2, %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit16 ], [ 0, %3 ], [ %16, %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit ], [ 0, %19 ], [ 2, %12 ], [ 2, %14 ]
+  %.0 = phi i32 [ %16, %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit ], [ 0, %19 ], [ 2, %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit16 ], [ 0, %3 ], [ 2, %12 ], [ 2, %14 ]
   ret i32 %.0
 }
 
@@ -4004,7 +4004,7 @@ define hidden void @_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpa
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %16, %5
-  %.sink = phi ptr [ %2, %16 ], [ %0, %5 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %0, %5 ], [ %2, %16 ], [ %.sink.ph, %.sink.split.sink.split ]
   tail call void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %.sink) #15
   br label %19
 
@@ -4214,7 +4214,7 @@ define hidden noundef zeroext i1 @_ZN15MetaspaceShared34remap_shared_readonly_as
   br label %10
 
 10:                                               ; preds = %0, %9, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %9 ], [ true, %0 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ true, %9 ], [ true, %0 ]
   ret i1 %.0
 }
 
@@ -6001,7 +6001,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -6156,7 +6156,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -6332,7 +6332,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 

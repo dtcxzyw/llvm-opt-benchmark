@@ -71,7 +71,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %ft_face_get_mm_service.exit.thread
 
 ft_face_get_mm_service.exit.thread:               ; preds = %8, %.fold.split.i, %4, %3, %26, %ft_face_get_mm_service.exit, %2
-  %.06 = phi i32 [ 6, %2 ], [ 6, %ft_face_get_mm_service.exit ], [ %27, %26 ], [ 35, %3 ], [ 6, %4 ], [ 6, %.fold.split.i ], [ 6, %8 ]
+  %.06 = phi i32 [ 6, %2 ], [ %27, %26 ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %4 ], [ 35, %3 ], [ 6, %.fold.split.i ], [ 6, %8 ]
   ret i32 %.06
 }
 
@@ -141,7 +141,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %ft_face_get_mm_service.exit.thread
 
 ft_face_get_mm_service.exit.thread:               ; preds = %8, %.fold.split.i, %4, %3, %27, %ft_face_get_mm_service.exit, %2
-  %.06 = phi i32 [ 6, %2 ], [ 6, %ft_face_get_mm_service.exit ], [ %28, %27 ], [ 35, %3 ], [ 6, %4 ], [ 6, %.fold.split.i ], [ 6, %8 ]
+  %.06 = phi i32 [ 6, %2 ], [ %28, %27 ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %4 ], [ 35, %3 ], [ 6, %.fold.split.i ], [ 6, %8 ]
   ret i32 %.06
 }
 
@@ -249,7 +249,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %.thread33
 
 .thread33:                                        ; preds = %11, %ft_face_get_mm_service.exit, %.fold.split.i, %7, %6, %30, %32, %37, %3
-  %.018 = phi i32 [ 6, %3 ], [ 0, %37 ], [ 0, %32 ], [ 6, %.fold.split.i ], [ %31, %30 ], [ 35, %6 ], [ 6, %7 ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %11 ]
+  %.018 = phi i32 [ 6, %3 ], [ 0, %37 ], [ 0, %32 ], [ %31, %30 ], [ 6, %7 ], [ 35, %6 ], [ 6, %.fold.split.i ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %11 ]
   ret i32 %.018
 }
 
@@ -340,7 +340,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %.thread33
 
 .thread33:                                        ; preds = %11, %ft_face_get_mm_service.exit, %.fold.split.i, %7, %6, %30, %32, %37, %3
-  %.018 = phi i32 [ 6, %3 ], [ 0, %37 ], [ 0, %32 ], [ 6, %.fold.split.i ], [ %31, %30 ], [ 35, %6 ], [ 6, %7 ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %11 ]
+  %.018 = phi i32 [ 6, %3 ], [ 0, %37 ], [ 0, %32 ], [ %31, %30 ], [ 6, %7 ], [ 35, %6 ], [ 6, %.fold.split.i ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %11 ]
   ret i32 %.018
 }
 
@@ -412,7 +412,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %ft_face_get_mm_service.exit.thread
 
 ft_face_get_mm_service.exit.thread:               ; preds = %11, %.fold.split.i, %7, %6, %30, %ft_face_get_mm_service.exit, %3
-  %.09 = phi i32 [ 6, %3 ], [ 6, %ft_face_get_mm_service.exit ], [ %31, %30 ], [ 35, %6 ], [ 6, %7 ], [ 6, %.fold.split.i ], [ 6, %11 ]
+  %.09 = phi i32 [ 6, %3 ], [ %31, %30 ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %7 ], [ 35, %6 ], [ 6, %.fold.split.i ], [ 6, %11 ]
   ret i32 %.09
 }
 
@@ -584,7 +584,7 @@ ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thre
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %ft_face_get_mm_service.exit, %11, %41, %40, %6, %7, %.fold.split.i, %ft_face_get_mvar_service.exit.thread, %67, %42, %3
-  %.0 = phi i32 [ 0, %42 ], [ 6, %3 ], [ 6, %ft_face_get_mm_service.exit ], [ 0, %67 ], [ 0, %ft_face_get_mvar_service.exit.thread ], [ 6, %.fold.split.i ], [ 35, %6 ], [ 6, %7 ], [ 6, %11 ], [ 0, %40 ], [ 0, %41 ], [ %31, %30 ]
+  %.0 = phi i32 [ 6, %3 ], [ 0, %42 ], [ 0, %67 ], [ 0, %ft_face_get_mvar_service.exit.thread ], [ 6, %7 ], [ 35, %6 ], [ 6, %.fold.split.i ], [ 0, %40 ], [ 0, %41 ], [ 6, %11 ], [ 6, %ft_face_get_mm_service.exit ], [ %31, %30 ]
   ret i32 %.0
 }
 
@@ -654,7 +654,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %ft_face_get_mm_service.exit.thread
 
 ft_face_get_mm_service.exit.thread:               ; preds = %9, %.fold.split.i, %5, %4, %28, %ft_face_get_mm_service.exit, %3
-  %.07 = phi i32 [ 6, %3 ], [ 6, %ft_face_get_mm_service.exit ], [ %29, %28 ], [ 35, %4 ], [ 6, %5 ], [ 6, %.fold.split.i ], [ 6, %9 ]
+  %.07 = phi i32 [ 6, %3 ], [ %29, %28 ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %5 ], [ 35, %4 ], [ 6, %.fold.split.i ], [ 6, %9 ]
   ret i32 %.07
 }
 
@@ -826,7 +826,7 @@ ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thre
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %ft_face_get_mm_service.exit, %11, %41, %40, %6, %7, %.fold.split.i, %ft_face_get_mvar_service.exit.thread, %67, %42, %3
-  %.0 = phi i32 [ 0, %42 ], [ 6, %3 ], [ 6, %ft_face_get_mm_service.exit ], [ 0, %67 ], [ 0, %ft_face_get_mvar_service.exit.thread ], [ 6, %.fold.split.i ], [ 35, %6 ], [ 6, %7 ], [ 6, %11 ], [ 0, %40 ], [ 0, %41 ], [ %31, %30 ]
+  %.0 = phi i32 [ 6, %3 ], [ 0, %42 ], [ 0, %67 ], [ 0, %ft_face_get_mvar_service.exit.thread ], [ 6, %7 ], [ 35, %6 ], [ 6, %.fold.split.i ], [ 0, %40 ], [ 0, %41 ], [ 6, %11 ], [ 6, %ft_face_get_mm_service.exit ], [ %31, %30 ]
   ret i32 %.0
 }
 
@@ -998,7 +998,7 @@ ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thre
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %ft_face_get_mm_service.exit, %11, %41, %40, %6, %7, %.fold.split.i, %ft_face_get_mvar_service.exit.thread, %67, %42, %3
-  %.0 = phi i32 [ 0, %42 ], [ 6, %3 ], [ 6, %ft_face_get_mm_service.exit ], [ 0, %67 ], [ 0, %ft_face_get_mvar_service.exit.thread ], [ 6, %.fold.split.i ], [ 35, %6 ], [ 6, %7 ], [ 6, %11 ], [ 0, %40 ], [ 0, %41 ], [ %31, %30 ]
+  %.0 = phi i32 [ 6, %3 ], [ 0, %42 ], [ 0, %67 ], [ 0, %ft_face_get_mvar_service.exit.thread ], [ 6, %7 ], [ 35, %6 ], [ 6, %.fold.split.i ], [ 0, %40 ], [ 0, %41 ], [ 6, %11 ], [ 6, %ft_face_get_mm_service.exit ], [ %31, %30 ]
   ret i32 %.0
 }
 
@@ -1068,7 +1068,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %ft_face_get_mm_service.exit.thread
 
 ft_face_get_mm_service.exit.thread:               ; preds = %9, %.fold.split.i, %5, %4, %28, %ft_face_get_mm_service.exit, %3
-  %.07 = phi i32 [ 6, %3 ], [ 6, %ft_face_get_mm_service.exit ], [ %29, %28 ], [ 35, %4 ], [ 6, %5 ], [ 6, %.fold.split.i ], [ 6, %9 ]
+  %.07 = phi i32 [ 6, %3 ], [ %29, %28 ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %5 ], [ 35, %4 ], [ 6, %.fold.split.i ], [ 6, %9 ]
   ret i32 %.07
 }
 
@@ -1138,7 +1138,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %ft_face_get_mm_service.exit.thread
 
 ft_face_get_mm_service.exit.thread:               ; preds = %9, %.fold.split.i, %5, %4, %28, %ft_face_get_mm_service.exit, %3
-  %.07 = phi i32 [ 6, %3 ], [ 6, %ft_face_get_mm_service.exit ], [ %29, %28 ], [ 35, %4 ], [ 6, %5 ], [ 6, %.fold.split.i ], [ 6, %9 ]
+  %.07 = phi i32 [ 6, %3 ], [ %29, %28 ], [ 6, %ft_face_get_mm_service.exit ], [ 6, %5 ], [ 35, %4 ], [ 6, %.fold.split.i ], [ 6, %9 ]
   ret i32 %.07
 }
 
@@ -1164,7 +1164,7 @@ define range(i32 0, 7) i32 @FT_Get_Var_Axis_Flags(ptr noundef readonly captures(
   br label %14
 
 14:                                               ; preds = %6, %3, %8
-  %.0 = phi i32 [ 6, %3 ], [ 0, %8 ], [ 6, %6 ]
+  %.0 = phi i32 [ 0, %8 ], [ 6, %3 ], [ 6, %6 ]
   ret i32 %.0
 }
 
@@ -1335,7 +1335,7 @@ ft_face_get_mvar_service.exit.thread:             ; preds = %48, %.thread66.thre
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %ft_face_get_mm_service.exit, %7, %44, %42, %2, %3, %.fold.split.i, %ft_face_get_mvar_service.exit.thread, %70, %45
-  %.0 = phi i32 [ 0, %45 ], [ 6, %ft_face_get_mm_service.exit ], [ 0, %70 ], [ 0, %ft_face_get_mvar_service.exit.thread ], [ 6, %.fold.split.i ], [ 35, %2 ], [ 6, %3 ], [ 6, %7 ], [ 0, %42 ], [ 0, %44 ], [ %27, %26 ]
+  %.0 = phi i32 [ 0, %45 ], [ 0, %70 ], [ 0, %ft_face_get_mvar_service.exit.thread ], [ 6, %3 ], [ 35, %2 ], [ 6, %.fold.split.i ], [ 0, %42 ], [ 0, %44 ], [ 6, %7 ], [ 6, %ft_face_get_mm_service.exit ], [ %27, %26 ]
   ret i32 %.0
 }
 
@@ -1401,7 +1401,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   br label %ft_face_get_mm_service.exit.thread
 
 ft_face_get_mm_service.exit.thread:               ; preds = %7, %.fold.split.i, %3, %2, %ft_face_get_mm_service.exit, %26
-  %.0 = phi i32 [ 0, %ft_face_get_mm_service.exit ], [ %27, %26 ], [ 35, %2 ], [ 6, %3 ], [ 6, %.fold.split.i ], [ 6, %7 ]
+  %.0 = phi i32 [ %27, %26 ], [ 0, %ft_face_get_mm_service.exit ], [ 6, %3 ], [ 35, %2 ], [ 6, %.fold.split.i ], [ 6, %7 ]
   ret i32 %.0
 }
 

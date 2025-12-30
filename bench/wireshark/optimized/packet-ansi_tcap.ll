@@ -974,7 +974,7 @@ switch.lookup:                                    ; preds = %30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %28, %25, %23, %24, %29
-  %.str.226.sink = phi ptr [ @.str.224, %28 ], [ @.str.222, %24 ], [ @.str.221, %23 ], [ %switch.load, %switch.lookup ], [ @.str.223, %25 ], [ @.str.225, %29 ]
+  %.str.226.sink = phi ptr [ @.str.225, %29 ], [ @.str.222, %24 ], [ @.str.221, %23 ], [ @.str.223, %25 ], [ @.str.224, %28 ], [ %switch.load, %switch.lookup ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull %.str.226.sink)
   br label %33
 
@@ -1204,7 +1204,7 @@ save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.ex
   br label %130
 
 130:                                              ; preds = %97, %89, %125, %118, %108
-  %.1 = phi i1 [ false, %125 ], [ true, %108 ], [ true, %118 ], [ true, %89 ], [ false, %97 ]
+  %.1 = phi i1 [ true, %108 ], [ true, %118 ], [ false, %125 ], [ true, %89 ], [ false, %97 ]
   ret i1 %.1
 }
 

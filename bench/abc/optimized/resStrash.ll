@@ -179,8 +179,8 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge4, %60
   br label %Vec_PtrPush.exit.thread
 
 Vec_PtrPush.exit.thread:                          ; preds = %89, %91, %80, %82
-  %.sink210 = phi ptr [ %83, %82 ], [ %81, %80 ], [ %90, %89 ], [ %92, %91 ]
-  %.sink = phi i32 [ 16, %82 ], [ 16, %80 ], [ %85, %89 ], [ %85, %91 ]
+  %.sink210 = phi ptr [ %81, %80 ], [ %83, %82 ], [ %90, %89 ], [ %92, %91 ]
+  %.sink = phi i32 [ 16, %80 ], [ 16, %82 ], [ %85, %89 ], [ %85, %91 ]
   store ptr %.sink210, ptr %65, align 8, !tbaa !31
   store i32 %.sink, ptr %57, align 8, !tbaa !41
   %93 = or disjoint i32 %68, 1

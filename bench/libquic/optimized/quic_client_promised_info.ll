@@ -703,7 +703,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %37
   br label %_ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE.exit
 
 _ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE.exit: ; preds = %25, %15, %.critedge15, %50
-  %.0 = phi i32 [ 0, %.critedge15 ], [ 0, %50 ], [ 1, %15 ], [ 1, %25 ]
+  %.0 = phi i32 [ 0, %50 ], [ 0, %.critedge15 ], [ 1, %15 ], [ 1, %25 ]
   ret i32 %.0
 }
 

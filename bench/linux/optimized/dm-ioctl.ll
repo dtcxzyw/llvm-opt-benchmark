@@ -1245,7 +1245,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dm_ctl_ioctl(ptr noundef
   br label %176
 
 176:                                              ; preds = %139, %149, %171, %170, %162
-  %177 = phi i32 [ -14, %170 ], [ %155, %162 ], [ %175, %171 ], [ -22, %149 ], [ -22, %139 ]
+  %177 = phi i32 [ %155, %162 ], [ %175, %171 ], [ -14, %170 ], [ -22, %139 ], [ -22, %149 ]
   %178 = and i32 %98, 16
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %181, label %180
@@ -1264,7 +1264,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dm_ctl_ioctl(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %24, %44, %126, %123, %81, %84, %53, %10, %184, %181, %.thread7, %29, %7, %3
-  %185 = phi i32 [ -25, %.thread7 ], [ -13, %3 ], [ -25, %7 ], [ -22, %53 ], [ 0, %29 ], [ %.mux, %24 ], [ %177, %181 ], [ %177, %184 ], [ -14, %10 ], [ -14, %44 ], [ -14, %126 ], [ -14, %123 ], [ -14, %81 ], [ -12, %84 ]
+  %185 = phi i32 [ -25, %.thread7 ], [ -13, %3 ], [ -25, %7 ], [ 0, %29 ], [ %177, %181 ], [ %177, %184 ], [ -14, %10 ], [ %.mux, %24 ], [ -14, %44 ], [ -14, %126 ], [ -14, %123 ], [ -14, %81 ], [ -12, %84 ], [ -22, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %186 = sext i32 %185 to i64
   ret i64 %186
@@ -2639,7 +2639,7 @@ define internal i32 @table_load(ptr readnone captures(none) %0, ptr noundef %1, 
   br label %140
 
 140:                                              ; preds = %.sink.split, %128, %11
-  %141 = phi i32 [ %19, %11 ], [ 0, %128 ], [ %.ph, %.sink.split ]
+  %141 = phi i32 [ 0, %128 ], [ %19, %11 ], [ %.ph, %.sink.split ]
   call void @dm_put(ptr noundef nonnull %9) #21
   br label %142
 
@@ -3151,7 +3151,7 @@ define internal range(i32 2, 1) i32 @target_message(ptr readnone captures(none) 
   br label %102
 
 102:                                              ; preds = %.thread13, %44
-  %103 = phi i32 [ %100, %.thread13 ], [ %42, %44 ]
+  %103 = phi i32 [ %42, %44 ], [ %100, %.thread13 ]
   %104 = icmp sgt i32 %103, -1
   br i1 %104, label %105, label %.thread19
 
@@ -3383,7 +3383,7 @@ define internal noundef range(i32 -22, 1) i32 @get_target_version(ptr readnone c
   br label %.thread.i
 
 .thread.i:                                        ; preds = %7, %34, %24
-  %.sink4 = phi i32 [ 256, %24 ], [ 0, %34 ], [ 256, %7 ]
+  %.sink4 = phi i32 [ 0, %34 ], [ 256, %24 ], [ 256, %7 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, %.sink4
@@ -3783,7 +3783,7 @@ define internal fastcc ptr @__find_device_hash_cell(ptr noundef %0) unnamed_addr
   br label %.thread11
 
 .thread11:                                        ; preds = %20, %42, %.preheader16, %.preheader, %52, %66, %86, %84, %51, %35, %26, %._crit_edge
-  %88 = phi ptr [ null, %._crit_edge ], [ null, %35 ], [ null, %26 ], [ null, %.preheader ], [ null, %52 ], [ null, %51 ], [ %68, %86 ], [ %68, %84 ], [ null, %66 ], [ null, %.preheader16 ], [ null, %42 ], [ null, %20 ]
+  %88 = phi ptr [ null, %._crit_edge ], [ null, %35 ], [ null, %26 ], [ null, %51 ], [ %68, %86 ], [ %68, %84 ], [ null, %66 ], [ null, %52 ], [ null, %.preheader ], [ null, %.preheader16 ], [ null, %42 ], [ null, %20 ]
   ret ptr %88
 }
 

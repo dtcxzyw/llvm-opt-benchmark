@@ -257,7 +257,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit:       ; preds = %._ZN8ImVectorI6ImVe
   br label %86
 
 86:                                               ; preds = %._crit_edge, %79
-  %87 = phi i32 [ 1, %._crit_edge ], [ %85, %79 ]
+  %87 = phi i32 [ %85, %79 ], [ 1, %._crit_edge ]
   %88 = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !97
   %89 = load i32, ptr %36, align 8, !tbaa !70
   br i1 %43, label %90, label %40

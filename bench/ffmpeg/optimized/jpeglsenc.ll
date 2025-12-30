@@ -74,7 +74,7 @@ define internal range(i32 -34, 1) i32 @encode_jpegls_init(ptr noundef %0) #0 {
   br label %28
 
 28:                                               ; preds = %19, %11, %10
-  %.0 = phi i32 [ -22, %10 ], [ %., %19 ], [ -34, %11 ]
+  %.0 = phi i32 [ -22, %10 ], [ -34, %11 ], [ %., %19 ]
   ret i32 %.0
 }
 
@@ -625,7 +625,7 @@ ls_store_lse.exit:                                ; preds = %248, %254
   br label %317
 
 317:                                              ; preds = %flush_put_bits.exit, %put_bits.exit, %4, %._crit_edge232
-  %.0 = phi i32 [ -12, %4 ], [ -34, %put_bits.exit ], [ 0, %._crit_edge232 ], [ %173, %flush_put_bits.exit ]
+  %.0 = phi i32 [ 0, %._crit_edge232 ], [ -12, %4 ], [ -34, %put_bits.exit ], [ %173, %flush_put_bits.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -737,8 +737,8 @@ define internal fastcc void @ls_encode_line(ptr noundef nonnull %0, ptr noundef 
   br label %.thread320
 
 .thread320:                                       ; preds = %.thread, %43, %50, %.thread321
-  %61 = phi i32 [ %46, %43 ], [ %49, %.thread321 ], [ %46, %50 ], [ %49, %.thread ]
-  %62 = phi i32 [ %46, %43 ], [ %60, %.thread321 ], [ %55, %50 ], [ %49, %.thread ]
+  %61 = phi i32 [ %46, %50 ], [ %49, %.thread321 ], [ %46, %43 ], [ %49, %.thread ]
+  %62 = phi i32 [ %55, %50 ], [ %60, %.thread321 ], [ %46, %43 ], [ %49, %.thread ]
   %63 = sub nsw i32 %62, %61
   %64 = sub nsw i32 %61, %.0246365
   %65 = sub nsw i32 %.0246365, %.0232366
@@ -1319,7 +1319,7 @@ ls_encode_runterm.exit:                           ; preds = %304, %314
   br label %ff_jpegls_quantize.exit
 
 ff_jpegls_quantize.exit:                          ; preds = %326, %330, %333, %336, %339, %342, %343, %346, %349
-  %.0.i295 = phi i32 [ 2, %346 ], [ 0, %326 ], [ -4, %330 ], [ -3, %333 ], [ %..i296, %339 ], [ -2, %336 ], [ %.22.i, %349 ], [ 0, %342 ], [ 1, %343 ]
+  %.0.i295 = phi i32 [ 0, %326 ], [ -4, %330 ], [ -3, %333 ], [ -2, %336 ], [ %..i296, %339 ], [ 0, %342 ], [ 1, %343 ], [ 2, %346 ], [ %.22.i, %349 ]
   %352 = mul nsw i32 %.0.i295, 81
   %353 = icmp eq i32 %61, %.0246365
   br i1 %353, label %ff_jpegls_quantize.exit304, label %354
@@ -1373,7 +1373,7 @@ ff_jpegls_quantize.exit:                          ; preds = %326, %330, %333, %3
   br label %ff_jpegls_quantize.exit304
 
 ff_jpegls_quantize.exit304:                       ; preds = %ff_jpegls_quantize.exit, %356, %359, %362, %365, %368, %369, %372, %375
-  %.0.i298 = phi i32 [ 2, %372 ], [ 0, %ff_jpegls_quantize.exit ], [ -4, %356 ], [ -3, %359 ], [ %..i303, %365 ], [ -2, %362 ], [ %.22.i299, %375 ], [ 0, %368 ], [ 1, %369 ]
+  %.0.i298 = phi i32 [ 0, %ff_jpegls_quantize.exit ], [ -4, %356 ], [ -3, %359 ], [ -2, %362 ], [ %..i303, %365 ], [ 0, %368 ], [ 1, %369 ], [ 2, %372 ], [ %.22.i299, %375 ]
   %378 = mul nsw i32 %.0.i298, 9
   %379 = add nsw i32 %378, %352
   %380 = icmp eq i32 %.0246365, %.0232366
@@ -1428,7 +1428,7 @@ ff_jpegls_quantize.exit304:                       ; preds = %ff_jpegls_quantize.
   br label %ff_jpegls_quantize.exit312
 
 ff_jpegls_quantize.exit312:                       ; preds = %ff_jpegls_quantize.exit304, %383, %386, %389, %392, %395, %396, %399, %402
-  %.0.i306 = phi i32 [ 2, %399 ], [ 0, %ff_jpegls_quantize.exit304 ], [ -4, %383 ], [ -3, %386 ], [ %..i311, %392 ], [ -2, %389 ], [ %.22.i307, %402 ], [ 0, %395 ], [ 1, %396 ]
+  %.0.i306 = phi i32 [ 0, %ff_jpegls_quantize.exit304 ], [ -4, %383 ], [ -3, %386 ], [ -2, %389 ], [ %..i311, %392 ], [ 0, %395 ], [ 1, %396 ], [ 2, %399 ], [ %.22.i307, %402 ]
   %405 = add nsw i32 %379, %.0.i306
   %406 = sub i32 %.0232366, %.0246365
   %407 = add i32 %406, %61
@@ -1452,7 +1452,7 @@ ff_jpegls_quantize.exit312:                       ; preds = %ff_jpegls_quantize.
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %409, %411, %412, %414
-  %.0.i313 = phi i32 [ %..i314, %411 ], [ %407, %412 ], [ %407, %409 ], [ %.20.i, %414 ]
+  %.0.i313 = phi i32 [ %407, %409 ], [ %407, %412 ], [ %..i314, %411 ], [ %.20.i, %414 ]
   %415 = icmp sgt i32 %405, -1
   br i1 %415, label %436, label %416
 
@@ -1608,7 +1608,7 @@ mid_pred.exit:                                    ; preds = %409, %411, %412, %4
   br label %._crit_edge.i315
 
 ._crit_edge.i315:                                 ; preds = %491, %488
-  %498 = phi i32 [ %497, %491 ], [ 0, %488 ]
+  %498 = phi i32 [ 0, %488 ], [ %497, %491 ]
   %499 = icmp slt i32 %.7344, 0
   %500 = load i32, ptr %30, align 4, !tbaa !71
   %501 = select i1 %499, i32 %500, i32 0
@@ -1713,9 +1713,9 @@ ff_jpegls_downscale_state.exit.i.i:               ; preds = %531, %521
   br label %ls_encode_regular.exit
 
 ls_encode_regular.exit:                           ; preds = %324, %ls_encode_runterm.exit, %554, %549, %547, %545, %539, %517, %513
-  %.1245 = phi i32 [ %61, %554 ], [ %61, %513 ], [ %61, %517 ], [ %61, %539 ], [ %61, %545 ], [ %61, %547 ], [ %61, %549 ], [ %217, %ls_encode_runterm.exit ], [ %217, %324 ]
-  %.4 = phi i32 [ %.5347, %554 ], [ %.5347, %513 ], [ %.5347, %517 ], [ %.5347, %539 ], [ %.5347, %545 ], [ %.5347, %547 ], [ %.5347, %549 ], [ %.2234332, %ls_encode_runterm.exit ], [ %.2234332, %324 ]
-  %.3 = phi i32 [ %.0230367, %554 ], [ %.0230367, %513 ], [ %.0230367, %517 ], [ %.0230367, %539 ], [ %.0230367, %545 ], [ %.0230367, %547 ], [ %.0230367, %549 ], [ %.1231.lcssa, %ls_encode_runterm.exit ], [ %.1231.lcssa, %324 ]
+  %.1245 = phi i32 [ %61, %513 ], [ %61, %517 ], [ %61, %539 ], [ %61, %545 ], [ %61, %547 ], [ %61, %549 ], [ %61, %554 ], [ %217, %ls_encode_runterm.exit ], [ %217, %324 ]
+  %.4 = phi i32 [ %.5347, %513 ], [ %.5347, %517 ], [ %.5347, %539 ], [ %.5347, %545 ], [ %.5347, %547 ], [ %.5347, %549 ], [ %.5347, %554 ], [ %.2234332, %ls_encode_runterm.exit ], [ %.2234332, %324 ]
+  %.3 = phi i32 [ %.0230367, %513 ], [ %.0230367, %517 ], [ %.0230367, %539 ], [ %.0230367, %545 ], [ %.0230367, %547 ], [ %.0230367, %549 ], [ %.0230367, %554 ], [ %.1231.lcssa, %ls_encode_runterm.exit ], [ %.1231.lcssa, %324 ]
   %556 = add nsw i32 %.3, %6
   %557 = icmp slt i32 %556, %5
   br i1 %557, label %41, label %.critedge276, !llvm.loop !76

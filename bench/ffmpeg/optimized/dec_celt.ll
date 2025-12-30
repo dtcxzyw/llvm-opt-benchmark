@@ -567,9 +567,9 @@ thread-pre-split328:                              ; preds = %parse_postfilter.ex
   br i1 %295, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !45
 
 ._crit_edge.i:                                    ; preds = %291, %231, %.preheader.i
-  %296 = phi i32 [ %221, %231 ], [ %221, %.preheader.i ], [ %292, %291 ]
-  %297 = phi i32 [ %221, %231 ], [ %222, %.preheader.i ], [ %293, %291 ]
-  %298 = phi i32 [ %221, %231 ], [ %223, %.preheader.i ], [ %293, %291 ]
+  %296 = phi i32 [ %221, %.preheader.i ], [ %221, %231 ], [ %292, %291 ]
+  %297 = phi i32 [ %222, %.preheader.i ], [ %221, %231 ], [ %293, %291 ]
+  %298 = phi i32 [ %223, %.preheader.i ], [ %221, %231 ], [ %293, %291 ]
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 21
   br i1 %exitcond79.not.i, label %celt_decode_coarse_energy.exit, label %.preheader.i, !llvm.loop !47
@@ -1720,7 +1720,7 @@ ff_celt_flush.exit:                               ; preds = %34, %55
   br label %ff_celt_free.exit
 
 ff_celt_free.exit:                                ; preds = %59, %9, %ff_celt_flush.exit, %8
-  %.019 = phi i32 [ -22, %8 ], [ -12, %9 ], [ 0, %ff_celt_flush.exit ], [ %.017, %59 ]
+  %.019 = phi i32 [ -22, %8 ], [ 0, %ff_celt_flush.exit ], [ -12, %9 ], [ %.017, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.019
 }

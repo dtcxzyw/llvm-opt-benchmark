@@ -229,7 +229,7 @@ init_pattern_from_file.exit:                      ; preds = %29
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %21, %43, %40, %init_pattern_from_file.exit, %.loopexit, %20
-  %.0 = phi i32 [ -22, %20 ], [ -12, %43 ], [ 0, %.loopexit ], [ %37, %init_pattern_from_file.exit ], [ %41, %40 ], [ -12, %29 ], [ %27, %21 ]
+  %.0 = phi i32 [ -22, %20 ], [ 0, %.loopexit ], [ %37, %init_pattern_from_file.exit ], [ %41, %40 ], [ -12, %43 ], [ -12, %29 ], [ %27, %21 ]
   ret i32 %.0
 }
 

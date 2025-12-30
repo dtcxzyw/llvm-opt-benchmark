@@ -246,8 +246,8 @@ handle_line.exit:                                 ; preds = %80, %81
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %strip_trailing_whitespace.exit.i.us, %handle_line.exit.us, %handle_line.exit, %.outer._crit_edge.loopexit112, %.preheader78
-  %.0.ph.lcssa = phi ptr [ %.0.ph103, %handle_line.exit.us ], [ %11, %.preheader78 ], [ %.1, %.outer._crit_edge.loopexit112 ], [ %.0.ph103, %handle_line.exit ], [ %.0.ph103, %strip_trailing_whitespace.exit.i.us ]
-  %.052.lcssa = phi i1 [ true, %handle_line.exit.us ], [ true, %.preheader78 ], [ %87, %.outer._crit_edge.loopexit112 ], [ true, %handle_line.exit ], [ true, %strip_trailing_whitespace.exit.i.us ]
+  %.0.ph.lcssa = phi ptr [ %11, %.preheader78 ], [ %.1, %.outer._crit_edge.loopexit112 ], [ %.0.ph103, %handle_line.exit ], [ %.0.ph103, %handle_line.exit.us ], [ %.0.ph103, %strip_trailing_whitespace.exit.i.us ]
+  %.052.lcssa = phi i1 [ true, %.preheader78 ], [ %87, %.outer._crit_edge.loopexit112 ], [ true, %handle_line.exit ], [ true, %handle_line.exit.us ], [ true, %strip_trailing_whitespace.exit.i.us ]
   %88 = load i64, ptr %5, align 8, !tbaa !4
   %.not63 = icmp eq i64 %88, 0
   br i1 %.not63, label %133, label %89
@@ -489,7 +489,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   call void @zend_wrong_parameter_error(i32 noundef %.090, i32 noundef %.082, ptr noundef null, i32 noundef %.087, ptr noundef %.085) #11
   br label %zend_try_array_init_size.exit
 
-.critedge:                                        ; preds = %24, %27, %20
+.critedge:                                        ; preds = %20, %27, %24
   %.0117 = phi ptr [ null, %20 ], [ null, %24 ], [ %29, %27 ]
   %.1116 = phi ptr [ null, %20 ], [ %.0115, %24 ], [ %.0115, %27 ]
   %.not98 = icmp eq i64 %19, 0
@@ -583,7 +583,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   br i1 %75, label %zend_try_array_init_size.exit, label %zend_gc_try_delref.exit
 
 77:                                               ; preds = %.thread, %63
-  %.019.i = phi ptr [ %72, %.thread ], [ %.1116, %63 ]
+  %.019.i = phi ptr [ %.1116, %63 ], [ %72, %.thread ]
   call void @zval_ptr_safe_dtor(ptr noundef nonnull %.019.i) #11
   store ptr %64, ptr %.019.i, align 8, !tbaa !8
   %78 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
@@ -591,7 +591,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   br label %zend_gc_try_delref.exit
 
 zend_gc_try_delref.exit:                          ; preds = %73, %77, %60, %54, %50
-  %.3 = phi ptr [ %.2, %60 ], [ %.2, %50 ], [ %.2, %54 ], [ %76, %73 ], [ %.019.i, %77 ]
+  %.3 = phi ptr [ %.2, %50 ], [ %.2, %54 ], [ %.2, %60 ], [ %76, %73 ], [ %.019.i, %77 ]
   %79 = call i32 @php_exec(i32 noundef 2, ptr noundef nonnull %17, ptr noundef nonnull %.3, ptr noundef %1)
   br label %80
 
@@ -750,17 +750,17 @@ define dso_local ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0
   br label %46
 
 46:                                               ; preds = %.sink.split, %33, %36, %41
-  %.2.sink = phi i64 [ %.06281, %41 ], [ %.06281, %36 ], [ %.06281, %33 ], [ %44, %.sink.split ]
-  %.469 = phi ptr [ null, %41 ], [ %40, %36 ], [ %.06580, %33 ], [ %.06580, %.sink.split ]
+  %.2.sink = phi i64 [ %.06281, %36 ], [ %.06281, %41 ], [ %.06281, %33 ], [ %44, %.sink.split ]
+  %.469 = phi ptr [ %40, %36 ], [ null, %41 ], [ %.06580, %33 ], [ %.06580, %.sink.split ]
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 %.2.sink
   store i8 %34, ptr %47, align 1, !tbaa !8
   %.4 = add i64 %.2.sink, 1
   br label %48
 
 48:                                               ; preds = %.lr.ph, %46, %26
-  %.166 = phi ptr [ %.469, %46 ], [ %.06580, %26 ], [ %.06580, %.lr.ph ]
-  %.163 = phi i64 [ %.4, %46 ], [ %29, %26 ], [ %.06281, %.lr.ph ]
-  %.1 = phi i64 [ %.06182, %46 ], [ %32, %26 ], [ %.06182, %.lr.ph ]
+  %.166 = phi ptr [ %.06580, %26 ], [ %.469, %46 ], [ %.06580, %.lr.ph ]
+  %.163 = phi i64 [ %29, %26 ], [ %.4, %46 ], [ %.06281, %.lr.ph ]
+  %.1 = phi i64 [ %32, %26 ], [ %.06182, %46 ], [ %.06182, %.lr.ph ]
   %49 = add i64 %.1, 1
   %50 = icmp ult i64 %49, %3
   br i1 %50, label %.lr.ph, label %._crit_edge
@@ -969,8 +969,8 @@ define dso_local ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0
   br label %44
 
 44:                                               ; preds = %.lr.ph, %41, %27
-  %.154 = phi i64 [ %42, %41 ], [ %30, %27 ], [ %.05360, %.lr.ph ]
-  %.1 = phi i64 [ %.05261, %41 ], [ %33, %27 ], [ %.05261, %.lr.ph ]
+  %.154 = phi i64 [ %30, %27 ], [ %42, %41 ], [ %.05360, %.lr.ph ]
+  %.1 = phi i64 [ %33, %27 ], [ %.05261, %41 ], [ %.05261, %.lr.ph ]
   %45 = add i64 %.1, 1
   %46 = icmp ult i64 %45, %3
   br i1 %46, label %.lr.ph, label %._crit_edge

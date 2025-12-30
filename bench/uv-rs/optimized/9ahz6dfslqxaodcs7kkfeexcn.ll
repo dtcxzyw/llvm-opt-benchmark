@@ -157,7 +157,7 @@ define void @_ZN8uv_state10StateStore4init17hfda78a786a322072E(ptr dead_on_unwin
           to label %_ZN6fs_err14create_dir_all17h82226acf8765e7e3E.exit unwind label %21
 
 .body:                                            ; preds = %59, %82, %76, %66, %31, %21
-  %.pn42 = phi { ptr, i32 } [ %32, %31 ], [ %77, %76 ], [ %22, %21 ], [ %60, %59 ], [ %67, %66 ], [ %83, %82 ]
+  %.pn42 = phi { ptr, i32 } [ %22, %21 ], [ %32, %31 ], [ %60, %59 ], [ %67, %66 ], [ %83, %82 ], [ %77, %76 ]
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hff52b622bfaecc4aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 1, i64 noundef 1)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf5a7c521604b1fb5E.exit" unwind label %94
 
@@ -413,7 +413,7 @@ default.unreachable:                              ; preds = %._crit_edge
   unreachable
 
 _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit: ; preds = %56, %53, %49
-  %.sroa.0.0.i48 = phi i8 [ %58, %56 ], [ %spec.select.i.i.i, %49 ], [ %55, %53 ]
+  %.sroa.0.0.i48 = phi i8 [ %spec.select.i.i.i, %49 ], [ %55, %53 ], [ %58, %56 ]
   %96 = icmp eq i8 %.sroa.0.0.i48, 12
   br i1 %96, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread68, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread
 
@@ -485,7 +485,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread68: ; preds = %48, %_
   unreachable
 
 common.resume:                                    ; preds = %133, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf5a7c521604b1fb5E.exit", %130, %103, %108, %111
-  %common.resume.op = phi { ptr, i32 } [ %104, %103 ], [ %104, %111 ], [ %104, %108 ], [ %.pn42, %130 ], [ %.pn42, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf5a7c521604b1fb5E.exit" ], [ %.pn42, %133 ]
+  %common.resume.op = phi { ptr, i32 } [ %104, %111 ], [ %104, %108 ], [ %104, %103 ], [ %.pn42, %130 ], [ %.pn42, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf5a7c521604b1fb5E.exit" ], [ %.pn42, %133 ]
   resume { ptr, i32 } %common.resume.op
 
 121:                                              ; preds = %.noexc61, %100

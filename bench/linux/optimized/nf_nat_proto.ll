@@ -464,7 +464,7 @@ define dso_local noundef range(i32 0, 2) i32 @nf_nat_icmp_reply_translation(ptr 
   br label %79
 
 79:                                               ; preds = %30, %74, %48, %._crit_edge, %27, %22
-  %80 = phi i32 [ 0, %22 ], [ 0, %27 ], [ 0, %30 ], [ 1, %._crit_edge ], [ 0, %48 ], [ %78, %74 ]
+  %80 = phi i32 [ 0, %22 ], [ 0, %27 ], [ 1, %._crit_edge ], [ 0, %48 ], [ %78, %74 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %80
 }
@@ -713,7 +713,7 @@ define dso_local noundef range(i32 0, 2) i32 @nf_nat_icmpv6_reply_translation(pt
   br label %126
 
 126:                                              ; preds = %25, %125, %123, %._crit_edge, %22, %17
-  %127 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %25 ], [ 1, %._crit_edge ], [ %124, %123 ], [ 0, %125 ]
+  %127 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 1, %._crit_edge ], [ %124, %123 ], [ 0, %125 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %127
 }
@@ -1345,33 +1345,33 @@ define internal i32 @nf_nat_ipv4_local_in(ptr noundef %0, ptr noundef %1, ptr no
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 18
   %39 = load volatile i8, ptr %38, align 2
-  switch i8 %39, label %44 [
-    i8 6, label %48
-    i8 12, label %40
+  switch i8 %39, label %48 [
+    i8 6, label %40
+    i8 12, label %44
   ]
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %13, i64 232
-  %42 = load i16, ptr %41, align 8
-  %43 = and i16 %42, 8192
-  %.not = icmp eq i16 %43, 0
-  br i1 %.not, label %52, label %86
-
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw i8, ptr %13, i64 752
-  %46 = load volatile i64, ptr %45, align 8
-  %47 = and i64 %46, 32768
-  %.not3 = icmp eq i64 %47, 0
-  br i1 %.not3, label %52, label %86
-
-48:                                               ; preds = %37
-  %49 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, 1
-  %.not2 = icmp eq i32 %51, 0
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 144
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, 1
+  %.not2 = icmp eq i32 %43, 0
   br i1 %.not2, label %52, label %86
 
-52:                                               ; preds = %44, %40, %48
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 232
+  %46 = load i16, ptr %45, align 8
+  %47 = and i16 %46, 8192
+  %.not = icmp eq i16 %47, 0
+  br i1 %.not, label %52, label %86
+
+48:                                               ; preds = %37
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 752
+  %50 = load volatile i64, ptr %49, align 8
+  %51 = and i64 %50, 32768
+  %.not3 = icmp eq i64 %51, 0
+  br i1 %.not3, label %52, label %86
+
+52:                                               ; preds = %40, %44, %48
   %53 = load ptr, ptr %4, align 8
   %54 = load i16, ptr %6, align 4
   %55 = zext i16 %54 to i64
@@ -1431,7 +1431,7 @@ define internal i32 @nf_nat_ipv4_local_in(ptr noundef %0, ptr noundef %1, ptr no
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 3131, i32 0, i64 12) #8, !srcloc !24
   unreachable
 
-86:                                               ; preds = %44, %40, %82, %81, %73, %70, %67, %60, %48, %32
+86:                                               ; preds = %40, %44, %82, %81, %73, %70, %67, %60, %48, %32
   ret i32 %33
 }
 
@@ -2012,33 +2012,33 @@ nf_nat_ipv6_fn.exit:                              ; preds = %3, %32, %36
 42:                                               ; preds = %nf_nat_ipv6_fn.exit
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 18
   %44 = load volatile i8, ptr %43, align 2
-  switch i8 %44, label %49 [
-    i8 6, label %53
-    i8 12, label %45
+  switch i8 %44, label %53 [
+    i8 6, label %45
+    i8 12, label %49
   ]
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %15, i64 232
-  %47 = load i16, ptr %46, align 8
-  %48 = and i16 %47, 8192
-  %.not = icmp eq i16 %48, 0
-  br i1 %.not, label %57, label %91
-
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %15, i64 752
-  %51 = load volatile i64, ptr %50, align 8
-  %52 = and i64 %51, 32768
-  %.not3 = icmp eq i64 %52, 0
-  br i1 %.not3, label %57, label %91
-
-53:                                               ; preds = %42
-  %54 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  %55 = load i32, ptr %54, align 8
-  %56 = and i32 %55, 1
-  %.not2 = icmp eq i32 %56, 0
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %47 = load i32, ptr %46, align 8
+  %48 = and i32 %47, 1
+  %.not2 = icmp eq i32 %48, 0
   br i1 %.not2, label %57, label %91
 
-57:                                               ; preds = %49, %45, %53
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 232
+  %51 = load i16, ptr %50, align 8
+  %52 = and i16 %51, 8192
+  %.not = icmp eq i16 %52, 0
+  br i1 %.not, label %57, label %91
+
+53:                                               ; preds = %42
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 752
+  %55 = load volatile i64, ptr %54, align 8
+  %56 = and i64 %55, 32768
+  %.not3 = icmp eq i64 %56, 0
+  br i1 %.not3, label %57, label %91
+
+57:                                               ; preds = %45, %49, %53
   %58 = load ptr, ptr %7, align 8
   %59 = load i16, ptr %9, align 4
   %60 = zext i16 %59 to i64
@@ -2098,7 +2098,7 @@ nf_nat_ipv6_fn.exit:                              ; preds = %3, %32, %36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 3131, i32 0, i64 12) #8, !srcloc !24
   unreachable
 
-91:                                               ; preds = %49, %45, %87, %86, %78, %75, %72, %65, %53, %nf_nat_ipv6_fn.exit
+91:                                               ; preds = %45, %49, %87, %86, %78, %75, %72, %65, %53, %nf_nat_ipv6_fn.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %38
 }

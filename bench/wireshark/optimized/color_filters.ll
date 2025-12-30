@@ -817,7 +817,7 @@ define noundef zeroext i1 @color_filters_read_globals(ptr noundef %0, ptr nounde
   br label %23
 
 23:                                               ; preds = %7, %21, %15, %10
-  %.0 = phi i1 [ false, %10 ], [ true, %21 ], [ false, %15 ], [ true, %7 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %15 ], [ true, %21 ], [ true, %7 ]
   tail call void @g_free(ptr noundef %4)
   ret i1 %.0
 }
@@ -1146,8 +1146,8 @@ getc_unlocked.exit100:                            ; preds = %71, %73
   br label %.outer.outer.backedge
 
 .loopexit:                                        ; preds = %89, %63, %getc_unlocked.exit, %getc_unlocked.exit96
-  %.166 = phi ptr [ %.065.ph.ph, %63 ], [ %.065.ph.ph, %getc_unlocked.exit ], [ %.065.ph.ph, %getc_unlocked.exit96 ], [ %.267, %89 ]
-  %.1 = phi ptr [ %.2, %63 ], [ %.0.ph, %getc_unlocked.exit ], [ %.0.ph, %getc_unlocked.exit96 ], [ %.2, %89 ]
+  %.166 = phi ptr [ %.065.ph.ph, %getc_unlocked.exit96 ], [ %.065.ph.ph, %getc_unlocked.exit ], [ %.065.ph.ph, %63 ], [ %.267, %89 ]
+  %.1 = phi ptr [ %.0.ph, %getc_unlocked.exit96 ], [ %.0.ph, %getc_unlocked.exit ], [ %.2, %63 ], [ %.2, %89 ]
   %127 = call i32 @ferror(ptr noundef nonnull %1) #14
   %.not94 = icmp eq i32 %127, 0
   br i1 %.not94, label %131, label %128

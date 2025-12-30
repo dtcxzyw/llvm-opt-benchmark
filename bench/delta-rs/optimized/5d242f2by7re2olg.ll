@@ -1632,7 +1632,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN127_$LT$aws_s
   br label %8
 
 8:                                                ; preds = %4, %1
-  %.0 = phi ptr [ %., %4 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %., %4 ]
   ret ptr %.0
 }
 
@@ -1649,7 +1649,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN127_$LT$aws_s
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.0 = phi ptr [ %., %4 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %., %4 ]
   ret ptr %.0
 }
 
@@ -1666,7 +1666,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN127_$LT$aws_s
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.0 = phi ptr [ %., %4 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %., %4 ]
   ret ptr %.0
 }
 
@@ -1701,7 +1701,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN127_$LT$aws_s
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.0 = phi ptr [ %., %4 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %., %4 ]
   ret ptr %.0
 }
 
@@ -1718,7 +1718,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @"_ZN127_$LT$aws_
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.0 = phi ptr [ %., %4 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %., %4 ]
   ret ptr %.0
 }
 
@@ -1753,7 +1753,7 @@ define hidden noundef align 8 ptr @"_ZN127_$LT$aws_smithy_types..config_bag..sto
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.0 = phi ptr [ %., %4 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %., %4 ]
   ret ptr %.0
 }
 
@@ -6756,10 +6756,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit168
   br label %"_ZN4core3ptr244drop_in_place$LT$core..result..Result$LT$aws_smithy_runtime_api..client..interceptors..context..Output$C$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$17hd5f0224480e4dcfbE.llvm.11792392190407745568.exit"
 
 .thread:                                          ; preds = %240, %"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h4a7efd71fe735945E.exit", %235
-  %.pn.pn246 = phi { ptr, i32 } [ %lpad.thr_comm, %240 ], [ %.pn, %"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h4a7efd71fe735945E.exit" ], [ %.pn, %235 ]
+  %.pn.pn246 = phi { ptr, i32 } [ %.pn, %235 ], [ %.pn, %"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h4a7efd71fe735945E.exit" ], [ %lpad.thr_comm, %240 ]
   resume { ptr, i32 } %.pn.pn246
 
-240:                                              ; preds = %.invoke265, %.noexc161, %.critedge9.i, %107, %44, %67, %94, %47, %76, %132
+240:                                              ; preds = %.invoke265, %132, %.noexc161, %.critedge9.i, %107, %44, %47, %67, %76, %94
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr144drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..ErrorKind$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h0ffa1a50106407ffE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(112) %1)
@@ -7022,7 +7022,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   unreachable
 
 "_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17hf2174feb983c6c5fE.llvm.11792392190407745568.exit13": ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17hf2174feb983c6c5fE.llvm.11792392190407745568.exit19", %64, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17hf2174feb983c6c5fE.llvm.11792392190407745568.exit", %41
-  %.pn5 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17hf2174feb983c6c5fE.llvm.11792392190407745568.exit" ], [ %.pn, %41 ], [ %lpad.phi23, %64 ], [ %lpad.phi23, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17hf2174feb983c6c5fE.llvm.11792392190407745568.exit19" ]
+  %.pn5 = phi { ptr, i32 } [ %.pn, %41 ], [ %.pn, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17hf2174feb983c6c5fE.llvm.11792392190407745568.exit" ], [ %lpad.phi23, %64 ], [ %lpad.phi23, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17hf2174feb983c6c5fE.llvm.11792392190407745568.exit19" ]
   resume { ptr, i32 } %.pn5
 
 "_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..response..Response$GT$$GT$17ha0501eb17874da2aE.llvm.11792392190407745568.exit": ; preds = %54, %57, %.thread
@@ -8501,7 +8501,7 @@ _ZN22aws_smithy_runtime_api6client12orchestrator22convert_dispatch_error17h88454
           to label %.body.thread.i unwind label %102
 
 .body.thread.i:                                   ; preds = %.body.i, %106, %.body.i63, %150, %111, %100, %.body.i74, %138, %153, %.thread92
-  %.pn85 = phi { ptr, i32 } [ %92, %.body.i63 ], [ %eh.lpad-body91, %153 ], [ %eh.lpad-body91, %.thread92 ], [ %77, %.body.i ], [ %121, %138 ], [ %121, %.body.i74 ], [ %101, %100 ], [ %151, %150 ], [ %107, %106 ], [ %112, %111 ]
+  %.pn85 = phi { ptr, i32 } [ %eh.lpad-body91, %153 ], [ %eh.lpad-body91, %.thread92 ], [ %121, %138 ], [ %121, %.body.i74 ], [ %151, %150 ], [ %112, %111 ], [ %101, %100 ], [ %92, %.body.i63 ], [ %107, %106 ], [ %77, %.body.i ]
   resume { ptr, i32 } %.pn85
 
 .thread92:                                        ; preds = %50, %67
@@ -9647,7 +9647,7 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
   unreachable
 
 .thread:                                          ; preds = %.thread26, %27
-  %.pn1425 = phi { ptr, i32 } [ %eh.lpad-body29, %.thread26 ], [ %.pn, %27 ]
+  %.pn1425 = phi { ptr, i32 } [ %.pn, %27 ], [ %eh.lpad-body29, %.thread26 ]
   resume { ptr, i32 } %.pn1425
 
 .thread26:                                        ; preds = %16, %8
@@ -12384,7 +12384,7 @@ define hidden void @"_ZN4core3ptr174drop_in_place$LT$aws_smithy_runtime_api..cli
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %8, %7 ], [ %18, %17 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr178drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h60ce216e15e8f41fE.exit": ; preds = %5
@@ -12552,7 +12552,7 @@ define hidden void @"_ZN4core3ptr179drop_in_place$LT$aws_smithy_runtime_api..cli
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %8, %7 ], [ %18, %17 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr183drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17hb2f2e008a65969c8E.exit": ; preds = %5
@@ -12700,7 +12700,7 @@ define hidden void @"_ZN4core3ptr179drop_in_place$LT$aws_smithy_runtime_api..cli
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %8, %7 ], [ %18, %17 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr183drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h7a2b8bcbda77d87dE.exit": ; preds = %5
@@ -12853,7 +12853,7 @@ define hidden void @"_ZN4core3ptr185drop_in_place$LT$aws_smithy_runtime_api..cli
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %8, %7 ], [ %18, %17 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr189drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h9acaf2a3337170ffE.exit": ; preds = %5
@@ -13645,7 +13645,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$deltalake_aws..errors..LockC
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.llvm.11792392190407745568.exit"
 
 common.resume:                                    ; preds = %61, %42, %50, %67
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %68, %67 ], [ %43, %50 ], [ %62, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %43, %50 ], [ %43, %42 ], [ %62, %61 ]
   resume { ptr, i32 } %common.resume.op
 
 59:                                               ; preds = %1
@@ -13827,7 +13827,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..operation.
   unreachable
 
 common.resume:                                    ; preds = %108, %90, %72, %54, %36, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %91, %90 ], [ %eh.lpad-body.i, %.body.i ], [ %37, %36 ], [ %55, %54 ], [ %73, %72 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %37, %36 ], [ %55, %54 ], [ %73, %72 ], [ %91, %90 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 24:                                               ; preds = %1
@@ -14282,7 +14282,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operation.
   unreachable
 
 common.resume:                                    ; preds = %108, %90, %72, %54, %36, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %91, %90 ], [ %eh.lpad-body.i, %.body.i ], [ %37, %36 ], [ %55, %54 ], [ %73, %72 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %37, %36 ], [ %55, %54 ], [ %73, %72 ], [ %91, %90 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 24:                                               ; preds = %1
@@ -14609,7 +14609,7 @@ define internal void @"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operatio
   unreachable
 
 common.resume:                                    ; preds = %156, %137, %118, %99, %80, %61, %42, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %138, %137 ], [ %eh.lpad-body.i, %.body.i ], [ %43, %42 ], [ %62, %61 ], [ %81, %80 ], [ %100, %99 ], [ %119, %118 ], [ %157, %156 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %43, %42 ], [ %62, %61 ], [ %81, %80 ], [ %100, %99 ], [ %119, %118 ], [ %138, %137 ], [ %157, %156 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr73drop_in_place$LT$aws_sdk_dynamodb..error..sealed_unhandled..Unhandled$GT$17h15692d6a5f3f937fE.exit": ; preds = %21
@@ -15086,7 +15086,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$aws_credential_types..provid
   unreachable
 
 common.resume:                                    ; preds = %41, %31, %21, %9
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %10, %9 ], [ %22, %21 ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %22, %21 ], [ %32, %31 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 13:                                               ; preds = %1
@@ -15118,7 +15118,7 @@ common.resume:                                    ; preds = %41, %31, %21, %9
   unreachable
 
 "_ZN4core3ptr80drop_in_place$LT$aws_credential_types..provider..error..CredentialsNotLoaded$GT$17h18daeda744a40a9dE.exit.sink.split": ; preds = %17, %3, %35, %25
-  %.sink = phi ptr [ %4, %3 ], [ %26, %25 ], [ %36, %35 ], [ %14, %17 ]
+  %.sink = phi ptr [ %26, %25 ], [ %36, %35 ], [ %4, %3 ], [ %14, %17 ]
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c3b8898271d9448E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sink)
   br label %"_ZN4core3ptr80drop_in_place$LT$aws_credential_types..provider..error..CredentialsNotLoaded$GT$17h18daeda744a40a9dE.exit"
 
@@ -15316,7 +15316,7 @@ define internal void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_dynamodb..operatio
   unreachable
 
 common.resume:                                    ; preds = %156, %137, %118, %99, %80, %61, %42, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %138, %137 ], [ %eh.lpad-body.i, %.body.i ], [ %43, %42 ], [ %62, %61 ], [ %81, %80 ], [ %100, %99 ], [ %119, %118 ], [ %157, %156 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %43, %42 ], [ %62, %61 ], [ %81, %80 ], [ %100, %99 ], [ %119, %118 ], [ %138, %137 ], [ %157, %156 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr73drop_in_place$LT$aws_sdk_dynamodb..error..sealed_unhandled..Unhandled$GT$17h15692d6a5f3f937fE.exit": ; preds = %21
@@ -15813,7 +15813,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$aws_sdk_dynamodb..operation.
   unreachable
 
 common.resume:                                    ; preds = %89, %71, %53, %35, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %eh.lpad-body.i, %.body.i ], [ %36, %35 ], [ %54, %53 ], [ %90, %89 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %36, %35 ], [ %54, %53 ], [ %72, %71 ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %1
@@ -16740,7 +16740,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   unreachable
 
 .body16.i:                                        ; preds = %266, %254, %.body.i71, %233, %225, %217
-  %.pn.i68 = phi { ptr, i32 } [ %eh.lpad-body.i72, %.body.i71 ], [ %218, %217 ], [ %226, %225 ], [ %255, %254 ], [ %226, %233 ], [ %267, %266 ]
+  %.pn.i68 = phi { ptr, i32 } [ %218, %217 ], [ %eh.lpad-body.i72, %.body.i71 ], [ %226, %233 ], [ %226, %225 ], [ %267, %266 ], [ %255, %254 ]
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 5368
   invoke void @"_ZN4core3ptr62drop_in_place$LT$aws_config..profile..credentials..Builder$GT$17h016d99d624a9b35eE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %245) #33
           to label %327 unwind label %243
@@ -16936,7 +16936,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   br label %312
 
 "_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.exit27.i": ; preds = %341, %337, %320, %316, %312
-  %.pn10.i = phi { ptr, i32 } [ %321, %320 ], [ %.pn8.i, %312 ], [ %.pn8.i, %316 ], [ %.pn.i68, %341 ], [ %.pn.i68, %337 ]
+  %.pn10.i = phi { ptr, i32 } [ %321, %320 ], [ %.pn8.i, %316 ], [ %.pn8.i, %312 ], [ %.pn.i68, %341 ], [ %.pn.i68, %337 ]
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 6993
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %319, i8 0, i64 6, i1 false)
   br label %.body75
@@ -17148,7 +17148,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   unreachable
 
 .body10.i:                                        ; preds = %426, %414, %.body.i89, %393, %385, %377
-  %.pn.i79 = phi { ptr, i32 } [ %eh.lpad-body.i90, %.body.i89 ], [ %378, %377 ], [ %386, %385 ], [ %415, %414 ], [ %386, %393 ], [ %427, %426 ]
+  %.pn.i79 = phi { ptr, i32 } [ %378, %377 ], [ %eh.lpad-body.i90, %.body.i89 ], [ %386, %393 ], [ %386, %385 ], [ %427, %426 ], [ %415, %414 ]
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 3768
   invoke void @"_ZN4core3ptr56drop_in_place$LT$aws_config..profile..token..Builder$GT$17hb339a446bbc994d7E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %405) #33
           to label %460 unwind label %403
@@ -17265,7 +17265,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   br label %444
 
 "_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.exit17.i": ; preds = %468, %464, %454, %448, %444
-  %.pn4.i80 = phi { ptr, i32 } [ %455, %454 ], [ %.pn2.i86, %444 ], [ %.pn2.i86, %448 ], [ %.pn.i79, %468 ], [ %.pn.i79, %464 ]
+  %.pn4.i80 = phi { ptr, i32 } [ %455, %454 ], [ %.pn2.i86, %448 ], [ %.pn2.i86, %444 ], [ %.pn.i79, %468 ], [ %.pn.i79, %464 ]
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 4594
   store i8 0, ptr %451, align 2
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 4595
@@ -17420,7 +17420,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   br i1 %513, label %669, label %661
 
 .body:                                            ; preds = %517, %40, %509, %22, %.body110, %659
-  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body110 ], [ %23, %22 ], [ %660, %659 ], [ %510, %509 ], [ %518, %517 ], [ %41, %40 ]
+  %.pn18 = phi { ptr, i32 } [ %660, %659 ], [ %.pn16, %.body110 ], [ %510, %509 ], [ %23, %22 ], [ %518, %517 ], [ %41, %40 ]
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %515 = load i8, ptr %514, align 8, !range !645, !noundef !5
   %516 = trunc nuw i8 %515 to i1
@@ -17492,7 +17492,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   unreachable
 
 .body110:                                         ; preds = %570, %558, %535, %527, %.body56, %519, %861, %657, %.body60
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body60 ], [ %520, %519 ], [ %528, %527 ], [ %eh.lpad-body57, %.body56 ], [ %658, %657 ], [ %.pn14, %861 ], [ %559, %558 ], [ %528, %535 ], [ %571, %570 ]
+  %.pn16 = phi { ptr, i32 } [ %520, %519 ], [ %eh.lpad-body57, %.body56 ], [ %658, %657 ], [ %.pn14, %861 ], [ %.pn14, %.body60 ], [ %528, %535 ], [ %528, %527 ], [ %571, %570 ], [ %559, %558 ]
   %548 = getelementptr inbounds nuw i8, ptr %0, i64 2095
   store i8 0, ptr %548, align 1
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 1288
@@ -17594,7 +17594,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   br label %"_ZN4core3ptr115drop_in_place$LT$aws_config..default_provider..retry_config..Builder..retry_config..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6ce8382c14bfcb1E.exit"
 
 .body65:                                          ; preds = %580, %177, %643, %.body75
-  %.pn12 = phi { ptr, i32 } [ %.pn8, %.body75 ], [ %644, %643 ], [ %581, %580 ], [ %.pn4.i, %177 ]
+  %.pn12 = phi { ptr, i32 } [ %644, %643 ], [ %.pn8, %.body75 ], [ %581, %580 ], [ %.pn4.i, %177 ]
   %583 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   store i8 0, ptr %583, align 8
   br label %.body60
@@ -17643,7 +17643,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   br label %584
 
 .body75:                                          ; preds = %596, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.exit27.i", %641, %.body98
-  %.pn8 = phi { ptr, i32 } [ %.pn6, %.body98 ], [ %642, %641 ], [ %597, %596 ], [ %.pn10.i, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.exit27.i" ]
+  %.pn8 = phi { ptr, i32 } [ %642, %641 ], [ %.pn6, %.body98 ], [ %597, %596 ], [ %.pn10.i, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.exit27.i" ]
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 2103
   store i8 0, ptr %599, align 1
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 1504
@@ -17678,7 +17678,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
           to label %"_ZN4core3ptr107drop_in_place$LT$aws_config..default_provider..credentials..Builder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$17h98751dedf277f6a5E.exit" unwind label %641
 
 .body98:                                          ; preds = %601, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.exit17.i", %639, %623
-  %.pn6 = phi { ptr, i32 } [ %.pn4, %623 ], [ %640, %639 ], [ %602, %601 ], [ %.pn4.i80, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.exit17.i" ]
+  %.pn6 = phi { ptr, i32 } [ %640, %639 ], [ %.pn4, %623 ], [ %602, %601 ], [ %.pn4.i80, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$aws_config..provider_config..ProviderConfig$GT$$GT$17h4c1c2b94a7b8356dE.exit17.i" ]
   %611 = getelementptr inbounds nuw i8, ptr %0, i64 2102
   store i8 0, ptr %611, align 2
   %612 = getelementptr inbounds nuw i8, ptr %0, i64 1656
@@ -17727,7 +17727,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
           to label %636 unwind label %634
 
 .body103:                                         ; preds = %629, %496, %625, %478
-  %.pn = phi { ptr, i32 } [ %479, %478 ], [ %626, %625 ], [ %630, %629 ], [ %497, %496 ]
+  %.pn = phi { ptr, i32 } [ %626, %625 ], [ %479, %478 ], [ %630, %629 ], [ %497, %496 ]
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   invoke void @"_ZN4core3ptr51drop_in_place$LT$aws_types..sdk_config..Builder$GT$17h4f2c72e1e0047f6cE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %628) #33
           to label %631 unwind label %546
@@ -18167,7 +18167,7 @@ common.ret.sink.split.i63:                        ; preds = %"_ZN4core3ptr53drop
   br label %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$aws_config..meta..region..ProvideRegion$GT$$GT$17h3b6777d36823af6dE.llvm.11792392190407745568.exit145"
 
 .body143:                                         ; preds = %801, %793, %775, %853, %849
-  %.pn39 = phi { ptr, i32 } [ %.pn35, %775 ], [ %.pn35, %853 ], [ %.pn35, %849 ], [ %794, %793 ], [ %794, %801 ]
+  %.pn39 = phi { ptr, i32 } [ %.pn35, %853 ], [ %.pn35, %849 ], [ %.pn35, %775 ], [ %794, %801 ], [ %794, %793 ]
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 2094
   %811 = load i8, ptr %810, align 2, !range !645, !noundef !5
   %812 = trunc nuw i8 %811 to i1
@@ -19016,8 +19016,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN94_$LT$aws_credential_types..provider..error..CredentialsError$u20$as$u20$core..error..Error$GT$6source17hf3214ff65bc758f7E.exit"
 
 "_ZN94_$LT$aws_credential_types..provider..error..CredentialsError$u20$as$u20$core..error..Error$GT$6source17hf3214ff65bc758f7E.exit": ; preds = %1, %3, %7, %12, %17, %22
-  %.sroa.7.0.i = phi ptr [ undef, %1 ], [ %21, %17 ], [ %11, %7 ], [ %16, %12 ], [ %24, %22 ], [ undef, %3 ]
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %19, %17 ], [ %9, %7 ], [ %14, %12 ], [ %5, %22 ], [ null, %3 ]
+  %.sroa.7.0.i = phi ptr [ %11, %7 ], [ %16, %12 ], [ %21, %17 ], [ undef, %1 ], [ %24, %22 ], [ undef, %3 ]
+  %.sroa.0.0.i = phi ptr [ %9, %7 ], [ %14, %12 ], [ %19, %17 ], [ null, %1 ], [ %5, %22 ], [ null, %3 ]
   %25 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %26 = insertvalue { ptr, ptr } %25, ptr %.sroa.7.0.i, 1
   ret { ptr, ptr } %26
@@ -19056,8 +19056,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN77_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..error..Error$GT$6source17he4f00d75597e28cfE.exit"
 
 "_ZN77_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..error..Error$GT$6source17he4f00d75597e28cfE.exit": ; preds = %1, %1, %1, %1, %1, %3, %5, %10
-  %.sroa.9.0.i = phi ptr [ undef, %1 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.552, %3 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ %9, %5 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.554, %10 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %7, %5 ], [ %11, %10 ], [ null, %1 ]
+  %.sroa.9.0.i = phi ptr [ @anon.ef876e9a40f6761df4fa1e2b544b5407.552, %3 ], [ %9, %5 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.554, %10 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ %7, %5 ], [ %11, %10 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.9.0.i, 1
   ret { ptr, ptr } %13
@@ -19259,8 +19259,8 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17h7c50fe35320f8b09E(ptr
   br label %"_ZN96_$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$u20$as$u20$core..error..Error$GT$6source17h4b51e0ba5ffd91d9E.exit"
 
 "_ZN96_$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$u20$as$u20$core..error..Error$GT$6source17h4b51e0ba5ffd91d9E.exit": ; preds = %1, %6, %8, %10, %12, %14, %16, %18, %20
-  %.sroa.10.0.i = phi ptr [ %24, %20 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.404.llvm.11792392190407745568, %6 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.406.llvm.11792392190407745568, %8 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.432, %10 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.408, %12 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.410, %14 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.412, %16 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.434, %18 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.430, %1 ]
-  %.sroa.0.0.i = phi ptr [ %22, %20 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %0, %1 ]
+  %.sroa.10.0.i = phi ptr [ @anon.ef876e9a40f6761df4fa1e2b544b5407.404.llvm.11792392190407745568, %6 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.406.llvm.11792392190407745568, %8 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.432, %10 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.408, %12 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.410, %14 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.412, %16 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.434, %18 ], [ %24, %20 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.430, %1 ]
+  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ], [ %0, %1 ]
   %25 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %26 = insertvalue { ptr, ptr } %25, ptr %.sroa.10.0.i, 1
   ret { ptr, ptr } %26
@@ -19291,8 +19291,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN82_$LT$aws_smithy_types..byte_stream..error..Error$u20$as$u20$core..error..Error$GT$6source17h4ab44d6a8d436ab5E.exit"
 
 "_ZN82_$LT$aws_smithy_types..byte_stream..error..Error$u20$as$u20$core..error..Error$GT$6source17h4ab44d6a8d436ab5E.exit": ; preds = %1, %1, %3, %5
-  %.sroa.4.0.i = phi ptr [ %9, %5 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.378, %3 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %7, %5 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.4.0.i = phi ptr [ @anon.ef876e9a40f6761df4fa1e2b544b5407.378, %3 ], [ %9, %5 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ %7, %5 ], [ null, %1 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0.i, 1
   ret { ptr, ptr } %11
@@ -19559,8 +19559,8 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17hb7fd9f860bfc039dE(ptr
   br label %"_ZN90_$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$u20$as$u20$core..error..Error$GT$6source17h4cb37dbd74d1c058E.exit"
 
 "_ZN90_$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$u20$as$u20$core..error..Error$GT$6source17h4cb37dbd74d1c058E.exit": ; preds = %1, %6, %8, %10, %12, %14, %16, %18, %20
-  %.sroa.10.0.i = phi ptr [ %24, %20 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.404.llvm.11792392190407745568, %6 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.406.llvm.11792392190407745568, %8 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.432, %10 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.408, %12 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.410, %14 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.412, %16 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.434, %18 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.430, %1 ]
-  %.sroa.0.0.i = phi ptr [ %22, %20 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %0, %1 ]
+  %.sroa.10.0.i = phi ptr [ @anon.ef876e9a40f6761df4fa1e2b544b5407.404.llvm.11792392190407745568, %6 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.406.llvm.11792392190407745568, %8 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.432, %10 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.408, %12 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.410, %14 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.412, %16 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.434, %18 ], [ %24, %20 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.430, %1 ]
+  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ], [ %0, %1 ]
   %25 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %26 = insertvalue { ptr, ptr } %25, ptr %.sroa.10.0.i, 1
   ret { ptr, ptr } %26
@@ -21399,11 +21399,11 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h0c86cd0e3
   unreachable
 
 "_ZN4core3ptr187drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h79672b97542eda88E.exit": ; preds = %44, %41, %.thread
-  %.pn.pn19 = phi { ptr, i32 } [ %.pn.pn20, %.thread ], [ %45, %44 ], [ %42, %41 ]
+  %.pn.pn19 = phi { ptr, i32 } [ %.pn.pn20, %.thread ], [ %42, %41 ], [ %45, %44 ]
   resume { ptr, i32 } %.pn.pn19
 
 .thread:                                          ; preds = %48, %28
-  %.pn.pn20 = phi { ptr, i32 } [ %49, %48 ], [ %29, %28 ]
+  %.pn.pn20 = phi { ptr, i32 } [ %29, %28 ], [ %49, %48 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa71595f5e0115aeE.llvm.11792392190407745568"(ptr noundef nonnull align 8 %3)
           to label %"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h79672b97542eda88E.exit" unwind label %50
 }
@@ -21601,11 +21601,11 @@ define internal fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h
   unreachable
 
 "_ZN4core3ptr165drop_in_place$LT$tokio..runtime..handle..Handle..block_on$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha8f724ee25462d1aE.exit": ; preds = %42, %39, %.thread
-  %.pn.pn19 = phi { ptr, i32 } [ %.pn.pn20, %.thread ], [ %43, %42 ], [ %40, %39 ]
+  %.pn.pn19 = phi { ptr, i32 } [ %.pn.pn20, %.thread ], [ %40, %39 ], [ %43, %42 ]
   resume { ptr, i32 } %.pn.pn19
 
 .thread:                                          ; preds = %46, %26
-  %.pn.pn20 = phi { ptr, i32 } [ %47, %46 ], [ %27, %26 ]
+  %.pn.pn20 = phi { ptr, i32 } [ %27, %26 ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa71595f5e0115aeE.llvm.11792392190407745568"(ptr noundef nonnull align 8 %2)
           to label %"_ZN4core3ptr165drop_in_place$LT$tokio..runtime..handle..Handle..block_on$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha8f724ee25462d1aE.exit" unwind label %48
 }
@@ -21831,7 +21831,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
   br label %79
 
 .body.i.i.i.i.i:                                  ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i, %.thread46.sink.split.i.i.i.i.i.i.i.i.i, %213, %203, %.noexc17.i.i.i.i.i.i.i.i.i.i, %189, %.noexc8.i.i.i.i.i.i.i.i.i.i.i, %182, %180, %121, %119, %113, %111, %97
-  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn44.ph.i.i.i.i.i.i.i.i.i, %.thread46.sink.split.i.i.i.i.i.i.i.i.i ], [ %.pn45.i.i.i.i.i.i.i.i.i, %213 ], [ %187, %.noexc8.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i.i.i, %119 ], [ %112, %111 ], [ %112, %113 ], [ %98, %97 ], [ %181, %182 ], [ %.pn.i.i.i.i.i.i.i.i.i.i, %121 ], [ %.pn.i20.i.i.i.i.i.i.i.i.i, %.noexc17.i.i.i.i.i.i.i.i.i.i ], [ %.pn.i20.i.i.i.i.i.i.i.i.i, %203 ], [ %181, %180 ], [ %187, %189 ], [ %lpad.loopexit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit10.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp11.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn45.i.i.i.i.i.i.i.i.i, %213 ], [ %112, %113 ], [ %112, %111 ], [ %98, %97 ], [ %.pn.i.i.i.i.i.i.i.i.i.i, %121 ], [ %.pn.i.i.i.i.i.i.i.i.i.i, %119 ], [ %.pn.i20.i.i.i.i.i.i.i.i.i, %203 ], [ %.pn.i20.i.i.i.i.i.i.i.i.i, %.noexc17.i.i.i.i.i.i.i.i.i.i ], [ %181, %180 ], [ %181, %182 ], [ %187, %189 ], [ %187, %.noexc8.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn44.ph.i.i.i.i.i.i.i.i.i, %.thread46.sink.split.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit10.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp11.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i ]
   store ptr %80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 56), align 8, !noalias !3270
   br label %.body.i.i.i
 
@@ -21850,7 +21850,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
   br label %213
 
 .loopexit.split-lp.i.i.i.i.i.i.i.i.i:             ; preds = %156, %.backedge.i.i.i.i.i.i.i.i.i
-  %.239.ph54.ph.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i, %.backedge.i.i.i.i.i.i.i.i.i ], [ %.4128.i.i.i.i.i.i.i.i.i, %156 ]
+  %.239.ph54.ph.i.i.i.i.i.i.i.i.i = phi ptr [ %.4128.i.i.i.i.i.i.i.i.i, %156 ], [ %.1.i.i.i.i.i.i.i.i.i, %.backedge.i.i.i.i.i.i.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %213
@@ -22274,7 +22274,7 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
           to label %.backedge.i.i.i.i.i.i.i.i.i.backedge unwind label %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i, !noalias !3310
 
 .backedge.i.i.i.i.i.i.i.i.i.backedge:             ; preds = %210, %.invoke.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i.be = phi ptr [ %209, %.invoke.i.i.i.i.i.i.i ], [ %211, %210 ]
+  %.1.i.i.i.i.i.i.i.i.i.be = phi ptr [ %211, %210 ], [ %209, %.invoke.i.i.i.i.i.i.i ]
   br label %.backedge.i.i.i.i.i.i.i.i.i
 
 212:                                              ; preds = %192
@@ -22458,7 +22458,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17h3348d4564fca2e31E.exit.i.i.i.i.i: ; 
   unreachable
 
 .body.i.i.i:                                      ; preds = %242, %239, %220, %218, %.body.i.i.i.i.i, %74, %67, %55
-  %.pn9.i.i.i = phi { ptr, i32 } [ %56, %55 ], [ %68, %67 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i ], [ %75, %74 ], [ %219, %218 ], [ %221, %220 ], [ %.pn.i.i.i, %242 ], [ %.pn.i.i.i, %239 ]
+  %.pn9.i.i.i = phi { ptr, i32 } [ %56, %55 ], [ %68, %67 ], [ %75, %74 ], [ %219, %218 ], [ %221, %220 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %242 ], [ %.pn.i.i.i, %239 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$tokio..runtime..scheduler..current_thread..CoreGuard$GT$17h31a7444258c01897E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19) #33
           to label %.body unwind label %72, !noalias !3246
 
@@ -22497,7 +22497,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h78344beb79d24e75E.
           to label %265 unwind label %.loopexit.i, !noalias !3232
 
 .body.i:                                          ; preds = %337, %.body18.i, %.body18.thread.i, %278, %274, %266, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %lpad.phi7.i, %266 ], [ %eh.lpad-body19.i, %337 ], [ %eh.lpad-body19.i, %.body18.i ], [ %275, %278 ], [ %275, %274 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp11.i, %.body18.thread.i ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body19.i, %337 ], [ %eh.lpad-body19.i, %.body18.i ], [ %lpad.phi7.i, %266 ], [ %275, %274 ], [ %275, %278 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp11.i, %.body18.thread.i ]
   %262 = load i64, ptr %20, align 8, !range !82, !noalias !3237, !noundef !5
   %.not229.i = icmp eq i64 %262, 2
   br i1 %.not229.i, label %.body, label %340
@@ -22797,7 +22797,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h78344beb79d24e75E.
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %245, %.body.i.i.i, %.body.i, %311, %326, %340
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn9.i.i.i, %.body.i.i.i ], [ %327, %326 ], [ %312, %311 ], [ %.pn.i, %340 ], [ %.pn.i, %.body.i ], [ %246, %245 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %312, %311 ], [ %327, %326 ], [ %.pn.i, %340 ], [ %.pn.i, %.body.i ], [ %.pn9.i.i.i, %.body.i.i.i ], [ %246, %245 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17h041f95d1d51799bdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23) #33
           to label %.thread unwind label %354
 
@@ -22847,7 +22847,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h78344beb79d24e75E.
           to label %.thread unwind label %354
 
 .thread:                                          ; preds = %347, %.body, %351, %357
-  %.pn40 = phi { ptr, i32 } [ %352, %357 ], [ %352, %351 ], [ %eh.lpad-body, %.body ], [ %348, %347 ]
+  %.pn40 = phi { ptr, i32 } [ %352, %351 ], [ %352, %357 ], [ %eh.lpad-body, %.body ], [ %348, %347 ]
   resume { ptr, i32 } %.pn40
 }
 
@@ -23019,7 +23019,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
     i8 0, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place28_$u7b$$u7b$closure$u7d$$u7d$17ha8d13acb0c664024E.exit.fold.split.i.i.i.i.i"
   ]
 
-.thread42:                                        ; preds = %"_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place28_$u7b$$u7b$closure$u7d$$u7d$17ha8d13acb0c664024E.exit.fold.split.i.i.i.i.i", %82, %60, %15, %18, %22, %24, %36, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf62b0fdcbd5734cdE.exit.i.i.i", %.noexc11, %55
+.thread42:                                        ; preds = %"_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place28_$u7b$$u7b$closure$u7d$$u7d$17ha8d13acb0c664024E.exit.fold.split.i.i.i.i.i", %82, %15, %18, %22, %24, %36, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf62b0fdcbd5734cdE.exit.i.i.i", %.noexc11, %55, %60
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread34
@@ -23093,7 +23093,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   unreachable
 
 82:                                               ; preds = %.noexc14, %.noexc8, %.noexc7, %55, %.noexc12, %32
-  %.030.ph.ph = phi i8 [ 0, %.noexc8 ], [ 1, %55 ], [ 0, %.noexc7 ], [ 0, %32 ], [ 1, %.noexc12 ], [ 0, %.noexc14 ]
+  %.030.ph.ph = phi i8 [ 0, %32 ], [ 1, %.noexc12 ], [ 1, %55 ], [ 0, %.noexc7 ], [ 0, %.noexc8 ], [ 0, %.noexc14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %83 = invoke { i1, i8 } @_ZN5tokio7runtime4coop4stop17ha7d6cbd4f84d62afE()
           to label %85 unwind label %.thread42
@@ -23258,7 +23258,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   br label %.body23
 
 .body23:                                          ; preds = %.body.i, %125, %126
-  %eh.lpad-body24 = phi { ptr, i32 } [ %127, %126 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm.i, %125 ]
+  %eh.lpad-body24 = phi { ptr, i32 } [ %127, %126 ], [ %lpad.thr_comm.i, %125 ], [ %eh.lpad-body.i, %.body.i ]
   invoke void @"_ZN112_$LT$tokio..runtime..scheduler..multi_thread..worker..block_in_place..Reset$u20$as$u20$core..ops..drop..Drop$GT$4drop17hee3a9f036dc53a16E"(ptr noalias noundef nonnull align 1 dereferenceable(3) %12)
           to label %.thread38 unwind label %128
 
@@ -23276,7 +23276,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_p
   unreachable
 
 .thread38:                                        ; preds = %.body23, %66, %.thread34
-  %.pn33 = phi { ptr, i32 } [ %67, %66 ], [ %eh.lpad-body37, %.thread34 ], [ %eh.lpad-body24, %.body23 ]
+  %.pn33 = phi { ptr, i32 } [ %eh.lpad-body37, %.thread34 ], [ %67, %66 ], [ %eh.lpad-body24, %.body23 ]
   resume { ptr, i32 } %.pn33
 
 .thread34:                                        ; preds = %.body.thread.i.i.i, %57, %.thread42
@@ -24587,8 +24587,8 @@ define internal { ptr, ptr } @"_ZN90_$LT$aws_sdk_dynamodb..operation..put_item..
   br label %25
 
 25:                                               ; preds = %1, %20, %18, %16, %14, %12, %10, %8, %6
-  %.sroa.10.0 = phi ptr [ %24, %20 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.404.llvm.11792392190407745568, %6 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.406.llvm.11792392190407745568, %8 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.432, %10 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.408, %12 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.410, %14 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.412, %16 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.434, %18 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.430, %1 ]
-  %.sroa.0.0 = phi ptr [ %22, %20 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %0, %1 ]
+  %.sroa.10.0 = phi ptr [ @anon.ef876e9a40f6761df4fa1e2b544b5407.404.llvm.11792392190407745568, %6 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.406.llvm.11792392190407745568, %8 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.432, %10 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.408, %12 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.410, %14 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.412, %16 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.434, %18 ], [ %24, %20 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.430, %1 ]
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ], [ %0, %1 ]
   %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.10.0, 1
   ret { ptr, ptr } %27
@@ -24822,9 +24822,9 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br label %34
 
 34:                                               ; preds = %42, %35, %33, %26
-  %storemerge38 = phi i64 [ 2, %26 ], [ 1, %33 ], [ 1, %42 ], [ 2, %35 ]
-  %storemerge37 = phi i64 [ undef, %26 ], [ %.sroa.48.0.copyload, %33 ], [ %44, %42 ], [ undef, %35 ]
-  %.sroa.4.1 = phi ptr [ %22, %26 ], [ %22, %33 ], [ %38, %42 ], [ %38, %35 ]
+  %storemerge38 = phi i64 [ 1, %33 ], [ 2, %26 ], [ 1, %42 ], [ 2, %35 ]
+  %storemerge37 = phi i64 [ %.sroa.48.0.copyload, %33 ], [ undef, %26 ], [ %44, %42 ], [ undef, %35 ]
+  %.sroa.4.1 = phi ptr [ %22, %33 ], [ %22, %26 ], [ %38, %42 ], [ %38, %35 ]
   store i64 %storemerge38, ptr %0, align 8
   store i64 %storemerge37, ptr %23, align 8
   %.sroa.0.1 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -25023,8 +25023,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 0, ptr %0, align 8, !alias.scope !3697
   br label %40
 
-38:                                               ; preds = %29, %36
-  %.0.i.ph = phi ptr [ %30, %29 ], [ %37, %36 ]
+38:                                               ; preds = %36, %29
+  %.0.i.ph = phi ptr [ %37, %36 ], [ %30, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %39, align 8
   store i64 2, ptr %0, align 8
@@ -25152,8 +25152,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i32 0, ptr %0, align 8, !alias.scope !3744
   br label %47
 
-45:                                               ; preds = %35, %42
-  %.0.i.ph = phi ptr [ %36, %35 ], [ %43, %42 ]
+45:                                               ; preds = %42, %35
+  %.0.i.ph = phi ptr [ %43, %42 ], [ %36, %35 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %46, align 8
   store i32 1, ptr %0, align 8
@@ -25227,8 +25227,8 @@ default.unreachable2:                             ; preds = %1
   br label %25
 
 25:                                               ; preds = %22, %3, %1, %17, %12, %7
-  %.sroa.7.0 = phi ptr [ undef, %1 ], [ %21, %17 ], [ %11, %7 ], [ %16, %12 ], [ %24, %22 ], [ undef, %3 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %19, %17 ], [ %9, %7 ], [ %14, %12 ], [ %5, %22 ], [ null, %3 ]
+  %.sroa.7.0 = phi ptr [ %11, %7 ], [ %16, %12 ], [ %21, %17 ], [ undef, %1 ], [ %24, %22 ], [ undef, %3 ]
+  %.sroa.0.0 = phi ptr [ %9, %7 ], [ %14, %12 ], [ %19, %17 ], [ null, %1 ], [ %5, %22 ], [ null, %3 ]
   %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %27
@@ -25512,8 +25512,8 @@ _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..ti
   br i1 %.not10, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread", label %83
 
 "_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread": ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22", %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit, %21, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit"
-  %.sroa.5.0 = phi i32 [ 1000000000, %21 ], [ %53, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit" ], [ %53, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit ], [ %spec.select48, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22" ]
-  %.sroa.0.0 = phi i64 [ undef, %21 ], [ %52, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit" ], [ %52, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit ], [ %52, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22" ]
+  %.sroa.5.0 = phi i32 [ %53, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit" ], [ 1000000000, %21 ], [ %53, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit ], [ %spec.select48, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22" ]
+  %.sroa.0.0 = phi i64 [ %52, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit" ], [ undef, %21 ], [ %52, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit ], [ %52, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22" ]
   %81 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %82 = insertvalue { i64, i32 } %81, i32 %.sroa.5.0, 1
   ret { i64, i32 } %82
@@ -25663,8 +25663,8 @@ define internal { ptr, ptr } @"_ZN96_$LT$aws_sdk_dynamodb..operation..update_ite
   br label %25
 
 25:                                               ; preds = %1, %20, %18, %16, %14, %12, %10, %8, %6
-  %.sroa.10.0 = phi ptr [ %24, %20 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.404.llvm.11792392190407745568, %6 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.406.llvm.11792392190407745568, %8 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.432, %10 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.408, %12 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.410, %14 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.412, %16 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.434, %18 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.430, %1 ]
-  %.sroa.0.0 = phi ptr [ %22, %20 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %0, %1 ]
+  %.sroa.10.0 = phi ptr [ @anon.ef876e9a40f6761df4fa1e2b544b5407.404.llvm.11792392190407745568, %6 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.406.llvm.11792392190407745568, %8 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.432, %10 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.408, %12 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.410, %14 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.412, %16 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.434, %18 ], [ %24, %20 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.430, %1 ]
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ], [ %0, %1 ]
   %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.10.0, 1
   ret { ptr, ptr } %27
@@ -26293,7 +26293,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.11792392190407745568.e
   unreachable
 
 common.resume:                                    ; preds = %100, %97, %.thread35.i, %52
-  %common.resume.op = phi { ptr, i32 } [ %44, %.thread35.i ], [ %53, %52 ], [ %.pn.pn.pn3180, %100 ], [ %.pn.pn.pn3180, %97 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %44, %.thread35.i ], [ %.pn.pn.pn3180, %97 ], [ %.pn.pn.pn3180, %100 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h047765e420b149c7E.exit.i": ; preds = %45
@@ -26776,13 +26776,13 @@ default.unreachable75:                            ; preds = %3
   br label %.body
 
 94:                                               ; preds = %39, %42, %92, %32
-  %.pn22.ph = phi { ptr, i32 } [ %.pn17.pn, %92 ], [ %40, %39 ], [ %.pn9.pn, %42 ], [ %33, %32 ]
+  %.pn22.ph = phi { ptr, i32 } [ %33, %32 ], [ %40, %39 ], [ %.pn9.pn, %42 ], [ %.pn17.pn, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   invoke void @"_ZN4core3ptr79drop_in_place$LT$aws_credential_types..provider..future..ProvideCredentials$GT$17hb4d3ee455999f917E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #33
           to label %93 unwind label %68
 
 .body:                                            ; preds = %110, %105, %99, %93
-  %.pn29 = phi { ptr, i32 } [ %.pn22.pn, %93 ], [ %100, %99 ], [ %111, %110 ], [ %106, %105 ]
+  %.pn29 = phi { ptr, i32 } [ %100, %99 ], [ %.pn22.pn, %93 ], [ %111, %110 ], [ %106, %105 ]
   store i8 2, ptr %18, align 8
   resume { ptr, i32 } %.pn29
 
@@ -27160,7 +27160,7 @@ define void @"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
   br label %.critedge
 
 .body.thread:                                     ; preds = %16, %33
-  %eh.lpad-body4 = phi { ptr, i32 } [ %17, %16 ], [ %lpad.thr_comm.split-lp, %33 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %33 ], [ %17, %16 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 33:                                               ; preds = %23
@@ -27285,7 +27285,7 @@ define void @"_ZN143_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
   br label %.critedge
 
 .body.thread:                                     ; preds = %17, %35
-  %eh.lpad-body4 = phi { ptr, i32 } [ %18, %17 ], [ %lpad.thr_comm.split-lp, %35 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %35 ], [ %18, %17 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 35:                                               ; preds = %25
@@ -27428,8 +27428,8 @@ default.unreachable1:                             ; preds = %1
   br label %12
 
 12:                                               ; preds = %1, %1, %1, %1, %1, %10, %5, %3
-  %.sroa.9.0 = phi ptr [ undef, %1 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.552, %3 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ %9, %5 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.554, %10 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %7, %5 ], [ %11, %10 ], [ null, %1 ]
+  %.sroa.9.0 = phi ptr [ @anon.ef876e9a40f6761df4fa1e2b544b5407.552, %3 ], [ %9, %5 ], [ @anon.ef876e9a40f6761df4fa1e2b544b5407.554, %10 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %7, %5 ], [ %11, %10 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %13 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %14 = insertvalue { ptr, ptr } %13, ptr %.sroa.9.0, 1
   ret { ptr, ptr } %14
@@ -27806,7 +27806,7 @@ define hidden void @"_ZN197_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   br label %27
 
 .body.thread:                                     ; preds = %15, %29, %.body
-  %eh.lpad-body11 = phi { ptr, i32 } [ %19, %.body ], [ %19, %29 ], [ %16, %15 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %19, %29 ], [ %19, %.body ], [ %16, %15 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 29:                                               ; preds = %.body
@@ -28043,7 +28043,7 @@ define hidden void @"_ZN203_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   br label %27
 
 .body.thread:                                     ; preds = %15, %29, %.body
-  %eh.lpad-body11 = phi { ptr, i32 } [ %19, %.body ], [ %19, %29 ], [ %16, %15 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %19, %29 ], [ %19, %.body ], [ %16, %15 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 29:                                               ; preds = %.body

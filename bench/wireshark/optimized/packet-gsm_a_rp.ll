@@ -521,7 +521,7 @@ dissect_nf_media_type.exit:                       ; preds = %36
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %dissect_nf_media_type.exit.thread, label %42
 
-dissect_nf_media_type.exit.thread:                ; preds = %34, %36, %8, %11, %25, %32, %19, %14, %4, %dissect_nf_media_type.exit
+dissect_nf_media_type.exit.thread:                ; preds = %34, %36, %32, %25, %19, %14, %4, %8, %11, %dissect_nf_media_type.exit
   %41 = tail call i32 @dissect_rp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %42
 

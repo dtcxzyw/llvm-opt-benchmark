@@ -83,7 +83,7 @@ define void @_ZN11fish_printf6locale6Locale14apply_grouping17h7bed80c040992c7bE(
   br label %_ZN11fish_printf6locale6Locale15separator_count17h39b17ca161816bf2E.exit
 
 _ZN11fish_printf6locale6Locale15separator_count17h39b17ca161816bf2E.exit: ; preds = %._crit_edge.i, %24, %31
-  %.sroa.0.1.i = phi i64 [ %spec.select.i, %._crit_edge.i ], [ %.sroa.0.033.i, %31 ], [ %28, %24 ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.033.i, %31 ], [ %28, %24 ], [ %spec.select.i, %._crit_edge.i ]
   %32 = add i64 %.sroa.0.1.i, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h824e16d60ea7c7d0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %32, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
@@ -262,7 +262,7 @@ _ZN11fish_printf6locale6Locale15next_group_size17heb586eeb8a875620E.exit: ; pred
           to label %100 unwind label %.loopexit
 
 .loopexit34:                                      ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17hed3c508f63182950E.exit", %90, %88
-  %.sroa.0.0.i2631 = phi i64 [ %.sroa.0.0.i28, %90 ], [ %.sroa.0.0.i28, %88 ], [ %.sroa.0.0.i27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17hed3c508f63182950E.exit" ]
+  %.sroa.0.0.i2631 = phi i64 [ %.sroa.0.0.i28, %88 ], [ %.sroa.0.0.i28, %90 ], [ %.sroa.0.0.i27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17hed3c508f63182950E.exit" ]
   invoke void @_ZN4core3str16slice_error_fail17hc6990271b5365929E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.050, i64 noundef %.sroa.4.049, i64 noundef 0, i64 noundef %.sroa.0.0.i2631, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5cd64c02e5b633ae7f33e5e4a46672f8.9) #9
           to label %99 unwind label %.loopexit.split-lp
 
@@ -389,7 +389,7 @@ define noundef i64 @_ZN11fish_printf6locale6Locale15separator_count17h39b17ca161
   br label %26
 
 26:                                               ; preds = %2, %20, %._crit_edge, %29
-  %.sroa.0.1 = phi i64 [ %spec.select, %._crit_edge ], [ %.sroa.0.033, %29 ], [ %25, %20 ], [ 0, %2 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.033, %29 ], [ %25, %20 ], [ %spec.select, %._crit_edge ], [ 0, %2 ]
   ret i64 %.sroa.0.1
 
 27:                                               ; preds = %.lr.ph

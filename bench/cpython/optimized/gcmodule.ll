@@ -1192,7 +1192,7 @@ define internal noundef ptr @gc_set_threshold(ptr readnone captures(none) %0, pt
   br label %gc_set_threshold_impl.exit
 
 gc_set_threshold_impl.exit:                       ; preds = %.thread17, %.thread15, %29, %19, %9, %7, %21
-  %.08 = phi ptr [ null, %21 ], [ null, %19 ], [ null, %7 ], [ null, %9 ], [ @_Py_NoneStruct, %.thread17 ], [ @_Py_NoneStruct, %29 ], [ @_Py_NoneStruct, %.thread15 ]
+  %.08 = phi ptr [ null, %21 ], [ null, %7 ], [ null, %9 ], [ null, %19 ], [ @_Py_NoneStruct, %29 ], [ @_Py_NoneStruct, %.thread15 ], [ @_Py_NoneStruct, %.thread17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1382,7 +1382,7 @@ define internal ptr @gc_get_objects(ptr readnone captures(none) %0, ptr noundef 
   br label %gc_get_objects_impl.exit
 
 gc_get_objects_impl.exit:                         ; preds = %.thread34, %.thread36, %32, %27, %20, %17, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %17 ], [ %40, %.thread36 ], [ %29, %27 ], [ null, %32 ], [ null, %20 ], [ null, %.thread34 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %11 ], [ %29, %27 ], [ null, %32 ], [ %40, %.thread36 ], [ null, %20 ], [ null, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -1455,7 +1455,7 @@ Py_DECREF.exit.i:                                 ; preds = %26, %23, %20
   br label %gc_get_stats_impl.exit
 
 gc_get_stats_impl.exit:                           ; preds = %11, %2, %27, %29, %32
-  %.0.i = phi ptr [ null, %32 ], [ null, %2 ], [ null, %27 ], [ null, %29 ], [ %9, %11 ]
+  %.0.i = phi ptr [ null, %2 ], [ null, %27 ], [ null, %29 ], [ null, %32 ], [ %9, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
@@ -1821,7 +1821,7 @@ define internal range(i32 -1, 1) i32 @gcmodule_exec(ptr noundef %0) #0 {
   br label %29
 
 29:                                               ; preds = %27, %24, %21, %18, %15, %10, %1
-  %.0 = phi i32 [ -1, %24 ], [ -1, %1 ], [ -1, %10 ], [ -1, %15 ], [ -1, %18 ], [ -1, %21 ], [ %.lobit, %27 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %10 ], [ -1, %15 ], [ -1, %18 ], [ -1, %21 ], [ -1, %24 ], [ %.lobit, %27 ]
   ret i32 %.0
 }
 

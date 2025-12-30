@@ -363,7 +363,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal1
   br i1 %.not, label %.thread60, label %22
 
 .thread60:                                        ; preds = %59, %28, %32, %42, %50, %39, %55, %4, %.thread, %26
-  %.6 = phi i1 [ %27, %26 ], [ false, %.thread ], [ true, %4 ], [ true, %59 ], [ false, %28 ], [ false, %32 ], [ false, %42 ], [ false, %50 ], [ false, %39 ], [ false, %55 ]
+  %.6 = phi i1 [ false, %.thread ], [ %27, %26 ], [ true, %4 ], [ true, %59 ], [ false, %28 ], [ false, %32 ], [ false, %42 ], [ false, %50 ], [ false, %39 ], [ false, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.6
 }
@@ -550,8 +550,8 @@ _ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionC
   %77 = or i1 %1, %76
   br label %78
 
-78:                                               ; preds = %.thread52, %.thread, %.thread49, %.critedge
-  %.4 = phi i1 [ %77, %.critedge ], [ false, %.thread49 ], [ false, %.thread ], [ false, %.thread52 ]
+78:                                               ; preds = %.thread52, %.thread49, %.thread, %.critedge
+  %.4 = phi i1 [ %77, %.critedge ], [ false, %.thread ], [ false, %.thread49 ], [ false, %.thread52 ]
   %79 = load ptr, ptr %14, align 8, !tbaa !66
   %.not5.i.i.i.i = icmp eq ptr %79, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -1073,8 +1073,8 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   store i8 %.sroa.0.0, ptr %205, align 2, !tbaa !43
   br label %.critedge71
 
-.critedge71:                                      ; preds = %38, %204, %159, %163, %192, %185, %165, %175, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107, %128, %126, %99, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89, %71, %67, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit, %7, %4
-  %.0 = phi ptr [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89 ], [ null, %4 ], [ null, %7 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ null, %175 ], [ null, %165 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread ], [ null, %99 ], [ null, %126 ], [ null, %128 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107 ], [ null, %192 ], [ null, %67 ], [ null, %71 ], [ null, %185 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread ], [ null, %163 ], [ null, %159 ], [ %.5153, %204 ], [ null, %38 ]
+.critedge71:                                      ; preds = %38, %204, %159, %163, %192, %185, %175, %165, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107, %128, %126, %99, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89, %71, %67, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit, %7, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ null, %67 ], [ null, %71 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89 ], [ null, %99 ], [ null, %126 ], [ null, %128 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107 ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit89.thread ], [ null, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107.thread ], [ %.5153, %204 ], [ null, %159 ], [ null, %163 ], [ null, %192 ], [ null, %185 ], [ null, %175 ], [ null, %165 ], [ null, %38 ]
   ret ptr %.0
 }
 
@@ -1229,8 +1229,8 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit: ; preds = %.lr.ph.i
   br label %68
 
 68:                                               ; preds = %28, %.thread150, %61
-  %.4121 = phi i8 [ %34, %.thread150 ], [ %63, %61 ], [ %.1118186, %28 ]
-  %.4 = phi ptr [ %33, %.thread150 ], [ %62, %61 ], [ %.1112187, %28 ]
+  %.4121 = phi i8 [ %63, %61 ], [ %34, %.thread150 ], [ %.1118186, %28 ]
+  %.4 = phi ptr [ %62, %61 ], [ %33, %.thread150 ], [ %.1112187, %28 ]
   %.4203 = ptrtoint ptr %.4 to i64
   %69 = icmp eq i8 %.4121, 46
   br i1 %69, label %70, label %.thread156
@@ -1413,8 +1413,8 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80: ; preds = %.lr.ph.i
   br label %154
 
 154:                                              ; preds = %150, %148, %.critedge
-  %.5113 = phi ptr [ %.0111170, %.critedge ], [ %.7115, %148 ], [ %.7115, %150 ]
-  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload.i81171, %.critedge ], [ %.sroa.0.0.copyload.i82, %148 ], [ %.sroa.0.0.copyload.i82, %150 ]
+  %.5113 = phi ptr [ %.0111170, %.critedge ], [ %.7115, %150 ], [ %.7115, %148 ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload.i81171, %.critedge ], [ %.sroa.0.0.copyload.i82, %150 ], [ %.sroa.0.0.copyload.i82, %148 ]
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i8 %.sroa.0.0, ptr %155, align 2, !tbaa !43
   %156 = load i32, ptr %3, align 4, !tbaa !4
@@ -1423,8 +1423,8 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80: ; preds = %.lr.ph.i
   store i32 %157, ptr %2, align 4, !tbaa !44
   br label %.thread
 
-.thread:                                          ; preds = %18, %142, %135, %117, %125, %47, %49, %154, %111, %115, %97, %70, %57, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %115 ], [ null, %57 ], [ null, %97 ], [ null, %70 ], [ null, %142 ], [ %50, %49 ], [ null, %111 ], [ %.5113, %154 ], [ null, %47 ], [ null, %125 ], [ null, %117 ], [ null, %135 ], [ null, %18 ]
+.thread:                                          ; preds = %18, %142, %135, %125, %117, %47, %49, %154, %111, %115, %97, %70, %57, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %57 ], [ null, %70 ], [ null, %97 ], [ %.5113, %154 ], [ null, %111 ], [ null, %115 ], [ null, %47 ], [ %50, %49 ], [ null, %117 ], [ null, %125 ], [ null, %135 ], [ null, %142 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -1512,7 +1512,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl19str_format_internal29Format
   br label %23
 
 23:                                               ; preds = %1, %2, %4, %6, %8, %10, %12, %14, %16, %18, %20, %19, %17, %15, %13, %11, %9, %7, %5, %3
-  %24 = phi i64 [ %22, %20 ], [ 4, %2 ], [ 8, %3 ], [ 16, %4 ], [ 32, %5 ], [ 64, %6 ], [ 128, %7 ], [ 256, %8 ], [ 512, %9 ], [ 1024, %10 ], [ 2048, %11 ], [ 4096, %12 ], [ 8192, %13 ], [ 16384, %14 ], [ 32768, %15 ], [ 65536, %16 ], [ 131072, %17 ], [ 262144, %18 ], [ 524288, %19 ], [ 2, %1 ]
+  %24 = phi i64 [ 4, %2 ], [ 8, %3 ], [ 16, %4 ], [ 32, %5 ], [ 64, %6 ], [ 128, %7 ], [ 256, %8 ], [ 512, %9 ], [ 1024, %10 ], [ 2048, %11 ], [ 4096, %12 ], [ 8192, %13 ], [ 16384, %14 ], [ 32768, %15 ], [ 65536, %16 ], [ 131072, %17 ], [ 262144, %18 ], [ 524288, %19 ], [ %22, %20 ], [ 2, %1 ]
   ret i64 %24
 }
 
@@ -1605,8 +1605,8 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

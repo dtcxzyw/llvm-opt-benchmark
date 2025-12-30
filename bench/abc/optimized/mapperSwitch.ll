@@ -114,7 +114,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   br label %59
 
 59:                                               ; preds = %55, %41, %16
-  %.1.us = phi float [ %.4.us, %41 ], [ %58, %55 ], [ %.0491.us, %16 ]
+  %.1.us = phi float [ %58, %55 ], [ %.0491.us, %16 ], [ %.4.us, %41 ]
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
   %60 = load i8, ptr %4, align 4, !tbaa !14
   %61 = sext i8 %60 to i64
@@ -330,7 +330,7 @@ define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) lo
   br i1 %47, label %55, label %.thread
 
 .thread:                                          ; preds = %36, %45, %._crit_edge49
-  %.252 = phi float [ %.2, %._crit_edge49 ], [ %.2, %45 ], [ %.3, %36 ]
+  %.252 = phi float [ %.2, %45 ], [ %.2, %._crit_edge49 ], [ %.3, %36 ]
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %49 = load ptr, ptr %48, align 8, !tbaa !17
   %50 = icmp eq ptr %49, null

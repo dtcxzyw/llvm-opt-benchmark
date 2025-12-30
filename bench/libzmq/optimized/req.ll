@@ -304,7 +304,7 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   br label %85
 
 85:                                               ; preds = %.thread, %41, %78, %84, %82, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %41 ], [ -1, %.thread ], [ %81, %78 ], [ 0, %84 ], [ 0, %82 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %41 ], [ %81, %78 ], [ 0, %84 ], [ 0, %82 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -583,7 +583,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit64: ; preds = %84
   br label %94
 
 94:                                               ; preds = %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit64, %.thread70, %.thread67, %93, %90, %17
-  %.0 = phi i32 [ %53, %.thread70 ], [ %22, %.thread67 ], [ -1, %17 ], [ %85, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit64 ], [ 0, %93 ], [ 0, %90 ]
+  %.0 = phi i32 [ -1, %17 ], [ %85, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit64 ], [ 0, %93 ], [ 0, %90 ], [ %22, %.thread67 ], [ %53, %.thread70 ]
   ret i32 %.0
 }
 
@@ -872,7 +872,7 @@ define noundef i32 @_ZN3zmq13req_session_t8push_msgEPNS_5msg_tE(ptr noundef nonn
   br label %41
 
 41:                                               ; preds = %2, %39, %37, %32, %27, %19, %14
-  %.0 = phi i32 [ %38, %37 ], [ -1, %39 ], [ %15, %14 ], [ %20, %19 ], [ %28, %27 ], [ %33, %32 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %39 ], [ %15, %14 ], [ %20, %19 ], [ %28, %27 ], [ %33, %32 ], [ %38, %37 ], [ 0, %2 ]
   ret i32 %.0
 }
 

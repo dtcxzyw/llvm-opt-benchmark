@@ -176,7 +176,7 @@ define dso_local nonnull ptr @context_filename(ptr noundef readonly captures(non
   br label %10
 
 10:                                               ; preds = %7, %4, %1
-  %.0 = phi ptr [ @.str.5, %4 ], [ @.str.4, %1 ], [ %spec.select, %7 ]
+  %.0 = phi ptr [ @.str.4, %1 ], [ @.str.5, %4 ], [ %spec.select, %7 ]
   ret ptr %.0
 }
 

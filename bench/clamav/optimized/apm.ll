@@ -416,7 +416,7 @@ fmap_readn.exit147.thread:                        ; preds = %106, %100, %fmap_re
   br i1 %.not128, label %153, label %.loopexit
 
 .sink.split:                                      ; preds = %141, %122, %123, %124
-  %.str.25.sink = phi ptr [ @.str.18, %122 ], [ @.str.18, %124 ], [ @.str.18, %123 ], [ @.str.25, %141 ]
+  %.str.25.sink = phi ptr [ @.str.18, %124 ], [ @.str.18, %123 ], [ @.str.18, %122 ], [ @.str.25, %141 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.25.sink) #6
   br label %153
 
@@ -442,7 +442,7 @@ fmap_readn.exit147.thread:                        ; preds = %106, %100, %fmap_re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %145, %._crit_edge, %156, %76, %121, %fmap_readn.exit147.thread, %63, %58, %fmap_readn.exit142.thread, %fmap_readn.exit137.thread, %26, %17, %fmap_readn.exit.thread, %8
-  %.049 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %17 ], [ 26, %26 ], [ 26, %fmap_readn.exit137.thread ], [ 26, %fmap_readn.exit142.thread ], [ 26, %58 ], [ 26, %63 ], [ %77, %76 ], [ 26, %fmap_readn.exit147.thread ], [ 26, %121 ], [ 2, %8 ], [ 0, %156 ], [ 0, %._crit_edge ], [ %152, %145 ]
+  %.049 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 26, %17 ], [ 26, %26 ], [ 26, %fmap_readn.exit137.thread ], [ 26, %fmap_readn.exit142.thread ], [ 26, %58 ], [ 26, %63 ], [ %77, %76 ], [ 26, %fmap_readn.exit147.thread ], [ 26, %121 ], [ 0, %156 ], [ 0, %._crit_edge ], [ 2, %8 ], [ %152, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -578,7 +578,7 @@ fmap_readn.exit.thread:                           ; preds = %25, %19, %fmap_read
   br i1 %.not, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %51, %54, %46, %4, %fmap_readn.exit.thread
-  %.1 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %4 ], [ 0, %54 ], [ %53, %51 ], [ %50, %46 ]
+  %.1 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %4 ], [ %53, %51 ], [ 0, %54 ], [ %50, %46 ]
   %56 = call i32 @partition_intersection_list_free(ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

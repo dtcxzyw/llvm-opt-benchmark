@@ -563,7 +563,7 @@ Extra_FindBestVariable.exit.i:                    ; preds = %214
   br label %262
 
 262:                                              ; preds = %252, %245, %.lr.ph.i85
-  %.1113.i = phi ptr [ %258, %252 ], [ %.0112136.i, %.lr.ph.i85 ], [ %.0112136.i, %245 ]
+  %.1113.i = phi ptr [ %258, %252 ], [ %.0112136.i, %245 ], [ %.0112136.i, %.lr.ph.i85 ]
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i.i
   br i1 %exitcond.not.i88, label %263, label %.lr.ph.i85, !llvm.loop !67
@@ -608,10 +608,10 @@ Extra_FindBestVariable.exit.i:                    ; preds = %214
   br label %281
 
 281:                                              ; preds = %279, %.lr.ph.i124.i
-  %.125.i.i = phi i32 [ %.02430.i.i, %279 ], [ %270, %.lr.ph.i124.i ]
-  %.123.i.i = phi i32 [ %spec.select.i.i, %279 ], [ %.02430.i.i, %.lr.ph.i124.i ]
-  %.121.i.i = phi i32 [ %.02032.i.i, %279 ], [ %277, %.lr.ph.i124.i ]
-  %.1.i125.i = phi i32 [ %spec.select28.i.i, %279 ], [ %.02032.i.i, %.lr.ph.i124.i ]
+  %.125.i.i = phi i32 [ %270, %.lr.ph.i124.i ], [ %.02430.i.i, %279 ]
+  %.123.i.i = phi i32 [ %.02430.i.i, %.lr.ph.i124.i ], [ %spec.select.i.i, %279 ]
+  %.121.i.i = phi i32 [ %277, %.lr.ph.i124.i ], [ %.02032.i.i, %279 ]
+  %.1.i125.i = phi i32 [ %.02032.i.i, %.lr.ph.i124.i ], [ %spec.select28.i.i, %279 ]
   %282 = getelementptr inbounds nuw i8, ptr %.034.i.i, i64 16
   %283 = load ptr, ptr %282, align 8, !tbaa !49
   %.not.i126.i = icmp eq ptr %283, %269

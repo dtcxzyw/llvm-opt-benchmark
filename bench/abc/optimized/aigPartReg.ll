@@ -2009,7 +2009,7 @@ Aig_ManRegFindSeed.exit:                          ; preds = %38
   br i1 %exitcond51.not.i, label %Aig_ManRegFindBestVar.exit, label %58, !llvm.loop !57
 
 Aig_ManRegFindBestVar.exit:                       ; preds = %58, %.critedge2.i, %82
-  %.028.i = phi i32 [ %60, %.critedge2.i ], [ %60, %58 ], [ %spec.select33.i, %82 ]
+  %.028.i = phi i32 [ %60, %58 ], [ %spec.select33.i, %82 ], [ %60, %.critedge2.i ]
   %84 = icmp eq i32 %.028.i, -1
   br i1 %84, label %.loopexit, label %85
 
@@ -2240,8 +2240,8 @@ Vec_IntAlloc.exit:                                ; preds = %18, %21
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %42, %44, %34, %36
-  %.sink57 = phi ptr [ %37, %36 ], [ %35, %34 ], [ %43, %42 ], [ %45, %44 ]
-  %.sink = phi i32 [ 16, %36 ], [ 16, %34 ], [ %39, %42 ], [ %39, %44 ]
+  %.sink57 = phi ptr [ %35, %34 ], [ %37, %36 ], [ %43, %42 ], [ %45, %44 ]
+  %.sink = phi i32 [ 16, %34 ], [ 16, %36 ], [ %39, %42 ], [ %39, %44 ]
   store ptr %.sink57, ptr %24, align 8, !tbaa !25
   store i32 %.sink, ptr %19, align 8, !tbaa !24
   br label %Vec_IntPush.exit
@@ -2463,8 +2463,8 @@ Vec_IntAlloc.exit:                                ; preds = %17, %20
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink59 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %46, %45 ], [ %48, %47 ]
-  %.sink = phi i32 [ 16, %39 ], [ 16, %37 ], [ %42, %45 ], [ %42, %47 ]
+  %.sink59 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
   store ptr %.sink59, ptr %23, align 8, !tbaa !25
   store i32 %.sink, ptr %18, align 8, !tbaa !24
   br label %Vec_IntPush.exit

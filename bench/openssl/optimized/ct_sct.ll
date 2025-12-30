@@ -440,7 +440,7 @@ SCT_get_signature_nid.exit.thread6.i:             ; preds = %10
   br label %SCT_signature_is_complete.exit
 
 SCT_signature_is_complete.exit:                   ; preds = %16, %SCT_get_signature_nid.exit.thread6.i, %10, %6, %3, %1, %20
-  %.0.shrunk = phi i1 [ %23, %20 ], [ false, %1 ], [ false, %3 ], [ false, %SCT_get_signature_nid.exit.thread6.i ], [ false, %10 ], [ %19, %16 ], [ false, %6 ]
+  %.0.shrunk = phi i1 [ %23, %20 ], [ false, %1 ], [ false, %3 ], [ false, %SCT_get_signature_nid.exit.thread6.i ], [ %19, %16 ], [ false, %6 ], [ false, %10 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -478,7 +478,7 @@ SCT_get_signature_nid.exit.thread6:               ; preds = %8
   br label %SCT_get_signature_nid.exit.thread
 
 SCT_get_signature_nid.exit.thread:                ; preds = %8, %1, %4, %14, %SCT_get_signature_nid.exit.thread6
-  %19 = phi i32 [ 0, %SCT_get_signature_nid.exit.thread6 ], [ 0, %8 ], [ %18, %14 ], [ 0, %4 ], [ 0, %1 ]
+  %19 = phi i32 [ 0, %SCT_get_signature_nid.exit.thread6 ], [ %18, %14 ], [ 0, %4 ], [ 0, %1 ], [ 0, %8 ]
   ret i32 %19
 }
 
@@ -625,7 +625,7 @@ define range(i32 -1, 2) i32 @SCT_validate(ptr noundef %0, ptr noundef readonly c
   br label %.thread
 
 .thread:                                          ; preds = %54, %52, %46, %43, %40, %29, %26, %19
-  %.031 = phi i32 [ -1, %19 ], [ -1, %26 ], [ -1, %29 ], [ -1, %43 ], [ -1, %40 ], [ 0, %46 ], [ 0, %52 ], [ %59, %54 ]
+  %.031 = phi i32 [ -1, %19 ], [ -1, %26 ], [ -1, %29 ], [ -1, %40 ], [ -1, %43 ], [ 0, %46 ], [ 0, %52 ], [ %59, %54 ]
   %60 = load ptr, ptr %3, align 8, !tbaa !25
   call void @X509_PUBKEY_free(ptr noundef %60) #7
   %61 = load ptr, ptr %4, align 8, !tbaa !25
@@ -687,14 +687,14 @@ define range(i32 -1, 2) i32 @SCT_LIST_validate(ptr noundef %0, ptr noundef reado
   %11 = and i32 %9, %.01828
   br i1 %10, label %._crit_edge, label %12
 
-12:                                               ; preds = %8, %.lr.ph
-  %.119.ph = phi i32 [ %.01828, %.lr.ph ], [ %11, %8 ]
+12:                                               ; preds = %.lr.ph, %8
+  %.119.ph = phi i32 [ %11, %8 ], [ %.01828, %.lr.ph ]
   %13 = add nuw nsw i32 %.01729, 1
   %exitcond.not = icmp eq i32 %13, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %12, %8, %2, %3
-  %.2 = phi i32 [ 1, %3 ], [ 1, %2 ], [ %.119.ph, %12 ], [ -1, %8 ]
+  %.2 = phi i32 [ 1, %3 ], [ 1, %2 ], [ -1, %8 ], [ %.119.ph, %12 ]
   ret i32 %.2
 }
 

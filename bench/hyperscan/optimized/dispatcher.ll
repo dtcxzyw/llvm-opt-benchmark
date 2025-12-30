@@ -49,7 +49,7 @@ define internal ptr @resolve_hs_scan() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_scan, %4 ], [ @avx2_hs_scan, %0 ], [ %error_hs_scan.core2_hs_scan, %6 ]
+  %.0 = phi ptr [ @avx2_hs_scan, %0 ], [ @corei7_hs_scan, %4 ], [ %error_hs_scan.core2_hs_scan, %6 ]
   ret ptr %.0
 }
 
@@ -215,7 +215,7 @@ define internal ptr @resolve_hs_stream_size() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_stream_size, %4 ], [ @avx2_hs_stream_size, %0 ], [ %error_hs_stream_size.core2_hs_stream_size, %6 ]
+  %.0 = phi ptr [ @avx2_hs_stream_size, %0 ], [ @corei7_hs_stream_size, %4 ], [ %error_hs_stream_size.core2_hs_stream_size, %6 ]
   ret ptr %.0
 }
 
@@ -253,7 +253,7 @@ define internal ptr @resolve_hs_database_size() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_database_size, %4 ], [ @avx2_hs_database_size, %0 ], [ %error_hs_database_size.core2_hs_database_size, %6 ]
+  %.0 = phi ptr [ @avx2_hs_database_size, %0 ], [ @corei7_hs_database_size, %4 ], [ %error_hs_database_size.core2_hs_database_size, %6 ]
   ret ptr %.0
 }
 
@@ -291,7 +291,7 @@ define internal ptr @resolve_dbIsValid() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_dbIsValid, %4 ], [ @avx2_dbIsValid, %0 ], [ %error_dbIsValid.core2_dbIsValid, %6 ]
+  %.0 = phi ptr [ @avx2_dbIsValid, %0 ], [ @corei7_dbIsValid, %4 ], [ %error_dbIsValid.core2_dbIsValid, %6 ]
   ret ptr %.0
 }
 
@@ -329,7 +329,7 @@ define internal ptr @resolve_hs_free_database() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_free_database, %4 ], [ @avx2_hs_free_database, %0 ], [ %error_hs_free_database.core2_hs_free_database, %6 ]
+  %.0 = phi ptr [ @avx2_hs_free_database, %0 ], [ @corei7_hs_free_database, %4 ], [ %error_hs_free_database.core2_hs_free_database, %6 ]
   ret ptr %.0
 }
 
@@ -367,7 +367,7 @@ define internal ptr @resolve_hs_open_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_open_stream, %4 ], [ @avx2_hs_open_stream, %0 ], [ %error_hs_open_stream.core2_hs_open_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_open_stream, %0 ], [ @corei7_hs_open_stream, %4 ], [ %error_hs_open_stream.core2_hs_open_stream, %6 ]
   ret ptr %.0
 }
 
@@ -405,7 +405,7 @@ define internal ptr @resolve_hs_scan_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_scan_stream, %4 ], [ @avx2_hs_scan_stream, %0 ], [ %error_hs_scan_stream.core2_hs_scan_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_scan_stream, %0 ], [ @corei7_hs_scan_stream, %4 ], [ %error_hs_scan_stream.core2_hs_scan_stream, %6 ]
   ret ptr %.0
 }
 
@@ -443,7 +443,7 @@ define internal ptr @resolve_hs_close_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_close_stream, %4 ], [ @avx2_hs_close_stream, %0 ], [ %error_hs_close_stream.core2_hs_close_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_close_stream, %0 ], [ @corei7_hs_close_stream, %4 ], [ %error_hs_close_stream.core2_hs_close_stream, %6 ]
   ret ptr %.0
 }
 
@@ -481,7 +481,7 @@ define internal ptr @resolve_hs_scan_vector() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_scan_vector, %4 ], [ @avx2_hs_scan_vector, %0 ], [ %error_hs_scan_vector.core2_hs_scan_vector, %6 ]
+  %.0 = phi ptr [ @avx2_hs_scan_vector, %0 ], [ @corei7_hs_scan_vector, %4 ], [ %error_hs_scan_vector.core2_hs_scan_vector, %6 ]
   ret ptr %.0
 }
 
@@ -519,7 +519,7 @@ define internal ptr @resolve_hs_database_info() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_database_info, %4 ], [ @avx2_hs_database_info, %0 ], [ %error_hs_database_info.core2_hs_database_info, %6 ]
+  %.0 = phi ptr [ @avx2_hs_database_info, %0 ], [ @corei7_hs_database_info, %4 ], [ %error_hs_database_info.core2_hs_database_info, %6 ]
   ret ptr %.0
 }
 
@@ -557,7 +557,7 @@ define internal ptr @resolve_hs_copy_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_copy_stream, %4 ], [ @avx2_hs_copy_stream, %0 ], [ %error_hs_copy_stream.core2_hs_copy_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_copy_stream, %0 ], [ @corei7_hs_copy_stream, %4 ], [ %error_hs_copy_stream.core2_hs_copy_stream, %6 ]
   ret ptr %.0
 }
 
@@ -595,7 +595,7 @@ define internal ptr @resolve_hs_reset_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_reset_stream, %4 ], [ @avx2_hs_reset_stream, %0 ], [ %error_hs_reset_stream.core2_hs_reset_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_reset_stream, %0 ], [ @corei7_hs_reset_stream, %4 ], [ %error_hs_reset_stream.core2_hs_reset_stream, %6 ]
   ret ptr %.0
 }
 
@@ -633,7 +633,7 @@ define internal ptr @resolve_hs_reset_and_copy_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_reset_and_copy_stream, %4 ], [ @avx2_hs_reset_and_copy_stream, %0 ], [ %error_hs_reset_and_copy_stream.core2_hs_reset_and_copy_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_reset_and_copy_stream, %0 ], [ @corei7_hs_reset_and_copy_stream, %4 ], [ %error_hs_reset_and_copy_stream.core2_hs_reset_and_copy_stream, %6 ]
   ret ptr %.0
 }
 
@@ -671,7 +671,7 @@ define internal ptr @resolve_hs_serialize_database() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_serialize_database, %4 ], [ @avx2_hs_serialize_database, %0 ], [ %error_hs_serialize_database.core2_hs_serialize_database, %6 ]
+  %.0 = phi ptr [ @avx2_hs_serialize_database, %0 ], [ @corei7_hs_serialize_database, %4 ], [ %error_hs_serialize_database.core2_hs_serialize_database, %6 ]
   ret ptr %.0
 }
 
@@ -709,7 +709,7 @@ define internal ptr @resolve_hs_deserialize_database() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_deserialize_database, %4 ], [ @avx2_hs_deserialize_database, %0 ], [ %error_hs_deserialize_database.core2_hs_deserialize_database, %6 ]
+  %.0 = phi ptr [ @avx2_hs_deserialize_database, %0 ], [ @corei7_hs_deserialize_database, %4 ], [ %error_hs_deserialize_database.core2_hs_deserialize_database, %6 ]
   ret ptr %.0
 }
 
@@ -747,7 +747,7 @@ define internal ptr @resolve_hs_deserialize_database_at() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_deserialize_database_at, %4 ], [ @avx2_hs_deserialize_database_at, %0 ], [ %error_hs_deserialize_database_at.core2_hs_deserialize_database_at, %6 ]
+  %.0 = phi ptr [ @avx2_hs_deserialize_database_at, %0 ], [ @corei7_hs_deserialize_database_at, %4 ], [ %error_hs_deserialize_database_at.core2_hs_deserialize_database_at, %6 ]
   ret ptr %.0
 }
 
@@ -785,7 +785,7 @@ define internal ptr @resolve_hs_serialized_database_info() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_serialized_database_info, %4 ], [ @avx2_hs_serialized_database_info, %0 ], [ %error_hs_serialized_database_info.core2_hs_serialized_database_info, %6 ]
+  %.0 = phi ptr [ @avx2_hs_serialized_database_info, %0 ], [ @corei7_hs_serialized_database_info, %4 ], [ %error_hs_serialized_database_info.core2_hs_serialized_database_info, %6 ]
   ret ptr %.0
 }
 
@@ -823,7 +823,7 @@ define internal ptr @resolve_hs_serialized_database_size() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_serialized_database_size, %4 ], [ @avx2_hs_serialized_database_size, %0 ], [ %error_hs_serialized_database_size.core2_hs_serialized_database_size, %6 ]
+  %.0 = phi ptr [ @avx2_hs_serialized_database_size, %0 ], [ @corei7_hs_serialized_database_size, %4 ], [ %error_hs_serialized_database_size.core2_hs_serialized_database_size, %6 ]
   ret ptr %.0
 }
 
@@ -861,7 +861,7 @@ define internal ptr @resolve_hs_compress_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_compress_stream, %4 ], [ @avx2_hs_compress_stream, %0 ], [ %error_hs_compress_stream.core2_hs_compress_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_compress_stream, %0 ], [ @corei7_hs_compress_stream, %4 ], [ %error_hs_compress_stream.core2_hs_compress_stream, %6 ]
   ret ptr %.0
 }
 
@@ -899,7 +899,7 @@ define internal ptr @resolve_hs_expand_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_expand_stream, %4 ], [ @avx2_hs_expand_stream, %0 ], [ %error_hs_expand_stream.core2_hs_expand_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_expand_stream, %0 ], [ @corei7_hs_expand_stream, %4 ], [ %error_hs_expand_stream.core2_hs_expand_stream, %6 ]
   ret ptr %.0
 }
 
@@ -937,7 +937,7 @@ define internal ptr @resolve_hs_reset_and_expand_stream() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_hs_reset_and_expand_stream, %4 ], [ @avx2_hs_reset_and_expand_stream, %0 ], [ %error_hs_reset_and_expand_stream.core2_hs_reset_and_expand_stream, %6 ]
+  %.0 = phi ptr [ @avx2_hs_reset_and_expand_stream, %0 ], [ @corei7_hs_reset_and_expand_stream, %4 ], [ %error_hs_reset_and_expand_stream.core2_hs_reset_and_expand_stream, %6 ]
   ret ptr %.0
 }
 
@@ -975,7 +975,7 @@ define internal ptr @resolve_Crc32c_ComputeBuf() #0 {
   br label %8
 
 8:                                                ; preds = %6, %4, %0
-  %.0 = phi ptr [ @corei7_Crc32c_ComputeBuf, %4 ], [ @avx2_Crc32c_ComputeBuf, %0 ], [ %error_Crc32c_ComputeBuf.core2_Crc32c_ComputeBuf, %6 ]
+  %.0 = phi ptr [ @avx2_Crc32c_ComputeBuf, %0 ], [ @corei7_Crc32c_ComputeBuf, %4 ], [ %error_Crc32c_ComputeBuf.core2_Crc32c_ComputeBuf, %6 ]
   ret ptr %.0
 }
 

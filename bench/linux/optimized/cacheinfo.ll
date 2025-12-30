@@ -1671,7 +1671,7 @@ define internal fastcc noundef i64 @store_cache_disable(ptr noundef readonly cap
   br label %.thread3
 
 .thread3:                                         ; preds = %65, %68, %31, %18, %4
-  %70 = phi i64 [ -22, %31 ], [ -1, %4 ], [ -22, %18 ], [ -17, %68 ], [ %2, %65 ]
+  %70 = phi i64 [ -1, %4 ], [ -22, %18 ], [ -17, %68 ], [ -22, %31 ], [ %2, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %70
 }

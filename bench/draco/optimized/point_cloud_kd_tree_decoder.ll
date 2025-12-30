@@ -70,7 +70,7 @@ _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit:     ; preds = %1
   br label %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit.thread: ; preds = %1, %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit, %13
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit ], [ true, %13 ], [ false, %1 ]
+  %.0 = phi i1 [ true, %13 ], [ false, %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit ], [ false, %1 ]
   ret i1 %.0
 }
 

@@ -62,7 +62,7 @@ define internal range(i32 1, 1073741824) i32 @get_cpu_features() #0 {
   br label %34
 
 34:                                               ; preds = %28, %11, %21, %17, %2
-  %.2 = phi i32 [ %.1, %2 ], [ %.1, %11 ], [ %spec.select32, %28 ], [ %spec.select30, %21 ], [ %spec.select29, %17 ]
+  %.2 = phi i32 [ %.1, %2 ], [ %spec.select30, %21 ], [ %spec.select29, %17 ], [ %.1, %11 ], [ %spec.select32, %28 ]
   store i32 %.2, ptr @g_cpu_features, align 4, !tbaa !3
   br label %35
 
@@ -127,7 +127,7 @@ define hidden void @llvm_blake3_compress_in_place(ptr noundef %0, ptr noundef %1
   br label %39
 
 39:                                               ; preds = %33, %26, %22, %16, %7
-  %.2.i = phi i32 [ %.1.i, %7 ], [ %.1.i, %16 ], [ %spec.select32.i, %33 ], [ %spec.select30.i, %26 ], [ %spec.select29.i, %22 ]
+  %.2.i = phi i32 [ %.1.i, %7 ], [ %spec.select30.i, %26 ], [ %spec.select29.i, %22 ], [ %.1.i, %16 ], [ %spec.select32.i, %33 ]
   store i32 %.2.i, ptr @g_cpu_features, align 4, !tbaa !3
   br label %get_cpu_features.exit
 
@@ -231,7 +231,7 @@ define hidden void @llvm_blake3_compress_xof(ptr noundef %0, ptr noundef %1, i8 
   br label %40
 
 40:                                               ; preds = %34, %27, %23, %17, %8
-  %.2.i = phi i32 [ %.1.i, %8 ], [ %.1.i, %17 ], [ %spec.select32.i, %34 ], [ %spec.select30.i, %27 ], [ %spec.select29.i, %23 ]
+  %.2.i = phi i32 [ %.1.i, %8 ], [ %spec.select30.i, %27 ], [ %spec.select29.i, %23 ], [ %.1.i, %17 ], [ %spec.select32.i, %34 ]
   store i32 %.2.i, ptr @g_cpu_features, align 4, !tbaa !3
   br label %get_cpu_features.exit
 
@@ -335,7 +335,7 @@ define hidden void @llvm_blake3_hash_many(ptr noundef %0, i64 noundef %1, i64 no
   br label %44
 
 44:                                               ; preds = %38, %31, %27, %21, %12
-  %.2.i = phi i32 [ %.1.i, %12 ], [ %.1.i, %21 ], [ %spec.select32.i, %38 ], [ %spec.select30.i, %31 ], [ %spec.select29.i, %27 ]
+  %.2.i = phi i32 [ %.1.i, %12 ], [ %spec.select30.i, %31 ], [ %spec.select29.i, %27 ], [ %.1.i, %21 ], [ %spec.select32.i, %38 ]
   store i32 %.2.i, ptr @g_cpu_features, align 4, !tbaa !3
   br label %get_cpu_features.exit
 
@@ -450,7 +450,7 @@ define hidden range(i64 1, 17) i64 @llvm_blake3_simd_degree() local_unnamed_addr
   br label %34
 
 34:                                               ; preds = %28, %21, %17, %11, %2
-  %.2.i = phi i32 [ %.1.i, %2 ], [ %.1.i, %11 ], [ %spec.select32.i, %28 ], [ %spec.select30.i, %21 ], [ %spec.select29.i, %17 ]
+  %.2.i = phi i32 [ %.1.i, %2 ], [ %spec.select30.i, %21 ], [ %spec.select29.i, %17 ], [ %.1.i, %11 ], [ %spec.select32.i, %28 ]
   store i32 %.2.i, ptr @g_cpu_features, align 4, !tbaa !3
   br label %get_cpu_features.exit
 
@@ -477,7 +477,7 @@ get_cpu_features.exit:                            ; preds = %0, %34
   br label %43
 
 43:                                               ; preds = %41, %39, %37, %get_cpu_features.exit
-  %.0 = phi i64 [ 4, %39 ], [ 16, %get_cpu_features.exit ], [ 8, %37 ], [ %., %41 ]
+  %.0 = phi i64 [ 16, %get_cpu_features.exit ], [ 8, %37 ], [ 4, %39 ], [ %., %41 ]
   ret i64 %.0
 }
 

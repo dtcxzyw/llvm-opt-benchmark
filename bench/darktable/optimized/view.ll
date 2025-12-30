@@ -962,7 +962,7 @@ dt_check_gimpmode.exit.thread:                    ; preds = %13, %16, %11, %8, %
   br label %dt_view_accels_hide.exit
 
 dt_view_accels_hide.exit:                         ; preds = %66, %.thread.i, %48, %42, %dt_view_get_current.exit, %220
-  %.0 = phi i32 [ 0, %dt_view_get_current.exit ], [ 0, %220 ], [ %55, %66 ], [ 0, %42 ], [ 0, %48 ], [ 0, %.thread.i ]
+  %.0 = phi i32 [ 0, %220 ], [ %55, %66 ], [ 0, %dt_view_get_current.exit ], [ 0, %42 ], [ 0, %48 ], [ 0, %.thread.i ]
   ret i32 %.0
 }
 
@@ -1468,7 +1468,7 @@ define void @dt_view_manager_mouse_leave(ptr noundef readonly captures(none) %0)
   br label %17
 
 17:                                               ; preds = %14, %12, %.lr.ph
-  %.1 = phi i32 [ %.025, %.lr.ph ], [ %spec.select, %14 ], [ %.025, %12 ]
+  %.1 = phi i32 [ %.025, %12 ], [ %.025, %.lr.ph ], [ %spec.select, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %.01424, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !120
   %.not17 = icmp eq ptr %19, null
@@ -1549,7 +1549,7 @@ define void @dt_view_manager_mouse_moved(ptr noundef readonly captures(none) %0,
   br label %21
 
 21:                                               ; preds = %18, %16, %.lr.ph
-  %.1 = phi i32 [ %.033, %.lr.ph ], [ %spec.select, %18 ], [ %.033, %16 ]
+  %.1 = phi i32 [ %.033, %16 ], [ %.033, %.lr.ph ], [ %spec.select, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %.02232, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !120
   %.not25 = icmp eq ptr %23, null
@@ -1609,7 +1609,7 @@ define range(i32 0, 2) i32 @dt_view_manager_button_released(ptr noundef readonly
   br label %21
 
 21:                                               ; preds = %18, %16, %.lr.ph
-  %.125 = phi i32 [ %.02435, %.lr.ph ], [ %spec.select, %18 ], [ %.02435, %16 ]
+  %.125 = phi i32 [ %.02435, %16 ], [ %.02435, %.lr.ph ], [ %spec.select, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %.02336, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !120
   %.not28 = icmp eq ptr %23, null
@@ -1667,7 +1667,7 @@ define i32 @dt_view_manager_button_pressed(ptr noundef readonly captures(none) %
   br label %22
 
 22:                                               ; preds = %19, %17, %.lr.ph
-  %.130 = phi i1 [ true, %.lr.ph ], [ %.not37.not, %19 ], [ true, %17 ]
+  %.130 = phi i1 [ true, %17 ], [ true, %.lr.ph ], [ %.not37.not, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %.02839, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !120
   %25 = icmp ne ptr %24, null
@@ -1685,7 +1685,7 @@ define i32 @dt_view_manager_button_pressed(ptr noundef readonly captures(none) %
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge, %.critedge, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %._crit_edge ], [ %30, %29 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %7 ], [ %30, %29 ], [ 1, %._crit_edge ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -1970,8 +1970,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %10
   br label %107
 
 107:                                              ; preds = %.thread, %.thread, %98, %95, %104, %105, %87
-  %.not129 = phi i1 [ true, %105 ], [ false, %95 ], [ true, %87 ], [ true, %104 ], [ true, %.thread ], [ false, %98 ], [ true, %.thread ]
-  %.0114 = phi ptr [ null, %105 ], [ %97, %95 ], [ null, %87 ], [ null, %104 ], [ null, %.thread ], [ %100, %98 ], [ null, %.thread ]
+  %.not129 = phi i1 [ true, %104 ], [ true, %105 ], [ true, %87 ], [ false, %95 ], [ false, %98 ], [ true, %.thread ], [ true, %.thread ]
+  %.0114 = phi ptr [ null, %104 ], [ null, %105 ], [ null, %87 ], [ %97, %95 ], [ %100, %98 ], [ null, %.thread ], [ null, %.thread ]
   %108 = load i32, ptr %40, align 4, !tbaa !186
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %.lr.ph150, label %._crit_edge
@@ -2119,7 +2119,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %10
   br label %.thread142
 
 .thread142:                                       ; preds = %56, %174, %142
-  %.not130145 = phi ptr [ @.str.29, %142 ], [ @.str.21, %174 ], [ @.str.29, %56 ]
+  %.not130145 = phi ptr [ @.str.21, %174 ], [ @.str.29, %142 ], [ @.str.29, %56 ]
   %175 = icmp slt i32 %39, 31
   %176 = icmp slt i32 %41, 31
   %or.cond8 = select i1 %175, i1 %176, i1 false
@@ -2514,9 +2514,9 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
   br i1 %exitcond261.not, label %._crit_edge227, label %.preheader189.us
 
 ._crit_edge227:                                   ; preds = %._crit_edge224.us, %._crit_edge217, %.preheader189.lr.ph.thread, %._crit_edge217.thread286
-  %164 = phi float [ %136, %.preheader189.lr.ph.thread ], [ %150, %._crit_edge217 ], [ %127, %._crit_edge217.thread286 ], [ %150, %._crit_edge224.us ]
-  %165 = phi float [ %135, %.preheader189.lr.ph.thread ], [ %149, %._crit_edge217 ], [ %126, %._crit_edge217.thread286 ], [ %149, %._crit_edge224.us ]
-  %.0163.lcssa = phi float [ 0.000000e+00, %.preheader189.lr.ph.thread ], [ 0.000000e+00, %._crit_edge217 ], [ 0.000000e+00, %._crit_edge217.thread286 ], [ %161, %._crit_edge224.us ]
+  %164 = phi float [ %127, %._crit_edge217.thread286 ], [ %136, %.preheader189.lr.ph.thread ], [ %150, %._crit_edge217 ], [ %150, %._crit_edge224.us ]
+  %165 = phi float [ %126, %._crit_edge217.thread286 ], [ %135, %.preheader189.lr.ph.thread ], [ %149, %._crit_edge217 ], [ %149, %._crit_edge224.us ]
+  %.0163.lcssa = phi float [ 0.000000e+00, %._crit_edge217.thread286 ], [ 0.000000e+00, %.preheader189.lr.ph.thread ], [ 0.000000e+00, %._crit_edge217 ], [ %161, %._crit_edge224.us ]
   %166 = fdiv reassoc nsz arcp contract afn float %.0163.lcssa, %165
   %167 = fmul reassoc nsz arcp contract afn float %166, 1.000000e+01
   %168 = fadd reassoc nsz arcp contract afn float %167, %164
@@ -2560,7 +2560,7 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
   br i1 %187, label %.loopexit.us, label %.preheader186.us
 
 .loopexit.us:                                     ; preds = %186, %184, %177, %.preheader186.us
-  %.sink292 = phi i32 [ 0, %.preheader186.us ], [ -16711936, %184 ], [ -256, %177 ], [ -16776961, %186 ]
+  %.sink292 = phi i32 [ 0, %.preheader186.us ], [ -256, %177 ], [ -16711936, %184 ], [ -16776961, %186 ]
   store i32 %.sink292, ptr %scevgep265, align 4
   %188 = add nuw i64 %.0156235.us, 1
   %exitcond266.not = icmp eq i64 %188, %5
@@ -4083,7 +4083,7 @@ define void @dt_view_paint_surface(ptr noundef %0, i64 noundef %1, i64 noundef %
   br label %100
 
 100:                                              ; preds = %97, %94
-  %.sink = phi i32 [ %.221, %97 ], [ 37, %94 ]
+  %.sink = phi i32 [ 37, %94 ], [ %.221, %97 ]
   call void @dt_gui_gtk_set_source_rgb(ptr noundef %0, i32 noundef %.sink) #20
   call void @cairo_paint(ptr noundef %0) #20
   %101 = uitofp i64 %1 to double

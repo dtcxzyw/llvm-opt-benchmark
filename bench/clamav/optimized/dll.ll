@@ -1301,7 +1301,7 @@ RARProcessFile.exit:                              ; preds = %47
   br label %.thread
 
 .thread:                                          ; preds = %50, %RARProcessFile.exit, %172, %35, %31, %23, %27, %187
-  %.0 = phi i32 [ 12, %31 ], [ %188, %187 ], [ %28, %27 ], [ 15, %23 ], [ %., %35 ], [ 0, %172 ], [ %48, %RARProcessFile.exit ], [ %51, %50 ]
+  %.0 = phi i32 [ %188, %187 ], [ %28, %27 ], [ 15, %23 ], [ 12, %31 ], [ %., %35 ], [ 0, %172 ], [ %48, %RARProcessFile.exit ], [ %51, %50 ]
   ret i32 %.0
 
 189:                                              ; preds = %177
@@ -1590,7 +1590,7 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424,
   br label %112
 
 112:                                              ; preds = %32, %33, %110, %105, %94
-  %.0 = phi i32 [ %111, %110 ], [ 11, %94 ], [ %106, %105 ], [ 0, %33 ], [ 15, %32 ]
+  %.0 = phi i32 [ 11, %94 ], [ %106, %105 ], [ %111, %110 ], [ 0, %33 ], [ 15, %32 ]
   ret i32 %.0
 
 113:                                              ; preds = %96

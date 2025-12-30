@@ -472,7 +472,7 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br label %192
 
 171:                                              ; preds = %80, %83, %70, %73, %62, %65
-  %.sink = phi i32 [ 0, %62 ], [ 1, %73 ], [ 2, %83 ], [ 1, %70 ], [ 0, %65 ], [ 2, %80 ]
+  %.sink = phi i32 [ 0, %65 ], [ 0, %62 ], [ 1, %73 ], [ 1, %70 ], [ 2, %83 ], [ 2, %80 ]
   %172 = tail call i32 @dup(i32 noundef %.sink) #14
   %173 = icmp eq i32 %172, -1
   br i1 %173, label %192, label %.thread
@@ -521,12 +521,12 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   %191 = tail call i32 @close(i32 noundef %.0109170) #14
   br label %192
 
-.critedge:                                        ; preds = %103, %95, %101, %121, %116, %111, %93
+.critedge:                                        ; preds = %101, %103, %93, %95, %121, %116, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %192
 
 192:                                              ; preds = %183, %185, %190, %187, %171, %._crit_edge, %.critedge, %59, %61, %50, %41, %39, %170, %168, %150, %146, %30, %25, %20, %19
-  %.0 = phi ptr [ null, %170 ], [ null, %168 ], [ null, %59 ], [ null, %150 ], [ null, %146 ], [ %149, %._crit_edge ], [ null, %171 ], [ %182, %183 ], [ null, %.critedge ], [ null, %39 ], [ null, %19 ], [ %31, %30 ], [ %27, %25 ], [ %22, %20 ], [ %51, %50 ], [ null, %41 ], [ null, %61 ], [ %186, %185 ], [ null, %190 ], [ %188, %187 ]
+  %.0 = phi ptr [ null, %170 ], [ null, %168 ], [ null, %150 ], [ null, %146 ], [ %182, %183 ], [ %31, %30 ], [ %27, %25 ], [ %22, %20 ], [ null, %19 ], [ %51, %50 ], [ null, %41 ], [ null, %39 ], [ null, %61 ], [ null, %59 ], [ null, %.critedge ], [ %149, %._crit_edge ], [ null, %171 ], [ %186, %185 ], [ null, %190 ], [ %188, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }

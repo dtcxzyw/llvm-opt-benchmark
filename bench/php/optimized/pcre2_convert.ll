@@ -334,8 +334,8 @@ convert_glob_write.exit.i:                        ; preds = %114, %108, %106
   br label %143
 
 143:                                              ; preds = %139, %136, %133
-  %144 = phi i8 [ %131, %133 ], [ %142, %139 ], [ %60, %136 ]
-  %.216.i = phi ptr [ %128, %133 ], [ %spec.select.i, %139 ], [ %128, %136 ]
+  %144 = phi i8 [ %60, %136 ], [ %131, %133 ], [ %142, %139 ]
+  %.216.i = phi ptr [ %128, %136 ], [ %128, %133 ], [ %spec.select.i, %139 ]
   br i1 %107, label %145, label %177
 
 145:                                              ; preds = %143
@@ -433,9 +433,9 @@ convert_glob_write.exit155.i:                     ; preds = %173, %convert_glob_
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %1055, %convert_glob_write.exit250.i, %550, %convert_glob_print_separator.exit.i246.i, %convert_glob_print_separator.exit.thread.i245.i, %convert_glob_write.exit316.i.i, %364, %convert_glob_print_separator.exit.i227.i, %convert_glob_print_separator.exit.thread.i225.i, %336, %330, %convert_glob_write_str.exit214.i, %254, %convert_glob_write_str.exit182.i, %convert_glob_write_str.exit163.i, %convert_glob_write.exit155.i, %145
-  %.0.be.i = phi ptr [ %.4264.i.i, %550 ], [ %175, %convert_glob_write.exit155.i ], [ %.216.i, %145 ], [ %243, %convert_glob_write_str.exit182.i ], [ %.216.i, %convert_glob_write_str.exit163.i ], [ %.4.i, %254 ], [ %.4.i, %convert_glob_write_str.exit214.i ], [ %104, %330 ], [ %104, %364 ], [ %104, %convert_glob_print_separator.exit.i227.i ], [ %104, %convert_glob_print_separator.exit.thread.i225.i ], [ %104, %336 ], [ %.4264.i.i, %convert_glob_write.exit316.i.i ], [ %.4264.i.i, %convert_glob_print_separator.exit.thread.i245.i ], [ %.4264.i.i, %convert_glob_print_separator.exit.i246.i ], [ %.6.i, %convert_glob_write.exit250.i ], [ %.6.i, %1055 ]
-  %.093.be.i = phi i32 [ %.09381.i, %550 ], [ 0, %convert_glob_write.exit155.i ], [ 0, %145 ], [ 0, %convert_glob_write_str.exit182.i ], [ 0, %convert_glob_write_str.exit163.i ], [ 0, %254 ], [ %.319.i, %convert_glob_write_str.exit214.i ], [ %.09381.i, %330 ], [ %.09381.i, %364 ], [ %.09381.i, %convert_glob_print_separator.exit.i227.i ], [ %.09381.i, %convert_glob_print_separator.exit.thread.i225.i ], [ %.09381.i, %336 ], [ %.09381.i, %convert_glob_write.exit316.i.i ], [ %.09381.i, %convert_glob_print_separator.exit.thread.i245.i ], [ %.09381.i, %convert_glob_print_separator.exit.i246.i ], [ %.09381.i, %convert_glob_write.exit250.i ], [ %.09381.i, %1055 ]
-  %.092.be.i = phi i32 [ %.09282.i, %550 ], [ 1, %convert_glob_write.exit155.i ], [ 1, %145 ], [ 1, %convert_glob_write_str.exit182.i ], [ 1, %convert_glob_write_str.exit163.i ], [ %.09282.i, %254 ], [ %.09282.i, %convert_glob_write_str.exit214.i ], [ %.09282.i, %330 ], [ %.09282.i, %364 ], [ %.09282.i, %convert_glob_print_separator.exit.i227.i ], [ %.09282.i, %convert_glob_print_separator.exit.thread.i225.i ], [ %.09282.i, %336 ], [ %.09282.i, %convert_glob_write.exit316.i.i ], [ %.09282.i, %convert_glob_print_separator.exit.thread.i245.i ], [ %.09282.i, %convert_glob_print_separator.exit.i246.i ], [ %.09282.i, %convert_glob_write.exit250.i ], [ %.09282.i, %1055 ]
+  %.0.be.i = phi ptr [ %175, %convert_glob_write.exit155.i ], [ %.216.i, %145 ], [ %243, %convert_glob_write_str.exit182.i ], [ %.216.i, %convert_glob_write_str.exit163.i ], [ %.4.i, %254 ], [ %.4.i, %convert_glob_write_str.exit214.i ], [ %104, %364 ], [ %104, %convert_glob_print_separator.exit.i227.i ], [ %104, %convert_glob_print_separator.exit.thread.i225.i ], [ %104, %336 ], [ %104, %330 ], [ %.4264.i.i, %convert_glob_write.exit316.i.i ], [ %.4264.i.i, %convert_glob_print_separator.exit.thread.i245.i ], [ %.4264.i.i, %convert_glob_print_separator.exit.i246.i ], [ %.4264.i.i, %550 ], [ %.6.i, %convert_glob_write.exit250.i ], [ %.6.i, %1055 ]
+  %.093.be.i = phi i32 [ 0, %convert_glob_write.exit155.i ], [ 0, %145 ], [ 0, %convert_glob_write_str.exit182.i ], [ 0, %convert_glob_write_str.exit163.i ], [ 0, %254 ], [ %.319.i, %convert_glob_write_str.exit214.i ], [ %.09381.i, %364 ], [ %.09381.i, %convert_glob_print_separator.exit.i227.i ], [ %.09381.i, %convert_glob_print_separator.exit.thread.i225.i ], [ %.09381.i, %336 ], [ %.09381.i, %330 ], [ %.09381.i, %convert_glob_write.exit316.i.i ], [ %.09381.i, %convert_glob_print_separator.exit.thread.i245.i ], [ %.09381.i, %convert_glob_print_separator.exit.i246.i ], [ %.09381.i, %550 ], [ %.09381.i, %convert_glob_write.exit250.i ], [ %.09381.i, %1055 ]
+  %.092.be.i = phi i32 [ 1, %convert_glob_write.exit155.i ], [ 1, %145 ], [ 1, %convert_glob_write_str.exit182.i ], [ 1, %convert_glob_write_str.exit163.i ], [ %.09282.i, %254 ], [ %.09282.i, %convert_glob_write_str.exit214.i ], [ %.09282.i, %364 ], [ %.09282.i, %convert_glob_print_separator.exit.i227.i ], [ %.09282.i, %convert_glob_print_separator.exit.thread.i225.i ], [ %.09282.i, %336 ], [ %.09282.i, %330 ], [ %.09282.i, %convert_glob_write.exit316.i.i ], [ %.09282.i, %convert_glob_print_separator.exit.thread.i245.i ], [ %.09282.i, %convert_glob_print_separator.exit.i246.i ], [ %.09282.i, %550 ], [ %.09282.i, %convert_glob_write.exit250.i ], [ %.09282.i, %1055 ]
   %176 = icmp ult ptr %.0.be.i, %37
   br i1 %176, label %103, label %._crit_edge.loopexit.i
 
@@ -777,9 +777,9 @@ convert_glob_write_str.exit.i196.i:               ; preds = %279
   br label %convert_glob_print_commit.exit198.i
 
 convert_glob_print_commit.exit198.i:              ; preds = %284, %convert_glob_write_str.exit.i196.i, %convert_glob_write_str.exit189.i
-  %.pre108.i = phi i64 [ %.pre108.pre.i, %284 ], [ %268, %convert_glob_write_str.exit189.i ], [ %281, %convert_glob_write_str.exit.i196.i ]
-  %.pre104.i = phi ptr [ %.pre104.pre.i, %284 ], [ %.1.i187.i, %convert_glob_write_str.exit189.i ], [ %.1.i.i194.i, %convert_glob_write_str.exit.i196.i ]
-  %.3.i = phi i32 [ 0, %284 ], [ 1, %convert_glob_write_str.exit189.i ], [ 0, %convert_glob_write_str.exit.i196.i ]
+  %.pre108.i = phi i64 [ %268, %convert_glob_write_str.exit189.i ], [ %281, %convert_glob_write_str.exit.i196.i ], [ %.pre108.pre.i, %284 ]
+  %.pre104.i = phi ptr [ %.1.i187.i, %convert_glob_write_str.exit189.i ], [ %.1.i.i194.i, %convert_glob_write_str.exit.i196.i ], [ %.pre104.pre.i, %284 ]
+  %.3.i = phi i32 [ 1, %convert_glob_write_str.exit189.i ], [ 0, %convert_glob_write_str.exit.i196.i ], [ 0, %284 ]
   %.pre106.i = load ptr, ptr %40, align 8, !tbaa !18
   br i1 %39, label %convert_glob_print_commit.exit198.thread.i, label %286
 
@@ -877,7 +877,7 @@ convert_glob_print_separator.exit.i.i:            ; preds = %convert_glob_write.
   br label %convert_glob_write.exit199.i
 
 convert_glob_write.exit199.i:                     ; preds = %316, %convert_glob_print_separator.exit.i.i, %convert_glob_print_separator.exit.thread.i.i, %289, %286
-  %.319.i = phi i32 [ %.3.i, %289 ], [ %.3.i, %286 ], [ %.320.i, %convert_glob_print_separator.exit.thread.i.i ], [ %.320.i, %convert_glob_print_separator.exit.i.i ], [ %.320.i, %316 ]
+  %.319.i = phi i32 [ %.3.i, %286 ], [ %.3.i, %289 ], [ %.320.i, %convert_glob_print_separator.exit.thread.i.i ], [ %.320.i, %convert_glob_print_separator.exit.i.i ], [ %.320.i, %316 ]
   store i8 42, ptr %42, align 8, !tbaa !20
   %.not127.i = icmp ult ptr %.4.i, %37
   %spec.store.select.i = select i1 %.not127.i, i8 63, i8 43
@@ -1639,17 +1639,17 @@ convert_glob_parse_class.exit.i.i:                ; preds = %convert_glob_write.
   br label %convert_glob_char_in_class.exit.i.i
 
 convert_glob_char_in_class.exit.i.i:              ; preds = %684, %675, %668, %661, %654, %647, %640, %633, %626, %619, %612, %605, %604
-  %.0.i.i.i = phi i32 [ %690, %684 ], [ %611, %605 ], [ %618, %612 ], [ %683, %675 ], [ %674, %668 ], [ %625, %619 ], [ %632, %626 ], [ %639, %633 ], [ %646, %640 ], [ %653, %647 ], [ %660, %654 ], [ %667, %661 ], [ %101, %604 ]
+  %.0.i.i.i = phi i32 [ %690, %684 ], [ %611, %605 ], [ %618, %612 ], [ %625, %619 ], [ %632, %626 ], [ %639, %633 ], [ %646, %640 ], [ %653, %647 ], [ %660, %654 ], [ %667, %661 ], [ %674, %668 ], [ %683, %675 ], [ %101, %604 ]
   %.0.i.fr.i.i = freeze i32 %.0.i.i.i
   %.not299.i.i = icmp eq i32 %.0.i.fr.i.i, 0
   %spec.select.i.i = select i1 %.not299.i.i, i32 %.0269371.i.i, i32 1
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %convert_glob_write.exit330.i.i, %convert_glob_write.exit329.split.us.i.i, %convert_glob_char_in_class.exit.i.i, %604, %convert_glob_parse_class.exit.i.i
-  %.0269.be.i.i = phi i32 [ %spec.select308.i.i, %convert_glob_write.exit329.split.us.i.i ], [ %spec.select.i.i, %convert_glob_char_in_class.exit.i.i ], [ %.0269371.i.i, %convert_glob_parse_class.exit.i.i ], [ 1, %604 ], [ %spec.select308.i.i, %convert_glob_write.exit330.i.i ]
-  %.1267.be.i.i = phi i32 [ %.2268347.i.i, %convert_glob_write.exit329.split.us.i.i ], [ 0, %convert_glob_char_in_class.exit.i.i ], [ 0, %convert_glob_parse_class.exit.i.i ], [ 0, %604 ], [ %.2268347.i.i, %convert_glob_write.exit330.i.i ]
-  %.2262.be.i.i = phi ptr [ %.5265349.i.i, %convert_glob_write.exit329.split.us.i.i ], [ %576, %convert_glob_char_in_class.exit.i.i ], [ %576, %convert_glob_parse_class.exit.i.i ], [ %576, %604 ], [ %.5265349.i.i, %convert_glob_write.exit330.i.i ]
-  %.1252.be.i.i = phi i32 [ %.2355.i.i, %convert_glob_write.exit329.split.us.i.i ], [ 0, %convert_glob_char_in_class.exit.i.i ], [ 0, %convert_glob_parse_class.exit.i.i ], [ 0, %604 ], [ %.2355.i.i, %convert_glob_write.exit330.i.i ]
+  %.0269.be.i.i = phi i32 [ %spec.select308.i.i, %convert_glob_write.exit329.split.us.i.i ], [ %.0269371.i.i, %convert_glob_parse_class.exit.i.i ], [ 1, %604 ], [ %spec.select.i.i, %convert_glob_char_in_class.exit.i.i ], [ %spec.select308.i.i, %convert_glob_write.exit330.i.i ]
+  %.1267.be.i.i = phi i32 [ %.2268347.i.i, %convert_glob_write.exit329.split.us.i.i ], [ 0, %convert_glob_parse_class.exit.i.i ], [ 0, %604 ], [ 0, %convert_glob_char_in_class.exit.i.i ], [ %.2268347.i.i, %convert_glob_write.exit330.i.i ]
+  %.2262.be.i.i = phi ptr [ %.5265349.i.i, %convert_glob_write.exit329.split.us.i.i ], [ %576, %convert_glob_parse_class.exit.i.i ], [ %576, %604 ], [ %576, %convert_glob_char_in_class.exit.i.i ], [ %.5265349.i.i, %convert_glob_write.exit330.i.i ]
+  %.1252.be.i.i = phi i32 [ %.2355.i.i, %convert_glob_write.exit329.split.us.i.i ], [ 0, %convert_glob_parse_class.exit.i.i ], [ 0, %604 ], [ 0, %convert_glob_char_in_class.exit.i.i ], [ %.2355.i.i, %convert_glob_write.exit330.i.i ]
   %691 = icmp ult ptr %.2262.be.i.i, %37
   br i1 %691, label %.lr.ph.i.i, label %convert_glob_parse_range.exit.thread.i
 
@@ -2076,12 +2076,12 @@ convert_glob_write.exit328.i.i:                   ; preds = %703, %697
   br i1 %.not294.i.i, label %1007, label %convert_glob_parse_range.exit.thread.i
 
 1007:                                             ; preds = %1006, %.thread.i.i, %906
-  %.2271.i.i = phi i32 [ %.0269371.i.i, %.thread.i.i ], [ %.3272.i.i, %906 ], [ %.0269371.i.i, %1006 ]
-  %.2268.i.i = phi i32 [ 1, %.thread.i.i ], [ 0, %906 ], [ 1, %1006 ]
-  %.5265.i.i = phi ptr [ %.4264.i.i, %.thread.i.i ], [ %.7.i.i, %906 ], [ %.9.i.i, %1006 ]
-  %.0256.i.i = phi ptr [ %.2262373.i.i, %.thread.i.i ], [ %.1257.i.i, %906 ], [ %.4264.i.i, %1006 ]
-  %.1254.i.i = phi i32 [ %.0253.i.i, %.thread.i.i ], [ %.3.i.i, %906 ], [ %.5.i.i, %1006 ]
-  %.2.i.i = phi i32 [ %.0253.i.i, %.thread.i.i ], [ 0, %906 ], [ %.5.i.i, %1006 ]
+  %.2271.i.i = phi i32 [ %.3272.i.i, %906 ], [ %.0269371.i.i, %1006 ], [ %.0269371.i.i, %.thread.i.i ]
+  %.2268.i.i = phi i32 [ 0, %906 ], [ 1, %1006 ], [ 1, %.thread.i.i ]
+  %.5265.i.i = phi ptr [ %.7.i.i, %906 ], [ %.9.i.i, %1006 ], [ %.4264.i.i, %.thread.i.i ]
+  %.0256.i.i = phi ptr [ %.1257.i.i, %906 ], [ %.4264.i.i, %1006 ], [ %.2262373.i.i, %.thread.i.i ]
+  %.1254.i.i = phi i32 [ %.3.i.i, %906 ], [ %.5.i.i, %1006 ], [ %.0253.i.i, %.thread.i.i ]
+  %.2.i.i = phi i32 [ 0, %906 ], [ %.5.i.i, %1006 ], [ %.0253.i.i, %.thread.i.i ]
   switch i32 %.1254.i.i, label %convert_glob_write.exit329.i.i [
     i32 93, label %.thread337.i.i
     i32 92, label %.thread337.i.i
@@ -2090,12 +2090,12 @@ convert_glob_write.exit328.i.i:                   ; preds = %703, %697
   ]
 
 .thread337.i.i:                                   ; preds = %561, %._crit_edge.i.i.i, %1007, %1007, %1007, %1007, %567, %566
-  %.2354.i.i = phi i32 [ %.2.i.i, %1007 ], [ %.2.i.i, %1007 ], [ %.2.i.i, %1007 ], [ %.2.i.i, %1007 ], [ %.1252374.i.i, %._crit_edge.i.i.i ], [ %.1252374.i.i, %567 ], [ %.1252374.i.i, %566 ], [ %.1252374.i.i, %561 ]
-  %.1254352.i.i = phi i32 [ %.1254.i.i, %1007 ], [ %.1254.i.i, %1007 ], [ %.1254.i.i, %1007 ], [ %.1254.i.i, %1007 ], [ 91, %._crit_edge.i.i.i ], [ 91, %567 ], [ 91, %566 ], [ 91, %561 ]
-  %.0256350.i.i = phi ptr [ %.0256.i.i, %1007 ], [ %.0256.i.i, %1007 ], [ %.0256.i.i, %1007 ], [ %.0256.i.i, %1007 ], [ %.2262373.i.i, %._crit_edge.i.i.i ], [ %.2262373.i.i, %567 ], [ %.2262373.i.i, %566 ], [ %.2262373.i.i, %561 ]
-  %.5265348.i.i = phi ptr [ %.5265.i.i, %1007 ], [ %.5265.i.i, %1007 ], [ %.5265.i.i, %1007 ], [ %.5265.i.i, %1007 ], [ %.4264.i.i, %._crit_edge.i.i.i ], [ %.4264.i.i, %567 ], [ %.4264.i.i, %566 ], [ %.4264.i.i, %561 ]
-  %.2268346.i.i = phi i32 [ %.2268.i.i, %1007 ], [ %.2268.i.i, %1007 ], [ %.2268.i.i, %1007 ], [ %.2268.i.i, %1007 ], [ %.1267372.i.i, %._crit_edge.i.i.i ], [ %.1267372.i.i, %567 ], [ %.1267372.i.i, %566 ], [ %.1267372.i.i, %561 ]
-  %.2271344.i.i = phi i32 [ %.2271.i.i, %1007 ], [ %.2271.i.i, %1007 ], [ %.2271.i.i, %1007 ], [ %.2271.i.i, %1007 ], [ %.0269371.i.i, %._crit_edge.i.i.i ], [ %.0269371.i.i, %567 ], [ %.0269371.i.i, %566 ], [ %.0269371.i.i, %561 ]
+  %.2354.i.i = phi i32 [ %.2.i.i, %1007 ], [ %.2.i.i, %1007 ], [ %.2.i.i, %1007 ], [ %.2.i.i, %1007 ], [ %.1252374.i.i, %567 ], [ %.1252374.i.i, %566 ], [ %.1252374.i.i, %._crit_edge.i.i.i ], [ %.1252374.i.i, %561 ]
+  %.1254352.i.i = phi i32 [ %.1254.i.i, %1007 ], [ %.1254.i.i, %1007 ], [ %.1254.i.i, %1007 ], [ %.1254.i.i, %1007 ], [ 91, %567 ], [ 91, %566 ], [ 91, %._crit_edge.i.i.i ], [ 91, %561 ]
+  %.0256350.i.i = phi ptr [ %.0256.i.i, %1007 ], [ %.0256.i.i, %1007 ], [ %.0256.i.i, %1007 ], [ %.0256.i.i, %1007 ], [ %.2262373.i.i, %567 ], [ %.2262373.i.i, %566 ], [ %.2262373.i.i, %._crit_edge.i.i.i ], [ %.2262373.i.i, %561 ]
+  %.5265348.i.i = phi ptr [ %.5265.i.i, %1007 ], [ %.5265.i.i, %1007 ], [ %.5265.i.i, %1007 ], [ %.5265.i.i, %1007 ], [ %.4264.i.i, %567 ], [ %.4264.i.i, %566 ], [ %.4264.i.i, %._crit_edge.i.i.i ], [ %.4264.i.i, %561 ]
+  %.2268346.i.i = phi i32 [ %.2268.i.i, %1007 ], [ %.2268.i.i, %1007 ], [ %.2268.i.i, %1007 ], [ %.2268.i.i, %1007 ], [ %.1267372.i.i, %567 ], [ %.1267372.i.i, %566 ], [ %.1267372.i.i, %._crit_edge.i.i.i ], [ %.1267372.i.i, %561 ]
+  %.2271344.i.i = phi i32 [ %.2271.i.i, %1007 ], [ %.2271.i.i, %1007 ], [ %.2271.i.i, %1007 ], [ %.2271.i.i, %1007 ], [ %.0269371.i.i, %567 ], [ %.0269371.i.i, %566 ], [ %.0269371.i.i, %._crit_edge.i.i.i ], [ %.0269371.i.i, %561 ]
   %1008 = load i64, ptr %41, align 8, !tbaa !19
   %1009 = add i64 %1008, 1
   store i64 %1009, ptr %41, align 8, !tbaa !19
@@ -2268,7 +2268,7 @@ convert_glob_write.exit250.i:                     ; preds = %1048, %1042, %1040,
   br label %convert_glob_write.exit259.i
 
 convert_glob_write.exit259.i:                     ; preds = %253, %127, %1075, %1071, %1069
-  %.7.ph3642.i = phi ptr [ %.0.lcssa.i, %1075 ], [ %.0.lcssa.i, %1069 ], [ %.0.lcssa.i, %1071 ], [ %128, %127 ], [ %.4.i, %253 ]
+  %.7.ph3642.i = phi ptr [ %.0.lcssa.i, %1069 ], [ %.0.lcssa.i, %1071 ], [ %.0.lcssa.i, %1075 ], [ %128, %127 ], [ %.4.i, %253 ]
   %1077 = load i64, ptr %41, align 8, !tbaa !19
   %1078 = add i64 %1077, 1
   store i64 %1078, ptr %41, align 8, !tbaa !19
@@ -2297,8 +2297,8 @@ convert_glob_write.exit260.i:                     ; preds = %1082, %convert_glob
   br i1 %.not131.i, label %.critedge.i, label %convert_glob_parse_range.exit.thread.i
 
 convert_glob_parse_range.exit.thread.i:           ; preds = %1034, %415, %369, %366, %1006, %904, %901, %800, %.backedge.i.i, %552, %1084
-  %.729.ph.i = phi ptr [ %.7.ph3642.i, %1084 ], [ %.2262.be.i.i, %.backedge.i.i ], [ %.4264.i.i, %552 ], [ %.9.i.i, %1006 ], [ %.6.i.i, %800 ], [ %.6.i.i, %901 ], [ %.7.i.i, %904 ], [ %.1261.i.i, %415 ], [ %370, %369 ], [ %104, %1034 ], [ %104, %366 ]
-  %.2.ph.i = phi i32 [ -48, %1084 ], [ 106, %.backedge.i.i ], [ 106, %552 ], [ 106, %1006 ], [ 106, %800 ], [ -64, %901 ], [ -64, %904 ], [ 106, %415 ], [ 106, %369 ], [ -64, %1034 ], [ 106, %366 ]
+  %.729.ph.i = phi ptr [ %.7.ph3642.i, %1084 ], [ %.2262.be.i.i, %.backedge.i.i ], [ %.4264.i.i, %552 ], [ %.6.i.i, %800 ], [ %.9.i.i, %1006 ], [ %.7.i.i, %904 ], [ %.6.i.i, %901 ], [ %104, %1034 ], [ %.1261.i.i, %415 ], [ %370, %369 ], [ %104, %366 ]
+  %.2.ph.i = phi i32 [ -48, %1084 ], [ 106, %.backedge.i.i ], [ 106, %552 ], [ 106, %800 ], [ 106, %1006 ], [ -64, %904 ], [ -64, %901 ], [ -64, %1034 ], [ 106, %415 ], [ 106, %369 ], [ 106, %366 ]
   %1089 = ptrtoint ptr %.729.ph.i to i64
   %1090 = sub i64 %1089, %51
   br label %convert_glob.exit
@@ -2712,8 +2712,8 @@ thread-pre-split.i:                               ; preds = %1237
   br i1 %.not.i97, label %1289, label %1273
 
 1273:                                             ; preds = %1283, %1282, %1279, %1278, %1272, %1268, %1228, %1228
-  %.6253.i = phi i32 [ %1269, %1268 ], [ %.0247129.i, %1228 ], [ %.0247129.i, %1278 ], [ %.0247129.i, %1279 ], [ %.0247129.i, %1282 ], [ %.3250.i, %1272 ], [ %.0247129.i, %1228 ], [ %.0247129.i, %1283 ]
-  %.5246.i = phi i32 [ %.0241130.i, %1268 ], [ 2, %1228 ], [ %.0241130.i, %1278 ], [ 2, %1279 ], [ %.0241130.i, %1282 ], [ 2, %1272 ], [ 2, %1228 ], [ 1, %1283 ]
+  %.6253.i = phi i32 [ %1269, %1268 ], [ %.0247129.i, %1278 ], [ %.0247129.i, %1279 ], [ %.0247129.i, %1282 ], [ %.3250.i, %1272 ], [ %.0247129.i, %1228 ], [ %.0247129.i, %1228 ], [ %.0247129.i, %1283 ]
+  %.5246.i = phi i32 [ %.0241130.i, %1268 ], [ %.0241130.i, %1278 ], [ 2, %1279 ], [ %.0241130.i, %1282 ], [ 2, %1272 ], [ 2, %1228 ], [ 2, %1228 ], [ 1, %1283 ]
   %spec.select.i99.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not130.i, ptr %.1262125.i, ptr %.178165
   %spec.select.i99.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i99.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
   %1274 = icmp ugt ptr %spec.select.i99.sroa.sel.v.sroa.sel.v.sroa.sel, %1094
@@ -2767,8 +2767,8 @@ thread-pre-split.i:                               ; preds = %1237
   br label %.thread33.i
 
 .thread33.i:                                      ; preds = %.thread33.loopexit.i, %1288, %1286
-  %.15276.i = phi ptr [ %spec.select.i99, %1286 ], [ %spec.select.i99, %1288 ], [ %spec.select.i99.sroa.sel104.v.sroa.sel.v.sroa.sel, %.thread33.loopexit.i ]
-  %.7254.i = phi i32 [ %.0247129.i, %1286 ], [ %.0247129.i, %1288 ], [ %.5252.i, %.thread33.loopexit.i ]
+  %.15276.i = phi ptr [ %spec.select.i99, %1288 ], [ %spec.select.i99, %1286 ], [ %spec.select.i99.sroa.sel104.v.sroa.sel.v.sroa.sel, %.thread33.loopexit.i ]
+  %.7254.i = phi i32 [ %.0247129.i, %1288 ], [ %.0247129.i, %1286 ], [ %.5252.i, %.thread33.loopexit.i ]
   %1290 = getelementptr inbounds nuw i8, ptr %.15276.i, i64 %.0217.i
   %1291 = icmp ugt ptr %1290, %1094
   br i1 %1291, label %.thread131, label %1292
@@ -2778,13 +2778,13 @@ thread-pre-split.i:                               ; preds = %1237
   br label %.thread.i
 
 .thread.i:                                        ; preds = %1292, %1277, %1275, %1261, %1250, %1247, %1246, %.thread.loopexit141.i, %.thread19.i, %1227, %1217, %.thread.loopexit.i
-  %.4265.i = phi ptr [ %spec.select.i99, %1277 ], [ %1225, %1227 ], [ %1290, %1292 ], [ %spec.select.i99.sroa.sel119.v.sroa.sel.v.sroa.sel, %.thread.loopexit.i ], [ %1215, %1217 ], [ %.1027124.i, %.thread19.i ], [ %spec.select.i99, %1250 ], [ %1243, %.thread.loopexit141.i ], [ %spec.select.i99, %1247 ], [ %1259, %1261 ], [ %spec.select.i99, %1246 ], [ %spec.select.i99.sroa.sel.v.sroa.sel.v.sroa.sel, %1275 ]
-  %.1257.i = phi ptr [ %1192, %1277 ], [ %1192, %1227 ], [ %1192, %1292 ], [ %1192, %.thread.loopexit.i ], [ %1219, %1217 ], [ %.325925.i, %.thread19.i ], [ %1192, %1250 ], [ %1242, %.thread.loopexit141.i ], [ %1192, %1247 ], [ %1262, %1261 ], [ %1192, %1246 ], [ %1192, %1275 ]
-  %.1248.i = phi i32 [ %.0247129.i, %1277 ], [ %.0247129.i, %1227 ], [ %.7254.i, %1292 ], [ %.0247129.i, %.thread.loopexit.i ], [ %.0247129.i, %1217 ], [ %.0247129.i, %.thread19.i ], [ %.0247129.i, %1250 ], [ %.0247129.i, %.thread.loopexit141.i ], [ %.0247129.i, %1247 ], [ %.0247129.i, %1261 ], [ %.0247129.i, %1246 ], [ %.6253.i, %1275 ]
-  %.1242.i = phi i32 [ %.0241130.i, %1277 ], [ %.2243.i, %1227 ], [ 2, %1292 ], [ 2, %.thread.loopexit.i ], [ 3, %1217 ], [ 3, %.thread19.i ], [ %.0241130.i, %1250 ], [ 3, %.thread.loopexit141.i ], [ %.0241130.i, %1247 ], [ %.0241130.i, %1261 ], [ %.0241130.i, %1246 ], [ %.5246.i, %1275 ]
-  %.1239.i = phi i32 [ 42, %1277 ], [ %.0238131.i, %1227 ], [ 255, %1292 ], [ %.0238131.i, %.thread.loopexit.i ], [ %.0238131.i, %1217 ], [ %.0238131.i, %.thread19.i ], [ %.0238131.i, %1250 ], [ %.0238131.i, %.thread.loopexit141.i ], [ %.0238131.i, %1247 ], [ %1264, %1261 ], [ %.0238131.i, %1246 ], [ %.0219.i, %1275 ]
-  %.1235.i = phi i64 [ %1193, %1277 ], [ %1193, %1227 ], [ %1193, %1292 ], [ %1193, %.thread.loopexit.i ], [ %1218, %1217 ], [ %.323726.i, %.thread19.i ], [ %1193, %1250 ], [ %1241, %.thread.loopexit141.i ], [ %1193, %1247 ], [ %1265, %1261 ], [ %1193, %1246 ], [ %1193, %1275 ]
-  %.1232.i = phi i32 [ 0, %1277 ], [ 0, %1227 ], [ 0, %1292 ], [ 0, %.thread.loopexit.i ], [ 0, %1217 ], [ 0, %.thread19.i ], [ 1, %1250 ], [ 0, %.thread.loopexit141.i ], [ 1, %1247 ], [ 0, %1261 ], [ 1, %1246 ], [ 0, %1275 ]
+  %.4265.i = phi ptr [ %1215, %1217 ], [ %1225, %1227 ], [ %1290, %1292 ], [ %.1027124.i, %.thread19.i ], [ %1259, %1261 ], [ %spec.select.i99.sroa.sel.v.sroa.sel.v.sroa.sel, %1275 ], [ %spec.select.i99, %1277 ], [ %spec.select.i99, %1246 ], [ %spec.select.i99, %1250 ], [ %spec.select.i99, %1247 ], [ %spec.select.i99.sroa.sel119.v.sroa.sel.v.sroa.sel, %.thread.loopexit.i ], [ %1243, %.thread.loopexit141.i ]
+  %.1257.i = phi ptr [ %1219, %1217 ], [ %1192, %1227 ], [ %1192, %1292 ], [ %.325925.i, %.thread19.i ], [ %1262, %1261 ], [ %1192, %1275 ], [ %1192, %1277 ], [ %1192, %1246 ], [ %1192, %1250 ], [ %1192, %1247 ], [ %1192, %.thread.loopexit.i ], [ %1242, %.thread.loopexit141.i ]
+  %.1248.i = phi i32 [ %.0247129.i, %1217 ], [ %.0247129.i, %1227 ], [ %.7254.i, %1292 ], [ %.0247129.i, %.thread19.i ], [ %.0247129.i, %1261 ], [ %.6253.i, %1275 ], [ %.0247129.i, %1277 ], [ %.0247129.i, %1246 ], [ %.0247129.i, %1250 ], [ %.0247129.i, %1247 ], [ %.0247129.i, %.thread.loopexit.i ], [ %.0247129.i, %.thread.loopexit141.i ]
+  %.1242.i = phi i32 [ 3, %1217 ], [ %.2243.i, %1227 ], [ 2, %1292 ], [ 3, %.thread19.i ], [ %.0241130.i, %1261 ], [ %.5246.i, %1275 ], [ %.0241130.i, %1277 ], [ %.0241130.i, %1246 ], [ %.0241130.i, %1250 ], [ %.0241130.i, %1247 ], [ 2, %.thread.loopexit.i ], [ 3, %.thread.loopexit141.i ]
+  %.1239.i = phi i32 [ %.0238131.i, %1217 ], [ %.0238131.i, %1227 ], [ 255, %1292 ], [ %.0238131.i, %.thread19.i ], [ %1264, %1261 ], [ %.0219.i, %1275 ], [ 42, %1277 ], [ %.0238131.i, %1246 ], [ %.0238131.i, %1250 ], [ %.0238131.i, %1247 ], [ %.0238131.i, %.thread.loopexit.i ], [ %.0238131.i, %.thread.loopexit141.i ]
+  %.1235.i = phi i64 [ %1218, %1217 ], [ %1193, %1227 ], [ %1193, %1292 ], [ %.323726.i, %.thread19.i ], [ %1265, %1261 ], [ %1193, %1275 ], [ %1193, %1277 ], [ %1193, %1246 ], [ %1193, %1250 ], [ %1193, %1247 ], [ %1193, %.thread.loopexit.i ], [ %1241, %.thread.loopexit141.i ]
+  %.1232.i = phi i32 [ 0, %1217 ], [ 0, %1227 ], [ 0, %1292 ], [ 0, %.thread19.i ], [ 0, %1261 ], [ 0, %1275 ], [ 0, %1277 ], [ 1, %1246 ], [ 1, %1250 ], [ 1, %1247 ], [ 0, %.thread.loopexit.i ], [ 0, %.thread.loopexit141.i ]
   %.not291.i = icmp eq i64 %.1235.i, 0
   br i1 %.not291.i, label %.critedge._crit_edge.i, label %.lr.ph.i98
 
@@ -2834,8 +2834,8 @@ convert_posix.exit:                               ; preds = %.critedge._crit_edg
   store i64 0, ptr %4, align 8, !tbaa !4
   br label %.thread131
 
-.thread131:                                       ; preds = %.critedge._crit_edge.i, %convert_posix.exit, %1299, %1301, %1095, %.preheader.preheader.i, %.preheader57.preheader.i, %.preheader55.preheader.i, %1237, %.preheader47.preheader.i, %1289, %1240, %1244, %.thread9.i, %1273, %.thread30.i, %.thread33.i, %1230, %1234, %.preheader49.i, %26, %6, %.thread127, %16
-  %.0 = phi i32 [ %25, %26 ], [ -34, %16 ], [ -51, %6 ], [ -44, %.thread127 ], [ -48, %.preheader49.i ], [ -48, %1095 ], [ -48, %.preheader.preheader.i ], [ -48, %1234 ], [ 106, %1230 ], [ -48, %.thread33.i ], [ -48, %.thread30.i ], [ -48, %1273 ], [ -48, %.thread9.i ], [ 101, %1244 ], [ -48, %1240 ], [ -48, %1289 ], [ -48, %.preheader47.preheader.i ], [ 106, %1237 ], [ -48, %.preheader55.preheader.i ], [ -48, %.preheader57.preheader.i ], [ 106, %.critedge._crit_edge.i ], [ -48, %1301 ], [ %.073, %convert_posix.exit ], [ 0, %1299 ]
+.thread131:                                       ; preds = %.critedge._crit_edge.i, %1299, %convert_posix.exit, %1301, %1095, %.preheader.preheader.i, %.preheader47.preheader.i, %1289, %1240, %1234, %.preheader55.preheader.i, %.preheader57.preheader.i, %.thread33.i, %1273, %.thread30.i, %1244, %.thread9.i, %1230, %1237, %.preheader49.i, %26, %6, %.thread127, %16
+  %.0 = phi i32 [ -34, %16 ], [ -44, %.thread127 ], [ %25, %26 ], [ -51, %6 ], [ -48, %.preheader49.i ], [ 106, %1237 ], [ 106, %1230 ], [ -48, %.thread9.i ], [ 101, %1244 ], [ -48, %.thread30.i ], [ -48, %1273 ], [ -48, %.thread33.i ], [ -48, %.preheader57.preheader.i ], [ -48, %.preheader55.preheader.i ], [ -48, %1234 ], [ -48, %1240 ], [ -48, %1289 ], [ -48, %.preheader47.preheader.i ], [ -48, %.preheader.preheader.i ], [ -48, %1095 ], [ 106, %.critedge._crit_edge.i ], [ -48, %1301 ], [ %.073, %convert_posix.exit ], [ 0, %1299 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

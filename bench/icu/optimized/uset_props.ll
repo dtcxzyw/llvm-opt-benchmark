@@ -209,7 +209,7 @@ define i32 @uset_applyPattern_77(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %5, %9, %19, %14
-  %.0 = phi i32 [ %20, %19 ], [ 0, %14 ], [ 0, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %14 ], [ %20, %19 ], [ 0, %9 ], [ 0, %5 ]
   ret i32 %.0
 }
 

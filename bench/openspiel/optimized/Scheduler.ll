@@ -1101,8 +1101,8 @@ _ZNK9Scheduler8SameHandEii.exit.loopexit:         ; preds = %114
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZNK9Scheduler8SameHandEii.exit.preheader.thread, %.critedge2.loopexit, %_ZNK9Scheduler8SameHandEii.exit.preheader
-  %116 = phi i32 [ %79, %.critedge2.loopexit ], [ %79, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %78, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
-  %.0101128 = phi i32 [ %115, %.critedge2.loopexit ], [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
+  %116 = phi i32 [ %79, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %79, %.critedge2.loopexit ], [ %78, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
+  %.0101128 = phi i32 [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader ], [ %115, %.critedge2.loopexit ], [ 0, %_ZNK9Scheduler8SameHandEii.exit.preheader.thread ]
   %117 = icmp eq i32 %.0101128, %116
   br i1 %117, label %.loopexit, label %118
 
@@ -1374,9 +1374,9 @@ define void @_ZN9Scheduler9SortSolveEv(ptr noundef nonnull align 8 captures(none
   br label %70
 
 70:                                               ; preds = %43, %56, %61
-  %71 = phi i32 [ %.pre76, %61 ], [ %10, %56 ], [ %10, %43 ]
-  %72 = phi i32 [ %.pre, %61 ], [ %41, %56 ], [ %41, %43 ]
-  %.050 = phi double [ %69, %61 ], [ %60, %56 ], [ 0.000000e+00, %43 ]
+  %71 = phi i32 [ %10, %56 ], [ %.pre76, %61 ], [ %10, %43 ]
+  %72 = phi i32 [ %41, %56 ], [ %.pre, %61 ], [ %41, %43 ]
+  %.050 = phi double [ %60, %56 ], [ %69, %61 ], [ 0.000000e+00, %43 ]
   %73 = sitofp i32 %72 to double
   %74 = fmul double %.050, %73
   %75 = fptosi double %74 to i32
@@ -1512,9 +1512,9 @@ define void @_ZN9Scheduler8SortCalcEv(ptr noundef nonnull align 8 captures(none)
   br label %51
 
 51:                                               ; preds = %9, %36, %41
-  %52 = phi i32 [ %.pre59, %41 ], [ %10, %36 ], [ %10, %9 ]
-  %53 = phi double [ %50, %41 ], [ 2.720000e+05, %36 ], [ 2.720000e+05, %9 ]
-  %.040 = phi double [ %49, %41 ], [ %40, %36 ], [ 0.000000e+00, %9 ]
+  %52 = phi i32 [ %10, %36 ], [ %.pre59, %41 ], [ %10, %9 ]
+  %53 = phi double [ 2.720000e+05, %36 ], [ %50, %41 ], [ 2.720000e+05, %9 ]
+  %.040 = phi double [ %40, %36 ], [ %49, %41 ], [ 0.000000e+00, %9 ]
   %54 = fmul double %.040, %53
   %55 = fptosi double %54 to i32
   store i32 %55, ptr %22, align 8
@@ -1731,9 +1731,9 @@ define void @_ZN9Scheduler9SortTraceEv(ptr noundef nonnull align 8 captures(none
   br label %100
 
 100:                                              ; preds = %70, %86, %91
-  %101 = phi i32 [ %.pre92, %91 ], [ %10, %86 ], [ %10, %70 ]
-  %102 = phi i32 [ %.pre, %91 ], [ %73, %86 ], [ %73, %70 ]
-  %.064 = phi double [ %99, %91 ], [ %90, %86 ], [ 0.000000e+00, %70 ]
+  %101 = phi i32 [ %10, %86 ], [ %.pre92, %91 ], [ %10, %70 ]
+  %102 = phi i32 [ %73, %86 ], [ %.pre, %91 ], [ %73, %70 ]
+  %.064 = phi double [ %90, %86 ], [ %99, %91 ], [ 0.000000e+00, %70 ]
   %103 = sitofp i32 %102 to double
   %104 = fmul double %.064, %103
   %105 = fptosi double %104 to i32
@@ -2078,8 +2078,8 @@ define i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 captures(none)
   br label %84
 
 84:                                               ; preds = %15, %9, %73, %81
-  %.sroa.0.0 = phi i32 [ %41, %73 ], [ -1, %9 ], [ %41, %81 ], [ -1, %15 ]
-  %.sroa.14.0 = phi i32 [ %.sroa.14.1, %73 ], [ undef, %9 ], [ %.sroa.14.1, %81 ], [ undef, %15 ]
+  %.sroa.0.0 = phi i32 [ %41, %81 ], [ %41, %73 ], [ -1, %9 ], [ -1, %15 ]
+  %.sroa.14.0 = phi i32 [ %.sroa.14.1, %81 ], [ %.sroa.14.1, %73 ], [ undef, %9 ], [ undef, %15 ]
   %.sroa.14.0.insert.ext = zext i32 %.sroa.14.0 to i64
   %.sroa.14.0.insert.shift = shl nuw i64 %.sroa.14.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
@@ -2198,7 +2198,7 @@ define noundef i32 @_ZNK9Scheduler13PredictedTimeER4deali(ptr noundef nonnull re
   br label %87
 
 87:                                               ; preds = %.sink.split, %72, %63
-  %.2 = phi i32 [ %.3, %72 ], [ %.1, %63 ], [ %86, %.sink.split ]
+  %.2 = phi i32 [ %.1, %63 ], [ %.3, %72 ], [ %86, %.sink.split ]
   ret i32 %.2
 }
 
@@ -2245,7 +2245,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 

@@ -225,10 +225,10 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
   br label %109
 
 109:                                              ; preds = %._crit_edge, %._crit_edge.thread
-  %110 = phi i32 [ %108, %._crit_edge ], [ %93, %._crit_edge.thread ]
-  %.086.lcssa263 = phi i32 [ %102, %._crit_edge ], [ 0, %._crit_edge.thread ]
-  %111 = phi i8 [ %.pre244, %._crit_edge ], [ %14, %._crit_edge.thread ]
-  %112 = phi i32 [ %spec.select, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  %110 = phi i32 [ %93, %._crit_edge.thread ], [ %108, %._crit_edge ]
+  %.086.lcssa263 = phi i32 [ 0, %._crit_edge.thread ], [ %102, %._crit_edge ]
+  %111 = phi i8 [ %14, %._crit_edge.thread ], [ %.pre244, %._crit_edge ]
+  %112 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   %113 = and i8 %111, 1
   %.not96 = icmp eq i8 %113, 0
   br i1 %.not96, label %116, label %114
@@ -304,9 +304,9 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
   br label %place_content.exit
 
 place_content.exit:                               ; preds = %139, %134, %125, %121, %118, %128, %130
-  %.6186 = phi i32 [ %spec.select205, %121 ], [ %spec.select207, %125 ], [ %spec.select211, %139 ], [ %53, %130 ], [ %53, %128 ], [ %spec.select209, %134 ], [ %53, %118 ]
-  %.6 = phi i32 [ %spec.select206, %121 ], [ %spec.select208, %125 ], [ %spec.select212, %139 ], [ %66, %130 ], [ %66, %128 ], [ %spec.select210, %134 ], [ %66, %118 ]
-  %.1177 = phi i32 [ 0, %121 ], [ 0, %125 ], [ %142, %139 ], [ %133, %130 ], [ 0, %128 ], [ %136, %134 ], [ 0, %118 ]
+  %.6186 = phi i32 [ %53, %130 ], [ %53, %128 ], [ %53, %118 ], [ %spec.select205, %121 ], [ %spec.select207, %125 ], [ %spec.select209, %134 ], [ %spec.select211, %139 ]
+  %.6 = phi i32 [ %66, %130 ], [ %66, %128 ], [ %66, %118 ], [ %spec.select206, %121 ], [ %spec.select208, %125 ], [ %spec.select210, %134 ], [ %spec.select212, %139 ]
+  %.1177 = phi i32 [ %133, %130 ], [ 0, %128 ], [ 0, %118 ], [ 0, %121 ], [ 0, %125 ], [ %136, %134 ], [ %142, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread201
 
@@ -979,8 +979,8 @@ define internal fastcc void @children_repos(ptr noundef %0, ptr noundef nonnull 
   br label %place_content.exit
 
 place_content.exit:                               ; preds = %.critedge, %90, %93, %95, %97, %101, %105
-  %.3251 = phi i32 [ %108, %105 ], [ %92, %90 ], [ %94, %93 ], [ 0, %97 ], [ 0, %95 ], [ %104, %101 ], [ 0, %.critedge ]
-  %.0247 = phi i32 [ %108, %105 ], [ 0, %90 ], [ 0, %93 ], [ %100, %97 ], [ 0, %95 ], [ %103, %101 ], [ 0, %.critedge ]
+  %.3251 = phi i32 [ %92, %90 ], [ %94, %93 ], [ 0, %97 ], [ 0, %95 ], [ %104, %101 ], [ %108, %105 ], [ 0, %.critedge ]
+  %.0247 = phi i32 [ 0, %90 ], [ 0, %93 ], [ %100, %97 ], [ 0, %95 ], [ %103, %101 ], [ %108, %105 ], [ 0, %.critedge ]
   %109 = load i8, ptr %11, align 4
   %110 = and i8 %109, 1
   %111 = icmp ne i8 %110, 0

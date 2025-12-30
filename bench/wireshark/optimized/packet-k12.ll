@@ -748,7 +748,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %exitcond.not.i, label %fill_fp_info.exit, label %231, !llvm.loop !11
 
 fill_fp_info.exit:                                ; preds = %231, %273, %.critedge, %141, %145, %.thread76.i, %216, %219, %114
-  %.sink = phi ptr [ %117, %114 ], [ %138, %141 ], [ %138, %.critedge ], [ %138, %219 ], [ %138, %216 ], [ %138, %.thread76.i ], [ %138, %145 ], [ %138, %273 ], [ %138, %231 ]
+  %.sink = phi ptr [ %117, %114 ], [ %138, %219 ], [ %138, %216 ], [ %138, %.thread76.i ], [ %138, %145 ], [ %138, %141 ], [ %138, %.critedge ], [ %138, %273 ], [ %138, %231 ]
   %274 = tail call i32 @call_dissector(ptr noundef %.sink, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %275 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %275

@@ -146,8 +146,8 @@ define dso_local void @scatterwalk_copychunks(ptr noundef captures(none) %0, ptr
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %94, %84
-  %.be = phi i32 [ %83, %84 ], [ %97, %94 ]
-  %.be14 = phi ptr [ %87, %84 ], [ %95, %94 ]
+  %.be = phi i32 [ %97, %94 ], [ %83, %84 ]
+  %.be14 = phi ptr [ %95, %94 ], [ %87, %84 ]
   br label %.split
 
 .critedge:                                        ; preds = %.split, %.split.us, %.split.us.preheader

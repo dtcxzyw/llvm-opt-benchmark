@@ -123,7 +123,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %80, label %.sink.split, label %81
 
 .sink.split:                                      ; preds = %78, %74, %70, %64, %61, %59, %57, %21
-  %.sink = phi i32 [ -4, %21 ], [ -6, %59 ], [ -10, %64 ], [ -15, %74 ], [ -13, %70 ], [ -8, %61 ], [ -5, %57 ], [ -17, %78 ]
+  %.sink = phi i32 [ -4, %21 ], [ -5, %57 ], [ -6, %59 ], [ -8, %61 ], [ -10, %64 ], [ -13, %70 ], [ -15, %74 ], [ -17, %78 ]
   store i32 %.sink, ptr %20, align 4, !tbaa !3
   br label %81
 

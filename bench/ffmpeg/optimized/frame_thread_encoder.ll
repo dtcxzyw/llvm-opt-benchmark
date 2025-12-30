@@ -393,7 +393,7 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
   br label %178
 
 178:                                              ; preds = %68, %60, %57, %1, %8, %.thread129, %._crit_edge139
-  %.082 = phi i32 [ 0, %1 ], [ 0, %57 ], [ %.081, %.thread129 ], [ -22, %60 ], [ 0, %._crit_edge139 ], [ 0, %8 ], [ -12, %68 ]
+  %.082 = phi i32 [ %.081, %.thread129 ], [ 0, %._crit_edge139 ], [ 0, %8 ], [ 0, %1 ], [ 0, %57 ], [ -22, %60 ], [ -12, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.082
@@ -701,7 +701,7 @@ define i32 @ff_thread_video_encode_frame(ptr noundef readonly captures(none) %0,
   br i1 %.not42, label %57, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %57, %.thread50, %53
-  %60 = phi ptr [ %41, %.thread50 ], [ %54, %53 ], [ %55, %57 ]
+  %60 = phi ptr [ %54, %53 ], [ %41, %.thread50 ], [ %55, %57 ]
   %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #7
   store i32 0, ptr %60, align 4, !tbaa !73
   %62 = getelementptr inbounds nuw i8, ptr %31, i64 8

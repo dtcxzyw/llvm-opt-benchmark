@@ -286,7 +286,7 @@ define ptr @Abc_SclFindMostCriticalFanin(ptr noundef readonly captures(none) %0,
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %3, %.critedge, %36
-  %.023.lcssa39 = phi ptr [ %.124, %36 ], [ null, %.critedge ], [ null, %3 ]
+  %.023.lcssa39 = phi ptr [ null, %.critedge ], [ %.124, %36 ], [ null, %3 ]
   ret ptr %.023.lcssa39
 }
 
@@ -968,8 +968,8 @@ Vec_PtrGrow.exit.i234:                            ; preds = %313
   br label %Vec_PtrPush.exit235
 
 Vec_PtrPush.exit235:                              ; preds = %308, %Vec_PtrGrow.exit.i234, %316
-  %320 = phi i32 [ 16, %Vec_PtrGrow.exit.i234 ], [ %319, %316 ], [ %310, %308 ]
-  %321 = phi ptr [ %315, %Vec_PtrGrow.exit.i234 ], [ %318, %316 ], [ %309, %308 ]
+  %320 = phi i32 [ %319, %316 ], [ 16, %Vec_PtrGrow.exit.i234 ], [ %310, %308 ]
+  %321 = phi ptr [ %318, %316 ], [ %315, %Vec_PtrGrow.exit.i234 ], [ %309, %308 ]
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %322 = getelementptr inbounds nuw ptr, ptr %321, i64 %indvars.iv320
   store ptr %.2131, ptr %322, align 8, !tbaa !38
@@ -2023,7 +2023,7 @@ Vec_QuePrio.exit30.i:                             ; preds = %.lr.ph43.i
   %63 = icmp samesign ugt i32 %.0263441.i, 1
   br i1 %63, label %Vec_QuePrio.exit30.i, label %Vec_QueMoveUp.exit.thread, !llvm.loop !119
 
-Vec_QueMoveUp.exit.thread:                        ; preds = %.lr.ph43.i, %Vec_QuePrio.exit30.i, %Vec_QuePrio.exit30.us.i, %.lr.ph48.i
+Vec_QueMoveUp.exit.thread:                        ; preds = %.lr.ph43.i, %Vec_QuePrio.exit30.i, %.lr.ph48.i, %Vec_QuePrio.exit30.us.i
   %.ph = phi ptr [ %7, %Vec_QuePrio.exit30.us.i ], [ %7, %.lr.ph48.i ], [ %17, %Vec_QuePrio.exit30.i ], [ %17, %.lr.ph43.i ]
   %.ph12 = phi ptr [ %21, %Vec_QuePrio.exit30.us.i ], [ %21, %.lr.ph48.i ], [ %41, %Vec_QuePrio.exit30.i ], [ %41, %.lr.ph43.i ]
   %.027.lcssa.i.ph = phi i32 [ %.02634.us46.i, %Vec_QuePrio.exit30.us.i ], [ %.02634.us46.i, %.lr.ph48.i ], [ %.0263441.i, %Vec_QuePrio.exit30.i ], [ %.0263441.i, %.lr.ph43.i ]
@@ -2083,8 +2083,8 @@ Vec_QuePrio.exit44.us.i:                          ; preds = %.lr.ph.split.us.i11
   br label %Vec_QuePrio.exit46.us.i
 
 Vec_QuePrio.exit46.us.i:                          ; preds = %89, %Vec_QuePrio.exit44.us.i, %.lr.ph.split.us.i11
-  %.pre-phi56.i = phi i64 [ %80, %Vec_QuePrio.exit44.us.i ], [ %84, %89 ], [ %80, %.lr.ph.split.us.i11 ]
-  %.1.us.i = phi i32 [ %.049.us.i, %Vec_QuePrio.exit44.us.i ], [ %78, %89 ], [ %.049.us.i, %.lr.ph.split.us.i11 ]
+  %.pre-phi56.i = phi i64 [ %84, %89 ], [ %80, %Vec_QuePrio.exit44.us.i ], [ %80, %.lr.ph.split.us.i11 ]
+  %.1.us.i = phi i32 [ %78, %89 ], [ %.049.us.i, %Vec_QuePrio.exit44.us.i ], [ %.049.us.i, %.lr.ph.split.us.i11 ]
   %90 = getelementptr inbounds i32, ptr %69, i64 %.pre-phi56.i
   %91 = load i32, ptr %90, align 4, !tbaa !44
   %92 = sitofp i32 %91 to float
@@ -2131,8 +2131,8 @@ Vec_QuePrio.exit44.i:                             ; preds = %.lr.ph.split.i8
   br label %Vec_QuePrio.exit46.i
 
 Vec_QuePrio.exit46.i:                             ; preds = %117, %Vec_QuePrio.exit44.i, %.lr.ph.split.i8
-  %.pre-phi58.i = phi i64 [ %104, %Vec_QuePrio.exit44.i ], [ %110, %117 ], [ %104, %.lr.ph.split.i8 ]
-  %.1.i = phi i32 [ %.049.i, %Vec_QuePrio.exit44.i ], [ %102, %117 ], [ %.049.i, %.lr.ph.split.i8 ]
+  %.pre-phi58.i = phi i64 [ %110, %117 ], [ %104, %Vec_QuePrio.exit44.i ], [ %104, %.lr.ph.split.i8 ]
+  %.1.i = phi i32 [ %102, %117 ], [ %.049.i, %Vec_QuePrio.exit44.i ], [ %.049.i, %.lr.ph.split.i8 ]
   %118 = getelementptr inbounds i32, ptr %73, i64 %.pre-phi58.i
   %119 = load i32, ptr %118, align 4, !tbaa !44
   %120 = sext i32 %119 to i64
@@ -2153,9 +2153,9 @@ Vec_QuePrio.exit46.i:                             ; preds = %117, %Vec_QuePrio.e
   br i1 %129, label %.lr.ph.split.i8, label %Vec_QueMoveDown.exit, !llvm.loop !121
 
 Vec_QueMoveDown.exit:                             ; preds = %Vec_QuePrio.exit46.i, %124, %Vec_QuePrio.exit46.us.i, %94, %Vec_QuePrio.exit.i9, %Vec_QuePrio.exit.thread.i6
-  %130 = phi ptr [ %7, %Vec_QuePrio.exit46.us.i ], [ %7, %Vec_QuePrio.exit.i9 ], [ %17, %Vec_QuePrio.exit.thread.i6 ], [ %7, %94 ], [ %17, %124 ], [ %17, %Vec_QuePrio.exit46.i ]
-  %131 = phi ptr [ %69, %Vec_QuePrio.exit46.us.i ], [ %69, %Vec_QuePrio.exit.i9 ], [ %73, %Vec_QuePrio.exit.thread.i6 ], [ %69, %94 ], [ %73, %124 ], [ %73, %Vec_QuePrio.exit46.i ]
-  %.035.lcssa.i = phi i32 [ %.03548.us.i, %Vec_QuePrio.exit46.us.i ], [ %8, %Vec_QuePrio.exit.i9 ], [ %18, %Vec_QuePrio.exit.thread.i6 ], [ %.1.us.i, %94 ], [ %.03548.i, %Vec_QuePrio.exit46.i ], [ %.1.i, %124 ]
+  %130 = phi ptr [ %17, %Vec_QuePrio.exit.thread.i6 ], [ %7, %Vec_QuePrio.exit.i9 ], [ %7, %94 ], [ %7, %Vec_QuePrio.exit46.us.i ], [ %17, %124 ], [ %17, %Vec_QuePrio.exit46.i ]
+  %131 = phi ptr [ %73, %Vec_QuePrio.exit.thread.i6 ], [ %69, %Vec_QuePrio.exit.i9 ], [ %69, %94 ], [ %69, %Vec_QuePrio.exit46.us.i ], [ %73, %124 ], [ %73, %Vec_QuePrio.exit46.i ]
+  %.035.lcssa.i = phi i32 [ %18, %Vec_QuePrio.exit.thread.i6 ], [ %8, %Vec_QuePrio.exit.i9 ], [ %.03548.us.i, %Vec_QuePrio.exit46.us.i ], [ %.1.us.i, %94 ], [ %.03548.i, %Vec_QuePrio.exit46.i ], [ %.1.i, %124 ]
   %132 = sext i32 %.035.lcssa.i to i64
   %133 = getelementptr inbounds i32, ptr %131, i64 %132
   store i32 %1, ptr %133, align 4, !tbaa !44
@@ -4851,7 +4851,7 @@ Vec_QuePrio.exit30.i.i.i:                         ; preds = %.lr.ph43.i.i.i
   br i1 %188, label %Vec_QuePrio.exit30.i.i.i, label %Vec_QuePush.exit.i, !llvm.loop !119
 
 Vec_QuePush.exit.i:                               ; preds = %.lr.ph43.i.i.i, %Vec_QuePrio.exit30.i.i.i, %.lr.ph48.i.i.i, %Vec_QuePrio.exit30.us.i.i.i, %.lr.ph.split.i.i.i, %.lr.ph.split.us.i.i.i, %Vec_QuePrio.exit.thread.i.i.i, %Vec_QuePrio.exit.i.i.i
-  %.027.lcssa.i.i.i = phi i32 [ %.02634.us46.i.i.i, %.lr.ph48.i.i.i ], [ %147, %.lr.ph.split.us.i.i.i ], [ %151, %.lr.ph.split.i.i.i ], [ %151, %Vec_QuePrio.exit.thread.i.i.i ], [ %147, %Vec_QuePrio.exit.i.i.i ], [ %.02634.us46.i.i.i, %Vec_QuePrio.exit30.us.i.i.i ], [ %.0263441.i.i.i, %Vec_QuePrio.exit30.i.i.i ], [ %.0263441.i.i.i, %.lr.ph43.i.i.i ]
+  %.027.lcssa.i.i.i = phi i32 [ %147, %.lr.ph.split.us.i.i.i ], [ %151, %.lr.ph.split.i.i.i ], [ %151, %Vec_QuePrio.exit.thread.i.i.i ], [ %147, %Vec_QuePrio.exit.i.i.i ], [ %.02634.us46.i.i.i, %Vec_QuePrio.exit30.us.i.i.i ], [ %.02634.us46.i.i.i, %.lr.ph48.i.i.i ], [ %.0263441.i.i.i, %Vec_QuePrio.exit30.i.i.i ], [ %.0263441.i.i.i, %.lr.ph43.i.i.i ]
   %189 = sext i32 %.027.lcssa.i.i.i to i64
   %190 = getelementptr inbounds i32, ptr %141, i64 %189
   store i32 %.pre-phi, ptr %190, align 4, !tbaa !44

@@ -528,7 +528,7 @@ blas_quickdivide.exit373:                         ; preds = %blas_quickdivide.ex
   br i1 %293, label %250, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %286, %37, %48
-  %.0 = phi i32 [ 0, %37 ], [ %49, %48 ], [ %.3322, %286 ]
+  %.0 = phi i32 [ %49, %48 ], [ 0, %37 ], [ %.3322, %286 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -783,7 +783,7 @@ define internal noundef i32 @inner_advanced_thread(ptr noundef readonly captures
   br label %123
 
 123:                                              ; preds = %113, %116, %118
-  %.0235 = phi i64 [ %114, %116 ], [ %122, %118 ], [ 192, %113 ]
+  %.0235 = phi i64 [ %122, %118 ], [ %114, %116 ], [ 192, %113 ]
   %124 = getelementptr inbounds double, ptr %44, i64 %.1233290
   %125 = tail call i32 @dgemm_itcopy(i64 noundef %11, i64 noundef %.0235, ptr noundef %124, i64 noundef %13, ptr noundef %3) #6
   %126 = icmp ne i64 %.1233290, 0

@@ -420,7 +420,7 @@ check_flag.exit167:                               ; preds = %143, %156
   br i1 %171, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %166, %check_flag.exit160.thread, %check_flag.exit163
-  %172 = phi ptr [ %.pre, %check_flag.exit163 ], [ %77, %check_flag.exit160.thread ], [ %153, %166 ]
+  %172 = phi ptr [ %77, %check_flag.exit160.thread ], [ %.pre, %check_flag.exit163 ], [ %153, %166 ]
   %puts125 = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   %173 = call i32 @fclose(ptr noundef %126)
   %174 = call i32 @ARKodeGetNumSteps(ptr noundef %172, ptr noundef nonnull %5) #8

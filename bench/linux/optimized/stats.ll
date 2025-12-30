@@ -380,8 +380,8 @@ define internal noundef range(i32 -90, 1) i32 @stats_fill_reply(ptr noundef %0, 
   %75 = call fastcc i32 @stats_put_stats(ptr noundef %0, ptr noundef %2, i32 noundef 3, i32 noundef 20, ptr noundef nonnull @stats_put_rmon_stats), !range !11
   br label %.thread7
 
-.thread7:                                         ; preds = %52, %16, %62, %74, %.thread8, %68, %3
-  %76 = phi i32 [ -90, %3 ], [ %69, %68 ], [ %75, %74 ], [ 0, %.thread8 ], [ %63, %62 ], [ -90, %16 ], [ -90, %52 ]
+.thread7:                                         ; preds = %16, %52, %62, %74, %.thread8, %68, %3
+  %76 = phi i32 [ -90, %3 ], [ %69, %68 ], [ %75, %74 ], [ 0, %.thread8 ], [ %63, %62 ], [ -90, %52 ], [ -90, %16 ]
   ret i32 %76
 }
 

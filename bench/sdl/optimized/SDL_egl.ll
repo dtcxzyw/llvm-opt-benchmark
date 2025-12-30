@@ -265,7 +265,7 @@ define hidden noundef zeroext i1 @SDL_EGL_HasExtension(ptr noundef readonly capt
   br label %50, !llvm.loop !3
 
 .critedge54:                                      ; preds = %.lr.ph, %45, %45, %50, %.preheader, %11, %36, %20, %3, %4, %7, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %36 ], [ false, %3 ], [ false, %20 ], [ false, %11 ], [ false, %7 ], [ false, %4 ], [ false, %.preheader ], [ false, %50 ], [ %.not50, %45 ], [ %.not50, %45 ], [ %.not50, %.lr.ph ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %4 ], [ false, %3 ], [ false, %20 ], [ false, %36 ], [ false, %11 ], [ false, %.preheader ], [ false, %50 ], [ %.not50, %45 ], [ %.not50, %45 ], [ %.not50, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -896,14 +896,14 @@ SDL_EGL_LoadLibraryInternal.exit:                 ; preds = %25
   %299 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.69) #7
   br i1 %299, label %302, label %300
 
-300:                                              ; preds = %254, %243, %232, %221, %210, %199, %188, %177, %166, %155, %144, %133, %122, %111, %100, %89, %78, %67, %56, %.critedge145.i, %SDL_EGL_LoadLibraryInternal.exit
+300:                                              ; preds = %56, %67, %78, %89, %100, %111, %122, %133, %144, %155, %166, %177, %188, %199, %210, %221, %232, %243, %254, %.critedge145.i, %SDL_EGL_LoadLibraryInternal.exit
   %301 = load ptr, ptr %3, align 8
   tail call void @SDL_free_REAL(ptr noundef %301) #7
   store ptr null, ptr %3, align 8
   br label %302
 
-302:                                              ; preds = %254, %243, %232, %221, %210, %199, %188, %177, %166, %155, %144, %133, %122, %111, %100, %89, %78, %67, %56, %.critedge145.i, %SDL_EGL_LoadLibraryInternal.exit.thread, %SDL_EGL_LoadLibraryInternal.exit, %7, %300, %5
-  %.0 = phi i1 [ %6, %5 ], [ false, %7 ], [ false, %300 ], [ true, %SDL_EGL_LoadLibraryInternal.exit ], [ true, %SDL_EGL_LoadLibraryInternal.exit.thread ], [ true, %.critedge145.i ], [ true, %56 ], [ true, %67 ], [ true, %78 ], [ true, %89 ], [ true, %100 ], [ true, %111 ], [ true, %122 ], [ true, %133 ], [ true, %144 ], [ true, %155 ], [ true, %166 ], [ true, %177 ], [ true, %188 ], [ true, %199 ], [ true, %210 ], [ true, %221 ], [ true, %232 ], [ true, %243 ], [ true, %254 ]
+302:                                              ; preds = %56, %67, %78, %89, %100, %111, %122, %133, %144, %155, %166, %177, %188, %199, %210, %221, %232, %243, %254, %.critedge145.i, %SDL_EGL_LoadLibraryInternal.exit.thread, %SDL_EGL_LoadLibraryInternal.exit, %7, %300, %5
+  %.0 = phi i1 [ %6, %5 ], [ false, %300 ], [ false, %7 ], [ true, %SDL_EGL_LoadLibraryInternal.exit ], [ true, %SDL_EGL_LoadLibraryInternal.exit.thread ], [ true, %.critedge145.i ], [ true, %254 ], [ true, %243 ], [ true, %232 ], [ true, %221 ], [ true, %210 ], [ true, %199 ], [ true, %188 ], [ true, %177 ], [ true, %166 ], [ true, %155 ], [ true, %144 ], [ true, %133 ], [ true, %122 ], [ true, %111 ], [ true, %100 ], [ true, %89 ], [ true, %78 ], [ true, %67 ], [ true, %56 ]
   ret i1 %.0
 }
 
@@ -1072,7 +1072,7 @@ SDL_EGL_GetVersion.exit:                          ; preds = %14, %18, %33
   br i1 %.not24.i, label %.thread.i, label %SDL_EGL_GetProcAddressInternal.exit
 
 .thread.i:                                        ; preds = %86, %83, %74
-  %88 = phi ptr [ %75, %83 ], [ %75, %74 ], [ %.pre68, %86 ]
+  %88 = phi ptr [ %75, %74 ], [ %75, %83 ], [ %.pre68, %86 ]
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr @SDL_LoadFunction_REAL(ptr noundef %89, ptr noundef nonnull @.str.7) #7
   %91 = icmp ne ptr %90, null
@@ -1092,8 +1092,8 @@ SDL_EGL_GetVersion.exit:                          ; preds = %14, %18, %33
   br label %SDL_EGL_GetProcAddressInternal.exit
 
 SDL_EGL_GetProcAddressInternal.exit:              ; preds = %86, %.thread.i, %92, %95
-  %97 = phi ptr [ %.pre68, %86 ], [ %.pre69, %.thread.i ], [ %.pre67, %95 ], [ %.pre69, %92 ]
-  %.0.i = phi ptr [ %87, %86 ], [ %90, %.thread.i ], [ %96, %95 ], [ null, %92 ]
+  %97 = phi ptr [ %.pre69, %.thread.i ], [ %.pre67, %95 ], [ %.pre69, %92 ], [ %.pre68, %86 ]
+  %.0.i = phi ptr [ %90, %.thread.i ], [ %96, %95 ], [ null, %92 ], [ %87, %86 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 232
   store ptr %.0.i, ptr %98, align 8
   %99 = load ptr, ptr %11, align 8
@@ -1488,7 +1488,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   br label %24
 
 24:                                               ; preds = %7, %SDL_EGL_SetErrorEx.exit, %11, %5
-  %.0 = phi i1 [ %6, %5 ], [ true, %11 ], [ %23, %SDL_EGL_SetErrorEx.exit ], [ true, %7 ]
+  %.0 = phi i1 [ true, %11 ], [ %23, %SDL_EGL_SetErrorEx.exit ], [ %6, %5 ], [ true, %7 ]
   ret i1 %.0
 }
 
@@ -1863,7 +1863,7 @@ thread-pre-split:                                 ; preds = %101
   br label %209
 
 209:                                              ; preds = %199, %189, %178
-  %.0127 = phi i1 [ false, %178 ], [ %208, %199 ], [ false, %189 ]
+  %.0127 = phi i1 [ false, %189 ], [ false, %178 ], [ %208, %199 ]
   br label %210
 
 210:                                              ; preds = %209, %229
@@ -1931,9 +1931,9 @@ thread-pre-split:                                 ; preds = %101
   br label %243
 
 243:                                              ; preds = %239, %238, %166
-  %.1136 = phi i32 [ %.0135169, %166 ], [ %.2137, %238 ], [ %.2137, %239 ]
-  %.1133 = phi i32 [ %.0132170, %166 ], [ %.0132170, %238 ], [ %spec.select161, %239 ]
-  %.1131 = phi i32 [ %.0130171, %166 ], [ %.0130171, %238 ], [ %spec.select162, %239 ]
+  %.1136 = phi i32 [ %.0135169, %166 ], [ %.2137, %239 ], [ %.2137, %238 ]
+  %.1133 = phi i32 [ %.0132170, %166 ], [ %spec.select161, %239 ], [ %.0132170, %238 ]
+  %.1131 = phi i32 [ %.0130171, %166 ], [ %spec.select162, %239 ], [ %.0130171, %238 ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %244 = load i32, ptr %4, align 4
   %245 = sext i32 %244 to i64
@@ -2081,7 +2081,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
   br label %53
 
 53:                                               ; preds = %.sink.split, %43, %30
-  %.091 = phi i32 [ %.192, %43 ], [ 0, %30 ], [ %.091.ph, %.sink.split ]
+  %.091 = phi i32 [ 0, %30 ], [ %.192, %43 ], [ %.091.ph, %.sink.split ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1020
   %55 = load i32, ptr %54, align 4
   %.not104 = icmp eq i32 %55, 0
@@ -2306,7 +2306,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   br label %.critedge
 
 .critedge:                                        ; preds = %133, %132, %84, %78, %149, %152, %154, %163, %156, %SDL_EGL_SetErrorEx.exit, %50, %15
-  %.0 = phi ptr [ null, %SDL_EGL_SetErrorEx.exit ], [ null, %15 ], [ null, %84 ], [ %114, %149 ], [ null, %50 ], [ %114, %156 ], [ %114, %163 ], [ %114, %154 ], [ %114, %152 ], [ null, %78 ], [ null, %132 ], [ null, %133 ]
+  %.0 = phi ptr [ null, %SDL_EGL_SetErrorEx.exit ], [ null, %50 ], [ null, %15 ], [ %114, %156 ], [ %114, %163 ], [ %114, %154 ], [ %114, %152 ], [ %114, %149 ], [ null, %78 ], [ null, %84 ], [ null, %132 ], [ null, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -2419,7 +2419,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   br label %56
 
 56:                                               ; preds = %30, %37, %12, %SDL_EGL_SetErrorEx.exit, %15, %7
-  %.0 = phi i1 [ true, %12 ], [ %55, %SDL_EGL_SetErrorEx.exit ], [ %16, %15 ], [ %8, %7 ], [ true, %37 ], [ true, %30 ]
+  %.0 = phi i1 [ %55, %SDL_EGL_SetErrorEx.exit ], [ %16, %15 ], [ %8, %7 ], [ true, %12 ], [ true, %37 ], [ true, %30 ]
   ret i1 %.0
 }
 
@@ -2770,7 +2770,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %43, %61, %SDL_EGL_SetErrorEx.exit, %3, %14
-  %.038 = phi ptr [ null, %3 ], [ %72, %61 ], [ null, %14 ], [ null, %SDL_EGL_SetErrorEx.exit ], [ null, %43 ], [ null, %49 ]
+  %.038 = phi ptr [ null, %14 ], [ null, %3 ], [ null, %SDL_EGL_SetErrorEx.exit ], [ %72, %61 ], [ null, %43 ], [ null, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.038
 }

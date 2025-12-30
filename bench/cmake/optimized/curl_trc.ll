@@ -703,8 +703,8 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
   br label %13
 
 13:                                               ; preds = %11, %9, %.lr.ph.i
-  %.1.i = phi ptr [ %12, %11 ], [ %10, %9 ], [ %.01956.i, %.lr.ph.i ]
-  %.0.i = phi i32 [ 1, %11 ], [ 0, %9 ], [ 1, %.lr.ph.i ]
+  %.1.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %.01956.i, %.lr.ph.i ]
+  %.0.i = phi i32 [ 0, %9 ], [ 1, %11 ], [ 1, %.lr.ph.i ]
   %14 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.7) #8
   %.not22.i = icmp eq i32 %14, 0
   br i1 %.not22.i, label %23, label %.split.us.i.i

@@ -1560,7 +1560,7 @@ define dso_local range(i32 0, 3) i32 @inet_frag_queue_insert(ptr noundef %0, ptr
   br label %95
 
 95:                                               ; preds = %73, %93, %33
-  %96 = phi i32 [ 0, %93 ], [ %77, %73 ], [ 2, %33 ]
+  %96 = phi i32 [ 0, %93 ], [ 2, %33 ], [ %77, %73 ]
   ret i32 %96
 }
 

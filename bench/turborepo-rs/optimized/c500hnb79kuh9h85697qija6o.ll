@@ -1057,7 +1057,7 @@ define void @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenN
   unreachable
 
 common.resume:                                    ; preds = %248, %180, %228, %245
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %181, %180 ], [ %229, %228 ], [ %249, %248 ]
+  %common.resume.op = phi { ptr, i32 } [ %181, %180 ], [ %229, %228 ], [ %246, %245 ], [ %249, %248 ]
   resume { ptr, i32 } %common.resume.op
 
 185:                                              ; preds = %21
@@ -1384,7 +1384,7 @@ define void @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenN
   unreachable
 
 common.resume:                                    ; preds = %60, %63, %47, %50
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %48, %47 ], [ %51, %50 ], [ %61, %60 ]
+  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %48, %47 ], [ %64, %63 ], [ %61, %60 ]
   resume { ptr, i32 } %common.resume.op
 
 54:                                               ; preds = %47

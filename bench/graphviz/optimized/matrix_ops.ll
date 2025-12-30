@@ -307,8 +307,8 @@ vectors_inner_product.exit241:                    ; preds = %.lr.ph.i236
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %gv_calloc.exit174
-  %.0148314 = phi i32 [ %104, %.loopexit.loopexit ], [ 0, %gv_calloc.exit174 ]
-  %.2155 = phi i32 [ %61, %.loopexit.loopexit ], [ 0, %gv_calloc.exit174 ]
+  %.0148314 = phi i32 [ 0, %gv_calloc.exit174 ], [ %104, %.loopexit.loopexit ]
+  %.2155 = phi i32 [ 0, %gv_calloc.exit174 ], [ %61, %.loopexit.loopexit ]
   %105 = icmp slt i32 %.0148314, %spec.select
   br i1 %105, label %.lr.ph333, label %.preheader
 
@@ -320,7 +320,7 @@ vectors_inner_product.exit241:                    ; preds = %.lr.ph.i236
   br label %132
 
 .preheader:                                       ; preds = %101, %vectors_scalar_mult.exit273, %.loopexit
-  %.2155425 = phi i32 [ %.2155, %vectors_scalar_mult.exit273 ], [ %.2155, %.loopexit ], [ %61, %101 ]
+  %.2155425 = phi i32 [ %.2155, %.loopexit ], [ %.2155, %vectors_scalar_mult.exit273 ], [ %61, %101 ]
   %108 = add i32 %spec.select, -1
   %109 = icmp sgt i32 %spec.select, 1
   br i1 %109, label %.lr.ph343, label %._crit_edge344

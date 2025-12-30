@@ -238,7 +238,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge.i, %34
   br i1 %exitcond117.not.i, label %._crit_edge107.i, label %.lr.ph106.i, !llvm.loop !14
 
 ._crit_edge107.i:                                 ; preds = %82, %.lr.ph106.i
-  %.3.lcssa.i = phi i64 [ %.3104.i, %.lr.ph106.i ], [ %22, %82 ]
+  %.3.lcssa.i = phi i64 [ %22, %82 ], [ %.3104.i, %.lr.ph106.i ]
   %84 = icmp eq i64 %.3.lcssa.i, %.1.i
   %85 = sub i64 %.3.lcssa.i, %.1.i
   %spec.select = select i1 %84, ptr @.str.5, ptr %73
@@ -249,7 +249,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge.i, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %.critedge.i, %17, %thread-pre-split.i, %24, %29
+.loopexit:                                        ; preds = %37, %24, %17, %thread-pre-split.i, %.critedge.i, %29
   call fastcc void @die(ptr noundef nonnull @.str.1) #16
   unreachable
 

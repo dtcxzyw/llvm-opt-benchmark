@@ -148,7 +148,7 @@ thread-pre-split:                                 ; preds = %24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %3, %6, %9, %37, %36, %2
-  %.0 = phi i32 [ 0, %3 ], [ 0, %36 ], [ 1, %37 ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %15 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %36 ], [ 1, %37 ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %15 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -225,38 +225,38 @@ define internal range(i32 0, 2) i32 @test_bad_asn1() #1 {
   %29 = icmp eq ptr %28, null
   %30 = icmp slt i32 %27, 0
   %or.cond = select i1 %29, i1 true, i1 %30
-  br i1 %or.cond, label %40, label %31
+  br i1 %or.cond, label %31, label %34
 
 31:                                               ; preds = %25
-  %.not23 = icmp eq i32 %27, %15
-  br i1 %.not23, label %32, label %34
-
-32:                                               ; preds = %31
-  %33 = zext nneg i32 %15 to i64
-  %bcmp = call i32 @bcmp(ptr nonnull %28, ptr nonnull %1, i64 %33)
-  %.not24 = icmp eq i32 %bcmp, 0
-  br i1 %.not24, label %37, label %34
-
-34:                                               ; preds = %32, %31
-  %35 = load i32, ptr @expected_error, align 4, !tbaa !21
-  %36 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.37, i32 noundef %35, i32 noundef 5) #6
-  %.not26.not = icmp eq i32 %36, 0
-  br i1 %.not26.not, label %.thread, label %43
-
-37:                                               ; preds = %32
-  %38 = load i32, ptr @expected_error, align 4, !tbaa !21
-  %39 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 95, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.38, i32 noundef %38, i32 noundef 1) #6
-  %.not25.not = icmp eq i32 %39, 0
-  br i1 %.not25.not, label %.thread, label %43
-
-40:                                               ; preds = %25
-  %41 = load i32, ptr @expected_error, align 4, !tbaa !21
-  %42 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 84, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.36, i32 noundef %41, i32 noundef 4) #6
-  %.not27.not = icmp eq i32 %42, 0
+  %32 = load i32, ptr @expected_error, align 4, !tbaa !21
+  %33 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 84, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.36, i32 noundef %32, i32 noundef 4) #6
+  %.not27.not = icmp eq i32 %33, 0
   br i1 %.not27.not, label %.thread, label %43
 
-43:                                               ; preds = %10, %37, %22, %34, %40
-  %.01738 = phi ptr [ %20, %34 ], [ %20, %40 ], [ null, %22 ], [ %20, %37 ], [ null, %10 ]
+34:                                               ; preds = %25
+  %.not23 = icmp eq i32 %27, %15
+  br i1 %.not23, label %35, label %37
+
+35:                                               ; preds = %34
+  %36 = zext nneg i32 %15 to i64
+  %bcmp = call i32 @bcmp(ptr nonnull %28, ptr nonnull %1, i64 %36)
+  %.not24 = icmp eq i32 %bcmp, 0
+  br i1 %.not24, label %40, label %37
+
+37:                                               ; preds = %35, %34
+  %38 = load i32, ptr @expected_error, align 4, !tbaa !21
+  %39 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.37, i32 noundef %38, i32 noundef 5) #6
+  %.not26.not = icmp eq i32 %39, 0
+  br i1 %.not26.not, label %.thread, label %43
+
+40:                                               ; preds = %35
+  %41 = load i32, ptr @expected_error, align 4, !tbaa !21
+  %42 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 95, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.38, i32 noundef %41, i32 noundef 1) #6
+  %.not25.not = icmp eq i32 %42, 0
+  br i1 %.not25.not, label %.thread, label %43
+
+43:                                               ; preds = %37, %31, %22, %10, %40
+  %.01738 = phi ptr [ null, %10 ], [ %20, %40 ], [ null, %22 ], [ %20, %31 ], [ %20, %37 ]
   %44 = call i64 @ERR_peek_error() #6
   %45 = and i64 %44, 2147483648
   %.not.i = icmp eq i64 %45, 0
@@ -270,9 +270,9 @@ define internal range(i32 0, 2) i32 @test_bad_asn1() #1 {
   %spec.select35 = zext i1 %.not30 to i32
   br label %.thread
 
-.thread:                                          ; preds = %14, %10, %37, %22, %34, %43, %40
-  %.01737 = phi ptr [ %.01738, %43 ], [ %20, %40 ], [ null, %10 ], [ %20, %34 ], [ null, %22 ], [ %20, %37 ], [ null, %14 ]
-  %.1 = phi i32 [ %spec.select35, %43 ], [ 0, %40 ], [ 0, %10 ], [ 0, %34 ], [ 0, %22 ], [ 0, %37 ], [ 0, %14 ]
+.thread:                                          ; preds = %14, %37, %31, %22, %10, %43, %40
+  %.01737 = phi ptr [ %20, %40 ], [ %.01738, %43 ], [ null, %10 ], [ null, %22 ], [ %20, %31 ], [ %20, %37 ], [ null, %14 ]
+  %.1 = phi i32 [ 0, %40 ], [ %spec.select35, %43 ], [ 0, %10 ], [ 0, %22 ], [ 0, %31 ], [ 0, %37 ], [ 0, %14 ]
   %50 = call i32 @BIO_free(ptr noundef %5) #6
   %51 = load ptr, ptr %3, align 8, !tbaa !4
   call void @CRYPTO_free(ptr noundef %51, ptr noundef nonnull @.str.19, i32 noundef 104) #6

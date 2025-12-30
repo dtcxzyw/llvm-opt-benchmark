@@ -987,7 +987,7 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Resul
   br label %"_ZN4core3ptr32drop_in_place$LT$heed..Error$GT$17h721a6424dee64003E.exit"
 
 common.resume.i:                                  ; preds = %54, %46, %33, %25
-  %common.resume.op.i = phi { ptr, i32 } [ %26, %25 ], [ %26, %33 ], [ %47, %54 ], [ %47, %46 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %26, %33 ], [ %26, %25 ], [ %47, %54 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op.i
 
 42:                                               ; preds = %5
@@ -2948,7 +2948,7 @@ define hidden void @"_ZN4heed8database27Database$LT$KC$C$DC$C$C$GT$5first17h94df
   br label %112
 
 .body61:                                          ; preds = %95, %103, %47, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %48, %47 ], [ %96, %95 ], [ %96, %103 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %48, %47 ], [ %96, %103 ], [ %96, %95 ]
   invoke void @"_ZN64_$LT$heed..cursor..RoCursor$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc8a5d2e07869bf33E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
           to label %"_ZN4core3ptr43drop_in_place$LT$heed..cursor..RoCursor$GT$17h43bd8d9eea02702aE.exit" unwind label %91
 

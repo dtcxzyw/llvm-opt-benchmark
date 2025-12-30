@@ -63,7 +63,7 @@ define internal range(i32 0, 2) i32 @test_sm4_ecb() #0 {
   br label %11
 
 11:                                               ; preds = %9, %6, %0
-  %.05 = phi i32 [ 0, %6 ], [ %., %9 ], [ 0, %0 ]
+  %.05 = phi i32 [ 0, %0 ], [ 0, %6 ], [ %., %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.05

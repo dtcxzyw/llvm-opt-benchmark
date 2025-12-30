@@ -3062,7 +3062,7 @@ _ZN7testing7MessageD2Ev.exit616:                  ; preds = %_ZNKSt14default_del
   ret void
 
 740:                                              ; preds = %_ZN7testing7MessageD2Ev.exit616, %_ZN7testing7MessageD2Ev.exit608, %_ZN7testing7MessageD2Ev.exit600, %_ZN7testing7MessageD2Ev.exit592, %_ZN7testing7MessageD2Ev.exit584, %_ZN7testing7MessageD2Ev.exit576, %_ZN7testing7MessageD2Ev.exit568, %_ZN7testing7MessageD2Ev.exit556, %_ZN7testing7MessageD2Ev.exit544, %_ZN7testing7MessageD2Ev.exit532, %_ZN7testing7MessageD2Ev.exit524, %_ZN7testing7MessageD2Ev.exit516, %_ZN7testing7MessageD2Ev.exit506, %_ZN7testing7MessageD2Ev.exit491, %_ZN7testing7MessageD2Ev.exit473, %_ZN7testing7MessageD2Ev.exit432, %_ZN7testing7MessageD2Ev.exit413, %_ZN7testing7MessageD2Ev.exit394, %_ZN7testing7MessageD2Ev.exit310
-  %.pn215.pn.pn = phi { ptr, i32 } [ %.pn215.pn, %_ZN7testing7MessageD2Ev.exit616 ], [ %.pn212.pn, %_ZN7testing7MessageD2Ev.exit608 ], [ %.pn209.pn, %_ZN7testing7MessageD2Ev.exit600 ], [ %.pn206.pn, %_ZN7testing7MessageD2Ev.exit592 ], [ %.pn203.pn, %_ZN7testing7MessageD2Ev.exit584 ], [ %.pn200.pn, %_ZN7testing7MessageD2Ev.exit576 ], [ %.pn196.pn.pn, %_ZN7testing7MessageD2Ev.exit568 ], [ %.pn192.pn.pn, %_ZN7testing7MessageD2Ev.exit556 ], [ %.pn188.pn.pn, %_ZN7testing7MessageD2Ev.exit544 ], [ %.pn185.pn, %_ZN7testing7MessageD2Ev.exit532 ], [ %.pn182.pn, %_ZN7testing7MessageD2Ev.exit524 ], [ %.pn179.pn, %_ZN7testing7MessageD2Ev.exit516 ], [ %.pn176.pn, %_ZN7testing7MessageD2Ev.exit506 ], [ %.pn173.pn, %_ZN7testing7MessageD2Ev.exit491 ], [ %.pn170.pn, %_ZN7testing7MessageD2Ev.exit473 ], [ %.pn142.pn, %_ZN7testing7MessageD2Ev.exit310 ], [ %.pn163.pn, %_ZN7testing7MessageD2Ev.exit432 ], [ %.pn160.pn, %_ZN7testing7MessageD2Ev.exit413 ], [ %.pn157.pn, %_ZN7testing7MessageD2Ev.exit394 ]
+  %.pn215.pn.pn = phi { ptr, i32 } [ %.pn215.pn, %_ZN7testing7MessageD2Ev.exit616 ], [ %.pn212.pn, %_ZN7testing7MessageD2Ev.exit608 ], [ %.pn209.pn, %_ZN7testing7MessageD2Ev.exit600 ], [ %.pn206.pn, %_ZN7testing7MessageD2Ev.exit592 ], [ %.pn203.pn, %_ZN7testing7MessageD2Ev.exit584 ], [ %.pn200.pn, %_ZN7testing7MessageD2Ev.exit576 ], [ %.pn196.pn.pn, %_ZN7testing7MessageD2Ev.exit568 ], [ %.pn192.pn.pn, %_ZN7testing7MessageD2Ev.exit556 ], [ %.pn188.pn.pn, %_ZN7testing7MessageD2Ev.exit544 ], [ %.pn185.pn, %_ZN7testing7MessageD2Ev.exit532 ], [ %.pn182.pn, %_ZN7testing7MessageD2Ev.exit524 ], [ %.pn179.pn, %_ZN7testing7MessageD2Ev.exit516 ], [ %.pn176.pn, %_ZN7testing7MessageD2Ev.exit506 ], [ %.pn173.pn, %_ZN7testing7MessageD2Ev.exit491 ], [ %.pn170.pn, %_ZN7testing7MessageD2Ev.exit473 ], [ %.pn163.pn, %_ZN7testing7MessageD2Ev.exit432 ], [ %.pn160.pn, %_ZN7testing7MessageD2Ev.exit413 ], [ %.pn157.pn, %_ZN7testing7MessageD2Ev.exit394 ], [ %.pn142.pn, %_ZN7testing7MessageD2Ev.exit310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -11078,7 +11078,7 @@ _ZN7testing7MessageD2Ev.exit1409:                 ; preds = %_ZNKSt14default_del
   ret void
 
 2325:                                             ; preds = %_ZN7testing7MessageD2Ev.exit1409, %_ZN7testing7MessageD2Ev.exit1401, %_ZN7testing7MessageD2Ev.exit1389, %_ZN7testing7MessageD2Ev.exit1376, %_ZN7testing7MessageD2Ev.exit1368, %_ZN7testing7MessageD2Ev.exit1360, %_ZN7testing7MessageD2Ev.exit1348, %_ZN7testing7MessageD2Ev.exit1335, %_ZN7testing7MessageD2Ev.exit1327, %_ZN7testing7MessageD2Ev.exit1319, %_ZN7testing7MessageD2Ev.exit1307, %_ZN7testing7MessageD2Ev.exit1294, %_ZN7testing7MessageD2Ev.exit1286, %_ZN7testing7MessageD2Ev.exit1278, %_ZN7testing7MessageD2Ev.exit1266, %_ZN7testing7MessageD2Ev.exit1253, %_ZN7testing7MessageD2Ev.exit1245, %_ZN7testing7MessageD2Ev.exit1237, %_ZN7testing7MessageD2Ev.exit1229, %_ZN7testing7MessageD2Ev.exit1221, %_ZN7testing7MessageD2Ev.exit1209, %_ZN7testing7MessageD2Ev.exit1196, %_ZN7testing7MessageD2Ev.exit1188, %_ZN7testing7MessageD2Ev.exit1180, %_ZN7testing7MessageD2Ev.exit1172, %_ZN7testing7MessageD2Ev.exit1164, %_ZN7testing7MessageD2Ev.exit1152, %_ZN7testing7MessageD2Ev.exit1139, %_ZN7testing7MessageD2Ev.exit1131, %_ZN7testing7MessageD2Ev.exit1123, %_ZN7testing7MessageD2Ev.exit1115, %_ZN7testing7MessageD2Ev.exit1107, %_ZN7testing7MessageD2Ev.exit1095, %_ZN7testing7MessageD2Ev.exit1082, %_ZN7testing7MessageD2Ev.exit1074, %_ZN7testing7MessageD2Ev.exit1066, %_ZN7testing7MessageD2Ev.exit1054, %_ZN7testing7MessageD2Ev.exit1041, %_ZN7testing7MessageD2Ev.exit1033, %_ZN7testing7MessageD2Ev.exit1025, %_ZN7testing7MessageD2Ev.exit1013, %_ZN7testing7MessageD2Ev.exit1000, %_ZN7testing7MessageD2Ev.exit992, %_ZN7testing7MessageD2Ev.exit984, %_ZN7testing7MessageD2Ev.exit972, %_ZN7testing7MessageD2Ev.exit959, %_ZN7testing7MessageD2Ev.exit951, %_ZN7testing7MessageD2Ev.exit943, %_ZN7testing7MessageD2Ev.exit931, %_ZN7testing7MessageD2Ev.exit918, %_ZN7testing7MessageD2Ev.exit904, %_ZN7testing7MessageD2Ev.exit863, %_ZN7testing7MessageD2Ev.exit840, %_ZN7testing7MessageD2Ev.exit821, %_ZN7testing7MessageD2Ev.exit781, %_ZN7testing7MessageD2Ev.exit758, %_ZN7testing7MessageD2Ev.exit739, %_ZN7testing7MessageD2Ev.exit698, %_ZN7testing7MessageD2Ev.exit679
-  %.pn549.pn.pn = phi { ptr, i32 } [ %.pn549.pn, %_ZN7testing7MessageD2Ev.exit1409 ], [ %.pn545.pn.pn, %_ZN7testing7MessageD2Ev.exit1401 ], [ %.pn541.pn.pn, %_ZN7testing7MessageD2Ev.exit1389 ], [ %.pn538.pn, %_ZN7testing7MessageD2Ev.exit1376 ], [ %.pn535.pn, %_ZN7testing7MessageD2Ev.exit1368 ], [ %.pn531.pn.pn, %_ZN7testing7MessageD2Ev.exit1360 ], [ %.pn527.pn.pn, %_ZN7testing7MessageD2Ev.exit1348 ], [ %.pn524.pn, %_ZN7testing7MessageD2Ev.exit1335 ], [ %.pn521.pn, %_ZN7testing7MessageD2Ev.exit1327 ], [ %.pn517.pn.pn, %_ZN7testing7MessageD2Ev.exit1319 ], [ %.pn513.pn.pn, %_ZN7testing7MessageD2Ev.exit1307 ], [ %.pn510.pn, %_ZN7testing7MessageD2Ev.exit1294 ], [ %.pn507.pn, %_ZN7testing7MessageD2Ev.exit1286 ], [ %.pn503.pn.pn, %_ZN7testing7MessageD2Ev.exit1278 ], [ %.pn499.pn.pn, %_ZN7testing7MessageD2Ev.exit1266 ], [ %.pn496.pn, %_ZN7testing7MessageD2Ev.exit1253 ], [ %.pn493.pn, %_ZN7testing7MessageD2Ev.exit1245 ], [ %.pn490.pn, %_ZN7testing7MessageD2Ev.exit1237 ], [ %.pn487.pn, %_ZN7testing7MessageD2Ev.exit1229 ], [ %.pn483.pn.pn, %_ZN7testing7MessageD2Ev.exit1221 ], [ %.pn479.pn.pn, %_ZN7testing7MessageD2Ev.exit1209 ], [ %.pn476.pn, %_ZN7testing7MessageD2Ev.exit1196 ], [ %.pn473.pn, %_ZN7testing7MessageD2Ev.exit1188 ], [ %.pn470.pn, %_ZN7testing7MessageD2Ev.exit1180 ], [ %.pn467.pn, %_ZN7testing7MessageD2Ev.exit1172 ], [ %.pn463.pn.pn, %_ZN7testing7MessageD2Ev.exit1164 ], [ %.pn459.pn.pn, %_ZN7testing7MessageD2Ev.exit1152 ], [ %.pn456.pn, %_ZN7testing7MessageD2Ev.exit1139 ], [ %.pn453.pn, %_ZN7testing7MessageD2Ev.exit1131 ], [ %.pn450.pn, %_ZN7testing7MessageD2Ev.exit1123 ], [ %.pn447.pn, %_ZN7testing7MessageD2Ev.exit1115 ], [ %.pn443.pn.pn, %_ZN7testing7MessageD2Ev.exit1107 ], [ %.pn439.pn.pn, %_ZN7testing7MessageD2Ev.exit1095 ], [ %.pn436.pn, %_ZN7testing7MessageD2Ev.exit1082 ], [ %.pn433.pn, %_ZN7testing7MessageD2Ev.exit1074 ], [ %.pn429.pn.pn, %_ZN7testing7MessageD2Ev.exit1066 ], [ %.pn425.pn.pn, %_ZN7testing7MessageD2Ev.exit1054 ], [ %.pn422.pn, %_ZN7testing7MessageD2Ev.exit1041 ], [ %.pn419.pn, %_ZN7testing7MessageD2Ev.exit1033 ], [ %.pn415.pn.pn, %_ZN7testing7MessageD2Ev.exit1025 ], [ %.pn411.pn.pn, %_ZN7testing7MessageD2Ev.exit1013 ], [ %.pn408.pn, %_ZN7testing7MessageD2Ev.exit1000 ], [ %.pn405.pn, %_ZN7testing7MessageD2Ev.exit992 ], [ %.pn401.pn.pn, %_ZN7testing7MessageD2Ev.exit984 ], [ %.pn397.pn.pn, %_ZN7testing7MessageD2Ev.exit972 ], [ %.pn394.pn, %_ZN7testing7MessageD2Ev.exit959 ], [ %.pn391.pn, %_ZN7testing7MessageD2Ev.exit951 ], [ %.pn387.pn.pn, %_ZN7testing7MessageD2Ev.exit943 ], [ %.pn383.pn.pn, %_ZN7testing7MessageD2Ev.exit931 ], [ %.pn380.pn, %_ZN7testing7MessageD2Ev.exit918 ], [ %.pn377.pn, %_ZN7testing7MessageD2Ev.exit904 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit679 ], [ %.pn369.pn.pn, %_ZN7testing7MessageD2Ev.exit863 ], [ %.pn366.pn, %_ZN7testing7MessageD2Ev.exit840 ], [ %.pn363.pn, %_ZN7testing7MessageD2Ev.exit821 ], [ %.pn341.pn.pn, %_ZN7testing7MessageD2Ev.exit698 ], [ %.pn355.pn.pn, %_ZN7testing7MessageD2Ev.exit781 ], [ %.pn352.pn, %_ZN7testing7MessageD2Ev.exit758 ], [ %.pn349.pn, %_ZN7testing7MessageD2Ev.exit739 ]
+  %.pn549.pn.pn = phi { ptr, i32 } [ %.pn549.pn, %_ZN7testing7MessageD2Ev.exit1409 ], [ %.pn545.pn.pn, %_ZN7testing7MessageD2Ev.exit1401 ], [ %.pn541.pn.pn, %_ZN7testing7MessageD2Ev.exit1389 ], [ %.pn538.pn, %_ZN7testing7MessageD2Ev.exit1376 ], [ %.pn535.pn, %_ZN7testing7MessageD2Ev.exit1368 ], [ %.pn531.pn.pn, %_ZN7testing7MessageD2Ev.exit1360 ], [ %.pn527.pn.pn, %_ZN7testing7MessageD2Ev.exit1348 ], [ %.pn524.pn, %_ZN7testing7MessageD2Ev.exit1335 ], [ %.pn521.pn, %_ZN7testing7MessageD2Ev.exit1327 ], [ %.pn517.pn.pn, %_ZN7testing7MessageD2Ev.exit1319 ], [ %.pn513.pn.pn, %_ZN7testing7MessageD2Ev.exit1307 ], [ %.pn510.pn, %_ZN7testing7MessageD2Ev.exit1294 ], [ %.pn507.pn, %_ZN7testing7MessageD2Ev.exit1286 ], [ %.pn503.pn.pn, %_ZN7testing7MessageD2Ev.exit1278 ], [ %.pn499.pn.pn, %_ZN7testing7MessageD2Ev.exit1266 ], [ %.pn496.pn, %_ZN7testing7MessageD2Ev.exit1253 ], [ %.pn493.pn, %_ZN7testing7MessageD2Ev.exit1245 ], [ %.pn490.pn, %_ZN7testing7MessageD2Ev.exit1237 ], [ %.pn487.pn, %_ZN7testing7MessageD2Ev.exit1229 ], [ %.pn483.pn.pn, %_ZN7testing7MessageD2Ev.exit1221 ], [ %.pn479.pn.pn, %_ZN7testing7MessageD2Ev.exit1209 ], [ %.pn476.pn, %_ZN7testing7MessageD2Ev.exit1196 ], [ %.pn473.pn, %_ZN7testing7MessageD2Ev.exit1188 ], [ %.pn470.pn, %_ZN7testing7MessageD2Ev.exit1180 ], [ %.pn467.pn, %_ZN7testing7MessageD2Ev.exit1172 ], [ %.pn463.pn.pn, %_ZN7testing7MessageD2Ev.exit1164 ], [ %.pn459.pn.pn, %_ZN7testing7MessageD2Ev.exit1152 ], [ %.pn456.pn, %_ZN7testing7MessageD2Ev.exit1139 ], [ %.pn453.pn, %_ZN7testing7MessageD2Ev.exit1131 ], [ %.pn450.pn, %_ZN7testing7MessageD2Ev.exit1123 ], [ %.pn447.pn, %_ZN7testing7MessageD2Ev.exit1115 ], [ %.pn443.pn.pn, %_ZN7testing7MessageD2Ev.exit1107 ], [ %.pn439.pn.pn, %_ZN7testing7MessageD2Ev.exit1095 ], [ %.pn436.pn, %_ZN7testing7MessageD2Ev.exit1082 ], [ %.pn433.pn, %_ZN7testing7MessageD2Ev.exit1074 ], [ %.pn429.pn.pn, %_ZN7testing7MessageD2Ev.exit1066 ], [ %.pn425.pn.pn, %_ZN7testing7MessageD2Ev.exit1054 ], [ %.pn422.pn, %_ZN7testing7MessageD2Ev.exit1041 ], [ %.pn419.pn, %_ZN7testing7MessageD2Ev.exit1033 ], [ %.pn415.pn.pn, %_ZN7testing7MessageD2Ev.exit1025 ], [ %.pn411.pn.pn, %_ZN7testing7MessageD2Ev.exit1013 ], [ %.pn408.pn, %_ZN7testing7MessageD2Ev.exit1000 ], [ %.pn405.pn, %_ZN7testing7MessageD2Ev.exit992 ], [ %.pn401.pn.pn, %_ZN7testing7MessageD2Ev.exit984 ], [ %.pn397.pn.pn, %_ZN7testing7MessageD2Ev.exit972 ], [ %.pn394.pn, %_ZN7testing7MessageD2Ev.exit959 ], [ %.pn391.pn, %_ZN7testing7MessageD2Ev.exit951 ], [ %.pn387.pn.pn, %_ZN7testing7MessageD2Ev.exit943 ], [ %.pn383.pn.pn, %_ZN7testing7MessageD2Ev.exit931 ], [ %.pn380.pn, %_ZN7testing7MessageD2Ev.exit918 ], [ %.pn377.pn, %_ZN7testing7MessageD2Ev.exit904 ], [ %.pn369.pn.pn, %_ZN7testing7MessageD2Ev.exit863 ], [ %.pn366.pn, %_ZN7testing7MessageD2Ev.exit840 ], [ %.pn363.pn, %_ZN7testing7MessageD2Ev.exit821 ], [ %.pn355.pn.pn, %_ZN7testing7MessageD2Ev.exit781 ], [ %.pn352.pn, %_ZN7testing7MessageD2Ev.exit758 ], [ %.pn349.pn, %_ZN7testing7MessageD2Ev.exit739 ], [ %.pn341.pn.pn, %_ZN7testing7MessageD2Ev.exit698 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit679 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -12388,7 +12388,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit: ; preds = %_ZN7testing15Asse
   br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit195
 
 _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit195: ; preds = %138, %99, %54
-  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn, %138 ], [ %.pn45.pn.pn, %54 ], [ %.pn55.pn.pn, %99 ]
+  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn, %138 ], [ %.pn55.pn.pn, %99 ], [ %.pn45.pn.pn, %54 ]
   resume { ptr, i32 } %.pn65.pn.pn.pn
 }
 
@@ -12819,7 +12819,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit: ; preds = %_ZN7testing15Asse
   br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit195
 
 _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit195: ; preds = %138, %99, %54
-  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn, %138 ], [ %.pn45.pn.pn, %54 ], [ %.pn55.pn.pn, %99 ]
+  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn, %138 ], [ %.pn55.pn.pn, %99 ], [ %.pn45.pn.pn, %54 ]
   resume { ptr, i32 } %.pn65.pn.pn.pn
 }
 
@@ -13350,7 +13350,7 @@ _ZN7testing15AssertionResultD2Ev.exit265:         ; preds = %162, %_ZNKSt14defau
   ret void
 
 172:                                              ; preds = %_ZN7testing7MessageD2Ev.exit260, %_ZN7testing7MessageD2Ev.exit224, %_ZN7testing7MessageD2Ev.exit183, %_ZN7testing7MessageD2Ev.exit142
-  %.pn79.pn.pn = phi { ptr, i32 } [ %.pn79.pn, %_ZN7testing7MessageD2Ev.exit260 ], [ %.pn65.pn, %_ZN7testing7MessageD2Ev.exit183 ], [ %.pn72.pn, %_ZN7testing7MessageD2Ev.exit224 ], [ %.pn58.pn, %_ZN7testing7MessageD2Ev.exit142 ]
+  %.pn79.pn.pn = phi { ptr, i32 } [ %.pn79.pn, %_ZN7testing7MessageD2Ev.exit260 ], [ %.pn72.pn, %_ZN7testing7MessageD2Ev.exit224 ], [ %.pn65.pn, %_ZN7testing7MessageD2Ev.exit183 ], [ %.pn58.pn, %_ZN7testing7MessageD2Ev.exit142 ]
   resume { ptr, i32 } %.pn79.pn.pn
 }
 
@@ -14493,45 +14493,45 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN7t
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread: ; preds = %9, %.noexc.i
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
 
 .body:                                            ; preds = %19
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = load ptr, ptr %4, align 8, !tbaa !37
   %71 = icmp eq ptr %70, %7
-  br i1 %71, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread: ; preds = %.body
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25: ; preds = %.body
   %72 = load i64, ptr %7, align 8, !tbaa !43
   %73 = add i64 %72, 1
   call void @_ZdlPvm(ptr noundef %70, i64 noundef %73) #28
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
 
 .body.thread:                                     ; preds = %30
   %74 = load ptr, ptr %4, align 8, !tbaa !37
   %75 = icmp eq ptr %74, %7
-  br i1 %75, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
+  br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23: ; preds = %.body.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread: ; preds = %.body.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9: ; preds = %.body.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body.thread
   %76 = load i64, ptr %7, align 8, !tbaa !43
   %77 = add i64 %76, 1
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %77) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
-  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread ], [ %69, %.body ]
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
+  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25 ], [ %69, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 144) #28
   br label %78
 
-78:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
-  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23 ], [ %.pn16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9 ]
+78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %.pn16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread ]
   resume { ptr, i32 } %.pn15
 }
 

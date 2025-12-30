@@ -683,7 +683,7 @@ dissect_id3v2_comment_frame.exit.i:               ; preds = %164, %switch.lookup
   br label %dissect_id3v2_frame.exit
 
 dissect_id3v2_frame.exit:                         ; preds = %51, %106, %108, %121, %dissect_id3v2_apic_frame.exit.i, %dissect_id3v2_comment_frame.exit.i, %189, %193
-  %.0.i = phi i32 [ %55, %51 ], [ %128, %121 ], [ %197, %193 ], [ %192, %189 ], [ %183, %dissect_id3v2_comment_frame.exit.i ], [ %152, %dissect_id3v2_apic_frame.exit.i ], [ %99, %108 ], [ %99, %106 ]
+  %.0.i = phi i32 [ %55, %51 ], [ %197, %193 ], [ %192, %189 ], [ %183, %dissect_id3v2_comment_frame.exit.i ], [ %152, %dissect_id3v2_apic_frame.exit.i ], [ %128, %121 ], [ %99, %108 ], [ %99, %106 ]
   %198 = call i32 @tvb_reported_length_remaining(ptr noundef %29, i32 noundef %.0.i)
   %.not49 = icmp eq i32 %198, 0
   br i1 %.not49, label %._crit_edge, label %47, !llvm.loop !6

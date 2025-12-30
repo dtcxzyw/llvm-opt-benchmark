@@ -321,9 +321,9 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   br label %.thread177
 
 .thread183:                                       ; preds = %118, %.preheader189, %123, %121
-  %.7199 = phi ptr [ %.7206, %121 ], [ %.7206, %123 ], [ %.6, %.preheader189 ], [ %119, %118 ]
-  %.0119196 = phi i64 [ %.0119208, %121 ], [ %.0119208, %123 ], [ 0, %.preheader189 ], [ %.3122, %118 ]
-  %.4169 = phi i64 [ %.0205, %121 ], [ %126, %123 ], [ 0, %.preheader189 ], [ %.3, %118 ]
+  %.7199 = phi ptr [ %.7206, %123 ], [ %.7206, %121 ], [ %.6, %.preheader189 ], [ %119, %118 ]
+  %.0119196 = phi i64 [ %.0119208, %123 ], [ %.0119208, %121 ], [ 0, %.preheader189 ], [ %.3122, %118 ]
+  %.4169 = phi i64 [ %126, %123 ], [ %.0205, %121 ], [ 0, %.preheader189 ], [ %.3, %118 ]
   %132 = icmp slt i64 %.0119196, %.pre231
   br i1 %132, label %.lr.ph213, label %.preheader188
 
@@ -411,8 +411,8 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   br label %.thread177
 
 173:                                              ; preds = %164, %160, %156, %.lr.ph218
-  %.sink = phi i64 [ 1, %.lr.ph218 ], [ %161, %160 ], [ %157, %156 ], [ %165, %164 ]
-  %.2125 = phi i64 [ %.1124217, %.lr.ph218 ], [ %.1124217, %160 ], [ -1, %156 ], [ %.1124217, %164 ]
+  %.sink = phi i64 [ 1, %.lr.ph218 ], [ %157, %156 ], [ %161, %160 ], [ %165, %164 ]
+  %.2125 = phi i64 [ %.1124217, %.lr.ph218 ], [ -1, %156 ], [ %.1124217, %160 ], [ %.1124217, %164 ]
   %174 = getelementptr inbounds nuw i8, ptr %.10216, i64 %.sink
   %175 = load i8, ptr %174, align 1
   %.not152 = icmp eq i8 %175, 0
@@ -442,7 +442,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   br label %.thread177
 
 .thread177:                                       ; preds = %100, %102, %184, %._crit_edge, %179, %181, %168, %170, %135, %137, %127, %129
-  %.2 = phi i64 [ %.5.lcssa, %._crit_edge ], [ 0, %179 ], [ 0, %127 ], [ 0, %135 ], [ 0, %168 ], [ 0, %129 ], [ 0, %137 ], [ 0, %170 ], [ 0, %181 ], [ %185, %184 ], [ 0, %102 ], [ 0, %100 ]
+  %.2 = phi i64 [ 0, %129 ], [ 0, %127 ], [ 0, %137 ], [ 0, %135 ], [ 0, %170 ], [ 0, %168 ], [ 0, %181 ], [ 0, %179 ], [ %185, %184 ], [ %.5.lcssa, %._crit_edge ], [ 0, %102 ], [ 0, %100 ]
   ret i64 %.2
 }
 
@@ -569,7 +569,7 @@ define dso_local i64 @cash_out(ptr noundef readonly captures(none) %0) local_unn
   br label %48
 
 48:                                               ; preds = %44, %41, %.split.us
-  %.1.us = phi ptr [ %.0112.us, %.split.us ], [ %47, %44 ], [ %.0112.us, %41 ]
+  %.1.us = phi ptr [ %47, %44 ], [ %.0112.us, %41 ], [ %.0112.us, %.split.us ]
   %49 = urem i64 %.0.us, 10
   %50 = trunc nuw nsw i64 %49 to i8
   %51 = or disjoint i8 %50, 48

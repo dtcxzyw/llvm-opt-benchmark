@@ -266,8 +266,8 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   %.not138 = icmp eq ptr %113, null
   br i1 %.not138, label %.thread145, label %114
 
-.thread145:                                       ; preds = %90, %86, %99
-  %.2.ph = phi i32 [ -12, %99 ], [ -5, %86 ], [ %97, %90 ]
+.thread145:                                       ; preds = %86, %90, %99
+  %.2.ph = phi i32 [ -12, %99 ], [ %97, %90 ], [ -5, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %198
 
@@ -296,7 +296,7 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %73, %121, %._crit_edge
-  %127 = phi ptr [ %100, %._crit_edge ], [ %100, %121 ], [ %67, %73 ]
+  %127 = phi ptr [ %100, %121 ], [ %100, %._crit_edge ], [ %67, %73 ]
   %128 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull %5, i32 noundef %.0104, ptr noundef nonnull @.str.14, i32 noundef %.0109) #9
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -410,14 +410,14 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   br label %198
 
 198:                                              ; preds = %.thread145, %.thread, %165, %144, %136, %._crit_edge.thread, %63, %197, %143
-  %.1108 = phi i32 [ %.2.ph, %.thread145 ], [ -12, %63 ], [ -5, %._crit_edge.thread ], [ -5, %143 ], [ -5, %144 ], [ 0, %197 ], [ -5, %136 ], [ -5, %.thread ], [ -1094995529, %165 ]
+  %.1108 = phi i32 [ -5, %143 ], [ 0, %197 ], [ -12, %63 ], [ -5, %._crit_edge.thread ], [ -5, %136 ], [ -5, %144 ], [ -1094995529, %165 ], [ -5, %.thread ], [ %.2.ph, %.thread145 ]
   %199 = load ptr, ptr %7, align 8, !tbaa !25
   call void @av_free(ptr noundef %199) #9
   %200 = call i32 @sap_write_close(ptr noundef nonnull %0)
   br label %201
 
 201:                                              ; preds = %185, %1, %198
-  %.0 = phi i32 [ -5, %1 ], [ %.1108, %198 ], [ 0, %185 ]
+  %.0 = phi i32 [ %.1108, %198 ], [ -5, %1 ], [ 0, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

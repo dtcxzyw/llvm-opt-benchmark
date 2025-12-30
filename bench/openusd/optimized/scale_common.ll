@@ -1035,7 +1035,7 @@ define hidden i32 @ScaleFilterReduce(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %14, label %.thread47, label %15
 
 15:                                               ; preds = %5, %.thread
-  %.1 = phi i32 [ %4, %5 ], [ %.3, %.thread ]
+  %.1 = phi i32 [ %.3, %.thread ], [ %4, %5 ]
   %16 = icmp eq i32 %.1, 1
   br i1 %16, label %17, label %.thread47
 
@@ -1284,7 +1284,7 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   br label %.sink.split124
 
 .sink.split124:                                   ; preds = %60, %64, %15, %103, %110, %69
-  %.sink125 = phi i32 [ 0, %69 ], [ 0, %15 ], [ %134, %110 ], [ %109, %103 ], [ %63, %60 ], [ %66, %64 ]
+  %.sink125 = phi i32 [ 0, %69 ], [ %134, %110 ], [ %109, %103 ], [ 0, %15 ], [ %63, %60 ], [ %66, %64 ]
   store i32 %.sink125, ptr %6, align 4
   br label %135
 

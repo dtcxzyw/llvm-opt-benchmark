@@ -265,8 +265,8 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   br label %13
 
 13:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbd4c92ed80ad9677E.llvm.7194218321710918526.exit.thread", %8
-  %.sink20.i11 = phi i64 [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbd4c92ed80ad9677E.llvm.7194218321710918526.exit.thread" ], [ %9, %8 ]
-  %.sroa.5.sroa.4.0 = phi i64 [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbd4c92ed80ad9677E.llvm.7194218321710918526.exit.thread" ], [ %12, %8 ]
+  %.sink20.i11 = phi i64 [ %9, %8 ], [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbd4c92ed80ad9677E.llvm.7194218321710918526.exit.thread" ]
+  %.sroa.5.sroa.4.0 = phi i64 [ %12, %8 ], [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbd4c92ed80ad9677E.llvm.7194218321710918526.exit.thread" ]
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 368, i64 464
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %., i64 noundef 16) #19
@@ -413,9 +413,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %39
 
 39:                                               ; preds = %38, %36, %35, %20
-  %.0.i = phi i64 [ 5, %38 ], [ 6, %36 ], [ 4, %20 ], [ %22, %35 ]
-  %40 = phi i1 [ false, %38 ], [ false, %36 ], [ true, %20 ], [ true, %35 ]
-  %.sroa.725.0.i = phi i64 [ 0, %38 ], [ %37, %36 ], [ %22, %20 ], [ %22, %35 ]
+  %.0.i = phi i64 [ 6, %36 ], [ 5, %38 ], [ 4, %20 ], [ %22, %35 ]
+  %40 = phi i1 [ false, %36 ], [ false, %38 ], [ true, %20 ], [ true, %35 ]
+  %.sroa.725.0.i = phi i64 [ %37, %36 ], [ 0, %38 ], [ %22, %20 ], [ %22, %35 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i64, ptr %41, align 8, !alias.scope !30, !noalias !36, !noundef !7
   %43 = invoke noundef align 16 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17he30eae9f9535e3c4E.llvm.15580692891847984352"()
@@ -852,9 +852,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %228
 
 228:                                              ; preds = %227, %225, %224, %183
-  %.0.i35 = phi i64 [ 5, %227 ], [ 6, %225 ], [ 4, %183 ], [ 5, %224 ]
-  %229 = phi i1 [ false, %227 ], [ false, %225 ], [ true, %183 ], [ true, %224 ]
-  %.sroa.7.0.i = phi i64 [ 0, %227 ], [ %226, %225 ], [ %176, %183 ], [ 5, %224 ]
+  %.0.i35 = phi i64 [ 6, %225 ], [ 5, %227 ], [ 4, %183 ], [ 5, %224 ]
+  %229 = phi i1 [ false, %225 ], [ false, %227 ], [ true, %183 ], [ true, %224 ]
+  %.sroa.7.0.i = phi i64 [ %226, %225 ], [ 0, %227 ], [ %176, %183 ], [ 5, %224 ]
   %230 = invoke noundef align 16 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h561a19048cac075bE.llvm.15580692891847984352"()
           to label %.noexc.i36 unwind label %.loopexit84, !noalias !135
 
@@ -1006,7 +1006,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   unreachable
 
 293:                                              ; preds = %260, %256, %252, %248
-  %.pn.i.i = phi { ptr, i32 } [ %249, %248 ], [ %257, %256 ], [ %249, %252 ], [ %257, %260 ]
+  %.pn.i.i = phi { ptr, i32 } [ %249, %252 ], [ %249, %248 ], [ %257, %260 ], [ %257, %256 ]
   call void @__rust_dealloc(ptr noundef nonnull %230, i64 noundef 464, i64 noundef 16) #19, !noalias !197
   %.pre.i37 = load ptr, ptr %10, align 8, !alias.scope !202, !noalias !130
   br label %332
@@ -1143,7 +1143,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   ret void
 
 .body:                                            ; preds = %163, %160, %157, %153, %332, %336, %98, %94
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %94 ], [ %.pn.ph.i33, %332 ], [ %.pn.ph.i, %98 ], [ %eh.lpad-body.ph.i, %163 ], [ %eh.lpad-body.ph.i, %160 ], [ %.pn.ph.i33, %336 ], [ %154, %157 ], [ %154, %153 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %98 ], [ %.pn.ph.i, %94 ], [ %154, %153 ], [ %154, %157 ], [ %eh.lpad-body.ph.i, %163 ], [ %eh.lpad-body.ph.i, %160 ], [ %.pn.ph.i33, %336 ], [ %.pn.ph.i33, %332 ]
   resume { ptr, i32 } %.pn.pn
 }
 

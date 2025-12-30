@@ -240,7 +240,7 @@ u_skipWhitespace.exit13.i:                        ; preds = %43
   br label %.preheader.i, !llvm.loop !6
 
 _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.preheader21.i, %50, %.preheader.i, %u_skipWhitespace.exit13.i
-  %.0.i = phi ptr [ %8, %.preheader21.i ], [ %.0.i17.i, %.preheader.i ], [ %8, %u_skipWhitespace.exit13.i ], [ %8, %50 ], [ %8, %u_rtrim.exit ]
+  %.0.i = phi ptr [ %8, %u_skipWhitespace.exit13.i ], [ %.0.i17.i, %.preheader.i ], [ %8, %50 ], [ %8, %.preheader21.i ], [ %8, %u_rtrim.exit ]
   %.0.i115 = ptrtoint ptr %.0.i to i64
   %54 = icmp eq ptr %.0.i, %8
   %. = select i1 %54, i32 0, i32 -127
@@ -465,7 +465,7 @@ define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly captures(add
   br label %.preheader, !llvm.loop !20
 
 .loopexit.sink.split:                             ; preds = %18, %24, %27, %8, %11
-  %.sink = phi i32 [ 1, %8 ], [ 1, %11 ], [ 9, %27 ], [ 9, %24 ], [ 9, %18 ]
+  %.sink = phi i32 [ 1, %11 ], [ 1, %8 ], [ 9, %27 ], [ 9, %24 ], [ 9, %18 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !9
   br label %.loopexit
 
@@ -604,7 +604,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %.not65, label %.backedge, label %48
 
 .backedge:                                        ; preds = %44, %49, %54
-  %.0.be = phi i32 [ %51, %49 ], [ %63, %54 ], [ %47, %44 ]
+  %.0.be = phi i32 [ %47, %44 ], [ %51, %49 ], [ %63, %54 ]
   br label %18, !llvm.loop !23
 
 48:                                               ; preds = %44
@@ -634,7 +634,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   br label %.backedge
 
 65:                                               ; preds = %24, %30, %29, %5, %41, %15
-  %.048 = phi i32 [ 0, %41 ], [ 0, %15 ], [ 0, %5 ], [ %2, %29 ], [ %.0, %30 ], [ %.0, %24 ]
+  %.048 = phi i32 [ 0, %15 ], [ 0, %41 ], [ 0, %5 ], [ %2, %29 ], [ %.0, %30 ], [ %.0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.048
 }
@@ -764,7 +764,7 @@ u_skipWhitespace.exit48:                          ; preds = %31
   br label %47
 
 47:                                               ; preds = %5, %44, %43, %39, %.loopexit, %21, %13
-  %.0 = phi i32 [ %46, %44 ], [ 0, %13 ], [ 0, %21 ], [ 1, %.loopexit ], [ 0, %39 ], [ 0, %43 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %21 ], [ 1, %.loopexit ], [ 0, %39 ], [ 0, %43 ], [ %46, %44 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

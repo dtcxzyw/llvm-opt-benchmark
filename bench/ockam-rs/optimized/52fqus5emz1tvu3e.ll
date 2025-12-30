@@ -60,7 +60,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br i1 %.sroa.18.0.in.i, label %15, label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
 "_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h35e7d525b68c1810E.exit": ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit, %21, %4
-  %or.cond.not25 = phi i1 [ true, %21 ], [ false, %4 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
+  %or.cond.not25 = phi i1 [ false, %4 ], [ true, %21 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
   ret i1 %or.cond.not25
 
 15:                                               ; preds = %11
@@ -450,7 +450,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h8debc0be634e3abdE
   br i1 %.sroa.18.0.in.i.us, label %.split26.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %21, %18, %16
-  %.0.us.be = phi i32 [ %.sroa.07.0.i22.us, %16 ], [ %20, %18 ], [ %.sroa.07.0.i.us, %21 ]
+  %.0.us.be = phi i32 [ %20, %18 ], [ %.sroa.07.0.i.us, %21 ], [ %.sroa.07.0.i22.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -645,7 +645,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h8debc0be634e3abdE
   br label %.body
 
 .body:                                            ; preds = %.thread12.i.i, %61, %65, %67, %69
-  %eh.lpad-body = phi { ptr, i32 } [ %70, %69 ], [ %66, %65 ], [ %62, %61 ], [ %68, %67 ], [ %52, %.thread12.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %70, %69 ], [ %66, %65 ], [ %68, %67 ], [ %52, %.thread12.i.i ], [ %62, %61 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h01199aeb5c3fb486E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #22
           to label %74 unwind label %72
 
@@ -677,7 +677,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h8debc0be634e3abdE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %77, %27, %75
-  %.0.be = phi i32 [ %.sroa.07.0.i22, %75 ], [ %79, %77 ], [ %.sroa.07.0.i, %27 ]
+  %.0.be = phi i32 [ %79, %77 ], [ %.sroa.07.0.i, %27 ], [ %.sroa.07.0.i22, %75 ]
   br label %.split
 }
 

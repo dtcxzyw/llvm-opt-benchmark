@@ -374,7 +374,7 @@ dwt_get_max_scale.exit:                           ; preds = %39, %44, %.preheade
   br label %dwt_interleave_rows.exit.us.us.i.i.i
 
 dwt_interleave_rows.exit.us.us.i.i.i:             ; preds = %113, %106
-  %.0.i.us.us.i.i.i = phi i32 [ %112, %106 ], [ %117, %113 ]
+  %.0.i.us.us.i.i.i = phi i32 [ %117, %113 ], [ %112, %106 ]
   %118 = sext i32 %.0.i.us.us.i.i.i to i64
   %119 = shl nsw i64 %118, 2
   %120 = mul i64 %119, %89
@@ -827,7 +827,7 @@ dwt_decompose_layer.exit.i:                       ; preds = %.lr.ph96.split.spli
   br label %dwt_get_image_layer.exit86.i
 
 dwt_get_image_layer.exit.i:                       ; preds = %356, %336, %334
-  %.pre-phi.i = phi i32 [ %.pre-phi114.i, %334 ], [ %313, %356 ], [ %.pre-phi114.i, %336 ]
+  %.pre-phi.i = phi i32 [ %313, %356 ], [ %.pre-phi114.i, %336 ], [ %.pre-phi114.i, %334 ]
   %371 = load i32, ptr %17, align 4, !tbaa !17
   %372 = icmp ult i32 %.pre-phi.i, %371
   br i1 %372, label %78, label %._crit_edge.thread.i
@@ -1101,7 +1101,7 @@ dwt_interleave_rows.exit.us.us.i:                 ; preds = %.lr.ph48.split.us.i
   br label %dwt_interleave_rows.exit.us.i
 
 dwt_interleave_rows.exit.us.i:                    ; preds = %73, %66
-  %.0.i.us.i = phi i32 [ %72, %66 ], [ %77, %73 ]
+  %.0.i.us.i = phi i32 [ %77, %73 ], [ %72, %66 ]
   %78 = sext i32 %.0.i.us.i to i64
   %79 = mul nsw i64 %78, %6
   %80 = add nsw i32 %.0.i.us.i, %26

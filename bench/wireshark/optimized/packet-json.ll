@@ -391,7 +391,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %36
 
 36:                                               ; preds = %28, %35, %33, %26
-  %.090 = phi ptr [ %25, %26 ], [ null, %35 ], [ %32, %33 ], [ null, %28 ]
+  %.090 = phi ptr [ %25, %26 ], [ %32, %33 ], [ null, %35 ], [ null, %28 ]
   %.not103 = icmp eq ptr %2, null
   br i1 %.not103, label %43, label %37
 
@@ -1940,7 +1940,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   %12 = load i8, ptr @unescape_strings, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   %14 = tail call i64 @strlen(ptr noundef %11) #8
-  br i1 %13, label %15, label %109
+  br i1 %13, label %15, label %110
 
 15:                                               ; preds = %3
   %16 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %14)
@@ -1986,7 +1986,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
 34:                                               ; preds = %31
   %35 = getelementptr i8, ptr %11, i64 %32
   %36 = load i8, ptr %35, align 1
-  switch i8 %36, label %105 [
+  switch i8 %36, label %106 [
     i8 92, label %37
     i8 47, label %37
     i8 34, label %37
@@ -2054,11 +2054,11 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   br i1 %or.cond185.not.i, label %._crit_edge.i, label %.lr.ph191.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %57, %.lr.ph191.i
-  %.0149.lcssa.i = phi i32 [ %59, %57 ], [ %.0149188.i, %.lr.ph191.i ]
-  %.lcssa.i = phi i1 [ %61, %57 ], [ false, %.lr.ph191.i ]
+  %.0149.lcssa.i = phi i32 [ %.0149188.i, %.lr.ph191.i ], [ %59, %57 ]
+  %.lcssa.i = phi i1 [ false, %.lr.ph191.i ], [ %61, %57 ]
   %63 = and i32 %.0149.lcssa.i, -1024
   %or.cond10.i = icmp eq i32 %63, 55296
-  br i1 %or.cond10.i, label %64, label %._crit_edge.thread.i
+  br i1 %or.cond10.i, label %64, label %96
 
 64:                                               ; preds = %._crit_edge.i
   %65 = icmp ult i64 %54, %14
@@ -2113,97 +2113,97 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   %or.cond13.i = icmp eq i16 %90, -9216
   br i1 %or.cond13.i, label %91, label %.thread170.i
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  %or.cond15.i = icmp ne i32 %63, 56320
-  %spec.select.i = and i1 %.lcssa.i, %or.cond15.i
-  br i1 %spec.select.i, label %96, label %.thread170.i
-
 91:                                               ; preds = %89
   %92 = zext i16 %.0131.lcssa.i to i32
   %93 = shl nuw nsw i32 %.0149.lcssa.i, 10
   %94 = add nsw i32 %93, -56613888
   %95 = add nuw nsw i32 %94, %92
-  br i1 %.4145.i, label %96, label %.thread170.i
+  br i1 %.4145.i, label %97, label %.thread170.i
 
-96:                                               ; preds = %91, %._crit_edge.thread.i
-  %.10240.i = phi i64 [ %54, %._crit_edge.thread.i ], [ %.9.i, %91 ]
-  %.4153239.i = phi i32 [ %.0149.lcssa.i, %._crit_edge.thread.i ], [ %95, %91 ]
-  %97 = call i32 @g_unichar_validate(i32 noundef %.4153239.i) #9
-  %.not165.i = icmp eq i32 %97, 0
-  br i1 %.not165.i, label %.thread176.i, label %98
+96:                                               ; preds = %._crit_edge.i
+  %or.cond15.i = icmp ne i32 %63, 56320
+  %spec.select.i = and i1 %.lcssa.i, %or.cond15.i
+  br i1 %spec.select.i, label %97, label %.thread170.i
 
-98:                                               ; preds = %96
-  %99 = call i32 @g_unichar_isprint(i32 noundef %.4153239.i) #9
-  %.not166.i = icmp eq i32 %99, 0
-  br i1 %.not166.i, label %.thread176.i, label %100
+97:                                               ; preds = %96, %91
+  %.10240.i = phi i64 [ %.9.i, %91 ], [ %54, %96 ]
+  %.4153239.i = phi i32 [ %95, %91 ], [ %.0149.lcssa.i, %96 ]
+  %98 = call i32 @g_unichar_validate(i32 noundef %.4153239.i) #9
+  %.not165.i = icmp eq i32 %98, 0
+  br i1 %.not165.i, label %.thread176.i, label %99
 
-100:                                              ; preds = %98
+99:                                               ; preds = %97
+  %100 = call i32 @g_unichar_isprint(i32 noundef %.4153239.i) #9
+  %.not166.i = icmp eq i32 %100, 0
+  br i1 %.not166.i, label %.thread176.i, label %101
+
+101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %101 = call i32 @g_unichar_to_utf8(i32 noundef %.4153239.i, ptr noundef nonnull %4)
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.lr.ph204.preheader.i, label %._crit_edge205.i
+  %102 = call i32 @g_unichar_to_utf8(i32 noundef %.4153239.i, ptr noundef nonnull %4)
+  %103 = icmp sgt i32 %102, 0
+  br i1 %103, label %.lr.ph204.preheader.i, label %._crit_edge205.i
 
-.lr.ph204.preheader.i:                            ; preds = %100
-  %wide.trip.count.i = zext nneg i32 %101 to i64
+.lr.ph204.preheader.i:                            ; preds = %101
+  %wide.trip.count.i = zext nneg i32 %102 to i64
   br label %.lr.ph204.i
 
-._crit_edge205.i:                                 ; preds = %.lr.ph204.i, %100
+._crit_edge205.i:                                 ; preds = %.lr.ph204.i, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread176.i
 
 .lr.ph204.i:                                      ; preds = %.lr.ph204.i, %.lr.ph204.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph204.preheader.i ], [ %indvars.iv.next.i, %.lr.ph204.i ]
-  %103 = getelementptr i8, ptr %4, i64 %indvars.iv.i
-  %104 = load i8, ptr %103, align 1
-  call void @wmem_strbuf_append_c(ptr noundef %16, i8 noundef signext %104)
+  %104 = getelementptr i8, ptr %4, i64 %indvars.iv.i
+  %105 = load i8, ptr %104, align 1
+  call void @wmem_strbuf_append_c(ptr noundef %16, i8 noundef signext %105)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond219.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond219.not.i, label %._crit_edge205.i, label %.lr.ph204.i, !llvm.loop !13
 
-.thread170.i:                                     ; preds = %91, %._crit_edge.thread.i, %89, %73, %66, %49
-  %.10174.i = phi i64 [ %.9.i, %91 ], [ %.9.i, %89 ], [ %77, %73 ], [ %50, %49 ], [ %54, %._crit_edge.thread.i ], [ %70, %66 ]
+.thread170.i:                                     ; preds = %96, %91, %89, %73, %66, %49
+  %.10174.i = phi i64 [ %54, %96 ], [ %.9.i, %89 ], [ %.9.i, %91 ], [ %50, %49 ], [ %77, %73 ], [ %70, %66 ]
   call void @wmem_strbuf_append_unichar(ptr noundef %16, i32 noundef 65533)
   br label %.thread176.i
 
-105:                                              ; preds = %34
+106:                                              ; preds = %34
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, i32 noundef 392) #10
   unreachable
 
-.thread176.i:                                     ; preds = %.lr.ph.i, %.thread170.i, %._crit_edge205.i, %98, %96, %47, %45, %43, %41, %39, %37, %.preheader.i
-  %.3.i = phi i64 [ %46, %45 ], [ %.10240.i, %98 ], [ %48, %47 ], [ %44, %43 ], [ %.10240.i, %96 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %.10174.i, %.thread170.i ], [ %.10240.i, %._crit_edge205.i ], [ %.0129206.i, %.preheader.i ], [ %27, %.lr.ph.i ]
-  %106 = icmp ult i64 %.3.i, %14
-  br i1 %106, label %.lr.ph208.i, label %json_string_unescape.exit
+.thread176.i:                                     ; preds = %.lr.ph.i, %.thread170.i, %._crit_edge205.i, %99, %97, %47, %45, %43, %41, %39, %37, %.preheader.i
+  %.3.i = phi i64 [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %.10174.i, %.thread170.i ], [ %.10240.i, %._crit_edge205.i ], [ %.10240.i, %99 ], [ %.10240.i, %97 ], [ %.0129206.i, %.preheader.i ], [ %27, %.lr.ph.i ]
+  %107 = icmp ult i64 %.3.i, %14
+  br i1 %107, label %.lr.ph208.i, label %json_string_unescape.exit
 
 json_string_unescape.exit:                        ; preds = %19, %31, %64, %71, %.thread176.i, %15
-  %107 = call i64 @wmem_strbuf_get_len(ptr noundef %16)
-  %108 = call ptr @wmem_strbuf_finalize(ptr noundef %16)
-  br label %109
+  %108 = call i64 @wmem_strbuf_get_len(ptr noundef %16)
+  %109 = call ptr @wmem_strbuf_finalize(ptr noundef %16)
+  br label %110
 
-109:                                              ; preds = %3, %json_string_unescape.exit
-  %.012 = phi i64 [ %107, %json_string_unescape.exit ], [ %14, %3 ]
-  %.0 = phi ptr [ %108, %json_string_unescape.exit ], [ %11, %3 ]
-  br i1 %2, label %110, label %119
+110:                                              ; preds = %3, %json_string_unescape.exit
+  %.012 = phi i64 [ %108, %json_string_unescape.exit ], [ %14, %3 ]
+  %.0 = phi ptr [ %109, %json_string_unescape.exit ], [ %11, %3 ]
+  br i1 %2, label %111, label %120
 
-110:                                              ; preds = %109
-  %111 = getelementptr i8, ptr %.0, i64 %.012
-  %112 = getelementptr i8, ptr %111, i64 -1
-  %113 = load i8, ptr %112, align 1
-  %114 = icmp eq i8 %113, 34
-  br i1 %114, label %115, label %116
+111:                                              ; preds = %110
+  %112 = getelementptr i8, ptr %.0, i64 %.012
+  %113 = getelementptr i8, ptr %112, i64 -1
+  %114 = load i8, ptr %113, align 1
+  %115 = icmp eq i8 %114, 34
+  br i1 %115, label %116, label %117
 
-115:                                              ; preds = %110
-  store i8 0, ptr %112, align 1
-  br label %116
+116:                                              ; preds = %111
+  store i8 0, ptr %113, align 1
+  br label %117
 
-116:                                              ; preds = %115, %110
-  %117 = load i8, ptr %.0, align 1
-  %118 = icmp eq i8 %117, 34
-  %spec.select.idx = zext i1 %118 to i64
+117:                                              ; preds = %116, %111
+  %118 = load i8, ptr %.0, align 1
+  %119 = icmp eq i8 %118, 34
+  %spec.select.idx = zext i1 %119 to i64
   %spec.select = getelementptr i8, ptr %.0, i64 %spec.select.idx
-  br label %119
+  br label %120
 
-119:                                              ; preds = %116, %109
-  %.1 = phi ptr [ %.0, %109 ], [ %spec.select, %116 ]
+120:                                              ; preds = %117, %110
+  %.1 = phi ptr [ %.0, %110 ], [ %spec.select, %117 ]
   ret ptr %.1
 }
 

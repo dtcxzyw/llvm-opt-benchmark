@@ -117,7 +117,7 @@ define range(i32 -1, 2) i32 @Abc_NtkMfsSolveSat_iter(ptr noundef captures(none) 
   br label %58
 
 58:                                               ; preds = %.critedge, %.thread, %5, %18
-  %.030 = phi i32 [ -1, %.thread ], [ -1, %5 ], [ 0, %18 ], [ %., %.critedge ]
+  %.030 = phi i32 [ 0, %18 ], [ -1, %5 ], [ -1, %.thread ], [ %., %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.030
 }
@@ -262,8 +262,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %73
 
 73:                                               ; preds = %.critedge, %.critedge.thread
-  %74 = phi ptr [ %69, %.critedge ], [ %15, %.critedge.thread ]
-  %75 = phi i32 [ %spec.select, %.critedge ], [ 1, %.critedge.thread ]
+  %74 = phi ptr [ %15, %.critedge.thread ], [ %69, %.critedge ]
+  %75 = phi i32 [ 1, %.critedge.thread ], [ %spec.select, %.critedge ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %75, ptr %76, align 4, !tbaa !67
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 236

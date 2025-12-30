@@ -910,7 +910,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef nonnull %0) unnamed_
   br label %134
 
 134:                                              ; preds = %7, %131, %125, %121, %113, %25, %21, %15
-  %135 = phi i32 [ 0, %15 ], [ -19, %7 ], [ 0, %121 ], [ %22, %21 ], [ %26, %25 ], [ %114, %113 ], [ 0, %131 ], [ 0, %125 ]
+  %135 = phi i32 [ 0, %15 ], [ -19, %7 ], [ %22, %21 ], [ %26, %25 ], [ %114, %113 ], [ 0, %131 ], [ 0, %125 ], [ 0, %121 ]
   ret i32 %135
 }
 
@@ -1215,7 +1215,7 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
   br i1 %180, label %extract_package.exit, label %141, !llvm.loop !17
 
 extract_package.exit:                             ; preds = %178, %141, %134, %96, %88, %49, %137, %92, %45
-  %181 = phi i32 [ -14, %137 ], [ -14, %96 ], [ -14, %45 ], [ -14, %49 ], [ -14, %92 ], [ 0, %88 ], [ 0, %134 ], [ -14, %141 ], [ 0, %178 ]
+  %181 = phi i32 [ -14, %45 ], [ -14, %92 ], [ -14, %137 ], [ 0, %88 ], [ -14, %49 ], [ 0, %134 ], [ -14, %96 ], [ 0, %178 ], [ -14, %141 ]
   %182 = load volatile i64, ptr %3, align 8
   %183 = and i64 %182, 4
   %184 = icmp eq i64 %183, 0
@@ -1437,7 +1437,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr
   br i1 %59, label %extract_package.exit, label %39, !llvm.loop !17
 
 extract_package.exit:                             ; preds = %39, %56, %32
-  %60 = phi i32 [ -14, %32 ], [ -14, %39 ], [ 0, %56 ]
+  %60 = phi i32 [ -14, %32 ], [ 0, %56 ], [ -14, %39 ]
   %61 = load volatile i64, ptr @jiffies, align 64
   store i64 %61, ptr %11, align 8
   call void @kfree(ptr noundef %33) #11
@@ -1579,8 +1579,8 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   br label %22
 
 22:                                               ; preds = %18, %20, %.thread11
-  %23 = phi ptr [ %19, %18 ], [ %21, %20 ], [ %9, %.thread11 ]
-  %24 = phi i64 [ 11, %18 ], [ 15, %20 ], [ 15, %.thread11 ]
+  %23 = phi ptr [ %21, %20 ], [ %9, %.thread11 ], [ %19, %18 ]
+  %24 = phi i64 [ 15, %20 ], [ 15, %.thread11 ], [ 11, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %23, ptr %25, align 8
@@ -2117,7 +2117,7 @@ acpi_battery_is_charged.exit14.thread:            ; preds = %143, %141, %acpi_ba
   br label %158
 
 158:                                              ; preds = %96, %91, %156, %154, %152, %acpi_battery_is_charged.exit14.thread, %acpi_battery_is_charged.exit14.thread16, %140, %128, %120, %113, %105, %101, %99, %94, %89, %85, %83, %79, %77, %73, %70, %68, %47, %acpi_battery_is_charged.exit.thread, %acpi_battery_is_charged.exit.thread15, %35, %30, %13, %11
-  %159 = phi i32 [ -19, %13 ], [ 0, %156 ], [ 0, %154 ], [ 0, %152 ], [ 0, %128 ], [ 0, %140 ], [ 0, %acpi_battery_is_charged.exit14.thread16 ], [ 0, %acpi_battery_is_charged.exit14.thread ], [ 0, %120 ], [ 0, %105 ], [ 0, %99 ], [ 0, %94 ], [ 0, %89 ], [ 0, %83 ], [ 0, %77 ], [ 0, %70 ], [ 0, %68 ], [ 0, %47 ], [ 0, %30 ], [ 0, %35 ], [ 0, %acpi_battery_is_charged.exit.thread15 ], [ 0, %acpi_battery_is_charged.exit.thread ], [ -19, %73 ], [ -19, %79 ], [ -19, %85 ], [ -22, %11 ], [ -19, %91 ], [ -19, %113 ], [ -19, %96 ], [ -19, %101 ]
+  %159 = phi i32 [ -19, %13 ], [ 0, %156 ], [ 0, %154 ], [ 0, %152 ], [ 0, %128 ], [ 0, %140 ], [ 0, %acpi_battery_is_charged.exit14.thread16 ], [ 0, %acpi_battery_is_charged.exit14.thread ], [ 0, %120 ], [ 0, %105 ], [ 0, %99 ], [ 0, %94 ], [ 0, %89 ], [ 0, %83 ], [ 0, %77 ], [ 0, %70 ], [ 0, %68 ], [ 0, %47 ], [ 0, %30 ], [ 0, %35 ], [ 0, %acpi_battery_is_charged.exit.thread15 ], [ 0, %acpi_battery_is_charged.exit.thread ], [ -19, %73 ], [ -19, %79 ], [ -19, %85 ], [ -19, %91 ], [ -19, %96 ], [ -19, %101 ], [ -19, %113 ], [ -22, %11 ]
   ret i32 %159
 }
 

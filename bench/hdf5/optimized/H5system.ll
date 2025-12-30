@@ -245,8 +245,8 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeo
   br label %69
 
 69:                                               ; preds = %.thread100, %.thread77
-  %.05199 = phi ptr [ %.152.ph, %.thread77 ], [ %.051106, %.thread100 ]
-  %.15598 = phi i32 [ 0, %.thread77 ], [ %.155105, %.thread100 ]
+  %.05199 = phi ptr [ %.051106, %.thread100 ], [ %.152.ph, %.thread77 ]
+  %.15598 = phi i32 [ %.155105, %.thread100 ], [ 0, %.thread77 ]
   %.not68 = icmp eq ptr %.05199, null
   br i1 %.not68, label %72, label %70
 
@@ -504,7 +504,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
   br label %.critedge2.thread62
 
 .critedge2.thread62:                              ; preds = %40, %35, %46, %.critedge4, %25, %21
-  %.146 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %51, %.critedge4 ], [ %47, %46 ], [ %41, %40 ], [ %36, %35 ]
+  %.146 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %47, %46 ], [ %51, %.critedge4 ], [ %41, %40 ], [ %36, %35 ]
   %52 = icmp eq ptr %.146, null
   br i1 %52, label %53, label %.critedge61
 
@@ -527,7 +527,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
   br label %59
 
 59:                                               ; preds = %.thread, %.critedge61, %58, %57, %2
-  %.043 = phi i32 [ -1, %58 ], [ -1, %57 ], [ 0, %.critedge61 ], [ 0, %2 ], [ -1, %.thread ]
+  %.043 = phi i32 [ -1, %58 ], [ -1, %57 ], [ 0, %2 ], [ 0, %.critedge61 ], [ -1, %.thread ]
   ret i32 %.043
 }
 
@@ -674,7 +674,7 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly c
   br label %65
 
 65:                                               ; preds = %.thread, %.critedge53, %64, %63, %2
-  %.039 = phi i32 [ -1, %64 ], [ -1, %63 ], [ 0, %.critedge53 ], [ 0, %2 ], [ -1, %.thread ]
+  %.039 = phi i32 [ -1, %64 ], [ -1, %63 ], [ 0, %2 ], [ 0, %.critedge53 ], [ -1, %.thread ]
   ret i32 %.039
 }
 
@@ -813,8 +813,8 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br i1 %.not85, label %.loopexit, label %.lr.ph111
 
 .loopexit:                                        ; preds = %61, %.lr.ph.split, %55, %57, %47, %53, %44, %54
-  %.064104 = phi i64 [ %indvars.iv, %57 ], [ %indvars.iv, %54 ], [ %indvars.iv, %55 ], [ %indvars.iv, %44 ], [ %indvars.iv, %47 ], [ %indvars.iv, %53 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %61 ]
-  %.062.ph = phi i32 [ 63, %57 ], [ %41, %54 ], [ 63, %55 ], [ %41, %44 ], [ %41, %47 ], [ %41, %53 ], [ 63, %.lr.ph.split ], [ 63, %61 ]
+  %.064104 = phi i64 [ %indvars.iv, %55 ], [ %indvars.iv, %57 ], [ %indvars.iv, %54 ], [ %indvars.iv, %44 ], [ %indvars.iv, %47 ], [ %indvars.iv, %53 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %61 ]
+  %.062.ph = phi i32 [ 63, %55 ], [ 63, %57 ], [ %41, %54 ], [ %41, %44 ], [ %41, %47 ], [ %41, %53 ], [ 63, %.lr.ph.split ], [ 63, %61 ]
   %64 = and i64 %.064104, 4294967295
   %65 = getelementptr inbounds nuw %struct.h5_long_options, ptr %3, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !34
@@ -833,7 +833,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %68, %70, %.loopexit
-  %.163 = phi i32 [ 63, %68 ], [ %.062.ph, %.loopexit ], [ 63, %70 ], [ 63, %32 ]
+  %.163 = phi i32 [ %.062.ph, %.loopexit ], [ 63, %70 ], [ 63, %68 ], [ 63, %32 ]
   %74 = load i32, ptr @H5_optind, align 4, !tbaa !26
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr @H5_optind, align 4, !tbaa !26
@@ -986,7 +986,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br label %145
 
 145:                                              ; preds = %13, %92, %101, %144, %133, %134, %135, %123, %.critedge, %7, %8, %19
-  %.061 = phi i32 [ %.163, %.critedge ], [ -1, %19 ], [ -1, %7 ], [ -1, %13 ], [ -1, %8 ], [ 63, %101 ], [ 63, %92 ], [ %81, %144 ], [ %81, %135 ], [ %81, %134 ], [ %81, %133 ], [ %.4, %123 ]
+  %.061 = phi i32 [ -1, %19 ], [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ %.163, %.critedge ], [ 63, %92 ], [ 63, %101 ], [ %81, %144 ], [ %81, %135 ], [ %81, %134 ], [ %81, %133 ], [ %.4, %123 ]
   ret i32 %.061
 }
 

@@ -297,7 +297,7 @@ RB_SYMBOL_P.exit.thread25:                        ; preds = %45, %38, %RB_SYMBOL
   br label %RB_SYMBOL_P.exit22.thread
 
 RB_SYMBOL_P.exit22.thread:                        ; preds = %RB_SYMBOL_P.exit.thread, %RB_SYMBOL_P.exit22, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %2, %RB_SYMBOL_P.exit.thread25, %31
-  %.0 = phi i32 [ %55, %RB_SYMBOL_P.exit.thread25 ], [ %32, %31 ], [ 0, %2 ], [ -1, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ 1, %RB_SYMBOL_P.exit.thread ], [ 1, %RB_SYMBOL_P.exit22 ]
+  %.0 = phi i32 [ %32, %31 ], [ %55, %RB_SYMBOL_P.exit.thread25 ], [ 0, %2 ], [ -1, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ 1, %RB_SYMBOL_P.exit22 ], [ 1, %RB_SYMBOL_P.exit.thread ]
   ret i32 %.0
 }
 
@@ -470,7 +470,7 @@ define internal range(i64 -4611686018427387904, 4611686018427387904) i64 @obj_an
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %13, %15
-  %.0.in.i = phi ptr [ %9, %7 ], [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i, %15 ]
+  %.0.in.i = phi ptr [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ %9, %7 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i, %15 ]
   %.0.i22 = load i64, ptr %.0.in.i, align 8, !tbaa !7
   %.not = icmp eq i64 %.0.i22, 0
   br i1 %.not, label %.thread, label %18
@@ -1049,7 +1049,7 @@ RHASH_AR_TABLE_SIZE_DEC.exit.i.i:                 ; preds = %69, %64
   br label %ar_foreach_with_replace.exit
 
 ar_foreach_with_replace.exit:                     ; preds = %71, %42, %.split38.us.i.i, %13, %10, %72
-  %.0 = phi i32 [ %75, %72 ], [ 0, %10 ], [ 0, %13 ], [ 0, %42 ], [ 0, %.split38.us.i.i ], [ 0, %71 ]
+  %.0 = phi i32 [ %75, %72 ], [ 0, %10 ], [ 0, %13 ], [ 0, %.split38.us.i.i ], [ 0, %42 ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -1311,13 +1311,13 @@ ar_foreach_check.exit:                            ; preds = %1
   %.not = icmp eq i32 %68, 0
   br i1 %.not, label %ar_foreach_check.exit.thread, label %ar_foreach_check.exit.thread14
 
-ar_foreach_check.exit.thread14:                   ; preds = %36, %ar_find_entry_hint.exit.i, %47, %ar_foreach_check.exit
-  %.017 = phi i32 [ %68, %ar_foreach_check.exit ], [ 2, %47 ], [ 2, %ar_find_entry_hint.exit.i ], [ 2, %36 ]
+ar_foreach_check.exit.thread14:                   ; preds = %ar_find_entry_hint.exit.i, %36, %47, %ar_foreach_check.exit
+  %.017 = phi i32 [ %68, %ar_foreach_check.exit ], [ 2, %47 ], [ 2, %36 ], [ 2, %ar_find_entry_hint.exit.i ]
   %69 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !7
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %69, ptr noundef nonnull @.str.97, i32 noundef %.017) #30
   unreachable
 
-ar_foreach_check.exit.thread:                     ; preds = %ensure_ar_table.exit.i, %65, %7, %10, %ar_foreach_check.exit
+ar_foreach_check.exit.thread:                     ; preds = %65, %ensure_ar_table.exit.i, %10, %7, %ar_foreach_check.exit
   ret i64 4
 }
 
@@ -1785,10 +1785,10 @@ define internal fastcc range(i32 -1, 2) i32 @ar_update(i64 noundef %0, i64 nound
   br label %.thread
 
 .thread:                                          ; preds = %28, %14, %11, %30, %29
-  %37 = phi i64 [ %1, %11 ], [ %33, %30 ], [ %1, %29 ], [ %1, %14 ], [ %1, %28 ]
-  %.not3243 = phi i1 [ true, %11 ], [ false, %30 ], [ true, %29 ], [ true, %14 ], [ true, %28 ]
-  %.02842 = phi i32 [ 0, %11 ], [ 1, %30 ], [ 0, %29 ], [ 0, %14 ], [ 0, %28 ]
-  %.02941 = phi i64 [ 8, %11 ], [ %36, %30 ], [ 8, %29 ], [ 8, %14 ], [ 8, %28 ]
+  %37 = phi i64 [ %33, %30 ], [ %1, %29 ], [ %1, %11 ], [ %1, %14 ], [ %1, %28 ]
+  %.not3243 = phi i1 [ false, %30 ], [ true, %29 ], [ true, %11 ], [ true, %14 ], [ true, %28 ]
+  %.02842 = phi i32 [ 1, %30 ], [ 0, %29 ], [ 0, %11 ], [ 0, %14 ], [ 0, %28 ]
+  %.02941 = phi i64 [ %36, %30 ], [ 8, %29 ], [ 8, %11 ], [ 8, %14 ], [ 8, %28 ]
   %38 = call i32 %2(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %3, i32 noundef %.02842) #28
   %39 = load i64, ptr %8, align 8, !tbaa !11
   %40 = and i64 %39, 32768
@@ -2362,7 +2362,7 @@ rb_hash_default_unredefined.exit.i:               ; preds = %hash_stlike_lookup.
   br label %rb_hash_default_value.exit
 
 rb_hash_default_value.exit:                       ; preds = %hash_stlike_lookup.exit.thread7, %hash_stlike_lookup.exit._crit_edge, %58, %55, %53, %48
-  %.0 = phi i64 [ 4, %53 ], [ %59, %58 ], [ %57, %55 ], [ %50, %48 ], [ %.pre, %hash_stlike_lookup.exit._crit_edge ], [ %35, %hash_stlike_lookup.exit.thread7 ]
+  %.0 = phi i64 [ %59, %58 ], [ %57, %55 ], [ %50, %48 ], [ 4, %53 ], [ %.pre, %hash_stlike_lookup.exit._crit_edge ], [ %35, %hash_stlike_lookup.exit.thread7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -2598,7 +2598,7 @@ hash_stlike_lookup.exit.thread:                   ; preds = %38, %23, %ar_find_e
   br label %62
 
 62:                                               ; preds = %hash_stlike_lookup.exit.thread21, %hash_stlike_lookup.exit._crit_edge, %59, %47
-  %.018 = phi i64 [ %61, %59 ], [ %48, %47 ], [ %.pre, %hash_stlike_lookup.exit._crit_edge ], [ %43, %hash_stlike_lookup.exit.thread21 ]
+  %.018 = phi i64 [ %48, %47 ], [ %61, %59 ], [ %.pre, %hash_stlike_lookup.exit._crit_edge ], [ %43, %hash_stlike_lookup.exit.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.018
 }
@@ -3578,7 +3578,7 @@ ar_cleared_entry.exit.thread.i:                   ; preds = %30
   br label %37
 
 37:                                               ; preds = %ar_cleared_entry.exit.thread.i, %30
-  %.1.i = phi ptr [ %.020.i, %30 ], [ %36, %ar_cleared_entry.exit.thread.i ]
+  %.1.i = phi ptr [ %36, %ar_cleared_entry.exit.thread.i ], [ %.020.i, %30 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %38 = icmp samesign uge i64 %indvars.iv.next.i, %29
   %39 = icmp eq ptr %.1.i, %23
@@ -4240,7 +4240,7 @@ RB_FL_ABLE.exit.i.i.i:                            ; preds = %20
   br label %key_stringify.exit.i
 
 key_stringify.exit.i:                             ; preds = %38, %36, %RB_FL_ABLE.exit.i.i.i, %20, %.preheader
-  %40 = phi i64 [ %37, %36 ], [ %16, %20 ], [ %16, %.preheader ], [ %39, %38 ], [ %16, %RB_FL_ABLE.exit.i.i.i ]
+  %40 = phi i64 [ %16, %.preheader ], [ %39, %38 ], [ %37, %36 ], [ %16, %RB_FL_ABLE.exit.i.i.i ], [ %16, %20 ]
   %41 = add i64 %.013.i, 2
   %42 = getelementptr i8, ptr %15, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !7
@@ -5236,7 +5236,7 @@ RARRAY_AREF.exit56:                               ; preds = %92, %94
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %RHASH_EMPTY_P.exit45, %38, %103
-  %.037 = phi i64 [ %106, %103 ], [ %24, %RHASH_EMPTY_P.exit45 ], [ %24, %38 ], [ %48, %rb_array_len.exit ], [ %48, %rb_array_len.exit.thread ]
+  %.037 = phi i64 [ %106, %103 ], [ %24, %38 ], [ %24, %RHASH_EMPTY_P.exit45 ], [ %48, %rb_array_len.exit ], [ %48, %rb_array_len.exit.thread ]
   ret i64 %.037
 }
 
@@ -5649,7 +5649,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %rb_check_arity.exit
   br label %RB_FL_TEST.exit.thread
 
 RB_FL_TEST.exit.thread:                           ; preds = %RB_FL_ABLE.exit.i, %rb_check_arity.exit, %16, %18
-  %.0 = phi i64 [ 4, %16 ], [ %21, %18 ], [ %8, %RB_FL_ABLE.exit.i ], [ %8, %rb_check_arity.exit ]
+  %.0 = phi i64 [ %21, %18 ], [ 4, %16 ], [ %8, %rb_check_arity.exit ], [ %8, %RB_FL_ABLE.exit.i ]
   ret i64 %.0
 }
 
@@ -5731,7 +5731,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %1
   br label %RB_FL_TEST.exit.thread
 
 RB_FL_TEST.exit.thread:                           ; preds = %RB_FL_ABLE.exit.i, %1, %10
-  %.0 = phi i64 [ %12, %10 ], [ 4, %RB_FL_ABLE.exit.i ], [ 4, %1 ]
+  %.0 = phi i64 [ %12, %10 ], [ 4, %1 ], [ 4, %RB_FL_ABLE.exit.i ]
   ret i64 %.0
 }
 
@@ -6553,7 +6553,7 @@ rb_hash_modify.exit.i:                            ; preds = %53, %rbimpl_RB_TYPE
   br label %rb_hash_stlike_foreach_with_replace.exit
 
 rb_hash_stlike_foreach_with_replace.exit:         ; preds = %59, %.thread, %30, %27, %RHASH_TABLE_EMPTY_P.exit.thread, %RHASH_TABLE_EMPTY_P.exit, %3
-  %.0 = phi i64 [ %6, %3 ], [ %0, %RHASH_TABLE_EMPTY_P.exit.thread ], [ %0, %RHASH_TABLE_EMPTY_P.exit ], [ %0, %27 ], [ %0, %30 ], [ %0, %.thread ], [ %0, %59 ]
+  %.0 = phi i64 [ %6, %3 ], [ %0, %RHASH_TABLE_EMPTY_P.exit ], [ %0, %RHASH_TABLE_EMPTY_P.exit.thread ], [ %0, %27 ], [ %0, %30 ], [ %0, %.thread ], [ %0, %59 ]
   ret i64 %.0
 }
 
@@ -6798,7 +6798,7 @@ ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.ex
   br label %.thread
 
 .thread:                                          ; preds = %33, %23, %27, %71, %84, %75, %88, %80, %65, %57
-  %.0 = phi i64 [ %60, %57 ], [ %93, %88 ], [ %83, %80 ], [ %70, %65 ], [ 4, %75 ], [ 4, %84 ], [ 4, %71 ], [ 4, %23 ], [ 4, %27 ], [ 4, %33 ]
+  %.0 = phi i64 [ %93, %88 ], [ %83, %80 ], [ %70, %65 ], [ %60, %57 ], [ 4, %75 ], [ 4, %84 ], [ 4, %71 ], [ 4, %27 ], [ 4, %23 ], [ 4, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
@@ -7120,7 +7120,7 @@ RHASH_SIZE.exit16:                                ; preds = %33, %36
   br label %42
 
 42:                                               ; preds = %RHASH_SIZE.exit16, %RHASH_SIZE.exit, %3
-  %.0 = phi i64 [ %., %RHASH_SIZE.exit16 ], [ 4, %RHASH_SIZE.exit ], [ %6, %3 ]
+  %.0 = phi i64 [ %6, %3 ], [ 4, %RHASH_SIZE.exit ], [ %., %RHASH_SIZE.exit16 ]
   ret i64 %.0
 }
 
@@ -7290,7 +7290,7 @@ RHASH_SIZE.exit15:                                ; preds = %33, %36
   br label %42
 
 42:                                               ; preds = %RHASH_SIZE.exit15, %RHASH_SIZE.exit, %3
-  %.0 = phi i64 [ %., %RHASH_SIZE.exit15 ], [ 4, %RHASH_SIZE.exit ], [ %6, %3 ]
+  %.0 = phi i64 [ %6, %3 ], [ 4, %RHASH_SIZE.exit ], [ %., %RHASH_SIZE.exit15 ]
   ret i64 %.0
 }
 
@@ -7414,7 +7414,7 @@ copy_compare_by_id.exit22:                        ; preds = %rb_hash_new_with_si
   br i1 %exitcond.not, label %copy_compare_by_id.exit, label %.lr.ph, !llvm.loop !111
 
 copy_compare_by_id.exit:                          ; preds = %64, %copy_compare_by_id.exit22, %rb_hash_compare_by_id_p.exit.i, %25, %._crit_edge
-  %.0 = phi i64 [ %20, %rb_hash_compare_by_id_p.exit.i ], [ %20, %._crit_edge ], [ %20, %25 ], [ %38, %copy_compare_by_id.exit22 ], [ %38, %64 ]
+  %.0 = phi i64 [ %20, %._crit_edge ], [ %20, %25 ], [ %20, %rb_hash_compare_by_id_p.exit.i ], [ %38, %copy_compare_by_id.exit22 ], [ %38, %64 ]
   ret i64 %.0
 }
 
@@ -7753,7 +7753,7 @@ hash_iter_lev_inc.exit:                           ; preds = %50, %56
   br label %68
 
 68:                                               ; preds = %63, %RHASH_EMPTY_P.exit.thread, %RHASH_EMPTY_P.exit, %.thread
-  %.0 = phi i64 [ %64, %63 ], [ %67, %.thread ], [ 4, %RHASH_EMPTY_P.exit ], [ 4, %RHASH_EMPTY_P.exit.thread ]
+  %.0 = phi i64 [ %67, %.thread ], [ %64, %63 ], [ 4, %RHASH_EMPTY_P.exit ], [ 4, %RHASH_EMPTY_P.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -8138,7 +8138,7 @@ RHASH_EMPTY_P.exit:                               ; preds = %9, %12
   br label %34
 
 34:                                               ; preds = %26, %RHASH_EMPTY_P.exit, %32
-  %.0 = phi i64 [ 0, %RHASH_EMPTY_P.exit ], [ %33, %32 ], [ 20, %26 ]
+  %.0 = phi i64 [ %33, %32 ], [ 0, %RHASH_EMPTY_P.exit ], [ 20, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -8742,7 +8742,7 @@ RARRAY_AREF.exit49:                               ; preds = %rb_array_len.exit43
   br label %.preheader, !llvm.loop !123
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %rb_array_len.exit43.thread, %rb_array_len.exit43, %4
-  %.0 = phi i64 [ %7, %4 ], [ %0, %rb_array_len.exit43.thread ], [ %0, %rb_array_len.exit43 ], [ %0, %rb_array_len.exit ], [ %0, %rb_array_len.exit.thread ]
+  %.0 = phi i64 [ %7, %4 ], [ %0, %rb_array_len.exit43 ], [ %0, %rb_array_len.exit43.thread ], [ %0, %rb_array_len.exit ], [ %0, %rb_array_len.exit.thread ]
   ret i64 %.0
 }
 
@@ -11587,7 +11587,7 @@ RHASH_TABLE_EMPTY_P.exit36:                       ; preds = %52, %55
   br label %80
 
 80:                                               ; preds = %RHASH_TABLE_EMPTY_P.exit, %RHASH_TABLE_EMPTY_P.exit36, %73, %RHASH_SIZE.exit33, %17, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %3, %75, %19
-  %.0 = phi i64 [ 20, %3 ], [ %20, %19 ], [ 0, %73 ], [ 0, %RHASH_SIZE.exit33 ], [ %79, %75 ], [ %., %17 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ 20, %RHASH_TABLE_EMPTY_P.exit36 ], [ 20, %RHASH_TABLE_EMPTY_P.exit ]
+  %.0 = phi i64 [ %79, %75 ], [ %20, %19 ], [ 20, %3 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %., %17 ], [ 0, %RHASH_SIZE.exit33 ], [ 0, %73 ], [ 20, %RHASH_TABLE_EMPTY_P.exit36 ], [ 20, %RHASH_TABLE_EMPTY_P.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -12088,7 +12088,7 @@ rb_hash_key_str.exit:                             ; preds = %43, %45
   br label %RB_OBJ_FROZEN.exit.thread
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %26, %RB_FL_ABLE.exit.i, %16, %.critedge, %rb_hash_key_str.exit, %6
-  %.0 = phi i64 [ %9, %6 ], [ %5, %16 ], [ %5, %26 ], [ %5, %rb_hash_key_str.exit ], [ %5, %.critedge ], [ %5, %RB_FL_ABLE.exit.i ]
+  %.0 = phi i64 [ %9, %6 ], [ %5, %16 ], [ %5, %rb_hash_key_str.exit ], [ %5, %.critedge ], [ %5, %RB_FL_ABLE.exit.i ], [ %5, %26 ]
   store i64 %.0, ptr %1, align 8, !tbaa !7
   ret void
 }
@@ -12692,7 +12692,7 @@ rbimpl_rstring_getmem.exit17.i:                   ; preds = %35, %RARRAY_AREF.ex
   br label %41
 
 41:                                               ; preds = %38, %36, %rbimpl_rstring_getmem.exit17.i
-  %.1.i = phi i64 [ %.0.i, %rbimpl_rstring_getmem.exit17.i ], [ %40, %38 ], [ %.0.i, %36 ]
+  %.1.i = phi i64 [ %40, %38 ], [ %.0.i, %rbimpl_rstring_getmem.exit17.i ], [ %.0.i, %36 ]
   %42 = add i64 %.1.i, 1
   br label %19, !llvm.loop !180
 

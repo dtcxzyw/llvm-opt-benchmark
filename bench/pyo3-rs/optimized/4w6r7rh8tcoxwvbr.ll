@@ -694,7 +694,7 @@ define void @"_ZN102_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
   br label %16
 
 16:                                               ; preds = %8, %15, %13
-  %.sink = phi i64 [ 1, %13 ], [ 0, %15 ], [ 1, %8 ]
+  %.sink = phi i64 [ 0, %15 ], [ 1, %13 ], [ 1, %8 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -1220,7 +1220,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %206 unwind label %204
 
 .body.thread:                                     ; preds = %228, %.body.thread261, %253, %204
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %253 ], [ %lpad.thr_comm, %.body.thread261 ], [ %205, %204 ], [ %lpad.thr_comm.split-lp.i, %228 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %253 ], [ %205, %204 ], [ %lpad.thr_comm, %.body.thread261 ], [ %lpad.thr_comm.split-lp.i, %228 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %73) #11
           to label %.body164 unwind label %254
 
@@ -1236,7 +1236,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h4aadeafda96e37cbE(ptr nonnull sret([32 x i8]) align 8 %58, ptr nonnull align 8 %184)
           to label %209 unwind label %253
 
-.body.thread261:                                  ; preds = %227, %212, %213, %225
+.body.thread261:                                  ; preds = %212, %213, %225, %227
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -1340,7 +1340,7 @@ default.unreachable:                              ; preds = %300, %276, %258
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12, !noalias !4
   unreachable
 
-.thread:                                          ; preds = %213, %.noexc, %220
+.thread:                                          ; preds = %213, %220, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
@@ -1352,7 +1352,7 @@ default.unreachable:                              ; preds = %300, %276, %258
   br label %233
 
 231:                                              ; preds = %.noexc137, %227
-  %.sroa.0183.0 = phi i64 [ %.sroa.0183.0.copyload184, %227 ], [ %.sroa.0183.0.copyload185, %.noexc137 ]
+  %.sroa.0183.0 = phi i64 [ %.sroa.0183.0.copyload185, %.noexc137 ], [ %.sroa.0183.0.copyload184, %227 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
@@ -1536,8 +1536,8 @@ default.unreachable:                              ; preds = %300, %276, %258
           to label %.noexc141 unwind label %.loopexit.loopexit.split-lp
 
 .noexc141:                                        ; preds = %.noexc144, %.noexc142, %260
-  %.sink = phi ptr [ %46, %.noexc142 ], [ %47, %260 ], [ %41, %.noexc144 ]
-  %.sroa.6206.0..sroa_idx207.sink = phi ptr [ %.sroa.6206.0..sroa_idx208, %.noexc142 ], [ %.sroa.6206.0..sroa_idx209, %260 ], [ %.sroa.6206.0..sroa_idx207, %.noexc144 ]
+  %.sink = phi ptr [ %47, %260 ], [ %46, %.noexc142 ], [ %41, %.noexc144 ]
+  %.sroa.6206.0..sroa_idx207.sink = phi ptr [ %.sroa.6206.0..sroa_idx209, %260 ], [ %.sroa.6206.0..sroa_idx208, %.noexc142 ], [ %.sroa.6206.0..sroa_idx207, %.noexc144 ]
   %.sroa.0202.0.copyload203 = load i64, ptr %.sink, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6206, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6206.0..sroa_idx207.sink, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -2257,7 +2257,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17Fun
   br i1 %.not7, label %39, label %40
 
 .sink.split:                                      ; preds = %112, %105, %97, %92, %89
-  %.sink = phi ptr [ %13, %105 ], [ %14, %97 ], [ %15, %92 ], [ %16, %89 ], [ %12, %112 ]
+  %.sink = phi ptr [ %16, %89 ], [ %15, %92 ], [ %14, %97 ], [ %13, %105 ], [ %12, %112 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   br label %39
 
@@ -2494,7 +2494,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %10 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %116, %93
-  %.pn = phi { ptr, i32 } [ %117, %116 ], [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %117, %116 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %9) #11
           to label %120 unwind label %96
 

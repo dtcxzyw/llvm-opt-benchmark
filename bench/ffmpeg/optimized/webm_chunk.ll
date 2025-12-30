@@ -191,7 +191,7 @@ chunk_start.exit:                                 ; preds = %8
   br label %chunk_start.exit.thread
 
 chunk_start.exit.thread:                          ; preds = %8, %14, %17
-  %.0 = phi i32 [ %15, %14 ], [ %18, %17 ], [ %9, %8 ]
+  %.0 = phi i32 [ %18, %17 ], [ %15, %14 ], [ %9, %8 ]
   ret i32 %.0
 }
 
@@ -348,7 +348,7 @@ define internal range(i32 -2147483648, 1) i32 @webm_chunk_init(ptr noundef %0) #
   br label %92
 
 92:                                               ; preds = %.thread, %77, %55, %52, %47, %23, %19, %14, %1, %80, %13
-  %.057 = phi i32 [ -22, %13 ], [ -1481985528, %14 ], [ %21, %19 ], [ -12, %47 ], [ %53, %52 ], [ %61, %55 ], [ 0, %80 ], [ %45, %23 ], [ -22, %1 ], [ %78, %77 ], [ %.0.ph, %.thread ]
+  %.057 = phi i32 [ 0, %80 ], [ -22, %13 ], [ -22, %1 ], [ -1481985528, %14 ], [ %21, %19 ], [ %45, %23 ], [ -12, %47 ], [ %53, %52 ], [ %61, %55 ], [ %78, %77 ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.057
 }
@@ -471,7 +471,7 @@ get_chunk_filename.exit:                          ; preds = %16
   br label %42
 
 42:                                               ; preds = %get_chunk_filename.exit.thread, %33, %30, %38
-  %.018 = phi i32 [ -22, %get_chunk_filename.exit.thread ], [ %31, %30 ], [ %36, %33 ], [ %36, %38 ]
+  %.018 = phi i32 [ %31, %30 ], [ %36, %33 ], [ %36, %38 ], [ -22, %get_chunk_filename.exit.thread ]
   %43 = load ptr, ptr %3, align 8, !tbaa !86
   call void @av_free(ptr noundef %43) #6
   %44 = call i32 @llvm.smin.i32(i32 %.018, i32 0)

@@ -726,7 +726,7 @@ check_retval.exit305:                             ; preds = %check_retval.exit30
   br label %352
 
 352:                                              ; preds = %check_retval.exit281.thread, %check_retval.exit279, %check_retval.exit277, %check_retval.exit275, %check_retval.exit273, %check_retval.exit271, %check_retval.exit269, %check_retval.exit267, %check_retval.exit265, %check_retval.exit263, %check_retval.exit261, %check_retval.exit259, %check_retval.exit257, %check_retval.exit255.thread, %check_retval.exit253.thread, %check_retval.exit251.thread, %check_retval.exit249, %check_retval.exit247, %check_retval.exit245, %check_retval.exit241, %check_retval.exit239, %check_retval.exit, %check_retval.exit305
-  %.0192 = phi i32 [ 0, %check_retval.exit305 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit239 ], [ 1, %check_retval.exit241 ], [ 1, %check_retval.exit281.thread ], [ 1, %check_retval.exit245 ], [ 1, %check_retval.exit247 ], [ 1, %check_retval.exit249 ], [ 1, %check_retval.exit251.thread ], [ 1, %check_retval.exit253.thread ], [ 1, %check_retval.exit255.thread ], [ 1, %check_retval.exit257 ], [ 1, %check_retval.exit259 ], [ 1, %check_retval.exit261 ], [ 1, %check_retval.exit263 ], [ 1, %check_retval.exit265 ], [ 1, %check_retval.exit267 ], [ 1, %check_retval.exit269 ], [ 1, %check_retval.exit271 ], [ 1, %check_retval.exit273 ], [ 1, %check_retval.exit275 ], [ 1, %check_retval.exit277 ], [ 1, %check_retval.exit279 ]
+  %.0192 = phi i32 [ 0, %check_retval.exit305 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit239 ], [ 1, %check_retval.exit241 ], [ 1, %check_retval.exit245 ], [ 1, %check_retval.exit247 ], [ 1, %check_retval.exit249 ], [ 1, %check_retval.exit257 ], [ 1, %check_retval.exit259 ], [ 1, %check_retval.exit261 ], [ 1, %check_retval.exit263 ], [ 1, %check_retval.exit265 ], [ 1, %check_retval.exit267 ], [ 1, %check_retval.exit269 ], [ 1, %check_retval.exit271 ], [ 1, %check_retval.exit273 ], [ 1, %check_retval.exit275 ], [ 1, %check_retval.exit277 ], [ 1, %check_retval.exit279 ], [ 1, %check_retval.exit251.thread ], [ 1, %check_retval.exit253.thread ], [ 1, %check_retval.exit255.thread ], [ 1, %check_retval.exit281.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -1093,7 +1093,7 @@ check_retval.exit98:                              ; preds = %14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph107, %23, %check_retval.exit98, %check_retval.exit, %._crit_edge, %70
-  %.093 = phi i32 [ 1, %check_retval.exit98 ], [ 1, %check_retval.exit ], [ 0, %70 ], [ 0, %._crit_edge ], [ 0, %23 ], [ 0, %.lr.ph107 ]
+  %.093 = phi i32 [ 1, %check_retval.exit ], [ 1, %check_retval.exit98 ], [ 0, %70 ], [ 0, %._crit_edge ], [ 0, %23 ], [ 0, %.lr.ph107 ]
   ret i32 %.093
 }
 

@@ -1542,7 +1542,7 @@ define internal fastcc void @mXactCachePut(i32 noundef %0, i32 noundef %1, ptr n
   br label %dclist_push_head.exit
 
 dclist_push_head.exit:                            ; preds = %9, %20
-  %21 = phi ptr [ %18, %9 ], [ @MXactCache, %20 ]
+  %21 = phi ptr [ @MXactCache, %20 ], [ %18, %9 ]
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %21, ptr %22, align 8
   store ptr @MXactCache, ptr %17, align 8
@@ -2562,7 +2562,7 @@ define dso_local i32 @MultiXactMemberFreezeThreshold() local_unnamed_addr #0 {
   br label %ReadMultiXactCounts.exit
 
 ReadMultiXactCounts.exit:                         ; preds = %0, %23, %31, %21
-  %.0 = phi i32 [ %22, %21 ], [ 0, %23 ], [ %34, %31 ], [ 0, %0 ]
+  %.0 = phi i32 [ %22, %21 ], [ %34, %31 ], [ 0, %23 ], [ 0, %0 ]
   ret i32 %.0
 }
 
@@ -2664,7 +2664,7 @@ find_multixact_start.exit:                        ; preds = %35
   br label %143
 
 61:                                               ; preds = %find_multixact_start.exit.thread, %33
-  %.0 = phi i32 [ %49, %find_multixact_start.exit.thread ], [ %14, %33 ]
+  %.0 = phi i32 [ %14, %33 ], [ %49, %find_multixact_start.exit.thread ]
   %62 = icmp eq i32 %0, %12
   br i1 %62, label %89, label %63
 
@@ -2715,7 +2715,7 @@ find_multixact_start.exit31:                      ; preds = %63
   br label %143
 
 89:                                               ; preds = %find_multixact_start.exit31.thread, %61
-  %.038 = phi i32 [ %77, %find_multixact_start.exit31.thread ], [ %14, %61 ]
+  %.038 = phi i32 [ %14, %61 ], [ %77, %find_multixact_start.exit31.thread ]
   %90 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #12
   br i1 %90, label %91, label %._crit_edge
 
@@ -3288,7 +3288,7 @@ define internal range(i32 -1, 2) i32 @mxactMemberComparator(ptr noundef readonly
   br label %10
 
 10:                                               ; preds = %8, %6, %4, %2
-  %.0 = phi i32 [ 1, %6 ], [ 1, %2 ], [ -1, %4 ], [ %., %8 ]
+  %.0 = phi i32 [ 1, %2 ], [ -1, %4 ], [ 1, %6 ], [ %., %8 ]
   ret i32 %.0
 }
 

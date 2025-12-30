@@ -234,7 +234,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_1
   %.pn.pn29 = phi { ptr, i32 } [ %.pn.pn30, %30 ], [ %29, %28 ]
   resume { ptr, i32 } %.pn.pn29
 
-.critedge:                                        ; preds = %17, %11, %13
+.critedge:                                        ; preds = %11, %13, %17
   ret void
 
 32:                                               ; preds = %25
@@ -1839,8 +1839,8 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !104
 
 .loopexit:                                        ; preds = %24, %..loopexit_crit_edge, %11
-  %29 = phi ptr [ %.pre21, %..loopexit_crit_edge ], [ %12, %11 ], [ %26, %24 ]
-  %30 = phi ptr [ %3, %..loopexit_crit_edge ], [ %3, %11 ], [ %25, %24 ]
+  %29 = phi ptr [ %12, %11 ], [ %.pre21, %..loopexit_crit_edge ], [ %26, %24 ]
+  %30 = phi ptr [ %3, %11 ], [ %3, %..loopexit_crit_edge ], [ %25, %24 ]
   %31 = load ptr, ptr %30, align 8, !tbaa !77
   %.not1518 = icmp eq ptr %31, %29
   br i1 %.not1518, label %._crit_edge, label %.lr.ph20

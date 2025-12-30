@@ -292,7 +292,7 @@ define dso_local noundef i32 @_ZN10Bookkeeper24stat_blk_depths_for_stmtEPK9State
   br label %_Z12incr_counterRSt6vectorIiSaIiEEi.exit
 
 _Z12incr_counterRSt6vectorIiSaIiEEi.exit:         ; preds = %5, %.lr.ph.i
-  %29 = phi ptr [ %9, %5 ], [ %25, %.lr.ph.i ]
+  %29 = phi ptr [ %25, %.lr.ph.i ], [ %9, %5 ]
   %30 = getelementptr inbounds nuw i32, ptr %29, i64 %14
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = add nsw i32 %31, 1
@@ -470,7 +470,7 @@ define dso_local void @_Z12incr_counterRSt6vectorIiSaIiEEi(ptr noundef nonnull a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %2
-  %25 = phi ptr [ %5, %2 ], [ %21, %.lr.ph ]
+  %25 = phi ptr [ %21, %.lr.ph ], [ %5, %2 ]
   %26 = getelementptr inbounds nuw i32, ptr %25, i64 %10
   %27 = load i32, ptr %26, align 4, !tbaa !12
   %28 = add nsw i32 %27, 1
@@ -2177,7 +2177,7 @@ define dso_local void @_ZN10Bookkeeper25stat_expr_depths_for_stmtEPK9Statement(p
   br label %39
 
 39:                                               ; preds = %.lr.ph.i, %17
-  %40 = phi ptr [ %19, %17 ], [ %35, %.lr.ph.i ]
+  %40 = phi ptr [ %35, %.lr.ph.i ], [ %19, %17 ]
   %41 = getelementptr inbounds nuw i32, ptr %40, i64 %24
   %42 = load i32, ptr %41, align 4, !tbaa !12
   %43 = add nsw i32 %42, 1
@@ -2602,7 +2602,7 @@ define dso_local void @_ZN10Bookkeeper26record_pointer_comparisonsEPK10Expressio
   br label %.thread14.sink.split
 
 .thread14.sink.split:                             ; preds = %16, %13, %8
-  %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink17 = phi ptr [ %_ZN10Bookkeeper14cmp_ptr_to_ptrE._ZN10Bookkeeper15cmp_ptr_to_addrE, %16 ], [ @_ZN10Bookkeeper15cmp_ptr_to_nullE, %13 ], [ @_ZN10Bookkeeper15cmp_ptr_to_nullE, %8 ]
+  %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink17 = phi ptr [ @_ZN10Bookkeeper15cmp_ptr_to_nullE, %8 ], [ @_ZN10Bookkeeper15cmp_ptr_to_nullE, %13 ], [ %_ZN10Bookkeeper14cmp_ptr_to_ptrE._ZN10Bookkeeper15cmp_ptr_to_addrE, %16 ]
   %20 = load i32, ptr %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink17, align 4, !tbaa !12
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink17, align 4, !tbaa !12
@@ -2706,7 +2706,7 @@ _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit: ; preds = %_ZN10Bookk
   br label %40
 
 40:                                               ; preds = %.lr.ph.split, %36, %37
-  %_ZN10Bookkeeper21read_non_volatile_cntE.sink26 = phi ptr [ @_ZN10Bookkeeper17read_volatile_cntE, %36 ], [ @_ZN10Bookkeeper17read_volatile_cntE, %37 ], [ @_ZN10Bookkeeper21read_non_volatile_cntE, %.lr.ph.split ]
+  %_ZN10Bookkeeper21read_non_volatile_cntE.sink26 = phi ptr [ @_ZN10Bookkeeper17read_volatile_cntE, %37 ], [ @_ZN10Bookkeeper17read_volatile_cntE, %36 ], [ @_ZN10Bookkeeper21read_non_volatile_cntE, %.lr.ph.split ]
   %41 = load i32, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink26, align 4, !tbaa !12
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink26, align 4, !tbaa !12
@@ -2939,7 +2939,7 @@ define dso_local void @_ZN10Bookkeeper26record_vars_with_bitfieldsEPK4Type(ptr n
   br label %_Z12incr_counterRSt6vectorIiSaIiEEi.exit
 
 _Z12incr_counterRSt6vectorIiSaIiEEi.exit:         ; preds = %7, %.lr.ph.i
-  %30 = phi ptr [ %10, %7 ], [ %26, %.lr.ph.i ]
+  %30 = phi ptr [ %26, %.lr.ph.i ], [ %10, %7 ]
   %31 = getelementptr inbounds nuw i32, ptr %30, i64 %15
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = add nsw i32 %32, 1
@@ -2992,7 +2992,7 @@ _Z12incr_counterRSt6vectorIiSaIiEEi.exit:         ; preds = %7, %.lr.ph.i
   br label %_Z12incr_counterRSt6vectorIiSaIiEEi.exit11
 
 _Z12incr_counterRSt6vectorIiSaIiEEi.exit11:       ; preds = %35, %.lr.ph.i7
-  %56 = phi ptr [ %37, %35 ], [ %52, %.lr.ph.i7 ]
+  %56 = phi ptr [ %52, %.lr.ph.i7 ], [ %37, %35 ]
   %57 = getelementptr inbounds nuw i32, ptr %56, i64 %15
   %58 = load i32, ptr %57, align 4, !tbaa !12
   %59 = add nsw i32 %58, 1
@@ -3182,7 +3182,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !11
   br label %41
 

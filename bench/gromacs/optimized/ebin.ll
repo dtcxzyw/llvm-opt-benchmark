@@ -786,7 +786,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !55
 
 .critedge:                                        ; preds = %48, %.lr.ph
-  %.272.lcssa = phi i32 [ %.27289, %.lr.ph ], [ %49, %48 ]
+  %.272.lcssa = phi i32 [ %49, %48 ], [ %.27289, %.lr.ph ]
   %51 = icmp sgt i32 %.272.lcssa, -1
   br i1 %51, label %.critedge.thread, label %53
 
@@ -865,7 +865,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr noundef captures(none) %0, pt
   br label %84
 
 84:                                               ; preds = %76, %74
-  %.6.us110 = phi i32 [ %75, %74 ], [ %83, %76 ]
+  %.6.us110 = phi i32 [ %83, %76 ], [ %75, %74 ]
   %85 = add nuw nsw i32 %.17593.us108, 1
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i32 %85, %4
@@ -894,8 +894,8 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr noundef captures(none) %0, pt
   br label %102
 
 .critedge2:                                       ; preds = %84, %.lr.ph96.split.us105, %61, %.lr.ph96.split.us, %.lr.ph96.split, %53
-  %.5.lcssa = phi i32 [ %.171, %53 ], [ %.171, %.lr.ph96.split ], [ %.594.us, %.lr.ph96.split.us ], [ %66, %61 ], [ %.6.us110, %84 ], [ %.594.us107, %.lr.ph96.split.us105 ]
-  %.3.lcssa = phi i32 [ %.063120, %53 ], [ %.063120, %.lr.ph96.split ], [ %58, %.lr.ph96.split.us ], [ %57, %61 ], [ %55, %84 ], [ %68, %.lr.ph96.split.us105 ]
+  %.5.lcssa = phi i32 [ %.171, %53 ], [ %.171, %.lr.ph96.split ], [ %.594.us, %.lr.ph96.split.us ], [ %66, %61 ], [ %.594.us107, %.lr.ph96.split.us105 ], [ %.6.us110, %84 ]
+  %.3.lcssa = phi i32 [ %.063120, %53 ], [ %.063120, %.lr.ph96.split ], [ %58, %.lr.ph96.split.us ], [ %57, %61 ], [ %68, %.lr.ph96.split.us105 ], [ %55, %84 ]
   %92 = icmp sgt i32 %.5.lcssa, -1
   br i1 %92, label %93, label %._crit_edge.thread147
 

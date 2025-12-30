@@ -679,8 +679,8 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
   br i1 %317, label %320, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %309, %.thread47
-  %.be = phi ptr [ %318, %.thread47 ], [ %316, %309 ]
-  %.fr56.be = phi i32 [ 1, %.thread47 ], [ %315, %309 ]
+  %.be = phi ptr [ %316, %309 ], [ %318, %.thread47 ]
+  %.fr56.be = phi i32 [ %315, %309 ], [ 1, %.thread47 ]
   br label %.preheader, !llvm.loop !17
 
 .thread47:                                        ; preds = %.preheader

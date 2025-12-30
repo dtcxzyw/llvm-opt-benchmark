@@ -331,7 +331,7 @@ KINCheckNvector.exit:                             ; preds = %47
   %.not35 = icmp eq ptr %52, null
   br i1 %.not35, label %KINCheckNvector.exit.thread, label %53
 
-KINCheckNvector.exit.thread:                      ; preds = %15, %19, %23, %27, %31, %35, %39, %43, %47, %11, %KINCheckNvector.exit
+KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, %27, %31, %35, %39, %43, %47, %KINCheckNvector.exit
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6)
   br label %245
 
@@ -666,7 +666,7 @@ KINCheckNvector.exit.thread:                      ; preds = %15, %19, %23, %27, 
   store i64 %239, ptr %103, align 8, !tbaa !40
   br label %KINAllocVectors.exit
 
-240:                                              ; preds = %59, %69, %75, %82, %90, %124, %134, %147, %161, %192, %212
+240:                                              ; preds = %69, %75, %82, %90, %124, %134, %147, %161, %192, %212, %59
   call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2)
   call void @free(ptr noundef nonnull %0) #14
   br label %245
@@ -2265,16 +2265,16 @@ KINLinSolDrv.exit172:                             ; preds = %568
   br label %851
 
 851:                                              ; preds = %850, %839, %731, %608
-  %.10212 = phi double [ %727, %731 ], [ %.1203, %608 ], [ %.5207, %850 ], [ %.5207, %839 ]
-  %.10 = phi double [ %729, %731 ], [ %.1198, %608 ], [ %.5, %850 ], [ %.5, %839 ]
-  %.4196 = phi i32 [ 0, %731 ], [ 0, %608 ], [ 1, %850 ], [ 0, %839 ]
-  %.0313.i = phi i32 [ -997, %731 ], [ -997, %608 ], [ 0, %850 ], [ 0, %839 ]
+  %.10212 = phi double [ %727, %731 ], [ %.5207, %850 ], [ %.5207, %839 ], [ %.1203, %608 ]
+  %.10 = phi double [ %729, %731 ], [ %.5, %850 ], [ %.5, %839 ], [ %.1198, %608 ]
+  %.4196 = phi i32 [ 0, %731 ], [ 1, %850 ], [ 0, %839 ], [ 0, %608 ]
+  %.0313.i = phi i32 [ -997, %731 ], [ 0, %850 ], [ 0, %839 ], [ -997, %608 ]
   %852 = load i64, ptr %294, align 8, !tbaa !119
   %853 = load i64, ptr %296, align 8, !tbaa !25
   %854 = icmp sgt i64 %852, %853
   br i1 %854, label %KINLinSolDrv.exit.thread, label %KINFullNewton.exit.thread
 
-KINFullNewton.exit.thread:                        ; preds = %554, %550, %514, %455, %851
+KINFullNewton.exit.thread:                        ; preds = %550, %554, %514, %455, %851
   %.2204 = phi double [ %.1203, %455 ], [ %.10212, %851 ], [ %.1203, %514 ], [ %540, %550 ], [ %540, %554 ]
   %.2199 = phi double [ %.1198, %455 ], [ %.10, %851 ], [ %.1198, %514 ], [ %542, %550 ], [ %542, %554 ]
   %.2194 = phi i32 [ %.1193, %455 ], [ %.4196, %851 ], [ 0, %514 ], [ 0, %550 ], [ 1, %554 ]
@@ -2516,8 +2516,8 @@ KINFullNewton.exit.thread:                        ; preds = %554, %550, %514, %4
   store i32 1, ptr %275, align 4, !tbaa !110
   br label %455
 
-KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.thread, %911, %.thread99.i, %950, %948, %953, %912, %898, %901, %896, %900, %878, %905, %952, %866
-  %.4 = phi i32 [ %..i, %866 ], [ -999, %911 ], [ -999, %.thread99.i ], [ -999, %950 ], [ -999, %948 ], [ -999, %953 ], [ -999, %912 ], [ 2, %898 ], [ -6, %901 ], [ 2, %896 ], [ -999, %900 ], [ 0, %878 ], [ -7, %905 ], [ -999, %952 ], [ %.3, %KINFullNewton.exit.thread ]
+KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.thread, %911, %.thread99.i, %950, %948, %953, %912, %905, %901, %896, %898, %878, %866, %952, %900
+  %.4 = phi i32 [ -999, %911 ], [ -999, %.thread99.i ], [ -999, %950 ], [ -999, %948 ], [ -999, %953 ], [ -999, %912 ], [ -7, %905 ], [ -6, %901 ], [ 2, %896 ], [ 2, %898 ], [ 0, %878 ], [ %..i, %866 ], [ -999, %952 ], [ -999, %900 ], [ %.3, %KINFullNewton.exit.thread ]
   %963 = load ptr, ptr %283, align 8, !tbaa !61
   %964 = load ptr, ptr %14, align 8, !tbaa !78
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %963, ptr noundef %964) #14
@@ -2543,8 +2543,8 @@ KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.
   %.pre = load i32, ptr %181, align 8, !tbaa !92
   br label %442
 
-KINLinSolDrv.exit.thread:                         ; preds = %971, %814, %851, %577, %579, %564, %575, %479, %481, %466, %477, %626, %624, %707, %.preheader.i, %532, %530, %.critedge2.i
-  %.2 = phi i32 [ -13, %707 ], [ -13, %.preheader.i ], [ -15, %626 ], [ -13, %.critedge2.i ], [ -13, %530 ], [ -9, %577 ], [ -15, %532 ], [ -13, %624 ], [ -9, %579 ], [ -12, %575 ], [ -11, %466 ], [ -9, %481 ], [ -9, %479 ], [ -12, %477 ], [ -8, %851 ], [ -11, %564 ], [ -13, %814 ], [ %.4, %971 ]
+KINLinSolDrv.exit.thread:                         ; preds = %971, %814, %851, %577, %579, %575, %564, %479, %481, %477, %466, %624, %626, %707, %.preheader.i, %532, %530, %.critedge2.i
+  %.2 = phi i32 [ -13, %.critedge2.i ], [ -13, %530 ], [ -15, %532 ], [ -13, %.preheader.i ], [ -13, %707 ], [ -15, %626 ], [ -13, %624 ], [ -13, %814 ], [ -8, %851 ], [ -11, %564 ], [ -12, %575 ], [ -9, %579 ], [ -9, %577 ], [ -11, %466 ], [ -12, %477 ], [ -9, %481 ], [ -9, %479 ], [ %.4, %971 ]
   %975 = load i32, ptr %161, align 4, !tbaa !83
   %976 = icmp sgt i32 %975, 0
   br i1 %976, label %977, label %978
@@ -2602,8 +2602,8 @@ KINLinSolDrv.exit.thread:                         ; preds = %971, %814, %851, %5
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.22)
   br label %KINPicardAA.exit
 
-KINPicardAA.exit:                                 ; preds = %159, %153, %242, %228, %219, %217, %140, %133, %129, %125, %121, %118, %116, %441, %KINPicardFcnEval.exit.thread.i, %978, %979, %980, %981, %982, %983, %984, %985, %986, %987, %KINFP.exit, %113, %114, %25, %21, %12, %7
-  %.0123 = phi i32 [ -1, %7 ], [ -3, %12 ], [ -2, %21 ], [ -2, %25 ], [ %.181.i, %441 ], [ %.155.i, %KINFP.exit ], [ %.2, %978 ], [ -6, %114 ], [ -13, %113 ], [ -7, %987 ], [ -6, %986 ], [ -8, %985 ], [ -5, %984 ], [ -9, %983 ], [ -12, %982 ], [ -11, %981 ], [ -15, %980 ], [ -13, %979 ], [ %.181.i, %KINPicardFcnEval.exit.thread.i ], [ -2, %159 ], [ -2, %153 ], [ -10, %242 ], [ 1, %228 ], [ -14, %219 ], [ -13, %217 ], [ -2, %140 ], [ -2, %133 ], [ -2, %129 ], [ -2, %125 ], [ -2, %121 ], [ -2, %118 ], [ -2, %116 ]
+KINPicardAA.exit:                                 ; preds = %153, %159, %242, %228, %219, %217, %140, %133, %129, %125, %121, %118, %116, %441, %KINPicardFcnEval.exit.thread.i, %978, %979, %980, %981, %982, %983, %984, %985, %986, %987, %KINFP.exit, %113, %114, %25, %21, %12, %7
+  %.0123 = phi i32 [ -1, %7 ], [ -3, %12 ], [ -2, %21 ], [ -2, %25 ], [ -6, %114 ], [ -13, %113 ], [ %.155.i, %KINFP.exit ], [ -7, %987 ], [ -6, %986 ], [ -8, %985 ], [ -5, %984 ], [ -9, %983 ], [ -12, %982 ], [ -11, %981 ], [ -15, %980 ], [ -13, %979 ], [ %.2, %978 ], [ %.181.i, %KINPicardFcnEval.exit.thread.i ], [ %.181.i, %441 ], [ -2, %153 ], [ -2, %159 ], [ -10, %242 ], [ 1, %228 ], [ -14, %219 ], [ -13, %217 ], [ -2, %140 ], [ -2, %133 ], [ -2, %129 ], [ -2, %125 ], [ -2, %121 ], [ -2, %118 ], [ -2, %116 ]
   ret i32 %.0123
 }
 
@@ -3444,7 +3444,7 @@ define internal fastcc void @AndersenAcc(ptr noundef nonnull readonly captures(n
   br i1 %180, label %.lr.ph233, label %.loopexit217, !llvm.loop !131
 
 .loopexit219:                                     ; preds = %.loopexit217, %138, %.preheader220, %.preheader218, %._crit_edge, %37
-  %.pre-phi = phi i64 [ %60, %.preheader220 ], [ %60, %.preheader218 ], [ %60, %._crit_edge ], [ 1, %37 ], [ %60, %138 ], [ %60, %.loopexit217 ]
+  %.pre-phi = phi i64 [ %60, %.preheader218 ], [ %60, %._crit_edge ], [ 1, %37 ], [ %60, %.preheader220 ], [ %60, %138 ], [ %60, %.loopexit217 ]
   %181 = load i64, ptr %9, align 8, !tbaa !66
   %spec.select215 = tail call i64 @llvm.smin.i64(i64 %181, i64 %.pre-phi)
   %spec.select = trunc i64 %spec.select215 to i32

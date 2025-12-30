@@ -992,8 +992,8 @@ _ZNSt6vectorIN3vas2ot6ObjectESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit: ; preds
   call void @_ZdlPv(ptr noundef nonnull %111) #33
   br label %_ZNSt6vectorIN3vas2ot6ObjectESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3vas2ot6ObjectESaIS2_EED2Ev.exit:   ; preds = %107, %214, %.loopexit125, %.loopexit.split-lp126, %217, %216
-  %.pn43.pn = phi { ptr, i32 } [ %.pn.pn.pn, %217 ], [ %.pn.pn.pn, %216 ], [ %lpad.loopexit127, %.loopexit125 ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp126 ], [ %108, %107 ], [ %215, %214 ]
+_ZNSt6vectorIN3vas2ot6ObjectESaIS2_EED2Ev.exit:   ; preds = %214, %107, %.loopexit125, %.loopexit.split-lp126, %217, %216
+  %.pn43.pn = phi { ptr, i32 } [ %.pn.pn.pn, %216 ], [ %.pn.pn.pn, %217 ], [ %lpad.loopexit127, %.loopexit125 ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp126 ], [ %215, %214 ], [ %108, %107 ]
   %218 = load ptr, ptr %5, align 8, !tbaa !88
   %.not.i.i.i78 = icmp eq ptr %218, null
   br i1 %.not.i.i.i78, label %_ZNSt6vectorIN3vas2ot9DetectionESaIS2_EED2Ev.exit79, label %219
@@ -1587,7 +1587,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   %.0.i6.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i to i32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %switch.lookup, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %switch.lookup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %105
 
@@ -1730,7 +1730,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %112
 
 112:                                              ; preds = %_ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i, %103, %110, %99, %31, %22
-  %.merged = phi { ptr, i32 } [ %23, %22 ], [ %32, %31 ], [ %104, %103 ], [ %.pn23, %99 ], [ %111, %110 ], [ %70, %_ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i ]
+  %.merged = phi { ptr, i32 } [ %23, %22 ], [ %32, %31 ], [ %104, %103 ], [ %111, %110 ], [ %70, %_ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i ], [ %.pn23, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.merged
 

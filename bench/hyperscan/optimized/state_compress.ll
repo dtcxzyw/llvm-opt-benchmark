@@ -76,7 +76,7 @@ define hidden void @loadcompressed32(ptr noundef writeonly captures(none) initia
   br label %partial_load_u32.exit
 
 partial_load_u32.exit:                            ; preds = %4, %5, %7, %15, %18
-  %.0.i = phi i32 [ %20, %18 ], [ %6, %5 ], [ %14, %7 ], [ %17, %15 ], [ 0, %4 ]
+  %.0.i = phi i32 [ %6, %5 ], [ %14, %7 ], [ %17, %15 ], [ %20, %18 ], [ 0, %4 ]
   %21 = load i32, ptr %2, align 4
   %22 = tail call i32 @llvm.x86.bmi.pdep.32(i32 %.0.i, i32 %21)
   store i32 %22, ptr %0, align 4
@@ -240,7 +240,7 @@ define hidden void @loadcompressed64(ptr noundef writeonly captures(none) initia
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %4, %5, %7, %20, %28, %36, %39, %47, %50
-  %.0.i = phi i64 [ %52, %50 ], [ %6, %5 ], [ %19, %7 ], [ %27, %20 ], [ %35, %28 ], [ %38, %36 ], [ %46, %39 ], [ %49, %47 ], [ 0, %4 ]
+  %.0.i = phi i64 [ %6, %5 ], [ %19, %7 ], [ %27, %20 ], [ %35, %28 ], [ %38, %36 ], [ %46, %39 ], [ %49, %47 ], [ %52, %50 ], [ 0, %4 ]
   %53 = load i64, ptr %2, align 8
   %54 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %.0.i, i64 %53)
   store i64 %54, ptr %0, align 8

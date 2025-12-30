@@ -184,7 +184,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %38, label %51, label %39
 
 39:                                               ; preds = %35, %.critedge._crit_edge
-  %.087.lcssa191 = phi i32 [ 0, %.critedge._crit_edge ], [ %29, %35 ]
+  %.087.lcssa191 = phi i32 [ %29, %35 ], [ 0, %.critedge._crit_edge ]
   %40 = icmp eq i32 %.087.lcssa191, %31
   br i1 %40, label %.thread192, label %45
 
@@ -411,7 +411,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.preheader120, %.thread, %._crit_edge154, %142, %144, %131, %115, %51
-  %.1 = phi i32 [ 0, %51 ], [ %.3.ph, %.thread ], [ %.5, %115 ], [ 0, %131 ], [ 0, %144 ], [ -1497649742, %._crit_edge154 ], [ -1497649742, %142 ], [ 0, %.preheader120 ], [ 0, %16 ]
+  %.1 = phi i32 [ 0, %51 ], [ %.5, %115 ], [ 0, %131 ], [ 0, %144 ], [ -1497649742, %142 ], [ -1497649742, %._crit_edge154 ], [ %.3.ph, %.thread ], [ 0, %.preheader120 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1

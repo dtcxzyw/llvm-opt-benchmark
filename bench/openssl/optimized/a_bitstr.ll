@@ -101,8 +101,8 @@ define range(i32 -2147483647, -2147483648) i32 @ossl_i2c_ASN1_BIT_STRING(ptr nou
   br label %43
 
 43:                                               ; preds = %4, %42, %40, %38, %36, %34, %32, %30, %.thread, %13
-  %.040 = phi i32 [ %15, %13 ], [ 6, %40 ], [ 0, %4 ], [ 0, %.thread ], [ 1, %30 ], [ 2, %32 ], [ 3, %34 ], [ 4, %36 ], [ 5, %38 ], [ %., %42 ]
-  %.1 = phi i32 [ %5, %13 ], [ %.03964, %40 ], [ %5, %4 ], [ %.03964, %.thread ], [ %.03964, %30 ], [ %.03964, %32 ], [ %.03964, %34 ], [ %.03964, %36 ], [ %.03964, %38 ], [ %.03964, %42 ]
+  %.040 = phi i32 [ %15, %13 ], [ 0, %.thread ], [ 1, %30 ], [ 2, %32 ], [ 3, %34 ], [ 4, %36 ], [ 5, %38 ], [ 6, %40 ], [ %., %42 ], [ 0, %4 ]
+  %.1 = phi i32 [ %5, %13 ], [ %.03964, %.thread ], [ %.03964, %30 ], [ %.03964, %32 ], [ %.03964, %34 ], [ %.03964, %36 ], [ %.03964, %38 ], [ %.03964, %40 ], [ %.03964, %42 ], [ %5, %4 ]
   %44 = add nsw i32 %.1, 1
   %45 = icmp eq ptr %1, null
   br i1 %45, label %66, label %49
@@ -252,7 +252,7 @@ define ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0, p
   br label %45
 
 45:                                               ; preds = %42, %44, %12, %38
-  %.040 = phi ptr [ null, %12 ], [ %.1, %38 ], [ null, %44 ], [ null, %42 ]
+  %.040 = phi ptr [ %.1, %38 ], [ null, %12 ], [ null, %44 ], [ null, %42 ]
   ret ptr %.040
 }
 
@@ -369,7 +369,7 @@ define range(i32 0, 2) i32 @ASN1_BIT_STRING_set_bit(ptr noundef captures(address
   br i1 %60, label %51, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %58, %51, %39, %23, %22, %5, %3
-  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 1, %22 ], [ 0, %23 ], [ 1, %39 ], [ 1, %51 ], [ 1, %58 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %22 ], [ 0, %23 ], [ 1, %39 ], [ 1, %51 ], [ 1, %58 ]
   ret i32 %.0
 }
 
@@ -465,7 +465,7 @@ define range(i32 0, 2) i32 @ASN1_BIT_STRING_check(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %3, %4
-  %.0 = phi i32 [ 1, %3 ], [ 1, %4 ], [ 1, %.preheader ], [ %26, %.loopexit.loopexit ]
+  %.0 = phi i32 [ 1, %4 ], [ 1, %3 ], [ 1, %.preheader ], [ %26, %.loopexit.loopexit ]
   ret i32 %.0
 }
 

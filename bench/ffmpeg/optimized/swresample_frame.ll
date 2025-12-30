@@ -330,7 +330,7 @@ convert_frame.exit:                               ; preds = %105, %.sink.split.i
   br label %108
 
 108:                                              ; preds = %config_changed.exit.thread51, %config_changed.exit.thread, %78, %79, %config_changed.exit, %9, %6, %convert_frame.exit
-  %.031 = phi i32 [ %10, %9 ], [ %..i, %convert_frame.exit ], [ %.0.i, %config_changed.exit ], [ %7, %6 ], [ %76, %79 ], [ %76, %78 ], [ %.019.i.ph, %config_changed.exit.thread ], [ %49, %config_changed.exit.thread51 ]
+  %.031 = phi i32 [ %..i, %convert_frame.exit ], [ %7, %6 ], [ %10, %9 ], [ %.0.i, %config_changed.exit ], [ %76, %79 ], [ %76, %78 ], [ %.019.i.ph, %config_changed.exit.thread ], [ %49, %config_changed.exit.thread51 ]
   ret i32 %.031
 }
 

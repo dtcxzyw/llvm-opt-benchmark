@@ -4713,12 +4713,12 @@ _ZN7testing7MessageD2Ev.exit694:                  ; preds = %_ZNKSt14default_del
   br label %1466
 
 1466:                                             ; preds = %.loopexit, %.loopexit.split-lp, %1465, %1435, %1433
-  %.pn170.pn.pn.pn = phi { ptr, i32 } [ %.pn170.pn.pn, %1465 ], [ %1434, %1433 ], [ %1436, %1435 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn170.pn.pn.pn = phi { ptr, i32 } [ %.pn170.pn.pn, %1465 ], [ %1436, %1435 ], [ %1434, %1433 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %.loopexit.split-lp704
 
 .loopexit.split-lp704:                            ; preds = %.loopexit711, %.loopexit.split-lp712, %.loopexit723, %.loopexit.split-lp724, %.loopexit703, %.loopexit.split-lp704.loopexit.split-lp.loopexit, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp704.loopexit, %.loopexit732, %.loopexit.split-lp733, %1466, %1432, %1386, %1355, %1313, %1312, %1170, %1121, %1063, %932, %883, %825, %750, %749, %605, %556, %498, %424, %418, %417, %215
-  %.pn170.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn170.pn.pn.pn, %1466 ], [ %.pn166.pn.pn, %1432 ], [ %.pn162.pn.pn, %1386 ], [ %.pn158.pn.pn, %1355 ], [ %lpad.loopexit.split-lp735, %.loopexit.split-lp733 ], [ %1314, %1313 ], [ %.pn154.pn.pn, %1312 ], [ %.pn150.pn.pn, %1170 ], [ %.pn146.pn.pn, %1121 ], [ %lpad.loopexit.split-lp726, %.loopexit.split-lp724 ], [ %.pn142.pn.pn, %1063 ], [ %.pn138.pn.pn, %932 ], [ %.pn134.pn.pn, %883 ], [ %.pn130.pn.pn, %825 ], [ %751, %750 ], [ %.pn126.pn.pn, %749 ], [ %.pn122.pn.pn, %605 ], [ %.pn118.pn.pn, %556 ], [ %.pn114.pn.pn, %498 ], [ %lpad.loopexit.split-lp730, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn112, %424 ], [ %419, %418 ], [ %.pn.pn.pn, %215 ], [ %.pn108.pn.pn, %417 ], [ %lpad.loopexit734, %.loopexit732 ], [ %lpad.loopexit705, %.loopexit703 ], [ %lpad.loopexit708, %.loopexit.split-lp704.loopexit ], [ %lpad.loopexit717, %.loopexit.split-lp704.loopexit.split-lp.loopexit ], [ %lpad.loopexit720, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit729, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit725, %.loopexit723 ], [ %lpad.loopexit713, %.loopexit711 ], [ %lpad.loopexit.split-lp714, %.loopexit.split-lp712 ]
+  %.pn170.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn170.pn.pn.pn, %1466 ], [ %.pn166.pn.pn, %1432 ], [ %.pn162.pn.pn, %1386 ], [ %.pn158.pn.pn, %1355 ], [ %1314, %1313 ], [ %.pn154.pn.pn, %1312 ], [ %.pn150.pn.pn, %1170 ], [ %.pn146.pn.pn, %1121 ], [ %.pn142.pn.pn, %1063 ], [ %.pn138.pn.pn, %932 ], [ %.pn134.pn.pn, %883 ], [ %.pn130.pn.pn, %825 ], [ %751, %750 ], [ %.pn126.pn.pn, %749 ], [ %.pn122.pn.pn, %605 ], [ %.pn118.pn.pn, %556 ], [ %.pn114.pn.pn, %498 ], [ %.pn112, %424 ], [ %419, %418 ], [ %.pn108.pn.pn, %417 ], [ %.pn.pn.pn, %215 ], [ %lpad.loopexit734, %.loopexit732 ], [ %lpad.loopexit.split-lp735, %.loopexit.split-lp733 ], [ %lpad.loopexit705, %.loopexit703 ], [ %lpad.loopexit708, %.loopexit.split-lp704.loopexit ], [ %lpad.loopexit717, %.loopexit.split-lp704.loopexit.split-lp.loopexit ], [ %lpad.loopexit720, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit729, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp730, %.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit725, %.loopexit723 ], [ %lpad.loopexit.split-lp726, %.loopexit.split-lp724 ], [ %lpad.loopexit713, %.loopexit711 ], [ %lpad.loopexit.split-lp714, %.loopexit.split-lp712 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7011,13 +7011,13 @@ _ZN7testing15AssertionResultD2Ev.exit332:         ; preds = %623, %_ZNKSt14defau
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %633, %596, %547, %489, %423, %374, %316, %234, %185, %125
-  %.pn90.pn.pn.pn = phi { ptr, i32 } [ %.pn90.pn.pn, %633 ], [ %.pn86.pn.pn, %596 ], [ %.pn82.pn.pn, %547 ], [ %.pn, %125 ], [ %.pn78.pn.pn, %489 ], [ %.pn74.pn.pn, %423 ], [ %.pn70.pn.pn, %374 ], [ %.pn66.pn.pn, %316 ], [ %.pn62.pn.pn, %234 ], [ %.pn58.pn.pn, %185 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit339, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp340, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn90.pn.pn.pn = phi { ptr, i32 } [ %.pn90.pn.pn, %633 ], [ %.pn86.pn.pn, %596 ], [ %.pn82.pn.pn, %547 ], [ %.pn78.pn.pn, %489 ], [ %.pn74.pn.pn, %423 ], [ %.pn70.pn.pn, %374 ], [ %.pn66.pn.pn, %316 ], [ %.pn62.pn.pn, %234 ], [ %.pn58.pn.pn, %185 ], [ %.pn, %125 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit339, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp340, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   br label %.body
 
 .body:                                            ; preds = %66, %62, %.loopexit.split-lp
-  %.pn90.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn90.pn.pn.pn, %.loopexit.split-lp ], [ %63, %62 ], [ %63, %66 ]
+  %.pn90.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn90.pn.pn.pn, %.loopexit.split-lp ], [ %63, %66 ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7615,7 +7615,7 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %201, %_ZNKSt14defau
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %211, %173, %172, %88, %83
-  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %211 ], [ %.pn, %83 ], [ %174, %173 ], [ %.pn18.pn.pn, %172 ], [ %.pn16, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit68, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %211 ], [ %174, %173 ], [ %.pn18.pn.pn, %172 ], [ %.pn16, %88 ], [ %.pn, %83 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit68, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -8254,7 +8254,7 @@ _ZN7testing15AssertionResultD2Ev.exit62:          ; preds = %159, %_ZNKSt14defau
   br label %170
 
 170:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit65, %.loopexit.split-lp66, %169, %131, %130, %56
-  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn, %169 ], [ %lpad.loopexit.split-lp68, %.loopexit.split-lp66 ], [ %132, %131 ], [ %.pn15.pn.pn, %130 ], [ %.pn, %56 ], [ %lpad.loopexit67, %.loopexit65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn, %169 ], [ %132, %131 ], [ %.pn15.pn.pn, %130 ], [ %.pn, %56 ], [ %lpad.loopexit67, %.loopexit65 ], [ %lpad.loopexit.split-lp68, %.loopexit.split-lp66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9956,7 +9956,7 @@ _ZN7testing15AssertionResultD2Ev.exit314:         ; preds = %592, %_ZNKSt14defau
   br label %603
 
 603:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit347, %.loopexit.split-lp348, %.loopexit352, %.loopexit.split-lp353, %.loopexit357, %.loopexit.split-lp358, %.loopexit363, %.loopexit.split-lp364, %602, %564, %562, %561, %437, %339, %337, %335, %334, %131, %68
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn, %602 ], [ %lpad.loopexit.split-lp350, %.loopexit.split-lp348 ], [ %565, %564 ], [ %563, %562 ], [ %.pn45.pn.pn, %561 ], [ %lpad.loopexit.split-lp355, %.loopexit.split-lp353 ], [ %lpad.loopexit.split-lp360, %.loopexit.split-lp358 ], [ %.pn41.pn.pn, %437 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %.pn37.pn.pn, %334 ], [ %lpad.loopexit.split-lp366, %.loopexit.split-lp364 ], [ %.pn33.pn.pn, %131 ], [ %.pn, %68 ], [ %lpad.loopexit365, %.loopexit363 ], [ %lpad.loopexit359, %.loopexit357 ], [ %lpad.loopexit354, %.loopexit352 ], [ %lpad.loopexit349, %.loopexit347 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn, %602 ], [ %565, %564 ], [ %563, %562 ], [ %.pn45.pn.pn, %561 ], [ %.pn41.pn.pn, %437 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %.pn37.pn.pn, %334 ], [ %.pn33.pn.pn, %131 ], [ %.pn, %68 ], [ %lpad.loopexit365, %.loopexit363 ], [ %lpad.loopexit.split-lp366, %.loopexit.split-lp364 ], [ %lpad.loopexit359, %.loopexit357 ], [ %lpad.loopexit.split-lp360, %.loopexit.split-lp358 ], [ %lpad.loopexit354, %.loopexit352 ], [ %lpad.loopexit.split-lp355, %.loopexit.split-lp353 ], [ %lpad.loopexit349, %.loopexit347 ], [ %lpad.loopexit.split-lp350, %.loopexit.split-lp348 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -11062,7 +11062,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !39
   br label %41
 

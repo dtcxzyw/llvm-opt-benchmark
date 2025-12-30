@@ -1862,7 +1862,7 @@ _ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit
   br label %.body
 
 _ZN7rocksdb6StatusD2Ev.exit112:                   ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit85.thread, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit153, %_ZN7rocksdb6StatusD2Ev.exit120, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i107, %237
-  %298 = phi i1 [ true, %_ZN7rocksdb6StatusaSEOS0_.exit85.thread ], [ false, %_ZN7rocksdb6StatusD2Ev.exit120 ], [ false, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit153 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i107 ], [ false, %237 ]
+  %298 = phi i1 [ false, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit153 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit120 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i107 ], [ false, %237 ], [ true, %_ZN7rocksdb6StatusaSEOS0_.exit85.thread ]
   %299 = load ptr, ptr %24, align 8, !tbaa !79
   %.not.i160 = icmp eq ptr %299, null
   br i1 %.not.i160, label %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i
@@ -1895,7 +1895,7 @@ _ZN7rocksdb5TraceD2Ev.exit:                       ; preds = %303, %_ZNKSt7__cxx1
   br i1 %.033, label %thread-pre-split, label %131
 
 .body:                                            ; preds = %_ZN7rocksdb6StatusD2Ev.exit104, %253, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit159, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i, %203, %174
-  %.pn68.pn = phi { ptr, i32 } [ %175, %174 ], [ %219, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i ], [ %.pn66, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit159 ], [ %lpad.phi291, %_ZN7rocksdb6StatusD2Ev.exit104 ], [ %204, %203 ], [ %254, %253 ]
+  %.pn68.pn = phi { ptr, i32 } [ %175, %174 ], [ %lpad.phi291, %_ZN7rocksdb6StatusD2Ev.exit104 ], [ %254, %253 ], [ %.pn66, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit159 ], [ %204, %203 ], [ %219, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i ]
   %308 = load ptr, ptr %24, align 8, !tbaa !79
   %.not.i161 = icmp eq ptr %308, null
   br i1 %.not.i161, label %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EED2Ev.exit163, label %_ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i162
@@ -2535,7 +2535,7 @@ _ZN7rocksdb5TraceD2Ev.exit226:                    ; preds = %513, %_ZNKSt7__cxx1
   br i1 %or.cond400, label %.preheader401, label %.critedge
 
 523:                                              ; preds = %424, %491, %512, %395, %381
-  %.pn58.pn = phi { ptr, i32 } [ %382, %381 ], [ %425, %424 ], [ %396, %395 ], [ %.pn55, %491 ], [ %.pn, %512 ]
+  %.pn58.pn = phi { ptr, i32 } [ %382, %381 ], [ %396, %395 ], [ %.pn55, %491 ], [ %.pn, %512 ], [ %425, %424 ]
   %524 = load ptr, ptr %327, align 8, !tbaa !75
   %525 = icmp eq ptr %524, %328
   br i1 %525, label %_ZN7rocksdb5TraceD2Ev.exit229, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i227
@@ -2724,7 +2724,7 @@ _ZN7rocksdb6StatusD2Ev.exit248:                   ; preds = %_ZN7rocksdb6StatusC
   br label %580
 
 578:                                              ; preds = %_ZN7rocksdb5TraceD2Ev.exit166, %556
-  %.pn74 = phi { ptr, i32 } [ %.pn71, %_ZN7rocksdb5TraceD2Ev.exit166 ], [ %.pn61.pn.pn.pn, %556 ]
+  %.pn74 = phi { ptr, i32 } [ %.pn61.pn.pn.pn, %556 ], [ %.pn71, %_ZN7rocksdb5TraceD2Ev.exit166 ]
   %579 = load ptr, ptr %67, align 8, !tbaa !69
   %.not.i.i249 = icmp eq ptr %579, null
   br i1 %.not.i.i249, label %_ZN7rocksdb6StatusD2Ev.exit251, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i250

@@ -404,7 +404,7 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams8generics1
           to label %41 unwind label %.loopexit.split-lp22
 
 40:                                               ; preds = %.loopexit21, %.loopexit.split-lp22, %92, %60, %42
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %60 ], [ %43, %42 ], [ %93, %92 ], [ %lpad.loopexit23, %.loopexit21 ], [ %lpad.loopexit.split-lp24, %.loopexit.split-lp22 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %60 ], [ %93, %92 ], [ %43, %42 ], [ %lpad.loopexit23, %.loopexit21 ], [ %lpad.loopexit.split-lp24, %.loopexit.split-lp22 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17hc7ceafaaa18cf32eE"(ptr nonnull align 8 %15) #5
           to label %95 unwind label %77
 

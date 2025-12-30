@@ -1454,7 +1454,7 @@ _ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit:         ; preds = %52, %48, %55
   br label %57
 
 57:                                               ; preds = %15, %13, %9, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit
-  %.0 = phi i1 [ true, %9 ], [ %.0.i, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit ], [ %14, %13 ], [ false, %15 ]
+  %.0 = phi i1 [ %.0.i, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit ], [ true, %9 ], [ %14, %13 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -5987,8 +5987,8 @@ _ZN11mpq_managerILb1EE5resetER3mpz.exit.backedge: ; preds = %_ZN11mpq_managerILb
   br label %.loopexit
 
 .critedge2:                                       ; preds = %_ZN11mpq_managerILb1EE5resetER3mpz.exit, %_ZN11mpq_managerILb1EE5resetER3mpz.exit, %_ZN11mpq_managerILb1EE5resetER3mpz.exit, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us, %49
-  %83 = phi i8 [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.pr185, %49 ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ]
-  %.290 = phi ptr [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.189, %49 ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ]
+  %83 = phi i8 [ %.pr185, %49 ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %60, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %71, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ]
+  %.290 = phi ptr [ %.189, %49 ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb1EE5resetER3mpz.exit.us ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb1EE5resetER3mpz.exit ]
   switch i8 %83, label %.thread [
     i8 101, label %84
     i8 69, label %84
@@ -6561,7 +6561,7 @@ _ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev.exit: ; preds = %291
   br label %301
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %82, %289, %178, %149, %108, %261
-  %.pn142.pn = phi { ptr, i32 } [ %.pn.pn.pn, %261 ], [ %179, %178 ], [ %.us-phi223, %82 ], [ %109, %108 ], [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %150, %149 ], [ %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.thread ], [ %290, %289 ], [ %284, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.thread ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  %.pn142.pn = phi { ptr, i32 } [ %.us-phi223, %82 ], [ %109, %108 ], [ %150, %149 ], [ %290, %289 ], [ %179, %178 ], [ %.pn.pn.pn, %261 ], [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.thread ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.thread ], [ %284, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.thread ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   call void @_ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %322
@@ -6649,7 +6649,7 @@ _ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev.exit184: ; preds = %_ZN15_scoped_n
   ret void
 
 322:                                              ; preds = %.loopexit203, %.loopexit.split-lp204, %45, %.loopexit
-  %.pn146.pn = phi { ptr, i32 } [ %.pn142.pn, %.loopexit ], [ %46, %45 ], [ %lpad.loopexit205, %.loopexit203 ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp204 ]
+  %.pn146.pn = phi { ptr, i32 } [ %46, %45 ], [ %.pn142.pn, %.loopexit ], [ %lpad.loopexit205, %.loopexit203 ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp204 ]
   call void @_ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
@@ -8326,7 +8326,7 @@ tailrecurse:                                      ; preds = %21, %3
   br label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
 
 _ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %19, %13, %44, %48, %17
-  %.0 = phi i1 [ %50, %48 ], [ %47, %44 ], [ %18, %17 ], [ %12, %13 ], [ %12, %19 ]
+  %.0 = phi i1 [ %18, %17 ], [ %47, %44 ], [ %50, %48 ], [ %12, %13 ], [ %12, %19 ]
   ret i1 %.0
 }
 
@@ -12677,8 +12677,8 @@ _ZN11mpq_managerILb0EE5resetER3mpz.exit.backedge: ; preds = %_ZN11mpq_managerILb
   br label %.loopexit
 
 .critedge2:                                       ; preds = %_ZN11mpq_managerILb0EE5resetER3mpz.exit, %_ZN11mpq_managerILb0EE5resetER3mpz.exit, %_ZN11mpq_managerILb0EE5resetER3mpz.exit, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us, %48
-  %82 = phi i8 [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.pr179, %48 ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ]
-  %.290 = phi ptr [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.189, %48 ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ]
+  %82 = phi i8 [ %.pr179, %48 ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %59, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %70, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ]
+  %.290 = phi ptr [ %.189, %48 ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391.us, %_ZN11mpq_managerILb0EE5resetER3mpz.exit.us ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ], [ %.391, %_ZN11mpq_managerILb0EE5resetER3mpz.exit ]
   switch i8 %82, label %.thread [
     i8 101, label %83
     i8 69, label %83
@@ -13216,7 +13216,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %272
   br label %282
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %81, %270, %177, %148, %107, %242
-  %.pn142.pn = phi { ptr, i32 } [ %.pn.pn.pn, %242 ], [ %178, %177 ], [ %.us-phi217, %81 ], [ %108, %107 ], [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %149, %148 ], [ %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.thread ], [ %271, %270 ], [ %265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.thread ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  %.pn142.pn = phi { ptr, i32 } [ %.us-phi217, %81 ], [ %108, %107 ], [ %149, %148 ], [ %271, %270 ], [ %178, %177 ], [ %.pn.pn.pn, %242 ], [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.thread ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.thread ], [ %265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %302
@@ -13295,7 +13295,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit178: ; preds = %_ZN15_scoped_n
   ret void
 
 302:                                              ; preds = %.loopexit197, %.loopexit.split-lp198, %44, %.loopexit
-  %.pn146.pn = phi { ptr, i32 } [ %.pn142.pn, %.loopexit ], [ %45, %44 ], [ %lpad.loopexit199, %.loopexit197 ], [ %lpad.loopexit.split-lp200, %.loopexit.split-lp198 ]
+  %.pn146.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn142.pn, %.loopexit ], [ %lpad.loopexit199, %.loopexit197 ], [ %lpad.loopexit.split-lp200, %.loopexit.split-lp198 ]
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
@@ -14006,7 +14006,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb0EE17is_perfect_sq
   br label %_ZN11mpq_managerILb0EE9normalizeER3mpq.exit
 
 _ZN11mpq_managerILb0EE9normalizeER3mpq.exit:      ; preds = %32, %23, %18, %20, %12
-  %.0 = phi i1 [ %17, %12 ], [ false, %18 ], [ false, %20 ], [ true, %23 ], [ true, %32 ]
+  %.0 = phi i1 [ %17, %12 ], [ false, %20 ], [ false, %18 ], [ true, %23 ], [ true, %32 ]
   ret i1 %.0
 }
 

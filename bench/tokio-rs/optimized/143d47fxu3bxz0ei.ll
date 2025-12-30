@@ -514,7 +514,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
   unreachable
 
 common.resume:                                    ; preds = %.thread, %77, %99, %51, %43
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %44, %43 ], [ %78, %99 ], [ %78, %77 ], [ %eh.lpad-body, %.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %52, %51 ], [ %78, %99 ], [ %78, %77 ], [ %eh.lpad-body, %.thread ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9ee7c894ad0d413E.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit40"

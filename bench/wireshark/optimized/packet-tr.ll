@@ -289,7 +289,7 @@ check_for_old_linux_tvb.exit:                     ; preds = %.lr.ph.i
   br label %check_for_old_linux_tvb.exit.thread
 
 check_for_old_linux_tvb.exit.thread:              ; preds = %42, %check_for_old_linux_tvb.exit, %4, %35, %44
-  %.sink = phi ptr [ %45, %44 ], [ %0, %check_for_old_linux_tvb.exit ], [ %0, %35 ], [ %0, %4 ], [ %0, %42 ]
+  %.sink = phi ptr [ %45, %44 ], [ %0, %35 ], [ %0, %4 ], [ %0, %check_for_old_linux_tvb.exit ], [ %0, %42 ]
   store volatile ptr %.sink, ptr %13, align 8
   %.0..0..0..0.42 = load volatile ptr, ptr %13, align 8
   %46 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0..0..0..0.42, i32 noundef 1)
@@ -1158,7 +1158,7 @@ check_for_old_linux.exit:                         ; preds = %10, %.split.loop.ex
   br label %114
 
 58:                                               ; preds = %49, %39, %31, %56, %34
-  %.083.shrunk.ph = phi i8 [ 0, %39 ], [ %22, %31 ], [ 0, %34 ], [ 0, %49 ], [ 1, %56 ]
+  %.083.shrunk.ph = phi i8 [ 0, %49 ], [ 0, %39 ], [ %22, %31 ], [ 0, %34 ], [ 1, %56 ]
   %.not116 = icmp eq i8 %.083.shrunk.ph, 0
   %.103 = select i1 %.not116, i8 0, i8 %27
   %59 = icmp eq i8 %.103, 2

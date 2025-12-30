@@ -649,13 +649,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h62fb3f485a801cecE.exit: ; p
   br label %31
 
 31:                                               ; preds = %30, %.thread158
-  %.sroa.087.2172 = phi i64 [ 2, %.thread158 ], [ 1, %30 ]
-  %.sroa.081.0153171 = phi ptr [ inttoptr (i64 1 to ptr), %.thread158 ], [ %21, %30 ]
-  %.sroa.382.0154170 = phi i64 [ 0, %.thread158 ], [ %22, %30 ]
-  %.sroa.03.1155169 = phi ptr [ null, %.thread158 ], [ %21, %30 ]
-  %.sroa.3.1156168 = phi ptr [ %.sroa.3.1156.ph, %.thread158 ], [ %26, %30 ]
-  %.sroa.0.1157167 = phi ptr [ %.sroa.0.1157.ph, %.thread158 ], [ %25, %30 ]
-  %.sroa.53.i.sroa.4.0 = phi i64 [ undef, %.thread158 ], [ %22, %30 ]
+  %.sroa.087.2172 = phi i64 [ 1, %30 ], [ 2, %.thread158 ]
+  %.sroa.081.0153171 = phi ptr [ %21, %30 ], [ inttoptr (i64 1 to ptr), %.thread158 ]
+  %.sroa.382.0154170 = phi i64 [ %22, %30 ], [ 0, %.thread158 ]
+  %.sroa.03.1155169 = phi ptr [ %21, %30 ], [ null, %.thread158 ]
+  %.sroa.3.1156168 = phi ptr [ %26, %30 ], [ %.sroa.3.1156.ph, %.thread158 ]
+  %.sroa.0.1157167 = phi ptr [ %25, %30 ], [ %.sroa.0.1157.ph, %.thread158 ]
+  %.sroa.53.i.sroa.4.0 = phi i64 [ %22, %30 ], [ undef, %.thread158 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %.in, align 8, !noundef !4
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2193,7 +2193,7 @@ _ZN3std7process7Command6stderr17h0d2d9b94faba7ce5E.exit: ; preds = %_ZN3std7proc
   br label %79
 
 82:                                               ; preds = %.thread113, %138, %83
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %138 ], [ %lpad.thr_comm, %.thread113 ], [ %84, %83 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %138 ], [ %84, %83 ], [ %lpad.thr_comm, %.thread113 ]
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E"(ptr noalias noundef align 8 dereferenceable(24) %18) #30
           to label %79 unwind label %139
 
@@ -2269,7 +2269,7 @@ _ZN3std7process7Command6stderr17h0d2d9b94faba7ce5E.exit: ; preds = %_ZN3std7proc
   %.not.i.i = icmp eq ptr %100, %98
   br i1 %.not.i.i, label %.loopexit123, label %.lr.ph.i.i
 
-.thread113:                                       ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h166bfb8b4db47487E.exit.i", %102, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda3bd83c2c76a35cE.exit.i", %118
+.thread113:                                       ; preds = %102, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda3bd83c2c76a35cE.exit.i", %118, %"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h166bfb8b4db47487E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %82

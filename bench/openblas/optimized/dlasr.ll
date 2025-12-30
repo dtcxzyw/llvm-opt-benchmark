@@ -73,7 +73,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %37, label %.thread, label %39
 
 .thread:                                          ; preds = %35, %32, %29, %27, %23, %17
-  %.sink = phi i32 [ 1, %17 ], [ 2, %23 ], [ 4, %29 ], [ 5, %32 ], [ 3, %27 ], [ 9, %35 ]
+  %.sink = phi i32 [ 1, %17 ], [ 2, %23 ], [ 3, %27 ], [ 4, %29 ], [ 5, %32 ], [ 9, %35 ]
   store i32 %.sink, ptr %10, align 4, !tbaa !3
   %38 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %10, i32 noundef 6) #5
   br label %.loopexit583

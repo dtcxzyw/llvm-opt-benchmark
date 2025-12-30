@@ -718,7 +718,7 @@ _ZN4lean4exprC2ERKS0_.exit21:                     ; preds = %37, %42, %44, %45
           to label %_ZN4lean16elim_dead_let_fn10visit_projERKNS_4exprE.exit unwind label %64
 
 common.resume:                                    ; preds = %35, %60, %94, %64
-  %common.resume.op = phi { ptr, i32 } [ %65, %64 ], [ %95, %94 ], [ %61, %60 ], [ %36, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %65, %64 ], [ %95, %94 ], [ %36, %35 ], [ %61, %60 ]
   resume { ptr, i32 } %common.resume.op
 
 64:                                               ; preds = %62
@@ -1746,7 +1746,7 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
   ret void
 
 289:                                              ; preds = %259, %251, %246, %156
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %156 ], [ %.pn25.pn, %259 ], [ %.pn23, %251 ], [ %.pn.pn, %246 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %156 ], [ %.pn23, %251 ], [ %.pn.pn, %246 ], [ %.pn25.pn, %259 ]
   call void @_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprENS_11binder_infoEEELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %4) #14
@@ -3364,7 +3364,7 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit193:      ; preds = %_ZN4lean6bufferINS_
   ret void
 
 591:                                              ; preds = %518, %507, %412
-  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn, %412 ], [ %.pn32.pn.pn, %518 ], [ %.pn30, %507 ]
+  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn, %412 ], [ %.pn30, %507 ], [ %.pn32.pn.pn, %518 ]
   call void @_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %11) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %10) #14

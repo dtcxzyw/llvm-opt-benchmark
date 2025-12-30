@@ -232,7 +232,7 @@ common.resume:                                    ; preds = %36, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %12
 
-36:                                               ; preds = %21, %13
+36:                                               ; preds = %13, %21
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr41drop_in_place$LT$std..thread..Builder$GT$17h29a86ad7e57a91c7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5) #15

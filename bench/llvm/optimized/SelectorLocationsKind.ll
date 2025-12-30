@@ -144,7 +144,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
   br label %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit.i
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit.i: ; preds = %64, %55, %52
-  %.sroa.015.0.i.i.i = phi i32 [ %65, %64 ], [ %54, %52 ], [ 0, %55 ]
+  %.sroa.015.0.i.i.i = phi i32 [ %54, %52 ], [ %65, %64 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %66 = load i32, ptr %37, align 4, !tbaa !17
   %.not39.i = icmp eq i32 %66, %.sroa.015.0.i.i.i
@@ -276,14 +276,14 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
   br label %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i: ; preds = %121, %112, %109
-  %.sroa.015.0.i.i31.i = phi i32 [ %122, %121 ], [ %111, %109 ], [ 0, %112 ]
+  %.sroa.015.0.i.i31.i = phi i32 [ %111, %109 ], [ %122, %121 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %123 = load i32, ptr %94, align 4, !tbaa !17
   %.not40.i = icmp eq i32 %123, %.sroa.015.0.i.i31.i
   br i1 %.not40.i, label %90, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
 
 _ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit: ; preds = %33, %13, %90, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i, %70, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.us.i, %6
-  %.0.i = phi i32 [ 2, %90 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.us.i ], [ 1, %6 ], [ 1, %13 ], [ 2, %70 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i ], [ 1, %33 ]
+  %.0.i = phi i32 [ 1, %6 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.us.i ], [ 2, %70 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i ], [ 2, %90 ], [ 1, %13 ], [ 1, %33 ]
   ret i32 %.0.i
 }
 
@@ -354,7 +354,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
   br label %_ZL17getStandardSelLocjN5clang8SelectorEbNS_14SourceLocationES1_.exit
 
 _ZL17getStandardSelLocjN5clang8SelectorEbNS_14SourceLocationES1_.exit: ; preds = %16, %25, %28, %37
-  %.sroa.015.0.i = phi i32 [ %38, %37 ], [ %27, %25 ], [ 0, %16 ], [ 0, %28 ]
+  %.sroa.015.0.i = phi i32 [ %27, %25 ], [ %38, %37 ], [ 0, %16 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.sroa.015.0.i
 }
@@ -494,7 +494,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
   br label %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit.i
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit.i: ; preds = %64, %55, %52
-  %.sroa.015.0.i.i.i = phi i32 [ %65, %64 ], [ %54, %52 ], [ 0, %55 ]
+  %.sroa.015.0.i.i.i = phi i32 [ %54, %52 ], [ %65, %64 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %66 = load i32, ptr %37, align 4, !tbaa !17
   %.not40.i = icmp eq i32 %66, %.sroa.015.0.i.i.i
@@ -628,14 +628,14 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
   br label %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i
 
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i: ; preds = %121, %112, %109
-  %.sroa.015.0.i.i31.i = phi i32 [ %122, %121 ], [ %111, %109 ], [ 0, %112 ]
+  %.sroa.015.0.i.i31.i = phi i32 [ %111, %109 ], [ %122, %121 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %123 = load i32, ptr %94, align 4, !tbaa !17
   %.not41.i = icmp eq i32 %123, %.sroa.015.0.i.i31.i
   br i1 %.not41.i, label %90, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
 
 _ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit: ; preds = %33, %13, %90, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i, %70, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.us.i, %6
-  %.0.i = phi i32 [ 2, %90 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.us.i ], [ 1, %6 ], [ 1, %13 ], [ 2, %70 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i ], [ 1, %33 ]
+  %.0.i = phi i32 [ 1, %6 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.us.i ], [ 2, %70 ], [ 0, %_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i ], [ 2, %90 ], [ 1, %13 ], [ 1, %33 ]
   ret i32 %.0.i
 }
 
@@ -707,7 +707,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
   br label %_ZL17getStandardSelLocjN5clang8SelectorEbNS_14SourceLocationES1_.exit
 
 _ZL17getStandardSelLocjN5clang8SelectorEbNS_14SourceLocationES1_.exit: ; preds = %16, %25, %28, %37
-  %.sroa.015.0.i = phi i32 [ %38, %37 ], [ %27, %25 ], [ 0, %16 ], [ 0, %28 ]
+  %.sroa.015.0.i = phi i32 [ %27, %25 ], [ %38, %37 ], [ 0, %16 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.sroa.015.0.i
 }

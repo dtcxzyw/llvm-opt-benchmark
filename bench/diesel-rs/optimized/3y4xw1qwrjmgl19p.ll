@@ -407,7 +407,7 @@ default.unreachable1.i95:                         ; preds = %49, %38
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h66ef390f23b1fee8E.exit.i.i"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h66ef390f23b1fee8E.exit.i.i": ; preds = %38, %38, %49, %49, %55, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h97b0e6d67659a98eE.exit.thread9.i.i", %.thread.i.i
-  %.sroa.11.0.i90218 = phi ptr [ %57, %55 ], [ %54, %.thread.i.i ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h97b0e6d67659a98eE.exit.thread9.i.i" ], [ undef, %49 ], [ undef, %49 ], [ undef, %38 ], [ undef, %38 ]
+  %.sroa.11.0.i90218 = phi ptr [ %57, %55 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h97b0e6d67659a98eE.exit.thread9.i.i" ], [ %54, %.thread.i.i ], [ undef, %49 ], [ undef, %49 ], [ undef, %38 ], [ undef, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !121
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !121
   store i64 %15, ptr %4, align 8, !alias.scope !135, !noalias !138
@@ -424,8 +424,8 @@ default.unreachable1.i95:                         ; preds = %49, %38
   br i1 %60, label %62, label %63
 
 61:                                               ; preds = %51, %48, %29
-  %.sroa.0116.0 = phi i64 [ %24, %29 ], [ %46, %51 ], [ %36, %48 ]
-  %.sroa.7117.0 = phi i8 [ %.sroa.210.i.sroa.0.0.copyload.i, %29 ], [ %.sroa.247.i.sroa.0.0.copyload, %51 ], [ %.sroa.241.i.sroa.0.0.copyload, %48 ]
+  %.sroa.0116.0 = phi i64 [ %46, %51 ], [ %36, %48 ], [ %24, %29 ]
+  %.sroa.7117.0 = phi i8 [ %.sroa.247.i.sroa.0.0.copyload, %51 ], [ %.sroa.241.i.sroa.0.0.copyload, %48 ], [ %.sroa.210.i.sroa.0.0.copyload.i, %29 ]
   store i64 %.sroa.0116.0, ptr %0, align 8
   %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.7117.0, ptr %.sroa.251.0..sroa_idx, align 8
@@ -854,7 +854,7 @@ define hidden void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17h8462fa4e5f02
   unreachable
 
 common.resume:                                    ; preds = %18, %30, %35
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %31, %35 ], [ %19, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %35 ], [ %31, %30 ], [ %19, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr331drop_in_place$LT$diesel..query_dsl..load_dsl..private..LoadIter$LT$diesel_demo_step_3_sqlite..models..Post$C$diesel..sqlite..connection..statement_iterator..StatementIterator$C$$LP$diesel..sql_types..Integer$C$diesel..sql_types..Text$C$diesel..sql_types..Text$C$diesel..sql_types..Bool$RP$$C$diesel..sqlite..backend..Sqlite$GT$$GT$17hdcf1091f96591294E.exit": ; preds = %39, %"_ZN4core3ptr93drop_in_place$LT$diesel..sqlite..connection..statement_iterator..PrivateStatementIterator$GT$17h64ca2c849b00912bE.llvm.12167227474035961171.exit.i.i", %16

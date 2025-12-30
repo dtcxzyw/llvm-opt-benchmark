@@ -117,7 +117,7 @@ define hidden noundef zeroext i1 @Curl_tls_keylog_write_line(ptr noundef readonl
   br label %19
 
 19:                                               ; preds = %6, %1, %16
-  %.013 = phi i1 [ false, %1 ], [ true, %16 ], [ false, %6 ]
+  %.013 = phi i1 [ true, %16 ], [ false, %1 ], [ false, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.013
 }
@@ -217,7 +217,7 @@ define hidden noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly cap
   br label %47
 
 47:                                               ; preds = %7, %4, %._crit_edge
-  %.036 = phi i1 [ false, %4 ], [ true, %._crit_edge ], [ false, %7 ]
+  %.036 = phi i1 [ true, %._crit_edge ], [ false, %4 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.036
 }

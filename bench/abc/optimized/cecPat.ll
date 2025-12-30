@@ -465,7 +465,7 @@ define range(i32 0, 4) i32 @Cec_ManPatComputePattern3_rec(ptr noundef %0, ptr no
   br label %common.ret27
 
 common.ret27:                                     ; preds = %24, %15, %26
-  %common.ret27.op = phi i32 [ %.0.i, %26 ], [ 3, %24 ], [ %21, %15 ]
+  %common.ret27.op = phi i32 [ %.0.i, %26 ], [ %21, %15 ], [ 3, %24 ]
   ret i32 %common.ret27.op
 
 26:                                               ; preds = %22
@@ -969,7 +969,7 @@ define range(i32 0, 2) i32 @Cec_ManPatCollectTry(ptr noundef readonly captures(n
   br i1 %exitcond47.not, label %.loopexit, label %39, !llvm.loop !64
 
 .loopexit:                                        ; preds = %29, %60, %5
-  %.032 = phi i32 [ 1, %60 ], [ 1, %5 ], [ 0, %29 ]
+  %.032 = phi i32 [ 1, %5 ], [ 1, %60 ], [ 0, %29 ]
   ret i32 %.032
 }
 
@@ -1401,7 +1401,7 @@ Cec_ManPatCollectTry.exit.us:                     ; preds = %165
   br i1 %exitcond47.not.i, label %Cec_ManPatCollectTry.exit.thread, label %181, !llvm.loop !64
 
 Cec_ManPatCollectTry.exit.thread:                 ; preds = %Cec_ManPatCollectTry.exit.us, %202, %Cec_ManPatRestore.exit, %.lr.ph
-  %.0140 = phi i32 [ 1, %.lr.ph ], [ 1, %Cec_ManPatRestore.exit ], [ %.0144.us, %202 ], [ %178, %Cec_ManPatCollectTry.exit.us ]
+  %.0140 = phi i32 [ 1, %Cec_ManPatRestore.exit ], [ 1, %.lr.ph ], [ %.0144.us, %202 ], [ %178, %Cec_ManPatCollectTry.exit.us ]
   %203 = call noundef i32 @llvm.smax.i32(i32 %.062156, i32 %.0140)
   %204 = add nsw i32 %.059158, -1
   %205 = icmp eq i32 %.0140, %204
@@ -1935,8 +1935,8 @@ Cec_ManPatCollectTry.exit.us:                     ; preds = %76
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %110, %112, %102, %104
-  %.sink210 = phi ptr [ %105, %104 ], [ %103, %102 ], [ %111, %110 ], [ %113, %112 ]
-  %.sink = phi i32 [ 16, %104 ], [ 16, %102 ], [ %107, %110 ], [ %107, %112 ]
+  %.sink210 = phi ptr [ %103, %102 ], [ %105, %104 ], [ %111, %110 ], [ %113, %112 ]
+  %.sink = phi i32 [ 16, %102 ], [ 16, %104 ], [ %107, %110 ], [ %107, %112 ]
   store ptr %.sink210, ptr %9, align 8, !tbaa !33
   store i32 %.sink, ptr %6, align 8, !tbaa !32
   br label %Vec_IntPush.exit
@@ -1987,8 +1987,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond47.not.i, label %Cec_ManPatCollectTry.exit.thread, label %118, !llvm.loop !64
 
 Cec_ManPatCollectTry.exit.thread:                 ; preds = %Cec_ManPatCollectTry.exit.us, %139, %.preheader, %.lr.ph
-  %.pre.i176 = phi ptr [ %.val70, %.lr.ph ], [ %.pre.i178, %.preheader ], [ %.val70, %139 ], [ %.val70, %Cec_ManPatCollectTry.exit.us ]
-  %.165136 = phi i32 [ 1, %.lr.ph ], [ 1, %.preheader ], [ %.165142.us, %139 ], [ %89, %Cec_ManPatCollectTry.exit.us ]
+  %.pre.i176 = phi ptr [ %.pre.i178, %.preheader ], [ %.val70, %.lr.ph ], [ %.val70, %139 ], [ %.val70, %Cec_ManPatCollectTry.exit.us ]
+  %.165136 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.165142.us, %139 ], [ %89, %Cec_ManPatCollectTry.exit.us ]
   %140 = icmp eq i32 %.165136, %48
   br i1 %140, label %141, label %.outer, !llvm.loop !83
 

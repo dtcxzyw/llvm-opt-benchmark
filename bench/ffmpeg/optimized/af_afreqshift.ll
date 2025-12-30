@@ -203,14 +203,14 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #2 {
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str) #12
   %.not35 = icmp eq i32 %39, 0
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 456
-  %ffilter_channel_flt.pfilter_channel_flt = select i1 %.not35, ptr @ffilter_channel_flt, ptr @pfilter_channel_flt
   %ffilter_channel_dbl.pfilter_channel_dbl = select i1 %.not35, ptr @ffilter_channel_dbl, ptr @pfilter_channel_dbl
+  %ffilter_channel_flt.pfilter_channel_flt = select i1 %.not35, ptr @ffilter_channel_flt, ptr @pfilter_channel_flt
   %pfilter_channel_dbl.sink = select i1 %35, ptr %ffilter_channel_dbl.pfilter_channel_dbl, ptr %ffilter_channel_flt.pfilter_channel_flt
   store ptr %pfilter_channel_dbl.sink, ptr %40, align 8, !tbaa !58
   br label %41
 
 41:                                               ; preds = %.sink.split, %18, %29, %31
-  %.0 = phi i32 [ -12, %18 ], [ -12, %31 ], [ -12, %29 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -12, %31 ], [ -12, %29 ], [ -12, %18 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

@@ -216,7 +216,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %._crit_edge79, %._crit_edge, %6
-  %.0 = phi i32 [ 0, %._crit_edge79 ], [ -1, %6 ], [ 0, %._crit_edge ], [ 0, %21 ]
+  %.0 = phi i32 [ -1, %6 ], [ 0, %._crit_edge ], [ 0, %._crit_edge79 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

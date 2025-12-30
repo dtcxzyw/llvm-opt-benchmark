@@ -483,7 +483,7 @@ sub_1:                                            ; preds = %sub_0
   br label %65
 
 65:                                               ; preds = %3, %6, %.tail.thread, %60, %58, %41
-  %.018 = phi i32 [ 1, %.tail.thread ], [ %44, %41 ], [ 0, %58 ], [ 1, %60 ], [ 0, %6 ], [ 0, %3 ]
+  %.018 = phi i32 [ %44, %41 ], [ 0, %58 ], [ 1, %60 ], [ 1, %.tail.thread ], [ 0, %6 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.018
 }
@@ -625,8 +625,8 @@ define dso_local i32 @help_main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %49
 
 49:                                               ; preds = %.sink.split, %.thread, %44, %37
-  %.120 = phi i32 [ %34, %37 ], [ %34, %.thread ], [ %34, %44 ], [ 1, %.sink.split ]
-  %.1 = phi i32 [ %.01732, %37 ], [ %.01732, %.thread ], [ %45, %44 ], [ %45, %.sink.split ]
+  %.120 = phi i32 [ %34, %37 ], [ %34, %44 ], [ %34, %.thread ], [ 1, %.sink.split ]
+  %.1 = phi i32 [ %.01732, %37 ], [ %45, %44 ], [ %.01732, %.thread ], [ %45, %.sink.split ]
   %50 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %51 = load i32, ptr %31, align 4, !tbaa !26
   %52 = load ptr, ptr %33, align 8, !tbaa !11

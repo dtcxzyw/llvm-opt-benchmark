@@ -2753,7 +2753,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef initializes((180, 182)) %0, i
   br label %179
 
 179:                                              ; preds = %173, %174, %160, %161
-  %180 = phi i32 [ %172, %161 ], [ %144, %160 ], [ %144, %173 ], [ %175, %174 ]
+  %180 = phi i32 [ %144, %160 ], [ %172, %161 ], [ %144, %173 ], [ %175, %174 ]
   %.pn.in = getelementptr inbounds nuw i8, ptr %145, i64 112
   %.pn = load i32, ptr %.pn.in, align 8
   %181 = sub i32 %.pn, %17
@@ -2867,8 +2867,8 @@ define dso_local ptr @inet_gso_segment(ptr noundef initializes((180, 182)) %0, i
   br label %258
 
 258:                                              ; preds = %253, %233
-  %259 = phi i32 [ %257, %253 ], [ %246, %233 ]
-  %260 = phi i32 [ %254, %253 ], [ %236, %233 ]
+  %259 = phi i32 [ %246, %233 ], [ %257, %253 ]
+  %260 = phi i32 [ %236, %233 ], [ %254, %253 ]
   %261 = trunc i32 %259 to i16
   %262 = tail call i16 @llvm.bswap.i16(i16 %261)
   %263 = getelementptr inbounds nuw i8, ptr %212, i64 2
@@ -3018,7 +3018,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef initializes((180, 182)) %0, i
   br i1 %362, label %.thread, label %.split.split, !llvm.loop !59
 
 .thread:                                          ; preds = %343, %300, %272, %193, %112, %119, %125, %129, %104, %53, %51, %30, %26, %24
-  %363 = phi ptr [ inttoptr (i64 -22 to ptr), %26 ], [ inttoptr (i64 -22 to ptr), %30 ], [ inttoptr (i64 -22 to ptr), %53 ], [ %123, %129 ], [ inttoptr (i64 -93 to ptr), %104 ], [ inttoptr (i64 -22 to ptr), %24 ], [ inttoptr (i64 -22 to ptr), %51 ], [ null, %125 ], [ inttoptr (i64 -93 to ptr), %112 ], [ inttoptr (i64 -93 to ptr), %119 ], [ %123, %193 ], [ %123, %272 ], [ %123, %300 ], [ %123, %343 ]
+  %363 = phi ptr [ inttoptr (i64 -22 to ptr), %26 ], [ inttoptr (i64 -22 to ptr), %30 ], [ inttoptr (i64 -22 to ptr), %53 ], [ %123, %129 ], [ inttoptr (i64 -93 to ptr), %104 ], [ inttoptr (i64 -22 to ptr), %24 ], [ inttoptr (i64 -22 to ptr), %51 ], [ inttoptr (i64 -93 to ptr), %112 ], [ inttoptr (i64 -93 to ptr), %119 ], [ null, %125 ], [ %123, %193 ], [ %123, %272 ], [ %123, %300 ], [ %123, %343 ]
   ret ptr %363
 }
 
@@ -4203,7 +4203,7 @@ define internal i32 @inet_create(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %99, %107, %104
-  %.pre-phi = phi i16 [ %103, %104 ], [ 255, %107 ], [ %103, %99 ]
+  %.pre-phi = phi i16 [ 255, %107 ], [ %103, %104 ], [ %103, %99 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 1111
   %110 = load volatile i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 0

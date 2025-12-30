@@ -485,9 +485,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit45:                  ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %.not.i.i.i46, label %_ZNSt6vectorIhSaIhEED2Ev.exit47, label %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread
 
 _ZNSt6vectorIhSaIhEED2Ev.exit45.thread:           ; preds = %162, %161, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187, %_ZNSt6vectorIhSaIhEED2Ev.exit45
-  %.sroa.098.0114125186 = phi ptr [ %17, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %.sroa.098.0118, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %17, %161 ], [ %17, %162 ]
-  %.sroa.11.0109126185 = phi ptr [ %18, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %.sroa.11.0113, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %18, %161 ], [ %18, %162 ]
-  %.pn22.pn127183 = phi { ptr, i32 } [ %25, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %166, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %.pn22.pn, %161 ], [ %.pn22.pn, %162 ]
+  %.sroa.098.0114125186 = phi ptr [ %.sroa.098.0118, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %17, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %17, %161 ], [ %17, %162 ]
+  %.sroa.11.0109126185 = phi ptr [ %.sroa.11.0113, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %18, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %18, %161 ], [ %18, %162 ]
+  %.pn22.pn127183 = phi { ptr, i32 } [ %166, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %25, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %.pn22.pn, %161 ], [ %.pn22.pn, %162 ]
   %167 = ptrtoint ptr %.sroa.11.0109126185 to i64
   %168 = ptrtoint ptr %.sroa.098.0114125186 to i64
   %169 = sub i64 %167, %168

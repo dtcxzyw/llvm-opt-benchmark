@@ -1601,8 +1601,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit29
   br i1 %exitcond46.not, label %29, label %33, !llvm.loop !121
 
 _ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit31: ; preds = %32, %31, %30, %29, %29, %29
-  %45 = phi i1 [ true, %32 ], [ false, %31 ], [ true, %30 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
-  %.0.i30 = phi i32 [ 64, %32 ], [ 0, %31 ], [ 8, %30 ], [ 32, %29 ], [ 32, %29 ], [ 32, %29 ]
+  %45 = phi i1 [ true, %32 ], [ true, %30 ], [ false, %31 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
+  %.0.i30 = phi i32 [ 64, %32 ], [ 8, %30 ], [ 0, %31 ], [ 32, %29 ], [ 32, %29 ], [ 32, %29 ]
   %46 = zext nneg i32 %.0.i30 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load ptr, ptr %47, align 8, !tbaa !122
@@ -2113,9 +2113,9 @@ define void @_ZN3gmx16nbnxn_atomdata_tC2ENS_13PinningPolicyERKNS_8MDLoggerENS_15
   br i1 %or.cond246.not.i, label %.invoke, label %47
 
 .invoke:                                          ; preds = %68, %76, %82, %87, %536, %47, %32
-  %44 = phi ptr [ @.str.28, %536 ], [ @.str.19, %32 ], [ @.str.21, %47 ], [ @.str.23, %87 ], [ @.str.23, %82 ], [ @.str.23, %76 ], [ @.str.23, %68 ]
-  %45 = phi ptr [ @.str.29, %536 ], [ @.str.20, %32 ], [ @.str.22, %47 ], [ @.str.24, %87 ], [ @.str.24, %82 ], [ @.str.24, %76 ], [ @.str.24, %68 ]
-  %46 = phi i32 [ 662, %536 ], [ 485, %32 ], [ 489, %47 ], [ 502, %87 ], [ 502, %82 ], [ 502, %76 ], [ 502, %68 ]
+  %44 = phi ptr [ @.str.19, %32 ], [ @.str.21, %47 ], [ @.str.28, %536 ], [ @.str.23, %87 ], [ @.str.23, %82 ], [ @.str.23, %76 ], [ @.str.23, %68 ]
+  %45 = phi ptr [ @.str.20, %32 ], [ @.str.22, %47 ], [ @.str.29, %536 ], [ @.str.24, %87 ], [ @.str.24, %82 ], [ @.str.24, %76 ], [ @.str.24, %68 ]
+  %46 = phi i32 [ 485, %32 ], [ 489, %47 ], [ 662, %536 ], [ 502, %87 ], [ 502, %82 ], [ 502, %76 ], [ 502, %68 ]
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmxL26nbnxn_atomdata_params_initERKNS_8MDLoggerEPNS_16nbnxn_atomdata_t6ParamsENS_15NbnxmKernelTypeERKSt8optionalINS_17LJCombinationRuleEES8_NS_8ArrayRefIKfEEbiENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef %46) #31
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -2578,8 +2578,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit218.i
   br label %305
 
 305:                                              ; preds = %296, %.noexc46, %.noexc45, %260, %255, %249, %241
-  %.4.i = phi i8 [ %.3192253.i, %296 ], [ 0, %241 ], [ 1, %255 ], [ 1, %249 ], [ 0, %.noexc45 ], [ %295, %.noexc46 ], [ 0, %260 ]
-  %.2188.i = phi i8 [ %.1187254.i, %296 ], [ %242, %241 ], [ %242, %255 ], [ %242, %249 ], [ %242, %.noexc45 ], [ %242, %.noexc46 ], [ %242, %260 ]
+  %.4.i = phi i8 [ %.3192253.i, %296 ], [ 0, %241 ], [ 1, %255 ], [ 1, %249 ], [ 0, %.noexc45 ], [ 0, %260 ], [ %295, %.noexc46 ]
+  %.2188.i = phi i8 [ %.1187254.i, %296 ], [ %242, %241 ], [ %242, %255 ], [ %242, %249 ], [ %242, %.noexc45 ], [ %242, %260 ], [ %242, %.noexc46 ]
   %indvars.iv.next281.i = add nuw nsw i64 %indvars.iv280.i, 1
   %306 = load i32, ptr %0, align 8, !tbaa !140
   %307 = sext i32 %306 to i64
@@ -2605,7 +2605,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit218.i
   br label %_ZN3gmxL28kernelTypeUsesSimplePairlistENS_15NbnxmKernelTypeE.exit.i
 
 _ZN3gmxL28kernelTypeUsesSimplePairlistENS_15NbnxmKernelTypeE.exit.i: ; preds = %315, %314, %314
-  %318 = phi i1 [ %317, %315 ], [ true, %314 ], [ true, %314 ]
+  %318 = phi i1 [ true, %314 ], [ %317, %315 ], [ true, %314 ]
   br i1 %.not.i, label %.critedge.i, label %319
 
 319:                                              ; preds = %_ZN3gmxL28kernelTypeUsesSimplePairlistENS_15NbnxmKernelTypeE.exit.i
@@ -2865,8 +2865,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit228.i: ; preds = %
   br label %421
 
 415:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit225.i, %380, %340
-  %416 = phi ptr [ %344, %380 ], [ %337, %340 ], [ %384, %_ZN3gmx14LogEntryWriterD2Ev.exit225.i ]
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %381, %380 ], [ %341, %340 ], [ %405, %_ZN3gmx14LogEntryWriterD2Ev.exit225.i ]
+  %416 = phi ptr [ %337, %340 ], [ %344, %380 ], [ %384, %_ZN3gmx14LogEntryWriterD2Ev.exit225.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %341, %340 ], [ %381, %380 ], [ %405, %_ZN3gmx14LogEntryWriterD2Ev.exit225.i ]
   %417 = load ptr, ptr %14, align 8, !tbaa !109
   %418 = icmp eq ptr %417, %416
   br i1 %418, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i229.i
@@ -3408,7 +3408,7 @@ _ZNSt6vectorIN3gmx23nbnxn_atomdata_output_tESaIS1_EE12emplace_backIJRKNS0_15Nbnx
   br label %.body50
 
 .body50:                                          ; preds = %.loopexit, %.loopexit.split-lp, %550, %542, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231.i, %610, %622
-  %.pn29.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231.i ], [ %611, %610 ], [ %623, %622 ], [ %543, %542 ], [ %551, %550 ], [ %.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn29.pn.pn.pn.pn = phi { ptr, i32 } [ %623, %622 ], [ %611, %610 ], [ %.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %551, %550 ], [ %543, %542 ], [ %.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %624 = load ptr, ptr %37, align 8, !tbaa !185
   %.not.i.i.i64 = icmp eq ptr %624, null
   br i1 %.not.i.i.i64, label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit, label %625
@@ -6492,8 +6492,8 @@ define void @_ZN3gmx16nbnxn_atomdata_t12reduceForcesENS_12AtomLocalityERKNS_7Gri
   br label %52
 
 52:                                               ; preds = %51, %50, %47
-  %.013.i = phi i32 [ %48, %51 ], [ 0, %50 ], [ 0, %47 ]
-  %.0.i = phi i32 [ %49, %51 ], [ %48, %50 ], [ %49, %47 ]
+  %.013.i = phi i32 [ 0, %50 ], [ %48, %51 ], [ 0, %47 ]
+  %.0.i = phi i32 [ %48, %50 ], [ %49, %51 ], [ %49, %47 ]
   %.not.i.i = icmp sgt i32 %.013.i, %.0.i
   br i1 %.not.i.i, label %53, label %_ZN3gmxL12getAtomRangeENS_12AtomLocalityERKNS_7GridSetE.exit
 

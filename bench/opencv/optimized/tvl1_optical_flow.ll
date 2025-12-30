@@ -957,7 +957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214: ; preds = %29
   br label %304
 
 304:                                              ; preds = %281, %303, %279, %277
-  %.pn57.pn.pn = phi { ptr, i32 } [ %278, %277 ], [ %280, %279 ], [ %.pn57, %303 ], [ %282, %281 ]
+  %.pn57.pn.pn = phi { ptr, i32 } [ %280, %279 ], [ %278, %277 ], [ %.pn57, %303 ], [ %282, %281 ]
   call void @_ZNSt12__shared_ptrIN2cv7optflow19DualTVL1OpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   br label %305
 
@@ -1217,7 +1217,7 @@ define internal fastcc void @_ZL15drawOpticalFlowRKN2cv4Mat_INS_6Point_IfEEEERNS
   br label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
 
 _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
-  %.2.us = phi float [ %.sroa.speculated.us, %36 ], [ %.151.us, %28 ], [ %.151.us, %31 ]
+  %.2.us = phi float [ %.sroa.speculated.us, %36 ], [ %.151.us, %31 ], [ %.151.us, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !77

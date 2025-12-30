@@ -688,7 +688,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   br i1 %exitcond140.not, label %._crit_edge100, label %.lr.ph99.split.split.us, !llvm.loop !137
 
 ._crit_edge100:                                   ; preds = %._crit_edge94.us109, %._crit_edge94.us, %.lr.ph99.split, %70
-  %.178.lcssa = phi i32 [ %.077117, %70 ], [ %.4.lcssa.us, %._crit_edge94.us ], [ %.077117, %.lr.ph99.split ], [ %115, %._crit_edge94.us109 ]
+  %.178.lcssa = phi i32 [ %.077117, %70 ], [ %.077117, %.lr.ph99.split ], [ %.4.lcssa.us, %._crit_edge94.us ], [ %115, %._crit_edge94.us109 ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
   br i1 %exitcond157.not, label %._crit_edge120, label %61, !llvm.loop !140

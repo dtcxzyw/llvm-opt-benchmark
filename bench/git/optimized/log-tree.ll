@@ -148,7 +148,7 @@ define dso_local i32 @parse_decorate_color_config(ptr noundef %0, ptr noundef %1
   br label %13
 
 13:                                               ; preds = %3, %9, %7
-  %.0 = phi i32 [ -1, %7 ], [ %12, %9 ], [ 0, %3 ]
+  %.0 = phi i32 [ %12, %9 ], [ -1, %7 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -733,7 +733,7 @@ add_name_decoration.exit61:                       ; preds = %st_add.exit.i60
   %163 = icmp eq i32 %162, 8
   br i1 %163, label %.lr.ph83, label %ref_filter_match.exit.thread, !llvm.loop !41
 
-ref_filter_match.exit.thread:                     ; preds = %24, %match_ref_pattern.exit.i, %match_ref_pattern.exit.i, %match_ref_pattern.exit62.thread.i, %73, %match_ref_pattern.exit73.i, %match_ref_pattern.exit73.i, %147, %add_name_decoration.exit61, %add_name_decoration.exit59, %41, %104, %103
+ref_filter_match.exit.thread:                     ; preds = %24, %match_ref_pattern.exit.i, %match_ref_pattern.exit.i, %match_ref_pattern.exit62.thread.i, %match_ref_pattern.exit73.i, %match_ref_pattern.exit73.i, %73, %147, %add_name_decoration.exit61, %add_name_decoration.exit59, %41, %104, %103
   ret i32 0
 }
 
@@ -917,7 +917,7 @@ get_name_decoration.exit:                         ; preds = %4, %6
   br i1 %.not23.i, label %current_pointed_by_HEAD.exit, label %.preheader.i, !llvm.loop !49
 
 current_pointed_by_HEAD.exit:                     ; preds = %33, %47, %50, %35, %39, %42
-  %.017.i = phi ptr [ null, %42 ], [ null, %39 ], [ null, %35 ], [ %.127.i, %47 ], [ null, %50 ], [ null, %33 ]
+  %.017.i = phi ptr [ null, %39 ], [ null, %35 ], [ null, %42 ], [ %.127.i, %47 ], [ null, %50 ], [ null, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not92 = icmp eq ptr %.017.i, null
   %52 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
@@ -2304,7 +2304,7 @@ define dso_local i32 @log_tree_commit(ptr noundef initializes((336, 344)) %0, pt
   br i1 %.not60.i, label %log_tree_diff.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %42, %39, %36
-  %44 = phi i1 [ true, %39 ], [ false, %42 ], [ true, %36 ]
+  %44 = phi i1 [ false, %42 ], [ true, %39 ], [ true, %36 ]
   call void @parse_commit_or_die(ptr noundef %1) #15
   %45 = call ptr @get_commit_tree_oid(ptr noundef %1) #15
   %46 = call ptr @get_saved_parents(ptr noundef nonnull %0, ptr noundef %1) #15
@@ -2634,11 +2634,11 @@ do_remerge_diff.exit.i:                           ; preds = %cleanup_additional_
   br label %164
 
 log_tree_diff.exit:                               ; preds = %164, %173, %56, %do_remerge_diff.exit.i, %156
-  %.0.i = phi i32 [ %158, %156 ], [ %.0.i.i, %do_remerge_diff.exit.i ], [ %58, %56 ], [ %170, %173 ], [ %170, %164 ]
+  %.0.i = phi i32 [ %58, %56 ], [ %158, %156 ], [ %.0.i.i, %do_remerge_diff.exit.i ], [ %170, %173 ], [ %170, %164 ]
   %.not36 = icmp eq i32 %.0.i, 0
   br i1 %.not36, label %log_tree_diff.exit.thread, label %183
 
-log_tree_diff.exit.thread:                        ; preds = %159, %42, %.thread74.i, %47, %log_tree_diff.exit
+log_tree_diff.exit.thread:                        ; preds = %159, %.thread74.i, %47, %42, %log_tree_diff.exit
   %178 = load ptr, ptr %19, align 8, !tbaa !115
   %.not37 = icmp eq ptr %178, null
   br i1 %.not37, label %183, label %179

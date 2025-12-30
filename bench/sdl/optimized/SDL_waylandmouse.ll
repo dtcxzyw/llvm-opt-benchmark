@@ -501,7 +501,7 @@ default.unreachable:                              ; preds = %17
   unreachable
 
 Wayland_CreateSystemCursor.exit:                  ; preds = %86, %.thread.i66, %83, %79, %.thread.i61, %76, %72, %.thread.i56, %69, %65, %.thread.i51, %62, %58, %.thread.i46, %55, %51, %.thread.i41, %48, %44, %.thread.i36, %41, %37, %.thread.i31, %34, %30, %.thread.i26, %27, %23, %.thread.i, %20
-  %.1.i65.sink = phi ptr [ null, %76 ], [ null, %69 ], [ null, %62 ], [ null, %55 ], [ null, %48 ], [ null, %41 ], [ null, %34 ], [ null, %27 ], [ null, %20 ], [ null, %.thread.i ], [ %19, %23 ], [ null, %.thread.i26 ], [ %19, %30 ], [ null, %.thread.i31 ], [ %19, %37 ], [ null, %.thread.i36 ], [ %19, %44 ], [ null, %.thread.i41 ], [ %19, %51 ], [ null, %.thread.i46 ], [ %19, %58 ], [ null, %.thread.i51 ], [ %19, %65 ], [ null, %.thread.i56 ], [ %19, %72 ], [ null, %.thread.i61 ], [ %19, %79 ], [ null, %.thread.i66 ], [ %19, %86 ], [ null, %83 ]
+  %.1.i65.sink = phi ptr [ null, %.thread.i ], [ %19, %23 ], [ null, %20 ], [ null, %.thread.i26 ], [ %19, %30 ], [ null, %27 ], [ null, %.thread.i31 ], [ %19, %37 ], [ null, %34 ], [ null, %.thread.i36 ], [ %19, %44 ], [ null, %41 ], [ null, %.thread.i41 ], [ %19, %51 ], [ null, %48 ], [ null, %.thread.i46 ], [ %19, %58 ], [ null, %55 ], [ null, %.thread.i51 ], [ %19, %65 ], [ null, %62 ], [ null, %.thread.i56 ], [ %19, %72 ], [ null, %69 ], [ null, %.thread.i61 ], [ %19, %79 ], [ null, %76 ], [ null, %.thread.i66 ], [ %19, %86 ], [ null, %83 ]
   %90 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
   store ptr %.1.i65.sink, ptr %90, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2185,7 +2185,7 @@ define internal fastcc ptr @Wayland_CacheScaledCustomCursor(ptr noundef %0, doub
   br label %41
 
 41:                                               ; preds = %.loopexit46, %.critedge, %18, %25, %.loopexit
-  %.0 = phi ptr [ null, %18 ], [ null, %.loopexit ], [ null, %25 ], [ %13, %.critedge ], [ %.034.le, %.loopexit46 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %25 ], [ null, %18 ], [ %13, %.critedge ], [ %.034.le, %.loopexit46 ]
   ret ptr %.0
 }
 
@@ -2385,8 +2385,8 @@ define internal range(i32 0, 2) i32 @Wayland_DBusCursorMessageFilter(ptr readnon
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %84, %54, %30, %.thread49, %.thread, %55, %26, %14, %21
-  %.128.ph = phi i32 [ 1, %30 ], [ 1, %21 ], [ 1, %14 ], [ 1, %26 ], [ 1, %55 ], [ 1, %.thread ], [ 1, %.thread49 ], [ 0, %54 ], [ 0, %84 ]
+.sink.split:                                      ; preds = %84, %54, %.thread49, %.thread, %55, %30, %26, %21, %14
+  %.128.ph = phi i32 [ 1, %14 ], [ 1, %21 ], [ 1, %26 ], [ 1, %30 ], [ 1, %55 ], [ 1, %.thread ], [ 1, %.thread49 ], [ 0, %54 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

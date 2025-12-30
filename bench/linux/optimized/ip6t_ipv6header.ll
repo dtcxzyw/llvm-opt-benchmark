@@ -133,8 +133,8 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
   br label %.thread6.us
 
 .thread6.us:                                      ; preds = %52, %51, %45, %.thread7.us, %.thread5.us
-  %53 = phi i32 [ %50, %51 ], [ 8, %.thread5.us ], [ %50, %45 ], [ %50, %52 ], [ %44, %.thread7.us ]
-  %54 = phi i32 [ 64, %51 ], [ 16, %.thread5.us ], [ 128, %45 ], [ 32, %52 ], [ 8, %.thread7.us ]
+  %53 = phi i32 [ %50, %51 ], [ %50, %52 ], [ %50, %45 ], [ %44, %.thread7.us ], [ 8, %.thread5.us ]
+  %54 = phi i32 [ 64, %51 ], [ 32, %52 ], [ 128, %45 ], [ 8, %.thread7.us ], [ 16, %.thread5.us ]
   %55 = or i32 %54, %21
   %56 = load i8, ptr %38, align 1
   %57 = add i32 %53, %24
@@ -243,8 +243,8 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread5, %.thread7, %99, %98, %92
-  %100 = phi i32 [ %97, %99 ], [ 8, %.thread5 ], [ %97, %92 ], [ %97, %98 ], [ %91, %.thread7 ]
-  %101 = phi i32 [ 64, %99 ], [ 16, %.thread5 ], [ 128, %92 ], [ 32, %98 ], [ 8, %.thread7 ]
+  %100 = phi i32 [ %97, %99 ], [ %97, %98 ], [ %97, %92 ], [ %91, %.thread7 ], [ 8, %.thread5 ]
+  %101 = phi i32 [ 64, %99 ], [ 32, %98 ], [ 128, %92 ], [ 8, %.thread7 ], [ 16, %.thread5 ]
   %102 = or i32 %101, %62
   %103 = load i8, ptr %86, align 1
   %104 = add i32 %100, %65
@@ -257,8 +257,8 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(
   br label %138
 
 .thread15:                                        ; preds = %.thread6, %.thread6.us, %.split33.us, %.split36.us
-  %.ph = phi i32 [ %67, %.split33.us ], [ %72, %.split36.us ], [ %55, %.thread6.us ], [ %102, %.thread6 ]
-  %.ph13 = phi i8 [ 59, %.split33.us ], [ 50, %.split36.us ], [ %56, %.thread6.us ], [ %103, %.thread6 ]
+  %.ph = phi i32 [ %72, %.split36.us ], [ %67, %.split33.us ], [ %55, %.thread6.us ], [ %102, %.thread6 ]
+  %.ph13 = phi i8 [ 50, %.split36.us ], [ 59, %.split33.us ], [ %56, %.thread6.us ], [ %103, %.thread6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 

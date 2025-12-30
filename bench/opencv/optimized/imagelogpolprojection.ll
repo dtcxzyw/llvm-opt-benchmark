@@ -769,7 +769,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   br i1 %exitcond133.not, label %._crit_edge129, label %.preheader.us, !llvm.loop !107
 
 ._crit_edge129:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZNSt8valarrayIfE6resizeEmf.exit
-  %215 = phi i32 [ 0, %.preheader.lr.ph ], [ 0, %_ZNSt8valarrayIfE6resizeEmf.exit ], [ %.promoted124.us, %._crit_edge.us ]
+  %215 = phi i32 [ 0, %_ZNSt8valarrayIfE6resizeEmf.exit ], [ 0, %.preheader.lr.ph ], [ %.promoted124.us, %._crit_edge.us ]
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %217 = zext i32 %215 to i64
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 280

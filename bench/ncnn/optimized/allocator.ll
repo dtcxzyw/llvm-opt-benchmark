@@ -166,9 +166,9 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr noundef non
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %63, %56
-  %.sink = phi ptr [ %7, %63 ], [ %7, %56 ], [ %.pre, %.sink.split.sink.split ]
-  %.sink83 = phi i64 [ %49, %63 ], [ %49, %56 ], [ %.pre66, %.sink.split.sink.split ]
-  %.sroa.025.0.lcssa.sink81 = phi ptr [ %.sroa.029.0.lcssa, %63 ], [ %.sroa.025.0.lcssa, %56 ], [ %.sroa.025.0.lcssa.sink81.ph, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %7, %56 ], [ %7, %63 ], [ %.pre, %.sink.split.sink.split ]
+  %.sink83 = phi i64 [ %49, %56 ], [ %49, %63 ], [ %.pre66, %.sink.split.sink.split ]
+  %.sroa.025.0.lcssa.sink81 = phi ptr [ %.sroa.025.0.lcssa, %56 ], [ %.sroa.029.0.lcssa, %63 ], [ %.sroa.025.0.lcssa.sink81.ph, %.sink.split.sink.split ]
   %66 = getelementptr inbounds nuw i8, ptr %.sink, i64 112
   %67 = add i64 %.sink83, -1
   store i64 %67, ptr %66, align 8, !tbaa !28
@@ -392,9 +392,9 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %48, %41
-  %.sink = phi ptr [ %5, %48 ], [ %5, %41 ], [ %.pre, %.sink.split.sink.split ]
-  %.sink83 = phi i64 [ %34, %48 ], [ %34, %41 ], [ %.pre66, %.sink.split.sink.split ]
-  %.sroa.025.0.lcssa.sink81 = phi ptr [ %.sroa.029.0.lcssa, %48 ], [ %.sroa.025.0.lcssa, %41 ], [ %.sroa.025.0.lcssa.sink81.ph, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %5, %41 ], [ %5, %48 ], [ %.pre, %.sink.split.sink.split ]
+  %.sink83 = phi i64 [ %34, %41 ], [ %34, %48 ], [ %.pre66, %.sink.split.sink.split ]
+  %.sroa.025.0.lcssa.sink81 = phi ptr [ %.sroa.025.0.lcssa, %41 ], [ %.sroa.029.0.lcssa, %48 ], [ %.sroa.025.0.lcssa.sink81.ph, %.sink.split.sink.split ]
   %51 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
   %52 = add i64 %.sink83, -1
   store i64 %52, ptr %51, align 8, !tbaa !28

@@ -215,7 +215,7 @@ define hidden zeroext i1 @SDL_HIDAPI_HapticOpenFromJoystick(ptr noundef %0, ptr 
   br label %66
 
 66:                                               ; preds = %17, %29, %63, %10, %.critedge, %6
-  %.048 = phi i1 [ %7, %6 ], [ %65, %.critedge ], [ true, %63 ], [ %22, %17 ], [ %31, %29 ], [ false, %10 ]
+  %.048 = phi i1 [ %7, %6 ], [ %65, %.critedge ], [ %22, %17 ], [ %31, %29 ], [ true, %63 ], [ false, %10 ]
   ret i1 %.048
 }
 

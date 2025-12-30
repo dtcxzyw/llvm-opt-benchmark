@@ -1116,7 +1116,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit.thread.fold.split.i: ; preds = %105
   br label %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit
 
 _ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit: ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.fold.split.i, %.thread16.i, %128, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i, %123, %116, %113, %.noexc203, %105
-  %.0.i = phi i32 [ 0, %113 ], [ -1, %105 ], [ %130, %128 ], [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i ], [ -1, %.thread16.i ], [ 0, %116 ], [ 0, %123 ], [ 0, %.noexc203 ], [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.fold.split.i ]
+  %.0.i = phi i32 [ -1, %105 ], [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i ], [ -1, %.thread16.i ], [ %130, %128 ], [ 0, %116 ], [ 0, %123 ], [ 0, %.noexc203 ], [ 0, %113 ], [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.fold.split.i ]
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %132 = load i64, ptr %131, align 8, !tbaa !92
   %133 = add i64 %132, 2
@@ -2110,7 +2110,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit197:        ; preds = %.thread376, %486, %
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit298, %.loopexit.split-lp299, %.loopexit289, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %141, %350, %377, %393, %.body241, %.body, %75, %73
-  %.pn188.pn = phi { ptr, i32 } [ %76, %75 ], [ %74, %73 ], [ %484, %.body241 ], [ %66, %.body ], [ %142, %141 ], [ %lpad.loopexit.split-lp304, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn.pn, %350 ], [ %394, %393 ], [ %378, %377 ], [ %lpad.loopexit, %.loopexit289 ], [ %lpad.loopexit291, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit295, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit303, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit300, %.loopexit298 ], [ %lpad.loopexit.split-lp301, %.loopexit.split-lp299 ]
+  %.pn188.pn = phi { ptr, i32 } [ %74, %73 ], [ %484, %.body241 ], [ %66, %.body ], [ %76, %75 ], [ %.pn.pn, %350 ], [ %394, %393 ], [ %378, %377 ], [ %142, %141 ], [ %lpad.loopexit, %.loopexit289 ], [ %lpad.loopexit291, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit295, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit303, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp304, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit300, %.loopexit298 ], [ %lpad.loopexit.split-lp301, %.loopexit.split-lp299 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
@@ -3580,7 +3580,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit86:         ; preds = %.thread120, %169, %
   ret void
 
 175:                                              ; preds = %.loopexit, %.loopexit.split-lp, %96, %102, %22, %28, %.body, %149, %81, %62, %41
-  %.pn67.pn = phi { ptr, i32 } [ %150, %149 ], [ %42, %41 ], [ %97, %96 ], [ %168, %.body ], [ %63, %62 ], [ %82, %81 ], [ %23, %22 ], [ %29, %28 ], [ %103, %102 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn67.pn = phi { ptr, i32 } [ %42, %41 ], [ %168, %.body ], [ %63, %62 ], [ %82, %81 ], [ %150, %149 ], [ %29, %28 ], [ %23, %22 ], [ %103, %102 ], [ %97, %96 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
   resume { ptr, i32 } %.pn67.pn
 }

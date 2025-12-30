@@ -112,7 +112,7 @@ define dso_local noundef float @_ZN17b3TypedConstraint14getMotorFactorEfffff(ptr
   br label %33
 
 33:                                               ; preds = %17, %28, %20, %31, %22, %8, %6
-  %.0 = phi float [ 0.000000e+00, %8 ], [ 1.000000e+00, %6 ], [ %19, %17 ], [ %., %20 ], [ %.38, %31 ], [ %30, %28 ], [ 0.000000e+00, %22 ]
+  %.0 = phi float [ 1.000000e+00, %6 ], [ 0.000000e+00, %8 ], [ %19, %17 ], [ %30, %28 ], [ %., %20 ], [ %.38, %31 ], [ 0.000000e+00, %22 ]
   ret float %.0
 }
 
@@ -299,7 +299,7 @@ _Z16b3NormalizeAnglef.exit:                       ; preds = %12, %14, %16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %42, %40, %38, %32, %30, %28
-  %.0.i.i6.sink = phi float [ %26, %30 ], [ %29, %28 ], [ %33, %32 ], [ %39, %38 ], [ %43, %42 ], [ %36, %40 ]
+  %.0.i.i6.sink = phi float [ %29, %28 ], [ %33, %32 ], [ %26, %30 ], [ %39, %38 ], [ %43, %42 ], [ %36, %40 ]
   store float %.0.i.i6.sink, ptr %1, align 4, !tbaa !37
   br label %44
 

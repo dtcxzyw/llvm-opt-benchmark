@@ -1645,7 +1645,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_129AdaptiveManifoldPerfTest_p
   br label %62
 
 62:                                               ; preds = %58, %60
-  %.pn.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %61, %60 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
@@ -6100,7 +6100,7 @@ _ZN7testing8internal10linked_ptrISt5tupleIJbN2cv5Size_IiEEiiN4perf7MatTypeEEEE5r
   tail call void @_ZdlPv(ptr noundef nonnull %53) #28
   resume { ptr, i32 } %102
 
-_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread: ; preds = %31, %41, %11, %1, %21, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit1.i, %_ZN7testing8internal10linked_ptrISt5tupleIJbN2cv5Size_IiEEiiN4perf7MatTypeEEEE5resetEPS8_.exit, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit
+_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread: ; preds = %31, %21, %11, %1, %41, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit1.i, %_ZN7testing8internal10linked_ptrISt5tupleIJbN2cv5Size_IiEEiiN4perf7MatTypeEEEE5resetEPS8_.exit, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit
   ret void
 }
 
@@ -7189,7 +7189,7 @@ _ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTyp
   %89 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(8) %84)
   br i1 %89, label %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread, label %139
 
-_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread: ; preds = %70, %80, %50, %39, %60, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit1.i, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit
+_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread: ; preds = %70, %60, %50, %39, %80, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit1.i, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit
   %90 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %91 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %92 = load ptr, ptr %90, align 8, !tbaa !242
@@ -7338,8 +7338,8 @@ _ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17.thread: ; preds = %_ZNK7t
   %184 = call noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef nonnull align 8 dereferenceable(8) %178)
   br label %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit
 
-_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit: ; preds = %119, %129, %99, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread, %109, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.i12, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i14, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit1.i15, %180, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17.thread, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit16
-  %185 = phi i1 [ true, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit16 ], [ false, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17 ], [ false, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit ], [ %184, %180 ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17.thread ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit1.i15 ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i14 ], [ true, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13 ], [ true, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.i12 ], [ true, %109 ], [ true, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread ], [ true, %99 ], [ true, %129 ], [ true, %119 ]
+_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit: ; preds = %119, %109, %99, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread, %129, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.i12, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i14, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit1.i15, %180, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17.thread, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit16
+  %185 = phi i1 [ true, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit16 ], [ false, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17 ], [ false, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit ], [ false, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit17.thread ], [ %184, %180 ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit1.i15 ], [ true, %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.i14 ], [ true, %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.i13 ], [ true, %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.i12 ], [ true, %129 ], [ true, %_ZNK7testing8internal26CartesianProductGenerator5IbN2cv5Size_IiEEiiN4perf7MatTypeEE8Iterator5AtEndEv.exit.thread ], [ true, %99 ], [ true, %109 ], [ true, %119 ]
   ret i1 %185
 }
 
@@ -8958,7 +8958,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit
 
 _ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, %310
-  %.sroa.0.0.i.i = phi i1 [ true, %310 ], [ true, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i ], [ %330, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.sroa.0.0.i.i = phi i1 [ true, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i ], [ true, %310 ], [ %330, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %331 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %.sroa.0.0.i.i)
           to label %332 unwind label %263
 
@@ -9214,7 +9214,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i200, %select.unfold
-  %416 = phi i1 [ %415, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i200 ], [ true, %select.unfold ]
+  %416 = phi i1 [ true, %select.unfold ], [ %415, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i200 ]
   %417 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
           to label %.noexc207 unwind label %263
 
@@ -9651,7 +9651,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %.body115
 
 .body115:                                         ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i142, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.body.i211, %563
-  %.pn30.pn = phi { ptr, i32 } [ %.pn.pn.i, %.body.i211 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %564, %563 ], [ %.pn30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i142 ], [ %.pn30, %_ZN7testing8internal12CodeLocationD2Ev.exit141 ]
+  %.pn30.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %564, %563 ], [ %.pn.pn.i, %.body.i211 ], [ %.pn30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i142 ], [ %.pn30, %_ZN7testing8internal12CodeLocationD2Ev.exit141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %573 = load ptr, ptr %18, align 8, !tbaa !17
   %574 = icmp eq ptr %573, %76
@@ -9720,7 +9720,7 @@ _ZN7testing7MessageD2Ev.exit153:                  ; preds = %.noexc.i.i152, %581
   br label %593
 
 592:                                              ; preds = %_ZN7testing7MessageD2Ev.exit153, %243
-  %.pn37 = phi { ptr, i32 } [ %.pn, %243 ], [ %.pn30.pn.pn.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit153 ]
+  %.pn37 = phi { ptr, i32 } [ %.pn30.pn.pn.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit153 ], [ %.pn, %243 ]
   %.not.i.i.i154 = icmp eq ptr %161, null
   br i1 %.not.i.i.i154, label %_ZN7testing8internal13ParamIteratorISt5tupleIJbN2cv5Size_IiEEiiN4perf7MatTypeEEEED2Ev.exit156, label %593
 

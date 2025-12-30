@@ -163,7 +163,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode
   br label %52
 
 52:                                               ; preds = %49, %46, %39, %22, %18, %21, %19, %24, %23, %27, %25, %30, %28, %40, %41, %33, %45, %44, %43, %42, %48, %47, %51, %50, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
-  %.0.shrunk = phi i1 [ true, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit ], [ false, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread ], [ false, %18 ], [ true, %21 ], [ false, %19 ], [ true, %23 ], [ true, %24 ], [ false, %22 ], [ true, %27 ], [ false, %25 ], [ true, %30 ], [ false, %28 ], [ %38, %33 ], [ true, %40 ], [ true, %41 ], [ false, %39 ], [ false, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ true, %47 ], [ true, %48 ], [ false, %46 ], [ true, %50 ], [ true, %51 ], [ false, %49 ]
+  %.0.shrunk = phi i1 [ true, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit ], [ false, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread ], [ false, %18 ], [ true, %21 ], [ false, %19 ], [ true, %23 ], [ true, %24 ], [ true, %27 ], [ false, %25 ], [ true, %30 ], [ false, %28 ], [ %38, %33 ], [ true, %40 ], [ true, %41 ], [ false, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ true, %47 ], [ true, %48 ], [ true, %50 ], [ true, %51 ], [ false, %22 ], [ false, %39 ], [ false, %46 ], [ false, %49 ]
   ret i1 %.0.shrunk
 }
 

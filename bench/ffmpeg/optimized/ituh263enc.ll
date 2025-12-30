@@ -475,7 +475,7 @@ av_cmp_q.exit.thread12.loopexit28.split.loop.exit30: ; preds = %20
   br label %av_cmp_q.exit.thread12
 
 av_cmp_q.exit.thread12:                           ; preds = %av_cmp_q.exit.thread, %av_cmp_q.exit.thread.us, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35
-  %.us-phi = phi i32 [ 15, %av_cmp_q.exit.thread.us ], [ %25, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35 ], [ %26, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit ], [ %27, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30 ], [ 15, %av_cmp_q.exit.thread ]
+  %.us-phi = phi i32 [ %25, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35 ], [ %26, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit ], [ %27, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30 ], [ 15, %av_cmp_q.exit.thread.us ], [ 15, %av_cmp_q.exit.thread ]
   ret i32 %.us-phi
 }
 
@@ -964,8 +964,8 @@ put_bits.exit46:                                  ; preds = %253, %261, %241
   br label %put_bits.exit38
 
 put_bits.exit38:                                  ; preds = %288, %266, %207, %185
-  %storemerge51 = phi i32 [ %183, %207 ], [ %187, %185 ], [ %268, %266 ], [ %264, %288 ]
-  %storemerge = phi i32 [ %208, %207 ], [ %188, %185 ], [ %269, %266 ], [ %289, %288 ]
+  %storemerge51 = phi i32 [ %187, %185 ], [ %183, %207 ], [ %268, %266 ], [ %264, %288 ]
+  %storemerge = phi i32 [ %188, %185 ], [ %208, %207 ], [ %269, %266 ], [ %289, %288 ]
   store i32 %storemerge51, ptr %3, align 8, !tbaa !4
   store i32 %storemerge, ptr %5, align 4, !tbaa !11
   ret void
@@ -2274,8 +2274,8 @@ put_bits.exit204:                                 ; preds = %448, %456, %436
   br label %put_bits.exit208
 
 put_bits.exit208:                                 ; preds = %495, %503, %473, %481, %483, %461
-  %.sink412 = phi i32 [ 29, %473 ], [ -3, %483 ], [ -3, %461 ], [ 29, %481 ], [ 29, %503 ], [ 29, %495 ]
-  %storemerge360 = phi i32 [ 6, %473 ], [ %485, %483 ], [ %463, %461 ], [ 6, %481 ], [ %229, %503 ], [ %229, %495 ]
+  %.sink412 = phi i32 [ -3, %483 ], [ -3, %461 ], [ 29, %481 ], [ 29, %473 ], [ 29, %503 ], [ 29, %495 ]
+  %storemerge360 = phi i32 [ %485, %483 ], [ %463, %461 ], [ 6, %481 ], [ 6, %473 ], [ %229, %503 ], [ %229, %495 ]
   %504 = add nsw i32 %457, %.sink412
   store i32 %storemerge360, ptr %36, align 8, !tbaa !4
   store i32 %504, ptr %37, align 4, !tbaa !11
@@ -3167,7 +3167,7 @@ av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i: ; preds = %975
   br label %ff_h263_aspect_to_info.exit
 
 ff_h263_aspect_to_info.exit:                      ; preds = %av_cmp_q.exit.thread.i, %av_cmp_q.exit.thread.us.i, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i
-  %.us-phi.i = phi i32 [ 15, %av_cmp_q.exit.thread.us.i ], [ %980, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i ], [ %981, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i ], [ %982, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i ], [ 15, %av_cmp_q.exit.thread.i ]
+  %.us-phi.i = phi i32 [ %980, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i ], [ %981, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i ], [ %982, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i ], [ 15, %av_cmp_q.exit.thread.us.i ], [ 15, %av_cmp_q.exit.thread.i ]
   %983 = icmp sgt i32 %952, 4
   br i1 %983, label %984, label %987
 
@@ -3713,8 +3713,8 @@ put_bits.exit336:                                 ; preds = %1256, %1261, %1245
   br label %put_bits.exit196
 
 put_bits.exit196:                                 ; preds = %1291, %1269, %410, %392
-  %storemerge362 = phi i32 [ 0, %410 ], [ %393, %392 ], [ %1271, %1269 ], [ %1267, %1291 ]
-  %storemerge361 = phi i32 [ %411, %410 ], [ %394, %392 ], [ %1272, %1269 ], [ %1292, %1291 ]
+  %storemerge362 = phi i32 [ %393, %392 ], [ 0, %410 ], [ %1271, %1269 ], [ %1267, %1291 ]
+  %storemerge361 = phi i32 [ %394, %392 ], [ %411, %410 ], [ %1272, %1269 ], [ %1292, %1291 ]
   store i32 %storemerge362, ptr %36, align 8, !tbaa !4
   store i32 %storemerge361, ptr %37, align 4, !tbaa !11
   %1293 = icmp sgt i32 %storemerge361, 1
@@ -4891,8 +4891,8 @@ put_bits.exit254:                                 ; preds = %481, %489, %471
   br label %h263_pred_dc.exit
 
 h263_pred_dc.exit:                                ; preds = %536, %552, %553
-  %.043.i = phi i32 [ %543, %536 ], [ %spec.select50.i, %553 ], [ %543, %552 ]
-  %.042.i = phi i32 [ %550, %536 ], [ %spec.select.i258, %553 ], [ %spec.select.i258, %552 ]
+  %.043.i = phi i32 [ %543, %552 ], [ %543, %536 ], [ %spec.select50.i, %553 ]
+  %.042.i = phi i32 [ %spec.select.i258, %552 ], [ %550, %536 ], [ %spec.select.i258, %553 ]
   %.not52.i = icmp eq i32 %.043.i, 1024
   %.not51.i = icmp eq i32 %.042.i, 1024
   %556 = add nsw i32 %.042.i, %.043.i
@@ -5638,8 +5638,8 @@ get_rl_index.exit150.i:                           ; preds = %933, %926, %get_rl_
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %883, %._crit_edge206.i, %put_bits.exit147.i, %put_bits.exit.i, %827
-  %.0123.i = phi i32 [ 1, %put_bits.exit.i ], [ 0, %883 ], [ 0, %._crit_edge206.i ], [ 1, %put_bits.exit147.i ], [ 0, %._crit_edge.loopexit.i ], [ 0, %827 ]
-  %.0116.i = phi ptr [ @ff_h263_rl_inter, %put_bits.exit.i ], [ @ff_h263_rl_inter, %883 ], [ @ff_h263_rl_inter, %._crit_edge206.i ], [ @ff_h263_rl_inter, %put_bits.exit147.i ], [ %964, %._crit_edge.loopexit.i ], [ @ff_rl_intra_aic, %827 ]
+  %.0123.i = phi i32 [ 0, %._crit_edge206.i ], [ 1, %put_bits.exit147.i ], [ 1, %put_bits.exit.i ], [ 0, %._crit_edge.loopexit.i ], [ 0, %883 ], [ 0, %827 ]
+  %.0116.i = phi ptr [ @ff_h263_rl_inter, %._crit_edge206.i ], [ @ff_h263_rl_inter, %put_bits.exit147.i ], [ @ff_h263_rl_inter, %put_bits.exit.i ], [ %964, %._crit_edge.loopexit.i ], [ @ff_h263_rl_inter, %883 ], [ @ff_rl_intra_aic, %827 ]
   %965 = getelementptr inbounds nuw i32, ptr %821, i64 %indvars.iv332
   %966 = load i32, ptr %965, align 4, !tbaa !63
   %.not138194.i = icmp sgt i32 %.0123.i, %966

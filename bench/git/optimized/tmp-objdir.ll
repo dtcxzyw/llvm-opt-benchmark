@@ -529,7 +529,7 @@ is_loose_object_shard.exit.thread:                ; preds = %28, %34, %is_loose_
   br label %migrate_one.exit
 
 migrate_one.exit:                                 ; preds = %44, %56, %59, %62, %64
-  %.0.i26 = phi i32 [ %67, %64 ], [ -1, %56 ], [ %63, %62 ], [ -1, %44 ], [ -1, %59 ]
+  %.0.i26 = phi i32 [ %63, %62 ], [ %67, %64 ], [ -1, %44 ], [ -1, %56 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %68 = or i32 %.0.i26, %.02439
   %69 = load i64, ptr %0, align 8, !tbaa !25

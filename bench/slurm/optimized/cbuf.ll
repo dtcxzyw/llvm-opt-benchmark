@@ -336,7 +336,7 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %cbuf_find_unread_line.exit, label %21, !llvm.loop !8
 
 cbuf_find_unread_line.exit:                       ; preds = %21, %28, %13, %5, %9
-  %.0 = phi i32 [ 0, %13 ], [ 0, %5 ], [ 0, %9 ], [ %.232.i, %28 ], [ %.232.i, %21 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %13 ], [ %.232.i, %28 ], [ %.232.i, %21 ]
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not8 = icmp eq i32 %31, 0
   br i1 %.not8, label %34, label %32
@@ -570,7 +570,7 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr noundef readonly captures(
   br label %69
 
 69:                                               ; preds = %67, %12, %7, %9, %.thread
-  %.066 = phi i32 [ %.36284, %.thread ], [ 0, %7 ], [ 0, %12 ], [ 0, %9 ], [ 0, %67 ]
+  %.066 = phi i32 [ %.36284, %.thread ], [ 0, %9 ], [ 0, %7 ], [ 0, %12 ], [ 0, %67 ]
   ret i32 %.066
 }
 
@@ -974,7 +974,7 @@ cbuf_reader.exit:                                 ; preds = %38, %18
   br label %cbuf_reader.exit.thread
 
 cbuf_reader.exit.thread:                          ; preds = %14, %cbuf_reader.exit, %43
-  %.037.i23 = phi i32 [ %.034..i, %43 ], [ %.034..i, %cbuf_reader.exit ], [ 0, %14 ]
+  %.037.i23 = phi i32 [ %.034..i, %cbuf_reader.exit ], [ %.034..i, %43 ], [ 0, %14 ]
   %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   %.not19 = icmp eq i32 %53, 0
   br i1 %.not19, label %56, label %54
@@ -1558,8 +1558,8 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   store i32 %53, ptr %22, align 8
   br label %cbuf_find_unread_line.exit.thread25
 
-cbuf_find_unread_line.exit.thread25:              ; preds = %21, %14, %17, %._crit_edge.i, %cbuf_find_unread_line.exit, %48
-  %.038.i21 = phi i32 [ 0, %14 ], [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %48 ], [ 0, %._crit_edge.i ], [ 0, %17 ], [ 0, %21 ]
+cbuf_find_unread_line.exit.thread25:              ; preds = %21, %._crit_edge.i, %17, %14, %cbuf_find_unread_line.exit, %48
+  %.038.i21 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %48 ], [ 0, %14 ], [ 0, %17 ], [ 0, %._crit_edge.i ], [ 0, %21 ]
   %54 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not19 = icmp eq i32 %54, 0
   br i1 %.not19, label %57, label %55
@@ -1727,8 +1727,8 @@ cbuf_reader.exit:                                 ; preds = %73, %52
   store i8 0, ptr %76, align 1
   br label %cbuf_find_unread_line.exit.thread
 
-cbuf_find_unread_line.exit.thread:                ; preds = %16, %20, %._crit_edge.i, %cbuf_find_unread_line.exit, %cbuf_reader.exit
-  %.038.i44 = phi i32 [ %.134.i, %cbuf_reader.exit ], [ %.134.i, %cbuf_find_unread_line.exit ], [ 0, %._crit_edge.i ], [ 0, %20 ], [ 0, %16 ]
+cbuf_find_unread_line.exit.thread:                ; preds = %._crit_edge.i, %20, %16, %cbuf_find_unread_line.exit, %cbuf_reader.exit
+  %.038.i44 = phi i32 [ %.134.i, %cbuf_find_unread_line.exit ], [ %.134.i, %cbuf_reader.exit ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ]
   %77 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not36 = icmp eq i32 %77, 0
   br i1 %.not36, label %80, label %78
@@ -1908,8 +1908,8 @@ cbuf_reader.exit:                                 ; preds = %71, %53
   store i32 %82, ptr %25, align 8
   br label %cbuf_find_unread_line.exit.thread48
 
-cbuf_find_unread_line.exit.thread48:              ; preds = %24, %16, %20, %._crit_edge.i, %cbuf_find_unread_line.exit, %75
-  %.038.i44 = phi i32 [ 0, %16 ], [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %75 ], [ 0, %._crit_edge.i ], [ 0, %20 ], [ 0, %24 ]
+cbuf_find_unread_line.exit.thread48:              ; preds = %24, %._crit_edge.i, %20, %16, %cbuf_find_unread_line.exit, %75
+  %.038.i44 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %75 ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ], [ 0, %24 ]
   %83 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not37 = icmp eq i32 %83, 0
   br i1 %.not37, label %86, label %84
@@ -3210,7 +3210,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %88, %136, %133, %4, %66
-  %.0102 = phi i32 [ 0, %4 ], [ -1, %66 ], [ %.0106, %133 ], [ %.0106, %136 ], [ %.0106, %88 ]
+  %.0102 = phi i32 [ -1, %66 ], [ 0, %4 ], [ %.0106, %133 ], [ %.0106, %136 ], [ %.0106, %88 ]
   ret i32 %.0102
 }
 

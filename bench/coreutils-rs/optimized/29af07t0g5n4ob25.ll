@@ -440,8 +440,8 @@ define void @_ZN7uu_comm4comm17h56c35c3df2f4775bE(ptr noalias noundef align 8 de
           to label %190 unwind label %.loopexit.split-lp
 
 115:                                              ; preds = %.loopexit, %.loopexit.split-lp, %176, %156, %128
-  %.val167 = phi i64 [ %.val167233, %156 ], [ %.val167233, %176 ], [ %.val167233, %128 ], [ %.val167233, %.loopexit ], [ %.val167.pre, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %157, %156 ], [ %177, %176 ], [ %129, %128 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.val167 = phi i64 [ %.val167233, %128 ], [ %.val167233, %156 ], [ %.val167233, %176 ], [ %.val167233, %.loopexit ], [ %.val167.pre, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %129, %128 ], [ %157, %156 ], [ %177, %176 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %116 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.val168 = load ptr, ptr %116, align 8
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1b49e9cb1fa1bba9E"(i64 %.val167, ptr %.val168) #14
@@ -2372,7 +2372,7 @@ define void @_ZN7uu_comm6uu_app17h71eb39c045ae252dE(ptr noalias noundef writeonl
   ret void
 
 .body:                                            ; preds = %350, %316, %308, %300, %248, %179, %146, %113, %78, %367, %366, %365, %364, %363, %362, %360, %358, %355
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body168.ph, %355 ], [ %317, %316 ], [ %359, %358 ], [ %309, %308 ], [ %361, %360 ], [ %301, %300 ], [ %eh.lpad-body132.ph, %362 ], [ %249, %248 ], [ %eh.lpad-body111.ph, %363 ], [ %180, %179 ], [ %eh.lpad-body94.ph, %364 ], [ %147, %146 ], [ %eh.lpad-body77.ph, %365 ], [ %114, %113 ], [ %eh.lpad-body62.ph, %366 ], [ %79, %78 ], [ %368, %367 ], [ %351, %350 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body168.ph, %355 ], [ %359, %358 ], [ %361, %360 ], [ %eh.lpad-body132.ph, %362 ], [ %eh.lpad-body111.ph, %363 ], [ %eh.lpad-body94.ph, %364 ], [ %eh.lpad-body77.ph, %365 ], [ %eh.lpad-body62.ph, %366 ], [ %368, %367 ], [ %79, %78 ], [ %114, %113 ], [ %147, %146 ], [ %180, %179 ], [ %249, %248 ], [ %301, %300 ], [ %309, %308 ], [ %317, %316 ], [ %351, %350 ]
   resume { ptr, i32 } %.pn
 
 355:                                              ; preds = %321, %326
@@ -2404,7 +2404,7 @@ define void @_ZN7uu_comm6uu_app17h71eb39c045ae252dE(ptr noalias noundef writeonl
           to label %.body unwind label %356
 
 363:                                              ; preds = %184, %189, %213, %230
-  %eh.lpad-body111.ph = phi { ptr, i32 } [ %185, %184 ], [ %.pn.i.i, %213 ], [ %.pn.i102, %189 ], [ %.pn.i.i119, %230 ]
+  %eh.lpad-body111.ph = phi { ptr, i32 } [ %185, %184 ], [ %.pn.i102, %189 ], [ %.pn.i.i, %213 ], [ %.pn.i.i119, %230 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h43930f7f50ed7bdaE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %52) #14
           to label %.body unwind label %356
 

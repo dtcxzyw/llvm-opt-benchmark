@@ -73,7 +73,7 @@ define internal range(i32 -1094995529, 1) i32 @tak_decode_init(ptr noundef %0) #
   br label %set_sample_rate_params.exit
 
 set_sample_rate_params.exit:                      ; preds = %1, %11, %13
-  %.0.i = phi i64 [ 2, %11 ], [ 3, %1 ], [ %..i, %13 ]
+  %.0.i = phi i64 [ 3, %1 ], [ 2, %11 ], [ %..i, %13 ]
   %15 = sext i32 %.val9 to i64
   %16 = add nsw i64 %15, 511
   %17 = lshr i64 %16, 9
@@ -1005,8 +1005,8 @@ bits_read_bit_le.exit.thread:                     ; preds = %212, %bits_read_bit
   %452 = load i32, ptr %8, align 8, !tbaa !39
   br label %bits_init8_le.exit.thread
 
-bits_init8_le.exit.thread:                        ; preds = %268, %263, %231, %228, %261, %305, %298, %293, %.lr.ph417, %257, %220, %121, %117, %16, %11, %381, %202, %102, %76, %50, %20, %4, %126, %.loopexit, %75, %70, %67, %60, %56
-  %.0 = phi i32 [ %130, %126 ], [ -1094995529, %4 ], [ -1094995529, %16 ], [ %32, %20 ], [ -1163346256, %56 ], [ -1094995529, %60 ], [ -1094995529, %67 ], [ -1094995529, %70 ], [ -1094995529, %75 ], [ -1094995529, %50 ], [ %80, %76 ], [ -1094995529, %220 ], [ %452, %.loopexit ], [ %106, %102 ], [ -1094995529, %257 ], [ %208, %202 ], [ %191, %.lr.ph417 ], [ %318, %305 ], [ %119, %117 ], [ -1094995529, %381 ], [ -1094995529, %11 ], [ -12, %121 ], [ %302, %298 ], [ %297, %293 ], [ -1094995529, %261 ], [ -1094995529, %228 ], [ -1094995529, %231 ], [ -1094995529, %263 ], [ -1094995529, %268 ]
+bits_init8_le.exit.thread:                        ; preds = %268, %261, %263, %231, %228, %305, %298, %293, %.lr.ph417, %257, %220, %121, %117, %16, %11, %381, %202, %102, %76, %50, %20, %4, %126, %.loopexit, %75, %70, %67, %60, %56
+  %.0 = phi i32 [ -1163346256, %56 ], [ -1094995529, %60 ], [ -1094995529, %67 ], [ -1094995529, %70 ], [ -1094995529, %75 ], [ %452, %.loopexit ], [ %130, %126 ], [ -1094995529, %4 ], [ %32, %20 ], [ -1094995529, %50 ], [ %80, %76 ], [ %106, %102 ], [ %208, %202 ], [ -1094995529, %381 ], [ -1094995529, %11 ], [ -1094995529, %16 ], [ -12, %121 ], [ %119, %117 ], [ -1094995529, %220 ], [ -1094995529, %257 ], [ %191, %.lr.ph417 ], [ %318, %305 ], [ %302, %298 ], [ %297, %293 ], [ -1094995529, %228 ], [ -1094995529, %231 ], [ -1094995529, %263 ], [ -1094995529, %261 ], [ -1094995529, %268 ]
   ret i32 %.0
 }
 
@@ -1041,7 +1041,7 @@ define internal fastcc void @set_sample_rate_params(ptr writeonly captures(none)
   br label %6
 
 6:                                                ; preds = %4, %2, %0
-  %.0 = phi i64 [ 2, %2 ], [ 3, %0 ], [ %., %4 ]
+  %.0 = phi i64 [ 3, %0 ], [ 2, %2 ], [ %., %4 ]
   %7 = sext i32 %.344.val to i64
   %8 = add nsw i64 %7, 511
   %9 = lshr i64 %8, 9
@@ -1557,8 +1557,8 @@ bits_read_bit_le.exit224.i:                       ; preds = %bits_priv_refill_64
   br i1 %243, label %decode_subframe.exit.thread, label %269
 
 bits_read_bit_le.exit224.thread.i:                ; preds = %bits_read_bit_le.exit224.i, %bits_read_nz_le.exit.i90
-  %244 = phi i64 [ %217, %bits_read_nz_le.exit.i90 ], [ %234, %bits_read_bit_le.exit224.i ]
-  %245 = phi i32 [ %218, %bits_read_nz_le.exit.i90 ], [ %233, %bits_read_bit_le.exit224.i ]
+  %244 = phi i64 [ %234, %bits_read_bit_le.exit224.i ], [ %217, %bits_read_nz_le.exit.i90 ]
+  %245 = phi i32 [ %233, %bits_read_bit_le.exit224.i ], [ %218, %bits_read_nz_le.exit.i90 ]
   %246 = icmp slt i32 %192, %224
   br i1 %246, label %decode_subframe.exit.thread, label %248
 
@@ -1680,9 +1680,9 @@ bits_read_nz_le.exit.i.i:                         ; preds = %bits_priv_refill_32
   br label %get_bits_esc4.exit.i
 
 get_bits_esc4.exit.i:                             ; preds = %bits_read_nz_le.exit.i.i, %bits_read_bit_le.exit.i.i
-  %.val.i.pre.i234.pre.i = phi i64 [ %294, %bits_read_nz_le.exit.i.i ], [ %275, %bits_read_bit_le.exit.i.i ]
-  %.pr310.i = phi i32 [ %295, %bits_read_nz_le.exit.i.i ], [ %274, %bits_read_bit_le.exit.i.i ]
-  %.0.i231.i = phi i32 [ %298, %bits_read_nz_le.exit.i.i ], [ 0, %bits_read_bit_le.exit.i.i ]
+  %.val.i.pre.i234.pre.i = phi i64 [ %275, %bits_read_bit_le.exit.i.i ], [ %294, %bits_read_nz_le.exit.i.i ]
+  %.pr310.i = phi i32 [ %274, %bits_read_bit_le.exit.i.i ], [ %295, %bits_read_nz_le.exit.i.i ]
+  %.0.i231.i = phi i32 [ 0, %bits_read_bit_le.exit.i.i ], [ %298, %bits_read_nz_le.exit.i.i ]
   %.not.i232.i = icmp eq i32 %.pr310.i, 0
   br i1 %.not.i232.i, label %get_bits_esc4.exit.thread.i, label %bits_read_bit_le.exit239.i
 
@@ -2481,7 +2481,7 @@ decode_subframe.exit:                             ; preds = %194, %bits_read_bit
   br i1 %694, label %189, label %.loopexit, !llvm.loop !108
 
 .loopexit:                                        ; preds = %bits_read_nz_le.exit85, %decode_subframe.exit, %687, %decode_subframe.exit.thread, %172, %123, %get_bits_esc4.exit
-  %.0 = phi i32 [ %.0179.i.ph, %decode_subframe.exit.thread ], [ -1094995529, %get_bits_esc4.exit ], [ 0, %687 ], [ -1094995529, %123 ], [ -1094995529, %172 ], [ %685, %decode_subframe.exit ], [ -1094995529, %bits_read_nz_le.exit85 ]
+  %.0 = phi i32 [ -1094995529, %get_bits_esc4.exit ], [ -1094995529, %123 ], [ -1094995529, %172 ], [ %.0179.i.ph, %decode_subframe.exit.thread ], [ %685, %decode_subframe.exit ], [ 0, %687 ], [ -1094995529, %bits_read_nz_le.exit85 ]
   ret i32 %.0
 }
 
@@ -2782,8 +2782,8 @@ bits_read_nz_le.exit.i199:                        ; preds = %bits_priv_refill_32
   br label %get_bits_esc4.exit207
 
 get_bits_esc4.exit207:                            ; preds = %bits_read_bit_le.exit.i196, %bits_read_nz_le.exit.i199
-  %.pr242 = phi i32 [ %126, %bits_read_nz_le.exit.i199 ], [ %103, %bits_read_bit_le.exit.i196 ]
-  %.0.i201 = phi i32 [ %129, %bits_read_nz_le.exit.i199 ], [ 0, %bits_read_bit_le.exit.i196 ]
+  %.pr242 = phi i32 [ %103, %bits_read_bit_le.exit.i196 ], [ %126, %bits_read_nz_le.exit.i199 ]
+  %.0.i201 = phi i32 [ 0, %bits_read_bit_le.exit.i196 ], [ %129, %bits_read_nz_le.exit.i199 ]
   %.not.i208 = icmp eq i32 %.pr242, 0
   br i1 %.not.i208, label %get_bits_esc4.exit207.thread, label %bits_read_bit_le.exit
 
@@ -3247,7 +3247,7 @@ bits_read_signed_nz_le.exit236:                   ; preds = %204, %207, %bits_pr
   br label %.critedge
 
 .critedge:                                        ; preds = %93, %.loopexit, %353
-  %.1 = phi i32 [ 0, %.loopexit ], [ -1094995529, %93 ], [ 0, %353 ]
+  %.1 = phi i32 [ 0, %353 ], [ 0, %.loopexit ], [ -1094995529, %93 ]
   ret i32 %.1
 }
 
@@ -3863,7 +3863,7 @@ bits_read_nz_le.exit105:                          ; preds = %bits_read_bit_le.ex
   br label %.thread
 
 .thread:                                          ; preds = %134, %22, %bits_read_nz_le.exit105, %3, %.loopexit
-  %.067 = phi i32 [ -1094995529, %3 ], [ 0, %.loopexit ], [ %157, %bits_read_nz_le.exit105 ], [ -1094995529, %22 ], [ %135, %134 ]
+  %.067 = phi i32 [ 0, %.loopexit ], [ -1094995529, %3 ], [ %157, %bits_read_nz_le.exit105 ], [ -1094995529, %22 ], [ %135, %134 ]
   ret i32 %.067
 }
 
@@ -4171,7 +4171,7 @@ bits_read_le.exit84:                              ; preds = %107, %110, %bits_pr
   br label %.critedge
 
 .critedge:                                        ; preds = %132, %134, %46, %138, %bits_read_bit_le.exit, %bits_read_le.exit
-  %.043 = phi i32 [ %.0.i, %46 ], [ %139, %138 ], [ %.0.i, %bits_read_bit_le.exit ], [ %.0.i, %bits_read_le.exit ], [ %133, %132 ], [ %137, %134 ]
+  %.043 = phi i32 [ %139, %138 ], [ %.0.i, %bits_read_bit_le.exit ], [ %.0.i, %bits_read_le.exit ], [ %.0.i, %46 ], [ %133, %132 ], [ %137, %134 ]
   %140 = lshr i32 %.043, 1
   %141 = and i32 %.043, 1
   %142 = sub nsw i32 0, %141

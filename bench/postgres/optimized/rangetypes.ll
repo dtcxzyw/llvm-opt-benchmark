@@ -245,15 +245,15 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %85, label %.critedge2.thread.sink.split.i, label %89
 
 .critedge2.thread.sink.split.i:                   ; preds = %.critedge4.i, %73, %65, %51, %.critedge2.i
-  %.str.27.sink.i = phi ptr [ @.str.26, %73 ], [ @.str.25, %65 ], [ @.str.24, %51 ], [ @.str.23, %.critedge2.i ], [ @.str.27, %.critedge4.i ]
-  %.sink.i = phi i32 [ 2406, %73 ], [ 2386, %65 ], [ 2371, %51 ], [ 2354, %.critedge2.i ], [ 2417, %.critedge4.i ]
+  %.str.27.sink.i = phi ptr [ @.str.23, %.critedge2.i ], [ @.str.24, %51 ], [ @.str.25, %65 ], [ @.str.26, %73 ], [ @.str.27, %.critedge4.i ]
+  %.sink.i = phi i32 [ 2354, %.critedge2.i ], [ 2371, %51 ], [ 2386, %65 ], [ 2406, %73 ], [ 2417, %.critedge4.i ]
   %86 = tail call i32 @errcode(i32 noundef 33685634) #14
   %87 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %9) #14
   %88 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.27.sink.i) #14
   tail call void @errsave_finish(ptr noundef %17, ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.range_parse) #14
   br label %89
 
-89:                                               ; preds = %.critedge2.i, %51, %65, %73, %.critedge4.i, %61, %53, %.critedge2.thread.sink.split.i
+89:                                               ; preds = %.critedge2.i, %51, %53, %65, %61, %73, %.critedge4.i, %.critedge2.thread.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %90, align 4
@@ -524,7 +524,7 @@ define dso_local ptr @make_range(ptr noundef %0, ptr noundef captures(none) %1, 
   br label %55
 
 55:                                               ; preds = %.sink.split, %15, %19, %11
-  %.0 = phi ptr [ %7, %15 ], [ null, %11 ], [ %7, %19 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ %7, %19 ], [ %7, %15 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -755,8 +755,8 @@ fetch_att.exit:                                   ; preds = %29, %32, %35, %38, 
   br label %76
 
 76:                                               ; preds = %5, %46, %72
-  %.054 = phi ptr [ %75, %72 ], [ %48, %46 ], [ %21, %5 ]
-  %.053 = phi i64 [ %.0.i, %72 ], [ %.0.i, %46 ], [ 0, %5 ]
+  %.054 = phi ptr [ %48, %46 ], [ %75, %72 ], [ %21, %5 ]
+  %.053 = phi i64 [ %.0.i, %46 ], [ %.0.i, %72 ], [ 0, %5 ]
   %77 = and i8 %11, 81
   %.not60 = icmp eq i8 %77, 0
   br i1 %.not60, label %81, label %fetch_att.exit68
@@ -814,9 +814,9 @@ fetch_att.exit:                                   ; preds = %29, %32, %35, %38, 
   br label %100
 
 100:                                              ; preds = %88, %91, %94, %97, %86
-  %101 = phi i32 [ -1, %86 ], [ %89, %91 ], [ %89, %97 ], [ %89, %94 ], [ %89, %88 ]
-  %.0537478 = phi i64 [ %.0537480, %86 ], [ %.0537479, %91 ], [ %.0537479, %97 ], [ %.0537479, %94 ], [ %.0537479, %88 ]
-  %102 = phi i64 [ %87, %86 ], [ %93, %91 ], [ %99, %97 ], [ %96, %94 ], [ %90, %88 ]
+  %101 = phi i32 [ -1, %86 ], [ %89, %91 ], [ %89, %94 ], [ %89, %97 ], [ %89, %88 ]
+  %.0537478 = phi i64 [ %.0537480, %86 ], [ %.0537479, %91 ], [ %.0537479, %94 ], [ %.0537479, %97 ], [ %.0537479, %88 ]
+  %102 = phi i64 [ %87, %86 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ %90, %88 ]
   %103 = inttoptr i64 %102 to ptr
   br i1 %18, label %104, label %fetch_att.exit68
 
@@ -860,8 +860,8 @@ fetch_att.exit:                                   ; preds = %29, %32, %35, %38, 
   unreachable
 
 fetch_att.exit68:                                 ; preds = %117, %114, %111, %108, %100, %.thread, %76
-  %.05373 = phi i64 [ %.0.i, %.thread ], [ %.053, %76 ], [ %.0537478, %100 ], [ %.0537478, %108 ], [ %.0537478, %111 ], [ %.0537478, %114 ], [ %.0537478, %117 ]
-  %.0 = phi i64 [ 0, %.thread ], [ 0, %76 ], [ %102, %100 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %118, %117 ]
+  %.05373 = phi i64 [ %.053, %76 ], [ %.0.i, %.thread ], [ %.0537478, %100 ], [ %.0537478, %108 ], [ %.0537478, %111 ], [ %.0537478, %114 ], [ %.0537478, %117 ]
+  %.0 = phi i64 [ 0, %76 ], [ 0, %.thread ], [ %102, %100 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %118, %117 ]
   %122 = and i8 %11, 1
   store i8 %122, ptr %4, align 1
   store i64 %.05373, ptr %2, align 8
@@ -1740,7 +1740,7 @@ range_get_typcache.exit:                          ; preds = %17, %27
   br label %range_contains_elem_internal.exit
 
 range_contains_elem_internal.exit:                ; preds = %range_get_typcache.exit, %36, %44, %53, %61, %66
-  %.0.i6 = phi i64 [ 0, %36 ], [ 1, %66 ], [ 0, %44 ], [ 0, %53 ], [ 0, %range_get_typcache.exit ], [ 0, %61 ]
+  %.0.i6 = phi i64 [ 1, %66 ], [ 0, %range_get_typcache.exit ], [ 0, %36 ], [ 0, %44 ], [ 0, %53 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1812,7 +1812,7 @@ define dso_local noundef zeroext i1 @range_contains_elem_internal(ptr noundef %0
   br label %44
 
 44:                                               ; preds = %38, %30, %21, %13, %3, %43
-  %.0 = phi i1 [ false, %13 ], [ true, %43 ], [ false, %21 ], [ false, %30 ], [ false, %3 ], [ false, %38 ]
+  %.0 = phi i1 [ true, %43 ], [ false, %3 ], [ false, %13 ], [ false, %21 ], [ false, %30 ], [ false, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1924,7 +1924,7 @@ range_get_typcache.exit:                          ; preds = %17, %27
   br label %range_contains_elem_internal.exit
 
 range_contains_elem_internal.exit:                ; preds = %range_get_typcache.exit, %36, %44, %53, %61, %66
-  %.0.i6 = phi i64 [ 0, %36 ], [ 1, %66 ], [ 0, %44 ], [ 0, %53 ], [ 0, %range_get_typcache.exit ], [ 0, %61 ]
+  %.0.i6 = phi i64 [ 1, %66 ], [ 0, %range_get_typcache.exit ], [ 0, %36 ], [ 0, %44 ], [ 0, %53 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2079,7 +2079,7 @@ range_cmp_bounds.exit:                            ; preds = %53, %30, %59
   br label %range_cmp_bounds.exit.thread
 
 range_cmp_bounds.exit.thread:                     ; preds = %83, %90, %67, %74, %66, %73, %59, %53, %36, %30, %37, %22, %17
-  %.0 = phi i1 [ false, %53 ], [ true, %17 ], [ false, %22 ], [ false, %37 ], [ false, %59 ], [ false, %30 ], [ false, %36 ], [ %72, %67 ], [ false, %74 ], [ %95, %90 ], [ false, %66 ], [ false, %73 ], [ %.mux, %83 ]
+  %.0 = phi i1 [ true, %17 ], [ false, %22 ], [ false, %37 ], [ false, %30 ], [ false, %36 ], [ false, %53 ], [ false, %59 ], [ false, %74 ], [ %72, %67 ], [ false, %66 ], [ false, %73 ], [ %95, %90 ], [ %.mux, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2184,7 +2184,7 @@ define dso_local i32 @range_cmp_bounds(ptr noundef %0, ptr noundef readonly capt
   br label %64
 
 64:                                               ; preds = %29, %58, %48, %13, %59, %55, %52, %24, %20, %17
-  %.0 = phi i32 [ 0, %58 ], [ %19, %17 ], [ %22, %20 ], [ %28, %24 ], [ 0, %48 ], [ %63, %59 ], [ %57, %55 ], [ 0, %13 ], [ %54, %52 ], [ %36, %29 ]
+  %.0 = phi i32 [ %19, %17 ], [ %22, %20 ], [ %28, %24 ], [ %63, %59 ], [ %57, %55 ], [ %54, %52 ], [ 0, %13 ], [ 0, %48 ], [ 0, %58 ], [ %36, %29 ]
   ret i32 %.0
 }
 
@@ -2465,7 +2465,7 @@ range_cmp_bounds.exit:                            ; preds = %45
   %75 = icmp sgt i32 %52, 0
   br i1 %75, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit.thread
 
-range_cmp_bounds.exit.thread:                     ; preds = %38, %33, %69, %64, %41, %71, %range_cmp_bounds.exit
+range_cmp_bounds.exit.thread:                     ; preds = %38, %71, %64, %33, %69, %41, %range_cmp_bounds.exit
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %77 = load i8, ptr %76, align 8, !range !7, !noundef !8
   %78 = trunc nuw i8 %77 to i1
@@ -2553,8 +2553,8 @@ range_cmp_bounds.exit10:                          ; preds = %97
 range_cmp_bounds.exit10.thread29:                 ; preds = %123, %116, %85, %90, %121, %93, %range_cmp_bounds.exit10
   br label %range_cmp_bounds.exit.thread18
 
-range_cmp_bounds.exit.thread18:                   ; preds = %71, %64, %33, %121, %93, %85, %116, %90, %123, %69, %41, %38, %range_cmp_bounds.exit10.thread29, %range_cmp_bounds.exit10, %range_cmp_bounds.exit, %20, %17
-  %.0 = phi i1 [ false, %range_cmp_bounds.exit ], [ true, %17 ], [ false, %20 ], [ false, %64 ], [ false, %range_cmp_bounds.exit10.thread29 ], [ true, %range_cmp_bounds.exit10 ], [ false, %33 ], [ false, %38 ], [ false, %71 ], [ false, %41 ], [ false, %69 ], [ true, %123 ], [ true, %121 ], [ true, %90 ], [ true, %116 ], [ true, %93 ], [ true, %85 ]
+range_cmp_bounds.exit.thread18:                   ; preds = %71, %64, %33, %121, %93, %123, %116, %85, %90, %69, %41, %38, %range_cmp_bounds.exit10.thread29, %range_cmp_bounds.exit10, %range_cmp_bounds.exit, %20, %17
+  %.0 = phi i1 [ true, %17 ], [ false, %20 ], [ false, %range_cmp_bounds.exit ], [ false, %range_cmp_bounds.exit10.thread29 ], [ true, %range_cmp_bounds.exit10 ], [ false, %38 ], [ false, %41 ], [ false, %69 ], [ true, %90 ], [ true, %85 ], [ true, %116 ], [ true, %123 ], [ true, %93 ], [ true, %121 ], [ false, %33 ], [ false, %64 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2748,7 +2748,7 @@ define dso_local zeroext i1 @range_before_internal(ptr noundef %0, ptr noundef %
   br label %range_cmp_bounds.exit
 
 range_cmp_bounds.exit:                            ; preds = %32, %36, %39, %43, %48, %67, %71, %74, %77, %78
-  %.0.i = phi i32 [ 0, %77 ], [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ 0, %67 ], [ %82, %78 ], [ %76, %74 ], [ 0, %32 ], [ %73, %71 ], [ %55, %48 ]
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ %82, %78 ], [ %76, %74 ], [ %73, %71 ], [ 0, %32 ], [ 0, %67 ], [ 0, %77 ], [ %55, %48 ]
   %83 = icmp slt i32 %.0.i, 0
   br label %84
 
@@ -2941,7 +2941,7 @@ define dso_local zeroext i1 @range_after_internal(ptr noundef %0, ptr noundef %1
   br label %range_cmp_bounds.exit
 
 range_cmp_bounds.exit:                            ; preds = %32, %36, %39, %43, %48, %67, %71, %74, %77, %78
-  %.0.i = phi i32 [ 0, %77 ], [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ 0, %67 ], [ %82, %78 ], [ %76, %74 ], [ 0, %32 ], [ %73, %71 ], [ %55, %48 ]
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ %82, %78 ], [ %76, %74 ], [ %73, %71 ], [ 0, %32 ], [ 0, %67 ], [ 0, %77 ], [ %55, %48 ]
   %83 = icmp sgt i32 %.0.i, 0
   br label %84
 
@@ -3094,8 +3094,8 @@ range_cmp_bound_values.exit.thread.thread15:      ; preds = %21, %range_cmp_boun
   %55 = icmp ne i8 %17, %19
   br label %range_cmp_bound_values.exit.thread.thread
 
-range_cmp_bound_values.exit.thread.thread:        ; preds = %28, %25, %23, %range_cmp_bound_values.exit.thread, %38, %range_cmp_bound_values.exit.thread12, %range_cmp_bound_values.exit.thread.thread15
-  %.1 = phi i1 [ false, %range_cmp_bound_values.exit.thread12 ], [ %55, %range_cmp_bound_values.exit.thread.thread15 ], [ %53, %38 ], [ false, %range_cmp_bound_values.exit.thread ], [ false, %23 ], [ false, %25 ], [ false, %28 ]
+range_cmp_bound_values.exit.thread.thread:        ; preds = %28, %23, %25, %range_cmp_bound_values.exit.thread, %38, %range_cmp_bound_values.exit.thread12, %range_cmp_bound_values.exit.thread.thread15
+  %.1 = phi i1 [ %55, %range_cmp_bound_values.exit.thread.thread15 ], [ %53, %38 ], [ false, %range_cmp_bound_values.exit.thread12 ], [ false, %range_cmp_bound_values.exit.thread ], [ false, %25 ], [ false, %23 ], [ false, %28 ]
   ret i1 %.1
 }
 
@@ -3151,7 +3151,7 @@ define dso_local i32 @range_cmp_bound_values(ptr noundef %0, ptr noundef readonl
   br label %37
 
 37:                                               ; preds = %13, %29, %24, %20, %17
-  %.0 = phi i32 [ %36, %29 ], [ %19, %17 ], [ %22, %20 ], [ %28, %24 ], [ 0, %13 ]
+  %.0 = phi i32 [ %19, %17 ], [ %22, %20 ], [ %28, %24 ], [ %36, %29 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -3194,7 +3194,7 @@ define dso_local zeroext i1 @range_adjacent_internal(ptr noundef %0, ptr noundef
   %24 = load i8, ptr %13, align 1, !range !7
   %25 = trunc nuw i8 %24 to i1
   %or.cond = select i1 %23, i1 true, i1 %25
-  br i1 %or.cond, label %134, label %26
+  br i1 %or.cond, label %133, label %26
 
 26:                                               ; preds = %21
   %27 = load i64, ptr %10, align 8
@@ -3228,7 +3228,7 @@ define dso_local zeroext i1 @range_adjacent_internal(ptr noundef %0, ptr noundef
 
 46:                                               ; preds = %45
   %47 = icmp eq i8 %40, %38
-  br i1 %47, label %bounds_adjacent.exit, label %48
+  br i1 %47, label %range_cmp_bound_values.exit.thread.thread15.i, label %48
 
 48:                                               ; preds = %46
   %49 = trunc i64 %39 to i1
@@ -3258,9 +3258,24 @@ range_cmp_bound_values.exit.thread12.i:           ; preds = %range_cmp_bound_val
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %62 = load i32, ptr %61, align 8
   %.not.i = icmp eq i32 %62, 0
-  br i1 %.not.i, label %bounds_adjacent.exit.thread, label %63
+  br i1 %.not.i, label %bounds_adjacent.exit.thread, label %bounds_adjacent.exit
 
-63:                                               ; preds = %range_cmp_bound_values.exit.thread12.i
+range_cmp_bound_values.exit.thread.i:             ; preds = %range_cmp_bound_values.exit.i
+  %63 = icmp eq i32 %59, 0
+  br i1 %63, label %range_cmp_bound_values.exit.thread.thread15.i, label %bounds_adjacent.exit.thread
+
+range_cmp_bound_values.exit.thread.thread15.i:    ; preds = %range_cmp_bound_values.exit.thread.i, %46
+  %.not19 = icmp eq i8 %42, %44
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br i1 %.not19, label %78, label %133
+
+bounds_adjacent.exit.thread:                      ; preds = %range_cmp_bound_values.exit.thread12.i, %range_cmp_bound_values.exit.thread.i, %50, %48, %53
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %78
+
+bounds_adjacent.exit:                             ; preds = %range_cmp_bound_values.exit.thread12.i
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %65 = xor i8 %42, 1
   store i8 %65, ptr %64, align 1
@@ -3282,125 +3297,110 @@ range_cmp_bound_values.exit.thread12.i:           ; preds = %range_cmp_bound_val
   %.not18 = icmp eq i8 %77, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not18, label %79, label %134
+  br i1 %.not18, label %78, label %133
 
-range_cmp_bound_values.exit.thread.i:             ; preds = %range_cmp_bound_values.exit.i
-  %78 = icmp eq i32 %59, 0
-  br i1 %78, label %bounds_adjacent.exit, label %bounds_adjacent.exit.thread
-
-bounds_adjacent.exit.thread:                      ; preds = %range_cmp_bound_values.exit.thread12.i, %range_cmp_bound_values.exit.thread.i, %48, %50, %53
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %79
-
-bounds_adjacent.exit:                             ; preds = %46, %range_cmp_bound_values.exit.thread.i
-  %.not19 = icmp eq i8 %42, %44
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not19, label %79, label %134
-
-79:                                               ; preds = %63, %bounds_adjacent.exit.thread, %bounds_adjacent.exit
-  %80 = load i64, ptr %11, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %82 = load i64, ptr %81, align 8
-  %83 = load i64, ptr %8, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %85 = load i64, ptr %84, align 8
+78:                                               ; preds = %range_cmp_bound_values.exit.thread.thread15.i, %bounds_adjacent.exit.thread, %bounds_adjacent.exit
+  %79 = load i64, ptr %11, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %81 = load i64, ptr %80, align 8
+  %82 = load i64, ptr %8, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %84 = load i64, ptr %83, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %80, ptr %4, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %82, ptr %86, align 8
-  store i64 %83, ptr %5, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %85, ptr %87, align 8
-  %88 = trunc i64 %82 to i1
-  %89 = trunc i64 %85 to i1
-  %90 = lshr i64 %85, 16
-  %91 = trunc i64 %90 to i8
-  %92 = lshr i64 %82, 16
-  %93 = trunc i64 %92 to i8
-  %94 = lshr i64 %82, 8
-  %95 = trunc i64 %94 to i8
-  %96 = lshr i64 %85, 8
-  %97 = trunc i64 %96 to i8
-  br i1 %88, label %98, label %105
+  store i64 %79, ptr %4, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %81, ptr %85, align 8
+  store i64 %82, ptr %5, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %84, ptr %86, align 8
+  %87 = trunc i64 %81 to i1
+  %88 = trunc i64 %84 to i1
+  %89 = lshr i64 %84, 16
+  %90 = trunc i64 %89 to i8
+  %91 = lshr i64 %81, 16
+  %92 = trunc i64 %91 to i8
+  %93 = lshr i64 %81, 8
+  %94 = trunc i64 %93 to i8
+  %95 = lshr i64 %84, 8
+  %96 = trunc i64 %95 to i8
+  br i1 %87, label %97, label %104
 
-98:                                               ; preds = %79
-  br i1 %89, label %99, label %103
+97:                                               ; preds = %78
+  br i1 %88, label %98, label %102
 
-99:                                               ; preds = %98
-  %100 = icmp eq i8 %93, %91
-  br i1 %100, label %range_cmp_bound_values.exit.thread.thread15.i13, label %101
+98:                                               ; preds = %97
+  %99 = icmp eq i8 %92, %90
+  br i1 %99, label %range_cmp_bound_values.exit.thread.thread15.i13, label %100
 
-101:                                              ; preds = %99
-  %102 = trunc i64 %92 to i1
-  br i1 %102, label %range_cmp_bound_values.exit.thread12.i14, label %bounds_adjacent.exit16
+100:                                              ; preds = %98
+  %101 = trunc i64 %91 to i1
+  br i1 %101, label %range_cmp_bound_values.exit.thread12.i14, label %bounds_adjacent.exit16
 
-103:                                              ; preds = %98
-  %104 = trunc i64 %92 to i1
-  br i1 %104, label %range_cmp_bound_values.exit.thread12.i14, label %bounds_adjacent.exit16
+102:                                              ; preds = %97
+  %103 = trunc i64 %91 to i1
+  br i1 %103, label %range_cmp_bound_values.exit.thread12.i14, label %bounds_adjacent.exit16
 
-105:                                              ; preds = %79
-  br i1 %89, label %106, label %range_cmp_bound_values.exit.i10
+104:                                              ; preds = %78
+  br i1 %88, label %105, label %range_cmp_bound_values.exit.i10
 
-106:                                              ; preds = %105
-  %107 = trunc i64 %90 to i1
-  br i1 %107, label %bounds_adjacent.exit16, label %range_cmp_bound_values.exit.thread12.i14
+105:                                              ; preds = %104
+  %106 = trunc i64 %89 to i1
+  br i1 %106, label %bounds_adjacent.exit16, label %range_cmp_bound_values.exit.thread12.i14
 
-range_cmp_bound_values.exit.i10:                  ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %110 = load i32, ptr %109, align 4
-  %111 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %108, i32 noundef %110, i64 noundef %80, i64 noundef %83) #14
-  %112 = trunc i64 %111 to i32
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %range_cmp_bound_values.exit.thread12.i14, label %range_cmp_bound_values.exit.thread.i11
+range_cmp_bound_values.exit.i10:                  ; preds = %104
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %109 = load i32, ptr %108, align 4
+  %110 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %107, i32 noundef %109, i64 noundef %79, i64 noundef %82) #14
+  %111 = trunc i64 %110 to i32
+  %112 = icmp slt i32 %111, 0
+  br i1 %112, label %range_cmp_bound_values.exit.thread12.i14, label %range_cmp_bound_values.exit.thread.i11
 
-range_cmp_bound_values.exit.thread12.i14:         ; preds = %range_cmp_bound_values.exit.i10, %106, %103, %101
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %115 = load i32, ptr %114, align 8
-  %.not.i15 = icmp eq i32 %115, 0
-  br i1 %.not.i15, label %bounds_adjacent.exit16, label %116
+range_cmp_bound_values.exit.thread12.i14:         ; preds = %range_cmp_bound_values.exit.i10, %105, %102, %100
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %114 = load i32, ptr %113, align 8
+  %.not.i15 = icmp eq i32 %114, 0
+  br i1 %.not.i15, label %bounds_adjacent.exit16, label %115
 
-116:                                              ; preds = %range_cmp_bound_values.exit.thread12.i14
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %118 = xor i8 %95, 1
-  store i8 %118, ptr %117, align 1
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %120 = xor i8 %97, 1
-  store i8 %120, ptr %119, align 1
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 1, ptr %121, align 2
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i8 0, ptr %122, align 2
-  %123 = call ptr @make_range(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null)
-  %124 = load i32, ptr %123, align 4
-  %125 = lshr i32 %124, 2
-  %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 %126
-  %128 = getelementptr inbounds i8, ptr %127, i64 -1
-  %129 = load i8, ptr %128, align 1
-  %130 = and i8 %129, 1
-  %131 = icmp ne i8 %130, 0
+115:                                              ; preds = %range_cmp_bound_values.exit.thread12.i14
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %117 = xor i8 %94, 1
+  store i8 %117, ptr %116, align 1
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %119 = xor i8 %96, 1
+  store i8 %119, ptr %118, align 1
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  store i8 1, ptr %120, align 2
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  store i8 0, ptr %121, align 2
+  %122 = call ptr @make_range(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null)
+  %123 = load i32, ptr %122, align 4
+  %124 = lshr i32 %123, 2
+  %125 = zext nneg i32 %124 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 %125
+  %127 = getelementptr inbounds i8, ptr %126, i64 -1
+  %128 = load i8, ptr %127, align 1
+  %129 = and i8 %128, 1
+  %130 = icmp ne i8 %129, 0
   br label %bounds_adjacent.exit16
 
 range_cmp_bound_values.exit.thread.i11:           ; preds = %range_cmp_bound_values.exit.i10
-  %132 = icmp eq i32 %112, 0
-  br i1 %132, label %range_cmp_bound_values.exit.thread.thread15.i13, label %bounds_adjacent.exit16
+  %131 = icmp eq i32 %111, 0
+  br i1 %131, label %range_cmp_bound_values.exit.thread.thread15.i13, label %bounds_adjacent.exit16
 
-range_cmp_bound_values.exit.thread.thread15.i13:  ; preds = %range_cmp_bound_values.exit.thread.i11, %99
-  %133 = icmp ne i8 %95, %97
+range_cmp_bound_values.exit.thread.thread15.i13:  ; preds = %range_cmp_bound_values.exit.thread.i11, %98
+  %132 = icmp ne i8 %94, %96
   br label %bounds_adjacent.exit16
 
-bounds_adjacent.exit16:                           ; preds = %101, %103, %106, %range_cmp_bound_values.exit.thread12.i14, %116, %range_cmp_bound_values.exit.thread.i11, %range_cmp_bound_values.exit.thread.thread15.i13
-  %.1.i12 = phi i1 [ false, %range_cmp_bound_values.exit.thread12.i14 ], [ %133, %range_cmp_bound_values.exit.thread.thread15.i13 ], [ %131, %116 ], [ false, %range_cmp_bound_values.exit.thread.i11 ], [ false, %101 ], [ false, %103 ], [ false, %106 ]
+bounds_adjacent.exit16:                           ; preds = %100, %102, %105, %range_cmp_bound_values.exit.thread12.i14, %115, %range_cmp_bound_values.exit.thread.i11, %range_cmp_bound_values.exit.thread.thread15.i13
+  %.1.i12 = phi i1 [ %132, %range_cmp_bound_values.exit.thread.thread15.i13 ], [ %130, %115 ], [ false, %range_cmp_bound_values.exit.thread12.i14 ], [ false, %range_cmp_bound_values.exit.thread.i11 ], [ false, %102 ], [ false, %100 ], [ false, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %134
+  br label %133
 
-134:                                              ; preds = %63, %bounds_adjacent.exit, %bounds_adjacent.exit16, %21
-  %.0 = phi i1 [ false, %21 ], [ true, %bounds_adjacent.exit ], [ %.1.i12, %bounds_adjacent.exit16 ], [ true, %63 ]
+133:                                              ; preds = %range_cmp_bound_values.exit.thread.thread15.i, %bounds_adjacent.exit, %bounds_adjacent.exit16, %21
+  %.0 = phi i1 [ false, %21 ], [ true, %bounds_adjacent.exit ], [ %.1.i12, %bounds_adjacent.exit16 ], [ true, %range_cmp_bound_values.exit.thread.thread15.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3604,7 +3604,7 @@ range_cmp_bounds.exit:                            ; preds = %44
   %88 = trunc nuw i8 %31 to i1
   br i1 %88, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit.thread25
 
-select.unfold19:                                  ; preds = %68, %40, %70, %63
+select.unfold19:                                  ; preds = %68, %40, %63, %70
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %90 = load i8, ptr %89, align 8, !range !7, !noundef !8
   %91 = trunc nuw i8 %90 to i1
@@ -3789,7 +3789,7 @@ range_cmp_bounds.exit.thread25.thread67.thread68.thread: ; preds = %40, %range_c
   %181 = trunc nuw i8 %171 to i1
   br i1 %181, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit15.thread51
 
-select.unfold45:                                  ; preds = %37, %161, %range_cmp_bounds.exit.thread25.thread.thread69, %163, %156
+select.unfold45:                                  ; preds = %37, %161, %range_cmp_bounds.exit.thread25.thread.thread69, %156, %163
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %183 = load i8, ptr %182, align 8, !range !7, !noundef !8
   %184 = trunc nuw i8 %183 to i1
@@ -3856,8 +3856,8 @@ range_cmp_bounds.exit17:                          ; preds = %189
 range_cmp_bounds.exit15.thread51:                 ; preds = %215, %208, %175, %163, %156, %range_cmp_bounds.exit.thread25.thread67.thread, %213, %185, %180, %range_cmp_bounds.exit.thread25.thread67.thread68, %161, %range_cmp_bounds.exit.thread25.thread.thread69, %range_cmp_bounds.exit17, %range_cmp_bounds.exit15
   br label %range_cmp_bounds.exit13.thread
 
-range_cmp_bounds.exit13.thread:                   ; preds = %180, %175, %213, %208, %185, %215, %87, %82, %120, %115, %92, %122, %range_cmp_bounds.exit17, %range_cmp_bounds.exit13, %17, %range_cmp_bounds.exit15.thread51
-  %.0 = phi i1 [ false, %range_cmp_bounds.exit15.thread51 ], [ false, %17 ], [ true, %range_cmp_bounds.exit13 ], [ true, %range_cmp_bounds.exit17 ], [ true, %175 ], [ true, %122 ], [ true, %92 ], [ true, %115 ], [ true, %120 ], [ true, %82 ], [ true, %180 ], [ true, %213 ], [ true, %87 ], [ true, %215 ], [ true, %185 ], [ true, %208 ]
+range_cmp_bounds.exit13.thread:                   ; preds = %180, %215, %208, %175, %213, %185, %87, %122, %115, %82, %120, %92, %range_cmp_bounds.exit17, %range_cmp_bounds.exit13, %17, %range_cmp_bounds.exit15.thread51
+  %.0 = phi i1 [ false, %range_cmp_bounds.exit15.thread51 ], [ false, %17 ], [ true, %range_cmp_bounds.exit13 ], [ true, %range_cmp_bounds.exit17 ], [ true, %92 ], [ true, %120 ], [ true, %82 ], [ true, %115 ], [ true, %122 ], [ true, %87 ], [ true, %185 ], [ true, %213 ], [ true, %175 ], [ true, %208 ], [ true, %215 ], [ true, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4045,7 +4045,7 @@ define dso_local zeroext i1 @range_overleft_internal(ptr noundef %0, ptr noundef
   br label %range_cmp_bounds.exit
 
 range_cmp_bounds.exit:                            ; preds = %32, %36, %39, %43, %48, %67, %71, %74, %77, %78
-  %.0.i = phi i32 [ 0, %77 ], [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ 0, %67 ], [ %82, %78 ], [ %76, %74 ], [ 0, %32 ], [ %73, %71 ], [ %55, %48 ]
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ %82, %78 ], [ %76, %74 ], [ %73, %71 ], [ 0, %32 ], [ 0, %67 ], [ 0, %77 ], [ %55, %48 ]
   %83 = icmp slt i32 %.0.i, 1
   br label %84
 
@@ -4238,7 +4238,7 @@ define dso_local zeroext i1 @range_overright_internal(ptr noundef %0, ptr nounde
   br label %range_cmp_bounds.exit
 
 range_cmp_bounds.exit:                            ; preds = %32, %36, %39, %43, %48, %67, %71, %74, %77, %78
-  %.0.i = phi i32 [ 0, %77 ], [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ 0, %67 ], [ %82, %78 ], [ %76, %74 ], [ 0, %32 ], [ %73, %71 ], [ %55, %48 ]
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ %82, %78 ], [ %76, %74 ], [ %73, %71 ], [ 0, %32 ], [ 0, %67 ], [ 0, %77 ], [ %55, %48 ]
   %83 = icmp sgt i32 %.0.i, -1
   br label %84
 
@@ -4493,7 +4493,7 @@ define dso_local ptr @range_minus_internal(ptr noundef %0, ptr noundef %1, ptr n
   br label %91
 
 77:                                               ; preds = %33, %30, %26
-  %.0.i = phi i32 [ 0, %26 ], [ %32, %30 ], [ %35, %33 ]
+  %.0.i = phi i32 [ %32, %30 ], [ %35, %33 ], [ 0, %26 ]
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %79 = load i8, ptr %78, align 8, !range !7, !noundef !8
   %80 = trunc nuw i8 %79 to i1
@@ -4516,7 +4516,7 @@ define dso_local ptr @range_minus_internal(ptr noundef %0, ptr noundef %1, ptr n
   br label %range_cmp_bounds.exit43
 
 91:                                               ; preds = %37, %42, %61, %65, %68, %71, %72
-  %.0.i.ph = phi i32 [ %49, %42 ], [ %67, %65 ], [ %70, %68 ], [ %76, %72 ], [ 0, %61 ], [ %41, %37 ], [ 0, %71 ]
+  %.0.i.ph = phi i32 [ %49, %42 ], [ 0, %71 ], [ 0, %61 ], [ %67, %65 ], [ %70, %68 ], [ %76, %72 ], [ %41, %37 ]
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %93 = load i8, ptr %92, align 8, !range !7, !noundef !8
   %94 = trunc nuw i8 %93 to i1
@@ -4581,9 +4581,9 @@ define dso_local ptr @range_minus_internal(ptr noundef %0, ptr noundef %1, ptr n
   br label %range_cmp_bounds.exit43
 
 range_cmp_bounds.exit43:                          ; preds = %81, %85, %88, %95, %100, %119, %123, %126, %129, %130
-  %135 = phi i1 [ false, %129 ], [ true, %85 ], [ false, %88 ], [ true, %95 ], [ false, %119 ], [ false, %130 ], [ false, %126 ], [ true, %81 ], [ false, %123 ], [ false, %100 ]
-  %.0.i49 = phi i32 [ %.0.i.ph, %129 ], [ %.0.i, %85 ], [ %.0.i, %88 ], [ %.0.i.ph, %95 ], [ %.0.i.ph, %119 ], [ %.0.i.ph, %130 ], [ %.0.i.ph, %126 ], [ %.0.i, %81 ], [ %.0.i.ph, %123 ], [ %.0.i.ph, %100 ]
-  %.0.i42 = phi i32 [ 0, %129 ], [ %87, %85 ], [ %90, %88 ], [ %99, %95 ], [ 0, %119 ], [ %134, %130 ], [ %128, %126 ], [ 0, %81 ], [ %125, %123 ], [ %107, %100 ]
+  %135 = phi i1 [ true, %85 ], [ false, %88 ], [ true, %95 ], [ false, %130 ], [ false, %126 ], [ false, %123 ], [ true, %81 ], [ false, %119 ], [ false, %129 ], [ false, %100 ]
+  %.0.i49 = phi i32 [ %.0.i, %85 ], [ %.0.i, %88 ], [ %.0.i.ph, %95 ], [ %.0.i.ph, %130 ], [ %.0.i.ph, %126 ], [ %.0.i.ph, %123 ], [ %.0.i, %81 ], [ %.0.i.ph, %119 ], [ %.0.i.ph, %129 ], [ %.0.i.ph, %100 ]
+  %.0.i42 = phi i32 [ %87, %85 ], [ %90, %88 ], [ %99, %95 ], [ %134, %130 ], [ %128, %126 ], [ %125, %123 ], [ 0, %81 ], [ 0, %119 ], [ 0, %129 ], [ %107, %100 ]
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %137 = load i8, ptr %136, align 8, !range !7, !noundef !8
   %138 = trunc nuw i8 %137 to i1
@@ -4672,7 +4672,7 @@ range_cmp_bounds.exit43:                          ; preds = %81, %85, %88, %95, 
   br label %203
 
 range_cmp_bounds.exit45:                          ; preds = %149, %146, %142
-  %.0.i44 = phi i32 [ 0, %142 ], [ %148, %146 ], [ %151, %149 ]
+  %.0.i44 = phi i32 [ %148, %146 ], [ %151, %149 ], [ 0, %142 ]
   br i1 %135, label %193, label %200
 
 193:                                              ; preds = %range_cmp_bounds.exit45
@@ -4692,7 +4692,7 @@ range_cmp_bounds.exit45:                          ; preds = %149, %146, %142
   br label %range_cmp_bounds.exit47
 
 203:                                              ; preds = %153, %158, %177, %181, %184, %187, %188
-  %.0.i44.ph = phi i32 [ %165, %158 ], [ %183, %181 ], [ %186, %184 ], [ %192, %188 ], [ 0, %177 ], [ %157, %153 ], [ 0, %187 ]
+  %.0.i44.ph = phi i32 [ %165, %158 ], [ 0, %187 ], [ 0, %177 ], [ %183, %181 ], [ %186, %184 ], [ %192, %188 ], [ %157, %153 ]
   br i1 %135, label %204, label %209
 
 204:                                              ; preds = %203
@@ -4754,8 +4754,8 @@ range_cmp_bounds.exit45:                          ; preds = %149, %146, %142
   br label %range_cmp_bounds.exit47
 
 range_cmp_bounds.exit47:                          ; preds = %197, %200, %204, %209, %232, %235, %239
-  %.0.i4452 = phi i32 [ %.0.i44.ph, %209 ], [ %.0.i44, %197 ], [ %.0.i44, %200 ], [ %.0.i44.ph, %204 ], [ %.0.i44.ph, %232 ], [ %.0.i44.ph, %239 ], [ %.0.i44.ph, %235 ]
-  %.0.i46 = phi i32 [ %216, %209 ], [ %199, %197 ], [ %202, %200 ], [ %208, %204 ], [ %234, %232 ], [ %243, %239 ], [ %237, %235 ]
+  %.0.i4452 = phi i32 [ %.0.i44, %197 ], [ %.0.i44, %200 ], [ %.0.i44.ph, %204 ], [ %.0.i44.ph, %239 ], [ %.0.i44.ph, %235 ], [ %.0.i44.ph, %232 ], [ %.0.i44.ph, %209 ]
+  %.0.i46 = phi i32 [ %199, %197 ], [ %202, %200 ], [ %208, %204 ], [ %243, %239 ], [ %237, %235 ], [ %234, %232 ], [ %216, %209 ]
   %244 = icmp slt i32 %.0.i49, 0
   %245 = icmp sgt i32 %.0.i46, 0
   %or.cond3 = select i1 %244, i1 %245, i1 false
@@ -4768,9 +4768,9 @@ range_cmp_bounds.exit47:                          ; preds = %197, %200, %204, %2
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1021, ptr noundef nonnull @__func__.range_minus_internal) #14
   unreachable
 
-range_cmp_bounds.exit47.thread:                   ; preds = %193, %228, %238, %range_cmp_bounds.exit47
-  %.0.i4658 = phi i32 [ %.0.i46, %range_cmp_bounds.exit47 ], [ 0, %238 ], [ 0, %228 ], [ 0, %193 ]
-  %.0.i445257 = phi i32 [ %.0.i4452, %range_cmp_bounds.exit47 ], [ %.0.i44.ph, %238 ], [ %.0.i44.ph, %228 ], [ %.0.i44, %193 ]
+range_cmp_bounds.exit47.thread:                   ; preds = %238, %228, %193, %range_cmp_bounds.exit47
+  %.0.i4658 = phi i32 [ %.0.i46, %range_cmp_bounds.exit47 ], [ 0, %193 ], [ 0, %228 ], [ 0, %238 ]
+  %.0.i445257 = phi i32 [ %.0.i4452, %range_cmp_bounds.exit47 ], [ %.0.i44, %193 ], [ %.0.i44.ph, %228 ], [ %.0.i44.ph, %238 ]
   %250 = icmp sgt i32 %.0.i42, 0
   %251 = icmp slt i32 %.0.i445257, 0
   %or.cond5 = select i1 %250, i1 true, i1 %251
@@ -4835,7 +4835,7 @@ range_cmp_bounds.exit47.thread:                   ; preds = %193, %228, %238, %r
   unreachable
 
 279:                                              ; preds = %range_cmp_bounds.exit47.thread, %3, %270, %262, %255
-  %.0 = phi ptr [ %275, %270 ], [ %1, %3 ], [ %259, %255 ], [ %267, %262 ], [ %1, %range_cmp_bounds.exit47.thread ]
+  %.0 = phi ptr [ %259, %255 ], [ %267, %262 ], [ %275, %270 ], [ %1, %3 ], [ %1, %range_cmp_bounds.exit47.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5010,8 +5010,8 @@ range_cmp_bounds.exit:                            ; preds = %55
 range_cmp_bounds.exit.thread32:                   ; preds = %81, %74, %43, %48, %79, %51, %range_cmp_bounds.exit
   br label %range_cmp_bounds.exit.thread
 
-range_cmp_bounds.exit.thread:                     ; preds = %79, %51, %43, %74, %48, %81, %range_cmp_bounds.exit, %range_cmp_bounds.exit.thread32
-  %86 = phi ptr [ %5, %range_cmp_bounds.exit.thread32 ], [ %6, %range_cmp_bounds.exit ], [ %6, %81 ], [ %6, %79 ], [ %6, %48 ], [ %6, %74 ], [ %6, %51 ], [ %6, %43 ]
+range_cmp_bounds.exit.thread:                     ; preds = %79, %51, %81, %74, %43, %48, %range_cmp_bounds.exit, %range_cmp_bounds.exit.thread32
+  %86 = phi ptr [ %5, %range_cmp_bounds.exit.thread32 ], [ %6, %range_cmp_bounds.exit ], [ %6, %48 ], [ %6, %43 ], [ %6, %74 ], [ %6, %81 ], [ %6, %51 ], [ %6, %79 ]
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %88 = load i8, ptr %87, align 8, !range !7, !noundef !8
   %89 = trunc nuw i8 %88 to i1
@@ -5098,8 +5098,8 @@ range_cmp_bounds.exit23:                          ; preds = %108
 range_cmp_bounds.exit23.thread45:                 ; preds = %134, %127, %96, %132, %104, %101, %range_cmp_bounds.exit23
   br label %range_cmp_bounds.exit23.thread
 
-range_cmp_bounds.exit23.thread:                   ; preds = %101, %96, %132, %127, %104, %134, %range_cmp_bounds.exit23, %range_cmp_bounds.exit23.thread45
-  %139 = phi ptr [ %7, %range_cmp_bounds.exit23.thread45 ], [ %8, %range_cmp_bounds.exit23 ], [ %8, %134 ], [ %8, %104 ], [ %8, %127 ], [ %8, %132 ], [ %8, %96 ], [ %8, %101 ]
+range_cmp_bounds.exit23.thread:                   ; preds = %101, %134, %127, %96, %132, %104, %range_cmp_bounds.exit23, %range_cmp_bounds.exit23.thread45
+  %139 = phi ptr [ %7, %range_cmp_bounds.exit23.thread45 ], [ %8, %range_cmp_bounds.exit23 ], [ %8, %104 ], [ %8, %132 ], [ %8, %96 ], [ %8, %127 ], [ %8, %134 ], [ %8, %101 ]
   %140 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %86, ptr noundef nonnull %139, i1 noundef zeroext false, ptr noundef null)
   br label %141
 
@@ -5403,11 +5403,11 @@ range_cmp_bounds.exit:                            ; preds = %45
   %75 = icmp sgt i32 %52, -1
   br i1 %75, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread27
 
-range_cmp_bounds.exit.thread:                     ; preds = %69, %41, %33, %64, %38, %71, %range_cmp_bounds.exit
+range_cmp_bounds.exit.thread:                     ; preds = %69, %41, %71, %64, %33, %38, %range_cmp_bounds.exit
   br label %range_cmp_bounds.exit.thread27
 
 range_cmp_bounds.exit.thread27:                   ; preds = %71, %64, %33, %38, %69, %41, %range_cmp_bounds.exit, %range_cmp_bounds.exit.thread
-  %76 = phi ptr [ %6, %range_cmp_bounds.exit.thread ], [ %7, %range_cmp_bounds.exit ], [ %7, %64 ], [ %7, %41 ], [ %7, %69 ], [ %7, %33 ], [ %7, %38 ], [ %7, %71 ]
+  %76 = phi ptr [ %6, %range_cmp_bounds.exit.thread ], [ %7, %range_cmp_bounds.exit ], [ %7, %41 ], [ %7, %69 ], [ %7, %38 ], [ %7, %33 ], [ %7, %64 ], [ %7, %71 ]
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %78 = load i8, ptr %77, align 8, !range !7, !noundef !8
   %79 = trunc nuw i8 %78 to i1
@@ -5491,11 +5491,11 @@ range_cmp_bounds.exit18:                          ; preds = %98
   %128 = icmp slt i32 %105, 1
   br i1 %128, label %range_cmp_bounds.exit18.thread, label %range_cmp_bounds.exit18.thread40
 
-range_cmp_bounds.exit18.thread:                   ; preds = %91, %86, %122, %117, %94, %124, %range_cmp_bounds.exit18
+range_cmp_bounds.exit18.thread:                   ; preds = %91, %124, %117, %86, %122, %94, %range_cmp_bounds.exit18
   br label %range_cmp_bounds.exit18.thread40
 
 range_cmp_bounds.exit18.thread40:                 ; preds = %124, %117, %86, %122, %94, %91, %range_cmp_bounds.exit18, %range_cmp_bounds.exit18.thread
-  %129 = phi ptr [ %8, %range_cmp_bounds.exit18.thread ], [ %9, %range_cmp_bounds.exit18 ], [ %9, %86 ], [ %9, %91 ], [ %9, %124 ], [ %9, %94 ], [ %9, %122 ], [ %9, %117 ]
+  %129 = phi ptr [ %8, %range_cmp_bounds.exit18.thread ], [ %9, %range_cmp_bounds.exit18 ], [ %9, %91 ], [ %9, %94 ], [ %9, %122 ], [ %9, %86 ], [ %9, %117 ], [ %9, %124 ]
   %130 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %76, ptr noundef nonnull %129, i1 noundef zeroext false, ptr noundef null)
   br label %131
 
@@ -5711,8 +5711,8 @@ range_cmp_bounds.exit12.thread30:                 ; preds = %111, %104, %73, %10
   store ptr %125, ptr %4, align 8
   br label %range_cmp_bounds.exit.thread
 
-range_cmp_bounds.exit.thread:                     ; preds = %78, %73, %109, %104, %81, %111, %57, %29, %21, %52, %26, %59, %range_cmp_bounds.exit, %range_cmp_bounds.exit12, %range_cmp_bounds.exit12.thread30
-  %.0 = phi i1 [ true, %range_cmp_bounds.exit12.thread30 ], [ false, %range_cmp_bounds.exit12 ], [ false, %range_cmp_bounds.exit ], [ false, %78 ], [ false, %59 ], [ false, %109 ], [ false, %26 ], [ false, %52 ], [ false, %73 ], [ false, %21 ], [ false, %29 ], [ false, %57 ], [ false, %111 ], [ false, %81 ], [ false, %104 ]
+range_cmp_bounds.exit.thread:                     ; preds = %78, %111, %104, %73, %109, %81, %57, %29, %59, %52, %21, %26, %range_cmp_bounds.exit, %range_cmp_bounds.exit12, %range_cmp_bounds.exit12.thread30
+  %.0 = phi i1 [ true, %range_cmp_bounds.exit12.thread30 ], [ false, %range_cmp_bounds.exit12 ], [ false, %range_cmp_bounds.exit ], [ false, %26 ], [ false, %21 ], [ false, %52 ], [ false, %59 ], [ false, %29 ], [ false, %57 ], [ false, %81 ], [ false, %109 ], [ false, %73 ], [ false, %104 ], [ false, %111 ], [ false, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6066,7 +6066,7 @@ range_cmp_bounds.exit:                            ; preds = %100, %90, %55
   br label %range_cmp_bounds.exit29
 
 range_cmp_bounds.exit29:                          ; preds = %71, %94, %97, %101, %66, %62, %59, %161, %160, %157, %154, %150, %131, %126, %122, %119, %115, %range_get_typcache.exit
-  %.0 = phi i64 [ %137, %131 ], [ %.mux.mux, %range_get_typcache.exit ], [ 0, %160 ], [ %121, %119 ], [ %124, %122 ], [ %130, %126 ], [ 0, %150 ], [ %165, %161 ], [ %159, %157 ], [ 0, %115 ], [ %156, %154 ], [ %77, %71 ], [ %96, %94 ], [ %99, %97 ], [ %105, %101 ], [ %70, %66 ], [ %64, %62 ], [ %61, %59 ]
+  %.0 = phi i64 [ %.mux.mux, %range_get_typcache.exit ], [ %121, %119 ], [ %124, %122 ], [ %130, %126 ], [ %165, %161 ], [ %159, %157 ], [ %156, %154 ], [ 0, %115 ], [ 0, %150 ], [ 0, %160 ], [ %137, %131 ], [ %77, %71 ], [ %96, %94 ], [ %99, %97 ], [ %105, %101 ], [ %70, %66 ], [ %64, %62 ], [ %61, %59 ]
   %166 = load i64, ptr %8, align 8
   %167 = inttoptr i64 %166 to ptr
   %.not24 = icmp eq ptr %11, %167
@@ -6516,7 +6516,7 @@ range_get_typcache.exit:                          ; preds = %17, %27
   br label %.thread
 
 .thread:                                          ; preds = %64, %62, %46, %44, %70, %32
-  %.0 = phi i64 [ %33, %32 ], [ %72, %70 ], [ 0, %46 ], [ 0, %44 ], [ 0, %62 ], [ 0, %64 ]
+  %.0 = phi i64 [ %33, %32 ], [ %72, %70 ], [ 0, %44 ], [ 0, %46 ], [ 0, %62 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6605,7 +6605,7 @@ range_cmp_bound_values.exit.thread.thread131:     ; preds = %16, %range_cmp_boun
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %range_cmp_bound_values.exit.thread.thread, label %63
 
-range_cmp_bound_values.exit.thread.thread:        ; preds = %22, %25, %20, %45, %range_cmp_bound_values.exit.thread
+range_cmp_bound_values.exit.thread.thread:        ; preds = %22, %20, %25, %45, %range_cmp_bound_values.exit.thread
   %49 = load i8, ptr %7, align 8, !range !7, !noundef !8
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %54, label %51
@@ -6617,7 +6617,7 @@ range_cmp_bound_values.exit.thread.thread:        ; preds = %22, %25, %20, %45, 
   br label %54
 
 54:                                               ; preds = %51, %range_cmp_bound_values.exit.thread.thread
-  %.1 = phi i8 [ %spec.select, %51 ], [ 8, %range_cmp_bound_values.exit.thread.thread ]
+  %.1 = phi i8 [ 8, %range_cmp_bound_values.exit.thread.thread ], [ %spec.select, %51 ]
   %55 = load i8, ptr %10, align 8, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %59
@@ -6634,7 +6634,7 @@ range_cmp_bound_values.exit.thread.thread:        ; preds = %22, %25, %20, %45, 
   br label %63
 
 63:                                               ; preds = %59, %range_cmp_bound_values.exit.thread.thread131, %45, %5, %57
-  %.069 = phi i8 [ 1, %5 ], [ %58, %57 ], [ 1, %range_cmp_bound_values.exit.thread.thread131 ], [ %spec.select76, %59 ], [ 1, %45 ]
+  %.069 = phi i8 [ %58, %57 ], [ 1, %5 ], [ 1, %45 ], [ 1, %range_cmp_bound_values.exit.thread.thread131 ], [ %spec.select76, %59 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -6823,7 +6823,7 @@ datum_compute_size.exit.thread:                   ; preds = %86
   br label %159
 
 159:                                              ; preds = %156, %153, %150, %148
-  %160 = phi i64 [ %158, %156 ], [ %152, %150 ], [ %.070104112118, %148 ], [ %155, %153 ]
+  %160 = phi i64 [ %152, %150 ], [ %155, %153 ], [ %158, %156 ], [ %.070104112118, %148 ]
   %161 = icmp sgt i16 %67, 0
   br i1 %161, label %162, label %164
 
@@ -7052,7 +7052,7 @@ range_get_typcache.exit:                          ; preds = %17, %27
   br label %.thread
 
 .thread:                                          ; preds = %61, %59, %45, %43, %66, %32
-  %.0 = phi i64 [ %33, %32 ], [ %68, %66 ], [ 0, %45 ], [ 0, %43 ], [ 0, %59 ], [ 0, %61 ]
+  %.0 = phi i64 [ %33, %32 ], [ %68, %66 ], [ 0, %43 ], [ 0, %45 ], [ 0, %59 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -7208,7 +7208,7 @@ range_get_typcache.exit:                          ; preds = %17, %27
   br label %.thread
 
 .thread:                                          ; preds = %76, %74, %52, %50, %82, %32
-  %.0 = phi i64 [ %33, %32 ], [ %84, %82 ], [ 0, %52 ], [ 0, %50 ], [ 0, %74 ], [ 0, %76 ]
+  %.0 = phi i64 [ %33, %32 ], [ %84, %82 ], [ 0, %50 ], [ 0, %52 ], [ 0, %74 ], [ 0, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -7335,7 +7335,7 @@ define internal fastcc ptr @datum_write(ptr noundef %0, i64 noundef %1, i1 nound
   br label %18
 
 18:                                               ; preds = %7, %15, %12, %9
-  %19 = phi i64 [ %11, %9 ], [ %17, %15 ], [ %14, %12 ], [ %8, %7 ]
+  %19 = phi i64 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %8, %7 ]
   %20 = inttoptr i64 %19 to ptr
   %21 = sext i16 %4 to i32
   %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %21)
@@ -7460,7 +7460,7 @@ store_att_byval.exit:                             ; preds = %25, %27, %29, %31
   br label %77
 
 77:                                               ; preds = %66, %74, %71, %68
-  %78 = phi i64 [ %70, %68 ], [ %76, %74 ], [ %73, %71 ], [ %67, %66 ]
+  %78 = phi i64 [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %67, %66 ]
   %79 = inttoptr i64 %78 to ptr
   %80 = load i32, ptr %38, align 4
   %81 = lshr i32 %80, 2
@@ -7499,7 +7499,7 @@ store_att_byval.exit:                             ; preds = %25, %27, %29, %31
   br label %98
 
 98:                                               ; preds = %87, %95, %92, %89
-  %99 = phi i64 [ %91, %89 ], [ %97, %95 ], [ %94, %92 ], [ %88, %87 ]
+  %99 = phi i64 [ %91, %89 ], [ %94, %92 ], [ %97, %95 ], [ %88, %87 ]
   %100 = inttoptr i64 %99 to ptr
   %101 = sext i16 %4 to i64
   %102 = inttoptr i64 %1 to ptr
@@ -7507,8 +7507,8 @@ store_att_byval.exit:                             ; preds = %25, %27, %29, %31
   br label %103
 
 103:                                              ; preds = %58, %77, %47, %98, %83, %store_att_byval.exit
-  %.061 = phi i64 [ %35, %store_att_byval.exit ], [ %101, %98 ], [ %86, %83 ], [ %49, %47 ], [ %60, %58 ], [ %82, %77 ]
-  %.0 = phi ptr [ %20, %store_att_byval.exit ], [ %100, %98 ], [ %0, %83 ], [ %0, %47 ], [ %0, %58 ], [ %79, %77 ]
+  %.061 = phi i64 [ %35, %store_att_byval.exit ], [ %86, %83 ], [ %101, %98 ], [ %49, %47 ], [ %60, %58 ], [ %82, %77 ]
+  %.0 = phi ptr [ %20, %store_att_byval.exit ], [ %0, %83 ], [ %100, %98 ], [ %0, %47 ], [ %0, %58 ], [ %79, %77 ]
   %104 = getelementptr inbounds nuw i8, ptr %.0, i64 %.061
   ret ptr %104
 }
@@ -7741,7 +7741,7 @@ range_cmp_bounds.exit:                            ; preds = %71, %61, %26
   br label %range_cmp_bounds.exit14
 
 range_cmp_bounds.exit14:                          ; preds = %42, %65, %68, %72, %37, %33, %30, %132, %131, %128, %125, %121, %102, %97, %93, %90, %86, %3
-  %.0 = phi i32 [ %109, %102 ], [ %.mux.mux, %3 ], [ 0, %131 ], [ %92, %90 ], [ %95, %93 ], [ %101, %97 ], [ 0, %121 ], [ %136, %132 ], [ %130, %128 ], [ 0, %86 ], [ %127, %125 ], [ %49, %42 ], [ %67, %65 ], [ %70, %68 ], [ %76, %72 ], [ %41, %37 ], [ %35, %33 ], [ %32, %30 ]
+  %.0 = phi i32 [ %.mux.mux, %3 ], [ %92, %90 ], [ %95, %93 ], [ %101, %97 ], [ %136, %132 ], [ %130, %128 ], [ %127, %125 ], [ 0, %86 ], [ 0, %121 ], [ 0, %131 ], [ %109, %102 ], [ %49, %42 ], [ %67, %65 ], [ %70, %68 ], [ %76, %72 ], [ %41, %37 ], [ %35, %33 ], [ %32, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7914,12 +7914,12 @@ define internal fastcc ptr @find_simplified_clause(ptr noundef %0, ptr noundef r
   %81 = call ptr @make_andclause(ptr noundef %80) #14
   br label %.thread57
 
-.critedge:                                        ; preds = %49, %51
+.critedge:                                        ; preds = %51, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread57
 
 .thread57:                                        ; preds = %.thread, %78, %68, %79, %53, %.critedge, %71, %3, %10, %41, %32
-  %.0 = phi ptr [ null, %3 ], [ %33, %32 ], [ %42, %41 ], [ null, %10 ], [ %81, %79 ], [ null, %71 ], [ null, %53 ], [ null, %.critedge ], [ %66, %.thread ], [ %76, %78 ], [ null, %68 ]
+  %.0 = phi ptr [ %33, %32 ], [ %42, %41 ], [ null, %10 ], [ null, %3 ], [ %81, %79 ], [ null, %53 ], [ null, %.critedge ], [ %66, %.thread ], [ null, %71 ], [ %76, %78 ], [ null, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -8077,8 +8077,8 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %30, %31
-  %.039.be = phi i1 [ false, %31 ], [ true, %30 ], [ %.140.ph, %.sink.split ]
-  %.136.be = phi ptr [ %12, %31 ], [ %12, %30 ], [ %.237.ph, %.sink.split ]
+  %.039.be = phi i1 [ true, %30 ], [ false, %31 ], [ %.140.ph, %.sink.split ]
+  %.136.be = phi ptr [ %12, %30 ], [ %12, %31 ], [ %.237.ph, %.sink.split ]
   br label %10, !llvm.loop !21
 
 .critedge46:                                      ; preds = %11, %11, %11
@@ -8087,8 +8087,8 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   store i8 0, ptr %3, align 1
   br label %.critedge48
 
-.critedge48:                                      ; preds = %22, %13, %15, %24, %8, %.critedge46
-  %.3 = phi ptr [ %.136, %.critedge46 ], [ %1, %8 ], [ null, %24 ], [ null, %15 ], [ null, %13 ], [ null, %22 ]
+.critedge48:                                      ; preds = %15, %13, %24, %22, %8, %.critedge46
+  %.3 = phi ptr [ %1, %8 ], [ %.136, %.critedge46 ], [ null, %22 ], [ null, %24 ], [ null, %13 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.3
 }

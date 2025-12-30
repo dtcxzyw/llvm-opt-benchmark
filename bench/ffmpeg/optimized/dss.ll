@@ -98,7 +98,7 @@ dss_read_metadata_string.exit:                    ; preds = %22
   br i1 %.not.i48, label %dss_read_metadata_date.exit, label %dss_read_metadata_date.exit.thread
 
 dss_read_metadata_date.exit.thread:               ; preds = %35, %37
-  %.0.i49.ph = phi i32 [ %spec.select, %35 ], [ -1094995529, %37 ]
+  %.0.i49.ph = phi i32 [ -1094995529, %37 ], [ %spec.select, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -219,7 +219,7 @@ dss_read_metadata_string.exit52:                  ; preds = %52
   br label %dss_read_metadata_string.exit.thread
 
 dss_read_metadata_string.exit.thread:             ; preds = %48, %56, %15, %26, %dss_read_metadata_date.exit.thread, %73, %dss_read_metadata_string.exit52, %dss_read_metadata_date.exit, %dss_read_metadata_string.exit, %1, %86, %72
-  %.0 = phi i32 [ -12, %1 ], [ %28, %dss_read_metadata_string.exit ], [ %47, %dss_read_metadata_date.exit ], [ %57, %dss_read_metadata_string.exit52 ], [ 0, %86 ], [ -1163346256, %72 ], [ -5, %73 ], [ -541478725, %26 ], [ %.0.i49.ph, %dss_read_metadata_date.exit.thread ], [ -12, %15 ], [ -12, %48 ], [ -541478725, %56 ]
+  %.0 = phi i32 [ 0, %86 ], [ -1163346256, %72 ], [ -12, %1 ], [ %28, %dss_read_metadata_string.exit ], [ %47, %dss_read_metadata_date.exit ], [ %57, %dss_read_metadata_string.exit52 ], [ -5, %73 ], [ %.0.i49.ph, %dss_read_metadata_date.exit.thread ], [ -12, %15 ], [ -541478725, %26 ], [ -12, %48 ], [ -541478725, %56 ]
   ret i32 %.0
 }
 
@@ -478,7 +478,7 @@ dss_sp_byte_swap.exit.i:                          ; preds = %68, %62
   br label %dss_sp_read_packet.exit
 
 dss_sp_read_packet.exit:                          ; preds = %158, %150, %139, %101, %97, %79, %dss_sp_byte_swap.exit.i, %19
-  %.0 = phi i32 [ %.50.i, %dss_sp_byte_swap.exit.i ], [ %22, %19 ], [ %81, %79 ], [ %110, %101 ], [ -1094995529, %97 ], [ %141, %139 ], [ %160, %158 ], [ 0, %150 ]
+  %.0 = phi i32 [ %81, %79 ], [ %22, %19 ], [ %.50.i, %dss_sp_byte_swap.exit.i ], [ %141, %139 ], [ %160, %158 ], [ -1094995529, %97 ], [ %110, %101 ], [ 0, %150 ]
   ret i32 %.0
 }
 

@@ -226,7 +226,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   br label %.critedge15
 
 .thread16:                                        ; preds = %55, %53, %.critedge, %32, %.split, %.split.us, %14, %.critedge.us, %20
-  %.us-phi = phi i32 [ -61, %.split.us ], [ -22, %20 ], [ -19, %.critedge.us ], [ -19, %14 ], [ -19, %.critedge ], [ -19, %32 ], [ -61, %.split ], [ -12, %55 ], [ -22, %53 ]
+  %.us-phi = phi i32 [ -22, %20 ], [ -19, %.critedge.us ], [ -19, %14 ], [ -61, %.split.us ], [ -12, %55 ], [ -22, %53 ], [ -19, %.critedge ], [ -19, %32 ], [ -61, %.split ]
   %82 = load ptr, ptr %2, align 8
   %83 = icmp eq ptr %82, %2
   br i1 %83, label %.thread, label %.preheader
@@ -246,7 +246,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   br i1 %89, label %.thread, label %.preheader, !llvm.loop !5
 
 .thread:                                          ; preds = %.critedge15, %.preheader, %3, %.thread16
-  %90 = phi i32 [ 0, %3 ], [ %.us-phi, %.preheader ], [ %.us-phi, %.thread16 ], [ 0, %.critedge15 ]
+  %90 = phi i32 [ %.us-phi, %.thread16 ], [ 0, %3 ], [ %.us-phi, %.preheader ], [ 0, %.critedge15 ]
   ret i32 %90
 }
 
@@ -1769,7 +1769,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_power_on(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %13, %17, %20, %30, %1
-  %33 = phi i32 [ -19, %30 ], [ 0, %1 ], [ 0, %13 ], [ 0, %20 ], [ 0, %17 ], [ 0, %.preheader ]
+  %33 = phi i32 [ -19, %30 ], [ 0, %1 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %.preheader ]
   tail call void @mutex_unlock(ptr noundef nonnull %2) #10
   ret i32 %33
 }

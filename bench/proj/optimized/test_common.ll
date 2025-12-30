@@ -9339,7 +9339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %91,
           cleanup
   br label %127
 
-103:                                              ; preds = %79, %82, %.critedge
+103:                                              ; preds = %82, %79, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %104 unwind label %112
@@ -9783,8 +9783,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj8metadata8Cita
   br label %_ZNSt10shared_ptrIN5osgeo4proj4util10BaseObjectEEC2INS1_8metadata8CitationEEERKS_IT_EPS3_.exit.i
 
 _ZNSt10shared_ptrIN5osgeo4proj4util10BaseObjectEEC2INS1_8metadata8CitationEEERKS_IT_EPS3_.exit.i: ; preds = %23, %20
-  %25 = phi ptr [ %.pre6.i, %23 ], [ %11, %20 ]
-  %26 = phi ptr [ %.pre.i, %23 ], [ %14, %20 ]
+  %25 = phi ptr [ %11, %20 ], [ %.pre6.i, %23 ]
+  %26 = phi ptr [ %14, %20 ], [ %.pre.i, %23 ]
   store ptr %26, ptr %2, align 8, !tbaa !80
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %18, align 8, !tbaa !74
@@ -10073,7 +10073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %135
           cleanup
   br label %171
 
-147:                                              ; preds = %123, %126, %.critedge
+147:                                              ; preds = %126, %123, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %148 unwind label %156
@@ -10468,7 +10468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %91,
           cleanup
   br label %127
 
-103:                                              ; preds = %79, %82, %.critedge
+103:                                              ; preds = %82, %79, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %104 unwind label %112
@@ -11595,7 +11595,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev
   br label %.body
 
 .body:                                            ; preds = %140, %375, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
-  %.pn42.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn.pn, %375 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ], [ %.pn30.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74 ], [ %141, %140 ]
+  %.pn42.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn.pn, %375 ], [ %.pn30.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ], [ %141, %140 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #25
   br label %376
 
@@ -12072,7 +12072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %156
           cleanup
   br label %214
 
-168:                                              ; preds = %144, %147, %.critedge
+168:                                              ; preds = %147, %144, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %169 unwind label %177
@@ -12426,7 +12426,7 @@ _ZN7testing8internal8EqHelper7CompareImjTnPNSt9enable_ifIXoontsr3std11is_integra
   br label %.body
 
 .body:                                            ; preds = %33, %30, %81
-  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %31, %30 ], [ %31, %33 ]
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %31, %33 ], [ %31, %30 ]
   br label %83
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %.body
@@ -13130,8 +13130,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj8metadata8Cita
   br label %_ZNSt10shared_ptrIN5osgeo4proj4util10BaseObjectEEC2INS1_8metadata8CitationEEERKS_IT_EPS3_.exit.i
 
 _ZNSt10shared_ptrIN5osgeo4proj4util10BaseObjectEEC2INS1_8metadata8CitationEEERKS_IT_EPS3_.exit.i: ; preds = %23, %20
-  %25 = phi ptr [ %.pre6.i, %23 ], [ %11, %20 ]
-  %26 = phi ptr [ %.pre.i, %23 ], [ %14, %20 ]
+  %25 = phi ptr [ %11, %20 ], [ %.pre6.i, %23 ]
+  %26 = phi ptr [ %14, %20 ], [ %.pre.i, %23 ]
   store ptr %26, ptr %2, align 8, !tbaa !80
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %18, align 8, !tbaa !74
@@ -13420,7 +13420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %135
           cleanup
   br label %171
 
-147:                                              ; preds = %123, %126, %.critedge
+147:                                              ; preds = %126, %123, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %148 unwind label %156
@@ -13938,7 +13938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %156
           cleanup
   br label %214
 
-168:                                              ; preds = %144, %147, %.critedge
+168:                                              ; preds = %147, %144, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %169 unwind label %177

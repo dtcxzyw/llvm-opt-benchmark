@@ -438,7 +438,7 @@ egfx_get_conversation_data.exit:                  ; preds = %4, %17, %.thread.i
   br label %find_egfx_version.exit.i, !llvm.loop !6
 
 find_egfx_version.exit.i:                         ; preds = %113, %.find_egfx_version.exit_crit_edge.i, %.lr.ph15.i
-  %.05.i.i = phi ptr [ @.str.85, %.lr.ph15.i ], [ @.str.124, %.find_egfx_version.exit_crit_edge.i ], [ %112, %113 ]
+  %.05.i.i = phi ptr [ @.str.124, %.find_egfx_version.exit_crit_edge.i ], [ @.str.85, %.lr.ph15.i ], [ %112, %113 ]
   %117 = call ptr @proto_tree_add_subtree(ptr noundef %102, ptr noundef nonnull %.03558, i32 noundef %.113.i, i32 noundef %108, i32 noundef %109, ptr noundef null, ptr noundef nonnull %.05.i.i)
   %118 = load i32, ptr @hf_egfx_cap_version, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef nonnull %.03558, i32 noundef %.113.i, i32 noundef 4, i32 noundef -2147483648)

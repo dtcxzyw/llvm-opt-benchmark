@@ -359,7 +359,7 @@ sub_1:                                            ; preds = %38
   unreachable
 
 54:                                               ; preds = %36, %34, %32, %.lr.ph388
-  %replaceinfos.sink = phi ptr [ @clearinfos, %.lr.ph388 ], [ @clearuserdata, %34 ], [ @replaceinfos, %32 ], [ @cleardistances, %36 ]
+  %replaceinfos.sink = phi ptr [ @clearinfos, %.lr.ph388 ], [ @replaceinfos, %32 ], [ @clearuserdata, %34 ], [ @cleardistances, %36 ]
   store i1 true, ptr %replaceinfos.sink, align 4
   %.0 = add nsw i32 %.0302386, -1
   %.not195 = icmp eq i32 %.0, 0
@@ -1739,9 +1739,9 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   br label %136
 
 136:                                              ; preds = %112, %.thread, %132, %43, %.thread132, %119, %72, %40, %33, %27, %16
-  %.099 = phi ptr [ null, %40 ], [ %46, %.thread ], [ %46, %132 ], [ %46, %.thread132 ], [ %46, %112 ], [ %46, %119 ], [ %46, %72 ], [ %46, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ]
-  %.098 = phi ptr [ null, %40 ], [ %50, %.thread ], [ %50, %132 ], [ %50, %.thread132 ], [ %50, %112 ], [ %50, %119 ], [ %50, %72 ], [ %50, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ]
-  %.091 = phi ptr [ %.1, %40 ], [ %.1, %.thread ], [ %.1, %132 ], [ %.1, %.thread132 ], [ %.1, %112 ], [ %.1, %119 ], [ %.1, %72 ], [ %.1, %43 ], [ %.1, %33 ], [ %.2, %27 ], [ null, %16 ]
+  %.099 = phi ptr [ null, %40 ], [ %46, %132 ], [ %46, %.thread132 ], [ %46, %112 ], [ %46, %119 ], [ %46, %72 ], [ %46, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ], [ %46, %.thread ]
+  %.098 = phi ptr [ null, %40 ], [ %50, %132 ], [ %50, %.thread132 ], [ %50, %112 ], [ %50, %119 ], [ %50, %72 ], [ %50, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ], [ %50, %.thread ]
+  %.091 = phi ptr [ %.1, %40 ], [ %.1, %132 ], [ %.1, %.thread132 ], [ %.1, %112 ], [ %.1, %119 ], [ %.1, %72 ], [ %.1, %43 ], [ %.1, %33 ], [ %.2, %27 ], [ null, %16 ], [ %.1, %.thread ]
   call void @free(ptr noundef %.091) #32
   call void @free(ptr noundef %.099) #32
   call void @free(ptr noundef %.098) #32
@@ -2274,7 +2274,7 @@ define internal fastcc ptr @get_unique_obj(ptr noundef %0, i32 noundef %1, ptr n
   br label %hwloc_calc_parse_level_size.exit
 
 hwloc_calc_parse_level_size.exit:                 ; preds = %4, %12
-  %.0.i = phi i64 [ %7, %4 ], [ %16, %12 ]
+  %.0.i = phi i64 [ %16, %12 ], [ %7, %4 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %hwloc_calc_parse_level_size.exit.thread, label %17
 
@@ -2313,7 +2313,7 @@ hwloc_calc_parse_level_size.exit:                 ; preds = %4, %12
   br label %hwloc_calc_parse_level_size.exit.thread
 
 hwloc_calc_parse_level_size.exit.thread:          ; preds = %10, %20, %hwloc_calc_parse_level_size.exit, %17
-  %.0 = phi ptr [ %spec.select, %20 ], [ null, %hwloc_calc_parse_level_size.exit ], [ null, %17 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %hwloc_calc_parse_level_size.exit ], [ %spec.select, %20 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -2393,7 +2393,7 @@ define internal fastcc void @apply_recursive(ptr noundef %0, ptr noundef %1) unn
   br label %16
 
 16:                                               ; preds = %13, %11, %8
-  %.0.i = phi i32 [ %spec.select.i, %13 ], [ 3, %8 ], [ 2, %11 ]
+  %.0.i = phi i32 [ 3, %8 ], [ 2, %11 ], [ %spec.select.i, %13 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   br label %18
 
@@ -2663,7 +2663,7 @@ define internal fastcc i64 @hwloc_calc_parse_level_size(ptr noundef %0) unnamed_
   br label %12
 
 12:                                               ; preds = %5, %1, %7
-  %.0 = phi i64 [ %2, %1 ], [ %11, %7 ], [ 0, %5 ]
+  %.0 = phi i64 [ %11, %7 ], [ %2, %1 ], [ 0, %5 ]
   ret i64 %.0
 }
 
@@ -2824,7 +2824,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_process_location(ptr nou
   br i1 %85, label %63, label %hwloc_calc_append_iodev_by_index.exit, !llvm.loop !85
 
 hwloc_calc_append_iodev_by_index.exit:            ; preds = %63, %76, %79, %45, %50, %52, %55
-  %.0.i = phi i32 [ -1, %45 ], [ -1, %50 ], [ -1, %52 ], [ 0, %55 ], [ 0, %79 ], [ 0, %76 ], [ 0, %63 ]
+  %.0.i = phi i32 [ -1, %45 ], [ -1, %52 ], [ -1, %50 ], [ 0, %55 ], [ 0, %79 ], [ 0, %76 ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2941,7 +2941,7 @@ hwloc_get_next_pcidev.exit.i.i:                   ; preds = %110, %105
   call void %3(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.0.i.i.i.i) #32, !callees !84
   br label %187
 
-.loopexit:                                        ; preds = %107, %133, %hwloc_get_next_pcidev.exit.i.i, %96, %98
+.loopexit:                                        ; preds = %hwloc_get_next_pcidev.exit.i.i, %133, %107, %96, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3068,7 +3068,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %165
   br label %187
 
 187:                                              ; preds = %hwloc_calc_append_iodev_by_index.exit, %135, %158, %173, %137, %.loopexit, %160, %hwloc_get_next_osdev.exit.thread, %178, %._crit_edge, %163, %28, %30, %23, %25, %182
-  %.068 = phi i32 [ %186, %182 ], [ -1, %23 ], [ -1, %28 ], [ -1, %25 ], [ -1, %30 ], [ %.0.i, %hwloc_calc_append_iodev_by_index.exit ], [ 0, %135 ], [ -1, %._crit_edge ], [ 0, %158 ], [ -1, %.loopexit ], [ 0, %173 ], [ -1, %hwloc_get_next_osdev.exit.thread ], [ -1, %137 ], [ -1, %160 ], [ -1, %178 ], [ -1, %163 ]
+  %.068 = phi i32 [ %186, %182 ], [ -1, %25 ], [ -1, %23 ], [ -1, %30 ], [ -1, %28 ], [ %.0.i, %hwloc_calc_append_iodev_by_index.exit ], [ 0, %135 ], [ 0, %158 ], [ 0, %173 ], [ -1, %137 ], [ -1, %.loopexit ], [ -1, %160 ], [ -1, %hwloc_get_next_osdev.exit.thread ], [ -1, %178 ], [ -1, %._crit_edge ], [ -1, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.068
 }
@@ -3284,8 +3284,8 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef 
   br label %50
 
 50:                                               ; preds = %47, %.split.us
-  %.4.us = phi i64 [ %.3100.us, %.split.us ], [ %49, %47 ]
-  %.165.us = phi i32 [ %.064102.us, %.split.us ], [ 1, %47 ]
+  %.4.us = phi i64 [ %49, %47 ], [ %.3100.us, %.split.us ]
+  %.165.us = phi i32 [ 1, %47 ], [ %.064102.us, %.split.us ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
   br i1 %exitcond120.not, label %.split106.us, label %.split.us, !llvm.loop !102
@@ -3672,7 +3672,7 @@ hwloc_calc_parse_level_filter.exit:               ; preds = %.tail.thread.i
   br label %hwloc_calc_parse_level_filter.exit.thread
 
 hwloc_calc_parse_level_filter.exit.thread:        ; preds = %38, %70, %31, %33, %hwloc_calc_parse_level_filter.exit.thread50, %hwloc_calc_parse_level_filter.exit, %24, %5, %98, %97, %86
-  %.0 = phi i32 [ -1, %5 ], [ -1, %97 ], [ 0, %98 ], [ 0, %86 ], [ -1, %24 ], [ -1, %hwloc_calc_parse_level_filter.exit ], [ 0, %hwloc_calc_parse_level_filter.exit.thread50 ], [ 0, %31 ], [ 0, %33 ], [ 0, %70 ], [ 0, %38 ]
+  %.0 = phi i32 [ -1, %97 ], [ 0, %98 ], [ 0, %86 ], [ -1, %5 ], [ -1, %24 ], [ -1, %hwloc_calc_parse_level_filter.exit ], [ 0, %hwloc_calc_parse_level_filter.exit.thread50 ], [ 0, %33 ], [ 0, %31 ], [ 0, %70 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -3736,7 +3736,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_append_object_range(ptr 
   br label %hwloc_calc_parse_level_size.exit
 
 hwloc_calc_parse_level_size.exit:                 ; preds = %28, %35
-  %.0.i = phi i64 [ %30, %28 ], [ %39, %35 ]
+  %.0.i = phi i64 [ %39, %35 ], [ %30, %28 ]
   %.not86 = icmp eq i64 %.0.i, 0
   br i1 %.not86, label %hwloc_calc_parse_level_size.exit.thread, label %40
 
@@ -3832,7 +3832,7 @@ hwloc_calc_parse_level_size.exit.thread:          ; preds = %33, %40, %hwloc_cal
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 hwloc_get_next_obj_by_depth.exit.i:               ; preds = %76, %71
-  %.0.i.i = phi ptr [ %72, %71 ], [ %78, %76 ]
+  %.0.i.i = phi ptr [ %78, %76 ], [ %72, %71 ]
   %.not.i95 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i95, label %hwloc_calc_get_nbobjs_inside_sets_by_depth.exit, label %79
 
@@ -3936,7 +3936,7 @@ hwloc_calc_get_nbobjs_inside_sets_by_depth.exit:  ; preds = %73, %hwloc_get_next
   br label %hwloc_get_next_obj_by_depth.exit.us.i
 
 hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %123, %120
-  %.0.i.us.i = phi ptr [ %124, %123 ], [ %122, %120 ]
+  %.0.i.us.i = phi ptr [ %122, %120 ], [ %124, %123 ]
   %.not.us.i = icmp eq ptr %.0.i.us.i, null
   br i1 %.not.us.i, label %hwloc_calc_get_obj_inside_sets_by_depth.exit, label %125
 
@@ -4019,7 +4019,7 @@ hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %123, %120
   br label %hwloc_get_next_obj_by_depth.exit.i100
 
 hwloc_get_next_obj_by_depth.exit.i100:            ; preds = %154, %149
-  %.0.i.i101 = phi ptr [ %150, %149 ], [ %156, %154 ]
+  %.0.i.i101 = phi ptr [ %156, %154 ], [ %150, %149 ]
   %.not.i102 = icmp eq ptr %.0.i.i101, null
   br i1 %.not.i102, label %hwloc_calc_get_obj_inside_sets_by_depth.exit, label %157
 
@@ -4069,7 +4069,7 @@ hwloc_get_next_obj_by_depth.exit.i100:            ; preds = %154, %149
   br i1 %176, label %hwloc_calc_get_obj_inside_sets_by_depth.exit, label %.outer.i96, !llvm.loop !113
 
 hwloc_calc_get_obj_inside_sets_by_depth.exit:     ; preds = %175, %143, %117, %hwloc_get_next_obj_by_depth.exit.us.i, %151, %hwloc_get_next_obj_by_depth.exit.i100
-  %.024.i = phi ptr [ null, %151 ], [ %.0.i.us.i, %143 ], [ null, %hwloc_get_next_obj_by_depth.exit.i100 ], [ null, %hwloc_get_next_obj_by_depth.exit.us.i ], [ null, %117 ], [ %.0.i.i101, %175 ]
+  %.024.i = phi ptr [ null, %hwloc_get_next_obj_by_depth.exit.i100 ], [ null, %151 ], [ %.0.i.us.i, %143 ], [ null, %117 ], [ null, %hwloc_get_next_obj_by_depth.exit.us.i ], [ %.0.i.i101, %175 ]
   %178 = icmp eq ptr %.024.i, null
   %or.cond4 = and i1 %112, %178
   %or.cond113 = or i1 %111, %or.cond4
@@ -4151,8 +4151,8 @@ hwloc_calc_get_obj_inside_sets_by_depth.exit:     ; preds = %175, %143, %117, %h
   %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef nonnull @.str.158, ptr noundef %4) #33
   br label %.critedge
 
-.critedge:                                        ; preds = %64, %hwloc_calc_parse_level_size.exit.thread, %51, %56, %44, %53, %58, %66, %._crit_edge, %215, %21, %23
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %21 ], [ -1, %23 ], [ 0, %215 ], [ -1, %66 ], [ -1, %58 ], [ -1, %53 ], [ -1, %44 ], [ -1, %56 ], [ -1, %51 ], [ -1, %hwloc_calc_parse_level_size.exit.thread ], [ -1, %64 ]
+.critedge:                                        ; preds = %44, %hwloc_calc_parse_level_size.exit.thread, %53, %51, %58, %56, %66, %64, %._crit_edge, %215, %21, %23
+  %.0 = phi i32 [ -1, %23 ], [ -1, %21 ], [ 0, %215 ], [ 0, %._crit_edge ], [ -1, %64 ], [ -1, %66 ], [ -1, %56 ], [ -1, %58 ], [ -1, %51 ], [ -1, %53 ], [ -1, %hwloc_calc_parse_level_size.exit.thread ], [ -1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4348,8 +4348,8 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef 
   br label %88
 
 85:                                               ; preds = %45, %59, %73, %61
-  %.039 = phi i64 [ 1, %45 ], [ %62, %61 ], [ %65, %73 ], [ -1, %59 ]
-  %.0 = phi i32 [ 0, %45 ], [ 0, %61 ], [ 1, %73 ], [ 0, %59 ]
+  %.039 = phi i64 [ %62, %61 ], [ %65, %73 ], [ -1, %59 ], [ 1, %45 ]
+  %.0 = phi i32 [ 0, %61 ], [ 1, %73 ], [ 0, %59 ], [ 0, %45 ]
   %86 = trunc i64 %46 to i32
   store i32 %86, ptr %1, align 4, !tbaa !21
   %87 = trunc i64 %.039 to i32
@@ -4359,7 +4359,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef 
   br label %88
 
 88:                                               ; preds = %80, %82, %75, %77, %68, %70, %54, %56, %40, %42, %20, %22, %85, %39, %37, %35
-  %.040 = phi i32 [ 0, %35 ], [ -1, %40 ], [ 0, %85 ], [ -1, %54 ], [ -1, %68 ], [ -1, %75 ], [ -1, %20 ], [ 0, %39 ], [ 0, %37 ], [ -1, %22 ], [ -1, %42 ], [ -1, %56 ], [ -1, %70 ], [ -1, %77 ], [ -1, %82 ], [ -1, %80 ]
+  %.040 = phi i32 [ 0, %85 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ -1, %22 ], [ -1, %20 ], [ -1, %42 ], [ -1, %40 ], [ -1, %56 ], [ -1, %54 ], [ -1, %70 ], [ -1, %68 ], [ -1, %77 ], [ -1, %75 ], [ -1, %82 ], [ -1, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4510,7 +4510,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %23
   br label %.thread
 
 .thread:                                          ; preds = %22, %17, %29, %hwloc_obj_get_info_by_name.exit, %42, %65, %56, %47, %5, %8, %70
-  %.0 = phi i32 [ 1, %56 ], [ 0, %70 ], [ 1, %42 ], [ 1, %65 ], [ 1, %5 ], [ 1, %47 ], [ 1, %8 ], [ 1, %hwloc_obj_get_info_by_name.exit ], [ 1, %29 ], [ 1, %17 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %70 ], [ 1, %42 ], [ 1, %8 ], [ 1, %5 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %hwloc_obj_get_info_by_name.exit ], [ 1, %29 ], [ 1, %17 ], [ 1, %22 ]
   ret i32 %.0
 }
 

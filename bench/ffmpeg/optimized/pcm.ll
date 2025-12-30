@@ -1655,7 +1655,7 @@ define internal range(i32 -1094995529, 1) i32 @pcm_scale_decode_init(ptr noundef
   br label %20
 
 20:                                               ; preds = %8, %1, %16
-  %.0 = phi i32 [ -1094995529, %1 ], [ 0, %16 ], [ -12, %8 ]
+  %.0 = phi i32 [ 0, %16 ], [ -1094995529, %1 ], [ -12, %8 ]
   ret i32 %.0
 }
 

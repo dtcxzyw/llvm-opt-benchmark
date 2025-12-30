@@ -1131,7 +1131,7 @@ _ZNK4cvc58internal11Cardinality10isInfiniteEv.exit21: ; preds = %89
   br label %103
 
 103:                                              ; preds = %100, %98, %_ZNK4cvc58internal11Cardinality10isInfiniteEv.exit21, %84, %82, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit19, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit16, %47, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit, %34, %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit, %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit13
-  %.0 = phi i32 [ 0, %_ZNK4cvc58internal11Cardinality10isInfiniteEv.exit21 ], [ 3, %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit ], [ %., %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit ], [ 3, %34 ], [ 3, %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit13 ], [ %.11, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit16 ], [ 3, %47 ], [ 2, %82 ], [ 2, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit19 ], [ %86, %84 ], [ %102, %100 ], [ 0, %98 ]
+  %.0 = phi i32 [ 3, %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit13 ], [ 3, %_ZNK4cvc58internal11Cardinality9isUnknownEv.exit ], [ 3, %34 ], [ %., %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit ], [ 3, %47 ], [ %.11, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit16 ], [ 2, %_ZNK4cvc58internal11Cardinality8isFiniteEv.exit19 ], [ %86, %84 ], [ 2, %82 ], [ 0, %_ZNK4cvc58internal11Cardinality10isInfiniteEv.exit21 ], [ %102, %100 ], [ 0, %98 ]
   ret i32 %.0
 }
 
@@ -1744,7 +1744,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   unreachable
 
 common.resume:                                    ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit76, %_ZN4cvc58internal7IntegerD2Ev.exit77, %_ZN4cvc58internal11CardinalityD2Ev.exit79, %_ZN4cvc58internal11CardinalityD2Ev.exit81, %_ZN4cvc58internal11CardinalityD2Ev.exit83, %255, %_ZN4cvc58internal7IntegerD2Ev.exit114, %262, %_ZN4cvc58internal7IntegerD2Ev.exit2.i74, %_ZN4cvc58internal7IntegerD2Ev.exit2.i73, %_ZN4cvc58internal7IntegerD2Ev.exit2.i71, %_ZN4cvc58internal7IntegerD2Ev.exit2.i
-  %common.resume.op = phi { ptr, i32 } [ %31, %_ZN4cvc58internal7IntegerD2Ev.exit2.i ], [ %42, %_ZN4cvc58internal7IntegerD2Ev.exit2.i71 ], [ %55, %_ZN4cvc58internal7IntegerD2Ev.exit2.i73 ], [ %68, %_ZN4cvc58internal7IntegerD2Ev.exit2.i74 ], [ %95, %_ZN4cvc58internal7IntegerD2Ev.exit77 ], [ %90, %_ZN4cvc58internal11CardinalityD2Ev.exit76 ], [ %.pn65, %255 ], [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit114 ], [ %131, %_ZN4cvc58internal11CardinalityD2Ev.exit83 ], [ %119, %_ZN4cvc58internal11CardinalityD2Ev.exit81 ], [ %107, %_ZN4cvc58internal11CardinalityD2Ev.exit79 ], [ %263, %262 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %_ZN4cvc58internal7IntegerD2Ev.exit2.i ], [ %42, %_ZN4cvc58internal7IntegerD2Ev.exit2.i71 ], [ %55, %_ZN4cvc58internal7IntegerD2Ev.exit2.i73 ], [ %68, %_ZN4cvc58internal7IntegerD2Ev.exit2.i74 ], [ %95, %_ZN4cvc58internal7IntegerD2Ev.exit77 ], [ %.pn65, %255 ], [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit114 ], [ %131, %_ZN4cvc58internal11CardinalityD2Ev.exit83 ], [ %119, %_ZN4cvc58internal11CardinalityD2Ev.exit81 ], [ %107, %_ZN4cvc58internal11CardinalityD2Ev.exit79 ], [ %90, %_ZN4cvc58internal11CardinalityD2Ev.exit76 ], [ %263, %262 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7IntegerD2Ev.exit2.i:            ; preds = %30

@@ -364,7 +364,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssra_vxP1
   br label %._crit_edge229
 
 ._crit_edge229:                                   ; preds = %154, %161, %165, %151, %148, %131
-  %.0178 = phi i128 [ %144, %131 ], [ %150, %148 ], [ %144, %161 ], [ %spec.select247, %154 ], [ %144, %151 ], [ %167, %165 ]
+  %.0178 = phi i128 [ %144, %131 ], [ %150, %148 ], [ %144, %151 ], [ %167, %165 ], [ %144, %161 ], [ %spec.select247, %154 ]
   %168 = zext nneg i32 %143 to i128
   %169 = ashr i128 %.0178, %168
   %170 = trunc i128 %169 to i8
@@ -431,7 +431,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssra_vxP1
   br label %._crit_edge228
 
 ._crit_edge228:                                   ; preds = %194, %201, %205, %191, %188, %171
-  %.0179 = phi i128 [ %184, %171 ], [ %190, %188 ], [ %184, %201 ], [ %spec.select248, %194 ], [ %184, %191 ], [ %207, %205 ]
+  %.0179 = phi i128 [ %184, %171 ], [ %190, %188 ], [ %184, %191 ], [ %207, %205 ], [ %184, %201 ], [ %spec.select248, %194 ]
   %208 = zext nneg i32 %183 to i128
   %209 = ashr i128 %.0179, %208
   %210 = trunc i128 %209 to i16
@@ -498,7 +498,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssra_vxP1
   br label %._crit_edge227
 
 ._crit_edge227:                                   ; preds = %234, %241, %245, %231, %228, %211
-  %.0176 = phi i128 [ %224, %211 ], [ %230, %228 ], [ %224, %241 ], [ %spec.select249, %234 ], [ %224, %231 ], [ %247, %245 ]
+  %.0176 = phi i128 [ %224, %211 ], [ %230, %228 ], [ %224, %231 ], [ %247, %245 ], [ %224, %241 ], [ %spec.select249, %234 ]
   %248 = zext nneg i32 %223 to i128
   %249 = ashr i128 %.0176, %248
   %250 = trunc i128 %249 to i32
@@ -565,7 +565,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssra_vxP1
   br label %._crit_edge226
 
 ._crit_edge226:                                   ; preds = %274, %281, %285, %271, %268, %251
-  %.0174 = phi i128 [ %264, %251 ], [ %270, %268 ], [ %264, %281 ], [ %spec.select250, %274 ], [ %264, %271 ], [ %287, %285 ]
+  %.0174 = phi i128 [ %264, %251 ], [ %270, %268 ], [ %264, %271 ], [ %287, %285 ], [ %264, %281 ], [ %spec.select250, %274 ]
   %288 = zext nneg i32 %263 to i128
   %289 = ashr i128 %.0174, %288
   %290 = trunc i128 %289 to i64
@@ -654,7 +654,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !162
@@ -990,7 +990,7 @@ define noundef i64 @_Z19fast_rv64i_vssra_vxP11processor_t6insn_tm(ptr noundef %0
   br label %._crit_edge229
 
 ._crit_edge229:                                   ; preds = %152, %159, %163, %149, %146, %129
-  %.0178 = phi i128 [ %142, %129 ], [ %148, %146 ], [ %142, %159 ], [ %spec.select247, %152 ], [ %142, %149 ], [ %165, %163 ]
+  %.0178 = phi i128 [ %142, %129 ], [ %148, %146 ], [ %142, %149 ], [ %165, %163 ], [ %142, %159 ], [ %spec.select247, %152 ]
   %166 = zext nneg i32 %141 to i128
   %167 = ashr i128 %.0178, %166
   %168 = trunc i128 %167 to i8
@@ -1057,7 +1057,7 @@ define noundef i64 @_Z19fast_rv64i_vssra_vxP11processor_t6insn_tm(ptr noundef %0
   br label %._crit_edge228
 
 ._crit_edge228:                                   ; preds = %192, %199, %203, %189, %186, %169
-  %.0179 = phi i128 [ %182, %169 ], [ %188, %186 ], [ %182, %199 ], [ %spec.select248, %192 ], [ %182, %189 ], [ %205, %203 ]
+  %.0179 = phi i128 [ %182, %169 ], [ %188, %186 ], [ %182, %189 ], [ %205, %203 ], [ %182, %199 ], [ %spec.select248, %192 ]
   %206 = zext nneg i32 %181 to i128
   %207 = ashr i128 %.0179, %206
   %208 = trunc i128 %207 to i16
@@ -1124,7 +1124,7 @@ define noundef i64 @_Z19fast_rv64i_vssra_vxP11processor_t6insn_tm(ptr noundef %0
   br label %._crit_edge227
 
 ._crit_edge227:                                   ; preds = %232, %239, %243, %229, %226, %209
-  %.0176 = phi i128 [ %222, %209 ], [ %228, %226 ], [ %222, %239 ], [ %spec.select249, %232 ], [ %222, %229 ], [ %245, %243 ]
+  %.0176 = phi i128 [ %222, %209 ], [ %228, %226 ], [ %222, %229 ], [ %245, %243 ], [ %222, %239 ], [ %spec.select249, %232 ]
   %246 = zext nneg i32 %221 to i128
   %247 = ashr i128 %.0176, %246
   %248 = trunc i128 %247 to i32
@@ -1191,7 +1191,7 @@ define noundef i64 @_Z19fast_rv64i_vssra_vxP11processor_t6insn_tm(ptr noundef %0
   br label %._crit_edge226
 
 ._crit_edge226:                                   ; preds = %272, %279, %283, %269, %266, %249
-  %.0174 = phi i128 [ %262, %249 ], [ %268, %266 ], [ %262, %279 ], [ %spec.select250, %272 ], [ %262, %269 ], [ %285, %283 ]
+  %.0174 = phi i128 [ %262, %249 ], [ %268, %266 ], [ %262, %269 ], [ %285, %283 ], [ %262, %279 ], [ %spec.select250, %272 ]
   %286 = zext nneg i32 %261 to i128
   %287 = ashr i128 %.0174, %286
   %288 = trunc i128 %287 to i64
@@ -1500,7 +1500,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssra_vx
   br label %._crit_edge229
 
 ._crit_edge229:                                   ; preds = %154, %161, %165, %151, %148, %131
-  %.0178 = phi i128 [ %144, %131 ], [ %150, %148 ], [ %144, %161 ], [ %spec.select247, %154 ], [ %144, %151 ], [ %167, %165 ]
+  %.0178 = phi i128 [ %144, %131 ], [ %150, %148 ], [ %144, %151 ], [ %167, %165 ], [ %144, %161 ], [ %spec.select247, %154 ]
   %168 = zext nneg i32 %143 to i128
   %169 = ashr i128 %.0178, %168
   %170 = trunc i128 %169 to i8
@@ -1567,7 +1567,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssra_vx
   br label %._crit_edge228
 
 ._crit_edge228:                                   ; preds = %194, %201, %205, %191, %188, %171
-  %.0179 = phi i128 [ %184, %171 ], [ %190, %188 ], [ %184, %201 ], [ %spec.select248, %194 ], [ %184, %191 ], [ %207, %205 ]
+  %.0179 = phi i128 [ %184, %171 ], [ %190, %188 ], [ %184, %191 ], [ %207, %205 ], [ %184, %201 ], [ %spec.select248, %194 ]
   %208 = zext nneg i32 %183 to i128
   %209 = ashr i128 %.0179, %208
   %210 = trunc i128 %209 to i16
@@ -1634,7 +1634,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssra_vx
   br label %._crit_edge227
 
 ._crit_edge227:                                   ; preds = %234, %241, %245, %231, %228, %211
-  %.0176 = phi i128 [ %224, %211 ], [ %230, %228 ], [ %224, %241 ], [ %spec.select249, %234 ], [ %224, %231 ], [ %247, %245 ]
+  %.0176 = phi i128 [ %224, %211 ], [ %230, %228 ], [ %224, %231 ], [ %247, %245 ], [ %224, %241 ], [ %spec.select249, %234 ]
   %248 = zext nneg i32 %223 to i128
   %249 = ashr i128 %.0176, %248
   %250 = trunc i128 %249 to i32
@@ -1701,7 +1701,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssra_vx
   br label %._crit_edge226
 
 ._crit_edge226:                                   ; preds = %274, %281, %285, %271, %268, %251
-  %.0174 = phi i128 [ %264, %251 ], [ %270, %268 ], [ %264, %281 ], [ %spec.select250, %274 ], [ %264, %271 ], [ %287, %285 ]
+  %.0174 = phi i128 [ %264, %251 ], [ %270, %268 ], [ %264, %271 ], [ %287, %285 ], [ %264, %281 ], [ %spec.select250, %274 ]
   %288 = zext nneg i32 %263 to i128
   %289 = ashr i128 %.0174, %288
   %290 = trunc i128 %289 to i64
@@ -2008,7 +2008,7 @@ define noundef i64 @_Z21logged_rv64i_vssra_vxP11processor_t6insn_tm(ptr noundef 
   br label %._crit_edge229
 
 ._crit_edge229:                                   ; preds = %152, %159, %163, %149, %146, %129
-  %.0178 = phi i128 [ %142, %129 ], [ %148, %146 ], [ %142, %159 ], [ %spec.select247, %152 ], [ %142, %149 ], [ %165, %163 ]
+  %.0178 = phi i128 [ %142, %129 ], [ %148, %146 ], [ %142, %149 ], [ %165, %163 ], [ %142, %159 ], [ %spec.select247, %152 ]
   %166 = zext nneg i32 %141 to i128
   %167 = ashr i128 %.0178, %166
   %168 = trunc i128 %167 to i8
@@ -2075,7 +2075,7 @@ define noundef i64 @_Z21logged_rv64i_vssra_vxP11processor_t6insn_tm(ptr noundef 
   br label %._crit_edge228
 
 ._crit_edge228:                                   ; preds = %192, %199, %203, %189, %186, %169
-  %.0179 = phi i128 [ %182, %169 ], [ %188, %186 ], [ %182, %199 ], [ %spec.select248, %192 ], [ %182, %189 ], [ %205, %203 ]
+  %.0179 = phi i128 [ %182, %169 ], [ %188, %186 ], [ %182, %189 ], [ %205, %203 ], [ %182, %199 ], [ %spec.select248, %192 ]
   %206 = zext nneg i32 %181 to i128
   %207 = ashr i128 %.0179, %206
   %208 = trunc i128 %207 to i16
@@ -2142,7 +2142,7 @@ define noundef i64 @_Z21logged_rv64i_vssra_vxP11processor_t6insn_tm(ptr noundef 
   br label %._crit_edge227
 
 ._crit_edge227:                                   ; preds = %232, %239, %243, %229, %226, %209
-  %.0176 = phi i128 [ %222, %209 ], [ %228, %226 ], [ %222, %239 ], [ %spec.select249, %232 ], [ %222, %229 ], [ %245, %243 ]
+  %.0176 = phi i128 [ %222, %209 ], [ %228, %226 ], [ %222, %229 ], [ %245, %243 ], [ %222, %239 ], [ %spec.select249, %232 ]
   %246 = zext nneg i32 %221 to i128
   %247 = ashr i128 %.0176, %246
   %248 = trunc i128 %247 to i32
@@ -2209,7 +2209,7 @@ define noundef i64 @_Z21logged_rv64i_vssra_vxP11processor_t6insn_tm(ptr noundef 
   br label %._crit_edge226
 
 ._crit_edge226:                                   ; preds = %272, %279, %283, %269, %266, %249
-  %.0174 = phi i128 [ %262, %249 ], [ %268, %266 ], [ %262, %279 ], [ %spec.select250, %272 ], [ %262, %269 ], [ %285, %283 ]
+  %.0174 = phi i128 [ %262, %249 ], [ %268, %266 ], [ %262, %269 ], [ %285, %283 ], [ %262, %279 ], [ %spec.select250, %272 ]
   %286 = zext nneg i32 %261 to i128
   %287 = ashr i128 %.0174, %286
   %288 = trunc i128 %287 to i64
@@ -2534,7 +2534,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssra_vxP1
   br label %._crit_edge249
 
 ._crit_edge249:                                   ; preds = %161, %168, %172, %158, %155, %139
-  %.0187 = phi i128 [ %151, %139 ], [ %157, %155 ], [ %151, %168 ], [ %spec.select267, %161 ], [ %151, %158 ], [ %174, %172 ]
+  %.0187 = phi i128 [ %151, %139 ], [ %157, %155 ], [ %151, %158 ], [ %174, %172 ], [ %151, %168 ], [ %spec.select267, %161 ]
   %175 = zext nneg i32 %150 to i128
   %176 = ashr i128 %.0187, %175
   %177 = trunc i128 %176 to i8
@@ -2616,7 +2616,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssra_vxP1
   br label %._crit_edge248
 
 ._crit_edge248:                                   ; preds = %207, %214, %218, %204, %201, %185
-  %.0188 = phi i128 [ %197, %185 ], [ %203, %201 ], [ %197, %214 ], [ %spec.select268, %207 ], [ %197, %204 ], [ %220, %218 ]
+  %.0188 = phi i128 [ %197, %185 ], [ %203, %201 ], [ %197, %204 ], [ %220, %218 ], [ %197, %214 ], [ %spec.select268, %207 ]
   %221 = zext nneg i32 %196 to i128
   %222 = ashr i128 %.0188, %221
   %223 = trunc i128 %222 to i16
@@ -2698,7 +2698,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssra_vxP1
   br label %._crit_edge247
 
 ._crit_edge247:                                   ; preds = %253, %260, %264, %250, %247, %231
-  %.0186 = phi i128 [ %243, %231 ], [ %249, %247 ], [ %243, %260 ], [ %spec.select269, %253 ], [ %243, %250 ], [ %266, %264 ]
+  %.0186 = phi i128 [ %243, %231 ], [ %249, %247 ], [ %243, %250 ], [ %266, %264 ], [ %243, %260 ], [ %spec.select269, %253 ]
   %267 = zext nneg i32 %242 to i128
   %268 = ashr i128 %.0186, %267
   %269 = trunc i128 %268 to i32
@@ -2780,7 +2780,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssra_vxP1
   br label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %299, %306, %310, %296, %293, %277
-  %.0183 = phi i128 [ %289, %277 ], [ %295, %293 ], [ %289, %306 ], [ %spec.select270, %299 ], [ %289, %296 ], [ %312, %310 ]
+  %.0183 = phi i128 [ %289, %277 ], [ %295, %293 ], [ %289, %296 ], [ %312, %310 ], [ %289, %306 ], [ %spec.select270, %299 ]
   %313 = zext nneg i32 %288 to i128
   %314 = ashr i128 %.0183, %313
   %315 = trunc i128 %314 to i64
@@ -3103,7 +3103,7 @@ define noundef i64 @_Z19fast_rv64e_vssra_vxP11processor_t6insn_tm(ptr noundef %0
   br label %._crit_edge249
 
 ._crit_edge249:                                   ; preds = %159, %166, %170, %156, %153, %137
-  %.0187 = phi i128 [ %149, %137 ], [ %155, %153 ], [ %149, %166 ], [ %spec.select267, %159 ], [ %149, %156 ], [ %172, %170 ]
+  %.0187 = phi i128 [ %149, %137 ], [ %155, %153 ], [ %149, %156 ], [ %172, %170 ], [ %149, %166 ], [ %spec.select267, %159 ]
   %173 = zext nneg i32 %148 to i128
   %174 = ashr i128 %.0187, %173
   %175 = trunc i128 %174 to i8
@@ -3185,7 +3185,7 @@ define noundef i64 @_Z19fast_rv64e_vssra_vxP11processor_t6insn_tm(ptr noundef %0
   br label %._crit_edge248
 
 ._crit_edge248:                                   ; preds = %205, %212, %216, %202, %199, %183
-  %.0188 = phi i128 [ %195, %183 ], [ %201, %199 ], [ %195, %212 ], [ %spec.select268, %205 ], [ %195, %202 ], [ %218, %216 ]
+  %.0188 = phi i128 [ %195, %183 ], [ %201, %199 ], [ %195, %202 ], [ %218, %216 ], [ %195, %212 ], [ %spec.select268, %205 ]
   %219 = zext nneg i32 %194 to i128
   %220 = ashr i128 %.0188, %219
   %221 = trunc i128 %220 to i16
@@ -3267,7 +3267,7 @@ define noundef i64 @_Z19fast_rv64e_vssra_vxP11processor_t6insn_tm(ptr noundef %0
   br label %._crit_edge247
 
 ._crit_edge247:                                   ; preds = %251, %258, %262, %248, %245, %229
-  %.0186 = phi i128 [ %241, %229 ], [ %247, %245 ], [ %241, %258 ], [ %spec.select269, %251 ], [ %241, %248 ], [ %264, %262 ]
+  %.0186 = phi i128 [ %241, %229 ], [ %247, %245 ], [ %241, %248 ], [ %264, %262 ], [ %241, %258 ], [ %spec.select269, %251 ]
   %265 = zext nneg i32 %240 to i128
   %266 = ashr i128 %.0186, %265
   %267 = trunc i128 %266 to i32
@@ -3349,7 +3349,7 @@ define noundef i64 @_Z19fast_rv64e_vssra_vxP11processor_t6insn_tm(ptr noundef %0
   br label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %297, %304, %308, %294, %291, %275
-  %.0183 = phi i128 [ %287, %275 ], [ %293, %291 ], [ %287, %304 ], [ %spec.select270, %297 ], [ %287, %294 ], [ %310, %308 ]
+  %.0183 = phi i128 [ %287, %275 ], [ %293, %291 ], [ %287, %294 ], [ %310, %308 ], [ %287, %304 ], [ %spec.select270, %297 ]
   %311 = zext nneg i32 %286 to i128
   %312 = ashr i128 %.0183, %311
   %313 = trunc i128 %312 to i64
@@ -3674,7 +3674,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssra_vx
   br label %._crit_edge249
 
 ._crit_edge249:                                   ; preds = %161, %168, %172, %158, %155, %139
-  %.0187 = phi i128 [ %151, %139 ], [ %157, %155 ], [ %151, %168 ], [ %spec.select267, %161 ], [ %151, %158 ], [ %174, %172 ]
+  %.0187 = phi i128 [ %151, %139 ], [ %157, %155 ], [ %151, %158 ], [ %174, %172 ], [ %151, %168 ], [ %spec.select267, %161 ]
   %175 = zext nneg i32 %150 to i128
   %176 = ashr i128 %.0187, %175
   %177 = trunc i128 %176 to i8
@@ -3756,7 +3756,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssra_vx
   br label %._crit_edge248
 
 ._crit_edge248:                                   ; preds = %207, %214, %218, %204, %201, %185
-  %.0188 = phi i128 [ %197, %185 ], [ %203, %201 ], [ %197, %214 ], [ %spec.select268, %207 ], [ %197, %204 ], [ %220, %218 ]
+  %.0188 = phi i128 [ %197, %185 ], [ %203, %201 ], [ %197, %204 ], [ %220, %218 ], [ %197, %214 ], [ %spec.select268, %207 ]
   %221 = zext nneg i32 %196 to i128
   %222 = ashr i128 %.0188, %221
   %223 = trunc i128 %222 to i16
@@ -3838,7 +3838,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssra_vx
   br label %._crit_edge247
 
 ._crit_edge247:                                   ; preds = %253, %260, %264, %250, %247, %231
-  %.0186 = phi i128 [ %243, %231 ], [ %249, %247 ], [ %243, %260 ], [ %spec.select269, %253 ], [ %243, %250 ], [ %266, %264 ]
+  %.0186 = phi i128 [ %243, %231 ], [ %249, %247 ], [ %243, %250 ], [ %266, %264 ], [ %243, %260 ], [ %spec.select269, %253 ]
   %267 = zext nneg i32 %242 to i128
   %268 = ashr i128 %.0186, %267
   %269 = trunc i128 %268 to i32
@@ -3920,7 +3920,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssra_vx
   br label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %299, %306, %310, %296, %293, %277
-  %.0183 = phi i128 [ %289, %277 ], [ %295, %293 ], [ %289, %306 ], [ %spec.select270, %299 ], [ %289, %296 ], [ %312, %310 ]
+  %.0183 = phi i128 [ %289, %277 ], [ %295, %293 ], [ %289, %296 ], [ %312, %310 ], [ %289, %306 ], [ %spec.select270, %299 ]
   %313 = zext nneg i32 %288 to i128
   %314 = ashr i128 %.0183, %313
   %315 = trunc i128 %314 to i64
@@ -4243,7 +4243,7 @@ define noundef i64 @_Z21logged_rv64e_vssra_vxP11processor_t6insn_tm(ptr noundef 
   br label %._crit_edge249
 
 ._crit_edge249:                                   ; preds = %159, %166, %170, %156, %153, %137
-  %.0187 = phi i128 [ %149, %137 ], [ %155, %153 ], [ %149, %166 ], [ %spec.select267, %159 ], [ %149, %156 ], [ %172, %170 ]
+  %.0187 = phi i128 [ %149, %137 ], [ %155, %153 ], [ %149, %156 ], [ %172, %170 ], [ %149, %166 ], [ %spec.select267, %159 ]
   %173 = zext nneg i32 %148 to i128
   %174 = ashr i128 %.0187, %173
   %175 = trunc i128 %174 to i8
@@ -4325,7 +4325,7 @@ define noundef i64 @_Z21logged_rv64e_vssra_vxP11processor_t6insn_tm(ptr noundef 
   br label %._crit_edge248
 
 ._crit_edge248:                                   ; preds = %205, %212, %216, %202, %199, %183
-  %.0188 = phi i128 [ %195, %183 ], [ %201, %199 ], [ %195, %212 ], [ %spec.select268, %205 ], [ %195, %202 ], [ %218, %216 ]
+  %.0188 = phi i128 [ %195, %183 ], [ %201, %199 ], [ %195, %202 ], [ %218, %216 ], [ %195, %212 ], [ %spec.select268, %205 ]
   %219 = zext nneg i32 %194 to i128
   %220 = ashr i128 %.0188, %219
   %221 = trunc i128 %220 to i16
@@ -4407,7 +4407,7 @@ define noundef i64 @_Z21logged_rv64e_vssra_vxP11processor_t6insn_tm(ptr noundef 
   br label %._crit_edge247
 
 ._crit_edge247:                                   ; preds = %251, %258, %262, %248, %245, %229
-  %.0186 = phi i128 [ %241, %229 ], [ %247, %245 ], [ %241, %258 ], [ %spec.select269, %251 ], [ %241, %248 ], [ %264, %262 ]
+  %.0186 = phi i128 [ %241, %229 ], [ %247, %245 ], [ %241, %248 ], [ %264, %262 ], [ %241, %258 ], [ %spec.select269, %251 ]
   %265 = zext nneg i32 %240 to i128
   %266 = ashr i128 %.0186, %265
   %267 = trunc i128 %266 to i32
@@ -4489,7 +4489,7 @@ define noundef i64 @_Z21logged_rv64e_vssra_vxP11processor_t6insn_tm(ptr noundef 
   br label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %297, %304, %308, %294, %291, %275
-  %.0183 = phi i128 [ %287, %275 ], [ %293, %291 ], [ %287, %304 ], [ %spec.select270, %297 ], [ %287, %294 ], [ %310, %308 ]
+  %.0183 = phi i128 [ %287, %275 ], [ %293, %291 ], [ %287, %294 ], [ %310, %308 ], [ %287, %304 ], [ %spec.select270, %297 ]
   %311 = zext nneg i32 %286 to i128
   %312 = ashr i128 %.0183, %311
   %313 = trunc i128 %312 to i64
@@ -4777,8 +4777,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -12293,12 +12293,12 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   br label %79
 
 79:                                               ; preds = %.thread259, %75
-  %80 = phi ptr [ %34, %.thread259 ], [ %78, %75 ]
-  %.sroa.11.1201266 = phi ptr [ undef, %.thread259 ], [ %36, %75 ]
-  %.sroa.0119.1205265 = phi ptr [ null, %.thread259 ], [ %35, %75 ]
-  %.sroa.0122.6 = phi ptr [ %25, %.thread259 ], [ %76, %75 ]
-  %.sroa.15.6 = phi ptr [ %27, %.thread259 ], [ %78, %75 ]
-  %.sroa.0140.1 = phi ptr [ %33, %.thread259 ], [ null, %75 ]
+  %80 = phi ptr [ %78, %75 ], [ %34, %.thread259 ]
+  %.sroa.11.1201266 = phi ptr [ %36, %75 ], [ undef, %.thread259 ]
+  %.sroa.0119.1205265 = phi ptr [ %35, %75 ], [ null, %.thread259 ]
+  %.sroa.0122.6 = phi ptr [ %76, %75 ], [ %25, %.thread259 ]
+  %.sroa.15.6 = phi ptr [ %78, %75 ], [ %27, %.thread259 ]
+  %.sroa.0140.1 = phi ptr [ null, %75 ], [ %33, %.thread259 ]
   store ptr null, ptr %0, align 8
   %81 = atomicrmw xchg ptr %3, i64 0 acq_rel, align 8
   %.not70 = icmp eq ptr %.sroa.0122.6, null
@@ -12405,10 +12405,10 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6a062c4d195284ceE.exit110"
 
 .thread178:                                       ; preds = %125, %73, %130, %.thread
-  %.sroa.11.2 = phi ptr [ %.sroa.11.0171, %.thread ], [ %.sroa.11.0171, %130 ], [ %.sroa.11.1201266, %73 ], [ %.sroa.11.1201266, %125 ]
-  %.sroa.0119.2 = phi ptr [ %.sroa.0119.0172, %.thread ], [ %.sroa.0119.0172, %130 ], [ %.sroa.0119.1205265, %73 ], [ %.sroa.0119.1205265, %125 ]
-  %.3 = phi i1 [ %.052176, %.thread ], [ %.052176, %130 ], [ true, %73 ], [ true, %125 ]
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75177, %.thread ], [ %.pn75177, %130 ], [ %97, %73 ], [ %97, %125 ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.0171, %.thread ], [ %.sroa.11.0171, %130 ], [ %.sroa.11.1201266, %125 ], [ %.sroa.11.1201266, %73 ]
+  %.sroa.0119.2 = phi ptr [ %.sroa.0119.0172, %.thread ], [ %.sroa.0119.0172, %130 ], [ %.sroa.0119.1205265, %125 ], [ %.sroa.0119.1205265, %73 ]
+  %.3 = phi i1 [ %.052176, %.thread ], [ %.052176, %130 ], [ true, %125 ], [ true, %73 ]
+  %.pn75.pn = phi { ptr, i32 } [ %.pn75177, %.thread ], [ %.pn75177, %130 ], [ %97, %125 ], [ %97, %73 ]
   %124 = icmp ne ptr %.sroa.0119.2, null
   %or.cond9 = and i1 %124, %.3
   br i1 %or.cond9, label %133, label %.thread178.thread
@@ -12444,11 +12444,11 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hbe25155ee28996c3E"(ptr nonnull %.sroa.0119.2, ptr nonnull %.sroa.11.2) #32
           to label %.thread178.thread unwind label %31
 
-"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6a062c4d195284ceE.exit110": ; preds = %121, %41, %39, %72, %65, %118, %2, %15
+"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6a062c4d195284ceE.exit110": ; preds = %121, %41, %39, %65, %72, %118, %2, %15
   ret void
 
 .thread178.thread:                                ; preds = %29, %64, %56, %133, %.thread178
-  %.pn75.pn283 = phi { ptr, i32 } [ %.pn75.pn, %.thread178 ], [ %.pn75.pn, %133 ], [ %57, %64 ], [ %57, %56 ], [ %30, %29 ]
+  %.pn75.pn283 = phi { ptr, i32 } [ %.pn75.pn, %133 ], [ %.pn75.pn, %.thread178 ], [ %57, %64 ], [ %57, %56 ], [ %30, %29 ]
   resume { ptr, i32 } %.pn75.pn283
 }
 

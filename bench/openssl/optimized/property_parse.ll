@@ -167,14 +167,14 @@ skip_space.exit:                                  ; preds = %.preheader
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph86, %39, %.lr.ph.preheader, %36, %26, %._crit_edge.thread, %51
-  %.027 = phi ptr [ %52, %._crit_edge.thread ], [ null, %51 ], [ null, %36 ], [ null, %26 ], [ null, %.lr.ph.preheader ], [ null, %39 ], [ null, %.lr.ph86 ], [ null, %.lr.ph ]
-  %.2 = phi ptr [ null, %._crit_edge.thread ], [ null, %51 ], [ %15, %36 ], [ %15, %26 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %15, %.lr.ph86 ], [ %15, %39 ]
+  %.027 = phi ptr [ null, %51 ], [ %52, %._crit_edge.thread ], [ null, %26 ], [ null, %36 ], [ null, %.lr.ph.preheader ], [ null, %39 ], [ null, %.lr.ph86 ], [ null, %.lr.ph ]
+  %.2 = phi ptr [ null, %51 ], [ null, %._crit_edge.thread ], [ %15, %26 ], [ %15, %36 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %15, %.lr.ph86 ], [ %15, %39 ]
   tail call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str, i32 noundef 399) #10
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %6, ptr noundef nonnull @pd_free) #10
   br label %53
 
 53:                                               ; preds = %2, %5, %.thread
-  %.0 = phi ptr [ %.027, %.thread ], [ null, %2 ], [ null, %5 ]
+  %.0 = phi ptr [ %.027, %.thread ], [ null, %5 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -793,7 +793,7 @@ skip_space.exit.i46:                              ; preds = %181
   br label %parse_unquoted.exit
 
 parse_unquoted.exit:                              ; preds = %142, %142, %171, %skip_space.exit.i46
-  %.027.i = phi i32 [ 0, %171 ], [ %.not37.i, %skip_space.exit.i46 ], [ 0, %142 ], [ 0, %142 ]
+  %.027.i = phi i32 [ %.not37.i, %skip_space.exit.i46 ], [ 0, %171 ], [ 0, %142 ], [ 0, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %parse_hex.exit.thread
 
@@ -806,13 +806,13 @@ parse_hex.exit.parse_hex.exit.thread52_crit_edge: ; preds = %parse_hex.exit
   %.pre = load ptr, ptr %7, align 8, !tbaa !8
   br label %parse_hex.exit.thread52
 
-parse_hex.exit.thread52:                          ; preds = %parse_hex.exit.parse_hex.exit.thread52_crit_edge, %skip_space.exit.i29, %skip_space.exit.i40
-  %187 = phi ptr [ %.pre, %parse_hex.exit.parse_hex.exit.thread52_crit_edge ], [ %.0.i.i38, %skip_space.exit.i40 ], [ %.0.i.i27, %skip_space.exit.i29 ]
+parse_hex.exit.thread52:                          ; preds = %parse_hex.exit.parse_hex.exit.thread52_crit_edge, %skip_space.exit.i40, %skip_space.exit.i29
+  %187 = phi ptr [ %.pre, %parse_hex.exit.parse_hex.exit.thread52_crit_edge ], [ %.0.i.i27, %skip_space.exit.i29 ], [ %.0.i.i38, %skip_space.exit.i40 ]
   store ptr %187, ptr %1, align 8, !tbaa !8
   br label %parse_hex.exit.thread
 
-parse_hex.exit.thread:                            ; preds = %124, %110, %103, %85, %71, %65, %138, %parse_hex.exit, %parse_hex.exit.thread52, %parse_unquoted.exit, %136
-  %.019 = phi i32 [ %.027.i, %parse_unquoted.exit ], [ %137, %136 ], [ 1, %parse_hex.exit.thread52 ], [ 0, %parse_hex.exit ], [ 0, %138 ], [ 0, %65 ], [ 0, %71 ], [ 0, %85 ], [ 0, %103 ], [ 0, %110 ], [ 0, %124 ]
+parse_hex.exit.thread:                            ; preds = %124, %110, %103, %65, %85, %71, %138, %parse_hex.exit, %parse_hex.exit.thread52, %parse_unquoted.exit, %136
+  %.019 = phi i32 [ %137, %136 ], [ %.027.i, %parse_unquoted.exit ], [ 1, %parse_hex.exit.thread52 ], [ 0, %parse_hex.exit ], [ 0, %138 ], [ 0, %71 ], [ 0, %85 ], [ 0, %65 ], [ 0, %103 ], [ 0, %110 ], [ 0, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.019
 }
@@ -1243,7 +1243,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %43, %.outer.backedge, %.outer76, %68, %56, %15, %2
-  %.2 = phi i32 [ 0, %2 ], [ %.061.ph7796, %15 ], [ -1, %56 ], [ %.3, %.outer76 ], [ -1, %68 ], [ %.061.ph.be, %.outer.backedge ], [ -1, %43 ]
+  %.2 = phi i32 [ 0, %2 ], [ %.061.ph7796, %15 ], [ %.3, %.outer76 ], [ -1, %68 ], [ -1, %56 ], [ %.061.ph.be, %.outer.backedge ], [ -1, %43 ]
   ret i32 %.2
 }
 
@@ -1496,7 +1496,7 @@ put_char.exit:                                    ; preds = %21, %24
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %41, %43, %34, %36
-  %.sink.i35.sink = phi i8 [ 0, %34 ], [ 63, %36 ], [ 45, %43 ], [ 0, %41 ]
+  %.sink.i35.sink = phi i8 [ 63, %36 ], [ 0, %34 ], [ 45, %43 ], [ 0, %41 ]
   %44 = load ptr, ptr %5, align 8, !tbaa !8
   store i8 %.sink.i35.sink, ptr %44, align 1, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
@@ -1673,7 +1673,7 @@ put_char.exit51:                                  ; preds = %._crit_edge, %105
   br label %.loopexit
 
 .loopexit:                                        ; preds = %put_char.exit46, %79, %50, %9, %10, %put_char.exit51
-  %.023 = phi i64 [ %111, %put_char.exit51 ], [ 1, %9 ], [ 1, %10 ], [ 0, %50 ], [ 0, %79 ], [ 0, %put_char.exit46 ]
+  %.023 = phi i64 [ %111, %put_char.exit51 ], [ 1, %10 ], [ 1, %9 ], [ 0, %50 ], [ 0, %79 ], [ 0, %put_char.exit46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.023
 }

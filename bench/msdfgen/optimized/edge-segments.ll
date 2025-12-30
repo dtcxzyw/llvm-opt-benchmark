@@ -1746,8 +1746,8 @@ if.then152:                                       ; preds = %if.then145
   br label %if.end158
 
 if.end158:                                        ; preds = %lor.lhs.false127, %land.lhs.true135, %if.then152, %if.then145, %for.end
-  %nextDY.3 = phi i32 [ 1, %if.then152 ], [ %nextDY.1.lcssa, %if.then145 ], [ %nextDY.1.lcssa, %for.end ], [ %spec.select, %land.lhs.true135 ], [ %spec.select, %lor.lhs.false127 ]
-  %total.3 = phi i32 [ %inc153, %if.then152 ], [ %spec.select53, %if.then145 ], [ %total.1.lcssa, %for.end ], [ %spec.select53, %land.lhs.true135 ], [ %spec.select53, %lor.lhs.false127 ]
+  %nextDY.3 = phi i32 [ 1, %if.then152 ], [ %nextDY.1.lcssa, %if.then145 ], [ %spec.select, %land.lhs.true135 ], [ %spec.select, %lor.lhs.false127 ], [ %nextDY.1.lcssa, %for.end ]
+  %total.3 = phi i32 [ %inc153, %if.then152 ], [ %spec.select53, %if.then145 ], [ %spec.select53, %land.lhs.true135 ], [ %spec.select53, %lor.lhs.false127 ], [ %total.1.lcssa, %for.end ]
   %18 = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
   %cmp162 = fcmp oge double %y, %18
   %cond163 = select i1 %cmp162, i32 1, i32 -1
@@ -2032,8 +2032,8 @@ if.then246:                                       ; preds = %if.then239
   br label %if.end252
 
 if.end252:                                        ; preds = %lor.lhs.false205, %lor.lhs.false221, %land.lhs.true229, %if.then246, %if.then239, %for.end
-  %nextDY.3 = phi i32 [ 1, %if.then246 ], [ %nextDY.1.lcssa, %if.then239 ], [ %nextDY.1.lcssa, %for.end ], [ %spec.select, %land.lhs.true229 ], [ %spec.select, %lor.lhs.false221 ], [ %spec.select, %lor.lhs.false205 ]
-  %total.3 = phi i32 [ %inc247, %if.then246 ], [ %spec.select68, %if.then239 ], [ %total.1.lcssa, %for.end ], [ %spec.select68, %land.lhs.true229 ], [ %spec.select68, %lor.lhs.false221 ], [ %spec.select68, %lor.lhs.false205 ]
+  %nextDY.3 = phi i32 [ 1, %if.then246 ], [ %nextDY.1.lcssa, %if.then239 ], [ %spec.select, %land.lhs.true229 ], [ %spec.select, %lor.lhs.false221 ], [ %spec.select, %lor.lhs.false205 ], [ %nextDY.1.lcssa, %for.end ]
+  %total.3 = phi i32 [ %inc247, %if.then246 ], [ %spec.select68, %if.then239 ], [ %spec.select68, %land.lhs.true229 ], [ %spec.select68, %lor.lhs.false221 ], [ %spec.select68, %lor.lhs.false205 ], [ %total.1.lcssa, %for.end ]
   %25 = load double, ptr %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx, align 8
   %cmp256 = fcmp oge double %y, %25
   %cond257 = select i1 %cmp256, i32 1, i32 -1

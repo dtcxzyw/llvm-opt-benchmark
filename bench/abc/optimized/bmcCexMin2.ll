@@ -1375,7 +1375,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %.not188, label %250, label %.sink.split341
 
 .sink.split341:                                   ; preds = %246, %243, %249, %240, %247, %244
-  %.sink342 = phi i32 [ %.mux348, %243 ], [ %233, %240 ], [ %248, %247 ], [ %.mux348, %246 ], [ %239, %249 ], [ %245, %244 ]
+  %.sink342 = phi i32 [ %245, %244 ], [ %248, %247 ], [ %233, %240 ], [ %239, %249 ], [ %.mux348, %243 ], [ %.mux348, %246 ]
   store i32 %.sink342, ptr %214, align 4, !tbaa !53
   br label %250
 

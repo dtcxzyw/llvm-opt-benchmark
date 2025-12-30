@@ -3320,7 +3320,7 @@ _ZN4ncnn3MatD2Ev.exit628:                         ; preds = %1543, %_ZN4ncnn3Mat
   br label %.critedge
 
 1558:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit625, %_ZN4ncnn3MatD2Ev.exit623
-  %.pn421.pn = phi { ptr, i32 } [ %.pn417, %_ZN4ncnn3MatD2Ev.exit625 ], [ %.pn419, %_ZN4ncnn3MatD2Ev.exit623 ]
+  %.pn421.pn = phi { ptr, i32 } [ %.pn419, %_ZN4ncnn3MatD2Ev.exit623 ], [ %.pn417, %_ZN4ncnn3MatD2Ev.exit625 ]
   %1559 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %1560 = load ptr, ptr %1559, align 8, !tbaa !44
   %.not.i975 = icmp eq ptr %1560, null
@@ -6661,7 +6661,7 @@ _ZN4ncnn3MatD2Ev.exit557:                         ; preds = %3127, %_ZN4ncnn3Mat
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge2378, %_ZN4ncnn3MatD2Ev.exit572, %_ZN4ncnn3MatD2Ev.exit569, %_ZN4ncnn3MatD2Ev.exit560, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit598, %_ZN4ncnn3MatD2Ev.exit615, %_ZN4ncnn3MatD2Ev.exit628, %130, %102, %_ZN4ncnn3MatD2Ev.exit688, %_ZN4ncnn3MatD2Ev.exit647, %_ZN4ncnn3MatD2Ev.exit557, %_ZN4ncnn3MatD2Ev.exit563, %_ZN4ncnn3MatD2Ev.exit566, %_ZN4ncnn3MatD2Ev.exit591, %_ZN4ncnn3MatD2Ev.exit587, %_ZNK4ncnn3Mat5emptyEv.exit492, %_ZN4ncnn3MatD2Ev.exit573, %_ZN4ncnn3MatD2Ev.exit578, %_ZN4ncnn3MatD2Ev.exit581, %_ZN4ncnn3MatD2Ev.exit582, %_ZN4ncnn3MatD2Ev.exit584, %_ZN4ncnn3MatD2Ev.exit585, %_ZNK4ncnn3Mat5emptyEv.exit, %2744
-  %.0 = phi i32 [ -1, %2744 ], [ -100, %_ZN4ncnn3MatD2Ev.exit563 ], [ -100, %_ZN4ncnn3MatD2Ev.exit587 ], [ -100, %_ZN4ncnn3MatD2Ev.exit591 ], [ -100, %102 ], [ -100, %_ZN4ncnn3MatD2Ev.exit557 ], [ -100, %130 ], [ -100, %_ZN4ncnn3MatD2Ev.exit647 ], [ -100, %_ZN4ncnn3MatD2Ev.exit688 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit573 ], [ -100, %_ZN4ncnn3MatD2Ev.exit585 ], [ -100, %_ZN4ncnn3MatD2Ev.exit584 ], [ -100, %_ZN4ncnn3MatD2Ev.exit582 ], [ -100, %_ZN4ncnn3MatD2Ev.exit581 ], [ -100, %_ZN4ncnn3MatD2Ev.exit578 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit492 ], [ -100, %_ZN4ncnn3MatD2Ev.exit566 ], [ 0, %_ZN4ncnn3MatD2Ev.exit628 ], [ 0, %_ZN4ncnn3MatD2Ev.exit615 ], [ 0, %_ZN4ncnn3MatD2Ev.exit598 ], [ 0, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %_ZN4ncnn3MatD2Ev.exit560 ], [ 0, %_ZN4ncnn3MatD2Ev.exit569 ], [ 0, %_ZN4ncnn3MatD2Ev.exit572 ], [ 0, %._crit_edge2378 ]
+  %.0 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit587 ], [ -100, %_ZN4ncnn3MatD2Ev.exit591 ], [ -100, %_ZN4ncnn3MatD2Ev.exit647 ], [ -100, %_ZN4ncnn3MatD2Ev.exit688 ], [ -1, %2744 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit585 ], [ -100, %_ZN4ncnn3MatD2Ev.exit584 ], [ -100, %_ZN4ncnn3MatD2Ev.exit582 ], [ -100, %_ZN4ncnn3MatD2Ev.exit581 ], [ -100, %_ZN4ncnn3MatD2Ev.exit578 ], [ -100, %_ZN4ncnn3MatD2Ev.exit573 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit492 ], [ -100, %_ZN4ncnn3MatD2Ev.exit566 ], [ -100, %_ZN4ncnn3MatD2Ev.exit563 ], [ -100, %_ZN4ncnn3MatD2Ev.exit557 ], [ -100, %102 ], [ -100, %130 ], [ 0, %_ZN4ncnn3MatD2Ev.exit628 ], [ 0, %_ZN4ncnn3MatD2Ev.exit615 ], [ 0, %_ZN4ncnn3MatD2Ev.exit598 ], [ 0, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %_ZN4ncnn3MatD2Ev.exit560 ], [ 0, %_ZN4ncnn3MatD2Ev.exit569 ], [ 0, %_ZN4ncnn3MatD2Ev.exit572 ], [ 0, %._crit_edge2378 ]
   ret i32 %.0
 
 3143:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit691, %_ZN4ncnn3MatD2Ev.exit650, %_ZN4ncnn3MatD2Ev.exit631, %_ZN4ncnn3MatD2Ev.exit618, %_ZN4ncnn3MatD2Ev.exit601, %_ZN4ncnn3MatD2Ev.exit595, %_ZN4ncnn3MatD2Ev.exit586

@@ -959,7 +959,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %25, %26
   br label %281
 
 281:                                              ; preds = %278, %195, %173, %154, %153
-  %.0163.i.i = phi i1 [ true, %154 ], [ true, %153 ], [ true, %195 ], [ true, %173 ], [ %280, %278 ]
+  %.0163.i.i = phi i1 [ true, %154 ], [ true, %173 ], [ true, %195 ], [ %280, %278 ], [ true, %153 ]
   %282 = icmp sgt i32 %151, 0
   %or.cond.i.i = and i1 %282, %.0163.i.i
   br i1 %or.cond.i.i, label %283, label %dissect_dlt_non_verbose_payload_message.exit.i
@@ -1233,7 +1233,7 @@ dissect_dlt_verbose_parameter_bool.exit.i.i:      ; preds = %362, %360, %expert_
   br label %406
 
 399:                                              ; preds = %393, %390, %387, %384
-  %.0.i83.i.i = phi ptr [ %395, %393 ], [ %386, %384 ], [ %389, %387 ], [ %392, %390 ]
+  %.0.i83.i.i = phi ptr [ %386, %384 ], [ %389, %387 ], [ %392, %390 ], [ %395, %393 ]
   %400 = icmp ne ptr %.0.i83.i.i, null
   %401 = icmp ne ptr %.055.i.i.i, null
   %or.cond.i84.i.i = select i1 %400, i1 %401, i1 false
@@ -1377,7 +1377,7 @@ expert_dlt_buffer_too_short.exit.i94.i.i:         ; preds = %435, %434
   br label %462
 
 455:                                              ; preds = %449, %446, %443, %440
-  %.0.i90.i.i = phi ptr [ %451, %449 ], [ %442, %440 ], [ %445, %443 ], [ %448, %446 ]
+  %.0.i90.i.i = phi ptr [ %442, %440 ], [ %445, %443 ], [ %448, %446 ], [ %451, %449 ]
   %456 = icmp ne ptr %.0.i90.i.i, null
   %457 = icmp ne ptr %.060.i.i.i, null
   %or.cond.i91.i.i = select i1 %456, i1 %457, i1 false

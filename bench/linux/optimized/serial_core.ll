@@ -467,7 +467,7 @@ define dso_local ptr @uart_get_console(ptr noundef readonly captures(ret: addres
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit5, %20, %16, %10
-  %35 = phi i32 [ %6, %16 ], [ %6, %10 ], [ 0, %20 ], [ %34, %.loopexit.loopexit.split.loop.exit5 ], [ %33, %.loopexit.loopexit.split.loop.exit ], [ %1, %31 ]
+  %35 = phi i32 [ %6, %16 ], [ %6, %10 ], [ 0, %20 ], [ %33, %.loopexit.loopexit.split.loop.exit ], [ %34, %.loopexit.loopexit.split.loop.exit5 ], [ %1, %31 ]
   %36 = trunc i32 %35 to i16
   store i16 %36, ptr %4, align 2
   %37 = sext i32 %35 to i64
@@ -572,7 +572,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.tail1.thread
 
 .tail1.thread:                                    ; preds = %sub_0, %.tail, %sub_1, %41, %.tail1
-  %48 = phi i32 [ 0, %41 ], [ -22, %.tail1 ], [ -22, %sub_0 ], [ -22, %sub_1 ], [ -22, %.tail ]
+  %48 = phi i32 [ 0, %41 ], [ -22, %.tail1 ], [ -22, %sub_1 ], [ -22, %.tail ], [ -22, %sub_0 ]
   ret i32 %48
 }
 
@@ -3510,7 +3510,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @uart_write(ptr noundef r
   br label %.thread10
 
 .thread10:                                        ; preds = %25, %.thread8, %100, %58, %51, %7
-  %103 = phi i64 [ %102, %100 ], [ -46, %7 ], [ 0, %.thread8 ], [ 0, %51 ], [ 0, %58 ], [ 0, %25 ]
+  %103 = phi i64 [ %102, %100 ], [ -46, %7 ], [ 0, %51 ], [ 0, %58 ], [ 0, %.thread8 ], [ 0, %25 ]
   ret i64 %103
 }
 
@@ -3603,7 +3603,7 @@ define internal noundef range(i32 0, 2) i32 @uart_put_char(ptr noundef readonly 
   br label %.thread7
 
 .thread7:                                         ; preds = %15, %18, %2, %54, %46, %25
-  %60 = phi i32 [ 0, %2 ], [ 0, %18 ], [ 0, %25 ], [ %47, %46 ], [ %56, %54 ], [ 0, %15 ]
+  %60 = phi i32 [ 0, %25 ], [ %47, %46 ], [ %56, %54 ], [ 0, %2 ], [ 0, %18 ], [ 0, %15 ]
   ret i32 %60
 }
 
@@ -4000,8 +4000,8 @@ define internal i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %.thread18
 
 .thread18:                                        ; preds = %65, %.thread10, %155
-  %157 = phi i1 [ false, %65 ], [ true, %155 ], [ false, %.thread10 ]
-  %.ph1620 = phi ptr [ %57, %65 ], [ %57, %155 ], [ %61, %.thread10 ]
+  %157 = phi i1 [ true, %155 ], [ false, %.thread10 ], [ false, %65 ]
+  %.ph1620 = phi ptr [ %57, %155 ], [ %61, %.thread10 ], [ %57, %65 ]
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 256
   tail call void @mutex_lock(ptr noundef nonnull %158) #20
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 432
@@ -5401,8 +5401,8 @@ define internal i32 @uart_set_info_user(ptr noundef %0, ptr noundef %1) #0 align
   br label %83
 
 83:                                               ; preds = %37, %78, %71, %65, %58, %51, %43
-  %84 = phi i1 [ %47, %78 ], [ %47, %71 ], [ %47, %65 ], [ %47, %58 ], [ %47, %51 ], [ %47, %43 ], [ false, %37 ]
-  %85 = phi i1 [ %82, %78 ], [ true, %71 ], [ true, %65 ], [ true, %58 ], [ true, %51 ], [ true, %43 ], [ false, %37 ]
+  %84 = phi i1 [ %47, %71 ], [ %47, %65 ], [ %47, %58 ], [ %47, %51 ], [ %47, %43 ], [ %47, %78 ], [ false, %37 ]
+  %85 = phi i1 [ true, %71 ], [ true, %65 ], [ true, %58 ], [ true, %51 ], [ true, %43 ], [ %82, %78 ], [ false, %37 ]
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
@@ -5715,7 +5715,7 @@ define internal i32 @uart_set_info_user(ptr noundef %0, ptr noundef %1) #0 align
   br label %.thread10
 
 .thread10:                                        ; preds = %207, %213, %206, %147, %140, %275, %270, %252, %238, %155, %151, %129, %117, %113, %105, %101, %94, %93, %2
-  %277 = phi i32 [ -5, %2 ], [ %130, %129 ], [ %141, %151 ], [ -16, %155 ], [ -22, %147 ], [ 0, %238 ], [ 0, %270 ], [ 0, %252 ], [ %276, %275 ], [ -1, %93 ], [ -1, %94 ], [ -1, %101 ], [ -1, %105 ], [ -1, %113 ], [ -1, %117 ], [ -22, %140 ], [ -16, %207 ], [ -16, %213 ], [ %204, %206 ]
+  %277 = phi i32 [ -5, %2 ], [ %130, %129 ], [ %141, %151 ], [ -16, %155 ], [ 0, %238 ], [ 0, %270 ], [ 0, %252 ], [ %276, %275 ], [ -1, %93 ], [ -1, %94 ], [ -1, %101 ], [ -1, %105 ], [ -1, %113 ], [ -1, %117 ], [ -22, %140 ], [ -22, %147 ], [ -16, %207 ], [ -16, %213 ], [ %204, %206 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #20
   tail call void @up_write(ptr noundef nonnull %5) #20
   ret i32 %277
@@ -6242,7 +6242,7 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef no
   br label %.thread
 
 .thread:                                          ; preds = %33, %26, %19, %12, %85, %81, %72, %9, %3
-  %86 = phi i32 [ -25, %3 ], [ -14, %9 ], [ %75, %72 ], [ %58, %81 ], [ %58, %85 ], [ -22, %12 ], [ -22, %19 ], [ -22, %26 ], [ -22, %33 ]
+  %86 = phi i32 [ -25, %3 ], [ -14, %9 ], [ %58, %81 ], [ %58, %85 ], [ %75, %72 ], [ -22, %12 ], [ -22, %19 ], [ -22, %26 ], [ -22, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %86
 }
@@ -6564,7 +6564,7 @@ define internal fastcc i32 @uart_startup(ptr noundef %0, ptr noundef %1, i1 noun
   br label %.thread14
 
 .thread14:                                        ; preds = %143, %28, %8
-  %145 = phi i32 [ %spec.select, %143 ], [ -12, %28 ], [ 1, %8 ]
+  %145 = phi i32 [ -12, %28 ], [ 1, %8 ], [ %spec.select, %143 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 416
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %146, i32 2, ptr nonnull elementtype(i8) %146) #20, !srcloc !17
   br label %.thread16
@@ -7692,7 +7692,7 @@ define internal i64 @console_store(ptr noundef readonly captures(none) %0, ptr r
   br label %58
 
 58:                                               ; preds = %53, %.thread8, %.thread5, %10
-  %59 = phi i64 [ %11, %10 ], [ %3, %.thread8 ], [ %spec.select, %53 ], [ %.ph, %.thread5 ]
+  %59 = phi i64 [ %11, %10 ], [ %3, %.thread8 ], [ %.ph, %.thread5 ], [ %spec.select, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %59
 }

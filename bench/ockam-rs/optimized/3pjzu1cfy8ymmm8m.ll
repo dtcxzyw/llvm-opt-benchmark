@@ -1531,7 +1531,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
           to label %.body.thread unwind label %11
 
 .body.thread:                                     ; preds = %13, %14
-  %eh.lpad-body3 = phi { ptr, i32 } [ %10, %13 ], [ %15, %14 ]
+  %eh.lpad-body3 = phi { ptr, i32 } [ %15, %14 ], [ %10, %13 ]
   resume { ptr, i32 } %eh.lpad-body3
 
 14:                                               ; preds = %2
@@ -2035,8 +2035,8 @@ common.ret:                                       ; preds = %104, %"_ZN4core3ptr
   br label %85
 
 "_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hfb22b02354efd381E.exit": ; preds = %19, %60, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i"
-  %.sroa.4.0 = phi ptr [ %.fca.1.extract, %60 ], [ %.sroa.4.0.copyload39, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i" ], [ %23, %19 ]
-  %.sroa.0.0 = phi i64 [ 3, %60 ], [ %94, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i" ], [ 3, %19 ]
+  %.sroa.4.0 = phi ptr [ %.sroa.4.0.copyload39, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i" ], [ %.fca.1.extract, %60 ], [ %23, %19 ]
+  %.sroa.0.0 = phi i64 [ %94, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i" ], [ 3, %60 ], [ 3, %19 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2051,7 +2051,7 @@ common.ret:                                       ; preds = %104, %"_ZN4core3ptr
   unreachable
 
 .body:                                            ; preds = %105, %100, %58, %53, %17, %29, %46, %92, %78
-  %.pn29 = phi { ptr, i32 } [ %54, %53 ], [ %93, %92 ], [ %79, %78 ], [ %106, %105 ], [ %101, %100 ], [ %47, %46 ], [ %30, %29 ], [ %18, %17 ], [ %59, %58 ]
+  %.pn29 = phi { ptr, i32 } [ %93, %92 ], [ %79, %78 ], [ %47, %46 ], [ %30, %29 ], [ %18, %17 ], [ %59, %58 ], [ %54, %53 ], [ %106, %105 ], [ %101, %100 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn29
 
@@ -3182,7 +3182,7 @@ common.ret.sink.split.i:                          ; preds = %273, %"_ZN4core3ptr
   br i1 %53, label %84, label %83
 
 .body.i.i:                                        ; preds = %.body10.i.i, %68, %63, %61, %59, %57, %49, %29
-  %.pn4.i.i = phi { ptr, i32 } [ %50, %49 ], [ %58, %57 ], [ %.pn.i.i, %.body10.i.i ], [ %64, %63 ], [ %62, %61 ], [ %69, %68 ], [ %60, %59 ], [ %30, %29 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %50, %49 ], [ %58, %57 ], [ %.pn.i.i, %.body10.i.i ], [ %62, %61 ], [ %69, %68 ], [ %64, %63 ], [ %60, %59 ], [ %30, %29 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 330
   %55 = load i8, ptr %54, align 2, !range !54, !noundef !9
   %56 = trunc nuw i8 %55 to i1
@@ -3237,7 +3237,7 @@ common.ret.sink.split.i:                          ; preds = %273, %"_ZN4core3ptr
   br label %"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5decb9f8ff01ba13E.exit.i.i"
 
 .body10.i.i:                                      ; preds = %81, %76, %72, %43
-  %.pn.i.i = phi { ptr, i32 } [ %77, %76 ], [ %82, %81 ], [ %73, %72 ], [ %44, %43 ]
+  %.pn.i.i = phi { ptr, i32 } [ %82, %81 ], [ %77, %76 ], [ %73, %72 ], [ %44, %43 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 329
   store i8 0, ptr %75, align 1
   br label %.body.i.i
@@ -3554,7 +3554,7 @@ common.ret.sink.split.i:                          ; preds = %273, %"_ZN4core3ptr
   br i1 %191, label %203, label %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h046f4ab48d52b47cE.exit.i.i.i.i"
 
 .body13.i.i.i.i:                                  ; preds = %199, %.body17.i.i.i.i, %187, %158
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body18.i.i.i.i, %.body17.i.i.i.i ], [ %200, %199 ], [ %188, %187 ], [ %159, %158 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %199 ], [ %eh.lpad-body18.i.i.i.i, %.body17.i.i.i.i ], [ %188, %187 ], [ %159, %158 ]
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %193 = load i8, ptr %192, align 4, !range !54, !noundef !9
   %194 = trunc nuw i8 %193 to i1
@@ -3752,7 +3752,7 @@ common.ret.sink.split.i:                          ; preds = %273, %"_ZN4core3ptr
   br i1 %262, label %common.ret.sink.split.i, label %"_ZN4core3ptr146drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$..return_to_pool..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdb4bda764124233E.exit"
 
 common.resume:                                    ; preds = %301, %256, %279, %286
-  %common.resume.op = phi { ptr, i32 } [ %280, %279 ], [ %.pn.i, %286 ], [ %257, %256 ], [ %302, %301 ]
+  %common.resume.op = phi { ptr, i32 } [ %257, %256 ], [ %280, %279 ], [ %.pn.i, %286 ], [ %302, %301 ]
   resume { ptr, i32 } %common.resume.op
 
 263:                                              ; preds = %288, %286, %279, %256
@@ -3772,7 +3772,7 @@ common.resume:                                    ; preds = %301, %256, %279, %2
   br i1 %.not2.i, label %273, label %269
 
 .body.i:                                          ; preds = %265, %.body.i.i.i, %86
-  %.pn.i = phi { ptr, i32 } [ %.pn6.i.i, %86 ], [ %266, %265 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
+  %.pn.i = phi { ptr, i32 } [ %266, %265 ], [ %.pn6.i.i, %86 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
   %268 = load i32, ptr %0, align 8, !range !841, !noundef !9
   %.not.i = icmp eq i32 %268, 3
   br i1 %.not.i, label %286, label %282
@@ -5082,7 +5082,7 @@ define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connec
   unreachable
 
 common.resume:                                    ; preds = %134, %99, %.body, %87, %77, %66, %55, %42, %31, %8
-  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %9, %8 ], [ %32, %31 ], [ %43, %42 ], [ %56, %55 ], [ %67, %66 ], [ %78, %77 ], [ %88, %87 ], [ %.pn, %.body ], [ %135, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %32, %31 ], [ %43, %42 ], [ %56, %55 ], [ %67, %66 ], [ %78, %77 ], [ %88, %87 ], [ %.pn, %.body ], [ %100, %99 ], [ %135, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 15:                                               ; preds = %1
@@ -5400,7 +5400,7 @@ common.resume:                                    ; preds = %134, %99, %.body, %
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$sqlx_sqlite..arguments..SqliteArguments$GT$$GT$17he2645170020014aaE.exit"
 
 .body:                                            ; preds = %125, %112
-  %.pn = phi { ptr, i32 } [ %113, %112 ], [ %126, %125 ]
+  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %113, %112 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @"_ZN4core3ptr192drop_in_place$LT$flume..Sender$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h31ddfe1aa9d9fba5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %124) #34
           to label %common.resume unwind label %94
@@ -6657,7 +6657,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hc5c5e4cc93472cccE(ptr noa
   br i1 %44, label %.loopexit, label %.lr.ph311
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit156", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit139", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit122", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit105", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit88", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit173", %.preheader272, %.preheader270, %.preheader268, %.preheader266, %.preheader264, %.preheader
-  %.sroa.27.6 = phi i64 [ %92, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit173" ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit139" ], [ %49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit88" ], [ %58, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit105" ], [ %67, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit122" ], [ %43, %.preheader ], [ %43, %.preheader264 ], [ %43, %.preheader266 ], [ %43, %.preheader268 ], [ %43, %.preheader270 ], [ %43, %.preheader272 ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit156" ]
+  %.sroa.27.6 = phi i64 [ %43, %.preheader ], [ %43, %.preheader264 ], [ %43, %.preheader266 ], [ %43, %.preheader268 ], [ %43, %.preheader270 ], [ %43, %.preheader272 ], [ %92, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit173" ], [ %49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit88" ], [ %58, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit105" ], [ %67, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit122" ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit139" ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h9b632f9f116c11daE.exit156" ]
   %45 = sub i64 %.fca.1.extract, %.sroa.27.6
   store i64 %45, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -7319,7 +7319,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
           to label %.body unwind label %83, !noalias !1733
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %101, %85, %80, %56, %121
-  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %86, %85 ], [ %102, %101 ], [ %57, %56 ], [ %81, %80 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %57, %56 ], [ %81, %80 ], [ %86, %85 ], [ %102, %101 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hf57e01d2f80068bbE.llvm.12929368810573836545"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #34
           to label %125 unwind label %123
 
@@ -7623,7 +7623,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
           to label %.body unwind label %85, !noalias !1756
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %103, %87, %82, %58, %123
-  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %88, %87 ], [ %104, %103 ], [ %59, %58 ], [ %83, %82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %59, %58 ], [ %83, %82 ], [ %88, %87 ], [ %104, %103 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hbffa813b641ca7c4E"(ptr noalias noundef align 8 dereferenceable(16) %9) #34
           to label %127 unwind label %125
 
@@ -8238,7 +8238,7 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4recv17hac303f1ec635ea7aE"(ptr no
   unreachable
 
 common.resume:                                    ; preds = %32, %.thread63, %163, %62, %22
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %33, %32 ], [ %.pn68, %163 ], [ %.pn68, %.thread63 ], [ %63, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %.pn68, %163 ], [ %.pn68, %.thread63 ], [ %33, %32 ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h357b898f7909b6e5E.llvm.12929368810573836545.exit": ; preds = %6
@@ -8352,7 +8352,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #35
   unreachable
 
-.body.thread73:                                   ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.i.i25, %94, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.i.i20, %82
+.body.thread73:                                   ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.i.i20, %82, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.i.i25, %94
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread63
@@ -8635,7 +8635,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   br label %160
 
 .thread63:                                        ; preds = %.thread84, %.body.thread73, %.body.thread, %61
-  %.pn68 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread73 ], [ %.pn70, %.body.thread ], [ %eh.lpad-body34.ph, %61 ], [ %114, %.thread84 ]
+  %.pn68 = phi { ptr, i32 } [ %.pn70, %.body.thread ], [ %eh.lpad-body34.ph, %61 ], [ %lpad.thr_comm, %.body.thread73 ], [ %114, %.thread84 ]
   %162 = load i64, ptr %13, align 8, !range !812, !noundef !9
   %.not89 = icmp eq i64 %162, 17
   br i1 %.not89, label %common.resume, label %163
@@ -8720,7 +8720,7 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4recv17hc7067a5264ab125eE"(ptr no
   unreachable
 
 common.resume:                                    ; preds = %51, %.thread65, %474, %80, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %52, %51 ], [ %.pn70, %474 ], [ %.pn70, %.thread65 ], [ %81, %80 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %.pn70, %474 ], [ %.pn70, %.thread65 ], [ %52, %51 ], [ %81, %80 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h357b898f7909b6e5E.llvm.12929368810573836545.exit": ; preds = %5
@@ -8991,7 +8991,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   tail call void @llvm.trap()
   unreachable
 
-.body32.thread84:                                 ; preds = %170, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.i.i34
+.body32.thread84:                                 ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.i.i34, %170
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body32.thread
@@ -9115,7 +9115,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   br label %.body.i40
 
 .body.i40:                                        ; preds = %429, %374, %.body.i.i, %297, %269, %249, %210, %190, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %.body.i.i ], [ %211, %210 ], [ %270, %269 ], [ %430, %429 ], [ %191, %190 ], [ %250, %249 ], [ %375, %374 ], [ %298, %297 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit31.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp32.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %191, %190 ], [ %211, %210 ], [ %250, %249 ], [ %270, %269 ], [ %298, %297 ], [ %375, %374 ], [ %.pn.i.i, %.body.i.i ], [ %430, %429 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit31.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp32.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke fastcc void @"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..signal..SyncSignal$GT$$GT$$GT$17hdcadba215972af08E"(ptr noalias noundef align 8 dereferenceable(8) %24) #34
           to label %.thread65 unwind label %467, !noalias !1951
 
@@ -9487,7 +9487,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   unreachable
 
 .invoke.i:                                        ; preds = %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E.exit.i27.i", %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E.exit.i.i", %284, %233, %173, %"_ZN4core3ptr226drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$$GT$17hc672241c6ae8a4f5E.llvm.12929368810573836545.exit38"
-  %302 = phi ptr [ @anon.626c43ff2f662d8512631592fbc4d435.71, %233 ], [ @anon.626c43ff2f662d8512631592fbc4d435.70, %173 ], [ @anon.626c43ff2f662d8512631592fbc4d435.67.llvm.12929368810573836545, %284 ], [ @anon.626c43ff2f662d8512631592fbc4d435.65, %"_ZN4core3ptr226drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$$GT$17hc672241c6ae8a4f5E.llvm.12929368810573836545.exit38" ], [ @anon.626c43ff2f662d8512631592fbc4d435.70, %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E.exit.i.i" ], [ @anon.626c43ff2f662d8512631592fbc4d435.71, %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E.exit.i27.i" ]
+  %302 = phi ptr [ @anon.626c43ff2f662d8512631592fbc4d435.70, %173 ], [ @anon.626c43ff2f662d8512631592fbc4d435.71, %233 ], [ @anon.626c43ff2f662d8512631592fbc4d435.67.llvm.12929368810573836545, %284 ], [ @anon.626c43ff2f662d8512631592fbc4d435.65, %"_ZN4core3ptr226drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$$GT$17hc672241c6ae8a4f5E.llvm.12929368810573836545.exit38" ], [ @anon.626c43ff2f662d8512631592fbc4d435.70, %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E.exit.i.i" ], [ @anon.626c43ff2f662d8512631592fbc4d435.71, %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h76c7e81f25449ca1E.exit.i27.i" ]
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.626c43ff2f662d8512631592fbc4d435.61.llvm.12929368810573836545, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %302) #33
           to label %.cont.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1951
 
@@ -9992,7 +9992,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   br label %471
 
 .thread65:                                        ; preds = %.body.i40, %.body32, %.body, %.body.thread, %.body32.thread80
-  %.pn70 = phi { ptr, i32 } [ %84, %.body ], [ %.pn72, %.body.thread ], [ %eh.lpad-body3379, %.body32.thread80 ], [ %eh.lpad-body.i, %.body.i40 ], [ %lpad.thr_comm.split-lp, %.body32 ]
+  %.pn70 = phi { ptr, i32 } [ %.pn72, %.body.thread ], [ %eh.lpad-body3379, %.body32.thread80 ], [ %84, %.body ], [ %eh.lpad-body.i, %.body.i40 ], [ %lpad.thr_comm.split-lp, %.body32 ]
   %473 = load i64, ptr %32, align 8, !range !812, !noundef !9
   %.not94 = icmp eq i64 %473, 17
   br i1 %.not94, label %common.resume, label %474
@@ -10068,8 +10068,8 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hdb2c102a56ca43bcE"(ptr no
   unreachable
 
 .body69:                                          ; preds = %359, %40, %.thread166, %176, %162
-  %.151 = phi i8 [ %.555, %176 ], [ %.353.lpad-body.ph, %162 ], [ %.6, %359 ], [ %.555170, %.thread166 ], [ %.6, %40 ]
-  %.pn60 = phi { ptr, i32 } [ %.pn58, %176 ], [ %eh.lpad-body80.ph, %162 ], [ %360, %359 ], [ %.pn58171, %.thread166 ], [ %41, %40 ]
+  %.151 = phi i8 [ %.353.lpad-body.ph, %162 ], [ %.555170, %.thread166 ], [ %.555, %176 ], [ %.6, %40 ], [ %.6, %359 ]
+  %.pn60 = phi { ptr, i32 } [ %eh.lpad-body80.ph, %162 ], [ %.pn58171, %.thread166 ], [ %.pn58, %176 ], [ %41, %40 ], [ %360, %359 ]
   %39 = trunc nuw i8 %.151 to i1
   br i1 %39, label %.body69.thread, label %.body.thread
 
@@ -10667,7 +10667,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   br label %.body93
 
 .body93:                                          ; preds = %.body10.i.i, %.thread18.i.i, %253
-  %eh.lpad-body94 = phi { ptr, i32 } [ %254, %253 ], [ %eh.lpad-body11.i.i, %.body10.i.i ], [ %eh.lpad-body21.i.i, %.thread18.i.i ]
+  %eh.lpad-body94 = phi { ptr, i32 } [ %254, %253 ], [ %eh.lpad-body21.i.i, %.thread18.i.i ], [ %eh.lpad-body11.i.i, %.body10.i.i ]
   invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h03349285bf2447dbE"(ptr noalias noundef align 8 dereferenceable(16) %23) #34
           to label %.thread166 unwind label %163
 
@@ -10716,9 +10716,9 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   unreachable
 
 .body100:                                         ; preds = %.body114.thread187.loopexit, %.body114.thread187.loopexit.split-lp, %325, %317, %267, %263, %371
-  %.8 = phi i8 [ 1, %325 ], [ 1, %371 ], [ 0, %267 ], [ 1, %263 ], [ 1, %317 ], [ 1, %.body114.thread187.loopexit ], [ 0, %.body114.thread187.loopexit.split-lp ]
-  %.449 = phi i8 [ 1, %325 ], [ 1, %371 ], [ 1, %267 ], [ 0, %263 ], [ 1, %317 ], [ 1, %.body114.thread187.loopexit ], [ 1, %.body114.thread187.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %326, %325 ], [ %lpad.thr_comm.split-lp, %371 ], [ %268, %267 ], [ %264, %263 ], [ %318, %317 ], [ %lpad.loopexit, %.body114.thread187.loopexit ], [ %lpad.loopexit.split-lp, %.body114.thread187.loopexit.split-lp ]
+  %.8 = phi i8 [ 1, %371 ], [ 0, %267 ], [ 1, %263 ], [ 1, %317 ], [ 1, %325 ], [ 1, %.body114.thread187.loopexit ], [ 0, %.body114.thread187.loopexit.split-lp ]
+  %.449 = phi i8 [ 1, %371 ], [ 1, %267 ], [ 0, %263 ], [ 1, %317 ], [ 1, %325 ], [ 1, %.body114.thread187.loopexit ], [ 1, %.body114.thread187.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %371 ], [ %268, %267 ], [ %264, %263 ], [ %318, %317 ], [ %326, %325 ], [ %lpad.loopexit, %.body114.thread187.loopexit ], [ %lpad.loopexit.split-lp, %.body114.thread187.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h03349285bf2447dbE"(ptr noalias noundef align 8 dereferenceable(16) %23) #34
           to label %176 unwind label %163
 
@@ -10817,7 +10817,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
           cleanup
   br label %.body100
 
-.body114.thread187.loopexit.split-lp:             ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.i.i122, %350
+.body114.thread187.loopexit.split-lp:             ; preds = %350, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.i.i122
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body100
@@ -11057,8 +11057,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 4 %44)
   br label %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17hbbecb02e87e637f1E.llvm.12929368810573836545.exit138"
 
-.body69.thread:                                   ; preds = %95, %91, %79, %.body69
-  %.pn60207 = phi { ptr, i32 } [ %.pn60, %.body69 ], [ %96, %95 ], [ %80, %79 ], [ %92, %91 ]
+.body69.thread:                                   ; preds = %91, %95, %79, %.body69
+  %.pn60207 = phi { ptr, i32 } [ %.pn60, %.body69 ], [ %92, %91 ], [ %96, %95 ], [ %80, %79 ]
   invoke void @"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17hbbecb02e87e637f1E.llvm.12929368810573836545"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #34
           to label %.body.thread unwind label %163
 
@@ -11067,8 +11067,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
           cleanup
   br label %.body.thread194
 
-.body.thread:                                     ; preds = %.body69.thread208, %.body69.thread, %.body69, %.body.thread194
-  %.pn62193 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body69.thread208 ], [ %.pn62197, %.body.thread194 ], [ %.pn60207, %.body69.thread ], [ %.pn60, %.body69 ]
+.body.thread:                                     ; preds = %.body69.thread208, %.body69, %.body69.thread, %.body.thread194
+  %.pn62193 = phi { ptr, i32 } [ %.pn62197, %.body.thread194 ], [ %.pn60, %.body69 ], [ %.pn60207, %.body69.thread ], [ %eh.lpad-body.i, %.body69.thread208 ]
   resume { ptr, i32 } %.pn62193
 
 .body.thread194:                                  ; preds = %34, %.body
@@ -11722,7 +11722,7 @@ define hidden void @"_ZN5tokio4util12sharded_list81ShardGuard$LT$L$C$$LT$L$u20$a
   invoke void @"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h29c6cccd59812a31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #34
           to label %31 unwind label %29
 
-28:                                               ; preds = %12, %"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..linked_list..Link$GT$6as_raw17hb0b38dfa013eb969E.exit", %2
+28:                                               ; preds = %12, %2, %"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..linked_list..Link$GT$6as_raw17hb0b38dfa013eb969E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17h1885adc05dbcc2dfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #34
@@ -11808,7 +11808,7 @@ define hidden void @"_ZN5tokio4util12sharded_list81ShardGuard$LT$L$C$$LT$L$u20$a
   invoke void @"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h077e4d3aab0b5fa0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #34
           to label %31 unwind label %29
 
-28:                                               ; preds = %12, %"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..linked_list..Link$GT$6as_raw17h1bee69763034038eE.exit", %2
+28:                                               ; preds = %12, %2, %"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..linked_list..Link$GT$6as_raw17h1bee69763034038eE.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr134drop_in_place$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h8f1ab7a75589ad94E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #34

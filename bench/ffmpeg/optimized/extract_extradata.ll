@@ -112,7 +112,7 @@ define internal range(i32 -2147483648, 1) i32 @extract_extradata_filter(ptr noun
   br label %24
 
 24:                                               ; preds = %14, %16, %2, %23
-  %.013 = phi i32 [ %7, %2 ], [ %.0, %23 ], [ 0, %16 ], [ 0, %14 ]
+  %.013 = phi i32 [ %.0, %23 ], [ %7, %2 ], [ 0, %16 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
@@ -251,9 +251,9 @@ obu_is_global.exit.thread:                        ; preds = %24, %29, %obu_is_gl
   br label %64
 
 64:                                               ; preds = %obu_is_global.exit.thread106, %obu_is_global.exit.thread, %60
-  %.159 = phi i32 [ %.058117, %obu_is_global.exit.thread ], [ %spec.select, %obu_is_global.exit.thread106 ], [ %.058117, %60 ]
-  %.156 = phi i32 [ %.055118, %obu_is_global.exit.thread ], [ %.055118, %obu_is_global.exit.thread106 ], [ %63, %60 ]
-  %.154 = phi i32 [ %.053119, %obu_is_global.exit.thread ], [ %57, %obu_is_global.exit.thread106 ], [ %.053119, %60 ]
+  %.159 = phi i32 [ %.058117, %60 ], [ %.058117, %obu_is_global.exit.thread ], [ %spec.select, %obu_is_global.exit.thread106 ]
+  %.156 = phi i32 [ %63, %60 ], [ %.055118, %obu_is_global.exit.thread ], [ %.055118, %obu_is_global.exit.thread106 ]
+  %.154 = phi i32 [ %.053119, %60 ], [ %.053119, %obu_is_global.exit.thread ], [ %57, %obu_is_global.exit.thread106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !50
@@ -462,13 +462,13 @@ obu_is_global.exit96.thread:                      ; preds = %101, %106, %obu_is_
   store i32 %.156, ptr %11, align 8, !tbaa !38
   br label %._crit_edge.thread.sink.split
 
-._crit_edge.thread.sink.split:                    ; preds = %70, %84, %151, %._crit_edge127
-  %.0.ph = phi i32 [ 0, %151 ], [ 0, %._crit_edge127 ], [ -12, %84 ], [ -12, %70 ]
+._crit_edge.thread.sink.split:                    ; preds = %84, %70, %151, %._crit_edge127
+  %.0.ph = phi i32 [ 0, %._crit_edge127 ], [ 0, %151 ], [ -12, %70 ], [ -12, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %.preheader, %._crit_edge, %4
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %13, %4 ], [ 0, %.preheader ], [ %.0.ph, %._crit_edge.thread.sink.split ]
+  %.0 = phi i32 [ %13, %4 ], [ 0, %._crit_edge ], [ 0, %.preheader ], [ %.0.ph, %._crit_edge.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -567,8 +567,8 @@ define internal range(i32 -2147483648, 1) i32 @extract_extradata_h2645(ptr nound
   br label %14
 
 14:                                               ; preds = %4, %12, %13
-  %.090 = phi ptr [ @extract_extradata_h2645.extradata_nal_types_h264, %13 ], [ @extract_extradata_h2645.extradata_nal_types_hevc, %12 ], [ @extract_extradata_h2645.extradata_nal_types_vvc, %4 ]
-  %.089 = phi i64 [ 2, %13 ], [ 3, %12 ], [ 3, %4 ]
+  %.090 = phi ptr [ @extract_extradata_h2645.extradata_nal_types_hevc, %12 ], [ @extract_extradata_h2645.extradata_nal_types_h264, %13 ], [ @extract_extradata_h2645.extradata_nal_types_vvc, %4 ]
+  %.089 = phi i64 [ 3, %12 ], [ 2, %13 ], [ 3, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !36
@@ -658,10 +658,10 @@ val_in_array.exit:                                ; preds = %33
   br label %59
 
 59:                                               ; preds = %47, %44, %50, %52, %54
-  %.3 = phi i32 [ %spec.select106, %50 ], [ %.085132, %54 ], [ %spec.select, %44 ], [ %spec.select105, %47 ], [ %.085132, %52 ]
-  %.184 = phi i32 [ %.083133, %50 ], [ %.083133, %54 ], [ %spec.select108, %44 ], [ %spec.select109, %47 ], [ %.083133, %52 ]
-  %.181 = phi i32 [ %.080134, %50 ], [ %58, %54 ], [ %.080134, %44 ], [ %.080134, %47 ], [ %.080134, %52 ]
-  %.179 = phi i32 [ %40, %50 ], [ %.078135, %54 ], [ %40, %44 ], [ %40, %47 ], [ %.078135, %52 ]
+  %.3 = phi i32 [ %.085132, %54 ], [ %.085132, %52 ], [ %spec.select106, %50 ], [ %spec.select, %44 ], [ %spec.select105, %47 ]
+  %.184 = phi i32 [ %.083133, %54 ], [ %.083133, %52 ], [ %.083133, %50 ], [ %spec.select108, %44 ], [ %spec.select109, %47 ]
+  %.181 = phi i32 [ %58, %54 ], [ %.080134, %52 ], [ %.080134, %50 ], [ %.080134, %44 ], [ %.080134, %47 ]
+  %.179 = phi i32 [ %.078135, %54 ], [ %.078135, %52 ], [ %40, %50 ], [ %40, %44 ], [ %40, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !65
@@ -848,13 +848,13 @@ val_in_array.exit113:                             ; preds = %106
   store i32 %.181, ptr %18, align 8, !tbaa !38
   br label %._crit_edge.thread.sink.split
 
-._crit_edge.thread.sink.split:                    ; preds = %73, %87, %136, %._crit_edge144
-  %.0.ph = phi i32 [ 0, %136 ], [ 0, %._crit_edge144 ], [ -12, %87 ], [ -12, %73 ]
+._crit_edge.thread.sink.split:                    ; preds = %87, %73, %136, %._crit_edge144
+  %.0.ph = phi i32 [ 0, %._crit_edge144 ], [ 0, %136 ], [ -12, %73 ], [ -12, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %.preheader, %._crit_edge, %67, %14
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %20, %14 ], [ 0, %.preheader ], [ 0, %67 ], [ %.0.ph, %._crit_edge.thread.sink.split ]
+  %.0 = phi i32 [ %20, %14 ], [ 0, %67 ], [ 0, %._crit_edge ], [ 0, %.preheader ], [ %.0.ph, %._crit_edge.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -969,7 +969,7 @@ define internal range(i32 -12, 1) i32 @extract_extradata_vc1(ptr noundef readonl
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %.lr.ph, %18, %19
-  %.1 = phi i32 [ 0, %18 ], [ 1, %19 ], [ 1, %.lr.ph ]
+  %.1 = phi i32 [ 1, %19 ], [ 0, %18 ], [ 1, %.lr.ph ]
   %23 = icmp ult ptr %15, %13
   br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !69
 

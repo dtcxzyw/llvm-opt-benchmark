@@ -175,7 +175,7 @@ define noundef zeroext i1 @decode_as_default_reset(ptr noundef %0, ptr noundef %
   br label %10
 
 10:                                               ; preds = %2, %8, %7, %4
-  %.0 = phi i1 [ true, %8 ], [ true, %4 ], [ true, %7 ], [ false, %2 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %7 ], [ true, %8 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -212,7 +212,7 @@ define noundef zeroext i1 @decode_as_default_change(ptr noundef %0, ptr noundef 
   br label %12
 
 12:                                               ; preds = %4, %10, %9, %6
-  %.0 = phi i1 [ true, %10 ], [ true, %6 ], [ true, %9 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %9 ], [ true, %10 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -568,7 +568,7 @@ decode_build_reset_list.exit:                     ; preds = %75, %79, %81
   br label %.thread93
 
 .thread93:                                        ; preds = %31, %4, %23, %69, %decode_build_reset_list.exit
-  %.2 = phi i32 [ 1, %23 ], [ %.174, %69 ], [ %.07392, %decode_build_reset_list.exit ], [ 2, %4 ], [ 0, %31 ]
+  %.2 = phi i32 [ %.07392, %decode_build_reset_list.exit ], [ %.174, %69 ], [ 1, %23 ], [ 2, %4 ], [ 0, %31 ]
   br label %87
 
 87:                                               ; preds = %.thread93, %87

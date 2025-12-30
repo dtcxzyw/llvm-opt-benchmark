@@ -1418,7 +1418,7 @@ thread-pre-split:                                 ; preds = %.preheader785, %thr
   br i1 %567, label %.lr.ph580, label %.critedge19, !llvm.loop !79
 
 568:                                              ; preds = %559, %562, %563
-  %.0279.in = phi ptr [ %555, %563 ], [ %556, %562 ], [ %557, %559 ]
+  %.0279.in = phi ptr [ %556, %562 ], [ %555, %563 ], [ %557, %559 ]
   %.0279 = load ptr, ptr %.0279.in, align 8, !tbaa !80
   %569 = getelementptr inbounds nuw i8, ptr %.promoted585, i64 1
   store ptr %569, ptr %4, align 8, !tbaa !11
@@ -1537,7 +1537,7 @@ thread-pre-split:                                 ; preds = %.preheader785, %thr
   br i1 %630, label %559, label %.critedge19, !llvm.loop !79
 
 .critedge19:                                      ; preds = %.outer, %626, %559
-  %.0.ph.lcssa479 = phi i32 [ %.0.ph587, %626 ], [ %.0.ph587, %559 ], [ %566, %.outer ]
+  %.0.ph.lcssa479 = phi i32 [ %.0.ph587, %559 ], [ %.0.ph587, %626 ], [ %566, %.outer ]
   %631 = getelementptr i8, ptr %214, i64 40
   %.val411589 = load ptr, ptr %631, align 8, !tbaa !84
   %632 = getelementptr i8, ptr %.val411589, i64 4
@@ -1784,7 +1784,7 @@ Vec_PtrFree.exit:                                 ; preds = %727, %729
   br label %.critedge362
 
 .critedge362:                                     ; preds = %559, %578, %734, %735, %737, %455, %201, %197, %190, %.tail465.thread
-  %.0276 = phi ptr [ null, %.tail465.thread ], [ null, %190 ], [ null, %197 ], [ null, %201 ], [ null, %455 ], [ %214, %734 ], [ null, %737 ], [ %214, %735 ], [ null, %578 ], [ null, %559 ]
+  %.0276 = phi ptr [ null, %.tail465.thread ], [ null, %190 ], [ null, %197 ], [ null, %201 ], [ null, %455 ], [ null, %737 ], [ %214, %735 ], [ %214, %734 ], [ null, %578 ], [ null, %559 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0276
 }

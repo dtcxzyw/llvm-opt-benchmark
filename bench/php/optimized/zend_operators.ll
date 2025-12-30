@@ -421,7 +421,7 @@ define internal fastcc i64 @zendi_try_get_long(ptr noundef readonly captures(non
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %10, %17, %22
-  %.0.i = phi i64 [ %23, %22 ], [ %21, %17 ], [ 0, %10 ]
+  %.0.i = phi i64 [ %21, %17 ], [ %23, %22 ], [ 0, %10 ]
   %24 = sitofp i64 %.0.i to double
   %25 = fcmp oeq double %11, %24
   br i1 %25, label %84, label %26
@@ -503,7 +503,7 @@ is_numeric_string_ex.exit.thread:                 ; preds = %29, %is_numeric_str
   br label %zend_dval_to_lval_cap.exit
 
 zend_dval_to_lval_cap.exit:                       ; preds = %48, %55, %58
-  %.0.i26 = phi i64 [ %59, %58 ], [ %57, %55 ], [ 0, %48 ]
+  %.0.i26 = phi i64 [ %57, %55 ], [ %59, %58 ], [ 0, %48 ]
   %60 = sitofp i64 %.0.i26 to double
   %61 = fcmp oeq double %49, %60
   br i1 %61, label %67, label %62
@@ -562,7 +562,7 @@ zend_dval_to_lval_cap.exit:                       ; preds = %48, %55, %58
   unreachable
 
 84:                                               ; preds = %zend_dval_to_lval.exit, %28, %26, %2, %2, %82, %81, %67, %9
-  %.0 = phi i64 [ 0, %82 ], [ 1, %9 ], [ 0, %2 ], [ %.1, %67 ], [ %.2, %81 ], [ 0, %2 ], [ %.0.i, %26 ], [ %.0.i, %28 ], [ %.0.i, %zend_dval_to_lval.exit ]
+  %.0 = phi i64 [ 1, %9 ], [ %.1, %67 ], [ %.2, %81 ], [ 0, %82 ], [ 0, %2 ], [ 0, %2 ], [ %.0.i, %26 ], [ %.0.i, %28 ], [ %.0.i, %zend_dval_to_lval.exit ]
   ret i64 %.0
 }
 
@@ -631,7 +631,7 @@ zend_unwrap_reference.exit:                       ; preds = %zend_unwrap_referen
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %11, %18, %23
-  %.0.i = phi i64 [ %24, %23 ], [ %22, %18 ], [ 0, %11 ]
+  %.0.i = phi i64 [ %22, %18 ], [ %24, %23 ], [ 0, %11 ]
   store i64 %.0.i, ptr %0, align 8, !tbaa !4
   store i32 4, ptr %3, align 8, !tbaa !4
   br label %zend_string_release_ex.exit
@@ -1725,7 +1725,7 @@ zend_double_to_str.exit:                          ; preds = %5
   unreachable
 
 __zval_get_string_func.exit:                      ; preds = %102, %97, %zend_print_long_to_buf.exit.i, %20, %8, %10, %12, %zend_double_to_str.exit, %68, %70, %93
-  %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ], [ %16, %12 ], [ null, %68 ], [ %62, %zend_double_to_str.exit ], [ %48, %zend_print_long_to_buf.exit.i ], [ %.1.i, %93 ], [ %73, %70 ], [ %23, %20 ], [ %98, %97 ], [ %98, %102 ]
+  %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ], [ %16, %12 ], [ %62, %zend_double_to_str.exit ], [ %.1.i, %93 ], [ %73, %70 ], [ null, %68 ], [ %23, %20 ], [ %48, %zend_print_long_to_buf.exit.i ], [ %98, %97 ], [ %98, %102 ]
   ret ptr %.0.i
 }
 
@@ -2153,7 +2153,7 @@ define dso_local i64 @zval_get_long_func(ptr noundef readonly captures(none) %0,
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %15, %22, %27
-  %.0.i = phi i64 [ %28, %27 ], [ %26, %22 ], [ 0, %15 ]
+  %.0.i = phi i64 [ %26, %22 ], [ %28, %27 ], [ 0, %15 ]
   br i1 %1, label %29, label %.loopexit, !prof !41
 
 29:                                               ; preds = %zend_dval_to_lval.exit
@@ -2209,7 +2209,7 @@ is_numeric_string_ex.exit:                        ; preds = %33
   br label %zend_dval_to_lval_cap.exit
 
 zend_dval_to_lval_cap.exit:                       ; preds = %43, %50, %53
-  %.0.i23 = phi i64 [ %54, %53 ], [ %52, %50 ], [ 0, %43 ]
+  %.0.i23 = phi i64 [ %52, %50 ], [ %54, %53 ], [ 0, %43 ]
   br i1 %1, label %55, label %is_numeric_string_ex.exit.thread, !prof !41
 
 55:                                               ; preds = %zend_dval_to_lval_cap.exit
@@ -2224,7 +2224,7 @@ zend_dval_to_lval_cap.exit:                       ; preds = %43, %50, %53
   br label %is_numeric_string_ex.exit.thread
 
 is_numeric_string_ex.exit.thread:                 ; preds = %33, %zend_dval_to_lval_cap.exit, %58, %55, %is_numeric_string_ex.exit, %41
-  %.1 = phi i64 [ %.0.i23, %zend_dval_to_lval_cap.exit ], [ %42, %41 ], [ 0, %is_numeric_string_ex.exit ], [ %.0.i23, %55 ], [ %.0.i23, %58 ], [ 0, %33 ]
+  %.1 = phi i64 [ %42, %41 ], [ 0, %is_numeric_string_ex.exit ], [ %.0.i23, %55 ], [ %.0.i23, %58 ], [ %.0.i23, %zend_dval_to_lval_cap.exit ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
@@ -2281,7 +2281,7 @@ is_numeric_string_ex.exit.thread:                 ; preds = %33, %zend_dval_to_l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %.loopexit.loopexit, %zend_dval_to_lval.exit, %32, %29, %83, %61, %is_numeric_string_ex.exit.thread, %13, %9
-  %.0 = phi i64 [ %.2, %83 ], [ 0, %.loopexit.loopexit ], [ %12, %9 ], [ %14, %13 ], [ %.0.i, %29 ], [ %.1, %is_numeric_string_ex.exit.thread ], [ %65, %61 ], [ %.0.i, %32 ], [ %.0.i, %zend_dval_to_lval.exit ], [ 1, %6 ]
+  %.0 = phi i64 [ %12, %9 ], [ %14, %13 ], [ %.1, %is_numeric_string_ex.exit.thread ], [ %65, %61 ], [ %.2, %83 ], [ %.0.i, %29 ], [ %.0.i, %32 ], [ %.0.i, %zend_dval_to_lval.exit ], [ 0, %.loopexit.loopexit ], [ 1, %6 ]
   ret i64 %.0
 }
 
@@ -2381,7 +2381,7 @@ define dso_local double @zval_get_double_func(ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %.loopexit.loopexit, %42, %20, %16, %14, %11, %6
-  %.011 = phi double [ %.1, %42 ], [ 0.000000e+00, %.loopexit.loopexit ], [ %10, %6 ], [ %13, %11 ], [ %15, %14 ], [ %19, %16 ], [ %24, %20 ], [ 1.000000e+00, %3 ]
+  %.011 = phi double [ %10, %6 ], [ %13, %11 ], [ %15, %14 ], [ %19, %16 ], [ %24, %20 ], [ %.1, %42 ], [ 0.000000e+00, %.loopexit.loopexit ], [ 1.000000e+00, %3 ]
   ret double %.011
 }
 
@@ -2589,7 +2589,7 @@ zend_double_to_str.exit:                          ; preds = %5
   unreachable
 
 __zval_get_string_func.exit:                      ; preds = %98, %93, %zend_print_long_to_buf.exit.i, %20, %8, %10, %12, %zend_double_to_str.exit, %68, %89
-  %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ], [ %16, %12 ], [ %71, %68 ], [ %62, %zend_double_to_str.exit ], [ %48, %zend_print_long_to_buf.exit.i ], [ %.1.i, %89 ], [ %23, %20 ], [ %94, %93 ], [ %94, %98 ]
+  %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ], [ %16, %12 ], [ %62, %zend_double_to_str.exit ], [ %.1.i, %89 ], [ %71, %68 ], [ %23, %20 ], [ %48, %zend_print_long_to_buf.exit.i ], [ %94, %93 ], [ %94, %98 ]
   ret ptr %.0.i
 }
 
@@ -2919,13 +2919,13 @@ unreachable:                                      ; preds = %95
   unreachable
 
 add_function_fast.exit:                           ; preds = %127, %121, %115, %110, %102, %103, %89, %90
-  %.1 = phi i32 [ -1, %89 ], [ -1, %90 ], [ 0, %103 ], [ 0, %102 ], [ 0, %110 ], [ 0, %115 ], [ 0, %121 ], [ 0, %127 ]
+  %.1 = phi i32 [ -1, %90 ], [ -1, %89 ], [ 0, %103 ], [ 0, %102 ], [ 0, %110 ], [ 0, %115 ], [ 0, %121 ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %add_function_fast.exit39.thread
 
 add_function_fast.exit39.thread:                  ; preds = %27, %26, %51, %45, %39, %34, %70, %59, %add_function_fast.exit
-  %.031 = phi i32 [ 0, %59 ], [ 0, %70 ], [ %.1, %add_function_fast.exit ], [ 0, %34 ], [ 0, %39 ], [ 0, %45 ], [ 0, %51 ], [ 0, %26 ], [ 0, %27 ]
+  %.031 = phi i32 [ %.1, %add_function_fast.exit ], [ 0, %59 ], [ 0, %70 ], [ 0, %34 ], [ 0, %39 ], [ 0, %45 ], [ 0, %51 ], [ 0, %26 ], [ 0, %27 ]
   ret i32 %.031
 }
 
@@ -3241,7 +3241,7 @@ sub_function_fast.exit:                           ; preds = %sub_function_fast.e
   br label %sub_function_fast.exit39.thread
 
 sub_function_fast.exit39.thread:                  ; preds = %27, %26, %45, %39, %34, %69, %58, %sub_function_fast.exit
-  %.031 = phi i32 [ 0, %58 ], [ 0, %69 ], [ %.1, %sub_function_fast.exit ], [ 0, %34 ], [ 0, %39 ], [ 0, %45 ], [ 0, %26 ], [ 0, %27 ]
+  %.031 = phi i32 [ %.1, %sub_function_fast.exit ], [ 0, %58 ], [ 0, %69 ], [ 0, %34 ], [ 0, %39 ], [ 0, %45 ], [ 0, %26 ], [ 0, %27 ]
   ret i32 %.031
 }
 
@@ -3562,7 +3562,7 @@ mul_function_fast.exit:                           ; preds = %mul_function_fast.e
   br label %mul_function_fast.exit40.thread
 
 mul_function_fast.exit40.thread:                  ; preds = %49, %43, %38, %26, %73, %62, %mul_function_fast.exit
-  %.031 = phi i32 [ 0, %62 ], [ 0, %73 ], [ %.1, %mul_function_fast.exit ], [ 0, %26 ], [ 0, %38 ], [ 0, %43 ], [ 0, %49 ]
+  %.031 = phi i32 [ %.1, %mul_function_fast.exit ], [ 0, %62 ], [ 0, %73 ], [ 0, %26 ], [ 0, %38 ], [ 0, %43 ], [ 0, %49 ]
   ret i32 %.031
 }
 
@@ -3708,7 +3708,7 @@ zendi_try_convert_scalar_to_number.exit39:        ; preds = %56
   br label %74
 
 74:                                               ; preds = %45, %32, %19, %73
-  %.031 = phi i32 [ 0, %32 ], [ 0, %19 ], [ %.1, %73 ], [ 0, %45 ]
+  %.031 = phi i32 [ %.1, %73 ], [ 0, %19 ], [ 0, %32 ], [ 0, %45 ]
   ret i32 %.031
 }
 
@@ -4062,7 +4062,7 @@ zendi_try_convert_scalar_to_number.exit:          ; preds = %56
   br label %84
 
 84:                                               ; preds = %65, %66, %45, %32, %20, %82, %74
-  %.0 = phi i32 [ 0, %32 ], [ -1, %82 ], [ %21, %20 ], [ 0, %45 ], [ 0, %74 ], [ -1, %66 ], [ -1, %65 ]
+  %.0 = phi i32 [ -1, %82 ], [ 0, %74 ], [ %21, %20 ], [ 0, %32 ], [ 0, %45 ], [ -1, %66 ], [ -1, %65 ]
   ret i32 %.0
 }
 
@@ -4161,7 +4161,7 @@ define internal fastcc range(i32 0, 3) i32 @div_function_base(ptr noundef writeo
   br label %47
 
 47:                                               ; preds = %.sink.split, %3, %39, %32, %26, %10
-  %.0 = phi i32 [ 1, %39 ], [ 1, %26 ], [ 1, %10 ], [ 2, %3 ], [ 1, %32 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %26 ], [ 1, %32 ], [ 1, %39 ], [ 2, %3 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -4227,8 +4227,8 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   store i32 0, ptr %35, align 8, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %33, %26, %34
-  %.0.ph = phi i32 [ -1, %34 ], [ 0, %26 ], [ -1, %33 ]
+.thread:                                          ; preds = %26, %34, %33
+  %.0.ph = phi i32 [ -1, %33 ], [ -1, %34 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %96
 
@@ -4243,8 +4243,8 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %36, %37
-  %.163 = phi i64 [ %38, %37 ], [ %.062, %36 ]
-  %.257 = phi ptr [ %1, %37 ], [ %.156, %36 ]
+  %.163 = phi i64 [ %.062, %36 ], [ %38, %37 ]
+  %.257 = phi ptr [ %.156, %36 ], [ %1, %37 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !4
   %.not73 = icmp eq i8 %41, 4
@@ -4303,8 +4303,8 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   store i32 0, ptr %69, align 8, !tbaa !4
   br label %.thread82
 
-.thread82:                                        ; preds = %67, %60, %68
-  %.3.ph = phi i32 [ -1, %68 ], [ 0, %60 ], [ -1, %67 ]
+.thread82:                                        ; preds = %60, %68, %67
+  %.3.ph = phi i32 [ -1, %67 ], [ -1, %68 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %96
 
@@ -4318,7 +4318,7 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %73
 
 73:                                               ; preds = %70, %71
-  %.161 = phi i64 [ %72, %71 ], [ %.060, %70 ]
+  %.161 = phi i64 [ %.060, %70 ], [ %72, %71 ]
   %74 = icmp eq i64 %.161, 0
   br i1 %74, label %75, label %86
 
@@ -4371,7 +4371,7 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %96
 
 96:                                               ; preds = %.thread82, %.thread, %80, %84, %93, %91
-  %.1 = phi i32 [ %.0.ph, %.thread ], [ %.3.ph, %.thread82 ], [ 0, %93 ], [ 0, %91 ], [ -1, %84 ], [ -1, %80 ]
+  %.1 = phi i32 [ 0, %91 ], [ 0, %93 ], [ -1, %84 ], [ -1, %80 ], [ %.0.ph, %.thread ], [ %.3.ph, %.thread82 ]
   ret i32 %.1
 }
 
@@ -4432,8 +4432,8 @@ define dso_local noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %
   br label %25
 
 25:                                               ; preds = %6, %.fold.split37, %3, %.fold.split, %22
-  %.1 = phi ptr [ %.031, %22 ], [ %1, %3 ], [ %1, %.fold.split ], [ %8, %6 ], [ %8, %.fold.split37 ]
-  %.029 = phi i32 [ %24, %22 ], [ 0, %3 ], [ 1, %.fold.split ], [ 0, %6 ], [ 1, %.fold.split37 ]
+  %.1 = phi ptr [ %.031, %22 ], [ %1, %3 ], [ %8, %6 ], [ %1, %.fold.split ], [ %8, %.fold.split37 ]
+  %.029 = phi i32 [ %24, %22 ], [ 0, %3 ], [ 0, %6 ], [ 1, %.fold.split ], [ 1, %.fold.split37 ]
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i8, ptr %26, align 8, !tbaa !4
   switch i8 %27, label %33 [
@@ -4456,8 +4456,8 @@ define dso_local noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %
   br label %33
 
 33:                                               ; preds = %._crit_edge40, %25
-  %34 = phi i8 [ %31, %._crit_edge40 ], [ %27, %25 ]
-  %.030 = phi ptr [ %32, %._crit_edge40 ], [ %2, %25 ]
+  %34 = phi i8 [ %27, %25 ], [ %31, %._crit_edge40 ]
+  %.030 = phi ptr [ %2, %25 ], [ %32, %._crit_edge40 ]
   %35 = icmp eq i8 %34, 8
   br i1 %35, label %36, label %45, !prof !41
 
@@ -4487,7 +4487,7 @@ define dso_local noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %
   br label %48
 
 48:                                               ; preds = %28, %.fold.split39, %25, %.fold.split38, %45
-  %.0 = phi i32 [ %47, %45 ], [ 0, %25 ], [ 1, %.fold.split38 ], [ 0, %28 ], [ 1, %.fold.split39 ]
+  %.0 = phi i32 [ %47, %45 ], [ 0, %25 ], [ 0, %28 ], [ 1, %.fold.split38 ], [ 1, %.fold.split39 ]
   %.not36 = icmp eq i32 %.029, %.0
   %49 = select i1 %.not36, i32 2, i32 3
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4586,7 +4586,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %2
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %2, %i_zend_is_true.exit.loopexit, %5, %7, %10, %16, %17, %20, %21, %25, %32, %34
-  %.0.i = phi i1 [ %.not13.i, %21 ], [ false, %i_zend_is_true.exit.loopexit ], [ %33, %32 ], [ %.not.i, %34 ], [ true, %10 ], [ false, %7 ], [ true, %20 ], [ false, %17 ], [ false, %16 ], [ %.not16.i, %5 ], [ true, %25 ], [ true, %2 ]
+  %.0.i = phi i1 [ true, %10 ], [ false, %7 ], [ true, %20 ], [ false, %17 ], [ false, %16 ], [ %33, %32 ], [ %.not16.i, %5 ], [ %.not13.i, %21 ], [ true, %25 ], [ %.not.i, %34 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %2 ]
   ret i1 %.0.i
 }
 
@@ -4644,7 +4644,7 @@ define dso_local noundef i32 @boolean_not_function(ptr noundef %0, ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %7, %6, %2, %27
-  %.sink = phi i32 [ 2, %6 ], [ %29, %27 ], [ 3, %2 ], [ 3, %7 ], [ 2, %12 ]
+  %.sink = phi i32 [ %29, %27 ], [ 3, %2 ], [ 2, %6 ], [ 3, %7 ], [ 2, %12 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %30, align 8, !tbaa !4
   br label %31
@@ -4702,7 +4702,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_not_function(ptr noundef %0, ptr 
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %10, %17, %22
-  %.0.i = phi i64 [ %23, %22 ], [ %21, %17 ], [ 0, %10 ]
+  %.0.i = phi i64 [ %21, %17 ], [ %23, %22 ], [ 0, %10 ]
   %24 = sitofp i64 %.0.i to double
   %25 = fcmp oeq double %11, %24
   br i1 %25, label %31, label %26
@@ -4832,7 +4832,7 @@ zend_string_alloc.exit:                           ; preds = %34
   br label %89
 
 89:                                               ; preds = %82, %39, %._crit_edge, %31, %29, %28, %87, %6
-  %.0 = phi i32 [ 0, %39 ], [ -1, %87 ], [ 0, %6 ], [ -1, %28 ], [ 0, %31 ], [ -1, %29 ], [ 0, %._crit_edge ], [ 0, %82 ]
+  %.0 = phi i32 [ -1, %87 ], [ 0, %6 ], [ 0, %31 ], [ -1, %29 ], [ -1, %28 ], [ 0, %._crit_edge ], [ 0, %39 ], [ 0, %82 ]
   ret i32 %.0
 }
 
@@ -4872,7 +4872,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_or_function(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %3, %8, %17
-  %.096 = phi ptr [ %19, %17 ], [ %1, %3 ], [ %1, %8 ]
+  %.096 = phi ptr [ %19, %17 ], [ %1, %8 ], [ %1, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !4
   %22 = icmp eq i8 %21, 10
@@ -5078,8 +5078,8 @@ zval_ptr_dtor_str.exit123:                        ; preds = %108, %103, %100, %.
   store i32 0, ptr %128, align 8, !tbaa !4
   br label %.thread127
 
-.thread127:                                       ; preds = %126, %119, %127
-  %.2.ph = phi i32 [ -1, %127 ], [ 0, %119 ], [ -1, %126 ]
+.thread127:                                       ; preds = %119, %127, %126
+  %.2.ph = phi i32 [ -1, %126 ], [ -1, %127 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %162
 
@@ -5133,8 +5133,8 @@ zval_ptr_dtor_str.exit123:                        ; preds = %108, %103, %100, %.
   store i32 0, ptr %152, align 8, !tbaa !4
   br label %.thread132
 
-.thread132:                                       ; preds = %150, %143, %151
-  %.4.ph = phi i32 [ -1, %151 ], [ 0, %143 ], [ -1, %150 ]
+.thread132:                                       ; preds = %143, %151, %150
+  %.4.ph = phi i32 [ -1, %150 ], [ -1, %151 ], [ 0, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %162
 
@@ -5163,7 +5163,7 @@ zval_ptr_dtor_str.exit123:                        ; preds = %108, %103, %100, %.
   br label %162
 
 162:                                              ; preds = %.thread132, %.thread127, %zval_ptr_dtor_str.exit, %zval_ptr_dtor_str.exit123, %159, %12
-  %.0 = phi i32 [ 0, %12 ], [ %.2.ph, %.thread127 ], [ 0, %159 ], [ %.4.ph, %.thread132 ], [ 0, %zval_ptr_dtor_str.exit123 ], [ 0, %zval_ptr_dtor_str.exit ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %159 ], [ 0, %zval_ptr_dtor_str.exit123 ], [ 0, %zval_ptr_dtor_str.exit ], [ %.2.ph, %.thread127 ], [ %.4.ph, %.thread132 ]
   ret i32 %.0
 }
 
@@ -5202,7 +5202,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_and_function(ptr noundef %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %3, %8, %17
-  %.092 = phi ptr [ %19, %17 ], [ %1, %3 ], [ %1, %8 ]
+  %.092 = phi ptr [ %19, %17 ], [ %1, %8 ], [ %1, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !4
   %22 = icmp eq i8 %21, 10
@@ -5401,8 +5401,8 @@ zval_ptr_dtor_str.exit:                           ; preds = %102, %97, %94, %._c
   store i32 0, ptr %122, align 8, !tbaa !4
   br label %.thread123
 
-.thread123:                                       ; preds = %120, %113, %121
-  %.2.ph = phi i32 [ -1, %121 ], [ 0, %113 ], [ -1, %120 ]
+.thread123:                                       ; preds = %113, %121, %120
+  %.2.ph = phi i32 [ -1, %120 ], [ -1, %121 ], [ 0, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %156
 
@@ -5456,8 +5456,8 @@ zval_ptr_dtor_str.exit:                           ; preds = %102, %97, %94, %._c
   store i32 0, ptr %146, align 8, !tbaa !4
   br label %.thread128
 
-.thread128:                                       ; preds = %144, %137, %145
-  %.4.ph = phi i32 [ -1, %145 ], [ 0, %137 ], [ -1, %144 ]
+.thread128:                                       ; preds = %137, %145, %144
+  %.4.ph = phi i32 [ -1, %144 ], [ -1, %145 ], [ 0, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %156
 
@@ -5486,7 +5486,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %102, %97, %94, %._c
   br label %156
 
 156:                                              ; preds = %.thread128, %.thread123, %zval_ptr_dtor_str.exit119, %zval_ptr_dtor_str.exit, %153, %12
-  %.0 = phi i32 [ 0, %12 ], [ %.2.ph, %.thread123 ], [ 0, %153 ], [ %.4.ph, %.thread128 ], [ 0, %zval_ptr_dtor_str.exit ], [ 0, %zval_ptr_dtor_str.exit119 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %153 ], [ 0, %zval_ptr_dtor_str.exit ], [ 0, %zval_ptr_dtor_str.exit119 ], [ %.2.ph, %.thread123 ], [ %.4.ph, %.thread128 ]
   ret i32 %.0
 }
 
@@ -5522,7 +5522,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_xor_function(ptr noundef %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %3, %8, %17
-  %.092 = phi ptr [ %19, %17 ], [ %1, %3 ], [ %1, %8 ]
+  %.092 = phi ptr [ %19, %17 ], [ %1, %8 ], [ %1, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !4
   %22 = icmp eq i8 %21, 10
@@ -5721,8 +5721,8 @@ zval_ptr_dtor_str.exit:                           ; preds = %102, %97, %94, %._c
   store i32 0, ptr %122, align 8, !tbaa !4
   br label %.thread123
 
-.thread123:                                       ; preds = %120, %113, %121
-  %.2.ph = phi i32 [ -1, %121 ], [ 0, %113 ], [ -1, %120 ]
+.thread123:                                       ; preds = %113, %121, %120
+  %.2.ph = phi i32 [ -1, %120 ], [ -1, %121 ], [ 0, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %156
 
@@ -5776,8 +5776,8 @@ zval_ptr_dtor_str.exit:                           ; preds = %102, %97, %94, %._c
   store i32 0, ptr %146, align 8, !tbaa !4
   br label %.thread128
 
-.thread128:                                       ; preds = %144, %137, %145
-  %.4.ph = phi i32 [ -1, %145 ], [ 0, %137 ], [ -1, %144 ]
+.thread128:                                       ; preds = %137, %145, %144
+  %.4.ph = phi i32 [ -1, %144 ], [ -1, %145 ], [ 0, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %156
 
@@ -5806,7 +5806,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %102, %97, %94, %._c
   br label %156
 
 156:                                              ; preds = %.thread128, %.thread123, %zval_ptr_dtor_str.exit119, %zval_ptr_dtor_str.exit, %153, %12
-  %.0 = phi i32 [ 0, %12 ], [ %.2.ph, %.thread123 ], [ 0, %153 ], [ %.4.ph, %.thread128 ], [ 0, %zval_ptr_dtor_str.exit ], [ 0, %zval_ptr_dtor_str.exit119 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %153 ], [ 0, %zval_ptr_dtor_str.exit ], [ 0, %zval_ptr_dtor_str.exit119 ], [ %.2.ph, %.thread123 ], [ %.4.ph, %.thread128 ]
   ret i32 %.0
 }
 
@@ -5872,8 +5872,8 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   store i32 0, ptr %35, align 8, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %33, %26, %34
-  %.0.ph = phi i32 [ -1, %34 ], [ 0, %26 ], [ -1, %33 ]
+.thread:                                          ; preds = %26, %34, %33
+  %.0.ph = phi i32 [ -1, %33 ], [ -1, %34 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %99
 
@@ -5888,8 +5888,8 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %39
 
 39:                                               ; preds = %36, %37
-  %.166 = phi i64 [ %38, %37 ], [ %.065, %36 ]
-  %.260 = phi ptr [ %1, %37 ], [ %.159, %36 ]
+  %.166 = phi i64 [ %.065, %36 ], [ %38, %37 ]
+  %.260 = phi ptr [ %.159, %36 ], [ %1, %37 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !4
   %.not76 = icmp eq i8 %41, 4
@@ -5948,8 +5948,8 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   store i32 0, ptr %69, align 8, !tbaa !4
   br label %.thread85
 
-.thread85:                                        ; preds = %67, %60, %68
-  %.3.ph = phi i32 [ -1, %68 ], [ 0, %60 ], [ -1, %67 ]
+.thread85:                                        ; preds = %60, %68, %67
+  %.3.ph = phi i32 [ -1, %67 ], [ -1, %68 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
@@ -5963,7 +5963,7 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %73
 
 73:                                               ; preds = %70, %71
-  %.164 = phi i64 [ %72, %71 ], [ %.063, %70 ]
+  %.164 = phi i64 [ %.063, %70 ], [ %72, %71 ]
   %74 = icmp ugt i64 %.164, 63
   br i1 %74, label %75, label %93, !prof !41
 
@@ -6024,7 +6024,7 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %99
 
 99:                                               ; preds = %.thread85, %.thread, %87, %91, %96, %80
-  %.1 = phi i32 [ %.0.ph, %.thread ], [ %.3.ph, %.thread85 ], [ 0, %80 ], [ 0, %96 ], [ -1, %91 ], [ -1, %87 ]
+  %.1 = phi i32 [ 0, %80 ], [ 0, %96 ], [ -1, %91 ], [ -1, %87 ], [ %.0.ph, %.thread ], [ %.3.ph, %.thread85 ]
   ret i32 %.1
 }
 
@@ -6090,8 +6090,8 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   store i32 0, ptr %35, align 8, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %33, %26, %34
-  %.0.ph = phi i32 [ -1, %34 ], [ 0, %26 ], [ -1, %33 ]
+.thread:                                          ; preds = %26, %34, %33
+  %.0.ph = phi i32 [ -1, %33 ], [ -1, %34 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %99
 
@@ -6106,8 +6106,8 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %39
 
 39:                                               ; preds = %36, %37
-  %.167 = phi i64 [ %38, %37 ], [ %.066, %36 ]
-  %.261 = phi ptr [ %1, %37 ], [ %.160, %36 ]
+  %.167 = phi i64 [ %.066, %36 ], [ %38, %37 ]
+  %.261 = phi ptr [ %.160, %36 ], [ %1, %37 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !4
   %.not77 = icmp eq i8 %41, 4
@@ -6166,8 +6166,8 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   store i32 0, ptr %69, align 8, !tbaa !4
   br label %.thread86
 
-.thread86:                                        ; preds = %67, %60, %68
-  %.3.ph = phi i32 [ -1, %68 ], [ 0, %60 ], [ -1, %67 ]
+.thread86:                                        ; preds = %60, %68, %67
+  %.3.ph = phi i32 [ -1, %67 ], [ -1, %68 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
@@ -6181,7 +6181,7 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %73
 
 73:                                               ; preds = %70, %71
-  %.165 = phi i64 [ %72, %71 ], [ %.064, %70 ]
+  %.165 = phi i64 [ %.064, %70 ], [ %72, %71 ]
   %74 = icmp ugt i64 %.165, 63
   br i1 %74, label %75, label %93, !prof !41
 
@@ -6243,7 +6243,7 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %99
 
 99:                                               ; preds = %.thread86, %.thread, %87, %91, %96, %80
-  %.1 = phi i32 [ %.0.ph, %.thread ], [ %.3.ph, %.thread86 ], [ 0, %80 ], [ 0, %96 ], [ -1, %91 ], [ -1, %87 ]
+  %.1 = phi i32 [ 0, %80 ], [ 0, %96 ], [ -1, %91 ], [ -1, %87 ], [ %.0.ph, %.thread ], [ %.3.ph, %.thread86 ]
   ret i32 %.1
 }
 
@@ -6567,8 +6567,8 @@ zend_string_release.exit199:                      ; preds = %zend_string_release
   br label %153
 
 153:                                              ; preds = %.thread, %143
-  %154 = phi i32 [ %.pre271, %.thread ], [ %145, %143 ]
-  %.06.i237 = phi ptr [ %152, %.thread ], [ %138, %143 ]
+  %154 = phi i32 [ %145, %143 ], [ %.pre271, %.thread ]
+  %.06.i237 = phi ptr [ %138, %143 ], [ %152, %.thread ]
   %155 = and i32 %154, -1008
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %i_zval_ptr_dtor.exit, !prof !41
@@ -6669,8 +6669,8 @@ i_zval_ptr_dtor.exit:                             ; preds = %142, %134, %147, %1
   br label %200
 
 200:                                              ; preds = %.thread242, %190
-  %201 = phi i32 [ %.pre269, %.thread242 ], [ %192, %190 ]
-  %.06.i233 = phi ptr [ %199, %.thread242 ], [ %185, %190 ]
+  %201 = phi i32 [ %192, %190 ], [ %.pre269, %.thread242 ]
+  %.06.i233 = phi ptr [ %185, %190 ], [ %199, %.thread242 ]
   %202 = and i32 %201, -1008
   %203 = icmp eq i32 %202, 0
   br i1 %203, label %204, label %i_zval_ptr_dtor.exit220, !prof !41
@@ -6842,8 +6842,8 @@ zend_string_release.exit205:                      ; preds = %252, %251, %244, %2
   br label %278
 
 278:                                              ; preds = %.thread244, %268
-  %279 = phi i32 [ %.pre265, %.thread244 ], [ %270, %268 ]
-  %.06.i229 = phi ptr [ %277, %.thread244 ], [ %263, %268 ]
+  %279 = phi i32 [ %270, %268 ], [ %.pre265, %.thread244 ]
+  %.06.i229 = phi ptr [ %263, %268 ], [ %277, %.thread244 ]
   %280 = and i32 %279, -1008
   %281 = icmp eq i32 %280, 0
   br i1 %281, label %282, label %i_zval_ptr_dtor.exit223, !prof !41
@@ -7011,8 +7011,8 @@ zend_string_alloc.exit:                           ; preds = %255
   br label %360
 
 360:                                              ; preds = %.thread246, %350
-  %361 = phi i32 [ %.pre263, %.thread246 ], [ %352, %350 ]
-  %.06.i = phi ptr [ %359, %.thread246 ], [ %345, %350 ]
+  %361 = phi i32 [ %352, %350 ], [ %.pre263, %.thread246 ]
+  %.06.i = phi ptr [ %345, %350 ], [ %359, %.thread246 ]
   %362 = and i32 %361, -1008
   %363 = icmp eq i32 %362, 0
   br i1 %363, label %364, label %365, !prof !41
@@ -7022,10 +7022,10 @@ zend_string_alloc.exit:                           ; preds = %255
   br label %365
 
 365:                                              ; preds = %zend_string_alloc.exit, %zend_string_extend.exit, %318, %320, %323, %330, %331, %364, %360, %354, %341, %349
-  %.4164 = phi i8 [ %.0160, %zend_string_alloc.exit ], [ %.0160, %zend_string_extend.exit ], [ 0, %331 ], [ 0, %318 ], [ 0, %320 ], [ 0, %323 ], [ 0, %330 ], [ %.0160, %364 ], [ %.0160, %360 ], [ %.0160, %354 ], [ %.0160, %341 ], [ %.0160, %349 ]
-  %.6 = phi i8 [ %.0156, %zend_string_alloc.exit ], [ 0, %zend_string_extend.exit ], [ 0, %331 ], [ 0, %318 ], [ 0, %320 ], [ 0, %323 ], [ 0, %330 ], [ %.0156, %364 ], [ %.0156, %360 ], [ %.0156, %354 ], [ %.0156, %341 ], [ %.0156, %349 ]
-  %.3 = phi ptr [ %.0153, %zend_string_alloc.exit ], [ %.0153, %zend_string_extend.exit ], [ %.0.i, %331 ], [ %.0.i, %318 ], [ %.0.i, %320 ], [ %.0.i, %323 ], [ %.0.i, %330 ], [ %.0153, %364 ], [ %.0153, %360 ], [ %.0153, %354 ], [ %.0153, %341 ], [ %.0153, %349 ]
-  %.0149 = phi ptr [ %334, %zend_string_alloc.exit ], [ %.0.i, %zend_string_extend.exit ], [ %.0.i, %331 ], [ %.0.i, %318 ], [ %.0.i, %320 ], [ %.0.i, %323 ], [ %.0.i, %330 ], [ %334, %364 ], [ %334, %360 ], [ %334, %354 ], [ %334, %341 ], [ %334, %349 ]
+  %.4164 = phi i8 [ %.0160, %zend_string_extend.exit ], [ %.0160, %zend_string_alloc.exit ], [ 0, %318 ], [ 0, %320 ], [ 0, %323 ], [ 0, %330 ], [ 0, %331 ], [ %.0160, %364 ], [ %.0160, %360 ], [ %.0160, %354 ], [ %.0160, %341 ], [ %.0160, %349 ]
+  %.6 = phi i8 [ 0, %zend_string_extend.exit ], [ %.0156, %zend_string_alloc.exit ], [ 0, %318 ], [ 0, %320 ], [ 0, %323 ], [ 0, %330 ], [ 0, %331 ], [ %.0156, %364 ], [ %.0156, %360 ], [ %.0156, %354 ], [ %.0156, %341 ], [ %.0156, %349 ]
+  %.3 = phi ptr [ %.0153, %zend_string_extend.exit ], [ %.0153, %zend_string_alloc.exit ], [ %.0.i, %318 ], [ %.0.i, %320 ], [ %.0.i, %323 ], [ %.0.i, %330 ], [ %.0.i, %331 ], [ %.0153, %364 ], [ %.0153, %360 ], [ %.0153, %354 ], [ %.0153, %341 ], [ %.0153, %349 ]
+  %.0149 = phi ptr [ %.0.i, %zend_string_extend.exit ], [ %334, %zend_string_alloc.exit ], [ %.0.i, %318 ], [ %.0.i, %320 ], [ %.0.i, %323 ], [ %.0.i, %330 ], [ %.0.i, %331 ], [ %334, %364 ], [ %334, %360 ], [ %334, %354 ], [ %334, %341 ], [ %334, %349 ]
   %366 = getelementptr inbounds nuw i8, ptr %.0149, i64 4
   %367 = load i32, ptr %366, align 4, !tbaa !4
   %368 = or i32 %367, %226
@@ -7042,9 +7042,9 @@ zend_string_alloc.exit:                           ; preds = %255
   br label %374
 
 374:                                              ; preds = %365, %166, %168, %177, %130, %162
-  %.1161 = phi i8 [ 0, %162 ], [ %.4164, %365 ], [ %.0160, %130 ], [ 0, %168 ], [ 0, %166 ], [ %.0160, %177 ]
-  %.3159 = phi i8 [ %.0156, %162 ], [ %.6, %365 ], [ %.0156, %130 ], [ %.0156, %168 ], [ %.0156, %166 ], [ %.0156, %177 ]
-  %.1154 = phi ptr [ %.0153, %162 ], [ %.3, %365 ], [ %.0153, %130 ], [ %.0153, %168 ], [ %.0153, %166 ], [ %.0153, %177 ]
+  %.1161 = phi i8 [ 0, %162 ], [ %.0160, %130 ], [ %.0160, %177 ], [ %.4164, %365 ], [ 0, %168 ], [ 0, %166 ]
+  %.3159 = phi i8 [ %.0156, %162 ], [ %.0156, %130 ], [ %.0156, %177 ], [ %.6, %365 ], [ %.0156, %168 ], [ %.0156, %166 ]
+  %.1154 = phi ptr [ %.0153, %162 ], [ %.0153, %130 ], [ %.0153, %177 ], [ %.3, %365 ], [ %.0153, %168 ], [ %.0153, %166 ]
   %375 = trunc nuw i8 %.3159 to i1
   br i1 %375, label %376, label %zend_string_release.exit211
 
@@ -7078,8 +7078,8 @@ zend_string_alloc.exit:                           ; preds = %255
   br label %zend_string_release.exit211
 
 zend_string_release.exit211:                      ; preds = %213, %215, %209, %388, %387, %380, %376, %374
-  %.1154258 = phi ptr [ %.1154, %388 ], [ %.1154, %374 ], [ %.1154, %376 ], [ %.1154, %380 ], [ %.1154, %387 ], [ %.0153, %209 ], [ %.0153, %215 ], [ %.0153, %213 ]
-  %.1161257 = phi i8 [ %.1161, %388 ], [ %.1161, %374 ], [ %.1161, %376 ], [ %.1161, %380 ], [ %.1161, %387 ], [ %.0160, %209 ], [ %.0160, %215 ], [ %.0160, %213 ]
+  %.1154258 = phi ptr [ %.1154, %374 ], [ %.1154, %376 ], [ %.1154, %380 ], [ %.1154, %387 ], [ %.1154, %388 ], [ %.0153, %209 ], [ %.0153, %215 ], [ %.0153, %213 ]
+  %.1161257 = phi i8 [ %.1161, %374 ], [ %.1161, %376 ], [ %.1161, %380 ], [ %.1161, %387 ], [ %.1161, %388 ], [ %.0160, %209 ], [ %.0160, %215 ], [ %.0160, %213 ]
   %389 = trunc nuw i8 %.1161257 to i1
   br i1 %389, label %390, label %zend_string_release.exit214
 
@@ -7113,7 +7113,7 @@ zend_string_release.exit211:                      ; preds = %213, %215, %209, %3
   br label %zend_string_release.exit214
 
 zend_string_release.exit214:                      ; preds = %253, %zend_string_release.exit205, %402, %401, %394, %390, %zend_string_release.exit211, %zend_string_release.exit199, %123, %92, %zend_string_release.exit, %56, %37, %24
-  %.0 = phi i32 [ -1, %zend_string_release.exit199 ], [ 0, %402 ], [ -1, %zend_string_release.exit ], [ 0, %92 ], [ 0, %24 ], [ 0, %37 ], [ -1, %56 ], [ -1, %123 ], [ 0, %zend_string_release.exit211 ], [ 0, %390 ], [ 0, %394 ], [ 0, %401 ], [ -1, %zend_string_release.exit205 ], [ -1, %253 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %37 ], [ -1, %56 ], [ -1, %zend_string_release.exit ], [ 0, %92 ], [ -1, %123 ], [ -1, %zend_string_release.exit199 ], [ 0, %zend_string_release.exit211 ], [ 0, %390 ], [ 0, %394 ], [ 0, %401 ], [ 0, %402 ], [ -1, %zend_string_release.exit205 ], [ -1, %253 ]
   ret i32 %.0
 }
 
@@ -7215,7 +7215,7 @@ zval_get_tmp_string.exit12:                       ; preds = %14, %16
   br label %zend_binary_strcasecmp.exit
 
 zend_binary_strcasecmp.exit:                      ; preds = %53, %48, %47, %45, %41, %23
-  %.0 = phi i32 [ 0, %23 ], [ %46, %45 ], [ %44, %41 ], [ %54, %53 ], [ 0, %47 ], [ %52, %48 ]
+  %.0 = phi i32 [ %44, %41 ], [ %46, %45 ], [ 0, %23 ], [ %54, %53 ], [ 0, %47 ], [ %52, %48 ]
   %.not.i = icmp eq ptr %.023, null
   br i1 %.not.i, label %zend_tmp_string_release.exit, label %55, !prof !38
 
@@ -7309,7 +7309,7 @@ define dso_local range(i32 -255, 256) i32 @zend_binary_strcasecmp(ptr noundef re
   br label %27
 
 27:                                               ; preds = %4, %25, %21
-  %.0 = phi i32 [ %26, %25 ], [ %24, %21 ], [ 0, %4 ]
+  %.0 = phi i32 [ %24, %21 ], [ %26, %25 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -7459,7 +7459,7 @@ zend_tmp_string_release.exit22:                   ; preds = %42, %46, %51, %zend
   br label %zend_binary_strcmp.exit
 
 zend_binary_strcmp.exit:                          ; preds = %zend_tmp_string_release.exit22, %61, %56, %52, %23, %14, %11
-  %.0 = phi i32 [ %22, %14 ], [ 0, %11 ], [ %24, %23 ], [ %.0.i26, %zend_tmp_string_release.exit22 ], [ %.0.i26, %52 ], [ %.0.i26, %56 ], [ %.0.i26, %61 ]
+  %.0 = phi i32 [ 0, %11 ], [ %24, %23 ], [ %22, %14 ], [ %.0.i26, %52 ], [ %.0.i26, %56 ], [ %.0.i26, %61 ], [ %.0.i26, %zend_tmp_string_release.exit22 ]
   ret i32 %.0
 }
 
@@ -7592,7 +7592,7 @@ zval_get_tmp_string.exit:                         ; preds = %43, %zval_get_tmp_s
   br label %zend_binary_strcasecmp.exit31
 
 zend_binary_strcasecmp.exit31:                    ; preds = %zval_get_tmp_string.exit, %68, %72
-  %.0.i30 = phi i32 [ %73, %72 ], [ %71, %68 ], [ 0, %zval_get_tmp_string.exit ]
+  %.0.i30 = phi i32 [ %71, %68 ], [ %73, %72 ], [ 0, %zval_get_tmp_string.exit ]
   %.not.i19 = icmp eq ptr %.03450, null
   br i1 %.not.i19, label %zend_tmp_string_release.exit22, label %74, !prof !38
 
@@ -7641,7 +7641,7 @@ zend_tmp_string_release.exit22:                   ; preds = %74, %78, %83, %zend
   br label %zend_binary_strcasecmp.exit
 
 zend_binary_strcasecmp.exit:                      ; preds = %zend_tmp_string_release.exit22, %93, %88, %84, %39, %35, %11
-  %.0 = phi i32 [ %.0.i30, %zend_tmp_string_release.exit22 ], [ 0, %11 ], [ %40, %39 ], [ %38, %35 ], [ %.0.i30, %84 ], [ %.0.i30, %88 ], [ %.0.i30, %93 ]
+  %.0 = phi i32 [ 0, %11 ], [ %38, %35 ], [ %40, %39 ], [ %.0.i30, %84 ], [ %.0.i30, %88 ], [ %.0.i30, %93 ], [ %.0.i30, %zend_tmp_string_release.exit22 ]
   ret i32 %.0
 }
 
@@ -8157,7 +8157,7 @@ zend_compare_arrays.exit.loopexit779:             ; preds = %.outer.split.us, %.
   br label %zend_compare_arrays.exit
 
 zend_compare_arrays.exit:                         ; preds = %149, %.outer.split.us, %.outer.split.us, %23, %23, %zend_compare_arrays.exit.loopexit779, %zend_compare_arrays.exit.loopexit773, %zend_compare_arrays.exit.loopexit626, %zend_compare_arrays.exit.loopexit, %153, %54, %.split198.us, %120, %121, %100, %.split228.us, %.split224.us, %.split206.us, %146, %141, %136, %131, %85, %80, %.split220.us, %.split216.us, %.split213.us, %.split210.us, %59, %.split194.us, %.split190.us, %.split186.us, %.split.us
-  %.0 = phi i32 [ 1, %.split228.us ], [ %127, %121 ], [ 0, %.split198.us ], [ %133, %131 ], [ %138, %136 ], [ %143, %141 ], [ %148, %146 ], [ 0, %100 ], [ %30, %.split.us ], [ %37, %.split186.us ], [ %44, %.split190.us ], [ %50, %.split194.us ], [ %spec.select, %153 ], [ %55, %54 ], [ 1, %23 ], [ -1, %zend_compare_arrays.exit.loopexit779 ], [ %.2, %120 ], [ %60, %59 ], [ %65, %.split210.us ], [ %70, %.split213.us ], [ %73, %.split216.us ], [ %77, %.split220.us ], [ 0, %.split206.us ], [ %82, %80 ], [ 1, %.split224.us ], [ %88, %85 ], [ -1, %zend_compare_arrays.exit.loopexit773 ], [ 1, %.outer.split.us ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit626 ], [ 1, %23 ], [ 1, %.outer.split.us ], [ 1, %149 ]
+  %.0 = phi i32 [ %133, %131 ], [ %138, %136 ], [ %143, %141 ], [ %148, %146 ], [ %30, %.split.us ], [ %37, %.split186.us ], [ %44, %.split190.us ], [ %50, %.split194.us ], [ %60, %59 ], [ %65, %.split210.us ], [ %70, %.split213.us ], [ %73, %.split216.us ], [ %77, %.split220.us ], [ %82, %80 ], [ %88, %85 ], [ 0, %.split206.us ], [ 1, %.split224.us ], [ 1, %.split228.us ], [ %127, %121 ], [ %.2, %120 ], [ 0, %100 ], [ %55, %54 ], [ 0, %.split198.us ], [ %spec.select, %153 ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit626 ], [ -1, %zend_compare_arrays.exit.loopexit773 ], [ -1, %zend_compare_arrays.exit.loopexit779 ], [ 1, %23 ], [ 1, %23 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -8692,7 +8692,7 @@ is_numeric_string_ex.exit:                        ; preds = %9
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %2, %50, %is_numeric_string_ex.exit, %21, %23, %7, %5
-  %.0 = phi ptr [ %0, %2 ], [ %1, %5 ], [ %1, %7 ], [ %1, %is_numeric_string_ex.exit ], [ %1, %23 ], [ %1, %21 ], [ %1, %47 ], [ %1, %50 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %7 ], [ %1, %23 ], [ %1, %21 ], [ %1, %is_numeric_string_ex.exit ], [ %1, %50 ], [ %0, %2 ], [ %1, %47 ]
   ret ptr %.0
 }
 
@@ -8775,7 +8775,7 @@ define dso_local zeroext i1 @zend_is_identical(ptr noundef readonly captures(non
   br label %zend_string_equals.exit
 
 zend_string_equals.exit:                          ; preds = %20, %24, %30, %32, %36, %7, %7, %7, %2, %43, %39, %16, %12, %8
-  %.0 = phi i1 [ %42, %39 ], [ false, %43 ], [ false, %2 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %38, %36 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %32 ], [ true, %20 ], [ false, %24 ], [ %31, %30 ]
+  %.0 = phi i1 [ false, %43 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %42, %39 ], [ false, %2 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %32 ], [ %38, %36 ], [ true, %20 ], [ false, %24 ], [ %31, %30 ]
   ret i1 %.0
 }
 
@@ -8958,7 +8958,7 @@ define dso_local noundef zeroext i1 @instanceof_function_slow(ptr noundef readon
   br i1 %or.cond30, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %13, %.preheader, %7
-  %.1 = phi i1 [ %19, %.preheader ], [ false, %7 ], [ %16, %13 ]
+  %.1 = phi i1 [ false, %7 ], [ %19, %.preheader ], [ %16, %13 ]
   ret i1 %.1
 }
 
@@ -9366,7 +9366,7 @@ zend_string_init.exit98.i:                        ; preds = %103
   br i1 %141, label %select.unfold.i, label %increment_string.exit
 
 select.unfold.i:                                  ; preds = %140, %135, %130
-  %.184.i = phi i32 [ 1, %135 ], [ 0, %130 ], [ 2, %140 ]
+  %.184.i = phi i32 [ 0, %130 ], [ 1, %135 ], [ 2, %140 ]
   %.not94.i = icmp eq i64 %.082.i, 0
   br i1 %.not94.i, label %zend_string_alloc.exit.i, label %126
 
@@ -9524,7 +9524,7 @@ fast_long_increment_function.exit:                ; preds = %168, %12, %11, %169
   br label %.loopexit80
 
 .loopexit80:                                      ; preds = %182, %.thread, %169, %fast_long_increment_function.exit, %.loopexit
-  %.2 = phi i32 [ 0, %fast_long_increment_function.exit ], [ -1, %.thread ], [ -1, %169 ], [ -1, %.loopexit ], [ 0, %182 ]
+  %.2 = phi i32 [ 0, %fast_long_increment_function.exit ], [ -1, %169 ], [ -1, %.loopexit ], [ -1, %.thread ], [ 0, %182 ]
   ret i32 %.2
 }
 
@@ -9843,7 +9843,7 @@ fast_long_decrement_function.exit:                ; preds = %zend_string_release
   br label %zend_string_release.exit.thread
 
 zend_string_release.exit.thread:                  ; preds = %96, %64, %67, %74, %75, %21, %79, %83, %fast_long_decrement_function.exit, %.loopexit
-  %.1 = phi i32 [ 0, %fast_long_decrement_function.exit ], [ -1, %64 ], [ -1, %21 ], [ -1, %79 ], [ -1, %83 ], [ -1, %.loopexit ], [ -1, %75 ], [ -1, %74 ], [ -1, %67 ], [ 0, %96 ]
+  %.1 = phi i32 [ 0, %fast_long_decrement_function.exit ], [ -1, %79 ], [ -1, %83 ], [ -1, %.loopexit ], [ -1, %21 ], [ -1, %75 ], [ -1, %74 ], [ -1, %67 ], [ -1, %64 ], [ 0, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
@@ -10622,7 +10622,7 @@ zend_string_copy.exit.loopexit:                   ; preds = %.lr.ph, %.loopexit
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %zend_string_copy.exit.loopexit, %86, %._crit_edge, %._crit_edge82
-  %.2 = phi ptr [ %0, %86 ], [ %65, %._crit_edge82 ], [ %0, %._crit_edge ], [ %25, %zend_string_copy.exit.loopexit ]
+  %.2 = phi ptr [ %65, %._crit_edge82 ], [ %0, %._crit_edge ], [ %0, %86 ], [ %25, %zend_string_copy.exit.loopexit ]
   ret ptr %.2
 }
 
@@ -10808,7 +10808,7 @@ zend_string_copy.exit.loopexit:                   ; preds = %.lr.ph, %.loopexit
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %zend_string_copy.exit.loopexit, %86, %._crit_edge, %._crit_edge82
-  %.2 = phi ptr [ %0, %86 ], [ %65, %._crit_edge82 ], [ %0, %._crit_edge ], [ %25, %zend_string_copy.exit.loopexit ]
+  %.2 = phi ptr [ %65, %._crit_edge82 ], [ %0, %._crit_edge ], [ %0, %86 ], [ %25, %zend_string_copy.exit.loopexit ]
   ret ptr %.2
 }
 
@@ -10889,7 +10889,7 @@ define dso_local range(i32 -255, 256) i32 @zend_binary_strncasecmp(ptr noundef r
   br label %33
 
 33:                                               ; preds = %5, %26, %22
-  %.0 = phi i32 [ %32, %26 ], [ %25, %22 ], [ 0, %5 ]
+  %.0 = phi i32 [ %25, %22 ], [ %32, %26 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -10935,7 +10935,7 @@ tolower.exit:                                     ; preds = %8
   br label %26
 
 26:                                               ; preds = %4, %24, %22
-  %.0 = phi i32 [ %25, %24 ], [ %23, %22 ], [ 0, %4 ]
+  %.0 = phi i32 [ %23, %22 ], [ %25, %24 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -10987,7 +10987,7 @@ tolower.exit:                                     ; preds = %9
   br label %32
 
 32:                                               ; preds = %5, %25, %23
-  %.0 = phi i32 [ %31, %25 ], [ %24, %23 ], [ 0, %5 ]
+  %.0 = phi i32 [ %24, %23 ], [ %31, %25 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -11177,7 +11177,7 @@ is_numeric_string_ex.exit.thread:                 ; preds = %15, %2, %44, %is_nu
   br label %zend_string_equal_content.exit
 
 zend_string_equal_content.exit:                   ; preds = %62, %is_numeric_string_ex.exit.thread, %40, %35, %54, %50
-  %.0 = phi i1 [ false, %40 ], [ %57, %54 ], [ %53, %50 ], [ false, %35 ], [ false, %is_numeric_string_ex.exit.thread ], [ %63, %62 ]
+  %.0 = phi i1 [ %53, %50 ], [ %57, %54 ], [ false, %35 ], [ false, %40 ], [ false, %is_numeric_string_ex.exit.thread ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -11486,7 +11486,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %17, %.sink.split
-  %.promoted = phi ptr [ %.0105, %17 ], [ %18, %.sink.split ]
+  %.promoted = phi ptr [ %18, %.sink.split ], [ %.0105, %17 ]
   %20 = load i8, ptr %.promoted, align 1, !tbaa !4
   %21 = add i8 %20, -48
   %or.cond136 = icmp ult i8 %21, 10
@@ -11608,10 +11608,10 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
   br i1 %or.cond139, label %74, label %.critedge141
 
 74:                                               ; preds = %56, %70, %63, %64, %42
-  %75 = phi ptr [ %32, %42 ], [ %.promoted, %70 ], [ %58, %56 ], [ %61, %64 ], [ %61, %63 ]
-  %.3103 = phi i32 [ %.2102, %42 ], [ 0, %70 ], [ %.2102, %56 ], [ %.1101, %64 ], [ %.1101, %63 ]
-  %.299.not = phi i1 [ %4, %42 ], [ %4, %70 ], [ %4, %56 ], [ true, %64 ], [ true, %63 ]
-  %.391 = phi i64 [ %.290, %42 ], [ 0, %70 ], [ %.290, %56 ], [ %.189, %64 ], [ %.189, %63 ]
+  %75 = phi ptr [ %32, %42 ], [ %58, %56 ], [ %61, %64 ], [ %61, %63 ], [ %.promoted, %70 ]
+  %.3103 = phi i32 [ %.2102, %42 ], [ %.2102, %56 ], [ %.1101, %64 ], [ %.1101, %63 ], [ 0, %70 ]
+  %.299.not = phi i1 [ %4, %42 ], [ %4, %56 ], [ true, %64 ], [ true, %63 ], [ %4, %70 ]
+  %.391 = phi i64 [ %.290, %42 ], [ %.290, %56 ], [ %.189, %64 ], [ %.189, %63 ], [ 0, %70 ]
   %.not129 = icmp eq ptr %3, null
   br i1 %.not129, label %78, label %76
 
@@ -11735,7 +11735,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
   br label %.critedge141
 
 .critedge141:                                     ; preds = %112, %111, %92, %118, %119, %.thread, %116, %68, %70, %7
-  %.0 = phi i8 [ 0, %68 ], [ 5, %119 ], [ 4, %.thread ], [ 5, %118 ], [ 0, %92 ], [ 0, %7 ], [ 0, %70 ], [ 4, %116 ], [ 5, %111 ], [ 5, %112 ]
+  %.0 = phi i8 [ 0, %7 ], [ 0, %70 ], [ 0, %68 ], [ 4, %116 ], [ 4, %.thread ], [ 5, %119 ], [ 5, %118 ], [ 0, %92 ], [ 5, %112 ], [ 5, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i8 %.0
 }
@@ -11824,7 +11824,7 @@ zend_memnstr_ex_pre.exit:                         ; preds = %.lr.ph
   br i1 %exitcond58.not, label %.loopexit, label %23
 
 .loopexit:                                        ; preds = %._crit_edge.us, %29, %31, %39, %zend_memnstr_ex_pre.exit, %4
-  %.027 = phi ptr [ null, %4 ], [ null, %zend_memnstr_ex_pre.exit ], [ %.043.us, %39 ], [ null, %31 ], [ %.043.us, %._crit_edge.us ], [ null, %29 ]
+  %.027 = phi ptr [ null, %4 ], [ null, %zend_memnstr_ex_pre.exit ], [ %.043.us, %39 ], [ %.043.us, %._crit_edge.us ], [ null, %29 ], [ null, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.027
 }
@@ -11920,7 +11920,7 @@ zend_memnstr_ex_pre.exit:                         ; preds = %.lr.ph, %14
   br i1 %exitcond59.not, label %.loopexit, label %24
 
 .loopexit:                                        ; preds = %._crit_edge.us, %30, %32, %41, %zend_memnstr_ex_pre.exit, %4
-  %.026 = phi ptr [ null, %4 ], [ null, %zend_memnstr_ex_pre.exit ], [ %.043.us, %41 ], [ null, %32 ], [ %.043.us, %._crit_edge.us ], [ null, %30 ]
+  %.026 = phi ptr [ null, %4 ], [ null, %zend_memnstr_ex_pre.exit ], [ %.043.us, %41 ], [ %.043.us, %._crit_edge.us ], [ null, %30 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.026
 }

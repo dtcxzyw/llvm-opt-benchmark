@@ -190,8 +190,8 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
   br label %80
 
 80:                                               ; preds = %77, %75, %71
-  %.2136 = phi i32 [ %76, %75 ], [ %.1135, %71 ], [ %.1135, %77 ]
-  %.2 = phi i32 [ 0, %75 ], [ %.1, %71 ], [ %79, %77 ]
+  %.2136 = phi i32 [ %76, %75 ], [ %.1135, %77 ], [ %.1135, %71 ]
+  %.2 = phi i32 [ 0, %75 ], [ %79, %77 ], [ %.1, %71 ]
   %81 = ashr i32 %.2136, 1
   %spec.select = tail call i32 @llvm.fshl.i32(i32 %.2136, i32 %.2, i32 31)
   %82 = shl i32 %38, 19
@@ -206,7 +206,7 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
   br label %87
 
 87:                                               ; preds = %9, %80, %15, %5
-  %.0 = phi double [ %6, %5 ], [ %86, %80 ], [ %17, %15 ], [ %0, %9 ]
+  %.0 = phi double [ %6, %5 ], [ %17, %15 ], [ %86, %80 ], [ %0, %9 ]
   ret double %.0
 }
 

@@ -185,7 +185,7 @@ _RNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vendors.exit: ; preds = %0, %9
   br i1 %19, label %31, label %20
 
 _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB1H_7vendors6Vendor11infer_inner0EB1H_.exit.thread: ; preds = %_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB1H_7vendors6Vendor11infer_inner0EB1H_.exit, %93, %69, %125
-  %.sroa.0.0 = phi ptr [ %.sroa.0.048.ptr79, %93 ], [ %.sroa.0.048.ptr79, %69 ], [ %.sroa.0.048.ptr79, %125 ], [ null, %_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB1H_7vendors6Vendor11infer_inner0EB1H_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.048.ptr79, %125 ], [ %.sroa.0.048.ptr79, %69 ], [ %.sroa.0.048.ptr79, %93 ], [ null, %_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB1H_7vendors6Vendor11infer_inner0EB1H_.exit ]
   ret ptr %.sroa.0.0
 
 20:                                               ; preds = %16
@@ -322,7 +322,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
           to label %common.resume unwind label %73
 
 common.resume:                                    ; preds = %.body.thread96, %130, %103, %78, %71, %72, %.body31, %127, %.body.thread
-  %common.resume.op = phi { ptr, i32 } [ %104, %103 ], [ %65, %.body.thread ], [ %79, %78 ], [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body32, %127 ], [ %lpad.loopexit, %72 ], [ %131, %130 ], [ %eh.lpad-body56, %71 ], [ %lpad.loopexit.split-lp, %.body.thread96 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body32, %127 ], [ %lpad.loopexit, %72 ], [ %eh.lpad-body56, %71 ], [ %65, %.body.thread ], [ %79, %78 ], [ %104, %103 ], [ %131, %130 ], [ %lpad.loopexit.split-lp, %.body.thread96 ]
   resume { ptr, i32 } %common.resume.op
 
 72:                                               ; preds = %.body

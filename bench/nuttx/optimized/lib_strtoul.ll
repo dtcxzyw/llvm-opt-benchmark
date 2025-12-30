@@ -121,8 +121,8 @@ define i64 @strtoul(ptr noundef %0, ptr noundef writeonly captures(address_is_nu
   br label %.thread34
 
 .thread34:                                        ; preds = %54, %.thread, %53
-  %58 = phi ptr [ %.pre, %53 ], [ %spec.select43, %54 ], [ null, %.thread ]
-  %.0193138 = phi i64 [ %.019, %53 ], [ %.019, %54 ], [ 0, %.thread ]
+  %58 = phi ptr [ %.pre, %53 ], [ null, %.thread ], [ %spec.select43, %54 ]
+  %.0193138 = phi i64 [ %.019, %53 ], [ 0, %.thread ], [ %.019, %54 ]
   store ptr %58, ptr %1, align 8
   br label %59
 

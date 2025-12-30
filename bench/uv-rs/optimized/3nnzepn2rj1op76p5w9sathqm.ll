@@ -529,7 +529,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(312) ptr @"_ZN5al
   unreachable
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Weak$LT$uv_pep508..marker..environment..MarkerEnvironmentInner$GT$$GT$17h20ace03db1702368E.exit": ; preds = %.thread, %39, %36, %33, %.thread33
-  %.pn6.pn = phi { ptr, i32 } [ %eh.lpad-body36, %.thread33 ], [ %171, %.thread ], [ %34, %33 ], [ %34, %36 ], [ %34, %39 ]
+  %.pn6.pn = phi { ptr, i32 } [ %eh.lpad-body36, %.thread33 ], [ %34, %33 ], [ %34, %36 ], [ %34, %39 ], [ %171, %.thread ]
   resume { ptr, i32 } %.pn6.pn
 
 56:                                               ; preds = %27
@@ -2337,7 +2337,7 @@ switch.lookup95:                                  ; preds = %129, %.noexc6.i31
   ret ptr %243
 
 .body:                                            ; preds = %220, %216, %186, %182, %151, %147, %115, %111, %79, %75, %43, %39
-  %.pn = phi { ptr, i32 } [ %.pn.pn.i25, %111 ], [ %.pn.pn.i48, %182 ], [ %.pn.pn.i12, %75 ], [ %.pn.pn.i38, %147 ], [ %.pn.pn.i, %39 ], [ %.pn.pn.i58, %216 ], [ %.pn.pn.i, %43 ], [ %.pn.pn.i58, %220 ], [ %.pn.pn.i12, %79 ], [ %.pn.pn.i38, %151 ], [ %.pn.pn.i25, %115 ], [ %.pn.pn.i48, %186 ]
+  %.pn = phi { ptr, i32 } [ %.pn.pn.i, %43 ], [ %.pn.pn.i, %39 ], [ %.pn.pn.i12, %79 ], [ %.pn.pn.i12, %75 ], [ %.pn.pn.i25, %115 ], [ %.pn.pn.i25, %111 ], [ %.pn.pn.i38, %151 ], [ %.pn.pn.i38, %147 ], [ %.pn.pn.i48, %186 ], [ %.pn.pn.i48, %182 ], [ %.pn.pn.i58, %220 ], [ %.pn.pn.i58, %216 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2434,8 +2434,8 @@ define internal fastcc i48 @_ZN16uv_configuration13target_triple23macos_deployme
   ]
 
 .lr.ph.i.preheader:                               ; preds = %27, %31, %24
-  %.sroa.02.158.i.ph = phi ptr [ %28, %27 ], [ %20, %31 ], [ %20, %24 ]
-  %.sroa.148.157.i.ph = phi i64 [ %29, %27 ], [ %23, %31 ], [ 1, %24 ]
+  %.sroa.02.158.i.ph = phi ptr [ %28, %27 ], [ %20, %24 ], [ %20, %31 ]
+  %.sroa.148.157.i.ph = phi i64 [ %29, %27 ], [ 1, %24 ], [ %23, %31 ]
   br label %.lr.ph.i
 
 26:                                               ; preds = %22
@@ -2511,7 +2511,7 @@ define internal fastcc i48 @_ZN16uv_configuration13target_triple23macos_deployme
   %59 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h11bce29fe178250fE"(ptr noalias noundef align 8 dereferenceable(72) %3)
           to label %67 unwind label %12
 
-"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17hf8a87860cc983c77E.exit.thread": ; preds = %44, %42, %33, %.lr.ph.i, %91, %89, %80, %.lr.ph.i63, %71, %71, %67, %24, %24, %22, %19
+"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17hf8a87860cc983c77E.exit.thread": ; preds = %33, %42, %44, %.lr.ph.i, %80, %89, %91, %.lr.ph.i63, %71, %71, %67, %24, %24, %22, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !350
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2b4e12c66e5d22afE.llvm.1636240950872007849"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef 1, i64 noundef 1)
@@ -2550,8 +2550,8 @@ define internal fastcc i48 @_ZN16uv_configuration13target_triple23macos_deployme
   ]
 
 .lr.ph.i63.preheader:                             ; preds = %74, %78, %71
-  %.sroa.02.158.i64.ph = phi ptr [ %75, %74 ], [ %.sroa.040.0, %78 ], [ %.sroa.040.0, %71 ]
-  %.sroa.148.157.i65.ph = phi i64 [ %76, %74 ], [ %70, %78 ], [ 1, %71 ]
+  %.sroa.02.158.i64.ph = phi ptr [ %75, %74 ], [ %.sroa.040.0, %71 ], [ %.sroa.040.0, %78 ]
+  %.sroa.148.157.i65.ph = phi i64 [ %76, %74 ], [ 1, %71 ], [ %70, %78 ]
   br label %.lr.ph.i63
 
 73:                                               ; preds = %67
@@ -2887,7 +2887,7 @@ default.unreachable470:                           ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %478, %467, %456, %445, %434, %423, %412, %401, %390, %379, %368, %357, %346, %335, %324, %313, %302, %291, %280, %269, %258, %247, %236, %225, %214, %203, %192, %181, %170, %159, %148, %137, %126, %115, %104, %93, %82
-  %common.resume.op = phi { ptr, i32 } [ %468, %467 ], [ %83, %82 ], [ %94, %93 ], [ %105, %104 ], [ %116, %115 ], [ %127, %126 ], [ %138, %137 ], [ %149, %148 ], [ %160, %159 ], [ %171, %170 ], [ %182, %181 ], [ %193, %192 ], [ %204, %203 ], [ %215, %214 ], [ %226, %225 ], [ %237, %236 ], [ %248, %247 ], [ %259, %258 ], [ %270, %269 ], [ %281, %280 ], [ %292, %291 ], [ %303, %302 ], [ %314, %313 ], [ %325, %324 ], [ %336, %335 ], [ %347, %346 ], [ %358, %357 ], [ %369, %368 ], [ %380, %379 ], [ %391, %390 ], [ %402, %401 ], [ %413, %412 ], [ %424, %423 ], [ %435, %434 ], [ %446, %445 ], [ %457, %456 ], [ %479, %478 ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %94, %93 ], [ %105, %104 ], [ %116, %115 ], [ %127, %126 ], [ %138, %137 ], [ %149, %148 ], [ %160, %159 ], [ %171, %170 ], [ %182, %181 ], [ %193, %192 ], [ %204, %203 ], [ %215, %214 ], [ %226, %225 ], [ %237, %236 ], [ %248, %247 ], [ %259, %258 ], [ %270, %269 ], [ %281, %280 ], [ %292, %291 ], [ %303, %302 ], [ %314, %313 ], [ %325, %324 ], [ %336, %335 ], [ %347, %346 ], [ %358, %357 ], [ %369, %368 ], [ %380, %379 ], [ %391, %390 ], [ %402, %401 ], [ %413, %412 ], [ %424, %423 ], [ %435, %434 ], [ %446, %445 ], [ %457, %456 ], [ %468, %467 ], [ %479, %478 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12clap_builder7builder14possible_value13PossibleValue4help17h362bc738db0dcf9aE.exit: ; preds = %"_ZN123_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$15into_resettable17h7afae3a9b4eed399E.exit.i", %86

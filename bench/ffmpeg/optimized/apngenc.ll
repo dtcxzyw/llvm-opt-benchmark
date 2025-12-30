@@ -119,7 +119,7 @@ define internal range(i32 -1094995529, 1) i32 @apng_write_packet(ptr noundef %0,
   br label %15
 
 15:                                               ; preds = %11, %7, %14
-  %.0 = phi i32 [ -12, %7 ], [ 0, %14 ], [ %12, %11 ]
+  %.0 = phi i32 [ 0, %14 ], [ -12, %7 ], [ %12, %11 ]
   ret i32 %.0
 }
 
@@ -630,7 +630,7 @@ apng_find_chunk.exit145:                          ; preds = %.lr.ph.i141.apng_fi
   br label %240
 
 240:                                              ; preds = %233, %237, %.critedge, %20
-  %.0 = phi i32 [ 0, %233 ], [ -12, %20 ], [ -1094995529, %.critedge ], [ 0, %237 ]
+  %.0 = phi i32 [ -12, %20 ], [ -1094995529, %.critedge ], [ 0, %237 ], [ 0, %233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -2424,7 +2424,7 @@ define dso_local noundef range(i32 0, 2) i32 @__neigh_event_send(ptr noundef %0,
   br label %176
 
 176:                                              ; preds = %165, %93, %89
-  %177 = phi i32 [ 1, %165 ], [ 1, %93 ], [ 0, %89 ]
+  %177 = phi i32 [ 0, %89 ], [ 1, %165 ], [ 1, %93 ]
   br i1 %91, label %.thread12, label %178
 
 178:                                              ; preds = %176
@@ -3127,7 +3127,7 @@ condstore.split:                                  ; preds = %45
   br label %.thread28
 
 select.unfold:                                    ; preds = %284, %283
-  %289 = phi ptr [ %spec.select, %284 ], [ null, %283 ]
+  %289 = phi ptr [ null, %283 ], [ %spec.select, %284 ]
   %290 = icmp eq ptr %289, null
   %291 = select i1 %290, ptr %0, ptr %289
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 296
@@ -3461,7 +3461,7 @@ define dso_local ptr @neigh_event_ns(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %15, %21, %18
-  %23 = phi ptr [ null, %18 ], [ %19, %21 ], [ null, %15 ]
+  %23 = phi ptr [ %19, %21 ], [ null, %18 ], [ null, %15 ]
   ret ptr %23
 }
 
@@ -5400,7 +5400,7 @@ define dso_local i32 @neigh_xmit(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.thread12
 
 103:                                              ; preds = %.thread13, %99
-  %104 = phi i32 [ %80, %.thread13 ], [ %100, %99 ]
+  %104 = phi i32 [ %100, %99 ], [ %80, %.thread13 ]
   tail call void @kfree_skb_reason(ptr noundef %3, i32 noundef 2) #21
   br label %.thread12
 
@@ -5763,7 +5763,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   br i1 %208, label %.thread37.thread100, label %.lr.ph59
 
 .thread37.thread100:                              ; preds = %184, %.loopexit, %190, %.thread35, %165, %135, %.thread34
-  %209 = phi ptr [ %133, %.thread34 ], [ null, %135 ], [ null, %.thread35 ], [ null, %190 ], [ %155, %165 ], [ null, %184 ], [ %206, %.loopexit ]
+  %209 = phi ptr [ %133, %.thread34 ], [ null, %135 ], [ %155, %165 ], [ null, %.thread35 ], [ null, %190 ], [ %206, %.loopexit ], [ null, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %210
 
@@ -6078,7 +6078,7 @@ define dso_local ptr @neigh_seq_next(ptr noundef readonly captures(none) %0, ptr
   br label %.thread, !llvm.loop !132
 
 .thread:                                          ; preds = %163, %173, %95, %98, %102, %188, %167, %.loopexit20, %.thread19, %.loopexit22, %60
-  %189 = phi ptr [ %62, %60 ], [ %1, %.loopexit22 ], [ null, %.thread19 ], [ %138, %.loopexit20 ], [ %182, %188 ], [ null, %167 ], [ %86, %95 ], [ null, %173 ], [ %86, %102 ], [ %86, %98 ], [ %161, %163 ]
+  %189 = phi ptr [ %62, %60 ], [ %1, %.loopexit22 ], [ null, %.thread19 ], [ %138, %.loopexit20 ], [ %182, %188 ], [ null, %167 ], [ %86, %102 ], [ %86, %98 ], [ %86, %95 ], [ null, %173 ], [ %161, %163 ]
   %190 = load i64, ptr %2, align 8
   %191 = add i64 %190, 1
   store i64 %191, ptr %2, align 8
@@ -6473,7 +6473,7 @@ define internal i32 @neigh_proc_base_reachable_time(ptr noundef %0, i32 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %13, %31, %18
-  %34 = phi i32 [ %19, %18 ], [ 0, %31 ], [ -1, %13 ]
+  %34 = phi i32 [ 0, %31 ], [ %19, %18 ], [ -1, %13 ]
   ret i32 %34
 }
 
@@ -6713,8 +6713,8 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   br label %89
 
 89:                                               ; preds = %81, %13
-  %90 = phi ptr [ %17, %13 ], [ %83, %81 ]
-  %91 = phi i64 [ %21, %13 ], [ %88, %81 ]
+  %90 = phi ptr [ %83, %81 ], [ %17, %13 ]
+  %91 = phi i64 [ %88, %81 ], [ %21, %13 ]
   %92 = and i8 %5, 17
   %93 = icmp eq i8 %92, 0
   br i1 %93, label %.thread13, label %94
@@ -6746,9 +6746,9 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   br label %166
 
 .thread13:                                        ; preds = %94, %89
-  %114 = phi i64 [ %91, %89 ], [ %95, %94 ]
-  %115 = phi i32 [ 0, %89 ], [ %96, %94 ]
-  %116 = phi i8 [ %5, %89 ], [ %97, %94 ]
+  %114 = phi i64 [ %95, %94 ], [ %91, %89 ]
+  %115 = phi i32 [ %96, %94 ], [ 0, %89 ]
+  %116 = phi i8 [ %97, %94 ], [ %5, %89 ]
   %117 = and i8 %116, 27
   %118 = icmp eq i8 %117, 0
   br i1 %118, label %142, label %.thread13.thread
@@ -7964,7 +7964,7 @@ define internal i32 @neigh_add(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %146, %148, %130, %153, %67, %17, %19, %196, %162, %125, %120, %118, %114, %111, %108, %107, %105, %84, %82, %71, %66, %64, %50, %31, %29, %20
-  %197 = phi i32 [ -97, %71 ], [ %23, %20 ], [ -97, %67 ], [ %191, %196 ], [ -17, %162 ], [ -22, %31 ], [ -22, %29 ], [ -19, %50 ], [ -22, %66 ], [ -22, %64 ], [ -22, %84 ], [ -22, %82 ], [ -22, %107 ], [ -22, %105 ], [ -105, %108 ], [ 0, %114 ], [ 0, %111 ], [ -22, %120 ], [ -22, %118 ], [ -22, %125 ], [ -22, %17 ], [ -22, %19 ], [ -22, %146 ], [ -22, %148 ], [ -2, %130 ], [ %155, %153 ]
+  %197 = phi i32 [ -97, %71 ], [ %23, %20 ], [ %191, %196 ], [ -17, %162 ], [ -22, %31 ], [ -22, %29 ], [ -19, %50 ], [ -22, %66 ], [ -22, %64 ], [ -22, %84 ], [ -22, %82 ], [ -22, %107 ], [ -22, %105 ], [ -105, %108 ], [ 0, %114 ], [ 0, %111 ], [ -22, %120 ], [ -22, %118 ], [ -22, %125 ], [ -22, %19 ], [ -22, %17 ], [ -97, %67 ], [ -22, %146 ], [ -22, %148 ], [ -2, %130 ], [ %155, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %197
 }
@@ -8432,7 +8432,7 @@ define internal i32 @neigh_get(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread28
 
 .thread28:                                        ; preds = %179, %181, %.thread24, %182, %160, %158, %154, %152, %148, %147, %137, %136, %.loopexit, %94, %92, %88, %86
-  %183 = phi i32 [ %.ph23, %.thread24 ], [ -19, %88 ], [ -19, %86 ], [ -22, %94 ], [ -22, %92 ], [ -2, %136 ], [ -2, %.loopexit ], [ -22, %154 ], [ -22, %152 ], [ -2, %160 ], [ -2, %158 ], [ -105, %137 ], [ %145, %147 ], [ %149, %148 ], [ %175, %182 ], [ %175, %181 ], [ %175, %179 ]
+  %183 = phi i32 [ -19, %88 ], [ -19, %86 ], [ -22, %94 ], [ -22, %92 ], [ -2, %136 ], [ -2, %.loopexit ], [ -22, %154 ], [ -22, %152 ], [ -2, %160 ], [ -2, %158 ], [ -105, %137 ], [ %145, %147 ], [ %149, %148 ], [ %175, %182 ], [ %.ph23, %.thread24 ], [ %175, %181 ], [ %175, %179 ]
   ret i32 %183
 }
 
@@ -8569,8 +8569,8 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   br label %78
 
 78:                                               ; preds = %70, %75, %72, %.preheader47.split.us
-  %79 = phi i32 [ %64, %.preheader47.split.us ], [ %77, %75 ], [ %64, %72 ], [ %64, %70 ]
-  %80 = phi i32 [ %65, %.preheader47.split.us ], [ %65, %75 ], [ %74, %72 ], [ %65, %70 ]
+  %79 = phi i32 [ %64, %.preheader47.split.us ], [ %64, %72 ], [ %77, %75 ], [ %64, %70 ]
+  %80 = phi i32 [ %65, %.preheader47.split.us ], [ %74, %72 ], [ %65, %75 ], [ %65, %70 ]
   %81 = add nuw nsw i64 %66, 1
   %82 = icmp eq i64 %81, 18
   br i1 %82, label %.critedge, label %.preheader47.split.us, !llvm.loop !167
@@ -8607,8 +8607,8 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   br i1 %98, label %.thread, label %.thread.sink.split
 
 99:                                               ; preds = %94, %91, %.preheader47.split
-  %100 = phi i32 [ %83, %.preheader47.split ], [ %93, %91 ], [ %83, %94 ]
-  %101 = phi i32 [ %84, %.preheader47.split ], [ %84, %91 ], [ %96, %94 ]
+  %100 = phi i32 [ %83, %.preheader47.split ], [ %83, %94 ], [ %93, %91 ]
+  %101 = phi i32 [ %84, %.preheader47.split ], [ %96, %94 ], [ %84, %91 ]
   %102 = add nuw nsw i64 %85, 1
   %103 = icmp eq i64 %102, 18
   br i1 %103, label %.critedge, label %.preheader47.split, !llvm.loop !167
@@ -8620,16 +8620,16 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   br label %106
 
 .thread.sink.split:                               ; preds = %97, %56, %53, %46, %24
-  %__nlmsg_parse.__msg.sink = phi ptr [ @neigh_valid_dump_req.__msg.60, %53 ], [ @__nlmsg_parse.__msg, %56 ], [ @neigh_valid_dump_req.__msg.59, %46 ], [ @neigh_valid_dump_req.__msg, %24 ], [ @neigh_valid_dump_req.__msg.61, %97 ]
-  %.ph.ph = phi i32 [ 0, %53 ], [ 0, %56 ], [ 0, %46 ], [ 0, %24 ], [ %83, %97 ]
-  %.ph28.ph = phi i32 [ 0, %53 ], [ 0, %56 ], [ 0, %46 ], [ 0, %24 ], [ %84, %97 ]
+  %__nlmsg_parse.__msg.sink = phi ptr [ @neigh_valid_dump_req.__msg, %24 ], [ @neigh_valid_dump_req.__msg.59, %46 ], [ @neigh_valid_dump_req.__msg.60, %53 ], [ @__nlmsg_parse.__msg, %56 ], [ @neigh_valid_dump_req.__msg.61, %97 ]
+  %.ph.ph = phi i32 [ 0, %24 ], [ 0, %46 ], [ 0, %53 ], [ 0, %56 ], [ %83, %97 ]
+  %.ph28.ph = phi i32 [ 0, %24 ], [ 0, %46 ], [ 0, %53 ], [ 0, %56 ], [ %84, %97 ]
   store ptr %__nlmsg_parse.__msg.sink, ptr %21, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.thread265, %56, %58, %97, %53, %46, %24
-  %.ph = phi i32 [ 0, %58 ], [ 0, %56 ], [ 0, %24 ], [ %83, %97 ], [ 0, %46 ], [ 0, %.thread265 ], [ 0, %53 ], [ %.ph.ph, %.thread.sink.split ]
-  %.ph28 = phi i32 [ 0, %58 ], [ 0, %56 ], [ 0, %24 ], [ %84, %97 ], [ 0, %46 ], [ 0, %.thread265 ], [ 0, %53 ], [ %.ph28.ph, %.thread.sink.split ]
-  %.ph29 = phi i32 [ %60, %58 ], [ -22, %56 ], [ -22, %24 ], [ -22, %97 ], [ -22, %46 ], [ %62, %.thread265 ], [ -22, %53 ], [ -22, %.thread.sink.split ]
+  %.ph = phi i32 [ 0, %24 ], [ 0, %46 ], [ 0, %53 ], [ %83, %97 ], [ 0, %58 ], [ 0, %56 ], [ 0, %.thread265 ], [ %.ph.ph, %.thread.sink.split ]
+  %.ph28 = phi i32 [ 0, %24 ], [ 0, %46 ], [ 0, %53 ], [ %84, %97 ], [ 0, %58 ], [ 0, %56 ], [ 0, %.thread265 ], [ %.ph28.ph, %.thread.sink.split ]
+  %.ph29 = phi i32 [ -22, %24 ], [ -22, %46 ], [ -22, %53 ], [ -22, %97 ], [ %60, %58 ], [ -22, %56 ], [ %62, %.thread265 ], [ -22, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %104 = load i8, ptr %17, align 8, !range !165, !noundef !166
   %105 = icmp eq i8 %104, 0
@@ -8927,8 +8927,8 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   br i1 %279, label %.split135, label %.loopexit43.us, !llvm.loop !168
 
 .loopexit43.us:                                   ; preds = %.loopexit40.split.us122, %.loopexit40.split.us.split.us130.us, %.loopexit40.split.us.split.us.us.us.us, %140
-  %280 = phi i32 [ %141, %140 ], [ %201, %.loopexit40.split.us.split.us130.us ], [ %166, %.loopexit40.split.us.split.us.us.us.us ], [ %275, %.loopexit40.split.us122 ]
-  %281 = phi i64 [ %142, %140 ], [ %202, %.loopexit40.split.us.split.us130.us ], [ %167, %.loopexit40.split.us.split.us.us.us.us ], [ %276, %.loopexit40.split.us122 ]
+  %280 = phi i32 [ %141, %140 ], [ %166, %.loopexit40.split.us.split.us.us.us.us ], [ %201, %.loopexit40.split.us.split.us130.us ], [ %275, %.loopexit40.split.us122 ]
+  %281 = phi i64 [ %142, %140 ], [ %167, %.loopexit40.split.us.split.us.us.us.us ], [ %202, %.loopexit40.split.us.split.us130.us ], [ %276, %.loopexit40.split.us122 ]
   %282 = load i32, ptr %122, align 8
   %283 = icmp slt i32 %282, 0
   call void @__rcu_read_unlock() #21
@@ -9175,8 +9175,8 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   br i1 %423, label %.thread34, label %.thread31
 
 .thread34:                                        ; preds = %.thread35, %.thread35.us.us85, %.thread35.us.us.us.us
-  %.us-phi76 = phi i64 [ %347, %.thread35.us.us85 ], [ %317, %.thread35.us.us.us.us ], [ %385, %.thread35 ]
-  %.us-phi77 = phi i32 [ %360, %.thread35.us.us85 ], [ %330, %.thread35.us.us.us.us ], [ %394, %.thread35 ]
+  %.us-phi76 = phi i64 [ %317, %.thread35.us.us.us.us ], [ %347, %.thread35.us.us85 ], [ %385, %.thread35 ]
+  %.us-phi77 = phi i32 [ %330, %.thread35.us.us.us.us ], [ %360, %.thread35.us.us85 ], [ %394, %.thread35 ]
   call void @_raw_read_unlock_bh(ptr noundef nonnull %311) #21
   %424 = shl i64 %.us-phi76, 32
   %425 = ashr exact i64 %424, 32
@@ -9732,15 +9732,15 @@ define internal i32 @neightbl_dump_info(ptr noundef %0, ptr noundef captures(non
   br label %.thread25
 
 .loopexit:                                        ; preds = %318, %77, %87, %249
-  %.ph = phi i32 [ %80, %77 ], [ 0, %249 ], [ %80, %87 ], [ %319, %318 ]
-  %.ph19 = phi i32 [ %79, %77 ], [ 0, %249 ], [ %79, %87 ], [ 0, %318 ]
+  %.ph = phi i32 [ 0, %249 ], [ %80, %87 ], [ %80, %77 ], [ %319, %318 ]
+  %.ph19 = phi i32 [ 0, %249 ], [ %79, %87 ], [ %79, %77 ], [ 0, %318 ]
   %330 = add nuw nsw i64 %78, 1
   %331 = icmp eq i64 %330, 3
   br i1 %331, label %.thread25, label %77, !llvm.loop !179
 
 .thread25:                                        ; preds = %90, %97, %102, %.loopexit, %273, %280, %285, %322
-  %332 = phi i32 [ %267, %273 ], [ %324, %322 ], [ %267, %285 ], [ %267, %280 ], [ %80, %90 ], [ %80, %102 ], [ %80, %97 ], [ %.ph, %.loopexit ]
-  %333 = phi i64 [ %78, %273 ], [ %78, %322 ], [ %78, %285 ], [ %78, %280 ], [ %78, %90 ], [ %78, %102 ], [ %78, %97 ], [ 3, %.loopexit ]
+  %332 = phi i32 [ %324, %322 ], [ %267, %285 ], [ %267, %280 ], [ %267, %273 ], [ %80, %90 ], [ %80, %97 ], [ %80, %102 ], [ %.ph, %.loopexit ]
+  %333 = phi i64 [ %78, %322 ], [ %78, %285 ], [ %78, %280 ], [ %78, %273 ], [ %78, %90 ], [ %78, %97 ], [ %78, %102 ], [ 3, %.loopexit ]
   store i64 %333, ptr %15, align 8
   %334 = sext i32 %332 to i64
   store i64 %334, ptr %17, align 8
@@ -9933,8 +9933,8 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   br i1 %114, label %.thread25, label %.preheader.split, !llvm.loop !181
 
 .split.us:                                        ; preds = %110, %.preheader.split.us, %96
-  %.us-phi = phi ptr [ %87, %.preheader.split.us ], [ %87, %96 ], [ %101, %110 ]
-  %.us-phi30 = phi ptr [ %88, %.preheader.split.us ], [ %88, %96 ], [ %102, %110 ]
+  %.us-phi = phi ptr [ %87, %96 ], [ %87, %.preheader.split.us ], [ %101, %110 ]
+  %.us-phi30 = phi ptr [ %88, %96 ], [ %88, %.preheader.split.us ], [ %102, %110 ]
   %115 = icmp eq ptr %.us-phi30, null
   br i1 %115, label %.thread25, label %116
 
@@ -10161,7 +10161,7 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   br i1 %224, label %225, label %134, !llvm.loop !183
 
 .thread25:                                        ; preds = %.thread21, %.thread21.us, %65, %.split.us, %80
-  %.ph = phi i32 [ %70, %65 ], [ -2, %.split.us ], [ -2, %80 ], [ -2, %.thread21.us ], [ -2, %.thread21 ]
+  %.ph = phi i32 [ -2, %.split.us ], [ %70, %65 ], [ -2, %80 ], [ -2, %.thread21.us ], [ -2, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %267
 
@@ -10236,12 +10236,12 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   br label %267
 
 267:                                              ; preds = %.thread25, %260, %259, %226
-  %268 = phi i32 [ %.ph, %.thread25 ], [ 0, %260 ], [ 0, %259 ], [ -2, %226 ]
+  %268 = phi i32 [ 0, %260 ], [ 0, %259 ], [ -2, %226 ], [ %.ph, %.thread25 ]
   call void @_raw_write_unlock_bh(ptr noundef nonnull %61) #21
   br label %.thread
 
 .thread:                                          ; preds = %21, %23, %267, %58, %29, %24
-  %269 = phi i32 [ -22, %29 ], [ -2, %58 ], [ %27, %24 ], [ %268, %267 ], [ -22, %23 ], [ -22, %21 ]
+  %269 = phi i32 [ -2, %58 ], [ %27, %24 ], [ %268, %267 ], [ -22, %29 ], [ -22, %23 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %269
 }

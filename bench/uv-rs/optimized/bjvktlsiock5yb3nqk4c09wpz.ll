@@ -199,7 +199,7 @@ default.unreachable:                              ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hf609fb17369f52d9E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hf609fb17369f52d9E.exit: ; preds = %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %51, %48, %44
-  %.sroa.0.0 = phi i8 [ %53, %51 ], [ %spec.select.i.i, %44 ], [ %50, %48 ], [ 41, %42 ], [ 13, %43 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 39, %40 ], [ 1, %41 ], [ 34, %4 ]
+  %.sroa.0.0 = phi i8 [ %spec.select.i.i, %44 ], [ %50, %48 ], [ %53, %51 ], [ 41, %42 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 39, %40 ], [ 1, %41 ], [ 13, %43 ], [ 34, %4 ]
   ret i8 %.sroa.0.0
 }
 
@@ -231,7 +231,7 @@ define hidden noundef ptr @_ZN5uv_fs15replace_symlink17h4c091c631c24e636E(ptr no
   br i1 %19, label %22, label %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread
 
 .body:                                            ; preds = %75, %65, %20, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit"
-  %.pn35 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit" ], [ %66, %65 ], [ %21, %20 ], [ %76, %75 ]
+  %.pn35 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit" ], [ %21, %20 ], [ %66, %65 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hc7646ee925eaabbcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #10
           to label %.thread unwind label %84
 
@@ -403,7 +403,7 @@ _ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread.sink.split: ; pred
   br label %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread
 
 _ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread: ; preds = %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread.sink.split, %16, %2
-  %.sroa.0.3 = phi ptr [ null, %2 ], [ %17, %16 ], [ %.sroa.0.3.ph, %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread.sink.split ]
+  %.sroa.0.3 = phi ptr [ %17, %16 ], [ null, %2 ], [ %.sroa.0.3.ph, %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread.sink.split ]
   ret ptr %.sroa.0.3
 
 _ZN6fs_err2os4unix2fs7symlink17h45fc917698223353E.exit: ; preds = %.invoke
@@ -476,7 +476,7 @@ define hidden noundef ptr @_ZN5uv_fs15replace_symlink17h690c3bd97972281bE(ptr no
           to label %.noexc unwind label %14
 
 .thread:                                          ; preds = %.body, %.thread80, %14
-  %.pn35.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread80 ], [ %.pn35, %.body ], [ %15, %14 ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %.thread80 ], [ %.pn35, %.body ]
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h4b992941d27e27eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 1, i64 noundef 1)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit" unwind label %88
 
@@ -498,13 +498,13 @@ define hidden noundef ptr @_ZN5uv_fs15replace_symlink17h690c3bd97972281bE(ptr no
   %21 = icmp eq i8 %20, 12
   br i1 %21, label %24, label %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread
 
-.thread80:                                        ; preds = %86, %76, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17h2ca3307459c426f0E.exit", %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17h2ca3307459c426f0E.exit71"
+.thread80:                                        ; preds = %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17h2ca3307459c426f0E.exit", %76, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17h2ca3307459c426f0E.exit71", %86
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 .body:                                            ; preds = %79, %69, %22, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit56"
-  %.pn35 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit56" ], [ %70, %69 ], [ %23, %22 ], [ %80, %79 ]
+  %.pn35 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit56" ], [ %23, %22 ], [ %70, %69 ], [ %80, %79 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hc7646ee925eaabbcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #10
           to label %.thread unwind label %88
 
@@ -685,7 +685,7 @@ _ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread.sink.split: ; pred
   br label %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread
 
 _ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread: ; preds = %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread.sink.split, %19, %.noexc
-  %.sroa.0.3 = phi ptr [ null, %.noexc ], [ %18, %19 ], [ %.sroa.0.3.ph, %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread.sink.split ]
+  %.sroa.0.3 = phi ptr [ %18, %19 ], [ null, %.noexc ], [ %.sroa.0.3.ph, %_ZN6fs_err2os4unix2fs7symlink17h2f56fb4c51266c18E.exit.thread.sink.split ]
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h4b992941d27e27eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 1, i64 noundef 1)
   ret ptr %.sroa.0.3
 

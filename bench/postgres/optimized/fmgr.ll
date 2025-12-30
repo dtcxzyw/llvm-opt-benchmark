@@ -3242,7 +3242,7 @@ list_length.exit.i:                               ; preds = %switch.lookup
   br label %get_call_expr_argtype.exit
 
 get_call_expr_argtype.exit:                       ; preds = %6, %23, %14, %list_length.exit.i, %switch.lookup, %2, %3
-  %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %19, %14 ], [ 0, %6 ], [ 0, %switch.lookup ], [ 0, %list_length.exit.i ], [ %24, %23 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 0, %6 ], [ 0, %list_length.exit.i ], [ 0, %switch.lookup ], [ %24, %23 ], [ %19, %14 ]
   ret i32 %.0
 }
 
@@ -3296,7 +3296,7 @@ list_length.exit:                                 ; preds = %switch.lookup
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %4, %12, %21, %switch.lookup, %list_length.exit, %2
-  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %switch.lookup ], [ 0, %list_length.exit ], [ %22, %21 ], [ %17, %12 ]
+  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %list_length.exit ], [ 0, %switch.lookup ], [ %22, %21 ], [ %17, %12 ]
   ret i32 %.024
 }
 
@@ -3362,7 +3362,7 @@ list_length.exit.i:                               ; preds = %switch.lookup
   br label %get_call_expr_arg_stable.exit
 
 get_call_expr_arg_stable.exit:                    ; preds = %6, %24, %20, %14, %list_length.exit.i, %switch.lookup, %2, %3
-  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ true, %20 ], [ false, %6 ], [ false, %switch.lookup ], [ true, %14 ], [ false, %24 ], [ false, %list_length.exit.i ]
+  %.0 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %24 ], [ false, %6 ], [ false, %list_length.exit.i ], [ false, %switch.lookup ], [ true, %14 ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -3420,7 +3420,7 @@ list_length.exit:                                 ; preds = %switch.lookup
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %4, %18, %12, %switch.lookup, %list_length.exit, %2, %22
-  %.0 = phi i1 [ false, %2 ], [ false, %4 ], [ false, %switch.lookup ], [ true, %12 ], [ false, %22 ], [ false, %list_length.exit ], [ true, %18 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %12 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -3447,7 +3447,7 @@ define dso_local zeroext i1 @get_fn_expr_variadic(ptr noundef readonly captures(
   br label %12
 
 12:                                               ; preds = %5, %1, %2, %8
-  %.0 = phi i1 [ %11, %8 ], [ false, %1 ], [ false, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ %11, %8 ], [ false, %2 ], [ false, %1 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -3493,7 +3493,7 @@ define dso_local zeroext i1 @has_fn_opclass_options(ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %8, %1, %2, %5, %12
-  %.1 = phi i1 [ %16, %12 ], [ false, %1 ], [ false, %5 ], [ false, %2 ], [ false, %8 ]
+  %.1 = phi i1 [ %16, %12 ], [ false, %5 ], [ false, %2 ], [ false, %1 ], [ false, %8 ]
   ret i1 %.1
 }
 

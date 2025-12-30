@@ -92,7 +92,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br label %.lr.ph.i.i, !llvm.loop !21
 
 ._crit_edge.i.i:                                  ; preds = %26, %.lr.ph.i.i
-  %.0.lcssa.i.i = phi i64 [ %.021.i.i, %.lr.ph.i.i ], [ %27, %26 ]
+  %.0.lcssa.i.i = phi i64 [ %27, %26 ], [ %.021.i.i, %.lr.ph.i.i ]
   %31 = icmp ult i64 %21, %1
   br i1 %31, label %32, label %36
 
@@ -151,7 +151,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %56, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i:                                ; preds = %52, %.lr.ph.i.i.i
-  %.0.lcssa.i.i.i = phi i64 [ %.021.i.i.i, %.lr.ph.i.i.i ], [ %53, %52 ]
+  %.0.lcssa.i.i.i = phi i64 [ %53, %52 ], [ %.021.i.i.i, %.lr.ph.i.i.i ]
   %57 = icmp ult i64 %47, %45
   br i1 %57, label %58, label %62
 
@@ -163,8 +163,8 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %or.cond.i.i, label %.backedge.i.i.i, label %62
 
 62:                                               ; preds = %58, %._crit_edge.i.i.i, %.backedge.i.i.i
-  %.231.i.i.i = phi i64 [ %47, %._crit_edge.i.i.i ], [ %47, %58 ], [ %.019.i.i.i, %.backedge.i.i.i ]
-  %.0.lcssa30.i.i.i = phi i64 [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.0.lcssa.i.i.i, %58 ], [ 0, %.backedge.i.i.i ]
+  %.231.i.i.i = phi i64 [ %47, %._crit_edge.i.i.i ], [ %.019.i.i.i, %.backedge.i.i.i ], [ %47, %58 ]
+  %.0.lcssa30.i.i.i = phi i64 [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ 0, %.backedge.i.i.i ], [ %.0.lcssa.i.i.i, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.lcssa30.i.i.i
   store i8 0, ptr %63, align 1, !tbaa !20
   %64 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #12
@@ -385,7 +385,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br label %ReadPAMFields.exit.i
 
 ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %154, %._crit_edge.i55.i, %105, %93, %81, %69
-  %.035.i.i = phi i64 [ 0, %154 ], [ 0, %69 ], [ 0, %81 ], [ 0, %93 ], [ 0, %105 ], [ 0, %._crit_edge.i55.i ], [ 0, %160 ], [ %.231.i.i.i, %157 ], [ %.231.i.i.i, %158 ]
+  %.035.i.i = phi i64 [ 0, %69 ], [ 0, %81 ], [ 0, %93 ], [ 0, %105 ], [ 0, %._crit_edge.i55.i ], [ 0, %160 ], [ 0, %154 ], [ %.231.i.i.i, %158 ], [ %.231.i.i.i, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %211
@@ -419,7 +419,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   br i1 %176, label %.lr.ph.i60.i, label %._crit_edge.i63.i, !llvm.loop !21
 
 ._crit_edge.i63.i:                                ; preds = %172, %.lr.ph.i60.i
-  %.0.lcssa.i64.i = phi i64 [ %.021.i61.i, %.lr.ph.i60.i ], [ %173, %172 ]
+  %.0.lcssa.i64.i = phi i64 [ %173, %172 ], [ %.021.i61.i, %.lr.ph.i60.i ]
   %177 = icmp ult i64 %167, %165
   br i1 %177, label %178, label %182
 
@@ -431,8 +431,8 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   br i1 %or.cond70.i, label %.backedge.i65.i, label %182
 
 182:                                              ; preds = %178, %._crit_edge.i63.i, %.backedge.i65.i
-  %.231.i58.i = phi i64 [ %167, %._crit_edge.i63.i ], [ %167, %178 ], [ %.019.i57.i, %.backedge.i65.i ]
-  %.0.lcssa30.i59.i = phi i64 [ %.0.lcssa.i64.i, %._crit_edge.i63.i ], [ %.0.lcssa.i64.i, %178 ], [ 0, %.backedge.i65.i ]
+  %.231.i58.i = phi i64 [ %167, %._crit_edge.i63.i ], [ %.019.i57.i, %.backedge.i65.i ], [ %167, %178 ]
+  %.0.lcssa30.i59.i = phi i64 [ %.0.lcssa.i64.i, %._crit_edge.i63.i ], [ 0, %.backedge.i65.i ], [ %.0.lcssa.i64.i, %178 ]
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.lcssa30.i59.i
   store i8 0, ptr %183, align 1, !tbaa !20
   %184 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, ptr noundef nonnull %14) #12
@@ -468,7 +468,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   br i1 %198, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %194, %.lr.ph.i
-  %.0.lcssa.i = phi i64 [ %.021.i, %.lr.ph.i ], [ %195, %194 ]
+  %.0.lcssa.i = phi i64 [ %195, %194 ], [ %.021.i, %.lr.ph.i ]
   %199 = icmp ult i64 %189, %187
   br i1 %199, label %200, label %204
 
@@ -480,8 +480,8 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   br i1 %or.cond131, label %.backedge.i, label %204
 
 204:                                              ; preds = %200, %._crit_edge.i, %.backedge.i
-  %.231.i = phi i64 [ %189, %._crit_edge.i ], [ %189, %200 ], [ %.019.i, %.backedge.i ]
-  %.0.lcssa30.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %.0.lcssa.i, %200 ], [ 0, %.backedge.i ]
+  %.231.i = phi i64 [ %189, %._crit_edge.i ], [ %.019.i, %.backedge.i ], [ %189, %200 ]
+  %.0.lcssa30.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %.backedge.i ], [ %.0.lcssa.i, %200 ]
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.lcssa30.i
   store i8 0, ptr %205, align 1, !tbaa !20
   %206 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.6, ptr noundef nonnull %20) #12
@@ -522,7 +522,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   %or.cond54.i = icmp ult i32 %224, -65535
   br i1 %or.cond54.i, label %ReadHeader.exit.thread, label %ReadHeader.exit
 
-ReadHeader.exit.thread:                           ; preds = %211, %5, %216, %36, %182, %204, %222, %219
+ReadHeader.exit.thread:                           ; preds = %5, %36, %182, %204, %222, %219, %216, %211
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %229
 
@@ -735,7 +735,7 @@ ReadHeader.exit:                                  ; preds = %222
   br label %325
 
 325:                                              ; preds = %311, %308
-  %.1.us.us.us.us.us.us.us.us = phi i32 [ %.0102152.us.us.us.us.us.us.us188.us, %308 ], [ %324, %311 ]
+  %.1.us.us.us.us.us.us.us.us = phi i32 [ %324, %311 ], [ %.0102152.us.us.us.us.us.us.us188.us, %308 ]
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count258
   br i1 %exitcond259.not, label %..loopexit134_crit_edge.split.us.us.split.us.us.us.split.us.split.us191.us, label %308, !llvm.loop !33
@@ -817,7 +817,7 @@ ReadHeader.exit:                                  ; preds = %222
   br label %366
 
 366:                                              ; preds = %349, %346
-  %.1.us.us.us.us.us = phi i32 [ %.0102152.us.us.us.us.us, %346 ], [ %365, %349 ]
+  %.1.us.us.us.us.us = phi i32 [ %365, %349 ], [ %.0102152.us.us.us.us.us, %346 ]
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count258
   br i1 %exitcond245.not, label %..loopexit134_crit_edge.split.us.us.split.us.us.us.split, label %346, !llvm.loop !33
@@ -859,7 +859,7 @@ ReadHeader.exit:                                  ; preds = %222
   br label %380
 
 380:                                              ; preds = %374, %371
-  %.1.us.us.us176.us.us.us = phi i32 [ %.0102152.us.us.us171.us.us183.us, %371 ], [ %379, %374 ]
+  %.1.us.us.us176.us.us.us = phi i32 [ %379, %374 ], [ %.0102152.us.us.us171.us.us183.us, %371 ]
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count258
   br i1 %exitcond239.not, label %..loopexit134_crit_edge.split.us.us.split.us177.split.us.split.us185.us, label %371, !llvm.loop !33
@@ -914,7 +914,7 @@ ReadHeader.exit:                                  ; preds = %222
   br label %402
 
 402:                                              ; preds = %391, %388
-  %.1.us.us.us176 = phi i32 [ %.0102152.us.us.us171, %388 ], [ %401, %391 ]
+  %.1.us.us.us176 = phi i32 [ %401, %391 ], [ %.0102152.us.us.us171, %388 ]
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count258
   br i1 %exitcond227.not, label %..loopexit134_crit_edge.split.us.us.split.us177.split, label %388, !llvm.loop !33
@@ -998,7 +998,7 @@ ReadHeader.exit:                                  ; preds = %222
   br label %444
 
 444:                                              ; preds = %437, %432, %431
-  %.1.us168 = phi i32 [ %436, %432 ], [ %.0102152.us164, %431 ], [ %443, %437 ]
+  %.1.us168 = phi i32 [ %443, %437 ], [ %436, %432 ], [ %.0102152.us164, %431 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count258
   br i1 %exitcond.not, label %..loopexit134_crit_edge.split.us169, label %407, !llvm.loop !33
@@ -1033,8 +1033,8 @@ ReadHeader.exit:                                  ; preds = %222
   br label %457
 
 457:                                              ; preds = %455, %263, %256, %237, %253, %242, %234, %229
-  %.0108 = phi ptr [ null, %229 ], [ null, %234 ], [ null, %237 ], [ null, %242 ], [ null, %253 ], [ null, %256 ], [ null, %263 ], [ %267, %455 ]
-  %.0103 = phi i32 [ 0, %229 ], [ 0, %234 ], [ 0, %237 ], [ 0, %242 ], [ 0, %253 ], [ 0, %256 ], [ 0, %263 ], [ %spec.store.select20, %455 ]
+  %.0108 = phi ptr [ null, %229 ], [ null, %234 ], [ null, %237 ], [ null, %242 ], [ null, %253 ], [ null, %263 ], [ %267, %455 ], [ null, %256 ]
+  %.0103 = phi i32 [ 0, %229 ], [ 0, %234 ], [ 0, %237 ], [ 0, %242 ], [ 0, %253 ], [ 0, %263 ], [ %spec.store.select20, %455 ], [ 0, %256 ]
   call void @free(ptr noundef %.0108) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0103

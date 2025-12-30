@@ -21176,17 +21176,17 @@ _ZN11V3LexerBase16yy_try_NUL_transEi.exit:        ; preds = %.lr.ph.i1013, %1291
     i16 0, label %.preheader1125.outer.backedge
   ]
 
+.preheader1125.outer.backedge:                    ; preds = %_ZN11V3LexerBase16yy_try_NUL_transEi.exit, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit, %12969
+  %.1186.ph.be = phi ptr [ %12984, %12969 ], [ %12938, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12938, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ]
+  %.268.ph.be = phi ptr [ %12980, %12969 ], [ %12864, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12864, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ]
+  %.3.ph.be = phi i32 [ %12979, %12969 ], [ %.017.lcssa.i, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %.017.lcssa.i, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ]
+  br label %.preheader1125.outer
+
 12939:                                            ; preds = %_ZN11V3LexerBase16yy_try_NUL_transEi.exit
   %12940 = sext i16 %12936 to i32
   %12941 = getelementptr inbounds nuw i8, ptr %12864, i64 1
   store ptr %12941, ptr %301, align 8, !tbaa !47
   br label %.loopexit1123.backedge
-
-.loopexit1123.backedge:                           ; preds = %12939, %12955
-  %.0185.be = phi ptr [ %12968, %12955 ], [ %12938, %12939 ]
-  %.066.be = phi ptr [ %12964, %12955 ], [ %12941, %12939 ]
-  %.062.be = phi i32 [ %12963, %12955 ], [ %12940, %12939 ]
-  br label %.loopexit1123
 
 12942:                                            ; preds = %12849
   %12943 = call noundef i32 @_ZN11V3LexerBase18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %0)
@@ -21238,6 +21238,12 @@ _ZN11V3LexerBase16yy_try_NUL_transEi.exit:        ; preds = %.lr.ph.i1013, %1291
   %12968 = getelementptr inbounds i8, ptr %12965, i64 %12967
   br label %.loopexit1123.backedge
 
+.loopexit1123.backedge:                           ; preds = %12955, %12939
+  %.0185.be = phi ptr [ %12938, %12939 ], [ %12968, %12955 ]
+  %.066.be = phi ptr [ %12941, %12939 ], [ %12964, %12955 ]
+  %.062.be = phi i32 [ %12940, %12939 ], [ %12963, %12955 ]
+  br label %.loopexit1123
+
 12969:                                            ; preds = %12942
   %12970 = load ptr, ptr %308, align 8, !tbaa !38
   %12971 = load i64, ptr %309, align 8, !tbaa !39
@@ -21256,12 +21262,6 @@ _ZN11V3LexerBase16yy_try_NUL_transEi.exit:        ; preds = %.lr.ph.i1013, %1291
   %12983 = sext i32 %12982 to i64
   %12984 = getelementptr inbounds i8, ptr %12981, i64 %12983
   br label %.preheader1125.outer.backedge
-
-.preheader1125.outer.backedge:                    ; preds = %12969, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit
-  %.1186.ph.be = phi ptr [ %12938, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12938, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12984, %12969 ]
-  %.268.ph.be = phi ptr [ %12864, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12864, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12980, %12969 ]
-  %.3.ph.be = phi i32 [ %.017.lcssa.i, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %.017.lcssa.i, %_ZN11V3LexerBase16yy_try_NUL_transEi.exit ], [ %12979, %12969 ]
-  br label %.preheader1125.outer
 
 default.unreachable8897:                          ; preds = %12942
   unreachable
@@ -22700,7 +22700,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
   br label %166
 
 166:                                              ; preds = %33, %144
-  %.0 = phi i32 [ %., %33 ], [ %.037, %144 ]
+  %.0 = phi i32 [ %.037, %144 ], [ %., %33 ]
   ret i32 %.0
 }
 
@@ -23058,7 +23058,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN11V3LexerBase10LexerInputEPci(
   br label %23
 
 23:                                               ; preds = %21, %12, %3
-  %.0 = phi i32 [ 0, %12 ], [ 0, %3 ], [ %., %21 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ %., %21 ]
   ret i32 %.0
 }
 
@@ -23277,7 +23277,7 @@ default.unreachable39:                            ; preds = %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %1, %52, %27
-  %59 = phi ptr [ %.pre, %27 ], [ %58, %52 ], [ %6, %1 ], [ %49, %tailrecurse ]
+  %59 = phi ptr [ %58, %52 ], [ %.pre, %27 ], [ %6, %1 ], [ %49, %tailrecurse ]
   %60 = load i8, ptr %59, align 1, !tbaa !50
   %61 = zext i8 %60 to i32
   store i8 0, ptr %59, align 1, !tbaa !50
@@ -23621,8 +23621,8 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %11, %15, %29
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %41
-  %57 = phi i64 [ %37, %41 ], [ %50, %43 ]
-  %58 = phi ptr [ %33, %41 ], [ %49, %43 ]
+  %57 = phi i64 [ %50, %43 ], [ %37, %41 ]
+  %58 = phi ptr [ %49, %43 ], [ %33, %41 ]
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %57
   store ptr %1, ptr %59, align 8, !tbaa !40
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -24308,7 +24308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %44,
   resume { ptr, i32 } %.pn.pn
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23, %0
-  %.1 = phi i32 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23 ], [ %5, %0 ]
+  %.1 = phi i32 [ %5, %0 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23 ]
   ret i32 %.1
 }
 
@@ -24507,7 +24507,7 @@ _ZSt4copyIPPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ET0_T_SA_S9_
   br label %_ZSt4copyIPPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ET0_T_SA_S9_.exit
 
 _ZSt4copyIPPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ET0_T_SA_S9_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ET0_T_SA_S9_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ET0_T_SA_S9_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ET0_T_SA_S9_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !230
   %58 = load ptr, ptr %.0, align 8, !tbaa !237
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25277,7 +25277,7 @@ _ZSt4copyIPPP8V3NumberS3_ET0_T_S5_S4_.exit26:     ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPP8V3NumberS3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPP8V3NumberS3_ET0_T_S5_S4_.exit:       ; preds = %32, %31, %28, %27, %_ZSt4copyIPPP8V3NumberS3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPP8V3NumberS3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPP8V3NumberS3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !249
   %58 = load ptr, ptr %.0, align 8, !tbaa !256
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

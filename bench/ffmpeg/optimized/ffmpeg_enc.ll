@@ -223,7 +223,7 @@ define i32 @enc_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %.thread206, label %47
 
-47:                                               ; preds = %41, %32
+47:                                               ; preds = %32, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %27, align 8, !tbaa !72
   %49 = sext i32 %48 to i64
@@ -765,7 +765,7 @@ hw_device_setup_for_encode.exit:                  ; preds = %253, %._crit_edge.i
   br label %.thread206
 
 .thread206:                                       ; preds = %41, %321, %309, %310, %214, %78, %2, %select.unfold210
-  %.0 = phi i32 [ %307, %310 ], [ 0, %2 ], [ -12, %select.unfold210 ], [ -12, %214 ], [ %.spec.select, %321 ], [ -733130664, %309 ], [ %83, %78 ], [ %45, %41 ]
+  %.0 = phi i32 [ -12, %select.unfold210 ], [ 0, %2 ], [ %83, %78 ], [ -12, %214 ], [ %307, %310 ], [ -733130664, %309 ], [ %.spec.select, %321 ], [ %45, %41 ]
   ret i32 %.0
 }
 
@@ -1245,7 +1245,7 @@ enc_thread_init.exit:                             ; preds = %11
   br label %74
 
 74:                                               ; preds = %enc_thread_init.exit.thread, %37, %38, %17, %72
-  %.039 = phi i32 [ -12, %enc_thread_init.exit.thread ], [ %18, %17 ], [ %spec.store.select, %72 ], [ -22, %37 ], [ %30, %38 ]
+  %.039 = phi i32 [ %18, %17 ], [ %spec.store.select, %72 ], [ -22, %37 ], [ %30, %38 ], [ -12, %enc_thread_init.exit.thread ]
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @av_packet_free(ptr noundef nonnull %75) #15
   call void @av_frame_free(ptr noundef nonnull %3) #15
@@ -1480,7 +1480,7 @@ check_recording_time.exit.i:                      ; preds = %69, %67
   br label %.thread.i
 
 .thread.i:                                        ; preds = %check_recording_time.exit.i, %69, %121, %99
-  %.2.ph.i = phi i32 [ %97, %99 ], [ %119, %121 ], [ -12, %check_recording_time.exit.i ], [ -541478725, %69 ]
+  %.2.ph.i = phi i32 [ %119, %121 ], [ %97, %99 ], [ -12, %check_recording_time.exit.i ], [ -541478725, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %do_subtitle_out.exit
 
@@ -1618,7 +1618,7 @@ check_recording_time.exit:                        ; preds = %128, %124
   br label %forced_kf_apply.exit
 
 forced_kf_apply.exit:                             ; preds = %173, %193, %196, %200
-  %.037.i = phi i32 [ 1, %200 ], [ 0, %193 ], [ 0, %196 ], [ 0, %173 ]
+  %.037.i = phi i32 [ 1, %200 ], [ 0, %196 ], [ 0, %193 ], [ 0, %173 ]
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %.037.i, ptr %201, align 8, !tbaa !212
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1938,9 +1938,9 @@ av_ts_make_string.exit.i:                         ; preds = %259, %258
   br label %373
 
 373:                                              ; preds = %370, %355, %352, %345, %.thread58.i.i
-  %.shrunk.i.i = phi i8 [ %348, %345 ], [ %348, %352 ], [ %348, %370 ], [ %348, %355 ], [ 0, %.thread58.i.i ]
-  %374 = phi i32 [ %346, %345 ], [ %346, %352 ], [ %346, %370 ], [ %346, %355 ], [ -1, %.thread58.i.i ]
-  %.047.i.i = phi nsz double [ -1.000000e+00, %345 ], [ -1.000000e+00, %352 ], [ %372, %370 ], [ -1.000000e+00, %355 ], [ -1.000000e+00, %.thread58.i.i ]
+  %.shrunk.i.i = phi i8 [ %348, %352 ], [ %348, %345 ], [ %348, %370 ], [ %348, %355 ], [ 0, %.thread58.i.i ]
+  %374 = phi i32 [ %346, %352 ], [ %346, %345 ], [ %346, %370 ], [ %346, %355 ], [ -1, %.thread58.i.i ]
+  %.047.i.i = phi nsz double [ -1.000000e+00, %352 ], [ -1.000000e+00, %345 ], [ %372, %370 ], [ -1.000000e+00, %355 ], [ -1.000000e+00, %.thread58.i.i ]
   %375 = zext i8 %.shrunk.i.i to i32
   br i1 %.not141.i, label %update_video_stats.exit.thread.i, label %376
 
@@ -2041,7 +2041,7 @@ update_video_stats.exit.i:                        ; preds = %378
   %442 = tail call ptr @__errno_location() #17
   %443 = load i32, ptr %442, align 4, !tbaa !108
   %444 = icmp sgt i32 %443, 0
-  br i1 %444, label %.critedge.loopexit.split.loop.exit150.i, label %update_video_stats.exit.thread.i
+  br i1 %444, label %.critedge.loopexit.split.loop.exit154.i, label %update_video_stats.exit.thread.i
 
 update_video_stats.exit.thread.i:                 ; preds = %update_video_stats.exit.i, %406, %373, %334
   %445 = load ptr, ptr %292, align 8, !tbaa !226
@@ -2138,12 +2138,12 @@ av_ts_make_string.exit137.i:                      ; preds = %468, %467
   call void @av_packet_unref(ptr noundef nonnull %2) #15
   br label %encode_frame.exit
 
-.critedge.loopexit.split.loop.exit150.i:          ; preds = %update_video_stats.exit.i
+.critedge.loopexit.split.loop.exit154.i:          ; preds = %update_video_stats.exit.i
   %484 = sub nsw i32 0, %443
   br label %encode_frame.exit
 
-encode_frame.exit:                                ; preds = %320, %329, %331, %232, %299, %314, %318, %319, %483, %.critedge.loopexit.split.loop.exit150.i
-  %.2.i = phi i32 [ %277, %299 ], [ -12, %232 ], [ %301, %319 ], [ %481, %483 ], [ -541478725, %318 ], [ 0, %314 ], [ %484, %.critedge.loopexit.split.loop.exit150.i ], [ -12, %320 ], [ -12, %329 ], [ %332, %331 ]
+encode_frame.exit:                                ; preds = %320, %329, %331, %232, %299, %314, %318, %319, %483, %.critedge.loopexit.split.loop.exit154.i
+  %.2.i = phi i32 [ %277, %299 ], [ -12, %232 ], [ -541478725, %318 ], [ %301, %319 ], [ 0, %314 ], [ %481, %483 ], [ %484, %.critedge.loopexit.split.loop.exit154.i ], [ %332, %331 ], [ -12, %329 ], [ -12, %320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2155,7 +2155,7 @@ encode_frame.exit:                                ; preds = %320, %329, %331, %2
   br label %do_subtitle_out.exit
 
 do_subtitle_out.exit:                             ; preds = %122, %128, %20, %21, %.thread.i, %48, %37, %34, %27, %24, %encode_frame.exit, %222
-  %.0 = phi i32 [ 0, %24 ], [ %.2.i, %encode_frame.exit ], [ 0, %222 ], [ -541478725, %128 ], [ 0, %27 ], [ 0, %20 ], [ %36, %34 ], [ 0, %37 ], [ %.2.ph.i, %.thread.i ], [ 0, %48 ], [ 0, %21 ], [ 0, %122 ]
+  %.0 = phi i32 [ %.2.i, %encode_frame.exit ], [ 0, %222 ], [ 0, %27 ], [ 0, %24 ], [ %36, %34 ], [ 0, %37 ], [ %.2.ph.i, %.thread.i ], [ 0, %48 ], [ 0, %21 ], [ 0, %20 ], [ -541478725, %128 ], [ 0, %122 ]
   ret i32 %.0
 }
 

@@ -110,8 +110,8 @@ _ZN3std4sync6poison4once4Once9call_once17hb20bdfa50ca62003E.exit24: ; preds = %"
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %11, %_ZN3std4sync6poison4once4Once9call_once17hb20bdfa50ca62003E.exit24
-  %.sroa.4.0 = phi i64 [ %.val22, %11 ], [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17hb20bdfa50ca62003E.exit24 ], [ 1, %16 ]
-  %.sroa.0.0 = phi ptr [ %.val, %11 ], [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17hb20bdfa50ca62003E.exit24 ], [ @anon.d5c5fd417af2034e85d1dfd486f30f3d.28, %16 ]
+  %.sroa.4.0 = phi i64 [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17hb20bdfa50ca62003E.exit24 ], [ %.val22, %11 ], [ 1, %16 ]
+  %.sroa.0.0 = phi ptr [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17hb20bdfa50ca62003E.exit24 ], [ %.val, %11 ], [ @anon.d5c5fd417af2034e85d1dfd486f30f3d.28, %16 ]
   %28 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %29 = insertvalue { ptr, i64 } %28, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %29
@@ -485,7 +485,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br label %142
 
 142:                                              ; preds = %147, %138, %141
-  %.sroa.015.0 = phi i64 [ 1, %138 ], [ 0, %141 ], [ 1, %147 ]
+  %.sroa.015.0 = phi i64 [ 0, %141 ], [ 1, %138 ], [ 1, %147 ]
   %143 = add i64 %.sroa.015.0, %6
   br label %74
 

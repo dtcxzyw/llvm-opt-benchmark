@@ -455,8 +455,8 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef nonnull %
   %70 = tail call ptr @dget_parent(ptr noundef nonnull %8) #7
   br label %71
 
-.thread14:                                        ; preds = %.thread, %.thread11
-  %.ph = phi ptr [ inttoptr (i64 -13 to ptr), %.thread ], [ inttoptr (i64 -116 to ptr), %.thread11 ]
+.thread14:                                        ; preds = %.thread11, %.thread
+  %.ph = phi ptr [ inttoptr (i64 -116 to ptr), %.thread11 ], [ inttoptr (i64 -13 to ptr), %.thread ]
   tail call void @dput(ptr noundef nonnull %8) #7
   br label %.loopexit16
 

@@ -89,12 +89,12 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   br label %22
 
 22:                                               ; preds = %20, %18, %16, %4, %21, %19, %17, %15, %14
-  %.0132 = phi i32 [ 3, %19 ], [ 3, %14 ], [ 4, %15 ], [ 1, %4 ], [ 1, %17 ], [ 1, %16 ], [ 3, %18 ], [ 4, %20 ], [ 4, %21 ]
-  %.0131 = phi i16 [ 768, %19 ], [ 768, %14 ], [ 768, %15 ], [ 512, %4 ], [ 512, %17 ], [ 512, %16 ], [ 768, %18 ], [ 768, %20 ], [ 768, %21 ]
-  %23 = phi i1 [ false, %19 ], [ true, %14 ], [ true, %15 ], [ true, %4 ], [ false, %17 ], [ false, %16 ], [ false, %18 ], [ false, %20 ], [ false, %21 ]
-  %.0130 = phi i32 [ 2, %19 ], [ 1, %14 ], [ 1, %15 ], [ 1, %4 ], [ 2, %17 ], [ 2, %16 ], [ 2, %18 ], [ 2, %20 ], [ 2, %21 ]
-  %.0129 = phi i32 [ -65536, %19 ], [ -16777216, %14 ], [ -16777216, %15 ], [ -16777216, %4 ], [ -65536, %17 ], [ -65536, %16 ], [ -65536, %18 ], [ -65536, %20 ], [ -65536, %21 ]
-  %.not153 = phi i1 [ true, %19 ], [ true, %14 ], [ true, %15 ], [ true, %4 ], [ true, %17 ], [ false, %16 ], [ false, %18 ], [ false, %20 ], [ true, %21 ]
+  %.0132 = phi i32 [ 3, %14 ], [ 4, %15 ], [ 1, %4 ], [ 1, %16 ], [ 1, %17 ], [ 3, %18 ], [ 3, %19 ], [ 4, %20 ], [ 4, %21 ]
+  %.0131 = phi i16 [ 768, %14 ], [ 768, %15 ], [ 512, %4 ], [ 512, %16 ], [ 512, %17 ], [ 768, %18 ], [ 768, %19 ], [ 768, %20 ], [ 768, %21 ]
+  %23 = phi i1 [ true, %14 ], [ true, %15 ], [ true, %4 ], [ false, %16 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ false, %21 ]
+  %.0130 = phi i32 [ 1, %14 ], [ 1, %15 ], [ 1, %4 ], [ 2, %16 ], [ 2, %17 ], [ 2, %18 ], [ 2, %19 ], [ 2, %20 ], [ 2, %21 ]
+  %.0129 = phi i32 [ -16777216, %14 ], [ -16777216, %15 ], [ -16777216, %4 ], [ -65536, %16 ], [ -65536, %17 ], [ -65536, %18 ], [ -65536, %19 ], [ -65536, %20 ], [ -65536, %21 ]
+  %.not153 = phi i1 [ true, %14 ], [ true, %15 ], [ true, %4 ], [ false, %16 ], [ true, %17 ], [ false, %18 ], [ true, %19 ], [ false, %20 ], [ true, %21 ]
   %24 = mul i32 %.0132, %11
   %25 = shl i32 %24, 2
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -317,7 +317,7 @@ bytestream2_put_be32.exit177:                     ; preds = %117
   br label %bytestream2_put_be32.exit179.preheader
 
 bytestream2_put_be32.exit177.thread:              ; preds = %117, %bytestream2_put_be32.exit, %bytestream2_put_be16.exit161.thread, %99, %bytestream2_put_be16.exit161, %bytestream2_put_be16.exit163, %109, %125, %bytestream2_put_be32.exit177
-  %134 = phi ptr [ %124, %bytestream2_put_be32.exit177 ], [ %124, %125 ], [ %116, %bytestream2_put_be32.exit ], [ %116, %117 ], [ %108, %bytestream2_put_be16.exit163 ], [ %108, %109 ], [ %98, %bytestream2_put_be16.exit161 ], [ %98, %99 ], [ %94, %bytestream2_put_be16.exit161.thread ]
+  %134 = phi ptr [ %124, %125 ], [ %124, %bytestream2_put_be32.exit177 ], [ %116, %bytestream2_put_be32.exit ], [ %116, %117 ], [ %108, %bytestream2_put_be16.exit163 ], [ %108, %109 ], [ %98, %bytestream2_put_be16.exit161 ], [ %98, %99 ], [ %94, %bytestream2_put_be16.exit161.thread ]
   store i32 1, ptr %46, align 8, !tbaa !39
   br label %bytestream2_put_be32.exit179.preheader
 
@@ -1029,7 +1029,7 @@ sgi_rle_encode.exit.thread:                       ; preds = %sgi_rle_encode.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge278.split.us.split.split.us303.us, %._crit_edge278.split.us.split.split.us.us.us.us, %._crit_edge278.split.us.split.us.us.us.us, %.preheader231, %.split.us
-  %463 = phi ptr [ %.pre350, %.split.us ], [ %206, %._crit_edge278.split.us.split.us.us.us.us ], [ %239, %._crit_edge278.split.us.split.split.us.us.us.us ], [ %173, %.preheader231 ], [ %273, %._crit_edge278.split.us.split.split.us303.us ]
+  %463 = phi ptr [ %.pre350, %.split.us ], [ %173, %.preheader231 ], [ %206, %._crit_edge278.split.us.split.us.us.us.us ], [ %239, %._crit_edge278.split.us.split.split.us.us.us.us ], [ %273, %._crit_edge278.split.us.split.split.us303.us ]
   %464 = load ptr, ptr %42, align 8, !tbaa !37
   %465 = ptrtoint ptr %463 to i64
   %466 = ptrtoint ptr %464 to i64
@@ -1040,7 +1040,7 @@ sgi_rle_encode.exit.thread:                       ; preds = %sgi_rle_encode.exit
   br label %.thread
 
 .thread:                                          ; preds = %bytestream2_skip_p.exit189, %sgi_rle_encode.exit.thread, %22, %4, %.loopexit
-  %.0133 = phi i32 [ %32, %22 ], [ -1094995529, %4 ], [ 0, %.loopexit ], [ -12, %bytestream2_skip_p.exit189 ], [ -1094995529, %sgi_rle_encode.exit.thread ]
+  %.0133 = phi i32 [ 0, %.loopexit ], [ -1094995529, %4 ], [ %32, %22 ], [ -12, %bytestream2_skip_p.exit189 ], [ -1094995529, %sgi_rle_encode.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0133
 }

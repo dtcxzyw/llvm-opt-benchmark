@@ -269,7 +269,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %42, %46, %39, %35, %31, %24, %18, %12, %9, %6, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %39 ], [ null, %35 ], [ null, %31 ], [ null, %24 ], [ null, %18 ], [ null, %12 ], [ null, %9 ], [ %5, %46 ], [ %5, %42 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %39 ], [ null, %35 ], [ null, %31 ], [ null, %24 ], [ null, %18 ], [ null, %12 ], [ null, %9 ], [ null, %6 ], [ %5, %46 ], [ %5, %42 ]
   ret ptr %.0
 }
 
@@ -422,7 +422,7 @@ define range(i32 0, 27) i32 @cl_cvdverify(ptr noundef %0) local_unnamed_addr #0 
   br label %14
 
 14:                                               ; preds = %12, %9
-  %.0 = phi i32 [ %spec.select, %12 ], [ 1, %9 ]
+  %.0 = phi i32 [ 1, %9 ], [ %spec.select, %12 ]
   %15 = tail call i32 @cli_cvdload(ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef null, i32 noundef 8218, i32 noundef %.0, ptr noundef %0, i32 noundef 1)
   %16 = tail call i32 @cl_engine_free(ptr noundef nonnull %6) #19
   %17 = tail call i32 @fclose(ptr noundef nonnull %2)
@@ -697,7 +697,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not102, label %.loopexit, label %111
 
 .loopexit:                                        ; preds = %130, %107, %72, %16, %7, %106, %102, %43, %40, %33
-  %.0 = phi i32 [ %13, %7 ], [ 20, %16 ], [ 4, %102 ], [ %77, %72 ], [ 4, %106 ], [ %31, %33 ], [ 0, %40 ], [ 0, %43 ], [ %108, %107 ], [ %108, %130 ]
+  %.0 = phi i32 [ 4, %102 ], [ 4, %106 ], [ %31, %33 ], [ 0, %40 ], [ 0, %43 ], [ %13, %7 ], [ 20, %16 ], [ %77, %72 ], [ %108, %107 ], [ %108, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -835,7 +835,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
   br label %54
 
 54:                                               ; preds = %.critedge, %53, %52, %42, %30, %19, %7
-  %.028 = phi i32 [ 5, %7 ], [ 0, %53 ], [ 0, %19 ], [ 20, %30 ], [ 6, %42 ], [ 6, %52 ], [ 5, %.critedge ]
+  %.028 = phi i32 [ 5, %7 ], [ 0, %19 ], [ 20, %30 ], [ 6, %42 ], [ 6, %52 ], [ 0, %53 ], [ 5, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.028
 }
@@ -1498,7 +1498,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 cli_tgzload_cleanup.exit:                         ; preds = %221, %219, %64, %61, %39, %43, %27, %31, %16, %14, %6, %272, %236, %232, %227, %204, %.loopexit, %115, %104, %98, %97, %94, %87, %22
-  %.0128 = phi i32 [ 8, %27 ], [ 13, %6 ], [ 26, %14 ], [ 15, %22 ], [ 13, %16 ], [ 4, %87 ], [ 0, %272 ], [ 4, %94 ], [ 4, %98 ], [ 4, %104 ], [ 4, %.loopexit ], [ 4, %227 ], [ 4, %236 ], [ 4, %232 ], [ 4, %64 ], [ 0, %204 ], [ 4, %115 ], [ 4, %97 ], [ 8, %39 ], [ 8, %31 ], [ 8, %43 ], [ 4, %61 ], [ 4, %219 ], [ 4, %221 ]
+  %.0128 = phi i32 [ 15, %22 ], [ 4, %87 ], [ 0, %272 ], [ 4, %94 ], [ 4, %98 ], [ 4, %104 ], [ 4, %.loopexit ], [ 4, %227 ], [ 4, %236 ], [ 4, %232 ], [ 0, %204 ], [ 4, %115 ], [ 4, %97 ], [ 13, %6 ], [ 26, %14 ], [ 13, %16 ], [ 8, %31 ], [ 8, %27 ], [ 8, %43 ], [ 8, %39 ], [ 4, %61 ], [ 4, %64 ], [ 4, %219 ], [ 4, %221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1763,7 +1763,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
   %108 = call i32 @fclose(ptr noundef nonnull %.0.lcssa.i.i)
   br label %cli_cvdunpack.exit
 
-cli_cvdunpack.exit.thread23:                      ; preds = %33, %52, %37, %59, %97, %68, %73, %78, %86, %81, %72, %42, %57, %95
+cli_cvdunpack.exit.thread23:                      ; preds = %33, %68, %73, %78, %86, %81, %72, %52, %42, %37, %57, %59, %95, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1880,8 +1880,8 @@ sub_0:                                            ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -1
   %40 = load i8, ptr %39, align 1
-  %.not93 = icmp eq i8 %40, 47
-  br i1 %.not93, label %.tail, label %.tail.thread
+  %.not99 = icmp eq i8 %40, 47
+  br i1 %.not99, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %41 = load i8, ptr %38, align 1
@@ -1895,8 +1895,8 @@ sub_0:                                            ; preds = %36
 .tail.thread:                                     ; preds = %sub_0, %.tail, %43, %36
   %.035 = phi ptr [ @.str.45, %43 ], [ @.str.46, %.tail ], [ @.str.46, %36 ], [ @.str.46, %sub_0 ]
   %44 = tail call ptr @readdir(ptr noundef nonnull %33) #19
-  %.not4591 = icmp eq ptr %44, null
-  br i1 %.not4591, label %.loopexit, label %.lr.ph
+  %.not4597 = icmp eq ptr %44, null
+  br i1 %.not4597, label %.thread81, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.tail.thread
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1904,48 +1904,48 @@ sub_0:                                            ; preds = %36
 
 46:                                               ; preds = %.lr.ph, %80
   %47 = phi ptr [ %44, %.lr.ph ], [ %81, %80 ]
-  %.03192 = phi i1 [ true, %.lr.ph ], [ %.132, %80 ]
+  %.03198 = phi i1 [ true, %.lr.ph ], [ %.132, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
   %48 = load i64, ptr %47, align 8, !tbaa !69
   %.not46 = icmp eq i64 %48, 0
-  br i1 %.not46, label %80, label %sub_082
+  br i1 %.not46, label %80, label %sub_088
 
-sub_082:                                          ; preds = %46
+sub_088:                                          ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 19
   %50 = load i8, ptr %49, align 1
-  %.not94 = icmp eq i8 %50, 46
-  br i1 %.not94, label %.tail81, label %.tail85.thread
+  %.not100 = icmp eq i8 %50, 46
+  br i1 %.not100, label %.tail87, label %.tail91.thread
 
-.tail81:                                          ; preds = %sub_082
+.tail87:                                          ; preds = %sub_088
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %80, label %sub_187
+  br i1 %53, label %80, label %sub_193
 
-sub_187:                                          ; preds = %.tail81
+sub_193:                                          ; preds = %.tail87
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %55 = load i8, ptr %54, align 1
-  %.not96 = icmp eq i8 %55, 46
-  br i1 %.not96, label %.tail85, label %.tail85.thread
+  %.not102 = icmp eq i8 %55, 46
+  br i1 %.not102, label %.tail91, label %.tail91.thread
 
-.tail85:                                          ; preds = %sub_187
+.tail91:                                          ; preds = %sub_193
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 21
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %80, label %.tail85.thread
+  br i1 %58, label %80, label %.tail91.thread
 
-.tail85.thread:                                   ; preds = %sub_082, %sub_187, %.tail85
+.tail91.thread:                                   ; preds = %sub_088, %sub_193, %.tail91
   %59 = call i32 @cli_strbcasestr(ptr noundef nonnull %49, ptr noundef nonnull @.str.44) #19
   %.not49 = icmp eq i32 %59, 0
   br i1 %.not49, label %60, label %62
 
-60:                                               ; preds = %.tail85.thread
+60:                                               ; preds = %.tail91.thread
   %61 = call i32 @cli_strbcasestr(ptr noundef nonnull %49, ptr noundef nonnull @.str.18) #19
   %.not50 = icmp eq i32 %61, 0
   br i1 %.not50, label %80, label %62
 
-62:                                               ; preds = %60, %.tail85.thread
+62:                                               ; preds = %60, %.tail91.thread
   %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1023, ptr noundef nonnull %.035, ptr noundef nonnull %0, ptr noundef nonnull %49) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1955,7 +1955,7 @@ sub_187:                                          ; preds = %.tail81
 
 cvdgetfileage.exit58.thread:                      ; preds = %62
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.122, ptr noundef nonnull %8) #19
-  br label %.thread
+  br label %82
 
 66:                                               ; preds = %62
   %67 = call fastcc i32 @cli_cvdverify(ptr noundef nonnull %64, ptr noundef nonnull %3, i32 noundef 1)
@@ -1964,15 +1964,7 @@ cvdgetfileage.exit58.thread:                      ; preds = %62
 
 cvdgetfileage.exit58:                             ; preds = %66
   %68 = call i32 @fclose(ptr noundef nonnull %64)
-  br label %.thread
-
-.thread:                                          ; preds = %cvdgetfileage.exit58.thread, %cvdgetfileage.exit58
-  %.0.i5567 = phi i32 [ 8, %cvdgetfileage.exit58.thread ], [ %67, %cvdgetfileage.exit58 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %8) #19
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.loopexit
+  br label %82
 
 69:                                               ; preds = %66
   %70 = call i64 @time(ptr noundef nonnull %4) #19
@@ -1985,7 +1977,7 @@ cvdgetfileage.exit58:                             ; preds = %66
   %76 = call i32 @fclose(ptr noundef nonnull %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.03192, label %79, label %77
+  br i1 %.03198, label %79, label %77
 
 77:                                               ; preds = %69
   %78 = load i64, ptr %1, align 8, !tbaa !44
@@ -1997,20 +1989,28 @@ cvdgetfileage.exit58:                             ; preds = %66
   store i64 %storemerge, ptr %1, align 8, !tbaa !44
   br label %80
 
-80:                                               ; preds = %60, %.tail81, %.tail85, %46, %79
-  %.132 = phi i1 [ %.03192, %60 ], [ false, %79 ], [ %.03192, %.tail81 ], [ %.03192, %46 ], [ %.03192, %.tail85 ]
+80:                                               ; preds = %60, %.tail87, %.tail91, %46, %79
+  %.132 = phi i1 [ false, %79 ], [ %.03198, %46 ], [ %.03198, %.tail91 ], [ %.03198, %.tail87 ], [ %.03198, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %81 = call ptr @readdir(ptr noundef nonnull %33) #19
   %.not45 = icmp eq ptr %81, null
-  br i1 %.not45, label %.loopexit, label %46
+  br i1 %.not45, label %.thread81, label %46
 
-.loopexit:                                        ; preds = %80, %.tail.thread, %.thread
-  %.030 = phi i32 [ %.0.i5567, %.thread ], [ 0, %.tail.thread ], [ 0, %80 ]
-  %82 = call i32 @closedir(ptr noundef nonnull %33)
+82:                                               ; preds = %cvdgetfileage.exit58.thread, %cvdgetfileage.exit58
+  %.0.i5567 = phi i32 [ 8, %cvdgetfileage.exit58.thread ], [ %67, %cvdgetfileage.exit58 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %.thread81
+
+.thread81:                                        ; preds = %80, %.tail.thread, %82
+  %.03086 = phi i32 [ %.0.i5567, %82 ], [ 0, %.tail.thread ], [ 0, %80 ]
+  %83 = call i32 @closedir(ptr noundef nonnull %33)
   br label %.thread76
 
-.thread76:                                        ; preds = %cvdgetfileage.exit, %35, %11, %.loopexit
-  %.03080 = phi i32 [ %.030, %.loopexit ], [ %.0.i, %cvdgetfileage.exit ], [ 8, %35 ], [ 11, %11 ]
+.thread76:                                        ; preds = %cvdgetfileage.exit, %35, %11, %.thread81
+  %.03080 = phi i32 [ %.03086, %.thread81 ], [ %.0.i, %cvdgetfileage.exit ], [ 8, %35 ], [ 11, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.03080
 }

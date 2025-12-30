@@ -254,7 +254,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -797,7 +797,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6icu_7713FormattedLis
   br label %18
 
 18:                                               ; preds = %3, %13, %10
-  %.0 = phi ptr [ %17, %13 ], [ %1, %10 ], [ %1, %3 ]
+  %.0 = phi ptr [ %1, %10 ], [ %17, %13 ], [ %1, %3 ]
   ret ptr %.0
 }
 
@@ -827,7 +827,7 @@ define noundef signext i8 @_ZNK6icu_7713FormattedList12nextPositionERNS_24Constr
   br label %18
 
 18:                                               ; preds = %3, %13, %10
-  %.0 = phi i8 [ %17, %13 ], [ 0, %10 ], [ 0, %3 ]
+  %.0 = phi i8 [ 0, %10 ], [ %17, %13 ], [ 0, %3 ]
   ret i8 %.0
 }
 
@@ -1377,7 +1377,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit56: ; preds = %_ZN6icu_775Mu
   br label %83
 
 83:                                               ; preds = %79, %68, %66
-  %cond1 = phi ptr [ %82, %79 ], [ %65, %68 ], [ %65, %66 ]
+  %cond1 = phi ptr [ %65, %68 ], [ %65, %66 ], [ %82, %79 ]
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZZN6icu_7713ListFormatter21getListFormatInternalERKNS_6LocaleEPKcR10UErrorCodeE18listFormatterMutex)
           to label %_ZN6icu_775MutexD2Ev.exit58 unwind label %84
 
@@ -1397,7 +1397,7 @@ _ZN6icu_775MutexD2Ev.exit58:                      ; preds = %83, %57, %54, %_ZN6
   br label %89
 
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %69, %71, %40, %42, %60
-  %.pn47.pn = phi { ptr, i32 } [ %43, %42 ], [ %61, %60 ], [ %41, %40 ], [ %70, %69 ], [ %72, %71 ]
+  %.pn47.pn = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %43, %42 ], [ %70, %69 ], [ %72, %71 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
   br label %87
 
@@ -1554,7 +1554,7 @@ define noundef ptr @_ZN6icu_7713ListFormatter22loadListFormatInternalERKNS_6Loca
   br label %61
 
 61:                                               ; preds = %54, %60, %57, %37, %49
-  %.1 = phi ptr [ null, %37 ], [ null, %49 ], [ null, %54 ], [ null, %60 ], [ %51, %57 ]
+  %.1 = phi ptr [ null, %49 ], [ null, %37 ], [ null, %54 ], [ null, %60 ], [ %51, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7713ListFormatter16ListPatternsSinkE, i64 16), ptr %4, align 8, !tbaa !15
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #19
@@ -1754,7 +1754,7 @@ _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sin
   br label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleER10UErrorCode.exit
 
 _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i.i, %9, %.noexc
-  %.0.i.i = phi ptr [ %7, %9 ], [ null, %.noexc ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i.i ]
+  %.0.i.i = phi ptr [ null, %.noexc ], [ %7, %9 ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i.i ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
@@ -1800,7 +1800,7 @@ _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sin
   br label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.exit
 
 _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.exit: ; preds = %2, %9, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i
-  %.0.i = phi ptr [ %7, %9 ], [ null, %2 ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i ]
+  %.0.i = phi ptr [ null, %2 ], [ %7, %9 ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split.i ]
   ret ptr %.0.i
 }
 
@@ -1828,7 +1828,7 @@ define noundef ptr @_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18ULi
   br i1 %10, label %switch.lookup, label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split
 
 switch.lookup:                                    ; preds = %9, %7, %5
-  %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink = phi ptr [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.5, %7 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode, %5 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6, %9 ]
+  %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink = phi ptr [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode, %5 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.5, %7 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6, %9 ]
   %11 = zext nneg i32 %2 to i64
   %switch.gep16 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink, i64 %11
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
@@ -1853,12 +1853,12 @@ switch.lookup:                                    ; preds = %9, %7, %5
   resume { ptr, i32 } %20
 
 _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split: ; preds = %9, %7, %5, %15, %4
-  %.sink = phi i32 [ 1, %4 ], [ 1, %9 ], [ 1, %7 ], [ 1, %5 ], [ 7, %15 ]
+  %.sink = phi i32 [ 1, %9 ], [ 1, %7 ], [ 1, %5 ], [ 1, %4 ], [ 7, %15 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit
 
 _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit: ; preds = %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split, %18, %switch.lookup
-  %.0 = phi ptr [ %16, %18 ], [ null, %switch.lookup ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split ]
+  %.0 = phi ptr [ null, %switch.lookup ], [ %16, %18 ], [ null, %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -2673,7 +2673,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_120FormattedListBuilder6appe
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %24, %22, %16
-  %.0.i.i = phi ptr [ %26, %24 ], [ %23, %22 ], [ null, %16 ]
+  %.0.i.i = phi ptr [ %23, %22 ], [ %26, %24 ], [ null, %16 ]
   %27 = icmp slt i16 %18, 0
   %28 = ashr i16 %18, 5
   %29 = sext i16 %28 to i32
@@ -2713,7 +2713,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread: ; preds = %_ZNK6ic
   br label %_ZNK6icu_7715SimpleFormatter22getTextWithNoArgumentsEPii.exit
 
 _ZNK6icu_7715SimpleFormatter22getTextWithNoArgumentsEPii.exit: ; preds = %35, %38, %40
-  %.0.i.i45 = phi ptr [ %42, %40 ], [ %39, %38 ], [ null, %35 ]
+  %.0.i.i45 = phi ptr [ %39, %38 ], [ %42, %40 ], [ null, %35 ]
   call void @_ZN6icu_7715SimpleFormatter22getTextWithNoArgumentsEPKDsiPii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %7, ptr noundef %.0.i.i45, i32 noundef %32, ptr noundef nonnull %6, i32 noundef 2)
   %43 = load i32, ptr %6, align 8, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -3237,7 +3237,7 @@ sub_1:                                            ; preds = %sub_0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc, %33, %28
-  %.0.i = phi i1 [ %32, %28 ], [ %57, %.noexc ], [ false, %33 ]
+  %.0.i = phi i1 [ %32, %28 ], [ false, %33 ], [ %57, %.noexc ]
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load i16, ptr %58, align 8, !tbaa !25
   %60 = and i16 %59, 1
@@ -3287,7 +3287,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc, %33, %28
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit103
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit103:       ; preds = %.noexc102, %66, %61
-  %.0.i98 = phi i1 [ %65, %61 ], [ %90, %.noexc102 ], [ false, %66 ]
+  %.0.i98 = phi i1 [ %65, %61 ], [ false, %66 ], [ %90, %.noexc102 ]
   %or.cond = or i1 %.0.i, %.0.i98
   br i1 %or.cond, label %91, label %112
 
@@ -3410,7 +3410,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit103:       ; preds = %.noexc102, %66, %61
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit110
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit110:       ; preds = %.noexc109, %122, %117
-  %.0.i105 = phi i1 [ %121, %117 ], [ %146, %.noexc109 ], [ false, %122 ]
+  %.0.i105 = phi i1 [ %121, %117 ], [ false, %122 ], [ %146, %.noexc109 ]
   %147 = load i16, ptr %58, align 8, !tbaa !25
   %148 = and i16 %147, 1
   %.not.i111 = icmp eq i16 %148, 0
@@ -3459,7 +3459,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit110:       ; preds = %.noexc109, %122, %1
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit117
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit117:       ; preds = %.noexc116, %154, %149
-  %.0.i112 = phi i1 [ %153, %149 ], [ %178, %.noexc116 ], [ false, %154 ]
+  %.0.i112 = phi i1 [ %153, %149 ], [ false, %154 ], [ %178, %.noexc116 ]
   %or.cond3 = or i1 %.0.i105, %.0.i112
   br i1 %or.cond3, label %179, label %201
 
@@ -3633,7 +3633,7 @@ sub_1143:                                         ; preds = %sub_0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit124
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit124:       ; preds = %.noexc123, %227, %222
-  %.0.i119 = phi i1 [ %226, %222 ], [ %251, %.noexc123 ], [ false, %227 ]
+  %.0.i119 = phi i1 [ %226, %222 ], [ false, %227 ], [ %251, %.noexc123 ]
   %252 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %253 = load i16, ptr %252, align 8, !tbaa !25
   %254 = and i16 %253, 1
@@ -3683,7 +3683,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit124:       ; preds = %.noexc123, %227, %2
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit131
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit131:       ; preds = %.noexc130, %260, %255
-  %.0.i126 = phi i1 [ %259, %255 ], [ %284, %.noexc130 ], [ false, %260 ]
+  %.0.i126 = phi i1 [ %259, %255 ], [ false, %260 ], [ %284, %.noexc130 ]
   %or.cond5 = or i1 %.0.i119, %.0.i126
   br i1 %or.cond5, label %285, label %.thread134
 
@@ -3808,11 +3808,11 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit.i: ; pre
   br label %323
 
 _ZN6icu_7712_GLOBAL__N_114PatternHandlerC2ERKNS_13UnicodeStringES4_R10UErrorCode.exit: ; preds = %_ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit.i, %306, %.thread, %.tail141.thread, %201
-  %.2 = phi ptr [ %288, %306 ], [ %.1, %201 ], [ null, %.tail141.thread ], [ %94, %.thread ], [ %309, %_ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit.i ]
+  %.2 = phi ptr [ %.1, %201 ], [ %288, %306 ], [ null, %.tail141.thread ], [ %94, %.thread ], [ %309, %_ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit.i ]
   ret ptr %.2
 
 323:                                              ; preds = %.body.i, %308, %205
-  %.pn94 = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %.pn.pn.pn.pn, %308 ], [ %.pn89.pn.pn.pn, %205 ]
+  %.pn94 = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %.pn89.pn.pn.pn, %205 ], [ %.pn.pn.pn.pn, %308 ]
   resume { ptr, i32 } %.pn94
 }
 
@@ -3887,7 +3887,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit43:            ; preds = %_ZNK6icu_7713Unicod
   br label %_ZNK6icu_7713UnicodeStringixEi.exit37.thread
 
 _ZNK6icu_7713UnicodeStringixEi.exit37.thread:     ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit28, %_ZNK6icu_7713UnicodeStringixEi.exit43, %_ZNK6icu_7713UnicodeStringixEi.exit40, %23, %1
-  %.0 = phi i1 [ true, %_ZNK6icu_7713UnicodeStringixEi.exit40 ], [ false, %1 ], [ true, %23 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit28 ], [ %30, %_ZNK6icu_7713UnicodeStringixEi.exit43 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %23 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit40 ], [ %30, %_ZNK6icu_7713UnicodeStringixEi.exit43 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit28 ]
   ret i1 %.0
 }
 
@@ -4047,7 +4047,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit44:            ; preds = %27
   br label %32
 
 32:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit32, %_ZNK6icu_7713UnicodeStringixEi.exit, %_ZNK6icu_7713UnicodeStringixEi.exit, %_ZNK6icu_7713UnicodeStringixEi.exit, %27, %_ZNK6icu_7713UnicodeStringixEi.exit44, %1, %.thread48
-  %.0 = phi i1 [ false, %.thread48 ], [ false, %1 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit44 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %27 ], [ %switch.selectcmp, %_ZNK6icu_7713UnicodeStringixEi.exit32 ]
+  %.0 = phi i1 [ false, %.thread48 ], [ false, %1 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit44 ], [ true, %27 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ %switch.selectcmp, %_ZNK6icu_7713UnicodeStringixEi.exit32 ]
   ret i1 %.0
 }
 
@@ -4209,7 +4209,7 @@ _ZN6icu_7712_GLOBAL__N_117ContextualHandlerC2EPFbRKNS_13UnicodeStringEERKNS_15Si
   br label %35
 
 .body:                                            ; preds = %19, %30
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %30 ], [ %.pn.i.i, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i, %19 ], [ %.pn.i, %30 ]
   call void @_ZN6icu_7715SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #19
   br label %35
 

@@ -764,7 +764,7 @@ define hidden noundef zeroext i1 @_ZNK10bit_vector8containsERKS_(ptr noundef non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %2, %.critedge
-  %.0 = phi i1 [ true, %2 ], [ %30, %.critedge ], [ false, %13 ]
+  %.0 = phi i1 [ %30, %.critedge ], [ true, %2 ], [ false, %13 ]
   ret i1 %.0
 }
 

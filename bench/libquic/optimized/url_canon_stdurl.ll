@@ -97,7 +97,7 @@ define noundef range(i32 -1, 444) i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr no
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %5, %3, %7, %2
-  %.0 = phi i32 [ -1, %2 ], [ %spec.select19, %5 ], [ %spec.select21, %11 ], [ %spec.select22, %13 ], [ %spec.select, %3 ], [ %spec.select20, %9 ], [ 21, %7 ]
+  %.0 = phi i32 [ -1, %2 ], [ %spec.select, %3 ], [ %spec.select19, %5 ], [ 21, %7 ], [ %spec.select20, %9 ], [ %spec.select21, %11 ], [ %spec.select22, %13 ]
   ret i32 %.0
 }
 
@@ -322,7 +322,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i66: ; preds = %_ZN3url12CanonOu
   br i1 %or.cond109, label %116, label %137
 
 116:                                              ; preds = %.loopexit, %109
-  %.18591 = phi i1 [ %89, %.loopexit ], [ false, %109 ]
+  %.18591 = phi i1 [ false, %109 ], [ %89, %.loopexit ]
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %118 = load i32, ptr %117, align 4, !tbaa !19
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -575,7 +575,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i66.i: ; preds = %50, %_ZN3url12
   br i1 %or.cond109.i, label %106, label %127
 
 106:                                              ; preds = %99, %.loopexit.i
-  %.18591.i = phi i1 [ %81, %.loopexit.i ], [ false, %99 ]
+  %.18591.i = phi i1 [ false, %99 ], [ %81, %.loopexit.i ]
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %108 = load i32, ptr %107, align 4, !tbaa !19
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 40

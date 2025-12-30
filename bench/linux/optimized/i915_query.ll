@@ -280,7 +280,7 @@ define internal i32 @query_engine_info(ptr noundef %0, ptr noundef readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %65, %.thread15, %39, %35, %.loopexit, %.thread5, %44, %2
-  %94 = phi i32 [ -22, %2 ], [ %28, %44 ], [ -22, %.thread5 ], [ %93, %.loopexit ], [ -22, %35 ], [ -14, %39 ], [ 16, %.thread15 ], [ -14, %65 ]
+  %94 = phi i32 [ -22, %2 ], [ %28, %44 ], [ -22, %.thread5 ], [ %93, %.loopexit ], [ -14, %39 ], [ -22, %35 ], [ 16, %.thread15 ], [ -14, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %94
@@ -672,7 +672,7 @@ define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %52, %86, %36, %34, %100, %.thread7, %39, %2
-  %107 = phi i32 [ -22, %2 ], [ %27, %39 ], [ -22, %.thread7 ], [ %106, %100 ], [ -22, %34 ], [ -14, %86 ], [ -14, %36 ], [ -22, %52 ]
+  %107 = phi i32 [ -22, %2 ], [ %27, %39 ], [ -22, %.thread7 ], [ %106, %100 ], [ -14, %36 ], [ -22, %34 ], [ -14, %86 ], [ -22, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %107
@@ -876,7 +876,7 @@ define internal fastcc range(i32 -22, 2088978) i32 @fill_topology_info(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %29, %27, %17, %69, %63, %57, %35, %2
-  %77 = phi i32 [ -19, %2 ], [ %76, %69 ], [ -14, %35 ], [ -14, %57 ], [ -14, %63 ], [ -14, %29 ], [ -22, %27 ], [ %23, %17 ]
+  %77 = phi i32 [ -19, %2 ], [ -14, %35 ], [ -14, %57 ], [ -14, %63 ], [ %76, %69 ], [ -14, %29 ], [ -22, %27 ], [ %23, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %77
 }
@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   br label %135
 
 135:                                              ; preds = %.critedge, %133, %72, %60, %37, %28, %26, %15, %3
-  %136 = phi i32 [ -22, %26 ], [ %134, %133 ], [ -14, %.critedge ], [ -19, %3 ], [ 120, %15 ], [ -14, %28 ], [ -22, %37 ], [ -14, %60 ], [ -2, %72 ]
+  %136 = phi i32 [ -22, %26 ], [ %134, %133 ], [ -19, %3 ], [ 120, %15 ], [ -14, %28 ], [ -22, %37 ], [ -14, %60 ], [ -2, %72 ], [ -14, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %136

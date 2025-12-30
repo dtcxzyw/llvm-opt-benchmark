@@ -436,7 +436,7 @@ yop_copy_previous_block.exit:                     ; preds = %yop_get_next_nibble
   br label %212
 
 212:                                              ; preds = %yop_copy_previous_block.exit.thread, %yop_paint_block.exit.thread, %._crit_edge100, %17, %210, %103, %41, %16
-  %.0 = phi i32 [ -1094995529, %16 ], [ %211, %210 ], [ -1094995529, %41 ], [ -1094995529, %103 ], [ %18, %17 ], [ -1094995529, %yop_paint_block.exit.thread ], [ -1094995529, %yop_copy_previous_block.exit.thread ], [ %208, %._crit_edge100 ]
+  %.0 = phi i32 [ -1094995529, %16 ], [ -1094995529, %41 ], [ -1094995529, %103 ], [ %211, %210 ], [ %18, %17 ], [ %208, %._crit_edge100 ], [ -1094995529, %yop_paint_block.exit.thread ], [ -1094995529, %yop_copy_previous_block.exit.thread ]
   ret i32 %.0
 }
 

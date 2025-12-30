@@ -473,7 +473,7 @@ cs_augment.exit:                                  ; preds = %.loopexit.i, %.lr.p
   br label %203
 
 203:                                              ; preds = %7, %2, %3, %._crit_edge233, %94, %80, %._crit_edge245
-  %.0 = phi ptr [ %70, %._crit_edge245 ], [ %202, %._crit_edge233 ], [ %95, %94 ], [ %81, %80 ], [ null, %2 ], [ null, %3 ], [ null, %7 ]
+  %.0 = phi ptr [ %70, %._crit_edge245 ], [ %202, %._crit_edge233 ], [ %95, %94 ], [ %81, %80 ], [ null, %3 ], [ null, %2 ], [ null, %7 ]
   ret ptr %.0
 }
 

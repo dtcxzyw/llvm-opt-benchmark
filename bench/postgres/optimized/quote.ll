@@ -64,7 +64,7 @@ define dso_local i64 @quote_literal(ptr noundef readonly captures(none) %0) #0 {
   br label %select.unfold
 
 select.unfold:                                    ; preds = %9, %17, %20
-  %24 = phi i32 [ %spec.select, %9 ], [ %19, %17 ], [ %23, %20 ]
+  %24 = phi i32 [ %19, %17 ], [ %23, %20 ], [ %spec.select, %9 ]
   %25 = shl nsw i32 %24, 1
   %26 = add nsw i32 %25, 7
   %27 = sext i32 %26 to i64

@@ -2249,7 +2249,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..
   br label %.body
 
 .body:                                            ; preds = %46, %38, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17hc942ab3f01b4fdf4E.exit33"
-  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17hc942ab3f01b4fdf4E.exit33" ], [ %39, %38 ], [ %39, %46 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17hc942ab3f01b4fdf4E.exit33" ], [ %39, %46 ], [ %39, %38 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h78860651030dbe10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47, i64 noundef 8, i64 noundef 16)
           to label %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17hbf1e5d7ffb82e615E.exit" unwind label %111
@@ -2626,7 +2626,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..error..ErrorIn
   br label %.body9
 
 .body9:                                           ; preds = %46, %38, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$clap_builder..error..Message$GT$$GT$17ha1720cedc94a3905E.exit"
-  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$clap_builder..error..Message$GT$$GT$17ha1720cedc94a3905E.exit" ], [ %39, %38 ], [ %39, %46 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$clap_builder..error..Message$GT$$GT$17ha1720cedc94a3905E.exit" ], [ %39, %46 ], [ %39, %38 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load i64, ptr %47, align 8, !range !264, !alias.scope !265, !noundef !3
   %switch.i = icmp slt i64 %48, -9223372036854775806
@@ -3714,7 +3714,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   br label %.body90
 
 .body90:                                          ; preds = %194, %186, %162
-  %.pn34 = phi { ptr, i32 } [ %.pn32, %162 ], [ %187, %186 ], [ %187, %194 ]
+  %.pn34 = phi { ptr, i32 } [ %.pn32, %162 ], [ %187, %194 ], [ %187, %186 ]
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 224
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$clap_builder..builder..ext..Extensions$GT$17h7b72886a4781f021E"(ptr noalias noundef align 8 dereferenceable(48) %195) #10
           to label %common.resume unwind label %203

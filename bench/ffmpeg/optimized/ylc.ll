@@ -294,8 +294,8 @@ get_bits_long.exit:                               ; preds = %get_unary.exit, %87
   br label %145
 
 145:                                              ; preds = %139, %133, %129
-  %.162.i = phi i32 [ %.059..063.i, %139 ], [ %.061.i, %129 ], [ %.061.i, %133 ]
-  %.160.i = phi i32 [ %.063..059.i, %139 ], [ %.059.i, %129 ], [ %.059.i, %133 ]
+  %.162.i = phi i32 [ %.061.i, %133 ], [ %.061.i, %129 ], [ %.059..063.i, %139 ]
+  %.160.i = phi i32 [ %.059.i, %133 ], [ %.059.i, %129 ], [ %.063..059.i, %139 ]
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %.not70.i = icmp eq i64 %indvars.iv.next85.i, %128
   br i1 %.not70.i, label %146, label %129, !llvm.loop !48
@@ -1191,7 +1191,7 @@ get_vlc2.exit361:                                 ; preds = %get_vlc2.exit357, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %build_vlc.exit, %get_vlc2.exit361, %get_vlc2.exit, %227, %build_vlc.exit.thread, %.thread, %41, %32, %29, %26, %22, %17, %19, %4, %._crit_edge491
-  %.0 = phi i32 [ %30, %29 ], [ -1094995529, %4 ], [ -1094995529, %17 ], [ -1094995529, %22 ], [ -1094995529, %26 ], [ -12, %32 ], [ -1094995529, %41 ], [ -1094995529, %.thread ], [ -1094995529, %19 ], [ -1094995529, %build_vlc.exit.thread ], [ %758, %._crit_edge491 ], [ -1094995529, %get_vlc2.exit361 ], [ -1094995529, %227 ], [ -1094995529, %get_vlc2.exit ], [ %169, %build_vlc.exit ]
+  %.0 = phi i32 [ %758, %._crit_edge491 ], [ -1094995529, %4 ], [ -1094995529, %19 ], [ -1094995529, %17 ], [ -1094995529, %22 ], [ -1094995529, %26 ], [ %30, %29 ], [ -12, %32 ], [ -1094995529, %41 ], [ -1094995529, %.thread ], [ -1094995529, %build_vlc.exit.thread ], [ -1094995529, %227 ], [ -1094995529, %get_vlc2.exit ], [ -1094995529, %get_vlc2.exit361 ], [ %169, %build_vlc.exit ]
   ret i32 %.0
 }
 

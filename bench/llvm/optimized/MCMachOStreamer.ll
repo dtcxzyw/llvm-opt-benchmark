@@ -1137,7 +1137,7 @@ _ZNSt6vectorIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE17_M_realloc_i
   br label %_ZNSt6vectorIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %17, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %88
-  %.0 = phi i1 [ false, %39 ], [ true, %88 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ true, %17 ], [ true, %_ZNSt6vectorIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %.0 = phi i1 [ true, %88 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ false, %39 ], [ true, %17 ], [ true, %_ZNSt6vectorIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   ret i1 %.0
 }
 
@@ -2979,7 +2979,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8MCSymbol11isUndefinedEb
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %2, %4, %8
-  %.0.i = phi i1 [ %15, %8 ], [ false, %2 ], [ true, %4 ]
+  %.0.i = phi i1 [ %15, %8 ], [ true, %4 ], [ false, %2 ]
   ret i1 %.0.i
 }
 

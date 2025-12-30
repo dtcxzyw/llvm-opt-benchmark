@@ -518,9 +518,9 @@ _ZNKSt14default_deleteIN4llvm13MCInstPrinterEEclEPS1_.exit.i: ; preds = %_ZNKSt7
   br label %.thread120
 
 .thread120:                                       ; preds = %_ZN4llvm6TripleD2Ev.exit72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt14default_deleteIN4llvm13MCInstPrinterEEclEPS1_.exit.i
-  %.8127 = phi ptr [ %136, %_ZNKSt14default_deleteIN4llvm13MCInstPrinterEEclEPS1_.exit.i ], [ %136, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ null, %_ZN4llvm6TripleD2Ev.exit72 ]
-  %.sroa.095.3126 = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13MCInstPrinterEEclEPS1_.exit.i ], [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %97, %_ZN4llvm6TripleD2Ev.exit72 ]
-  %.sroa.091.2125 = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13MCInstPrinterEEclEPS1_.exit.i ], [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %109, %_ZN4llvm6TripleD2Ev.exit72 ]
+  %.8127 = phi ptr [ %136, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %136, %_ZNKSt14default_deleteIN4llvm13MCInstPrinterEEclEPS1_.exit.i ], [ null, %_ZN4llvm6TripleD2Ev.exit72 ]
+  %.sroa.095.3126 = phi ptr [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ null, %_ZNKSt14default_deleteIN4llvm13MCInstPrinterEEclEPS1_.exit.i ], [ %97, %_ZN4llvm6TripleD2Ev.exit72 ]
+  %.sroa.091.2125 = phi ptr [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ null, %_ZNKSt14default_deleteIN4llvm13MCInstPrinterEEclEPS1_.exit.i ], [ %109, %_ZN4llvm6TripleD2Ev.exit72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.pr128 = load ptr, ptr %23, align 8, !tbaa !34
   %.not.i78 = icmp eq ptr %.pr128, null
@@ -549,8 +549,8 @@ _ZNKSt14default_deleteIN4llvm14MCDisassemblerEEclEPS1_.exit.i: ; preds = %.threa
   br label %_ZNSt10unique_ptrIN4llvm14MCDisassemblerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm14MCDisassemblerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm14MCDisassemblerEEclEPS1_.exit.i, %152
-  %.6143 = phi ptr [ %.7136149, %_ZNKSt14default_deleteIN4llvm14MCDisassemblerEEclEPS1_.exit.i ], [ %.8127, %152 ]
-  %.sroa.095.1142 = phi ptr [ %.sroa.095.2135150, %_ZNKSt14default_deleteIN4llvm14MCDisassemblerEEclEPS1_.exit.i ], [ %.sroa.095.3126, %152 ]
+  %.6143 = phi ptr [ %.8127, %152 ], [ %.7136149, %_ZNKSt14default_deleteIN4llvm14MCDisassemblerEEclEPS1_.exit.i ]
+  %.sroa.095.1142 = phi ptr [ %.sroa.095.3126, %152 ], [ %.sroa.095.2135150, %_ZNKSt14default_deleteIN4llvm14MCDisassemblerEEclEPS1_.exit.i ]
   %.not.i80 = icmp eq ptr %.sroa.095.1142, null
   br i1 %.not.i80, label %_ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm9MCContextEEclEPS1_.exit.i
 
@@ -575,7 +575,7 @@ _ZNKSt14default_deleteIKN4llvm15MCSubtargetInfoEEclEPS2_.exit.i: ; preds = %_ZNS
   br label %_ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit.thread
 
 _ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit51, %_ZNK4llvm6Target21createMCSubtargetInfoENS_9StringRefES1_S1_.exit, %_ZNKSt14default_deleteIKN4llvm15MCSubtargetInfoEEclEPS2_.exit.i, %_ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit
-  %.4161 = phi ptr [ %.4.ph, %_ZNKSt14default_deleteIKN4llvm15MCSubtargetInfoEEclEPS2_.exit.i ], [ %.4.ph, %_ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit ], [ null, %_ZNK4llvm6Target21createMCSubtargetInfoENS_9StringRefES1_S1_.exit ], [ null, %_ZN4llvm9StringRefC2EPKc.exit51 ]
+  %.4161 = phi ptr [ %.4.ph, %_ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit ], [ %.4.ph, %_ZNKSt14default_deleteIKN4llvm15MCSubtargetInfoEEclEPS2_.exit.i ], [ null, %_ZNK4llvm6Target21createMCSubtargetInfoENS_9StringRefES1_S1_.exit ], [ null, %_ZN4llvm9StringRefC2EPKc.exit51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.pr162 = load ptr, ptr %18, align 8, !tbaa !28
   %.not.i82 = icmp eq ptr %.pr162, null
@@ -586,7 +586,7 @@ _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i: ; preds = %_ZNSt10u
   br label %.thread164
 
 .thread164:                                       ; preds = %70, %_ZNK4llvm6Target17createMCInstrInfoEv.exit, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i, %_ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit.thread
-  %.3167 = phi ptr [ %.4161, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i ], [ %.4161, %_ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit.thread ], [ null, %_ZNK4llvm6Target17createMCInstrInfoEv.exit ], [ null, %70 ]
+  %.3167 = phi ptr [ %.4161, %_ZNSt10unique_ptrIN4llvm9MCContextESt14default_deleteIS1_EED2Ev.exit.thread ], [ %.4161, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i ], [ null, %_ZNK4llvm6Target17createMCInstrInfoEv.exit ], [ null, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.pr168 = load ptr, ptr %17, align 8, !tbaa !25
   %.not.i83 = icmp eq ptr %.pr168, null
@@ -600,7 +600,7 @@ _ZNKSt14default_deleteIKN4llvm9MCAsmInfoEEclEPS2_.exit.i: ; preds = %.thread164
   br label %.thread170
 
 .thread170:                                       ; preds = %_ZN4llvm9StringRefC2EPKc.exit38, %_ZNK4llvm6Target15createMCAsmInfoERKNS_14MCRegisterInfoENS_9StringRefERKNS_15MCTargetOptionsE.exit, %_ZNKSt14default_deleteIKN4llvm9MCAsmInfoEEclEPS2_.exit.i, %.thread164
-  %.2173 = phi ptr [ %.3167, %_ZNKSt14default_deleteIKN4llvm9MCAsmInfoEEclEPS2_.exit.i ], [ %.3167, %.thread164 ], [ null, %_ZNK4llvm6Target15createMCAsmInfoERKNS_14MCRegisterInfoENS_9StringRefERKNS_15MCTargetOptionsE.exit ], [ null, %_ZN4llvm9StringRefC2EPKc.exit38 ]
+  %.2173 = phi ptr [ %.3167, %.thread164 ], [ %.3167, %_ZNKSt14default_deleteIKN4llvm9MCAsmInfoEEclEPS2_.exit.i ], [ null, %_ZNK4llvm6Target15createMCAsmInfoERKNS_14MCRegisterInfoENS_9StringRefERKNS_15MCTargetOptionsE.exit ], [ null, %_ZN4llvm9StringRefC2EPKc.exit38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN4llvm15MCTargetOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %16) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -616,7 +616,7 @@ _ZNKSt14default_deleteIKN4llvm14MCRegisterInfoEEclEPS2_.exit.i: ; preds = %.thre
   br label %_ZNSt10unique_ptrIKN4llvm14MCRegisterInfoESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN4llvm14MCRegisterInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvm9StringRefC2EPKc.exit35, %_ZNK4llvm6Target15createMCRegInfoENS_9StringRefE.exit, %.thread170, %_ZNKSt14default_deleteIKN4llvm14MCRegisterInfoEEclEPS2_.exit.i
-  %.1179 = phi ptr [ %.2173, %_ZNKSt14default_deleteIKN4llvm14MCRegisterInfoEEclEPS2_.exit.i ], [ %.2173, %.thread170 ], [ null, %_ZNK4llvm6Target15createMCRegInfoENS_9StringRefE.exit ], [ null, %_ZN4llvm9StringRefC2EPKc.exit35 ]
+  %.1179 = phi ptr [ %.2173, %.thread170 ], [ %.2173, %_ZNKSt14default_deleteIKN4llvm14MCRegisterInfoEEclEPS2_.exit.i ], [ null, %_ZNK4llvm6Target15createMCRegInfoENS_9StringRefE.exit ], [ null, %_ZN4llvm9StringRefC2EPKc.exit35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %165
 

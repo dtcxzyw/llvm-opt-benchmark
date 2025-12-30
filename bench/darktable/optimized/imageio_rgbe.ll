@@ -247,7 +247,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br label %103
 
 103:                                              ; preds = %72, %82, %93, %.loopexit, %92
-  %.158 = phi i32 [ 1, %72 ], [ %.057, %82 ], [ %.057, %92 ], [ %.057, %.loopexit ], [ %.057, %93 ]
+  %.158 = phi i32 [ %.057, %82 ], [ %.057, %92 ], [ %.057, %.loopexit ], [ %.057, %93 ], [ 1, %72 ]
   %104 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.split85.us, label %.critedge.split
@@ -295,7 +295,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br label %121
 
 121:                                              ; preds = %54, %.split85.us, %109, %113, %120, %117, %19
-  %.054 = phi i32 [ -1, %19 ], [ -1, %54 ], [ -1, %113 ], [ -1, %120 ], [ -1, %.split85.us ], [ -1, %109 ], [ 0, %117 ]
+  %.054 = phi i32 [ -1, %19 ], [ -1, %54 ], [ -1, %113 ], [ -1, %120 ], [ -1, %109 ], [ -1, %.split85.us ], [ 0, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.054
 }
@@ -626,7 +626,7 @@ rgbe2float.exit:                                  ; preds = %41, %53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %101, %113
-  %.3 = phi ptr [ %103, %101 ], [ %114, %113 ], [ %94, %.lr.ph ]
+  %.3 = phi ptr [ %114, %113 ], [ %103, %101 ], [ %94, %.lr.ph ]
   %115 = icmp ult ptr %.3, %72
   br i1 %115, label %75, label %.loopexit112
 
@@ -690,7 +690,7 @@ rgbe2float.exit111:                               ; preds = %125, %137
   br label %.critedge109
 
 .critedge109:                                     ; preds = %78, %92, %100, %109, %._crit_edge, %70, %64, %rgbe2float.exit, %26, %20
-  %.086 = phi i32 [ %22, %20 ], [ -1, %26 ], [ %57, %rgbe2float.exit ], [ -1, %64 ], [ -1, %70 ], [ -1, %78 ], [ 0, %._crit_edge ], [ -1, %109 ], [ -1, %100 ], [ -1, %92 ]
+  %.086 = phi i32 [ %22, %20 ], [ -1, %26 ], [ %57, %rgbe2float.exit ], [ -1, %64 ], [ -1, %70 ], [ 0, %._crit_edge ], [ -1, %109 ], [ -1, %100 ], [ -1, %92 ], [ -1, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.086

@@ -101,8 +101,8 @@ define hidden range(i32 -2147483647, -2147483648) i32 @i2c_ASN1_BIT_STRING(ptr n
   br label %43
 
 43:                                               ; preds = %4, %42, %40, %38, %36, %34, %32, %30, %._crit_edge, %13
-  %.038 = phi i32 [ %15, %13 ], [ 6, %40 ], [ 0, %._crit_edge ], [ 1, %30 ], [ 2, %32 ], [ 3, %34 ], [ 4, %36 ], [ 5, %38 ], [ %., %42 ], [ 0, %4 ]
-  %.1 = phi i32 [ %5, %13 ], [ %.037.lcssa.ph, %40 ], [ %.037.lcssa.ph, %._crit_edge ], [ %.037.lcssa.ph, %30 ], [ %.037.lcssa.ph, %32 ], [ %.037.lcssa.ph, %34 ], [ %.037.lcssa.ph, %36 ], [ %.037.lcssa.ph, %38 ], [ %.037.lcssa.ph, %42 ], [ %5, %4 ]
+  %.038 = phi i32 [ %15, %13 ], [ 0, %._crit_edge ], [ 1, %30 ], [ 2, %32 ], [ 3, %34 ], [ 4, %36 ], [ 5, %38 ], [ 6, %40 ], [ %., %42 ], [ 0, %4 ]
+  %.1 = phi i32 [ %5, %13 ], [ %.037.lcssa.ph, %._crit_edge ], [ %.037.lcssa.ph, %30 ], [ %.037.lcssa.ph, %32 ], [ %.037.lcssa.ph, %34 ], [ %.037.lcssa.ph, %36 ], [ %.037.lcssa.ph, %38 ], [ %.037.lcssa.ph, %40 ], [ %.037.lcssa.ph, %42 ], [ %5, %4 ]
   %44 = add nsw i32 %.1, 1
   %45 = icmp eq ptr %1, null
   br i1 %45, label %62, label %46
@@ -253,7 +253,7 @@ define hidden ptr @c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0,
   br label %55
 
 55:                                               ; preds = %50, %52, %54, %10, %49
-  %.0 = phi ptr [ null, %10 ], [ %.1, %49 ], [ null, %54 ], [ null, %52 ], [ null, %50 ]
+  %.0 = phi ptr [ %.1, %49 ], [ null, %10 ], [ null, %54 ], [ null, %52 ], [ null, %50 ]
   ret ptr %.0
 }
 
@@ -379,7 +379,7 @@ define hidden range(i32 0, 2) i32 @ASN1_BIT_STRING_set_bit(ptr noundef captures(
   br i1 %65, label %56, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %63, %56, %44, %20, %3, %34
-  %.036 = phi i32 [ 0, %3 ], [ 0, %34 ], [ 1, %20 ], [ 1, %44 ], [ 1, %56 ], [ 1, %63 ]
+  %.036 = phi i32 [ 0, %34 ], [ 0, %3 ], [ 1, %20 ], [ 1, %44 ], [ 1, %56 ], [ 1, %63 ]
   ret i32 %.036
 }
 
@@ -471,7 +471,7 @@ define hidden range(i32 0, 2) i32 @ASN1_BIT_STRING_check(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %3, %4
-  %.0 = phi i32 [ 1, %3 ], [ 1, %4 ], [ 1, %.preheader ], [ %26, %.loopexit.loopexit ]
+  %.0 = phi i32 [ 1, %4 ], [ 1, %3 ], [ 1, %.preheader ], [ %26, %.loopexit.loopexit ]
   ret i32 %.0
 }
 

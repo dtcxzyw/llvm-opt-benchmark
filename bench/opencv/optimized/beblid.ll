@@ -2145,8 +2145,8 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit105, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !134
 
 .loopexit105:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc84, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i
-  %20 = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %14, %.noexc84 ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %17, %.noexc84 ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %20 = phi ptr [ %14, %.noexc84 ], [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %17, %.noexc84 ], [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i, ptr %21, align 8, !tbaa !38
   %22 = load i32, ptr %1, align 4, !tbaa !107
@@ -2690,10 +2690,10 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   br i1 %430, label %.lr.ph, label %.loopexit, !llvm.loop !158
 
 .loopexit:                                        ; preds = %422, %323, %332, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit
-  %431 = phi ptr [ %326, %323 ], [ %121, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %121, %332 ], [ %423, %422 ]
-  %432 = phi ptr [ %325, %323 ], [ %121, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %121, %332 ], [ %424, %422 ]
-  %.575 = phi i8 [ %.272, %323 ], [ %.070118, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.070118, %332 ], [ %.474, %422 ]
-  %.5 = phi ptr [ %.2, %323 ], [ %.0119, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.0119, %332 ], [ %.4, %422 ]
+  %431 = phi ptr [ %121, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %121, %332 ], [ %326, %323 ], [ %423, %422 ]
+  %432 = phi ptr [ %121, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %121, %332 ], [ %325, %323 ], [ %424, %422 ]
+  %.575 = phi i8 [ %.070118, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.070118, %332 ], [ %.272, %323 ], [ %.474, %422 ]
+  %.5 = phi ptr [ %.0119, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.0119, %332 ], [ %.2, %323 ], [ %.4, %422 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %433 = load i32, ptr %23, align 4, !tbaa !109
   %434 = sext i32 %433 to i64
@@ -3544,8 +3544,8 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit105, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !178
 
 .loopexit105:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc84, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i
-  %20 = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %14, %.noexc84 ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %17, %.noexc84 ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %20 = phi ptr [ %14, %.noexc84 ], [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %17, %.noexc84 ], [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i, ptr %21, align 8, !tbaa !56
   %22 = load i32, ptr %1, align 4, !tbaa !107
@@ -4088,10 +4088,10 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   br i1 %429, label %.lr.ph, label %.loopexit, !llvm.loop !193
 
 .loopexit:                                        ; preds = %421, %324, %333, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit
-  %430 = phi ptr [ %327, %324 ], [ %121, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %121, %333 ], [ %422, %421 ]
-  %431 = phi ptr [ %326, %324 ], [ %121, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %121, %333 ], [ %423, %421 ]
-  %.575 = phi i8 [ %.272, %324 ], [ %.070118, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.070118, %333 ], [ %.474, %421 ]
-  %.5 = phi ptr [ %.2, %324 ], [ %.0119, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.0119, %333 ], [ %.4, %421 ]
+  %430 = phi ptr [ %121, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %121, %333 ], [ %327, %324 ], [ %422, %421 ]
+  %431 = phi ptr [ %121, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %121, %333 ], [ %326, %324 ], [ %423, %421 ]
+  %.575 = phi i8 [ %.070118, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.070118, %333 ], [ %.272, %324 ], [ %.474, %421 ]
+  %.5 = phi ptr [ %.0119, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ], [ %.0119, %333 ], [ %.2, %324 ], [ %.4, %421 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %432 = load i32, ptr %23, align 4, !tbaa !109
   %433 = sext i32 %432 to i64

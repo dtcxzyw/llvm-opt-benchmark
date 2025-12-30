@@ -268,7 +268,7 @@ define dso_local range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef 
   br label %.critedge35
 
 .critedge35:                                      ; preds = %.critedge35.sink.split, %2, %5, %11
-  %.128 = phi i32 [ 1, %5 ], [ 2, %2 ], [ 0, %11 ], [ 0, %.critedge35.sink.split ]
+  %.128 = phi i32 [ 0, %11 ], [ 1, %5 ], [ 2, %2 ], [ 0, %.critedge35.sink.split ]
   ret i32 %.128
 }
 
@@ -1202,8 +1202,8 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   br i1 %.not218, label %._crit_edge262, label %.lr.ph261
 
 .loopexit:                                        ; preds = %.lr.ph, %95, %.preheader243
-  %.2183.lcssa309 = phi ptr [ %.2186246, %95 ], [ %.2186246, %.preheader243 ], [ %.2183247, %.lr.ph ]
-  %.2186.lcssa307 = phi ptr [ %.2183247, %95 ], [ %.2183247, %.preheader243 ], [ %.2186246, %.lr.ph ]
+  %.2183.lcssa309 = phi ptr [ %.2186246, %.preheader243 ], [ %.2186246, %95 ], [ %.2183247, %.lr.ph ]
+  %.2186.lcssa307 = phi ptr [ %.2183247, %.preheader243 ], [ %.2183247, %95 ], [ %.2186246, %.lr.ph ]
   %108 = icmp slt i64 %30, 1
   br i1 %108, label %.thread238, label %17
 
@@ -1319,7 +1319,7 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   br label %162
 
 162:                                              ; preds = %.thread240, %159, %150
-  %.4 = phi i32 [ -1, %.thread240 ], [ 0, %159 ], [ -1, %150 ]
+  %.4 = phi i32 [ 0, %159 ], [ -1, %150 ], [ -1, %.thread240 ]
   %163 = load i16, ptr %5, align 8
   %164 = xor i16 %163, %6
   %165 = and i16 %164, 8
@@ -1354,7 +1354,7 @@ php_stream_notification_notify.exit:              ; preds = %173
   br label %.critedge229
 
 .critedge229:                                     ; preds = %.thread238, %162, %php_stream_notification_notify.exit, %173, %169, %166, %109
-  %.1180 = phi i32 [ 0, %.thread238 ], [ 0, %109 ], [ %.7, %php_stream_notification_notify.exit ], [ %.7, %173 ], [ %.7, %169 ], [ %.4, %162 ], [ %.7, %166 ]
+  %.1180 = phi i32 [ 0, %109 ], [ %.7, %php_stream_notification_notify.exit ], [ %.7, %173 ], [ %.7, %169 ], [ %.4, %162 ], [ %.7, %166 ], [ 0, %.thread238 ]
   ret i32 %.1180
 }
 
@@ -1533,7 +1533,7 @@ define dso_local i64 @_php_stream_read(ptr noundef %0, ptr noundef %1, i64 nound
   br label %.backedge
 
 .thread103:                                       ; preds = %65, %15, %55, %63, %46, %44, %40
-  %.1 = phi i64 [ %.292, %40 ], [ %.292, %44 ], [ %23, %15 ], [ %.292, %55 ], [ %57, %65 ], [ %.292, %46 ], [ %57, %63 ]
+  %.1 = phi i64 [ %.292, %44 ], [ %.292, %40 ], [ %57, %65 ], [ %23, %15 ], [ %.292, %55 ], [ %57, %63 ], [ %.292, %46 ]
   %66 = icmp sgt i64 %.1, 0
   br i1 %66, label %67, label %.thread103.thread
 
@@ -1549,7 +1549,7 @@ define dso_local i64 @_php_stream_read(ptr noundef %0, ptr noundef %1, i64 nound
   br label %.thread103.thread
 
 .thread103.thread:                                ; preds = %3, %.thread103, %67, %44, %40
-  %.070 = phi i64 [ -1, %44 ], [ %38, %40 ], [ %.1, %67 ], [ %.1, %.thread103 ], [ 0, %3 ]
+  %.070 = phi i64 [ %38, %40 ], [ -1, %44 ], [ %.1, %67 ], [ %.1, %.thread103 ], [ 0, %3 ]
   ret i64 %.070
 }
 
@@ -1783,8 +1783,8 @@ _php_stream_write.exit:                           ; preds = %16
   %spec.select = select i1 %20, i32 1, i32 -1
   br label %_php_stream_write.exit.thread
 
-_php_stream_write.exit.thread:                    ; preds = %_php_stream_write.exit, %8, %16
-  %21 = phi i32 [ -1, %8 ], [ %spec.select, %_php_stream_write.exit ], [ -1, %16 ]
+_php_stream_write.exit.thread:                    ; preds = %_php_stream_write.exit, %16, %8
+  %21 = phi i32 [ -1, %8 ], [ -1, %16 ], [ %spec.select, %_php_stream_write.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %21
 }
@@ -1833,7 +1833,7 @@ define dso_local i64 @_php_stream_write(ptr noundef %0, ptr noundef %1, i64 noun
   br label %23
 
 23:                                               ; preds = %18, %19, %3, %10
-  %.013 = phi i64 [ 0, %3 ], [ -1, %10 ], [ %.0, %19 ], [ 0, %18 ]
+  %.013 = phi i64 [ -1, %10 ], [ 0, %3 ], [ %.0, %19 ], [ 0, %18 ]
   ret i64 %.013
 }
 
@@ -2046,7 +2046,7 @@ define dso_local ptr @php_stream_locate_eol(ptr noundef captures(none) %0, ptr n
   br label %37
 
 37:                                               ; preds = %29, %33, %35, %26, %.thread
-  %.036 = phi ptr [ %22, %.thread ], [ %36, %35 ], [ null, %29 ], [ %21, %26 ], [ %34, %33 ]
+  %.036 = phi ptr [ %22, %.thread ], [ %21, %26 ], [ %34, %33 ], [ %36, %35 ], [ null, %29 ]
   ret ptr %.036
 }
 
@@ -2160,9 +2160,9 @@ select.unfold:                                    ; preds = %29, %24
   br i1 %50, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %select.unfold, %46, %38
-  %.172 = phi i64 [ %.071.ph, %46 ], [ %.071.ph, %38 ], [ %37, %select.unfold ]
-  %.268 = phi ptr [ %.066.ph, %46 ], [ %.066.ph, %38 ], [ %.167, %select.unfold ]
-  %.2 = phi ptr [ %.060.ph, %46 ], [ %.060.ph, %38 ], [ %35, %select.unfold ]
+  %.172 = phi i64 [ %.071.ph, %38 ], [ %.071.ph, %46 ], [ %37, %select.unfold ]
+  %.268 = phi ptr [ %.066.ph, %38 ], [ %.066.ph, %46 ], [ %.167, %select.unfold ]
+  %.2 = phi ptr [ %.060.ph, %38 ], [ %.060.ph, %46 ], [ %35, %select.unfold ]
   %51 = icmp eq i64 %.172, 0
   br i1 %51, label %54, label %52
 
@@ -2341,7 +2341,7 @@ zend_string_alloc.exit:                           ; preds = %41, %61, %.thread98
   br label %79
 
 79:                                               ; preds = %57, %51, %4, %77
-  %.0 = phi ptr [ null, %4 ], [ %65, %77 ], [ null, %51 ], [ null, %57 ]
+  %.0 = phi ptr [ %65, %77 ], [ null, %4 ], [ null, %51 ], [ null, %57 ]
   ret ptr %.0
 }
 
@@ -2433,7 +2433,7 @@ define internal fastcc ptr @_php_stream_search_delim(ptr noundef readonly captur
   br label %zend_memnstr.exit
 
 zend_memnstr.exit:                                ; preds = %52, %42, %50, %30, %54, %22, %5, %17
-  %.0 = phi ptr [ null, %5 ], [ %21, %17 ], [ %55, %54 ], [ null, %22 ], [ null, %30 ], [ null, %42 ], [ null, %52 ], [ %45, %50 ]
+  %.0 = phi ptr [ %21, %17 ], [ null, %5 ], [ %55, %54 ], [ null, %22 ], [ null, %30 ], [ null, %52 ], [ null, %42 ], [ %45, %50 ]
   ret ptr %.0
 }
 
@@ -2695,7 +2695,7 @@ define dso_local i64 @_php_stream_printf(ptr noundef %0, ptr noundef %1, ...) lo
   br label %_php_stream_write.exit
 
 _php_stream_write.exit:                           ; preds = %7, %13, %21, %22
-  %.013.i = phi i64 [ 0, %7 ], [ -1, %13 ], [ %.0.i, %22 ], [ 0, %21 ]
+  %.013.i = phi i64 [ -1, %13 ], [ 0, %7 ], [ %.0.i, %22 ], [ 0, %21 ]
   %26 = load ptr, ptr %3, align 8, !tbaa !43
   call void @_efree(ptr noundef %26) #27
   br label %27
@@ -2940,7 +2940,7 @@ define dso_local i32 @_php_stream_sync(ptr noundef %0, i1 noundef zeroext %1) lo
   br label %_php_stream_set_option.exit
 
 _php_stream_set_option.exit:                      ; preds = %6, %.thread.i
-  %.018.i = phi i32 [ %7, %6 ], [ -2, %.thread.i ]
+  %.018.i = phi i32 [ -2, %.thread.i ], [ %7, %6 ]
   ret i32 %.018.i
 }
 
@@ -2963,7 +2963,7 @@ define dso_local i32 @_php_stream_truncate_set_size(ptr noundef %0, i64 noundef 
   br label %_php_stream_set_option.exit
 
 _php_stream_set_option.exit:                      ; preds = %7, %.thread.i
-  %.018.i = phi i32 [ %8, %7 ], [ -2, %.thread.i ]
+  %.018.i = phi i32 [ -2, %.thread.i ], [ %8, %7 ]
   ret i32 %.018.i
 }
 
@@ -3055,7 +3055,7 @@ _php_stream_set_option.exit.thread:               ; preds = %13, %9, %.thread, %
   br label %40
 
 40:                                               ; preds = %29, %._crit_edge
-  %.1 = phi i64 [ %..4, %._crit_edge ], [ %spec.select, %29 ]
+  %.1 = phi i64 [ %spec.select, %29 ], [ %..4, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.1
 }
@@ -3474,8 +3474,8 @@ zend_string_extend.exit:                          ; preds = %165, %zend_string_a
   br i1 %201, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %198, %144
-  %.1.lcssa = phi ptr [ %.2, %198 ], [ %.1138, %144 ]
-  %.288 = phi i64 [ %142, %198 ], [ %spec.store.select, %144 ]
+  %.1.lcssa = phi ptr [ %.1138, %144 ], [ %.2, %198 ]
+  %.288 = phi i64 [ %spec.store.select, %144 ], [ %142, %198 ]
   %.not100 = icmp eq i64 %.288, 0
   br i1 %.not100, label %._crit_edge.thread, label %202
 
@@ -3589,7 +3589,7 @@ zend_string_truncate.exit:                        ; preds = %219, %zend_string_a
   br label %zend_string_truncate.exit113
 
 zend_string_truncate.exit113:                     ; preds = %255, %254, %._crit_edge.thread, %100, %99, %94, %90, %zend_string_alloc.exit.i110, %67, %zend_string_truncate.exit, %.critedge.thread, %6
-  %.081 = phi ptr [ %7, %6 ], [ %82, %zend_string_alloc.exit.i110 ], [ null, %100 ], [ %19, %.critedge.thread ], [ %.0.i, %zend_string_truncate.exit ], [ %68, %67 ], [ %82, %90 ], [ null, %94 ], [ null, %99 ], [ null, %._crit_edge.thread ], [ null, %254 ], [ null, %255 ]
+  %.081 = phi ptr [ %7, %6 ], [ %19, %.critedge.thread ], [ %.0.i, %zend_string_truncate.exit ], [ %68, %67 ], [ %82, %90 ], [ %82, %zend_string_alloc.exit.i110 ], [ null, %94 ], [ null, %99 ], [ null, %100 ], [ null, %._crit_edge.thread ], [ null, %254 ], [ null, %255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.081
 }
@@ -3704,28 +3704,28 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_copy_to_stream_ex(ptr noundef
 59:                                               ; preds = %56
   br i1 %.not, label %.critedge.cont, label %.critedge.cont.sink.split
 
-.critedge.cont.thread:                            ; preds = %24, %34, %30, %27, %56, %56, %56, %56, %51
-  %.4120.ph = phi i64 [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ %41, %51 ], [ 0, %27 ], [ 0, %30 ], [ 0, %34 ], [ 0, %24 ]
+.critedge.cont.thread:                            ; preds = %34, %30, %27, %24, %51, %56, %56, %56, %56
+  %.4120.ph = phi i64 [ %41, %51 ], [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
 .critedge.cont.sink.split:                        ; preds = %59, %55, %.critedge
-  %.sink = phi i64 [ 0, %55 ], [ %41, %.critedge ], [ 0, %59 ]
-  %.6.ph = phi i32 [ 0, %55 ], [ 0, %.critedge ], [ -1, %59 ]
+  %.sink = phi i64 [ %41, %.critedge ], [ 0, %55 ], [ 0, %59 ]
+  %.6.ph = phi i32 [ 0, %.critedge ], [ 0, %55 ], [ -1, %59 ]
   store i64 %.sink, ptr %3, align 8, !tbaa !131
   br label %.critedge.cont
 
 .critedge.cont:                                   ; preds = %.critedge.cont.sink.split, %.critedge, %55, %59
-  %.6 = phi i32 [ -1, %59 ], [ 0, %.critedge ], [ 0, %55 ], [ %.6.ph, %.critedge.cont.sink.split ]
+  %.6 = phi i32 [ 0, %.critedge ], [ 0, %55 ], [ -1, %59 ], [ %.6.ph, %.critedge.cont.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.cont194
 
 60:                                               ; preds = %.critedge.cont.thread, %18, %15, %12
-  %.0116 = phi i64 [ %.4120.ph, %.critedge.cont.thread ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ]
+  %.0116 = phi i64 [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ %.4120.ph, %.critedge.cont.thread ]
   %61 = icmp ne i64 %2, -1
   %spec.store.select6 = select i1 %61, i64 %2, i64 0
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3944,8 +3944,8 @@ _php_stream_set_option.exit.thread.split.split:   ; preds = %_php_stream_set_opt
   br i1 %141, label %.split282.us, label %.lr.ph286
 
 .split282.us:                                     ; preds = %162, %_php_stream_set_option.exit.thread.split.us, %_php_stream_set_option.exit.thread.split.split
-  %.us-phi283 = phi i64 [ %.10126.us, %_php_stream_set_option.exit.thread.split.us ], [ %.5121, %_php_stream_set_option.exit.thread.split.split ], [ %144, %162 ]
-  %.us-phi284 = phi i64 [ %118, %_php_stream_set_option.exit.thread.split.us ], [ %140, %_php_stream_set_option.exit.thread.split.split ], [ %163, %162 ]
+  %.us-phi283 = phi i64 [ %.5121, %_php_stream_set_option.exit.thread.split.split ], [ %.10126.us, %_php_stream_set_option.exit.thread.split.us ], [ %144, %162 ]
+  %.us-phi284 = phi i64 [ %140, %_php_stream_set_option.exit.thread.split.split ], [ %118, %_php_stream_set_option.exit.thread.split.us ], [ %163, %162 ]
   br i1 %.not, label %.cont191, label %.else193
 
 .else193:                                         ; preds = %.split282.us
@@ -4003,8 +4003,8 @@ _php_stream_write.exit175:                        ; preds = %155
   br i1 %158, label %.cont185, label %_php_stream_write.exit175.thread
 
 _php_stream_write.exit175.thread:                 ; preds = %_php_stream_write.exit175, %155, %_php_stream_write.exit175.us, %132, %.split.us
-  %.10126259 = phi i64 [ %.us-phi, %.split.us ], [ %.10126.us, %_php_stream_write.exit175.us ], [ %.10126.us, %132 ], [ %.10126285, %155 ], [ %.10126285, %_php_stream_write.exit175 ]
-  %.0128252 = phi i64 [ %.us-phi275, %.split.us ], [ %.0128273.us, %_php_stream_write.exit175.us ], [ %.0128273.us, %132 ], [ %.0128273, %155 ], [ %.0128273, %_php_stream_write.exit175 ]
+  %.10126259 = phi i64 [ %.us-phi, %.split.us ], [ %.10126.us, %132 ], [ %.10126.us, %_php_stream_write.exit175.us ], [ %.10126285, %155 ], [ %.10126285, %_php_stream_write.exit175 ]
+  %.0128252 = phi i64 [ %.us-phi275, %.split.us ], [ %.0128273.us, %132 ], [ %.0128273.us, %_php_stream_write.exit175.us ], [ %.0128273, %155 ], [ %.0128273, %_php_stream_write.exit175 ]
   br i1 %.not, label %.cont194, label %.else187
 
 .else187:                                         ; preds = %_php_stream_write.exit175.thread
@@ -4031,7 +4031,7 @@ _php_stream_write.exit175.thread:                 ; preds = %_php_stream_write.e
   br label %.cont194
 
 .cont194:                                         ; preds = %.else187, %_php_stream_write.exit175.thread, %.cont191, %.else190, %.split279.us, %.loopexit249, %.critedge.cont, %.else196, %11
-  %.0 = phi i32 [ %.6, %.critedge.cont ], [ 0, %.else190 ], [ 0, %.else196 ], [ %.10.ph.ph, %.loopexit249 ], [ 0, %11 ], [ 0, %.split279.us ], [ %142, %.cont191 ], [ -1, %_php_stream_write.exit175.thread ], [ -1, %.else187 ]
+  %.0 = phi i32 [ %.10.ph.ph, %.loopexit249 ], [ %.6, %.critedge.cont ], [ 0, %11 ], [ 0, %.else196 ], [ 0, %.split279.us ], [ 0, %.else190 ], [ %142, %.cont191 ], [ -1, %_php_stream_write.exit175.thread ], [ -1, %.else187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -4251,7 +4251,7 @@ zend_hash_add_ptr.exit:                           ; preds = %15, %2
   br label %php_stream_wrapper_scheme_validate.exit
 
 php_stream_wrapper_scheme_validate.exit:          ; preds = %switch.early.test.i, %29, %24, %zend_hash_add_ptr.exit
-  %.0 = phi i32 [ %20, %29 ], [ %20, %zend_hash_add_ptr.exit ], [ %20, %24 ], [ -1, %switch.early.test.i ]
+  %.0 = phi i32 [ %20, %zend_hash_add_ptr.exit ], [ %20, %24 ], [ %20, %29 ], [ -1, %switch.early.test.i ]
   ret i32 %.0
 }
 
@@ -4526,7 +4526,7 @@ sub_0:                                            ; preds = %23
   br label %.critedge122
 
 .critedge122:                                     ; preds = %23, %.tail.thread, %32, %33, %.thread153, %61, %53
-  %.081144 = phi ptr [ %.081152, %53 ], [ null, %.thread153 ], [ %.081152, %61 ], [ null, %33 ], [ null, %32 ], [ null, %.tail.thread ], [ null, %23 ]
+  %.081144 = phi ptr [ %.081152, %61 ], [ %.081152, %53 ], [ null, %.thread153 ], [ null, %33 ], [ null, %32 ], [ null, %.tail.thread ], [ null, %23 ]
   %62 = and i32 %2, 64
   %.not109 = icmp eq i32 %62, 0
   br i1 %.not109, label %63, label %.critedge124
@@ -4606,8 +4606,8 @@ zend_hash_find_ex_ptr.exit:                       ; preds = %66
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %95, ptr noundef nonnull %0) #27
   br label %.critedge124
 
-.critedge124:                                     ; preds = %.thread160, %zend_hash_find_ex_ptr.exit, %74, %82, %89, %94, %92, %.critedge122, %65, %73, %71, %63, %52, %50, %12
-  %.0 = phi ptr [ %14, %12 ], [ null, %89 ], [ null, %50 ], [ @php_plain_files_wrapper, %63 ], [ null, %.critedge122 ], [ %.081144, %65 ], [ %70, %zend_hash_find_ex_ptr.exit ], [ null, %71 ], [ null, %73 ], [ null, %52 ], [ null, %92 ], [ null, %94 ], [ %.081152, %82 ], [ %.081152, %74 ], [ null, %.thread160 ]
+.critedge124:                                     ; preds = %.thread160, %zend_hash_find_ex_ptr.exit, %74, %82, %89, %94, %92, %.critedge122, %65, %73, %71, %63, %50, %52, %12
+  %.0 = phi ptr [ %14, %12 ], [ null, %.critedge122 ], [ %.081144, %65 ], [ %70, %zend_hash_find_ex_ptr.exit ], [ null, %73 ], [ null, %71 ], [ @php_plain_files_wrapper, %63 ], [ null, %50 ], [ null, %52 ], [ null, %92 ], [ null, %94 ], [ null, %89 ], [ %.081152, %82 ], [ %.081152, %74 ], [ null, %.thread160 ]
   ret ptr %.0
 }
 
@@ -4898,8 +4898,8 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   tail call void @_efree(ptr noundef %8) #27
   br label %51
 
-.critedge91:                                      ; preds = %45, %43
-  %.170.ph = phi ptr [ %48, %45 ], [ @.str.30, %43 ]
+.critedge91:                                      ; preds = %43, %45
+  %.170.ph = phi ptr [ @.str.30, %43 ], [ %48, %45 ]
   %50 = call ptr @php_strip_url_passwd(ptr noundef %8) #27
   call void (ptr, ptr, i32, ptr, ...) @php_error_docref1(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.32, ptr noundef %2, ptr noundef %.170.ph) #27
   call void @_efree(ptr noundef %8) #27
@@ -5259,7 +5259,7 @@ zend_string_release_ex.exit171.thread:            ; preds = %123, %127, %131, %1
   br label %zend_string_release_ex.exit175
 
 zend_string_release_ex.exit171:                   ; preds = %140, %137
-  %.3117 = phi i32 [ %.0114, %137 ], [ %70, %140 ]
+  %.3117 = phi i32 [ %70, %140 ], [ %.0114, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %163
 
@@ -5385,7 +5385,7 @@ php_stream_tidy_wrapper_error_log.exit:           ; preds = %177, %181
   br label %zend_string_release_ex.exit175
 
 zend_string_release_ex.exit175:                   ; preds = %192, %187, %183, %zend_string_release_ex.exit171.thread, %63, %58, %54, %45, %40, %36, %php_stream_tidy_wrapper_error_log.exit, %53, %35, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %53 ], [ %.1.ph, %zend_string_release_ex.exit171.thread ], [ null, %35 ], [ %.3113223, %php_stream_tidy_wrapper_error_log.exit ], [ null, %45 ], [ null, %63 ], [ null, %36 ], [ null, %40 ], [ null, %54 ], [ null, %58 ], [ %.3113223, %183 ], [ %.3113223, %187 ], [ %.3113223, %192 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %35 ], [ null, %53 ], [ %.3113223, %php_stream_tidy_wrapper_error_log.exit ], [ null, %36 ], [ null, %40 ], [ null, %45 ], [ null, %54 ], [ null, %58 ], [ null, %63 ], [ %.1.ph, %zend_string_release_ex.exit171.thread ], [ %.3113223, %183 ], [ %.3113223, %187 ], [ %.3113223, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -5808,7 +5808,7 @@ select.unfold50._crit_edge:                       ; preds = %select.unfold50._cr
   br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph61
 
 44:                                               ; preds = %select.unfold50._crit_edge, %38, %7, %5, %._crit_edge
-  %.040 = phi i32 [ -1, %._crit_edge ], [ -1, %7 ], [ -1, %5 ], [ %.035.lcssa, %38 ], [ %.035.lcssa, %select.unfold50._crit_edge ]
+  %.040 = phi i32 [ -1, %._crit_edge ], [ -1, %5 ], [ -1, %7 ], [ %.035.lcssa, %38 ], [ %.035.lcssa, %select.unfold50._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.040
 }

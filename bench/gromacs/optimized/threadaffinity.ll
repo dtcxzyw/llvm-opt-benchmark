@@ -1304,7 +1304,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit232.i:            ; preds = %503, %_ZNKSt7__cxx1
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit45, %.body, %_ZN3gmx14LogEntryWriterD2Ev.exit53, %123, %129, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i, %_ZN3gmx14LogEntryWriterD2Ev.exit152.i, %_ZN3gmx14LogEntryWriterD2Ev.exit170.i, %_ZN3gmx14LogEntryWriterD2Ev.exit188.i, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i, %_ZN3gmx14LogEntryWriterD2Ev.exit224.i, %_ZN3gmx14LogEntryWriterD2Ev.exit232.i
-  %common.resume.op = phi { ptr, i32 } [ %266, %_ZN3gmx14LogEntryWriterD2Ev.exit152.i ], [ %124, %123 ], [ %130, %129 ], [ %208, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i ], [ %504, %_ZN3gmx14LogEntryWriterD2Ev.exit232.i ], [ %478, %_ZN3gmx14LogEntryWriterD2Ev.exit224.i ], [ %417, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i ], [ %368, %_ZN3gmx14LogEntryWriterD2Ev.exit188.i ], [ %318, %_ZN3gmx14LogEntryWriterD2Ev.exit170.i ], [ %73, %_ZN3gmx14LogEntryWriterD2Ev.exit45 ], [ %.pn.pn.pn, %.body ], [ %101, %_ZN3gmx14LogEntryWriterD2Ev.exit53 ]
+  %common.resume.op = phi { ptr, i32 } [ %124, %123 ], [ %130, %129 ], [ %208, %_ZN3gmx14LogEntryWriterD2Ev.exit134.i ], [ %504, %_ZN3gmx14LogEntryWriterD2Ev.exit232.i ], [ %478, %_ZN3gmx14LogEntryWriterD2Ev.exit224.i ], [ %417, %_ZN3gmx14LogEntryWriterD2Ev.exit206.i ], [ %368, %_ZN3gmx14LogEntryWriterD2Ev.exit188.i ], [ %318, %_ZN3gmx14LogEntryWriterD2Ev.exit170.i ], [ %266, %_ZN3gmx14LogEntryWriterD2Ev.exit152.i ], [ %73, %_ZN3gmx14LogEntryWriterD2Ev.exit45 ], [ %.pn.pn.pn, %.body ], [ %101, %_ZN3gmx14LogEntryWriterD2Ev.exit53 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL26get_thread_affinity_layoutRKN3gmx8MDLoggerEPK9t_commrecRKNS_16HardwareTopologyEibiPiPS9_Pb.exit: ; preds = %483
@@ -1581,7 +1581,7 @@ _ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEE
   ret void
 
 .body:                                            ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit70, %548, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %549, %548 ], [ %593, %_ZN3gmx14LogEntryWriterD2Ev.exit70 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %549, %548 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %593, %_ZN3gmx14LogEntryWriterD2Ev.exit70 ]
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %common.resume

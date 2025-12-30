@@ -914,7 +914,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   br label %return
 
 return:                                           ; preds = %if.end20.i.i, %while.end.i.i, %for.end, %if.then26
-  %retval.sroa.0.0.insert.insert = phi i64 [ %44, %for.end ], [ %38, %if.then26 ], [ 0, %while.end.i.i ], [ 0, %if.end20.i.i ]
+  %retval.sroa.0.0.insert.insert = phi i64 [ %38, %if.then26 ], [ %44, %for.end ], [ 0, %while.end.i.i ], [ 0, %if.end20.i.i ]
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
@@ -1122,7 +1122,7 @@ if.end20.i.i:                                     ; preds = %while.end.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE8makeIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit, !llvm.loop !21
 
 _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE8makeIterERKNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEE.exit: ; preds = %if.end20.i.i, %while.end.i.i, %if.end.i.i.i.i.i, %while.body.i.i, %land.rhs.i.i.i.i
-  %retval.sroa.0.0.i = phi i1 [ true, %if.end.i.i.i.i.i ], [ true, %land.rhs.i.i.i.i ], [ true, %while.body.i.i ], [ false, %while.end.i.i ], [ false, %if.end20.i.i ]
+  %retval.sroa.0.0.i = phi i1 [ true, %land.rhs.i.i.i.i ], [ true, %while.body.i.i ], [ true, %if.end.i.i.i.i.i ], [ false, %while.end.i.i ], [ false, %if.end20.i.i ]
   ret i1 %retval.sroa.0.0.i
 }
 
@@ -1861,7 +1861,7 @@ while.body.while.end.loopexit_crit_edge:          ; preds = %while.body
   br label %while.end, !llvm.loop !30
 
 while.end:                                        ; preds = %land.rhs, %land.rhs.preheader, %while.body.while.end.loopexit_crit_edge, %entry
-  %.lcssa = phi i32 [ 0, %entry ], [ %0, %land.rhs.preheader ], [ 0, %while.body.while.end.loopexit_crit_edge ], [ %.pr, %land.rhs ]
+  %.lcssa = phi i32 [ 0, %entry ], [ 0, %while.body.while.end.loopexit_crit_edge ], [ %0, %land.rhs.preheader ], [ %.pr, %land.rhs ]
   %sub = sub i32 %0, %.lcssa
   ret i32 %sub
 }
@@ -2761,8 +2761,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %shr.i.i.i, i64 noundef %shl.i.i.i, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -3296,7 +3296,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_21VectorContainerP
   ret void
 
 ehcleanup:                                        ; preds = %invoke.cont4.i.i.i, %if.then.i53, %lpad30
-  %.pn = phi { ptr, i32 } [ %15, %invoke.cont4.i.i.i ], [ %7, %lpad30 ], [ %15, %if.then.i53 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad30 ], [ %15, %if.then.i53 ], [ %15, %invoke.cont4.i.i.i ]
   %38 = load i8, ptr %SCOPE_EXIT_STATE3, align 8
   %tobool.i104 = trunc i8 %38 to i1
   br i1 %tobool.i104, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit108, label %if.then.i105

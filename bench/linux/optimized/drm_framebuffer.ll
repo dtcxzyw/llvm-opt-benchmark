@@ -825,7 +825,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %288, label %.loopexit, label %233, !llvm.loop !10
 
 .thread20:                                        ; preds = %175, %173, %162, %171, %203, %231, %213, %192, %85, %95, %244, %260, %272, %284, %75
-  %.ph22 = phi i64 [ -22, %85 ], [ -22, %75 ], [ -22, %284 ], [ -22, %272 ], [ -22, %260 ], [ -22, %244 ], [ -22, %95 ], [ -22, %213 ], [ -22, %192 ], [ -22, %162 ], [ -22, %171 ], [ -22, %203 ], [ -22, %231 ], [ -34, %173 ], [ -34, %175 ]
+  %.ph22 = phi i64 [ -22, %75 ], [ -22, %284 ], [ -22, %272 ], [ -22, %260 ], [ -22, %244 ], [ -22, %95 ], [ -22, %85 ], [ -22, %162 ], [ -22, %171 ], [ -22, %203 ], [ -22, %231 ], [ -22, %213 ], [ -22, %192 ], [ -34, %173 ], [ -34, %175 ]
   %289 = inttoptr i64 %.ph22 to ptr
   br label %302
 
@@ -1500,7 +1500,7 @@ select.unfold:                                    ; preds = %128, %.loopexit17
   br i1 %136, label %94, label %.thread16, !llvm.loop !25
 
 .thread14:                                        ; preds = %128, %24, %30
-  %137 = phi i32 [ -19, %30 ], [ -19, %24 ], [ %129, %128 ]
+  %137 = phi i32 [ -19, %24 ], [ -19, %30 ], [ %129, %128 ]
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %141
 
@@ -1543,8 +1543,8 @@ select.unfold:                                    ; preds = %128, %.loopexit17
   %160 = icmp eq i64 %159, 4
   br i1 %160, label %.loopexit, label %.preheader, !llvm.loop !27
 
-.thread16:                                        ; preds = %select.unfold, %.loopexit, %85, %87
-  %161 = phi i32 [ %137, %.loopexit ], [ 0, %85 ], [ 0, %87 ], [ 0, %select.unfold ]
+.thread16:                                        ; preds = %select.unfold, %.loopexit, %87, %85
+  %161 = phi i32 [ 0, %85 ], [ 0, %87 ], [ %137, %.loopexit ], [ 0, %select.unfold ]
   tail call void @drm_mode_object_put(ptr noundef %15) #6
   br label %162
 
@@ -2085,7 +2085,7 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %128 = or i32 %127, %69
   br label %.thread27
 
-.thread27:                                        ; preds = %124, %.preheader32
+.thread27:                                        ; preds = %.preheader32, %124
   %129 = phi i32 [ %69, %.preheader32 ], [ %128, %124 ]
   %130 = load ptr, ptr %68, align 8
   %131 = icmp eq ptr %130, %45
@@ -2126,7 +2126,7 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   br label %.thread22
 
 .thread22:                                        ; preds = %117, %101, %121, %138, %88, %148, %58
-  %150 = phi i32 [ %59, %58 ], [ %149, %148 ], [ %141, %138 ], [ %90, %88 ], [ %115, %101 ], [ %122, %121 ], [ %119, %117 ]
+  %150 = phi i32 [ %59, %58 ], [ %149, %148 ], [ %90, %88 ], [ %141, %138 ], [ %119, %117 ], [ %115, %101 ], [ %122, %121 ]
   %151 = icmp eq i32 %150, -35
   br i1 %151, label %152, label %.thread22.thread
 

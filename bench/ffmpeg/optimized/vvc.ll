@@ -167,7 +167,7 @@ define range(i32 -2147483648, 1) i32 @ff_vvc_annexb2mp4_buf(ptr noundef %0, ptr 
   br label %18
 
 18:                                               ; preds = %5, %15, %14
-  %.0 = phi i32 [ 0, %15 ], [ %12, %14 ], [ %7, %5 ]
+  %.0 = phi i32 [ %12, %14 ], [ 0, %15 ], [ %7, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -535,7 +535,7 @@ vvcc_array_add_nal_unit.exit.i:                   ; preds = %116, %106
   br i1 %exitcond137.not.i.i, label %..loopexit103_crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !41
 
 ..loopexit103_crit_edge.i.i:                      ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %183, %.split.i.i
-  %spec.select.i.lcssa7172.i = phi i32 [ %spec.select.i95.i.i, %183 ], [ %181, %.split.i.i ], [ %spec.select.i97.us.i.i, %.lr.ph.split.us.i.i ], [ %spec.select.i.i, %.lr.ph.split.i.i ]
+  %spec.select.i.lcssa7172.i = phi i32 [ %181, %.split.i.i ], [ %spec.select.i95.i.i, %183 ], [ %spec.select.i97.us.i.i, %.lr.ph.split.us.i.i ], [ %spec.select.i.i, %.lr.ph.split.i.i ]
   %220 = add nuw nsw i32 %.078112.i.i, 1
   %exitcond139.not.i.i = icmp eq i32 %.078112.i.i, %132
   br i1 %exitcond139.not.i.i, label %.split116.i.i, label %.split.i.i, !llvm.loop !40
@@ -604,8 +604,8 @@ vvcc_array_add_nal_unit.exit.i:                   ; preds = %116, %106
   br i1 %exitcond140.not.i.i, label %255, label %257, !llvm.loop !43
 
 .loopexit.i.i:                                    ; preds = %255, %.critedge93.i.i, %221
-  %.072101165.i3841.i = phi i1 [ %.072101166.i.i, %221 ], [ %.072102.i.i, %.critedge93.i.i ], [ %.072101165.i3842.i, %255 ]
-  %262 = phi i32 [ %spec.select.i98.i.i, %221 ], [ %241, %.critedge93.i.i ], [ %260, %255 ]
+  %.072101165.i3841.i = phi i1 [ %.072102.i.i, %.critedge93.i.i ], [ %.072101166.i.i, %221 ], [ %.072101165.i3842.i, %255 ]
+  %262 = phi i32 [ %241, %.critedge93.i.i ], [ %spec.select.i98.i.i, %221 ], [ %260, %255 ]
   %263 = lshr i32 %262, 3
   %264 = zext nneg i32 %263 to i64
   %265 = getelementptr inbounds nuw i8, ptr %77, i64 %264
@@ -626,8 +626,8 @@ vvcc_array_add_nal_unit.exit.i:                   ; preds = %116, %106
   br label %.split125.i.i
 
 275:                                              ; preds = %.split116.i.thread.i, %.split116.i.i
-  %.072101165.i37.i = phi i1 [ %.072101166.i.i, %.split116.i.thread.i ], [ %.072102.i.i, %.split116.i.i ]
-  %.promoted.i.i = phi i32 [ %178, %.split116.i.thread.i ], [ %spec.select.i.lcssa7172.i, %.split116.i.i ]
+  %.072101165.i37.i = phi i1 [ %.072102.i.i, %.split116.i.i ], [ %.072101166.i.i, %.split116.i.thread.i ]
+  %.promoted.i.i = phi i32 [ %spec.select.i.lcssa7172.i, %.split116.i.i ], [ %178, %.split116.i.thread.i ]
   br i1 %.072101165.i37.i, label %.split125.us.i.preheader.i, label %.split125.i.preheader.i
 
 .split125.us.i.preheader.i:                       ; preds = %275, %.loopexit.i.i
@@ -1479,7 +1479,7 @@ get_ue_golomb_long.exit229.i.i:                   ; preds = %748, %744, %702
   br i1 %exitcond317.not.i.i, label %._crit_edge.i.i, label %.lr.ph.split.split.us.split.i.i, !llvm.loop !51
 
 ._crit_edge.i.i:                                  ; preds = %828, %844, %.critedge296.i.i, %get_ue_golomb_long.exit229.i.i
-  %.sroa.46.0.copyload.i.i234.i.i = phi i32 [ %848, %844 ], [ %766, %get_ue_golomb_long.exit229.i.i ], [ %942, %.critedge296.i.i ], [ %832, %828 ]
+  %.sroa.46.0.copyload.i.i234.i.i = phi i32 [ %766, %get_ue_golomb_long.exit229.i.i ], [ %942, %.critedge296.i.i ], [ %848, %844 ], [ %832, %828 ]
   %850 = lshr i32 %.sroa.46.0.copyload.i.i234.i.i, 3
   %851 = zext nneg i32 %850 to i64
   %852 = getelementptr inbounds nuw i8, ptr %380, i64 %851
@@ -1645,7 +1645,7 @@ get_ue_golomb_long.exit248.i.i:                   ; preds = %895, %891, %._crit_
   br i1 %exitcond319.not.i.i, label %.loopexit.i29.i, label %.preheader.i28.i, !llvm.loop !52
 
 .loopexit.i29.i:                                  ; preds = %.preheader.i28.i, %944, %get_ue_golomb_long.exit248.i.i, %get_ue_golomb_long.exit211.i.i
-  %.sroa.46.0.copyload.i.i254.i.i = phi i32 [ %spec.select.i212.i.i, %get_ue_golomb_long.exit211.i.i ], [ %spec.select.i249.i.i, %get_ue_golomb_long.exit248.i.i ], [ %spec.select.i250.i.i, %944 ], [ %959, %.preheader.i28.i ]
+  %.sroa.46.0.copyload.i.i254.i.i = phi i32 [ %spec.select.i249.i.i, %get_ue_golomb_long.exit248.i.i ], [ %spec.select.i250.i.i, %944 ], [ %spec.select.i212.i.i, %get_ue_golomb_long.exit211.i.i ], [ %959, %.preheader.i28.i ]
   %961 = lshr i32 %.sroa.46.0.copyload.i.i254.i.i, 3
   %962 = zext nneg i32 %961 to i64
   %963 = getelementptr inbounds nuw i8, ptr %380, i64 %962
@@ -1737,7 +1737,7 @@ vvcc_parse_sps.exit.i:                            ; preds = %1004, %1002, %.loop
   br label %vvcc_write.exit
 
 1022:                                             ; preds = %vvcc_parse_sps.exit.i, %vvcc_parse_vps.exit.i, %121, %102, %86
-  %.0.i = phi i32 [ %100, %86 ], [ 0, %121 ], [ 0, %vvcc_parse_vps.exit.i ], [ 0, %vvcc_parse_sps.exit.i ], [ %104, %102 ]
+  %.0.i = phi i32 [ 0, %vvcc_parse_vps.exit.i ], [ 0, %vvcc_parse_sps.exit.i ], [ %104, %102 ], [ %100, %86 ], [ 0, %121 ]
   %.0.i.fr = freeze i32 %.0.i
   call void @av_free(ptr noundef %77) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2330,7 +2330,7 @@ put_bits.exit192.i:                               ; preds = %1245, %1239, %1234
   br i1 %exitcond301.not.i, label %vvcc_write.exit, label %1295, !llvm.loop !73
 
 vvcc_write.exit:                                  ; preds = %1022, %.loopexit.i, %.thread, %1135, %1106
-  %.2 = phi i32 [ %.0.i.ph, %.thread ], [ -1094995529, %1135 ], [ -1094995529, %1106 ], [ 0, %.loopexit.i ], [ %.0.i.fr, %1022 ]
+  %.2 = phi i32 [ -1094995529, %1106 ], [ -1094995529, %1135 ], [ %.0.i.ph, %.thread ], [ 0, %.loopexit.i ], [ %.0.i.fr, %1022 ]
   br label %1332
 
 1332:                                             ; preds = %1332, %vvcc_write.exit
@@ -2353,7 +2353,7 @@ vvcc_close.exit:                                  ; preds = %1332
   br label %1338
 
 1338:                                             ; preds = %35, %32, %4, %vvcc_close.exit, %19
-  %.035 = phi i32 [ -1094995529, %4 ], [ 0, %19 ], [ -1094995529, %32 ], [ %36, %35 ], [ %.2, %vvcc_close.exit ]
+  %.035 = phi i32 [ 0, %19 ], [ %.2, %vvcc_close.exit ], [ -1094995529, %4 ], [ -1094995529, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.035

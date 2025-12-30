@@ -138,7 +138,7 @@ define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr noundef reado
   br i1 %28, label %.thread, label %30
 
 .thread:                                          ; preds = %.loopexit, %.thread35, %27
-  %.01834 = phi i32 [ 26, %.thread35 ], [ 0, %27 ], [ 0, %.loopexit ]
+  %.01834 = phi i32 [ 0, %27 ], [ 26, %.thread35 ], [ 0, %.loopexit ]
   %29 = tail call noundef i32 @_Z25tMPI_Thread_get_hw_numberv()
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %29, i32 1)
   store i32 %spec.store.select, ptr %3, align 4, !tbaa !46
@@ -197,7 +197,7 @@ define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef reado
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %7
-  %.0.i = phi i32 [ %17, %.loopexit.loopexit.i ], [ 2, %7 ]
+  %.0.i = phi i32 [ 2, %7 ], [ %17, %.loopexit.loopexit.i ]
   %18 = icmp slt i32 %.0.i, %.pre.i
   br i1 %18, label %19, label %.thread.i
 
@@ -493,8 +493,8 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   %110 = tail call fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noundef %106)
   br label %.thread79
 
-.thread79:                                        ; preds = %109, %32, %.split.us, %67, %27, %_ZL16tMPI_Global_initP11tmpi_globali.exit, %10, %8, %107
-  %.1 = phi i32 [ 0, %8 ], [ %110, %109 ], [ 0, %107 ], [ %33, %32 ], [ %105, %.split.us ], [ %69, %67 ], [ 1, %27 ], [ %26, %_ZL16tMPI_Global_initP11tmpi_globali.exit ], [ 1, %10 ]
+.thread79:                                        ; preds = %109, %32, %27, %_ZL16tMPI_Global_initP11tmpi_globali.exit, %10, %.split.us, %67, %8, %107
+  %.1 = phi i32 [ 0, %107 ], [ 0, %8 ], [ %33, %32 ], [ 1, %27 ], [ %26, %_ZL16tMPI_Global_initP11tmpi_globali.exit ], [ 1, %10 ], [ %105, %.split.us ], [ %69, %67 ], [ %110, %109 ]
   ret i32 %.1
 }
 
@@ -704,8 +704,8 @@ _ZL19tMPI_Global_destroyP11tmpi_global.exit:      ; preds = %.lr.ph.i, %61
   tail call void @_Z16tMPI_Thread_exitPv(ptr noundef null)
   br label %.thread34
 
-.thread34:                                        ; preds = %52, %58, %.thread, %35, %_ZL19tMPI_Global_destroyP11tmpi_global.exit, %86, %19, %5
-  %.0 = phi i32 [ %6, %5 ], [ %21, %19 ], [ 0, %_ZL19tMPI_Global_destroyP11tmpi_global.exit ], [ 0, %86 ], [ %60, %58 ], [ %36, %35 ], [ %48, %.thread ], [ %53, %52 ]
+.thread34:                                        ; preds = %52, %.thread, %58, %35, %_ZL19tMPI_Global_destroyP11tmpi_global.exit, %86, %19, %5
+  %.0 = phi i32 [ %6, %5 ], [ %21, %19 ], [ 0, %86 ], [ 0, %_ZL19tMPI_Global_destroyP11tmpi_global.exit ], [ %48, %.thread ], [ %60, %58 ], [ %36, %35 ], [ %53, %52 ]
   ret i32 %.0
 }
 
@@ -1125,7 +1125,7 @@ define internal fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %39, %._crit_edge, %19, %16, %10, %6, %1
-  %.033 = phi i32 [ %38, %._crit_edge ], [ %5, %1 ], [ %9, %6 ], [ %15, %10 ], [ %18, %16 ], [ 1, %19 ], [ %42, %39 ], [ %34, %.lr.ph ]
+  %.033 = phi i32 [ %5, %1 ], [ %9, %6 ], [ %15, %10 ], [ %18, %16 ], [ 1, %19 ], [ %38, %._crit_edge ], [ %42, %39 ], [ %34, %.lr.ph ]
   ret i32 %.033
 }
 

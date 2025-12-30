@@ -117,7 +117,7 @@ define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef ca
   br label %38
 
 38:                                               ; preds = %9, %4, %._crit_edge63
-  %.044 = phi i1 [ false, %4 ], [ true, %._crit_edge63 ], [ false, %9 ]
+  %.044 = phi i1 [ true, %._crit_edge63 ], [ false, %4 ], [ false, %9 ]
   ret i1 %.044
 }
 
@@ -194,7 +194,7 @@ define noundef zeroext i1 @_Z20periodic_convolutioniPfiPKf(i32 noundef %0, ptr n
   br label %30
 
 30:                                               ; preds = %7, %4, %._crit_edge
-  %.0 = phi i1 [ false, %4 ], [ true, %._crit_edge ], [ false, %7 ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ false, %4 ], [ false, %7 ]
   ret i1 %.0
 }
 

@@ -212,7 +212,7 @@ define internal noundef ptr @dummy_query(ptr readnone captures(none) %0, i32 nou
   br label %8
 
 8:                                                ; preds = %3, %7, %6, %5, %4
-  %.0 = phi ptr [ null, %7 ], [ @dummy_rand, %6 ], [ @dummy_encoders, %4 ], [ @dummy_store, %5 ], [ @dummy_decoders, %3 ]
+  %.0 = phi ptr [ null, %7 ], [ @dummy_encoders, %4 ], [ @dummy_store, %5 ], [ @dummy_rand, %6 ], [ @dummy_decoders, %3 ]
   ret ptr %.0
 }
 

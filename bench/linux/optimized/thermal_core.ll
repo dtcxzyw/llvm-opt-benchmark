@@ -3595,7 +3595,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @thermal_register_governors
   br i1 %19, label %.thread, label %.preheader, !llvm.loop !61
 
 .thread:                                          ; preds = %7, %.preheader, %0, %11
-  %20 = phi i32 [ %4, %11 ], [ %4, %.preheader ], [ 0, %0 ], [ 0, %7 ]
+  %20 = phi i32 [ %4, %11 ], [ 0, %0 ], [ %4, %.preheader ], [ 0, %7 ]
   ret i32 %20
 }
 

@@ -610,7 +610,7 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   br i1 %exitcond.not, label %.loopexit808, label %376, !llvm.loop !11
 
 .loopexit807:                                     ; preds = %345, %103, %330, %337, %316
-  %.1659.ph = phi i32 [ %.2660, %316 ], [ %.2660, %337 ], [ %.0658, %103 ], [ %.2660, %330 ], [ %.2660, %345 ]
+  %.1659.ph = phi i32 [ %.2660, %316 ], [ %.2660, %337 ], [ %.2660, %330 ], [ %.0658, %103 ], [ %.2660, %345 ]
   %389 = load i32, ptr %23, align 4, !tbaa !3
   %390 = load i32, ptr %18, align 4, !tbaa !3
   %391 = sext i32 %390 to i64
@@ -1414,7 +1414,7 @@ define void @dlasyf_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   br i1 %exitcond890.not, label %.loopexit805, label %886, !llvm.loop !15
 
 .loopexit:                                        ; preds = %848, %582, %832, %840, %811
-  %.7665.ph = phi i32 [ %.8666771, %811 ], [ %.8666771, %840 ], [ %.66641078, %582 ], [ %.8666771, %832 ], [ %.8666771, %848 ]
+  %.7665.ph = phi i32 [ %.8666771, %811 ], [ %.8666771, %840 ], [ %.8666771, %832 ], [ %.66641078, %582 ], [ %.8666771, %848 ]
   %899 = load i32, ptr %23, align 4, !tbaa !3
   %900 = load i32, ptr %18, align 4, !tbaa !3
   %901 = sext i32 %900 to i64

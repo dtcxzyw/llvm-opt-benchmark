@@ -1307,9 +1307,9 @@ Vec_IntGrow.exit.i86:                             ; preds = %165, %163
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %177, %Vec_IntGrow.exit.i86, %.Vec_IntGrow.exit10_crit_edge.i81, %144, %Vec_IntGrow.exit.i78, %.Vec_IntGrow.exit10_crit_edge.i73, %116, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink120 = phi ptr [ %106, %Vec_IntGrow.exit.i ], [ %134, %Vec_IntGrow.exit.i78 ], [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %117, %116 ], [ %.pre.i75, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %145, %144 ], [ %.pre.i83, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %178, %177 ], [ %167, %Vec_IntGrow.exit.i86 ]
-  %.sink = phi i32 [ %94, %Vec_IntGrow.exit.i ], [ %122, %Vec_IntGrow.exit.i78 ], [ %94, %.Vec_IntGrow.exit10_crit_edge.i ], [ %94, %116 ], [ %122, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %122, %144 ], [ %155, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %155, %177 ], [ %155, %Vec_IntGrow.exit.i86 ]
-  %.1 = phi i32 [ %80, %Vec_IntGrow.exit.i ], [ %.095, %Vec_IntGrow.exit.i78 ], [ %80, %.Vec_IntGrow.exit10_crit_edge.i ], [ %80, %116 ], [ %.095, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %.095, %144 ], [ %.095, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %.095, %177 ], [ %.095, %Vec_IntGrow.exit.i86 ]
+  %.sink120 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %117, %116 ], [ %106, %Vec_IntGrow.exit.i ], [ %.pre.i75, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %145, %144 ], [ %134, %Vec_IntGrow.exit.i78 ], [ %.pre.i83, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %178, %177 ], [ %167, %Vec_IntGrow.exit.i86 ]
+  %.sink = phi i32 [ %94, %.Vec_IntGrow.exit10_crit_edge.i ], [ %94, %116 ], [ %94, %Vec_IntGrow.exit.i ], [ %122, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %122, %144 ], [ %122, %Vec_IntGrow.exit.i78 ], [ %155, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %155, %177 ], [ %155, %Vec_IntGrow.exit.i86 ]
+  %.1 = phi i32 [ %80, %.Vec_IntGrow.exit10_crit_edge.i ], [ %80, %116 ], [ %80, %Vec_IntGrow.exit.i ], [ %.095, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %.095, %144 ], [ %.095, %Vec_IntGrow.exit.i78 ], [ %.095, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %.095, %177 ], [ %.095, %Vec_IntGrow.exit.i86 ]
   %179 = load i32, ptr %62, align 4, !tbaa !3
   %180 = add nsw i32 %179, 1
   store i32 %180, ptr %62, align 4, !tbaa !3
@@ -1737,9 +1737,9 @@ Vec_IntGrow.exit.i86:                             ; preds = %166, %164
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %178, %Vec_IntGrow.exit.i86, %.Vec_IntGrow.exit10_crit_edge.i81, %145, %Vec_IntGrow.exit.i78, %.Vec_IntGrow.exit10_crit_edge.i73, %118, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink120 = phi ptr [ %108, %Vec_IntGrow.exit.i ], [ %135, %Vec_IntGrow.exit.i78 ], [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %119, %118 ], [ %.pre.i75, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %146, %145 ], [ %.pre.i83, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %179, %178 ], [ %168, %Vec_IntGrow.exit.i86 ]
-  %.sink = phi i32 [ %96, %Vec_IntGrow.exit.i ], [ %123, %Vec_IntGrow.exit.i78 ], [ %96, %.Vec_IntGrow.exit10_crit_edge.i ], [ %96, %118 ], [ %123, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %123, %145 ], [ %156, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %156, %178 ], [ %156, %Vec_IntGrow.exit.i86 ]
-  %.1 = phi i32 [ %80, %Vec_IntGrow.exit.i ], [ %.095, %Vec_IntGrow.exit.i78 ], [ %80, %.Vec_IntGrow.exit10_crit_edge.i ], [ %80, %118 ], [ %.095, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %.095, %145 ], [ %.095, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %.095, %178 ], [ %.095, %Vec_IntGrow.exit.i86 ]
+  %.sink120 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %119, %118 ], [ %108, %Vec_IntGrow.exit.i ], [ %.pre.i75, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %146, %145 ], [ %135, %Vec_IntGrow.exit.i78 ], [ %.pre.i83, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %179, %178 ], [ %168, %Vec_IntGrow.exit.i86 ]
+  %.sink = phi i32 [ %96, %.Vec_IntGrow.exit10_crit_edge.i ], [ %96, %118 ], [ %96, %Vec_IntGrow.exit.i ], [ %123, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %123, %145 ], [ %123, %Vec_IntGrow.exit.i78 ], [ %156, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %156, %178 ], [ %156, %Vec_IntGrow.exit.i86 ]
+  %.1 = phi i32 [ %80, %.Vec_IntGrow.exit10_crit_edge.i ], [ %80, %118 ], [ %80, %Vec_IntGrow.exit.i ], [ %.095, %.Vec_IntGrow.exit10_crit_edge.i73 ], [ %.095, %145 ], [ %.095, %Vec_IntGrow.exit.i78 ], [ %.095, %.Vec_IntGrow.exit10_crit_edge.i81 ], [ %.095, %178 ], [ %.095, %Vec_IntGrow.exit.i86 ]
   %180 = load i32, ptr %62, align 4, !tbaa !3
   %181 = add nsw i32 %180, 1
   store i32 %181, ptr %62, align 4, !tbaa !3
@@ -1968,8 +1968,8 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %82, %96, %101, %118, %119
-  %.val78 = phi i32 [ %.val78128, %82 ], [ %.val78.pre, %96 ], [ %.val78128, %118 ], [ %.val78128, %101 ], [ %.val78128, %119 ]
-  %.tr118.be = phi ptr [ %86, %82 ], [ %100, %96 ], [ %108, %118 ], [ %95, %101 ], [ %., %119 ]
+  %.val78 = phi i32 [ %.val78128, %82 ], [ %.val78.pre, %96 ], [ %.val78128, %101 ], [ %.val78128, %118 ], [ %.val78128, %119 ]
+  %.tr118.be = phi ptr [ %86, %82 ], [ %100, %96 ], [ %95, %101 ], [ %108, %118 ], [ %., %119 ]
   %87 = getelementptr i8, ptr %.tr118.be, i64 32
   %.val79 = load i32, ptr %87, align 8, !tbaa !39
   %.not = icmp eq i32 %.val79, %.val78

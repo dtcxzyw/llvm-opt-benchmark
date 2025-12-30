@@ -124,8 +124,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_fmin_qP11p
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %24, %13
-  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre, %24 ], [ %.sroa.245.0.copyload.pre166, %13 ]
-  %27 = phi i1 [ %spec.select, %24 ], [ true, %13 ]
+  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre166, %13 ], [ %.sroa.245.0.copyload.pre, %24 ]
+  %27 = phi i1 [ true, %13 ], [ %spec.select, %24 ]
   %28 = and i64 %.sroa.245.0.copyload, 9223090561878065152
   %29 = icmp eq i64 %28, 9223090561878065152
   br i1 %29, label %30, label %.critedge
@@ -170,8 +170,8 @@ thread-pre-split:                                 ; preds = %24, %13
   br label %46
 
 46:                                               ; preds = %.critedge, %42, %45
-  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %45 ], [ %.sroa.245.0.copyload, %.critedge ], [ %.sroa.245.0.copyload, %42 ]
-  %47 = phi ptr [ %22, %45 ], [ %19, %.critedge ], [ %19, %42 ]
+  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %45 ], [ %.sroa.245.0.copyload, %42 ], [ %.sroa.245.0.copyload, %.critedge ]
+  %47 = phi ptr [ %22, %45 ], [ %19, %42 ], [ %19, %.critedge ]
   %.sroa.014.0.copyload = load i64, ptr %47, align 8
   br label %.critedge2
 
@@ -335,8 +335,8 @@ define noundef i64 @_Z17fast_rv64i_fmin_qP11processor_t6insn_tm(ptr noundef capt
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %24, %13
-  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre, %24 ], [ %.sroa.245.0.copyload.pre166, %13 ]
-  %27 = phi i1 [ %spec.select, %24 ], [ true, %13 ]
+  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre166, %13 ], [ %.sroa.245.0.copyload.pre, %24 ]
+  %27 = phi i1 [ true, %13 ], [ %spec.select, %24 ]
   %28 = and i64 %.sroa.245.0.copyload, 9223090561878065152
   %29 = icmp eq i64 %28, 9223090561878065152
   br i1 %29, label %30, label %.critedge
@@ -381,8 +381,8 @@ thread-pre-split:                                 ; preds = %24, %13
   br label %46
 
 46:                                               ; preds = %.critedge, %42, %45
-  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %45 ], [ %.sroa.245.0.copyload, %.critedge ], [ %.sroa.245.0.copyload, %42 ]
-  %47 = phi ptr [ %22, %45 ], [ %19, %.critedge ], [ %19, %42 ]
+  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %45 ], [ %.sroa.245.0.copyload, %42 ], [ %.sroa.245.0.copyload, %.critedge ]
+  %47 = phi ptr [ %22, %45 ], [ %19, %42 ], [ %19, %.critedge ]
   %.sroa.014.0.copyload = load i64, ptr %47, align 8
   br label %.critedge2
 
@@ -516,8 +516,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_fmin_qP1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %26, %15
-  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre, %26 ], [ %.sroa.245.0.copyload.pre170, %15 ]
-  %29 = phi i1 [ %spec.select, %26 ], [ true, %15 ]
+  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre170, %15 ], [ %.sroa.245.0.copyload.pre, %26 ]
+  %29 = phi i1 [ true, %15 ], [ %spec.select, %26 ]
   %30 = and i64 %.sroa.245.0.copyload, 9223090561878065152
   %31 = icmp eq i64 %30, 9223090561878065152
   br i1 %31, label %32, label %.critedge
@@ -577,8 +577,8 @@ thread-pre-split:                                 ; preds = %26, %15
   br label %54
 
 54:                                               ; preds = %.critedge, %50, %53
-  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %53 ], [ %.sroa.245.0.copyload, %.critedge ], [ %.sroa.245.0.copyload, %50 ]
-  %55 = phi ptr [ %24, %53 ], [ %21, %.critedge ], [ %21, %50 ]
+  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %53 ], [ %.sroa.245.0.copyload, %50 ], [ %.sroa.245.0.copyload, %.critedge ]
+  %55 = phi ptr [ %24, %53 ], [ %21, %50 ], [ %21, %.critedge ]
   %.sroa.014.0.copyload = load i64, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -735,7 +735,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !43
@@ -815,8 +815,8 @@ define noundef i64 @_Z19logged_rv64i_fmin_qP11processor_t6insn_tm(ptr noundef %0
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %26, %15
-  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre, %26 ], [ %.sroa.245.0.copyload.pre170, %15 ]
-  %29 = phi i1 [ %spec.select, %26 ], [ true, %15 ]
+  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre170, %15 ], [ %.sroa.245.0.copyload.pre, %26 ]
+  %29 = phi i1 [ true, %15 ], [ %spec.select, %26 ]
   %30 = and i64 %.sroa.245.0.copyload, 9223090561878065152
   %31 = icmp eq i64 %30, 9223090561878065152
   br i1 %31, label %32, label %.critedge
@@ -876,8 +876,8 @@ thread-pre-split:                                 ; preds = %26, %15
   br label %54
 
 54:                                               ; preds = %.critedge, %50, %53
-  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %53 ], [ %.sroa.245.0.copyload, %.critedge ], [ %.sroa.245.0.copyload, %50 ]
-  %55 = phi ptr [ %24, %53 ], [ %21, %.critedge ], [ %21, %50 ]
+  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %53 ], [ %.sroa.245.0.copyload, %50 ], [ %.sroa.245.0.copyload, %.critedge ]
+  %55 = phi ptr [ %24, %53 ], [ %21, %50 ], [ %21, %.critedge ]
   %.sroa.014.0.copyload = load i64, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1020,8 +1020,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_fmin_qP11p
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %24, %13
-  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre, %24 ], [ %.sroa.245.0.copyload.pre166, %13 ]
-  %27 = phi i1 [ %spec.select, %24 ], [ true, %13 ]
+  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre166, %13 ], [ %.sroa.245.0.copyload.pre, %24 ]
+  %27 = phi i1 [ true, %13 ], [ %spec.select, %24 ]
   %28 = and i64 %.sroa.245.0.copyload, 9223090561878065152
   %29 = icmp eq i64 %28, 9223090561878065152
   br i1 %29, label %30, label %.critedge
@@ -1066,8 +1066,8 @@ thread-pre-split:                                 ; preds = %24, %13
   br label %46
 
 46:                                               ; preds = %.critedge, %42, %45
-  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %45 ], [ %.sroa.245.0.copyload, %.critedge ], [ %.sroa.245.0.copyload, %42 ]
-  %47 = phi ptr [ %22, %45 ], [ %19, %.critedge ], [ %19, %42 ]
+  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %45 ], [ %.sroa.245.0.copyload, %42 ], [ %.sroa.245.0.copyload, %.critedge ]
+  %47 = phi ptr [ %22, %45 ], [ %19, %42 ], [ %19, %.critedge ]
   %.sroa.014.0.copyload = load i64, ptr %47, align 8
   br label %.critedge2
 
@@ -1205,8 +1205,8 @@ define noundef i64 @_Z17fast_rv64e_fmin_qP11processor_t6insn_tm(ptr noundef capt
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %24, %13
-  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre, %24 ], [ %.sroa.245.0.copyload.pre166, %13 ]
-  %27 = phi i1 [ %spec.select, %24 ], [ true, %13 ]
+  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre166, %13 ], [ %.sroa.245.0.copyload.pre, %24 ]
+  %27 = phi i1 [ true, %13 ], [ %spec.select, %24 ]
   %28 = and i64 %.sroa.245.0.copyload, 9223090561878065152
   %29 = icmp eq i64 %28, 9223090561878065152
   br i1 %29, label %30, label %.critedge
@@ -1251,8 +1251,8 @@ thread-pre-split:                                 ; preds = %24, %13
   br label %46
 
 46:                                               ; preds = %.critedge, %42, %45
-  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %45 ], [ %.sroa.245.0.copyload, %.critedge ], [ %.sroa.245.0.copyload, %42 ]
-  %47 = phi ptr [ %22, %45 ], [ %19, %.critedge ], [ %19, %42 ]
+  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %45 ], [ %.sroa.245.0.copyload, %42 ], [ %.sroa.245.0.copyload, %.critedge ]
+  %47 = phi ptr [ %22, %45 ], [ %19, %42 ], [ %19, %.critedge ]
   %.sroa.014.0.copyload = load i64, ptr %47, align 8
   br label %.critedge2
 
@@ -1386,8 +1386,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_fmin_qP1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %26, %15
-  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre, %26 ], [ %.sroa.245.0.copyload.pre170, %15 ]
-  %29 = phi i1 [ %spec.select, %26 ], [ true, %15 ]
+  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre170, %15 ], [ %.sroa.245.0.copyload.pre, %26 ]
+  %29 = phi i1 [ true, %15 ], [ %spec.select, %26 ]
   %30 = and i64 %.sroa.245.0.copyload, 9223090561878065152
   %31 = icmp eq i64 %30, 9223090561878065152
   br i1 %31, label %32, label %.critedge
@@ -1447,8 +1447,8 @@ thread-pre-split:                                 ; preds = %26, %15
   br label %54
 
 54:                                               ; preds = %.critedge, %50, %53
-  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %53 ], [ %.sroa.245.0.copyload, %.critedge ], [ %.sroa.245.0.copyload, %50 ]
-  %55 = phi ptr [ %24, %53 ], [ %21, %.critedge ], [ %21, %50 ]
+  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %53 ], [ %.sroa.245.0.copyload, %50 ], [ %.sroa.245.0.copyload, %.critedge ]
+  %55 = phi ptr [ %24, %53 ], [ %21, %50 ], [ %21, %.critedge ]
   %.sroa.014.0.copyload = load i64, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1599,8 +1599,8 @@ define noundef i64 @_Z19logged_rv64e_fmin_qP11processor_t6insn_tm(ptr noundef %0
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %26, %15
-  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre, %26 ], [ %.sroa.245.0.copyload.pre170, %15 ]
-  %29 = phi i1 [ %spec.select, %26 ], [ true, %15 ]
+  %.sroa.245.0.copyload = phi i64 [ %.sroa.245.0.copyload.pre170, %15 ], [ %.sroa.245.0.copyload.pre, %26 ]
+  %29 = phi i1 [ true, %15 ], [ %spec.select, %26 ]
   %30 = and i64 %.sroa.245.0.copyload, 9223090561878065152
   %31 = icmp eq i64 %30, 9223090561878065152
   br i1 %31, label %32, label %.critedge
@@ -1660,8 +1660,8 @@ thread-pre-split:                                 ; preds = %26, %15
   br label %54
 
 54:                                               ; preds = %.critedge, %50, %53
-  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %53 ], [ %.sroa.245.0.copyload, %.critedge ], [ %.sroa.245.0.copyload, %50 ]
-  %55 = phi ptr [ %24, %53 ], [ %21, %.critedge ], [ %21, %50 ]
+  %.sroa.215.0.copyload = phi i64 [ %.sroa.211.0.copyload, %53 ], [ %.sroa.245.0.copyload, %50 ], [ %.sroa.245.0.copyload, %.critedge ]
+  %55 = phi ptr [ %24, %53 ], [ %21, %50 ], [ %21, %.critedge ]
   %.sroa.014.0.copyload = load i64, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2025,8 +2025,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -368,7 +368,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h26357db03e88c32fE(ptr dea
   br i1 %64, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h477e54f76f320a02E.exit105.thread", label %.lr.ph327
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h477e54f76f320a02E.exit105.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit140", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit132", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit124", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit116", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit108", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit148", %.preheader287, %.preheader285, %.preheader283, %.preheader281, %.preheader279, %.preheader
-  %.sroa.27.6 = phi i64 [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit124" ], [ %104, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit132" ], [ %81, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit116" ], [ %70, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit108" ], [ %126, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit148" ], [ %63, %.preheader ], [ %63, %.preheader279 ], [ %63, %.preheader281 ], [ %63, %.preheader283 ], [ %63, %.preheader285 ], [ %63, %.preheader287 ], [ %116, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit140" ]
+  %.sroa.27.6 = phi i64 [ %63, %.preheader ], [ %63, %.preheader279 ], [ %63, %.preheader281 ], [ %63, %.preheader283 ], [ %63, %.preheader285 ], [ %63, %.preheader287 ], [ %126, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit148" ], [ %70, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit108" ], [ %81, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit116" ], [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit124" ], [ %104, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit132" ], [ %116, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59aa91a81c5e2941E.exit140" ]
   %65 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %65, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -718,7 +718,7 @@ define hidden noalias noundef nonnull ptr @"_ZN5rowan3arc20ThinArc$LT$H$C$T$GT$2
 52:                                               ; preds = %53
   resume { ptr, i32 } %lpad.thr_comm
 
-53:                                               ; preds = %27, %24, %19, %31, %18
+53:                                               ; preds = %27, %18, %19, %24, %31
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$rowan..green..token..GreenTokenHead$GT$17hd819f24ac8876baeE"(ptr noalias noundef nonnull align 2 dereferenceable(2) %7) #19
@@ -1111,8 +1111,8 @@ define hidden void @_ZN13yara_x_parser6parser12token_stream11TokenStream10next_t
   br label %_ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit
 
 _ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit: ; preds = %14, %2, %17
-  %18 = phi i64 [ %.pre, %17 ], [ %12, %2 ], [ %16, %14 ]
-  %.val = phi i64 [ %.val.pre, %17 ], [ %.val2.i, %2 ], [ %.val.i, %14 ]
+  %18 = phi i64 [ %12, %2 ], [ %.pre, %17 ], [ %16, %14 ]
+  %.val = phi i64 [ %.val2.i, %2 ], [ %.val.pre, %17 ], [ %.val.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = load i64, ptr %6, align 8, !noundef !14
   %20 = sub i64 %19, %.val
@@ -1242,8 +1242,8 @@ define hidden noundef align 4 dereferenceable_or_null(12) ptr @_ZN13yara_x_parse
   br label %_ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit
 
 _ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit: ; preds = %14, %2, %17
-  %18 = phi i64 [ %.pre, %17 ], [ %12, %2 ], [ %16, %14 ]
-  %.val = phi i64 [ %.val.pre, %17 ], [ %.val2.i, %2 ], [ %.val.i, %14 ]
+  %18 = phi i64 [ %12, %2 ], [ %.pre, %17 ], [ %16, %14 ]
+  %.val = phi i64 [ %.val2.i, %2 ], [ %.val.pre, %17 ], [ %.val.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load i64, ptr %5, align 8, !noundef !14
   %20 = add i64 %19, %1

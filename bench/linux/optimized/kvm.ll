@@ -565,7 +565,7 @@ kvm_read_and_reset_apf_flags.exit:                ; preds = %2
   br label %kvm_read_and_reset_apf_flags.exit.thread
 
 kvm_read_and_reset_apf_flags.exit.thread:         ; preds = %2, %26, %kvm_read_and_reset_apf_flags.exit
-  %27 = phi i1 [ false, %kvm_read_and_reset_apf_flags.exit ], [ true, %26 ], [ false, %2 ]
+  %27 = phi i1 [ true, %26 ], [ false, %kvm_read_and_reset_apf_flags.exit ], [ false, %2 ]
   ret i1 %27
 }
 

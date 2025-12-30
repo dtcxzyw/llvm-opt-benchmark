@@ -261,7 +261,7 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %33, label %29
 
@@ -504,7 +504,7 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %33, label %29
 
@@ -1067,7 +1067,7 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_i
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %dssetup_dissect_DsRoleInfo.exit [
     i32 1, label %35

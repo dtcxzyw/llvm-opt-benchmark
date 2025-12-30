@@ -215,9 +215,9 @@ int_engine_configure.exit.thread16:               ; preds = %43
   br i1 %.not66.i, label %int_engine_init.exit.thread.i, label %int_engine_init.exit.i
 
 int_engine_init.exit.i:                           ; preds = %73, %71, %.thread.i.i, %55, %40, %28, %.lr.ph.i
-  %.154.i = phi ptr [ %.053115.i, %73 ], [ %25, %.lr.ph.i ], [ %.053115.i, %40 ], [ %.053115.i, %28 ], [ %.053115.i, %55 ], [ %.053115.i, %71 ], [ %.053115.i, %.thread.i.i ]
-  %.3.i = phi ptr [ %.2.i, %73 ], [ %.048116.i, %.lr.ph.i ], [ %35, %40 ], [ %.048116.i, %28 ], [ %.2.i, %55 ], [ %.2.i, %71 ], [ %.2.i, %.thread.i.i ]
-  %.1.i = phi i32 [ %.0117.i, %73 ], [ %.0117.i, %.lr.ph.i ], [ %.0117.i, %40 ], [ 1, %28 ], [ %.0117.i, %55 ], [ %.0117.i, %71 ], [ %.0117.i, %.thread.i.i ]
+  %.154.i = phi ptr [ %.053115.i, %40 ], [ %.053115.i, %71 ], [ %.053115.i, %73 ], [ %25, %.lr.ph.i ], [ %.053115.i, %28 ], [ %.053115.i, %55 ], [ %.053115.i, %.thread.i.i ]
+  %.3.i = phi ptr [ %35, %40 ], [ %.2.i, %71 ], [ %.2.i, %73 ], [ %.048116.i, %.lr.ph.i ], [ %.048116.i, %28 ], [ %.2.i, %55 ], [ %.2.i, %.thread.i.i ]
+  %.1.i = phi i32 [ %.0117.i, %40 ], [ %.0117.i, %71 ], [ %.0117.i, %73 ], [ %.0117.i, %.lr.ph.i ], [ 1, %28 ], [ %.0117.i, %55 ], [ %.0117.i, %.thread.i.i ]
   %75 = add nuw nsw i32 %.056114.i, 1
   %76 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %15) #4
   %77 = icmp slt i32 %75, %76
@@ -263,7 +263,7 @@ int_engine_init.exit.i:                           ; preds = %73, %71, %.thread.i
   br label %int_engine_configure.exit
 
 int_engine_init.exit.thread.i:                    ; preds = %34, %36, %38, %40, %47, %53, %57, %71, %73, %67, %65
-  %.149.ph.ph.i = phi ptr [ %.2.i, %65 ], [ %.2.i, %67 ], [ %35, %40 ], [ %35, %38 ], [ %35, %36 ], [ null, %34 ], [ null, %47 ], [ %.2.i, %53 ], [ %.2.i, %71 ], [ %.2.i, %73 ], [ %.2.i, %57 ]
+  %.149.ph.ph.i = phi ptr [ %.2.i, %67 ], [ %.2.i, %65 ], [ %35, %40 ], [ %35, %38 ], [ %35, %36 ], [ null, %34 ], [ %.2.i, %53 ], [ %.2.i, %71 ], [ %.2.i, %73 ], [ null, %47 ], [ %.2.i, %57 ]
   %91 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @ERR_new() #4
@@ -274,8 +274,8 @@ int_engine_init.exit.thread.i:                    ; preds = %34, %36, %38, %40, 
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 102, ptr noundef nonnull @.str.13, ptr noundef %93, ptr noundef %94, ptr noundef %95) #4
   br label %int_engine_configure.exit
 
-int_engine_configure.exit.thread19:               ; preds = %._crit_edge.i, %.thread.i82.i, %.preheader.i
-  %.149101.i.ph = phi ptr [ null, %.preheader.i ], [ %.3.i, %.thread.i82.i ], [ %.3.i, %._crit_edge.i ]
+int_engine_configure.exit.thread19:               ; preds = %.thread.i82.i, %._crit_edge.i, %.preheader.i
+  %.149101.i.ph = phi ptr [ null, %.preheader.i ], [ %.3.i, %._crit_edge.i ], [ %.3.i, %.thread.i82.i ]
   %96 = call i32 @ENGINE_free(ptr noundef %.149101.i.ph) #4
   br label %98
 

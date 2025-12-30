@@ -1756,8 +1756,8 @@ define i32 @Gia_ManAreFindBestVar(ptr noundef readonly captures(none) %0, i32 %1
   br label %58
 
 58:                                               ; preds = %53, %._crit_edge, %50
-  %.144 = phi i32 [ %.04375, %50 ], [ %spec.select, %53 ], [ %.04375, %._crit_edge ]
-  %.1 = phi i32 [ %.076, %50 ], [ %spec.select59, %53 ], [ %.076, %._crit_edge ]
+  %.144 = phi i32 [ %.04375, %50 ], [ %.04375, %._crit_edge ], [ %spec.select, %53 ]
+  %.1 = phi i32 [ %.076, %50 ], [ %.076, %._crit_edge ], [ %spec.select59, %53 ]
   %59 = add nuw nsw i32 %.04574, 1
   %exitcond.not = icmp eq i32 %59, %.val
   br i1 %exitcond.not, label %._crit_edge79, label %.lr.ph, !llvm.loop !82
@@ -2171,8 +2171,8 @@ Gia_StaAreSharpVar.exit:                          ; preds = %95
   br label %Gia_StaAreDisjoint.exit
 
 Gia_StaAreDisjoint.exit:                          ; preds = %26, %84, %106, %111, %Gia_StaAreSharpVar.exit, %17, %70
-  %.val52.val = phi ptr [ %.val52.val21, %84 ], [ %.val52.val.pre, %70 ], [ %.val52.val21, %106 ], [ %.val52.val21, %111 ], [ %.val52.val21, %Gia_StaAreSharpVar.exit ], [ %.val52.val21, %17 ], [ %.val52.val21, %26 ]
-  %.val52 = phi ptr [ %.val5219, %84 ], [ %.val53.pre, %70 ], [ %.val5219, %106 ], [ %.val5219, %111 ], [ %.val5219, %Gia_StaAreSharpVar.exit ], [ %.val5219, %17 ], [ %.val5219, %26 ]
+  %.val52.val = phi ptr [ %.val52.val21, %106 ], [ %.val52.val21, %111 ], [ %.val52.val21, %Gia_StaAreSharpVar.exit ], [ %.val52.val21, %17 ], [ %.val52.val.pre, %70 ], [ %.val52.val21, %84 ], [ %.val52.val21, %26 ]
+  %.val52 = phi ptr [ %.val5219, %106 ], [ %.val5219, %111 ], [ %.val5219, %Gia_StaAreSharpVar.exit ], [ %.val5219, %17 ], [ %.val53.pre, %70 ], [ %.val5219, %84 ], [ %.val5219, %26 ]
   %.val54 = load i32, ptr %4, align 8, !tbaa !40
   %115 = getelementptr i8, ptr %.04414, i64 4
   %.044.val = load i32, ptr %115, align 4
@@ -2189,7 +2189,7 @@ Gia_StaAreDisjoint.exit:                          ; preds = %26, %84, %106, %111
   br i1 %.not8, label %Gia_ManAreRycycleSta.exit, label %17, !llvm.loop !88
 
 Gia_ManAreRycycleSta.exit:                        ; preds = %Gia_StaAreDisjoint.exit, %2, %62, %56, %.thread
-  %.0 = phi i32 [ 0, %62 ], [ 0, %.thread ], [ 0, %56 ], [ 1, %2 ], [ 1, %Gia_StaAreDisjoint.exit ]
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %56 ], [ 0, %62 ], [ 1, %2 ], [ 1, %Gia_StaAreDisjoint.exit ]
   ret i32 %.0
 }
 
@@ -2225,7 +2225,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %or.cond197, label %Gia_ObjHasBranch0.exit.thread, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %166, %97, %16
-  %.sink182 = phi i32 [ %168, %166 ], [ %100, %97 ], [ %19, %16 ]
+  %.sink182 = phi i32 [ %19, %16 ], [ %100, %97 ], [ %168, %166 ]
   %.val67 = load ptr, ptr %5, align 8, !tbaa !60
   %21 = lshr i32 %.sink182, 20
   %22 = and i32 %21, 2047
@@ -2704,8 +2704,8 @@ define internal fastcc void @Gia_ManAreRebalance(ptr noundef captures(none) %0, 
   br label %19
 
 19:                                               ; preds = %12, %._crit_edge.i
-  %.val.i = phi ptr [ %15, %12 ], [ %.val.pre.i, %._crit_edge.i ]
-  %20 = phi i32 [ %spec.select.i, %12 ], [ %4, %._crit_edge.i ]
+  %.val.i = phi ptr [ %.val.pre.i, %._crit_edge.i ], [ %15, %12 ]
+  %20 = phi i32 [ %4, %._crit_edge.i ], [ %spec.select.i, %12 ]
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %3, align 4, !tbaa !91
   %22 = lshr i32 %20, 20
@@ -3427,7 +3427,7 @@ tailrecurse.backedge:                             ; preds = %Gia_StaAreSharpVar.
   br label %tailrecurse
 
 Gia_StaAreDisjoint.exit:                          ; preds = %48, %106, %Gia_StaAreSharpVar.exit, %42, %92
-  %133 = phi ptr [ %29, %106 ], [ %.pre, %92 ], [ %29, %Gia_StaAreSharpVar.exit ], [ %29, %42 ], [ %29, %48 ]
+  %133 = phi ptr [ %29, %Gia_StaAreSharpVar.exit ], [ %29, %42 ], [ %.pre, %92 ], [ %29, %106 ], [ %29, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = getelementptr i8, ptr %133, i64 4
   %.val90 = load i32, ptr %134, align 4, !tbaa !47
@@ -3622,7 +3622,7 @@ Gia_StaAreSharpVar.exit157:                       ; preds = %228
   br i1 %229, label %Gia_StaAreDisjoint.exit122, label %tailrecurse.backedge
 
 Gia_StaAreDisjoint.exit122:                       ; preds = %159, %217, %Gia_StaAreSharpVar.exit157, %153, %203
-  %230 = phi ptr [ %140, %217 ], [ %.pre231, %203 ], [ %140, %Gia_StaAreSharpVar.exit157 ], [ %140, %153 ], [ %140, %159 ]
+  %230 = phi ptr [ %140, %Gia_StaAreSharpVar.exit157 ], [ %140, %153 ], [ %.pre231, %203 ], [ %140, %217 ], [ %140, %159 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %231 = getelementptr i8, ptr %230, i64 4
   %.val89 = load i32, ptr %231, align 4, !tbaa !47
@@ -3631,7 +3631,7 @@ Gia_StaAreDisjoint.exit122:                       ; preds = %159, %217, %Gia_Sta
   br i1 %233, label %.lr.ph211, label %.critedge2, !llvm.loop !96
 
 .critedge2:                                       ; preds = %.critedge, %Gia_StaAreDisjoint.exit122, %.lr.ph211, %195, %189, %.thread167, %84, %78, %.thread
-  %.070 = phi i32 [ 0, %78 ], [ 0, %195 ], [ 0, %84 ], [ 0, %189 ], [ 0, %.thread167 ], [ 0, %.thread ], [ 1, %Gia_StaAreDisjoint.exit122 ], [ 1, %.lr.ph211 ], [ 1, %.critedge ]
+  %.070 = phi i32 [ 0, %.thread ], [ 0, %78 ], [ 0, %84 ], [ 0, %.thread167 ], [ 0, %189 ], [ 0, %195 ], [ 1, %.lr.ph211 ], [ 1, %Gia_StaAreDisjoint.exit122 ], [ 1, %.critedge ]
   ret i32 %.070
 }
 
@@ -4007,7 +4007,7 @@ Abc_Clock.exit:                                   ; preds = %77, %80
   store ptr %84, ptr %115, align 8, !tbaa !110
   br label %.critedge4
 
-.thread:                                          ; preds = %110, %.lr.ph.i102, %87, %Abc_Clock.exit
+.thread:                                          ; preds = %110, %87, %.lr.ph.i102, %Abc_Clock.exit
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %116, align 4, !tbaa !109
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -4329,7 +4329,7 @@ Abc_Clock.exit114:                                ; preds = %Gia_ManAreCubeProce
   br i1 %exitcond.not, label %.critedge4, label %286, !llvm.loop !114
 
 .critedge4:                                       ; preds = %286, %.preheader, %.lr.ph136, %.critedge2, %.critedge, %111, %Abc_Clock.exit114, %2
-  %.0 = phi i32 [ 1, %.critedge2 ], [ 0, %2 ], [ %162, %Abc_Clock.exit114 ], [ 1, %.critedge ], [ 1, %111 ], [ 0, %.lr.ph136 ], [ 0, %.preheader ], [ 0, %286 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %111 ], [ %162, %Abc_Clock.exit114 ], [ 1, %.critedge ], [ 1, %.critedge2 ], [ 0, %.lr.ph136 ], [ 0, %.preheader ], [ 0, %286 ]
   ret i32 %.0
 }
 
@@ -4381,8 +4381,8 @@ define internal fastcc ptr @Gia_ManAreCreateStaNew(ptr noundef captures(none) %0
   br label %26
 
 26:                                               ; preds = %24, %._crit_edge.i
-  %.val.i = phi ptr [ %13, %24 ], [ %.val.pre.i, %._crit_edge.i ]
-  %27 = phi i32 [ %spec.select.i, %24 ], [ %3, %._crit_edge.i ]
+  %.val.i = phi ptr [ %.val.pre.i, %._crit_edge.i ], [ %13, %24 ]
+  %27 = phi i32 [ %3, %._crit_edge.i ], [ %spec.select.i, %24 ]
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %2, align 8, !tbaa !38
   %29 = getelementptr i8, ptr %0, i64 48
@@ -4899,7 +4899,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   br label %228
 
 228:                                              ; preds = %216, %.lr.ph111.split, %219
-  %.sink = phi i32 [ 0, %.lr.ph111.split ], [ %227, %219 ], [ 1, %216 ]
+  %.sink = phi i32 [ %227, %219 ], [ 0, %.lr.ph111.split ], [ 1, %216 ]
   %229 = getelementptr inbounds nuw i8, ptr %207, i64 8
   store i32 %.sink, ptr %229, align 4, !tbaa !97
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -5453,7 +5453,7 @@ Gia_ManAreCubeProcess.exit:                       ; preds = %.thread.i, %69, %.t
   br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %118, %116, %104, %102, %Gia_ManAreCubeProcess.exit
-  %.066 = phi i32 [ -1, %102 ], [ 1, %Gia_ManAreCubeProcess.exit ], [ 1, %104 ], [ -1, %116 ], [ 1, %118 ]
+  %.066 = phi i32 [ 1, %Gia_ManAreCubeProcess.exit ], [ -1, %102 ], [ 1, %104 ], [ -1, %116 ], [ 1, %118 ]
   call void @Gia_ManArePrintReport(ptr noundef nonnull %40, i64 noundef %.0.i, i32 noundef 1)
   %123 = getelementptr inbounds nuw i8, ptr %40, i64 36
   %124 = load i32, ptr %123, align 4, !tbaa !109
@@ -5937,7 +5937,7 @@ Abc_Clock.exit131:                                ; preds = %Abc_Clock.exit129, 
   br label %389
 
 389:                                              ; preds = %383, %387, %388, %32
-  %.0 = phi i32 [ -1, %32 ], [ 0, %387 ], [ 0, %388 ], [ %.066, %383 ]
+  %.0 = phi i32 [ -1, %32 ], [ 0, %388 ], [ 0, %387 ], [ %.066, %383 ]
   ret i32 %.0
 }
 

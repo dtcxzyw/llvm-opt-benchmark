@@ -1001,8 +1001,8 @@ _ZN12_GLOBAL__N_111NGONEncoder18ngonEncodeTriangleEP6aiFace.exit277: ; preds = %
   br label %_ZN12_GLOBAL__N_111NGONEncoder18ngonEncodeTriangleEP6aiFace.exit
 
 _ZN12_GLOBAL__N_111NGONEncoder18ngonEncodeTriangleEP6aiFace.exit: ; preds = %107, %105, %99, %424, %_ZN12_GLOBAL__N_111NGONEncoder14ngonEncodeQuadEP6aiFaceS2_.exit
-  %.sroa.0320.1 = phi i32 [ %.sroa.0320.2.lcssa, %424 ], [ %.sroa.0320.0393, %99 ], [ %262, %_ZN12_GLOBAL__N_111NGONEncoder14ngonEncodeQuadEP6aiFaceS2_.exit ], [ %.pre8.i, %107 ], [ %.val7.val.i, %105 ]
-  %.1198 = phi ptr [ %.2199.lcssa470, %424 ], [ %100, %99 ], [ %231, %_ZN12_GLOBAL__N_111NGONEncoder14ngonEncodeQuadEP6aiFaceS2_.exit ], [ %100, %107 ], [ %100, %105 ]
+  %.sroa.0320.1 = phi i32 [ %.sroa.0320.0393, %99 ], [ %262, %_ZN12_GLOBAL__N_111NGONEncoder14ngonEncodeQuadEP6aiFaceS2_.exit ], [ %.sroa.0320.2.lcssa, %424 ], [ %.pre8.i, %107 ], [ %.val7.val.i, %105 ]
+  %.1198 = phi ptr [ %100, %99 ], [ %231, %_ZN12_GLOBAL__N_111NGONEncoder14ngonEncodeQuadEP6aiFaceS2_.exit ], [ %.2199.lcssa470, %424 ], [ %100, %107 ], [ %100, %105 ]
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
   %425 = load i32, ptr %25, align 8
   %426 = zext i32 %425 to i64
@@ -1103,7 +1103,7 @@ _ZNSt6vectorIS_I10aiVector2tIfESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_Destr
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit
 
 466:                                              ; preds = %263, %335, %_ZNSt6vectorIjSaIjEED2Ev.exit271, %90
-  %.pn239.pn = phi { ptr, i32 } [ %91, %90 ], [ %336, %335 ], [ %264, %263 ], [ %.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit271 ]
+  %.pn239.pn = phi { ptr, i32 } [ %91, %90 ], [ %264, %263 ], [ %.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit271 ], [ %336, %335 ]
   call void @_ZNSt6vectorIS_I10aiVector2tIfESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   br label %467
 
@@ -1123,7 +1123,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit283: ; preds = %468, %467
   resume { ptr, i32 } %.pn239.pn.pn
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %.preheader353, %36, %_ZNSt6vectorIS_I10aiVector2tIfESaIS1_EESaIS3_EED2Ev.exit, %463, %._crit_edge, %15
-  %.1 = phi i1 [ false, %15 ], [ false, %._crit_edge ], [ true, %463 ], [ true, %_ZNSt6vectorIS_I10aiVector2tIfESaIS1_EESaIS3_EED2Ev.exit ], [ false, %36 ], [ false, %.preheader353 ]
+  %.1 = phi i1 [ false, %._crit_edge ], [ false, %15 ], [ true, %463 ], [ true, %_ZNSt6vectorIS_I10aiVector2tIfESaIS1_EESaIS3_EED2Ev.exit ], [ false, %36 ], [ false, %.preheader353 ]
   ret i1 %.1
 }
 
@@ -3730,7 +3730,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   br i1 %50, label %41, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN6mapbox6detail6EarcutIjE4NodeESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNS5_14eliminateHolesIS9_IS9_I10aiVector2tIfESaISH_EESaISJ_EEEES7_RKT_S7_EUlPKS6_SQ_E_EEEvSM_T0_ST_T1_T2_.exit.us, !llvm.loop !35
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN6mapbox6detail6EarcutIjE4NodeESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNS5_14eliminateHolesIS9_IS9_I10aiVector2tIfESaISH_EESaISJ_EEEES7_RKT_S7_EUlPKS6_SQ_E_EEEvSM_T0_ST_T1_T2_.exit.us: ; preds = %41, %48, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.019.i.i.us, %41 ], [ %.0920.i.i.us, %48 ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.0920.i.i.us, %48 ], [ %.019.i.i.us, %41 ]
   %51 = getelementptr inbounds nuw ptr, ptr %.fr17, i64 %.0.lcssa.i.i.us
   store ptr %21, ptr %51, align 8
   %.not.us = icmp eq i64 %.09.us, 0
@@ -3868,8 +3868,8 @@ define linkonce_odr hidden noundef ptr @_ZN6mapbox6detail6EarcutIjE14findHoleBri
   br i1 %32, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %8, %30, %17, %12
-  %.188 = phi ptr [ %.087, %12 ], [ %.078., %30 ], [ %.087, %17 ], [ %.087, %8 ]
-  %.183 = phi double [ %.082, %12 ], [ %27, %30 ], [ %.082, %17 ], [ %.082, %8 ]
+  %.188 = phi ptr [ %.087, %12 ], [ %.087, %17 ], [ %.078., %30 ], [ %.087, %8 ]
+  %.183 = phi double [ %.082, %12 ], [ %.082, %17 ], [ %27, %30 ], [ %.082, %8 ]
   %.not = icmp eq ptr %.pre, %2
   br i1 %.not, label %33, label %8, !llvm.loop !46
 
@@ -4038,8 +4038,8 @@ _ZN6mapbox6detail6EarcutIjE20sectorContainsSectorEPKNS2_4NodeES5_.exit: ; preds 
   br label %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread
 
 _ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread: ; preds = %124, %88, %47, %56, %95, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit, %118, %_ZN6mapbox6detail6EarcutIjE20sectorContainsSectorEPKNS2_4NodeES5_.exit, %155, %42
-  %.5 = phi ptr [ %.179, %155 ], [ %.4, %_ZN6mapbox6detail6EarcutIjE20sectorContainsSectorEPKNS2_4NodeES5_.exit ], [ %.4, %118 ], [ %.4, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit ], [ %.4, %124 ], [ %.4, %42 ], [ %.4, %88 ], [ %.4, %47 ], [ %.4, %95 ], [ %.4, %56 ]
-  %.181 = phi double [ %67, %155 ], [ %.080, %_ZN6mapbox6detail6EarcutIjE20sectorContainsSectorEPKNS2_4NodeES5_.exit ], [ %.080, %118 ], [ %.080, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit ], [ %.080, %124 ], [ %.080, %42 ], [ %.080, %88 ], [ %.080, %47 ], [ %.080, %95 ], [ %.080, %56 ]
+  %.5 = phi ptr [ %.179, %155 ], [ %.4, %_ZN6mapbox6detail6EarcutIjE20sectorContainsSectorEPKNS2_4NodeES5_.exit ], [ %.4, %118 ], [ %.4, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit ], [ %.4, %42 ], [ %.4, %95 ], [ %.4, %56 ], [ %.4, %47 ], [ %.4, %88 ], [ %.4, %124 ]
+  %.181 = phi double [ %67, %155 ], [ %.080, %_ZN6mapbox6detail6EarcutIjE20sectorContainsSectorEPKNS2_4NodeES5_.exit ], [ %.080, %118 ], [ %.080, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit ], [ %.080, %42 ], [ %.080, %95 ], [ %.080, %56 ], [ %.080, %47 ], [ %.080, %88 ], [ %.080, %124 ]
   %156 = getelementptr inbounds nuw i8, ptr %.179, i64 32
   %157 = load ptr, ptr %156, align 8
   %.not103 = icmp eq ptr %157, %.188
@@ -4644,7 +4644,7 @@ _ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread: ; preds = 
   br i1 %.not68, label %.critedge2, label %.lr.ph94, !llvm.loop !54
 
 .critedge2:                                       ; preds = %138, %.lr.ph94, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread, %183, %.critedge, %2
-  %.065 = phi i1 [ false, %2 ], [ false, %183 ], [ true, %.critedge ], [ true, %.lr.ph94 ], [ true, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread ], [ false, %138 ]
+  %.065 = phi i1 [ false, %2 ], [ true, %.critedge ], [ true, %.lr.ph94 ], [ true, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread ], [ false, %183 ], [ false, %138 ]
   ret i1 %.065
 }
 
@@ -5166,8 +5166,8 @@ _ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit: ; preds = %._crit_edge
   br label %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit51
 
 _ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit51: ; preds = %103, %52, %237, %._crit_edge.i49, %110, %59, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit28, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit
-  %.125 = phi ptr [ %.024, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit ], [ %.024, %110 ], [ %.024, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit28 ], [ %.024, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit ], [ %.024, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread ], [ %11, %237 ], [ %.024, %59 ], [ %.024, %52 ], [ %11, %._crit_edge.i49 ], [ %.024, %103 ]
-  %.1 = phi ptr [ %.0, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit ], [ %.0, %110 ], [ %.0, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit28 ], [ %.0, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit ], [ %.0, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread ], [ %11, %237 ], [ %.0, %59 ], [ %.0, %52 ], [ %11, %._crit_edge.i49 ], [ %.0, %103 ]
+  %.125 = phi ptr [ %.024, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit ], [ %.024, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit28 ], [ %.024, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit ], [ %.024, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread ], [ %.024, %59 ], [ %.024, %110 ], [ %11, %._crit_edge.i49 ], [ %11, %237 ], [ %.024, %52 ], [ %.024, %103 ]
+  %.1 = phi ptr [ %.0, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit ], [ %.0, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit28 ], [ %.0, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit ], [ %.0, %_ZN6mapbox6detail6EarcutIjE6equalsEPKNS2_4NodeES5_.exit.thread ], [ %.0, %59 ], [ %.0, %110 ], [ %11, %._crit_edge.i49 ], [ %11, %237 ], [ %.0, %52 ], [ %.0, %103 ]
   %240 = getelementptr inbounds nuw i8, ptr %.125, i64 32
   %241 = load ptr, ptr %240, align 8
   %.not = icmp eq ptr %241, %.1
@@ -5516,7 +5516,7 @@ _ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit.i46: ; preds = %109, %.
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit
-  %.1 = phi ptr [ %6, %4 ], [ %.pre58, %._crit_edge.loopexit ]
+  %.1 = phi ptr [ %.pre58, %._crit_edge.loopexit ], [ %6, %4 ]
   %.not24 = icmp eq ptr %.1, %1
   br i1 %.not24, label %.loopexit, label %4, !llvm.loop !58
 
@@ -5986,7 +5986,7 @@ _ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33: ; pred
   br label %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread
 
 _ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread: ; preds = %20, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33, %161, %168, %176, %8, %3
-  %197 = phi i1 [ false, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33 ], [ false, %8 ], [ false, %3 ], [ true, %168 ], [ true, %161 ], [ %196, %176 ], [ false, %20 ]
+  %197 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %168 ], [ true, %161 ], [ %196, %176 ], [ false, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33 ], [ false, %20 ]
   ret i1 %197
 }
 

@@ -334,10 +334,10 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
   br label %.thread
 
 .sink.split:                                      ; preds = %74, %72, %70
-  %.sink = phi ptr [ %17, %72 ], [ %11, %70 ], [ %8, %74 ]
-  %.sroa.013.3.ph = phi i1 [ false, %72 ], [ true, %70 ], [ false, %74 ]
-  %.sroa.012.3.ph = phi i1 [ true, %72 ], [ true, %70 ], [ false, %74 ]
-  %.sroa.011.3.ph = phi i1 [ true, %72 ], [ false, %70 ], [ false, %74 ]
+  %.sink = phi ptr [ %11, %70 ], [ %17, %72 ], [ %8, %74 ]
+  %.sroa.013.3.ph = phi i1 [ true, %70 ], [ false, %72 ], [ false, %74 ]
+  %.sroa.012.3.ph = phi i1 [ true, %70 ], [ true, %72 ], [ false, %74 ]
+  %.sroa.011.3.ph = phi i1 [ false, %70 ], [ true, %72 ], [ false, %74 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %.sink, i64 80, i1 false)
   br label %54
 

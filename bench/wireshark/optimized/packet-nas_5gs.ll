@@ -3613,8 +3613,8 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_flow_des(ptr noundef %0, pt
   br label %48
 
 48:                                               ; preds = %.lr.ph, %45, %47, %46
-  %.083.in = phi ptr [ @hf_nas_5gs_sm_unit_for_mfbr_dl, %47 ], [ @hf_nas_5gs_sm_unit_for_gfbr_dl, %45 ], [ @hf_nas_5gs_sm_unit_for_mfbr_ul, %46 ], [ @hf_nas_5gs_sm_unit_for_gfbr_ul, %.lr.ph ]
-  %.0.in = phi ptr [ @hf_nas_5gs_sm_mfbr_dl, %47 ], [ @hf_nas_5gs_sm_gfbr_dl, %45 ], [ @hf_nas_5gs_sm_mfbr_ul, %46 ], [ @hf_nas_5gs_sm_gfbr_ul, %.lr.ph ]
+  %.083.in = phi ptr [ @hf_nas_5gs_sm_unit_for_gfbr_dl, %45 ], [ @hf_nas_5gs_sm_unit_for_mfbr_ul, %46 ], [ @hf_nas_5gs_sm_unit_for_mfbr_dl, %47 ], [ @hf_nas_5gs_sm_unit_for_gfbr_ul, %.lr.ph ]
+  %.0.in = phi ptr [ @hf_nas_5gs_sm_gfbr_dl, %45 ], [ @hf_nas_5gs_sm_mfbr_ul, %46 ], [ @hf_nas_5gs_sm_mfbr_dl, %47 ], [ @hf_nas_5gs_sm_gfbr_ul, %.lr.ph ]
   %.0 = load i32, ptr %.0.in, align 4
   %.083 = load i32, ptr %.083.in, align 4
   %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %29, i32 noundef %.083, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
@@ -3674,8 +3674,8 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_flow_des(ptr noundef %0, pt
   br label %get_ext_ambr_unit.exit
 
 get_ext_ambr_unit.exit:                           ; preds = %48, %55, %61, %67, %73, %77, %79
-  %.str.1522.sink.i = phi ptr [ @.str.1522, %55 ], [ @.str.1524, %67 ], [ @.str.1526, %79 ], [ @.str.1521, %48 ], [ @.str.1525, %73 ], [ @.str.1523, %61 ], [ @.str.1526, %77 ]
-  %.020.i = phi i32 [ %58, %55 ], [ %70, %67 ], [ %82, %79 ], [ 1, %48 ], [ %76, %73 ], [ %64, %61 ], [ 256, %77 ]
+  %.str.1522.sink.i = phi ptr [ @.str.1522, %55 ], [ @.str.1524, %67 ], [ @.str.1526, %79 ], [ @.str.1525, %73 ], [ @.str.1523, %61 ], [ @.str.1521, %48 ], [ @.str.1526, %77 ]
+  %.020.i = phi i32 [ %58, %55 ], [ %70, %67 ], [ %82, %79 ], [ %76, %73 ], [ %64, %61 ], [ 1, %48 ], [ 256, %77 ]
   %83 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %50)
   %84 = zext i16 %83 to i32
   %85 = load i32, ptr %10, align 4
@@ -4035,8 +4035,8 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   br label %157
 
 157:                                              ; preds = %.lr.ph, %153, %146, %142, %136, %132, %128, %124, %117, %113, %106, %102, %98, %91, %84
-  %.0204 = phi i32 [ %155, %153 ], [ 12, %146 ], [ 8, %84 ], [ 17, %91 ], [ 1, %98 ], [ 2, %102 ], [ 4, %106 ], [ 4, %113 ], [ 2, %117 ], [ 3, %124 ], [ 6, %128 ], [ 2, %132 ], [ 1, %136 ], [ 2, %142 ], [ 0, %.lr.ph ]
-  %.4 = phi i32 [ %156, %153 ], [ %152, %146 ], [ %90, %84 ], [ %97, %91 ], [ %101, %98 ], [ %105, %102 ], [ %112, %106 ], [ %116, %113 ], [ %123, %117 ], [ %127, %124 ], [ %131, %128 ], [ %135, %132 ], [ %141, %136 ], [ %145, %142 ], [ %80, %.lr.ph ]
+  %.0204 = phi i32 [ %155, %153 ], [ 8, %84 ], [ 17, %91 ], [ 1, %98 ], [ 2, %102 ], [ 4, %106 ], [ 4, %113 ], [ 2, %117 ], [ 3, %124 ], [ 6, %128 ], [ 2, %132 ], [ 1, %136 ], [ 2, %142 ], [ 12, %146 ], [ 0, %.lr.ph ]
+  %.4 = phi i32 [ %156, %153 ], [ %90, %84 ], [ %97, %91 ], [ %101, %98 ], [ %105, %102 ], [ %112, %106 ], [ %116, %113 ], [ %123, %117 ], [ %127, %124 ], [ %131, %128 ], [ %135, %132 ], [ %141, %136 ], [ %145, %142 ], [ %152, %146 ], [ %80, %.lr.ph ]
   %158 = load i32, ptr %11, align 4
   %159 = sub i32 %158, %.0204
   store i32 %159, ptr %11, align 4
@@ -4168,8 +4168,8 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_session_ambr(ptr noundef %0, pt
   br label %get_ext_ambr_unit.exit
 
 get_ext_ambr_unit.exit:                           ; preds = %7, %16, %22, %28, %34, %38, %40
-  %.str.1522.sink.i = phi ptr [ @.str.1522, %16 ], [ @.str.1524, %28 ], [ @.str.1526, %40 ], [ @.str.1521, %7 ], [ @.str.1525, %34 ], [ @.str.1523, %22 ], [ @.str.1526, %38 ]
-  %.020.i = phi i32 [ %19, %16 ], [ %31, %28 ], [ %43, %40 ], [ 1, %7 ], [ %37, %34 ], [ %25, %22 ], [ 256, %38 ]
+  %.str.1522.sink.i = phi ptr [ @.str.1522, %16 ], [ @.str.1524, %28 ], [ @.str.1526, %40 ], [ @.str.1525, %34 ], [ @.str.1523, %22 ], [ @.str.1521, %7 ], [ @.str.1526, %38 ]
+  %.020.i = phi i32 [ %19, %16 ], [ %31, %28 ], [ %43, %40 ], [ %37, %34 ], [ %25, %22 ], [ 1, %7 ], [ 256, %38 ]
   %44 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %11)
   %45 = zext i16 %44 to i32
   %46 = load i32, ptr @hf_nas_5gs_sm_session_ambr_dl, align 4
@@ -4233,8 +4233,8 @@ get_ext_ambr_unit.exit:                           ; preds = %7, %16, %22, %28, %
   br label %get_ext_ambr_unit.exit29
 
 get_ext_ambr_unit.exit29:                         ; preds = %get_ext_ambr_unit.exit, %56, %62, %68, %74, %78, %80
-  %.str.1522.sink.i27 = phi ptr [ @.str.1522, %56 ], [ @.str.1524, %68 ], [ @.str.1526, %80 ], [ @.str.1521, %get_ext_ambr_unit.exit ], [ @.str.1525, %74 ], [ @.str.1523, %62 ], [ @.str.1526, %78 ]
-  %.020.i28 = phi i32 [ %59, %56 ], [ %71, %68 ], [ %83, %80 ], [ 1, %get_ext_ambr_unit.exit ], [ %77, %74 ], [ %65, %62 ], [ 256, %78 ]
+  %.str.1522.sink.i27 = phi ptr [ @.str.1522, %56 ], [ @.str.1524, %68 ], [ @.str.1526, %80 ], [ @.str.1525, %74 ], [ @.str.1523, %62 ], [ @.str.1521, %get_ext_ambr_unit.exit ], [ @.str.1526, %78 ]
+  %.020.i28 = phi i32 [ %59, %56 ], [ %71, %68 ], [ %83, %80 ], [ %77, %74 ], [ %65, %62 ], [ 1, %get_ext_ambr_unit.exit ], [ 256, %78 ]
   %84 = add i32 %3, 4
   %85 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %84)
   %86 = zext i16 %85 to i32
@@ -4308,7 +4308,7 @@ define hidden zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %1
   br label %30
 
 30:                                               ; preds = %14, %7, %25, %23
-  %.0 = phi i16 [ %29, %25 ], [ 1, %7 ], [ %24, %23 ], [ 4, %14 ]
+  %.0 = phi i16 [ %24, %23 ], [ %29, %25 ], [ 1, %7 ], [ 4, %14 ]
   ret i16 %.0
 }
 
@@ -4580,7 +4580,7 @@ define internal zeroext i16 @de_nas_5gs_mm_5gmm_cap(ptr noundef %0, ptr noundef 
   br label %43
 
 43:                                               ; preds = %26, %20, %29, %23, %17, %14, %11, %40, %9
-  %.085 = phi i16 [ %10, %9 ], [ %42, %40 ], [ 2, %11 ], [ 3, %14 ], [ 8, %29 ], [ 4, %17 ], [ 5, %20 ], [ 6, %23 ], [ 7, %26 ]
+  %.085 = phi i16 [ %10, %9 ], [ %42, %40 ], [ 2, %11 ], [ 3, %14 ], [ 4, %17 ], [ 6, %23 ], [ 8, %29 ], [ 5, %20 ], [ 7, %26 ]
   ret i16 %.085
 }
 
@@ -4954,7 +4954,7 @@ default.unreachable78:                            ; preds = %.lr.ph
   unreachable
 
 .loopexit:                                        ; preds = %.preheader, %19, %36, %24
-  %.2 = phi i32 [ %38, %36 ], [ %22, %19 ], [ %29, %24 ], [ %34, %.preheader ]
+  %.2 = phi i32 [ %29, %24 ], [ %38, %36 ], [ %22, %19 ], [ %34, %.preheader ]
   %39 = load ptr, ptr %8, align 8
   %40 = sub i32 %.2, %.06373
   call void @proto_item_set_len(ptr noundef %39, i32 noundef %40)
@@ -5889,7 +5889,7 @@ de_nas_5gs_cmn_s_nssai.exit:                      ; preds = %114, %114, %.lr.ph,
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %de_nas_5gs_cmn_s_nssai.exit, %.lr.ph139, %de_nas_5gs_cmn_dnn.exit, %91, %69, %47, %.lr.ph148
-  %.3 = phi i32 [ %45, %.lr.ph148 ], [ %64, %de_nas_5gs_cmn_dnn.exit ], [ %86, %.lr.ph139 ], [ %50, %47 ], [ %72, %69 ], [ %94, %91 ], [ %122, %de_nas_5gs_cmn_s_nssai.exit ]
+  %.3 = phi i32 [ %45, %.lr.ph148 ], [ %50, %47 ], [ %72, %69 ], [ %94, %91 ], [ %64, %de_nas_5gs_cmn_dnn.exit ], [ %86, %.lr.ph139 ], [ %122, %de_nas_5gs_cmn_s_nssai.exit ]
   %127 = load ptr, ptr %9, align 8
   %128 = sub i32 %.3, %.1146
   call void @proto_item_set_len(ptr noundef %127, i32 noundef %128)
@@ -6521,7 +6521,7 @@ default.unreachable78:                            ; preds = %.lr.ph
   unreachable
 
 .loopexit:                                        ; preds = %.preheader, %19, %36, %24
-  %.2 = phi i32 [ %38, %36 ], [ %22, %19 ], [ %29, %24 ], [ %34, %.preheader ]
+  %.2 = phi i32 [ %29, %24 ], [ %38, %36 ], [ %22, %19 ], [ %34, %.preheader ]
   %39 = load ptr, ptr %8, align 8
   %40 = sub i32 %.2, %.06373
   call void @proto_item_set_len(ptr noundef %39, i32 noundef %40)
@@ -10287,7 +10287,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread112.sink.split
 
 66:                                               ; preds = %61, %59, %45, %.tail
-  %.073.in = phi ptr [ @nas_5gs_handle, %45 ], [ @lpp_handle, %59 ], [ @nas_5gs_handle, %.tail ], [ @gsm_a_dtap_handle, %61 ]
+  %.073.in = phi ptr [ @nas_5gs_handle, %.tail ], [ @nas_5gs_handle, %45 ], [ @lpp_handle, %59 ], [ @gsm_a_dtap_handle, %61 ]
   %.073 = load ptr, ptr %.073.in, align 8
   %.not102 = icmp eq ptr %.073, null
   br i1 %.not102, label %.thread112, label %67
@@ -10301,7 +10301,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread112
 
 .thread112:                                       ; preds = %.thread112.sink.split, %63, %66, %.thread106, %42, %39, %31, %29, %20, %14, %4, %11
-  %.0 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 0, %39 ], [ 0, %42 ], [ 0, %.thread106 ], [ 0, %66 ], [ 0, %63 ], [ 0, %29 ], [ 0, %20 ], [ 0, %31 ], [ 0, %11 ], [ %69, %.thread112.sink.split ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ 0, %14 ], [ 0, %20 ], [ 0, %29 ], [ 0, %31 ], [ 0, %39 ], [ 0, %42 ], [ 0, %.thread106 ], [ 0, %66 ], [ 0, %63 ], [ %69, %.thread112.sink.split ]
   ret i32 %.0
 }
 
@@ -10594,7 +10594,7 @@ define internal fastcc void @nas_5gs_decode_user_data_cont(ptr noundef %0, ptr n
   br label %32
 
 32:                                               ; preds = %23, %21, %28, %30
-  %.sink = phi ptr [ %22, %21 ], [ %31, %30 ], [ %spec.select, %23 ], [ %29, %28 ]
+  %.sink = phi ptr [ %22, %21 ], [ %29, %28 ], [ %31, %30 ], [ %spec.select, %23 ]
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0.28 = load volatile ptr, ptr %7, align 8
   %.not51 = icmp eq ptr %.0..0..0..0.28, null
@@ -16152,7 +16152,7 @@ define internal fastcc void @dissect_nas_5gs_sm_info(ptr noundef %0, ptr noundef
   br label %20
 
 15:                                               ; preds = %11, %9, %4
-  %.0 = phi ptr [ @nas_5gs_n1_sm_info_to_ue, %9 ], [ @nas_5gs_n1_sm_info_from_ue, %4 ], [ @nas_5gs_unknown_n1_sm_info, %11 ]
+  %.0 = phi ptr [ @nas_5gs_n1_sm_info_from_ue, %4 ], [ @nas_5gs_n1_sm_info_to_ue, %9 ], [ @nas_5gs_unknown_n1_sm_info, %11 ]
   %16 = load ptr, ptr %5, align 8
   tail call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef %3)
   %17 = load i32, ptr @hf_nas_5gs_sm_msg_type, align 4

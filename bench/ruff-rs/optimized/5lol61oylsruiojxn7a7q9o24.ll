@@ -316,7 +316,7 @@ define hidden void @_ZN10ty_project2db15ProjectDatabase3new17h31fe19c1f948c4e2E(
   br i1 %.sroa.09.1, label %.thread.thread, label %82
 
 .body35.thread:                                   ; preds = %21, %29, %33, %.body35.thread47, %36
-  %.pn3344 = phi { ptr, i32 } [ %15, %.body35.thread47 ], [ %.pn, %36 ], [ %30, %33 ], [ %30, %29 ], [ %22, %21 ]
+  %.pn3344 = phi { ptr, i32 } [ %.pn, %36 ], [ %15, %.body35.thread47 ], [ %30, %33 ], [ %30, %29 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$ty_wasm..WasmSystem$GT$17h600f9115a19920e0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #22
           to label %.thread.thread unwind label %80
 
@@ -324,8 +324,8 @@ define hidden void @_ZN10ty_project2db15ProjectDatabase3new17h31fe19c1f948c4e2E(
   %.pn334251 = phi { ptr, i32 } [ %.pn334252, %.thread.thread ], [ %63, %.thread ]
   resume { ptr, i32 } %.pn334251
 
-.thread.thread:                                   ; preds = %36, %.body35.thread, %.body35, %.thread
-  %.pn334252 = phi { ptr, i32 } [ %63, %.thread ], [ %.pn, %36 ], [ %.pn3344, %.body35.thread ], [ %37, %.body35 ]
+.thread.thread:                                   ; preds = %.body35, %36, %.body35.thread, %.thread
+  %.pn334252 = phi { ptr, i32 } [ %63, %.thread ], [ %37, %.body35 ], [ %.pn, %36 ], [ %.pn3344, %.body35.thread ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ty_project..metadata..ProjectMetadata$GT$17hae54af66ed9e8683E"(ptr noalias noundef nonnull align 8 dereferenceable(384) %1) #22
           to label %82 unwind label %80
 }
@@ -1523,7 +1523,7 @@ _ZN5salsa4loom4sync7Condvar4wait17heb8342fd9d286c6aE.exit.i: ; preds = %30, %22
   unreachable
 
 "_ZN4core3ptr96drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$usize$GT$$GT$17h1c7ddb3240be91d8E.exit4.i": ; preds = %52, %48, %36, %32
-  %eh.lpad-body6.i = phi { ptr, i32 } [ %49, %48 ], [ %49, %52 ], [ %33, %32 ], [ %33, %36 ]
+  %eh.lpad-body6.i = phi { ptr, i32 } [ %49, %52 ], [ %49, %48 ], [ %33, %32 ], [ %33, %36 ]
   resume { ptr, i32 } %eh.lpad-body6.i
 
 48:                                               ; preds = %40, %28

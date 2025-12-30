@@ -4343,7 +4343,7 @@ define dso_local void @call_rcu_tasks(ptr noundef initializes((0, 16)) %0, ptr n
   br label %.thread6
 
 .thread6:                                         ; preds = %77, %69, %81, %.thread7, %84
-  %86 = phi i1 [ false, %81 ], [ true, %.thread7 ], [ false, %84 ], [ false, %69 ], [ false, %77 ]
+  %86 = phi i1 [ true, %.thread7 ], [ false, %84 ], [ false, %81 ], [ false, %69 ], [ false, %77 ]
   call void @rcu_segcblist_enqueue(ptr noundef %29, ptr noundef %0) #17
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %30, i64 noundef %7) #17
   br i1 %54, label %87, label %97, !prof !31

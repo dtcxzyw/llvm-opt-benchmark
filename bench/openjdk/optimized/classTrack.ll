@@ -269,7 +269,7 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
   call void @debugInit_exit(i32 noundef %71, ptr noundef nonnull @.str.14) #5
   br label %is_wrong_phase.exit.thread
 
-is_wrong_phase.exit.thread:                       ; preds = %64, %77, %74, %72, %80, %37, %34, %32, %40, %10, %7, %5, %13, %81, %56
+is_wrong_phase.exit.thread:                       ; preds = %64, %80, %77, %74, %72, %40, %37, %34, %32, %13, %10, %7, %5, %81, %56
   ret void
 }
 
@@ -380,7 +380,7 @@ define hidden void @classTrack_initialize(ptr noundef readnone captures(none) %0
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.18) #5
   br label %setupEvents.exit
 
-setupEvents.exit.thread:                          ; preds = %44, %18, %32
+setupEvents.exit.thread:                          ; preds = %18, %32, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61

@@ -785,7 +785,7 @@ define noundef float @_ZN10wasmi_core4wasm7f32_min17hfa412a1ed574aa50E(float nou
   br label %15
 
 15:                                               ; preds = %10, %4, %2, %8, %14
-  %.sroa.0.0 = phi float [ %9, %8 ], [ %0, %2 ], [ %1, %4 ], [ %0, %14 ], [ %1, %10 ]
+  %.sroa.0.0 = phi float [ %0, %14 ], [ %9, %8 ], [ %0, %2 ], [ %1, %4 ], [ %1, %10 ]
   ret float %.sroa.0.0
 }
 
@@ -818,7 +818,7 @@ define noundef double @_ZN10wasmi_core4wasm7f64_min17h2dddfba115aa1390E(double n
   br label %15
 
 15:                                               ; preds = %10, %4, %2, %8, %14
-  %.sroa.0.0 = phi double [ %9, %8 ], [ %0, %2 ], [ %1, %4 ], [ %0, %14 ], [ %1, %10 ]
+  %.sroa.0.0 = phi double [ %0, %14 ], [ %9, %8 ], [ %0, %2 ], [ %1, %4 ], [ %1, %10 ]
   ret double %.sroa.0.0
 }
 
@@ -851,7 +851,7 @@ define noundef float @_ZN10wasmi_core4wasm7f32_max17hbfe928edf371a173E(float nou
   br label %15
 
 15:                                               ; preds = %10, %4, %2, %8, %14
-  %.sroa.0.0 = phi float [ %9, %8 ], [ %0, %2 ], [ %1, %4 ], [ %0, %14 ], [ %1, %10 ]
+  %.sroa.0.0 = phi float [ %0, %14 ], [ %9, %8 ], [ %0, %2 ], [ %1, %4 ], [ %1, %10 ]
   ret float %.sroa.0.0
 }
 
@@ -884,7 +884,7 @@ define noundef double @_ZN10wasmi_core4wasm7f64_max17h040e7b32363fdf9eE(double n
   br label %15
 
 15:                                               ; preds = %10, %4, %2, %8, %14
-  %.sroa.0.0 = phi double [ %9, %8 ], [ %0, %2 ], [ %1, %4 ], [ %0, %14 ], [ %1, %10 ]
+  %.sroa.0.0 = phi double [ %0, %14 ], [ %9, %8 ], [ %0, %2 ], [ %1, %4 ], [ %1, %10 ]
   ret double %.sroa.0.0
 }
 
@@ -1248,7 +1248,7 @@ define noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f32_s17h4ba14e50e4d59c69
   br label %"_ZN74_$LT$f32$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$i32$GT$$GT$22truncate_saturate_into17h826771a050d819afE.exit"
 
 "_ZN74_$LT$f32$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$i32$GT$$GT$22truncate_saturate_into17h826771a050d819afE.exit": ; preds = %1, %6, %.critedge.i
-  %.sroa.0.0.i = phi i32 [ %spec.select.i, %6 ], [ 0, %1 ], [ %8, %.critedge.i ]
+  %.sroa.0.0.i = phi i32 [ %8, %.critedge.i ], [ 0, %1 ], [ %spec.select.i, %6 ]
   ret i32 %.sroa.0.0.i
 }
 
@@ -1273,7 +1273,7 @@ define noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f32_u17hf6e379db2f660f8a
   br label %"_ZN74_$LT$f32$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$u32$GT$$GT$22truncate_saturate_into17ha084a5026dc62047E.exit"
 
 "_ZN74_$LT$f32$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$u32$GT$$GT$22truncate_saturate_into17ha084a5026dc62047E.exit": ; preds = %1, %6, %.critedge.i
-  %.sroa.0.0.i = phi i32 [ %spec.select.i, %6 ], [ 0, %1 ], [ %8, %.critedge.i ]
+  %.sroa.0.0.i = phi i32 [ %8, %.critedge.i ], [ 0, %1 ], [ %spec.select.i, %6 ]
   ret i32 %.sroa.0.0.i
 }
 
@@ -1298,7 +1298,7 @@ define noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f64_s17h0fa037716e707cbd
   br label %"_ZN74_$LT$f64$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$i32$GT$$GT$22truncate_saturate_into17h05e3f33da7c68821E.exit"
 
 "_ZN74_$LT$f64$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$i32$GT$$GT$22truncate_saturate_into17h05e3f33da7c68821E.exit": ; preds = %1, %6, %.critedge.i
-  %.sroa.0.0.i = phi i32 [ %spec.select.i, %6 ], [ 0, %1 ], [ %8, %.critedge.i ]
+  %.sroa.0.0.i = phi i32 [ %8, %.critedge.i ], [ 0, %1 ], [ %spec.select.i, %6 ]
   ret i32 %.sroa.0.0.i
 }
 
@@ -1323,7 +1323,7 @@ define noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f64_u17h8d22788b0af3afc6
   br label %"_ZN74_$LT$f64$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$u32$GT$$GT$22truncate_saturate_into17h5b912554e6b749a0E.exit"
 
 "_ZN74_$LT$f64$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$u32$GT$$GT$22truncate_saturate_into17h5b912554e6b749a0E.exit": ; preds = %1, %6, %.critedge.i
-  %.sroa.0.0.i = phi i32 [ %spec.select.i, %6 ], [ 0, %1 ], [ %8, %.critedge.i ]
+  %.sroa.0.0.i = phi i32 [ %8, %.critedge.i ], [ 0, %1 ], [ %spec.select.i, %6 ]
   ret i32 %.sroa.0.0.i
 }
 
@@ -1348,7 +1348,7 @@ define noundef i64 @_ZN10wasmi_core4wasm19i64_trunc_sat_f32_s17h1077bfce2fee09ac
   br label %"_ZN74_$LT$f32$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$i64$GT$$GT$22truncate_saturate_into17h9f813a58bc4921c6E.exit"
 
 "_ZN74_$LT$f32$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$i64$GT$$GT$22truncate_saturate_into17h9f813a58bc4921c6E.exit": ; preds = %1, %6, %.critedge.i
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %6 ], [ 0, %1 ], [ %8, %.critedge.i ]
+  %.sroa.0.0.i = phi i64 [ %8, %.critedge.i ], [ 0, %1 ], [ %spec.select.i, %6 ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -1373,7 +1373,7 @@ define noundef i64 @_ZN10wasmi_core4wasm19i64_trunc_sat_f32_u17h215b9cbeb7131ae3
   br label %"_ZN74_$LT$f32$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$u64$GT$$GT$22truncate_saturate_into17h4340ec2153efb2d8E.exit"
 
 "_ZN74_$LT$f32$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$u64$GT$$GT$22truncate_saturate_into17h4340ec2153efb2d8E.exit": ; preds = %1, %6, %.critedge.i
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %6 ], [ 0, %1 ], [ %8, %.critedge.i ]
+  %.sroa.0.0.i = phi i64 [ %8, %.critedge.i ], [ 0, %1 ], [ %spec.select.i, %6 ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -1398,7 +1398,7 @@ define noundef i64 @_ZN10wasmi_core4wasm19i64_trunc_sat_f64_s17hd67bd6bea935d53e
   br label %"_ZN74_$LT$f64$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$i64$GT$$GT$22truncate_saturate_into17h987bcd39778917c4E.exit"
 
 "_ZN74_$LT$f64$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$i64$GT$$GT$22truncate_saturate_into17h987bcd39778917c4E.exit": ; preds = %1, %6, %.critedge.i
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %6 ], [ 0, %1 ], [ %8, %.critedge.i ]
+  %.sroa.0.0.i = phi i64 [ %8, %.critedge.i ], [ 0, %1 ], [ %spec.select.i, %6 ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -1423,7 +1423,7 @@ define noundef i64 @_ZN10wasmi_core4wasm19i64_trunc_sat_f64_u17h467e730945cc9e54
   br label %"_ZN74_$LT$f64$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$u64$GT$$GT$22truncate_saturate_into17h50f39274af266f55E.exit"
 
 "_ZN74_$LT$f64$u20$as$u20$wasmi_core..value..TruncateSaturateInto$LT$u64$GT$$GT$22truncate_saturate_into17h50f39274af266f55E.exit": ; preds = %1, %6, %.critedge.i
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %6 ], [ 0, %1 ], [ %8, %.critedge.i ]
+  %.sroa.0.0.i = phi i64 [ %8, %.critedge.i ], [ 0, %1 ], [ %spec.select.i, %6 ]
   ret i64 %.sroa.0.0.i
 }
 

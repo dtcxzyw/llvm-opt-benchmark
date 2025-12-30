@@ -205,7 +205,7 @@ define internal i32 @epki2pki_decode(ptr noundef %0, ptr noundef %1, i32 %2, ptr
   br label %77
 
 77:                                               ; preds = %26, %7, %76
-  %.0 = phi i32 [ 0, %7 ], [ %.3, %76 ], [ 1, %26 ]
+  %.0 = phi i32 [ %.3, %76 ], [ 0, %7 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

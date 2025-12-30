@@ -142,7 +142,7 @@ define hidden { i64, ptr } @"_ZN102_$LT$futures_util..future..future..map..Map$L
   br i1 %37, label %64, label %40
 
 common.resume:                                    ; preds = %58, %.body, %74, %68, %38
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %69, %68 ], [ %69, %74 ], [ %53, %58 ], [ %53, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %53, %58 ], [ %53, %.body ], [ %69, %74 ], [ %69, %68 ]
   resume { ptr, i32 } %common.resume.op
 
 38:                                               ; preds = %28
@@ -174,9 +174,9 @@ common.resume:                                    ; preds = %58, %.body, %74, %6
   tail call void @_ZN3std9panicking11begin_panic17h93a7104fa06798d1E(ptr noalias noundef nonnull readonly align 1 @anon.3484dcc7a45c3057356c8d4f6d4a5b81.3, i64 noundef 54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3484dcc7a45c3057356c8d4f6d4a5b81.4) #21
   unreachable
 
-48:                                               ; preds = %43, %40
-  %.sroa.4.0.i.i.ph = phi ptr [ undef, %40 ], [ %..i.i, %43 ]
-  %.sroa.0.0.i.i.ph = phi i64 [ 1, %40 ], [ %not.trunc.i.i, %43 ]
+48:                                               ; preds = %40, %43
+  %.sroa.4.0.i.i.ph = phi ptr [ %..i.i, %43 ], [ undef, %40 ]
+  %.sroa.0.0.i.i.ph = phi i64 [ %not.trunc.i.i, %43 ], [ 1, %40 ]
   store i64 %.sroa.0.0.i.i.ph, ptr %4, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.4.0.i.i.ph, ptr %49, align 8
@@ -593,8 +593,8 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   br label %30
 
 30:                                               ; preds = %26, %14, %18, %24, %10
-  %.sroa.5.0 = phi ptr [ %11, %10 ], [ %., %26 ], [ %15, %14 ], [ undef, %18 ], [ undef, %24 ]
-  %.sroa.0.0 = phi i64 [ 1, %10 ], [ %27, %26 ], [ 1, %14 ], [ 0, %18 ], [ 0, %24 ]
+  %.sroa.5.0 = phi ptr [ %11, %10 ], [ %15, %14 ], [ undef, %18 ], [ undef, %24 ], [ %., %26 ]
+  %.sroa.0.0 = phi i64 [ 1, %10 ], [ 1, %14 ], [ 0, %18 ], [ 0, %24 ], [ %27, %26 ]
   %31 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %32 = insertvalue { i64, ptr } %31, ptr %.sroa.5.0, 1
   ret { i64, ptr } %32

@@ -147,8 +147,8 @@ define internal range(i32 0, 52) i32 @mpegvideo_probe(ptr noundef readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %62, %60, %67, %55
-  %.280 = phi i32 [ %61, %60 ], [ %.078147, %62 ], [ %.078147, %55 ], [ %.078147, %67 ]
-  %.2 = phi i32 [ %.064152, %60 ], [ %63, %62 ], [ %.064152, %55 ], [ %68, %67 ]
+  %.280 = phi i32 [ %61, %60 ], [ %.078147, %62 ], [ %.078147, %67 ], [ %.078147, %55 ]
+  %.2 = phi i32 [ %.064152, %60 ], [ %63, %62 ], [ %68, %67 ], [ %.064152, %55 ]
   %69 = and i32 %13, 496
   %70 = icmp eq i32 %69, 480
   br i1 %70, label %71, label %.thread.thread
@@ -216,7 +216,7 @@ define internal range(i32 0, 52) i32 @mpegvideo_probe(ptr noundef readonly captu
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %87, %1, %._crit_edge, %84, %90
-  %.062 = phi i32 [ 0, %1 ], [ %92, %90 ], [ %.mux, %87 ], [ 0, %84 ], [ 0, %._crit_edge ]
+  %.062 = phi i32 [ %92, %90 ], [ %.mux, %87 ], [ 0, %84 ], [ 0, %._crit_edge ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.062
 }

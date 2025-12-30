@@ -311,7 +311,7 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
   %93 = icmp sgt i32 %92, -1
   br i1 %93, label %94, label %.thread110
 
-94:                                               ; preds = %91, %86, %68, %82, %55, %62, %66, %89, %49, %47, %36, %43, %30
+94:                                               ; preds = %91, %86, %68, %82, %89, %66, %49, %55, %62, %47, %30, %36, %43
   %95 = load i32, ptr %5, align 4
   %96 = sub i32 %95, %33
   store i32 %96, ptr %2, align 8
@@ -335,7 +335,7 @@ r_remove_category_3.exit:                         ; preds = %94
   br label %.thread110
 
 .thread110:                                       ; preds = %91, %86, %r_remove_category_3.exit, %23, %12, %.loopexit
-  %.1 = phi i32 [ 1, %.loopexit ], [ %13, %12 ], [ %26, %23 ], [ %87, %86 ], [ %92, %91 ], [ %..4, %r_remove_category_3.exit ]
+  %.1 = phi i32 [ 1, %.loopexit ], [ %26, %23 ], [ %13, %12 ], [ %..4, %r_remove_category_3.exit ], [ %87, %86 ], [ %92, %91 ]
   ret i32 %.1
 }
 

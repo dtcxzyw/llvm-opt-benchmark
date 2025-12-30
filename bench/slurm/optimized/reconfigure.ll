@@ -48,7 +48,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_reconfigure() local_unnamed_addr #0
   br label %13
 
 13:                                               ; preds = %7, %0, %9
-  %.0 = phi i32 [ -1, %0 ], [ %12, %9 ], [ 0, %7 ]
+  %.0 = phi i32 [ %12, %9 ], [ -1, %0 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0

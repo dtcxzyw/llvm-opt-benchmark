@@ -963,7 +963,7 @@ lean_nat_lt.exit.thread:                          ; preds = %lean_inc.exit74.thr
   br label %lean_dec.exit89
 
 lean_dec.exit89:                                  ; preds = %58, %57, %55, %lean_nat_lt.exit.thread147, %lean_nat_lt.exit.thread
-  %.in153 = phi i1 [ %54, %lean_nat_lt.exit.thread ], [ %50, %58 ], [ %53, %lean_nat_lt.exit.thread147 ], [ %50, %55 ], [ %50, %57 ]
+  %.in153 = phi i1 [ %54, %lean_nat_lt.exit.thread ], [ %53, %lean_nat_lt.exit.thread147 ], [ %50, %55 ], [ %50, %57 ], [ %50, %58 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !11
   %61 = ptrtoint ptr %60 to i64
@@ -1500,7 +1500,7 @@ lean_dec.exit:                                    ; preds = %256, %255, %253, %l
   br label %258
 
 258:                                              ; preds = %lean_alloc_closure.exit139, %lean_dec.exit, %lean_alloc_closure.exit, %lean_dec.exit81
-  %.1 = phi ptr [ %172, %lean_dec.exit81 ], [ %109, %lean_alloc_closure.exit ], [ %194, %lean_alloc_closure.exit139 ], [ %257, %lean_dec.exit ]
+  %.1 = phi ptr [ %109, %lean_alloc_closure.exit ], [ %172, %lean_dec.exit81 ], [ %194, %lean_alloc_closure.exit139 ], [ %257, %lean_dec.exit ]
   ret ptr %.1
 }
 
@@ -4478,7 +4478,7 @@ lean_nat_lt.exit.thread:                          ; preds = %lean_inc.exit.threa
 lean_dec.exit29:                                  ; preds = %78
   br i1 %69, label %90, label %80
 
-80:                                               ; preds = %lean_nat_lt.exit.thread52, %76, %79, %lean_nat_lt.exit.thread, %lean_dec.exit29
+80:                                               ; preds = %79, %76, %lean_nat_lt.exit.thread52, %lean_nat_lt.exit.thread, %lean_dec.exit29
   br i1 %.not56, label %81, label %lean_dec.exit
 
 81:                                               ; preds = %80
@@ -4504,7 +4504,7 @@ lean_dec.exit:                                    ; preds = %87, %86, %84, %80
   %89 = tail call ptr @l_outOfBounds___rarg(ptr noundef %88) #3
   br label %93
 
-90:                                               ; preds = %lean_nat_lt.exit.thread52, %76, %79, %lean_nat_lt.exit.thread, %lean_dec.exit29
+90:                                               ; preds = %79, %76, %lean_nat_lt.exit.thread52, %lean_nat_lt.exit.thread, %lean_dec.exit29
   %91 = load ptr, ptr @l_Lean_instInhabitedExpr, align 8, !tbaa !11
   %92 = tail call ptr @l_Lean_PersistentArray_get_x21___rarg(ptr noundef %91, ptr noundef nonnull %41, ptr noundef %1) #3
   br label %93

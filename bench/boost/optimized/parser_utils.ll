@@ -365,7 +365,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit103, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit105, %._crit_edge.i.i.i, %34, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %6, %._crit_edge.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %47, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit105 ], [ %46, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit103 ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i, %14 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %46, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit103 ], [ %47, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.loopexit.split.loop.exit105 ], [ %.sroa.032.051.i.i.i, %14 ]
   %48 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   %49 = sub i64 %8, %48
   %50 = icmp sgt i64 %49, 1
@@ -458,7 +458,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE9to_numberEc.exit
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIcE9to_numberEc.exit: ; preds = %80, %83, %85
-  %.0.i = phi i32 [ %spec.select.i, %85 ], [ %84, %83 ], [ %isdigittmp.i, %80 ]
+  %.0.i = phi i32 [ %84, %83 ], [ %spec.select.i, %85 ], [ %isdigittmp.i, %80 ]
   %88 = shl nsw i32 %.0.i, 4
   %isdigittmp.i24 = add nsw i32 %78, -48
   %isdigit.i25 = icmp ult i32 %isdigittmp.i24, 10
@@ -481,7 +481,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIcE9to_numberEc.exit: ; preds = %8
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE9to_numberEc.exit30
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIcE9to_numberEc.exit30: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE9to_numberEc.exit, %91, %93
-  %.0.i29 = phi i32 [ %spec.select.i28, %93 ], [ %92, %91 ], [ %isdigittmp.i24, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE9to_numberEc.exit ]
+  %.0.i29 = phi i32 [ %92, %91 ], [ %spec.select.i28, %93 ], [ %isdigittmp.i24, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE9to_numberEc.exit ]
   %96 = or i32 %.0.i29, %88
   %97 = trunc i32 %96 to i8
   store i8 %97, ptr %55, align 1, !tbaa !3
@@ -539,8 +539,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
   br label %.thread79
 
 .thread79:                                        ; preds = %111, %122, %116
-  %.sroa.037.1 = phi ptr [ %124, %122 ], [ %112, %111 ], [ %118, %116 ]
-  %.1 = phi i8 [ %126, %122 ], [ %113, %111 ], [ %120, %116 ]
+  %.sroa.037.1 = phi ptr [ %124, %122 ], [ %118, %116 ], [ %112, %111 ]
+  %.1 = phi i8 [ %126, %122 ], [ %120, %116 ], [ %113, %111 ]
   store i8 %.1, ptr %55, align 1, !tbaa !3
   %127 = load ptr, ptr %0, align 8, !tbaa !16
   %128 = ptrtoint ptr %112 to i64
@@ -569,7 +569,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
   br label %141
 
 141:                                              ; preds = %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit, %77, %70, %57, %58, %59, %60, %62, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit31, %109, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit
-  %.sroa.059.1 = phi ptr [ %140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit31 ], [ %55, %64 ], [ %55, %109 ], [ %55, %57 ], [ %55, %58 ], [ %55, %59 ], [ %61, %60 ], [ %55, %62 ], [ %55, %63 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit ], [ %55, %70 ], [ %55, %77 ], [ %108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit ]
+  %.sroa.059.1 = phi ptr [ %140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit31 ], [ %55, %109 ], [ %55, %57 ], [ %55, %58 ], [ %55, %59 ], [ %61, %60 ], [ %55, %62 ], [ %55, %63 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit ], [ %55, %70 ], [ %55, %77 ], [ %108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit ], [ %55, %64 ]
   %142 = load ptr, ptr %0, align 8, !tbaa !16
   %143 = load i64, ptr %2, align 8, !tbaa !10
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
@@ -865,7 +865,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_t
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit381, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit383, %._crit_edge.i.i.i, %34, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %7, %._crit_edge.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %47, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit383 ], [ %46, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit381 ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i, %14 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %46, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit381 ], [ %47, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit.loopexit.split.loop.exit383 ], [ %.sroa.032.051.i.i.i, %14 ]
   %48 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   %49 = sub i64 %8, %48
   %50 = icmp sgt i64 %49, 4
@@ -993,7 +993,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread: ; p
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread, %78, %80
-  %.0.i = phi i32 [ %spec.select.i, %80 ], [ %79, %78 ], [ %73, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread ]
+  %.0.i = phi i32 [ %79, %78 ], [ %spec.select.i, %80 ], [ %73, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit60.thread ]
   %83 = shl nuw nsw i32 %.0.i, 4
   br i1 %or.cond.i57, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68, label %84
 
@@ -1012,7 +1012,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit: ; preds = %_
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit, %85, %87
-  %.0.i67 = phi i32 [ %spec.select.i66, %87 ], [ %86, %85 ], [ %75, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit ]
+  %.0.i67 = phi i32 [ %86, %85 ], [ %spec.select.i66, %87 ], [ %75, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit ]
   %90 = or i32 %.0.i67, %83
   store i32 %90, ptr %56, align 4, !tbaa !19
   %91 = add nuw nsw i64 %53, 4
@@ -1166,7 +1166,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread: ; p
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread, %120, %122
-  %.0.i89 = phi i32 [ %spec.select.i88, %122 ], [ %121, %120 ], [ %111, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread ]
+  %.0.i89 = phi i32 [ %121, %120 ], [ %spec.select.i88, %122 ], [ %111, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit84.thread ]
   %125 = shl nuw nsw i32 %.0.i89, 12
   br i1 %or.cond.i73, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96, label %126
 
@@ -1185,7 +1185,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90: ; preds = 
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90, %127, %129
-  %.0.i95 = phi i32 [ %spec.select.i94, %129 ], [ %128, %127 ], [ %113, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90 ]
+  %.0.i95 = phi i32 [ %128, %127 ], [ %spec.select.i94, %129 ], [ %113, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit90 ]
   %132 = shl nuw nsw i32 %.0.i95, 8
   %133 = or i32 %132, %125
   br i1 %or.cond.i77, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102, label %134
@@ -1205,7 +1205,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96: ; preds = 
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96, %135, %137
-  %.0.i101 = phi i32 [ %spec.select.i100, %137 ], [ %136, %135 ], [ %115, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96 ]
+  %.0.i101 = phi i32 [ %136, %135 ], [ %spec.select.i100, %137 ], [ %115, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit96 ]
   %140 = shl nuw nsw i32 %.0.i101, 4
   %141 = or i32 %133, %140
   br i1 %or.cond.i81, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108, label %142
@@ -1225,7 +1225,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102: ; preds =
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102, %143, %145
-  %.0.i107 = phi i32 [ %spec.select.i106, %145 ], [ %144, %143 ], [ %117, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102 ]
+  %.0.i107 = phi i32 [ %144, %143 ], [ %spec.select.i106, %145 ], [ %117, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102 ]
   %148 = or i32 %141, %.0.i107
   store i32 %148, ptr %56, align 4, !tbaa !19
   %149 = add nuw nsw i64 %53, 4
@@ -1484,7 +1484,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread: ; 
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread, %195, %197
-  %.0.i147 = phi i32 [ %spec.select.i146, %197 ], [ %196, %195 ], [ %178, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread ]
+  %.0.i147 = phi i32 [ %196, %195 ], [ %spec.select.i146, %197 ], [ %178, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9iswxdigitEw.exit142.thread ]
   %200 = shl i32 %.0.i147, 28
   br i1 %or.cond.i115, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154, label %201
 
@@ -1503,7 +1503,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148: ; preds =
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148, %202, %204
-  %.0.i153 = phi i32 [ %spec.select.i152, %204 ], [ %203, %202 ], [ %180, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148 ]
+  %.0.i153 = phi i32 [ %203, %202 ], [ %spec.select.i152, %204 ], [ %180, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit148 ]
   %207 = shl nuw nsw i32 %.0.i153, 24
   %208 = or i32 %207, %200
   br i1 %or.cond.i119, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160, label %209
@@ -1523,7 +1523,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154: ; preds =
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154, %210, %212
-  %.0.i159 = phi i32 [ %spec.select.i158, %212 ], [ %211, %210 ], [ %182, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154 ]
+  %.0.i159 = phi i32 [ %211, %210 ], [ %spec.select.i158, %212 ], [ %182, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit154 ]
   %215 = shl nuw nsw i32 %.0.i159, 20
   %216 = or i32 %208, %215
   br i1 %or.cond.i123, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166, label %217
@@ -1543,7 +1543,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160: ; preds =
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160, %218, %220
-  %.0.i165 = phi i32 [ %spec.select.i164, %220 ], [ %219, %218 ], [ %184, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160 ]
+  %.0.i165 = phi i32 [ %219, %218 ], [ %spec.select.i164, %220 ], [ %184, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit160 ]
   %223 = shl nuw nsw i32 %.0.i165, 16
   %224 = or i32 %216, %223
   br i1 %or.cond.i127, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172, label %225
@@ -1563,7 +1563,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166: ; preds =
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166, %226, %228
-  %.0.i171 = phi i32 [ %spec.select.i170, %228 ], [ %227, %226 ], [ %186, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166 ]
+  %.0.i171 = phi i32 [ %227, %226 ], [ %spec.select.i170, %228 ], [ %186, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit166 ]
   %231 = shl nuw nsw i32 %.0.i171, 12
   %232 = or i32 %224, %231
   br i1 %or.cond.i131, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178, label %233
@@ -1583,7 +1583,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172: ; preds =
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172, %234, %236
-  %.0.i177 = phi i32 [ %spec.select.i176, %236 ], [ %235, %234 ], [ %188, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172 ]
+  %.0.i177 = phi i32 [ %235, %234 ], [ %spec.select.i176, %236 ], [ %188, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit172 ]
   %239 = shl nuw nsw i32 %.0.i177, 8
   %240 = or i32 %232, %239
   br i1 %or.cond.i135, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184, label %241
@@ -1603,7 +1603,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178: ; preds =
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178, %242, %244
-  %.0.i183 = phi i32 [ %spec.select.i182, %244 ], [ %243, %242 ], [ %190, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178 ]
+  %.0.i183 = phi i32 [ %243, %242 ], [ %spec.select.i182, %244 ], [ %190, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit178 ]
   %247 = shl nuw nsw i32 %.0.i183, 4
   %248 = or i32 %240, %247
   br i1 %or.cond.i139, label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190, label %249
@@ -1623,7 +1623,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184: ; preds =
   br label %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190
 
 _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190: ; preds = %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184, %250, %252
-  %.0.i189 = phi i32 [ %spec.select.i188, %252 ], [ %251, %250 ], [ %192, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184 ]
+  %.0.i189 = phi i32 [ %251, %250 ], [ %spec.select.i188, %252 ], [ %192, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit184 ]
   %255 = or i32 %248, %.0.i189
   store i32 %255, ptr %56, align 4, !tbaa !19
   %256 = tail call ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %158, ptr nonnull %176)
@@ -1661,8 +1661,8 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190: ; preds =
   br label %.thread280
 
 .thread280:                                       ; preds = %259, %270, %264
-  %.sroa.0198.1 = phi ptr [ %272, %270 ], [ %260, %259 ], [ %266, %264 ]
-  %.1 = phi i32 [ %274, %270 ], [ %261, %259 ], [ %268, %264 ]
+  %.sroa.0198.1 = phi ptr [ %272, %270 ], [ %266, %264 ], [ %260, %259 ]
+  %.1 = phi i32 [ %274, %270 ], [ %268, %264 ], [ %261, %259 ]
   store i32 %.1, ptr %56, align 4, !tbaa !19
   %275 = add nuw nsw i64 %53, 4
   %276 = ashr exact i64 %275, 2
@@ -1691,8 +1691,8 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__norma
   br label %288
 
 288:                                              ; preds = %switch.early.test328, %switch.early.test327, %switch.early.test326, %switch.early.test325, %switch.early.test324, %switch.early.test323, %switch.early.test322, %switch.early.test321, %switch.early.test320, %switch.early.test319, %switch.early.test318, %switch.early.test317, %switch.early.test316, %switch.early.test, %157, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190, %99, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110, %65, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit, %58, %59, %60, %61, %63, %64, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192, %257, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit
-  %289 = phi ptr [ %286, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %55, %157 ], [ %55, %257 ], [ %55, %58 ], [ %55, %59 ], [ %55, %60 ], [ %55, %61 ], [ %55, %63 ], [ %55, %64 ], [ %6, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %55, %65 ], [ %55, %99 ], [ %97, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %55, %switch.early.test316 ], [ %55, %switch.early.test ], [ %155, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %55, %switch.early.test320 ], [ %55, %switch.early.test319 ], [ %55, %switch.early.test318 ], [ %55, %switch.early.test317 ], [ %.pre, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %55, %switch.early.test328 ], [ %55, %switch.early.test327 ], [ %55, %switch.early.test326 ], [ %55, %switch.early.test325 ], [ %55, %switch.early.test324 ], [ %55, %switch.early.test323 ], [ %55, %switch.early.test322 ], [ %55, %switch.early.test321 ]
-  %.sroa.0254.1 = phi ptr [ %287, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %56, %157 ], [ %56, %257 ], [ %56, %58 ], [ %56, %59 ], [ %56, %60 ], [ %62, %61 ], [ %56, %63 ], [ %56, %64 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %56, %65 ], [ %56, %99 ], [ %98, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %56, %switch.early.test316 ], [ %56, %switch.early.test ], [ %156, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %56, %switch.early.test320 ], [ %56, %switch.early.test319 ], [ %56, %switch.early.test318 ], [ %56, %switch.early.test317 ], [ %256, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %56, %switch.early.test328 ], [ %56, %switch.early.test327 ], [ %56, %switch.early.test326 ], [ %56, %switch.early.test325 ], [ %56, %switch.early.test324 ], [ %56, %switch.early.test323 ], [ %56, %switch.early.test322 ], [ %56, %switch.early.test321 ]
+  %289 = phi ptr [ %286, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %55, %257 ], [ %55, %58 ], [ %55, %59 ], [ %55, %60 ], [ %55, %61 ], [ %55, %63 ], [ %55, %64 ], [ %6, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %97, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %55, %65 ], [ %155, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %55, %99 ], [ %.pre, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %55, %157 ], [ %55, %switch.early.test ], [ %55, %switch.early.test316 ], [ %55, %switch.early.test317 ], [ %55, %switch.early.test318 ], [ %55, %switch.early.test319 ], [ %55, %switch.early.test320 ], [ %55, %switch.early.test321 ], [ %55, %switch.early.test322 ], [ %55, %switch.early.test323 ], [ %55, %switch.early.test324 ], [ %55, %switch.early.test325 ], [ %55, %switch.early.test326 ], [ %55, %switch.early.test327 ], [ %55, %switch.early.test328 ]
+  %.sroa.0254.1 = phi ptr [ %287, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %56, %257 ], [ %56, %58 ], [ %56, %59 ], [ %56, %60 ], [ %62, %61 ], [ %56, %63 ], [ %56, %64 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %98, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %56, %65 ], [ %156, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %56, %99 ], [ %256, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %56, %157 ], [ %56, %switch.early.test ], [ %56, %switch.early.test316 ], [ %56, %switch.early.test317 ], [ %56, %switch.early.test318 ], [ %56, %switch.early.test319 ], [ %56, %switch.early.test320 ], [ %56, %switch.early.test321 ], [ %56, %switch.early.test322 ], [ %56, %switch.early.test323 ], [ %56, %switch.early.test324 ], [ %56, %switch.early.test325 ], [ %56, %switch.early.test326 ], [ %56, %switch.early.test327 ], [ %56, %switch.early.test328 ]
   %290 = load i64, ptr %2, align 8, !tbaa !24
   %291 = getelementptr inbounds nuw i32, ptr %289, i64 %290
   %.not = icmp eq ptr %.sroa.0254.1, %291

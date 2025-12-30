@@ -312,7 +312,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %if.then
   %27 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i15 = icmp eq ptr %27, %28
-  br i1 %cmp.i.i.i15, label %ehcleanup26, label %if.then.i.i16
+  br i1 %cmp.i.i.i15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, label %ehcleanup26
 
 ehcleanup22.thread:                               ; preds = %invoke.cont11
   %29 = landingpad { ptr, i32 }
@@ -322,15 +322,20 @@ ehcleanup22.thread:                               ; preds = %invoke.cont11
   %30 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i1527 = icmp eq ptr %30, %31
-  br i1 %cmp.i.i.i1527, label %cleanup.action.sink.split, label %if.then.i.i16.thread
+  br i1 %cmp.i.i.i1527, label %cleanup.action.sink.split, label %ehcleanup26.thread36
 
-if.then.i.i16.thread:                             ; preds = %ehcleanup22.thread
+ehcleanup26.thread36:                             ; preds = %ehcleanup22.thread
   %32 = load i64, ptr %31, align 8, !tbaa !26
   %add.i.i.i1739 = add i64 %32, 1
   call void @_ZdlPvm(ptr noundef %30, i64 noundef %add.i.i.i1739) #22
   br label %cleanup.action.sink.split
 
-if.then.i.i16:                                    ; preds = %ehcleanup22
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18: ; preds = %ehcleanup22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup30
+
+ehcleanup26:                                      ; preds = %ehcleanup22
   %33 = load i64, ptr %28, align 8, !tbaa !26
   %add.i.i.i17 = add i64 %33, 1
   call void @_ZdlPvm(ptr noundef %27, i64 noundef %add.i.i.i17) #22
@@ -338,24 +343,19 @@ if.then.i.i16:                                    ; preds = %ehcleanup22
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup30
 
-ehcleanup26:                                      ; preds = %ehcleanup22
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup30
-
-cleanup.action.sink.split:                        ; preds = %ehcleanup22.thread, %ehcleanup26.thread, %if.then.i.i16.thread
-  %.pn.pn.pn24.ph = phi { ptr, i32 } [ %29, %if.then.i.i16.thread ], [ %18, %ehcleanup26.thread ], [ %29, %ehcleanup22.thread ]
+cleanup.action.sink.split:                        ; preds = %ehcleanup22.thread, %ehcleanup26.thread, %ehcleanup26.thread36
+  %.pn.pn.pn24.ph = phi { ptr, i32 } [ %29, %ehcleanup26.thread36 ], [ %18, %ehcleanup26.thread ], [ %29, %ehcleanup22.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i16, %ehcleanup26
-  %.pn.pn.pn24 = phi { ptr, i32 } [ %.pn, %if.then.i.i16 ], [ %.pn, %ehcleanup26 ], [ %.pn.pn.pn24.ph, %cleanup.action.sink.split ]
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, %ehcleanup26
+  %.pn.pn.pn24 = phi { ptr, i32 } [ %.pn, %ehcleanup26 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18 ], [ %.pn.pn.pn24.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #18
   br label %ehcleanup30
 
-ehcleanup30:                                      ; preds = %if.then.i.i16, %ehcleanup26, %cleanup.action, %lpad6
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn24, %cleanup.action ], [ %.pn, %ehcleanup26 ], [ %17, %lpad6 ], [ %.pn, %if.then.i.i16 ]
+ehcleanup30:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, %ehcleanup26, %cleanup.action, %lpad6
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn24, %cleanup.action ], [ %.pn, %ehcleanup26 ], [ %17, %lpad6 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #18
   br label %ehcleanup31
 
@@ -1397,7 +1397,7 @@ if.end668:                                        ; preds = %lor.lhs.false632, %
   br label %cleanup
 
 cleanup:                                          ; preds = %land.lhs.true31, %land.lhs.true31, %lor.lhs.false13.thread, %if.then640, %lor.lhs.false646, %lor.lhs.false650, %lor.lhs.false654, %lor.lhs.false658, %lor.lhs.false662, %if.then614, %lor.lhs.false620, %lor.lhs.false628, %lor.lhs.false632, %if.then584, %lor.lhs.false590, %lor.lhs.false594, %lor.lhs.false598, %lor.lhs.false602, %lor.lhs.false606, %if.then554, %lor.lhs.false560, %lor.lhs.false564, %lor.lhs.false568, %lor.lhs.false572, %if.then524, %lor.lhs.false530, %lor.lhs.false542, %if.then502, %lor.lhs.false508, %lor.lhs.false512, %if.then470, %lor.lhs.false478, %lor.lhs.false482, %lor.lhs.false486, %lor.lhs.false494, %if.then444, %lor.lhs.false450, %lor.lhs.false454, %lor.lhs.false462, %if.then414, %lor.lhs.false420, %lor.lhs.false424, %lor.lhs.false428, %lor.lhs.false432, %if.then378, %lor.lhs.false382, %lor.lhs.false386, %lor.lhs.false398, %lor.lhs.false406, %if.then350, %lor.lhs.false354, %lor.lhs.false358, %lor.lhs.false362, %lor.lhs.false366, %if.then320, %lor.lhs.false326, %lor.lhs.false330, %lor.lhs.false334, %lor.lhs.false338, %lor.lhs.false342, %if.then294, %lor.lhs.false300, %lor.lhs.false304, %lor.lhs.false308, %if.then260, %lor.lhs.false266, %lor.lhs.false270, %lor.lhs.false274, %lor.lhs.false278, %if.then234, %lor.lhs.false240, %lor.lhs.false244, %lor.lhs.false252, %if.then204, %lor.lhs.false210, %lor.lhs.false214, %lor.lhs.false222, %if.then174, %lor.lhs.false180, %lor.lhs.false184, %lor.lhs.false188, %lor.lhs.false192, %lor.lhs.false196, %if.then144, %lor.lhs.false150, %lor.lhs.false154, %lor.lhs.false158, %if.then114, %lor.lhs.false120, %lor.lhs.false124, %lor.lhs.false132, %if.then82, %lor.lhs.false90, %lor.lhs.false94, %lor.lhs.false102, %if.then50, %lor.lhs.false58, %lor.lhs.false70, %entry, %land.lhs.true11, %lor.lhs.false13, %lor.lhs.false8, %lor.lhs.false41, %if.end668
-  %retval.0 = phi i1 [ true, %if.end668 ], [ false, %entry ], [ false, %if.then50 ], [ false, %if.then82 ], [ false, %if.then114 ], [ false, %if.then144 ], [ false, %if.then174 ], [ false, %if.then204 ], [ false, %if.then234 ], [ false, %if.then260 ], [ false, %if.then294 ], [ false, %if.then320 ], [ false, %if.then350 ], [ false, %if.then378 ], [ false, %if.then414 ], [ false, %if.then444 ], [ false, %if.then470 ], [ false, %if.then502 ], [ false, %if.then524 ], [ false, %if.then554 ], [ false, %if.then584 ], [ false, %if.then614 ], [ false, %if.then640 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false654 ], [ false, %lor.lhs.false650 ], [ false, %lor.lhs.false646 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true31 ], [ false, %land.lhs.true31 ], [ false, %lor.lhs.false13.thread ], [ false, %lor.lhs.false13 ], [ false, %land.lhs.true11 ], [ false, %lor.lhs.false70 ], [ false, %lor.lhs.false58 ], [ false, %lor.lhs.false102 ], [ false, %lor.lhs.false94 ], [ false, %lor.lhs.false90 ], [ false, %lor.lhs.false132 ], [ false, %lor.lhs.false124 ], [ false, %lor.lhs.false120 ], [ false, %lor.lhs.false158 ], [ false, %lor.lhs.false154 ], [ false, %lor.lhs.false150 ], [ false, %lor.lhs.false196 ], [ false, %lor.lhs.false192 ], [ false, %lor.lhs.false188 ], [ false, %lor.lhs.false184 ], [ false, %lor.lhs.false180 ], [ false, %lor.lhs.false222 ], [ false, %lor.lhs.false214 ], [ false, %lor.lhs.false210 ], [ false, %lor.lhs.false252 ], [ false, %lor.lhs.false244 ], [ false, %lor.lhs.false240 ], [ false, %lor.lhs.false278 ], [ false, %lor.lhs.false274 ], [ false, %lor.lhs.false270 ], [ false, %lor.lhs.false266 ], [ false, %lor.lhs.false308 ], [ false, %lor.lhs.false304 ], [ false, %lor.lhs.false300 ], [ false, %lor.lhs.false342 ], [ false, %lor.lhs.false338 ], [ false, %lor.lhs.false334 ], [ false, %lor.lhs.false330 ], [ false, %lor.lhs.false326 ], [ false, %lor.lhs.false366 ], [ false, %lor.lhs.false362 ], [ false, %lor.lhs.false358 ], [ false, %lor.lhs.false354 ], [ false, %lor.lhs.false406 ], [ false, %lor.lhs.false398 ], [ false, %lor.lhs.false386 ], [ false, %lor.lhs.false382 ], [ false, %lor.lhs.false432 ], [ false, %lor.lhs.false428 ], [ false, %lor.lhs.false424 ], [ false, %lor.lhs.false420 ], [ false, %lor.lhs.false462 ], [ false, %lor.lhs.false454 ], [ false, %lor.lhs.false450 ], [ false, %lor.lhs.false494 ], [ false, %lor.lhs.false486 ], [ false, %lor.lhs.false482 ], [ false, %lor.lhs.false478 ], [ false, %lor.lhs.false512 ], [ false, %lor.lhs.false508 ], [ false, %lor.lhs.false542 ], [ false, %lor.lhs.false530 ], [ false, %lor.lhs.false572 ], [ false, %lor.lhs.false568 ], [ false, %lor.lhs.false564 ], [ false, %lor.lhs.false560 ], [ false, %lor.lhs.false606 ], [ false, %lor.lhs.false602 ], [ false, %lor.lhs.false598 ], [ false, %lor.lhs.false594 ], [ false, %lor.lhs.false590 ], [ false, %lor.lhs.false632 ], [ false, %lor.lhs.false628 ], [ false, %lor.lhs.false620 ], [ false, %lor.lhs.false662 ], [ false, %lor.lhs.false658 ]
+  %retval.0 = phi i1 [ true, %if.end668 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true31 ], [ false, %lor.lhs.false13 ], [ false, %land.lhs.true11 ], [ false, %entry ], [ false, %lor.lhs.false70 ], [ false, %lor.lhs.false58 ], [ false, %if.then50 ], [ false, %lor.lhs.false102 ], [ false, %lor.lhs.false94 ], [ false, %lor.lhs.false90 ], [ false, %if.then82 ], [ false, %lor.lhs.false132 ], [ false, %lor.lhs.false124 ], [ false, %lor.lhs.false120 ], [ false, %if.then114 ], [ false, %lor.lhs.false158 ], [ false, %lor.lhs.false154 ], [ false, %lor.lhs.false150 ], [ false, %if.then144 ], [ false, %lor.lhs.false196 ], [ false, %lor.lhs.false192 ], [ false, %lor.lhs.false188 ], [ false, %lor.lhs.false184 ], [ false, %lor.lhs.false180 ], [ false, %if.then174 ], [ false, %lor.lhs.false222 ], [ false, %lor.lhs.false214 ], [ false, %lor.lhs.false210 ], [ false, %if.then204 ], [ false, %lor.lhs.false252 ], [ false, %lor.lhs.false244 ], [ false, %lor.lhs.false240 ], [ false, %if.then234 ], [ false, %lor.lhs.false278 ], [ false, %lor.lhs.false274 ], [ false, %lor.lhs.false270 ], [ false, %lor.lhs.false266 ], [ false, %if.then260 ], [ false, %lor.lhs.false308 ], [ false, %lor.lhs.false304 ], [ false, %lor.lhs.false300 ], [ false, %if.then294 ], [ false, %lor.lhs.false342 ], [ false, %lor.lhs.false338 ], [ false, %lor.lhs.false334 ], [ false, %lor.lhs.false330 ], [ false, %lor.lhs.false326 ], [ false, %if.then320 ], [ false, %lor.lhs.false366 ], [ false, %lor.lhs.false362 ], [ false, %lor.lhs.false358 ], [ false, %lor.lhs.false354 ], [ false, %if.then350 ], [ false, %lor.lhs.false406 ], [ false, %lor.lhs.false398 ], [ false, %lor.lhs.false386 ], [ false, %lor.lhs.false382 ], [ false, %if.then378 ], [ false, %lor.lhs.false432 ], [ false, %lor.lhs.false428 ], [ false, %lor.lhs.false424 ], [ false, %lor.lhs.false420 ], [ false, %if.then414 ], [ false, %lor.lhs.false462 ], [ false, %lor.lhs.false454 ], [ false, %lor.lhs.false450 ], [ false, %if.then444 ], [ false, %lor.lhs.false494 ], [ false, %lor.lhs.false486 ], [ false, %lor.lhs.false482 ], [ false, %lor.lhs.false478 ], [ false, %if.then470 ], [ false, %lor.lhs.false512 ], [ false, %lor.lhs.false508 ], [ false, %if.then502 ], [ false, %lor.lhs.false542 ], [ false, %lor.lhs.false530 ], [ false, %if.then524 ], [ false, %lor.lhs.false572 ], [ false, %lor.lhs.false568 ], [ false, %lor.lhs.false564 ], [ false, %lor.lhs.false560 ], [ false, %if.then554 ], [ false, %lor.lhs.false606 ], [ false, %lor.lhs.false602 ], [ false, %lor.lhs.false598 ], [ false, %lor.lhs.false594 ], [ false, %lor.lhs.false590 ], [ false, %if.then584 ], [ false, %lor.lhs.false632 ], [ false, %lor.lhs.false628 ], [ false, %lor.lhs.false620 ], [ false, %if.then614 ], [ false, %lor.lhs.false662 ], [ false, %lor.lhs.false658 ], [ false, %lor.lhs.false654 ], [ false, %lor.lhs.false650 ], [ false, %lor.lhs.false646 ], [ false, %if.then640 ], [ false, %lor.lhs.false13.thread ], [ false, %land.lhs.true31 ]
   ret i1 %retval.0
 }
 

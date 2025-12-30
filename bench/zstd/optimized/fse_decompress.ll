@@ -839,7 +839,7 @@ BIT_reloadDStream.exit.i:                         ; preds = %BIT_reloadDStream.e
   br label %FSE_decompress_usingDTable_generic.exit13.i
 
 FSE_decompress_usingDTable_generic.exit13.i:      ; preds = %BIT_reloadDStream.exit.i, %299, %341, %.preheader196.i, %133, %BIT_initDStream.exit.i, %117, %67, %60
-  %.1.i9.i = phi i64 [ %30, %BIT_initDStream.exit.i ], [ -20, %117 ], [ %344, %341 ], [ -1, %67 ], [ -20, %133 ], [ -72, %60 ], [ -70, %.preheader196.i ], [ -70, %299 ], [ -70, %BIT_reloadDStream.exit.i ]
+  %.1.i9.i = phi i64 [ %344, %341 ], [ %30, %BIT_initDStream.exit.i ], [ -72, %60 ], [ -1, %67 ], [ -20, %117 ], [ -20, %133 ], [ -70, %.preheader196.i ], [ -70, %299 ], [ -70, %BIT_reloadDStream.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -979,9 +979,9 @@ BIT_reloadDStream.exit64.i:                       ; preds = %363
   br label %BIT_reloadDStream.exit57.i
 
 BIT_reloadDStream.exit57.i:                       ; preds = %406, %401
-  %.pn458.in.i = phi i32 [ %.021.i53.i, %406 ], [ %402, %401 ]
-  %417 = phi i32 [ %416, %406 ], [ %403, %401 ]
-  %.022.i52.i = phi i1 [ %411, %406 ], [ true, %401 ]
+  %.pn458.in.i = phi i32 [ %402, %401 ], [ %.021.i53.i, %406 ]
+  %417 = phi i32 [ %403, %401 ], [ %416, %406 ]
+  %.022.i52.i = phi i1 [ true, %401 ], [ %411, %406 ]
   %.pn458.i = zext i32 %.pn458.in.i to i64
   %.pn457.i = sub nsw i64 0, %.pn458.i
   %.promoted278.i = getelementptr inbounds i8, ptr %400, i64 %.pn457.i
@@ -1256,14 +1256,14 @@ BIT_reloadDStream.exit43.i:                       ; preds = %555, %553, %547
   br label %FSE_decompress_usingDTable_generic.exit.i
 
 FSE_decompress_usingDTable_generic.exit.i:        ; preds = %BIT_reloadDStream.exit43.i, %527, %575, %.preheader.i, %348, %345
-  %.1.i7.i = phi i64 [ %346, %345 ], [ -20, %348 ], [ %578, %575 ], [ -70, %.preheader.i ], [ -70, %527 ], [ -70, %BIT_reloadDStream.exit43.i ]
+  %.1.i7.i = phi i64 [ %578, %575 ], [ %346, %345 ], [ -20, %348 ], [ -70, %.preheader.i ], [ -70, %527 ], [ -70, %BIT_reloadDStream.exit43.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %FSE_decompress_wksp_body_default.exit
 
 FSE_decompress_wksp_body_default.exit:            ; preds = %19, %22, %25, %28, %47, %FSE_decompress_usingDTable_generic.exit13.i, %FSE_decompress_usingDTable_generic.exit.i
-  %.0.i.i = phi i64 [ %.1.i7.i, %FSE_decompress_usingDTable_generic.exit.i ], [ -1, %19 ], [ -44, %28 ], [ %53, %47 ], [ %.1.i9.i, %FSE_decompress_usingDTable_generic.exit13.i ], [ -44, %25 ], [ %23, %22 ]
+  %.0.i.i = phi i64 [ %53, %47 ], [ -1, %19 ], [ -44, %28 ], [ %.1.i9.i, %FSE_decompress_usingDTable_generic.exit13.i ], [ %.1.i7.i, %FSE_decompress_usingDTable_generic.exit.i ], [ -44, %25 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %579
@@ -1852,7 +1852,7 @@ BIT_reloadDStream.exit:                           ; preds = %BIT_reloadDStream.e
   br label %FSE_decompress_usingDTable_generic.exit13
 
 FSE_decompress_usingDTable_generic.exit13:        ; preds = %284, %BIT_reloadDStream.exit, %.preheader196, %129, %113, %63, %56, %BIT_initDStream.exit, %326
-  %.1.i9 = phi i64 [ %26, %BIT_initDStream.exit ], [ -20, %113 ], [ %329, %326 ], [ -1, %63 ], [ -20, %129 ], [ -72, %56 ], [ -70, %.preheader196 ], [ -70, %BIT_reloadDStream.exit ], [ -70, %284 ]
+  %.1.i9 = phi i64 [ %329, %326 ], [ %26, %BIT_initDStream.exit ], [ -72, %56 ], [ -1, %63 ], [ -20, %113 ], [ -20, %129 ], [ -70, %.preheader196 ], [ -70, %BIT_reloadDStream.exit ], [ -70, %284 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1973,9 +1973,9 @@ BIT_reloadDStream.exit64:                         ; preds = %.BIT_reloadDStream.
   br label %BIT_reloadDStream.exit57
 
 BIT_reloadDStream.exit57:                         ; preds = %379, %384
-  %.pn458.in = phi i32 [ %.021.i53, %384 ], [ %380, %379 ]
-  %395 = phi i32 [ %394, %384 ], [ %381, %379 ]
-  %.022.i52 = phi i1 [ %389, %384 ], [ true, %379 ]
+  %.pn458.in = phi i32 [ %380, %379 ], [ %.021.i53, %384 ]
+  %395 = phi i32 [ %381, %379 ], [ %394, %384 ]
+  %.022.i52 = phi i1 [ true, %379 ], [ %389, %384 ]
   %.pn458 = zext i32 %.pn458.in to i64
   %.pn457 = sub nsw i64 0, %.pn458
   %.promoted278 = getelementptr inbounds i8, ptr %378, i64 %.pn457
@@ -2246,14 +2246,14 @@ BIT_reloadDStream.exit43:                         ; preds = %527, %521, %529
   br label %FSE_decompress_usingDTable_generic.exit
 
 FSE_decompress_usingDTable_generic.exit:          ; preds = %501, %BIT_reloadDStream.exit43, %.preheader, %333, %330, %549
-  %.1.i7 = phi i64 [ %331, %330 ], [ -20, %333 ], [ %552, %549 ], [ -70, %.preheader ], [ -70, %BIT_reloadDStream.exit43 ], [ -70, %501 ]
+  %.1.i7 = phi i64 [ %552, %549 ], [ %331, %330 ], [ -20, %333 ], [ -70, %.preheader ], [ -70, %BIT_reloadDStream.exit43 ], [ -70, %501 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %FSE_decompress_wksp_body.exit
 
 FSE_decompress_wksp_body.exit:                    ; preds = %21, %18, %7, %24, %43, %FSE_decompress_usingDTable_generic.exit13, %FSE_decompress_usingDTable_generic.exit
-  %.0.i = phi i64 [ %.1.i7, %FSE_decompress_usingDTable_generic.exit ], [ -1, %7 ], [ -44, %24 ], [ %49, %43 ], [ %.1.i9, %FSE_decompress_usingDTable_generic.exit13 ], [ -44, %21 ], [ %19, %18 ]
+  %.0.i = phi i64 [ %49, %43 ], [ -1, %7 ], [ -44, %24 ], [ %.1.i9, %FSE_decompress_usingDTable_generic.exit13 ], [ %.1.i7, %FSE_decompress_usingDTable_generic.exit ], [ -44, %21 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i64 %.0.i
@@ -2406,7 +2406,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull 
   br label %83
 
 83:                                               ; preds = %75, %.thread, %73, %22, %5
-  %.0 = phi i64 [ -72, %5 ], [ -20, %73 ], [ -1, %22 ], [ %2, %.thread ], [ %2, %75 ]
+  %.0 = phi i64 [ -72, %5 ], [ -1, %22 ], [ -20, %73 ], [ %2, %.thread ], [ %2, %75 ]
   ret i64 %.0
 }
 

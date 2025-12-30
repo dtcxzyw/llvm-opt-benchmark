@@ -59,7 +59,7 @@ define ptr @EVP_PKEY_asn1_get0(i32 noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %1, %9, %5
-  %.0 = phi ptr [ %12, %9 ], [ %8, %5 ], [ null, %1 ]
+  %.0 = phi ptr [ %8, %5 ], [ %12, %9 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -225,7 +225,7 @@ EVP_PKEY_asn1_get_count.exit:                     ; preds = %18
   br label %EVP_PKEY_asn1_get0.exit
 
 EVP_PKEY_asn1_get0.exit:                          ; preds = %26, %29
-  %.0.i29 = phi ptr [ %33, %29 ], [ %28, %26 ]
+  %.0.i29 = phi ptr [ %28, %26 ], [ %33, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !15
   %36 = and i64 %35, 1
@@ -323,7 +323,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_add0(ptr noundef %0) local_unnamed_add
   br label %27
 
 27:                                               ; preds = %22, %13, %25, %21, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %21 ], [ 1, %25 ], [ 0, %13 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %21 ], [ 1, %25 ], [ 0, %.thread ], [ 0, %13 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -380,7 +380,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_add_alias(i32 noundef %0, i32 noundef 
   br label %EVP_PKEY_asn1_free.exit
 
 EVP_PKEY_asn1_free.exit:                          ; preds = %2, %12, %9, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %12 ], [ 0, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %9 ], [ 0, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -430,7 +430,7 @@ define ptr @EVP_PKEY_asn1_new(i32 noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %EVP_PKEY_asn1_free.exit
 
 EVP_PKEY_asn1_free.exit:                          ; preds = %21, %16, %17, %4
-  %.0 = phi ptr [ null, %4 ], [ %5, %16 ], [ %5, %17 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %4 ], [ %5, %17 ], [ %5, %16 ], [ null, %21 ]
   ret ptr %.0
 }
 

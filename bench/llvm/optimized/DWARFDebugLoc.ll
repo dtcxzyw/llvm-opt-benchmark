@@ -855,8 +855,8 @@ _ZNK4llvm13DataExtractor5getU8ERNS0_6CursorERNS_15SmallVectorImplIhEEj.exit: ; p
   br label %71
 
 71:                                               ; preds = %67, %66
-  %72 = phi ptr [ %22, %67 ], [ %65, %66 ]
-  %.0 = phi i32 [ %., %67 ], [ 1, %66 ]
+  %72 = phi ptr [ %65, %66 ], [ %22, %67 ]
+  %.0 = phi i32 [ 1, %66 ], [ %., %67 ]
   %73 = load ptr, ptr %13, align 8, !tbaa !73
   %74 = icmp eq ptr %73, %14
   br i1 %74, label %_ZN4llvm18DWARFLocationEntryD2Ev.exit, label %75
@@ -5481,7 +5481,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11.i:
   br label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11.i, %103, %100, %33, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i3.i
-  %.0.i = phi i1 [ %84, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11.i ], [ true, %33 ], [ %19, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i3.i ], [ %84, %103 ], [ %84, %100 ]
+  %.0.i = phi i1 [ true, %33 ], [ %19, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i3.i ], [ %84, %100 ], [ %84, %103 ], [ %84, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11.i ]
   %109 = load i8, ptr %9, align 8
   %110 = trunc i8 %109 to i1
   br i1 %110, label %121, label %111

@@ -881,7 +881,7 @@ define internal zeroext i1 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noun
   br label %77
 
 77:                                               ; preds = %50, %5, %.thread72, %70, %64, %47
-  %.061 = phi i1 [ %49, %47 ], [ false, %5 ], [ %76, %.thread72 ], [ %69, %64 ], [ %75, %70 ], [ false, %50 ]
+  %.061 = phi i1 [ %49, %47 ], [ %69, %64 ], [ %75, %70 ], [ %76, %.thread72 ], [ false, %5 ], [ false, %50 ]
   ret i1 %.061
 }
 
@@ -1490,7 +1490,7 @@ proto_item_set_generated.exit:                    ; preds = %211, %233, %230, %2
   br label %240
 
 240:                                              ; preds = %proto_item_set_generated.exit, %237, %.critedge, %export_pdu.exit, %82, %78
-  %.0160 = phi ptr [ null, %.critedge ], [ null, %78 ], [ %93, %82 ], [ null, %export_pdu.exit ], [ %.2, %237 ], [ %.2, %proto_item_set_generated.exit ]
+  %.0160 = phi ptr [ null, %78 ], [ %93, %82 ], [ null, %export_pdu.exit ], [ null, %.critedge ], [ %.2, %237 ], [ %.2, %proto_item_set_generated.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1638,7 +1638,7 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
   br label %51
 
 51:                                               ; preds = %47, %45, %32
-  %.054 = phi i1 [ true, %32 ], [ %.not62, %47 ], [ true, %45 ]
+  %.054 = phi i1 [ true, %45 ], [ true, %32 ], [ %.not62, %47 ]
   %52 = load i8, ptr @ccsds_heuristic_version, align 1, !range !8, !noundef !9
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %56

@@ -389,38 +389,38 @@ define dso_local void @_ZN5clang16TemplateArgumentC2ERKNS_10ASTContextENS_8QualT
   %15 = icmp ne i8 %14, 13
   %.not.not19.i = icmp eq ptr %12, null
   %.not.not.i = or i1 %.not.not19.i, %15
-  br i1 %.not.not.i, label %21, label %16
+  br i1 %.not.not.i, label %16, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
 
 16:                                               ; preds = %5
-  %17 = load i32, ptr %13, align 16
-  %18 = lshr i32 %17, 19
-  %19 = and i32 %18, 511
-  %20 = add nsw i32 %19, -435
-  %spec.select.i = icmp ult i32 %20, 20
+  %17 = icmp ne i8 %14, 46
+  %.not12.not.i = or i1 %.not.not19.i, %17
+  br i1 %.not12.not.i, label %26, label %18
+
+18:                                               ; preds = %16
+  %19 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #23
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 74
+  %21 = load i8, ptr %20, align 2
+  %22 = and i8 %21, 1
+  %23 = icmp ne i8 %22, 0
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %24, align 8
+  %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
+  %25 = select i1 %23, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %25, label %32, label %thread-pre-split
+
+26:                                               ; preds = %16
+  %27 = icmp eq i8 %14, 10
+  br i1 %27, label %32, label %thread-pre-split
+
+_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %5
+  %28 = load i32, ptr %13, align 16
+  %29 = lshr i32 %28, 19
+  %30 = and i32 %29, 511
+  %31 = add nsw i32 %30, -435
+  %spec.select.i = icmp ult i32 %31, 20
   br i1 %spec.select.i, label %32, label %thread-pre-split
 
-21:                                               ; preds = %5
-  %22 = icmp ne i8 %14, 46
-  %.not12.not.i = or i1 %.not.not19.i, %22
-  br i1 %.not12.not.i, label %23, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-
-23:                                               ; preds = %21
-  %24 = icmp eq i8 %14, 10
-  br i1 %24, label %32, label %thread-pre-split
-
-_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %21
-  %25 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #23
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 74
-  %27 = load i8, ptr %26, align 2
-  %28 = and i8 %27, 1
-  %29 = icmp ne i8 %28, 0
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %30, align 8
-  %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %31 = select i1 %29, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %31, label %32, label %thread-pre-split
-
-32:                                               ; preds = %16, %23, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+32:                                               ; preds = %18, %26, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %33 = load i32, ptr %3, align 8, !tbaa !38
   %34 = icmp eq i32 %33, 2
   br i1 %34, label %35, label %88
@@ -508,7 +508,7 @@ _ZN5clang16TemplateArgument16initFromIntegralERKNS_10ASTContextERKN4llvm6APSIntE
   store ptr %86, ptr %87, align 8, !tbaa !3
   br label %160
 
-thread-pre-split:                                 ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %23, %16
+thread-pre-split:                                 ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %26, %18
   %.pr = load i32, ptr %3, align 8, !tbaa !38
   br label %88
 
@@ -619,7 +619,7 @@ _ZL23getAsSimpleValueDeclRefRKN5clang10ASTContextENS_8QualTypeERKNS_7APValueE.ex
   store ptr %.0.i, ptr %136, align 8, !tbaa !3
   br label %160
 
-_ZL23getAsSimpleValueDeclRefRKN5clang10ASTContextENS_8QualTypeERKNS_7APValueE.exit.thread: ; preds = %117, %.critedge.i, %123, %119, %125, %110, %_ZL23getAsSimpleValueDeclRefRKN5clang10ASTContextENS_8QualTypeERKNS_7APValueE.exit
+_ZL23getAsSimpleValueDeclRefRKN5clang10ASTContextENS_8QualTypeERKNS_7APValueE.exit.thread: ; preds = %.critedge.i, %119, %117, %123, %110, %125, %_ZL23getAsSimpleValueDeclRefRKN5clang10ASTContextENS_8QualTypeERKNS_7APValueE.exit
   %137 = select i1 %4, i32 -2147483643, i32 5
   store i32 %137, ptr %0, align 8
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 2192
@@ -863,7 +863,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %39, %_ZN4llvm8dyn_c
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %57, %42, %_ZN5clang4Decl14getDeclContextEv.exit, %5, %1, %1, %1, %27, %22
-  %.0 = phi i8 [ %spec.select, %5 ], [ 0, %1 ], [ %26, %22 ], [ 6, %27 ], [ %spec.select27, %42 ], [ %spec.select26, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 0, %1 ], [ 0, %1 ], [ 0, %57 ], [ %65, %.lr.ph ]
+  %.0 = phi i8 [ %26, %22 ], [ 6, %27 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %spec.select, %5 ], [ %spec.select26, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %spec.select27, %42 ], [ 0, %57 ], [ %65, %.lr.ph ]
   ret i8 %.0
 }
 
@@ -931,7 +931,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansi
   unreachable
 
 22:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %14, %5, %4
-  %.0 = phi i1 [ %20, %14 ], [ true, %4 ], [ %13, %5 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.0 = phi i1 [ true, %4 ], [ %13, %5 ], [ %20, %14 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1007,7 +1007,7 @@ define dso_local i64 @_ZNK5clang16TemplateArgument30getNonTypeTemplateArgumentTy
   unreachable
 
 25:                                               ; preds = %1, %1, %1, %1, %1, %20, %17, %13, %8, %4
-  %.sroa.0.0 = phi i64 [ %23, %20 ], [ %7, %4 ], [ %.sroa.0.0.copyload.i, %8 ], [ %16, %13 ], [ %19, %17 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i64 [ %7, %4 ], [ %.sroa.0.0.copyload.i, %8 ], [ %16, %13 ], [ %19, %17 ], [ %23, %20 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   ret i64 %.sroa.0.0
 }
 
@@ -1852,7 +1852,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit50:            ; preds = %_ZN4llvm16FoldingSe
   unreachable
 
 .critedge33:                                      ; preds = %145, %.preheader, %_ZN4llvm5APIntD2Ev.exit45, %44, %32, %38, %137, %100, %2, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit50, %20, %14
-  %.023 = phi i1 [ false, %44 ], [ %19, %14 ], [ %31, %20 ], [ false, %137 ], [ %43, %38 ], [ false, %2 ], [ %130, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit50 ], [ false, %100 ], [ false, %32 ], [ %.ph, %_ZN4llvm5APIntD2Ev.exit45 ], [ true, %.preheader ], [ %150, %145 ]
+  %.023 = phi i1 [ %19, %14 ], [ %31, %20 ], [ %130, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit50 ], [ false, %2 ], [ false, %100 ], [ false, %137 ], [ false, %32 ], [ %43, %38 ], [ %.ph, %_ZN4llvm5APIntD2Ev.exit45 ], [ false, %44 ], [ true, %.preheader ], [ %150, %145 ]
   ret i1 %.023
 }
 
@@ -2636,7 +2636,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit91.i:             ; preds = %336, %334, %322, %3
   br label %356
 
 356:                                              ; preds = %354, %352, %350, %348
-  %.067.i = phi i32 [ 3, %352 ], [ 1, %348 ], [ 2, %350 ], [ %..i, %354 ]
+  %.067.i = phi i32 [ 1, %348 ], [ 2, %350 ], [ 3, %352 ], [ %..i, %354 ]
   %357 = load i8, ptr %197, align 4, !tbaa !9, !range !12, !noundef !13
   %358 = trunc nuw i8 %357 to i1
   %359 = load i32, ptr %196, align 8, !tbaa !6
@@ -3188,8 +3188,8 @@ _ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57: ; preds = %45,
   unreachable
 
 _ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit28: ; preds = %1, %1, %43, %32, %22, %25, %64, %59, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit, %17, %12, %7
-  %.sroa.062.0 = phi i32 [ %.sroa.062.0.extract.trunc, %7 ], [ %.sroa.062.0.extract.trunc63, %12 ], [ %.sroa.062.0.extract.trunc64, %17 ], [ 0, %32 ], [ %30, %25 ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit ], [ 0, %22 ], [ %.sroa.0.0.extract.trunc.i43, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit ], [ %.sroa.0.0.i49, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57 ], [ %.sroa.062.0.extract.trunc66, %59 ], [ %.sroa.062.0.extract.trunc67, %64 ], [ %.sroa.0.0.copyload.i.i27, %43 ], [ 0, %1 ], [ 0, %1 ]
-  %.sroa.15.0 = phi i32 [ %.sroa.15.0.extract.trunc, %7 ], [ %.sroa.15.0.extract.trunc69, %12 ], [ %.sroa.15.0.extract.trunc71, %17 ], [ 0, %32 ], [ %31, %25 ], [ %.sroa.0.0.copyload.i.i, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit ], [ 0, %22 ], [ %.sroa.0.0.copyload.i.i47, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit ], [ %.sroa.0.0.copyload.i.i56, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57 ], [ %.sroa.15.0.extract.trunc75, %59 ], [ %.sroa.15.0.extract.trunc77, %64 ], [ %.sroa.0.0.copyload.i.i27, %43 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.062.0 = phi i32 [ %.sroa.062.0.extract.trunc, %7 ], [ %.sroa.062.0.extract.trunc63, %12 ], [ %.sroa.062.0.extract.trunc64, %17 ], [ %30, %25 ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit ], [ %.sroa.0.0.extract.trunc.i43, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit ], [ %.sroa.0.0.i49, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57 ], [ %.sroa.062.0.extract.trunc66, %59 ], [ %.sroa.062.0.extract.trunc67, %64 ], [ 0, %22 ], [ %.sroa.0.0.copyload.i.i27, %43 ], [ 0, %32 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.15.0 = phi i32 [ %.sroa.15.0.extract.trunc, %7 ], [ %.sroa.15.0.extract.trunc69, %12 ], [ %.sroa.15.0.extract.trunc71, %17 ], [ %31, %25 ], [ %.sroa.0.0.copyload.i.i, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit ], [ %.sroa.0.0.copyload.i.i47, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit ], [ %.sroa.0.0.copyload.i.i56, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57 ], [ %.sroa.15.0.extract.trunc75, %59 ], [ %.sroa.15.0.extract.trunc77, %64 ], [ 0, %22 ], [ %.sroa.0.0.copyload.i.i27, %43 ], [ 0, %32 ], [ 0, %1 ], [ 0, %1 ]
   %.sroa.15.0.insert.ext = zext i32 %.sroa.15.0 to i64
   %.sroa.15.0.insert.shift = shl nuw i64 %.sroa.15.0.insert.ext, 32
   %.sroa.062.0.insert.ext = zext i32 %.sroa.062.0 to i64
@@ -4429,7 +4429,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit30.thread:     ; preds = %76, %_ZNK4llvm6APSI
   br label %92
 
 92:                                               ; preds = %_ZNK4llvm6APSInt10isNegativeEv.exit30, %_ZNK4llvm6APSInt10isNegativeEv.exit, %21, %23, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread, %_ZN4llvm5APIntD2Ev.exit28, %_ZN4llvm5APIntD2Ev.exit
-  %.0 = phi i32 [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ %36, %_ZN4llvm5APIntD2Ev.exit ], [ %54, %_ZN4llvm5APIntD2Ev.exit28 ], [ %24, %23 ], [ %91, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread ], [ %22, %21 ], [ 1, %_ZNK4llvm6APSInt10isNegativeEv.exit30 ]
+  %.0 = phi i32 [ %36, %_ZN4llvm5APIntD2Ev.exit ], [ %54, %_ZN4llvm5APIntD2Ev.exit28 ], [ %91, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread ], [ %22, %21 ], [ %24, %23 ], [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ 1, %_ZNK4llvm6APSInt10isNegativeEv.exit30 ]
   ret i32 %.0
 }
 

@@ -73,10 +73,10 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 -1, ptr %24, align 4, !tbaa !3
   br label %.critedge.thread
 
-.thread:                                          ; preds = %48, %50, %52
-  %.0621722 = phi i32 [ 3, %52 ], [ 1, %48 ], [ 2, %50 ]
-  %55 = phi i1 [ true, %52 ], [ false, %48 ], [ false, %50 ]
-  %56 = phi i1 [ false, %52 ], [ false, %48 ], [ true, %50 ]
+.thread:                                          ; preds = %50, %48, %52
+  %.0621722 = phi i32 [ 3, %52 ], [ 2, %50 ], [ 1, %48 ]
+  %55 = phi i1 [ true, %52 ], [ false, %50 ], [ false, %48 ]
+  %56 = phi i1 [ false, %52 ], [ true, %50 ], [ false, %48 ]
   %57 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.3) #6
   %.not678 = icmp eq i32 %57, 0
   br i1 %.not678, label %58, label %61
@@ -165,7 +165,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %92
 
 92:                                               ; preds = %89, %86, %85
-  %.1622 = phi i32 [ %.0621722, %85 ], [ %spec.select711, %89 ], [ 3, %86 ]
+  %.1622 = phi i32 [ 3, %86 ], [ %.0621722, %85 ], [ %spec.select711, %89 ]
   %93 = tail call double @dlamch_(ptr noundef nonnull @.str.5) #6
   %94 = tail call double @dlamch_(ptr noundef nonnull @.str.6) #6
   %95 = load i32, ptr %2, align 4, !tbaa !3
@@ -678,8 +678,8 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %385
 
 385:                                              ; preds = %235, %276, %279, %237, %._crit_edge773
-  %.3607 = phi i32 [ %.2606, %237 ], [ %308, %._crit_edge773 ], [ %.2606, %235 ], [ %277, %276 ], [ %.1605779, %279 ]
-  %.3 = phi i32 [ %.2, %237 ], [ %314, %._crit_edge773 ], [ %.2.mux, %235 ], [ %278, %276 ], [ %.1599780, %279 ]
+  %.3607 = phi i32 [ %.2606, %237 ], [ %.2606, %235 ], [ %277, %276 ], [ %.1605779, %279 ], [ %308, %._crit_edge773 ]
+  %.3 = phi i32 [ %.2, %237 ], [ %.2.mux, %235 ], [ %278, %276 ], [ %.1599780, %279 ], [ %314, %._crit_edge773 ]
   %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 1
   %exitcond873.not = icmp eq i64 %indvars.iv.next870, %wide.trip.count872
   br i1 %exitcond873.not, label %._crit_edge783.loopexit, label %217, !llvm.loop !14
@@ -1073,7 +1073,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread732
 
 .thread732:                                       ; preds = %536, %.thread728, %539, %527
-  %.1610 = phi i1 [ false, %539 ], [ %or.cond13.not, %527 ], [ true, %536 ], [ true, %.thread728 ]
+  %.1610 = phi i1 [ false, %539 ], [ %or.cond13.not, %527 ], [ true, %.thread728 ], [ true, %536 ]
   %540 = call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.4) #6
   %.not692 = icmp eq i32 %540, 0
   br i1 %.not692, label %.loopexit, label %541

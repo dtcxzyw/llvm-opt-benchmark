@@ -880,7 +880,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit34.i: ; p
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i79, %1819, %1406, %1408, %1094, %1096, %.body.i1, %.body16.i, %453, %.body.i, %.body23.i, %325, %.body.i54, %.body.i43
-  %common.resume.op = phi { ptr, i32 } [ %.pn23.pn.pn.pn.i, %1406 ], [ %.pn.i, %.body.i ], [ %.pn.i2, %.body.i1 ], [ %.pn86.pn.pn.pn.i, %1094 ], [ %.pn.pn.i, %.body.i43 ], [ %.pn.pn.i55, %.body.i54 ], [ %.pn15.pn.pn.i, %325 ], [ %.pn10.i, %.body23.i ], [ %.pn9.pn.i, %453 ], [ %.pn7.i, %.body16.i ], [ %.pn86.pn.pn.pn.i, %1096 ], [ %.pn23.pn.pn.pn.i, %1408 ], [ %.pn29.pn.pn.pn.i, %1819 ], [ %.pn.i80, %.body.i79 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %.body.i43 ], [ %.pn.pn.i55, %.body.i54 ], [ %.pn15.pn.pn.i, %325 ], [ %.pn10.i, %.body23.i ], [ %.pn.i, %.body.i ], [ %.pn9.pn.i, %453 ], [ %.pn7.i, %.body16.i ], [ %.pn.i2, %.body.i1 ], [ %.pn86.pn.pn.pn.i, %1096 ], [ %.pn86.pn.pn.pn.i, %1094 ], [ %.pn23.pn.pn.pn.i, %1408 ], [ %.pn23.pn.pn.pn.i, %1406 ], [ %.pn29.pn.pn.pn.i, %1819 ], [ %.pn.i80, %.body.i79 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel15dynamic_routing12_GLOBAL__N_18TestLoadEv.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit28.i, %297, %310, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -1606,7 +1606,7 @@ _ZNK10open_spiel5State14ActionToStringB5cxx11El.exit.i: ; preds = %.noexc102.i
   br label %.body96.i
 
 .body96.i:                                        ; preds = %551, %549, %509
-  %.pn46.pn.i = phi { ptr, i32 } [ %510, %509 ], [ %.pn46.i, %551 ], [ %.pn46.i, %549 ]
+  %.pn46.pn.i = phi { ptr, i32 } [ %510, %509 ], [ %.pn46.i, %549 ], [ %.pn46.i, %551 ]
   %556 = load ptr, ptr %92, align 8
   %.not.i.i.i107.i = icmp eq ptr %556, null
   br i1 %.not.i.i.i107.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit109.i, label %557
@@ -1847,7 +1847,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit124.i:               ; preds = %629, %_ZNSt6vectorI
   br label %.body112.i
 
 .body112.i:                                       ; preds = %652, %650, %608
-  %.pn53.pn.i = phi { ptr, i32 } [ %609, %608 ], [ %.pn53.i, %652 ], [ %.pn53.i, %650 ]
+  %.pn53.pn.i = phi { ptr, i32 } [ %609, %608 ], [ %.pn53.i, %650 ], [ %.pn53.i, %652 ]
   %657 = load ptr, ptr %108, align 8
   %.not.i.i.i128.i = icmp eq ptr %657, null
   br i1 %.not.i.i.i128.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit109.i, label %658
@@ -2056,7 +2056,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit145.i:               ; preds = %717, %_ZNSt6vectorI
   br label %.body133.i
 
 .body133.i:                                       ; preds = %740, %738, %696
-  %.pn60.pn.i = phi { ptr, i32 } [ %697, %696 ], [ %.pn60.i, %740 ], [ %.pn60.i, %738 ]
+  %.pn60.pn.i = phi { ptr, i32 } [ %697, %696 ], [ %.pn60.i, %738 ], [ %.pn60.i, %740 ]
   %745 = load ptr, ptr %120, align 8
   %.not.i.i.i149.i = icmp eq ptr %745, null
   br i1 %.not.i.i.i149.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit109.i, label %746
@@ -2265,7 +2265,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit166.i:               ; preds = %805, %_ZNSt6vectorI
   br label %.body154.i
 
 .body154.i:                                       ; preds = %828, %826, %784
-  %.pn67.pn.i = phi { ptr, i32 } [ %785, %784 ], [ %.pn67.i, %828 ], [ %.pn67.i, %826 ]
+  %.pn67.pn.i = phi { ptr, i32 } [ %785, %784 ], [ %.pn67.i, %826 ], [ %.pn67.i, %828 ]
   %833 = load ptr, ptr %132, align 8
   %.not.i.i.i170.i = icmp eq ptr %833, null
   br i1 %.not.i.i.i170.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit109.i, label %834
@@ -2474,7 +2474,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit187.i:               ; preds = %893, %_ZNSt6vectorI
   br label %.body175.i
 
 .body175.i:                                       ; preds = %916, %914, %872
-  %.pn74.pn.i = phi { ptr, i32 } [ %873, %872 ], [ %.pn74.i, %916 ], [ %.pn74.i, %914 ]
+  %.pn74.pn.i = phi { ptr, i32 } [ %873, %872 ], [ %.pn74.i, %914 ], [ %.pn74.i, %916 ]
   %921 = load ptr, ptr %144, align 8
   %.not.i.i.i191.i = icmp eq ptr %921, null
   br i1 %.not.i.i.i191.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit109.i, label %922
@@ -2683,7 +2683,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit208.i:               ; preds = %981, %_ZNSt6vectorI
   br label %.body196.i
 
 .body196.i:                                       ; preds = %1004, %1002, %960
-  %.pn81.pn.i = phi { ptr, i32 } [ %961, %960 ], [ %.pn81.i, %1004 ], [ %.pn81.i, %1002 ]
+  %.pn81.pn.i = phi { ptr, i32 } [ %961, %960 ], [ %.pn81.i, %1002 ], [ %.pn81.i, %1004 ]
   %1009 = load ptr, ptr %156, align 8
   %.not.i.i.i212.i = icmp eq ptr %1009, null
   br i1 %.not.i.i.i212.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit109.i, label %1010
@@ -2866,7 +2866,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counte
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit109.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit109.i:               ; preds = %1088, %1036, %1010, %.body196.i, %975, %948, %922, %.body175.i, %887, %860, %834, %.body154.i, %799, %772, %746, %.body133.i, %711, %684, %658, %.body112.i, %623, %584, %583, %557, %.body96.i, %524, %485, %483
-  %.pn86.pn.i = phi { ptr, i32 } [ %.pn86.i, %1088 ], [ %484, %483 ], [ %.pn84.i, %1036 ], [ %.pn74.pn.i, %922 ], [ %.pn79.i, %975 ], [ %.pn77.i, %948 ], [ %.pn67.pn.i, %834 ], [ %.pn72.i, %887 ], [ %.pn70.i, %860 ], [ %.pn60.pn.i, %746 ], [ %.pn65.i, %799 ], [ %.pn63.i, %772 ], [ %.pn53.pn.i, %658 ], [ %.pn58.i, %711 ], [ %.pn56.i, %684 ], [ %.pn46.pn.i, %557 ], [ %.pn51.i, %623 ], [ %585, %584 ], [ %.pn49.i, %583 ], [ %486, %485 ], [ %.pn44.i, %524 ], [ %.pn46.pn.i, %.body96.i ], [ %.pn53.pn.i, %.body112.i ], [ %.pn60.pn.i, %.body133.i ], [ %.pn67.pn.i, %.body154.i ], [ %.pn74.pn.i, %.body175.i ], [ %.pn81.pn.i, %.body196.i ], [ %.pn81.pn.i, %1010 ]
+  %.pn86.pn.i = phi { ptr, i32 } [ %.pn86.i, %1088 ], [ %484, %483 ], [ %.pn84.i, %1036 ], [ %.pn79.i, %975 ], [ %.pn77.i, %948 ], [ %.pn72.i, %887 ], [ %.pn70.i, %860 ], [ %.pn65.i, %799 ], [ %.pn63.i, %772 ], [ %.pn58.i, %711 ], [ %.pn56.i, %684 ], [ %.pn51.i, %623 ], [ %585, %584 ], [ %.pn49.i, %583 ], [ %.pn44.i, %524 ], [ %486, %485 ], [ %.pn46.pn.i, %.body96.i ], [ %.pn46.pn.i, %557 ], [ %.pn53.pn.i, %.body112.i ], [ %.pn53.pn.i, %658 ], [ %.pn60.pn.i, %.body133.i ], [ %.pn60.pn.i, %746 ], [ %.pn67.pn.i, %.body154.i ], [ %.pn67.pn.i, %834 ], [ %.pn74.pn.i, %.body175.i ], [ %.pn74.pn.i, %922 ], [ %.pn81.pn.i, %.body196.i ], [ %.pn81.pn.i, %1010 ]
   %1089 = load ptr, ptr %83, align 8
   %.not.i218.i = icmp eq ptr %1089, null
   br i1 %.not.i218.i, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit220.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i219.i
@@ -3717,7 +3717,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i39: ; preds = %_ZNSt16_Sp_coun
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit35.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit35.i:                ; preds = %1400, %1343, %1340, %1339, %1305, %1279, %1276, %1275, %1229, %1223, %1220, %1219, %1180, %1177, %1176, %1132, %1130
-  %.pn23.pn.i = phi { ptr, i32 } [ %.pn23.i, %1400 ], [ %1131, %1130 ], [ %1277, %1279 ], [ %.pn21.i, %1339 ], [ %.pn19.i, %1305 ], [ %1221, %1223 ], [ %.pn17.i, %1275 ], [ %1230, %1229 ], [ %1178, %1180 ], [ %.pn15.i33, %1219 ], [ %1133, %1132 ], [ %.pn13.i, %1176 ], [ %1178, %1177 ], [ %1221, %1220 ], [ %1277, %1276 ], [ %1341, %1340 ], [ %1341, %1343 ]
+  %.pn23.pn.i = phi { ptr, i32 } [ %.pn23.i, %1400 ], [ %1131, %1130 ], [ %.pn21.i, %1339 ], [ %.pn19.i, %1305 ], [ %.pn17.i, %1275 ], [ %1230, %1229 ], [ %.pn15.i33, %1219 ], [ %.pn13.i, %1176 ], [ %1133, %1132 ], [ %1178, %1177 ], [ %1178, %1180 ], [ %1221, %1220 ], [ %1221, %1223 ], [ %1277, %1276 ], [ %1277, %1279 ], [ %1341, %1340 ], [ %1341, %1343 ]
   %1401 = load ptr, ptr %42, align 8
   %.not.i51.i = icmp eq ptr %1401, null
   br i1 %.not.i51.i, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit53.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i52.i
@@ -4610,7 +4610,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit41.i89:              ; preds = %1691, %_ZNSt6vector
   br label %.body36.i
 
 .body36.i:                                        ; preds = %1714, %1712, %1670
-  %.pn22.pn.i = phi { ptr, i32 } [ %1671, %1670 ], [ %.pn22.i, %1714 ], [ %.pn22.i, %1712 ]
+  %.pn22.pn.i = phi { ptr, i32 } [ %1671, %1670 ], [ %.pn22.i, %1712 ], [ %.pn22.i, %1714 ]
   %1719 = load ptr, ptr %15, align 8
   %.not.i.i.i45.i = icmp eq ptr %1719, null
   br i1 %.not.i.i.i45.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit47thread-pre-split.i, label %1720
@@ -4830,7 +4830,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit47thread-pre-split.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit47thread-pre-split.i: ; preds = %1814, %1768, %1763, %1760, %1759, %1720, %.body36.i, %1685, %1658, %1636
-  %.pn29.pn.pn.ph.i = phi { ptr, i32 } [ %1761, %1760 ], [ %1761, %1763 ], [ %1769, %1768 ], [ %.pn29.i, %1814 ], [ %.pn20.i, %1685 ], [ %.pn18.i, %1658 ], [ %1637, %1636 ], [ %.pn25.i, %1759 ], [ %.pn22.pn.i, %1720 ], [ %.pn22.pn.i, %.body36.i ]
+  %.pn29.pn.pn.ph.i = phi { ptr, i32 } [ %1761, %1763 ], [ %1761, %1760 ], [ %1769, %1768 ], [ %.pn29.i, %1814 ], [ %.pn22.pn.i, %1720 ], [ %.pn22.pn.i, %.body36.i ], [ %.pn18.i, %1658 ], [ %.pn20.i, %1685 ], [ %1637, %1636 ], [ %.pn25.i, %1759 ]
   %.pr.i = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit47.i
 
@@ -5331,7 +5331,7 @@ _ZNK10open_spiel5State14ActionToStringB5cxx11El.exit: ; preds = %.noexc196
   br label %.body190
 
 .body190:                                         ; preds = %233, %275, %273
-  %.pn89.pn = phi { ptr, i32 } [ %234, %233 ], [ %.pn89, %275 ], [ %.pn89, %273 ]
+  %.pn89.pn = phi { ptr, i32 } [ %234, %233 ], [ %.pn89, %273 ], [ %.pn89, %275 ]
   %280 = load ptr, ptr %14, align 8
   %.not.i.i.i201 = icmp eq ptr %280, null
   br i1 %.not.i.i.i201, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %281
@@ -5574,7 +5574,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit218:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body206
 
 .body206:                                         ; preds = %332, %376, %374
-  %.pn96.pn = phi { ptr, i32 } [ %333, %332 ], [ %.pn96, %376 ], [ %.pn96, %374 ]
+  %.pn96.pn = phi { ptr, i32 } [ %333, %332 ], [ %.pn96, %374 ], [ %.pn96, %376 ]
   %381 = load ptr, ptr %30, align 8
   %.not.i.i.i222 = icmp eq ptr %381, null
   br i1 %.not.i.i.i222, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %382
@@ -5783,7 +5783,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit239:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body227
 
 .body227:                                         ; preds = %420, %464, %462
-  %.pn103.pn = phi { ptr, i32 } [ %421, %420 ], [ %.pn103, %464 ], [ %.pn103, %462 ]
+  %.pn103.pn = phi { ptr, i32 } [ %421, %420 ], [ %.pn103, %462 ], [ %.pn103, %464 ]
   %469 = load ptr, ptr %42, align 8
   %.not.i.i.i243 = icmp eq ptr %469, null
   br i1 %.not.i.i.i243, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %470
@@ -5992,7 +5992,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit260:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body248
 
 .body248:                                         ; preds = %508, %552, %550
-  %.pn110.pn = phi { ptr, i32 } [ %509, %508 ], [ %.pn110, %552 ], [ %.pn110, %550 ]
+  %.pn110.pn = phi { ptr, i32 } [ %509, %508 ], [ %.pn110, %550 ], [ %.pn110, %552 ]
   %557 = load ptr, ptr %54, align 8
   %.not.i.i.i264 = icmp eq ptr %557, null
   br i1 %.not.i.i.i264, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %558
@@ -6201,7 +6201,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit281:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body269
 
 .body269:                                         ; preds = %596, %640, %638
-  %.pn117.pn = phi { ptr, i32 } [ %597, %596 ], [ %.pn117, %640 ], [ %.pn117, %638 ]
+  %.pn117.pn = phi { ptr, i32 } [ %597, %596 ], [ %.pn117, %638 ], [ %.pn117, %640 ]
   %645 = load ptr, ptr %66, align 8
   %.not.i.i.i285 = icmp eq ptr %645, null
   br i1 %.not.i.i.i285, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %646
@@ -6412,7 +6412,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit302:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body290
 
 .body290:                                         ; preds = %684, %728, %726
-  %.pn124.pn = phi { ptr, i32 } [ %685, %684 ], [ %.pn124, %728 ], [ %.pn124, %726 ]
+  %.pn124.pn = phi { ptr, i32 } [ %685, %684 ], [ %.pn124, %726 ], [ %.pn124, %728 ]
   %733 = load ptr, ptr %78, align 8
   %.not.i.i.i306 = icmp eq ptr %733, null
   br i1 %.not.i.i.i306, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %734
@@ -6621,7 +6621,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit323:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body311
 
 .body311:                                         ; preds = %772, %816, %814
-  %.pn131.pn = phi { ptr, i32 } [ %773, %772 ], [ %.pn131, %816 ], [ %.pn131, %814 ]
+  %.pn131.pn = phi { ptr, i32 } [ %773, %772 ], [ %.pn131, %814 ], [ %.pn131, %816 ]
   %821 = load ptr, ptr %90, align 8
   %.not.i.i.i327 = icmp eq ptr %821, null
   br i1 %.not.i.i.i327, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %822
@@ -6830,7 +6830,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit344:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body332
 
 .body332:                                         ; preds = %860, %904, %902
-  %.pn138.pn = phi { ptr, i32 } [ %861, %860 ], [ %.pn138, %904 ], [ %.pn138, %902 ]
+  %.pn138.pn = phi { ptr, i32 } [ %861, %860 ], [ %.pn138, %902 ], [ %.pn138, %904 ]
   %909 = load ptr, ptr %102, align 8
   %.not.i.i.i348 = icmp eq ptr %909, null
   br i1 %.not.i.i.i348, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %910
@@ -7039,7 +7039,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit365:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body353
 
 .body353:                                         ; preds = %948, %992, %990
-  %.pn145.pn = phi { ptr, i32 } [ %949, %948 ], [ %.pn145, %992 ], [ %.pn145, %990 ]
+  %.pn145.pn = phi { ptr, i32 } [ %949, %948 ], [ %.pn145, %990 ], [ %.pn145, %992 ]
   %997 = load ptr, ptr %114, align 8
   %.not.i.i.i369 = icmp eq ptr %997, null
   br i1 %.not.i.i.i369, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %998
@@ -7248,7 +7248,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit386:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body374
 
 .body374:                                         ; preds = %1036, %1080, %1078
-  %.pn152.pn = phi { ptr, i32 } [ %1037, %1036 ], [ %.pn152, %1080 ], [ %.pn152, %1078 ]
+  %.pn152.pn = phi { ptr, i32 } [ %1037, %1036 ], [ %.pn152, %1078 ], [ %.pn152, %1080 ]
   %1085 = load ptr, ptr %126, align 8
   %.not.i.i.i390 = icmp eq ptr %1085, null
   br i1 %.not.i.i.i390, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %1086
@@ -7457,7 +7457,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit407:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body395
 
 .body395:                                         ; preds = %1124, %1168, %1166
-  %.pn159.pn = phi { ptr, i32 } [ %1125, %1124 ], [ %.pn159, %1168 ], [ %.pn159, %1166 ]
+  %.pn159.pn = phi { ptr, i32 } [ %1125, %1124 ], [ %.pn159, %1166 ], [ %.pn159, %1168 ]
   %1173 = load ptr, ptr %138, align 8
   %.not.i.i.i411 = icmp eq ptr %1173, null
   br i1 %.not.i.i.i411, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %1174
@@ -7666,7 +7666,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit428:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body416
 
 .body416:                                         ; preds = %1212, %1256, %1254
-  %.pn166.pn = phi { ptr, i32 } [ %1213, %1212 ], [ %.pn166, %1256 ], [ %.pn166, %1254 ]
+  %.pn166.pn = phi { ptr, i32 } [ %1213, %1212 ], [ %.pn166, %1254 ], [ %.pn166, %1256 ]
   %1261 = load ptr, ptr %150, align 8
   %.not.i.i.i432 = icmp eq ptr %1261, null
   br i1 %.not.i.i.i432, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %1262
@@ -7875,7 +7875,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit449:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %.body437
 
 .body437:                                         ; preds = %1300, %1344, %1342
-  %.pn173.pn = phi { ptr, i32 } [ %1301, %1300 ], [ %.pn173, %1344 ], [ %.pn173, %1342 ]
+  %.pn173.pn = phi { ptr, i32 } [ %1301, %1300 ], [ %.pn173, %1342 ], [ %.pn173, %1344 ]
   %1349 = load ptr, ptr %162, align 8
   %.not.i.i.i453 = icmp eq ptr %1349, null
   br i1 %.not.i.i.i453, label %_ZNSt6vectorIlSaIlEED2Ev.exit203, label %1350
@@ -8142,7 +8142,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit471:                 ; preds = %1450, %1452
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit203
 
 _ZNSt6vectorIlSaIlEED2Ev.exit203:                 ; preds = %1459, %_ZNSt6vectorIlSaIlEED2Ev.exit471, %1350, %.body437, %1262, %.body416, %1174, %.body395, %1086, %.body374, %998, %.body353, %910, %.body332, %822, %.body311, %734, %.body290, %646, %.body269, %558, %.body248, %470, %.body227, %382, %.body206, %281, %.body190, %1394, %1376, %1315, %1288, %1227, %1200, %1139, %1112, %1051, %1024, %963, %936, %875, %848, %787, %760, %699, %672, %611, %584, %523, %496, %435, %408, %347, %308, %307, %248, %209, %207
-  %.pn180.pn = phi { ptr, i32 } [ %.pn173.pn, %1350 ], [ %208, %207 ], [ %.pn178, %1394 ], [ %.pn176, %1376 ], [ %.pn166.pn, %1262 ], [ %.pn171, %1315 ], [ %.pn169, %1288 ], [ %.pn159.pn, %1174 ], [ %.pn164, %1227 ], [ %.pn162, %1200 ], [ %.pn152.pn, %1086 ], [ %.pn157, %1139 ], [ %.pn155, %1112 ], [ %.pn145.pn, %998 ], [ %.pn150, %1051 ], [ %.pn148, %1024 ], [ %.pn138.pn, %910 ], [ %.pn143, %963 ], [ %.pn141, %936 ], [ %.pn131.pn, %822 ], [ %.pn136, %875 ], [ %.pn134, %848 ], [ %.pn124.pn, %734 ], [ %.pn129, %787 ], [ %.pn127, %760 ], [ %.pn117.pn, %646 ], [ %.pn122, %699 ], [ %.pn120, %672 ], [ %.pn110.pn, %558 ], [ %.pn115, %611 ], [ %.pn113, %584 ], [ %.pn103.pn, %470 ], [ %.pn108, %523 ], [ %.pn106, %496 ], [ %.pn96.pn, %382 ], [ %.pn101, %435 ], [ %.pn99, %408 ], [ %.pn89.pn, %281 ], [ %.pn94, %347 ], [ %309, %308 ], [ %.pn92, %307 ], [ %210, %209 ], [ %.pn87, %248 ], [ %.pn89.pn, %.body190 ], [ %.pn96.pn, %.body206 ], [ %.pn103.pn, %.body227 ], [ %.pn110.pn, %.body248 ], [ %.pn117.pn, %.body269 ], [ %.pn124.pn, %.body290 ], [ %.pn131.pn, %.body311 ], [ %.pn138.pn, %.body332 ], [ %.pn145.pn, %.body353 ], [ %.pn152.pn, %.body374 ], [ %.pn159.pn, %.body395 ], [ %.pn166.pn, %.body416 ], [ %.pn173.pn, %.body437 ], [ %.pn180, %_ZNSt6vectorIlSaIlEED2Ev.exit471 ], [ %.pn180, %1459 ]
+  %.pn180.pn = phi { ptr, i32 } [ %208, %207 ], [ %.pn178, %1394 ], [ %.pn176, %1376 ], [ %.pn171, %1315 ], [ %.pn169, %1288 ], [ %.pn164, %1227 ], [ %.pn162, %1200 ], [ %.pn157, %1139 ], [ %.pn155, %1112 ], [ %.pn150, %1051 ], [ %.pn148, %1024 ], [ %.pn143, %963 ], [ %.pn141, %936 ], [ %.pn136, %875 ], [ %.pn134, %848 ], [ %.pn129, %787 ], [ %.pn127, %760 ], [ %.pn122, %699 ], [ %.pn120, %672 ], [ %.pn115, %611 ], [ %.pn113, %584 ], [ %.pn108, %523 ], [ %.pn106, %496 ], [ %.pn101, %435 ], [ %.pn99, %408 ], [ %.pn94, %347 ], [ %309, %308 ], [ %.pn92, %307 ], [ %.pn87, %248 ], [ %210, %209 ], [ %.pn89.pn, %.body190 ], [ %.pn89.pn, %281 ], [ %.pn96.pn, %.body206 ], [ %.pn96.pn, %382 ], [ %.pn103.pn, %.body227 ], [ %.pn103.pn, %470 ], [ %.pn110.pn, %.body248 ], [ %.pn110.pn, %558 ], [ %.pn117.pn, %.body269 ], [ %.pn117.pn, %646 ], [ %.pn124.pn, %.body290 ], [ %.pn124.pn, %734 ], [ %.pn131.pn, %.body311 ], [ %.pn131.pn, %822 ], [ %.pn138.pn, %.body332 ], [ %.pn138.pn, %910 ], [ %.pn145.pn, %.body353 ], [ %.pn145.pn, %998 ], [ %.pn152.pn, %.body374 ], [ %.pn152.pn, %1086 ], [ %.pn159.pn, %.body395 ], [ %.pn159.pn, %1174 ], [ %.pn166.pn, %.body416 ], [ %.pn166.pn, %1262 ], [ %.pn173.pn, %.body437 ], [ %.pn173.pn, %1350 ], [ %.pn180, %_ZNSt6vectorIlSaIlEED2Ev.exit471 ], [ %.pn180, %1459 ]
   %1465 = load ptr, ptr %5, align 8
   %.not.i475 = icmp eq ptr %1465, null
   br i1 %.not.i475, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit477, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i476

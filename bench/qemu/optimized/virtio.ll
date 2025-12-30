@@ -735,7 +735,7 @@ vring_packed_off_wrap_write.exit.i:               ; preds = %58, %57
   br label %59
 
 59:                                               ; preds = %vring_packed_off_wrap_write.exit.i, %40, %vring_packed_event_read.exit.i
-  %.sroa.4.0.i = phi i16 [ 1, %vring_packed_event_read.exit.i ], [ 2, %vring_packed_off_wrap_write.exit.i ], [ 0, %40 ]
+  %.sroa.4.0.i = phi i16 [ 2, %vring_packed_off_wrap_write.exit.i ], [ 1, %vring_packed_event_read.exit.i ], [ 0, %40 ]
   %60 = load i64, ptr %26, align 16
   %or.cond.i.i.i.i16.i = icmp ugt i64 %60, 3
   br i1 %or.cond.i.i.i.i16.i, label %62, label %61
@@ -1168,7 +1168,7 @@ vring_packed_desc_read_flags.exit.i.i:            ; preds = %37, %35
   br label %virtio_queue_packed_empty_rcu.exit.i
 
 virtio_queue_packed_empty_rcu.exit.i:             ; preds = %vring_packed_desc_read_flags.exit.i.i, %16, %rcu_read_auto_lock.exit.i
-  %.0.i.i = phi i32 [ 1, %rcu_read_auto_lock.exit.i ], [ %45, %vring_packed_desc_read_flags.exit.i.i ], [ 1, %16 ]
+  %.0.i.i = phi i32 [ %45, %vring_packed_desc_read_flags.exit.i.i ], [ 1, %rcu_read_auto_lock.exit.i ], [ 1, %16 ]
   %46 = tail call ptr @get_ptr_rcu_reader() #24
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %48 = load i32, ptr %47, align 4
@@ -1315,7 +1315,7 @@ virtio_lduw_phys_cached.exit.i.i:                 ; preds = %92, %90
   br label %virtio_queue_split_empty.exit
 
 virtio_queue_split_empty.exit:                    ; preds = %57, %virtio_device_disabled.exit.i, %64, %67, %101, %103, %107
-  %.0.shrunk.i = phi i1 [ %96, %107 ], [ true, %virtio_device_disabled.exit.i ], [ true, %64 ], [ false, %67 ], [ %96, %101 ], [ %96, %103 ], [ true, %57 ]
+  %.0.shrunk.i = phi i1 [ true, %virtio_device_disabled.exit.i ], [ true, %64 ], [ false, %67 ], [ %96, %101 ], [ %96, %103 ], [ %96, %107 ], [ true, %57 ]
   %.0.i = zext i1 %.0.shrunk.i to i32
   br label %virtio_queue_packed_empty.exit
 
@@ -1387,7 +1387,7 @@ virtio_device_disabled.exit.i:                    ; preds = %5
   br label %virtio_queue_packed_poll.exit.i
 
 virtio_queue_packed_poll.exit.i:                  ; preds = %23, %20, %17
-  %.0.i.i = phi i1 [ false, %17 ], [ %35, %23 ], [ false, %20 ]
+  %.0.i.i = phi i1 [ %35, %23 ], [ false, %17 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %virtio_queue_poll.exit
 
@@ -1443,7 +1443,7 @@ vring_avail_idx.exit.i.i:                         ; preds = %virtio_lduw_phys_ca
   br label %virtio_queue_poll.exit
 
 virtio_queue_poll.exit:                           ; preds = %vring_avail_idx.exit.i.i, %36, %virtio_queue_packed_poll.exit.i, %virtio_device_disabled.exit.i, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %36 ], [ %.0.i.i, %virtio_queue_packed_poll.exit.i ], [ false, %virtio_device_disabled.exit.i ], [ %56, %vring_avail_idx.exit.i.i ], [ false, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ %.0.i.i, %virtio_queue_packed_poll.exit.i ], [ false, %virtio_device_disabled.exit.i ], [ %56, %vring_avail_idx.exit.i.i ], [ false, %36 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -1540,7 +1540,7 @@ define dso_local void @virtqueue_unpop(ptr noundef captures(none) %0, ptr nounde
   br label %virtqueue_packed_rewind.exit
 
 virtqueue_packed_rewind.exit:                     ; preds = %3, %11
-  %.sink5 = phi i16 [ %9, %3 ], [ %13, %11 ]
+  %.sink5 = phi i16 [ %13, %11 ], [ %9, %3 ]
   %17 = add i16 %.sink5, -1
   store i16 %17, ptr %8, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2758,7 +2758,7 @@ virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %84
   br label %virtqueue_packed_read_next_desc.exit.i
 
 virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.thread.i.i
-  %.295.i = phi i32 [ %99, %.thread.i.i ], [ %102, %.thread13.i.i ]
+  %.295.i = phi i32 [ %102, %.thread13.i.i ], [ %99, %.thread.i.i ]
   call fastcc void @vring_packed_desc_read(ptr noundef nonnull %9, ptr noundef nonnull %.060.i, i32 noundef %.295.i, i1 noundef zeroext false)
   %103 = add i32 %91, 1
   %104 = icmp ugt i32 %103, %.056.i
@@ -2808,8 +2808,8 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
   br label %.thread118.i
 
 .thread118.i:                                     ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %._crit_edge173.i, %._crit_edge.i, %71, %63, %61
-  %.468.i = phi i32 [ %.064.lcssa.i, %._crit_edge173.i ], [ 0, %._crit_edge.i ], [ 0, %61 ], [ 0, %63 ], [ 0, %71 ], [ %.367.us.i, %.lr.ph.split.us.i ], [ %.367.i, %.lr.ph.split.i ]
-  %.4.i = phi i32 [ %.061.lcssa.i, %._crit_edge173.i ], [ 0, %._crit_edge.i ], [ 0, %61 ], [ 0, %63 ], [ 0, %71 ], [ %.3.us.i, %.lr.ph.split.us.i ], [ %.3.i, %.lr.ph.split.i ]
+  %.468.i = phi i32 [ %.064.lcssa.i, %._crit_edge173.i ], [ 0, %61 ], [ 0, %63 ], [ 0, %71 ], [ 0, %._crit_edge.i ], [ %.367.us.i, %.lr.ph.split.us.i ], [ %.367.i, %.lr.ph.split.i ]
+  %.4.i = phi i32 [ %.061.lcssa.i, %._crit_edge173.i ], [ 0, %61 ], [ 0, %63 ], [ 0, %71 ], [ 0, %._crit_edge.i ], [ %.3.us.i, %.lr.ph.split.us.i ], [ %.3.i, %.lr.ph.split.i ]
   call void @address_space_cache_destroy(ptr noundef nonnull %8) #24
   %.not89.i = icmp eq ptr %1, null
   br i1 %.not89.i, label %121, label %120
@@ -3162,13 +3162,13 @@ virtqueue_split_read_next_desc.exit.i:            ; preds = %253, %251
   br label %.loopexit.i
 
 261:                                              ; preds = %259, %257
-  %.155.i = phi i32 [ %231, %257 ], [ %260, %259 ]
+  %.155.i = phi i32 [ %260, %259 ], [ %231, %257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %134
 
 .loopexit.i:                                      ; preds = %160, %.thread.i, %.thread95.i, %.thread100.i
-  %.453.i = phi i32 [ %.352.i, %.thread95.i ], [ 0, %.thread.i ], [ 0, %.thread100.i ], [ %.049.i, %160 ]
-  %.4.i37 = phi i32 [ %.3.i40, %.thread95.i ], [ 0, %.thread.i ], [ 0, %.thread100.i ], [ %.047.i, %160 ]
+  %.453.i = phi i32 [ %.352.i, %.thread95.i ], [ 0, %.thread100.i ], [ 0, %.thread.i ], [ %.049.i, %160 ]
+  %.4.i37 = phi i32 [ %.3.i40, %.thread95.i ], [ 0, %.thread100.i ], [ 0, %.thread.i ], [ %.047.i, %160 ]
   call void @address_space_cache_destroy(ptr noundef nonnull %6) #24
   %.not72.i = icmp eq ptr %1, null
   br i1 %.not72.i, label %263, label %262
@@ -3696,7 +3696,7 @@ virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %132
   br label %virtqueue_packed_read_next_desc.exit.i
 
 virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.thread.i.i
-  %.3.i = phi i32 [ %160, %.thread.i.i ], [ %163, %.thread13.i.i ]
+  %.3.i = phi i32 [ %163, %.thread13.i.i ], [ %160, %.thread.i.i ]
   call fastcc void @vring_packed_desc_read(ptr noundef nonnull %14, ptr noundef nonnull %86, i32 noundef %.3.i, i1 noundef zeroext false)
   %.pre = load i16, ptr %89, align 2
   br label %.split.i, !llvm.loop !28
@@ -3869,7 +3869,7 @@ virtio_queue_packed_empty_rcu.exit.thread.i:      ; preds = %.loopexit.i, %229, 
   br label %virtqueue_packed_pop.exit
 
 .loopexit.sink.split.i:                           ; preds = %154, %147, %129, %122
-  %.str.77.sink.i = phi ptr [ @.str.83, %122 ], [ @.str.77, %129 ], [ @.str.83, %147 ], [ @.str.77, %154 ]
+  %.str.77.sink.i = phi ptr [ @.str.77, %129 ], [ @.str.83, %122 ], [ @.str.77, %154 ], [ @.str.83, %147 ]
   call void (ptr, ptr, ...) @virtio_error(ptr noundef %16, ptr noundef nonnull %.str.77.sink.i)
   br label %.loopexit.i
 
@@ -4461,7 +4461,7 @@ virtqueue_split_pop.exit:                         ; preds = %502, %504, %508
   br label %virtio_device_disabled.exit.thread
 
 virtio_device_disabled.exit.thread:               ; preds = %2, %virtio_device_disabled.exit, %virtqueue_split_pop.exit, %virtqueue_packed_pop.exit
-  %.0 = phi ptr [ %.082.i, %virtqueue_split_pop.exit ], [ %.079.i, %virtqueue_packed_pop.exit ], [ null, %virtio_device_disabled.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %.079.i, %virtqueue_packed_pop.exit ], [ %.082.i, %virtqueue_split_pop.exit ], [ null, %virtio_device_disabled.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -4793,7 +4793,7 @@ virtqueue_split_drop_all.exit:                    ; preds = %92, %vring_set_avai
   br label %virtio_device_disabled.exit.thread
 
 virtio_device_disabled.exit.thread:               ; preds = %1, %virtio_device_disabled.exit, %virtqueue_split_drop_all.exit, %virtqueue_packed_drop_all.exit
-  %.0 = phi i32 [ %.019.i, %virtqueue_split_drop_all.exit ], [ %.025.i, %virtqueue_packed_drop_all.exit ], [ 0, %virtio_device_disabled.exit ], [ 0, %1 ]
+  %.0 = phi i32 [ %.025.i, %virtqueue_packed_drop_all.exit ], [ %.019.i, %virtqueue_split_drop_all.exit ], [ 0, %virtio_device_disabled.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -6604,7 +6604,7 @@ vring_get_used_event.exit.i:                      ; preds = %105, %103, %85
   br label %virtio_packed_should_notify.exit
 
 virtio_packed_should_notify.exit:                 ; preds = %vring_get_used_event.exit.i, %77, %vring_avail_flags.exit.i, %57, %vring_packed_need_event.exit.i, %35, %34, %vring_packed_event_read.exit.i, %5
-  %.0 = phi i1 [ %51, %vring_packed_need_event.exit.i ], [ false, %5 ], [ true, %34 ], [ false, %vring_packed_event_read.exit.i ], [ true, %35 ], [ true, %57 ], [ %.not15.i, %vring_avail_flags.exit.i ], [ true, %77 ], [ %110, %vring_get_used_event.exit.i ]
+  %.0 = phi i1 [ true, %34 ], [ false, %5 ], [ false, %vring_packed_event_read.exit.i ], [ true, %35 ], [ %51, %vring_packed_need_event.exit.i ], [ %.not15.i, %vring_avail_flags.exit.i ], [ true, %57 ], [ true, %77 ], [ %110, %vring_get_used_event.exit.i ]
   ret i1 %.0
 }
 
@@ -7729,7 +7729,7 @@ vring_avail_idx.exit:                             ; preds = %204, %virtio_lduw_p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %144, %128, %126, %121, %49, %17, %13, %285, %149, %93, %58
-  %.0 = phi i32 [ -1, %149 ], [ %16, %13 ], [ -1, %17 ], [ -1, %58 ], [ %50, %49 ], [ -1, %93 ], [ %129, %128 ], [ %122, %121 ], [ %127, %126 ], [ %.5, %285 ], [ -1, %144 ], [ %101, %98 ]
+  %.0 = phi i32 [ -1, %58 ], [ -1, %93 ], [ %.5, %285 ], [ -1, %144 ], [ -1, %149 ], [ %16, %13 ], [ -1, %17 ], [ %50, %49 ], [ %122, %121 ], [ %127, %126 ], [ %129, %128 ], [ %101, %98 ]
   ret i32 %.0
 }
 
@@ -8055,32 +8055,32 @@ virtio_device_started.exit.thread:                ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 430
   %12 = load i8, ptr %11, align 2, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %virtio_device_started.exit, label %14
+  br i1 %13, label %14, label %virtio_device_started.exit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 4
-  %.not17 = icmp eq i8 %17, 0
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 431
+  %16 = load i8, ptr %15, align 1, !range !5, !noundef !6
+  %17 = trunc nuw i8 %16 to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 426
   store i8 %4, ptr %18, align 2
-  br i1 %.not17, label %26, label %23
+  br i1 %17, label %._crit_edge, label %26
 
-virtio_device_started.exit:                       ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 431
-  %20 = load i8, ptr %19, align 1, !range !5, !noundef !6
-  %21 = trunc nuw i8 %20 to i1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 426
-  store i8 %4, ptr %22, align 2
-  br i1 %21, label %virtio_device_started.exit._crit_edge, label %26
-
-virtio_device_started.exit._crit_edge:            ; preds = %virtio_device_started.exit
+._crit_edge:                                      ; preds = %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %23
 
-23:                                               ; preds = %virtio_device_started.exit._crit_edge, %14
-  %24 = phi i8 [ %.pre, %virtio_device_started.exit._crit_edge ], [ %16, %14 ]
+virtio_device_started.exit:                       ; preds = %10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %20 = load i8, ptr %19, align 8
+  %21 = and i8 %20, 4
+  %.not17 = icmp eq i8 %21, 0
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 426
+  store i8 %4, ptr %22, align 2
+  br i1 %.not17, label %26, label %23
+
+23:                                               ; preds = %._crit_edge, %virtio_device_started.exit
+  %24 = phi i8 [ %.pre, %._crit_edge ], [ %20, %virtio_device_started.exit ]
   %25 = tail call i32 @virtio_set_status(ptr noundef nonnull %0, i8 noundef zeroext %24)
   br label %26
 
@@ -9277,7 +9277,7 @@ rcu_read_auto_lock.exit:                          ; preds = %25, %32
   br label %vring_avail_ring.exit
 
 vring_avail_ring.exit:                            ; preds = %80, %78, %60, %58, %56, %36
-  %.0139.in = phi i16 [ %59, %58 ], [ 0, %36 ], [ %.val.i.i.i.i, %56 ], [ 0, %60 ], [ %.val.i.i.i.i161, %78 ], [ %81, %80 ]
+  %.0139.in = phi i16 [ 0, %36 ], [ %.val.i.i.i.i, %56 ], [ %59, %58 ], [ 0, %60 ], [ %.val.i.i.i.i161, %78 ], [ %81, %80 ]
   %.0139 = zext i16 %.0139.in to i32
   %82 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %83 = load atomic i64, ptr %82 monotonic, align 8
@@ -9360,8 +9360,8 @@ vring_split_desc_read.exit:                       ; preds = %102, %104
   br label %234
 
 122:                                              ; preds = %.thread, %vring_split_desc_read.exit
-  %.0143 = phi ptr [ %6, %.thread ], [ %94, %vring_split_desc_read.exit ]
-  %.0141 = phi i32 [ %120, %.thread ], [ %35, %vring_split_desc_read.exit ]
+  %.0143 = phi ptr [ %94, %vring_split_desc_read.exit ], [ %6, %.thread ]
+  %.0141 = phi i32 [ %35, %vring_split_desc_read.exit ], [ %120, %.thread ]
   %123 = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #23
   %124 = call noalias dereferenceable_or_null(6) ptr @g_malloc0(i64 noundef 6) #23
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 24
@@ -9633,7 +9633,7 @@ virtqueue_split_read_next_desc.exit.thread:       ; preds = %virtqueue_split_rea
   br label %235
 
 235:                                              ; preds = %85, %92, %234
-  %cond = phi ptr [ null, %92 ], [ null, %85 ], [ %.1135, %234 ]
+  %cond = phi ptr [ null, %92 ], [ %.1135, %234 ], [ null, %85 ]
   %236 = call ptr @get_ptr_rcu_reader() #24
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 12
   %238 = load i32, ptr %237, align 4
@@ -10104,8 +10104,8 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   br i1 %.not47, label %.thread, label %15
 
 .thread:                                          ; preds = %25, %24, %17, %14
-  %.041 = phi i32 [ %.14257, %24 ], [ %10, %14 ], [ %4, %17 ], [ %30, %25 ]
-  %.040 = phi i1 [ false, %24 ], [ false, %14 ], [ false, %17 ], [ true, %25 ]
+  %.041 = phi i32 [ %10, %14 ], [ %4, %17 ], [ %.14257, %24 ], [ %30, %25 ]
+  %.040 = phi i1 [ false, %14 ], [ false, %17 ], [ false, %24 ], [ true, %25 ]
   store i32 %.041, ptr %1, align 4
   ret i1 %.040
 }
@@ -10643,7 +10643,7 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
   tail call void @event_notifier_set_handler(ptr noundef nonnull %15, ptr noundef nonnull @virtio_queue_host_notifier_read) #24
   br label %16
 
-16:                                               ; preds = %6, %14
+16:                                               ; preds = %14, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
   %indvars.iv.next66 = add nsw i32 %indvars.iv65, 1

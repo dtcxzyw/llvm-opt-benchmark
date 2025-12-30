@@ -146,7 +146,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac3p_decode_init(ptr noundef %
   br label %61
 
 61:                                               ; preds = %22, %18, %13, %8, %._crit_edge, %7
-  %.076 = phi i32 [ -22, %7 ], [ %11, %8 ], [ %16, %13 ], [ 0, %._crit_edge ], [ %20, %18 ], [ -12, %22 ]
+  %.076 = phi i32 [ 0, %._crit_edge ], [ -22, %7 ], [ %11, %8 ], [ %16, %13 ], [ %20, %18 ], [ -12, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.076
 }
@@ -506,7 +506,7 @@ define internal i32 @atrac3p_decode_frame(ptr noundef %0, ptr noundef initialize
   br i1 %exitcond69.not.i, label %decode_residual_spectrum.exit, label %155, !llvm.loop !87
 
 decode_residual_spectrum.exit:                    ; preds = %.loopexit.i, %.preheader10.preheader.i, %149
-  %wide.trip.count.i78.pre-phi = phi i64 [ %wide.trip.count54.i, %149 ], [ %.pre, %.preheader10.preheader.i ], [ %wide.trip.count54.i, %.loopexit.i ]
+  %wide.trip.count.i78.pre-phi = phi i64 [ %.pre, %.preheader10.preheader.i ], [ %wide.trip.count54.i, %149 ], [ %wide.trip.count54.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %173 = load ptr, ptr %33, align 8, !tbaa !36
   %174 = getelementptr inbounds nuw %struct.Atrac3pChanUnitCtx, ptr %173, i64 %indvars.iv108
@@ -731,7 +731,7 @@ reconstruct_frame.exit:                           ; preds = %.preheader.i84
   br label %.loopexit
 
 .loopexit:                                        ; preds = %69, %305, %301, %13, %4, %68, %60, %46
-  %.0 = phi i32 [ %., %301 ], [ %11, %4 ], [ -1094995529, %46 ], [ -1163346256, %60 ], [ -1094995529, %68 ], [ -1094995529, %13 ], [ %306, %305 ], [ %73, %69 ]
+  %.0 = phi i32 [ -1094995529, %46 ], [ -1163346256, %60 ], [ -1094995529, %68 ], [ %11, %4 ], [ -1094995529, %13 ], [ %306, %305 ], [ %., %301 ], [ %73, %69 ]
   ret i32 %.0
 }
 

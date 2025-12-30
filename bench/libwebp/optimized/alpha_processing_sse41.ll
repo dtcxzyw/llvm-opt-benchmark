@@ -137,8 +137,8 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias noundef read
   br label %._crit_edge73
 
 ._crit_edge73:                                    ; preds = %._crit_edge.us86, %.preheader59.lr.ph.split, %._crit_edge73.loopexit, %6
-  %.056.lcssa = phi i32 [ 65535, %6 ], [ 65535, %.preheader59.lr.ph.split ], [ %61, %._crit_edge73.loopexit ], [ 65535, %._crit_edge.us86 ]
-  %.052.lcssa = phi i32 [ 255, %6 ], [ 255, %.preheader59.lr.ph.split ], [ %.1.lcssa.us, %._crit_edge73.loopexit ], [ %54, %._crit_edge.us86 ]
+  %.056.lcssa = phi i32 [ 65535, %6 ], [ %61, %._crit_edge73.loopexit ], [ 65535, %.preheader59.lr.ph.split ], [ 65535, %._crit_edge.us86 ]
+  %.052.lcssa = phi i32 [ 255, %6 ], [ %.1.lcssa.us, %._crit_edge73.loopexit ], [ 255, %.preheader59.lr.ph.split ], [ %54, %._crit_edge.us86 ]
   %62 = or i32 %.052.lcssa, 65280
   %63 = and i32 %62, %.056.lcssa
   %64 = icmp eq i32 %63, 65535

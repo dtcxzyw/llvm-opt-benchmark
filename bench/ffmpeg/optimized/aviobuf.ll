@@ -671,7 +671,7 @@ define void @avio_flush(ptr noundef %0) local_unnamed_addr #2 {
   %12 = icmp slt i64 %11, 0
   br i1 %12, label %13, label %.thread
 
-.thread:                                          ; preds = %4, %1
+.thread:                                          ; preds = %1, %4
   tail call fastcc void @flush_buffer(ptr noundef nonnull %0)
   br label %18
 
@@ -981,7 +981,7 @@ tailrecurse:                                      ; preds = %118
   br label %.thread165
 
 .thread165:                                       ; preds = %24, %40, %46, %51, %118, %.lr.ph214, %3, %.thread.thread, %.thread, %.critedge, %21, %19, %138
-  %.0 = phi i64 [ -541478725, %.critedge ], [ -38, %19 ], [ -32, %.thread ], [ %129, %.thread.thread ], [ %23, %21 ], [ %.0132, %138 ], [ -22, %3 ], [ -541478725, %.lr.ph214 ], [ -22, %24 ], [ %44, %40 ], [ -22, %51 ], [ -22, %46 ], [ %122, %118 ]
+  %.0 = phi i64 [ %.0132, %138 ], [ %23, %21 ], [ -38, %19 ], [ -541478725, %.critedge ], [ %129, %.thread.thread ], [ -32, %.thread ], [ -22, %3 ], [ -541478725, %.lr.ph214 ], [ %122, %118 ], [ -22, %51 ], [ -22, %46 ], [ %44, %40 ], [ -22, %24 ]
   ret i64 %.0
 }
 
@@ -1204,7 +1204,7 @@ define i64 @avio_size(ptr noundef readonly captures(address_is_null) %0) local_u
   br label %25
 
 25:                                               ; preds = %8, %18, %13, %5, %2, %1
-  %.016 = phi i64 [ -22, %1 ], [ -38, %5 ], [ %16, %13 ], [ %4, %2 ], [ %19, %18 ], [ %11, %8 ]
+  %.016 = phi i64 [ -22, %1 ], [ %4, %2 ], [ -38, %5 ], [ %16, %13 ], [ %19, %18 ], [ %11, %8 ]
   ret i64 %.016
 }
 
@@ -1692,9 +1692,9 @@ avio_wb16.exit96:                                 ; preds = %avio_wb16.exit96.si
   br i1 %.not72, label %.thread123.loopexit, label %124
 
 124:                                              ; preds = %.thread118, %avio_wb16.exit, %avio_wb16.exit96
-  %.154116 = phi ptr [ %.154122, %.thread118 ], [ %.255, %avio_wb16.exit96 ], [ %.255, %avio_wb16.exit ]
-  %.266 = phi i32 [ %.064132, %.thread118 ], [ %121, %avio_wb16.exit96 ], [ %57, %avio_wb16.exit ]
-  %.263 = phi i32 [ -22, %.thread118 ], [ %.061133, %avio_wb16.exit96 ], [ %.061133, %avio_wb16.exit ]
+  %.154116 = phi ptr [ %.255, %avio_wb16.exit ], [ %.255, %avio_wb16.exit96 ], [ %.154122, %.thread118 ]
+  %.266 = phi i32 [ %57, %avio_wb16.exit ], [ %121, %avio_wb16.exit96 ], [ %.064132, %.thread118 ]
+  %.263 = phi i32 [ %.061133, %avio_wb16.exit ], [ %.061133, %avio_wb16.exit96 ], [ -22, %.thread118 ]
   %125 = load i8, ptr %.154116, align 1, !tbaa !33
   %.not = icmp eq i8 %125, 0
   br i1 %.not, label %.thread123.loopexit, label %8
@@ -2066,7 +2066,7 @@ define void @avio_write_marker(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
   br i1 %42, label %avio_flush.exit, label %.thread
 
 .thread:                                          ; preds = %33, %.thread32, %.thread32, %34, %39
-  %.031 = phi i32 [ 2, %34 ], [ %2, %33 ], [ %2, %39 ], [ 3, %.thread32 ], [ 3, %.thread32 ]
+  %.031 = phi i32 [ %2, %39 ], [ 2, %34 ], [ 3, %.thread32 ], [ 3, %.thread32 ], [ %2, %33 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load i32, ptr %43, align 8, !tbaa !20
   %.not.i25 = icmp eq i32 %44, 0
@@ -2342,7 +2342,7 @@ read_packet_wrapper.exit:                         ; preds = %36
   br i1 %73, label %17, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %71, %57, %45, %41
-  %.05878 = phi i32 [ %.05880, %41 ], [ %.05880, %45 ], [ %.05880, %57 ], [ %.1, %71 ]
+  %.05878 = phi i32 [ %.05880, %45 ], [ %.05880, %41 ], [ %.1, %71 ], [ %.05880, %57 ]
   %74 = icmp eq i32 %2, %.05878
   br i1 %74, label %.loopexit.thread, label %avio_feof.exit.thread
 
@@ -2513,7 +2513,7 @@ avio_feof.exit.thread:                            ; preds = %45, %avio_feof.exit
   br label %48
 
 48:                                               ; preds = %avio_feof.exit, %42, %read_packet_wrapper.exit, %15, %3, %avio_feof.exit.thread
-  %.029 = phi i32 [ %44, %42 ], [ -22, %3 ], [ %spec.select, %avio_feof.exit.thread ], [ %13, %read_packet_wrapper.exit ], [ %13, %15 ], [ -541478725, %avio_feof.exit ]
+  %.029 = phi i32 [ %spec.select, %avio_feof.exit.thread ], [ -22, %3 ], [ %13, %15 ], [ %13, %read_packet_wrapper.exit ], [ %44, %42 ], [ -541478725, %avio_feof.exit ]
   ret i32 %.029
 }
 
@@ -3048,7 +3048,7 @@ avio_feof.exit.thread:                            ; preds = %avio_r8.exit29.thre
   br label %.thread
 
 .thread:                                          ; preds = %10, %21, %21, %avio_feof.exit.thread, %avio_feof.exit, %avio_r8.exit29
-  %.139 = phi i32 [ %.1, %avio_r8.exit29 ], [ %.1, %avio_feof.exit.thread ], [ %.1, %avio_feof.exit ], [ %.0, %10 ], [ %.1, %21 ], [ %.1, %21 ]
+  %.139 = phi i32 [ %.1, %avio_feof.exit.thread ], [ %.1, %avio_feof.exit ], [ %.1, %avio_r8.exit29 ], [ %.0, %10 ], [ %.1, %21 ], [ %.1, %21 ]
   %33 = sext i32 %.139 to i64
   %34 = getelementptr inbounds i8, ptr %1, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !33
@@ -3206,8 +3206,8 @@ define internal fastcc range(i64 -9223372036854775808, 4294967296) i64 @read_str
   br i1 %.not81.i.i, label %.thread93.i.i, label %.thread137.i
 
 .thread137.i:                                     ; preds = %51, %.thread139.i, %45
-  %57 = phi ptr [ %42, %.thread139.i ], [ %.pre99.pre.i.i, %51 ], [ %42, %45 ]
-  %58 = phi ptr [ %31, %.thread139.i ], [ %.pre.i75.i, %51 ], [ %31, %45 ]
+  %57 = phi ptr [ %.pre99.pre.i.i, %51 ], [ %42, %.thread139.i ], [ %42, %45 ]
+  %58 = phi ptr [ %.pre.i75.i, %51 ], [ %31, %.thread139.i ], [ %31, %45 ]
   %59 = load i32, ptr %16, align 8, !tbaa !14
   %.not82.i.i = icmp eq i32 %59, 0
   br i1 %.not82.i.i, label %read_packet_wrapper.exit.i.i, label %60
@@ -3447,7 +3447,7 @@ read_string_to_bprint.exit.thread:                ; preds = %avio_feof.exit73.i
   br label %134
 
 read_string_to_bprint.exit:                       ; preds = %avio_r8.exit65.i, %avio_feof.exit.i, %avio_feof.exit.thread.i, %122, %.thread91.i, %125
-  %.0.i = phi i64 [ %126, %125 ], [ %110, %avio_feof.exit.i ], [ %110, %avio_r8.exit65.i ], [ %110, %.thread91.i ], [ %110, %122 ], [ %110, %avio_feof.exit.thread.i ]
+  %.0.i = phi i64 [ %126, %125 ], [ %110, %.thread91.i ], [ %110, %122 ], [ %110, %avio_feof.exit.thread.i ], [ %110, %avio_feof.exit.i ], [ %110, %avio_r8.exit65.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %129 = icmp slt i64 %.0.i, 0
   br i1 %129, label %134, label %130
@@ -3582,7 +3582,7 @@ avio_r8.exit29.thread:                            ; preds = %33, %avio_r8.exit29
   br i1 %exitcond48.not, label %.loopexit, label %30, !llvm.loop !63
 
 .loopexit:                                        ; preds = %40, %._crit_edge, %4, %avio_r8.exit29.thread, %.loopexit34
-  %.020 = phi i32 [ -22, %4 ], [ %23, %.loopexit34 ], [ %39, %avio_r8.exit29.thread ], [ %1, %._crit_edge ], [ %1, %40 ]
+  %.020 = phi i32 [ %23, %.loopexit34 ], [ %39, %avio_r8.exit29.thread ], [ -22, %4 ], [ %1, %._crit_edge ], [ %1, %40 ]
   ret i32 %.020
 }
 
@@ -3650,9 +3650,9 @@ avio_r8.exit.thread.i:                            ; preds = %avio_r8.exit.i, %16
   br label %avio_rl16.exit
 
 avio_rl16.exit:                                   ; preds = %.thread.i7.i, %avio_r8.exit.thread.i
-  %32 = phi ptr [ %.pre7.i5.i, %avio_r8.exit.thread.i ], [ %25, %.thread.i7.i ]
-  %33 = phi ptr [ %.pre.i4.i, %avio_r8.exit.thread.i ], [ %27, %.thread.i7.i ]
-  %34 = phi i32 [ %.0.i13.i, %avio_r8.exit.thread.i ], [ %31, %.thread.i7.i ]
+  %32 = phi ptr [ %25, %.thread.i7.i ], [ %.pre7.i5.i, %avio_r8.exit.thread.i ]
+  %33 = phi ptr [ %27, %.thread.i7.i ], [ %.pre.i4.i, %avio_r8.exit.thread.i ]
+  %34 = phi i32 [ %31, %.thread.i7.i ], [ %.0.i13.i, %avio_r8.exit.thread.i ]
   %35 = add nsw i32 %34, -55296
   %36 = icmp ult i32 %35, 2048
   br i1 %36, label %37, label %62
@@ -3812,8 +3812,8 @@ avio_rl16.exit75:                                 ; preds = %avio_r8.exit.thread
   br i1 %109, label %12, label %.thread99
 
 .thread99:                                        ; preds = %.loopexit, %62, %56, %.preheader
-  %.050.lcssa = phi ptr [ %2, %.preheader ], [ %.050106, %62 ], [ %.050106, %56 ], [ %.2, %.loopexit ]
-  %.152 = phi i32 [ 0, %.preheader ], [ %13, %62 ], [ %38, %56 ], [ %.35481, %.loopexit ]
+  %.050.lcssa = phi ptr [ %2, %.preheader ], [ %.050106, %56 ], [ %.050106, %62 ], [ %.2, %.loopexit ]
+  %.152 = phi i32 [ 0, %.preheader ], [ %38, %56 ], [ %13, %62 ], [ %.35481, %.loopexit ]
   store i8 0, ptr %.050.lcssa, align 1, !tbaa !33
   br label %110
 
@@ -3886,9 +3886,9 @@ avio_r8.exit.thread.i:                            ; preds = %avio_r8.exit.i, %16
   br label %avio_rb16.exit
 
 avio_rb16.exit:                                   ; preds = %.thread.i7.i, %avio_r8.exit.thread.i
-  %32 = phi ptr [ %.pre7.i5.i, %avio_r8.exit.thread.i ], [ %26, %.thread.i7.i ]
-  %33 = phi ptr [ %.pre.i4.i, %avio_r8.exit.thread.i ], [ %28, %.thread.i7.i ]
-  %34 = phi i32 [ %.0.i13.i, %avio_r8.exit.thread.i ], [ %31, %.thread.i7.i ]
+  %32 = phi ptr [ %26, %.thread.i7.i ], [ %.pre7.i5.i, %avio_r8.exit.thread.i ]
+  %33 = phi ptr [ %28, %.thread.i7.i ], [ %.pre.i4.i, %avio_r8.exit.thread.i ]
+  %34 = phi i32 [ %31, %.thread.i7.i ], [ %.0.i13.i, %avio_r8.exit.thread.i ]
   %35 = add nsw i32 %34, -55296
   %36 = icmp ult i32 %35, 2048
   br i1 %36, label %37, label %62
@@ -4048,8 +4048,8 @@ avio_rb16.exit75:                                 ; preds = %avio_r8.exit.thread
   br i1 %109, label %12, label %.thread99
 
 .thread99:                                        ; preds = %.loopexit, %62, %56, %.preheader
-  %.050.lcssa = phi ptr [ %2, %.preheader ], [ %.050106, %62 ], [ %.050106, %56 ], [ %.2, %.loopexit ]
-  %.152 = phi i32 [ 0, %.preheader ], [ %13, %62 ], [ %38, %56 ], [ %.35481, %.loopexit ]
+  %.050.lcssa = phi ptr [ %2, %.preheader ], [ %.050106, %56 ], [ %.050106, %62 ], [ %.2, %.loopexit ]
+  %.152 = phi i32 [ 0, %.preheader ], [ %38, %56 ], [ %13, %62 ], [ %.35481, %.loopexit ]
   store i8 0, ptr %.050.lcssa, align 1, !tbaa !33
   br label %110
 
@@ -4494,7 +4494,7 @@ update_checksum.exit56:                           ; preds = %58, %61, %65
   br label %80
 
 80:                                               ; preds = %56, %16, %29, %32, %12, %2, %76
-  %.0 = phi i32 [ 0, %16 ], [ 0, %2 ], [ -22, %12 ], [ 0, %76 ], [ 0, %32 ], [ 0, %29 ], [ -12, %56 ]
+  %.0 = phi i32 [ 0, %76 ], [ 0, %2 ], [ -22, %12 ], [ 0, %32 ], [ 0, %29 ], [ 0, %16 ], [ -12, %56 ]
   ret i32 %.0
 }
 
@@ -4559,7 +4559,7 @@ define noundef i32 @ffio_limit(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %avio_size.exit
 
 avio_size.exit:                                   ; preds = %12, %15, %18, %23, %28
-  %.016.i = phi i64 [ %21, %18 ], [ -38, %15 ], [ %26, %23 ], [ %14, %12 ], [ %29, %28 ]
+  %.016.i = phi i64 [ %14, %12 ], [ -38, %15 ], [ %26, %23 ], [ %29, %28 ], [ %21, %18 ]
   %35 = load i64, ptr %3, align 8, !tbaa !72
   %.not = icmp eq i64 %35, 0
   %36 = icmp slt i64 %35, %.016.i
@@ -4717,7 +4717,7 @@ url_resetbuf.exit.i:                              ; preds = %5
   br label %set_buf_size.exit
 
 set_buf_size.exit:                                ; preds = %url_resetbuf.exit.i, %5, %17, %16, %44
-  %.0 = phi i32 [ -12, %17 ], [ 0, %44 ], [ 0, %16 ], [ 0, %url_resetbuf.exit.i ], [ -12, %5 ]
+  %.0 = phi i32 [ 0, %44 ], [ 0, %16 ], [ -12, %17 ], [ 0, %url_resetbuf.exit.i ], [ -12, %5 ]
   ret i32 %.0
 }
 
@@ -5051,7 +5051,7 @@ define range(i32 -2147483648, 1) i32 @avio_read_to_bprint(ptr noundef %0, ptr no
   br i1 %.not16, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %15, %17, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ %13, %15 ], [ -12, %17 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ -12, %17 ], [ %13, %15 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -5676,7 +5676,7 @@ dyn_buf_write.exit:                               ; preds = %33, %24
   br label %dyn_buf_write.exit18
 
 dyn_buf_write.exit18:                             ; preds = %3, %22, %59, %51, %50, %dyn_buf_write.exit
-  %.0 = phi i32 [ %2, %51 ], [ %48, %50 ], [ -34, %dyn_buf_write.exit ], [ %2, %59 ], [ -34, %3 ], [ %20, %22 ]
+  %.0 = phi i32 [ %48, %50 ], [ -34, %dyn_buf_write.exit ], [ %2, %59 ], [ %2, %51 ], [ -34, %3 ], [ %20, %22 ]
   ret i32 %.0
 }
 

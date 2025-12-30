@@ -2014,7 +2014,7 @@ define range(i32 -2147483647, -2147483648) i32 @Dar_LibEval_rec(ptr noundef read
   br label %105
 
 105:                                              ; preds = %45, %39, %35, %36, %26, %22, %23, %9, %103
-  %.0 = phi i32 [ 255, %26 ], [ 0, %9 ], [ 0, %22 ], [ 0, %35 ], [ 255, %39 ], [ %104, %103 ], [ 0, %23 ], [ 0, %36 ], [ 255, %45 ]
+  %.0 = phi i32 [ %104, %103 ], [ 0, %9 ], [ 0, %23 ], [ 0, %22 ], [ 255, %26 ], [ 0, %36 ], [ 0, %35 ], [ 255, %39 ], [ 255, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2858,7 +2858,7 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   br label %96
 
 94:                                               ; preds = %75, %73, %70
-  %.0 = phi i32 [ %92, %75 ], [ %61, %73 ], [ %65, %70 ]
+  %.0 = phi i32 [ %92, %75 ], [ %65, %70 ], [ %61, %73 ]
   store i32 %.0, ptr %28, align 8, !tbaa !35
   %95 = icmp sgt i32 %.0, -1
   br i1 %95, label %96, label %149
@@ -3215,9 +3215,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %99
 
 99:                                               ; preds = %42, %44, %48, %34, %._crit_edge
-  %.147 = phi i32 [ %.04655, %34 ], [ %.04655, %42 ], [ %33, %._crit_edge ], [ %.04655, %44 ], [ %.04655, %48 ]
-  %.143 = phi i32 [ %.04257, %34 ], [ %.04257, %42 ], [ %98, %._crit_edge ], [ %.04257, %44 ], [ %.04257, %48 ]
-  %.1 = phi i32 [ %.04158, %34 ], [ %.04158, %42 ], [ %92, %._crit_edge ], [ %.04158, %44 ], [ %.04158, %48 ]
+  %.147 = phi i32 [ %.04655, %34 ], [ %33, %._crit_edge ], [ %.04655, %44 ], [ %.04655, %48 ], [ %.04655, %42 ]
+  %.143 = phi i32 [ %.04257, %34 ], [ %98, %._crit_edge ], [ %.04257, %44 ], [ %.04257, %48 ], [ %.04257, %42 ]
+  %.1 = phi i32 [ %.04158, %34 ], [ %92, %._crit_edge ], [ %.04158, %44 ], [ %.04158, %48 ], [ %.04158, %42 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %100 = load i32, ptr %17, align 4, !tbaa !18
   %101 = sext i32 %100 to i64

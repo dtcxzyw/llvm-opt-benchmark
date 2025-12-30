@@ -1239,7 +1239,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15getFDERKSt9basic_iosIcSt11char_traitsIcEE.ex
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit
 
 _ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit: ; preds = %_ZN5folly10symbolizer12_GLOBAL__N_15getFDERKSt9basic_iosIcSt11char_traitsIcEE.exit, %22, %26, %28, %31, %34
-  %.0.i = phi i8 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15getFDERKSt9basic_iosIcSt11char_traitsIcEE.exit ], [ 0, %26 ], [ 0, %22 ], [ 0, %31 ], [ 0, %28 ], [ %37, %34 ]
+  %.0.i = phi i8 [ 0, %26 ], [ 0, %22 ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15getFDERKSt9basic_iosIcSt11char_traitsIcEE.exit ], [ 0, %31 ], [ 0, %28 ], [ %37, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %38, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1302,7 +1302,7 @@ define void @_ZN5folly10symbolizer18FDSymbolizePrinterC2Eiim(ptr noundef nonnull
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit
 
 _ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit: ; preds = %4, %6, %10, %12, %15, %18
-  %.0.i = phi i8 [ 0, %4 ], [ 0, %10 ], [ 0, %6 ], [ 0, %15 ], [ 0, %12 ], [ %21, %18 ]
+  %.0.i = phi i8 [ 0, %10 ], [ 0, %6 ], [ 0, %4 ], [ 0, %15 ], [ 0, %12 ], [ %21, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %22, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1431,7 +1431,7 @@ define void @_ZN5folly10symbolizer20FILESymbolizePrinterC2EP8_IO_FILEi(ptr nound
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit
 
 _ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit: ; preds = %3, %6, %10, %12, %15, %18
-  %.0.i = phi i8 [ 0, %3 ], [ 0, %10 ], [ 0, %6 ], [ 0, %15 ], [ 0, %12 ], [ %21, %18 ]
+  %.0.i = phi i8 [ 0, %10 ], [ 0, %6 ], [ 0, %3 ], [ 0, %15 ], [ 0, %12 ], [ %21, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %22, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1667,7 +1667,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %15, %13, %9
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %21
-  %.0.i = phi i64 [ %10, %_ZN5folly10canNallocxEv.exit.i ], [ %23, %21 ]
+  %.0.i = phi i64 [ %23, %21 ], [ %10, %_ZN5folly10canNallocxEv.exit.i ]
   %24 = call noalias ptr @malloc(i64 noundef %.0.i) #36
   %.not.i13 = icmp eq ptr %24, null
   br i1 %.not.i13, label %25, label %_ZN5folly13checkedMallocEm.exit
@@ -1831,7 +1831,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %27, %25, %22
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %20, %_ZN5folly10canNallocxEv.exit.i, %33
-  %.0.i10 = phi i64 [ 0, %20 ], [ %35, %33 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i10 = phi i64 [ %35, %33 ], [ 0, %20 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
   %36 = call noalias ptr @malloc(i64 noundef %.0.i10) #36
   %.not.i11 = icmp eq ptr %36, null
   br i1 %.not.i11, label %37, label %_ZN5folly13checkedMallocEm.exit
@@ -1989,7 +1989,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
   br label %33
 
 33:                                               ; preds = %28, %26, %14
-  %.1 = phi i1 [ false, %26 ], [ false, %14 ], [ %32, %28 ]
+  %.1 = phi i1 [ false, %14 ], [ %32, %28 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
@@ -2220,7 +2220,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %17, %15, %11
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %23
-  %.0.i = phi i64 [ %12, %_ZN5folly10canNallocxEv.exit.i ], [ %25, %23 ]
+  %.0.i = phi i64 [ %25, %23 ], [ %12, %_ZN5folly10canNallocxEv.exit.i ]
   %26 = load ptr, ptr %0, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !10
@@ -2507,7 +2507,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %30, %28, %25
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %23, %_ZN5folly10canNallocxEv.exit.i, %36
-  %.0.i13 = phi i64 [ 0, %23 ], [ %38, %36 ], [ %18, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i13 = phi i64 [ %38, %36 ], [ 0, %23 ], [ %18, %_ZN5folly10canNallocxEv.exit.i ]
   %39 = getelementptr inbounds i8, ptr %0, i64 -8
   %40 = add i64 %1, 9
   %41 = add i64 %2, 9

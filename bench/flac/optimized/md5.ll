@@ -1561,7 +1561,7 @@ format_input_.exit:                               ; preds = %394, %375, %362, %3
   br label %FLAC__MD5Update.exit
 
 FLAC__MD5Update.exit:                             ; preds = %._crit_edge.i, %471, %5, %23
-  %.0 = phi i32 [ 0, %5 ], [ 0, %23 ], [ 1, %471 ], [ 1, %._crit_edge.i ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %5 ], [ 1, %471 ], [ 1, %._crit_edge.i ]
   ret i32 %.0
 }
 

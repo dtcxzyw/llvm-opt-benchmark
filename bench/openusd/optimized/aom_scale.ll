@@ -88,8 +88,8 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   br label %63
 
 63:                                               ; preds = %62, %61, %60, %39
-  %.0180.i = phi ptr [ null, %62 ], [ @aom_horizontal_line_2_1_scale_c, %61 ], [ @aom_horizontal_line_5_3_scale_c, %60 ], [ @aom_horizontal_line_5_4_scale_c, %39 ]
-  %.not207.i = phi i1 [ true, %62 ], [ false, %61 ], [ false, %60 ], [ false, %39 ]
+  %.0180.i = phi ptr [ null, %62 ], [ @aom_horizontal_line_5_3_scale_c, %60 ], [ @aom_horizontal_line_2_1_scale_c, %61 ], [ @aom_horizontal_line_5_4_scale_c, %39 ]
+  %.not207.i = phi i1 [ true, %62 ], [ false, %60 ], [ false, %61 ], [ false, %39 ]
   switch i32 %30, label %.thread.i [
     i32 8, label %66
     i32 6, label %64
@@ -103,10 +103,10 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   br label %66
 
 66:                                               ; preds = %65, %64, %63
-  %.0185.i = phi i32 [ 4, %63 ], [ 1, %65 ], [ 3, %64 ]
-  %.0183.i = phi i32 [ 5, %63 ], [ 2, %65 ], [ 5, %64 ]
-  %.0178.i = phi ptr [ @aom_vertical_band_5_4_scale_c, %63 ], [ %aom_vertical_band_2_1_scale_c.aom_vertical_band_2_1_scale_i_c.i, %65 ], [ @aom_vertical_band_5_3_scale_c, %64 ]
-  %.0174.i = phi i1 [ true, %63 ], [ %.not.i, %65 ], [ true, %64 ]
+  %.0185.i = phi i32 [ 3, %64 ], [ 1, %65 ], [ 4, %63 ]
+  %.0183.i = phi i32 [ 5, %64 ], [ 2, %65 ], [ 5, %63 ]
+  %.0178.i = phi ptr [ @aom_vertical_band_5_3_scale_c, %64 ], [ %aom_vertical_band_2_1_scale_c.aom_vertical_band_2_1_scale_i_c.i, %65 ], [ @aom_vertical_band_5_4_scale_c, %63 ]
+  %.0174.i = phi i1 [ true, %64 ], [ %.not.i, %65 ], [ true, %63 ]
   br i1 %.not207.i, label %.thread.i, label %67
 
 67:                                               ; preds = %66

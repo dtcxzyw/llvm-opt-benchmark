@@ -620,7 +620,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit47" unwind label %120
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit47": ; preds = %.body, %70, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit31", %123, %127, %.body42, %128, %131
-  %.pn2766 = phi { ptr, i32 } [ %.pn2770, %128 ], [ %65, %.body ], [ %.pn2770, %131 ], [ %65, %70 ], [ %124, %123 ], [ %eh.lpad-body43, %.body42 ], [ %124, %127 ], [ %48, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit31" ]
+  %.pn2766 = phi { ptr, i32 } [ %.pn2770, %131 ], [ %.pn2770, %128 ], [ %eh.lpad-body43, %.body42 ], [ %124, %127 ], [ %124, %123 ], [ %48, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit31" ], [ %65, %70 ], [ %65, %.body ]
   resume { ptr, i32 } %.pn2766
 
 128:                                              ; preds = %.thread72, %.thread67

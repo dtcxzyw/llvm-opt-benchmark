@@ -517,7 +517,7 @@ default_range_selectivity.exit.i:                 ; preds = %237, %switch.lookup
   br label %246
 
 246:                                              ; preds = %244, %242, %129, %128, %127, %126, %126, %126, %126, %126, %126
-  %.027.i = phi double [ %245, %244 ], [ %.1.i, %127 ], [ 1.000000e+00, %128 ], [ %130, %129 ], [ %243, %242 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ]
+  %.027.i = phi double [ %.1.i, %127 ], [ 1.000000e+00, %128 ], [ %130, %129 ], [ %243, %242 ], [ %245, %244 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %126 ]
   %247 = fsub double 1.000000e+00, %.025.i
   %248 = fmul double %247, %.027.i
   %249 = fcmp olt double %248, 0.000000e+00
@@ -542,7 +542,7 @@ switch.lookup72:                                  ; preds = %.thread
   br label %calc_rangesel.exit
 
 calc_rangesel.exit:                               ; preds = %.thread, %switch.lookup72, %62, %61, %252, %250, %246
-  %.027 = phi double [ 0.000000e+00, %246 ], [ %248, %250 ], [ 1.000000e+00, %252 ], [ %switch.load74, %switch.lookup72 ], [ 5.000000e-03, %61 ], [ 5.000000e-03, %62 ], [ 1.000000e-02, %.thread ]
+  %.027 = phi double [ 1.000000e+00, %252 ], [ %248, %250 ], [ 0.000000e+00, %246 ], [ 5.000000e-03, %61 ], [ 5.000000e-03, %62 ], [ %switch.load74, %switch.lookup72 ], [ 1.000000e-02, %.thread ]
   %255 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %256 = load ptr, ptr %255, align 8
   %.not40 = icmp eq ptr %256, null
@@ -573,7 +573,7 @@ switch.lookup64:                                  ; preds = %38
   br label %default_range_selectivity.exit
 
 default_range_selectivity.exit:                   ; preds = %38, %switch.lookup64, %26, %switch.lookup, %55, %58, %44, %47, %260
-  %.028 = phi i64 [ 4576918229304087675, %55 ], [ %262, %260 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %47 ], [ 4576918229304087675, %58 ], [ 4576918229304087675, %26 ], [ %switch.load66, %switch.lookup64 ], [ 4576918229304087675, %38 ]
+  %.028 = phi i64 [ %262, %260 ], [ 0, %47 ], [ 0, %44 ], [ 4576918229304087675, %58 ], [ 4576918229304087675, %55 ], [ %switch.load, %switch.lookup ], [ 4576918229304087675, %26 ], [ %switch.load66, %switch.lookup64 ], [ 4576918229304087675, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -729,7 +729,7 @@ rbound_bsearch.exit:                              ; preds = %7
   br label %get_position.exit
 
 get_position.exit:                                ; preds = %41, %42, %49, %57, %62, %63, %67, %72, %73
-  %.1.i21 = phi double [ %77, %73 ], [ %71, %67 ], [ 5.000000e-01, %49 ], [ 5.000000e-01, %41 ], [ 5.000000e-01, %62 ], [ 5.000000e-01, %42 ], [ %61, %57 ], [ 1.000000e+00, %63 ], [ 0.000000e+00, %72 ]
+  %.1.i21 = phi double [ %61, %57 ], [ 5.000000e-01, %41 ], [ 5.000000e-01, %42 ], [ 5.000000e-01, %49 ], [ 1.000000e+00, %63 ], [ %71, %67 ], [ 0.000000e+00, %72 ], [ %77, %73 ], [ 5.000000e-01, %62 ]
   %78 = fdiv double %.1.i21, %20
   %79 = fadd double %21, %78
   br label %80
@@ -846,7 +846,7 @@ rbound_bsearch.exit:                              ; preds = %9
   br label %get_position.exit
 
 get_position.exit:                                ; preds = %38, %39, %46, %54, %59, %60, %64, %69, %70
-  %.1.i41 = phi double [ %74, %70 ], [ %68, %64 ], [ 5.000000e-01, %46 ], [ 5.000000e-01, %38 ], [ 5.000000e-01, %59 ], [ 5.000000e-01, %39 ], [ %58, %54 ], [ 1.000000e+00, %60 ], [ 0.000000e+00, %69 ]
+  %.1.i41 = phi double [ %58, %54 ], [ 5.000000e-01, %38 ], [ 5.000000e-01, %39 ], [ 5.000000e-01, %46 ], [ 1.000000e+00, %60 ], [ %68, %64 ], [ 0.000000e+00, %69 ], [ %74, %70 ], [ 5.000000e-01, %59 ]
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load i8, ptr %75, align 8, !range !4, !noundef !5
   %77 = trunc nuw i8 %76 to i1
@@ -891,7 +891,7 @@ get_position.exit:                                ; preds = %38, %39, %46, %54, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %100, %94, %90, %83, %78
-  %.1.i45 = phi double [ 0x7FF0000000000000, %90 ], [ 0x7FF0000000000000, %100 ], [ 0.000000e+00, %94 ], [ %..i, %83 ], [ %.mux.i, %78 ]
+  %.1.i45 = phi double [ 0x7FF0000000000000, %100 ], [ %..i, %83 ], [ 0.000000e+00, %94 ], [ %.mux.i, %78 ], [ 0x7FF0000000000000, %90 ]
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 10
@@ -946,7 +946,7 @@ get_position.exit:                                ; preds = %38, %39, %46, %54, 
   br label %get_distance.exit52
 
 get_distance.exit52:                              ; preds = %111, %115, %121, %124, %129
-  %.1.i51 = phi double [ 0x7FF0000000000000, %121 ], [ 0x7FF0000000000000, %129 ], [ 0.000000e+00, %124 ], [ %..i50, %115 ], [ %.mux.i48, %111 ]
+  %.1.i51 = phi double [ 0x7FF0000000000000, %129 ], [ %..i50, %115 ], [ 0.000000e+00, %124 ], [ %.mux.i48, %111 ], [ 0x7FF0000000000000, %121 ]
   %130 = tail call fastcc double @calc_length_hist_frac(ptr noundef %5, i32 noundef %6, double noundef %.03755, double noundef %.1.i51, i1 noundef zeroext false)
   %131 = fsub double 1.000000e+00, %130
   %132 = fmul double %.03953, %131
@@ -1072,7 +1072,7 @@ rbound_bsearch.exit:                              ; preds = %13
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %74, %73, %69, %65, %64, %59, %51, %44, %43
-  %.1.i64 = phi double [ %77, %74 ], [ %72, %69 ], [ 5.000000e-01, %51 ], [ 5.000000e-01, %43 ], [ 5.000000e-01, %64 ], [ 5.000000e-01, %44 ], [ %63, %59 ], [ 1.000000e+00, %65 ], [ 0.000000e+00, %73 ]
+  %.1.i64 = phi double [ %63, %59 ], [ 5.000000e-01, %43 ], [ 5.000000e-01, %44 ], [ 5.000000e-01, %51 ], [ 1.000000e+00, %65 ], [ %72, %69 ], [ 0.000000e+00, %73 ], [ %77, %74 ], [ 5.000000e-01, %64 ]
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1131,7 +1131,7 @@ rbound_bsearch.exit:                              ; preds = %13
   br label %get_distance.exit
 
 get_distance.exit:                                ; preds = %91, %95, %101, %104, %108
-  %.1.i68 = phi double [ 0x7FF0000000000000, %101 ], [ 0x7FF0000000000000, %108 ], [ 0.000000e+00, %104 ], [ %..i, %95 ], [ %.mux.i, %91 ]
+  %.1.i68 = phi double [ 0x7FF0000000000000, %108 ], [ %..i, %95 ], [ 0.000000e+00, %104 ], [ %.mux.i, %91 ], [ 0x7FF0000000000000, %101 ]
   %109 = getelementptr %struct.RangeBound, ptr %3, i64 %indvars.iv
   %110 = getelementptr i8, ptr %109, i64 16
   %111 = load i32, ptr %31, align 8
@@ -1203,7 +1203,7 @@ get_distance.exit:                                ; preds = %91, %95, %101, %104
   br label %get_position.exit73
 
 get_position.exit73:                              ; preds = %121, %122, %128, %136, %141, %142, %145, %149, %150
-  %.1.i72 = phi double [ %153, %150 ], [ %148, %145 ], [ 5.000000e-01, %128 ], [ 5.000000e-01, %121 ], [ 5.000000e-01, %141 ], [ 5.000000e-01, %122 ], [ %140, %136 ], [ 1.000000e+00, %142 ], [ 0.000000e+00, %149 ]
+  %.1.i72 = phi double [ %140, %136 ], [ 5.000000e-01, %121 ], [ 5.000000e-01, %122 ], [ 5.000000e-01, %128 ], [ 1.000000e+00, %142 ], [ %148, %145 ], [ 0.000000e+00, %149 ], [ %153, %150 ], [ 5.000000e-01, %141 ]
   %154 = fsub double %.05882, %.1.i72
   %155 = fcmp olt double %154, 0.000000e+00
   %.159 = select i1 %155, double 0.000000e+00, double %154
@@ -1368,8 +1368,8 @@ length_hist_bsearch.exit:                         ; preds = %.lr.ph.split.us.i, 
   br label %get_len_position.exit
 
 get_len_position.exit:                            ; preds = %53, %52, %51, %46, %43, %31
-  %.084 = phi double [ 0.000000e+00, %52 ], [ 0.000000e+00, %31 ], [ 1.000000e+00, %51 ], [ 5.000000e-01, %53 ], [ 5.000000e-01, %43 ], [ %50, %46 ]
-  %.082 = phi i32 [ %.0.lcssa.i, %52 ], [ 0, %31 ], [ %.0.lcssa.i, %51 ], [ %.0.lcssa.i, %53 ], [ %.0.lcssa.i, %43 ], [ %.0.lcssa.i, %46 ]
+  %.084 = phi double [ 0.000000e+00, %31 ], [ 5.000000e-01, %53 ], [ %50, %46 ], [ 5.000000e-01, %43 ], [ 1.000000e+00, %51 ], [ 0.000000e+00, %52 ]
+  %.082 = phi i32 [ 0, %31 ], [ %.0.lcssa.i, %53 ], [ %.0.lcssa.i, %46 ], [ %.0.lcssa.i, %43 ], [ %.0.lcssa.i, %51 ], [ %.0.lcssa.i, %52 ]
   %54 = uitofp nneg i32 %.082 to double
   %55 = fadd double %.084, %54
   %56 = uitofp nneg i32 %11 to double
@@ -1416,7 +1416,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   br label %76
 
 76:                                               ; preds = %71, %66
-  %.2 = phi double [ %.081128, %66 ], [ %75, %71 ]
+  %.2 = phi double [ %75, %71 ], [ %.081128, %66 ]
   %77 = trunc nuw i64 %indvars.iv.next to i32
   %78 = icmp sgt i32 %11, %77
   br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !12
@@ -1504,7 +1504,7 @@ define internal fastcc noundef double @get_len_position(double noundef %0, doubl
   br label %19
 
 19:                                               ; preds = %17, %16, %8, %18, %11
-  %.0 = phi double [ 1.000000e+00, %16 ], [ 5.000000e-01, %18 ], [ 5.000000e-01, %8 ], [ %15, %11 ], [ 0.000000e+00, %17 ]
+  %.0 = phi double [ 5.000000e-01, %18 ], [ %15, %11 ], [ 5.000000e-01, %8 ], [ 1.000000e+00, %16 ], [ 0.000000e+00, %17 ]
   ret double %.0
 }
 

@@ -1456,8 +1456,8 @@ _ZN8ArgParse11find_optionEPKc.exit:               ; preds = %22, %.thread.i, %.t
   tail call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %13)
   br label %.thread54
 
-.split.us:                                        ; preds = %49, %.lr.ph.i, %.lr.ph.i.us, %35
-  %.us-phi = phi ptr [ %25, %.lr.ph.i.us ], [ %25, %35 ], [ %38, %.lr.ph.i ], [ %38, %49 ]
+.split.us:                                        ; preds = %.lr.ph.i, %49, %.lr.ph.i.us, %35
+  %.us-phi = phi ptr [ %25, %35 ], [ %25, %.lr.ph.i.us ], [ %38, %49 ], [ %38, %.lr.ph.i ]
   %52 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 168
   %53 = load i32, ptr %52, align 8, !tbaa !71
   %54 = add nsw i32 %53, 1
@@ -1535,14 +1535,14 @@ _ZN8ArgParse11find_optionEPKc.exit:               ; preds = %22, %.thread.i, %.t
   br label %.thread54
 
 _ZNK9ArgOption15invoke_callbackEiPPKc.exit:       ; preds = %62, %._crit_edge, %85, %82
-  %.340 = phi i32 [ %.03769, %85 ], [ %.03769, %82 ], [ %79, %._crit_edge ], [ %.03769, %62 ]
+  %.340 = phi i32 [ %.03769, %82 ], [ %.03769, %85 ], [ %79, %._crit_edge ], [ %.03769, %62 ]
   %88 = add nsw i32 %.340, 1
   %89 = load i32, ptr %0, align 8, !tbaa !51
   %90 = icmp slt i32 %88, %89
   br i1 %90, label %9, label %.thread54, !llvm.loop !73
 
 .thread54:                                        ; preds = %_ZNK9ArgOption15invoke_callbackEiPPKc.exit, %3, %.thread, %_ZN8ArgParse11find_optionEPKc.exit, %87
-  %91 = phi i32 [ -1, %.thread ], [ -1, %87 ], [ -1, %_ZN8ArgParse11find_optionEPKc.exit ], [ 0, %3 ], [ 0, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit ]
+  %91 = phi i32 [ -1, %87 ], [ -1, %_ZN8ArgParse11find_optionEPKc.exit ], [ -1, %.thread ], [ 0, %3 ], [ 0, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit ]
   ret i32 %91
 }
 
@@ -1617,7 +1617,7 @@ define hidden noundef ptr @_ZN8ArgParse11find_optionEPKc(ptr noundef nonnull rea
   br i1 %.not39, label %.thread36, label %8, !llvm.loop !70
 
 .thread36:                                        ; preds = %.thread, %25, %8, %32, %2
-  %35 = phi ptr [ null, %2 ], [ %9, %25 ], [ %9, %8 ], [ %9, %32 ], [ null, %.thread ]
+  %35 = phi ptr [ null, %2 ], [ %9, %32 ], [ %9, %8 ], [ %9, %25 ], [ null, %.thread ]
   ret ptr %35
 }
 
@@ -1843,7 +1843,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
   %.not39.i = icmp eq ptr %60, %31
   br i1 %.not39.i, label %.loopexit, label %34, !llvm.loop !70
 
-61:                                               ; preds = %51, %34, %58
+61:                                               ; preds = %58, %34, %51
   %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02770, ptr noundef nonnull dereferenceable(12) @.str.3) #26
   %.not40 = icmp eq i32 %62, 0
   br i1 %.not40, label %.loopexit, label %63
@@ -2208,7 +2208,7 @@ define hidden noundef i32 @_ZN8ArgParse5foundEPKc(ptr noundef nonnull readonly a
   %.not39.i = icmp eq ptr %34, %6
   br i1 %.not39.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %8, !llvm.loop !70
 
-35:                                               ; preds = %25, %8, %32
+35:                                               ; preds = %32, %8, %25
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %37 = load i32, ptr %36, align 8, !tbaa !71
   br label %_ZN8ArgParse11find_optionEPKc.exit

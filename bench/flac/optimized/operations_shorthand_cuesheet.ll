@@ -419,7 +419,7 @@ import_cs_from.exit:                              ; preds = %103, %._crit_edge60
   br label %export_cs_to.exit
 
 export_cs_to.exit:                                ; preds = %179, %176, %174, %170, %159, %148, %import_cs_from.exit.thread, %46, %140, %49, %135, %137
-  %.053 = phi i32 [ 0, %46 ], [ 0, %49 ], [ 1, %135 ], [ 0, %137 ], [ 0, %import_cs_from.exit.thread ], [ 0, %140 ], [ 0, %148 ], [ 0, %159 ], [ 0, %170 ], [ 0, %174 ], [ 1, %179 ], [ 1, %176 ]
+  %.053 = phi i32 [ 0, %49 ], [ 1, %135 ], [ 0, %137 ], [ 0, %140 ], [ 0, %46 ], [ 0, %import_cs_from.exit.thread ], [ 0, %148 ], [ 0, %159 ], [ 0, %174 ], [ 0, %170 ], [ 1, %179 ], [ 1, %176 ]
   call void @FLAC__metadata_iterator_delete(ptr noundef %8) #9
   br label %181
 

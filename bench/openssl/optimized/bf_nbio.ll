@@ -73,7 +73,7 @@ define internal i32 @nbiof_write(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %31
 
 31:                                               ; preds = %25, %30, %26, %17, %7, %3
-  %.023 = phi i32 [ 0, %7 ], [ 0, %3 ], [ -1, %17 ], [ -1, %25 ], [ %28, %30 ], [ %28, %26 ]
+  %.023 = phi i32 [ 0, %3 ], [ 0, %7 ], [ -1, %17 ], [ -1, %25 ], [ %28, %30 ], [ %28, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023
 }
@@ -122,7 +122,7 @@ define internal i32 @nbiof_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br label %24
 
 24:                                               ; preds = %17, %23, %18, %10, %6, %3
-  %.0 = phi i32 [ -1, %10 ], [ 0, %3 ], [ 0, %6 ], [ -1, %17 ], [ %21, %23 ], [ %21, %18 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ -1, %10 ], [ -1, %17 ], [ %21, %23 ], [ %21, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

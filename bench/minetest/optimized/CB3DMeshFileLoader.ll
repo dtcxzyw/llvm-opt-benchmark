@@ -2027,7 +2027,7 @@ if.then91.3:                                      ; preds = %for.body80.preheade
   br label %for.inc104.3
 
 for.inc104.3:                                     ; preds = %for.body80.preheader.new.3.thread, %if.then91.3, %for.body80.preheader.new.3
-  %arrayidx84.346 = phi ptr [ %arrayidx84.3, %if.then91.3 ], [ %arrayidx84.342, %for.body80.preheader.new.3.thread ], [ %arrayidx84.3, %for.body80.preheader.new.3 ]
+  %arrayidx84.346 = phi ptr [ %arrayidx84.3, %if.then91.3 ], [ %arrayidx84.3, %for.body80.preheader.new.3 ], [ %arrayidx84.342, %for.body80.preheader.new.3.thread ]
   %arrayidx84.1.3 = getelementptr inbounds nuw ptr, ptr %Textures55, i64 %10
   %69 = load ptr, ptr %arrayidx84.1.3, align 8, !tbaa !61
   %cmp85.not.1.3 = icmp eq ptr %69, null

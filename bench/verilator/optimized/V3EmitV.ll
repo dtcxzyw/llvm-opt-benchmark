@@ -1959,7 +1959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %44,
   resume { ptr, i32 } %.pn.pn
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23, %0
-  %.1 = phi i32 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23 ], [ %5, %0 ]
+  %.1 = phi i32 [ %5, %0 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23 ]
   ret i32 %.1
 }
 
@@ -12536,7 +12536,7 @@ _ZN7AstNode9privateIsI17AstPackArrayDTypeP17AstNodeArrayDTypeEEbPKS_.exit: ; pre
   br label %_ZNSt5dequeIP17AstNodeArrayDTypeSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt5dequeIP17AstNodeArrayDTypeSaIS1_EE9push_backERKS1_.exit: ; preds = %17, %15, %_ZN7AstNode9privateIsI17AstPackArrayDTypeP17AstNodeArrayDTypeEEbPKS_.exit
-  %19 = phi ptr [ %1, %_ZN7AstNode9privateIsI17AstPackArrayDTypeP17AstNodeArrayDTypeEEbPKS_.exit ], [ %.pre, %17 ], [ %1, %15 ]
+  %19 = phi ptr [ %.pre, %17 ], [ %1, %15 ], [ %1, %_ZN7AstNode9privateIsI17AstPackArrayDTypeP17AstNodeArrayDTypeEEbPKS_.exit ]
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 384
   %22 = load ptr, ptr %21, align 8
@@ -13578,7 +13578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %23
   br label %237
 
 237:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65
-  %.pn53.pn = phi { ptr, i32 } [ %232, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161 ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ %211, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ %190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ]
+  %.pn53.pn = phi { ptr, i32 } [ %232, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161 ], [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %211, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ %190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ]
   resume { ptr, i32 } %.pn53.pn
 }
 
@@ -13859,8 +13859,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %26
 
 26:                                               ; preds = %.critedge, %.critedge.thread
-  %27 = phi ptr [ %25, %.critedge ], [ @.str.94, %.critedge.thread ]
-  %28 = phi ptr [ %spec.select72, %.critedge ], [ @.str.92, %.critedge.thread ]
+  %27 = phi ptr [ @.str.94, %.critedge.thread ], [ %25, %.critedge ]
+  %28 = phi ptr [ @.str.92, %.critedge.thread ], [ %spec.select72, %.critedge ]
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %29, ptr %7, align 8, !tbaa !113
   %30 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #22
@@ -22186,7 +22186,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
   br label %.body
 
 .body:                                            ; preds = %122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57, %120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i
-  %.pn17 = phi { ptr, i32 } [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %121, %120 ], [ %123, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57 ], [ %123, %122 ]
+  %.pn17 = phi { ptr, i32 } [ %121, %120 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %123, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57 ], [ %123, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %135
 
@@ -26081,7 +26081,7 @@ _ZSt4copyIPPP17AstNodeArrayDTypeS3_ET0_T_S5_S4_.exit26: ; preds = %_ZNSt11_Deque
   br label %_ZSt4copyIPPP17AstNodeArrayDTypeS3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPP17AstNodeArrayDTypeS3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPP17AstNodeArrayDTypeS3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPP17AstNodeArrayDTypeS3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPP17AstNodeArrayDTypeS3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !442
   %58 = load ptr, ptr %.0, align 8, !tbaa !33
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26898,10 +26898,10 @@ _ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53: ; preds = %16
   br i1 %176, label %.lr.ph.i43, label %_ZSt14__copy_move_a1ILb0EPP17AstNodeArrayDTypeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit21, !llvm.loop !616
 
 _ZSt14__copy_move_a1ILb0EPP17AstNodeArrayDTypeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit21: ; preds = %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53, %135, %._crit_edge
-  %.sink98 = phi ptr [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
-  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
-  %.sroa.8.2.sink = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
-  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
+  %.sink98 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
+  %.sink = phi ptr [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
+  %.sroa.8.2.sink = phi ptr [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
+  %.sroa.12.2.sink = phi ptr [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
   store ptr %.sink98, ptr %0, align 8, !tbaa !436
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %177, align 8, !tbaa !440
@@ -28057,10 +28057,10 @@ _ZStmiRKSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_El.exit: ; preds = %230,
   br label %_ZSt7advanceISt15_Deque_iteratorIP17AstNodeArrayDTypeRKS2_PS3_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorIP17AstNodeArrayDTypeRKS2_PS3_ElEvRT_T0_.exit: ; preds = %283, %277
-  %.sroa.0167.0 = phi ptr [ %278, %277 ], [ %290, %283 ]
-  %.sroa.10171.2 = phi ptr [ %263, %277 ], [ %286, %283 ]
-  %.sroa.17174.2 = phi ptr [ %265, %277 ], [ %287, %283 ]
-  %.sroa.24177.2 = phi ptr [ %267, %277 ], [ %285, %283 ]
+  %.sroa.0167.0 = phi ptr [ %290, %283 ], [ %278, %277 ]
+  %.sroa.10171.2 = phi ptr [ %286, %283 ], [ %263, %277 ]
+  %.sroa.17174.2 = phi ptr [ %287, %283 ], [ %265, %277 ]
+  %.sroa.24177.2 = phi ptr [ %285, %283 ], [ %267, %277 ]
   %291 = load ptr, ptr %50, align 8, !tbaa !436
   store ptr %291, ptr %38, align 8, !tbaa !436
   %292 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -28164,7 +28164,7 @@ _ZSt7advanceISt15_Deque_iteratorIP17AstNodeArrayDTypeRKS2_PS3_ElEvRT_T0_.exit: ;
   br label %332
 
 332:                                              ; preds = %328, %330, %254, %256, %258
-  %.pn31.pn = phi { ptr, i32 } [ %255, %254 ], [ %259, %258 ], [ %257, %256 ], [ %331, %330 ], [ %329, %328 ]
+  %.pn31.pn = phi { ptr, i32 } [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %331, %330 ], [ %329, %328 ]
   %.1 = extractvalue { ptr, i32 } %.pn31.pn, 0
   %333 = call ptr @__cxa_begin_catch(ptr %.1) #22
   %334 = load ptr, ptr %53, align 8, !tbaa !31
@@ -28532,10 +28532,10 @@ _ZStmiRKSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_El.exit44: ; preds = %41
   br label %_ZSt7advanceISt15_Deque_iteratorIP17AstNodeArrayDTypeRKS2_PS3_ElEvRT_T0_.exit52
 
 _ZSt7advanceISt15_Deque_iteratorIP17AstNodeArrayDTypeRKS2_PS3_ElEvRT_T0_.exit52: ; preds = %506, %500
-  %.sroa.24.2 = phi ptr [ %508, %506 ], [ %491, %500 ]
-  %.sroa.17.2 = phi ptr [ %510, %506 ], [ %489, %500 ]
-  %.sroa.10.2 = phi ptr [ %509, %506 ], [ %487, %500 ]
-  %.sroa.068.0 = phi ptr [ %513, %506 ], [ %501, %500 ]
+  %.sroa.24.2 = phi ptr [ %491, %500 ], [ %508, %506 ]
+  %.sroa.17.2 = phi ptr [ %489, %500 ], [ %510, %506 ]
+  %.sroa.10.2 = phi ptr [ %487, %500 ], [ %509, %506 ]
+  %.sroa.068.0 = phi ptr [ %501, %500 ], [ %513, %506 ]
   store ptr %.sroa.068.0, ptr %44, align 8, !tbaa !605
   %514 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %.sroa.10.2, ptr %514, align 8, !tbaa !610
@@ -28647,7 +28647,7 @@ _ZSt7advanceISt15_Deque_iteratorIP17AstNodeArrayDTypeRKS2_PS3_ElEvRT_T0_.exit52:
   br label %563
 
 563:                                              ; preds = %559, %561, %478, %480, %482
-  %.pn29.pn = phi { ptr, i32 } [ %479, %478 ], [ %483, %482 ], [ %481, %480 ], [ %562, %561 ], [ %560, %559 ]
+  %.pn29.pn = phi { ptr, i32 } [ %483, %482 ], [ %481, %480 ], [ %479, %478 ], [ %562, %561 ], [ %560, %559 ]
   %.5 = extractvalue { ptr, i32 } %.pn29.pn, 0
   %564 = call ptr @__cxa_begin_catch(ptr %.5) #22
   %565 = load ptr, ptr %79, align 8, !tbaa !32
@@ -29612,10 +29612,10 @@ _ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53: ; preds = %16
   br i1 %176, label %.lr.ph.i43, label %_ZSt14__copy_move_a1ILb1EPP17AstNodeArrayDTypeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit21, !llvm.loop !911
 
 _ZSt14__copy_move_a1ILb1EPP17AstNodeArrayDTypeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit21: ; preds = %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53, %135, %._crit_edge
-  %.sink98 = phi ptr [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
-  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
-  %.sroa.8.2.sink = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
-  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
+  %.sink98 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
+  %.sink = phi ptr [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
+  %.sroa.8.2.sink = phi ptr [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
+  %.sroa.12.2.sink = phi ptr [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i53 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EpLEl.exit.i19 ]
   store ptr %.sink98, ptr %0, align 8, !tbaa !436
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %177, align 8, !tbaa !440
@@ -30041,10 +30041,10 @@ _ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70: ; preds = %19
   br i1 %207, label %.lr.ph.i54, label %_ZSt23__copy_move_backward_a1ILb1EPP17AstNodeArrayDTypeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit27, !llvm.loop !925
 
 _ZSt23__copy_move_backward_a1ILb1EPP17AstNodeArrayDTypeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_.exit27: ; preds = %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70, %157, %._crit_edge
-  %.sink138 = phi ptr [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70 ], [ %68, %._crit_edge ], [ %160, %157 ], [ %storemerge.i.i.i25, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24 ]
-  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70 ], [ %67, %._crit_edge ], [ %162, %157 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24 ]
-  %.sroa.9.2.sink = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70 ], [ %66, %._crit_edge ], [ %164, %157 ], [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24 ]
-  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70 ], [ %65, %._crit_edge ], [ %166, %157 ], [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24 ]
+  %.sink138 = phi ptr [ %68, %._crit_edge ], [ %160, %157 ], [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70 ], [ %storemerge.i.i.i25, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24 ]
+  %.sink = phi ptr [ %67, %._crit_edge ], [ %162, %157 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24 ]
+  %.sroa.9.2.sink = phi ptr [ %66, %._crit_edge ], [ %164, %157 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70 ], [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24 ]
+  %.sroa.12.2.sink = phi ptr [ %65, %._crit_edge ], [ %166, %157 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i70 ], [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIP17AstNodeArrayDTypeRS1_PS1_EmIEl.exit.i24 ]
   store ptr %.sink138, ptr %0, align 8, !tbaa !436
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %208, align 8, !tbaa !440

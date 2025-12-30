@@ -132,14 +132,14 @@ cdf_getdays.exit:                                 ; preds = %31, %2
   br i1 %exitcond36.not.i, label %cdf_getday.exit, label %.split.split.i
 
 cdf_getday.exit.loopexit35:                       ; preds = %43, %.split.us.i
-  %.us-phi.i.ph36 = phi i32 [ %.01722.us.i, %.split.us.i ], [ %44, %43 ]
+  %.us-phi.i.ph36 = phi i32 [ %44, %43 ], [ %.01722.us.i, %.split.us.i ]
   %.pre = srem i32 %20, 100
   %61 = icmp ne i32 %.pre, 0
   %62 = or i1 %61, %40
   br label %cdf_getday.exit
 
 cdf_getday.exit:                                  ; preds = %.split.split.i, %58, %.split.split.us.i, %51, %cdf_getday.exit.loopexit35
-  %.pre-phi = phi i1 [ %62, %cdf_getday.exit.loopexit35 ], [ %40, %.split.split.us.i ], [ %40, %51 ], [ true, %58 ], [ true, %.split.split.i ]
+  %.pre-phi = phi i1 [ %62, %cdf_getday.exit.loopexit35 ], [ %40, %51 ], [ %40, %.split.split.us.i ], [ true, %58 ], [ true, %.split.split.i ]
   %.us-phi.i = phi i32 [ %.us-phi.i.ph36, %cdf_getday.exit.loopexit35 ], [ %.01722.us27.i, %.split.split.us.i ], [ %52, %51 ], [ %.01722.i, %.split.split.i ], [ %59, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %.us-phi.i, ptr %63, align 4, !tbaa !17
@@ -178,7 +178,7 @@ cdf_getday.exit:                                  ; preds = %.split.split.i, %58
   br i1 %exitcond25.not.i, label %cdf_getmonth.exit, label %.split.i22
 
 cdf_getmonth.exit:                                ; preds = %.split.us.i19, %68, %.split.i22, %75
-  %.us-phi.i21 = phi i64 [ 12, %75 ], [ %.019.i, %.split.i22 ], [ 12, %68 ], [ %.019.us.i, %.split.us.i19 ]
+  %.us-phi.i21 = phi i64 [ %.019.i, %.split.i22 ], [ 12, %75 ], [ %.019.us.i, %.split.us.i19 ], [ 12, %68 ]
   %.014.i = trunc i64 %.us-phi.i21 to i32
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %.014.i, ptr %77, align 8, !tbaa !18

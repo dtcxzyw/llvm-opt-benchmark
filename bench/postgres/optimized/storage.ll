@@ -1193,7 +1193,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr noundef w
   br label %17
 
 17:                                               ; preds = %12, %5, %8
-  %.127 = phi i32 [ %.02634, %5 ], [ %spec.select, %12 ], [ %.02634, %8 ]
+  %.127 = phi i32 [ %.02634, %8 ], [ %.02634, %5 ], [ %spec.select, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %.035, i64 24
   %.0 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.0, null
@@ -1253,7 +1253,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr noundef w
   br i1 %.not29, label %.loopexit, label %25, !llvm.loop !22
 
 .loopexit:                                        ; preds = %38, %20, %._crit_edge.thread
-  %.026.lcssa43 = phi i32 [ 0, %._crit_edge.thread ], [ %.127, %20 ], [ %.127, %38 ]
+  %.026.lcssa43 = phi i32 [ %.127, %20 ], [ 0, %._crit_edge.thread ], [ %.127, %38 ]
   ret i32 %.026.lcssa43
 }
 

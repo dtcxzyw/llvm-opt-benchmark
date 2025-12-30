@@ -680,7 +680,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal26round_to_fractional_digits
   br label %_ZN11fish_printf6fmt_fp7decimal7Decimal15should_round_up17hccc858425dbdb3a4E.exit
 
 _ZN11fish_printf6fmt_fp7decimal7Decimal15should_round_up17hccc858425dbdb3a4E.exit: ; preds = %81, %86, %88, %93
-  %.sroa.02.0.i = phi double [ 5.000000e-01, %81 ], [ 1.000000e+00, %93 ], [ 1.500000e+00, %88 ], [ 1.500000e+00, %86 ]
+  %.sroa.02.0.i = phi double [ 1.000000e+00, %93 ], [ 5.000000e-01, %81 ], [ 1.500000e+00, %88 ], [ 1.500000e+00, %86 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %95 = load i8, ptr %94, align 4, !range !79, !alias.scope !52, !noundef !7
   %96 = trunc nuw i8 %95 to i1

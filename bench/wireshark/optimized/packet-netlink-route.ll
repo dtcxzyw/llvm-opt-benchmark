@@ -648,7 +648,7 @@ define internal i32 @dissect_netlink_route(ptr noundef %0, ptr noundef %1, ptr n
   br label %28
 
 28:                                               ; preds = %10, %10, %10, %24
-  %29 = phi i8 [ 0, %10 ], [ %27, %24 ], [ 0, %10 ], [ 0, %10 ]
+  %29 = phi i8 [ %27, %24 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ]
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %29, ptr %30, align 8
   %31 = load i32, ptr @hf_netlink_route_ifi_family, align 4
@@ -706,7 +706,7 @@ dissect_netlink_route_ifinfomsg.exit:             ; preds = %28, %57
   br label %70
 
 70:                                               ; preds = %10, %10, %66
-  %71 = phi i8 [ 0, %10 ], [ %69, %66 ], [ 0, %10 ]
+  %71 = phi i8 [ %69, %66 ], [ 0, %10 ], [ 0, %10 ]
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %71, ptr %72, align 8
   %73 = load i32, ptr @hf_netlink_route_ifa_family, align 4
@@ -741,7 +741,7 @@ dissect_netlink_route_ifinfomsg.exit:             ; preds = %28, %57
   br label %98
 
 98:                                               ; preds = %10, %10, %94
-  %99 = phi i8 [ 0, %10 ], [ %97, %94 ], [ 0, %10 ]
+  %99 = phi i8 [ %97, %94 ], [ 0, %10 ], [ 0, %10 ]
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %99, ptr %100, align 8
   %101 = load i32, ptr @hf_netlink_route_rt_family, align 4
@@ -807,7 +807,7 @@ dissect_netlink_route_ndmsg.exit:                 ; preds = %10, %10, %134
   br label %dissect_netlink_route_ifaddrmsg.exit.thread
 
 dissect_netlink_route_ifaddrmsg.exit.thread:      ; preds = %98, %70, %10, %134, %dissect_netlink_route_ndmsg.exit, %105, %77, %dissect_netlink_route_ifinfomsg.exit
-  %.0 = phi i32 [ %21, %10 ], [ %65, %dissect_netlink_route_ifinfomsg.exit ], [ %153, %dissect_netlink_route_ndmsg.exit ], [ %93, %77 ], [ %75, %70 ], [ %133, %105 ], [ %21, %134 ], [ %103, %98 ]
+  %.0 = phi i32 [ %21, %10 ], [ %65, %dissect_netlink_route_ifinfomsg.exit ], [ %93, %77 ], [ %133, %105 ], [ %21, %134 ], [ %153, %dissect_netlink_route_ndmsg.exit ], [ %75, %70 ], [ %103, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1165,7 +1165,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
   br label %157
 
 157:                                              ; preds = %7, %151, %145, %139, %133, %108, %103, %100, %97, %90, %83, %77, %69, %63, %57, %51, %45, %39, %33, %28, %22, %16, %11
-  %.0 = phi i32 [ 1, %151 ], [ 1, %11 ], [ 1, %16 ], [ 1, %22 ], [ 1, %28 ], [ 1, %33 ], [ 1, %39 ], [ 1, %45 ], [ 1, %51 ], [ 1, %57 ], [ 1, %63 ], [ 1, %69 ], [ 1, %77 ], [ 1, %83 ], [ 1, %90 ], [ 1, %97 ], [ 1, %100 ], [ 1, %103 ], [ 1, %108 ], [ 1, %133 ], [ 1, %139 ], [ 1, %145 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %16 ], [ 1, %22 ], [ 1, %28 ], [ 1, %33 ], [ 1, %39 ], [ 1, %45 ], [ 1, %51 ], [ 1, %57 ], [ 1, %63 ], [ 1, %69 ], [ 1, %77 ], [ 1, %83 ], [ 1, %90 ], [ 1, %97 ], [ 1, %100 ], [ 1, %103 ], [ 1, %108 ], [ 1, %133 ], [ 1, %139 ], [ 1, %145 ], [ 1, %151 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1219,7 +1219,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifa_attrs(ptr noundef
   br label %30
 
 30:                                               ; preds = %7, %22, %26, %14, %9
-  %.0 = phi i32 [ 1, %22 ], [ 1, %9 ], [ 1, %14 ], [ 1, %26 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %14 ], [ 1, %26 ], [ 1, %22 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1252,7 +1252,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_route_attrs(ptr nound
   br label %18
 
 18:                                               ; preds = %.sink.split, %7, %11, %9
-  %.0 = phi i32 [ 0, %11 ], [ 0, %7 ], [ 0, %9 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %11 ], [ 0, %7 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

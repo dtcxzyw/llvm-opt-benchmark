@@ -314,16 +314,16 @@ define dso_local range(i32 0, 22) i32 @file2memory_range(ptr noundef writeonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-36:                                               ; preds = %32, %24, %19, %.thread
-  %.251.ph = phi i64 [ %23, %.thread ], [ %.150, %19 ], [ %27, %24 ], [ %33, %32 ]
-  %.2.ph = phi i64 [ %22, %.thread ], [ %.148, %19 ], [ 0, %24 ], [ 0, %32 ]
+36:                                               ; preds = %24, %19, %32, %.thread
+  %.251.ph = phi i64 [ %23, %.thread ], [ %33, %32 ], [ %.150, %19 ], [ %27, %24 ]
+  %.2.ph = phi i64 [ %22, %.thread ], [ 0, %32 ], [ %.148, %19 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %37 = call i32 @feof(ptr noundef nonnull %2) #19
   %.not73 = icmp eq i32 %37, 0
   br i1 %.not73, label %15, label %.loopexit, !llvm.loop !39
 
-.thread107:                                       ; preds = %.thread101, %11
-  %.054.ph = phi i32 [ 21, %11 ], [ %.256.ph, %.thread101 ]
+.thread107:                                       ; preds = %11, %.thread101
+  %.054.ph = phi i32 [ %.256.ph, %.thread101 ], [ 21, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %41
 
@@ -389,7 +389,7 @@ define dso_local range(i32 0, 24) i32 @str2num(ptr noundef writeonly captures(no
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %16, %13, %11, %6, %4
-  %.1.ph.i = phi i32 [ 23, %4 ], [ 18, %6 ], [ 0, %16 ], [ 11, %11 ], [ 11, %13 ]
+  %.1.ph.i = phi i32 [ 18, %6 ], [ 23, %4 ], [ 0, %16 ], [ 11, %11 ], [ 11, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %getnum.exit
 
@@ -429,8 +429,8 @@ define dso_local range(i32 0, 24) i32 @oct2nummax(ptr noundef writeonly captures
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %getnum.exit.thread11
 
-getnum.exit.thread11:                             ; preds = %5, %7, %12, %14
-  %.1.ph.i.ph = phi i32 [ 11, %14 ], [ 11, %12 ], [ 18, %7 ], [ 23, %5 ]
+getnum.exit.thread11:                             ; preds = %7, %5, %12, %14
+  %.1.ph.i.ph = phi i32 [ 11, %14 ], [ 11, %12 ], [ 23, %5 ], [ 18, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %getnum.exit.thread
 
@@ -446,7 +446,7 @@ getnum.exit.thread11:                             ; preds = %5, %7, %12, %14
   br label %getnum.exit.thread
 
 getnum.exit.thread:                               ; preds = %3, %getnum.exit.thread11, %19, %17
-  %.0 = phi i32 [ 18, %17 ], [ %.1.ph.i.ph, %getnum.exit.thread11 ], [ %., %19 ], [ 11, %3 ]
+  %.0 = phi i32 [ 18, %17 ], [ %., %19 ], [ %.1.ph.i.ph, %getnum.exit.thread11 ], [ 11, %3 ]
   ret i32 %.0
 }
 
@@ -481,8 +481,8 @@ define dso_local range(i32 0, 24) i32 @str2unum(ptr noundef writeonly captures(n
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %getnum.exit.thread8
 
-getnum.exit.thread8:                              ; preds = %4, %6, %11, %13
-  %.1.ph.i.ph = phi i32 [ 11, %13 ], [ 11, %11 ], [ 18, %6 ], [ 23, %4 ]
+getnum.exit.thread8:                              ; preds = %6, %4, %11, %13
+  %.1.ph.i.ph = phi i32 [ 11, %13 ], [ 11, %11 ], [ 23, %4 ], [ 18, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %getnum.exit.thread
 
@@ -494,7 +494,7 @@ getnum.exit.thread8:                              ; preds = %4, %6, %11, %13
   br label %getnum.exit.thread
 
 getnum.exit.thread:                               ; preds = %2, %getnum.exit.thread8, %16
-  %.0 = phi i32 [ %.1.ph.i.ph, %getnum.exit.thread8 ], [ %., %16 ], [ 11, %2 ]
+  %.0 = phi i32 [ %., %16 ], [ %.1.ph.i.ph, %getnum.exit.thread8 ], [ 11, %2 ]
   ret i32 %.0
 }
 
@@ -530,7 +530,7 @@ define dso_local range(i32 0, 24) i32 @str2unummax(ptr noundef writeonly capture
   br i1 %16, label %17, label %getnum.exit.thread8.i
 
 getnum.exit.thread8.i:                            ; preds = %14, %12, %7, %5
-  %.1.ph.i.ph.i = phi i32 [ 11, %14 ], [ 11, %12 ], [ 18, %7 ], [ 23, %5 ]
+  %.1.ph.i.ph.i = phi i32 [ 11, %14 ], [ 11, %12 ], [ 23, %5 ], [ 18, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %str2unum.exit.thread
 
@@ -546,7 +546,7 @@ str2unum.exit:                                    ; preds = %17
   br label %str2unum.exit.thread
 
 str2unum.exit.thread:                             ; preds = %17, %3, %getnum.exit.thread8.i, %str2unum.exit
-  %.0 = phi i32 [ %., %str2unum.exit ], [ %.1.ph.i.ph.i, %getnum.exit.thread8.i ], [ 11, %3 ], [ 12, %17 ]
+  %.0 = phi i32 [ %., %str2unum.exit ], [ 11, %3 ], [ %.1.ph.i.ph.i, %getnum.exit.thread8.i ], [ 12, %17 ]
   ret i32 %.0
 }
 
@@ -595,7 +595,7 @@ str2double.exit.thread10:                         ; preds = %12, %10, %4
   br label %str2double.exit.thread
 
 str2double.exit.thread:                           ; preds = %2, %str2double.exit.thread10, %16, %18
-  %.0 = phi i32 [ 0, %18 ], [ %.1.ph.i.ph, %str2double.exit.thread10 ], [ 12, %16 ], [ 11, %2 ]
+  %.0 = phi i32 [ 0, %18 ], [ 12, %16 ], [ %.1.ph.i.ph, %str2double.exit.thread10 ], [ 11, %2 ]
   ret i32 %.0
 }
 
@@ -708,9 +708,9 @@ protoset_set.exit:                                ; preds = %27, %protoset_index
   br label %43
 
 43:                                               ; preds = %.lr.ph110, %42, %41
-  %44 = phi i1 [ false, %42 ], [ true, %41 ], [ false, %.lr.ph110 ]
-  %45 = phi i1 [ false, %42 ], [ false, %41 ], [ true, %.lr.ph110 ]
-  %.156 = phi i32 [ 0, %42 ], [ 1, %41 ], [ 2, %.lr.ph110 ]
+  %44 = phi i1 [ true, %41 ], [ false, %42 ], [ false, %.lr.ph110 ]
+  %45 = phi i1 [ false, %41 ], [ false, %42 ], [ true, %.lr.ph110 ]
+  %.156 = phi i32 [ 1, %41 ], [ 0, %42 ], [ 2, %.lr.ph110 ]
   %46 = load i8, ptr %40, align 1, !tbaa !31
   %47 = add i8 %46, -58
   %or.cond = icmp ult i8 %47, -10
@@ -801,7 +801,7 @@ protoset_index.exit14.i:                          ; preds = %.preheader.i
   br label %.thread151
 
 .thread151:                                       ; preds = %.thread140, %78, %62
-  %79 = phi ptr [ %60, %62 ], [ %60, %78 ], [ %61, %.thread140 ]
+  %79 = phi ptr [ %60, %78 ], [ %60, %62 ], [ %61, %.thread140 ]
   br label %80
 
 80:                                               ; preds = %80, %.thread151
@@ -835,7 +835,7 @@ protoset_index.exit.i91:                          ; preds = %80
   br label %.thread147
 
 .thread147:                                       ; preds = %.thread140, %91, %90
-  %.162.lcssa135146150 = phi ptr [ %40, %90 ], [ %40, %91 ], [ %.061113, %.thread140 ]
+  %.162.lcssa135146150 = phi ptr [ %40, %91 ], [ %40, %90 ], [ %.061113, %.thread140 ]
   %92 = load ptr, ptr %33, align 8, !tbaa !45
   call void (ptr, ptr, ...) @warnf(ptr noundef %92, ptr noundef nonnull @.str.2, ptr noundef nonnull %.162.lcssa135146150) #19
   br label %93
@@ -848,7 +848,7 @@ protoset_clear.exit:                              ; preds = %.lr.ph110
   call void @free(ptr noundef %12) #19
   br label %120
 
-93:                                               ; preds = %.thread138, %54, %protoset_index.exit14.i, %.thread147, %protoset_index.exit.i86, %protoset_index.exit.i91, %88
+93:                                               ; preds = %.thread138, %54, %.thread147, %protoset_index.exit.i86, %protoset_index.exit14.i, %protoset_index.exit.i91, %88
   %94 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str) #19
   %.not76 = icmp eq ptr %94, null
   br i1 %.not76, label %._crit_edge114, label %.preheader97, !llvm.loop !46
@@ -950,7 +950,7 @@ define dso_local range(i32 0, 15) i32 @check_protocol(ptr noundef %0) local_unna
   br label %4
 
 4:                                                ; preds = %2, %1
-  %.0 = phi i32 [ %., %2 ], [ 3, %1 ]
+  %.0 = phi i32 [ 3, %1 ], [ %., %2 ]
   ret i32 %.0
 }
 
@@ -1241,7 +1241,7 @@ add2list.exit59.thread:                           ; preds = %.loopexit
   br label %.critedge46
 
 .critedge46:                                      ; preds = %.loopexit, %.loopexit64, %47, %52, %50, %45, %40
-  %.129 = phi i32 [ %41, %40 ], [ %46, %45 ], [ 27, %.loopexit64 ], [ 0, %47 ], [ 0, %50 ], [ 27, %52 ], [ 27, %.loopexit ]
+  %.129 = phi i32 [ %41, %40 ], [ %46, %45 ], [ 0, %47 ], [ 0, %50 ], [ 27, %52 ], [ 27, %.loopexit64 ], [ 27, %.loopexit ]
   ret i32 %.129
 }
 

@@ -73,7 +73,7 @@ define dso_local i32 @lzma_mf_find(ptr noundef %0, ptr noundef writeonly capture
   br i1 %42, label %.lr.ph, label %lzma_memcmplen.exit
 
 lzma_memcmplen.exit:                              ; preds = %40, %15, %.thread, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ %11, %7 ], [ %39, %.thread ], [ %spec.select, %15 ], [ %spec.select, %40 ]
+  %.0 = phi i32 [ %11, %7 ], [ 0, %3 ], [ %39, %.thread ], [ %spec.select, %15 ], [ %spec.select, %40 ]
   store i32 %6, ptr %1, align 4, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %44 = load i32, ptr %43, align 4, !tbaa !21
@@ -259,7 +259,7 @@ lzma_memcmplen.exit:                              ; preds = %.lr.ph
   br label %move_pos.exit
 
 move_pos.exit:                                    ; preds = %115, %92, %91, %75, %10
-  %.060 = phi i32 [ 0, %10 ], [ 1, %91 ], [ 1, %75 ], [ %105, %92 ], [ %105, %115 ]
+  %.060 = phi i32 [ 0, %10 ], [ 1, %75 ], [ 1, %91 ], [ %105, %92 ], [ %105, %115 ]
   ret i32 %.060
 }
 
@@ -350,8 +350,8 @@ lzma_memcmplen.exit.us:                           ; preds = %57, %.thread.us
   br i1 %.not83.us, label %._crit_edge, label %.thread64.us
 
 .thread64.us:                                     ; preds = %50, %lzma_memcmplen.exit.us, %36, %.lr.ph91.split.us
-  %.151.us = phi ptr [ %.05088.us, %lzma_memcmplen.exit.us ], [ %.05088.us, %.lr.ph91.split.us ], [ %.05088.us, %36 ], [ %53, %50 ]
-  %.146.us = phi i32 [ %.04589.us, %lzma_memcmplen.exit.us ], [ %.04589.us, %.lr.ph91.split.us ], [ %.04589.us, %36 ], [ %.2.i.us, %50 ]
+  %.151.us = phi ptr [ %.05088.us, %36 ], [ %.05088.us, %.lr.ph91.split.us ], [ %.05088.us, %lzma_memcmplen.exit.us ], [ %53, %50 ]
+  %.146.us = phi i32 [ %.04589.us, %36 ], [ %.04589.us, %.lr.ph91.split.us ], [ %.04589.us, %lzma_memcmplen.exit.us ], [ %.2.i.us, %50 ]
   %54 = sub i32 %1, %29
   %55 = add i32 %18, -1
   %56 = icmp ne i32 %18, 0
@@ -406,7 +406,7 @@ lzma_memcmplen.exit.us:                           ; preds = %57, %.thread.us
   br i1 %or.cond, label %.lr.ph91.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread64, %50, %.thread64.us, %._crit_edge92.split, %10
-  %.1.ph = phi ptr [ %.151.us, %.thread64.us ], [ %8, %10 ], [ %81, %._crit_edge92.split ], [ %53, %50 ], [ %8, %.thread64 ]
+  %.1.ph = phi ptr [ %8, %10 ], [ %81, %._crit_edge92.split ], [ %.151.us, %.thread64.us ], [ %53, %50 ], [ %8, %.thread64 ]
   ret ptr %.1.ph
 }
 
@@ -741,7 +741,7 @@ lzma_memcmplen.exit:                              ; preds = %.lr.ph
   br label %move_pos.exit
 
 move_pos.exit:                                    ; preds = %151, %127, %126, %110, %10
-  %.085 = phi i32 [ 0, %10 ], [ %.190111, %126 ], [ %.190111, %110 ], [ %141, %127 ], [ %141, %151 ]
+  %.085 = phi i32 [ 0, %10 ], [ %.190111, %110 ], [ %.190111, %126 ], [ %141, %127 ], [ %141, %151 ]
   ret i32 %.085
 }
 
@@ -1707,7 +1707,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i79, %2
   br label %move_pos.exit
 
 move_pos.exit:                                    ; preds = %233, %bt_find_func.exit, %147, %bt_skip_func.exit, %14
-  %.066 = phi i32 [ 0, %14 ], [ 1, %147 ], [ 1, %bt_skip_func.exit ], [ %223, %bt_find_func.exit ], [ %223, %233 ]
+  %.066 = phi i32 [ 0, %14 ], [ 1, %bt_skip_func.exit ], [ 1, %147 ], [ %223, %bt_find_func.exit ], [ %223, %233 ]
   ret i32 %.066
 }
 
@@ -2437,7 +2437,7 @@ bt_find_func.exit:                                ; preds = %._crit_edge.i112, %
   br label %move_pos.exit
 
 move_pos.exit:                                    ; preds = %269, %bt_find_func.exit, %182, %bt_skip_func.exit, %14
-  %.091 = phi i32 [ 0, %14 ], [ %.196129, %182 ], [ %.196129, %bt_skip_func.exit ], [ %259, %bt_find_func.exit ], [ %259, %269 ]
+  %.091 = phi i32 [ 0, %14 ], [ %.196129, %bt_skip_func.exit ], [ %.196129, %182 ], [ %259, %bt_find_func.exit ], [ %259, %269 ]
   ret i32 %.091
 }
 

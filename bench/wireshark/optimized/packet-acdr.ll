@@ -579,9 +579,9 @@ define internal i32 @dissect_acdr(ptr noundef %0, ptr noundef initializes((0, 8)
   br label %28
 
 28:                                               ; preds = %27, %26, %25, %23, %4
-  %29 = phi i1 [ false, %27 ], [ true, %4 ], [ true, %23 ], [ true, %26 ], [ true, %25 ]
-  %.0138.i = phi i32 [ 4, %27 ], [ 2, %4 ], [ 2, %23 ], [ 2, %26 ], [ 2, %25 ]
-  %.0137.i = phi i32 [ 28, %27 ], [ 15, %4 ], [ 19, %23 ], [ 24, %26 ], [ 23, %25 ]
+  %29 = phi i1 [ true, %26 ], [ false, %27 ], [ true, %4 ], [ true, %23 ], [ true, %25 ]
+  %.0138.i = phi i32 [ 2, %26 ], [ 4, %27 ], [ 2, %4 ], [ 2, %23 ], [ 2, %25 ]
+  %.0137.i = phi i32 [ 24, %26 ], [ 28, %27 ], [ 15, %4 ], [ 19, %23 ], [ 23, %25 ]
   %30 = icmp samesign ult i32 %21, 10
   %31 = and i32 %20, 240
   %.not.i = icmp eq i32 %31, 0
@@ -1539,13 +1539,13 @@ define internal i32 @dissect_acdr_rtp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not87.i, label %54, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %50, %44, %38, %32, %26
-  %.sink.i = phi ptr [ %47, %44 ], [ %29, %26 ], [ %35, %32 ], [ %41, %38 ], [ %53, %50 ]
-  %.0.ph.i = phi ptr [ %46, %44 ], [ %28, %26 ], [ %34, %32 ], [ %40, %38 ], [ %52, %50 ]
+  %.sink.i = phi ptr [ %29, %26 ], [ %35, %32 ], [ %41, %38 ], [ %47, %44 ], [ %53, %50 ]
+  %.0.ph.i = phi ptr [ %28, %26 ], [ %34, %32 ], [ %40, %38 ], [ %46, %44 ], [ %52, %50 ]
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.178, i32 noundef %22, ptr noundef %.sink.i)
   br label %54
 
 54:                                               ; preds = %.sink.split.i, %50, %48, %44, %42, %38, %36, %32, %30, %26, %24, %23, %21
-  %.0.i = phi ptr [ null, %23 ], [ null, %42 ], [ %28, %26 ], [ null, %24 ], [ null, %21 ], [ %34, %32 ], [ null, %30 ], [ %52, %50 ], [ %40, %38 ], [ null, %36 ], [ null, %48 ], [ %46, %44 ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %23 ], [ %28, %26 ], [ null, %24 ], [ %34, %32 ], [ null, %30 ], [ %40, %38 ], [ null, %36 ], [ %46, %44 ], [ null, %42 ], [ %52, %50 ], [ null, %48 ], [ null, %21 ], [ %.0.ph.i, %.sink.split.i ]
   %55 = load ptr, ptr @rtp_dissector_handle, align 8
   %56 = tail call i32 @call_dissector(ptr noundef %55, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not96.i = icmp eq ptr %2, null
@@ -1674,7 +1674,7 @@ define internal i32 @dissect_acdr_rtp(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.sink.split133.i
 
 .sink.split133.i:                                 ; preds = %100, %99, %98, %97, %96, %95, %93, %92, %90, %89, %87, %86, %84, %83, %81, %80
-  %.str.279.sink.i = phi ptr [ @.str.323, %100 ], [ @.str.279, %81 ], [ @.str.322, %84 ], [ @.str.281, %87 ], [ @.str.282, %90 ], [ @.str.283, %80 ], [ @.str.285, %96 ], [ @.str.286, %97 ], [ @.str.287, %98 ], [ @.str.288, %99 ], [ @.str.279, %83 ], [ @.str.322, %86 ], [ @.str.281, %89 ], [ @.str.282, %92 ], [ @.str.284, %95 ], [ @.str.284, %93 ]
+  %.str.279.sink.i = phi ptr [ @.str.285, %96 ], [ @.str.286, %97 ], [ @.str.287, %98 ], [ @.str.288, %99 ], [ @.str.323, %100 ], [ @.str.279, %83 ], [ @.str.279, %81 ], [ @.str.322, %86 ], [ @.str.322, %84 ], [ @.str.281, %89 ], [ @.str.281, %87 ], [ @.str.282, %92 ], [ @.str.282, %90 ], [ @.str.283, %80 ], [ @.str.284, %95 ], [ @.str.284, %93 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load ptr, ptr %101, align 8
   tail call void @col_set_str(ptr noundef %102, i32 noundef 35, ptr noundef nonnull %.str.279.sink.i)
@@ -1971,7 +1971,7 @@ define internal i32 @dissect_acdr_tls(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %33
 
 33:                                               ; preds = %22, %16, %10, %4, %26
-  %.0 = phi i32 [ %21, %16 ], [ 0, %4 ], [ %15, %10 ], [ %32, %26 ], [ %25, %22 ]
+  %.0 = phi i32 [ %32, %26 ], [ 0, %4 ], [ %15, %10 ], [ %21, %16 ], [ %25, %22 ]
   ret i32 %.0
 }
 
@@ -2129,7 +2129,7 @@ define internal i32 @dissect_acdr_rtcp(ptr noundef %0, ptr noundef %1, ptr nound
   br label %23
 
 23:                                               ; preds = %19, %21, %14, %4
-  %.0 = phi i32 [ 0, %4 ], [ %22, %21 ], [ %20, %19 ], [ %15, %14 ]
+  %.0 = phi i32 [ 0, %4 ], [ %20, %19 ], [ %22, %21 ], [ %15, %14 ]
   ret i32 %.0
 }
 
@@ -2170,7 +2170,7 @@ define internal i32 @dissect_acdr_video_rtcp(ptr noundef %0, ptr noundef %1, ptr
   br label %dissect_acdr_rtcp.exit
 
 dissect_acdr_rtcp.exit:                           ; preds = %4, %14, %19, %21
-  %.0.i = phi i32 [ 0, %4 ], [ %22, %21 ], [ %20, %19 ], [ %15, %14 ]
+  %.0.i = phi i32 [ 0, %4 ], [ %20, %19 ], [ %22, %21 ], [ %15, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 35, ptr noundef nonnull @.str.331)

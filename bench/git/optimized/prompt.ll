@@ -108,7 +108,7 @@ strbuf_setlen.exit.i:                             ; preds = %18, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
-.thread31:                                        ; preds = %11, %24
+.thread31:                                        ; preds = %24, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread27
 

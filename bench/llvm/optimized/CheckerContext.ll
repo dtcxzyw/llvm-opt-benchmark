@@ -141,8 +141,8 @@ define dso_local { ptr, i64 } @_ZN5clang4ento14CheckerContext18getDeclDescriptio
   br label %8
 
 8:                                                ; preds = %2, %2, %2, %2, %2, %7, %6
-  %.sroa.0.0 = phi ptr [ @.str.2, %7 ], [ @.str.1, %6 ], [ @.str, %2 ], [ @.str, %2 ], [ @.str, %2 ], [ @.str, %2 ], [ @.str, %2 ]
-  %.sroa.4.0 = phi i64 [ 8, %7 ], [ 15, %6 ], [ 6, %2 ], [ 6, %2 ], [ 6, %2 ], [ 6, %2 ], [ 6, %2 ]
+  %.sroa.0.0 = phi ptr [ @.str.1, %6 ], [ @.str.2, %7 ], [ @.str, %2 ], [ @.str, %2 ], [ @.str, %2 ], [ @.str, %2 ], [ @.str, %2 ]
+  %.sroa.4.0 = phi i64 [ 15, %6 ], [ 8, %7 ], [ 6, %2 ], [ 6, %2 ], [ 6, %2 ], [ 6, %2 ], [ 6, %2 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -311,7 +311,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread53: ; preds = %_ZN4llvmeqENS_9St
   br label %74
 
 74:                                               ; preds = %33, %61, %59, %53, %73, %.critedge32, %7
-  %.0 = phi i1 [ true, %.critedge32 ], [ true, %7 ], [ false, %33 ], [ false, %59 ], [ %.6, %73 ], [ false, %53 ], [ true, %61 ]
+  %.0 = phi i1 [ true, %7 ], [ true, %.critedge32 ], [ false, %33 ], [ %.6, %73 ], [ false, %53 ], [ false, %59 ], [ true, %61 ]
   ret i1 %.0
 }
 
@@ -378,7 +378,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i7.i:   ; preds = %19
   %spec.select.i = and i1 %26, %25
   br i1 %spec.select.i, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread"
 
-"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread": ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i7.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %22, %16, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit"
+"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread": ; preds = %22, %16, %_ZNK4llvm9StringRef11starts_withES0_.exit.i7.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit"
   %.not.i.i.i10 = icmp samesign ult i64 %13, 10
   br i1 %.not.i.i.i10, label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit", label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11
 
@@ -425,7 +425,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i20.i:  ; preds = %37
   br label %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit"
 
 "_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcSA_S6_SA_EEEbDpT_.exit": ; preds = %9, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit", %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread", %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i, %31, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i, %37, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit" ], [ false, %31 ], [ %spec.select.i13, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i ], [ false, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread" ], [ false, %37 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i ], [ false, %9 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit" ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i11 ], [ false, %"_ZZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefEENK3$_0clIJPKcS6_SA_EEEbDpT_.exit.thread" ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i ], [ false, %31 ], [ false, %37 ], [ %spec.select.i13, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20.i ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -719,7 +719,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47: ; preds =
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47, %59, %18, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %18 ], [ %57, %59 ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %57, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %57, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47 ], [ %57, %59 ]
   ret i1 %.0
 }
 

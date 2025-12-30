@@ -318,7 +318,7 @@ zend_string_release_ex.exit80:                    ; preds = %108, %112, %117
   br label %125
 
 125:                                              ; preds = %zend_string_release_ex.exit, %123, %2, %50, %47, %36
-  %.0 = phi i32 [ -1, %zend_string_release_ex.exit ], [ -1, %2 ], [ -1, %36 ], [ -1, %47 ], [ -1, %50 ], [ 0, %123 ]
+  %.0 = phi i32 [ -1, %36 ], [ -1, %47 ], [ -1, %50 ], [ -1, %2 ], [ 0, %123 ], [ -1, %zend_string_release_ex.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2049,7 +2049,7 @@ zend_arena_release.exit122:                       ; preds = %.critedge.i121, %54
   br label %.sink.split
 
 .sink.split:                                      ; preds = %zend_file_cache_unserialize.exit, %zend_arena_release.exit122, %62, %66, %45, %50, %36, %41, %28, %33, %zend_file_cache_get_bin_file_path.exit, %24, %zend_arena_release.exit, %zend_arena_release.exit107, %zend_arena_release.exit112, %zend_arena_release.exit117
-  %.0.ph = phi ptr [ %169, %zend_arena_release.exit112 ], [ null, %zend_arena_release.exit117 ], [ null, %62 ], [ null, %zend_arena_release.exit107 ], [ null, %zend_arena_release.exit ], [ null, %45 ], [ null, %36 ], [ null, %28 ], [ null, %zend_file_cache_get_bin_file_path.exit ], [ null, %24 ], [ null, %33 ], [ null, %41 ], [ null, %50 ], [ null, %66 ], [ %206, %zend_arena_release.exit122 ], [ %206, %zend_file_cache_unserialize.exit ]
+  %.0.ph = phi ptr [ %169, %zend_arena_release.exit112 ], [ null, %zend_arena_release.exit117 ], [ null, %zend_arena_release.exit107 ], [ null, %zend_arena_release.exit ], [ null, %24 ], [ null, %zend_file_cache_get_bin_file_path.exit ], [ null, %33 ], [ null, %28 ], [ null, %41 ], [ null, %36 ], [ null, %50 ], [ null, %45 ], [ null, %66 ], [ null, %62 ], [ %206, %zend_arena_release.exit122 ], [ %206, %zend_file_cache_unserialize.exit ]
   call void @_efree(ptr noundef %12) #19
   br label %568
 
@@ -12824,7 +12824,7 @@ define internal fastcc void @zend_file_cache_unserialize_type(ptr noundef captur
   br label %zend_file_cache_unserialize_interned.exit
 
 zend_file_cache_unserialize_interned.exit:        ; preds = %47, %37, %30, %62, %60, %25
-  %.0 = phi ptr [ null, %25 ], [ %54, %60 ], [ %54, %62 ], [ %36, %30 ], [ %44, %47 ], [ %38, %37 ]
+  %.0 = phi ptr [ %54, %60 ], [ %54, %62 ], [ null, %25 ], [ %36, %30 ], [ %44, %47 ], [ %38, %37 ]
   store ptr %.0, ptr %0, align 8, !tbaa !289
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %66 = load i8, ptr %65, align 8, !tbaa !53, !range !17, !noundef !18

@@ -1142,7 +1142,7 @@ define internal fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef %1
   br label %dissect_rpcap_filterbpf_insn.exit
 
 dissect_rpcap_filterbpf_insn.exit:                ; preds = %.lr.ph, %36, %39, %42, %45, %46
-  %hf_code_fields.sink.i = phi ptr [ @hf_code_fields, %46 ], [ @hf_code_misc_op, %45 ], [ @hf_code_ld_mode, %36 ], [ @hf_code_jmp_op, %42 ], [ @hf_code_alu_op, %39 ], [ @hf_code_rval, %.lr.ph ]
+  %hf_code_fields.sink.i = phi ptr [ @hf_code_fields, %46 ], [ @hf_code_misc_op, %45 ], [ @hf_code_jmp_op, %42 ], [ @hf_code_alu_op, %39 ], [ @hf_code_ld_mode, %36 ], [ @hf_code_rval, %.lr.ph ]
   %47 = load i32, ptr %hf_code_fields.sink.i, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %47, ptr noundef %0, i32 noundef %.02829, i32 noundef 2, i32 noundef 0)
   %49 = add i32 %.02829, 2
@@ -1675,7 +1675,7 @@ define internal fastcc noundef zeroext i1 @check_rpcap_heur(ptr noundef %0, i1 n
   br label %46
 
 46:                                               ; preds = %23, %42, %37, %35, %32, %29, %26, %17, %18, %10, %7, %5, %2, %45
-  %.0 = phi i1 [ false, %18 ], [ false, %2 ], [ false, %5 ], [ false, %7 ], [ false, %10 ], [ false, %42 ], [ false, %17 ], [ true, %45 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ false, %35 ], [ false, %37 ], [ false, %23 ]
+  %.0 = phi i1 [ true, %45 ], [ false, %2 ], [ false, %5 ], [ false, %7 ], [ false, %10 ], [ false, %18 ], [ false, %17 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ false, %35 ], [ false, %37 ], [ false, %42 ], [ false, %23 ]
   ret i1 %.0
 }
 

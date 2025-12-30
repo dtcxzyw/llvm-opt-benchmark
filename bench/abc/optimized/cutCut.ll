@@ -129,7 +129,7 @@ define range(i32 -1, 2) i32 @Cut_CutCompare(ptr noundef readonly captures(none) 
   br i1 %20, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %13, %19, %12, %.preheader, %8, %2
-  %.015 = phi i32 [ 1, %8 ], [ -1, %2 ], [ 0, %.preheader ], [ 1, %19 ], [ -1, %13 ], [ 0, %12 ]
+  %.015 = phi i32 [ -1, %2 ], [ 1, %8 ], [ 0, %.preheader ], [ -1, %13 ], [ 1, %19 ], [ 0, %12 ]
   ret i32 %.015
 }
 

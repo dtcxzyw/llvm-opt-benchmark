@@ -928,9 +928,9 @@ define dso_local noundef range(i32 -12, 1) i32 @__inet_inherit_port(ptr noundef 
   tail call void @inet_csk_update_fastreuse(ptr noundef %138, ptr noundef %1) #16
   br label %.thread19
 
-.thread19:                                        ; preds = %132, %116, %234, %.loopexit
-  %235 = phi ptr [ %138, %.loopexit ], [ %138, %234 ], [ %61, %116 ], [ %61, %132 ]
-  %236 = phi ptr [ %233, %.loopexit ], [ %233, %234 ], [ %63, %116 ], [ %63, %132 ]
+.thread19:                                        ; preds = %116, %132, %234, %.loopexit
+  %235 = phi ptr [ %138, %234 ], [ %138, %.loopexit ], [ %61, %132 ], [ %61, %116 ]
+  %236 = phi ptr [ %233, %234 ], [ %233, %.loopexit ], [ %63, %132 ], [ %63, %116 ]
   store i16 %8, ptr %7, align 2
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 1040
   store ptr %235, ptr %237, align 8
@@ -984,7 +984,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__inet_inherit_port(ptr noundef 
   br label %263
 
 263:                                              ; preds = %262, %248, %247, %245, %.loopexit22, %53
-  %264 = phi i32 [ 0, %245 ], [ -2, %53 ], [ -12, %.loopexit22 ], [ -12, %247 ], [ -12, %262 ], [ -12, %248 ]
+  %264 = phi i32 [ 0, %245 ], [ -2, %53 ], [ -12, %.loopexit22 ], [ -12, %262 ], [ -12, %248 ], [ -12, %247 ]
   tail call void @_raw_spin_unlock(ptr noundef %59) #16
   tail call void @_raw_spin_unlock(ptr noundef %20) #16
   ret i32 %264
@@ -1211,9 +1211,9 @@ define dso_local ptr @inet_lookup_run_sk_lookup(ptr noundef %0, i32 noundef %1, 
   br label %60
 
 60:                                               ; preds = %55, %59, %53
-  %61 = phi ptr [ %spec.select, %55 ], [ %33, %59 ], [ %33, %53 ]
-  %62 = phi i8 [ %spec.select7, %55 ], [ %32, %59 ], [ %32, %53 ]
-  %63 = phi i8 [ %31, %55 ], [ 0, %59 ], [ %31, %53 ]
+  %61 = phi ptr [ %33, %59 ], [ %33, %53 ], [ %spec.select, %55 ]
+  %62 = phi i8 [ %32, %59 ], [ %32, %53 ], [ %spec.select7, %55 ]
+  %63 = phi i8 [ 0, %59 ], [ %31, %53 ], [ %31, %55 ]
   %64 = getelementptr i8, ptr %34, i64 24
   %65 = load volatile ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null

@@ -1651,7 +1651,7 @@ define dso_local noundef zeroext i1 @pgstat_relation_flush_cb(ptr noundef %0, i1
   br label %pg_memory_is_all_zeros.exit
 
 pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i, %.loopexit, %109
-  %.0 = phi i1 [ false, %.loopexit ], [ true, %109 ], [ true, %.preheader.i ]
+  %.0 = phi i1 [ true, %109 ], [ false, %.loopexit ], [ true, %.preheader.i ]
   ret i1 %.0
 }
 

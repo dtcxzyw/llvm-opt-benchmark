@@ -743,7 +743,7 @@ _ZN4cvc58internal6ResultD2Ev.exit63:              ; preds = %_ZN4cvc58internal6R
   br i1 %.not36, label %167, label %164
 
 142:                                              ; preds = %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, %84, %139, %137, %80
-  %.pn31.pn.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %140, %139 ], [ %83, %82 ], [ %85, %84 ], [ %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %138, %137 ]
+  %.pn31.pn.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %83, %82 ], [ %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %85, %84 ], [ %138, %137 ], [ %140, %139 ]
   %.0 = extractvalue { ptr, i32 } %.pn31.pn.pn.pn, 0
   %.019 = extractvalue { ptr, i32 } %.pn31.pn.pn.pn, 1
   %143 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal14LogicExceptionE) #19
@@ -808,7 +808,7 @@ _ZN4cvc58internal6ResultD2Ev.exit63:              ; preds = %_ZN4cvc58internal6R
   ret void
 
 168:                                              ; preds = %162, %160, %165, %151
-  %.merged = phi { ptr, i32 } [ %166, %165 ], [ %161, %160 ], [ %.pn31.pn.pn.pn, %151 ], [ %163, %162 ]
+  %.merged = phi { ptr, i32 } [ %166, %165 ], [ %.pn31.pn.pn.pn, %151 ], [ %161, %160 ], [ %163, %162 ]
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !72
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1665,7 +1665,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit127: ; preds = %_ZNSt7__cxx1112ba
   ret void
 
 233:                                              ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49
-  %.pn27.pn = phi { ptr, i32 } [ %.pn21.pn.pn, %.body ], [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ]
+  %.pn27.pn = phi { ptr, i32 } [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %.pn21.pn.pn, %.body ]
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %235 = load ptr, ptr %234, align 8, !tbaa !72
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -144,7 +144,7 @@ exr_attr_opaquedata_init.exit:                    ; preds = %6, %12, %22, %26
   br label %exr_attr_opaquedata_init.exit.thread
 
 exr_attr_opaquedata_init.exit.thread:             ; preds = %4, %31, %34, %exr_attr_opaquedata_init.exit
-  %.0.i13 = phi i32 [ %.0.i, %exr_attr_opaquedata_init.exit ], [ 0, %31 ], [ 0, %34 ], [ 2, %4 ]
+  %.0.i13 = phi i32 [ 0, %31 ], [ 0, %34 ], [ %.0.i, %exr_attr_opaquedata_init.exit ], [ 2, %4 ]
   ret i32 %.0.i13
 }
 
@@ -267,7 +267,7 @@ exr_attr_opaquedata_init.exit.i.thread:           ; preds = %21, %22
   br label %34
 
 exr_attr_opaquedata_init.exit.i:                  ; preds = %27, %17, %11
-  %.0.i.i = phi i32 [ %20, %17 ], [ %14, %11 ], [ %30, %27 ]
+  %.0.i.i = phi i32 [ %20, %17 ], [ %30, %27 ], [ %14, %11 ]
   %33 = icmp eq i32 %.0.i.i, 0
   br i1 %33, label %exr_attr_opaquedata_init.exit.i._crit_edge, label %exr_attr_opaquedata_create.exit
 
@@ -329,7 +329,7 @@ exr_attr_opaquedata_init.exit:                    ; preds = %38
   br label %exr_attr_opaquedata_create.exit
 
 exr_attr_opaquedata_create.exit:                  ; preds = %55, %37, %51, %43, %36, %34, %exr_attr_opaquedata_init.exit.i, %7, %exr_attr_opaquedata_init.exit, %3
-  %.014 = phi i32 [ %41, %exr_attr_opaquedata_init.exit ], [ 3, %3 ], [ 2, %37 ], [ %.0.i.i, %exr_attr_opaquedata_init.exit.i ], [ 0, %34 ], [ 0, %36 ], [ 2, %7 ], [ %54, %51 ], [ 0, %55 ], [ %46, %43 ]
+  %.014 = phi i32 [ 3, %3 ], [ %41, %exr_attr_opaquedata_init.exit ], [ 0, %34 ], [ 0, %36 ], [ %.0.i.i, %exr_attr_opaquedata_init.exit.i ], [ 2, %7 ], [ %54, %51 ], [ %46, %43 ], [ 0, %55 ], [ 2, %37 ]
   ret i32 %.014
 }
 
@@ -404,7 +404,7 @@ define hidden i32 @exr_attr_opaquedata_set_unpacked(ptr noundef %0, ptr noundef 
   br label %37
 
 37:                                               ; preds = %25, %36, %4, %12, %6
-  %.0 = phi i32 [ %15, %12 ], [ 2, %4 ], [ %9, %6 ], [ 0, %36 ], [ 0, %25 ]
+  %.0 = phi i32 [ %15, %12 ], [ %9, %6 ], [ 2, %4 ], [ 0, %36 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -505,7 +505,7 @@ define hidden i32 @exr_attr_opaquedata_unpack(ptr noundef %0, ptr noundef captur
   br label %45
 
 45:                                               ; preds = %32, %44, %43, %23, %24, %4, %28, %12
-  %.0 = phi i32 [ 2, %4 ], [ 0, %23 ], [ %31, %28 ], [ %15, %12 ], [ 0, %24 ], [ 0, %43 ], [ 0, %44 ], [ %36, %32 ]
+  %.0 = phi i32 [ %31, %28 ], [ %15, %12 ], [ 2, %4 ], [ 0, %24 ], [ 0, %23 ], [ 0, %43 ], [ 0, %44 ], [ %36, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -672,7 +672,7 @@ define hidden i32 @exr_attr_opaquedata_pack(ptr noundef %0, ptr noundef captures
   br label %81
 
 81:                                               ; preds = %41, %80, %21, %22, %4, %61, %50, %36, %26, %11
-  %.062 = phi i32 [ 2, %4 ], [ %40, %36 ], [ %53, %50 ], [ %68, %61 ], [ 0, %21 ], [ %29, %26 ], [ %14, %11 ], [ 0, %22 ], [ 0, %80 ], [ 0, %41 ]
+  %.062 = phi i32 [ %40, %36 ], [ %53, %50 ], [ %68, %61 ], [ %29, %26 ], [ %14, %11 ], [ 2, %4 ], [ 0, %22 ], [ 0, %21 ], [ 0, %80 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.062
 }
@@ -768,7 +768,7 @@ define hidden i32 @exr_attr_opaquedata_set_packed(ptr noundef %0, ptr noundef ca
   br label %48
 
 48:                                               ; preds = %45, %47, %4, %21, %12, %6
-  %.0 = phi i32 [ %15, %12 ], [ 2, %4 ], [ %24, %21 ], [ %9, %6 ], [ 0, %47 ], [ 0, %45 ]
+  %.0 = phi i32 [ %15, %12 ], [ %24, %21 ], [ %9, %6 ], [ 2, %4 ], [ 0, %47 ], [ 0, %45 ]
   ret i32 %.0
 }
 

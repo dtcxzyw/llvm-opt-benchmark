@@ -1067,10 +1067,10 @@ _ZN11parking_lot7condvar7Condvar10notify_one17hd7cf2c1fd33a2bd6E.exit: ; preds =
   unreachable
 
 .thread:                                          ; preds = %31, %.body, %85
-  %.pn11 = phi { ptr, i32 } [ %eh.lpad-body, %31 ], [ %lpad.thr_comm, %85 ], [ %eh.lpad-body, %.body ]
+  %.pn11 = phi { ptr, i32 } [ %lpad.thr_comm, %85 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %31 ]
   resume { ptr, i32 } %.pn11
 
-85:                                               ; preds = %18, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h717442a0987903fbE.llvm.5552234135467064381.exit.i", %4
+85:                                               ; preds = %18, %4, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h717442a0987903fbE.llvm.5552234135467064381.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %10) #15

@@ -441,7 +441,7 @@ define hidden noundef zeroext i1 @cbor_heuristic(ptr noundef %0, ptr noundef %1,
   br label %84
 
 84:                                               ; preds = %.sink.split, %.loopexit, %78
-  %.033 = phi i1 [ false, %.loopexit ], [ false, %78 ], [ true, %.sink.split ]
+  %.033 = phi i1 [ false, %78 ], [ false, %.loopexit ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.033
@@ -1108,7 +1108,7 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
   br label %dissect_cbor_map.exit
 
 dissect_cbor_map.exit:                            ; preds = %229, %227, %249, %.lr.ph.split, %216, %254
-  %.0.i61 = phi i1 [ false, %216 ], [ true, %254 ], [ false, %249 ], [ false, %.lr.ph.split ], [ false, %227 ], [ false, %229 ]
+  %.0.i61 = phi i1 [ false, %216 ], [ true, %254 ], [ false, %.lr.ph.split ], [ false, %249 ], [ false, %227 ], [ false, %229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_cbor_negative_integer.exit
 
@@ -1346,7 +1346,7 @@ default.unreachable:                              ; preds = %20
   unreachable
 
 dissect_cbor_negative_integer.exit:               ; preds = %120, %116, %dissect_cbor_float_simple_data.exit, %dissect_cbor_tag.exit, %dissect_cbor_map.exit, %dissect_cbor_array.exit, %124, %122, %dissect_cbor_unsigned_integer.exit
-  %.0.in = phi i1 [ %.0.i, %dissect_cbor_unsigned_integer.exit ], [ %.0.i141, %dissect_cbor_float_simple_data.exit ], [ %123, %122 ], [ %125, %124 ], [ %.0.i59, %dissect_cbor_array.exit ], [ %.0.i61, %dissect_cbor_map.exit ], [ %.0.i63, %dissect_cbor_tag.exit ], [ false, %116 ], [ true, %120 ]
+  %.0.in = phi i1 [ %.0.i, %dissect_cbor_unsigned_integer.exit ], [ %123, %122 ], [ %125, %124 ], [ %.0.i59, %dissect_cbor_array.exit ], [ %.0.i61, %dissect_cbor_map.exit ], [ %.0.i63, %dissect_cbor_tag.exit ], [ %.0.i141, %dissect_cbor_float_simple_data.exit ], [ false, %116 ], [ true, %120 ]
   %382 = load i32, ptr @proto_cbor, align 4
   call void @p_set_proto_depth(ptr noundef %1, i32 noundef %382, i32 noundef %15)
   br label %383
@@ -1555,7 +1555,7 @@ define internal fastcc noundef zeroext i1 @dissect_cbor_byte_string(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %91, %111, %105, %.critedge, %89, %75, %58, %41
-  %.1 = phi i1 [ false, %75 ], [ false, %89 ], [ false, %.critedge ], [ true, %41 ], [ false, %58 ], [ true, %91 ], [ true, %105 ], [ true, %111 ], [ false, %67 ]
+  %.1 = phi i1 [ false, %75 ], [ false, %89 ], [ true, %41 ], [ false, %58 ], [ false, %.critedge ], [ true, %105 ], [ true, %111 ], [ true, %91 ], [ false, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.1
 }

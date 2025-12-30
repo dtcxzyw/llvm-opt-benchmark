@@ -183,7 +183,7 @@ _ZN8grep_cli10decompress30default_decompression_commands17hf198ba34859272b7E.exi
           to label %45 unwind label %43
 
 .body:                                            ; preds = %149, %82, %43, %141
-  %.pn39 = phi { ptr, i32 } [ %.pn, %141 ], [ %83, %82 ], [ %44, %43 ], [ %150, %149 ]
+  %.pn39 = phi { ptr, i32 } [ %.pn, %141 ], [ %44, %43 ], [ %83, %82 ], [ %150, %149 ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$grep_cli..decompress..DecompressionCommand$GT$$GT$17h96f975b7185d405aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #13
           to label %common.resume unwind label %162
 

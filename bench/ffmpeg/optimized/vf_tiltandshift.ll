@@ -121,7 +121,7 @@ list_add_frame.exit:                              ; preds = %14, %17
   br label %35
 
 35:                                               ; preds = %33, %32
-  %.0 = phi i32 [ 0, %32 ], [ %34, %33 ]
+  %.0 = phi i32 [ %34, %33 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -786,7 +786,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef captures
   br label %84
 
 84:                                               ; preds = %.thread60, %80
-  %.1 = phi i32 [ %.048.ph, %.thread60 ], [ %., %80 ]
+  %.1 = phi i32 [ %., %80 ], [ %.048.ph, %.thread60 ]
   ret i32 %.1
 }
 

@@ -738,7 +738,7 @@ common.resume.sink.split:                         ; preds = %.body, %24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %.body, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %eh.lpad-body, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5vcpkg8OptionalINS_4PathEEC2ERKS2_.exit:       ; preds = %2, %_ZN5vcpkg4PathC2ERKS0_.exit.i.i

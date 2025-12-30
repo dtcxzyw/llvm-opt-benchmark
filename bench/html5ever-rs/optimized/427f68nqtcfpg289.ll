@@ -281,8 +281,8 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   br label %12
 
 12:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he97d65fb9e0a7862E.llvm.7068131978735311054.exit.thread", %7
-  %.sink20.i11 = phi i64 [ %6, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he97d65fb9e0a7862E.llvm.7068131978735311054.exit.thread" ], [ %8, %7 ]
-  %.sroa.5.sroa.4.0 = phi i64 [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he97d65fb9e0a7862E.llvm.7068131978735311054.exit.thread" ], [ %11, %7 ]
+  %.sink20.i11 = phi i64 [ %8, %7 ], [ %6, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he97d65fb9e0a7862E.llvm.7068131978735311054.exit.thread" ]
+  %.sroa.5.sroa.4.0 = phi i64 [ %11, %7 ], [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he97d65fb9e0a7862E.llvm.7068131978735311054.exit.thread" ]
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 192, i64 288
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %., i64 noundef 8) #24
@@ -460,9 +460,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %43
 
 43:                                               ; preds = %42, %40, %39, %23
-  %.0.i = phi i64 [ 5, %42 ], [ 6, %40 ], [ 4, %23 ], [ %25, %39 ]
-  %44 = phi i1 [ false, %42 ], [ false, %40 ], [ true, %23 ], [ true, %39 ]
-  %.sroa.726.0.i = phi i64 [ 0, %42 ], [ %41, %40 ], [ %25, %23 ], [ %25, %39 ]
+  %.0.i = phi i64 [ 6, %40 ], [ 5, %42 ], [ 4, %23 ], [ %25, %39 ]
+  %44 = phi i1 [ false, %40 ], [ false, %42 ], [ true, %23 ], [ true, %39 ]
+  %.sroa.726.0.i = phi i64 [ %41, %40 ], [ 0, %42 ], [ %25, %23 ], [ %25, %39 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !56, !noalias !61, !noundef !4
   %47 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hf49ad62f8aa20a43E.llvm.1561244659501410237"()
@@ -872,9 +872,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %208
 
 208:                                              ; preds = %207, %205, %204, %165
-  %.0.i49 = phi i64 [ 5, %207 ], [ 6, %205 ], [ 4, %165 ], [ 5, %204 ]
-  %209 = phi i1 [ false, %207 ], [ false, %205 ], [ true, %165 ], [ true, %204 ]
-  %.sroa.7.0.i = phi i64 [ 0, %207 ], [ %206, %205 ], [ %158, %165 ], [ 5, %204 ]
+  %.0.i49 = phi i64 [ 6, %205 ], [ 5, %207 ], [ 4, %165 ], [ 5, %204 ]
+  %209 = phi i1 [ false, %205 ], [ false, %207 ], [ true, %165 ], [ true, %204 ]
+  %.sroa.7.0.i = phi i64 [ %206, %205 ], [ 0, %207 ], [ %158, %165 ], [ 5, %204 ]
   %210 = zext i16 %162 to i64
   %211 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h319134aea5ae8251E.llvm.1561244659501410237"()
           to label %.noexc.i50 unwind label %.loopexit93, !noalias !114
@@ -1142,7 +1142,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   ret void
 
 .critedge41:                                      ; preds = %303, %146, %142, %96
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %96 ], [ %.pn.ph.i47, %303 ], [ %139, %142 ], [ %eh.lpad-body.ph.i, %146 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %96 ], [ %eh.lpad-body.ph.i, %146 ], [ %139, %142 ], [ %.pn.ph.i47, %303 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1917,7 +1917,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
   br label %"_ZN73_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdcd43e046d57676fE.exit"
 
 "_ZN73_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdcd43e046d57676fE.exit": ; preds = %2, %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit6.i", %11, %9
-  %.0 = phi i8 [ -1, %2 ], [ 1, %9 ], [ 0, %11 ], [ %.0.i.i, %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit6.i" ]
+  %.0 = phi i8 [ 1, %9 ], [ 0, %11 ], [ %.0.i.i, %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit6.i" ], [ -1, %2 ]
   ret i8 %.0
 }
 

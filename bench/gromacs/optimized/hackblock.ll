@@ -220,7 +220,7 @@ define noundef range(i32 0, 3) i32 @_ZNK13MoleculePatch4typeEv(ptr noundef nonnu
   br label %24
 
 23:                                               ; preds = %12, %11
-  %.08 = phi i32 [ %spec.select, %12 ], [ 0, %11 ]
+  %.08 = phi i32 [ 0, %11 ], [ %spec.select, %12 ]
   ret i32 %.08
 
 24:                                               ; preds = %20, %22

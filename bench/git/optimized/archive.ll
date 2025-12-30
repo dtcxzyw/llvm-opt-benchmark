@@ -401,7 +401,7 @@ strbuf_setlen.exit71:                             ; preds = %88, %92
   br label %canon_mode.exit
 
 canon_mode.exit:                                  ; preds = %102, %108, %111, %112
-  %.0.i72 = phi i32 [ %110, %108 ], [ 57344, %112 ], [ 16384, %111 ], [ 40960, %102 ]
+  %.0.i72 = phi i32 [ %110, %108 ], [ 16384, %111 ], [ 57344, %112 ], [ 40960, %102 ]
   %113 = load ptr, ptr %61, align 8, !tbaa !55
   %114 = load i64, ptr %60, align 8, !tbaa !53
   %115 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %103, i64 noundef %104, i32 noundef %.0.i72, ptr noundef %113, i64 noundef %114) #19
@@ -432,7 +432,7 @@ canon_mode.exit:                                  ; preds = %102, %108, %111, %1
   br label %canon_mode.exit76
 
 canon_mode.exit76:                                ; preds = %116, %121, %124, %125
-  %.0.i74 = phi i32 [ %123, %121 ], [ 57344, %125 ], [ 16384, %124 ], [ 40960, %116 ]
+  %.0.i74 = phi i32 [ %123, %121 ], [ 16384, %124 ], [ 57344, %125 ], [ 40960, %116 ]
   %126 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %127 = load i64, ptr %126, align 8, !tbaa !57
   %128 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %70, i64 noundef %117, i32 noundef %.0.i74, ptr noundef nonnull %81, i64 noundef %127) #19
@@ -673,7 +673,7 @@ queue_directory.exit:                             ; preds = %st_add.exit19.i
   br label %94
 
 94:                                               ; preds = %85, %queue_directory.exit, %check_attr_export_ignore.exit, %87
-  %.1 = phi i32 [ %93, %87 ], [ 0, %check_attr_export_ignore.exit ], [ 1, %queue_directory.exit ], [ -1, %85 ]
+  %.1 = phi i32 [ %93, %87 ], [ 1, %queue_directory.exit ], [ 0, %check_attr_export_ignore.exit ], [ -1, %85 ]
   ret i32 %.1
 }
 
@@ -1956,7 +1956,7 @@ sub_1:                                            ; preds = %sub_0
   br label %128
 
 128:                                              ; preds = %124, %118
-  %129 = phi ptr [ %spec.select.i83, %124 ], [ %123, %118 ]
+  %129 = phi ptr [ %123, %118 ], [ %spec.select.i83, %124 ]
   call void @init_checkout_metadata(ptr noundef nonnull %8, ptr noundef %121, ptr noundef %129, ptr noundef %0) #19
   %130 = load i64, ptr %21, align 8, !tbaa !15
   %131 = getelementptr inbounds nuw i8, ptr %112, i64 %130
@@ -2104,7 +2104,7 @@ _.exit:                                           ; preds = %180, %182
   br label %.critedge
 
 .critedge:                                        ; preds = %79, %91, %check_attr_export_ignore.exit, %186, %_.exit, %107
-  %.2 = phi i32 [ %spec.select, %91 ], [ 0, %check_attr_export_ignore.exit ], [ %190, %186 ], [ -1, %_.exit ], [ %110, %107 ], [ %80, %79 ]
+  %.2 = phi i32 [ %190, %186 ], [ -1, %_.exit ], [ %110, %107 ], [ %80, %79 ], [ 0, %check_attr_export_ignore.exit ], [ %spec.select, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.2

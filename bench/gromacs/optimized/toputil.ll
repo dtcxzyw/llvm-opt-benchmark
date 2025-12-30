@@ -701,7 +701,7 @@ define void @_Z11print_atomsP8_IO_FILEP22PreprocessingAtomTypesP7t_atomsb(ptr no
   br i1 %exitcond, label %_ZL18get_residue_chargePK7t_atomsi.exit, label %.lr.ph.i, !llvm.loop !80
 
 _ZL18get_residue_chargePK7t_atomsi.exit:          ; preds = %.lr.ph.i, %43
-  %.0.lcssa.i = phi double [ %.013.i, %.lr.ph.i ], [ %47, %43 ]
+  %.0.lcssa.i = phi double [ %47, %43 ], [ %.013.i, %.lr.ph.i ]
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !81
   %50 = load ptr, ptr %36, align 8, !tbaa !82
@@ -1335,7 +1335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   br label %73
 
 73:                                               ; preds = %72, %71, %70, %69, %68, %67, %67, %67, %67, %67, %67, %67
-  %.073.i = phi i32 [ 0, %72 ], [ 1, %67 ], [ 2, %68 ], [ 3, %69 ], [ 4, %70 ], [ 5, %71 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ]
+  %.073.i = phi i32 [ 0, %72 ], [ 2, %68 ], [ 3, %69 ], [ 4, %70 ], [ 5, %71 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ]
   %.not.i = icmp eq i32 %4, 0
   %74 = add nsw i32 %4, -1
   %spec.select.i = select i1 %.not.i, i32 %.073.i, i32 %74

@@ -880,7 +880,7 @@ get_dist_len_price.exit.i:                        ; preds = %483, %477
   %523 = add i32 %.1179.i, 1
   br label %469
 
-helper1.exit.thread107:                           ; preds = %205, %234, %351, %220, %203, %211
+helper1.exit.thread107:                           ; preds = %234, %351, %203, %205, %211, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !42
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !42
   br label %1349
@@ -1087,7 +1087,7 @@ helper1.exit:                                     ; preds = %517, %374
   br label %.loopexit643.i
 
 .loopexit643.i:                                   ; preds = %.lr.ph660.i, %601, %.loopexit643.i.loopexit149, %.lr.ph.preheader.i, %598
-  %.2485.i = phi i32 [ %600, %598 ], [ %spec.select269, %601 ], [ %.3486606.i, %.lr.ph.preheader.i ], [ %.3486613.i, %.loopexit643.i.loopexit149 ], [ %.3486606.i, %.lr.ph660.i ]
+  %.2485.i = phi i32 [ %600, %598 ], [ %.3486606.i, %.lr.ph.preheader.i ], [ %.3486613.i, %.loopexit643.i.loopexit149 ], [ %spec.select269, %601 ], [ %.3486606.i, %.lr.ph660.i ]
   store i32 %.2485.i, ptr %554, align 4, !tbaa !73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %scevgep180, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa !19
   %632 = getelementptr inbounds nuw i8, ptr %554, i64 16

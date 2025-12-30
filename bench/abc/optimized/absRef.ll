@@ -2093,7 +2093,7 @@ Gia_ObjTerSimGet1Fanin0.exit.thread.i98:          ; preds = %Gia_ObjTerSimGet0Fa
   br label %Gia_ObjTerSimCo.exit
 
 Gia_ObjTerSimCo.exit:                             ; preds = %Gia_ObjTerSimGet1Fanin0.exit.thread.i98, %Gia_ObjTerSimGet1Fanin1.exit.thread33.i, %Gia_ObjTerSimGet0Fanin0.exit.thread24.i, %Gia_ObjTerSimGet1Fanin0.exit.thread.i, %Gia_ObjTerSimGet1Fanin0.exit.thread18.i, %Gia_ObjTerSimGet0Fanin0.exit.thread10.i, %113, %116
-  %.sink.i.sink = phi i64 [ %91, %Gia_ObjTerSimGet0Fanin0.exit.thread10.i ], [ %115, %113 ], [ %137, %116 ], [ %93, %Gia_ObjTerSimGet1Fanin0.exit.thread18.i ], [ %94, %Gia_ObjTerSimGet1Fanin0.exit.thread.i ], [ %110, %Gia_ObjTerSimGet1Fanin1.exit.thread33.i ], [ %111, %Gia_ObjTerSimGet1Fanin0.exit.thread.i98 ], [ %108, %Gia_ObjTerSimGet0Fanin0.exit.thread24.i ]
+  %.sink.i.sink = phi i64 [ %115, %113 ], [ %137, %116 ], [ %93, %Gia_ObjTerSimGet1Fanin0.exit.thread18.i ], [ %94, %Gia_ObjTerSimGet1Fanin0.exit.thread.i ], [ %91, %Gia_ObjTerSimGet0Fanin0.exit.thread10.i ], [ %110, %Gia_ObjTerSimGet1Fanin1.exit.thread33.i ], [ %111, %Gia_ObjTerSimGet1Fanin0.exit.thread.i98 ], [ %108, %Gia_ObjTerSimGet0Fanin0.exit.thread24.i ]
   store i64 %.sink.i.sink, ptr %79, align 4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val78 = load i32, ptr %22, align 4, !tbaa !15
@@ -2480,8 +2480,8 @@ Abc_Clock.exit82:                                 ; preds = %Abc_Clock.exit80, %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %171, %169
-  %.sink = phi ptr [ %.061, %171 ], [ %65, %169 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %.0.ph = phi ptr [ %65, %171 ], [ %.061, %169 ], [ %.0.ph.ph, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %65, %169 ], [ %.061, %171 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.0.ph = phi ptr [ %.061, %169 ], [ %65, %171 ], [ %.0.ph.ph, %.sink.split.sink.split ]
   call void @free(ptr noundef nonnull %.sink) #23
   br label %174
 

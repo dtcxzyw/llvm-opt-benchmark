@@ -703,7 +703,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit137.i.i:          ; preds = %234, %_ZNKSt7__cxx1
   br label %240
 
 240:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit137.i.i, %.loopexit.split-lp183.i.i, %.loopexit182.i.i, %159, %156, %.loopexit.split-lp.i.i, %.loopexit.i.i, %120
-  %.pn107.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %235, %_ZN3gmx14LogEntryWriterD2Ev.exit137.i.i ], [ %160, %159 ], [ %157, %156 ], [ %121, %120 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit184.i.i, %.loopexit182.i.i ], [ %lpad.loopexit.split-lp185.i.i, %.loopexit.split-lp183.i.i ]
+  %.pn107.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %160, %159 ], [ %157, %156 ], [ %121, %120 ], [ %235, %_ZN3gmx14LogEntryWriterD2Ev.exit137.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit184.i.i, %.loopexit182.i.i ], [ %lpad.loopexit.split-lp185.i.i, %.loopexit.split-lp183.i.i ]
   %.not4.i.i.i.i.i.i = icmp eq ptr %50, %.0.lcssa.i.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -1034,7 +1034,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i120.i: ; preds = %_ZSt8
   br label %_ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK11gmx_ddbox_tPA3_fSF_.exit
 
 .body.i:                                          ; preds = %374, %352, %259, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i.i, %30
-  %.pn85.pn.i = phi { ptr, i32 } [ %353, %352 ], [ %.pn107.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i.i ], [ %31, %30 ], [ %375, %374 ], [ %260, %259 ]
+  %.pn85.pn.i = phi { ptr, i32 } [ %31, %30 ], [ %353, %352 ], [ %260, %259 ], [ %.pn107.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i.i ], [ %375, %374 ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1873,7 +1873,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   br i1 %98, label %.lr.ph153, label %.loopexit138, !llvm.loop !363
 
 .loopexit138:                                     ; preds = %.lr.ph153, %.preheader137, %89, %84
-  %.1 = phi float [ %82, %84 ], [ %82, %89 ], [ %82, %.preheader137 ], [ %97, %.lr.ph153 ]
+  %.1 = phi float [ %82, %89 ], [ %82, %84 ], [ %82, %.preheader137 ], [ %97, %.lr.ph153 ]
   %99 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv213
   %100 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv213
   %101 = load float, ptr %100, align 4, !tbaa !345
@@ -2585,9 +2585,9 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i: ; preds = %66, %64, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i, %48
-  %.sroa.10.2.i = phi ptr [ %62, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i ], [ %scevgep.i.i.i.i.i.i, %48 ], [ %spec.select.i, %66 ], [ %.sroa.10.084.i, %64 ]
-  %.sroa.14.3.i = phi ptr [ %63, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i ], [ %.sroa.14.085.i, %48 ], [ %.sroa.14.085.i, %66 ], [ %.sroa.14.085.i, %64 ]
-  %.sroa.056.3.i = phi ptr [ %56, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i ], [ %.sroa.056.086.i, %48 ], [ %.sroa.056.086.i, %66 ], [ %.sroa.056.086.i, %64 ]
+  %.sroa.10.2.i = phi ptr [ %62, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i ], [ %scevgep.i.i.i.i.i.i, %48 ], [ %.sroa.10.084.i, %64 ], [ %spec.select.i, %66 ]
+  %.sroa.14.3.i = phi ptr [ %63, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i ], [ %.sroa.14.085.i, %48 ], [ %.sroa.14.085.i, %64 ], [ %.sroa.14.085.i, %66 ]
+  %.sroa.056.3.i = phi ptr [ %56, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i.i ], [ %.sroa.056.086.i, %48 ], [ %.sroa.056.086.i, %64 ], [ %.sroa.056.086.i, %66 ]
   %.sroa.0.0.copyload.i47.i = load ptr, ptr %31, align 8
   %68 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.0.0.copyload.i48.i = load ptr, ptr %68, align 8
@@ -2656,9 +2656,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i: ; preds = %66, %64,
   br label %87
 
 87:                                               ; preds = %85, %83, %.loopexit.split-lp.i, %.loopexit.i
-  %.sroa.14.1.i = phi ptr [ %.sroa.14.3.i, %83 ], [ %.sroa.14.3.i, %85 ], [ %.sroa.14.085.i, %.loopexit.i ], [ %.sroa.14.085.i, %.loopexit.split-lp.i ]
-  %.sroa.056.1.i = phi ptr [ %.sroa.056.3.i, %83 ], [ %.sroa.056.3.i, %85 ], [ %.sroa.056.086.i, %.loopexit.i ], [ %.sroa.056.086.i, %.loopexit.split-lp.i ]
-  %.pn.pn.i = phi { ptr, i32 } [ %84, %83 ], [ %86, %85 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.sroa.14.1.i = phi ptr [ %.sroa.14.3.i, %85 ], [ %.sroa.14.3.i, %83 ], [ %.sroa.14.085.i, %.loopexit.i ], [ %.sroa.14.085.i, %.loopexit.split-lp.i ]
+  %.sroa.056.1.i = phi ptr [ %.sroa.056.3.i, %85 ], [ %.sroa.056.3.i, %83 ], [ %.sroa.056.086.i, %.loopexit.i ], [ %.sroa.056.086.i, %.loopexit.split-lp.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %.not.i.i.i.i = icmp eq ptr %.sroa.056.1.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i, label %88
 

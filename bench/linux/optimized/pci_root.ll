@@ -685,7 +685,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %143, %150, %155, %151
-  %159 = phi ptr [ %145, %151 ], [ %145, %155 ], [ null, %150 ], [ null, %143 ]
+  %159 = phi ptr [ %145, %155 ], [ %145, %151 ], [ null, %150 ], [ null, %143 ]
   tail call void @kfree(ptr noundef %159) #13
   tail call void @acpi_dev_power_up_children_with_adr(ptr noundef %8) #13
   %160 = tail call i32 @pci_scan_child_bus(ptr noundef nonnull %70) #13
@@ -1614,9 +1614,9 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br label %417
 
 .thread37:                                        ; preds = %213, %376, %210, %206
-  %.ph34 = phi i32 [ %176, %213 ], [ %.lcssa51, %376 ], [ %176, %210 ], [ %176, %206 ]
-  %.ph35 = phi i32 [ 0, %213 ], [ %342, %376 ], [ 0, %210 ], [ 0, %206 ]
-  %.ph36 = phi i32 [ 6, %213 ], [ 15, %376 ], [ 6, %210 ], [ 6, %206 ]
+  %.ph34 = phi i32 [ %.lcssa51, %376 ], [ %176, %213 ], [ %176, %210 ], [ %176, %206 ]
+  %.ph35 = phi i32 [ %342, %376 ], [ 0, %213 ], [ 0, %210 ], [ 0, %206 ]
+  %.ph36 = phi i32 [ 15, %376 ], [ 6, %213 ], [ 6, %210 ], [ 6, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %466
 

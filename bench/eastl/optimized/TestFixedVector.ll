@@ -8656,7 +8656,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN5eastl6vectorI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE6DoGrowEm.exit
 
 _ZN5eastl6vectorI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE6DoGrowEm.exit: ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE10DoAllocateEm.exit.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i, %for.cond.for.end_crit_edge.i.i.i
-  %retval.sroa.0.0.lcssa.i.i.i11.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.cond.for.end_crit_edge.i.i.i ], [ %incdec.ptr.i1.i.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i ], [ null, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE10DoAllocateEm.exit.i ]
+  %retval.sroa.0.0.lcssa.i.i.i11.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i ], [ %incdec.ptr.i1.i.i.i.i, %for.cond.for.end_crit_edge.i.i.i ], [ null, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE10DoAllocateEm.exit.i ]
   store ptr null, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr null, i64 %cond.i
   store ptr %add.ptr.i, ptr %mCapacityAllocator.i, align 8
@@ -10332,7 +10332,7 @@ delete.notnull.i.i.i.i.i614:                      ; preds = %ehcleanup
   br label %ehcleanup276
 
 ehcleanup276:                                     ; preds = %delete.notnull.i.i.i.i.i614, %ehcleanup, %lpad151, %lpad134
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %194, %lpad134 ], [ %196, %delete.notnull.i.i.i.i.i614 ], [ %195, %lpad151 ], [ %196, %ehcleanup ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %194, %lpad134 ], [ %195, %lpad151 ], [ %196, %ehcleanup ], [ %196, %delete.notnull.i.i.i.i.i614 ]
   %201 = load ptr, ptr %fv88, align 8
   %tobool.not.i.i.i616 = icmp eq ptr %201, null
   %202 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
@@ -14040,12 +14040,12 @@ lpad992:                                          ; preds = %invoke.cont986
   br label %ehcleanup996
 
 ehcleanup996:                                     ; preds = %lpad.i2482, %lpad992, %_ZN10TestObjectD2Ev.exit2620, %_ZN10TestObjectD2Ev.exit2612
-  %.pn62 = phi { ptr, i32 } [ %732, %lpad992 ], [ %722, %_ZN10TestObjectD2Ev.exit2612 ], [ %727, %_ZN10TestObjectD2Ev.exit2620 ], [ %700, %lpad.i2482 ]
+  %.pn62 = phi { ptr, i32 } [ %732, %lpad992 ], [ %727, %_ZN10TestObjectD2Ev.exit2620 ], [ %722, %_ZN10TestObjectD2Ev.exit2612 ], [ %700, %lpad.i2482 ]
   call fastcc void @_ZN5eastl12fixed_vectorI10TestObjectLm1ELb1EZ15TestFixedVectorvE7MyAllocED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fv1968) #16
   br label %eh.resume
 
 eh.resume:                                        ; preds = %delete.notnull.i.i.i.i.i2219, %lpad806, %delete.notnull.i.i.i.i.i1657, %lpad610, %delete.notnull.i.i.i.i.i1225, %lpad506, %delete.notnull.i.i.i.i.i632, %lpad287, %delete.notnull.i.i.i.i.i626, %ehcleanup283, %ehcleanup996, %ehcleanup967, %ehcleanup941, %lpad795, %lpad728, %lpad694, %lpad411, %lpad389, %_ZN10TestObjectD2Ev.exit640
-  %.pn67 = phi { ptr, i32 } [ %492, %lpad610 ], [ %lpad.phi2736, %lpad389 ], [ %205, %delete.notnull.i.i.i.i.i632 ], [ %lpad.phi2730, %lpad694 ], [ %lpad.phi2727, %lpad728 ], [ %.pn64, %ehcleanup941 ], [ %575, %delete.notnull.i.i.i.i.i2219 ], [ %.pn62, %ehcleanup996 ], [ %.pn60, %ehcleanup967 ], [ %lpad.phi2733, %lpad506 ], [ %574, %lpad795 ], [ %492, %delete.notnull.i.i.i.i.i1657 ], [ %lpad.phi2733, %delete.notnull.i.i.i.i.i1225 ], [ %575, %lpad806 ], [ %345, %lpad411 ], [ %208, %_ZN10TestObjectD2Ev.exit640 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i626 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup283 ], [ %205, %lpad287 ]
+  %.pn67 = phi { ptr, i32 } [ %lpad.phi2736, %lpad389 ], [ %lpad.phi2730, %lpad694 ], [ %lpad.phi2727, %lpad728 ], [ %.pn64, %ehcleanup941 ], [ %.pn62, %ehcleanup996 ], [ %.pn60, %ehcleanup967 ], [ %574, %lpad795 ], [ %345, %lpad411 ], [ %208, %_ZN10TestObjectD2Ev.exit640 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup283 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i626 ], [ %205, %lpad287 ], [ %205, %delete.notnull.i.i.i.i.i632 ], [ %lpad.phi2733, %lpad506 ], [ %lpad.phi2733, %delete.notnull.i.i.i.i.i1225 ], [ %492, %lpad610 ], [ %492, %delete.notnull.i.i.i.i.i1657 ], [ %575, %lpad806 ], [ %575, %delete.notnull.i.i.i.i.i2219 ]
   resume { ptr, i32 } %.pn67
 }
 

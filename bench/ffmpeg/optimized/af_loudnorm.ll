@@ -305,7 +305,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %13
 
 13:                                               ; preds = %8, %3, %11
-  %.0 = phi i32 [ %6, %3 ], [ %12, %11 ], [ 0, %8 ]
+  %.0 = phi i32 [ %12, %11 ], [ %6, %3 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -566,7 +566,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   br label %flush_frame.exit
 
 flush_frame.exit:                                 ; preds = %132, %74, %62, %14, %134, %.loopexit, %30, %136
-  %.1 = phi i32 [ 0, %14 ], [ %.041, %30 ], [ -1497649742, %134 ], [ 0, %136 ], [ %59, %.loopexit ], [ -12, %74 ], [ %133, %132 ], [ 0, %62 ]
+  %.1 = phi i32 [ 0, %136 ], [ 0, %14 ], [ %.041, %30 ], [ %59, %.loopexit ], [ -1497649742, %134 ], [ 0, %62 ], [ -12, %74 ], [ %133, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -745,7 +745,7 @@ init_gaussian_filter.exit:                        ; preds = %77
   br label %110
 
 110:                                              ; preds = %59, %44, %30, %13, %1, %init_gaussian_filter.exit
-  %.0 = phi i32 [ 0, %init_gaussian_filter.exit ], [ -12, %44 ], [ -12, %30 ], [ -12, %13 ], [ -12, %1 ], [ -12, %59 ]
+  %.0 = phi i32 [ 0, %init_gaussian_filter.exit ], [ -12, %1 ], [ -12, %13 ], [ -12, %30 ], [ -12, %44 ], [ -12, %59 ]
   ret i32 %.0
 }
 
@@ -1058,7 +1058,7 @@ thread-pre-split.thread577:                       ; preds = %.lr.ph, %54
   br label %140
 
 140:                                              ; preds = %136, %135, %129, %128
-  %.0289 = phi nsz double [ 0.000000e+00, %128 ], [ %134, %129 ], [ %139, %136 ], [ 0.000000e+00, %135 ]
+  %.0289 = phi nsz double [ %134, %129 ], [ 0.000000e+00, %128 ], [ %139, %136 ], [ 0.000000e+00, %135 ]
   %141 = fdiv nsz double %.0289, 2.000000e+01
   %142 = call nsz double @llvm.pow.f64(double 1.000000e+01, double %141)
   %143 = getelementptr inbounds nuw i8, ptr %13, i64 112
@@ -2177,7 +2177,7 @@ condstore.split:                                  ; preds = %80
   br label %163
 
 163:                                              ; preds = %161, %condstore.split, %.loopexit254, %128, %.split314.us, %50, %121, %117, %.loopexit, %160, %.loopexit256
-  %.8 = phi i32 [ %.0199, %50 ], [ %.0199, %128 ], [ %.us-phi317, %.split314.us ], [ %.7, %.loopexit256 ], [ %.2201, %117 ], [ %.2201, %.loopexit ], [ %.0199, %121 ], [ %.4203.lcssa, %.loopexit254 ], [ %.7441, %160 ], [ %85, %condstore.split ], [ %85, %161 ]
+  %.8 = phi i32 [ %.0199, %50 ], [ %.2201, %117 ], [ %.2201, %.loopexit ], [ %.0199, %121 ], [ %.7441, %160 ], [ %.7, %.loopexit256 ], [ %.0199, %128 ], [ %.us-phi317, %.split314.us ], [ %.4203.lcssa, %.loopexit254 ], [ %85, %condstore.split ], [ %85, %161 ]
   %164 = icmp slt i32 %.8, %2
   br i1 %164, label %50, label %.preheader249, !llvm.loop !119
 

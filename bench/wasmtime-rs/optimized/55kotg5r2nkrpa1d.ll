@@ -468,7 +468,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
           to label %100 unwind label %69
 
 .thread:                                          ; preds = %59, %42, %100
-  %.pn5359 = phi { ptr, i32 } [ %.pn53, %100 ], [ %60, %59 ], [ %lpad.thr_comm.split-lp, %42 ]
+  %.pn5359 = phi { ptr, i32 } [ %.pn53, %100 ], [ %lpad.thr_comm.split-lp, %42 ], [ %60, %59 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$std..path..PathBuf$C$alloc..string..String$RP$$GT$$GT$17h4d36bd23dca79c0bE"(ptr align 8 %1) #12
           to label %101 unwind label %69
 
@@ -1304,10 +1304,10 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i: ; pr
   br label %334
 
 334:                                              ; preds = %343, %339, %.sink.split.i, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i
-  %.pre.i = phi i64 [ %328, %343 ], [ %328, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %328, %339 ], [ %.pre.i.pre, %.sink.split.i ]
-  %335 = phi i1 [ true, %343 ], [ true, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ true, %339 ], [ %.ph.i, %.sink.split.i ]
-  %336 = phi i1 [ false, %343 ], [ false, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ false, %339 ], [ %.ph562.i, %.sink.split.i ]
-  %.0133.i = phi i32 [ 10, %343 ], [ 10, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ 10, %339 ], [ %.0133.ph.i, %.sink.split.i ]
+  %.pre.i = phi i64 [ %328, %343 ], [ %328, %339 ], [ %328, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.pre.i.pre, %.sink.split.i ]
+  %335 = phi i1 [ true, %343 ], [ true, %339 ], [ true, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.ph.i, %.sink.split.i ]
+  %336 = phi i1 [ false, %343 ], [ false, %339 ], [ false, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.ph562.i, %.sink.split.i ]
+  %.0133.i = phi i32 [ 10, %343 ], [ 10, %339 ], [ 10, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.0133.ph.i, %.sink.split.i ]
   store i64 0, ptr %17, align 8, !noalias !7
   %337 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %337, align 8, !noalias !7
@@ -1392,9 +1392,9 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit191.i: ; pr
   br i1 %.0131.i, label %372, label %357
 
 .invoke.i:                                        ; preds = %468, %.noexc188.i, %428, %387, %378, %360
-  %369 = phi i64 [ %430, %428 ], [ %362, %360 ], [ %380, %378 ], [ %389, %387 ], [ %442, %.noexc188.i ], [ %470, %468 ]
-  %370 = phi i64 [ %429, %428 ], [ %361, %360 ], [ %379, %378 ], [ %388, %387 ], [ %441, %.noexc188.i ], [ %469, %468 ]
-  %371 = phi ptr [ @anon.b95dc7aa883b92930dc6d4a070cf2145.28, %428 ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.22, %360 ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.23, %378 ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.24, %387 ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.11, %.noexc188.i ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.29, %468 ]
+  %369 = phi i64 [ %362, %360 ], [ %380, %378 ], [ %389, %387 ], [ %430, %428 ], [ %442, %.noexc188.i ], [ %470, %468 ]
+  %370 = phi i64 [ %361, %360 ], [ %379, %378 ], [ %388, %387 ], [ %429, %428 ], [ %441, %.noexc188.i ], [ %469, %468 ]
+  %371 = phi ptr [ @anon.b95dc7aa883b92930dc6d4a070cf2145.22, %360 ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.23, %378 ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.24, %387 ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.28, %428 ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.11, %.noexc188.i ], [ @anon.b95dc7aa883b92930dc6d4a070cf2145.29, %468 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %369, i64 %370, ptr nonnull align 8 %371) #11
           to label %.cont.i unwind label %.loopexit.split-lp.i, !noalias !7
 
@@ -1781,15 +1781,15 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit193.i: ; pr
   %534 = icmp ult i64 %519, %533
   br i1 %534, label %.lr.ph319.i, label %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i
 
-535:                                              ; preds = %248, %254, %261, %224, %231, %194, %201, %188, %._crit_edge.i, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i, %.critedge174.i, %218
-  %.sroa.12.sroa.9.0.ph = phi i64 [ %155, %248 ], [ %155, %254 ], [ %155, %261 ], [ %155, %224 ], [ %155, %231 ], [ %155, %194 ], [ %155, %201 ], [ %155, %188 ], [ undef, %._crit_edge.i ], [ %272, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.12.sroa.9.0.extract.trunc49, %.critedge174.i ], [ %155, %218 ]
-  %.sroa.12.sroa.0.0.ph = phi i64 [ %145, %248 ], [ %145, %254 ], [ %145, %261 ], [ %145, %224 ], [ %145, %231 ], [ %145, %194 ], [ %145, %201 ], [ %145, %188 ], [ undef, %._crit_edge.i ], [ %265, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.12.sroa.0.0.extract.trunc41, %.critedge174.i ], [ %145, %218 ]
-  %.sroa.39.sroa.6.0.ph = phi i64 [ undef, %248 ], [ undef, %254 ], [ undef, %261 ], [ undef, %224 ], [ undef, %231 ], [ undef, %194 ], [ undef, %201 ], [ undef, %188 ], [ undef, %._crit_edge.i ], [ %487, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.375.0.i.off64, %.critedge174.i ], [ undef, %218 ]
-  %.sroa.39.sroa.0.0.ph = phi i64 [ undef, %248 ], [ undef, %254 ], [ undef, %261 ], [ undef, %224 ], [ undef, %231 ], [ undef, %194 ], [ undef, %201 ], [ undef, %188 ], [ undef, %._crit_edge.i ], [ %492, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.375.0.i.off0, %.critedge174.i ], [ undef, %218 ]
-  %.sroa.38.0.ph = phi i64 [ undef, %248 ], [ undef, %254 ], [ undef, %261 ], [ undef, %224 ], [ undef, %231 ], [ undef, %194 ], [ undef, %201 ], [ undef, %188 ], [ undef, %._crit_edge.i ], [ %489, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ undef, %.critedge174.i ], [ undef, %218 ]
-  %.sroa.32.0.ph = phi i64 [ 4, %248 ], [ 4, %254 ], [ 4, %261 ], [ 1, %224 ], [ 1, %231 ], [ 0, %194 ], [ 0, %201 ], [ 0, %188 ], [ 5, %._crit_edge.i ], [ 2, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ 3, %.critedge174.i ], [ 1, %218 ]
-  %.sroa.28.0.ph = phi i64 [ %159, %248 ], [ %159, %254 ], [ %159, %261 ], [ %159, %224 ], [ %159, %231 ], [ %159, %194 ], [ %159, %201 ], [ %159, %188 ], [ undef, %._crit_edge.i ], [ %274, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.28.16.copyload19, %.critedge174.i ], [ %159, %218 ]
-  %.sroa.23.0.ph = phi i64 [ %157, %248 ], [ %157, %254 ], [ %157, %261 ], [ %157, %224 ], [ %157, %231 ], [ %157, %194 ], [ %157, %201 ], [ %157, %188 ], [ undef, %._crit_edge.i ], [ %273, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.23.16.copyload15, %.critedge174.i ], [ %157, %218 ]
+535:                                              ; preds = %248, %254, %261, %218, %224, %231, %188, %194, %201, %._crit_edge.i, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i, %.critedge174.i
+  %.sroa.12.sroa.9.0.ph = phi i64 [ %155, %248 ], [ %155, %254 ], [ %155, %261 ], [ %155, %218 ], [ %155, %224 ], [ %155, %231 ], [ %155, %188 ], [ %155, %194 ], [ %155, %201 ], [ undef, %._crit_edge.i ], [ %272, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.12.sroa.9.0.extract.trunc49, %.critedge174.i ]
+  %.sroa.12.sroa.0.0.ph = phi i64 [ %145, %248 ], [ %145, %254 ], [ %145, %261 ], [ %145, %218 ], [ %145, %224 ], [ %145, %231 ], [ %145, %188 ], [ %145, %194 ], [ %145, %201 ], [ undef, %._crit_edge.i ], [ %265, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.12.sroa.0.0.extract.trunc41, %.critedge174.i ]
+  %.sroa.39.sroa.6.0.ph = phi i64 [ undef, %248 ], [ undef, %254 ], [ undef, %261 ], [ undef, %218 ], [ undef, %224 ], [ undef, %231 ], [ undef, %188 ], [ undef, %194 ], [ undef, %201 ], [ undef, %._crit_edge.i ], [ %487, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.375.0.i.off64, %.critedge174.i ]
+  %.sroa.39.sroa.0.0.ph = phi i64 [ undef, %248 ], [ undef, %254 ], [ undef, %261 ], [ undef, %218 ], [ undef, %224 ], [ undef, %231 ], [ undef, %188 ], [ undef, %194 ], [ undef, %201 ], [ undef, %._crit_edge.i ], [ %492, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.375.0.i.off0, %.critedge174.i ]
+  %.sroa.38.0.ph = phi i64 [ undef, %248 ], [ undef, %254 ], [ undef, %261 ], [ undef, %218 ], [ undef, %224 ], [ undef, %231 ], [ undef, %188 ], [ undef, %194 ], [ undef, %201 ], [ undef, %._crit_edge.i ], [ %489, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ undef, %.critedge174.i ]
+  %.sroa.32.0.ph = phi i64 [ 4, %248 ], [ 4, %254 ], [ 4, %261 ], [ 1, %218 ], [ 1, %224 ], [ 1, %231 ], [ 0, %188 ], [ 0, %194 ], [ 0, %201 ], [ 5, %._crit_edge.i ], [ 2, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ 3, %.critedge174.i ]
+  %.sroa.28.0.ph = phi i64 [ %159, %248 ], [ %159, %254 ], [ %159, %261 ], [ %159, %218 ], [ %159, %224 ], [ %159, %231 ], [ %159, %188 ], [ %159, %194 ], [ %159, %201 ], [ undef, %._crit_edge.i ], [ %274, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.28.16.copyload19, %.critedge174.i ]
+  %.sroa.23.0.ph = phi i64 [ %157, %248 ], [ %157, %254 ], [ %157, %261 ], [ %157, %218 ], [ %157, %224 ], [ %157, %231 ], [ %157, %188 ], [ %157, %194 ], [ %157, %201 ], [ undef, %._crit_edge.i ], [ %273, %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6fE.exit.i ], [ %.sroa.23.16.copyload15, %.critedge174.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1983,7 +1983,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN68_$LT$cranelift_isle..lexer..Pos$u20$as$u
   br i1 %13, label %.thread, label %14
 
 .thread:                                          ; preds = %16, %8, %2, %24, %22, %14, %6
-  %.0 = phi i8 [ %.011, %24 ], [ 1, %22 ], [ 1, %14 ], [ 1, %6 ], [ -1, %8 ], [ -1, %2 ], [ -1, %16 ]
+  %.0 = phi i8 [ %.011, %24 ], [ 1, %22 ], [ 1, %14 ], [ 1, %6 ], [ -1, %2 ], [ -1, %8 ], [ -1, %16 ]
   ret i8 %.0
 
 14:                                               ; preds = %8
@@ -2031,7 +2031,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN61_$LT$cranelift_isle..lexer..Pos$u20$as$u
   br i1 %13, label %.thread, label %14
 
 .thread:                                          ; preds = %16, %8, %2, %24, %30, %22, %14, %6
-  %.1 = phi i8 [ %.17, %30 ], [ 1, %6 ], [ -1, %24 ], [ 1, %22 ], [ 1, %14 ], [ -1, %8 ], [ -1, %2 ], [ -1, %16 ]
+  %.1 = phi i8 [ 1, %22 ], [ 1, %14 ], [ 1, %6 ], [ %.17, %30 ], [ -1, %24 ], [ -1, %2 ], [ -1, %8 ], [ -1, %16 ]
   ret i8 %.1
 
 14:                                               ; preds = %8
@@ -2123,7 +2123,7 @@ define hidden zeroext i1 @"_ZN69_$LT$cranelift_isle..lexer..Token$u20$as$u20$cor
   ]
 
 7:                                                ; preds = %6, %2, %12, %8
-  %.0.shrunk = phi i1 [ false, %2 ], [ %11, %8 ], [ %17, %12 ], [ true, %6 ]
+  %.0.shrunk = phi i1 [ %11, %8 ], [ %17, %12 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %6

@@ -540,7 +540,7 @@ lean_dec.exit30.thread:                           ; preds = %lean_dec.exit32
   br label %lean_dec.exit31.backedge
 
 lean_dec.exit31.backedge:                         ; preds = %46, %50, %56, %58, %59
-  %.024.be = phi ptr [ %53, %59 ], [ %53, %56 ], [ %53, %58 ], [ %51, %50 ], [ %49, %46 ]
+  %.024.be = phi ptr [ %53, %56 ], [ %53, %58 ], [ %53, %59 ], [ %51, %50 ], [ %49, %46 ]
   br label %lean_dec.exit31
 
 50:                                               ; preds = %.thread71
@@ -567,7 +567,7 @@ lean_dec.exit31.backedge:                         ; preds = %46, %50, %56, %58, 
   br label %lean_dec.exit31.backedge
 
 .loopexit:                                        ; preds = %lean_dec.exit30.thread, %lean_dec.exit32, %15, %14, %12, %43, %42, %40
-  %.1.ph = phi i8 [ 1, %40 ], [ 1, %42 ], [ 1, %43 ], [ 0, %12 ], [ 0, %14 ], [ 0, %15 ], [ 0, %lean_dec.exit32 ], [ 1, %lean_dec.exit30.thread ]
+  %.1.ph = phi i8 [ 1, %40 ], [ 1, %42 ], [ 1, %43 ], [ 0, %12 ], [ 0, %14 ], [ 0, %15 ], [ 1, %lean_dec.exit30.thread ], [ 0, %lean_dec.exit32 ]
   ret i8 %.1.ph
 }
 
@@ -758,7 +758,7 @@ lean_dec.exit20:                                  ; preds = %30, %36, %38, %39
   br label %.split
 
 .thread:                                          ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit.us, %29, %28, %26
-  %.01735 = phi ptr [ %.us-phi38, %26 ], [ %.us-phi38, %29 ], [ %.us-phi38, %28 ], [ %.017.us, %lean_nat_lt.exit.us ], [ %.017, %lean_nat_lt.exit.thread ]
+  %.01735 = phi ptr [ %.us-phi38, %29 ], [ %.us-phi38, %28 ], [ %.us-phi38, %26 ], [ %.017.us, %lean_nat_lt.exit.us ], [ %.017, %lean_nat_lt.exit.thread ]
   ret ptr %.01735
 }
 
@@ -1651,7 +1651,7 @@ lean_alloc_ctor.exit140:                          ; preds = %lean_alloc_ctor.exi
   br label %220
 
 220:                                              ; preds = %lean_dec.exit94, %lean_alloc_ctor.exit125, %26, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit140, %lean_alloc_ctor.exit132, %lean_dec.exit96, %10
-  %.0 = phi ptr [ %214, %lean_alloc_ctor.exit140 ], [ %11, %10 ], [ %.1, %lean_dec.exit96 ], [ %166, %lean_alloc_ctor.exit132 ], [ %49, %lean_alloc_ctor.exit ], [ %0, %26 ], [ %0, %lean_dec.exit94 ], [ %117, %lean_alloc_ctor.exit125 ]
+  %.0 = phi ptr [ %214, %lean_alloc_ctor.exit140 ], [ %11, %10 ], [ %.1, %lean_dec.exit96 ], [ %166, %lean_alloc_ctor.exit132 ], [ %0, %26 ], [ %49, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit94 ], [ %117, %lean_alloc_ctor.exit125 ]
   ret ptr %.0
 }
 
@@ -3332,8 +3332,8 @@ l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit1200: ; preds
   br i1 %.not1620, label %369, label %lean_dec.exit859.backedge
 
 lean_dec.exit859.backedge:                        ; preds = %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit1200, %372, %374, %375, %lean_dec.exit847, %343, %345, %346, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit, %288, %290, %291, %lean_dec.exit853, %259, %261, %262, %l_Lean_Json_renderString.exit, %215, %217, %218, %lean_dec.exit860, %161, %163, %164, %lean_alloc_ctor.exit1436, %lean_alloc_ctor.exit1381, %lean_alloc_ctor.exit1369, %lean_alloc_ctor.exit1404, %lean_alloc_ctor.exit1392, %lean_alloc_ctor.exit1424, %lean_alloc_ctor.exit1415, %lean_alloc_ctor.exit1351, %lean_alloc_ctor.exit1479, %lean_alloc_ctor.exit1495, %lean_alloc_ctor.exit1517, %lean_alloc_ctor.exit1530, %lean_alloc_ctor.exit1456, %lean_alloc_ctor.exit1232, %lean_alloc_ctor.exit1227, %lean_alloc_ctor.exit1241, %lean_alloc_ctor.exit1236, %lean_dec.exit830, %lean_alloc_ctor.exit1245, %765, %lean_alloc_ctor.exit1264, %lean_alloc_ctor.exit1259, %lean_alloc_ctor.exit1211, %lean_alloc_ctor.exit1216, %lean_alloc_ctor.exit1296, %lean_alloc_ctor.exit1305, %lean_alloc_ctor.exit1323, %lean_alloc_ctor.exit1332, %lean_alloc_ctor.exit1280, %lean_dec.exit865, %lean_dec.exit841, %lean_dec.exit862, %lean_dec.exit863, %lean_dec.exit, %lean_dec.exit785, %lean_dec.exit821
-  %.0750.be = phi ptr [ %2250, %lean_dec.exit ], [ %2230, %lean_dec.exit785 ], [ %331, %lean_dec.exit847 ], [ %1188, %lean_dec.exit821 ], [ %1119, %lean_alloc_ctor.exit1323 ], [ %423, %lean_dec.exit841 ], [ %55, %lean_dec.exit865 ], [ %84, %lean_dec.exit862 ], [ %2149, %lean_alloc_ctor.exit1517 ], [ %121, %lean_dec.exit860 ], [ %84, %lean_dec.exit863 ], [ %.0750, %lean_dec.exit853 ], [ %167, %l_Lean_Json_renderString.exit ], [ %276, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit ], [ %810, %lean_alloc_ctor.exit1264 ], [ %483, %lean_alloc_ctor.exit1216 ], [ %454, %lean_alloc_ctor.exit1211 ], [ %.0750, %765 ], [ %646, %lean_alloc_ctor.exit1241 ], [ %571, %lean_alloc_ctor.exit1232 ], [ %536, %lean_alloc_ctor.exit1227 ], [ %611, %lean_alloc_ctor.exit1236 ], [ %.0750, %lean_dec.exit830 ], [ %.0750, %lean_alloc_ctor.exit1245 ], [ %781, %lean_alloc_ctor.exit1259 ], [ %887, %lean_alloc_ctor.exit1280 ], [ %1180, %lean_alloc_ctor.exit1332 ], [ %961, %lean_alloc_ctor.exit1296 ], [ %1023, %lean_alloc_ctor.exit1305 ], [ %.0750, %lean_alloc_ctor.exit1415 ], [ %1284, %lean_alloc_ctor.exit1351 ], [ %1754, %lean_alloc_ctor.exit1436 ], [ %1571, %lean_alloc_ctor.exit1404 ], [ %1434, %lean_alloc_ctor.exit1381 ], [ %1368, %lean_alloc_ctor.exit1369 ], [ %1505, %lean_alloc_ctor.exit1392 ], [ %.0750, %lean_alloc_ctor.exit1424 ], [ %1843, %lean_alloc_ctor.exit1456 ], [ %2222, %lean_alloc_ctor.exit1530 ], [ %1948, %lean_alloc_ctor.exit1479 ], [ %2041, %lean_alloc_ctor.exit1495 ], [ %121, %164 ], [ %121, %163 ], [ %121, %161 ], [ %167, %218 ], [ %167, %217 ], [ %167, %215 ], [ %.0750, %262 ], [ %.0750, %261 ], [ %.0750, %259 ], [ %276, %291 ], [ %276, %290 ], [ %276, %288 ], [ %331, %346 ], [ %331, %345 ], [ %331, %343 ], [ %360, %375 ], [ %360, %374 ], [ %360, %372 ], [ %360, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit1200 ]
-  %.0.be = phi ptr [ %2267, %lean_dec.exit ], [ %2247, %lean_dec.exit785 ], [ %328, %lean_dec.exit847 ], [ %1205, %lean_dec.exit821 ], [ %.0, %lean_alloc_ctor.exit1323 ], [ %412, %lean_dec.exit841 ], [ %72, %lean_dec.exit865 ], [ %118, %lean_dec.exit862 ], [ %2133, %lean_alloc_ctor.exit1517 ], [ %155, %lean_dec.exit860 ], [ %102, %lean_dec.exit863 ], [ %250, %lean_dec.exit853 ], [ %211, %l_Lean_Json_renderString.exit ], [ %250, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit ], [ %.0, %lean_alloc_ctor.exit1264 ], [ %.0, %lean_alloc_ctor.exit1216 ], [ %.0, %lean_alloc_ctor.exit1211 ], [ %.0, %765 ], [ %.0, %lean_alloc_ctor.exit1241 ], [ %.0, %lean_alloc_ctor.exit1232 ], [ %.0, %lean_alloc_ctor.exit1227 ], [ %.0, %lean_alloc_ctor.exit1236 ], [ %.0, %lean_dec.exit830 ], [ %.0, %lean_alloc_ctor.exit1245 ], [ %.0, %lean_alloc_ctor.exit1259 ], [ %.0, %lean_alloc_ctor.exit1280 ], [ %.0, %lean_alloc_ctor.exit1332 ], [ %.0, %lean_alloc_ctor.exit1296 ], [ %.0, %lean_alloc_ctor.exit1305 ], [ %1637, %lean_alloc_ctor.exit1415 ], [ %1278, %lean_alloc_ctor.exit1351 ], [ %1748, %lean_alloc_ctor.exit1436 ], [ %1565, %lean_alloc_ctor.exit1404 ], [ %1428, %lean_alloc_ctor.exit1381 ], [ %1367, %lean_alloc_ctor.exit1369 ], [ %1501, %lean_alloc_ctor.exit1392 ], [ %1681, %lean_alloc_ctor.exit1424 ], [ %1831, %lean_alloc_ctor.exit1456 ], [ %2210, %lean_alloc_ctor.exit1530 ], [ %1932, %lean_alloc_ctor.exit1479 ], [ %2021, %lean_alloc_ctor.exit1495 ], [ %155, %164 ], [ %155, %163 ], [ %155, %161 ], [ %211, %218 ], [ %211, %217 ], [ %211, %215 ], [ %250, %262 ], [ %250, %261 ], [ %250, %259 ], [ %250, %291 ], [ %250, %290 ], [ %250, %288 ], [ %328, %346 ], [ %328, %345 ], [ %328, %343 ], [ %328, %375 ], [ %328, %374 ], [ %328, %372 ], [ %328, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit1200 ]
+  %.0750.be = phi ptr [ %2250, %lean_dec.exit ], [ %1188, %lean_dec.exit821 ], [ %2230, %lean_dec.exit785 ], [ %423, %lean_dec.exit841 ], [ %55, %lean_dec.exit865 ], [ %84, %lean_dec.exit863 ], [ %84, %lean_dec.exit862 ], [ %454, %lean_alloc_ctor.exit1211 ], [ %483, %lean_alloc_ctor.exit1216 ], [ %536, %lean_alloc_ctor.exit1227 ], [ %571, %lean_alloc_ctor.exit1232 ], [ %611, %lean_alloc_ctor.exit1236 ], [ %646, %lean_alloc_ctor.exit1241 ], [ %.0750, %lean_dec.exit830 ], [ %.0750, %lean_alloc_ctor.exit1245 ], [ %.0750, %765 ], [ %781, %lean_alloc_ctor.exit1259 ], [ %810, %lean_alloc_ctor.exit1264 ], [ %887, %lean_alloc_ctor.exit1280 ], [ %1180, %lean_alloc_ctor.exit1332 ], [ %961, %lean_alloc_ctor.exit1296 ], [ %1023, %lean_alloc_ctor.exit1305 ], [ %1119, %lean_alloc_ctor.exit1323 ], [ %1284, %lean_alloc_ctor.exit1351 ], [ %1754, %lean_alloc_ctor.exit1436 ], [ %1368, %lean_alloc_ctor.exit1369 ], [ %1434, %lean_alloc_ctor.exit1381 ], [ %1505, %lean_alloc_ctor.exit1392 ], [ %1571, %lean_alloc_ctor.exit1404 ], [ %.0750, %lean_alloc_ctor.exit1424 ], [ %.0750, %lean_alloc_ctor.exit1415 ], [ %1843, %lean_alloc_ctor.exit1456 ], [ %2222, %lean_alloc_ctor.exit1530 ], [ %1948, %lean_alloc_ctor.exit1479 ], [ %2041, %lean_alloc_ctor.exit1495 ], [ %2149, %lean_alloc_ctor.exit1517 ], [ %121, %164 ], [ %121, %163 ], [ %121, %161 ], [ %121, %lean_dec.exit860 ], [ %167, %218 ], [ %167, %217 ], [ %167, %215 ], [ %167, %l_Lean_Json_renderString.exit ], [ %.0750, %262 ], [ %.0750, %261 ], [ %.0750, %259 ], [ %.0750, %lean_dec.exit853 ], [ %276, %291 ], [ %276, %290 ], [ %276, %288 ], [ %276, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit ], [ %331, %346 ], [ %331, %345 ], [ %331, %343 ], [ %331, %lean_dec.exit847 ], [ %360, %375 ], [ %360, %374 ], [ %360, %372 ], [ %360, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit1200 ]
+  %.0.be = phi ptr [ %2267, %lean_dec.exit ], [ %1205, %lean_dec.exit821 ], [ %2247, %lean_dec.exit785 ], [ %412, %lean_dec.exit841 ], [ %72, %lean_dec.exit865 ], [ %102, %lean_dec.exit863 ], [ %118, %lean_dec.exit862 ], [ %.0, %lean_alloc_ctor.exit1211 ], [ %.0, %lean_alloc_ctor.exit1216 ], [ %.0, %lean_alloc_ctor.exit1227 ], [ %.0, %lean_alloc_ctor.exit1232 ], [ %.0, %lean_alloc_ctor.exit1236 ], [ %.0, %lean_alloc_ctor.exit1241 ], [ %.0, %lean_dec.exit830 ], [ %.0, %lean_alloc_ctor.exit1245 ], [ %.0, %765 ], [ %.0, %lean_alloc_ctor.exit1259 ], [ %.0, %lean_alloc_ctor.exit1264 ], [ %.0, %lean_alloc_ctor.exit1280 ], [ %.0, %lean_alloc_ctor.exit1332 ], [ %.0, %lean_alloc_ctor.exit1296 ], [ %.0, %lean_alloc_ctor.exit1305 ], [ %.0, %lean_alloc_ctor.exit1323 ], [ %1278, %lean_alloc_ctor.exit1351 ], [ %1748, %lean_alloc_ctor.exit1436 ], [ %1367, %lean_alloc_ctor.exit1369 ], [ %1428, %lean_alloc_ctor.exit1381 ], [ %1501, %lean_alloc_ctor.exit1392 ], [ %1565, %lean_alloc_ctor.exit1404 ], [ %1681, %lean_alloc_ctor.exit1424 ], [ %1637, %lean_alloc_ctor.exit1415 ], [ %1831, %lean_alloc_ctor.exit1456 ], [ %2210, %lean_alloc_ctor.exit1530 ], [ %1932, %lean_alloc_ctor.exit1479 ], [ %2021, %lean_alloc_ctor.exit1495 ], [ %2133, %lean_alloc_ctor.exit1517 ], [ %155, %164 ], [ %155, %163 ], [ %155, %161 ], [ %155, %lean_dec.exit860 ], [ %211, %218 ], [ %211, %217 ], [ %211, %215 ], [ %211, %l_Lean_Json_renderString.exit ], [ %250, %262 ], [ %250, %261 ], [ %250, %259 ], [ %250, %lean_dec.exit853 ], [ %250, %291 ], [ %250, %290 ], [ %250, %288 ], [ %250, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit ], [ %328, %346 ], [ %328, %345 ], [ %328, %343 ], [ %328, %lean_dec.exit847 ], [ %328, %375 ], [ %328, %374 ], [ %328, %372 ], [ %328, %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit1200 ]
   br label %lean_dec.exit859
 
 369:                                              ; preds = %l_Array_foldrMUnsafe_fold___at_Lean_Json_compress_go___spec__2.exit1200
@@ -14014,7 +14014,7 @@ _init_l_Lean_Json_render___closed__9.exit:        ; preds = %_init_l_Lean_Json_r
   br label %_init_l_Lean_Json_render___closed__12.exit
 
 _init_l_Lean_Json_render___closed__12.exit:       ; preds = %_init_l_Lean_Json_render___closed__9.exit, %1893
-  %.1.i.i = phi ptr [ %1889, %_init_l_Lean_Json_render___closed__9.exit ], [ %1895, %1893 ]
+  %.1.i.i = phi ptr [ %1895, %1893 ], [ %1889, %_init_l_Lean_Json_render___closed__9.exit ]
   store ptr %.1.i.i, ptr @l_Lean_Json_render___closed__12, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #3
   %1896 = load ptr, ptr @l_Lean_Json_render___closed__10, align 8, !tbaa !4
@@ -14081,7 +14081,7 @@ _init_l_Lean_Json_render___closed__15.exit:       ; preds = %_init_l_Lean_Json_r
   br label %_init_l_Lean_Json_render___closed__18.exit
 
 _init_l_Lean_Json_render___closed__18.exit:       ; preds = %_init_l_Lean_Json_render___closed__15.exit, %1919
-  %.1.i.i23 = phi ptr [ %1915, %_init_l_Lean_Json_render___closed__15.exit ], [ %1921, %1919 ]
+  %.1.i.i23 = phi ptr [ %1921, %1919 ], [ %1915, %_init_l_Lean_Json_render___closed__15.exit ]
   store ptr %.1.i.i23, ptr @l_Lean_Json_render___closed__18, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i23) #3
   %1922 = load ptr, ptr @l_Lean_Json_render___closed__16, align 8, !tbaa !4
@@ -14187,7 +14187,7 @@ _init_l_Lean_Json_instToFormat___closed__1.exit:  ; preds = %_init_l_Lean_Json_c
   br label %1955
 
 1955:                                             ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit15, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink303, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %.sink303, %.sink.split ]
   ret ptr %.0
 }
 

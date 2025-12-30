@@ -389,7 +389,7 @@ define internal i32 @dissect_ocfs2(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %13
 
 13:                                               ; preds = %6, %4, %11
-  %.0 = phi i32 [ 0, %4 ], [ %12, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ %12, %11 ], [ 0, %4 ], [ 0, %6 ]
   ret i32 %.0
 }
 

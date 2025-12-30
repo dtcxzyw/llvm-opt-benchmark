@@ -361,7 +361,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5G__create_api_
   br label %.thread
 
 .thread:                                          ; preds = %19, %25, %43, %54, %64, %32, %68, %81, %73, %7
-  %.0 = phi i64 [ -1, %81 ], [ -1, %73 ], [ -1, %32 ], [ -1, %7 ], [ -1, %19 ], [ -1, %25 ], [ -1, %43 ], [ -1, %54 ], [ %71, %68 ], [ -1, %64 ]
+  %.0 = phi i64 [ -1, %81 ], [ -1, %73 ], [ -1, %7 ], [ -1, %19 ], [ -1, %25 ], [ -1, %43 ], [ -1, %54 ], [ %71, %68 ], [ -1, %64 ], [ -1, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0
@@ -885,7 +885,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5G__open_api_co
   br label %.thread
 
 .thread:                                          ; preds = %17, %23, %40, %30, %44, %57, %49, %5
-  %.0 = phi i64 [ -1, %57 ], [ -1, %49 ], [ -1, %30 ], [ -1, %5 ], [ -1, %17 ], [ -1, %23 ], [ %47, %44 ], [ -1, %40 ]
+  %.0 = phi i64 [ -1, %57 ], [ -1, %49 ], [ -1, %5 ], [ -1, %17 ], [ -1, %23 ], [ %47, %44 ], [ -1, %40 ], [ -1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
@@ -2171,8 +2171,8 @@ define range(i32 -1, 1) i32 @H5Gclose_async(ptr noundef %0, ptr noundef %1, i32 
   br label %76
 
 76:                                               ; preds = %65, %67, %72, %61
-  %.027 = phi i32 [ 0, %65 ], [ -1, %61 ], [ -1, %72 ], [ 0, %67 ]
-  %.0 = phi i1 [ false, %65 ], [ true, %61 ], [ true, %72 ], [ false, %67 ]
+  %.027 = phi i32 [ -1, %61 ], [ -1, %72 ], [ 0, %67 ], [ 0, %65 ]
+  %.0 = phi i1 [ true, %61 ], [ true, %72 ], [ false, %67 ], [ false, %65 ]
   %.not36 = icmp eq ptr %.131, null
   br i1 %.not36, label %85, label %77
 
@@ -2197,7 +2197,7 @@ define range(i32 -1, 1) i32 @H5Gclose_async(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.0, label %.thread55, label %88, !prof !29
 
 .thread55:                                        ; preds = %36, %29, %16, %.thread64, %.thread61, %85
-  %.1284859 = phi i32 [ -1, %.thread64 ], [ %.027, %85 ], [ -1, %.thread61 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
+  %.1284859 = phi i32 [ %.027, %85 ], [ -1, %.thread61 ], [ -1, %.thread64 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
   %87 = call i32 @H5E_dump_api_stack() #4
   br label %88
 

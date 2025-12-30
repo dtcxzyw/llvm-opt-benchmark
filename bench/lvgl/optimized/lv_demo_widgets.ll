@@ -1833,7 +1833,7 @@ define internal void @slider_event_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
-.critedge:                                        ; preds = %14, %17, %11, %1, %19, %24, %94
+.critedge:                                        ; preds = %17, %14, %11, %1, %19, %24, %94
   ret void
 }
 

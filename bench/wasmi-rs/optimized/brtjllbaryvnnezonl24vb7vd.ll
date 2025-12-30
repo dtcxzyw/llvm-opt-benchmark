@@ -349,7 +349,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   br label %"_ZN4core3fmt8builders11DebugStruct10field_with28_$u7b$$u7b$closure$u7d$$u7d$17h01867270167e11a8E.exit"
 
 "_ZN4core3fmt8builders11DebugStruct10field_with28_$u7b$$u7b$closure$u7d$$u7d$17h01867270167e11a8E.exit": ; preds = %20, %23, %25, %27, %30, %38, %40
-  %.sroa.0.1.shrunk.i = phi i1 [ true, %20 ], [ %29, %27 ], [ true, %40 ], [ %39, %38 ], [ true, %25 ], [ true, %23 ], [ true, %30 ]
+  %.sroa.0.1.shrunk.i = phi i1 [ %29, %27 ], [ true, %40 ], [ %39, %38 ], [ true, %25 ], [ true, %23 ], [ true, %20 ], [ true, %30 ]
   %41 = zext i1 %.sroa.0.1.shrunk.i to i8
   br label %42
 
@@ -1365,7 +1365,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h07fb4841cee025b6E(pt
   br i1 %exitcond42.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17ha7e9d1747c1a3977E.exit.i, label %.lr.ph34.i
 
 _ZN4core5slice4sort6shared17find_existing_run17ha7e9d1747c1a3977E.exit.i: ; preds = %55, %.lr.ph34.i, %46, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i64 [ %25, %46 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %25, %55 ]
+  %.sroa.0.0.i.i = phi i64 [ %25, %46 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %25, %55 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ]
   %57 = icmp ule i64 %.sroa.0.0.i.i, %25
   call void @llvm.assume(i1 %57)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -1390,7 +1390,7 @@ _ZN4core5slice4sort6shared17find_existing_run17ha7e9d1747c1a3977E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h735837d698f3100dE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h2eb526c1ba54f576E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i, %.preheader28.i, %58, %28
-  %.sroa.0.0.i2427.i = phi i64 [ %25, %28 ], [ %.sroa.0.0.i.i, %58 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i586568.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %58 ], [ %25, %28 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i586568.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i ]
   %65 = shl i64 %.sroa.0.0.i2427.i, 1
   %66 = or disjoint i64 %65, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h735837d698f3100dE.exit
@@ -2661,7 +2661,7 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine10translator6driver30FuncTra
   br label %83
 
 54:                                               ; preds = %.noexc32, %.noexc30
-  %.sroa.0.1.i = phi ptr [ %50, %.noexc32 ], [ %39, %.noexc30 ]
+  %.sroa.0.1.i = phi ptr [ %39, %.noexc30 ], [ %50, %.noexc32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !266
   br label %84
 
@@ -2792,7 +2792,7 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine10translator6driver30FuncTra
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %78, %46, %3, %32, %37, %.loopexit63, %59, %71, %73
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %3, %32, %37, %46, %.loopexit63, %59, %71, %73, %78
   %lpad.loopexit.split-lp61 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2943,7 +2943,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %53
 
 .critedge:                                        ; preds = %35, %32, %18
-  %.sink = phi ptr [ %26, %32 ], [ %20, %18 ], [ %37, %35 ]
+  %.sink = phi ptr [ %20, %18 ], [ %26, %32 ], [ %37, %35 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %57, align 8
   store i64 2, ptr %0, align 8
@@ -2951,7 +2951,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %53
 
 .body.thread:                                     ; preds = %46, %58
-  %eh.lpad-body49 = phi { ptr, i32 } [ %47, %46 ], [ %lpad.thr_comm, %58 ]
+  %eh.lpad-body49 = phi { ptr, i32 } [ %lpad.thr_comm, %58 ], [ %47, %46 ]
   resume { ptr, i32 } %eh.lpad-body49
 
 58:                                               ; preds = %33, %25, %4
@@ -3101,7 +3101,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %52
 
 .critedge:                                        ; preds = %34, %31, %17
-  %.sink = phi ptr [ %25, %31 ], [ %19, %17 ], [ %36, %34 ]
+  %.sink = phi ptr [ %19, %17 ], [ %25, %31 ], [ %36, %34 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %56, align 8
   store i64 2, ptr %0, align 8
@@ -3109,7 +3109,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %52
 
 .body.thread:                                     ; preds = %45, %57
-  %eh.lpad-body49 = phi { ptr, i32 } [ %46, %45 ], [ %lpad.thr_comm, %57 ]
+  %eh.lpad-body49 = phi { ptr, i32 } [ %lpad.thr_comm, %57 ], [ %46, %45 ]
   resume { ptr, i32 } %eh.lpad-body49
 
 57:                                               ; preds = %32, %24, %3
@@ -3259,7 +3259,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %52
 
 .critedge:                                        ; preds = %34, %31, %17
-  %.sink = phi ptr [ %25, %31 ], [ %19, %17 ], [ %36, %34 ]
+  %.sink = phi ptr [ %19, %17 ], [ %25, %31 ], [ %36, %34 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %56, align 8
   store i64 2, ptr %0, align 8
@@ -3267,7 +3267,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %52
 
 .body.thread:                                     ; preds = %45, %57
-  %eh.lpad-body49 = phi { ptr, i32 } [ %46, %45 ], [ %lpad.thr_comm, %57 ]
+  %eh.lpad-body49 = phi { ptr, i32 } [ %lpad.thr_comm, %57 ], [ %46, %45 ]
   resume { ptr, i32 } %eh.lpad-body49
 
 57:                                               ; preds = %32, %24, %3
@@ -3630,7 +3630,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %117
 
 .body.thread:                                     ; preds = %110, %.loopexit.split-lp
-  %eh.lpad-body65 = phi { ptr, i32 } [ %111, %110 ], [ %lpad.phi, %.loopexit.split-lp ]
+  %eh.lpad-body65 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %111, %110 ]
   resume { ptr, i32 } %eh.lpad-body65
 
 .loopexit:                                        ; preds = %.noexc57, %84
@@ -3638,12 +3638,12 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.noexc51, %49, %60
+.loopexit.split-lp.loopexit:                      ; preds = %49, %60, %.noexc51
   %lpad.loopexit78 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %98, %4, %35, %41, %._crit_edge.i, %56, %71, %76, %91, %93
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %4, %35, %41, %._crit_edge.i, %56, %71, %76, %91, %93, %98
   %lpad.loopexit.split-lp79 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3794,7 +3794,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %53
 
 .critedge:                                        ; preds = %35, %32, %18
-  %.sink = phi ptr [ %26, %32 ], [ %20, %18 ], [ %37, %35 ]
+  %.sink = phi ptr [ %20, %18 ], [ %26, %32 ], [ %37, %35 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %57, align 8
   store i64 2, ptr %0, align 8
@@ -3802,7 +3802,7 @@ define hidden void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$
   br label %53
 
 .body.thread:                                     ; preds = %46, %58
-  %eh.lpad-body49 = phi { ptr, i32 } [ %47, %46 ], [ %lpad.thr_comm, %58 ]
+  %eh.lpad-body49 = phi { ptr, i32 } [ %lpad.thr_comm, %58 ], [ %47, %46 ]
   resume { ptr, i32 } %eh.lpad-body49
 
 58:                                               ; preds = %33, %25, %4
@@ -3879,7 +3879,7 @@ define internal fastcc noundef align 8 ptr @"_ZN5wasmi6engine10translator6driver
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %._crit_edge, %12, %27
-  %.sroa.0.1 = phi ptr [ %30, %27 ], [ %14, %12 ], [ %26, %._crit_edge ], [ %33, %31 ]
+  %.sroa.0.1 = phi ptr [ %14, %12 ], [ %30, %27 ], [ %26, %._crit_edge ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.1
 
@@ -3971,7 +3971,7 @@ define internal fastcc noundef align 8 ptr @"_ZN5wasmi6engine10translator6driver
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %._crit_edge, %12, %27
-  %.sroa.0.1 = phi ptr [ %30, %27 ], [ %14, %12 ], [ %26, %._crit_edge ], [ %33, %31 ]
+  %.sroa.0.1 = phi ptr [ %14, %12 ], [ %30, %27 ], [ %26, %._crit_edge ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.1
 
@@ -4444,8 +4444,8 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack23preserve_locals_inpl
   br i1 %79, label %.loopexit.i, label %.outer.i
 
 .loopexit.i:                                      ; preds = %77, %.outer.i, %62
-  %.sroa.010.1.i = phi i16 [ %.sroa.010.0.ph.i, %62 ], [ %.sroa.010.0.ph.i, %.outer.i ], [ 1, %77 ]
-  %.sroa.412.1.i = phi i16 [ %.sroa.412.0.ph.i, %62 ], [ %.sroa.412.0.ph.i, %.outer.i ], [ %.sroa.412.2.i, %77 ]
+  %.sroa.010.1.i = phi i16 [ %.sroa.010.0.ph.i, %62 ], [ 1, %77 ], [ %.sroa.010.0.ph.i, %.outer.i ]
+  %.sroa.412.1.i = phi i16 [ %.sroa.412.0.ph.i, %62 ], [ %.sroa.412.2.i, %77 ], [ %.sroa.412.0.ph.i, %.outer.i ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.010.1.i, ptr %80, align 2, !alias.scope !378, !noalias !388
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4549,7 +4549,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator5stack8provider13
   br i1 %32, label %._crit_edge.i, label %.lr.ph.i
 
 33:                                               ; preds = %3, %107, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.i, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit ], [ %113, %107 ], [ null, %3 ]
+  %.sroa.0.0 = phi ptr [ %113, %107 ], [ %.sroa.0.1.i, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit ], [ null, %3 ]
   ret ptr %.sroa.0.0
 
 _ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c61659c48eaf188E.exit: ; preds = %17
@@ -5426,7 +5426,7 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack12push_dynamic17h6b8b3
   br label %_ZN5wasmi6engine10translator5stack8provider13ProviderStack10push_local17h2cd15fa77ab199fdE.exit
 
 _ZN5wasmi6engine10translator5stack8provider13ProviderStack10push_local17h2cd15fa77ab199fdE.exit: ; preds = %37, %26, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack16push_const_local17h6aa4b774e39d3252E.exit, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack14push_preserved17h793ae6416c582734E.exit, %53, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack12push_dynamic17h6b8b34bcc02e7414E.exit
-  %.sroa.0.0 = phi ptr [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack12push_dynamic17h6b8b34bcc02e7414E.exit ], [ %55, %53 ], [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack14push_preserved17h793ae6416c582734E.exit ], [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack16push_const_local17h6aa4b774e39d3252E.exit ], [ null, %26 ], [ null, %37 ]
+  %.sroa.0.0 = phi ptr [ %55, %53 ], [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack12push_dynamic17h6b8b34bcc02e7414E.exit ], [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack14push_preserved17h793ae6416c582734E.exit ], [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack16push_const_local17h6aa4b774e39d3252E.exit ], [ null, %26 ], [ null, %37 ]
   ret ptr %.sroa.0.0
 }
 
@@ -6927,7 +6927,7 @@ define noundef align 8 ptr @_ZN5wasmi6module6Module8validate17h2bee9a16215ed2ffE
   br label %57
 
 51:                                               ; preds = %.loopexit, %.loopexit.split-lp, %89, %70
-  %.pn97 = phi { ptr, i32 } [ %.pn, %89 ], [ %.pn, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn97 = phi { ptr, i32 } [ %.pn, %70 ], [ %.pn, %89 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$core..iter..sources..from_fn..FromFn$LT$wasmparser..parser..Parser..parse_all..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf6d9676d9c4299caE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15) #26
           to label %20 unwind label %87
 

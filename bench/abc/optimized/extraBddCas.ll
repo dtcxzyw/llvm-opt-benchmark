@@ -338,7 +338,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit97, %.outer._crit_edge.loopexit, %9
-  %.085.ph.lcssa = phi i32 [ %15, %.outer._crit_edge.loopexit ], [ 0, %9 ], [ %16, %.outer._crit_edge.loopexit97 ]
+  %.085.ph.lcssa = phi i32 [ 0, %9 ], [ %15, %.outer._crit_edge.loopexit ], [ %16, %.outer._crit_edge.loopexit97 ]
   call void @st__free_gen(ptr noundef %12) #11
   call void @st__free_table(ptr noundef %11) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1370,7 +1370,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge123, %36
-  %.082 = phi i32 [ %.085, %._crit_edge123 ], [ %40, %36 ], [ 0, %.lr.ph ]
+  %.082 = phi i32 [ %40, %36 ], [ %.085, %._crit_edge123 ], [ 0, %.lr.ph ]
   ret i32 %.082
 }
 
@@ -1382,7 +1382,7 @@ define internal fastcc i32 @Extra_CountMintermsSimple(ptr noundef %0, i32 nounde
   br i1 %.not, label %10, label %5
 
 common.ret25:                                     ; preds = %29, %13, %32, %5
-  %common.ret25.op = phi i32 [ %41, %32 ], [ %9, %5 ], [ %16, %13 ], [ %31, %29 ]
+  %common.ret25.op = phi i32 [ %9, %5 ], [ %41, %32 ], [ %16, %13 ], [ %31, %29 ]
   ret i32 %common.ret25.op
 
 5:                                                ; preds = %2

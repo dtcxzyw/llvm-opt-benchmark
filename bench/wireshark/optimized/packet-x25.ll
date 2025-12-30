@@ -1082,8 +1082,8 @@ get_x25_pkt_len.exit.thread507:                   ; preds = %116, %get_x25_pkt_l
   %132 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %131, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.465)
   br label %639
 
-get_x25_pkt_len.exit.thread:                      ; preds = %70, %67, %64, %61, %42, %39, %89, %108, %121, %118, %113, %124, %get_x25_pkt_len.exit
-  %.0.i506 = phi i32 [ %127, %get_x25_pkt_len.exit ], [ 3, %70 ], [ 4, %67 ], [ 5, %64 ], [ %.1.i, %61 ], [ 3, %42 ], [ %.075.i, %39 ], [ %.2.i, %89 ], [ %.3.i, %108 ], [ 3, %121 ], [ 3, %118 ], [ 3, %113 ], [ 3, %124 ]
+get_x25_pkt_len.exit.thread:                      ; preds = %124, %121, %118, %113, %108, %89, %70, %67, %64, %61, %42, %39, %get_x25_pkt_len.exit
+  %.0.i506 = phi i32 [ %127, %get_x25_pkt_len.exit ], [ 3, %124 ], [ 3, %121 ], [ 3, %118 ], [ 3, %113 ], [ %.3.i, %108 ], [ %.2.i, %89 ], [ 3, %70 ], [ 4, %67 ], [ 5, %64 ], [ %.1.i, %61 ], [ 3, %42 ], [ %.075.i, %39 ]
   %133 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %134 = zext i8 %133 to i32
   %135 = and i32 %134, 1
@@ -1937,7 +1937,7 @@ switch.lookup561:                                 ; preds = %165
   br label %552
 
 552:                                              ; preds = %521, %501, %545, %534, %322, %326, %281, %284, %229, %235, %219, %225, %216, %259, %261, %258, %258, %258, %258, %258, %.critedge, %265, %262, %459, %429, %405, %399, %383, %375, %352, %344, %336, %308
-  %.0440 = phi ptr [ null, %534 ], [ null, %545 ], [ %.1, %521 ], [ null, %501 ], [ null, %.critedge ], [ null, %216 ], [ null, %219 ], [ null, %225 ], [ null, %229 ], [ null, %235 ], [ null, %261 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %259 ], [ null, %459 ], [ null, %265 ], [ null, %262 ], [ null, %284 ], [ null, %281 ], [ null, %308 ], [ null, %326 ], [ null, %322 ], [ null, %336 ], [ null, %344 ], [ null, %352 ], [ null, %375 ], [ null, %383 ], [ null, %399 ], [ null, %405 ], [ null, %429 ]
+  %.0440 = phi ptr [ null, %534 ], [ null, %545 ], [ %.1, %521 ], [ null, %501 ], [ null, %.critedge ], [ null, %216 ], [ null, %219 ], [ null, %225 ], [ null, %229 ], [ null, %235 ], [ null, %261 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %259 ], [ null, %265 ], [ null, %262 ], [ null, %284 ], [ null, %281 ], [ null, %308 ], [ null, %326 ], [ null, %322 ], [ null, %336 ], [ null, %344 ], [ null, %352 ], [ null, %375 ], [ null, %383 ], [ null, %399 ], [ null, %405 ], [ null, %429 ], [ null, %459 ]
   %553 = load i32, ptr %7, align 4
   %554 = call i32 @tvb_reported_length(ptr noundef %0)
   %.not492 = icmp ult i32 %553, %554

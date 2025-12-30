@@ -940,14 +940,14 @@ _ZNK4ncnn3Mat5emptyEv.exit236.thread:             ; preds = %387, %441, %442, %_
   br label %_ZN4ncnn3MataSERKS0_.exit229
 
 _ZN4ncnn3MataSERKS0_.exit229:                     ; preds = %214, %_ZN4ncnn3Mat7releaseEv.exit240, %219, %_ZN4ncnn3Mat7releaseEv.exit243, %169, %_ZN4ncnn3Mat7releaseEv.exit246, %121, %_ZNK4ncnn3Mat5emptyEv.exit236.thread, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %_ZN4ncnn3MataSERKS0_.exit235
-  %.3 = phi i32 [ 0, %_ZN4ncnn3MataSERKS0_.exit235 ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.5, %_ZNK4ncnn3Mat5emptyEv.exit236.thread ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit243 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit240 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit246 ], [ 0, %121 ], [ 0, %169 ], [ 0, %219 ], [ 0, %214 ]
+  %.3 = phi i32 [ 0, %_ZN4ncnn3MataSERKS0_.exit235 ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.5, %_ZNK4ncnn3Mat5emptyEv.exit236.thread ], [ 0, %121 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit246 ], [ 0, %169 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit243 ], [ 0, %219 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit240 ], [ 0, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releaseEv.exit249, %34, %_ZN4ncnn3MataSERKS0_.exit229, %104, %.thread260, %26, %19
-  %.0 = phi i32 [ %20, %19 ], [ %27, %26 ], [ %29, %.thread260 ], [ %105, %104 ], [ %.3, %_ZN4ncnn3MataSERKS0_.exit229 ], [ 0, %34 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit249 ]
+  %.0 = phi i32 [ %20, %19 ], [ %27, %26 ], [ %29, %.thread260 ], [ %.3, %_ZN4ncnn3MataSERKS0_.exit229 ], [ %105, %104 ], [ 0, %34 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit249 ]
   ret i32 %.0
 }
 
@@ -1615,14 +1615,14 @@ _ZNK4ncnn3Mat5emptyEv.exit104.thread:             ; preds = %323, %337, %338, %_
   br label %_ZN4ncnn3MataSERKS0_.exit97
 
 _ZN4ncnn3MataSERKS0_.exit97:                      ; preds = %190, %_ZN4ncnn3Mat7releaseEv.exit108, %195, %_ZN4ncnn3Mat7releaseEv.exit111, %145, %_ZN4ncnn3Mat7releaseEv.exit114, %97, %_ZNK4ncnn3Mat5emptyEv.exit104.thread, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %_ZN4ncnn3MataSERKS0_.exit103
-  %.3 = phi i32 [ 0, %_ZN4ncnn3MataSERKS0_.exit103 ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.5, %_ZNK4ncnn3Mat5emptyEv.exit104.thread ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit111 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit108 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit114 ], [ 0, %97 ], [ 0, %145 ], [ 0, %195 ], [ 0, %190 ]
+  %.3 = phi i32 [ 0, %_ZN4ncnn3MataSERKS0_.exit103 ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.5, %_ZNK4ncnn3Mat5emptyEv.exit104.thread ], [ 0, %97 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit114 ], [ 0, %145 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit111 ], [ 0, %195 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit108 ], [ 0, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releaseEv.exit117, %24, %_ZN4ncnn3MataSERKS0_.exit97, %80, %14
-  %.0 = phi i32 [ %15, %14 ], [ %81, %80 ], [ %.3, %_ZN4ncnn3MataSERKS0_.exit97 ], [ 0, %24 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit117 ]
+  %.0 = phi i32 [ %15, %14 ], [ %.3, %_ZN4ncnn3MataSERKS0_.exit97 ], [ %81, %80 ], [ 0, %24 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit117 ]
   ret i32 %.0
 }
 

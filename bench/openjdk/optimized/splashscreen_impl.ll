@@ -663,7 +663,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %getRGBA.exit
 
 getRGBA.exit:                                     ; preds = %97, %101
-  %.070.i = phi i32 [ %134, %101 ], [ %100, %97 ]
+  %.070.i = phi i32 [ %100, %97 ], [ %134, %101 ]
   %135 = icmp sgt i32 %.070.i, -1
   br i1 %135, label %getRGBA.exit.thread, label %.critedge.preheader
 
@@ -858,7 +858,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %getRGBA.exit100
 
 getRGBA.exit100:                                  ; preds = %202, %206
-  %.070.i83 = phi i32 [ %239, %206 ], [ %205, %202 ]
+  %.070.i83 = phi i32 [ %205, %202 ], [ %239, %206 ]
   %240 = icmp slt i32 %.070.i83, 0
   br i1 %240, label %.critedge, label %.critedge2
 
@@ -967,8 +967,8 @@ getRGBA.exit100:                                  ; preds = %202, %206
   br i1 %exitcond149.not, label %.loopexit, label %.lr.ph132, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph132, %.critedge4.thread, %.critedge4, %.critedge.thread, %259
-  %.3 = phi ptr [ %.273, %.critedge.thread ], [ %.273.mux, %.critedge4 ], [ %.273, %259 ], [ %spec.select, %.critedge4.thread ], [ %.071134, %.lr.ph132 ]
-  %.1 = phi ptr [ %.071134, %.critedge.thread ], [ %.071134.mux, %.critedge4 ], [ %.071134, %259 ], [ %spec.select164, %.critedge4.thread ], [ %.0135, %.lr.ph132 ]
+  %.3 = phi ptr [ %.273.mux, %.critedge4 ], [ %.273, %259 ], [ %.273, %.critedge.thread ], [ %spec.select, %.critedge4.thread ], [ %.071134, %.lr.ph132 ]
+  %.1 = phi ptr [ %.071134.mux, %.critedge4 ], [ %.071134, %259 ], [ %.071134, %.critedge.thread ], [ %spec.select164, %.critedge4.thread ], [ %.0135, %.lr.ph132 ]
   %284 = add nuw nsw i32 %.078133, 1
   %285 = load i32, ptr %0, align 8
   %286 = icmp slt i32 %284, %285

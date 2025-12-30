@@ -357,7 +357,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %34, %36, %_ZN
   unreachable
 
 48:                                               ; preds = %11, %41, %31, %6
-  %.0 = phi ptr [ %8, %6 ], [ %46, %41 ], [ %spec.select, %11 ], [ %33, %31 ]
+  %.0 = phi ptr [ %8, %6 ], [ %33, %31 ], [ %46, %41 ], [ %spec.select, %11 ]
   ret ptr %.0
 }
 

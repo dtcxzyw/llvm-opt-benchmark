@@ -372,7 +372,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 .body:                                            ; preds = %.thread, %34, %33, %.body18
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body18 ], [ %lpad.thr_comm.split-lp, %33 ], [ %lpad.thr_comm.split-lp, %34 ], [ %lpad.thr_comm, %.thread ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body18 ], [ %lpad.thr_comm.split-lp, %34 ], [ %lpad.thr_comm.split-lp, %33 ], [ %lpad.thr_comm, %.thread ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %79 = call ptr @__cxa_begin_catch(ptr %.1) #19
@@ -583,7 +583,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL7MonitorENS0_8hash_opsIS4_EEE7do_hashERKS4_.ex
   %86 = icmp sgt i32 %85, -1
   br i1 %86, label %78, label %.loopexit, !llvm.loop !41
 
-.loopexit:                                        ; preds = %83, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL7MonitorENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread, %._crit_edge.i
+.loopexit:                                        ; preds = %83, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL7MonitorENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread
   %87 = call noundef i32 @_ZN5Yosys7hashlib4poolIPNS_5RTLIL7MonitorENS0_8hash_opsIS4_EEE9do_insertEOS4_Rj(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL7MonitorENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit
 
@@ -2145,7 +2145,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 .body:                                            ; preds = %.thread, %22, %21, %.body9
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body9 ], [ %lpad.thr_comm.split-lp, %21 ], [ %lpad.thr_comm.split-lp, %22 ], [ %lpad.thr_comm, %.thread ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body9 ], [ %lpad.thr_comm.split-lp, %22 ], [ %lpad.thr_comm.split-lp, %21 ], [ %lpad.thr_comm, %.thread ]
   %.0 = extractvalue { ptr, i32 } %.pn.pn, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %68 = call ptr @__cxa_begin_catch(ptr %.0) #19

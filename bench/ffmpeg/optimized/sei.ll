@@ -1535,7 +1535,7 @@ bytestream2_get_byte.exit.split.us.i.i36.i:       ; preds = %bytestream2_get_byt
   %.pre = ptrtoint ptr %936 to i64
   br label %decode_nal_sei_message.exit.thread
 
-decode_nal_sei_message.exit.thread:               ; preds = %bytestream2_get_byte.exit.split.us.i.i36.i, %958, %bytestream2_get_byte.exit.i.i34.i
+decode_nal_sei_message.exit.thread:               ; preds = %bytestream2_get_byte.exit.split.us.i.i36.i, %bytestream2_get_byte.exit.i.i34.i, %958
   %.pre-phi = phi i64 [ %946, %bytestream2_get_byte.exit.i.i34.i ], [ %.pre, %958 ], [ %946, %bytestream2_get_byte.exit.split.us.i.i36.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1550,7 +1550,7 @@ decode_nal_sei_message.exit.thread17:             ; preds = %930, %907, %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %decode_nal_sei_message.exit.thread, %902, %decode_nal_sei_message.exit.us, %decode_nal_sei_message.exit.thread17
-  %.0 = phi i32 [ -1094995529, %decode_nal_sei_message.exit.thread17 ], [ %898, %decode_nal_sei_message.exit.us ], [ 1, %902 ], [ 1, %decode_nal_sei_message.exit.thread ]
+  %.0 = phi i32 [ -1094995529, %decode_nal_sei_message.exit.thread17 ], [ 1, %902 ], [ %898, %decode_nal_sei_message.exit.us ], [ 1, %decode_nal_sei_message.exit.thread ]
   ret i32 %.0
 }
 

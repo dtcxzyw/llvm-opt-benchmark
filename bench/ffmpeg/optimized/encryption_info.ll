@@ -218,7 +218,7 @@ define ptr @av_encryption_info_get_side_data(ptr noundef readonly captures(addre
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !24
 
 .loopexit:                                        ; preds = %47, %25, %23, %5, %2
-  %.041 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %23 ], [ %24, %25 ], [ %24, %47 ]
+  %.041 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %23 ], [ %24, %25 ], [ %24, %47 ]
   ret ptr %.041
 }
 
@@ -319,7 +319,7 @@ define noalias ptr @av_encryption_info_add_side_data(ptr noundef readonly captur
   br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !28
 
 .loopexit:                                        ; preds = %55, %24, %17, %2, %6, %11
-  %.047 = phi ptr [ null, %2 ], [ null, %17 ], [ null, %11 ], [ null, %6 ], [ %23, %24 ], [ %23, %55 ]
+  %.047 = phi ptr [ null, %11 ], [ null, %6 ], [ null, %2 ], [ null, %17 ], [ %23, %24 ], [ %23, %55 ]
   ret ptr %.047
 }
 
@@ -405,7 +405,7 @@ define ptr @av_encryption_init_info_alloc(i32 noundef %0, i32 noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.loopexit.sink.split, %31, %4
-  %.042 = phi ptr [ %5, %31 ], [ null, %.loopexit.sink.split ], [ null, %4 ], [ %5, %33 ]
+  %.042 = phi ptr [ null, %4 ], [ %5, %31 ], [ null, %.loopexit.sink.split ], [ %5, %33 ]
   ret ptr %.042
 }
 
@@ -565,7 +565,7 @@ define ptr @av_encryption_init_info_get_side_data(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.loopexit.sink.split ], [ null, %5 ], [ %.166, %._crit_edge ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %.loopexit.sink.split ], [ %.166, %._crit_edge ]
   ret ptr %.0
 }
 

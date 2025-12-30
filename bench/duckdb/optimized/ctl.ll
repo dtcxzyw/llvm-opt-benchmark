@@ -598,9 +598,9 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   store ptr %33, ptr %38, align 8, !tbaa !28
   br label %39
 
-39:                                               ; preds = %26, %34
-  %40 = phi ptr [ %37, %34 ], [ %27, %26 ]
-  %.1.i.ph = phi ptr [ %33, %34 ], [ %29, %26 ]
+39:                                               ; preds = %34, %26
+  %40 = phi ptr [ %27, %26 ], [ %37, %34 ]
+  %.1.i.ph = phi ptr [ %29, %26 ], [ %33, %34 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1.i.ph, i64 4
   store i8 1, ptr %41, align 4, !tbaa !35
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -630,8 +630,8 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   br label %53
 
 53:                                               ; preds = %._crit_edge41, %48
-  %54 = phi ptr [ %49, %48 ], [ %.pre42, %._crit_edge41 ]
-  %.1.i23.ph = phi ptr [ %47, %48 ], [ %43, %._crit_edge41 ]
+  %54 = phi ptr [ %.pre42, %._crit_edge41 ], [ %49, %48 ]
+  %.1.i23.ph = phi ptr [ %43, %._crit_edge41 ], [ %47, %48 ]
   %55 = getelementptr inbounds nuw i8, ptr %.1.i23.ph, i64 24
   store i32 0, ptr %55, align 8, !tbaa !36
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_dss_prec_names, i64 24), align 8, !tbaa !37
@@ -668,7 +668,7 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   br label %arenas_i2a_impl.exit.i
 
 arenas_i2a_impl.exit.i:                           ; preds = %67, %66, %.lr.ph
-  %.0.i.i = phi i64 [ 0, %.lr.ph ], [ 1, %66 ], [ %69, %67 ]
+  %.0.i.i = phi i64 [ %69, %67 ], [ 1, %66 ], [ 0, %.lr.ph ]
   %70 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0.i.i
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %72 = icmp eq ptr %71, null
@@ -701,13 +701,13 @@ arenas_i2a_impl.exit.i:                           ; preds = %67, %66, %.lr.ph
   br label %arenas_i2a_impl.exit23.i
 
 arenas_i2a_impl.exit23.i:                         ; preds = %82, %81, %76
-  %.0.i22.i = phi i64 [ 0, %76 ], [ 1, %81 ], [ %84, %82 ]
+  %.0.i22.i = phi i64 [ %84, %82 ], [ 1, %81 ], [ 0, %76 ]
   %85 = getelementptr inbounds nuw ptr, ptr %80, i64 %.0.i22.i
   store ptr %75, ptr %85, align 8, !tbaa !28
   br label %86
 
-86:                                               ; preds = %arenas_i2a_impl.exit.i, %arenas_i2a_impl.exit23.i
-  %87 = phi ptr [ %63, %arenas_i2a_impl.exit.i ], [ %79, %arenas_i2a_impl.exit23.i ]
+86:                                               ; preds = %arenas_i2a_impl.exit23.i, %arenas_i2a_impl.exit.i
+  %87 = phi ptr [ %79, %arenas_i2a_impl.exit23.i ], [ %63, %arenas_i2a_impl.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !39
@@ -723,8 +723,8 @@ arenas_i_impl.exit:                               ; preds = %86, %53
   store i1 true, ptr @ctl_initialized, align 1
   br label %arenas_i_impl.exit.thread35
 
-arenas_i_impl.exit.thread35:                      ; preds = %73, %31, %45, %22, %14, %malloc_mutex_lock.exit, %arenas_i_impl.exit
-  %.1 = phi i1 [ false, %malloc_mutex_lock.exit ], [ false, %arenas_i_impl.exit ], [ true, %14 ], [ true, %22 ], [ true, %45 ], [ true, %31 ], [ true, %73 ]
+arenas_i_impl.exit.thread35:                      ; preds = %73, %45, %31, %22, %14, %malloc_mutex_lock.exit, %arenas_i_impl.exit
+  %.1 = phi i1 [ false, %arenas_i_impl.exit ], [ false, %malloc_mutex_lock.exit ], [ true, %14 ], [ true, %22 ], [ true, %31 ], [ true, %45 ], [ true, %73 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %93 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   ret i1 %.1
@@ -867,7 +867,7 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
   br label %.thread95
 
 .thread95:                                        ; preds = %.preheader, %36, %33, %.loopexit, %30, %9, %51, %65, %.loopexit103
-  %.0 = phi i32 [ 0, %.loopexit103 ], [ 0, %65 ], [ 2, %9 ], [ 2, %51 ], [ 2, %30 ], [ 2, %.loopexit ], [ 2, %33 ], [ 2, %36 ], [ 2, %.preheader ]
+  %.0 = phi i32 [ 2, %9 ], [ 2, %51 ], [ 0, %65 ], [ 0, %.loopexit103 ], [ 2, %30 ], [ 2, %.loopexit ], [ 2, %33 ], [ 2, %36 ], [ 2, %.preheader ]
   ret i32 %.0
 }
 
@@ -952,7 +952,7 @@ define i32 @duckdb_je_ctl_bymib(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %ctl_lookupbymib.exit
 
 ctl_lookupbymib.exit:                             ; preds = %22, %17, %28, %.thread, %8, %31
-  %.0 = phi i32 [ 2, %28 ], [ %32, %31 ], [ 11, %8 ], [ 2, %.thread ], [ 2, %17 ], [ 2, %22 ]
+  %.0 = phi i32 [ %32, %31 ], [ 11, %8 ], [ 2, %.thread ], [ 2, %28 ], [ 2, %17 ], [ 2, %22 ]
   ret i32 %.0
 }
 
@@ -1026,7 +1026,7 @@ define range(i32 0, 12) i32 @duckdb_je_ctl_mibnametomib(ptr noundef %0, ptr noun
   br label %ctl_lookupbymib.exit
 
 ctl_lookupbymib.exit:                             ; preds = %20, %15, %26, %.thread, %6, %30
-  %.0 = phi i32 [ 2, %26 ], [ 11, %6 ], [ %34, %30 ], [ 2, %.thread ], [ 2, %15 ], [ 2, %20 ]
+  %.0 = phi i32 [ %34, %30 ], [ 11, %6 ], [ 2, %.thread ], [ 2, %26 ], [ 2, %15 ], [ 2, %20 ]
   ret i32 %.0
 }
 
@@ -1123,7 +1123,7 @@ define i32 @duckdb_je_ctl_bymibname(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %ctl_lookupbymib.exit.thread
 
 ctl_lookupbymib.exit.thread:                      ; preds = %20, %25, %43, %45, %31, %33, %11, %48, %36
-  %.0 = phi i32 [ 2, %43 ], [ 11, %11 ], [ %40, %36 ], [ %49, %48 ], [ 2, %31 ], [ 2, %33 ], [ 2, %45 ], [ 2, %25 ], [ 2, %20 ]
+  %.0 = phi i32 [ %40, %36 ], [ %49, %48 ], [ 11, %11 ], [ 2, %33 ], [ 2, %31 ], [ 2, %45 ], [ 2, %43 ], [ 2, %25 ], [ 2, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -1227,7 +1227,7 @@ arenas_i.exit:                                    ; preds = %1, %8
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %.lr.ph, %25
-  %.0.i = phi ptr [ %.0.i.i, %.lr.ph ], [ null, %25 ]
+  %.0.i = phi ptr [ null, %25 ], [ %.0.i.i, %.lr.ph ]
   %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   store ptr %.0.i, ptr %26, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1371,7 +1371,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %88, %.lr.ph44
   br label %arenas_i.exit41
 
 arenas_i.exit41:                                  ; preds = %tsd_fetch_impl.exit.i, %92, %93, %98
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %93 ], [ %100, %98 ], [ 1, %92 ]
+  %.0.i.i.i = phi i64 [ %100, %98 ], [ 1, %92 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %93 ]
   %101 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %.0.i.i.i
   %103 = load ptr, ptr %102, align 8, !tbaa !28
@@ -1438,7 +1438,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %9, %5
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %12, %13, %17
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %13 ], [ %19, %17 ], [ 1, %12 ]
+  %.0.i.i.i = phi i64 [ %19, %17 ], [ 1, %12 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0.i.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !28
@@ -2767,7 +2767,7 @@ define internal range(i32 0, 23) i32 @version_ctl(ptr readnone captures(none) %0
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -2835,7 +2835,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %14
   br label %28
 
 28:                                               ; preds = %.critedge, %25, %17, %23
-  %.020 = phi i32 [ 22, %17 ], [ 22, %23 ], [ 0, %25 ], [ 0, %.critedge ]
+  %.020 = phi i32 [ 22, %23 ], [ 22, %17 ], [ 0, %25 ], [ 0, %.critedge ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   ret i32 %.020
@@ -2979,12 +2979,12 @@ malloc_mutex_lock.exit61:                         ; preds = %20, %24
   %59 = tail call zeroext i1 @duckdb_je_background_threads_disable(ptr noundef %0) #14
   br i1 %59, label %.thread, label %60
 
-.thread:                                          ; preds = %56, %51, %58
-  %.1.ph = phi i32 [ 14, %58 ], [ 0, %51 ], [ 14, %56 ]
+.thread:                                          ; preds = %51, %56, %58
+  %.1.ph = phi i32 [ 14, %58 ], [ 14, %56 ], [ 0, %51 ]
   br label %60
 
 60:                                               ; preds = %38, %28, %56, %58, %.thread, %39, %48, %36
-  %.045 = phi i32 [ 22, %36 ], [ 22, %39 ], [ %.1.ph, %.thread ], [ 22, %48 ], [ 0, %58 ], [ 0, %56 ], [ 0, %28 ], [ 0, %38 ]
+  %.045 = phi i32 [ 22, %36 ], [ 22, %48 ], [ 22, %39 ], [ %.1.ph, %.thread ], [ 0, %58 ], [ 0, %56 ], [ 0, %28 ], [ 0, %38 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 64) monotonic, align 8
   %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 72)) #14
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
@@ -3133,7 +3133,7 @@ malloc_mutex_lock.exit63:                         ; preds = %20, %24
   br label %.thread
 
 .thread:                                          ; preds = %56, %54, %48, %45, %35, %28, %58, %36, %43, %34
-  %.047 = phi i32 [ 22, %34 ], [ 22, %36 ], [ 0, %35 ], [ 22, %43 ], [ %spec.select66, %56 ], [ 0, %58 ], [ 0, %28 ], [ 14, %54 ], [ 22, %48 ], [ 0, %45 ]
+  %.047 = phi i32 [ 22, %34 ], [ 22, %43 ], [ 22, %36 ], [ 0, %58 ], [ 0, %28 ], [ 0, %35 ], [ 14, %54 ], [ 22, %48 ], [ 0, %45 ], [ %spec.select66, %56 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 64) monotonic, align 8
   %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 72)) #14
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
@@ -3200,7 +3200,7 @@ define internal range(i32 0, 23) i32 @thread_arena_ctl(ptr noundef %0, ptr readn
   br label %arena_choose.exit
 
 arena_choose.exit:                                ; preds = %12, %15, %21, %30, %31, %32
-  %.0.i.i = phi ptr [ %22, %32 ], [ %.0.i.i.i.i, %12 ], [ %22, %21 ], [ %22, %30 ], [ %22, %31 ], [ %16, %15 ]
+  %.0.i.i = phi ptr [ %22, %21 ], [ %22, %30 ], [ %22, %31 ], [ %22, %32 ], [ %16, %15 ], [ %.0.i.i.i.i, %12 ]
   %33 = icmp eq ptr %.0.i.i, null
   br i1 %33, label %.thread, label %arena_choose.exit.thread
 
@@ -3281,7 +3281,7 @@ arena_get.exit:                                   ; preds = %48, %53
   br label %.thread
 
 .thread:                                          ; preds = %56, %59, %45, %46, %arena_get.exit, %43, %35, %arena_choose.exit
-  %.0 = phi i32 [ 11, %arena_choose.exit ], [ 22, %35 ], [ 22, %43 ], [ 14, %46 ], [ 11, %arena_get.exit ], [ 0, %45 ], [ 0, %59 ], [ 0, %56 ]
+  %.0 = phi i32 [ 11, %arena_choose.exit ], [ 22, %43 ], [ 22, %35 ], [ 14, %46 ], [ 11, %arena_get.exit ], [ 0, %45 ], [ 0, %59 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -3320,7 +3320,7 @@ define internal range(i32 0, 23) i32 @thread_allocated_ctl(ptr noundef readonly 
   br label %20
 
 20:                                               ; preds = %18, %7, %19, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %19 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -3358,7 +3358,7 @@ define internal range(i32 0, 23) i32 @thread_allocatedp_ctl(ptr noundef %0, ptr 
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -3397,7 +3397,7 @@ define internal range(i32 0, 23) i32 @thread_deallocated_ctl(ptr noundef readonl
   br label %20
 
 20:                                               ; preds = %18, %7, %19, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %19 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -3435,7 +3435,7 @@ define internal range(i32 0, 23) i32 @thread_deallocatedp_ctl(ptr noundef %0, pt
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -3516,7 +3516,7 @@ define internal range(i32 0, 2) i32 @thread_idle_ctl(ptr noundef %0, ptr readnon
   br label %arena_choose.exit
 
 arena_choose.exit:                                ; preds = %25, %28, %34, %43, %44, %45
-  %.0.i.i = phi ptr [ %35, %45 ], [ %.0.i.i.i.i, %25 ], [ %35, %34 ], [ %35, %43 ], [ %35, %44 ], [ %29, %28 ]
+  %.0.i.i = phi ptr [ %35, %34 ], [ %35, %43 ], [ %35, %44 ], [ %35, %45 ], [ %29, %28 ], [ %.0.i.i.i.i, %25 ]
   %.not = icmp eq ptr %.0.i.i, null
   br i1 %.not, label %46, label %arena_choose.exit.thread
 
@@ -3584,7 +3584,7 @@ define internal range(i32 0, 23) i32 @thread_tcache_enabled_ctl(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %19, %9, %21, %13
-  %.019 = phi i32 [ 22, %9 ], [ 22, %19 ], [ 0, %21 ], [ 0, %13 ]
+  %.019 = phi i32 [ 22, %19 ], [ 22, %9 ], [ 0, %21 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -3693,7 +3693,7 @@ define internal range(i32 0, 15) i32 @thread_tcache_flush_ctl(ptr noundef %0, pt
   br label %16
 
 16:                                               ; preds = %10, %7, %15
-  %.0 = phi i32 [ 14, %7 ], [ 0, %15 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %15 ], [ 14, %7 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -3746,7 +3746,7 @@ define internal range(i32 0, 23) i32 @thread_tcache_ncached_max_read_sizeclass_c
   br label %23
 
 23:                                               ; preds = %21, %7, %11, %22, %14
-  %.021 = phi i32 [ 22, %11 ], [ 22, %7 ], [ 0, %14 ], [ 22, %21 ], [ 0, %22 ]
+  %.021 = phi i32 [ 22, %21 ], [ 22, %7 ], [ 22, %11 ], [ 0, %22 ], [ 0, %14 ]
   ret i32 %.021
 }
 
@@ -3792,8 +3792,8 @@ define internal range(i32 0, 23) i32 @thread_tcache_ncached_max_write_ctl(ptr no
   %spec.select = select i1 %27, i32 22, i32 0
   br label %.thread
 
-.thread:                                          ; preds = %23, %21, %18, %14, %15, %10, %7, %11
-  %.020 = phi i32 [ 1, %7 ], [ 2, %11 ], [ 0, %10 ], [ %spec.select, %23 ], [ 22, %15 ], [ 0, %21 ], [ 22, %18 ], [ 22, %14 ]
+.thread:                                          ; preds = %23, %21, %18, %15, %14, %10, %7, %11
+  %.020 = phi i32 [ 1, %7 ], [ 2, %11 ], [ 0, %10 ], [ 0, %21 ], [ 22, %18 ], [ 22, %15 ], [ 22, %14 ], [ %spec.select, %23 ]
   ret i32 %.020
 }
 
@@ -3837,7 +3837,7 @@ define internal range(i32 0, 23) i32 @thread_peak_read_ctl(ptr noundef %0, ptr r
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.020 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.020 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   ret i32 %.020
 }
 
@@ -3916,7 +3916,7 @@ define internal range(i32 0, 23) i32 @config_cache_oblivious_ctl(ptr readnone ca
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -3958,7 +3958,7 @@ define internal range(i32 0, 23) i32 @config_debug_ctl(ptr readnone captures(non
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4000,7 +4000,7 @@ define internal range(i32 0, 23) i32 @config_fill_ctl(ptr readnone captures(none
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4042,7 +4042,7 @@ define internal range(i32 0, 23) i32 @config_lazy_lock_ctl(ptr readnone captures
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4079,7 +4079,7 @@ define internal range(i32 0, 23) i32 @config_malloc_conf_ctl(ptr readnone captur
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4121,7 +4121,7 @@ define internal range(i32 0, 23) i32 @config_opt_safety_checks_ctl(ptr readnone 
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4163,7 +4163,7 @@ define internal range(i32 0, 23) i32 @config_prof_ctl(ptr readnone captures(none
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4205,7 +4205,7 @@ define internal range(i32 0, 23) i32 @config_prof_libgcc_ctl(ptr readnone captur
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4247,7 +4247,7 @@ define internal range(i32 0, 23) i32 @config_prof_libunwind_ctl(ptr readnone cap
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4289,7 +4289,7 @@ define internal range(i32 0, 23) i32 @config_stats_ctl(ptr readnone captures(non
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4331,7 +4331,7 @@ define internal range(i32 0, 23) i32 @config_utrace_ctl(ptr readnone captures(no
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4373,7 +4373,7 @@ define internal range(i32 0, 23) i32 @config_xmalloc_ctl(ptr readnone captures(n
   br label %20
 
 20:                                               ; preds = %17, %7, %19, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %19 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4416,7 +4416,7 @@ define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr readnone captures(none) 
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4459,7 +4459,7 @@ define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr readnone captures(n
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4502,7 +4502,7 @@ define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr readnone captu
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4545,7 +4545,7 @@ define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr readnone capture
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4588,7 +4588,7 @@ define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr readnone captures
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4631,7 +4631,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr readnone captures(none) %0
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4669,7 +4669,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_slab_max_alloc_ctl(ptr readnone ca
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4707,7 +4707,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugification_threshold_ctl(ptr rea
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4745,7 +4745,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugify_delay_ms_ctl(ptr readnone c
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4783,7 +4783,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_min_purge_interval_ms_ctl(ptr read
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4826,7 +4826,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_strict_min_purge_interval_ctl(ptr 
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4864,7 +4864,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_dirty_mult_ctl(ptr readnone captur
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4902,7 +4902,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_nshards_ctl(ptr readnone captu
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4940,7 +4940,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_max_alloc_ctl(ptr readnone cap
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -4978,7 +4978,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_max_bytes_ctl(ptr readnone cap
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5016,7 +5016,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr read
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5054,7 +5054,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr readn
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5095,7 +5095,7 @@ define internal range(i32 0, 23) i32 @opt_metadata_thp_ctl(ptr readnone captures
   br label %22
 
 22:                                               ; preds = %20, %7, %21, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %20 ], [ 0, %21 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5138,7 +5138,7 @@ define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr readnone captures(none)
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5176,7 +5176,7 @@ define internal range(i32 0, 23) i32 @opt_dss_ctl(ptr readnone captures(none) %0
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5214,7 +5214,7 @@ define internal range(i32 0, 23) i32 @opt_narenas_ctl(ptr readnone captures(none
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5255,7 +5255,7 @@ define internal range(i32 0, 23) i32 @opt_percpu_arena_ctl(ptr readnone captures
   br label %22
 
 22:                                               ; preds = %20, %7, %21, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %20 ], [ 0, %21 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5293,7 +5293,7 @@ define internal range(i32 0, 23) i32 @opt_oversize_threshold_ctl(ptr readnone ca
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5331,7 +5331,7 @@ define internal range(i32 0, 23) i32 @opt_mutex_max_spin_ctl(ptr readnone captur
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5374,7 +5374,7 @@ define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr readnone cap
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5412,7 +5412,7 @@ define internal range(i32 0, 23) i32 @opt_max_background_threads_ctl(ptr readnon
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5450,7 +5450,7 @@ define internal range(i32 0, 23) i32 @opt_dirty_decay_ms_ctl(ptr readnone captur
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5488,7 +5488,7 @@ define internal range(i32 0, 23) i32 @opt_muzzy_decay_ms_ctl(ptr readnone captur
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5531,7 +5531,7 @@ define internal range(i32 0, 23) i32 @opt_stats_print_ctl(ptr readnone captures(
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5568,7 +5568,7 @@ define internal range(i32 0, 23) i32 @opt_stats_print_opts_ctl(ptr readnone capt
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5606,7 +5606,7 @@ define internal range(i32 0, 23) i32 @opt_stats_interval_ctl(ptr readnone captur
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5643,7 +5643,7 @@ define internal range(i32 0, 23) i32 @opt_stats_interval_opts_ctl(ptr readnone c
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5681,7 +5681,7 @@ define internal range(i32 0, 23) i32 @opt_junk_ctl(ptr readnone captures(none) %
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5724,7 +5724,7 @@ define internal range(i32 0, 23) i32 @opt_zero_ctl(ptr readnone captures(none) %
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5777,7 +5777,7 @@ define internal range(i32 0, 23) i32 @opt_experimental_infallible_new_ctl(ptr re
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5815,7 +5815,7 @@ define internal range(i32 0, 23) i32 @opt_max_batched_size_ctl(ptr readnone capt
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5853,7 +5853,7 @@ define internal range(i32 0, 23) i32 @opt_remote_free_max_ctl(ptr readnone captu
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5891,7 +5891,7 @@ define internal range(i32 0, 23) i32 @opt_remote_free_max_batch_ctl(ptr readnone
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5934,7 +5934,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr readnone captures(none)
   br label %21
 
 21:                                               ; preds = %18, %7, %20, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %18 ], [ 0, %20 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -5972,7 +5972,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_max_ctl(ptr readnone captures(n
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6010,7 +6010,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_min_ctl(ptr readno
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6048,7 +6048,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_max_ctl(ptr readno
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6086,7 +6086,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_large_ctl(ptr readnone c
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6124,7 +6124,7 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_nslots_mul_ctl(ptr readnone 
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6162,7 +6162,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_gc_incr_bytes_ctl(ptr readnone 
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6200,7 +6200,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_gc_delay_bytes_ctl(ptr readnone
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6238,7 +6238,7 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_small_div_ctl(ptr read
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6276,7 +6276,7 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_large_div_ctl(ptr read
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6317,7 +6317,7 @@ define internal range(i32 0, 23) i32 @opt_thp_ctl(ptr readnone captures(none) %0
   br label %22
 
 22:                                               ; preds = %20, %7, %21, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %20 ], [ 0, %21 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6355,7 +6355,7 @@ define internal range(i32 0, 23) i32 @opt_lg_extent_max_active_fit_ctl(ptr readn
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6486,7 +6486,7 @@ define internal range(i32 0, 23) i32 @opt_zero_realloc_ctl(ptr readnone captures
   br label %22
 
 22:                                               ; preds = %20, %7, %21, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %20 ], [ 0, %21 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6524,7 +6524,7 @@ define internal range(i32 0, 23) i32 @opt_debug_double_free_max_scan_ctl(ptr rea
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -6566,7 +6566,7 @@ define internal range(i32 0, 23) i32 @opt_malloc_conf_symlink_ctl(ptr readnone c
   br label %20
 
 20:                                               ; preds = %18, %10, %19, %13, %7
-  %.0 = phi i32 [ 2, %7 ], [ 1, %10 ], [ 22, %18 ], [ 0, %19 ], [ 0, %13 ]
+  %.0 = phi i32 [ 2, %7 ], [ 22, %18 ], [ 1, %10 ], [ 0, %19 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -6608,7 +6608,7 @@ define internal range(i32 0, 23) i32 @opt_malloc_conf_env_var_ctl(ptr readnone c
   br label %20
 
 20:                                               ; preds = %18, %10, %19, %13, %7
-  %.0 = phi i32 [ 2, %7 ], [ 1, %10 ], [ 22, %18 ], [ 0, %19 ], [ 0, %13 ]
+  %.0 = phi i32 [ 2, %7 ], [ 22, %18 ], [ 1, %10 ], [ 0, %19 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -6650,7 +6650,7 @@ define internal range(i32 0, 23) i32 @opt_malloc_conf_global_var_ctl(ptr readnon
   br label %20
 
 20:                                               ; preds = %18, %10, %19, %13, %7
-  %.0 = phi i32 [ 2, %7 ], [ 1, %10 ], [ 22, %18 ], [ 0, %19 ], [ 0, %13 ]
+  %.0 = phi i32 [ 2, %7 ], [ 22, %18 ], [ 1, %10 ], [ 0, %19 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -6692,7 +6692,7 @@ define internal range(i32 0, 23) i32 @opt_malloc_conf_global_var_2_conf_harder_c
   br label %20
 
 20:                                               ; preds = %18, %10, %19, %13, %7
-  %.0 = phi i32 [ 2, %7 ], [ 1, %10 ], [ 22, %18 ], [ 0, %19 ], [ 0, %13 ]
+  %.0 = phi i32 [ 2, %7 ], [ 22, %18 ], [ 1, %10 ], [ 0, %19 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -6746,7 +6746,7 @@ define internal range(i32 0, 23) i32 @tcache_create_ctl(ptr noundef %0, ptr read
   br label %25
 
 25:                                               ; preds = %23, %22, %7, %.thread, %16, %17
-  %.025 = phi i32 [ 0, %23 ], [ 1, %7 ], [ 22, %16 ], [ 22, %22 ], [ 22, %.thread ], [ 14, %17 ]
+  %.025 = phi i32 [ 22, %22 ], [ 0, %23 ], [ 1, %7 ], [ 22, %.thread ], [ 22, %16 ], [ 14, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.025
 }
@@ -6927,7 +6927,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %28, %malloc_mutex_l
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %31, %32, %37
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %32 ], [ %39, %37 ], [ 1, %31 ]
+  %.0.i.i.i = phi i64 [ %39, %37 ], [ 1, %31 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.0.i.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !28
@@ -6962,7 +6962,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %51, %7, %11, %53, %arenas_i.exit
-  %.024 = phi i32 [ 14, %11 ], [ 1, %7 ], [ 22, %51 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.024 = phi i32 [ 22, %51 ], [ 1, %7 ], [ 14, %11 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.024
 }
@@ -7109,7 +7109,7 @@ arena_reset_finish_background_thread.exit:        ; preds = %arena_i_reset_destr
   br label %arena_i_reset_destroy_helper.exit.thread
 
 arena_i_reset_destroy_helper.exit.thread:         ; preds = %arena_get.exit.i, %16, %12, %7, %arena_reset_finish_background_thread.exit
-  %.0.i19 = phi i32 [ 0, %arena_reset_finish_background_thread.exit ], [ 1, %7 ], [ 14, %16 ], [ 14, %12 ], [ 14, %arena_get.exit.i ]
+  %.0.i19 = phi i32 [ 0, %arena_reset_finish_background_thread.exit ], [ 14, %16 ], [ 14, %12 ], [ 1, %7 ], [ 14, %arena_get.exit.i ]
   ret i32 %.0.i19
 }
 
@@ -7233,7 +7233,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %47, %arenas_i.exit
   br label %arenas_i.exit38
 
 arenas_i.exit38:                                  ; preds = %tsd_fetch_impl.exit.i, %50, %51, %56
-  %.0.i.i.i37 = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %51 ], [ %58, %56 ], [ 1, %50 ]
+  %.0.i.i.i37 = phi i64 [ %58, %56 ], [ 1, %50 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %51 ]
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %.0.i.i.i37
   %61 = load ptr, ptr %60, align 8, !tbaa !28
@@ -7321,7 +7321,7 @@ arena_reset_finish_background_thread.exit:        ; preds = %77, %malloc_mutex_l
   br label %arena_i_reset_destroy_helper.exit.thread
 
 arena_i_reset_destroy_helper.exit.thread:         ; preds = %arena_get.exit.i, %25, %21, %malloc_mutex_lock.exit, %arena_i_reset_destroy_helper.exit, %34, %arena_reset_finish_background_thread.exit
-  %.0 = phi i32 [ 14, %arena_i_reset_destroy_helper.exit ], [ 0, %arena_reset_finish_background_thread.exit ], [ 14, %34 ], [ 1, %malloc_mutex_lock.exit ], [ 14, %25 ], [ 14, %21 ], [ 14, %arena_get.exit.i ]
+  %.0 = phi i32 [ 0, %arena_reset_finish_background_thread.exit ], [ 14, %34 ], [ 14, %arena_i_reset_destroy_helper.exit ], [ 14, %25 ], [ 14, %21 ], [ 1, %malloc_mutex_lock.exit ], [ 14, %arena_get.exit.i ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %105 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   ret i32 %.0
@@ -7471,7 +7471,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.thread, %47, %52, %56, %65, %43, %19, %18, %64
-  %.042 = phi i32 [ 14, %47 ], [ 22, %18 ], [ 14, %19 ], [ 22, %64 ], [ 14, %43 ], [ 0, %56 ], [ 0, %65 ], [ 14, %52 ], [ 14, %.thread ], [ 22, %32 ]
+  %.042 = phi i32 [ 22, %64 ], [ 22, %18 ], [ 14, %19 ], [ 14, %43 ], [ 0, %65 ], [ 0, %56 ], [ 14, %52 ], [ 14, %47 ], [ 14, %.thread ], [ 22, %32 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -7535,7 +7535,7 @@ define internal range(i32 0, 23) i32 @arena_i_oversize_threshold_ctl(ptr readnon
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %12, %23, %7, %25, %26, %24
-  %.029 = phi i32 [ 22, %23 ], [ 14, %7 ], [ 14, %12 ], [ 22, %25 ], [ 0, %26 ], [ 0, %24 ]
+  %.029 = phi i32 [ 22, %23 ], [ 14, %7 ], [ 22, %25 ], [ 0, %26 ], [ 0, %24 ], [ 14, %12 ]
   ret i32 %.029
 }
 
@@ -7597,7 +7597,7 @@ define internal range(i32 0, 23) i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %0,
   br label %arena_i_decay_ms_ctl_impl.exit
 
 arena_i_decay_ms_ctl_impl.exit:                   ; preds = %7, %11, %21, %23, %24, %27
-  %.033.i = phi i32 [ 22, %21 ], [ 14, %7 ], [ 14, %11 ], [ 22, %23 ], [ 0, %27 ], [ 14, %24 ]
+  %.033.i = phi i32 [ 0, %27 ], [ 22, %21 ], [ 14, %7 ], [ 22, %23 ], [ 14, %24 ], [ 14, %11 ]
   ret i32 %.033.i
 }
 
@@ -7659,7 +7659,7 @@ define internal range(i32 0, 23) i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %0,
   br label %arena_i_decay_ms_ctl_impl.exit
 
 arena_i_decay_ms_ctl_impl.exit:                   ; preds = %7, %11, %21, %23, %24, %27
-  %.033.i = phi i32 [ 22, %21 ], [ 14, %7 ], [ 14, %11 ], [ 22, %23 ], [ 0, %27 ], [ 14, %24 ]
+  %.033.i = phi i32 [ 0, %27 ], [ 22, %21 ], [ 14, %7 ], [ 22, %23 ], [ 14, %24 ], [ 14, %11 ]
   ret i32 %.033.i
 }
 
@@ -7789,10 +7789,10 @@ arena_get.exit.thread:                            ; preds = %26
   br i1 %.not89, label %.thread106.sink.split, label %.thread110.sink.split
 
 .thread110.sink.split:                            ; preds = %58, %50, %34
-  %.sink = phi i64 [ %51, %50 ], [ %35, %34 ], [ %59, %58 ]
-  %spec.select97 = tail call i64 @llvm.umin.i64(i64 %.sink, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select97, i1 false)
-  store i64 %spec.select97, ptr %4, align 8, !tbaa !3
+  %.sink = phi i64 [ %35, %34 ], [ %51, %50 ], [ %59, %58 ]
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.sink, i64 8)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select, i1 false)
+  store i64 %spec.select, ptr %4, align 8, !tbaa !3
   br label %.sink.split
 
 .thread106.sink.split:                            ; preds = %58, %50
@@ -7804,7 +7804,7 @@ arena_get.exit.thread:                            ; preds = %26
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %38, %44, %arena_get.exit.thread, %.thread110.sink.split, %.thread106
-  %.068.ph = phi i32 [ 0, %.thread106 ], [ 22, %44 ], [ 14, %arena_get.exit.thread ], [ 14, %39 ], [ 22, %38 ], [ 22, %.thread110.sink.split ]
+  %.068.ph = phi i32 [ 0, %.thread106 ], [ 22, %44 ], [ 14, %arena_get.exit.thread ], [ 22, %38 ], [ 14, %39 ], [ 22, %.thread110.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
@@ -7910,13 +7910,13 @@ malloc_mutex_lock.exit:                           ; preds = %15, %19
   br label %46
 
 46:                                               ; preds = %43, %36, %38, %44, %33
-  %.1 = phi i32 [ 22, %33 ], [ 22, %43 ], [ 0, %38 ], [ 0, %44 ], [ 14, %36 ]
+  %.1 = phi i32 [ 22, %33 ], [ 22, %43 ], [ 0, %44 ], [ 0, %38 ], [ 14, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %29, %25, %46, %malloc_mutex_lock.exit
-  %.030 = phi i32 [ %.1, %46 ], [ 14, %malloc_mutex_lock.exit ], [ 14, %29 ], [ 14, %25 ]
+  %.030 = phi i32 [ %.1, %46 ], [ 14, %malloc_mutex_lock.exit ], [ 14, %25 ], [ 14, %29 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   br label %48
@@ -8011,7 +8011,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %14
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %27, %38, %43, %40, %39, %34, %20, %22, %malloc_mutex_lock.exit
-  %.0 = phi i32 [ 22, %40 ], [ 14, %malloc_mutex_lock.exit ], [ 22, %20 ], [ 14, %27 ], [ 22, %34 ], [ 22, %39 ], [ 22, %22 ], [ 0, %43 ], [ 0, %38 ]
+  %.0 = phi i32 [ 14, %malloc_mutex_lock.exit ], [ 22, %22 ], [ 22, %20 ], [ 22, %34 ], [ 22, %39 ], [ 22, %40 ], [ 0, %43 ], [ 0, %38 ], [ 14, %27 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   ret i32 %.0
@@ -8076,7 +8076,7 @@ malloc_mutex_lock.exit:                           ; preds = %6, %10
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %.lr.ph, %26
-  %.0.i = phi ptr [ %.0.i.i, %.lr.ph ], [ null, %26 ]
+  %.0.i = phi ptr [ null, %26 ], [ %.0.i.i, %.lr.ph ]
   %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   store ptr %.0.i, ptr %27, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8301,7 +8301,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -8353,7 +8353,7 @@ define internal range(i32 0, 23) i32 @arenas_dirty_decay_ms_ctl(ptr readnone cap
   br label %arenas_decay_ms_ctl_impl.exit
 
 arenas_decay_ms_ctl_impl.exit:                    ; preds = %14, %16, %17, %20
-  %.1.i = phi i32 [ 22, %14 ], [ 22, %16 ], [ 0, %20 ], [ 14, %17 ]
+  %.1.i = phi i32 [ 0, %20 ], [ 22, %14 ], [ 22, %16 ], [ 14, %17 ]
   ret i32 %.1.i
 }
 
@@ -8402,7 +8402,7 @@ define internal range(i32 0, 23) i32 @arenas_muzzy_decay_ms_ctl(ptr readnone cap
   br label %arenas_decay_ms_ctl_impl.exit
 
 arenas_decay_ms_ctl_impl.exit:                    ; preds = %14, %16, %17, %20
-  %.1.i = phi i32 [ 22, %14 ], [ 22, %16 ], [ 0, %20 ], [ 14, %17 ]
+  %.1.i = phi i32 [ 0, %20 ], [ 22, %14 ], [ 22, %16 ], [ 14, %17 ]
   ret i32 %.1.i
 }
 
@@ -8438,7 +8438,7 @@ define internal range(i32 0, 23) i32 @arenas_quantum_ctl(ptr readnone captures(n
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -8475,7 +8475,7 @@ define internal range(i32 0, 23) i32 @arenas_page_ctl(ptr readnone captures(none
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -8512,7 +8512,7 @@ define internal range(i32 0, 23) i32 @arenas_hugepage_ctl(ptr readnone captures(
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -8550,7 +8550,7 @@ define internal range(i32 0, 23) i32 @arenas_tcache_max_ctl(ptr readnone capture
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -8587,7 +8587,7 @@ define internal range(i32 0, 23) i32 @arenas_nbins_ctl(ptr readnone captures(non
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -8625,7 +8625,7 @@ define internal range(i32 0, 23) i32 @arenas_nhbins_ctl(ptr readnone captures(no
   br label %19
 
 19:                                               ; preds = %17, %7, %18, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %17 ], [ 0, %18 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -8662,7 +8662,7 @@ define internal range(i32 0, 23) i32 @arenas_nlextents_ctl(ptr readnone captures
   br label %18
 
 18:                                               ; preds = %16, %7, %17, %11
-  %.018 = phi i32 [ 1, %7 ], [ 22, %16 ], [ 0, %17 ], [ 0, %11 ]
+  %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
@@ -8750,7 +8750,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   br label %35
 
 35:                                               ; preds = %28, %25, %23, %.thread, %33, %34
-  %.027 = phi i32 [ 0, %34 ], [ 22, %23 ], [ 22, %25 ], [ 22, %33 ], [ 22, %.thread ], [ 11, %28 ]
+  %.027 = phi i32 [ 22, %33 ], [ 0, %34 ], [ 22, %.thread ], [ 22, %23 ], [ 22, %25 ], [ 11, %28 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %36 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -8940,7 +8940,7 @@ emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_look
   br label %90
 
 90:                                               ; preds = %emap_full_alloc_ctx_try_lookup.exit.thread, %82, %89, %19, %88, %76, %emap_full_alloc_ctx_try_lookup.exit
-  %.027 = phi i32 [ 22, %19 ], [ 22, %emap_full_alloc_ctx_try_lookup.exit ], [ 22, %76 ], [ 22, %88 ], [ 0, %89 ], [ 0, %82 ], [ 22, %emap_full_alloc_ctx_try_lookup.exit.thread ]
+  %.027 = phi i32 [ 22, %emap_full_alloc_ctx_try_lookup.exit ], [ 22, %76 ], [ 22, %88 ], [ 22, %19 ], [ 0, %89 ], [ 0, %82 ], [ 22, %emap_full_alloc_ctx_try_lookup.exit.thread ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %91 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -8998,7 +8998,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_size_ctl(ptr readnone capture
   br label %22
 
 22:                                               ; preds = %20, %7, %21, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %20 ], [ 0, %21 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -9040,7 +9040,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr readnone captur
   br label %23
 
 23:                                               ; preds = %21, %7, %22, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %21 ], [ 0, %22 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %21 ], [ 1, %7 ], [ 0, %22 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -9082,7 +9082,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr readnone ca
   br label %23
 
 23:                                               ; preds = %21, %7, %22, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %21 ], [ 0, %22 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %21 ], [ 1, %7 ], [ 0, %22 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -9124,7 +9124,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nshards_ctl(ptr readnone capt
   br label %23
 
 23:                                               ; preds = %21, %7, %22, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %21 ], [ 0, %22 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %21 ], [ 1, %7 ], [ 0, %22 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -9174,7 +9174,7 @@ define internal range(i32 0, 23) i32 @arenas_lextent_i_size_ctl(ptr readnone cap
   br label %24
 
 24:                                               ; preds = %22, %7, %23, %11
-  %.019 = phi i32 [ 1, %7 ], [ 22, %22 ], [ 0, %23 ], [ 0, %11 ]
+  %.019 = phi i32 [ 22, %22 ], [ 1, %7 ], [ 0, %23 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -9251,7 +9251,7 @@ define internal fastcc noundef i32 @ctl_arena_init(ptr noundef %0, ptr noundef n
   br label %arenas_i2a_impl.exit.i
 
 arenas_i2a_impl.exit.i:                           ; preds = %34, %33, %30
-  %.0.i.i = phi i64 [ 0, %30 ], [ 1, %33 ], [ %36, %34 ]
+  %.0.i.i = phi i64 [ %36, %34 ], [ 1, %33 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !28
   %39 = icmp eq ptr %38, null
@@ -9284,12 +9284,12 @@ arenas_i2a_impl.exit.i:                           ; preds = %34, %33, %30
   br label %arenas_i2a_impl.exit23.i
 
 arenas_i2a_impl.exit23.i:                         ; preds = %49, %48, %43
-  %.0.i22.i = phi i64 [ 0, %43 ], [ 1, %48 ], [ %51, %49 ]
+  %.0.i22.i = phi i64 [ %51, %49 ], [ 1, %48 ], [ 0, %43 ]
   %52 = getelementptr inbounds nuw ptr, ptr %47, i64 %.0.i22.i
   store ptr %42, ptr %52, align 8, !tbaa !28
   br label %53
 
-53:                                               ; preds = %arenas_i2a_impl.exit.i, %arenas_i2a_impl.exit23.i
+53:                                               ; preds = %arenas_i2a_impl.exit23.i, %arenas_i2a_impl.exit.i
   %54 = tail call ptr @duckdb_je_arena_init(ptr noundef %0, i32 noundef %.020, ptr noundef nonnull %1) #14
   %55 = icmp eq ptr %54, null
   br i1 %55, label %arenas_i_impl.exit, label %56
@@ -9307,7 +9307,7 @@ arenas_i2a_impl.exit23.i:                         ; preds = %49, %48, %43
   br label %arenas_i_impl.exit
 
 arenas_i_impl.exit:                               ; preds = %40, %56, %61, %53
-  %.0 = phi i32 [ -1, %53 ], [ %.020, %56 ], [ %.020, %61 ], [ -1, %40 ]
+  %.0 = phi i32 [ -1, %53 ], [ %.020, %61 ], [ %.020, %56 ], [ -1, %40 ]
   ret i32 %.0
 }
 
@@ -9434,7 +9434,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %29
 
 29:                                               ; preds = %20, %28, %malloc_mutex_lock.exit, %27
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %27 ], [ 0, %28 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %27 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %28 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9501,7 +9501,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9568,7 +9568,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9635,7 +9635,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9702,7 +9702,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9769,7 +9769,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9836,7 +9836,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9903,7 +9903,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9970,7 +9970,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -10035,7 +10035,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %28
 
 28:                                               ; preds = %20, %27, %malloc_mutex_lock.exit, %26
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %26 ], [ 0, %27 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %26 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %27 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -10102,7 +10102,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -10169,7 +10169,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -10236,7 +10236,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -10780,7 +10780,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -10847,7 +10847,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -10914,7 +10914,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -10981,7 +10981,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11048,7 +11048,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11115,7 +11115,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11182,7 +11182,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11249,7 +11249,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11316,7 +11316,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11383,7 +11383,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11450,7 +11450,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11517,7 +11517,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11584,7 +11584,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11651,7 +11651,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11718,7 +11718,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11785,7 +11785,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11852,7 +11852,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11919,7 +11919,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11986,7 +11986,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12053,7 +12053,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12120,7 +12120,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12187,7 +12187,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12254,7 +12254,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12321,7 +12321,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12388,7 +12388,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12455,7 +12455,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12522,7 +12522,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12589,7 +12589,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12656,7 +12656,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12723,7 +12723,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12790,7 +12790,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12857,7 +12857,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12924,7 +12924,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12991,7 +12991,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13058,7 +13058,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13125,7 +13125,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13192,7 +13192,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13259,7 +13259,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13326,7 +13326,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13393,7 +13393,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13460,7 +13460,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13527,7 +13527,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13594,7 +13594,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13661,7 +13661,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13728,7 +13728,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13795,7 +13795,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13862,7 +13862,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13929,7 +13929,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -13996,7 +13996,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14063,7 +14063,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14130,7 +14130,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14197,7 +14197,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14264,7 +14264,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14331,7 +14331,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14398,7 +14398,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14465,7 +14465,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14532,7 +14532,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14599,7 +14599,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14666,7 +14666,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14733,7 +14733,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14800,7 +14800,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14867,7 +14867,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14934,7 +14934,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   br label %30
 
 30:                                               ; preds = %20, %29, %malloc_mutex_lock.exit, %28
-  %.020 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %28 ], [ 0, %29 ], [ 0, %20 ]
+  %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14995,7 +14995,7 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
   br i1 %or.cond.i, label %ctl_arenas_i_verify.exit.thread, label %ctl_arenas_i_verify.exit
 
 ctl_arenas_i_verify.exit:                         ; preds = %malloc_mutex_lock.exit, %14, %15, %21
-  %.0.i5.i = phi i32 [ %23, %21 ], [ 1, %14 ], [ 0, %15 ], [ 0, %malloc_mutex_lock.exit ]
+  %.0.i5.i = phi i32 [ 0, %15 ], [ 0, %malloc_mutex_lock.exit ], [ 1, %14 ], [ %23, %21 ]
   %25 = zext i32 %.0.i5.i to i64
   %26 = load ptr, ptr @ctl_arenas, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -15086,7 +15086,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15114,7 +15114,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %49
 
 49:                                               ; preds = %arenas_i.exit, %48, %malloc_mutex_lock.exit, %47
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %47 ], [ 0, %48 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15191,7 +15191,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15221,7 +15221,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15298,7 +15298,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15326,7 +15326,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %49
 
 49:                                               ; preds = %arenas_i.exit, %48, %malloc_mutex_lock.exit, %47
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %47 ], [ 0, %48 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15403,7 +15403,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15431,7 +15431,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %49
 
 49:                                               ; preds = %arenas_i.exit, %48, %malloc_mutex_lock.exit, %47
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %47 ], [ 0, %48 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15508,7 +15508,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15536,7 +15536,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %49
 
 49:                                               ; preds = %arenas_i.exit, %48, %malloc_mutex_lock.exit, %47
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %47 ], [ 0, %48 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15613,7 +15613,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15641,7 +15641,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %49
 
 49:                                               ; preds = %arenas_i.exit, %48, %malloc_mutex_lock.exit, %47
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %47 ], [ 0, %48 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15718,7 +15718,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15746,7 +15746,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %49
 
 49:                                               ; preds = %arenas_i.exit, %48, %malloc_mutex_lock.exit, %47
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %47 ], [ 0, %48 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15823,7 +15823,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15851,7 +15851,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %49
 
 49:                                               ; preds = %arenas_i.exit, %48, %malloc_mutex_lock.exit, %47
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %47 ], [ 0, %48 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15928,7 +15928,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -15958,7 +15958,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16035,7 +16035,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16065,7 +16065,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16142,7 +16142,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16172,7 +16172,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16249,7 +16249,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16279,7 +16279,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16356,7 +16356,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16386,7 +16386,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16463,7 +16463,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16493,7 +16493,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16570,7 +16570,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16600,7 +16600,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16677,7 +16677,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16707,7 +16707,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16784,7 +16784,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16814,7 +16814,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16891,7 +16891,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -16920,7 +16920,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %50
 
 50:                                               ; preds = %arenas_i.exit, %49, %malloc_mutex_lock.exit, %48
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %48 ], [ 0, %49 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %48 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %49 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16997,7 +16997,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17027,7 +17027,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17104,7 +17104,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17134,7 +17134,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17211,7 +17211,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17241,7 +17241,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17318,7 +17318,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17348,7 +17348,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17425,7 +17425,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17455,7 +17455,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17532,7 +17532,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17562,7 +17562,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17639,7 +17639,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17669,7 +17669,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17746,7 +17746,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17776,7 +17776,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17853,7 +17853,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17883,7 +17883,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17960,7 +17960,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -17990,7 +17990,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18067,7 +18067,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18097,7 +18097,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18174,7 +18174,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18204,7 +18204,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18281,7 +18281,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18311,7 +18311,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18388,7 +18388,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18418,7 +18418,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18495,7 +18495,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18525,7 +18525,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18602,7 +18602,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18632,7 +18632,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18709,7 +18709,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18739,7 +18739,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18816,7 +18816,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18846,7 +18846,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18923,7 +18923,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -18953,7 +18953,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19030,7 +19030,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19060,7 +19060,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19137,7 +19137,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19167,7 +19167,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19251,7 +19251,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19284,7 +19284,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19361,7 +19361,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19394,7 +19394,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19471,7 +19471,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19504,7 +19504,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19581,7 +19581,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19614,7 +19614,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19691,7 +19691,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19724,7 +19724,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19801,7 +19801,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19834,7 +19834,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19911,7 +19911,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -19944,7 +19944,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20021,7 +20021,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20054,7 +20054,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20131,7 +20131,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20164,7 +20164,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20241,7 +20241,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20274,7 +20274,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20351,7 +20351,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20384,7 +20384,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20461,7 +20461,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20494,7 +20494,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20571,7 +20571,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20604,7 +20604,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20681,7 +20681,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20714,7 +20714,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20791,7 +20791,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20824,7 +20824,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20901,7 +20901,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -20934,7 +20934,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21011,7 +21011,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21044,7 +21044,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21121,7 +21121,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21154,7 +21154,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21231,7 +21231,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21264,7 +21264,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21341,7 +21341,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21374,7 +21374,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21451,7 +21451,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21484,7 +21484,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21568,7 +21568,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21601,7 +21601,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21678,7 +21678,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21711,7 +21711,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21788,7 +21788,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21821,7 +21821,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21898,7 +21898,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -21931,7 +21931,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22015,7 +22015,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22048,7 +22048,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22125,7 +22125,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22158,7 +22158,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22235,7 +22235,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22268,7 +22268,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22345,7 +22345,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22378,7 +22378,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22455,7 +22455,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22488,7 +22488,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22565,7 +22565,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22598,7 +22598,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22675,7 +22675,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22705,7 +22705,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22782,7 +22782,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22812,7 +22812,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22889,7 +22889,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -22919,7 +22919,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -22996,7 +22996,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23026,7 +23026,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23103,7 +23103,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23133,7 +23133,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23210,7 +23210,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23240,7 +23240,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23317,7 +23317,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23347,7 +23347,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23424,7 +23424,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23454,7 +23454,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23531,7 +23531,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23561,7 +23561,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23638,7 +23638,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23668,7 +23668,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23745,7 +23745,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23775,7 +23775,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23852,7 +23852,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23882,7 +23882,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -23959,7 +23959,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -23989,7 +23989,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24066,7 +24066,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24096,7 +24096,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24173,7 +24173,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24203,7 +24203,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24280,7 +24280,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24310,7 +24310,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24387,7 +24387,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24417,7 +24417,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24494,7 +24494,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24524,7 +24524,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24601,7 +24601,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24631,7 +24631,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24708,7 +24708,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24738,7 +24738,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24815,7 +24815,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24845,7 +24845,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24922,7 +24922,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -24952,7 +24952,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25029,7 +25029,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25059,7 +25059,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25136,7 +25136,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25166,7 +25166,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25243,7 +25243,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25273,7 +25273,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25350,7 +25350,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25380,7 +25380,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25457,7 +25457,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25487,7 +25487,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25564,7 +25564,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25594,7 +25594,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25671,7 +25671,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25701,7 +25701,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25778,7 +25778,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25808,7 +25808,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25885,7 +25885,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -25915,7 +25915,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -25992,7 +25992,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26022,7 +26022,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26099,7 +26099,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26129,7 +26129,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26206,7 +26206,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26236,7 +26236,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26313,7 +26313,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26343,7 +26343,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26420,7 +26420,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26450,7 +26450,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26527,7 +26527,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26557,7 +26557,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26634,7 +26634,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26664,7 +26664,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26741,7 +26741,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26771,7 +26771,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26848,7 +26848,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26878,7 +26878,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -26955,7 +26955,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -26985,7 +26985,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27062,7 +27062,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27092,7 +27092,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27169,7 +27169,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27199,7 +27199,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27276,7 +27276,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27306,7 +27306,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27383,7 +27383,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27413,7 +27413,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27490,7 +27490,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27520,7 +27520,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27597,7 +27597,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27627,7 +27627,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27704,7 +27704,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27734,7 +27734,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27811,7 +27811,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27841,7 +27841,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -27918,7 +27918,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -27948,7 +27948,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28025,7 +28025,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28055,7 +28055,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28132,7 +28132,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28162,7 +28162,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28239,7 +28239,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28269,7 +28269,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28346,7 +28346,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28376,7 +28376,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28453,7 +28453,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28483,7 +28483,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28560,7 +28560,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28590,7 +28590,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28667,7 +28667,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28697,7 +28697,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28774,7 +28774,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28804,7 +28804,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28881,7 +28881,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -28911,7 +28911,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -28988,7 +28988,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29018,7 +29018,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29095,7 +29095,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29125,7 +29125,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29202,7 +29202,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29232,7 +29232,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29309,7 +29309,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29339,7 +29339,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29416,7 +29416,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29446,7 +29446,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29523,7 +29523,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29553,7 +29553,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29630,7 +29630,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29660,7 +29660,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29737,7 +29737,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29767,7 +29767,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29844,7 +29844,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29874,7 +29874,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29951,7 +29951,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -29981,7 +29981,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30058,7 +30058,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30088,7 +30088,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30165,7 +30165,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30195,7 +30195,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30272,7 +30272,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30302,7 +30302,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30379,7 +30379,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30409,7 +30409,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30486,7 +30486,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30516,7 +30516,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30593,7 +30593,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30623,7 +30623,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30700,7 +30700,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30730,7 +30730,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30807,7 +30807,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30837,7 +30837,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30914,7 +30914,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -30944,7 +30944,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31021,7 +31021,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31051,7 +31051,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31128,7 +31128,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31158,7 +31158,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31235,7 +31235,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31265,7 +31265,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31342,7 +31342,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31372,7 +31372,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31449,7 +31449,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31479,7 +31479,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31556,7 +31556,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31586,7 +31586,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31663,7 +31663,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31693,7 +31693,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31770,7 +31770,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31800,7 +31800,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31877,7 +31877,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -31907,7 +31907,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -31984,7 +31984,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32014,7 +32014,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32091,7 +32091,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32121,7 +32121,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32198,7 +32198,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32228,7 +32228,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32305,7 +32305,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32335,7 +32335,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32412,7 +32412,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32442,7 +32442,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32519,7 +32519,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32549,7 +32549,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32626,7 +32626,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32656,7 +32656,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32733,7 +32733,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32763,7 +32763,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32840,7 +32840,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32870,7 +32870,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -32947,7 +32947,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -32977,7 +32977,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33054,7 +33054,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33084,7 +33084,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33161,7 +33161,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33191,7 +33191,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33268,7 +33268,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33298,7 +33298,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %51
 
 51:                                               ; preds = %arenas_i.exit, %50, %malloc_mutex_lock.exit, %49
-  %.021 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %49 ], [ 0, %50 ], [ 0, %arenas_i.exit ]
+  %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33382,7 +33382,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33415,7 +33415,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33492,7 +33492,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33525,7 +33525,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33602,7 +33602,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33635,7 +33635,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33712,7 +33712,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33745,7 +33745,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33822,7 +33822,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33855,7 +33855,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -33932,7 +33932,7 @@ tsd_fetch_impl.exit.i:                            ; preds = %26, %20
   br label %arenas_i.exit
 
 arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit.i, %29, %30, %35
-  %.0.i.i.i = phi i64 [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ], [ %37, %35 ], [ 1, %29 ]
+  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %29 ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !28
@@ -33965,7 +33965,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   br label %54
 
 54:                                               ; preds = %arenas_i.exit, %53, %malloc_mutex_lock.exit, %52
-  %.022 = phi i32 [ 1, %malloc_mutex_lock.exit ], [ 22, %52 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
+  %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -34055,7 +34055,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   br label %34
 
 34:                                               ; preds = %27, %25, %23, %.thread, %32, %33
-  %.027 = phi i32 [ 0, %33 ], [ 22, %23 ], [ 22, %25 ], [ 22, %32 ], [ 22, %.thread ], [ 11, %27 ]
+  %.027 = phi i32 [ 22, %32 ], [ 0, %33 ], [ 22, %.thread ], [ 22, %23 ], [ 22, %25 ], [ 11, %27 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -34114,7 +34114,7 @@ define internal range(i32 0, 23) i32 @experimental_batch_alloc_ctl(ptr readnone 
   br label %22
 
 22:                                               ; preds = %21, %20, %.thread, %13, %14
-  %.026 = phi i32 [ 0, %21 ], [ 22, %13 ], [ 22, %20 ], [ 22, %.thread ], [ 22, %14 ]
+  %.026 = phi i32 [ 22, %20 ], [ 0, %21 ], [ 22, %.thread ], [ 22, %13 ], [ 22, %14 ]
   ret i32 %.026
 }
 
@@ -34154,7 +34154,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_install_ctl(ptr noundef
   br label %20
 
 20:                                               ; preds = %19, %18, %7, %13
-  %.026 = phi i32 [ 0, %19 ], [ 22, %7 ], [ 11, %13 ], [ 22, %18 ]
+  %.026 = phi i32 [ 22, %18 ], [ 0, %19 ], [ 22, %7 ], [ 11, %13 ]
   ret i32 %.026
 }
 
@@ -34181,7 +34181,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_remove_ctl(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %10, %11, %7, %14
-  %.09 = phi i32 [ 0, %14 ], [ 1, %7 ], [ 22, %10 ], [ 22, %11 ]
+  %.09 = phi i32 [ 0, %14 ], [ 1, %7 ], [ 22, %11 ], [ 22, %10 ]
   ret i32 %.09
 }
 
@@ -34245,7 +34245,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
   br label %.thread43
 
 .thread43:                                        ; preds = %23, %22, %18, %26, %17, %7, %19
-  %.028 = phi i32 [ 22, %17 ], [ 2, %19 ], [ 0, %18 ], [ 22, %7 ], [ 0, %26 ], [ 22, %22 ], [ 22, %23 ]
+  %.028 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 0, %26 ], [ 0, %18 ], [ 22, %22 ], [ 22, %23 ]
   ret i32 %.028
 }
 
@@ -34305,7 +34305,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr readn
   br label %24
 
 24:                                               ; preds = %18, %.thread41, %22, %17, %7, %19
-  %.027 = phi i32 [ 22, %17 ], [ 22, %22 ], [ 2, %19 ], [ 22, %7 ], [ 0, %.thread41 ], [ 0, %18 ]
+  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread41 ], [ 0, %18 ]
   ret i32 %.027
 }
 
@@ -34365,7 +34365,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_ctl(ptr rea
   br label %24
 
 24:                                               ; preds = %18, %.thread41, %22, %17, %7, %19
-  %.027 = phi i32 [ 22, %17 ], [ 22, %22 ], [ 2, %19 ], [ 22, %7 ], [ 0, %.thread41 ], [ 0, %18 ]
+  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread41 ], [ 0, %18 ]
   ret i32 %.027
 }
 
@@ -34425,7 +34425,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_sample_free_ctl(pt
   br label %24
 
 24:                                               ; preds = %18, %.thread41, %22, %17, %7, %19
-  %.027 = phi i32 [ 22, %17 ], [ 22, %22 ], [ 2, %19 ], [ 22, %7 ], [ 0, %.thread41 ], [ 0, %18 ]
+  %.027 = phi i32 [ 22, %17 ], [ 22, %7 ], [ 2, %19 ], [ 22, %22 ], [ 0, %.thread41 ], [ 0, %18 ]
   ret i32 %.027
 }
 
@@ -34450,7 +34450,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_safety_check_abort_ctl(
   br label %14
 
 14:                                               ; preds = %7, %11, %12, %10
-  %.012 = phi i32 [ 22, %11 ], [ 1, %7 ], [ 0, %12 ], [ 0, %10 ]
+  %.012 = phi i32 [ 1, %7 ], [ 22, %11 ], [ 0, %12 ], [ 0, %10 ]
   ret i32 %.012
 }
 
@@ -34503,7 +34503,7 @@ define internal range(i32 0, 23) i32 @experimental_utilization_query_ctl(ptr nou
   br label %21
 
 21:                                               ; preds = %7, %10, %14
-  %.0 = phi i32 [ 0, %14 ], [ 22, %7 ], [ 22, %10 ]
+  %.0 = phi i32 [ 0, %14 ], [ 22, %10 ], [ 22, %7 ]
   ret i32 %.0
 }
 
@@ -34541,7 +34541,7 @@ define internal range(i32 0, 23) i32 @experimental_utilization_batch_query_ctl(p
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %14
-  %.028 = phi i32 [ 22, %7 ], [ 22, %14 ], [ 0, %.lr.ph ]
+  %.028 = phi i32 [ 22, %14 ], [ 22, %7 ], [ 0, %.lr.ph ]
   ret i32 %.028
 }
 
@@ -34601,7 +34601,7 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
   br i1 %or.cond.i, label %ctl_arenas_i_verify.exit.thread, label %ctl_arenas_i_verify.exit
 
 ctl_arenas_i_verify.exit:                         ; preds = %malloc_mutex_lock.exit, %14, %15, %21
-  %.0.i5.i = phi i32 [ %23, %21 ], [ 1, %14 ], [ 0, %15 ], [ 0, %malloc_mutex_lock.exit ]
+  %.0.i5.i = phi i32 [ 0, %15 ], [ 0, %malloc_mutex_lock.exit ], [ 1, %14 ], [ %23, %21 ]
   %25 = zext i32 %.0.i5.i to i64
   %26 = load ptr, ptr @ctl_arenas, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -34704,7 +34704,7 @@ malloc_mutex_lock.exit:                           ; preds = %16, %20
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %33, %29, %25, %malloc_mutex_lock.exit, %39, %40
-  %.031 = phi i32 [ 14, %25 ], [ 1, %malloc_mutex_lock.exit ], [ 22, %39 ], [ 0, %40 ], [ 14, %33 ], [ 14, %29 ]
+  %.031 = phi i32 [ 22, %39 ], [ 0, %40 ], [ 1, %malloc_mutex_lock.exit ], [ 14, %25 ], [ 14, %29 ], [ 14, %33 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

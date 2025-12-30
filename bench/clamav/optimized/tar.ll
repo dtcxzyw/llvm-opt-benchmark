@@ -153,7 +153,7 @@ define range(i32 -1, 1) i32 @tar_addfile(i32 noundef %0, ptr noundef %1, ptr nou
   br label %75
 
 75:                                               ; preds = %70, %66, %3, %74, %.split.us, %55, %37, %33, %12
-  %.029 = phi i32 [ -1, %37 ], [ -1, %12 ], [ -1, %55 ], [ -1, %.split.us ], [ 0, %74 ], [ -1, %3 ], [ -1, %66 ], [ -1, %33 ], [ -1, %70 ]
+  %.029 = phi i32 [ -1, %12 ], [ -1, %55 ], [ -1, %.split.us ], [ 0, %74 ], [ -1, %33 ], [ -1, %37 ], [ -1, %3 ], [ -1, %66 ], [ -1, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

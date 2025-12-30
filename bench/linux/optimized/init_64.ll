@@ -1433,7 +1433,7 @@ define internal fastcc i64 @__kernel_physical_mapping_init(i64 noundef %0, i64 n
   br label %.thread
 
 .thread:                                          ; preds = %5, %.thread6, %120
-  %123 = phi i64 [ %117, %120 ], [ %121, %.thread6 ], [ %1, %5 ]
+  %123 = phi i64 [ %121, %.thread6 ], [ %117, %120 ], [ %1, %5 ]
   ret i64 %123
 }
 
@@ -1588,7 +1588,7 @@ define internal fastcc void @preallocate_vmalloc_pages() unnamed_addr #3 section
   br label %37
 
 37:                                               ; preds = %25, %24
-  %38 = phi ptr [ %17, %24 ], [ %36, %25 ]
+  %38 = phi ptr [ %36, %25 ], [ %17, %24 ]
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
 
@@ -1633,7 +1633,7 @@ define internal fastcc void @preallocate_vmalloc_pages() unnamed_addr #3 section
   br label %2, !llvm.loop !25
 
 .thread:                                          ; preds = %48, %21, %37, %45
-  %.ph = phi ptr [ @.str.15, %21 ], [ @.str.15, %37 ], [ @.str.16, %45 ], [ @.str.16, %48 ]
+  %.ph = phi ptr [ @.str.16, %45 ], [ @.str.15, %37 ], [ @.str.15, %21 ], [ @.str.16, %48 ]
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.17, ptr noundef nonnull %.ph) #19
   unreachable
 

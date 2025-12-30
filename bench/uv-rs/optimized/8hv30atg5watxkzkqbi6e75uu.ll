@@ -106,7 +106,7 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
   br i1 %.not.i5, label %14, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f0d2d18283fe200E.llvm.2490662233498465319.exit6
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h6f0d2d18283fe200E.llvm.2490662233498465319.exit6: ; preds = %6, %16, %14
-  %.sroa.0.0 = phi i1 [ %.not8.not.not.i4.not.not.not, %16 ], [ %.not8.not.not.i4.not.not.not, %14 ], [ true, %6 ]
+  %.sroa.0.0 = phi i1 [ %.not8.not.not.i4.not.not.not, %14 ], [ %.not8.not.not.i4.not.not.not, %16 ], [ true, %6 ]
   ret i1 %.sroa.0.0
 }
 
@@ -640,9 +640,9 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he9fe64b738d34a2
   br label %.preheader
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he9fe64b738d34a20E.exit.thread: ; preds = %50, %55, %31
-  %.pn.i.pn = phi { i64, i64 } [ %32, %31 ], [ %51, %50 ], [ %56, %55 ]
-  %.sroa.7.021 = extractvalue { i64, i64 } %.pn.i.pn, 0
-  %.sroa.12.022 = extractvalue { i64, i64 } %.pn.i.pn, 1
+  %.pn = phi { i64, i64 } [ %32, %31 ], [ %56, %55 ], [ %51, %50 ]
+  %.sroa.7.021 = extractvalue { i64, i64 } %.pn, 0
+  %.sroa.12.022 = extractvalue { i64, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !45
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17h6edc8a3c1f0ada68E.exit
 

@@ -2615,9 +2615,9 @@ _ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZN
   br label %_ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i.i
 
 _ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i.i: ; preds = %202, %196, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.exit.i.i.i.i.i, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i.i
-  %.not.i.i.i.i90.i.i.i.i.i = phi i1 [ false, %202 ], [ true, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.exit.i.i.i.i.i ], [ false, %196 ], [ true, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i.i ]
-  %204 = phi ptr [ %.pre.i.i.i.i.i, %202 ], [ %.pre.i.i.i.i.i, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.exit.i.i.i.i.i ], [ %199, %196 ], [ %.val.i.i.i.i.i, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i.i ]
-  %205 = phi ptr [ %.pre81.i.i.i.i.i, %202 ], [ null, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.exit.i.i.i.i.i ], [ %198, %196 ], [ null, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i.i ]
+  %.not.i.i.i.i90.i.i.i.i.i = phi i1 [ true, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.exit.i.i.i.i.i ], [ false, %196 ], [ false, %202 ], [ true, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i.i ]
+  %204 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.exit.i.i.i.i.i ], [ %199, %196 ], [ %.pre.i.i.i.i.i, %202 ], [ %.val.i.i.i.i.i, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i.i ]
+  %205 = phi ptr [ null, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.exit.i.i.i.i.i ], [ %198, %196 ], [ %.pre81.i.i.i.i.i, %202 ], [ null, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !224
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !224
   %206 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
@@ -2803,7 +2803,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35.i.i.i.i.i: ; pre
   br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit37.i.i.i.i.i"
 
 "_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit37.i.i.i.i.i": ; preds = %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit37.sink.split.i.i.i.i.i", %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35.i.i.i.i.i, %265, %262
-  %.pn72.i.i.i.i.i = phi { ptr, i32 } [ %263, %262 ], [ %266, %265 ], [ %266, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35.i.i.i.i.i ], [ %.pn72.ph.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit37.sink.split.i.i.i.i.i" ]
+  %.pn72.i.i.i.i.i = phi { ptr, i32 } [ %266, %265 ], [ %266, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35.i.i.i.i.i ], [ %263, %262 ], [ %.pn72.ph.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit37.sink.split.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !224
   call void @_ZN5arrow9StopTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29, !noalias !234
   %279 = load ptr, ptr %9, align 8, !tbaa !241, !noalias !224
@@ -2978,7 +2978,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   br label %344
 
 .body.i.i.i.i:                                    ; preds = %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit45.i.i.i.i.i", %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %.pn.pn78.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit45.i.i.i.i.i" ], [ %.pn.i.i.i.i.i.i, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i.i, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i.i.i.i.i ], [ %.pn.pn78.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit45.i.i.i.i.i" ]
   call void @_ZN5arrow9StopTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29, !noalias !214
   br label %.body.i.i.i
 
@@ -3273,7 +3273,7 @@ _ZSt8_DestroyIPN5arrow6FutureINS0_8internal5EmptyEEES4_EvT_S6_RSaIT0_E.exit.i.i.
   br label %_ZN5arrow6StatusD2Ev.exit59
 
 .body.i.i.i:                                      ; preds = %429, %425, %422, %348, %.body.i.i.i.i
-  %.pn23.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %349, %348 ], [ %423, %429 ], [ %423, %422 ], [ %423, %425 ]
+  %.pn23.i.i.i = phi { ptr, i32 } [ %349, %348 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %423, %422 ], [ %423, %425 ], [ %423, %429 ]
   call void @_ZNSt6vectorIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !207
   br label %common.resume
@@ -6305,7 +6305,7 @@ _ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.e
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit71.i: ; preds = %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i70.i, %207, %81
-  %.pn42.i = phi { ptr, i32 } [ %82, %81 ], [ %.pn38.pn.i, %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i70.i ], [ %.pn38.pn.i, %207 ]
+  %.pn42.i = phi { ptr, i32 } [ %82, %81 ], [ %.pn38.pn.i, %207 ], [ %.pn38.pn.i, %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i70.i ]
   call void @_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !414
   br label %.body
@@ -6782,7 +6782,7 @@ _ZNKSt14default_deleteIN5arrow6TensorEEclEPS1_.exit.i52: ; preds = %406
   br label %_ZNSt10unique_ptrIN5arrow6TensorESt14default_deleteIS1_EED2Ev.exit53
 
 _ZNSt10unique_ptrIN5arrow6TensorESt14default_deleteIS1_EED2Ev.exit53: ; preds = %.body, %406, %_ZNKSt14default_deleteIN5arrow6TensorEEclEPS1_.exit.i52
-  %.pn.pn.pn62 = phi { ptr, i32 } [ %.pn.pn, %_ZNKSt14default_deleteIN5arrow6TensorEEclEPS1_.exit.i52 ], [ %.pn.pn, %406 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn.pn62 = phi { ptr, i32 } [ %.pn.pn, %406 ], [ %.pn.pn, %_ZNKSt14default_deleteIN5arrow6TensorEEclEPS1_.exit.i52 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn.pn62
 }
 
@@ -7468,7 +7468,7 @@ _ZN5arrow3ipc8internal22SparseTensorSerializerD2Ev.exit: ; preds = %_ZN5arrow3ip
   br label %.body
 
 .body:                                            ; preds = %19, %16, %125
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %125 ], [ %17, %16 ], [ %17, %19 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %125 ], [ %17, %19 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5arrow3ipc10IpcPayloadD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -14751,7 +14751,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %214, %21
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.exit
 
 common.resume:                                    ; preds = %5447, %5477, %5491, %5186, %5217, %5231, %6356, %6250, %5954, %5811, %5766, %4948, %4650, %.body.i922, %.body.i898, %.body.i874, %.body.i850, %.body.i826, %.body.i802, %.body.i778, %.body.i754, %.body.i730, %.body.i706, %.body.i682, %.body.i658, %.body.i634, %.body.i610, %2821, %2476, %2130, %1784, %.body.i312, %.body.i288, %.body.i264, %.body.i240, %.body.i216, %.body.i192, %.body.i168, %.body.i144, %.body.i120, %.body.i96, %.body.i, %218
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %218 ], [ %.pn19.pn.i, %.body.i ], [ %.pn19.pn.i97, %.body.i96 ], [ %.pn19.pn.i121, %.body.i120 ], [ %.pn19.pn.i145, %.body.i144 ], [ %.pn19.pn.i169, %.body.i168 ], [ %.pn19.pn.i193, %.body.i192 ], [ %.pn19.pn.i217, %.body.i216 ], [ %.pn19.pn.i241, %.body.i240 ], [ %.pn19.pn.i265, %.body.i264 ], [ %.pn19.pn.i289, %.body.i288 ], [ %.pn19.pn.i313, %.body.i312 ], [ %.pn.pn.i, %1784 ], [ %.pn.pn.i357, %2130 ], [ %.pn.pn.i451, %2476 ], [ %.pn.pn.i518, %2821 ], [ %.pn19.pn.i611, %.body.i610 ], [ %.pn19.pn.i635, %.body.i634 ], [ %.pn19.pn.i659, %.body.i658 ], [ %.pn19.pn.i683, %.body.i682 ], [ %.pn19.pn.i707, %.body.i706 ], [ %.pn19.pn.i731, %.body.i730 ], [ %.pn19.pn.i755, %.body.i754 ], [ %.pn19.pn.i779, %.body.i778 ], [ %.pn19.pn.i803, %.body.i802 ], [ %.pn19.pn.i827, %.body.i826 ], [ %.pn19.pn.i851, %.body.i850 ], [ %.pn19.pn.i875, %.body.i874 ], [ %.pn19.pn.i899, %.body.i898 ], [ %.pn19.pn.i923, %.body.i922 ], [ %.pn.pn.i943, %4650 ], [ %.pn.pn.i947, %4948 ], [ %.pn23.i, %6356 ], [ %.pn.i955, %5186 ], [ %.pn.pn.i968, %5766 ], [ %5812, %5811 ], [ %.pn.pn.i978, %5954 ], [ %.pn103.pn.pn.pn.pn.pn.pn.i, %6250 ], [ %.pn31.i, %5231 ], [ %.pn29.i, %5217 ], [ %.pn31.i966, %5491 ], [ %.pn29.i962, %5477 ], [ %.pn.i958, %5447 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %218 ], [ %.pn19.pn.i, %.body.i ], [ %.pn19.pn.i97, %.body.i96 ], [ %.pn19.pn.i121, %.body.i120 ], [ %.pn19.pn.i145, %.body.i144 ], [ %.pn19.pn.i169, %.body.i168 ], [ %.pn19.pn.i193, %.body.i192 ], [ %.pn19.pn.i217, %.body.i216 ], [ %.pn19.pn.i241, %.body.i240 ], [ %.pn19.pn.i265, %.body.i264 ], [ %.pn19.pn.i289, %.body.i288 ], [ %.pn19.pn.i313, %.body.i312 ], [ %.pn.pn.i, %1784 ], [ %.pn.pn.i357, %2130 ], [ %.pn.pn.i451, %2476 ], [ %.pn.pn.i518, %2821 ], [ %.pn19.pn.i611, %.body.i610 ], [ %.pn19.pn.i635, %.body.i634 ], [ %.pn19.pn.i659, %.body.i658 ], [ %.pn19.pn.i683, %.body.i682 ], [ %.pn19.pn.i707, %.body.i706 ], [ %.pn19.pn.i731, %.body.i730 ], [ %.pn19.pn.i755, %.body.i754 ], [ %.pn19.pn.i779, %.body.i778 ], [ %.pn19.pn.i803, %.body.i802 ], [ %.pn19.pn.i827, %.body.i826 ], [ %.pn19.pn.i851, %.body.i850 ], [ %.pn19.pn.i875, %.body.i874 ], [ %.pn19.pn.i899, %.body.i898 ], [ %.pn19.pn.i923, %.body.i922 ], [ %.pn.pn.i943, %4650 ], [ %.pn.pn.i947, %4948 ], [ %.pn.pn.i968, %5766 ], [ %5812, %5811 ], [ %.pn.pn.i978, %5954 ], [ %.pn103.pn.pn.pn.pn.pn.pn.i, %6250 ], [ %.pn23.i, %6356 ], [ %.pn31.i, %5231 ], [ %.pn29.i, %5217 ], [ %.pn.i955, %5186 ], [ %.pn31.i966, %5491 ], [ %.pn29.i962, %5477 ], [ %.pn.i958, %5447 ]
   resume { ptr, i32 } %common.resume.op
 
 218:                                              ; preds = %193, %177
@@ -14999,7 +14999,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i: ; preds = %326, %
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_8Int8TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i:                                          ; preds = %293, %291, %289, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i
-  %.pn19.pn.i = phi { ptr, i32 } [ %290, %289 ], [ %292, %291 ], [ %266, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i ], [ %294, %293 ]
+  %.pn19.pn.i = phi { ptr, i32 } [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %266, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %153) #29, !noalias !803
   call void @llvm.lifetime.end.p0(ptr nonnull %153), !noalias !803
   br label %common.resume
@@ -15243,7 +15243,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i105: ; preds = %437
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9UInt8TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i96:                                        ; preds = %404, %402, %400, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i110
-  %.pn19.pn.i97 = phi { ptr, i32 } [ %401, %400 ], [ %403, %402 ], [ %377, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i110 ], [ %405, %404 ]
+  %.pn19.pn.i97 = phi { ptr, i32 } [ %401, %400 ], [ %403, %402 ], [ %405, %404 ], [ %377, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i110 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152) #29, !noalias !814
   call void @llvm.lifetime.end.p0(ptr nonnull %152), !noalias !814
   br label %common.resume
@@ -15487,7 +15487,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i129: ; preds = %548
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int16TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i120:                                       ; preds = %515, %513, %511, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i134
-  %.pn19.pn.i121 = phi { ptr, i32 } [ %512, %511 ], [ %514, %513 ], [ %488, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i134 ], [ %516, %515 ]
+  %.pn19.pn.i121 = phi { ptr, i32 } [ %512, %511 ], [ %514, %513 ], [ %516, %515 ], [ %488, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i134 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %151) #29, !noalias !825
   call void @llvm.lifetime.end.p0(ptr nonnull %151), !noalias !825
   br label %common.resume
@@ -15731,7 +15731,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i153: ; preds = %659
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt16TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i144:                                       ; preds = %626, %624, %622, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i158
-  %.pn19.pn.i145 = phi { ptr, i32 } [ %623, %622 ], [ %625, %624 ], [ %599, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i158 ], [ %627, %626 ]
+  %.pn19.pn.i145 = phi { ptr, i32 } [ %623, %622 ], [ %625, %624 ], [ %627, %626 ], [ %599, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i158 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150) #29, !noalias !836
   call void @llvm.lifetime.end.p0(ptr nonnull %150), !noalias !836
   br label %common.resume
@@ -15975,7 +15975,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i177: ; preds = %770
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i168:                                       ; preds = %737, %735, %733, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i182
-  %.pn19.pn.i169 = phi { ptr, i32 } [ %734, %733 ], [ %736, %735 ], [ %710, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i182 ], [ %738, %737 ]
+  %.pn19.pn.i169 = phi { ptr, i32 } [ %734, %733 ], [ %736, %735 ], [ %738, %737 ], [ %710, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i182 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %149) #29, !noalias !847
   call void @llvm.lifetime.end.p0(ptr nonnull %149), !noalias !847
   br label %common.resume
@@ -16219,7 +16219,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i201: ; preds = %881
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i192:                                       ; preds = %848, %846, %844, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i206
-  %.pn19.pn.i193 = phi { ptr, i32 } [ %845, %844 ], [ %847, %846 ], [ %821, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i206 ], [ %849, %848 ]
+  %.pn19.pn.i193 = phi { ptr, i32 } [ %845, %844 ], [ %847, %846 ], [ %849, %848 ], [ %821, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i206 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #29, !noalias !858
   call void @llvm.lifetime.end.p0(ptr nonnull %148), !noalias !858
   br label %common.resume
@@ -16463,7 +16463,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i225: ; preds = %992
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i216:                                       ; preds = %959, %957, %955, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i230
-  %.pn19.pn.i217 = phi { ptr, i32 } [ %956, %955 ], [ %958, %957 ], [ %932, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i230 ], [ %960, %959 ]
+  %.pn19.pn.i217 = phi { ptr, i32 } [ %956, %955 ], [ %958, %957 ], [ %960, %959 ], [ %932, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i230 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %147) #29, !noalias !869
   call void @llvm.lifetime.end.p0(ptr nonnull %147), !noalias !869
   br label %common.resume
@@ -16707,7 +16707,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i249: ; preds = %110
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i240:                                       ; preds = %1070, %1068, %1066, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i254
-  %.pn19.pn.i241 = phi { ptr, i32 } [ %1067, %1066 ], [ %1069, %1068 ], [ %1043, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i254 ], [ %1071, %1070 ]
+  %.pn19.pn.i241 = phi { ptr, i32 } [ %1067, %1066 ], [ %1069, %1068 ], [ %1071, %1070 ], [ %1043, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i254 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146) #29, !noalias !880
   call void @llvm.lifetime.end.p0(ptr nonnull %146), !noalias !880
   br label %common.resume
@@ -16951,7 +16951,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i273: ; preds = %121
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_13HalfFloatTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i264:                                       ; preds = %1181, %1179, %1177, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i278
-  %.pn19.pn.i265 = phi { ptr, i32 } [ %1178, %1177 ], [ %1180, %1179 ], [ %1154, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i278 ], [ %1182, %1181 ]
+  %.pn19.pn.i265 = phi { ptr, i32 } [ %1178, %1177 ], [ %1180, %1179 ], [ %1182, %1181 ], [ %1154, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i278 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %145) #29, !noalias !891
   call void @llvm.lifetime.end.p0(ptr nonnull %145), !noalias !891
   br label %common.resume
@@ -17195,7 +17195,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i297: ; preds = %132
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9FloatTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i288:                                       ; preds = %1292, %1290, %1288, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i302
-  %.pn19.pn.i289 = phi { ptr, i32 } [ %1289, %1288 ], [ %1291, %1290 ], [ %1265, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i302 ], [ %1293, %1292 ]
+  %.pn19.pn.i289 = phi { ptr, i32 } [ %1289, %1288 ], [ %1291, %1290 ], [ %1293, %1292 ], [ %1265, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i302 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %144) #29, !noalias !902
   call void @llvm.lifetime.end.p0(ptr nonnull %144), !noalias !902
   br label %common.resume
@@ -17439,7 +17439,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i321: ; preds = %143
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10DoubleTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i312:                                       ; preds = %1403, %1401, %1399, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i326
-  %.pn19.pn.i313 = phi { ptr, i32 } [ %1400, %1399 ], [ %1402, %1401 ], [ %1376, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i326 ], [ %1404, %1403 ]
+  %.pn19.pn.i313 = phi { ptr, i32 } [ %1400, %1399 ], [ %1402, %1401 ], [ %1404, %1403 ], [ %1376, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i326 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %143) #29, !noalias !913
   call void @llvm.lifetime.end.p0(ptr nonnull %143), !noalias !913
   br label %common.resume
@@ -17897,7 +17897,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i59.i.i: ; preds = %1628
   br label %_ZN5arrow6StatusD2Ev.exit.i335
 
 .body.i.i:                                        ; preds = %1582, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i, %1547, %1473
-  %.pn36.pn.pn.i.i = phi { ptr, i32 } [ %1474, %1473 ], [ %.pn36.i.i, %1547 ], [ %1583, %1582 ], [ %1559, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i ]
+  %.pn36.pn.pn.i.i = phi { ptr, i32 } [ %.pn36.i.i, %1547 ], [ %1474, %1473 ], [ %1583, %1582 ], [ %1559, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %135) #29, !noalias !924
   call void @llvm.lifetime.end.p0(ptr nonnull %135), !noalias !930
   call void @llvm.lifetime.end.p0(ptr nonnull %139), !noalias !924
@@ -18734,7 +18734,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i59.i.i364: ; preds = %1
   br label %_ZN5arrow6StatusD2Ev.exit.i366
 
 .body.i.i355:                                     ; preds = %1928, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i439, %1893, %1819
-  %.pn36.pn.pn.i.i356 = phi { ptr, i32 } [ %1820, %1819 ], [ %.pn36.i.i358, %1893 ], [ %1929, %1928 ], [ %1905, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i439 ]
+  %.pn36.pn.pn.i.i356 = phi { ptr, i32 } [ %.pn36.i.i358, %1893 ], [ %1820, %1819 ], [ %1929, %1928 ], [ %1905, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i439 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %126) #29, !noalias !976
   call void @llvm.lifetime.end.p0(ptr nonnull %126), !noalias !982
   call void @llvm.lifetime.end.p0(ptr nonnull %130), !noalias !976
@@ -19573,7 +19573,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i59.i.i458: ; preds = %2
   br label %_ZN5arrow6StatusD2Ev.exit.i460
 
 .body.i.i449:                                     ; preds = %2276, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i505, %2241, %2165
-  %.pn36.pn.pn.i.i450 = phi { ptr, i32 } [ %2166, %2165 ], [ %.pn36.i.i452, %2241 ], [ %2277, %2276 ], [ %2253, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i505 ]
+  %.pn36.pn.pn.i.i450 = phi { ptr, i32 } [ %.pn36.i.i452, %2241 ], [ %2166, %2165 ], [ %2277, %2276 ], [ %2253, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i505 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %117) #29, !noalias !1024
   call void @llvm.lifetime.end.p0(ptr nonnull %117), !noalias !1030
   call void @llvm.lifetime.end.p0(ptr nonnull %121), !noalias !1024
@@ -20406,7 +20406,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i59.i.i525: ; preds = %2
   br label %_ZN5arrow6StatusD2Ev.exit.i527
 
 .body.i.i516:                                     ; preds = %2621, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i600, %2586, %2510
-  %.pn36.pn.pn.i.i517 = phi { ptr, i32 } [ %2511, %2510 ], [ %.pn36.i.i519, %2586 ], [ %2622, %2621 ], [ %2598, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i600 ]
+  %.pn36.pn.pn.i.i517 = phi { ptr, i32 } [ %.pn36.i.i519, %2586 ], [ %2511, %2510 ], [ %2622, %2621 ], [ %2598, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i600 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %108) #29, !noalias !1074
   call void @llvm.lifetime.end.p0(ptr nonnull %108), !noalias !1080
   call void @llvm.lifetime.end.p0(ptr nonnull %112), !noalias !1074
@@ -21023,7 +21023,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i619: ; preds = %292
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_20FixedSizeBinaryArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit
 
 .body.i610:                                       ; preds = %2896, %2894, %2892, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i624
-  %.pn19.pn.i611 = phi { ptr, i32 } [ %2893, %2892 ], [ %2895, %2894 ], [ %2869, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i624 ], [ %2897, %2896 ]
+  %.pn19.pn.i611 = phi { ptr, i32 } [ %2893, %2892 ], [ %2895, %2894 ], [ %2897, %2896 ], [ %2869, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i624 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %106) #29, !noalias !1122
   call void @llvm.lifetime.end.p0(ptr nonnull %106), !noalias !1122
   br label %common.resume
@@ -21267,7 +21267,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i643: ; preds = %304
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_12DurationTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i634:                                       ; preds = %3007, %3005, %3003, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i648
-  %.pn19.pn.i635 = phi { ptr, i32 } [ %3004, %3003 ], [ %3006, %3005 ], [ %2980, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i648 ], [ %3008, %3007 ]
+  %.pn19.pn.i635 = phi { ptr, i32 } [ %3004, %3003 ], [ %3006, %3005 ], [ %3008, %3007 ], [ %2980, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i648 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %105) #29, !noalias !1133
   call void @llvm.lifetime.end.p0(ptr nonnull %105), !noalias !1133
   br label %common.resume
@@ -21511,7 +21511,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i667: ; preds = %315
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Date32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i658:                                       ; preds = %3118, %3116, %3114, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i672
-  %.pn19.pn.i659 = phi { ptr, i32 } [ %3115, %3114 ], [ %3117, %3116 ], [ %3091, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i672 ], [ %3119, %3118 ]
+  %.pn19.pn.i659 = phi { ptr, i32 } [ %3115, %3114 ], [ %3117, %3116 ], [ %3119, %3118 ], [ %3091, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i672 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #29, !noalias !1144
   call void @llvm.lifetime.end.p0(ptr nonnull %104), !noalias !1144
   br label %common.resume
@@ -21755,7 +21755,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i691: ; preds = %326
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Date64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i682:                                       ; preds = %3229, %3227, %3225, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i696
-  %.pn19.pn.i683 = phi { ptr, i32 } [ %3226, %3225 ], [ %3228, %3227 ], [ %3202, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i696 ], [ %3230, %3229 ]
+  %.pn19.pn.i683 = phi { ptr, i32 } [ %3226, %3225 ], [ %3228, %3227 ], [ %3230, %3229 ], [ %3202, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i696 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %103) #29, !noalias !1155
   call void @llvm.lifetime.end.p0(ptr nonnull %103), !noalias !1155
   br label %common.resume
@@ -21999,7 +21999,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i715: ; preds = %337
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_13TimestampTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i706:                                       ; preds = %3340, %3338, %3336, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i720
-  %.pn19.pn.i707 = phi { ptr, i32 } [ %3337, %3336 ], [ %3339, %3338 ], [ %3313, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i720 ], [ %3341, %3340 ]
+  %.pn19.pn.i707 = phi { ptr, i32 } [ %3337, %3336 ], [ %3339, %3338 ], [ %3341, %3340 ], [ %3313, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i720 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #29, !noalias !1166
   call void @llvm.lifetime.end.p0(ptr nonnull %102), !noalias !1166
   br label %common.resume
@@ -22243,7 +22243,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i739: ; preds = %348
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Time32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i730:                                       ; preds = %3451, %3449, %3447, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i744
-  %.pn19.pn.i731 = phi { ptr, i32 } [ %3448, %3447 ], [ %3450, %3449 ], [ %3424, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i744 ], [ %3452, %3451 ]
+  %.pn19.pn.i731 = phi { ptr, i32 } [ %3448, %3447 ], [ %3450, %3449 ], [ %3452, %3451 ], [ %3424, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i744 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #29, !noalias !1177
   call void @llvm.lifetime.end.p0(ptr nonnull %101), !noalias !1177
   br label %common.resume
@@ -22487,7 +22487,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i763: ; preds = %359
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Time64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i754:                                       ; preds = %3562, %3560, %3558, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i768
-  %.pn19.pn.i755 = phi { ptr, i32 } [ %3559, %3558 ], [ %3561, %3560 ], [ %3535, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i768 ], [ %3563, %3562 ]
+  %.pn19.pn.i755 = phi { ptr, i32 } [ %3559, %3558 ], [ %3561, %3560 ], [ %3563, %3562 ], [ %3535, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i768 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %100) #29, !noalias !1188
   call void @llvm.lifetime.end.p0(ptr nonnull %100), !noalias !1188
   br label %common.resume
@@ -22731,7 +22731,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i787: ; preds = %370
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_25MonthDayNanoIntervalArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit
 
 .body.i778:                                       ; preds = %3673, %3671, %3669, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i792
-  %.pn19.pn.i779 = phi { ptr, i32 } [ %3670, %3669 ], [ %3672, %3671 ], [ %3646, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i792 ], [ %3674, %3673 ]
+  %.pn19.pn.i779 = phi { ptr, i32 } [ %3670, %3669 ], [ %3672, %3671 ], [ %3674, %3673 ], [ %3646, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i792 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %99) #29, !noalias !1199
   call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !1199
   br label %common.resume
@@ -22975,7 +22975,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i811: ; preds = %381
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_17MonthIntervalTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit
 
 .body.i802:                                       ; preds = %3784, %3782, %3780, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i816
-  %.pn19.pn.i803 = phi { ptr, i32 } [ %3781, %3780 ], [ %3783, %3782 ], [ %3757, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i816 ], [ %3785, %3784 ]
+  %.pn19.pn.i803 = phi { ptr, i32 } [ %3781, %3780 ], [ %3783, %3782 ], [ %3785, %3784 ], [ %3757, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i816 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %98) #29, !noalias !1210
   call void @llvm.lifetime.end.p0(ptr nonnull %98), !noalias !1210
   br label %common.resume
@@ -23219,7 +23219,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i835: ; preds = %392
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_20DayTimeIntervalArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit
 
 .body.i826:                                       ; preds = %3895, %3893, %3891, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i840
-  %.pn19.pn.i827 = phi { ptr, i32 } [ %3892, %3891 ], [ %3894, %3893 ], [ %3868, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i840 ], [ %3896, %3895 ]
+  %.pn19.pn.i827 = phi { ptr, i32 } [ %3892, %3891 ], [ %3894, %3893 ], [ %3896, %3895 ], [ %3868, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i840 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %97) #29, !noalias !1221
   call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !1221
   br label %common.resume
@@ -23463,7 +23463,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i859: ; preds = %403
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_14Decimal32ArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit
 
 .body.i850:                                       ; preds = %4006, %4004, %4002, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i864
-  %.pn19.pn.i851 = phi { ptr, i32 } [ %4003, %4002 ], [ %4005, %4004 ], [ %3979, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i864 ], [ %4007, %4006 ]
+  %.pn19.pn.i851 = phi { ptr, i32 } [ %4003, %4002 ], [ %4005, %4004 ], [ %4007, %4006 ], [ %3979, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i864 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %96) #29, !noalias !1232
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !1232
   br label %common.resume
@@ -23707,7 +23707,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i883: ; preds = %415
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_14Decimal64ArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit
 
 .body.i874:                                       ; preds = %4117, %4115, %4113, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i888
-  %.pn19.pn.i875 = phi { ptr, i32 } [ %4114, %4113 ], [ %4116, %4115 ], [ %4090, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i888 ], [ %4118, %4117 ]
+  %.pn19.pn.i875 = phi { ptr, i32 } [ %4114, %4113 ], [ %4116, %4115 ], [ %4118, %4117 ], [ %4090, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i888 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %95) #29, !noalias !1243
   call void @llvm.lifetime.end.p0(ptr nonnull %95), !noalias !1243
   br label %common.resume
@@ -23951,7 +23951,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i907: ; preds = %426
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_15Decimal128ArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit
 
 .body.i898:                                       ; preds = %4228, %4226, %4224, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i912
-  %.pn19.pn.i899 = phi { ptr, i32 } [ %4225, %4224 ], [ %4227, %4226 ], [ %4201, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i912 ], [ %4229, %4228 ]
+  %.pn19.pn.i899 = phi { ptr, i32 } [ %4225, %4224 ], [ %4227, %4226 ], [ %4229, %4228 ], [ %4201, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i912 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %94) #29, !noalias !1254
   call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !1254
   br label %common.resume
@@ -24195,7 +24195,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i931: ; preds = %437
   br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_15Decimal256ArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit
 
 .body.i922:                                       ; preds = %4339, %4337, %4335, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i936
-  %.pn19.pn.i923 = phi { ptr, i32 } [ %4336, %4335 ], [ %4338, %4337 ], [ %4312, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i936 ], [ %4340, %4339 ]
+  %.pn19.pn.i923 = phi { ptr, i32 } [ %4336, %4335 ], [ %4338, %4337 ], [ %4340, %4339 ], [ %4312, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i936 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %93) #29, !noalias !1265
   call void @llvm.lifetime.end.p0(ptr nonnull %93), !noalias !1265
   br label %common.resume
@@ -24651,7 +24651,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i59.i: ; preds = %4564, 
   br label %_ZN5arrow6StatusD2Ev.exit1006
 
 .body.i1011:                                      ; preds = %4518, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1019, %4483, %4409
-  %.pn36.pn.pn.i = phi { ptr, i32 } [ %4410, %4409 ], [ %.pn36.i, %4483 ], [ %4519, %4518 ], [ %4495, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1019 ]
+  %.pn36.pn.pn.i = phi { ptr, i32 } [ %.pn36.i, %4483 ], [ %4410, %4409 ], [ %4519, %4518 ], [ %4495, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1019 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #29, !noalias !1276
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1282
   call void @llvm.lifetime.end.p0(ptr nonnull %85), !noalias !1276
@@ -25373,7 +25373,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i59.i1058: ; preds = %48
   br label %_ZN5arrow6StatusD2Ev.exit1045
 
 .body.i1050:                                      ; preds = %4818, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1088, %4783, %4707
-  %.pn36.pn.pn.i1051 = phi { ptr, i32 } [ %4708, %4707 ], [ %.pn36.i1052, %4783 ], [ %4819, %4818 ], [ %4795, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1088 ]
+  %.pn36.pn.pn.i1051 = phi { ptr, i32 } [ %.pn36.i1052, %4783 ], [ %4708, %4707 ], [ %4819, %4818 ], [ %4795, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1088 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #29, !noalias !1319
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1325
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !1319
@@ -26125,7 +26125,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i70.i: ; preds = %5172, 
   br label %_ZN5arrow6StatusD2Ev.exit1111
 
 .body.i1116:                                      ; preds = %5118, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1137, %5083, %5004
-  %.pn46.pn.pn.i = phi { ptr, i32 } [ %5005, %5004 ], [ %.pn46.i, %5083 ], [ %5119, %5118 ], [ %5095, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1137 ]
+  %.pn46.pn.pn.i = phi { ptr, i32 } [ %.pn46.i, %5083 ], [ %5005, %5004 ], [ %5119, %5118 ], [ %5095, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1137 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29, !noalias !1361
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1367
   call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !1361
@@ -26795,7 +26795,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i70.i1169: ; preds = %54
   br label %_ZN5arrow6StatusD2Ev.exit1156
 
 .body.i1161:                                      ; preds = %5380, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1206, %5345, %5264
-  %.pn46.pn.pn.i1162 = phi { ptr, i32 } [ %5265, %5264 ], [ %.pn46.i1163, %5345 ], [ %5381, %5380 ], [ %5357, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1206 ]
+  %.pn46.pn.pn.i1162 = phi { ptr, i32 } [ %.pn46.i1163, %5345 ], [ %5265, %5264 ], [ %5381, %5380 ], [ %5357, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1206 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29, !noalias !1403
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1409
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !1403
@@ -27429,7 +27429,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i59.i1251: ; preds = %56
   br label %_ZN5arrow6StatusD2Ev.exit1238
 
 .body.i1243:                                      ; preds = %5634, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1282, %5599, %5525
-  %.pn36.pn.pn.i1244 = phi { ptr, i32 } [ %5526, %5525 ], [ %.pn36.i1245, %5599 ], [ %5635, %5634 ], [ %5611, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1282 ]
+  %.pn36.pn.pn.i1244 = phi { ptr, i32 } [ %.pn36.i1245, %5599 ], [ %5526, %5525 ], [ %5635, %5634 ], [ %5611, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i1282 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29, !noalias !1445
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1451
   call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !1445
@@ -36462,7 +36462,7 @@ _ZN5arrow6Status7InvalidIJRA159_KcEEES0_DpOT_.exit.thread: ; preds = %161, %_ZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit129, %.loopexit.split-lp, %75, %65, %199
-  %.pn73.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %.pn73, %199 ], [ %76, %75 ], [ %lpad.loopexit, %.loopexit129 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn73.pn.pn = phi { ptr, i32 } [ %.pn73, %199 ], [ %76, %75 ], [ %66, %65 ], [ %lpad.loopexit, %.loopexit129 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt6vectorISt4pairIlSt10shared_ptrIN5arrow5ArrayEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -37784,7 +37784,7 @@ _ZN5arrow6StatusD2Ev.exit16:                      ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit44.i, %_ZN5arrow6StatusD2Ev.exit40.i, %_ZN5arrow6StatusD2Ev.exit.i, %3, %_ZN5arrow6StatusD2Ev.exit16
-  %.sink = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %_ZN5arrow6StatusD2Ev.exit16 ], [ %15, %3 ], [ %40, %_ZN5arrow6StatusD2Ev.exit44.i ], [ %34, %_ZN5arrow6StatusD2Ev.exit40.i ]
+  %.sink = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit16 ], [ %15, %3 ], [ %79, %_ZN5arrow6StatusD2Ev.exit.i ], [ %34, %_ZN5arrow6StatusD2Ev.exit40.i ], [ %40, %_ZN5arrow6StatusD2Ev.exit44.i ]
   store ptr %.sink, ptr %0, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -38773,7 +38773,7 @@ _ZNSt6vectorIN5arrow3ipc8internal9FileBlockESaIS3_EE17_M_realloc_insertIJRKS3_EE
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit44.i, %_ZN5arrow6StatusD2Ev.exit40.i, %_ZN5arrow6StatusD2Ev.exit18, %93, %_ZNSt6vectorIN5arrow3ipc8internal9FileBlockESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %122, %_ZNSt6vectorIN5arrow3ipc8internal9FileBlockESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i26, %_ZN5arrow6StatusD2Ev.exit.i, %3
-  %.sink = phi ptr [ null, %93 ], [ %84, %_ZN5arrow6StatusD2Ev.exit.i ], [ %21, %3 ], [ null, %_ZN5arrow6StatusD2Ev.exit18 ], [ null, %_ZNSt6vectorIN5arrow3ipc8internal9FileBlockESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i26 ], [ null, %122 ], [ null, %_ZNSt6vectorIN5arrow3ipc8internal9FileBlockESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %46, %_ZN5arrow6StatusD2Ev.exit44.i ], [ %40, %_ZN5arrow6StatusD2Ev.exit40.i ]
+  %.sink = phi ptr [ %21, %3 ], [ %84, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %_ZNSt6vectorIN5arrow3ipc8internal9FileBlockESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i26 ], [ null, %122 ], [ null, %_ZNSt6vectorIN5arrow3ipc8internal9FileBlockESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ null, %93 ], [ null, %_ZN5arrow6StatusD2Ev.exit18 ], [ %40, %_ZN5arrow6StatusD2Ev.exit40.i ], [ %46, %_ZN5arrow6StatusD2Ev.exit44.i ]
   store ptr %.sink, ptr %0, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void

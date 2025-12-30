@@ -154,8 +154,8 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %.thread
 
 .thread:                                          ; preds = %42, %40, %40, %36, %31
-  %.pre200.sink = phi i32 [ 65534, %40 ], [ %spec.select, %42 ], [ 65534, %31 ], [ 65534, %36 ], [ 65534, %40 ]
-  %45 = phi i1 [ true, %40 ], [ %or.cond210.not, %42 ], [ true, %31 ], [ true, %36 ], [ true, %40 ]
+  %.pre200.sink = phi i32 [ 65534, %31 ], [ 65534, %36 ], [ 65534, %40 ], [ 65534, %40 ], [ %spec.select, %42 ]
+  %45 = phi i1 [ true, %31 ], [ true, %36 ], [ true, %40 ], [ true, %40 ], [ %or.cond210.not, %42 ]
   call void @avio_wl16(ptr noundef %1, i32 noundef %.pre200.sink) #8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %47 = load i32, ptr %46, align 4, !tbaa !23
@@ -185,7 +185,7 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %56
 
 56:                                               ; preds = %53, %.thread, %.thread, %.thread, %.thread, %.thread, %51
-  %.0116 = phi i32 [ 0, %.thread ], [ %52, %51 ], [ %., %53 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %.thread ]
+  %.0116 = phi i32 [ %52, %51 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %.thread ], [ %., %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %58 = load i32, ptr %57, align 8, !tbaa !24
   %.not137 = icmp eq i32 %.0116, %58
@@ -246,7 +246,7 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %89
 
 89:                                               ; preds = %79, %81
-  %.0117 = phi i32 [ %80, %79 ], [ %88, %81 ]
+  %.0117 = phi i32 [ %88, %81 ], [ %80, %79 ]
   switch i32 %61, label %.thread192 [
     i32 65541, label %90
     i32 65548, label %90
@@ -490,7 +490,7 @@ ff_get_codec_guid.exit:                           ; preds = %169, %167, %174
   br label %199
 
 199:                                              ; preds = %188, %197, %4, %19
-  %.0 = phi i32 [ -1, %4 ], [ -22, %19 ], [ %198, %197 ], [ %195, %188 ]
+  %.0 = phi i32 [ -22, %19 ], [ -1, %4 ], [ %198, %197 ], [ %195, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

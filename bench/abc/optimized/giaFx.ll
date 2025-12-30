@@ -587,7 +587,7 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i57
   %115 = icmp slt i64 %indvars.iv.next.i62, %114
   br i1 %115, label %.lr.ph.i60, label %Vec_IntReverseOrder.exit, !llvm.loop !57
 
-Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i60, %._crit_edge.i, %32, %.loopexit68, %Vec_IntSelectSort.exit
+Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i60, %32, %._crit_edge.i, %.loopexit68, %Vec_IntSelectSort.exit
   %.val49 = load ptr, ptr %26, align 8, !tbaa !58
   %116 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val49, i64 %indvars.iv88
   %117 = call ptr @Gia_ObjComputeTruthTableCut(ptr noundef %0, ptr noundef nonnull %116, ptr noundef nonnull %5) #19
@@ -649,8 +649,8 @@ Vec_WrdGrow.exit.i:                               ; preds = %131, %129
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %119, %Vec_WrdGrow.exit.i, %140
-  %.pre.i6399 = phi ptr [ %133, %Vec_WrdGrow.exit.i ], [ %141, %140 ], [ %120, %119 ]
-  %143 = phi i32 [ 16, %Vec_WrdGrow.exit.i ], [ %142, %140 ], [ %121, %119 ]
+  %.pre.i6399 = phi ptr [ %141, %140 ], [ %133, %Vec_WrdGrow.exit.i ], [ %120, %119 ]
+  %143 = phi i32 [ %142, %140 ], [ 16, %Vec_WrdGrow.exit.i ], [ %121, %119 ]
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
   %144 = getelementptr inbounds i64, ptr %.pre.i6399, i64 %indvars.iv81
   store i64 %123, ptr %144, align 8, !tbaa !59
@@ -1357,17 +1357,17 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %277, %275, %285, %283, %251, %249, %259, %257
-  %.sink200.sink = phi ptr [ %260, %259 ], [ %252, %251 ], [ %250, %249 ], [ %258, %257 ], [ %278, %277 ], [ %276, %275 ], [ %284, %283 ], [ %286, %285 ]
-  %.sink199.sink = phi i32 [ %254, %259 ], [ 16, %251 ], [ 16, %249 ], [ %254, %257 ], [ 16, %277 ], [ 16, %275 ], [ %280, %283 ], [ %280, %285 ]
-  %.sink201.ph = phi i32 [ %242, %259 ], [ %242, %251 ], [ %242, %249 ], [ %242, %257 ], [ %268, %277 ], [ %268, %275 ], [ %268, %283 ], [ %268, %285 ]
+  %.sink200.sink = phi ptr [ %250, %249 ], [ %252, %251 ], [ %258, %257 ], [ %260, %259 ], [ %276, %275 ], [ %278, %277 ], [ %284, %283 ], [ %286, %285 ]
+  %.sink199.sink = phi i32 [ 16, %249 ], [ 16, %251 ], [ %254, %257 ], [ %254, %259 ], [ 16, %275 ], [ 16, %277 ], [ %280, %283 ], [ %280, %285 ]
+  %.sink201.ph = phi i32 [ %242, %249 ], [ %242, %251 ], [ %242, %257 ], [ %242, %259 ], [ %268, %275 ], [ %268, %277 ], [ %268, %283 ], [ %268, %285 ]
   store ptr %.sink200.sink, ptr %.phi.trans.insert.i119, align 8, !tbaa !17
   store i32 %.sink199.sink, ptr %195, align 8, !tbaa !50
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %261, %234
-  %.pre.i113157.sink = phi ptr [ %230, %261 ], [ %229, %234 ], [ %.sink200.sink, %.sink.split.sink.split ]
-  %.sink201 = phi i32 [ %268, %261 ], [ %242, %234 ], [ %.sink201.ph, %.sink.split.sink.split ]
-  %.pre.i113159.ph = phi ptr [ %229, %261 ], [ %229, %234 ], [ %.sink200.sink, %.sink.split.sink.split ]
+  %.pre.i113157.sink = phi ptr [ %229, %234 ], [ %230, %261 ], [ %.sink200.sink, %.sink.split.sink.split ]
+  %.sink201 = phi i32 [ %242, %234 ], [ %268, %261 ], [ %.sink201.ph, %.sink.split.sink.split ]
+  %.pre.i113159.ph = phi ptr [ %229, %234 ], [ %229, %261 ], [ %.sink200.sink, %.sink.split.sink.split ]
   %287 = load i32, ptr %197, align 4, !tbaa !49
   %288 = add nsw i32 %287, 1
   store i32 %288, ptr %197, align 4, !tbaa !49
@@ -2248,8 +2248,8 @@ Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
   br label %Vec_IntGrow.exit.sink.split.i
 
 Vec_IntGrow.exit.sink.split.i:                    ; preds = %179, %181, %171, %173
-  %storemerge = phi ptr [ %174, %173 ], [ %172, %171 ], [ %180, %179 ], [ %182, %181 ]
-  %.sink.i = phi i32 [ %.val221, %173 ], [ %.val221, %171 ], [ %165, %179 ], [ %165, %181 ]
+  %storemerge = phi ptr [ %172, %171 ], [ %174, %173 ], [ %180, %179 ], [ %182, %181 ]
+  %.sink.i = phi i32 [ %.val221, %171 ], [ %.val221, %173 ], [ %165, %179 ], [ %165, %181 ]
   store ptr %storemerge, ptr %69, align 8, !tbaa !17
   store i32 %.sink.i, ptr %67, align 8, !tbaa !50
   %.val227.pre.pre = load ptr, ptr %7, align 8, !tbaa !62

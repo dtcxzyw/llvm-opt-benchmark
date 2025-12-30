@@ -147,7 +147,7 @@ mbc_enc_len.exit:                                 ; preds = %13
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %mbc_enc_len.exit.thread
-  %.017 = phi i32 [ %27, %.preheader ], [ %23, %mbc_enc_len.exit.thread ], [ %32, %.lr.ph ]
+  %.017 = phi i32 [ %23, %mbc_enc_len.exit.thread ], [ %27, %.preheader ], [ %32, %.lr.ph ]
   ret i32 %.017
 }
 
@@ -178,7 +178,7 @@ define internal range(i32 -401, 3) i32 @code_to_mbclen(i32 noundef %0, ptr readn
   br label %16
 
 16:                                               ; preds = %9, %4, %11
-  %.0 = phi i32 [ %., %4 ], [ %.8, %11 ], [ -401, %9 ]
+  %.0 = phi i32 [ %.8, %11 ], [ %., %4 ], [ -401, %9 ]
   ret i32 %.0
 }
 
@@ -636,7 +636,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone 
   br label %26
 
 26:                                               ; preds = %18, %14, %21, %7
-  %.0 = phi i32 [ %13, %7 ], [ %., %14 ], [ -6, %18 ], [ %25, %21 ]
+  %.0 = phi i32 [ %13, %7 ], [ %25, %21 ], [ %., %14 ], [ -6, %18 ]
   ret i32 %.0
 }
 

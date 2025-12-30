@@ -191,7 +191,7 @@ ExecProcNode.exit:                                ; preds = %48, %53
   br label %76
 
 76:                                               ; preds = %62, %65, %40, %33, %70
-  %.0 = phi ptr [ %71, %70 ], [ %41, %40 ], [ null, %33 ], [ null, %62 ], [ %44, %65 ]
+  %.0 = phi ptr [ %71, %70 ], [ null, %33 ], [ %41, %40 ], [ null, %62 ], [ %44, %65 ]
   ret ptr %.0
 }
 

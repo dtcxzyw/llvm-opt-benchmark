@@ -4200,8 +4200,8 @@ unquantize.exit:                                  ; preds = %.preheader.i.prehea
   br label %239
 
 239:                                              ; preds = %191, %readbufferfix.exit, %unquantize.exit, %212, %219, %218, %206, %224, %236, %237, %230, %193, %203, %204, %198, %181, %readbufferfix.exit301
-  %.0193 = phi ptr [ %82, %unquantize.exit ], [ %82, %readbufferfix.exit301 ], [ %82, %181 ], [ %82, %193 ], [ %82, %198 ], [ %82, %204 ], [ %82, %203 ], [ %82, %206 ], [ %82, %212 ], [ %82, %219 ], [ %82, %218 ], [ %82, %224 ], [ %82, %230 ], [ %82, %237 ], [ %82, %236 ], [ %82, %191 ], [ null, %readbufferfix.exit ]
-  %.0 = phi i32 [ 0, %unquantize.exit ], [ %100, %readbufferfix.exit301 ], [ %190, %181 ], [ 0, %193 ], [ 0, %198 ], [ 0, %204 ], [ 0, %203 ], [ 0, %206 ], [ 0, %212 ], [ 0, %219 ], [ 0, %218 ], [ 0, %224 ], [ 0, %230 ], [ 0, %237 ], [ 0, %236 ], [ 0, %191 ], [ 1, %readbufferfix.exit ]
+  %.0193 = phi ptr [ %82, %readbufferfix.exit301 ], [ %82, %181 ], [ %82, %193 ], [ %82, %198 ], [ %82, %204 ], [ %82, %203 ], [ %82, %206 ], [ %82, %212 ], [ %82, %219 ], [ %82, %218 ], [ %82, %224 ], [ %82, %230 ], [ %82, %237 ], [ %82, %236 ], [ %82, %unquantize.exit ], [ null, %readbufferfix.exit ], [ %82, %191 ]
+  %.0 = phi i32 [ %100, %readbufferfix.exit301 ], [ %190, %181 ], [ 0, %193 ], [ 0, %198 ], [ 0, %204 ], [ 0, %203 ], [ 0, %206 ], [ 0, %212 ], [ 0, %219 ], [ 0, %218 ], [ 0, %224 ], [ 0, %230 ], [ 0, %237 ], [ 0, %236 ], [ 0, %unquantize.exit ], [ 1, %readbufferfix.exit ], [ 0, %191 ]
   tail call void @free(ptr noundef %.0193) #13
   ret i32 %.0
 }
@@ -5070,8 +5070,8 @@ unquantize.exit:                                  ; preds = %109, %126, %119, %1
   br label %182
 
 182:                                              ; preds = %150, %readbufferfix.exit, %unquantize.exit, %171, %178, %177, %165, %152, %162, %163, %157, %140, %readbufferfix.exit239
-  %.0142 = phi ptr [ %82, %unquantize.exit ], [ %82, %readbufferfix.exit239 ], [ %82, %140 ], [ %82, %152 ], [ %82, %157 ], [ %82, %163 ], [ %82, %162 ], [ %82, %165 ], [ %82, %171 ], [ %82, %178 ], [ %82, %177 ], [ %82, %150 ], [ null, %readbufferfix.exit ]
-  %.0 = phi i32 [ 0, %unquantize.exit ], [ %100, %readbufferfix.exit239 ], [ %149, %140 ], [ 0, %152 ], [ 0, %157 ], [ 0, %163 ], [ 0, %162 ], [ 0, %165 ], [ 0, %171 ], [ 0, %178 ], [ 0, %177 ], [ 0, %150 ], [ 1, %readbufferfix.exit ]
+  %.0142 = phi ptr [ %82, %readbufferfix.exit239 ], [ %82, %140 ], [ %82, %152 ], [ %82, %157 ], [ %82, %163 ], [ %82, %162 ], [ %82, %165 ], [ %82, %171 ], [ %82, %178 ], [ %82, %177 ], [ %82, %unquantize.exit ], [ null, %readbufferfix.exit ], [ %82, %150 ]
+  %.0 = phi i32 [ %100, %readbufferfix.exit239 ], [ %149, %140 ], [ 0, %152 ], [ 0, %157 ], [ 0, %163 ], [ 0, %162 ], [ 0, %165 ], [ 0, %171 ], [ 0, %178 ], [ 0, %177 ], [ 0, %unquantize.exit ], [ 1, %readbufferfix.exit ], [ 0, %150 ]
   tail call void @free(ptr noundef %.0142) #13
   ret i32 %.0
 }

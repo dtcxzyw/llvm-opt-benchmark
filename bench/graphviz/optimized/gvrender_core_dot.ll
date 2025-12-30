@@ -301,7 +301,7 @@ agxbuf_trim_zeros.exit.thread:                    ; preds = %48
   br label %54
 
 agxbuf_trim_zeros.exit:                           ; preds = %10, %25, %agxblen.exit42.i, %41, %45, %49
-  %.val.i.i4 = phi i8 [ %50, %49 ], [ %.val.i39.i, %41 ], [ %.val.i39.i, %agxblen.exit42.i ], [ %.val.i3951.i, %25 ], [ %.val.i39.i, %45 ], [ %.val.i.i, %10 ]
+  %.val.i.i4 = phi i8 [ %50, %49 ], [ %.val.i39.i, %45 ], [ %.val.i39.i, %41 ], [ %.val.i39.i, %agxblen.exit42.i ], [ %.val.i3951.i, %25 ], [ %.val.i.i, %10 ]
   %.not.i.i5 = icmp eq i8 %.val.i.i4, -1
   br i1 %.not.i.i5, label %54, label %agxblen.exit.i6
 
@@ -3203,8 +3203,8 @@ agxblen.exit38.i:                                 ; preds = %24, %39
   br label %agxbuf_trim_zeros.exit
 
 agxbuf_trim_zeros.exit:                           ; preds = %22, %30, %.critedge.i, %43, %47, %53, %51
-  %56 = phi i64 [ %.pre, %51 ], [ %28, %30 ], [ %40, %.critedge.i ], [ %55, %53 ], [ %40, %47 ], [ %40, %43 ], [ %20, %22 ]
-  %.val.i.i34 = phi i8 [ %52, %51 ], [ %.val.i3951.i, %30 ], [ %.val.i39.i, %.critedge.i ], [ -1, %53 ], [ %.val.i39.i, %47 ], [ %.val.i39.i, %43 ], [ %.val.i.i, %22 ]
+  %56 = phi i64 [ %.pre, %51 ], [ %55, %53 ], [ %40, %47 ], [ %40, %43 ], [ %40, %.critedge.i ], [ %28, %30 ], [ %20, %22 ]
+  %.val.i.i34 = phi i8 [ %52, %51 ], [ -1, %53 ], [ %.val.i39.i, %47 ], [ %.val.i39.i, %43 ], [ %.val.i39.i, %.critedge.i ], [ %.val.i3951.i, %30 ], [ %.val.i.i, %22 ]
   %.not.i.i35 = icmp eq i8 %.val.i.i34, -1
   %57 = load i64, ptr %16, align 8
   %58 = zext i8 %.val.i.i34 to i64
@@ -4229,7 +4229,7 @@ agxbuf_trim_zeros.exit.thread:                    ; preds = %49
   br label %55
 
 agxbuf_trim_zeros.exit:                           ; preds = %11, %26, %agxblen.exit42.i, %42, %46, %50
-  %.val.i.i6 = phi i8 [ %51, %50 ], [ %.val.i39.i, %42 ], [ %.val.i39.i, %agxblen.exit42.i ], [ %.val.i3951.i, %26 ], [ %.val.i39.i, %46 ], [ %.val.i.i, %11 ]
+  %.val.i.i6 = phi i8 [ %51, %50 ], [ %.val.i39.i, %46 ], [ %.val.i39.i, %42 ], [ %.val.i39.i, %agxblen.exit42.i ], [ %.val.i3951.i, %26 ], [ %.val.i.i, %11 ]
   %.not.i.i7 = icmp eq i8 %.val.i.i6, -1
   br i1 %.not.i.i7, label %55, label %agxblen.exit.i8
 

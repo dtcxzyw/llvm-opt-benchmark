@@ -870,7 +870,7 @@ _ZN4ncnn3Mat7releaseEv.exit54:                    ; preds = %335, %334, %322, %3
   br label %344
 
 344:                                              ; preds = %.thread74, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %340, %336, %20
-  %.023 = phi i32 [ %21, %20 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ -100, %.thread74 ], [ 0, %336 ], [ 0, %340 ]
+  %.023 = phi i32 [ %21, %20 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ 0, %336 ], [ 0, %340 ], [ -100, %.thread74 ]
   ret i32 %.023
 }
 
@@ -1048,8 +1048,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn15Gemm_x86_avx5127forward
   br label %121
 
 121:                                              ; preds = %110, %118, %64, %72, %90, %52
-  %.0126 = phi i32 [ %56, %52 ], [ %74, %72 ], [ %93, %90 ], [ %71, %64 ], [ %117, %110 ], [ %120, %118 ]
-  %.0125 = phi i32 [ %54, %52 ], [ %61, %72 ], [ %91, %90 ], [ %61, %64 ], [ %107, %110 ], [ %107, %118 ]
+  %.0126 = phi i32 [ %56, %52 ], [ %93, %90 ], [ %71, %64 ], [ %74, %72 ], [ %117, %110 ], [ %120, %118 ]
+  %.0125 = phi i32 [ %54, %52 ], [ %91, %90 ], [ %61, %64 ], [ %61, %72 ], [ %107, %110 ], [ %107, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %122 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -1228,18 +1228,18 @@ _ZN4ncnn3Mat6addrefEv.exit337.thread:             ; preds = %187
   br label %_ZN4ncnn3Mat6addrefEv.exit337.thread.thread
 
 _ZN4ncnn3Mat6addrefEv.exit337.thread.thread:      ; preds = %185, %187, %211, %_ZN4ncnn3Mat6addrefEv.exit337.thread, %217, %222, %221
-  %.sroa.31444.0466662 = phi ptr [ %196, %221 ], [ %196, %211 ], [ %196, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %196, %217 ], [ %196, %222 ], [ null, %185 ], [ %196, %187 ]
-  %.sroa.26442.0467661 = phi i32 [ %194, %221 ], [ %194, %211 ], [ %194, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %194, %217 ], [ %194, %222 ], [ 0, %185 ], [ %194, %187 ]
-  %.sroa.21441.0468660 = phi i64 [ %192, %221 ], [ %192, %211 ], [ %192, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %192, %217 ], [ %192, %222 ], [ 0, %185 ], [ %192, %187 ]
-  %.sroa.12436.0469659 = phi ptr [ %190, %221 ], [ %190, %211 ], [ %190, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %190, %217 ], [ %190, %222 ], [ null, %185 ], [ null, %187 ]
-  %.sroa.0431.0470658 = phi ptr [ %188, %221 ], [ %188, %211 ], [ %188, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %188, %217 ], [ %188, %222 ], [ null, %185 ], [ %188, %187 ]
-  %.sroa.36447.0471657 = phi i32 [ %198, %221 ], [ %198, %211 ], [ %198, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %198, %217 ], [ %198, %222 ], [ 0, %185 ], [ %198, %187 ]
-  %.sroa.41448.0472656 = phi i32 [ %200, %221 ], [ %200, %211 ], [ %200, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %200, %217 ], [ %200, %222 ], [ 0, %185 ], [ %200, %187 ]
-  %.sroa.46449.0473655 = phi i32 [ %202, %221 ], [ %202, %211 ], [ %202, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %202, %217 ], [ %202, %222 ], [ 0, %185 ], [ %202, %187 ]
-  %.sroa.51450.0474654 = phi i32 [ %204, %221 ], [ %204, %211 ], [ %204, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %204, %217 ], [ %204, %222 ], [ 0, %185 ], [ %204, %187 ]
-  %.sroa.56451.0475653 = phi i32 [ %206, %221 ], [ %206, %211 ], [ %206, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %206, %217 ], [ %206, %222 ], [ 0, %185 ], [ %206, %187 ]
-  %.sroa.61453.0476652 = phi i64 [ %208, %221 ], [ %208, %211 ], [ %208, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %208, %217 ], [ %208, %222 ], [ 0, %185 ], [ %208, %187 ]
-  %.not.i291477651 = phi i1 [ false, %221 ], [ false, %211 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ false, %217 ], [ false, %222 ], [ true, %185 ], [ true, %187 ]
+  %.sroa.31444.0466662 = phi ptr [ %196, %211 ], [ %196, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %196, %217 ], [ %196, %222 ], [ %196, %221 ], [ null, %185 ], [ %196, %187 ]
+  %.sroa.26442.0467661 = phi i32 [ %194, %211 ], [ %194, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %194, %217 ], [ %194, %222 ], [ %194, %221 ], [ 0, %185 ], [ %194, %187 ]
+  %.sroa.21441.0468660 = phi i64 [ %192, %211 ], [ %192, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %192, %217 ], [ %192, %222 ], [ %192, %221 ], [ 0, %185 ], [ %192, %187 ]
+  %.sroa.12436.0469659 = phi ptr [ %190, %211 ], [ %190, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %190, %217 ], [ %190, %222 ], [ %190, %221 ], [ null, %185 ], [ null, %187 ]
+  %.sroa.0431.0470658 = phi ptr [ %188, %211 ], [ %188, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %188, %217 ], [ %188, %222 ], [ %188, %221 ], [ null, %185 ], [ %188, %187 ]
+  %.sroa.36447.0471657 = phi i32 [ %198, %211 ], [ %198, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %198, %217 ], [ %198, %222 ], [ %198, %221 ], [ 0, %185 ], [ %198, %187 ]
+  %.sroa.41448.0472656 = phi i32 [ %200, %211 ], [ %200, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %200, %217 ], [ %200, %222 ], [ %200, %221 ], [ 0, %185 ], [ %200, %187 ]
+  %.sroa.46449.0473655 = phi i32 [ %202, %211 ], [ %202, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %202, %217 ], [ %202, %222 ], [ %202, %221 ], [ 0, %185 ], [ %202, %187 ]
+  %.sroa.51450.0474654 = phi i32 [ %204, %211 ], [ %204, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %204, %217 ], [ %204, %222 ], [ %204, %221 ], [ 0, %185 ], [ %204, %187 ]
+  %.sroa.56451.0475653 = phi i32 [ %206, %211 ], [ %206, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %206, %217 ], [ %206, %222 ], [ %206, %221 ], [ 0, %185 ], [ %206, %187 ]
+  %.sroa.61453.0476652 = phi i64 [ %208, %211 ], [ %208, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ %208, %217 ], [ %208, %222 ], [ %208, %221 ], [ 0, %185 ], [ %208, %187 ]
+  %.not.i291477651 = phi i1 [ false, %211 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit337.thread ], [ false, %217 ], [ false, %222 ], [ false, %221 ], [ true, %185 ], [ true, %187 ]
   store ptr %.sroa.0431.0470658, ptr %39, align 8, !tbaa !16
   store ptr %.sroa.12436.0469659, ptr %122, align 8, !tbaa !7
   store i64 %.sroa.21441.0468660, ptr %123, align 8, !tbaa !52
@@ -1380,18 +1380,18 @@ _ZN4ncnn3Mat6addrefEv.exit335.thread:             ; preds = %252
   br label %_ZN4ncnn3Mat6addrefEv.exit335.thread.thread
 
 _ZN4ncnn3Mat6addrefEv.exit335.thread.thread:      ; preds = %250, %252, %277, %_ZN4ncnn3Mat6addrefEv.exit335.thread, %283, %288, %287
-  %.sroa.61430.0490687 = phi i64 [ %274, %287 ], [ %274, %277 ], [ %274, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %274, %283 ], [ %274, %288 ], [ 0, %250 ], [ %274, %252 ]
-  %.sroa.56428.0491686 = phi i32 [ %272, %287 ], [ %272, %277 ], [ %272, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %272, %283 ], [ %272, %288 ], [ 0, %250 ], [ %272, %252 ]
-  %.sroa.51427.0492685 = phi i32 [ %270, %287 ], [ %270, %277 ], [ %270, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %270, %283 ], [ %270, %288 ], [ 0, %250 ], [ %270, %252 ]
-  %.sroa.46426.0493684 = phi i32 [ %268, %287 ], [ %268, %277 ], [ %268, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %268, %283 ], [ %268, %288 ], [ 0, %250 ], [ %268, %252 ]
-  %.sroa.41425.0494683 = phi i32 [ %266, %287 ], [ %266, %277 ], [ %266, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %266, %283 ], [ %266, %288 ], [ 0, %250 ], [ %266, %252 ]
-  %.sroa.36424.0495682 = phi i32 [ %264, %287 ], [ %264, %277 ], [ %264, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %264, %283 ], [ %264, %288 ], [ 0, %250 ], [ %264, %252 ]
-  %.sroa.31421.0496681 = phi ptr [ %262, %287 ], [ %262, %277 ], [ %262, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %262, %283 ], [ %262, %288 ], [ null, %250 ], [ %262, %252 ]
-  %.sroa.26419.0497680 = phi i32 [ %260, %287 ], [ %260, %277 ], [ %260, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %260, %283 ], [ %260, %288 ], [ 0, %250 ], [ %260, %252 ]
-  %.sroa.21418.0498679 = phi i64 [ %258, %287 ], [ %258, %277 ], [ %258, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %258, %283 ], [ %258, %288 ], [ 0, %250 ], [ %258, %252 ]
-  %.sroa.12413.0499678 = phi ptr [ %256, %287 ], [ %256, %277 ], [ %256, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %256, %283 ], [ %256, %288 ], [ null, %250 ], [ null, %252 ]
-  %.sroa.0408.0500677 = phi ptr [ %254, %287 ], [ %254, %277 ], [ %254, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %254, %283 ], [ %254, %288 ], [ null, %250 ], [ %254, %252 ]
-  %.not.i299501676 = phi i1 [ false, %287 ], [ false, %277 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ false, %283 ], [ false, %288 ], [ true, %250 ], [ true, %252 ]
+  %.sroa.61430.0490687 = phi i64 [ %274, %277 ], [ %274, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %274, %283 ], [ %274, %288 ], [ %274, %287 ], [ 0, %250 ], [ %274, %252 ]
+  %.sroa.56428.0491686 = phi i32 [ %272, %277 ], [ %272, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %272, %283 ], [ %272, %288 ], [ %272, %287 ], [ 0, %250 ], [ %272, %252 ]
+  %.sroa.51427.0492685 = phi i32 [ %270, %277 ], [ %270, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %270, %283 ], [ %270, %288 ], [ %270, %287 ], [ 0, %250 ], [ %270, %252 ]
+  %.sroa.46426.0493684 = phi i32 [ %268, %277 ], [ %268, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %268, %283 ], [ %268, %288 ], [ %268, %287 ], [ 0, %250 ], [ %268, %252 ]
+  %.sroa.41425.0494683 = phi i32 [ %266, %277 ], [ %266, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %266, %283 ], [ %266, %288 ], [ %266, %287 ], [ 0, %250 ], [ %266, %252 ]
+  %.sroa.36424.0495682 = phi i32 [ %264, %277 ], [ %264, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %264, %283 ], [ %264, %288 ], [ %264, %287 ], [ 0, %250 ], [ %264, %252 ]
+  %.sroa.31421.0496681 = phi ptr [ %262, %277 ], [ %262, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %262, %283 ], [ %262, %288 ], [ %262, %287 ], [ null, %250 ], [ %262, %252 ]
+  %.sroa.26419.0497680 = phi i32 [ %260, %277 ], [ %260, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %260, %283 ], [ %260, %288 ], [ %260, %287 ], [ 0, %250 ], [ %260, %252 ]
+  %.sroa.21418.0498679 = phi i64 [ %258, %277 ], [ %258, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %258, %283 ], [ %258, %288 ], [ %258, %287 ], [ 0, %250 ], [ %258, %252 ]
+  %.sroa.12413.0499678 = phi ptr [ %256, %277 ], [ %256, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %256, %283 ], [ %256, %288 ], [ %256, %287 ], [ null, %250 ], [ null, %252 ]
+  %.sroa.0408.0500677 = phi ptr [ %254, %277 ], [ %254, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ %254, %283 ], [ %254, %288 ], [ %254, %287 ], [ null, %250 ], [ %254, %252 ]
+  %.not.i299501676 = phi i1 [ false, %277 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit335.thread ], [ false, %283 ], [ false, %288 ], [ false, %287 ], [ true, %250 ], [ true, %252 ]
   store ptr %.sroa.0408.0500677, ptr %39, align 8, !tbaa !16
   store ptr %.sroa.12413.0499678, ptr %122, align 8, !tbaa !7
   store i64 %.sroa.21418.0498679, ptr %123, align 8, !tbaa !52
@@ -1532,18 +1532,18 @@ _ZN4ncnn3Mat6addrefEv.exit333.thread:             ; preds = %318
   br label %_ZN4ncnn3Mat6addrefEv.exit333.thread.thread
 
 _ZN4ncnn3Mat6addrefEv.exit333.thread.thread:      ; preds = %316, %318, %343, %_ZN4ncnn3Mat6addrefEv.exit333.thread, %349, %354, %353
-  %.sroa.61407.0514712 = phi i64 [ %340, %353 ], [ %340, %343 ], [ %340, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %340, %349 ], [ %340, %354 ], [ 0, %316 ], [ %340, %318 ]
-  %.sroa.56405.0515711 = phi i32 [ %338, %353 ], [ %338, %343 ], [ %338, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %338, %349 ], [ %338, %354 ], [ 0, %316 ], [ %338, %318 ]
-  %.sroa.51404.0516710 = phi i32 [ %336, %353 ], [ %336, %343 ], [ %336, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %336, %349 ], [ %336, %354 ], [ 0, %316 ], [ %336, %318 ]
-  %.sroa.46403.0517709 = phi i32 [ %334, %353 ], [ %334, %343 ], [ %334, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %334, %349 ], [ %334, %354 ], [ 0, %316 ], [ %334, %318 ]
-  %.sroa.41402.0518708 = phi i32 [ %332, %353 ], [ %332, %343 ], [ %332, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %332, %349 ], [ %332, %354 ], [ 0, %316 ], [ %332, %318 ]
-  %.sroa.36401.0519707 = phi i32 [ %330, %353 ], [ %330, %343 ], [ %330, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %330, %349 ], [ %330, %354 ], [ 0, %316 ], [ %330, %318 ]
-  %.sroa.31398.0520706 = phi ptr [ %328, %353 ], [ %328, %343 ], [ %328, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %328, %349 ], [ %328, %354 ], [ null, %316 ], [ %328, %318 ]
-  %.sroa.26396.0521705 = phi i32 [ %326, %353 ], [ %326, %343 ], [ %326, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %326, %349 ], [ %326, %354 ], [ 0, %316 ], [ %326, %318 ]
-  %.sroa.21395.0522704 = phi i64 [ %324, %353 ], [ %324, %343 ], [ %324, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %324, %349 ], [ %324, %354 ], [ 0, %316 ], [ %324, %318 ]
-  %.sroa.12390.0523703 = phi ptr [ %322, %353 ], [ %322, %343 ], [ %322, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %322, %349 ], [ %322, %354 ], [ null, %316 ], [ null, %318 ]
-  %.sroa.0385.0524702 = phi ptr [ %320, %353 ], [ %320, %343 ], [ %320, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %320, %349 ], [ %320, %354 ], [ null, %316 ], [ %320, %318 ]
-  %.not.i307525701 = phi i1 [ false, %353 ], [ false, %343 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ false, %349 ], [ false, %354 ], [ true, %316 ], [ true, %318 ]
+  %.sroa.61407.0514712 = phi i64 [ %340, %343 ], [ %340, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %340, %349 ], [ %340, %354 ], [ %340, %353 ], [ 0, %316 ], [ %340, %318 ]
+  %.sroa.56405.0515711 = phi i32 [ %338, %343 ], [ %338, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %338, %349 ], [ %338, %354 ], [ %338, %353 ], [ 0, %316 ], [ %338, %318 ]
+  %.sroa.51404.0516710 = phi i32 [ %336, %343 ], [ %336, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %336, %349 ], [ %336, %354 ], [ %336, %353 ], [ 0, %316 ], [ %336, %318 ]
+  %.sroa.46403.0517709 = phi i32 [ %334, %343 ], [ %334, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %334, %349 ], [ %334, %354 ], [ %334, %353 ], [ 0, %316 ], [ %334, %318 ]
+  %.sroa.41402.0518708 = phi i32 [ %332, %343 ], [ %332, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %332, %349 ], [ %332, %354 ], [ %332, %353 ], [ 0, %316 ], [ %332, %318 ]
+  %.sroa.36401.0519707 = phi i32 [ %330, %343 ], [ %330, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %330, %349 ], [ %330, %354 ], [ %330, %353 ], [ 0, %316 ], [ %330, %318 ]
+  %.sroa.31398.0520706 = phi ptr [ %328, %343 ], [ %328, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %328, %349 ], [ %328, %354 ], [ %328, %353 ], [ null, %316 ], [ %328, %318 ]
+  %.sroa.26396.0521705 = phi i32 [ %326, %343 ], [ %326, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %326, %349 ], [ %326, %354 ], [ %326, %353 ], [ 0, %316 ], [ %326, %318 ]
+  %.sroa.21395.0522704 = phi i64 [ %324, %343 ], [ %324, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %324, %349 ], [ %324, %354 ], [ %324, %353 ], [ 0, %316 ], [ %324, %318 ]
+  %.sroa.12390.0523703 = phi ptr [ %322, %343 ], [ %322, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %322, %349 ], [ %322, %354 ], [ %322, %353 ], [ null, %316 ], [ null, %318 ]
+  %.sroa.0385.0524702 = phi ptr [ %320, %343 ], [ %320, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ %320, %349 ], [ %320, %354 ], [ %320, %353 ], [ null, %316 ], [ %320, %318 ]
+  %.not.i307525701 = phi i1 [ false, %343 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit333.thread ], [ false, %349 ], [ false, %354 ], [ false, %353 ], [ true, %316 ], [ true, %318 ]
   store ptr %.sroa.0385.0524702, ptr %39, align 8, !tbaa !16
   store ptr %.sroa.12390.0523703, ptr %122, align 8, !tbaa !7
   store i64 %.sroa.21395.0522704, ptr %123, align 8, !tbaa !52
@@ -1681,18 +1681,18 @@ _ZN4ncnn3Mat6addrefEv.exit.thread:                ; preds = %383
   br label %_ZN4ncnn3Mat6addrefEv.exit.thread.thread
 
 _ZN4ncnn3Mat6addrefEv.exit.thread.thread:         ; preds = %381, %383, %408, %_ZN4ncnn3Mat6addrefEv.exit.thread, %414, %419, %418
-  %.sroa.61384.0538737 = phi i64 [ %405, %418 ], [ %405, %408 ], [ %405, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %405, %414 ], [ %405, %419 ], [ 0, %381 ], [ %405, %383 ]
-  %.sroa.56.0539736 = phi i32 [ %403, %418 ], [ %403, %408 ], [ %403, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %403, %414 ], [ %403, %419 ], [ 0, %381 ], [ %403, %383 ]
-  %.sroa.51.0540735 = phi i32 [ %401, %418 ], [ %401, %408 ], [ %401, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %401, %414 ], [ %401, %419 ], [ 0, %381 ], [ %401, %383 ]
-  %.sroa.46.0541734 = phi i32 [ %399, %418 ], [ %399, %408 ], [ %399, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %399, %414 ], [ %399, %419 ], [ 0, %381 ], [ %399, %383 ]
-  %.sroa.41.0542733 = phi i32 [ %397, %418 ], [ %397, %408 ], [ %397, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %397, %414 ], [ %397, %419 ], [ 0, %381 ], [ %397, %383 ]
-  %.sroa.36.0543732 = phi i32 [ %395, %418 ], [ %395, %408 ], [ %395, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %395, %414 ], [ %395, %419 ], [ 0, %381 ], [ %395, %383 ]
-  %.sroa.31381.0544731 = phi ptr [ %393, %418 ], [ %393, %408 ], [ %393, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %393, %414 ], [ %393, %419 ], [ null, %381 ], [ %393, %383 ]
-  %.sroa.26.0545730 = phi i32 [ %391, %418 ], [ %391, %408 ], [ %391, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %391, %414 ], [ %391, %419 ], [ 0, %381 ], [ %391, %383 ]
-  %.sroa.21.0546729 = phi i64 [ %389, %418 ], [ %389, %408 ], [ %389, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %389, %414 ], [ %389, %419 ], [ 0, %381 ], [ %389, %383 ]
-  %.sroa.12.0547728 = phi ptr [ %387, %418 ], [ %387, %408 ], [ %387, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %387, %414 ], [ %387, %419 ], [ null, %381 ], [ null, %383 ]
-  %.sroa.0.0548727 = phi ptr [ %385, %418 ], [ %385, %408 ], [ %385, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %385, %414 ], [ %385, %419 ], [ null, %381 ], [ %385, %383 ]
-  %.not.i315549726 = phi i1 [ false, %418 ], [ false, %408 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ false, %414 ], [ false, %419 ], [ true, %381 ], [ true, %383 ]
+  %.sroa.61384.0538737 = phi i64 [ %405, %408 ], [ %405, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %405, %414 ], [ %405, %419 ], [ %405, %418 ], [ 0, %381 ], [ %405, %383 ]
+  %.sroa.56.0539736 = phi i32 [ %403, %408 ], [ %403, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %403, %414 ], [ %403, %419 ], [ %403, %418 ], [ 0, %381 ], [ %403, %383 ]
+  %.sroa.51.0540735 = phi i32 [ %401, %408 ], [ %401, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %401, %414 ], [ %401, %419 ], [ %401, %418 ], [ 0, %381 ], [ %401, %383 ]
+  %.sroa.46.0541734 = phi i32 [ %399, %408 ], [ %399, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %399, %414 ], [ %399, %419 ], [ %399, %418 ], [ 0, %381 ], [ %399, %383 ]
+  %.sroa.41.0542733 = phi i32 [ %397, %408 ], [ %397, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %397, %414 ], [ %397, %419 ], [ %397, %418 ], [ 0, %381 ], [ %397, %383 ]
+  %.sroa.36.0543732 = phi i32 [ %395, %408 ], [ %395, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %395, %414 ], [ %395, %419 ], [ %395, %418 ], [ 0, %381 ], [ %395, %383 ]
+  %.sroa.31381.0544731 = phi ptr [ %393, %408 ], [ %393, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %393, %414 ], [ %393, %419 ], [ %393, %418 ], [ null, %381 ], [ %393, %383 ]
+  %.sroa.26.0545730 = phi i32 [ %391, %408 ], [ %391, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %391, %414 ], [ %391, %419 ], [ %391, %418 ], [ 0, %381 ], [ %391, %383 ]
+  %.sroa.21.0546729 = phi i64 [ %389, %408 ], [ %389, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %389, %414 ], [ %389, %419 ], [ %389, %418 ], [ 0, %381 ], [ %389, %383 ]
+  %.sroa.12.0547728 = phi ptr [ %387, %408 ], [ %387, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %387, %414 ], [ %387, %419 ], [ %387, %418 ], [ null, %381 ], [ null, %383 ]
+  %.sroa.0.0548727 = phi ptr [ %385, %408 ], [ %385, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %385, %414 ], [ %385, %419 ], [ %385, %418 ], [ null, %381 ], [ %385, %383 ]
+  %.not.i315549726 = phi i1 [ false, %408 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ false, %414 ], [ false, %419 ], [ false, %418 ], [ true, %381 ], [ true, %383 ]
   store ptr %.sroa.0.0548727, ptr %39, align 8, !tbaa !16
   store ptr %.sroa.12.0547728, ptr %122, align 8, !tbaa !7
   store i64 %.sroa.21.0546729, ptr %123, align 8, !tbaa !52
@@ -1767,7 +1767,7 @@ _ZN4ncnn3Mat6addrefEv.exit.thread.thread:         ; preds = %381, %383, %408, %_
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit.sink.split:                 ; preds = %428, %363, %297, %231
-  %.sroa.0.0548727.sink = phi ptr [ %.sroa.0385.0524702, %363 ], [ %.sroa.0408.0500677, %297 ], [ %.sroa.0431.0470658, %231 ], [ %.sroa.0.0548727, %428 ]
+  %.sroa.0.0548727.sink = phi ptr [ %.sroa.0431.0470658, %231 ], [ %.sroa.0408.0500677, %297 ], [ %.sroa.0385.0524702, %363 ], [ %.sroa.0.0548727, %428 ]
   tail call void @free(ptr noundef nonnull %.sroa.0.0548727.sink) #8
   br label %_ZN4ncnn3MatD2Ev.exit
 
@@ -2069,7 +2069,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread._crit_edge
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread._crit_edge:     ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread, %581, %585, %588
-  %.0147 = phi i32 [ 8, %585 ], [ 16, %581 ], [ %591, %588 ], [ 1, %_ZNK4ncnn3Mat5emptyEv.exit.thread ]
+  %.0147 = phi i32 [ 16, %581 ], [ %591, %588 ], [ 8, %585 ], [ 1, %_ZNK4ncnn3Mat5emptyEv.exit.thread ]
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %593 = load i32, ptr %592, align 8, !tbaa !73
   %.not179 = icmp eq i32 %593, 0
@@ -3026,7 +3026,7 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   br label %_ZN4ncnn3MatD2Ev.exit210
 
 1020:                                             ; preds = %_ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit, %_ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit, %_ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit, %1004
-  %.0130 = phi i32 [ %.029.i, %_ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit ], [ %.0.i, %_ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit ], [ %.025.i, %_ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit ], [ %1017, %1004 ]
+  %.0130 = phi i32 [ %.0.i, %_ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit ], [ %.025.i, %_ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit ], [ %.029.i, %_ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit ], [ %1017, %1004 ]
   %.not194 = icmp eq i32 %.0130, 0
   br i1 %.not194, label %1021, label %_ZNK4ncnn3Mat5emptyEv.exit288.thread
 
@@ -3094,7 +3094,7 @@ _ZN4ncnn3MatD2Ev.exit219:                         ; preds = %1033, %_ZNK4ncnn3Ma
   br label %1064
 
 _ZN4ncnn3MatD2Ev.exit210:                         ; preds = %1002, %_ZN4ncnn3MatD2Ev.exit.i364, %862, %_ZN4ncnn3MatD2Ev.exit.i, %711, %_ZN4ncnn3MatD2Ev.exit16.i, %432, %437, %441, %442, %367, %372, %376, %377, %301, %306, %310, %311, %235, %240, %244, %245, %604, %1018, %_ZN4ncnn3MatD2Ev.exit218, %176
-  %.pn190.pn.pn = phi { ptr, i32 } [ %368, %377 ], [ %177, %176 ], [ %.pn176, %_ZN4ncnn3MatD2Ev.exit218 ], [ %1019, %1018 ], [ %236, %245 ], [ %302, %311 ], [ %605, %604 ], [ %433, %442 ], [ %677, %_ZN4ncnn3MatD2Ev.exit16.i ], [ %796, %_ZN4ncnn3MatD2Ev.exit.i ], [ %936, %_ZN4ncnn3MatD2Ev.exit.i364 ], [ %236, %235 ], [ %433, %441 ], [ %236, %240 ], [ %236, %244 ], [ %1003, %1002 ], [ %302, %301 ], [ %433, %437 ], [ %302, %306 ], [ %302, %310 ], [ %863, %862 ], [ %368, %367 ], [ %433, %432 ], [ %368, %372 ], [ %368, %376 ], [ %712, %711 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %177, %176 ], [ %.pn176, %_ZN4ncnn3MatD2Ev.exit218 ], [ %605, %604 ], [ %1019, %1018 ], [ %236, %235 ], [ %236, %240 ], [ %236, %244 ], [ %236, %245 ], [ %302, %301 ], [ %302, %306 ], [ %302, %310 ], [ %302, %311 ], [ %368, %367 ], [ %368, %372 ], [ %368, %376 ], [ %368, %377 ], [ %433, %432 ], [ %433, %437 ], [ %433, %441 ], [ %433, %442 ], [ %712, %711 ], [ %677, %_ZN4ncnn3MatD2Ev.exit16.i ], [ %863, %862 ], [ %796, %_ZN4ncnn3MatD2Ev.exit.i ], [ %1003, %1002 ], [ %936, %_ZN4ncnn3MatD2Ev.exit.i364 ]
   %1048 = load ptr, ptr %122, align 8, !tbaa !7
   %.not.i = icmp eq ptr %1048, null
   br i1 %.not.i, label %_ZN4ncnn3MatD2Ev.exit220, label %1049
@@ -3858,7 +3858,7 @@ _ZN4ncnn3Mat7releaseEv.exit:                      ; preds = %238, %237, %226, %2
   br label %247
 
 247:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit40.thread, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %243, %239
-  %.2 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit40.thread ], [ 0, %239 ], [ 0, %243 ]
+  %.2 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit40.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ 0, %239 ], [ 0, %243 ]
   ret i32 %.2
 }
 
@@ -4626,7 +4626,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   br i1 %exitcond.not, label %.loopexit198, label %.lr.ph218, !llvm.loop !90
 
 .loopexit198:                                     ; preds = %.lr.ph218, %.lr.ph213, %.lr.ph208, %.lr.ph, %58, %.split, %59, %179, %283, %371
-  %.8 = phi ptr [ %.0612221, %.split ], [ %.0612221, %371 ], [ %174, %.lr.ph ], [ %.0612221, %58 ], [ %.0612221, %283 ], [ %278, %.lr.ph208 ], [ %.0612221, %179 ], [ %.0612221, %59 ], [ %366, %.lr.ph213 ], [ %377, %.lr.ph218 ]
+  %.8 = phi ptr [ %.0612221, %371 ], [ %.0612221, %283 ], [ %.0612221, %179 ], [ %.0612221, %59 ], [ %.0612221, %.split ], [ %.0612221, %58 ], [ %174, %.lr.ph ], [ %278, %.lr.ph208 ], [ %366, %.lr.ph213 ], [ %377, %.lr.ph218 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %380 = or disjoint i64 %indvars.iv.next, 15
   %381 = icmp samesign ult i64 %380, %31
@@ -4929,7 +4929,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   br i1 %exitcond347.not, label %.loopexit193, label %.lr.ph243, !llvm.loop !95
 
 .loopexit193:                                     ; preds = %.lr.ph243, %.lr.ph238, %.lr.ph233, %.lr.ph228, %404, %.split441, %405, %469, %525, %573
-  %.17 = phi ptr [ %.9246, %.split441 ], [ %.9246, %573 ], [ %464, %.lr.ph228 ], [ %.9246, %404 ], [ %.9246, %525 ], [ %520, %.lr.ph233 ], [ %.9246, %469 ], [ %.9246, %405 ], [ %568, %.lr.ph238 ], [ %579, %.lr.ph243 ]
+  %.17 = phi ptr [ %.9246, %573 ], [ %.9246, %525 ], [ %.9246, %469 ], [ %.9246, %405 ], [ %.9246, %.split441 ], [ %.9246, %404 ], [ %464, %.lr.ph228 ], [ %520, %.lr.ph233 ], [ %568, %.lr.ph238 ], [ %579, %.lr.ph243 ]
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 8
   %582 = or disjoint i64 %indvars.iv.next349, 7
   %583 = icmp slt i64 %582, %53
@@ -5140,7 +5140,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   br i1 %exitcond351.not, label %.loopexit188, label %.lr.ph268, !llvm.loop !100
 
 .loopexit188:                                     ; preds = %.lr.ph268, %.lr.ph263, %.lr.ph258, %.lr.ph253, %606, %.split442, %607, %639, %667, %695
-  %.26 = phi ptr [ %.18271, %.split442 ], [ %.18271, %695 ], [ %634, %.lr.ph253 ], [ %.18271, %606 ], [ %.18271, %667 ], [ %662, %.lr.ph258 ], [ %.18271, %639 ], [ %.18271, %607 ], [ %690, %.lr.ph263 ], [ %701, %.lr.ph268 ]
+  %.26 = phi ptr [ %.18271, %695 ], [ %.18271, %667 ], [ %.18271, %639 ], [ %.18271, %607 ], [ %.18271, %.split442 ], [ %.18271, %606 ], [ %634, %.lr.ph253 ], [ %662, %.lr.ph258 ], [ %690, %.lr.ph263 ], [ %701, %.lr.ph268 ]
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 4
   %704 = or disjoint i64 %indvars.iv.next353, 3
   %705 = icmp slt i64 %704, %399
@@ -5308,7 +5308,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   br i1 %exitcond355.not, label %.loopexit183, label %.lr.ph293, !llvm.loop !105
 
 .loopexit183:                                     ; preds = %.lr.ph293, %.lr.ph288, %.lr.ph283, %.lr.ph278, %726, %.split443, %727, %743, %759, %775
-  %.35 = phi ptr [ %.27296, %.split443 ], [ %.27296, %775 ], [ %738, %.lr.ph278 ], [ %.27296, %726 ], [ %.27296, %759 ], [ %754, %.lr.ph283 ], [ %.27296, %743 ], [ %.27296, %727 ], [ %770, %.lr.ph288 ], [ %784, %.lr.ph293 ]
+  %.35 = phi ptr [ %.27296, %775 ], [ %.27296, %759 ], [ %.27296, %743 ], [ %.27296, %727 ], [ %.27296, %.split443 ], [ %.27296, %726 ], [ %738, %.lr.ph278 ], [ %754, %.lr.ph283 ], [ %770, %.lr.ph288 ], [ %784, %.lr.ph293 ]
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 2
   %787 = or disjoint i64 %indvars.iv.next357, 1
   %788 = icmp slt i64 %787, %601
@@ -5422,7 +5422,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   br i1 %exitcond359.not, label %.loopexit, label %.lr.ph318, !llvm.loop !110
 
 .loopexit:                                        ; preds = %.lr.ph318, %.lr.ph313, %.lr.ph308, %.lr.ph303, %789, %.split444, %790, %801, %812, %823
-  %.44 = phi ptr [ %.36321, %.split444 ], [ %.36321, %823 ], [ %796, %.lr.ph303 ], [ %.36321, %789 ], [ %.36321, %812 ], [ %807, %.lr.ph308 ], [ %.36321, %801 ], [ %.36321, %790 ], [ %818, %.lr.ph313 ], [ %829, %.lr.ph318 ]
+  %.44 = phi ptr [ %.36321, %823 ], [ %.36321, %812 ], [ %.36321, %801 ], [ %.36321, %790 ], [ %.36321, %.split444 ], [ %.36321, %789 ], [ %796, %.lr.ph303 ], [ %807, %.lr.ph308 ], [ %818, %.lr.ph313 ], [ %829, %.lr.ph318 ]
   %indvars.iv.next361 = add nsw i64 %indvars.iv360, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count
   br i1 %exitcond363.not, label %._crit_edge, label %789, !llvm.loop !111
@@ -5940,7 +5940,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   br i1 %exitcond430.not, label %.loopexit105, label %.lr.ph181, !llvm.loop !116
 
 .loopexit105:                                     ; preds = %.lr.ph181, %.lr.ph124, %.lr.ph116, %.lr.ph, %49, %.split, %50, %60, %77, %.preheader104
-  %.9 = phi ptr [ %.0583184, %.split ], [ %.7.lcssa, %.preheader104 ], [ %57, %.lr.ph ], [ %.0583184, %49 ], [ %.0583184, %77 ], [ %73, %.lr.ph116 ], [ %.0583184, %60 ], [ %.0583184, %50 ], [ %102, %.lr.ph124 ], [ %321, %.lr.ph181 ]
+  %.9 = phi ptr [ %.7.lcssa, %.preheader104 ], [ %.0583184, %77 ], [ %.0583184, %60 ], [ %.0583184, %50 ], [ %.0583184, %.split ], [ %.0583184, %49 ], [ %57, %.lr.ph ], [ %73, %.lr.ph116 ], [ %102, %.lr.ph124 ], [ %321, %.lr.ph181 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %339 = or disjoint i64 %indvars.iv.next, 15
   %340 = icmp samesign ult i64 %339, %28
@@ -6464,7 +6464,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   br i1 %exitcond434.not, label %.loopexit100, label %.lr.ph230, !llvm.loop !126
 
 .loopexit100:                                     ; preds = %.lr.ph230, %.lr.ph197, %.lr.ph191, %485, %486, %496, %.preheader99
-  %.17 = phi ptr [ %.10233, %485 ], [ %.15.lcssa, %.preheader99 ], [ %493, %.lr.ph191 ], [ %509, %.lr.ph197 ], [ %.10233, %496 ], [ %.10233, %486 ], [ %614, %.lr.ph230 ]
+  %.17 = phi ptr [ %.15.lcssa, %.preheader99 ], [ %.10233, %496 ], [ %.10233, %486 ], [ %.10233, %485 ], [ %493, %.lr.ph191 ], [ %509, %.lr.ph197 ], [ %614, %.lr.ph230 ]
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 8
   %624 = or disjoint i64 %indvars.iv.next436, 7
   %625 = icmp slt i64 %624, %46
@@ -6479,8 +6479,8 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   br label %.preheader94
 
 .preheader94:                                     ; preds = %.lr.ph278.split.split.preheader, %.loopexit97.us288.preheader, %.preheader94.loopexit353, %.preheader94.loopexit, %.preheader98
-  %.2588.lcssa = phi i32 [ %.1587.lcssa, %.preheader98 ], [ %468, %.loopexit97.us288.preheader ], [ %627, %.preheader94.loopexit353 ], [ %626, %.preheader94.loopexit ], [ %462, %.lr.ph278.split.split.preheader ]
-  %.18.lcssa = phi ptr [ %.10.lcssa, %.preheader98 ], [ %.10.lcssa, %.loopexit97.us288.preheader ], [ %480, %.preheader94.loopexit353 ], [ %.23.lcssa.us, %.preheader94.loopexit ], [ %.10.lcssa, %.lr.ph278.split.split.preheader ]
+  %.2588.lcssa = phi i32 [ %.1587.lcssa, %.preheader98 ], [ %626, %.preheader94.loopexit ], [ %627, %.preheader94.loopexit353 ], [ %468, %.loopexit97.us288.preheader ], [ %462, %.lr.ph278.split.split.preheader ]
+  %.18.lcssa = phi ptr [ %.10.lcssa, %.preheader98 ], [ %.23.lcssa.us, %.preheader94.loopexit ], [ %480, %.preheader94.loopexit353 ], [ %.10.lcssa, %.loopexit97.us288.preheader ], [ %.10.lcssa, %.lr.ph278.split.split.preheader ]
   %628 = or disjoint i32 %.2588.lcssa, 1
   %629 = icmp slt i32 %628, %2
   br i1 %629, label %.lr.ph325, label %.preheader91
@@ -7432,7 +7432,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   br i1 %exitcond664.not, label %.loopexit117, label %.lr.ph249, !llvm.loop !150
 
 .loopexit117:                                     ; preds = %.lr.ph249, %.lr.ph175, %.lr.ph160, %.lr.ph168, %.lr.ph, %.lr.ph139, %.lr.ph146, %.lr.ph154, %57, %.split, %.loopexit127, %.loopexit123, %142, %.preheader116
-  %.20 = phi ptr [ %.0892252, %.split ], [ %.18.lcssa, %.preheader116 ], [ %96, %.lr.ph146 ], [ %105, %.lr.ph154 ], [ %.0892252, %142 ], [ %129, %.lr.ph160 ], [ %.0892252, %.loopexit123 ], [ %138, %.lr.ph168 ], [ %161, %.lr.ph175 ], [ %.0892252, %.loopexit127 ], [ %88, %.lr.ph139 ], [ %.0892252, %57 ], [ %79, %.lr.ph ], [ %380, %.lr.ph249 ]
+  %.20 = phi ptr [ %.18.lcssa, %.preheader116 ], [ %.0892252, %142 ], [ %.0892252, %.loopexit123 ], [ %.0892252, %.loopexit127 ], [ %.0892252, %.split ], [ %.0892252, %57 ], [ %105, %.lr.ph154 ], [ %96, %.lr.ph146 ], [ %88, %.lr.ph139 ], [ %79, %.lr.ph ], [ %138, %.lr.ph168 ], [ %129, %.lr.ph160 ], [ %161, %.lr.ph175 ], [ %380, %.lr.ph249 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 12
   %394 = add nuw nsw i64 %indvars.iv, 23
   %395 = icmp samesign ult i64 %394, %31
@@ -7916,7 +7916,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   br i1 %exitcond673.not, label %.loopexit100, label %.lr.ph350, !llvm.loop !161
 
 .loopexit100:                                     ; preds = %.lr.ph350, %.lr.ph296, %.lr.ph283, %.lr.ph290, %.lr.ph259, %.lr.ph265, %.lr.ph271, %.lr.ph278, %419, %.split876, %.loopexit110, %.loopexit106, %493, %.preheader99
-  %.41 = phi ptr [ %.21353, %.split876 ], [ %.39.lcssa, %.preheader99 ], [ %450, %.lr.ph271 ], [ %458, %.lr.ph278 ], [ %.21353, %493 ], [ %474, %.lr.ph283 ], [ %.21353, %.loopexit106 ], [ %489, %.lr.ph290 ], [ %506, %.lr.ph296 ], [ %.21353, %.loopexit110 ], [ %444, %.lr.ph265 ], [ %.21353, %419 ], [ %438, %.lr.ph259 ], [ %656, %.lr.ph350 ]
+  %.41 = phi ptr [ %.39.lcssa, %.preheader99 ], [ %.21353, %493 ], [ %.21353, %.loopexit106 ], [ %.21353, %.loopexit110 ], [ %.21353, %.split876 ], [ %.21353, %419 ], [ %458, %.lr.ph278 ], [ %450, %.lr.ph271 ], [ %444, %.lr.ph265 ], [ %438, %.lr.ph259 ], [ %489, %.lr.ph290 ], [ %474, %.lr.ph283 ], [ %506, %.lr.ph296 ], [ %656, %.lr.ph350 ]
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 8
   %666 = icmp slt i64 %indvars.iv674, %invariant.op
   br i1 %666, label %419, label %.preheader98.loopexit, !llvm.loop !162
@@ -8243,7 +8243,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   br i1 %exitcond684.not, label %.loopexit, label %.lr.ph428, !llvm.loop !172
 
 .loopexit:                                        ; preds = %.lr.ph428, %.lr.ph394, %.lr.ph383, %.lr.ph389, %.lr.ph360, %.lr.ph366, %.lr.ph372, %.lr.ph378, %677, %.split877, %.loopexit93, %.loopexit89, %732, %.preheader83
-  %.62 = phi ptr [ %.42431, %.split877 ], [ %.60.lcssa, %.preheader83 ], [ %702, %.lr.ph372 ], [ %708, %.lr.ph378 ], [ %.42431, %732 ], [ %723, %.lr.ph383 ], [ %.42431, %.loopexit89 ], [ %729, %.lr.ph389 ], [ %739, %.lr.ph394 ], [ %.42431, %.loopexit93 ], [ %696, %.lr.ph366 ], [ %.42431, %677 ], [ %690, %.lr.ph360 ], [ %816, %.lr.ph428 ]
+  %.62 = phi ptr [ %.60.lcssa, %.preheader83 ], [ %.42431, %732 ], [ %.42431, %.loopexit89 ], [ %.42431, %.loopexit93 ], [ %.42431, %.split877 ], [ %.42431, %677 ], [ %708, %.lr.ph378 ], [ %702, %.lr.ph372 ], [ %696, %.lr.ph366 ], [ %690, %.lr.ph360 ], [ %729, %.lr.ph389 ], [ %723, %.lr.ph383 ], [ %739, %.lr.ph394 ], [ %816, %.lr.ph428 ]
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 4
   %822 = or disjoint i64 %indvars.iv.next686, 3
   %823 = icmp slt i64 %822, %413
@@ -8864,7 +8864,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   br i1 %exitcond.not, label %.loopexit174, label %.lr.ph194, !llvm.loop !185
 
 .loopexit174:                                     ; preds = %.lr.ph194, %.lr.ph189, %.lr.ph184, %.lr.ph, %58, %.split, %59, %151, %231, %299
-  %.8 = phi ptr [ %.0574197, %.split ], [ %.0574197, %299 ], [ %146, %.lr.ph ], [ %.0574197, %58 ], [ %.0574197, %231 ], [ %226, %.lr.ph184 ], [ %.0574197, %151 ], [ %.0574197, %59 ], [ %294, %.lr.ph189 ], [ %311, %.lr.ph194 ]
+  %.8 = phi ptr [ %.0574197, %299 ], [ %.0574197, %231 ], [ %.0574197, %151 ], [ %.0574197, %59 ], [ %.0574197, %.split ], [ %.0574197, %58 ], [ %146, %.lr.ph ], [ %226, %.lr.ph184 ], [ %294, %.lr.ph189 ], [ %311, %.lr.ph194 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 12
   %314 = add nuw nsw i64 %indvars.iv, 23
   %315 = icmp samesign ult i64 %314, %32
@@ -9171,7 +9171,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   br i1 %exitcond323.not, label %.loopexit169, label %.lr.ph219, !llvm.loop !190
 
 .loopexit169:                                     ; preds = %.lr.ph219, %.lr.ph214, %.lr.ph209, %.lr.ph204, %338, %.split417, %339, %403, %459, %507
-  %.17 = phi ptr [ %.9222, %.split417 ], [ %.9222, %507 ], [ %398, %.lr.ph204 ], [ %.9222, %338 ], [ %.9222, %459 ], [ %454, %.lr.ph209 ], [ %.9222, %403 ], [ %.9222, %339 ], [ %502, %.lr.ph214 ], [ %516, %.lr.ph219 ]
+  %.17 = phi ptr [ %.9222, %507 ], [ %.9222, %459 ], [ %.9222, %403 ], [ %.9222, %339 ], [ %.9222, %.split417 ], [ %.9222, %338 ], [ %398, %.lr.ph204 ], [ %454, %.lr.ph209 ], [ %502, %.lr.ph214 ], [ %516, %.lr.ph219 ]
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 8
   %519 = icmp slt i64 %indvars.iv324, %invariant.op
   br i1 %519, label %338, label %.preheader168.loopexit, !llvm.loop !191
@@ -9381,7 +9381,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   br i1 %exitcond327.not, label %.loopexit164, label %.lr.ph244, !llvm.loop !195
 
 .loopexit164:                                     ; preds = %.lr.ph244, %.lr.ph239, %.lr.ph234, %.lr.ph229, %542, %.split418, %543, %575, %603, %631
-  %.26 = phi ptr [ %.18247, %.split418 ], [ %.18247, %631 ], [ %570, %.lr.ph229 ], [ %.18247, %542 ], [ %.18247, %603 ], [ %598, %.lr.ph234 ], [ %.18247, %575 ], [ %.18247, %543 ], [ %626, %.lr.ph239 ], [ %637, %.lr.ph244 ]
+  %.26 = phi ptr [ %.18247, %631 ], [ %.18247, %603 ], [ %.18247, %575 ], [ %.18247, %543 ], [ %.18247, %.split418 ], [ %.18247, %542 ], [ %570, %.lr.ph229 ], [ %598, %.lr.ph234 ], [ %626, %.lr.ph239 ], [ %637, %.lr.ph244 ]
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 4
   %640 = or disjoint i64 %indvars.iv.next329, 3
   %641 = icmp slt i64 %640, %333
@@ -9549,7 +9549,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   br i1 %exitcond331.not, label %.loopexit159, label %.lr.ph269, !llvm.loop !200
 
 .loopexit159:                                     ; preds = %.lr.ph269, %.lr.ph264, %.lr.ph259, %.lr.ph254, %662, %.split419, %663, %679, %695, %711
-  %.35 = phi ptr [ %.27272, %.split419 ], [ %.27272, %711 ], [ %674, %.lr.ph254 ], [ %.27272, %662 ], [ %.27272, %695 ], [ %690, %.lr.ph259 ], [ %.27272, %679 ], [ %.27272, %663 ], [ %706, %.lr.ph264 ], [ %720, %.lr.ph269 ]
+  %.35 = phi ptr [ %.27272, %711 ], [ %.27272, %695 ], [ %.27272, %679 ], [ %.27272, %663 ], [ %.27272, %.split419 ], [ %.27272, %662 ], [ %674, %.lr.ph254 ], [ %690, %.lr.ph259 ], [ %706, %.lr.ph264 ], [ %720, %.lr.ph269 ]
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 2
   %723 = or disjoint i64 %indvars.iv.next333, 1
   %724 = icmp slt i64 %723, %537
@@ -9663,7 +9663,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   br i1 %exitcond335.not, label %.loopexit, label %.lr.ph294, !llvm.loop !205
 
 .loopexit:                                        ; preds = %.lr.ph294, %.lr.ph289, %.lr.ph284, %.lr.ph279, %725, %.split420, %726, %737, %748, %759
-  %.44 = phi ptr [ %.36297, %.split420 ], [ %.36297, %759 ], [ %732, %.lr.ph279 ], [ %.36297, %725 ], [ %.36297, %748 ], [ %743, %.lr.ph284 ], [ %.36297, %737 ], [ %.36297, %726 ], [ %754, %.lr.ph289 ], [ %765, %.lr.ph294 ]
+  %.44 = phi ptr [ %.36297, %759 ], [ %.36297, %748 ], [ %.36297, %737 ], [ %.36297, %726 ], [ %.36297, %.split420 ], [ %.36297, %725 ], [ %732, %.lr.ph279 ], [ %743, %.lr.ph284 ], [ %754, %.lr.ph289 ], [ %765, %.lr.ph294 ]
   %indvars.iv.next337 = add nsw i64 %indvars.iv336, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count
   br i1 %exitcond339.not, label %._crit_edge, label %725, !llvm.loop !206
@@ -9862,8 +9862,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn15Gemm_x86_avx51212forwar
   br label %131
 
 131:                                              ; preds = %120, %128, %74, %82, %100, %62
-  %.0112 = phi i32 [ %66, %62 ], [ %84, %82 ], [ %103, %100 ], [ %81, %74 ], [ %127, %120 ], [ %130, %128 ]
-  %.0111 = phi i32 [ %64, %62 ], [ %71, %82 ], [ %101, %100 ], [ %71, %74 ], [ %117, %120 ], [ %117, %128 ]
+  %.0112 = phi i32 [ %66, %62 ], [ %103, %100 ], [ %81, %74 ], [ %84, %82 ], [ %127, %120 ], [ %130, %128 ]
+  %.0111 = phi i32 [ %64, %62 ], [ %101, %100 ], [ %71, %74 ], [ %71, %82 ], [ %117, %120 ], [ %117, %128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %132 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %133 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -10042,18 +10042,18 @@ _ZN4ncnn3Mat6addrefEv.exit288.thread:             ; preds = %197
   br label %_ZN4ncnn3Mat6addrefEv.exit288.thread.thread
 
 _ZN4ncnn3Mat6addrefEv.exit288.thread.thread:      ; preds = %195, %197, %221, %_ZN4ncnn3Mat6addrefEv.exit288.thread, %227, %232, %231
-  %.sroa.31411.0433671 = phi ptr [ %206, %231 ], [ %206, %221 ], [ %206, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %206, %227 ], [ %206, %232 ], [ null, %195 ], [ %206, %197 ]
-  %.sroa.26409.0434670 = phi i32 [ %204, %231 ], [ %204, %221 ], [ %204, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %204, %227 ], [ %204, %232 ], [ 0, %195 ], [ %204, %197 ]
-  %.sroa.21408.0435669 = phi i64 [ %202, %231 ], [ %202, %221 ], [ %202, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %202, %227 ], [ %202, %232 ], [ 0, %195 ], [ %202, %197 ]
-  %.sroa.12403.0436668 = phi ptr [ %200, %231 ], [ %200, %221 ], [ %200, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %200, %227 ], [ %200, %232 ], [ null, %195 ], [ null, %197 ]
-  %.sroa.0398.0437667 = phi ptr [ %198, %231 ], [ %198, %221 ], [ %198, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %198, %227 ], [ %198, %232 ], [ null, %195 ], [ %198, %197 ]
-  %.sroa.36414.0438666 = phi i32 [ %208, %231 ], [ %208, %221 ], [ %208, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %208, %227 ], [ %208, %232 ], [ 0, %195 ], [ %208, %197 ]
-  %.sroa.41415.0439665 = phi i32 [ %210, %231 ], [ %210, %221 ], [ %210, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %210, %227 ], [ %210, %232 ], [ 0, %195 ], [ %210, %197 ]
-  %.sroa.46416.0440664 = phi i32 [ %212, %231 ], [ %212, %221 ], [ %212, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %212, %227 ], [ %212, %232 ], [ 0, %195 ], [ %212, %197 ]
-  %.sroa.51417.0441663 = phi i32 [ %214, %231 ], [ %214, %221 ], [ %214, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %214, %227 ], [ %214, %232 ], [ 0, %195 ], [ %214, %197 ]
-  %.sroa.56418.0442662 = phi i32 [ %216, %231 ], [ %216, %221 ], [ %216, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %216, %227 ], [ %216, %232 ], [ 0, %195 ], [ %216, %197 ]
-  %.sroa.61420.0443661 = phi i64 [ %218, %231 ], [ %218, %221 ], [ %218, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %218, %227 ], [ %218, %232 ], [ 0, %195 ], [ %218, %197 ]
-  %.not.i268444660 = phi i1 [ false, %231 ], [ false, %221 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ false, %227 ], [ false, %232 ], [ true, %195 ], [ true, %197 ]
+  %.sroa.31411.0433671 = phi ptr [ %206, %221 ], [ %206, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %206, %227 ], [ %206, %232 ], [ %206, %231 ], [ null, %195 ], [ %206, %197 ]
+  %.sroa.26409.0434670 = phi i32 [ %204, %221 ], [ %204, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %204, %227 ], [ %204, %232 ], [ %204, %231 ], [ 0, %195 ], [ %204, %197 ]
+  %.sroa.21408.0435669 = phi i64 [ %202, %221 ], [ %202, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %202, %227 ], [ %202, %232 ], [ %202, %231 ], [ 0, %195 ], [ %202, %197 ]
+  %.sroa.12403.0436668 = phi ptr [ %200, %221 ], [ %200, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %200, %227 ], [ %200, %232 ], [ %200, %231 ], [ null, %195 ], [ null, %197 ]
+  %.sroa.0398.0437667 = phi ptr [ %198, %221 ], [ %198, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %198, %227 ], [ %198, %232 ], [ %198, %231 ], [ null, %195 ], [ %198, %197 ]
+  %.sroa.36414.0438666 = phi i32 [ %208, %221 ], [ %208, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %208, %227 ], [ %208, %232 ], [ %208, %231 ], [ 0, %195 ], [ %208, %197 ]
+  %.sroa.41415.0439665 = phi i32 [ %210, %221 ], [ %210, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %210, %227 ], [ %210, %232 ], [ %210, %231 ], [ 0, %195 ], [ %210, %197 ]
+  %.sroa.46416.0440664 = phi i32 [ %212, %221 ], [ %212, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %212, %227 ], [ %212, %232 ], [ %212, %231 ], [ 0, %195 ], [ %212, %197 ]
+  %.sroa.51417.0441663 = phi i32 [ %214, %221 ], [ %214, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %214, %227 ], [ %214, %232 ], [ %214, %231 ], [ 0, %195 ], [ %214, %197 ]
+  %.sroa.56418.0442662 = phi i32 [ %216, %221 ], [ %216, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %216, %227 ], [ %216, %232 ], [ %216, %231 ], [ 0, %195 ], [ %216, %197 ]
+  %.sroa.61420.0443661 = phi i64 [ %218, %221 ], [ %218, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ %218, %227 ], [ %218, %232 ], [ %218, %231 ], [ 0, %195 ], [ %218, %197 ]
+  %.not.i268444660 = phi i1 [ false, %221 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit288.thread ], [ false, %227 ], [ false, %232 ], [ false, %231 ], [ true, %195 ], [ true, %197 ]
   store ptr %.sroa.0398.0437667, ptr %57, align 8, !tbaa !16
   store ptr %.sroa.12403.0436668, ptr %132, align 8, !tbaa !7
   store i64 %.sroa.21408.0435669, ptr %133, align 8, !tbaa !52
@@ -10194,18 +10194,18 @@ _ZN4ncnn3Mat6addrefEv.exit286.thread:             ; preds = %262
   br label %_ZN4ncnn3Mat6addrefEv.exit286.thread.thread
 
 _ZN4ncnn3Mat6addrefEv.exit286.thread.thread:      ; preds = %260, %262, %287, %_ZN4ncnn3Mat6addrefEv.exit286.thread, %293, %298, %297
-  %.sroa.61397.0457696 = phi i64 [ %284, %297 ], [ %284, %287 ], [ %284, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %284, %293 ], [ %284, %298 ], [ 0, %260 ], [ %284, %262 ]
-  %.sroa.56395.0458695 = phi i32 [ %282, %297 ], [ %282, %287 ], [ %282, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %282, %293 ], [ %282, %298 ], [ 0, %260 ], [ %282, %262 ]
-  %.sroa.51394.0459694 = phi i32 [ %280, %297 ], [ %280, %287 ], [ %280, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %280, %293 ], [ %280, %298 ], [ 0, %260 ], [ %280, %262 ]
-  %.sroa.46393.0460693 = phi i32 [ %278, %297 ], [ %278, %287 ], [ %278, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %278, %293 ], [ %278, %298 ], [ 0, %260 ], [ %278, %262 ]
-  %.sroa.41392.0461692 = phi i32 [ %276, %297 ], [ %276, %287 ], [ %276, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %276, %293 ], [ %276, %298 ], [ 0, %260 ], [ %276, %262 ]
-  %.sroa.36391.0462691 = phi i32 [ %274, %297 ], [ %274, %287 ], [ %274, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %274, %293 ], [ %274, %298 ], [ 0, %260 ], [ %274, %262 ]
-  %.sroa.31388.0463690 = phi ptr [ %272, %297 ], [ %272, %287 ], [ %272, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %272, %293 ], [ %272, %298 ], [ null, %260 ], [ %272, %262 ]
-  %.sroa.26386.0464689 = phi i32 [ %270, %297 ], [ %270, %287 ], [ %270, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %270, %293 ], [ %270, %298 ], [ 0, %260 ], [ %270, %262 ]
-  %.sroa.21385.0465688 = phi i64 [ %268, %297 ], [ %268, %287 ], [ %268, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %268, %293 ], [ %268, %298 ], [ 0, %260 ], [ %268, %262 ]
-  %.sroa.12380.0466687 = phi ptr [ %266, %297 ], [ %266, %287 ], [ %266, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %266, %293 ], [ %266, %298 ], [ null, %260 ], [ null, %262 ]
-  %.sroa.0375.0467686 = phi ptr [ %264, %297 ], [ %264, %287 ], [ %264, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %264, %293 ], [ %264, %298 ], [ null, %260 ], [ %264, %262 ]
-  %.not.i261468685 = phi i1 [ false, %297 ], [ false, %287 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ false, %293 ], [ false, %298 ], [ true, %260 ], [ true, %262 ]
+  %.sroa.61397.0457696 = phi i64 [ %284, %287 ], [ %284, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %284, %293 ], [ %284, %298 ], [ %284, %297 ], [ 0, %260 ], [ %284, %262 ]
+  %.sroa.56395.0458695 = phi i32 [ %282, %287 ], [ %282, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %282, %293 ], [ %282, %298 ], [ %282, %297 ], [ 0, %260 ], [ %282, %262 ]
+  %.sroa.51394.0459694 = phi i32 [ %280, %287 ], [ %280, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %280, %293 ], [ %280, %298 ], [ %280, %297 ], [ 0, %260 ], [ %280, %262 ]
+  %.sroa.46393.0460693 = phi i32 [ %278, %287 ], [ %278, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %278, %293 ], [ %278, %298 ], [ %278, %297 ], [ 0, %260 ], [ %278, %262 ]
+  %.sroa.41392.0461692 = phi i32 [ %276, %287 ], [ %276, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %276, %293 ], [ %276, %298 ], [ %276, %297 ], [ 0, %260 ], [ %276, %262 ]
+  %.sroa.36391.0462691 = phi i32 [ %274, %287 ], [ %274, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %274, %293 ], [ %274, %298 ], [ %274, %297 ], [ 0, %260 ], [ %274, %262 ]
+  %.sroa.31388.0463690 = phi ptr [ %272, %287 ], [ %272, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %272, %293 ], [ %272, %298 ], [ %272, %297 ], [ null, %260 ], [ %272, %262 ]
+  %.sroa.26386.0464689 = phi i32 [ %270, %287 ], [ %270, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %270, %293 ], [ %270, %298 ], [ %270, %297 ], [ 0, %260 ], [ %270, %262 ]
+  %.sroa.21385.0465688 = phi i64 [ %268, %287 ], [ %268, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %268, %293 ], [ %268, %298 ], [ %268, %297 ], [ 0, %260 ], [ %268, %262 ]
+  %.sroa.12380.0466687 = phi ptr [ %266, %287 ], [ %266, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %266, %293 ], [ %266, %298 ], [ %266, %297 ], [ null, %260 ], [ null, %262 ]
+  %.sroa.0375.0467686 = phi ptr [ %264, %287 ], [ %264, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ %264, %293 ], [ %264, %298 ], [ %264, %297 ], [ null, %260 ], [ %264, %262 ]
+  %.not.i261468685 = phi i1 [ false, %287 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit286.thread ], [ false, %293 ], [ false, %298 ], [ false, %297 ], [ true, %260 ], [ true, %262 ]
   store ptr %.sroa.0375.0467686, ptr %57, align 8, !tbaa !16
   store ptr %.sroa.12380.0466687, ptr %132, align 8, !tbaa !7
   store i64 %.sroa.21385.0465688, ptr %133, align 8, !tbaa !52
@@ -10346,18 +10346,18 @@ _ZN4ncnn3Mat6addrefEv.exit284.thread:             ; preds = %328
   br label %_ZN4ncnn3Mat6addrefEv.exit284.thread.thread
 
 _ZN4ncnn3Mat6addrefEv.exit284.thread.thread:      ; preds = %326, %328, %353, %_ZN4ncnn3Mat6addrefEv.exit284.thread, %359, %364, %363
-  %.sroa.61374.0481721 = phi i64 [ %350, %363 ], [ %350, %353 ], [ %350, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %350, %359 ], [ %350, %364 ], [ 0, %326 ], [ %350, %328 ]
-  %.sroa.56372.0482720 = phi i32 [ %348, %363 ], [ %348, %353 ], [ %348, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %348, %359 ], [ %348, %364 ], [ 0, %326 ], [ %348, %328 ]
-  %.sroa.51371.0483719 = phi i32 [ %346, %363 ], [ %346, %353 ], [ %346, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %346, %359 ], [ %346, %364 ], [ 0, %326 ], [ %346, %328 ]
-  %.sroa.46370.0484718 = phi i32 [ %344, %363 ], [ %344, %353 ], [ %344, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %344, %359 ], [ %344, %364 ], [ 0, %326 ], [ %344, %328 ]
-  %.sroa.41369.0485717 = phi i32 [ %342, %363 ], [ %342, %353 ], [ %342, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %342, %359 ], [ %342, %364 ], [ 0, %326 ], [ %342, %328 ]
-  %.sroa.36368.0486716 = phi i32 [ %340, %363 ], [ %340, %353 ], [ %340, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %340, %359 ], [ %340, %364 ], [ 0, %326 ], [ %340, %328 ]
-  %.sroa.31365.0487715 = phi ptr [ %338, %363 ], [ %338, %353 ], [ %338, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %338, %359 ], [ %338, %364 ], [ null, %326 ], [ %338, %328 ]
-  %.sroa.26363.0488714 = phi i32 [ %336, %363 ], [ %336, %353 ], [ %336, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %336, %359 ], [ %336, %364 ], [ 0, %326 ], [ %336, %328 ]
-  %.sroa.21362.0489713 = phi i64 [ %334, %363 ], [ %334, %353 ], [ %334, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %334, %359 ], [ %334, %364 ], [ 0, %326 ], [ %334, %328 ]
-  %.sroa.12357.0490712 = phi ptr [ %332, %363 ], [ %332, %353 ], [ %332, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %332, %359 ], [ %332, %364 ], [ null, %326 ], [ null, %328 ]
-  %.sroa.0352.0491711 = phi ptr [ %330, %363 ], [ %330, %353 ], [ %330, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %330, %359 ], [ %330, %364 ], [ null, %326 ], [ %330, %328 ]
-  %.not.i254492710 = phi i1 [ false, %363 ], [ false, %353 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ false, %359 ], [ false, %364 ], [ true, %326 ], [ true, %328 ]
+  %.sroa.61374.0481721 = phi i64 [ %350, %353 ], [ %350, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %350, %359 ], [ %350, %364 ], [ %350, %363 ], [ 0, %326 ], [ %350, %328 ]
+  %.sroa.56372.0482720 = phi i32 [ %348, %353 ], [ %348, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %348, %359 ], [ %348, %364 ], [ %348, %363 ], [ 0, %326 ], [ %348, %328 ]
+  %.sroa.51371.0483719 = phi i32 [ %346, %353 ], [ %346, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %346, %359 ], [ %346, %364 ], [ %346, %363 ], [ 0, %326 ], [ %346, %328 ]
+  %.sroa.46370.0484718 = phi i32 [ %344, %353 ], [ %344, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %344, %359 ], [ %344, %364 ], [ %344, %363 ], [ 0, %326 ], [ %344, %328 ]
+  %.sroa.41369.0485717 = phi i32 [ %342, %353 ], [ %342, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %342, %359 ], [ %342, %364 ], [ %342, %363 ], [ 0, %326 ], [ %342, %328 ]
+  %.sroa.36368.0486716 = phi i32 [ %340, %353 ], [ %340, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %340, %359 ], [ %340, %364 ], [ %340, %363 ], [ 0, %326 ], [ %340, %328 ]
+  %.sroa.31365.0487715 = phi ptr [ %338, %353 ], [ %338, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %338, %359 ], [ %338, %364 ], [ %338, %363 ], [ null, %326 ], [ %338, %328 ]
+  %.sroa.26363.0488714 = phi i32 [ %336, %353 ], [ %336, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %336, %359 ], [ %336, %364 ], [ %336, %363 ], [ 0, %326 ], [ %336, %328 ]
+  %.sroa.21362.0489713 = phi i64 [ %334, %353 ], [ %334, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %334, %359 ], [ %334, %364 ], [ %334, %363 ], [ 0, %326 ], [ %334, %328 ]
+  %.sroa.12357.0490712 = phi ptr [ %332, %353 ], [ %332, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %332, %359 ], [ %332, %364 ], [ %332, %363 ], [ null, %326 ], [ null, %328 ]
+  %.sroa.0352.0491711 = phi ptr [ %330, %353 ], [ %330, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ %330, %359 ], [ %330, %364 ], [ %330, %363 ], [ null, %326 ], [ %330, %328 ]
+  %.not.i254492710 = phi i1 [ false, %353 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit284.thread ], [ false, %359 ], [ false, %364 ], [ false, %363 ], [ true, %326 ], [ true, %328 ]
   store ptr %.sroa.0352.0491711, ptr %57, align 8, !tbaa !16
   store ptr %.sroa.12357.0490712, ptr %132, align 8, !tbaa !7
   store i64 %.sroa.21362.0489713, ptr %133, align 8, !tbaa !52
@@ -10495,18 +10495,18 @@ _ZN4ncnn3Mat6addrefEv.exit.thread:                ; preds = %393
   br label %_ZN4ncnn3Mat6addrefEv.exit.thread.thread
 
 _ZN4ncnn3Mat6addrefEv.exit.thread.thread:         ; preds = %391, %393, %418, %_ZN4ncnn3Mat6addrefEv.exit.thread, %424, %429, %428
-  %.sroa.61351.0505746 = phi i64 [ %415, %428 ], [ %415, %418 ], [ %415, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %415, %424 ], [ %415, %429 ], [ 0, %391 ], [ %415, %393 ]
-  %.sroa.56.0506745 = phi i32 [ %413, %428 ], [ %413, %418 ], [ %413, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %413, %424 ], [ %413, %429 ], [ 0, %391 ], [ %413, %393 ]
-  %.sroa.51.0507744 = phi i32 [ %411, %428 ], [ %411, %418 ], [ %411, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %411, %424 ], [ %411, %429 ], [ 0, %391 ], [ %411, %393 ]
-  %.sroa.46.0508743 = phi i32 [ %409, %428 ], [ %409, %418 ], [ %409, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %409, %424 ], [ %409, %429 ], [ 0, %391 ], [ %409, %393 ]
-  %.sroa.41.0509742 = phi i32 [ %407, %428 ], [ %407, %418 ], [ %407, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %407, %424 ], [ %407, %429 ], [ 0, %391 ], [ %407, %393 ]
-  %.sroa.36.0510741 = phi i32 [ %405, %428 ], [ %405, %418 ], [ %405, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %405, %424 ], [ %405, %429 ], [ 0, %391 ], [ %405, %393 ]
-  %.sroa.31348.0511740 = phi ptr [ %403, %428 ], [ %403, %418 ], [ %403, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %403, %424 ], [ %403, %429 ], [ null, %391 ], [ %403, %393 ]
-  %.sroa.26.0512739 = phi i32 [ %401, %428 ], [ %401, %418 ], [ %401, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %401, %424 ], [ %401, %429 ], [ 0, %391 ], [ %401, %393 ]
-  %.sroa.21.0513738 = phi i64 [ %399, %428 ], [ %399, %418 ], [ %399, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %399, %424 ], [ %399, %429 ], [ 0, %391 ], [ %399, %393 ]
-  %.sroa.12.0514737 = phi ptr [ %397, %428 ], [ %397, %418 ], [ %397, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %397, %424 ], [ %397, %429 ], [ null, %391 ], [ null, %393 ]
-  %.sroa.0.0515736 = phi ptr [ %395, %428 ], [ %395, %418 ], [ %395, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %395, %424 ], [ %395, %429 ], [ null, %391 ], [ %395, %393 ]
-  %.not.i252516735 = phi i1 [ false, %428 ], [ false, %418 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ false, %424 ], [ false, %429 ], [ true, %391 ], [ true, %393 ]
+  %.sroa.61351.0505746 = phi i64 [ %415, %418 ], [ %415, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %415, %424 ], [ %415, %429 ], [ %415, %428 ], [ 0, %391 ], [ %415, %393 ]
+  %.sroa.56.0506745 = phi i32 [ %413, %418 ], [ %413, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %413, %424 ], [ %413, %429 ], [ %413, %428 ], [ 0, %391 ], [ %413, %393 ]
+  %.sroa.51.0507744 = phi i32 [ %411, %418 ], [ %411, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %411, %424 ], [ %411, %429 ], [ %411, %428 ], [ 0, %391 ], [ %411, %393 ]
+  %.sroa.46.0508743 = phi i32 [ %409, %418 ], [ %409, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %409, %424 ], [ %409, %429 ], [ %409, %428 ], [ 0, %391 ], [ %409, %393 ]
+  %.sroa.41.0509742 = phi i32 [ %407, %418 ], [ %407, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %407, %424 ], [ %407, %429 ], [ %407, %428 ], [ 0, %391 ], [ %407, %393 ]
+  %.sroa.36.0510741 = phi i32 [ %405, %418 ], [ %405, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %405, %424 ], [ %405, %429 ], [ %405, %428 ], [ 0, %391 ], [ %405, %393 ]
+  %.sroa.31348.0511740 = phi ptr [ %403, %418 ], [ %403, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %403, %424 ], [ %403, %429 ], [ %403, %428 ], [ null, %391 ], [ %403, %393 ]
+  %.sroa.26.0512739 = phi i32 [ %401, %418 ], [ %401, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %401, %424 ], [ %401, %429 ], [ %401, %428 ], [ 0, %391 ], [ %401, %393 ]
+  %.sroa.21.0513738 = phi i64 [ %399, %418 ], [ %399, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %399, %424 ], [ %399, %429 ], [ %399, %428 ], [ 0, %391 ], [ %399, %393 ]
+  %.sroa.12.0514737 = phi ptr [ %397, %418 ], [ %397, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %397, %424 ], [ %397, %429 ], [ %397, %428 ], [ null, %391 ], [ null, %393 ]
+  %.sroa.0.0515736 = phi ptr [ %395, %418 ], [ %395, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ %395, %424 ], [ %395, %429 ], [ %395, %428 ], [ null, %391 ], [ %395, %393 ]
+  %.not.i252516735 = phi i1 [ false, %418 ], [ false, %_ZN4ncnn3Mat6addrefEv.exit.thread ], [ false, %424 ], [ false, %429 ], [ false, %428 ], [ true, %391 ], [ true, %393 ]
   store ptr %.sroa.0.0515736, ptr %57, align 8, !tbaa !16
   store ptr %.sroa.12.0514737, ptr %132, align 8, !tbaa !7
   store i64 %.sroa.21.0513738, ptr %133, align 8, !tbaa !52
@@ -10581,7 +10581,7 @@ _ZN4ncnn3Mat6addrefEv.exit.thread.thread:         ; preds = %391, %393, %418, %_
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit195.sink.split:              ; preds = %438, %373, %307, %241
-  %.sroa.0.0515736.sink = phi ptr [ %.sroa.0352.0491711, %373 ], [ %.sroa.0375.0467686, %307 ], [ %.sroa.0398.0437667, %241 ], [ %.sroa.0.0515736, %438 ]
+  %.sroa.0.0515736.sink = phi ptr [ %.sroa.0398.0437667, %241 ], [ %.sroa.0375.0467686, %307 ], [ %.sroa.0352.0491711, %373 ], [ %.sroa.0.0515736, %438 ]
   tail call void @free(ptr noundef nonnull %.sroa.0.0515736.sink) #8
   br label %_ZN4ncnn3MatD2Ev.exit195
 
@@ -10645,7 +10645,7 @@ _ZNK4ncnn3Mat5emptyEv.exit251:                    ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZNK4ncnn3Mat5emptyEv.exit251.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit251.thread:             ; preds = %.thread747, %_ZN4ncnn3MatD2Ev.exit195, %479, %482, %_ZNK4ncnn3Mat5emptyEv.exit251, %_ZN4ncnn3MataSERKS0_.exit281
-  %.0113 = phi i32 [ %185, %_ZN4ncnn3MataSERKS0_.exit281 ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit251 ], [ %.4, %479 ], [ %spec.select183, %482 ], [ 0, %_ZN4ncnn3MatD2Ev.exit195 ], [ %spec.select176, %.thread747 ]
+  %.0113 = phi i32 [ %185, %_ZN4ncnn3MataSERKS0_.exit281 ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit251 ], [ %spec.select183, %482 ], [ %.4, %479 ], [ 0, %_ZN4ncnn3MatD2Ev.exit195 ], [ %spec.select176, %.thread747 ]
   %488 = getelementptr inbounds nuw i8, ptr %3, i64 39
   %489 = load i8, ptr %488, align 1, !tbaa !71, !range !46, !noundef !47
   %490 = trunc nuw i8 %489 to i1
@@ -10672,7 +10672,7 @@ _ZNK4ncnn3Mat5emptyEv.exit251.thread:             ; preds = %.thread747, %_ZN4nc
   br label %_ZNK4ncnn3Mat5emptyEv.exit251.thread._crit_edge
 
 _ZNK4ncnn3Mat5emptyEv.exit251.thread._crit_edge:  ; preds = %_ZNK4ncnn3Mat5emptyEv.exit251.thread, %493, %497, %500
-  %.0128 = phi i32 [ 8, %497 ], [ 16, %493 ], [ %503, %500 ], [ 1, %_ZNK4ncnn3Mat5emptyEv.exit251.thread ]
+  %.0128 = phi i32 [ 16, %493 ], [ %503, %500 ], [ 8, %497 ], [ 1, %_ZNK4ncnn3Mat5emptyEv.exit251.thread ]
   %504 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %505 = load i32, ptr %504, align 8, !tbaa !73
   %.not157 = icmp eq i32 %505, 0
@@ -12872,7 +12872,7 @@ _ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKNS_6OptionE.exit: ; pre
   br label %_ZN4ncnn3MatD2Ev.exit194
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %524, %_ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKNS_6OptionE.exit, %_ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit, %_ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiffiiiiRKNS_6OptionE.exit, %_ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ %.0.i, %_ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit ], [ %.027.i, %_ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit ], [ %.038.i, %_ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiffiiiiRKNS_6OptionE.exit ], [ %.0.i332, %_ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKNS_6OptionE.exit ], [ -100, %524 ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ %.027.i, %_ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit ], [ %.038.i, %_ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiffiiiiRKNS_6OptionE.exit ], [ %.0.i, %_ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit ], [ %.0.i332, %_ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKNS_6OptionE.exit ], [ -100, %524 ]
   %1480 = load ptr, ptr %132, align 8, !tbaa !7
   %.not.i224 = icmp eq ptr %1480, null
   br i1 %.not.i224, label %_ZN4ncnn3MatD2Ev.exit187, label %1481
@@ -12915,7 +12915,7 @@ _ZN4ncnn3MatD2Ev.exit187:                         ; preds = %1481, %_ZNK4ncnn3Ma
   ret i32 %.0
 
 _ZN4ncnn3MatD2Ev.exit194:                         ; preds = %1478, %_ZN4ncnn3MatD2Ev.exit.i323, %1127, %_ZN4ncnn3MatD2Ev.exit.i308, %867, %_ZN4ncnn3MatD2Ev.exit.i292, %669, %_ZN4ncnn3MatD2Ev.exit.i, %442, %447, %451, %452, %377, %382, %386, %387, %311, %316, %320, %321, %245, %250, %254, %255, %516, %186
-  %.pn168.pn.pn = phi { ptr, i32 } [ %378, %387 ], [ %187, %186 ], [ %.pn.pn.pn.pn.i, %_ZN4ncnn3MatD2Ev.exit.i308 ], [ %246, %255 ], [ %312, %321 ], [ %517, %516 ], [ %443, %452 ], [ %611, %_ZN4ncnn3MatD2Ev.exit.i ], [ %.pn.pn.pn.i, %_ZN4ncnn3MatD2Ev.exit.i292 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN4ncnn3MatD2Ev.exit.i323 ], [ %246, %245 ], [ %670, %669 ], [ %246, %250 ], [ %246, %254 ], [ %1479, %1478 ], [ %312, %311 ], [ %443, %451 ], [ %312, %316 ], [ %312, %320 ], [ %1128, %1127 ], [ %378, %377 ], [ %443, %447 ], [ %378, %382 ], [ %378, %386 ], [ %868, %867 ], [ %443, %442 ]
+  %.pn168.pn.pn = phi { ptr, i32 } [ %187, %186 ], [ %517, %516 ], [ %246, %245 ], [ %246, %250 ], [ %246, %254 ], [ %246, %255 ], [ %312, %311 ], [ %312, %316 ], [ %312, %320 ], [ %312, %321 ], [ %378, %377 ], [ %378, %382 ], [ %378, %386 ], [ %378, %387 ], [ %443, %442 ], [ %443, %447 ], [ %443, %451 ], [ %443, %452 ], [ %670, %669 ], [ %611, %_ZN4ncnn3MatD2Ev.exit.i ], [ %868, %867 ], [ %.pn.pn.pn.i, %_ZN4ncnn3MatD2Ev.exit.i292 ], [ %1128, %1127 ], [ %.pn.pn.pn.pn.i, %_ZN4ncnn3MatD2Ev.exit.i308 ], [ %1479, %1478 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN4ncnn3MatD2Ev.exit.i323 ]
   %1496 = load ptr, ptr %132, align 8, !tbaa !7
   %.not.i228 = icmp eq ptr %1496, null
   br i1 %.not.i228, label %_ZN4ncnn3MatD2Ev.exit, label %1497
@@ -14079,19 +14079,19 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1260
 
 .thread1260:                                      ; preds = %146, %144, %.thread1232, %147, %138, %172, %221
-  %.3850 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %219, %172 ], [ zeroinitializer, %146 ], [ %244, %221 ], [ %170, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3844 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %215, %172 ], [ zeroinitializer, %146 ], [ %242, %221 ], [ %168, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3838 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %211, %172 ], [ zeroinitializer, %146 ], [ %240, %221 ], [ %166, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3823 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %207, %172 ], [ zeroinitializer, %146 ], [ %238, %221 ], [ %164, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3817 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %203, %172 ], [ zeroinitializer, %146 ], [ %236, %221 ], [ %162, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3811 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %199, %172 ], [ zeroinitializer, %146 ], [ %234, %221 ], [ %160, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3805 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %195, %172 ], [ zeroinitializer, %146 ], [ %232, %221 ], [ %158, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3793 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %191, %172 ], [ zeroinitializer, %146 ], [ %230, %221 ], [ %156, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3787 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %187, %172 ], [ zeroinitializer, %146 ], [ %228, %221 ], [ %154, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3781 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %183, %172 ], [ zeroinitializer, %146 ], [ %226, %221 ], [ %152, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3772 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %179, %172 ], [ zeroinitializer, %146 ], [ %224, %221 ], [ %150, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.3766 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %175, %172 ], [ zeroinitializer, %146 ], [ %222, %221 ], [ %148, %147 ], [ %142, %.thread1232 ], [ %145, %144 ]
-  %.52708 = phi ptr [ null, %138 ], [ %220, %172 ], [ %.327061845, %146 ], [ %.327061845, %221 ], [ %171, %147 ], [ %.327061845, %.thread1232 ], [ %.327061845, %144 ]
+  %.3850 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %219, %172 ], [ %244, %221 ], [ %170, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3844 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %215, %172 ], [ %242, %221 ], [ %168, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3838 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %211, %172 ], [ %240, %221 ], [ %166, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3823 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %207, %172 ], [ %238, %221 ], [ %164, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3817 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %203, %172 ], [ %236, %221 ], [ %162, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3811 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %199, %172 ], [ %234, %221 ], [ %160, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3805 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %195, %172 ], [ %232, %221 ], [ %158, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3793 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %191, %172 ], [ %230, %221 ], [ %156, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3787 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %187, %172 ], [ %228, %221 ], [ %154, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3781 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %183, %172 ], [ %226, %221 ], [ %152, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3772 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %179, %172 ], [ %224, %221 ], [ %150, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.3766 = phi nsz <16 x float> [ zeroinitializer, %138 ], [ %175, %172 ], [ %222, %221 ], [ %148, %147 ], [ %142, %.thread1232 ], [ %145, %144 ], [ zeroinitializer, %146 ]
+  %.52708 = phi ptr [ null, %138 ], [ %220, %172 ], [ %.327061845, %221 ], [ %171, %147 ], [ %.327061845, %.thread1232 ], [ %.327061845, %144 ], [ %.327061845, %146 ]
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread1260, %.lr.ph
@@ -14471,7 +14471,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1280
 
 .thread1280:                                      ; preds = %309, %.split, %322, %.thread1274, %347, %384, %469
-  %.42754 = phi ptr [ %468, %384 ], [ %.027501843, %.split ], [ %.027501843, %469 ], [ %383, %347 ], [ %321, %.thread1274 ], [ %346, %322 ], [ %.027501843, %309 ]
+  %.42754 = phi ptr [ %468, %384 ], [ %.027501843, %469 ], [ %383, %347 ], [ %321, %.thread1274 ], [ %346, %322 ], [ %.027501843, %.split ], [ %.027501843, %309 ]
   %481 = getelementptr inbounds nuw i8, ptr %.127161844, i64 768
   %482 = add nuw nsw i32 %.027851841, 12
   %483 = add nuw nsw i32 %.027851841, 23
@@ -14595,15 +14595,15 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1315
 
 .thread1315:                                      ; preds = %495, %493, %.thread1294, %496, %487, %513, %546
-  %.3928 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %544, %513 ], [ zeroinitializer, %495 ], [ %561, %546 ], [ %511, %496 ], [ %491, %.thread1294 ], [ %494, %493 ]
-  %.3922 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %540, %513 ], [ zeroinitializer, %495 ], [ %559, %546 ], [ %509, %496 ], [ %491, %.thread1294 ], [ %494, %493 ]
-  %.3916 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %536, %513 ], [ zeroinitializer, %495 ], [ %557, %546 ], [ %507, %496 ], [ %491, %.thread1294 ], [ %494, %493 ]
-  %.3910 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %532, %513 ], [ zeroinitializer, %495 ], [ %555, %546 ], [ %505, %496 ], [ %491, %.thread1294 ], [ %494, %493 ]
-  %.3884 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %528, %513 ], [ zeroinitializer, %495 ], [ %553, %546 ], [ %503, %496 ], [ %491, %.thread1294 ], [ %494, %493 ]
-  %.3878 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %524, %513 ], [ zeroinitializer, %495 ], [ %551, %546 ], [ %501, %496 ], [ %491, %.thread1294 ], [ %494, %493 ]
-  %.3872 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %520, %513 ], [ zeroinitializer, %495 ], [ %549, %546 ], [ %499, %496 ], [ %491, %.thread1294 ], [ %494, %493 ]
-  %.3866 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %516, %513 ], [ zeroinitializer, %495 ], [ %547, %546 ], [ %497, %496 ], [ %491, %.thread1294 ], [ %494, %493 ]
-  %.82711 = phi ptr [ null, %487 ], [ %545, %513 ], [ %.627091879, %495 ], [ %.627091879, %546 ], [ %512, %496 ], [ %.627091879, %.thread1294 ], [ %.627091879, %493 ]
+  %.3928 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %544, %513 ], [ %561, %546 ], [ %511, %496 ], [ %491, %.thread1294 ], [ %494, %493 ], [ zeroinitializer, %495 ]
+  %.3922 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %540, %513 ], [ %559, %546 ], [ %509, %496 ], [ %491, %.thread1294 ], [ %494, %493 ], [ zeroinitializer, %495 ]
+  %.3916 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %536, %513 ], [ %557, %546 ], [ %507, %496 ], [ %491, %.thread1294 ], [ %494, %493 ], [ zeroinitializer, %495 ]
+  %.3910 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %532, %513 ], [ %555, %546 ], [ %505, %496 ], [ %491, %.thread1294 ], [ %494, %493 ], [ zeroinitializer, %495 ]
+  %.3884 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %528, %513 ], [ %553, %546 ], [ %503, %496 ], [ %491, %.thread1294 ], [ %494, %493 ], [ zeroinitializer, %495 ]
+  %.3878 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %524, %513 ], [ %551, %546 ], [ %501, %496 ], [ %491, %.thread1294 ], [ %494, %493 ], [ zeroinitializer, %495 ]
+  %.3872 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %520, %513 ], [ %549, %546 ], [ %499, %496 ], [ %491, %.thread1294 ], [ %494, %493 ], [ zeroinitializer, %495 ]
+  %.3866 = phi nsz <16 x float> [ zeroinitializer, %487 ], [ %516, %513 ], [ %547, %546 ], [ %497, %496 ], [ %491, %.thread1294 ], [ %494, %493 ], [ zeroinitializer, %495 ]
+  %.82711 = phi ptr [ null, %487 ], [ %545, %513 ], [ %.627091879, %546 ], [ %512, %496 ], [ %.627091879, %.thread1294 ], [ %.627091879, %493 ], [ %.627091879, %495 ]
   br i1 %33, label %.lr.ph1864, label %._crit_edge1865
 
 .lr.ph1864:                                       ; preds = %.thread1315, %.lr.ph1864
@@ -14859,7 +14859,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1331
 
 .thread1331:                                      ; preds = %606, %.split1787, %615, %.thread1325, %632, %657, %706
-  %.92759 = phi ptr [ %705, %657 ], [ %.527551877, %.split1787 ], [ %.527551877, %706 ], [ %656, %632 ], [ %614, %.thread1325 ], [ %631, %615 ], [ %.527551877, %606 ]
+  %.92759 = phi ptr [ %705, %657 ], [ %.527551877, %706 ], [ %656, %632 ], [ %614, %.thread1325 ], [ %631, %615 ], [ %.527551877, %.split1787 ], [ %.527551877, %606 ]
   %714 = getelementptr inbounds nuw i8, ptr %.227171878, i64 512
   %715 = add nuw nsw i32 %.127861875, 8
   %716 = add nuw nsw i32 %.127861875, 15
@@ -14951,11 +14951,11 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1354
 
 .thread1354:                                      ; preds = %728, %726, %.thread1341, %729, %720, %738, %755
-  %.32817 = phi nsz <16 x float> [ %753, %738 ], [ zeroinitializer, %728 ], [ zeroinitializer, %720 ], [ %762, %755 ], [ %736, %729 ], [ %724, %.thread1341 ], [ %727, %726 ]
-  %.32811 = phi nsz <16 x float> [ %749, %738 ], [ zeroinitializer, %728 ], [ zeroinitializer, %720 ], [ %760, %755 ], [ %734, %729 ], [ %724, %.thread1341 ], [ %727, %726 ]
-  %.32805 = phi nsz <16 x float> [ %745, %738 ], [ zeroinitializer, %728 ], [ zeroinitializer, %720 ], [ %758, %755 ], [ %732, %729 ], [ %724, %.thread1341 ], [ %727, %726 ]
-  %.32799 = phi nsz <16 x float> [ %741, %738 ], [ zeroinitializer, %728 ], [ zeroinitializer, %720 ], [ %756, %755 ], [ %730, %729 ], [ %724, %.thread1341 ], [ %727, %726 ]
-  %.11 = phi ptr [ %754, %738 ], [ %.927121904, %728 ], [ null, %720 ], [ %.927121904, %755 ], [ %737, %729 ], [ %.927121904, %.thread1341 ], [ %.927121904, %726 ]
+  %.32817 = phi nsz <16 x float> [ %753, %738 ], [ zeroinitializer, %720 ], [ %762, %755 ], [ %736, %729 ], [ %724, %.thread1341 ], [ %727, %726 ], [ zeroinitializer, %728 ]
+  %.32811 = phi nsz <16 x float> [ %749, %738 ], [ zeroinitializer, %720 ], [ %760, %755 ], [ %734, %729 ], [ %724, %.thread1341 ], [ %727, %726 ], [ zeroinitializer, %728 ]
+  %.32805 = phi nsz <16 x float> [ %745, %738 ], [ zeroinitializer, %720 ], [ %758, %755 ], [ %732, %729 ], [ %724, %.thread1341 ], [ %727, %726 ], [ zeroinitializer, %728 ]
+  %.32799 = phi nsz <16 x float> [ %741, %738 ], [ zeroinitializer, %720 ], [ %756, %755 ], [ %730, %729 ], [ %724, %.thread1341 ], [ %727, %726 ], [ zeroinitializer, %728 ]
+  %.11 = phi ptr [ %754, %738 ], [ null, %720 ], [ %.927121904, %755 ], [ %737, %729 ], [ %.927121904, %.thread1341 ], [ %.927121904, %726 ], [ %.927121904, %728 ]
   br i1 %33, label %.lr.ph1893, label %._crit_edge1894
 
 .lr.ph1893:                                       ; preds = %.thread1354, %.lr.ph1893
@@ -15139,7 +15139,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1366
 
 .thread1366:                                      ; preds = %787, %.split1788, %792, %.thread1360, %801, %814, %863
-  %.142764 = phi ptr [ %862, %814 ], [ %.1027601902, %.split1788 ], [ %.1027601902, %863 ], [ %813, %801 ], [ %791, %.thread1360 ], [ %800, %792 ], [ %.1027601902, %787 ]
+  %.142764 = phi ptr [ %862, %814 ], [ %.1027601902, %863 ], [ %813, %801 ], [ %791, %.thread1360 ], [ %800, %792 ], [ %.1027601902, %.split1788 ], [ %.1027601902, %787 ]
   %867 = getelementptr inbounds nuw i8, ptr %.327181903, i64 256
   %868 = add nuw nsw i32 %.227871900, 4
   %869 = or disjoint i32 %868, 3
@@ -15214,9 +15214,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1381
 
 .thread1381:                                      ; preds = %880, %878, %.thread1372, %881, %872, %886, %895
-  %.32830 = phi nsz <16 x float> [ %893, %886 ], [ zeroinitializer, %880 ], [ zeroinitializer, %872 ], [ %898, %895 ], [ %884, %881 ], [ %876, %.thread1372 ], [ %879, %878 ]
-  %.32825 = phi nsz <16 x float> [ %889, %886 ], [ zeroinitializer, %880 ], [ zeroinitializer, %872 ], [ %896, %895 ], [ %882, %881 ], [ %876, %.thread1372 ], [ %879, %878 ]
-  %.14 = phi ptr [ %894, %886 ], [ %.121925, %880 ], [ null, %872 ], [ %.121925, %895 ], [ %885, %881 ], [ %.121925, %.thread1372 ], [ %.121925, %878 ]
+  %.32830 = phi nsz <16 x float> [ %893, %886 ], [ zeroinitializer, %872 ], [ %898, %895 ], [ %884, %881 ], [ %876, %.thread1372 ], [ %879, %878 ], [ zeroinitializer, %880 ]
+  %.32825 = phi nsz <16 x float> [ %889, %886 ], [ zeroinitializer, %872 ], [ %896, %895 ], [ %882, %881 ], [ %876, %.thread1372 ], [ %879, %878 ], [ zeroinitializer, %880 ]
+  %.14 = phi ptr [ %894, %886 ], [ null, %872 ], [ %.121925, %895 ], [ %885, %881 ], [ %.121925, %.thread1372 ], [ %.121925, %878 ], [ %.121925, %880 ]
   br i1 %33, label %.lr.ph1916, label %._crit_edge1917
 
 .lr.ph1916:                                       ; preds = %.thread1381, %.lr.ph1916
@@ -15412,7 +15412,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1391
 
 .thread1391:                                      ; preds = %913, %.split1789, %916, %.thread1385, %921, %938, %971
-  %.192769 = phi ptr [ %970, %938 ], [ %.1527651923, %.split1789 ], [ %.1527651923, %971 ], [ %937, %921 ], [ %915, %.thread1385 ], [ %920, %916 ], [ %.1527651923, %913 ]
+  %.192769 = phi ptr [ %970, %938 ], [ %.1527651923, %971 ], [ %937, %921 ], [ %915, %.thread1385 ], [ %920, %916 ], [ %.1527651923, %.split1789 ], [ %.1527651923, %913 ]
   %973 = getelementptr inbounds nuw i8, ptr %.427191924, i64 128
   %974 = add nuw nsw i32 %.327881921, 2
   %975 = or disjoint i32 %974, 1
@@ -15470,8 +15470,8 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1400
 
 .thread1400:                                      ; preds = %985, %983, %.thread1393, %986, %977, %989, %994
-  %.32837 = phi nsz <16 x float> [ %992, %989 ], [ zeroinitializer, %985 ], [ zeroinitializer, %977 ], [ %995, %994 ], [ %987, %986 ], [ %981, %.thread1393 ], [ %984, %983 ]
-  %.17 = phi ptr [ %993, %989 ], [ %.151944, %985 ], [ null, %977 ], [ %.151944, %994 ], [ %988, %986 ], [ %.151944, %.thread1393 ], [ %.151944, %983 ]
+  %.32837 = phi nsz <16 x float> [ %992, %989 ], [ zeroinitializer, %977 ], [ %995, %994 ], [ %987, %986 ], [ %981, %.thread1393 ], [ %984, %983 ], [ zeroinitializer, %985 ]
+  %.17 = phi ptr [ %993, %989 ], [ null, %977 ], [ %.151944, %994 ], [ %988, %986 ], [ %.151944, %.thread1393 ], [ %.151944, %983 ], [ %.151944, %985 ]
   br i1 %33, label %.lr.ph1936, label %._crit_edge1937
 
 .lr.ph1936:                                       ; preds = %.thread1400, %.lr.ph1936
@@ -15596,7 +15596,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1409
 
 .thread1409:                                      ; preds = %1005, %.split1790, %1007, %.thread1403, %1012, %1021, %1038
-  %.242774 = phi ptr [ %1037, %1021 ], [ %.2027701942, %.split1790 ], [ %.2027701942, %1038 ], [ %1020, %1012 ], [ %1006, %.thread1403 ], [ %1011, %1007 ], [ %.2027701942, %1005 ]
+  %.242774 = phi ptr [ %1037, %1021 ], [ %.2027701942, %1038 ], [ %1020, %1012 ], [ %1006, %.thread1403 ], [ %1011, %1007 ], [ %.2027701942, %.split1790 ], [ %.2027701942, %1005 ]
   %1039 = getelementptr inbounds nuw i8, ptr %.527201943, i64 64
   %1040 = add nuw nsw i32 %.427891940, 1
   %exitcond2688.not = icmp eq i32 %1040, %6
@@ -15841,19 +15841,19 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1442
 
 .thread1442:                                      ; preds = %1102, %1100, %.thread1413, %1103, %1094, %1128, %1177
-  %.31034 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1175, %1128 ], [ zeroinitializer, %1102 ], [ %1200, %1177 ], [ %1126, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.31029 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1171, %1128 ], [ zeroinitializer, %1102 ], [ %1198, %1177 ], [ %1124, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.31024 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1167, %1128 ], [ zeroinitializer, %1102 ], [ %1196, %1177 ], [ %1122, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.31009 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1163, %1128 ], [ zeroinitializer, %1102 ], [ %1194, %1177 ], [ %1120, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.31004 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1159, %1128 ], [ zeroinitializer, %1102 ], [ %1192, %1177 ], [ %1118, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.3999 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1155, %1128 ], [ zeroinitializer, %1102 ], [ %1190, %1177 ], [ %1116, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.3994 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1151, %1128 ], [ zeroinitializer, %1102 ], [ %1188, %1177 ], [ %1114, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.3989 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1147, %1128 ], [ zeroinitializer, %1102 ], [ %1186, %1177 ], [ %1112, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.3979 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1143, %1128 ], [ zeroinitializer, %1102 ], [ %1184, %1177 ], [ %1110, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.3974 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1139, %1128 ], [ zeroinitializer, %1102 ], [ %1182, %1177 ], [ %1108, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.3969 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1135, %1128 ], [ zeroinitializer, %1102 ], [ %1180, %1177 ], [ %1106, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.3934 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1131, %1128 ], [ zeroinitializer, %1102 ], [ %1178, %1177 ], [ %1104, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ]
-  %.23 = phi ptr [ null, %1094 ], [ %1176, %1128 ], [ %.211993, %1102 ], [ %.211993, %1177 ], [ %1127, %1103 ], [ %.211993, %.thread1413 ], [ %.211993, %1100 ]
+  %.31034 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1175, %1128 ], [ %1200, %1177 ], [ %1126, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.31029 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1171, %1128 ], [ %1198, %1177 ], [ %1124, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.31024 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1167, %1128 ], [ %1196, %1177 ], [ %1122, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.31009 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1163, %1128 ], [ %1194, %1177 ], [ %1120, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.31004 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1159, %1128 ], [ %1192, %1177 ], [ %1118, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.3999 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1155, %1128 ], [ %1190, %1177 ], [ %1116, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.3994 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1151, %1128 ], [ %1188, %1177 ], [ %1114, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.3989 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1147, %1128 ], [ %1186, %1177 ], [ %1112, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.3979 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1143, %1128 ], [ %1184, %1177 ], [ %1110, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.3974 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1139, %1128 ], [ %1182, %1177 ], [ %1108, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.3969 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1135, %1128 ], [ %1180, %1177 ], [ %1106, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.3934 = phi nsz <8 x float> [ zeroinitializer, %1094 ], [ %1131, %1128 ], [ %1178, %1177 ], [ %1104, %1103 ], [ %1098, %.thread1413 ], [ %1101, %1100 ], [ zeroinitializer, %1102 ]
+  %.23 = phi ptr [ null, %1094 ], [ %1176, %1128 ], [ %.211993, %1177 ], [ %1127, %1103 ], [ %.211993, %.thread1413 ], [ %.211993, %1100 ], [ %.211993, %1102 ]
   br i1 %92, label %.lr.ph1974, label %._crit_edge1975
 
 .lr.ph1974:                                       ; preds = %.thread1442, %.lr.ph1974
@@ -16134,7 +16134,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1459
 
 .thread1459:                                      ; preds = %1265, %1278, %.thread1456, %1303, %1360
-  %.32846 = phi ptr [ %1359, %1303 ], [ %.028431991, %1265 ], [ %.028431991, %1360 ], [ %1277, %.thread1456 ], [ %1302, %1278 ]
+  %.32846 = phi ptr [ %1359, %1303 ], [ %.028431991, %1360 ], [ %1277, %.thread1456 ], [ %1302, %1278 ], [ %.028431991, %1265 ]
   %1372 = getelementptr inbounds nuw i8, ptr %.727221992, i64 384
   %1373 = add nuw nsw i32 %.028731989, 12
   %1374 = add nuw nsw i32 %.028731989, 23
@@ -16258,15 +16258,15 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1482
 
 .thread1482:                                      ; preds = %1386, %1384, %.thread1461, %1387, %1378, %1404, %1437
-  %.31094 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1435, %1404 ], [ zeroinitializer, %1386 ], [ %1452, %1437 ], [ %1402, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ]
-  %.31089 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1431, %1404 ], [ zeroinitializer, %1386 ], [ %1450, %1437 ], [ %1400, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ]
-  %.31084 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1427, %1404 ], [ zeroinitializer, %1386 ], [ %1448, %1437 ], [ %1398, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ]
-  %.31079 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1423, %1404 ], [ zeroinitializer, %1386 ], [ %1446, %1437 ], [ %1396, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ]
-  %.31074 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1419, %1404 ], [ zeroinitializer, %1386 ], [ %1444, %1437 ], [ %1394, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ]
-  %.31069 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1415, %1404 ], [ zeroinitializer, %1386 ], [ %1442, %1437 ], [ %1392, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ]
-  %.31044 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1411, %1404 ], [ zeroinitializer, %1386 ], [ %1440, %1437 ], [ %1390, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ]
-  %.31039 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1407, %1404 ], [ zeroinitializer, %1386 ], [ %1438, %1437 ], [ %1388, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ]
-  %.26 = phi ptr [ null, %1378 ], [ %1436, %1404 ], [ %.242027, %1386 ], [ %.242027, %1437 ], [ %1403, %1387 ], [ %.242027, %.thread1461 ], [ %.242027, %1384 ]
+  %.31094 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1435, %1404 ], [ %1452, %1437 ], [ %1402, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ], [ zeroinitializer, %1386 ]
+  %.31089 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1431, %1404 ], [ %1450, %1437 ], [ %1400, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ], [ zeroinitializer, %1386 ]
+  %.31084 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1427, %1404 ], [ %1448, %1437 ], [ %1398, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ], [ zeroinitializer, %1386 ]
+  %.31079 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1423, %1404 ], [ %1446, %1437 ], [ %1396, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ], [ zeroinitializer, %1386 ]
+  %.31074 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1419, %1404 ], [ %1444, %1437 ], [ %1394, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ], [ zeroinitializer, %1386 ]
+  %.31069 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1415, %1404 ], [ %1442, %1437 ], [ %1392, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ], [ zeroinitializer, %1386 ]
+  %.31044 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1411, %1404 ], [ %1440, %1437 ], [ %1390, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ], [ zeroinitializer, %1386 ]
+  %.31039 = phi nsz <8 x float> [ zeroinitializer, %1378 ], [ %1407, %1404 ], [ %1438, %1437 ], [ %1388, %1387 ], [ %1382, %.thread1461 ], [ %1385, %1384 ], [ zeroinitializer, %1386 ]
+  %.26 = phi ptr [ null, %1378 ], [ %1436, %1404 ], [ %.242027, %1437 ], [ %1403, %1387 ], [ %.242027, %.thread1461 ], [ %.242027, %1384 ], [ %.242027, %1386 ]
   br i1 %92, label %.lr.ph2012, label %._crit_edge2013
 
 .lr.ph2012:                                       ; preds = %.thread1482, %.lr.ph2012
@@ -16459,7 +16459,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1495
 
 .thread1495:                                      ; preds = %1497, %1506, %.thread1492, %1523, %1556
-  %.72850 = phi ptr [ %1555, %1523 ], [ %.428472025, %1497 ], [ %.428472025, %1556 ], [ %1505, %.thread1492 ], [ %1522, %1506 ]
+  %.72850 = phi ptr [ %1555, %1523 ], [ %.428472025, %1556 ], [ %1505, %.thread1492 ], [ %1522, %1506 ], [ %.428472025, %1497 ]
   %1564 = getelementptr inbounds nuw i8, ptr %.827232026, i64 256
   %1565 = add nuw nsw i32 %.128742023, 8
   %1566 = add nuw nsw i32 %.128742023, 15
@@ -16551,11 +16551,11 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1510
 
 .thread1510:                                      ; preds = %1578, %1576, %.thread1497, %1579, %1570, %1588, %1605
-  %.31154 = phi nsz <8 x float> [ zeroinitializer, %1570 ], [ %1603, %1588 ], [ zeroinitializer, %1578 ], [ %1612, %1605 ], [ %1586, %1579 ], [ %1574, %.thread1497 ], [ %1577, %1576 ]
-  %.31109 = phi nsz <8 x float> [ zeroinitializer, %1570 ], [ %1599, %1588 ], [ zeroinitializer, %1578 ], [ %1610, %1605 ], [ %1584, %1579 ], [ %1574, %.thread1497 ], [ %1577, %1576 ]
-  %.31104 = phi nsz <8 x float> [ zeroinitializer, %1570 ], [ %1595, %1588 ], [ zeroinitializer, %1578 ], [ %1608, %1605 ], [ %1582, %1579 ], [ %1574, %.thread1497 ], [ %1577, %1576 ]
-  %.31099 = phi nsz <8 x float> [ zeroinitializer, %1570 ], [ %1591, %1588 ], [ zeroinitializer, %1578 ], [ %1606, %1605 ], [ %1580, %1579 ], [ %1574, %.thread1497 ], [ %1577, %1576 ]
-  %.29 = phi ptr [ null, %1570 ], [ %1604, %1588 ], [ %.272052, %1578 ], [ %.272052, %1605 ], [ %1587, %1579 ], [ %.272052, %.thread1497 ], [ %.272052, %1576 ]
+  %.31154 = phi nsz <8 x float> [ zeroinitializer, %1570 ], [ %1603, %1588 ], [ %1612, %1605 ], [ %1586, %1579 ], [ %1574, %.thread1497 ], [ %1577, %1576 ], [ zeroinitializer, %1578 ]
+  %.31109 = phi nsz <8 x float> [ zeroinitializer, %1570 ], [ %1599, %1588 ], [ %1610, %1605 ], [ %1584, %1579 ], [ %1574, %.thread1497 ], [ %1577, %1576 ], [ zeroinitializer, %1578 ]
+  %.31104 = phi nsz <8 x float> [ zeroinitializer, %1570 ], [ %1595, %1588 ], [ %1608, %1605 ], [ %1582, %1579 ], [ %1574, %.thread1497 ], [ %1577, %1576 ], [ zeroinitializer, %1578 ]
+  %.31099 = phi nsz <8 x float> [ zeroinitializer, %1570 ], [ %1591, %1588 ], [ %1606, %1605 ], [ %1580, %1579 ], [ %1574, %.thread1497 ], [ %1577, %1576 ], [ zeroinitializer, %1578 ]
+  %.29 = phi ptr [ null, %1570 ], [ %1604, %1588 ], [ %.272052, %1605 ], [ %1587, %1579 ], [ %.272052, %.thread1497 ], [ %.272052, %1576 ], [ %.272052, %1578 ]
   br i1 %92, label %.lr.ph2041, label %._crit_edge2042
 
 .lr.ph2041:                                       ; preds = %.thread1510, %.lr.ph2041
@@ -16684,7 +16684,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1519
 
 .thread1519:                                      ; preds = %1637, %1642, %.thread1516, %1651, %1676
-  %.112854 = phi ptr [ %1675, %1651 ], [ %.828512050, %1637 ], [ %.828512050, %1676 ], [ %1641, %.thread1516 ], [ %1650, %1642 ]
+  %.112854 = phi ptr [ %1675, %1651 ], [ %.828512050, %1676 ], [ %1641, %.thread1516 ], [ %1650, %1642 ], [ %.828512050, %1637 ]
   %1680 = getelementptr inbounds nuw i8, ptr %.927242051, i64 128
   %1681 = add nuw nsw i32 %.228752048, 4
   %1682 = or disjoint i32 %1681, 3
@@ -16759,9 +16759,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1530
 
 .thread1530:                                      ; preds = %1693, %1691, %.thread1521, %1694, %1685, %1699, %1708
-  %.31164 = phi nsz <8 x float> [ zeroinitializer, %1685 ], [ %1706, %1699 ], [ zeroinitializer, %1693 ], [ %1711, %1708 ], [ %1697, %1694 ], [ %1689, %.thread1521 ], [ %1692, %1691 ]
-  %.31159 = phi nsz <8 x float> [ zeroinitializer, %1685 ], [ %1702, %1699 ], [ zeroinitializer, %1693 ], [ %1709, %1708 ], [ %1695, %1694 ], [ %1689, %.thread1521 ], [ %1692, %1691 ]
-  %.32 = phi ptr [ null, %1685 ], [ %1707, %1699 ], [ %.302073, %1693 ], [ %.302073, %1708 ], [ %1698, %1694 ], [ %.302073, %.thread1521 ], [ %.302073, %1691 ]
+  %.31164 = phi nsz <8 x float> [ zeroinitializer, %1685 ], [ %1706, %1699 ], [ %1711, %1708 ], [ %1697, %1694 ], [ %1689, %.thread1521 ], [ %1692, %1691 ], [ zeroinitializer, %1693 ]
+  %.31159 = phi nsz <8 x float> [ zeroinitializer, %1685 ], [ %1702, %1699 ], [ %1709, %1708 ], [ %1695, %1694 ], [ %1689, %.thread1521 ], [ %1692, %1691 ], [ zeroinitializer, %1693 ]
+  %.32 = phi ptr [ null, %1685 ], [ %1707, %1699 ], [ %.302073, %1708 ], [ %1698, %1694 ], [ %.302073, %.thread1521 ], [ %.302073, %1691 ], [ %.302073, %1693 ]
   br i1 %92, label %.lr.ph2064, label %._crit_edge2065
 
 .lr.ph2064:                                       ; preds = %.thread1530, %.lr.ph2064
@@ -16878,7 +16878,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1537
 
 .thread1537:                                      ; preds = %1726, %1729, %.thread1534, %1734, %1751
-  %.152858 = phi ptr [ %1750, %1734 ], [ %.1228552071, %1726 ], [ %.1228552071, %1751 ], [ %1728, %.thread1534 ], [ %1733, %1729 ]
+  %.152858 = phi ptr [ %1750, %1734 ], [ %.1228552071, %1751 ], [ %1728, %.thread1534 ], [ %1733, %1729 ], [ %.1228552071, %1726 ]
   %1753 = getelementptr inbounds nuw i8, ptr %.1027252072, i64 64
   %1754 = add nuw nsw i32 %.328762069, 2
   %1755 = or disjoint i32 %1754, 1
@@ -16936,8 +16936,8 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1546
 
 .thread1546:                                      ; preds = %1765, %1763, %.thread1539, %1766, %1757, %1769, %1774
-  %.31169 = phi nsz <8 x float> [ zeroinitializer, %1757 ], [ %1772, %1769 ], [ zeroinitializer, %1765 ], [ %1775, %1774 ], [ %1767, %1766 ], [ %1761, %.thread1539 ], [ %1764, %1763 ]
-  %.35 = phi ptr [ null, %1757 ], [ %1773, %1769 ], [ %.332092, %1765 ], [ %.332092, %1774 ], [ %1768, %1766 ], [ %.332092, %.thread1539 ], [ %.332092, %1763 ]
+  %.31169 = phi nsz <8 x float> [ zeroinitializer, %1757 ], [ %1772, %1769 ], [ %1775, %1774 ], [ %1767, %1766 ], [ %1761, %.thread1539 ], [ %1764, %1763 ], [ zeroinitializer, %1765 ]
+  %.35 = phi ptr [ null, %1757 ], [ %1773, %1769 ], [ %.332092, %1774 ], [ %1768, %1766 ], [ %.332092, %.thread1539 ], [ %.332092, %1763 ], [ %.332092, %1765 ]
   br i1 %92, label %.lr.ph2084, label %._crit_edge2085
 
 .lr.ph2084:                                       ; preds = %.thread1546, %.lr.ph2084
@@ -17019,7 +17019,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1552
 
 .thread1552:                                      ; preds = %1785, %1787, %.thread1549, %1792, %1801
-  %.192862 = phi ptr [ %1800, %1792 ], [ %.1628592090, %1785 ], [ %.1628592090, %1801 ], [ %1786, %.thread1549 ], [ %1791, %1787 ]
+  %.192862 = phi ptr [ %1800, %1792 ], [ %.1628592090, %1801 ], [ %1786, %.thread1549 ], [ %1791, %1787 ], [ %.1628592090, %1785 ]
   %1802 = getelementptr inbounds nuw i8, ptr %.1127262091, i64 32
   %1803 = add nuw nsw i32 %.428772088, 1
   %exitcond2700.not = icmp eq i32 %1803, %6
@@ -17258,19 +17258,19 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1585
 
 .thread1585:                                      ; preds = %1859, %1857, %.thread1556, %1860, %1851, %1885, %1934
-  %.31229 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1924, %1885 ], [ zeroinitializer, %1859 ], [ %1953, %1934 ], [ %1879, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31224 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1928, %1885 ], [ zeroinitializer, %1859 ], [ %1955, %1934 ], [ %1881, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31219 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1932, %1885 ], [ zeroinitializer, %1859 ], [ %1957, %1934 ], [ %1883, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31214 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1920, %1885 ], [ zeroinitializer, %1859 ], [ %1951, %1934 ], [ %1877, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31209 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1916, %1885 ], [ zeroinitializer, %1859 ], [ %1949, %1934 ], [ %1875, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31204 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1912, %1885 ], [ zeroinitializer, %1859 ], [ %1947, %1934 ], [ %1873, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31199 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1908, %1885 ], [ zeroinitializer, %1859 ], [ %1945, %1934 ], [ %1871, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31194 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1904, %1885 ], [ zeroinitializer, %1859 ], [ %1943, %1934 ], [ %1869, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31189 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1900, %1885 ], [ zeroinitializer, %1859 ], [ %1941, %1934 ], [ %1867, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31184 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1896, %1885 ], [ zeroinitializer, %1859 ], [ %1939, %1934 ], [ %1865, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31179 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1892, %1885 ], [ zeroinitializer, %1859 ], [ %1937, %1934 ], [ %1863, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.31174 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1888, %1885 ], [ zeroinitializer, %1859 ], [ %1935, %1934 ], [ %1861, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ]
-  %.41 = phi ptr [ null, %1851 ], [ %1933, %1885 ], [ %.392140, %1859 ], [ %.392140, %1934 ], [ %1884, %1860 ], [ %.392140, %.thread1556 ], [ %.392140, %1857 ]
+  %.31229 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1924, %1885 ], [ %1953, %1934 ], [ %1879, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31224 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1928, %1885 ], [ %1955, %1934 ], [ %1881, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31219 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1932, %1885 ], [ %1957, %1934 ], [ %1883, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31214 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1920, %1885 ], [ %1951, %1934 ], [ %1877, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31209 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1916, %1885 ], [ %1949, %1934 ], [ %1875, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31204 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1912, %1885 ], [ %1947, %1934 ], [ %1873, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31199 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1908, %1885 ], [ %1945, %1934 ], [ %1871, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31194 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1904, %1885 ], [ %1943, %1934 ], [ %1869, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31189 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1900, %1885 ], [ %1941, %1934 ], [ %1867, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31184 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1896, %1885 ], [ %1939, %1934 ], [ %1865, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31179 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1892, %1885 ], [ %1937, %1934 ], [ %1863, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.31174 = phi nsz <4 x float> [ zeroinitializer, %1851 ], [ %1888, %1885 ], [ %1935, %1934 ], [ %1861, %1860 ], [ %1855, %.thread1556 ], [ %1858, %1857 ], [ zeroinitializer, %1859 ]
+  %.41 = phi ptr [ null, %1851 ], [ %1933, %1885 ], [ %.392140, %1934 ], [ %1884, %1860 ], [ %.392140, %.thread1556 ], [ %.392140, %1857 ], [ %.392140, %1859 ]
   br i1 %1056, label %.lr.ph2121, label %._crit_edge2122
 
 .lr.ph2121:                                       ; preds = %.thread1585, %.lr.ph2121
@@ -17487,7 +17487,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %2084
 
 2084:                                             ; preds = %2022, %.thread1599, %2035, %2072
-  %.22919 = phi ptr [ %2071, %2035 ], [ %.029172138, %2022 ], [ %.029172138, %2072 ], [ %2034, %.thread1599 ]
+  %.22919 = phi ptr [ %2071, %2035 ], [ %.029172138, %2072 ], [ %2034, %.thread1599 ], [ %.029172138, %2022 ]
   %2085 = getelementptr inbounds nuw i8, ptr %.1327282139, i64 192
   %2086 = add nuw nsw i32 %.029422136, 12
   %2087 = add nuw nsw i32 %.029422136, 23
@@ -17611,15 +17611,15 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1622
 
 .thread1622:                                      ; preds = %2099, %2097, %.thread1601, %2100, %2091, %2117, %2150
-  %.31149 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2120, %2117 ], [ zeroinitializer, %2099 ], [ %2151, %2150 ], [ %2101, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ]
-  %.31144 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2124, %2117 ], [ zeroinitializer, %2099 ], [ %2153, %2150 ], [ %2103, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ]
-  %.31139 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2128, %2117 ], [ zeroinitializer, %2099 ], [ %2155, %2150 ], [ %2105, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ]
-  %.31134 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2132, %2117 ], [ zeroinitializer, %2099 ], [ %2157, %2150 ], [ %2107, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ]
-  %.31129 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2136, %2117 ], [ zeroinitializer, %2099 ], [ %2159, %2150 ], [ %2109, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ]
-  %.31124 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2140, %2117 ], [ zeroinitializer, %2099 ], [ %2161, %2150 ], [ %2111, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ]
-  %.31119 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2144, %2117 ], [ zeroinitializer, %2099 ], [ %2163, %2150 ], [ %2113, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ]
-  %.31114 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2148, %2117 ], [ zeroinitializer, %2099 ], [ %2165, %2150 ], [ %2115, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ]
-  %.44 = phi ptr [ null, %2091 ], [ %2149, %2117 ], [ %.422174, %2099 ], [ %.422174, %2150 ], [ %2116, %2100 ], [ %.422174, %.thread1601 ], [ %.422174, %2097 ]
+  %.31149 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2120, %2117 ], [ %2151, %2150 ], [ %2101, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ], [ zeroinitializer, %2099 ]
+  %.31144 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2124, %2117 ], [ %2153, %2150 ], [ %2103, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ], [ zeroinitializer, %2099 ]
+  %.31139 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2128, %2117 ], [ %2155, %2150 ], [ %2105, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ], [ zeroinitializer, %2099 ]
+  %.31134 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2132, %2117 ], [ %2157, %2150 ], [ %2107, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ], [ zeroinitializer, %2099 ]
+  %.31129 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2136, %2117 ], [ %2159, %2150 ], [ %2109, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ], [ zeroinitializer, %2099 ]
+  %.31124 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2140, %2117 ], [ %2161, %2150 ], [ %2111, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ], [ zeroinitializer, %2099 ]
+  %.31119 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2144, %2117 ], [ %2163, %2150 ], [ %2113, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ], [ zeroinitializer, %2099 ]
+  %.31114 = phi nsz <4 x float> [ zeroinitializer, %2091 ], [ %2148, %2117 ], [ %2165, %2150 ], [ %2115, %2100 ], [ %2095, %.thread1601 ], [ %2098, %2097 ], [ zeroinitializer, %2099 ]
+  %.44 = phi ptr [ null, %2091 ], [ %2149, %2117 ], [ %.422174, %2150 ], [ %2116, %2100 ], [ %.422174, %.thread1601 ], [ %.422174, %2097 ], [ %.422174, %2099 ]
   br i1 %1056, label %.lr.ph2159, label %._crit_edge2160
 
 .lr.ph2159:                                       ; preds = %.thread1622, %.lr.ph2159
@@ -17776,7 +17776,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %2252
 
 2252:                                             ; preds = %2210, %.thread1632, %2219, %2244
-  %.52922 = phi ptr [ %2243, %2219 ], [ %.329202172, %2210 ], [ %.329202172, %2244 ], [ %2218, %.thread1632 ]
+  %.52922 = phi ptr [ %2243, %2219 ], [ %.329202172, %2244 ], [ %2218, %.thread1632 ], [ %.329202172, %2210 ]
   %2253 = getelementptr inbounds nuw i8, ptr %.1427292173, i64 128
   %2254 = add nuw nsw i32 %.129432170, 8
   %2255 = add nuw nsw i32 %.129432170, 15
@@ -17868,11 +17868,11 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1647
 
 .thread1647:                                      ; preds = %2267, %2265, %.thread1634, %2268, %2259, %2277, %2294
-  %.31064 = phi nsz <4 x float> [ zeroinitializer, %2259 ], [ %2280, %2277 ], [ zeroinitializer, %2267 ], [ %2295, %2294 ], [ %2269, %2268 ], [ %2263, %.thread1634 ], [ %2266, %2265 ]
-  %.31059 = phi nsz <4 x float> [ zeroinitializer, %2259 ], [ %2284, %2277 ], [ zeroinitializer, %2267 ], [ %2297, %2294 ], [ %2271, %2268 ], [ %2263, %.thread1634 ], [ %2266, %2265 ]
-  %.31054 = phi nsz <4 x float> [ zeroinitializer, %2259 ], [ %2288, %2277 ], [ zeroinitializer, %2267 ], [ %2299, %2294 ], [ %2273, %2268 ], [ %2263, %.thread1634 ], [ %2266, %2265 ]
-  %.31049 = phi nsz <4 x float> [ zeroinitializer, %2259 ], [ %2292, %2277 ], [ zeroinitializer, %2267 ], [ %2301, %2294 ], [ %2275, %2268 ], [ %2263, %.thread1634 ], [ %2266, %2265 ]
-  %.47 = phi ptr [ null, %2259 ], [ %2293, %2277 ], [ %.452199, %2267 ], [ %.452199, %2294 ], [ %2276, %2268 ], [ %.452199, %.thread1634 ], [ %.452199, %2265 ]
+  %.31064 = phi nsz <4 x float> [ zeroinitializer, %2259 ], [ %2280, %2277 ], [ %2295, %2294 ], [ %2269, %2268 ], [ %2263, %.thread1634 ], [ %2266, %2265 ], [ zeroinitializer, %2267 ]
+  %.31059 = phi nsz <4 x float> [ zeroinitializer, %2259 ], [ %2284, %2277 ], [ %2297, %2294 ], [ %2271, %2268 ], [ %2263, %.thread1634 ], [ %2266, %2265 ], [ zeroinitializer, %2267 ]
+  %.31054 = phi nsz <4 x float> [ zeroinitializer, %2259 ], [ %2288, %2277 ], [ %2299, %2294 ], [ %2273, %2268 ], [ %2263, %.thread1634 ], [ %2266, %2265 ], [ zeroinitializer, %2267 ]
+  %.31049 = phi nsz <4 x float> [ zeroinitializer, %2259 ], [ %2292, %2277 ], [ %2301, %2294 ], [ %2275, %2268 ], [ %2263, %.thread1634 ], [ %2266, %2265 ], [ zeroinitializer, %2267 ]
+  %.47 = phi ptr [ null, %2259 ], [ %2293, %2277 ], [ %.452199, %2294 ], [ %2276, %2268 ], [ %.452199, %.thread1634 ], [ %.452199, %2265 ], [ %.452199, %2267 ]
   br i1 %1056, label %.lr.ph2188, label %._crit_edge2189
 
 .lr.ph2188:                                       ; preds = %.thread1647, %.lr.ph2188
@@ -17969,7 +17969,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %2348
 
 2348:                                             ; preds = %2326, %.thread1653, %2331, %2344
-  %.82925 = phi ptr [ %2343, %2331 ], [ %.629232197, %2326 ], [ %.629232197, %2344 ], [ %2330, %.thread1653 ]
+  %.82925 = phi ptr [ %2343, %2331 ], [ %.629232197, %2344 ], [ %2330, %.thread1653 ], [ %.629232197, %2326 ]
   %2349 = getelementptr inbounds nuw i8, ptr %.1527302198, i64 64
   %2350 = add nuw nsw i32 %.229442195, 4
   %2351 = or disjoint i32 %2350, 3
@@ -18044,9 +18044,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1664
 
 .thread1664:                                      ; preds = %2362, %2360, %.thread1655, %2363, %2354, %2368, %2377
-  %.31019 = phi nsz <4 x float> [ zeroinitializer, %2354 ], [ %2371, %2368 ], [ zeroinitializer, %2362 ], [ %2378, %2377 ], [ %2364, %2363 ], [ %2358, %.thread1655 ], [ %2361, %2360 ]
-  %.31014 = phi nsz <4 x float> [ zeroinitializer, %2354 ], [ %2375, %2368 ], [ zeroinitializer, %2362 ], [ %2380, %2377 ], [ %2366, %2363 ], [ %2358, %.thread1655 ], [ %2361, %2360 ]
-  %.50 = phi ptr [ null, %2354 ], [ %2376, %2368 ], [ %.482220, %2362 ], [ %.482220, %2377 ], [ %2367, %2363 ], [ %.482220, %.thread1655 ], [ %.482220, %2360 ]
+  %.31019 = phi nsz <4 x float> [ zeroinitializer, %2354 ], [ %2371, %2368 ], [ %2378, %2377 ], [ %2364, %2363 ], [ %2358, %.thread1655 ], [ %2361, %2360 ], [ zeroinitializer, %2362 ]
+  %.31014 = phi nsz <4 x float> [ zeroinitializer, %2354 ], [ %2375, %2368 ], [ %2380, %2377 ], [ %2366, %2363 ], [ %2358, %.thread1655 ], [ %2361, %2360 ], [ zeroinitializer, %2362 ]
+  %.50 = phi ptr [ null, %2354 ], [ %2376, %2368 ], [ %.482220, %2377 ], [ %2367, %2363 ], [ %.482220, %.thread1655 ], [ %.482220, %2360 ], [ %.482220, %2362 ]
   br i1 %1056, label %.lr.ph2211, label %._crit_edge2212
 
 .lr.ph2211:                                       ; preds = %.thread1664, %.lr.ph2211
@@ -18129,7 +18129,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %2409
 
 2409:                                             ; preds = %2395, %.thread1668, %2398, %2407
-  %.112928 = phi ptr [ %2406, %2398 ], [ %.929262218, %2395 ], [ %.929262218, %2407 ], [ %2397, %.thread1668 ]
+  %.112928 = phi ptr [ %2406, %2398 ], [ %.929262218, %2407 ], [ %2397, %.thread1668 ], [ %.929262218, %2395 ]
   %2410 = getelementptr inbounds nuw i8, ptr %.1627312219, i64 32
   %2411 = add nuw nsw i32 %.329452216, 2
   %2412 = or disjoint i32 %2411, 1
@@ -18187,8 +18187,8 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1677
 
 .thread1677:                                      ; preds = %2422, %2420, %.thread1670, %2423, %2414, %2426, %2431
-  %.3984 = phi nsz <4 x float> [ zeroinitializer, %2414 ], [ %2429, %2426 ], [ zeroinitializer, %2422 ], [ %2432, %2431 ], [ %2424, %2423 ], [ %2418, %.thread1670 ], [ %2421, %2420 ]
-  %.53 = phi ptr [ null, %2414 ], [ %2430, %2426 ], [ %.512239, %2422 ], [ %.512239, %2431 ], [ %2425, %2423 ], [ %.512239, %.thread1670 ], [ %.512239, %2420 ]
+  %.3984 = phi nsz <4 x float> [ zeroinitializer, %2414 ], [ %2429, %2426 ], [ %2432, %2431 ], [ %2424, %2423 ], [ %2418, %.thread1670 ], [ %2421, %2420 ], [ zeroinitializer, %2422 ]
+  %.53 = phi ptr [ null, %2414 ], [ %2430, %2426 ], [ %.512239, %2431 ], [ %2425, %2423 ], [ %.512239, %.thread1670 ], [ %.512239, %2420 ], [ %.512239, %2422 ]
   br i1 %1056, label %.lr.ph2231, label %._crit_edge2232
 
 .lr.ph2231:                                       ; preds = %.thread1677, %.lr.ph2231
@@ -18248,7 +18248,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %2450
 
 2450:                                             ; preds = %2442, %.thread1680, %2444, %2449
-  %.142931 = phi ptr [ %2448, %2444 ], [ %.1229292237, %2442 ], [ %.1229292237, %2449 ], [ %2443, %.thread1680 ]
+  %.142931 = phi ptr [ %2448, %2444 ], [ %.1229292237, %2449 ], [ %2443, %.thread1680 ], [ %.1229292237, %2442 ]
   %2451 = getelementptr inbounds nuw i8, ptr %.1727322238, i64 16
   %2452 = add nuw nsw i32 %.429462235, 1
   %exitcond2714.not = icmp eq i32 %2452, %6
@@ -18439,13 +18439,13 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1701
 
 .thread1701:                                      ; preds = %2511, %2503, %.thread1684, %2512, %2497, %2531, %2538
-  %.3964 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2532, %2531 ], [ zeroinitializer, %2511 ], [ %2550, %2538 ], [ %2524, %2512 ], [ %2501, %.thread1684 ], [ %2506, %2503 ]
-  %.3959 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2534, %2531 ], [ zeroinitializer, %2511 ], [ %2551, %2538 ], [ %2525, %2512 ], [ %2501, %.thread1684 ], [ %2506, %2503 ]
-  %.3954 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2536, %2531 ], [ zeroinitializer, %2511 ], [ %2552, %2538 ], [ %2526, %2512 ], [ %2501, %.thread1684 ], [ %2506, %2503 ]
-  %.3949 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2532, %2531 ], [ zeroinitializer, %2511 ], [ %2553, %2538 ], [ %2527, %2512 ], [ %2501, %.thread1684 ], [ %2510, %2503 ]
-  %.3944 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2534, %2531 ], [ zeroinitializer, %2511 ], [ %2554, %2538 ], [ %2528, %2512 ], [ %2501, %.thread1684 ], [ %2510, %2503 ]
-  %.3939 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2536, %2531 ], [ zeroinitializer, %2511 ], [ %2555, %2538 ], [ %2529, %2512 ], [ %2501, %.thread1684 ], [ %2510, %2503 ]
-  %.59 = phi ptr [ null, %2497 ], [ %2537, %2531 ], [ %.572275, %2511 ], [ %.572275, %2538 ], [ %2530, %2512 ], [ %.572275, %.thread1684 ], [ %.572275, %2503 ]
+  %.3964 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2532, %2531 ], [ %2550, %2538 ], [ %2524, %2512 ], [ %2501, %.thread1684 ], [ %2506, %2503 ], [ zeroinitializer, %2511 ]
+  %.3959 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2534, %2531 ], [ %2551, %2538 ], [ %2525, %2512 ], [ %2501, %.thread1684 ], [ %2506, %2503 ], [ zeroinitializer, %2511 ]
+  %.3954 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2536, %2531 ], [ %2552, %2538 ], [ %2526, %2512 ], [ %2501, %.thread1684 ], [ %2506, %2503 ], [ zeroinitializer, %2511 ]
+  %.3949 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2532, %2531 ], [ %2553, %2538 ], [ %2527, %2512 ], [ %2501, %.thread1684 ], [ %2510, %2503 ], [ zeroinitializer, %2511 ]
+  %.3944 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2534, %2531 ], [ %2554, %2538 ], [ %2528, %2512 ], [ %2501, %.thread1684 ], [ %2510, %2503 ], [ zeroinitializer, %2511 ]
+  %.3939 = phi nsz <4 x float> [ zeroinitializer, %2497 ], [ %2536, %2531 ], [ %2555, %2538 ], [ %2529, %2512 ], [ %2501, %.thread1684 ], [ %2510, %2503 ], [ zeroinitializer, %2511 ]
+  %.59 = phi ptr [ null, %2497 ], [ %2537, %2531 ], [ %.572275, %2538 ], [ %2530, %2512 ], [ %.572275, %.thread1684 ], [ %.572275, %2503 ], [ %.572275, %2511 ]
   br i1 %1817, label %.lr.ph2262, label %._crit_edge2263
 
 .lr.ph2262:                                       ; preds = %.thread1701, %.lr.ph2262
@@ -18627,11 +18627,11 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1722
 
 .thread1722:                                      ; preds = %2618, %2610, %.thread1709, %2619, %2604, %2632, %2637
-  %.3905 = phi nsz <4 x float> [ zeroinitializer, %2604 ], [ %2633, %2632 ], [ zeroinitializer, %2618 ], [ %2645, %2637 ], [ %2627, %2619 ], [ %2608, %.thread1709 ], [ %2613, %2610 ]
-  %.3900 = phi nsz <4 x float> [ zeroinitializer, %2604 ], [ %2635, %2632 ], [ zeroinitializer, %2618 ], [ %2646, %2637 ], [ %2628, %2619 ], [ %2608, %.thread1709 ], [ %2613, %2610 ]
-  %.3895 = phi nsz <4 x float> [ zeroinitializer, %2604 ], [ %2633, %2632 ], [ zeroinitializer, %2618 ], [ %2647, %2637 ], [ %2629, %2619 ], [ %2608, %.thread1709 ], [ %2617, %2610 ]
-  %.3890 = phi nsz <4 x float> [ zeroinitializer, %2604 ], [ %2635, %2632 ], [ zeroinitializer, %2618 ], [ %2648, %2637 ], [ %2630, %2619 ], [ %2608, %.thread1709 ], [ %2617, %2610 ]
-  %.62 = phi ptr [ null, %2604 ], [ %2636, %2632 ], [ %.602301, %2618 ], [ %.602301, %2637 ], [ %2631, %2619 ], [ %.602301, %.thread1709 ], [ %.602301, %2610 ]
+  %.3905 = phi nsz <4 x float> [ zeroinitializer, %2604 ], [ %2633, %2632 ], [ %2645, %2637 ], [ %2627, %2619 ], [ %2608, %.thread1709 ], [ %2613, %2610 ], [ zeroinitializer, %2618 ]
+  %.3900 = phi nsz <4 x float> [ zeroinitializer, %2604 ], [ %2635, %2632 ], [ %2646, %2637 ], [ %2628, %2619 ], [ %2608, %.thread1709 ], [ %2613, %2610 ], [ zeroinitializer, %2618 ]
+  %.3895 = phi nsz <4 x float> [ zeroinitializer, %2604 ], [ %2633, %2632 ], [ %2647, %2637 ], [ %2629, %2619 ], [ %2608, %.thread1709 ], [ %2617, %2610 ], [ zeroinitializer, %2618 ]
+  %.3890 = phi nsz <4 x float> [ zeroinitializer, %2604 ], [ %2635, %2632 ], [ %2648, %2637 ], [ %2630, %2619 ], [ %2608, %.thread1709 ], [ %2617, %2610 ], [ zeroinitializer, %2618 ]
+  %.62 = phi ptr [ null, %2604 ], [ %2636, %2632 ], [ %.602301, %2637 ], [ %2631, %2619 ], [ %.602301, %.thread1709 ], [ %.602301, %2610 ], [ %.602301, %2618 ]
   br i1 %1817, label %.lr.ph2290, label %._crit_edge2291
 
 .lr.ph2290:                                       ; preds = %.thread1722, %.lr.ph2290
@@ -18781,9 +18781,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1737
 
 .thread1737:                                      ; preds = %2701, %2693, %.thread1728, %2702, %2687, %2709, %2712
-  %.3861 = phi nsz <4 x float> [ zeroinitializer, %2687 ], [ %2710, %2709 ], [ zeroinitializer, %2701 ], [ %2716, %2712 ], [ %2706, %2702 ], [ %2691, %.thread1728 ], [ %2696, %2693 ]
-  %.3856 = phi nsz <4 x float> [ zeroinitializer, %2687 ], [ %2710, %2709 ], [ zeroinitializer, %2701 ], [ %2717, %2712 ], [ %2707, %2702 ], [ %2691, %.thread1728 ], [ %2700, %2693 ]
-  %.65 = phi ptr [ null, %2687 ], [ %2711, %2709 ], [ %.632322, %2701 ], [ %.632322, %2712 ], [ %2708, %2702 ], [ %.632322, %.thread1728 ], [ %.632322, %2693 ]
+  %.3861 = phi nsz <4 x float> [ zeroinitializer, %2687 ], [ %2710, %2709 ], [ %2716, %2712 ], [ %2706, %2702 ], [ %2691, %.thread1728 ], [ %2696, %2693 ], [ zeroinitializer, %2701 ]
+  %.3856 = phi nsz <4 x float> [ zeroinitializer, %2687 ], [ %2710, %2709 ], [ %2717, %2712 ], [ %2707, %2702 ], [ %2691, %.thread1728 ], [ %2700, %2693 ], [ zeroinitializer, %2701 ]
+  %.65 = phi ptr [ null, %2687 ], [ %2711, %2709 ], [ %.632322, %2712 ], [ %2708, %2702 ], [ %.632322, %.thread1728 ], [ %.632322, %2693 ], [ %.632322, %2701 ]
   br i1 %1817, label %.lr.ph2313, label %._crit_edge2314
 
 .lr.ph2313:                                       ; preds = %.thread1737, %.lr.ph2313
@@ -18914,11 +18914,11 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1749
 
 .thread1749:                                      ; preds = %2753, %2749, %.thread1741, %2754, %2745, %2763, %2768
-  %.68 = phi ptr [ %2767, %2763 ], [ %.662347, %2753 ], [ null, %2745 ], [ %.662347, %2768 ], [ %2762, %2754 ], [ %.662347, %.thread1741 ], [ %.662347, %2749 ]
-  %.32696 = phi nsz float [ %2764, %2763 ], [ 0.000000e+00, %2753 ], [ 0.000000e+00, %2745 ], [ %2769, %2768 ], [ %2755, %2754 ], [ %2747, %.thread1741 ], [ %2750, %2749 ]
-  %.32691 = phi nsz float [ %2764, %2763 ], [ 0.000000e+00, %2753 ], [ 0.000000e+00, %2745 ], [ %2771, %2768 ], [ %2757, %2754 ], [ %2747, %.thread1741 ], [ %2752, %2749 ]
-  %.32686 = phi nsz float [ %2766, %2763 ], [ 0.000000e+00, %2753 ], [ 0.000000e+00, %2745 ], [ %2773, %2768 ], [ %2759, %2754 ], [ %2747, %.thread1741 ], [ %2750, %2749 ]
-  %.32681 = phi nsz float [ %2766, %2763 ], [ 0.000000e+00, %2753 ], [ 0.000000e+00, %2745 ], [ %2775, %2768 ], [ %2761, %2754 ], [ %2747, %.thread1741 ], [ %2752, %2749 ]
+  %.68 = phi ptr [ %2767, %2763 ], [ null, %2745 ], [ %.662347, %2768 ], [ %2762, %2754 ], [ %.662347, %.thread1741 ], [ %.662347, %2749 ], [ %.662347, %2753 ]
+  %.32696 = phi nsz float [ %2764, %2763 ], [ 0.000000e+00, %2745 ], [ %2769, %2768 ], [ %2755, %2754 ], [ %2747, %.thread1741 ], [ %2750, %2749 ], [ 0.000000e+00, %2753 ]
+  %.32691 = phi nsz float [ %2764, %2763 ], [ 0.000000e+00, %2745 ], [ %2771, %2768 ], [ %2757, %2754 ], [ %2747, %.thread1741 ], [ %2752, %2749 ], [ 0.000000e+00, %2753 ]
+  %.32686 = phi nsz float [ %2766, %2763 ], [ 0.000000e+00, %2745 ], [ %2773, %2768 ], [ %2759, %2754 ], [ %2747, %.thread1741 ], [ %2750, %2749 ], [ 0.000000e+00, %2753 ]
+  %.32681 = phi nsz float [ %2766, %2763 ], [ 0.000000e+00, %2745 ], [ %2775, %2768 ], [ %2761, %2754 ], [ %2747, %.thread1741 ], [ %2752, %2749 ], [ 0.000000e+00, %2753 ]
   br i1 %1817, label %.lr.ph2336, label %._crit_edge2337
 
 .lr.ph2336:                                       ; preds = %.thread1749, %.lr.ph2336
@@ -19044,9 +19044,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread1763
 
 .thread1763:                                      ; preds = %2816, %2812, %.thread1755, %2817, %2808, %2822, %2825
-  %.71 = phi ptr [ %2824, %2822 ], [ %.692368, %2816 ], [ null, %2808 ], [ %.692368, %2825 ], [ %2821, %2817 ], [ %.692368, %.thread1755 ], [ %.692368, %2812 ]
-  %.32674 = phi nsz float [ %2823, %2822 ], [ 0.000000e+00, %2816 ], [ 0.000000e+00, %2808 ], [ %2826, %2825 ], [ %2818, %2817 ], [ %2810, %.thread1755 ], [ %2813, %2812 ]
-  %.32669 = phi nsz float [ %2823, %2822 ], [ 0.000000e+00, %2816 ], [ 0.000000e+00, %2808 ], [ %2828, %2825 ], [ %2820, %2817 ], [ %2810, %.thread1755 ], [ %2815, %2812 ]
+  %.71 = phi ptr [ %2824, %2822 ], [ null, %2808 ], [ %.692368, %2825 ], [ %2821, %2817 ], [ %.692368, %.thread1755 ], [ %.692368, %2812 ], [ %.692368, %2816 ]
+  %.32674 = phi nsz float [ %2823, %2822 ], [ 0.000000e+00, %2808 ], [ %2826, %2825 ], [ %2818, %2817 ], [ %2810, %.thread1755 ], [ %2813, %2812 ], [ 0.000000e+00, %2816 ]
+  %.32669 = phi nsz float [ %2823, %2822 ], [ 0.000000e+00, %2808 ], [ %2828, %2825 ], [ %2820, %2817 ], [ %2810, %.thread1755 ], [ %2815, %2812 ], [ 0.000000e+00, %2816 ]
   br i1 %1817, label %.lr.ph2359, label %._crit_edge2360
 
 .lr.ph2359:                                       ; preds = %.thread1763, %.lr.ph2359
@@ -20178,9 +20178,9 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br label %.thread715
 
 .thread715:                                       ; preds = %67, %321, %.thread, %324
-  %.42121 = phi i32 [ 4, %324 ], [ 0, %67 ], [ %.12118, %.thread ], [ %.32120, %321 ]
-  %.22112 = phi ptr [ %369, %324 ], [ %71, %67 ], [ %218, %.thread ], [ %323, %321 ]
-  %.6 = phi ptr [ %368, %324 ], [ %.02096846, %67 ], [ %216, %.thread ], [ %322, %321 ]
+  %.42121 = phi i32 [ 4, %324 ], [ %.12118, %.thread ], [ %.32120, %321 ], [ 0, %67 ]
+  %.22112 = phi ptr [ %369, %324 ], [ %218, %.thread ], [ %323, %321 ], [ %71, %67 ]
+  %.6 = phi ptr [ %368, %324 ], [ %216, %.thread ], [ %322, %321 ], [ %.02096846, %67 ]
   %370 = add nuw nsw i32 %.42121, 15
   %371 = icmp slt i32 %370, %4
   br i1 %371, label %.lr.ph, label %.preheader796
@@ -20954,7 +20954,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br i1 %exitcond.not, label %.loopexit789, label %.lr.ph841, !llvm.loop !292
 
 .loopexit789:                                     ; preds = %.lr.ph841, %.lr.ph836, %.lr.ph831, %.lr.ph819, %66, %.split, %.preheader793, %.preheader791, %880, %912
-  %.18 = phi ptr [ %.02096846, %.split ], [ %.02096846, %912 ], [ %713, %.lr.ph819 ], [ %.02096846, %66 ], [ %.02096846, %880 ], [ %875, %.lr.ph831 ], [ %.13.lcssa, %.preheader791 ], [ %.9.lcssa, %.preheader793 ], [ %907, %.lr.ph836 ], [ %918, %.lr.ph841 ]
+  %.18 = phi ptr [ %.02096846, %912 ], [ %.02096846, %880 ], [ %.13.lcssa, %.preheader791 ], [ %.9.lcssa, %.preheader793 ], [ %.02096846, %.split ], [ %.02096846, %66 ], [ %713, %.lr.ph819 ], [ %875, %.lr.ph831 ], [ %907, %.lr.ph836 ], [ %918, %.lr.ph841 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %921 = or disjoint i64 %indvars.iv.next, 15
   %922 = icmp samesign ult i64 %921, %35
@@ -21300,9 +21300,9 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br label %.thread724
 
 .thread724:                                       ; preds = %950, %1124, %.thread719, %1127
-  %.42147 = phi i32 [ 4, %1127 ], [ 0, %950 ], [ %.12144, %.thread719 ], [ %.32146, %1124 ]
-  %.22138 = phi ptr [ %1156, %1127 ], [ %954, %950 ], [ %1053, %.thread719 ], [ %1126, %1124 ]
-  %.25 = phi ptr [ %1155, %1127 ], [ %.19903, %950 ], [ %1051, %.thread719 ], [ %1125, %1124 ]
+  %.42147 = phi i32 [ 4, %1127 ], [ %.12144, %.thread719 ], [ %.32146, %1124 ], [ 0, %950 ]
+  %.22138 = phi ptr [ %1156, %1127 ], [ %1053, %.thread719 ], [ %1126, %1124 ], [ %954, %950 ]
+  %.25 = phi ptr [ %1155, %1127 ], [ %1051, %.thread719 ], [ %1125, %1124 ], [ %.19903, %950 ]
   %1157 = add nuw nsw i32 %.42147, 15
   %1158 = icmp slt i32 %1157, %4
   br i1 %1158, label %.lr.ph853, label %.preheader787
@@ -21904,7 +21904,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br i1 %exitcond1160.not, label %.loopexit780, label %.lr.ph896, !llvm.loop !301
 
 .loopexit780:                                     ; preds = %.lr.ph896, %.lr.ph891, %.lr.ph886, %.lr.ph874, %949, %.split1399, %.preheader784, %.preheader782, %1547, %1575
-  %.37 = phi ptr [ %.19903, %.split1399 ], [ %.19903, %1575 ], [ %1420, %.lr.ph874 ], [ %.19903, %949 ], [ %.19903, %1547 ], [ %1542, %.lr.ph886 ], [ %.32.lcssa, %.preheader782 ], [ %.28.lcssa, %.preheader784 ], [ %1570, %.lr.ph891 ], [ %1581, %.lr.ph896 ]
+  %.37 = phi ptr [ %.19903, %1575 ], [ %.19903, %1547 ], [ %.32.lcssa, %.preheader782 ], [ %.28.lcssa, %.preheader784 ], [ %.19903, %.split1399 ], [ %.19903, %949 ], [ %1420, %.lr.ph874 ], [ %1542, %.lr.ph886 ], [ %1570, %.lr.ph891 ], [ %1581, %.lr.ph896 ]
   %indvars.iv.next1162 = add nuw nsw i64 %indvars.iv1161, 8
   %1584 = or disjoint i64 %indvars.iv.next1162, 7
   %1585 = icmp slt i64 %1584, %61
@@ -22182,9 +22182,9 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br label %.thread733
 
 .thread733:                                       ; preds = %1613, %1736, %.thread728, %1743
-  %.42217 = phi i32 [ 4, %1743 ], [ 0, %1613 ], [ %.12214, %.thread728 ], [ %.32216, %1736 ]
-  %.22208 = phi ptr [ %1764, %1743 ], [ %1617, %1613 ], [ %1689, %.thread728 ], [ %1742, %1736 ]
-  %.44 = phi ptr [ %1763, %1743 ], [ %.38960, %1613 ], [ %1686, %.thread728 ], [ %1738, %1736 ]
+  %.42217 = phi i32 [ 4, %1743 ], [ %.12214, %.thread728 ], [ %.32216, %1736 ], [ 0, %1613 ]
+  %.22208 = phi ptr [ %1764, %1743 ], [ %1689, %.thread728 ], [ %1742, %1736 ], [ %1617, %1613 ]
+  %.44 = phi ptr [ %1763, %1743 ], [ %1686, %.thread728 ], [ %1738, %1736 ], [ %.38960, %1613 ]
   %1765 = add nuw nsw i32 %.42217, 15
   %1766 = icmp slt i32 %1765, %4
   br i1 %1766, label %.lr.ph910, label %.preheader778
@@ -22698,7 +22698,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br i1 %exitcond1164.not, label %.loopexit771, label %.lr.ph953, !llvm.loop !310
 
 .loopexit771:                                     ; preds = %.lr.ph953, %.lr.ph948, %.lr.ph943, %.lr.ph931, %1612, %.split1400, %.preheader775, %.preheader773, %2083, %2111
-  %.56 = phi ptr [ %.38960, %.split1400 ], [ %.38960, %2111 ], [ %1980, %.lr.ph931 ], [ %.38960, %1612 ], [ %.38960, %2083 ], [ %2078, %.lr.ph943 ], [ %.51.lcssa, %.preheader773 ], [ %.47.lcssa, %.preheader775 ], [ %2106, %.lr.ph948 ], [ %2117, %.lr.ph953 ]
+  %.56 = phi ptr [ %.38960, %2111 ], [ %.38960, %2083 ], [ %.51.lcssa, %.preheader773 ], [ %.47.lcssa, %.preheader775 ], [ %.38960, %.split1400 ], [ %.38960, %1612 ], [ %1980, %.lr.ph931 ], [ %2078, %.lr.ph943 ], [ %2106, %.lr.ph948 ], [ %2117, %.lr.ph953 ]
   %indvars.iv.next1166 = add nuw nsw i64 %indvars.iv1165, 4
   %2120 = or disjoint i64 %indvars.iv.next1166, 3
   %2121 = icmp slt i64 %2120, %944
@@ -23580,7 +23580,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br i1 %exitcond1168.not, label %.loopexit762, label %.lr.ph1010, !llvm.loop !319
 
 .loopexit762:                                     ; preds = %.lr.ph1010, %.lr.ph1005, %.lr.ph1000, %.lr.ph988, %2146, %.split1401, %.preheader766, %.preheader764, %2612, %2644
-  %.75 = phi ptr [ %.571017, %.split1401 ], [ %.571017, %2644 ], [ %2493, %.lr.ph988 ], [ %.571017, %2146 ], [ %.571017, %2612 ], [ %2607, %.lr.ph1000 ], [ %.70.lcssa, %.preheader764 ], [ %.66.lcssa, %.preheader766 ], [ %2639, %.lr.ph1005 ], [ %2653, %.lr.ph1010 ]
+  %.75 = phi ptr [ %.571017, %2644 ], [ %.571017, %2612 ], [ %.70.lcssa, %.preheader764 ], [ %.66.lcssa, %.preheader766 ], [ %.571017, %.split1401 ], [ %.571017, %2146 ], [ %2493, %.lr.ph988 ], [ %2607, %.lr.ph1000 ], [ %2639, %.lr.ph1005 ], [ %2653, %.lr.ph1010 ]
   %indvars.iv.next1170 = add nuw nsw i64 %indvars.iv1169, 2
   %2656 = or disjoint i64 %indvars.iv.next1170, 1
   %2657 = icmp slt i64 %2656, %1607
@@ -23667,9 +23667,9 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br label %.thread751
 
 .thread751:                                       ; preds = %2659, %2682, %.thread746, %2685
-  %.22166 = phi ptr [ %2689, %2685 ], [ %2663, %2659 ], [ %2675, %.thread746 ], [ %2684, %2682 ]
-  %.42159 = phi i32 [ 4, %2685 ], [ 0, %2659 ], [ %.12156, %.thread746 ], [ %.32158, %2682 ]
-  %.82 = phi ptr [ %2688, %2685 ], [ %.761074, %2659 ], [ %2674, %.thread746 ], [ %2683, %2682 ]
+  %.22166 = phi ptr [ %2689, %2685 ], [ %2675, %.thread746 ], [ %2684, %2682 ], [ %2663, %2659 ]
+  %.42159 = phi i32 [ 4, %2685 ], [ %.12156, %.thread746 ], [ %.32158, %2682 ], [ 0, %2659 ]
+  %.82 = phi ptr [ %2688, %2685 ], [ %2674, %.thread746 ], [ %2683, %2682 ], [ %.761074, %2659 ]
   %2690 = add nuw nsw i32 %.42159, 15
   %2691 = icmp slt i32 %2690, %4
   br i1 %2691, label %.lr.ph1024, label %.preheader760
@@ -23883,7 +23883,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   br i1 %exitcond1172.not, label %.loopexit, label %.lr.ph1067, !llvm.loop !328
 
 .loopexit:                                        ; preds = %.lr.ph1067, %.lr.ph1062, %.lr.ph1057, %.lr.ph1045, %2658, %.split1420, %.preheader757, %.preheader, %2770, %2781
-  %.94 = phi ptr [ %.761074, %.split1420 ], [ %.761074, %2781 ], [ %2720, %.lr.ph1045 ], [ %.761074, %2658 ], [ %.761074, %2770 ], [ %2765, %.lr.ph1057 ], [ %.89.lcssa, %.preheader ], [ %.85.lcssa, %.preheader757 ], [ %2776, %.lr.ph1062 ], [ %2787, %.lr.ph1067 ]
+  %.94 = phi ptr [ %.761074, %2781 ], [ %.761074, %2770 ], [ %.89.lcssa, %.preheader ], [ %.85.lcssa, %.preheader757 ], [ %.761074, %.split1420 ], [ %.761074, %2658 ], [ %2720, %.lr.ph1045 ], [ %2765, %.lr.ph1057 ], [ %2776, %.lr.ph1062 ], [ %2787, %.lr.ph1067 ]
   %indvars.iv.next1174 = add nsw i64 %indvars.iv1173, 1
   %exitcond1176.not = icmp eq i64 %indvars.iv.next1174, %wide.trip.count
   br i1 %exitcond1176.not, label %._crit_edge, label %2658, !llvm.loop !329
@@ -25421,8 +25421,8 @@ define internal void @_ZN4ncnn15Gemm_x86_avx51220create_pipeline_int8ERKNS_6Opti
   br label %.preheader206.i
 
 .preheader206.i:                                  ; preds = %.preheader206.loopexit303.i, %.preheader206.loopexit.i, %.preheader207.preheader.i, %86
-  %.0186.lcssa.i = phi i32 [ 0, %86 ], [ %141, %.preheader206.loopexit303.i ], [ %140, %.preheader206.loopexit.i ], [ %125, %.preheader207.preheader.i ]
-  %.0184.lcssa.i = phi ptr [ %88, %86 ], [ %127, %.preheader206.loopexit303.i ], [ %.2.lcssa.us.i, %.preheader206.loopexit.i ], [ %88, %.preheader207.preheader.i ]
+  %.0186.lcssa.i = phi i32 [ 0, %86 ], [ %140, %.preheader206.loopexit.i ], [ %141, %.preheader206.loopexit303.i ], [ %125, %.preheader207.preheader.i ]
+  %.0184.lcssa.i = phi ptr [ %88, %86 ], [ %.2.lcssa.us.i, %.preheader206.loopexit.i ], [ %127, %.preheader206.loopexit303.i ], [ %88, %.preheader207.preheader.i ]
   %142 = or disjoint i32 %.0186.lcssa.i, 7
   %143 = icmp slt i32 %142, %.sroa.speculated59
   br i1 %143, label %.lr.ph251.i, label %.preheader204.i
@@ -26939,8 +26939,8 @@ define internal void @_ZN4ncnn15Gemm_x86_avx51220create_pipeline_int8ERKNS_6Opti
   br label %.preheader206.i
 
 .preheader206.i:                                  ; preds = %.preheader206.loopexit303.i, %.preheader206.loopexit.i, %.preheader207.preheader.i, %276
-  %.0186.lcssa.i = phi i32 [ 0, %276 ], [ %331, %.preheader206.loopexit303.i ], [ %330, %.preheader206.loopexit.i ], [ %315, %.preheader207.preheader.i ]
-  %.0184.lcssa.i = phi ptr [ %278, %276 ], [ %317, %.preheader206.loopexit303.i ], [ %.2.lcssa.us.i, %.preheader206.loopexit.i ], [ %278, %.preheader207.preheader.i ]
+  %.0186.lcssa.i = phi i32 [ 0, %276 ], [ %330, %.preheader206.loopexit.i ], [ %331, %.preheader206.loopexit303.i ], [ %315, %.preheader207.preheader.i ]
+  %.0184.lcssa.i = phi ptr [ %278, %276 ], [ %.2.lcssa.us.i, %.preheader206.loopexit.i ], [ %317, %.preheader206.loopexit303.i ], [ %278, %.preheader207.preheader.i ]
   %332 = or disjoint i32 %.0186.lcssa.i, 7
   %333 = icmp slt i32 %332, %.sroa.speculated84
   br i1 %333, label %.lr.ph251.i, label %.preheader204.i
@@ -31481,8 +31481,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread2943
 
 .thread2943:                                      ; preds = %239, %233, %.thread, %240, %246, %222
-  %.22238 = phi nsz <16 x float> [ zeroinitializer, %222 ], [ zeroinitializer, %246 ], [ zeroinitializer, %239 ], [ zeroinitializer, %240 ], [ %231, %.thread ], [ %238, %233 ]
-  %.14209 = phi ptr [ null, %222 ], [ %248, %246 ], [ %.042083647, %239 ], [ %245, %240 ], [ %.042083647, %.thread ], [ %236, %233 ]
+  %.22238 = phi nsz <16 x float> [ zeroinitializer, %222 ], [ zeroinitializer, %246 ], [ zeroinitializer, %240 ], [ %231, %.thread ], [ %238, %233 ], [ zeroinitializer, %239 ]
+  %.14209 = phi ptr [ null, %222 ], [ %248, %246 ], [ %245, %240 ], [ %.042083647, %.thread ], [ %236, %233 ], [ %.042083647, %239 ]
   br i1 %48, label %.lr.ph, label %.preheader3594
 
 .preheader3594:                                   ; preds = %.thread3008, %.thread2943
@@ -32101,24 +32101,24 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread2983
 
 .thread2983:                                      ; preds = %422, %405, %.thread2946, %680, %663, %697, %.lr.ph
-  %.32439 = phi nsz <16 x float> [ %386, %.lr.ph ], [ %792, %697 ], [ %386, %422 ], [ %679, %663 ], [ %696, %680 ], [ %403, %.thread2946 ], [ %421, %405 ]
-  %.42430 = phi nsz <16 x float> [ %385, %.lr.ph ], [ %791, %697 ], [ %385, %422 ], [ %678, %663 ], [ %695, %680 ], [ %402, %.thread2946 ], [ %420, %405 ]
-  %.42420 = phi nsz <16 x float> [ %384, %.lr.ph ], [ %790, %697 ], [ %384, %422 ], [ %677, %663 ], [ %694, %680 ], [ %401, %.thread2946 ], [ %419, %405 ]
-  %.42410 = phi nsz <16 x float> [ %383, %.lr.ph ], [ %789, %697 ], [ %383, %422 ], [ %676, %663 ], [ %693, %680 ], [ %400, %.thread2946 ], [ %418, %405 ]
-  %.42400 = phi nsz <16 x float> [ %382, %.lr.ph ], [ %768, %697 ], [ %382, %422 ], [ %675, %663 ], [ %692, %680 ], [ %399, %.thread2946 ], [ %417, %405 ]
-  %.42390 = phi nsz <16 x float> [ %381, %.lr.ph ], [ %767, %697 ], [ %381, %422 ], [ %674, %663 ], [ %691, %680 ], [ %398, %.thread2946 ], [ %416, %405 ]
-  %.42380 = phi nsz <16 x float> [ %380, %.lr.ph ], [ %766, %697 ], [ %380, %422 ], [ %673, %663 ], [ %690, %680 ], [ %397, %.thread2946 ], [ %415, %405 ]
-  %.42358 = phi nsz <16 x float> [ %379, %.lr.ph ], [ %765, %697 ], [ %379, %422 ], [ %672, %663 ], [ %689, %680 ], [ %396, %.thread2946 ], [ %414, %405 ]
-  %.42348 = phi nsz <16 x float> [ %378, %.lr.ph ], [ %744, %697 ], [ %378, %422 ], [ %671, %663 ], [ %688, %680 ], [ %395, %.thread2946 ], [ %413, %405 ]
-  %.42338 = phi nsz <16 x float> [ %377, %.lr.ph ], [ %743, %697 ], [ %377, %422 ], [ %670, %663 ], [ %687, %680 ], [ %394, %.thread2946 ], [ %412, %405 ]
-  %.42315 = phi nsz <16 x float> [ %376, %.lr.ph ], [ %742, %697 ], [ %376, %422 ], [ %669, %663 ], [ %686, %680 ], [ %393, %.thread2946 ], [ %411, %405 ]
-  %.42305 = phi nsz <16 x float> [ %375, %.lr.ph ], [ %741, %697 ], [ %375, %422 ], [ %668, %663 ], [ %685, %680 ], [ %392, %.thread2946 ], [ %410, %405 ]
-  %.42295 = phi nsz <16 x float> [ %374, %.lr.ph ], [ %720, %697 ], [ %374, %422 ], [ %667, %663 ], [ %684, %680 ], [ %391, %.thread2946 ], [ %409, %405 ]
-  %.42285 = phi nsz <16 x float> [ %373, %.lr.ph ], [ %719, %697 ], [ %373, %422 ], [ %666, %663 ], [ %683, %680 ], [ %390, %.thread2946 ], [ %408, %405 ]
-  %.42275 = phi nsz <16 x float> [ %372, %.lr.ph ], [ %718, %697 ], [ %372, %422 ], [ %665, %663 ], [ %682, %680 ], [ %389, %.thread2946 ], [ %407, %405 ]
-  %.42263 = phi nsz <16 x float> [ %371, %.lr.ph ], [ %717, %697 ], [ %371, %422 ], [ %664, %663 ], [ %681, %680 ], [ %388, %.thread2946 ], [ %406, %405 ]
-  %.62242 = phi nsz <16 x float> [ %.322393595, %.lr.ph ], [ %773, %697 ], [ %.322393595, %422 ], [ %.42240, %663 ], [ %.42240, %680 ], [ %.322393595, %.thread2946 ], [ %.322393595, %405 ]
-  %.5 = phi ptr [ null, %.lr.ph ], [ %793, %697 ], [ %.43599, %422 ], [ %662, %663 ], [ %662, %680 ], [ %.43599, %.thread2946 ], [ %.43599, %405 ]
+  %.32439 = phi nsz <16 x float> [ %386, %.lr.ph ], [ %792, %697 ], [ %679, %663 ], [ %696, %680 ], [ %403, %.thread2946 ], [ %421, %405 ], [ %386, %422 ]
+  %.42430 = phi nsz <16 x float> [ %385, %.lr.ph ], [ %791, %697 ], [ %678, %663 ], [ %695, %680 ], [ %402, %.thread2946 ], [ %420, %405 ], [ %385, %422 ]
+  %.42420 = phi nsz <16 x float> [ %384, %.lr.ph ], [ %790, %697 ], [ %677, %663 ], [ %694, %680 ], [ %401, %.thread2946 ], [ %419, %405 ], [ %384, %422 ]
+  %.42410 = phi nsz <16 x float> [ %383, %.lr.ph ], [ %789, %697 ], [ %676, %663 ], [ %693, %680 ], [ %400, %.thread2946 ], [ %418, %405 ], [ %383, %422 ]
+  %.42400 = phi nsz <16 x float> [ %382, %.lr.ph ], [ %768, %697 ], [ %675, %663 ], [ %692, %680 ], [ %399, %.thread2946 ], [ %417, %405 ], [ %382, %422 ]
+  %.42390 = phi nsz <16 x float> [ %381, %.lr.ph ], [ %767, %697 ], [ %674, %663 ], [ %691, %680 ], [ %398, %.thread2946 ], [ %416, %405 ], [ %381, %422 ]
+  %.42380 = phi nsz <16 x float> [ %380, %.lr.ph ], [ %766, %697 ], [ %673, %663 ], [ %690, %680 ], [ %397, %.thread2946 ], [ %415, %405 ], [ %380, %422 ]
+  %.42358 = phi nsz <16 x float> [ %379, %.lr.ph ], [ %765, %697 ], [ %672, %663 ], [ %689, %680 ], [ %396, %.thread2946 ], [ %414, %405 ], [ %379, %422 ]
+  %.42348 = phi nsz <16 x float> [ %378, %.lr.ph ], [ %744, %697 ], [ %671, %663 ], [ %688, %680 ], [ %395, %.thread2946 ], [ %413, %405 ], [ %378, %422 ]
+  %.42338 = phi nsz <16 x float> [ %377, %.lr.ph ], [ %743, %697 ], [ %670, %663 ], [ %687, %680 ], [ %394, %.thread2946 ], [ %412, %405 ], [ %377, %422 ]
+  %.42315 = phi nsz <16 x float> [ %376, %.lr.ph ], [ %742, %697 ], [ %669, %663 ], [ %686, %680 ], [ %393, %.thread2946 ], [ %411, %405 ], [ %376, %422 ]
+  %.42305 = phi nsz <16 x float> [ %375, %.lr.ph ], [ %741, %697 ], [ %668, %663 ], [ %685, %680 ], [ %392, %.thread2946 ], [ %410, %405 ], [ %375, %422 ]
+  %.42295 = phi nsz <16 x float> [ %374, %.lr.ph ], [ %720, %697 ], [ %667, %663 ], [ %684, %680 ], [ %391, %.thread2946 ], [ %409, %405 ], [ %374, %422 ]
+  %.42285 = phi nsz <16 x float> [ %373, %.lr.ph ], [ %719, %697 ], [ %666, %663 ], [ %683, %680 ], [ %390, %.thread2946 ], [ %408, %405 ], [ %373, %422 ]
+  %.42275 = phi nsz <16 x float> [ %372, %.lr.ph ], [ %718, %697 ], [ %665, %663 ], [ %682, %680 ], [ %389, %.thread2946 ], [ %407, %405 ], [ %372, %422 ]
+  %.42263 = phi nsz <16 x float> [ %371, %.lr.ph ], [ %717, %697 ], [ %664, %663 ], [ %681, %680 ], [ %388, %.thread2946 ], [ %406, %405 ], [ %371, %422 ]
+  %.62242 = phi nsz <16 x float> [ %.322393595, %.lr.ph ], [ %773, %697 ], [ %.42240, %663 ], [ %.42240, %680 ], [ %.322393595, %.thread2946 ], [ %.322393595, %405 ], [ %.322393595, %422 ]
+  %.5 = phi ptr [ null, %.lr.ph ], [ %793, %697 ], [ %662, %663 ], [ %662, %680 ], [ %.43599, %.thread2946 ], [ %.43599, %405 ], [ %.43599, %422 ]
   br i1 %79, label %794, label %811
 
 794:                                              ; preds = %.thread2983
@@ -32853,7 +32853,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3008
 
 .thread3008:                                      ; preds = %1055, %.split3567, %1072, %.thread3002, %1137, %1186, %1053
-  %.24263 = phi ptr [ %1054, %1053 ], [ %1266, %1186 ], [ %.142623597, %.split3567 ], [ %1185, %1137 ], [ %1071, %.thread3002 ], [ %1136, %1072 ], [ %.142623597, %1055 ]
+  %.24263 = phi ptr [ %1054, %1053 ], [ %1266, %1186 ], [ %1185, %1137 ], [ %1071, %.thread3002 ], [ %1136, %1072 ], [ %.142623597, %.split3567 ], [ %.142623597, %1055 ]
   %1267 = add nuw nsw i32 %.042873596, 16
   %1268 = or disjoint i32 %1267, 15
   %1269 = icmp slt i32 %1268, %6
@@ -33234,16 +33234,16 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3047
 
 .thread3047:                                      ; preds = %1351, %1342, %.thread3026, %1524, %1515, %1533, %.lr.ph3609
-  %.32933 = phi nsz <16 x float> [ %1331, %.lr.ph3609 ], [ %1580, %1533 ], [ %1331, %1351 ], [ %1523, %1515 ], [ %1532, %1524 ], [ %1340, %.thread3026 ], [ %1350, %1342 ]
-  %.42927 = phi nsz <16 x float> [ %1330, %.lr.ph3609 ], [ %1579, %1533 ], [ %1330, %1351 ], [ %1522, %1515 ], [ %1531, %1524 ], [ %1339, %.thread3026 ], [ %1349, %1342 ]
-  %.42920 = phi nsz <16 x float> [ %1329, %.lr.ph3609 ], [ %1578, %1533 ], [ %1329, %1351 ], [ %1521, %1515 ], [ %1530, %1524 ], [ %1338, %.thread3026 ], [ %1348, %1342 ]
-  %.42913 = phi nsz <16 x float> [ %1328, %.lr.ph3609 ], [ %1577, %1533 ], [ %1328, %1351 ], [ %1520, %1515 ], [ %1529, %1524 ], [ %1337, %.thread3026 ], [ %1347, %1342 ]
-  %.42906 = phi nsz <16 x float> [ %1327, %.lr.ph3609 ], [ %1556, %1533 ], [ %1327, %1351 ], [ %1519, %1515 ], [ %1528, %1524 ], [ %1336, %.thread3026 ], [ %1346, %1342 ]
-  %.42899 = phi nsz <16 x float> [ %1326, %.lr.ph3609 ], [ %1555, %1533 ], [ %1326, %1351 ], [ %1518, %1515 ], [ %1527, %1524 ], [ %1335, %.thread3026 ], [ %1345, %1342 ]
-  %.42892 = phi nsz <16 x float> [ %1325, %.lr.ph3609 ], [ %1554, %1533 ], [ %1325, %1351 ], [ %1517, %1515 ], [ %1526, %1524 ], [ %1334, %.thread3026 ], [ %1344, %1342 ]
-  %.42885 = phi nsz <16 x float> [ %1324, %.lr.ph3609 ], [ %1553, %1533 ], [ %1324, %1351 ], [ %1516, %1515 ], [ %1525, %1524 ], [ %1333, %.thread3026 ], [ %1343, %1342 ]
-  %.102246 = phi nsz <16 x float> [ %.722433604, %.lr.ph3609 ], [ %1561, %1533 ], [ %.722433604, %1351 ], [ %.82244, %1515 ], [ %.82244, %1524 ], [ %.722433604, %.thread3026 ], [ %.722433604, %1342 ]
-  %.9 = phi ptr [ null, %.lr.ph3609 ], [ %1581, %1533 ], [ %.83608, %1351 ], [ %1514, %1515 ], [ %1514, %1524 ], [ %.83608, %.thread3026 ], [ %.83608, %1342 ]
+  %.32933 = phi nsz <16 x float> [ %1331, %.lr.ph3609 ], [ %1580, %1533 ], [ %1523, %1515 ], [ %1532, %1524 ], [ %1340, %.thread3026 ], [ %1350, %1342 ], [ %1331, %1351 ]
+  %.42927 = phi nsz <16 x float> [ %1330, %.lr.ph3609 ], [ %1579, %1533 ], [ %1522, %1515 ], [ %1531, %1524 ], [ %1339, %.thread3026 ], [ %1349, %1342 ], [ %1330, %1351 ]
+  %.42920 = phi nsz <16 x float> [ %1329, %.lr.ph3609 ], [ %1578, %1533 ], [ %1521, %1515 ], [ %1530, %1524 ], [ %1338, %.thread3026 ], [ %1348, %1342 ], [ %1329, %1351 ]
+  %.42913 = phi nsz <16 x float> [ %1328, %.lr.ph3609 ], [ %1577, %1533 ], [ %1520, %1515 ], [ %1529, %1524 ], [ %1337, %.thread3026 ], [ %1347, %1342 ], [ %1328, %1351 ]
+  %.42906 = phi nsz <16 x float> [ %1327, %.lr.ph3609 ], [ %1556, %1533 ], [ %1519, %1515 ], [ %1528, %1524 ], [ %1336, %.thread3026 ], [ %1346, %1342 ], [ %1327, %1351 ]
+  %.42899 = phi nsz <16 x float> [ %1326, %.lr.ph3609 ], [ %1555, %1533 ], [ %1518, %1515 ], [ %1527, %1524 ], [ %1335, %.thread3026 ], [ %1345, %1342 ], [ %1326, %1351 ]
+  %.42892 = phi nsz <16 x float> [ %1325, %.lr.ph3609 ], [ %1554, %1533 ], [ %1517, %1515 ], [ %1526, %1524 ], [ %1334, %.thread3026 ], [ %1344, %1342 ], [ %1325, %1351 ]
+  %.42885 = phi nsz <16 x float> [ %1324, %.lr.ph3609 ], [ %1553, %1533 ], [ %1516, %1515 ], [ %1525, %1524 ], [ %1333, %.thread3026 ], [ %1343, %1342 ], [ %1324, %1351 ]
+  %.102246 = phi nsz <16 x float> [ %.722433604, %.lr.ph3609 ], [ %1561, %1533 ], [ %.82244, %1515 ], [ %.82244, %1524 ], [ %.722433604, %.thread3026 ], [ %.722433604, %1342 ], [ %.722433604, %1351 ]
+  %.9 = phi ptr [ null, %.lr.ph3609 ], [ %1581, %1533 ], [ %1514, %1515 ], [ %1514, %1524 ], [ %.83608, %.thread3026 ], [ %.83608, %1342 ], [ %.83608, %1351 ]
   br i1 %79, label %1582, label %1591
 
 1582:                                             ; preds = %.thread3047
@@ -33573,7 +33573,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3064
 
 .thread3064:                                      ; preds = %1675, %.split3568, %1684, %.thread3058, %1717, %1742, %1673
-  %.74268 = phi ptr [ %1674, %1673 ], [ %1790, %1742 ], [ %.642673606, %.split3568 ], [ %1741, %1717 ], [ %1683, %.thread3058 ], [ %1716, %1684 ], [ %.642673606, %1675 ]
+  %.74268 = phi ptr [ %1674, %1673 ], [ %1790, %1742 ], [ %1741, %1717 ], [ %1683, %.thread3058 ], [ %1716, %1684 ], [ %.642673606, %.split3568 ], [ %.642673606, %1675 ]
   %1791 = add nuw nsw i32 %.142883605, 8
   %1792 = or disjoint i32 %1791, 7
   %1793 = icmp slt i32 %1792, %6
@@ -33830,12 +33830,12 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3087
 
 .thread3087:                                      ; preds = %1835, %1830, %.thread3074, %1956, %1951, %1961, %.lr.ph3620
-  %.42872 = phi nsz <16 x float> [ %1820, %.lr.ph3620 ], [ %1981, %1961 ], [ %1820, %1835 ], [ %1957, %1956 ], [ %1952, %1951 ], [ %1825, %.thread3074 ], [ %1831, %1830 ]
-  %.42865 = phi nsz <16 x float> [ %1821, %.lr.ph3620 ], [ %1982, %1961 ], [ %1821, %1835 ], [ %1958, %1956 ], [ %1953, %1951 ], [ %1826, %.thread3074 ], [ %1832, %1830 ]
-  %.42858 = phi nsz <16 x float> [ %1822, %.lr.ph3620 ], [ %1983, %1961 ], [ %1822, %1835 ], [ %1959, %1956 ], [ %1954, %1951 ], [ %1827, %.thread3074 ], [ %1833, %1830 ]
-  %.32851 = phi nsz <16 x float> [ %1823, %.lr.ph3620 ], [ %1984, %1961 ], [ %1823, %1835 ], [ %1960, %1956 ], [ %1955, %1951 ], [ %1828, %.thread3074 ], [ %1834, %1830 ]
-  %.142250 = phi nsz <16 x float> [ %.1122473615, %.lr.ph3620 ], [ %1965, %1961 ], [ %.1122473615, %1835 ], [ %.122248, %1956 ], [ %.122248, %1951 ], [ %.1122473615, %.thread3074 ], [ %.1122473615, %1830 ]
-  %.13 = phi ptr [ null, %.lr.ph3620 ], [ %1985, %1961 ], [ %.123619, %1835 ], [ %1950, %1956 ], [ %1950, %1951 ], [ %.123619, %.thread3074 ], [ %.123619, %1830 ]
+  %.42872 = phi nsz <16 x float> [ %1820, %.lr.ph3620 ], [ %1981, %1961 ], [ %1957, %1956 ], [ %1952, %1951 ], [ %1825, %.thread3074 ], [ %1831, %1830 ], [ %1820, %1835 ]
+  %.42865 = phi nsz <16 x float> [ %1821, %.lr.ph3620 ], [ %1982, %1961 ], [ %1958, %1956 ], [ %1953, %1951 ], [ %1826, %.thread3074 ], [ %1832, %1830 ], [ %1821, %1835 ]
+  %.42858 = phi nsz <16 x float> [ %1822, %.lr.ph3620 ], [ %1983, %1961 ], [ %1959, %1956 ], [ %1954, %1951 ], [ %1827, %.thread3074 ], [ %1833, %1830 ], [ %1822, %1835 ]
+  %.32851 = phi nsz <16 x float> [ %1823, %.lr.ph3620 ], [ %1984, %1961 ], [ %1960, %1956 ], [ %1955, %1951 ], [ %1828, %.thread3074 ], [ %1834, %1830 ], [ %1823, %1835 ]
+  %.142250 = phi nsz <16 x float> [ %.1122473615, %.lr.ph3620 ], [ %1965, %1961 ], [ %.122248, %1956 ], [ %.122248, %1951 ], [ %.1122473615, %.thread3074 ], [ %.1122473615, %1830 ], [ %.1122473615, %1835 ]
+  %.13 = phi ptr [ null, %.lr.ph3620 ], [ %1985, %1961 ], [ %1950, %1956 ], [ %1950, %1951 ], [ %.123619, %.thread3074 ], [ %.123619, %1830 ], [ %.123619, %1835 ]
   br i1 %79, label %1986, label %1991
 
 1986:                                             ; preds = %.thread3087
@@ -34006,7 +34006,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3100
 
 .thread3100:                                      ; preds = %2015, %.split3569, %2020, %.thread3094, %2029, %2042, %2013
-  %.124273 = phi ptr [ %2014, %2013 ], [ %2078, %2042 ], [ %.1142723617, %.split3569 ], [ %2041, %2029 ], [ %2019, %.thread3094 ], [ %2028, %2020 ], [ %.1142723617, %2015 ]
+  %.124273 = phi ptr [ %2014, %2013 ], [ %2078, %2042 ], [ %2041, %2029 ], [ %2019, %.thread3094 ], [ %2028, %2020 ], [ %.1142723617, %.split3569 ], [ %.1142723617, %2015 ]
   %2079 = add nuw nsw i32 %.242893616, 4
   %2080 = or disjoint i32 %2079, 3
   %2081 = icmp slt i32 %2080, %6
@@ -34148,10 +34148,10 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3115
 
 .thread3115:                                      ; preds = %2102, %2099, %.thread3106, %2145, %2142, %2148, %.lr.ph3631
-  %.182254 = phi nsz <16 x float> [ %.1522513626, %.lr.ph3631 ], [ %2152, %2148 ], [ %.1522513626, %2102 ], [ %.162252, %2142 ], [ %.162252, %2145 ], [ %.1522513626, %.thread3106 ], [ %.1522513626, %2099 ]
-  %.04343 = phi nsz <16 x float> [ %2094, %.lr.ph3631 ], [ %2159, %2148 ], [ %2094, %2102 ], [ %2144, %2142 ], [ %2147, %2145 ], [ %2097, %.thread3106 ], [ %2101, %2099 ]
-  %.04337 = phi nsz <16 x float> [ %2093, %.lr.ph3631 ], [ %2158, %2148 ], [ %2093, %2102 ], [ %2143, %2142 ], [ %2146, %2145 ], [ %2096, %.thread3106 ], [ %2100, %2099 ]
-  %.17 = phi ptr [ null, %.lr.ph3631 ], [ %2160, %2148 ], [ %.163630, %2102 ], [ %2141, %2142 ], [ %2141, %2145 ], [ %.163630, %.thread3106 ], [ %.163630, %2099 ]
+  %.182254 = phi nsz <16 x float> [ %.1522513626, %.lr.ph3631 ], [ %2152, %2148 ], [ %.162252, %2145 ], [ %.162252, %2142 ], [ %.1522513626, %.thread3106 ], [ %.1522513626, %2099 ], [ %.1522513626, %2102 ]
+  %.04343 = phi nsz <16 x float> [ %2094, %.lr.ph3631 ], [ %2159, %2148 ], [ %2147, %2145 ], [ %2144, %2142 ], [ %2097, %.thread3106 ], [ %2101, %2099 ], [ %2094, %2102 ]
+  %.04337 = phi nsz <16 x float> [ %2093, %.lr.ph3631 ], [ %2158, %2148 ], [ %2146, %2145 ], [ %2143, %2142 ], [ %2096, %.thread3106 ], [ %2100, %2099 ], [ %2093, %2102 ]
+  %.17 = phi ptr [ null, %.lr.ph3631 ], [ %2160, %2148 ], [ %2141, %2145 ], [ %2141, %2142 ], [ %.163630, %.thread3106 ], [ %.163630, %2099 ], [ %.163630, %2102 ]
   %.54348 = fmul reassoc nsz arcp contract afn <16 x float> %.04343, %120
   %.54342 = fmul reassoc nsz arcp contract afn <16 x float> %.04337, %120
   br i1 %.not4544, label %2164, label %2161
@@ -34225,7 +34225,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3126
 
 .thread3126:                                      ; preds = %2164, %.split3570, %2167, %.thread3120, %2172, %2189, %2161
-  %.174278 = phi ptr [ %2163, %2161 ], [ %2191, %2189 ], [ %.1642773628, %.split3570 ], [ %2188, %2172 ], [ %2166, %.thread3120 ], [ %2171, %2167 ], [ %.1642773628, %2164 ]
+  %.174278 = phi ptr [ %2163, %2161 ], [ %2191, %2189 ], [ %2188, %2172 ], [ %2166, %.thread3120 ], [ %2171, %2167 ], [ %.1642773628, %.split3570 ], [ %.1642773628, %2164 ]
   %2192 = add nuw nsw i32 %.342903627, 2
   %2193 = or disjoint i32 %2192, 1
   %2194 = icmp slt i32 %2193, %6
@@ -34316,9 +34316,9 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3135
 
 .thread3135:                                      ; preds = %2204, %2202, %.thread3128, %2226, %2229, %.lr.ph3642
-  %.222258 = phi nsz <16 x float> [ %.1922553637, %.lr.ph3642 ], [ %2233, %2229 ], [ %.1922553637, %2204 ], [ %.202256, %2226 ], [ %.1922553637, %.thread3128 ], [ %.1922553637, %2202 ]
-  %.04383 = phi nsz <16 x float> [ %2198, %.lr.ph3642 ], [ %2234, %2229 ], [ %2198, %2204 ], [ %2228, %2226 ], [ %2200, %.thread3128 ], [ %2203, %2202 ]
-  %.21 = phi ptr [ null, %.lr.ph3642 ], [ %2235, %2229 ], [ %.203641, %2204 ], [ %2227, %2226 ], [ %.203641, %.thread3128 ], [ %.203641, %2202 ]
+  %.222258 = phi nsz <16 x float> [ %.1922553637, %.lr.ph3642 ], [ %2233, %2229 ], [ %.202256, %2226 ], [ %.1922553637, %.thread3128 ], [ %.1922553637, %2202 ], [ %.1922553637, %2204 ]
+  %.04383 = phi nsz <16 x float> [ %2198, %.lr.ph3642 ], [ %2234, %2229 ], [ %2228, %2226 ], [ %2200, %.thread3128 ], [ %2203, %2202 ], [ %2198, %2204 ]
+  %.21 = phi ptr [ null, %.lr.ph3642 ], [ %2235, %2229 ], [ %2227, %2226 ], [ %.203641, %.thread3128 ], [ %.203641, %2202 ], [ %.203641, %2204 ]
   %2236 = fmul fast <16 x float> %.04383, %81
   br i1 %.not4544, label %2239, label %2237
 
@@ -34373,7 +34373,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3145
 
 .thread3145:                                      ; preds = %2239, %.split3571, %2241, %.thread3139, %2246, %2255, %2237
-  %.224283 = phi ptr [ %2238, %2237 ], [ %2256, %2255 ], [ %.2142823639, %.split3571 ], [ %2254, %2246 ], [ %2240, %.thread3139 ], [ %2245, %2241 ], [ %.2142823639, %2239 ]
+  %.224283 = phi ptr [ %2238, %2237 ], [ %2256, %2255 ], [ %2254, %2246 ], [ %2240, %.thread3139 ], [ %2245, %2241 ], [ %.2142823639, %.split3571 ], [ %.2142823639, %2239 ]
   %2257 = add i32 %.442913638, 1
   %exitcond.not = icmp eq i32 %2257, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph3642, !llvm.loop !537
@@ -34548,9 +34548,9 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3159
 
 .thread3159:                                      ; preds = %2366, %2359, %.thread3147, %2367, %2373, %2345
-  %.22831 = phi nsz <8 x float> [ zeroinitializer, %2345 ], [ zeroinitializer, %2373 ], [ zeroinitializer, %2366 ], [ zeroinitializer, %2367 ], [ %2355, %.thread3147 ], [ %2364, %2359 ]
-  %.04408 = phi nsz <16 x float> [ zeroinitializer, %2345 ], [ zeroinitializer, %2373 ], [ zeroinitializer, %2366 ], [ zeroinitializer, %2367 ], [ %2357, %.thread3147 ], [ %2365, %2359 ]
-  %.25 = phi ptr [ null, %2345 ], [ %2375, %2373 ], [ %.243707, %2366 ], [ %2372, %2367 ], [ %.243707, %.thread3147 ], [ %2362, %2359 ]
+  %.22831 = phi nsz <8 x float> [ zeroinitializer, %2345 ], [ zeroinitializer, %2373 ], [ zeroinitializer, %2367 ], [ %2355, %.thread3147 ], [ %2364, %2359 ], [ zeroinitializer, %2366 ]
+  %.04408 = phi nsz <16 x float> [ zeroinitializer, %2345 ], [ zeroinitializer, %2373 ], [ zeroinitializer, %2367 ], [ %2357, %.thread3147 ], [ %2365, %2359 ], [ zeroinitializer, %2366 ]
+  %.25 = phi ptr [ null, %2345 ], [ %2375, %2373 ], [ %2372, %2367 ], [ %.243707, %.thread3147 ], [ %2362, %2359 ], [ %.243707, %2366 ]
   br i1 %142, label %.lr.ph3658, label %.preheader3589
 
 .preheader3589:                                   ; preds = %.thread3198, %.thread3159
@@ -34829,16 +34829,16 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3184
 
 .thread3184:                                      ; preds = %2457, %2448, %.thread3163, %2564, %2555, %2573, %.lr.ph3658
-  %.42823 = phi nsz <16 x float> [ %2430, %.lr.ph3658 ], [ %2584, %2573 ], [ %2430, %2457 ], [ %2565, %2564 ], [ %2556, %2555 ], [ %2439, %.thread3163 ], [ %2449, %2448 ]
-  %.42813 = phi nsz <16 x float> [ %2431, %.lr.ph3658 ], [ %2585, %2573 ], [ %2431, %2457 ], [ %2566, %2564 ], [ %2557, %2555 ], [ %2440, %.thread3163 ], [ %2450, %2448 ]
-  %.42803 = phi nsz <16 x float> [ %2432, %.lr.ph3658 ], [ %2586, %2573 ], [ %2432, %2457 ], [ %2567, %2564 ], [ %2558, %2555 ], [ %2441, %.thread3163 ], [ %2451, %2448 ]
-  %.42793 = phi nsz <16 x float> [ %2433, %.lr.ph3658 ], [ %2587, %2573 ], [ %2433, %2457 ], [ %2568, %2564 ], [ %2559, %2555 ], [ %2442, %.thread3163 ], [ %2452, %2448 ]
-  %.42783 = phi nsz <16 x float> [ %2434, %.lr.ph3658 ], [ %2588, %2573 ], [ %2434, %2457 ], [ %2569, %2564 ], [ %2560, %2555 ], [ %2443, %.thread3163 ], [ %2453, %2448 ]
-  %.42773 = phi nsz <16 x float> [ %2435, %.lr.ph3658 ], [ %2589, %2573 ], [ %2435, %2457 ], [ %2570, %2564 ], [ %2561, %2555 ], [ %2444, %.thread3163 ], [ %2454, %2448 ]
-  %.42763 = phi nsz <16 x float> [ %2436, %.lr.ph3658 ], [ %2590, %2573 ], [ %2436, %2457 ], [ %2571, %2564 ], [ %2562, %2555 ], [ %2445, %.thread3163 ], [ %2455, %2448 ]
-  %.32753 = phi nsz <16 x float> [ %2437, %.lr.ph3658 ], [ %2591, %2573 ], [ %2437, %2457 ], [ %2572, %2564 ], [ %2563, %2555 ], [ %2446, %.thread3163 ], [ %2456, %2448 ]
-  %.44412 = phi nsz <16 x float> [ %.344113654, %.lr.ph3658 ], [ %2576, %2573 ], [ %.344113654, %2457 ], [ %.64414, %2564 ], [ %.64414, %2555 ], [ %.344113654, %.thread3163 ], [ %.344113654, %2448 ]
-  %.29 = phi ptr [ null, %.lr.ph3658 ], [ %2592, %2573 ], [ %.283657, %2457 ], [ %2554, %2564 ], [ %2554, %2555 ], [ %.283657, %.thread3163 ], [ %.283657, %2448 ]
+  %.42823 = phi nsz <16 x float> [ %2430, %.lr.ph3658 ], [ %2584, %2573 ], [ %2565, %2564 ], [ %2556, %2555 ], [ %2439, %.thread3163 ], [ %2449, %2448 ], [ %2430, %2457 ]
+  %.42813 = phi nsz <16 x float> [ %2431, %.lr.ph3658 ], [ %2585, %2573 ], [ %2566, %2564 ], [ %2557, %2555 ], [ %2440, %.thread3163 ], [ %2450, %2448 ], [ %2431, %2457 ]
+  %.42803 = phi nsz <16 x float> [ %2432, %.lr.ph3658 ], [ %2586, %2573 ], [ %2567, %2564 ], [ %2558, %2555 ], [ %2441, %.thread3163 ], [ %2451, %2448 ], [ %2432, %2457 ]
+  %.42793 = phi nsz <16 x float> [ %2433, %.lr.ph3658 ], [ %2587, %2573 ], [ %2568, %2564 ], [ %2559, %2555 ], [ %2442, %.thread3163 ], [ %2452, %2448 ], [ %2433, %2457 ]
+  %.42783 = phi nsz <16 x float> [ %2434, %.lr.ph3658 ], [ %2588, %2573 ], [ %2569, %2564 ], [ %2560, %2555 ], [ %2443, %.thread3163 ], [ %2453, %2448 ], [ %2434, %2457 ]
+  %.42773 = phi nsz <16 x float> [ %2435, %.lr.ph3658 ], [ %2589, %2573 ], [ %2570, %2564 ], [ %2561, %2555 ], [ %2444, %.thread3163 ], [ %2454, %2448 ], [ %2435, %2457 ]
+  %.42763 = phi nsz <16 x float> [ %2436, %.lr.ph3658 ], [ %2590, %2573 ], [ %2571, %2564 ], [ %2562, %2555 ], [ %2445, %.thread3163 ], [ %2455, %2448 ], [ %2436, %2457 ]
+  %.32753 = phi nsz <16 x float> [ %2437, %.lr.ph3658 ], [ %2591, %2573 ], [ %2572, %2564 ], [ %2563, %2555 ], [ %2446, %.thread3163 ], [ %2456, %2448 ], [ %2437, %2457 ]
+  %.44412 = phi nsz <16 x float> [ %.344113654, %.lr.ph3658 ], [ %2576, %2573 ], [ %.64414, %2564 ], [ %.64414, %2555 ], [ %.344113654, %.thread3163 ], [ %.344113654, %2448 ], [ %.344113654, %2457 ]
+  %.29 = phi ptr [ null, %.lr.ph3658 ], [ %2592, %2573 ], [ %2554, %2564 ], [ %2554, %2555 ], [ %.283657, %.thread3163 ], [ %.283657, %2448 ], [ %.283657, %2457 ]
   br i1 %159, label %2593, label %2602
 
 2593:                                             ; preds = %.thread3184
@@ -35246,7 +35246,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3198
 
 .thread3198:                                      ; preds = %2774, %2791, %.thread3195, %2816, %2772
-  %.24389 = phi ptr [ %2773, %2772 ], [ %2848, %2816 ], [ %.143883655, %2774 ], [ %2790, %.thread3195 ], [ %2815, %2791 ]
+  %.24389 = phi ptr [ %2773, %2772 ], [ %2848, %2816 ], [ %2790, %.thread3195 ], [ %2815, %2791 ], [ %.143883655, %2774 ]
   %2849 = add nuw nsw i32 %.044153653, 16
   %2850 = or disjoint i32 %2849, 15
   %2851 = icmp slt i32 %2850, %6
@@ -35542,16 +35542,16 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3229
 
 .thread3229:                                      ; preds = %2933, %2924, %.thread3208, %3024, %3015, %3033, %.lr.ph3668
-  %.62835 = phi nsz <8 x float> [ %.328323663, %.lr.ph3668 ], [ %3061, %3033 ], [ %.328323663, %2933 ], [ %.42833, %3015 ], [ %.42833, %3024 ], [ %.328323663, %.thread3208 ], [ %.328323663, %2924 ]
-  %.42748 = phi nsz <8 x float> [ %2906, %.lr.ph3668 ], [ %3053, %3033 ], [ %2906, %2933 ], [ %3016, %3015 ], [ %3025, %3024 ], [ %2915, %.thread3208 ], [ %2925, %2924 ]
-  %.42742 = phi nsz <8 x float> [ %2907, %.lr.ph3668 ], [ %3054, %3033 ], [ %2907, %2933 ], [ %3017, %3015 ], [ %3026, %3024 ], [ %2916, %.thread3208 ], [ %2926, %2924 ]
-  %.42736 = phi nsz <8 x float> [ %2908, %.lr.ph3668 ], [ %3055, %3033 ], [ %2908, %2933 ], [ %3018, %3015 ], [ %3027, %3024 ], [ %2917, %.thread3208 ], [ %2927, %2924 ]
-  %.42730 = phi nsz <8 x float> [ %2909, %.lr.ph3668 ], [ %3056, %3033 ], [ %2909, %2933 ], [ %3019, %3015 ], [ %3028, %3024 ], [ %2918, %.thread3208 ], [ %2928, %2924 ]
-  %.42724 = phi nsz <8 x float> [ %2910, %.lr.ph3668 ], [ %3077, %3033 ], [ %2910, %2933 ], [ %3020, %3015 ], [ %3029, %3024 ], [ %2919, %.thread3208 ], [ %2929, %2924 ]
-  %.42718 = phi nsz <8 x float> [ %2911, %.lr.ph3668 ], [ %3078, %3033 ], [ %2911, %2933 ], [ %3021, %3015 ], [ %3030, %3024 ], [ %2920, %.thread3208 ], [ %2930, %2924 ]
-  %.42712 = phi nsz <8 x float> [ %2912, %.lr.ph3668 ], [ %3079, %3033 ], [ %2912, %2933 ], [ %3022, %3015 ], [ %3031, %3024 ], [ %2921, %.thread3208 ], [ %2931, %2924 ]
-  %.42706 = phi nsz <8 x float> [ %2913, %.lr.ph3668 ], [ %3080, %3033 ], [ %2913, %2933 ], [ %3023, %3015 ], [ %3032, %3024 ], [ %2922, %.thread3208 ], [ %2932, %2924 ]
-  %.33 = phi ptr [ null, %.lr.ph3668 ], [ %3081, %3033 ], [ %.323667, %2933 ], [ %3014, %3015 ], [ %3014, %3024 ], [ %.323667, %.thread3208 ], [ %.323667, %2924 ]
+  %.62835 = phi nsz <8 x float> [ %.328323663, %.lr.ph3668 ], [ %3061, %3033 ], [ %.42833, %3015 ], [ %.42833, %3024 ], [ %.328323663, %.thread3208 ], [ %.328323663, %2924 ], [ %.328323663, %2933 ]
+  %.42748 = phi nsz <8 x float> [ %2906, %.lr.ph3668 ], [ %3053, %3033 ], [ %3016, %3015 ], [ %3025, %3024 ], [ %2915, %.thread3208 ], [ %2925, %2924 ], [ %2906, %2933 ]
+  %.42742 = phi nsz <8 x float> [ %2907, %.lr.ph3668 ], [ %3054, %3033 ], [ %3017, %3015 ], [ %3026, %3024 ], [ %2916, %.thread3208 ], [ %2926, %2924 ], [ %2907, %2933 ]
+  %.42736 = phi nsz <8 x float> [ %2908, %.lr.ph3668 ], [ %3055, %3033 ], [ %3018, %3015 ], [ %3027, %3024 ], [ %2917, %.thread3208 ], [ %2927, %2924 ], [ %2908, %2933 ]
+  %.42730 = phi nsz <8 x float> [ %2909, %.lr.ph3668 ], [ %3056, %3033 ], [ %3019, %3015 ], [ %3028, %3024 ], [ %2918, %.thread3208 ], [ %2928, %2924 ], [ %2909, %2933 ]
+  %.42724 = phi nsz <8 x float> [ %2910, %.lr.ph3668 ], [ %3077, %3033 ], [ %3020, %3015 ], [ %3029, %3024 ], [ %2919, %.thread3208 ], [ %2929, %2924 ], [ %2910, %2933 ]
+  %.42718 = phi nsz <8 x float> [ %2911, %.lr.ph3668 ], [ %3078, %3033 ], [ %3021, %3015 ], [ %3030, %3024 ], [ %2920, %.thread3208 ], [ %2930, %2924 ], [ %2911, %2933 ]
+  %.42712 = phi nsz <8 x float> [ %2912, %.lr.ph3668 ], [ %3079, %3033 ], [ %3022, %3015 ], [ %3031, %3024 ], [ %2921, %.thread3208 ], [ %2931, %2924 ], [ %2912, %2933 ]
+  %.42706 = phi nsz <8 x float> [ %2913, %.lr.ph3668 ], [ %3080, %3033 ], [ %3023, %3015 ], [ %3032, %3024 ], [ %2922, %.thread3208 ], [ %2932, %2924 ], [ %2913, %2933 ]
+  %.33 = phi ptr [ null, %.lr.ph3668 ], [ %3081, %3033 ], [ %3014, %3015 ], [ %3014, %3024 ], [ %.323667, %.thread3208 ], [ %.323667, %2924 ], [ %.323667, %2933 ]
   br i1 %159, label %3082, label %3091
 
 3082:                                             ; preds = %.thread3229
@@ -35778,7 +35778,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3243
 
 .thread3243:                                      ; preds = %3159, %3168, %.thread3240, %3185, %3157
-  %.64393 = phi ptr [ %3158, %3157 ], [ %3217, %3185 ], [ %.543923665, %3159 ], [ %3167, %.thread3240 ], [ %3184, %3168 ]
+  %.64393 = phi ptr [ %3158, %3157 ], [ %3217, %3185 ], [ %3167, %.thread3240 ], [ %3184, %3168 ], [ %.543923665, %3159 ]
   %3218 = add nuw nsw i32 %.144163664, 8
   %3219 = or disjoint i32 %3218, 7
   %3220 = icmp slt i32 %3219, %6
@@ -35976,12 +35976,12 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3258
 
 .thread3258:                                      ; preds = %3262, %3257, %.thread3245, %3327, %3322, %3332, %.lr.ph3679
-  %.102839 = phi nsz <8 x float> [ %.728363674, %.lr.ph3679 ], [ %3336, %3332 ], [ %.728363674, %3262 ], [ %.82837, %3322 ], [ %.82837, %3327 ], [ %.728363674, %.thread3245 ], [ %.728363674, %3257 ]
-  %.42692 = phi nsz <8 x float> [ %3247, %.lr.ph3679 ], [ %3352, %3332 ], [ %3247, %3262 ], [ %3323, %3322 ], [ %3328, %3327 ], [ %3252, %.thread3245 ], [ %3258, %3257 ]
-  %.42686 = phi nsz <8 x float> [ %3248, %.lr.ph3679 ], [ %3353, %3332 ], [ %3248, %3262 ], [ %3324, %3322 ], [ %3329, %3327 ], [ %3253, %.thread3245 ], [ %3259, %3257 ]
-  %.42680 = phi nsz <8 x float> [ %3249, %.lr.ph3679 ], [ %3354, %3332 ], [ %3249, %3262 ], [ %3325, %3322 ], [ %3330, %3327 ], [ %3254, %.thread3245 ], [ %3260, %3257 ]
-  %.42674 = phi nsz <8 x float> [ %3250, %.lr.ph3679 ], [ %3355, %3332 ], [ %3250, %3262 ], [ %3326, %3322 ], [ %3331, %3327 ], [ %3255, %.thread3245 ], [ %3261, %3257 ]
-  %.37 = phi ptr [ null, %.lr.ph3679 ], [ %3356, %3332 ], [ %.363678, %3262 ], [ %3321, %3322 ], [ %3321, %3327 ], [ %.363678, %.thread3245 ], [ %.363678, %3257 ]
+  %.102839 = phi nsz <8 x float> [ %.728363674, %.lr.ph3679 ], [ %3336, %3332 ], [ %.82837, %3322 ], [ %.82837, %3327 ], [ %.728363674, %.thread3245 ], [ %.728363674, %3257 ], [ %.728363674, %3262 ]
+  %.42692 = phi nsz <8 x float> [ %3247, %.lr.ph3679 ], [ %3352, %3332 ], [ %3323, %3322 ], [ %3328, %3327 ], [ %3252, %.thread3245 ], [ %3258, %3257 ], [ %3247, %3262 ]
+  %.42686 = phi nsz <8 x float> [ %3248, %.lr.ph3679 ], [ %3353, %3332 ], [ %3324, %3322 ], [ %3329, %3327 ], [ %3253, %.thread3245 ], [ %3259, %3257 ], [ %3248, %3262 ]
+  %.42680 = phi nsz <8 x float> [ %3249, %.lr.ph3679 ], [ %3354, %3332 ], [ %3325, %3322 ], [ %3330, %3327 ], [ %3254, %.thread3245 ], [ %3260, %3257 ], [ %3249, %3262 ]
+  %.42674 = phi nsz <8 x float> [ %3250, %.lr.ph3679 ], [ %3355, %3332 ], [ %3326, %3322 ], [ %3331, %3327 ], [ %3255, %.thread3245 ], [ %3261, %3257 ], [ %3250, %3262 ]
+  %.37 = phi ptr [ null, %.lr.ph3679 ], [ %3356, %3332 ], [ %3321, %3322 ], [ %3321, %3327 ], [ %.363678, %.thread3245 ], [ %.363678, %3257 ], [ %.363678, %3262 ]
   br i1 %159, label %3357, label %3362
 
 3357:                                             ; preds = %.thread3258
@@ -36101,7 +36101,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3268
 
 .thread3268:                                      ; preds = %3382, %3387, %.thread3265, %3396, %3380
-  %.104397 = phi ptr [ %3381, %3380 ], [ %3416, %3396 ], [ %.943963676, %3382 ], [ %3386, %.thread3265 ], [ %3395, %3387 ]
+  %.104397 = phi ptr [ %3381, %3380 ], [ %3416, %3396 ], [ %3386, %.thread3265 ], [ %3395, %3387 ], [ %.943963676, %3382 ]
   %3417 = add nuw nsw i32 %.244173675, 4
   %3418 = or disjoint i32 %3417, 3
   %3419 = icmp slt i32 %3418, %6
@@ -36218,10 +36218,10 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3279
 
 .thread3279:                                      ; preds = %3440, %3437, %.thread3270, %3461, %3458, %3464, %.lr.ph3690
-  %.142843 = phi nsz <8 x float> [ %.1128403685, %.lr.ph3690 ], [ %3468, %3464 ], [ %.1128403685, %3440 ], [ %.122841, %3458 ], [ %.122841, %3461 ], [ %.1128403685, %.thread3270 ], [ %.1128403685, %3437 ]
-  %.42664 = phi nsz <8 x float> [ %3431, %.lr.ph3690 ], [ %3474, %3464 ], [ %3431, %3440 ], [ %3459, %3458 ], [ %3462, %3461 ], [ %3434, %.thread3270 ], [ %3438, %3437 ]
-  %.42658 = phi nsz <8 x float> [ %3432, %.lr.ph3690 ], [ %3475, %3464 ], [ %3432, %3440 ], [ %3460, %3458 ], [ %3463, %3461 ], [ %3435, %.thread3270 ], [ %3439, %3437 ]
-  %.41 = phi ptr [ null, %.lr.ph3690 ], [ %3476, %3464 ], [ %.403689, %3440 ], [ %3457, %3458 ], [ %3457, %3461 ], [ %.403689, %.thread3270 ], [ %.403689, %3437 ]
+  %.142843 = phi nsz <8 x float> [ %.1128403685, %.lr.ph3690 ], [ %3468, %3464 ], [ %.122841, %3458 ], [ %.122841, %3461 ], [ %.1128403685, %.thread3270 ], [ %.1128403685, %3437 ], [ %.1128403685, %3440 ]
+  %.42664 = phi nsz <8 x float> [ %3431, %.lr.ph3690 ], [ %3474, %3464 ], [ %3459, %3458 ], [ %3462, %3461 ], [ %3434, %.thread3270 ], [ %3438, %3437 ], [ %3431, %3440 ]
+  %.42658 = phi nsz <8 x float> [ %3432, %.lr.ph3690 ], [ %3475, %3464 ], [ %3460, %3458 ], [ %3463, %3461 ], [ %3435, %.thread3270 ], [ %3439, %3437 ], [ %3432, %3440 ]
+  %.41 = phi ptr [ null, %.lr.ph3690 ], [ %3476, %3464 ], [ %3457, %3458 ], [ %3457, %3461 ], [ %.403689, %.thread3270 ], [ %.403689, %3437 ], [ %.403689, %3440 ]
   %.52665 = fmul reassoc nsz arcp contract afn <8 x float> %.42664, %209
   %.52659 = fmul reassoc nsz arcp contract afn <8 x float> %.42658, %209
   br i1 %.not4536, label %3480, label %3477
@@ -36264,7 +36264,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3287
 
 .thread3287:                                      ; preds = %3480, %3483, %.thread3284, %3488, %3477
-  %.144401 = phi ptr [ %3479, %3477 ], [ %3490, %3488 ], [ %.1344003687, %3480 ], [ %3482, %.thread3284 ], [ %3487, %3483 ]
+  %.144401 = phi ptr [ %3479, %3477 ], [ %3490, %3488 ], [ %3482, %.thread3284 ], [ %3487, %3483 ], [ %.1344003687, %3480 ]
   %3491 = add nuw nsw i32 %.344183686, 2
   %3492 = or disjoint i32 %3491, 1
   %3493 = icmp slt i32 %3492, %6
@@ -36341,9 +36341,9 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3296
 
 .thread3296:                                      ; preds = %3503, %3501, %.thread3289, %3514, %3517, %.lr.ph3701
-  %.182847 = phi nsz <8 x float> [ %.1528443696, %.lr.ph3701 ], [ %3521, %3517 ], [ %.1528443696, %3503 ], [ %.162845, %3514 ], [ %.1528443696, %.thread3289 ], [ %.1528443696, %3501 ]
-  %.32651 = phi nsz <8 x float> [ %3497, %.lr.ph3701 ], [ %3522, %3517 ], [ %3497, %3503 ], [ %3516, %3514 ], [ %3499, %.thread3289 ], [ %3502, %3501 ]
-  %.45 = phi ptr [ null, %.lr.ph3701 ], [ %3523, %3517 ], [ %.443700, %3503 ], [ %3515, %3514 ], [ %.443700, %.thread3289 ], [ %.443700, %3501 ]
+  %.182847 = phi nsz <8 x float> [ %.1528443696, %.lr.ph3701 ], [ %3521, %3517 ], [ %.162845, %3514 ], [ %.1528443696, %.thread3289 ], [ %.1528443696, %3501 ], [ %.1528443696, %3503 ]
+  %.32651 = phi nsz <8 x float> [ %3497, %.lr.ph3701 ], [ %3522, %3517 ], [ %3516, %3514 ], [ %3499, %.thread3289 ], [ %3502, %3501 ], [ %3497, %3503 ]
+  %.45 = phi ptr [ null, %.lr.ph3701 ], [ %3523, %3517 ], [ %3515, %3514 ], [ %.443700, %.thread3289 ], [ %.443700, %3501 ], [ %.443700, %3503 ]
   %3524 = fmul fast <8 x float> %.32651, %198
   br i1 %.not4536, label %3527, label %3525
 
@@ -36379,7 +36379,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3303
 
 .thread3303:                                      ; preds = %3527, %3529, %.thread3300, %3534, %3525
-  %.184405 = phi ptr [ %3526, %3525 ], [ %3535, %3534 ], [ %.1744043698, %3527 ], [ %3528, %.thread3300 ], [ %3533, %3529 ]
+  %.184405 = phi ptr [ %3526, %3525 ], [ %3535, %3534 ], [ %3528, %.thread3300 ], [ %3533, %3529 ], [ %.1744043698, %3527 ]
   %3536 = add i32 %.444193697, 1
   %exitcond3933.not = icmp eq i32 %3536, %6
   br i1 %exitcond3933.not, label %._crit_edge3702, label %.lr.ph3701, !llvm.loop !543
@@ -36533,9 +36533,9 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3317
 
 .thread3317:                                      ; preds = %3624, %3617, %.thread3305, %3625, %3631, %3603
-  %.22629 = phi nsz <4 x float> [ zeroinitializer, %3603 ], [ zeroinitializer, %3631 ], [ zeroinitializer, %3624 ], [ zeroinitializer, %3625 ], [ %3613, %.thread3305 ], [ %3622, %3617 ]
-  %.04454 = phi nsz <16 x float> [ zeroinitializer, %3603 ], [ zeroinitializer, %3631 ], [ zeroinitializer, %3624 ], [ zeroinitializer, %3625 ], [ %3615, %.thread3305 ], [ %3623, %3617 ]
-  %.49 = phi ptr [ null, %3603 ], [ %3633, %3631 ], [ %.483766, %3624 ], [ %3630, %3625 ], [ %.483766, %.thread3305 ], [ %3620, %3617 ]
+  %.22629 = phi nsz <4 x float> [ zeroinitializer, %3603 ], [ zeroinitializer, %3631 ], [ zeroinitializer, %3625 ], [ %3613, %.thread3305 ], [ %3622, %3617 ], [ zeroinitializer, %3624 ]
+  %.04454 = phi nsz <16 x float> [ zeroinitializer, %3603 ], [ zeroinitializer, %3631 ], [ zeroinitializer, %3625 ], [ %3615, %.thread3305 ], [ %3623, %3617 ], [ zeroinitializer, %3624 ]
+  %.49 = phi ptr [ null, %3603 ], [ %3633, %3631 ], [ %3630, %3625 ], [ %.483766, %.thread3305 ], [ %3620, %3617 ], [ %.483766, %3624 ]
   br i1 %2275, label %.lr.ph3717, label %.preheader3584
 
 .preheader3584:                                   ; preds = %3903, %.thread3317
@@ -36686,12 +36686,12 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3334
 
 .thread3334:                                      ; preds = %3674, %3669, %.thread3321, %3715, %3710, %3720, %.lr.ph3717
-  %.42621 = phi nsz <16 x float> [ %3659, %.lr.ph3717 ], [ %3727, %3720 ], [ %3659, %3674 ], [ %3716, %3715 ], [ %3711, %3710 ], [ %3664, %.thread3321 ], [ %3670, %3669 ]
-  %.42611 = phi nsz <16 x float> [ %3660, %.lr.ph3717 ], [ %3728, %3720 ], [ %3660, %3674 ], [ %3717, %3715 ], [ %3712, %3710 ], [ %3665, %.thread3321 ], [ %3671, %3669 ]
-  %.42601 = phi nsz <16 x float> [ %3661, %.lr.ph3717 ], [ %3729, %3720 ], [ %3661, %3674 ], [ %3718, %3715 ], [ %3713, %3710 ], [ %3666, %.thread3321 ], [ %3672, %3669 ]
-  %.32591 = phi nsz <16 x float> [ %3662, %.lr.ph3717 ], [ %3730, %3720 ], [ %3662, %3674 ], [ %3719, %3715 ], [ %3714, %3710 ], [ %3667, %.thread3321 ], [ %3673, %3669 ]
-  %.44458 = phi nsz <16 x float> [ %.344573713, %.lr.ph3717 ], [ %3723, %3720 ], [ %.344573713, %3674 ], [ %.64460, %3715 ], [ %.64460, %3710 ], [ %.344573713, %.thread3321 ], [ %.344573713, %3669 ]
-  %.53 = phi ptr [ null, %.lr.ph3717 ], [ %3731, %3720 ], [ %.523716, %3674 ], [ %.55, %3715 ], [ %.55, %3710 ], [ %.523716, %.thread3321 ], [ %.523716, %3669 ]
+  %.42621 = phi nsz <16 x float> [ %3659, %.lr.ph3717 ], [ %3727, %3720 ], [ %3716, %3715 ], [ %3711, %3710 ], [ %3664, %.thread3321 ], [ %3670, %3669 ], [ %3659, %3674 ]
+  %.42611 = phi nsz <16 x float> [ %3660, %.lr.ph3717 ], [ %3728, %3720 ], [ %3717, %3715 ], [ %3712, %3710 ], [ %3665, %.thread3321 ], [ %3671, %3669 ], [ %3660, %3674 ]
+  %.42601 = phi nsz <16 x float> [ %3661, %.lr.ph3717 ], [ %3729, %3720 ], [ %3718, %3715 ], [ %3713, %3710 ], [ %3666, %.thread3321 ], [ %3672, %3669 ], [ %3661, %3674 ]
+  %.32591 = phi nsz <16 x float> [ %3662, %.lr.ph3717 ], [ %3730, %3720 ], [ %3719, %3715 ], [ %3714, %3710 ], [ %3667, %.thread3321 ], [ %3673, %3669 ], [ %3662, %3674 ]
+  %.44458 = phi nsz <16 x float> [ %.344573713, %.lr.ph3717 ], [ %3723, %3720 ], [ %.64460, %3715 ], [ %.64460, %3710 ], [ %.344573713, %.thread3321 ], [ %.344573713, %3669 ], [ %.344573713, %3674 ]
+  %.53 = phi ptr [ null, %.lr.ph3717 ], [ %3731, %3720 ], [ %.55, %3715 ], [ %.55, %3710 ], [ %.523716, %.thread3321 ], [ %.523716, %3669 ], [ %.523716, %3674 ]
   br i1 %2285, label %3732, label %3737
 
 3732:                                             ; preds = %.thread3334
@@ -36983,7 +36983,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %3903
 
 3903:                                             ; preds = %3877, %.thread3341, %3890, %3875
-  %.24440 = phi ptr [ %3876, %3875 ], [ %3902, %3890 ], [ %.144393714, %3877 ], [ %3889, %.thread3341 ]
+  %.24440 = phi ptr [ %3876, %3875 ], [ %3902, %3890 ], [ %3889, %.thread3341 ], [ %.144393714, %3877 ]
   %3904 = getelementptr inbounds nuw i8, ptr %.1342233715, i64 256
   %3905 = add nuw nsw i32 %.044613712, 16
   %3906 = or disjoint i32 %3905, 15
@@ -37264,16 +37264,16 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3368
 
 .thread3368:                                      ; preds = %3984, %3975, %.thread3347, %4057, %4052, %4062, %.lr.ph3727
-  %.72634 = phi nsz <4 x float> [ %.326303722, %.lr.ph3727 ], [ %4090, %4062 ], [ %.326303722, %3984 ], [ %.52632, %4052 ], [ %.52632, %4057 ], [ %.326303722, %.thread3347 ], [ %.326303722, %3975 ]
-  %.42586 = phi nsz <4 x float> [ %3957, %.lr.ph3727 ], [ %4082, %4062 ], [ %3957, %3984 ], [ %.22584, %4052 ], [ %.22584, %4057 ], [ %3966, %.thread3347 ], [ %3976, %3975 ]
-  %.42580 = phi nsz <4 x float> [ %3958, %.lr.ph3727 ], [ %4083, %4062 ], [ %3958, %3984 ], [ %.22578, %4052 ], [ %.22578, %4057 ], [ %3967, %.thread3347 ], [ %3977, %3975 ]
-  %.42574 = phi nsz <4 x float> [ %3959, %.lr.ph3727 ], [ %4084, %4062 ], [ %3959, %3984 ], [ %.22572, %4052 ], [ %.22572, %4057 ], [ %3968, %.thread3347 ], [ %3978, %3975 ]
-  %.42568 = phi nsz <4 x float> [ %3960, %.lr.ph3727 ], [ %4085, %4062 ], [ %3960, %3984 ], [ %.22566, %4052 ], [ %.22566, %4057 ], [ %3969, %.thread3347 ], [ %3979, %3975 ]
-  %.42562 = phi nsz <4 x float> [ %3961, %.lr.ph3727 ], [ %4106, %4062 ], [ %3961, %3984 ], [ %4053, %4052 ], [ %4058, %4057 ], [ %3970, %.thread3347 ], [ %3980, %3975 ]
-  %.42556 = phi nsz <4 x float> [ %3962, %.lr.ph3727 ], [ %4107, %4062 ], [ %3962, %3984 ], [ %4054, %4052 ], [ %4059, %4057 ], [ %3971, %.thread3347 ], [ %3981, %3975 ]
-  %.42550 = phi nsz <4 x float> [ %3963, %.lr.ph3727 ], [ %4108, %4062 ], [ %3963, %3984 ], [ %4055, %4052 ], [ %4060, %4057 ], [ %3972, %.thread3347 ], [ %3982, %3975 ]
-  %.42544 = phi nsz <4 x float> [ %3964, %.lr.ph3727 ], [ %4109, %4062 ], [ %3964, %3984 ], [ %4056, %4052 ], [ %4061, %4057 ], [ %3973, %.thread3347 ], [ %3983, %3975 ]
-  %.57 = phi ptr [ null, %.lr.ph3727 ], [ %4110, %4062 ], [ %.563726, %3984 ], [ %4051, %4052 ], [ %4051, %4057 ], [ %.563726, %.thread3347 ], [ %.563726, %3975 ]
+  %.72634 = phi nsz <4 x float> [ %.326303722, %.lr.ph3727 ], [ %4090, %4062 ], [ %.52632, %4052 ], [ %.52632, %4057 ], [ %.326303722, %.thread3347 ], [ %.326303722, %3975 ], [ %.326303722, %3984 ]
+  %.42586 = phi nsz <4 x float> [ %3957, %.lr.ph3727 ], [ %4082, %4062 ], [ %.22584, %4052 ], [ %.22584, %4057 ], [ %3966, %.thread3347 ], [ %3976, %3975 ], [ %3957, %3984 ]
+  %.42580 = phi nsz <4 x float> [ %3958, %.lr.ph3727 ], [ %4083, %4062 ], [ %.22578, %4052 ], [ %.22578, %4057 ], [ %3967, %.thread3347 ], [ %3977, %3975 ], [ %3958, %3984 ]
+  %.42574 = phi nsz <4 x float> [ %3959, %.lr.ph3727 ], [ %4084, %4062 ], [ %.22572, %4052 ], [ %.22572, %4057 ], [ %3968, %.thread3347 ], [ %3978, %3975 ], [ %3959, %3984 ]
+  %.42568 = phi nsz <4 x float> [ %3960, %.lr.ph3727 ], [ %4085, %4062 ], [ %.22566, %4052 ], [ %.22566, %4057 ], [ %3969, %.thread3347 ], [ %3979, %3975 ], [ %3960, %3984 ]
+  %.42562 = phi nsz <4 x float> [ %3961, %.lr.ph3727 ], [ %4106, %4062 ], [ %4053, %4052 ], [ %4058, %4057 ], [ %3970, %.thread3347 ], [ %3980, %3975 ], [ %3961, %3984 ]
+  %.42556 = phi nsz <4 x float> [ %3962, %.lr.ph3727 ], [ %4107, %4062 ], [ %4054, %4052 ], [ %4059, %4057 ], [ %3971, %.thread3347 ], [ %3981, %3975 ], [ %3962, %3984 ]
+  %.42550 = phi nsz <4 x float> [ %3963, %.lr.ph3727 ], [ %4108, %4062 ], [ %4055, %4052 ], [ %4060, %4057 ], [ %3972, %.thread3347 ], [ %3982, %3975 ], [ %3963, %3984 ]
+  %.42544 = phi nsz <4 x float> [ %3964, %.lr.ph3727 ], [ %4109, %4062 ], [ %4056, %4052 ], [ %4061, %4057 ], [ %3973, %.thread3347 ], [ %3983, %3975 ], [ %3964, %3984 ]
+  %.57 = phi ptr [ null, %.lr.ph3727 ], [ %4110, %4062 ], [ %4051, %4052 ], [ %4051, %4057 ], [ %.563726, %.thread3347 ], [ %.563726, %3975 ], [ %.563726, %3984 ]
   br i1 %2285, label %4111, label %4120
 
 4111:                                             ; preds = %.thread3368
@@ -37456,7 +37456,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %4214
 
 4214:                                             ; preds = %4180, %.thread3379, %4189, %4178
-  %.54443 = phi ptr [ %4179, %4178 ], [ %4213, %4189 ], [ %.444423724, %4180 ], [ %4188, %.thread3379 ]
+  %.54443 = phi ptr [ %4179, %4178 ], [ %4213, %4189 ], [ %4188, %.thread3379 ], [ %.444423724, %4180 ]
   %4215 = getelementptr inbounds nuw i8, ptr %.1442243725, i64 128
   %4216 = add nuw nsw i32 %.144623723, 8
   %4217 = or disjoint i32 %4216, 7
@@ -37616,12 +37616,12 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3394
 
 .thread3394:                                      ; preds = %4259, %4254, %.thread3381, %4291, %4286, %4296, %.lr.ph3738
-  %.112638 = phi nsz <4 x float> [ %.826353733, %.lr.ph3738 ], [ %4300, %4296 ], [ %.826353733, %4259 ], [ %.92636, %4286 ], [ %.92636, %4291 ], [ %.826353733, %.thread3381 ], [ %.826353733, %4254 ]
-  %.42531 = phi nsz <4 x float> [ %4244, %.lr.ph3738 ], [ %4316, %4296 ], [ %4244, %4259 ], [ %4287, %4286 ], [ %4292, %4291 ], [ %4249, %.thread3381 ], [ %4255, %4254 ]
-  %.42525 = phi nsz <4 x float> [ %4245, %.lr.ph3738 ], [ %4317, %4296 ], [ %4245, %4259 ], [ %4288, %4286 ], [ %4293, %4291 ], [ %4250, %.thread3381 ], [ %4256, %4254 ]
-  %.42519 = phi nsz <4 x float> [ %4246, %.lr.ph3738 ], [ %4318, %4296 ], [ %4246, %4259 ], [ %4289, %4286 ], [ %4294, %4291 ], [ %4251, %.thread3381 ], [ %4257, %4254 ]
-  %.42513 = phi nsz <4 x float> [ %4247, %.lr.ph3738 ], [ %4319, %4296 ], [ %4247, %4259 ], [ %4290, %4286 ], [ %4295, %4291 ], [ %4252, %.thread3381 ], [ %4258, %4254 ]
-  %.61 = phi ptr [ null, %.lr.ph3738 ], [ %4320, %4296 ], [ %.603737, %4259 ], [ %4285, %4286 ], [ %4285, %4291 ], [ %.603737, %.thread3381 ], [ %.603737, %4254 ]
+  %.112638 = phi nsz <4 x float> [ %.826353733, %.lr.ph3738 ], [ %4300, %4296 ], [ %.92636, %4286 ], [ %.92636, %4291 ], [ %.826353733, %.thread3381 ], [ %.826353733, %4254 ], [ %.826353733, %4259 ]
+  %.42531 = phi nsz <4 x float> [ %4244, %.lr.ph3738 ], [ %4316, %4296 ], [ %4287, %4286 ], [ %4292, %4291 ], [ %4249, %.thread3381 ], [ %4255, %4254 ], [ %4244, %4259 ]
+  %.42525 = phi nsz <4 x float> [ %4245, %.lr.ph3738 ], [ %4317, %4296 ], [ %4288, %4286 ], [ %4293, %4291 ], [ %4250, %.thread3381 ], [ %4256, %4254 ], [ %4245, %4259 ]
+  %.42519 = phi nsz <4 x float> [ %4246, %.lr.ph3738 ], [ %4318, %4296 ], [ %4289, %4286 ], [ %4294, %4291 ], [ %4251, %.thread3381 ], [ %4257, %4254 ], [ %4246, %4259 ]
+  %.42513 = phi nsz <4 x float> [ %4247, %.lr.ph3738 ], [ %4319, %4296 ], [ %4290, %4286 ], [ %4295, %4291 ], [ %4252, %.thread3381 ], [ %4258, %4254 ], [ %4247, %4259 ]
+  %.61 = phi ptr [ null, %.lr.ph3738 ], [ %4320, %4296 ], [ %4285, %4286 ], [ %4285, %4291 ], [ %.603737, %.thread3381 ], [ %.603737, %4254 ], [ %.603737, %4259 ]
   br i1 %2285, label %4321, label %4326
 
 4321:                                             ; preds = %.thread3394
@@ -37713,7 +37713,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %4364
 
 4364:                                             ; preds = %4346, %.thread3401, %4351, %4344
-  %.84446 = phi ptr [ %4345, %4344 ], [ %4363, %4351 ], [ %.744453735, %4346 ], [ %4350, %.thread3401 ]
+  %.84446 = phi ptr [ %4345, %4344 ], [ %4363, %4351 ], [ %4350, %.thread3401 ], [ %.744453735, %4346 ]
   %4365 = getelementptr inbounds nuw i8, ptr %.1542253736, i64 64
   %4366 = add nuw nsw i32 %.244633734, 4
   %4367 = or disjoint i32 %4366, 3
@@ -37839,10 +37839,10 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3412
 
 .thread3412:                                      ; preds = %4388, %4385, %.thread3403, %4423, %4420, %4426, %.lr.ph3749
-  %.152642 = phi nsz <4 x float> [ %.1226393744, %.lr.ph3749 ], [ %4430, %4426 ], [ %.1226393744, %4388 ], [ %.132640, %4420 ], [ %.132640, %4423 ], [ %.1226393744, %.thread3403 ], [ %.1226393744, %4385 ]
-  %.42503 = phi nsz <4 x float> [ %4379, %.lr.ph3749 ], [ %4436, %4426 ], [ %4379, %4388 ], [ %4421, %4420 ], [ %4424, %4423 ], [ %4382, %.thread3403 ], [ %4386, %4385 ]
-  %.42497 = phi nsz <4 x float> [ %4380, %.lr.ph3749 ], [ %4437, %4426 ], [ %4380, %4388 ], [ %4422, %4420 ], [ %4425, %4423 ], [ %4383, %.thread3403 ], [ %4387, %4385 ]
-  %.65 = phi ptr [ null, %.lr.ph3749 ], [ %4438, %4426 ], [ %.643748, %4388 ], [ %4419, %4420 ], [ %4419, %4423 ], [ %.643748, %.thread3403 ], [ %.643748, %4385 ]
+  %.152642 = phi nsz <4 x float> [ %.1226393744, %.lr.ph3749 ], [ %4430, %4426 ], [ %.132640, %4420 ], [ %.132640, %4423 ], [ %.1226393744, %.thread3403 ], [ %.1226393744, %4385 ], [ %.1226393744, %4388 ]
+  %.42503 = phi nsz <4 x float> [ %4379, %.lr.ph3749 ], [ %4436, %4426 ], [ %4421, %4420 ], [ %4424, %4423 ], [ %4382, %.thread3403 ], [ %4386, %4385 ], [ %4379, %4388 ]
+  %.42497 = phi nsz <4 x float> [ %4380, %.lr.ph3749 ], [ %4437, %4426 ], [ %4422, %4420 ], [ %4425, %4423 ], [ %4383, %.thread3403 ], [ %4387, %4385 ], [ %4380, %4388 ]
+  %.65 = phi ptr [ null, %.lr.ph3749 ], [ %4438, %4426 ], [ %4419, %4420 ], [ %4419, %4423 ], [ %.643748, %.thread3403 ], [ %.643748, %4385 ], [ %.643748, %4388 ]
   %.52504 = fmul reassoc nsz arcp contract afn <4 x float> %.42503, %2325
   %.52498 = fmul reassoc nsz arcp contract afn <4 x float> %.42497, %2325
   br i1 %.not4528, label %4442, label %4439
@@ -37875,7 +37875,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %4448
 
 4448:                                             ; preds = %4442, %.thread3417, %4445, %4439
-  %.114449 = phi ptr [ %4441, %4439 ], [ %4447, %4445 ], [ %.1044483746, %4442 ], [ %4444, %.thread3417 ]
+  %.114449 = phi ptr [ %4441, %4439 ], [ %4447, %4445 ], [ %4444, %.thread3417 ], [ %.1044483746, %4442 ]
   %4449 = getelementptr inbounds nuw i8, ptr %.1642263747, i64 32
   %4450 = add nuw nsw i32 %.344643745, 2
   %4451 = or disjoint i32 %4450, 1
@@ -37952,9 +37952,9 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3426
 
 .thread3426:                                      ; preds = %4461, %4459, %.thread3419, %4477, %4480, %.lr.ph3760
-  %.192646 = phi nsz <4 x float> [ %.1626433755, %.lr.ph3760 ], [ %4484, %4480 ], [ %.1626433755, %4461 ], [ %.172644, %4477 ], [ %.1626433755, %.thread3419 ], [ %.1626433755, %4459 ]
-  %.32490 = phi nsz <4 x float> [ %4455, %.lr.ph3760 ], [ %4485, %4480 ], [ %4455, %4461 ], [ %4479, %4477 ], [ %4457, %.thread3419 ], [ %4460, %4459 ]
-  %.69 = phi ptr [ null, %.lr.ph3760 ], [ %4486, %4480 ], [ %.683759, %4461 ], [ %4478, %4477 ], [ %.683759, %.thread3419 ], [ %.683759, %4459 ]
+  %.192646 = phi nsz <4 x float> [ %.1626433755, %.lr.ph3760 ], [ %4484, %4480 ], [ %.172644, %4477 ], [ %.1626433755, %.thread3419 ], [ %.1626433755, %4459 ], [ %.1626433755, %4461 ]
+  %.32490 = phi nsz <4 x float> [ %4455, %.lr.ph3760 ], [ %4485, %4480 ], [ %4479, %4477 ], [ %4457, %.thread3419 ], [ %4460, %4459 ], [ %4455, %4461 ]
+  %.69 = phi ptr [ null, %.lr.ph3760 ], [ %4486, %4480 ], [ %4478, %4477 ], [ %.683759, %.thread3419 ], [ %.683759, %4459 ], [ %.683759, %4461 ]
   %4487 = fmul fast <4 x float> %.32490, %2324
   br i1 %.not4528, label %4490, label %4488
 
@@ -37980,7 +37980,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %4494
 
 4494:                                             ; preds = %4490, %.thread3430, %4492, %4488
-  %.144452 = phi ptr [ %4489, %4488 ], [ %4493, %4492 ], [ %.1344513757, %4490 ], [ %4491, %.thread3430 ]
+  %.144452 = phi ptr [ %4489, %4488 ], [ %4493, %4492 ], [ %4491, %.thread3430 ], [ %.1344513757, %4490 ]
   %4495 = getelementptr inbounds nuw i8, ptr %.1742273758, i64 16
   %4496 = add i32 %.444653756, 1
   %exitcond3937.not = icmp eq i32 %4496, %6
@@ -38154,13 +38154,13 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3453
 
 .thread3453:                                      ; preds = %4601, %4584, %.thread3432, %4602, %4607, %4562
-  %.22479 = phi nsz <4 x float> [ zeroinitializer, %4562 ], [ zeroinitializer, %4607 ], [ zeroinitializer, %4601 ], [ zeroinitializer, %4602 ], [ %4580, %.thread3432 ], [ %4594, %4584 ]
-  %.12470 = phi nsz <4 x float> [ zeroinitializer, %4562 ], [ zeroinitializer, %4607 ], [ zeroinitializer, %4601 ], [ zeroinitializer, %4602 ], [ zeroinitializer, %.thread3432 ], [ %4596, %4584 ]
-  %.04380 = phi nsz float [ 0.000000e+00, %4562 ], [ 0.000000e+00, %4607 ], [ 0.000000e+00, %4601 ], [ 0.000000e+00, %4602 ], [ %4578, %.thread3432 ], [ %4589, %4584 ]
-  %.04378 = phi nsz float [ 0.000000e+00, %4562 ], [ 0.000000e+00, %4607 ], [ 0.000000e+00, %4601 ], [ 0.000000e+00, %4602 ], [ 0.000000e+00, %.thread3432 ], [ %4592, %4584 ]
-  %.04372 = phi nsz <16 x float> [ zeroinitializer, %4562 ], [ zeroinitializer, %4607 ], [ zeroinitializer, %4601 ], [ zeroinitializer, %4602 ], [ %4582, %.thread3432 ], [ %4598, %4584 ]
-  %.04367 = phi nsz <16 x float> [ zeroinitializer, %4562 ], [ zeroinitializer, %4607 ], [ zeroinitializer, %4601 ], [ zeroinitializer, %4602 ], [ zeroinitializer, %.thread3432 ], [ %4600, %4584 ]
-  %.73 = phi ptr [ null, %4562 ], [ %4609, %4607 ], [ %.723826, %4601 ], [ %4606, %4602 ], [ %.723826, %.thread3432 ], [ %4587, %4584 ]
+  %.22479 = phi nsz <4 x float> [ zeroinitializer, %4562 ], [ zeroinitializer, %4607 ], [ zeroinitializer, %4602 ], [ %4580, %.thread3432 ], [ %4594, %4584 ], [ zeroinitializer, %4601 ]
+  %.12470 = phi nsz <4 x float> [ zeroinitializer, %4562 ], [ zeroinitializer, %4607 ], [ zeroinitializer, %4602 ], [ zeroinitializer, %.thread3432 ], [ %4596, %4584 ], [ zeroinitializer, %4601 ]
+  %.04380 = phi nsz float [ 0.000000e+00, %4562 ], [ 0.000000e+00, %4607 ], [ 0.000000e+00, %4602 ], [ %4578, %.thread3432 ], [ %4589, %4584 ], [ 0.000000e+00, %4601 ]
+  %.04378 = phi nsz float [ 0.000000e+00, %4562 ], [ 0.000000e+00, %4607 ], [ 0.000000e+00, %4602 ], [ 0.000000e+00, %.thread3432 ], [ %4592, %4584 ], [ 0.000000e+00, %4601 ]
+  %.04372 = phi nsz <16 x float> [ zeroinitializer, %4562 ], [ zeroinitializer, %4607 ], [ zeroinitializer, %4602 ], [ %4582, %.thread3432 ], [ %4598, %4584 ], [ zeroinitializer, %4601 ]
+  %.04367 = phi nsz <16 x float> [ zeroinitializer, %4562 ], [ zeroinitializer, %4607 ], [ zeroinitializer, %4602 ], [ zeroinitializer, %.thread3432 ], [ %4600, %4584 ], [ zeroinitializer, %4601 ]
+  %.73 = phi ptr [ null, %4562 ], [ %4609, %4607 ], [ %4606, %4602 ], [ %.723826, %.thread3432 ], [ %4587, %4584 ], [ %.723826, %4601 ]
   br i1 %3548, label %.lr.ph3777, label %.preheader3579
 
 .preheader3579:                                   ; preds = %4686, %.thread3453
@@ -38236,11 +38236,11 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3470
 
 .thread3470:                                      ; preds = %4629, %4626, %.thread3461, %4630, %4639, %.lr.ph3777
-  %.44376 = phi nsz <16 x float> [ %4641, %4639 ], [ %.343753772, %4629 ], [ %.343753772, %.lr.ph3777 ], [ %4631, %4630 ], [ %.343753772, %.thread3461 ], [ %.343753772, %4626 ]
-  %.34370 = phi nsz <16 x float> [ %.243693773, %4639 ], [ %.243693773, %4629 ], [ %.243693773, %.lr.ph3777 ], [ %4633, %4630 ], [ %.243693773, %.thread3461 ], [ %.243693773, %4626 ]
-  %.04356 = phi nsz <16 x float> [ %4642, %4639 ], [ %4620, %4629 ], [ %4620, %.lr.ph3777 ], [ %.44360, %4630 ], [ %4623, %.thread3461 ], [ %4627, %4626 ]
-  %.04350 = phi nsz <16 x float> [ %4643, %4639 ], [ %4621, %4629 ], [ %4621, %.lr.ph3777 ], [ %.44354, %4630 ], [ %4624, %.thread3461 ], [ %4628, %4626 ]
-  %.77 = phi ptr [ %4644, %4639 ], [ %.763776, %4629 ], [ null, %.lr.ph3777 ], [ %4638, %4630 ], [ %.763776, %.thread3461 ], [ %.763776, %4626 ]
+  %.44376 = phi nsz <16 x float> [ %4641, %4639 ], [ %.343753772, %.lr.ph3777 ], [ %4631, %4630 ], [ %.343753772, %.thread3461 ], [ %.343753772, %4626 ], [ %.343753772, %4629 ]
+  %.34370 = phi nsz <16 x float> [ %.243693773, %4639 ], [ %.243693773, %.lr.ph3777 ], [ %4633, %4630 ], [ %.243693773, %.thread3461 ], [ %.243693773, %4626 ], [ %.243693773, %4629 ]
+  %.04356 = phi nsz <16 x float> [ %4642, %4639 ], [ %4620, %.lr.ph3777 ], [ %.44360, %4630 ], [ %4623, %.thread3461 ], [ %4627, %4626 ], [ %4620, %4629 ]
+  %.04350 = phi nsz <16 x float> [ %4643, %4639 ], [ %4621, %.lr.ph3777 ], [ %.44354, %4630 ], [ %4624, %.thread3461 ], [ %4628, %4626 ], [ %4621, %4629 ]
+  %.77 = phi ptr [ %4644, %4639 ], [ null, %.lr.ph3777 ], [ %4638, %4630 ], [ %.763776, %.thread3461 ], [ %.763776, %4626 ], [ %.763776, %4629 ]
   %.54361 = fmul reassoc nsz arcp contract afn <16 x float> %.04356, %3589
   %.54355 = fmul reassoc nsz arcp contract afn <16 x float> %.04350, %3589
   br i1 %.not4521, label %4683, label %4645
@@ -38464,13 +38464,13 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3490
 
 .thread3490:                                      ; preds = %4727, %4722, %.thread3477, %4746, %4748, %.lr.ph3788
-  %.52482 = phi nsz <4 x float> [ %.324803782, %.lr.ph3788 ], [ %4752, %4748 ], [ %.324803782, %4727 ], [ %4729, %4746 ], [ %.324803782, %.thread3477 ], [ %.324803782, %4722 ]
-  %.42473 = phi nsz <4 x float> [ %.224713783, %.lr.ph3788 ], [ %4753, %4748 ], [ %.224713783, %4727 ], [ %4731, %4746 ], [ %.224713783, %.thread3477 ], [ %.224713783, %4722 ]
-  %.42467 = phi nsz <4 x float> [ %4712, %.lr.ph3788 ], [ %4754, %4748 ], [ %4712, %4727 ], [ %.22465, %4746 ], [ %4717, %.thread3477 ], [ %4723, %4722 ]
-  %.42461 = phi nsz <4 x float> [ %4713, %.lr.ph3788 ], [ %4755, %4748 ], [ %4713, %4727 ], [ %.22459, %4746 ], [ %4718, %.thread3477 ], [ %4724, %4722 ]
-  %.42455 = phi nsz <4 x float> [ %4714, %.lr.ph3788 ], [ %4756, %4748 ], [ %4714, %4727 ], [ %.22453, %4746 ], [ %4719, %.thread3477 ], [ %4725, %4722 ]
-  %.42449 = phi nsz <4 x float> [ %4715, %.lr.ph3788 ], [ %4757, %4748 ], [ %4715, %4727 ], [ %.22447, %4746 ], [ %4720, %.thread3477 ], [ %4726, %4722 ]
-  %.80 = phi ptr [ null, %.lr.ph3788 ], [ %4758, %4748 ], [ %.793787, %4727 ], [ %4747, %4746 ], [ %.793787, %.thread3477 ], [ %.793787, %4722 ]
+  %.52482 = phi nsz <4 x float> [ %.324803782, %.lr.ph3788 ], [ %4752, %4748 ], [ %4729, %4746 ], [ %.324803782, %.thread3477 ], [ %.324803782, %4722 ], [ %.324803782, %4727 ]
+  %.42473 = phi nsz <4 x float> [ %.224713783, %.lr.ph3788 ], [ %4753, %4748 ], [ %4731, %4746 ], [ %.224713783, %.thread3477 ], [ %.224713783, %4722 ], [ %.224713783, %4727 ]
+  %.42467 = phi nsz <4 x float> [ %4712, %.lr.ph3788 ], [ %4754, %4748 ], [ %.22465, %4746 ], [ %4717, %.thread3477 ], [ %4723, %4722 ], [ %4712, %4727 ]
+  %.42461 = phi nsz <4 x float> [ %4713, %.lr.ph3788 ], [ %4755, %4748 ], [ %.22459, %4746 ], [ %4718, %.thread3477 ], [ %4724, %4722 ], [ %4713, %4727 ]
+  %.42455 = phi nsz <4 x float> [ %4714, %.lr.ph3788 ], [ %4756, %4748 ], [ %.22453, %4746 ], [ %4719, %.thread3477 ], [ %4725, %4722 ], [ %4714, %4727 ]
+  %.42449 = phi nsz <4 x float> [ %4715, %.lr.ph3788 ], [ %4757, %4748 ], [ %.22447, %4746 ], [ %4720, %.thread3477 ], [ %4726, %4722 ], [ %4715, %4727 ]
+  %.80 = phi ptr [ null, %.lr.ph3788 ], [ %4758, %4748 ], [ %4747, %4746 ], [ %.793787, %.thread3477 ], [ %.793787, %4722 ], [ %.793787, %4727 ]
   br i1 %3553, label %4759, label %4764
 
 4759:                                             ; preds = %.thread3490
@@ -38660,11 +38660,11 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3507
 
 .thread3507:                                      ; preds = %4821, %4818, %.thread3498, %4822, %4831, %.lr.ph3801
-  %.82485 = phi nsz <4 x float> [ %.624833795, %.lr.ph3801 ], [ %4833, %4831 ], [ %.624833795, %4821 ], [ %4823, %4822 ], [ %.624833795, %.thread3498 ], [ %.624833795, %4818 ]
-  %.72476 = phi nsz <4 x float> [ %.524743796, %.lr.ph3801 ], [ %.524743796, %4831 ], [ %.524743796, %4821 ], [ %4825, %4822 ], [ %.524743796, %.thread3498 ], [ %.524743796, %4818 ]
-  %.42374 = phi nsz <4 x float> [ %4812, %.lr.ph3801 ], [ %4834, %4831 ], [ %4812, %4821 ], [ %.22372, %4822 ], [ %4815, %.thread3498 ], [ %4819, %4818 ]
-  %.42368 = phi nsz <4 x float> [ %4813, %.lr.ph3801 ], [ %4835, %4831 ], [ %4813, %4821 ], [ %.22366, %4822 ], [ %4816, %.thread3498 ], [ %4820, %4818 ]
-  %.83 = phi ptr [ null, %.lr.ph3801 ], [ %4836, %4831 ], [ %.823800, %4821 ], [ %4830, %4822 ], [ %.823800, %.thread3498 ], [ %.823800, %4818 ]
+  %.82485 = phi nsz <4 x float> [ %.624833795, %.lr.ph3801 ], [ %4833, %4831 ], [ %4823, %4822 ], [ %.624833795, %.thread3498 ], [ %.624833795, %4818 ], [ %.624833795, %4821 ]
+  %.72476 = phi nsz <4 x float> [ %.524743796, %.lr.ph3801 ], [ %.524743796, %4831 ], [ %4825, %4822 ], [ %.524743796, %.thread3498 ], [ %.524743796, %4818 ], [ %.524743796, %4821 ]
+  %.42374 = phi nsz <4 x float> [ %4812, %.lr.ph3801 ], [ %4834, %4831 ], [ %.22372, %4822 ], [ %4815, %.thread3498 ], [ %4819, %4818 ], [ %4812, %4821 ]
+  %.42368 = phi nsz <4 x float> [ %4813, %.lr.ph3801 ], [ %4835, %4831 ], [ %.22366, %4822 ], [ %4816, %.thread3498 ], [ %4820, %4818 ], [ %4813, %4821 ]
+  %.83 = phi ptr [ null, %.lr.ph3801 ], [ %4836, %4831 ], [ %4830, %4822 ], [ %.823800, %.thread3498 ], [ %.823800, %4818 ], [ %.823800, %4821 ]
   %.52375 = fmul reassoc nsz arcp contract afn <4 x float> %.42374, %3590
   %.52369 = fmul reassoc nsz arcp contract afn <4 x float> %.42368, %3590
   br i1 %.not4521, label %4850, label %4837
@@ -38824,11 +38824,11 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3526
 
 .thread3526:                                      ; preds = %4888, %4883, %.thread3513, %4889, %4906, %.lr.ph3810
-  %.04323 = phi nsz float [ %4909, %4906 ], [ %4864, %4888 ], [ %4864, %.lr.ph3810 ], [ %4892, %4889 ], [ %4878, %.thread3513 ], [ %4884, %4883 ]
-  %.04319 = phi nsz float [ %4913, %4906 ], [ %4868, %4888 ], [ %4868, %.lr.ph3810 ], [ %4896, %4889 ], [ %4879, %.thread3513 ], [ %4885, %4883 ]
-  %.04315 = phi nsz float [ %4914, %4906 ], [ %4872, %4888 ], [ %4872, %.lr.ph3810 ], [ %4900, %4889 ], [ %4880, %.thread3513 ], [ %4886, %4883 ]
-  %.04311 = phi nsz float [ %4915, %4906 ], [ %4876, %4888 ], [ %4876, %.lr.ph3810 ], [ %4904, %4889 ], [ %4881, %.thread3513 ], [ %4887, %4883 ]
-  %.86 = phi ptr [ %4916, %4906 ], [ %.853809, %4888 ], [ null, %.lr.ph3810 ], [ %4905, %4889 ], [ %.853809, %.thread3513 ], [ %.853809, %4883 ]
+  %.04323 = phi nsz float [ %4909, %4906 ], [ %4864, %.lr.ph3810 ], [ %4892, %4889 ], [ %4878, %.thread3513 ], [ %4884, %4883 ], [ %4864, %4888 ]
+  %.04319 = phi nsz float [ %4913, %4906 ], [ %4868, %.lr.ph3810 ], [ %4896, %4889 ], [ %4879, %.thread3513 ], [ %4885, %4883 ], [ %4868, %4888 ]
+  %.04315 = phi nsz float [ %4914, %4906 ], [ %4872, %.lr.ph3810 ], [ %4900, %4889 ], [ %4880, %.thread3513 ], [ %4886, %4883 ], [ %4872, %4888 ]
+  %.04311 = phi nsz float [ %4915, %4906 ], [ %4876, %.lr.ph3810 ], [ %4904, %4889 ], [ %4881, %.thread3513 ], [ %4887, %4883 ], [ %4876, %4888 ]
+  %.86 = phi ptr [ %4916, %4906 ], [ null, %.lr.ph3810 ], [ %4905, %4889 ], [ %.853809, %.thread3513 ], [ %.853809, %4883 ], [ %.853809, %4888 ]
   %4917 = fmul fast float %.04323, %8
   %4918 = fmul fast float %.04319, %8
   %4919 = fmul fast float %.04315, %8
@@ -38904,9 +38904,9 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %4956
 
 4956:                                             ; preds = %4941, %.thread3532, %4950, %4933
-  %.04307 = phi nsz float [ %4953, %4950 ], [ %.24309.reass, %4941 ], [ %4936, %4933 ], [ %4944, %.thread3532 ]
-  %.04303 = phi nsz float [ %4954, %4950 ], [ %.24305.reass, %4941 ], [ %4940, %4933 ], [ %4948, %.thread3532 ]
-  %.89 = phi ptr [ %4955, %4950 ], [ %.883818, %4941 ], [ null, %4933 ], [ %4949, %.thread3532 ]
+  %.04307 = phi nsz float [ %4953, %4950 ], [ %4936, %4933 ], [ %4944, %.thread3532 ], [ %.24309.reass, %4941 ]
+  %.04303 = phi nsz float [ %4954, %4950 ], [ %4940, %4933 ], [ %4948, %.thread3532 ], [ %.24305.reass, %4941 ]
+  %.89 = phi ptr [ %4955, %4950 ], [ null, %4933 ], [ %4949, %.thread3532 ], [ %.883818, %4941 ]
   %4957 = fmul fast float %.04307, %8
   %4958 = fmul fast float %.04303, %8
   store float %4957, ptr %.944313815, align 4, !tbaa !61
@@ -39019,10 +39019,10 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br label %.thread3551
 
 .thread3551:                                      ; preds = %5008, %4998, %.thread3536, %5009, %5014, %4982
-  %.22329 = phi nsz <4 x float> [ zeroinitializer, %4982 ], [ zeroinitializer, %5014 ], [ zeroinitializer, %5008 ], [ zeroinitializer, %5009 ], [ %4994, %.thread3536 ], [ %5005, %4998 ]
-  %.04253 = phi nsz float [ 0.000000e+00, %4982 ], [ 0.000000e+00, %5014 ], [ 0.000000e+00, %5008 ], [ 0.000000e+00, %5009 ], [ %4992, %.thread3536 ], [ %5003, %4998 ]
-  %.04248 = phi nsz <16 x float> [ zeroinitializer, %4982 ], [ zeroinitializer, %5014 ], [ zeroinitializer, %5008 ], [ zeroinitializer, %5009 ], [ %4996, %.thread3536 ], [ %5007, %4998 ]
-  %.92 = phi ptr [ null, %4982 ], [ %5016, %5014 ], [ %.913881, %5008 ], [ %5013, %5009 ], [ %.913881, %.thread3536 ], [ %5001, %4998 ]
+  %.22329 = phi nsz <4 x float> [ zeroinitializer, %4982 ], [ zeroinitializer, %5014 ], [ zeroinitializer, %5009 ], [ %4994, %.thread3536 ], [ %5005, %4998 ], [ zeroinitializer, %5008 ]
+  %.04253 = phi nsz float [ 0.000000e+00, %4982 ], [ 0.000000e+00, %5014 ], [ 0.000000e+00, %5009 ], [ %4992, %.thread3536 ], [ %5003, %4998 ], [ 0.000000e+00, %5008 ]
+  %.04248 = phi nsz <16 x float> [ zeroinitializer, %4982 ], [ zeroinitializer, %5014 ], [ zeroinitializer, %5009 ], [ %4996, %.thread3536 ], [ %5007, %4998 ], [ zeroinitializer, %5008 ]
+  %.92 = phi ptr [ null, %4982 ], [ %5016, %5014 ], [ %5013, %5009 ], [ %.913881, %.thread3536 ], [ %5001, %4998 ], [ %.913881, %5008 ]
   br i1 %4507, label %.lr.ph3836, label %.preheader3574
 
 .preheader3574:                                   ; preds = %5054, %.thread3551
@@ -39849,10 +39849,10 @@ define internal fastcc void @_ZN4ncnnL20compute_B_int8_scaleERKNS_3MatERf(ptr no
   br i1 %exitcond236.not.i, label %_ZN4ncnnL25compute_B_fp32_int8_scaleERKNS_3MatERf.exit, label %.preheader75.us194.i, !llvm.loop !563
 
 _ZN4ncnnL25compute_B_fp32_int8_scaleERKNS_3MatERf.exit: ; preds = %._crit_edge.us204.i, %._crit_edge.us184.i.loopexit, %..preheader_crit_edge.us179.i.us, %._crit_edge.us151.i.loopexit.us34, %..preheader74_crit_edge.us141.i, %._crit_edge.us151.i.loopexit.us.us, %..preheader74_crit_edge.us141.i.us, %._crit_edge.us.i, %2, %.lr.ph106.split.split.split.i
-  %.072.lcssa.i = phi float [ 0.000000e+00, %2 ], [ %.sroa.speculated66.us125.i.us.us, %._crit_edge.us151.i.loopexit.us.us ], [ 0.000000e+00, %.lr.ph106.split.split.split.i ], [ %.sroa.speculated66.us125.i.us27, %._crit_edge.us151.i.loopexit.us34 ], [ %.sroa.speculated66.us170.i, %._crit_edge.us184.i.loopexit ], [ 0.000000e+00, %..preheader74_crit_edge.us141.i.us ], [ %.173.lcssa.us.i, %._crit_edge.us.i ], [ 0.000000e+00, %..preheader74_crit_edge.us141.i ], [ 0.000000e+00, %..preheader_crit_edge.us179.i.us ], [ %.sroa.speculated66.us202.i, %._crit_edge.us204.i ]
-  %.045.lcssa.i = phi <4 x float> [ zeroinitializer, %2 ], [ %77, %._crit_edge.us151.i.loopexit.us.us ], [ zeroinitializer, %.lr.ph106.split.split.split.i ], [ zeroinitializer, %._crit_edge.us151.i.loopexit.us34 ], [ %120, %._crit_edge.us184.i.loopexit ], [ %89, %..preheader74_crit_edge.us141.i.us ], [ %.146.lcssa.us.i, %._crit_edge.us.i ], [ zeroinitializer, %..preheader74_crit_edge.us141.i ], [ %117, %..preheader_crit_edge.us179.i.us ], [ zeroinitializer, %._crit_edge.us204.i ]
-  %.043.lcssa.i = phi <8 x float> [ zeroinitializer, %2 ], [ %74, %._crit_edge.us151.i.loopexit.us.us ], [ zeroinitializer, %.lr.ph106.split.split.split.i ], [ %102, %._crit_edge.us151.i.loopexit.us34 ], [ zeroinitializer, %._crit_edge.us184.i.loopexit ], [ %84, %..preheader74_crit_edge.us141.i.us ], [ %.144.lcssa.us.i, %._crit_edge.us.i ], [ %109, %..preheader74_crit_edge.us141.i ], [ zeroinitializer, %..preheader_crit_edge.us179.i.us ], [ zeroinitializer, %._crit_edge.us204.i ]
-  %.0.lcssa.i = phi <16 x float> [ zeroinitializer, %2 ], [ zeroinitializer, %._crit_edge.us151.i.loopexit.us.us ], [ zeroinitializer, %.lr.ph106.split.split.split.i ], [ zeroinitializer, %._crit_edge.us151.i.loopexit.us34 ], [ zeroinitializer, %._crit_edge.us184.i.loopexit ], [ zeroinitializer, %..preheader74_crit_edge.us141.i.us ], [ %50, %._crit_edge.us.i ], [ zeroinitializer, %..preheader74_crit_edge.us141.i ], [ zeroinitializer, %..preheader_crit_edge.us179.i.us ], [ zeroinitializer, %._crit_edge.us204.i ]
+  %.072.lcssa.i = phi float [ 0.000000e+00, %2 ], [ 0.000000e+00, %.lr.ph106.split.split.split.i ], [ %.173.lcssa.us.i, %._crit_edge.us.i ], [ 0.000000e+00, %..preheader74_crit_edge.us141.i.us ], [ %.sroa.speculated66.us125.i.us.us, %._crit_edge.us151.i.loopexit.us.us ], [ 0.000000e+00, %..preheader74_crit_edge.us141.i ], [ %.sroa.speculated66.us125.i.us27, %._crit_edge.us151.i.loopexit.us34 ], [ 0.000000e+00, %..preheader_crit_edge.us179.i.us ], [ %.sroa.speculated66.us170.i, %._crit_edge.us184.i.loopexit ], [ %.sroa.speculated66.us202.i, %._crit_edge.us204.i ]
+  %.045.lcssa.i = phi <4 x float> [ zeroinitializer, %2 ], [ zeroinitializer, %.lr.ph106.split.split.split.i ], [ %.146.lcssa.us.i, %._crit_edge.us.i ], [ %89, %..preheader74_crit_edge.us141.i.us ], [ %77, %._crit_edge.us151.i.loopexit.us.us ], [ zeroinitializer, %..preheader74_crit_edge.us141.i ], [ zeroinitializer, %._crit_edge.us151.i.loopexit.us34 ], [ %117, %..preheader_crit_edge.us179.i.us ], [ %120, %._crit_edge.us184.i.loopexit ], [ zeroinitializer, %._crit_edge.us204.i ]
+  %.043.lcssa.i = phi <8 x float> [ zeroinitializer, %2 ], [ zeroinitializer, %.lr.ph106.split.split.split.i ], [ %.144.lcssa.us.i, %._crit_edge.us.i ], [ %84, %..preheader74_crit_edge.us141.i.us ], [ %74, %._crit_edge.us151.i.loopexit.us.us ], [ %109, %..preheader74_crit_edge.us141.i ], [ %102, %._crit_edge.us151.i.loopexit.us34 ], [ zeroinitializer, %..preheader_crit_edge.us179.i.us ], [ zeroinitializer, %._crit_edge.us184.i.loopexit ], [ zeroinitializer, %._crit_edge.us204.i ]
+  %.0.lcssa.i = phi <16 x float> [ zeroinitializer, %2 ], [ zeroinitializer, %.lr.ph106.split.split.split.i ], [ %50, %._crit_edge.us.i ], [ zeroinitializer, %..preheader74_crit_edge.us141.i.us ], [ zeroinitializer, %._crit_edge.us151.i.loopexit.us.us ], [ zeroinitializer, %..preheader74_crit_edge.us141.i ], [ zeroinitializer, %._crit_edge.us151.i.loopexit.us34 ], [ zeroinitializer, %..preheader_crit_edge.us179.i.us ], [ zeroinitializer, %._crit_edge.us184.i.loopexit ], [ zeroinitializer, %._crit_edge.us204.i ]
   %141 = shufflevector <16 x float> %.0.lcssa.i, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %142 = shufflevector <16 x float> %.0.lcssa.i, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %143 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %141, <8 x float> nofpclass(nan inf) %142)
@@ -40400,7 +40400,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   br i1 %exitcond.not.i.us, label %.loopexit580.i.us, label %.lr.ph599.i.us, !llvm.loop !578
 
 .loopexit580.i.us:                                ; preds = %.lr.ph638.i.us, %.lr.ph625.i.us, %.lr.ph612.i.us, %.lr.ph599.i.us, %.preheader588.i.us, %.preheader585.i.us, %.preheader582.i.us, %.preheader579.i.us, %.split.i.us
-  %.10.i.us = phi ptr [ %.0641.i.us, %.split.i.us ], [ %.11.lcssa.i.us, %.preheader579.i.us ], [ %137, %.lr.ph625.i.us ], [ %208, %.lr.ph599.i.us ], [ %.8.lcssa.i.us, %.preheader582.i.us ], [ %174, %.lr.ph612.i.us ], [ %.5.lcssa.i.us, %.preheader585.i.us ], [ %.2.lcssa.i.us, %.preheader588.i.us ], [ %88, %.lr.ph638.i.us ]
+  %.10.i.us = phi ptr [ %.11.lcssa.i.us, %.preheader579.i.us ], [ %.8.lcssa.i.us, %.preheader582.i.us ], [ %.5.lcssa.i.us, %.preheader585.i.us ], [ %.2.lcssa.i.us, %.preheader588.i.us ], [ %.0641.i.us, %.split.i.us ], [ %208, %.lr.ph599.i.us ], [ %174, %.lr.ph612.i.us ], [ %137, %.lr.ph625.i.us ], [ %88, %.lr.ph638.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 16
   %211 = or disjoint i64 %indvars.iv.next.i.us, 15
   %212 = icmp samesign ult i64 %211, %45
@@ -40839,7 +40839,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   br i1 %exitcond821.not.i, label %.loopexit570.i, label %.lr.ph681.i, !llvm.loop !591
 
 .loopexit570.i:                                   ; preds = %.lr.ph681.i, %.lr.ph668.i, %.lr.ph655.i, %.preheader569.i, %.preheader572.i, %.preheader575.i, %340
-  %.20.i = phi ptr [ %.13684.i, %340 ], [ %.21.lcssa.i, %.preheader569.i ], [ %383, %.lr.ph655.i ], [ %426, %.lr.ph668.i ], [ %.18.lcssa.i, %.preheader572.i ], [ %.15.lcssa.i, %.preheader575.i ], [ %466, %.lr.ph681.i ]
+  %.20.i = phi ptr [ %.21.lcssa.i, %.preheader569.i ], [ %.18.lcssa.i, %.preheader572.i ], [ %.15.lcssa.i, %.preheader575.i ], [ %.13684.i, %340 ], [ %383, %.lr.ph655.i ], [ %426, %.lr.ph668.i ], [ %466, %.lr.ph681.i ]
   %indvars.iv.next823.i = add nuw nsw i64 %indvars.iv822.i, 8
   %469 = or disjoint i64 %indvars.iv.next823.i, 7
   %470 = icmp slt i64 %469, %228
@@ -41422,8 +41422,8 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   br i1 %242, label %.loopexit1062.i.us, label %.preheader1053.loopexit.i, !llvm.loop !602
 
 .preheader1053.loopexit.i:                        ; preds = %.loopexit1055.i.loopexit20, %.loopexit1055.i.loopexit19.us, %.loopexit1055.i.loopexit18.us.us, %.loopexit1055.i.us.us.us.us, %.loopexit1062.i.us.us.us.preheader
-  %.us-phi = phi ptr [ %.7.i.us.us.us.us, %.loopexit1055.i.us.us.us.us ], [ %28, %.loopexit1062.i.us.us.us.preheader ], [ %236, %.loopexit1055.i.loopexit19.us ], [ %138, %.loopexit1055.i.loopexit18.us.us ], [ %665, %.loopexit1055.i.loopexit20 ]
-  %.us-phi53 = phi i64 [ %indvars.iv.next.i.us.us.us.us, %.loopexit1055.i.us.us.us.us ], [ %55, %.loopexit1062.i.us.us.us.preheader ], [ %indvars.iv.next.i.us, %.loopexit1055.i.loopexit19.us ], [ %indvars.iv.next.i.us.us, %.loopexit1055.i.loopexit18.us.us ], [ %indvars.iv.next.i, %.loopexit1055.i.loopexit20 ]
+  %.us-phi = phi ptr [ %28, %.loopexit1062.i.us.us.us.preheader ], [ %.7.i.us.us.us.us, %.loopexit1055.i.us.us.us.us ], [ %138, %.loopexit1055.i.loopexit18.us.us ], [ %236, %.loopexit1055.i.loopexit19.us ], [ %665, %.loopexit1055.i.loopexit20 ]
+  %.us-phi53 = phi i64 [ %55, %.loopexit1062.i.us.us.us.preheader ], [ %indvars.iv.next.i.us.us.us.us, %.loopexit1055.i.us.us.us.us ], [ %indvars.iv.next.i.us.us, %.loopexit1055.i.loopexit18.us.us ], [ %indvars.iv.next.i.us, %.loopexit1055.i.loopexit19.us ], [ %indvars.iv.next.i, %.loopexit1055.i.loopexit20 ]
   %243 = trunc nuw nsw i64 %.us-phi53 to i32
   br label %.preheader1053.i
 
@@ -41959,8 +41959,8 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   br i1 %671, label %.lr.ph.i.preheader, label %.preheader1053.loopexit.i, !llvm.loop !602
 
 .preheader1047.loopexit.i:                        ; preds = %.loopexit1049.i.loopexit17, %.loopexit1049.i.loopexit16.us, %.loopexit1049.i.loopexit15.us.us, %.loopexit1049.i.us.us.us
-  %.us-phi60 = phi ptr [ %.17.i.us.us.us, %.loopexit1049.i.us.us.us ], [ %479, %.loopexit1049.i.loopexit16.us ], [ %373, %.loopexit1049.i.loopexit15.us.us ], [ %820, %.loopexit1049.i.loopexit17 ]
-  %.us-phi61 = phi i64 [ %indvars.iv.next1344.i.us.us.us, %.loopexit1049.i.us.us.us ], [ %indvars.iv.next1344.i.us, %.loopexit1049.i.loopexit16.us ], [ %indvars.iv.next1344.i.us.us, %.loopexit1049.i.loopexit15.us.us ], [ %indvars.iv.next1344.i, %.loopexit1049.i.loopexit17 ]
+  %.us-phi60 = phi ptr [ %.17.i.us.us.us, %.loopexit1049.i.us.us.us ], [ %373, %.loopexit1049.i.loopexit15.us.us ], [ %479, %.loopexit1049.i.loopexit16.us ], [ %820, %.loopexit1049.i.loopexit17 ]
+  %.us-phi61 = phi i64 [ %indvars.iv.next1344.i.us.us.us, %.loopexit1049.i.us.us.us ], [ %indvars.iv.next1344.i.us.us, %.loopexit1049.i.loopexit15.us.us ], [ %indvars.iv.next1344.i.us, %.loopexit1049.i.loopexit16.us ], [ %indvars.iv.next1344.i, %.loopexit1049.i.loopexit17 ]
   %672 = trunc nuw nsw i64 %.us-phi61 to i32
   br label %.preheader1047.i
 
@@ -43888,8 +43888,8 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   br label %.thread27.i.i.us
 
 .thread27.i.i.us:                                 ; preds = %.thread.i.i.us, %300, %287, %254, %.split.i.i.us, %._crit_edge.i.i.us
-  %.4113.i.i.us = phi ptr [ %286, %254 ], [ %.010959.i.i.us, %.split.i.i.us ], [ %299, %287 ], [ %312, %.thread.i.i.us ], [ %308, %300 ], [ %.010959.i.i.us, %._crit_edge.i.i.us ]
-  %.4.i.i.us = phi ptr [ %285, %254 ], [ %.060.i.i.us, %.split.i.i.us ], [ %298, %287 ], [ %311, %.thread.i.i.us ], [ %307, %300 ], [ %.060.i.i.us, %._crit_edge.i.i.us ]
+  %.4113.i.i.us = phi ptr [ %286, %254 ], [ %299, %287 ], [ %312, %.thread.i.i.us ], [ %308, %300 ], [ %.010959.i.i.us, %.split.i.i.us ], [ %.010959.i.i.us, %._crit_edge.i.i.us ]
+  %.4.i.i.us = phi ptr [ %285, %254 ], [ %298, %287 ], [ %311, %.thread.i.i.us ], [ %307, %300 ], [ %.060.i.i.us, %.split.i.i.us ], [ %.060.i.i.us, %._crit_edge.i.i.us ]
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond73.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i.us
   br i1 %exitcond73.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %214, !llvm.loop !661
@@ -44317,8 +44317,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   br label %.thread32.i
 
 .thread32.i:                                      ; preds = %141, %126, %109, %.thread.i, %.split.i, %._crit_edge.i
-  %.4673.i = phi ptr [ %157, %141 ], [ %.066987.i, %.split.i ], [ %140, %126 ], [ %108, %.thread.i ], [ %125, %109 ], [ %.066987.i, %._crit_edge.i ]
-  %.4.i = phi ptr [ %156, %141 ], [ %.088.i, %.split.i ], [ %139, %126 ], [ %107, %.thread.i ], [ %124, %109 ], [ %.088.i, %._crit_edge.i ]
+  %.4673.i = phi ptr [ %157, %141 ], [ %140, %126 ], [ %108, %.thread.i ], [ %125, %109 ], [ %.066987.i, %.split.i ], [ %.066987.i, %._crit_edge.i ]
+  %.4.i = phi ptr [ %156, %141 ], [ %139, %126 ], [ %107, %.thread.i ], [ %124, %109 ], [ %.088.i, %.split.i ], [ %.088.i, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
   %158 = or disjoint i64 %indvars.iv.next.i, 63
   %159 = icmp samesign ult i64 %158, %36
@@ -44513,8 +44513,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   br label %.thread45.i
 
 .thread45.i:                                      ; preds = %262, %250, %236, %.thread37.i, %.split70.i, %._crit_edge115.i
-  %.9678.i = phi ptr [ %270, %262 ], [ %.5674119.i, %.split70.i ], [ %261, %250 ], [ %235, %.thread37.i ], [ %249, %236 ], [ %.5674119.i, %._crit_edge115.i ]
-  %.9.i = phi ptr [ %269, %262 ], [ %.5120.i, %.split70.i ], [ %260, %250 ], [ %234, %.thread37.i ], [ %248, %236 ], [ %.5120.i, %._crit_edge115.i ]
+  %.9678.i = phi ptr [ %270, %262 ], [ %261, %250 ], [ %235, %.thread37.i ], [ %249, %236 ], [ %.5674119.i, %.split70.i ], [ %.5674119.i, %._crit_edge115.i ]
+  %.9.i = phi ptr [ %269, %262 ], [ %260, %250 ], [ %234, %.thread37.i ], [ %248, %236 ], [ %.5120.i, %.split70.i ], [ %.5120.i, %._crit_edge115.i ]
   %indvars.iv.next355.i = add nuw nsw i64 %indvars.iv354.i, 32
   %271 = or disjoint i64 %indvars.iv.next355.i, 31
   %272 = icmp slt i64 %271, %58
@@ -44724,8 +44724,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   br label %.thread56.i
 
 .thread56.i:                                      ; preds = %387, %376, %349, %.thread48.i, %.split71.i, %._crit_edge156.i
-  %.14683.i = phi ptr [ %391, %387 ], [ %.10679159.i, %.split71.i ], [ %386, %376 ], [ %348, %.thread48.i ], [ %375, %349 ], [ %.10679159.i, %._crit_edge156.i ]
-  %.14.i = phi ptr [ %390, %387 ], [ %.10160.i, %.split71.i ], [ %385, %376 ], [ %347, %.thread48.i ], [ %374, %349 ], [ %.10160.i, %._crit_edge156.i ]
+  %.14683.i = phi ptr [ %391, %387 ], [ %386, %376 ], [ %348, %.thread48.i ], [ %375, %349 ], [ %.10679159.i, %.split71.i ], [ %.10679159.i, %._crit_edge156.i ]
+  %.14.i = phi ptr [ %390, %387 ], [ %385, %376 ], [ %347, %.thread48.i ], [ %374, %349 ], [ %.10160.i, %.split71.i ], [ %.10160.i, %._crit_edge156.i ]
   %indvars.iv.next359.i = add nuw nsw i64 %indvars.iv358.i, 16
   %392 = trunc i64 %indvars.iv.next359.i to i32
   %393 = or i32 %392, 15
@@ -44918,8 +44918,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   br label %.thread63.i
 
 .thread63.i:                                      ; preds = %499, %476, %.thread59.i, %._crit_edge196.i
-  %.18687.i = phi ptr [ %503, %499 ], [ %.15684199.i, %._crit_edge196.i ], [ %475, %.thread59.i ], [ %498, %476 ]
-  %.18.i = phi ptr [ %502, %499 ], [ %.15200.i, %._crit_edge196.i ], [ %474, %.thread59.i ], [ %497, %476 ]
+  %.18687.i = phi ptr [ %503, %499 ], [ %475, %.thread59.i ], [ %498, %476 ], [ %.15684199.i, %._crit_edge196.i ]
+  %.18.i = phi ptr [ %502, %499 ], [ %474, %.thread59.i ], [ %497, %476 ], [ %.15200.i, %._crit_edge196.i ]
   %indvars.iv.next363.i = add nuw nsw i64 %indvars.iv362.i, 8
   %504 = trunc i64 %indvars.iv.next363.i to i32
   %505 = or i32 %504, 7
@@ -45080,8 +45080,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   br label %591
 
 591:                                              ; preds = %586, %.thread67.i, %._crit_edge236.i
-  %.21690.i = phi ptr [ %590, %586 ], [ %.19688239.i, %._crit_edge236.i ], [ %585, %.thread67.i ]
-  %.21.i = phi ptr [ %589, %586 ], [ %.19240.i, %._crit_edge236.i ], [ %584, %.thread67.i ]
+  %.21690.i = phi ptr [ %590, %586 ], [ %585, %.thread67.i ], [ %.19688239.i, %._crit_edge236.i ]
+  %.21.i = phi ptr [ %589, %586 ], [ %584, %.thread67.i ], [ %.19240.i, %._crit_edge236.i ]
   %indvars.iv.next367.i = add nuw nsw i64 %indvars.iv366.i, 4
   %592 = trunc i64 %indvars.iv.next367.i to i32
   %593 = or i32 %592, 3
@@ -45590,7 +45590,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   br i1 %238, label %.lr.ph1254.i.us, label %.loopexit1241.i.us, !llvm.loop !690
 
 .loopexit1241.i.us:                               ; preds = %.lr.ph1273.i.us, %.lr.ph1260.i.us, %.lr.ph1254.i.us, %139, %93, %.preheader1240.i.us, %.loopexit1246.i.us
-  %.7.i.us = phi ptr [ %.01276.i.us, %.loopexit1246.i.us ], [ %.8.lcssa.i.us, %.preheader1240.i.us ], [ %134, %.lr.ph1260.i.us ], [ %234, %.lr.ph1254.i.us ], [ %.01276.i.us, %93 ], [ %.01276.i.us, %139 ], [ %90, %.lr.ph1273.i.us ]
+  %.7.i.us = phi ptr [ %.8.lcssa.i.us, %.preheader1240.i.us ], [ %.01276.i.us, %93 ], [ %.01276.i.us, %139 ], [ %.01276.i.us, %.loopexit1246.i.us ], [ %234, %.lr.ph1254.i.us ], [ %134, %.lr.ph1260.i.us ], [ %90, %.lr.ph1273.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 16
   %239 = or disjoint i64 %indvars.iv.next.i.us, 15
   %240 = icmp samesign ult i64 %239, %48
@@ -45787,7 +45787,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   br i1 %370, label %.lr.ph1295.i.us.us, label %.loopexit1232.i.us.us, !llvm.loop !694
 
 .loopexit1232.i.us.us:                            ; preds = %.lr.ph1308.i.us.us, %.lr.ph1295.i.us.us, %315, %.preheader1231.i.us.us, %.loopexit1238.i.us.us
-  %.17.i.us.us = phi ptr [ %.101311.i.us.us, %.loopexit1238.i.us.us ], [ %.18.lcssa.i.us.us, %.preheader1231.i.us.us ], [ %366, %.lr.ph1295.i.us.us ], [ %.101311.i.us.us, %315 ], [ %312, %.lr.ph1308.i.us.us ]
+  %.17.i.us.us = phi ptr [ %.18.lcssa.i.us.us, %.preheader1231.i.us.us ], [ %.101311.i.us.us, %315 ], [ %.101311.i.us.us, %.loopexit1238.i.us.us ], [ %366, %.lr.ph1295.i.us.us ], [ %312, %.lr.ph1308.i.us.us ]
   %indvars.iv.next1492.i.us.us = add nuw nsw i64 %indvars.iv1491.i.us.us, 8
   %371 = or disjoint i64 %indvars.iv.next1492.i.us.us, 7
   %372 = icmp slt i64 %371, %262
@@ -46220,8 +46220,8 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   br i1 %762, label %.lr.ph.i.preheader, label %.preheader1239.loopexit.i, !llvm.loop !691
 
 .preheader1230.loopexit.i:                        ; preds = %.loopexit1232.i.loopexit17, %.loopexit1232.i.loopexit16.us, %.loopexit1232.i.us.us
-  %.us-phi54 = phi ptr [ %505, %.loopexit1232.i.loopexit16.us ], [ %.17.i.us.us, %.loopexit1232.i.us.us ], [ %1197, %.loopexit1232.i.loopexit17 ]
-  %.us-phi55 = phi i64 [ %indvars.iv.next1492.i.us, %.loopexit1232.i.loopexit16.us ], [ %indvars.iv.next1492.i.us.us, %.loopexit1232.i.us.us ], [ %indvars.iv.next1492.i, %.loopexit1232.i.loopexit17 ]
+  %.us-phi54 = phi ptr [ %.17.i.us.us, %.loopexit1232.i.us.us ], [ %505, %.loopexit1232.i.loopexit16.us ], [ %1197, %.loopexit1232.i.loopexit17 ]
+  %.us-phi55 = phi i64 [ %indvars.iv.next1492.i.us.us, %.loopexit1232.i.us.us ], [ %indvars.iv.next1492.i.us, %.loopexit1232.i.loopexit16.us ], [ %indvars.iv.next1492.i, %.loopexit1232.i.loopexit17 ]
   %763 = trunc nuw nsw i64 %.us-phi55 to i32
   br label %.preheader1230.i
 
@@ -46585,7 +46585,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   br i1 %1046, label %.lr.ph1318.i.us, label %.loopexit1226.i.us, !llvm.loop !702
 
 .loopexit1226.i.us:                               ; preds = %.lr.ph1343.i.us, %.lr.ph1330.i.us, %.lr.ph1324.i.us, %.lr.ph1318.i.us, %974, %901, %844, %.preheader1225.i.us, %.split.i.us
-  %.27.i.us = phi ptr [ %.201346.i.us, %.split.i.us ], [ %.28.lcssa.i.us, %.preheader1225.i.us ], [ %896, %.lr.ph1330.i.us ], [ %1042, %.lr.ph1318.i.us ], [ %.201346.i.us, %844 ], [ %969, %.lr.ph1324.i.us ], [ %.201346.i.us, %901 ], [ %.201346.i.us, %974 ], [ %841, %.lr.ph1343.i.us ]
+  %.27.i.us = phi ptr [ %.28.lcssa.i.us, %.preheader1225.i.us ], [ %.201346.i.us, %844 ], [ %.201346.i.us, %901 ], [ %.201346.i.us, %974 ], [ %.201346.i.us, %.split.i.us ], [ %1042, %.lr.ph1318.i.us ], [ %969, %.lr.ph1324.i.us ], [ %896, %.lr.ph1330.i.us ], [ %841, %.lr.ph1343.i.us ]
   %indvars.iv.next1496.i.us = add nuw nsw i64 %indvars.iv1495.i.us, 4
   %1047 = or disjoint i64 %indvars.iv.next1496.i.us, 3
   %1048 = icmp slt i64 %1047, %784
@@ -47096,7 +47096,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   br i1 %1437, label %.lr.ph1353.i.us, label %.loopexit1219.i.us, !llvm.loop !710
 
 .loopexit1219.i.us:                               ; preds = %.lr.ph1385.i.us, %.lr.ph1365.i.us, %.lr.ph1359.i.us, %.lr.ph1353.i.us, %1403, %1366, %1332, %.preheader1218.i.us, %.split1601.i.us
-  %.37.i.us = phi ptr [ %.301388.i.us, %.split1601.i.us ], [ %.39.lcssa.i.us, %.preheader1218.i.us ], [ %1361, %.lr.ph1365.i.us ], [ %1433, %.lr.ph1353.i.us ], [ %.301388.i.us, %1332 ], [ %1398, %.lr.ph1359.i.us ], [ %.301388.i.us, %1366 ], [ %.301388.i.us, %1403 ], [ %1329, %.lr.ph1385.i.us ]
+  %.37.i.us = phi ptr [ %.39.lcssa.i.us, %.preheader1218.i.us ], [ %.301388.i.us, %1332 ], [ %.301388.i.us, %1366 ], [ %.301388.i.us, %1403 ], [ %.301388.i.us, %.split1601.i.us ], [ %1433, %.lr.ph1353.i.us ], [ %1398, %.lr.ph1359.i.us ], [ %1361, %.lr.ph1365.i.us ], [ %1329, %.lr.ph1385.i.us ]
   %indvars.iv.next1500.i.us = add nuw nsw i64 %indvars.iv1499.i.us, 2
   %1438 = or disjoint i64 %indvars.iv.next1500.i.us, 1
   %1439 = icmp slt i64 %1438, %1225
@@ -47293,7 +47293,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   br i1 %exitcond1502.not.i, label %.loopexit.i, label %.lr.ph1420.i, !llvm.loop !716
 
 .loopexit.i:                                      ; preds = %.lr.ph1420.i, %.lr.ph1407.i, %.lr.ph1401.i, %.lr.ph1395.i, %.preheader.i, %1505, %1488, %1473, %.split1602.i, %1464
-  %.48.i = phi ptr [ %.411423.i, %.split1602.i ], [ %.49.lcssa.i, %.preheader.i ], [ %1483, %.lr.ph1395.i ], [ %.411423.i, %1464 ], [ %.411423.i, %1505 ], [ %1500, %.lr.ph1401.i ], [ %.411423.i, %1488 ], [ %.411423.i, %1473 ], [ %1519, %.lr.ph1407.i ], [ %1548, %.lr.ph1420.i ]
+  %.48.i = phi ptr [ %.49.lcssa.i, %.preheader.i ], [ %.411423.i, %1505 ], [ %.411423.i, %1488 ], [ %.411423.i, %1473 ], [ %.411423.i, %.split1602.i ], [ %.411423.i, %1464 ], [ %1483, %.lr.ph1395.i ], [ %1500, %.lr.ph1401.i ], [ %1519, %.lr.ph1407.i ], [ %1548, %.lr.ph1420.i ]
   %indvars.iv.next1504.i = add nsw i64 %indvars.iv1503.i, 1
   %exitcond1506.not.i = icmp eq i64 %indvars.iv.next1504.i, %wide.trip.count.i
   br i1 %exitcond1506.not.i, label %_ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %1464, !llvm.loop !717
@@ -47651,7 +47651,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   br i1 %exitcond.not.i.us, label %.loopexit607.i.us, label %.lr.ph626.i.us, !llvm.loop !725
 
 .loopexit607.i.us:                                ; preds = %.lr.ph665.i.us, %.lr.ph652.i.us, %.lr.ph639.i.us, %.lr.ph626.i.us, %.preheader615.i.us, %.preheader612.i.us, %.preheader609.i.us, %.preheader606.i.us, %.split.i.us
-  %.10.i.us = phi ptr [ %.0668.i.us, %.split.i.us ], [ %.11.lcssa.i.us, %.preheader606.i.us ], [ %141, %.lr.ph652.i.us ], [ %214, %.lr.ph626.i.us ], [ %.8.lcssa.i.us, %.preheader609.i.us ], [ %180, %.lr.ph639.i.us ], [ %.5.lcssa.i.us, %.preheader612.i.us ], [ %.2.lcssa.i.us, %.preheader615.i.us ], [ %90, %.lr.ph665.i.us ]
+  %.10.i.us = phi ptr [ %.11.lcssa.i.us, %.preheader606.i.us ], [ %.8.lcssa.i.us, %.preheader609.i.us ], [ %.5.lcssa.i.us, %.preheader612.i.us ], [ %.2.lcssa.i.us, %.preheader615.i.us ], [ %.0668.i.us, %.split.i.us ], [ %214, %.lr.ph626.i.us ], [ %180, %.lr.ph639.i.us ], [ %141, %.lr.ph652.i.us ], [ %90, %.lr.ph665.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 16
   %217 = or disjoint i64 %indvars.iv.next.i.us, 15
   %218 = icmp samesign ult i64 %217, %44
@@ -47931,7 +47931,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   br i1 %exitcond848.not.i, label %.loopexit597.i, label %.lr.ph708.i, !llvm.loop !732
 
 .loopexit597.i:                                   ; preds = %.lr.ph708.i, %.lr.ph695.i, %.lr.ph682.i, %.preheader596.i, %.preheader599.i, %.preheader602.i, %252
-  %.20.i = phi ptr [ %.13711.i, %252 ], [ %.21.lcssa.i, %.preheader596.i ], [ %299, %.lr.ph682.i ], [ %344, %.lr.ph695.i ], [ %.18.lcssa.i, %.preheader599.i ], [ %.15.lcssa.i, %.preheader602.i ], [ %384, %.lr.ph708.i ]
+  %.20.i = phi ptr [ %.21.lcssa.i, %.preheader596.i ], [ %.18.lcssa.i, %.preheader599.i ], [ %.15.lcssa.i, %.preheader602.i ], [ %.13711.i, %252 ], [ %299, %.lr.ph682.i ], [ %344, %.lr.ph695.i ], [ %384, %.lr.ph708.i ]
   %indvars.iv.next850.i = add nuw nsw i64 %indvars.iv849.i, 8
   %387 = or disjoint i64 %indvars.iv.next850.i, 7
   %388 = icmp slt i64 %387, %233
@@ -48098,7 +48098,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   br i1 %exitcond853.not.i, label %.loopexit590.i, label %.lr.ph738.i, !llvm.loop !737
 
 .loopexit590.i:                                   ; preds = %.lr.ph738.i, %.lr.ph725.i, %.preheader589.i, %.preheader592.i, %399
-  %.27.i = phi ptr [ %.23741.i, %399 ], [ %.28.lcssa.i, %.preheader589.i ], [ %440, %.lr.ph725.i ], [ %.25.lcssa.i, %.preheader592.i ], [ %479, %.lr.ph738.i ]
+  %.27.i = phi ptr [ %.28.lcssa.i, %.preheader589.i ], [ %.25.lcssa.i, %.preheader592.i ], [ %.23741.i, %399 ], [ %440, %.lr.ph725.i ], [ %479, %.lr.ph738.i ]
   %indvars.iv.next855.i = add nuw nsw i64 %indvars.iv854.i, 4
   %482 = or disjoint i64 %indvars.iv.next855.i, 3
   %483 = icmp slt i64 %482, %250
@@ -49002,8 +49002,8 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   br label %.thread27.i.i.us
 
 .thread27.i.i.us:                                 ; preds = %.thread.i.i.us, %300, %287, %254, %.split.i.i.us, %._crit_edge.i.i.us
-  %.4113.i.i.us = phi ptr [ %286, %254 ], [ %.010959.i.i.us, %.split.i.i.us ], [ %299, %287 ], [ %312, %.thread.i.i.us ], [ %308, %300 ], [ %.010959.i.i.us, %._crit_edge.i.i.us ]
-  %.4.i.i.us = phi ptr [ %285, %254 ], [ %.060.i.i.us, %.split.i.i.us ], [ %298, %287 ], [ %311, %.thread.i.i.us ], [ %307, %300 ], [ %.060.i.i.us, %._crit_edge.i.i.us ]
+  %.4113.i.i.us = phi ptr [ %286, %254 ], [ %299, %287 ], [ %312, %.thread.i.i.us ], [ %308, %300 ], [ %.010959.i.i.us, %.split.i.i.us ], [ %.010959.i.i.us, %._crit_edge.i.i.us ]
+  %.4.i.i.us = phi ptr [ %285, %254 ], [ %298, %287 ], [ %311, %.thread.i.i.us ], [ %307, %300 ], [ %.060.i.i.us, %.split.i.i.us ], [ %.060.i.i.us, %._crit_edge.i.i.us ]
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond73.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i.us
   br i1 %exitcond73.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %214, !llvm.loop !661

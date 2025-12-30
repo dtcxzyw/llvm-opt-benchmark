@@ -134,7 +134,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %8
 
 8:                                                ; preds = %3, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %6 ], [ 0, %2 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -593,14 +593,14 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 178, ptr noundef nonnull @.str.51, i32 noundef %191) #7
   br label %param_conversion_load_stanza.exit.thread
 
-param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46, %61, %75, %90, %104, %113, %128, %139, %151, %163, %175, %187, %190
+param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46, %61, %75, %90, %104, %113, %139, %151, %163, %175, %187, %190, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %319
 
 192:                                              ; preds = %189, %177, %165, %153, %141
-  %.sroa.4443.2 = phi ptr [ @param_conversion_load_stanza.ref_i64, %153 ], [ @param_conversion_load_stanza.ref_u64, %177 ], [ @param_conversion_load_stanza.ref_u32, %165 ], [ @param_conversion_load_stanza.ref_i32, %141 ], [ @param_conversion_load_stanza.ref_d, %189 ]
-  %.sroa.54.2 = phi ptr [ @param_conversion_load_stanza.datum_i64, %153 ], [ @param_conversion_load_stanza.datum_u64, %177 ], [ @param_conversion_load_stanza.datum_u32, %165 ], [ @param_conversion_load_stanza.datum_i32, %141 ], [ @param_conversion_load_stanza.datum_d, %189 ]
-  %.sroa.69.2 = phi i64 [ 8, %153 ], [ 8, %177 ], [ 4, %165 ], [ 4, %141 ], [ 8, %189 ]
+  %.sroa.4443.2 = phi ptr [ @param_conversion_load_stanza.ref_i32, %141 ], [ @param_conversion_load_stanza.ref_i64, %153 ], [ @param_conversion_load_stanza.ref_u32, %165 ], [ @param_conversion_load_stanza.ref_u64, %177 ], [ @param_conversion_load_stanza.ref_d, %189 ]
+  %.sroa.54.2 = phi ptr [ @param_conversion_load_stanza.datum_i32, %141 ], [ @param_conversion_load_stanza.datum_i64, %153 ], [ @param_conversion_load_stanza.datum_u32, %165 ], [ @param_conversion_load_stanza.datum_u64, %177 ], [ @param_conversion_load_stanza.datum_d, %189 ]
+  %.sroa.69.2 = phi i64 [ 4, %141 ], [ 8, %153 ], [ 4, %165 ], [ 8, %177 ], [ 8, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %193 = load i32, ptr %20, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -848,7 +848,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   %.not108.i21 = icmp eq i32 %318, 0
   br i1 %.not108.i21, label %param_conversion_test.exit, label %param_conversion_test.exit.thread
 
-param_conversion_test.exit.thread:                ; preds = %295, %317
+param_conversion_test.exit.thread:                ; preds = %317, %295
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -857,7 +857,7 @@ param_conversion_test.exit.thread:                ; preds = %295, %317
   br label %319
 
 param_conversion_test.exit:                       ; preds = %197, %199, %202, %204, %209, %215, %221, %223, %226, %228, %233, %239, %245, %247, %250, %252, %257, %263, %269, %271, %274, %276, %281, %287, %293, %295, %298, %303, %307, %311, %317
-  %.str.88.sink.i = phi ptr [ @.str.86, %307 ], [ @.str.84, %303 ], [ @.str.82, %298 ], [ @.str.81, %293 ], [ @.str.79, %281 ], [ @.str.77, %274 ], [ @.str.75, %269 ], [ @.str.73, %257 ], [ @.str.71, %250 ], [ @.str.69, %245 ], [ @.str.67, %233 ], [ @.str.65, %226 ], [ @.str.63, %221 ], [ @.str.61, %209 ], [ @.str.57, %202 ], [ @.str.55, %197 ], [ @.str.55, %199 ], [ @.str.57, %204 ], [ @.str.61, %215 ], [ @.str.63, %223 ], [ @.str.65, %228 ], [ @.str.67, %239 ], [ @.str.69, %247 ], [ @.str.71, %252 ], [ @.str.73, %263 ], [ @.str.75, %271 ], [ @.str.77, %276 ], [ @.str.79, %287 ], [ @.str.81, %295 ], [ @.str.88, %317 ], [ @.str.88, %311 ]
+  %.str.88.sink.i = phi ptr [ @.str.55, %199 ], [ @.str.55, %197 ], [ @.str.57, %204 ], [ @.str.57, %202 ], [ @.str.61, %215 ], [ @.str.61, %209 ], [ @.str.63, %223 ], [ @.str.63, %221 ], [ @.str.65, %228 ], [ @.str.65, %226 ], [ @.str.67, %239 ], [ @.str.67, %233 ], [ @.str.69, %247 ], [ @.str.69, %245 ], [ @.str.71, %252 ], [ @.str.71, %250 ], [ @.str.73, %263 ], [ @.str.73, %257 ], [ @.str.75, %271 ], [ @.str.75, %269 ], [ @.str.77, %276 ], [ @.str.77, %274 ], [ @.str.79, %287 ], [ @.str.79, %281 ], [ @.str.81, %295 ], [ @.str.81, %293 ], [ @.str.82, %298 ], [ @.str.84, %303 ], [ @.str.86, %307 ], [ @.str.88, %317 ], [ @.str.88, %311 ]
   call void (ptr, ...) @test_note(ptr noundef nonnull %.str.88.sink.i, i32 noundef %193) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -867,7 +867,7 @@ param_conversion_test.exit:                       ; preds = %197, %199, %202, %2
   br label %319
 
 319:                                              ; preds = %param_conversion_load_stanza.exit.thread, %param_conversion_test.exit, %param_conversion_test.exit.thread, %24
-  %.2 = phi i32 [ %.0135, %param_conversion_test.exit.thread ], [ %.0135, %24 ], [ 0, %param_conversion_test.exit ], [ 0, %param_conversion_load_stanza.exit.thread ]
+  %.2 = phi i32 [ %.0135, %24 ], [ %.0135, %param_conversion_test.exit.thread ], [ 0, %param_conversion_test.exit ], [ 0, %param_conversion_load_stanza.exit.thread ]
   call void @test_clearstanza(ptr noundef nonnull %10) #7
   %320 = load ptr, ptr %14, align 8, !tbaa !4
   %321 = call i64 @BIO_ctrl(ptr noundef %320, i32 noundef 2, i64 noundef 0, ptr noundef null) #7

@@ -2463,7 +2463,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %152, %154
   br label %.body
 
 .body:                                            ; preds = %.thread, %166, %163, %151, %150
-  %.pn60 = phi { ptr, i32 } [ %lpad.loopexit.split-lp206, %150 ], [ %164, %166 ], [ %lpad.loopexit.split-lp206, %151 ], [ %164, %163 ], [ %lpad.loopexit205, %.thread ]
+  %.pn60 = phi { ptr, i32 } [ %lpad.loopexit.split-lp206, %151 ], [ %lpad.loopexit.split-lp206, %150 ], [ %164, %163 ], [ %164, %166 ], [ %lpad.loopexit205, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %262
 
@@ -2560,7 +2560,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit92:                  ; preds = %182, %184
   br label %.body88
 
 .body88:                                          ; preds = %.thread304, %196, %193, %181, %180
-  %.pn58 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %180 ], [ %194, %196 ], [ %lpad.loopexit.split-lp, %181 ], [ %194, %193 ], [ %lpad.loopexit, %.thread304 ]
+  %.pn58 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %181 ], [ %lpad.loopexit.split-lp, %180 ], [ %194, %193 ], [ %194, %196 ], [ %lpad.loopexit, %.thread304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %262
 

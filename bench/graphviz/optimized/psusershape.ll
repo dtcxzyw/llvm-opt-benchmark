@@ -515,7 +515,7 @@ define void @epsf_emit_body(ptr noundef %0, ptr noundef readonly captures(none) 
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %32, %.loopexit44.loopexit
-  %.not42.sink = phi i64 [ %spec.select75, %32 ], [ %37, %.loopexit44.loopexit ]
+  %.not42.sink = phi i64 [ %37, %.loopexit44.loopexit ], [ %spec.select75, %32 ]
   %spec.select43 = getelementptr inbounds nuw i8, ptr %.3, i64 %.not42.sink
   %38 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 10) #16
   br label %.backedge
@@ -621,7 +621,7 @@ charsetOf.exit.thread:                            ; preds = %11
   br label %20
 
 20:                                               ; preds = %charsetOf.exit, %charsetOf.exit.thread, %19, %2, %15, %3
-  %.019 = phi ptr [ %4, %3 ], [ %0, %2 ], [ %16, %15 ], [ %0, %charsetOf.exit ], [ %0, %19 ], [ %0, %charsetOf.exit.thread ]
+  %.019 = phi ptr [ %16, %15 ], [ %4, %3 ], [ %0, %2 ], [ %0, %charsetOf.exit ], [ %0, %19 ], [ %0, %charsetOf.exit.thread ]
   tail call fastcc void @agxbputc(i8 noundef signext 40)
   br label %agxbputc.exit38
 

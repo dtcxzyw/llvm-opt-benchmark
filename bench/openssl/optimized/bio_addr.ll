@@ -71,7 +71,7 @@ define range(i32 0, 2) i32 @BIO_ADDR_copy(ptr noundef writeonly captures(address
   br label %BIO_ADDR_make.exit
 
 BIO_ADDR_make.exit:                               ; preds = %5, %10, %9, %8, %2, %7
-  %.0 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 1, %8 ], [ 1, %9 ], [ 1, %10 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %2 ], [ 1, %8 ], [ 1, %9 ], [ 1, %10 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -148,7 +148,7 @@ BIO_ADDR_copy.exit:                               ; preds = %5
   br label %BIO_ADDR_new.exit.thread
 
 BIO_ADDR_new.exit.thread:                         ; preds = %10, %9, %8, %7, %2, %BIO_ADDR_copy.exit, %1
-  %.0 = phi ptr [ null, %2 ], [ null, %BIO_ADDR_copy.exit ], [ null, %1 ], [ %3, %7 ], [ %3, %8 ], [ %3, %9 ], [ %3, %10 ]
+  %.0 = phi ptr [ null, %BIO_ADDR_copy.exit ], [ null, %1 ], [ null, %2 ], [ %3, %7 ], [ %3, %8 ], [ %3, %9 ], [ %3, %10 ]
   ret ptr %.0
 }
 
@@ -208,7 +208,7 @@ define range(i32 0, 2) i32 @BIO_ADDR_rawmake(ptr noundef %0, i32 noundef %1, ptr
   br label %23
 
 23:                                               ; preds = %5, %18, %12, %6, %19, %13, %9
-  %.0 = phi i32 [ 0, %18 ], [ 1, %9 ], [ 0, %6 ], [ 1, %13 ], [ 0, %12 ], [ 1, %19 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %13 ], [ 1, %19 ], [ 0, %6 ], [ 0, %12 ], [ 0, %18 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -263,7 +263,7 @@ define range(i32 0, 2) i32 @BIO_ADDR_rawaddress(ptr noundef readonly captures(no
   br label %16
 
 16:                                               ; preds = %3, %14, %15
-  %.016 = phi i32 [ 1, %14 ], [ 1, %15 ], [ 0, %3 ]
+  %.016 = phi i32 [ 1, %15 ], [ 1, %14 ], [ 0, %3 ]
   ret i32 %.016
 }
 
@@ -333,7 +333,7 @@ define internal fastcc range(i32 0, 2) i32 @addr_strings(ptr noundef %0, i32 nou
   br label %BIO_ADDR_sockaddr_size.exit
 
 BIO_ADDR_sockaddr_size.exit:                      ; preds = %8, %10, %11, %12
-  %.0.i = phi i32 [ 112, %12 ], [ 28, %10 ], [ 110, %11 ], [ 16, %8 ]
+  %.0.i = phi i32 [ 28, %10 ], [ 110, %11 ], [ 112, %12 ], [ 16, %8 ]
   %13 = call i32 @getnameinfo(ptr noundef nonnull %0, i32 noundef %.0.i, ptr noundef nonnull %5, i32 noundef 1025, ptr noundef nonnull %6, i32 noundef 32, i32 noundef %spec.select) #15
   switch i32 %13, label %17 [
     i32 0, label %19
@@ -445,7 +445,7 @@ BIO_ADDR_rawport.exit:                            ; preds = %22, %.sink.split.i
   br label %46
 
 46:                                               ; preds = %35, %40, %41, %.thread38, %.thread39, %4
-  %.024 = phi i32 [ 0, %35 ], [ 0, %4 ], [ 0, %.thread38 ], [ 0, %.thread39 ], [ 1, %41 ], [ 1, %40 ]
+  %.024 = phi i32 [ 0, %35 ], [ 0, %4 ], [ 0, %.thread39 ], [ 0, %.thread38 ], [ 1, %41 ], [ 1, %40 ]
   ret i32 %.024
 }
 
@@ -509,7 +509,7 @@ define range(i32 16, 113) i32 @BIO_ADDR_sockaddr_size(ptr noundef readonly captu
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3
-  %.0 = phi i32 [ 112, %5 ], [ 28, %3 ], [ 110, %4 ], [ 16, %1 ]
+  %.0 = phi i32 [ 28, %3 ], [ 110, %4 ], [ 112, %5 ], [ 16, %1 ]
   ret i32 %.0
 }
 
@@ -585,7 +585,7 @@ define i32 @BIO_ADDRINFO_protocol(ptr noundef readonly captures(address_is_null)
   br label %12
 
 12:                                               ; preds = %1, %9, %5, %2
-  %.0 = phi i32 [ 0, %5 ], [ %4, %2 ], [ %switch.select9, %9 ], [ 0, %1 ]
+  %.0 = phi i32 [ %4, %2 ], [ 0, %5 ], [ %switch.select9, %9 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -811,7 +811,7 @@ define range(i32 0, 2) i32 @BIO_parse_hostserv(ptr noundef %0, ptr noundef captu
   br label %57
 
 57:                                               ; preds = %50, %43, %49, %53, %40, %56, %55
-  %.057 = phi i32 [ 0, %56 ], [ 1, %43 ], [ 0, %40 ], [ 0, %55 ], [ 0, %53 ], [ 1, %49 ], [ %.mux, %50 ]
+  %.057 = phi i32 [ 0, %56 ], [ 0, %55 ], [ 0, %40 ], [ 0, %53 ], [ 1, %49 ], [ %.mux, %50 ], [ 1, %43 ]
   ret i32 %.057
 }
 
@@ -928,7 +928,7 @@ BIO_ADDRINFO_free.exit.i:                         ; preds = %.preheader.i.i, %38
   store ptr null, ptr %6, align 8, !tbaa !28
   br label %43
 
-43:                                               ; preds = %10, %BIO_ADDRINFO_free.exit.i
+43:                                               ; preds = %BIO_ADDRINFO_free.exit.i, %10
   tail call void @ERR_new() #15
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 703, ptr noundef nonnull @__func__.BIO_lookup_ex) #15
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524320, ptr noundef null) #15
@@ -1023,7 +1023,7 @@ BIO_ADDRINFO_free.exit.i:                         ; preds = %.preheader.i.i, %38
   br label %addrinfo_wrap.exit
 
 addrinfo_wrap.exit:                               ; preds = %BIO_ADDR_new.exit.thread.i, %44, %.loopexit, %43, %9
-  %.026 = phi i32 [ 0, %9 ], [ %.025, %.loopexit ], [ 0, %43 ], [ 0, %44 ], [ 1, %BIO_ADDR_new.exit.thread.i ]
+  %.026 = phi i32 [ 0, %9 ], [ 0, %43 ], [ %.025, %.loopexit ], [ 0, %44 ], [ 1, %BIO_ADDR_new.exit.thread.i ]
   ret i32 %.026
 }
 

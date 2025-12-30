@@ -716,7 +716,7 @@ define dso_local i32 @cmd_clone(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %.sink.split508
 
 .sink.split508:                                   ; preds = %173, %.sink.split508.sink.split
-  %.0.i.sink = phi ptr [ %.str.21..str.20, %173 ], [ %177, %.sink.split508.sink.split ]
+  %.0.i.sink = phi ptr [ %177, %.sink.split508.sink.split ], [ %.str.21..str.20, %173 ]
   %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef %.0.i.sink, ptr noundef %.0217) #23
   br label %179
 
@@ -1145,7 +1145,7 @@ _.exit351:                                        ; preds = %348, %350
   br label %352
 
 352:                                              ; preds = %_.exit351, %300
-  %353 = phi i32 [ %310, %300 ], [ %.pre, %_.exit351 ]
+  %353 = phi i32 [ %.pre, %_.exit351 ], [ %310, %300 ]
   %354 = icmp slt i32 %353, 1
   br i1 %354, label %359, label %355
 

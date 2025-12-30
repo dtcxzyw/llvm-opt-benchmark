@@ -1717,7 +1717,7 @@ switch.lookup:                                    ; preds = %10
   br label %14
 
 14:                                               ; preds = %10, %switch.lookup, %9
-  %.1 = phi ptr [ %switch.load, %switch.lookup ], [ %8, %9 ], [ @.str.12, %10 ]
+  %.1 = phi ptr [ %8, %9 ], [ %switch.load, %switch.lookup ], [ @.str.12, %10 ]
   ret ptr %.1
 
 15:                                               ; preds = %5

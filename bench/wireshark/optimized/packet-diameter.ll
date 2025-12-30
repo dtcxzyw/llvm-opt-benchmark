@@ -2758,7 +2758,7 @@ check_diameter.exit:                              ; preds = %13
   br label %check_diameter.exit.thread
 
 check_diameter.exit.thread:                       ; preds = %13, %9, %7, %4, %check_diameter.exit, %18
-  %.not9 = phi i1 [ true, %18 ], [ false, %check_diameter.exit ], [ false, %4 ], [ false, %7 ], [ false, %9 ], [ false, %13 ]
+  %.not9 = phi i1 [ false, %check_diameter.exit ], [ true, %18 ], [ false, %4 ], [ false, %7 ], [ false, %9 ], [ false, %13 ]
   ret i1 %.not9
 }
 
@@ -2812,7 +2812,7 @@ define internal noundef i32 @dissect_diameter_user_name(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %4, %5, %12, %16, %18, %13, %9
-  %.026 = phi i32 [ %19, %18 ], [ %10, %9 ], [ %14, %13 ], [ 0, %16 ], [ 0, %12 ], [ 0, %5 ], [ 0, %4 ]
+  %.026 = phi i32 [ %10, %9 ], [ %14, %13 ], [ %19, %18 ], [ 0, %16 ], [ 0, %12 ], [ 0, %5 ], [ 0, %4 ]
   ret i32 %.026
 }
 
@@ -3003,7 +3003,7 @@ define internal noundef i32 @dissect_diameter_subscription_id_data(ptr noundef %
   br label %13
 
 13:                                               ; preds = %4, %10, %7
-  %.0 = phi i32 [ %11, %10 ], [ %8, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ %8, %7 ], [ %11, %10 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -3104,7 +3104,7 @@ define internal range(i32 0, 17) i32 @dissect_diameter_user_equipment_info_value
   br label %45
 
 45:                                               ; preds = %4, %19, %27, %35, %43, %40, %32, %24, %15, %12, %9
-  %.0 = phi i32 [ 8, %40 ], [ 8, %9 ], [ 16, %12 ], [ 15, %15 ], [ 6, %24 ], [ 8, %32 ], [ 0, %43 ], [ 0, %35 ], [ 0, %27 ], [ 0, %19 ], [ 0, %4 ]
+  %.0 = phi i32 [ 8, %9 ], [ 16, %12 ], [ 15, %15 ], [ 6, %24 ], [ 8, %32 ], [ 8, %40 ], [ 0, %43 ], [ 0, %35 ], [ 0, %27 ], [ 0, %19 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -3441,8 +3441,8 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %188, ptr noundef nonnull align 8 dereferenceable(16) %189, i64 16, i1 false)
   br label %.thread164
 
-.thread164:                                       ; preds = %159, %152, %147, %.thread160, %163
-  %.1 = phi ptr [ %165, %163 ], [ %180, %.thread160 ], [ %146, %152 ], [ %146, %147 ], [ %158, %159 ]
+.thread164:                                       ; preds = %159, %147, %152, %.thread160, %163
+  %.1 = phi ptr [ %165, %163 ], [ %180, %.thread160 ], [ %146, %147 ], [ %146, %152 ], [ %158, %159 ]
   %190 = load i64, ptr %6, align 8
   %191 = and i64 %190, 128
   %192 = icmp ne i64 %191, 0
@@ -4024,7 +4024,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   br label %216
 
 216:                                              ; preds = %.loopexit, %213, %150, %153, %59
-  %.0176 = phi i32 [ %65, %59 ], [ %77, %150 ], [ %77, %153 ], [ %77, %213 ], [ %77, %.loopexit ]
+  %.0176 = phi i32 [ %65, %59 ], [ %77, %153 ], [ %77, %150 ], [ %77, %213 ], [ %77, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4193,7 +4193,7 @@ define internal fastcc void @call_avp_subdissector(i32 noundef %0, i32 noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %22, %25, %24, %23
-  %diameter_dissector_table.sink = phi ptr [ @diameter_3gpp_avp_dissector_table, %25 ], [ @diameter_ericsson_avp_dissector_table, %23 ], [ @diameter_verizon_avp_dissector_table, %24 ], [ @diameter_dissector_table, %22 ]
+  %diameter_dissector_table.sink = phi ptr [ @diameter_ericsson_avp_dissector_table, %23 ], [ @diameter_verizon_avp_dissector_table, %24 ], [ @diameter_3gpp_avp_dissector_table, %25 ], [ @diameter_dissector_table, %22 ]
   %26 = load ptr, ptr %diameter_dissector_table.sink, align 8
   %27 = call i32 @dissector_try_uint_with_data(ptr noundef %26, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5)
   br label %28
@@ -5446,8 +5446,8 @@ define internal ptr @address_rfc_avp(ptr noundef readonly captures(none) %0, ptr
   br label %32
 
 32:                                               ; preds = %4, %30, %25, %20
-  %.sink = phi i64 [ %., %30 ], [ 12, %25 ], [ 8, %20 ], [ 20, %4 ]
-  %.sink54 = phi i32 [ %.56, %30 ], [ 16, %25 ], [ 4, %20 ], [ -1, %4 ]
+  %.sink = phi i64 [ 8, %20 ], [ 12, %25 ], [ %., %30 ], [ 20, %4 ]
+  %.sink54 = phi i32 [ 4, %20 ], [ 16, %25 ], [ %.56, %30 ], [ -1, %4 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink
   %34 = load i32, ptr %33, align 4
   %35 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %34, ptr noundef %2, i32 noundef 2, i32 noundef %.sink54, i32 noundef 0)
@@ -5469,7 +5469,7 @@ define internal ptr @address_rfc_avp(ptr noundef readonly captures(none) %0, ptr
   br label %47
 
 47:                                               ; preds = %32, %37, %26, %21
-  %.0 = phi ptr [ @.str.136, %26 ], [ @.str.136, %21 ], [ %46, %37 ], [ null, %32 ]
+  %.0 = phi ptr [ @.str.136, %21 ], [ @.str.136, %26 ], [ %46, %37 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

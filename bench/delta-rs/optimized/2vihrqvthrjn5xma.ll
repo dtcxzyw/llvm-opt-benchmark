@@ -1281,8 +1281,8 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   br label %.thread.i
 
 .thread.i:                                        ; preds = %215, %211
-  %222 = phi i8 [ %213, %211 ], [ %.pre22.i, %215 ]
-  %.sroa.4.0.ph.i = phi i64 [ %.sroa.6.1.i.i.i, %211 ], [ %221, %215 ]
+  %222 = phi i8 [ %.pre22.i, %215 ], [ %213, %211 ]
+  %.sroa.4.0.ph.i = phi i64 [ %221, %215 ], [ %.sroa.6.1.i.i.i, %211 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.010.i, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false), !noalias !133
   %223 = load ptr, ptr %8, align 8, !noalias !125, !noundef !4
@@ -1420,7 +1420,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
           to label %.noexc20 unwind label %271
 
 .critedge:                                        ; preds = %264, %.body, %.noexc20
-  %.pn24 = phi { ptr, i32 } [ %eh.lpad-body, %264 ], [ %eh.lpad-body, %.body ], [ %274, %.noexc20 ]
+  %.pn24 = phi { ptr, i32 } [ %274, %.noexc20 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %264 ]
   resume { ptr, i32 } %.pn24
 
 .noexc20:                                         ; preds = %278, %273
@@ -1781,8 +1781,8 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   br label %.thread.i
 
 .thread.i:                                        ; preds = %215, %211
-  %222 = phi i8 [ %213, %211 ], [ %.pre22.i, %215 ]
-  %.sroa.4.0.ph.i = phi i64 [ %.sroa.6.1.i.i.i, %211 ], [ %221, %215 ]
+  %222 = phi i8 [ %.pre22.i, %215 ], [ %213, %211 ]
+  %.sroa.4.0.ph.i = phi i64 [ %221, %215 ], [ %.sroa.6.1.i.i.i, %211 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.010.i, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false), !noalias !256
   %223 = load ptr, ptr %8, align 8, !noalias !248, !noundef !4
@@ -1920,7 +1920,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
           to label %.noexc20 unwind label %271
 
 .critedge:                                        ; preds = %264, %.body, %.noexc20
-  %.pn24 = phi { ptr, i32 } [ %eh.lpad-body, %264 ], [ %eh.lpad-body, %.body ], [ %274, %.noexc20 ]
+  %.pn24 = phi { ptr, i32 } [ %274, %.noexc20 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %264 ]
   resume { ptr, i32 } %.pn24
 
 .noexc20:                                         ; preds = %278, %273

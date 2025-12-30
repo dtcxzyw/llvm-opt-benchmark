@@ -4007,7 +4007,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_set_features(ptr noun
   br label %.thread7
 
 .thread7:                                         ; preds = %145, %172, %169, %161
-  %173 = phi i32 [ %166, %161 ], [ %166, %172 ], [ %166, %169 ], [ 4, %145 ]
+  %173 = phi i32 [ %166, %172 ], [ %166, %169 ], [ %166, %161 ], [ 4, %145 ]
   %174 = load ptr, ptr %92, align 8
   %175 = icmp eq ptr %174, null
   %176 = select i1 %175, i32 -16, i32 -20
@@ -4275,7 +4275,7 @@ define dso_local i32 @jbd2_journal_load(ptr noundef %0) #1 align 16 {
   br label %149
 
 149:                                              ; preds = %16, %34, %.thread12, %144, %45, %39
-  %150 = phi i32 [ %37, %39 ], [ -117, %45 ], [ %145, %144 ], [ 0, %.thread12 ], [ -22, %16 ], [ -12, %34 ]
+  %150 = phi i32 [ %37, %39 ], [ -117, %45 ], [ %145, %144 ], [ 0, %.thread12 ], [ -12, %34 ], [ -22, %16 ]
   ret i32 %150
 }
 
@@ -5287,10 +5287,10 @@ select.unfold.loopexit:                           ; preds = %101
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.loopexit, %.thread, %jbd2_free.exit.thread3
-  %204 = phi i32 [ %21, %.thread ], [ %105, %jbd2_free.exit.thread3 ], [ %105, %select.unfold.loopexit ]
-  %205 = phi i32 [ 1, %.thread ], [ 1, %jbd2_free.exit.thread3 ], [ 0, %select.unfold.loopexit ]
-  %206 = phi ptr [ %86, %.thread ], [ %189, %jbd2_free.exit.thread3 ], [ %86, %select.unfold.loopexit ]
-  %207 = phi i32 [ %99, %.thread ], [ %201, %jbd2_free.exit.thread3 ], [ %203, %select.unfold.loopexit ]
+  %204 = phi i32 [ %105, %jbd2_free.exit.thread3 ], [ %21, %.thread ], [ %105, %select.unfold.loopexit ]
+  %205 = phi i32 [ 1, %jbd2_free.exit.thread3 ], [ 1, %.thread ], [ 0, %select.unfold.loopexit ]
+  %206 = phi ptr [ %189, %jbd2_free.exit.thread3 ], [ %86, %.thread ], [ %86, %select.unfold.loopexit ]
+  %207 = phi i32 [ %201, %jbd2_free.exit.thread3 ], [ %99, %.thread ], [ %203, %select.unfold.loopexit ]
   %208 = icmp eq i32 %204, 0
   br i1 %208, label %select.unfold._crit_edge, label %select.unfold..thread4_crit_edge
 
@@ -5376,8 +5376,8 @@ select.unfold..thread4_crit_edge:                 ; preds = %select.unfold
   %243 = or disjoint i32 %242, %217
   br label %jbd2_free.exit.thread
 
-jbd2_free.exit.thread:                            ; preds = %111, %112, %241
-  %244 = phi i32 [ %243, %241 ], [ -12, %112 ], [ -12, %111 ]
+jbd2_free.exit.thread:                            ; preds = %112, %111, %241
+  %244 = phi i32 [ %243, %241 ], [ -12, %111 ], [ -12, %112 ]
   ret i32 %244
 }
 
@@ -6217,7 +6217,7 @@ define dso_local i32 @jbd2_fc_get_buf(ptr noundef %0, ptr noundef writeonly capt
   br label %56
 
 56:                                               ; preds = %.thread6, %2, %52, %36, %32
-  %57 = phi i32 [ 0, %52 ], [ -12, %36 ], [ %33, %32 ], [ -22, %2 ], [ -5, %.thread6 ]
+  %57 = phi i32 [ 0, %52 ], [ %33, %32 ], [ -12, %36 ], [ -22, %2 ], [ -5, %.thread6 ]
   ret i32 %57
 }
 
@@ -7022,7 +7022,7 @@ define internal fastcc ptr @journal_init_common(ptr noundef %0, ptr noundef %1, 
   store ptr null, ptr %45, align 8
   br label %328
 
-.thread16:                                        ; preds = %81, %110, %143, %149
+.thread16:                                        ; preds = %110, %143, %81, %149
   %160 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %161 = load i32, ptr %160, align 4
   %162 = call i32 @llvm.bswap.i32(i32 %161)
@@ -7156,8 +7156,8 @@ define internal fastcc ptr @journal_init_common(ptr noundef %0, ptr noundef %1, 
   br label %.thread17
 
 .thread17:                                        ; preds = %219, %236, %233, %225
-  %237 = phi ptr [ %221, %225 ], [ %.pre, %236 ], [ %221, %233 ], [ %221, %219 ]
-  %238 = phi i32 [ %230, %225 ], [ %230, %236 ], [ %230, %233 ], [ 4, %219 ]
+  %237 = phi ptr [ %.pre, %236 ], [ %221, %233 ], [ %221, %225 ], [ %221, %219 ]
+  %238 = phi i32 [ %230, %236 ], [ %230, %233 ], [ %230, %225 ], [ 4, %219 ]
   %239 = load ptr, ptr %202, align 8
   %240 = icmp eq ptr %239, null
   %241 = select i1 %240, i32 -16, i32 -20
@@ -7306,7 +7306,7 @@ define internal fastcc ptr @journal_init_common(ptr noundef %0, ptr noundef %1, 
   br label %346
 
 328:                                              ; preds = %.thread20, %43, %159, %268, %308, %304, %298, %270
-  %329 = phi i32 [ -12, %308 ], [ %289, %270 ], [ %306, %304 ], [ -12, %298 ], [ %155, %159 ], [ -5, %43 ], [ -5, %268 ], [ -12, %.thread20 ]
+  %329 = phi i32 [ %289, %270 ], [ %306, %304 ], [ -12, %298 ], [ -12, %308 ], [ %155, %159 ], [ -5, %43 ], [ -5, %268 ], [ -12, %.thread20 ]
   %330 = getelementptr inbounds nuw i8, ptr %9, i64 832
   call void @percpu_counter_destroy_many(ptr noundef nonnull %330, i32 noundef 1) #20
   %331 = getelementptr inbounds nuw i8, ptr %9, i64 1368
@@ -7757,7 +7757,7 @@ define dso_local void @jbd2_journal_clear_features(ptr noundef captures(none) in
   br label %.thread
 
 .thread:                                          ; preds = %4, %43, %39, %31
-  %44 = phi i32 [ %36, %31 ], [ %36, %43 ], [ %36, %39 ], [ 4, %4 ]
+  %44 = phi i32 [ %36, %43 ], [ %36, %39 ], [ %36, %31 ], [ 4, %4 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null

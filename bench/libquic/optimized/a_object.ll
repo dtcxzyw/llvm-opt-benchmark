@@ -47,7 +47,7 @@ define hidden i32 @i2d_ASN1_OBJECT(ptr noundef readonly captures(address_is_null
   br label %25
 
 25:                                               ; preds = %9, %2, %5, %14
-  %.0 = phi i32 [ %12, %14 ], [ 0, %2 ], [ 0, %5 ], [ %12, %9 ]
+  %.0 = phi i32 [ %12, %14 ], [ 0, %5 ], [ 0, %2 ], [ %12, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -305,9 +305,9 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   br label %.thread172
 
 .thread172:                                       ; preds = %.thread172.loopexit273, %.thread172.loopexit, %76
-  %.2125 = phi i32 [ %86, %.thread172.loopexit ], [ 0, %76 ], [ %87, %.thread172.loopexit273 ]
-  %.4113 = phi ptr [ %.1110263, %.thread172.loopexit ], [ %.2111, %76 ], [ %.2111, %.thread172.loopexit273 ]
-  %.3108 = phi i32 [ %.0105264, %.thread172.loopexit ], [ %.1106, %76 ], [ %.1106, %.thread172.loopexit273 ]
+  %.2125 = phi i32 [ 0, %76 ], [ %86, %.thread172.loopexit ], [ %87, %.thread172.loopexit273 ]
+  %.4113 = phi ptr [ %.2111, %76 ], [ %.1110263, %.thread172.loopexit ], [ %.2111, %.thread172.loopexit273 ]
+  %.3108 = phi i32 [ %.1106, %76 ], [ %.0105264, %.thread172.loopexit ], [ %.1106, %.thread172.loopexit273 ]
   %88 = add nsw i32 %.2125, %.0119261
   br i1 %.not152, label %105, label %89
 
@@ -376,8 +376,8 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   br label %.thread188
 
 .loopexit:                                        ; preds = %62, %.thread161, %46, %41, %.thread, %94, %60, %36, %29
-  %.0109 = phi ptr [ %.1110263, %.thread161 ], [ %.1110263, %29 ], [ %.1110263, %60 ], [ %.4113, %94 ], [ %.1110263, %36 ], [ %.1110263, %.thread ], [ %.1110263, %41 ], [ %.1110263, %46 ], [ %.1110263, %62 ]
-  %.097 = phi ptr [ %.3167, %.thread161 ], [ %.1266, %29 ], [ %.2.lcssa.ph, %60 ], [ %.2.lcssa.ph, %94 ], [ %.2229, %36 ], [ %.3167, %46 ], [ null, %41 ], [ %.4160, %.thread ], [ %.2.lcssa.ph, %62 ]
+  %.0109 = phi ptr [ %.1110263, %29 ], [ %.1110263, %60 ], [ %.4113, %94 ], [ %.1110263, %36 ], [ %.1110263, %.thread ], [ %.1110263, %41 ], [ %.1110263, %46 ], [ %.1110263, %.thread161 ], [ %.1110263, %62 ]
+  %.097 = phi ptr [ %.1266, %29 ], [ %.2.lcssa.ph, %60 ], [ %.2.lcssa.ph, %94 ], [ %.2229, %36 ], [ %.3167, %.thread161 ], [ %.3167, %46 ], [ null, %41 ], [ %.4160, %.thread ], [ %.2.lcssa.ph, %62 ]
   %.not155 = icmp eq ptr %.0109, %5
   br i1 %.not155, label %110, label %.thread182
 
@@ -388,7 +388,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   br label %110
 
 110:                                              ; preds = %.thread182, %.loopexit
-  %.097181 = phi ptr [ %.097, %.loopexit ], [ %.097187, %.thread182 ]
+  %.097181 = phi ptr [ %.097187, %.thread182 ], [ %.097, %.loopexit ]
   %.not156 = icmp eq ptr %.097181, null
   br i1 %.not156, label %.thread188, label %111
 
@@ -397,7 +397,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   br label %.thread188
 
 .thread188:                                       ; preds = %18, %17, %16, %110, %111, %108, %109, %4
-  %.0122 = phi i32 [ %3, %4 ], [ %.2121, %108 ], [ %.2121, %109 ], [ 0, %111 ], [ 0, %110 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ]
+  %.0122 = phi i32 [ %3, %4 ], [ %.2121, %109 ], [ %.2121, %108 ], [ 0, %111 ], [ 0, %110 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0122
 }
@@ -691,7 +691,7 @@ ASN1_OBJECT_new.exit:                             ; preds = %33
   br label %61
 
 61:                                               ; preds = %ASN1_OBJECT_new.exit.thread, %58, %60, %57, %21, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %21 ], [ %.059, %57 ], [ null, %ASN1_OBJECT_new.exit.thread ], [ null, %60 ], [ null, %58 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %21 ], [ %.059, %57 ], [ null, %60 ], [ null, %58 ], [ null, %ASN1_OBJECT_new.exit.thread ]
   ret ptr %.0
 }
 

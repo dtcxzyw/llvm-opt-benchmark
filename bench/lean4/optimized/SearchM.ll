@@ -1530,7 +1530,7 @@ lean_inc.exit239:                                 ; preds = %71, %70, %68, %lean
   br label %lean_dec.exit210
 
 lean_dec.exit210:                                 ; preds = %77, %81, %90, %89, %87
-  %.0.i201415 = phi ptr [ %84, %90 ], [ %84, %87 ], [ %84, %89 ], [ %82, %81 ], [ %80, %77 ]
+  %.0.i201415 = phi ptr [ %84, %87 ], [ %84, %89 ], [ %84, %90 ], [ %82, %81 ], [ %80, %77 ]
   store ptr %.0.i201415, ptr %53, align 8, !tbaa !10
   %91 = tail call ptr @lean_st_ref_take(ptr noundef %0, ptr noundef %32) #6
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -2290,7 +2290,7 @@ lean_inc.exit223:                                 ; preds = %358, %357, %355, %l
   br label %lean_dec.exit203
 
 lean_dec.exit203:                                 ; preds = %364, %368, %377, %376, %374
-  %.0.i417 = phi ptr [ %371, %377 ], [ %371, %374 ], [ %371, %376 ], [ %369, %368 ], [ %367, %364 ]
+  %.0.i417 = phi ptr [ %371, %374 ], [ %371, %376 ], [ %371, %377 ], [ %369, %368 ], [ %367, %364 ]
   tail call void @lean_inc_heartbeat() #6
   %378 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
   %379 = icmp eq ptr %378, null

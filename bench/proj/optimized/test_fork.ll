@@ -119,7 +119,7 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   %exitcond78 = icmp eq i32 %44, 100
   br i1 %exitcond78, label %.thread68, label %14
 
-45:                                               ; preds = %.thread60, %39
+45:                                               ; preds = %39, %.thread60
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %48
 
@@ -129,7 +129,7 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %45, %.thread58, %.thread, %.thread68
-  %.1 = phi i32 [ 0, %.thread68 ], [ 1, %45 ], [ 1, %.thread58 ], [ 1, %.thread ]
+  %.1 = phi i32 [ 0, %.thread68 ], [ 1, %45 ], [ 1, %.thread ], [ 1, %.thread58 ]
   ret i32 %.1
 }
 

@@ -251,8 +251,8 @@ collectargs.exit.loopexit:                        ; preds = %14
   br label %collectargs.exit
 
 collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21, %26, %31, %42, %48, %14, %collectargs.exit.loopexit, %17, %9, %1
-  %.061 = phi i32 [ %.062.i, %14 ], [ -1, %1 ], [ %spec.select, %17 ], [ 0, %9 ], [ 0, %51 ], [ %.062.i, %48 ], [ %.062.i, %42 ], [ %.062.i, %31 ], [ %.062.i, %26 ], [ %.062.i, %21 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %collectargs.exit.loopexit ]
-  %.041.i = phi i32 [ %.03961.i, %14 ], [ 0, %1 ], [ %spec.select101, %17 ], [ 0, %9 ], [ %.3.i, %51 ], [ 1, %48 ], [ 1, %42 ], [ 1, %31 ], [ 1, %26 ], [ 1, %21 ], [ %.03961.i, %.lr.ph.i ], [ 1, %collectargs.exit.loopexit ]
+  %.061 = phi i32 [ -1, %1 ], [ 0, %9 ], [ %spec.select, %17 ], [ %.062.i, %14 ], [ 0, %51 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %48 ], [ %.062.i, %42 ], [ %.062.i, %31 ], [ %.062.i, %26 ], [ %.062.i, %21 ], [ %.062.i, %collectargs.exit.loopexit ]
+  %.041.i = phi i32 [ 0, %1 ], [ 0, %9 ], [ %spec.select101, %17 ], [ %.03961.i, %14 ], [ %.3.i, %51 ], [ %.03961.i, %.lr.ph.i ], [ 1, %48 ], [ 1, %42 ], [ 1, %31 ], [ 1, %26 ], [ 1, %21 ], [ 1, %collectargs.exit.loopexit ]
   %56 = icmp sgt i32 %.061, 0
   %57 = select i1 %56, i32 %.061, i32 %3
   tail call void @luaL_checkversion_(ptr noundef %0, double noundef 5.050000e+02, i64 noundef 136) #10
@@ -475,7 +475,7 @@ dolibrary.exit.i:                                 ; preds = %125
   br label %146
 
 146:                                              ; preds = %145, %dolibrary.exit.i, %dolibrary.exit.thread.i, %.lr.ph.i49
-  %.327.i = phi i32 [ %.02431.i, %145 ], [ %.02431.i, %.lr.ph.i49 ], [ %.226.i, %dolibrary.exit.i ], [ %.226.i, %dolibrary.exit.thread.i ]
+  %.327.i = phi i32 [ %.02431.i, %.lr.ph.i49 ], [ %.02431.i, %145 ], [ %.226.i, %dolibrary.exit.i ], [ %.226.i, %dolibrary.exit.thread.i ]
   %147 = add nsw i32 %.327.i, 1
   %148 = icmp slt i32 %147, %57
   br i1 %148, label %.lr.ph.i49, label %runargs.exit
@@ -518,7 +518,7 @@ sub_2.i:                                          ; preds = %sub_119.i
   br label %.tail17.i
 
 .tail17.i:                                        ; preds = %sub_2.i, %sub_119.i, %sub_018.i, %.tail.i, %149
-  %.010.i = phi ptr [ %152, %.tail.i ], [ %165, %sub_2.i ], [ null, %sub_018.i ], [ null, %sub_119.i ], [ %152, %149 ]
+  %.010.i = phi ptr [ %152, %.tail.i ], [ null, %sub_018.i ], [ null, %sub_119.i ], [ %165, %sub_2.i ], [ %152, %149 ]
   %166 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef %.010.i, ptr noundef null) #10
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %handle_script.exit
@@ -630,7 +630,7 @@ dofile.exit:                                      ; preds = %.thread.i.i, %202, 
   br label %runargs.exit.thread
 
 runargs.exit.thread:                              ; preds = %dolibrary.exit.i, %dolibrary.exit.thread29.i, %handle_script.exit, %handle_luainit.exit.thread64, %handle_luainit.exit, %dofile.exit, %59
-  %.0 = phi i32 [ 0, %59 ], [ 0, %handle_luainit.exit.thread64 ], [ 1, %dofile.exit ], [ 0, %handle_luainit.exit ], [ 0, %handle_script.exit ], [ 0, %dolibrary.exit.thread29.i ], [ 0, %dolibrary.exit.i ]
+  %.0 = phi i32 [ 0, %59 ], [ 1, %dofile.exit ], [ 0, %handle_luainit.exit ], [ 0, %handle_script.exit ], [ 0, %handle_luainit.exit.thread64 ], [ 0, %dolibrary.exit.thread29.i ], [ 0, %dolibrary.exit.i ]
   ret i32 %.0
 }
 

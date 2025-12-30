@@ -119,7 +119,7 @@ define internal i32 @md_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 
   br label %12
 
 12:                                               ; preds = %8, %3
-  %.0 = phi i32 [ %spec.select, %8 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -209,7 +209,7 @@ define internal i64 @md_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br label %.thread
 
 .thread:                                          ; preds = %7, %20, %24, %34, %35, %14, %9, %18, %23, %30, %26, %16, %21, %31
-  %.0 = phi i64 [ 0, %31 ], [ %36, %35 ], [ %15, %14 ], [ %12, %9 ], [ 1, %18 ], [ 1, %34 ], [ 1, %20 ], [ 1, %23 ], [ 0, %16 ], [ %25, %24 ], [ %28, %30 ], [ %28, %26 ], [ 0, %21 ], [ 0, %7 ]
+  %.0 = phi i64 [ 0, %31 ], [ %36, %35 ], [ %15, %14 ], [ %12, %9 ], [ 1, %18 ], [ 1, %20 ], [ 1, %23 ], [ %25, %24 ], [ %28, %30 ], [ %28, %26 ], [ 1, %34 ], [ 0, %16 ], [ 0, %21 ], [ 0, %7 ]
   ret i64 %.0
 }
 

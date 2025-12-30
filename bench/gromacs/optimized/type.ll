@@ -3705,7 +3705,7 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
   br i1 %.not45, label %29, label %.loopexit
 
 .loopexit:                                        ; preds = %30, %35, %29, %.preheader47, %18, %13
-  %.1 = phi ptr [ %.03659, %13 ], [ %.03659, %18 ], [ %15, %.preheader47 ], [ %.03659, %35 ], [ %.03659, %30 ], [ %15, %29 ]
+  %.1 = phi ptr [ %.03659, %18 ], [ %.03659, %13 ], [ %15, %.preheader47 ], [ %.03659, %30 ], [ %.03659, %35 ], [ %15, %29 ]
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %._crit_edge, label %13, !llvm.loop !179
@@ -3749,8 +3749,8 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %._crit_edge.thread, %48
-  %.036.lcssa8890 = phi ptr [ %2, %._crit_edge.thread ], [ %.1, %48 ], [ %.1, %43 ]
-  %54 = phi ptr [ %41, %._crit_edge.thread ], [ %.pre, %48 ], [ %40, %43 ]
+  %.036.lcssa8890 = phi ptr [ %.1, %48 ], [ %2, %._crit_edge.thread ], [ %.1, %43 ]
+  %54 = phi ptr [ %.pre, %48 ], [ %41, %._crit_edge.thread ], [ %40, %43 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !155
   tail call void @free(ptr noundef %56) #6

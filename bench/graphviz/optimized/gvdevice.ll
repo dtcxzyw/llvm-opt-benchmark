@@ -351,7 +351,7 @@ auto_output_filename.exit:                        ; preds = %agxbclear.exit.thre
   br label %135
 
 135:                                              ; preds = %122, %.thread, %130, %111
-  %.0 = phi i32 [ 1, %111 ], [ 1, %130 ], [ 0, %.thread ], [ 0, %122 ]
+  %.0 = phi i32 [ 1, %130 ], [ 1, %111 ], [ 0, %.thread ], [ 0, %122 ]
   ret i32 %.0
 }
 
@@ -1174,7 +1174,7 @@ define void @gvprintdouble(ptr noundef %0, double noundef %1) local_unnamed_addr
   br label %gv_trim_zeros.exit
 
 gv_trim_zeros.exit:                               ; preds = %15, %.sink.split.i
-  %.0.i = phi i64 [ %23, %.sink.split.i ], [ %spec.select.i, %15 ]
+  %.0.i = phi i64 [ %spec.select.i, %15 ], [ %23, %.sink.split.i ]
   %24 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
@@ -1609,7 +1609,7 @@ agxbuf_trim_zeros.exit.thread:                    ; preds = %108
   br label %agxbsizeof.exit.i.i34
 
 agxbuf_trim_zeros.exit:                           ; preds = %70, %85, %agxblen.exit42.i, %101, %105, %109
-  %.val.i30 = phi i8 [ %110, %109 ], [ %.val.i39.i, %101 ], [ %.val.i39.i, %agxblen.exit42.i ], [ %.val.i3951.i, %85 ], [ %.val.i39.i, %105 ], [ %.val.i.i, %70 ]
+  %.val.i30 = phi i8 [ %110, %109 ], [ %.val.i39.i, %105 ], [ %.val.i39.i, %101 ], [ %.val.i39.i, %agxblen.exit42.i ], [ %.val.i3951.i, %85 ], [ %.val.i.i, %70 ]
   %.not.i31 = icmp eq i8 %.val.i30, -1
   br i1 %.not.i31, label %agxbsizeof.exit.i.i34, label %agxblen.exit.i32
 

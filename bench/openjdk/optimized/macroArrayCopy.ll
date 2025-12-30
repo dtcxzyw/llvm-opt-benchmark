@@ -1811,7 +1811,7 @@ select.unfold:                                    ; preds = %52, %35
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold, %52, %35
-  %.0 = phi i32 [ -1, %52 ], [ %spec.select, %select.unfold ], [ -1, %35 ]
+  %.0 = phi i32 [ -1, %35 ], [ -1, %52 ], [ %spec.select, %select.unfold ]
   %71 = tail call noundef i32 @_ZN13ArrayCopyNode36get_partial_inline_vector_lane_countE9BasicTypei(i8 noundef zeroext %9, i32 noundef %.0) #6
   %72 = sext i32 %.0 to i64
   %73 = load i64, ptr @ArrayOperationPartialInlineSize, align 8
@@ -3067,10 +3067,10 @@ _ZN11PhaseValues12find_int_conEP4Nodei.exit.thread: ; preds = %97, %89
   br label %110
 
 110:                                              ; preds = %97, %75, %84, %78, %106, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread
-  %.0333 = phi i1 [ true, %106 ], [ true, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread ], [ false, %78 ], [ false, %97 ], [ false, %84 ], [ false, %75 ]
-  %.0332.not = phi i1 [ false, %106 ], [ true, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread ], [ true, %78 ], [ true, %97 ], [ true, %84 ], [ true, %75 ]
-  %.0327 = phi ptr [ %109, %106 ], [ %6, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread ], [ %6, %78 ], [ %6, %97 ], [ %6, %84 ], [ %6, %75 ]
-  %.0326 = phi ptr [ %2, %106 ], [ %2, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread ], [ null, %78 ], [ null, %97 ], [ null, %84 ], [ null, %75 ]
+  %.0333 = phi i1 [ true, %106 ], [ true, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread ], [ false, %78 ], [ false, %84 ], [ false, %75 ], [ false, %97 ]
+  %.0332.not = phi i1 [ false, %106 ], [ true, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread ], [ true, %78 ], [ true, %84 ], [ true, %75 ], [ true, %97 ]
+  %.0327 = phi ptr [ %109, %106 ], [ %6, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread ], [ %6, %78 ], [ %6, %84 ], [ %6, %75 ], [ %6, %97 ]
+  %.0326 = phi ptr [ %2, %106 ], [ %2, %_ZN11PhaseValues12find_int_conEP4Nodei.exit.thread ], [ null, %78 ], [ null, %84 ], [ null, %75 ], [ null, %97 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = tail call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %112, ptr noundef %.0327, i1 noundef zeroext false, ptr noundef null) #6
@@ -4521,10 +4521,10 @@ _ZN4Node8init_reqEjPS_.exit493:                   ; preds = %_ZN4Node8init_reqEj
   br label %.critedge395
 
 .critedge395:                                     ; preds = %897, %908, %940
-  %.2348 = phi ptr [ %.0346, %897 ], [ %.0342, %940 ], [ %.0346, %908 ]
-  %.2345 = phi ptr [ %.0343, %897 ], [ %942, %940 ], [ %.0343, %908 ]
-  %.2341 = phi ptr [ %.0339, %897 ], [ %944, %940 ], [ %.0339, %908 ]
-  %.2 = phi ptr [ %.0337, %897 ], [ %941, %940 ], [ %.0337, %908 ]
+  %.2348 = phi ptr [ %.0342, %940 ], [ %.0346, %908 ], [ %.0346, %897 ]
+  %.2345 = phi ptr [ %942, %940 ], [ %.0343, %908 ], [ %.0343, %897 ]
+  %.2341 = phi ptr [ %944, %940 ], [ %.0339, %908 ], [ %.0339, %897 ]
+  %.2 = phi ptr [ %941, %940 ], [ %.0337, %908 ], [ %.0337, %897 ]
   %945 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %946 = getelementptr inbounds nuw i8, ptr %945, i64 40
   %947 = load ptr, ptr %946, align 8
@@ -7278,7 +7278,7 @@ _ZN4NodenwEm.exit92:                              ; preds = %270, %272
   br label %282
 
 282:                                              ; preds = %61, %50, %_ZN11PhaseValues12find_int_conEP4Nodei.exit74, %13, %278
-  %.0 = phi i1 [ false, %_ZN11PhaseValues12find_int_conEP4Nodei.exit74 ], [ false, %13 ], [ true, %278 ], [ false, %50 ], [ false, %61 ]
+  %.0 = phi i1 [ true, %278 ], [ false, %13 ], [ false, %_ZN11PhaseValues12find_int_conEP4Nodei.exit74 ], [ false, %50 ], [ false, %61 ]
   ret i1 %.0
 }
 
@@ -7640,7 +7640,7 @@ _ZN4Node8init_reqEjPS_.exit58:                    ; preds = %_ZN4Node8init_reqEj
   br label %104
 
 104:                                              ; preds = %36, %12, %99
-  %.0 = phi i1 [ false, %12 ], [ true, %99 ], [ false, %36 ]
+  %.0 = phi i1 [ true, %99 ], [ false, %12 ], [ false, %36 ]
   ret i1 %.0
 }
 

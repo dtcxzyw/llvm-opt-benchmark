@@ -323,7 +323,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   %.not153 = icmp eq i32 %141, 0
   br i1 %.not153, label %142, label %.thread181
 
-.thread181:                                       ; preds = %140, %107, %111, %113, %115
+.thread181:                                       ; preds = %107, %111, %113, %140, %115
   %.2.ph = phi i32 [ %141, %140 ], [ %114, %113 ], [ %112, %111 ], [ %110, %107 ], [ %139, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -340,7 +340,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   br i1 %.not154, label %.critedge, label %243
 
 .critedge:                                        ; preds = %84, %142
-  %.0111176 = phi i64 [ -1, %84 ], [ %.1112, %142 ]
+  %.0111176 = phi i64 [ %.1112, %142 ], [ -1, %84 ]
   %146 = call i32 @Curl_range(ptr noundef nonnull %0) #8
   %.not155 = icmp eq i32 %146, 0
   br i1 %.not155, label %147, label %243
@@ -441,7 +441,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   br label %191
 
 191:                                              ; preds = %189, %.preheader205.split.us.preheader
-  %.0119.us = phi i64 [ %187, %.preheader205.split.us.preheader ], [ %190, %189 ]
+  %.0119.us = phi i64 [ %190, %189 ], [ %187, %.preheader205.split.us.preheader ]
   %192 = load ptr, ptr %9, align 8, !tbaa !86
   %193 = call i64 @read(i32 noundef %86, ptr noundef %192, i64 noundef %.0119.us) #8
   %194 = icmp sgt i64 %193, 0
@@ -546,20 +546,20 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   br label %.thread198
 
 .thread198:                                       ; preds = %.preheader205.split.preheader, %195, %191, %.thread202
-  %.5 = phi i32 [ %.8, %.thread202 ], [ 0, %195 ], [ 0, %191 ], [ 0, %.preheader205.split.preheader ]
+  %.5 = phi i32 [ %.8, %.thread202 ], [ 0, %191 ], [ 0, %195 ], [ 0, %.preheader205.split.preheader ]
   %241 = call i32 @Curl_pgrsUpdate(ptr noundef %0) #8
   %.not168 = icmp eq i32 %241, 0
   %spec.select174 = select i1 %.not168, i32 %.5, i32 42
   br label %.thread193
 
 .thread193:                                       ; preds = %214, %221, %219, %204, %202, %199, %226, %.thread198, %179
-  %.1109 = phi i32 [ %180, %179 ], [ 26, %226 ], [ %spec.select174, %.thread198 ], [ %201, %199 ], [ 42, %202 ], [ %.fr.us, %204 ], [ 42, %219 ], [ %.fr, %221 ], [ %218, %214 ]
+  %.1109 = phi i32 [ %180, %179 ], [ %spec.select174, %.thread198 ], [ 26, %226 ], [ 42, %202 ], [ %201, %199 ], [ %.fr.us, %204 ], [ 42, %219 ], [ %218, %214 ], [ %.fr, %221 ]
   %242 = load ptr, ptr %9, align 8, !tbaa !86
   call void @Curl_multi_xfer_buf_release(ptr noundef %0, ptr noundef %242) #8
   br label %243
 
 243:                                              ; preds = %.thread181, %172, %177, %.critedge, %103, %142, %.thread193, %163, %152, %file_upload.exit
-  %.0 = phi i32 [ %.0.i, %file_upload.exit ], [ 0, %103 ], [ 36, %177 ], [ %146, %.critedge ], [ %.1109, %.thread193 ], [ 0, %142 ], [ 36, %172 ], [ 36, %163 ], [ 26, %152 ], [ %.2.ph, %.thread181 ]
+  %.0 = phi i32 [ %.0.i, %file_upload.exit ], [ %.1109, %.thread193 ], [ 36, %163 ], [ 26, %152 ], [ 0, %142 ], [ 0, %103 ], [ %146, %.critedge ], [ 36, %177 ], [ 36, %172 ], [ %.2.ph, %.thread181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -682,7 +682,7 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
   br label %file_done.exit
 
 file_done.exit:                                   ; preds = %43, %32, %9, %44, %17, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %44 ], [ 3, %17 ], [ %12, %9 ], [ 37, %32 ], [ 37, %43 ]
+  %.0 = phi i32 [ 0, %8 ], [ 3, %17 ], [ 0, %44 ], [ %12, %9 ], [ 37, %32 ], [ 37, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

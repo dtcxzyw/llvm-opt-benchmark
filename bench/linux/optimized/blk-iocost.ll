@@ -2626,8 +2626,8 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   br i1 %51, label %.loopexit18, label %.preheader17, !llvm.loop !22
 
 .loopexit18:                                      ; preds = %.preheader19, %48, %.preheader17, %39
-  %52 = phi ptr [ %40, %48 ], [ %40, %39 ], [ %40, %.preheader17 ], [ %21, %.preheader19 ]
-  %53 = phi ptr [ null, %48 ], [ null, %39 ], [ %44, %.preheader17 ], [ %29, %.preheader19 ]
+  %52 = phi ptr [ %40, %39 ], [ %40, %.preheader17 ], [ %40, %48 ], [ %21, %.preheader19 ]
+  %53 = phi ptr [ null, %39 ], [ null, %48 ], [ %44, %.preheader17 ], [ %29, %.preheader19 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !17
   call void @blk_mq_freeze_queue(ptr noundef %52) #22
   %54 = load ptr, ptr %20, align 8
@@ -2766,8 +2766,8 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   br label %164
 
 select.unfold:                                    ; preds = %81, %.preheader, %73, %77, %95, %103, %117
-  %124 = phi i8 [ %76, %73 ], [ %65, %.preheader ], [ %65, %95 ], [ %65, %77 ], [ %65, %117 ], [ %65, %103 ], [ %65, %81 ]
-  %125 = phi i8 [ %64, %73 ], [ %64, %.preheader ], [ 1, %95 ], [ 0, %77 ], [ 1, %117 ], [ 1, %103 ], [ 1, %81 ]
+  %124 = phi i8 [ %76, %73 ], [ %65, %.preheader ], [ %65, %77 ], [ %65, %117 ], [ %65, %103 ], [ %65, %95 ], [ %65, %81 ]
+  %125 = phi i8 [ %64, %73 ], [ %64, %.preheader ], [ 0, %77 ], [ 1, %117 ], [ 1, %103 ], [ 1, %95 ], [ 1, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2960,7 +2960,7 @@ define internal i64 @ioc_cost_model_write(ptr readnone captures(none) %0, ptr no
   br i1 %49, label %.loopexit19, label %.preheader18, !llvm.loop !22
 
 .loopexit19:                                      ; preds = %.preheader21, %46, %.preheader18, %39
-  %50 = phi ptr [ %42, %.preheader18 ], [ null, %39 ], [ null, %46 ], [ %27, %.preheader21 ]
+  %50 = phi ptr [ null, %39 ], [ %42, %.preheader18 ], [ null, %46 ], [ %27, %.preheader21 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !17
   call void @blk_mq_freeze_queue(ptr noundef %19) #22
   call void @blk_mq_quiesce_queue(ptr noundef %19) #22
@@ -3030,7 +3030,7 @@ define internal i64 @ioc_cost_model_write(ptr readnone captures(none) %0, ptr no
   br label %select.unfold
 
 select.unfold:                                    ; preds = %68, %71, %81, %.preheader, %64
-  %.ph = phi i8 [ %59, %71 ], [ 1, %81 ], [ 0, %64 ], [ %59, %.preheader ], [ 1, %68 ]
+  %.ph = phi i8 [ 0, %64 ], [ %59, %.preheader ], [ 1, %81 ], [ %59, %71 ], [ 1, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5804,7 +5804,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br label %1484
 
 1484:                                             ; preds = %1480, %1466, %1469, %1471, %1475
-  %1485 = phi i32 [ %spec.select, %1480 ], [ 0, %1469 ], [ %1468, %1466 ], [ 0, %1475 ], [ 0, %1471 ]
+  %1485 = phi i32 [ %1468, %1466 ], [ 0, %1475 ], [ 0, %1471 ], [ 0, %1469 ], [ %spec.select, %1480 ]
   %1486 = call i32 @llvm.smax.i32(i32 %1485, i32 -1000)
   %1487 = call i32 @llvm.smin.i32(i32 %1486, i32 1000)
   store i32 %1487, ptr %1457, align 8
@@ -7829,7 +7829,7 @@ iocg_unlock.exit:                                 ; preds = %.thread9, %.split.u
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %284, %270, %295, %290
-  %297 = phi i1 [ true, %290 ], [ true, %295 ], [ %257, %270 ], [ %257, %284 ]
+  %297 = phi i1 [ true, %295 ], [ true, %290 ], [ %257, %270 ], [ %257, %284 ]
   store i32 0, ptr %4, align 8
   %298 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %299 = getelementptr inbounds nuw i8, ptr %4, i64 16

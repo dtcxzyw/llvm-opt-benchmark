@@ -863,7 +863,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZN10open_spiel9solitaire12_GLOBAL__N_116TestMoveActionIdEv.exit
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit64.i: ; preds = %237, %228, %187, %.body129.i, %103, %.body107.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %.pn51.i = phi { ptr, i32 } [ %.pn.i, %228 ], [ %eh.lpad-body130.i, %187 ], [ %eh.lpad-body108.i, %103 ], [ %.pn48.pn.i, %237 ], [ %eh.lpad-body108.i, %.body107.i ], [ %eh.lpad-body130.i, %.body129.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit217.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit221.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit224.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit228.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn51.i = phi { ptr, i32 } [ %.pn48.pn.i, %237 ], [ %.pn.i, %228 ], [ %eh.lpad-body108.i, %.body107.i ], [ %eh.lpad-body108.i, %103 ], [ %eh.lpad-body130.i, %.body129.i ], [ %eh.lpad-body130.i, %187 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit217.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit221.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit224.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit228.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   %244 = load ptr, ptr %16, align 8
   %.not.i.i.i94.i = icmp eq ptr %244, null
   br i1 %.not.i.i.i94.i, label %_ZNSt6vectorIN10open_spiel9solitaire12LocationTypeESaIS2_EED2Ev.exit98.i, label %245
@@ -1241,8 +1241,8 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit23.i: ; preds = %363, %360
   br label %.body.i
 
 .body.i:                                          ; preds = %368, %356, %354, %352, %.body, %.body5
-  %.sink.i = phi ptr [ %6, %354 ], [ %6, %352 ], [ %6, %.body5 ], [ %9, %356 ], [ %9, %.body ], [ %9, %368 ]
-  %.pn6.pn.pn.i = phi { ptr, i32 } [ %355, %354 ], [ %353, %352 ], [ %258, %.body5 ], [ %357, %356 ], [ %268, %.body ], [ %.pn6.i, %368 ]
+  %.sink.i = phi ptr [ %6, %352 ], [ %6, %.body5 ], [ %6, %354 ], [ %9, %356 ], [ %9, %.body ], [ %9, %368 ]
+  %.pn6.pn.pn.i = phi { ptr, i32 } [ %353, %352 ], [ %258, %.body5 ], [ %355, %354 ], [ %357, %356 ], [ %268, %.body ], [ %.pn6.i, %368 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #21
   br label %common.resume
 

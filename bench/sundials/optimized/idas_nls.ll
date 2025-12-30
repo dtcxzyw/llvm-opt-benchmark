@@ -262,7 +262,7 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTest(ptr noundef %0, ptr read
   br label %37
 
 37:                                               ; preds = %33, %22, %17, %10, %9
-  %.0 = phi i32 [ -20, %9 ], [ 0, %17 ], [ -20, %10 ], [ %., %33 ], [ 902, %22 ]
+  %.0 = phi i32 [ -20, %9 ], [ -20, %10 ], [ 0, %17 ], [ 902, %22 ], [ %., %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

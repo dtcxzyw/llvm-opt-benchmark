@@ -768,7 +768,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   br label %39
 
 39:                                               ; preds = %6, %35, %36
-  %.080 = phi i32 [ 3, %36 ], [ 2, %35 ], [ 1, %6 ]
+  %.080 = phi i32 [ 2, %35 ], [ 3, %36 ], [ 1, %6 ]
   %40 = load ptr, ptr %7, align 8
   %41 = sext i32 %17 to i64
   %42 = getelementptr inbounds ptr, ptr %40, i64 %41
@@ -1035,7 +1035,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %45, %40, %37, %34, %31, %47, %56, %55
-  %.1 = phi i64 [ %57, %56 ], [ 0, %55 ], [ %48, %47 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %41, %40 ], [ %46, %45 ]
+  %.1 = phi i64 [ 0, %55 ], [ %57, %56 ], [ %48, %47 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %41, %40 ], [ %46, %45 ]
   ret i64 %.1
 }
 

@@ -306,13 +306,13 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   br i1 %exitcond243.not, label %.loopexit, label %87, !llvm.loop !27
 
 .loopexit:                                        ; preds = %100, %._crit_edge160.us.us.us, %.lr.ph168.split.us.split.us.split.us, %.preheader151.us.us, %.lr.ph168.split.us.split.us.split, %.lr.ph168.split.us, %._crit_edge, %.lr.ph197, %59
-  %.1133 = phi i32 [ %.0132184, %.lr.ph197 ], [ %.0132184, %59 ], [ %.0132184, %._crit_edge ], [ %.0132184, %.lr.ph168.split.us.split.us.split ], [ %.0132184, %.lr.ph168.split.us.split.us.split.us ], [ %.0132184, %.lr.ph168.split.us ], [ %73, %.preheader151.us.us ], [ %73, %._crit_edge160.us.us.us ], [ %.3135, %100 ]
-  %.1129 = phi i32 [ %.0128185, %.lr.ph197 ], [ %.0128185, %59 ], [ %.0128185, %._crit_edge ], [ %.0128185, %.lr.ph168.split.us.split.us.split ], [ %.0128185, %.lr.ph168.split.us.split.us.split.us ], [ %.0128185, %.lr.ph168.split.us ], [ 0, %.preheader151.us.us ], [ %80, %._crit_edge160.us.us.us ], [ %.3131, %100 ]
-  %.1125 = phi i32 [ %.0124186, %.lr.ph197 ], [ %.0124186, %59 ], [ %.0124186, %._crit_edge ], [ %.0124186, %.lr.ph168.split.us.split.us.split ], [ %.0124186, %.lr.ph168.split.us.split.us.split.us ], [ %.0124186, %.lr.ph168.split.us ], [ %84, %.preheader151.us.us ], [ %82, %._crit_edge160.us.us.us ], [ %.3127, %100 ]
-  %.3114 = phi i32 [ %.2113192, %.lr.ph197 ], [ %60, %59 ], [ %.2113192, %._crit_edge ], [ %.2113192, %.lr.ph168.split.us.split.us.split ], [ %.2113192, %.lr.ph168.split.us.split.us.split.us ], [ %.2113192, %.lr.ph168.split.us ], [ %.2113192, %.preheader151.us.us ], [ %.2113192, %._crit_edge160.us.us.us ], [ %.2113192, %100 ]
-  %.3110 = phi i32 [ %.2109193, %.lr.ph197 ], [ %31, %59 ], [ %.2109193, %._crit_edge ], [ %.2109193, %.lr.ph168.split.us.split.us.split ], [ %.2109193, %.lr.ph168.split.us.split.us.split.us ], [ %.2109193, %.lr.ph168.split.us ], [ %.2109193, %.preheader151.us.us ], [ %.2109193, %._crit_edge160.us.us.us ], [ %.2109193, %100 ]
-  %.3106 = phi i32 [ %.2105194, %.lr.ph197 ], [ %61, %59 ], [ %.2105194, %._crit_edge ], [ %.2105194, %.lr.ph168.split.us.split.us.split ], [ %.2105194, %.lr.ph168.split.us.split.us.split.us ], [ %.2105194, %.lr.ph168.split.us ], [ %.2105194, %.preheader151.us.us ], [ %.2105194, %._crit_edge160.us.us.us ], [ %.2105194, %100 ]
-  %.1 = phi i64 [ %.0195, %.lr.ph197 ], [ %.0195, %59 ], [ %.0195, %._crit_edge ], [ %.0195, %.lr.ph168.split.us.split.us.split ], [ %.0195, %.lr.ph168.split.us.split.us.split.us ], [ %.0195, %.lr.ph168.split.us ], [ %72, %.preheader151.us.us ], [ %72, %._crit_edge160.us.us.us ], [ %.3, %100 ]
+  %.1133 = phi i32 [ %.0132184, %.lr.ph197 ], [ %.0132184, %59 ], [ %.0132184, %._crit_edge ], [ %.0132184, %.lr.ph168.split.us ], [ %73, %.preheader151.us.us ], [ %.0132184, %.lr.ph168.split.us.split.us.split ], [ %73, %._crit_edge160.us.us.us ], [ %.0132184, %.lr.ph168.split.us.split.us.split.us ], [ %.3135, %100 ]
+  %.1129 = phi i32 [ %.0128185, %.lr.ph197 ], [ %.0128185, %59 ], [ %.0128185, %._crit_edge ], [ %.0128185, %.lr.ph168.split.us ], [ 0, %.preheader151.us.us ], [ %.0128185, %.lr.ph168.split.us.split.us.split ], [ %80, %._crit_edge160.us.us.us ], [ %.0128185, %.lr.ph168.split.us.split.us.split.us ], [ %.3131, %100 ]
+  %.1125 = phi i32 [ %.0124186, %.lr.ph197 ], [ %.0124186, %59 ], [ %.0124186, %._crit_edge ], [ %.0124186, %.lr.ph168.split.us ], [ %84, %.preheader151.us.us ], [ %.0124186, %.lr.ph168.split.us.split.us.split ], [ %82, %._crit_edge160.us.us.us ], [ %.0124186, %.lr.ph168.split.us.split.us.split.us ], [ %.3127, %100 ]
+  %.3114 = phi i32 [ %.2113192, %.lr.ph197 ], [ %60, %59 ], [ %.2113192, %._crit_edge ], [ %.2113192, %.lr.ph168.split.us ], [ %.2113192, %.preheader151.us.us ], [ %.2113192, %.lr.ph168.split.us.split.us.split ], [ %.2113192, %._crit_edge160.us.us.us ], [ %.2113192, %.lr.ph168.split.us.split.us.split.us ], [ %.2113192, %100 ]
+  %.3110 = phi i32 [ %.2109193, %.lr.ph197 ], [ %31, %59 ], [ %.2109193, %._crit_edge ], [ %.2109193, %.lr.ph168.split.us ], [ %.2109193, %.preheader151.us.us ], [ %.2109193, %.lr.ph168.split.us.split.us.split ], [ %.2109193, %._crit_edge160.us.us.us ], [ %.2109193, %.lr.ph168.split.us.split.us.split.us ], [ %.2109193, %100 ]
+  %.3106 = phi i32 [ %.2105194, %.lr.ph197 ], [ %61, %59 ], [ %.2105194, %._crit_edge ], [ %.2105194, %.lr.ph168.split.us ], [ %.2105194, %.preheader151.us.us ], [ %.2105194, %.lr.ph168.split.us.split.us.split ], [ %.2105194, %._crit_edge160.us.us.us ], [ %.2105194, %.lr.ph168.split.us.split.us.split.us ], [ %.2105194, %100 ]
+  %.1 = phi i64 [ %.0195, %.lr.ph197 ], [ %.0195, %59 ], [ %.0195, %._crit_edge ], [ %.0195, %.lr.ph168.split.us ], [ %72, %.preheader151.us.us ], [ %.0195, %.lr.ph168.split.us.split.us.split ], [ %72, %._crit_edge160.us.us.us ], [ %.0195, %.lr.ph168.split.us.split.us.split.us ], [ %.3, %100 ]
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count264
   br i1 %exitcond255.not, label %._crit_edge198, label %.lr.ph197, !llvm.loop !28
@@ -355,8 +355,8 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %137, %139, %129, %131
-  %.sink291 = phi ptr [ %132, %131 ], [ %130, %129 ], [ %138, %137 ], [ %140, %139 ]
-  %.sink = phi i32 [ 16, %131 ], [ 16, %129 ], [ %134, %137 ], [ %134, %139 ]
+  %.sink291 = phi ptr [ %130, %129 ], [ %132, %131 ], [ %138, %137 ], [ %140, %139 ]
+  %.sink = phi i32 [ 16, %129 ], [ 16, %131 ], [ %134, %137 ], [ %134, %139 ]
   store ptr %.sink291, ptr %9, align 8, !tbaa !11
   store i32 %.sink, ptr %6, align 8, !tbaa !10
   br label %Vec_IntPush.exit.i
@@ -541,8 +541,8 @@ Vec_IntStartFull.exit:                            ; preds = %2, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %24, %26, %16, %18
-  %.sink17 = phi ptr [ %19, %18 ], [ %17, %16 ], [ %25, %24 ], [ %27, %26 ]
-  %.sink = phi i32 [ 16, %18 ], [ 16, %16 ], [ %21, %24 ], [ %21, %26 ]
+  %.sink17 = phi ptr [ %17, %16 ], [ %19, %18 ], [ %25, %24 ], [ %27, %26 ]
+  %.sink = phi i32 [ 16, %16 ], [ 16, %18 ], [ %21, %24 ], [ %21, %26 ]
   store ptr %.sink17, ptr %6, align 8, !tbaa !11
   store i32 %.sink, ptr %3, align 8, !tbaa !10
   br label %Vec_IntPush.exit
@@ -1086,8 +1086,8 @@ Abc_NodeCheckFanoutHasFanin.exit.thread:          ; preds = %80, %66
   br label %103
 
 103:                                              ; preds = %84, %.loopexit, %62, %99, %Abc_NodeCheckFanoutHasFanin.exit.thread
-  %.148 = phi i32 [ %.04783, %99 ], [ %.04783, %Abc_NodeCheckFanoutHasFanin.exit.thread ], [ 1, %.loopexit ], [ 1, %62 ], [ 1, %84 ]
-  %.2 = phi i32 [ %102, %99 ], [ %83, %Abc_NodeCheckFanoutHasFanin.exit.thread ], [ %.184, %.loopexit ], [ %.184, %62 ], [ %.184, %84 ]
+  %.148 = phi i32 [ %.04783, %Abc_NodeCheckFanoutHasFanin.exit.thread ], [ %.04783, %99 ], [ 1, %62 ], [ 1, %.loopexit ], [ 1, %84 ]
+  %.2 = phi i32 [ %83, %Abc_NodeCheckFanoutHasFanin.exit.thread ], [ %102, %99 ], [ %.184, %62 ], [ %.184, %.loopexit ], [ %.184, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val56 = load i32, ptr %28, align 4, !tbaa !37
   %104 = sext i32 %.val56 to i64
@@ -1100,9 +1100,9 @@ Abc_NodeCheckFanoutHasFanin.exit.thread:          ; preds = %80, %66
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %27
-  %.1.lcssa96 = phi i32 [ %.2, %.critedge ], [ %.046, %27 ]
-  %.047.lcssa94 = phi i32 [ %.148, %.critedge ], [ 0, %27 ]
-  %106 = phi i32 [ %spec.select100, %.critedge ], [ 0, %27 ]
+  %.1.lcssa96 = phi i32 [ %.046, %27 ], [ %.2, %.critedge ]
+  %.047.lcssa94 = phi i32 [ 0, %27 ], [ %.148, %.critedge ]
+  %106 = phi i32 [ 0, %27 ], [ %spec.select100, %.critedge ]
   %spec.select = sub nsw i32 %.1.lcssa96, %106
   store i32 %.047.lcssa94, ptr %4, align 4, !tbaa !15
   br label %Abc_ObjHasDupFanins.exit
@@ -1638,9 +1638,9 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %Abc_ObjHasDupFanouts.exit
 
 Abc_ObjHasDupFanouts.exit:                        ; preds = %59, %67, %41, %35, %.loopexit, %47
-  %.145 = phi i32 [ %.04474, %35 ], [ %.04474, %41 ], [ %.04474, %.loopexit ], [ %70, %67 ], [ %.04474, %47 ], [ %.04474, %59 ]
-  %.143 = phi i32 [ %.04275, %35 ], [ %.04275, %41 ], [ %.04275, %.loopexit ], [ %68, %67 ], [ %.04275, %47 ], [ %.04275, %59 ]
-  %.1 = phi i32 [ %.04176, %35 ], [ %.04176, %41 ], [ %.04176, %.loopexit ], [ %71, %67 ], [ %.04176, %47 ], [ %.04176, %59 ]
+  %.145 = phi i32 [ %.04474, %35 ], [ %.04474, %.loopexit ], [ %70, %67 ], [ %.04474, %47 ], [ %.04474, %41 ], [ %.04474, %59 ]
+  %.143 = phi i32 [ %.04275, %35 ], [ %.04275, %.loopexit ], [ %68, %67 ], [ %.04275, %47 ], [ %.04275, %41 ], [ %.04275, %59 ]
+  %.1 = phi i32 [ %.04176, %35 ], [ %.04176, %.loopexit ], [ %71, %67 ], [ %.04176, %47 ], [ %.04176, %41 ], [ %.04176, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load ptr, ptr %30, align 8, !tbaa !43
   %74 = getelementptr i8, ptr %73, i64 4

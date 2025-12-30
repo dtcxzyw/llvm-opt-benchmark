@@ -163,7 +163,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZStl
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %62, %59
-  %.137.i.i.i.i.i.be = phi ptr [ %61, %59 ], [ %.old.i.i.i.i.i, %62 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %62 ], [ %61, %59 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !41
 
 .loopexit.i.i:                                    ; preds = %43, %54
@@ -173,7 +173,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZStl
   br label %_ZNK10model_core16get_const_interpEP9func_decl.exit.i
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit.i: ; preds = %48, %62, %59, %.loopexit.i.i, %.preheader.i.i.i.i.i
-  %65 = phi ptr [ %64, %.loopexit.i.i ], [ null, %.preheader.i.i.i.i.i ], [ null, %62 ], [ null, %59 ], [ null, %48 ]
+  %65 = phi ptr [ %64, %.loopexit.i.i ], [ null, %.preheader.i.i.i.i.i ], [ null, %59 ], [ null, %62 ], [ null, %48 ]
   %66 = trunc i64 %30 to i32
   %67 = add i32 %66, 4
   invoke void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(976) %10, i32 noundef %67, i32 noundef 0, ptr noundef null)
@@ -342,7 +342,7 @@ _ZNK10model_core17get_num_functionsEv.exit.i:     ; preds = %_ZL17display_consta
   br i1 %.not27.old.i.i.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.i.i, label %.lr.ph38.i.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.i.backedge:                    ; preds = %133, %130
-  %.137.i.i.i.i.i.i.be = phi ptr [ %132, %130 ], [ %.old.i.i.i.i.i.i, %133 ]
+  %.137.i.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i.i, %133 ], [ %132, %130 ]
   br label %.lr.ph38.i.i.i.i.i.i, !llvm.loop !52
 
 .loopexit.i.i.i:                                  ; preds = %114, %125
@@ -352,7 +352,7 @@ _ZNK10model_core17get_num_functionsEv.exit.i:     ; preds = %_ZL17display_consta
   br label %_ZNK10model_core15get_func_interpEP9func_decl.exit.i.i
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit.i.i: ; preds = %119, %133, %130, %.loopexit.i.i.i, %.preheader.i.i.i.i.i.i
-  %136 = phi ptr [ %135, %.loopexit.i.i.i ], [ null, %.preheader.i.i.i.i.i.i ], [ null, %133 ], [ null, %130 ], [ null, %119 ]
+  %136 = phi ptr [ %135, %.loopexit.i.i.i ], [ null, %.preheader.i.i.i.i.i.i ], [ null, %130 ], [ null, %133 ], [ null, %119 ]
   %137 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %137, align 8, !tbaa !54
   %138 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
@@ -463,9 +463,9 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %_ZlsRSo6symbol.exit
   br label %common.resume
 
 ._crit_edge61.i.i:                                ; preds = %167, %192, %_ZNK11func_interp11num_entriesEv.exit.i.i, %_ZlsRSo6symbol.exit.i.i
-  %181 = phi i32 [ %161, %192 ], [ 2, %_ZlsRSo6symbol.exit.i.i ], [ 2, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ %161, %167 ]
-  %182 = phi ptr [ %160, %192 ], [ @.str.3, %_ZlsRSo6symbol.exit.i.i ], [ @.str.3, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ %160, %167 ]
-  %183 = phi i64 [ 10, %192 ], [ 2, %_ZlsRSo6symbol.exit.i.i ], [ 2, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ 10, %167 ]
+  %181 = phi i32 [ 2, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ 2, %_ZlsRSo6symbol.exit.i.i ], [ %161, %192 ], [ %161, %167 ]
+  %182 = phi ptr [ @.str.3, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ @.str.3, %_ZlsRSo6symbol.exit.i.i ], [ %160, %192 ], [ %160, %167 ]
+  %183 = phi i64 [ 2, %_ZNK11func_interp11num_entriesEv.exit.i.i ], [ 2, %_ZlsRSo6symbol.exit.i.i ], [ 10, %192 ], [ 10, %167 ]
   br i1 %2, label %196, label %199
 
 .lr.ph60.split.i.i:                               ; preds = %.lr.ph60.i.i, %192

@@ -246,7 +246,7 @@ av_isspace.exit106.i:                             ; preds = %64, %62, %62, %62, 
   br label %46
 
 av_isspace.exit104.thread.i:                      ; preds = %50, %50, %50, %50, %50, %50, %50, %46, %56, %26
-  %.170.i = phi ptr [ %.5.i, %56 ], [ %27, %26 ], [ %.3.i, %46 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ]
+  %.170.i = phi ptr [ %27, %26 ], [ %.5.i, %56 ], [ %.3.i, %46 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ], [ %.3.i, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !30

@@ -194,7 +194,7 @@ define dso_local i32 @tool_setopt_enum(ptr noundef %0, ptr noundef readonly capt
   br label %24
 
 24:                                               ; preds = %6, %.lr.ph._crit_edge, %._crit_edge, %23
-  %.2 = phi i32 [ %7, %6 ], [ %21, %._crit_edge ], [ 0, %23 ], [ %22, %.lr.ph._crit_edge ]
+  %.2 = phi i32 [ %7, %6 ], [ 0, %23 ], [ %21, %._crit_edge ], [ %22, %.lr.ph._crit_edge ]
   ret i32 %.2
 }
 
@@ -236,8 +236,8 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   br label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge56, %.preheader
-  %.not47.lcssa = phi i1 [ true, %.preheader ], [ false, %._crit_edge56 ], [ true, %14 ]
-  %.lcssa43 = phi ptr [ @.str.24, %.preheader ], [ null, %._crit_edge56 ], [ %13, %14 ]
+  %.not47.lcssa = phi i1 [ false, %._crit_edge56 ], [ true, %.preheader ], [ true, %14 ]
+  %.lcssa43 = phi ptr [ null, %._crit_edge56 ], [ @.str.24, %.preheader ], [ %13, %14 ]
   %17 = and i64 %4, -65536
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %._crit_edge62, label %.lr.ph61
@@ -259,7 +259,7 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   br label %._crit_edge62, !llvm.loop !23
 
 ._crit_edge62:                                    ; preds = %21, %._crit_edge64, %._crit_edge
-  %.lcssa = phi ptr [ @.str.32, %._crit_edge ], [ null, %._crit_edge64 ], [ %20, %21 ]
+  %.lcssa = phi ptr [ null, %._crit_edge64 ], [ @.str.32, %._crit_edge ], [ %20, %21 ]
   br i1 %.not47.lcssa, label %27, label %25
 
 25:                                               ; preds = %._crit_edge62
@@ -276,7 +276,7 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   br label %30
 
 30:                                               ; preds = %5, %27, %25, %29
-  %.2 = phi i32 [ %6, %5 ], [ %26, %25 ], [ 0, %29 ], [ %28, %27 ]
+  %.2 = phi i32 [ %6, %5 ], [ 0, %29 ], [ %26, %25 ], [ %28, %27 ]
   ret i32 %.2
 }
 
@@ -476,7 +476,7 @@ define dso_local i32 @tool_setopt_slist(ptr noundef %0, ptr noundef readonly cap
   br label %18
 
 18:                                               ; preds = %15, %13
-  %.1 = phi i32 [ %17, %15 ], [ %14, %13 ]
+  %.1 = phi i32 [ %14, %13 ], [ %17, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %19
 
@@ -894,7 +894,7 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
   br label %47
 
 47:                                               ; preds = %38, %44, %42, %35
-  %48 = phi ptr [ @.str.110, %35 ], [ %46, %44 ], [ @.str.109, %38 ], [ @.str.110, %42 ]
+  %48 = phi ptr [ @.str.110, %35 ], [ @.str.110, %42 ], [ %46, %44 ], [ @.str.109, %38 ]
   %49 = load i8, ptr %.03865, align 1, !tbaa !48
   %50 = zext i8 %49 to i32
   %51 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %3, ptr noundef nonnull %48, i32 noundef %50) #8
@@ -928,7 +928,7 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
   %64 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull @.str.111, i64 noundef %spec.select55) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %17, %._crit_edge, %63, %57
+.critedge:                                        ; preds = %17, %.thread, %._crit_edge, %63, %57
   %65 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %65
@@ -1038,9 +1038,9 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   %.not144 = icmp eq i32 %44, 0
   br i1 %.not144, label %45, label %.critedge
 
-45:                                               ; preds = %13, %20, %43, %26, %34, %38
-  %.089.ph = phi ptr [ %31, %38 ], [ %31, %34 ], [ %25, %26 ], [ null, %43 ], [ null, %20 ], [ null, %13 ]
-  %.088.ph = phi ptr [ null, %38 ], [ %6, %34 ], [ %6, %26 ], [ %.1, %43 ], [ %6, %20 ], [ %6, %13 ]
+45:                                               ; preds = %13, %20, %26, %34, %38, %43
+  %.089.ph = phi ptr [ null, %43 ], [ %31, %38 ], [ %31, %34 ], [ %25, %26 ], [ null, %20 ], [ null, %13 ]
+  %.088.ph = phi ptr [ %.1, %43 ], [ null, %38 ], [ %6, %34 ], [ %6, %26 ], [ %6, %20 ], [ %6, %13 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !54
   %.not154 = icmp eq ptr %47, null
@@ -1059,7 +1059,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   br i1 %.not156, label %53, label %.critedge
 
 53:                                               ; preds = %51, %45
-  %.190 = phi ptr [ %.089.ph, %45 ], [ %50, %51 ]
+  %.190 = phi ptr [ %50, %51 ], [ %.089.ph, %45 ]
   %.not196 = icmp eq ptr %.088.ph, null
   br i1 %.not196, label %58, label %54
 
@@ -1093,8 +1093,8 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   %.not162 = icmp eq i32 %65, 0
   br i1 %.not162, label %66, label %.critedge
 
-66:                                               ; preds = %58, %64
-  %.3.ph = phi ptr [ %63, %64 ], [ %.2.ph, %58 ]
+66:                                               ; preds = %64, %58
+  %.3.ph = phi ptr [ %.2.ph, %58 ], [ %63, %64 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load ptr, ptr %67, align 8, !tbaa !56
   %.not164 = icmp eq ptr %68, null
@@ -1136,18 +1136,18 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   br label %84
 
 84:                                               ; preds = %82, %77, %79
-  %.6 = phi i32 [ %83, %82 ], [ %81, %79 ], [ %78, %77 ]
+  %.6 = phi i32 [ %81, %79 ], [ %78, %77 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %84, %69, %61, %54, %48, %28, %22, %11, %17, %20, %26, %32, %38, %41, %43, %51, %56, %64, %72, %74
-  %.7 = phi i32 [ %12, %11 ], [ %57, %56 ], [ %16, %15 ], [ 27, %69 ], [ %.6, %84 ], [ 0, %74 ], [ %73, %72 ], [ 27, %61 ], [ %65, %64 ], [ 27, %54 ], [ 27, %48 ], [ %52, %51 ], [ 27, %28 ], [ %19, %17 ], [ %21, %20 ], [ %27, %26 ], [ %44, %43 ], [ %33, %32 ], [ %39, %38 ], [ 27, %22 ], [ %42, %41 ]
-  %.5 = phi ptr [ null, %11 ], [ %55, %56 ], [ null, %15 ], [ null, %69 ], [ %.4, %84 ], [ %.4, %74 ], [ %71, %72 ], [ null, %61 ], [ %63, %64 ], [ null, %54 ], [ null, %48 ], [ %50, %51 ], [ null, %28 ], [ null, %17 ], [ null, %20 ], [ %25, %26 ], [ null, %43 ], [ %31, %32 ], [ %31, %38 ], [ null, %22 ], [ null, %41 ]
+  %.7 = phi i32 [ %12, %11 ], [ %57, %56 ], [ %.6, %84 ], [ 0, %74 ], [ %73, %72 ], [ %65, %64 ], [ %52, %51 ], [ %19, %17 ], [ %21, %20 ], [ %27, %26 ], [ %33, %32 ], [ %39, %38 ], [ %42, %41 ], [ %44, %43 ], [ 27, %22 ], [ 27, %28 ], [ 27, %48 ], [ 27, %54 ], [ 27, %61 ], [ 27, %69 ], [ %16, %15 ]
+  %.5 = phi ptr [ null, %11 ], [ %55, %56 ], [ %.4, %84 ], [ %.4, %74 ], [ %71, %72 ], [ %63, %64 ], [ %50, %51 ], [ null, %17 ], [ null, %20 ], [ %25, %26 ], [ %31, %32 ], [ %31, %38 ], [ null, %41 ], [ null, %43 ], [ null, %22 ], [ null, %28 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %69 ], [ null, %15 ]
   tail call void @free(ptr noundef %.5) #8
   br label %85
 
 85:                                               ; preds = %9, %.critedge
-  %.097 = phi i32 [ %10, %9 ], [ %.7, %.critedge ]
+  %.097 = phi i32 [ %.7, %.critedge ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.097
 }

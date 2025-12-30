@@ -385,7 +385,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br label %15
 
 15:                                               ; preds = %11, %8, %3
-  %.0 = phi i32 [ %9, %8 ], [ %6, %3 ], [ %., %11 ]
+  %.0 = phi i32 [ %6, %3 ], [ %9, %8 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -470,7 +470,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %50
 
 50:                                               ; preds = %14, %47, %.critedge, %49, %37, %29
-  %.1 = phi i32 [ 0, %14 ], [ %31, %29 ], [ %45, %37 ], [ 0, %49 ], [ %26, %.critedge ], [ -1497649742, %47 ]
+  %.1 = phi i32 [ %31, %29 ], [ %45, %37 ], [ 0, %49 ], [ 0, %14 ], [ %26, %.critedge ], [ -1497649742, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1311,7 +1311,7 @@ init_cqt.exit.thread:                             ; preds = %.lr.ph126.i, %382, 
   br label %.critedge
 
 .critedge:                                        ; preds = %init_cqt.exit.thread, %create_freq_table.exit, %219, %464, %465, %428, %442, %422, %417, %411, %399, %167, %208, %210, %init_volume.exit
-  %.0 = phi i32 [ -12, %create_freq_table.exit ], [ 0, %464 ], [ %400, %399 ], [ -12, %428 ], [ -12, %422 ], [ %418, %417 ], [ %412, %411 ], [ %.0100.i, %init_cqt.exit.thread ], [ -12, %219 ], [ %.0.i, %init_volume.exit ], [ -12, %210 ], [ -12, %208 ], [ -12, %167 ], [ -12, %442 ], [ 0, %465 ]
+  %.0 = phi i32 [ -12, %create_freq_table.exit ], [ %.0.i, %init_volume.exit ], [ -12, %210 ], [ -12, %208 ], [ -12, %167 ], [ %400, %399 ], [ %412, %411 ], [ %418, %417 ], [ -12, %422 ], [ -12, %442 ], [ -12, %428 ], [ 0, %465 ], [ 0, %464 ], [ -12, %219 ], [ %.0100.i, %init_cqt.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -3037,7 +3037,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %430
 
 .thread630:                                       ; preds = %334, %338, %339, %342, %363, %359, %357
-  %370 = phi i8 [ %.pre, %357 ], [ %.pre, %338 ], [ 0, %339 ], [ 0, %342 ], [ -1, %363 ], [ -1, %359 ], [ %.pre, %334 ]
+  %370 = phi i8 [ %.pre, %338 ], [ 0, %339 ], [ 0, %342 ], [ -1, %363 ], [ -1, %359 ], [ %.pre, %357 ], [ %.pre, %334 ]
   %371 = uitofp i8 %337 to float
   %372 = fmul nsz float %371, 0x3F50101020000000
   %373 = uitofp i8 %370 to float
@@ -4178,8 +4178,8 @@ create_freq_table.exit.i:                         ; preds = %.preheader, %74
   call void @av_freep(ptr noundef nonnull %6) #16
   br label %132
 
-init_axis_color.exit.thread:                      ; preds = %67, %99, %102, %77
-  %.0.i47.ph = phi i32 [ -12, %77 ], [ %91, %102 ], [ %91, %99 ], [ -22, %67 ]
+init_axis_color.exit.thread:                      ; preds = %67, %102, %99, %77
+  %.0.i47.ph = phi i32 [ -12, %77 ], [ %91, %99 ], [ %91, %102 ], [ -22, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4253,7 +4253,7 @@ convert_axis_pixel_format.exit50:                 ; preds = %switch.lookup58, %1
   br label %160
 
 158:                                              ; preds = %init_axis_color.exit.thread, %alloc_frame_empty.exit.thread, %convert_axis_pixel_format.exit, %18
-  %.030 = phi i32 [ -12, %alloc_frame_empty.exit.thread ], [ %.0.i47.ph, %init_axis_color.exit.thread ], [ %146, %convert_axis_pixel_format.exit ], [ -12, %18 ]
+  %.030 = phi i32 [ %146, %convert_axis_pixel_format.exit ], [ -12, %18 ], [ -12, %alloc_frame_empty.exit.thread ], [ %.0.i47.ph, %init_axis_color.exit.thread ]
   call void @av_frame_free(ptr noundef nonnull %9) #16
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @av_frame_free(ptr noundef nonnull %159) #16
@@ -4869,7 +4869,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 145:                                              ; preds = %.thread, %120
-  %.1117 = phi i32 [ 1, %.thread ], [ %.0116162, %120 ]
+  %.1117 = phi i32 [ %.0116162, %120 ], [ 1, %.thread ]
   %146 = load i32, ptr %86, align 4, !tbaa !47
   %147 = load i32, ptr %87, align 8, !tbaa !48
   %148 = load i32, ptr %88, align 8, !tbaa !49
@@ -5192,7 +5192,7 @@ define internal fastcc range(i32 -12, 1) i32 @plot_cqt(ptr %.56.val.0.val, ptr %
   br label %calculate_gamma.exit.i
 
 calculate_gamma.exit.i:                           ; preds = %118, %115, %111, %107, %100
-  %.0.i.i = phi nsz float [ %121, %118 ], [ %108, %107 ], [ %112, %111 ], [ %117, %115 ], [ %102, %100 ]
+  %.0.i.i = phi nsz float [ %108, %107 ], [ %112, %111 ], [ %117, %115 ], [ %121, %118 ], [ %102, %100 ]
   store float %.0.i.i, ptr %101, align 4, !tbaa !61
   %122 = fadd nsz float %.0.i.i, 0x3F1A36E2E0000000
   %123 = fdiv nsz float 1.000000e+00, %122
@@ -5360,7 +5360,7 @@ calculate_gamma.exit.i:                           ; preds = %118, %115, %111, %1
   br label %calculate_gamma.exit.i.i
 
 calculate_gamma.exit.i.i:                         ; preds = %202, %199, %196, %193, %181
-  %.0.i.i.i = phi nsz float [ %205, %202 ], [ %194, %193 ], [ %197, %196 ], [ %201, %199 ], [ %191, %181 ]
+  %.0.i.i.i = phi nsz float [ %194, %193 ], [ %197, %196 ], [ %201, %199 ], [ %205, %202 ], [ %191, %181 ]
   %206 = fmul nsz float %.0.i.i.i, 2.550000e+02
   %207 = getelementptr inbounds nuw %union.ColorFloat, ptr %166, i64 %indvars.iv.i.i
   store float %206, ptr %207, align 4, !tbaa !148
@@ -5403,7 +5403,7 @@ calculate_gamma.exit.i.i:                         ; preds = %202, %199, %196, %1
   br label %calculate_gamma.exit51.i.i
 
 calculate_gamma.exit51.i.i:                       ; preds = %226, %223, %220, %217, %calculate_gamma.exit.i.i
-  %.0.i50.i.i = phi nsz float [ %229, %226 ], [ %218, %217 ], [ %221, %220 ], [ %225, %223 ], [ %215, %calculate_gamma.exit.i.i ]
+  %.0.i50.i.i = phi nsz float [ %218, %217 ], [ %221, %220 ], [ %225, %223 ], [ %229, %226 ], [ %215, %calculate_gamma.exit.i.i ]
   %230 = fmul nsz float %.0.i50.i.i, 2.550000e+02
   %231 = getelementptr inbounds nuw i8, ptr %207, i64 4
   store float %230, ptr %231, align 4, !tbaa !148
@@ -5446,7 +5446,7 @@ calculate_gamma.exit51.i.i:                       ; preds = %226, %223, %220, %2
   br label %calculate_gamma.exit53.i.i
 
 calculate_gamma.exit53.i.i:                       ; preds = %250, %247, %244, %241, %calculate_gamma.exit51.i.i
-  %.0.i52.i.i = phi nsz float [ %253, %250 ], [ %242, %241 ], [ %245, %244 ], [ %249, %247 ], [ %239, %calculate_gamma.exit51.i.i ]
+  %.0.i52.i.i = phi nsz float [ %242, %241 ], [ %245, %244 ], [ %249, %247 ], [ %253, %250 ], [ %239, %calculate_gamma.exit51.i.i ]
   %254 = fmul nsz float %.0.i52.i.i, 2.550000e+02
   %255 = getelementptr inbounds nuw i8, ptr %207, i64 8
   store float %254, ptr %255, align 4, !tbaa !148
@@ -5524,7 +5524,7 @@ calculate_gamma.exit53.i.i:                       ; preds = %250, %247, %244, %2
   br label %calculate_gamma.exit.i97.i
 
 calculate_gamma.exit.i97.i:                       ; preds = %298, %295, %292, %289, %277
-  %.0.i.i98.i = phi nsz float [ %301, %298 ], [ %290, %289 ], [ %293, %292 ], [ %297, %295 ], [ %287, %277 ]
+  %.0.i.i98.i = phi nsz float [ %290, %289 ], [ %293, %292 ], [ %297, %295 ], [ %301, %298 ], [ %287, %277 ]
   %302 = load float, ptr %265, align 4, !tbaa !61
   %303 = load float, ptr %266, align 4, !tbaa !61
   %304 = fmul nsz float %283, %303
@@ -5562,7 +5562,7 @@ calculate_gamma.exit.i97.i:                       ; preds = %298, %295, %292, %2
   br label %calculate_gamma.exit69.i.i
 
 calculate_gamma.exit69.i.i:                       ; preds = %318, %315, %312, %309, %calculate_gamma.exit.i97.i
-  %.0.i68.i.i = phi nsz float [ %321, %318 ], [ %310, %309 ], [ %313, %312 ], [ %317, %315 ], [ %307, %calculate_gamma.exit.i97.i ]
+  %.0.i68.i.i = phi nsz float [ %310, %309 ], [ %313, %312 ], [ %317, %315 ], [ %321, %318 ], [ %307, %calculate_gamma.exit.i97.i ]
   %322 = load float, ptr %267, align 4, !tbaa !61
   %323 = load float, ptr %268, align 4, !tbaa !61
   %324 = fmul nsz float %283, %323
@@ -5600,7 +5600,7 @@ calculate_gamma.exit69.i.i:                       ; preds = %318, %315, %312, %3
   br label %calculate_gamma.exit71.i.i
 
 calculate_gamma.exit71.i.i:                       ; preds = %338, %335, %332, %329, %calculate_gamma.exit69.i.i
-  %.0.i70.i.i = phi nsz float [ %341, %338 ], [ %330, %329 ], [ %333, %332 ], [ %337, %335 ], [ %327, %calculate_gamma.exit69.i.i ]
+  %.0.i70.i.i = phi nsz float [ %330, %329 ], [ %333, %332 ], [ %337, %335 ], [ %341, %338 ], [ %327, %calculate_gamma.exit69.i.i ]
   %342 = load float, ptr %257, align 4, !tbaa !61
   %343 = load float, ptr %269, align 4, !tbaa !61
   %344 = fmul nsz float %.0.i68.i.i, %343
@@ -5792,7 +5792,7 @@ process_cqt.exit:                                 ; preds = %calculate_gamma.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %385, %456, %462
-  %.1 = phi i32 [ 0, %456 ], [ -12, %385 ], [ 0, %462 ], [ 0, %.thread ]
+  %.1 = phi i32 [ 0, %462 ], [ 0, %456 ], [ -12, %385 ], [ 0, %.thread ]
   ret i32 %.1
 }
 

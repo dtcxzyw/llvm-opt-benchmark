@@ -3926,7 +3926,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %383, %383, %383, %3
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i
 
 _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i:     ; preds = %387, %380, %378, %_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit163.i, %_ZN4llvmneENS_9StringRefES0_.exit159.i, %_ZN4llvmneENS_9StringRefES0_.exit.i, %369, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i
-  %.1.i = phi i32 [ 10, %_ZN4llvmneENS_9StringRefES0_.exit159.i ], [ 10, %_ZN4llvmneENS_9StringRefES0_.exit.i ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i ], [ 10, %369 ], [ 0, %387 ], [ 0, %380 ], [ 0, %378 ], [ 1, %_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit163.i ]
+  %.1.i = phi i32 [ 10, %_ZN4llvmneENS_9StringRefES0_.exit159.i ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i ], [ 10, %369 ], [ 10, %_ZN4llvmneENS_9StringRefES0_.exit.i ], [ 0, %387 ], [ 0, %380 ], [ 0, %378 ], [ 1, %_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit163.i ]
   %390 = load i8, ptr %116, align 8, !noalias !203
   %391 = trunc i8 %390 to i1
   br i1 %391, label %392, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit170.i
@@ -4296,7 +4296,7 @@ _ZN4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEED2Ev.
   br label %"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i"
 
 "_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i": ; preds = %521, %518, %.lr.ph.i16
-  %.0.i.i = phi i8 [ 0, %.lr.ph.i16 ], [ %spec.select.i.i, %518 ], [ 1, %521 ]
+  %.0.i.i = phi i8 [ 0, %.lr.ph.i16 ], [ 1, %521 ], [ %spec.select.i.i, %518 ]
   %522 = and i64 %515, 8
   %.not3.i.i = icmp eq i64 %522, 0
   %523 = select i1 %.not3.i.i, i8 4, i8 3
@@ -4409,8 +4409,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i69.i:
   br i1 %.not39.i, label %603, label %581
 
 581:                                              ; preds = %579, %572, %565, %561
-  %.0103.i = phi i8 [ 4, %565 ], [ 1, %579 ], [ 2, %561 ], [ %578, %572 ]
-  %.0.i = phi i8 [ 0, %565 ], [ 0, %579 ], [ %spec.select.i, %561 ], [ %576, %572 ]
+  %.0103.i = phi i8 [ %578, %572 ], [ 4, %565 ], [ 1, %579 ], [ 2, %561 ]
+  %.0.i = phi i8 [ %576, %572 ], [ 0, %565 ], [ 0, %579 ], [ %spec.select.i, %561 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !302
   %582 = load ptr, ptr %509, align 8, !tbaa !345, !noalias !363
   %.sroa.0.0.copyload.i.i70.i = load i64, ptr %11, align 8, !tbaa !48, !noalias !363
@@ -8606,8 +8606,8 @@ _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit:      ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %54, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39, !llvm.loop !569
 
 _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39:    ; preds = %.lr.ph.i.i.i.i.i35, %44, %42
-  %.pre-phi = phi i64 [ %.pre42, %42 ], [ %23, %44 ], [ %23, %.lr.ph.i.i.i.i.i35 ]
-  %.026 = phi i64 [ 0, %42 ], [ 0, %44 ], [ %26, %.lr.ph.i.i.i.i.i35 ]
+  %.pre-phi = phi i64 [ %23, %44 ], [ %.pre42, %42 ], [ %23, %.lr.ph.i.i.i.i.i35 ]
+  %.026 = phi i64 [ 0, %44 ], [ 0, %42 ], [ %26, %.lr.ph.i.i.i.i.i35 ]
   %.not.i.i = icmp samesign eq i64 %.026, %.pre-phi
   br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, label %55
 

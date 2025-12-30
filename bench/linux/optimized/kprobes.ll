@@ -1030,7 +1030,7 @@ define dso_local noundef zeroext i1 @within_kprobe_blacklist(i64 noundef %0) loc
   br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %11, %40, %36, %29, %26, %23, %20, %.loopexit10, %1
-  %43 = phi i1 [ false, %20 ], [ false, %23 ], [ false, %.loopexit10 ], [ true, %26 ], [ false, %29 ], [ true, %1 ], [ false, %40 ], [ true, %36 ], [ true, %11 ]
+  %43 = phi i1 [ false, %20 ], [ false, %23 ], [ false, %.loopexit10 ], [ true, %26 ], [ false, %29 ], [ true, %1 ], [ true, %36 ], [ false, %40 ], [ true, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %43
 }
@@ -1558,8 +1558,8 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   br label %.thread31
 
 .thread31:                                        ; preds = %242, %245, %178, %290, %286, %280, %257
-  %291 = phi i32 [ -12, %178 ], [ %258, %257 ], [ 0, %290 ], [ 0, %280 ], [ 0, %286 ], [ -22, %245 ], [ -22, %242 ]
-  %292 = phi ptr [ null, %178 ], [ %252, %257 ], [ %252, %290 ], [ %252, %280 ], [ %252, %286 ], [ %167, %245 ], [ %167, %242 ]
+  %291 = phi i32 [ %258, %257 ], [ 0, %280 ], [ 0, %286 ], [ 0, %290 ], [ -12, %178 ], [ -22, %245 ], [ -22, %242 ]
+  %292 = phi ptr [ %252, %257 ], [ %252, %280 ], [ %252, %286 ], [ %252, %290 ], [ null, %178 ], [ %167, %245 ], [ %167, %242 ]
   call void @mutex_unlock(ptr noundef nonnull @text_mutex) #21
   call void @jump_label_unlock() #21
   call void @cpus_read_unlock() #21
@@ -2140,7 +2140,7 @@ define internal fastcc i32 @__unregister_kprobe_top(ptr noundef captures(address
   br label %__disable_kprobe.exit
 
 __disable_kprobe.exit:                            ; preds = %41, %.loopexit9.i, %.loopexit9.thread.i, %56, %61
-  %65 = phi ptr [ %60, %56 ], [ %10, %.loopexit9.thread.i ], [ %10, %61 ], [ %10, %.loopexit9.i ], [ %10, %41 ]
+  %65 = phi ptr [ %60, %56 ], [ %10, %61 ], [ %10, %.loopexit9.i ], [ %10, %.loopexit9.thread.i ], [ %10, %41 ]
   %66 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
   br i1 %66, label %__disable_kprobe.exit.thread, label %70
 
@@ -2931,7 +2931,7 @@ define dso_local i32 @disable_kprobe(ptr noundef captures(address) %0) #0 align 
   br label %__disable_kprobe.exit
 
 __disable_kprobe.exit:                            ; preds = %8, %20, %41, %.loopexit9.i, %.loopexit9.thread.i, %56, %61
-  %65 = phi ptr [ %60, %56 ], [ %10, %41 ], [ %10, %61 ], [ %10, %.loopexit9.i ], [ %0, %.loopexit9.thread.i ], [ inttoptr (i64 -22 to ptr), %20 ], [ inttoptr (i64 -22 to ptr), %8 ]
+  %65 = phi ptr [ %60, %56 ], [ %10, %61 ], [ %10, %.loopexit9.i ], [ %0, %.loopexit9.thread.i ], [ %10, %41 ], [ inttoptr (i64 -22 to ptr), %20 ], [ inttoptr (i64 -22 to ptr), %8 ]
   %66 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
   %67 = ptrtoint ptr %65 to i64
   %68 = trunc i64 %67 to i32
@@ -3002,7 +3002,7 @@ define dso_local noundef range(i32 -22, 1) i32 @enable_kprobe(ptr noundef captur
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit.thread, %35
-  %37 = phi ptr [ %31, %.loopexit.thread ], [ %27, %35 ]
+  %37 = phi ptr [ %27, %35 ], [ %31, %.loopexit.thread ]
   %38 = load i1, ptr @kprobes_all_disarmed, align 1
   br i1 %38, label %.thread6, label %39
 

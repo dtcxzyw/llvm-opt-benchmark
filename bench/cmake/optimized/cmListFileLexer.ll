@@ -306,12 +306,6 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   %.not291 = icmp eq i16 %137, 298
   br i1 %.not291, label %.preheader454.outer, label %96, !llvm.loop !43
 
-.preheader454.outer.backedge:                     ; preds = %._crit_edge.i442, %yy_get_next_buffer.exit.thread447, %yy_try_NUL_trans.exit
-  %.1278.ph.be = phi ptr [ %702, %yy_try_NUL_trans.exit ], [ %1006, %yy_get_next_buffer.exit.thread447 ], [ %1006, %._crit_edge.i442 ]
-  %.2269.ph.be = phi ptr [ %705, %yy_try_NUL_trans.exit ], [ %1008, %yy_get_next_buffer.exit.thread447 ], [ %1008, %._crit_edge.i442 ]
-  %.3.ph.be = phi i32 [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %1009, %yy_get_next_buffer.exit.thread447 ], [ %1050, %._crit_edge.i442 ]
-  br label %.preheader454.outer
-
 .preheader454.outer:                              ; preds = %._crit_edge, %.preheader454.outer.backedge
   %.1278.ph = phi ptr [ %.1278.ph.be, %.preheader454.outer.backedge ], [ %.0277, %._crit_edge ]
   %.2269.ph = phi ptr [ %.2269.ph.be, %.preheader454.outer.backedge ], [ %134, %._crit_edge ]
@@ -483,8 +477,8 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   br label %cmListFileLexerSetToken.exit
 
 cmListFileLexerSetToken.exit:                     ; preds = %189, %192, %193
-  %.sink29.i = phi i64 [ 16, %189 ], [ 48, %193 ], [ 16, %192 ]
-  %.sink.i = phi i32 [ %181, %189 ], [ %195, %193 ], [ 0, %192 ]
+  %.sink29.i = phi i64 [ 48, %193 ], [ 16, %189 ], [ 16, %192 ]
+  %.sink.i = phi i32 [ %195, %193 ], [ %181, %189 ], [ 0, %192 ]
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i
   store i32 %.sink.i, ptr %196, align 8, !tbaa !58
   %197 = load i32, ptr %88, align 8, !tbaa !51
@@ -533,8 +527,8 @@ cmListFileLexerSetToken.exit:                     ; preds = %189, %192, %193
   br label %cmListFileLexerSetToken.exit301
 
 cmListFileLexerSetToken.exit301:                  ; preds = %210, %212
-  %.sink29.i299 = phi i64 [ 16, %210 ], [ 48, %212 ]
-  %.sink.i300 = phi i32 [ 0, %210 ], [ 1, %212 ]
+  %.sink29.i299 = phi i64 [ 48, %212 ], [ 16, %210 ]
+  %.sink.i300 = phi i32 [ 1, %212 ], [ 0, %210 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i299
   store i32 %.sink.i300, ptr %214, align 8, !tbaa !58
   %215 = getelementptr inbounds nuw i8, ptr %spec.select917, i64 1
@@ -628,8 +622,8 @@ cmListFileLexerSetToken.exit301:                  ; preds = %210, %212
   br label %cmListFileLexerSetToken.exit307
 
 cmListFileLexerSetToken.exit307:                  ; preds = %253, %256, %257
-  %.sink29.i305 = phi i64 [ 16, %253 ], [ 48, %257 ], [ 16, %256 ]
-  %.sink.i306 = phi i32 [ %245, %253 ], [ %259, %257 ], [ 0, %256 ]
+  %.sink29.i305 = phi i64 [ 48, %257 ], [ 16, %253 ], [ 16, %256 ]
+  %.sink.i306 = phi i32 [ %259, %257 ], [ %245, %253 ], [ 0, %256 ]
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i305
   store i32 %.sink.i306, ptr %260, align 8, !tbaa !58
   %261 = load i32, ptr %78, align 8, !tbaa !44
@@ -681,8 +675,8 @@ cmListFileLexerSetToken.exit307:                  ; preds = %253, %256, %257
   br label %cmListFileLexerSetToken.exit313
 
 cmListFileLexerSetToken.exit313:                  ; preds = %274, %277, %278
-  %.sink29.i311 = phi i64 [ 16, %274 ], [ 48, %278 ], [ 16, %277 ]
-  %.sink.i312 = phi i32 [ %266, %274 ], [ %280, %278 ], [ 0, %277 ]
+  %.sink29.i311 = phi i64 [ 48, %278 ], [ 16, %274 ], [ 16, %277 ]
+  %.sink.i312 = phi i32 [ %280, %278 ], [ %266, %274 ], [ 0, %277 ]
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i311
   store i32 %.sink.i312, ptr %281, align 8, !tbaa !58
   %282 = load i32, ptr %78, align 8, !tbaa !44
@@ -734,8 +728,8 @@ cmListFileLexerSetToken.exit313:                  ; preds = %274, %277, %278
   br label %cmListFileLexerSetToken.exit319
 
 cmListFileLexerSetToken.exit319:                  ; preds = %295, %298, %299
-  %.sink29.i317 = phi i64 [ 16, %295 ], [ 48, %299 ], [ 16, %298 ]
-  %.sink.i318 = phi i32 [ %287, %295 ], [ %301, %299 ], [ 0, %298 ]
+  %.sink29.i317 = phi i64 [ 48, %299 ], [ 16, %295 ], [ 16, %298 ]
+  %.sink.i318 = phi i32 [ %301, %299 ], [ %287, %295 ], [ 0, %298 ]
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i317
   store i32 %.sink.i318, ptr %302, align 8, !tbaa !58
   %303 = load i32, ptr %78, align 8, !tbaa !44
@@ -1067,8 +1061,8 @@ cmListFileLexerAppend.exit341:                    ; preds = %425, %435
   br label %cmListFileLexerSetToken.exit347
 
 cmListFileLexerSetToken.exit347:                  ; preds = %457, %460, %461
-  %.sink29.i345 = phi i64 [ 16, %457 ], [ 48, %461 ], [ 16, %460 ]
-  %.sink.i346 = phi i32 [ %449, %457 ], [ %463, %461 ], [ 0, %460 ]
+  %.sink29.i345 = phi i64 [ 48, %461 ], [ 16, %457 ], [ 16, %460 ]
+  %.sink.i346 = phi i32 [ %463, %461 ], [ %449, %457 ], [ 0, %460 ]
   %464 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i345
   store i32 %.sink.i346, ptr %464, align 8, !tbaa !58
   %465 = load i32, ptr %78, align 8, !tbaa !44
@@ -1120,8 +1114,8 @@ cmListFileLexerSetToken.exit347:                  ; preds = %457, %460, %461
   br label %cmListFileLexerSetToken.exit353
 
 cmListFileLexerSetToken.exit353:                  ; preds = %478, %481, %482
-  %.sink29.i351 = phi i64 [ 16, %478 ], [ 48, %482 ], [ 16, %481 ]
-  %.sink.i352 = phi i32 [ %470, %478 ], [ %484, %482 ], [ 0, %481 ]
+  %.sink29.i351 = phi i64 [ 48, %482 ], [ 16, %478 ], [ 16, %481 ]
+  %.sink.i352 = phi i32 [ %484, %482 ], [ %470, %478 ], [ 0, %481 ]
   %485 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i351
   store i32 %.sink.i352, ptr %485, align 8, !tbaa !58
   %486 = load i32, ptr %78, align 8, !tbaa !44
@@ -1173,8 +1167,8 @@ cmListFileLexerSetToken.exit353:                  ; preds = %478, %481, %482
   br label %cmListFileLexerSetToken.exit359
 
 cmListFileLexerSetToken.exit359:                  ; preds = %499, %502, %503
-  %.sink29.i357 = phi i64 [ 16, %499 ], [ 48, %503 ], [ 16, %502 ]
-  %.sink.i358 = phi i32 [ %491, %499 ], [ %505, %503 ], [ 0, %502 ]
+  %.sink29.i357 = phi i64 [ 48, %503 ], [ 16, %499 ], [ 16, %502 ]
+  %.sink.i358 = phi i32 [ %505, %503 ], [ %491, %499 ], [ 0, %502 ]
   %506 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i357
   store i32 %.sink.i358, ptr %506, align 8, !tbaa !58
   %507 = load i32, ptr %78, align 8, !tbaa !44
@@ -1214,8 +1208,8 @@ cmListFileLexerSetToken.exit359:                  ; preds = %499, %502, %503
   br label %cmListFileLexerSetToken.exit363
 
 cmListFileLexerSetToken.exit363:                  ; preds = %517, %519
-  %.sink29.i361 = phi i64 [ 16, %517 ], [ 48, %519 ]
-  %.sink.i362 = phi i32 [ 0, %517 ], [ 1, %519 ]
+  %.sink29.i361 = phi i64 [ 48, %519 ], [ 16, %517 ]
+  %.sink.i362 = phi i32 [ 1, %519 ], [ 0, %517 ]
   %521 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i361
   store i32 %.sink.i362, ptr %521, align 8, !tbaa !58
   %522 = load i32, ptr %78, align 8, !tbaa !44
@@ -1474,8 +1468,8 @@ cmListFileLexerAppend.exit384:                    ; preds = %606, %616
   br label %cmListFileLexerSetToken.exit390
 
 cmListFileLexerSetToken.exit390:                  ; preds = %638, %641, %642
-  %.sink29.i388 = phi i64 [ 16, %638 ], [ 48, %642 ], [ 16, %641 ]
-  %.sink.i389 = phi i32 [ %630, %638 ], [ %644, %642 ], [ 0, %641 ]
+  %.sink29.i388 = phi i64 [ 48, %642 ], [ 16, %638 ], [ 16, %641 ]
+  %.sink.i389 = phi i32 [ %644, %642 ], [ %630, %638 ], [ 0, %641 ]
   %645 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i388
   store i32 %.sink.i389, ptr %645, align 8, !tbaa !58
   %646 = load i32, ptr %78, align 8, !tbaa !44
@@ -1527,8 +1521,8 @@ cmListFileLexerSetToken.exit390:                  ; preds = %638, %641, %642
   br label %cmListFileLexerSetToken.exit396
 
 cmListFileLexerSetToken.exit396:                  ; preds = %659, %662, %663
-  %.sink29.i394 = phi i64 [ 16, %659 ], [ 48, %663 ], [ 16, %662 ]
-  %.sink.i395 = phi i32 [ %651, %659 ], [ %665, %663 ], [ 0, %662 ]
+  %.sink29.i394 = phi i64 [ 48, %663 ], [ 16, %659 ], [ 16, %662 ]
+  %.sink.i395 = phi i32 [ %665, %663 ], [ %651, %659 ], [ 0, %662 ]
   %666 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i394
   store i32 %.sink.i395, ptr %666, align 8, !tbaa !58
   %667 = load i32, ptr %78, align 8, !tbaa !44
@@ -1750,9 +1744,9 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   br label %.loopexit451.backedge
 
 .loopexit451.backedge:                            ; preds = %._crit_edge.i427, %781, %955
-  %.0277.be = phi ptr [ %702, %781 ], [ %954, %955 ], [ %954, %._crit_edge.i427 ]
-  %.0267.be = phi ptr [ %783, %781 ], [ %962, %955 ], [ %962, %._crit_edge.i427 ]
-  %.0260.be = phi i32 [ %782, %781 ], [ %963, %955 ], [ %1004, %._crit_edge.i427 ]
+  %.0277.be = phi ptr [ %954, %955 ], [ %702, %781 ], [ %954, %._crit_edge.i427 ]
+  %.0267.be = phi ptr [ %962, %955 ], [ %783, %781 ], [ %962, %._crit_edge.i427 ]
+  %.0260.be = phi i32 [ %963, %955 ], [ %782, %781 ], [ %1004, %._crit_edge.i427 ]
   br label %.loopexit451
 
 784:                                              ; preds = %689
@@ -2206,6 +2200,12 @@ yy_get_next_buffer.exit.thread447:                ; preds = %795, %yy_get_next_b
   %1009 = load i32, ptr %74, align 4, !tbaa !16
   %1010 = icmp ult ptr %1006, %1008
   br i1 %1010, label %.lr.ph31.i432, label %.preheader454.outer.backedge
+
+.preheader454.outer.backedge:                     ; preds = %._crit_edge.i442, %yy_get_next_buffer.exit.thread447, %yy_try_NUL_trans.exit
+  %.1278.ph.be = phi ptr [ %702, %yy_try_NUL_trans.exit ], [ %1006, %yy_get_next_buffer.exit.thread447 ], [ %1006, %._crit_edge.i442 ]
+  %.2269.ph.be = phi ptr [ %705, %yy_try_NUL_trans.exit ], [ %1008, %yy_get_next_buffer.exit.thread447 ], [ %1008, %._crit_edge.i442 ]
+  %.3.ph.be = phi i32 [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %1009, %yy_get_next_buffer.exit.thread447 ], [ %1050, %._crit_edge.i442 ]
+  br label %.preheader454.outer
 
 .lr.ph31.i432:                                    ; preds = %yy_get_next_buffer.exit.thread447, %._crit_edge.i442
   %.02129.i433 = phi i32 [ %1050, %._crit_edge.i442 ], [ %1009, %yy_get_next_buffer.exit.thread447 ]
@@ -2664,8 +2664,8 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
   br label %46
 
 46:                                               ; preds = %32, %31
-  %47 = phi i64 [ %27, %31 ], [ %39, %32 ]
-  %48 = phi ptr [ %25, %31 ], [ %38, %32 ]
+  %47 = phi i64 [ %39, %32 ], [ %27, %31 ]
+  %48 = phi ptr [ %38, %32 ], [ %25, %31 ]
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3548,7 +3548,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetFileName(ptr noundef in
   br label %cmListFileLexer_ReadBOM.exit
 
 cmListFileLexer_ReadBOM.exit:                     ; preds = %19, %24, %30, %50, %51
-  %.0.i = phi i32 [ %.1.i, %50 ], [ %.43.i, %51 ], [ 5, %30 ], [ 2, %19 ], [ 3, %24 ]
+  %.0.i = phi i32 [ %.1.i, %50 ], [ 2, %19 ], [ 3, %24 ], [ 5, %30 ], [ %.43.i, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %.0.i, ptr %2, align 4, !tbaa !58
   br label %53

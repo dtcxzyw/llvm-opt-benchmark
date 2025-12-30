@@ -634,7 +634,7 @@ _ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exi
   br label %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN3nix13InputAccessorEEC2ERKS2_.exit.i: ; preds = %23, %20, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit
-  %25 = phi ptr [ %.pre, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit ], [ %4, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread ], [ %17, %20 ], [ %.pr6.pre, %23 ]
+  %25 = phi ptr [ %4, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit.thread ], [ %.pre, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_15FSInputAccessorEvEERKS_IT_E.exit ], [ %17, %20 ], [ %.pr6.pre, %23 ]
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %_ZN3nix3refINS_13InputAccessorEEC2ERKSt10shared_ptrIS1_E.exit
 

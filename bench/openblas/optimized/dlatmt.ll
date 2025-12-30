@@ -129,7 +129,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1072, label %68, label %.sink.split
 
 .sink.split:                                      ; preds = %66, %64, %62, %59
-  %.sink1850 = phi i32 [ 0, %59 ], [ 1, %64 ], [ 0, %62 ], [ 1, %66 ]
+  %.sink1850 = phi i32 [ 0, %59 ], [ 0, %62 ], [ 1, %64 ], [ 1, %66 ]
   store i32 %.sink1850, ptr %38, align 4, !tbaa !3
   br label %68
 
@@ -177,23 +177,23 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %85
 
 85:                                               ; preds = %83, %81, %79, %77, %75, %73, %71, %68
-  %86 = phi i1 [ false, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ true, %79 ], [ false, %83 ]
-  %87 = phi i1 [ true, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %83 ]
-  %88 = phi i1 [ false, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ %not..not1080, %83 ]
-  %brmerge = phi i1 [ false, %81 ], [ false, %68 ], [ %.not1069, %71 ], [ %.not1069, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ %.not1080, %83 ]
-  %89 = phi i1 [ true, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ true, %79 ], [ %not..not1080, %83 ]
-  %90 = phi i1 [ true, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ %not..not1080, %83 ]
-  %91 = phi i1 [ true, %81 ], [ true, %68 ], [ true, %71 ], [ true, %73 ], [ true, %75 ], [ false, %77 ], [ true, %79 ], [ true, %83 ]
-  %92 = phi i1 [ true, %81 ], [ true, %68 ], [ true, %71 ], [ true, %73 ], [ false, %75 ], [ true, %77 ], [ true, %79 ], [ true, %83 ]
-  %or.cond13 = phi i32 [ 6, %81 ], [ 0, %68 ], [ 1, %71 ], [ 2, %73 ], [ 0, %75 ], [ 0, %77 ], [ 5, %79 ], [ %.1174, %83 ]
-  %93 = phi i1 [ false, %81 ], [ false, %68 ], [ true, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %83 ]
-  %94 = phi i1 [ false, %81 ], [ false, %68 ], [ false, %71 ], [ true, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %83 ]
-  %95 = phi i1 [ false, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ true, %75 ], [ false, %77 ], [ false, %79 ], [ false, %83 ]
-  %96 = phi i1 [ false, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ true, %77 ], [ false, %79 ], [ false, %83 ]
-  %.0983 = phi i32 [ 6, %81 ], [ 0, %68 ], [ 1, %71 ], [ 2, %73 ], [ 3, %75 ], [ 4, %77 ], [ 5, %79 ], [ %.1174, %83 ]
-  %or.cond7 = phi i1 [ %.not1069, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ %.not1069, %75 ], [ false, %77 ], [ false, %79 ], [ false, %83 ]
-  %or.cond9 = phi i1 [ false, %81 ], [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ %.not1069, %77 ], [ %.not1069, %79 ], [ false, %83 ]
-  %.not1092 = phi i1 [ false, %81 ], [ true, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ true, %83 ]
+  %86 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ true, %79 ], [ false, %81 ], [ false, %83 ]
+  %87 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ true, %81 ], [ false, %83 ]
+  %88 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %81 ], [ %not..not1080, %83 ]
+  %brmerge = phi i1 [ false, %68 ], [ %.not1069, %71 ], [ %.not1069, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %81 ], [ %.not1080, %83 ]
+  %89 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ true, %79 ], [ true, %81 ], [ %not..not1080, %83 ]
+  %90 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ true, %81 ], [ %not..not1080, %83 ]
+  %91 = phi i1 [ true, %68 ], [ true, %71 ], [ true, %73 ], [ true, %75 ], [ false, %77 ], [ true, %79 ], [ true, %81 ], [ true, %83 ]
+  %92 = phi i1 [ true, %68 ], [ true, %71 ], [ true, %73 ], [ false, %75 ], [ true, %77 ], [ true, %79 ], [ true, %81 ], [ true, %83 ]
+  %or.cond13 = phi i32 [ 0, %68 ], [ 1, %71 ], [ 2, %73 ], [ 0, %75 ], [ 0, %77 ], [ 5, %79 ], [ 6, %81 ], [ %.1174, %83 ]
+  %93 = phi i1 [ false, %68 ], [ true, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %81 ], [ false, %83 ]
+  %94 = phi i1 [ false, %68 ], [ false, %71 ], [ true, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %81 ], [ false, %83 ]
+  %95 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ true, %75 ], [ false, %77 ], [ false, %79 ], [ false, %81 ], [ false, %83 ]
+  %96 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ true, %77 ], [ false, %79 ], [ false, %81 ], [ false, %83 ]
+  %.0983 = phi i32 [ 0, %68 ], [ 1, %71 ], [ 2, %73 ], [ 3, %75 ], [ 4, %77 ], [ 5, %79 ], [ 6, %81 ], [ %.1174, %83 ]
+  %or.cond7 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ %.not1069, %75 ], [ false, %77 ], [ false, %79 ], [ %.not1069, %81 ], [ false, %83 ]
+  %or.cond9 = phi i1 [ false, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ %.not1069, %77 ], [ %.not1069, %79 ], [ false, %81 ], [ false, %83 ]
+  %.not1092 = phi i1 [ true, %68 ], [ false, %71 ], [ false, %73 ], [ false, %75 ], [ false, %77 ], [ false, %79 ], [ false, %81 ], [ true, %83 ]
   %97 = load i32, ptr %0, align 4, !tbaa !3
   %98 = load i32, ptr %1, align 4, !tbaa !3
   %.1175 = tail call i32 @llvm.smin.i32(i32 %97, i32 %98)
@@ -268,12 +268,10 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 134:                                              ; preds = %132
   %135 = icmp slt i32 %98, 0
   %brmerge1853 = select i1 %135, i1 true, i1 %60
-  %brmerge1855 = or i1 %brmerge1853, %69
+  %brmerge1854 = or i1 %brmerge1853, %69
   %.mux = select i1 %60, i32 -3, i32 -5
   %.mux.mux = select i1 %135, i32 -2, i32 %.mux
-  %.mux1854 = select i1 %60, i32 -3, i32 -5
-  %.mux1854.mux = select i1 %135, i32 -2, i32 %.mux1854
-  br i1 %brmerge1855, label %.thread.sink.split, label %136
+  br i1 %brmerge1854, label %.thread.sink.split, label %136
 
 136:                                              ; preds = %134
   %137 = load i32, ptr %6, align 4, !tbaa !3
@@ -326,13 +324,12 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1094, label %.preheader, label %.thread
 
 .thread.sink.split:                               ; preds = %134, %151, %148, %146, %144, %141, %136, %132, %128
-  %.sink1851 = phi i32 [ -1, %128 ], [ -1, %132 ], [ -14, %151 ], [ -7, %136 ], [ -10, %144 ], [ -12, %148 ], [ -11, %146 ], [ -8, %141 ], [ %.mux.mux, %134 ]
-  %.ph = phi i32 [ -1, %128 ], [ -1, %132 ], [ -14, %151 ], [ -7, %136 ], [ -10, %144 ], [ -12, %148 ], [ -11, %146 ], [ -8, %141 ], [ %.mux1854.mux, %134 ]
+  %.sink1851 = phi i32 [ -1, %128 ], [ -1, %132 ], [ %.mux.mux, %134 ], [ -7, %136 ], [ -8, %141 ], [ -10, %144 ], [ -11, %146 ], [ -12, %148 ], [ -14, %151 ]
   store i32 %.sink1851, ptr %16, align 4, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %154
-  %155 = phi i32 [ %.pr, %154 ], [ %.ph, %.thread.sink.split ]
+  %155 = phi i32 [ %.pr, %154 ], [ %.sink1851, %.thread.sink.split ]
   %156 = sub nsw i32 0, %155
   store i32 %156, ptr %18, align 4, !tbaa !3
   %157 = call i32 @xerbla_(ptr noundef nonnull @.str.11, ptr noundef nonnull %18, i32 noundef 6) #7
@@ -1774,9 +1771,9 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread1200
 
 .loopexit1288:                                    ; preds = %._crit_edge1431, %._crit_edge1480, %._crit_edge1413, %._crit_edge1464, %214, %.loopexit1291, %.loopexit1294, %._crit_edge1322, %._crit_edge1365, %817
-  %.01011 = phi i32 [ undef, %817 ], [ %.161027.lcssa, %._crit_edge1365 ], [ %.121023.lcssa, %._crit_edge1480 ], [ %.161027.lcssa, %.loopexit1291 ], [ %.131024.lcssa, %.loopexit1294 ], [ undef, %214 ], [ %.131024.lcssa, %._crit_edge1322 ], [ %.81019.lcssa, %._crit_edge1464 ], [ %.11012.lcssa, %._crit_edge1413 ], [ %.61017.lcssa, %._crit_edge1431 ]
-  %.01001 = phi i32 [ undef, %817 ], [ undef, %._crit_edge1365 ], [ %.11.lcssa, %._crit_edge1480 ], [ %.17.lcssa, %.loopexit1291 ], [ %.16.lcssa, %.loopexit1294 ], [ undef, %214 ], [ %.13.lcssa, %._crit_edge1322 ], [ %.81009.lcssa, %._crit_edge1464 ], [ %.11002.lcssa, %._crit_edge1413 ], [ %.51006.lcssa, %._crit_edge1431 ]
-  %.0949 = phi i32 [ 0, %817 ], [ %.3952, %._crit_edge1365 ], [ %.0983., %._crit_edge1480 ], [ %.0983.1185, %.loopexit1291 ], [ %.0983.1183, %.loopexit1294 ], [ %or.cond13, %214 ], [ %.2951, %._crit_edge1322 ], [ %.0983., %._crit_edge1464 ], [ %.0983., %._crit_edge1413 ], [ %.0983., %._crit_edge1431 ]
+  %.01011 = phi i32 [ %.131024.lcssa, %._crit_edge1322 ], [ %.161027.lcssa, %._crit_edge1365 ], [ undef, %817 ], [ undef, %214 ], [ %.131024.lcssa, %.loopexit1294 ], [ %.161027.lcssa, %.loopexit1291 ], [ %.81019.lcssa, %._crit_edge1464 ], [ %.11012.lcssa, %._crit_edge1413 ], [ %.121023.lcssa, %._crit_edge1480 ], [ %.61017.lcssa, %._crit_edge1431 ]
+  %.01001 = phi i32 [ %.13.lcssa, %._crit_edge1322 ], [ undef, %._crit_edge1365 ], [ undef, %817 ], [ undef, %214 ], [ %.16.lcssa, %.loopexit1294 ], [ %.17.lcssa, %.loopexit1291 ], [ %.81009.lcssa, %._crit_edge1464 ], [ %.11002.lcssa, %._crit_edge1413 ], [ %.11.lcssa, %._crit_edge1480 ], [ %.51006.lcssa, %._crit_edge1431 ]
+  %.0949 = phi i32 [ %.2951, %._crit_edge1322 ], [ %.3952, %._crit_edge1365 ], [ 0, %817 ], [ %or.cond13, %214 ], [ %.0983.1183, %.loopexit1294 ], [ %.0983.1185, %.loopexit1291 ], [ %.0983., %._crit_edge1464 ], [ %.0983., %._crit_edge1413 ], [ %.0983., %._crit_edge1480 ], [ %.0983., %._crit_edge1431 ]
   %.not1151 = icmp eq i32 %.0983, %.0949
   br i1 %.not1151, label %.thread1200, label %820
 
@@ -2082,8 +2079,8 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond1691.not, label %.loopexit1282, label %925, !llvm.loop !45
 
 .loopexit1282:                                    ; preds = %._crit_edge1505, %886, %869, %.lr.ph1537, %.loopexit, %._crit_edge1499, %840, %821
-  %.191030 = phi i32 [ %spec.select1188, %886 ], [ %spec.select1186, %869 ], [ %.01011, %821 ], [ %.01011, %840 ], [ %.01011, %._crit_edge1499 ], [ %.01011, %.loopexit ], [ %.01011, %.lr.ph1537 ], [ %.01011, %._crit_edge1505 ]
-  %.18 = phi i32 [ %spec.select1189, %886 ], [ %spec.select1187, %869 ], [ %.01001, %821 ], [ %.01001, %840 ], [ %.01001, %._crit_edge1499 ], [ %.01001, %.loopexit ], [ %.01001, %.lr.ph1537 ], [ %.01001, %._crit_edge1505 ]
+  %.191030 = phi i32 [ %.01011, %821 ], [ %.01011, %840 ], [ %.01011, %._crit_edge1499 ], [ %.01011, %.loopexit ], [ %.01011, %.lr.ph1537 ], [ %spec.select1186, %869 ], [ %spec.select1188, %886 ], [ %.01011, %._crit_edge1505 ]
+  %.18 = phi i32 [ %.01001, %821 ], [ %.01001, %840 ], [ %.01001, %._crit_edge1499 ], [ %.01001, %.loopexit ], [ %.01001, %.lr.ph1537 ], [ %spec.select1187, %869 ], [ %spec.select1189, %886 ], [ %.01001, %._crit_edge1505 ]
   %or.cond19 = or i1 %95, %96
   br i1 %or.cond19, label %.loopexit1282.thread, label %958
 

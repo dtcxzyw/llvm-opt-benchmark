@@ -260,7 +260,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %83, %88, %95, %100, %109, %114, %121, %126
-  %.0.i = phi i32 [ %118, %114 ], [ %92, %88 ], [ %104, %100 ], [ %87, %83 ], [ %99, %95 ], [ %113, %109 ], [ %125, %121 ], [ %129, %126 ]
+  %.0.i = phi i32 [ %87, %83 ], [ %92, %88 ], [ %99, %95 ], [ %104, %100 ], [ %113, %109 ], [ %118, %114 ], [ %125, %121 ], [ %129, %126 ]
   %130 = load i32, ptr %19, align 8, !tbaa !57
   %131 = add nuw nsw i32 %.0.i, 1
   %132 = sub i32 %131, %130
@@ -350,13 +350,13 @@ H5VM_log2_gen.exit:                               ; preds = %83, %88, %95, %100,
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
-183:                                              ; preds = %158, %165
+183:                                              ; preds = %165, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 1, ptr %1, align 8, !tbaa !59
   br label %184
 
 184:                                              ; preds = %.thread, %3, %183, %23
-  %.074 = phi i32 [ -1, %23 ], [ 0, %183 ], [ -1, %.thread ], [ 0, %3 ]
+  %.074 = phi i32 [ -1, %23 ], [ 0, %183 ], [ 0, %3 ], [ -1, %.thread ]
   ret i32 %.074
 }
 
@@ -451,7 +451,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_entry(ptr noundef readonly cap
   br label %.thread
 
 .thread:                                          ; preds = %14, %29, %31, %4
-  %.0 = phi i32 [ -1, %31 ], [ -1, %14 ], [ 0, %4 ], [ 0, %29 ]
+  %.0 = phi i32 [ -1, %31 ], [ 0, %4 ], [ 0, %29 ], [ -1, %14 ]
   ret i32 %.0
 }
 
@@ -630,7 +630,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_down(ptr noundef captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %12, %25, %26, %2
-  %.0 = phi i32 [ -1, %26 ], [ -1, %12 ], [ 0, %2 ], [ 0, %25 ]
+  %.0 = phi i32 [ -1, %26 ], [ 0, %2 ], [ 0, %25 ], [ -1, %12 ]
   ret i32 %.0
 }
 

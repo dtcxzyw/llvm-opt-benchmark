@@ -368,7 +368,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit38: ; pr
   br i1 %.not33, label %.loopexit, label %61, !llvm.loop !29
 
 .loopexit:                                        ; preds = %89, %57, %56, %47, %48, %_ZN4llvm15SmallVectorImplI15llvm_regmatch_tE6resizeEm.exit
-  %.1 = phi i1 [ false, %47 ], [ false, %_ZN4llvm15SmallVectorImplI15llvm_regmatch_tE6resizeEm.exit ], [ false, %48 ], [ true, %56 ], [ true, %57 ], [ true, %89 ]
+  %.1 = phi i1 [ false, %_ZN4llvm15SmallVectorImplI15llvm_regmatch_tE6resizeEm.exit ], [ false, %48 ], [ false, %47 ], [ true, %56 ], [ true, %57 ], [ true, %89 ]
   %90 = load ptr, ptr %6, align 8, !tbaa !21
   %91 = icmp eq ptr %90, %32
   br i1 %91, label %_ZN4llvm11SmallVectorI15llvm_regmatch_tLj8EED2Ev.exit, label %92
@@ -1017,7 +1017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.threadthread-pre-split
 
-.threadthread-pre-split:                          ; preds = %235, %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit74, %139, %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.threadthread-pre-split:                          ; preds = %235, %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit74, %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %139
   %.pr = load i64, ptr %24, align 8, !tbaa !36
   br label %.thread
 
@@ -1026,7 +1026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %_ZN
   %266 = icmp eq i64 %265, 0
   br i1 %266, label %.thread132, label %86
 
-.thread132:                                       ; preds = %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit, %106, %109, %102
+.thread132:                                       ; preds = %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit, %102, %106, %109
   %267 = load ptr, ptr %14, align 8, !tbaa !21
   %268 = load ptr, ptr %267, align 8, !tbaa !34
   %269 = getelementptr inbounds nuw i8, ptr %267, i64 8

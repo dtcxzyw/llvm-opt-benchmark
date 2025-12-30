@@ -1152,9 +1152,9 @@ define hidden void @dissect_zbee_zdp_not_mgmt_nwkupdate(ptr noundef %0, ptr noun
   %37 = add nuw i32 %.02631, 1
   br label %38
 
-38:                                               ; preds = %23, %29
-  %39 = phi i32 [ %36, %29 ], [ %24, %23 ]
-  %.1.ph = phi i32 [ %37, %29 ], [ %.02631, %23 ]
+38:                                               ; preds = %29, %23
+  %39 = phi i32 [ %24, %23 ], [ %36, %29 ]
+  %.1.ph = phi i32 [ %.02631, %23 ], [ %37, %29 ]
   %40 = add nuw nsw i32 %.02532, 1
   %exitcond.not = icmp eq i32 %40, 32
   br i1 %exitcond.not, label %41, label %23, !llvm.loop !16

@@ -645,7 +645,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i76: ; preds = %_ZStlsISt11char_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %199, %196, %156, %153, %91, %88
-  %.0.i.i.i73.sink = phi i8 [ %95, %91 ], [ %160, %156 ], [ %90, %88 ], [ %155, %153 ], [ %198, %196 ], [ %203, %199 ]
+  %.0.i.i.i73.sink = phi i8 [ %90, %88 ], [ %95, %91 ], [ %155, %153 ], [ %160, %156 ], [ %198, %196 ], [ %203, %199 ]
   %204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i73.sink)
   %205 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %204)
   br label %206

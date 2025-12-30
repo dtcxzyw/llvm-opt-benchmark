@@ -563,100 +563,100 @@ define internal i32 @dissect_dmx_test(ptr noundef %0, ptr noundef readonly captu
   %14 = load i32, ptr @hf_dmx_test_data, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef %13, i32 noundef 0)
   %16 = icmp eq i32 %13, 512
-  br i1 %16, label %.preheader, label %.critedge
+  br i1 %16, label %.preheader, label %.loopexit
 
 17:                                               ; preds = %.preheader
   %18 = add nuw nsw i32 %.060, 1
   %exitcond.not = icmp eq i32 %18, 512
-  br i1 %exitcond.not, label %20, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %8, %17
   %.060 = phi i32 [ %18, %17 ], [ 0, %8 ]
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.060)
   %.not49 = icmp eq i8 %19, 85
-  br i1 %.not49, label %17, label %.critedge
+  br i1 %.not49, label %17, label %.loopexit
 
-20:                                               ; preds = %17
+.critedge:                                        ; preds = %17
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.104)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.105)
-  %21 = load i32, ptr @ett_dmx_test, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %21)
-  %23 = load i32, ptr @hf_dmx_test_data_good, align 4
-  %24 = tail call ptr @proto_tree_add_boolean(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 512, i32 noundef 512, i64 noundef 1)
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %25
+  %20 = load i32, ptr @ett_dmx_test, align 4
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %20)
+  %22 = load i32, ptr @hf_dmx_test_data_good, align 4
+  %23 = tail call ptr @proto_tree_add_boolean(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef 512, i32 noundef 512, i64 noundef 1)
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %24
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %.not5.i = icmp eq ptr %27, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %28
+24:                                               ; preds = %.critedge
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %.not5.i = icmp eq ptr %26, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %27
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  %30 = load i32, ptr %29, align 4
-  %31 = or i32 %30, 2
-  store i32 %31, ptr %29, align 4
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
+  %29 = load i32, ptr %28, align 4
+  %30 = or i32 %29, 2
+  store i32 %30, ptr %28, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %20, %25, %28
-  %32 = load i32, ptr @hf_dmx_test_data_bad, align 4
-  %33 = tail call ptr @proto_tree_add_boolean(ptr noundef %22, i32 noundef %32, ptr noundef %0, i32 noundef 512, i32 noundef 512, i64 noundef 0)
-  %.not.i51 = icmp eq ptr %33, null
-  br i1 %.not.i51, label %proto_item_set_generated.exit53, label %34
+proto_item_set_generated.exit:                    ; preds = %.critedge, %24, %27
+  %31 = load i32, ptr @hf_dmx_test_data_bad, align 4
+  %32 = tail call ptr @proto_tree_add_boolean(ptr noundef %21, i32 noundef %31, ptr noundef %0, i32 noundef 512, i32 noundef 512, i64 noundef 0)
+  %.not.i51 = icmp eq ptr %32, null
+  br i1 %.not.i51, label %proto_item_set_generated.exit53, label %33
 
-34:                                               ; preds = %proto_item_set_generated.exit
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %.not5.i52 = icmp eq ptr %36, null
+33:                                               ; preds = %proto_item_set_generated.exit
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %35 = load ptr, ptr %34, align 8
+  %.not5.i52 = icmp eq ptr %35, null
   br i1 %.not5.i52, label %proto_item_set_generated.exit53, label %proto_item_set_generated.exit53.sink.split
 
-.critedge:                                        ; preds = %.preheader, %8
+.loopexit:                                        ; preds = %.preheader, %8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.106)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.107)
-  %37 = load i32, ptr @ett_dmx_test, align 4
-  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %37)
-  %39 = load i32, ptr @hf_dmx_test_data_good, align 4
-  %40 = tail call ptr @proto_tree_add_boolean(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %13, i32 noundef %13, i64 noundef 0)
-  %.not.i54 = icmp eq ptr %40, null
-  br i1 %.not.i54, label %proto_item_set_generated.exit56, label %41
+  %36 = load i32, ptr @ett_dmx_test, align 4
+  %37 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %36)
+  %38 = load i32, ptr @hf_dmx_test_data_good, align 4
+  %39 = tail call ptr @proto_tree_add_boolean(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %13, i32 noundef %13, i64 noundef 0)
+  %.not.i54 = icmp eq ptr %39, null
+  br i1 %.not.i54, label %proto_item_set_generated.exit56, label %40
 
-41:                                               ; preds = %.critedge
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %43 = load ptr, ptr %42, align 8
-  %.not5.i55 = icmp eq ptr %43, null
-  br i1 %.not5.i55, label %proto_item_set_generated.exit56, label %44
+40:                                               ; preds = %.loopexit
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %.not5.i55 = icmp eq ptr %42, null
+  br i1 %.not5.i55, label %proto_item_set_generated.exit56, label %43
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  %46 = load i32, ptr %45, align 4
-  %47 = or i32 %46, 2
-  store i32 %47, ptr %45, align 4
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
+  %45 = load i32, ptr %44, align 4
+  %46 = or i32 %45, 2
+  store i32 %46, ptr %44, align 4
   br label %proto_item_set_generated.exit56
 
-proto_item_set_generated.exit56:                  ; preds = %.critedge, %41, %44
-  %48 = load i32, ptr @hf_dmx_test_data_bad, align 4
-  %49 = tail call ptr @proto_tree_add_boolean(ptr noundef %38, i32 noundef %48, ptr noundef %0, i32 noundef %13, i32 noundef %13, i64 noundef 1)
-  %.not.i57 = icmp eq ptr %49, null
-  br i1 %.not.i57, label %proto_item_set_generated.exit53, label %50
+proto_item_set_generated.exit56:                  ; preds = %.loopexit, %40, %43
+  %47 = load i32, ptr @hf_dmx_test_data_bad, align 4
+  %48 = tail call ptr @proto_tree_add_boolean(ptr noundef %37, i32 noundef %47, ptr noundef %0, i32 noundef %13, i32 noundef %13, i64 noundef 1)
+  %.not.i57 = icmp eq ptr %48, null
+  br i1 %.not.i57, label %proto_item_set_generated.exit53, label %49
 
-50:                                               ; preds = %proto_item_set_generated.exit56
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %52 = load ptr, ptr %51, align 8
-  %.not5.i58 = icmp eq ptr %52, null
+49:                                               ; preds = %proto_item_set_generated.exit56
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %.not5.i58 = icmp eq ptr %51, null
   br i1 %.not5.i58, label %proto_item_set_generated.exit53, label %proto_item_set_generated.exit53.sink.split
 
-proto_item_set_generated.exit53.sink.split:       ; preds = %50, %34
-  %.sink72 = phi ptr [ %36, %34 ], [ %52, %50 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sink72, i64 28
-  %54 = load i32, ptr %53, align 4
-  %55 = or i32 %54, 2
-  store i32 %55, ptr %53, align 4
+proto_item_set_generated.exit53.sink.split:       ; preds = %49, %33
+  %.sink72 = phi ptr [ %35, %33 ], [ %51, %49 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink72, i64 28
+  %53 = load i32, ptr %52, align 4
+  %54 = or i32 %53, 2
+  store i32 %54, ptr %52, align 4
   br label %proto_item_set_generated.exit53
 
-proto_item_set_generated.exit53:                  ; preds = %proto_item_set_generated.exit53.sink.split, %50, %proto_item_set_generated.exit56, %34, %proto_item_set_generated.exit, %4
-  %56 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %56
+proto_item_set_generated.exit53:                  ; preds = %proto_item_set_generated.exit53.sink.split, %49, %proto_item_set_generated.exit56, %33, %proto_item_set_generated.exit, %4
+  %55 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %55
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

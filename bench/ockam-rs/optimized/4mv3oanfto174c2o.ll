@@ -675,7 +675,7 @@ define noundef zeroext i1 @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u2
   br label %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Ip4$C$ockam_multiaddr..error..Error$GT$$GT$17h3f3bf011addbcaa3E.exit"
 
 "_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Ip4$C$ockam_multiaddr..error..Error$GT$$GT$17h3f3bf011addbcaa3E.exit": ; preds = %47, %45, %43, %4, %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Secure$C$ockam_multiaddr..error..Error$GT$$GT$17hdc3099f00b5bdc9fE.exit", %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Space$C$ockam_multiaddr..error..Error$GT$$GT$17h1a7ec214605ecadaE.exit", %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Project$C$ockam_multiaddr..error..Error$GT$$GT$17h789ae29ebcf830a5E.exit", %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Node$C$ockam_multiaddr..error..Error$GT$$GT$17hf6ac3c65445d19bcE.exit", %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Service$C$ockam_multiaddr..error..Error$GT$$GT$17h1442945473b06be5E.exit", %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..DnsAddr$C$ockam_multiaddr..error..Error$GT$$GT$17hf010d6b7cd3bc11cE.exit", %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Worker$C$ockam_multiaddr..error..Error$GT$$GT$17h536199683eebc5e8E.exit"
-  %.0.shrunk = phi i1 [ %108, %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Secure$C$ockam_multiaddr..error..Error$GT$$GT$17hdc3099f00b5bdc9fE.exit" ], [ %42, %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Worker$C$ockam_multiaddr..error..Error$GT$$GT$17h536199683eebc5e8E.exit" ], [ false, %4 ], [ true, %43 ], [ true, %45 ], [ %58, %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..DnsAddr$C$ockam_multiaddr..error..Error$GT$$GT$17hf010d6b7cd3bc11cE.exit" ], [ %68, %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Service$C$ockam_multiaddr..error..Error$GT$$GT$17h1442945473b06be5E.exit" ], [ %78, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Node$C$ockam_multiaddr..error..Error$GT$$GT$17hf6ac3c65445d19bcE.exit" ], [ %88, %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Project$C$ockam_multiaddr..error..Error$GT$$GT$17h789ae29ebcf830a5E.exit" ], [ %98, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Space$C$ockam_multiaddr..error..Error$GT$$GT$17h1a7ec214605ecadaE.exit" ], [ true, %47 ]
+  %.0.shrunk = phi i1 [ %42, %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Worker$C$ockam_multiaddr..error..Error$GT$$GT$17h536199683eebc5e8E.exit" ], [ %58, %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..DnsAddr$C$ockam_multiaddr..error..Error$GT$$GT$17hf010d6b7cd3bc11cE.exit" ], [ %68, %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Service$C$ockam_multiaddr..error..Error$GT$$GT$17h1442945473b06be5E.exit" ], [ %78, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Node$C$ockam_multiaddr..error..Error$GT$$GT$17hf6ac3c65445d19bcE.exit" ], [ %88, %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Project$C$ockam_multiaddr..error..Error$GT$$GT$17h789ae29ebcf830a5E.exit" ], [ %98, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Space$C$ockam_multiaddr..error..Error$GT$$GT$17h1a7ec214605ecadaE.exit" ], [ %108, %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Secure$C$ockam_multiaddr..error..Error$GT$$GT$17hdc3099f00b5bdc9fE.exit" ], [ false, %4 ], [ true, %43 ], [ true, %45 ], [ true, %47 ]
   ret i1 %.0.shrunk
 }
 
@@ -1343,7 +1343,7 @@ _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit270: ; preds = %24
   unreachable
 
 common.resume:                                    ; preds = %471, %444, %417, %390, %363, %336, %281, %330, %357, %384, %411, %438, %465, %287
-  %common.resume.op = phi { ptr, i32 } [ %445, %444 ], [ %288, %287 ], [ %466, %465 ], [ %337, %336 ], [ %364, %363 ], [ %391, %390 ], [ %418, %417 ], [ %282, %281 ], [ %331, %330 ], [ %358, %357 ], [ %385, %384 ], [ %412, %411 ], [ %439, %438 ], [ %472, %471 ]
+  %common.resume.op = phi { ptr, i32 } [ %288, %287 ], [ %282, %281 ], [ %331, %330 ], [ %358, %357 ], [ %385, %384 ], [ %412, %411 ], [ %439, %438 ], [ %466, %465 ], [ %337, %336 ], [ %364, %363 ], [ %391, %390 ], [ %418, %417 ], [ %445, %444 ], [ %472, %471 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i": ; preds = %286
@@ -2212,7 +2212,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
   unreachable
 
 common.resume:                                    ; preds = %124, %52, %58, %62, %66, %70, %74, %118
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %119, %118 ], [ %75, %74 ], [ %71, %70 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %125, %124 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %75, %74 ], [ %71, %70 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %53, %52 ], [ %125, %124 ]
   resume { ptr, i32 } %common.resume.op
 
 57:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h550c2100685a3c89E.exit206"
@@ -2788,7 +2788,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
   unreachable
 
 common.resume:                                    ; preds = %350, %342, %317, %309, %284, %276, %251, %243, %218, %210, %185, %177, %100, %170, %203, %236, %269, %302, %335, %115, %107
-  %common.resume.op = phi { ptr, i32 } [ %343, %342 ], [ %108, %107 ], [ %116, %115 ], [ %336, %335 ], [ %178, %177 ], [ %186, %185 ], [ %211, %210 ], [ %219, %218 ], [ %244, %243 ], [ %252, %251 ], [ %277, %276 ], [ %285, %284 ], [ %310, %309 ], [ %318, %317 ], [ %101, %100 ], [ %171, %170 ], [ %204, %203 ], [ %237, %236 ], [ %270, %269 ], [ %303, %302 ], [ %351, %350 ]
+  %common.resume.op = phi { ptr, i32 } [ %108, %107 ], [ %116, %115 ], [ %101, %100 ], [ %171, %170 ], [ %204, %203 ], [ %237, %236 ], [ %270, %269 ], [ %303, %302 ], [ %336, %335 ], [ %178, %177 ], [ %186, %185 ], [ %211, %210 ], [ %219, %218 ], [ %244, %243 ], [ %252, %251 ], [ %277, %276 ], [ %285, %284 ], [ %310, %309 ], [ %318, %317 ], [ %343, %342 ], [ %351, %350 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0d76fb7a74d9269E.exit.i.i": ; preds = %106

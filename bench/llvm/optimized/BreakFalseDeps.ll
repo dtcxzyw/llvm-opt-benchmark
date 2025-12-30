@@ -827,8 +827,8 @@ _ZNK4llvm12LivePhysRegs8containsEt.exit.thread:   ; preds = %55, %40, %_ZNK4llvm
   br label %75
 
 75:                                               ; preds = %70, %38
-  %.218 = phi i32 [ %.01633, %38 ], [ %74, %70 ]
-  %.2 = phi ptr [ %.034, %38 ], [ %72, %70 ]
+  %.218 = phi i32 [ %74, %70 ], [ %.01633, %38 ]
+  %.2 = phi ptr [ %72, %70 ], [ %.034, %38 ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.021.032, align 8
   %76 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %77 = inttoptr i64 %76 to ptr

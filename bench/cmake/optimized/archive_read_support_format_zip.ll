@@ -414,7 +414,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_options(ptr nound
   br label %54
 
 54:                                               ; preds = %43, %37, %40, %20, %27, %24, %21, %51, %9
-  %.027 = phi i32 [ 0, %9 ], [ 0, %37 ], [ -30, %21 ], [ 0, %51 ], [ -25, %20 ], [ 0, %24 ], [ 0, %27 ], [ 0, %40 ], [ -20, %43 ]
+  %.027 = phi i32 [ 0, %9 ], [ 0, %51 ], [ -25, %20 ], [ 0, %27 ], [ 0, %24 ], [ -30, %21 ], [ 0, %40 ], [ 0, %37 ], [ -20, %43 ]
   ret i32 %.027
 }
 
@@ -571,7 +571,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_streamable_read_h
   br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 .thread59:                                        ; preds = %._crit_edge, %66, %74, %70, %40, %63
-  %.2.ph = phi i32 [ %65, %63 ], [ -30, %40 ], [ 1, %66 ], [ 1, %70 ], [ 1, %74 ], [ -30, %._crit_edge ]
+  %.2.ph = phi i32 [ %65, %63 ], [ -30, %40 ], [ 1, %70 ], [ 1, %74 ], [ 1, %66 ], [ -30, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %84
 
@@ -660,7 +660,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_read_data(ptr nou
   br label %42
 
 42:                                               ; preds = %38, %40
-  %.083 = phi i32 [ %41, %40 ], [ %39, %38 ]
+  %.083 = phi i32 [ %39, %38 ], [ %41, %40 ]
   %.not92 = icmp eq i32 %.083, 0
   br i1 %.not92, label %43, label %269
 
@@ -799,8 +799,8 @@ compression_name.exit:                            ; preds = %64, %69
   br label %106
 
 106:                                              ; preds = %102, %94
-  %.0126.i = phi i32 [ %..i, %102 ], [ %99, %94 ]
-  %.not135.i = phi i1 [ %cond.i, %102 ], [ true, %94 ]
+  %.0126.i = phi i32 [ %99, %94 ], [ %..i, %102 ]
+  %.not135.i = phi i1 [ true, %94 ], [ %cond.i, %102 ]
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %108 = load i64, ptr %107, align 8, !tbaa !88
   %109 = load i64, ptr %13, align 8, !tbaa !72
@@ -1153,7 +1153,7 @@ consume_end_of_file_marker.exit:                  ; preds = %.consume_end_of_fil
   br label %269
 
 269:                                              ; preds = %.thread, %83, %262, %72, %42, %17, %12, %268, %261, %255, %compression_name.exit
-  %.0 = phi i32 [ -25, %255 ], [ 1, %12 ], [ 1, %17 ], [ -25, %compression_name.exit ], [ %.083, %42 ], [ -25, %261 ], [ -25, %268 ], [ %.1, %72 ], [ 0, %262 ], [ 0, %83 ], [ %33, %.thread ]
+  %.0 = phi i32 [ -25, %compression_name.exit ], [ -25, %261 ], [ -25, %268 ], [ -25, %255 ], [ 1, %12 ], [ 1, %17 ], [ %.083, %42 ], [ %.1, %72 ], [ 0, %262 ], [ 0, %83 ], [ %33, %.thread ]
   ret i32 %.0
 }
 
@@ -1233,7 +1233,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_read_data_skip_st
   br label %46
 
 46:                                               ; preds = %42, %44
-  %.060 = phi i32 [ %45, %44 ], [ %43, %42 ]
+  %.060 = phi i32 [ %43, %42 ], [ %45, %44 ]
   %.not68 = icmp eq i32 %.060, 0
   br i1 %.not68, label %47, label %.critedge
 
@@ -1343,7 +1343,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_read_data_skip_st
   br label %94
 
 94:                                               ; preds = %.lr.ph, %64, %92, %66
-  %.159 = phi ptr [ %93, %92 ], [ %65, %64 ], [ %67, %66 ], [ %62, %.lr.ph ]
+  %.159 = phi ptr [ %65, %64 ], [ %67, %66 ], [ %93, %92 ], [ %62, %.lr.ph ]
   %.not69 = icmp ugt ptr %.159, %61
   br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
@@ -1365,7 +1365,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_read_data_skip_st
   br i1 %101, label %._crit_edge85, label %.lr.ph.preheader
 
 .critedge:                                        ; preds = %.preheader, %56, %.thread75, %.thread, %46, %26, %12, %1
-  %.0 = phi i32 [ %.060, %46 ], [ -30, %1 ], [ %., %26 ], [ 0, %12 ], [ %.6.ph, %.thread75 ], [ %37, %.thread ], [ 0, %.preheader ], [ %57, %56 ]
+  %.0 = phi i32 [ -30, %1 ], [ 0, %12 ], [ %., %26 ], [ %.060, %46 ], [ %37, %.thread ], [ %.6.ph, %.thread75 ], [ 0, %.preheader ], [ %57, %56 ]
   ret i32 %.0
 }
 
@@ -1520,7 +1520,7 @@ define internal i32 @archive_read_format_zip_has_encrypted_entries(ptr noundef r
   br label %.thread
 
 .thread:                                          ; preds = %5, %1, %2, %7
-  %.1 = phi i32 [ %9, %7 ], [ -1, %1 ], [ -1, %2 ], [ -1, %5 ]
+  %.1 = phi i32 [ %9, %7 ], [ -1, %2 ], [ -1, %1 ], [ -1, %5 ]
   ret i32 %.1
 }
 
@@ -1610,7 +1610,7 @@ define internal range(i32 -1, 33) i32 @archive_read_format_zip_seekable_bid(ptr 
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %38, %26, %30, %33, %15, %10, %7, %2
-  %.0 = phi i32 [ %28, %26 ], [ -1, %2 ], [ 0, %7 ], [ 0, %10 ], [ 0, %15 ], [ %spec.select, %33 ], [ %28, %30 ], [ 0, %38 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %7 ], [ 0, %10 ], [ 0, %15 ], [ %spec.select, %33 ], [ %28, %30 ], [ %28, %26 ], [ 0, %38 ]
   ret i32 %.0
 }
 
@@ -1726,7 +1726,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   br label %58
 
 58:                                               ; preds = %56, %54, %47, %45, %40, %38, %.lr.ph.i
-  %.1154.i = phi i64 [ %57, %56 ], [ %55, %54 ], [ %39, %38 ], [ %41, %40 ], [ %35, %.lr.ph.i ], [ %46, %45 ], [ %48, %47 ]
+  %.1154.i = phi i64 [ %57, %56 ], [ %39, %38 ], [ %41, %40 ], [ %46, %45 ], [ %48, %47 ], [ %55, %54 ], [ %35, %.lr.ph.i ]
   %59 = icmp slt i64 %.1154.i, %33
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !113
 
@@ -2095,8 +2095,8 @@ expose_parent_dirs.exit:                          ; preds = %.lr.ph.i77, %242, %
   br i1 %263, label %rsrc_basename.exit198.i, label %259
 
 rsrc_basename.exit198.i:                          ; preds = %259, %.thread.i, %253
-  %.pre-phi.i = phi i64 [ %212, %253 ], [ %212, %.thread.i ], [ %260, %259 ]
-  %.0.i = phi i64 [ 0, %253 ], [ %167, %.thread.i ], [ %258, %259 ]
+  %.pre-phi.i = phi i64 [ %212, %.thread.i ], [ %212, %253 ], [ %260, %259 ]
+  %.0.i = phi i64 [ %167, %.thread.i ], [ 0, %253 ], [ %258, %259 ]
   %265 = getelementptr inbounds nuw i8, ptr %93, i64 72
   %266 = getelementptr inbounds nuw i8, ptr %93, i64 80
   store i64 0, ptr %266, align 8, !tbaa !129
@@ -2117,7 +2117,7 @@ rsrc_basename.exit198.i:                          ; preds = %259, %.thread.i, %2
   %279 = icmp eq ptr %278, null
   br i1 %279, label %slurp_central_directory.exit.thread, label %82
 
-slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %202, %89, %275, %.preheader207.i.preheader, %63, %24, %88, %95, %201
+slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %275, %89, %202, %.preheader207.i.preheader, %24, %88, %95, %201, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zip_read_mac_metadata.exit.thread
 
@@ -2141,7 +2141,7 @@ slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %202
   br label %289
 
 289:                                              ; preds = %286, %280
-  %290 = phi ptr [ %281, %280 ], [ %288, %286 ]
+  %290 = phi ptr [ %288, %286 ], [ %281, %280 ]
   %291 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %292 = icmp eq ptr %290, null
   br i1 %292, label %zip_read_mac_metadata.exit.thread, label %293
@@ -2483,15 +2483,15 @@ zip_deflate_init.exit.i:                          ; preds = %427
   br label %442
 
 .thread137.i:                                     ; preds = %435, %434, %zip_deflate_init.exit.i, %402
-  %.198.ph.i = phi i32 [ -20, %402 ], [ -30, %434 ], [ -30, %435 ], [ -30, %zip_deflate_init.exit.i ]
+  %.198.ph.i = phi i32 [ -20, %402 ], [ -30, %435 ], [ -30, %434 ], [ -30, %zip_deflate_init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zip_read_mac_metadata.exit
 
 442:                                              ; preds = %436, %413, %407
-  %.2106.i = phi i64 [ %.0104152.i, %407 ], [ %439, %436 ], [ %416, %413 ]
-  %.295.i = phi i1 [ true, %407 ], [ %441, %436 ], [ %418, %413 ]
-  %.289.i = phi ptr [ %.087155.i, %407 ], [ %440, %436 ], [ %417, %413 ]
-  %.2.i = phi i64 [ 0, %407 ], [ %437, %436 ], [ %415, %413 ]
+  %.2106.i = phi i64 [ %439, %436 ], [ %416, %413 ], [ %.0104152.i, %407 ]
+  %.295.i = phi i1 [ %441, %436 ], [ %418, %413 ], [ true, %407 ]
+  %.289.i = phi ptr [ %440, %436 ], [ %417, %413 ], [ %.087155.i, %407 ]
+  %.2.i = phi i64 [ %437, %436 ], [ %415, %413 ], [ 0, %407 ]
   %443 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.2.i) #21
   %444 = sub i64 %.0102153.i, %.2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2511,7 +2511,7 @@ zip_deflate_init.exit.i:                          ; preds = %427
   br label %zip_read_mac_metadata.exit
 
 zip_read_mac_metadata.exit:                       ; preds = %.thread137.i, %._crit_edge.i76
-  %.4101.i = phi i32 [ %.198.ph.i, %.thread137.i ], [ 0, %._crit_edge.i76 ]
+  %.4101.i = phi i32 [ 0, %._crit_edge.i76 ], [ %.198.ph.i, %.thread137.i ]
   %449 = call i64 @__archive_read_seek(ptr noundef nonnull %0, i64 noundef %332, i32 noundef 0) #21
   %450 = getelementptr inbounds nuw i8, ptr %331, i64 161
   store i8 0, ptr %450, align 1, !tbaa !131
@@ -2519,7 +2519,7 @@ zip_read_mac_metadata.exit:                       ; preds = %.thread137.i, %._cr
   br label %zip_read_mac_metadata.exit.thread
 
 zip_read_mac_metadata.exit.thread:                ; preds = %283, %zip_read_mac_metadata.exit, %364, %360, %355, %340, %compression_name.exit.i, %slurp_central_directory.exit.thread, %328, %325, %289
-  %.0 = phi i32 [ %327, %325 ], [ -30, %slurp_central_directory.exit.thread ], [ 1, %289 ], [ 0, %328 ], [ %.4101.i, %zip_read_mac_metadata.exit ], [ -20, %compression_name.exit.i ], [ -30, %364 ], [ -20, %360 ], [ -20, %355 ], [ -30, %340 ], [ 1, %283 ]
+  %.0 = phi i32 [ 1, %289 ], [ %327, %325 ], [ 0, %328 ], [ -30, %slurp_central_directory.exit.thread ], [ -30, %364 ], [ -20, %360 ], [ -20, %355 ], [ -30, %340 ], [ -20, %compression_name.exit.i ], [ %.4101.i, %zip_read_mac_metadata.exit ], [ 1, %283 ]
   ret i32 %.0
 }
 
@@ -2791,7 +2791,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %139
 
 139:                                              ; preds = %127, %131, %134, %136
-  %.0251 = phi ptr [ %135, %134 ], [ %138, %136 ], [ %132, %131 ], [ %129, %127 ]
+  %.0251 = phi ptr [ %138, %136 ], [ %135, %134 ], [ %132, %131 ], [ %129, %127 ]
   %140 = tail call i32 @_archive_entry_copy_pathname_l(ptr noundef %1, ptr noundef nonnull %121, i64 noundef %113, ptr noundef %.0251) #21
   %.not283 = icmp eq i32 %140, 0
   br i1 %.not283, label %148, label %141
@@ -3161,7 +3161,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %297
 
 297:                                              ; preds = %293, %289
-  %.0 = phi i32 [ %296, %293 ], [ %292, %289 ]
+  %.0 = phi i32 [ %292, %289 ], [ %296, %293 ]
   %298 = icmp eq i32 %.0, 0
   br i1 %298, label %.thread336, label %..thread334_crit_edge
 
@@ -3209,7 +3209,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %312
 
 312:                                              ; preds = %.thread336, %310
-  %.1245 = phi ptr [ %299, %.thread336 ], [ %311, %310 ]
+  %.1245 = phi ptr [ %311, %310 ], [ %299, %.thread336 ]
   %313 = icmp eq ptr %.1245, null
   br i1 %313, label %314, label %315
 
@@ -3388,7 +3388,7 @@ compression_name.exit326:                         ; preds = %383, %388
   br label %393
 
 393:                                              ; preds = %.thread348, %.thread343, %153, %131, %compression_name.exit326, %152, %145, %123, %52, %33, %31
-  %.0238 = phi i32 [ -30, %31 ], [ -30, %33 ], [ -30, %52 ], [ -30, %123 ], [ %.3.ph, %.thread348 ], [ -30, %145 ], [ -30, %152 ], [ -30, %131 ], [ %.7, %compression_name.exit326 ], [ -30, %153 ], [ -30, %.thread343 ]
+  %.0238 = phi i32 [ -30, %31 ], [ -30, %33 ], [ -30, %52 ], [ -30, %123 ], [ -30, %145 ], [ -30, %152 ], [ %.7, %compression_name.exit326 ], [ -30, %131 ], [ -30, %153 ], [ -30, %.thread343 ], [ %.3.ph, %.thread348 ]
   ret i32 %.0238
 }
 
@@ -3532,8 +3532,8 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %.critedge
 
 73:                                               ; preds = %.thread, %54
-  %.0271 = phi i16 [ %71, %.thread ], [ %46, %54 ]
-  %.2251 = phi i32 [ %70, %.thread ], [ %47, %54 ]
+  %.0271 = phi i16 [ %46, %54 ], [ %71, %.thread ]
+  %.2251 = phi i32 [ %47, %54 ], [ %70, %.thread ]
   %74 = load i64, ptr %29, align 8, !tbaa !90
   %75 = icmp eq i64 %74, 4294967295
   br i1 %75, label %76, label %90
@@ -3566,8 +3566,8 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %.critedge
 
 90:                                               ; preds = %.thread369, %73
-  %.2273 = phi i16 [ %88, %.thread369 ], [ %.0271, %73 ]
-  %.4253 = phi i32 [ %87, %.thread369 ], [ %.2251, %73 ]
+  %.2273 = phi i16 [ %.0271, %73 ], [ %88, %.thread369 ]
+  %.4253 = phi i32 [ %.2251, %73 ], [ %87, %.thread369 ]
   %91 = load i64, ptr %30, align 8, !tbaa !127
   %92 = icmp eq i64 %91, 4294967295
   br i1 %92, label %93, label %.thread377
@@ -3767,8 +3767,8 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %195
 
 195:                                              ; preds = %.thread381, %189
-  %.13284 = phi i16 [ %194, %.thread381 ], [ %.12283, %189 ]
-  %.15 = phi i32 [ %193, %.thread381 ], [ %.14, %189 ]
+  %.13284 = phi i16 [ %.12283, %189 ], [ %194, %.thread381 ]
+  %.15 = phi i32 [ %.14, %189 ], [ %193, %.thread381 ]
   %196 = and i32 %168, 4
   %.not326 = icmp eq i32 %196, 0
   br i1 %.not326, label %214, label %197
@@ -3816,8 +3816,8 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %214
 
 214:                                              ; preds = %.thread384, %195
-  %.15286 = phi i16 [ %213, %.thread384 ], [ %.13284, %195 ]
-  %.17 = phi i32 [ %212, %.thread384 ], [ %.15, %195 ]
+  %.15286 = phi i16 [ %.13284, %195 ], [ %213, %.thread384 ]
+  %.17 = phi i32 [ %.15, %195 ], [ %212, %.thread384 ]
   %215 = and i32 %168, 8
   %.not329 = icmp eq i32 %215, 0
   %216 = icmp ult i16 %.15286, 2
@@ -4045,8 +4045,8 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %.thread377
 
 .thread377:                                       ; preds = %245, %259, %146, %115, %126, %138, %135, %197, %191, %.thread373, %228, %217, %269, %270, %302, %309, %307, %294, %296, %162, %181, %214, %53, %318, %324, %330, %261, %266, %238, %231, %148, %157, %90, %.thread387
-  %.5276 = phi i16 [ %46, %53 ], [ %105, %.thread373 ], [ %.2273, %90 ], [ %46, %146 ], [ %46, %157 ], [ %46, %148 ], [ %46, %318 ], [ %46, %231 ], [ %235, %238 ], [ %235, %.thread387 ], [ %46, %259 ], [ %46, %266 ], [ %46, %261 ], [ %.15286, %214 ], [ %46, %330 ], [ %46, %324 ], [ %.8279, %135 ], [ 0, %162 ], [ %.11282.lcssa, %181 ], [ 0, %269 ], [ %.12283, %191 ], [ %46, %270 ], [ %46, %296 ], [ %46, %294 ], [ %46, %307 ], [ %46, %309 ], [ %46, %302 ], [ %narrow, %228 ], [ %226, %217 ], [ %.13284, %197 ], [ %144, %138 ], [ %.7278, %126 ], [ %113, %115 ], [ %235, %245 ]
-  %.7256 = phi i32 [ %47, %53 ], [ %104, %.thread373 ], [ %.4253, %90 ], [ %47, %146 ], [ %47, %157 ], [ %47, %148 ], [ %47, %318 ], [ %47, %231 ], [ %234, %238 ], [ %234, %.thread387 ], [ %47, %259 ], [ %47, %266 ], [ %47, %261 ], [ %.17, %214 ], [ %47, %330 ], [ %47, %324 ], [ %.10259, %135 ], [ %47, %162 ], [ %.13.lcssa, %181 ], [ %47, %269 ], [ %.14, %191 ], [ %47, %270 ], [ %47, %296 ], [ %47, %294 ], [ %47, %307 ], [ %47, %309 ], [ %47, %302 ], [ %230, %228 ], [ %225, %217 ], [ %.15, %197 ], [ %143, %138 ], [ %.9258, %126 ], [ %112, %115 ], [ %234, %245 ]
+  %.5276 = phi i16 [ %46, %53 ], [ %.2273, %90 ], [ %46, %157 ], [ %46, %148 ], [ %46, %231 ], [ %235, %238 ], [ %235, %.thread387 ], [ %46, %266 ], [ %46, %261 ], [ %46, %330 ], [ %46, %324 ], [ %46, %318 ], [ 0, %162 ], [ %.11282.lcssa, %181 ], [ %.15286, %214 ], [ %46, %296 ], [ %46, %294 ], [ %46, %307 ], [ %46, %309 ], [ %46, %302 ], [ %46, %270 ], [ 0, %269 ], [ %narrow, %228 ], [ %226, %217 ], [ %105, %.thread373 ], [ %.12283, %191 ], [ %.13284, %197 ], [ %.8279, %135 ], [ %144, %138 ], [ %.7278, %126 ], [ %113, %115 ], [ %46, %146 ], [ %46, %259 ], [ %235, %245 ]
+  %.7256 = phi i32 [ %47, %53 ], [ %.4253, %90 ], [ %47, %157 ], [ %47, %148 ], [ %47, %231 ], [ %234, %238 ], [ %234, %.thread387 ], [ %47, %266 ], [ %47, %261 ], [ %47, %330 ], [ %47, %324 ], [ %47, %318 ], [ %47, %162 ], [ %.13.lcssa, %181 ], [ %.17, %214 ], [ %47, %296 ], [ %47, %294 ], [ %47, %307 ], [ %47, %309 ], [ %47, %302 ], [ %47, %270 ], [ %47, %269 ], [ %230, %228 ], [ %225, %217 ], [ %104, %.thread373 ], [ %.14, %191 ], [ %.15, %197 ], [ %.10259, %135 ], [ %143, %138 ], [ %.9258, %126 ], [ %112, %115 ], [ %47, %146 ], [ %47, %259 ], [ %234, %245 ]
   %343 = zext i16 %.5276 to i32
   %344 = add i32 %.7256, %343
   %345 = zext i32 %344 to i64
@@ -4054,7 +4054,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br i1 %.not, label %.critedge, label %38, !llvm.loop !155
 
 .critedge:                                        ; preds = %.thread377, %32, %145, %106, %89, %72, %51, %317, %36, %5
-  %.0248 = phi i32 [ -25, %51 ], [ 0, %5 ], [ 0, %32 ], [ -25, %36 ], [ -25, %317 ], [ -25, %145 ], [ -25, %72 ], [ -25, %89 ], [ -25, %106 ], [ 0, %.thread377 ]
+  %.0248 = phi i32 [ 0, %5 ], [ -25, %36 ], [ -25, %317 ], [ -25, %145 ], [ -25, %72 ], [ -25, %89 ], [ -25, %106 ], [ -25, %51 ], [ 0, %32 ], [ 0, %.thread377 ]
   ret i32 %.0248
 }
 
@@ -4187,7 +4187,7 @@ zip_deflate_init.exit:                            ; preds = %30
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %32, %45, %41
-  %46 = phi i64 [ %40, %41 ], [ %43, %45 ], [ %40, %32 ]
+  %46 = phi i64 [ %43, %45 ], [ %40, %41 ], [ %40, %32 ]
   %47 = icmp slt i64 %46, 0
   br i1 %47, label %48, label %49
 
@@ -4243,7 +4243,7 @@ thread-pre-split:                                 ; preds = %32, %45, %41
   br i1 %78, label %.thread, label %80
 
 80:                                               ; preds = %77, %71, %59
-  %.1 = phi i64 [ %spec.select, %59 ], [ %79, %77 ], [ %spec.select, %71 ]
+  %.1 = phi i64 [ %spec.select, %71 ], [ %spec.select, %59 ], [ %79, %77 ]
   %.not109 = icmp eq i64 %.1, 0
   br i1 %.not109, label %.thread, label %81
 
@@ -4453,7 +4453,7 @@ trad_enc_decrypt_update.exit:                     ; preds = %87, %82, %116
   br label %189
 
 189:                                              ; preds = %zip_deflate_init.exit, %184, %186, %142, %141, %48, %18
-  %.097 = phi i32 [ -30, %18 ], [ -30, %141 ], [ -30, %48 ], [ -30, %142 ], [ -30, %zip_deflate_init.exit ], [ 0, %186 ], [ %185, %184 ]
+  %.097 = phi i32 [ -30, %18 ], [ -30, %48 ], [ -30, %142 ], [ 0, %186 ], [ -30, %141 ], [ -30, %zip_deflate_init.exit ], [ %185, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.097
 }
@@ -4764,7 +4764,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_authentication_code(ptr noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %20, %17
-  %.1.ph = phi i32 [ -30, %17 ], [ -20, %20 ], [ 0, %18 ]
+  %.1.ph = phi i32 [ -20, %20 ], [ -30, %17 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
@@ -4945,8 +4945,8 @@ define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8160
   %7 = load i8, ptr %6, align 8, !tbaa !61
   %.not = icmp eq i8 %7, 0
-  %.057.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.057.sroa.gep65 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.057.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.057.sroa.gep65 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.057.sroa.gep66 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %.not, label %8, label %.thread
 
@@ -4974,9 +4974,9 @@ define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr nou
   br label %18
 
 18:                                               ; preds = %11, %17, %16
-  %.057.sroa.phi = phi ptr [ %.057.sroa.gep, %17 ], [ %.057.sroa.gep65, %16 ], [ %.057.sroa.gep66, %11 ]
-  %.057 = phi i64 [ 32, %17 ], [ 24, %16 ], [ 16, %11 ]
-  %.056 = phi i64 [ 16, %17 ], [ 12, %16 ], [ 8, %11 ]
+  %.057.sroa.phi = phi ptr [ %.057.sroa.gep, %16 ], [ %.057.sroa.gep65, %17 ], [ %.057.sroa.gep66, %11 ]
+  %.057 = phi i64 [ 24, %16 ], [ 32, %17 ], [ 16, %11 ]
+  %.056 = phi i64 [ 12, %16 ], [ 16, %17 ], [ 8, %11 ]
   %19 = or disjoint i64 %.056, 2
   %20 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %19, ptr noundef null) #21
   %21 = icmp eq ptr %20, null
@@ -5106,7 +5106,7 @@ define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %46, %36, %._crit_edge, %1, %8, %85, %84, %75, %60, %55
-  %.0 = phi i32 [ %83, %75 ], [ -30, %85 ], [ -30, %84 ], [ 0, %1 ], [ -25, %55 ], [ -25, %60 ], [ 0, %8 ], [ -25, %._crit_edge ], [ -25, %36 ], [ -25, %46 ]
+  %.0 = phi i32 [ -30, %85 ], [ -30, %84 ], [ -25, %55 ], [ -25, %60 ], [ %83, %75 ], [ 0, %8 ], [ 0, %1 ], [ -25, %._crit_edge ], [ -25, %36 ], [ -25, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -5341,7 +5341,7 @@ trad_enc_init.exit:                               ; preds = %._crit_edge.i
   br label %zip_alloc_decryption_buffer.exit
 
 zip_alloc_decryption_buffer.exit:                 ; preds = %94, %._crit_edge, %125, %124, %1, %33, %23
-  %.0 = phi i32 [ 0, %1 ], [ -30, %23 ], [ -30, %33 ], [ 0, %125 ], [ -30, %124 ], [ -25, %._crit_edge ], [ -25, %94 ]
+  %.0 = phi i32 [ -30, %23 ], [ -30, %33 ], [ 0, %1 ], [ -30, %124 ], [ 0, %125 ], [ -25, %._crit_edge ], [ -25, %94 ]
   ret i32 %.0
 }
 
@@ -5501,7 +5501,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_data_none(ptr noundef %0,
   br label %86
 
 86:                                               ; preds = %.lr.ph, %69, %84, %71
-  %.185 = phi ptr [ %85, %84 ], [ %70, %69 ], [ %72, %71 ], [ %67, %.lr.ph ]
+  %.185 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %85, %84 ], [ %67, %.lr.ph ]
   %87 = icmp ult ptr %.185, %65
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !180
 
@@ -5676,7 +5676,7 @@ trad_enc_decrypt_update.exit:                     ; preds = %125, %116, %154
   br label %.thread
 
 .thread:                                          ; preds = %61, %63, %24, %98, %166, %105, %100
-  %.1 = phi i32 [ 0, %166 ], [ %99, %98 ], [ -30, %105 ], [ 0, %100 ], [ %62, %61 ], [ 0, %63 ], [ -30, %24 ]
+  %.1 = phi i32 [ 0, %166 ], [ 0, %100 ], [ -30, %105 ], [ %99, %98 ], [ %62, %61 ], [ 0, %63 ], [ -30, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
@@ -6120,7 +6120,7 @@ zipx_zstd_init.exit:                              ; preds = %26
   br label %70
 
 70:                                               ; preds = %61, %65, %57
-  %71 = phi i64 [ %.pre3, %57 ], [ %.pre3, %61 ], [ %.pre, %65 ]
+  %71 = phi i64 [ %.pre3, %61 ], [ %.pre, %65 ], [ %.pre3, %57 ]
   %72 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %71) #21
   %73 = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !193
   %74 = load i64, ptr %40, align 8, !tbaa !92
@@ -6350,7 +6350,7 @@ zipx_ppmd8_init.exit:                             ; preds = %46
   br label %zipx_ppmd8_init.exit.thread
 
 zipx_ppmd8_init.exit.thread:                      ; preds = %25, %41, %45, %53, %34, %.thread, %99, %63
-  %.0 = phi i32 [ -30, %63 ], [ -30, %.thread ], [ 0, %99 ], [ -30, %25 ], [ -30, %41 ], [ -30, %45 ], [ -30, %53 ], [ -25, %34 ]
+  %.0 = phi i32 [ -30, %63 ], [ 0, %99 ], [ -30, %.thread ], [ -30, %25 ], [ -30, %41 ], [ -30, %45 ], [ -30, %53 ], [ -25, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

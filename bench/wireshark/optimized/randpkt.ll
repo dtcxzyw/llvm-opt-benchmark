@@ -252,7 +252,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.loopexit74
 
 .loopexit74:                                      ; preds = %.lr.ph, %.loopexit, %60, %49, %63, %52, %57, %45, %.loopexit75, %32, %31, %18
-  %.0 = phi i32 [ 1, %.loopexit75 ], [ 1, %18 ], [ 0, %31 ], [ 0, %32 ], [ 2, %57 ], [ %64, %63 ], [ 1, %60 ], [ %spec.select, %.loopexit ], [ 1, %45 ], [ 1, %49 ], [ %53, %52 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.loopexit75 ], [ 1, %18 ], [ 0, %31 ], [ 0, %32 ], [ 2, %57 ], [ %64, %63 ], [ %53, %52 ], [ 1, %45 ], [ 1, %49 ], [ 1, %60 ], [ %spec.select, %.loopexit ], [ 1, %.lr.ph ]
   call void @wtap_cleanup()
   br label %76
 
@@ -408,7 +408,7 @@ define internal fastcc void @usage(i1 noundef zeroext %0) unnamed_addr #0 {
   br label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %1
-  %.lcssa = phi ptr [ %17, %1 ], [ %17, %.lr.ph.preheader ], [ %28, %..critedge.loopexit_crit_edge ], [ %28, %.lr.ph ]
+  %.lcssa = phi ptr [ %17, %1 ], [ %28, %..critedge.loopexit_crit_edge ], [ %17, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   call void @g_strfreev(ptr noundef %.lcssa)
   %32 = load ptr, ptr %3, align 8
   call void @g_strfreev(ptr noundef %32)

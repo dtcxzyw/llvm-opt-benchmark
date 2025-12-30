@@ -63,7 +63,7 @@ define hidden range(i32 -1, 2) i32 @file_is_json(ptr noundef %0, ptr noundef rea
   br label %28
 
 28:                                               ; preds = %23, %18, %17, %13, %2
-  %.0 = phi i32 [ %.14, %23 ], [ 0, %2 ], [ 0, %13 ], [ %., %18 ], [ 1, %17 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %13 ], [ 1, %17 ], [ %., %18 ], [ %.14, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -164,7 +164,7 @@ json_isspace.exit.i88:                            ; preds = %.lr.ph.i86, %.lr.ph
   br i1 %exitcond.not.i89, label %json_skip_space.exit90, label %.lr.ph.i86
 
 json_skip_space.exit90:                           ; preds = %.lr.ph.i86, %json_isspace.exit.i88
-  %.0.lcssa.i83 = phi ptr [ %scevgep.i85, %json_isspace.exit.i88 ], [ %.07.i87, %.lr.ph.i86 ]
+  %.0.lcssa.i83 = phi ptr [ %.07.i87, %.lr.ph.i86 ], [ %scevgep.i85, %json_isspace.exit.i88 ]
   store ptr %.0.lcssa.i83, ptr %6, align 8, !tbaa !13
   %32 = icmp eq ptr %.0.lcssa.i83, %1
   br i1 %32, label %json_parse_array.exit, label %33
@@ -245,7 +245,7 @@ json_isspace.exit.i104:                           ; preds = %.lr.ph.i102, %.lr.p
   br i1 %exitcond.not.i105, label %json_skip_space.exit106, label %.lr.ph.i102
 
 json_skip_space.exit106:                          ; preds = %.lr.ph.i102, %json_isspace.exit.i104
-  %.0.lcssa.i99 = phi ptr [ %scevgep.i101, %json_isspace.exit.i104 ], [ %.07.i103, %.lr.ph.i102 ]
+  %.0.lcssa.i99 = phi ptr [ %.07.i103, %.lr.ph.i102 ], [ %scevgep.i101, %json_isspace.exit.i104 ]
   store ptr %.0.lcssa.i99, ptr %5, align 8, !tbaa !13
   %60 = icmp eq ptr %.0.lcssa.i99, %1
   br i1 %60, label %json_parse_object.exit, label %61
@@ -335,8 +335,8 @@ json_parse_object.exit.loopexit.split.loop.exit208: ; preds = %65
   br label %json_parse_object.exit
 
 json_parse_object.exit:                           ; preds = %82, %79, %json_skip_space.exit98, %67, %json_skip_space.exit106, %53, %61, %json_parse_object.exit.loopexit.split.loop.exit199, %json_parse_object.exit.loopexit.split.loop.exit208, %85
-  %storemerge.i49 = phi ptr [ %83, %85 ], [ %87, %json_parse_object.exit.loopexit.split.loop.exit208 ], [ %86, %json_parse_object.exit.loopexit.split.loop.exit199 ], [ %storemerge.i49.pre.pre158, %67 ], [ %.0.lcssa.i99, %json_skip_space.exit106 ], [ %83, %82 ], [ %54, %53 ], [ %storemerge.i49.pre.pre, %79 ], [ %.0.lcssa.i91, %json_skip_space.exit98 ], [ %64, %61 ]
-  %.0.i48 = phi i32 [ 0, %85 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit208 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit199 ], [ 0, %67 ], [ 0, %json_skip_space.exit106 ], [ 1, %82 ], [ 0, %53 ], [ 0, %79 ], [ 0, %json_skip_space.exit98 ], [ 1, %61 ]
+  %storemerge.i49 = phi ptr [ %83, %85 ], [ %86, %json_parse_object.exit.loopexit.split.loop.exit199 ], [ %87, %json_parse_object.exit.loopexit.split.loop.exit208 ], [ %83, %82 ], [ %storemerge.i49.pre.pre, %79 ], [ %.0.lcssa.i91, %json_skip_space.exit98 ], [ %storemerge.i49.pre.pre158, %67 ], [ %.0.lcssa.i99, %json_skip_space.exit106 ], [ %54, %53 ], [ %64, %61 ]
+  %.0.i48 = phi i32 [ 0, %85 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit199 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit208 ], [ 1, %82 ], [ 0, %79 ], [ 0, %json_skip_space.exit98 ], [ 0, %67 ], [ 0, %json_skip_space.exit106 ], [ 0, %53 ], [ 1, %61 ]
   store ptr %storemerge.i49, ptr %7, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %json_parse_const.exit
@@ -552,8 +552,8 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   br i1 %exitcond.not.i71, label %json_parse_number.exit, label %.lr.ph76.i
 
 json_parse_number.exit:                           ; preds = %.lr.ph147, %.lr.ph76.i, %.lr.ph76.preheader.i, %._crit_edge.i, %._crit_edge67.i, %157, %159, %166
-  %.239.i = phi ptr [ %.138.lcssa.i, %._crit_edge.i ], [ %160, %159 ], [ %.4.lcssa.i, %157 ], [ %.4.lcssa.i, %._crit_edge67.i ], [ %.5.i, %166 ], [ %.5.i, %.lr.ph76.preheader.i ], [ %scevgep85.i, %.lr.ph147 ], [ %173, %.lr.ph76.i ]
-  %.1.i = phi i32 [ %.0.lcssa.i70, %._crit_edge.i ], [ 0, %159 ], [ 1, %157 ], [ %.2.lcssa.i, %._crit_edge67.i ], [ 0, %166 ], [ 0, %.lr.ph76.preheader.i ], [ 1, %.lr.ph76.i ], [ 1, %.lr.ph147 ]
+  %.239.i = phi ptr [ %.138.lcssa.i, %._crit_edge.i ], [ %160, %159 ], [ %.4.lcssa.i, %._crit_edge67.i ], [ %.4.lcssa.i, %157 ], [ %.5.i, %166 ], [ %.5.i, %.lr.ph76.preheader.i ], [ %scevgep85.i, %.lr.ph147 ], [ %173, %.lr.ph76.i ]
+  %.1.i = phi i32 [ %.0.lcssa.i70, %._crit_edge.i ], [ 0, %159 ], [ %.2.lcssa.i, %._crit_edge67.i ], [ 1, %157 ], [ 0, %166 ], [ 0, %.lr.ph76.preheader.i ], [ 1, %.lr.ph76.i ], [ 1, %.lr.ph147 ]
   store ptr %.239.i, ptr %7, align 8, !tbaa !13
   br label %json_parse_const.exit
 
@@ -563,8 +563,8 @@ json_parse_const.exit:                            ; preds = %json_parse_number.e
   %.not = icmp eq i32 %.036, 0
   br i1 %.not, label %json_parse_const.exit.thread114, label %json_parse_const.exit.thread
 
-json_parse_const.exit.thread:                     ; preds = %119, %121, %107, %105, %93, %91, %json_parse_const.exit
-  %.0112 = phi i64 [ %.0, %json_parse_const.exit ], [ 1, %107 ], [ 1, %93 ], [ 1, %91 ], [ 1, %105 ], [ 1, %121 ], [ 1, %119 ]
+json_parse_const.exit.thread:                     ; preds = %119, %121, %105, %107, %91, %93, %json_parse_const.exit
+  %.0112 = phi i64 [ %.0, %json_parse_const.exit ], [ 1, %93 ], [ 1, %91 ], [ 1, %107 ], [ 1, %105 ], [ 1, %121 ], [ 1, %119 ]
   %174 = getelementptr inbounds nuw i64, ptr %2, i64 %.0112
   %175 = load i64, ptr %174, align 8, !tbaa !24
   %176 = add i64 %175, 1
@@ -655,7 +655,7 @@ json_isspace.exit.i80:                            ; preds = %.lr.ph.i78, %.lr.ph
   br label %.thread120
 
 .thread120:                                       ; preds = %.loopexit, %.thread, %195, %199, %201, %204, %187, %190, %17
-  %.037 = phi i32 [ 0, %.thread ], [ %194, %190 ], [ %207, %204 ], [ 0, %17 ], [ 0, %195 ], [ 1, %187 ], [ 2, %201 ], [ 0, %199 ], [ %.036111.mux, %.loopexit ]
+  %.037 = phi i32 [ 0, %17 ], [ 1, %187 ], [ %194, %190 ], [ 2, %201 ], [ %207, %204 ], [ 0, %199 ], [ 0, %195 ], [ %.036111.mux, %.loopexit ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.037
 }
@@ -750,8 +750,8 @@ json_isxdigit.exit.loopexit6:                     ; preds = %6
   br label %json_isxdigit.exit
 
 json_isxdigit.exit:                               ; preds = %15, %9, %11, %.backedge, %22, %6, %json_isxdigit.exit.loopexit6, %2
-  %storemerge = phi ptr [ %19, %22 ], [ %3, %2 ], [ %7, %6 ], [ %12, %11 ], [ %7, %9 ], [ %1, %15 ], [ %.017.be, %.backedge ], [ %7, %json_isxdigit.exit.loopexit6 ]
-  %.018 = phi i32 [ 0, %22 ], [ 0, %2 ], [ 0, %6 ], [ 0, %11 ], [ 0, %9 ], [ 0, %15 ], [ 0, %.backedge ], [ 1, %json_isxdigit.exit.loopexit6 ]
+  %storemerge = phi ptr [ %3, %2 ], [ %7, %6 ], [ %19, %22 ], [ %1, %15 ], [ %7, %9 ], [ %12, %11 ], [ %.017.be, %.backedge ], [ %7, %json_isxdigit.exit.loopexit6 ]
+  %.018 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %22 ], [ 0, %15 ], [ 0, %9 ], [ 0, %11 ], [ 0, %.backedge ], [ 1, %json_isxdigit.exit.loopexit6 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !13
   ret i32 %.018
 }

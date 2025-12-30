@@ -148,12 +148,12 @@ define internal range(i32 -2147483648, 1) i32 @fieldmatch_init(ptr noundef %0) #
   br i1 %26, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %22, %14, %18
-  %.str.72.sink = phi ptr [ @.str.71, %14 ], [ @.str.71, %18 ], [ @.str.72, %22 ]
+  %.str.72.sink = phi ptr [ @.str.71, %18 ], [ @.str.71, %14 ], [ @.str.72, %22 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.72.sink) #10
   br label %27
 
 27:                                               ; preds = %.sink.split, %22, %10, %1
-  %.0 = phi i32 [ %12, %10 ], [ %5, %1 ], [ 0, %22 ], [ -22, %.sink.split ]
+  %.0 = phi i32 [ %5, %1 ], [ %12, %10 ], [ 0, %22 ], [ -22, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -266,7 +266,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %26
 
 26:                                               ; preds = %22, %18, %16, %12, %3, %10
-  %.0 = phi i32 [ -12, %3 ], [ -12, %16 ], [ %., %22 ], [ %20, %18 ], [ %14, %12 ], [ %11, %10 ]
+  %.0 = phi i32 [ %11, %10 ], [ -12, %3 ], [ %14, %12 ], [ -12, %16 ], [ %20, %18 ], [ %., %22 ]
   ret i32 %.0
 }
 
@@ -481,7 +481,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.preheader, %102, %118, %114, %112, %58, %51, %36, %30, %97, %74
-  %.1 = phi i32 [ 0, %102 ], [ %34, %30 ], [ %28, %36 ], [ %56, %51 ], [ %.2, %74 ], [ %.3, %97 ], [ %49, %58 ], [ 0, %112 ], [ 0, %114 ], [ 0, %118 ], [ 0, %.preheader ], [ 0, %14 ]
+  %.1 = phi i32 [ %.2, %74 ], [ %.3, %97 ], [ %34, %30 ], [ %28, %36 ], [ %56, %51 ], [ %49, %58 ], [ 0, %112 ], [ 0, %114 ], [ 0, %118 ], [ 0, %102 ], [ 0, %.preheader ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -656,7 +656,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %91
 
 91:                                               ; preds = %60, %1, %27
-  %.0 = phi i32 [ %31, %27 ], [ %spec.select, %60 ], [ %25, %1 ]
+  %.0 = phi i32 [ %25, %1 ], [ %31, %27 ], [ %spec.select, %60 ]
   ret i32 %.0
 }
 
@@ -1339,7 +1339,7 @@ luma_abs_diff.exit280:                            ; preds = %._crit_edge.us.i278
   br label %314
 
 314:                                              ; preds = %311, %63, %69, %thread-pre-split283, %thread-pre-split, %312
-  %.0203 = phi i32 [ %313, %312 ], [ 0, %63 ], [ 0, %thread-pre-split283 ], [ 0, %thread-pre-split ], [ 0, %69 ], [ %.0204, %311 ]
+  %.0203 = phi i32 [ %313, %312 ], [ 0, %thread-pre-split ], [ 0, %thread-pre-split283 ], [ 0, %69 ], [ 0, %63 ], [ %.0204, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0203
@@ -1981,7 +1981,7 @@ get_width.exit.i138:                              ; preds = %get_height.exit.i13
   unreachable
 
 .critedge:                                        ; preds = %355, %358, %get_width.exit.i138, %262, %265, %get_width.exit.i114, %169, %172, %get_width.exit.i90, %76, %79, %get_width.exit.i66, %13, %11
-  %.1 = phi ptr [ null, %13 ], [ %12, %11 ], [ %19, %76 ], [ %19, %169 ], [ %19, %262 ], [ %19, %get_width.exit.i66 ], [ %19, %79 ], [ %19, %get_width.exit.i90 ], [ %19, %172 ], [ %19, %get_width.exit.i114 ], [ %19, %265 ], [ %19, %get_width.exit.i138 ], [ %19, %358 ], [ %19, %355 ]
+  %.1 = phi ptr [ %12, %11 ], [ null, %13 ], [ %19, %get_width.exit.i66 ], [ %19, %79 ], [ %19, %76 ], [ %19, %get_width.exit.i90 ], [ %19, %172 ], [ %19, %169 ], [ %19, %get_width.exit.i114 ], [ %19, %265 ], [ %19, %262 ], [ %19, %get_width.exit.i138 ], [ %19, %358 ], [ %19, %355 ]
   ret ptr %.1
 }
 
@@ -2806,7 +2806,7 @@ fill_buf.exit:                                    ; preds = %219, %43, %.prehead
   br label %452
 
 452:                                              ; preds = %448, %444, %439
-  %.2538.us = phi i32 [ %.1537636.us, %439 ], [ %spec.select570.us, %448 ], [ %.1537636.us, %444 ]
+  %.2538.us = phi i32 [ %.1537636.us, %444 ], [ %.1537636.us, %439 ], [ %spec.select570.us, %448 ]
   %indvars.iv.next725 = add nuw nsw i64 %indvars.iv724, 1
   %exitcond728.not = icmp eq i64 %indvars.iv.next725, %wide.trip.count727
   br i1 %exitcond728.not, label %._crit_edge638.us, label %439, !llvm.loop !119
@@ -2898,7 +2898,7 @@ fill_buf.exit:                                    ; preds = %219, %43, %.prehead
   br label %500
 
 500:                                              ; preds = %495, %492, %.lr.ph653
-  %.1532 = phi i32 [ %.0531651, %.lr.ph653 ], [ %spec.select571, %495 ], [ %.0531651, %492 ]
+  %.1532 = phi i32 [ %.0531651, %492 ], [ %.0531651, %.lr.ph653 ], [ %spec.select571, %495 ]
   %501 = getelementptr inbounds i8, ptr %.0534649, i64 %346
   %502 = add nuw nsw i32 %.0533650, 1
   %exitcond733.not = icmp eq i32 %502, %345
@@ -3522,8 +3522,8 @@ select_frame.exit384:                             ; preds = %select_frame.exit, 
   br label %236
 
 236:                                              ; preds = %231, %228, %225
-  %.6336 = phi i64 [ %.1331.lcssa, %225 ], [ %spec.select, %231 ], [ %.1331.lcssa, %228 ]
-  %.7 = phi i64 [ %.1313.lcssa, %225 ], [ %spec.select373, %231 ], [ %.1313.lcssa, %228 ]
+  %.6336 = phi i64 [ %.1331.lcssa, %228 ], [ %.1331.lcssa, %225 ], [ %spec.select, %231 ]
+  %.7 = phi i64 [ %.1313.lcssa, %228 ], [ %.1313.lcssa, %225 ], [ %spec.select373, %231 ]
   %237 = uitofp i64 %.1.lcssa to float
   %238 = fdiv nsz float %237, 6.000000e+00
   %239 = fadd nsz float %238, 5.000000e-01
@@ -3633,7 +3633,7 @@ select_frame.exit384:                             ; preds = %select_frame.exit, 
   br label %313
 
 313:                                              ; preds = %307, %272, %280, %284, %291, %295, %299, %312
-  %.sink = phi i1 [ %260, %272 ], [ %253, %312 ], [ %260, %299 ], [ %260, %295 ], [ %260, %291 ], [ %260, %284 ], [ %260, %280 ], [ %260, %307 ]
+  %.sink = phi i1 [ %253, %312 ], [ %260, %299 ], [ %260, %295 ], [ %260, %291 ], [ %260, %284 ], [ %260, %280 ], [ %260, %272 ], [ %260, %307 ]
   %314 = select i1 %.sink, i32 %2, i32 %1
   ret i32 %314
 }
@@ -3956,7 +3956,7 @@ build_abs_diff_mask.exit:                         ; preds = %._crit_edge.us.i, %
   br i1 %93, label %.lr.ph.us, label %._crit_edge.us.loopexit, !llvm.loop !136
 
 .sink.split:                                      ; preds = %63, %75, %76, %.thread.us
-  %.sink = phi i8 [ 3, %75 ], [ 5, %.thread.us ], [ 3, %76 ], [ 3, %63 ]
+  %.sink = phi i8 [ 5, %.thread.us ], [ 3, %76 ], [ 3, %75 ], [ 3, %63 ]
   store i8 %.sink, ptr %59, align 1, !tbaa !96
   br label %94
 

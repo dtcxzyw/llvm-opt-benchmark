@@ -439,7 +439,7 @@ lvgl_load_font.exit.thread19:                     ; preds = %204
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %216
 
-lvgl_load_font.exit.thread14:                     ; preds = %28, %read_label.exit.thread.i.i, %read_label.exit75.i, %read_label.exit75.thread.i, %load_cmaps.exit.thread78.i, %load_cmaps.exit.thread81.i, %read_label.exit.i.i
+lvgl_load_font.exit.thread14:                     ; preds = %28, %read_label.exit75.i, %load_cmaps.exit.thread78.i, %load_cmaps.exit.thread81.i, %read_label.exit75.thread.i, %read_label.exit.i.i, %read_label.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %lvgl_load_font.exit.thread
 
@@ -599,7 +599,7 @@ define range(i32 -1, -2147483648) i32 @load_kern(ptr noundef %0, ptr noundef cap
   %19 = load i32, ptr %5, align 4
   br i1 %.not6.i, label %read_label.exit, label %read_label.exit.thread
 
-read_label.exit.thread:                           ; preds = %17, %4, %15
+read_label.exit.thread:                           ; preds = %4, %15, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
@@ -757,14 +757,14 @@ read_label.exit:                                  ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %96
 
-.critedge69:                                      ; preds = %65, %88, %92, %61, %63, %54
+.critedge69:                                      ; preds = %65, %88, %92, %54, %61, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %96
 
 96:                                               ; preds = %25, %.critedge69, %.critedge, %21, %23, %51, %95
-  %.1 = phi i32 [ -1, %.critedge ], [ %19, %95 ], [ -1, %51 ], [ -1, %.critedge69 ], [ -1, %23 ], [ -1, %21 ], [ -1, %25 ]
+  %.1 = phi i32 [ %19, %95 ], [ -1, %51 ], [ -1, %23 ], [ -1, %21 ], [ -1, %.critedge ], [ -1, %.critedge69 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
@@ -808,7 +808,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @load_glyph(ptr noundef no
   %17 = load i32, ptr %7, align 4
   br i1 %.not6.i, label %read_label.exit, label %read_label.exit.thread
 
-read_label.exit.thread:                           ; preds = %15, %6, %13
+read_label.exit.thread:                           ; preds = %6, %13, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread274
@@ -1489,7 +1489,7 @@ read_bits.exit248:                                ; preds = %301
   br i1 %exitcond384.not, label %.thread274, label %216, !llvm.loop !87
 
 .thread274:                                       ; preds = %34, %216, %320, %.thread275.thread, %.thread275, %.thread291, %206, %read_label.exit.thread, %read_label.exit
-  %.0118 = phi i32 [ -1, %read_label.exit ], [ %17, %.thread275 ], [ -1, %206 ], [ -1, %read_label.exit.thread ], [ -1, %.thread291 ], [ %17, %.thread275.thread ], [ %17, %320 ], [ -1, %216 ], [ -1, %34 ]
+  %.0118 = phi i32 [ -1, %read_label.exit ], [ -1, %206 ], [ -1, %read_label.exit.thread ], [ -1, %.thread291 ], [ %17, %.thread275 ], [ %17, %.thread275.thread ], [ -1, %216 ], [ %17, %320 ], [ -1, %34 ]
   ret i32 %.0118
 }
 

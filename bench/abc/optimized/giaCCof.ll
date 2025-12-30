@@ -751,7 +751,7 @@ Abc_Clock.exit27:                                 ; preds = %36, %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.loopexit.loopexit, %2
-  %.0 = phi i32 [ -1, %.loopexit.loopexit ], [ 1, %2 ], [ 0, %20 ]
+  %.0 = phi i32 [ 1, %2 ], [ -1, %.loopexit.loopexit ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -935,9 +935,9 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
   br i1 %exitcond.not, label %.critedge, label %69, !llvm.loop !74
 
 .critedge:                                        ; preds = %78, %58, %.lr.ph, %75
-  %.pre-phi = phi i32 [ %.pre108, %75 ], [ %64, %58 ], [ %64, %.lr.ph ], [ %64, %78 ]
-  %.05783 = phi i32 [ %76, %75 ], [ 0, %58 ], [ 0, %.lr.ph ], [ %68, %78 ]
-  %.2 = phi i32 [ 1, %75 ], [ %.05487, %58 ], [ %.05487, %.lr.ph ], [ %.05487, %78 ]
+  %.pre-phi = phi i32 [ %64, %58 ], [ %64, %.lr.ph ], [ %.pre108, %75 ], [ %64, %78 ]
+  %.05783 = phi i32 [ 0, %58 ], [ 0, %.lr.ph ], [ %76, %75 ], [ %68, %78 ]
+  %.2 = phi i32 [ %.05487, %58 ], [ %.05487, %.lr.ph ], [ 1, %75 ], [ %.05487, %78 ]
   %79 = icmp slt i32 %.05783, %.pre-phi
   br i1 %79, label %.critedge._crit_edge, label %47, !llvm.loop !73
 

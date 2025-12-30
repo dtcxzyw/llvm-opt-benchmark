@@ -428,7 +428,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
   br i1 %exitcond107.not, label %.loopexit, label %95, !llvm.loop !8
 
 .loopexit:                                        ; preds = %116, %61, %._crit_edge
-  %.092.lcssa109 = phi i32 [ 0, %61 ], [ %.193, %._crit_edge ], [ %.193, %116 ]
+  %.092.lcssa109 = phi i32 [ %.193, %._crit_edge ], [ 0, %61 ], [ %.193, %116 ]
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 336
   store i32 %.092.lcssa109, ptr %117, align 8
   br label %118

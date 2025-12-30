@@ -4664,7 +4664,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %138
 
 138:                                              ; preds = %108, %114, %.body, %45, %38
-  %.pn23.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn21, %.body ], [ %39, %38 ], [ %.pn23, %114 ], [ %109, %108 ]
+  %.pn23.pn.pn = phi { ptr, i32 } [ %.pn21, %.body ], [ %39, %38 ], [ %.pn, %45 ], [ %.pn23, %114 ], [ %109, %108 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn23.pn.pn

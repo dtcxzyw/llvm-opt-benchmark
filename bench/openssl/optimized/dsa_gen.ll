@@ -141,7 +141,7 @@ ossl_dsa_generate_ffc_parameters.exit39:          ; preds = %34
   br label %50
 
 50:                                               ; preds = %45, %46, %ossl_dsa_generate_ffc_parameters.exit39, %ossl_dsa_generate_ffc_parameters.exit, %17, %14
-  %.0 = phi i32 [ %15, %14 ], [ 0, %ossl_dsa_generate_ffc_parameters.exit39 ], [ 0, %17 ], [ 0, %ossl_dsa_generate_ffc_parameters.exit ], [ 1, %46 ], [ 1, %45 ]
+  %.0 = phi i32 [ %15, %14 ], [ 0, %17 ], [ 0, %ossl_dsa_generate_ffc_parameters.exit ], [ 0, %ossl_dsa_generate_ffc_parameters.exit39 ], [ 1, %46 ], [ 1, %45 ]
   ret i32 %.0
 }
 

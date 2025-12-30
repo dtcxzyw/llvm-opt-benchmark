@@ -161,7 +161,7 @@ define dso_local ptr @gets_fromFile(ptr noundef captures(none) %0) local_unnamed
   br label %.thread
 
 .thread:                                          ; preds = %30, %20, %12, %37, %41
-  %.2 = phi ptr [ null, %37 ], [ %43, %41 ], [ %33, %30 ], [ null, %20 ], [ null, %12 ]
+  %.2 = phi ptr [ %43, %41 ], [ null, %37 ], [ %33, %30 ], [ null, %20 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.2
 }
@@ -642,7 +642,7 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   br label %26
 
 26:                                               ; preds = %23, %24, %2, %11
-  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ true, %24 ], [ true, %23 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %2 ], [ true, %24 ], [ true, %23 ]
   ret i1 %.0
 }
 

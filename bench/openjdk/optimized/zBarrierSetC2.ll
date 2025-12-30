@@ -991,8 +991,8 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %135, %139
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %181, %.thread-pre-split_crit_edge.i, %167
-  %193 = phi i64 [ %168, %167 ], [ %188, %181 ], [ %.pr.pre.i, %.thread-pre-split_crit_edge.i ]
-  %.0.i73 = phi ptr [ %166, %167 ], [ %192, %181 ], [ %166, %.thread-pre-split_crit_edge.i ]
+  %193 = phi i64 [ %188, %181 ], [ %168, %167 ], [ %.pr.pre.i, %.thread-pre-split_crit_edge.i ]
+  %.0.i73 = phi ptr [ %192, %181 ], [ %166, %167 ], [ %166, %.thread-pre-split_crit_edge.i ]
   %194 = icmp eq i64 %193, -2000000000
   br i1 %194, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread, label %195
 
@@ -1055,7 +1055,7 @@ thread-pre-split.i:                               ; preds = %181, %.thread-pre-s
   %or.cond.i20.i = or i1 %225, %226
   br i1 %or.cond.i20.i, label %227, label %.preheader.i, !llvm.loop !6
 
-_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %195, %thread-pre-split.i, %165
+_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %165, %195, %thread-pre-split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZL13is_allocationPK4Node.exit.thread
 
@@ -1080,7 +1080,7 @@ _ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %195
   %.not13.i = icmp eq i32 %239, 347
   br i1 %.not13.i, label %_ZL13is_allocationPK4Node.exit, label %_ZL13is_allocationPK4Node.exit.thread
 
-_ZL13is_allocationPK4Node.exit.thread:            ; preds = %148, %151, %160, %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread, %231, %227, %235
+_ZL13is_allocationPK4Node.exit.thread:            ; preds = %148, %151, %160, %231, %227, %235, %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %348
 
@@ -1832,7 +1832,7 @@ define hidden noundef zeroext i1 @_ZNK13ZBarrierSetC231array_copy_requires_gc_ba
   br label %11
 
 11:                                               ; preds = %6, %8, %7
-  %.0 = phi i1 [ %10, %8 ], [ %4, %7 ], [ false, %6 ]
+  %.0 = phi i1 [ %4, %7 ], [ %10, %8 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -2320,8 +2320,8 @@ _ZL11block_indexPK5BlockPK4Node.exit:             ; preds = %_ZNK5Block8get_node
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %117, %.thread-pre-split_crit_edge.i, %103
-  %129 = phi i64 [ %104, %103 ], [ %124, %117 ], [ %.pr.pre.i, %.thread-pre-split_crit_edge.i ]
-  %.0.i = phi ptr [ %102, %103 ], [ %128, %117 ], [ %102, %.thread-pre-split_crit_edge.i ]
+  %129 = phi i64 [ %124, %117 ], [ %104, %103 ], [ %.pr.pre.i, %.thread-pre-split_crit_edge.i ]
+  %.0.i = phi ptr [ %128, %117 ], [ %102, %103 ], [ %102, %.thread-pre-split_crit_edge.i ]
   %130 = icmp eq i64 %129, -2000000000
   br i1 %130, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread, label %131
 
@@ -2384,7 +2384,7 @@ thread-pre-split.i:                               ; preds = %117, %.thread-pre-s
   %or.cond.i20.i = or i1 %161, %162
   br i1 %or.cond.i20.i, label %163, label %.preheader.i, !llvm.loop !6
 
-_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %131, %thread-pre-split.i, %101
+_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %101, %131, %thread-pre-split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL19block_has_safepointPK5Blockjj.exit
 
@@ -2827,8 +2827,8 @@ define internal fastcc noundef ptr @_ZL19get_base_and_offsetPK8MachNodeRl(ptr no
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %19, %5
-  %31 = phi i64 [ %6, %5 ], [ %26, %19 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
-  %.0 = phi ptr [ %4, %5 ], [ %30, %19 ], [ %4, %.thread-pre-split_crit_edge ]
+  %31 = phi i64 [ %26, %19 ], [ %6, %5 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
+  %.0 = phi ptr [ %30, %19 ], [ %4, %5 ], [ %4, %.thread-pre-split_crit_edge ]
   %32 = icmp eq i64 %31, -2000000000
   br i1 %32, label %_ZL17look_through_nodePK4Node.exit, label %33
 
@@ -2892,7 +2892,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br i1 %or.cond.i20, label %_ZL17look_through_nodePK4Node.exit, label %.preheader, !llvm.loop !6
 
 _ZL17look_through_nodePK4Node.exit:               ; preds = %62, %37, %.preheader, %2, %thread-pre-split, %33
-  %.017 = phi ptr [ null, %33 ], [ null, %thread-pre-split ], [ null, %2 ], [ %.0.i, %62 ], [ %.0.i, %37 ], [ null, %.preheader ]
+  %.017 = phi ptr [ null, %2 ], [ null, %33 ], [ null, %thread-pre-split ], [ %.0.i, %62 ], [ %.0.i, %37 ], [ null, %.preheader ]
   ret ptr %.017
 }
 

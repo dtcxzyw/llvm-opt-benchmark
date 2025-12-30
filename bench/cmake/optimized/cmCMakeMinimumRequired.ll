@@ -272,7 +272,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %493
 
 90:                                               ; preds = %47, %38, %67, %89, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
-  %.344.ph = phi i8 [ 0, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ], [ 0, %89 ], [ 0, %47 ], [ 1, %38 ], [ 0, %67 ]
+  %.344.ph = phi i8 [ 0, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ], [ 0, %89 ], [ 0, %67 ], [ 0, %47 ], [ 1, %38 ]
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.0268.0283, i64 32
   %.not279 = icmp eq ptr %91, %35
   br i1 %.not279, label %._crit_edge, label %38

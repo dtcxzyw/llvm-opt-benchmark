@@ -775,7 +775,7 @@ _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %194, %._crit_edge, 
   br i1 %exitcond363.not, label %_ZNK4ncnn3Mat5emptyEv.exit96.thread, label %225, !llvm.loop !72
 
 _ZNK4ncnn3Mat5emptyEv.exit96.thread:              ; preds = %233, %224, %.preheader272, %.preheader, %46, %_ZNK4ncnn3Mat5emptyEv.exit96
-  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit96 ], [ 0, %.preheader ], [ -100, %46 ], [ 0, %.preheader272 ], [ 0, %224 ], [ 0, %233 ]
+  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit96 ], [ -100, %46 ], [ 0, %.preheader ], [ 0, %.preheader272 ], [ 0, %224 ], [ 0, %233 ]
   %234 = load ptr, ptr %51, align 8, !tbaa !7
   %.not.i120 = icmp eq ptr %234, null
   br i1 %.not.i120, label %_ZN4ncnn3MatD2Ev.exit117, label %235

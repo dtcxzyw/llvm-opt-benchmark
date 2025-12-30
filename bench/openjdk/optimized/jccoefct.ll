@@ -378,7 +378,7 @@ define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef r
   br i1 %99, label %93, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %93, %.lr.ph99, %83, %66, %53
-  %100 = phi i32 [ %80, %.lr.ph99 ], [ %64, %53 ], [ %90, %83 ], [ %74, %66 ], [ %97, %93 ]
+  %100 = phi i32 [ %90, %83 ], [ %74, %66 ], [ %64, %53 ], [ %80, %.lr.ph99 ], [ %97, %93 ]
   %101 = add nsw i32 %100, %.1101
   %102 = add i32 %.083103, 8
   %103 = add nuw nsw i32 %.086100, 1

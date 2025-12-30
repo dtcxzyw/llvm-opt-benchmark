@@ -252,8 +252,8 @@ ReallocateWindowBuffer.exit21.i:                  ; preds = %37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48000) @B, i8 noundef 0, i64 noundef 48000, i1 noundef false) #15
   br label %ResetSampleFrequency.exit.thread
 
-ResetSampleFrequency.exit.thread:                 ; preds = %ReallocateWindowBuffer.exit19.thread.i, %ReallocateWindowBuffer.exit17.thread.i, %ReallocateWindowBuffer.exit.thread.i, %CreateGainFilter.exit.thread.i, %ReallocateWindowBuffer.exit.i, %ReallocateWindowBuffer.exit17.i, %ReallocateWindowBuffer.exit19.i, %ReallocateWindowBuffer.exit21.i, %ReallocateWindowBuffer.exit21.thread.i, %51
-  %.0 = phi i32 [ 1, %51 ], [ 0, %ReallocateWindowBuffer.exit21.thread.i ], [ 0, %ReallocateWindowBuffer.exit21.i ], [ 0, %ReallocateWindowBuffer.exit19.i ], [ 0, %ReallocateWindowBuffer.exit17.i ], [ 0, %ReallocateWindowBuffer.exit.i ], [ 0, %CreateGainFilter.exit.thread.i ], [ 0, %ReallocateWindowBuffer.exit.thread.i ], [ 0, %ReallocateWindowBuffer.exit17.thread.i ], [ 0, %ReallocateWindowBuffer.exit19.thread.i ]
+ResetSampleFrequency.exit.thread:                 ; preds = %ReallocateWindowBuffer.exit21.thread.i, %ReallocateWindowBuffer.exit19.thread.i, %ReallocateWindowBuffer.exit17.thread.i, %ReallocateWindowBuffer.exit.thread.i, %CreateGainFilter.exit.thread.i, %ReallocateWindowBuffer.exit.i, %ReallocateWindowBuffer.exit17.i, %ReallocateWindowBuffer.exit19.i, %ReallocateWindowBuffer.exit21.i, %51
+  %.0 = phi i32 [ 1, %51 ], [ 0, %ReallocateWindowBuffer.exit21.i ], [ 0, %ReallocateWindowBuffer.exit19.i ], [ 0, %ReallocateWindowBuffer.exit17.i ], [ 0, %ReallocateWindowBuffer.exit.i ], [ 0, %CreateGainFilter.exit.thread.i ], [ 0, %ReallocateWindowBuffer.exit.thread.i ], [ 0, %ReallocateWindowBuffer.exit17.thread.i ], [ 0, %ReallocateWindowBuffer.exit19.thread.i ], [ 0, %ReallocateWindowBuffer.exit21.thread.i ]
   ret i32 %.0
 }
 
@@ -585,9 +585,9 @@ filter.exit137:                                   ; preds = %165
   br label %filter.exit137.thread
 
 filter.exit137.thread:                            ; preds = %60, %._crit_edge, %filter.exit137
-  %.lcssa229236 = phi double [ %.lcssa229237, %filter.exit137 ], [ %181, %._crit_edge ], [ %.lcssa229237, %60 ]
-  %.lcssa228232 = phi double [ %.lcssa228233, %filter.exit137 ], [ %186, %._crit_edge ], [ %.lcssa228233, %60 ]
-  %.089149157162170206 = phi i64 [ %.089148, %filter.exit137 ], [ %.089148, %._crit_edge ], [ 0, %60 ]
+  %.lcssa229236 = phi double [ %181, %._crit_edge ], [ %.lcssa229237, %filter.exit137 ], [ %.lcssa229237, %60 ]
+  %.lcssa228232 = phi double [ %186, %._crit_edge ], [ %.lcssa228233, %filter.exit137 ], [ %.lcssa228233, %60 ]
+  %.089149157162170206 = phi i64 [ %.089148, %._crit_edge ], [ %.089148, %filter.exit137 ], [ 0, %60 ]
   %187 = sub nsw i64 %.090, %.089149157162170206
   %188 = add nsw i64 %.089149157162170206, %.088
   %189 = add i64 %.089149157162170206, %41
@@ -679,7 +679,7 @@ filter.exit137.thread:                            ; preds = %60, %._crit_edge, %
   br i1 %exitcond194.not, label %.loopexit, label %230, !llvm.loop !33
 
 .loopexit:                                        ; preds = %207, %230, %211, %11, %4
-  %.0 = phi i32 [ 1, %230 ], [ 1, %4 ], [ 0, %11 ], [ 1, %211 ], [ 0, %207 ]
+  %.0 = phi i32 [ 1, %4 ], [ 0, %11 ], [ 1, %211 ], [ 1, %230 ], [ 0, %207 ]
   ret i32 %.0
 }
 

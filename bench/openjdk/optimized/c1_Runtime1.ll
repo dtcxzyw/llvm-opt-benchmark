@@ -680,7 +680,7 @@ define hidden noundef ptr @_ZN8Runtime116name_for_addressEPh(ptr noundef %0) loc
   br label %101
 
 101:                                              ; preds = %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %99, %11
-  %.044 = phi ptr [ %13, %11 ], [ @.str.72, %93 ], [ @.str.37, %14 ], [ @.str.38, %16 ], [ @.str.39, %18 ], [ @.str.40, %20 ], [ @.str.41, %22 ], [ @.str.42, %24 ], [ @.str.43, %26 ], [ @.str.44, %28 ], [ @.str.45, %30 ], [ @.str.46, %32 ], [ @.str.47, %34 ], [ @.str.48, %36 ], [ @.str.49, %38 ], [ @.str.50, %40 ], [ @.str.51, %42 ], [ @.str.52, %44 ], [ @.str.53, %46 ], [ @.str.54, %48 ], [ @.str.55, %50 ], [ @.str.56, %52 ], [ @.str.57, %54 ], [ %100, %99 ], [ @.str.58, %56 ], [ @.str.59, %58 ], [ @.str.60, %60 ], [ @.str.61, %62 ], [ @.str.62, %64 ], [ @.str.63, %66 ], [ @.str.64, %69 ], [ @.str.65, %72 ], [ @.str.66, %75 ], [ @.str.67, %78 ], [ @.str.68, %81 ], [ @.str.69, %84 ], [ @.str.70, %87 ], [ @.str.71, %90 ], [ @.str.73, %96 ]
+  %.044 = phi ptr [ %13, %11 ], [ %100, %99 ], [ @.str.37, %14 ], [ @.str.38, %16 ], [ @.str.39, %18 ], [ @.str.40, %20 ], [ @.str.41, %22 ], [ @.str.42, %24 ], [ @.str.43, %26 ], [ @.str.44, %28 ], [ @.str.45, %30 ], [ @.str.46, %32 ], [ @.str.47, %34 ], [ @.str.48, %36 ], [ @.str.49, %38 ], [ @.str.50, %40 ], [ @.str.51, %42 ], [ @.str.52, %44 ], [ @.str.53, %46 ], [ @.str.54, %48 ], [ @.str.55, %50 ], [ @.str.56, %52 ], [ @.str.57, %54 ], [ @.str.58, %56 ], [ @.str.59, %58 ], [ @.str.60, %60 ], [ @.str.61, %62 ], [ @.str.62, %64 ], [ @.str.63, %66 ], [ @.str.64, %69 ], [ @.str.65, %72 ], [ @.str.66, %75 ], [ @.str.67, %78 ], [ @.str.68, %81 ], [ @.str.69, %84 ], [ @.str.70, %87 ], [ @.str.71, %90 ], [ @.str.72, %93 ], [ @.str.73, %96 ]
   ret ptr %.044
 }
 
@@ -3851,9 +3851,9 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i215: ; preds = %460, %458
   unreachable
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i215, %446, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %_ZNK5Klass11java_mirrorEv.exit, %205, %426, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit203, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit194, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit185, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
-  %.sroa.0264.1 = phi ptr [ null, %205 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit185 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit194 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit203 ], [ null, %426 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ %.0.i.i.i.i216, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i215 ], [ null, %446 ]
-  %.0151 = phi ptr [ null, %205 ], [ %263, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %303, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit185 ], [ %343, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit194 ], [ %383, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit203 ], [ %430, %426 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i215 ], [ null, %446 ]
-  %.1146 = phi ptr [ %.0.i, %205 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit185 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit194 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit203 ], [ null, %426 ], [ %.0.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ %.0.i, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i215 ], [ null, %446 ]
+  %.sroa.0264.1 = phi ptr [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit185 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit194 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit203 ], [ null, %426 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %205 ], [ %.0.i.i.i.i216, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i215 ], [ null, %446 ]
+  %.0151 = phi ptr [ %263, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %303, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit185 ], [ %343, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit194 ], [ %383, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit203 ], [ %430, %426 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %205 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i215 ], [ null, %446 ]
+  %.1146 = phi ptr [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit185 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit194 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit203 ], [ null, %426 ], [ %.0.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ %.0.i, %_ZNK5Klass11java_mirrorEv.exit ], [ %.0.i, %205 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i215 ], [ null, %446 ]
   %464 = ptrtoint ptr %.0151 to i64
   br label %.thread
 
@@ -4038,7 +4038,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i232: ; preds = %560, %558
   unreachable
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit230:           ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i232, %542, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i227, %518
-  %storemerge.in.sroa.speculated = phi ptr [ null, %518 ], [ %.0.i.i.i.i228, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i227 ], [ %.0.i.i.i.i233, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i232 ], [ null, %542 ]
+  %storemerge.in.sroa.speculated = phi ptr [ %.0.i.i.i.i228, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i227 ], [ null, %518 ], [ %.0.i.i.i.i233, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i232 ], [ null, %542 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #15
   %564 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %564) #15
@@ -4052,7 +4052,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit230:           ; preds = %_ZN10HandleArea15al
   unreachable
 
 567:                                              ; preds = %147, %131
-  %.0141 = phi i1 [ %150, %147 ], [ false, %131 ]
+  %.0141 = phi i1 [ false, %131 ], [ %150, %147 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #15
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %96) #15
   %568 = or i1 %134, %.0141
@@ -4076,11 +4076,11 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit230:           ; preds = %_ZN10HandleArea15al
   br label %.thread
 
 .thread:                                          ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit230, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %567, %575
-  %.1144331 = phi i32 [ %.sroa.1.0.copyload.i, %575 ], [ %.sroa.1.0.copyload.i, %567 ], [ -1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ -1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
-  %.0145330 = phi ptr [ null, %575 ], [ null, %567 ], [ %.1146, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
-  %.0147329 = phi i64 [ 0, %575 ], [ 0, %567 ], [ %464, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
-  %.sroa.0264.0328 = phi ptr [ null, %575 ], [ null, %567 ], [ %.sroa.0264.1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
-  %.sroa.0263.0327 = phi ptr [ null, %575 ], [ null, %567 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %storemerge.in.sroa.speculated, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
+  %.1144331 = phi i32 [ %.sroa.1.0.copyload.i, %567 ], [ %.sroa.1.0.copyload.i, %575 ], [ -1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ -1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
+  %.0145330 = phi ptr [ null, %567 ], [ null, %575 ], [ %.1146, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
+  %.0147329 = phi i64 [ 0, %567 ], [ 0, %575 ], [ %464, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
+  %.sroa.0264.0328 = phi ptr [ null, %567 ], [ null, %575 ], [ %.sroa.0264.1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
+  %.sroa.0263.0327 = phi ptr [ null, %567 ], [ null, %575 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %storemerge.in.sroa.speculated, %_ZN6HandleC2EP6ThreadP7oopDesc.exit230 ]
   %578 = load ptr, ptr @Patching_lock, align 8
   %.not.i.i236 = icmp eq ptr %578, null
   br i1 %.not.i.i236, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %579
@@ -4148,7 +4148,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %.th
   br label %620
 
 620:                                              ; preds = %614, %616
-  %621 = phi i1 [ true, %614 ], [ %619, %616 ]
+  %621 = phi i1 [ %619, %616 ], [ true, %614 ]
   %622 = call noundef ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %584) #15
   %623 = icmp eq ptr %622, %606
   br i1 %623, label %646, label %624
@@ -5931,7 +5931,7 @@ _ZNK5frame14is_first_frameEv.exit.thread14:       ; preds = %86, %97, %_ZNK5fram
   br label %102
 
 102:                                              ; preds = %_ZNK5frame14is_first_frameEv.exit.thread, %97, %25, %79, %_ZNK5frame14is_first_frameEv.exit.thread14, %.critedge, %13
-  %.0 = phi i1 [ true, %13 ], [ true, %25 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
+  %.0 = phi i1 [ true, %13 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ true, %25 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -6401,7 +6401,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -6556,7 +6556,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -6734,7 +6734,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 

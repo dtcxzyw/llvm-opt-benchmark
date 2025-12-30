@@ -8264,7 +8264,7 @@ define internal void @loop_filter_h_16_8_c(ptr noundef captures(none) %0, i64 no
   br label %115
 
 115:                                              ; preds = %111, %107, %103, %99, %95, %91, %87, %59
-  %.2561.i = phi i1 [ %114, %111 ], [ false, %107 ], [ false, %103 ], [ false, %99 ], [ false, %95 ], [ false, %91 ], [ false, %87 ], [ false, %59 ]
+  %.2561.i = phi i1 [ false, %107 ], [ false, %103 ], [ false, %99 ], [ false, %95 ], [ false, %91 ], [ false, %87 ], [ false, %59 ], [ %114, %111 ]
   %116 = sub nsw i32 %13, %22
   %117 = tail call i32 @llvm.abs.i32(i32 %116, i1 true)
   %118 = icmp samesign ult i32 %117, 17
@@ -8808,7 +8808,7 @@ define internal void @loop_filter_v_16_8_c(ptr noundef captures(none) %0, i64 no
   br label %116
 
 116:                                              ; preds = %112, %108, %104, %100, %96, %92, %88, %60
-  %.2561.i = phi i1 [ %115, %112 ], [ false, %108 ], [ false, %104 ], [ false, %100 ], [ false, %96 ], [ false, %92 ], [ false, %88 ], [ false, %60 ]
+  %.2561.i = phi i1 [ false, %108 ], [ false, %104 ], [ false, %100 ], [ false, %96 ], [ false, %92 ], [ false, %88 ], [ false, %60 ], [ %115, %112 ]
   %117 = sub nsw i32 %14, %23
   %118 = tail call i32 @llvm.abs.i32(i32 %117, i1 true)
   %119 = icmp samesign ult i32 %118, 17

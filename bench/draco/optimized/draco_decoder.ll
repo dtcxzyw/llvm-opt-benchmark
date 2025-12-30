@@ -160,7 +160,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.tail
 
 .tail:                                            ; preds = %sub_1, %sub_2
-  %39 = phi i32 [ %38, %sub_2 ], [ %34, %sub_1 ]
+  %39 = phi i32 [ %34, %sub_1 ], [ %38, %sub_2 ]
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %89, label %sub_1201
 
@@ -180,7 +180,7 @@ sub_2202:                                         ; preds = %sub_1201
   br label %.tail199
 
 .tail199:                                         ; preds = %sub_0, %sub_1201, %sub_2202
-  %48 = phi i32 [ %47, %sub_2202 ], [ %43, %sub_1201 ], [ %30, %sub_0 ]
+  %48 = phi i32 [ %43, %sub_1201 ], [ %47, %sub_2202 ], [ %30, %sub_0 ]
   %.not84 = icmp eq i32 %48, 0
   br i1 %.not84, label %89, label %sub_0205
 
@@ -208,7 +208,7 @@ sub_2207:                                         ; preds = %sub_1206
   br label %.tail204
 
 .tail204:                                         ; preds = %sub_1206, %sub_2207
-  %59 = phi i32 [ %58, %sub_2207 ], [ %54, %sub_1206 ]
+  %59 = phi i32 [ %54, %sub_1206 ], [ %58, %sub_2207 ]
   %.not118 = icmp eq i32 %59, 0
   %60 = icmp slt i32 %.082215, %24
   %or.cond = select i1 %.not118, i1 %60, i1 false
@@ -244,8 +244,8 @@ sub_2212:                                         ; preds = %sub_1211
   br label %.tail209
 
 .tail209:                                         ; preds = %.tail204.thread, %sub_1211, %sub_2212
-  %78 = phi i1 [ %61, %.tail204.thread ], [ %60, %sub_1211 ], [ %60, %sub_2212 ]
-  %79 = phi i32 [ %30, %.tail204.thread ], [ %73, %sub_1211 ], [ %77, %sub_2212 ]
+  %78 = phi i1 [ %60, %sub_1211 ], [ %60, %sub_2212 ], [ %61, %.tail204.thread ]
+  %79 = phi i32 [ %73, %sub_1211 ], [ %77, %sub_2212 ], [ %30, %.tail204.thread ]
   %.not119 = icmp eq i32 %79, 0
   %or.cond122 = select i1 %.not119, i1 %78, i1 false
   br i1 %or.cond122, label %80, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
@@ -542,9 +542,9 @@ _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EEaSEOS4_.exit: ; pr
   br label %302
 
 184:                                              ; preds = %182, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133
-  %.sroa.0163.5 = phi ptr [ %.sroa.0163.6, %182 ], [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ]
-  %.246 = phi ptr [ null, %182 ], [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ]
-  %.6 = phi i32 [ %.7, %182 ], [ %.4, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ]
+  %.sroa.0163.5 = phi ptr [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ %.sroa.0163.6, %182 ]
+  %.246 = phi ptr [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ null, %182 ]
+  %.6 = phi i32 [ %.4, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ %.7, %182 ]
   %.not.i134 = icmp eq ptr %.sroa.0163.5, null
   br i1 %.not.i134, label %.thread, label %185
 
@@ -980,7 +980,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit156:                 ; preds = %323, %325
   br label %340
 
 331:                                              ; preds = %89, %.critedge.thread, %_ZNSt6vectorIcSaIcEED2Ev.exit
-  %.1 = phi i32 [ 0, %89 ], [ %.2, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ -1, %.critedge.thread ]
+  %.1 = phi i32 [ %.2, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ 0, %89 ], [ -1, %.critedge.thread ]
   %332 = load ptr, ptr %21, align 8, !tbaa !23
   %333 = icmp eq ptr %332, %22
   br i1 %333, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i157

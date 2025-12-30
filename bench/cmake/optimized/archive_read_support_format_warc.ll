@@ -89,7 +89,7 @@ define internal range(i32 -1, 65) i32 @_warc_bid(ptr noundef %0, i32 %1) #0 {
   br label %12
 
 12:                                               ; preds = %9, %6, %2
-  %.0 = phi i32 [ -1, %6 ], [ -1, %2 ], [ %., %9 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ %., %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -205,7 +205,7 @@ _warc_find_eoh.exit:                              ; preds = %._crit_edge.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.mux.i.mux.i, i64 4
   br i1 %.not.i, label %_warc_find_eoh.exit.thread, label %56
 
-_warc_find_eoh.exit.thread:                       ; preds = %21, %25, %_warc_find_eoh.exit, %52
+_warc_find_eoh.exit.thread:                       ; preds = %25, %21, %_warc_find_eoh.exit, %52
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.4) #15
   br label %.loopexit
 
@@ -414,7 +414,7 @@ _warc_find_eol.exit.i:                            ; preds = %.lr.ph.preheader.i.
   %or.cond.i = select i1 %.not21.i, i1 %.not22.i, i1 false
   br i1 %or.cond.i, label %_warc_rdlen.exit, label %_warc_rdlen.exit.thread
 
-_warc_rdlen.exit.thread:                          ; preds = %_warc_find_eol.exit.i, %xmemmem.exit.i, %.critedge.i, %139, %72, %69, %.preheader.i.i, %106, %xmemmem.exit.thread25.i, %98, %126
+_warc_rdlen.exit.thread:                          ; preds = %xmemmem.exit.i, %_warc_find_eol.exit.i, %.critedge.i, %139, %69, %.preheader.i.i, %72, %xmemmem.exit.thread25.i, %106, %98, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit297
 
@@ -564,7 +564,7 @@ _warc_find_eol.exit.thread18.i:                   ; preds = %200, %_warc_find_eo
   %.not.i142 = icmp eq ptr %205, %.050.i.i20.i
   br i1 %.not.i142, label %_warc_rdrtm.exit, label %_warc_rdrtm.exit.thread
 
-_warc_rdrtm.exit.thread:                          ; preds = %_warc_find_eol.exit.i143, %xmemmem.exit.i144, %_warc_find_eol.exit.thread18.i, %148, %145, %.preheader.i.i127, %182, %xmemmem.exit.thread14.i, %174, %202
+_warc_rdrtm.exit.thread:                          ; preds = %xmemmem.exit.i144, %_warc_find_eol.exit.i143, %_warc_find_eol.exit.thread18.i, %145, %.preheader.i.i127, %148, %xmemmem.exit.thread14.i, %182, %174, %202
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit299
 
@@ -762,7 +762,7 @@ _warc_find_eol.exit.i182:                         ; preds = %.lr.ph.preheader.i.
   %281 = icmp eq i32 %bcmp21.i, 0
   br i1 %281, label %282, label %.thread
 
-.thread:                                          ; preds = %242, %270, %.critedge.i175, %280, %xmemmem.exit.thread24.i, %250, %.preheader.i.i158, %213, %216, %_warc_find_eol.exit.i182, %xmemmem.exit.i184
+.thread:                                          ; preds = %242, %270, %.critedge.i175, %280, %250, %xmemmem.exit.thread24.i, %216, %.preheader.i.i158, %213, %_warc_find_eol.exit.i182, %xmemmem.exit.i184
   store i64 %141, ptr %9, align 8, !tbaa !44
   store i64 0, ptr %16, align 8, !tbaa !45
   br label %.critedge
@@ -1253,7 +1253,7 @@ _warc_find_eol.exit.thread18.i256:                ; preds = %485, %_warc_find_eo
   %.not.i258 = icmp eq ptr %490, %.050.i.i20.i257
   br i1 %.not.i258, label %_warc_rdmtm.exit, label %_warc_rdmtm.exit.thread
 
-_warc_rdmtm.exit.thread:                          ; preds = %457, %487, %_warc_find_eol.exit.i260, %xmemmem.exit.i261, %_warc_find_eol.exit.thread18.i256, %431, %423, %.preheader.i.i238, %466, %xmemmem.exit.thread14.i244
+_warc_rdmtm.exit.thread:                          ; preds = %457, %487, %xmemmem.exit.i261, %_warc_find_eol.exit.i260, %_warc_find_eol.exit.thread18.i256, %423, %.preheader.i.i238, %431, %xmemmem.exit.thread14.i244, %466
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %492
 
@@ -1267,7 +1267,7 @@ _warc_rdmtm.exit:                                 ; preds = %_warc_find_eol.exit
   br label %_warc_rduri.exit.thread
 
 _warc_rduri.exit.thread:                          ; preds = %492, %_warc_rdmtm.exit
-  %.084 = phi i64 [ %.fr, %_warc_rdmtm.exit ], [ %204, %492 ]
+  %.084 = phi i64 [ %204, %492 ], [ %.fr, %_warc_rdmtm.exit ]
   %493 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %59) #15
   call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #15
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef %428) #15
@@ -1277,7 +1277,7 @@ _warc_rduri.exit.thread:                          ; preds = %492, %_warc_rdmtm.e
   call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %.084, i64 noundef 0) #15
   br label %.loopexit
 
-.critedge:                                        ; preds = %311, %339, %374, %381, %_warc_rduri.exit, %402, %._crit_edge.i, %xmemmem.exit.i224, %_warc_find_eol.exit.i222, %xmemmem.exit65.i, %394, %285, %282, %.preheader.i.i197, %319, %xmemmem.exit.thread67.i, %348, %.critedge.i213, %.preheader.i59.i, %.thread
+.critedge:                                        ; preds = %311, %339, %374, %381, %402, %_warc_rduri.exit, %xmemmem.exit.i224, %_warc_find_eol.exit.i222, %xmemmem.exit65.i, %._crit_edge.i, %394, %282, %.preheader.i.i197, %285, %xmemmem.exit.thread67.i, %319, %.critedge.i213, %.preheader.i59.i, %348, %.thread
   %494 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %59) #15
   %495 = load ptr, ptr %7, align 8, !tbaa !8
   %496 = load ptr, ptr %495, align 8, !tbaa !26
@@ -1291,7 +1291,7 @@ _warc_rduri.exit.thread:                          ; preds = %492, %_warc_rdmtm.e
   br i1 %502, label %._crit_edge, label %17
 
 .loopexit:                                        ; preds = %17, %_warc_rduri.exit.thread, %421, %.loopexit299, %.loopexit297, %65, %62, %_warc_find_eoh.exit.thread, %._crit_edge
-  %.0 = phi i32 [ -30, %._crit_edge ], [ -30, %421 ], [ -30, %_warc_find_eoh.exit.thread ], [ -30, %62 ], [ -30, %65 ], [ -30, %.loopexit297 ], [ -30, %.loopexit299 ], [ 0, %_warc_rduri.exit.thread ], [ 1, %17 ]
+  %.0 = phi i32 [ -30, %._crit_edge ], [ -30, %_warc_find_eoh.exit.thread ], [ -30, %62 ], [ -30, %65 ], [ -30, %.loopexit297 ], [ -30, %.loopexit299 ], [ 0, %_warc_rduri.exit.thread ], [ -30, %421 ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1500,7 +1500,7 @@ define internal fastcc range(i32 -1953600, 876901) i32 @_warc_rdver(ptr noundef 
   br label %53
 
 53:                                               ; preds = %49, %5, %14, %18, %52, %50, %50, %2, %4
-  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %5 ], [ %spec.select33, %49 ], [ 0, %52 ], [ %.1, %50 ], [ %.1, %50 ], [ 0, %18 ], [ 0, %14 ]
+  %.024 = phi i32 [ 0, %4 ], [ 0, %2 ], [ 0, %52 ], [ %.1, %50 ], [ 0, %18 ], [ 0, %14 ], [ 0, %5 ], [ %spec.select33, %49 ], [ %.1, %50 ]
   ret i32 %.024
 }
 
@@ -1587,8 +1587,8 @@ define internal fastcc i64 @xstrpisotime(ptr noundef nonnull %0, ptr noundef non
   br label %strtoi_lim.exit, !llvm.loop !54
 
 strtoi_lim.exit:                                  ; preds = %8, %.strtoi_lim.exit_crit_edge87, %.preheader82
-  %.023.lcssa.i = phi i32 [ 0, %.preheader82 ], [ %16, %.strtoi_lim.exit_crit_edge87 ], [ %16, %8 ]
-  %.022.lcssa.i = phi ptr [ %.072, %.preheader82 ], [ %17, %.strtoi_lim.exit_crit_edge87 ], [ %17, %8 ]
+  %.023.lcssa.i = phi i32 [ %16, %.strtoi_lim.exit_crit_edge87 ], [ 0, %.preheader82 ], [ %16, %8 ]
+  %.022.lcssa.i = phi ptr [ %17, %.strtoi_lim.exit_crit_edge87 ], [ %.072, %.preheader82 ], [ %17, %8 ]
   %20 = icmp eq ptr %.022.lcssa.i, %.072
   %21 = add i32 %.023.lcssa.i, -4096
   %or.cond27.i = icmp ult i32 %21, -2513
@@ -1635,8 +1635,8 @@ strtoi_lim.exit:                                  ; preds = %8, %.strtoi_lim.exi
   br label %strtoi_lim.exit19, !llvm.loop !54
 
 strtoi_lim.exit19:                                ; preds = %28, %.strtoi_lim.exit19_crit_edge97, %.preheader81
-  %.023.lcssa.i13 = phi i32 [ 0, %.preheader81 ], [ %36, %.strtoi_lim.exit19_crit_edge97 ], [ %36, %28 ]
-  %.022.lcssa.i14.idx = phi i64 [ 1, %.preheader81 ], [ %.02229.i10.add, %.strtoi_lim.exit19_crit_edge97 ], [ %.02229.i10.add, %28 ]
+  %.023.lcssa.i13 = phi i32 [ %36, %.strtoi_lim.exit19_crit_edge97 ], [ 0, %.preheader81 ], [ %36, %28 ]
+  %.022.lcssa.i14.idx = phi i64 [ %.02229.i10.add, %.strtoi_lim.exit19_crit_edge97 ], [ 1, %.preheader81 ], [ %.02229.i10.add, %28 ]
   %.022.lcssa.i14.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i, i64 %.022.lcssa.i14.idx
   %38 = icmp eq i64 %.022.lcssa.i14.idx, 1
   %39 = add nsw i32 %.023.lcssa.i13, -13
@@ -1686,8 +1686,8 @@ strtoi_lim.exit19:                                ; preds = %28, %.strtoi_lim.ex
   br label %strtoi_lim.exit30, !llvm.loop !54
 
 strtoi_lim.exit30:                                ; preds = %46, %.strtoi_lim.exit30_crit_edge107, %.preheader80
-  %.023.lcssa.i24 = phi i32 [ 0, %.preheader80 ], [ %54, %.strtoi_lim.exit30_crit_edge107 ], [ %54, %46 ]
-  %.022.lcssa.i25.idx = phi i64 [ 1, %.preheader80 ], [ %.02229.i21.add, %.strtoi_lim.exit30_crit_edge107 ], [ %.02229.i21.add, %46 ]
+  %.023.lcssa.i24 = phi i32 [ %54, %.strtoi_lim.exit30_crit_edge107 ], [ 0, %.preheader80 ], [ %54, %46 ]
+  %.022.lcssa.i25.idx = phi i64 [ %.02229.i21.add, %.strtoi_lim.exit30_crit_edge107 ], [ 1, %.preheader80 ], [ %.02229.i21.add, %46 ]
   %.022.lcssa.i25.ptr = getelementptr inbounds nuw i8, ptr %.022.lcssa.i14.ptr, i64 %.022.lcssa.i25.idx
   %57 = icmp eq i64 %.022.lcssa.i25.idx, 1
   %58 = add nsw i32 %.023.lcssa.i24, -32

@@ -338,7 +338,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %213, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph154, %131, %70
-  %.4 = phi ptr [ %120, %.lr.ph154 ], [ %66, %70 ], [ %.1129156, %131 ], [ %210, %.lr.ph ]
+  %.4 = phi ptr [ %66, %70 ], [ %.1129156, %131 ], [ %120, %.lr.ph154 ], [ %210, %.lr.ph ]
   %214 = add nuw nsw i32 %.0123157, 1
   %215 = load i32, ptr %13, align 4, !tbaa !28
   %216 = icmp slt i32 %214, %215

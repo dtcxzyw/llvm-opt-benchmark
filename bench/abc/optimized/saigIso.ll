@@ -918,7 +918,7 @@ Aig_ObjChild0Copy.exit58:                         ; preds = %84, %91
   br label %106
 
 106:                                              ; preds = %.critedge2, %Aig_ObjChild0Copy.exit58, %104, %105, %72, %73
-  %.035 = phi i32 [ 0, %104 ], [ 0, %72 ], [ 0, %73 ], [ 0, %105 ], [ 1, %Aig_ObjChild0Copy.exit58 ], [ 1, %.critedge2 ]
+  %.035 = phi i32 [ 0, %73 ], [ 0, %72 ], [ 0, %105 ], [ 0, %104 ], [ 1, %Aig_ObjChild0Copy.exit58 ], [ 1, %.critedge2 ]
   ret i32 %.035
 }
 
@@ -1219,7 +1219,7 @@ Vec_IntInvert.exit:                               ; preds = %62, %Vec_IntFill.ex
   br label %79
 
 79:                                               ; preds = %76, %78, %22, %15, %12, %9, %5
-  %.0 = phi ptr [ null, %22 ], [ null, %5 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ %.pre, %78 ], [ %calloc.i, %76 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ null, %12 ], [ null, %15 ], [ null, %22 ], [ %.pre, %78 ], [ %calloc.i, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -2495,8 +2495,8 @@ Abc_Clock.exit136:                                ; preds = %251, %254
   br label %Vec_IntPush.exit143.sink.split
 
 Vec_IntPush.exit143.sink.split:                   ; preds = %300, %302, %292, %294
-  %.sink214 = phi ptr [ %295, %294 ], [ %293, %292 ], [ %301, %300 ], [ %303, %302 ]
-  %.sink = phi i32 [ 16, %294 ], [ 16, %292 ], [ %297, %300 ], [ %297, %302 ]
+  %.sink214 = phi ptr [ %293, %292 ], [ %295, %294 ], [ %301, %300 ], [ %303, %302 ]
+  %.sink = phi i32 [ 16, %292 ], [ 16, %294 ], [ %297, %300 ], [ %297, %302 ]
   store ptr %.sink214, ptr %279, align 8, !tbaa !12
   store i32 %.sink, ptr %276, align 8, !tbaa !11
   br label %Vec_IntPush.exit143
@@ -2749,7 +2749,7 @@ Abc_Clock.exit17:                                 ; preds = %Abc_Clock.exit, %18
   br label %.critedge.loopexit.i, !llvm.loop !82
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph.i, %..critedge.loopexit.i_crit_edge, %.lr.ph.preheader.i
-  %.val212638.i = phi ptr [ %.val2126.i, %.lr.ph.preheader.i ], [ %.val21.i, %..critedge.loopexit.i_crit_edge ], [ %.val21.i, %.lr.ph.i ]
+  %.val212638.i = phi ptr [ %.val21.i, %..critedge.loopexit.i_crit_edge ], [ %.val2126.i, %.lr.ph.preheader.i ], [ %.val21.i, %.lr.ph.i ]
   %.val20.pre.i = load i32, ptr %34, align 4, !tbaa !81
   br label %.critedge.i
 

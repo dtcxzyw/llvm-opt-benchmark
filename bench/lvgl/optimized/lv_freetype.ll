@@ -571,7 +571,7 @@ freetype_on_font_set_cbs.exit:                    ; preds = %99, %101, %102
   br label %lv_freetype_drop_face_id.exit
 
 lv_freetype_drop_face_id.exit:                    ; preds = %49, %44, %lv_freetype_drop_face_id.exit83, %113, %114
-  %.0 = phi ptr [ null, %113 ], [ null, %lv_freetype_drop_face_id.exit83 ], [ %115, %114 ], [ null, %44 ], [ null, %49 ]
+  %.0 = phi ptr [ null, %lv_freetype_drop_face_id.exit83 ], [ %115, %114 ], [ null, %113 ], [ null, %44 ], [ null, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

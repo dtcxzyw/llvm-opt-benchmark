@@ -71,7 +71,7 @@ define internal range(i32 -2147483648, 1) i32 @hwmap_query_formats(ptr readnone 
   br label %12
 
 12:                                               ; preds = %8, %3
-  %.03 = phi i32 [ %spec.select, %8 ], [ %6, %3 ]
+  %.03 = phi i32 [ %6, %3 ], [ %spec.select, %8 ]
   ret i32 %.03
 }
 
@@ -242,7 +242,7 @@ define internal i32 @hwmap_filter_frame(ptr noundef readonly captures(none) %0, 
   br label %59
 
 58:                                               ; preds = %36, %22, %2, %45, %44
-  %.0 = phi i32 [ %42, %44 ], [ %46, %45 ], [ -12, %22 ], [ -12, %2 ], [ -12, %36 ]
+  %.0 = phi i32 [ %42, %44 ], [ %46, %45 ], [ -12, %2 ], [ -12, %22 ], [ -12, %36 ]
   call void @av_frame_free(ptr noundef nonnull %3) #5
   call void @av_frame_free(ptr noundef nonnull %4) #5
   br label %59
@@ -569,8 +569,8 @@ define internal range(i32 -2147483648, 1) i32 @hwmap_config_output(ptr noundef c
   br label %162
 
 160:                                              ; preds = %.thread161, %148, %112, %36, %.thread186, %61, %53
-  %.1118 = phi i32 [ -12, %112 ], [ %.2119.ph, %.thread161 ], [ -22, %36 ], [ -22, %.thread186 ], [ %59, %61 ], [ -22, %53 ], [ -12, %148 ]
-  %.2 = phi i32 [ %.0115, %112 ], [ %.0115, %.thread161 ], [ %.0115, %36 ], [ %.0115, %.thread186 ], [ %.0115, %61 ], [ %.0115, %53 ], [ %.3, %148 ]
+  %.1118 = phi i32 [ -22, %.thread186 ], [ %59, %61 ], [ -22, %53 ], [ -22, %36 ], [ -12, %112 ], [ -12, %148 ], [ %.2119.ph, %.thread161 ]
+  %.2 = phi i32 [ %.0115, %.thread186 ], [ %.0115, %61 ], [ %.0115, %53 ], [ %.0115, %36 ], [ %.0115, %112 ], [ %.3, %148 ], [ %.0115, %.thread161 ]
   %.not150 = icmp eq i32 %.2, 0
   br i1 %.not150, label %.thread165, label %161
 
@@ -578,13 +578,13 @@ define internal range(i32 -2147483648, 1) i32 @hwmap_config_output(ptr noundef c
   call void @av_buffer_unref(ptr noundef nonnull %2) #5
   br label %.thread165
 
-.thread165:                                       ; preds = %35, %29, %146, %121, %161, %160
-  %.1118169 = phi i32 [ %.1118, %160 ], [ %.1118, %161 ], [ %144, %146 ], [ -12, %121 ], [ %33, %35 ], [ -22, %29 ]
+.thread165:                                       ; preds = %35, %29, %121, %146, %161, %160
+  %.1118169 = phi i32 [ %.1118, %161 ], [ %.1118, %160 ], [ -12, %121 ], [ %144, %146 ], [ %33, %35 ], [ -22, %29 ]
   call void @av_buffer_unref(ptr noundef nonnull %16) #5
   br label %162
 
 162:                                              ; preds = %152, %159, %.thread165, %147
-  %.0 = phi i32 [ -22, %147 ], [ %.1118169, %.thread165 ], [ 0, %159 ], [ 0, %152 ]
+  %.0 = phi i32 [ %.1118169, %.thread165 ], [ -22, %147 ], [ 0, %159 ], [ 0, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

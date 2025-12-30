@@ -285,7 +285,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %48, %50, %44, %.critedge110, %3, %57, %61
-  %.0 = phi i32 [ 0, %3 ], [ 0, %57 ], [ %64, %61 ], [ 43, %44 ], [ 0, %48 ], [ 43, %.critedge110 ], [ 0, %50 ], [ 43, %33 ]
+  %.0 = phi i32 [ 0, %57 ], [ %64, %61 ], [ 0, %3 ], [ 43, %.critedge110 ], [ 43, %44 ], [ 0, %50 ], [ 0, %48 ], [ 43, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -427,7 +427,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
   br i1 %.not58, label %.thread75, label %.lr.ph.split, !llvm.loop !37
 
 .thread75:                                        ; preds = %62, %60, %45, %42, %8, %4, %3
-  %.3 = phi ptr [ null, %3 ], [ null, %4 ], [ %.346.ph.us, %45 ], [ null, %8 ], [ %14, %42 ], [ null, %62 ], [ %46, %60 ]
+  %.3 = phi ptr [ null, %3 ], [ null, %4 ], [ null, %8 ], [ %.346.ph.us, %45 ], [ %14, %42 ], [ null, %62 ], [ %46, %60 ]
   ret ptr %.3
 }
 
@@ -480,7 +480,7 @@ define internal fastcc range(i32 0, 28) i32 @hsts_create(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %.critedge, %18, %.thread32
-  %.1 = phi i32 [ 27, %18 ], [ 27, %.thread32 ], [ 0, %.critedge ], [ 0, %12 ], [ 0, %4 ]
+  %.1 = phi i32 [ 27, %.thread32 ], [ 27, %18 ], [ 0, %.critedge ], [ 0, %12 ], [ 0, %4 ]
   ret i32 %.1
 }
 
@@ -1024,7 +1024,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
   br label %.thread45.sink.split.i
 
 .thread45.sink.split.i:                           ; preds = %.thread32.i.i, %18, %12, %.thread45.sink.split.i.loopexit, %41
-  %.4.ph.i = phi i32 [ 42, %12 ], [ 27, %41 ], [ 43, %18 ], [ 27, %.thread32.i.i ], [ 0, %.thread45.sink.split.i.loopexit ]
+  %.4.ph.i = phi i32 [ 27, %41 ], [ 42, %12 ], [ 43, %18 ], [ 27, %.thread32.i.i ], [ 0, %.thread45.sink.split.i.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %hsts_pull.exit

@@ -126,7 +126,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_btree2_name_compare(ptr noundef
   br label %44
 
 44:                                               ; preds = %3, %17, %20, %43
-  %.018 = phi i32 [ 0, %17 ], [ 0, %20 ], [ 0, %3 ], [ %.1, %43 ]
+  %.018 = phi i32 [ 0, %17 ], [ 0, %20 ], [ %.1, %43 ], [ 0, %3 ]
   ret i32 %.018
 }
 

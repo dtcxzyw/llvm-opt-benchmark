@@ -11265,7 +11265,7 @@ _ZL10HelpMarkerPKc.exit605:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %508
 
 508:                                              ; preds = %506, %502
-  %.1 = phi i32 [ %spec.select564, %506 ], [ %.032959, %502 ]
+  %.1 = phi i32 [ %.032959, %502 ], [ %spec.select564, %506 ]
   %509 = load i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE18test_drag_and_drop, align 1, !tbaa !29, !range !11, !noundef !12
   %510 = trunc nuw i8 %509 to i1
   br i1 %510, label %511, label %515
@@ -11318,7 +11318,7 @@ _ZL10HelpMarkerPKc.exit605:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %532
 
 532:                                              ; preds = %530, %525
-  %.3 = phi i32 [ %spec.select565, %530 ], [ %.032959, %525 ]
+  %.3 = phi i32 [ %.032959, %525 ], [ %spec.select565, %530 ]
   %533 = load i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE18test_drag_and_drop, align 1, !tbaa !29, !range !11, !noundef !12
   %534 = trunc nuw i8 %533 to i1
   br i1 %534, label %535, label %539
@@ -11334,7 +11334,7 @@ _ZL10HelpMarkerPKc.exit605:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %539
 
 539:                                              ; preds = %522, %523, %532, %535, %537
-  %.2 = phi i32 [ %.3, %532 ], [ %.3, %537 ], [ %.3, %535 ], [ %.1, %523 ], [ %.1, %522 ]
+  %.2 = phi i32 [ %.3, %537 ], [ %.3, %535 ], [ %.3, %532 ], [ %.1, %523 ], [ %.1, %522 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond96.not, label %494, label %495, !llvm.loop !225
@@ -11723,7 +11723,7 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
   br label %697
 
 697:                                              ; preds = %683, %693, %696
-  %.0335 = phi float [ %687, %693 ], [ %694, %696 ], [ 0.000000e+00, %683 ]
+  %.0335 = phi float [ %694, %696 ], [ %687, %693 ], [ 0.000000e+00, %683 ]
   %698 = fcmp olt float %691, 0.000000e+00
   br i1 %698, label %703, label %699
 
@@ -11736,7 +11736,7 @@ _ZL10HelpMarkerPKc.exit606:                       ; preds = %597, %605
   br label %703
 
 703:                                              ; preds = %697, %699, %702
-  %.0336 = phi float [ %691, %699 ], [ %700, %702 ], [ 0.000000e+00, %697 ]
+  %.0336 = phi float [ %700, %702 ], [ %691, %699 ], [ 0.000000e+00, %697 ]
   %704 = fpext float %.0335 to double
   %705 = fpext float %.0336 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.541, double noundef %704, double noundef %705)
@@ -19812,7 +19812,7 @@ _ZL10HelpMarkerPKc.exit619:                       ; preds = %612, %614
   br label %658
 
 657:                                              ; preds = %.loopexit741, %.loopexit.split-lp742, %647, %653
-  %.pn592.pn = phi { ptr, i32 } [ %648, %647 ], [ %654, %653 ], [ %lpad.loopexit743, %.loopexit741 ], [ %lpad.loopexit.split-lp744, %.loopexit.split-lp742 ]
+  %.pn592.pn = phi { ptr, i32 } [ %654, %653 ], [ %648, %647 ], [ %lpad.loopexit743, %.loopexit741 ], [ %lpad.loopexit.split-lp744, %.loopexit.split-lp742 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -23356,7 +23356,7 @@ _ZN8ImVectorIiE19find_erase_unsortedERKi.exit:    ; preds = %_ZN8ImVectorIiE14er
   br label %2058
 
 2058:                                             ; preds = %.loopexit719, %.loopexit.split-lp, %1868, %2037, %2056, %2054
-  %.pn582.pn.pn = phi { ptr, i32 } [ %2055, %2054 ], [ %1869, %1868 ], [ %2057, %2056 ], [ %.pn582, %2037 ], [ %lpad.loopexit, %.loopexit719 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn582.pn.pn = phi { ptr, i32 } [ %2057, %2056 ], [ %2055, %2054 ], [ %.pn582, %2037 ], [ %1869, %1868 ], [ %lpad.loopexit, %.loopexit719 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %76) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
@@ -25313,7 +25313,7 @@ _ZN8ImVectorIjE9push_backERKj.exit285:            ; preds = %._ZN8ImVectorIjE7re
   br i1 %338, label %333, label %_ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.exit, !llvm.loop !422
 
 _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.exit: ; preds = %328, %335, %333, %326, %310
-  %339 = phi i32 [ -1, %310 ], [ -1, %333 ], [ %322, %326 ], [ %.0.i, %335 ], [ %.022.i, %328 ]
+  %339 = phi i32 [ -1, %310 ], [ %322, %326 ], [ -1, %333 ], [ %.0.i, %335 ], [ %.022.i, %328 ]
   %340 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items, align 8, !tbaa !411
   %341 = icmp sgt i32 %340, 0
   br i1 %341, label %.lr.ph58, label %._crit_edge
@@ -25679,7 +25679,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit293: ; preds = %436, %433
   br label %486
 
 485:                                              ; preds = %.loopexit24, %.loopexit.split-lp25, %473, %479
-  %.pn266.pn.pn = phi { ptr, i32 } [ %474, %473 ], [ %.pn266, %479 ], [ %lpad.loopexit26, %.loopexit24 ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp25 ]
+  %.pn266.pn.pn = phi { ptr, i32 } [ %.pn266, %479 ], [ %474, %473 ], [ %lpad.loopexit26, %.loopexit24 ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp25 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1025
@@ -26502,9 +26502,9 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit312: ; preds = %807, %_ZN16ImGui
   br label %827
 
 827:                                              ; preds = %825, %.critedge, %.thread
-  %828 = phi i32 [ 0, %.thread ], [ 0, %825 ], [ %823, %.critedge ]
-  %829 = phi i1 [ false, %.thread ], [ false, %825 ], [ true, %.critedge ]
-  %830 = phi i32 [ %819, %.thread ], [ %826, %825 ], [ %824, %.critedge ]
+  %828 = phi i32 [ 0, %.thread ], [ %823, %.critedge ], [ 0, %825 ]
+  %829 = phi i1 [ false, %.thread ], [ true, %.critedge ], [ false, %825 ]
+  %830 = phi i32 [ %819, %.thread ], [ %824, %.critedge ], [ %826, %825 ]
   %831 = icmp slt i32 %828, %830
   br i1 %831, label %.lr.ph73.preheader, label %._crit_edge74
 
@@ -26976,7 +26976,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
   br i1 %exitcond118.not, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !443
 
 1006:                                             ; preds = %879, %959, %961, %1002, %989, %983, %944, %887, %883, %881, %869, %871, %867
-  %.pn259.pn.pn.pn = phi { ptr, i32 } [ %870, %869 ], [ %868, %867 ], [ %872, %871 ], [ %880, %879 ], [ %.pn259, %944 ], [ %882, %881 ], [ %1003, %1002 ], [ %990, %989 ], [ %984, %983 ], [ %888, %887 ], [ %884, %883 ], [ %962, %961 ], [ %960, %959 ]
+  %.pn259.pn.pn.pn = phi { ptr, i32 } [ %868, %867 ], [ %872, %871 ], [ %870, %869 ], [ %880, %879 ], [ %.pn259, %944 ], [ %882, %881 ], [ %1003, %1002 ], [ %990, %989 ], [ %984, %983 ], [ %884, %883 ], [ %888, %887 ], [ %962, %961 ], [ %960, %959 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1021
 
@@ -27027,7 +27027,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
   br label %1022
 
 1021:                                             ; preds = %.loopexit12, %.loopexit.split-lp13, %837, %1006
-  %.pn259.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %838, %837 ], [ %.pn259.pn.pn.pn, %1006 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ]
+  %.pn259.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn259.pn.pn.pn, %1006 ], [ %838, %837 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -28395,7 +28395,7 @@ define internal fastcc void @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDa
   br label %_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN16ExampleTreeFuncs29TreeGetNextNodeInVisibleOrderEP15ExampleTreeNodeS3_.exit
 
 _ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN16ExampleTreeFuncs29TreeGetNextNodeInVisibleOrderEP15ExampleTreeNodeS3_.exit: ; preds = %33, %47
-  %.0.i.in = phi ptr [ %51, %47 ], [ %35, %33 ]
+  %.0.i.in = phi ptr [ %35, %33 ], [ %51, %47 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !439
   %.not25 = icmp eq ptr %.0.i, null
   br i1 %.not25, label %.loopexit, label %19, !llvm.loop !480
@@ -29595,7 +29595,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_16MyItem20CompareWithSortSpecsEPKvS
   br label %30
 
 30:                                               ; preds = %26, %22, %18, %14
-  %.0 = phi i32 [ %29, %26 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ]
+  %.0 = phi i32 [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ]
   %31 = icmp sgt i32 %.0, 0
   br i1 %31, label %32, label %37
 
@@ -30006,7 +30006,7 @@ _ZNK8ImVectorIPKcE14_grow_capacityEi.exit.i35:    ; preds = %111, %109
   br label %144
 
 144:                                              ; preds = %.loopexit, %.loopexit.split-lp, %142, %140, %138, %136
-  %.pn = phi { ptr, i32 } [ %137, %136 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZN15ImGuiTextFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %4) #33
   br label %145
 
@@ -33669,7 +33669,7 @@ _ZN20ExampleAssetsBrowser17UpdateLayoutSizesEf.exit: ; preds = %142, %156
   br i1 %222, label %217, label %_ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.exit, !llvm.loop !422
 
 _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.exit: ; preds = %212, %219, %217, %210, %201, %197
-  %223 = phi i1 [ false, %197 ], [ true, %201 ], [ true, %210 ], [ true, %219 ], [ true, %217 ], [ true, %212 ]
+  %223 = phi i1 [ false, %197 ], [ true, %201 ], [ true, %210 ], [ true, %217 ], [ true, %219 ], [ true, %212 ]
   %224 = phi i32 [ -1, %197 ], [ -1, %201 ], [ %206, %210 ], [ %.0.i128, %219 ], [ -1, %217 ], [ %.022.i, %212 ]
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i8 0, ptr %225, align 4, !tbaa !565
@@ -33979,8 +33979,8 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit.i138:     ; preds = %329
   br label %322
 
 _ZN8ImVectorIjE9push_backERKj.exit143:            ; preds = %329, %.noexc141, %342
-  %.sroa.15.8 = phi i32 [ %338, %342 ], [ %338, %.noexc141 ], [ %.sroa.15.6, %329 ]
-  %.sroa.19.9 = phi ptr [ %341, %342 ], [ %341, %.noexc141 ], [ %.sroa.19.7, %329 ]
+  %.sroa.15.8 = phi i32 [ %338, %.noexc141 ], [ %338, %342 ], [ %.sroa.15.6, %329 ]
+  %.sroa.19.9 = phi ptr [ %341, %.noexc141 ], [ %341, %342 ], [ %.sroa.19.7, %329 ]
   %345 = getelementptr inbounds nuw i32, ptr %.sroa.19.9, i64 %indvars.iv
   %346 = load i32, ptr %14, align 4
   store i32 %346, ptr %345, align 4
@@ -34159,7 +34159,7 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
   br label %418
 
 417:                                              ; preds = %412, %414, %397, %395
-  %.pn114.pn = phi { ptr, i32 } [ %396, %395 ], [ %398, %397 ], [ %415, %414 ], [ %413, %412 ]
+  %.pn114.pn = phi { ptr, i32 } [ %398, %397 ], [ %396, %395 ], [ %415, %414 ], [ %413, %412 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN8ImVectorIjED2Ev.exit
@@ -34175,7 +34175,7 @@ _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %351, %350, %315
   br i1 %420, label %273, label %.loopexit181.loopexit, !llvm.loop !586
 
 _ZN8ImVectorIjED2Ev.exit:                         ; preds = %322, %321, %.thread173, %305, %361, %363, %417, %307, %303
-  %.pn117.pn.pn = phi { ptr, i32 } [ %304, %303 ], [ %306, %305 ], [ %362, %361 ], [ %308, %307 ], [ %.pn114.pn, %417 ], [ %364, %363 ], [ %319, %.thread173 ], [ %lpad.phi, %321 ], [ %323, %322 ]
+  %.pn117.pn.pn = phi { ptr, i32 } [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %.pn114.pn, %417 ], [ %364, %363 ], [ %362, %361 ], [ %319, %.thread173 ], [ %lpad.phi, %321 ], [ %323, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %527
 
@@ -34383,7 +34383,7 @@ _ZN8ImVectorIjED2Ev.exit:                         ; preds = %322, %321, %.thread
   br label %528
 
 527:                                              ; preds = %.loopexit183, %.loopexit.split-lp184, %518, %522, %524, %520, %301, %_ZN8ImVectorIjED2Ev.exit
-  %.pn117.pn.pn.pn.pn = phi { ptr, i32 } [ %523, %522 ], [ %302, %301 ], [ %.pn117.pn.pn, %_ZN8ImVectorIjED2Ev.exit ], [ %519, %518 ], [ %521, %520 ], [ %525, %524 ], [ %lpad.loopexit185, %.loopexit183 ], [ %lpad.loopexit.split-lp186, %.loopexit.split-lp184 ]
+  %.pn117.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn117.pn.pn, %_ZN8ImVectorIjED2Ev.exit ], [ %302, %301 ], [ %519, %518 ], [ %521, %520 ], [ %525, %524 ], [ %523, %522 ], [ %lpad.loopexit185, %.loopexit183 ], [ %lpad.loopexit.split-lp186, %.loopexit.split-lp184 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

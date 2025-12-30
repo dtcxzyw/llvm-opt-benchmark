@@ -1759,8 +1759,8 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   br label %349
 
 .thread30:                                        ; preds = %266, %343, %264, %39, %128, %143, %134, %103, %197
-  %346 = phi ptr [ @.str.16, %197 ], [ @.str.15, %39 ], [ @.str.15, %103 ], [ @.str.15, %134 ], [ @.str.15, %143 ], [ @.str.15, %128 ], [ @.str.19, %266 ], [ @.str.19, %264 ], [ @.str.19, %343 ]
-  %347 = phi i32 [ -12, %197 ], [ -22, %39 ], [ -22, %103 ], [ -22, %134 ], [ -22, %143 ], [ -22, %128 ], [ -12, %266 ], [ -22, %264 ], [ -12, %343 ]
+  %346 = phi ptr [ @.str.16, %197 ], [ @.str.15, %103 ], [ @.str.15, %134 ], [ @.str.15, %143 ], [ @.str.15, %128 ], [ @.str.15, %39 ], [ @.str.19, %264 ], [ @.str.19, %343 ], [ @.str.19, %266 ]
+  %347 = phi i32 [ -12, %197 ], [ -22, %103 ], [ -22, %134 ], [ -22, %143 ], [ -22, %128 ], [ -22, %39 ], [ -22, %264 ], [ -12, %343 ], [ -12, %266 ]
   %348 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %346) #24
   br label %349
 
@@ -2218,7 +2218,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   br label %.critedge15
 
 .critedge15:                                      ; preds = %46, %91, %159, %.critedge
-  %163 = phi i32 [ %158, %.critedge ], [ -22, %91 ], [ -22, %159 ], [ -22, %46 ]
+  %163 = phi i32 [ %158, %.critedge ], [ -22, %159 ], [ -22, %91 ], [ -22, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %163
 }
@@ -2612,8 +2612,8 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
   br i1 %168, label %.preheader105, label %.thread85, !llvm.loop !53
 
 .thread85:                                        ; preds = %137, %161, %150, %164, %.critedge67, %41, %.critedge69, %._crit_edge122
-  %169 = phi i1 [ true, %161 ], [ true, %._crit_edge122 ], [ false, %41 ], [ false, %.critedge69 ], [ false, %.critedge67 ], [ true, %164 ], [ true, %150 ], [ false, %137 ]
-  %170 = phi i1 [ true, %161 ], [ false, %._crit_edge122 ], [ false, %41 ], [ false, %.critedge69 ], [ false, %.critedge67 ], [ true, %150 ], [ false, %164 ], [ false, %137 ]
+  %169 = phi i1 [ true, %._crit_edge122 ], [ false, %.critedge69 ], [ false, %41 ], [ false, %.critedge67 ], [ true, %164 ], [ true, %150 ], [ true, %161 ], [ false, %137 ]
+  %170 = phi i1 [ false, %._crit_edge122 ], [ false, %.critedge69 ], [ false, %41 ], [ false, %.critedge67 ], [ true, %161 ], [ true, %150 ], [ false, %164 ], [ false, %137 ]
   tail call void @blk_queue_write_cache(ptr noundef %1, i1 noundef zeroext %169, i1 noundef zeroext %170) #22
   %171 = load i32, ptr %6, align 8
   %172 = icmp eq i32 %171, 0
@@ -3306,7 +3306,7 @@ define dso_local i32 @dm_table_resume_targets(ptr noundef readonly captures(none
   br i1 %49, label %.preheader, label %.thread, !llvm.loop !58
 
 .thread:                                          ; preds = %45, %1, %22, %7
-  %50 = phi i32 [ 0, %7 ], [ 0, %1 ], [ %20, %22 ], [ 0, %45 ]
+  %50 = phi i32 [ 0, %7 ], [ %20, %22 ], [ 0, %1 ], [ 0, %45 ]
   ret i32 %50
 }
 

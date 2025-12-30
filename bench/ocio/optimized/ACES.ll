@@ -4753,7 +4753,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArrayELN9__gnu_c
   br label %188
 
 188:                                              ; preds = %100, %_ZNSt6vectorIdSaIdEED2Ev.exit56, %187, %132, %123, %112, %98
-  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ], [ %.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit56 ], [ %.pn48, %187 ], [ %133, %132 ], [ %.pn45.pn, %123 ], [ %113, %112 ]
+  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit56 ], [ %101, %100 ], [ %.pn48, %187 ], [ %133, %132 ], [ %.pn45.pn, %123 ], [ %113, %112 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn48.pn.pn.pn
@@ -8542,7 +8542,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %1822, %.body.i339, %_ZNSt12_Vector_baseIZN19OpenColorIO_v2_5dev4ACES11RegisterAllERNS0_28BuiltinTransformRegistryImplEE20ACES2OutputTransformSaIS4_EED2Ev.exit.i
-  %eh.lpad-body = phi { ptr, i32 } [ %1776, %_ZNSt12_Vector_baseIZN19OpenColorIO_v2_5dev4ACES11RegisterAllERNS0_28BuiltinTransformRegistryImplEE20ACES2OutputTransformSaIS4_EED2Ev.exit.i ], [ %1821, %.body.i339 ], [ %1821, %1822 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %1776, %_ZNSt12_Vector_baseIZN19OpenColorIO_v2_5dev4ACES11RegisterAllERNS0_28BuiltinTransformRegistryImplEE20ACES2OutputTransformSaIS4_EED2Ev.exit.i ], [ %1821, %1822 ], [ %1821, %.body.i339 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %1844 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %1844) #24
   unreachable

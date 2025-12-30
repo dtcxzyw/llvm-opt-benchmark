@@ -941,11 +941,11 @@ Tas_QuePush.exit:                                 ; preds = %._crit_edge.i, %325
   br label %Tas_ManPropagateOne.exit.thread
 
 Tas_ManPropagateOne.exit:                         ; preds = %254, %258, %260, %285
-  %.0.i = phi i32 [ %286, %285 ], [ %261, %260 ], [ %255, %254 ], [ %259, %258 ]
+  %.0.i = phi i32 [ %255, %254 ], [ %259, %258 ], [ %261, %260 ], [ %286, %285 ]
   %.not43 = icmp eq i32 %.0.i, 0
   br i1 %.not43, label %Tas_ManPropagateOne.exit.thread, label %Tas_ManPropagateOne.exit.thread55
 
-Tas_ManPropagateOne.exit.thread:                  ; preds = %296, %297, %270, %281, %269, %Tas_ManPropagateWatch.exit.thread.i, %Tas_QuePush.exit, %Tas_ManPropagateOne.exit
+Tas_ManPropagateOne.exit.thread:                  ; preds = %296, %297, %281, %269, %270, %Tas_ManPropagateWatch.exit.thread.i, %Tas_QuePush.exit, %Tas_ManPropagateOne.exit
   %indvars.iv.next = add nsw i64 %indvars.iv161, 1
   %332 = load i32, ptr %4, align 4, !tbaa !71
   %333 = sext i32 %332 to i64
@@ -956,7 +956,7 @@ Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge: ; preds = %Tas_Man
   br label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge, %16
-  %.lcssa71 = phi i32 [ %18, %16 ], [ %18, %.lr.ph.preheader ], [ %332, %Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge ], [ %332, %.lr.ph ]
+  %.lcssa71 = phi i32 [ %18, %16 ], [ %332, %Tas_ManPropagateOne.exit.thread..critedge.loopexit_crit_edge ], [ %18, %.lr.ph.preheader ], [ %332, %.lr.ph ]
   store i32 %.lcssa71, ptr %3, align 8, !tbaa !70
   %335 = load i32, ptr %15, align 8, !tbaa !86
   %336 = load i32, ptr %13, align 4, !tbaa !87
@@ -1106,8 +1106,8 @@ Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge: ; preds = %Tas_Ma
   br label %.critedge2, !llvm.loop !88
 
 .critedge2:                                       ; preds = %.lr.ph85, %.lr.ph85.preheader, %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge, %.critedge
-  %.0.lcssa = phi i32 [ %335, %.critedge ], [ %335, %.lr.ph85.preheader ], [ %.1, %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge ], [ %.1, %.lr.ph85 ]
-  %.lcssa73 = phi i32 [ %336, %.critedge ], [ %336, %.lr.ph85.preheader ], [ %414, %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge ], [ %414, %.lr.ph85 ]
+  %.0.lcssa = phi i32 [ %335, %.critedge ], [ %.1, %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge ], [ %335, %.lr.ph85.preheader ], [ %.1, %.lr.ph85 ]
+  %.lcssa73 = phi i32 [ %336, %.critedge ], [ %414, %Tas_ManPropagateTwo.exit.thread..critedge2.loopexit_crit_edge ], [ %336, %.lr.ph85.preheader ], [ %414, %.lr.ph85 ]
   %417 = icmp eq i32 %.0.lcssa, %.lcssa73
   br i1 %417, label %Tas_ManPropagateOne.exit.thread55, label %418
 
@@ -1437,8 +1437,8 @@ Tas_ManFindActive.exit:                           ; preds = %102, %99, %115, %11
   %161 = inttoptr i64 %160 to ptr
   br label %Tas_ManFindActive.exit.thread
 
-Tas_ManFindActive.exit.thread:                    ; preds = %54, %90, %107, %94, %47, %118, %150, %156, %Tas_ManFindActive.exit
-  %.1 = phi ptr [ %155, %150 ], [ %161, %156 ], [ null, %Tas_ManFindActive.exit ], [ null, %107 ], [ null, %94 ], [ null, %118 ], [ null, %47 ], [ %.052.i, %54 ], [ %.2.i, %90 ]
+Tas_ManFindActive.exit.thread:                    ; preds = %90, %54, %107, %94, %47, %118, %150, %156, %Tas_ManFindActive.exit
+  %.1 = phi ptr [ %155, %150 ], [ %161, %156 ], [ null, %Tas_ManFindActive.exit ], [ null, %107 ], [ null, %94 ], [ null, %47 ], [ null, %118 ], [ %.2.i, %90 ], [ %.052.i, %54 ]
   %162 = add nsw i32 %1, 1
   tail call fastcc void @Tas_ManAssign(ptr noundef nonnull %0, ptr noundef %.1, i32 noundef %162, ptr noundef null, ptr noundef null)
   %163 = tail call i32 @Tas_ManSolve_rec(ptr noundef nonnull %0, i32 noundef %162)
@@ -1485,7 +1485,7 @@ Tas_ManFindActive.exit.thread:                    ; preds = %54, %90, %107, %94,
   br label %Tas_ManCheckLimits.exit.thread
 
 Tas_ManCheckLimits.exit.thread:                   ; preds = %8, %177, %173, %164, %Tas_ManFindActive.exit.thread, %Tas_ManCheckLimits.exit, %5, %182, %4
-  %.0 = phi i32 [ %3, %4 ], [ 0, %Tas_ManCheckLimits.exit ], [ 0, %5 ], [ 0, %Tas_ManFindActive.exit.thread ], [ 0, %173 ], [ %183, %182 ], [ %163, %164 ], [ %176, %177 ], [ 0, %8 ]
+  %.0 = phi i32 [ %3, %4 ], [ %183, %182 ], [ 0, %5 ], [ 0, %Tas_ManCheckLimits.exit ], [ 0, %Tas_ManFindActive.exit.thread ], [ %163, %164 ], [ 0, %173 ], [ %176, %177 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2894,7 +2894,7 @@ Tas_ManCheckLimits.exit75:                        ; preds = %.critedge2
   br label %Tas_ManCheckLimits.exit75.thread
 
 Tas_ManCheckLimits.exit75.thread:                 ; preds = %Tas_ManCheckLimits.exit75, %.critedge2, %22, %3, %12
-  %.060 = phi i32 [ 0, %22 ], [ 1, %3 ], [ 1, %12 ], [ -1, %.critedge2 ], [ %spec.select, %Tas_ManCheckLimits.exit75 ]
+  %.060 = phi i32 [ 1, %12 ], [ 1, %3 ], [ 0, %22 ], [ -1, %.critedge2 ], [ %spec.select, %Tas_ManCheckLimits.exit75 ]
   ret i32 %.060
 }
 
@@ -3268,7 +3268,7 @@ Tas_ManCheckLimits.exit80:                        ; preds = %.critedge6
   br label %Tas_ManCheckLimits.exit80.thread
 
 Tas_ManCheckLimits.exit80.thread:                 ; preds = %16, %Tas_ManCheckLimits.exit80, %.critedge6
-  %.064 = phi i32 [ %spec.select, %Tas_ManCheckLimits.exit80 ], [ -1, %.critedge6 ], [ 1, %16 ]
+  %.064 = phi i32 [ -1, %.critedge6 ], [ %spec.select, %Tas_ManCheckLimits.exit80 ], [ 1, %16 ]
   ret i32 %.064
 }
 
@@ -4073,7 +4073,7 @@ define range(i32 0, 2) i32 @Tas_StorePatternTry(ptr noundef readonly captures(no
   br i1 %exitcond47.not, label %.loopexit, label %39, !llvm.loop !153
 
 .loopexit:                                        ; preds = %29, %60, %5
-  %.032 = phi i32 [ 1, %60 ], [ 1, %5 ], [ 0, %29 ]
+  %.032 = phi i32 [ 1, %5 ], [ 1, %60 ], [ 0, %29 ]
   ret i32 %.032
 }
 
@@ -5230,7 +5230,7 @@ Tas_QuePush.exit108:                              ; preds = %167, %170
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Tas_QuePush.exit, %80, %Tas_QuePush.exit108, %Tas_QuePush.exit101, %124, %Tas_QuePush.exit94, %19, %65
-  %.165 = phi i32 [ %.064113, %19 ], [ %67, %65 ], [ %.064113, %Tas_QuePush.exit101 ], [ %.064113, %124 ], [ %.064113, %Tas_QuePush.exit94 ], [ %.064113, %Tas_QuePush.exit108 ], [ %.064113, %80 ], [ %.064113, %Tas_QuePush.exit ]
+  %.165 = phi i32 [ %.064113, %19 ], [ %67, %65 ], [ %.064113, %124 ], [ %.064113, %Tas_QuePush.exit94 ], [ %.064113, %Tas_QuePush.exit108 ], [ %.064113, %Tas_QuePush.exit101 ], [ %.064113, %80 ], [ %.064113, %Tas_QuePush.exit ]
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
   %180 = load i32, ptr %9, align 4, !tbaa !80
   %181 = sext i32 %180 to i64

@@ -169,7 +169,7 @@ define internal void @_ZNK4ncnn15HardSigmoid_x8615forward_inplaceERNS_3MatERKNS_
   br label %48
 
 48:                                               ; preds = %36, %40, %43
-  %.sink = phi float [ 1.000000e+00, %40 ], [ %47, %43 ], [ 0.000000e+00, %36 ]
+  %.sink = phi float [ %47, %43 ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %36 ]
   store float %.sink, ptr %.152.us.us, align 4, !tbaa !43
   %49 = getelementptr inbounds nuw i8, ptr %.152.us.us, i64 4
   %50 = add nuw nsw i32 %.13851.us.us, 1
@@ -244,7 +244,7 @@ define internal void @_ZNK4ncnn15HardSigmoid_x8615forward_inplaceERNS_3MatERKNS_
   br label %88
 
 88:                                               ; preds = %80, %.lr.ph53, %83
-  %.sink83 = phi float [ 0.000000e+00, %.lr.ph53 ], [ %87, %83 ], [ 1.000000e+00, %80 ]
+  %.sink83 = phi float [ %87, %83 ], [ 0.000000e+00, %.lr.ph53 ], [ 1.000000e+00, %80 ]
   store float %.sink83, ptr %.152, align 4, !tbaa !43
   %89 = getelementptr inbounds nuw i8, ptr %.152, i64 4
   %90 = add nuw nsw i32 %.13851, 1

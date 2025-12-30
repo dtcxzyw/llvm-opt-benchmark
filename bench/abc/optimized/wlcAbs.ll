@@ -612,8 +612,8 @@ Vec_IntAlloc.exit125.thread:                      ; preds = %Vec_IntAlloc.exit12
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %69, %Vec_IntAlloc.exit125
-  %72 = phi ptr [ %55, %Vec_IntAlloc.exit125 ], [ %71, %69 ]
-  %73 = phi ptr [ %56, %Vec_IntAlloc.exit125 ], [ %70, %69 ]
+  %72 = phi ptr [ %71, %69 ], [ %55, %Vec_IntAlloc.exit125 ]
+  %73 = phi ptr [ %70, %69 ], [ %56, %Vec_IntAlloc.exit125 ]
   %74 = icmp sgt i32 %.val112, 0
   br i1 %74, label %.lr.ph.i, label %Vec_IntFill.exit
 
@@ -625,8 +625,8 @@ Vec_IntGrow.exit.i:                               ; preds = %69, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %Vec_IntAlloc.exit125.thread, %Vec_IntGrow.exit.i, %.lr.ph.i
-  %.val103 = phi i32 [ %.val103.pre, %.lr.ph.i ], [ %.val104, %Vec_IntGrow.exit.i ], [ %.val104, %Vec_IntAlloc.exit125.thread ]
-  %77 = phi ptr [ %73, %.lr.ph.i ], [ %73, %Vec_IntGrow.exit.i ], [ %57, %Vec_IntAlloc.exit125.thread ]
+  %.val103 = phi i32 [ %.val104, %Vec_IntGrow.exit.i ], [ %.val103.pre, %.lr.ph.i ], [ %.val104, %Vec_IntAlloc.exit125.thread ]
+  %77 = phi ptr [ %73, %Vec_IntGrow.exit.i ], [ %73, %.lr.ph.i ], [ %57, %Vec_IntAlloc.exit125.thread ]
   store i32 %.val112, ptr %52, align 4, !tbaa !11
   %78 = icmp sgt i32 %.val103, 0
   br i1 %78, label %.lr.ph, label %.critedge.preheader
@@ -1748,8 +1748,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %67, %69, %59, %61
-  %.sink101 = phi ptr [ %62, %61 ], [ %60, %59 ], [ %68, %67 ], [ %70, %69 ]
-  %.sink = phi i32 [ 16, %61 ], [ 16, %59 ], [ %64, %67 ], [ %64, %69 ]
+  %.sink101 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %68, %67 ], [ %70, %69 ]
+  %.sink = phi i32 [ 16, %59 ], [ 16, %61 ], [ %64, %67 ], [ %64, %69 ]
   store ptr %.sink101, ptr %11, align 8, !tbaa !14
   store i32 %.sink, ptr %8, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -1969,8 +1969,8 @@ define noalias noundef ptr @Wla_ManCollectNodes(ptr noundef readonly captures(no
   br label %Vec_IntPush.exit.us.sink.split
 
 Vec_IntPush.exit.us.sink.split:                   ; preds = %41, %43, %36, %38
-  %.sink48 = phi ptr [ %39, %38 ], [ %37, %36 ], [ %42, %41 ], [ %44, %43 ]
-  %.sink = phi i32 [ %33, %38 ], [ %33, %36 ], [ 16, %41 ], [ 16, %43 ]
+  %.sink48 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink = phi i32 [ %33, %36 ], [ %33, %38 ], [ 16, %41 ], [ 16, %43 ]
   store ptr %.sink48, ptr %6, align 8, !tbaa !14
   store i32 %.sink, ptr %3, align 8, !tbaa !41
   br label %Vec_IntPush.exit.us
@@ -2054,8 +2054,8 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntPush.exit.us
   br label %Vec_IntPush.exit28.sink.split
 
 Vec_IntPush.exit28.sink.split:                    ; preds = %82, %84, %74, %76
-  %.sink50 = phi ptr [ %77, %76 ], [ %75, %74 ], [ %83, %82 ], [ %85, %84 ]
-  %.sink49 = phi i32 [ 16, %76 ], [ 16, %74 ], [ %79, %82 ], [ %79, %84 ]
+  %.sink50 = phi ptr [ %75, %74 ], [ %77, %76 ], [ %83, %82 ], [ %85, %84 ]
+  %.sink49 = phi i32 [ 16, %74 ], [ 16, %76 ], [ %79, %82 ], [ %79, %84 ]
   store ptr %.sink50, ptr %6, align 8, !tbaa !14
   store i32 %.sink49, ptr %3, align 8, !tbaa !41
   br label %Vec_IntPush.exit28
@@ -2748,7 +2748,7 @@ Gia_ManAppendCo.exit.i..critedge8.i.loopexit_crit_edge.i: ; preds = %Gia_ManAppe
   br label %.critedge8.i.i, !llvm.loop !104
 
 .critedge8.i.i:                                   ; preds = %.lr.ph172.i.i, %Gia_ManAppendCo.exit.i..critedge8.i.loopexit_crit_edge.i, %.lr.ph172.i.preheader.i, %.critedge6.i.i
-  %.val112.i18.i = phi i32 [ %.val101167.i.i, %.critedge6.i.i ], [ %.val101167.i.i, %.lr.ph172.i.preheader.i ], [ %.val101.i.i, %Gia_ManAppendCo.exit.i..critedge8.i.loopexit_crit_edge.i ], [ %.val101.i.i, %.lr.ph172.i.i ]
+  %.val112.i18.i = phi i32 [ %.val101167.i.i, %.critedge6.i.i ], [ %.val101.i.i, %Gia_ManAppendCo.exit.i..critedge8.i.loopexit_crit_edge.i ], [ %.val101167.i.i, %.lr.ph172.i.preheader.i ], [ %.val101.i.i, %.lr.ph172.i.i ]
   %329 = add nuw nsw i32 %.078174.i.i, 1
   %exitcond199.not.i.i = icmp eq i32 %329, %1
   br i1 %exitcond199.not.i.i, label %Wlc_NtkUnrollWoCex.exit.i, label %.preheader144.i.i, !llvm.loop !106
@@ -2965,8 +2965,8 @@ Vec_IntFree.exit34.sink.split:                    ; preds = %Vec_IntFree.exit38,
   br label %Vec_IntFree.exit34
 
 Vec_IntFree.exit34:                               ; preds = %Vec_IntFree.exit34.sink.split, %Vec_IntFree.exit38, %Vec_IntFree.exit
-  %.sink = phi ptr [ %336, %Vec_IntFree.exit38 ], [ %7, %Vec_IntFree.exit ], [ %.sink.ph, %Vec_IntFree.exit34.sink.split ]
-  %.0 = phi i32 [ %390, %Vec_IntFree.exit38 ], [ -1, %Vec_IntFree.exit ], [ %.0.ph, %Vec_IntFree.exit34.sink.split ]
+  %.sink = phi ptr [ %7, %Vec_IntFree.exit ], [ %336, %Vec_IntFree.exit38 ], [ %.sink.ph, %Vec_IntFree.exit34.sink.split ]
+  %.0 = phi i32 [ -1, %Vec_IntFree.exit ], [ %390, %Vec_IntFree.exit38 ], [ %.0.ph, %Vec_IntFree.exit34.sink.split ]
   call void @free(ptr noundef nonnull %.sink) #26
   ret i32 %.0
 }
@@ -3292,8 +3292,8 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetBlacks(ptr noundef readonl
   br label %Vec_IntGrow.exit23thread-pre-split.i.i
 
 Vec_IntGrow.exit23thread-pre-split.i.i:           ; preds = %70, %72, %62, %64
-  %storemerge301 = phi ptr [ %65, %64 ], [ %63, %62 ], [ %71, %70 ], [ %73, %72 ]
-  %.sink.i.i = phi i32 [ 16, %64 ], [ 16, %62 ], [ %67, %70 ], [ %67, %72 ]
+  %storemerge301 = phi ptr [ %63, %62 ], [ %65, %64 ], [ %71, %70 ], [ %73, %72 ]
+  %.sink.i.i = phi i32 [ 16, %62 ], [ 16, %64 ], [ %67, %70 ], [ %67, %72 ]
   store ptr %storemerge301, ptr %6, align 8, !tbaa !14
   store i32 %.sink.i.i, ptr %3, align 8, !tbaa !41
   %.pr.i.i = load i32, ptr %4, align 4, !tbaa !11
@@ -3424,8 +3424,8 @@ Vec_IntPushUniqueOrder.exit:                      ; preds = %52, %Vec_IntPushOrd
   br label %Vec_IntGrow.exit23thread-pre-split.i.i138
 
 Vec_IntGrow.exit23thread-pre-split.i.i138:        ; preds = %127, %129, %119, %121
-  %storemerge300 = phi ptr [ %122, %121 ], [ %120, %119 ], [ %128, %127 ], [ %130, %129 ]
-  %.sink.i.i139 = phi i32 [ 16, %121 ], [ 16, %119 ], [ %124, %127 ], [ %124, %129 ]
+  %storemerge300 = phi ptr [ %120, %119 ], [ %122, %121 ], [ %128, %127 ], [ %130, %129 ]
+  %.sink.i.i139 = phi i32 [ 16, %119 ], [ 16, %121 ], [ %124, %127 ], [ %124, %129 ]
   store ptr %storemerge300, ptr %6, align 8, !tbaa !14
   store i32 %.sink.i.i139, ptr %3, align 8, !tbaa !41
   %.pr.i.i140 = load i32, ptr %4, align 4, !tbaa !11
@@ -3562,8 +3562,8 @@ Vec_IntPushUniqueOrder.exit148:                   ; preds = %109, %Vec_IntPushOr
   br label %Vec_IntGrow.exit23thread-pre-split.i.i162
 
 Vec_IntGrow.exit23thread-pre-split.i.i162:        ; preds = %185, %187, %177, %179
-  %storemerge299 = phi ptr [ %180, %179 ], [ %178, %177 ], [ %186, %185 ], [ %188, %187 ]
-  %.sink.i.i163 = phi i32 [ 16, %179 ], [ 16, %177 ], [ %182, %185 ], [ %182, %187 ]
+  %storemerge299 = phi ptr [ %178, %177 ], [ %180, %179 ], [ %186, %185 ], [ %188, %187 ]
+  %.sink.i.i163 = phi i32 [ 16, %177 ], [ 16, %179 ], [ %182, %185 ], [ %182, %187 ]
   store ptr %storemerge299, ptr %6, align 8, !tbaa !14
   store i32 %.sink.i.i163, ptr %3, align 8, !tbaa !41
   %.pr.i.i164 = load i32, ptr %4, align 4, !tbaa !11
@@ -3702,8 +3702,8 @@ Vec_IntPushUniqueOrder.exit172:                   ; preds = %167, %Vec_IntPushOr
   br label %Vec_IntGrow.exit23thread-pre-split.i.i186
 
 Vec_IntGrow.exit23thread-pre-split.i.i186:        ; preds = %246, %248, %238, %240
-  %storemerge298 = phi ptr [ %241, %240 ], [ %239, %238 ], [ %247, %246 ], [ %249, %248 ]
-  %.sink.i.i187 = phi i32 [ 16, %240 ], [ 16, %238 ], [ %243, %246 ], [ %243, %248 ]
+  %storemerge298 = phi ptr [ %239, %238 ], [ %241, %240 ], [ %247, %246 ], [ %249, %248 ]
+  %.sink.i.i187 = phi i32 [ 16, %238 ], [ 16, %240 ], [ %243, %246 ], [ %243, %248 ]
   store ptr %storemerge298, ptr %6, align 8, !tbaa !14
   store i32 %.sink.i.i187, ptr %3, align 8, !tbaa !41
   %.pr.i.i188 = load i32, ptr %4, align 4, !tbaa !11
@@ -3848,8 +3848,8 @@ Vec_IntPushUniqueOrder.exit196:                   ; preds = %228, %Vec_IntPushOr
   br label %Vec_IntGrow.exit23thread-pre-split.i.i210
 
 Vec_IntGrow.exit23thread-pre-split.i.i210:        ; preds = %308, %310, %300, %302
-  %storemerge297 = phi ptr [ %303, %302 ], [ %301, %300 ], [ %309, %308 ], [ %311, %310 ]
-  %.sink.i.i211 = phi i32 [ 16, %302 ], [ 16, %300 ], [ %305, %308 ], [ %305, %310 ]
+  %storemerge297 = phi ptr [ %301, %300 ], [ %303, %302 ], [ %309, %308 ], [ %311, %310 ]
+  %.sink.i.i211 = phi i32 [ 16, %300 ], [ 16, %302 ], [ %305, %308 ], [ %305, %310 ]
   store ptr %storemerge297, ptr %6, align 8, !tbaa !14
   store i32 %.sink.i.i211, ptr %3, align 8, !tbaa !41
   %.pr.i.i212 = load i32, ptr %4, align 4, !tbaa !11
@@ -3996,8 +3996,8 @@ Vec_IntPushUniqueOrder.exit220:                   ; preds = %290, %Vec_IntPushOr
   br label %Vec_IntGrow.exit23thread-pre-split.i.i234
 
 Vec_IntGrow.exit23thread-pre-split.i.i234:        ; preds = %373, %375, %365, %367
-  %storemerge = phi ptr [ %368, %367 ], [ %366, %365 ], [ %374, %373 ], [ %376, %375 ]
-  %.sink.i.i235 = phi i32 [ 16, %367 ], [ 16, %365 ], [ %370, %373 ], [ %370, %375 ]
+  %storemerge = phi ptr [ %366, %365 ], [ %368, %367 ], [ %374, %373 ], [ %376, %375 ]
+  %.sink.i.i235 = phi i32 [ 16, %365 ], [ 16, %367 ], [ %370, %373 ], [ %370, %375 ]
   store ptr %storemerge, ptr %6, align 8, !tbaa !14
   store i32 %.sink.i.i235, ptr %3, align 8, !tbaa !41
   br label %Vec_IntGrow.exit23.i.i225
@@ -4163,8 +4163,8 @@ Vec_IntPushUniqueOrder.exit244:                   ; preds = %355, %Vec_IntPushOr
   br label %Vec_IntGrow.exit23thread-pre-split.i.i258
 
 Vec_IntGrow.exit23thread-pre-split.i.i258:        ; preds = %444, %446, %436, %438
-  %storemerge304 = phi ptr [ %439, %438 ], [ %437, %436 ], [ %445, %444 ], [ %447, %446 ]
-  %.sink.i.i259 = phi i32 [ 16, %438 ], [ 16, %436 ], [ %441, %444 ], [ %441, %446 ]
+  %storemerge304 = phi ptr [ %437, %436 ], [ %439, %438 ], [ %445, %444 ], [ %447, %446 ]
+  %.sink.i.i259 = phi i32 [ 16, %436 ], [ 16, %438 ], [ %441, %444 ], [ %441, %446 ]
   store ptr %storemerge304, ptr %6, align 8, !tbaa !14
   store i32 %.sink.i.i259, ptr %3, align 8, !tbaa !41
   %.pr.i.i260 = load i32, ptr %4, align 4, !tbaa !11
@@ -4294,8 +4294,8 @@ Vec_IntPushUniqueOrder.exit268:                   ; preds = %427, %Vec_IntPushOr
   br label %Vec_IntGrow.exit23thread-pre-split.i.i286
 
 Vec_IntGrow.exit23thread-pre-split.i.i286:        ; preds = %500, %502, %492, %494
-  %storemerge303 = phi ptr [ %495, %494 ], [ %493, %492 ], [ %501, %500 ], [ %503, %502 ]
-  %.sink.i.i287 = phi i32 [ 16, %494 ], [ 16, %492 ], [ %497, %500 ], [ %497, %502 ]
+  %storemerge303 = phi ptr [ %493, %492 ], [ %495, %494 ], [ %501, %500 ], [ %503, %502 ]
+  %.sink.i.i287 = phi i32 [ 16, %492 ], [ 16, %494 ], [ %497, %500 ], [ %497, %502 ]
   store ptr %storemerge303, ptr %6, align 8, !tbaa !14
   store i32 %.sink.i.i287, ptr %3, align 8, !tbaa !41
   %.pr.i.i288 = load i32, ptr %4, align 4, !tbaa !11
@@ -4349,27 +4349,27 @@ Vec_IntPushUniqueOrder.exit296:                   ; preds = %483, %Vec_IntPushOr
   br label %522
 
 522:                                              ; preds = %406, %408, %464, %Vec_IntPushUniqueOrder.exit296, %Vec_IntPushUniqueOrder.exit268, %277, %342, %Vec_IntPushUniqueOrder.exit244, %Vec_IntPushUniqueOrder.exit220, %154, %215, %Vec_IntPushUniqueOrder.exit196, %Vec_IntPushUniqueOrder.exit172, %39, %96, %Vec_IntPushUniqueOrder.exit148, %Vec_IntPushUniqueOrder.exit
-  %.pre.i248419 = phi ptr [ %.pre.i248414, %Vec_IntPushUniqueOrder.exit ], [ %.pre.i248412, %Vec_IntPushUniqueOrder.exit148 ], [ %20, %96 ], [ %20, %39 ], [ %.pre.i248410, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i248408, %Vec_IntPushUniqueOrder.exit196 ], [ %20, %215 ], [ %20, %154 ], [ %.pre.i248406, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i248404, %Vec_IntPushUniqueOrder.exit244 ], [ %20, %342 ], [ %20, %277 ], [ %20, %406 ], [ %.pre.i248416, %Vec_IntPushUniqueOrder.exit268 ], [ %.pre.i248420, %Vec_IntPushUniqueOrder.exit296 ], [ %20, %464 ], [ %20, %408 ]
-  %523 = phi ptr [ %92, %Vec_IntPushUniqueOrder.exit ], [ %149, %Vec_IntPushUniqueOrder.exit148 ], [ %21, %96 ], [ %21, %39 ], [ %209, %Vec_IntPushUniqueOrder.exit172 ], [ %270, %Vec_IntPushUniqueOrder.exit196 ], [ %21, %215 ], [ %21, %154 ], [ %334, %Vec_IntPushUniqueOrder.exit220 ], [ %397, %Vec_IntPushUniqueOrder.exit244 ], [ %21, %342 ], [ %21, %277 ], [ %21, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %519, %Vec_IntPushUniqueOrder.exit296 ], [ %21, %464 ], [ %21, %408 ]
-  %.pre.i276401 = phi ptr [ %.pre.i276398, %Vec_IntPushUniqueOrder.exit ], [ %.pre.i276396, %Vec_IntPushUniqueOrder.exit148 ], [ %22, %96 ], [ %22, %39 ], [ %.pre.i276394, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i276392, %Vec_IntPushUniqueOrder.exit196 ], [ %22, %215 ], [ %22, %154 ], [ %.pre.i276390, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i276388, %Vec_IntPushUniqueOrder.exit244 ], [ %22, %342 ], [ %22, %277 ], [ %22, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %.pre.i276402, %Vec_IntPushUniqueOrder.exit296 ], [ %22, %464 ], [ %22, %408 ]
-  %524 = phi ptr [ %93, %Vec_IntPushUniqueOrder.exit ], [ %150, %Vec_IntPushUniqueOrder.exit148 ], [ %23, %96 ], [ %23, %39 ], [ %210, %Vec_IntPushUniqueOrder.exit172 ], [ %271, %Vec_IntPushUniqueOrder.exit196 ], [ %23, %215 ], [ %23, %154 ], [ %335, %Vec_IntPushUniqueOrder.exit220 ], [ %398, %Vec_IntPushUniqueOrder.exit244 ], [ %23, %342 ], [ %23, %277 ], [ %23, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %23, %464 ], [ %23, %408 ]
-  %.pre.i387 = phi ptr [ %.pre.i384, %Vec_IntPushUniqueOrder.exit ], [ %.pre.i382, %Vec_IntPushUniqueOrder.exit148 ], [ %24, %96 ], [ %24, %39 ], [ %.pre.i380, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i378, %Vec_IntPushUniqueOrder.exit196 ], [ %24, %215 ], [ %24, %154 ], [ %.pre.i376, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i374, %Vec_IntPushUniqueOrder.exit244 ], [ %24, %342 ], [ %24, %277 ], [ %24, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %24, %464 ], [ %24, %408 ]
-  %525 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %151, %Vec_IntPushUniqueOrder.exit148 ], [ %25, %96 ], [ %25, %39 ], [ %211, %Vec_IntPushUniqueOrder.exit172 ], [ %272, %Vec_IntPushUniqueOrder.exit196 ], [ %25, %215 ], [ %25, %154 ], [ %336, %Vec_IntPushUniqueOrder.exit220 ], [ %399, %Vec_IntPushUniqueOrder.exit244 ], [ %25, %342 ], [ %25, %277 ], [ %25, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %25, %464 ], [ %25, %408 ]
-  %.pre.i128373 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %.pre.i128370, %Vec_IntPushUniqueOrder.exit148 ], [ %26, %96 ], [ %26, %39 ], [ %.pre.i128368, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i128366, %Vec_IntPushUniqueOrder.exit196 ], [ %26, %215 ], [ %26, %154 ], [ %.pre.i128364, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i128362, %Vec_IntPushUniqueOrder.exit244 ], [ %26, %342 ], [ %26, %277 ], [ %26, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %26, %464 ], [ %26, %408 ]
-  %526 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %27, %96 ], [ %27, %39 ], [ %212, %Vec_IntPushUniqueOrder.exit172 ], [ %273, %Vec_IntPushUniqueOrder.exit196 ], [ %27, %215 ], [ %27, %154 ], [ %337, %Vec_IntPushUniqueOrder.exit220 ], [ %400, %Vec_IntPushUniqueOrder.exit244 ], [ %27, %342 ], [ %27, %277 ], [ %27, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %27, %464 ], [ %27, %408 ]
-  %.pre.i152361 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %28, %96 ], [ %28, %39 ], [ %.pre.i152358, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i152356, %Vec_IntPushUniqueOrder.exit196 ], [ %28, %215 ], [ %28, %154 ], [ %.pre.i152354, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i152352, %Vec_IntPushUniqueOrder.exit244 ], [ %28, %342 ], [ %28, %277 ], [ %28, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %28, %464 ], [ %28, %408 ]
-  %527 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %29, %96 ], [ %29, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %274, %Vec_IntPushUniqueOrder.exit196 ], [ %29, %215 ], [ %29, %154 ], [ %338, %Vec_IntPushUniqueOrder.exit220 ], [ %401, %Vec_IntPushUniqueOrder.exit244 ], [ %29, %342 ], [ %29, %277 ], [ %29, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %29, %464 ], [ %29, %408 ]
-  %.pre.i176351 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %30, %96 ], [ %30, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i176348, %Vec_IntPushUniqueOrder.exit196 ], [ %30, %215 ], [ %30, %154 ], [ %.pre.i176346, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i176344, %Vec_IntPushUniqueOrder.exit244 ], [ %30, %342 ], [ %30, %277 ], [ %30, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %30, %464 ], [ %30, %408 ]
-  %528 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %31, %96 ], [ %31, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %31, %215 ], [ %31, %154 ], [ %339, %Vec_IntPushUniqueOrder.exit220 ], [ %402, %Vec_IntPushUniqueOrder.exit244 ], [ %31, %342 ], [ %31, %277 ], [ %31, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %31, %464 ], [ %31, %408 ]
-  %.pre.i200343 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %32, %96 ], [ %32, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %32, %215 ], [ %32, %154 ], [ %.pre.i200340, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i200338, %Vec_IntPushUniqueOrder.exit244 ], [ %32, %342 ], [ %32, %277 ], [ %32, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %32, %464 ], [ %32, %408 ]
-  %529 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %33, %96 ], [ %33, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %33, %215 ], [ %33, %154 ], [ %340, %Vec_IntPushUniqueOrder.exit220 ], [ %403, %Vec_IntPushUniqueOrder.exit244 ], [ %33, %342 ], [ %33, %277 ], [ %33, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %33, %464 ], [ %33, %408 ]
-  %.pre.i224337 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %34, %96 ], [ %34, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %34, %215 ], [ %34, %154 ], [ %340, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i224334, %Vec_IntPushUniqueOrder.exit244 ], [ %34, %342 ], [ %34, %277 ], [ %34, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %34, %464 ], [ %34, %408 ]
-  %530 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %35, %96 ], [ %35, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %35, %215 ], [ %35, %154 ], [ %340, %Vec_IntPushUniqueOrder.exit220 ], [ %404, %Vec_IntPushUniqueOrder.exit244 ], [ %35, %342 ], [ %35, %277 ], [ %35, %406 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %35, %464 ], [ %35, %408 ]
-  %.sroa.0.1 = phi i32 [ %95, %Vec_IntPushUniqueOrder.exit ], [ %153, %Vec_IntPushUniqueOrder.exit148 ], [ %.sroa.0.0316, %96 ], [ %.sroa.0.0316, %39 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit172 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit196 ], [ %.sroa.0.0316, %215 ], [ %.sroa.0.0316, %154 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit220 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit244 ], [ %.sroa.0.0316, %342 ], [ %.sroa.0.0316, %277 ], [ %.sroa.0.0316, %406 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit268 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit296 ], [ %.sroa.0.0316, %464 ], [ %.sroa.0.0316, %408 ]
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit148 ], [ %.sroa.8.0317, %96 ], [ %.sroa.8.0317, %39 ], [ %214, %Vec_IntPushUniqueOrder.exit172 ], [ %276, %Vec_IntPushUniqueOrder.exit196 ], [ %.sroa.8.0317, %215 ], [ %.sroa.8.0317, %154 ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit220 ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit244 ], [ %.sroa.8.0317, %342 ], [ %.sroa.8.0317, %277 ], [ %.sroa.8.0317, %406 ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit268 ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit296 ], [ %.sroa.8.0317, %464 ], [ %.sroa.8.0317, %408 ]
-  %.sroa.13.1 = phi i32 [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit148 ], [ %.sroa.13.0318, %96 ], [ %.sroa.13.0318, %39 ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit172 ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit196 ], [ %.sroa.13.0318, %215 ], [ %.sroa.13.0318, %154 ], [ %341, %Vec_IntPushUniqueOrder.exit220 ], [ %405, %Vec_IntPushUniqueOrder.exit244 ], [ %.sroa.13.0318, %342 ], [ %.sroa.13.0318, %277 ], [ %.sroa.13.0318, %406 ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit268 ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit296 ], [ %.sroa.13.0318, %464 ], [ %.sroa.13.0318, %408 ]
-  %.sroa.18.1 = phi i32 [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit148 ], [ %.sroa.18.0319, %96 ], [ %.sroa.18.0319, %39 ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit172 ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit196 ], [ %.sroa.18.0319, %215 ], [ %.sroa.18.0319, %154 ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit220 ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit244 ], [ %.sroa.18.0319, %342 ], [ %.sroa.18.0319, %277 ], [ %.sroa.18.0319, %406 ], [ %463, %Vec_IntPushUniqueOrder.exit268 ], [ %521, %Vec_IntPushUniqueOrder.exit296 ], [ %.sroa.18.0319, %464 ], [ %.sroa.18.0319, %408 ]
-  %.1 = phi i32 [ %47, %Vec_IntPushUniqueOrder.exit ], [ %47, %Vec_IntPushUniqueOrder.exit148 ], [ %47, %96 ], [ %.0320, %39 ], [ %162, %Vec_IntPushUniqueOrder.exit172 ], [ %162, %Vec_IntPushUniqueOrder.exit196 ], [ %162, %215 ], [ %.0320, %154 ], [ %285, %Vec_IntPushUniqueOrder.exit220 ], [ %285, %Vec_IntPushUniqueOrder.exit244 ], [ %285, %342 ], [ %.0320, %277 ], [ %.0320, %406 ], [ %416, %Vec_IntPushUniqueOrder.exit268 ], [ %416, %Vec_IntPushUniqueOrder.exit296 ], [ %416, %464 ], [ %.0320, %408 ]
+  %.pre.i248419 = phi ptr [ %.pre.i248414, %Vec_IntPushUniqueOrder.exit ], [ %.pre.i248412, %Vec_IntPushUniqueOrder.exit148 ], [ %20, %96 ], [ %20, %39 ], [ %.pre.i248410, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i248408, %Vec_IntPushUniqueOrder.exit196 ], [ %20, %215 ], [ %20, %154 ], [ %.pre.i248406, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i248404, %Vec_IntPushUniqueOrder.exit244 ], [ %20, %342 ], [ %20, %277 ], [ %.pre.i248416, %Vec_IntPushUniqueOrder.exit268 ], [ %.pre.i248420, %Vec_IntPushUniqueOrder.exit296 ], [ %20, %464 ], [ %20, %408 ], [ %20, %406 ]
+  %523 = phi ptr [ %92, %Vec_IntPushUniqueOrder.exit ], [ %149, %Vec_IntPushUniqueOrder.exit148 ], [ %21, %96 ], [ %21, %39 ], [ %209, %Vec_IntPushUniqueOrder.exit172 ], [ %270, %Vec_IntPushUniqueOrder.exit196 ], [ %21, %215 ], [ %21, %154 ], [ %334, %Vec_IntPushUniqueOrder.exit220 ], [ %397, %Vec_IntPushUniqueOrder.exit244 ], [ %21, %342 ], [ %21, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %519, %Vec_IntPushUniqueOrder.exit296 ], [ %21, %464 ], [ %21, %408 ], [ %21, %406 ]
+  %.pre.i276401 = phi ptr [ %.pre.i276398, %Vec_IntPushUniqueOrder.exit ], [ %.pre.i276396, %Vec_IntPushUniqueOrder.exit148 ], [ %22, %96 ], [ %22, %39 ], [ %.pre.i276394, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i276392, %Vec_IntPushUniqueOrder.exit196 ], [ %22, %215 ], [ %22, %154 ], [ %.pre.i276390, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i276388, %Vec_IntPushUniqueOrder.exit244 ], [ %22, %342 ], [ %22, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %.pre.i276402, %Vec_IntPushUniqueOrder.exit296 ], [ %22, %464 ], [ %22, %408 ], [ %22, %406 ]
+  %524 = phi ptr [ %93, %Vec_IntPushUniqueOrder.exit ], [ %150, %Vec_IntPushUniqueOrder.exit148 ], [ %23, %96 ], [ %23, %39 ], [ %210, %Vec_IntPushUniqueOrder.exit172 ], [ %271, %Vec_IntPushUniqueOrder.exit196 ], [ %23, %215 ], [ %23, %154 ], [ %335, %Vec_IntPushUniqueOrder.exit220 ], [ %398, %Vec_IntPushUniqueOrder.exit244 ], [ %23, %342 ], [ %23, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %23, %464 ], [ %23, %408 ], [ %23, %406 ]
+  %.pre.i387 = phi ptr [ %.pre.i384, %Vec_IntPushUniqueOrder.exit ], [ %.pre.i382, %Vec_IntPushUniqueOrder.exit148 ], [ %24, %96 ], [ %24, %39 ], [ %.pre.i380, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i378, %Vec_IntPushUniqueOrder.exit196 ], [ %24, %215 ], [ %24, %154 ], [ %.pre.i376, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i374, %Vec_IntPushUniqueOrder.exit244 ], [ %24, %342 ], [ %24, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %24, %464 ], [ %24, %408 ], [ %24, %406 ]
+  %525 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %151, %Vec_IntPushUniqueOrder.exit148 ], [ %25, %96 ], [ %25, %39 ], [ %211, %Vec_IntPushUniqueOrder.exit172 ], [ %272, %Vec_IntPushUniqueOrder.exit196 ], [ %25, %215 ], [ %25, %154 ], [ %336, %Vec_IntPushUniqueOrder.exit220 ], [ %399, %Vec_IntPushUniqueOrder.exit244 ], [ %25, %342 ], [ %25, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %25, %464 ], [ %25, %408 ], [ %25, %406 ]
+  %.pre.i128373 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %.pre.i128370, %Vec_IntPushUniqueOrder.exit148 ], [ %26, %96 ], [ %26, %39 ], [ %.pre.i128368, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i128366, %Vec_IntPushUniqueOrder.exit196 ], [ %26, %215 ], [ %26, %154 ], [ %.pre.i128364, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i128362, %Vec_IntPushUniqueOrder.exit244 ], [ %26, %342 ], [ %26, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %26, %464 ], [ %26, %408 ], [ %26, %406 ]
+  %526 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %27, %96 ], [ %27, %39 ], [ %212, %Vec_IntPushUniqueOrder.exit172 ], [ %273, %Vec_IntPushUniqueOrder.exit196 ], [ %27, %215 ], [ %27, %154 ], [ %337, %Vec_IntPushUniqueOrder.exit220 ], [ %400, %Vec_IntPushUniqueOrder.exit244 ], [ %27, %342 ], [ %27, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %27, %464 ], [ %27, %408 ], [ %27, %406 ]
+  %.pre.i152361 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %28, %96 ], [ %28, %39 ], [ %.pre.i152358, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i152356, %Vec_IntPushUniqueOrder.exit196 ], [ %28, %215 ], [ %28, %154 ], [ %.pre.i152354, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i152352, %Vec_IntPushUniqueOrder.exit244 ], [ %28, %342 ], [ %28, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %28, %464 ], [ %28, %408 ], [ %28, %406 ]
+  %527 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %29, %96 ], [ %29, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %274, %Vec_IntPushUniqueOrder.exit196 ], [ %29, %215 ], [ %29, %154 ], [ %338, %Vec_IntPushUniqueOrder.exit220 ], [ %401, %Vec_IntPushUniqueOrder.exit244 ], [ %29, %342 ], [ %29, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %29, %464 ], [ %29, %408 ], [ %29, %406 ]
+  %.pre.i176351 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %30, %96 ], [ %30, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %.pre.i176348, %Vec_IntPushUniqueOrder.exit196 ], [ %30, %215 ], [ %30, %154 ], [ %.pre.i176346, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i176344, %Vec_IntPushUniqueOrder.exit244 ], [ %30, %342 ], [ %30, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %30, %464 ], [ %30, %408 ], [ %30, %406 ]
+  %528 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %31, %96 ], [ %31, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %31, %215 ], [ %31, %154 ], [ %339, %Vec_IntPushUniqueOrder.exit220 ], [ %402, %Vec_IntPushUniqueOrder.exit244 ], [ %31, %342 ], [ %31, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %31, %464 ], [ %31, %408 ], [ %31, %406 ]
+  %.pre.i200343 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %32, %96 ], [ %32, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %32, %215 ], [ %32, %154 ], [ %.pre.i200340, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i200338, %Vec_IntPushUniqueOrder.exit244 ], [ %32, %342 ], [ %32, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %32, %464 ], [ %32, %408 ], [ %32, %406 ]
+  %529 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %33, %96 ], [ %33, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %33, %215 ], [ %33, %154 ], [ %340, %Vec_IntPushUniqueOrder.exit220 ], [ %403, %Vec_IntPushUniqueOrder.exit244 ], [ %33, %342 ], [ %33, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %33, %464 ], [ %33, %408 ], [ %33, %406 ]
+  %.pre.i224337 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %34, %96 ], [ %34, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %34, %215 ], [ %34, %154 ], [ %340, %Vec_IntPushUniqueOrder.exit220 ], [ %.pre.i224334, %Vec_IntPushUniqueOrder.exit244 ], [ %34, %342 ], [ %34, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %34, %464 ], [ %34, %408 ], [ %34, %406 ]
+  %530 = phi ptr [ %94, %Vec_IntPushUniqueOrder.exit ], [ %152, %Vec_IntPushUniqueOrder.exit148 ], [ %35, %96 ], [ %35, %39 ], [ %213, %Vec_IntPushUniqueOrder.exit172 ], [ %275, %Vec_IntPushUniqueOrder.exit196 ], [ %35, %215 ], [ %35, %154 ], [ %340, %Vec_IntPushUniqueOrder.exit220 ], [ %404, %Vec_IntPushUniqueOrder.exit244 ], [ %35, %342 ], [ %35, %277 ], [ %462, %Vec_IntPushUniqueOrder.exit268 ], [ %520, %Vec_IntPushUniqueOrder.exit296 ], [ %35, %464 ], [ %35, %408 ], [ %35, %406 ]
+  %.sroa.0.1 = phi i32 [ %95, %Vec_IntPushUniqueOrder.exit ], [ %153, %Vec_IntPushUniqueOrder.exit148 ], [ %.sroa.0.0316, %96 ], [ %.sroa.0.0316, %39 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit172 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit196 ], [ %.sroa.0.0316, %215 ], [ %.sroa.0.0316, %154 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit220 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit244 ], [ %.sroa.0.0316, %342 ], [ %.sroa.0.0316, %277 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit268 ], [ %.sroa.0.0316, %Vec_IntPushUniqueOrder.exit296 ], [ %.sroa.0.0316, %464 ], [ %.sroa.0.0316, %408 ], [ %.sroa.0.0316, %406 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit148 ], [ %.sroa.8.0317, %96 ], [ %.sroa.8.0317, %39 ], [ %214, %Vec_IntPushUniqueOrder.exit172 ], [ %276, %Vec_IntPushUniqueOrder.exit196 ], [ %.sroa.8.0317, %215 ], [ %.sroa.8.0317, %154 ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit220 ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit244 ], [ %.sroa.8.0317, %342 ], [ %.sroa.8.0317, %277 ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit268 ], [ %.sroa.8.0317, %Vec_IntPushUniqueOrder.exit296 ], [ %.sroa.8.0317, %464 ], [ %.sroa.8.0317, %408 ], [ %.sroa.8.0317, %406 ]
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit148 ], [ %.sroa.13.0318, %96 ], [ %.sroa.13.0318, %39 ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit172 ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit196 ], [ %.sroa.13.0318, %215 ], [ %.sroa.13.0318, %154 ], [ %341, %Vec_IntPushUniqueOrder.exit220 ], [ %405, %Vec_IntPushUniqueOrder.exit244 ], [ %.sroa.13.0318, %342 ], [ %.sroa.13.0318, %277 ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit268 ], [ %.sroa.13.0318, %Vec_IntPushUniqueOrder.exit296 ], [ %.sroa.13.0318, %464 ], [ %.sroa.13.0318, %408 ], [ %.sroa.13.0318, %406 ]
+  %.sroa.18.1 = phi i32 [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit148 ], [ %.sroa.18.0319, %96 ], [ %.sroa.18.0319, %39 ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit172 ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit196 ], [ %.sroa.18.0319, %215 ], [ %.sroa.18.0319, %154 ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit220 ], [ %.sroa.18.0319, %Vec_IntPushUniqueOrder.exit244 ], [ %.sroa.18.0319, %342 ], [ %.sroa.18.0319, %277 ], [ %463, %Vec_IntPushUniqueOrder.exit268 ], [ %521, %Vec_IntPushUniqueOrder.exit296 ], [ %.sroa.18.0319, %464 ], [ %.sroa.18.0319, %408 ], [ %.sroa.18.0319, %406 ]
+  %.1 = phi i32 [ %47, %Vec_IntPushUniqueOrder.exit ], [ %47, %Vec_IntPushUniqueOrder.exit148 ], [ %47, %96 ], [ %.0320, %39 ], [ %162, %Vec_IntPushUniqueOrder.exit172 ], [ %162, %Vec_IntPushUniqueOrder.exit196 ], [ %162, %215 ], [ %.0320, %154 ], [ %285, %Vec_IntPushUniqueOrder.exit220 ], [ %285, %Vec_IntPushUniqueOrder.exit244 ], [ %285, %342 ], [ %.0320, %277 ], [ %416, %Vec_IntPushUniqueOrder.exit268 ], [ %416, %Vec_IntPushUniqueOrder.exit296 ], [ %416, %464 ], [ %.0320, %408 ], [ %.0320, %406 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val111 = load i32, ptr %8, align 8, !tbaa !30
   %531 = sext i32 %.val111 to i64
@@ -4500,8 +4500,8 @@ define internal fastcc void @Wlc_NtkUpdateBlacks(ptr noundef readonly captures(n
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink69 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %46, %45 ], [ %48, %47 ]
-  %.sink = phi i32 [ 16, %39 ], [ 16, %37 ], [ %42, %45 ], [ %42, %47 ]
+  %.sink69 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
   store ptr %.sink69, ptr %9, align 8, !tbaa !14
   store i32 %.sink, ptr %6, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -4733,8 +4733,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %61, %63, %53, %55
-  %.sink64 = phi ptr [ %56, %55 ], [ %54, %53 ], [ %62, %61 ], [ %64, %63 ]
-  %.sink = phi i32 [ 16, %55 ], [ 16, %53 ], [ %58, %61 ], [ %58, %63 ]
+  %.sink64 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %62, %61 ], [ %64, %63 ]
+  %.sink = phi i32 [ 16, %53 ], [ 16, %55 ], [ %58, %61 ], [ %58, %63 ]
   store ptr %.sink64, ptr %6, align 8, !tbaa !14
   store i32 %.sink, ptr %3, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -5887,7 +5887,7 @@ Wlc_NtkCexIsReal.exit.thread:                     ; preds = %.critedge8.i, %.cri
   br label %288
 
 288:                                              ; preds = %Wlc_NtkCexIsReal.exit.thread, %127, %34, %Abc_Clock.exit68, %284
-  %.0 = phi i32 [ %97, %127 ], [ 1, %34 ], [ 0, %284 ], [ 1, %Abc_Clock.exit68 ], [ -1, %Wlc_NtkCexIsReal.exit.thread ]
+  %.0 = phi i32 [ 0, %284 ], [ 1, %Abc_Clock.exit68 ], [ 1, %34 ], [ %97, %127 ], [ -1, %Wlc_NtkCexIsReal.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -6958,7 +6958,7 @@ Gia_ManAppendCo.exit.i..critedge9.i.loopexit_crit_edge.i: ; preds = %Gia_ManAppe
   br label %.critedge9.i.i, !llvm.loop !191
 
 .critedge9.i.i:                                   ; preds = %.lr.ph246.i.i, %Gia_ManAppendCo.exit.i..critedge9.i.loopexit_crit_edge.i, %.lr.ph246.i.preheader.i, %.critedge7.i.i
-  %.val171222276.i.i = phi i32 [ %.val154241.i.i, %.critedge7.i.i ], [ %.val154241.i.i, %.lr.ph246.i.preheader.i ], [ %.val154.i.i, %Gia_ManAppendCo.exit.i..critedge9.i.loopexit_crit_edge.i ], [ %.val154.i.i, %.lr.ph246.i.i ]
+  %.val171222276.i.i = phi i32 [ %.val154241.i.i, %.critedge7.i.i ], [ %.val154.i.i, %Gia_ManAppendCo.exit.i..critedge9.i.loopexit_crit_edge.i ], [ %.val154241.i.i, %.lr.ph246.i.preheader.i ], [ %.val154.i.i, %.lr.ph246.i.i ]
   %554 = add nuw nsw i32 %.0132249.i.i, 1
   %555 = load i32, ptr %203, align 4, !tbaa !168
   %.not141.not.i.i = icmp slt i32 %.0132249.i.i, %555
@@ -7058,8 +7058,8 @@ Vec_BitFree.exit107.i:                            ; preds = %560, %Vec_BitFree.e
   br label %Vec_IntPush.exit.sink.split.i
 
 Vec_IntPush.exit.sink.split.i:                    ; preds = %592, %590, %584, %582
-  %.sink168.i = phi ptr [ %585, %584 ], [ %583, %582 ], [ %591, %590 ], [ %593, %592 ]
-  %.sink167.i = phi i32 [ 16, %584 ], [ 16, %582 ], [ %587, %590 ], [ %587, %592 ]
+  %.sink168.i = phi ptr [ %583, %582 ], [ %585, %584 ], [ %591, %590 ], [ %593, %592 ]
+  %.sink167.i = phi i32 [ 16, %582 ], [ 16, %584 ], [ %587, %590 ], [ %587, %592 ]
   store ptr %.sink168.i, ptr %564, align 8, !tbaa !14
   store i32 %.sink167.i, ptr %561, align 8, !tbaa !41
   %.pre108 = load i32, ptr %562, align 4, !tbaa !11
@@ -7539,8 +7539,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntGrow.exit23thread-pre-split.i.i
 
 Vec_IntGrow.exit23thread-pre-split.i.i:           ; preds = %98, %100, %90, %92
-  %storemerge = phi ptr [ %93, %92 ], [ %91, %90 ], [ %99, %98 ], [ %101, %100 ]
-  %.sink.i.i = phi i32 [ 16, %92 ], [ 16, %90 ], [ %95, %98 ], [ %95, %100 ]
+  %storemerge = phi ptr [ %91, %90 ], [ %93, %92 ], [ %99, %98 ], [ %101, %100 ]
+  %.sink.i.i = phi i32 [ 16, %90 ], [ 16, %92 ], [ %95, %98 ], [ %95, %100 ]
   store ptr %storemerge, ptr %8, align 8, !tbaa !14
   store i32 %.sink.i.i, ptr %5, align 8, !tbaa !41
   br label %Vec_IntGrow.exit23.i.i
@@ -7582,9 +7582,9 @@ Vec_IntPushOrder.exit.i:                          ; preds = %108, %._crit_edge.l
   br label %Vec_IntPushUniqueOrder.exit
 
 Vec_IntPushUniqueOrder.exit:                      ; preds = %81, %Vec_IntPushOrder.exit.i, %.lr.ph67
-  %114 = phi i32 [ %58, %.lr.ph67 ], [ %.pre, %Vec_IntPushOrder.exit.i ], [ %58, %81 ]
-  %.pre.i84 = phi ptr [ %59, %.lr.ph67 ], [ %.pre.i85, %Vec_IntPushOrder.exit.i ], [ %59, %81 ]
-  %115 = phi ptr [ %60, %.lr.ph67 ], [ %.pre.i85, %Vec_IntPushOrder.exit.i ], [ %60, %81 ]
+  %114 = phi i32 [ %.pre, %Vec_IntPushOrder.exit.i ], [ %58, %.lr.ph67 ], [ %58, %81 ]
+  %.pre.i84 = phi ptr [ %.pre.i85, %Vec_IntPushOrder.exit.i ], [ %59, %.lr.ph67 ], [ %59, %81 ]
+  %115 = phi ptr [ %.pre.i85, %Vec_IntPushOrder.exit.i ], [ %60, %.lr.ph67 ], [ %60, %81 ]
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %116 = sext i32 %114 to i64
   %117 = icmp slt i64 %indvars.iv.next78, %116
@@ -8471,10 +8471,10 @@ Vec_BitStart.exit.i.i:                            ; preds = %124, %103
   br label %195
 
 195:                                              ; preds = %190, %183, %181, %176, %169, %164, %157, %152, %145, %132
-  %.sroa.0.1.i.i = phi i32 [ %.sroa.0.076.i.i, %132 ], [ %156, %152 ], [ %.sroa.0.076.i.i, %145 ], [ %.sroa.0.076.i.i, %164 ], [ %.sroa.0.076.i.i, %157 ], [ %.sroa.0.076.i.i, %176 ], [ %.sroa.0.076.i.i, %169 ], [ %.sroa.0.076.i.i, %181 ], [ %.sroa.0.076.i.i, %190 ], [ %.sroa.0.076.i.i, %183 ]
-  %.sroa.6.1.i.i = phi i32 [ %.sroa.6.077.i.i, %132 ], [ %.sroa.6.077.i.i, %152 ], [ %.sroa.6.077.i.i, %145 ], [ %168, %164 ], [ %.sroa.6.077.i.i, %157 ], [ %.sroa.6.077.i.i, %176 ], [ %.sroa.6.077.i.i, %169 ], [ %.sroa.6.077.i.i, %181 ], [ %.sroa.6.077.i.i, %190 ], [ %.sroa.6.077.i.i, %183 ]
-  %.sroa.9.1.i.i = phi i32 [ %.sroa.9.078.i.i, %132 ], [ %.sroa.9.078.i.i, %152 ], [ %.sroa.9.078.i.i, %145 ], [ %.sroa.9.078.i.i, %164 ], [ %.sroa.9.078.i.i, %157 ], [ %180, %176 ], [ %.sroa.9.078.i.i, %169 ], [ %.sroa.9.078.i.i, %181 ], [ %.sroa.9.078.i.i, %190 ], [ %.sroa.9.078.i.i, %183 ]
-  %.sroa.12.1.i.i = phi i32 [ %.sroa.12.079.i.i, %132 ], [ %.sroa.12.079.i.i, %152 ], [ %.sroa.12.079.i.i, %145 ], [ %.sroa.12.079.i.i, %164 ], [ %.sroa.12.079.i.i, %157 ], [ %.sroa.12.079.i.i, %176 ], [ %.sroa.12.079.i.i, %169 ], [ %.sroa.12.079.i.i, %181 ], [ %194, %190 ], [ %.sroa.12.079.i.i, %183 ]
+  %.sroa.0.1.i.i = phi i32 [ %.sroa.0.076.i.i, %132 ], [ %156, %152 ], [ %.sroa.0.076.i.i, %145 ], [ %.sroa.0.076.i.i, %164 ], [ %.sroa.0.076.i.i, %157 ], [ %.sroa.0.076.i.i, %176 ], [ %.sroa.0.076.i.i, %169 ], [ %.sroa.0.076.i.i, %190 ], [ %.sroa.0.076.i.i, %183 ], [ %.sroa.0.076.i.i, %181 ]
+  %.sroa.6.1.i.i = phi i32 [ %.sroa.6.077.i.i, %132 ], [ %.sroa.6.077.i.i, %152 ], [ %.sroa.6.077.i.i, %145 ], [ %168, %164 ], [ %.sroa.6.077.i.i, %157 ], [ %.sroa.6.077.i.i, %176 ], [ %.sroa.6.077.i.i, %169 ], [ %.sroa.6.077.i.i, %190 ], [ %.sroa.6.077.i.i, %183 ], [ %.sroa.6.077.i.i, %181 ]
+  %.sroa.9.1.i.i = phi i32 [ %.sroa.9.078.i.i, %132 ], [ %.sroa.9.078.i.i, %152 ], [ %.sroa.9.078.i.i, %145 ], [ %.sroa.9.078.i.i, %164 ], [ %.sroa.9.078.i.i, %157 ], [ %180, %176 ], [ %.sroa.9.078.i.i, %169 ], [ %.sroa.9.078.i.i, %190 ], [ %.sroa.9.078.i.i, %183 ], [ %.sroa.9.078.i.i, %181 ]
+  %.sroa.12.1.i.i = phi i32 [ %.sroa.12.079.i.i, %132 ], [ %.sroa.12.079.i.i, %152 ], [ %.sroa.12.079.i.i, %145 ], [ %.sroa.12.079.i.i, %164 ], [ %.sroa.12.079.i.i, %157 ], [ %.sroa.12.079.i.i, %176 ], [ %.sroa.12.079.i.i, %169 ], [ %194, %190 ], [ %.sroa.12.079.i.i, %183 ], [ %.sroa.12.079.i.i, %181 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %132, !llvm.loop !226
@@ -8715,8 +8715,8 @@ Vec_IntFree.exit83:                               ; preds = %256, %260
   br i1 %278, label %47, label %.thread, !llvm.loop !229
 
 .thread:                                          ; preds = %275, %Vec_BitStart.exit, %262, %Vec_IntFree.exit
-  %.067107 = phi i32 [ %.067116, %262 ], [ %.067116, %Vec_IntFree.exit ], [ 1, %Vec_BitStart.exit ], [ %276, %275 ]
-  %.169 = phi i32 [ %248, %262 ], [ %248, %Vec_IntFree.exit ], [ -1, %Vec_BitStart.exit ], [ %248, %275 ]
+  %.067107 = phi i32 [ %.067116, %Vec_IntFree.exit ], [ %.067116, %262 ], [ 1, %Vec_BitStart.exit ], [ %276, %275 ]
+  %.169 = phi i32 [ %248, %Vec_IntFree.exit ], [ %248, %262 ], [ -1, %Vec_BitStart.exit ], [ %248, %275 ]
   %279 = load ptr, ptr %5, align 8, !tbaa !122
   %280 = icmp eq ptr %279, null
   br i1 %280, label %Vec_IntFreeP.exit, label %281
@@ -8938,8 +8938,8 @@ define internal fastcc noalias noundef ptr @Wlc_NtkGetCoreSels(ptr noundef %0, i
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %68, %70, %60, %62
-  %.sink47 = phi ptr [ %63, %62 ], [ %61, %60 ], [ %69, %68 ], [ %71, %70 ]
-  %.sink = phi i32 [ 16, %62 ], [ 16, %60 ], [ %65, %68 ], [ %65, %70 ]
+  %.sink47 = phi ptr [ %61, %60 ], [ %63, %62 ], [ %69, %68 ], [ %71, %70 ]
+  %.sink = phi i32 [ 16, %60 ], [ 16, %62 ], [ %65, %68 ], [ %65, %70 ]
   store ptr %.sink47, ptr %35, align 8, !tbaa !14
   store i32 %.sink, ptr %32, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -9110,8 +9110,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit106.sink.split
 
 Vec_IntPush.exit106.sink.split:                   ; preds = %145, %147, %137, %139
-  %.sink49 = phi ptr [ %140, %139 ], [ %138, %137 ], [ %146, %145 ], [ %148, %147 ]
-  %.sink48 = phi i32 [ 16, %139 ], [ 16, %137 ], [ %142, %145 ], [ %142, %147 ]
+  %.sink49 = phi ptr [ %138, %137 ], [ %140, %139 ], [ %146, %145 ], [ %148, %147 ]
+  %.sink48 = phi i32 [ 16, %137 ], [ 16, %139 ], [ %142, %145 ], [ %142, %147 ]
   store ptr %.sink49, ptr %88, align 8, !tbaa !14
   store i32 %.sink48, ptr %85, align 8, !tbaa !41
   br label %Vec_IntPush.exit106
@@ -9232,8 +9232,8 @@ Vec_IntAlloc.exit:                                ; preds = %158, %164
   br label %Vec_IntPush.exit114.sink.split
 
 Vec_IntPush.exit114.sink.split:                   ; preds = %194, %196, %186, %188
-  %.sink51 = phi ptr [ %189, %188 ], [ %187, %186 ], [ %195, %194 ], [ %197, %196 ]
-  %.sink50 = phi i32 [ 16, %188 ], [ 16, %186 ], [ %191, %194 ], [ %191, %196 ]
+  %.sink51 = phi ptr [ %187, %186 ], [ %189, %188 ], [ %195, %194 ], [ %197, %196 ]
+  %.sink50 = phi i32 [ 16, %186 ], [ 16, %188 ], [ %191, %194 ], [ %191, %196 ]
   store ptr %.sink51, ptr %169, align 8, !tbaa !14
   store i32 %.sink50, ptr %161, align 8, !tbaa !41
   br label %Vec_IntPush.exit114
@@ -9916,14 +9916,14 @@ Vec_PtrPush.exit246:                              ; preds = %.Vec_PtrGrow.exit11
   br label %199
 
 199:                                              ; preds = %.sink.split, %55, %125, %162, %160, %90
-  %200 = phi i32 [ %44, %125 ], [ %44, %55 ], [ %44, %160 ], [ %44, %90 ], [ %44, %162 ], [ %.ph, %.sink.split ]
-  %201 = phi i32 [ %45, %125 ], [ %45, %55 ], [ %45, %160 ], [ %45, %90 ], [ %45, %162 ], [ %.ph424, %.sink.split ]
-  %202 = phi i32 [ %46, %125 ], [ %46, %55 ], [ %46, %160 ], [ %46, %90 ], [ %46, %162 ], [ %.ph425, %.sink.split ]
-  %203 = phi i32 [ %47, %125 ], [ %47, %55 ], [ %47, %160 ], [ %47, %90 ], [ %47, %162 ], [ %.ph426, %.sink.split ]
-  %204 = phi i32 [ %48, %125 ], [ %48, %55 ], [ %48, %160 ], [ %48, %90 ], [ %48, %162 ], [ %.ph427, %.sink.split ]
-  %205 = phi i32 [ %49, %125 ], [ %49, %55 ], [ %49, %160 ], [ %49, %90 ], [ %49, %162 ], [ %.ph428, %.sink.split ]
-  %206 = phi i32 [ %50, %125 ], [ %50, %55 ], [ %50, %160 ], [ %50, %90 ], [ %50, %162 ], [ %.ph429, %.sink.split ]
-  %207 = phi i32 [ %51, %125 ], [ %51, %55 ], [ %51, %160 ], [ %51, %90 ], [ %51, %162 ], [ %.ph430, %.sink.split ]
+  %200 = phi i32 [ %44, %55 ], [ %44, %90 ], [ %44, %125 ], [ %44, %162 ], [ %44, %160 ], [ %.ph, %.sink.split ]
+  %201 = phi i32 [ %45, %55 ], [ %45, %90 ], [ %45, %125 ], [ %45, %162 ], [ %45, %160 ], [ %.ph424, %.sink.split ]
+  %202 = phi i32 [ %46, %55 ], [ %46, %90 ], [ %46, %125 ], [ %46, %162 ], [ %46, %160 ], [ %.ph425, %.sink.split ]
+  %203 = phi i32 [ %47, %55 ], [ %47, %90 ], [ %47, %125 ], [ %47, %162 ], [ %47, %160 ], [ %.ph426, %.sink.split ]
+  %204 = phi i32 [ %48, %55 ], [ %48, %90 ], [ %48, %125 ], [ %48, %162 ], [ %48, %160 ], [ %.ph427, %.sink.split ]
+  %205 = phi i32 [ %49, %55 ], [ %49, %90 ], [ %49, %125 ], [ %49, %162 ], [ %49, %160 ], [ %.ph428, %.sink.split ]
+  %206 = phi i32 [ %50, %55 ], [ %50, %90 ], [ %50, %125 ], [ %50, %162 ], [ %50, %160 ], [ %.ph429, %.sink.split ]
+  %207 = phi i32 [ %51, %55 ], [ %51, %90 ], [ %51, %125 ], [ %51, %162 ], [ %51, %160 ], [ %.ph430, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val191 = load i32, ptr %23, align 8, !tbaa !30
   %208 = sext i32 %.val191 to i64
@@ -10196,7 +10196,7 @@ Vec_PtrSort.exit249:                              ; preds = %Vec_PtrSort.exit248
   br label %320
 
 .critedge10.preheader:                            ; preds = %324, %315, %.critedge8.thread
-  %319 = phi i1 [ true, %315 ], [ %295, %.critedge8.thread ], [ %318, %324 ]
+  %319 = phi i1 [ %295, %.critedge8.thread ], [ true, %315 ], [ %318, %324 ]
   br i1 %249, label %.lr.ph291, label %.critedge12.preheader
 
 .lr.ph291:                                        ; preds = %.critedge10.preheader

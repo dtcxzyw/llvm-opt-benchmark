@@ -536,7 +536,7 @@ define i32 @filter_add_acpatt(ptr noundef captures(none) %0, ptr noundef readonl
   br label %.loopexit
 
 138:                                              ; preds = %114, %80, %92, %87, %130, %123, %96, %72
-  %.4382 = phi i32 [ %.2380683, %123 ], [ %.2380683, %72 ], [ %.2380683, %80 ], [ %.2380683, %87 ], [ %.2380683, %92 ], [ %.2380683, %96 ], [ %115, %114 ], [ %.2380683, %130 ]
+  %.4382 = phi i32 [ %.2380683, %72 ], [ %.2380683, %80 ], [ %.2380683, %87 ], [ %.2380683, %92 ], [ %.2380683, %96 ], [ %115, %114 ], [ %.2380683, %123 ], [ %.2380683, %130 ]
   %indvars.iv.next1202 = add nuw nsw i64 %indvars.iv1201, 1
   %indvars.iv.next1200 = add nuw nsw i64 %indvars.iv1199, 1
   %139 = icmp samesign ult i64 %indvars.iv.next1200, %59
@@ -701,8 +701,8 @@ spec_iter.exit511:                                ; preds = %spec_iter.exit
   ]
 
 .thread550.us832.us:                              ; preds = %213, %spec_ith_char.exit515.us.us.us.us913.us, %233, %spec_ith_char.exit.us.us.us.us910.us.us, %229, %spec_ith_char.exit515.us.us.us795.us.us, %254, %spec_ith_char.exit515.us.us.us.us.us.us
-  %.1422.lcssa.us833.us = phi i8 [ %.1422691.us.us.us794.us.us, %spec_ith_char.exit515.us.us.us795.us.us ], [ %.3424.us.us.us.us917.us.us, %233 ], [ %.1422691.us.us.us.us.us.us, %spec_ith_char.exit515.us.us.us.us.us.us ], [ %.3424.us.us.us.us.us.us, %254 ], [ %.3424.us.us.us800.us.us, %229 ], [ %.1422691.us.us.us.us912.us.us, %spec_ith_char.exit.us.us.us.us910.us.us ], [ %.3424.us.us.us.us917.us, %213 ], [ %.1422691.us.us.us.us912.us, %spec_ith_char.exit515.us.us.us.us913.us ]
-  %.3420.us834.us = phi i32 [ 1, %spec_ith_char.exit515.us.us.us795.us.us ], [ %.0417820.us830.us, %233 ], [ 3, %spec_ith_char.exit515.us.us.us.us.us.us ], [ %.0417820.us830.us, %254 ], [ %.0417820.us830.us, %229 ], [ 1, %spec_ith_char.exit.us.us.us.us910.us.us ], [ %.0417820.us830.us, %213 ], [ 1, %spec_ith_char.exit515.us.us.us.us913.us ]
+  %.1422.lcssa.us833.us = phi i8 [ %.1422691.us.us.us.us.us.us, %spec_ith_char.exit515.us.us.us.us.us.us ], [ %.3424.us.us.us.us.us.us, %254 ], [ %.3424.us.us.us800.us.us, %229 ], [ %.1422691.us.us.us794.us.us, %spec_ith_char.exit515.us.us.us795.us.us ], [ %.3424.us.us.us.us917.us.us, %233 ], [ %.1422691.us.us.us.us912.us.us, %spec_ith_char.exit.us.us.us.us910.us.us ], [ %.3424.us.us.us.us917.us, %213 ], [ %.1422691.us.us.us.us912.us, %spec_ith_char.exit515.us.us.us.us913.us ]
+  %.3420.us834.us = phi i32 [ 3, %spec_ith_char.exit515.us.us.us.us.us.us ], [ %.0417820.us830.us, %254 ], [ %.0417820.us830.us, %229 ], [ 1, %spec_ith_char.exit515.us.us.us795.us.us ], [ %.0417820.us830.us, %233 ], [ 1, %spec_ith_char.exit.us.us.us.us910.us.us ], [ %.0417820.us830.us, %213 ], [ 1, %spec_ith_char.exit515.us.us.us.us913.us ]
   %205 = add nuw nsw i32 %.0369821.us829.us.fr, %196
   %.not476.us835.us = icmp samesign ugt i32 %205, %192
   br i1 %.not476.us835.us, label %._crit_edge824, label %.lr.ph694.us.us
@@ -855,8 +855,8 @@ spec_ith_char.exit515.us.us.us.us.us.us:          ; preds = %251, %246
   br i1 %261, label %.lr.ph694.split.us.split.split.split.us, label %.split709.us
 
 .thread550.us832:                                 ; preds = %284, %spec_ith_char.exit515.us.us731.us881, %292, %spec_ith_char.exit515.us.us754.us, %297, %spec_ith_char.exit.us.us751.us.us, %316, %spec_ith_char.exit515.us.us731.us.us
-  %.1422.lcssa.us833 = phi i8 [ %.1422691.us.us753.us896, %spec_ith_char.exit515.us.us754.us ], [ %.1422691.us.us753.us.us, %spec_ith_char.exit.us.us751.us.us ], [ %.3424.us.us737.us.us, %316 ], [ %.1422691.us.us730.us.us, %spec_ith_char.exit515.us.us731.us.us ], [ %.3424.us.us759.us.us, %297 ], [ %.3424.us.us759.us899, %292 ], [ %.3424.us.us737.us885, %284 ], [ %.1422691.us.us730.us880, %spec_ith_char.exit515.us.us731.us881 ]
-  %.3420.us834 = phi i32 [ 1, %spec_ith_char.exit515.us.us754.us ], [ 1, %spec_ith_char.exit.us.us751.us.us ], [ %.0417820.us830, %316 ], [ 3, %spec_ith_char.exit515.us.us731.us.us ], [ %.0417820.us830, %297 ], [ %.0417820.us830, %292 ], [ %.0417820.us830, %284 ], [ 1, %spec_ith_char.exit515.us.us731.us881 ]
+  %.1422.lcssa.us833 = phi i8 [ %.1422691.us.us730.us.us, %spec_ith_char.exit515.us.us731.us.us ], [ %.3424.us.us737.us.us, %316 ], [ %.3424.us.us759.us.us, %297 ], [ %.1422691.us.us753.us.us, %spec_ith_char.exit.us.us751.us.us ], [ %.3424.us.us759.us899, %292 ], [ %.1422691.us.us753.us896, %spec_ith_char.exit515.us.us754.us ], [ %.3424.us.us737.us885, %284 ], [ %.1422691.us.us730.us880, %spec_ith_char.exit515.us.us731.us881 ]
+  %.3420.us834 = phi i32 [ 3, %spec_ith_char.exit515.us.us731.us.us ], [ %.0417820.us830, %316 ], [ %.0417820.us830, %297 ], [ 1, %spec_ith_char.exit.us.us751.us.us ], [ %.0417820.us830, %292 ], [ 1, %spec_ith_char.exit515.us.us754.us ], [ %.0417820.us830, %284 ], [ 1, %spec_ith_char.exit515.us.us731.us881 ]
   %262 = add nuw nsw i32 %260, %196
   %.not476.us835 = icmp samesign ugt i32 %262, %192
   br i1 %.not476.us835, label %._crit_edge824, label %.lr.ph694.us
@@ -1093,8 +1093,8 @@ spec_ith_char.exit515:                            ; preds = %spec_ith_char.exit,
   br i1 %.not476, label %._crit_edge824, label %.lr.ph694
 
 ._crit_edge824:                                   ; preds = %spec_ith_char.exit515, %.lr.ph694.us931, %.lr.ph694.us931.us, %.thread550.us832, %.thread550.us832.us, %.thread550.us, %190
-  %.0421.lcssa = phi i8 [ 0, %190 ], [ %.1422.lcssa.us833.us, %.thread550.us832.us ], [ 0, %.lr.ph694.us931 ], [ 0, %.lr.ph694.us931.us ], [ %.1422.lcssa.us833, %.thread550.us832 ], [ 0, %.thread550.us ], [ 0, %spec_ith_char.exit515 ]
-  %.0417.lcssa = phi i32 [ 4, %190 ], [ %.3420.us834.us, %.thread550.us832.us ], [ 2, %.lr.ph694.us931 ], [ 2, %.lr.ph694.us931.us ], [ %.3420.us834, %.thread550.us832 ], [ 4, %.thread550.us ], [ 2, %spec_ith_char.exit515 ]
+  %.0421.lcssa = phi i8 [ 0, %190 ], [ 0, %.thread550.us ], [ %.1422.lcssa.us833.us, %.thread550.us832.us ], [ %.1422.lcssa.us833, %.thread550.us832 ], [ 0, %.lr.ph694.us931.us ], [ 0, %.lr.ph694.us931 ], [ 0, %spec_ith_char.exit515 ]
+  %.0417.lcssa = phi i32 [ 4, %190 ], [ 4, %.thread550.us ], [ %.3420.us834.us, %.thread550.us832.us ], [ %.3420.us834, %.thread550.us832 ], [ 2, %.lr.ph694.us931.us ], [ 2, %.lr.ph694.us931 ], [ 2, %spec_ith_char.exit515 ]
   %343 = icmp eq i32 %.0417.lcssa, 4
   %344 = icmp ne i8 %.0421.lcssa, 0
   %or.cond14 = select i1 %343, i1 %344, i1 false
@@ -1292,7 +1292,7 @@ spec_ith_char.exit515:                            ; preds = %spec_ith_char.exit,
   br label %add_choice.exit
 
 add_choice.exit:                                  ; preds = %388, %409
-  %.3548 = phi i32 [ %.0546961, %388 ], [ %.2, %409 ]
+  %.3548 = phi i32 [ %.2, %409 ], [ %.0546961, %388 ]
   %spec.select495 = tail call i32 @llvm.smax.i32(i32 %.0398.lcssa, i32 %.5962)
   br label %413
 
@@ -1378,7 +1378,7 @@ add_choice.exit:                                  ; preds = %388, %409
   br i1 %.not72.i, label %get_score.exit.thread, label %.thread.i517
 
 .thread.i517:                                     ; preds = %440, %439, %438, %432
-  %.091.i = phi i32 [ 0, %440 ], [ 512, %438 ], [ 513, %439 ], [ 0, %432 ]
+  %.091.i = phi i32 [ 0, %440 ], [ 0, %432 ], [ 513, %439 ], [ 512, %438 ]
   %441 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %442 = load i8, ptr %441, align 8, !tbaa !25
   %443 = zext i8 %442 to i32
@@ -2183,7 +2183,7 @@ filter_set_end.exit:                              ; preds = %790, %783, %780, %.
   br i1 %exitcond1244.not, label %._crit_edge1030, label %.lr.ph1029.split.splitthread-pre-split, !llvm.loop !35
 
 ._crit_edge1030:                                  ; preds = %filter_set_end.exit.us, %filter_set_end.exit, %.lr.ph1029.split, %.preheader
-  %.1360.lcssa = phi i32 [ %.03591040, %.preheader ], [ %760, %filter_set_end.exit ], [ %760, %.lr.ph1029.split ], [ %760, %filter_set_end.exit.us ]
+  %.1360.lcssa = phi i32 [ %.03591040, %.preheader ], [ %760, %.lr.ph1029.split ], [ %760, %filter_set_end.exit ], [ %760, %filter_set_end.exit.us ]
   %792 = add nuw nsw i32 %.03611038, 1
   %.not462.not = icmp samesign ult i32 %.03611038, %754
   br i1 %.not462.not, label %.preheader, label %793
@@ -2212,7 +2212,7 @@ filter_set_end.exit:                              ; preds = %790, %783, %780, %.
   br i1 %.not458, label %.loopexit, label %713
 
 .loopexit:                                        ; preds = %._crit_edge1045, %694, %145, %.thread1334, %.critedge488, %._crit_edge983.thread, %._crit_edge.thread
-  %.0 = phi i32 [ %32, %._crit_edge.thread ], [ -1, %.critedge488 ], [ -1, %145 ], [ -1, %._crit_edge983.thread ], [ %.1390.lcssa, %694 ], [ -1, %.thread1334 ], [ %.1390.lcssa, %._crit_edge1045 ]
+  %.0 = phi i32 [ %32, %._crit_edge.thread ], [ -1, %._crit_edge983.thread ], [ -1, %.critedge488 ], [ -1, %.thread1334 ], [ -1, %145 ], [ %.1390.lcssa, %694 ], [ %.1390.lcssa, %._crit_edge1045 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2260,7 +2260,7 @@ define range(i32 -1, 1) i32 @filter_search_ext(ptr noundef readonly captures(non
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.critedge, %18, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %18 ], [ -1, %.critedge ]
+  %.0 = phi i32 [ 0, %18 ], [ -1, %4 ], [ -1, %.critedge ]
   ret i32 %.0
 }
 

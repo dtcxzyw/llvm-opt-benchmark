@@ -1152,7 +1152,7 @@ thread-pre-split:                                 ; preds = %80, %78
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #12
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %thread-pre-split, %7, %59, %70, %56, %.critedge
+.critedge.thread:                                 ; preds = %thread-pre-split, %7, %56, %59, %70, %.critedge
   ret void
 }
 
@@ -1395,7 +1395,7 @@ png_push_have_row.exit167:                        ; preds = %101, %103
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.preheader210, %.critedge, %.critedge2thread-pre-split.loopexit
-  %106 = phi i8 [ %97, %.critedge ], [ %.pr203.pre, %.critedge2thread-pre-split.loopexit ], [ %99, %.preheader210 ]
+  %106 = phi i8 [ %.pr203.pre, %.critedge2thread-pre-split.loopexit ], [ %97, %.critedge ], [ %99, %.preheader210 ]
   %107 = icmp eq i8 %106, 4
   br i1 %107, label %108, label %.critedge4
 
@@ -1430,7 +1430,7 @@ png_push_have_row.exit169:                        ; preds = %115, %117
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.preheader, %.critedge2, %.critedge4thread-pre-split.loopexit
-  %119 = phi i8 [ %106, %.critedge2 ], [ %.pr204.pre, %.critedge4thread-pre-split.loopexit ], [ %113, %.preheader ]
+  %119 = phi i8 [ %.pr204.pre, %.critedge4thread-pre-split.loopexit ], [ %106, %.critedge2 ], [ %113, %.preheader ]
   %120 = icmp eq i8 %119, 6
   br i1 %120, label %121, label %.critedge8
 

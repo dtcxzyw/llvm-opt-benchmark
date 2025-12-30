@@ -205,7 +205,7 @@ define ptr @jpeg_read_coefficients(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 98:                                               ; preds = %10, %89
-  %99 = phi i32 [ %12, %10 ], [ %90, %89 ]
+  %99 = phi i32 [ %90, %89 ], [ %12, %10 ]
   %100 = load ptr, ptr %0, align 8, !tbaa !32
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   store i32 20, ptr %101, align 8, !tbaa !33
@@ -217,7 +217,7 @@ define ptr @jpeg_read_coefficients(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %72, %98, %93
-  %.2 = phi ptr [ null, %98 ], [ %97, %93 ], [ null, %72 ]
+  %.2 = phi ptr [ %97, %93 ], [ null, %98 ], [ null, %72 ]
   ret ptr %.2
 }
 

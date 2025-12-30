@@ -747,7 +747,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   br i1 %175, label %.loopexit39, label %123, !llvm.loop !25
 
 .loopexit39:                                      ; preds = %.preheader40, %173, %138, %156, %171, %121, %82
-  %176 = phi i32 [ -22, %82 ], [ -22, %121 ], [ %151, %156 ], [ 0, %173 ], [ %133, %138 ], [ %166, %171 ], [ -2, %.preheader40 ]
+  %176 = phi i32 [ -22, %82 ], [ -22, %121 ], [ %133, %138 ], [ %151, %156 ], [ %166, %171 ], [ 0, %173 ], [ -2, %.preheader40 ]
   br label %177
 
 177:                                              ; preds = %183, %.loopexit39
@@ -901,7 +901,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   br i1 %.not, label %243, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %235, %251, %247
-  %.ph = phi i32 [ -16, %251 ], [ -16, %247 ], [ -2, %235 ]
+  %.ph = phi i32 [ -16, %247 ], [ -16, %251 ], [ -2, %235 ]
   br i1 %212, label %257, label %254
 
 254:                                              ; preds = %.loopexit
@@ -1254,8 +1254,8 @@ define dso_local i32 @drm_mode_list_lessees_ioctl(ptr noundef %0, ptr noundef ca
   br i1 %98, label %.loopexit, label %.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %79, %95, %64, %49, %28
-  %99 = phi i32 [ 0, %28 ], [ %65, %64 ], [ %39, %49 ], [ %69, %79 ], [ %96, %95 ]
-  %100 = phi i32 [ 0, %28 ], [ 0, %64 ], [ %60, %49 ], [ %91, %79 ], [ 0, %95 ]
+  %99 = phi i32 [ 0, %28 ], [ %39, %49 ], [ %65, %64 ], [ %69, %79 ], [ %96, %95 ]
+  %100 = phi i32 [ 0, %28 ], [ %60, %49 ], [ 0, %64 ], [ %91, %79 ], [ 0, %95 ]
   br i1 %24, label %104, label %101
 
 101:                                              ; preds = %.loopexit

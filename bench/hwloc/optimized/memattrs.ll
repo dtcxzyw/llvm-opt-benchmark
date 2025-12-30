@@ -509,7 +509,7 @@ hwloc_tma_malloc.exit103:                         ; preds = %70, %73
   br label %.loopexit113
 
 .loopexit113:                                     ; preds = %.loopexit112, %14, %hwloc_tma_malloc.exit, %.thread107
-  %.0 = phi i32 [ -1, %hwloc_tma_malloc.exit ], [ -1, %.thread107 ], [ 0, %14 ], [ 0, %.loopexit112 ]
+  %.0 = phi i32 [ -1, %.thread107 ], [ -1, %hwloc_tma_malloc.exit ], [ 0, %14 ], [ 0, %.loopexit112 ]
   ret i32 %.0
 }
 
@@ -720,7 +720,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %
   br label %43
 
 43:                                               ; preds = %._crit_edge, %36, %35, %25, %18, %11, %9, %5
-  %.027 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %25 ], [ 0, %36 ], [ -1, %35 ], [ -1, %9 ], [ -1, %18 ], [ -1, %._crit_edge ]
+  %.027 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %25 ], [ 0, %36 ], [ -1, %35 ], [ -1, %18 ], [ -1, %9 ], [ -1, %._crit_edge ]
   ret i32 %.027
 }
 
@@ -1022,7 +1022,7 @@ hwloc__imi_refresh.exit.i:                        ; preds = %108, %81
   br label %hwloc__imi_refresh.exit.thread.i
 
 hwloc__imi_refresh.exit.thread.i:                 ; preds = %115, %105, %102, %95, %92, %77
-  %.139.i = phi i32 [ %116, %115 ], [ %.03881.i, %95 ], [ %.03881.i, %77 ], [ %.03881.i, %92 ], [ %.03881.i, %102 ], [ %.03881.i, %105 ]
+  %.139.i = phi i32 [ %116, %115 ], [ %.03881.i, %77 ], [ %.03881.i, %92 ], [ %.03881.i, %95 ], [ %.03881.i, %102 ], [ %.03881.i, %105 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %117 = load i32, ptr %74, align 8, !tbaa !40
   %118 = zext i32 %117 to i64
@@ -1411,7 +1411,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_ty
   br i1 %133, label %.lr.ph.split, label %.thread, !llvm.loop !88
 
 .thread:                                          ; preds = %hwloc_get_obj_by_type.exit.us103, %74, %hwloc_get_obj_by_type.exit.us93, %56, %hwloc_get_obj_by_type.exit, %84, %hwloc_get_obj_by_type.exit.us, %38, %.thread85, %.thread85.us, %.preheader, %90
-  %.2 = phi i32 [ %.4, %.thread85 ], [ 0, %90 ], [ %92, %.thread85.us ], [ 0, %.preheader ], [ %57, %56 ], [ %.05790.us, %hwloc_get_obj_by_type.exit.us ], [ %85, %84 ], [ %39, %38 ], [ %.05790, %hwloc_get_obj_by_type.exit ], [ %.05790.us94, %hwloc_get_obj_by_type.exit.us93 ], [ %.05790.us104, %hwloc_get_obj_by_type.exit.us103 ], [ %75, %74 ]
+  %.2 = phi i32 [ 0, %90 ], [ 0, %.preheader ], [ %92, %.thread85.us ], [ %.4, %.thread85 ], [ %.05790.us, %hwloc_get_obj_by_type.exit.us ], [ %39, %38 ], [ %.05790, %hwloc_get_obj_by_type.exit ], [ %85, %84 ], [ %.05790.us94, %hwloc_get_obj_by_type.exit.us93 ], [ %57, %56 ], [ %.05790.us104, %hwloc_get_obj_by_type.exit.us103 ], [ %75, %74 ]
   store i32 %.2, ptr %4, align 4, !tbaa !60
   br label %134
 
@@ -1549,7 +1549,7 @@ hwloc__memattr_target_get_initiator.exit.sink.split: ; preds = %3, %15, %.loopex
   br label %hwloc__memattr_target_get_initiator.exit
 
 hwloc__memattr_target_get_initiator.exit:         ; preds = %match_internal_location.exit.us47.i, %match_internal_location.exit.us.i, %hwloc__memattr_target_get_initiator.exit.sink.split
-  %.0 = phi ptr [ %31, %match_internal_location.exit.us.i ], [ null, %hwloc__memattr_target_get_initiator.exit.sink.split ], [ %37, %match_internal_location.exit.us47.i ]
+  %.0 = phi ptr [ null, %hwloc__memattr_target_get_initiator.exit.sink.split ], [ %31, %match_internal_location.exit.us.i ], [ %37, %match_internal_location.exit.us47.i ]
   ret ptr %.0
 }
 
@@ -1711,7 +1711,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_initiators(ptr noundef %0, i32 no
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.split.i, !llvm.loop !92
 
 hwloc__memattr_get_target.exit:                   ; preds = %70, %74, %61, %52
-  %.037.i = phi ptr [ %57, %61 ], [ %48, %52 ], [ %66, %74 ], [ %66, %70 ]
+  %.037.i = phi ptr [ %48, %52 ], [ %57, %61 ], [ %66, %74 ], [ %66, %70 ]
   %79 = getelementptr inbounds nuw i8, ptr %.037.i, i64 32
   %80 = load i32, ptr %79, align 8, !tbaa !40
   %81 = icmp ne i32 %80, 0
@@ -1953,7 +1953,7 @@ define internal fastcc ptr @hwloc__memattr_get_target(ptr noundef captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %36, %23, %14, %41, %._crit_edge, %48
-  %.037 = phi ptr [ null, %41 ], [ %51, %48 ], [ null, %._crit_edge ], [ %10, %14 ], [ %19, %23 ], [ %28, %36 ], [ %28, %32 ]
+  %.037 = phi ptr [ %51, %48 ], [ null, %._crit_edge ], [ null, %41 ], [ %10, %14 ], [ %19, %23 ], [ %28, %36 ], [ %28, %32 ]
   ret ptr %.037
 }
 
@@ -2138,7 +2138,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_value(ptr noundef %0, i32 noundef
   br label %.critedge
 
 hwloc__memattr_get_target.exit:                   ; preds = %80, %76, %67, %58
-  %.037.i = phi ptr [ %63, %67 ], [ %54, %58 ], [ %72, %76 ], [ %72, %80 ]
+  %.037.i = phi ptr [ %54, %58 ], [ %63, %67 ], [ %72, %76 ], [ %72, %80 ]
   %86 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %87 = load i64, ptr %86, align 8, !tbaa !36
   %88 = and i64 %87, 4
@@ -2163,7 +2163,7 @@ hwloc__memattr_get_target.exit:                   ; preds = %80, %76, %67, %58
   br label %.critedge
 
 .critedge:                                        ; preds = %38, %36, %29, %27, %24, %94, %91, %89, %.loopexit, %14, %9
-  %.0 = phi i32 [ -1, %14 ], [ 0, %94 ], [ -1, %9 ], [ -1, %89 ], [ -1, %.loopexit ], [ 0, %91 ], [ -1, %27 ], [ 0, %29 ], [ 0, %38 ], [ -1, %36 ], [ 0, %24 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %.loopexit ], [ -1, %9 ], [ -1, %89 ], [ 0, %91 ], [ 0, %94 ], [ -1, %27 ], [ 0, %29 ], [ 0, %38 ], [ -1, %36 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -2256,7 +2256,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__internal_memattr_set_value(p
   br label %.critedge
 
 .critedge:                                        ; preds = %45, %43, %41, %36, %28, %22, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %28 ], [ -1, %36 ], [ -1, %41 ], [ -1, %22 ], [ 0, %43 ], [ 0, %45 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %28 ], [ -1, %22 ], [ -1, %36 ], [ -1, %41 ], [ 0, %43 ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -2422,7 +2422,7 @@ hwloc_get_obj_by_type.exit.us:                    ; preds = %41
   br label %hwloc__memattr_get_convenience_value.exit.us
 
 hwloc__memattr_get_convenience_value.exit.us:     ; preds = %31, %29
-  %.068.us = phi i64 [ 0, %29 ], [ %34, %31 ]
+  %.068.us = phi i64 [ %34, %31 ], [ 0, %29 ]
   br i1 %.not.i55.us218, label %40, label %35
 
 35:                                               ; preds = %hwloc__memattr_get_convenience_value.exit.us
@@ -2477,7 +2477,7 @@ hwloc_get_obj_by_type.exit.us114:                 ; preds = %59
   br label %hwloc__memattr_get_convenience_value.exit.us120
 
 hwloc__memattr_get_convenience_value.exit.us120:  ; preds = %51, %48
-  %.068.us121 = phi i64 [ %50, %48 ], [ 0, %51 ]
+  %.068.us121 = phi i64 [ 0, %51 ], [ %50, %48 ]
   br i1 %.not.i55.us122210, label %58, label %53
 
 53:                                               ; preds = %hwloc__memattr_get_convenience_value.exit.us120
@@ -2586,9 +2586,9 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %hwloc_get_obj_by_ty
   br label %hwloc__update_best_target.exit61
 
 hwloc__update_best_target.exit61:                 ; preds = %77, %90, %89, %88
-  %.484 = phi i64 [ %.383142, %88 ], [ %.3, %90 ], [ %.383142, %89 ], [ %.383142, %77 ]
-  %.477 = phi ptr [ %.376143, %88 ], [ %84, %90 ], [ %.376143, %89 ], [ %.376143, %77 ]
-  %.4 = phi i32 [ 1, %88 ], [ 1, %90 ], [ 1, %89 ], [ %.372144, %77 ]
+  %.484 = phi i64 [ %.3, %90 ], [ %.383142, %89 ], [ %.383142, %88 ], [ %.383142, %77 ]
+  %.477 = phi ptr [ %84, %90 ], [ %.376143, %89 ], [ %.376143, %88 ], [ %.376143, %77 ]
+  %.4 = phi i32 [ 1, %90 ], [ 1, %89 ], [ 1, %88 ], [ %.372144, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i32, ptr %68, align 4, !tbaa !38
   %92 = zext i32 %91 to i64
@@ -2600,9 +2600,9 @@ hwloc__update_best_target.exit.loopexit:          ; preds = %hwloc__update_best_
   br label %hwloc__update_best_target.exit
 
 hwloc__update_best_target.exit:                   ; preds = %hwloc_get_obj_by_type.exit.us114, %hwloc_get_obj_by_type.exit.us, %hwloc_get_obj_by_type.exit, %hwloc__update_best_target.exit.loopexit, %hwloc_get_obj_by_type.exit.us114.preheader, %hwloc_get_obj_by_type.exit.us.preheader, %hwloc_get_obj_by_type.exit.preheader
-  %.282 = phi i64 [ 0, %hwloc_get_obj_by_type.exit ], [ 0, %hwloc_get_obj_by_type.exit.preheader ], [ %.181.ph.us, %hwloc_get_obj_by_type.exit.us ], [ %.484, %hwloc__update_best_target.exit.loopexit ], [ 0, %hwloc_get_obj_by_type.exit.us.preheader ], [ 0, %hwloc_get_obj_by_type.exit.us114.preheader ], [ %.181.ph.us126, %hwloc_get_obj_by_type.exit.us114 ]
-  %.275 = phi ptr [ %24, %hwloc_get_obj_by_type.exit ], [ null, %hwloc_get_obj_by_type.exit.preheader ], [ %.174.ph.us, %hwloc_get_obj_by_type.exit.us ], [ %.477, %hwloc__update_best_target.exit.loopexit ], [ null, %hwloc_get_obj_by_type.exit.us.preheader ], [ null, %hwloc_get_obj_by_type.exit.us114.preheader ], [ %.174.ph.us127, %hwloc_get_obj_by_type.exit.us114 ]
-  %.271 = phi i1 [ false, %hwloc_get_obj_by_type.exit ], [ true, %hwloc_get_obj_by_type.exit.preheader ], [ false, %hwloc_get_obj_by_type.exit.us ], [ %94, %hwloc__update_best_target.exit.loopexit ], [ true, %hwloc_get_obj_by_type.exit.us.preheader ], [ true, %hwloc_get_obj_by_type.exit.us114.preheader ], [ false, %hwloc_get_obj_by_type.exit.us114 ]
+  %.282 = phi i64 [ 0, %hwloc_get_obj_by_type.exit.preheader ], [ 0, %hwloc_get_obj_by_type.exit.us.preheader ], [ 0, %hwloc_get_obj_by_type.exit.us114.preheader ], [ %.484, %hwloc__update_best_target.exit.loopexit ], [ 0, %hwloc_get_obj_by_type.exit ], [ %.181.ph.us, %hwloc_get_obj_by_type.exit.us ], [ %.181.ph.us126, %hwloc_get_obj_by_type.exit.us114 ]
+  %.275 = phi ptr [ null, %hwloc_get_obj_by_type.exit.preheader ], [ null, %hwloc_get_obj_by_type.exit.us.preheader ], [ null, %hwloc_get_obj_by_type.exit.us114.preheader ], [ %.477, %hwloc__update_best_target.exit.loopexit ], [ %24, %hwloc_get_obj_by_type.exit ], [ %.174.ph.us, %hwloc_get_obj_by_type.exit.us ], [ %.174.ph.us127, %hwloc_get_obj_by_type.exit.us114 ]
+  %.271 = phi i1 [ true, %hwloc_get_obj_by_type.exit.preheader ], [ true, %hwloc_get_obj_by_type.exit.us.preheader ], [ true, %hwloc_get_obj_by_type.exit.us114.preheader ], [ %94, %hwloc__update_best_target.exit.loopexit ], [ false, %hwloc_get_obj_by_type.exit ], [ false, %hwloc_get_obj_by_type.exit.us ], [ false, %hwloc_get_obj_by_type.exit.us114 ]
   br i1 %.271, label %hwloc__update_best_target.exit.thread177, label %hwloc__update_best_target.exit.thread
 
 hwloc__update_best_target.exit.thread:            ; preds = %59, %41, %hwloc__memattr_get_convenience_value.exit, %hwloc__update_best_target.exit
@@ -2774,7 +2774,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_best_initiator(ptr noundef %0, i3
   br label %from_internal_location.exit
 
 hwloc__memattr_get_target.exit:                   ; preds = %67, %63, %54, %45
-  %.037.i = phi ptr [ %50, %54 ], [ %41, %45 ], [ %59, %63 ], [ %59, %67 ]
+  %.037.i = phi ptr [ %41, %45 ], [ %50, %54 ], [ %59, %63 ], [ %59, %67 ]
   %73 = getelementptr inbounds nuw i8, ptr %.037.i, i64 32
   %74 = load i32, ptr %73, align 8, !tbaa !40
   %.not65 = icmp eq i32 %74, 0
@@ -2863,7 +2863,7 @@ hwloc__update_best_initiator.exit:                ; preds = %84, %85, %86
   br label %from_internal_location.exit
 
 from_internal_location.exit:                      ; preds = %93, %91, %89, %._crit_edge.thread, %.loopexit, %24, %14, %9
-  %.0 = phi i32 [ -1, %14 ], [ -1, %9 ], [ -1, %._crit_edge.thread ], [ -1, %.loopexit ], [ -1, %24 ], [ -1, %93 ], [ 0, %89 ], [ %..i, %91 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %._crit_edge.thread ], [ -1, %.loopexit ], [ -1, %24 ], [ -1, %9 ], [ -1, %93 ], [ 0, %89 ], [ %..i, %91 ]
   ret i32 %.0
 }
 
@@ -3131,7 +3131,7 @@ match_local_obj_cpuset.exit.thread:               ; preds = %.lr.ph.split, %93
   br i1 %.not39, label %._crit_edge, label %match_local_obj_cpuset.exit.thread, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %93, %85, %69, %55, %43, %.loopexit, %hwloc_get_obj_by_type.exit
-  %.028.lcssa = phi i32 [ 0, %hwloc_get_obj_by_type.exit ], [ %.1.us, %85 ], [ %.1.us.us56, %69 ], [ %.1.us.us.us, %43 ], [ 0, %.loopexit ], [ %.1.us.us, %55 ], [ %94, %93 ]
+  %.028.lcssa = phi i32 [ 0, %hwloc_get_obj_by_type.exit ], [ 0, %.loopexit ], [ %.1.us.us.us, %43 ], [ %.1.us.us, %55 ], [ %.1.us.us56, %69 ], [ %.1.us, %85 ], [ %94, %93 ]
   store i32 %.028.lcssa, ptr %2, align 4, !tbaa !60
   br label %97
 
@@ -3548,7 +3548,7 @@ hwloc_get_next_obj_by_type.exit.thread:           ; preds = %hwloc_get_next_obj_
   br label %hwloc_memory_tier_type_sscanf.exit.i
 
 hwloc_memory_tier_type_sscanf.exit.i:             ; preds = %71, %69, %67, %65, %63, %61, %59, %57, %55, %52
-  %.0.i3.i = phi i64 [ %spec.select9.i, %71 ], [ 40, %69 ], [ 2, %52 ], [ 1, %55 ], [ 4, %57 ], [ 8, %59 ], [ 16, %61 ], [ 34, %63 ], [ 33, %65 ], [ 36, %67 ]
+  %.0.i3.i = phi i64 [ 40, %69 ], [ 36, %67 ], [ 33, %65 ], [ 34, %63 ], [ 16, %61 ], [ 8, %59 ], [ 4, %57 ], [ 1, %55 ], [ 2, %52 ], [ %spec.select9.i, %71 ]
   %73 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef nonnull %36) #31
   %74 = zext i32 %.1.i to i64
   %75 = getelementptr inbounds nuw %struct.hwloc_memory_tier_s, ptr %41, i64 %74
@@ -3990,7 +3990,7 @@ hwloc__memattr_target_get_initiator.exit309.i:    ; preds = %match_internal_loca
   br label %243
 
 243:                                              ; preds = %.sink.split.i, %234, %231, %.thread326.i
-  %244 = phi i32 [ %210, %.thread326.i ], [ %210, %231 ], [ %210, %234 ], [ %242, %.sink.split.i ]
+  %244 = phi i32 [ %210, %234 ], [ %210, %.thread326.i ], [ %210, %231 ], [ %242, %.sink.split.i ]
   %indvars.iv.next387.i = add nuw nsw i64 %indvars.iv386.i, 1
   %exitcond390.not.i = icmp eq i64 %indvars.iv.next387.i, %114
   br i1 %exitcond390.not.i, label %._crit_edge350.i, label %.lr.ph349.i, !llvm.loop !129
@@ -4255,8 +4255,8 @@ hwloc__memattr_target_get_initiator.exit309.i:    ; preds = %match_internal_loca
   br i1 %.not24.i77.i, label %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, label %hwloc__guess_dram_hbm_tiers.exit.i
 
 hwloc__guess_dram_hbm_tiers.exit.sink.split.i:    ; preds = %353, %351, %331, %329
-  %spec.select25.i73.sink.i = phi ptr [ %spec.select25.i.i, %329 ], [ %spec.select25.i.i, %331 ], [ %spec.select25.i73.i, %353 ], [ %spec.select25.i73.i, %351 ]
-  %spec.select.i72.sink.i = phi ptr [ %spec.select.i.i, %329 ], [ %spec.select.i.i, %331 ], [ %spec.select.i72.i, %353 ], [ %spec.select.i72.i, %351 ]
+  %spec.select25.i73.sink.i = phi ptr [ %spec.select25.i.i, %331 ], [ %spec.select25.i.i, %329 ], [ %spec.select25.i73.i, %353 ], [ %spec.select25.i73.i, %351 ]
+  %spec.select.i72.sink.i = phi ptr [ %spec.select.i.i, %331 ], [ %spec.select.i.i, %329 ], [ %spec.select.i72.i, %353 ], [ %spec.select.i72.i, %351 ]
   %356 = getelementptr inbounds nuw i8, ptr %spec.select25.i73.sink.i, i64 40
   store i64 2, ptr %356, align 8, !tbaa !112
   %357 = getelementptr inbounds nuw i8, ptr %spec.select.i72.sink.i, i64 40
@@ -4417,7 +4417,7 @@ hwloc_get_next_obj_by_type.exit.us.i:             ; preds = %387, %384
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
 hwloc_memory_tier_type_snprintf.exit.us.i:        ; preds = %405, %404, %403, %402, %401, %400, %399, %398, %397, %393
-  %.0.i37.us.i = phi ptr [ @.str.20, %393 ], [ @.str.29, %397 ], [ @.str.21, %405 ], [ @.str.22, %404 ], [ @.str.23, %403 ], [ @.str.24, %402 ], [ @.str.25, %401 ], [ @.str.26, %400 ], [ @.str.27, %399 ], [ @.str.28, %398 ]
+  %.0.i37.us.i = phi ptr [ @.str.21, %405 ], [ @.str.22, %404 ], [ @.str.23, %403 ], [ @.str.24, %402 ], [ @.str.25, %401 ], [ @.str.26, %400 ], [ @.str.27, %399 ], [ @.str.28, %398 ], [ @.str.29, %397 ], [ @.str.20, %393 ]
   %406 = getelementptr inbounds nuw i8, ptr %.0.i.us.i, i64 8
   %407 = load ptr, ptr %406, align 8, !tbaa !104
   %408 = icmp eq ptr %407, null
@@ -4569,7 +4569,7 @@ define internal i32 @compare_tiers_by_bw_and_type(ptr noundef readonly captures(
   br label %26
 
 26:                                               ; preds = %18, %16, %8, %23
-  %.0 = phi i32 [ 1, %16 ], [ -1, %8 ], [ %25, %23 ], [ 0, %18 ]
+  %.0 = phi i32 [ %25, %23 ], [ -1, %8 ], [ 1, %16 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -4710,7 +4710,7 @@ match_internal_location.exit.thread.us49:         ; preds = %match_internal_loca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %match_internal_location.exit.us47, %match_internal_location.exit.us, %.loopexit.sink.split, %29, %._crit_edge
-  %.2 = phi ptr [ null, %29 ], [ %.2.ph, %.loopexit.sink.split ], [ %12, %match_internal_location.exit.us ], [ null, %._crit_edge ], [ %19, %match_internal_location.exit.us47 ]
+  %.2 = phi ptr [ null, %._crit_edge ], [ null, %29 ], [ %.2.ph, %.loopexit.sink.split ], [ %12, %match_internal_location.exit.us ], [ %19, %match_internal_location.exit.us47 ]
   ret ptr %.2
 }
 

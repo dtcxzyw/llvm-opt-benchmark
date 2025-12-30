@@ -237,14 +237,14 @@ define noundef range(i32 0, 6) i32 @_Z33alts_tsi_handshaker_result_createP23grpc
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit: ; preds = %22
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %_ZN3upb5ArenaD2Ev.exit201
+  br label %_ZN3upb5ArenaD2Ev.exit200
 
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %_ZN3upb5ArenaD2Ev.exit203
+  br label %_ZN3upb5ArenaD2Ev.exit202
 
 25:                                               ; preds = %3
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__HandshakerResult_msg_init) #31, !srcloc !3
@@ -267,14 +267,14 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit: ; pr
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; preds = %33
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %_ZN3upb5ArenaD2Ev.exit201
+  br label %_ZN3upb5ArenaD2Ev.exit200
 
 34:                                               ; preds = %33
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %_ZN3upb5ArenaD2Ev.exit203
+  br label %_ZN3upb5ArenaD2Ev.exit202
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -299,21 +299,21 @@ grpc_gcp_Identity_service_account.exit.thread:    ; preds = %36, %grpc_gcp_Ident
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; preds = %grpc_gcp_Identity_service_account.exit.thread
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %_ZN3upb5ArenaD2Ev.exit201
+  br label %_ZN3upb5ArenaD2Ev.exit200
 
 42:                                               ; preds = %grpc_gcp_Identity_service_account.exit.thread
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %_ZN3upb5ArenaD2Ev.exit203
+  br label %_ZN3upb5ArenaD2Ev.exit202
 
 44:                                               ; preds = %grpc_gcp_Identity_service_account.exit
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %.sroa.010.0.copyload11.i146 = load ptr, ptr %45, align 1
-  %.sroa.9.0..sroa_idx12.i147 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %.sroa.9.0.copyload13.i148 = load i64, ptr %.sroa.9.0..sroa_idx12.i147, align 1
-  %46 = icmp ult i64 %.sroa.9.0.copyload13.i148, 44
+  %.sroa.010.0.copyload11.i145 = load ptr, ptr %45, align 1
+  %.sroa.9.0..sroa_idx12.i146 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %.sroa.9.0.copyload13.i147 = load i64, ptr %.sroa.9.0..sroa_idx12.i146, align 1
+  %46 = icmp ult i64 %.sroa.9.0.copyload13.i147, 44
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
@@ -325,14 +325,14 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit: ; preds = %47
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %_ZN3upb5ArenaD2Ev.exit201
+  br label %_ZN3upb5ArenaD2Ev.exit200
 
 48:                                               ; preds = %47
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %_ZN3upb5ArenaD2Ev.exit203
+  br label %_ZN3upb5ArenaD2Ev.exit202
 
 50:                                               ; preds = %44
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions_msg_init) #31, !srcloc !3
@@ -351,47 +351,47 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit: ; pr
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; preds = %55
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZN3upb5ArenaD2Ev.exit201
+  br label %_ZN3upb5ArenaD2Ev.exit200
 
 56:                                               ; preds = %55
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZN3upb5ArenaD2Ev.exit203
+  br label %_ZN3upb5ArenaD2Ev.exit202
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.sroa.010.0.copyload11.i151 = load ptr, ptr %59, align 1
-  %.sroa.9.0..sroa_idx12.i152 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %.sroa.9.0.copyload13.i153 = load i64, ptr %.sroa.9.0..sroa_idx12.i152, align 1
-  %60 = icmp eq i64 %.sroa.9.0.copyload13.i153, 0
+  %.sroa.010.0.copyload11.i150 = load ptr, ptr %59, align 1
+  %.sroa.9.0..sroa_idx12.i151 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %.sroa.9.0.copyload13.i152 = load i64, ptr %.sroa.9.0..sroa_idx12.i151, align 1
+  %60 = icmp eq i64 %.sroa.9.0.copyload13.i152, 0
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str, i32 noundef 296) #29
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 28, ptr nonnull @.str.6)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit156 unwind label %62
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit155 unwind label %62
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit156: ; preds = %61
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit155: ; preds = %61
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %_ZN3upb5ArenaD2Ev.exit201
+  br label %_ZN3upb5ArenaD2Ev.exit200
 
 62:                                               ; preds = %61
   %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %_ZN3upb5ArenaD2Ev.exit203
+  br label %_ZN3upb5ArenaD2Ev.exit202
 
 64:                                               ; preds = %58
   %65 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %.sroa.010.0.copyload11.i157 = load ptr, ptr %65, align 1
-  %.sroa.9.0..sroa_idx12.i158 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %.sroa.9.0.copyload13.i159 = load i64, ptr %.sroa.9.0..sroa_idx12.i158, align 1
-  %66 = icmp eq i64 %.sroa.9.0.copyload13.i159, 0
+  %.sroa.010.0.copyload11.i156 = load ptr, ptr %65, align 1
+  %.sroa.9.0..sroa_idx12.i157 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %.sroa.9.0.copyload13.i158 = load i64, ptr %.sroa.9.0..sroa_idx12.i157, align 1
+  %66 = icmp eq i64 %.sroa.9.0.copyload13.i158, 0
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %64
@@ -403,14 +403,14 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit156: ;
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; preds = %67
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %_ZN3upb5ArenaD2Ev.exit201
+  br label %_ZN3upb5ArenaD2Ev.exit200
 
 68:                                               ; preds = %67
   %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %_ZN3upb5ArenaD2Ev.exit203
+  br label %_ZN3upb5ArenaD2Ev.exit202
 
 70:                                               ; preds = %64
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__Identity_msg_init) #31, !srcloc !3
@@ -429,36 +429,36 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; pr
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit: ; preds = %75
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %_ZN3upb5ArenaD2Ev.exit201
+  br label %_ZN3upb5ArenaD2Ev.exit200
 
 76:                                               ; preds = %75
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %_ZN3upb5ArenaD2Ev.exit203
+  br label %_ZN3upb5ArenaD2Ev.exit202
 
 78:                                               ; preds = %70
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %80 = load i32, ptr %79, align 4, !tbaa !4
   %81 = icmp eq i32 %80, 1
-  br i1 %81, label %_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i166, label %grpc_gcp_Identity_service_account.exit170
+  br i1 %81, label %_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i165, label %grpc_gcp_Identity_service_account.exit169
 
-_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i166: ; preds = %78
+_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i165: ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %.sroa.010.0.copyload11.i167 = load ptr, ptr %82, align 1
-  %.sroa.9.0..sroa_idx12.i168 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %.sroa.9.0.copyload13.i169 = load i64, ptr %.sroa.9.0..sroa_idx12.i168, align 1
-  br label %grpc_gcp_Identity_service_account.exit170
+  %.sroa.010.0.copyload11.i166 = load ptr, ptr %82, align 1
+  %.sroa.9.0..sroa_idx12.i167 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %.sroa.9.0.copyload13.i168 = load i64, ptr %.sroa.9.0..sroa_idx12.i167, align 1
+  br label %grpc_gcp_Identity_service_account.exit169
 
-grpc_gcp_Identity_service_account.exit170:        ; preds = %78, %_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i166
-  %.sroa.9.0.i162 = phi i64 [ %.sroa.9.0.copyload13.i169, %_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i166 ], [ 0, %78 ]
-  %.sroa.010.0.i163 = phi ptr [ %.sroa.010.0.copyload11.i167, %_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i166 ], [ @.str.18, %78 ]
+grpc_gcp_Identity_service_account.exit169:        ; preds = %78, %_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i165
+  %.sroa.9.0.i161 = phi i64 [ %.sroa.9.0.copyload13.i168, %_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i165 ], [ 0, %78 ]
+  %.sroa.010.0.i162 = phi ptr [ %.sroa.010.0.copyload11.i166, %_upb_MiniTableField_DataCopy_dont_copy_me__upb_internal_use_only.exit3.i165 ], [ @.str.18, %78 ]
   %83 = tail call noundef ptr @gpr_zalloc(i64 noundef 120)
   %84 = tail call ptr @gpr_zalloc(i64 noundef 44)
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %84, ptr %85, align 8, !tbaa !8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %84, ptr noundef nonnull align 1 dereferenceable(44) %.sroa.010.0.copyload11.i146, i64 44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %84, ptr noundef nonnull align 1 dereferenceable(44) %.sroa.010.0.copyload11.i145, i64 44, i1 false)
   %86 = add i64 %.sroa.9.0.copyload13.i, 1
   %87 = tail call ptr @gpr_zalloc(i64 noundef %86)
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -474,7 +474,7 @@ grpc_gcp_Identity_service_account.exit170:        ; preds = %78, %_upb_MiniTable
   %95 = invoke noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK28grpc_gcp_RpcProtocolVersionsP9upb_ArenaP10grpc_slice(ptr noundef nonnull %53, ptr noundef %93, ptr noundef nonnull %94)
           to label %96 unwind label %99
 
-96:                                               ; preds = %grpc_gcp_Identity_service_account.exit170
+96:                                               ; preds = %grpc_gcp_Identity_service_account.exit169
   br i1 %95, label %106, label %97
 
 97:                                               ; preds = %96
@@ -491,10 +491,10 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN3upb5ArenaD2Ev.exit
 
-99:                                               ; preds = %grpc_gcp_Identity_service_account.exit170
+99:                                               ; preds = %grpc_gcp_Identity_service_account.exit169
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3upb5ArenaD2Ev.exit199
+  br label %_ZN3upb5ArenaD2Ev.exit198
 
 101:                                              ; preds = %97
   %102 = landingpad { ptr, i32 }
@@ -510,7 +510,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit: ; pr
 105:                                              ; preds = %103, %101
   %.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %_ZN3upb5ArenaD2Ev.exit199
+  br label %_ZN3upb5ArenaD2Ev.exit198
 
 106:                                              ; preds = %96
   %107 = invoke ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
@@ -551,7 +551,7 @@ upb_Arena_Malloc.exit.i.i:                        ; preds = %119, %121
 124:                                              ; preds = %106
   %125 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3upb5ArenaD2Ev.exit199
+  br label %_ZN3upb5ArenaD2Ev.exit198
 
 126:                                              ; preds = %119
   %127 = landingpad { ptr, i32 }
@@ -560,23 +560,23 @@ upb_Arena_Malloc.exit.i.i:                        ; preds = %119, %121
 
 128:                                              ; preds = %123, %upb_Arena_Malloc.exit.i.i
   %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store ptr %.sroa.010.0.copyload11.i151, ptr %129, align 1
+  store ptr %.sroa.010.0.copyload11.i150, ptr %129, align 1
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  store i64 %.sroa.9.0.copyload13.i153, ptr %.sroa.56.0..sroa_idx.i, align 1
+  store i64 %.sroa.9.0.copyload13.i152, ptr %.sroa.56.0..sroa_idx.i, align 1
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  store ptr %.sroa.010.0.copyload11.i157, ptr %130, align 1
-  %.sroa.56.0..sroa_idx.i171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
-  store i64 %.sroa.9.0.copyload13.i159, ptr %.sroa.56.0..sroa_idx.i171, align 1
+  store ptr %.sroa.010.0.copyload11.i156, ptr %130, align 1
+  %.sroa.56.0..sroa_idx.i170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
+  store i64 %.sroa.9.0.copyload13.i158, ptr %.sroa.56.0..sroa_idx.i170, align 1
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 2, ptr %131, align 1
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %.sroa.010.0.copyload11.i, ptr %132, align 1
-  %.sroa.56.0..sroa_idx.i172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store i64 %.sroa.9.0.copyload13.i, ptr %.sroa.56.0..sroa_idx.i172, align 1
+  %.sroa.56.0..sroa_idx.i171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  store i64 %.sroa.9.0.copyload13.i, ptr %.sroa.56.0..sroa_idx.i171, align 1
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr %.sroa.010.0.i163, ptr %133, align 1
-  %.sroa.56.0..sroa_idx.i173 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
-  store i64 %.sroa.9.0.i162, ptr %.sroa.56.0..sroa_idx.i173, align 1
+  store ptr %.sroa.010.0.i162, ptr %133, align 1
+  %.sroa.56.0..sroa_idx.i172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
+  store i64 %.sroa.9.0.i161, ptr %.sroa.56.0..sroa_idx.i172, align 1
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions_msg_init) #31, !srcloc !3
   %134 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %135 = load i8, ptr %134, align 1, !tbaa !28
@@ -599,8 +599,8 @@ grpc_gcp_Identity_attributes_size.exit:           ; preds = %128
 143:                                              ; preds = %grpc_gcp_Identity_attributes_size.exit
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__Identity__AttributesEntry_msg_init) #31, !srcloc !3
   %144 = load i64, ptr %138, align 1
-  %.not.i174 = icmp eq i64 %144, 0
-  br i1 %.not.i174, label %grpc_gcp_Identity_attributes_size.exit.thread, label %145
+  %.not.i173 = icmp eq i64 %144, 0
+  br i1 %.not.i173, label %grpc_gcp_Identity_attributes_size.exit.thread, label %145
 
 145:                                              ; preds = %143
   %146 = inttoptr i64 %144 to ptr
@@ -610,28 +610,28 @@ grpc_gcp_Identity_attributes_size.exit:           ; preds = %128
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 -1, ptr %148, align 8, !tbaa !36
   invoke void @upb_strtable_next(ptr noundef nonnull %6)
-          to label %.noexc175 unwind label %196
+          to label %.noexc174 unwind label %196
 
-.noexc175:                                        ; preds = %145
+.noexc174:                                        ; preds = %145
   %149 = load i64, ptr %148, align 8, !tbaa !36
   %150 = invoke zeroext i1 @upb_strtable_done(ptr noundef nonnull %6)
-          to label %.noexc176 unwind label %196
+          to label %.noexc175 unwind label %196
 
-.noexc176:                                        ; preds = %.noexc175
-  br i1 %150, label %grpc_gcp_Identity_attributes_nextmutable.exit.thread248, label %grpc_gcp_Identity_attributes_nextmutable.exit
+.noexc175:                                        ; preds = %.noexc174
+  br i1 %150, label %grpc_gcp_Identity_attributes_nextmutable.exit.thread247, label %grpc_gcp_Identity_attributes_nextmutable.exit
 
-grpc_gcp_Identity_attributes_nextmutable.exit.thread248: ; preds = %.noexc176
+grpc_gcp_Identity_attributes_nextmutable.exit.thread247: ; preds = %.noexc175
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %grpc_gcp_Identity_attributes_size.exit.thread
 
-grpc_gcp_Identity_attributes_nextmutable.exit:    ; preds = %.noexc176
+grpc_gcp_Identity_attributes_nextmutable.exit:    ; preds = %.noexc175
   %151 = load ptr, ptr %6, align 8, !tbaa !34
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8, !tbaa !37
   %154 = load i64, ptr %148, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not118231 = icmp eq ptr %153, null
-  br i1 %.not118231, label %grpc_gcp_Identity_attributes_size.exit.thread, label %.lr.ph
+  %.not118230 = icmp eq ptr %153, null
+  br i1 %.not118230, label %grpc_gcp_Identity_attributes_size.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %grpc_gcp_Identity_attributes_nextmutable.exit
   %155 = getelementptr inbounds nuw %struct._upb_tabent, ptr %153, i64 %154
@@ -639,15 +639,15 @@ grpc_gcp_Identity_attributes_nextmutable.exit:    ; preds = %.noexc176
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %158
 
-158:                                              ; preds = %.lr.ph, %grpc_gcp_Identity_attributes_nextmutable.exit193
-  %.0107233 = phi ptr [ %155, %.lr.ph ], [ %195, %grpc_gcp_Identity_attributes_nextmutable.exit193 ]
-  %.0225232 = phi i64 [ %149, %.lr.ph ], [ %189, %grpc_gcp_Identity_attributes_nextmutable.exit193 ]
-  %159 = load i64, ptr %.0107233, align 8, !tbaa !38
+158:                                              ; preds = %.lr.ph, %grpc_gcp_Identity_attributes_nextmutable.exit192
+  %.0107232 = phi ptr [ %155, %.lr.ph ], [ %195, %grpc_gcp_Identity_attributes_nextmutable.exit192 ]
+  %.0224231 = phi i64 [ %149, %.lr.ph ], [ %189, %grpc_gcp_Identity_attributes_nextmutable.exit192 ]
+  %159 = load i64, ptr %.0107232, align 8, !tbaa !38
   %160 = inttoptr i64 %159 to ptr
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = load i32, ptr %160, align 1
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw i8, ptr %.0107233, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.0107232, i64 8
   %165 = load i64, ptr %164, align 8, !tbaa !41
   %166 = inttoptr i64 %165 to ptr
   %.sroa.0.0.copyload.i = load ptr, ptr %166, align 8
@@ -656,20 +656,20 @@ grpc_gcp_Identity_attributes_nextmutable.exit:    ; preds = %.noexc176
   call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__AltsContext__PeerAttributesEntry_msg_init) #31, !srcloc !3
   %167 = load i64, ptr %156, align 1
   %168 = inttoptr i64 %167 to ptr
-  %.not.i.i181 = icmp eq i64 %167, 0
-  br i1 %.not.i.i181, label %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i, label %_upb_Message_GetOrCreateMutableMap.exit.i
+  %.not.i.i180 = icmp eq i64 %167, 0
+  br i1 %.not.i.i180, label %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i, label %_upb_Message_GetOrCreateMutableMap.exit.i
 
 _upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i: ; preds = %158
   %169 = invoke ptr @_upb_Map_New(ptr noundef nonnull %107, i64 noundef 0, i64 noundef 0)
-          to label %.noexc183 unwind label %198
+          to label %.noexc182 unwind label %198
 
-.noexc183:                                        ; preds = %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i
+.noexc182:                                        ; preds = %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i
   %170 = ptrtoint ptr %169 to i64
   store i64 %170, ptr %156, align 1
   br label %_upb_Message_GetOrCreateMutableMap.exit.i
 
-_upb_Message_GetOrCreateMutableMap.exit.i:        ; preds = %.noexc183, %158
-  %.0.i.i182 = phi ptr [ %168, %158 ], [ %169, %.noexc183 ]
+_upb_Message_GetOrCreateMutableMap.exit.i:        ; preds = %.noexc182, %158
+  %.0.i.i181 = phi ptr [ %168, %158 ], [ %169, %.noexc182 ]
   %171 = load ptr, ptr %112, align 8, !tbaa !24
   %172 = load ptr, ptr %107, align 8, !tbaa !26
   %173 = ptrtoint ptr %171 to i64
@@ -696,43 +696,43 @@ upb_Arena_Malloc.exit.i.i.i:                      ; preds = %177, %179
   store ptr %.sroa.0.0.copyload.i, ptr %.0.i.i.i.i, align 8, !tbaa !42
   %.sroa.2.0..0.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..0.i.i.i.sroa_idx.i, align 8, !tbaa !43
-  %181 = getelementptr inbounds nuw i8, ptr %.0.i.i182, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %.0.i.i181, i64 8
   %182 = invoke zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %181, ptr noundef nonnull %161, i64 noundef %163, ptr noundef null)
-          to label %.noexc185 unwind label %198
+          to label %.noexc184 unwind label %198
 
-.noexc185:                                        ; preds = %.thread.i.i.i
+.noexc184:                                        ; preds = %.thread.i.i.i
   %183 = ptrtoint ptr %.0.i.i.i.i to i64
   %184 = invoke zeroext i1 @upb_strtable_insert(ptr noundef nonnull %181, ptr noundef nonnull %161, i64 noundef %163, i64 %183, ptr noundef nonnull %107)
           to label %grpc_gcp_AltsContext_peer_attributes_set.exit unwind label %198
 
-grpc_gcp_AltsContext_peer_attributes_set.exit:    ; preds = %upb_Arena_Malloc.exit.i.i.i, %.noexc185
+grpc_gcp_AltsContext_peer_attributes_set.exit:    ; preds = %upb_Arena_Malloc.exit.i.i.i, %.noexc184
   call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__Identity__AttributesEntry_msg_init) #31, !srcloc !3
   %185 = load i64, ptr %138, align 1
-  %.not.i187 = icmp eq i64 %185, 0
-  br i1 %.not.i187, label %grpc_gcp_Identity_attributes_size.exit.thread, label %186
+  %.not.i186 = icmp eq i64 %185, 0
+  br i1 %.not.i186, label %grpc_gcp_Identity_attributes_size.exit.thread, label %186
 
 186:                                              ; preds = %grpc_gcp_AltsContext_peer_attributes_set.exit
   %187 = inttoptr i64 %185 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store ptr %188, ptr %5, align 8, !tbaa !34
-  store i64 %.0225232, ptr %157, align 8, !tbaa !36
+  store i64 %.0224231, ptr %157, align 8, !tbaa !36
   invoke void @upb_strtable_next(ptr noundef nonnull %5)
-          to label %.noexc191 unwind label %198
+          to label %.noexc190 unwind label %198
 
-.noexc191:                                        ; preds = %186
+.noexc190:                                        ; preds = %186
   %189 = load i64, ptr %157, align 8, !tbaa !36
   %190 = invoke zeroext i1 @upb_strtable_done(ptr noundef nonnull %5)
-          to label %.noexc192 unwind label %198
+          to label %.noexc191 unwind label %198
 
-.noexc192:                                        ; preds = %.noexc191
-  br i1 %190, label %grpc_gcp_Identity_attributes_nextmutable.exit193.thread254, label %grpc_gcp_Identity_attributes_nextmutable.exit193
+.noexc191:                                        ; preds = %.noexc190
+  br i1 %190, label %grpc_gcp_Identity_attributes_nextmutable.exit192.thread253, label %grpc_gcp_Identity_attributes_nextmutable.exit192
 
-grpc_gcp_Identity_attributes_nextmutable.exit193.thread254: ; preds = %.noexc192
+grpc_gcp_Identity_attributes_nextmutable.exit192.thread253: ; preds = %.noexc191
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %grpc_gcp_Identity_attributes_size.exit.thread
 
-grpc_gcp_Identity_attributes_nextmutable.exit193: ; preds = %.noexc192
+grpc_gcp_Identity_attributes_nextmutable.exit192: ; preds = %.noexc191
   %191 = load ptr, ptr %5, align 8, !tbaa !34
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %193 = load ptr, ptr %192, align 8, !tbaa !37
@@ -742,17 +742,17 @@ grpc_gcp_Identity_attributes_nextmutable.exit193: ; preds = %.noexc192
   %.not118 = icmp eq ptr %193, null
   br i1 %.not118, label %grpc_gcp_Identity_attributes_size.exit.thread, label %158
 
-196:                                              ; preds = %.noexc175, %145
+196:                                              ; preds = %.noexc174, %145
   %197 = landingpad { ptr, i32 }
           cleanup
   br label %225
 
-198:                                              ; preds = %.noexc191, %186, %.noexc185, %.thread.i.i.i, %177, %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i
+198:                                              ; preds = %.noexc190, %186, %.noexc184, %.thread.i.i.i, %177, %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i
   %199 = landingpad { ptr, i32 }
           cleanup
   br label %225
 
-grpc_gcp_Identity_attributes_size.exit.thread:    ; preds = %grpc_gcp_AltsContext_peer_attributes_set.exit, %grpc_gcp_Identity_attributes_nextmutable.exit193, %143, %grpc_gcp_Identity_attributes_nextmutable.exit193.thread254, %grpc_gcp_Identity_attributes_nextmutable.exit.thread248, %grpc_gcp_Identity_attributes_nextmutable.exit, %128, %grpc_gcp_Identity_attributes_size.exit
+grpc_gcp_Identity_attributes_size.exit.thread:    ; preds = %grpc_gcp_AltsContext_peer_attributes_set.exit, %grpc_gcp_Identity_attributes_nextmutable.exit192, %143, %grpc_gcp_Identity_attributes_nextmutable.exit192.thread253, %grpc_gcp_Identity_attributes_nextmutable.exit.thread247, %grpc_gcp_Identity_attributes_nextmutable.exit, %128, %grpc_gcp_Identity_attributes_size.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %200 = invoke i32 @upb_Encode(ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull @grpc__gcp__AltsContext_msg_init, i32 noundef 0, ptr noundef nonnull %107, ptr noundef nonnull %4, ptr noundef nonnull %16)
@@ -771,9 +771,9 @@ grpc_gcp_Identity_attributes_size.exit.thread:    ; preds = %grpc_gcp_AltsContex
 
 205:                                              ; preds = %204
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 40, ptr nonnull @.str.11)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit196 unwind label %210
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit195 unwind label %210
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit196: ; preds = %205
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit195: ; preds = %205
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %220
@@ -821,8 +821,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit196: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %224
 
-220:                                              ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit196, %215
-  %.10 = phi i32 [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit196 ], [ 0, %215 ]
+220:                                              ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit195, %215
+  %.10 = phi i32 [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit195 ], [ 0, %215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   invoke void @upb_Arena_Free(ptr noundef nonnull %107)
           to label %_ZN3upb5ArenaD2Ev.exit unwind label %221
@@ -840,9 +840,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit196: ;
   br label %225
 
 225:                                              ; preds = %126, %224, %198, %196
-  %.pn125.pn = phi { ptr, i32 } [ %127, %126 ], [ %199, %198 ], [ %.pn119.pn, %224 ], [ %197, %196 ]
+  %.pn122.pn.pn.pn = phi { ptr, i32 } [ %127, %126 ], [ %.pn119.pn, %224 ], [ %197, %196 ], [ %199, %198 ]
   invoke void @upb_Arena_Free(ptr noundef nonnull %107)
-          to label %_ZN3upb5ArenaD2Ev.exit199 unwind label %226
+          to label %_ZN3upb5ArenaD2Ev.exit198 unwind label %226
 
 226:                                              ; preds = %225
   %227 = landingpad { ptr, i32 }
@@ -853,12 +853,12 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit196: ;
 
 _ZN3upb5ArenaD2Ev.exit:                           ; preds = %220, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit
   %.8 = phi i32 [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit ], [ %.10, %220 ]
-  %.not.i.i200 = icmp eq ptr %93, null
-  br i1 %.not.i.i200, label %_ZN3upb5ArenaD2Ev.exit201, label %229
+  %.not.i.i199 = icmp eq ptr %93, null
+  br i1 %.not.i.i199, label %_ZN3upb5ArenaD2Ev.exit200, label %229
 
 229:                                              ; preds = %_ZN3upb5ArenaD2Ev.exit
   invoke void @upb_Arena_Free(ptr noundef nonnull %93)
-          to label %_ZN3upb5ArenaD2Ev.exit201 unwind label %230
+          to label %_ZN3upb5ArenaD2Ev.exit200 unwind label %230
 
 230:                                              ; preds = %229
   %231 = landingpad { ptr, i32 }
@@ -867,14 +867,14 @@ _ZN3upb5ArenaD2Ev.exit:                           ; preds = %220, %_ZN4absl12lts
   call void @__clang_call_terminate(ptr %232) #32
   unreachable
 
-_ZN3upb5ArenaD2Ev.exit199:                        ; preds = %124, %225, %105, %99
-  %.pn125.pn.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %105 ], [ %125, %124 ], [ %.pn125.pn, %225 ]
-  %.not.i.i202 = icmp eq ptr %93, null
-  br i1 %.not.i.i202, label %_ZN3upb5ArenaD2Ev.exit203, label %233
+_ZN3upb5ArenaD2Ev.exit198:                        ; preds = %124, %225, %105, %99
+  %.pn122.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %105 ], [ %100, %99 ], [ %125, %124 ], [ %.pn122.pn.pn.pn, %225 ]
+  %.not.i.i201 = icmp eq ptr %93, null
+  br i1 %.not.i.i201, label %_ZN3upb5ArenaD2Ev.exit202, label %233
 
-233:                                              ; preds = %_ZN3upb5ArenaD2Ev.exit199
+233:                                              ; preds = %_ZN3upb5ArenaD2Ev.exit198
   invoke void @upb_Arena_Free(ptr noundef nonnull %93)
-          to label %_ZN3upb5ArenaD2Ev.exit203 unwind label %234
+          to label %_ZN3upb5ArenaD2Ev.exit202 unwind label %234
 
 234:                                              ; preds = %233
   %235 = landingpad { ptr, i32 }
@@ -883,13 +883,13 @@ _ZN3upb5ArenaD2Ev.exit199:                        ; preds = %124, %225, %105, %9
   call void @__clang_call_terminate(ptr %236) #32
   unreachable
 
-_ZN3upb5ArenaD2Ev.exit201:                        ; preds = %229, %_ZN3upb5ArenaD2Ev.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit156, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit
-  %.0 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit156 ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit ], [ %.8, %_ZN3upb5ArenaD2Ev.exit ], [ %.8, %229 ]
+_ZN3upb5ArenaD2Ev.exit200:                        ; preds = %229, %_ZN3upb5ArenaD2Ev.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit155, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit
+  %.0 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit155 ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit ], [ %.8, %_ZN3upb5ArenaD2Ev.exit ], [ %.8, %229 ]
   ret i32 %.0
 
-_ZN3upb5ArenaD2Ev.exit203:                        ; preds = %233, %_ZN3upb5ArenaD2Ev.exit199, %34, %48, %62, %76, %68, %56, %42, %23
-  %.pn144 = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %43, %42 ], [ %49, %48 ], [ %57, %56 ], [ %63, %62 ], [ %69, %68 ], [ %77, %76 ], [ %.pn125.pn.pn.pn, %_ZN3upb5ArenaD2Ev.exit199 ], [ %.pn125.pn.pn.pn, %233 ]
-  resume { ptr, i32 } %.pn144
+_ZN3upb5ArenaD2Ev.exit202:                        ; preds = %233, %_ZN3upb5ArenaD2Ev.exit198, %34, %48, %62, %76, %68, %56, %42, %23
+  %.pn143 = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %43, %42 ], [ %49, %48 ], [ %57, %56 ], [ %63, %62 ], [ %69, %68 ], [ %77, %76 ], [ %.pn122.pn.pn.pn.pn.pn, %_ZN3upb5ArenaD2Ev.exit198 ], [ %.pn122.pn.pn.pn.pn.pn, %233 ]
+  resume { ptr, i32 } %.pn143
 }
 
 ; Function Attrs: cold
@@ -2480,7 +2480,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %79, %82
   br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %89, %_ZN4absl12lts_202407226StatusD2Ev.exit, %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %_ZN4absl12lts_202407229MutexLockD2Ev.exit75, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit, %18
-  %.0 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ 2, %18 ], [ 4, %_ZN4absl12lts_202407229MutexLockD2Ev.exit75 ], [ 14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ %90, %94 ], [ 13, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 13, %89 ]
+  %.0 = phi i32 [ 2, %18 ], [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ %90, %94 ], [ 4, %_ZN4absl12lts_202407229MutexLockD2Ev.exit75 ], [ 14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ 13, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 13, %89 ]
   ret i32 %.0
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit76:      ; preds = %52, %87, %92, %22
@@ -2979,7 +2979,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.critedge97
   br label %111
 
 107:                                              ; preds = %92, %98, %71, %77, %99
-  %.pn89.pn = phi { ptr, i32 } [ %72, %71 ], [ %100, %99 ], [ %78, %77 ], [ %.pn, %98 ], [ %93, %92 ]
+  %.pn89.pn = phi { ptr, i32 } [ %100, %99 ], [ %78, %77 ], [ %72, %71 ], [ %.pn, %98 ], [ %93, %92 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %61)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit108 unwind label %108
 
@@ -3086,8 +3086,8 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit.thread
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %56, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
-  %.2 = phi i32 [ %.0, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ 14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ 5, %56 ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit ]
+_ZN4absl12lts_202407229MutexLockD2Ev.exit.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit, %56, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
+  %.2 = phi i32 [ %.0, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ 14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ 5, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit ], [ 5, %56 ]
   ret i32 %.2
 }
 

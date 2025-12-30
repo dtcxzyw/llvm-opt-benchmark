@@ -878,7 +878,7 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %lv_textarea_clear_s
   %97 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 35, ptr noundef null) #10
   br label %insert_handler.exit.thread
 
-insert_handler.exit.thread:                       ; preds = %lv_textarea_get_text.exit.i, %20, %15, %char_is_accepted.exit, %lv_textarea_get_cursor_pos.exit
+insert_handler.exit.thread:                       ; preds = %lv_textarea_get_text.exit.i, %15, %20, %char_is_accepted.exit, %lv_textarea_get_cursor_pos.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %98
@@ -1459,7 +1459,7 @@ lv_textarea_clear_selection.exit:                 ; preds = %26, %29
   %56 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 35, ptr noundef null) #10
   br label %insert_handler.exit.thread
 
-insert_handler.exit.thread:                       ; preds = %15, %10, %53
+insert_handler.exit.thread:                       ; preds = %10, %15, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %57
 
@@ -2265,7 +2265,7 @@ define void @lv_textarea_set_align(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.preheader.i9
 
 lv_textarea_get_label.exit:                       ; preds = %5, %4, %3
-  %.sink11 = phi i32 [ 3, %4 ], [ 1, %3 ], [ 2, %5 ]
+  %.sink11 = phi i32 [ 1, %3 ], [ 3, %4 ], [ 2, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !22
   tail call void @lv_obj_align(ptr noundef %7, i32 noundef %.sink11, i32 noundef 0, i32 noundef 0) #10

@@ -186,7 +186,7 @@ define void @_ZN15wiggle_generate5types15define_datatype17h8c5de3a4fed51b86E(ptr
           to label %52 unwind label %56, !noalias !5
 
 common.resume:                                    ; preds = %167, %182, %188, %137, %90, %32
-  %common.resume.op = phi { ptr, i32 } [ %.pn2.i8, %137 ], [ %.pn2.i, %32 ], [ %.pn3.i, %90 ], [ %.pn4, %167 ], [ %183, %182 ], [ %189, %188 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn2.i, %32 ], [ %.pn3.i, %90 ], [ %.pn2.i8, %137 ], [ %.pn4, %167 ], [ %183, %182 ], [ %189, %188 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN15wiggle_generate5types12define_alias17ha26e314fa3fb1207E.exit: ; preds = %52
@@ -812,7 +812,7 @@ define hidden void @_ZN15wiggle_generate5types15int_repr_tokens17h6c427b1b03a191
           to label %17 unwind label %15
 
 14:                                               ; preds = %8, %11, %10, %9
-  %.sink = phi ptr [ %4, %10 ], [ %5, %9 ], [ %3, %11 ], [ %6, %8 ]
+  %.sink = phi ptr [ %5, %9 ], [ %4, %10 ], [ %3, %11 ], [ %6, %8 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink, i64 32, i1 false)
   ret void
 

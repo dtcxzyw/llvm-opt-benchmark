@@ -606,7 +606,7 @@ if.else26.i:                                      ; preds = %_ZNSt11char_traitsI
           to label %cleanup.i unwind label %lpad11.i
 
 if.end31.i:                                       ; preds = %invoke.cont23.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i, %invoke.cont14.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
-  %.sink.i = phi ptr [ %spec.select.i, %invoke.cont14.i ], [ @.str.31, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i ], [ @.str.34, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i ], [ %spec.select52.i, %invoke.cont23.i ]
+  %.sink.i = phi ptr [ @.str.31, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i ], [ %spec.select.i, %invoke.cont14.i ], [ @.str.34, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i ], [ %spec.select52.i, %invoke.cont23.i ]
   %call.i.i47.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink.i) #21, !noalias !6
   %all_names_.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp4.sroa.4.0.copyload, i64 8
   %28 = load ptr, ptr %all_names_.i.i, align 8, !noalias !6
@@ -1228,13 +1228,13 @@ lpad35:                                           ; preds = %sw.epilog, %invoke.
   unreachable
 
 return:                                           ; preds = %.noexc65, %.noexc57, %.noexc49, %.noexc41, %.noexc33, %.noexc25, %.noexc17, %.noexc9, %.noexc
-  %ref.tmp30.sink = phi ptr [ %ref.tmp26, %.noexc57 ], [ %ref.tmp22, %.noexc49 ], [ %ref.tmp18, %.noexc41 ], [ %ref.tmp14, %.noexc33 ], [ %ref.tmp10, %.noexc25 ], [ %ref.tmp6, %.noexc17 ], [ %ref.tmp2, %.noexc9 ], [ %ref.tmp, %.noexc ], [ %ref.tmp30, %.noexc65 ]
+  %ref.tmp30.sink = phi ptr [ %ref.tmp, %.noexc ], [ %ref.tmp2, %.noexc9 ], [ %ref.tmp6, %.noexc17 ], [ %ref.tmp10, %.noexc25 ], [ %ref.tmp14, %.noexc33 ], [ %ref.tmp18, %.noexc41 ], [ %ref.tmp22, %.noexc49 ], [ %ref.tmp26, %.noexc57 ], [ %ref.tmp30, %.noexc65 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30.sink) #21
   ret void
 
 eh.resume:                                        ; preds = %lpad31, %lpad.i62, %lpad27, %lpad.i54, %lpad23, %lpad.i46, %lpad19, %lpad.i38, %lpad15, %lpad.i30, %lpad11, %lpad.i22, %lpad7, %lpad.i14, %lpad3, %lpad.i6, %lpad, %lpad.i
-  %ref.tmp30.sink69 = phi ptr [ %ref.tmp26, %lpad27 ], [ %ref.tmp22, %lpad23 ], [ %ref.tmp18, %lpad19 ], [ %ref.tmp14, %lpad15 ], [ %ref.tmp10, %lpad11 ], [ %ref.tmp6, %lpad7 ], [ %ref.tmp2, %lpad3 ], [ %ref.tmp, %lpad ], [ %ref.tmp, %lpad.i ], [ %ref.tmp2, %lpad.i6 ], [ %ref.tmp6, %lpad.i14 ], [ %ref.tmp10, %lpad.i22 ], [ %ref.tmp14, %lpad.i30 ], [ %ref.tmp18, %lpad.i38 ], [ %ref.tmp22, %lpad.i46 ], [ %ref.tmp26, %lpad.i54 ], [ %ref.tmp30, %lpad.i62 ], [ %ref.tmp30, %lpad31 ]
-  %.pn = phi { ptr, i32 } [ %21, %lpad27 ], [ %19, %lpad23 ], [ %17, %lpad19 ], [ %15, %lpad15 ], [ %13, %lpad11 ], [ %11, %lpad7 ], [ %9, %lpad3 ], [ %7, %lpad ], [ %6, %lpad.i ], [ %8, %lpad.i6 ], [ %10, %lpad.i14 ], [ %12, %lpad.i22 ], [ %14, %lpad.i30 ], [ %16, %lpad.i38 ], [ %18, %lpad.i46 ], [ %20, %lpad.i54 ], [ %22, %lpad.i62 ], [ %23, %lpad31 ]
+  %ref.tmp30.sink69 = phi ptr [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ], [ %ref.tmp2, %lpad.i6 ], [ %ref.tmp2, %lpad3 ], [ %ref.tmp6, %lpad.i14 ], [ %ref.tmp6, %lpad7 ], [ %ref.tmp10, %lpad.i22 ], [ %ref.tmp10, %lpad11 ], [ %ref.tmp14, %lpad.i30 ], [ %ref.tmp14, %lpad15 ], [ %ref.tmp18, %lpad.i38 ], [ %ref.tmp18, %lpad19 ], [ %ref.tmp22, %lpad.i46 ], [ %ref.tmp22, %lpad23 ], [ %ref.tmp26, %lpad.i54 ], [ %ref.tmp26, %lpad27 ], [ %ref.tmp30, %lpad.i62 ], [ %ref.tmp30, %lpad31 ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad.i ], [ %7, %lpad ], [ %8, %lpad.i6 ], [ %9, %lpad3 ], [ %10, %lpad.i14 ], [ %11, %lpad7 ], [ %12, %lpad.i22 ], [ %13, %lpad11 ], [ %14, %lpad.i30 ], [ %15, %lpad15 ], [ %16, %lpad.i38 ], [ %17, %lpad19 ], [ %18, %lpad.i46 ], [ %19, %lpad23 ], [ %20, %lpad.i54 ], [ %21, %lpad27 ], [ %22, %lpad.i62 ], [ %23, %lpad31 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30.sink69) #21
   resume { ptr, i32 } %.pn
 }

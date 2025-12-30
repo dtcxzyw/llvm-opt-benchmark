@@ -207,7 +207,7 @@ define hidden void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %0
   br i1 %.not104, label %.loopexit, label %81, !llvm.loop !21
 
 .loopexit:                                        ; preds = %42, %81, %._crit_edge150, %._crit_edge125
-  %storemerge = phi i32 [ %.198.lcssa, %._crit_edge125 ], [ %90, %81 ], [ %.6.lcssa, %._crit_edge150 ], [ %51, %42 ]
+  %storemerge = phi i32 [ %.198.lcssa, %._crit_edge125 ], [ %.6.lcssa, %._crit_edge150 ], [ %90, %81 ], [ %51, %42 ]
   store i32 %storemerge, ptr %5, align 4, !tbaa !6
   ret void
 }

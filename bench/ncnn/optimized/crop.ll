@@ -1304,8 +1304,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   br label %_ZNK4ncnn3Mat5shapeEv.exit234
 
 _ZNK4ncnn3Mat5shapeEv.exit234:                    ; preds = %79, %80, %81, %82, %86
-  %.sroa.85.0 = phi i32 [ %89, %86 ], [ 1, %80 ], [ 1, %81 ], [ %85, %82 ], [ 0, %79 ]
-  %.sroa.48.0 = phi i32 [ 4, %86 ], [ 1, %80 ], [ 2, %81 ], [ 3, %82 ], [ 0, %79 ]
+  %.sroa.85.0 = phi i32 [ 1, %80 ], [ 1, %81 ], [ %85, %82 ], [ %89, %86 ], [ 0, %79 ]
+  %.sroa.48.0 = phi i32 [ 1, %80 ], [ 2, %81 ], [ 3, %82 ], [ 4, %86 ], [ 0, %79 ]
   %90 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %91 = load i32, ptr %90, align 8, !tbaa !47, !noalias !59
   switch i32 %91, label %_ZNK4ncnn3Mat5shapeEv.exit236 [
@@ -1360,11 +1360,11 @@ _ZNK4ncnn3Mat5shapeEv.exit234:                    ; preds = %79, %80, %81, %82, 
   br label %_ZNK4ncnn3Mat5shapeEv.exit236
 
 _ZNK4ncnn3Mat5shapeEv.exit236:                    ; preds = %115, %.noexc235, %98, %92, %_ZNK4ncnn3Mat5shapeEv.exit234
-  %.sroa.68.0 = phi i32 [ %121, %115 ], [ 1, %92 ], [ 1, %98 ], [ 1, %.noexc235 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
-  %.sroa.58.0 = phi i32 [ %119, %115 ], [ 1, %92 ], [ %105, %98 ], [ %109, %.noexc235 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
-  %.sroa.47.0 = phi i32 [ %117, %115 ], [ %97, %92 ], [ %100, %98 ], [ %107, %.noexc235 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
-  %127 = phi i32 [ %126, %115 ], [ %.sroa.85.0, %92 ], [ %.sroa.85.0, %98 ], [ %.sroa.85.0, %.noexc235 ], [ %.sroa.85.0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
-  %128 = phi i32 [ %.sroa.85.0, %115 ], [ %.sroa.85.0, %92 ], [ %.sroa.85.0, %98 ], [ %114, %.noexc235 ], [ %.sroa.85.0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %.sroa.68.0 = phi i32 [ 1, %92 ], [ 1, %98 ], [ 1, %.noexc235 ], [ %121, %115 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %.sroa.58.0 = phi i32 [ 1, %92 ], [ %105, %98 ], [ %109, %.noexc235 ], [ %119, %115 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %.sroa.47.0 = phi i32 [ %97, %92 ], [ %100, %98 ], [ %107, %.noexc235 ], [ %117, %115 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %127 = phi i32 [ %.sroa.85.0, %92 ], [ %.sroa.85.0, %98 ], [ %.sroa.85.0, %.noexc235 ], [ %126, %115 ], [ %.sroa.85.0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %128 = phi i32 [ %.sroa.85.0, %92 ], [ %.sroa.85.0, %98 ], [ %114, %.noexc235 ], [ %.sroa.85.0, %115 ], [ %.sroa.85.0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
   switch i32 %.sroa.48.0, label %_ZN4ncnn3MatD2Ev.exit [
     i32 1, label %129
     i32 2, label %130
@@ -1415,10 +1415,10 @@ _ZNK4ncnn3Mat5shapeEv.exit236:                    ; preds = %115, %.noexc235, %9
   br label %_ZN4ncnn3MatD2Ev.exit
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %36, %138, %133, %130, %129, %_ZNK4ncnn3Mat5shapeEv.exit236, %.sink.split.i
-  %145 = phi i32 [ %73, %.sink.split.i ], [ %34, %138 ], [ undef, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ %34, %129 ], [ %34, %130 ], [ %34, %133 ], [ undef, %36 ]
-  %146 = phi i32 [ %74, %.sink.split.i ], [ %140, %138 ], [ undef, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ undef, %129 ], [ %132, %130 ], [ %135, %133 ], [ undef, %36 ]
-  %147 = phi i32 [ %75, %.sink.split.i ], [ %.sroa.68.0, %138 ], [ -1, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ -1, %129 ], [ -1, %130 ], [ -1, %133 ], [ -1, %36 ]
-  %.0 = phi i32 [ %.1, %.sink.split.i ], [ %144, %138 ], [ -1, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ -1, %129 ], [ -1, %130 ], [ %137, %133 ], [ -1, %36 ]
+  %145 = phi i32 [ %73, %.sink.split.i ], [ undef, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ %34, %129 ], [ %34, %130 ], [ %34, %133 ], [ %34, %138 ], [ undef, %36 ]
+  %146 = phi i32 [ %74, %.sink.split.i ], [ undef, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ undef, %129 ], [ %132, %130 ], [ %135, %133 ], [ %140, %138 ], [ undef, %36 ]
+  %147 = phi i32 [ %75, %.sink.split.i ], [ -1, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ -1, %129 ], [ -1, %130 ], [ -1, %133 ], [ %.sroa.68.0, %138 ], [ -1, %36 ]
+  %.0 = phi i32 [ %.1, %.sink.split.i ], [ -1, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ -1, %129 ], [ -1, %130 ], [ %137, %133 ], [ %144, %138 ], [ -1, %36 ]
   switch i32 %29, label %_ZN4ncnn3MataSERKS0_.exit [
     i32 1, label %148
     i32 2, label %299
@@ -2464,7 +2464,7 @@ _ZNK4ncnn3Mat5emptyEv.exit231:                    ; preds = %655
   br label %_ZNK4ncnn3Mat5emptyEv.exit231.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit231.thread:             ; preds = %655, %_ZNK4ncnn3Mat5emptyEv.exit230.thread, %_ZNK4ncnn3Mat5emptyEv.exit230, %_ZNK4ncnn3Mat5emptyEv.exit231, %665
-  %.183 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit231 ], [ 0, %665 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit230.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit230 ], [ -100, %655 ]
+  %.183 = phi i32 [ 0, %665 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit231 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit230.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit230 ], [ -100, %655 ]
   %668 = load ptr, ptr %533, align 8, !tbaa !7
   %.not.i140 = icmp eq ptr %668, null
   br i1 %.not.i140, label %_ZN4ncnn3MatD2Ev.exit118, label %669
@@ -2935,7 +2935,7 @@ _ZNK4ncnn3Mat5emptyEv.exit233:                    ; preds = %887
   br label %_ZNK4ncnn3Mat5emptyEv.exit233.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit233.thread:             ; preds = %887, %_ZNK4ncnn3Mat5emptyEv.exit232.thread, %_ZNK4ncnn3Mat5emptyEv.exit232, %_ZNK4ncnn3Mat5emptyEv.exit233, %897
-  %.284 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit233 ], [ 0, %897 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit232.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit232 ], [ -100, %887 ]
+  %.284 = phi i32 [ 0, %897 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit233 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit232.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit232 ], [ -100, %887 ]
   %900 = load ptr, ptr %765, align 8, !tbaa !7
   %.not.i124 = icmp eq ptr %900, null
   br i1 %.not.i124, label %_ZN4ncnn3MatD2Ev.exit122, label %901
@@ -3020,8 +3020,8 @@ _ZN4ncnn3MatD2Ev.exit123:                         ; preds = %918, %916, %924, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %933
 
-_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %.lr.ph31.split.i270, %.lr.ph31.split.i287, %.lr.ph31.split.i306, %..loopexit_crit_edge.us.us.i319, %.lr.ph31.split.i, %.lr.ph31.split.i238, %.lr.ph31.split.i254, %..loopexit_crit_edge.us.us.i267, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit285, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit, %362, %.lr.ph31.split.us.i275, %397, %.lr.ph31.split.us.i292, %210, %.lr.ph31.split.us.i, %238, %.lr.ph31.split.us.i243, %348, %196, %_ZN4ncnn3Mat7releaseEv.exit.i216, %707, %_ZN4ncnn3Mat7releaseEv.exit.i201, %475, %.lr.ph31.split.us.i311, %434, %_ZN4ncnn3Mat7releaseEv.exit.i194, %302, %.lr.ph31.split.us.i259, %269, %_ZN4ncnn3Mat7releaseEv.exit.i, %150, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit304, %_ZNK4ncnn3Mat5emptyEv.exit229, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MatD2Ev.exit122, %_ZN4ncnn3MatD2Ev.exit118
-  %.082 = phi i32 [ 0, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit304 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %.lr.ph31.split.i254 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit229 ], [ 0, %..loopexit_crit_edge.us.us.i319 ], [ %.183, %_ZN4ncnn3MatD2Ev.exit118 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i201 ], [ %.284, %_ZN4ncnn3MatD2Ev.exit122 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i216 ], [ -100, %196 ], [ 0, %150 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 0, %269 ], [ 0, %.lr.ph31.split.us.i259 ], [ -100, %348 ], [ 0, %302 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i194 ], [ 0, %434 ], [ 0, %.lr.ph31.split.us.i311 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit285 ], [ 0, %475 ], [ 0, %707 ], [ 0, %.lr.ph31.split.i306 ], [ 0, %.lr.ph31.split.i287 ], [ 0, %.lr.ph31.split.us.i243 ], [ 0, %238 ], [ 0, %.lr.ph31.split.i ], [ 0, %.lr.ph31.split.us.i ], [ 0, %210 ], [ 0, %.lr.ph31.split.us.i292 ], [ 0, %397 ], [ 0, %..loopexit_crit_edge.us.us.i267 ], [ 0, %.lr.ph31.split.us.i275 ], [ 0, %362 ], [ 0, %.lr.ph31.split.i238 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit ], [ 0, %.lr.ph31.split.i270 ]
+_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %.lr.ph31.split.i270, %.lr.ph31.split.i287, %.lr.ph31.split.i306, %..loopexit_crit_edge.us.us.i319, %.lr.ph31.split.i, %.lr.ph31.split.i238, %.lr.ph31.split.i254, %..loopexit_crit_edge.us.us.i267, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit285, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit, %.lr.ph31.split.us.i275, %362, %397, %.lr.ph31.split.us.i292, %.lr.ph31.split.us.i, %210, %238, %.lr.ph31.split.us.i243, %348, %196, %_ZN4ncnn3Mat7releaseEv.exit.i216, %707, %_ZN4ncnn3Mat7releaseEv.exit.i201, %475, %.lr.ph31.split.us.i311, %434, %_ZN4ncnn3Mat7releaseEv.exit.i194, %302, %.lr.ph31.split.us.i259, %269, %_ZN4ncnn3Mat7releaseEv.exit.i, %150, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit304, %_ZNK4ncnn3Mat5emptyEv.exit229, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MatD2Ev.exit122, %_ZN4ncnn3MatD2Ev.exit118
+  %.082 = phi i32 [ %.183, %_ZN4ncnn3MatD2Ev.exit118 ], [ %.284, %_ZN4ncnn3MatD2Ev.exit122 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit229 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit304 ], [ 0, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %150 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 0, %269 ], [ 0, %.lr.ph31.split.us.i259 ], [ 0, %302 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i194 ], [ 0, %434 ], [ 0, %.lr.ph31.split.us.i311 ], [ 0, %475 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i201 ], [ 0, %707 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i216 ], [ -100, %196 ], [ -100, %348 ], [ 0, %.lr.ph31.split.us.i243 ], [ 0, %238 ], [ 0, %210 ], [ 0, %.lr.ph31.split.us.i ], [ 0, %.lr.ph31.split.us.i292 ], [ 0, %397 ], [ 0, %362 ], [ 0, %.lr.ph31.split.us.i275 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit ], [ 0, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit285 ], [ 0, %..loopexit_crit_edge.us.us.i267 ], [ 0, %.lr.ph31.split.i254 ], [ 0, %.lr.ph31.split.i238 ], [ 0, %.lr.ph31.split.i ], [ 0, %..loopexit_crit_edge.us.us.i319 ], [ 0, %.lr.ph31.split.i306 ], [ 0, %.lr.ph31.split.i287 ], [ 0, %.lr.ph31.split.i270 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4277,7 +4277,7 @@ _ZNK4ncnn3Mat5emptyEv.exit211:                    ; preds = %627
   br label %_ZNK4ncnn3Mat5emptyEv.exit211.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit211.thread:             ; preds = %627, %_ZNK4ncnn3Mat5emptyEv.exit210.thread, %_ZNK4ncnn3Mat5emptyEv.exit210, %_ZNK4ncnn3Mat5emptyEv.exit211, %637
-  %.177 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit211 ], [ 0, %637 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit210.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit210 ], [ -100, %627 ]
+  %.177 = phi i32 [ 0, %637 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit211 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit210.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit210 ], [ -100, %627 ]
   %640 = load ptr, ptr %503, align 8, !tbaa !7
   %.not.i132 = icmp eq ptr %640, null
   br i1 %.not.i132, label %_ZN4ncnn3MatD2Ev.exit110, label %641
@@ -4756,7 +4756,7 @@ _ZNK4ncnn3Mat5emptyEv.exit213:                    ; preds = %869
   br label %_ZNK4ncnn3Mat5emptyEv.exit213.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit213.thread:             ; preds = %869, %_ZNK4ncnn3Mat5emptyEv.exit212.thread, %_ZNK4ncnn3Mat5emptyEv.exit212, %_ZNK4ncnn3Mat5emptyEv.exit213, %879
-  %.278 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit213 ], [ 0, %879 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit212.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit212 ], [ -100, %869 ]
+  %.278 = phi i32 [ 0, %879 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit213 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit212.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit212 ], [ -100, %869 ]
   %882 = load ptr, ptr %745, align 8, !tbaa !7
   %.not.i116 = icmp eq ptr %882, null
   br i1 %.not.i116, label %_ZN4ncnn3MatD2Ev.exit114, label %883
@@ -4841,8 +4841,8 @@ _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %900, %898, %906, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %915
 
-_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %.lr.ph31.split.i247, %.lr.ph31.split.i264, %.lr.ph31.split.i283, %..loopexit_crit_edge.us.us.i296, %.lr.ph31.split.i, %.lr.ph31.split.i215, %.lr.ph31.split.i231, %..loopexit_crit_edge.us.us.i244, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit262, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit, %323, %.lr.ph31.split.us.i252, %360, %.lr.ph31.split.us.i269, %167, %.lr.ph31.split.us.i, %196, %.lr.ph31.split.us.i220, %308, %152, %_ZN4ncnn3Mat7releaseEv.exit.i196, %682, %_ZN4ncnn3Mat7releaseEv.exit.i181, %440, %.lr.ph31.split.us.i288, %397, %_ZN4ncnn3Mat7releaseEv.exit.i174, %262, %.lr.ph31.split.us.i236, %227, %_ZN4ncnn3Mat7releaseEv.exit.i, %106, %_ZNK4ncnn3Mat5shapeEv.exit, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit281, %_ZNK4ncnn3Mat5emptyEv.exit209, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MatD2Ev.exit114, %_ZN4ncnn3MatD2Ev.exit110
-  %.076 = phi i32 [ 0, %_ZNK4ncnn3Mat5shapeEv.exit ], [ 0, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit281 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %.lr.ph31.split.i231 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit209 ], [ 0, %..loopexit_crit_edge.us.us.i296 ], [ %.177, %_ZN4ncnn3MatD2Ev.exit110 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i181 ], [ %.278, %_ZN4ncnn3MatD2Ev.exit114 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i196 ], [ -100, %152 ], [ 0, %106 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 0, %227 ], [ 0, %.lr.ph31.split.us.i236 ], [ -100, %308 ], [ 0, %262 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i174 ], [ 0, %397 ], [ 0, %.lr.ph31.split.us.i288 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit262 ], [ 0, %440 ], [ 0, %682 ], [ 0, %.lr.ph31.split.i283 ], [ 0, %.lr.ph31.split.i264 ], [ 0, %.lr.ph31.split.us.i220 ], [ 0, %196 ], [ 0, %.lr.ph31.split.i ], [ 0, %.lr.ph31.split.us.i ], [ 0, %167 ], [ 0, %.lr.ph31.split.us.i269 ], [ 0, %360 ], [ 0, %..loopexit_crit_edge.us.us.i244 ], [ 0, %.lr.ph31.split.us.i252 ], [ 0, %323 ], [ 0, %.lr.ph31.split.i215 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit ], [ 0, %.lr.ph31.split.i247 ]
+_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %.lr.ph31.split.i247, %.lr.ph31.split.i264, %.lr.ph31.split.i283, %..loopexit_crit_edge.us.us.i296, %.lr.ph31.split.i, %.lr.ph31.split.i215, %.lr.ph31.split.i231, %..loopexit_crit_edge.us.us.i244, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit262, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit, %.lr.ph31.split.us.i252, %323, %360, %.lr.ph31.split.us.i269, %.lr.ph31.split.us.i, %167, %196, %.lr.ph31.split.us.i220, %308, %152, %_ZN4ncnn3Mat7releaseEv.exit.i196, %682, %_ZN4ncnn3Mat7releaseEv.exit.i181, %440, %.lr.ph31.split.us.i288, %397, %_ZN4ncnn3Mat7releaseEv.exit.i174, %262, %.lr.ph31.split.us.i236, %227, %_ZN4ncnn3Mat7releaseEv.exit.i, %106, %_ZNK4ncnn3Mat5shapeEv.exit, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit281, %_ZNK4ncnn3Mat5emptyEv.exit209, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MatD2Ev.exit114, %_ZN4ncnn3MatD2Ev.exit110
+  %.076 = phi i32 [ %.177, %_ZN4ncnn3MatD2Ev.exit110 ], [ %.278, %_ZN4ncnn3MatD2Ev.exit114 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit209 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit281 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit ], [ 0, %106 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 0, %227 ], [ 0, %.lr.ph31.split.us.i236 ], [ 0, %262 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i174 ], [ 0, %397 ], [ 0, %.lr.ph31.split.us.i288 ], [ 0, %440 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i181 ], [ 0, %682 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i196 ], [ -100, %152 ], [ -100, %308 ], [ 0, %.lr.ph31.split.us.i220 ], [ 0, %196 ], [ 0, %167 ], [ 0, %.lr.ph31.split.us.i ], [ 0, %.lr.ph31.split.us.i269 ], [ 0, %360 ], [ 0, %323 ], [ 0, %.lr.ph31.split.us.i252 ], [ 0, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit ], [ 0, %_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit262 ], [ 0, %..loopexit_crit_edge.us.us.i244 ], [ 0, %.lr.ph31.split.i231 ], [ 0, %.lr.ph31.split.i215 ], [ 0, %.lr.ph31.split.i ], [ 0, %..loopexit_crit_edge.us.us.i296 ], [ 0, %.lr.ph31.split.i283 ], [ 0, %.lr.ph31.split.i264 ], [ 0, %.lr.ph31.split.i247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

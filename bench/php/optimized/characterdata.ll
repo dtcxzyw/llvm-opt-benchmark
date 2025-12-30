@@ -186,7 +186,7 @@ php_dom_follow_spec_doc_ref.exit.i40:             ; preds = %45
   br i1 %51, label %54, label %dom_convert_number_unsigned.exit
 
 dom_convert_number_unsigned.exit:                 ; preds = %php_dom_follow_spec_doc_ref.exit.i40, %45, %php_dom_follow_spec_doc_ref.exit.i, %37
-  %.sink60 = phi ptr [ %39, %php_dom_follow_spec_doc_ref.exit.i ], [ %39, %37 ], [ %47, %45 ], [ %47, %php_dom_follow_spec_doc_ref.exit.i40 ]
+  %.sink60 = phi ptr [ %39, %37 ], [ %39, %php_dom_follow_spec_doc_ref.exit.i ], [ %47, %45 ], [ %47, %php_dom_follow_spec_doc_ref.exit.i40 ]
   %52 = call zeroext i1 @dom_get_strict_error(ptr noundef %.sink60) #7
   call void @php_dom_throw_error(i32 noundef 1, i1 noundef zeroext %52) #7
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8

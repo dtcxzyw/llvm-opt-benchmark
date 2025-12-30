@@ -693,7 +693,7 @@ dissect_sock_diag_packet_request.exit.i:          ; preds = %245, %243
   br label %dissect_sock_diag_by_family.exit
 
 dissect_sock_diag_by_family.exit:                 ; preds = %287, %dissect_sock_diag_packet_request.exit.i, %199, %dissect_sock_diag_netlink_request.exit.i, %134, %dissect_sock_diag_inet_request.exit.i, %dissect_sock_diag_unix_reply.exit.i, %dissect_sock_diag_unix_request.exit.i, %24, %10
-  %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %234, %199 ], [ %108, %dissect_sock_diag_unix_reply.exit.i ], [ %155, %134 ], [ %77, %dissect_sock_diag_unix_request.exit.i ], [ %133, %dissect_sock_diag_inet_request.exit.i ], [ %198, %dissect_sock_diag_netlink_request.exit.i ], [ %286, %dissect_sock_diag_packet_request.exit.i ], [ %310, %287 ]
+  %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %77, %dissect_sock_diag_unix_request.exit.i ], [ %108, %dissect_sock_diag_unix_reply.exit.i ], [ %133, %dissect_sock_diag_inet_request.exit.i ], [ %155, %134 ], [ %198, %dissect_sock_diag_netlink_request.exit.i ], [ %234, %199 ], [ %286, %dissect_sock_diag_packet_request.exit.i ], [ %310, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -855,7 +855,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   br label %dissect_sock_diag_meminfo.exit
 
 dissect_sock_diag_meminfo.exit:                   ; preds = %54, %.preheader.i, %45, %7, %61, %63, %35, %27, %37, %29, %24
-  %.044 = phi i32 [ 0, %61 ], [ 1, %24 ], [ 1, %29 ], [ 0, %35 ], [ 1, %37 ], [ 0, %27 ], [ 0, %7 ], [ 0, %63 ], [ 0, %45 ], [ 1, %.preheader.i ], [ 1, %54 ]
+  %.044 = phi i32 [ 1, %24 ], [ 1, %29 ], [ 1, %37 ], [ 0, %27 ], [ 0, %35 ], [ 0, %63 ], [ 0, %61 ], [ 0, %7 ], [ 0, %45 ], [ 1, %.preheader.i ], [ 1, %54 ]
   ret i32 %.044
 }
 
@@ -1043,7 +1043,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   br label %dissect_sock_diag_meminfo.exit
 
 dissect_sock_diag_meminfo.exit:                   ; preds = %36, %.preheader.i, %27, %7, %43, %45, %8, %10
-  %.0 = phi i32 [ 0, %43 ], [ 1, %10 ], [ 0, %8 ], [ 0, %7 ], [ 0, %45 ], [ 0, %27 ], [ 1, %.preheader.i ], [ 1, %36 ]
+  %.0 = phi i32 [ 1, %10 ], [ 0, %8 ], [ 0, %45 ], [ 0, %43 ], [ 0, %7 ], [ 0, %27 ], [ 1, %.preheader.i ], [ 1, %36 ]
   ret i32 %.0
 }
 

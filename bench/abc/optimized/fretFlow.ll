@@ -214,7 +214,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %100, label %.lr.ph428, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %.critedge2, %.preheader422, %Vec_IntAlloc.exit
-  %101 = phi ptr [ %20, %Vec_IntAlloc.exit ], [ %20, %.preheader422 ], [ %97, %.critedge2 ]
+  %101 = phi ptr [ %20, %.preheader422 ], [ %20, %Vec_IntAlloc.exit ], [ %97, %.critedge2 ]
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 104
   %103 = load ptr, ptr %102, align 8, !tbaa !48
   %104 = getelementptr i8, ptr %103, i64 8
@@ -542,10 +542,10 @@ Vec_IntGrow.exit.i300:                            ; preds = %240, %238
   br label %.thread405.sink.split
 
 .thread405.sink.split:                            ; preds = %252, %Vec_IntGrow.exit.i300, %.Vec_IntGrow.exit10_crit_edge.i295, %187, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink634 = phi ptr [ %177, %Vec_IntGrow.exit.i ], [ %.pre.i286, %.Vec_IntGrow.exit10_crit_edge.i ], [ %188, %187 ], [ %.pre.i297, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ %253, %252 ], [ %242, %Vec_IntGrow.exit.i300 ]
-  %.sink = phi i32 [ 114, %Vec_IntGrow.exit.i ], [ 114, %.Vec_IntGrow.exit10_crit_edge.i ], [ 114, %187 ], [ 101, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ 101, %252 ], [ 101, %Vec_IntGrow.exit.i300 ]
-  %.sink628 = phi i32 [ 65535, %Vec_IntGrow.exit.i ], [ 65535, %.Vec_IntGrow.exit10_crit_edge.i ], [ 65535, %187 ], [ -65536, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ -65536, %252 ], [ -65536, %Vec_IntGrow.exit.i300 ]
-  %.sink627 = phi i32 [ 65536, %Vec_IntGrow.exit.i ], [ 65536, %.Vec_IntGrow.exit10_crit_edge.i ], [ 65536, %187 ], [ 1, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ 1, %252 ], [ 1, %Vec_IntGrow.exit.i300 ]
+  %.sink634 = phi ptr [ %.pre.i286, %.Vec_IntGrow.exit10_crit_edge.i ], [ %188, %187 ], [ %177, %Vec_IntGrow.exit.i ], [ %.pre.i297, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ %253, %252 ], [ %242, %Vec_IntGrow.exit.i300 ]
+  %.sink = phi i32 [ 114, %.Vec_IntGrow.exit10_crit_edge.i ], [ 114, %187 ], [ 114, %Vec_IntGrow.exit.i ], [ 101, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ 101, %252 ], [ 101, %Vec_IntGrow.exit.i300 ]
+  %.sink628 = phi i32 [ 65535, %.Vec_IntGrow.exit10_crit_edge.i ], [ 65535, %187 ], [ 65535, %Vec_IntGrow.exit.i ], [ -65536, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ -65536, %252 ], [ -65536, %Vec_IntGrow.exit.i300 ]
+  %.sink627 = phi i32 [ 65536, %.Vec_IntGrow.exit10_crit_edge.i ], [ 65536, %187 ], [ 65536, %Vec_IntGrow.exit.i ], [ 1, %.Vec_IntGrow.exit10_crit_edge.i295 ], [ 1, %252 ], [ 1, %Vec_IntGrow.exit.i300 ]
   %254 = load i32, ptr %13, align 4, !tbaa !28
   %255 = add nsw i32 %254, 1
   store i32 %255, ptr %13, align 4, !tbaa !28
@@ -964,8 +964,8 @@ Vec_IntPush.exit329:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %456, label %378, label %.critedge6, !llvm.loop !59
 
 .critedge6:                                       ; preds = %374, %453, %.preheader416, %.preheader415
-  %.pre546 = phi ptr [ %454, %453 ], [ %278, %.preheader415 ], [ %278, %.preheader416 ], [ %375, %374 ]
-  %.val260509 = phi ptr [ %.val260512, %453 ], [ %.val260, %.preheader415 ], [ %.val260, %.preheader416 ], [ %.val260510, %374 ]
+  %.pre546 = phi ptr [ %278, %.preheader416 ], [ %278, %.preheader415 ], [ %454, %453 ], [ %375, %374 ]
+  %.val260509 = phi ptr [ %.val260, %.preheader416 ], [ %.val260, %.preheader415 ], [ %.val260512, %453 ], [ %.val260510, %374 ]
   %457 = icmp eq i32 %286, 1
   br i1 %457, label %.critedge4.backedge, label %458
 
@@ -1904,7 +1904,7 @@ Vec_IntPush.exit399:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %895, label %814, label %.critedge4.backedge, !llvm.loop !63
 
 .critedge4.backedge:                              ; preds = %885, %629, %.critedge10, %548, %458, %.critedge14, %803, %712, %.preheader413, %.preheader418, %.critedge6, %640
-  %.val260503 = phi ptr [ %.val260504, %629 ], [ %.val260, %640 ], [ %.val260506, %.critedge10 ], [ %.val260506, %548 ], [ %.val260509, %458 ], [ %.val260499, %.critedge14 ], [ %.val260499, %803 ], [ %.val260502, %712 ], [ %.val260506, %.preheader413 ], [ %.val260499, %.preheader418 ], [ %.val260509, %.critedge6 ], [ %.val260497, %885 ]
+  %.val260503 = phi ptr [ %.val260506, %.critedge10 ], [ %.val260506, %548 ], [ %.val260509, %458 ], [ %.val260499, %.critedge14 ], [ %.val260499, %803 ], [ %.val260502, %712 ], [ %.val260506, %.preheader413 ], [ %.val260499, %.preheader418 ], [ %.val260509, %.critedge6 ], [ %.val260, %640 ], [ %.val260504, %629 ], [ %.val260497, %885 ]
   %.val205 = load i32, ptr %5, align 4, !tbaa !24
   %896 = sext i32 %.val205 to i64
   %897 = icmp slt i64 %indvars.iv.next489, %896
@@ -2253,7 +2253,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %97, label %65, label %.critedge, !llvm.loop !69
 
 .critedge:                                        ; preds = %61, %94, %.preheader123, %.preheader121
-  %.pre171 = phi ptr [ %95, %94 ], [ %23, %.preheader121 ], [ %23, %.preheader123 ], [ %62, %61 ]
+  %.pre171 = phi ptr [ %23, %.preheader123 ], [ %23, %.preheader121 ], [ %95, %94 ], [ %62, %61 ]
   %.val103 = load i32, ptr %19, align 4
   %98 = and i32 %.val103, 15
   %.not117 = icmp eq i32 %98, 8
@@ -2419,8 +2419,8 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %179, label %.lr.ph137, label %.critedge6, !llvm.loop !71
 
 .critedge6:                                       ; preds = %171, %..critedge6_crit_edge, %.preheader, %.critedge4
-  %.val86 = phi i32 [ %.val86.pre, %..critedge6_crit_edge ], [ %.val86.pre179, %.preheader ], [ %.val86.pre179, %.critedge4 ], [ %.val91, %171 ]
-  %180 = phi ptr [ %.pre171, %..critedge6_crit_edge ], [ %138, %.preheader ], [ %138, %.critedge4 ], [ %172, %171 ]
+  %.val86 = phi i32 [ %.val86.pre179, %.preheader ], [ %.val86.pre179, %.critedge4 ], [ %.val86.pre, %..critedge6_crit_edge ], [ %.val91, %171 ]
+  %180 = phi ptr [ %138, %.preheader ], [ %138, %.critedge4 ], [ %.pre171, %..critedge6_crit_edge ], [ %172, %171 ]
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 112
   %182 = load ptr, ptr %181, align 8, !tbaa !43
   %183 = zext i32 %.val86 to i64
@@ -2569,7 +2569,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %exitcond134.not.i, label %.critedge.i, label %252, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %239, %252, %.preheader111.i, %.preheader112.i
-  %.2.i = phi i32 [ %.4.i, %252 ], [ 30000, %.preheader111.i ], [ 30000, %.preheader112.i ], [ %.1.i, %239 ]
+  %.2.i = phi i32 [ 30000, %.preheader111.i ], [ 30000, %.preheader112.i ], [ %.4.i, %252 ], [ %.1.i, %239 ]
   %.val99.i = load i32, ptr %19, align 4
   %265 = and i32 %.val99.i, 15
   %.not109.i = icmp eq i32 %265, 8
@@ -2719,7 +2719,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   br label %dfsfast_e_retreat.exit
 
 dfsfast_e_retreat.exit:                           ; preds = %327, %.critedge6.i, %6, %18, %2, %.loopexit
-  %.061 = phi i32 [ 1, %6 ], [ 0, %2 ], [ 1, %.loopexit ], [ 1, %18 ], [ 0, %.critedge6.i ], [ 0, %327 ]
+  %.061 = phi i32 [ 1, %.loopexit ], [ 0, %2 ], [ 1, %18 ], [ 1, %6 ], [ 0, %.critedge6.i ], [ 0, %327 ]
   ret i32 %.061
 }
 
@@ -3022,8 +3022,8 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %159, label %.lr.ph108, label %.critedge2, !llvm.loop !77
 
 .critedge2:                                       ; preds = %151, %..critedge2_crit_edge, %.preheader, %.critedge
-  %.val70 = phi i32 [ %.val70.pre, %..critedge2_crit_edge ], [ %.val70.pre132, %.preheader ], [ %.val70.pre132, %.critedge ], [ %.val75, %151 ]
-  %160 = phi ptr [ %.pre125, %..critedge2_crit_edge ], [ %118, %.preheader ], [ %118, %.critedge ], [ %152, %151 ]
+  %.val70 = phi i32 [ %.val70.pre132, %.preheader ], [ %.val70.pre132, %.critedge ], [ %.val70.pre, %..critedge2_crit_edge ], [ %.val75, %151 ]
+  %160 = phi ptr [ %118, %.preheader ], [ %118, %.critedge ], [ %.pre125, %..critedge2_crit_edge ], [ %152, %151 ]
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 112
   %162 = load ptr, ptr %161, align 8, !tbaa !43
   %163 = zext i32 %.val70 to i64
@@ -3175,7 +3175,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %exitcond94.not.i, label %.critedge2.i, label %226, !llvm.loop !79
 
 .critedge2.i:                                     ; preds = %226, %.preheader.i, %.critedge.i, %193
-  %.1.i = phi i32 [ %.0.i, %193 ], [ %.2.lcssa.i, %.critedge.i ], [ %.2.lcssa.i, %.preheader.i ], [ %.5.i, %226 ]
+  %.1.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %.0.i, %193 ], [ %.2.lcssa.i, %.preheader.i ], [ %.5.i, %226 ]
   %236 = add nuw nsw i32 %.1.i, 1
   %237 = icmp sgt i32 %.1.i, 29998
   %spec.store.select.i = select i1 %237, i32 0, i32 %236
@@ -3231,7 +3231,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   br label %dfsfast_r_retreat.exit
 
 dfsfast_r_retreat.exit:                           ; preds = %254, %.critedge2.i, %6, %12, %13, %2, %.loopexit
-  %.0 = phi i32 [ 1, %6 ], [ 0, %2 ], [ 1, %.loopexit ], [ 1, %13 ], [ 1, %12 ], [ 0, %.critedge2.i ], [ 0, %254 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %2 ], [ 1, %13 ], [ 1, %12 ], [ 1, %6 ], [ 0, %.critedge2.i ], [ 0, %254 ]
   ret i32 %.0
 }
 
@@ -3384,7 +3384,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %72, label %51, label %.critedge, !llvm.loop !81
 
 .critedge:                                        ; preds = %47, %69, %.preheader96, %.preheader94
-  %.pre143 = phi ptr [ %70, %69 ], [ %20, %.preheader94 ], [ %20, %.preheader96 ], [ %48, %47 ]
+  %.pre143 = phi ptr [ %20, %.preheader96 ], [ %20, %.preheader94 ], [ %70, %69 ], [ %48, %47 ]
   %.val77 = load i32, ptr %16, align 4
   %73 = and i32 %.val77, 15
   %.not91 = icmp eq i32 %73, 8
@@ -3519,8 +3519,8 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %132, label %.lr.ph110, label %.critedge6, !llvm.loop !83
 
 .critedge6:                                       ; preds = %124, %..critedge6_crit_edge, %.preheader, %.critedge4
-  %.val68 = phi i32 [ %.val68.pre, %..critedge6_crit_edge ], [ %.val68.pre151, %.preheader ], [ %.val68.pre151, %.critedge4 ], [ %.val71, %124 ]
-  %133 = phi ptr [ %.pre143, %..critedge6_crit_edge ], [ %102, %.preheader ], [ %102, %.critedge4 ], [ %125, %124 ]
+  %.val68 = phi i32 [ %.val68.pre151, %.preheader ], [ %.val68.pre151, %.critedge4 ], [ %.val68.pre, %..critedge6_crit_edge ], [ %.val71, %124 ]
+  %133 = phi ptr [ %102, %.preheader ], [ %102, %.critedge4 ], [ %.pre143, %..critedge6_crit_edge ], [ %125, %124 ]
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 112
   %135 = load ptr, ptr %134, align 8, !tbaa !43
   %136 = zext i32 %.val68 to i64
@@ -3558,7 +3558,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %67, %96, %122, %144, %.critedge6, %140, %.critedge, %2, %15
-  %.048 = phi i32 [ 0, %.critedge ], [ 0, %.critedge6 ], [ 1, %2 ], [ 1, %15 ], [ 0, %140 ], [ 1, %144 ], [ 1, %67 ], [ 1, %122 ], [ 1, %96 ], [ 1, %45 ]
+  %.048 = phi i32 [ 1, %15 ], [ 1, %2 ], [ 0, %.critedge ], [ 0, %140 ], [ 0, %.critedge6 ], [ 1, %144 ], [ 1, %122 ], [ 1, %96 ], [ 1, %67 ], [ 1, %45 ]
   ret i32 %.048
 }
 
@@ -3815,7 +3815,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   br label %.critedge2
 
 .critedge2:                                       ; preds = %82, %110, %108, %.critedge2.sink.split, %.preheader, %57, %.critedge, %2, %9, %10
-  %.0 = phi i32 [ 1, %2 ], [ 0, %57 ], [ 1, %10 ], [ 1, %9 ], [ 0, %.critedge ], [ 1, %.critedge2.sink.split ], [ 0, %110 ], [ 0, %.preheader ], [ 1, %108 ], [ 1, %82 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %9 ], [ 1, %2 ], [ 0, %.critedge ], [ 0, %57 ], [ 0, %.preheader ], [ 1, %.critedge2.sink.split ], [ 0, %110 ], [ 1, %108 ], [ 1, %82 ]
   ret i32 %.0
 }
 

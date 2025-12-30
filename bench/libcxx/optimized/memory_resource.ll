@@ -254,7 +254,7 @@ define dso_local noundef i32 @_ZNKSt3__13pmr28unsynchronized_pool_resource12__po
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %.lr.ph.preheader, %8
-  %.013 = phi i32 [ %14, %.lr.ph.preheader ], [ 0, %8 ], [ %.pre, %3 ]
+  %.013 = phi i32 [ 0, %8 ], [ %14, %.lr.ph.preheader ], [ %.pre, %3 ]
   ret i32 %.013
 }
 
@@ -279,7 +279,7 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resourceC2ERKNS0_12poo
   br label %12
 
 12:                                               ; preds = %11, %9, %3
-  %.012 = phi i64 [ 8, %9 ], [ 1048576, %3 ], [ %., %11 ]
+  %.012 = phi i64 [ 1048576, %3 ], [ 8, %9 ], [ %., %11 ]
   %13 = load i64, ptr %1, align 8, !tbaa !31
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %18, label %15
@@ -294,7 +294,7 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resourceC2ERKNS0_12poo
   br label %18
 
 18:                                               ; preds = %17, %15, %12
-  %.sink = phi i32 [ 1048576, %12 ], [ %spec.select, %17 ], [ 16, %15 ]
+  %.sink = phi i32 [ 1048576, %12 ], [ 16, %15 ], [ %spec.select, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink, ptr %19, align 4, !tbaa !32
   %20 = icmp samesign ugt i64 %.012, 8
@@ -721,7 +721,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48
 
-_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread: ; preds = %7, %13, %3, %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit
+_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread: ; preds = %13, %7, %3, %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !52
   %.not39 = icmp eq ptr %24, null
@@ -756,7 +756,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
   store ptr %40, ptr %26, align 8, !tbaa !55
   br label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48
 
-_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit.thread: ; preds = %25, %34
+_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit.thread: ; preds = %34, %25
   %spec.store.select55 = tail call i64 @llvm.umax.i64(i64 %2, i64 8)
   %44 = ptrtoint ptr %24 to i64
   %45 = add i64 %44, 32
@@ -827,7 +827,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
   br label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48
 
 _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48: ; preds = %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit, %86, %76, %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit", %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit
-  %.1 = phi ptr [ %19, %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit ], [ %40, %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit ], [ null, %76 ], [ %82, %86 ], [ null, %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit" ]
+  %.1 = phi ptr [ %40, %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit ], [ %19, %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit ], [ %82, %86 ], [ null, %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit" ], [ null, %76 ]
   ret ptr %.1
 }
 

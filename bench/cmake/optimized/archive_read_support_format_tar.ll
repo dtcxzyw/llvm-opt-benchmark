@@ -673,7 +673,7 @@ validate_number_field.exit:                       ; preds = %.lr.ph40.i, %.lr.ph
   br label %archive_block_is_null.exit
 
 archive_block_is_null.exit:                       ; preds = %.preheader, %11, %53, %.critedge7.i111.thread, %validate_number_field.exit, %checksum.exit, %2
-  %.0 = phi i32 [ %61, %.critedge7.i111.thread ], [ -1, %2 ], [ 0, %53 ], [ 0, %checksum.exit ], [ 0, %validate_number_field.exit ], [ 0, %11 ], [ 10, %.preheader ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %checksum.exit ], [ 0, %validate_number_field.exit ], [ %61, %.critedge7.i111.thread ], [ 0, %53 ], [ 0, %11 ], [ 10, %.preheader ]
   ret i32 %.0
 }
 
@@ -773,7 +773,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_tar_options(ptr nound
   br label %52
 
 52:                                               ; preds = %41, %26, %27, %49, %38, %14
-  %.024 = phi i32 [ 0, %14 ], [ %., %27 ], [ 0, %38 ], [ 0, %49 ], [ -25, %26 ], [ -20, %41 ]
+  %.024 = phi i32 [ 0, %14 ], [ 0, %38 ], [ 0, %49 ], [ -25, %26 ], [ %., %27 ], [ -20, %41 ]
   ret i32 %.024
 }
 
@@ -1307,7 +1307,7 @@ read_bytes_to_string.exit82.thread:               ; preds = %151, %155
   br label %header_Solaris_ACL.exit.i
 
 header_Solaris_ACL.exit.i:                        ; preds = %read_bytes_to_string.exit82.thread, %225, %224, %211, %208, %193, %._crit_edge.thread.i.i, %181, %175, %146, %142, %136
-  %.059.i.i = phi i32 [ -30, %208 ], [ -20, %175 ], [ -20, %181 ], [ -20, %._crit_edge.thread.i.i ], [ -20, %193 ], [ -30, %136 ], [ -30, %read_bytes_to_string.exit82.thread ], [ -30, %142 ], [ -20, %146 ], [ %218, %224 ], [ %218, %225 ], [ 0, %211 ]
+  %.059.i.i = phi i32 [ -20, %175 ], [ -20, %181 ], [ -20, %._crit_edge.thread.i.i ], [ -20, %193 ], [ -30, %142 ], [ -20, %146 ], [ -30, %136 ], [ -30, %208 ], [ %218, %224 ], [ %218, %225 ], [ 0, %211 ], [ -30, %read_bytes_to_string.exit82.thread ]
   call void @archive_string_free(ptr noundef nonnull %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %header_pax_global.exit.i
@@ -1502,7 +1502,7 @@ read_bytes_to_string.exit.thread:                 ; preds = %286, %290
   br label %header_gnu_longname.exit.i
 
 header_gnu_longname.exit.i:                       ; preds = %read_bytes_to_string.exit.thread, %310, %309, %295, %281, %277, %271
-  %.0.i219.i = phi i32 [ -20, %310 ], [ 0, %295 ], [ -30, %read_bytes_to_string.exit.thread ], [ -30, %309 ], [ -30, %277 ], [ -20, %281 ], [ -30, %271 ]
+  %.0.i219.i = phi i32 [ 0, %295 ], [ -30, %309 ], [ -20, %310 ], [ -30, %277 ], [ -20, %281 ], [ -30, %271 ], [ -30, %read_bytes_to_string.exit.thread ]
   call void @archive_string_free(ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %header_pax_global.exit.i
@@ -1994,7 +1994,7 @@ set_conversion_failed_error.exit81.i:             ; preds = %514
   br label %header_ustar.exit
 
 header_ustar.exit:                                ; preds = %set_conversion_failed_error.exit.thread.i, %485, %set_conversion_failed_error.exit79.thread.i, %set_conversion_failed_error.exit81.thread.i, %530
-  %.0.i70 = phi i32 [ -30, %485 ], [ -30, %set_conversion_failed_error.exit.thread.i ], [ -30, %set_conversion_failed_error.exit79.thread.i ], [ %.4.i, %530 ], [ -30, %set_conversion_failed_error.exit81.thread.i ]
+  %.0.i70 = phi i32 [ -30, %485 ], [ %.4.i, %530 ], [ -30, %set_conversion_failed_error.exit.thread.i ], [ -30, %set_conversion_failed_error.exit79.thread.i ], [ -30, %set_conversion_failed_error.exit81.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %header_gnutar.exit.i
 
@@ -2053,8 +2053,8 @@ set_conversion_failed_error.exit.i228.i:          ; preds = %549
   br label %header_gnutar.exit.i
 
 header_gnutar.exit.i:                             ; preds = %555, %set_conversion_failed_error.exit.thread.i229.i, %header_ustar.exit, %gnu_sparse_old_read.exit.i.i, %gnu_sparse_old_read.exit.thread.i.i, %419, %set_conversion_failed_error.exit98.thread.i.i, %set_conversion_failed_error.exit96.thread.i.i, %set_conversion_failed_error.exit.thread.i.i, %337
-  %560 = phi i64 [ 512, %419 ], [ 512, %header_ustar.exit ], [ 512, %337 ], [ 512, %set_conversion_failed_error.exit.thread.i.i ], [ 512, %set_conversion_failed_error.exit96.thread.i.i ], [ %442, %gnu_sparse_old_read.exit.i.i ], [ 512, %set_conversion_failed_error.exit98.thread.i.i ], [ 512, %gnu_sparse_old_read.exit.thread.i.i ], [ 512, %555 ], [ 512, %set_conversion_failed_error.exit.thread.i229.i ]
-  %.1166.i = phi i32 [ %.272.i.i, %419 ], [ %.0.i70, %header_ustar.exit ], [ -30, %337 ], [ -30, %set_conversion_failed_error.exit.thread.i.i ], [ -30, %set_conversion_failed_error.exit96.thread.i.i ], [ -30, %gnu_sparse_old_read.exit.i.i ], [ -30, %set_conversion_failed_error.exit98.thread.i.i ], [ %.272.i.i, %gnu_sparse_old_read.exit.thread.i.i ], [ %spec.select.i.i, %555 ], [ -30, %set_conversion_failed_error.exit.thread.i229.i ]
+  %560 = phi i64 [ 512, %header_ustar.exit ], [ 512, %337 ], [ %442, %gnu_sparse_old_read.exit.i.i ], [ 512, %set_conversion_failed_error.exit.thread.i.i ], [ 512, %set_conversion_failed_error.exit96.thread.i.i ], [ 512, %set_conversion_failed_error.exit98.thread.i.i ], [ 512, %gnu_sparse_old_read.exit.thread.i.i ], [ 512, %419 ], [ 512, %555 ], [ 512, %set_conversion_failed_error.exit.thread.i229.i ]
+  %.1166.i = phi i32 [ %.0.i70, %header_ustar.exit ], [ -30, %337 ], [ -30, %gnu_sparse_old_read.exit.i.i ], [ -30, %set_conversion_failed_error.exit.thread.i.i ], [ -30, %set_conversion_failed_error.exit96.thread.i.i ], [ -30, %set_conversion_failed_error.exit98.thread.i.i ], [ %.272.i.i, %gnu_sparse_old_read.exit.thread.i.i ], [ %.272.i.i, %419 ], [ %spec.select.i.i, %555 ], [ -30, %set_conversion_failed_error.exit.thread.i229.i ]
   %561 = call i32 @llvm.smin.i32(i32 %.0163.i, i32 %.1166.i)
   %562 = icmp slt i32 %561, -20
   br i1 %562, label %tar_read_header.exit, label %563
@@ -2249,9 +2249,9 @@ is_mac_metadata_entry.exit.i:                     ; preds = %601, %597, %594, %5
   br label %tar_read_header.exit
 
 header_pax_global.exit.i:                         ; preds = %616, %331, %326, %320, %315, %header_gnu_longname.exit.i, %header_gnu_longlink.exit.i, %233, %228, %header_Solaris_ACL.exit.i
-  %.0165.i = phi i32 [ 0, %616 ], [ %.059.i.i, %header_Solaris_ACL.exit.i ], [ %333, %331 ], [ %.0.i.i.i, %header_gnu_longlink.exit.i ], [ %.0.i219.i, %header_gnu_longname.exit.i ], [ -30, %228 ], [ %328, %326 ], [ 0, %233 ], [ 0, %320 ], [ -30, %315 ]
-  %.1164.i = phi i32 [ %620, %616 ], [ %.0163.i, %header_Solaris_ACL.exit.i ], [ %.0163.i, %331 ], [ %.0163.i, %header_gnu_longlink.exit.i ], [ %.0163.i, %header_gnu_longname.exit.i ], [ %.0163.i, %228 ], [ %.0163.i, %326 ], [ %.0163.i, %233 ], [ %.0163.i, %320 ], [ %.0163.i, %315 ]
-  %.1162.i = phi i32 [ 512, %616 ], [ %137, %header_Solaris_ACL.exit.i ], [ %332, %331 ], [ %240, %header_gnu_longlink.exit.i ], [ %272, %header_gnu_longname.exit.i ], [ %229, %228 ], [ %327, %326 ], [ %229, %233 ], [ %316, %320 ], [ %316, %315 ]
+  %.0165.i = phi i32 [ 0, %616 ], [ %.059.i.i, %header_Solaris_ACL.exit.i ], [ %.0.i.i.i, %header_gnu_longlink.exit.i ], [ %.0.i219.i, %header_gnu_longname.exit.i ], [ %328, %326 ], [ %333, %331 ], [ 0, %233 ], [ -30, %228 ], [ 0, %320 ], [ -30, %315 ]
+  %.1164.i = phi i32 [ %620, %616 ], [ %.0163.i, %header_Solaris_ACL.exit.i ], [ %.0163.i, %header_gnu_longlink.exit.i ], [ %.0163.i, %header_gnu_longname.exit.i ], [ %.0163.i, %326 ], [ %.0163.i, %331 ], [ %.0163.i, %233 ], [ %.0163.i, %228 ], [ %.0163.i, %320 ], [ %.0163.i, %315 ]
+  %.1162.i = phi i32 [ 512, %616 ], [ %137, %header_Solaris_ACL.exit.i ], [ %240, %header_gnu_longlink.exit.i ], [ %272, %header_gnu_longname.exit.i ], [ %327, %326 ], [ %332, %331 ], [ %229, %233 ], [ %229, %228 ], [ %316, %320 ], [ %316, %315 ]
   %643 = call i32 @llvm.smin.i32(i32 %.1164.i, i32 %.0165.i)
   %644 = icmp eq i32 %643, -30
   br i1 %644, label %tar_read_header.exit, label %645
@@ -2268,12 +2268,12 @@ tar_read_header.exit.thread:                      ; preds = %604, %615
   br label %tar_flush_unconsumed.exit
 
 tar_read_header.exit.thread231:                   ; preds = %80, %81, %84, %tar_flush_unconsumed.exit211.i
-  %.0.i.ph.ph230 = phi i32 [ 1, %80 ], [ -30, %84 ], [ -30, %81 ], [ %..i, %tar_flush_unconsumed.exit211.i ]
+  %.0.i.ph.ph230 = phi i32 [ -30, %81 ], [ -30, %84 ], [ 1, %80 ], [ %..i, %tar_flush_unconsumed.exit211.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %tar_flush_unconsumed.exit
 
 tar_read_header.exit:                             ; preds = %134, %226, %237, %269, %313, %324, %329, %header_gnutar.exit.i, %header_pax_global.exit.i, %archive_block_is_null.exit208.thread.i, %609, %is_mac_metadata_entry.exit.i, %625, %629, %.thread252.i, %641, %.thread251.i
-  %.0.i.ph.ph = phi i32 [ -20, %.thread251.i ], [ %561, %.thread252.i ], [ %561, %629 ], [ 1, %archive_block_is_null.exit208.thread.i ], [ -30, %609 ], [ %561, %is_mac_metadata_entry.exit.i ], [ -20, %625 ], [ %642, %641 ], [ -30, %header_pax_global.exit.i ], [ -30, %header_gnutar.exit.i ], [ -30, %329 ], [ -30, %324 ], [ -30, %313 ], [ -30, %269 ], [ -30, %237 ], [ -30, %226 ], [ -30, %134 ]
+  %.0.i.ph.ph = phi i32 [ 1, %archive_block_is_null.exit208.thread.i ], [ -20, %625 ], [ %642, %641 ], [ -20, %.thread251.i ], [ %561, %.thread252.i ], [ %561, %is_mac_metadata_entry.exit.i ], [ -30, %609 ], [ %561, %629 ], [ -30, %header_pax_global.exit.i ], [ -30, %header_gnutar.exit.i ], [ -30, %329 ], [ -30, %324 ], [ -30, %313 ], [ -30, %269 ], [ -30, %237 ], [ -30, %226 ], [ -30, %134 ]
   %.pr.pr = load i64, ptr %9, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i64 = icmp eq i64 %.pr.pr, 0
@@ -2404,7 +2404,7 @@ gnu_add_sparse_entry.exit:                        ; preds = %660
   br label %gnu_add_sparse_entry.exit.thread
 
 gnu_add_sparse_entry.exit.thread:                 ; preds = %661, %655, %.loopexit, %674, %687, %696, %691, %689, %679, %681, %686
-  %.050 = phi i32 [ %.0.i88, %.loopexit ], [ 0, %686 ], [ 0, %681 ], [ 0, %679 ], [ 0, %689 ], [ 0, %691 ], [ 0, %696 ], [ 0, %687 ], [ 0, %674 ], [ -30, %655 ], [ -30, %661 ]
+  %.050 = phi i32 [ 0, %686 ], [ 0, %681 ], [ 0, %679 ], [ 0, %689 ], [ 0, %691 ], [ 0, %696 ], [ 0, %687 ], [ 0, %674 ], [ %.0.i88, %.loopexit ], [ -30, %655 ], [ -30, %661 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.050
 }
@@ -2533,7 +2533,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_tar_read_data(ptr nou
   br i1 %.not41, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %55, %31, %42, %36
-  %.0 = phi i32 [ -30, %31 ], [ 1, %36 ], [ -30, %42 ], [ 0, %55 ]
+  %.0 = phi i32 [ 1, %36 ], [ -30, %42 ], [ -30, %31 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2720,7 +2720,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_number_field(ptr noundef no
   br i1 %exitcond45.not, label %.loopexit, label %.lr.ph40, !llvm.loop !16
 
 .loopexit:                                        ; preds = %7, %13, %18, %.lr.ph40, %.critedge7, %2, %2, %2
-  %.030 = phi i32 [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %.critedge7 ], [ 1, %13 ], [ 1, %18 ], [ 0, %.lr.ph40 ], [ 1, %7 ]
+  %.030 = phi i32 [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %.critedge7 ], [ 1, %18 ], [ 0, %.lr.ph40 ], [ 1, %13 ], [ 1, %7 ]
   ret i32 %.030
 }
 
@@ -2870,13 +2870,13 @@ define internal fastcc i64 @tar_atol(ptr noundef nonnull readonly captures(none)
   br i1 %50, label %.lr.ph78.i.i, label %.critedge4.i.i, !llvm.loop !93
 
 .critedge4.i.i:                                   ; preds = %45, %.lr.ph78.i.i, %.preheader.i.i
-  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %47, %45 ], [ %.176.i.i, %.lr.ph78.i.i ]
+  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.176.i.i, %.lr.ph78.i.i ], [ %47, %45 ]
   %51 = sub nsw i64 0, %.043.i.i
   %spec.select.i.i = select i1 %36, i64 %51, i64 %.043.i.i
   br label %tar_atol256.exit
 
 tar_atol256.exit:                                 ; preds = %.critedge2.i.i, %42, %40, %.critedge4.i.i, %.critedge53.i.i, %27, %18, %9
-  %.0 = phi i64 [ %30, %27 ], [ %10, %9 ], [ %19, %18 ], [ %.04295.i.i, %42 ], [ 0, %.critedge53.i.i ], [ %spec.select.i.i, %.critedge4.i.i ], [ %.04295.i.i, %40 ], [ 0, %.critedge2.i.i ]
+  %.0 = phi i64 [ %10, %9 ], [ %19, %18 ], [ %30, %27 ], [ 0, %.critedge53.i.i ], [ %spec.select.i.i, %.critedge4.i.i ], [ %.04295.i.i, %40 ], [ %.04295.i.i, %42 ], [ 0, %.critedge2.i.i ]
   ret i64 %.0
 }
 
@@ -3388,7 +3388,7 @@ tar_flush_unconsumed.exit242:                     ; preds = %117, %121
   br label %198
 
 198:                                              ; preds = %187, %175, %163, %151, %132, %18, %5, %192, %113, %110, %101, %.preheader._crit_edge, %71, %61, %55, %46, %._crit_edge, %30, %21, %13
-  %.0 = phi i32 [ %.4, %192 ], [ -30, %13 ], [ -30, %5 ], [ -20, %21 ], [ -30, %30 ], [ -20, %._crit_edge ], [ -20, %61 ], [ -20, %71 ], [ -20, %.preheader._crit_edge ], [ %97, %101 ], [ -30, %110 ], [ -20, %113 ], [ -20, %46 ], [ -20, %55 ], [ -30, %18 ], [ -30, %132 ], [ -30, %151 ], [ -30, %163 ], [ -30, %175 ], [ -30, %187 ]
+  %.0 = phi i32 [ -30, %13 ], [ -20, %21 ], [ -30, %30 ], [ -20, %._crit_edge ], [ -20, %61 ], [ -20, %71 ], [ -20, %.preheader._crit_edge ], [ %97, %101 ], [ -30, %110 ], [ -20, %113 ], [ -20, %46 ], [ -20, %55 ], [ %.4, %192 ], [ -30, %5 ], [ -30, %18 ], [ -30, %132 ], [ -30, %151 ], [ -30, %163 ], [ -30, %175 ], [ -30, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3506,7 +3506,7 @@ tar_flush_unconsumed.exit:                        ; preds = %._crit_edge, %38
   br label %gnu_add_sparse_entry.exit.thread
 
 gnu_add_sparse_entry.exit.thread:                 ; preds = %19, %.lr.ph, %33, %25, %46, %tar_flush_unconsumed.exit, %gnu_clear_sparse_list.exit
-  %.0 = phi i64 [ %spec.select, %46 ], [ -30, %gnu_clear_sparse_list.exit ], [ -30, %25 ], [ -30, %33 ], [ -30, %tar_flush_unconsumed.exit ], [ -30, %.lr.ph ], [ -30, %19 ]
+  %.0 = phi i64 [ -30, %gnu_clear_sparse_list.exit ], [ -30, %tar_flush_unconsumed.exit ], [ %spec.select, %46 ], [ -30, %25 ], [ -30, %33 ], [ -30, %.lr.ph ], [ -30, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -4000,7 +4000,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   br label %174
 
 174:                                              ; preds = %172, %164
-  %.3 = phi i32 [ %spec.select490, %172 ], [ -20, %164 ]
+  %.3 = phi i32 [ -20, %164 ], [ %spec.select490, %172 ]
   %175 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %5) #13
   br label %436
 
@@ -4252,14 +4252,14 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   br label %436
 
 .thread525:                                       ; preds = %267, %191
-  %.0402 = phi i64 [ %4, %191 ], [ %196, %267 ]
-  %.0401 = phi ptr [ %3, %191 ], [ %197, %267 ]
+  %.0402 = phi i64 [ %196, %267 ], [ %4, %191 ]
+  %.0401 = phi ptr [ %197, %267 ], [ %3, %191 ]
   %284 = icmp samesign ugt i64 %.0402, 4
   br i1 %284, label %.thread528, label %.thread
 
 .thread528:                                       ; preds = %224, %250, %193, %.thread523, %.thread525
-  %.0401532 = phi ptr [ %.0401, %.thread525 ], [ %197, %.thread523 ], [ %3, %193 ], [ %197, %250 ], [ %197, %224 ]
-  %.0402531 = phi i64 [ %.0402, %.thread525 ], [ %196, %.thread523 ], [ %4, %193 ], [ 5, %250 ], [ 6, %224 ]
+  %.0401532 = phi ptr [ %.0401, %.thread525 ], [ %3, %193 ], [ %197, %.thread523 ], [ %197, %250 ], [ %197, %224 ]
+  %.0402531 = phi i64 [ %.0402, %.thread525 ], [ %4, %193 ], [ %196, %.thread523 ], [ 5, %250 ], [ 6, %224 ]
   %bcmp462 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.0401532, ptr noundef nonnull dereferenceable(4) @.str.92, i64 4)
   %285 = icmp eq i32 %bcmp462, 0
   %286 = icmp eq i64 %.0402531, 13
@@ -4596,7 +4596,7 @@ define internal fastcc i32 @pax_attribute(ptr noundef %0, ptr noundef %1, ptr no
   br label %436
 
 436:                                              ; preds = %429, %432, %420, %423, %410, %406, %413, %393, %396, %381, %384, %371, %374, %336, %339, %327, %330, %318, %321, %308, %311, %260, %263, %252, %255, %245, %248, %238, %241, %219, %222, %212, %215, %135, %138, %120, %123, %112, %115, %100, %105, %90, %95, %65, %68, %52, %62, %55, %60, %39, %49, %42, %47, %.thread, %415, %363, %351, %302, %295, %282, %277, %234, %231, %208, %204, %200, %189, %187, %174, %171, %159, %148, %86, %83
-  %.0400 = phi i32 [ 0, %.thread ], [ -30, %415 ], [ -30, %47 ], [ %40, %39 ], [ -30, %60 ], [ %53, %52 ], [ %.0, %86 ], [ -30, %83 ], [ %66, %65 ], [ %91, %90 ], [ %101, %100 ], [ %117, %115 ], [ %121, %120 ], [ -30, %148 ], [ %.2, %159 ], [ %.3, %174 ], [ -30, %171 ], [ %.4, %189 ], [ -30, %187 ], [ %201, %200 ], [ %205, %204 ], [ %209, %208 ], [ %136, %135 ], [ %213, %212 ], [ -30, %231 ], [ %.5, %234 ], [ %220, %219 ], [ %239, %238 ], [ %246, %245 ], [ %253, %252 ], [ -30, %277 ], [ %.6, %282 ], [ -30, %295 ], [ %.7, %302 ], [ %261, %260 ], [ %309, %308 ], [ %319, %318 ], [ %328, %327 ], [ -30, %351 ], [ %.9, %363 ], [ %341, %339 ], [ %376, %374 ], [ %382, %381 ], [ 0, %410 ], [ %421, %420 ], [ %397, %396 ], [ 0, %42 ], [ 0, %49 ], [ 0, %55 ], [ 0, %62 ], [ 0, %68 ], [ 0, %95 ], [ 0, %105 ], [ -20, %112 ], [ 0, %123 ], [ 0, %138 ], [ 0, %215 ], [ 0, %222 ], [ 0, %241 ], [ 0, %248 ], [ 0, %255 ], [ 0, %263 ], [ 0, %311 ], [ 0, %321 ], [ 0, %330 ], [ -20, %336 ], [ -20, %371 ], [ 0, %384 ], [ -20, %393 ], [ %403, %413 ], [ 0, %406 ], [ 0, %423 ], [ -20, %429 ], [ %434, %432 ]
+  %.0400 = phi i32 [ 0, %.thread ], [ %.0, %86 ], [ -30, %83 ], [ -30, %148 ], [ %.2, %159 ], [ %.3, %174 ], [ -30, %171 ], [ %.4, %189 ], [ -30, %187 ], [ %201, %200 ], [ %205, %204 ], [ %209, %208 ], [ -30, %231 ], [ %.5, %234 ], [ -30, %277 ], [ %.6, %282 ], [ -30, %295 ], [ %.7, %302 ], [ -30, %351 ], [ %.9, %363 ], [ -30, %415 ], [ -30, %47 ], [ 0, %42 ], [ 0, %49 ], [ %40, %39 ], [ -30, %60 ], [ 0, %55 ], [ 0, %62 ], [ %53, %52 ], [ 0, %68 ], [ %66, %65 ], [ 0, %95 ], [ %91, %90 ], [ 0, %105 ], [ %101, %100 ], [ -20, %112 ], [ %117, %115 ], [ 0, %123 ], [ %121, %120 ], [ 0, %138 ], [ %136, %135 ], [ 0, %215 ], [ %213, %212 ], [ 0, %222 ], [ %220, %219 ], [ 0, %241 ], [ %239, %238 ], [ 0, %248 ], [ %246, %245 ], [ 0, %255 ], [ %253, %252 ], [ 0, %263 ], [ %261, %260 ], [ 0, %311 ], [ %309, %308 ], [ 0, %321 ], [ %319, %318 ], [ 0, %330 ], [ %328, %327 ], [ -20, %336 ], [ %341, %339 ], [ -20, %371 ], [ %376, %374 ], [ 0, %384 ], [ %382, %381 ], [ -20, %393 ], [ %397, %396 ], [ %403, %413 ], [ 0, %406 ], [ 0, %410 ], [ 0, %423 ], [ %421, %420 ], [ -20, %429 ], [ %434, %432 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4745,13 +4745,13 @@ tar_flush_unconsumed.exit:                        ; preds = %16, %13
   br i1 %42, label %.lr.ph78.i.i, label %.critedge4.i.i, !llvm.loop !93
 
 .critedge4.i.i:                                   ; preds = %37, %.lr.ph78.i.i, %.preheader.i.i
-  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %39, %37 ], [ %.176.i.i, %.lr.ph78.i.i ]
+  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.176.i.i, %.lr.ph78.i.i ], [ %39, %37 ]
   %43 = sub nsw i64 0, %.043.i.i
   %spec.select.i.i = select i1 %28, i64 %43, i64 %.043.i.i
   br label %tar_atol10.exit
 
 tar_atol10.exit:                                  ; preds = %.critedge2.i.i, %32, %34, %read_bytes_to_string.exit, %20, %.critedge53.i.i, %.critedge4.i.i
-  %.044.i.i = phi i64 [ %spec.select.i.i, %.critedge4.i.i ], [ 0, %.critedge53.i.i ], [ 0, %20 ], [ %.04295.i.i, %32 ], [ 0, %read_bytes_to_string.exit ], [ %.04295.i.i, %34 ], [ 0, %.critedge2.i.i ]
+  %.044.i.i = phi i64 [ 0, %20 ], [ 0, %.critedge53.i.i ], [ %spec.select.i.i, %.critedge4.i.i ], [ 0, %read_bytes_to_string.exit ], [ %.04295.i.i, %34 ], [ %.04295.i.i, %32 ], [ 0, %.critedge2.i.i ]
   store i64 %.044.i.i, ptr %2, align 8, !tbaa !45
   call void @archive_string_free(ptr noundef nonnull %4) #13
   %44 = load i64, ptr %2, align 8, !tbaa !45
@@ -4894,7 +4894,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
   br i1 %39, label %.lr.ph78.i.i, label %.critedge4.i.i, !llvm.loop !93
 
 .critedge4.i.i:                                   ; preds = %34, %.lr.ph78.i.i, %.preheader.i.i
-  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %36, %34 ], [ %.176.i.i, %.lr.ph78.i.i ]
+  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.176.i.i, %.lr.ph78.i.i ], [ %36, %34 ]
   %40 = sub nsw i64 0, %.043.i.i
   %spec.select.i.i = select i1 %25, i64 %40, i64 %.043.i.i
   br label %tar_atol10.exit
@@ -4976,7 +4976,7 @@ tar_atol10.exit:                                  ; preds = %29, %31, %.critedge
   br i1 %62, label %.lr.ph78.i.i51, label %.critedge4.i.i47, !llvm.loop !93
 
 .critedge4.i.i47:                                 ; preds = %57, %.lr.ph78.i.i51, %.preheader.i.i41
-  %.043.i.i48 = phi i64 [ 0, %.preheader.i.i41 ], [ %59, %57 ], [ %.176.i.i53, %.lr.ph78.i.i51 ]
+  %.043.i.i48 = phi i64 [ 0, %.preheader.i.i41 ], [ %.176.i.i53, %.lr.ph78.i.i51 ], [ %59, %57 ]
   %63 = sub nsw i64 0, %.043.i.i48
   %spec.select.i.i49 = select i1 %48, i64 %63, i64 %.043.i.i48
   br label %tar_atol10.exit64
@@ -4986,8 +4986,8 @@ tar_atol10.exit64:                                ; preds = %52, %54, %.critedge
   %64 = icmp slt i64 %.044.i.i50, 0
   br i1 %64, label %gnu_add_sparse_entry.exit.thread, label %tar_atol10.exit64.thread
 
-tar_atol10.exit64.thread:                         ; preds = %.critedge2.i.i62, %42, %.critedge53.i.i37, %tar_atol10.exit64
-  %.044.i.i5067 = phi i64 [ %.044.i.i50, %tar_atol10.exit64 ], [ 0, %.critedge53.i.i37 ], [ 0, %42 ], [ 0, %.critedge2.i.i62 ]
+tar_atol10.exit64.thread:                         ; preds = %.critedge2.i.i62, %.critedge53.i.i37, %42, %tar_atol10.exit64
+  %.044.i.i5067 = phi i64 [ %.044.i.i50, %tar_atol10.exit64 ], [ 0, %42 ], [ 0, %.critedge53.i.i37 ], [ 0, %.critedge2.i.i62 ]
   %65 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %68
@@ -5026,13 +5026,13 @@ gnu_add_sparse_entry.exit:                        ; preds = %72
   store i64 %.044.i.i5067, ptr %77, align 8, !tbaa !82
   br label %tar_atol10.exit.thread
 
-tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %19, %.critedge53.i.i, %gnu_add_sparse_entry.exit, %tar_atol10.exit
-  %.1 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ -1, %gnu_add_sparse_entry.exit ], [ 0, %.critedge53.i.i ], [ 0, %19 ], [ 0, %.critedge2.i.i ]
+tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge53.i.i, %19, %gnu_add_sparse_entry.exit, %tar_atol10.exit
+  %.1 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ -1, %gnu_add_sparse_entry.exit ], [ 0, %19 ], [ 0, %.critedge53.i.i ], [ 0, %.critedge2.i.i ]
   %78 = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 1
   br i1 %.not.lcssa, label %gnu_add_sparse_entry.exit.thread, label %7
 
 gnu_add_sparse_entry.exit.thread:                 ; preds = %tar_atol10.exit.thread, %tar_atol10.exit64, %tar_atol10.exit, %9, %75, %67
-  %.027 = phi i32 [ -20, %9 ], [ -30, %75 ], [ -30, %67 ], [ -20, %tar_atol10.exit ], [ 0, %tar_atol10.exit.thread ], [ -20, %tar_atol10.exit64 ]
+  %.027 = phi i32 [ -30, %67 ], [ -30, %75 ], [ -20, %9 ], [ 0, %tar_atol10.exit.thread ], [ -20, %tar_atol10.exit64 ], [ -20, %tar_atol10.exit ]
   ret i32 %.027
 }
 
@@ -5219,7 +5219,7 @@ define internal fastcc range(i32 0, 3) i32 @pax_attribute_LIBARCHIVE_xattr(ptr n
   br label %tohex.exit.i
 
 tohex.exit.i:                                     ; preds = %22, %20, %13
-  %.0.i.i = phi i32 [ %spec.select.i.i, %22 ], [ %21, %20 ], [ %17, %13 ]
+  %.0.i.i = phi i32 [ %21, %20 ], [ %spec.select.i.i, %22 ], [ %17, %13 ]
   %25 = getelementptr inbounds nuw i8, ptr %.02850.i, i64 2
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = sext i8 %26 to i32
@@ -5244,7 +5244,7 @@ tohex.exit.i:                                     ; preds = %22, %20, %13
   br label %tohex.exit44.i
 
 tohex.exit44.i:                                   ; preds = %33, %31, %tohex.exit.i
-  %.0.i43.i = phi i32 [ %spec.select.i42.i, %33 ], [ %32, %31 ], [ %28, %tohex.exit.i ]
+  %.0.i43.i = phi i32 [ %32, %31 ], [ %spec.select.i42.i, %33 ], [ %28, %tohex.exit.i ]
   %36 = icmp sgt i32 %.0.i.i, -1
   %37 = icmp sgt i32 %.0.i43.i, -1
   %or.cond3.i = select i1 %36, i1 %37, i1 false
@@ -5266,8 +5266,8 @@ tohex.exit44.i:                                   ; preds = %33, %31, %tohex.exi
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.thread.i, %38
-  %.028.be.i = phi ptr [ %39, %38 ], [ %44, %.thread.i ]
-  %.026.be.i = phi i64 [ %40, %38 ], [ %45, %.thread.i ]
+  %.028.be.i = phi ptr [ %44, %.thread.i ], [ %39, %38 ]
+  %.026.be.i = phi i64 [ %45, %.thread.i ], [ %40, %38 ]
   %.031.be.i = getelementptr inbounds nuw i8, ptr %.03149.i, i64 1
   %.not.i = icmp eq i64 %.026.be.i, 0
   br i1 %.not.i, label %url_decode.exit, label %.preheader.i, !llvm.loop !104
@@ -5363,10 +5363,10 @@ url_decode.exit:                                  ; preds = %.preheader.i, %.bac
   br label %.outer._crit_edge.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.lr.ph.split.i, %.lr.ph.split.i, %.outer._crit_edge.loopexit.split.loop.exit151.i
-  %.040.ph.lcssa.i = phi i32 [ %.040.ph109.i, %.lr.ph.split.i ], [ %.040.ph109.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.040.ph109.i, %.lr.ph.split.i ], [ %72, %.outer.i ]
-  %.0.ph.lcssa.i = phi i32 [ %.0.ph110.i, %.lr.ph.split.i ], [ %.0.ph110.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.0.ph110.i, %.lr.ph.split.i ], [ %74, %.outer.i ]
-  %.1.lcssa.i = phi ptr [ %.157.i, %.lr.ph.split.i ], [ %scevgep.le.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.157.i, %.lr.ph.split.i ], [ %71, %.outer.i ]
-  %.2.i = phi i64 [ 0, %.lr.ph.split.i ], [ 0, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ 0, %.lr.ph.split.i ], [ %73, %.outer.i ]
+  %.040.ph.lcssa.i = phi i32 [ %.040.ph109.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.040.ph109.i, %.lr.ph.split.i ], [ %.040.ph109.i, %.lr.ph.split.i ], [ %72, %.outer.i ]
+  %.0.ph.lcssa.i = phi i32 [ %.0.ph110.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.0.ph110.i, %.lr.ph.split.i ], [ %.0.ph110.i, %.lr.ph.split.i ], [ %74, %.outer.i ]
+  %.1.lcssa.i = phi ptr [ %scevgep.le.i, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ %.157.i, %.lr.ph.split.i ], [ %.157.i, %.lr.ph.split.i ], [ %71, %.outer.i ]
+  %.2.i = phi i64 [ 0, %.outer._crit_edge.loopexit.split.loop.exit151.i ], [ 0, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i ], [ %73, %.outer.i ]
   %78 = sub nsw i32 4, %.0.ph.lcssa.i
   %79 = mul nsw i32 %78, 6
   %80 = shl i32 %.040.ph.lcssa.i, %79
@@ -5445,7 +5445,7 @@ define internal fastcc i32 @pax_attribute_SCHILY_acl(ptr noundef %0, ptr noundef
   br label %33
 
 9:                                                ; preds = %5, %7, %6
-  %.0 = phi ptr [ @.str.115, %7 ], [ @.str.114, %6 ], [ @.str.113, %5 ]
+  %.0 = phi ptr [ @.str.114, %6 ], [ @.str.115, %7 ], [ @.str.113, %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %11 = load ptr, ptr %10, align 8, !tbaa !70
   %12 = icmp eq ptr %11, null
@@ -5497,7 +5497,7 @@ define internal fastcc i32 @pax_attribute_SCHILY_acl(ptr noundef %0, ptr noundef
   br label %33
 
 33:                                               ; preds = %32, %25, %13, %31, %24, %18, %8
-  %.033 = phi i32 [ -30, %8 ], [ -30, %13 ], [ -20, %18 ], [ -30, %24 ], [ -30, %31 ], [ %28, %25 ], [ %28, %32 ]
+  %.033 = phi i32 [ -30, %8 ], [ -20, %18 ], [ -30, %24 ], [ -30, %31 ], [ -30, %13 ], [ %28, %25 ], [ %28, %32 ]
   ret i32 %.033
 }
 
@@ -5659,7 +5659,7 @@ define internal fastcc range(i32 -30, 1) i32 @pax_attribute_SUN_holesdata(ptr no
   br i1 %39, label %.lr.ph78.i.i, label %.critedge4.i.i, !llvm.loop !93
 
 .critedge4.i.i:                                   ; preds = %34, %.lr.ph78.i.i, %.preheader.i.i
-  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %36, %34 ], [ %.176.i.i, %.lr.ph78.i.i ]
+  %.043.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.176.i.i, %.lr.ph78.i.i ], [ %36, %34 ]
   %40 = sub nsw i64 0, %.043.i.i
   %spec.select.i.i = select i1 %25, i64 %40, i64 %.043.i.i
   br label %tar_atol10.exit
@@ -5669,8 +5669,8 @@ tar_atol10.exit:                                  ; preds = %29, %31, %.critedge
   %41 = icmp slt i64 %.044.i.i, 0
   br i1 %41, label %gnu_add_sparse_entry.exit.thread, label %tar_atol10.exit.thread
 
-tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge, %.critedge53.i.i, %tar_atol10.exit
-  %.044.i.i2 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ 0, %.critedge53.i.i ], [ 0, %.critedge ], [ 0, %.critedge2.i.i ]
+tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge53.i.i, %.critedge, %tar_atol10.exit
+  %.044.i.i2 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ 0, %.critedge ], [ 0, %.critedge53.i.i ], [ 0, %.critedge2.i.i ]
   %42 = icmp samesign ult i64 %.032, %.044.i.i2
   br i1 %42, label %43, label %60
 
@@ -5732,7 +5732,7 @@ tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.c
   br label %gnu_add_sparse_entry.exit.thread
 
 gnu_add_sparse_entry.exit.thread:                 ; preds = %tar_atol10.exit, %13, %55, %47, %.critedge43, %6, %4, %.loopexit
-  %.033 = phi i32 [ -20, %4 ], [ -20, %6 ], [ -30, %55 ], [ -20, %13 ], [ 0, %.critedge43 ], [ -20, %.loopexit ], [ -30, %47 ], [ -20, %tar_atol10.exit ]
+  %.033 = phi i32 [ -20, %.loopexit ], [ -20, %4 ], [ -20, %6 ], [ 0, %.critedge43 ], [ -30, %47 ], [ -30, %55 ], [ -20, %13 ], [ -20, %tar_atol10.exit ]
   ret i32 %.033
 }
 
@@ -6050,7 +6050,7 @@ define internal fastcc range(i32 -30, 1) i32 @header_common(ptr noundef %0, ptr 
   br label %123
 
 123:                                              ; preds = %44, %115, %116, %117, %118, %119, %120, %121, %122, %85, %88, %84, %78, %81, %.critedge114, %.critedge, %32, %29
-  %.094 = phi i32 [ -30, %29 ], [ -30, %32 ], [ -30, %.critedge114 ], [ -30, %.critedge ], [ 0, %122 ], [ %.193, %78 ], [ %.193, %81 ], [ %.193, %84 ], [ %.193, %88 ], [ %.193, %85 ], [ %.4, %115 ], [ 0, %116 ], [ 0, %117 ], [ 0, %118 ], [ 0, %119 ], [ 0, %120 ], [ 0, %44 ], [ 0, %121 ]
+  %.094 = phi i32 [ -30, %29 ], [ -30, %32 ], [ -30, %.critedge ], [ -30, %.critedge114 ], [ 0, %122 ], [ %.193, %78 ], [ %.193, %81 ], [ %.193, %84 ], [ %.193, %88 ], [ %.193, %85 ], [ %.4, %115 ], [ 0, %116 ], [ 0, %117 ], [ 0, %118 ], [ 0, %119 ], [ 0, %120 ], [ 0, %44 ], [ 0, %121 ]
   ret i32 %.094
 }
 
@@ -6351,7 +6351,7 @@ readline.exit:                                    ; preds = %26, %40
   br label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %readline.exit, %59, %.preheaderthread-pre-split, %.lr.ph, %..loopexit.loopexit_crit_edge83, %readline.exit.thread
-  %.0 = phi i64 [ -30, %readline.exit.thread ], [ -20, %..loopexit.loopexit_crit_edge83 ], [ -20, %.lr.ph ], [ %.1, %.preheaderthread-pre-split ], [ 0, %59 ], [ -30, %readline.exit ]
+  %.0 = phi i64 [ -30, %readline.exit.thread ], [ -20, %..loopexit.loopexit_crit_edge83 ], [ -20, %.lr.ph ], [ %.1, %.preheaderthread-pre-split ], [ -30, %readline.exit ], [ 0, %59 ]
   ret i64 %.0
 }
 

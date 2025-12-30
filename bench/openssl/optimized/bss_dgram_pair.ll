@@ -214,7 +214,7 @@ define internal i32 @dgram_pair_read(ptr noundef %0, ptr noundef writeonly captu
   %37 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %36) #7
   br label %38
 
-38:                                               ; preds = %35, %24, %12
+38:                                               ; preds = %35, %12, %24
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1033, ptr noundef nonnull @__func__.dgram_pair_read) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 786704, ptr noundef null) #7
@@ -471,7 +471,7 @@ ring_buf_init.exit42.i:                           ; preds = %51
   br label %dgram_pair_ctrl_destroy_bio_pair.exit
 
 dgram_pair_ctrl_destroy_bio_pair.exit:            ; preds = %89, %86, %58, %56, %46, %.critedge.i, %29, %24, %15, %8, %82, %77, %67, %95
-  %.0 = phi i64 [ %96, %95 ], [ 1, %82 ], [ 0, %24 ], [ 1, %67 ], [ 1, %77 ], [ 0, %8 ], [ 0, %15 ], [ 0, %29 ], [ 0, %46 ], [ 0, %56 ], [ 1, %58 ], [ 0, %.critedge.i ], [ %94, %89 ], [ 0, %86 ]
+  %.0 = phi i64 [ %96, %95 ], [ 1, %67 ], [ 1, %77 ], [ 1, %82 ], [ 0, %8 ], [ 0, %15 ], [ 0, %29 ], [ 0, %46 ], [ 0, %56 ], [ 1, %58 ], [ 0, %.critedge.i ], [ 0, %24 ], [ %94, %89 ], [ 0, %86 ]
   ret i64 %.0
 }
 
@@ -502,7 +502,7 @@ define internal range(i32 0, 2) i32 @dgram_pair_init(ptr noundef writeonly captu
   br label %13
 
 13:                                               ; preds = %1, %11, %10
-  %.0 = phi i32 [ 1, %11 ], [ 0, %10 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %11 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -557,7 +557,7 @@ dgram_pair_ctrl_destroy_bio_pair.exit:            ; preds = %6, %14, %19
   br label %25
 
 25:                                               ; preds = %3, %1, %dgram_pair_ctrl_destroy_bio_pair.exit
-  %.0 = phi i32 [ 0, %1 ], [ 1, %dgram_pair_ctrl_destroy_bio_pair.exit ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %dgram_pair_ctrl_destroy_bio_pair.exit ], [ 0, %1 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -626,7 +626,7 @@ define internal range(i32 0, 2) i32 @dgram_pair_sendmmsg(ptr noundef %0, ptr nou
   br label %36
 
 36:                                               ; preds = %28, %29, %35
-  %.027 = phi i32 [ 1, %35 ], [ 0, %29 ], [ 1, %28 ]
+  %.027 = phi i32 [ 0, %29 ], [ 1, %35 ], [ 1, %28 ]
   %37 = load ptr, ptr %12, align 8, !tbaa !18
   %38 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %37) #7
   br label %39
@@ -726,7 +726,7 @@ define internal range(i32 0, 2) i32 @dgram_pair_recvmmsg(ptr noundef %0, ptr nou
   br label %45
 
 45:                                               ; preds = %37, %38, %44
-  %.035 = phi i32 [ 1, %44 ], [ 0, %38 ], [ 1, %37 ]
+  %.035 = phi i32 [ 0, %38 ], [ 1, %44 ], [ 1, %37 ]
   %46 = load ptr, ptr %21, align 8, !tbaa !18
   %47 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %46) #7
   br label %48
@@ -873,7 +873,7 @@ define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %0, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %57, %59, %60, %33, %22, %18, %15, %11
-  %.037 = phi i64 [ -104, %15 ], [ -125, %18 ], [ -111, %22 ], [ -151, %33 ], [ -112, %59 ], [ -120, %11 ], [ %2, %57 ], [ -112, %60 ], [ -104, %14 ]
+  %.037 = phi i64 [ -120, %11 ], [ -104, %15 ], [ -125, %18 ], [ -111, %22 ], [ -151, %33 ], [ -112, %60 ], [ -112, %59 ], [ %2, %57 ], [ -104, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.037
 }
@@ -1065,8 +1065,8 @@ compute_rbuf_growth.exit.thread36:                ; preds = %safe_muldiv_size_t.
   %.not = icmp eq i64 %82, 0
   br i1 %.not, label %.thread43, label %11
 
-.thread43:                                        ; preds = %79, %42, %48, %50, %compute_rbuf_growth.exit, %20, %.lr.ph.i, %3
-  %.02250 = phi i64 [ %.02253, %.lr.ph.i ], [ 0, %3 ], [ %83, %79 ], [ %.02253, %42 ], [ %.02253, %48 ], [ %.02253, %50 ], [ %.02253, %compute_rbuf_growth.exit ], [ %.02253, %20 ]
+.thread43:                                        ; preds = %79, %42, %50, %48, %compute_rbuf_growth.exit, %20, %.lr.ph.i, %3
+  %.02250 = phi i64 [ 0, %3 ], [ %.02253, %.lr.ph.i ], [ %83, %79 ], [ %.02253, %42 ], [ %.02253, %50 ], [ %.02253, %48 ], [ %.02253, %compute_rbuf_growth.exit ], [ %.02253, %20 ]
   ret i64 %.02250
 }
 
@@ -1188,9 +1188,9 @@ ring_buf_push_pop.exit.i:                         ; preds = %43, %49
   br i1 %.not.i, label %dgram_pair_read_inner.exit, label %37
 
 dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_pop.exit.i
-  %.pre40.i64 = phi i64 [ %54, %ring_buf_push_pop.exit.i ], [ %39, %37 ]
-  %.pre.i63 = phi i64 [ %46, %ring_buf_push_pop.exit.i ], [ %40, %37 ]
-  %.012.lcssa.i = phi i64 [ %56, %ring_buf_push_pop.exit.i ], [ %.01237.i, %37 ]
+  %.pre40.i64 = phi i64 [ %39, %37 ], [ %54, %ring_buf_push_pop.exit.i ]
+  %.pre.i63 = phi i64 [ %40, %37 ], [ %46, %ring_buf_push_pop.exit.i ]
+  %.012.lcssa.i = phi i64 [ %.01237.i, %37 ], [ %56, %ring_buf_push_pop.exit.i ]
   switch i64 %.012.lcssa.i, label %.critedge [
     i64 0, label %58
     i64 232, label %60
@@ -1226,8 +1226,8 @@ dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_
   br label %.critedge
 
 71:                                               ; preds = %60, %63, %65
-  %.046 = phi i64 [ 0, %63 ], [ %66, %65 ], [ 0, %60 ]
-  %.045 = phi i64 [ %2, %63 ], [ %2, %65 ], [ %61, %60 ]
+  %.046 = phi i64 [ %66, %65 ], [ 0, %63 ], [ 0, %60 ]
+  %.045 = phi i64 [ %2, %65 ], [ %2, %63 ], [ %61, %60 ]
   %.not34.i = icmp eq i64 %.045, 0
   br i1 %.not34.i, label %dgram_pair_read_inner.exit80.thread, label %.lr.ph.i
 
@@ -1336,7 +1336,7 @@ dgram_pair_read_inner.exit80.thread:              ; preds = %71, %dgram_pair_rea
   br i1 %.not.i96, label %dgram_pair_read_inner.exit100, label %101
 
 dgram_pair_read_inner.exit100:                    ; preds = %101, %106
-  %.012.lcssa.i97 = phi i64 [ %110, %106 ], [ %.01237.i85, %101 ]
+  %.012.lcssa.i97 = phi i64 [ %.01237.i85, %101 ], [ %110, %106 ]
   %112 = icmp eq i64 %.012.lcssa.i97, %.046
   br i1 %112, label %113, label %.critedge, !prof !25
 
@@ -1358,7 +1358,7 @@ dgram_pair_read_inner.exit100:                    ; preds = %101, %106
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %116, %117, %dgram_pair_read_inner.exit100, %dgram_pair_read_inner.exit80, %dgram_pair_read_inner.exit, %58, %59, %26, %22, %.thread, %14, %11, %70
-  %.044 = phi i64 [ -104, %.thread ], [ -125, %22 ], [ -111, %26 ], [ -104, %dgram_pair_read_inner.exit100 ], [ -104, %dgram_pair_read_inner.exit80 ], [ -124, %dgram_pair_read_inner.exit ], [ -112, %70 ], [ -112, %58 ], [ -104, %14 ], [ -120, %11 ], [ %.045, %116 ], [ -112, %59 ], [ %.045, %117 ], [ -104, %17 ]
+  %.044 = phi i64 [ -112, %70 ], [ -120, %11 ], [ -104, %14 ], [ -104, %.thread ], [ -125, %22 ], [ -111, %26 ], [ -112, %59 ], [ -112, %58 ], [ -124, %dgram_pair_read_inner.exit ], [ -104, %dgram_pair_read_inner.exit80 ], [ -104, %dgram_pair_read_inner.exit100 ], [ %.045, %117 ], [ %.045, %116 ], [ -104, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.044
 }
@@ -1571,7 +1571,7 @@ ring_buf_push_pop.exit.i.i:                       ; preds = %89
   br i1 %.not.i.i46, label %dgram_pair_read_inner.exit.i, label %89
 
 dgram_pair_read_inner.exit.i:                     ; preds = %ring_buf_push_pop.exit.i.i, %89
-  %.012.lcssa.i.i = phi i64 [ %100, %ring_buf_push_pop.exit.i.i ], [ %.01237.i.i, %89 ]
+  %.012.lcssa.i.i = phi i64 [ %.01237.i.i, %89 ], [ %100, %ring_buf_push_pop.exit.i.i ]
   store i64 %84, ptr %83, align 8, !tbaa !35
   store i64 %86, ptr %85, align 8, !tbaa !50
   %102 = load ptr, ptr %78, align 8, !tbaa !18
@@ -1588,7 +1588,7 @@ dgram_pair_read_inner.exit.i:                     ; preds = %ring_buf_push_pop.e
   br label %dgram_pair_ctrl_pending.exit
 
 dgram_pair_ctrl_pending.exit:                     ; preds = %70, %77, %dgram_pair_read_inner.exit.i, %104
-  %.0.i47 = phi i64 [ 0, %70 ], [ %106, %104 ], [ 0, %77 ], [ 0, %dgram_pair_read_inner.exit.i ]
+  %.0.i47 = phi i64 [ %106, %104 ], [ 0, %70 ], [ 0, %77 ], [ 0, %dgram_pair_read_inner.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dgram_pair_ctrl_get_write_guarantee.exit
 
@@ -1741,7 +1741,7 @@ dgram_pair_ctrl_get_local_addr_cap.exit.i:        ; preds = %128, %126
   br label %dgram_pair_ctrl_get_write_guarantee.exit
 
 dgram_pair_ctrl_get_write_guarantee.exit:         ; preds = %179, %177, %174, %148, %141, %134, %dgram_pair_ctrl_get_local_addr_cap.exit.i, %124, %ring_buf_resize.exit.i, %23, %19, %11, %167, %163, %57, %52, %8, %47, %50, %dgram_pair_ctrl_pending.exit, %107, %112, %119, %154, %157, %160, %171, %183, %4
-  %.0 = phi i64 [ 0, %4 ], [ 0, %183 ], [ 1, %167 ], [ %49, %47 ], [ 1, %50 ], [ 0, %141 ], [ %.0.i47, %dgram_pair_ctrl_pending.exit ], [ 1, %8 ], [ %111, %107 ], [ 1, %112 ], [ 1, %119 ], [ 0, %19 ], [ 0, %124 ], [ %156, %154 ], [ 1, %157 ], [ %162, %160 ], [ 0, %52 ], [ 1, %171 ], [ %spec.store.select.i43, %57 ], [ 1, %163 ], [ 0, %11 ], [ 1, %ring_buf_resize.exit.i ], [ 0, %23 ], [ 1, %134 ], [ 0, %dgram_pair_ctrl_get_local_addr_cap.exit.i ], [ %153, %148 ], [ 0, %177 ], [ %182, %179 ], [ 1, %174 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %183 ], [ %49, %47 ], [ 1, %50 ], [ %.0.i47, %dgram_pair_ctrl_pending.exit ], [ 1, %8 ], [ %111, %107 ], [ 1, %112 ], [ 1, %119 ], [ %156, %154 ], [ 1, %157 ], [ %162, %160 ], [ 1, %171 ], [ %spec.store.select.i43, %57 ], [ 0, %52 ], [ 1, %163 ], [ 1, %167 ], [ 0, %11 ], [ 1, %ring_buf_resize.exit.i ], [ 0, %19 ], [ 0, %23 ], [ 1, %134 ], [ 0, %dgram_pair_ctrl_get_local_addr_cap.exit.i ], [ 0, %124 ], [ %153, %148 ], [ 0, %141 ], [ 1, %174 ], [ 0, %177 ], [ %182, %179 ]
   ret i64 %.0
 }
 

@@ -485,7 +485,7 @@ if.end91:                                         ; preds = %if.end84
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then59, %for.end, %lor.lhs.false, %if.end91, %if.then86, %if.then66
-  %retval.1 = phi i1 [ false, %if.then86 ], [ true, %if.end91 ], [ false, %if.then66 ], [ false, %for.end ], [ false, %lor.lhs.false ], [ false, %if.then59 ]
+  %retval.1 = phi i1 [ false, %if.then86 ], [ true, %if.end91 ], [ false, %if.then66 ], [ false, %lor.lhs.false ], [ false, %for.end ], [ false, %if.then59 ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %cleanup
@@ -605,7 +605,7 @@ sw.epilog:                                        ; preds = %if.end94
   br label %cleanup155
 
 cleanup155:                                       ; preds = %arraydestroy.body, %if.else132, %if.end106, %if.then101, %sw.epilog, %if.then127, %sw.bb
-  %retval.2 = phi i1 [ false, %if.else132 ], [ true, %sw.epilog ], [ false, %sw.bb ], [ false, %if.end106 ], [ false, %if.then101 ], [ false, %if.then127 ], [ %retval.1, %arraydestroy.body ]
+  %retval.2 = phi i1 [ true, %sw.epilog ], [ false, %sw.bb ], [ false, %if.then127 ], [ false, %if.then101 ], [ false, %if.end106 ], [ false, %if.else132 ], [ %retval.1, %arraydestroy.body ]
   %tobool.not.i.i.i117 = icmp eq ptr %EnvVector.sroa.0.0, null
   br i1 %tobool.not.i.i.i117, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit119, label %if.then.i.i.i118
 
@@ -678,7 +678,7 @@ if.then.i.i6.i:                                   ; preds = %_ZN4llvh11SmallVect
   br label %return
 
 return:                                           ; preds = %if.then.i.i6.i, %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i, %if.then, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit66
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit66 ], [ %retval.2, %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i ], [ %retval.2, %if.then.i.i6.i ]
+  %retval.0 = phi i1 [ false, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit66 ], [ false, %if.then ], [ %retval.2, %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i ], [ %retval.2, %if.then.i.i6.i ]
   ret i1 %retval.0
 }
 
@@ -812,7 +812,7 @@ if.then58:                                        ; preds = %if.end54
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else43, %if.then58, %if.end54
-  %call93651 = phi i32 [ %call936, %if.end54 ], [ %call936, %if.then58 ], [ %call935, %if.else43 ]
+  %call93651 = phi i32 [ %call936, %if.then58 ], [ %call936, %if.end54 ], [ %call935, %if.else43 ]
   %6 = load i32, ptr %status, align 4
   %and = and i32 %6, 127
   switch i32 %and, label %if.then88 [
@@ -864,8 +864,8 @@ if.then96:                                        ; preds = %if.then90
   br label %return
 
 return:                                           ; preds = %if.end61, %if.then88, %if.then96, %if.then90, %if.then76, %if.then78, %if.then67, %if.then69, %if.then35, %if.else38, %if.then63, %if.then19, %if.then46
-  %call934 = phi i32 [ %call93651, %if.then63 ], [ %call935, %if.then35 ], [ %call93651, %if.then67 ], [ %call93651, %if.then76 ], [ %call93651, %if.end61 ], [ 0, %if.then19 ], [ %call935, %if.then46 ], [ %call935, %if.else38 ], [ %call93651, %if.then69 ], [ %call93651, %if.then78 ], [ %call93651, %if.then90 ], [ %call93651, %if.then96 ], [ %call93651, %if.then88 ]
-  %retval.sroa.4.sroa.1.0 = phi i32 [ %shr, %if.then63 ], [ -2, %if.then35 ], [ -1, %if.then67 ], [ -1, %if.then76 ], [ 0, %if.end61 ], [ 0, %if.then19 ], [ -1, %if.then46 ], [ -2, %if.else38 ], [ -1, %if.then69 ], [ -1, %if.then78 ], [ -2, %if.then90 ], [ -2, %if.then96 ], [ -2, %if.then88 ]
+  %call934 = phi i32 [ %call93651, %if.then63 ], [ 0, %if.then19 ], [ %call935, %if.then46 ], [ %call935, %if.else38 ], [ %call935, %if.then35 ], [ %call93651, %if.then69 ], [ %call93651, %if.then67 ], [ %call93651, %if.then78 ], [ %call93651, %if.then76 ], [ %call93651, %if.then90 ], [ %call93651, %if.then96 ], [ %call93651, %if.then88 ], [ %call93651, %if.end61 ]
+  %retval.sroa.4.sroa.1.0 = phi i32 [ %shr, %if.then63 ], [ 0, %if.then19 ], [ -1, %if.then46 ], [ -2, %if.else38 ], [ -2, %if.then35 ], [ -1, %if.then69 ], [ -1, %if.then67 ], [ -1, %if.then78 ], [ -1, %if.then76 ], [ -2, %if.then90 ], [ -2, %if.then96 ], [ -2, %if.then88 ], [ 0, %if.end61 ]
   %retval.sroa.0.0.insert.ext = zext i32 %call934 to i64
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.ext, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.4.sroa.1.0, 1
@@ -1025,7 +1025,7 @@ if.end14.i:                                       ; preds = %for.body.i
   br i1 %cmp18.i, label %_ZN4llvh3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIS1_EE.exit, label %for.cond.i
 
 _ZN4llvh3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIS1_EE.exit: ; preds = %for.cond.i, %for.body.i, %if.end14.i, %init.end.i, %if.end6.i
-  %retval.0.i = phi i1 [ true, %init.end.i ], [ true, %if.end6.i ], [ true, %for.cond.i ], [ false, %for.body.i ], [ false, %if.end14.i ]
+  %retval.0.i = phi i1 [ true, %init.end.i ], [ true, %if.end6.i ], [ true, %for.cond.i ], [ false, %if.end14.i ], [ false, %for.body.i ]
   %12 = load ptr, ptr %StringRefArgs, align 8
   %cmp.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorINS_9StringRefELj8EED2Ev.exit, label %if.then.i.i
@@ -1094,7 +1094,7 @@ if.end14:                                         ; preds = %for.body
   br i1 %cmp18, label %return, label %for.cond
 
 return:                                           ; preds = %for.body, %if.end14, %for.cond, %if.end6, %init.end
-  %retval.0 = phi i1 [ true, %init.end ], [ true, %if.end6 ], [ false, %if.end14 ], [ false, %for.body ], [ true, %for.cond ]
+  %retval.0 = phi i1 [ true, %init.end ], [ true, %if.end6 ], [ false, %for.body ], [ false, %if.end14 ], [ true, %for.cond ]
   ret i1 %retval.0
 }
 

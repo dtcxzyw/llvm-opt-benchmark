@@ -184,7 +184,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   ret void
 
 15:                                               ; preds = %5, %7
-  %.sroa.4.0 = phi i64 [ 1, %7 ], [ 0, %5 ]
+  %.sroa.4.0 = phi i64 [ 0, %5 ], [ 1, %7 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %.sroa.4.0, i64 %2) #15
   unreachable
 }
@@ -506,7 +506,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h2f416dca8825
   br label %24
 
 23:                                               ; preds = %17, %15
-  %.sroa.4.0.i = phi i64 [ 1, %17 ], [ 0, %15 ]
+  %.sroa.4.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %.sroa.4.0.i, i64 %2) #15
           to label %.noexc unwind label %47
 
@@ -649,7 +649,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h3669bae96c6b
   br label %24
 
 23:                                               ; preds = %17, %15
-  %.sroa.4.0.i = phi i64 [ 1, %17 ], [ 0, %15 ]
+  %.sroa.4.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %.sroa.4.0.i, i64 %2) #15
           to label %.noexc unwind label %47
 
@@ -790,7 +790,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h46aea1bd6361
   br label %24
 
 23:                                               ; preds = %17, %15
-  %.sroa.4.0.i = phi i64 [ 1, %17 ], [ 0, %15 ]
+  %.sroa.4.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %.sroa.4.0.i, i64 %2) #15
           to label %.noexc unwind label %47
 
@@ -931,7 +931,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17ha41eedc6a201
   br label %24
 
 23:                                               ; preds = %17, %15
-  %.sroa.4.0.i = phi i64 [ 1, %17 ], [ 0, %15 ]
+  %.sroa.4.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %.sroa.4.0.i, i64 %2) #15
           to label %.noexc unwind label %47
 
@@ -1074,7 +1074,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hb8d3c19d2823
   br label %24
 
 23:                                               ; preds = %17, %15
-  %.sroa.4.0.i = phi i64 [ 1, %17 ], [ 0, %15 ]
+  %.sroa.4.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %.sroa.4.0.i, i64 %2) #15
           to label %.noexc unwind label %47
 
@@ -1215,7 +1215,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hcc06840b339d
   br label %24
 
 23:                                               ; preds = %17, %15
-  %.sroa.4.0.i = phi i64 [ 1, %17 ], [ 0, %15 ]
+  %.sroa.4.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %.sroa.4.0.i, i64 %2) #15
           to label %.noexc unwind label %47
 
@@ -1358,7 +1358,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hfce40d2c78e1
   br label %24
 
 23:                                               ; preds = %17, %15
-  %.sroa.4.0.i = phi i64 [ 1, %17 ], [ 0, %15 ]
+  %.sroa.4.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %.sroa.4.0.i, i64 %2) #15
           to label %.noexc unwind label %47
 

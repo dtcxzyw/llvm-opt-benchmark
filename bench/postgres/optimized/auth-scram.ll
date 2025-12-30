@@ -136,7 +136,7 @@ define internal noundef ptr @scram_init(ptr noundef %0, ptr noundef readonly cap
   store ptr %36, ptr %37, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %8, %27, %32, %25
+.critedge:                                        ; preds = %8, %25, %27, %32
   %38 = load ptr, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 328
   %40 = load ptr, ptr %39, align 8
@@ -672,7 +672,7 @@ verify_final_nonce.exit:                          ; preds = %253
   %.not16.i = icmp eq i32 %bcmp15.i, 0
   br i1 %.not16.i, label %261, label %verify_final_nonce.exit.thread
 
-verify_final_nonce.exit.thread:                   ; preds = %read_client_final_message.exit, %253, %verify_final_nonce.exit
+verify_final_nonce.exit.thread:                   ; preds = %253, %read_client_final_message.exit, %verify_final_nonce.exit
   %257 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   %258 = call i32 @errcode(i32 noundef 16908800) #12
   %259 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #12
@@ -1094,7 +1094,7 @@ define dso_local zeroext i1 @scram_verify_plain_password(ptr noundef %0, ptr nou
   br label %56
 
 56:                                               ; preds = %30, %32, %15, %17, %53
-  %.0 = phi i1 [ false, %15 ], [ %55, %53 ], [ false, %17 ], [ false, %32 ], [ false, %30 ]
+  %.0 = phi i1 [ %55, %53 ], [ false, %17 ], [ false, %15 ], [ false, %32 ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

@@ -217,7 +217,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
   br i1 %93, label %.preheader106, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %91, %57, %.critedge
-  %94 = phi i32 [ %59, %57 ], [ %78, %.critedge ], [ %92, %91 ]
+  %94 = phi i32 [ %78, %.critedge ], [ %59, %57 ], [ %92, %91 ]
   %95 = sitofp i32 %94 to float
   %96 = fdiv float %62, %95
   %97 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv121

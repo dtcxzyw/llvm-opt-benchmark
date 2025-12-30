@@ -920,7 +920,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
           to label %36 unwind label %34
 
 32:                                               ; preds = %62, %58, %34
-  %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %59, %58 ], [ %35, %34 ]
+  %.pn.i = phi { ptr, i32 } [ %35, %34 ], [ %63, %62 ], [ %59, %58 ]
   %33 = load i64, ptr %13, align 8, !range !17, !noundef !3
   %.not71.i = icmp eq i64 %33, -9223372036854775808
   br i1 %.not71.i, label %.thread7, label %69
@@ -1068,7 +1068,7 @@ _ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h4628b67f1bc073b1E.exit.i: 
   ret void
 
 .thread7:                                         ; preds = %69, %51, %47, %32, %71
-  %.pn6 = phi { ptr, i32 } [ %48, %47 ], [ %lpad.thr_comm.split-lp, %71 ], [ %lpad.thr_comm.split-lp.i, %51 ], [ %.pn.i, %32 ], [ %.pn.i, %69 ]
+  %.pn6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %71 ], [ %.pn.i, %69 ], [ %.pn.i, %32 ], [ %lpad.thr_comm.split-lp.i, %51 ], [ %48, %47 ]
   resume { ptr, i32 } %.pn6
 
 71:                                               ; preds = %2
@@ -1541,7 +1541,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17h7508ba9e
           to label %14 unwind label %12
 
 11:                                               ; preds = %23, %12
-  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %13, %12 ]
   resume { ptr, i32 } %.pn
 
 12:                                               ; preds = %21, %14, %2
@@ -1609,7 +1609,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5
           to label %16 unwind label %14
 
 13:                                               ; preds = %25, %14
-  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %15, %14 ]
   resume { ptr, i32 } %.pn
 
 14:                                               ; preds = %23, %16, %3
@@ -1870,7 +1870,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta6srcgen9Formatter11update_
           to label %67 unwind label %.loopexit
 
 66:                                               ; preds = %62, %71, %52
-  %.0 = phi ptr [ %55, %52 ], [ %70, %71 ], [ null, %62 ]
+  %.0 = phi ptr [ %70, %71 ], [ %55, %52 ], [ null, %62 ]
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16)
   ret ptr %.0
 
@@ -2712,12 +2712,12 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h04
   unreachable
 
 30:                                               ; preds = %.thread14, %13
-  %.pn13 = phi { ptr, i32 } [ %12, %.thread14 ], [ %lpad.thr_comm, %13 ]
+  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %12, %.thread14 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %10) #11
           to label %.thread unwind label %28
 
 .thread:                                          ; preds = %13, %30, %31
-  %.pn.pn11 = phi { ptr, i32 } [ %32, %31 ], [ %.pn13, %30 ], [ %lpad.thr_comm, %13 ]
+  %.pn.pn11 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %13 ], [ %.pn13, %30 ]
   resume { ptr, i32 } %.pn.pn11
 
 31:                                               ; preds = %3
@@ -2801,12 +2801,12 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h9b
   unreachable
 
 30:                                               ; preds = %.thread, %13
-  %.pn8 = phi { ptr, i32 } [ %12, %.thread ], [ %lpad.thr_comm, %13 ]
+  %.pn8 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %12, %.thread ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %11) #11
           to label %31 unwind label %28
 
 31:                                               ; preds = %13, %30
-  %.pn7 = phi { ptr, i32 } [ %.pn8, %30 ], [ %lpad.thr_comm, %13 ]
+  %.pn7 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %.pn8, %30 ]
   resume { ptr, i32 } %.pn7
 }
 
@@ -2889,12 +2889,12 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17hda
   unreachable
 
 31:                                               ; preds = %.thread14, %14
-  %.pn13 = phi { ptr, i32 } [ %13, %.thread14 ], [ %lpad.thr_comm, %14 ]
+  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm, %14 ], [ %13, %.thread14 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %11) #11
           to label %.thread unwind label %29
 
 .thread:                                          ; preds = %14, %31, %32
-  %.pn.pn11 = phi { ptr, i32 } [ %33, %32 ], [ %.pn13, %31 ], [ %lpad.thr_comm, %14 ]
+  %.pn.pn11 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %14 ], [ %.pn13, %31 ]
   resume { ptr, i32 } %.pn.pn11
 
 32:                                               ; preds = %4

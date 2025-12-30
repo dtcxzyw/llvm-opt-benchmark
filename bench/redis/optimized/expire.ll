@@ -93,7 +93,7 @@ define dso_local range(i32 0, 2) i32 @activeExpireCycleTryExpire(ptr noundef %0,
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %6, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ 0, %6 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %6 ]
   %30 = tail call ptr @createStringObject(ptr noundef nonnull %7, i64 noundef %.0.i) #10
   tail call void @deleteExpiredKeyAndPropagate(ptr noundef %0, ptr noundef %30) #10
   tail call void @decrRefCount(ptr noundef %30) #10
@@ -412,7 +412,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br label %129
 
 129:                                              ; preds = %122, %124
-  %130 = phi i32 [ %128, %124 ], [ 1, %122 ]
+  %130 = phi i32 [ 1, %122 ], [ %128, %124 ]
   %131 = and i32 %93, 15
   %132 = icmp ne i32 %131, 0
   %133 = icmp ne i32 %130, 0
@@ -471,14 +471,14 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br label %.thread119
 
 163:                                              ; preds = %154, %156, %129
-  %.179 = phi i32 [ %.4, %154 ], [ %spec.select116, %129 ], [ %.4, %156 ]
-  %.177 = phi i32 [ %136, %154 ], [ 1, %129 ], [ %136, %156 ]
+  %.179 = phi i32 [ %spec.select116, %129 ], [ %.4, %156 ], [ %.4, %154 ]
+  %.177 = phi i32 [ 1, %129 ], [ %136, %156 ], [ %136, %154 ]
   %.not111 = icmp eq i32 %.177, 0
   br i1 %.not111, label %.thread119, label %92, !llvm.loop !66
 
 .thread119:                                       ; preds = %163, %160, %97
-  %.287129 = phi i64 [ %.186, %97 ], [ %117, %160 ], [ %117, %163 ]
-  %.290128 = phi i64 [ %.189, %97 ], [ %118, %160 ], [ %118, %163 ]
+  %.287129 = phi i64 [ %117, %160 ], [ %.186, %97 ], [ %117, %163 ]
+  %.290128 = phi i64 [ %118, %160 ], [ %.189, %97 ], [ %118, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %164 = add nuw nsw i32 %.071151, 1
   %165 = icmp sge i32 %spec.select114, %spec.select
@@ -680,7 +680,7 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %52, %48, %44, %40, %37, %31
-  %.0.i.i = phi i64 [ %54, %52 ], [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ 0, %31 ]
+  %.0.i.i = phi i64 [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %54, %52 ], [ 0, %31 ]
   %55 = tail call ptr @createStringObject(ptr noundef nonnull %32, i64 noundef %.0.i.i) #10
   tail call void @deleteExpiredKeyAndPropagate(ptr noundef %29, ptr noundef %55) #10
   tail call void @decrRefCount(ptr noundef %55) #10
@@ -752,7 +752,7 @@ activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27,
   %86 = icmp eq i64 %82, %85
   br i1 %86, label %.thread, label %12
 
-.thread:                                          ; preds = %79, %69, %75, %0, %3
+.thread:                                          ; preds = %79, %75, %69, %0, %3
   ret void
 }
 
@@ -933,11 +933,11 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
   br label %.thread87
 
 20:                                               ; preds = %18, %16, %14, %8
-  %.sink93 = phi i32 [ 1, %8 ], [ 4, %16 ], [ 2, %14 ], [ 8, %18 ]
-  %.146 = phi i32 [ 1, %8 ], [ %.04555, %16 ], [ %.04555, %14 ], [ %.04555, %18 ]
-  %.143 = phi i32 [ %.04256, %8 ], [ %.04256, %16 ], [ 1, %14 ], [ %.04256, %18 ]
-  %.140 = phi i32 [ %.03957, %8 ], [ 1, %16 ], [ %.03957, %14 ], [ %.03957, %18 ]
-  %.137 = phi i32 [ %.03658, %8 ], [ %.03658, %16 ], [ %.03658, %14 ], [ 1, %18 ]
+  %.sink93 = phi i32 [ 1, %8 ], [ 2, %14 ], [ 4, %16 ], [ 8, %18 ]
+  %.146 = phi i32 [ 1, %8 ], [ %.04555, %14 ], [ %.04555, %16 ], [ %.04555, %18 ]
+  %.143 = phi i32 [ %.04256, %8 ], [ 1, %14 ], [ %.04256, %16 ], [ %.04256, %18 ]
+  %.140 = phi i32 [ %.03957, %8 ], [ %.03957, %14 ], [ 1, %16 ], [ %.03957, %18 ]
+  %.137 = phi i32 [ %.03658, %8 ], [ %.03658, %14 ], [ %.03658, %16 ], [ 1, %18 ]
   %21 = load i32, ptr %1, align 4, !tbaa !10
   %22 = or i32 %21, %.sink93
   store i32 %22, ptr %1, align 4, !tbaa !10
@@ -970,7 +970,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
   br label %.thread87
 
 .thread87:                                        ; preds = %2, %33, %.critedge, %34, %32
-  %.2 = phi i32 [ -1, %.critedge ], [ -1, %32 ], [ -1, %34 ], [ 0, %33 ], [ 0, %2 ]
+  %.2 = phi i32 [ -1, %32 ], [ -1, %34 ], [ -1, %.critedge ], [ 0, %33 ], [ 0, %2 ]
   ret i32 %.2
 }
 

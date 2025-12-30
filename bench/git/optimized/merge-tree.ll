@@ -715,7 +715,7 @@ default.unreachable:                              ; preds = %269
   br label %explanation.exit.i.i.i
 
 explanation.exit.i.i.i:                           ; preds = %283, %280, %277, %274, %273, %269
-  %.0.i.i.i.i = phi ptr [ @.str.54, %280 ], [ @.str.50, %273 ], [ %.str.52..str.51.i.i.i.i, %274 ], [ @.str.49, %269 ], [ @.str.53, %277 ], [ %.str.55..str.56.i.i.i.i, %283 ]
+  %.0.i.i.i.i = phi ptr [ @.str.50, %273 ], [ @.str.49, %269 ], [ %.str.52..str.51.i.i.i.i, %274 ], [ @.str.53, %277 ], [ @.str.54, %280 ], [ %.str.55..str.56.i.i.i.i, %283 ]
   %puts.i.i.i = call i32 @puts(ptr nonnull dereferenceable(1) %.0.i.i.i.i)
   br label %288
 
@@ -1751,7 +1751,7 @@ link_entry.exit60:                                ; preds = %119, %.thread80
   br label %139
 
 139:                                              ; preds = %link_entry.exit52.thread, %link_entry.exit60, %link_entry.exit52
-  %.2 = phi ptr [ %.132, %link_entry.exit52 ], [ %128, %link_entry.exit60 ], [ null, %link_entry.exit52.thread ]
+  %.2 = phi ptr [ %128, %link_entry.exit60 ], [ %.132, %link_entry.exit52 ], [ null, %link_entry.exit52.thread ]
   %140 = load ptr, ptr @merge_result_end, align 8, !tbaa !113
   store ptr %.2, ptr %140, align 8, !tbaa !65
   store ptr %.2, ptr @merge_result_end, align 8, !tbaa !113

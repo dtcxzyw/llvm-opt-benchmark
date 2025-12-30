@@ -1128,7 +1128,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIbE7ReserveEi(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = icmp eq ptr %11, null
   br i1 %18, label %19, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
@@ -1319,7 +1319,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18, %16, %8
-  %.0.i.i.i.i = phi i32 [ 4, %8 ], [ %.sroa.speculated.i.i.i.i, %18 ], [ 2147483647, %16 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %18 ], [ 4, %8 ], [ 2147483647, %16 ]
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = icmp eq ptr %14, null
   br i1 %21, label %22, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
@@ -1418,7 +1418,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %17, %9
-  %.0.i.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = icmp eq ptr %15, null
   br i1 %22, label %23, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
@@ -1624,7 +1624,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26, %24, %21
-  %.0.i.i.i.i = phi i32 [ 4, %21 ], [ %.sroa.speculated.i.i.i.i, %26 ], [ 2147483647, %24 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %26 ], [ 4, %21 ], [ 2147483647, %24 ]
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = icmp eq ptr %10, null
   br i1 %29, label %30, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
@@ -2233,7 +2233,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = icmp eq ptr %15, null
   br i1 %22, label %23, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
@@ -2379,7 +2379,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIbE6ResizeEiRKb(p
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = icmp eq ptr %15, null
   br i1 %22, label %23, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
@@ -2525,7 +2525,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIbE4SwapEPS2_(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %37, %29
-  %.0.i.i.i = phi i32 [ 4, %29 ], [ %.sroa.speculated.i.i.i, %39 ], [ 2147483647, %37 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %39 ], [ 4, %29 ], [ 2147483647, %37 ]
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = icmp eq ptr %35, null
   br i1 %42, label %43, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
@@ -2614,7 +2614,7 @@ _ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %80, %78, %71
-  %.0.i.i.i.i = phi i32 [ 4, %71 ], [ %.sroa.speculated.i.i.i.i, %80 ], [ 2147483647, %78 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %80 ], [ 4, %71 ], [ 2147483647, %78 ]
   %82 = zext nneg i32 %.0.i.i.i.i to i64
   %83 = icmp eq ptr %76, null
   br i1 %83, label %84, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
@@ -3031,7 +3031,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 2
   %19 = icmp eq ptr %11, null
@@ -3211,7 +3211,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18, %16, %8
-  %.0.i.i.i.i = phi i32 [ 4, %8 ], [ %.sroa.speculated.i.i.i.i, %18 ], [ 2147483647, %16 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %18 ], [ 4, %8 ], [ 2147483647, %16 ]
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 2
   %22 = icmp eq ptr %14, null
@@ -3313,7 +3313,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %17, %9
-  %.0.i.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -3524,7 +3524,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26, %24, %21
-  %.0.i.i.i.i = phi i32 [ 4, %21 ], [ %.sroa.speculated.i.i.i.i, %26 ], [ 2147483647, %24 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %26 ], [ 4, %21 ], [ 2147483647, %24 ]
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 2
   %30 = icmp eq ptr %10, null
@@ -4133,7 +4133,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -4280,7 +4280,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi(p
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -4434,7 +4434,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIiE4SwapEPS2_(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %37, %29
-  %.0.i.i.i = phi i32 [ 4, %29 ], [ %.sroa.speculated.i.i.i, %39 ], [ 2147483647, %37 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %39 ], [ 4, %29 ], [ 2147483647, %37 ]
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 2
   %43 = icmp eq ptr %35, null
@@ -4526,7 +4526,7 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %83 ], [ 4, %74 ], [ 2147483647, %81 ]
   %85 = zext nneg i32 %.0.i.i.i.i to i64
   %86 = shl nuw nsw i64 %85, 2
   %87 = icmp eq ptr %79, null
@@ -4947,7 +4947,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 2
   %19 = icmp eq ptr %11, null
@@ -5127,7 +5127,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18, %16, %8
-  %.0.i.i.i.i = phi i32 [ 4, %8 ], [ %.sroa.speculated.i.i.i.i, %18 ], [ 2147483647, %16 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %18 ], [ 4, %8 ], [ 2147483647, %16 ]
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 2
   %22 = icmp eq ptr %14, null
@@ -5229,7 +5229,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %17, %9
-  %.0.i.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -5440,7 +5440,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26, %24, %21
-  %.0.i.i.i.i = phi i32 [ 4, %21 ], [ %.sroa.speculated.i.i.i.i, %26 ], [ 2147483647, %24 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %26 ], [ 4, %21 ], [ 2147483647, %24 ]
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 2
   %30 = icmp eq ptr %10, null
@@ -6049,7 +6049,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -6196,7 +6196,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj(p
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -6350,7 +6350,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIjE4SwapEPS2_(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %37, %29
-  %.0.i.i.i = phi i32 [ 4, %29 ], [ %.sroa.speculated.i.i.i, %39 ], [ 2147483647, %37 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %39 ], [ 4, %29 ], [ 2147483647, %37 ]
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 2
   %43 = icmp eq ptr %35, null
@@ -6442,7 +6442,7 @@ _ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %83 ], [ 4, %74 ], [ 2147483647, %81 ]
   %85 = zext nneg i32 %.0.i.i.i.i to i64
   %86 = shl nuw nsw i64 %85, 2
   %87 = icmp eq ptr %79, null
@@ -6863,7 +6863,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
@@ -7043,7 +7043,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18, %16, %8
-  %.0.i.i.i.i = phi i32 [ 4, %8 ], [ %.sroa.speculated.i.i.i.i, %18 ], [ 2147483647, %16 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %18 ], [ 4, %8 ], [ 2147483647, %16 ]
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = icmp eq ptr %14, null
@@ -7145,7 +7145,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %17, %9
-  %.0.i.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -7356,7 +7356,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26, %24, %21
-  %.0.i.i.i.i = phi i32 [ 4, %21 ], [ %.sroa.speculated.i.i.i.i, %26 ], [ 2147483647, %24 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %26 ], [ 4, %21 ], [ 2147483647, %24 ]
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = icmp eq ptr %10, null
@@ -7963,7 +7963,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -8110,7 +8110,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl(p
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -8264,7 +8264,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE4SwapEPS2_(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %37, %29
-  %.0.i.i.i = phi i32 [ 4, %29 ], [ %.sroa.speculated.i.i.i, %39 ], [ 2147483647, %37 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %39 ], [ 4, %29 ], [ 2147483647, %37 ]
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 3
   %43 = icmp eq ptr %35, null
@@ -8356,7 +8356,7 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %83 ], [ 4, %74 ], [ 2147483647, %81 ]
   %85 = zext nneg i32 %.0.i.i.i.i to i64
   %86 = shl nuw nsw i64 %85, 3
   %87 = icmp eq ptr %79, null
@@ -8777,7 +8777,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
@@ -8957,7 +8957,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18, %16, %8
-  %.0.i.i.i.i = phi i32 [ 4, %8 ], [ %.sroa.speculated.i.i.i.i, %18 ], [ 2147483647, %16 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %18 ], [ 4, %8 ], [ 2147483647, %16 ]
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = icmp eq ptr %14, null
@@ -9059,7 +9059,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %17, %9
-  %.0.i.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -9270,7 +9270,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26, %24, %21
-  %.0.i.i.i.i = phi i32 [ 4, %21 ], [ %.sroa.speculated.i.i.i.i, %26 ], [ 2147483647, %24 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %26 ], [ 4, %21 ], [ 2147483647, %24 ]
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = icmp eq ptr %10, null
@@ -9877,7 +9877,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -10024,7 +10024,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm(p
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -10178,7 +10178,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE4SwapEPS2_(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %37, %29
-  %.0.i.i.i = phi i32 [ 4, %29 ], [ %.sroa.speculated.i.i.i, %39 ], [ 2147483647, %37 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %39 ], [ 4, %29 ], [ 2147483647, %37 ]
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 3
   %43 = icmp eq ptr %35, null
@@ -10270,7 +10270,7 @@ _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %83 ], [ 4, %74 ], [ 2147483647, %81 ]
   %85 = zext nneg i32 %.0.i.i.i.i to i64
   %86 = shl nuw nsw i64 %85, 3
   %87 = icmp eq ptr %79, null
@@ -10691,7 +10691,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 2
   %19 = icmp eq ptr %11, null
@@ -10871,7 +10871,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18, %16, %8
-  %.0.i.i.i.i = phi i32 [ 4, %8 ], [ %.sroa.speculated.i.i.i.i, %18 ], [ 2147483647, %16 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %18 ], [ 4, %8 ], [ 2147483647, %16 ]
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 2
   %22 = icmp eq ptr %14, null
@@ -10973,7 +10973,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %17, %9
-  %.0.i.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -11184,7 +11184,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26, %24, %21
-  %.0.i.i.i.i = phi i32 [ 4, %21 ], [ %.sroa.speculated.i.i.i.i, %26 ], [ 2147483647, %24 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %26 ], [ 4, %21 ], [ 2147483647, %24 ]
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 2
   %30 = icmp eq ptr %10, null
@@ -11791,7 +11791,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -11938,7 +11938,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf(p
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = icmp eq ptr %15, null
@@ -12092,7 +12092,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIfE4SwapEPS2_(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %37, %29
-  %.0.i.i.i = phi i32 [ 4, %29 ], [ %.sroa.speculated.i.i.i, %39 ], [ 2147483647, %37 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %39 ], [ 4, %29 ], [ 2147483647, %37 ]
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 2
   %43 = icmp eq ptr %35, null
@@ -12184,7 +12184,7 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %83 ], [ 4, %74 ], [ 2147483647, %81 ]
   %85 = zext nneg i32 %.0.i.i.i.i to i64
   %86 = shl nuw nsw i64 %85, 2
   %87 = icmp eq ptr %79, null
@@ -12605,7 +12605,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
@@ -12785,7 +12785,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18, %16, %8
-  %.0.i.i.i.i = phi i32 [ 4, %8 ], [ %.sroa.speculated.i.i.i.i, %18 ], [ 2147483647, %16 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %18 ], [ 4, %8 ], [ 2147483647, %16 ]
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = icmp eq ptr %14, null
@@ -12887,7 +12887,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %17, %9
-  %.0.i.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -13098,7 +13098,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26, %24, %21
-  %.0.i.i.i.i = phi i32 [ 4, %21 ], [ %.sroa.speculated.i.i.i.i, %26 ], [ 2147483647, %24 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %26 ], [ 4, %21 ], [ 2147483647, %24 ]
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = icmp eq ptr %10, null
@@ -13705,7 +13705,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -13852,7 +13852,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd(p
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17, %9
-  %.0.i.i = phi i32 [ 4, %9 ], [ %.sroa.speculated.i.i, %19 ], [ 2147483647, %17 ]
+  %.0.i.i = phi i32 [ %.sroa.speculated.i.i, %19 ], [ 4, %9 ], [ 2147483647, %17 ]
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
@@ -14006,7 +14006,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE4SwapEPS2_(ptr
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %37, %29
-  %.0.i.i.i = phi i32 [ 4, %29 ], [ %.sroa.speculated.i.i.i, %39 ], [ 2147483647, %37 ]
+  %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %39 ], [ 4, %29 ], [ 2147483647, %37 ]
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 3
   %43 = icmp eq ptr %35, null
@@ -14098,7 +14098,7 @@ _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
+  %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %83 ], [ 4, %74 ], [ 2147483647, %81 ]
   %85 = zext nneg i32 %.0.i.i.i.i to i64
   %86 = shl nuw nsw i64 %85, 3
   %87 = icmp eq ptr %79, null
@@ -16981,7 +16981,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %21,
   br label %_ZN6google8protobuf5Arena11OwnInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_St17integral_constantIbLb0EE.exit
 
 _ZN6google8protobuf5Arena11OwnInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_St17integral_constantIbLb0EE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, %8, %7, %9
-  %.0 = phi ptr [ %1, %9 ], [ %1, %8 ], [ null, %7 ], [ %.sink6.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit ], [ %.sink6.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  %.0 = phi ptr [ %1, %9 ], [ null, %7 ], [ %1, %8 ], [ %.sink6.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit ], [ %.sink6.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPNT_4TypeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.0)
   ret void
 }

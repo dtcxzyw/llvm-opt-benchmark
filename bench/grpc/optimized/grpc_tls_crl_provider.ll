@@ -1639,7 +1639,7 @@ _ZN9grpc_core12experimental17StaticCrlProviderD2Ev.exit: ; preds = %_ZNSt12__sha
   br label %.body60
 
 .body60:                                          ; preds = %166, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core12experimental17StaticCrlProviderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i
-  %.pn38 = phi { ptr, i32 } [ %145, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core12experimental17StaticCrlProviderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %167, %166 ]
+  %.pn38 = phi { ptr, i32 } [ %167, %166 ], [ %145, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core12experimental17StaticCrlProviderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ]
   call void @_ZN9grpc_core12experimental17StaticCrlProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %185
@@ -2276,7 +2276,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33: ; preds = %108, %10
   br label %_ZNSt10__weak_ptrIN9grpc_core12experimental28DirectoryReloaderCrlProviderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit35
 
 _ZNSt10__weak_ptrIN9grpc_core12experimental28DirectoryReloaderCrlProviderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit35: ; preds = %99, %97, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33, %111, %26
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %27, %26 ], [ %98, %97 ], [ %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33 ], [ %103, %111 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %98, %97 ], [ %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33 ], [ %103, %111 ], [ %100, %99 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn
@@ -3295,7 +3295,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %151, %.loopexit73, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38, %149
-  %.pn23 = phi { ptr, i32 } [ %150, %149 ], [ %152, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit73 ], [ %152, %151 ]
+  %.pn23 = phi { ptr, i32 } [ %150, %149 ], [ %152, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38 ], [ %lpad.loopexit, %.loopexit73 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %152, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %245
 
@@ -3535,7 +3535,7 @@ _ZN4absl12lts_2024072213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traits
   unreachable
 
 245:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40, %.body
-  %.pn29 = phi { ptr, i32 } [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %.pn.pn, %.body ]
+  %.pn29 = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit58 unwind label %246
 
@@ -4823,7 +4823,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i50, label %.lr.ph.i.i47, label %.thread.i.i41, !llvm.loop !195
 
 _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit51: ; preds = %39, %.thread.i.i41
-  %.sroa.011.0.i.i45 = phi i64 [ %67, %.thread.i.i41 ], [ %57, %39 ]
+  %.sroa.011.0.i.i45 = phi i64 [ %57, %39 ], [ %67, %.thread.i.i41 ]
   %75 = trunc i128 %49 to i8
   %76 = and i8 %75, 127
   %77 = getelementptr inbounds nuw i8, ptr %51, i64 %.sroa.011.0.i.i45
@@ -5982,7 +5982,7 @@ define linkonce_odr void @_ZSt10_ConstructIN9grpc_core12experimental28DirectoryR
   unreachable
 
 common.resume:                                    ; preds = %86, %84, %19, %22
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %20, %22 ], [ %.pn, %84 ], [ %.pn, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %.pn, %84 ], [ %.pn, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvN4absl12lts_202407226StatusEEEC2ERKS4_.exit: ; preds = %5, %15
@@ -7629,7 +7629,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53.i.i.i.i: ; preds = %279, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51.i.i.i.i, %277, %275
-  %.pn18.i.i.i.i = phi { ptr, i32 } [ %276, %275 ], [ %278, %277 ], [ %280, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51.i.i.i.i ], [ %280, %279 ]
+  %.pn18.i.i.i.i = phi { ptr, i32 } [ %278, %277 ], [ %276, %275 ], [ %280, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51.i.i.i.i ], [ %280, %279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %285
 

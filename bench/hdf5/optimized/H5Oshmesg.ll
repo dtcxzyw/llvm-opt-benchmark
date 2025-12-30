@@ -121,7 +121,7 @@ define internal noundef ptr @H5O__shmesg_decode(ptr noundef %0, ptr readnone cap
   br label %.thread
 
 .thread:                                          ; preds = %19, %61, %66, %6
-  %.0 = phi ptr [ null, %66 ], [ null, %19 ], [ null, %6 ], [ %17, %61 ]
+  %.0 = phi ptr [ null, %66 ], [ null, %6 ], [ %17, %61 ], [ null, %19 ]
   ret ptr %.0
 }
 

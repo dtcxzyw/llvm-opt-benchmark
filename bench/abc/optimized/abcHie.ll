@@ -1779,7 +1779,7 @@ Vec_AttGrow.exit.i.i10:                           ; preds = %66, %52, %Abc_ObjMv
   br label %Abc_ObjMvVar.exit17
 
 Abc_ObjMvVar.exit17:                              ; preds = %Vec_AttGrow.exit.i.i10, %80
-  %88 = phi ptr [ %78, %Vec_AttGrow.exit.i.i10 ], [ %.pre19.i.i14, %80 ]
+  %88 = phi ptr [ %.pre19.i.i14, %80 ], [ %78, %Vec_AttGrow.exit.i.i10 ]
   %89 = load i32, ptr %88, align 4, !tbaa !37
   br label %Abc_ObjMvVar.exit.thread
 
@@ -3831,7 +3831,7 @@ Vec_PtrSort.exit:                                 ; preds = %9, %13
   br label %Vec_PtrFind.exit
 
 Vec_PtrFind.exit:                                 ; preds = %24, %Vec_PtrSort.exit, %._crit_edge.loopexit.split.loop.exit12.i
-  %.07.i = phi i64 [ -1, %Vec_PtrSort.exit ], [ %25, %._crit_edge.loopexit.split.loop.exit12.i ], [ -1, %24 ]
+  %.07.i = phi i64 [ %25, %._crit_edge.loopexit.split.loop.exit12.i ], [ -1, %Vec_PtrSort.exit ], [ -1, %24 ]
   %26 = getelementptr i8, ptr %7, i64 8
   %27 = load ptr, ptr %19, align 8, !tbaa !27
   %28 = getelementptr inbounds ptr, ptr %19, i64 %.07.i
@@ -3861,8 +3861,8 @@ Vec_IntAlloc.exit.i:                              ; preds = %Vec_PtrFind.exit
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %Vec_PtrFind.exit, %Vec_IntAlloc.exit.i, %35
-  %38 = phi ptr [ %34, %35 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %Vec_PtrFind.exit ]
-  %.val81120 = phi i32 [ %.val81120.pre, %35 ], [ %.val97, %Vec_IntAlloc.exit.i ], [ %.val97, %Vec_PtrFind.exit ]
+  %38 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %34, %35 ], [ null, %Vec_PtrFind.exit ]
+  %.val81120 = phi i32 [ %.val97, %Vec_IntAlloc.exit.i ], [ %.val81120.pre, %35 ], [ %.val97, %Vec_PtrFind.exit ]
   %39 = icmp sgt i32 %.val81120, 0
   br i1 %39, label %.lr.ph122, label %.critedge
 
@@ -4040,11 +4040,11 @@ Vec_PtrFind.exit111:                              ; preds = %83, %75, %._crit_ed
   br i1 %exitcond.not, label %.critedge4, label %.lr.ph119, !llvm.loop !112
 
 .critedge4:                                       ; preds = %117, %.critedge2, %44
-  %.val90146 = phi ptr [ %.val90145, %44 ], [ %.val90, %.critedge2 ], [ %.val90, %117 ]
-  %.val99141 = phi ptr [ %.val99140, %44 ], [ %.val99, %.critedge2 ], [ %.val90, %117 ]
-  %118 = phi ptr [ %45, %44 ], [ %93, %.critedge2 ], [ %.val90, %117 ]
-  %119 = phi ptr [ %46, %44 ], [ %94, %.critedge2 ], [ %.val90, %117 ]
-  %120 = phi i32 [ %47, %44 ], [ %61, %.critedge2 ], [ %61, %117 ]
+  %.val90146 = phi ptr [ %.val90, %.critedge2 ], [ %.val90145, %44 ], [ %.val90, %117 ]
+  %.val99141 = phi ptr [ %.val99, %.critedge2 ], [ %.val99140, %44 ], [ %.val90, %117 ]
+  %118 = phi ptr [ %93, %.critedge2 ], [ %45, %44 ], [ %.val90, %117 ]
+  %119 = phi ptr [ %94, %.critedge2 ], [ %46, %44 ], [ %.val90, %117 ]
+  %120 = phi i32 [ %61, %.critedge2 ], [ %47, %44 ], [ %61, %117 ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %.val81 = load i32, ptr %10, align 4, !tbaa !30
   %121 = sext i32 %.val81 to i64
@@ -6255,7 +6255,7 @@ define ptr @Abc_NtkInsertNewLogic(ptr noundef captures(none) %0, ptr noundef %1)
   br label %.critedge16
 
 .critedge16:                                      ; preds = %.lr.ph290, %.critedge16.loopexit294, %.preheader, %.lr.ph293
-  %295 = phi ptr [ %.pre339, %.critedge16.loopexit294 ], [ %270, %.lr.ph293 ], [ %270, %.preheader ], [ %270, %.lr.ph290 ]
+  %295 = phi ptr [ %.pre339, %.critedge16.loopexit294 ], [ %270, %.preheader ], [ %270, %.lr.ph293 ], [ %270, %.lr.ph290 ]
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %296 = getelementptr i8, ptr %295, i64 4
   %.val187 = load i32, ptr %296, align 4, !tbaa !30

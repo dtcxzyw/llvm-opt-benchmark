@@ -232,7 +232,7 @@ full_read_.exit:                                  ; preds = %26
   br label %84
 
 84:                                               ; preds = %.thread, %full_read_.exit.thread, %76, %74, %44, %12, %10, %6, %82, %72, %42, %17
-  %.049 = phi i32 [ 0, %12 ], [ 0, %6 ], [ 0, %17 ], [ 0, %42 ], [ 0, %72 ], [ 0, %82 ], [ 0, %74 ], [ 0, %44 ], [ 0, %.thread ], [ 0, %full_read_.exit.thread ], [ 0, %10 ], [ 1, %76 ]
+  %.049 = phi i32 [ 0, %17 ], [ 0, %42 ], [ 0, %72 ], [ 0, %82 ], [ 0, %6 ], [ 0, %10 ], [ 0, %12 ], [ 0, %44 ], [ 0, %74 ], [ 1, %76 ], [ 0, %full_read_.exit.thread ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.049
 }
@@ -325,7 +325,7 @@ define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %0, i64 n
   br label %22
 
 22:                                               ; preds = %.sink.split, %15, %8, %6
-  %.0 = phi i32 [ 1, %15 ], [ 0, %6 ], [ 0, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 1, %15 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

@@ -77,8 +77,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %21, label %22, label %16
 
 22:                                               ; preds = %19, %10, %1, %38
-  %.sroa.6.0 = phi i64 [ undef, %1 ], [ %.sroa.6.2, %38 ], [ %13, %10 ], [ undef, %19 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.2, %38 ], [ %12, %10 ], [ null, %19 ]
+  %.sroa.6.0 = phi i64 [ %.sroa.6.2, %38 ], [ undef, %1 ], [ %13, %10 ], [ undef, %19 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %38 ], [ null, %1 ], [ %12, %10 ], [ null, %19 ]
   %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %24 = insertvalue { ptr, i64 } %23, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %24
@@ -220,7 +220,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %32, %2, %.split.us, %51
-  %storemerge = phi i64 [ %.us-phi, %.split.us ], [ 1, %51 ], [ 0, %2 ], [ 0, %32 ], [ 0, %43 ]
+  %storemerge = phi i64 [ 1, %51 ], [ %.us-phi, %.split.us ], [ 0, %2 ], [ 0, %32 ], [ 0, %43 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -346,7 +346,7 @@ _ZN3url3Url5slice17hc5bd3fa2488dea74E.exit.i:     ; preds = %79, %77, %2
   br i1 %.not.i.i, label %_ZN3url3Url16cannot_be_a_base17h772486484fdf9985E.exit.thread, label %_ZN3url3Url16cannot_be_a_base17h772486484fdf9985E.exit
 
 .body:                                            ; preds = %349, %.body83, %110, %83, %363, %337, %.body73, %230, %174, %153, %107
-  %.pn35 = phi { ptr, i32 } [ %108, %107 ], [ %.pn33106, %363 ], [ %345, %337 ], [ %.pn, %.body73 ], [ %231, %230 ], [ %175, %174 ], [ %154, %153 ], [ %84, %83 ], [ %111, %110 ], [ %lpad.thr_comm.split-lp, %.body83 ], [ %350, %349 ]
+  %.pn35 = phi { ptr, i32 } [ %.pn33106, %363 ], [ %345, %337 ], [ %.pn, %.body73 ], [ %231, %230 ], [ %175, %174 ], [ %154, %153 ], [ %108, %107 ], [ %84, %83 ], [ %111, %110 ], [ %lpad.thr_comm.split-lp, %.body83 ], [ %350, %349 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hf52e66fc1a22c069E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %35) #13
           to label %364 unwind label %243
 
@@ -500,11 +500,11 @@ _ZN3url3Url16cannot_be_a_base17h772486484fdf9985E.exit: ; preds = %_ZN3url3Url5s
   br i1 %139, label %146, label %.invoke
 
 .invoke:                                          ; preds = %77, %79, %270, %271, %217, %218, %134, %136
-  %140 = phi ptr [ %.val, %134 ], [ %264, %270 ], [ %186, %217 ], [ %.val, %136 ], [ %186, %218 ], [ %264, %271 ], [ %.val.i, %79 ], [ %.val.i, %77 ]
-  %141 = phi i64 [ %.val44, %134 ], [ %265, %270 ], [ %196, %217 ], [ %.val44, %136 ], [ %196, %218 ], [ %265, %271 ], [ %.val1.i, %79 ], [ %.val1.i, %77 ]
-  %142 = phi i64 [ 0, %134 ], [ 0, %270 ], [ 0, %217 ], [ 0, %136 ], [ 0, %218 ], [ 0, %271 ], [ %74, %79 ], [ %74, %77 ]
-  %143 = phi i64 [ %131, %134 ], [ %268, %270 ], [ %215, %217 ], [ %131, %136 ], [ %215, %218 ], [ %268, %271 ], [ %.val1.i, %79 ], [ %.val1.i, %77 ]
-  %144 = phi ptr [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.28, %134 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.42, %270 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.37, %217 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.28, %136 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.37, %218 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.42, %271 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.29, %79 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.29, %77 ]
+  %140 = phi ptr [ %.val, %136 ], [ %.val, %134 ], [ %186, %218 ], [ %186, %217 ], [ %264, %271 ], [ %264, %270 ], [ %.val.i, %79 ], [ %.val.i, %77 ]
+  %141 = phi i64 [ %.val44, %136 ], [ %.val44, %134 ], [ %196, %218 ], [ %196, %217 ], [ %265, %271 ], [ %265, %270 ], [ %.val1.i, %79 ], [ %.val1.i, %77 ]
+  %142 = phi i64 [ 0, %136 ], [ 0, %134 ], [ 0, %218 ], [ 0, %217 ], [ 0, %271 ], [ 0, %270 ], [ %74, %79 ], [ %74, %77 ]
+  %143 = phi i64 [ %131, %136 ], [ %131, %134 ], [ %215, %218 ], [ %215, %217 ], [ %268, %271 ], [ %268, %270 ], [ %.val1.i, %79 ], [ %.val1.i, %77 ]
+  %144 = phi ptr [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.28, %136 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.28, %134 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.37, %218 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.37, %217 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.42, %271 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.42, %270 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.29, %79 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.29, %77 ]
   invoke void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %140, i64 noundef %141, i64 noundef %142, i64 noundef %143, ptr noalias noundef readonly align 8 dereferenceable(24) %144) #12
           to label %.cont unwind label %83
 
@@ -1004,7 +1004,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17h7b96513731c6b469E.exit65: ; pre
   br i1 %334, label %.invoke130, label %336
 
 .invoke130:                                       ; preds = %331, %263, %257
-  %335 = phi ptr [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.41, %263 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.40, %257 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.44, %331 ]
+  %335 = phi ptr [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.40, %257 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.41, %263 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.44, %331 ]
   invoke void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) %335) #12
           to label %.cont131 unwind label %83
 
@@ -1026,7 +1026,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17h7b96513731c6b469E.exit65: ; pre
 337:                                              ; preds = %344
   br i1 %.sroa.015.2, label %363, label %.body
 
-.body83.thread109:                                ; preds = %341, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3da8e00c259c67e8E.exit"
+.body83.thread109:                                ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3da8e00c259c67e8E.exit", %341
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %363
@@ -1111,7 +1111,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17h7b96513731c6b469E.exit65: ; pre
   br label %_ZN3url3Url16cannot_be_a_base17h772486484fdf9985E.exit.thread
 
 363:                                              ; preds = %.body83.thread109, %337
-  %.pn33106 = phi { ptr, i32 } [ %lpad.thr_comm, %.body83.thread109 ], [ %345, %337 ]
+  %.pn33106 = phi { ptr, i32 } [ %345, %337 ], [ %lpad.thr_comm, %.body83.thread109 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17he6c8e52f2dec1f8cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #13
           to label %.body unwind label %243
 

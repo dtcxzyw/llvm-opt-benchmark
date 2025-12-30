@@ -390,7 +390,7 @@ dt_ioppr_get_rgb_matrix_luminance.exit.us.us.i:   ; preds = %.lr.ph.split.us.i, 
   br label %_blendif_compute_factor.exit.us.us.i
 
 _blendif_compute_factor.exit.us.us.i:             ; preds = %59, %54, %51, %48, %dt_ioppr_get_rgb_matrix_luminance.exit.us.us.i
-  %.0.i16.us.us.i = phi nsz float [ 1.000000e+00, %48 ], [ %62, %59 ], [ 0.000000e+00, %dt_ioppr_get_rgb_matrix_luminance.exit.us.us.i ], [ %58, %54 ], [ 0.000000e+00, %51 ]
+  %.0.i16.us.us.i = phi nsz float [ %62, %59 ], [ %58, %54 ], [ 0.000000e+00, %dt_ioppr_get_rgb_matrix_luminance.exit.us.us.i ], [ 1.000000e+00, %48 ], [ 0.000000e+00, %51 ]
   %63 = getelementptr inbounds nuw float, ptr %1, i64 %.019.us.us.i
   %64 = load float, ptr %63, align 4, !tbaa !36, !alias.scope !40, !noalias !54
   %65 = fmul reassoc nsz arcp contract afn float %64, %.0.i16.us.us.i
@@ -446,7 +446,7 @@ dt_ioppr_get_rgb_matrix_luminance.exit.us.i:      ; preds = %.lr.ph.split.us.i, 
   br label %_blendif_compute_factor.exit.us.i
 
 _blendif_compute_factor.exit.us.i:                ; preds = %94, %89, %86, %83, %dt_ioppr_get_rgb_matrix_luminance.exit.us.i
-  %.0.i16.us.i = phi nsz float [ 1.000000e+00, %83 ], [ %97, %94 ], [ 0.000000e+00, %dt_ioppr_get_rgb_matrix_luminance.exit.us.i ], [ %93, %89 ], [ 0.000000e+00, %86 ]
+  %.0.i16.us.i = phi nsz float [ %97, %94 ], [ %93, %89 ], [ 0.000000e+00, %dt_ioppr_get_rgb_matrix_luminance.exit.us.i ], [ 1.000000e+00, %83 ], [ 0.000000e+00, %86 ]
   %98 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.0.i16.us.i
   %99 = getelementptr inbounds nuw float, ptr %1, i64 %.019.us.i
   %100 = load float, ptr %99, align 4, !tbaa !36, !alias.scope !40, !noalias !54
@@ -524,7 +524,7 @@ _blendif_compute_factor.exit.us.i:                ; preds = %94, %89, %86, %83, 
   br label %152
 
 152:                                              ; preds = %142, %124, %115
-  %153 = phi reassoc nsz arcp contract afn float [ %151, %142 ], [ %141, %124 ], [ %121, %115 ]
+  %153 = phi reassoc nsz arcp contract afn float [ %141, %124 ], [ %151, %142 ], [ %121, %115 ]
   %154 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i
   store float %153, ptr %154, align 4, !tbaa !36, !noalias !56
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -573,7 +573,7 @@ dt_ioppr_apply_trc.exit.i.i:                      ; preds = %152
   br label %_blendif_compute_factor.exit.i
 
 _blendif_compute_factor.exit.i:                   ; preds = %177, %174, %171, %167, %dt_ioppr_apply_trc.exit.i.i
-  %.0.i16.i = phi nsz float [ 1.000000e+00, %171 ], [ %170, %167 ], [ 0.000000e+00, %dt_ioppr_apply_trc.exit.i.i ], [ %181, %177 ], [ 0.000000e+00, %174 ]
+  %.0.i16.i = phi nsz float [ %170, %167 ], [ %181, %177 ], [ 0.000000e+00, %dt_ioppr_apply_trc.exit.i.i ], [ 1.000000e+00, %171 ], [ 0.000000e+00, %174 ]
   %182 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.0.i16.i
   %183 = select reassoc nsz arcp contract afn i1 %.not.i17.i, float %.0.i16.i, float %182
   %184 = getelementptr inbounds nuw float, ptr %1, i64 %.019.i
@@ -648,7 +648,7 @@ _blendif_compute_factor.exit.i:                   ; preds = %177, %174, %171, %1
   br label %_blendif_compute_factor.exit.us.i54
 
 _blendif_compute_factor.exit.us.i54:              ; preds = %222, %217, %214, %211, %.lr.ph.split.us.i53
-  %.0.i.us.i = phi nsz float [ 1.000000e+00, %211 ], [ %225, %222 ], [ 0.000000e+00, %.lr.ph.split.us.i53 ], [ %221, %217 ], [ 0.000000e+00, %214 ]
+  %.0.i.us.i = phi nsz float [ %225, %222 ], [ %221, %217 ], [ 0.000000e+00, %.lr.ph.split.us.i53 ], [ 1.000000e+00, %211 ], [ 0.000000e+00, %214 ]
   %226 = getelementptr inbounds nuw float, ptr %1, i64 %.016.us.i
   %227 = load float, ptr %226, align 4, !tbaa !36, !alias.scope !62, !noalias !71
   %228 = fmul reassoc nsz arcp contract afn float %227, %.0.i.us.i
@@ -704,7 +704,7 @@ _blendif_compute_factor.exit.us.i54:              ; preds = %222, %217, %214, %2
   br label %_blendif_compute_factor.exit.i51
 
 _blendif_compute_factor.exit.i51:                 ; preds = %256, %253, %250, %246, %.lr.ph.split.i50
-  %.0.i.i = phi nsz float [ 1.000000e+00, %250 ], [ %249, %246 ], [ 0.000000e+00, %.lr.ph.split.i50 ], [ %260, %256 ], [ 0.000000e+00, %253 ]
+  %.0.i.i = phi nsz float [ %249, %246 ], [ %260, %256 ], [ 0.000000e+00, %.lr.ph.split.i50 ], [ 1.000000e+00, %250 ], [ 0.000000e+00, %253 ]
   %261 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.0.i.i
   %262 = getelementptr inbounds nuw float, ptr %1, i64 %.016.i
   %263 = load float, ptr %262, align 4, !tbaa !36, !alias.scope !62, !noalias !71
@@ -776,7 +776,7 @@ _blendif_gray.exit:                               ; preds = %_blendif_compute_fa
   br label %_blendif_compute_factor.exit.us.i63
 
 _blendif_compute_factor.exit.us.i63:              ; preds = %294, %289, %286, %283, %.lr.ph.split.us.i62
-  %.0.i.us.i64 = phi nsz float [ 1.000000e+00, %283 ], [ %297, %294 ], [ 0.000000e+00, %.lr.ph.split.us.i62 ], [ %293, %289 ], [ 0.000000e+00, %286 ]
+  %.0.i.us.i64 = phi nsz float [ %297, %294 ], [ %293, %289 ], [ 0.000000e+00, %.lr.ph.split.us.i62 ], [ 1.000000e+00, %283 ], [ 0.000000e+00, %286 ]
   %298 = getelementptr inbounds nuw float, ptr %1, i64 %.0910.us.i
   %299 = load float, ptr %298, align 4, !tbaa !36, !alias.scope !75, !noalias !84
   %300 = fmul reassoc nsz arcp contract afn float %299, %.0.i.us.i64
@@ -823,7 +823,7 @@ _blendif_compute_factor.exit.us.i63:              ; preds = %294, %289, %286, %2
   br label %_blendif_compute_factor.exit.i59
 
 _blendif_compute_factor.exit.i59:                 ; preds = %319, %316, %313, %309, %.lr.ph.split.i58
-  %.0.i.i60 = phi nsz float [ 1.000000e+00, %313 ], [ %312, %309 ], [ 0.000000e+00, %.lr.ph.split.i58 ], [ %323, %319 ], [ 0.000000e+00, %316 ]
+  %.0.i.i60 = phi nsz float [ %312, %309 ], [ %323, %319 ], [ 0.000000e+00, %.lr.ph.split.i58 ], [ 1.000000e+00, %313 ], [ 0.000000e+00, %316 ]
   %324 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.0.i.i60
   %325 = getelementptr inbounds nuw float, ptr %1, i64 %.0910.i
   %326 = load float, ptr %325, align 4, !tbaa !36, !alias.scope !75, !noalias !84
@@ -896,7 +896,7 @@ _blendif_rgb_red.exit:                            ; preds = %_blendif_compute_fa
   br label %_blendif_compute_factor.exit.us.i77
 
 _blendif_compute_factor.exit.us.i77:              ; preds = %358, %353, %350, %347, %.lr.ph.split.us.i74
-  %.0.i.us.i78 = phi nsz float [ 1.000000e+00, %347 ], [ %361, %358 ], [ 0.000000e+00, %.lr.ph.split.us.i74 ], [ %357, %353 ], [ 0.000000e+00, %350 ]
+  %.0.i.us.i78 = phi nsz float [ %361, %358 ], [ %357, %353 ], [ 0.000000e+00, %.lr.ph.split.us.i74 ], [ 1.000000e+00, %347 ], [ 0.000000e+00, %350 ]
   %362 = getelementptr inbounds nuw float, ptr %1, i64 %.0910.us.i76
   %363 = load float, ptr %362, align 4, !tbaa !36, !alias.scope !88, !noalias !97
   %364 = fmul reassoc nsz arcp contract afn float %363, %.0.i.us.i78
@@ -944,7 +944,7 @@ _blendif_compute_factor.exit.us.i77:              ; preds = %358, %353, %350, %3
   br label %_blendif_compute_factor.exit.i71
 
 _blendif_compute_factor.exit.i71:                 ; preds = %384, %381, %378, %374, %.lr.ph.split.i68
-  %.0.i.i72 = phi nsz float [ 1.000000e+00, %378 ], [ %377, %374 ], [ 0.000000e+00, %.lr.ph.split.i68 ], [ %388, %384 ], [ 0.000000e+00, %381 ]
+  %.0.i.i72 = phi nsz float [ %377, %374 ], [ %388, %384 ], [ 0.000000e+00, %.lr.ph.split.i68 ], [ 1.000000e+00, %378 ], [ 0.000000e+00, %381 ]
   %389 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.0.i.i72
   %390 = getelementptr inbounds nuw float, ptr %1, i64 %.0910.i70
   %391 = load float, ptr %390, align 4, !tbaa !36, !alias.scope !88, !noalias !97
@@ -1017,7 +1017,7 @@ _blendif_rgb_green.exit:                          ; preds = %_blendif_compute_fa
   br label %_blendif_compute_factor.exit.us.i92
 
 _blendif_compute_factor.exit.us.i92:              ; preds = %423, %418, %415, %412, %.lr.ph.split.us.i89
-  %.0.i.us.i93 = phi nsz float [ 1.000000e+00, %412 ], [ %426, %423 ], [ 0.000000e+00, %.lr.ph.split.us.i89 ], [ %422, %418 ], [ 0.000000e+00, %415 ]
+  %.0.i.us.i93 = phi nsz float [ %426, %423 ], [ %422, %418 ], [ 0.000000e+00, %.lr.ph.split.us.i89 ], [ 1.000000e+00, %412 ], [ 0.000000e+00, %415 ]
   %427 = getelementptr inbounds nuw float, ptr %1, i64 %.0910.us.i91
   %428 = load float, ptr %427, align 4, !tbaa !36, !alias.scope !101, !noalias !110
   %429 = fmul reassoc nsz arcp contract afn float %428, %.0.i.us.i93
@@ -1065,7 +1065,7 @@ _blendif_compute_factor.exit.us.i92:              ; preds = %423, %418, %415, %4
   br label %_blendif_compute_factor.exit.i86
 
 _blendif_compute_factor.exit.i86:                 ; preds = %449, %446, %443, %439, %.lr.ph.split.i83
-  %.0.i.i87 = phi nsz float [ 1.000000e+00, %443 ], [ %442, %439 ], [ 0.000000e+00, %.lr.ph.split.i83 ], [ %453, %449 ], [ 0.000000e+00, %446 ]
+  %.0.i.i87 = phi nsz float [ %442, %439 ], [ %453, %449 ], [ 0.000000e+00, %.lr.ph.split.i83 ], [ 1.000000e+00, %443 ], [ 0.000000e+00, %446 ]
   %454 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.0.i.i87
   %455 = getelementptr inbounds nuw float, ptr %1, i64 %.0910.i85
   %456 = load float, ptr %455, align 4, !tbaa !36, !alias.scope !101, !noalias !110
@@ -1235,7 +1235,7 @@ dt_RGB_2_HSL.exit.i:                              ; preds = %_dt_RGB_2_Hue.exit.
   br label %_blendif_compute_factor.exit.i98
 
 _blendif_compute_factor.exit.i98:                 ; preds = %542, %538, %534, %529, %517
-  %.0.i19.i = phi nsz float [ 1.000000e+00, %534 ], [ %533, %529 ], [ 0.000000e+00, %517 ], [ %547, %542 ], [ 0.000000e+00, %538 ]
+  %.0.i19.i = phi nsz float [ %533, %529 ], [ %547, %542 ], [ 0.000000e+00, %517 ], [ 1.000000e+00, %534 ], [ 0.000000e+00, %538 ]
   %.not.i.i99 = icmp eq i32 %521, 0
   %548 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.0.i19.i
   %549 = select reassoc nsz arcp contract afn i1 %.not.i.i99, float %.0.i19.i, float %548
@@ -2242,7 +2242,7 @@ define internal fastcc float @_rgb_luminance(ptr noalias noundef readonly captur
   br label %53
 
 53:                                               ; preds = %43, %25, %16
-  %54 = phi reassoc nsz arcp contract afn float [ %52, %43 ], [ %42, %25 ], [ %22, %16 ]
+  %54 = phi reassoc nsz arcp contract afn float [ %42, %25 ], [ %52, %43 ], [ %22, %16 ]
   %55 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i
   store float %54, ptr %55, align 4, !tbaa !36
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2920,7 +2920,7 @@ define internal void @_blend_vividlight(ptr noundef readonly captures(none) %0, 
   br label %38
 
 38:                                               ; preds = %33, %31, %27, %25
-  %39 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %25 ], [ %30, %27 ], [ %37, %33 ], [ 0.000000e+00, %31 ]
+  %39 = phi reassoc nsz arcp contract afn float [ %30, %27 ], [ 1.000000e+00, %25 ], [ %37, %33 ], [ 0.000000e+00, %31 ]
   %40 = fsub reassoc nsz arcp contract afn float %39, %19
   %41 = fmul reassoc nsz arcp contract afn float %8, %40
   %42 = fadd reassoc nsz arcp contract afn float %41, %19
@@ -3090,7 +3090,7 @@ define internal void @_blend_lightness(ptr noundef readonly captures(none) %0, p
   br label %24
 
 24:                                               ; preds = %23, %21, %17
-  %25 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %21 ], [ %19, %23 ], [ 0.000000e+00, %17 ]
+  %25 = phi reassoc nsz arcp contract afn float [ %19, %23 ], [ 1.000000e+00, %21 ], [ 0.000000e+00, %17 ]
   store float %25, ptr %18, align 4, !tbaa !36, !alias.scope !173
   %26 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %26, 4
@@ -3111,7 +3111,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %24, %33
   br label %33
 
 33:                                               ; preds = %32, %30, %_CLAMP_XYZ.exit
-  %34 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %30 ], [ %28, %32 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
+  %34 = phi reassoc nsz arcp contract afn float [ %28, %32 ], [ 1.000000e+00, %30 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
   store float %34, ptr %27, align 4, !tbaa !36, !alias.scope !176
   %35 = add nuw nsw i64 %.010.i19, 1
   %exitcond.not.i20 = icmp eq i64 %35, 4
@@ -3254,7 +3254,7 @@ dt_HSL_2_RGB.exit:                                ; preds = %dt_RGB_2_HSL.exit, 
   br label %112
 
 112:                                              ; preds = %111, %109, %105
-  %113 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %109 ], [ %107, %111 ], [ 0.000000e+00, %105 ]
+  %113 = phi reassoc nsz arcp contract afn float [ %107, %111 ], [ 1.000000e+00, %109 ], [ 0.000000e+00, %105 ]
   store float %113, ptr %106, align 4, !tbaa !36, !alias.scope !179
   %114 = add nuw nsw i64 %.010.i32, 1
   %exitcond.not.i33 = icmp eq i64 %114, 4
@@ -3316,7 +3316,7 @@ define internal void @_blend_chromaticity(ptr noundef readonly captures(none) %0
   br label %24
 
 24:                                               ; preds = %23, %21, %17
-  %25 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %21 ], [ %19, %23 ], [ 0.000000e+00, %17 ]
+  %25 = phi reassoc nsz arcp contract afn float [ %19, %23 ], [ 1.000000e+00, %21 ], [ 0.000000e+00, %17 ]
   store float %25, ptr %18, align 4, !tbaa !36, !alias.scope !190
   %26 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %26, 4
@@ -3337,7 +3337,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %24, %33
   br label %33
 
 33:                                               ; preds = %32, %30, %_CLAMP_XYZ.exit
-  %34 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %30 ], [ %28, %32 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
+  %34 = phi reassoc nsz arcp contract afn float [ %28, %32 ], [ 1.000000e+00, %30 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
   store float %34, ptr %27, align 4, !tbaa !36, !alias.scope !193
   %35 = add nuw nsw i64 %.010.i19, 1
   %exitcond.not.i20 = icmp eq i64 %35, 4
@@ -3497,7 +3497,7 @@ dt_HSL_2_RGB.exit:                                ; preds = %dt_RGB_2_HSL.exit31
   br label %119
 
 119:                                              ; preds = %118, %116, %112
-  %120 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %116 ], [ %114, %118 ], [ 0.000000e+00, %112 ]
+  %120 = phi reassoc nsz arcp contract afn float [ %114, %118 ], [ 1.000000e+00, %116 ], [ 0.000000e+00, %112 ]
   store float %120, ptr %113, align 4, !tbaa !36, !alias.scope !196
   %121 = add nuw nsw i64 %.010.i32, 1
   %exitcond.not.i33 = icmp eq i64 %121, 4
@@ -3559,7 +3559,7 @@ define internal void @_blend_hue(ptr noundef readonly captures(none) %0, ptr nou
   br label %24
 
 24:                                               ; preds = %23, %21, %17
-  %25 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %21 ], [ %19, %23 ], [ 0.000000e+00, %17 ]
+  %25 = phi reassoc nsz arcp contract afn float [ %19, %23 ], [ 1.000000e+00, %21 ], [ 0.000000e+00, %17 ]
   store float %25, ptr %18, align 4, !tbaa !36, !alias.scope !207
   %26 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %26, 4
@@ -3580,7 +3580,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %24, %33
   br label %33
 
 33:                                               ; preds = %32, %30, %_CLAMP_XYZ.exit
-  %34 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %30 ], [ %28, %32 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
+  %34 = phi reassoc nsz arcp contract afn float [ %28, %32 ], [ 1.000000e+00, %30 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
   store float %34, ptr %27, align 4, !tbaa !36, !alias.scope !210
   %35 = add nuw nsw i64 %.010.i25, 1
   %exitcond.not.i26 = icmp eq i64 %35, 4
@@ -3777,7 +3777,7 @@ dt_HSL_2_RGB.exit:                                ; preds = %dt_RGB_2_HSL.exit37
   br label %145
 
 145:                                              ; preds = %144, %142, %138
-  %146 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %142 ], [ %140, %144 ], [ 0.000000e+00, %138 ]
+  %146 = phi reassoc nsz arcp contract afn float [ %140, %144 ], [ 1.000000e+00, %142 ], [ 0.000000e+00, %138 ]
   store float %146, ptr %139, align 4, !tbaa !36, !alias.scope !213
   %147 = add nuw nsw i64 %.010.i38, 1
   %exitcond.not.i39 = icmp eq i64 %147, 4
@@ -3839,7 +3839,7 @@ define internal void @_blend_color(ptr noundef readonly captures(none) %0, ptr n
   br label %24
 
 24:                                               ; preds = %23, %21, %17
-  %25 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %21 ], [ %19, %23 ], [ 0.000000e+00, %17 ]
+  %25 = phi reassoc nsz arcp contract afn float [ %19, %23 ], [ 1.000000e+00, %21 ], [ 0.000000e+00, %17 ]
   store float %25, ptr %18, align 4, !tbaa !36, !alias.scope !224
   %26 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %26, 4
@@ -3860,7 +3860,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %24, %33
   br label %33
 
 33:                                               ; preds = %32, %30, %_CLAMP_XYZ.exit
-  %34 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %30 ], [ %28, %32 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
+  %34 = phi reassoc nsz arcp contract afn float [ %28, %32 ], [ 1.000000e+00, %30 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
   store float %34, ptr %27, align 4, !tbaa !36, !alias.scope !227
   %35 = add nuw nsw i64 %.010.i27, 1
   %exitcond.not.i28 = icmp eq i64 %35, 4
@@ -4067,7 +4067,7 @@ dt_HSL_2_RGB.exit:                                ; preds = %dt_RGB_2_HSL.exit39
   br label %152
 
 152:                                              ; preds = %151, %149, %145
-  %153 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %149 ], [ %147, %151 ], [ 0.000000e+00, %145 ]
+  %153 = phi reassoc nsz arcp contract afn float [ %147, %151 ], [ 1.000000e+00, %149 ], [ 0.000000e+00, %145 ]
   store float %153, ptr %146, align 4, !tbaa !36, !alias.scope !230
   %154 = add nuw nsw i64 %.010.i40, 1
   %exitcond.not.i41 = icmp eq i64 %154, 4
@@ -4172,7 +4172,7 @@ define internal void @_blend_coloradjust(ptr noundef readonly captures(none) %0,
   br label %24
 
 24:                                               ; preds = %23, %21, %17
-  %25 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %21 ], [ %19, %23 ], [ 0.000000e+00, %17 ]
+  %25 = phi reassoc nsz arcp contract afn float [ %19, %23 ], [ 1.000000e+00, %21 ], [ 0.000000e+00, %17 ]
   store float %25, ptr %18, align 4, !tbaa !36, !alias.scope !241
   %26 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %26, 4
@@ -4193,7 +4193,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %24, %33
   br label %33
 
 33:                                               ; preds = %32, %30, %_CLAMP_XYZ.exit
-  %34 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %30 ], [ %28, %32 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
+  %34 = phi reassoc nsz arcp contract afn float [ %28, %32 ], [ 1.000000e+00, %30 ], [ 0.000000e+00, %_CLAMP_XYZ.exit ]
   store float %34, ptr %27, align 4, !tbaa !36, !alias.scope !244
   %35 = add nuw nsw i64 %.010.i27, 1
   %exitcond.not.i28 = icmp eq i64 %35, 4
@@ -4400,7 +4400,7 @@ dt_HSL_2_RGB.exit:                                ; preds = %dt_RGB_2_HSL.exit39
   br label %152
 
 152:                                              ; preds = %151, %149, %145
-  %153 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %149 ], [ %147, %151 ], [ 0.000000e+00, %145 ]
+  %153 = phi reassoc nsz arcp contract afn float [ %147, %151 ], [ 1.000000e+00, %149 ], [ 0.000000e+00, %145 ]
   store float %153, ptr %146, align 4, !tbaa !36, !alias.scope !247
   %154 = add nuw nsw i64 %.010.i40, 1
   %exitcond.not.i41 = icmp eq i64 %154, 4

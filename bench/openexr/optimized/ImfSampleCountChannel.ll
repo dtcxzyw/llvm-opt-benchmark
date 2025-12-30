@@ -285,7 +285,7 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   br i1 %.not73, label %136, label %.lr.ph
 
 .thread:                                          ; preds = %81, %69
-  %.053.ph = phi ptr [ %96, %81 ], [ null, %69 ]
+  %.053.ph = phi ptr [ null, %69 ], [ %96, %81 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %lpad.thr_comm, 0

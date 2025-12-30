@@ -196,7 +196,7 @@ define void @dstemr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond7, label %112, label %.sink.split
 
 .sink.split:                                      ; preds = %109, %106, %.critedge, %100, %97, %94, %91, %88, %86
-  %.sink587 = phi i32 [ -1, %86 ], [ -3, %91 ], [ -8, %97 ], [ -13, %.critedge ], [ -17, %106 ], [ -9, %100 ], [ -7, %94 ], [ -2, %88 ], [ -19, %109 ]
+  %.sink587 = phi i32 [ -1, %86 ], [ -2, %88 ], [ -3, %91 ], [ -7, %94 ], [ -8, %97 ], [ -9, %100 ], [ -13, %.critedge ], [ -17, %106 ], [ -19, %109 ]
   store i32 %.sink587, ptr %20, align 4, !tbaa !3
   br label %112
 

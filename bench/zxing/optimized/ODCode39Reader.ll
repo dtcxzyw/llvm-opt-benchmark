@@ -306,16 +306,16 @@ _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %5, %_ZNK5ZXing11Pat
   br i1 %59, label %_ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i, label %60
 
 60:                                               ; preds = %57
-  %.02946.i.i.i.i.add.i.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i, 8
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i.i
-  %61 = load i32, ptr %.ptr.i.i.i, align 8, !tbaa !22
+  %.02946.i.i.i.i.add7.i.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i, 8
+  %.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i.i
+  %61 = load i32, ptr %.ptr10.i.i.i, align 8, !tbaa !22
   %62 = icmp eq i32 %61, %53
   br i1 %62, label %_ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i, label %63
 
 63:                                               ; preds = %60
-  %.02946.i.i.i.i.add7.i.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i, 12
-  %.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i.i
-  %64 = load i32, ptr %.ptr10.i.i.i, align 4, !tbaa !22
+  %.02946.i.i.i.i.add.i.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i, 12
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i.i
+  %64 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !22
   %65 = icmp eq i32 %64, %53
   br i1 %65, label %_ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i, label %66
 
@@ -326,7 +326,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %5, %_ZNK5ZXing11Pat
   br i1 %68, label %54, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA44_iA45_cEEcRKNS_11PatternViewERKT_RKT0_.exit.thread, !llvm.loop !48
 
 _ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i:    ; preds = %63, %60, %57, %54
-  %.028.i.i.i.i.idx15.i.i.i = phi i64 [ %.02946.i.i.i.i.idx.i.i.i, %54 ], [ %.02946.i.i.i.i.add.i.i.i, %60 ], [ %.02946.i.i.i.i.add7.i.i.i, %63 ], [ %.02946.i.i.i.i.add8.i.i.i, %57 ]
+  %.028.i.i.i.i.idx15.i.i.i = phi i64 [ %.02946.i.i.i.i.idx.i.i.i, %54 ], [ %.02946.i.i.i.i.add.i.i.i, %63 ], [ %.02946.i.i.i.i.add7.i.i.i, %60 ], [ %.02946.i.i.i.i.add8.i.i.i, %57 ]
   %69 = and i64 %.028.i.i.i.i.idx15.i.i.i, 17179869180
   %70 = icmp eq i64 %69, 172
   br i1 %70, label %92, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA44_iA45_cEEcRKNS_11PatternViewERKT_RKT0_.exit.thread
@@ -537,16 +537,16 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZN5ZXing11PatternV
   br i1 %146, label %_ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i85, label %147
 
 147:                                              ; preds = %144
-  %.02946.i.i.i.i.add.i.i.i80 = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i76, 8
-  %.ptr.i.i.i81 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i.i80
-  %148 = load i32, ptr %.ptr.i.i.i81, align 8, !tbaa !22
+  %.02946.i.i.i.i.add7.i.i.i80 = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i76, 8
+  %.ptr10.i.i.i81 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i.i80
+  %148 = load i32, ptr %.ptr10.i.i.i81, align 8, !tbaa !22
   %149 = icmp eq i32 %148, %141
   br i1 %149, label %_ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i85, label %150
 
 150:                                              ; preds = %147
-  %.02946.i.i.i.i.add7.i.i.i82 = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i76, 12
-  %.ptr10.i.i.i83 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i.i82
-  %151 = load i32, ptr %.ptr10.i.i.i83, align 4, !tbaa !22
+  %.02946.i.i.i.i.add.i.i.i82 = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i76, 12
+  %.ptr.i.i.i83 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i.i82
+  %151 = load i32, ptr %.ptr.i.i.i83, align 4, !tbaa !22
   %152 = icmp eq i32 %151, %141
   br i1 %152, label %_ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i85, label %153
 
@@ -557,7 +557,7 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZN5ZXing11PatternV
   br i1 %155, label %.noexc89, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA44_iA45_cEEcRKNS_11PatternViewERKT_RKT0_.exit90, !llvm.loop !48
 
 _ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i85:  ; preds = %150, %147, %144, %.noexc89
-  %.028.i.i.i.i.idx15.i.i.i86 = phi i64 [ %.02946.i.i.i.i.idx.i.i.i76, %.noexc89 ], [ %.02946.i.i.i.i.add.i.i.i80, %147 ], [ %.02946.i.i.i.i.add7.i.i.i82, %150 ], [ %.02946.i.i.i.i.add8.i.i.i78, %144 ]
+  %.028.i.i.i.i.idx15.i.i.i86 = phi i64 [ %.02946.i.i.i.i.idx.i.i.i76, %.noexc89 ], [ %.02946.i.i.i.i.add.i.i.i82, %150 ], [ %.02946.i.i.i.i.add7.i.i.i80, %147 ], [ %.02946.i.i.i.i.add8.i.i.i78, %144 ]
   %156 = and i64 %.028.i.i.i.i.idx15.i.i.i86, 17179869180
   %157 = icmp eq i64 %156, 17179869180
   br i1 %157, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA44_iA45_cEEcRKNS_11PatternViewERKT_RKT0_.exit90, label %158
@@ -876,7 +876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
   br label %364
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %._crit_edge.i, %281, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %294, %293
-  %301 = phi i64 [ 2, %294 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %293 ], [ 0, %281 ], [ 0, %._crit_edge.i ]
+  %301 = phi i64 [ 0, %293 ], [ 2, %294 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %281 ], [ 0, %._crit_edge.i ]
   br i1 %263, label %302, label %303
 
 302:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
@@ -1058,7 +1058,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %364, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130, %297, %295
-  %.pn53.pn.pn = phi { ptr, i32 } [ %.pn53.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130 ], [ %296, %295 ], [ %298, %297 ], [ %.pn53.pn, %364 ]
+  %.pn53.pn.pn = phi { ptr, i32 } [ %298, %297 ], [ %296, %295 ], [ %.pn53.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130 ], [ %.pn53.pn, %364 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %375

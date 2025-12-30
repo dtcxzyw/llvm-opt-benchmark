@@ -629,7 +629,7 @@ define range(i32 0, 2) i32 @If_ManBinarySearchPeriod(ptr noundef %0) local_unnam
   br label %77
 
 77:                                               ; preds = %74, %65
-  %.str.4.sink = phi ptr [ %.str.4..str.5, %74 ], [ @.str.3, %65 ]
+  %.str.4.sink = phi ptr [ @.str.3, %65 ], [ %.str.4..str.5, %74 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull %.str.4.sink)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6)
   br label %78

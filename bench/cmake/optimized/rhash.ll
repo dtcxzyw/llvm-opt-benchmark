@@ -672,7 +672,7 @@ rhash_update.exit:                                ; preds = %.lr.ph.i, %18, %20
   br label %39
 
 39:                                               ; preds = %5, %2, %._crit_edge
-  %.019 = phi i32 [ 0, %2 ], [ -1, %5 ], [ %.0, %._crit_edge ]
+  %.019 = phi i32 [ %.0, %._crit_edge ], [ 0, %2 ], [ -1, %5 ]
   ret i32 %.019
 }
 
@@ -917,7 +917,7 @@ define dso_local i32 @rhash_get_hash_length(i32 noundef %0) local_unnamed_addr #
   br label %15
 
 15:                                               ; preds = %1, %9, %13
-  %16 = phi i64 [ %14, %13 ], [ %12, %9 ], [ 0, %1 ]
+  %16 = phi i64 [ %12, %9 ], [ %14, %13 ], [ 0, %1 ]
   %17 = trunc i64 %16 to i32
   ret i32 %17
 }

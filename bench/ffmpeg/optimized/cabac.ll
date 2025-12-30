@@ -145,7 +145,7 @@ define range(i32 -1094995529, 1) i32 @ff_vvc_cabac_init(ptr noundef readonly cap
   br label %82
 
 82:                                               ; preds = %78, %52
-  %.0.i = phi i64 [ %spec.select.i, %78 ], [ %66, %52 ]
+  %.0.i = phi i64 [ %66, %52 ], [ %spec.select.i, %78 ]
   %83 = getelementptr inbounds [378 x i8], ptr @init_values, i64 %.0.i
   %84 = add nsw i32 %.0.i.i, -16
   br label %85
@@ -2363,8 +2363,8 @@ mtt_split_cu_binary_flag_decode.exit:             ; preds = %338, %379, %404
   br label %.thread85
 
 .thread85:                                        ; preds = %.thread143, %.thread74.thread136, %mtt_split_cu_vertical_flag_decode.exit.thread.thread, %.thread104, %168, %426, %mtt_split_cu_vertical_flag_decode.exit.thread98, %mtt_split_cu_vertical_flag_decode.exit.thread.thread83, %428, %427, %mtt_split_cu_binary_flag_decode.exit
-  %.0.i5971 = phi i32 [ %.0.i5972, %mtt_split_cu_binary_flag_decode.exit ], [ %310, %427 ], [ %310, %426 ], [ %310, %428 ], [ 1, %mtt_split_cu_vertical_flag_decode.exit.thread98 ], [ %310, %mtt_split_cu_vertical_flag_decode.exit.thread.thread83 ], [ 0, %168 ], [ 0, %mtt_split_cu_vertical_flag_decode.exit.thread.thread ], [ 1, %.thread104 ], [ %310, %.thread74.thread136 ], [ %310, %.thread143 ]
-  %.0 = phi i32 [ %407, %mtt_split_cu_binary_flag_decode.exit ], [ %310, %427 ], [ %.mux, %426 ], [ %spec.select, %428 ], [ 0, %mtt_split_cu_vertical_flag_decode.exit.thread98 ], [ 0, %mtt_split_cu_vertical_flag_decode.exit.thread.thread83 ], [ 0, %168 ], [ 1, %mtt_split_cu_vertical_flag_decode.exit.thread.thread ], [ 1, %.thread104 ], [ %310, %.thread74.thread136 ], [ %.mux147, %.thread143 ]
+  %.0.i5971 = phi i32 [ %.0.i5972, %mtt_split_cu_binary_flag_decode.exit ], [ %310, %426 ], [ %310, %427 ], [ %310, %428 ], [ %310, %mtt_split_cu_vertical_flag_decode.exit.thread.thread83 ], [ 1, %mtt_split_cu_vertical_flag_decode.exit.thread98 ], [ 0, %168 ], [ 1, %.thread104 ], [ 0, %mtt_split_cu_vertical_flag_decode.exit.thread.thread ], [ %310, %.thread74.thread136 ], [ %310, %.thread143 ]
+  %.0 = phi i32 [ %407, %mtt_split_cu_binary_flag_decode.exit ], [ %.mux, %426 ], [ %310, %427 ], [ %spec.select, %428 ], [ 0, %mtt_split_cu_vertical_flag_decode.exit.thread.thread83 ], [ 0, %mtt_split_cu_vertical_flag_decode.exit.thread98 ], [ 0, %168 ], [ 1, %.thread104 ], [ 1, %mtt_split_cu_vertical_flag_decode.exit.thread.thread ], [ %310, %.thread74.thread136 ], [ %.mux147, %.thread143 ]
   %430 = shl nuw nsw i32 %.0.i5971, 1
   %431 = add nsw i32 %430, %.0
   %432 = sext i32 %431 to i64
@@ -7932,7 +7932,7 @@ refill.exit.i:                                    ; preds = %122, %108, %104
   br i1 %exitcond30.not, label %.critedge2, label %104, !llvm.loop !150
 
 .critedge2:                                       ; preds = %126, %refill.exit.i, %2, %.preheader, %.critedge
-  %.1 = phi i32 [ %.0.lcssa, %.critedge ], [ 2, %.preheader ], [ 0, %2 ], [ %.224, %refill.exit.i ], [ %4, %126 ]
+  %.1 = phi i32 [ %.0.lcssa, %.critedge ], [ 2, %.preheader ], [ 0, %2 ], [ %4, %126 ], [ %.224, %refill.exit.i ]
   ret i32 %.1
 }
 
@@ -8581,7 +8581,7 @@ amvr_flag.exit:                                   ; preds = %7, %44, %69
   br label %104
 
 104:                                              ; preds = %._crit_edge, %99, %95, %amvr_flag.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 2, %amvr_flag.exit ], [ %94, %._crit_edge ], [ %98, %95 ], [ %103, %99 ]
+  %.0 = phi i32 [ 2, %amvr_flag.exit ], [ 2, %4 ], [ %94, %._crit_edge ], [ %98, %95 ], [ %103, %99 ]
   ret i32 %.0
 }
 
@@ -9728,7 +9728,7 @@ get_cabac_bypass.exit34:                          ; preds = %refill.exit.i32, %2
   br label %.critedge
 
 .critedge:                                        ; preds = %vvc_get_cabac.exit29, %.critedge2, %._crit_edge.loopexit, %vvc_get_cabac.exit
-  %.020 = phi i32 [ 0, %vvc_get_cabac.exit ], [ %219, %._crit_edge.loopexit ], [ 5, %.critedge2 ], [ %.02144, %vvc_get_cabac.exit29 ]
+  %.020 = phi i32 [ 0, %vvc_get_cabac.exit ], [ 5, %.critedge2 ], [ %219, %._crit_edge.loopexit ], [ %.02144, %vvc_get_cabac.exit29 ]
   ret i32 %.020
 }
 
@@ -11122,10 +11122,10 @@ abs_level_gtx_flag_ts_decode.exit.i.i:            ; preds = %592, %567, %532
   br label %.critedge5.i.i
 
 .critedge5.i.i:                                   ; preds = %.critedge5.i.loopexit.i, %.critedge7.i..critedge5.i_crit_edge.i, %.lr.ph290.i.i, %.lr.ph290.i.thread.i
-  %.pre5786.i = phi ptr [ %.pre57.i, %.lr.ph290.i.i ], [ %.pre57.i, %.critedge7.i..critedge5.i_crit_edge.i ], [ %.pre57.i, %.critedge5.i.loopexit.i ], [ %.pre5784.i, %.lr.ph290.i.thread.i ]
-  %.pre85.i = phi ptr [ %.pre.i, %.lr.ph290.i.i ], [ %.pre.i, %.critedge7.i..critedge5.i_crit_edge.i ], [ %.pre.i, %.critedge5.i.loopexit.i ], [ %.pre83.i, %.lr.ph290.i.thread.i ]
-  %618 = phi i64 [ %498, %.lr.ph290.i.i ], [ %498, %.critedge7.i..critedge5.i_crit_edge.i ], [ %498, %.critedge5.i.loopexit.i ], [ -1, %.lr.ph290.i.thread.i ]
-  %.0221.lcssa.ph.i.i = phi i32 [ -1, %.lr.ph290.i.i ], [ %500, %.critedge7.i..critedge5.i_crit_edge.i ], [ %617, %.critedge5.i.loopexit.i ], [ -1, %.lr.ph290.i.thread.i ]
+  %.pre5786.i = phi ptr [ %.pre57.i, %.critedge7.i..critedge5.i_crit_edge.i ], [ %.pre57.i, %.lr.ph290.i.i ], [ %.pre57.i, %.critedge5.i.loopexit.i ], [ %.pre5784.i, %.lr.ph290.i.thread.i ]
+  %.pre85.i = phi ptr [ %.pre.i, %.critedge7.i..critedge5.i_crit_edge.i ], [ %.pre.i, %.lr.ph290.i.i ], [ %.pre.i, %.critedge5.i.loopexit.i ], [ %.pre83.i, %.lr.ph290.i.thread.i ]
+  %618 = phi i64 [ %498, %.critedge7.i..critedge5.i_crit_edge.i ], [ %498, %.lr.ph290.i.i ], [ %498, %.critedge5.i.loopexit.i ], [ -1, %.lr.ph290.i.thread.i ]
+  %.0221.lcssa.ph.i.i = phi i32 [ %500, %.critedge7.i..critedge5.i_crit_edge.i ], [ -1, %.lr.ph290.i.i ], [ %617, %.critedge5.i.loopexit.i ], [ -1, %.lr.ph290.i.thread.i ]
   %619 = sext i32 %.0221.lcssa.ph.i.i to i64
   %.not245.i.i = icmp ne i32 %112, 0
   %620 = getelementptr inbounds nuw i8, ptr %106, i64 64
@@ -12512,7 +12512,7 @@ derive_last_scan_pos.exit.i:                      ; preds = %1297
   br label %1444
 
 1444:                                             ; preds = %1443, %1442, %1441
-  %1445 = phi i32 [ 1, %1441 ], [ %spec.select276.i.i, %1443 ], [ 0, %1442 ]
+  %1445 = phi i32 [ 1, %1441 ], [ 0, %1442 ], [ %spec.select276.i.i, %1443 ]
   store i32 %1445, ptr %1433, align 4, !tbaa !123
   br label %1446
 
@@ -13056,9 +13056,9 @@ abs_level_gtx_flag_decode.exit.i:                 ; preds = %1774, %1749, %par_l
   br i1 %1822, label %1402, label %.critedge.i108.i, !llvm.loop !218
 
 .critedge.i108.i:                                 ; preds = %1821, %1402
-  %.0247.lcssa.i.i = phi i32 [ %1405, %1402 ], [ -1, %1821 ]
-  %.0238.lcssa.i.i = phi i32 [ %.0238328.i.i, %1402 ], [ %.2240.i.i, %1821 ]
-  %.0237.lcssa.i.i = phi i32 [ %.0237329.i.i, %1402 ], [ %.1.i112.i, %1821 ]
+  %.0247.lcssa.i.i = phi i32 [ -1, %1821 ], [ %1405, %1402 ]
+  %.0238.lcssa.i.i = phi i32 [ %.2240.i.i, %1821 ], [ %.0238328.i.i, %1402 ]
+  %.0237.lcssa.i.i = phi i32 [ %.1.i112.i, %1821 ], [ %.0237329.i.i, %1402 ]
   %1823 = icmp sgt i32 %1397, %.0247.lcssa.i.i
   br i1 %1823, label %.lr.ph337.i.i, label %.preheader.i.i
 
@@ -14113,8 +14113,8 @@ coeff_sign_flag_decode.exit.i.i24:                ; preds = %2430, %refill.exit.
   br label %2446
 
 2446:                                             ; preds = %2441, %2439, %2433
-  %.2253.i.i = phi i32 [ %.0251344.i.i, %2433 ], [ %2442, %2441 ], [ %.0251344.i.i, %2439 ]
-  %.0243.i.i = phi i32 [ %2438, %2433 ], [ %spec.select281.i.i, %2441 ], [ %2440, %2439 ]
+  %.2253.i.i = phi i32 [ %.0251344.i.i, %2433 ], [ %.0251344.i.i, %2439 ], [ %2442, %2441 ]
+  %.0243.i.i = phi i32 [ %2438, %2433 ], [ %2440, %2439 ], [ %spec.select281.i.i, %2441 ]
   %2447 = load ptr, ptr %2376, align 8, !tbaa !199
   %2448 = getelementptr inbounds i32, ptr %2447, i64 %2397
   store i32 %.0243.i.i, ptr %2448, align 4, !tbaa !123

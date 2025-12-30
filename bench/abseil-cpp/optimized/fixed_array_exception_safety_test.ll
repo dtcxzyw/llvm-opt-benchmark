@@ -2259,7 +2259,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   br label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread, !llvm.loop !68
 
 _ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit: ; preds = %31, %14, %26
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %40 = load i8, ptr %39, align 8, !tbaa !78, !range !79, !noundef !80
   %41 = trunc nuw i8 %40 to i1
@@ -2435,7 +2435,7 @@ _ZN7testing7MessageD2Ev.exit25:                   ; preds = %_ZNSt7__cxx1112basi
   store i8 0, ptr %39, align 8, !tbaa !78
   br label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread
 
-_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %13, %18, %..loopexit_crit_edge21.i.i.i.i, %99, %1
+_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %13, %..loopexit_crit_edge21.i.i.i.i, %18, %99, %1
   ret void
 }
 
@@ -3187,7 +3187,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
   ret void
 
 .body:                                            ; preds = %13, %19
-  %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %20, %19 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %128
@@ -3203,7 +3203,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
   br label %123
 
 .body16:                                          ; preds = %56, %62
-  %eh.lpad-body17 = phi { ptr, i32 } [ %63, %62 ], [ %57, %56 ]
+  %eh.lpad-body17 = phi { ptr, i32 } [ %57, %56 ], [ %63, %62 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %123
 
@@ -6528,7 +6528,7 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSp
   br label %.body
 
 .body:                                            ; preds = %23, %17, %234
-  %.pn = phi { ptr, i32 } [ %235, %234 ], [ %24, %23 ], [ %18, %17 ]
+  %.pn = phi { ptr, i32 } [ %235, %234 ], [ %18, %17 ], [ %24, %23 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6541,7 +6541,7 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSp
   br label %.body20
 
 .body20:                                          ; preds = %79, %73, %236
-  %.pn7 = phi { ptr, i32 } [ %237, %236 ], [ %80, %79 ], [ %74, %73 ]
+  %.pn7 = phi { ptr, i32 } [ %237, %236 ], [ %74, %73 ], [ %80, %79 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -6554,7 +6554,7 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSp
   br label %.body42
 
 .body42:                                          ; preds = %135, %129, %238
-  %.pn9 = phi { ptr, i32 } [ %239, %238 ], [ %136, %135 ], [ %130, %129 ]
+  %.pn9 = phi { ptr, i32 } [ %239, %238 ], [ %130, %129 ], [ %136, %135 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6567,7 +6567,7 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSp
   br label %.body59
 
 .body59:                                          ; preds = %191, %185, %240
-  %.pn11 = phi { ptr, i32 } [ %241, %240 ], [ %192, %191 ], [ %186, %185 ]
+  %.pn11 = phi { ptr, i32 } [ %241, %240 ], [ %186, %185 ], [ %192, %191 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -8296,7 +8296,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
   br label %71
 
 .body:                                            ; preds = %22, %27
-  %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %23, %22 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %28, %27 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   br label %71
 
@@ -8978,7 +8978,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
   br label %72
 
 .body:                                            ; preds = %23, %28
-  %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %24, %23 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %29, %28 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %72
 
@@ -9879,7 +9879,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
   ret void
 
 .body:                                            ; preds = %17, %23
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %18, %17 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %24, %23 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %140
@@ -9897,7 +9897,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
   br label %135
 
 .body21:                                          ; preds = %64, %70
-  %eh.lpad-body22 = phi { ptr, i32 } [ %71, %70 ], [ %65, %64 ]
+  %eh.lpad-body22 = phi { ptr, i32 } [ %65, %64 ], [ %71, %70 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   br label %135
 
@@ -10120,7 +10120,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
   br label %75
 
 .body:                                            ; preds = %28, %31
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %29, %28 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %32, %31 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %75
 
@@ -10427,7 +10427,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %51
   br i1 %57, label %.loopexit21, label %51
 
 .loopexit21:                                      ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %43, %.thread
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %7, %.thread ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
+  %.pn = phi { ptr, i32 } [ %7, %.thread ], [ %44, %43 ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
@@ -10479,7 +10479,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %70
   br i1 %76, label %.loopexit, label %70
 
 .loopexit:                                        ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %.thread18
-  %.pn9 = phi { ptr, i32 } [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %22, %.thread18 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %.thread18 ], [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
@@ -10897,7 +10897,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %51
   br i1 %57, label %.loopexit21, label %51
 
 .loopexit21:                                      ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %43, %.thread
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %7, %.thread ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
+  %.pn = phi { ptr, i32 } [ %7, %.thread ], [ %44, %43 ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
@@ -10949,7 +10949,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %70
   br i1 %76, label %.loopexit, label %70
 
 .loopexit:                                        ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %.thread18
-  %.pn9 = phi { ptr, i32 } [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %22, %.thread18 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %.thread18 ], [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
@@ -11147,7 +11147,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm3ENS1_17Throw
   br label %69
 
 .body:                                            ; preds = %22, %25
-  %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %23, %22 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %26, %25 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   br label %69
 
@@ -12799,7 +12799,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal19ExceptionS
   unreachable
 
 common.resume:                                    ; preds = %86, %.body, %16, %19
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %19 ], [ %.pn, %.body ], [ %.pn, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %19 ], [ %17, %16 ], [ %.pn, %.body ], [ %.pn, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvEEC2ERKSD_.exit: ; preds = %4, %12
@@ -12942,7 +12942,7 @@ _ZNSt14_Function_baseD2Ev.exit13:                 ; preds = %.body10, %74
   unreachable
 
 .body:                                            ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit13, %38, %35
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %55, %80 ], [ %36, %38 ], [ %55, %_ZNSt14_Function_baseD2Ev.exit13 ]
+  %.pn = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %55, %_ZNSt14_Function_baseD2Ev.exit13 ], [ %55, %80 ]
   %85 = load ptr, ptr %6, align 8, !tbaa !221
   %.not.i16 = icmp eq ptr %85, null
   br i1 %.not.i16, label %common.resume, label %86
@@ -13197,7 +13197,7 @@ _ZNKSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3
           to label %.loopexit52 unwind label %100
 
 .loopexit52:                                      ; preds = %39, %79, %81
-  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %81 ], [ %80, %79 ], [ %40, %39 ]
+  %.merged39 = phi { ptr, i32 } [ %80, %79 ], [ %.pn34.pn, %81 ], [ %40, %39 ]
   call void @_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEESt14default_deleteIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %82
 
@@ -14320,7 +14320,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit: ; preds = %_ZN7testing
   br label %.body
 
 .body:                                            ; preds = %32, %26, %104
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %104 ], [ %33, %32 ], [ %27, %26 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %104 ], [ %27, %26 ], [ %33, %32 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   br label %105
 
@@ -14724,7 +14724,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit77: ; preds = %_ZN7testi
   br label %.body54
 
 .body54:                                          ; preds = %165, %159, %238
-  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %238 ], [ %166, %165 ], [ %160, %159 ]
+  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %238 ], [ %160, %159 ], [ %166, %165 ]
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #23
   br label %239
 
@@ -15527,7 +15527,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal19ExceptionS
   unreachable
 
 common.resume:                                    ; preds = %86, %.body, %16, %19
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %19 ], [ %.pn, %.body ], [ %.pn, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %19 ], [ %17, %16 ], [ %.pn, %.body ], [ %.pn, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvEEC2ERKSF_.exit: ; preds = %4, %12
@@ -15670,7 +15670,7 @@ _ZNSt14_Function_baseD2Ev.exit13:                 ; preds = %.body10, %74
   unreachable
 
 .body:                                            ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit13, %38, %35
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %55, %80 ], [ %36, %38 ], [ %55, %_ZNSt14_Function_baseD2Ev.exit13 ]
+  %.pn = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %55, %_ZNSt14_Function_baseD2Ev.exit13 ], [ %55, %80 ]
   %85 = load ptr, ptr %6, align 8, !tbaa !221
   %.not.i16 = icmp eq ptr %85, null
   br i1 %.not.i16, label %common.resume, label %86
@@ -15925,7 +15925,7 @@ _ZNKSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3
           to label %.loopexit52 unwind label %103
 
 .loopexit52:                                      ; preds = %39, %79, %81
-  %.merged39 = phi { ptr, i32 } [ %.pn34.pn, %81 ], [ %80, %79 ], [ %40, %39 ]
+  %.merged39 = phi { ptr, i32 } [ %80, %79 ], [ %.pn34.pn, %81 ], [ %40, %39 ]
   call void @_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEESt14default_deleteIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %82
 
@@ -16774,7 +16774,7 @@ common.resume.sink.split:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i251, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i207 ], [ %.pn.i230, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i229 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9 ], [ %.pn.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31 ], [ %.pn.i54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53 ], [ %.pn.i76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i75 ], [ %.pn.i98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i97 ], [ %.pn.i120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i119 ], [ %.pn.i142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i141 ], [ %.pn.i164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i163 ], [ %.pn.i186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i185 ], [ %.pn.i252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i251 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9 ], [ %.pn.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31 ], [ %.pn.i54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53 ], [ %.pn.i76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i75 ], [ %.pn.i98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i97 ], [ %.pn.i120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i119 ], [ %.pn.i142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i141 ], [ %.pn.i164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i163 ], [ %.pn.i186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i185 ], [ %.pn.i208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i207 ], [ %.pn.i230, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i229 ], [ %.pn.i252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i251 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12.i

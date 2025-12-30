@@ -277,7 +277,7 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %call2, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
+  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %call2, %if.then4.i.i ]
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #18
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #18
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i, i64 noundef %call2.i) #18
@@ -303,7 +303,7 @@ if.then4.i.i14:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit19
 
 _ZN4llvh11raw_ostreamlsEPKc.exit19:               ; preds = %if.then.i.i17, %if.then4.i.i14
-  %phi.call.i16 = phi ptr [ %call3.i, %if.then4.i.i14 ], [ %call3.i.i18, %if.then.i.i17 ]
+  %phi.call.i16 = phi ptr [ %call3.i.i18, %if.then.i.i17 ], [ %call3.i, %if.then4.i.i14 ]
   %bf.load.i21 = load i8, ptr %HasError.i, align 8
   %bf.cast.i22 = trunc i8 %bf.load.i21 to i1
   br i1 %bf.cast.i22, label %cond.true.i, label %cond.false.i
@@ -411,7 +411,7 @@ if.then4.i.i54:                                   ; preds = %if.then20
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit59
 
 _ZN4llvh11raw_ostreamlsEPKc.exit59:               ; preds = %if.then.i.i57, %if.then4.i.i54
-  %phi.call.i56 = phi ptr [ %call21, %if.then4.i.i54 ], [ %call3.i.i58, %if.then.i.i57 ]
+  %phi.call.i56 = phi ptr [ %call3.i.i58, %if.then.i.i57 ], [ %call21, %if.then4.i.i54 ]
   %call.i60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #18
   %call2.i61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #18
   %call3.i62 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i56, ptr noundef %call.i60, i64 noundef %call2.i61) #18
@@ -437,7 +437,7 @@ if.then4.i.i72:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit77
 
 _ZN4llvh11raw_ostreamlsEPKc.exit77:               ; preds = %if.then.i.i75, %if.then4.i.i72
-  %phi.call.i74 = phi ptr [ %call3.i62, %if.then4.i.i72 ], [ %call3.i.i76, %if.then.i.i75 ]
+  %phi.call.i74 = phi ptr [ %call3.i.i76, %if.then.i.i75 ], [ %call3.i62, %if.then4.i.i72 ]
   %call.i78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %error) #18
   %call2.i79 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %error) #18
   %call3.i80 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i74, ptr noundef %call.i78, i64 noundef %call2.i79) #18
@@ -502,7 +502,7 @@ if.then4.i.i92:                                   ; preds = %if.then31
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit97
 
 _ZN4llvh11raw_ostreamlsEPKc.exit97:               ; preds = %if.then.i.i95, %if.then4.i.i92
-  %phi.call.i94 = phi ptr [ %call32, %if.then4.i.i92 ], [ %call3.i.i96, %if.then.i.i95 ]
+  %phi.call.i94 = phi ptr [ %call3.i.i96, %if.then.i.i95 ], [ %call32, %if.then4.i.i92 ]
   %call.i98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14OutputFilenameB5cxx11, i64 152)) #18
   %call2.i99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14OutputFilenameB5cxx11, i64 152)) #18
   %call3.i100 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i94, ptr noundef %call.i98, i64 noundef %call2.i99) #18
@@ -528,7 +528,7 @@ if.then4.i.i110:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit115
 
 _ZN4llvh11raw_ostreamlsEPKc.exit115:              ; preds = %if.then.i.i113, %if.then4.i.i110
-  %phi.call.i112 = phi ptr [ %call3.i100, %if.then4.i.i110 ], [ %call3.i.i114, %if.then.i.i113 ]
+  %phi.call.i112 = phi ptr [ %call3.i.i114, %if.then.i.i113 ], [ %call3.i100, %if.then4.i.i110 ]
   %32 = load ptr, ptr %_M_cat.i, align 8, !noalias !8
   %33 = load i32, ptr %EC, align 8, !noalias !8
   %vtable.i117 = load ptr, ptr %32, align 8, !noalias !8

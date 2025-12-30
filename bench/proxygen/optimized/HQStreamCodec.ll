@@ -1430,7 +1430,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i13: ; preds = %cleanup
   br label %return
 
 ehcleanup:                                        ; preds = %lpad89, %lpad53, %lpad37
-  %.pn = phi { ptr, i32 } [ %20, %lpad53 ], [ %29, %lpad89 ], [ %19, %lpad37 ]
+  %.pn = phi { ptr, i32 } [ %20, %lpad53 ], [ %19, %lpad37 ], [ %29, %lpad89 ]
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %outHeaderData) #22
   br label %eh.resume
 
@@ -2908,9 +2908,9 @@ if.end21.sink.split:                              ; preds = %if.else, %invoke.co
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %if.else, %invoke.cont17
-  %agg.tmp20.sink = phi ptr [ %agg.tmp20, %if.else ], [ %agg.tmp, %invoke.cont17 ], [ %agg.tmp20.sink.ph, %if.end21.sink.split ]
-  %res.sroa.0.0 = phi i8 [ %res.sroa.0.0.copyload21, %if.else ], [ %res.sroa.0.0.copyload, %invoke.cont17 ], [ %res.sroa.0.0.ph, %if.end21.sink.split ]
-  %res.sroa.522.0 = phi i64 [ %res.sroa.522.0.copyload23, %if.else ], [ %res.sroa.522.0.copyload, %invoke.cont17 ], [ %res.sroa.522.0.ph, %if.end21.sink.split ]
+  %agg.tmp20.sink = phi ptr [ %agg.tmp, %invoke.cont17 ], [ %agg.tmp20, %if.else ], [ %agg.tmp20.sink.ph, %if.end21.sink.split ]
+  %res.sroa.0.0 = phi i8 [ %res.sroa.0.0.copyload, %invoke.cont17 ], [ %res.sroa.0.0.copyload21, %if.else ], [ %res.sroa.0.0.ph, %if.end21.sink.split ]
+  %res.sroa.522.0 = phi i64 [ %res.sroa.522.0.copyload, %invoke.cont17 ], [ %res.sroa.522.0.copyload23, %if.else ], [ %res.sroa.522.0.ph, %if.end21.sink.split ]
   store ptr null, ptr %agg.tmp20.sink, align 8
   %cmp.i = icmp eq i8 %res.sroa.0.0, 2
   br i1 %cmp.i, label %if.then23, label %if.end43

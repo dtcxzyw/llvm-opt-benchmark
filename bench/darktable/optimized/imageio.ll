@@ -288,7 +288,7 @@ define range(i32 0, 129) i32 @dt_imageio_get_type_from_extension(ptr noundef %0)
   br i1 %.not34, label %.thread, label %14
 
 .thread:                                          ; preds = %7, %.critedge.preheader, %14, %.preheader
-  %.124 = phi i32 [ 0, %14 ], [ 128, %.critedge.preheader ], [ 32, %.preheader ], [ 64, %7 ]
+  %.124 = phi i32 [ 32, %.preheader ], [ 0, %14 ], [ 128, %.critedge.preheader ], [ 64, %7 ]
   ret i32 %.124
 }
 
@@ -350,7 +350,7 @@ define range(i32 0, 2) i32 @dt_imageio_large_thumbnail(ptr noundef %0, ptr nound
   store ptr null, ptr %1, align 8, !tbaa !6
   br label %.thread
 
-.thread:                                          ; preds = %15, %31, %19
+.thread:                                          ; preds = %31, %15, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %35
 
@@ -365,7 +365,7 @@ define range(i32 0, 2) i32 @dt_imageio_large_thumbnail(ptr noundef %0, ptr nound
   br label %35
 
 35:                                               ; preds = %.thread21, %.thread, %33, %5
-  %.012 = phi i32 [ 1, %5 ], [ 1, %.thread ], [ 1, %33 ], [ 0, %.thread21 ]
+  %.012 = phi i32 [ 1, %5 ], [ 1, %33 ], [ 1, %.thread ], [ 0, %.thread21 ]
   %36 = load ptr, ptr %7, align 8, !tbaa !6
   call void @free(ptr noundef %36) #20
   %37 = load ptr, ptr %6, align 8, !tbaa !6
@@ -457,8 +457,8 @@ define range(i32 0, 2) i32 @dt_imageio_has_mono_preview(ptr noundef %0) local_un
   br i1 %exitcond48.not, label %.thread, label %.lr.ph.us
 
 .thread:                                          ; preds = %._crit_edge.us, %22, %18, %1, %7
-  %.not37 = phi ptr [ @.str.6, %1 ], [ @.str.6, %7 ], [ @.str.6, %22 ], [ @.str.6, %18 ], [ @.str.5, %._crit_edge.us ]
-  %.3 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %22 ], [ 0, %18 ], [ 1, %._crit_edge.us ]
+  %.not37 = phi ptr [ @.str.6, %1 ], [ @.str.6, %7 ], [ @.str.6, %18 ], [ @.str.6, %22 ], [ @.str.5, %._crit_edge.us ]
+  %.3 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %18 ], [ 0, %22 ], [ 1, %._crit_edge.us ]
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
   %29 = and i32 %28, 262144
   %.not36 = icmp eq i32 %29, 0
@@ -951,12 +951,12 @@ _memfind.exit.thread:                             ; preds = %63, %_memfind.exit.
   br label %.thread57
 
 .thread57:                                        ; preds = %22, %34, %_memfind.exit.thread56, %61, %.thread52, %7
-  %.2 = phi ptr [ %39, %61 ], [ %_windows_BMP_signature., %.thread52 ], [ null, %7 ], [ %12, %34 ], [ %39, %_memfind.exit.thread56 ], [ %12, %22 ]
+  %.2 = phi ptr [ null, %7 ], [ %_windows_BMP_signature., %.thread52 ], [ %39, %61 ], [ %39, %_memfind.exit.thread56 ], [ %12, %34 ], [ %12, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %74
 
 74:                                               ; preds = %.thread57, %5, %1, %3
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %.2, %.thread57 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %.2, %.thread57 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -1445,7 +1445,7 @@ dt_get_perf_times.exit:                           ; preds = %65, %72
   br label %.loopexit473
 
 .loopexit473:                                     ; preds = %229, %211, %225, %221, %204, %232
-  %.0363 = phi i32 [ %13, %204 ], [ 0, %232 ], [ %228, %225 ], [ 1, %221 ], [ 1, %211 ], [ 1, %229 ]
+  %.0363 = phi i32 [ %13, %204 ], [ 0, %232 ], [ 1, %221 ], [ %228, %225 ], [ 1, %211 ], [ 1, %229 ]
   %233 = load i32, ptr %3, align 4, !tbaa !188
   %spec.select = call i32 @llvm.smax.i32(i32 %233, i32 0)
   %234 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2113,12 +2113,12 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
   br i1 %.not398, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %577, %575, %560, %555
-  %.0.ph = phi i32 [ 0, %575 ], [ 0, %555 ], [ 0, %560 ], [ 1, %577 ]
+  %.0.ph = phi i32 [ 0, %555 ], [ 0, %560 ], [ 0, %575 ], [ 1, %577 ]
   call void @dt_set_backthumb_time(double noundef 5.000000e+00) #20
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %577, %553
-  %.0 = phi i32 [ 1, %577 ], [ 0, %553 ], [ %.0.ph, %.critedge.sink.split ]
+  %.0 = phi i32 [ 0, %553 ], [ 1, %577 ], [ %.0.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret i32 %.0
@@ -2477,7 +2477,7 @@ dt_imageio_is_ldr.exit.thread:                    ; preds = %_open_by_magic_numb
   br label %52
 
 52:                                               ; preds = %47, %_open_by_magic_number.exit
-  %.0 = phi i32 [ %spec.select, %47 ], [ %17, %_open_by_magic_number.exit ]
+  %.0 = phi i32 [ %17, %_open_by_magic_number.exit ], [ %spec.select, %47 ]
   %53 = icmp ne i32 %.0, 0
   %54 = icmp ne i32 %10, 0
   %or.cond3 = select i1 %53, i1 true, i1 %54

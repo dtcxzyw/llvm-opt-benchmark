@@ -728,7 +728,7 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
   br label %handleAssocChange.exit
 
 handleAssocChange.exit:                           ; preds = %7, %74, %63, %57, %48, %38, %29, %10, %9
-  %.0 = phi i8 [ 1, %74 ], [ 1, %9 ], [ 1, %48 ], [ 1, %29 ], [ 1, %10 ], [ 1, %38 ], [ 1, %57 ], [ 1, %63 ], [ 0, %7 ]
+  %.0 = phi i8 [ 1, %9 ], [ 1, %10 ], [ 1, %29 ], [ 1, %38 ], [ 1, %48 ], [ 1, %57 ], [ 1, %63 ], [ 1, %74 ], [ 0, %7 ]
   ret i8 %.0
 }
 
@@ -988,7 +988,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   br label %.split61.us
 
 .split61.us:                                      ; preds = %33, %.thread, %65, %26, %42, %.split61.us.loopexit132, %.split61.us.loopexit126, %.split67.us, %61, %55, %.split59.us
-  %.0 = phi i32 [ 0, %.split59.us ], [ -3, %42 ], [ -3, %26 ], [ %75, %.split67.us ], [ -1, %55 ], [ 0, %61 ], [ -2, %.split61.us.loopexit126 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %33 ], [ -2, %.split61.us.loopexit132 ]
+  %.0 = phi i32 [ %75, %.split67.us ], [ -1, %55 ], [ 0, %61 ], [ 0, %.split59.us ], [ -3, %42 ], [ -3, %26 ], [ 0, %.thread ], [ 0, %65 ], [ -2, %.split61.us.loopexit126 ], [ 0, %33 ], [ -2, %.split61.us.loopexit132 ]
   ret i32 %.0
 }
 
@@ -1108,7 +1108,7 @@ setControlData.exit:                              ; preds = %43, %44
   br label %58
 
 58:                                               ; preds = %49, %18, %56, %54, %52
-  %.0 = phi i32 [ 0, %54 ], [ -5, %18 ], [ -3, %52 ], [ %57, %56 ], [ -2, %49 ]
+  %.0 = phi i32 [ -3, %52 ], [ %57, %56 ], [ 0, %54 ], [ -5, %18 ], [ -2, %49 ]
   ret i32 %.0
 }
 

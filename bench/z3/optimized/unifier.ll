@@ -382,8 +382,8 @@ _ZN6bufferI11expr_offsetLb1ELj16EE6expandEv.exit.i: ; preds = %.noexc13, %._crit
   unreachable
 
 _ZN6bufferI11expr_offsetLb1ELj16EED2Ev.exit:      ; preds = %3, %._crit_edge29, %70
-  %.sroa.0.0.copyload55 = phi ptr [ %.sroa.0.0.copyload, %70 ], [ %.sroa.0.0.copyload, %._crit_edge29 ], [ %1, %3 ]
-  %.sroa.2.0.copyload54 = phi i32 [ %.sroa.2.0.copyload, %70 ], [ %.sroa.2.0.copyload, %._crit_edge29 ], [ %2, %3 ]
+  %.sroa.0.0.copyload55 = phi ptr [ %.sroa.0.0.copyload, %._crit_edge29 ], [ %.sroa.0.0.copyload, %70 ], [ %1, %3 ]
+  %.sroa.2.0.copyload54 = phi i32 [ %.sroa.2.0.copyload, %._crit_edge29 ], [ %.sroa.2.0.copyload, %70 ], [ %2, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.copyload55, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.2.0.copyload54, 1
@@ -527,7 +527,7 @@ _ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.
   resume { ptr, i32 } %40
 
 _ZN6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjED2Ev.exit: ; preds = %.lr.ph.i, %._crit_edge.i.i, %31, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit
-  %41 = phi ptr [ %7, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit ], [ %24, %._crit_edge.i.i ], [ null, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i ], [ %26, %31 ], [ %26, %.lr.ph.i ]
+  %41 = phi ptr [ null, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i ], [ %7, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit ], [ %26, %31 ], [ %24, %._crit_edge.i.i ], [ %26, %.lr.ph.i ]
   %42 = zext i32 %6 to i64
   %43 = getelementptr inbounds nuw %class.svector.52, ptr %41, i64 %42
   %44 = load ptr, ptr %1, align 8, !tbaa !55
@@ -604,7 +604,7 @@ _ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.thread
   br i1 %.not12.i28, label %_ZN6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE6resizeEj.exit, label %.lr.ph.i26, !llvm.loop !57
 
 _ZN6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE6resizeEj.exit: ; preds = %.lr.ph.i26, %58, %52, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit
-  %67 = phi ptr [ %46, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit ], [ %53, %58 ], [ %46, %52 ], [ %53, %.lr.ph.i26 ]
+  %67 = phi ptr [ %53, %58 ], [ %46, %52 ], [ %46, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit ], [ %53, %.lr.ph.i26 ]
   %68 = zext i32 %45 to i64
   %69 = getelementptr inbounds nuw %"struct.expr_offset_map<expr_offset>::data", ptr %67, i64 %68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false), !tbaa.struct !46
@@ -836,8 +836,8 @@ _ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i10: ; preds = %35
   br label %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit12
 
 _ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit12: ; preds = %3, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i8, %35, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i10, %45, %.critedge.i11
-  %.01417 = phi i32 [ %.014.ph, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i8 ], [ %.014.ph, %35 ], [ %.014.ph, %.critedge.i11 ], [ %.014.ph, %45 ], [ %.014.ph, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i10 ], [ 1, %3 ]
-  %.0 = phi i32 [ 1, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i8 ], [ 1, %35 ], [ %53, %.critedge.i11 ], [ 1, %45 ], [ 1, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i10 ], [ 1, %3 ]
+  %.01417 = phi i32 [ %.014.ph, %35 ], [ %.014.ph, %.critedge.i11 ], [ %.014.ph, %45 ], [ %.014.ph, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i10 ], [ %.014.ph, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i8 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %35 ], [ %53, %.critedge.i11 ], [ 1, %45 ], [ 1, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i10 ], [ 1, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i8 ], [ 1, %3 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN15expr_offset_mapI11expr_offsetE6insertERKS0_S3_(ptr noundef nonnull align 8 dereferenceable(12) %54, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -975,7 +975,7 @@ _ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.thread.
   resume { ptr, i32 } %40
 
 _ZN6vectorIN15expr_offset_mapIjE4dataELb0EjED2Ev.exit: ; preds = %.lr.ph.i, %._crit_edge.i.i, %31, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit
-  %41 = phi ptr [ %7, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit ], [ %24, %._crit_edge.i.i ], [ null, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i ], [ %26, %31 ], [ %26, %.lr.ph.i ]
+  %41 = phi ptr [ null, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i ], [ %7, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit ], [ %26, %31 ], [ %24, %._crit_edge.i.i ], [ %26, %.lr.ph.i ]
   %42 = zext i32 %6 to i64
   %43 = getelementptr inbounds nuw %class.svector.54, ptr %41, i64 %42
   %44 = load ptr, ptr %1, align 8, !tbaa !55
@@ -1049,7 +1049,7 @@ _ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE8capacityEv.exit.thread.i: ; preds 
   br i1 %.not12.i28, label %_ZN6vectorIN15expr_offset_mapIjE4dataELb0EjE6resizeEj.exit, label %.lr.ph.i26, !llvm.loop !110
 
 _ZN6vectorIN15expr_offset_mapIjE4dataELb0EjE6resizeEj.exit: ; preds = %.lr.ph.i26, %58, %52, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit
-  %66 = phi ptr [ %46, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit ], [ %53, %58 ], [ %46, %52 ], [ %53, %.lr.ph.i26 ]
+  %66 = phi ptr [ %53, %58 ], [ %46, %52 ], [ %46, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit ], [ %53, %.lr.ph.i26 ]
   %67 = load i32, ptr %2, align 4, !tbaa !9
   %68 = zext i32 %45 to i64
   %69 = getelementptr inbounds nuw %"struct.expr_offset_map<unsigned int>::data", ptr %66, i64 %68
@@ -1146,7 +1146,7 @@ _ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i3: ; preds = %37
   br label %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5
 
 _ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5: ; preds = %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i1, %37, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i3, %46, %.critedge.i4
-  %.0 = phi i32 [ 1, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i1 ], [ 1, %37 ], [ %54, %.critedge.i4 ], [ 1, %46 ], [ 1, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i3 ]
+  %.0 = phi i32 [ 1, %37 ], [ %54, %.critedge.i4 ], [ 1, %46 ], [ 1, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i3 ], [ 1, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i1 ]
   %55 = icmp ugt i32 %.09.ph, %.0
   br i1 %55, label %56, label %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5.thread
 
@@ -1159,8 +1159,8 @@ _ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5: ; preds = %_ZNK6vectorI7s
   br label %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5.thread
 
 _ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5.thread: ; preds = %5, %56, %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5
-  %.016 = phi i32 [ %.0, %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5 ], [ %.0, %56 ], [ 1, %5 ]
-  %.091215 = phi i32 [ %.09.ph, %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5 ], [ %.09.ph, %56 ], [ 1, %5 ]
+  %.016 = phi i32 [ %.0, %56 ], [ %.0, %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5 ], [ 1, %5 ]
+  %.091215 = phi i32 [ %.09.ph, %56 ], [ %.09.ph, %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit5 ], [ 1, %5 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN15expr_offset_mapI11expr_offsetE6insertERKS0_S3_(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1366,13 +1366,13 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66: ; preds = %86
   %.not60.wide = icmp eq i64 %80, 0
   br i1 %.not60.wide, label %.critedge, label %78, !llvm.loop !116
 
-.critedge:                                        ; preds = %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66, %73, %58, %60, %62, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit
+.critedge:                                        ; preds = %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66, %73, %60, %62, %58, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit
   %.pr = load ptr, ptr %12, align 8, !tbaa !3
   %101 = icmp eq ptr %.pr, null
   br i1 %101, label %.critedge62, label %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit, !llvm.loop !117
 
 .critedge62:                                      ; preds = %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit, %63, %68, %.critedge
-  %.ph = phi i1 [ true, %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit ], [ false, %68 ], [ true, %.critedge ], [ false, %63 ]
+  %.ph = phi i1 [ true, %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit ], [ false, %63 ], [ false, %68 ], [ true, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.ph
 }
@@ -1669,8 +1669,8 @@ _ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i29: ; preds = %131
   br label %_ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit31
 
 _ZNK15expr_offset_mapIjE4findERK11expr_offsetRj.exit31: ; preds = %103, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i27, %131, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i29, %141, %.critedge.i30
-  %.041 = phi i32 [ %.0.ph, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i27 ], [ %.0.ph, %131 ], [ %.0.ph, %.critedge.i30 ], [ %.0.ph, %141 ], [ %.0.ph, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i29 ], [ 1, %103 ]
-  %.038 = phi i32 [ 1, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i27 ], [ 1, %131 ], [ %148, %.critedge.i30 ], [ 1, %141 ], [ 1, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i29 ], [ 1, %103 ]
+  %.041 = phi i32 [ %.0.ph, %131 ], [ %.0.ph, %.critedge.i30 ], [ %.0.ph, %141 ], [ %.0.ph, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i29 ], [ %.0.ph, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i27 ], [ 1, %103 ]
+  %.038 = phi i32 [ 1, %131 ], [ %148, %.critedge.i30 ], [ 1, %141 ], [ 1, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i29 ], [ 1, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i27 ], [ 1, %103 ]
   call void @_ZN15expr_offset_mapI11expr_offsetE6insertERKS0_S3_(ptr noundef nonnull align 8 dereferenceable(12) %71, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %149 = add i32 %.038, %.041

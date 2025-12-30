@@ -1042,7 +1042,7 @@ define dso_local ptr @swap_cache_get_folio(i64 %0, ptr noundef %1, i64 noundef %
   br label %45
 
 45:                                               ; preds = %.thread2, %.thread, %44, %29, %18, %3
-  %46 = phi ptr [ null, %3 ], [ %10, %18 ], [ %10, %29 ], [ %10, %44 ], [ %10, %.thread2 ], [ %10, %.thread ]
+  %46 = phi ptr [ null, %3 ], [ %10, %18 ], [ %10, %29 ], [ %10, %44 ], [ %10, %.thread ], [ %10, %.thread2 ]
   ret ptr %46
 }
 

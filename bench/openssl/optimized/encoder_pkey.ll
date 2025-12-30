@@ -274,22 +274,22 @@ ossl_encoder_ctx_setup_for_pkey.exit.thread38:    ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %90 = call i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef nonnull %20) #5
   %.not52.i = icmp eq i32 %90, 0
-  br i1 %.not52.i, label %ossl_encoder_ctx_setup_for_pkey.exit, label %91
+  br i1 %.not52.i, label %ossl_encoder_ctx_setup_for_pkey.exit.thread.critedge, label %91
 
 91:                                               ; preds = %89
   %92 = call i32 @OSSL_ENCODER_CTX_set_construct(ptr noundef nonnull %20, ptr noundef nonnull @encoder_construct_pkey) #5
   %.not53.i = icmp eq i32 %92, 0
-  br i1 %.not53.i, label %.critedge, label %93
+  br i1 %.not53.i, label %ossl_encoder_ctx_setup_for_pkey.exit, label %93
 
 93:                                               ; preds = %91
   %94 = call i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef nonnull %20, ptr noundef nonnull %43) #5
   %.not54.i = icmp eq i32 %94, 0
-  br i1 %.not54.i, label %.critedge, label %95
+  br i1 %.not54.i, label %ossl_encoder_ctx_setup_for_pkey.exit, label %95
 
 95:                                               ; preds = %93
   %96 = call i32 @OSSL_ENCODER_CTX_set_cleanup(ptr noundef nonnull %20, ptr noundef nonnull @encoder_destruct_pkey) #5
   %.not55.i = icmp eq i32 %96, 0
-  br i1 %.not55.i, label %.critedge, label %97
+  br i1 %.not55.i, label %ossl_encoder_ctx_setup_for_pkey.exit, label %97
 
 97:                                               ; preds = %95
   store ptr %0, ptr %43, align 8, !tbaa !49
@@ -306,43 +306,43 @@ ossl_encoder_ctx_setup_for_pkey.exit.thread38:    ; preds = %42
 .thread11.sink.split.i:                           ; preds = %99, %76, %56, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.critedge
+  br label %ossl_encoder_ctx_setup_for_pkey.exit
 
-ossl_encoder_ctx_setup_for_pkey.exit:             ; preds = %89
+ossl_encoder_ctx_setup_for_pkey.exit:             ; preds = %91, %93, %95, %.thread11.sink.split.i
   %100 = call i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef nonnull %20, ptr noundef null) #5
+  call void @CRYPTO_free(ptr noundef nonnull %43, ptr noundef nonnull @.str.2, i32 noundef 339) #5
+  br label %108
+
+ossl_encoder_ctx_setup_for_pkey.exit.thread.critedge: ; preds = %89
+  %101 = call i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef nonnull %20, ptr noundef null) #5
   call void @CRYPTO_free(ptr noundef nonnull %43, ptr noundef nonnull @.str.2, i32 noundef 339) #5
   br label %ossl_encoder_ctx_setup_for_pkey.exit.thread
 
-ossl_encoder_ctx_setup_for_pkey.exit.thread:      ; preds = %ossl_encoder_ctx_setup_for_pkey.exit, %39, %97, %37
-  %101 = call i32 @OSSL_ENCODER_CTX_add_extra(ptr noundef nonnull %20, ptr noundef %.024, ptr noundef %4) #5
-  %.not35 = icmp eq i32 %101, 0
-  br i1 %.not35, label %108, label %102
+ossl_encoder_ctx_setup_for_pkey.exit.thread:      ; preds = %ossl_encoder_ctx_setup_for_pkey.exit.thread.critedge, %37, %39, %97
+  %102 = call i32 @OSSL_ENCODER_CTX_add_extra(ptr noundef nonnull %20, ptr noundef %.024, ptr noundef %4) #5
+  %.not35 = icmp eq i32 %102, 0
+  br i1 %.not35, label %108, label %103
 
-102:                                              ; preds = %ossl_encoder_ctx_setup_for_pkey.exit.thread
+103:                                              ; preds = %ossl_encoder_ctx_setup_for_pkey.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %104 = load i32, ptr %103, align 8, !tbaa !54
-  store i32 %104, ptr %9, align 4, !tbaa !9
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %105 = load i32, ptr %104, align 8, !tbaa !54
+  store i32 %105, ptr %9, align 4, !tbaa !9
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.4, ptr noundef nonnull %9) #5
-  %105 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, i8 0, i64 40, i1 false)
-  %106 = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef nonnull %20, ptr noundef nonnull %8) #5
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %106, i8 0, i64 40, i1 false)
+  %107 = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef nonnull %20, ptr noundef nonnull %8) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %109
 
-.critedge:                                        ; preds = %.thread11.sink.split.i, %91, %95, %93
-  %107 = call i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef nonnull %20, ptr noundef null) #5
-  call void @CRYPTO_free(ptr noundef nonnull %43, ptr noundef nonnull @.str.2, i32 noundef 339) #5
-  br label %108
-
-108:                                              ; preds = %.critedge, %ossl_encoder_ctx_setup_for_pkey.exit.thread38, %ossl_encoder_ctx_setup_for_pkey.exit.thread, %35, %33, %29
+108:                                              ; preds = %ossl_encoder_ctx_setup_for_pkey.exit, %ossl_encoder_ctx_setup_for_pkey.exit.thread38, %ossl_encoder_ctx_setup_for_pkey.exit.thread, %35, %33, %29
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %20) #5
   br label %109
 
-109:                                              ; preds = %108, %102, %22, %18, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %22 ], [ %20, %102 ], [ null, %108 ], [ null, %18 ]
+109:                                              ; preds = %108, %103, %22, %18, %11
+  %.0 = phi ptr [ null, %11 ], [ null, %22 ], [ %20, %103 ], [ null, %108 ], [ null, %18 ]
   ret ptr %.0
 }
 

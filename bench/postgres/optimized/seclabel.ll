@@ -95,7 +95,7 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   %.not35 = icmp eq i32 %34, 0
   br i1 %.not35, label %.critedge, label %29
 
-.loopexit:                                        ; preds = %29, %.lr.ph, %23
+.loopexit:                                        ; preds = %29, %23, %.lr.ph
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %36 = tail call i32 @errcode(i32 noundef 50856066) #10
   %37 = load ptr, ptr %4, align 8
@@ -323,7 +323,7 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
   br label %50
 
 50:                                               ; preds = %44, %29
-  %.0.i = phi ptr [ null, %29 ], [ %48, %44 ]
+  %.0.i = phi ptr [ %48, %44 ], [ null, %29 ]
   call void @systable_endscan(ptr noundef %39) #10
   %51 = icmp eq ptr %.0.i, null
   %or.cond.i = and i1 %24, %51
@@ -426,7 +426,7 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
   br label %101
 
 101:                                              ; preds = %95, %77
-  %.0 = phi ptr [ null, %77 ], [ %99, %95 ]
+  %.0 = phi ptr [ %99, %95 ], [ null, %77 ]
   call void @systable_endscan(ptr noundef %90) #10
   %102 = icmp eq ptr %.0, null
   %or.cond = and i1 %72, %102
@@ -693,7 +693,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %65, %64, %56, %54, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ %66, %65 ], [ 0, %64 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
+  %.0 = phi i64 [ %13, %12 ], [ 0, %64 ], [ %66, %65 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
   ret i64 %.0
 }
 

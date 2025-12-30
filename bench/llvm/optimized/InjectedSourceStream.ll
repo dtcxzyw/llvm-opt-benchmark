@@ -504,8 +504,8 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !76
 
 .sink.split.i.i.i.i:                              ; preds = %155, %.lr.ph.i.i.i.i, %149, %.lr.ph24.i.i.i.i, %.preheader.i.i.i.i, %.preheader16.i.i.i.i
-  %.sroa.08.3.sink.i.i.i.i = phi ptr [ %125, %149 ], [ %24, %.preheader16.i.i.i.i ], [ %125, %.preheader.i.i.i.i ], [ %.sroa.08.123.i.i.i.i, %.lr.ph24.i.i.i.i ], [ %24, %155 ], [ %.sroa.08.219.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %.sroa.08.0.ph.i.i.i.i = phi ptr [ %151, %149 ], [ %140, %.preheader16.i.i.i.i ], [ %140, %.preheader.i.i.i.i ], [ %.sroa.08.123.i.i.i.i, %.lr.ph24.i.i.i.i ], [ %156, %155 ], [ %.sroa.08.219.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.3.sink.i.i.i.i = phi ptr [ %125, %.preheader.i.i.i.i ], [ %24, %.preheader16.i.i.i.i ], [ %.sroa.08.123.i.i.i.i, %.lr.ph24.i.i.i.i ], [ %125, %149 ], [ %.sroa.08.219.i.i.i.i, %.lr.ph.i.i.i.i ], [ %24, %155 ]
+  %.sroa.08.0.ph.i.i.i.i = phi ptr [ %140, %.preheader.i.i.i.i ], [ %140, %.preheader16.i.i.i.i ], [ %.sroa.08.123.i.i.i.i, %.lr.ph24.i.i.i.i ], [ %151, %149 ], [ %.sroa.08.219.i.i.i.i, %.lr.ph.i.i.i.i ], [ %156, %155 ]
   %157 = ptrtoint ptr %.sroa.08.3.sink.i.i.i.i to i64
   store i64 %157, ptr %47, align 8, !tbaa !77
   br label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i

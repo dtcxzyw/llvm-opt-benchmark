@@ -887,8 +887,8 @@ Vec_IntAlloc.exit:                                ; preds = %14, %21
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %69, %71, %61, %63
-  %.sink105 = phi ptr [ %64, %63 ], [ %62, %61 ], [ %70, %69 ], [ %72, %71 ]
-  %.sink = phi i32 [ 16, %63 ], [ 16, %61 ], [ %66, %69 ], [ %66, %71 ]
+  %.sink105 = phi ptr [ %62, %61 ], [ %64, %63 ], [ %70, %69 ], [ %72, %71 ]
+  %.sink = phi i32 [ 16, %61 ], [ 16, %63 ], [ %66, %69 ], [ %66, %71 ]
   store ptr %.sink105, ptr %26, align 8, !tbaa !87
   store i32 %.sink, ptr %18, align 8, !tbaa !86
   br label %Vec_IntPush.exit
@@ -964,8 +964,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit72.sink.split
 
 Vec_IntPush.exit72.sink.split:                    ; preds = %109, %111, %101, %103
-  %.sink107 = phi ptr [ %104, %103 ], [ %102, %101 ], [ %110, %109 ], [ %112, %111 ]
-  %.sink106 = phi i32 [ 16, %103 ], [ 16, %101 ], [ %106, %109 ], [ %106, %111 ]
+  %.sink107 = phi ptr [ %102, %101 ], [ %104, %103 ], [ %110, %109 ], [ %112, %111 ]
+  %.sink106 = phi i32 [ 16, %101 ], [ 16, %103 ], [ %106, %109 ], [ %106, %111 ]
   store ptr %.sink107, ptr %26, align 8, !tbaa !87
   store i32 %.sink106, ptr %18, align 8, !tbaa !86
   br label %Vec_IntPush.exit72
@@ -982,8 +982,8 @@ Vec_IntPush.exit72:                               ; preds = %Vec_IntPush.exit72.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Vec_IntPush.exit, %38, %Vec_IntPush.exit72
-  %.pre.i95 = phi ptr [ %.pre.i93, %Vec_IntPush.exit72 ], [ %.pre.i94, %38 ], [ %.pre.i96, %Vec_IntPush.exit ]
-  %.pre.i6890 = phi ptr [ %.pre.i6891, %Vec_IntPush.exit72 ], [ %32, %38 ], [ %.pre.i96, %Vec_IntPush.exit ]
+  %.pre.i95 = phi ptr [ %.pre.i94, %38 ], [ %.pre.i93, %Vec_IntPush.exit72 ], [ %.pre.i96, %Vec_IntPush.exit ]
+  %.pre.i6890 = phi ptr [ %32, %38 ], [ %.pre.i6891, %Vec_IntPush.exit72 ], [ %.pre.i96, %Vec_IntPush.exit ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %.val61 = load i32, ptr %17, align 4, !tbaa !84
   %117 = sext i32 %.val61 to i64

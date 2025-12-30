@@ -1058,7 +1058,7 @@ modnn.exit297:                                    ; preds = %.lr.ph.i295, %301
   br i1 %exitcond485.not, label %.loopexit, label %.lr.ph381, !llvm.loop !34
 
 .loopexit:                                        ; preds = %298, %.lr.ph381, %246, %217, %49, %.loopexit299
-  %.0183543 = phi i32 [ 0, %49 ], [ %spec.select, %.loopexit299 ], [ %spec.select, %.lr.ph381 ], [ %spec.select, %246 ], [ -1, %217 ], [ -1, %298 ]
+  %.0183543 = phi i32 [ %spec.select, %.loopexit299 ], [ %spec.select, %246 ], [ -1, %217 ], [ 0, %49 ], [ %spec.select, %.lr.ph381 ], [ -1, %298 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

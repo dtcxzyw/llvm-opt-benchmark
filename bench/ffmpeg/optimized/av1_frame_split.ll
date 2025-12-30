@@ -63,7 +63,7 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_init(ptr noundef 
   br label %23
 
 23:                                               ; preds = %10, %6, %1, %22
-  %.0 = phi i32 [ -12, %1 ], [ 0, %22 ], [ %8, %6 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %22 ], [ -12, %1 ], [ %8, %6 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -276,9 +276,9 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   br i1 %104, label %.thread220.thread.sink.split, label %.thread201
 
 .thread201:                                       ; preds = %55, %86, %101, %69, %79, %46
-  %105 = phi i32 [ %63, %55 ], [ %47, %86 ], [ %47, %46 ], [ %47, %69 ], [ %47, %79 ], [ %47, %101 ]
-  %.2134206 = phi i32 [ %61, %55 ], [ 3, %86 ], [ %.0132276, %46 ], [ %75, %69 ], [ %75, %79 ], [ 3, %101 ]
-  %.2138205 = phi ptr [ %58, %55 ], [ %.0136275, %86 ], [ %.0136275, %46 ], [ %72, %69 ], [ %72, %79 ], [ %.0136275, %101 ]
+  %105 = phi i32 [ %47, %46 ], [ %47, %79 ], [ %47, %69 ], [ %47, %101 ], [ %47, %86 ], [ %63, %55 ]
+  %.2134206 = phi i32 [ %.0132276, %46 ], [ %75, %79 ], [ %75, %69 ], [ 3, %101 ], [ 3, %86 ], [ %61, %55 ]
+  %.2138205 = phi ptr [ %.0136275, %46 ], [ %72, %79 ], [ %72, %69 ], [ %.0136275, %101 ], [ %.0136275, %86 ], [ %58, %55 ]
   %indvars.iv.next305 = add nsw i64 %indvars.iv304, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next305 to i32
   %exitcond307.not = icmp eq i32 %36, %lftr.wideiv
@@ -382,7 +382,7 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   br label %.thread227
 
 .thread227:                                       ; preds = %.thread227.sink.split, %139, %9
-  %.2 = phi i32 [ 0, %139 ], [ %10, %9 ], [ %.2.ph, %.thread227.sink.split ]
+  %.2 = phi i32 [ %10, %9 ], [ 0, %139 ], [ %.2.ph, %.thread227.sink.split ]
   ret i32 %.2
 }
 

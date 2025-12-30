@@ -173,7 +173,7 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
   br i1 %exitcond111.not, label %.thread88, label %.thread84, !llvm.loop !23
 
 .thread88:                                        ; preds = %29, %.thread84, %47, %.thread93, %8
-  %.0 = phi ptr [ %48, %47 ], [ null, %8 ], [ null, %.thread84 ], [ null, %.thread93 ], [ %30, %29 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %.thread84 ], [ null, %.thread93 ], [ %48, %47 ], [ %30, %29 ]
   ret ptr %.0
 }
 
@@ -456,7 +456,7 @@ mi_manage_os_memory.exit:                         ; preds = %15, %10
   br label %59
 
 59:                                               ; preds = %3, %54, %mi_manage_os_memory.exit
-  %.0 = phi i32 [ 12, %mi_manage_os_memory.exit ], [ 0, %54 ], [ 12, %3 ]
+  %.0 = phi i32 [ 0, %54 ], [ 12, %mi_manage_os_memory.exit ], [ 12, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -801,7 +801,7 @@ mi_reserve_huge_os_pages_interleave.exit:         ; preds = %27, %5
   br label %mi_reserve_huge_os_pages_interleave.exit.thread
 
 mi_reserve_huge_os_pages_interleave.exit.thread:  ; preds = %22, %31, %mi_reserve_huge_os_pages_interleave.exit
-  %.0.i11 = phi i32 [ 0, %mi_reserve_huge_os_pages_interleave.exit ], [ 0, %31 ], [ %26, %22 ]
+  %.0.i11 = phi i32 [ 0, %31 ], [ 0, %mi_reserve_huge_os_pages_interleave.exit ], [ %26, %22 ]
   ret i32 %.0.i11
 }
 
@@ -908,7 +908,7 @@ define internal fastcc ptr @mi_arena_alloc_from(ptr noundef nonnull %0, i64 noun
   br label %mi_arena_alloc.exit
 
 mi_arena_alloc.exit:                              ; preds = %9, %46, %66, %65
-  %.0 = phi ptr [ %24, %46 ], [ %24, %65 ], [ %24, %66 ], [ null, %9 ]
+  %.0 = phi ptr [ %24, %65 ], [ %24, %66 ], [ %24, %46 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }

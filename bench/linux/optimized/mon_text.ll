@@ -1389,7 +1389,7 @@ mon_text_read_statset.exit3:                      ; preds = %162, %183, %190
   br label %.loopexit
 
 .loopexit:                                        ; preds = %130, %mon_text_read_statset.exit3, %148, %114, %mon_text_read_statset.exit
-  %200 = phi i32 [ %93, %mon_text_read_statset.exit ], [ %199, %mon_text_read_statset.exit3 ], [ %158, %148 ], [ %124, %114 ], [ %144, %130 ]
+  %200 = phi i32 [ %199, %mon_text_read_statset.exit3 ], [ %158, %148 ], [ %124, %114 ], [ %93, %mon_text_read_statset.exit ], [ %144, %130 ]
   %201 = sext i32 %200 to i64
   %202 = getelementptr i8, ptr %19, i64 %201
   %203 = sub i32 %22, %200

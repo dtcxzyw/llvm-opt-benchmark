@@ -298,8 +298,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %76
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread96, %_Z24byte_size_in_proper_unitImET_S0_.exit, %82
-  %.0.i7695 = phi i64 [ %80, %.thread96 ], [ %81, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i75, %82 ]
-  %.0.i77 = phi ptr [ @.str.12, %.thread96 ], [ @.str.11, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.13..str.14.i, %82 ]
+  %.0.i7695 = phi i64 [ %81, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i75, %82 ], [ %80, %.thread96 ]
+  %.0.i77 = phi ptr [ @.str.11, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.13..str.14.i, %82 ], [ @.str.12, %.thread96 ]
   %85 = icmp ugt i64 %.065.lcssa138, 107374182399
   br i1 %85, label %_Z24byte_size_in_proper_unitImET_S0_.exit80, label %86
 
@@ -323,8 +323,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit80:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit83
 
 _Z25proper_unit_for_byte_sizem.exit83:            ; preds = %.thread101, %_Z24byte_size_in_proper_unitImET_S0_.exit80, %90
-  %.0.i79100 = phi i64 [ %88, %.thread101 ], [ %89, %_Z24byte_size_in_proper_unitImET_S0_.exit80 ], [ %spec.select.i78, %90 ]
-  %.0.i82 = phi ptr [ @.str.12, %.thread101 ], [ @.str.11, %_Z24byte_size_in_proper_unitImET_S0_.exit80 ], [ %.str.13..str.14.i81, %90 ]
+  %.0.i79100 = phi i64 [ %89, %_Z24byte_size_in_proper_unitImET_S0_.exit80 ], [ %spec.select.i78, %90 ], [ %88, %.thread101 ]
+  %.0.i82 = phi ptr [ @.str.11, %_Z24byte_size_in_proper_unitImET_S0_.exit80 ], [ %.str.13..str.14.i81, %90 ], [ @.str.12, %.thread101 ]
   %93 = icmp ugt i64 %71, 107374182399
   br i1 %93, label %_Z24byte_size_in_proper_unitImET_S0_.exit86, label %94
 
@@ -348,8 +348,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit86:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit89
 
 _Z25proper_unit_for_byte_sizem.exit89:            ; preds = %.thread106, %_Z24byte_size_in_proper_unitImET_S0_.exit86, %98
-  %.0.i85105 = phi i64 [ %96, %.thread106 ], [ %97, %_Z24byte_size_in_proper_unitImET_S0_.exit86 ], [ %spec.select.i84, %98 ]
-  %.0.i88 = phi ptr [ @.str.12, %.thread106 ], [ @.str.11, %_Z24byte_size_in_proper_unitImET_S0_.exit86 ], [ %.str.13..str.14.i87, %98 ]
+  %.0.i85105 = phi i64 [ %97, %_Z24byte_size_in_proper_unitImET_S0_.exit86 ], [ %spec.select.i84, %98 ], [ %96, %.thread106 ]
+  %.0.i88 = phi ptr [ @.str.11, %_Z24byte_size_in_proper_unitImET_S0_.exit86 ], [ %.str.13..str.14.i87, %98 ], [ @.str.12, %.thread106 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str, i64 noundef %.0.i7695, ptr noundef nonnull %.0.i77, i64 noundef %74, i64 noundef %.0.i79100, ptr noundef nonnull %.0.i82, i64 noundef %73, i64 noundef %.0.i85105, ptr noundef nonnull %.0.i88, i64 noundef %72)
   br label %101
 
@@ -430,7 +430,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics15should_start_gcEv(p
   br label %23
 
 23:                                               ; preds = %9, %11, %22, %20, %7, %5
-  %.0 = phi i1 [ true, %22 ], [ true, %7 ], [ true, %5 ], [ true, %20 ], [ false, %11 ], [ false, %9 ]
+  %.0 = phi i1 [ true, %5 ], [ true, %7 ], [ true, %20 ], [ true, %22 ], [ false, %11 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -565,7 +565,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics21should_unload_class
   br label %13
 
 13:                                               ; preds = %6, %1, %10
-  %.0 = phi i1 [ false, %1 ], [ %12, %10 ], [ true, %6 ]
+  %.0 = phi i1 [ %12, %10 ], [ false, %1 ], [ true, %6 ]
   ret i1 %.0
 }
 

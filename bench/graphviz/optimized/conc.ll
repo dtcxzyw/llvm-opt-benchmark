@@ -265,7 +265,7 @@ bothdowncandidates.exit:                          ; preds = %samedir.exit.i
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %.preheader98, label %bothdowncandidates.exit.thread, !llvm.loop !70
 
-bothdowncandidates.exit.thread:                   ; preds = %.critedge2.i.i, %105, %64, %68, %51, %downcandidate.exit.i, %75, %samedir.exit.i, %bothdowncandidates.exit, %.preheader98, %93, %.critedge.i.i
+bothdowncandidates.exit.thread:                   ; preds = %105, %.critedge2.i.i, %51, %64, %68, %downcandidate.exit.i, %75, %samedir.exit.i, %bothdowncandidates.exit, %.preheader98, %93, %.critedge.i.i
   %157 = trunc nuw nsw i64 %indvars.iv.next164 to i32
   %158 = trunc nuw nsw i64 %indvars.iv to i32
   %159 = sub nsw i32 %157, %158
@@ -508,7 +508,7 @@ bothupcandidates.exit:                            ; preds = %samedir.exit.i85
   %312 = icmp eq i32 %311, 0
   br i1 %312, label %.preheader93, label %bothupcandidates.exit.thread, !llvm.loop !74
 
-bothupcandidates.exit.thread:                     ; preds = %.critedge2.i.i84, %261, %220, %224, %207, %upcandidate.exit.i, %231, %samedir.exit.i85, %bothupcandidates.exit, %.preheader93, %249, %.critedge.i.i82
+bothupcandidates.exit.thread:                     ; preds = %261, %.critedge2.i.i84, %207, %220, %224, %upcandidate.exit.i, %231, %samedir.exit.i85, %bothupcandidates.exit, %.preheader93, %249, %.critedge.i.i82
   %313 = trunc nuw nsw i64 %indvars.iv.next177 to i32
   %314 = trunc nuw nsw i64 %indvars.iv174 to i32
   %315 = sub nsw i32 %313, %314
@@ -1181,7 +1181,7 @@ infuse.exit132:                                   ; preds = %70, %78
   br i1 %203, label %.lr.ph154, label %._crit_edge155, !llvm.loop !96
 
 ._crit_edge155:                                   ; preds = %.critedge130, %.lr.ph154, %168
-  %.0104.lcssa = phi i32 [ %.0104152, %168 ], [ %.2106, %.critedge130 ], [ %.0104152, %.lr.ph154 ]
+  %.0104.lcssa = phi i32 [ %.2106, %.critedge130 ], [ %.0104152, %.lr.ph154 ], [ %.0104152, %168 ]
   %204 = icmp eq i32 %.0104.lcssa, -1
   br i1 %204, label %._crit_edge155.thread, label %207
 

@@ -138,8 +138,8 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
   br label %37
 
 37:                                               ; preds = %17, %ByteReverseWords.exit, %AddLength.exit
-  %.047 = phi i32 [ %26, %ByteReverseWords.exit ], [ %2, %AddLength.exit ], [ %26, %17 ]
-  %.046 = phi ptr [ %25, %ByteReverseWords.exit ], [ %1, %AddLength.exit ], [ %25, %17 ]
+  %.047 = phi i32 [ %26, %ByteReverseWords.exit ], [ %26, %17 ], [ %2, %AddLength.exit ]
+  %.046 = phi ptr [ %25, %ByteReverseWords.exit ], [ %25, %17 ], [ %1, %AddLength.exit ]
   %38 = icmp ugt i32 %.047, 63
   br i1 %38, label %.lr.ph, label %._crit_edge
 

@@ -1695,7 +1695,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   br label %67
 
 67:                                               ; preds = %51, %56, %61, %25
-  %.1280 = phi i32 [ %66, %61 ], [ %.0279, %51 ], [ %.0279, %56 ], [ %.0279, %25 ]
+  %.1280 = phi i32 [ %66, %61 ], [ %.0279, %56 ], [ %.0279, %51 ], [ %.0279, %25 ]
   %68 = fcmp nsz olt float %43, 0.000000e+00
   br i1 %68, label %69, label %85
 
@@ -1728,7 +1728,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   br label %85
 
 85:                                               ; preds = %69, %74, %79, %67
-  %.1284 = phi i32 [ %84, %79 ], [ %.0283, %69 ], [ %.0283, %74 ], [ %.0283, %67 ]
+  %.1284 = phi i32 [ %84, %79 ], [ %.0283, %74 ], [ %.0283, %69 ], [ %.0283, %67 ]
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %88 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -2885,7 +2885,7 @@ draw_scope.exit:                                  ; preds = %157
   br i1 %exitcond166.not, label %._crit_edge, label %254, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %254, %.preheader141.lr.ph, %.preheader140
-  %.not173 = phi i1 [ true, %.preheader141.lr.ph ], [ true, %.preheader140 ], [ false, %254 ]
+  %.not173 = phi i1 [ true, %.preheader140 ], [ true, %.preheader141.lr.ph ], [ false, %254 ]
   %258 = load i32, ptr %178, align 4, !tbaa !162
   %.not136 = icmp eq i32 %258, 0
   br i1 %.not136, label %.loopexit, label %259

@@ -192,7 +192,7 @@ define internal ptr @H5O__cont_decode(ptr noundef %0, ptr readnone captures(none
   br label %.thread
 
 .thread:                                          ; preds = %19, %.loopexit, %107, %6
-  %.036 = phi ptr [ null, %107 ], [ null, %19 ], [ null, %6 ], [ %17, %.loopexit ]
+  %.036 = phi ptr [ null, %107 ], [ null, %6 ], [ %17, %.loopexit ], [ null, %19 ]
   ret ptr %.036
 }
 

@@ -962,7 +962,7 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %355, %319, %.body117, %322, %324, %.loopexit178
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.thr_comm.split-lp137, %355 ], [ %.pn.pn.i, %.body117 ], [ %323, %322 ], [ %320, %319 ], [ %lpad.phi177, %324 ], [ %lpad.phi182, %.loopexit178 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit145, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit155, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit169, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit171, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %.body117 ], [ %323, %322 ], [ %320, %319 ], [ %lpad.phi177, %324 ], [ %lpad.phi182, %.loopexit178 ], [ %lpad.thr_comm.split-lp137, %355 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit145, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit155, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit169, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit171, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$cranelift_isle..serialize..Decomposition$GT$17he837e87229cd38b1E"(ptr nonnull align 8 %1) #12
           to label %391 unwind label %389
 
@@ -1127,7 +1127,7 @@ default.unreachable711:                           ; preds = %232
           to label %325 unwind label %.loopexit174
 
 .body117:                                         ; preds = %.loopexit158, %.loopexit.split-lp159, %.thread142, %254, %.thread, %280
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i125, %.thread ], [ %lpad.phi151, %280 ], [ %lpad.thr_comm.split-lp, %.thread142 ], [ %.pn.pn.i.i, %254 ], [ %lpad.loopexit160, %.loopexit158 ], [ %lpad.loopexit.split-lp161, %.loopexit.split-lp159 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i125, %.thread ], [ %lpad.phi151, %280 ], [ %.pn.pn.i.i, %254 ], [ %lpad.thr_comm.split-lp, %.thread142 ], [ %lpad.loopexit160, %.loopexit158 ], [ %lpad.loopexit.split-lp161, %.loopexit.split-lp159 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..serialize..MatchArm$GT$$GT$17h24142077e26027dbE"(ptr nonnull align 8 %38) #12
           to label %.body unwind label %317
 
@@ -1437,7 +1437,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
           cleanup
   br label %.loopexit148
 
-.loopexit148.loopexit.split-lp:                   ; preds = %.noexc100, %304, %316
+.loopexit148.loopexit.split-lp:                   ; preds = %304, %316, %.noexc100
   %lpad.loopexit.split-lp153 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit148
@@ -1454,8 +1454,8 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
   br label %.loopexit148
 
 .loopexit148:                                     ; preds = %.loopexit.split-lp149.loopexit, %.loopexit.split-lp149.loopexit.split-lp, %.loopexit148.loopexit, %.loopexit148.loopexit.split-lp
-  %.1.i.ph = phi i1 [ true, %.loopexit148.loopexit ], [ true, %.loopexit148.loopexit.split-lp ], [ %.1.i.ph.ph.ph, %.loopexit.split-lp149.loopexit ], [ true, %.loopexit.split-lp149.loopexit.split-lp ]
-  %lpad.phi151 = phi { ptr, i32 } [ %lpad.loopexit152, %.loopexit148.loopexit ], [ %lpad.loopexit.split-lp153, %.loopexit148.loopexit.split-lp ], [ %lpad.loopexit166, %.loopexit.split-lp149.loopexit ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp149.loopexit.split-lp ]
+  %.1.i.ph = phi i1 [ true, %.loopexit148.loopexit.split-lp ], [ true, %.loopexit148.loopexit ], [ %.1.i.ph.ph.ph, %.loopexit.split-lp149.loopexit ], [ true, %.loopexit.split-lp149.loopexit.split-lp ]
+  %lpad.phi151 = phi { ptr, i32 } [ %lpad.loopexit.split-lp153, %.loopexit148.loopexit.split-lp ], [ %lpad.loopexit152, %.loopexit148.loopexit ], [ %lpad.loopexit166, %.loopexit.split-lp149.loopexit ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp149.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$cranelift_isle..trie_again..BindingId$GT$$GT$$GT$17hf640b2e62f2052b6E"(ptr nonnull align 8 %33) #12
           to label %280 unwind label %317
 
@@ -1665,7 +1665,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
   invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nonnull align 8 %20, ptr align 8 %19, ptr nonnull align 8 %233, i64 %234)
           to label %369 unwind label %355
 
-.loopexit178.loopexit:                            ; preds = %367, %.noexc88, %356, %366, %.noexc84, %353, %.noexc524
+.loopexit178.loopexit:                            ; preds = %367, %356, %366, %.noexc88, %.noexc84, %353, %.noexc524
   %lpad.loopexit529 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit178
@@ -1686,9 +1686,9 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
           to label %.body unwind label %317
 
 369:                                              ; preds = %368, %321, %250
-  %.sink = phi ptr [ %24, %321 ], [ %38, %250 ], [ %20, %368 ]
-  %.sroa.7.1 = phi i16 [ %.sroa.3.0.extract.trunc.i, %321 ], [ %.sroa.7.0122, %250 ], [ %.sroa.7.0122, %368 ]
-  %.sroa.4.0 = phi i16 [ %.sroa.24.0.extract.trunc.i, %321 ], [ %251, %250 ], [ %327, %368 ]
+  %.sink = phi ptr [ %38, %250 ], [ %24, %321 ], [ %20, %368 ]
+  %.sroa.7.1 = phi i16 [ %.sroa.7.0122, %250 ], [ %.sroa.3.0.extract.trunc.i, %321 ], [ %.sroa.7.0122, %368 ]
+  %.sroa.4.0 = phi i16 [ %251, %250 ], [ %.sroa.24.0.extract.trunc.i, %321 ], [ %327, %368 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1794,9 +1794,9 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
   br label %407
 
 .invoke:                                          ; preds = %.noexc81, %.noexc79, %380
-  %404 = phi i64 [ %381, %380 ], [ %331, %.noexc79 ], [ %338, %.noexc81 ]
-  %405 = phi i64 [ %384, %380 ], [ %332, %.noexc79 ], [ %339, %.noexc81 ]
-  %406 = phi ptr [ @anon.d4af4c79604ea0f35702c9c623b8a88c.10, %380 ], [ @anon.d4af4c79604ea0f35702c9c623b8a88c.15, %.noexc79 ], [ @anon.d4af4c79604ea0f35702c9c623b8a88c.16, %.noexc81 ]
+  %404 = phi i64 [ %381, %380 ], [ %338, %.noexc81 ], [ %331, %.noexc79 ]
+  %405 = phi i64 [ %384, %380 ], [ %339, %.noexc81 ], [ %332, %.noexc79 ]
+  %406 = phi ptr [ @anon.d4af4c79604ea0f35702c9c623b8a88c.10, %380 ], [ @anon.d4af4c79604ea0f35702c9c623b8a88c.16, %.noexc81 ], [ @anon.d4af4c79604ea0f35702c9c623b8a88c.15, %.noexc79 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %404, i64 %405, ptr nonnull align 8 %406) #14
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2112,7 +2112,7 @@ default.unreachable:                              ; preds = %22
   br label %"_ZN76_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..Ord$GT$3cmp17h11e61fcbb90a73c1E.exit"
 
 "_ZN76_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..Ord$GT$3cmp17h11e61fcbb90a73c1E.exit": ; preds = %2, %8, %6, %43, %41, %35, %33, %31, %30, %29, %28, %20, %14, %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit"
-  %.0 = phi i8 [ -1, %29 ], [ 1, %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit" ], [ %.16.i, %31 ], [ 1, %20 ], [ -1, %28 ], [ %.19.i, %41 ], [ -1, %30 ], [ -1, %35 ], [ 1, %33 ], [ %.20.i, %43 ], [ -1, %14 ], [ -1, %2 ], [ -1, %8 ], [ 1, %6 ]
+  %.0 = phi i8 [ 1, %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit" ], [ 1, %33 ], [ 1, %20 ], [ %.16.i, %31 ], [ -1, %28 ], [ %.19.i, %41 ], [ -1, %35 ], [ %.20.i, %43 ], [ -1, %30 ], [ -1, %14 ], [ -1, %29 ], [ -1, %2 ], [ -1, %8 ], [ 1, %6 ]
   ret i8 %.0
 }
 
@@ -2137,7 +2137,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN78_$LT$cranelift_isle..serialize..Candidat
   br i1 %12, label %13, label %"_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit"
 
 "_ZN83_$LT$cranelift_isle..serialize..HasControlFlow$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha1cc9627cdacb78fE.exit": ; preds = %2, %6, %43, %38, %36, %30, %29, %24, %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit"
-  %.0 = phi i8 [ -1, %30 ], [ %.07.i, %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit" ], [ %.012.i, %24 ], [ %.011.i, %29 ], [ %.010.i, %38 ], [ 1, %36 ], [ %.09.i, %43 ], [ -1, %2 ], [ 1, %6 ]
+  %.0 = phi i8 [ %.07.i, %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit" ], [ %.012.i, %24 ], [ %.011.i, %29 ], [ %.010.i, %38 ], [ 1, %36 ], [ %.09.i, %43 ], [ -1, %30 ], [ -1, %2 ], [ 1, %6 ]
   ret i8 %.0
 
 13:                                               ; preds = %"_ZN74_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5598a647a156acdE.exit"
@@ -2254,7 +2254,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN76_$LT$cranelift_isle..serialize..EqualCan
   br i1 %19, label %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit.thread", label %20
 
 "_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit.thread": ; preds = %2, %8, %6, %14, %20, %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit"
-  %.0 = phi i8 [ %., %20 ], [ 1, %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit" ], [ -1, %14 ], [ -1, %2 ], [ -1, %8 ], [ 1, %6 ]
+  %.0 = phi i8 [ 1, %"_ZN67_$LT$cranelift_isle..serialize..Score$u20$as$u20$core..cmp..Ord$GT$3cmp17h530fa5fabafbd2b9E.exit" ], [ %., %20 ], [ -1, %14 ], [ -1, %2 ], [ -1, %8 ], [ 1, %6 ]
   ret i8 %.0
 
 20:                                               ; preds = %14

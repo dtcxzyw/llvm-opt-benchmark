@@ -792,7 +792,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   br i1 %104, label %XLogReadRecordAlloc.exit.thread.i, label %XLogReadRecordAlloc.exit.i
 
 XLogReadRecordAlloc.exit.thread.i:                ; preds = %100, %96, %88
-  %.sink52.i.i = phi ptr [ %.pre.i.i, %100 ], [ %91, %96 ], [ %89, %88 ]
+  %.sink52.i.i = phi ptr [ %89, %88 ], [ %91, %96 ], [ %.pre.i.i, %100 ]
   %105 = getelementptr inbounds nuw i8, ptr %.sink52.i.i, i64 8
   store i8 0, ptr %105, align 8
   %106 = icmp eq ptr %.sink52.i.i, null
@@ -1047,9 +1047,9 @@ ValidXLogRecord.exit265.i:                        ; preds = %231
   br label %251
 
 251:                                              ; preds = %247, %.thread284.i
-  %252 = phi i64 [ %216, %.thread284.i ], [ %250, %247 ]
-  %.2220.i = phi i64 [ %123, %.thread284.i ], [ %36, %247 ]
-  %.3217.i = phi ptr [ %190, %.thread284.i ], [ %64, %247 ]
+  %252 = phi i64 [ %250, %247 ], [ %216, %.thread284.i ]
+  %.2220.i = phi i64 [ %36, %247 ], [ %123, %.thread284.i ]
+  %.3217.i = phi ptr [ %64, %247 ], [ %190, %.thread284.i ]
   %253 = getelementptr inbounds nuw i8, ptr %.3217.i, i64 17
   %254 = load i8, ptr %253, align 1
   %255 = icmp eq i8 %254, 0
@@ -1136,8 +1136,8 @@ ValidXLogRecord.exit265.i:                        ; preds = %231
   br label %XLogReadRecordAlloc.exit277.i
 
 XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %280
-  %.sink52.i274.i = phi ptr [ %298, %297 ], [ %283, %288 ], [ %281, %280 ], [ %.pre.i267.i, %292 ]
-  %.sink.i.i = phi i8 [ 1, %297 ], [ 0, %288 ], [ 0, %280 ], [ 0, %292 ]
+  %.sink52.i274.i = phi ptr [ %298, %297 ], [ %281, %280 ], [ %283, %288 ], [ %.pre.i267.i, %292 ]
+  %.sink.i.i = phi i8 [ 1, %297 ], [ 0, %280 ], [ 0, %288 ], [ 0, %292 ]
   %299 = getelementptr inbounds nuw i8, ptr %.sink52.i274.i, i64 8
   store i8 %.sink.i.i, ptr %299, align 8
   br label %300
@@ -1198,15 +1198,15 @@ XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %2
   br i1 %111, label %.thread299.i, label %.thread293.i
 
 .thread299.i:                                     ; preds = %173, %128, %325, %ValidXLogRecord.exit.i, %147, %138
-  %.0218305.i = phi i64 [ %.2220.i, %325 ], [ %123, %ValidXLogRecord.exit.i ], [ %123, %147 ], [ %123, %138 ], [ %123, %128 ], [ %123, %173 ]
-  %.1226304.i = phi ptr [ %301, %325 ], [ %.0.i280.i, %ValidXLogRecord.exit.i ], [ %.0.i280.i, %147 ], [ %.0.i280.i, %138 ], [ %.0.i280.i, %128 ], [ %.0.i280.i, %173 ]
+  %.0218305.i = phi i64 [ %.2220.i, %325 ], [ %123, %ValidXLogRecord.exit.i ], [ %123, %138 ], [ %123, %147 ], [ %123, %128 ], [ %123, %173 ]
+  %.1226304.i = phi ptr [ %301, %325 ], [ %.0.i280.i, %ValidXLogRecord.exit.i ], [ %.0.i280.i, %138 ], [ %.0.i280.i, %147 ], [ %.0.i280.i, %128 ], [ %.0.i280.i, %173 ]
   store i64 %.2210.i, ptr %12, align 8
   store i64 %.0218305.i, ptr %13, align 8
   store i8 1, ptr %5, align 8
   br label %.thread293.i
 
 .thread293.i:                                     ; preds = %67, %34, %.thread299.i, %325, %ValidXLogRecord.exit265.i, %229, %72, %58, %52
-  %.1226298.i = phi ptr [ %301, %325 ], [ %.1226304.i, %.thread299.i ], [ %.0225464.i, %52 ], [ %.0225464.i, %72 ], [ %.0225464.i, %58 ], [ %.0.i280.i, %ValidXLogRecord.exit265.i ], [ %.0.i280.i, %229 ], [ %.0225464.i, %34 ], [ %.0225464.i, %67 ]
+  %.1226298.i = phi ptr [ %.1226304.i, %.thread299.i ], [ %301, %325 ], [ %.0225464.i, %52 ], [ %.0225464.i, %72 ], [ %.0.i280.i, %ValidXLogRecord.exit265.i ], [ %.0.i280.i, %229 ], [ %.0225464.i, %58 ], [ %.0225464.i, %34 ], [ %.0225464.i, %67 ]
   %.not261.i = icmp eq ptr %.1226298.i, null
   br i1 %.not261.i, label %331, label %326
 
@@ -1229,8 +1229,8 @@ XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %2
   store i32 0, ptr %334, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %217, %XLogReadRecordAlloc.exit.i, %122, %321, %324, %224, %8, %331
-  %.0.ph = phi ptr [ null, %224 ], [ %301, %324 ], [ null, %122 ], [ %301, %321 ], [ null, %331 ], [ null, %8 ], [ null, %XLogReadRecordAlloc.exit.i ], [ null, %217 ]
+.sink.split:                                      ; preds = %217, %XLogReadRecordAlloc.exit.i, %122, %321, %324, %8, %224, %331
+  %.0.ph = phi ptr [ null, %331 ], [ null, %224 ], [ null, %8 ], [ %301, %324 ], [ %301, %321 ], [ null, %122 ], [ null, %XLogReadRecordAlloc.exit.i ], [ null, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %335
 
@@ -1521,8 +1521,8 @@ define dso_local i64 @XLogFindNextRecord(ptr noundef initializes((1313, 1314)) %
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %.thread52, label %11
 
-42:                                               ; preds = %35, %31
-  %.1.ph = phi i64 [ %34, %31 ], [ %37, %35 ]
+42:                                               ; preds = %31, %35
+  %.1.ph = phi i64 [ %37, %35 ], [ %34, %31 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %44 = load ptr, ptr %43, align 8
   %.not14.i.i = icmp eq ptr %44, null
@@ -1623,7 +1623,7 @@ XLogBeginRead.exit47:                             ; preds = %79, %70
   store i64 0, ptr %65, align 8
   br label %86
 
-.thread52:                                        ; preds = %11, %38, %66, %2
+.thread52:                                        ; preds = %38, %11, %66, %2
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   store i64 0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1232
@@ -1633,7 +1633,7 @@ XLogBeginRead.exit47:                             ; preds = %79, %70
   br label %86
 
 86:                                               ; preds = %.thread52, %XLogBeginRead.exit47
-  %.035 = phi i64 [ 0, %.thread52 ], [ %69, %XLogBeginRead.exit47 ]
+  %.035 = phi i64 [ %69, %XLogBeginRead.exit47 ], [ 0, %.thread52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.035
 }
@@ -1736,7 +1736,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
   %67 = tail call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %52)
   br i1 %67, label %.thread75.sink.split, label %.thread
 
-.thread:                                          ; preds = %35, %37, %66, %64, %49
+.thread:                                          ; preds = %37, %35, %66, %64, %49
   br label %.thread75.sink.split
 
 .thread75.sink.split:                             ; preds = %66, %.thread
@@ -1751,7 +1751,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
   br label %.thread75
 
 .thread75:                                        ; preds = %.thread75.sink.split, %25, %58, %40, %18
-  %.0 = phi i32 [ -2, %40 ], [ -2, %58 ], [ %20, %18 ], [ -2, %25 ], [ %.0.ph, %.thread75.sink.split ]
+  %.0 = phi i32 [ %20, %18 ], [ -2, %40 ], [ -2, %58 ], [ -2, %25 ], [ %.0.ph, %.thread75.sink.split ]
   ret i32 %.0
 }
 
@@ -2393,7 +2393,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   store i64 %269, ptr %1, align 8
   br label %277
 
-.thread317:                                       ; preds = %194, %122, %178, %106, %102, %100, %62, %57, %39, %33, %28, %22, %.loopexit
+.thread317:                                       ; preds = %194, %178, %122, %106, %102, %100, %62, %57, %39, %33, %28, %22, %.loopexit
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %271 = load i64, ptr %270, align 8
   %272 = lshr i64 %271, 32
@@ -2402,7 +2402,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %273, i32 noundef %274)
   br label %.thread324
 
-.thread324:                                       ; preds = %143, %152, %171, %186, %83, %163, %90, %51, %.thread317, %201
+.thread324:                                       ; preds = %90, %152, %171, %186, %163, %143, %83, %51, %.thread317, %201
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %276 = load ptr, ptr %275, align 8
   store ptr %276, ptr %4, align 8
@@ -2527,7 +2527,7 @@ define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef read
   br label %33
 
 33:                                               ; preds = %29, %30, %6, %12
-  %.0 = phi i1 [ false, %6 ], [ false, %12 ], [ true, %30 ], [ true, %29 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %6 ], [ true, %30 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -2584,7 +2584,7 @@ define dso_local ptr @XLogRecGetBlockData(ptr noundef readonly captures(none) %0
   br label %30
 
 30:                                               ; preds = %20, %21, %3, %10, %27
-  %.0 = phi ptr [ null, %3 ], [ %29, %27 ], [ null, %10 ], [ null, %21 ], [ null, %20 ]
+  %.0 = phi ptr [ %29, %27 ], [ null, %10 ], [ null, %3 ], [ null, %21 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -2770,8 +2770,8 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr align 1 %114, i64 %116, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %69, %70, %55, %68, %80, %.loopexit, %28, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %28 ], [ true, %80 ], [ true, %.loopexit ], [ false, %68 ], [ false, %55 ], [ false, %70 ], [ false, %69 ]
+.critedge:                                        ; preds = %70, %55, %68, %69, %80, %.loopexit, %28, %18
+  %.0 = phi i1 [ false, %18 ], [ false, %28 ], [ true, %.loopexit ], [ true, %80 ], [ false, %69 ], [ false, %68 ], [ false, %55 ], [ false, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -2846,7 +2846,7 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr noundef cap
   br label %40
 
 40:                                               ; preds = %23, %32, %33, %25, %15, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %15 ], [ false, %25 ], [ false, %33 ], [ true, %32 ], [ true, %23 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %25 ], [ false, %33 ], [ false, %15 ], [ true, %32 ], [ true, %23 ]
   ret i1 %.0
 }
 

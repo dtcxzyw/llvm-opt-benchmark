@@ -675,7 +675,7 @@ derive_cb_prof_flag_lx.exit.i:                    ; preds = %223, %219, %215, %2
   br i1 %exitcond.not.i, label %247, label %248, !llvm.loop !135
 
 derive_subblock_diff_mvs.exit:                    ; preds = %247, %derive_cb_prof_flag_lx.exit.thread.i, %derive_cb_prof_flag_lx.exit.i
-  %270 = phi i8 [ %233, %derive_cb_prof_flag_lx.exit.i ], [ %.pre97, %derive_cb_prof_flag_lx.exit.thread.i ], [ %233, %247 ]
+  %270 = phi i8 [ %.pre97, %derive_cb_prof_flag_lx.exit.thread.i ], [ %233, %derive_cb_prof_flag_lx.exit.i ], [ %233, %247 ]
   %271 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   store i8 %270, ptr %271, align 1, !tbaa !29
   br label %272
@@ -1791,7 +1791,7 @@ mv_merge_spatial_candidates.exit:                 ; preds = %compare_mv_ref_idx.
   br label %mv_merge_history_candidates.exit
 
 check_available.exit.i.thread:                    ; preds = %.critedge.i59.i, %.critedge.i.i, %151, %.thread.i.i, %175, %.check_available.exit_crit_edge.i, %259, %mv_merge_from_nb.exit82.i, %check_available.exit.i, %.thread98.i
-  %.2.ph = phi i32 [ %.34197.i, %.check_available.exit_crit_edge.i ], [ %.34197.i, %check_available.exit.i ], [ %.34197.i, %.critedge.i.i ], [ 4, %.thread98.i ], [ %.34197.i, %mv_merge_from_nb.exit82.i ], [ %260, %259 ], [ %.34197.i, %151 ], [ %.34197.i, %175 ], [ %.34197.i, %.thread.i.i ], [ %.34197.i, %.critedge.i59.i ]
+  %.2.ph = phi i32 [ %.34197.i, %.check_available.exit_crit_edge.i ], [ %.34197.i, %check_available.exit.i ], [ 4, %.thread98.i ], [ %.34197.i, %mv_merge_from_nb.exit82.i ], [ %260, %259 ], [ %.34197.i, %175 ], [ %.34197.i, %.thread.i.i ], [ %.34197.i, %151 ], [ %.34197.i, %.critedge.i.i ], [ %.34197.i, %.critedge.i59.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %261 = sext i32 %.2.ph to i64
   %262 = getelementptr inbounds %struct.MvField, ptr %2, i64 %261
@@ -2171,20 +2171,20 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   br label %.critedge34.i
 
 .critedge34.i:                                    ; preds = %.critedge.i43.i, %.critedge.i.i30, %459
-  %.4 = phi i32 [ %.3, %.critedge.i.i30 ], [ %460, %459 ], [ %.3, %.critedge.i43.i ]
-  %461 = phi i32 [ %404, %.critedge.i.i30 ], [ %.pre50.i, %459 ], [ %404, %.critedge.i43.i ]
-  %462 = phi i32 [ %405, %.critedge.i.i30 ], [ %460, %459 ], [ %405, %.critedge.i43.i ]
+  %.4 = phi i32 [ %460, %459 ], [ %.3, %.critedge.i.i30 ], [ %.3, %.critedge.i43.i ]
+  %461 = phi i32 [ %.pre50.i, %459 ], [ %404, %.critedge.i.i30 ], [ %404, %.critedge.i43.i ]
+  %462 = phi i32 [ %460, %459 ], [ %405, %.critedge.i.i30 ], [ %405, %.critedge.i43.i ]
   %463 = add nuw nsw i32 %.02513.i, 1
   %.not.not.i = icmp slt i32 %.02513.i, %461
   br i1 %.not.not.i, label %.lr.ph.split.split.i, label %.loopexit, !llvm.loop !185
 
-.loopexit.loopexit:                               ; preds = %.lr.ph.split.us.split.us.i, %.critedge34.us.us.i
-  %.10.ph.ph.in = phi i64 [ %indvars.iv.next, %.critedge34.us.us.i ], [ %indvars.iv, %.lr.ph.split.us.split.us.i ]
+.loopexit.loopexit:                               ; preds = %.critedge34.us.us.i, %.lr.ph.split.us.split.us.i
+  %.10.ph.ph.in = phi i64 [ %indvars.iv, %.lr.ph.split.us.split.us.i ], [ %indvars.iv.next, %.critedge34.us.us.i ]
   %.10.ph.ph = trunc i64 %.10.ph.ph.in to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split.split.i, %.critedge34.i, %.critedge34.us21.i, %.lr.ph.split.split.us.i, %.critedge34.us.i, %.lr.ph.split.us.split.i, %.loopexit.loopexit, %mv_merge_temporal_candidate.exit.thread
-  %.10.ph = phi i32 [ %.0, %mv_merge_temporal_candidate.exit.thread ], [ %.10.ph.ph, %.loopexit.loopexit ], [ %.6, %.critedge34.us21.i ], [ %.7, %.lr.ph.split.us.split.i ], [ %.8, %.critedge34.us.i ], [ %.5, %.lr.ph.split.split.us.i ], [ %.4, %.critedge34.i ], [ %.3, %.lr.ph.split.split.i ]
+.loopexit:                                        ; preds = %.lr.ph.split.split.i, %.critedge34.i, %.lr.ph.split.split.us.i, %.critedge34.us21.i, %.lr.ph.split.us.split.i, %.critedge34.us.i, %.loopexit.loopexit, %mv_merge_temporal_candidate.exit.thread
+  %.10.ph = phi i32 [ %.0, %mv_merge_temporal_candidate.exit.thread ], [ %.10.ph.ph, %.loopexit.loopexit ], [ %.8, %.critedge34.us.i ], [ %.7, %.lr.ph.split.us.split.i ], [ %.6, %.critedge34.us21.i ], [ %.5, %.lr.ph.split.split.us.i ], [ %.4, %.critedge34.i ], [ %.3, %.lr.ph.split.split.i ]
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 4580544
   %465 = load ptr, ptr %464, align 16, !tbaa !10
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
@@ -2723,7 +2723,7 @@ check_available.exit.i:                           ; preds = %132
   br label %derive_corner_mvf.exit.i.i
 
 derive_corner_mvf.exit.i.i:                       ; preds = %check_available.exit.i, %check_available.exit.thread122.i, %._crit_edge78.i.i
-  %spec.select.i.i.i = phi ptr [ null, %._crit_edge78.i.i ], [ %spec.select, %check_available.exit.i ], [ null, %check_available.exit.thread122.i ]
+  %spec.select.i.i.i = phi ptr [ null, %check_available.exit.thread122.i ], [ null, %._crit_edge78.i.i ], [ %spec.select, %check_available.exit.i ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 4580544
   %158 = load ptr, ptr %157, align 16, !tbaa !10
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16696
@@ -2912,7 +2912,7 @@ ff_vvc_set_mvf.exit.loopexit.us.i.i:              ; preds = %._crit_edge.us.i.us
   br i1 %265, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i, !llvm.loop !198
 
 ._crit_edge.i.i:                                  ; preds = %ff_vvc_set_mvf.exit.i.i, %ff_vvc_set_mvf.exit.loopexit.us.i.i, %.preheader.i.i
-  %266 = phi i32 [ %264, %ff_vvc_set_mvf.exit.loopexit.us.i.i ], [ %232, %.preheader.i.i ], [ %274, %ff_vvc_set_mvf.exit.i.i ]
+  %266 = phi i32 [ %232, %.preheader.i.i ], [ %264, %ff_vvc_set_mvf.exit.loopexit.us.i.i ], [ %274, %ff_vvc_set_mvf.exit.i.i ]
   %267 = add nuw nsw i32 %.05871.i.i, 1
   %268 = load i32, ptr %103, align 4, !tbaa !98
   %269 = icmp slt i32 %267, %268
@@ -2949,7 +2949,7 @@ sb_temporal_merge_candidate.exit.thread.i:        ; preds = %sb_temporal_luma_mo
   br i1 %276, label %sb_mv_merge_mode.exit, label %277
 
 277:                                              ; preds = %.loopexit.i, %sb_temporal_merge_candidate.exit.thread.i
-  %.030.i = phi i32 [ 0, %sb_temporal_merge_candidate.exit.thread.i ], [ 1, %.loopexit.i ]
+  %.030.i = phi i32 [ 1, %.loopexit.i ], [ 0, %sb_temporal_merge_candidate.exit.thread.i ]
   %278 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 1, ptr %278, align 2, !tbaa !200
   %279 = load i32, ptr %29, align 4, !tbaa !89
@@ -3499,7 +3499,7 @@ compare_pf_ref_idx.exit.thread.i102.i.i:          ; preds = %compare_pf_ref_idx.
   br label %affine_merge_const3.exit.thread.i.i
 
 affine_merge_const3.exit.thread.i.i:              ; preds = %601, %545, %affine_merge_const2.exit.thread.i.i
-  %.4.i.i = phi i32 [ %602, %601 ], [ %.3.i.i, %545 ], [ %.3.i.i, %affine_merge_const2.exit.thread.i.i ]
+  %.4.i.i = phi i32 [ %602, %601 ], [ %.3.i.i, %affine_merge_const2.exit.thread.i.i ], [ %.3.i.i, %545 ]
   %or.cond.i108.i.i = and i1 %392, %393
   %or.cond3.i109.i.i = and i1 %or.cond.i108.i.i, %.not62.i.i
   br i1 %or.cond3.i109.i.i, label %603, label %affine_merge_const4.exit.thread.i.i
@@ -3614,7 +3614,7 @@ compare_pf_ref_idx.exit.thread.i114.i.i:          ; preds = %compare_pf_ref_idx.
   br label %affine_merge_const4.exit.thread.i.i
 
 affine_merge_const4.exit.thread.i.i:              ; preds = %668, %612, %affine_merge_const3.exit.thread.i.i, %affine_merge_const1.exit.thread.i.i
-  %.2.i.i = phi i32 [ %669, %668 ], [ %.4.i.i, %612 ], [ %.4.i.i, %affine_merge_const3.exit.thread.i.i ], [ %.155.i.i, %affine_merge_const1.exit.thread.i.i ]
+  %.2.i.i = phi i32 [ %669, %668 ], [ %.4.i.i, %affine_merge_const3.exit.thread.i.i ], [ %.4.i.i, %612 ], [ %.155.i.i, %affine_merge_const1.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %derive_corner_mvf.exit84._crit_edge.i.i
 
@@ -3887,7 +3887,7 @@ sb_mv_merge_mode.exit:                            ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %814
 
-813:                                              ; preds = %affine_merge_const_candidates.exit.i, %796, %.critedge.i, %affine_merge_const_candidates.exit.thread.i
+813:                                              ; preds = %796, %affine_merge_const_candidates.exit.i, %.critedge.i, %affine_merge_const_candidates.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   tail call void @ff_vvc_store_sb_mvs(ptr noundef %0, ptr noundef nonnull %2)
   br label %814
@@ -4177,7 +4177,7 @@ mvp_spatial_candidates.exit:                      ; preds = %78, %86
   %115 = add nuw nsw i32 %.0.ph, 1
   br label %116
 
-116:                                              ; preds = %90, %114
+116:                                              ; preds = %114, %90
   %.1.ph = phi i32 [ %115, %114 ], [ %.0.ph, %90 ]
   %117 = load i8, ptr %92, align 1, !tbaa !29
   %118 = getelementptr i8, ptr %0, i64 4580544
@@ -4273,7 +4273,7 @@ mvp_spatial_candidates.exit:                      ; preds = %78, %86
   br label %173
 
 173:                                              ; preds = %171, %139, %135
-  %.445.ph.i = phi i32 [ %.14212.i, %139 ], [ %172, %171 ], [ %.14212.i, %135 ]
+  %.445.ph.i = phi i32 [ %.14212.i, %135 ], [ %.14212.i, %139 ], [ %172, %171 ]
   br i1 %.not18.i, label %135, label %ff_vvc_round_mv.exit.i, !llvm.loop !210
 
 ff_vvc_round_mv.exit.i:                           ; preds = %173
@@ -4488,9 +4488,9 @@ check_available.exit.i:                           ; preds = %.thread.i.i
   br i1 %86, label %ibc_spatial_candidates.exit, label %check_available.exit.thread.i
 
 check_available.exit.thread.i:                    ; preds = %84, %check_available.exit.i, %.thread.i.i, %53, %init_neighbour_context.exit.i
-  %87 = phi i64 [ undef, %check_available.exit.i ], [ undef, %53 ], [ undef, %.thread.i.i ], [ undef, %init_neighbour_context.exit.i ], [ %85, %84 ]
-  %.not62.i.not = phi i1 [ false, %check_available.exit.i ], [ false, %53 ], [ false, %.thread.i.i ], [ false, %init_neighbour_context.exit.i ], [ true, %84 ]
-  %.037.i = phi i32 [ 0, %check_available.exit.i ], [ 0, %53 ], [ 0, %.thread.i.i ], [ 0, %init_neighbour_context.exit.i ], [ 1, %84 ]
+  %87 = phi i64 [ undef, %53 ], [ undef, %.thread.i.i ], [ undef, %init_neighbour_context.exit.i ], [ undef, %check_available.exit.i ], [ %85, %84 ]
+  %.not62.i.not = phi i1 [ false, %53 ], [ false, %.thread.i.i ], [ false, %init_neighbour_context.exit.i ], [ false, %check_available.exit.i ], [ true, %84 ]
+  %.037.i = phi i32 [ 0, %53 ], [ 0, %.thread.i.i ], [ 0, %init_neighbour_context.exit.i ], [ 0, %check_available.exit.i ], [ 1, %84 ]
   br i1 %.not36.i.not.i, label %.critedge.sink.split.i, label %88
 
 88:                                               ; preds = %check_available.exit.thread.i
@@ -4557,7 +4557,7 @@ check_available.exit53.i:                         ; preds = %.thread.i51.i
   br i1 %.not42.i, label %.critedge.sink.split.i, label %ibc_spatial_candidates.exit
 
 .critedge.sink.split.i:                           ; preds = %123, %125, %check_available.exit53.i, %.thread.i51.i, %92, %check_available.exit.thread.i
-  %.0.ph = phi i32 [ %126, %125 ], [ %.037.i, %check_available.exit.thread.i ], [ %.037.i, %92 ], [ %.037.i, %.thread.i51.i ], [ 1, %123 ], [ %.037.i, %check_available.exit53.i ]
+  %.0.ph = phi i32 [ %.037.i, %check_available.exit.thread.i ], [ %.037.i, %92 ], [ %.037.i, %.thread.i51.i ], [ %.037.i, %check_available.exit53.i ], [ %126, %125 ], [ 1, %123 ]
   %.0.ph.fr = freeze i32 %.0.ph
   %129 = getelementptr i8, ptr %0, i64 4580560
   %.val16 = load ptr, ptr %129, align 16, !tbaa !180
@@ -4682,7 +4682,7 @@ ibc_spatial_candidates.exit:                      ; preds = %.lr.ph19.split.us.i
   br label %ibc_history_candidates.exit.thread
 
 ibc_history_candidates.exit.thread:               ; preds = %.thread4.us.i, %._crit_edge..thread4_crit_edge.i.us, %.thread4.i, %.critedge.sink.split.i.thread, %.critedge.sink.split.i, %ibc_spatial_candidates.exit
-  %storemerge = phi i64 [ %163, %ibc_spatial_candidates.exit ], [ 0, %.critedge.sink.split.i.thread ], [ 0, %.critedge.sink.split.i ], [ 0, %.thread4.i ], [ 0, %._crit_edge..thread4_crit_edge.i.us ], [ 0, %.thread4.us.i ]
+  %storemerge = phi i64 [ %163, %ibc_spatial_candidates.exit ], [ 0, %.critedge.sink.split.i ], [ 0, %.critedge.sink.split.i.thread ], [ 0, %.thread4.i ], [ 0, %._crit_edge..thread4_crit_edge.i.us ], [ 0, %.thread4.us.i ]
   store i64 %storemerge, ptr %2, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -5616,7 +5616,7 @@ define internal fastcc range(i32 0, 2) i32 @temporal_luma_motion_vector(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %41, %91, %93, %29, %34, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %29 ], [ 0, %34 ], [ %.076, %91 ], [ %111, %93 ], [ 0, %41 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %34 ], [ 0, %29 ], [ %111, %93 ], [ %.076, %91 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -5878,7 +5878,7 @@ ff_vvc_no_backward_pred_flag.exit110:             ; preds = %.loopexit.i107
   br label %148
 
 148:                                              ; preds = %ff_vvc_no_backward_pred_flag.exit110, %ff_vvc_no_backward_pred_flag.exit, %101, %8, %8, %8, %140, %133, %120, %113, %102, %93, %85, %58, %49, %23
-  %.0 = phi i32 [ %100, %93 ], [ %29, %23 ], [ %55, %49 ], [ 0, %8 ], [ %65, %58 ], [ %90, %85 ], [ %108, %102 ], [ %119, %113 ], [ %127, %120 ], [ %147, %140 ], [ %139, %133 ], [ 0, %8 ], [ 0, %8 ], [ 0, %101 ], [ 0, %ff_vvc_no_backward_pred_flag.exit ], [ 0, %ff_vvc_no_backward_pred_flag.exit110 ]
+  %.0 = phi i32 [ %29, %23 ], [ %55, %49 ], [ %65, %58 ], [ %90, %85 ], [ %108, %102 ], [ %119, %113 ], [ %127, %120 ], [ %147, %140 ], [ %139, %133 ], [ %100, %93 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %101 ], [ 0, %ff_vvc_no_backward_pred_flag.exit ], [ 0, %ff_vvc_no_backward_pred_flag.exit110 ]
   ret i32 %.0
 }
 
@@ -6322,7 +6322,7 @@ ff_vvc_no_backward_pred_flag.exit.i:              ; preds = %.loopexit.i.i
   br label %derive_temporal_colocated_mvs.exit
 
 derive_temporal_colocated_mvs.exit:               ; preds = %7, %7, %7, %83, %ff_vvc_no_backward_pred_flag.exit.i, %109
-  %.0.i = phi i32 [ 0, %7 ], [ %89, %83 ], [ %115, %109 ], [ 0, %7 ], [ 0, %ff_vvc_no_backward_pred_flag.exit.i ], [ 0, %7 ]
+  %.0.i = phi i32 [ %89, %83 ], [ %115, %109 ], [ 0, %7 ], [ 0, %7 ], [ 0, %7 ], [ 0, %ff_vvc_no_backward_pred_flag.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %116 = trunc nuw nsw i32 %.0.i to i8
   store i8 %116, ptr %5, align 1, !tbaa !29
@@ -6423,7 +6423,7 @@ ff_vvc_no_backward_pred_flag.exit110.i:           ; preds = %.loopexit.i107.i
   br label %derive_temporal_colocated_mvs.exit29
 
 derive_temporal_colocated_mvs.exit29:             ; preds = %121, %121, %121, %132, %ff_vvc_no_backward_pred_flag.exit110.i, %159
-  %.0.i28 = phi i32 [ 0, %121 ], [ 0, %ff_vvc_no_backward_pred_flag.exit110.i ], [ 0, %121 ], [ 0, %121 ], [ %139, %132 ], [ %164, %159 ]
+  %.0.i28 = phi i32 [ %139, %132 ], [ %164, %159 ], [ 0, %121 ], [ 0, %121 ], [ 0, %121 ], [ 0, %ff_vvc_no_backward_pred_flag.exit110.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %165 = load i8, ptr %5, align 1, !tbaa !29
   %.tr = trunc nuw nsw i32 %.0.i28 to i8
@@ -6981,7 +6981,7 @@ ff_vvc_round_mv.exit:                             ; preds = %ff_vvc_round_mv.exi
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %.critedge, label %ff_vvc_round_mv.exit, !llvm.loop !232
 
-affine_mvp_candidate.exit.thread:                 ; preds = %197, %199, %156, %158, %103, %check_available.exit
+affine_mvp_candidate.exit.thread:                 ; preds = %197, %199, %103, %156, %158, %check_available.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %40, !llvm.loop !233
@@ -7201,7 +7201,7 @@ check_available.exit:                             ; preds = %42, %96
   br i1 %exitcond.not, label %.critedge67, label %42, !llvm.loop !234
 
 .critedge67:                                      ; preds = %.critedge, %.thread, %136
-  %.not6574 = phi i32 [ 1, %136 ], [ 1, %.thread ], [ 0, %.critedge ]
+  %.not6574 = phi i32 [ 1, %.thread ], [ 1, %136 ], [ 0, %.critedge ]
   ret i32 %.not6574
 }
 

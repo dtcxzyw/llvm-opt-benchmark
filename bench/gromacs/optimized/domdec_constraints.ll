@@ -1180,8 +1180,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %144, %142
   br i1 %168, label %158, label %.loopexit, !llvm.loop !306
 
 _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %163, %147
-  %169 = phi i32 [ %152, %147 ], [ %.pre.i81, %163 ]
-  %.0.i.i = phi ptr [ %150, %147 ], [ %164, %163 ]
+  %169 = phi i32 [ %.pre.i81, %163 ], [ %152, %147 ]
+  %.0.i.i = phi ptr [ %164, %163 ], [ %150, %147 ]
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %_ZNK11gmx_ga2la_t8findHomeEi.exit, label %.loopexit
 
@@ -1401,7 +1401,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %257, %_ZNSt6
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i, %243, %264, %261
-  %265 = phi ptr [ %229, %264 ], [ %229, %261 ], [ %.pre.i91.pre, %243 ], [ %252, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ]
+  %265 = phi ptr [ %229, %261 ], [ %229, %264 ], [ %.pre.i91.pre, %243 ], [ %252, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ]
   %266 = getelementptr i8, ptr %265, i64 %232
   store i32 %223, ptr %266, align 4, !tbaa !41
   %267 = getelementptr i8, ptr %266, i64 4
@@ -1774,7 +1774,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i.i:      ; preds = %165, %163
   br i1 %187, label %178, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i, !llvm.loop !306
 
 _ZNK11gmx_ga2la_t4findEi.exit.i.i:                ; preds = %183, %167
-  %188 = phi i32 [ %172, %167 ], [ %.pre.i.i, %183 ]
+  %188 = phi i32 [ %.pre.i.i, %183 ], [ %172, %167 ]
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.i, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i
 
@@ -1880,7 +1880,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i.i: ; preds = %223, %_ZNS
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %230, %227, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i.i, %212
-  %231 = phi ptr [ %198, %230 ], [ %198, %227 ], [ %198, %212 ], [ %219, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i.i ]
+  %231 = phi ptr [ %198, %227 ], [ %198, %230 ], [ %198, %212 ], [ %219, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i.i ]
   %232 = getelementptr i8, ptr %231, i64 %201
   store i32 %196, ptr %232, align 4, !tbaa !41
   %233 = getelementptr i8, ptr %232, i64 4
@@ -1954,8 +1954,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i64.i:    ; preds = %243, %241
   br i1 %267, label %257, label %.loopexit.i, !llvm.loop !306
 
 _ZNK11gmx_ga2la_t4findEi.exit.i69.i:              ; preds = %262, %246
-  %268 = phi i32 [ %251, %246 ], [ %.pre.i68.i, %262 ]
-  %.0.i.i70.i = phi ptr [ %249, %246 ], [ %263, %262 ]
+  %268 = phi i32 [ %.pre.i68.i, %262 ], [ %251, %246 ]
+  %.0.i.i70.i = phi ptr [ %263, %262 ], [ %249, %246 ]
   %269 = icmp eq i32 %268, 0
   br i1 %269, label %_ZNK11gmx_ga2la_t8findHomeEi.exit72.i, label %.loopexit.i
 
@@ -2372,9 +2372,9 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %118, %116
   br i1 %143, label %133, label %.loopexit32, !llvm.loop !306
 
 _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %138, %121
-  %144 = phi ptr [ %123, %121 ], [ %132, %138 ]
-  %145 = phi i32 [ %126, %121 ], [ %.pre.i, %138 ]
-  %.0.i.i = phi ptr [ %124, %121 ], [ %139, %138 ]
+  %144 = phi ptr [ %132, %138 ], [ %123, %121 ]
+  %145 = phi i32 [ %.pre.i, %138 ], [ %126, %121 ]
+  %.0.i.i = phi ptr [ %139, %138 ], [ %124, %121 ]
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %_ZNK11gmx_ga2la_t8findHomeEi.exit, label %.loopexit32
 
@@ -2383,7 +2383,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4f
   br label %150
 
 .loopexit32:                                      ; preds = %140, %_ZNK11gmx_ga2la_t4findEi.exit.i, %121
-  %148 = phi ptr [ %123, %121 ], [ %144, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %132, %140 ]
+  %148 = phi ptr [ %144, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %123, %121 ], [ %132, %140 ]
   %149 = xor i32 %106, -1
   br label %150
 
@@ -2449,8 +2449,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i90:      ; preds = %158, %156
   br i1 %180, label %170, label %.loopexit31, !llvm.loop !306
 
 _ZNK11gmx_ga2la_t4findEi.exit.i95:                ; preds = %175, %160
-  %181 = phi i32 [ %164, %160 ], [ %.pre.i94, %175 ]
-  %.0.i.i96 = phi ptr [ %162, %160 ], [ %176, %175 ]
+  %181 = phi i32 [ %.pre.i94, %175 ], [ %164, %160 ]
+  %.0.i.i96 = phi ptr [ %176, %175 ], [ %162, %160 ]
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %_ZNK11gmx_ga2la_t8findHomeEi.exit98, label %.loopexit31
 
@@ -2550,7 +2550,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %217, %_ZNSt6
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i, %203, %224, %221
-  %225 = phi ptr [ %188, %224 ], [ %188, %221 ], [ %.pre.i99.pre, %203 ], [ %212, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ]
+  %225 = phi ptr [ %188, %221 ], [ %188, %224 ], [ %.pre.i99.pre, %203 ], [ %212, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ]
   %226 = getelementptr i8, ptr %225, i64 %191
   store i32 %103, ptr %226, align 4, !tbaa !41
   %227 = getelementptr i8, ptr %226, i64 4
@@ -2717,8 +2717,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit108:        ; preds = %254, %_ZNSt6vectorI
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %308, %307, %.critedge.i.i
-  %.1.lcssa39.i.i = phi i64 [ -1, %308 ], [ %.1.lcssa.i.i, %.critedge.i.i ], [ %299, %307 ]
-  %309 = phi ptr [ %276, %308 ], [ %276, %.critedge.i.i ], [ %.pre.i.i, %307 ]
+  %.1.lcssa39.i.i = phi i64 [ -1, %308 ], [ %299, %307 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
+  %309 = phi ptr [ %276, %308 ], [ %.pre.i.i, %307 ], [ %276, %.critedge.i.i ]
   %310 = trunc i64 %.1.lcssa39.i.i to i32
   %311 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %309, i64 %285
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
@@ -2871,7 +2871,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i117:     ; preds = %377, %375
   br i1 %400, label %391, label %.loopexit, !llvm.loop !306
 
 _ZNK11gmx_ga2la_t4findEi.exit.i122:               ; preds = %396, %380
-  %401 = phi i32 [ %385, %380 ], [ %.pre.i121, %396 ]
+  %401 = phi i32 [ %.pre.i121, %396 ], [ %385, %380 ]
   %402 = icmp eq i32 %401, 0
   br i1 %402, label %_ZNK11gmx_ga2la_t8findHomeEi.exit125, label %.loopexit
 
@@ -2935,7 +2935,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !14
   br label %41
 

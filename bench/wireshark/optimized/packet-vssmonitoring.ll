@@ -211,7 +211,7 @@ define internal noundef zeroext i1 @dissect_vssmonitoring(ptr noundef %0, ptr no
   br label %.thread71
 
 .thread71:                                        ; preds = %42, %65, %66, %39, %38, %35, %32, %17, %13, %4
-  %.0 = phi i1 [ false, %38 ], [ false, %4 ], [ false, %13 ], [ false, %17 ], [ false, %35 ], [ false, %39 ], [ false, %32 ], [ true, %66 ], [ true, %65 ], [ true, %42 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %13 ], [ false, %17 ], [ false, %32 ], [ false, %35 ], [ false, %38 ], [ false, %39 ], [ true, %66 ], [ true, %65 ], [ true, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0

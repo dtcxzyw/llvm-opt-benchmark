@@ -82,7 +82,7 @@ X509_NAME_get_entry.exit:                         ; preds = %X509_NAME_get_index
   br label %X509_NAME_get_index_by_OBJ.exit.thread
 
 X509_NAME_get_index_by_OBJ.exit.thread:           ; preds = %11, %4, %X509_NAME_get_entry.exit, %X509_NAME_get_index_by_OBJ.exit, %28
-  %.0 = phi i32 [ %30, %28 ], [ %26, %X509_NAME_get_entry.exit ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ -1, %4 ], [ -1, %11 ]
+  %.0 = phi i32 [ %30, %28 ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ %26, %X509_NAME_get_entry.exit ], [ -1, %4 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -292,7 +292,7 @@ define hidden ptr @X509_NAME_delete_entry(ptr noundef captures(address_is_null) 
   br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %9, %2, %5
-  %.0 = phi ptr [ %11, %9 ], [ null, %2 ], [ null, %5 ], [ %11, %27 ], [ %11, %.lr.ph ]
+  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ %11, %9 ], [ %11, %27 ], [ %11, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -401,7 +401,7 @@ X509_NAME_ENTRY_set_object.exit:                  ; preds = %13
   br label %28
 
 28:                                               ; preds = %25, %27, %19, %20, %23, %10
-  %.018 = phi ptr [ %.0, %19 ], [ null, %10 ], [ %.0, %23 ], [ %.0, %20 ], [ null, %27 ], [ null, %25 ]
+  %.018 = phi ptr [ null, %10 ], [ %.0, %23 ], [ %.0, %20 ], [ %.0, %19 ], [ null, %27 ], [ null, %25 ]
   ret ptr %.018
 }
 
@@ -464,8 +464,8 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
   br label %38
 
 38:                                               ; preds = %14, %16, %36
-  %.039 = phi i32 [ %.1, %36 ], [ %21, %16 ], [ 0, %14 ]
-  %.037 = phi i1 [ %37, %36 ], [ true, %16 ], [ false, %14 ]
+  %.039 = phi i32 [ %21, %16 ], [ %.1, %36 ], [ 0, %14 ]
+  %.037 = phi i1 [ true, %16 ], [ %37, %36 ], [ false, %14 ]
   %39 = tail call ptr @X509_NAME_ENTRY_dup(ptr noundef %1) #7
   %cond = icmp eq ptr %39, null
   br i1 %cond, label %.loopexit, label %40
@@ -513,7 +513,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %38, %56, %44, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %44 ], [ 0, %56 ], [ 0, %38 ], [ 1, %45 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %44 ], [ 0, %38 ], [ 0, %56 ], [ 1, %45 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -598,7 +598,7 @@ X509_NAME_ENTRY_set_object.exit.i:                ; preds = %11, %14
   br label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 X509_NAME_ENTRY_create_by_OBJ.exit:               ; preds = %29, %27, %25, %22, %21, %14, %8
-  %.0 = phi ptr [ null, %8 ], [ %.0.i, %21 ], [ null, %14 ], [ %.0.i, %25 ], [ %.0.i, %22 ], [ null, %29 ], [ null, %27 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ %.0.i, %25 ], [ %.0.i, %22 ], [ %.0.i, %21 ], [ null, %29 ], [ null, %27 ]
   ret ptr %.0
 }
 
@@ -682,7 +682,7 @@ X509_NAME_ENTRY_set_object.exit.i:                ; preds = %11, %14
   br label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 X509_NAME_ENTRY_create_by_OBJ.exit:               ; preds = %14, %21, %22, %25, %27, %29
-  %.018.i = phi ptr [ %.0.i, %21 ], [ null, %14 ], [ %.0.i, %25 ], [ %.0.i, %22 ], [ null, %29 ], [ null, %27 ]
+  %.018.i = phi ptr [ null, %14 ], [ %.0.i, %25 ], [ %.0.i, %22 ], [ %.0.i, %21 ], [ null, %29 ], [ null, %27 ]
   tail call void @ASN1_OBJECT_free(ptr noundef nonnull %6) #7
   br label %30
 
@@ -794,7 +794,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_ENTRY_set_data(ptr noundef %0, i32 
   br label %35
 
 35:                                               ; preds = %32, %28, %27, %23, %4, %6, %12
-  %.0 = phi i32 [ 0, %4 ], [ %17, %12 ], [ 0, %23 ], [ 0, %6 ], [ 1, %27 ], [ 1, %28 ], [ 1, %32 ]
+  %.0 = phi i32 [ %17, %12 ], [ 0, %6 ], [ 0, %4 ], [ 0, %23 ], [ 1, %27 ], [ 1, %28 ], [ 1, %32 ]
   ret i32 %.0
 }
 

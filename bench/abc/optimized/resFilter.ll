@@ -90,8 +90,8 @@ Res_FilterCollectFaninInfo.exit.loopexit:         ; preds = %Abc_InfoOr.exit.i
   br label %Res_FilterCollectFaninInfo.exit
 
 Res_FilterCollectFaninInfo.exit:                  ; preds = %.lr.ph.i.preheader, %Res_FilterCollectFaninInfo.exit.loopexit, %Abc_InfoIsOne.exit
-  %.val287513 = phi i32 [ %.val1518.i, %Abc_InfoIsOne.exit ], [ %.val15.i, %Res_FilterCollectFaninInfo.exit.loopexit ], [ %.val1518.i, %.lr.ph.i.preheader ]
-  %46 = phi i32 [ %.pre631, %Abc_InfoIsOne.exit ], [ %.pre, %Res_FilterCollectFaninInfo.exit.loopexit ], [ %.pre631, %.lr.ph.i.preheader ]
+  %.val287513 = phi i32 [ %.val15.i, %Res_FilterCollectFaninInfo.exit.loopexit ], [ %.val1518.i, %Abc_InfoIsOne.exit ], [ %.val1518.i, %.lr.ph.i.preheader ]
+  %46 = phi i32 [ %.pre, %Res_FilterCollectFaninInfo.exit.loopexit ], [ %.pre631, %Abc_InfoIsOne.exit ], [ %.pre631, %.lr.ph.i.preheader ]
   %47 = zext i32 %46 to i64
   br label %48
 
@@ -1406,7 +1406,7 @@ Abc_InfoIsOrOne.exit474.thread:                   ; preds = %588, %.critedge14.A
   br i1 %636, label %537, label %.loopexit, !llvm.loop !70
 
 .critedge12:                                      ; preds = %19, %51, %.critedge2, %.critedge6, %.critedge10, %.loopexit, %532, %.critedge14, %.preheader, %.critedge8
-  %.0247 = phi i32 [ %158, %.critedge2 ], [ %242, %.critedge6 ], [ %517, %.critedge10 ], [ %630, %.critedge14 ], [ 0, %51 ], [ %.13571, %532 ], [ %.6, %.critedge8 ], [ %.6, %.preheader ], [ %.15.lcssa, %.loopexit ], [ 0, %19 ]
+  %.0247 = phi i32 [ %.6, %.critedge8 ], [ %.6, %.preheader ], [ %630, %.critedge14 ], [ %.13571, %532 ], [ %.15.lcssa, %.loopexit ], [ %517, %.critedge10 ], [ %242, %.critedge6 ], [ %158, %.critedge2 ], [ 0, %51 ], [ 0, %19 ]
   ret i32 %.0247
 }
 
@@ -1634,8 +1634,8 @@ Res_FilterCollectFaninInfo.exit.loopexit:         ; preds = %Abc_InfoOr.exit.i
   br label %Res_FilterCollectFaninInfo.exit
 
 Res_FilterCollectFaninInfo.exit:                  ; preds = %.lr.ph.i.preheader, %Res_FilterCollectFaninInfo.exit.loopexit, %Abc_InfoIsOne.exit
-  %.val21.i = phi i32 [ %.val1518.i, %Abc_InfoIsOne.exit ], [ %.val15.i, %Res_FilterCollectFaninInfo.exit.loopexit ], [ %.val1518.i, %.lr.ph.i.preheader ]
-  %45 = phi i32 [ %.pre323, %Abc_InfoIsOne.exit ], [ %.pre, %Res_FilterCollectFaninInfo.exit.loopexit ], [ %.pre323, %.lr.ph.i.preheader ]
+  %.val21.i = phi i32 [ %.val15.i, %Res_FilterCollectFaninInfo.exit.loopexit ], [ %.val1518.i, %Abc_InfoIsOne.exit ], [ %.val1518.i, %.lr.ph.i.preheader ]
+  %45 = phi i32 [ %.pre, %Res_FilterCollectFaninInfo.exit.loopexit ], [ %.pre323, %Abc_InfoIsOne.exit ], [ %.pre323, %.lr.ph.i.preheader ]
   %46 = zext i32 %45 to i64
   br label %47
 
@@ -2039,7 +2039,7 @@ Abc_InfoIsOrOne.exit.thread:                      ; preds = %184, %.critedge2.Ab
   br i1 %230, label %169, label %.critedge2._crit_edge, !llvm.loop !75
 
 .critedge2._crit_edge:                            ; preds = %Abc_InfoIsOrOne.exit.thread, %.critedge2
-  %.1158 = phi i32 [ %226, %.critedge2 ], [ %.2159, %Abc_InfoIsOrOne.exit.thread ]
+  %.1158 = phi i32 [ %.2159, %Abc_InfoIsOrOne.exit.thread ], [ %226, %.critedge2 ]
   %231 = icmp sgt i32 %.1158, 0
   br i1 %231, label %.critedge, label %.critedge2._crit_edge.thread
 
@@ -2238,7 +2238,7 @@ Abc_InfoIsOrOne3.exit.thread:                     ; preds = %270, %.critedge4.Ab
   br i1 %327, label %.critedge, label %240, !llvm.loop !78
 
 .critedge:                                        ; preds = %18, %50, %155, %240, %.critedge4._crit_edge, %Abc_InfoIsOne.exit253, %Vec_VecClear.exit227, %.critedge2._crit_edge, %.critedge2._crit_edge.thread, %Res_FilterCriticalFanin.exit
-  %.0 = phi i32 [ %.1158, %.critedge2._crit_edge ], [ 0, %50 ], [ 1, %Abc_InfoIsOne.exit253 ], [ 0, %Res_FilterCriticalFanin.exit ], [ %.6, %.critedge4._crit_edge ], [ %.1158340, %.critedge2._crit_edge.thread ], [ 0, %Vec_VecClear.exit227 ], [ 1, %155 ], [ %.3, %240 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %Res_FilterCriticalFanin.exit ], [ %.1158340, %.critedge2._crit_edge.thread ], [ %.1158, %.critedge2._crit_edge ], [ 0, %Vec_VecClear.exit227 ], [ 1, %Abc_InfoIsOne.exit253 ], [ %.3, %240 ], [ %.6, %.critedge4._crit_edge ], [ 1, %155 ], [ 0, %50 ], [ 0, %18 ]
   ret i32 %.0
 }
 

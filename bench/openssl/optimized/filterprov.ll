@@ -92,7 +92,7 @@ define dso_local range(i32 0, 2) i32 @filter_provider_init(ptr noundef %0, ptr n
   br label %35
 
 35:                                               ; preds = %11, %4, %31, %27
-  %.0 = phi i32 [ 0, %4 ], [ 0, %31 ], [ 1, %27 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %31 ], [ 1, %27 ], [ 0, %4 ], [ 0, %11 ]
   ret i32 %.0
 }
 

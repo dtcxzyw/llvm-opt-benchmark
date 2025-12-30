@@ -232,7 +232,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit26:         ; preds = %55, %48, %59
   br label %64
 
 63:                                               ; preds = %57, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %58, %57 ]
+  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %51, %50 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %65

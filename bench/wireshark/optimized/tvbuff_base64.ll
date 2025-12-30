@@ -136,10 +136,10 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   br label %40
 
 40:                                               ; preds = %37, %36, %22, %.lr.ph.i.i
-  %.sroa.0.2.i.i = phi i8 [ %.sroa.0.175.i.i, %.lr.ph.i.i ], [ %18, %22 ], [ %18, %37 ], [ 61, %36 ]
-  %.158.i.i = phi i32 [ %.05776.i.i, %.lr.ph.i.i ], [ %25, %22 ], [ %25, %37 ], [ %25, %36 ]
-  %.256.i.i = phi i32 [ %.15577.i.i, %.lr.ph.i.i ], [ %26, %22 ], [ 0, %37 ], [ 0, %36 ]
-  %.1.i.i = phi ptr [ %.05178.i.i, %.lr.ph.i.i ], [ %.05178.i.i, %22 ], [ %39, %37 ], [ %.2.i.i, %36 ]
+  %.sroa.0.2.i.i = phi i8 [ %18, %22 ], [ %.sroa.0.175.i.i, %.lr.ph.i.i ], [ %18, %37 ], [ 61, %36 ]
+  %.158.i.i = phi i32 [ %25, %22 ], [ %.05776.i.i, %.lr.ph.i.i ], [ %25, %37 ], [ %25, %36 ]
+  %.256.i.i = phi i32 [ %26, %22 ], [ %.15577.i.i, %.lr.ph.i.i ], [ 0, %37 ], [ 0, %36 ]
+  %.1.i.i = phi ptr [ %.05178.i.i, %22 ], [ %.05178.i.i, %.lr.ph.i.i ], [ %39, %37 ], [ %.2.i.i, %36 ]
   %exitcond.not.i.i = icmp eq ptr %17, %15
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
@@ -152,8 +152,8 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   br label %g_base64uri_decode.exit
 
 g_base64uri_decode.exit:                          ; preds = %12, %13, %._crit_edge.i.i, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %13 ], [ %44, %._crit_edge.i.i ], [ 0, %12 ]
-  %.0.i = phi ptr [ null, %5 ], [ %11, %13 ], [ %11, %._crit_edge.i.i ], [ null, %12 ]
+  %.0 = phi i32 [ 0, %5 ], [ %44, %._crit_edge.i.i ], [ 0, %12 ], [ 0, %13 ]
+  %.0.i = phi ptr [ null, %5 ], [ %11, %._crit_edge.i.i ], [ null, %12 ], [ %11, %13 ]
   tail call void @wmem_free(ptr noundef null, ptr noundef %4)
   %45 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %.0.i, i32 noundef %.0, i32 noundef %.0)
   tail call void @tvb_set_free_cb(ptr noundef %45, ptr noundef nonnull @g_free)

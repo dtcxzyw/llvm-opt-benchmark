@@ -8095,7 +8095,7 @@ define internal range(i32 3, 1) i32 @dissect_zbee_zcl_touchlink(ptr noundef %0, 
   br i1 %.not.i, label %dissect_zcl_touchlink_scan_response.exit, label %.lr.ph.i, !llvm.loop !32
 
 dissect_zcl_touchlink_scan_response.exit:         ; preds = %.lr.ph.i, %176, %138, %108, %149, %160, %163, %107, %27, %34, %37, %66, %93, %104, %26
-  %.0137 = phi i32 [ 5, %26 ], [ 7, %27 ], [ 7, %34 ], [ 57, %37 ], [ 48, %66 ], [ 19, %93 ], [ 6, %104 ], [ 5, %107 ], [ 21, %163 ], [ 18, %149 ], [ 6, %160 ], [ 30, %108 ], [ 37, %138 ], [ 8, %176 ], [ %194, %.lr.ph.i ]
+  %.0137 = phi i32 [ 5, %26 ], [ 7, %27 ], [ 7, %34 ], [ 57, %37 ], [ 48, %66 ], [ 19, %93 ], [ 6, %104 ], [ 5, %107 ], [ 18, %149 ], [ 6, %160 ], [ 21, %163 ], [ 37, %138 ], [ 30, %108 ], [ 8, %176 ], [ %194, %.lr.ph.i ]
   %195 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0137)
   %196 = icmp sgt i32 %195, 0
   br i1 %196, label %197, label %201
@@ -8502,8 +8502,8 @@ define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0,
   br label %.thread146
 
 .thread146:                                       ; preds = %.thread146.sink.split, %82, %.thread136, %56, %61, %.thread151, %83, %77, %66, %28, %23, %.lr.ph
-  %114 = phi i32 [ %22, %.lr.ph ], [ %22, %82 ], [ %22, %23 ], [ %107, %.thread151 ], [ %22, %28 ], [ %55, %.thread136 ], [ %71, %66 ], [ %65, %61 ], [ %22, %77 ], [ %60, %56 ], [ %87, %83 ], [ %113, %.thread146.sink.split ]
-  %.0 = phi i8 [ %11, %.lr.ph ], [ 0, %82 ], [ 0, %23 ], [ 0, %.thread151 ], [ 0, %28 ], [ 0, %.thread136 ], [ %69, %66 ], [ 0, %61 ], [ 0, %77 ], [ 0, %56 ], [ 0, %83 ], [ %.0.ph, %.thread146.sink.split ]
+  %114 = phi i32 [ %22, %.lr.ph ], [ %22, %23 ], [ %22, %28 ], [ %71, %66 ], [ %22, %77 ], [ %87, %83 ], [ %107, %.thread151 ], [ %65, %61 ], [ %60, %56 ], [ %55, %.thread136 ], [ %22, %82 ], [ %113, %.thread146.sink.split ]
+  %.0 = phi i8 [ %11, %.lr.ph ], [ 0, %23 ], [ 0, %28 ], [ %69, %66 ], [ 0, %77 ], [ 0, %83 ], [ 0, %.thread151 ], [ 0, %61 ], [ 0, %56 ], [ 0, %.thread136 ], [ 0, %82 ], [ %.0.ph, %.thread146.sink.split ]
   %115 = zext i8 %.0 to i32
   %116 = add i32 %114, %115
   store i32 %116, ptr %2, align 4

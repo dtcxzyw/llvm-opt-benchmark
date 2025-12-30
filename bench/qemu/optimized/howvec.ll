@@ -292,14 +292,14 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %54, %46, %31, %39, 
   br label %66
 
 glib_auto_cleanup_GStrv.exit52:                   ; preds = %43, %39, %31
-  %.str.2.sink = phi ptr [ @.str.2, %31 ], [ @.str.2, %39 ], [ @.str.5, %43 ]
+  %.str.5.sink = phi ptr [ @.str.2, %31 ], [ @.str.2, %39 ], [ @.str.5, %43 ]
   %64 = load ptr, ptr @stderr, align 8
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull %.str.2.sink, ptr noundef %25) #11
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull %.str.5.sink, ptr noundef %25) #11
   tail call void @g_strfreev(ptr noundef nonnull %26) #9
   br label %66
 
 66:                                               ; preds = %glib_auto_cleanup_GStrv.exit52, %._crit_edge75
-  %.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit52 ], [ 0, %._crit_edge75 ]
+  %.2 = phi i32 [ 0, %._crit_edge75 ], [ -1, %glib_auto_cleanup_GStrv.exit52 ]
   ret i32 %.2
 }
 
@@ -430,7 +430,7 @@ find_counter.exit.thread:                         ; preds = %.thread.i
   unreachable
 
 find_counter.exit:                                ; preds = %25, %46
-  %.0.i.in = phi ptr [ %47, %46 ], [ %26, %25 ]
+  %.0.i.in = phi ptr [ %26, %25 ], [ %47, %46 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %.0.i, null

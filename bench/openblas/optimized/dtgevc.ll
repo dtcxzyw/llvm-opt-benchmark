@@ -94,9 +94,9 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %55
 
 55:                                               ; preds = %53, %51, %16
-  %.not1491 = phi i1 [ true, %51 ], [ false, %16 ], [ false, %53 ]
-  %.not1520 = phi i1 [ true, %51 ], [ true, %16 ], [ false, %53 ]
-  %56 = phi i1 [ false, %51 ], [ false, %16 ], [ %.not1486, %53 ]
+  %.not1491 = phi i1 [ false, %16 ], [ true, %51 ], [ false, %53 ]
+  %.not1520 = phi i1 [ true, %16 ], [ true, %51 ], [ false, %53 ]
+  %56 = phi i1 [ false, %16 ], [ false, %51 ], [ %.not1486, %53 ]
   %57 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.3) #6
   %.not1487.not2579 = icmp eq i32 %57, 0
   br i1 %.not1487.not2579, label %58, label %.thread
@@ -106,7 +106,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %.not1488 = icmp eq i32 %59, 0
   br i1 %.not1488, label %61, label %.thread
 
-.thread:                                          ; preds = %58, %55
+.thread:                                          ; preds = %55, %58
   store i32 0, ptr %15, align 4, !tbaa !3
   %60 = xor i1 %.not1487.not2579, true
   br label %63
@@ -138,8 +138,8 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %72, label %.thread1590, label %74
 
 .thread1590:                                      ; preds = %70, %67, %64, %63, %61
-  %.sink = phi i32 [ -1, %61 ], [ -2, %63 ], [ -6, %67 ], [ -4, %64 ], [ -8, %70 ]
-  %.neg2394 = phi i32 [ 1, %61 ], [ 2, %63 ], [ 6, %67 ], [ 4, %64 ], [ 8, %70 ]
+  %.sink = phi i32 [ -1, %61 ], [ -2, %63 ], [ -4, %64 ], [ -6, %67 ], [ -8, %70 ]
+  %.neg2394 = phi i32 [ 1, %61 ], [ 2, %63 ], [ 4, %64 ], [ 6, %67 ], [ 8, %70 ]
   store i32 %.sink, ptr %15, align 4, !tbaa !3
   store i32 %.neg2394, ptr %17, align 4, !tbaa !3
   %73 = call i32 @xerbla_(ptr noundef nonnull @.str.5, ptr noundef nonnull %17, i32 noundef 6) #6
@@ -208,8 +208,8 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %99
 
 99:                                               ; preds = %95, %.lr.ph, %90, %93
-  %.11389 = phi i32 [ %spec.select1576, %95 ], [ %94, %93 ], [ %.013881691, %90 ], [ %.013881691, %.lr.ph ]
-  %.2 = phi i32 [ 0, %95 ], [ 1, %93 ], [ 1, %90 ], [ 0, %.lr.ph ]
+  %.11389 = phi i32 [ %94, %93 ], [ %.013881691, %90 ], [ %.013881691, %.lr.ph ], [ %spec.select1576, %95 ]
+  %.2 = phi i32 [ 1, %93 ], [ 1, %90 ], [ 0, %.lr.ph ], [ 0, %95 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit1687, label %.lr.ph, !llvm.loop !9
@@ -291,7 +291,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %139, label %.thread2403, label %140
 
 140:                                              ; preds = %105, %133, %131
-  %.21405 = phi i32 [ %.014031696, %105 ], [ %.11404, %133 ], [ %.11404, %131 ]
+  %.21405 = phi i32 [ %.11404, %133 ], [ %.11404, %131 ], [ %.014031696, %105 ]
   %exitcond2000.not = icmp eq i64 %indvars.iv.next1997, %wide.trip.count1999
   br i1 %exitcond2000.not, label %._crit_edge, label %105, !llvm.loop !11
 
@@ -307,7 +307,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %brmerge, label %.thread1602, label %.thread2412
 
 .thread2412:                                      ; preds = %._crit_edge, %.loopexit1687, %.loopexit1687.thread
-  %.21390239724012415 = phi i32 [ %.21390, %._crit_edge ], [ 0, %.loopexit1687.thread ], [ %.21390, %.loopexit1687 ]
+  %.21390239724012415 = phi i32 [ 0, %.loopexit1687.thread ], [ %.21390, %.loopexit1687 ], [ %.21390, %._crit_edge ]
   %.pr1595 = load i32, ptr %9, align 4, !tbaa !3
   %142 = icmp slt i32 %.pr1595, %65
   %or.cond2571 = select i1 %.not1487.not2579, i1 %142, i1 false
@@ -329,8 +329,8 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %149, label %.thread1602, label %151
 
 .thread1602:                                      ; preds = %.thread2403, %._crit_edge, %147, %144, %.thread2412
-  %.sink2558 = phi i32 [ %.mux, %._crit_edge ], [ -13, %147 ], [ -12, %144 ], [ -10, %.thread2412 ], [ -5, %.thread2403 ]
-  %.neg = phi i32 [ %.mux2578, %._crit_edge ], [ 13, %147 ], [ 12, %144 ], [ 10, %.thread2412 ], [ 5, %.thread2403 ]
+  %.sink2558 = phi i32 [ %.mux, %._crit_edge ], [ -10, %.thread2412 ], [ -12, %144 ], [ -13, %147 ], [ -5, %.thread2403 ]
+  %.neg = phi i32 [ %.mux2578, %._crit_edge ], [ 10, %.thread2412 ], [ 12, %144 ], [ 13, %147 ], [ 5, %.thread2403 ]
   store i32 %.sink2558, ptr %15, align 4, !tbaa !3
   store i32 %.neg, ptr %17, align 4, !tbaa !3
   %150 = call i32 @xerbla_(ptr noundef nonnull @.str.5, ptr noundef nonnull %17, i32 noundef 6) #6
@@ -630,9 +630,9 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %811
 
 .thread1618.thread:                               ; preds = %.thread2416, %270, %.thread1605, %.thread1618, %282
-  %300 = phi i32 [ 2, %270 ], [ 1, %.thread1618 ], [ 1, %282 ], [ 2, %.thread1605 ], [ 2, %.thread2416 ]
-  %.4161016231627 = phi i32 [ 1, %270 ], [ 0, %.thread1618 ], [ 0, %282 ], [ 1, %.thread1605 ], [ 1, %.thread2416 ]
-  %.not1545160916241625 = phi i1 [ false, %270 ], [ true, %.thread1618 ], [ true, %282 ], [ false, %.thread1605 ], [ false, %.thread2416 ]
+  %300 = phi i32 [ 1, %.thread1618 ], [ 1, %282 ], [ 2, %.thread1605 ], [ 2, %270 ], [ 2, %.thread2416 ]
+  %.4161016231627 = phi i32 [ 0, %.thread1618 ], [ 0, %282 ], [ 1, %.thread1605 ], [ 1, %270 ], [ 1, %.thread2416 ]
+  %.not1545160916241625 = phi i1 [ true, %.thread1618 ], [ true, %282 ], [ false, %.thread1605 ], [ false, %270 ], [ false, %.thread2416 ]
   %301 = mul nsw i32 %300, %258
   %.not15501739 = icmp slt i32 %301, 1
   br i1 %.not15501739, label %._crit_edge1742, label %.lr.ph1741
@@ -1560,19 +1560,19 @@ thread-pre-split1631:                             ; preds = %444, %448
   br label %811
 
 811:                                              ; preds = %.thread2416, %255, %._crit_edge1738, %.loopexit1683, %273
-  %812 = phi i32 [ %256, %273 ], [ %.pre2311, %.loopexit1683 ], [ %256, %._crit_edge1738 ], [ %256, %255 ], [ %256, %.thread2416 ]
-  %813 = phi double [ %257, %273 ], [ %798, %.loopexit1683 ], [ %257, %._crit_edge1738 ], [ %257, %255 ], [ %257, %.thread2416 ]
-  %814 = phi i32 [ %258, %273 ], [ %765, %.loopexit1683 ], [ %258, %._crit_edge1738 ], [ %258, %255 ], [ %258, %.thread2416 ]
-  %.11454 = phi i32 [ %.014531821, %273 ], [ %810, %.loopexit1683 ], [ %290, %._crit_edge1738 ], [ %.014531821, %255 ], [ %.014531821, %.thread2416 ]
-  %.5 = phi i32 [ 0, %273 ], [ %.4161016231627, %.loopexit1683 ], [ 0, %._crit_edge1738 ], [ 0, %255 ], [ 1, %.thread2416 ]
+  %812 = phi i32 [ %.pre2311, %.loopexit1683 ], [ %256, %._crit_edge1738 ], [ %256, %273 ], [ %256, %255 ], [ %256, %.thread2416 ]
+  %813 = phi double [ %798, %.loopexit1683 ], [ %257, %._crit_edge1738 ], [ %257, %273 ], [ %257, %255 ], [ %257, %.thread2416 ]
+  %814 = phi i32 [ %765, %.loopexit1683 ], [ %258, %._crit_edge1738 ], [ %258, %273 ], [ %258, %255 ], [ %258, %.thread2416 ]
+  %.11454 = phi i32 [ %810, %.loopexit1683 ], [ %290, %._crit_edge1738 ], [ %.014531821, %273 ], [ %.014531821, %255 ], [ %.014531821, %.thread2416 ]
+  %.5 = phi i32 [ %.4161016231627, %.loopexit1683 ], [ 0, %._crit_edge1738 ], [ 0, %273 ], [ 0, %255 ], [ 1, %.thread2416 ]
   %indvars.iv.next2030 = add nuw nsw i64 %indvars.iv2029, 1
   %815 = sext i32 %812 to i64
   %.not1508.not = icmp slt i64 %indvars.iv2029, %815
   br i1 %.not1508.not, label %255, label %.loopexit1686, !llvm.loop !29
 
 .loopexit1686:                                    ; preds = %811, %247, %240
-  %816 = phi double [ %160, %240 ], [ %160, %247 ], [ %813, %811 ]
-  %817 = phi i32 [ %161, %240 ], [ %161, %247 ], [ %814, %811 ]
+  %816 = phi double [ %160, %247 ], [ %160, %240 ], [ %813, %811 ]
+  %817 = phi i32 [ %161, %247 ], [ %161, %240 ], [ %814, %811 ]
   %818 = icmp sgt i32 %817, 0
   %or.cond2567 = select i1 %.not15021587, i1 %818, i1 false
   br i1 %or.cond2567, label %.lr.ph1960, label %.loopexit1680
@@ -1691,9 +1691,9 @@ thread-pre-split1631:                             ; preds = %444, %448
   br label %.loopexit1674
 
 .lr.ph1842:                                       ; preds = %.thread2429, %857, %.thread1646, %.thread1633, %845
-  %876 = phi i32 [ 2, %845 ], [ 1, %.thread1646 ], [ 1, %857 ], [ 2, %.thread1633 ], [ 2, %.thread2429 ]
-  %.7163816511655 = phi i32 [ 1, %845 ], [ 0, %.thread1646 ], [ 0, %857 ], [ 1, %.thread1633 ], [ 1, %.thread2429 ]
-  %.not1512163716521653 = phi i1 [ false, %845 ], [ true, %.thread1646 ], [ true, %857 ], [ false, %.thread1633 ], [ false, %.thread2429 ]
+  %876 = phi i32 [ 1, %.thread1646 ], [ 1, %857 ], [ 2, %.thread1633 ], [ 2, %845 ], [ 2, %.thread2429 ]
+  %.7163816511655 = phi i32 [ 0, %.thread1646 ], [ 0, %857 ], [ 1, %.thread1633 ], [ 1, %845 ], [ 1, %.thread2429 ]
+  %.not1512163716521653 = phi i1 [ true, %.thread1646 ], [ true, %857 ], [ false, %.thread1633 ], [ false, %845 ], [ false, %.thread2429 ]
   %877 = add nsw i32 %876, -1
   store i32 %877, ptr %17, align 4, !tbaa !3
   %878 = load i32, ptr %3, align 4, !tbaa !3
@@ -2536,9 +2536,9 @@ thread-pre-split1659:                             ; preds = %1040, %1044
   br i1 %exitcond2199.not, label %.loopexit1672, label %.lr.ph1887.split, !llvm.loop !39
 
 .loopexit1672:                                    ; preds = %.loopexit1668, %.loopexit.us, %1305, %1202
-  %1371 = phi i32 [ %1199, %1202 ], [ %.pre2317, %.loopexit.us ], [ %.pre2317, %1305 ], [ %.pre2317, %.loopexit1668 ]
-  %.121447 = phi double [ %.914441888, %1202 ], [ %.111446, %.loopexit.us ], [ %.111446, %1305 ], [ %.111446, %.loopexit1668 ]
-  %.41421 = phi i32 [ 1, %1202 ], [ 0, %.loopexit.us ], [ 0, %1305 ], [ 0, %.loopexit1668 ]
+  %1371 = phi i32 [ %1199, %1202 ], [ %.pre2317, %1305 ], [ %.pre2317, %.loopexit.us ], [ %.pre2317, %.loopexit1668 ]
+  %.121447 = phi double [ %.914441888, %1202 ], [ %.111446, %1305 ], [ %.111446, %.loopexit.us ], [ %.111446, %.loopexit1668 ]
+  %.41421 = phi i32 [ 1, %1202 ], [ 0, %1305 ], [ 0, %.loopexit.us ], [ 0, %.loopexit1668 ]
   %indvars.iv.next2211 = add nsw i64 %indvars.iv2210, -1
   %1372 = icmp sgt i64 %indvars.iv2210, 1
   br i1 %1372, label %1198, label %._crit_edge1896, !llvm.loop !41
@@ -2719,7 +2719,7 @@ thread-pre-split1659:                             ; preds = %1040, %1044
   br i1 %exitcond2268.not, label %.loopexit1677, label %1414, !llvm.loop !49
 
 .loopexit1677:                                    ; preds = %._crit_edge1919, %._crit_edge1929, %1375, %._crit_edge1914, %1410
-  %.11452 = phi i32 [ %.pre2318.pre, %._crit_edge1914 ], [ %indvars2304, %1410 ], [ %indvars2304, %._crit_edge1929 ], [ %.pre2318.pre, %1375 ], [ %.pre2318.pre, %._crit_edge1919 ]
+  %.11452 = phi i32 [ %indvars2304, %1410 ], [ %.pre2318.pre, %._crit_edge1914 ], [ %.pre2318.pre, %1375 ], [ %indvars2304, %._crit_edge1929 ], [ %.pre2318.pre, %._crit_edge1919 ]
   store i32 %.11452, ptr %17, align 4, !tbaa !3
   %.not15251941 = icmp slt i32 %.11452, 1
   br i1 %.not1512163716521653, label %1442, label %1423
@@ -2838,9 +2838,9 @@ thread-pre-split1659:                             ; preds = %1040, %1044
   br i1 %exitcond2292.not, label %.loopexit1674, label %.preheader1670, !llvm.loop !53
 
 .loopexit1674:                                    ; preds = %._crit_edge1951, %.thread2429, %1455, %833, %._crit_edge1834, %848, %.loopexit1675
-  %1466 = phi double [ %834, %848 ], [ %834, %833 ], [ %1453, %.loopexit1675 ], [ %834, %._crit_edge1834 ], [ %1453, %1455 ], [ %834, %.thread2429 ], [ %1453, %._crit_edge1951 ]
-  %.31456 = phi i32 [ %.214551954, %848 ], [ %.214551954, %833 ], [ %1374, %.loopexit1675 ], [ %865, %._crit_edge1834 ], [ %1374, %1455 ], [ %.214551954, %.thread2429 ], [ %1374, %._crit_edge1951 ]
-  %.8 = phi i32 [ 0, %848 ], [ 0, %833 ], [ %.7163816511655, %.loopexit1675 ], [ 0, %._crit_edge1834 ], [ %.7163816511655, %1455 ], [ 1, %.thread2429 ], [ %.7163816511655, %._crit_edge1951 ]
+  %1466 = phi double [ %1453, %.loopexit1675 ], [ %834, %._crit_edge1834 ], [ %834, %848 ], [ %834, %833 ], [ %1453, %1455 ], [ %834, %.thread2429 ], [ %1453, %._crit_edge1951 ]
+  %.31456 = phi i32 [ %1374, %.loopexit1675 ], [ %865, %._crit_edge1834 ], [ %.214551954, %848 ], [ %.214551954, %833 ], [ %1374, %1455 ], [ %.214551954, %.thread2429 ], [ %1374, %._crit_edge1951 ]
+  %.8 = phi i32 [ %.7163816511655, %.loopexit1675 ], [ 0, %._crit_edge1834 ], [ 0, %848 ], [ 0, %833 ], [ %.7163816511655, %1455 ], [ 1, %.thread2429 ], [ %.7163816511655, %._crit_edge1951 ]
   %indvars.iv.next2298 = add nsw i64 %indvars.iv2297, -1
   %1467 = icmp sgt i64 %indvars.iv2297, 1
   %indvars.iv.next2296 = add nsw i64 %indvars.iv2295, -1

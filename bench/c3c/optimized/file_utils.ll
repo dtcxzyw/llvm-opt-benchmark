@@ -219,7 +219,7 @@ define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef 
   br label %33
 
 33:                                               ; preds = %29, %31, %23, %10, %19, %13, %3
-  %.0 = phi i1 [ false, %19 ], [ false, %3 ], [ false, %13 ], [ true, %23 ], [ true, %31 ], [ false, %10 ], [ true, %29 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %13 ], [ false, %19 ], [ false, %10 ], [ true, %23 ], [ true, %31 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -678,7 +678,7 @@ define internal fastcc ptr @lib_find(ptr noundef %0, ptr noundef %1) unnamed_add
   br label %25
 
 25:                                               ; preds = %22, %18, %11, %14, %2, %6
-  %.0 = phi ptr [ null, %11 ], [ null, %2 ], [ null, %6 ], [ null, %14 ], [ %19, %18 ], [ %19, %22 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %14 ], [ null, %11 ], [ %19, %18 ], [ %19, %22 ]
   ret ptr %.0
 }
 
@@ -945,7 +945,7 @@ define dso_local ptr @execute_cmd(ptr noundef %0, i1 noundef zeroext %1) local_u
   br label %18
 
 18:                                               ; preds = %11, %6, %16
-  %.0 = phi ptr [ @.str.36, %6 ], [ %17, %16 ], [ @.str.36, %11 ]
+  %.0 = phi ptr [ %17, %16 ], [ @.str.36, %6 ], [ @.str.36, %11 ]
   ret ptr %.0
 }
 
@@ -1260,7 +1260,7 @@ define dso_local noundef zeroext i1 @execute_cmd_failable(ptr noundef readonly c
   br label %14
 
 14:                                               ; preds = %._crit_edge, %2, %12
-  %.0 = phi i1 [ false, %2 ], [ true, %12 ], [ false, %._crit_edge ]
+  %.0 = phi i1 [ true, %12 ], [ false, %2 ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 

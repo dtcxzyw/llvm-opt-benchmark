@@ -235,7 +235,7 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   br label %25
 
 25:                                               ; preds = %21, %18
-  %.1.us = phi i32 [ %.01630.us, %18 ], [ %22, %21 ]
+  %.1.us = phi i32 [ %22, %21 ], [ %.01630.us, %18 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %.not22.us = icmp eq i64 %indvars.iv.next54, 31
   br i1 %.not22.us, label %.loopexit, label %.preheader.split.us.split.splitthread-pre-split, !llvm.loop !24
@@ -287,7 +287,7 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   br label %43
 
 43:                                               ; preds = %39, %36
-  %.1.us33 = phi i32 [ %.01630.us31, %36 ], [ %40, %39 ]
+  %.1.us33 = phi i32 [ %40, %39 ], [ %.01630.us31, %36 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %.not22.us34 = icmp eq i64 %indvars.iv.next46, 31
   br i1 %.not22.us34, label %.loopexit, label %.preheader.split.split.us.splitthread-pre-split, !llvm.loop !26
@@ -325,7 +325,7 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   br label %58
 
 58:                                               ; preds = %51, %46, %54
-  %.1 = phi i32 [ %.01630, %46 ], [ %55, %54 ], [ %.01630, %51 ]
+  %.1 = phi i32 [ %55, %54 ], [ %.01630, %46 ], [ %.01630, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %indvars.iv.next
   %60 = load ptr, ptr %59, align 8, !tbaa !8

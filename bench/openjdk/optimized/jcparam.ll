@@ -1284,7 +1284,7 @@ define hidden void @jSimProgress(ptr noundef %0) local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %16, %22, %.thread
-  %.0 = phi i32 [ %25, %.thread ], [ %23, %22 ], [ 10, %16 ]
+  %.0 = phi i32 [ %23, %22 ], [ %25, %.thread ], [ 10, %16 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null

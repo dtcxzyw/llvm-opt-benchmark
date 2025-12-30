@@ -1696,7 +1696,7 @@ _ZNK5clang22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4At
 
 "_ZSt6any_ofIN5clang22specific_attr_iteratorINS0_12AnnotateAttrEN4llvm11SmallVectorIPNS0_4AttrELj4EEEEEZNK12_GLOBAL__N_125NonLocalizedStringChecker28isAnnotatedAsTakingLocalizedEPKNS0_4DeclEE3$_0EbT_SF_T0_.exit": ; preds = %.lr.ph.i4.i.i.i, %61, %.lr.ph.i.i.i.i, %54, %56
   %.sroa.07.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %17, %61 ], [ %17, %.lr.ph.i4.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i4.i.i.i ], [ %17, %61 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.1.i.i.i, %.lr.ph.i4.i.i.i ], [ %17, %61 ]
   %63 = icmp ne ptr %.sroa.07.0.i.i.i, %.sroa.0.0.i.i.i
   br label %64
 
@@ -2371,7 +2371,7 @@ _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL_
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit, %39
-  %.1.i12 = phi i32 [ %37, %39 ], [ %37, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %35, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
+  %.1.i12 = phi i32 [ %37, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %37, %39 ], [ %35, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.1.i12, ptr %40, align 8, !tbaa !462
@@ -4134,7 +4134,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit: ; preds = %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i, %19
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.02.0) #25
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %33
 
@@ -4304,7 +4304,7 @@ _ZNK5clang22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4At
 
 "_ZSt6any_ofIN5clang22specific_attr_iteratorINS0_12AnnotateAttrEN4llvm11SmallVectorIPNS0_4AttrELj4EEEEEZNK12_GLOBAL__N_125NonLocalizedStringChecker31isAnnotatedAsReturningLocalizedEPKNS0_4DeclEE3$_0EbT_SF_T0_.exit": ; preds = %.lr.ph.i4.i.i.i, %61, %.lr.ph.i.i.i.i, %54, %56
   %.sroa.07.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %17, %61 ], [ %17, %.lr.ph.i4.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i4.i.i.i ], [ %17, %61 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.1.i.i.i, %.lr.ph.i4.i.i.i ], [ %17, %61 ]
   %63 = icmp ne ptr %.sroa.07.0.i.i.i, %.sroa.0.0.i.i.i
   br label %64
 
@@ -4387,7 +4387,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit: ; preds = %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i, %19
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.02.0) #25
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %33
 
@@ -4824,7 +4824,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoENS2_8Selecto
   br label %_ZNSt8_Rb_treeISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEES6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE10_M_insert_IS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i
 
 _ZNSt8_Rb_treeISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEES6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE10_M_insert_IS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i: ; preds = %52, %50, %45, %42
-  %57 = phi i1 [ %56, %52 ], [ true, %42 ], [ true, %45 ], [ false, %50 ]
+  %57 = phi i1 [ true, %42 ], [ true, %45 ], [ false, %50 ], [ %56, %52 ]
   %58 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i, i64 16, i1 false)
@@ -4846,9 +4846,9 @@ _ZNSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE6
   br label %64
 
 64:                                               ; preds = %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELb1EE9push_backES7_.exit, %_ZNSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE6insertISt13move_iteratorIPS6_EEEvT_SF_.exit, %7
-  %.sink52 = phi i8 [ 0, %7 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELb1EE9push_backES7_.exit ], [ 0, %_ZNSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE6insertISt13move_iteratorIPS6_EEEvT_SF_.exit ], [ 1, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit ]
-  %.0912.i.lcssa.sink = phi ptr [ %.fca.0.extract11, %7 ], [ %36, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELb1EE9push_backES7_.exit ], [ %.fca.0.extract, %_ZNSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE6insertISt13move_iteratorIPS6_EEEvT_SF_.exit ], [ %.0912.i, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit ]
-  %.sink = phi i8 [ %.fca.1.extract12, %7 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELb1EE9push_backES7_.exit ], [ 1, %_ZNSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE6insertISt13move_iteratorIPS6_EEEvT_SF_.exit ], [ 0, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit ]
+  %.sink52 = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELb1EE9push_backES7_.exit ], [ 0, %_ZNSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE6insertISt13move_iteratorIPS6_EEEvT_SF_.exit ], [ 0, %7 ], [ 1, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit ]
+  %.0912.i.lcssa.sink = phi ptr [ %36, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELb1EE9push_backES7_.exit ], [ %.fca.0.extract, %_ZNSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE6insertISt13move_iteratorIPS6_EEEvT_SF_.exit ], [ %.fca.0.extract11, %7 ], [ %.0912.i, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit ]
+  %.sink = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELb1EE9push_backES7_.exit ], [ 1, %_ZNSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE6insertISt13move_iteratorIPS6_EEEvT_SF_.exit ], [ %.fca.1.extract12, %7 ], [ 0, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink52, ptr %65, align 8, !tbaa !1046
   %66 = ptrtoint ptr %.0912.i.lcssa.sink to i64
@@ -4965,7 +4965,7 @@ _ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.
   br label %_ZNSt8_Rb_treeISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEES6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE10_M_insert_IS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit
 
 _ZNSt8_Rb_treeISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEES6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE10_M_insert_IS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit: ; preds = %32, %34, %39, %41
-  %46 = phi i1 [ %45, %41 ], [ true, %32 ], [ true, %34 ], [ false, %39 ]
+  %46 = phi i1 [ true, %32 ], [ true, %34 ], [ false, %39 ], [ %45, %41 ]
   %47 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -5390,8 +5390,8 @@ _ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.
   br label %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44.thread104
 
 _ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44.thread104: ; preds = %9, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit._ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.thread_crit_edge, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i66, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i63, %._crit_edge.i60.thread, %._crit_edge.thread.i71, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i34, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i31, %._crit_edge.i28.thread, %._crit_edge.thread.i39, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i, %._crit_edge.i.thread, %._crit_edge.thread.i, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit47.thread, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit15.thread, %109, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44.thread, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit12.thread
-  %.sroa.094.0 = phi ptr [ %spec.select, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit15.thread ], [ null, %._crit_edge.i60.thread ], [ %1, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44 ], [ %spec.select110, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit47.thread ], [ null, %._crit_edge.i.thread ], [ %62, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit12.thread ], [ %1, %109 ], [ null, %._crit_edge.i28.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44.thread ], [ %.sroa.08.0.i, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i ], [ null, %._crit_edge.thread.i ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i ], [ %.sroa.08.0.i30, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i34 ], [ null, %._crit_edge.thread.i39 ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i31 ], [ %.sroa.08.0.i62, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i66 ], [ null, %._crit_edge.thread.i71 ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i63 ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit._ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.thread_crit_edge ], [ null, %9 ]
-  %.sroa.12.0 = phi ptr [ %spec.select109, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit15.thread ], [ %.022.lcssa35.i61, %._crit_edge.i60.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44 ], [ %spec.select111, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit47.thread ], [ %.022.lcssa35.i, %._crit_edge.i.thread ], [ %62, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit12.thread ], [ null, %109 ], [ %.022.lcssa35.i29, %._crit_edge.i28.thread ], [ %116, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i ], [ %.022.lcssa36.i, %._crit_edge.thread.i ], [ %.022.lcssa35.i, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i34 ], [ %.022.lcssa36.i40, %._crit_edge.thread.i39 ], [ %.022.lcssa35.i29, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i31 ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i66 ], [ %.022.lcssa36.i72, %._crit_edge.thread.i71 ], [ %.022.lcssa35.i61, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i63 ], [ %.pre121, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit._ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.thread_crit_edge ], [ %11, %9 ]
+  %.sroa.094.0 = phi ptr [ %62, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit12.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44.thread ], [ %1, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44 ], [ %1, %109 ], [ %spec.select, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit15.thread ], [ %spec.select110, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit47.thread ], [ %.sroa.08.0.i, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i ], [ null, %._crit_edge.thread.i ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i ], [ null, %._crit_edge.i.thread ], [ %.sroa.08.0.i30, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i34 ], [ null, %._crit_edge.thread.i39 ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i31 ], [ null, %._crit_edge.i28.thread ], [ %.sroa.08.0.i62, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i66 ], [ null, %._crit_edge.thread.i71 ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i63 ], [ null, %._crit_edge.i60.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit._ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.thread_crit_edge ], [ null, %9 ]
+  %.sroa.12.0 = phi ptr [ %62, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit12.thread ], [ %116, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit44 ], [ null, %109 ], [ %spec.select109, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit15.thread ], [ %spec.select111, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit47.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i ], [ %.022.lcssa36.i, %._crit_edge.thread.i ], [ %.022.lcssa35.i, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i ], [ %.022.lcssa35.i, %._crit_edge.i.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i34 ], [ %.022.lcssa36.i40, %._crit_edge.thread.i39 ], [ %.022.lcssa35.i29, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i31 ], [ %.022.lcssa35.i29, %._crit_edge.i28.thread ], [ null, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.thread25.i66 ], [ %.022.lcssa36.i72, %._crit_edge.thread.i71 ], [ %.022.lcssa35.i61, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit7.i63 ], [ %.022.lcssa35.i61, %._crit_edge.i60.thread ], [ %.pre121, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit._ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.thread_crit_edge ], [ %11, %9 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.094.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5764,7 +5764,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOB
   br label %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateENS_16ImutKeyValueInfoIS5_S7_EEE7Factory3addESA_RKS5_RKS7_.exit.i.i
 
 _ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateENS_16ImutKeyValueInfoIS5_S7_EEE7Factory3addESA_RKS5_RKS7_.exit.i.i: ; preds = %_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS9_EE.exit.thread.i.i.i, %_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS9_EE.exit.i.i.i, %46
-  %.sroa.014.1.i = phi ptr [ null, %_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS9_EE.exit.i.i.i ], [ %.sroa.014.0.i, %_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS9_EE.exit.thread.i.i.i ], [ null, %46 ]
+  %.sroa.014.1.i = phi ptr [ %.sroa.014.0.i, %_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS9_EE.exit.thread.i.i.i ], [ null, %_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS9_EE.exit.i.i.i ], [ null, %46 ]
   br i1 %.not.i.i.i.i18.i, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_114LocalizedStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE3SetESB_S6_S8_RNSB_7FactoryE.exit.i, label %130
 
 130:                                              ; preds = %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateENS_16ImutKeyValueInfoIS5_S7_EEE7Factory3addESA_RKS5_RKS7_.exit.i.i
@@ -5866,7 +5866,7 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueIn
   br i1 %14, label %16, label %20
 
 common.ret32:                                     ; preds = %9, %4, %20, %16
-  %common.ret32.op = phi ptr [ %23, %20 ], [ %19, %16 ], [ %12, %9 ], [ %5, %4 ]
+  %common.ret32.op = phi ptr [ %19, %16 ], [ %23, %20 ], [ %5, %4 ], [ %12, %9 ]
   ret ptr %common.ret32.op
 
 16:                                               ; preds = %13
@@ -6217,7 +6217,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLO
   br label %62
 
 62:                                               ; preds = %.critedge70, %52, %.critedge, %28, %60
-  %.1 = phi ptr [ %61, %60 ], [ %35, %28 ], [ %27, %.critedge ], [ %51, %.critedge70 ], [ %59, %52 ]
+  %.1 = phi ptr [ %61, %60 ], [ %27, %.critedge ], [ %35, %28 ], [ %51, %.critedge70 ], [ %59, %52 ]
   ret ptr %.1
 }
 
@@ -6342,7 +6342,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEEppEv.exit: ; preds = %25, %38, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i
-  %.val2.pr9 = phi i32 [ %37, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i ], [ %24, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %.val2.pr11, %25 ], [ %.val2.pr11, %38 ]
+  %.val2.pr9 = phi i32 [ %24, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %37, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i ], [ %.val2.pr11, %38 ], [ %.val2.pr11, %25 ]
   %.not.i.i = icmp eq i32 %.val2.pr9, 0
   br i1 %.not.i.i, label %.critedge, label %50
 
@@ -7161,126 +7161,126 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %314, i64 %315)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %316 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
-  br i1 %316, label %.critedge96.i, label %317
+  br i1 %316, label %.critedge98.i, label %317
 
 317:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.i
   %.pr.i = load i64, ptr %304, align 8, !tbaa !410
   %318 = icmp eq i64 %.pr.i, 0
-  br i1 %318, label %.critedge96.i, label %319
+  br i1 %318, label %.critedge98.i, label %319
 
 319:                                              ; preds = %317
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %321 = load i8, ptr %320, align 8, !tbaa !45, !range !249, !noundef !250
   %322 = trunc nuw i8 %321 to i1
-  br i1 %322, label %326, label %323
+  br i1 %322, label %.critedge96.i, label %323
 
 323:                                              ; preds = %319
   %.sroa.09.0.copyload.i = load ptr, ptr %10, align 8, !tbaa !67
   %324 = call noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRefE(ptr %.sroa.09.0.copyload.i, i64 %.pr.i) #25
   %325 = icmp slt i32 %324, 2
-  br i1 %325, label %.critedge96.i, label %326
+  br i1 %325, label %.critedge98.i, label %.critedge96.i
 
-326:                                              ; preds = %323, %319
+.critedge96.i:                                    ; preds = %323, %319
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.thread.i
 
-.critedge96.i:                                    ; preds = %323, %317, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.i
+.critedge98.i:                                    ; preds = %323, %317, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %350
+  br label %349
 
-_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.thread.i: ; preds = %326, %284, %.critedge94.thread225.i
+_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.thread.i: ; preds = %.critedge96.i, %284, %.critedge94.thread225.i
   %.sroa.06.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !3
   %.sroa.27.0.copyload.i = load i8, ptr %.sroa.213.0..sroa_idx.i, align 8, !tbaa !425
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.06.0.copyload.i, ptr %4, align 8
-  %327 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.sroa.27.0.copyload.i, ptr %327, align 8
-  %328 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #25
-  %.not.i171.i = icmp eq ptr %328, null
-  br i1 %.not.i171.i, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, label %329
+  %326 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 %.sroa.27.0.copyload.i, ptr %326, align 8
+  %327 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #25
+  %.not.i171.i = icmp eq ptr %327, null
+  br i1 %.not.i171.i, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, label %328
 
-329:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.thread.i
-  %330 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %331 = load ptr, ptr %330, align 8, !tbaa !309
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 56
-  %333 = load ptr, ptr %332, align 8, !tbaa !323
-  %334 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %333, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_115LocalizedMemMapEE8GDMIndexEvE5Index) #25
-  %.not.i.i.i172.i = icmp eq ptr %334, null
-  br i1 %.not.i.i.i172.i, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, label %335
+328:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.thread.i
+  %329 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %330 = load ptr, ptr %329, align 8, !tbaa !309
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 56
+  %332 = load ptr, ptr %331, align 8, !tbaa !323
+  %333 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %332, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_115LocalizedMemMapEE8GDMIndexEvE5Index) #25
+  %.not.i.i.i172.i = icmp eq ptr %333, null
+  br i1 %.not.i.i.i172.i, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, label %334
 
-335:                                              ; preds = %329
-  %336 = load ptr, ptr %334, align 8, !tbaa !3, !noalias !1120
-  %.not.i.i.i.i.i.i173.i = icmp eq ptr %336, null
+334:                                              ; preds = %328
+  %335 = load ptr, ptr %333, align 8, !tbaa !3, !noalias !1120
+  %.not.i.i.i.i.i.i173.i = icmp eq ptr %335, null
   br i1 %.not.i.i.i.i.i.i173.i, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_114LocalizedStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i174.i
 
-_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_114LocalizedStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i174.i: ; preds = %335
-  %337 = getelementptr inbounds nuw i8, ptr %336, i64 68
-  %338 = load i32, ptr %337, align 4, !tbaa !329, !noalias !1120
+_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_114LocalizedStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i174.i: ; preds = %334
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 68
+  %337 = load i32, ptr %336, align 4, !tbaa !329, !noalias !1120
   br label %.preheader.i.i.i.i175.i
 
-.preheader.i.i.i.i175.i:                          ; preds = %341, %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_114LocalizedStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i174.i
-  %.0123.i.i.i.i.i176.i = phi ptr [ %.113.i.i.i.i.i180.i, %341 ], [ %336, %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_114LocalizedStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i174.i ]
-  %339 = getelementptr inbounds nuw i8, ptr %.0123.i.i.i.i.i176.i, i64 48
-  %.val15.i.i.i.i.i177.i = load ptr, ptr %339, align 8, !tbaa !336
-  %340 = icmp eq ptr %328, %.val15.i.i.i.i.i177.i
-  br i1 %340, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE4findERKS6_.exit.i.i.i.i189.i, label %341
+.preheader.i.i.i.i175.i:                          ; preds = %340, %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_114LocalizedStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i174.i
+  %.0123.i.i.i.i.i176.i = phi ptr [ %.113.i.i.i.i.i180.i, %340 ], [ %335, %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_114LocalizedStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i174.i ]
+  %338 = getelementptr inbounds nuw i8, ptr %.0123.i.i.i.i.i176.i, i64 48
+  %.val15.i.i.i.i.i177.i = load ptr, ptr %338, align 8, !tbaa !336
+  %339 = icmp eq ptr %327, %.val15.i.i.i.i.i177.i
+  br i1 %339, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE4findERKS6_.exit.i.i.i.i189.i, label %340
 
-341:                                              ; preds = %.preheader.i.i.i.i175.i
-  %342 = icmp ult ptr %328, %.val15.i.i.i.i.i177.i
-  %.113.in.v.i.i.i.i.i178.i = select i1 %342, i64 8, i64 16
+340:                                              ; preds = %.preheader.i.i.i.i175.i
+  %341 = icmp ult ptr %327, %.val15.i.i.i.i.i177.i
+  %.113.in.v.i.i.i.i.i178.i = select i1 %341, i64 8, i64 16
   %.113.in.i.i.i.i.i179.i = getelementptr i8, ptr %.0123.i.i.i.i.i176.i, i64 %.113.in.v.i.i.i.i.i178.i
   %.113.i.i.i.i.i180.i = load ptr, ptr %.113.in.i.i.i.i.i179.i, align 8, !tbaa !337
   %.not.i.i.i.i.i181.i = icmp eq ptr %.113.i.i.i.i.i180.i, null
   br i1 %.not.i.i.i.i.i181.i, label %.loopexit.i.i182.i, label %.preheader.i.i.i.i175.i
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE4findERKS6_.exit.i.i.i.i189.i: ; preds = %.preheader.i.i.i.i175.i
-  %343 = getelementptr inbounds nuw i8, ptr %.0123.i.i.i.i.i176.i, i64 56
+  %342 = getelementptr inbounds nuw i8, ptr %.0123.i.i.i.i.i176.i, i64 56
   br label %.loopexit.i.i182.i
 
-.loopexit.i.i182.i:                               ; preds = %341, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE4findERKS6_.exit.i.i.i.i189.i
-  %.1.i.i.ph.i.i183.i = phi ptr [ %343, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE4findERKS6_.exit.i.i.i.i189.i ], [ null, %341 ]
-  %344 = icmp eq i32 %338, 0
-  br i1 %344, label %345, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i
+.loopexit.i.i182.i:                               ; preds = %340, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE4findERKS6_.exit.i.i.i.i189.i
+  %.1.i.i.ph.i.i183.i = phi ptr [ %342, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE4findERKS6_.exit.i.i.i.i189.i ], [ null, %340 ]
+  %343 = icmp eq i32 %337, 0
+  br i1 %343, label %344, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i
 
-345:                                              ; preds = %.loopexit.i.i182.i
-  call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %336)
+344:                                              ; preds = %.loopexit.i.i182.i
+  call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %335)
   br label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i
 
-_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i: ; preds = %345, %.loopexit.i.i182.i
+_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i: ; preds = %344, %.loopexit.i.i182.i
   %.not9.i185.i = icmp eq ptr %.1.i.i.ph.i.i183.i, null
-  br i1 %.not9.i185.i, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, label %346
+  br i1 %.not9.i185.i, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, label %345
 
-346:                                              ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i
+345:                                              ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i
   %.val.i186.i = load i32, ptr %.1.i.i.ph.i.i183.i, align 4, !tbaa !338
-  %347 = icmp eq i32 %.val.i186.i, 0
-  br i1 %347, label %348, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i
+  %346 = icmp eq i32 %.val.i186.i, 0
+  br i1 %346, label %347, label %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i
 
-_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i: ; preds = %346, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i, %335, %329, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.thread.i
+_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i: ; preds = %345, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115LocalizedMemMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i184.i, %334, %328, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16ObjCStringRegionEKNS2_9MemRegionEEEDaPT0_.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %350
+  br label %349
 
-348:                                              ; preds = %346
+347:                                              ; preds = %345
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !3
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.213.0..sroa_idx.i, align 8, !tbaa !425
-  %349 = add nuw nsw i32 %.4227.i, 1
-  call fastcc void @_ZNK12_GLOBAL__N_125NonLocalizedStringChecker23reportLocalizationErrorEN5clang4ento4SValERKNS2_9CallEventERNS2_14CheckerContextEi(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr %.sroa.0.0.copyload.i, i8 %.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, i32 noundef %349)
-  br label %350
+  %348 = add nuw nsw i32 %.4227.i, 1
+  call fastcc void @_ZNK12_GLOBAL__N_125NonLocalizedStringChecker23reportLocalizationErrorEN5clang4ento4SValERKNS2_9CallEventERNS2_14CheckerContextEi(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr %.sroa.0.0.copyload.i, i8 %.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, i32 noundef %348)
+  br label %349
 
-350:                                              ; preds = %348, %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, %.critedge96.i
+349:                                              ; preds = %347, %_ZNK12_GLOBAL__N_125NonLocalizedStringChecker20hasNonLocalizedStateEN5clang4ento4SValERNS2_14CheckerContextE.exit190.thread.i, %.critedge98.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit110.thread219.i
 
-_ZNK4llvm9StringRef11starts_withES0_.exit110.thread219.i: ; preds = %272, %350, %.critedge94.i, %263, %_ZN4llvm16dyn_cast_or_nullIN5clang14ObjCMethodDeclEKNS1_4DeclEEEDaPT0_.exit.i, %.critedge.i, %_ZNK4llvm9StringRef11starts_withES0_.exit110.i, %_ZNK4llvm9StringRef11starts_withES0_.exit107.thread218.i, %_ZNK4llvm9StringRef11starts_withES0_.exit107.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread217.i
-  %351 = load ptr, ptr %8, align 8, !tbaa !14
-  %352 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %353 = icmp eq ptr %351, %352
-  br i1 %353, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZNK4llvm9StringRef11starts_withES0_.exit110.thread219.i: ; preds = %272, %349, %.critedge94.i, %263, %_ZN4llvm16dyn_cast_or_nullIN5clang14ObjCMethodDeclEKNS1_4DeclEEEDaPT0_.exit.i, %.critedge.i, %_ZNK4llvm9StringRef11starts_withES0_.exit110.i, %_ZNK4llvm9StringRef11starts_withES0_.exit107.thread218.i, %_ZNK4llvm9StringRef11starts_withES0_.exit107.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread217.i
+  %350 = load ptr, ptr %8, align 8, !tbaa !14
+  %351 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %352 = icmp eq ptr %350, %351
+  br i1 %352, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit110.thread219.i
-  %354 = load i64, ptr %352, align 8, !tbaa !16
-  %355 = add i64 %354, 1
-  call void @_ZdlPvm(ptr noundef %351, i64 noundef %355) #27
+  %353 = load i64, ptr %351, align 8, !tbaa !16
+  %354 = add i64 %353, 1
+  call void @_ZdlPvm(ptr noundef %350, i64 noundef %354) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit110.thread219.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -11918,7 +11918,7 @@ _ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.t
   br label %_ZNKSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE4findERKS6_.exit
 
 _ZNKSt3setISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEESt4lessIS6_ESaIS6_EE4findERKS6_.exit: ; preds = %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.thread6.i.i, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.i.i, %41, %_ZNKSt8_Rb_treeISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEES6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRKS6_.exit.i.i, %24, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit
-  %.0 = phi i1 [ %23, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit ], [ true, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.thread6.i.i ], [ false, %24 ], [ false, %_ZNKSt8_Rb_treeISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEES6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRKS6_.exit.i.i ], [ false, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.i.i ], [ false, %41 ]
+  %.0 = phi i1 [ %23, %_ZNK4llvm8SmallSetISt4pairIPKN5clang14IdentifierInfoENS2_8SelectorEELj12ESt4lessIS7_EE5vfindERKS7_.exit ], [ true, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.thread6.i.i ], [ false, %_ZNKSt4lessISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEEEclERKS6_S9_.exit.i.i ], [ false, %_ZNKSt8_Rb_treeISt4pairIPKN5clang14IdentifierInfoENS1_8SelectorEES6_St9_IdentityIS6_ESt4lessIS6_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRKS6_.exit.i.i ], [ false, %24 ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -13673,7 +13673,7 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
   call fastcc void @_ZN12_GLOBAL__N_131EmptyLocalizationContextChecker13MethodCrawler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_131EmptyLocalizationContextChecker13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
-_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_131EmptyLocalizationContextChecker13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit: ; preds = %79, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_131EmptyLocalizationContextChecker13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit: ; preds = %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %339 = load i64, ptr %6, align 8, !tbaa !1172
   %340 = and i64 %339, 3
   %341 = icmp eq i64 %340, 0
@@ -14100,9 +14100,9 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit:
   br i1 %200, label %._crit_edge90, label %187, !llvm.loop !1281
 
 ._crit_edge90:                                    ; preds = %196, %192
-  %.sroa.7.0.lcssa = phi i16 [ %.sroa.7.084, %192 ], [ %188, %196 ]
-  %.sroa.5.0.lcssa = phi ptr [ %.sroa.5.085, %192 ], [ %.sroa.5.0.copyload, %196 ]
-  %.sroa.3.0.lcssa = phi i32 [ %.sroa.3.086, %192 ], [ %.sroa.3.0.copyload, %196 ]
+  %.sroa.7.0.lcssa = phi i16 [ %188, %196 ], [ %.sroa.7.084, %192 ]
+  %.sroa.5.0.lcssa = phi ptr [ %.sroa.5.0.copyload, %196 ], [ %.sroa.5.085, %192 ]
+  %.sroa.3.0.lcssa = phi i32 [ %.sroa.3.0.copyload, %196 ], [ %.sroa.3.086, %192 ]
   %201 = add i16 %.sroa.7.0.lcssa, -5
   %202 = icmp ult i16 %201, 2
   %.not.i = icmp eq i32 %.sroa.3.0.lcssa, 3
@@ -14119,7 +14119,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread76:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %._crit_edge90
-  %.sroa.3.0.lcssa109 = phi i32 [ %.sroa.3.0.lcssa, %._crit_edge90 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.3.0.lcssa109 = phi i32 [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.sroa.3.0.lcssa, %._crit_edge90 ]
   switch i16 %.sroa.7.0.lcssa, label %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit [
     i16 18, label %204
     i16 17, label %204
@@ -14323,7 +14323,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds =
   br label %61
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, %46
-  %51 = phi ptr [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ], [ %50, %46 ]
+  %51 = phi ptr [ %50, %46 ], [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %61, label %52
@@ -15149,7 +15149,7 @@ _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11Page
   br label %102
 
 102:                                              ; preds = %50, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit, %57
-  %.0 = phi i1 [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %60, %57 ], [ true, %50 ]
+  %.0 = phi i1 [ %60, %57 ], [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ true, %50 ]
   ret i1 %.0
 }
 
@@ -15284,7 +15284,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = 
   br label %50
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40
-  %45 = phi ptr [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ], [ %44, %40 ]
+  %45 = phi ptr [ %44, %40 ], [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %50, label %46
@@ -15297,7 +15297,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4l
   br label %50
 
 50:                                               ; preds = %46, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread
-  %51 = phi ptr [ %spec.select, %46 ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
+  %51 = phi ptr [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ %spec.select, %46 ]
   ret ptr %51
 }
 
@@ -18732,7 +18732,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge55, %.crit
   br i1 %or.cond, label %.thread36, label %.thread13.thread
 
 .thread13.thread:                                 ; preds = %89, %_ZNK4llvm5APInteqEm.exit.thread9
-  %91 = phi ptr [ %.pr22, %89 ], [ %.pre21.pre, %_ZNK4llvm5APInteqEm.exit.thread9 ]
+  %91 = phi ptr [ %.pre21.pre, %_ZNK4llvm5APInteqEm.exit.thread9 ], [ %.pr22, %89 ]
   call void @_ZdaPv(ptr noundef nonnull %91) #27
   br label %.thread36
 
@@ -18741,7 +18741,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge55, %.crit
   br label %.critedge53
 
 .critedge53:                                      ; preds = %50, %.thread33, %57, %7, %.thread36, %_ZN4llvm5APIntD2Ev.exit, %.critedge, %.critedge50, %52
-  %.5 = phi i1 [ true, %.critedge ], [ false, %52 ], [ false, %7 ], [ true, %.critedge50 ], [ true, %.thread36 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %57 ], [ false, %.thread33 ], [ false, %50 ]
+  %.5 = phi i1 [ false, %52 ], [ true, %.critedge50 ], [ true, %.critedge ], [ true, %.thread36 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %7 ], [ false, %57 ], [ false, %.thread33 ], [ false, %50 ]
   ret i1 %.5
 }
 

@@ -159,7 +159,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit3
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit: ; preds = %32, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit308, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit310, %52, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %.sroa.034.0.lcssa.i.i.i, %52 ], [ %65, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit310 ], [ %64, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit308 ], [ %63, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.034.051.i.i.i, %32 ]
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %52 ], [ %.sroa.034.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %63, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit ], [ %64, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit308 ], [ %65, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit310 ], [ %.sroa.034.051.i.i.i, %32 ]
   %.not191 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %.sroa.0.0.copyload.i
   br i1 %.not191, label %.critedge95, label %66
 
@@ -269,9 +269,9 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %78, %70, %79
   br i1 %exitcond264.not, label %.critedge2, label %.lr.ph228, !llvm.loop !33
 
 .critedge2:                                       ; preds = %87, %102, %.critedge96
-  %.0285 = phi ptr [ %.0, %102 ], [ %.0, %.critedge96 ], [ %22, %87 ]
-  %.085283 = phi i32 [ %.085, %102 ], [ %.085, %.critedge96 ], [ %9, %87 ]
-  %.0169282 = phi i32 [ %.0169, %102 ], [ %.0169, %.critedge96 ], [ %20, %87 ]
+  %.0285 = phi ptr [ %.0, %.critedge96 ], [ %.0, %102 ], [ %22, %87 ]
+  %.085283 = phi i32 [ %.085, %.critedge96 ], [ %.085, %102 ], [ %9, %87 ]
+  %.0169282 = phi i32 [ %.0169, %.critedge96 ], [ %.0169, %102 ], [ %20, %87 ]
   %.pre = sext i32 %.085283 to i64
   br i1 %.not89, label %.critedge2.thread, label %103
 
@@ -287,9 +287,9 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %78, %70, %79
   br i1 %111, label %.loopexit, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %91, %.critedge2, %103
-  %.0284 = phi ptr [ %.0285, %.critedge2 ], [ %.0285, %103 ], [ %.0, %91 ]
-  %.0169281 = phi i32 [ %.0169282, %.critedge2 ], [ %.0169282, %103 ], [ %.0169, %91 ]
-  %.pre-phi = phi i64 [ %.pre, %.critedge2 ], [ %.pre, %103 ], [ %90, %91 ]
+  %.0284 = phi ptr [ %.0285, %103 ], [ %.0285, %.critedge2 ], [ %.0, %91 ]
+  %.0169281 = phi i32 [ %.0169282, %103 ], [ %.0169282, %.critedge2 ], [ %.0169, %91 ]
+  %.pre-phi = phi i64 [ %.pre, %103 ], [ %.pre, %.critedge2 ], [ %90, %91 ]
   %112 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %.pre-phi
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load i32, ptr %113, align 4, !tbaa !19
@@ -412,7 +412,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.ex
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129: ; preds = %136, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit300, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit302, %156, %._crit_edge._crit_edge.i.i.i116, %._crit_edge._crit_edge57.i.i.i111
-  %.sroa.010.0.in.sroa.speculated.i.i.i115 = phi ptr [ %.sroa.034.1.i.i.i118, %._crit_edge._crit_edge.i.i.i116 ], [ %spec.select.i.i.i114, %._crit_edge._crit_edge57.i.i.i111 ], [ %.sroa.034.0.lcssa.i.i.i110, %156 ], [ %169, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit302 ], [ %168, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit300 ], [ %167, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit ], [ %.sroa.034.051.i.i.i122, %136 ]
+  %.sroa.010.0.in.sroa.speculated.i.i.i115 = phi ptr [ %.sroa.034.0.lcssa.i.i.i110, %156 ], [ %.sroa.034.1.i.i.i118, %._crit_edge._crit_edge.i.i.i116 ], [ %spec.select.i.i.i114, %._crit_edge._crit_edge57.i.i.i111 ], [ %167, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit ], [ %168, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit300 ], [ %169, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129.loopexit.split.loop.exit302 ], [ %.sroa.034.051.i.i.i122, %136 ]
   %.not190 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i115, %.sroa.0.0.copyload.i105
   br i1 %.not190, label %.critedge98, label %170
 
@@ -527,9 +527,9 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit134:    ; preds = %182, %174, %183
   br label %.loopexit
 
 .loopexit:                                        ; preds = %206, %98, %.critedge2.thread, %103, %213, %.critedge8, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit
-  %.sroa.8.sroa.0.0 = phi i64 [ %.sroa.8.0.extract.shift, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ 0, %98 ], [ %.sroa.8.0.extract.shift162, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge2.thread ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 0, %206 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.0166.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ 4294967296, %98 ], [ %.sroa.0164.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge2.thread ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 4294967296, %206 ]
-  %.sroa.0158.0 = phi i64 [ %.sroa.0166.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ %indvars.iv260, %98 ], [ %.sroa.0164.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ 0, %.critedge2.thread ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ %198, %206 ]
+  %.sroa.8.sroa.0.0 = phi i64 [ %.sroa.8.0.extract.shift162, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ %.sroa.8.0.extract.shift, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 0, %.critedge2.thread ], [ 0, %98 ], [ 0, %206 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.0164.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ %.sroa.0166.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 0, %.critedge2.thread ], [ 4294967296, %98 ], [ 4294967296, %206 ]
+  %.sroa.0158.0 = phi i64 [ %.sroa.0164.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit ], [ %.sroa.0166.0.insert.insert, %_Z15search_res_atomPKciPK7t_atomsS0_b.exit134 ], [ 0, %.critedge8 ], [ 0, %213 ], [ 0, %103 ], [ 0, %.critedge2.thread ], [ %indvars.iv260, %98 ], [ %198, %206 ]
   %.sroa.5.0.insert.ext = and i64 %.sroa.5.0, 1095216660480
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.ext, %.sroa.8.sroa.0.0
   %.sroa.0158.0.insert.ext = and i64 %.sroa.0158.0, 4294967295

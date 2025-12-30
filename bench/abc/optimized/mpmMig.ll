@@ -335,7 +335,7 @@ Mig_ObjIsAnd.exit.i.i:                            ; preds = %Mig_ObjIsNode2.exit
   br label %Mig_ObjNodeType.exit.i
 
 Mig_ObjNodeType.exit.i:                           ; preds = %Mig_ObjIsAnd.exit.i.i, %Mig_ObjIsNode2.exit.i.i.i
-  %20 = phi i32 [ %spec.select, %Mig_ObjIsAnd.exit.i.i ], [ 0, %Mig_ObjIsNode2.exit.i.i.i ]
+  %20 = phi i32 [ 0, %Mig_ObjIsNode2.exit.i.i.i ], [ %spec.select, %Mig_ObjIsAnd.exit.i.i ]
   %21 = add nsw i32 %20, %.123.i
   br label %22
 
@@ -1107,8 +1107,8 @@ define i32 @Mig_ManSuppSize2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %29, %31, %20, %22
-  %storemerge57 = phi ptr [ %23, %22 ], [ %21, %20 ], [ %30, %29 ], [ %32, %31 ]
-  %.sink.i.i.i = phi i32 [ %10, %22 ], [ %10, %20 ], [ %14, %29 ], [ %14, %31 ]
+  %storemerge57 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %30, %29 ], [ %32, %31 ]
+  %.sink.i.i.i = phi i32 [ %10, %20 ], [ %10, %22 ], [ %14, %29 ], [ %14, %31 ]
   store ptr %storemerge57, ptr %6, align 8, !tbaa !3
   store i32 %.sink.i.i.i, ptr %4, align 8, !tbaa !10
   %.pre.i.i = load i32, ptr %5, align 4, !tbaa !36

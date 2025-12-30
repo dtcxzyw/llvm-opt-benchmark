@@ -152,8 +152,8 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   br i1 %.not71, label %._crit_edge, label %.lr.ph81
 
 ._crit_edge:                                      ; preds = %.lr.ph112, %._crit_edge92, %.lr.ph81, %.lr.ph81.preheader, %41
-  %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph81.preheader ], [ %94, %.lr.ph81 ], [ %81, %.lr.ph112 ], [ %94, %._crit_edge92 ]
-  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph81.preheader ], [ %93, %.lr.ph81 ], [ %.06380111, %.lr.ph112 ], [ %93, %._crit_edge92 ]
+  %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph81.preheader ], [ %94, %.lr.ph81 ], [ %94, %._crit_edge92 ], [ %81, %.lr.ph112 ]
+  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph81.preheader ], [ %93, %.lr.ph81 ], [ %93, %._crit_edge92 ], [ %.06380111, %.lr.ph112 ]
   %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %57
   store ptr %97, ptr %98, align 8, !tbaa !13
   %99 = ptrtoint ptr %1 to i64

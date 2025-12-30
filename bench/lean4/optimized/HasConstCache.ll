@@ -545,7 +545,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.022) #4
   br label %lean_dec.exit29.backedge
 
-76:                                               ; preds = %lean_dec.exit30, %29, %28, %26
+76:                                               ; preds = %29, %28, %26, %lean_dec.exit30
   ret ptr %.026
 }
 
@@ -576,7 +576,7 @@ define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_con
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %10, %1
-  %.2.i = phi ptr [ %15, %14 ], [ %5, %1 ], [ %13, %10 ]
+  %.2.i = phi ptr [ %5, %1 ], [ %13, %10 ], [ %15, %14 ]
   %16 = tail call ptr @lean_mk_array(ptr noundef %.2.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %17 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_HasConstCache_containsUnsafe_cache___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, ptr noundef %16)
   ret ptr %17
@@ -646,7 +646,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   br i1 %.not90, label %35, label %31
 
 common.ret111:                                    ; preds = %13, %19, %21, %22, %lean_dec.exit61, %lean_alloc_ctor.exit85, %lean_alloc_ctor.exit, %31
-  %common.ret111.op = phi ptr [ %2, %31 ], [ inttoptr (i64 1 to ptr), %19 ], [ %115, %lean_alloc_ctor.exit85 ], [ inttoptr (i64 1 to ptr), %13 ], [ %2, %lean_dec.exit61 ], [ %93, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %22 ], [ inttoptr (i64 1 to ptr), %21 ]
+  %common.ret111.op = phi ptr [ %2, %31 ], [ %2, %lean_dec.exit61 ], [ %93, %lean_alloc_ctor.exit ], [ %115, %lean_alloc_ctor.exit85 ], [ inttoptr (i64 1 to ptr), %22 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %19 ], [ inttoptr (i64 1 to ptr), %13 ]
   ret ptr %common.ret111.op
 
 31:                                               ; preds = %29
@@ -1129,7 +1129,7 @@ lean_obj_tag.exit.i:                              ; preds = %71, %68
   br label %lean_dec.exit212
 
 lean_dec.exit212:                                 ; preds = %87, %91, %100, %99, %97
-  %.0.i202348 = phi ptr [ %94, %100 ], [ %94, %97 ], [ %94, %99 ], [ %92, %91 ], [ %90, %87 ]
+  %.0.i202348 = phi ptr [ %94, %97 ], [ %94, %99 ], [ %94, %100 ], [ %92, %91 ], [ %90, %87 ]
   %101 = zext i8 %1 to i64
   %102 = shl nuw nsw i64 %101, 1
   %103 = or disjoint i64 %102, 1
@@ -1293,7 +1293,7 @@ lean_dec.exit210.thread:                          ; preds = %lean_dec.exit211
 lean_dec.exit209:                                 ; preds = %168
   br i1 %163, label %189, label %170
 
-170:                                              ; preds = %166, %169, %lean_dec.exit210.thread, %lean_dec.exit209
+170:                                              ; preds = %169, %166, %lean_dec.exit210.thread, %lean_dec.exit209
   %.val.i272 = load i64, ptr %156, align 8, !tbaa !11
   %171 = shl i64 %.val.i272, 1
   %172 = or disjoint i64 %171, 1
@@ -1318,7 +1318,7 @@ lean_dec.exit209:                                 ; preds = %168
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit: ; preds = %170, %178, %182
-  %.2.i.i = phi ptr [ %183, %182 ], [ %173, %170 ], [ %181, %178 ]
+  %.2.i.i = phi ptr [ %173, %170 ], [ %181, %178 ], [ %183, %182 ]
   %184 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %185 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_HasConstCache_containsUnsafe_cache___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i266, ptr noundef %184)
   store ptr %185, ptr %5, align 8, !tbaa !4
@@ -1332,7 +1332,7 @@ l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-189:                                              ; preds = %166, %169, %lean_dec.exit210.thread, %lean_dec.exit209
+189:                                              ; preds = %169, %166, %lean_dec.exit210.thread, %lean_dec.exit209
   store ptr %.0.i.i266, ptr %5, align 8, !tbaa !4
   store ptr %.0.i202348, ptr %4, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
@@ -1621,7 +1621,7 @@ lean_obj_tag.exit.i301:                           ; preds = %282, %279
   br label %lean_dec.exit206
 
 lean_dec.exit206:                                 ; preds = %296, %300, %309, %308, %306
-  %.0.i354 = phi ptr [ %303, %309 ], [ %303, %306 ], [ %303, %308 ], [ %301, %300 ], [ %299, %296 ]
+  %.0.i354 = phi ptr [ %303, %306 ], [ %303, %308 ], [ %303, %309 ], [ %301, %300 ], [ %299, %296 ]
   %310 = zext i8 %1 to i64
   %311 = shl nuw nsw i64 %310, 1
   %312 = or disjoint i64 %311, 1
@@ -1785,7 +1785,7 @@ lean_dec.exit204.thread:                          ; preds = %lean_dec.exit205
 lean_dec.exit:                                    ; preds = %377
   br i1 %372, label %404, label %379
 
-379:                                              ; preds = %375, %378, %lean_dec.exit204.thread, %lean_dec.exit
+379:                                              ; preds = %378, %375, %lean_dec.exit204.thread, %lean_dec.exit
   %.val.i320 = load i64, ptr %365, align 8, !tbaa !11
   %380 = shl i64 %.val.i320, 1
   %381 = or disjoint i64 %380, 1
@@ -1810,7 +1810,7 @@ lean_dec.exit:                                    ; preds = %377
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit323
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit323: ; preds = %379, %387, %391
-  %.2.i.i322 = phi ptr [ %392, %391 ], [ %382, %379 ], [ %390, %387 ]
+  %.2.i.i322 = phi ptr [ %382, %379 ], [ %390, %387 ], [ %392, %391 ]
   %393 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i322, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %394 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_HasConstCache_containsUnsafe_cache___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i312, ptr noundef %393)
   tail call void @lean_inc_heartbeat() #4
@@ -1839,7 +1839,7 @@ lean_alloc_ctor.exit324:                          ; preds = %l_Std_DHashMap_Inte
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-404:                                              ; preds = %375, %378, %lean_dec.exit204.thread, %lean_dec.exit
+404:                                              ; preds = %378, %375, %lean_dec.exit204.thread, %lean_dec.exit
   tail call void @lean_inc_heartbeat() #4
   %405 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %406 = icmp eq ptr %405, null
@@ -1978,9 +1978,9 @@ lean_alloc_ctor.exit341:                          ; preds = %lean_alloc_ctor.exi
   br label %lean_alloc_ctor.exit273
 
 lean_alloc_ctor.exit273:                          ; preds = %lean_alloc_ctor.exit326, %lean_alloc_ctor.exit324, %189, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit, %lean_alloc_ctor.exit287, %lean_alloc_ctor.exit341, %lean_alloc_ctor.exit
-  %.sink428 = phi ptr [ %35, %lean_alloc_ctor.exit ], [ %186, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit ], [ %224, %lean_alloc_ctor.exit287 ], [ %190, %189 ], [ %401, %lean_alloc_ctor.exit324 ], [ %451, %lean_alloc_ctor.exit341 ], [ %411, %lean_alloc_ctor.exit326 ]
-  %.sink423 = phi ptr [ %41, %lean_alloc_ctor.exit ], [ %104, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit ], [ %230, %lean_alloc_ctor.exit287 ], [ %104, %189 ], [ %313, %lean_alloc_ctor.exit324 ], [ %457, %lean_alloc_ctor.exit341 ], [ %313, %lean_alloc_ctor.exit326 ]
-  %.sink = phi ptr [ %2, %lean_alloc_ctor.exit ], [ %2, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit ], [ %2, %lean_alloc_ctor.exit287 ], [ %2, %189 ], [ %395, %lean_alloc_ctor.exit324 ], [ %445, %lean_alloc_ctor.exit341 ], [ %405, %lean_alloc_ctor.exit326 ]
+  %.sink428 = phi ptr [ %224, %lean_alloc_ctor.exit287 ], [ %451, %lean_alloc_ctor.exit341 ], [ %35, %lean_alloc_ctor.exit ], [ %186, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit ], [ %190, %189 ], [ %401, %lean_alloc_ctor.exit324 ], [ %411, %lean_alloc_ctor.exit326 ]
+  %.sink423 = phi ptr [ %230, %lean_alloc_ctor.exit287 ], [ %457, %lean_alloc_ctor.exit341 ], [ %41, %lean_alloc_ctor.exit ], [ %104, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit ], [ %104, %189 ], [ %313, %lean_alloc_ctor.exit324 ], [ %313, %lean_alloc_ctor.exit326 ]
+  %.sink = phi ptr [ %2, %lean_alloc_ctor.exit287 ], [ %445, %lean_alloc_ctor.exit341 ], [ %2, %lean_alloc_ctor.exit ], [ %2, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_HasConstCache_containsUnsafe_cache___spec__2.exit ], [ %2, %189 ], [ %395, %lean_alloc_ctor.exit324 ], [ %405, %lean_alloc_ctor.exit326 ]
   %458 = getelementptr inbounds nuw i8, ptr %.sink428, i64 4
   store i32 1, ptr %.sink428, align 4, !tbaa !8
   store i32 131096, ptr %458, align 4
@@ -4992,7 +4992,7 @@ lean_alloc_ctor.exit610:                          ; preds = %lean_dec.exit
   br label %974
 
 974:                                              ; preds = %137, %lean_dec.exit288, %lean_dec.exit292, %lean_dec.exit295, %lean_dec.exit304, %lean_dec.exit301, %lean_dec.exit311, %lean_dec.exit308, %lean_dec.exit318, %lean_dec.exit315, %lean_alloc_ctor.exit610, %lean_dec.exit284, %lean_dec.exit286, %lean_alloc_ctor.exit495
-  %.0 = phi ptr [ %968, %lean_alloc_ctor.exit610 ], [ %200, %lean_alloc_ctor.exit495 ], [ %134, %137 ], [ %345, %lean_dec.exit315 ], [ %484, %lean_dec.exit308 ], [ %623, %lean_dec.exit301 ], [ %908, %lean_dec.exit286 ], [ %959, %lean_dec.exit284 ], [ %308, %lean_dec.exit318 ], [ %447, %lean_dec.exit311 ], [ %586, %lean_dec.exit304 ], [ %857, %lean_dec.exit288 ], [ %776, %lean_dec.exit295 ], [ %813, %lean_dec.exit292 ]
+  %.0 = phi ptr [ %968, %lean_alloc_ctor.exit610 ], [ %200, %lean_alloc_ctor.exit495 ], [ %908, %lean_dec.exit286 ], [ %959, %lean_dec.exit284 ], [ %134, %137 ], [ %308, %lean_dec.exit318 ], [ %345, %lean_dec.exit315 ], [ %447, %lean_dec.exit311 ], [ %484, %lean_dec.exit308 ], [ %586, %lean_dec.exit304 ], [ %623, %lean_dec.exit301 ], [ %857, %lean_dec.exit288 ], [ %776, %lean_dec.exit295 ], [ %813, %lean_dec.exit292 ]
   ret ptr %.0
 }
 

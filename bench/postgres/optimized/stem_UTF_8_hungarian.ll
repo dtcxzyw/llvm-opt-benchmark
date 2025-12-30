@@ -376,7 +376,7 @@ r_instrum.exit:                                   ; preds = %72
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %.thread, label %r_instrum.exit.thread
 
-r_instrum.exit.thread:                            ; preds = %70, %60, %66, %56, %53, %46, %51, %r_mark_regions.exit, %r_instrum.exit
+r_instrum.exit.thread:                            ; preds = %70, %56, %60, %66, %51, %r_mark_regions.exit, %46, %53, %r_instrum.exit
   %79 = load i32, ptr %4, align 4
   store i32 %79, ptr %2, align 8
   store i32 %79, ptr %44, align 8
@@ -445,7 +445,7 @@ r_instrum.exit.thread:                            ; preds = %70, %60, %66, %56, 
   %106 = icmp sgt i32 %105, -1
   br i1 %106, label %107, label %.thread
 
-107:                                              ; preds = %100, %101, %104, %96, %91, %98, %87, %81, %r_instrum.exit.thread
+107:                                              ; preds = %100, %101, %104, %96, %87, %91, %98, %r_instrum.exit.thread, %81
   %108 = load i32, ptr %4, align 4
   store i32 %108, ptr %2, align 8
   store i32 %108, ptr %44, align 8
@@ -495,7 +495,7 @@ r_instrum.exit.thread:                            ; preds = %70, %60, %66, %56, 
   %128 = icmp sgt i32 %127, -1
   br i1 %128, label %129, label %.thread
 
-129:                                              ; preds = %122, %123, %126, %117, %111, %119, %107
+129:                                              ; preds = %122, %123, %126, %117, %107, %111, %119
   %130 = load i32, ptr %4, align 4
   store i32 %130, ptr %2, align 8
   store i32 %130, ptr %44, align 8
@@ -549,7 +549,7 @@ r_instrum.exit.thread:                            ; preds = %70, %60, %66, %56, 
   %153 = icmp sgt i32 %152, -1
   br i1 %153, label %154, label %.thread
 
-154:                                              ; preds = %144, %145, %148, %151, %139, %133, %141, %129
+154:                                              ; preds = %144, %145, %148, %151, %139, %129, %133, %141
   %155 = load i32, ptr %4, align 4
   store i32 %155, ptr %2, align 8
   %156 = tail call fastcc i32 @r_factive(ptr noundef nonnull %0)
@@ -590,7 +590,7 @@ r_instrum.exit.thread:                            ; preds = %70, %60, %66, %56, 
   br label %.thread
 
 .thread:                                          ; preds = %145, %148, %151, %123, %126, %84, %101, %104, %72, %r_instrum.exit, %170, %166, %162, %158, %154, %174
-  %.1 = phi i32 [ 1, %174 ], [ %168, %166 ], [ %164, %162 ], [ %160, %158 ], [ %156, %154 ], [ %172, %170 ], [ %127, %126 ], [ %85, %84 ], [ %75, %72 ], [ %77, %r_instrum.exit ], [ %102, %101 ], [ %105, %104 ], [ %124, %123 ], [ %149, %148 ], [ %152, %151 ], [ %146, %145 ]
+  %.1 = phi i32 [ 1, %174 ], [ %156, %154 ], [ %160, %158 ], [ %164, %162 ], [ %168, %166 ], [ %172, %170 ], [ %77, %r_instrum.exit ], [ %75, %72 ], [ %85, %84 ], [ %102, %101 ], [ %105, %104 ], [ %124, %123 ], [ %127, %126 ], [ %146, %145 ], [ %149, %148 ], [ %152, %151 ]
   ret i32 %.1
 }
 
@@ -674,8 +674,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_factive(ptr noundef init
   %42 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0)
   br label %r_double.exit.thread
 
-r_double.exit.thread:                             ; preds = %34, %24, %30, %19, %41, %36, %15, %13, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %13 ], [ %42, %41 ], [ %39, %36 ], [ 0, %8 ], [ 0, %15 ], [ 0, %19 ], [ 0, %30 ], [ 0, %24 ], [ 0, %34 ]
+r_double.exit.thread:                             ; preds = %34, %19, %24, %30, %41, %36, %15, %13, %1, %8
+  %.0 = phi i32 [ %39, %36 ], [ 0, %15 ], [ 0, %8 ], [ 0, %1 ], [ 0, %13 ], [ %42, %41 ], [ 0, %30 ], [ 0, %24 ], [ 0, %19 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -742,7 +742,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_owned(ptr noundef initia
   br label %30
 
 30:                                               ; preds = %13, %1, %8, %20, %23, %26, %15, %29
-  %.0 = phi i32 [ 0, %1 ], [ 1, %29 ], [ %21, %20 ], [ %24, %23 ], [ %27, %26 ], [ 0, %15 ], [ 0, %8 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %29 ], [ %21, %20 ], [ %24, %23 ], [ %27, %26 ], [ 0, %15 ], [ 0, %8 ], [ 0, %1 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -866,7 +866,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_plur_owner(ptr noundef i
   br label %35
 
 35:                                               ; preds = %18, %1, %7, %14, %25, %28, %31, %20, %34
-  %.0 = phi i32 [ 0, %1 ], [ 1, %34 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ 0, %20 ], [ 0, %14 ], [ 0, %7 ], [ 0, %18 ]
+  %.0 = phi i32 [ 1, %34 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ 0, %20 ], [ 0, %14 ], [ 0, %7 ], [ 0, %1 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -931,7 +931,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_plural(ptr noundef initi
   br label %30
 
 30:                                               ; preds = %13, %1, %7, %20, %23, %26, %15, %29
-  %.0 = phi i32 [ 0, %1 ], [ 1, %29 ], [ %21, %20 ], [ %24, %23 ], [ %27, %26 ], [ 0, %15 ], [ 0, %7 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %29 ], [ %21, %20 ], [ %24, %23 ], [ %27, %26 ], [ 0, %15 ], [ 0, %7 ], [ 0, %1 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -995,7 +995,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_undouble(ptr noundef %0)
   br label %19
 
 19:                                               ; preds = %9, %1, %15
-  %.1 = phi i32 [ 0, %1 ], [ %spec.select, %15 ], [ 0, %9 ]
+  %.1 = phi i32 [ %spec.select, %15 ], [ 0, %1 ], [ 0, %9 ]
   ret i32 %.1
 }
 

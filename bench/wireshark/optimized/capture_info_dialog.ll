@@ -959,7 +959,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %101, %_ZN17QArrayDa
   br label %107
 
 107:                                              ; preds = %93, %_ZN7QStringD2Ev.exit52, %103, %105, %_ZN7QStringD2Ev.exit48, %_ZN7QStringD2Ev.exit40, %71
-  %.pn19.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit48 ], [ %74, %_ZN7QStringD2Ev.exit40 ], [ %94, %93 ], [ %106, %105 ], [ %104, %103 ], [ %.pn17, %_ZN7QStringD2Ev.exit52 ]
+  %.pn19.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7QStringD2Ev.exit48 ], [ %74, %_ZN7QStringD2Ev.exit40 ], [ %72, %71 ], [ %94, %93 ], [ %106, %105 ], [ %104, %103 ], [ %.pn17, %_ZN7QStringD2Ev.exit52 ]
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef align 8 dereferenceable_or_null(72) %0) #27
   resume { ptr, i32 } %.pn19.pn
 }
@@ -1700,7 +1700,7 @@ _ZNK4QMapIi5QListIiEE8containsERKi.exit:          ; preds = %_ZNKSt8_Rb_treeIiSt
   %.not48 = icmp slt i32 %65, %72
   br i1 %.not48, label %_ZNK4QMapIi5QListIiEE8containsERKi.exit.thread, label %107
 
-_ZNK4QMapIi5QListIiEE8containsERKi.exit.thread:   ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKi5QListIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %61, %52, %_ZNK4QMapIi5QListIiEE8containsERKi.exit
+_ZNK4QMapIi5QListIiEE8containsERKi.exit.thread:   ; preds = %61, %_ZNKSt8_Rb_treeIiSt4pairIKi5QListIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %52, %_ZNK4QMapIi5QListIiEE8containsERKi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 8
   store i32 -1, ptr %46, align 4
@@ -2238,7 +2238,7 @@ select.unfold.i.i:                                ; preds = %34, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i: ; preds = %38, %select.unfold.i.i
-  %42 = phi i1 [ %41, %38 ], [ true, %select.unfold.i.i ]
+  %42 = phi i1 [ true, %select.unfold.i.i ], [ %41, %38 ]
   %43 = tail call noalias noundef dereferenceable_or_null(48) ptr @_Znwm(i64 noundef 48) #25
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i32 %18, ptr %44, align 8
@@ -2367,7 +2367,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i:       ; preds = %_ZNK4QMapIi5QListIi
   br label %_ZN5QListIiED2Ev.exit
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %7, %_ZNK4QMapIi5QListIiEE4keysEv.exit, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i, %35
-  %37 = phi i32 [ %33, %35 ], [ %33, %_ZNK4QMapIi5QListIiEE4keysEv.exit ], [ %33, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i ], [ 1, %7 ]
+  %37 = phi i32 [ %33, %_ZNK4QMapIi5QListIiEE4keysEv.exit ], [ %33, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i ], [ %33, %35 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
@@ -6617,7 +6617,7 @@ define linkonce_odr noundef ptr @_ZZN22QtMetaContainerPrivate26QMetaContainerFor
   br label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIiEE24getCreateConstIteratorFnEvENKUlPKvNS_23QMetaContainerInterface8PositionEE_clES5_S7_.exit
 
 _ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIiEE24getCreateConstIteratorFnEvENKUlPKvNS_23QMetaContainerInterface8PositionEE_clES5_S7_.exit: ; preds = %2, %3, %5, %9
-  %.0.i = phi ptr [ %10, %9 ], [ %4, %3 ], [ %6, %5 ], [ null, %2 ]
+  %.0.i = phi ptr [ %4, %3 ], [ %6, %5 ], [ %10, %9 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -7079,7 +7079,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i10: ; preds = %_ZNK17
   br label %30
 
 29:                                               ; preds = %3, %21, %11, %4
-  %.06 = phi ptr [ %17, %21 ], [ %5, %4 ], [ %7, %11 ], [ null, %3 ]
+  %.06 = phi ptr [ %5, %4 ], [ %7, %11 ], [ %17, %21 ], [ null, %3 ]
   ret ptr %.06
 
 30:                                               ; preds = %27, %14

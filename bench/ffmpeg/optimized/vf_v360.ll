@@ -1051,8 +1051,8 @@ get_rorder.exit:                                  ; preds = %59
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.7, i32 noundef %65) #17
   br label %.critedge.sink.split
 
-66:                                               ; preds = %59, %59, %64, %63
-  %.0.i.ph = phi i32 [ 0, %59 ], [ 0, %59 ], [ 1, %63 ], [ 2, %64 ]
+66:                                               ; preds = %59, %59, %63, %64
+  %.0.i.ph = phi i32 [ 2, %64 ], [ 1, %63 ], [ 0, %59 ], [ 0, %59 ]
   %67 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
   store i32 %.0.i.ph, ptr %67, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1649,9 +1649,9 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   br label %.loopexit
 
 427:                                              ; preds = %189, %182, %175
-  %.0451 = phi i32 [ %191, %189 ], [ %177, %175 ], [ %184, %182 ]
-  %.0439 = phi nsz float [ %196, %189 ], [ %181, %175 ], [ %188, %182 ]
-  %.0438 = phi nsz float [ %194, %189 ], [ %180, %175 ], [ %186, %182 ]
+  %.0451 = phi i32 [ %177, %175 ], [ %184, %182 ], [ %191, %189 ]
+  %.0439 = phi nsz float [ %181, %175 ], [ %188, %182 ], [ %196, %189 ]
+  %.0438 = phi nsz float [ %180, %175 ], [ %186, %182 ], [ %194, %189 ]
   %.not470 = icmp eq i32 %.0451, 0
   br i1 %.not470, label %.thread517, label %.loopexit
 
@@ -2101,10 +2101,10 @@ set_dimensions.exit492:                           ; preds = %623, %622
   unreachable
 
 set_dimensions.exit493:                           ; preds = %set_dimensions.exit492, %647, %645
-  %.4450 = phi i32 [ %648, %647 ], [ %.2448534, %645 ], [ %.2448534, %set_dimensions.exit492 ]
-  %.4 = phi i32 [ %.2536, %647 ], [ %646, %645 ], [ %.2536, %set_dimensions.exit492 ]
-  %.0441 = phi i32 [ %.2448534, %647 ], [ 0, %645 ], [ %644, %set_dimensions.exit492 ]
-  %.0440 = phi i32 [ 0, %647 ], [ %.2536, %645 ], [ %644, %set_dimensions.exit492 ]
+  %.4450 = phi i32 [ %.2448534, %645 ], [ %648, %647 ], [ %.2448534, %set_dimensions.exit492 ]
+  %.4 = phi i32 [ %646, %645 ], [ %.2536, %647 ], [ %.2536, %set_dimensions.exit492 ]
+  %.0441 = phi i32 [ 0, %645 ], [ %.2448534, %647 ], [ %644, %set_dimensions.exit492 ]
+  %.0440 = phi i32 [ %.2536, %645 ], [ 0, %647 ], [ %644, %set_dimensions.exit492 ]
   %650 = getelementptr inbounds nuw i8, ptr %8, i64 424
   %651 = getelementptr inbounds nuw i8, ptr %8, i64 440
   %652 = sub nsw i32 0, %.0440
@@ -2547,7 +2547,7 @@ allocate_plane.exit:                              ; preds = %allocate_plane.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %775, %767, %755, %.thread90.i, %709, %623, %427, %.thread543, %.thread528, %528, %426, %237
-  %.0428 = phi i32 [ -558323010, %426 ], [ -22, %237 ], [ -558323010, %528 ], [ %.0451, %427 ], [ 0, %.thread543 ], [ -12, %709 ], [ %624, %623 ], [ -22, %.thread528 ], [ -12, %.thread90.i ], [ -12, %755 ], [ -12, %767 ], [ -12, %775 ]
+  %.0428 = phi i32 [ -558323010, %426 ], [ -558323010, %528 ], [ 0, %.thread543 ], [ -22, %.thread528 ], [ -22, %237 ], [ %.0451, %427 ], [ %624, %623 ], [ -12, %709 ], [ -12, %.thread90.i ], [ -12, %755 ], [ -12, %767 ], [ -12, %775 ]
   ret i32 %.0428
 }
 
@@ -5128,7 +5128,7 @@ define internal range(i32 0, 2) i32 @xyz_to_equirect(ptr noundef readonly captur
   br label %45
 
 45:                                               ; preds = %42, %39, %8
-  %46 = phi i32 [ %44, %42 ], [ 0, %39 ], [ 0, %8 ]
+  %46 = phi i32 [ 0, %39 ], [ 0, %8 ], [ %44, %42 ]
   %47 = add i32 %31, -1
   %48 = add nsw i32 %3, -1
   %49 = sdiv i32 %2, 2
@@ -5521,8 +5521,8 @@ get_direction.exit:                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %19) #17
   br label %.critedge
 
-20:                                               ; preds = %10, %18, %14, %15, %16, %17
-  %.0.i.ph = phi i64 [ 0, %10 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 5, %18 ]
+20:                                               ; preds = %10, %14, %15, %16, %17, %18
+  %.0.i.ph = phi i64 [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 0, %10 ]
   %21 = getelementptr inbounds nuw i32, ptr %6, i64 %.0.i.ph
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %21, align 4, !tbaa !90
@@ -5560,7 +5560,7 @@ get_direction.exit:                               ; preds = %10
   br i1 %exitcond63, label %.critedge, label %23, !llvm.loop !188
 
 .critedge:                                        ; preds = %.critedge44, %30, %27, %get_direction.exit, %13
-  %.3 = phi i32 [ -22, %get_direction.exit ], [ -22, %13 ], [ -22, %27 ], [ -22, %30 ], [ 0, %.critedge44 ]
+  %.3 = phi i32 [ -22, %13 ], [ -22, %get_direction.exit ], [ -22, %27 ], [ -22, %30 ], [ 0, %.critedge44 ]
   ret i32 %.3
 }
 
@@ -6473,7 +6473,7 @@ define internal range(i32 0, 2) i32 @xyz_to_stereographic(ptr noundef readonly c
   %spec.select = and i1 %46, %49
   br i1 %spec.select, label %.preheader.us.preheader, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %45, %8, %41
+.preheader.preheader:                             ; preds = %45, %41, %8
   store float 0.000000e+00, ptr %6, align 4, !tbaa !49
   store float 0.000000e+00, ptr %7, align 4, !tbaa !49
   br label %.preheader
@@ -7167,7 +7167,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindrical(ptr noundef readonly cap
   %48 = fcmp nsz ult double %47, %42
   br i1 %48, label %.thread, label %53
 
-.thread:                                          ; preds = %41, %8, %36
+.thread:                                          ; preds = %41, %36, %8
   %49 = sitofp i32 %32 to float
   %50 = fsub nsz float %22, %49
   store float %50, ptr %6, align 4, !tbaa !49
@@ -7306,7 +7306,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindricalea(ptr noundef readonly c
   %48 = fcmp nsz ult double %47, %42
   br i1 %48, label %.thread, label %53
 
-.thread:                                          ; preds = %41, %8, %36
+.thread:                                          ; preds = %41, %36, %8
   %49 = sitofp i32 %32 to float
   %50 = fsub nsz float %22, %49
   store float %50, ptr %6, align 4, !tbaa !49
@@ -8172,7 +8172,7 @@ define internal range(i32 0, 2) i32 @xyz_to_equisolid(ptr noundef readonly captu
   %spec.select = and i1 %46, %49
   br i1 %spec.select, label %.preheader.us.preheader, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %45, %8, %41
+.preheader.preheader:                             ; preds = %45, %41, %8
   store float 0.000000e+00, ptr %6, align 4, !tbaa !49
   store float 0.000000e+00, ptr %7, align 4, !tbaa !49
   br label %.preheader
@@ -8303,7 +8303,7 @@ define internal range(i32 0, 2) i32 @xyz_to_orthographic(ptr noundef readonly ca
   %spec.select = and i1 %46, %49
   br i1 %spec.select, label %.preheader.us.preheader, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %45, %8, %41
+.preheader.preheader:                             ; preds = %45, %41, %8
   store float 0.000000e+00, ptr %6, align 4, !tbaa !49
   store float 0.000000e+00, ptr %7, align 4, !tbaa !49
   br label %.preheader
@@ -8663,8 +8663,8 @@ get_direction.exit:                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %19) #17
   br label %.critedge
 
-20:                                               ; preds = %10, %18, %14, %15, %16, %17
-  %.0.i.ph = phi i32 [ 0, %10 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 5, %18 ]
+20:                                               ; preds = %10, %14, %15, %16, %17, %18
+  %.0.i.ph = phi i32 [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 0, %10 ]
   %21 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %.0.i.ph, ptr %21, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8701,7 +8701,7 @@ get_direction.exit:                               ; preds = %10
   br i1 %exitcond63, label %.critedge, label %22, !llvm.loop !238
 
 .critedge:                                        ; preds = %.critedge44, %29, %26, %get_direction.exit, %13
-  %.3 = phi i32 [ -22, %get_direction.exit ], [ -22, %13 ], [ -22, %26 ], [ -22, %29 ], [ 0, %.critedge44 ]
+  %.3 = phi i32 [ -22, %13 ], [ -22, %get_direction.exit ], [ -22, %26 ], [ -22, %29 ], [ 0, %.critedge44 ]
   ret i32 %.3
 }
 
@@ -8944,9 +8944,9 @@ define internal noundef i32 @eac_to_xyz(ptr readnone captures(none) %0, i32 noun
   unreachable
 
 77:                                               ; preds = %62, %74, %71, %68, %66, %65
-  %.054 = phi nsz float [ %75, %74 ], [ %.1, %65 ], [ 1.000000e+00, %66 ], [ %69, %68 ], [ %72, %71 ], [ -1.000000e+00, %62 ]
-  %.053 = phi nsz float [ -1.000000e+00, %74 ], [ %.0, %65 ], [ %.0, %66 ], [ 1.000000e+00, %68 ], [ %73, %71 ], [ %.0, %62 ]
-  %.052 = phi nsz float [ %.1, %74 ], [ 1.000000e+00, %65 ], [ %67, %66 ], [ %70, %68 ], [ -1.000000e+00, %71 ], [ %.1, %62 ]
+  %.054 = phi nsz float [ %.1, %65 ], [ 1.000000e+00, %66 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ], [ -1.000000e+00, %62 ]
+  %.053 = phi nsz float [ %.0, %65 ], [ %.0, %66 ], [ 1.000000e+00, %68 ], [ %73, %71 ], [ -1.000000e+00, %74 ], [ %.0, %62 ]
+  %.052 = phi nsz float [ 1.000000e+00, %65 ], [ %67, %66 ], [ %70, %68 ], [ -1.000000e+00, %71 ], [ %.1, %74 ], [ %.1, %62 ]
   store float %.054, ptr %5, align 4, !tbaa !49
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %.053, ptr %78, align 4, !tbaa !49
@@ -10612,7 +10612,7 @@ input_flip.exit.us:                               ; preds = %208, %.loopexit30.i
   br label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %.preheader.lr.ph, %._crit_edge123.loopexit, %53
-  %225 = phi i32 [ %54, %53 ], [ %.pre, %._crit_edge123.loopexit ], [ %54, %.preheader.lr.ph ]
+  %225 = phi i32 [ %.pre, %._crit_edge123.loopexit ], [ %54, %53 ], [ %54, %.preheader.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -11228,9 +11228,9 @@ rotate_cube_face_inverse.exit:                    ; preds = %17, %19, %22, %7
   unreachable
 
 34:                                               ; preds = %rotate_cube_face_inverse.exit, %31, %30, %28, %27, %25
-  %.013 = phi nsz float [ 1.000000e+00, %25 ], [ %32, %31 ], [ %.1, %27 ], [ %.1, %28 ], [ %.1, %30 ], [ -1.000000e+00, %rotate_cube_face_inverse.exit ]
-  %.012 = phi nsz float [ %.032, %25 ], [ %.032, %31 ], [ -1.000000e+00, %27 ], [ 1.000000e+00, %28 ], [ %.032, %30 ], [ %.032, %rotate_cube_face_inverse.exit ]
-  %.0 = phi nsz float [ %26, %25 ], [ -1.000000e+00, %31 ], [ %.032, %27 ], [ %29, %28 ], [ 1.000000e+00, %30 ], [ %.1, %rotate_cube_face_inverse.exit ]
+  %.013 = phi nsz float [ 1.000000e+00, %25 ], [ %.1, %27 ], [ %.1, %28 ], [ %.1, %30 ], [ %32, %31 ], [ -1.000000e+00, %rotate_cube_face_inverse.exit ]
+  %.012 = phi nsz float [ %.032, %25 ], [ -1.000000e+00, %27 ], [ 1.000000e+00, %28 ], [ %.032, %30 ], [ %.032, %31 ], [ %.032, %rotate_cube_face_inverse.exit ]
+  %.0 = phi nsz float [ %26, %25 ], [ %.032, %27 ], [ %29, %28 ], [ 1.000000e+00, %30 ], [ -1.000000e+00, %31 ], [ %.1, %rotate_cube_face_inverse.exit ]
   store float %.013, ptr %4, align 4, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %.012, ptr %35, align 4, !tbaa !49

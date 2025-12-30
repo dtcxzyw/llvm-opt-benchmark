@@ -657,7 +657,7 @@ common.ret:                                       ; preds = %17, %1, %88
   br label %common.ret
 
 19:                                               ; preds = %83, %13
-  %.pn12 = phi { ptr, i32 } [ %.pn8, %83 ], [ %.pn10, %13 ]
+  %.pn12 = phi { ptr, i32 } [ %.pn10, %13 ], [ %.pn8, %83 ]
   resume { ptr, i32 } %.pn12
 
 20:                                               ; preds = %71, %.body17, %.body, %22, %13, %8
@@ -2000,7 +2000,7 @@ common.ret:                                       ; preds = %72, %67, %1, %97
   br label %common.ret
 
 73:                                               ; preds = %92, %63
-  %.pn6 = phi { ptr, i32 } [ %.pn, %92 ], [ %.pn4, %63 ]
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %63 ], [ %.pn, %92 ]
   resume { ptr, i32 } %.pn6
 
 74:                                               ; preds = %.body, %63, %.body11, %32
@@ -3452,9 +3452,9 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
           to label %354 unwind label %352
 
 303:                                              ; preds = %443, %.body.i, %261, %241, %234
-  %304 = phi ptr [ %373, %.body.i ], [ %209, %443 ], [ %209, %241 ], [ %209, %261 ], [ %209, %234 ]
-  %305 = phi ptr [ %374, %.body.i ], [ %210, %443 ], [ %210, %241 ], [ %210, %261 ], [ %210, %234 ]
-  %.pn126.pn.pn.pn.i = phi { ptr, i32 } [ %.pn126.pn.pn.i, %.body.i ], [ %.pn106.pn.pn.i, %443 ], [ %242, %241 ], [ %.pn95.pn.pn.pn.pn.i, %261 ], [ %235, %234 ]
+  %304 = phi ptr [ %373, %.body.i ], [ %209, %443 ], [ %209, %241 ], [ %209, %234 ], [ %209, %261 ]
+  %305 = phi ptr [ %374, %.body.i ], [ %210, %443 ], [ %210, %241 ], [ %210, %234 ], [ %210, %261 ]
+  %.pn126.pn.pn.pn.i = phi { ptr, i32 } [ %.pn126.pn.pn.i, %.body.i ], [ %.pn106.pn.pn.i, %443 ], [ %242, %241 ], [ %235, %234 ], [ %.pn95.pn.pn.pn.pn.i, %261 ]
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %307 = load i8, ptr %306, align 8, !range !283, !noalias !793, !noundef !4
   %308 = trunc nuw i8 %307 to i1
@@ -3659,9 +3659,9 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
           to label %408 unwind label %406
 
 .body.i:                                          ; preds = %1436, %430, %401, %389, %376, %363, %352
-  %373 = phi ptr [ %431, %1436 ], [ %431, %430 ], [ %209, %363 ], [ %209, %352 ], [ %209, %376 ], [ %209, %389 ], [ %209, %401 ]
-  %374 = phi ptr [ %432, %1436 ], [ %432, %430 ], [ %210, %363 ], [ %210, %352 ], [ %210, %376 ], [ %210, %389 ], [ %210, %401 ]
-  %.pn126.pn.pn.i = phi { ptr, i32 } [ %.pn126.pn.i, %1436 ], [ %.pn126.pn.i, %430 ], [ %364, %363 ], [ %353, %352 ], [ %377, %376 ], [ %390, %389 ], [ %402, %401 ]
+  %373 = phi ptr [ %431, %1436 ], [ %431, %430 ], [ %209, %363 ], [ %209, %352 ], [ %209, %389 ], [ %209, %376 ], [ %209, %401 ]
+  %374 = phi ptr [ %432, %1436 ], [ %432, %430 ], [ %210, %363 ], [ %210, %352 ], [ %210, %389 ], [ %210, %376 ], [ %210, %401 ]
+  %.pn126.pn.pn.i = phi { ptr, i32 } [ %.pn126.pn.i, %1436 ], [ %.pn126.pn.i, %430 ], [ %364, %363 ], [ %353, %352 ], [ %390, %389 ], [ %377, %376 ], [ %402, %401 ]
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 1803
   store i8 0, ptr %375, align 1, !noalias !793
   call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !793
@@ -3831,9 +3831,9 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %449
 
 .body177.i:                                       ; preds = %.body174.i, %421
-  %425 = phi ptr [ %209, %421 ], [ %1433, %.body174.i ]
-  %426 = phi ptr [ %210, %421 ], [ %1434, %.body174.i ]
-  %.pn126.i = phi { ptr, i32 } [ %.pn118.i, %421 ], [ %.pn124.i, %.body174.i ]
+  %425 = phi ptr [ %1433, %.body174.i ], [ %209, %421 ]
+  %426 = phi ptr [ %1434, %.body174.i ], [ %210, %421 ]
+  %.pn126.i = phi { ptr, i32 } [ %.pn124.i, %.body174.i ], [ %.pn118.i, %421 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8239.i)
   br label %430
 
@@ -4438,13 +4438,13 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
           to label %724 unwind label %722
 
 633:                                              ; preds = %788, %779, %554, %534, %527
-  %634 = phi ptr [ %780, %779 ], [ %500, %788 ], [ %500, %534 ], [ %500, %554 ], [ %500, %527 ]
-  %635 = phi ptr [ %781, %779 ], [ %501, %788 ], [ %501, %534 ], [ %501, %554 ], [ %501, %527 ]
-  %636 = phi ptr [ %782, %779 ], [ %502, %788 ], [ %502, %534 ], [ %502, %554 ], [ %502, %527 ]
-  %637 = phi ptr [ %783, %779 ], [ %503, %788 ], [ %503, %534 ], [ %503, %554 ], [ %503, %527 ]
-  %638 = phi ptr [ %784, %779 ], [ %505, %788 ], [ %505, %534 ], [ %505, %554 ], [ %505, %527 ]
-  %639 = phi ptr [ %785, %779 ], [ %506, %788 ], [ %506, %534 ], [ %506, %554 ], [ %506, %527 ]
-  %.pn184.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn184.pn.pn.i.i.i, %779 ], [ %.pn159.pn.i.i.i, %788 ], [ %535, %534 ], [ %.pn143.pn.pn.pn.i.i.i, %554 ], [ %528, %527 ]
+  %634 = phi ptr [ %780, %779 ], [ %500, %788 ], [ %500, %534 ], [ %500, %527 ], [ %500, %554 ]
+  %635 = phi ptr [ %781, %779 ], [ %501, %788 ], [ %501, %534 ], [ %501, %527 ], [ %501, %554 ]
+  %636 = phi ptr [ %782, %779 ], [ %502, %788 ], [ %502, %534 ], [ %502, %527 ], [ %502, %554 ]
+  %637 = phi ptr [ %783, %779 ], [ %503, %788 ], [ %503, %534 ], [ %503, %527 ], [ %503, %554 ]
+  %638 = phi ptr [ %784, %779 ], [ %505, %788 ], [ %505, %534 ], [ %505, %527 ], [ %505, %554 ]
+  %639 = phi ptr [ %785, %779 ], [ %506, %788 ], [ %506, %534 ], [ %506, %527 ], [ %506, %554 ]
+  %.pn184.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn184.pn.pn.i.i.i, %779 ], [ %.pn159.pn.i.i.i, %788 ], [ %535, %534 ], [ %528, %527 ], [ %.pn143.pn.pn.pn.i.i.i, %554 ]
   %640 = getelementptr inbounds nuw i8, ptr %0, i64 1237
   %641 = load i8, ptr %640, align 1, !range !283, !noalias !920, !noundef !4
   %642 = trunc nuw i8 %641 to i1
@@ -5114,18 +5114,18 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %910
 
 .body.i.i.i.i.i.i:                                ; preds = %943, %929, %924, %884
-  %887 = phi ptr [ %862, %884 ], [ %911, %924 ], [ %911, %943 ], [ %911, %929 ]
-  %888 = phi ptr [ %863, %884 ], [ %912, %924 ], [ %912, %943 ], [ %912, %929 ]
-  %889 = phi ptr [ %864, %884 ], [ %913, %924 ], [ %913, %943 ], [ %913, %929 ]
-  %890 = phi ptr [ %865, %884 ], [ %914, %924 ], [ %914, %943 ], [ %914, %929 ]
-  %891 = phi ptr [ %866, %884 ], [ %915, %924 ], [ %915, %943 ], [ %915, %929 ]
-  %892 = phi ptr [ %867, %884 ], [ %916, %924 ], [ %916, %943 ], [ %916, %929 ]
-  %893 = phi ptr [ %868, %884 ], [ %917, %924 ], [ %917, %943 ], [ %917, %929 ]
-  %894 = phi ptr [ %869, %884 ], [ %918, %924 ], [ %918, %943 ], [ %918, %929 ]
-  %895 = phi ptr [ %870, %884 ], [ %919, %924 ], [ %919, %943 ], [ %919, %929 ]
-  %896 = phi ptr [ %871, %884 ], [ %920, %924 ], [ %920, %943 ], [ %920, %929 ]
-  %897 = phi ptr [ %872, %884 ], [ %921, %924 ], [ %921, %943 ], [ %921, %929 ]
-  %.pn31.i.i.i.i.i.i = phi { ptr, i32 } [ %885, %884 ], [ %925, %924 ], [ %944, %943 ], [ %930, %929 ]
+  %887 = phi ptr [ %911, %924 ], [ %862, %884 ], [ %911, %943 ], [ %911, %929 ]
+  %888 = phi ptr [ %912, %924 ], [ %863, %884 ], [ %912, %943 ], [ %912, %929 ]
+  %889 = phi ptr [ %913, %924 ], [ %864, %884 ], [ %913, %943 ], [ %913, %929 ]
+  %890 = phi ptr [ %914, %924 ], [ %865, %884 ], [ %914, %943 ], [ %914, %929 ]
+  %891 = phi ptr [ %915, %924 ], [ %866, %884 ], [ %915, %943 ], [ %915, %929 ]
+  %892 = phi ptr [ %916, %924 ], [ %867, %884 ], [ %916, %943 ], [ %916, %929 ]
+  %893 = phi ptr [ %917, %924 ], [ %868, %884 ], [ %917, %943 ], [ %917, %929 ]
+  %894 = phi ptr [ %918, %924 ], [ %869, %884 ], [ %918, %943 ], [ %918, %929 ]
+  %895 = phi ptr [ %919, %924 ], [ %870, %884 ], [ %919, %943 ], [ %919, %929 ]
+  %896 = phi ptr [ %920, %924 ], [ %871, %884 ], [ %920, %943 ], [ %920, %929 ]
+  %897 = phi ptr [ %921, %924 ], [ %872, %884 ], [ %921, %943 ], [ %921, %929 ]
+  %.pn31.i.i.i.i.i.i = phi { ptr, i32 } [ %925, %924 ], [ %885, %884 ], [ %944, %943 ], [ %930, %929 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %898
 
@@ -5230,17 +5230,17 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br i1 %950, label %987, label %965
 
 .body.i.i.i.i.i:                                  ; preds = %947, %898
-  %951 = phi ptr [ %899, %898 ], [ %207, %947 ]
-  %952 = phi ptr [ %900, %898 ], [ %206, %947 ]
-  %953 = phi ptr [ %901, %898 ], [ %.phi.trans.insert.i, %947 ]
-  %954 = phi ptr [ %902, %898 ], [ %448, %947 ]
-  %955 = phi ptr [ %903, %898 ], [ %.phi.trans.insert.i.i, %947 ]
-  %956 = phi ptr [ %904, %898 ], [ %498, %947 ]
-  %957 = phi ptr [ %905, %898 ], [ %.phi.trans.insert.i.i.i, %947 ]
-  %958 = phi ptr [ %906, %898 ], [ %793, %947 ]
-  %959 = phi ptr [ %907, %898 ], [ %.phi.trans.insert.i.i.i.i, %947 ]
-  %960 = phi ptr [ %909, %898 ], [ %838, %947 ]
-  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %.pn31.pn.i.i.i.i.i.i, %898 ], [ %948, %947 ]
+  %951 = phi ptr [ %207, %947 ], [ %899, %898 ]
+  %952 = phi ptr [ %206, %947 ], [ %900, %898 ]
+  %953 = phi ptr [ %.phi.trans.insert.i, %947 ], [ %901, %898 ]
+  %954 = phi ptr [ %448, %947 ], [ %902, %898 ]
+  %955 = phi ptr [ %.phi.trans.insert.i.i, %947 ], [ %903, %898 ]
+  %956 = phi ptr [ %498, %947 ], [ %904, %898 ]
+  %957 = phi ptr [ %.phi.trans.insert.i.i.i, %947 ], [ %905, %898 ]
+  %958 = phi ptr [ %793, %947 ], [ %906, %898 ]
+  %959 = phi ptr [ %.phi.trans.insert.i.i.i.i, %947 ], [ %907, %898 ]
+  %960 = phi ptr [ %838, %947 ], [ %909, %898 ]
+  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %948, %947 ], [ %.pn31.pn.i.i.i.i.i.i, %898 ]
   invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..reserve_inner..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6fadf3684cd405d6E"(ptr noundef nonnull align 8 %960) #27
           to label %833 unwind label %961, !noalias !996
 
@@ -5286,15 +5286,15 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %999
 
 .body.i.i.i.i:                                    ; preds = %963, %833
-  %972 = phi ptr [ %951, %833 ], [ %207, %963 ]
-  %973 = phi ptr [ %952, %833 ], [ %206, %963 ]
-  %974 = phi ptr [ %953, %833 ], [ %.phi.trans.insert.i, %963 ]
-  %975 = phi ptr [ %954, %833 ], [ %448, %963 ]
-  %976 = phi ptr [ %955, %833 ], [ %.phi.trans.insert.i.i, %963 ]
-  %977 = phi ptr [ %956, %833 ], [ %498, %963 ]
-  %978 = phi ptr [ %957, %833 ], [ %.phi.trans.insert.i.i.i, %963 ]
-  %979 = phi ptr [ %958, %833 ], [ %793, %963 ]
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %833 ], [ %964, %963 ]
+  %972 = phi ptr [ %207, %963 ], [ %951, %833 ]
+  %973 = phi ptr [ %206, %963 ], [ %952, %833 ]
+  %974 = phi ptr [ %.phi.trans.insert.i, %963 ], [ %953, %833 ]
+  %975 = phi ptr [ %448, %963 ], [ %954, %833 ]
+  %976 = phi ptr [ %.phi.trans.insert.i.i, %963 ], [ %955, %833 ]
+  %977 = phi ptr [ %498, %963 ], [ %956, %833 ]
+  %978 = phi ptr [ %.phi.trans.insert.i.i.i, %963 ], [ %957, %833 ]
+  %979 = phi ptr [ %793, %963 ], [ %958, %833 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %964, %963 ], [ %.pn.i.i.i.i.i, %833 ]
   invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..reserve..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23937e153720ea58E"(ptr noundef nonnull align 8 %979) #27
           to label %.body33.i.i.i.i unwind label %980, !noalias !996
 
@@ -5398,13 +5398,13 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %1070
 
 .body237.i.i.i:                                   ; preds = %.body233.i.i.i, %1145, %1120, %1108, %1105
-  %1023 = phi ptr [ %1085, %1145 ], [ %1085, %1120 ], [ %1085, %1108 ], [ %1279, %.body233.i.i.i ], [ %1085, %1105 ]
-  %1024 = phi ptr [ %1086, %1145 ], [ %1086, %1120 ], [ %1086, %1108 ], [ %1280, %.body233.i.i.i ], [ %1086, %1105 ]
-  %1025 = phi ptr [ %1087, %1145 ], [ %1087, %1120 ], [ %1087, %1108 ], [ %1281, %.body233.i.i.i ], [ %1087, %1105 ]
-  %1026 = phi ptr [ %1088, %1145 ], [ %1088, %1120 ], [ %1088, %1108 ], [ %1282, %.body233.i.i.i ], [ %1088, %1105 ]
-  %1027 = phi ptr [ %1089, %1145 ], [ %1089, %1120 ], [ %1089, %1108 ], [ %1283, %.body233.i.i.i ], [ %1089, %1105 ]
-  %1028 = phi ptr [ %1090, %1145 ], [ %1090, %1120 ], [ %1090, %1108 ], [ %1284, %.body233.i.i.i ], [ %1090, %1105 ]
-  %.pn176.i.i.i = phi { ptr, i32 } [ %1146, %1145 ], [ %1121, %1120 ], [ %1109, %1108 ], [ %.pn172.i.i.i, %.body233.i.i.i ], [ %1106, %1105 ]
+  %1023 = phi ptr [ %1085, %1108 ], [ %1085, %1120 ], [ %1085, %1145 ], [ %1085, %1105 ], [ %1279, %.body233.i.i.i ]
+  %1024 = phi ptr [ %1086, %1108 ], [ %1086, %1120 ], [ %1086, %1145 ], [ %1086, %1105 ], [ %1280, %.body233.i.i.i ]
+  %1025 = phi ptr [ %1087, %1108 ], [ %1087, %1120 ], [ %1087, %1145 ], [ %1087, %1105 ], [ %1281, %.body233.i.i.i ]
+  %1026 = phi ptr [ %1088, %1108 ], [ %1088, %1120 ], [ %1088, %1145 ], [ %1088, %1105 ], [ %1282, %.body233.i.i.i ]
+  %1027 = phi ptr [ %1089, %1108 ], [ %1089, %1120 ], [ %1089, %1145 ], [ %1089, %1105 ], [ %1283, %.body233.i.i.i ]
+  %1028 = phi ptr [ %1090, %1108 ], [ %1090, %1120 ], [ %1090, %1145 ], [ %1090, %1105 ], [ %1284, %.body233.i.i.i ]
+  %.pn176.i.i.i = phi { ptr, i32 } [ %1109, %1108 ], [ %1121, %1120 ], [ %1146, %1145 ], [ %1106, %1105 ], [ %.pn172.i.i.i, %.body233.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !920
   br label %1061
 
@@ -5476,26 +5476,26 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   unreachable
 
 .body.i.i.i:                                      ; preds = %985, %982
-  %1054 = phi ptr [ %806, %982 ], [ %207, %985 ]
-  %1055 = phi ptr [ %807, %982 ], [ %206, %985 ]
-  %1056 = phi ptr [ %808, %982 ], [ %.phi.trans.insert.i, %985 ]
-  %1057 = phi ptr [ %809, %982 ], [ %448, %985 ]
-  %1058 = phi ptr [ %810, %982 ], [ %.phi.trans.insert.i.i, %985 ]
-  %1059 = phi ptr [ %811, %982 ], [ %498, %985 ]
-  %1060 = phi ptr [ %813, %982 ], [ %793, %985 ]
-  %.pn166.i.i.i = phi { ptr, i32 } [ %.pn29.i.i.i.i, %982 ], [ %986, %985 ]
+  %1054 = phi ptr [ %207, %985 ], [ %806, %982 ]
+  %1055 = phi ptr [ %206, %985 ], [ %807, %982 ]
+  %1056 = phi ptr [ %.phi.trans.insert.i, %985 ], [ %808, %982 ]
+  %1057 = phi ptr [ %448, %985 ], [ %809, %982 ]
+  %1058 = phi ptr [ %.phi.trans.insert.i.i, %985 ], [ %810, %982 ]
+  %1059 = phi ptr [ %498, %985 ], [ %811, %982 ]
+  %1060 = phi ptr [ %793, %985 ], [ %813, %982 ]
+  %.pn166.i.i.i = phi { ptr, i32 } [ %986, %985 ], [ %.pn29.i.i.i.i, %982 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8289.i.i.i)
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae91dfad0c927e1bE"(ptr noundef nonnull align 8 %1060) #27
           to label %1061 unwind label %629
 
 1061:                                             ; preds = %1166, %1157, %.body.i.i.i, %.body237.i.i.i, %1020, %1014, %751
-  %1062 = phi ptr [ %1023, %.body237.i.i.i ], [ %1085, %1166 ], [ %1085, %1157 ], [ %500, %751 ], [ %1000, %1014 ], [ %1000, %1020 ], [ %1054, %.body.i.i.i ]
-  %1063 = phi ptr [ %1024, %.body237.i.i.i ], [ %1086, %1166 ], [ %1086, %1157 ], [ %501, %751 ], [ %1001, %1014 ], [ %1001, %1020 ], [ %1055, %.body.i.i.i ]
-  %1064 = phi ptr [ %1025, %.body237.i.i.i ], [ %1087, %1166 ], [ %1087, %1157 ], [ %502, %751 ], [ %1002, %1014 ], [ %1002, %1020 ], [ %1056, %.body.i.i.i ]
-  %1065 = phi ptr [ %1026, %.body237.i.i.i ], [ %1088, %1166 ], [ %1088, %1157 ], [ %503, %751 ], [ %1003, %1014 ], [ %1003, %1020 ], [ %1057, %.body.i.i.i ]
-  %1066 = phi ptr [ %1027, %.body237.i.i.i ], [ %1089, %1166 ], [ %1089, %1157 ], [ %505, %751 ], [ %1004, %1014 ], [ %1004, %1020 ], [ %1058, %.body.i.i.i ]
-  %1067 = phi ptr [ %1028, %.body237.i.i.i ], [ %1090, %1166 ], [ %1090, %1157 ], [ %506, %751 ], [ %1005, %1014 ], [ %1005, %1020 ], [ %1059, %.body.i.i.i ]
-  %.pn176.pn.i.i.i = phi { ptr, i32 } [ %.pn176.i.i.i, %.body237.i.i.i ], [ %1167, %1166 ], [ %1158, %1157 ], [ %752, %751 ], [ %1015, %1014 ], [ %1021, %1020 ], [ %.pn166.i.i.i, %.body.i.i.i ]
+  %1062 = phi ptr [ %1023, %.body237.i.i.i ], [ %1085, %1166 ], [ %1085, %1157 ], [ %1000, %1014 ], [ %1000, %1020 ], [ %1054, %.body.i.i.i ], [ %500, %751 ]
+  %1063 = phi ptr [ %1024, %.body237.i.i.i ], [ %1086, %1166 ], [ %1086, %1157 ], [ %1001, %1014 ], [ %1001, %1020 ], [ %1055, %.body.i.i.i ], [ %501, %751 ]
+  %1064 = phi ptr [ %1025, %.body237.i.i.i ], [ %1087, %1166 ], [ %1087, %1157 ], [ %1002, %1014 ], [ %1002, %1020 ], [ %1056, %.body.i.i.i ], [ %502, %751 ]
+  %1065 = phi ptr [ %1026, %.body237.i.i.i ], [ %1088, %1166 ], [ %1088, %1157 ], [ %1003, %1014 ], [ %1003, %1020 ], [ %1057, %.body.i.i.i ], [ %503, %751 ]
+  %1066 = phi ptr [ %1027, %.body237.i.i.i ], [ %1089, %1166 ], [ %1089, %1157 ], [ %1004, %1014 ], [ %1004, %1020 ], [ %1058, %.body.i.i.i ], [ %505, %751 ]
+  %1067 = phi ptr [ %1028, %.body237.i.i.i ], [ %1090, %1166 ], [ %1090, %1157 ], [ %1005, %1014 ], [ %1005, %1020 ], [ %1059, %.body.i.i.i ], [ %506, %751 ]
+  %.pn176.pn.i.i.i = phi { ptr, i32 } [ %.pn176.i.i.i, %.body237.i.i.i ], [ %1167, %1166 ], [ %1158, %1157 ], [ %1015, %1014 ], [ %1021, %1020 ], [ %.pn166.i.i.i, %.body.i.i.i ], [ %752, %751 ]
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   invoke void @"_ZN4core3ptr153drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17hcf7b5758967c8befE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1068) #27
           to label %.body226.i.i.i unwind label %629
@@ -5972,13 +5972,13 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   unreachable
 
 .body253.i.i.i:                                   ; preds = %1287, %1245, %1227, %759
-  %1235 = phi ptr [ %760, %759 ], [ %760, %1287 ], [ %1031, %1245 ], [ %1031, %1227 ]
-  %1236 = phi ptr [ %761, %759 ], [ %761, %1287 ], [ %1032, %1245 ], [ %1032, %1227 ]
-  %1237 = phi ptr [ %762, %759 ], [ %762, %1287 ], [ %1033, %1245 ], [ %1033, %1227 ]
-  %1238 = phi ptr [ %763, %759 ], [ %763, %1287 ], [ %1034, %1245 ], [ %1034, %1227 ]
-  %1239 = phi ptr [ %764, %759 ], [ %764, %1287 ], [ %1035, %1245 ], [ %1035, %1227 ]
-  %1240 = phi ptr [ %765, %759 ], [ %765, %1287 ], [ %1036, %1245 ], [ %1036, %1227 ]
-  %.pn182.i.i.i = phi { ptr, i32 } [ %.pn179.pn.i.i.i, %759 ], [ %.pn179.pn.i.i.i, %1287 ], [ %1246, %1245 ], [ %1228, %1227 ]
+  %1235 = phi ptr [ %760, %1287 ], [ %760, %759 ], [ %1031, %1245 ], [ %1031, %1227 ]
+  %1236 = phi ptr [ %761, %1287 ], [ %761, %759 ], [ %1032, %1245 ], [ %1032, %1227 ]
+  %1237 = phi ptr [ %762, %1287 ], [ %762, %759 ], [ %1033, %1245 ], [ %1033, %1227 ]
+  %1238 = phi ptr [ %763, %1287 ], [ %763, %759 ], [ %1034, %1245 ], [ %1034, %1227 ]
+  %1239 = phi ptr [ %764, %1287 ], [ %764, %759 ], [ %1035, %1245 ], [ %1035, %1227 ]
+  %1240 = phi ptr [ %765, %1287 ], [ %765, %759 ], [ %1036, %1245 ], [ %1036, %1227 ]
+  %.pn182.i.i.i = phi { ptr, i32 } [ %.pn179.pn.i.i.i, %1287 ], [ %.pn179.pn.i.i.i, %759 ], [ %1246, %1245 ], [ %1228, %1227 ]
   %1241 = getelementptr inbounds nuw i8, ptr %0, i64 1233
   store i8 0, ptr %1241, align 1, !noalias !920
   %1242 = getelementptr inbounds nuw i8, ptr %0, i64 1234
@@ -6056,13 +6056,13 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %1207
 
 .body233.i.i.i:                                   ; preds = %1098, %1093
-  %1279 = phi ptr [ %1085, %1093 ], [ %207, %1098 ]
-  %1280 = phi ptr [ %1086, %1093 ], [ %206, %1098 ]
-  %1281 = phi ptr [ %1087, %1093 ], [ %.phi.trans.insert.i, %1098 ]
-  %1282 = phi ptr [ %1088, %1093 ], [ %448, %1098 ]
-  %1283 = phi ptr [ %1089, %1093 ], [ %.phi.trans.insert.i.i, %1098 ]
-  %1284 = phi ptr [ %1090, %1093 ], [ %498, %1098 ]
-  %.pn172.i.i.i = phi { ptr, i32 } [ %1094, %1093 ], [ %1099, %1098 ]
+  %1279 = phi ptr [ %207, %1098 ], [ %1085, %1093 ]
+  %1280 = phi ptr [ %206, %1098 ], [ %1086, %1093 ]
+  %1281 = phi ptr [ %.phi.trans.insert.i, %1098 ], [ %1087, %1093 ]
+  %1282 = phi ptr [ %448, %1098 ], [ %1088, %1093 ]
+  %1283 = phi ptr [ %.phi.trans.insert.i.i, %1098 ], [ %1089, %1093 ]
+  %1284 = phi ptr [ %498, %1098 ], [ %1090, %1093 ]
+  %.pn172.i.i.i = phi { ptr, i32 } [ %1099, %1098 ], [ %1094, %1093 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0321.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8325.i.i.i)
   br label %.body237.i.i.i
@@ -6158,12 +6158,12 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %486
 
 .body50.i.i:                                      ; preds = %1306, %1303
-  %1317 = phi ptr [ %1265, %1303 ], [ %207, %1306 ]
-  %1318 = phi ptr [ %1266, %1303 ], [ %206, %1306 ]
-  %1319 = phi ptr [ %1267, %1303 ], [ %.phi.trans.insert.i, %1306 ]
-  %1320 = phi ptr [ %1268, %1303 ], [ %448, %1306 ]
-  %1321 = phi ptr [ %1270, %1303 ], [ %498, %1306 ]
-  %.pn42.i.i = phi { ptr, i32 } [ %.pn189.i.i.i, %1303 ], [ %1307, %1306 ]
+  %1317 = phi ptr [ %207, %1306 ], [ %1265, %1303 ]
+  %1318 = phi ptr [ %206, %1306 ], [ %1266, %1303 ]
+  %1319 = phi ptr [ %.phi.trans.insert.i, %1306 ], [ %1267, %1303 ]
+  %1320 = phi ptr [ %448, %1306 ], [ %1268, %1303 ]
+  %1321 = phi ptr [ %498, %1306 ], [ %1270, %1303 ]
+  %.pn42.i.i = phi { ptr, i32 } [ %1307, %1306 ], [ %.pn189.i.i.i, %1303 ]
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$ockam_node..worker_builder..start$LT$ockam..relay_service..relay..Relay$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf40d328c47fb6163E"(ptr noundef nonnull align 8 %1321) #27
           to label %486 unwind label %482
 
@@ -6443,10 +6443,10 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %1427
 
 .body174.i:                                       ; preds = %1331, %1328
-  %1433 = phi ptr [ %487, %1328 ], [ %207, %1331 ]
-  %1434 = phi ptr [ %488, %1328 ], [ %206, %1331 ]
-  %1435 = phi ptr [ %490, %1328 ], [ %448, %1331 ]
-  %.pn124.i = phi { ptr, i32 } [ %.pn44.i.i, %1328 ], [ %1332, %1331 ]
+  %1433 = phi ptr [ %207, %1331 ], [ %487, %1328 ]
+  %1434 = phi ptr [ %206, %1331 ], [ %488, %1328 ]
+  %1435 = phi ptr [ %448, %1331 ], [ %490, %1328 ]
+  %.pn124.i = phi { ptr, i32 } [ %1332, %1331 ], [ %.pn44.i.i, %1328 ]
   invoke fastcc void @"_ZN4core3ptr150drop_in_place$LT$ockam_node..worker_builder..WorkerBuilderOneAddress$LT$ockam..relay_service..relay..Relay$GT$..start..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0e9cc2aeac4b37bE"(ptr noundef nonnull align 8 %1435) #27
           to label %.body177.i unwind label %427
 
@@ -6609,8 +6609,8 @@ common.ret:                                       ; preds = %1470, %1446
   br label %1487
 
 .body113:                                         ; preds = %1441, %1427
-  %1490 = phi ptr [ %1429, %1427 ], [ %206, %1441 ]
-  %.pn90 = phi { ptr, i32 } [ %.pn133.pn.pn.i, %1427 ], [ %1442, %1441 ]
+  %1490 = phi ptr [ %206, %1441 ], [ %1429, %1427 ]
+  %.pn90 = phi { ptr, i32 } [ %1442, %1441 ], [ %.pn133.pn.pn.i, %1427 ]
   invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$ockam..relay_service..relay..Relay..create..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdbd980c5a5dfa880E"(ptr noundef nonnull align 8 %1490) #27
           to label %182 unwind label %178
 

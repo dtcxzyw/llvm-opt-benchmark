@@ -337,7 +337,7 @@ define noundef zeroext i1 @_ZNK3gmx18nonbonded_verlet_t23isDynamicPruningStepGpu
   br label %_ZNK3gmx12PairlistSets23isDynamicPruningStepGpuEl.exit
 
 _ZNK3gmx12PairlistSets23isDynamicPruningStepGpuEl.exit: ; preds = %2, %15, %21, %25
-  %29 = phi i1 [ false, %15 ], [ %28, %25 ], [ false, %2 ], [ true, %21 ]
+  %29 = phi i1 [ false, %15 ], [ false, %2 ], [ true, %21 ], [ %28, %25 ]
   ret i1 %29
 }
 

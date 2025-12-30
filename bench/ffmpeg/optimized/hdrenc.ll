@@ -456,7 +456,7 @@ rle.exit:                                         ; preds = %222, %.preheader115
   br i1 %exitcond.not, label %.loopexit, label %.preheader115.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %rle.exit, %float2rgbe.exit, %108, %.preheader115, %.preheader
-  %.4 = phi ptr [ %117, %.preheader115 ], [ %.2125, %.preheader ], [ %117, %108 ], [ %104, %float2rgbe.exit ], [ %.12, %rle.exit ]
+  %.4 = phi ptr [ %.2125, %.preheader ], [ %117, %.preheader115 ], [ %117, %108 ], [ %104, %float2rgbe.exit ], [ %.12, %rle.exit ]
   %224 = add nuw nsw i32 %.064126, 1
   %225 = load i32, ptr %9, align 4, !tbaa !30
   %226 = icmp slt i32 %224, %225

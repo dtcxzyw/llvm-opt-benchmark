@@ -416,7 +416,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Aopen_name(i64 noundef %0, ptr
   %88 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %90
 
-.thread58:                                        ; preds = %33, %13, %26, %.thread67, %.thread63
+.thread58:                                        ; preds = %13, %26, %33, %.thread67, %.thread63
   %89 = call i32 @H5E_dump_api_stack() #4
   br label %90
 
@@ -575,7 +575,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Aopen_idx(i64 noundef %0, i32 
   %88 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %90
 
-.thread53:                                        ; preds = %26, %33, %13, %.thread62, %.thread58
+.thread53:                                        ; preds = %13, %26, %33, %.thread62, %.thread58
   %89 = call i32 @H5E_dump_api_stack() #4
   br label %90
 

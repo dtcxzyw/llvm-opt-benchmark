@@ -624,7 +624,7 @@ dtdCreate.exit:                                   ; preds = %47
   br label %.thread
 
 .thread:                                          ; preds = %16, %5, %113, %117, %111, %80, %39, %31
-  %.0 = phi ptr [ null, %31 ], [ null, %39 ], [ %.sink104, %113 ], [ null, %111 ], [ null, %80 ], [ %.sink104, %117 ], [ null, %5 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %31 ], [ null, %39 ], [ null, %111 ], [ null, %80 ], [ %.sink104, %117 ], [ %.sink104, %113 ], [ null, %5 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -1298,13 +1298,13 @@ copyString.exit:                                  ; preds = %13
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %7, %copyString.exit
-  %.sink = phi ptr [ null, %7 ], [ %17, %copyString.exit ], [ null, %13 ]
-  %.0.ph = phi i32 [ 1, %7 ], [ 1, %copyString.exit ], [ 0, %13 ]
+  %.sink = phi ptr [ %17, %copyString.exit ], [ null, %7 ], [ null, %13 ]
+  %.0.ph = phi i32 [ 1, %copyString.exit ], [ 1, %7 ], [ 0, %13 ]
   store ptr %.sink, ptr %10, align 8, !tbaa !64
   br label %19
 
 19:                                               ; preds = %.sink.split, %4, %4, %2
-  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ 0, %4 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %4 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2581,7 +2581,7 @@ poolCopyString.exit246.i:                         ; preds = %._crit_edge.i244.i
   %.not135 = icmp eq i8 %689, 0
   br i1 %.not135, label %dtdCopy.exit.thread, label %690
 
-dtdCopy.exit.thread:                              ; preds = %240, %poolCopyString.exit.i, %182, %185, %._crit_edge.i249.i, %204, %207, %209, %189, %poolCopyString.exit167.i, %283, %263, %273, %371, %376, %poolCopyString.exit184.i, %361, %poolCopyString.exit246.i, %poolCopyString.exit246.thread.i, %652, %654, %658
+dtdCopy.exit.thread:                              ; preds = %240, %poolCopyString.exit.i, %182, %185, %189, %._crit_edge.i249.i, %204, %207, %209, %283, %poolCopyString.exit167.i, %263, %273, %376, %371, %poolCopyString.exit184.i, %361, %poolCopyString.exit246.i, %poolCopyString.exit246.thread.i, %654, %652, %658
   call void @PyExpat_XML_ParserFree(ptr noundef %.0125)
   br label %696
 
@@ -2600,7 +2600,7 @@ dtdCopy.exit.thread:                              ; preds = %240, %poolCopyStrin
   br label %696
 
 696:                                              ; preds = %690, %692, %79, %3, %dtdCopy.exit.thread
-  %.0 = phi ptr [ null, %3 ], [ null, %79 ], [ null, %dtdCopy.exit.thread ], [ %.0125, %692 ], [ %.0125, %690 ]
+  %.0 = phi ptr [ null, %dtdCopy.exit.thread ], [ null, %3 ], [ null, %79 ], [ %.0125, %692 ], [ %.0125, %690 ]
   ret ptr %.0
 }
 
@@ -2926,14 +2926,14 @@ poolCopyString.exit._crit_edge:                   ; preds = %poolCopyString.exit
   br label %143
 
 143:                                              ; preds = %.thread, %129, %138
-  %.281 = phi ptr [ %spec.select, %.thread ], [ %spec.select104, %129 ], [ %.079123, %138 ]
-  %.377 = phi ptr [ %spec.select, %.thread ], [ %spec.select104, %129 ], [ %142, %138 ]
+  %.281 = phi ptr [ %spec.select104, %129 ], [ %.079123, %138 ], [ %spec.select, %.thread ]
+  %.377 = phi ptr [ %spec.select104, %129 ], [ %142, %138 ], [ %spec.select, %.thread ]
   %144 = load i8, ptr %.281, align 1, !tbaa !3
   %.not = icmp eq i8 %144, 0
   br i1 %.not, label %.critedge106, label %21, !llvm.loop !181
 
-.critedge106:                                     ; preds = %poolCopyString.exit, %122, %85, %83, %124, %143, %136, %27, %116, %4, %poolCopyString.exit.thread, %2
-  %.072 = phi i8 [ 0, %2 ], [ 0, %poolCopyString.exit.thread ], [ 1, %4 ], [ 0, %116 ], [ 0, %136 ], [ 0, %poolCopyString.exit ], [ 0, %122 ], [ 0, %85 ], [ 0, %83 ], [ 1, %143 ], [ 0, %124 ], [ 0, %27 ]
+.critedge106:                                     ; preds = %83, %85, %poolCopyString.exit, %122, %124, %143, %136, %27, %116, %4, %poolCopyString.exit.thread, %2
+  %.072 = phi i8 [ 0, %2 ], [ 0, %poolCopyString.exit.thread ], [ 1, %4 ], [ 0, %116 ], [ 0, %83 ], [ 0, %85 ], [ 0, %poolCopyString.exit ], [ 0, %122 ], [ 0, %124 ], [ 1, %143 ], [ 0, %136 ], [ 0, %27 ]
   ret i8 %.072
 }
 
@@ -3545,7 +3545,7 @@ define internal i32 @externalParEntInitProcessor(ptr noundef %0, ptr noundef %1,
   br label %17
 
 17:                                               ; preds = %4, %15, %13
-  %.0 = phi i32 [ %16, %15 ], [ %14, %13 ], [ %5, %4 ]
+  %.0 = phi i32 [ %14, %13 ], [ %16, %15 ], [ %5, %4 ]
   ret i32 %.0
 }
 
@@ -4279,7 +4279,7 @@ define hidden range(i32 0, 3) i32 @PyExpat_XML_Parse(ptr noundef %0, ptr noundef
   br label %35
 
 35:                                               ; preds = %33, %27, %10, %.thread, %25, %17, %15
-  %.0 = phi i32 [ 0, %25 ], [ 0, %10 ], [ 0, %15 ], [ 0, %17 ], [ 0, %.thread ], [ %34, %33 ], [ 0, %27 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %17 ], [ 0, %25 ], [ 0, %.thread ], [ 0, %10 ], [ %34, %33 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -4411,7 +4411,7 @@ getDebugLevel.exit.i4.i:                          ; preds = %54
   br label %generate_hash_secret_salt.exit
 
 generate_hash_secret_salt.exit:                   ; preds = %writeRandomBytes_getrandom_nonblock.exit.i, %getDebugLevel.exit.thread4.i.i, %getDebugLevel.exit.i.i, %35, %38, %getDebugLevel.exit.thread4.i2.i, %getDebugLevel.exit.i4.i, %56
-  %.0.i = phi i64 [ %23, %35 ], [ %23, %writeRandomBytes_getrandom_nonblock.exit.i ], [ %23, %getDebugLevel.exit.thread4.i.i ], [ %23, %getDebugLevel.exit.i.i ], [ %45, %38 ], [ %45, %getDebugLevel.exit.thread4.i2.i ], [ %45, %getDebugLevel.exit.i4.i ], [ %45, %56 ]
+  %.0.i = phi i64 [ %23, %writeRandomBytes_getrandom_nonblock.exit.i ], [ %23, %getDebugLevel.exit.thread4.i.i ], [ %23, %getDebugLevel.exit.i.i ], [ %23, %35 ], [ %45, %38 ], [ %45, %getDebugLevel.exit.thread4.i2.i ], [ %45, %getDebugLevel.exit.i4.i ], [ %45, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %.0.i, ptr %6, align 8, !tbaa !144
   br label %59
@@ -4592,10 +4592,10 @@ define hidden ptr @PyExpat_XML_GetBuffer(ptr noundef captures(address_is_null) %
   br label %.critedge.sink.split
 
 .thread.thread:                                   ; preds = %51, %56, %.thread166
-  %.not143165 = phi i1 [ true, %56 ], [ false, %.thread166 ], [ %.not143, %51 ]
-  %90 = phi ptr [ null, %56 ], [ %55, %.thread166 ], [ %55, %51 ]
-  %91 = phi i32 [ %47, %56 ], [ %67, %.thread166 ], [ %47, %51 ]
-  %spec.store.select158163 = phi i32 [ 0, %56 ], [ %62, %.thread166 ], [ 0, %51 ]
+  %.not143165 = phi i1 [ false, %.thread166 ], [ true, %56 ], [ %.not143, %51 ]
+  %90 = phi ptr [ %55, %.thread166 ], [ null, %56 ], [ %55, %51 ]
+  %91 = phi i32 [ %67, %.thread166 ], [ %47, %56 ], [ %47, %51 ]
+  %spec.store.select158163 = phi i32 [ %62, %.thread166 ], [ 0, %56 ], [ 0, %51 ]
   %brmerge = select i1 %.not, i1 true, i1 %.not143165
   %92 = ptrtoint ptr %.fr to i64
   %.fr179 = freeze ptr %90
@@ -4703,7 +4703,7 @@ define hidden ptr @PyExpat_XML_GetBuffer(ptr noundef captures(address_is_null) %
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %._crit_edge, %105, %113, %65, %49, %2, %13, %11, %6
-  %.0111 = phi ptr [ null, %13 ], [ null, %6 ], [ null, %105 ], [ null, %2 ], [ null, %11 ], [ null, %49 ], [ null, %65 ], [ null, %113 ], [ %.pre, %._crit_edge ], [ %145, %.critedge ]
+  %.0111 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %13 ], [ null, %2 ], [ null, %49 ], [ null, %65 ], [ null, %113 ], [ null, %105 ], [ %.pre, %._crit_edge ], [ %145, %.critedge ]
   ret ptr %.0111
 }
 
@@ -4905,7 +4905,7 @@ define hidden range(i32 0, 3) i32 @PyExpat_XML_ParseBuffer(ptr noundef %0, i32 n
   br label %102
 
 102:                                              ; preds = %3, %94, %93, %82, %27, %19, %14, %12, %7
-  %.044 = phi i32 [ 0, %19 ], [ 0, %7 ], [ 0, %82 ], [ %.0, %94 ], [ 1, %93 ], [ 0, %12 ], [ 0, %14 ], [ 0, %27 ], [ 0, %3 ]
+  %.044 = phi i32 [ 0, %7 ], [ 0, %82 ], [ %.0, %94 ], [ 1, %93 ], [ 0, %12 ], [ 0, %14 ], [ 0, %27 ], [ 0, %19 ], [ 0, %3 ]
   ret i32 %.044
 }
 
@@ -4981,7 +4981,7 @@ define hidden range(i32 0, 2) i32 @PyExpat_XML_StopParser(ptr noundef captures(a
   br label %23
 
 23:                                               ; preds = %12, %22, %21, %4, %2, %19, %13, %10, %7
-  %.0 = phi i32 [ 0, %19 ], [ 0, %2 ], [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ 1, %4 ], [ 1, %21 ], [ 1, %22 ], [ 1, %12 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ 0, %19 ], [ 0, %2 ], [ 1, %4 ], [ 1, %21 ], [ 1, %22 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -5140,7 +5140,7 @@ define hidden range(i32 0, 3) i32 @PyExpat_XML_ResumeParser(ptr noundef %0) loca
   br label %84
 
 84:                                               ; preds = %1, %75, %74, %61, %6
-  %.025 = phi i32 [ 1, %74 ], [ 0, %6 ], [ 0, %61 ], [ %.0, %75 ], [ 0, %1 ]
+  %.025 = phi i32 [ 0, %6 ], [ 0, %61 ], [ %.0, %75 ], [ 1, %74 ], [ 0, %1 ]
   ret i32 %.025
 }
 
@@ -5197,7 +5197,7 @@ define hidden i64 @PyExpat_XML_GetCurrentByteIndex(ptr noundef readonly captures
   br label %14
 
 14:                                               ; preds = %3, %1, %6
-  %.0 = phi i64 [ -1, %1 ], [ %13, %6 ], [ -1, %3 ]
+  %.0 = phi i64 [ %13, %6 ], [ -1, %1 ], [ -1, %3 ]
   ret i64 %.0
 }
 
@@ -5226,7 +5226,7 @@ define hidden i32 @PyExpat_XML_GetCurrentByteCount(ptr noundef readonly captures
   br label %14
 
 14:                                               ; preds = %3, %6, %1, %9
-  %.0 = phi i32 [ 0, %1 ], [ %13, %9 ], [ 0, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %1 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -5274,7 +5274,7 @@ define hidden ptr @PyExpat_XML_GetInputContext(ptr noundef readonly captures(add
   br label %25
 
 25:                                               ; preds = %17, %18, %5, %8, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ null, %8 ], [ %10, %18 ], [ %10, %17 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %5 ], [ %10, %18 ], [ %10, %17 ]
   ret ptr %.0
 }
 
@@ -5918,7 +5918,7 @@ define internal fastcc range(i32 0, 19) i32 @initializeEncoding(ptr noundef %0) 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %46, %44, %39, %31, %29
-  %.3.ph.i = phi i32 [ 18, %44 ], [ 18, %46 ], [ 1, %31 ], [ 1, %29 ], [ 0, %39 ]
+  %.3.ph.i = phi i32 [ 18, %46 ], [ 18, %44 ], [ 1, %29 ], [ 1, %31 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %handleUnknownEncoding.exit
 
@@ -7010,7 +7010,7 @@ poolClear.exit1153:                               ; preds = %388, %.loopexit.sin
   store i8 %435, ptr %60, align 1, !tbaa !51
   br label %.thread1407
 
-.thread1407:                                      ; preds = %460, %457, %455, %453, %437, %434, %432
+.thread1407:                                      ; preds = %460, %457, %455, %453, %434, %437, %432
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store ptr @contentProcessor, ptr %461, align 8, !tbaa !100
   %462 = load ptr, ptr %31, align 8, !tbaa !205
@@ -7546,7 +7546,7 @@ poolClear.exit1176:                               ; preds = %666, %.loopexit.sin
   br label %._crit_edge.i1180
 
 ._crit_edge.i1180:                                ; preds = %689, %685, %683, %681
-  %690 = phi ptr [ %682, %683 ], [ %686, %689 ], [ %682, %685 ], [ %682, %681 ]
+  %690 = phi ptr [ %686, %689 ], [ %682, %685 ], [ %682, %683 ], [ %682, %681 ]
   %691 = load ptr, ptr %64, align 8, !tbaa !147
   %692 = icmp eq ptr %690, %691
   br i1 %692, label %693, label %695
@@ -9074,7 +9074,7 @@ reportDefault.exit:                               ; preds = %1239, %1255
   br label %1346
 
 1346:                                             ; preds = %1344, %1333, %1331
-  %.26837 = phi i8 [ 1, %1331 ], [ 1, %1333 ], [ %spec.select1093, %1344 ]
+  %.26837 = phi i8 [ 1, %1333 ], [ 1, %1331 ], [ %spec.select1093, %1344 ]
   store i8 124, ptr %1328, align 1, !tbaa !3
   br label %.thread1489
 
@@ -9446,7 +9446,7 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
   br label %1515
 
 1515:                                             ; preds = %accountingDiffTolerated.exit.thread1372, %1514, %1513
-  %.0809 = phi i32 [ 3, %1514 ], [ 2, %1513 ], [ 1, %accountingDiffTolerated.exit.thread1372 ]
+  %.0809 = phi i32 [ 2, %1513 ], [ 3, %1514 ], [ 1, %accountingDiffTolerated.exit.thread1372 ]
   %1516 = load i8, ptr %51, align 8, !tbaa !171
   %.not933 = icmp eq i8 %1516, 0
   br i1 %.not933, label %.thread1527, label %1520
@@ -9519,7 +9519,7 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
   br label %1554
 
 1554:                                             ; preds = %accountingDiffTolerated.exit.thread1372, %1553, %1552, %1551
-  %.1810 = phi i32 [ 3, %1553 ], [ 1, %1551 ], [ 2, %1552 ], [ 0, %accountingDiffTolerated.exit.thread1372 ]
+  %.1810 = phi i32 [ 1, %1551 ], [ 2, %1552 ], [ 3, %1553 ], [ 0, %accountingDiffTolerated.exit.thread1372 ]
   %1555 = load i8, ptr %51, align 8, !tbaa !171
   %.not929 = icmp eq i8 %1555, 0
   br i1 %.not929, label %.thread1527, label %1556
@@ -9719,11 +9719,11 @@ build_model.exit.thread1509:                      ; preds = %.loopexit.i1353, %1
   br i1 %.not920, label %.thread1527, label %.thread1538
 
 .thread1489:                                      ; preds = %371, %907, %1628, %1556, %1499, %1470, %1472, %1474, %870, %872, %819, %428, %325, %327, %1346, %poolClear.exit1330, %poolClear.exit1322, %poolClear.exit1176, %251
-  %.0811 = phi i8 [ %.1812, %907 ], [ %.27838, %1472 ], [ %.3814, %251 ], [ %.27838, %1474 ], [ %.31842, %1499 ], [ %.1812, %872 ], [ %.6817, %371 ], [ %.6817, %327 ], [ %.6817, %325 ], [ %.1812, %870 ], [ %.9820, %428 ], [ %spec.select1098, %1556 ], [ %.14825, %819 ], [ %.21832, %poolClear.exit1322 ], [ %.23834, %poolClear.exit1330 ], [ %.26837, %1346 ], [ %.27838, %1470 ], [ %.11822, %poolClear.exit1176 ], [ %spec.select1098, %1628 ]
+  %.0811 = phi i8 [ %.3814, %251 ], [ %.6817, %371 ], [ %.6817, %327 ], [ %.6817, %325 ], [ %.9820, %428 ], [ %.11822, %poolClear.exit1176 ], [ %.14825, %819 ], [ %.1812, %872 ], [ %.1812, %870 ], [ %.21832, %poolClear.exit1322 ], [ %.23834, %poolClear.exit1330 ], [ %.26837, %1346 ], [ %.27838, %1470 ], [ %.27838, %1474 ], [ %.27838, %1472 ], [ %.31842, %1499 ], [ %spec.select1098, %1628 ], [ %spec.select1098, %1556 ], [ %.1812, %907 ]
   %.not1084 = icmp eq i8 %.0811, 0
   br i1 %.not1084, label %.thread1538, label %.thread1527
 
-.thread1527:                                      ; preds = %.thread1477, %1435, %1468, %1438, %1502, %1547, %1646, %1322, %1080, %1034, %1640, %534, %1642, %1648, %1636, %.thread1496, %1069, %1023, %defineAttribute.exit1199, %1635, %1638, %1554, %1515, %1500, %1483, %1477, %1320, %1644, %1294, %1118, %1086, %1084, %1038, %746, %993, %932, %934, %976, %914, %916, %918, %788, %669, %536, %538, %532, %252, %accountingDiffTolerated.exit.thread1372, %.thread1489
+.thread1527:                                      ; preds = %.thread1477, %1468, %1438, %1435, %1080, %1034, %1648, %1646, %1642, %1640, %1636, %1502, %1322, %534, %1547, %.thread1496, %1069, %1023, %defineAttribute.exit1199, %746, %1635, %1644, %1638, %1554, %1515, %1500, %1483, %1477, %1320, %1294, %1118, %1086, %1084, %1038, %993, %932, %934, %976, %914, %916, %918, %788, %669, %536, %538, %532, %252, %accountingDiffTolerated.exit.thread1372, %.thread1489
   %1650 = load ptr, ptr %81, align 8, !tbaa !128
   %.not1085 = icmp eq ptr %1650, null
   br i1 %.not1085, label %.thread1538, label %1651
@@ -9790,8 +9790,8 @@ reportDefault.exit1358:                           ; preds = %1663, %1679
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread1538
 
-.thread1538:                                      ; preds = %371, %1448, %1162, %1440, %1467, %.thread1477, %1635, %907, %poolClear.exit1207, %1080, %1111, %1263, %1034, %1547, %1646, %1322, %978, %966, %1632, %1482, %920, %1640, %534, %1642, %570, %1629, %1648, %1636, %430, %.thread1381, %1502, %poolClear.exit, %.thread1375, %reportDefault.exit1358, %.thread1527, %.thread1489
-  %.27981533 = phi ptr [ %.0796, %reportDefault.exit1358 ], [ %.0796, %.thread1527 ], [ %.0796, %.thread1489 ], [ %.0796, %1502 ], [ %.0796, %1034 ], [ %.0796, %1162 ], [ %.0796, %1111 ], [ %.0796, %907 ], [ %.0796, %1547 ], [ %223, %.thread1375 ], [ %.0796, %poolClear.exit1207 ], [ %.0796, %1646 ], [ %.0796, %1322 ], [ %.0796, %1263 ], [ %.0796, %978 ], [ %.0796, %966 ], [ %.0796, %1080 ], [ %.0796, %1482 ], [ %.0796, %920 ], [ %.0796, %1640 ], [ %.0796, %534 ], [ %.0796, %1642 ], [ %.0796, %570 ], [ %.0796, %1632 ], [ %.0796, %1648 ], [ %.0796, %1636 ], [ %.0796, %430 ], [ %267, %.thread1381 ], [ %.0796, %1629 ], [ %.0796, %poolClear.exit ], [ %.0796, %1635 ], [ %.0796, %.thread1477 ], [ %.0796, %1467 ], [ %.0796, %1440 ], [ %.0796, %1448 ], [ %.0796, %371 ]
+.thread1538:                                      ; preds = %371, %1448, %1162, %1467, %1440, %.thread1477, %1635, %907, %1263, %1080, %1034, %poolClear.exit1207, %.thread1381, %.thread1375, %1648, %1646, %1642, %1640, %1636, %1632, %1629, %1502, %1322, %534, %1547, %1482, %1111, %978, %966, %920, %570, %430, %poolClear.exit, %reportDefault.exit1358, %.thread1527, %.thread1489
+  %.27981533 = phi ptr [ %.0796, %reportDefault.exit1358 ], [ %.0796, %.thread1527 ], [ %.0796, %.thread1489 ], [ %.0796, %1263 ], [ %.0796, %1080 ], [ %.0796, %1034 ], [ %.0796, %poolClear.exit1207 ], [ %267, %.thread1381 ], [ %223, %.thread1375 ], [ %.0796, %1648 ], [ %.0796, %1646 ], [ %.0796, %1642 ], [ %.0796, %1640 ], [ %.0796, %1636 ], [ %.0796, %1632 ], [ %.0796, %1629 ], [ %.0796, %1502 ], [ %.0796, %1322 ], [ %.0796, %534 ], [ %.0796, %1547 ], [ %.0796, %1482 ], [ %.0796, %1162 ], [ %.0796, %1111 ], [ %.0796, %978 ], [ %.0796, %966 ], [ %.0796, %920 ], [ %.0796, %570 ], [ %.0796, %430 ], [ %.0796, %poolClear.exit ], [ %.0796, %907 ], [ %.0796, %1635 ], [ %.0796, %.thread1477 ], [ %.0796, %1440 ], [ %.0796, %1467 ], [ %.0796, %1448 ], [ %.0796, %371 ]
   %1685 = load i32, ptr %108, align 8, !tbaa !112
   switch i32 %1685, label %accountingOnAbort.exit [
     i32 3, label %1686
@@ -9812,8 +9812,8 @@ accountingOnAbort.exit:                           ; preds = %.thread1538
 .thread1387.loopexit2516:                         ; preds = %115
   br label %.thread1387
 
-.thread1387:                                      ; preds = %1570, %1537, %1531, %1527, %1487, %1375, %poolAppend.exit.i1338, %poolStoreString.exit1344, %1430, %1431, %1442, %1448, %1283, %1261, %1192, %poolAppend.exit.i1308, %poolStoreString.exit1314, %1144, %poolAppend.exit.i1285, %poolStoreString.exit1291, %1060, %poolAppend.exit.i1261, %poolStoreString.exit1267, %1065, %1014, %poolAppend.exit.i1249, %poolStoreString.exit1255, %1019, %723, %725, %693, %671, %766, %758, %603, %605, %poolAppend.exit, %poolAppendString.exit, %353, %poolAppend.exit.i1128, %poolStoreString.exit1134, %300, %poolAppend.exit.i1115, %poolStoreString.exit1121, %272, %1632, %.thread1538, %268, %poolStoreString.exit, %320, %422, %378, %517, %520, %819, %638, %866, %861, %poolStoreString.exit1219, %poolStoreString.exit1231, %poolStoreString.exit1243, %poolStoreString.exit1279, %1113, %1271, %1313, %1324, %1474, %1479, %1629, %646, %220, %264, %407, %400, %1300, %548, %515, %.lr.ph.i1364, %496, %481, %115, %.thread1387.loopexit2516, %1224, %poolAppend.exit.thread.i1336, %1464, %1265, %poolAppend.exit.thread.i1306, %poolAppend.exit.thread.i1283, %poolAppend.exit.thread.i1259, %poolAppend.exit.thread.i1247, %722, %602, %poolAppend.exit.thread, %468, %poolAppend.exit.thread.i1126, %poolAppend.exit.thread.i1113, %114, %1686, %accountingGetCurrentAmplification.exit.i.i, %poolStoreString.exit.thread, %457, %.thread1473, %1293, %124, %116, %123, %130, %.thread1369, %getRootParserOf.exit.i.i, %439, %441, %.thread1407, %poolStoreString.exit1219.thread, %poolStoreString.exit1231.thread, %poolStoreString.exit1243.thread, %poolStoreString.exit1279.thread
-  %.1.ph = phi i32 [ 1, %poolAppend.exit.thread.i1259 ], [ 1, %poolStoreString.exit1279.thread ], [ 1, %poolStoreString.exit1243.thread ], [ 1, %poolStoreString.exit1231.thread ], [ 1, %poolStoreString.exit1219.thread ], [ %466, %.thread1407 ], [ 1, %poolAppend.exit.thread.i1126 ], [ 1, %poolAppend.exit.thread ], [ 21, %1464 ], [ 1, %439 ], [ 21, %441 ], [ 1, %poolAppend.exit.thread.i1306 ], [ %switch.select1564, %1224 ], [ 0, %114 ], [ 0, %468 ], [ 43, %getRootParserOf.exit.i.i ], [ 1, %poolAppend.exit.thread.i1283 ], [ 29, %.thread1369 ], [ 0, %130 ], [ 6, %115 ], [ 1, %548 ], [ 0, %123 ], [ 4, %116 ], [ 3, %124 ], [ 1, %poolStoreString.exit.thread ], [ 1, %602 ], [ 1, %poolAppend.exit.thread.i1247 ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 1, %poolAppend.exit.thread.i1336 ], [ 1, %481 ], [ 22, %457 ], [ 1, %poolAppend.exit.thread.i1113 ], [ 0, %1686 ], [ 1, %722 ], [ 1, %1293 ], [ 1, %.thread1473 ], [ 0, %1265 ], [ 0, %.lr.ph.i1364 ], [ 0, %515 ], [ 1, %496 ], [ 11, %1430 ], [ 1, %poolStoreString.exit1344 ], [ %1451, %1448 ], [ %1262, %1261 ], [ 1, %1192 ], [ 1, %poolAppend.exit.i1308 ], [ 1, %poolStoreString.exit1314 ], [ 1, %1144 ], [ 1, %poolAppend.exit.i1285 ], [ 1, %poolStoreString.exit1291 ], [ 1, %1060 ], [ 1, %poolAppend.exit.i1261 ], [ 1, %poolStoreString.exit1267 ], [ 1, %1065 ], [ 1, %1014 ], [ 1, %poolAppend.exit.i1249 ], [ 1, %poolStoreString.exit1255 ], [ 1, %1019 ], [ 1, %725 ], [ 1, %693 ], [ 1, %758 ], [ %680, %671 ], [ 1, %766 ], [ 1, %605 ], [ 1, %poolAppend.exit ], [ 1, %poolAppendString.exit ], [ 1, %poolAppend.exit.i1338 ], [ 1, %353 ], [ 1, %poolAppend.exit.i1128 ], [ 1, %poolStoreString.exit1134 ], [ 1, %300 ], [ 1, %poolAppend.exit.i1115 ], [ 1, %poolStoreString.exit1121 ], [ 32, %272 ], [ 1, %1632 ], [ 35, %.thread1538 ], [ 1, %1375 ], [ 1, %268 ], [ 1, %poolStoreString.exit ], [ 32, %320 ], [ 21, %407 ], [ 4, %378 ], [ 1, %517 ], [ 12, %1442 ], [ 1, %520 ], [ 1, %603 ], [ %798, %819 ], [ 1, %638 ], [ 1, %866 ], [ 22, %861 ], [ 1, %poolStoreString.exit1219 ], [ 1, %poolStoreString.exit1231 ], [ 1, %723 ], [ 1, %poolStoreString.exit1243 ], [ 1, %1527 ], [ 1, %poolStoreString.exit1279 ], [ 1, %1531 ], [ 32, %1113 ], [ 1, %1570 ], [ 1, %1271 ], [ 2, %1313 ], [ 1, %1283 ], [ 2, %1324 ], [ 22, %1474 ], [ 1, %1487 ], [ 1, %1537 ], [ 1, %1479 ], [ 1, %1629 ], [ 1, %646 ], [ %222, %220 ], [ %266, %264 ], [ 22, %422 ], [ 1, %400 ], [ 24, %1431 ], [ 1, %1300 ], [ 5, %.thread1387.loopexit2516 ]
+.thread1387:                                      ; preds = %1570, %1537, %1531, %1527, %1487, %1375, %poolAppend.exit.i1338, %1442, %1431, %1430, %poolStoreString.exit1344, %1448, %1283, %1261, %1192, %poolAppend.exit.i1308, %poolStoreString.exit1314, %1144, %poolAppend.exit.i1285, %poolStoreString.exit1291, %1060, %poolAppend.exit.i1261, %1065, %poolStoreString.exit1267, %1014, %poolAppend.exit.i1249, %1019, %poolStoreString.exit1255, %725, %723, %693, %671, %758, %766, %605, %603, %poolAppend.exit, %poolAppendString.exit, %353, %poolAppend.exit.i1128, %poolStoreString.exit1134, %300, %poolAppend.exit.i1115, %poolStoreString.exit1121, %272, %819, %poolStoreString.exit, %268, %320, %378, %517, %520, %646, %638, %poolStoreString.exit1219, %861, %866, %poolStoreString.exit1231, %poolStoreString.exit1243, %poolStoreString.exit1279, %1113, %1271, %1313, %1324, %1474, %1479, %1629, %1632, %.thread1538, %220, %264, %400, %407, %422, %1300, %548, %515, %.lr.ph.i1364, %496, %481, %115, %.thread1387.loopexit2516, %1224, %poolAppend.exit.thread.i1336, %1464, %1265, %poolAppend.exit.thread.i1306, %poolAppend.exit.thread.i1283, %poolAppend.exit.thread.i1259, %poolAppend.exit.thread.i1247, %722, %602, %poolAppend.exit.thread, %468, %poolAppend.exit.thread.i1126, %poolAppend.exit.thread.i1113, %114, %1686, %1293, %116, %130, %123, %.thread1369, %124, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i, %poolStoreString.exit.thread, %439, %441, %457, %.thread1407, %poolStoreString.exit1219.thread, %poolStoreString.exit1231.thread, %poolStoreString.exit1243.thread, %poolStoreString.exit1279.thread, %.thread1473
+  %.1.ph = phi i32 [ 1, %.thread1473 ], [ 1, %poolStoreString.exit1279.thread ], [ 1, %poolStoreString.exit1243.thread ], [ 1, %poolStoreString.exit1231.thread ], [ 1, %poolStoreString.exit1219.thread ], [ %466, %.thread1407 ], [ 22, %457 ], [ 21, %441 ], [ 1, %439 ], [ 1, %poolStoreString.exit.thread ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 3, %124 ], [ 29, %.thread1369 ], [ 0, %123 ], [ 0, %130 ], [ 4, %116 ], [ 1, %1293 ], [ 0, %1686 ], [ 0, %114 ], [ 1, %poolAppend.exit.thread.i1113 ], [ 1, %poolAppend.exit.thread.i1126 ], [ 0, %468 ], [ 1, %poolAppend.exit.thread ], [ 1, %602 ], [ 1, %722 ], [ 1, %poolAppend.exit.thread.i1247 ], [ 1, %poolAppend.exit.thread.i1259 ], [ 1, %poolAppend.exit.thread.i1283 ], [ 1, %poolAppend.exit.thread.i1306 ], [ 0, %1265 ], [ 21, %1464 ], [ 1, %poolAppend.exit.thread.i1336 ], [ %switch.select1564, %1224 ], [ 6, %115 ], [ 0, %515 ], [ 0, %.lr.ph.i1364 ], [ 1, %481 ], [ 1, %496 ], [ 1, %548 ], [ 1, %1570 ], [ 1, %1537 ], [ 1, %1531 ], [ 1, %1527 ], [ 1, %1487 ], [ 1, %1375 ], [ 1, %poolAppend.exit.i1338 ], [ %1451, %1448 ], [ 1, %poolStoreString.exit1344 ], [ 11, %1430 ], [ 24, %1431 ], [ 12, %1442 ], [ 1, %1283 ], [ %1262, %1261 ], [ 1, %1192 ], [ 1, %poolAppend.exit.i1308 ], [ 1, %poolStoreString.exit1314 ], [ 1, %1144 ], [ 1, %poolAppend.exit.i1285 ], [ 1, %poolStoreString.exit1291 ], [ 1, %1060 ], [ 1, %poolAppend.exit.i1261 ], [ 1, %1065 ], [ 1, %poolStoreString.exit1267 ], [ 1, %1014 ], [ 1, %poolAppend.exit.i1249 ], [ 1, %1019 ], [ 1, %poolStoreString.exit1255 ], [ 1, %725 ], [ 1, %723 ], [ %680, %671 ], [ 1, %693 ], [ 1, %766 ], [ 1, %758 ], [ 1, %605 ], [ 1, %603 ], [ 1, %poolAppend.exit ], [ 1, %poolAppendString.exit ], [ 1, %353 ], [ 1, %poolAppend.exit.i1128 ], [ 1, %poolStoreString.exit1134 ], [ 1, %300 ], [ 1, %poolAppend.exit.i1115 ], [ 32, %272 ], [ 1, %poolStoreString.exit1121 ], [ %798, %819 ], [ 1, %poolStoreString.exit ], [ 1, %268 ], [ 32, %320 ], [ 4, %378 ], [ 1, %517 ], [ 1, %520 ], [ 1, %646 ], [ 1, %638 ], [ 1, %poolStoreString.exit1219 ], [ 22, %861 ], [ 1, %866 ], [ 1, %poolStoreString.exit1231 ], [ 1, %poolStoreString.exit1243 ], [ 1, %poolStoreString.exit1279 ], [ 32, %1113 ], [ 1, %1271 ], [ 2, %1313 ], [ 2, %1324 ], [ 22, %1474 ], [ 1, %1479 ], [ 1, %1629 ], [ 1, %1632 ], [ 35, %.thread1538 ], [ %222, %220 ], [ %266, %264 ], [ 22, %422 ], [ 21, %407 ], [ 1, %400 ], [ 1, %1300 ], [ 5, %.thread1387.loopexit2516 ]
   ret i32 %.1.ph
 }
 
@@ -10358,7 +10358,7 @@ reportDefault.exit:                               ; preds = %188, %204
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %271, %269, %264, %256, %254
-  %.3.ph.i = phi i32 [ 18, %269 ], [ 18, %271 ], [ 1, %256 ], [ 1, %254 ], [ 0, %264 ]
+  %.3.ph.i = phi i32 [ 18, %271 ], [ 18, %269 ], [ 1, %254 ], [ 1, %256 ], [ 0, %264 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %handleUnknownEncoding.exit
 
@@ -10437,7 +10437,7 @@ poolClear.exit112:                                ; preds = %291, %.loopexit.sin
   br label %accountingOnAbort.exit
 
 accountingOnAbort.exit:                           ; preds = %poolAppend.exit.thread.i92, %164, %poolAppend.exit.i94, %poolAppend.exit.thread.i, %127, %poolAppend.exit.i, %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %poolClear.exit112, %284, %228, %282, %poolClear.exit, %poolStoreString.exit100, %poolStoreString.exit, %83, %222
-  %.0 = phi i32 [ 19, %222 ], [ %.3.i, %poolClear.exit ], [ 1, %poolStoreString.exit100 ], [ 1, %poolStoreString.exit ], [ 0, %poolClear.exit112 ], [ %., %83 ], [ 1, %228 ], [ 18, %282 ], [ 0, %284 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 1, %poolAppend.exit.thread.i ], [ 1, %poolAppend.exit.i ], [ 1, %127 ], [ 1, %poolAppend.exit.i94 ], [ 1, %164 ], [ 1, %poolAppend.exit.thread.i92 ]
+  %.0 = phi i32 [ 19, %222 ], [ %., %83 ], [ 1, %poolStoreString.exit ], [ 1, %poolStoreString.exit100 ], [ 1, %228 ], [ 18, %282 ], [ %.3.i, %poolClear.exit ], [ 0, %284 ], [ 0, %poolClear.exit112 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 1, %poolAppend.exit.i ], [ 1, %127 ], [ 1, %poolAppend.exit.thread.i ], [ 1, %poolAppend.exit.i94 ], [ 1, %164 ], [ 1, %poolAppend.exit.thread.i92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -10802,7 +10802,7 @@ keyeq.exit:                                       ; preds = %136, %._crit_edge19
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.i, %79, %73, %70, %._crit_edge, %8, %15, %keyeq.exit, %150
-  %.1126 = phi ptr [ %157, %150 ], [ null, %8 ], [ null, %keyeq.exit ], [ null, %15 ], [ null, %70 ], [ null, %79 ], [ null, %73 ], [ null, %._crit_edge ], [ %35, %.lr.ph.i ]
+  %.1126 = phi ptr [ %157, %150 ], [ null, %keyeq.exit ], [ null, %15 ], [ null, %8 ], [ null, %70 ], [ null, %79 ], [ null, %73 ], [ null, %._crit_edge ], [ %35, %.lr.ph.i ]
   ret ptr %.1126
 }
 
@@ -10910,7 +10910,7 @@ define internal i32 @contentProcessor(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i, label %storeRawNames.exit, label %.lr.ph.i
 
 storeRawNames.exit:                               ; preds = %60, %.lr.ph.i, %41, %26, %12, %4
-  %.0 = phi i32 [ %10, %4 ], [ 0, %12 ], [ 0, %60 ], [ 0, %.lr.ph.i ], [ 1, %26 ], [ 1, %41 ]
+  %.0 = phi i32 [ %10, %4 ], [ 0, %12 ], [ 0, %60 ], [ 0, %.lr.ph.i ], [ 1, %41 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -11011,7 +11011,7 @@ poolStoreString.exit:                             ; preds = %24, %._crit_edge.i
   br label %poolStoreString.exit.thread
 
 poolStoreString.exit.thread:                      ; preds = %poolAppend.exit.thread.i, %28, %poolAppend.exit.i, %40, %33, %poolStoreString.exit, %43
-  %.0 = phi ptr [ %35, %43 ], [ null, %33 ], [ null, %poolStoreString.exit ], [ null, %40 ], [ null, %poolAppend.exit.i ], [ null, %28 ], [ null, %poolAppend.exit.thread.i ]
+  %.0 = phi ptr [ %35, %43 ], [ null, %poolStoreString.exit ], [ null, %33 ], [ null, %40 ], [ null, %poolAppend.exit.i ], [ null, %28 ], [ null, %poolAppend.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -11284,8 +11284,8 @@ poolStoreString.exit:                             ; preds = %32, %._crit_edge.i
   %.pre101 = load i8, ptr %.phi.trans.insert100, align 1, !tbaa !3
   br label %84, !llvm.loop !288
 
-.critedge:                                        ; preds = %84, %90, %poolAppend.exit.thread.i, %36, %poolAppend.exit.i, %115, %113, %47, %81, %49, %100, %102, %41, %poolStoreString.exit, %14
-  %.072 = phi ptr [ null, %100 ], [ null, %41 ], [ null, %poolStoreString.exit ], [ null, %14 ], [ null, %poolAppend.exit.thread.i ], [ null, %102 ], [ %44, %47 ], [ %44, %49 ], [ %44, %81 ], [ %44, %113 ], [ %44, %115 ], [ null, %90 ], [ null, %poolAppend.exit.i ], [ null, %36 ], [ %44, %84 ]
+.critedge:                                        ; preds = %84, %90, %poolAppend.exit.thread.i, %36, %poolAppend.exit.i, %115, %113, %47, %81, %49, %102, %100, %41, %poolStoreString.exit, %14
+  %.072 = phi ptr [ null, %14 ], [ null, %poolStoreString.exit ], [ null, %41 ], [ null, %100 ], [ null, %102 ], [ %44, %49 ], [ %44, %81 ], [ %44, %47 ], [ %44, %113 ], [ %44, %115 ], [ null, %poolAppend.exit.i ], [ null, %36 ], [ null, %poolAppend.exit.thread.i ], [ null, %90 ], [ %44, %84 ]
   ret ptr %.072
 }
 
@@ -11485,7 +11485,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @poolGrow(ptr noundef captures(
   br label %.thread
 
 .thread:                                          ; preds = %91, %89, %86, %._crit_edge, %65, %61, %50, %72, %107, %27, %8
-  %.0 = phi i8 [ 1, %8 ], [ 1, %27 ], [ 0, %65 ], [ 1, %72 ], [ 1, %107 ], [ 0, %50 ], [ 0, %61 ], [ 0, %._crit_edge ], [ 0, %86 ], [ 0, %89 ], [ 0, %91 ]
+  %.0 = phi i8 [ 1, %8 ], [ 1, %27 ], [ 1, %107 ], [ 1, %72 ], [ 0, %50 ], [ 0, %61 ], [ 0, %65 ], [ 0, %._crit_edge ], [ 0, %86 ], [ 0, %89 ], [ 0, %91 ]
   ret i8 %.0
 }
 
@@ -12264,8 +12264,8 @@ poolAppend.exit:                                  ; preds = %360
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !293
 
-.thread193:                                       ; preds = %395, %384, %387
-  %.5.ph = phi i32 [ 14, %387 ], [ 14, %384 ], [ 1, %395 ]
+.thread193:                                       ; preds = %395, %387, %384
+  %.5.ph = phi i32 [ 14, %384 ], [ 14, %387 ], [ 1, %395 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
@@ -12304,19 +12304,19 @@ poolAppend.exit:                                  ; preds = %360
   store ptr %.0122, ptr %417, align 8, !tbaa !203
   br label %.thread
 
-accountingOnAbort.exit:                           ; preds = %287, %entityTrackingOnClose.exit, %285, %377, %349, %poolAppend.exit, %._crit_edge
+accountingOnAbort.exit:                           ; preds = %entityTrackingOnClose.exit, %285, %287, %377, %349, %poolAppend.exit, %._crit_edge
   %418 = load ptr, ptr %8, align 8, !tbaa !116
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %44
 
-.thread:                                          ; preds = %44, %155, %poolAppend.exit.i, %poolStoreString.exit, %349, %accountingDiffTolerated.exit.thread, %poolAppend.exit, %375, %poolAppend.exit.thread.i, %213, %lookup.exit.thread, %210, %258, %407, %353, %413, %.thread193, %402, %405, %410, %416, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i, %poolAppend.exit.thread
-  %.1124.ph = phi i32 [ 1, %poolAppend.exit.thread ], [ 4, %407 ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 23, %416 ], [ 4, %410 ], [ 4, %405 ], [ 4, %402 ], [ 12, %213 ], [ %.5.ph, %.thread193 ], [ 0, %lookup.exit.thread ], [ 12, %210 ], [ 23, %413 ], [ 10, %353 ], [ 21, %258 ], [ 1, %poolAppend.exit.thread.i ], [ 0, %44 ], [ 1, %155 ], [ 1, %poolAppend.exit.i ], [ 1, %poolStoreString.exit ], [ %326, %349 ], [ 0, %accountingDiffTolerated.exit.thread ], [ 1, %poolAppend.exit ], [ 1, %375 ]
+.thread:                                          ; preds = %44, %155, %poolAppend.exit.i, %poolStoreString.exit, %349, %accountingDiffTolerated.exit.thread, %poolAppend.exit, %375, %poolAppend.exit.thread.i, %210, %213, %lookup.exit.thread, %258, %353, %405, %402, %410, %407, %416, %413, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i, %poolAppend.exit.thread, %.thread193
+  %.1124.ph = phi i32 [ %.5.ph, %.thread193 ], [ 1, %poolAppend.exit.thread ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 23, %413 ], [ 23, %416 ], [ 4, %407 ], [ 4, %410 ], [ 4, %402 ], [ 4, %405 ], [ 10, %353 ], [ 12, %210 ], [ 12, %213 ], [ 0, %lookup.exit.thread ], [ 21, %258 ], [ 1, %poolAppend.exit.thread.i ], [ 0, %44 ], [ 1, %155 ], [ 1, %poolAppend.exit.i ], [ 1, %poolStoreString.exit ], [ %326, %349 ], [ 0, %accountingDiffTolerated.exit.thread ], [ 1, %poolAppend.exit ], [ 1, %375 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 %14, ptr %13, align 8, !tbaa !143
   br label %419
 
 419:                                              ; preds = %16, %.thread
-  %.0121 = phi i32 [ 1, %16 ], [ %.1124.ph, %.thread ]
+  %.0121 = phi i32 [ %.1124.ph, %.thread ], [ 1, %16 ]
   ret i32 %.0121
 }
 
@@ -12604,7 +12604,7 @@ reportDefault.exit:                               ; preds = %108, %124
   br label %accountingOnAbort.exit
 
 accountingOnAbort.exit:                           ; preds = %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %139, %137, %131, %141, %140, %138, %136
-  %.039 = phi i32 [ 23, %141 ], [ %., %131 ], [ 2, %139 ], [ 4, %136 ], [ 0, %138 ], [ 6, %137 ], [ 0, %140 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ]
+  %.039 = phi i32 [ 23, %141 ], [ 4, %136 ], [ 0, %138 ], [ 0, %140 ], [ %., %131 ], [ 6, %137 ], [ 2, %139 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.039
 }
@@ -12647,7 +12647,7 @@ define internal i32 @ignoreSectionProcessor(ptr noundef %0, ptr noundef %1, ptr 
   br label %25
 
 25:                                               ; preds = %13, %4, %15
-  %.0 = phi i32 [ %12, %4 ], [ %24, %15 ], [ 0, %13 ]
+  %.0 = phi i32 [ %24, %15 ], [ %12, %4 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -12670,7 +12670,7 @@ define internal fastcc i32 @nextScaffoldPart(ptr noundef readonly captures(none)
   %13 = tail call ptr %8(i64 noundef %12) #26
   store ptr %13, ptr %4, align 8, !tbaa !98
   %.not53 = icmp eq ptr %13, null
-  br i1 %.not53, label %.critedge, label %14
+  br i1 %.not53, label %69, label %14
 
 14:                                               ; preds = %6
   store i32 0, ptr %13, align 4, !tbaa !115
@@ -12692,7 +12692,7 @@ define internal fastcc i32 @nextScaffoldPart(ptr noundef readonly captures(none)
 
 21:                                               ; preds = %20
   %22 = icmp slt i32 %19, 0
-  br i1 %22, label %.critedge, label %23
+  br i1 %22, label %69, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12702,21 +12702,21 @@ define internal fastcc i32 @nextScaffoldPart(ptr noundef readonly captures(none)
   %28 = shl nuw nsw i64 %27, 5
   %29 = tail call ptr %25(ptr noundef nonnull %.pre59, i64 noundef %28) #26
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.critedge, label %31
+  br i1 %30, label %69, label %31
 
 31:                                               ; preds = %23
   %32 = load i32, ptr %18, align 4, !tbaa !173
   %33 = shl i32 %32, 1
-  br label %39
+  br label %.critedge
 
 34:                                               ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !38
   %37 = tail call ptr %36(i64 noundef 1024) #26
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.critedge, label %39
+  br i1 %38, label %69, label %.critedge
 
-39:                                               ; preds = %34, %31
+.critedge:                                        ; preds = %34, %31
   %storemerge = phi i32 [ %33, %31 ], [ 32, %34 ]
   %.044 = phi ptr [ %29, %31 ], [ %37, %34 ]
   store i32 %storemerge, ptr %18, align 4, !tbaa !173
@@ -12724,62 +12724,62 @@ define internal fastcc i32 @nextScaffoldPart(ptr noundef readonly captures(none)
   %.pre = load i32, ptr %16, align 8, !tbaa !266
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %15, %39
-  %40 = phi ptr [ %.044, %39 ], [ %.pre59, %15 ]
-  %41 = phi i32 [ %.pre, %39 ], [ %17, %15 ]
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %16, align 8, !tbaa !266
-  %43 = sext i32 %41 to i64
-  %44 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %40, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 348
-  %46 = load i32, ptr %45, align 4, !tbaa !174
-  %.not56 = icmp eq i32 %46, 0
-  br i1 %.not56, label %68, label %47
+._crit_edge:                                      ; preds = %15, %.critedge
+  %39 = phi ptr [ %.044, %.critedge ], [ %.pre59, %15 ]
+  %40 = phi i32 [ %.pre, %.critedge ], [ %17, %15 ]
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %16, align 8, !tbaa !266
+  %42 = sext i32 %40 to i64
+  %43 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %39, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 348
+  %45 = load i32, ptr %44, align 4, !tbaa !174
+  %.not56 = icmp eq i32 %45, 0
+  br i1 %.not56, label %67, label %46
 
-47:                                               ; preds = %._crit_edge
-  %48 = load ptr, ptr %4, align 8, !tbaa !98
-  %49 = add i32 %46, -1
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %48, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !115
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %40, i64 %53
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 20
-  %56 = load i32, ptr %55, align 4, !tbaa !294
-  %.not57 = icmp eq i32 %56, 0
-  br i1 %.not57, label %61, label %57
+46:                                               ; preds = %._crit_edge
+  %47 = load ptr, ptr %4, align 8, !tbaa !98
+  %48 = add i32 %45, -1
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr i32, ptr %47, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !115
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %39, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
+  %55 = load i32, ptr %54, align 4, !tbaa !294
+  %.not57 = icmp eq i32 %55, 0
+  br i1 %.not57, label %60, label %56
 
-57:                                               ; preds = %47
-  %58 = sext i32 %56 to i64
-  %59 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %40, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
-  store i32 %41, ptr %60, align 4, !tbaa !295
-  br label %61
+56:                                               ; preds = %46
+  %57 = sext i32 %55 to i64
+  %58 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %39, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  store i32 %40, ptr %59, align 4, !tbaa !295
+  br label %60
 
-61:                                               ; preds = %57, %47
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %63 = load i32, ptr %62, align 8, !tbaa !276
-  %.not58 = icmp eq i32 %63, 0
-  br i1 %.not58, label %64, label %66
+60:                                               ; preds = %56, %46
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %62 = load i32, ptr %61, align 8, !tbaa !276
+  %.not58 = icmp eq i32 %62, 0
+  br i1 %.not58, label %63, label %65
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i32 %41, ptr %65, align 8, !tbaa !296
-  br label %66
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store i32 %40, ptr %64, align 8, !tbaa !296
+  br label %65
 
-66:                                               ; preds = %64, %61
-  store i32 %41, ptr %55, align 4, !tbaa !294
-  %67 = add i32 %63, 1
-  store i32 %67, ptr %62, align 8, !tbaa !276
-  br label %68
+65:                                               ; preds = %63, %60
+  store i32 %40, ptr %54, align 4, !tbaa !294
+  %66 = add i32 %62, 1
+  store i32 %66, ptr %61, align 8, !tbaa !276
+  br label %67
 
-68:                                               ; preds = %66, %._crit_edge
-  %69 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  br label %.critedge
+67:                                               ; preds = %65, %._crit_edge
+  %68 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
+  br label %69
 
-.critedge:                                        ; preds = %23, %21, %34, %6, %68
-  %.0 = phi i32 [ %41, %68 ], [ -1, %6 ], [ -1, %34 ], [ -1, %21 ], [ -1, %23 ]
+69:                                               ; preds = %21, %23, %34, %6, %67
+  %.0 = phi i32 [ %40, %67 ], [ -1, %6 ], [ -1, %34 ], [ -1, %23 ], [ -1, %21 ]
   ret i32 %.0
 }
 
@@ -13398,7 +13398,7 @@ poolClear.exit:                                   ; preds = %142, %.loopexit.sin
   br label %poolStoreString.exit.thread
 
 poolStoreString.exit.thread:                      ; preds = %poolAppend.exit.thread.i43, %116, %poolAppend.exit.i45, %poolAppend.exit.thread.i, %87, %poolAppend.exit.i, %poolStoreString.exit51, %poolStoreString.exit, %11, %reportDefault.exit, %poolClear.exit
-  %.0 = phi i32 [ 1, %poolClear.exit ], [ 0, %poolStoreString.exit ], [ 1, %11 ], [ 1, %reportDefault.exit ], [ 0, %poolStoreString.exit51 ], [ 0, %poolAppend.exit.thread.i ], [ 0, %poolAppend.exit.i ], [ 0, %87 ], [ 0, %poolAppend.exit.i45 ], [ 0, %116 ], [ 0, %poolAppend.exit.thread.i43 ]
+  %.0 = phi i32 [ 1, %poolClear.exit ], [ 1, %reportDefault.exit ], [ 1, %11 ], [ 0, %poolStoreString.exit ], [ 0, %poolStoreString.exit51 ], [ 0, %poolAppend.exit.i ], [ 0, %87 ], [ 0, %poolAppend.exit.thread.i ], [ 0, %poolAppend.exit.i45 ], [ 0, %116 ], [ 0, %poolAppend.exit.thread.i43 ]
   ret i32 %.0
 }
 
@@ -13643,7 +13643,7 @@ poolClear.exit:                                   ; preds = %111, %.loopexit.sin
   br label %poolStoreString.exit.thread
 
 poolStoreString.exit.thread:                      ; preds = %poolAppend.exit.thread.i, %85, %poolAppend.exit.i, %poolStoreString.exit, %10, %reportDefault.exit, %poolClear.exit
-  %.0 = phi i32 [ 1, %poolClear.exit ], [ 1, %10 ], [ 1, %reportDefault.exit ], [ 0, %poolStoreString.exit ], [ 0, %poolAppend.exit.i ], [ 0, %85 ], [ 0, %poolAppend.exit.thread.i ]
+  %.0 = phi i32 [ 1, %poolClear.exit ], [ 1, %reportDefault.exit ], [ 1, %10 ], [ 0, %poolStoreString.exit ], [ 0, %poolAppend.exit.i ], [ 0, %85 ], [ 0, %poolAppend.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -15049,7 +15049,7 @@ lookup.exit:                                      ; preds = %387, %.lr.ph.i.i, %
   call fastcc void @reportDefault(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %452, ptr noundef %453)
   br label %.thread672
 
-.thread672:                                       ; preds = %286, %403, %288, %reportDefault.exit558, %405, %407, %447, %451, %449, %423, %426, %428, %431
+.thread672:                                       ; preds = %288, %reportDefault.exit558, %286, %405, %407, %403, %447, %451, %449, %426, %428, %423, %431
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.thread701
 
@@ -15295,7 +15295,7 @@ reportDefault.exit568:                            ; preds = %554, %570
   br label %582
 
 .thread690:                                       ; preds = %458, %._crit_edge969, %530, %465
-  %.7.ph = phi i32 [ 1, %530 ], [ 1, %465 ], [ 1, %458 ], [ %534, %._crit_edge969 ]
+  %.7.ph = phi i32 [ 1, %465 ], [ 1, %530 ], [ 1, %458 ], [ %534, %._crit_edge969 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.loopexit722
 
@@ -15481,7 +15481,7 @@ poolStoreString.exit583:                          ; preds = %602, %._crit_edge.i
   br label %.thread695
 
 .thread695:                                       ; preds = %642, %648, %649
-  %651 = phi ptr [ %647, %649 ], [ %647, %648 ], [ %643, %642 ]
+  %651 = phi ptr [ %647, %648 ], [ %647, %649 ], [ %643, %642 ]
   %652 = load ptr, ptr %62, align 8, !tbaa !141
   %653 = load ptr, ptr %40, align 8, !tbaa !316
   call void %651(ptr noundef %652, ptr noundef %653) #26
@@ -16489,7 +16489,7 @@ reportDefault.exit652:                            ; preds = %1115, %1131
   store ptr %1137, ptr %.0414, align 8, !tbaa !116
   br label %.loopexit887
 
-.thread701.thread875:                             ; preds = %719, %838
+.thread701.thread875:                             ; preds = %838, %719
   %1138 = load ptr, ptr %34, align 8, !tbaa !116
   store ptr %1138, ptr %.0414, align 8, !tbaa !116
   br label %.loopexit722
@@ -16514,12 +16514,12 @@ accountingOnAbort.exit:                           ; preds = %.thread701
   br label %108
 
 .loopexit722.loopexit:                            ; preds = %431, %poolStoreString.exit, %396, %397, %410, %413, %poolAppend.exit.i, %345, %435, %437, %poolAppend.exit.thread.i
-  %.2 = phi i32 [ 1, %poolAppend.exit.thread.i ], [ 1, %435 ], [ 21, %437 ], [ 1, %345 ], [ 1, %poolAppend.exit.i ], [ 11, %396 ], [ %432, %431 ], [ 1, %poolStoreString.exit ], [ 12, %410 ], [ 15, %413 ], [ 24, %397 ]
+  %.2 = phi i32 [ 1, %poolAppend.exit.thread.i ], [ 1, %435 ], [ 21, %437 ], [ 1, %345 ], [ 1, %poolAppend.exit.i ], [ 15, %413 ], [ 12, %410 ], [ 24, %397 ], [ 11, %396 ], [ 1, %poolStoreString.exit ], [ %432, %431 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.loopexit722
 
-.loopexit722:                                     ; preds = %964, %843, %1097, %accountingDiffTolerated.exit.thread659, %724, %.thread701, %1100, %968, %840, %getRootParserOf.exit.i.i, %1036, %1035, %1032, %970, %742, %accountingGetCurrentAmplification.exit.i.i, %261, %freeBindings.exit.thread, %721, %.thread690, %258, %262, %251, %259, %257, %253, %255, %245, %249, %247, %243, %203, %.loopexit887, %.thread701.thread875, %.loopexit722.loopexit
-  %.1716 = phi i32 [ %.2, %.loopexit722.loopexit ], [ 0, %247 ], [ 7, %742 ], [ 43, %getRootParserOf.exit.i.i ], [ 3, %243 ], [ 0, %968 ], [ 0, %1036 ], [ 13, %1035 ], [ 3, %1032 ], [ 0, %970 ], [ 0, %.loopexit887 ], [ 0, %203 ], [ %842, %840 ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 6, %261 ], [ %.11.ph, %freeBindings.exit.thread ], [ %723, %721 ], [ %.7.ph, %.thread690 ], [ 5, %258 ], [ 0, %262 ], [ 3, %251 ], [ 0, %259 ], [ 4, %257 ], [ 13, %253 ], [ 0, %255 ], [ 13, %245 ], [ 0, %249 ], [ 35, %.thread701.thread875 ], [ %965, %964 ], [ 1, %1100 ], [ 35, %.thread701 ], [ 13, %724 ], [ 17, %accountingDiffTolerated.exit.thread659 ], [ 1, %1097 ], [ 14, %843 ]
+.loopexit722:                                     ; preds = %964, %843, %.thread701, %1100, %1097, %accountingDiffTolerated.exit.thread659, %724, %968, %742, %840, %freeBindings.exit.thread, %.thread690, %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %261, %258, %251, %253, %245, %243, %1036, %1035, %1032, %970, %721, %262, %259, %257, %255, %249, %247, %203, %.loopexit887, %.thread701.thread875, %.loopexit722.loopexit
+  %.1716 = phi i32 [ %.2, %.loopexit722.loopexit ], [ %842, %840 ], [ 7, %742 ], [ %.11.ph, %freeBindings.exit.thread ], [ %.7.ph, %.thread690 ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 6, %261 ], [ 5, %258 ], [ 3, %251 ], [ 13, %253 ], [ 13, %245 ], [ 3, %243 ], [ 0, %1036 ], [ 13, %1035 ], [ 3, %1032 ], [ 0, %970 ], [ %723, %721 ], [ 0, %262 ], [ 0, %259 ], [ 4, %257 ], [ 0, %255 ], [ 0, %249 ], [ 0, %247 ], [ 0, %203 ], [ 0, %.loopexit887 ], [ 0, %968 ], [ 35, %.thread701.thread875 ], [ %965, %964 ], [ 13, %724 ], [ 17, %accountingDiffTolerated.exit.thread659 ], [ 1, %1097 ], [ 1, %1100 ], [ 35, %.thread701 ], [ 14, %843 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   ret i32 %.1716
 }
@@ -16617,7 +16617,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @storeRawNames(ptr noundef read
   br i1 %.not, label %.thread59, label %.lr.ph
 
 .thread59:                                        ; preds = %49, %.lr.ph, %15, %30, %1
-  %.4 = phi i8 [ 1, %1 ], [ 0, %15 ], [ 1, %.lr.ph ], [ 0, %30 ], [ 1, %49 ]
+  %.4 = phi i8 [ 1, %1 ], [ 0, %30 ], [ 0, %15 ], [ 1, %.lr.ph ], [ 1, %49 ]
   ret i8 %.4
 }
 
@@ -17162,8 +17162,8 @@ hashTableIterNext.exit118:                        ; preds = %211
   %250 = load ptr, ptr %49, align 8, !tbaa !177
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %178, %65, %146, %144, %141, %._crit_edge.i, %122, %119, %126, %192, %221, %233, %13, %245, %247
-  %.2 = phi ptr [ null, %13 ], [ null, %146 ], [ %250, %247 ], [ null, %245 ], [ null, %233 ], [ null, %221 ], [ null, %178 ], [ null, %192 ], [ null, %126 ], [ null, %119 ], [ null, %122 ], [ null, %._crit_edge.i ], [ null, %141 ], [ null, %144 ], [ null, %65 ], [ null, %28 ]
+.critedge:                                        ; preds = %28, %178, %65, %146, %144, %141, %._crit_edge.i, %126, %122, %119, %192, %221, %233, %13, %245, %247
+  %.2 = phi ptr [ %250, %247 ], [ null, %245 ], [ null, %13 ], [ null, %233 ], [ null, %221 ], [ null, %192 ], [ null, %119 ], [ null, %122 ], [ null, %126 ], [ null, %._crit_edge.i ], [ null, %141 ], [ null, %144 ], [ null, %146 ], [ null, %65 ], [ null, %178 ], [ null, %28 ]
   ret ptr %.2
 }
 
@@ -17309,7 +17309,7 @@ poolCopyString.exit:                              ; preds = %66
   br i1 %.not513, label %.critedge564, label %lookup.exit
 
 lookup.exit:                                      ; preds = %.lr.ph.i.i, %77, %80
-  %.0407 = phi ptr [ %76, %77 ], [ %76, %80 ], [ %30, %.lr.ph.i.i ]
+  %.0407 = phi ptr [ %76, %80 ], [ %76, %77 ], [ %30, %.lr.ph.i.i ]
   %82 = getelementptr inbounds nuw i8, ptr %.0407, i64 24
   %83 = load i32, ptr %82, align 8, !tbaa !163
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -17489,7 +17489,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %77, %8
   br label %._crit_edge.i577
 
 ._crit_edge.i577:                                 ; preds = %183, %179, %177, %175
-  %184 = phi ptr [ %176, %177 ], [ %180, %183 ], [ %176, %179 ], [ %176, %175 ]
+  %184 = phi ptr [ %180, %183 ], [ %176, %179 ], [ %176, %177 ], [ %176, %175 ]
   %185 = load ptr, ptr %123, align 8, !tbaa !147
   %186 = icmp eq ptr %184, %185
   br i1 %186, label %187, label %.thread
@@ -17622,9 +17622,9 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %.not562 = icmp eq i32 %240, 0
   br i1 %.not562, label %.thread618, label %.critedge564
 
-.thread618:                                       ; preds = %229, %234, %236
-  %.1410624 = phi i32 [ %.0409764, %236 ], [ %230, %229 ], [ %235, %234 ]
-  %.1444623 = phi i32 [ %.0443762, %236 ], [ %231, %229 ], [ %.0443762, %234 ]
+.thread618:                                       ; preds = %234, %229, %236
+  %.1410624 = phi i32 [ %.0409764, %236 ], [ %235, %234 ], [ %230, %229 ]
+  %.1444623 = phi i32 [ %.0443762, %236 ], [ %.0443762, %234 ], [ %231, %229 ]
   %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
   %exitcond861.not = icmp eq i64 %indvars.iv.next858, %wide.trip.count860
   br i1 %exitcond861.not, label %._crit_edge, label %127, !llvm.loop !341
@@ -17664,7 +17664,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   br i1 %255, label %.lr.ph768, label %.loopexit704, !llvm.loop !342
 
 .loopexit704.sink.split:                          ; preds = %.lr.ph768, %._crit_edge, %244
-  %.1419767.lcssa.sink = phi i32 [ -1, %._crit_edge ], [ -1, %244 ], [ %.1419767, %.lr.ph768 ]
+  %.1419767.lcssa.sink = phi i32 [ -1, %244 ], [ -1, %._crit_edge ], [ %.1419767, %.lr.ph768 ]
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store i32 %.1419767.lcssa.sink, ptr %256, align 8, !tbaa !188
   br label %.loopexit704
@@ -18236,8 +18236,8 @@ keylen.exit:                                      ; preds = %435, %.lr.ph.prehea
   store i8 0, ptr %354, align 1, !tbaa !3
   br label %521
 
-.thread671:                                       ; preds = %lookup.exit600, %407, %copy_salt_to_sipkey.exit, %366, %400, %421, %443, %.critedge, %504
-  %.22.ph.ph = phi i32 [ 1, %421 ], [ 8, %.critedge ], [ 1, %443 ], [ 1, %400 ], [ 1, %504 ], [ 1, %copy_salt_to_sipkey.exit ], [ 1, %lookup.exit600 ], [ 1, %366 ], [ 27, %407 ]
+.thread671:                                       ; preds = %407, %lookup.exit600, %copy_salt_to_sipkey.exit, %366, %400, %421, %443, %.critedge, %504
+  %.22.ph.ph = phi i32 [ 1, %504 ], [ 8, %.critedge ], [ 1, %443 ], [ 1, %421 ], [ 1, %400 ], [ 1, %366 ], [ 1, %copy_salt_to_sipkey.exit ], [ 27, %407 ], [ 1, %lookup.exit600 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge564
 
@@ -18469,8 +18469,8 @@ keylen.exit:                                      ; preds = %435, %.lr.ph.prehea
   store ptr %622, ptr %3, align 8, !tbaa !316
   br label %.critedge564
 
-.critedge564:                                     ; preds = %64, %187, %.loopexit706, %poolStoreString.exit, %127, %236, %278, %587, %585, %318, %308, %291, %poolStoreString.exit.thread, %144, %140, %.thread671, %97, %110, %75, %poolCopyString.exit, %80, %573, %576, %551, %543, %._crit_edge807, %lookup.exit, %621
-  %.2 = phi i32 [ 1, %573 ], [ %240, %236 ], [ 1, %587 ], [ 0, %551 ], [ 0, %621 ], [ 1, %318 ], [ 0, %._crit_edge807 ], [ 27, %543 ], [ 1, %lookup.exit ], [ 8, %140 ], [ 1, %75 ], [ 1, %576 ], [ 1, %80 ], [ 1, %poolCopyString.exit ], [ 1, %110 ], [ 1, %97 ], [ 1, %291 ], [ %279, %278 ], [ %.22.ph.ph, %.thread671 ], [ 1, %poolStoreString.exit.thread ], [ 1, %308 ], [ 1, %585 ], [ 8, %144 ], [ 1, %poolStoreString.exit ], [ 1, %187 ], [ %174, %.loopexit706 ], [ 1, %127 ], [ 1, %64 ]
+.critedge564:                                     ; preds = %64, %187, %.loopexit706, %poolStoreString.exit, %127, %236, %278, %587, %585, %318, %308, %291, %poolStoreString.exit.thread, %140, %144, %.thread671, %110, %97, %poolCopyString.exit, %75, %80, %573, %576, %551, %543, %._crit_edge807, %lookup.exit, %621
+  %.2 = phi i32 [ 0, %621 ], [ 1, %lookup.exit ], [ 0, %._crit_edge807 ], [ 27, %543 ], [ 0, %551 ], [ 1, %576 ], [ 1, %573 ], [ 1, %80 ], [ 1, %75 ], [ 1, %poolCopyString.exit ], [ 1, %97 ], [ 1, %110 ], [ %.22.ph.ph, %.thread671 ], [ 1, %poolStoreString.exit.thread ], [ 8, %140 ], [ 8, %144 ], [ 1, %291 ], [ 1, %308 ], [ 1, %318 ], [ 1, %585 ], [ 1, %587 ], [ %279, %278 ], [ 1, %127 ], [ 1, %poolStoreString.exit ], [ 1, %187 ], [ %174, %.loopexit706 ], [ %240, %236 ], [ 1, %64 ]
   ret i32 %.2
 }
 
@@ -18860,8 +18860,8 @@ accountingOnAbort.exit:                           ; preds = %185
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %19
 
-.loopexit:                                        ; preds = %185, %accountingDiffTolerated.exit.thread62, %170, %173, %181, %137, %139, %188, %reportDefault.exit, %176, %180, %177, %184, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i
-  %.1.ph = phi i32 [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 0, %184 ], [ 5, %177 ], [ 0, %180 ], [ 0, %139 ], [ 4, %176 ], [ 0, %137 ], [ 35, %reportDefault.exit ], [ 6, %181 ], [ 0, %188 ], [ 35, %185 ], [ 9, %accountingDiffTolerated.exit.thread62 ], [ 1, %170 ], [ 1, %173 ]
+.loopexit:                                        ; preds = %170, %173, %accountingDiffTolerated.exit.thread62, %185, %137, %139, %188, %176, %180, %184, %reportDefault.exit, %177, %181, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i
+  %.1.ph = phi i32 [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 6, %181 ], [ 5, %177 ], [ 35, %reportDefault.exit ], [ 0, %184 ], [ 0, %180 ], [ 4, %176 ], [ 0, %188 ], [ 0, %139 ], [ 0, %137 ], [ 1, %170 ], [ 1, %173 ], [ 9, %accountingDiffTolerated.exit.thread62 ], [ 35, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.1.ph
 }
@@ -19432,8 +19432,8 @@ accountingOnAbort.exit:                           ; preds = %280
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %43
 
-.loopexit:                                        ; preds = %280, %279, %170, %283, %276, %272, %274, %273, %277, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i
-  %.1.ph = phi i32 [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 0, %277 ], [ 6, %273 ], [ 0, %274 ], [ 4, %272 ], [ 20, %276 ], [ 0, %283 ], [ 23, %279 ], [ %., %170 ], [ 35, %280 ]
+.loopexit:                                        ; preds = %280, %279, %283, %272, %274, %277, %170, %273, %276, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i
+  %.1.ph = phi i32 [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 20, %276 ], [ 6, %273 ], [ %., %170 ], [ 0, %277 ], [ 0, %274 ], [ 4, %272 ], [ 0, %283 ], [ 23, %279 ], [ 35, %280 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.1.ph
@@ -19476,7 +19476,7 @@ define internal i32 @cdataSectionProcessor(ptr noundef %0, ptr noundef %1, ptr n
   br label %22
 
 22:                                               ; preds = %12, %4, %20, %18
-  %.0 = phi i32 [ %11, %4 ], [ %19, %18 ], [ %21, %20 ], [ 0, %12 ]
+  %.0 = phi i32 [ %19, %18 ], [ %21, %20 ], [ %11, %4 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -19487,11 +19487,11 @@ define internal fastcc range(i32 0, 2) i32 @setElementTypePrefix(ptr noundef rea
   %5 = load ptr, ptr %1, align 8, !tbaa !162
   br label %6
 
-6:                                                ; preds = %46, %2
-  %.033 = phi ptr [ %5, %2 ], [ %47, %46 ]
+6:                                                ; preds = %45, %2
+  %.033 = phi ptr [ %5, %2 ], [ %46, %45 ]
   %7 = load i8, ptr %.033, align 1, !tbaa !3
-  switch i8 %7, label %46 [
-    i8 0, label %.critedge
+  switch i8 %7, label %45 [
+    i8 0, label %.loopexit
     i8 58, label %.preheader
   ]
 
@@ -19515,7 +19515,7 @@ define internal fastcc range(i32 0, 2) i32 @setElementTypePrefix(ptr noundef rea
 15:                                               ; preds = %11
   %16 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %10)
   %.not40 = icmp eq i8 %16, 0
-  br i1 %.not40, label %.critedge, label %._crit_edge47
+  br i1 %.not40, label %.loopexit, label %._crit_edge47
 
 ._crit_edge47:                                    ; preds = %15
   %.pre = load ptr, ptr %8, align 8, !tbaa !151
@@ -19543,7 +19543,7 @@ define internal fastcc range(i32 0, 2) i32 @setElementTypePrefix(ptr noundef rea
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %29 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %28)
   %.not38 = icmp eq i8 %29, 0
-  br i1 %.not38, label %.critedge, label %._crit_edge48
+  br i1 %.not38, label %.loopexit, label %._crit_edge48
 
 ._crit_edge48:                                    ; preds = %27
   %.pre49 = load ptr, ptr %22, align 8, !tbaa !151
@@ -19559,7 +19559,7 @@ define internal fastcc range(i32 0, 2) i32 @setElementTypePrefix(ptr noundef rea
   %35 = load ptr, ptr %34, align 8, !tbaa !235
   %36 = tail call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %33, ptr noundef %35, i64 noundef 16)
   %.not39 = icmp eq ptr %36, null
-  br i1 %.not39, label %.critedge, label %37
+  br i1 %.not39, label %.loopexit, label %37
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %36, align 8, !tbaa !145
@@ -19570,23 +19570,23 @@ define internal fastcc range(i32 0, 2) i32 @setElementTypePrefix(ptr noundef rea
 41:                                               ; preds = %37
   %42 = load ptr, ptr %22, align 8, !tbaa !151
   store ptr %42, ptr %34, align 8, !tbaa !235
-  br label %44
+  br label %.critedge
 
 43:                                               ; preds = %37
   store ptr %39, ptr %22, align 8, !tbaa !151
-  br label %44
-
-44:                                               ; preds = %43, %41
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %36, ptr %45, align 8, !tbaa !165
   br label %.critedge
 
-46:                                               ; preds = %6
-  %47 = getelementptr i8, ptr %.033, i64 1
+.critedge:                                        ; preds = %43, %41
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %36, ptr %44, align 8, !tbaa !165
+  br label %.loopexit
+
+45:                                               ; preds = %6
+  %46 = getelementptr i8, ptr %.033, i64 1
   br label %6, !llvm.loop !372
 
-.critedge:                                        ; preds = %6, %15, %27, %30, %44
-  %.1 = phi i32 [ 0, %15 ], [ 1, %44 ], [ 0, %30 ], [ 0, %27 ], [ 1, %6 ]
+.loopexit:                                        ; preds = %6, %15, %.critedge, %27, %30
+  %.1 = phi i32 [ 0, %30 ], [ 0, %27 ], [ 1, %.critedge ], [ 0, %15 ], [ 1, %6 ]
   ret i32 %.1
 }
 
@@ -19805,7 +19805,7 @@ is_rfc3986_uri_char.exit.us:                      ; preds = %60, %60, %60, %60, 
   %.not119.us = icmp eq i8 %64, 0
   br i1 %.not119.us, label %._crit_edge, label %49, !llvm.loop !373
 
-.lr.ph.split:                                     ; preds = %25, %29, %10, %11, %14, %18, %22
+.lr.ph.split:                                     ; preds = %22, %25, %29, %10, %11, %14, %18
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %66 = load i8, ptr %65, align 8, !tbaa !62
   %.not134206 = icmp eq i8 %66, 0
@@ -20008,11 +20008,11 @@ is_rfc3986_uri_char.exit:                         ; preds = %106, %106, %106, %1
   br i1 %.not119, label %._crit_edge, label %88, !llvm.loop !373
 
 ._crit_edge:                                      ; preds = %is_rfc3986_uri_char.exit.us, %is_rfc3986_uri_char.exit.us.us, %is_rfc3986_uri_char.exit, %is_rfc3986_uri_char.exit.us159, %9
-  %.0109202 = phi i8 [ 1, %is_rfc3986_uri_char.exit.us.us ], [ 0, %is_rfc3986_uri_char.exit ], [ 0, %is_rfc3986_uri_char.exit.us159 ], [ 0, %9 ], [ 1, %is_rfc3986_uri_char.exit.us ]
-  %.not130200 = phi i32 [ 38, %is_rfc3986_uri_char.exit.us.us ], [ 40, %is_rfc3986_uri_char.exit ], [ 40, %is_rfc3986_uri_char.exit.us159 ], [ 40, %9 ], [ 38, %is_rfc3986_uri_char.exit.us ]
-  %.0107.lcssa = phi i8 [ %.1108.us.us, %is_rfc3986_uri_char.exit.us.us ], [ %.1108, %is_rfc3986_uri_char.exit ], [ %.1108.us157, %is_rfc3986_uri_char.exit.us159 ], [ 1, %9 ], [ %.1108.us, %is_rfc3986_uri_char.exit.us ]
-  %.0105.lcssa = phi i8 [ 1, %is_rfc3986_uri_char.exit.us.us ], [ %.1106, %is_rfc3986_uri_char.exit ], [ %.1106.us158, %is_rfc3986_uri_char.exit.us159 ], [ 1, %9 ], [ 1, %is_rfc3986_uri_char.exit.us ]
-  %.0102.lcssa = phi i32 [ %43, %is_rfc3986_uri_char.exit.us.us ], [ %107, %is_rfc3986_uri_char.exit ], [ %82, %is_rfc3986_uri_char.exit.us159 ], [ 0, %9 ], [ %61, %is_rfc3986_uri_char.exit.us ]
+  %.0109202 = phi i8 [ 0, %9 ], [ 0, %is_rfc3986_uri_char.exit.us159 ], [ 0, %is_rfc3986_uri_char.exit ], [ 1, %is_rfc3986_uri_char.exit.us.us ], [ 1, %is_rfc3986_uri_char.exit.us ]
+  %.not130200 = phi i32 [ 40, %9 ], [ 40, %is_rfc3986_uri_char.exit.us159 ], [ 40, %is_rfc3986_uri_char.exit ], [ 38, %is_rfc3986_uri_char.exit.us.us ], [ 38, %is_rfc3986_uri_char.exit.us ]
+  %.0107.lcssa = phi i8 [ 1, %9 ], [ %.1108.us157, %is_rfc3986_uri_char.exit.us159 ], [ %.1108, %is_rfc3986_uri_char.exit ], [ %.1108.us.us, %is_rfc3986_uri_char.exit.us.us ], [ %.1108.us, %is_rfc3986_uri_char.exit.us ]
+  %.0105.lcssa = phi i8 [ 1, %9 ], [ %.1106.us158, %is_rfc3986_uri_char.exit.us159 ], [ %.1106, %is_rfc3986_uri_char.exit ], [ 1, %is_rfc3986_uri_char.exit.us.us ], [ 1, %is_rfc3986_uri_char.exit.us ]
+  %.0102.lcssa = phi i32 [ 0, %9 ], [ %82, %is_rfc3986_uri_char.exit.us159 ], [ %107, %is_rfc3986_uri_char.exit ], [ %43, %is_rfc3986_uri_char.exit.us.us ], [ %61, %is_rfc3986_uri_char.exit.us ]
   %111 = icmp ne i8 %.0107.lcssa, 0
   %112 = icmp eq i32 %.0102.lcssa, 36
   %113 = and i1 %111, %112
@@ -20174,7 +20174,7 @@ is_rfc3986_uri_char.exit:                         ; preds = %106, %106, %106, %1
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %106, %131, %183, %186, %189, %143, %129, %115, %._crit_edge, %29, %9, %154
-  %.0 = phi i32 [ 0, %183 ], [ 28, %9 ], [ 39, %29 ], [ 0, %189 ], [ %.not130200, %._crit_edge ], [ 40, %115 ], [ 0, %186 ], [ 1, %131 ], [ 1, %143 ], [ 1, %154 ], [ 1, %129 ], [ 2, %106 ], [ 2, %60 ]
+  %.0 = phi i32 [ 1, %154 ], [ 28, %9 ], [ 39, %29 ], [ %.not130200, %._crit_edge ], [ 40, %115 ], [ 1, %129 ], [ 1, %143 ], [ 0, %189 ], [ 0, %186 ], [ 0, %183 ], [ 1, %131 ], [ 2, %106 ], [ 2, %60 ]
   ret i32 %.0
 }
 
@@ -20282,7 +20282,7 @@ define internal i32 @externalEntityContentProcessor(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %storeRawNames.exit, label %.lr.ph.i
 
 storeRawNames.exit:                               ; preds = %60, %.lr.ph.i, %41, %26, %12, %4
-  %.0 = phi i32 [ %10, %4 ], [ 0, %12 ], [ 0, %60 ], [ 0, %.lr.ph.i ], [ 1, %26 ], [ 1, %41 ]
+  %.0 = phi i32 [ %10, %4 ], [ 0, %12 ], [ 0, %60 ], [ 0, %.lr.ph.i ], [ 1, %41 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -20600,8 +20600,8 @@ accountingDiffTolerated.exit.thread:              ; preds = %43, %accountingDiff
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !374
 
-.thread:                                          ; preds = %164, %142, %146
-  %.2.ph = phi i32 [ 14, %146 ], [ 14, %142 ], [ 1, %164 ]
+.thread:                                          ; preds = %164, %146, %142
+  %.2.ph = phi i32 [ 14, %142 ], [ 14, %146 ], [ 1, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit208
 
@@ -20911,12 +20911,12 @@ lookup.exit:                                      ; preds = %296, %.lr.ph.i.i, %
 304:                                              ; preds = %302
   %305 = load i8, ptr %33, align 2, !tbaa !52
   %.not147 = icmp eq i8 %305, 0
-  br i1 %.not147, label %306, label %312
+  br i1 %.not147, label %312, label %306
 
 306:                                              ; preds = %304
-  %307 = load i8, ptr %32, align 1, !tbaa !51
-  %.not148 = icmp eq i8 %307, 0
-  br i1 %.not148, label %.thread195, label %.thread192
+  %307 = load ptr, ptr %35, align 8, !tbaa !78
+  %.not149 = icmp eq ptr %307, null
+  br i1 %.not149, label %.thread195, label %.thread192
 
 308:                                              ; preds = %lookup.exit
   %309 = load i8, ptr %32, align 1, !tbaa !51
@@ -20929,9 +20929,9 @@ lookup.exit:                                      ; preds = %296, %.lr.ph.i.i, %
   br i1 %.not285, label %.thread192, label %.thread195
 
 312:                                              ; preds = %304
-  %313 = load ptr, ptr %35, align 8, !tbaa !78
-  %.not149 = icmp eq ptr %313, null
-  br i1 %.not149, label %.thread195, label %.thread192
+  %313 = load i8, ptr %32, align 1, !tbaa !51
+  %.not148 = icmp eq i8 %313, 0
+  br i1 %.not148, label %.thread195, label %.thread192
 
 .thread195:                                       ; preds = %306, %310, %308, %312
   %.not152 = icmp eq ptr %.1126.i, null
@@ -21013,8 +21013,8 @@ lookup.exit:                                      ; preds = %296, %.lr.ph.i.i, %
   %.not157 = icmp eq i32 %351, 0
   br i1 %.not157, label %select.unfold, label %.thread199
 
-.thread199:                                       ; preds = %227, %344, %.thread195, %poolStoreString.exit, %314, %poolAppend.exit.i, %254, %320, %329, %324, %333, %342, %338, %poolAppend.exit.thread.i
-  %.4.ph = phi i32 [ 12, %320 ], [ 16, %338 ], [ 16, %342 ], [ 15, %333 ], [ 12, %324 ], [ 15, %329 ], [ 1, %poolAppend.exit.thread.i ], [ 1, %254 ], [ 1, %poolAppend.exit.i ], [ %351, %344 ], [ 11, %.thread195 ], [ 1, %poolStoreString.exit ], [ 24, %314 ], [ 1, %227 ]
+.thread199:                                       ; preds = %344, %227, %poolStoreString.exit, %.thread195, %314, %poolAppend.exit.i, %254, %324, %320, %333, %329, %342, %338, %poolAppend.exit.thread.i
+  %.4.ph = phi i32 [ 16, %338 ], [ 16, %342 ], [ 15, %329 ], [ 15, %333 ], [ 12, %320 ], [ 12, %324 ], [ 1, %poolAppend.exit.thread.i ], [ 1, %254 ], [ 1, %poolAppend.exit.i ], [ %351, %344 ], [ 1, %227 ], [ 1, %poolStoreString.exit ], [ 11, %.thread195 ], [ 24, %314 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit208
 
@@ -21038,8 +21038,8 @@ accountingOnAbort.exit:                           ; preds = %200, %poolAppend.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %39
 
-.loopexit208:                                     ; preds = %39, %198, %accountingDiffTolerated.exit.thread, %poolAppend.exit, %352, %125, %.thread, %132, %.thread199, %129, %136, %356, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i, %poolAppend.exit.thread
-  %.1.ph = phi i32 [ 1, %poolAppend.exit.thread ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 23, %356 ], [ 4, %136 ], [ 4, %129 ], [ %.4.ph, %.thread199 ], [ 23, %352 ], [ 4, %132 ], [ %.2.ph, %.thread ], [ 4, %125 ], [ 0, %39 ], [ 1, %198 ], [ 0, %accountingDiffTolerated.exit.thread ], [ 1, %poolAppend.exit ]
+.loopexit208:                                     ; preds = %39, %accountingDiffTolerated.exit.thread, %poolAppend.exit, %198, %129, %125, %136, %132, %356, %352, %getRootParserOf.exit.i.i, %accountingGetCurrentAmplification.exit.i.i, %.thread, %poolAppend.exit.thread, %.thread199
+  %.1.ph = phi i32 [ %.4.ph, %.thread199 ], [ 1, %poolAppend.exit.thread ], [ %.2.ph, %.thread ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ 23, %352 ], [ 23, %356 ], [ 4, %132 ], [ 4, %136 ], [ 4, %125 ], [ 4, %129 ], [ 0, %39 ], [ 0, %accountingDiffTolerated.exit.thread ], [ 1, %poolAppend.exit ], [ 1, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1.ph
 }
@@ -21217,7 +21217,7 @@ entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exi
   br label %110
 
 110:                                              ; preds = %107, %79, %37, %4, %109, %87, %44
-  %.0 = phi i32 [ 23, %4 ], [ 0, %44 ], [ %.065, %37 ], [ %96, %87 ], [ %105, %109 ], [ 0, %79 ], [ 1, %107 ]
+  %.0 = phi i32 [ 0, %44 ], [ %96, %87 ], [ %105, %109 ], [ 23, %4 ], [ %.065, %37 ], [ 0, %79 ], [ 1, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -21427,7 +21427,7 @@ accountingGetCurrentAmplification.exit.i.i:       ; preds = %65, %60
   br label %accountingOnAbort.exit
 
 accountingOnAbort.exit:                           ; preds = %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %92, %90, %89, %84, %83, %79
-  %.0 = phi i32 [ %94, %92 ], [ 0, %79 ], [ 0, %89 ], [ 5, %84 ], [ 0, %83 ], [ 6, %90 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ]
+  %.0 = phi i32 [ %94, %92 ], [ 0, %79 ], [ 5, %84 ], [ 0, %83 ], [ 6, %90 ], [ 0, %89 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -21504,8 +21504,8 @@ define internal i32 @externalEntityInitProcessor3(ptr noundef initializes((560, 
   %34 = call i32 @externalEntityContentProcessor(ptr noundef nonnull %0, ptr noundef %.029, ptr noundef %2, ptr noundef %3)
   br label %.thread
 
-.thread:                                          ; preds = %16, %19, %14, %27, %23, %31, %30, %26
-  %.1 = phi i32 [ %34, %31 ], [ 6, %27 ], [ 0, %30 ], [ 0, %26 ], [ 5, %23 ], [ 35, %16 ], [ 0, %19 ], [ %15, %14 ]
+.thread:                                          ; preds = %16, %14, %19, %27, %23, %31, %30, %26
+  %.1 = phi i32 [ %34, %31 ], [ 0, %26 ], [ 0, %30 ], [ 5, %23 ], [ 6, %27 ], [ 35, %16 ], [ %15, %14 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -21765,7 +21765,7 @@ switch.lookup:                                    ; preds = %20
   br label %accountingOnAbort.exit
 
 accountingOnAbort.exit:                           ; preds = %switch.lookup, %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %entityValueProcessor.exit, %27, %29, %115, %22, %19
-  %.0 = phi i32 [ 0, %19 ], [ %24, %22 ], [ 2, %115 ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ], [ %switch.offset, %switch.lookup ], [ 35, %29 ], [ %.0.i, %entityValueProcessor.exit ], [ %28, %27 ]
+  %.0 = phi i32 [ 0, %19 ], [ %24, %22 ], [ 2, %115 ], [ %.0.i, %entityValueProcessor.exit ], [ %28, %27 ], [ 35, %29 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ %switch.offset, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -21948,7 +21948,7 @@ switch.lookup:                                    ; preds = %17
   br label %accountingOnAbort.exit
 
 accountingOnAbort.exit:                           ; preds = %switch.lookup, %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %88, %16
-  %.029 = phi i32 [ 0, %16 ], [ %95, %88 ], [ %switch.offset, %switch.lookup ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 43, %getRootParserOf.exit.i.i ]
+  %.029 = phi i32 [ 0, %16 ], [ %95, %88 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ %switch.offset, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.029
 }
@@ -22449,8 +22449,8 @@ poolCopyStringN.exit:                             ; preds = %199, %192
   br label %212
 
 212:                                              ; preds = %182, %166, %208
-  %.469 = phi ptr [ %.065, %208 ], [ %.368, %166 ], [ %.368, %182 ]
-  %.460 = phi ptr [ %.056, %208 ], [ %.359, %166 ], [ %.359, %182 ]
+  %.469 = phi ptr [ %.065, %208 ], [ %.368, %182 ], [ %.368, %166 ]
+  %.460 = phi ptr [ %.056, %208 ], [ %.359, %182 ], [ %.359, %166 ]
   %213 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %214 = load ptr, ptr %213, align 8, !tbaa !257
   %.not91 = icmp eq ptr %214, null
@@ -22506,8 +22506,8 @@ poolCopyString.exit127:                           ; preds = %220
   store i8 %234, ptr %235, align 2, !tbaa !259
   br label %16
 
-.critedge.thread:                                 ; preds = %190, %poolCopyString.exit103, %poolCopyString.exit110, %poolCopyString.exit117, %128, %poolCopyString.exit, %poolCopyString.exit127, %poolCopyStringN.exit, %17, %77, %70, %73, %._crit_edge.i130, %92, %95, %97, %136, %155, %172, %197, %218
-  %.7 = phi i32 [ 0, %77 ], [ 0, %218 ], [ 0, %197 ], [ 0, %136 ], [ 0, %155 ], [ 0, %172 ], [ 1, %17 ], [ 0, %97 ], [ 0, %95 ], [ 0, %92 ], [ 0, %._crit_edge.i130 ], [ 0, %73 ], [ 0, %70 ], [ 0, %poolCopyStringN.exit ], [ 0, %poolCopyString.exit127 ], [ 0, %poolCopyString.exit ], [ 0, %128 ], [ 0, %poolCopyString.exit117 ], [ 0, %poolCopyString.exit110 ], [ 0, %poolCopyString.exit103 ], [ 0, %190 ]
+.critedge.thread:                                 ; preds = %190, %poolCopyString.exit117, %poolCopyString.exit110, %poolCopyString.exit103, %poolCopyString.exit127, %poolCopyStringN.exit, %128, %poolCopyString.exit, %17, %70, %73, %77, %._crit_edge.i130, %92, %95, %97, %136, %155, %172, %197, %218
+  %.7 = phi i32 [ 0, %218 ], [ 0, %197 ], [ 0, %172 ], [ 0, %155 ], [ 0, %136 ], [ 0, %97 ], [ 0, %95 ], [ 0, %92 ], [ 0, %._crit_edge.i130 ], [ 0, %77 ], [ 0, %73 ], [ 0, %70 ], [ 1, %17 ], [ 0, %poolCopyString.exit ], [ 0, %128 ], [ 0, %poolCopyStringN.exit ], [ 0, %poolCopyString.exit127 ], [ 0, %poolCopyString.exit103 ], [ 0, %poolCopyString.exit110 ], [ 0, %poolCopyString.exit117 ], [ 0, %190 ]
   ret i32 %.7
 }
 

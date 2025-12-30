@@ -235,7 +235,7 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
   br label %96
 
 96:                                               ; preds = %94, %82
-  %97 = phi i32 [ %67, %82 ], [ %95, %94 ]
+  %97 = phi i32 [ %95, %94 ], [ %67, %82 ]
   %98 = icmp eq i32 %97, -35
   br i1 %98, label %99, label %102
 
@@ -550,7 +550,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   br label %.thread
 
 .thread:                                          ; preds = %96, %75, %66, %54, %89, %82, %116
-  %119 = phi i32 [ -22, %82 ], [ -22, %89 ], [ 0, %116 ], [ %52, %54 ], [ -11, %66 ], [ -11, %96 ], [ %73, %75 ]
+  %119 = phi i32 [ 0, %116 ], [ -22, %82 ], [ -22, %89 ], [ %52, %54 ], [ -11, %66 ], [ %73, %75 ], [ -11, %96 ]
   %120 = sext i32 %119 to i64
   br label %121
 

@@ -2404,7 +2404,7 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr noundef readonly 
   %113 = zext i1 %80 to i32
   br label %.loopexit.sink.split
 
-.thread4:                                         ; preds = %79, %110, %72, %28
+.thread4:                                         ; preds = %72, %79, %110, %28
   %114 = add nuw nsw i64 %29, 1
   %115 = icmp eq i64 %114, 9
   br i1 %115, label %.loopexit, label %28, !llvm.loop !55
@@ -3517,7 +3517,7 @@ switch.lookup11:                                  ; preds = %462
   br label %469
 
 469:                                              ; preds = %switch.lookup11, %466
-  %470 = phi i32 [ %switch.offset12, %switch.lookup11 ], [ 22, %466 ]
+  %470 = phi i32 [ 22, %466 ], [ %switch.offset12, %switch.lookup11 ]
   %471 = or i32 %470, %463
   %472 = select i1 %328, i32 45144, i32 47192
   %473 = load i32, ptr %38, align 8

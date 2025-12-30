@@ -91,7 +91,7 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
   br i1 %exitcond.i, label %.critedge.thread, label %27, !llvm.loop !37
 
 .critedge.thread:                                 ; preds = %._crit_edge, %15, %19, %8, %10, %.critedge, %22
-  %33 = phi i1 [ false, %15 ], [ false, %.critedge ], [ true, %22 ], [ false, %10 ], [ false, %8 ], [ false, %19 ], [ true, %._crit_edge ]
+  %33 = phi i1 [ false, %.critedge ], [ true, %22 ], [ false, %10 ], [ false, %8 ], [ false, %19 ], [ false, %15 ], [ true, %._crit_edge ]
   tail call void @_mi_heap_delayed_free(ptr noundef nonnull %0) #8
   tail call void @_mi_heap_collect_retired(ptr noundef nonnull %0, i1 noundef zeroext %6) #8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 3016
@@ -671,7 +671,7 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   br label %mi_heap_of_block.exit
 
 mi_heap_of_block.exit:                            ; preds = %14, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ %27, %14 ]
+  %.0 = phi i1 [ false, %2 ], [ %27, %14 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -752,7 +752,7 @@ mi_heap_page_check_owned.exit:                    ; preds = %29, %31
   br i1 %exitcond.i, label %mi_heap_visit_pages.exit, label %14, !llvm.loop !37
 
 mi_heap_visit_pages.exit:                         ; preds = %._crit_edge, %mi_heap_page_check_owned.exit, %9, %2, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ true, %mi_heap_page_check_owned.exit ], [ false, %9 ], [ false, %._crit_edge ]
+  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %9 ], [ true, %mi_heap_page_check_owned.exit ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -835,7 +835,7 @@ mi_heap_page_check_owned.exit.i:                  ; preds = %32, %30
   br i1 %exitcond.i.i, label %mi_heap_check_owned.exit, label %15, !llvm.loop !37
 
 mi_heap_check_owned.exit:                         ; preds = %._crit_edge.i, %mi_heap_page_check_owned.exit.i, %1, %6, %10
-  %.0.i = phi i1 [ false, %6 ], [ false, %1 ], [ true, %mi_heap_page_check_owned.exit.i ], [ false, %10 ], [ false, %._crit_edge.i ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %1 ], [ false, %10 ], [ true, %mi_heap_page_check_owned.exit.i ], [ false, %._crit_edge.i ]
   ret i1 %.0.i
 }
 
@@ -1081,8 +1081,8 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   br label %117
 
 117:                                              ; preds = %._crit_edge.i.i, %107, %105
-  %118 = phi i16 [ %98, %107 ], [ %98, %105 ], [ %.pre.i.i8, %._crit_edge.i.i ]
-  %.266.i.i = phi i64 [ %.06481.i.i, %107 ], [ %106, %105 ], [ %.06481.i.i, %._crit_edge.i.i ]
+  %118 = phi i16 [ %98, %105 ], [ %98, %107 ], [ %.pre.i.i8, %._crit_edge.i.i ]
+  %.266.i.i = phi i64 [ %106, %105 ], [ %.06481.i.i, %107 ], [ %.06481.i.i, %._crit_edge.i.i ]
   %119 = add nuw nsw i64 %.266.i.i, 1
   %120 = zext i16 %118 to i64
   %.not72.not.i.i = icmp samesign ult i64 %119, %120
@@ -1111,7 +1111,7 @@ mi_heap_visit_areas.exit.sink.split:              ; preds = %mi_heap_visit_areas
   br label %mi_heap_visit_areas.exit
 
 mi_heap_visit_areas.exit:                         ; preds = %._crit_edge, %76, %mi_heap_visit_areas.exit.sink.split, %4, %13
-  %.0.i.i = phi i1 [ false, %4 ], [ false, %13 ], [ false, %76 ], [ false, %mi_heap_visit_areas.exit.sink.split ], [ true, %._crit_edge ]
+  %.0.i.i = phi i1 [ false, %13 ], [ false, %4 ], [ false, %mi_heap_visit_areas.exit.sink.split ], [ false, %76 ], [ true, %._crit_edge ]
   ret i1 %.0.i.i
 }
 

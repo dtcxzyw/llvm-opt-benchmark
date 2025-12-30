@@ -909,7 +909,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
   br label %_ZN4llvm13isPowerOf2_64Em.exit
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %8, %7, %3
-  %12 = phi i1 [ %11, %8 ], [ false, %3 ], [ true, %7 ]
+  %12 = phi i1 [ false, %3 ], [ true, %7 ], [ %11, %8 ]
   ret i1 %12
 }
 
@@ -1096,7 +1096,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i:                  ; preds = %11
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
 _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %1, %_ZNK4llvm6Triple5isPS4Ev.exit.i, %11
-  %19 = phi i1 [ %spec.select.i1, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ true, %1 ], [ false, %11 ]
+  %19 = phi i1 [ false, %11 ], [ %spec.select.i1, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ true, %1 ]
   ret i1 %19
 }
 
@@ -1126,7 +1126,7 @@ _ZNK4llvm6Triple4isPSEv.exit.thread:              ; preds = %1
   br label %16
 
 16:                                               ; preds = %1, %_ZNK4llvm6Triple4isPSEv.exit.thread
-  %17 = phi i1 [ true, %1 ], [ %spec.select, %_ZNK4llvm6Triple4isPSEv.exit.thread ]
+  %17 = phi i1 [ %spec.select, %_ZNK4llvm6Triple4isPSEv.exit.thread ], [ true, %1 ]
   ret i1 %17
 }
 

@@ -709,7 +709,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef readonly
   br i1 %exitcond.not.i, label %yae_reset.exit, label %115, !llvm.loop !88
 
 125:                                              ; preds = %106, %97, %92, %86, %81, %75, %69, %63, %57, %51, %44, %37
-  %.068.i = phi i32 [ %79, %75 ], [ %84, %81 ], [ -12, %97 ], [ -12, %86 ], [ -12, %37 ], [ -12, %69 ], [ -12, %63 ], [ -12, %57 ], [ -12, %51 ], [ -12, %44 ], [ -12, %92 ], [ -12, %106 ]
+  %.068.i = phi i32 [ %79, %75 ], [ %84, %81 ], [ -12, %69 ], [ -12, %63 ], [ -12, %57 ], [ -12, %51 ], [ -12, %44 ], [ -12, %37 ], [ -12, %92 ], [ -12, %86 ], [ -12, %97 ], [ -12, %106 ]
   call fastcc void @yae_release_buffers(ptr noundef nonnull %7)
   br label %yae_reset.exit
 
@@ -1038,7 +1038,7 @@ yae_load_data.exit.thread:                        ; preds = %.yae_load_data.exit
   br label %yae_load_data.exit
 
 yae_load_data.exit:                               ; preds = %108, %188, %189, %yae_load_data.exit.thread
-  %.0 = phi i32 [ 0, %yae_load_data.exit.thread ], [ 0, %188 ], [ 0, %189 ], [ -11, %108 ]
+  %.0 = phi i32 [ 0, %yae_load_data.exit.thread ], [ 0, %189 ], [ 0, %188 ], [ -11, %108 ]
   ret i32 %.0
 }
 
@@ -2058,14 +2058,14 @@ define internal fastcc range(i32 -11, 1) i32 @yae_overlap_add(ptr noundef captur
   br i1 %232, label %.lr.ph357.split, label %.loopexit.sink.split, !llvm.loop !121
 
 .loopexit.sink.split:                             ; preds = %._crit_edge.us, %._crit_edge.us328, %._crit_edge, %._crit_edge374.us, %.lr.ph279.split.split.preheader, %.lr.ph313.split.split.preheader, %.lr.ph357.split.us.split.preheader, %.lr.ph387.split.split.preheader
-  %.us-phi290.sink = phi i64 [ %227, %._crit_edge ], [ %149, %._crit_edge374.us ], [ %105, %._crit_edge.us328 ], [ %161, %.lr.ph387.split.split.preheader ], [ %125, %.lr.ph357.split.us.split.preheader ], [ %117, %.lr.ph313.split.split.preheader ], [ %84, %.lr.ph279.split.split.preheader ], [ %72, %._crit_edge.us ]
-  %.0206.ph = phi ptr [ %.1245.lcssa, %._crit_edge ], [ %.us-phi378.us, %._crit_edge374.us ], [ %.us-phi306.us, %._crit_edge.us328 ], [ %.fr429, %.lr.ph387.split.split.preheader ], [ %.fr429, %.lr.ph357.split.us.split.preheader ], [ %.fr429, %.lr.ph313.split.split.preheader ], [ %.fr429, %.lr.ph279.split.split.preheader ], [ %.us-phi272.us, %._crit_edge.us ]
+  %.us-phi290.sink = phi i64 [ %161, %.lr.ph387.split.split.preheader ], [ %125, %.lr.ph357.split.us.split.preheader ], [ %117, %.lr.ph313.split.split.preheader ], [ %84, %.lr.ph279.split.split.preheader ], [ %149, %._crit_edge374.us ], [ %227, %._crit_edge ], [ %105, %._crit_edge.us328 ], [ %72, %._crit_edge.us ]
+  %.0206.ph = phi ptr [ %.fr429, %.lr.ph387.split.split.preheader ], [ %.fr429, %.lr.ph357.split.us.split.preheader ], [ %.fr429, %.lr.ph313.split.split.preheader ], [ %.fr429, %.lr.ph279.split.split.preheader ], [ %.us-phi378.us, %._crit_edge374.us ], [ %.1245.lcssa, %._crit_edge ], [ %.us-phi306.us, %._crit_edge.us328 ], [ %.us-phi272.us, %._crit_edge.us ]
   store i64 %.us-phi290.sink, ptr %11, align 8, !tbaa !29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge417, %.loopexit.sink.split, %.preheader263, %.preheader261, %.preheader259, %.preheader257, %.preheader, %28
-  %233 = phi i64 [ %12, %28 ], [ %12, %.preheader259 ], [ %12, %.preheader261 ], [ %12, %.preheader263 ], [ %12, %.preheader257 ], [ %12, %.preheader ], [ %.us-phi290.sink, %.loopexit.sink.split ], [ %192, %._crit_edge417 ]
-  %.0206 = phi ptr [ %.fr429, %28 ], [ %.fr429, %.preheader259 ], [ %.fr429, %.preheader261 ], [ %.fr429, %.preheader263 ], [ %.fr429, %.preheader257 ], [ %.fr429, %.preheader ], [ %.0206.ph, %.loopexit.sink.split ], [ %.1219.lcssa, %._crit_edge417 ]
+  %233 = phi i64 [ %12, %28 ], [ %12, %.preheader ], [ %12, %.preheader257 ], [ %12, %.preheader259 ], [ %12, %.preheader261 ], [ %12, %.preheader263 ], [ %.us-phi290.sink, %.loopexit.sink.split ], [ %192, %._crit_edge417 ]
+  %.0206 = phi ptr [ %.fr429, %28 ], [ %.fr429, %.preheader ], [ %.fr429, %.preheader257 ], [ %.fr429, %.preheader259 ], [ %.fr429, %.preheader261 ], [ %.fr429, %.preheader263 ], [ %.0206.ph, %.loopexit.sink.split ], [ %.1219.lcssa, %._crit_edge417 ]
   store ptr %.0206, ptr %1, align 8, !tbaa !50
   %234 = icmp eq i64 %233, %25
   %235 = select i1 %234, i32 0, i32 -11
@@ -2384,7 +2384,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
   br label %yae_flush.exit
 
 yae_flush.exit:                                   ; preds = %85, %40, %53, %94, %119
-  %.0.i = phi i1 [ false, %40 ], [ false, %53 ], [ true, %94 ], [ %143, %119 ], [ true, %85 ]
+  %.0.i = phi i1 [ true, %94 ], [ %143, %119 ], [ false, %40 ], [ false, %53 ], [ true, %85 ]
   %144 = load ptr, ptr %14, align 8, !tbaa !56
   %145 = load ptr, ptr %13, align 8, !tbaa !54
   %146 = load ptr, ptr %145, align 8, !tbaa !50
@@ -2437,7 +2437,7 @@ push_samples.exit:                                ; preds = %154
   br label %push_samples.exit.thread
 
 push_samples.exit.thread:                         ; preds = %154, %32, %1, %171
-  %.1 = phi i32 [ %8, %1 ], [ -541478725, %171 ], [ %164, %154 ], [ -12, %32 ]
+  %.1 = phi i32 [ -541478725, %171 ], [ %8, %1 ], [ %164, %154 ], [ -12, %32 ]
   ret i32 %.1
 }
 

@@ -503,7 +503,7 @@ lv_cleanup_task.exit:                             ; preds = %46, %48, %52
   br i1 %.not40, label %.loopexit, label %.lr.ph60, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.thread, %.lr.ph60, %69, %86, %84
-  %.036 = phi i1 [ false, %69 ], [ false, %84 ], [ false, %86 ], [ %spec.select, %.lr.ph60 ], [ false, %.thread ]
+  %.036 = phi i1 [ false, %84 ], [ false, %86 ], [ false, %69 ], [ %spec.select, %.lr.ph60 ], [ false, %.thread ]
   ret i1 %.036
 }
 
@@ -653,7 +653,7 @@ is_independent.exit:                              ; preds = %53, %41, %.lr.ph
   br i1 %.not36, label %is_independent.exit.thread, label %.lr.ph, !llvm.loop !105
 
 is_independent.exit.thread:                       ; preds = %is_independent.exit, %46, %56, %.thread, %34, %10, %9
-  %.027 = phi ptr [ null, %34 ], [ null, %.thread ], [ null, %9 ], [ %spec.select, %10 ], [ %.045, %56 ], [ null, %is_independent.exit ], [ %.045, %46 ]
+  %.027 = phi ptr [ null, %9 ], [ %spec.select, %10 ], [ null, %34 ], [ null, %.thread ], [ %.045, %56 ], [ null, %is_independent.exit ], [ %.045, %46 ]
   ret ptr %.027
 }
 
@@ -704,7 +704,7 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !106
 
 .loopexit:                                        ; preds = %18, %3, %1
-  %.012 = phi i32 [ 0, %3 ], [ 0, %1 ], [ %.1, %18 ]
+  %.012 = phi i32 [ 0, %1 ], [ 0, %3 ], [ %.1, %18 ]
   ret i32 %.012
 }
 

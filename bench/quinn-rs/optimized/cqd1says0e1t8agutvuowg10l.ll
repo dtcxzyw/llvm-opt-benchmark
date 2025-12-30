@@ -189,7 +189,7 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$quinn_proto..crypto..KeyPai
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %40, %48
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %41, %48 ], [ %16, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %48 ], [ %41, %40 ], [ %16, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$quinn_proto..crypto..HeaderKey$GT$$GT$17h8a6b138faf9f5b9dE.exit8": ; preds = %31, %39

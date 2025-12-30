@@ -1011,8 +1011,8 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   br label %.thread103
 
 .thread103:                                       ; preds = %.thread99, %154
-  %.096102105 = phi ptr [ %153, %.thread99 ], [ %152, %154 ]
-  %.081 = phi ptr [ %109, %.thread99 ], [ %156, %154 ]
+  %.096102105 = phi ptr [ %152, %154 ], [ %153, %.thread99 ]
+  %.081 = phi ptr [ %156, %154 ], [ %109, %.thread99 ]
   %157 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %158 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %159 = zext i8 %158 to i32
@@ -1439,7 +1439,7 @@ cmp_address.exit.thread12:                        ; preds = %18, %cmp_address.ex
   br label %cmp_address.exit9
 
 cmp_address.exit9:                                ; preds = %16, %10, %8, %2, %45, %43, %41, %35, %33, %cmp_address.exit.thread12, %cmp_address.exit
-  %.0 = phi i32 [ %25, %cmp_address.exit ], [ 0, %43 ], [ %51, %45 ], [ 1, %cmp_address.exit.thread12 ], [ -1, %33 ], [ 1, %35 ], [ -1, %41 ], [ -1, %16 ], [ 1, %10 ], [ -1, %8 ], [ 1, %2 ]
+  %.0 = phi i32 [ %25, %cmp_address.exit ], [ %51, %45 ], [ 1, %cmp_address.exit.thread12 ], [ -1, %33 ], [ 1, %35 ], [ -1, %41 ], [ 0, %43 ], [ -1, %16 ], [ 1, %10 ], [ -1, %8 ], [ 1, %2 ]
   ret i32 %.0
 }
 

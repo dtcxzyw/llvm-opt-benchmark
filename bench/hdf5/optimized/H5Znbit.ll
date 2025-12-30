@@ -357,7 +357,7 @@ default.unreachable:                              ; preds = %92
   br label %128
 
 128:                                              ; preds = %67, %74, %81, %88, %98, %124, %116, %105, %112
-  %.1.ph = phi i32 [ -1, %112 ], [ -1, %105 ], [ 0, %116 ], [ -1, %124 ], [ -1, %98 ], [ -1, %67 ], [ -1, %88 ], [ -1, %81 ], [ -1, %74 ]
+  %.1.ph = phi i32 [ -1, %112 ], [ -1, %105 ], [ 0, %116 ], [ -1, %124 ], [ -1, %98 ], [ -1, %88 ], [ -1, %81 ], [ -1, %74 ], [ -1, %67 ]
   %129 = call ptr @H5MM_xfree(ptr noundef nonnull %57) #8
   br label %130
 
@@ -537,7 +537,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nounde
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %38
   br i1 %exitcond.not.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
-H5Z__nbit_decompress.exit.thread:                 ; preds = %88, %79, %.lr.ph45.i, %48, %71, %.preheader.i, %80
+H5Z__nbit_decompress.exit.thread:                 ; preds = %88, %79, %.lr.ph45.i, %48, %.preheader.i, %71, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -919,7 +919,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__calc_parms_compound, i32 noundef 311, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.19) #8
   br label %.thread46
 
-66:                                               ; preds = %38, %45, %58, %50, %28
+66:                                               ; preds = %45, %38, %58, %50, %28
   %67 = tail call i32 @H5T_close_real(ptr noundef nonnull %23) #8
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %.thread46
@@ -1070,7 +1070,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   br label %79
 
 79:                                               ; preds = %77, %18, %29, %33, %44, %51, %61, %78, %65, %4
-  %.0 = phi i32 [ -1, %18 ], [ -1, %29 ], [ -1, %33 ], [ -1, %44 ], [ -1, %51 ], [ -1, %61 ], [ 0, %78 ], [ 0, %77 ], [ 0, %65 ], [ 0, %4 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %29 ], [ -1, %33 ], [ -1, %44 ], [ -1, %51 ], [ -1, %61 ], [ 0, %78 ], [ 0, %65 ], [ 0, %4 ], [ 0, %77 ]
   ret i32 %.0
 }
 
@@ -1237,7 +1237,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef no
   br label %H5Z__set_parms_nooptype.exit.thread
 
 H5Z__set_parms_nooptype.exit.thread:              ; preds = %70, %84, %36, %97, %43, %40, %50, %47, %57, %54, %66, %68, %90
-  %.1.ph = phi i32 [ -1, %36 ], [ -1, %90 ], [ -1, %68 ], [ -1, %66 ], [ 0, %54 ], [ -1, %57 ], [ 0, %47 ], [ -1, %50 ], [ 0, %40 ], [ -1, %43 ], [ -1, %97 ], [ 0, %84 ], [ 0, %70 ]
+  %.1.ph = phi i32 [ -1, %90 ], [ -1, %68 ], [ -1, %66 ], [ 0, %54 ], [ -1, %57 ], [ 0, %47 ], [ -1, %50 ], [ 0, %40 ], [ -1, %43 ], [ -1, %97 ], [ -1, %36 ], [ 0, %84 ], [ 0, %70 ]
   %101 = tail call i32 @H5T_close_real(ptr noundef nonnull %28) #8
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %107
@@ -2156,7 +2156,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   br i1 %exitcond.not.i, label %H5Z__nbit_decompress_one_nooptype.exit, label %100, !llvm.loop !36
 
 H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %132, %95, %77, %57, %79, %61, %53, %97, %49, %73, %91, %15, %7
-  %.0 = phi i32 [ 0, %15 ], [ -1, %49 ], [ 0, %61 ], [ -1, %73 ], [ 0, %79 ], [ -1, %91 ], [ 0, %53 ], [ 0, %7 ], [ 0, %97 ], [ 0, %77 ], [ 0, %95 ], [ 0, %57 ], [ 0, %132 ]
+  %.0 = phi i32 [ 0, %15 ], [ -1, %49 ], [ -1, %73 ], [ -1, %91 ], [ 0, %7 ], [ 0, %97 ], [ 0, %53 ], [ 0, %61 ], [ 0, %79 ], [ 0, %57 ], [ 0, %77 ], [ 0, %95 ], [ 0, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -2764,7 +2764,7 @@ H5Z__nbit_compress_one_byte.exit54:               ; preds = %229, %251
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !39
 
 .loopexit.sink.split:                             ; preds = %173, %181, %48, %56
-  %.sink59.i53.us.sink = phi i64 [ %30, %56 ], [ %49, %48 ], [ %174, %173 ], [ %155, %181 ]
+  %.sink59.i53.us.sink = phi i64 [ %49, %48 ], [ %30, %56 ], [ %174, %173 ], [ %155, %181 ]
   %254 = load i64, ptr %4, align 8, !tbaa !10
   %255 = sub i64 %254, %.sink59.i53.us.sink
   store i64 %255, ptr %4, align 8, !tbaa !10

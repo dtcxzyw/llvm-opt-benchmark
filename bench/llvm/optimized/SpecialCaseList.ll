@@ -785,7 +785,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %.loopexit.loopexit51, %.loopexit.split.loop.exit45, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge
-  %.3 = phi i32 [ %27, %.loopexit.loopexit51 ], [ %25, %.loopexit.split.loop.exit45 ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge ], [ 0, %22 ]
+  %.3 = phi i32 [ %25, %.loopexit.split.loop.exit45 ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge ], [ %27, %.loopexit.loopexit51 ], [ 0, %22 ]
   ret i32 %.3
 }
 
@@ -2280,7 +2280,7 @@ _ZN4llvm5ErrorD2Ev.exit121.thread:                ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %373
 
 373:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit121.thread, %_ZN4llvm5ErrorD2Ev.exit47, %.critedge45
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit47 ], [ false, %_ZN4llvm5ErrorD2Ev.exit121.thread ], [ true, %.critedge45 ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit47 ], [ true, %.critedge45 ], [ false, %_ZN4llvm5ErrorD2Ev.exit121.thread ]
   ret i1 %.1
 }
 
@@ -2643,7 +2643,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
   br label %_ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit
 
 _ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit: ; preds = %.loopexit.split.loop.exit45.i, %.loopexit.loopexit51.i
-  %.3.i.in = phi ptr [ %41, %.loopexit.loopexit51.i ], [ %40, %.loopexit.split.loop.exit45.i ]
+  %.3.i.in = phi ptr [ %40, %.loopexit.split.loop.exit45.i ], [ %41, %.loopexit.loopexit51.i ]
   %.3.i = load i32, ptr %.3.i.in, align 4
   %.not = icmp eq i32 %.3.i, 0
   br i1 %.not, label %.thread.preheader, label %42
@@ -2805,7 +2805,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
   br label %_ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit
 
 _ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit: ; preds = %58, %17, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i, %.loopexit.split.loop.exit45.i, %.loopexit.loopexit51.i, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %17 ], [ %63, %.loopexit.loopexit51.i ], [ %61, %.loopexit.split.loop.exit45.i ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i ], [ 0, %58 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %17 ], [ %61, %.loopexit.split.loop.exit45.i ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i ], [ %63, %.loopexit.loopexit51.i ], [ 0, %58 ]
   ret i32 %.0
 }
 

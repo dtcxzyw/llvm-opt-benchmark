@@ -65,7 +65,7 @@ define hidden i32 @lj_str_cmp(ptr noundef readonly captures(none) %0, ptr nounde
   br label %32
 
 32:                                               ; preds = %.thread, %.loopexit
-  %.2 = phi i32 [ %27, %.thread ], [ %31, %.loopexit ]
+  %.2 = phi i32 [ %31, %.loopexit ], [ %27, %.thread ]
   ret i32 %.2
 }
 
@@ -115,7 +115,7 @@ define hidden ptr @lj_str_find(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %.not33, label %.thread46, label %14
 
 .thread46:                                        ; preds = %17, %20, %14, %7, %4, %5
-  %.024 = phi ptr [ %0, %5 ], [ null, %4 ], [ null, %7 ], [ null, %20 ], [ %16, %17 ], [ null, %14 ]
+  %.024 = phi ptr [ %0, %5 ], [ null, %4 ], [ null, %7 ], [ %16, %17 ], [ null, %20 ], [ null, %14 ]
   ret ptr %.024
 }
 
@@ -746,7 +746,7 @@ hash_sparse.exit:                                 ; preds = %17, %35
   br label %.thread
 
 .thread:                                          ; preds = %85, %93, %104, %.split57, %.split, %108
-  %.3 = phi ptr [ %109, %108 ], [ %103, %.split57 ], [ %105, %104 ], [ %101, %.split ], [ %.15072, %93 ], [ %.15072, %85 ]
+  %.3 = phi ptr [ %109, %108 ], [ %105, %104 ], [ %101, %.split ], [ %103, %.split57 ], [ %.15072, %93 ], [ %.15072, %85 ]
   ret ptr %.3
 }
 

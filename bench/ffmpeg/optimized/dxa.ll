@@ -72,7 +72,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %14, %12, %25, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -12, %12 ], [ -12, %25 ], [ 0, %14 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ -12, %25 ], [ -12, %12 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -147,7 +147,7 @@ bytestream2_get_be24.exit:                        ; preds = %24, %28
   br i1 %exitcond.not, label %bytestream2_peek_le32.exit.thread, label %24, !llvm.loop !40
 
 bytestream2_peek_le32.exit.thread:                ; preds = %bytestream2_get_be24.exit, %bytestream2_init.exit, %bytestream2_peek_le32.exit
-  %.sroa.0.0 = phi ptr [ %9, %bytestream2_init.exit ], [ %9, %bytestream2_peek_le32.exit ], [ %.sroa.0.3, %bytestream2_get_be24.exit ]
+  %.sroa.0.0 = phi ptr [ %9, %bytestream2_peek_le32.exit ], [ %9, %bytestream2_init.exit ], [ %.sroa.0.3, %bytestream2_get_be24.exit ]
   %44 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 1) #8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %454, label %46
@@ -248,8 +248,8 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   br label %94
 
 94:                                               ; preds = %bytestream2_get_byte.exit, %bytestream2_get_byte.exit.thread149, %89
-  %95 = phi i32 [ %64, %bytestream2_get_byte.exit.thread149 ], [ %73, %bytestream2_get_byte.exit ], [ %93, %89 ]
-  %.096147 = phi i32 [ -1, %bytestream2_get_byte.exit.thread149 ], [ 4, %bytestream2_get_byte.exit ], [ %.096148, %89 ]
+  %95 = phi i32 [ %73, %bytestream2_get_byte.exit ], [ %93, %89 ], [ %64, %bytestream2_get_byte.exit.thread149 ]
+  %.096147 = phi i32 [ 4, %bytestream2_get_byte.exit ], [ %.096148, %89 ], [ -1, %bytestream2_get_byte.exit.thread149 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %97 = load i32, ptr %96, align 4, !tbaa !44
   %98 = and i32 %97, 1
@@ -920,9 +920,9 @@ default.unreachable:                              ; preds = %308
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader7.i, %399, %259, %.loopexit.i.loopexit196, %432, %416, %297
-  %.8.i = phi ptr [ %436, %432 ], [ %.4273.i, %.loopexit.i.loopexit196 ], [ %298, %297 ], [ %.7276.i, %399 ], [ %.127072.i, %259 ], [ %418, %416 ], [ %300, %.preheader7.i ]
-  %.6268.i = phi ptr [ %.126373.i, %432 ], [ %.126373.i, %.loopexit.i.loopexit196 ], [ %.126373.i, %297 ], [ %.4266.i, %399 ], [ %.2264.i, %259 ], [ %.126373.i, %416 ], [ %.126373.i, %.preheader7.i ]
-  %.3261.i = phi ptr [ %433, %432 ], [ %438, %.loopexit.i.loopexit196 ], [ %.125974.i, %297 ], [ %304, %399 ], [ %.125974.i, %259 ], [ %417, %416 ], [ %.125974.i, %.preheader7.i ]
+  %.8.i = phi ptr [ %298, %297 ], [ %418, %416 ], [ %436, %432 ], [ %.4273.i, %.loopexit.i.loopexit196 ], [ %.127072.i, %259 ], [ %.7276.i, %399 ], [ %300, %.preheader7.i ]
+  %.6268.i = phi ptr [ %.126373.i, %297 ], [ %.126373.i, %416 ], [ %.126373.i, %432 ], [ %.126373.i, %.loopexit.i.loopexit196 ], [ %.2264.i, %259 ], [ %.4266.i, %399 ], [ %.126373.i, %.preheader7.i ]
+  %.3261.i = phi ptr [ %.125974.i, %297 ], [ %417, %416 ], [ %433, %432 ], [ %438, %.loopexit.i.loopexit196 ], [ %.125974.i, %259 ], [ %304, %399 ], [ %.125974.i, %.preheader7.i ]
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 4
   %439 = load i32, ptr %191, align 8, !tbaa !27
   %440 = trunc nuw i64 %indvars.iv.next125.i to i32
@@ -962,7 +962,7 @@ decode_13.exit:                                   ; preds = %._crit_edge.i, %.lr
   br label %454
 
 454:                                              ; preds = %decode_13.exit, %139, %bytestream2_peek_le32.exit.thread, %452, %448, %184, %88
-  %.0 = phi i32 [ -1094995529, %184 ], [ -1313558101, %88 ], [ -1094995529, %448 ], [ -1094995529, %139 ], [ %453, %452 ], [ %44, %bytestream2_peek_le32.exit.thread ], [ %450, %decode_13.exit ]
+  %.0 = phi i32 [ -1313558101, %88 ], [ -1094995529, %448 ], [ %453, %452 ], [ -1094995529, %184 ], [ %44, %bytestream2_peek_le32.exit.thread ], [ -1094995529, %139 ], [ %450, %decode_13.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

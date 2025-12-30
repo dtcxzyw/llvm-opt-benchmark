@@ -973,7 +973,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   br i1 %.not, label %._crit_edge, label %30
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit: ; preds = %1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %._crit_edge, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
-  %.0 = phi i1 [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit ], [ true, %._crit_edge ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ false, %1 ]
+  %.0 = phi i1 [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit ], [ true, %._crit_edge ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1307,8 +1307,8 @@ _Z9get_depthPK4expr.exit40:                       ; preds = %_Z9get_depthPK4expr
 .thread45:                                        ; preds = %63, %51
   br label %.thread
 
-.thread:                                          ; preds = %65, %51, %47, %49, %2, %6, %9, %.thread45
-  %.033 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %9 ], [ false, %.thread45 ], [ true, %51 ], [ true, %49 ], [ true, %47 ], [ true, %65 ]
+.thread:                                          ; preds = %65, %51, %49, %47, %2, %6, %9, %.thread45
+  %.033 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %9 ], [ false, %.thread45 ], [ true, %47 ], [ true, %49 ], [ true, %51 ], [ true, %65 ]
   tail call void @_ZN3sls9bv_plugin3logEP4exprbb(ptr noundef nonnull align 8 dereferenceable(1049) %0, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext %.033)
   ret i1 %.033
 }

@@ -351,7 +351,7 @@ define hidden noundef ptr @_ZN13WorkerThreads13create_workerEj(ptr noundef nonnu
   br label %20
 
 20:                                               ; preds = %2, %17, %13
-  %.0 = phi ptr [ null, %13 ], [ %7, %17 ], [ null, %2 ]
+  %.0 = phi ptr [ %7, %17 ], [ null, %13 ], [ null, %2 ]
   ret ptr %.0
 }
 

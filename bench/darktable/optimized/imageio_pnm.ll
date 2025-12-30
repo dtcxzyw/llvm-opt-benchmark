@@ -123,13 +123,13 @@ define range(i32 0, 9) i32 @dt_imageio_open_pnm(ptr noundef %0, ptr noundef read
   %57 = call fastcc i32 @_read_ppm(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %49)
   br label %59
 
-.thread:                                          ; preds = %25, %31, %33, %42, %50, %46
-  %.047.ph = phi i32 [ 8, %46 ], [ 2, %50 ], [ 2, %42 ], [ 2, %33 ], [ 2, %31 ], [ 2, %25 ]
+.thread:                                          ; preds = %25, %31, %33, %42, %46, %50
+  %.047.ph = phi i32 [ 2, %50 ], [ 8, %46 ], [ 2, %42 ], [ 2, %33 ], [ 2, %31 ], [ 2, %25 ]
   %58 = call i32 @fclose(ptr noundef nonnull %24)
   br label %70
 
 59:                                               ; preds = %52, %56, %54
-  %.047 = phi i32 [ %55, %54 ], [ %57, %56 ], [ %53, %52 ]
+  %.047 = phi i32 [ %53, %52 ], [ %55, %54 ], [ %57, %56 ]
   %60 = call i32 @fclose(ptr noundef nonnull %24)
   %61 = icmp eq i32 %.047, 0
   br i1 %61, label %62, label %70
@@ -278,7 +278,7 @@ define internal fastcc range(i32 0, 8) i32 @_read_pbm(ptr noundef readonly captu
   br i1 %40, label %.lr.ph48.split, label %._crit_edge49
 
 ._crit_edge49:                                    ; preds = %._crit_edge.us, %.lr.ph48.split.us, %.preheader, %.lr.ph48.split, %.preheader40
-  %.036 = phi i32 [ 7, %.lr.ph48.split ], [ 0, %.preheader40 ], [ 0, %.preheader ], [ 0, %._crit_edge.us ], [ 7, %.lr.ph48.split.us ]
+  %.036 = phi i32 [ 0, %.preheader40 ], [ 7, %.lr.ph48.split ], [ 0, %.preheader ], [ 7, %.lr.ph48.split.us ], [ 0, %._crit_edge.us ]
   tail call void @free(ptr noundef %9) #13
   br label %41
 
@@ -426,8 +426,8 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 .sink.split:                                      ; preds = %.lr.ph89, %._crit_edge, %.lr.ph110, %._crit_edge94, %39, %.lr.ph79, %16, %.lr.ph99
-  %.sink = phi ptr [ %17, %16 ], [ %40, %.lr.ph79 ], [ %40, %39 ], [ %17, %.lr.ph99 ], [ %17, %.lr.ph110 ], [ %17, %._crit_edge94 ], [ %40, %._crit_edge ], [ %40, %.lr.ph89 ]
-  %.0.ph = phi i32 [ 0, %16 ], [ 0, %.lr.ph79 ], [ 0, %39 ], [ 0, %.lr.ph99 ], [ 6, %.lr.ph110 ], [ 0, %._crit_edge94 ], [ 6, %.lr.ph89 ], [ 0, %._crit_edge ]
+  %.sink = phi ptr [ %17, %.lr.ph99 ], [ %17, %16 ], [ %40, %.lr.ph79 ], [ %40, %39 ], [ %17, %._crit_edge94 ], [ %17, %.lr.ph110 ], [ %40, %._crit_edge ], [ %40, %.lr.ph89 ]
+  %.0.ph = phi i32 [ 0, %.lr.ph99 ], [ 0, %16 ], [ 0, %.lr.ph79 ], [ 0, %39 ], [ 6, %.lr.ph110 ], [ 0, %._crit_edge94 ], [ 6, %.lr.ph89 ], [ 0, %._crit_edge ]
   call void @free(ptr noundef %.sink) #13
   br label %62
 
@@ -593,8 +593,8 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
   br i1 %exitcond.not, label %57, label %60
 
 .sink.split:                                      ; preds = %.lr.ph96, %._crit_edge, %.lr.ph118, %._crit_edge102, %42, %.lr.ph, %17, %.lr.ph107
-  %.sink = phi ptr [ %18, %17 ], [ %43, %.lr.ph ], [ %43, %42 ], [ %18, %.lr.ph107 ], [ %18, %.lr.ph118 ], [ %18, %._crit_edge102 ], [ %43, %._crit_edge ], [ %43, %.lr.ph96 ]
-  %.0.ph = phi i32 [ 0, %17 ], [ 0, %.lr.ph ], [ 0, %42 ], [ 0, %.lr.ph107 ], [ 2, %.lr.ph118 ], [ 0, %._crit_edge102 ], [ 6, %.lr.ph96 ], [ 0, %._crit_edge ]
+  %.sink = phi ptr [ %18, %.lr.ph107 ], [ %18, %17 ], [ %43, %.lr.ph ], [ %43, %42 ], [ %18, %._crit_edge102 ], [ %18, %.lr.ph118 ], [ %43, %._crit_edge ], [ %43, %.lr.ph96 ]
+  %.0.ph = phi i32 [ 0, %.lr.ph107 ], [ 0, %17 ], [ 0, %.lr.ph ], [ 0, %42 ], [ 2, %.lr.ph118 ], [ 0, %._crit_edge102 ], [ 6, %.lr.ph96 ], [ 0, %._crit_edge ]
   call void @free(ptr noundef %.sink) #13
   br label %66
 

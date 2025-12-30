@@ -388,11 +388,11 @@ newLexeme.exit109.i:                              ; preds = %119, %117, %._crit_
   unreachable
 
 176:                                              ; preds = %171, %159, %158, %152, %148, %144, %newLexeme.exit109.i, %104, %newLexeme.exit.i, %63, %57
-  %.3.i = phi i8 [ %.285141.i, %159 ], [ %.285141.i, %63 ], [ %.285141.i, %57 ], [ %.285141.i, %newLexeme.exit.i ], [ %.285141.i, %newLexeme.exit109.i ], [ %.285141.i, %104 ], [ 1, %144 ], [ 0, %148 ], [ %.285141.i, %152 ], [ 0, %158 ], [ %.285141.i, %171 ]
-  %.180.i = phi i32 [ 4, %159 ], [ %spec.select.i, %63 ], [ 3, %57 ], [ 3, %newLexeme.exit.i ], [ 1, %newLexeme.exit109.i ], [ 2, %104 ], [ 4, %144 ], [ 4, %148 ], [ 3, %152 ], [ 4, %158 ], [ 3, %171 ]
-  %.178.i = phi ptr [ %.077144.i, %159 ], [ %spec.select103.i, %63 ], [ %.077144.i, %57 ], [ %.077144.i, %newLexeme.exit.i ], [ %.077144.i, %newLexeme.exit109.i ], [ %.077144.i, %104 ], [ %147, %144 ], [ %151, %148 ], [ %.077144.i, %152 ], [ %.182142.i, %158 ], [ %.077144.i, %171 ]
-  %.176.i = phi i32 [ %.075145.i, %159 ], [ %.075145.i, %63 ], [ %.075145.i, %57 ], [ %72, %newLexeme.exit.i ], [ %111, %newLexeme.exit109.i ], [ %.075145.i, %104 ], [ %.075145.i, %144 ], [ %.075145.i, %148 ], [ %.075145.i, %152 ], [ %.075145.i, %158 ], [ %.075145.i, %171 ]
-  %.1.i = phi i32 [ %.0146.i, %159 ], [ %.0146.i, %63 ], [ %.0146.i, %57 ], [ %.0146.i, %newLexeme.exit.i ], [ %.0146.i, %newLexeme.exit109.i ], [ %.0146.i, %104 ], [ %.0146.i, %144 ], [ %.0146.i, %148 ], [ %.0146.i, %152 ], [ %.0146.i, %158 ], [ %172, %171 ]
+  %.3.i = phi i8 [ %.285141.i, %newLexeme.exit.i ], [ %.285141.i, %newLexeme.exit109.i ], [ %.285141.i, %104 ], [ 1, %144 ], [ 0, %148 ], [ %.285141.i, %152 ], [ 0, %158 ], [ %.285141.i, %171 ], [ %.285141.i, %159 ], [ %.285141.i, %57 ], [ %.285141.i, %63 ]
+  %.180.i = phi i32 [ 3, %newLexeme.exit.i ], [ 1, %newLexeme.exit109.i ], [ 2, %104 ], [ 4, %144 ], [ 4, %148 ], [ 3, %152 ], [ 4, %158 ], [ 3, %171 ], [ 4, %159 ], [ 3, %57 ], [ %spec.select.i, %63 ]
+  %.178.i = phi ptr [ %.077144.i, %newLexeme.exit.i ], [ %.077144.i, %newLexeme.exit109.i ], [ %.077144.i, %104 ], [ %147, %144 ], [ %151, %148 ], [ %.077144.i, %152 ], [ %.182142.i, %158 ], [ %.077144.i, %171 ], [ %.077144.i, %159 ], [ %.077144.i, %57 ], [ %spec.select103.i, %63 ]
+  %.176.i = phi i32 [ %72, %newLexeme.exit.i ], [ %111, %newLexeme.exit109.i ], [ %.075145.i, %104 ], [ %.075145.i, %144 ], [ %.075145.i, %148 ], [ %.075145.i, %152 ], [ %.075145.i, %158 ], [ %.075145.i, %171 ], [ %.075145.i, %159 ], [ %.075145.i, %57 ], [ %.075145.i, %63 ]
+  %.1.i = phi i32 [ %.0146.i, %newLexeme.exit.i ], [ %.0146.i, %newLexeme.exit109.i ], [ %.0146.i, %104 ], [ %.0146.i, %144 ], [ %.0146.i, %148 ], [ %.0146.i, %152 ], [ %.0146.i, %158 ], [ %172, %171 ], [ %.0146.i, %159 ], [ %.0146.i, %57 ], [ %.0146.i, %63 ]
   %177 = call i32 @pg_mblen(ptr noundef nonnull %.182142.i) #9
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i8, ptr %.182142.i, i64 %178
@@ -815,20 +815,20 @@ addCompiledLexeme.exit101.i:                      ; preds = %340, %334
   %380 = icmp eq ptr %.084.val.i, null
   %381 = load ptr, ptr %.4192.i, align 8
   %.not136.i = icmp eq ptr %381, null
-  br i1 %380, label %382, label %383
+  br i1 %380, label %cmpLexeme.exit.i, label %382
 
 382:                                              ; preds = %.lr.ph196.i
-  br i1 %.not136.i, label %386, label %cmpLexeme.exit.thread.i
+  br i1 %.not136.i, label %cmpLexeme.exit.thread.i, label %383
 
-383:                                              ; preds = %.lr.ph196.i
-  br i1 %.not136.i, label %cmpLexeme.exit.thread.i, label %cmpLexeme.exit.i
-
-cmpLexeme.exit.i:                                 ; preds = %383
+383:                                              ; preds = %382
   %384 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.084.val.i, ptr noundef nonnull dereferenceable(1) %381) #10
   %385 = icmp eq i32 %384, 0
   br i1 %385, label %386, label %cmpLexeme.exit.thread.i
 
-386:                                              ; preds = %cmpLexeme.exit.i, %382
+cmpLexeme.exit.i:                                 ; preds = %.lr.ph196.i
+  br i1 %.not136.i, label %386, label %cmpLexeme.exit.thread.i
+
+386:                                              ; preds = %cmpLexeme.exit.i, %383
   %387 = getelementptr inbounds nuw i8, ptr %.pn193.i, i64 24
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds nuw i8, ptr %.4192.i, i64 8
@@ -1595,7 +1595,7 @@ checkMatch.exit.thread:                           ; preds = %.lr.ph314
   br label %197
 
 197:                                              ; preds = %15, %checkMatch.exit.thread, %checkMatch.exit, %150
-  %.0 = phi i64 [ 0, %150 ], [ %195, %checkMatch.exit ], [ 0, %checkMatch.exit.thread ], [ 0, %15 ]
+  %.0 = phi i64 [ %195, %checkMatch.exit ], [ 0, %checkMatch.exit.thread ], [ 0, %150 ], [ 0, %15 ]
   ret i64 %.0
 }
 
@@ -1663,7 +1663,7 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   br label %.lr.ph112.us.preheader
 
 .lr.ph112.us.preheader:                           ; preds = %11, %.preheader.i77.us, %._crit_edge.us, %matchIdSubst.exit81.us
-  %.270.us = phi ptr [ %.1.us, %matchIdSubst.exit81.us ], [ %.068.us, %.preheader.i77.us ], [ %.068.us, %._crit_edge.us ], [ %.068.us, %11 ]
+  %.270.us = phi ptr [ %.1.us, %matchIdSubst.exit81.us ], [ %.068.us, %._crit_edge.us ], [ %.068.us, %.preheader.i77.us ], [ %.068.us, %11 ]
   br label %.lr.ph112.us
 
 .lr.ph112.us:                                     ; preds = %.lr.ph112.us.preheader, %.lr.ph112.us
@@ -1721,8 +1721,8 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   br label %49
 
 49:                                               ; preds = %._crit_edge, %.critedge.us
-  %.164.us = phi i32 [ %48, %._crit_edge ], [ 0, %.critedge.us ]
-  %.1.us = phi ptr [ %30, %._crit_edge ], [ %25, %.critedge.us ]
+  %.164.us = phi i32 [ 0, %.critedge.us ], [ %48, %._crit_edge ]
+  %.1.us = phi ptr [ %25, %.critedge.us ], [ %30, %._crit_edge ]
   %.not84.us = icmp slt i32 %.164.us, %4
   br i1 %.not84.us, label %.preheader85.us, label %._crit_edge.us, !llvm.loop !24
 
@@ -1957,7 +1957,7 @@ define internal i32 @cmpTheLexeme(ptr noundef readonly captures(none) %0, ptr no
   br label %cmpLexeme.exit
 
 cmpLexeme.exit:                                   ; preds = %5, %9
-  %.0.i = phi i32 [ %..i, %5 ], [ %10, %9 ]
+  %.0.i = phi i32 [ %10, %9 ], [ %..i, %5 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %11, label %cmpLexeme.exit.thread
 
@@ -1995,21 +1995,21 @@ cmpLexeme.exit:                                   ; preds = %5, %9
 
 34:                                               ; preds = %28
   %35 = icmp ugt i16 %30, %32
-  %.neg11 = select i1 %35, i32 -1, i32 1
+  %.neg = select i1 %35, i32 -1, i32 1
   br label %cmpLexeme.exit.thread
 
 36:                                               ; preds = %22
   %37 = icmp ugt i16 %24, %26
-  %.neg12 = select i1 %37, i32 -1, i32 1
+  %.neg11 = select i1 %37, i32 -1, i32 1
   br label %cmpLexeme.exit.thread
 
 38:                                               ; preds = %18
   %39 = icmp ugt i32 %19, %20
-  %.neg = select i1 %39, i32 -1, i32 1
+  %.neg12 = select i1 %39, i32 -1, i32 1
   br label %cmpLexeme.exit.thread
 
 cmpLexeme.exit.thread:                            ; preds = %38, %36, %34, %28, %11, %7, %cmpLexeme.exit
-  %.0 = phi i32 [ -1, %7 ], [ %.0.i, %cmpLexeme.exit ], [ %.neg, %38 ], [ 0, %11 ], [ %.neg11, %34 ], [ %.neg12, %36 ], [ 0, %28 ]
+  %.0 = phi i32 [ %.0.i, %cmpLexeme.exit ], [ -1, %7 ], [ %.neg, %34 ], [ %.neg11, %36 ], [ %.neg12, %38 ], [ 0, %11 ], [ 0, %28 ]
   ret i32 %.0
 }
 

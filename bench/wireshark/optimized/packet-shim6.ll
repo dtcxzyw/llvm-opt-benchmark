@@ -869,7 +869,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   br i1 %437, label %.thread.i77.i, label %dissect_shim6_opt_loc_pref.exit.i, !llvm.loop !10
 
 dissect_shim6_opt_loc_pref.exit.i:                ; preds = %.thread.i77.i, %.thread.us.i.i, %.thread.us.us.i.i, %404, %402
-  %.6.i = phi i32 [ %396, %402 ], [ %405, %404 ], [ %428, %.thread.us.i.i ], [ %415, %.thread.us.us.i.i ], [ %435, %.thread.i77.i ]
+  %.6.i = phi i32 [ %396, %402 ], [ %405, %404 ], [ %415, %.thread.us.us.i.i ], [ %428, %.thread.us.i.i ], [ %435, %.thread.i77.i ]
   %438 = and i32 %325, 7
   %.not73.i = icmp eq i32 %438, 4
   br i1 %.not73.i, label %dissect_shimopts.exit, label %439

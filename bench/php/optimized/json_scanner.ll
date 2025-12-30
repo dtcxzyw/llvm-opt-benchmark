@@ -256,7 +256,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %101, label %95, label %89
 
 .loopexit1647:                                    ; preds = %32, %58, %45, %38, %272, %206, %63, %56, %52, %51, %43, %37
-  %102 = phi ptr [ %17, %37 ], [ %.lcssa2011, %58 ], [ %17, %45 ], [ %17, %38 ], [ %275, %272 ], [ %207, %206 ], [ %.lcssa2011, %63 ], [ %.lcssa2011, %56 ], [ %.lcssa2011, %52 ], [ %.lcssa2011, %51 ], [ %17, %43 ], [ %17, %32 ]
+  %102 = phi ptr [ %.lcssa2011, %58 ], [ %17, %45 ], [ %17, %38 ], [ %275, %272 ], [ %207, %206 ], [ %.lcssa2011, %63 ], [ %.lcssa2011, %56 ], [ %.lcssa2011, %52 ], [ %.lcssa2011, %51 ], [ %17, %43 ], [ %17, %37 ], [ %17, %32 ]
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
   store ptr %103, ptr %0, align 8, !tbaa !4
   br label %104
@@ -924,12 +924,12 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %410 = icmp ult i8 %388, 118
   br i1 %410, label %452, label %.loopexit1639
 
-.critedge1505.loopexit:                           ; preds = %458, %486, %531, %581, %583, %590, %592, %535, %537, %544, %546, %599, %601, %553, %555, %494, %496, %502, %504, %462, %513, %515, %467, %471, %608, %610, %562, %564
+.critedge1505.loopexit:                           ; preds = %458, %486, %531, %581, %590, %535, %544, %599, %553, %494, %496, %502, %462, %513, %515, %608, %562, %467, %471, %504, %537, %546, %555, %564, %583, %592, %601, %610
   %411 = getelementptr inbounds nuw i8, ptr %321, i64 1
   br label %.critedge1505
 
-.critedge1505:                                    ; preds = %.critedge1505.loopexit, %619, %617, %524, %519, %574, %572
-  %412 = phi ptr [ %411, %.critedge1505.loopexit ], [ %568, %619 ], [ %568, %617 ], [ %525, %524 ], [ %520, %519 ], [ %568, %574 ], [ %568, %572 ]
+.critedge1505:                                    ; preds = %.critedge1505.loopexit, %619, %574, %524, %519, %572, %617
+  %412 = phi ptr [ %411, %.critedge1505.loopexit ], [ %568, %619 ], [ %568, %574 ], [ %525, %524 ], [ %520, %519 ], [ %568, %572 ], [ %568, %617 ]
   store ptr %412, ptr %0, align 8, !tbaa !4
   br label %.loopexit1639
 
@@ -948,7 +948,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   br label %416
 
 416:                                              ; preds = %.sink.split1964, %445, %442, %438, %437, %436, %434, %431
-  %417 = phi ptr [ %432, %431 ], [ %446, %445 ], [ %443, %442 ], [ %439, %438 ], [ %339, %437 ], [ %339, %436 ], [ %339, %434 ], [ %.sink1966, %.sink.split1964 ]
+  %417 = phi ptr [ %446, %445 ], [ %443, %442 ], [ %439, %438 ], [ %339, %437 ], [ %339, %436 ], [ %339, %434 ], [ %432, %431 ], [ %.sink1966, %.sink.split1964 ]
   %418 = load i32, ptr %11, align 8, !tbaa !13
   %419 = and i32 %418, 3145728
   %.not1425 = icmp eq i32 %419, 0
@@ -1638,7 +1638,7 @@ php_json_scanner_copy_string.exit1517:            ; preds = %718, %724
   br label %.thread1609
 
 select.unfold1612:                                ; preds = %php_json_scanner_copy_string.exit1517, %734, %733, %732, %731, %730
-  %.01298 = phi i8 [ %729, %734 ], [ 12, %730 ], [ 10, %731 ], [ 13, %732 ], [ 9, %733 ], [ 8, %php_json_scanner_copy_string.exit1517 ]
+  %.01298 = phi i8 [ 12, %730 ], [ 10, %731 ], [ 13, %732 ], [ 9, %733 ], [ %729, %734 ], [ 8, %php_json_scanner_copy_string.exit1517 ]
   %736 = load ptr, ptr %1162, align 8, !tbaa !31
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 1
   store ptr %737, ptr %1162, align 8, !tbaa !31
@@ -1661,7 +1661,7 @@ select.unfold1612:                                ; preds = %php_json_scanner_co
   br label %743
 
 743:                                              ; preds = %.sink.split1969, %781, %778, %774, %773, %772, %770, %767
-  %744 = phi ptr [ %768, %767 ], [ %782, %781 ], [ %779, %778 ], [ %775, %774 ], [ %692, %773 ], [ %692, %772 ], [ %692, %770 ], [ %.sink1971, %.sink.split1969 ]
+  %744 = phi ptr [ %782, %781 ], [ %779, %778 ], [ %775, %774 ], [ %692, %773 ], [ %692, %772 ], [ %692, %770 ], [ %768, %767 ], [ %.sink1971, %.sink.split1969 ]
   %745 = load i32, ptr %1160, align 8, !tbaa !20
   %.not1446 = icmp eq i32 %745, 0
   br i1 %.not1446, label %.backedge.backedge, label %746
@@ -2457,7 +2457,7 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1074, %1087
   ]
 
 .backedge1637.backedge:                           ; preds = %.backedge1637, %php_json_scanner_copy_string.exit1569, %php_json_scanner_copy_string.exit1583, %php_json_scanner_copy_string.exit1597, %php_json_scanner_copy_string.exit1599, %select.unfold1618
-  %.be = phi ptr [ %1156, %select.unfold1618 ], [ %1327, %php_json_scanner_copy_string.exit1569 ], [ %1365, %php_json_scanner_copy_string.exit1583 ], [ %1409, %php_json_scanner_copy_string.exit1597 ], [ %1484, %php_json_scanner_copy_string.exit1599 ], [ %1121, %.backedge1637 ]
+  %.be = phi ptr [ %1327, %php_json_scanner_copy_string.exit1569 ], [ %1365, %php_json_scanner_copy_string.exit1583 ], [ %1409, %php_json_scanner_copy_string.exit1597 ], [ %1484, %php_json_scanner_copy_string.exit1599 ], [ %1156, %select.unfold1618 ], [ %1121, %.backedge1637 ]
   br label %.backedge1637
 
 1122:                                             ; preds = %.backedge1637
@@ -2537,7 +2537,7 @@ php_json_scanner_copy_string.exit1555:            ; preds = %1135, %1141
   br label %.thread1609
 
 select.unfold1618:                                ; preds = %php_json_scanner_copy_string.exit1555, %1151, %1150, %1149, %1148, %1147
-  %.01299 = phi i8 [ %1146, %1151 ], [ 12, %1147 ], [ 10, %1148 ], [ 13, %1149 ], [ 9, %1150 ], [ 8, %php_json_scanner_copy_string.exit1555 ]
+  %.01299 = phi i8 [ 12, %1147 ], [ 10, %1148 ], [ 13, %1149 ], [ 9, %1150 ], [ %1146, %1151 ], [ 8, %php_json_scanner_copy_string.exit1555 ]
   %1153 = load ptr, ptr %1117, align 8, !tbaa !31
   %1154 = getelementptr inbounds nuw i8, ptr %1153, i64 1
   store ptr %1154, ptr %1117, align 8, !tbaa !31
@@ -2555,7 +2555,7 @@ select.unfold1618:                                ; preds = %php_json_scanner_co
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %select.unfold.thread, %._crit_edge, %select.unfold
-  %1158 = phi ptr [ %383, %select.unfold ], [ %.promoted, %._crit_edge ], [ %381, %select.unfold.thread ], [ %.ph, %.preheader.loopexit ]
+  %1158 = phi ptr [ %.promoted, %._crit_edge ], [ %383, %select.unfold ], [ %381, %select.unfold.thread ], [ %.ph, %.preheader.loopexit ]
   %1159 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1160 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1161 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3233,8 +3233,8 @@ php_json_scanner_copy_string.exit:                ; preds = %95, %89
   %1488 = icmp ult i8 %1487, 94
   br i1 %1488, label %.lr.ph2017, label %.lr.ph.split._crit_edge
 
-.thread1609:                                      ; preds = %384, %368, %.loopexit1648, %181, %81, %76, %104, %347, %.loopexit1639, %425, %429, %.loopexit1640, %.thread1613, %200, %198, %317, %315, %319, %112, %.loopexit1643, %204, %177, %179, %164, %zend_string_alloc.exit, %.critedge, %703, %710, %1122, %1128, %.thread1619
-  %.4.ph = phi i32 [ 266, %.thread1619 ], [ 263, %1128 ], [ 263, %1122 ], [ 263, %710 ], [ 263, %703 ], [ 261, %.critedge ], [ 262, %164 ], [ 263, %zend_string_alloc.exit ], [ 91, %179 ], [ 58, %177 ], [ 266, %204 ], [ 262, %.loopexit1643 ], [ 44, %112 ], [ 260, %319 ], [ 258, %315 ], [ 259, %317 ], [ 123, %198 ], [ 125, %200 ], [ 263, %384 ], [ 266, %.thread1613 ], [ 93, %181 ], [ 266, %.loopexit1648 ], [ 266, %.loopexit1640 ], [ 266, %429 ], [ 266, %425 ], [ 266, %.loopexit1639 ], [ 264, %368 ], [ 266, %347 ], [ 266, %104 ], [ 265, %76 ], [ 266, %81 ]
+.thread1609:                                      ; preds = %384, %368, %.loopexit1648, %81, %104, %347, %.loopexit1639, %425, %429, %.loopexit1640, %112, %.loopexit1643, %204, %177, %179, %181, %319, %315, %317, %198, %200, %76, %164, %zend_string_alloc.exit, %.critedge, %703, %710, %.thread1613, %1122, %1128, %.thread1619
+  %.4.ph = phi i32 [ 266, %.thread1619 ], [ 263, %1128 ], [ 263, %1122 ], [ 266, %.thread1613 ], [ 263, %710 ], [ 263, %703 ], [ 261, %.critedge ], [ 262, %164 ], [ 263, %zend_string_alloc.exit ], [ 265, %76 ], [ 125, %200 ], [ 123, %198 ], [ 259, %317 ], [ 258, %315 ], [ 260, %319 ], [ 93, %181 ], [ 91, %179 ], [ 58, %177 ], [ 266, %204 ], [ 262, %.loopexit1643 ], [ 44, %112 ], [ 266, %.loopexit1640 ], [ 266, %429 ], [ 266, %425 ], [ 266, %.loopexit1639 ], [ 266, %347 ], [ 266, %104 ], [ 266, %81 ], [ 266, %.loopexit1648 ], [ 263, %384 ], [ 264, %368 ]
   ret i32 %.4.ph
 }
 

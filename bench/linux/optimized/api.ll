@@ -503,7 +503,7 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br label %.thread
 
 .thread:                                          ; preds = %31, %.thread18, %65, %60, %58, %40, %36
-  %68 = phi ptr [ %27, %36 ], [ %38, %.thread18 ], [ %53, %60 ], [ %53, %58 ], [ %38, %40 ], [ %67, %65 ], [ %27, %31 ]
+  %68 = phi ptr [ %27, %36 ], [ %53, %60 ], [ %53, %58 ], [ %38, %40 ], [ %67, %65 ], [ %38, %.thread18 ], [ %27, %31 ]
   %69 = icmp ugt ptr %68, inttoptr (i64 -4096 to ptr)
   br i1 %69, label %.thread19, label %70
 
@@ -603,7 +603,7 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br label %.thread19
 
 .thread19:                                        ; preds = %110, %112, %.thread16, %3, %117, %113, %70, %.thread
-  %118 = phi ptr [ %68, %70 ], [ %68, %.thread ], [ inttoptr (i64 -12 to ptr), %.thread16 ], [ %101, %113 ], [ %101, %117 ], [ inttoptr (i64 -2 to ptr), %3 ], [ %101, %112 ], [ %101, %110 ]
+  %118 = phi ptr [ %68, %70 ], [ %68, %.thread ], [ %101, %113 ], [ %101, %117 ], [ inttoptr (i64 -2 to ptr), %3 ], [ inttoptr (i64 -12 to ptr), %.thread16 ], [ %101, %112 ], [ %101, %110 ]
   ret ptr %118
 }
 
@@ -666,7 +666,7 @@ define internal fastcc ptr @crypto_larval_wait(ptr noundef %0) unnamed_addr #0 a
   br label %35
 
 35:                                               ; preds = %13, %33, %29, %21, %11, %9, %7, %1
-  %36 = phi ptr [ %5, %11 ], [ inttoptr (i64 -4 to ptr), %1 ], [ inttoptr (i64 -110 to ptr), %7 ], [ inttoptr (i64 -2 to ptr), %9 ], [ inttoptr (i64 -11 to ptr), %13 ], [ %5, %33 ], [ inttoptr (i64 -11 to ptr), %21 ], [ %5, %29 ]
+  %36 = phi ptr [ %5, %11 ], [ inttoptr (i64 -4 to ptr), %1 ], [ inttoptr (i64 -110 to ptr), %7 ], [ inttoptr (i64 -2 to ptr), %9 ], [ inttoptr (i64 -11 to ptr), %21 ], [ %5, %29 ], [ %5, %33 ], [ inttoptr (i64 -11 to ptr), %13 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -1508,8 +1508,8 @@ define internal fastcc ptr @crypto_alg_lookup(ptr noundef nonnull readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %55, %57, %31, %33, %62, %58, %38, %34
-  %63 = phi ptr [ %51, %62 ], [ %27, %34 ], [ %27, %38 ], [ %27, %31 ], [ %51, %58 ], [ %27, %33 ], [ %51, %57 ], [ %51, %55 ]
-  %64 = phi ptr [ inttoptr (i64 -80 to ptr), %62 ], [ inttoptr (i64 -2 to ptr), %34 ], [ inttoptr (i64 -2 to ptr), %38 ], [ inttoptr (i64 -2 to ptr), %31 ], [ inttoptr (i64 -80 to ptr), %58 ], [ inttoptr (i64 -2 to ptr), %33 ], [ inttoptr (i64 -80 to ptr), %57 ], [ inttoptr (i64 -80 to ptr), %55 ]
+  %63 = phi ptr [ %27, %34 ], [ %27, %38 ], [ %51, %58 ], [ %51, %62 ], [ %27, %33 ], [ %27, %31 ], [ %51, %57 ], [ %51, %55 ]
+  %64 = phi ptr [ inttoptr (i64 -2 to ptr), %34 ], [ inttoptr (i64 -2 to ptr), %38 ], [ inttoptr (i64 -80 to ptr), %58 ], [ inttoptr (i64 -80 to ptr), %62 ], [ inttoptr (i64 -2 to ptr), %33 ], [ inttoptr (i64 -2 to ptr), %31 ], [ inttoptr (i64 -80 to ptr), %57 ], [ inttoptr (i64 -80 to ptr), %55 ]
   tail call void @module_put(ptr noundef %63) #5
   br label %65
 

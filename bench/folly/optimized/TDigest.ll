@@ -230,7 +230,7 @@ _ZN5folly7TDigestD2Ev.exit.i19:                   ; preds = %98, %94
   br i1 %104, label %_ZNSt5arrayIN5folly7TDigestELm2EED2Ev.exit20, label %94
 
 _ZNSt5arrayIN5folly7TDigestELm2EED2Ev.exit20:     ; preds = %_ZN5folly7TDigestD2Ev.exit.i19, %86, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit15
-  %.pn = phi { ptr, i32 } [ %78, %86 ], [ %78, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit15 ], [ %93, %_ZN5folly7TDigestD2Ev.exit.i19 ]
+  %.pn = phi { ptr, i32 } [ %78, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit15 ], [ %78, %86 ], [ %93, %_ZN5folly7TDigestD2Ev.exit.i19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %105 = load ptr, ptr %0, align 8, !tbaa !24
   %.not.i.i.i21 = icmp eq ptr %105, null
@@ -1105,9 +1105,9 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit160: ; preds = %.thread, 
   br label %.body
 
 .body:                                            ; preds = %.loopexit275, %.loopexit.split-lp276, %93, %152, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit160, %294
-  %.sroa.20.1 = phi ptr [ %.sroa.20.4, %294 ], [ %.sroa.20.4, %93 ], [ %.sroa.20.4, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit160 ], [ %.sroa.20.4, %152 ], [ %.sroa.14.0330, %.loopexit275 ], [ %.sroa.14.0330, %.loopexit.split-lp276 ]
-  %.sroa.0235.1 = phi ptr [ %.sroa.0235.4, %294 ], [ %.sroa.0235.4, %93 ], [ %.sroa.0235.4, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit160 ], [ %.sroa.0235.4, %152 ], [ %.sroa.0235.0331, %.loopexit275 ], [ %.sroa.0235.0331, %.loopexit.split-lp276 ]
-  %.pn104.pn.pn = phi { ptr, i32 } [ %.pn.pn262, %294 ], [ %94, %93 ], [ %.pn.pn262, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit160 ], [ %153, %152 ], [ %lpad.loopexit277, %.loopexit275 ], [ %lpad.loopexit.split-lp278, %.loopexit.split-lp276 ]
+  %.sroa.20.1 = phi ptr [ %.sroa.20.4, %93 ], [ %.sroa.20.4, %152 ], [ %.sroa.20.4, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit160 ], [ %.sroa.20.4, %294 ], [ %.sroa.14.0330, %.loopexit275 ], [ %.sroa.14.0330, %.loopexit.split-lp276 ]
+  %.sroa.0235.1 = phi ptr [ %.sroa.0235.4, %93 ], [ %.sroa.0235.4, %152 ], [ %.sroa.0235.4, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit160 ], [ %.sroa.0235.4, %294 ], [ %.sroa.0235.0331, %.loopexit275 ], [ %.sroa.0235.0331, %.loopexit.split-lp276 ]
+  %.pn104.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %153, %152 ], [ %.pn.pn262, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit160 ], [ %.pn.pn262, %294 ], [ %lpad.loopexit277, %.loopexit275 ], [ %lpad.loopexit.split-lp278, %.loopexit.split-lp276 ]
   %.not.i.i.i162 = icmp eq ptr %.sroa.0235.1, null
   br i1 %.not.i.i.i162, label %_ZNSt6vectorImSaImEED2Ev.exit163, label %300
 
@@ -3046,7 +3046,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !81
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge67.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %57, %59
-  %.sroa.015.0.i.i = phi ptr [ %.sroa.061.0, %59 ], [ %.sroa.0.0, %57 ], [ %.tr6675, %.lr.ph.i.i.i ], [ %75, %._crit_edge.i.i ], [ %75, %._crit_edge67.i.i ]
+  %.sroa.015.0.i.i = phi ptr [ %.sroa.0.0, %57 ], [ %.sroa.061.0, %59 ], [ %.tr6675, %.lr.ph.i.i.i ], [ %75, %._crit_edge.i.i ], [ %75, %._crit_edge67.i.i ]
   tail call void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_SD_T1_(ptr %.tr74, ptr %.sroa.061.0, ptr %.sroa.015.0.i.i, i64 noundef %.0, i64 noundef %.043)
   %97 = sub nsw i64 %.tr6876, %.0
   %98 = sub nsw i64 %.tr6977, %.043
@@ -3502,7 +3502,7 @@ _ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !81
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge.i.i, %._crit_edge67.i.i, %.lr.ph.i.i.i, %43, %41, %27, %12, %_ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, %_ZSt4moveIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
-  %.sroa.032.0 = phi ptr [ %25, %_ZSt4moveIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %2, %27 ], [ %40, %_ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %12 ], [ %0, %43 ], [ %2, %41 ], [ %1, %.lr.ph.i.i.i ], [ %59, %._crit_edge67.i.i ], [ %59, %._crit_edge.i.i ]
+  %.sroa.032.0 = phi ptr [ %25, %_ZSt4moveIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %40, %_ZSt13move_backwardIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %12 ], [ %2, %27 ], [ %2, %41 ], [ %0, %43 ], [ %1, %.lr.ph.i.i.i ], [ %59, %._crit_edge67.i.i ], [ %59, %._crit_edge.i.i ]
   ret ptr %.sroa.032.0
 }
 
@@ -3593,9 +3593,9 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !85
 
 .loopexit:                                        ; preds = %47, %43, %23
-  %.pre-phi82 = phi i64 [ %.pre81, %23 ], [ %37, %43 ], [ %37, %47 ]
-  %.239 = phi double [ %21, %23 ], [ %.371, %43 ], [ %41, %47 ]
-  %.136 = phi i64 [ %28, %23 ], [ %46, %43 ], [ %38, %47 ]
+  %.pre-phi82 = phi i64 [ %37, %43 ], [ %.pre81, %23 ], [ %37, %47 ]
+  %.239 = phi double [ %.371, %43 ], [ %21, %23 ], [ %41, %47 ]
+  %.136 = phi i64 [ %46, %43 ], [ %28, %23 ], [ %38, %47 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load double, ptr %49, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48

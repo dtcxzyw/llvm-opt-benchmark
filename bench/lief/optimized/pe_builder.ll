@@ -425,7 +425,7 @@ _ZNKSt14default_deleteIN4LIEF2PE6BinaryEEclEPS2_.exit.i40: ; preds = %_ZNKSt7__c
   br label %_ZNSt10unique_ptrIN4LIEF2PE6BinaryESt14default_deleteIS2_EED2Ev.exit41
 
 _ZNSt10unique_ptrIN4LIEF2PE6BinaryESt14default_deleteIS2_EED2Ev.exit41: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, %_ZNKSt14default_deleteIN4LIEF2PE6BinaryEEclEPS2_.exit.i40
-  %.11145 = phi i32 [ 0, %_ZNKSt14default_deleteIN4LIEF2PE6BinaryEEclEPS2_.exit.i40 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.11145 = phi i32 [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33 ], [ 0, %_ZNKSt14default_deleteIN4LIEF2PE6BinaryEEclEPS2_.exit.i40 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %142
 

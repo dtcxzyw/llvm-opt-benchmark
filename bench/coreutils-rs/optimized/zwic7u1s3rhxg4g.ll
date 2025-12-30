@@ -251,7 +251,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br label %29
 
 29:                                               ; preds = %34, %24, %28
-  %.035 = phi i64 [ 1, %24 ], [ 0, %28 ], [ 1, %34 ]
+  %.035 = phi i64 [ 0, %28 ], [ 1, %24 ], [ 1, %34 ]
   %30 = add i64 %.035, %10
   br label %14
 

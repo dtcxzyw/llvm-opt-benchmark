@@ -425,7 +425,7 @@ define dso_local ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   br label %75
 
 75:                                               ; preds = %68, %65, %56, %53, %49, %45, %.lr.ph.i.i
-  %.2.i.i = phi i32 [ %.147.i.i, %.lr.ph.i.i ], [ %.147.i.i, %45 ], [ %.147.i.i, %49 ], [ %.147.i.i, %53 ], [ %62, %56 ], [ %.147.i.i, %65 ], [ %74, %68 ]
+  %.2.i.i = phi i32 [ %.147.i.i, %.lr.ph.i.i ], [ %.147.i.i, %45 ], [ %.147.i.i, %53 ], [ %62, %56 ], [ %.147.i.i, %65 ], [ %74, %68 ], [ %.147.i.i, %49 ]
   %.133.i.i = load ptr, ptr %.13348.i.i, align 8
   %.not39.i.i = icmp eq ptr %.133.i.i, null
   br i1 %.not39.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
@@ -469,7 +469,7 @@ job_attr_get_netinfo.exit:                        ; preds = %ifconfig.exit.i, %8
   br label %87
 
 87:                                               ; preds = %26, %16, %job_attr_get_netinfo.exit, %23, %11, %7
-  %.0 = phi ptr [ %8, %7 ], [ @job_attr_get.attr, %job_attr_get_netinfo.exit ], [ null, %16 ], [ @job_attr_get.attr, %23 ], [ @job_attr_get.attr, %11 ], [ null, %26 ]
+  %.0 = phi ptr [ @job_attr_get.attr, %job_attr_get_netinfo.exit ], [ @job_attr_get.attr, %23 ], [ @job_attr_get.attr, %11 ], [ %8, %7 ], [ null, %16 ], [ null, %26 ]
   ret ptr %.0
 }
 

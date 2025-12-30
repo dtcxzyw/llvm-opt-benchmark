@@ -117,7 +117,7 @@ define range(i32 0, 2) i32 @Cgt_SimulationFilter(ptr noundef readonly captures(n
   br i1 %.not22, label %33, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %33, %.lr.ph33, %27, %.preheader26, %.preheader
-  %.0 = phi i32 [ 1, %.preheader26 ], [ 1, %27 ], [ 1, %.preheader ], [ 0, %.lr.ph33 ], [ 0, %.lr.ph ], [ 1, %33 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 1, %.preheader26 ], [ 0, %.lr.ph33 ], [ 1, %27 ], [ 0, %.lr.ph ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -450,7 +450,7 @@ define void @Cgt_ClockGatingRangeCheck(ptr noundef %0, i32 noundef %1, i32 nound
   %.not22.i = icmp eq i32 %87, 0
   br i1 %.not22.i, label %81, label %Cgt_SimulationFilter.exit
 
-.loopexit154:                                     ; preds = %81, %75, %.preheader26.i, %.preheader.i
+.loopexit154:                                     ; preds = %81, %75, %.preheader.i, %.preheader26.i
   %88 = tail call i32 @Cgt_CheckImplication(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %53) #18
   switch i32 %88, label %Cgt_SimulationRecord.exit [
     i32 1, label %89
@@ -837,7 +837,7 @@ Cgt_SimulationRecord.exit:                        ; preds = %Vec_PtrCleanSimInfo
   %.not22.i79 = icmp eq i32 %270, 0
   br i1 %.not22.i79, label %264, label %Cgt_SimulationFilter.exit90
 
-.loopexit:                                        ; preds = %258, %264, %.preheader26.i73, %.preheader.i82
+.loopexit:                                        ; preds = %258, %264, %.preheader.i82, %.preheader26.i73
   %271 = inttoptr i64 %242 to ptr
   %272 = tail call i32 @Cgt_CheckImplication(ptr noundef nonnull %0, ptr noundef %271, ptr noundef %53) #18
   switch i32 %272, label %Cgt_SimulationRecord.exit147 [

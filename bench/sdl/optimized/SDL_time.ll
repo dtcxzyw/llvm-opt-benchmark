@@ -215,7 +215,7 @@ define hidden range(i32 -1, 2147483341) i32 @SDL_GetDayOfYear_REAL(i32 noundef %
   br label %SDL_GetDaysInMonth_REAL.exit
 
 SDL_GetDaysInMonth_REAL.exit:                     ; preds = %9, %12
-  %.012.i = phi i32 [ %spec.select.i, %12 ], [ %.pre, %9 ]
+  %.012.i = phi i32 [ %.pre, %9 ], [ %spec.select.i, %12 ]
   %16 = icmp sgt i32 %2, %.012.i
   br i1 %16, label %17, label %24
 
@@ -237,7 +237,7 @@ SDL_GetDaysInMonth_REAL.exit:                     ; preds = %9, %12
   br label %SDL_GetDaysInMonth_REAL.exit25
 
 SDL_GetDaysInMonth_REAL.exit25:                   ; preds = %17, %19
-  %.012.i20 = phi i32 [ %spec.select.i24, %19 ], [ %.pre, %17 ]
+  %.012.i20 = phi i32 [ %.pre, %17 ], [ %spec.select.i24, %19 ]
   %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, i32 noundef %.012.i20, i32 noundef %1) #5
   br label %SDL_CivilToDays.exit
 
@@ -328,7 +328,7 @@ define hidden range(i32 -1, 7) i32 @SDL_GetDayOfWeek_REAL(i32 noundef %0, i32 no
   br label %SDL_GetDaysInMonth_REAL.exit
 
 SDL_GetDaysInMonth_REAL.exit:                     ; preds = %9, %12
-  %.012.i = phi i32 [ %spec.select.i, %12 ], [ %.pre, %9 ]
+  %.012.i = phi i32 [ %.pre, %9 ], [ %spec.select.i, %12 ]
   %16 = icmp sgt i32 %2, %.012.i
   br i1 %16, label %17, label %24
 
@@ -350,7 +350,7 @@ SDL_GetDaysInMonth_REAL.exit:                     ; preds = %9, %12
   br label %SDL_GetDaysInMonth_REAL.exit25
 
 SDL_GetDaysInMonth_REAL.exit25:                   ; preds = %17, %19
-  %.012.i20 = phi i32 [ %spec.select.i24, %19 ], [ %.pre, %17 ]
+  %.012.i20 = phi i32 [ %.pre, %17 ], [ %spec.select.i24, %19 ]
   %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, i32 noundef %.012.i20, i32 noundef %1) #5
   br label %58
 
@@ -459,7 +459,7 @@ define hidden zeroext i1 @SDL_DateTimeToTime_REAL(ptr noundef readonly captures(
   br label %SDL_GetDaysInMonth_REAL.exit.i
 
 SDL_GetDaysInMonth_REAL.exit.i:                   ; preds = %22, %14
-  %.012.i.i = phi i32 [ %spec.select.i.i, %22 ], [ %19, %14 ]
+  %.012.i.i = phi i32 [ %19, %14 ], [ %spec.select.i.i, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 4
   %28 = icmp slt i32 %27, 1
@@ -580,7 +580,7 @@ SDL_DateTimeIsValid.exit:                         ; preds = %47
   br label %SDL_DateTimeIsValid.exit.thread
 
 SDL_DateTimeIsValid.exit.thread:                  ; preds = %51, %45, %40, %35, %30, %12, %96, %6, %3
-  %.022 = phi i1 [ %.0, %96 ], [ %4, %3 ], [ %7, %6 ], [ false, %12 ], [ false, %30 ], [ false, %35 ], [ false, %40 ], [ false, %45 ], [ false, %51 ]
+  %.022 = phi i1 [ %.0, %96 ], [ %7, %6 ], [ %4, %3 ], [ false, %12 ], [ false, %30 ], [ false, %35 ], [ false, %40 ], [ false, %45 ], [ false, %51 ]
   ret i1 %.022
 }
 

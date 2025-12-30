@@ -338,12 +338,12 @@ define dso_local void @scmd_eh_abort_handler(ptr noundef %0) local_unnamed_addr 
   %71 = load i32, ptr %30, align 8
   %72 = lshr i32 %71, 16
   %73 = trunc i32 %72 to i8
-  switch i8 %73, label %85 [
-    i8 11, label %81
-    i8 3, label %91
+  switch i8 %73, label %89 [
+    i8 11, label %85
+    i8 3, label %95
     i8 2, label %74
-    i8 6, label %98
-    i8 7, label %78
+    i8 6, label %78
+    i8 7, label %82
   ]
 
 74:                                               ; preds = %69
@@ -354,45 +354,45 @@ define dso_local void @scmd_eh_abort_handler(ptr noundef %0) local_unnamed_addr 
   br i1 %.not8, label %102, label %122
 
 78:                                               ; preds = %69
-  %79 = and i32 %71, 255
-  %80 = icmp eq i32 %79, 24
-  br i1 %80, label %102, label %81
-
-81:                                               ; preds = %78, %69
-  %82 = getelementptr i8, ptr %0, i64 -248
-  %83 = load i32, ptr %82, align 8
-  %84 = and i32 %83, 1024
-  %.not9 = icmp eq i32 %84, 0
-  br i1 %.not9, label %102, label %122
-
-85:                                               ; preds = %69
-  %86 = and i32 %71, 65280
-  %87 = icmp eq i32 %86, 1280
-  br i1 %87, label %122, label %88
-
-88:                                               ; preds = %85
-  %89 = and i32 %71, -2147483394
-  %90 = icmp eq i32 %89, 2
-  br i1 %90, label %91, label %102
-
-91:                                               ; preds = %88, %69
-  %92 = getelementptr i8, ptr %0, i64 -248
-  %93 = load i32, ptr %92, align 8
-  %94 = and i32 %93, 256
-  %95 = icmp ne i32 %94, 0
-  %96 = and i32 %93, 254
-  %97 = icmp eq i32 %96, 34
-  %or.cond = or i1 %95, %97
-  br i1 %or.cond, label %122, label %102
-
-98:                                               ; preds = %69
-  %99 = getelementptr i8, ptr %0, i64 -248
-  %100 = load i32, ptr %99, align 8
-  %101 = and i32 %100, 256
-  %.not = icmp eq i32 %101, 0
+  %79 = getelementptr i8, ptr %0, i64 -248
+  %80 = load i32, ptr %79, align 8
+  %81 = and i32 %80, 256
+  %.not = icmp eq i32 %81, 0
   br i1 %.not, label %102, label %122
 
-102:                                              ; preds = %91, %74, %81, %98, %88, %78
+82:                                               ; preds = %69
+  %83 = and i32 %71, 255
+  %84 = icmp eq i32 %83, 24
+  br i1 %84, label %102, label %85
+
+85:                                               ; preds = %82, %69
+  %86 = getelementptr i8, ptr %0, i64 -248
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, 1024
+  %.not9 = icmp eq i32 %88, 0
+  br i1 %.not9, label %102, label %122
+
+89:                                               ; preds = %69
+  %90 = and i32 %71, 65280
+  %91 = icmp eq i32 %90, 1280
+  br i1 %91, label %122, label %92
+
+92:                                               ; preds = %89
+  %93 = and i32 %71, -2147483394
+  %94 = icmp eq i32 %93, 2
+  br i1 %94, label %95, label %102
+
+95:                                               ; preds = %92, %69
+  %96 = getelementptr i8, ptr %0, i64 -248
+  %97 = load i32, ptr %96, align 8
+  %98 = and i32 %97, 256
+  %99 = icmp ne i32 %98, 0
+  %100 = and i32 %97, 254
+  %101 = icmp eq i32 %100, 34
+  %or.cond = or i1 %99, %101
+  br i1 %or.cond, label %122, label %102
+
+102:                                              ; preds = %95, %74, %78, %85, %92, %82
   %103 = getelementptr i8, ptr %0, i64 124
   %104 = load i32, ptr %103, align 4
   %105 = icmp eq i32 %104, -1
@@ -424,7 +424,7 @@ define dso_local void @scmd_eh_abort_handler(ptr noundef %0) local_unnamed_addr 
   tail call void @scsi_queue_insert(ptr noundef %2, i32 noundef 4183) #14
   br label %133
 
-122:                                              ; preds = %74, %81, %119, %106, %98, %91, %85
+122:                                              ; preds = %74, %78, %85, %119, %106, %95, %89
   tail call void @scsi_finish_command(ptr noundef %2) #14
   br label %133
 
@@ -870,7 +870,7 @@ define dso_local noundef range(i32 0, 2) i32 @scsi_timeout(ptr noundef %0) local
   br label %106
 
 106:                                              ; preds = %43, %101, %89, %45
-  %107 = phi i32 [ 0, %89 ], [ %44, %43 ], [ 0, %45 ], [ 0, %101 ]
+  %107 = phi i32 [ 0, %45 ], [ 0, %101 ], [ 0, %89 ], [ %44, %43 ]
   ret i32 %107
 }
 
@@ -1065,7 +1065,7 @@ thread-pre-split:                                 ; preds = %46, %37
   br label %58
 
 58:                                               ; preds = %55, %thread-pre-split
-  %59 = phi i32 [ %57, %55 ], [ %48, %thread-pre-split ]
+  %59 = phi i32 [ %48, %thread-pre-split ], [ %57, %55 ]
   %60 = icmp eq i32 %59, 9
   br i1 %60, label %.thread, label %.thread17
 
@@ -1890,12 +1890,12 @@ define dso_local range(i32 8201, 8200) i32 @scsi_decide_disposition(ptr noundef 
   %77 = load i32, ptr %6, align 8
   %78 = lshr i32 %77, 16
   %79 = trunc i32 %78 to i8
-  switch i8 %79, label %91 [
-    i8 11, label %87
-    i8 3, label %97
+  switch i8 %79, label %95 [
+    i8 11, label %91
+    i8 3, label %101
     i8 2, label %80
-    i8 6, label %104
-    i8 7, label %84
+    i8 6, label %84
+    i8 7, label %88
   ]
 
 80:                                               ; preds = %76
@@ -1906,49 +1906,49 @@ define dso_local range(i32 8201, 8200) i32 @scsi_decide_disposition(ptr noundef 
   br i1 %.not4, label %109, label %108
 
 84:                                               ; preds = %76
-  %85 = and i32 %77, 255
-  %86 = icmp eq i32 %85, 24
-  br i1 %86, label %109, label %87
-
-87:                                               ; preds = %84, %76
-  %88 = getelementptr i8, ptr %0, i64 -224
-  %89 = load i32, ptr %88, align 8
-  %90 = and i32 %89, 1024
-  %.not5 = icmp eq i32 %90, 0
-  br i1 %.not5, label %109, label %108
-
-91:                                               ; preds = %76
-  %92 = and i32 %77, 65280
-  %93 = icmp eq i32 %92, 1280
-  br i1 %93, label %108, label %94
-
-94:                                               ; preds = %91
-  %95 = and i32 %77, -2147483394
-  %96 = icmp eq i32 %95, 2
-  br i1 %96, label %97, label %109
-
-97:                                               ; preds = %94, %76
-  %98 = getelementptr i8, ptr %0, i64 -224
-  %99 = load i32, ptr %98, align 8
-  %100 = and i32 %99, 256
-  %101 = icmp ne i32 %100, 0
-  %102 = and i32 %99, 254
-  %103 = icmp eq i32 %102, 34
-  %or.cond = or i1 %101, %103
-  br i1 %or.cond, label %108, label %109
-
-104:                                              ; preds = %76
-  %105 = getelementptr i8, ptr %0, i64 -224
-  %106 = load i32, ptr %105, align 8
-  %107 = and i32 %106, 256
-  %.not = icmp eq i32 %107, 0
+  %85 = getelementptr i8, ptr %0, i64 -224
+  %86 = load i32, ptr %85, align 8
+  %87 = and i32 %86, 256
+  %.not = icmp eq i32 %87, 0
   br i1 %.not, label %109, label %108
 
-108:                                              ; preds = %80, %87, %104, %97, %91, %71
+88:                                               ; preds = %76
+  %89 = and i32 %77, 255
+  %90 = icmp eq i32 %89, 24
+  br i1 %90, label %109, label %91
+
+91:                                               ; preds = %88, %76
+  %92 = getelementptr i8, ptr %0, i64 -224
+  %93 = load i32, ptr %92, align 8
+  %94 = and i32 %93, 1024
+  %.not5 = icmp eq i32 %94, 0
+  br i1 %.not5, label %109, label %108
+
+95:                                               ; preds = %76
+  %96 = and i32 %77, 65280
+  %97 = icmp eq i32 %96, 1280
+  br i1 %97, label %108, label %98
+
+98:                                               ; preds = %95
+  %99 = and i32 %77, -2147483394
+  %100 = icmp eq i32 %99, 2
+  br i1 %100, label %101, label %109
+
+101:                                              ; preds = %98, %76
+  %102 = getelementptr i8, ptr %0, i64 -224
+  %103 = load i32, ptr %102, align 8
+  %104 = and i32 %103, 256
+  %105 = icmp ne i32 %104, 0
+  %106 = and i32 %103, 254
+  %107 = icmp eq i32 %106, 34
+  %or.cond = or i1 %105, %107
+  br i1 %or.cond, label %108, label %109
+
+108:                                              ; preds = %80, %84, %91, %101, %95, %71
   br label %109
 
-109:                                              ; preds = %97, %80, %87, %108, %104, %94, %84, %66, %62, %61, %58, %57, %35, %33, %32, %25, %21, %20, %17, %12, %10, %5, %5, %5, %5, %5, %1, %1, %1
-  %110 = phi i32 [ 8195, %32 ], [ 8195, %66 ], [ 8194, %62 ], [ 8194, %61 ], [ 8194, %108 ], [ 8194, %57 ], [ 8198, %21 ], [ 8193, %20 ], [ 8194, %17 ], [ 8194, %10 ], [ 8194, %1 ], [ 8194, %12 ], [ 8194, %5 ], [ 8194, %5 ], [ 8194, %5 ], [ 8194, %5 ], [ 8194, %5 ], [ 8198, %33 ], [ 8198, %35 ], [ %59, %58 ], [ 8193, %104 ], [ %31, %25 ], [ 8193, %94 ], [ 8193, %84 ], [ 8194, %1 ], [ 8194, %1 ], [ 8193, %87 ], [ 8193, %97 ], [ 8193, %80 ]
+109:                                              ; preds = %101, %80, %84, %91, %108, %98, %88, %66, %62, %61, %58, %57, %35, %33, %32, %25, %21, %20, %17, %12, %10, %5, %5, %5, %5, %5, %1, %1, %1
+  %110 = phi i32 [ 8195, %32 ], [ 8195, %66 ], [ 8194, %62 ], [ 8194, %61 ], [ 8194, %108 ], [ 8194, %57 ], [ 8198, %21 ], [ 8193, %20 ], [ 8194, %17 ], [ 8194, %10 ], [ 8194, %1 ], [ 8194, %12 ], [ 8194, %5 ], [ 8194, %5 ], [ 8194, %5 ], [ 8194, %5 ], [ 8194, %5 ], [ 8198, %33 ], [ 8198, %35 ], [ %59, %58 ], [ %31, %25 ], [ 8193, %98 ], [ 8193, %88 ], [ 8194, %1 ], [ 8194, %1 ], [ 8193, %91 ], [ 8193, %84 ], [ 8193, %80 ], [ 8193, %101 ]
   ret i32 %110
 }
 
@@ -3056,12 +3056,12 @@ define dso_local void @scsi_eh_flush_done_q(ptr noundef readonly captures(addres
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 16
   %17 = trunc i32 %16 to i8
-  switch i8 %17, label %29 [
-    i8 11, label %25
-    i8 3, label %35
+  switch i8 %17, label %33 [
+    i8 11, label %29
+    i8 3, label %39
     i8 2, label %18
-    i8 6, label %42
-    i8 7, label %22
+    i8 6, label %22
+    i8 7, label %26
   ]
 
 18:                                               ; preds = %13
@@ -3072,45 +3072,45 @@ define dso_local void @scsi_eh_flush_done_q(ptr noundef readonly captures(addres
   br i1 %.not5, label %46, label %68
 
 22:                                               ; preds = %13
-  %23 = and i32 %15, 255
-  %24 = icmp eq i32 %23, 24
-  br i1 %24, label %46, label %25
-
-25:                                               ; preds = %22, %13
-  %26 = getelementptr i8, ptr %4, i64 -232
-  %27 = load i32, ptr %26, align 8
-  %28 = and i32 %27, 1024
-  %.not6 = icmp eq i32 %28, 0
-  br i1 %.not6, label %46, label %68
-
-29:                                               ; preds = %13
-  %30 = and i32 %15, 65280
-  %31 = icmp eq i32 %30, 1280
-  br i1 %31, label %68, label %32
-
-32:                                               ; preds = %29
-  %33 = and i32 %15, -2147483394
-  %34 = icmp eq i32 %33, 2
-  br i1 %34, label %35, label %46
-
-35:                                               ; preds = %32, %13
-  %36 = getelementptr i8, ptr %4, i64 -232
-  %37 = load i32, ptr %36, align 8
-  %38 = and i32 %37, 256
-  %39 = icmp ne i32 %38, 0
-  %40 = and i32 %37, 254
-  %41 = icmp eq i32 %40, 34
-  %or.cond = or i1 %39, %41
-  br i1 %or.cond, label %68, label %46
-
-42:                                               ; preds = %13
-  %43 = getelementptr i8, ptr %4, i64 -232
-  %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 256
-  %.not = icmp eq i32 %45, 0
+  %23 = getelementptr i8, ptr %4, i64 -232
+  %24 = load i32, ptr %23, align 8
+  %25 = and i32 %24, 256
+  %.not = icmp eq i32 %25, 0
   br i1 %.not, label %46, label %68
 
-46:                                               ; preds = %35, %18, %25, %42, %32, %22
+26:                                               ; preds = %13
+  %27 = and i32 %15, 255
+  %28 = icmp eq i32 %27, 24
+  br i1 %28, label %46, label %29
+
+29:                                               ; preds = %26, %13
+  %30 = getelementptr i8, ptr %4, i64 -232
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 1024
+  %.not6 = icmp eq i32 %32, 0
+  br i1 %.not6, label %46, label %68
+
+33:                                               ; preds = %13
+  %34 = and i32 %15, 65280
+  %35 = icmp eq i32 %34, 1280
+  br i1 %35, label %68, label %36
+
+36:                                               ; preds = %33
+  %37 = and i32 %15, -2147483394
+  %38 = icmp eq i32 %37, 2
+  br i1 %38, label %39, label %46
+
+39:                                               ; preds = %36, %13
+  %40 = getelementptr i8, ptr %4, i64 -232
+  %41 = load i32, ptr %40, align 8
+  %42 = and i32 %41, 256
+  %43 = icmp ne i32 %42, 0
+  %44 = and i32 %41, 254
+  %45 = icmp eq i32 %44, 34
+  %or.cond = or i1 %43, %45
+  br i1 %or.cond, label %68, label %46
+
+46:                                               ; preds = %39, %18, %22, %29, %36, %26
   %47 = getelementptr i8, ptr %4, i64 140
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -3145,7 +3145,7 @@ define dso_local void @scsi_eh_flush_done_q(ptr noundef readonly captures(addres
   tail call void @blk_mq_kick_requeue_list(ptr noundef %67) #14
   br label %79
 
-68:                                               ; preds = %18, %25, %63, %50, %42, %35, %29, %.preheader, %.preheader, %.preheader
+68:                                               ; preds = %18, %22, %29, %63, %50, %39, %33, %.preheader, %.preheader, %.preheader
   %69 = getelementptr i8, ptr %4, i64 280
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 0
@@ -4405,7 +4405,7 @@ scsi_try_bus_reset.exit:                          ; preds = %213, %196
   br label %scsi_try_host_reset.exit
 
 scsi_try_host_reset.exit:                         ; preds = %94, %80, %80, %80, %80, %92, %88, %83, %76, %.loopexit, %133, %.loopexit.i9, %223, %217, %scsi_try_bus_reset.exit, %138, %172, %159, %147, %137, %136, %134, %134, %134
-  %253 = phi i32 [ 8195, %137 ], [ 8193, %136 ], [ %135, %134 ], [ %135, %134 ], [ %135, %134 ], [ 8195, %138 ], [ 8195, %147 ], [ 8195, %159 ], [ 8195, %172 ], [ 8195, %scsi_try_bus_reset.exit ], [ 8195, %.loopexit.i9 ], [ 8195, %217 ], [ 8195, %223 ], [ 8195, %133 ], [ %spec.select, %94 ], [ 8194, %80 ], [ 8194, %80 ], [ 8194, %80 ], [ 8194, %80 ], [ 8194, %92 ], [ 8194, %88 ], [ 8194, %83 ], [ 8195, %76 ], [ 8193, %.loopexit ]
+  %253 = phi i32 [ 8195, %137 ], [ 8193, %136 ], [ %135, %134 ], [ %135, %134 ], [ %135, %134 ], [ 8195, %138 ], [ 8195, %147 ], [ 8195, %159 ], [ 8195, %172 ], [ 8195, %scsi_try_bus_reset.exit ], [ 8195, %217 ], [ 8195, %223 ], [ 8195, %.loopexit.i9 ], [ 8194, %80 ], [ 8194, %80 ], [ 8194, %80 ], [ 8194, %80 ], [ 8194, %92 ], [ 8194, %88 ], [ 8194, %83 ], [ 8195, %76 ], [ 8193, %.loopexit ], [ 8195, %133 ], [ %spec.select, %94 ]
   %254 = load i8, ptr %19, align 4
   %255 = zext i8 %254 to i16
   store i16 %255, ptr %20, align 4
@@ -4592,7 +4592,7 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
   br label %.loopexit19
 
 .loopexit19:                                      ; preds = %64, %.preheader17, %.loopexit18, %.loopexit19.loopexit36, %.critedge, %.critedge, %.critedge
-  %75 = phi i1 [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ false, %.loopexit18 ], [ true, %.loopexit19.loopexit36 ], [ true, %.preheader17 ], [ true, %64 ]
+  %75 = phi i1 [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.loopexit19.loopexit36 ], [ false, %.loopexit18 ], [ true, %.preheader17 ], [ true, %64 ]
   %76 = load ptr, ptr %0, align 8
   %77 = icmp eq ptr %76, %0
   br i1 %77, label %.loopexit, label %.preheader

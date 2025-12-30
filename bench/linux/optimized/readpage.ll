@@ -150,7 +150,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   br label %75
 
 75:                                               ; preds = %72, %65
-  %76 = phi i32 [ 1, %65 ], [ %74, %72 ]
+  %76 = phi i32 [ %74, %72 ], [ 1, %65 ]
   store i32 %76, ptr %33, align 4
   %77 = icmp eq ptr %68, null
   br i1 %77, label %84, label %78

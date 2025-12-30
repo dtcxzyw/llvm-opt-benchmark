@@ -260,7 +260,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %2
   br label %_Z17is_reference_type9BasicTypeb.exit.thread
 
 _Z17is_reference_type9BasicTypeb.exit.thread:     ; preds = %2, %_Z17is_reference_type9BasicTypeb.exit
-  %7 = phi i1 [ %6, %_Z17is_reference_type9BasicTypeb.exit ], [ true, %2 ]
+  %7 = phi i1 [ true, %2 ], [ %6, %_Z17is_reference_type9BasicTypeb.exit ]
   ret i1 %7
 }
 
@@ -1277,15 +1277,15 @@ define hidden void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 capt
   %77 = add nsw i32 %58, 1
   br label %_ZN15SignatureStream9scan_typeE9BasicType.exit
 
-78:                                               ; preds = %36, %35, %28, %29, %30, %31, %32, %33, %34, %26
-  %.0.i.ph = phi i8 [ 4, %26 ], [ 11, %34 ], [ 10, %33 ], [ 9, %32 ], [ 8, %31 ], [ 7, %30 ], [ 6, %29 ], [ 5, %28 ], [ 14, %35 ], [ 0, %36 ]
+78:                                               ; preds = %36, %28, %29, %30, %31, %32, %33, %34, %35, %26
+  %.0.i.ph = phi i8 [ 4, %26 ], [ 14, %35 ], [ 11, %34 ], [ 10, %33 ], [ 9, %32 ], [ 8, %31 ], [ 7, %30 ], [ 6, %29 ], [ 5, %28 ], [ 0, %36 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.0.i.ph, ptr %79, align 8
   %80 = add nsw i32 %27, 1
   br label %_ZN15SignatureStream9scan_typeE9BasicType.exit
 
 _ZN15SignatureStream9scan_typeE9BasicType.exit:   ; preds = %56, %39, %47, %65, %70, %76, %78
-  %.0.i12 = phi i32 [ %80, %78 ], [ %77, %76 ], [ %3, %39 ], [ %3, %65 ], [ %52, %47 ], [ %75, %70 ], [ %3, %56 ]
+  %.0.i12 = phi i32 [ %80, %78 ], [ %77, %76 ], [ %52, %47 ], [ %3, %39 ], [ %75, %70 ], [ %3, %65 ], [ %3, %56 ]
   store i32 %.0.i12, ptr %4, align 4
   br label %81
 
@@ -1424,7 +1424,7 @@ define hidden noundef zeroext i1 @_ZN9Signature24is_valid_array_signatureEPK6Sym
   br label %24
 
 24:                                               ; preds = %.critedge, %19, %16
-  %.0 = phi i1 [ %23, %19 ], [ %18, %16 ], [ false, %.critedge ]
+  %.0 = phi i1 [ %18, %16 ], [ %23, %19 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -1630,7 +1630,7 @@ define hidden noundef ptr @_ZN15SignatureStream8as_klassE6HandleS0_NS_11FailureM
   br label %23
 
 23:                                               ; preds = %17, %11, %5, %22, %15
-  %.0 = phi ptr [ null, %5 ], [ %.022, %22 ], [ %16, %15 ], [ null, %11 ], [ null, %17 ]
+  %.0 = phi ptr [ %.022, %22 ], [ %16, %15 ], [ null, %5 ], [ null, %11 ], [ null, %17 ]
   ret ptr %.0
 }
 
@@ -1699,8 +1699,8 @@ _ZN15SignatureStream8as_klassE6HandleS0_NS_11FailureModeEP10JavaThread.exit: ; p
   %33 = tail call noundef ptr %32(ptr noundef nonnull %29) #15
   br label %_ZNK5Klass11java_mirrorEv.exit
 
-_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %13, %20, %31, %27, %_ZN15SignatureStream8as_klassE6HandleS0_NS_11FailureModeEP10JavaThread.exit, %9
-  %.0 = phi ptr [ %10, %9 ], [ null, %_ZN15SignatureStream8as_klassE6HandleS0_NS_11FailureModeEP10JavaThread.exit ], [ null, %27 ], [ %33, %31 ], [ null, %20 ], [ null, %13 ]
+_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %20, %13, %31, %27, %_ZN15SignatureStream8as_klassE6HandleS0_NS_11FailureModeEP10JavaThread.exit, %9
+  %.0 = phi ptr [ %10, %9 ], [ null, %_ZN15SignatureStream8as_klassE6HandleS0_NS_11FailureModeEP10JavaThread.exit ], [ %33, %31 ], [ null, %27 ], [ null, %13 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -2083,7 +2083,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -2244,7 +2244,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -2422,7 +2422,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 

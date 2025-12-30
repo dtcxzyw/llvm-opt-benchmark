@@ -352,8 +352,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_VecClear.exit.A
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %55, %57, %47, %49
-  %storemerge = phi ptr [ %50, %49 ], [ %48, %47 ], [ %56, %55 ], [ %58, %57 ]
-  %.sink.i.i.i.i = phi i32 [ %38, %49 ], [ %38, %47 ], [ %42, %55 ], [ %42, %57 ]
+  %storemerge = phi ptr [ %48, %47 ], [ %50, %49 ], [ %56, %55 ], [ %58, %57 ]
+  %.sink.i.i.i.i = phi i32 [ %38, %47 ], [ %38, %49 ], [ %42, %55 ], [ %42, %57 ]
   store ptr %storemerge, ptr %14, align 8, !tbaa !54
   store i32 %.sink.i.i.i.i, ptr %37, align 8, !tbaa !53
   %.pre.i.i.i = load i32, ptr %39, align 4, !tbaa !51
@@ -1914,7 +1914,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %76, %._crit_edge.i.
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.preheader, %.critedge, %Abc_NodeSetTravIdCurrent.exit, %Abc_NodeSetTravIdPrevious.exit, %56, %5, %3
-  %.020 = phi i32 [ 0, %Abc_NodeSetTravIdPrevious.exit ], [ 1, %3 ], [ 0, %5 ], [ 0, %56 ], [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %.critedge ], [ 0, %.preheader ]
+  %.020 = phi i32 [ 1, %3 ], [ 0, %5 ], [ 0, %56 ], [ 0, %Abc_NodeSetTravIdPrevious.exit ], [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %.critedge ], [ 0, %.preheader ]
   ret i32 %.020
 }
 

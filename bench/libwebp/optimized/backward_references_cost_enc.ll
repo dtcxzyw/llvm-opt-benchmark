@@ -586,8 +586,8 @@ GetLengthCost.exit.i.i:                           ; preds = %223, %219
   br i1 %exitcond82.not.i.i, label %._crit_edge69.i.i, label %.lr.ph68.i.i, !llvm.loop !42
 
 ._crit_edge69.i.i:                                ; preds = %250, %._crit_edge.i117.i, %._crit_edge.thread.i.i
-  %252 = phi i1 [ false, %._crit_edge.thread.i.i ], [ false, %._crit_edge.i117.i ], [ true, %250 ]
-  %253 = phi i64 [ 1, %._crit_edge.thread.i.i ], [ 1, %._crit_edge.i117.i ], [ %251, %250 ]
+  %252 = phi i1 [ false, %._crit_edge.i117.i ], [ false, %._crit_edge.thread.i.i ], [ true, %250 ]
+  %253 = phi i64 [ 1, %._crit_edge.i117.i ], [ 1, %._crit_edge.thread.i.i ], [ %251, %250 ]
   %254 = call ptr @WebPSafeMalloc(i64 noundef %253, i64 noundef 16) #7
   store ptr %254, ptr %202, align 8, !tbaa !29
   %255 = icmp eq ptr %254, null
@@ -1130,7 +1130,7 @@ UpdateCostAtIndex.exit144.i:                      ; preds = %UpdateCost.exit.i.i
   br label %520
 
 520:                                              ; preds = %._crit_edge.i, %CostManagerInit.exit.i, %CostModelBuild.exit.i
-  %.081.i = phi i32 [ 0, %CostModelBuild.exit.i ], [ %519, %._crit_edge.i ], [ 0, %CostManagerInit.exit.i ]
+  %.081.i = phi i32 [ %519, %._crit_edge.i ], [ 0, %CostManagerInit.exit.i ], [ 0, %CostModelBuild.exit.i ]
   br i1 %16, label %BackwardReferencesHashChainDistanceOnly.exit, label %521
 
 521:                                              ; preds = %520
@@ -1138,7 +1138,7 @@ UpdateCostAtIndex.exit144.i:                      ; preds = %UpdateCost.exit.i.i
   br label %BackwardReferencesHashChainDistanceOnly.exit
 
 BackwardReferencesHashChainDistanceOnly.exit:     ; preds = %15, %30, %520, %521
-  %.081163.i = phi i32 [ %.081.i, %520 ], [ %.081.i, %521 ], [ 0, %15 ], [ 0, %30 ]
+  %.081163.i = phi i32 [ %.081.i, %521 ], [ %.081.i, %520 ], [ 0, %15 ], [ 0, %30 ]
   call fastcc void @CostManagerClear(ptr noundef %24)
   call void @WebPSafeFree(ptr noundef %23) #7
   call void @WebPSafeFree(ptr noundef %24) #7
@@ -1346,7 +1346,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %522
   br label %BackwardReferencesHashChainFollowChosenPath.exit
 
 BackwardReferencesHashChainFollowChosenPath.exit: ; preds = %._crit_edge.i33.thread, %535, %._crit_edge.i33, %585
-  %.04371.shrunk.i = phi i1 [ %.not52.i, %._crit_edge.i33 ], [ %.not5295.i, %585 ], [ false, %535 ], [ %.not52.i36, %._crit_edge.i33.thread ]
+  %.04371.shrunk.i = phi i1 [ %.not5295.i, %585 ], [ %.not52.i, %._crit_edge.i33 ], [ false, %535 ], [ %.not52.i36, %._crit_edge.i33.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %spec.select = zext i1 %.04371.shrunk.i to i32
   br label %586
@@ -1540,8 +1540,8 @@ PopInterval.exit:                                 ; preds = %70, %71
   br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !72
 
 .critedge2:                                       ; preds = %.lr.ph, %86, %60, %43, %82, %79
-  %.194 = phi i32 [ %.093126, %82 ], [ %.093126, %79 ], [ %44, %43 ], [ %.093126, %.lr.ph ], [ %.295, %86 ], [ %57, %60 ]
-  %.2 = phi ptr [ %85, %82 ], [ %.1127, %79 ], [ null, %43 ], [ %.1127, %.lr.ph ], [ null, %86 ], [ %.1127, %60 ]
+  %.194 = phi i32 [ %.093126, %79 ], [ %.093126, %82 ], [ %44, %43 ], [ %.093126, %.lr.ph ], [ %.295, %86 ], [ %57, %60 ]
+  %.2 = phi ptr [ %.1127, %79 ], [ %85, %82 ], [ null, %43 ], [ %.1127, %.lr.ph ], [ null, %86 ], [ %.1127, %60 ]
   tail call fastcc void @InsertInterval(ptr noundef %0, ptr noundef %.2, i64 noundef %49, i32 noundef %2, i32 noundef %.194, i32 noundef %47)
   %87 = add nuw i64 %.0136, 1
   %88 = load i64, ptr %32, align 8, !tbaa !38
@@ -1847,7 +1847,7 @@ UpdateCost.exit.i43:                              ; preds = %49, %45
   br label %PositionOrphanInterval.exit
 
 PositionOrphanInterval.exit:                      ; preds = %.split.thread.i, %78, %.critedge29.i, %84
-  %.sink66.i = phi ptr [ %79, %78 ], [ %72, %.split.thread.i ], [ %0, %.critedge29.i ], [ %0, %84 ]
+  %.sink66.i = phi ptr [ %72, %.split.thread.i ], [ %79, %78 ], [ %0, %.critedge29.i ], [ %0, %84 ]
   store ptr %.0, ptr %.sink66.i, align 8, !tbaa !60
   %86 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %.2.i, ptr %86, align 8, !tbaa !59

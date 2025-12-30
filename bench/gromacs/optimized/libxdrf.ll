@@ -919,7 +919,7 @@ _ZL8sendbitsP10DataBufferii.exit493:              ; preds = %424, %422, %431
   %493 = select i1 %491, i1 %492, i1 false
   br i1 %493, label %440, label %._crit_edge614.loopexit, !llvm.loop !31
 
-._crit_edge614.loopexit:                          ; preds = %475, %480, %456, %486
+._crit_edge614.loopexit:                          ; preds = %456, %475, %480, %486
   %494 = trunc nuw nsw i64 %indvars.iv.next669 to i32
   br label %._crit_edge614
 
@@ -1046,7 +1046,7 @@ _ZL8sendbitsP10DataBufferii.exit505.sink.split:   ; preds = %553, %539
   br label %_ZL8sendbitsP10DataBufferii.exit505
 
 _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10DataBufferii.exit505.sink.split, %553, %539
-  %.1392 = phi i32 [ %.0391625, %553 ], [ %.0393.lcssa, %539 ], [ %.1392.ph, %_ZL8sendbitsP10DataBufferii.exit505.sink.split ]
+  %.1392 = phi i32 [ %.0393.lcssa, %539 ], [ %.0391625, %553 ], [ %.1392.ph, %_ZL8sendbitsP10DataBufferii.exit505.sink.split ]
   %.not646 = icmp eq i32 %.0393.lcssa, 0
   br i1 %.not646, label %._crit_edge622, label %.lr.ph621.preheader
 
@@ -1709,8 +1709,8 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %822, %824
   br label %913
 
 913:                                              ; preds = %899, %907, %908, %901
-  %.4414 = phi i32 [ %.3408638, %901 ], [ %.3413637, %907 ], [ %912, %908 ], [ %.3408638, %899 ]
-  %.4409 = phi i32 [ %906, %901 ], [ %.3408638, %907 ], [ %.3413637, %908 ], [ 0, %899 ]
+  %.4414 = phi i32 [ %.3408638, %901 ], [ %912, %908 ], [ %.3413637, %907 ], [ %.3408638, %899 ]
+  %.4409 = phi i32 [ %906, %901 ], [ %.3413637, %908 ], [ %.3408638, %907 ], [ 0, %899 ]
   %914 = sext i32 %897 to i64
   %915 = getelementptr inbounds i32, ptr @_ZL9magicints, i64 %914
   %916 = load i32, ptr %915, align 4, !tbaa !16
@@ -1731,7 +1731,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %822, %824
   br label %921
 
 921:                                              ; preds = %._crit_edge643, %919, %773, %774, %754, %755, %727, %728, %682, %683, %637, %619, %615, %617, %598, %599, %225, %226, %159, %160, %41, %30, %634, %38
-  %.0379 = phi i32 [ %616, %615 ], [ %636, %634 ], [ 0, %619 ], [ 0, %637 ], [ 0, %682 ], [ 0, %727 ], [ 0, %754 ], [ 0, %773 ], [ 0, %598 ], [ %40, %38 ], [ 0, %30 ], [ 0, %41 ], [ 0, %159 ], [ 0, %225 ], [ 0, %160 ], [ 0, %226 ], [ 0, %599 ], [ %616, %617 ], [ 0, %683 ], [ 0, %728 ], [ 0, %755 ], [ 0, %774 ], [ 1, %919 ], [ 1, %._crit_edge643 ]
+  %.0379 = phi i32 [ %636, %634 ], [ %40, %38 ], [ 0, %30 ], [ 0, %41 ], [ 0, %160 ], [ 0, %159 ], [ 0, %226 ], [ 0, %225 ], [ 0, %599 ], [ 0, %598 ], [ %616, %617 ], [ %616, %615 ], [ 0, %619 ], [ 0, %637 ], [ 0, %683 ], [ 0, %682 ], [ 0, %728 ], [ 0, %727 ], [ 0, %755 ], [ 0, %754 ], [ 0, %774 ], [ 0, %773 ], [ 1, %919 ], [ 1, %._crit_edge643 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2499,7 +2499,7 @@ define noundef range(i32 -1, 1) i32 @_Z18xdr_xtc_seek_frameiP8_IO_FILEP3XDRi(i32
 .backedge:                                        ; preds = %25, %20
   br label %20, !llvm.loop !52
 
-_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread: ; preds = %22, %.preheader, %25
+_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread: ; preds = %.preheader, %22, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
@@ -2550,7 +2550,7 @@ _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit: ; preds = %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread, %45, %42, %39, %11, %8, %4
-  %.032 = phi i32 [ -1, %42 ], [ -1, %4 ], [ -1, %8 ], [ -1, %11 ], [ %., %45 ], [ -1, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread ], [ -1, %39 ], [ -1, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit ], [ -1, %33 ]
+  %.032 = phi i32 [ -1, %4 ], [ -1, %8 ], [ -1, %11 ], [ -1, %39 ], [ -1, %42 ], [ %., %45 ], [ -1, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread ], [ -1, %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit ], [ -1, %33 ]
   ret i32 %.032
 }
 
@@ -2702,7 +2702,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_
   br label %57
 
 57:                                               ; preds = %54, %47, %18, %5, %50, %25, %13
-  %.0 = phi i32 [ -1, %47 ], [ -1, %13 ], [ %., %18 ], [ -1, %5 ], [ -1, %25 ], [ %.39, %54 ], [ 1, %50 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %25 ], [ 1, %50 ], [ -1, %5 ], [ %., %18 ], [ -1, %47 ], [ %.39, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2920,7 +2920,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %91, %28, %32, %68, %73, %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread, %.preheader, %99, %.thread, %17, %14, %12
-  %.088 = phi i32 [ -1, %17 ], [ -1, %12 ], [ -1, %14 ], [ %., %99 ], [ -1, %.thread ], [ -1, %.preheader ], [ -1, %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread ], [ -1, %91 ], [ -2, %28 ], [ -1, %68 ], [ -2, %32 ], [ -1, %73 ]
+  %.088 = phi i32 [ -1, %12 ], [ -1, %14 ], [ -1, %17 ], [ -1, %.thread ], [ %., %99 ], [ -1, %.preheader ], [ -1, %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread ], [ -1, %91 ], [ -2, %28 ], [ -2, %32 ], [ -1, %68 ], [ -1, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.088
 }
@@ -2978,7 +2978,7 @@ define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb
   br label %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit
 
 _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit: ; preds = %13, %22, %23, %25
-  %.0.i = phi float [ -1.000000e+00, %25 ], [ -1.000000e+00, %22 ], [ %24, %23 ], [ -1.000000e+00, %13 ]
+  %.0.i = phi float [ -1.000000e+00, %22 ], [ %24, %23 ], [ -1.000000e+00, %25 ], [ -1.000000e+00, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = load i8, ptr %3, align 1, !tbaa !56, !range !58, !noundef !59
@@ -2999,7 +2999,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit: ; preds = %13, %22, %23, %2
   br label %34
 
 34:                                               ; preds = %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit, %9, %4, %32, %31
-  %.0 = phi float [ -1.000000e+00, %4 ], [ -1.000000e+00, %31 ], [ %33, %32 ], [ -1.000000e+00, %9 ], [ -1.000000e+00, %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit ]
+  %.0 = phi float [ -1.000000e+00, %31 ], [ %33, %32 ], [ -1.000000e+00, %4 ], [ -1.000000e+00, %9 ], [ -1.000000e+00, %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit ]
   ret float %.0
 }
 
@@ -3045,7 +3045,7 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
   br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %17, %4, %15, %13, %12
-  %.0 = phi float [ -1.000000e+00, %4 ], [ -1.000000e+00, %12 ], [ %14, %13 ], [ -1.000000e+00, %15 ], [ -1.000000e+00, %17 ]
+  %.0 = phi float [ -1.000000e+00, %12 ], [ %14, %13 ], [ -1.000000e+00, %15 ], [ -1.000000e+00, %4 ], [ -1.000000e+00, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret float %.0
@@ -3079,7 +3079,7 @@ define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noun
   br label %15
 
 15:                                               ; preds = %.sink.split, %13, %9
-  %.0 = phi float [ %10, %13 ], [ -1.000000e+00, %9 ], [ -1.000000e+00, %.sink.split ]
+  %.0 = phi float [ -1.000000e+00, %9 ], [ %10, %13 ], [ -1.000000e+00, %.sink.split ]
   ret float %.0
 }
 
@@ -3140,7 +3140,7 @@ default.unreachable:                              ; preds = %.preheader.i
   unreachable
 
 _ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit: ; preds = %22, %11, %17, %18, %20
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %17 ], [ %19, %18 ], [ -1, %20 ], [ -1, %22 ]
+  %.0.i = phi i32 [ -1, %17 ], [ %19, %18 ], [ -1, %20 ], [ -1, %11 ], [ -1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = load i8, ptr %3, align 1, !tbaa !56, !range !58, !noundef !59
@@ -3157,7 +3157,7 @@ _ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit: ; preds = %22, %11, %1
   br label %28
 
 28:                                               ; preds = %.sink.split, %26, %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit
-  %.0 = phi i32 [ %.0.i, %26 ], [ -1, %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ -1, %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit ], [ %.0.i, %26 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

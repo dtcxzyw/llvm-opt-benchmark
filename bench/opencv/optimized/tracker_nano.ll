@@ -4149,7 +4149,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit443:                 ; preds = %1018, %1016, %1009
   br label %1065
 
 1065:                                             ; preds = %1049, %1064
-  %.pn201.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1050, %1049 ], [ %.pn201.pn.pn.pn.pn, %1064 ]
+  %.pn201.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn201.pn.pn.pn.pn, %1064 ], [ %1050, %1049 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %136)
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
   call void @llvm.lifetime.end.p0(ptr nonnull %134)
@@ -4164,7 +4164,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit443:                 ; preds = %1018, %1016, %1009
   br label %1068
 
 1068:                                             ; preds = %1066, %.body363
-  %.pn209.pn = phi { ptr, i32 } [ %1067, %1066 ], [ %718, %.body363 ]
+  %.pn209.pn = phi { ptr, i32 } [ %718, %.body363 ], [ %1067, %1066 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %141)
   call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %1083

@@ -65,12 +65,12 @@ define hidden i32 @WebPValidatePicture(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 .sink.split:                                      ; preds = %11, %3, %7
-  %.sink = phi i32 [ 5, %3 ], [ 5, %7 ], [ 4, %11 ]
+  %.sink = phi i32 [ 5, %7 ], [ 5, %3 ], [ 4, %11 ]
   %14 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef %.sink) #8
   br label %15
 
 15:                                               ; preds = %.sink.split, %11, %11, %1
-  %.0 = phi i32 [ 1, %11 ], [ 1, %11 ], [ 0, %1 ], [ %14, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %11 ], [ 1, %11 ], [ %14, %.sink.split ]
   ret i32 %.0
 }
 
@@ -377,7 +377,7 @@ define range(i32 0, 2) i32 @WebPMemoryWrite(ptr noundef readonly captures(none) 
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %23, %24, %3
-  %.030 = phi i32 [ 0, %14 ], [ 1, %23 ], [ 1, %3 ], [ 1, %24 ]
+  %.030 = phi i32 [ 1, %3 ], [ 1, %24 ], [ 1, %23 ], [ 0, %14 ]
   ret i32 %.030
 }
 
@@ -482,7 +482,7 @@ define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
-  %.0.i = phi i64 [ 0, %6 ], [ %41, %38 ], [ 0, %36 ], [ 0, %11 ]
+  %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -574,7 +574,7 @@ define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
-  %.0.i = phi i64 [ 0, %6 ], [ %41, %38 ], [ 0, %36 ], [ 0, %11 ]
+  %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -666,7 +666,7 @@ define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
-  %.0.i = phi i64 [ 0, %6 ], [ %41, %38 ], [ 0, %36 ], [ 0, %11 ]
+  %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -758,7 +758,7 @@ define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
-  %.0.i = phi i64 [ 0, %6 ], [ %41, %38 ], [ 0, %36 ], [ 0, %11 ]
+  %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -850,7 +850,7 @@ define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
-  %.0.i = phi i64 [ 0, %5 ], [ %40, %37 ], [ 0, %35 ], [ 0, %10 ]
+  %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -940,7 +940,7 @@ define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
-  %.0.i = phi i64 [ 0, %5 ], [ %40, %37 ], [ 0, %35 ], [ 0, %10 ]
+  %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1030,7 +1030,7 @@ define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
-  %.0.i = phi i64 [ 0, %5 ], [ %40, %37 ], [ 0, %35 ], [ 0, %10 ]
+  %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1120,7 +1120,7 @@ define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
-  %.0.i = phi i64 [ 0, %5 ], [ %40, %37 ], [ 0, %35 ], [ 0, %10 ]
+  %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

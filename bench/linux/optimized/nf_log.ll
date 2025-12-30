@@ -433,7 +433,7 @@ define dso_local range(i32 -2, 1) i32 @nf_logger_find_get(i32 noundef %0, i32 no
   br label %.thread
 
 .thread:                                          ; preds = %24, %25, %28, %34, %17, %9, %4
-  %39 = phi i32 [ 0, %17 ], [ -2, %9 ], [ -2, %4 ], [ -2, %24 ], [ -2, %25 ], [ -2, %28 ], [ %38, %34 ]
+  %39 = phi i32 [ -2, %4 ], [ -2, %9 ], [ 0, %17 ], [ -2, %24 ], [ -2, %25 ], [ -2, %28 ], [ %38, %34 ]
   tail call void @__rcu_read_unlock() #16
   ret i32 %39
 }

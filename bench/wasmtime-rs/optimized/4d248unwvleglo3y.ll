@@ -279,14 +279,14 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h78131ff
   br label %37
 
 .sink.split:                                      ; preds = %30, %74, %61
-  %.sink = phi i64 [ 0, %74 ], [ %17, %61 ], [ 0, %30 ]
-  %.ph87 = phi i64 [ %77, %74 ], [ %62, %61 ], [ %31, %30 ]
+  %.sink = phi i64 [ %17, %61 ], [ 0, %74 ], [ 0, %30 ]
+  %.ph87 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
   store i64 %.sink, ptr %14, align 8
   br label %33
 
 33:                                               ; preds = %.sink.split, %61, %74, %30
-  %34 = phi i64 [ %19, %61 ], [ %19, %30 ], [ %19, %74 ], [ %.sink, %.sink.split ]
-  %35 = phi i64 [ %62, %61 ], [ %31, %30 ], [ %77, %74 ], [ %.ph87, %.sink.split ]
+  %34 = phi i64 [ %19, %61 ], [ %19, %74 ], [ %19, %30 ], [ %.sink, %.sink.split ]
+  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph87, %.sink.split ]
   %36 = add i64 %9, %35
   %.not34 = icmp ult i64 %36, %3
   br i1 %.not34, label %18, label %._crit_edge
@@ -572,32 +572,32 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
 
 24:                                               ; preds = %19
   %.not.i.i.i.i.i = icmp ult i64 %21, %.val5.i
-  br i1 %.not.i.i.i.i.i, label %25, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %.val.i, i64 %21
-  %27 = load i8, ptr %26, align 1, !alias.scope !74, !noalias !79, !noundef !14
-  %28 = icmp sgt i8 %27, -65
-  %29 = sub nuw i64 %.val5.i, %21
-  br i1 %28, label %34, label %.loopexit.i.i
+  %26 = xor i8 %20, 1
+  store i8 %26, ptr %18, align 8, !alias.scope !68, !noalias !71
+  %27 = icmp eq i64 %21, %.val5.i
+  br i1 %27, label %.thread.i.i.i, label %33
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i": ; preds = %24
-  %30 = xor i8 %20, 1
-  store i8 %30, ptr %18, align 8, !alias.scope !68, !noalias !71
-  %31 = icmp eq i64 %21, %.val5.i
-  br i1 %31, label %.thread.i.i.i, label %33
+  %28 = getelementptr inbounds i8, ptr %.val.i, i64 %21
+  %29 = load i8, ptr %28, align 1, !alias.scope !74, !noalias !79, !noundef !14
+  %30 = icmp sgt i8 %29, -65
+  %31 = sub nuw i64 %.val5.i, %21
+  br i1 %30, label %34, label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %25
+.loopexit.i.i:                                    ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i"
   %32 = xor i8 %20, 1
   store i8 %32, ptr %18, align 8, !alias.scope !68, !noalias !71
   br label %33
 
-33:                                               ; preds = %.loopexit.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i"
+33:                                               ; preds = %.loopexit.i.i, %25
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val5.i, i64 noundef %21, i64 noundef %.val5.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.38ac625ebc467d8cabb137b8f7f14eb6.30) #19, !noalias !79
   unreachable
 
-34:                                               ; preds = %25, %19
-  %35 = phi i64 [ %29, %25 ], [ %.val5.i, %19 ]
+34:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %19
+  %35 = phi i64 [ %31, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i" ], [ %.val5.i, %19 ]
   %36 = getelementptr inbounds i8, ptr %.val.i, i64 %21
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %.thread.i.loopexit.i.i, label %38
@@ -654,7 +654,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   br label %_ZN4core3str11validations15next_code_point17h522cad751057f756E.exit.thread.i.i.i
 
 _ZN4core3str11validations15next_code_point17h522cad751057f756E.exit.thread.i.i.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit17.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit15.i.i.i.i", %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit13.i.i.i.i"
-  %.sroa.4.0.i.ph.i.i.i = phi i32 [ %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit15.i.i.i.i" ], [ %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit17.i.i.i.i" ], [ %52, %51 ], [ %49, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit13.i.i.i.i" ]
+  %.sroa.4.0.i.ph.i.i.i = phi i32 [ %49, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit13.i.i.i.i" ], [ %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit15.i.i.i.i" ], [ %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h42664e9d01330229E.exit17.i.i.i.i" ], [ %52, %51 ]
   br i1 %22, label %.loopexit11.i.i, label %75
 
 .thread.i.loopexit.i.i:                           ; preds = %34
@@ -662,8 +662,8 @@ _ZN4core3str11validations15next_code_point17h522cad751057f756E.exit.thread.i.i.i
   store i8 %73, ptr %18, align 8, !alias.scope !68, !noalias !71
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.thread.i.loopexit.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i"
-  %74 = phi i64 [ %21, %.thread.i.loopexit.i.i ], [ %.val5.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i" ]
+.thread.i.i.i:                                    ; preds = %.thread.i.loopexit.i.i, %25
+  %74 = phi i64 [ %21, %.thread.i.loopexit.i.i ], [ %.val5.i, %25 ]
   br i1 %22, label %92, label %.thread20.i.i.i
 
 75:                                               ; preds = %_ZN4core3str11validations15next_code_point17h522cad751057f756E.exit.thread.i.i.i
@@ -692,7 +692,7 @@ _ZN4core3str11validations15next_code_point17h522cad751057f756E.exit.thread.i.i.i
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i"
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.i.i": ; preds = %81, %79, %77
-  %.013.i.i.i = phi i64 [ 2, %79 ], [ %..i.i.i, %81 ], [ 1, %77 ]
+  %.013.i.i.i = phi i64 [ 1, %77 ], [ %..i.i.i, %81 ], [ 2, %79 ]
   %83 = add i64 %.013.i.i.i, %21
   store i64 %83, ptr %14, align 8, !alias.scope !68, !noalias !71
   br label %19
@@ -829,8 +829,8 @@ _ZN4core3str11validations15next_code_point17h522cad751057f756E.exit.thread.i.i.i
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h366d97b034e7c297E.exit"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h366d97b034e7c297E.exit": ; preds = %138, %133, %125, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i", %5, %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ undef, %5 ], [ %.sroa.4.1.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i" ], [ %143, %138 ], [ undef, %133 ], [ undef, %125 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %5 ], [ %.sroa.0.1.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i" ], [ %142, %138 ], [ null, %133 ], [ null, %125 ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %.sroa.4.1.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i" ], [ undef, %5 ], [ %143, %138 ], [ undef, %133 ], [ undef, %125 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.1.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i" ], [ null, %5 ], [ %142, %138 ], [ null, %133 ], [ null, %125 ]
   %144 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %145 = insertvalue { ptr, i64 } %144, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %145
@@ -1609,7 +1609,7 @@ select.unfold.i.i25:                              ; preds = %131, %135
   br label %.backedge158
 
 common.resume:                                    ; preds = %434, %448, %456, %176, %184, %193, %247
-  %common.resume.op = phi { ptr, i32 } [ %185, %184 ], [ %248, %247 ], [ %194, %193 ], [ %177, %176 ], [ %449, %448 ], [ %435, %434 ], [ %457, %456 ]
+  %common.resume.op = phi { ptr, i32 } [ %248, %247 ], [ %177, %176 ], [ %194, %193 ], [ %185, %184 ], [ %435, %434 ], [ %449, %448 ], [ %457, %456 ]
   resume { ptr, i32 } %common.resume.op
 
 178:                                              ; preds = %172
@@ -2438,7 +2438,7 @@ define noalias noundef ptr @_ZN18wasmtime_cli_flags13CommonOptions12init_logging
   unreachable
 
 common.resume:                                    ; preds = %33, %46, %19, %26
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %27, %26 ], [ %20, %19 ], [ %34, %33 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %27, %26 ], [ %47, %46 ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10rayon_core8registry19set_global_registry17h1578b401c8cf279fE.exit.i.i: ; preds = %17
@@ -4869,8 +4869,8 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %.not115.i = icmp eq i8 %627, %630
   br label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit": ; preds = %.noexc46, %324, %317, %307, %301, %291, %286, %400, %488, %481, %474, %467, %460, %453, %446, %439, %432, %425, %418, %411, %495, %392, %382, %373, %364, %355, %346, %340, %333, %326, %319, %309, %303, %293, %493, %486, %479, %472, %465, %458, %451, %444, %437, %430, %423, %416, %409, %398, %390, %380, %371, %362, %353, %344, %338, %288, %399, %331, %259, %250, %274, %257, %248, %241, %268, %266, %239, %170, %225, %216, %200, %191, %182, %223, %214, %205, %201, %199, %189, %172, %180, %98, %89, %83, %76, %66, %57, %48, %42, %32, %26, %159, %141, %132, %123, %117, %110, %100, %91, %85, %78, %68, %59, %50, %44, %34, %148, %139, %130, %121, %115, %108, %28, %150, %633, %631, %624, %622, %615, %613, %606, %604, %597, %595, %588, %586, %.noexc47, %573, %571, %556, %555, %553, %546, %544, %537, %535, %528, %526, %519, %517, %510, %508, %500, %277, %157, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit", %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit", %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
-  %.0 = phi i1 [ false, %467 ], [ false, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit" ], [ false, %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit" ], [ false, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit" ], [ false, %500 ], [ false, %411 ], [ false, %157 ], [ false, %98 ], [ false, %170 ], [ false, %277 ], [ false, %259 ], [ %632, %631 ], [ false, %508 ], [ false, %624 ], [ false, %510 ], [ false, %517 ], [ false, %526 ], [ false, %535 ], [ false, %544 ], [ false, %553 ], [ false, %.noexc47 ], [ false, %571 ], [ false, %622 ], [ false, %586 ], [ false, %595 ], [ false, %604 ], [ false, %613 ], [ false, %556 ], [ %.not115.i, %633 ], [ false, %519 ], [ false, %528 ], [ false, %537 ], [ false, %546 ], [ false, %555 ], [ false, %573 ], [ false, %588 ], [ false, %597 ], [ false, %606 ], [ false, %615 ], [ false, %150 ], [ false, %28 ], [ false, %474 ], [ false, %481 ], [ false, %488 ], [ false, %400 ], [ false, %108 ], [ false, %115 ], [ false, %286 ], [ false, %291 ], [ false, %121 ], [ false, %130 ], [ false, %301 ], [ false, %307 ], [ false, %317 ], [ false, %139 ], [ false, %324 ], [ false, %148 ], [ false, %34 ], [ false, %44 ], [ false, %50 ], [ false, %59 ], [ false, %68 ], [ false, %78 ], [ false, %85 ], [ false, %91 ], [ false, %100 ], [ false, %110 ], [ false, %117 ], [ false, %123 ], [ false, %132 ], [ false, %141 ], [ false, %159 ], [ false, %26 ], [ false, %32 ], [ false, %42 ], [ false, %48 ], [ false, %57 ], [ false, %66 ], [ false, %76 ], [ false, %83 ], [ false, %89 ], [ false, %180 ], [ false, %172 ], [ false, %189 ], [ false, %199 ], [ false, %201 ], [ false, %205 ], [ false, %214 ], [ false, %223 ], [ false, %182 ], [ false, %191 ], [ false, %200 ], [ false, %216 ], [ false, %225 ], [ false, %239 ], [ false, %266 ], [ false, %268 ], [ false, %241 ], [ false, %248 ], [ false, %257 ], [ false, %274 ], [ false, %250 ], [ false, %331 ], [ false, %399 ], [ false, %288 ], [ false, %338 ], [ false, %344 ], [ false, %353 ], [ false, %362 ], [ false, %371 ], [ false, %380 ], [ false, %390 ], [ false, %398 ], [ false, %409 ], [ false, %416 ], [ false, %423 ], [ false, %430 ], [ false, %437 ], [ false, %444 ], [ false, %451 ], [ false, %418 ], [ false, %425 ], [ false, %432 ], [ false, %439 ], [ false, %446 ], [ false, %458 ], [ false, %465 ], [ false, %472 ], [ false, %479 ], [ false, %453 ], [ false, %486 ], [ false, %460 ], [ false, %493 ], [ false, %293 ], [ false, %303 ], [ false, %309 ], [ false, %319 ], [ false, %326 ], [ false, %333 ], [ false, %340 ], [ false, %346 ], [ false, %355 ], [ false, %364 ], [ false, %373 ], [ false, %382 ], [ false, %392 ], [ false, %495 ], [ false, %.noexc46 ]
+"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit": ; preds = %.noexc46, %493, %486, %479, %472, %465, %458, %451, %444, %437, %430, %423, %416, %409, %398, %390, %380, %371, %362, %353, %344, %338, %331, %324, %317, %307, %301, %291, %286, %399, %400, %495, %488, %481, %474, %467, %460, %453, %446, %439, %432, %425, %418, %411, %392, %382, %373, %364, %355, %346, %340, %333, %326, %319, %309, %303, %293, %288, %274, %266, %257, %248, %239, %268, %259, %250, %241, %223, %214, %205, %199, %189, %180, %170, %225, %216, %200, %191, %182, %201, %172, %148, %139, %130, %121, %115, %108, %98, %89, %83, %76, %66, %57, %48, %42, %32, %26, %159, %150, %141, %132, %123, %117, %110, %100, %91, %85, %78, %68, %59, %50, %44, %34, %28, %633, %631, %624, %622, %615, %613, %606, %604, %597, %595, %588, %586, %.noexc47, %573, %571, %556, %555, %553, %546, %544, %537, %535, %528, %526, %519, %517, %510, %508, %500, %277, %157, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit", %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit", %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
+  %.0 = phi i1 [ false, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit" ], [ false, %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit" ], [ false, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit" ], [ false, %157 ], [ false, %277 ], [ false, %500 ], [ %632, %631 ], [ false, %510 ], [ false, %.noexc47 ], [ false, %519 ], [ false, %528 ], [ false, %537 ], [ false, %546 ], [ false, %555 ], [ false, %573 ], [ false, %588 ], [ false, %597 ], [ false, %606 ], [ false, %615 ], [ false, %624 ], [ false, %508 ], [ false, %517 ], [ false, %526 ], [ false, %535 ], [ false, %544 ], [ false, %553 ], [ false, %571 ], [ false, %586 ], [ false, %595 ], [ false, %604 ], [ false, %613 ], [ false, %622 ], [ false, %556 ], [ %.not115.i, %633 ], [ false, %28 ], [ false, %34 ], [ false, %44 ], [ false, %50 ], [ false, %59 ], [ false, %68 ], [ false, %78 ], [ false, %85 ], [ false, %91 ], [ false, %100 ], [ false, %110 ], [ false, %117 ], [ false, %123 ], [ false, %132 ], [ false, %141 ], [ false, %150 ], [ false, %159 ], [ false, %26 ], [ false, %32 ], [ false, %42 ], [ false, %48 ], [ false, %57 ], [ false, %66 ], [ false, %76 ], [ false, %83 ], [ false, %89 ], [ false, %98 ], [ false, %108 ], [ false, %115 ], [ false, %121 ], [ false, %130 ], [ false, %139 ], [ false, %148 ], [ false, %172 ], [ false, %201 ], [ false, %182 ], [ false, %191 ], [ false, %200 ], [ false, %216 ], [ false, %225 ], [ false, %170 ], [ false, %180 ], [ false, %189 ], [ false, %199 ], [ false, %205 ], [ false, %214 ], [ false, %223 ], [ false, %241 ], [ false, %250 ], [ false, %259 ], [ false, %268 ], [ false, %239 ], [ false, %248 ], [ false, %257 ], [ false, %266 ], [ false, %274 ], [ false, %288 ], [ false, %293 ], [ false, %303 ], [ false, %309 ], [ false, %319 ], [ false, %326 ], [ false, %333 ], [ false, %340 ], [ false, %346 ], [ false, %355 ], [ false, %364 ], [ false, %373 ], [ false, %382 ], [ false, %392 ], [ false, %411 ], [ false, %418 ], [ false, %425 ], [ false, %432 ], [ false, %439 ], [ false, %446 ], [ false, %453 ], [ false, %460 ], [ false, %467 ], [ false, %474 ], [ false, %481 ], [ false, %488 ], [ false, %495 ], [ false, %400 ], [ false, %399 ], [ false, %286 ], [ false, %291 ], [ false, %301 ], [ false, %307 ], [ false, %317 ], [ false, %324 ], [ false, %331 ], [ false, %338 ], [ false, %344 ], [ false, %353 ], [ false, %362 ], [ false, %371 ], [ false, %380 ], [ false, %390 ], [ false, %398 ], [ false, %409 ], [ false, %416 ], [ false, %423 ], [ false, %430 ], [ false, %437 ], [ false, %444 ], [ false, %451 ], [ false, %458 ], [ false, %465 ], [ false, %472 ], [ false, %479 ], [ false, %486 ], [ false, %493 ], [ false, %.noexc46 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$wasmtime_cli_flags..WasiOptions$GT$17h2ed86d78514626aaE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
           to label %637 unwind label %635
 
@@ -6045,7 +6045,7 @@ common.resume.sink.split:                         ; preds = %185, %158, %130, %1
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %166, %138, %110, %82, %54
-  %common.resume.op = phi { ptr, i32 } [ %167, %166 ], [ %55, %54 ], [ %83, %82 ], [ %111, %110 ], [ %139, %138 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %83, %82 ], [ %111, %110 ], [ %139, %138 ], [ %167, %166 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 54:                                               ; preds = %52
@@ -8972,11 +8972,11 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
   ret void
 
 .body.thread:                                     ; preds = %660, %555, %450, %345, %240, %.body.i, %.body, %671, %670, %669, %668, %665
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body287.ph, %665 ], [ %556, %555 ], [ %eh.lpad-body227.ph, %668 ], [ %451, %450 ], [ %eh.lpad-body167.ph, %669 ], [ %346, %345 ], [ %eh.lpad-body107.ph, %670 ], [ %241, %240 ], [ %eh.lpad-body63.ph, %671 ], [ %128, %.body.i ], [ %.pn8.i, %.body ], [ %661, %660 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body287.ph, %665 ], [ %eh.lpad-body227.ph, %668 ], [ %eh.lpad-body167.ph, %669 ], [ %eh.lpad-body107.ph, %670 ], [ %eh.lpad-body63.ph, %671 ], [ %.pn8.i, %.body ], [ %128, %.body.i ], [ %241, %240 ], [ %346, %345 ], [ %451, %450 ], [ %556, %555 ], [ %661, %660 ]
   resume { ptr, i32 } %.pn
 
 665:                                              ; preds = %560, %563, %581, %594, %618, %643
-  %eh.lpad-body287.ph = phi { ptr, i32 } [ %561, %560 ], [ %.pn.i311, %618 ], [ %.pn.i298, %594 ], [ %.pn.i289, %581 ], [ %.pn.i.i281, %563 ], [ %.pn.i.i325, %643 ]
+  %eh.lpad-body287.ph = phi { ptr, i32 } [ %561, %560 ], [ %.pn.i.i281, %563 ], [ %.pn.i289, %581 ], [ %.pn.i298, %594 ], [ %.pn.i311, %618 ], [ %.pn.i.i325, %643 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %77) #17
           to label %.body.thread unwind label %666
 
@@ -8987,22 +8987,22 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
   unreachable
 
 668:                                              ; preds = %455, %458, %476, %489, %513, %538
-  %eh.lpad-body227.ph = phi { ptr, i32 } [ %456, %455 ], [ %.pn.i251, %513 ], [ %.pn.i238, %489 ], [ %.pn.i229, %476 ], [ %.pn.i.i221, %458 ], [ %.pn.i.i265, %538 ]
+  %eh.lpad-body227.ph = phi { ptr, i32 } [ %456, %455 ], [ %.pn.i.i221, %458 ], [ %.pn.i229, %476 ], [ %.pn.i238, %489 ], [ %.pn.i251, %513 ], [ %.pn.i.i265, %538 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %83) #17
           to label %.body.thread unwind label %666
 
 669:                                              ; preds = %350, %353, %371, %384, %408, %433
-  %eh.lpad-body167.ph = phi { ptr, i32 } [ %351, %350 ], [ %.pn.i191, %408 ], [ %.pn.i178, %384 ], [ %.pn.i169, %371 ], [ %.pn.i.i161, %353 ], [ %.pn.i.i205, %433 ]
+  %eh.lpad-body167.ph = phi { ptr, i32 } [ %351, %350 ], [ %.pn.i.i161, %353 ], [ %.pn.i169, %371 ], [ %.pn.i178, %384 ], [ %.pn.i191, %408 ], [ %.pn.i.i205, %433 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %88) #17
           to label %.body.thread unwind label %666
 
 670:                                              ; preds = %245, %248, %266, %279, %303, %328
-  %eh.lpad-body107.ph = phi { ptr, i32 } [ %246, %245 ], [ %.pn.i131, %303 ], [ %.pn.i118, %279 ], [ %.pn.i109, %266 ], [ %.pn.i.i101, %248 ], [ %.pn.i.i145, %328 ]
+  %eh.lpad-body107.ph = phi { ptr, i32 } [ %246, %245 ], [ %.pn.i.i101, %248 ], [ %.pn.i109, %266 ], [ %.pn.i118, %279 ], [ %.pn.i131, %303 ], [ %.pn.i.i145, %328 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %93) #17
           to label %.body.thread unwind label %666
 
 671:                                              ; preds = %140, %143, %161, %174, %198, %223
-  %eh.lpad-body63.ph = phi { ptr, i32 } [ %141, %140 ], [ %.pn.i73, %198 ], [ %.pn.i67, %174 ], [ %.pn.i, %161 ], [ %.pn.i.i, %143 ], [ %.pn.i.i86, %223 ]
+  %eh.lpad-body63.ph = phi { ptr, i32 } [ %141, %140 ], [ %.pn.i.i, %143 ], [ %.pn.i, %161 ], [ %.pn.i67, %174 ], [ %.pn.i73, %198 ], [ %.pn.i.i86, %223 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %98) #17
           to label %.body.thread unwind label %666
 
@@ -11378,11 +11378,11 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
   ret void
 
 .body.thread:                                     ; preds = %665, %559, %453, %347, %241, %.body.i, %.body, %676, %675, %674, %673, %670
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body317.ph, %670 ], [ %560, %559 ], [ %eh.lpad-body257.ph, %673 ], [ %454, %453 ], [ %eh.lpad-body197.ph, %674 ], [ %348, %347 ], [ %eh.lpad-body137.ph, %675 ], [ %242, %241 ], [ %eh.lpad-body93.ph, %676 ], [ %128, %.body.i ], [ %.pn8.i, %.body ], [ %666, %665 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body317.ph, %670 ], [ %eh.lpad-body257.ph, %673 ], [ %eh.lpad-body197.ph, %674 ], [ %eh.lpad-body137.ph, %675 ], [ %eh.lpad-body93.ph, %676 ], [ %.pn8.i, %.body ], [ %128, %.body.i ], [ %242, %241 ], [ %348, %347 ], [ %454, %453 ], [ %560, %559 ], [ %666, %665 ]
   resume { ptr, i32 } %.pn
 
 670:                                              ; preds = %564, %567, %585, %598, %622, %647
-  %eh.lpad-body317.ph = phi { ptr, i32 } [ %565, %564 ], [ %.pn.i341, %622 ], [ %.pn.i328, %598 ], [ %.pn.i319, %585 ], [ %.pn.i.i311, %567 ], [ %.pn.i.i355, %647 ]
+  %eh.lpad-body317.ph = phi { ptr, i32 } [ %565, %564 ], [ %.pn.i.i311, %567 ], [ %.pn.i319, %585 ], [ %.pn.i328, %598 ], [ %.pn.i341, %622 ], [ %.pn.i.i355, %647 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %77) #17
           to label %.body.thread unwind label %671
 
@@ -11393,22 +11393,22 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
   unreachable
 
 673:                                              ; preds = %458, %461, %479, %492, %516, %541
-  %eh.lpad-body257.ph = phi { ptr, i32 } [ %459, %458 ], [ %.pn.i281, %516 ], [ %.pn.i268, %492 ], [ %.pn.i259, %479 ], [ %.pn.i.i251, %461 ], [ %.pn.i.i295, %541 ]
+  %eh.lpad-body257.ph = phi { ptr, i32 } [ %459, %458 ], [ %.pn.i.i251, %461 ], [ %.pn.i259, %479 ], [ %.pn.i268, %492 ], [ %.pn.i281, %516 ], [ %.pn.i.i295, %541 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %83) #17
           to label %.body.thread unwind label %671
 
 674:                                              ; preds = %352, %355, %373, %386, %410, %435
-  %eh.lpad-body197.ph = phi { ptr, i32 } [ %353, %352 ], [ %.pn.i221, %410 ], [ %.pn.i208, %386 ], [ %.pn.i199, %373 ], [ %.pn.i.i191, %355 ], [ %.pn.i.i235, %435 ]
+  %eh.lpad-body197.ph = phi { ptr, i32 } [ %353, %352 ], [ %.pn.i.i191, %355 ], [ %.pn.i199, %373 ], [ %.pn.i208, %386 ], [ %.pn.i221, %410 ], [ %.pn.i.i235, %435 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %88) #17
           to label %.body.thread unwind label %671
 
 675:                                              ; preds = %246, %249, %267, %280, %304, %329
-  %eh.lpad-body137.ph = phi { ptr, i32 } [ %247, %246 ], [ %.pn.i161, %304 ], [ %.pn.i148, %280 ], [ %.pn.i139, %267 ], [ %.pn.i.i131, %249 ], [ %.pn.i.i175, %329 ]
+  %eh.lpad-body137.ph = phi { ptr, i32 } [ %247, %246 ], [ %.pn.i.i131, %249 ], [ %.pn.i139, %267 ], [ %.pn.i148, %280 ], [ %.pn.i161, %304 ], [ %.pn.i.i175, %329 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %93) #17
           to label %.body.thread unwind label %671
 
 676:                                              ; preds = %140, %143, %161, %174, %198, %223
-  %eh.lpad-body93.ph = phi { ptr, i32 } [ %141, %140 ], [ %.pn.i103, %198 ], [ %.pn.i97, %174 ], [ %.pn.i, %161 ], [ %.pn.i.i, %143 ], [ %.pn.i.i116, %223 ]
+  %eh.lpad-body93.ph = phi { ptr, i32 } [ %141, %140 ], [ %.pn.i.i, %143 ], [ %.pn.i, %161 ], [ %.pn.i97, %174 ], [ %.pn.i103, %198 ], [ %.pn.i.i116, %223 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17hfed91c1ef6569269E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %98) #17
           to label %.body.thread unwind label %671
 

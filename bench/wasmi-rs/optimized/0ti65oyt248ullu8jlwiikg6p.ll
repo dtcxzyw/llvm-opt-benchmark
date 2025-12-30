@@ -321,7 +321,7 @@ define noundef zeroext i1 @_ZN10wasmi_core6memory2ty10MemoryType13is_subtype_of1
   br label %26
 
 26:                                               ; preds = %23, %21, %19, %12, %2
-  %.sroa.0.0 = phi i1 [ false, %19 ], [ false, %2 ], [ false, %12 ], [ %spec.select, %23 ], [ true, %21 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %19 ], [ true, %21 ], [ %spec.select, %23 ]
   ret i1 %.sroa.0.0
 }
 

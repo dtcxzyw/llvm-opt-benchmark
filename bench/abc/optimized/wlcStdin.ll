@@ -263,8 +263,8 @@ Vec_StrPush.exit:                                 ; preds = %70, %Vec_StrGrow.ex
   br label %Vec_StrReverseOrder.exit.thread
 
 Vec_StrReverseOrder.exit.thread:                  ; preds = %.lr.ph.i63, %._crit_edge, %Vec_StrPush.exit, %Vec_StrReverseOrder.exit
-  %78 = phi i32 [ %spec.store.select.i.i, %._crit_edge ], [ %.pre83, %Vec_StrPush.exit ], [ %spec.store.select.i.i, %Vec_StrReverseOrder.exit ], [ %spec.store.select.i.i, %.lr.ph.i63 ]
-  %79 = phi i32 [ 1, %._crit_edge ], [ %.pre, %Vec_StrPush.exit ], [ %smin, %Vec_StrReverseOrder.exit ], [ %49, %.lr.ph.i63 ]
+  %78 = phi i32 [ %.pre83, %Vec_StrPush.exit ], [ %spec.store.select.i.i, %Vec_StrReverseOrder.exit ], [ %spec.store.select.i.i, %._crit_edge ], [ %spec.store.select.i.i, %.lr.ph.i63 ]
+  %79 = phi i32 [ %.pre, %Vec_StrPush.exit ], [ %smin, %Vec_StrReverseOrder.exit ], [ 1, %._crit_edge ], [ %49, %.lr.ph.i63 ]
   %80 = icmp eq i32 %79, %78
   br i1 %80, label %81, label %.Vec_StrGrow.exit10_crit_edge.i66
 
@@ -922,7 +922,7 @@ Vec_StrFree.exit41:                               ; preds = %43, %46
   br i1 %.not28, label %.critedge, label %26, !llvm.loop !47
 
 .critedge:                                        ; preds = %Vec_StrFree.exit41, %21, %Vec_StrFree.exit35, %Vec_StrFree.exit37, %Vec_StrFree.exit39, %11
-  %.024 = phi i32 [ 0, %11 ], [ 0, %Vec_StrFree.exit35 ], [ 0, %Vec_StrFree.exit39 ], [ 0, %Vec_StrFree.exit37 ], [ 1, %21 ], [ 1, %Vec_StrFree.exit41 ]
+  %.024 = phi i32 [ 0, %11 ], [ 0, %Vec_StrFree.exit39 ], [ 0, %Vec_StrFree.exit37 ], [ 0, %Vec_StrFree.exit35 ], [ 1, %21 ], [ 1, %Vec_StrFree.exit41 ]
   ret i32 %.024
 }
 

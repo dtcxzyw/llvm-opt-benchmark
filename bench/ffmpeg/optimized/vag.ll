@@ -102,7 +102,7 @@ define internal range(i32 -1094995529, 1) i32 @vag_read_header(ptr noundef %0) #
   br label %59
 
 59:                                               ; preds = %3, %1, %55
-  %.0 = phi i32 [ -12, %1 ], [ 0, %55 ], [ -1094995529, %3 ]
+  %.0 = phi i32 [ 0, %55 ], [ -12, %1 ], [ -1094995529, %3 ]
   ret i32 %.0
 }
 

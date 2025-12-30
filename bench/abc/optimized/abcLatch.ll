@@ -75,7 +75,7 @@ tailrecurse:                                      ; preds = %19, %2
   br i1 %.not18, label %tailrecurse, label %28
 
 28:                                               ; preds = %4, %19, %tailrecurse
-  %.0 = phi i32 [ 1, %tailrecurse ], [ 0, %4 ], [ 0, %19 ]
+  %.0 = phi i32 [ 1, %tailrecurse ], [ 0, %19 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -181,7 +181,7 @@ tailrecurse.i:                                    ; preds = %16, %41
   br i1 %.not18.i, label %tailrecurse.i, label %Abc_NtkLatchIsSelfFeed_rec.exit
 
 Abc_NtkLatchIsSelfFeed_rec.exit:                  ; preds = %41, %26, %tailrecurse.i, %1, %16
-  %.0 = phi i32 [ 0, %1 ], [ 0, %16 ], [ 0, %41 ], [ 0, %26 ], [ 1, %tailrecurse.i ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %1 ], [ 0, %26 ], [ 0, %41 ], [ 1, %tailrecurse.i ]
   ret i32 %.0
 }
 
@@ -312,7 +312,7 @@ tailrecurse.i.i:                                  ; preds = %27, %52
   br i1 %.not18.i.i, label %tailrecurse.i.i, label %Abc_NtkLatchIsSelfFeed.exit
 
 Abc_NtkLatchIsSelfFeed.exit:                      ; preds = %tailrecurse.i.i, %37, %52, %12, %27
-  %.0.i = phi i32 [ 0, %12 ], [ 0, %27 ], [ 1, %tailrecurse.i.i ], [ 0, %37 ], [ 0, %52 ]
+  %.0.i = phi i32 [ 0, %27 ], [ 0, %12 ], [ 1, %tailrecurse.i.i ], [ 0, %52 ], [ 0, %37 ]
   %61 = add nsw i32 %.0.i, %.012
   br label %62
 
@@ -491,9 +491,9 @@ Abc_NtkLatchIsSelfFeed.exit:                      ; preds = %tailrecurse.i.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !32
   br label %Abc_NtkLatchIsSelfFeed.exit.thread
 
-Abc_NtkLatchIsSelfFeed.exit.thread:               ; preds = %37, %52, %27, %12, %.lr.ph, %65
-  %78 = phi ptr [ %.pre, %65 ], [ %6, %.lr.ph ], [ %6, %12 ], [ %6, %27 ], [ %6, %52 ], [ %6, %37 ]
-  %.1 = phi i32 [ %77, %65 ], [ %.032, %.lr.ph ], [ %.032, %12 ], [ %.032, %27 ], [ %.032, %52 ], [ %.032, %37 ]
+Abc_NtkLatchIsSelfFeed.exit.thread:               ; preds = %52, %37, %12, %27, %.lr.ph, %65
+  %78 = phi ptr [ %.pre, %65 ], [ %6, %.lr.ph ], [ %6, %27 ], [ %6, %12 ], [ %6, %37 ], [ %6, %52 ]
+  %.1 = phi i32 [ %77, %65 ], [ %.032, %.lr.ph ], [ %.032, %27 ], [ %.032, %12 ], [ %.032, %37 ], [ %.032, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = getelementptr i8, ptr %78, i64 4
   %.val24 = load i32, ptr %79, align 4, !tbaa !33
@@ -599,7 +599,7 @@ Abc_NtkAddLatch.exit.us:                          ; preds = %29, %21
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Abc_Base10Log.exit
-  %33 = phi ptr [ %8, %Abc_Base10Log.exit ], [ %.pre, %.critedge.loopexit ]
+  %33 = phi ptr [ %.pre, %.critedge.loopexit ], [ %8, %Abc_Base10Log.exit ]
   %.not.i36 = icmp eq ptr %33, null
   br i1 %.not.i36, label %Vec_PtrFree.exit, label %34
 
@@ -733,8 +733,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink20 = phi ptr [ %36, %35 ], [ %34, %33 ], [ %42, %41 ], [ %44, %43 ]
-  %.sink = phi i32 [ 16, %35 ], [ 16, %33 ], [ %38, %41 ], [ %38, %43 ]
+  %.sink20 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
   store ptr %.sink20, ptr %11, align 8, !tbaa !46
   store i32 %.sink, ptr %3, align 8, !tbaa !45
   br label %Vec_IntPush.exit
@@ -1582,7 +1582,7 @@ define ptr @Abc_NtkConvertOnehot(ptr noundef %0) local_unnamed_addr #1 {
   br label %28
 
 28:                                               ; preds = %21, %16, %24
-  %.1 = phi i32 [ %27, %24 ], [ %.0170, %21 ], [ %.0170, %16 ]
+  %.1 = phi i32 [ %27, %24 ], [ %.0170, %16 ], [ %.0170, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph172.preheader, label %16, !llvm.loop !64
@@ -2325,8 +2325,8 @@ define noundef ptr @Abc_NtkCRetime(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %59, %61, %51, %53
-  %.sink205 = phi ptr [ %54, %53 ], [ %52, %51 ], [ %60, %59 ], [ %62, %61 ]
-  %.sink = phi i32 [ 16, %53 ], [ 16, %51 ], [ %56, %59 ], [ %56, %61 ]
+  %.sink205 = phi ptr [ %52, %51 ], [ %54, %53 ], [ %60, %59 ], [ %62, %61 ]
+  %.sink = phi i32 [ 16, %51 ], [ 16, %53 ], [ %56, %59 ], [ %56, %61 ]
   store ptr %.sink205, ptr %12, align 8, !tbaa !46
   store i32 %.sink, ptr %9, align 8, !tbaa !45
   br label %Vec_IntPush.exit
@@ -2407,8 +2407,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit115.sink.split
 
 Vec_IntPush.exit115.sink.split:                   ; preds = %98, %100, %90, %92
-  %.sink207 = phi ptr [ %93, %92 ], [ %91, %90 ], [ %99, %98 ], [ %101, %100 ]
-  %.sink206 = phi i32 [ 16, %92 ], [ 16, %90 ], [ %95, %98 ], [ %95, %100 ]
+  %.sink207 = phi ptr [ %91, %90 ], [ %93, %92 ], [ %99, %98 ], [ %101, %100 ]
+  %.sink206 = phi i32 [ 16, %90 ], [ 16, %92 ], [ %95, %98 ], [ %95, %100 ]
   store ptr %.sink207, ptr %12, align 8, !tbaa !46
   store i32 %.sink206, ptr %9, align 8, !tbaa !45
   br label %Vec_IntPush.exit115
@@ -2463,8 +2463,8 @@ Vec_IntPush.exit115:                              ; preds = %Vec_IntPush.exit115
   br label %Vec_IntPush.exit122.sink.split
 
 Vec_IntPush.exit122.sink.split:                   ; preds = %122, %124, %114, %116
-  %.sink209 = phi ptr [ %117, %116 ], [ %115, %114 ], [ %123, %122 ], [ %125, %124 ]
-  %.sink208 = phi i32 [ 16, %116 ], [ 16, %114 ], [ %119, %122 ], [ %119, %124 ]
+  %.sink209 = phi ptr [ %115, %114 ], [ %117, %116 ], [ %123, %122 ], [ %125, %124 ]
+  %.sink208 = phi i32 [ 16, %114 ], [ 16, %116 ], [ %119, %122 ], [ %119, %124 ]
   store ptr %.sink209, ptr %12, align 8, !tbaa !46
   store i32 %.sink208, ptr %9, align 8, !tbaa !45
   br label %Vec_IntPush.exit122
@@ -2721,10 +2721,10 @@ Vec_IntPush.exit135:                              ; preds = %.Vec_IntGrow.exit10
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %224, %.critedge
-  %.0.lcssa203 = phi i32 [ %.1, %.critedge ], [ %.1, %224 ], [ 0, %2 ]
-  %.067.lcssa202 = phi i32 [ 0, %.critedge ], [ %.168, %224 ], [ 0, %2 ]
-  %.069.lcssa201 = phi i32 [ %.170, %.critedge ], [ %.170, %224 ], [ 0, %2 ]
-  %.071.lcssa200 = phi i32 [ %.172, %.critedge ], [ %.172, %224 ], [ 0, %2 ]
+  %.0.lcssa203 = phi i32 [ %.1, %224 ], [ %.1, %.critedge ], [ 0, %2 ]
+  %.067.lcssa202 = phi i32 [ %.168, %224 ], [ 0, %.critedge ], [ 0, %2 ]
+  %.069.lcssa201 = phi i32 [ %.170, %224 ], [ %.170, %.critedge ], [ 0, %2 ]
+  %.071.lcssa200 = phi i32 [ %.172, %224 ], [ %.172, %.critedge ], [ 0, %2 ]
   %.not76 = icmp eq i32 %1, 0
   %.val91.pre = load i32, ptr %6, align 4, !tbaa !33
   br i1 %.not76, label %229, label %227

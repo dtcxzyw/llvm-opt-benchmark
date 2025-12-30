@@ -494,7 +494,7 @@ _ZN2cvL7makePtrINS_8tracking4impl12_GLOBAL__N_110DummyModelEJEEENS_3PtrIT_EEDpRK
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %54, %51
-  %56 = phi ptr [ %.pr.pre.i.i.i.i, %54 ], [ %48, %51 ]
+  %56 = phi ptr [ %48, %51 ], [ %.pr.pre.i.i.i.i, %54 ]
   %.not8.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %57
 
@@ -1301,7 +1301,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit118:              ; preds = %236
   br label %354
 
 354:                                              ; preds = %283, %353, %285, %110, %101
-  %.pn100.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %102, %101 ], [ %284, %283 ], [ %.pn100.pn.pn.pn.pn.pn.pn, %353 ], [ %286, %285 ]
+  %.pn100.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %111, %110 ], [ %284, %283 ], [ %.pn100.pn.pn.pn.pn.pn.pn, %353 ], [ %286, %285 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
@@ -1875,7 +1875,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit91:               ; preds = %151
   br label %224
 
 224:                                              ; preds = %223, %218, %207, %195, %193, %191
-  %.pn84 = phi { ptr, i32 } [ %192, %191 ], [ %.pn82, %223 ], [ %.pn78.pn.pn, %218 ], [ %.pn74.pn.pn, %207 ], [ %196, %195 ], [ %194, %193 ]
+  %.pn84 = phi { ptr, i32 } [ %.pn82, %223 ], [ %.pn78.pn.pn, %218 ], [ %.pn74.pn.pn, %207 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #23
@@ -2154,7 +2154,7 @@ _ZN2cv20MatCommaInitializer_IfEcmIdEERS1_T_.exit57: ; preds = %69
           to label %_ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit61 unwind label %141
 
 _ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit61.sink.split: ; preds = %_ZN2cv20MatCommaInitializer_IfEcmIdEERS1_T_.exit53, %_ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit.thread, %_ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit
-  %.sink = phi ptr [ %.pre86, %_ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit ], [ %49, %_ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit.thread ], [ %.pre88, %_ZN2cv20MatCommaInitializer_IfEcmIdEERS1_T_.exit53 ]
+  %.sink = phi ptr [ %49, %_ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit.thread ], [ %.pre86, %_ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit ], [ %.pre88, %_ZN2cv20MatCommaInitializer_IfEcmIdEERS1_T_.exit53 ]
   store float 0.000000e+00, ptr %.sink, align 4, !tbaa !92
   br label %_ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit61
 
@@ -3246,7 +3246,7 @@ define linkonce_odr hidden void @_ZNK2cv8tracking4impl9MosseImpl7divDFTsERKNS_3M
   br i1 %196, label %.loopexit, label %193
 
 .loopexit:                                        ; preds = %193, %.loopexit.loopexit91, %.thread
-  %.pn85.pn = phi { ptr, i32 } [ %184, %.loopexit.loopexit91 ], [ %144, %.thread ], [ %186, %193 ]
+  %.pn85.pn = phi { ptr, i32 } [ %144, %.thread ], [ %184, %.loopexit.loopexit91 ], [ %186, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #23
   br label %197

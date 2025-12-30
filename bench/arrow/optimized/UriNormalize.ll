@@ -179,7 +179,7 @@ uriContainsUppercaseLettersA.exit219:             ; preds = %.preheader.i215, %u
   %58 = icmp ult ptr %57, %24
   br i1 %58, label %.lr.ph.i, label %uriContainsUglyPercentEncodingA.exit, !llvm.loop !22
 
-59:                                               ; preds = %43, %39, %46
+59:                                               ; preds = %39, %43, %46
   %60 = load i32, ptr %2, align 4, !tbaa !3
   %61 = or i32 %60, 4
   br label %uriContainsUglyPercentEncodingA.exit.thread295.sink.split
@@ -267,7 +267,7 @@ uriContainsUppercaseLettersA.exit219:             ; preds = %.preheader.i215, %u
   store ptr %100, ptr %69, align 8, !tbaa !24
   br label %uriLowercaseMallocA.exit
 
-101:                                              ; preds = %89, %87, %79
+101:                                              ; preds = %79, %87, %89
   tail call fastcc void @uriPreventLeakageA(ptr noundef %0, i32 noundef 0, ptr noundef %3)
   br label %603
 
@@ -276,7 +276,7 @@ uriLowercaseMallocA.exit:                         ; preds = %._crit_edge.i, %81
   br label %uriLowercaseInplaceA.exit
 
 uriLowercaseInplaceA.exit:                        ; preds = %77, %71, %uriLowercaseMallocA.exit, %64, %62
-  %102 = phi i32 [ 0, %62 ], [ 0, %71 ], [ 1, %uriLowercaseMallocA.exit ], [ 0, %64 ], [ 0, %77 ]
+  %102 = phi i32 [ 0, %71 ], [ 1, %uriLowercaseMallocA.exit ], [ 0, %64 ], [ 0, %62 ], [ 0, %77 ]
   %103 = and i32 %1, 4
   %.not175 = icmp eq i32 %103, 0
   br i1 %.not175, label %uriContainsUglyPercentEncodingA.exit, label %104
@@ -361,7 +361,7 @@ uriLowercaseInplaceA.exit:                        ; preds = %77, %71, %uriLowerc
   store ptr %142, ptr %111, align 8, !tbaa !24
   br label %uriLowercaseMallocA.exit242
 
-143:                                              ; preds = %131, %129, %121
+143:                                              ; preds = %121, %129, %131
   tail call fastcc void @uriPreventLeakageA(ptr noundef %0, i32 noundef %102, ptr noundef %3)
   br label %603
 
@@ -457,7 +457,7 @@ uriLowercaseInplaceA.exit231:                     ; preds = %uriLowercaseInplace
   br i1 %exitcond.not.i247, label %uriContainsUglyPercentEncodingA.exit, label %.preheader.i244, !llvm.loop !25
 
 uriContainsUglyPercentEncodingA.exit:             ; preds = %55, %183, %172, %33, %uriLowercaseInplaceA.exit, %152, %155, %158, %uriLowercaseInplaceA.exit231
-  %185 = phi i32 [ %173, %183 ], [ %147, %uriLowercaseInplaceA.exit231 ], [ %173, %172 ], [ 0, %33 ], [ %102, %uriLowercaseInplaceA.exit ], [ %102, %152 ], [ %102, %155 ], [ %102, %158 ], [ 0, %55 ]
+  %185 = phi i32 [ %173, %172 ], [ 0, %33 ], [ %102, %uriLowercaseInplaceA.exit ], [ %102, %152 ], [ %102, %155 ], [ %102, %158 ], [ %147, %uriLowercaseInplaceA.exit231 ], [ %173, %183 ], [ 0, %55 ]
   br i1 %.not211, label %221, label %uriContainsUglyPercentEncodingA.exit.thread295
 
 uriContainsUglyPercentEncodingA.exit.thread295.sink.split: ; preds = %31, %59
@@ -517,7 +517,7 @@ uriContainsUglyPercentEncodingA.exit.thread295:   ; preds = %uriContainsUglyPerc
   %217 = icmp ult ptr %216, %190
   br i1 %217, label %.lr.ph.i252, label %uriContainsUglyPercentEncodingA.exit257, !llvm.loop !22
 
-218:                                              ; preds = %202, %198, %205
+218:                                              ; preds = %198, %202, %205
   %219 = load i32, ptr %2, align 4, !tbaa !3
   %220 = or i32 %219, 2
   store i32 %220, ptr %2, align 4, !tbaa !3
@@ -646,7 +646,7 @@ uriContainsUglyPercentEncodingA.exit257.thread301: ; preds = %218, %uriContainsU
   %281 = icmp ult ptr %280, %239
   br i1 %281, label %.lr.ph.i261, label %.loopexit314, !llvm.loop !22
 
-.thread308:                                       ; preds = %252, %246, %269, %262, %266
+.thread308:                                       ; preds = %252, %246, %269, %266, %262
   %282 = load i32, ptr %2, align 4, !tbaa !3
   %283 = or i32 %282, 8
   store i32 %283, ptr %2, align 4, !tbaa !3
@@ -725,7 +725,7 @@ uriContainsUglyPercentEncodingA.exit257.thread299: ; preds = %230, %234, %223, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph324, %.preheader313, %._crit_edge
-  %311 = phi i32 [ %310, %._crit_edge ], [ %285, %.preheader313 ], [ %285, %.lr.ph324 ]
+  %311 = phi i32 [ %285, %.preheader313 ], [ %310, %._crit_edge ], [ %285, %.lr.ph324 ]
   %312 = load i32, ptr %298, align 4, !tbaa !23
   %313 = icmp eq i32 %312, 1
   %314 = and i32 %311, 8
@@ -801,7 +801,7 @@ uriContainsUglyPercentEncodingA.exit257.thread299: ; preds = %230, %234, %223, %
   br i1 %352, label %.lr.ph.i270, label %uriContainsUglyPercentEncodingA.exit275, !llvm.loop !22
 
 uriContainsUglyPercentEncodingA.exit275:          ; preds = %333, %337, %340, %349, %.loopexit315.thread
-  %.not207 = phi i1 [ true, %.loopexit315.thread ], [ false, %340 ], [ true, %349 ], [ false, %333 ], [ false, %337 ]
+  %.not207 = phi i1 [ true, %.loopexit315.thread ], [ false, %340 ], [ false, %337 ], [ false, %333 ], [ true, %349 ]
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %354 = load ptr, ptr %353, align 8, !tbaa !46
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -853,7 +853,7 @@ uriContainsUglyPercentEncodingA.exit275:          ; preds = %333, %337, %340, %3
   br i1 %383, label %.lr.ph.i279, label %uriContainsUglyPercentEncodingA.exit284, !llvm.loop !22
 
 uriContainsUglyPercentEncodingA.exit284:          ; preds = %364, %368, %371, %380, %uriContainsUglyPercentEncodingA.exit275
-  %.not208 = phi i1 [ true, %uriContainsUglyPercentEncodingA.exit275 ], [ false, %371 ], [ true, %380 ], [ false, %364 ], [ false, %368 ]
+  %.not208 = phi i1 [ true, %uriContainsUglyPercentEncodingA.exit275 ], [ false, %371 ], [ false, %368 ], [ false, %364 ], [ true, %380 ]
   br i1 %.not207, label %387, label %384
 
 384:                                              ; preds = %uriContainsUglyPercentEncodingA.exit284
@@ -1295,7 +1295,7 @@ uriMakeRangeOwnerA.exit98.i:                      ; preds = %550
   store ptr %600, ptr %588, align 8, !tbaa !49
   br label %uriMakeOwnerA.exit
 
-601:                                              ; preds = %579, %539, %502, %436, %528, %480, %458, %591
+601:                                              ; preds = %579, %528, %539, %436, %458, %480, %502, %591
   %602 = load i32, ptr %5, align 4, !tbaa !3
   tail call fastcc void @uriPreventLeakageA(ptr noundef %0, i32 noundef %602, ptr noundef %3)
   br label %603
@@ -1305,7 +1305,7 @@ uriMakeOwnerA.exit:                               ; preds = %.thread.i102.i, %58
   br label %603
 
 603:                                              ; preds = %.thread310, %421, %.thread309, %uriMakeOwnerA.exit, %306, %319, %10, %7, %601, %418, %402, %233, %169, %143, %101, %8
-  %.0 = phi i32 [ 0, %8 ], [ 2, %7 ], [ 3, %306 ], [ 3, %601 ], [ 3, %418 ], [ 3, %402 ], [ 0, %10 ], [ 3, %233 ], [ 3, %143 ], [ 3, %169 ], [ 3, %101 ], [ 3, %319 ], [ 0, %uriMakeOwnerA.exit ], [ 0, %.thread309 ], [ 0, %421 ], [ 0, %.thread310 ]
+  %.0 = phi i32 [ 0, %8 ], [ 3, %601 ], [ 3, %418 ], [ 3, %402 ], [ 3, %233 ], [ 3, %143 ], [ 3, %169 ], [ 3, %101 ], [ 2, %7 ], [ 0, %10 ], [ 3, %319 ], [ 3, %306 ], [ 0, %uriMakeOwnerA.exit ], [ 0, %.thread309 ], [ 0, %421 ], [ 0, %.thread310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1507,7 +1507,7 @@ uriContainsUppercaseLettersW.exit218:             ; preds = %.preheader.i215, %u
   %60 = icmp ult ptr %59, %25
   br i1 %60, label %.lr.ph.i, label %uriContainsUglyPercentEncodingW.exit, !llvm.loop !64
 
-61:                                               ; preds = %45, %41, %48
+61:                                               ; preds = %41, %45, %48
   %62 = load i32, ptr %2, align 4, !tbaa !3
   %63 = or i32 %62, 4
   br label %uriContainsUglyPercentEncodingW.exit.thread289.sink.split
@@ -1600,7 +1600,7 @@ uriContainsUppercaseLettersW.exit218:             ; preds = %.preheader.i215, %u
   store ptr %106, ptr %71, align 8, !tbaa !66
   br label %uriLowercaseMallocW.exit
 
-107:                                              ; preds = %93, %91, %82
+107:                                              ; preds = %82, %91, %93
   tail call fastcc void @uriPreventLeakageW(ptr noundef %0, i32 noundef 0, ptr noundef %3)
   br label %626
 
@@ -1609,7 +1609,7 @@ uriLowercaseMallocW.exit:                         ; preds = %._crit_edge.i, %84
   br label %uriLowercaseInplaceW.exit
 
 uriLowercaseInplaceW.exit:                        ; preds = %79, %73, %uriLowercaseMallocW.exit, %66, %64
-  %108 = phi i32 [ 0, %64 ], [ 0, %73 ], [ 1, %uriLowercaseMallocW.exit ], [ 0, %66 ], [ 0, %79 ]
+  %108 = phi i32 [ 0, %73 ], [ 1, %uriLowercaseMallocW.exit ], [ 0, %66 ], [ 0, %64 ], [ 0, %79 ]
   %109 = and i32 %1, 4
   %.not175 = icmp eq i32 %109, 0
   br i1 %.not175, label %uriContainsUglyPercentEncodingW.exit, label %110
@@ -1699,7 +1699,7 @@ uriLowercaseInplaceW.exit:                        ; preds = %79, %73, %uriLowerc
   store ptr %152, ptr %117, align 8, !tbaa !66
   br label %uriLowercaseMallocW.exit237
 
-153:                                              ; preds = %139, %137, %128
+153:                                              ; preds = %128, %137, %139
   tail call fastcc void @uriPreventLeakageW(ptr noundef %0, i32 noundef %108, ptr noundef %3)
   br label %626
 
@@ -1711,9 +1711,9 @@ uriLowercaseMallocW.exit237:                      ; preds = %._crit_edge.i235, %
   br label %uriLowercaseInplaceW.exit227
 
 uriLowercaseInplaceW.exit227:                     ; preds = %125, %119, %uriLowercaseMallocW.exit237
-  %157 = phi i32 [ %156, %uriLowercaseMallocW.exit237 ], [ %108, %119 ], [ %108, %125 ]
-  %158 = phi ptr [ %154, %uriLowercaseMallocW.exit237 ], [ %118, %119 ], [ %118, %125 ]
-  %159 = phi ptr [ %155, %uriLowercaseMallocW.exit237 ], [ %113, %119 ], [ %113, %125 ]
+  %157 = phi i32 [ %108, %119 ], [ %156, %uriLowercaseMallocW.exit237 ], [ %108, %125 ]
+  %158 = phi ptr [ %118, %119 ], [ %154, %uriLowercaseMallocW.exit237 ], [ %118, %125 ]
+  %159 = phi ptr [ %113, %119 ], [ %155, %uriLowercaseMallocW.exit237 ], [ %113, %125 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %159, ptr %160, align 8, !tbaa !62
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1790,7 +1790,7 @@ uriLowercaseInplaceW.exit227:                     ; preds = %125, %119, %uriLowe
   br i1 %195, label %.preheader.i239, label %uriContainsUglyPercentEncodingW.exit, !llvm.loop !67
 
 uriContainsUglyPercentEncodingW.exit:             ; preds = %57, %193, %182, %35, %uriLowercaseInplaceW.exit, %162, %165, %168, %uriLowercaseInplaceW.exit227
-  %196 = phi i32 [ %183, %193 ], [ %157, %uriLowercaseInplaceW.exit227 ], [ %183, %182 ], [ 0, %35 ], [ %108, %uriLowercaseInplaceW.exit ], [ %108, %162 ], [ %108, %165 ], [ %108, %168 ], [ 0, %57 ]
+  %196 = phi i32 [ %183, %182 ], [ 0, %35 ], [ %108, %uriLowercaseInplaceW.exit ], [ %108, %162 ], [ %108, %165 ], [ %108, %168 ], [ %157, %uriLowercaseInplaceW.exit227 ], [ %183, %193 ], [ 0, %57 ]
   br i1 %.not211, label %232, label %uriContainsUglyPercentEncodingW.exit.thread289
 
 uriContainsUglyPercentEncodingW.exit.thread289.sink.split: ; preds = %33, %61
@@ -1850,7 +1850,7 @@ uriContainsUglyPercentEncodingW.exit.thread289:   ; preds = %uriContainsUglyPerc
   %228 = icmp ult ptr %227, %201
   br i1 %228, label %.lr.ph.i246, label %uriContainsUglyPercentEncodingW.exit251, !llvm.loop !64
 
-229:                                              ; preds = %213, %209, %216
+229:                                              ; preds = %209, %213, %216
   %230 = load i32, ptr %2, align 4, !tbaa !3
   %231 = or i32 %230, 2
   store i32 %231, ptr %2, align 4, !tbaa !3
@@ -1979,7 +1979,7 @@ uriContainsUglyPercentEncodingW.exit251.thread295: ; preds = %229, %uriContainsU
   %292 = icmp ult ptr %291, %250
   br i1 %292, label %.lr.ph.i255, label %.loopexit308, !llvm.loop !64
 
-.thread302:                                       ; preds = %263, %257, %280, %273, %277
+.thread302:                                       ; preds = %263, %257, %280, %277, %273
   %293 = load i32, ptr %2, align 4, !tbaa !3
   %294 = or i32 %293, 8
   store i32 %294, ptr %2, align 4, !tbaa !3
@@ -2058,7 +2058,7 @@ uriContainsUglyPercentEncodingW.exit251.thread293: ; preds = %241, %245, %234, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph318, %.preheader307, %._crit_edge
-  %322 = phi i32 [ %321, %._crit_edge ], [ %296, %.preheader307 ], [ %296, %.lr.ph318 ]
+  %322 = phi i32 [ %296, %.preheader307 ], [ %321, %._crit_edge ], [ %296, %.lr.ph318 ]
   %323 = load i32, ptr %309, align 4, !tbaa !65
   %324 = icmp eq i32 %323, 1
   %325 = and i32 %322, 8
@@ -2134,7 +2134,7 @@ uriContainsUglyPercentEncodingW.exit251.thread293: ; preds = %241, %245, %234, %
   br i1 %363, label %.lr.ph.i264, label %uriContainsUglyPercentEncodingW.exit269, !llvm.loop !64
 
 uriContainsUglyPercentEncodingW.exit269:          ; preds = %344, %348, %351, %360, %.loopexit309.thread
-  %.not207 = phi i1 [ true, %.loopexit309.thread ], [ false, %351 ], [ true, %360 ], [ false, %344 ], [ false, %348 ]
+  %.not207 = phi i1 [ true, %.loopexit309.thread ], [ false, %351 ], [ false, %348 ], [ false, %344 ], [ true, %360 ]
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %365 = load ptr, ptr %364, align 8, !tbaa !85
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2186,7 +2186,7 @@ uriContainsUglyPercentEncodingW.exit269:          ; preds = %344, %348, %351, %3
   br i1 %394, label %.lr.ph.i273, label %uriContainsUglyPercentEncodingW.exit278, !llvm.loop !64
 
 uriContainsUglyPercentEncodingW.exit278:          ; preds = %375, %379, %382, %391, %uriContainsUglyPercentEncodingW.exit269
-  %.not208 = phi i1 [ true, %uriContainsUglyPercentEncodingW.exit269 ], [ false, %382 ], [ true, %391 ], [ false, %375 ], [ false, %379 ]
+  %.not208 = phi i1 [ true, %uriContainsUglyPercentEncodingW.exit269 ], [ false, %382 ], [ false, %379 ], [ false, %375 ], [ true, %391 ]
   br i1 %.not207, label %398, label %395
 
 395:                                              ; preds = %uriContainsUglyPercentEncodingW.exit278
@@ -2640,7 +2640,7 @@ uriMakeRangeOwnerW.exit98.i:                      ; preds = %569
   store ptr %623, ptr %609, align 8, !tbaa !88
   br label %uriMakeOwnerW.exit
 
-624:                                              ; preds = %600, %558, %519, %447, %547, %495, %471, %612
+624:                                              ; preds = %600, %547, %558, %447, %471, %495, %519, %612
   %625 = load i32, ptr %5, align 4, !tbaa !3
   tail call fastcc void @uriPreventLeakageW(ptr noundef %0, i32 noundef %625, ptr noundef %3)
   br label %626
@@ -2650,7 +2650,7 @@ uriMakeOwnerW.exit:                               ; preds = %.thread.i102.i, %60
   br label %626
 
 626:                                              ; preds = %.thread304, %432, %.thread303, %uriMakeOwnerW.exit, %317, %330, %10, %7, %624, %429, %413, %244, %179, %153, %107, %8
-  %.0 = phi i32 [ 0, %8 ], [ 2, %7 ], [ 3, %317 ], [ 3, %624 ], [ 3, %429 ], [ 3, %413 ], [ 0, %10 ], [ 3, %244 ], [ 3, %153 ], [ 3, %179 ], [ 3, %107 ], [ 3, %330 ], [ 0, %uriMakeOwnerW.exit ], [ 0, %.thread303 ], [ 0, %432 ], [ 0, %.thread304 ]
+  %.0 = phi i32 [ 0, %8 ], [ 3, %624 ], [ 3, %429 ], [ 3, %413 ], [ 3, %244 ], [ 3, %153 ], [ 3, %179 ], [ 3, %107 ], [ 2, %7 ], [ 0, %10 ], [ 3, %330 ], [ 3, %317 ], [ 0, %uriMakeOwnerW.exit ], [ 0, %.thread303 ], [ 0, %432 ], [ 0, %.thread304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3065,7 +3065,7 @@ uriFixPercentEncodingEngineA.exit:                ; preds = %.lr.ph49.i, %.prehe
   br label %67
 
 67:                                               ; preds = %17, %15, %9, %3, %6, %uriFixPercentEncodingEngineA.exit
-  %.0 = phi i32 [ 1, %uriFixPercentEncodingEngineA.exit ], [ 0, %3 ], [ 1, %9 ], [ 0, %15 ], [ 0, %6 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %uriFixPercentEncodingEngineA.exit ], [ 0, %6 ], [ 0, %3 ], [ 1, %9 ], [ 0, %15 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -3501,7 +3501,7 @@ uriFixPercentEncodingEngineW.exit:                ; preds = %.lr.ph50.i, %.prehe
   br label %66
 
 66:                                               ; preds = %18, %16, %9, %3, %6, %uriFixPercentEncodingEngineW.exit
-  %.0 = phi i32 [ 1, %uriFixPercentEncodingEngineW.exit ], [ 0, %3 ], [ 1, %9 ], [ 0, %16 ], [ 0, %6 ], [ 0, %18 ]
+  %.0 = phi i32 [ 1, %uriFixPercentEncodingEngineW.exit ], [ 0, %6 ], [ 0, %3 ], [ 1, %9 ], [ 0, %16 ], [ 0, %18 ]
   ret i32 %.0
 }
 

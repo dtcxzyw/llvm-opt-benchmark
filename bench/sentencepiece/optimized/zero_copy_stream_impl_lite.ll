@@ -301,7 +301,7 @@ define void @_ZN6google8protobuf2io16ArrayInputStream6BackUpEi(ptr noundef nonnu
   br label %49
 
 49:                                               ; preds = %48, %43, %38
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %48 ], [ %.pn, %38 ], [ %.pn28, %43 ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %48 ], [ %.pn28, %43 ], [ %.pn, %38 ]
   resume { ptr, i32 } %.pn30.pn
 }
 
@@ -589,7 +589,7 @@ define void @_ZN6google8protobuf2io17ArrayOutputStream6BackUpEi(ptr noundef nonn
   br label %49
 
 49:                                               ; preds = %48, %43, %38
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %48 ], [ %.pn, %38 ], [ %.pn28, %43 ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %48 ], [ %.pn28, %43 ], [ %.pn, %38 ]
   resume { ptr, i32 } %.pn30.pn
 }
 
@@ -851,7 +851,7 @@ define void @_ZN6google8protobuf2io18StringOutputStream6BackUpEi(ptr noundef non
   br label %49
 
 49:                                               ; preds = %48, %43, %38
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %48 ], [ %.pn, %38 ], [ %.pn28, %43 ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %48 ], [ %.pn28, %43 ], [ %.pn, %38 ]
   resume { ptr, i32 } %.pn31.pn
 }
 
@@ -1084,7 +1084,7 @@ _ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
   br label %48
 
 48:                                               ; preds = %3, %42, %41, %19
-  %.0 = phi i1 [ true, %42 ], [ true, %19 ], [ false, %41 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %19 ], [ false, %41 ], [ true, %42 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1329,7 +1329,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr noun
   br label %52
 
 52:                                               ; preds = %51, %46, %41
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %51 ], [ %.pn, %41 ], [ %.pn29, %46 ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %51 ], [ %.pn29, %46 ], [ %.pn, %41 ]
   resume { ptr, i32 } %.pn31.pn
 }
 
@@ -1413,7 +1413,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4Ski
   br label %37
 
 37:                                               ; preds = %.critedge24, %24, %22
-  %.0 = phi i1 [ %36, %24 ], [ true, %22 ], [ false, %.critedge24 ]
+  %.0 = phi i1 [ true, %22 ], [ %36, %24 ], [ false, %.critedge24 ]
   ret i1 %.0
 }
 
@@ -1589,7 +1589,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit: ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %24, %5, %1, %18
-  %.0 = phi i1 [ true, %5 ], [ false, %1 ], [ true, %18 ], [ false, %24 ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ]
+  %.0 = phi i1 [ true, %18 ], [ false, %1 ], [ true, %5 ], [ false, %24 ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -1659,7 +1659,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds = %1, %5, %18, %24, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
-  %.0.i = phi i1 [ true, %5 ], [ false, %1 ], [ true, %18 ], [ false, %24 ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i ]
+  %.0.i = phi i1 [ true, %18 ], [ false, %1 ], [ true, %5 ], [ false, %24 ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i ]
   ret i1 %.0.i
 }
 
@@ -1920,7 +1920,7 @@ define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(ptr nou
   br label %50
 
 50:                                               ; preds = %49, %44, %39
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %49 ], [ %.pn, %39 ], [ %.pn28, %44 ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %49 ], [ %.pn28, %44 ], [ %.pn, %39 ]
   resume { ptr, i32 } %.pn31.pn
 }
 

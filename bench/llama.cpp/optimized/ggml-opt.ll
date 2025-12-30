@@ -910,7 +910,7 @@ define noundef nonnull ptr @ggml_opt_init(ptr noundef readonly byval(%struct.ggm
   br label %.sink.split
 
 .sink.split:                                      ; preds = %110, %125, %87, %104, %132
-  %.sink = phi i8 [ 1, %132 ], [ 1, %87 ], [ 0, %104 ], [ 1, %125 ], [ 1, %110 ]
+  %.sink = phi i8 [ 1, %132 ], [ 0, %104 ], [ 1, %87 ], [ 1, %125 ], [ 1, %110 ]
   store i8 %.sink, ptr %21, align 8, !tbaa !73
   br label %164
 
@@ -1400,7 +1400,7 @@ define void @ggml_opt_result_loss(ptr noundef readonly captures(none) %0, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %28, %41
-  %.sink = phi double [ 0x7FF8000000000000, %28 ], [ %49, %41 ], [ 0x7FF8000000000000, %39 ]
+  %.sink = phi double [ %49, %41 ], [ 0x7FF8000000000000, %28 ], [ 0x7FF8000000000000, %39 ]
   store double %.sink, ptr %2, align 8, !tbaa !128
   br label %50
 
@@ -1909,8 +1909,8 @@ _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i: ; preds = %198, 
   br i1 %.not65.i.i, label %.invoke93.i.i, label %224
 
 .invoke93.i.i:                                    ; preds = %214, %213, %205, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i
-  %222 = phi i32 [ 259, %213 ], [ 258, %205 ], [ 260, %214 ], [ 257, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i ]
-  %223 = phi ptr [ @.str.67, %213 ], [ @.str.66, %205 ], [ @.str.68, %214 ], [ @.str.65, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i ]
+  %222 = phi i32 [ 258, %205 ], [ 259, %213 ], [ 260, %214 ], [ 257, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i ]
+  %223 = phi ptr [ @.str.66, %205 ], [ @.str.67, %213 ], [ @.str.68, %214 ], [ @.str.65, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i ]
   invoke void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef %222, ptr noundef nonnull @.str.1, ptr noundef nonnull %223) #27
           to label %.cont94.i.i unwind label %203
 
@@ -2168,9 +2168,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc73
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc73, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.12.0 = phi ptr [ %344, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %344, %.noexc73 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.080.0 = phi ptr [ %343, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %343, %.noexc73 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %348, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %345, %.noexc73 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.12.0 = phi ptr [ %344, %.noexc73 ], [ %344, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.080.0 = phi ptr [ %343, %.noexc73 ], [ %343, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %345, %.noexc73 ], [ %348, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %349 = invoke i64 @ggml_nbytes(ptr noundef nonnull %334)
           to label %350 unwind label %371
 
@@ -2615,8 +2615,8 @@ define void @ggml_opt_epoch_callback_progress_bar(i1 noundef zeroext %0, ptr nou
   br label %ggml_opt_result_loss.exit
 
 ggml_opt_result_loss.exit:                        ; preds = %10, %.split.us.i, %52
-  %.055 = phi double [ %43, %52 ], [ %43, %.split.us.i ], [ 0.000000e+00, %10 ]
-  %.sink.i = phi double [ %60, %52 ], [ 0x7FF8000000000000, %.split.us.i ], [ 0x7FF8000000000000, %10 ]
+  %.055 = phi double [ %43, %.split.us.i ], [ %43, %52 ], [ 0.000000e+00, %10 ]
+  %.sink.i = phi double [ 0x7FF8000000000000, %.split.us.i ], [ %60, %52 ], [ 0x7FF8000000000000, %10 ]
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %62 = load i64, ptr %61, align 8, !tbaa !124
   %63 = icmp sgt i64 %62, -1
@@ -3125,7 +3125,7 @@ _ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit: ; p
   %18 = load ptr, ptr %17, align 8, !tbaa !92
   br label %.loopexit
 
-_ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit.thread: ; preds = %_ZNSt8_Rb_treeIP11ggml_tensorSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %5, %_ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit
+_ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit.thread: ; preds = %5, %_ZNSt8_Rb_treeIP11ggml_tensorSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit
   %19 = tail call ptr @ggml_dup_tensor(ptr noundef %1, ptr noundef nonnull %2)
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store ptr %19, ptr %20, align 8, !tbaa !92
@@ -3281,7 +3281,7 @@ _ZNSt3mapIP11ggml_tensorS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.e
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !142
@@ -3513,8 +3513,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP11ggml_tensorSt4pairIKS1_S1_ES
   br label %_ZNSt8_Rb_treeIP11ggml_tensorSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIP11ggml_tensorSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3752,7 +3752,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !38
   br label %41
 

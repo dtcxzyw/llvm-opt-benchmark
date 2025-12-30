@@ -312,7 +312,7 @@ define internal i32 @do_alphamerge(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph38, %.preheader, %68
-  %80 = phi ptr [ %.pre, %68 ], [ %27, %.lr.ph38 ], [ %27, %.preheader ], [ %63, %._crit_edge ]
+  %80 = phi ptr [ %27, %.preheader ], [ %.pre, %68 ], [ %27, %.lr.ph38 ], [ %63, %._crit_edge ]
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %82 = load ptr, ptr %81, align 8, !tbaa !47
   %83 = load ptr, ptr %82, align 8, !tbaa !40
@@ -320,7 +320,7 @@ define internal i32 @do_alphamerge(ptr noundef %0) #0 {
   br label %85
 
 85:                                               ; preds = %1, %.loopexit, %12
-  %.0 = phi i32 [ %17, %12 ], [ %84, %.loopexit ], [ %8, %1 ]
+  %.0 = phi i32 [ %84, %.loopexit ], [ %17, %12 ], [ %8, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

@@ -117,7 +117,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %40, %30, %37, %39
-  %.043 = phi ptr [ null, %37 ], [ %38, %39 ], [ %29, %30 ], [ %29, %40 ]
+  %.043 = phi ptr [ %38, %39 ], [ null, %37 ], [ %29, %30 ], [ %29, %40 ]
   call void @g_free(ptr noundef %33)
   call void @g_slist_free(ptr noundef %31)
   br label %46
@@ -202,7 +202,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %60, %74, %59
-  %.148 = phi i32 [ 1, %74 ], [ 2, %59 ], [ 0, %60 ], [ %.148.ph, %.thread.sink.split ]
+  %.148 = phi i32 [ 2, %59 ], [ 0, %60 ], [ 1, %74 ], [ %.148.ph, %.thread.sink.split ]
   %76 = load ptr, ptr %7, align 8
   call void @g_match_info_free(ptr noundef %76)
   call void @g_free(ptr noundef %28)
@@ -467,9 +467,9 @@ fileset_is_file_in_set.exit:                      ; preds = %38
   call fastcc void @fileset_add_file(ptr noundef %44, ptr noundef nonnull %31, i1 noundef zeroext %47)
   br label %48
 
-.critedge:                                        ; preds = %38, %._crit_edge.i
-  %.ph = phi ptr [ %.pre12.i, %38 ], [ %.pre11.i, %._crit_edge.i ]
-  %.ph24 = phi ptr [ %.pre10.i, %38 ], [ %.pre9.i, %._crit_edge.i ]
+.critedge:                                        ; preds = %._crit_edge.i, %38
+  %.ph = phi ptr [ %.pre11.i, %._crit_edge.i ], [ %.pre12.i, %38 ]
+  %.ph24 = phi ptr [ %.pre9.i, %._crit_edge.i ], [ %.pre10.i, %38 ]
   call void @g_free(ptr noundef %.pre.i)
   call void @g_free(ptr noundef %.pre8.i)
   call void @g_free(ptr noundef %.ph24)

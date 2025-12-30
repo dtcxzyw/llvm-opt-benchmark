@@ -627,8 +627,8 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %12, %.thread.thread78
-  %.176 = phi i32 [ %.2, %.thread.thread78 ], [ %.065, %.thread ], [ %.065, %12 ]
-  %27 = phi i32 [ %.14972, %.thread.thread78 ], [ %spec.select82, %.thread ], [ %7, %12 ]
+  %.176 = phi i32 [ %.2, %.thread.thread78 ], [ %.065, %12 ], [ %.065, %.thread ]
+  %27 = phi i32 [ %.14972, %.thread.thread78 ], [ %7, %12 ], [ %spec.select82, %.thread ]
   %.3 = select i1 %.not61, i32 -1, i32 %27
   %indvars.iv.next = add i64 %indvars.iv, 1
   %28 = icmp samesign ult i64 %indvars.iv, 63
@@ -931,7 +931,7 @@ dissect_drbd_ib_control_message.exit:             ; preds = %51, %drbd_ib_append
   br label %28
 
 test_drbd_rdma_control_header.exit.thread:        ; preds = %dissect_drbd_ib_control_message.exit, %test_drbd_rdma_control_header.exit27.thread, %test_drbd_header.exit.thread33, %19, %test_drbd_rdma_control_header.exit
-  %.0 = phi i1 [ false, %test_drbd_rdma_control_header.exit ], [ false, %test_drbd_header.exit.thread33 ], [ false, %19 ], [ true, %test_drbd_rdma_control_header.exit27.thread ], [ true, %dissect_drbd_ib_control_message.exit ]
+  %.0 = phi i1 [ false, %test_drbd_rdma_control_header.exit ], [ false, %19 ], [ false, %test_drbd_header.exit.thread33 ], [ true, %test_drbd_rdma_control_header.exit27.thread ], [ true, %dissect_drbd_ib_control_message.exit ]
   ret i1 %.0
 }
 
@@ -1169,8 +1169,8 @@ cmp_address.exit.i:                               ; preds = %50
   br label %.thread40.i
 
 .thread40.i:                                      ; preds = %cmp_address.exit.i, %50, %48, %42, %40, %28
-  %59 = phi ptr [ %35, %42 ], [ %spec.select, %cmp_address.exit.i ], [ %35, %28 ], [ %35, %50 ], [ %36, %48 ], [ %36, %40 ]
-  %60 = phi ptr [ %36, %42 ], [ %spec.select52, %cmp_address.exit.i ], [ %36, %28 ], [ %36, %50 ], [ %35, %48 ], [ %35, %40 ]
+  %59 = phi ptr [ %35, %50 ], [ %35, %42 ], [ %35, %28 ], [ %36, %48 ], [ %36, %40 ], [ %spec.select, %cmp_address.exit.i ]
+  %60 = phi ptr [ %36, %50 ], [ %36, %42 ], [ %36, %28 ], [ %35, %48 ], [ %35, %40 ], [ %spec.select52, %cmp_address.exit.i ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = tail call ptr @find_conversation(i32 noundef %62, ptr noundef nonnull %60, ptr noundef nonnull %59, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 131072)

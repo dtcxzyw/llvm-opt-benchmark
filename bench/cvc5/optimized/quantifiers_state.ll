@@ -540,7 +540,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers16Quanti
   br label %69
 
 69:                                               ; preds = %61, %53, %59, %33, %39, %18, %20, %9
-  %.0.shrunk = phi i1 [ %10, %9 ], [ %60, %59 ], [ %23, %20 ], [ %40, %39 ], [ %spec.select, %61 ], [ false, %18 ], [ true, %33 ], [ true, %53 ]
+  %.0.shrunk = phi i1 [ %10, %9 ], [ false, %18 ], [ %23, %20 ], [ true, %33 ], [ %40, %39 ], [ true, %53 ], [ %60, %59 ], [ %spec.select, %61 ]
   ret i1 %.0.shrunk
 }
 

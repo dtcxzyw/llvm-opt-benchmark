@@ -308,7 +308,7 @@ define range(i32 0, 2) i32 @Ssw_SmlCheckXorImplication(ptr noundef readonly capt
   br i1 %.not29, label %50, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %38, %.lr.ph37, %50, %36, %48
-  %.028 = phi i32 [ 1, %36 ], [ 1, %50 ], [ 1, %48 ], [ 0, %.lr.ph37 ], [ 1, %38 ], [ 0, %.lr.ph ]
+  %.028 = phi i32 [ 1, %48 ], [ 1, %36 ], [ 0, %.lr.ph37 ], [ 1, %50 ], [ 0, %.lr.ph ], [ 1, %38 ]
   ret i32 %.028
 }
 
@@ -437,7 +437,7 @@ define i32 @Ssw_SmlCountXorImplication(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond46.not, label %.loopexit, label %.lr.ph37, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph37, %36, %66
-  %.1 = phi i32 [ %96, %.lr.ph37 ], [ 0, %66 ], [ 0, %36 ], [ %65, %.lr.ph ]
+  %.1 = phi i32 [ 0, %66 ], [ 0, %36 ], [ %96, %.lr.ph37 ], [ %65, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -657,7 +657,7 @@ define i32 @Ssw_SmlNodeCountOnesReal(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.preheader18, %.preheader
-  %.1 = phi i32 [ %66, %.lr.ph24 ], [ 0, %.preheader ], [ 0, %.preheader18 ], [ %44, %.lr.ph ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %66, %.lr.ph24 ], [ %44, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -1418,7 +1418,7 @@ Ssw_SmlObjAssignConst.exit:                       ; preds = %Ssw_SmlObjAssignCon
   br label %.preheader85
 
 .preheader85:                                     ; preds = %.preheader87.lr.ph, %.preheader85.loopexit, %70
-  %.val7093 = phi i32 [ %.val74, %70 ], [ %.val7093.pre, %.preheader85.loopexit ], [ %.val74, %.preheader87.lr.ph ]
+  %.val7093 = phi i32 [ %.val7093.pre, %.preheader85.loopexit ], [ %.val74, %70 ], [ %.val74, %.preheader87.lr.ph ]
   %90 = icmp sgt i32 %.val7093, 0
   br i1 %90, label %.lr.ph96, label %.critedge4
 
@@ -1494,9 +1494,9 @@ Ssw_SmlObjAssignConst.exit79:                     ; preds = %Ssw_SmlObjAssignCon
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph, %.critedge2.loopexit, %.preheader87
-  %131 = phi i32 [ %83, %.preheader87 ], [ %.pre, %.critedge2.loopexit ], [ %83, %.lr.ph ]
-  %.val69122 = phi i32 [ %.val69121, %.preheader87 ], [ %.val69, %.critedge2.loopexit ], [ %.val69121, %.lr.ph ]
-  %.val6989120 = phi i32 [ %.val6989, %.preheader87 ], [ %.val69, %.critedge2.loopexit ], [ %.val6989, %.lr.ph ]
+  %131 = phi i32 [ %.pre, %.critedge2.loopexit ], [ %83, %.preheader87 ], [ %83, %.lr.ph ]
+  %.val69122 = phi i32 [ %.val69, %.critedge2.loopexit ], [ %.val69121, %.preheader87 ], [ %.val69121, %.lr.ph ]
+  %.val6989120 = phi i32 [ %.val69, %.critedge2.loopexit ], [ %.val6989, %.preheader87 ], [ %.val6989, %.lr.ph ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next111, %132
@@ -1758,9 +1758,9 @@ Ssw_SmlAssignRandomFrame.exit:                    ; preds = %Ssw_SmlAssignRandom
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph49, %.critedge2.loopexit, %.preheader
-  %110 = phi i32 [ %75, %.preheader ], [ %.pre65, %.critedge2.loopexit ], [ %75, %.lr.ph49 ]
-  %111 = phi ptr [ %76, %.preheader ], [ %105, %.critedge2.loopexit ], [ %76, %.lr.ph49 ]
-  %112 = phi ptr [ %77, %.preheader ], [ %105, %.critedge2.loopexit ], [ %77, %.lr.ph49 ]
+  %110 = phi i32 [ %.pre65, %.critedge2.loopexit ], [ %75, %.preheader ], [ %75, %.lr.ph49 ]
+  %111 = phi ptr [ %105, %.critedge2.loopexit ], [ %76, %.preheader ], [ %76, %.lr.ph49 ]
+  %112 = phi ptr [ %105, %.critedge2.loopexit ], [ %77, %.preheader ], [ %77, %.lr.ph49 ]
   %113 = add nuw nsw i32 %.03050, 1
   %114 = icmp slt i32 %113, %110
   br i1 %114, label %.preheader, label %._crit_edge, !llvm.loop !79
@@ -2596,9 +2596,9 @@ define void @Ssw_SmlReinitialize(ptr noundef captures(none) %0) local_unnamed_ad
   %10 = getelementptr i8, ptr %.lcssa28, i64 104
   %.val1932 = load i32, ptr %10, align 8, !tbaa !53
   %11 = icmp sgt i32 %.val1932, 0
-  br i1 %11, label %.critedge2.lr.ph, label %.critedge._crit_edge
+  br i1 %11, label %.lr.ph34, label %.critedge2
 
-.critedge2.lr.ph:                                 ; preds = %.critedge.preheader
+.lr.ph34:                                         ; preds = %.critedge.preheader
   %12 = getelementptr i8, ptr %.lcssa28, i64 24
   %.val22 = load ptr, ptr %12, align 8, !tbaa !62
   %13 = getelementptr i8, ptr %.lcssa28, i64 112
@@ -2614,7 +2614,7 @@ define void @Ssw_SmlReinitialize(ptr noundef captures(none) %0) local_unnamed_ad
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %19, align 8, !tbaa !66
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.critedge2, label %.critedge._crit_edge
+  br i1 %22, label %.lr.ph34.split, label %.critedge2
 
 23:                                               ; preds = %.lr.ph, %Ssw_SmlAssignRandom.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ssw_SmlAssignRandom.exit ]
@@ -2673,10 +2673,10 @@ Ssw_SmlAssignRandom.exit:                         ; preds = %.lr.ph15.i, %.prehe
   %56 = icmp slt i64 %indvars.iv.next, %55
   br i1 %56, label %23, label %.critedge.preheader, !llvm.loop !102
 
-.critedge2:                                       ; preds = %.critedge2.lr.ph, %Ssw_SmlNodeTransferFirst.exit
-  %.val1936 = phi i32 [ %.val19, %Ssw_SmlNodeTransferFirst.exit ], [ %.val1932, %.critedge2.lr.ph ]
-  %57 = phi i32 [ %89, %Ssw_SmlNodeTransferFirst.exit ], [ %21, %.critedge2.lr.ph ]
-  %.133 = phi i32 [ %90, %Ssw_SmlNodeTransferFirst.exit ], [ 0, %.critedge2.lr.ph ]
+.lr.ph34.split:                                   ; preds = %.lr.ph34, %Ssw_SmlNodeTransferFirst.exit
+  %.val1937 = phi i32 [ %.val19, %Ssw_SmlNodeTransferFirst.exit ], [ %.val1932, %.lr.ph34 ]
+  %57 = phi i32 [ %89, %Ssw_SmlNodeTransferFirst.exit ], [ %21, %.lr.ph34 ]
+  %.133 = phi i32 [ %90, %Ssw_SmlNodeTransferFirst.exit ], [ 0, %.lr.ph34 ]
   %.val23 = load i32, ptr %13, align 8, !tbaa !103
   %58 = add nsw i32 %.val23, %.133
   %59 = sext i32 %58 to i64
@@ -2706,8 +2706,8 @@ Ssw_SmlAssignRandom.exit:                         ; preds = %.lr.ph15.i, %.prehe
   %82 = icmp sgt i32 %57, 0
   br i1 %82, label %.lr.ph.i24, label %Ssw_SmlNodeTransferFirst.exit
 
-.lr.ph.i24:                                       ; preds = %.critedge2, %.lr.ph.i24
-  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %.lr.ph.i24 ], [ 0, %.critedge2 ]
+.lr.ph.i24:                                       ; preds = %.lr.ph34.split, %.lr.ph.i24
+  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %.lr.ph.i24 ], [ 0, %.lr.ph34.split ]
   %83 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.i25
   %84 = load i32, ptr %83, align 4, !tbaa !15
   %85 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.i25
@@ -2722,14 +2722,14 @@ Ssw_SmlNodeTransferFirst.exit.loopexit:           ; preds = %.lr.ph.i24
   %.val19.pre = load i32, ptr %10, align 8, !tbaa !53
   br label %Ssw_SmlNodeTransferFirst.exit
 
-Ssw_SmlNodeTransferFirst.exit:                    ; preds = %Ssw_SmlNodeTransferFirst.exit.loopexit, %.critedge2
-  %.val19 = phi i32 [ %.val19.pre, %Ssw_SmlNodeTransferFirst.exit.loopexit ], [ %.val1936, %.critedge2 ]
-  %89 = phi i32 [ %86, %Ssw_SmlNodeTransferFirst.exit.loopexit ], [ %57, %.critedge2 ]
+Ssw_SmlNodeTransferFirst.exit:                    ; preds = %Ssw_SmlNodeTransferFirst.exit.loopexit, %.lr.ph34.split
+  %.val19 = phi i32 [ %.val19.pre, %Ssw_SmlNodeTransferFirst.exit.loopexit ], [ %.val1937, %.lr.ph34.split ]
+  %89 = phi i32 [ %86, %Ssw_SmlNodeTransferFirst.exit.loopexit ], [ %57, %.lr.ph34.split ]
   %90 = add nuw nsw i32 %.133, 1
   %91 = icmp slt i32 %90, %.val19
-  br i1 %91, label %.critedge2, label %.critedge._crit_edge, !llvm.loop !104
+  br i1 %91, label %.lr.ph34.split, label %.critedge2, !llvm.loop !104
 
-.critedge._crit_edge:                             ; preds = %Ssw_SmlNodeTransferFirst.exit, %.critedge2.lr.ph, %.critedge.preheader
+.critedge2:                                       ; preds = %Ssw_SmlNodeTransferFirst.exit, %.lr.ph34, %.critedge.preheader
   ret void
 }
 
@@ -2846,7 +2846,7 @@ define range(i32 0, 2) i32 @Ssw_SmlCheckNonConstOutputs(ptr noundef readonly cap
   br i1 %exitcond27.not, label %.critedge, label %.lr.ph.split, !llvm.loop !106
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph.split, %.lr.ph.i, %.loopexit.us.us, %.lr.ph.i.us.us, %.lr.ph.split.us, %1
-  %.011 = phi i32 [ 0, %1 ], [ 1, %.lr.ph.i ], [ 0, %.loopexit.us.us ], [ 1, %.lr.ph.i.us.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ], [ 0, %.loopexit ]
+  %.011 = phi i32 [ 0, %1 ], [ 0, %.lr.ph.split.us ], [ 1, %.lr.ph.i.us.us ], [ 0, %.loopexit.us.us ], [ 1, %.lr.ph.i ], [ 0, %.lr.ph.split ], [ 0, %.loopexit ]
   ret i32 %.011
 }
 
@@ -2883,10 +2883,10 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.pre = load ptr, ptr %0, align 8, !tbaa !59
   br label %.preheader86
 
-.preheader86:                                     ; preds = %.preheader86.lr.ph, %._crit_edge
-  %16 = phi ptr [ %.pre, %.preheader86.lr.ph ], [ %22, %._crit_edge ]
-  %17 = phi ptr [ %.pre, %.preheader86.lr.ph ], [ %23, %._crit_edge ]
-  %.05199 = phi i32 [ 0, %.preheader86.lr.ph ], [ %.pre-phi, %._crit_edge ]
+.preheader86:                                     ; preds = %.preheader86.lr.ph, %.critedge6
+  %16 = phi ptr [ %.pre, %.preheader86.lr.ph ], [ %22, %.critedge6 ]
+  %17 = phi ptr [ %.pre, %.preheader86.lr.ph ], [ %23, %.critedge6 ]
+  %.051100 = phi i32 [ 0, %.preheader86.lr.ph ], [ %.pre-phi, %.critedge6 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !110
   %20 = getelementptr i8, ptr %19, i64 4
@@ -2931,7 +2931,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %narrow.i, label %41, label %40
 
 40:                                               ; preds = %35
-  call void @Ssw_SmlNodeSimulate(ptr noundef nonnull %0, ptr noundef nonnull %33, i32 noundef %.05199)
+  call void @Ssw_SmlNodeSimulate(ptr noundef nonnull %0, ptr noundef nonnull %33, i32 noundef %.051100)
   %.pre108 = load ptr, ptr %0, align 8, !tbaa !59
   br label %41
 
@@ -2971,7 +2971,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %60 = mul nsw i32 %59, %58
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %13, i64 %61
-  %63 = mul nsw i32 %54, %.05199
+  %63 = mul nsw i32 %54, %.051100
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i32, ptr %62, i64 %64
   %66 = getelementptr i8, ptr %56, i64 8
@@ -3033,7 +3033,7 @@ Aig_ObjPhaseReal.exit.i:                          ; preds = %53
   br i1 %98, label %.lr.ph.i, label %Ssw_SmlNodeCopyFanin.exit, !llvm.loop !91
 
 Ssw_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedge.i, %.preheader.i, %.critedge.preheader.i
-  %99 = phi i32 [ %90, %.critedge.i ], [ %54, %.critedge.preheader.i ], [ %54, %.preheader.i ], [ %96, %.lr.ph.i ]
+  %99 = phi i32 [ %54, %.preheader.i ], [ %54, %.critedge.preheader.i ], [ %90, %.critedge.i ], [ %96, %.lr.ph.i ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.val61 = load i32, ptr %24, align 8, !tbaa !103
   %100 = sext i32 %.val61 to i64
@@ -3054,7 +3054,7 @@ Ssw_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedg
   %111 = mul nsw i32 %110, %109
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds i32, ptr %13, i64 %112
-  %114 = mul nsw i32 %103, %.05199
+  %114 = mul nsw i32 %103, %.051100
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i32, ptr %113, i64 %115
   %117 = getelementptr i8, ptr %107, i64 8
@@ -3116,7 +3116,7 @@ Aig_ObjPhaseReal.exit.i67:                        ; preds = %102
   br i1 %149, label %.lr.ph.i73, label %Ssw_SmlNodeCopyFanin.exit76, !llvm.loop !91
 
 Ssw_SmlNodeCopyFanin.exit76:                      ; preds = %.lr.ph.i73, %.critedge.i69, %.preheader.i72, %.critedge.preheader.i68
-  %150 = phi i32 [ %141, %.critedge.i69 ], [ %103, %.critedge.preheader.i68 ], [ %103, %.preheader.i72 ], [ %147, %.lr.ph.i73 ]
+  %150 = phi i32 [ %103, %.preheader.i72 ], [ %103, %.critedge.preheader.i68 ], [ %141, %.critedge.i69 ], [ %147, %.lr.ph.i73 ]
   %151 = add nuw nsw i32 %.295, 1
   %.val57 = load i32, ptr %48, align 8, !tbaa !53
   %152 = icmp slt i32 %151, %.val57
@@ -3126,18 +3126,18 @@ Ssw_SmlNodeCopyFanin.exit76:                      ; preds = %.lr.ph.i73, %.crite
   %.val5697 = phi i32 [ %.val5794, %.critedge2.preheader ], [ %.val57, %Ssw_SmlNodeCopyFanin.exit76 ]
   %153 = load i32, ptr %10, align 4, !tbaa !64
   %154 = add nsw i32 %153, -1
-  %155 = icmp eq i32 %.05199, %154
+  %155 = icmp eq i32 %.051100, %154
   br i1 %155, label %.critedge4._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.critedge4
   %156 = icmp sgt i32 %.val5697, 0
-  br i1 %156, label %.critedge6.lr.ph, label %.preheader.._crit_edge_crit_edge
+  br i1 %156, label %.lr.ph99, label %.preheader..critedge6_crit_edge
 
-.preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre116 = add nuw nsw i32 %.05199, 1
-  br label %._crit_edge
+.preheader..critedge6_crit_edge:                  ; preds = %.preheader
+  %.pre116 = add nuw nsw i32 %.051100, 1
+  br label %.critedge6
 
-.critedge6.lr.ph:                                 ; preds = %.preheader
+.lr.ph99:                                         ; preds = %.preheader
   %157 = getelementptr i8, ptr %23, i64 24
   %.val62 = load ptr, ptr %157, align 8, !tbaa !62
   %158 = getelementptr i8, ptr %.val62, i64 8
@@ -3147,104 +3147,104 @@ Ssw_SmlNodeCopyFanin.exit76:                      ; preds = %.lr.ph.i73, %.crite
   %160 = getelementptr i8, ptr %23, i64 108
   %161 = getelementptr i8, ptr %.val58, i64 8
   %.val58.val = load ptr, ptr %161, align 8, !tbaa !31
-  %162 = add nuw nsw i32 %.05199, 1
+  %162 = add nuw nsw i32 %.051100, 1
   %.pre112 = load i32, ptr %15, align 8, !tbaa !66
-  br label %.critedge6
+  br label %163
 
-.critedge6:                                       ; preds = %.critedge6.lr.ph, %Ssw_SmlNodeTransferNext.exit
-  %.val56113 = phi i32 [ %.val5697, %.critedge6.lr.ph ], [ %.val56, %Ssw_SmlNodeTransferNext.exit ]
-  %163 = phi i32 [ %.pre112, %.critedge6.lr.ph ], [ %196, %Ssw_SmlNodeTransferNext.exit ]
-  %.398 = phi i32 [ 0, %.critedge6.lr.ph ], [ %197, %Ssw_SmlNodeTransferNext.exit ]
+163:                                              ; preds = %.lr.ph99, %Ssw_SmlNodeTransferNext.exit
+  %.val56113 = phi i32 [ %.val5697, %.lr.ph99 ], [ %.val56, %Ssw_SmlNodeTransferNext.exit ]
+  %164 = phi i32 [ %.pre112, %.lr.ph99 ], [ %197, %Ssw_SmlNodeTransferNext.exit ]
+  %.398 = phi i32 [ 0, %.lr.ph99 ], [ %198, %Ssw_SmlNodeTransferNext.exit ]
   %.val63 = load i32, ptr %24, align 8, !tbaa !103
-  %164 = add nsw i32 %.val63, %.398
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds ptr, ptr %.val62.val, i64 %165
-  %167 = load ptr, ptr %166, align 8, !tbaa !32
+  %165 = add nsw i32 %.val63, %.398
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds ptr, ptr %.val62.val, i64 %166
+  %168 = load ptr, ptr %167, align 8, !tbaa !32
   %.val59 = load i32, ptr %160, align 4, !tbaa !47
-  %168 = add nsw i32 %.val59, %.398
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds ptr, ptr %.val58.val, i64 %169
-  %171 = load ptr, ptr %170, align 8, !tbaa !32
-  %172 = getelementptr inbounds nuw i8, ptr %167, i64 36
-  %173 = load i32, ptr %172, align 4, !tbaa !3
-  %174 = load i32, ptr %14, align 4, !tbaa !10
-  %175 = mul nsw i32 %174, %173
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds i32, ptr %13, i64 %176
-  %178 = mul nsw i32 %163, %.05199
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %177, i64 %179
-  %181 = getelementptr inbounds nuw i8, ptr %171, i64 36
-  %182 = load i32, ptr %181, align 4, !tbaa !3
-  %183 = mul nsw i32 %182, %174
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds i32, ptr %13, i64 %184
-  %186 = mul nsw i32 %163, %162
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds i32, ptr %185, i64 %187
-  %189 = icmp sgt i32 %163, 0
-  br i1 %189, label %.lr.ph.i77, label %Ssw_SmlNodeTransferNext.exit
+  %169 = add nsw i32 %.val59, %.398
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds ptr, ptr %.val58.val, i64 %170
+  %172 = load ptr, ptr %171, align 8, !tbaa !32
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 36
+  %174 = load i32, ptr %173, align 4, !tbaa !3
+  %175 = load i32, ptr %14, align 4, !tbaa !10
+  %176 = mul nsw i32 %175, %174
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i32, ptr %13, i64 %177
+  %179 = mul nsw i32 %164, %.051100
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds i32, ptr %178, i64 %180
+  %182 = getelementptr inbounds nuw i8, ptr %172, i64 36
+  %183 = load i32, ptr %182, align 4, !tbaa !3
+  %184 = mul nsw i32 %183, %175
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds i32, ptr %13, i64 %185
+  %187 = mul nsw i32 %164, %162
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds i32, ptr %186, i64 %188
+  %190 = icmp sgt i32 %164, 0
+  br i1 %190, label %.lr.ph.i77, label %Ssw_SmlNodeTransferNext.exit
 
-.lr.ph.i77:                                       ; preds = %.critedge6, %.lr.ph.i77
-  %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i79, %.lr.ph.i77 ], [ 0, %.critedge6 ]
-  %190 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.i78
-  %191 = load i32, ptr %190, align 4, !tbaa !15
-  %192 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv.i78
-  store i32 %191, ptr %192, align 4, !tbaa !15
+.lr.ph.i77:                                       ; preds = %163, %.lr.ph.i77
+  %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i79, %.lr.ph.i77 ], [ 0, %163 ]
+  %191 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv.i78
+  %192 = load i32, ptr %191, align 4, !tbaa !15
+  %193 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv.i78
+  store i32 %192, ptr %193, align 4, !tbaa !15
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
-  %193 = load i32, ptr %15, align 8, !tbaa !66
-  %194 = sext i32 %193 to i64
-  %195 = icmp slt i64 %indvars.iv.next.i79, %194
-  br i1 %195, label %.lr.ph.i77, label %Ssw_SmlNodeTransferNext.exit.loopexit, !llvm.loop !92
+  %194 = load i32, ptr %15, align 8, !tbaa !66
+  %195 = sext i32 %194 to i64
+  %196 = icmp slt i64 %indvars.iv.next.i79, %195
+  br i1 %196, label %.lr.ph.i77, label %Ssw_SmlNodeTransferNext.exit.loopexit, !llvm.loop !92
 
 Ssw_SmlNodeTransferNext.exit.loopexit:            ; preds = %.lr.ph.i77
   %.val56.pre = load i32, ptr %48, align 8, !tbaa !53
   br label %Ssw_SmlNodeTransferNext.exit
 
-Ssw_SmlNodeTransferNext.exit:                     ; preds = %Ssw_SmlNodeTransferNext.exit.loopexit, %.critedge6
-  %.val56 = phi i32 [ %.val56.pre, %Ssw_SmlNodeTransferNext.exit.loopexit ], [ %.val56113, %.critedge6 ]
-  %196 = phi i32 [ %193, %Ssw_SmlNodeTransferNext.exit.loopexit ], [ %163, %.critedge6 ]
-  %197 = add nuw nsw i32 %.398, 1
-  %198 = icmp slt i32 %197, %.val56
-  br i1 %198, label %.critedge6, label %._crit_edge.loopexit, !llvm.loop !114
+Ssw_SmlNodeTransferNext.exit:                     ; preds = %Ssw_SmlNodeTransferNext.exit.loopexit, %163
+  %.val56 = phi i32 [ %.val56.pre, %Ssw_SmlNodeTransferNext.exit.loopexit ], [ %.val56113, %163 ]
+  %197 = phi i32 [ %194, %Ssw_SmlNodeTransferNext.exit.loopexit ], [ %164, %163 ]
+  %198 = add nuw nsw i32 %.398, 1
+  %199 = icmp slt i32 %198, %.val56
+  br i1 %199, label %163, label %.critedge6.loopexit, !llvm.loop !114
 
-._crit_edge.loopexit:                             ; preds = %Ssw_SmlNodeTransferNext.exit
+.critedge6.loopexit:                              ; preds = %Ssw_SmlNodeTransferNext.exit
   %.pre115 = load i32, ptr %10, align 4, !tbaa !64
-  br label %._crit_edge
+  br label %.critedge6
 
-._crit_edge:                                      ; preds = %.preheader.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %.pre-phi = phi i32 [ %.pre116, %.preheader.._crit_edge_crit_edge ], [ %162, %._crit_edge.loopexit ]
-  %199 = phi i32 [ %153, %.preheader.._crit_edge_crit_edge ], [ %.pre115, %._crit_edge.loopexit ]
-  %200 = icmp slt i32 %.pre-phi, %199
-  br i1 %200, label %.preheader86, label %.critedge4._crit_edge, !llvm.loop !115
+.critedge6:                                       ; preds = %.preheader..critedge6_crit_edge, %.critedge6.loopexit
+  %.pre-phi = phi i32 [ %.pre116, %.preheader..critedge6_crit_edge ], [ %162, %.critedge6.loopexit ]
+  %200 = phi i32 [ %153, %.preheader..critedge6_crit_edge ], [ %.pre115, %.critedge6.loopexit ]
+  %201 = icmp slt i32 %.pre-phi, %200
+  br i1 %201, label %.preheader86, label %.critedge4._crit_edge, !llvm.loop !115
 
-.critedge4._crit_edge:                            ; preds = %._crit_edge, %.critedge4, %Abc_Clock.exit
+.critedge4._crit_edge:                            ; preds = %.critedge6, %.critedge4, %Abc_Clock.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %201 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #27
-  %202 = icmp slt i32 %201, 0
-  br i1 %202, label %Abc_Clock.exit81, label %203
+  %202 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #27
+  %203 = icmp slt i32 %202, 0
+  br i1 %203, label %Abc_Clock.exit81, label %204
 
-203:                                              ; preds = %.critedge4._crit_edge
-  %204 = load i64, ptr %2, align 8, !tbaa !107
-  %205 = mul nsw i64 %204, 1000000
-  %206 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %207 = load i64, ptr %206, align 8, !tbaa !109
-  %208 = sdiv i64 %207, 1000
-  %209 = add nsw i64 %208, %205
+204:                                              ; preds = %.critedge4._crit_edge
+  %205 = load i64, ptr %2, align 8, !tbaa !107
+  %206 = mul nsw i64 %205, 1000000
+  %207 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %208 = load i64, ptr %207, align 8, !tbaa !109
+  %209 = sdiv i64 %208, 1000
+  %210 = add nsw i64 %209, %206
   br label %Abc_Clock.exit81
 
-Abc_Clock.exit81:                                 ; preds = %.critedge4._crit_edge, %203
-  %.0.i80 = phi i64 [ %209, %203 ], [ -1, %.critedge4._crit_edge ]
+Abc_Clock.exit81:                                 ; preds = %.critedge4._crit_edge, %204
+  %.0.i80 = phi i64 [ %210, %204 ], [ -1, %.critedge4._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %210 = add i64 %.0.i80, %.0.i.neg
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %212 = load i64, ptr %211, align 8, !tbaa !116
-  %213 = add nsw i64 %210, %212
-  store i64 %213, ptr %211, align 8, !tbaa !116
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %215 = load i32, ptr %214, align 8, !tbaa !117
-  %216 = add nsw i32 %215, 1
-  store i32 %216, ptr %214, align 8, !tbaa !117
+  %211 = add i64 %.0.i80, %.0.i.neg
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %213 = load i64, ptr %212, align 8, !tbaa !116
+  %214 = add nsw i64 %211, %213
+  store i64 %214, ptr %212, align 8, !tbaa !116
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %216 = load i32, ptr %215, align 8, !tbaa !117
+  %217 = add nsw i32 %216, 1
+  store i32 %217, ptr %215, align 8, !tbaa !117
   ret void
 }
 
@@ -3514,7 +3514,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %15 = getelementptr i8, ptr %.lcssa52, i64 104
   %.val3755 = load i32, ptr %15, align 8, !tbaa !53
   %16 = icmp sgt i32 %.val3755, 0
-  br i1 %16, label %.lr.ph57, label %.critedge2._crit_edge
+  br i1 %16, label %.lr.ph57, label %.critedge4
 
 .lr.ph57:                                         ; preds = %.critedge.preheader
   %17 = getelementptr inbounds nuw i8, ptr %.lcssa52, i64 24
@@ -3525,7 +3525,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre63 = load i32, ptr %23, align 8, !tbaa !66
+  %.pre64 = load i32, ptr %23, align 8, !tbaa !66
   br label %55
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %36
@@ -3566,9 +3566,9 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 .critedge2.preheader:                             ; preds = %Ssw_SmlNodeCopyFanin.exit
   %43 = icmp sgt i32 %.val37, 0
-  br i1 %43, label %.critedge4.lr.ph, label %.critedge2._crit_edge
+  br i1 %43, label %.lr.ph60, label %.critedge4
 
-.critedge4.lr.ph:                                 ; preds = %.critedge2.preheader
+.lr.ph60:                                         ; preds = %.critedge2.preheader
   %44 = getelementptr i8, ptr %.lcssa52, i64 24
   %.val41 = load ptr, ptr %44, align 8, !tbaa !62
   %45 = getelementptr i8, ptr %.lcssa52, i64 112
@@ -3584,10 +3584,10 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i32, ptr %52, align 8, !tbaa !66
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.critedge4, label %.critedge2._crit_edge
+  br i1 %54, label %.lr.ph60.split, label %.critedge4
 
 55:                                               ; preds = %.lr.ph57, %Ssw_SmlNodeCopyFanin.exit
-  %56 = phi i32 [ %.pre63, %.lr.ph57 ], [ %99, %Ssw_SmlNodeCopyFanin.exit ]
+  %56 = phi i32 [ %.pre64, %.lr.ph57 ], [ %99, %Ssw_SmlNodeCopyFanin.exit ]
   %.156 = phi i32 [ 0, %.lr.ph57 ], [ %100, %Ssw_SmlNodeCopyFanin.exit ]
   %.val40 = load i32, ptr %19, align 8, !tbaa !103
   %57 = add nsw i32 %.val40, %.156
@@ -3658,16 +3658,16 @@ Aig_ObjPhaseReal.exit.i:                          ; preds = %55
   br i1 %98, label %.lr.ph.i, label %Ssw_SmlNodeCopyFanin.exit, !llvm.loop !91
 
 Ssw_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedge.i, %.preheader.i, %.critedge.preheader.i
-  %99 = phi i32 [ %90, %.critedge.i ], [ %56, %.critedge.preheader.i ], [ %56, %.preheader.i ], [ %96, %.lr.ph.i ]
+  %99 = phi i32 [ %56, %.preheader.i ], [ %56, %.critedge.preheader.i ], [ %90, %.critedge.i ], [ %96, %.lr.ph.i ]
   %100 = add nuw nsw i32 %.156, 1
   %.val37 = load i32, ptr %15, align 8, !tbaa !53
   %101 = icmp slt i32 %100, %.val37
   br i1 %101, label %55, label %.critedge2.preheader, !llvm.loop !123
 
-.critedge4:                                       ; preds = %.critedge4.lr.ph, %Ssw_SmlNodeTransferNext.exit
-  %.val3665 = phi i32 [ %.val36, %Ssw_SmlNodeTransferNext.exit ], [ %.val37, %.critedge4.lr.ph ]
-  %102 = phi i32 [ %131, %Ssw_SmlNodeTransferNext.exit ], [ %53, %.critedge4.lr.ph ]
-  %.259 = phi i32 [ %132, %Ssw_SmlNodeTransferNext.exit ], [ 0, %.critedge4.lr.ph ]
+.lr.ph60.split:                                   ; preds = %.lr.ph60, %Ssw_SmlNodeTransferNext.exit
+  %.val3666 = phi i32 [ %.val36, %Ssw_SmlNodeTransferNext.exit ], [ %.val37, %.lr.ph60 ]
+  %102 = phi i32 [ %131, %Ssw_SmlNodeTransferNext.exit ], [ %53, %.lr.ph60 ]
+  %.259 = phi i32 [ %132, %Ssw_SmlNodeTransferNext.exit ], [ 0, %.lr.ph60 ]
   %.val42 = load i32, ptr %45, align 8, !tbaa !103
   %103 = add nsw i32 %.val42, %.259
   %104 = sext i32 %103 to i64
@@ -3694,8 +3694,8 @@ Ssw_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedg
   %124 = icmp sgt i32 %102, 0
   br i1 %124, label %.lr.ph.i44, label %Ssw_SmlNodeTransferNext.exit
 
-.lr.ph.i44:                                       ; preds = %.critedge4, %.lr.ph.i44
-  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i46, %.lr.ph.i44 ], [ 0, %.critedge4 ]
+.lr.ph.i44:                                       ; preds = %.lr.ph60.split, %.lr.ph.i44
+  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i46, %.lr.ph.i44 ], [ 0, %.lr.ph60.split ]
   %125 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.i45
   %126 = load i32, ptr %125, align 4, !tbaa !15
   %127 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv.i45
@@ -3710,20 +3710,20 @@ Ssw_SmlNodeTransferNext.exit.loopexit:            ; preds = %.lr.ph.i44
   %.val36.pre = load i32, ptr %15, align 8, !tbaa !53
   br label %Ssw_SmlNodeTransferNext.exit
 
-Ssw_SmlNodeTransferNext.exit:                     ; preds = %Ssw_SmlNodeTransferNext.exit.loopexit, %.critedge4
-  %.val36 = phi i32 [ %.val36.pre, %Ssw_SmlNodeTransferNext.exit.loopexit ], [ %.val3665, %.critedge4 ]
-  %131 = phi i32 [ %128, %Ssw_SmlNodeTransferNext.exit.loopexit ], [ %102, %.critedge4 ]
+Ssw_SmlNodeTransferNext.exit:                     ; preds = %Ssw_SmlNodeTransferNext.exit.loopexit, %.lr.ph60.split
+  %.val36 = phi i32 [ %.val36.pre, %Ssw_SmlNodeTransferNext.exit.loopexit ], [ %.val3666, %.lr.ph60.split ]
+  %131 = phi i32 [ %128, %Ssw_SmlNodeTransferNext.exit.loopexit ], [ %102, %.lr.ph60.split ]
   %132 = add nuw nsw i32 %.259, 1
   %133 = icmp slt i32 %132, %.val36
-  br i1 %133, label %.critedge4, label %.critedge2._crit_edge, !llvm.loop !124
+  br i1 %133, label %.lr.ph60.split, label %.critedge4, !llvm.loop !124
 
-.critedge2._crit_edge:                            ; preds = %Ssw_SmlNodeTransferNext.exit, %.critedge.preheader, %.critedge4.lr.ph, %.critedge2.preheader
+.critedge4:                                       ; preds = %Ssw_SmlNodeTransferNext.exit, %.critedge.preheader, %.lr.ph60, %.critedge2.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %134 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #27
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %Abc_Clock.exit48, label %136
 
-136:                                              ; preds = %.critedge2._crit_edge
+136:                                              ; preds = %.critedge4
   %137 = load i64, ptr %2, align 8, !tbaa !107
   %138 = mul nsw i64 %137, 1000000
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3732,8 +3732,8 @@ Ssw_SmlNodeTransferNext.exit:                     ; preds = %Ssw_SmlNodeTransfer
   %142 = add nsw i64 %141, %138
   br label %Abc_Clock.exit48
 
-Abc_Clock.exit48:                                 ; preds = %.critedge2._crit_edge, %136
-  %.0.i47 = phi i64 [ %142, %136 ], [ -1, %.critedge2._crit_edge ]
+Abc_Clock.exit48:                                 ; preds = %.critedge4, %136
+  %.0.i47 = phi i64 [ %142, %136 ], [ -1, %.critedge4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %143 = add i64 %.0.i47, %.0.i.neg
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4123,7 +4123,7 @@ define noalias noundef ptr @Ssw_SmlSimulateSeq(ptr noundef %0, i32 noundef %1, i
   br i1 %exitcond27.not.i, label %Ssw_SmlCheckNonConstOutputs.exit, label %.lr.ph.split.i, !llvm.loop !106
 
 Ssw_SmlCheckNonConstOutputs.exit:                 ; preds = %.lr.ph.split.i, %.loopexit.i, %.lr.ph.i.i, %.loopexit.us.us.i, %.lr.ph.i.us.us.i, %4, %.lr.ph.split.us.i
-  %.011.i = phi i32 [ 0, %4 ], [ 1, %.lr.ph.i.i ], [ 0, %.loopexit.us.us.i ], [ 1, %.lr.ph.i.us.us.i ], [ 0, %.lr.ph.split.us.i ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.split.i ]
+  %.011.i = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us.i ], [ 1, %.lr.ph.i.us.us.i ], [ 0, %.loopexit.us.us.i ], [ 1, %.lr.ph.i.i ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.split.i ]
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 %.011.i, ptr %65, align 4, !tbaa !128
   ret ptr %15
@@ -4244,7 +4244,7 @@ define void @Ssw_SmlResimulateSeq(ptr noundef captures(none) %0) local_unnamed_a
   br i1 %exitcond27.not.i, label %Ssw_SmlCheckNonConstOutputs.exit, label %.lr.ph.split.i, !llvm.loop !106
 
 Ssw_SmlCheckNonConstOutputs.exit:                 ; preds = %.lr.ph.split.i, %.loopexit.i, %.lr.ph.i.i, %.loopexit.us.us.i, %.lr.ph.i.us.us.i, %1, %.lr.ph.split.us.i
-  %.011.i = phi i32 [ 0, %1 ], [ 1, %.lr.ph.i.i ], [ 0, %.loopexit.us.us.i ], [ 1, %.lr.ph.i.us.us.i ], [ 0, %.lr.ph.split.us.i ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.split.i ]
+  %.011.i = phi i32 [ 0, %1 ], [ 0, %.lr.ph.split.us.i ], [ 1, %.lr.ph.i.us.us.i ], [ 0, %.loopexit.us.us.i ], [ 1, %.lr.ph.i.i ], [ 0, %.loopexit.i ], [ 0, %.lr.ph.split.i ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.011.i, ptr %45, align 4, !tbaa !128
   ret void
@@ -4376,9 +4376,9 @@ Ssw_SmlNodeIsZero.exit:                           ; preds = %.lr.ph111
   br i1 %exitcond135.not, label %.critedge, label %.lr.ph111, !llvm.loop !131
 
 .critedge:                                        ; preds = %.loopexit.us, %Ssw_SmlNodeIsZero.exit, %.lr.ph, %1, %Aig_WordFindFirstBit.exit
-  %.07198 = phi i32 [ %25, %Aig_WordFindFirstBit.exit ], [ %.val87, %.lr.ph ], [ %25, %Ssw_SmlNodeIsZero.exit ], [ 0, %1 ], [ %.val87, %.loopexit.us ]
-  %.070 = phi i32 [ %32, %Aig_WordFindFirstBit.exit ], [ -1, %.lr.ph ], [ -1, %Ssw_SmlNodeIsZero.exit ], [ -1, %1 ], [ -1, %.loopexit.us ]
-  %.069 = phi i32 [ %40, %Aig_WordFindFirstBit.exit ], [ -1, %.lr.ph ], [ -1, %Ssw_SmlNodeIsZero.exit ], [ -1, %1 ], [ -1, %.loopexit.us ]
+  %.07198 = phi i32 [ %25, %Aig_WordFindFirstBit.exit ], [ 0, %1 ], [ %.val87, %.lr.ph ], [ %25, %Ssw_SmlNodeIsZero.exit ], [ %.val87, %.loopexit.us ]
+  %.070 = phi i32 [ %32, %Aig_WordFindFirstBit.exit ], [ -1, %1 ], [ -1, %.lr.ph ], [ -1, %Ssw_SmlNodeIsZero.exit ], [ -1, %.loopexit.us ]
+  %.069 = phi i32 [ %40, %Aig_WordFindFirstBit.exit ], [ -1, %1 ], [ -1, %.lr.ph ], [ -1, %Ssw_SmlNodeIsZero.exit ], [ -1, %.loopexit.us ]
   %41 = getelementptr i8, ptr %2, i64 104
   %.val86 = load i32, ptr %41, align 8, !tbaa !53
   %42 = getelementptr i8, ptr %2, i64 136

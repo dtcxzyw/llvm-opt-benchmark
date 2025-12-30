@@ -1939,7 +1939,7 @@ _ZN9grpc_core11ChannelInit17DependencyTrackerD2Ev.exit: ; preds = %_ZNSt14priori
   br label %386
 
 386:                                              ; preds = %.loopexit, %.loopexit.split-lp, %233, %242, %257, %41, %50, %57, %98, %107, %96, %89, %385
-  %.pn110.pn.pn = phi { ptr, i32 } [ %258, %257 ], [ %90, %89 ], [ %.pn104.pn, %385 ], [ %108, %107 ], [ %99, %98 ], [ %58, %57 ], [ %51, %50 ], [ %42, %41 ], [ %97, %96 ], [ %234, %233 ], [ %243, %242 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn110.pn.pn = phi { ptr, i32 } [ %.pn104.pn, %385 ], [ %99, %98 ], [ %58, %57 ], [ %51, %50 ], [ %42, %41 ], [ %108, %107 ], [ %97, %96 ], [ %90, %89 ], [ %234, %233 ], [ %243, %242 ], [ %258, %257 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN9grpc_core11ChannelInit6FilterESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN9grpc_core11ChannelInit17DependencyTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #34
@@ -3676,12 +3676,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186: ; preds = %403, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i184, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit183, %382
-  %.pn66.pn = phi { ptr, i32 } [ %383, %382 ], [ %.pn66, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i184 ], [ %.pn61.pn, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit183 ], [ %.pn66, %403 ]
+  %.pn66.pn = phi { ptr, i32 } [ %.pn61.pn, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit183 ], [ %383, %382 ], [ %.pn66, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i184 ], [ %.pn66, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %408
 
 408:                                              ; preds = %255, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186, %94, %70
-  %.pn83 = phi { ptr, i32 } [ %71, %70 ], [ %95, %94 ], [ %.pn66.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %256, %255 ], [ %.pn73.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ]
+  %.pn83 = phi { ptr, i32 } [ %71, %70 ], [ %95, %94 ], [ %.pn66.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %.pn73.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %256, %255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -5209,7 +5209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %175
   br i1 %.not143, label %.loopexit, label %.lr.ph165
 
 .loopexit:                                        ; preds = %.lr.ph165, %181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91
-  %.not202 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ true, %181 ], [ true, %.lr.ph165 ]
+  %.not202 = phi i1 [ true, %181 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ true, %.lr.ph165 ]
   ret i1 %.not202
 }
 
@@ -5462,7 +5462,7 @@ _ZNK9grpc_core11ChannelInit6Filter15CheckPredicatesERKNS_11ChannelArgsE.exit: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit39
 
-.loopexit:                                        ; preds = %.lr.ph.i, %_ZN9grpc_core11ChannelInit6SkipV3ENS0_7VersionE.exit, %92
+.loopexit:                                        ; preds = %.lr.ph.i, %92, %_ZN9grpc_core11ChannelInit6SkipV3ENS0_7VersionE.exit
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.031.043, i64 80
   %.not = icmp eq ptr %93, %15
   br i1 %.not, label %.loopexit39, label %.lr.ph
@@ -6307,8 +6307,8 @@ define linkonce_odr noundef i64 @_ZZN4absl12lts_2024072218container_internal12ra
   br i1 %.not.i, label %.lr.ph.i, label %.thread.i, !llvm.loop !322
 
 _ZN4absl12lts_2024072218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm.exit: ; preds = %2, %.thread.i
-  %.sroa.011.0.i = phi i64 [ %37, %.thread.i ], [ %27, %2 ]
-  %.sroa.3.0.i = phi i64 [ %.sroa.12.0.lcssa.i, %.thread.i ], [ 0, %2 ]
+  %.sroa.011.0.i = phi i64 [ %27, %2 ], [ %37, %.thread.i ]
+  %.sroa.3.0.i = phi i64 [ 0, %2 ], [ %.sroa.12.0.lcssa.i, %.thread.i ]
   %45 = trunc i128 %16 to i8
   %46 = and i8 %45, 127
   %47 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.011.0.i
@@ -6762,7 +6762,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %102
 
 102:                                              ; preds = %100, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit36, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit25
-  %.pn16.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit25 ], [ %75, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit36 ]
+  %.pn16.pn.pn.pn = phi { ptr, i32 } [ %75, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit36 ], [ %101, %100 ], [ %.pn, %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit25 ]
   %103 = load ptr, ptr %0, align 8, !tbaa !117
   %104 = icmp eq ptr %103, %10
   br i1 %104, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -7433,7 +7433,7 @@ _ZN4absl12lts_2024072218container_internal20common_policy_traitsINS1_17FlatHashM
   br i1 %.not.i.i55, label %.lr.ph.i.i52, label %.thread.i.i44, !llvm.loop !322
 
 _ZN4absl12lts_2024072218container_internal19find_first_non_fullIvEENS1_8FindInfoERKNS1_12CommonFieldsEm.exit.i48: ; preds = %.thread.i.i44, %54
-  %.sroa.011.0.i.i49 = phi i64 [ %87, %.thread.i.i44 ], [ %77, %54 ]
+  %.sroa.011.0.i.i49 = phi i64 [ %77, %54 ], [ %87, %.thread.i.i44 ]
   %95 = trunc i128 %69 to i8
   %96 = and i8 %95, 127
   %97 = getelementptr inbounds nuw i8, ptr %71, i64 %.sroa.011.0.i.i49

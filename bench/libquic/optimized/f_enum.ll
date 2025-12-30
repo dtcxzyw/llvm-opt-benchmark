@@ -85,7 +85,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_ENUMERATED(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.preheader, %11, %2, %.loopexit24
-  %.018 = phi i32 [ 0, %2 ], [ -1, %.loopexit24 ], [ 2, %11 ], [ 0, %.preheader ], [ %36, %35 ]
+  %.018 = phi i32 [ -1, %.loopexit24 ], [ 0, %2 ], [ 2, %11 ], [ 0, %.preheader ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.018
 }
@@ -218,8 +218,8 @@ switch.early.test._crit_edge:                     ; preds = %32, %switch.early.t
   br label %45
 
 45:                                               ; preds = %41, %38, %37
-  %.3 = phi i32 [ %.2118.ph, %37 ], [ %spec.select, %41 ], [ %.2118.ph, %38 ]
-  %.0105 = phi ptr [ %2, %37 ], [ %spec.select165, %41 ], [ %2, %38 ]
+  %.3 = phi i32 [ %.2118.ph, %38 ], [ %.2118.ph, %37 ], [ %spec.select, %41 ]
+  %.0105 = phi ptr [ %2, %38 ], [ %2, %37 ], [ %spec.select165, %41 ]
   %46 = add nsw i32 %.3, %.neg
   %47 = and i32 %46, 1
   %.not124 = icmp eq i32 %47, 0
@@ -313,7 +313,7 @@ switch.early.test._crit_edge:                     ; preds = %32, %switch.early.t
   br label %92
 
 82:                                               ; preds = %69, %75, %79
-  %.0112 = phi i8 [ %80, %79 ], [ %76, %75 ], [ %72, %69 ]
+  %.0112 = phi i8 [ %76, %75 ], [ %80, %79 ], [ %72, %69 ]
   %83 = load i8, ptr %gep206, align 1, !tbaa !15
   %84 = shl i8 %83, 4
   %85 = or i8 %84, %.0112

@@ -3485,7 +3485,7 @@ define internal fastcc zeroext i1 @string_matches_pattern(ptr noundef readonly c
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph, %24, %.lr.ph51.split.us, %14, %19, %21, %10, %.critedge, %.critedge2
-  %.028 = phi i1 [ true, %.critedge ], [ true, %10 ], [ %34, %.critedge2 ], [ %13, %.lr.ph51.split.us ], [ false, %21 ], [ true, %19 ], [ %13, %14 ], [ false, %24 ], [ true, %.lr.ph ]
+  %.028 = phi i1 [ true, %10 ], [ true, %.critedge ], [ %34, %.critedge2 ], [ true, %19 ], [ false, %21 ], [ %13, %14 ], [ %13, %.lr.ph51.split.us ], [ true, %.lr.ph ], [ false, %24 ]
   ret i1 %.028
 }
 
@@ -3619,7 +3619,7 @@ define internal fastcc noundef zeroext i1 @results_differ(ptr noundef readonly c
   %.not15.i = icmp eq ptr %.0.i, null
   br i1 %.not15.i, label %get_expectfile.exit.thread, label %.lr.ph.i, !llvm.loop !37
 
-get_expectfile.exit.thread:                       ; preds = %20, %3, %8, %10
+get_expectfile.exit.thread:                       ; preds = %20, %8, %3, %10
   %22 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #23
   br label %31
 

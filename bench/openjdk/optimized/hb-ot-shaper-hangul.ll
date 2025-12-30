@@ -310,8 +310,8 @@ _ZL18is_zero_width_charP9hb_font_tj.exit163:      ; preds = %108
   br label %113
 
 113:                                              ; preds = %_ZL18is_zero_width_charP9hb_font_tj.exit163, %_ZL18is_zero_width_charP9hb_font_tj.exit163.thread
-  %storemerge301 = phi i32 [ %spec.select306, %_ZL18is_zero_width_charP9hb_font_tj.exit163 ], [ %42, %_ZL18is_zero_width_charP9hb_font_tj.exit163.thread ]
-  %storemerge = phi i32 [ %spec.select307, %_ZL18is_zero_width_charP9hb_font_tj.exit163 ], [ 9676, %_ZL18is_zero_width_charP9hb_font_tj.exit163.thread ]
+  %storemerge301 = phi i32 [ %42, %_ZL18is_zero_width_charP9hb_font_tj.exit163.thread ], [ %spec.select306, %_ZL18is_zero_width_charP9hb_font_tj.exit163 ]
+  %storemerge = phi i32 [ 9676, %_ZL18is_zero_width_charP9hb_font_tj.exit163.thread ], [ %spec.select307, %_ZL18is_zero_width_charP9hb_font_tj.exit163 ]
   store i32 %storemerge301, ptr %14, align 4
   store i32 %storemerge, ptr %33, align 4
   %114 = call noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr noundef nonnull align 8 dereferenceable(220) %1, i32 noundef 1, i32 noundef 2)
@@ -419,8 +419,8 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit: ; preds = %163, %149, %._crit_
   br label %.backedge
 
 .backedge:                                        ; preds = %598, %584, %554, %557, %345, %348, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit184, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit216
-  %.0152.be = phi i32 [ %166, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit ], [ %252, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit184 ], [ %420, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit216 ], [ %540, %554 ], [ %342, %345 ], [ %342, %348 ], [ %540, %557 ], [ %.2, %584 ], [ %.2, %598 ]
-  %.0.be = phi i32 [ %166, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit ], [ %170, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit184 ], [ %170, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit216 ], [ %170, %554 ], [ %170, %345 ], [ %170, %348 ], [ %170, %557 ], [ %170, %584 ], [ %170, %598 ]
+  %.0152.be = phi i32 [ %166, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit ], [ %252, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit184 ], [ %420, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit216 ], [ %342, %348 ], [ %342, %345 ], [ %540, %557 ], [ %540, %554 ], [ %.2, %584 ], [ %.2, %598 ]
+  %.0.be = phi i32 [ %166, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit ], [ %170, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit184 ], [ %170, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit216 ], [ %170, %348 ], [ %170, %345 ], [ %170, %557 ], [ %170, %554 ], [ %170, %584 ], [ %170, %598 ]
   %167 = load i32, ptr %21, align 4
   %168 = icmp ult i32 %167, %20
   br i1 %168, label %34, label %.critedge, !llvm.loop !11
@@ -470,8 +470,8 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit: ; preds = %163, %149, %._crit_
   br label %201
 
 201:                                              ; preds = %191, %188
-  %.0154 = phi i32 [ %spec.select159, %191 ], [ 0, %188 ]
-  %.0153 = phi i32 [ %spec.select160, %191 ], [ 0, %188 ]
+  %.0154 = phi i32 [ 0, %188 ], [ %spec.select159, %191 ]
+  %.0153 = phi i32 [ 0, %188 ], [ %spec.select160, %191 ]
   %.not = icmp eq i32 %.0153, 0
   %202 = select i1 %.not, i32 2, i32 3
   %203 = add i32 %202, %35
@@ -729,7 +729,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit194:           ; preds = %294, %308
   br label %_ZN11hb_buffer_t10next_glyphEv.exit199
 
 _ZN11hb_buffer_t10next_glyphEv.exit199:           ; preds = %_ZN11hb_buffer_t10next_glyphEv.exit194, %339, %325
-  %.sink = phi i32 [ 3, %339 ], [ 3, %325 ], [ 2, %_ZN11hb_buffer_t10next_glyphEv.exit194 ]
+  %.sink = phi i32 [ 3, %325 ], [ 3, %339 ], [ 2, %_ZN11hb_buffer_t10next_glyphEv.exit194 ]
   %342 = add i32 %170, %.sink
   %343 = load i8, ptr %22, align 8
   %344 = trunc i8 %343 to i1
@@ -1719,7 +1719,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !17
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated

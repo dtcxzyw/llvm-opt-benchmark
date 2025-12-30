@@ -47,7 +47,7 @@ define internal range(i32 0, 51) i32 @wsaud_probe(ptr noundef readonly captures(
   br label %19
 
 19:                                               ; preds = %16, %13, %10, %5, %1
-  %.0 = phi i32 [ 0, %13 ], [ 0, %1 ], [ 0, %5 ], [ 0, %10 ], [ %., %16 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %10 ], [ 0, %13 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -128,7 +128,7 @@ define internal range(i32 -1163346256, 1) i32 @wsaud_read_header(ptr noundef %0)
   br label %40
 
 40:                                               ; preds = %6, %1, %34, %33, %19
-  %.0 = phi i32 [ -5, %1 ], [ -1163346256, %33 ], [ -1163346256, %19 ], [ 0, %34 ], [ -12, %6 ]
+  %.0 = phi i32 [ -1163346256, %33 ], [ -1163346256, %19 ], [ 0, %34 ], [ -5, %1 ], [ -12, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -225,7 +225,7 @@ define internal i32 @wsaud_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %.thread
 
 .thread:                                          ; preds = %21, %32, %40, %10, %2, %52, %47
-  %.0 = phi i32 [ -1094995529, %47 ], [ -5, %2 ], [ %15, %52 ], [ -5, %40 ], [ -1094995529, %10 ], [ %25, %21 ], [ %34, %32 ]
+  %.0 = phi i32 [ %15, %52 ], [ -1094995529, %47 ], [ -5, %2 ], [ -1094995529, %10 ], [ -5, %40 ], [ %25, %21 ], [ %34, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

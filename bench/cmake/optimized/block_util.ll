@@ -72,8 +72,8 @@ lzma_block_unpadded_size.exit.thread18:           ; preds = %lzma_block_unpadded
   store i64 %31, ptr %13, align 8, !tbaa !12
   br label %lzma_block_unpadded_size.exit.thread
 
-lzma_block_unpadded_size.exit.thread:             ; preds = %21, %7, %4, %12, %2, %lzma_block_unpadded_size.exit.thread18, %30, %32, %lzma_block_unpadded_size.exit
-  %.0 = phi i32 [ 11, %lzma_block_unpadded_size.exit ], [ 9, %lzma_block_unpadded_size.exit.thread18 ], [ 0, %32 ], [ 9, %30 ], [ 11, %2 ], [ 11, %12 ], [ 11, %4 ], [ 11, %7 ], [ 11, %21 ]
+lzma_block_unpadded_size.exit.thread:             ; preds = %21, %2, %4, %7, %12, %lzma_block_unpadded_size.exit.thread18, %30, %32, %lzma_block_unpadded_size.exit
+  %.0 = phi i32 [ 11, %lzma_block_unpadded_size.exit ], [ 9, %lzma_block_unpadded_size.exit.thread18 ], [ 0, %32 ], [ 9, %30 ], [ 11, %12 ], [ 11, %7 ], [ 11, %4 ], [ 11, %2 ], [ 11, %21 ]
   ret i32 %.0
 }
 
@@ -126,7 +126,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
   br label %27
 
 27:                                               ; preds = %15, %1, %3, %6, %11, %20
-  %.0 = phi i64 [ %., %20 ], [ 0, %1 ], [ 0, %11 ], [ %.mux, %15 ], [ 0, %3 ], [ 0, %6 ]
+  %.0 = phi i64 [ %., %20 ], [ 0, %11 ], [ %.mux, %15 ], [ 0, %6 ], [ 0, %3 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -186,8 +186,8 @@ lzma_block_unpadded_size.exit:                    ; preds = %15
   %spec.select = sext i1 %not. to i64
   br label %lzma_block_unpadded_size.exit.thread
 
-lzma_block_unpadded_size.exit.thread:             ; preds = %lzma_block_unpadded_size.exit, %20, %1, %11, %3, %6
-  %.0 = phi i64 [ %spec.select, %lzma_block_unpadded_size.exit ], [ 0, %6 ], [ 0, %3 ], [ 0, %11 ], [ 0, %1 ], [ %29, %20 ]
+lzma_block_unpadded_size.exit.thread:             ; preds = %lzma_block_unpadded_size.exit, %20, %11, %6, %3, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %3 ], [ 0, %6 ], [ 0, %11 ], [ %29, %20 ], [ %spec.select, %lzma_block_unpadded_size.exit ]
   ret i64 %.0
 }
 

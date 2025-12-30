@@ -310,7 +310,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %162
 
 162:                                              ; preds = %154, %160, %156
-  %163 = phi double [ 0.000000e+00, %156 ], [ %161, %160 ], [ %6, %154 ]
+  %163 = phi double [ %161, %160 ], [ 0.000000e+00, %156 ], [ %6, %154 ]
   %164 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store double %163, ptr %164, align 8, !tbaa !45
   %165 = getelementptr inbounds nuw i8, ptr %28, i64 120
@@ -452,7 +452,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %253
 
 253:                                              ; preds = %9, %248, %143, %130, %114, %101, %89, %78, %68, %59, %50, %30, %26
-  %.0 = phi i32 [ -4, %89 ], [ -3, %26 ], [ -4, %30 ], [ -4, %50 ], [ -4, %59 ], [ -4, %68 ], [ -4, %78 ], [ -4, %130 ], [ -12, %143 ], [ %252, %248 ], [ -4, %114 ], [ -4, %101 ], [ %16, %9 ]
+  %.0 = phi i32 [ -3, %26 ], [ -4, %30 ], [ -4, %50 ], [ -4, %59 ], [ -4, %68 ], [ -4, %78 ], [ -4, %130 ], [ -12, %143 ], [ %252, %248 ], [ -4, %114 ], [ -4, %101 ], [ -4, %89 ], [ %16, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -876,7 +876,7 @@ define internal i32 @ARKBBDPrecSetup(double noundef %0, ptr noundef %1, ptr read
   br i1 %exitcond.not.i, label %.loopexit, label %93
 
 ARKBBDDQJac.exit:                                 ; preds = %._crit_edge.i, %35, %41
-  %.0.i = phi i32 [ %48, %41 ], [ %40, %35 ], [ %146, %._crit_edge.i ]
+  %.0.i = phi i32 [ %40, %35 ], [ %48, %41 ], [ %146, %._crit_edge.i ]
   %205 = icmp slt i32 %.0.i, 0
   br i1 %205, label %206, label %225
 
@@ -920,7 +920,7 @@ ARKBBDDQJac.exit:                                 ; preds = %._crit_edge.i, %35,
   br label %225
 
 225:                                              ; preds = %ARKBBDDQJac.exit, %213, %24, %18, %220, %219, %212, %206, %23, %17
-  %.0 = phi i32 [ -1, %17 ], [ 1, %213 ], [ -1, %219 ], [ %224, %220 ], [ -1, %23 ], [ 1, %18 ], [ -1, %206 ], [ 1, %24 ], [ -1, %212 ], [ 1, %ARKBBDDQJac.exit ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %219 ], [ %224, %220 ], [ -1, %23 ], [ -1, %206 ], [ -1, %212 ], [ 1, %18 ], [ 1, %24 ], [ 1, %213 ], [ 1, %ARKBBDDQJac.exit ]
   ret i32 %.0
 }
 
@@ -996,7 +996,7 @@ define i32 @ARKBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, dou
   br label %31
 
 31:                                               ; preds = %15, %29, %24
-  %32 = phi double [ 0.000000e+00, %24 ], [ %30, %29 ], [ %3, %15 ]
+  %32 = phi double [ %30, %29 ], [ 0.000000e+00, %24 ], [ %3, %15 ]
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store double %32, ptr %33, align 8, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 144
@@ -1004,7 +1004,7 @@ define i32 @ARKBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, dou
   br label %35
 
 35:                                               ; preds = %4, %31, %13
-  %.0 = phi i32 [ 0, %31 ], [ -5, %13 ], [ %7, %4 ]
+  %.0 = phi i32 [ -5, %13 ], [ 0, %31 ], [ %7, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1042,7 +1042,7 @@ define i32 @ARKBBDPrecGetWorkSpace(ptr noundef %0, ptr noundef writeonly capture
   br label %19
 
 19:                                               ; preds = %3, %14, %12
-  %.0 = phi i32 [ 0, %14 ], [ -5, %12 ], [ %6, %3 ]
+  %.0 = phi i32 [ -5, %12 ], [ 0, %14 ], [ %6, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1077,7 +1077,7 @@ define i32 @ARKBBDPrecGetNumGfnEvals(ptr noundef %0, ptr noundef writeonly captu
   br label %16
 
 16:                                               ; preds = %2, %13, %11
-  %.0 = phi i32 [ 0, %13 ], [ -5, %11 ], [ %5, %2 ]
+  %.0 = phi i32 [ -5, %11 ], [ 0, %13 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

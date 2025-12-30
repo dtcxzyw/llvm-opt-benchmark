@@ -1217,7 +1217,7 @@ find_block_motion.exit.thread:                    ; preds = %.loopexit.i.find_bl
   br label %.thread.i136
 
 .thread.i136:                                     ; preds = %.thread.loopexit.i, %305, %302, %230
-  %.1176.i = phi i32 [ %303, %305 ], [ %303, %302 ], [ %231, %230 ], [ %.1176.ph.i, %.thread.loopexit.i ]
+  %.1176.i = phi i32 [ %303, %302 ], [ %303, %305 ], [ %231, %230 ], [ %.1176.ph.i, %.thread.loopexit.i ]
   %.not.i137 = icmp eq i32 %.1176.i, 0
   br i1 %.not.i137, label %306, label %230, !llvm.loop !98
 

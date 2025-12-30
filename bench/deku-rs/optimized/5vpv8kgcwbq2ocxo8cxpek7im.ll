@@ -49,7 +49,7 @@ define internal void @"_ZN4core3ptr43drop_in_place$LT$deku..error..DekuError$GT$
   ]
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h075560e9871c6feeE.exit.sink.split": ; preds = %11, %7, %3
-  %.sink = phi ptr [ %8, %7 ], [ %4, %3 ], [ %12, %11 ]
+  %.sink = phi ptr [ %4, %3 ], [ %8, %7 ], [ %12, %11 ]
   tail call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5580554a7179f11cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink)
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h075560e9871c6feeE.exit"
 
@@ -355,7 +355,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit66: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit56
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit56: ; preds = %42, %37, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit66, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit51, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit46, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit41
-  %.sroa.0.0.in = phi i1 [ %27, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %30, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit41 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit46 ], [ %36, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit51 ], [ %49, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit66 ], [ %46, %42 ], [ %41, %37 ]
+  %.sroa.0.0.in = phi i1 [ %27, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %30, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit41 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit46 ], [ %36, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit51 ], [ %49, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit66 ], [ %41, %37 ], [ %46, %42 ]
   ret i1 %.sroa.0.0.in
 }
 

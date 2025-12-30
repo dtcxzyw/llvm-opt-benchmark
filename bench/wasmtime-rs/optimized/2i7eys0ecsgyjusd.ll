@@ -1895,7 +1895,7 @@ define hidden noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder26finish_prede
   unreachable
 
 .thread137:                                       ; preds = %.noexc101.invoke, %.noexc111.invoke, %.noexc66
-  %.0.i56 = phi i32 [ %204, %.noexc111.invoke ], [ %191, %.noexc101.invoke ], [ %133, %.noexc66 ]
+  %.0.i56 = phi i32 [ %133, %.noexc66 ], [ %204, %.noexc111.invoke ], [ %191, %.noexc101.invoke ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.thread141

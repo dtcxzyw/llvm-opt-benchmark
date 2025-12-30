@@ -532,8 +532,8 @@ _ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i144:   ; preds = %200
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i130
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i130:          ; preds = %179, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i313, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i144, %200, %198
-  %202 = phi ptr [ %.pr, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i144 ], [ %.pr, %198 ], [ %.pr, %200 ], [ %188, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i313 ], [ %.pr, %179 ]
-  %203 = phi i64 [ %173, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i144 ], [ %173, %198 ], [ %173, %200 ], [ %.pre.i145.pre, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i313 ], [ %173, %179 ]
+  %202 = phi ptr [ %.pr, %198 ], [ %.pr, %200 ], [ %.pr, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i144 ], [ %188, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i313 ], [ %.pr, %179 ]
+  %203 = phi i64 [ %173, %198 ], [ %173, %200 ], [ %173, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i144 ], [ %.pre.i145.pre, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i313 ], [ %173, %179 ]
   %204 = icmp sgt i64 %203, 0
   br i1 %204, label %.preheader.lr.ph.i131, label %_ZN3igl8internal17append_mat_to_vecIiN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEvRSt6vectorIT_SaIS6_EERKNS2_10MatrixBaseIT0_EE.exit147
 
@@ -828,8 +828,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i342: ; preds = %.noexc349
   br label %603
 
 _ZN3igl8internal17append_mat_to_vecIiN5Eigen14CwiseNullaryOpINS2_8internal18scalar_constant_opIiEENS2_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEEEvRSt6vectorIT_SaISB_EERKNS2_10MatrixBaseIT0_EE.exit: ; preds = %.preheader.i174, %253, %.preheader.lr.ph.i164
-  %297 = phi ptr [ null, %253 ], [ %261, %.preheader.lr.ph.i164 ], [ %285, %.preheader.i174 ]
-  %298 = phi ptr [ null, %253 ], [ %265, %.preheader.lr.ph.i164 ], [ %289, %.preheader.i174 ]
+  %297 = phi ptr [ %261, %.preheader.lr.ph.i164 ], [ null, %253 ], [ %285, %.preheader.i174 ]
+  %298 = phi ptr [ %265, %.preheader.lr.ph.i164 ], [ null, %253 ], [ %289, %.preheader.i174 ]
   %299 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %300 = load i64, ptr %299, align 8, !tbaa !44
   %301 = icmp eq i64 %300, 0
@@ -1523,8 +1523,8 @@ _ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i.i270:   ; preds = %549
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i256
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit.i256:          ; preds = %529, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36.i432, %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i.i270, %549, %547
-  %551 = phi ptr [ %.pr451, %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i.i270 ], [ %.pr451, %547 ], [ %.pr451, %549 ], [ %537, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36.i432 ], [ %.pr451, %529 ]
-  %552 = phi i64 [ %523, %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i.i270 ], [ %523, %547 ], [ %523, %549 ], [ %.pre.i271.pre, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36.i432 ], [ %523, %529 ]
+  %551 = phi ptr [ %.pr451, %547 ], [ %.pr451, %549 ], [ %.pr451, %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i.i270 ], [ %537, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36.i432 ], [ %.pr451, %529 ]
+  %552 = phi i64 [ %523, %547 ], [ %523, %549 ], [ %523, %_ZSt8_DestroyIPddEvT_S1_RSaIT0_E.exit.i.i.i270 ], [ %.pre.i271.pre, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36.i432 ], [ %523, %529 ]
   %553 = icmp sgt i64 %552, 0
   br i1 %553, label %.preheader.lr.ph.i257, label %_ZN3igl8internal17append_mat_to_vecIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvRSt6vectorIT_SaIS6_EERKNS2_10MatrixBaseIT0_EE.exit273
 
@@ -1762,7 +1762,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit287:                 ; preds = %635, %637
   br label %643
 
 643:                                              ; preds = %101, %103, %113, %54, %56, %_ZNSt6vectorIdSaIdEED2Ev.exit287, %92, %76, %44, %42
-  %.pn103.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn103.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit287 ], [ %45, %44 ], [ %77, %76 ], [ %93, %92 ], [ %55, %54 ], [ %43, %42 ], [ %57, %56 ], [ %104, %103 ], [ %102, %101 ], [ %114, %113 ]
+  %.pn103.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn103.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit287 ], [ %45, %44 ], [ %77, %76 ], [ %93, %92 ], [ %43, %42 ], [ %57, %56 ], [ %55, %54 ], [ %104, %103 ], [ %102, %101 ], [ %114, %113 ]
   %.074 = extractvalue { ptr, i32 } %.pn103.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, 1
   %644 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %645 = icmp eq i32 %.074, %644

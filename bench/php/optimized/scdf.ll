@@ -1081,21 +1081,21 @@ define hidden i32 @scdf_remove_unreachable_blocks(ptr noundef readonly captures(
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 28
   %44 = load i8, ptr %43, align 4, !tbaa !83
   switch i8 %44, label %is_live_loop_var_free.exit.thread.i [
-    i8 127, label %45
-    i8 70, label %zend_optimizer_is_loop_var_free.exit.i.i
+    i8 127, label %zend_optimizer_is_loop_var_free.exit.i.i
+    i8 70, label %45
   ]
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %47 = load i32, ptr %46, align 4, !tbaa !93
-  %.not.i.not.i.i = icmp eq i32 %47, 1
-  br i1 %.not.i.not.i.i, label %is_live_loop_var_free.exit.thread.i, label %51
+  %48 = icmp eq i32 %47, 2
+  br i1 %48, label %51, label %is_live_loop_var_free.exit.thread.i
 
 zend_optimizer_is_loop_var_free.exit.i.i:         ; preds = %40
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  %49 = load i32, ptr %48, align 4, !tbaa !93
-  %50 = icmp eq i32 %49, 2
-  br i1 %50, label %51, label %is_live_loop_var_free.exit.thread.i
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 20
+  %50 = load i32, ptr %49, align 4, !tbaa !93
+  %.not.i.not.i.i = icmp eq i32 %50, 1
+  br i1 %.not.i.not.i.i, label %is_live_loop_var_free.exit.thread.i, label %51
 
 51:                                               ; preds = %zend_optimizer_is_loop_var_free.exit.i.i, %45
   %52 = load i32, ptr %42, align 4, !tbaa !94
@@ -1194,7 +1194,7 @@ kept_alive_by_loop_var_free.exit:                 ; preds = %is_live_loop_var_fr
 94:                                               ; preds = %140, %.lr.ph44.i
   %95 = phi i32 [ %88, %.lr.ph44.i ], [ %141, %140 ]
   %96 = phi i32 [ %89, %.lr.ph44.i ], [ %142, %140 ]
-  %indvars.iv.i22 = phi i64 [ %91, %.lr.ph44.i ], [ %indvars.iv.next.i25, %140 ]
+  %indvars.iv.i22 = phi i64 [ %91, %.lr.ph44.i ], [ %indvars.iv.next.i24, %140 ]
   %.042.i = phi i32 [ 0, %.lr.ph44.i ], [ %.1.i, %140 ]
   %97 = load ptr, ptr %33, align 8, !tbaa !81
   %98 = getelementptr inbounds nuw %struct._zend_op, ptr %97, i64 %indvars.iv.i22
@@ -1204,28 +1204,28 @@ kept_alive_by_loop_var_free.exit:                 ; preds = %is_live_loop_var_fr
   %102 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %101, i64 %indvars.iv.i22
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 28
   %104 = load i8, ptr %103, align 4, !tbaa !83
-  switch i8 %104, label %is_live_loop_var_free.exit.thread.i24 [
+  switch i8 %104, label %is_live_loop_var_free.exit.thread.i23 [
     i8 0, label %140
-    i8 127, label %105
-    i8 70, label %zend_optimizer_is_loop_var_free.exit.i.i23
+    i8 127, label %zend_optimizer_is_loop_var_free.exit.i.i28
+    i8 70, label %105
   ]
 
 105:                                              ; preds = %94
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 20
   %107 = load i32, ptr %106, align 4, !tbaa !93
-  %.not.i.not.i.i29 = icmp eq i32 %107, 1
-  br i1 %.not.i.not.i.i29, label %is_live_loop_var_free.exit.thread.i24, label %111
+  %108 = icmp eq i32 %107, 2
+  br i1 %108, label %111, label %is_live_loop_var_free.exit.thread.i23
 
-zend_optimizer_is_loop_var_free.exit.i.i23:       ; preds = %94
-  %108 = getelementptr inbounds nuw i8, ptr %98, i64 20
-  %109 = load i32, ptr %108, align 4, !tbaa !93
-  %110 = icmp eq i32 %109, 2
-  br i1 %110, label %111, label %is_live_loop_var_free.exit.thread.i24
+zend_optimizer_is_loop_var_free.exit.i.i28:       ; preds = %94
+  %109 = getelementptr inbounds nuw i8, ptr %98, i64 20
+  %110 = load i32, ptr %109, align 4, !tbaa !93
+  %.not.i.not.i.i29 = icmp eq i32 %110, 1
+  br i1 %.not.i.not.i.i29, label %is_live_loop_var_free.exit.thread.i23, label %111
 
-111:                                              ; preds = %zend_optimizer_is_loop_var_free.exit.i.i23, %105
+111:                                              ; preds = %zend_optimizer_is_loop_var_free.exit.i.i28, %105
   %112 = load i32, ptr %102, align 4, !tbaa !94
   %113 = icmp slt i32 %112, 0
-  br i1 %113, label %is_live_loop_var_free.exit.thread.i24, label %114
+  br i1 %113, label %is_live_loop_var_free.exit.thread.i23, label %114
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %99, i64 64
@@ -1242,19 +1242,19 @@ zend_optimizer_is_loop_var_free.exit.i.i23:       ; preds = %94
   %124 = load ptr, ptr %123, align 8, !tbaa !79
   %125 = zext nneg i32 %120 to i64
   %126 = getelementptr inbounds nuw i32, ptr %124, i64 %125
-  br label %is_live_loop_var_free.exit.i26
+  br label %is_live_loop_var_free.exit.i25
 
 127:                                              ; preds = %114
   %128 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !75
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 72
-  br label %is_live_loop_var_free.exit.i26
+  br label %is_live_loop_var_free.exit.i25
 
-is_live_loop_var_free.exit.i26:                   ; preds = %127, %122
-  %.0.in.i.i27 = phi ptr [ %126, %122 ], [ %130, %127 ]
-  %.0.i.i28 = load i32, ptr %.0.in.i.i27, align 4, !tbaa !22
+is_live_loop_var_free.exit.i25:                   ; preds = %127, %122
+  %.0.in.i.i26 = phi ptr [ %126, %122 ], [ %130, %127 ]
+  %.0.i.i27 = load i32, ptr %.0.in.i.i26, align 4, !tbaa !22
   %131 = load ptr, ptr %7, align 8, !tbaa !26
-  %132 = zext i32 %.0.i.i28 to i64
+  %132 = zext i32 %.0.i.i27 to i64
   %133 = lshr i64 %132, 6
   %134 = getelementptr inbounds nuw i64, ptr %131, i64 %133
   %135 = load i64, ptr %134, align 8, !tbaa !24
@@ -1262,9 +1262,9 @@ is_live_loop_var_free.exit.i26:                   ; preds = %127, %122
   %137 = shl nuw i64 1, %136
   %138 = and i64 %137, %135
   %.not37.i = icmp eq i64 %138, 0
-  br i1 %.not37.i, label %is_live_loop_var_free.exit.thread.i24, label %140
+  br i1 %.not37.i, label %is_live_loop_var_free.exit.thread.i23, label %140
 
-is_live_loop_var_free.exit.thread.i24:            ; preds = %is_live_loop_var_free.exit.i26, %111, %zend_optimizer_is_loop_var_free.exit.i.i23, %105, %94
+is_live_loop_var_free.exit.thread.i23:            ; preds = %is_live_loop_var_free.exit.i25, %111, %zend_optimizer_is_loop_var_free.exit.i.i28, %105, %94
   tail call void @zend_ssa_remove_defs_of_instr(ptr noundef %23, ptr noundef %102) #8
   tail call void @zend_ssa_remove_instr(ptr noundef %23, ptr noundef nonnull %98, ptr noundef %102) #8
   %139 = add i32 %.042.i, 1
@@ -1272,14 +1272,14 @@ is_live_loop_var_free.exit.thread.i24:            ; preds = %is_live_loop_var_fr
   %.pre47.i = load i32, ptr %30, align 8, !tbaa !87
   br label %140
 
-140:                                              ; preds = %is_live_loop_var_free.exit.thread.i24, %is_live_loop_var_free.exit.i26, %94
-  %141 = phi i32 [ %.pre47.i, %is_live_loop_var_free.exit.thread.i24 ], [ %95, %is_live_loop_var_free.exit.i26 ], [ %95, %94 ]
-  %142 = phi i32 [ %.pre.i, %is_live_loop_var_free.exit.thread.i24 ], [ %96, %is_live_loop_var_free.exit.i26 ], [ %96, %94 ]
-  %.1.i = phi i32 [ %139, %is_live_loop_var_free.exit.thread.i24 ], [ %.042.i, %is_live_loop_var_free.exit.i26 ], [ %.042.i, %94 ]
-  %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i22, 1
+140:                                              ; preds = %is_live_loop_var_free.exit.thread.i23, %is_live_loop_var_free.exit.i25, %94
+  %141 = phi i32 [ %.pre47.i, %is_live_loop_var_free.exit.thread.i23 ], [ %95, %is_live_loop_var_free.exit.i25 ], [ %95, %94 ]
+  %142 = phi i32 [ %.pre.i, %is_live_loop_var_free.exit.thread.i23 ], [ %96, %is_live_loop_var_free.exit.i25 ], [ %96, %94 ]
+  %.1.i = phi i32 [ %139, %is_live_loop_var_free.exit.thread.i23 ], [ %.042.i, %is_live_loop_var_free.exit.i25 ], [ %.042.i, %94 ]
+  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
   %143 = add i32 %142, %141
   %144 = zext i32 %143 to i64
-  %145 = icmp samesign ult i64 %indvars.iv.next.i25, %144
+  %145 = icmp samesign ult i64 %indvars.iv.next.i24, %144
   br i1 %145, label %94, label %cleanup_loop_var_free_block.exit
 
 cleanup_loop_var_free_block.exit:                 ; preds = %140, %._crit_edge.i

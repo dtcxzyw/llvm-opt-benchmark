@@ -153,7 +153,7 @@ _ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %6
   br label %21
 
 21:                                               ; preds = %13, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit, %17
-  %.sink = phi double [ 0.000000e+00, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ %20, %17 ], [ 0x400921FB54442D18, %13 ]
+  %.sink = phi double [ %20, %17 ], [ 0.000000e+00, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ 0x400921FB54442D18, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %.sink, ptr %22, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -217,7 +217,7 @@ define internal fastcc void @_ZN2cv12ppf_match_3dL8poseToRTERKNS_4MatxIdLi4ELi4E
           to label %_ZN2cv3MatC2IdLi4ELi4EEERKNS_4MatxIT_XT0_EXT1_EEEb.exit.i unwind label %33
 
 common.resume:                                    ; preds = %33, %48, %74, %58
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %74 ], [ %59, %58 ], [ %34, %33 ], [ %.pn.pn.pn.i, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn, %74 ], [ %34, %33 ], [ %.pn.pn.pn.i, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %3
@@ -647,7 +647,7 @@ _ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %26
   br label %41
 
 41:                                               ; preds = %33, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit, %37
-  %.sink = phi double [ 0.000000e+00, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ %40, %37 ], [ 0x400921FB54442D18, %33 ]
+  %.sink = phi double [ %40, %37 ], [ 0.000000e+00, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ 0x400921FB54442D18, %33 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %.sink, ptr %42, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -830,7 +830,7 @@ _ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %82
   br label %97
 
 97:                                               ; preds = %89, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit, %93
-  %.sink = phi double [ 0.000000e+00, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ %96, %93 ], [ 0x400921FB54442D18, %89 ]
+  %.sink = phi double [ %96, %93 ], [ 0.000000e+00, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ 0x400921FB54442D18, %89 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %.sink, ptr %98, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -920,7 +920,7 @@ _ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %14
   br label %29
 
 29:                                               ; preds = %21, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit, %25
-  %.sink = phi double [ 0.000000e+00, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ %28, %25 ], [ 0x400921FB54442D18, %21 ]
+  %.sink = phi double [ %28, %25 ], [ 0.000000e+00, %_ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ 0x400921FB54442D18, %21 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %.sink, ptr %30, align 8, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -1812,7 +1812,7 @@ _ZN2cv3PtrINS_12ppf_match_3d6Pose3DEEC2IS2_EEPT_.exit: ; preds = %.lr.ph
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %110, %109
-  %112 = phi ptr [ %.pr.pre.i.i.i.i, %110 ], [ %106, %109 ]
+  %112 = phi ptr [ %106, %109 ], [ %.pr.pre.i.i.i.i, %110 ]
   %.not8.i.i.i.i = icmp eq ptr %112, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %113
 

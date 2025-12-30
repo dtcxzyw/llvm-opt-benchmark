@@ -2965,8 +2965,8 @@ pg_lfind32.exit:                                  ; preds = %48
   br label %pg_lfind32.exit.thread69
 
 pg_lfind32.exit.thread69:                         ; preds = %29, %.pg_lfind32.exit.thread69_crit_edge, %28, %pg_lfind32.exit
-  %.pre-phi94 = phi <4 x i32> [ %.pre93, %.pg_lfind32.exit.thread69_crit_edge ], [ %24, %pg_lfind32.exit ], [ %24, %28 ], [ %24, %29 ]
-  %.022 = phi i32 [ %68, %.pg_lfind32.exit.thread69_crit_edge ], [ %0, %pg_lfind32.exit ], [ %0, %28 ], [ %0, %29 ]
+  %.pre-phi94 = phi <4 x i32> [ %.pre93, %.pg_lfind32.exit.thread69_crit_edge ], [ %24, %28 ], [ %24, %pg_lfind32.exit ], [ %24, %29 ]
+  %.022 = phi i32 [ %68, %.pg_lfind32.exit.thread69_crit_edge ], [ %0, %28 ], [ %0, %pg_lfind32.exit ], [ %0, %29 ]
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3156,7 +3156,7 @@ pg_lfind32.exit44.thread73:                       ; preds = %79, %133, %132, %78
   br label %pg_lfind32.exit.thread
 
 pg_lfind32.exit.thread:                           ; preds = %.preheader.i, %.lr.ph.i.i, %.preheader.i24, %.lr.ph.i.i40, %.preheader.i46, %.lr.ph.i.i62, %pg_lfind32.exit66, %118, %pg_lfind32.exit44, %67, %pg_lfind32.exit, %6, %2, %pg_lfind32.exit44.thread73
-  %.0 = phi i1 [ true, %6 ], [ false, %2 ], [ true, %pg_lfind32.exit44 ], [ false, %118 ], [ false, %pg_lfind32.exit44.thread73 ], [ true, %pg_lfind32.exit ], [ false, %67 ], [ true, %pg_lfind32.exit66 ], [ true, %.preheader.i24 ], [ true, %.lr.ph.i.i62 ], [ true, %.lr.ph.i.i ], [ true, %.lr.ph.i.i40 ], [ true, %.preheader.i46 ], [ true, %.preheader.i ]
+  %.0 = phi i1 [ false, %pg_lfind32.exit44.thread73 ], [ false, %2 ], [ true, %6 ], [ true, %pg_lfind32.exit ], [ false, %67 ], [ true, %pg_lfind32.exit44 ], [ false, %118 ], [ true, %pg_lfind32.exit66 ], [ true, %.lr.ph.i.i62 ], [ true, %.preheader.i46 ], [ true, %.lr.ph.i.i40 ], [ true, %.preheader.i24 ], [ true, %.lr.ph.i.i ], [ true, %.preheader.i ]
   ret i1 %.0
 }
 

@@ -650,7 +650,7 @@ _ZNK4ncnn3Mat5emptyEv.exit81:                     ; preds = %223
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %223, %106, %42, %_ZN4ncnn3Mat7releaseEv.exit, %176, %_ZN4ncnn3Mat7releaseEv.exit76, %59, %292, %295, %_ZNK4ncnn3Mat5emptyEv.exit81, %155, %158, %_ZNK4ncnn3Mat5emptyEv.exit80, %_ZNK4ncnn3Mat5emptyEv.exit, %54
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit81 ], [ 0, %54 ], [ -100, %106 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit80 ], [ -100, %42 ], [ 0, %155 ], [ 0, %158 ], [ 0, %295 ], [ 0, %292 ], [ 0, %59 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit76 ], [ 0, %176 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit ], [ -100, %223 ]
+  %.0 = phi i32 [ 0, %54 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit80 ], [ 0, %158 ], [ 0, %155 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit81 ], [ 0, %295 ], [ 0, %292 ], [ 0, %59 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit76 ], [ 0, %176 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit ], [ -100, %42 ], [ -100, %106 ], [ -100, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2409,8 +2409,8 @@ _ZN4ncnn3MatD2Ev.exit99.i:                        ; preds = %110, %109, %105, %9
   br label %.lr.ph124.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph124.i, %.loopexit.i, %140, %121
-  %.1163.i = phi ptr [ %.089127.i, %121 ], [ %.088128.i, %.loopexit.i ], [ %.088128.i, %140 ], [ %.1164.i, %.lr.ph124.i ]
-  %.190161.i = phi ptr [ %.088128.i, %121 ], [ %.089127.i, %.loopexit.i ], [ %.089127.i, %140 ], [ %.190162.i, %.lr.ph124.i ]
+  %.1163.i = phi ptr [ %.088128.i, %.loopexit.i ], [ %.088128.i, %140 ], [ %.089127.i, %121 ], [ %.1164.i, %.lr.ph124.i ]
+  %.190161.i = phi ptr [ %.089127.i, %.loopexit.i ], [ %.089127.i, %140 ], [ %.088128.i, %121 ], [ %.190162.i, %.lr.ph124.i ]
   %174 = getelementptr inbounds nuw i8, ptr %.087129.i, i64 8
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %exitcond146.not.i = icmp eq i64 %indvars.iv.next143.i, %wide.trip.count145.i
@@ -3137,10 +3137,10 @@ _ZN4ncnn3MatD2Ev.exit288.i:                       ; preds = %118, %117, %113, %1
   br label %.lr.ph354.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph354.i, %.loopexit.i, %327, %256, %201, %167
-  %.1266424.i = phi ptr [ %.0267359.i, %167 ], [ %.0265360.i, %.loopexit.i ], [ %.0265360.i, %327 ], [ %.0271357.i, %256 ], [ %.0269358.i, %201 ], [ %.1266425.i, %.lr.ph354.i ]
-  %.1268422.i = phi ptr [ %.0269358.i, %167 ], [ %.0267359.i, %.loopexit.i ], [ %.0267359.i, %327 ], [ %.0265360.i, %256 ], [ %.0271357.i, %201 ], [ %.1268423.i, %.lr.ph354.i ]
-  %.1270420.i = phi ptr [ %.0271357.i, %167 ], [ %.0269358.i, %.loopexit.i ], [ %.0269358.i, %327 ], [ %.0267359.i, %256 ], [ %.0265360.i, %201 ], [ %.1270421.i, %.lr.ph354.i ]
-  %.1272418.i = phi ptr [ %.0265360.i, %167 ], [ %.0271357.i, %.loopexit.i ], [ %.0271357.i, %327 ], [ %.0269358.i, %256 ], [ %.0267359.i, %201 ], [ %.1272419.i, %.lr.ph354.i ]
+  %.1266424.i = phi ptr [ %.0265360.i, %.loopexit.i ], [ %.0265360.i, %327 ], [ %.0271357.i, %256 ], [ %.0269358.i, %201 ], [ %.0267359.i, %167 ], [ %.1266425.i, %.lr.ph354.i ]
+  %.1268422.i = phi ptr [ %.0267359.i, %.loopexit.i ], [ %.0267359.i, %327 ], [ %.0265360.i, %256 ], [ %.0271357.i, %201 ], [ %.0269358.i, %167 ], [ %.1268423.i, %.lr.ph354.i ]
+  %.1270420.i = phi ptr [ %.0269358.i, %.loopexit.i ], [ %.0269358.i, %327 ], [ %.0267359.i, %256 ], [ %.0265360.i, %201 ], [ %.0271357.i, %167 ], [ %.1270421.i, %.lr.ph354.i ]
+  %.1272418.i = phi ptr [ %.0271357.i, %.loopexit.i ], [ %.0271357.i, %327 ], [ %.0269358.i, %256 ], [ %.0267359.i, %201 ], [ %.0265360.i, %167 ], [ %.1272419.i, %.lr.ph354.i ]
   %423 = getelementptr inbounds nuw i8, ptr %.0261361.i, i64 16
   %indvars.iv.next387.i = add nuw nsw i64 %indvars.iv386.i, 1
   %exitcond390.not.i = icmp eq i64 %indvars.iv.next387.i, %wide.trip.count389.i

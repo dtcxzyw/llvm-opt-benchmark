@@ -455,7 +455,7 @@ pmix_mca_base_alias_setup.exit:                   ; preds = %16, %pmix_obj_updat
   store ptr null, ptr @alias_hash_table, align 8, !tbaa !34
   br label %117
 
-56:                                               ; preds = %.loopexit.i, %8
+56:                                               ; preds = %8, %.loopexit.i
   %57 = tail call fastcc ptr @pmix_mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !40
@@ -604,7 +604,7 @@ pmix_obj_new_tma.exit46:                          ; preds = %91
   br label %117
 
 117:                                              ; preds = %pmix_mca_base_alias_setup.exit, %103, %pmix_obj_new_tma.exit46, %116, %.loopexit, %pmix_obj_new_tma.exit, %5
-  %.0 = phi i32 [ -27, %5 ], [ %.0.ph.i, %pmix_mca_base_alias_setup.exit ], [ -29, %pmix_obj_new_tma.exit ], [ -29, %pmix_obj_new_tma.exit46 ], [ -29, %103 ], [ 0, %116 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ -27, %5 ], [ %.0.ph.i, %pmix_mca_base_alias_setup.exit ], [ -29, %pmix_obj_new_tma.exit ], [ -29, %103 ], [ -29, %pmix_obj_new_tma.exit46 ], [ 0, %116 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

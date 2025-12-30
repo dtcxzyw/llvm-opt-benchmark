@@ -67,8 +67,8 @@ define void @dlasd7_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %.not415, label %65, label %.thread
 
 .thread:                                          ; preds = %62, %60, %59, %57, %55, %27
-  %.sink = phi i32 [ -1, %27 ], [ -2, %55 ], [ -4, %59 ], [ -22, %60 ], [ -3, %57 ], [ -24, %62 ]
-  %.neg = phi i32 [ 1, %27 ], [ 2, %55 ], [ 4, %59 ], [ 22, %60 ], [ 3, %57 ], [ 24, %62 ]
+  %.sink = phi i32 [ -1, %27 ], [ -2, %55 ], [ -3, %57 ], [ -4, %59 ], [ -22, %60 ], [ -24, %62 ]
+  %.neg = phi i32 [ 1, %27 ], [ 2, %55 ], [ 3, %57 ], [ 4, %59 ], [ 22, %60 ], [ 24, %62 ]
   store i32 %.sink, ptr %26, align 4, !tbaa !3
   store i32 %.neg, ptr %28, align 4, !tbaa !3
   %64 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %28, i32 noundef 6) #4

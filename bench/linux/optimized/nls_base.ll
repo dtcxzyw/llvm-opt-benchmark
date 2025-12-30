@@ -325,7 +325,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr noundef readonly captures(none) %0, i3
   br label %.thread
 
 .thread:                                          ; preds = %35, %48, %50, %55, %.loopexit
-  %111 = phi i32 [ %110, %.loopexit ], [ -22, %48 ], [ -22, %55 ], [ -22, %50 ], [ -22, %35 ]
+  %111 = phi i32 [ %110, %.loopexit ], [ -22, %55 ], [ -22, %50 ], [ -22, %48 ], [ -22, %35 ]
   ret i32 %111
 }
 
@@ -459,7 +459,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr noundef readonly captures(none) %0, i3
   br i1 %91, label %.loopexit10, label %62, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit12, %69
-  %.ph = phi i32 [ 0, %.loopexit12 ], [ %65, %69 ], [ %65, %.preheader ]
+  %.ph = phi i32 [ %65, %69 ], [ 0, %.loopexit12 ], [ %65, %.preheader ]
   %92 = sext i32 %.ph to i64
   %93 = getelementptr i8, ptr %12, i64 %92
   %94 = sub i32 %13, %.ph
@@ -473,17 +473,17 @@ define dso_local i32 @utf16s_to_utf8s(ptr noundef readonly captures(none) %0, i3
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %89, %57, %95, %.loopexit
-  %99 = phi i32 [ %26, %95 ], [ %53, %.loopexit ], [ %53, %57 ], [ %53, %89 ]
-  %100 = phi ptr [ %25, %95 ], [ %54, %.loopexit ], [ %54, %57 ], [ %54, %89 ]
-  %101 = phi i32 [ %98, %95 ], [ %94, %.loopexit ], [ %13, %57 ], [ %13, %89 ]
-  %102 = phi ptr [ %97, %95 ], [ %93, %.loopexit ], [ %12, %57 ], [ %12, %89 ]
+  %99 = phi i32 [ %53, %.loopexit ], [ %26, %95 ], [ %53, %57 ], [ %53, %89 ]
+  %100 = phi ptr [ %54, %.loopexit ], [ %25, %95 ], [ %54, %57 ], [ %54, %89 ]
+  %101 = phi i32 [ %94, %.loopexit ], [ %98, %95 ], [ %13, %57 ], [ %13, %89 ]
+  %102 = phi ptr [ %93, %.loopexit ], [ %97, %95 ], [ %12, %57 ], [ %12, %89 ]
   %103 = icmp sgt i32 %101, 0
   %104 = icmp sgt i32 %99, 0
   %105 = select i1 %104, i1 %103, i1 false
   br i1 %105, label %11, label %.loopexit11, !llvm.loop !11
 
 .loopexit11:                                      ; preds = %.loopexit10, %36, %34, %16, %5
-  %106 = phi ptr [ %3, %5 ], [ %12, %36 ], [ %12, %16 ], [ %12, %34 ], [ %102, %.loopexit10 ]
+  %106 = phi ptr [ %3, %5 ], [ %12, %16 ], [ %12, %34 ], [ %12, %36 ], [ %102, %.loopexit10 ]
   %107 = ptrtoint ptr %106 to i64
   %108 = ptrtoint ptr %3 to i64
   %109 = sub i64 %107, %108

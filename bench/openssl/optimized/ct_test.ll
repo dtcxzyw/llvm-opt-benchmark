@@ -417,7 +417,7 @@ define internal range(i32 0, 2) i32 @test_encode_tls_sct() #0 {
   br label %36
 
 36:                                               ; preds = %0, %28, %24, %17, %10
-  %.014 = phi i32 [ 0, %17 ], [ 0, %10 ], [ %32, %28 ], [ 0, %24 ], [ 0, %0 ]
+  %.014 = phi i32 [ 0, %10 ], [ %32, %28 ], [ 0, %24 ], [ 0, %17 ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -708,7 +708,7 @@ load_pem_cert.exit95:                             ; preds = %47, %54
   %.not9.i = icmp eq i32 %87, 0
   br i1 %.not9.i, label %compare_extension_printout.exit.thread, label %compare_extension_printout.exit
 
-compare_extension_printout.exit.thread:           ; preds = %69, %83, %78, %73
+compare_extension_printout.exit.thread:           ; preds = %83, %78, %73, %69
   %88 = call i32 @BIO_free(ptr noundef %71) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
@@ -760,8 +760,8 @@ compare_extension_printout.exit:                  ; preds = %83
   br i1 %.not71, label %.thread, label %.thread106
 
 .thread106:                                       ; preds = %108, %._crit_edge, %106, %25
-  %.161 = phi ptr [ %.3, %108 ], [ null, %25 ], [ %.3, %106 ], [ %.3, %._crit_edge ]
-  %.159 = phi ptr [ %.0.i90, %108 ], [ null, %25 ], [ %.0.i90, %106 ], [ %.0.i90, %._crit_edge ]
+  %.161 = phi ptr [ null, %25 ], [ %.3, %106 ], [ %.3, %._crit_edge ], [ %.3, %108 ]
+  %.159 = phi ptr [ null, %25 ], [ %.0.i90, %106 ], [ %.0.i90, %._crit_edge ], [ %.0.i90, %108 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %111 = load ptr, ptr %110, align 8, !tbaa !25
   %.not78 = icmp eq ptr %111, null
@@ -815,7 +815,7 @@ compare_extension_printout.exit:                  ; preds = %83
   %.not6.i = icmp eq i32 %136, 0
   br i1 %.not6.i, label %compare_sct_list_printout.exit.thread, label %compare_sct_list_printout.exit
 
-compare_sct_list_printout.exit.thread:            ; preds = %127, %132
+compare_sct_list_printout.exit.thread:            ; preds = %132, %127
   %137 = call i32 @BIO_free(ptr noundef %130) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread112
@@ -840,7 +840,7 @@ compare_sct_list_printout.exit:                   ; preds = %132
   %.not83 = icmp eq i32 %149, 0
   br i1 %.not83, label %.thread112, label %150
 
-.thread112:                                       ; preds = %compare_sct_list_printout.exit, %122, %112, %compare_sct_list_printout.exit.thread, %142
+.thread112:                                       ; preds = %112, %122, %compare_sct_list_printout.exit, %compare_sct_list_printout.exit.thread, %142
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -848,10 +848,10 @@ compare_sct_list_printout.exit:                   ; preds = %132
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %compare_extension_printout.exit.thread, %108, %load_pem_cert.exit, %106, %load_pem_cert.exit95, %65, %compare_extension_printout.exit, %.thread106, %150, %.thread112, %read_text_file.exit
-  %.060 = phi ptr [ %.161, %.thread106 ], [ %.161, %.thread112 ], [ %.3, %compare_extension_printout.exit ], [ null, %read_text_file.exit ], [ %.161, %150 ], [ %.3, %compare_extension_printout.exit.thread ], [ %.3, %108 ], [ null, %load_pem_cert.exit ], [ %.3, %106 ], [ %.0.i94, %load_pem_cert.exit95 ], [ %.3, %65 ], [ %.3, %.lr.ph ]
-  %.058 = phi ptr [ %.159, %.thread106 ], [ %.159, %.thread112 ], [ %.0.i90, %compare_extension_printout.exit ], [ null, %read_text_file.exit ], [ %.159, %150 ], [ %.0.i90, %compare_extension_printout.exit.thread ], [ %.0.i90, %108 ], [ %.0.i90, %load_pem_cert.exit ], [ %.0.i90, %106 ], [ %.0.i90, %load_pem_cert.exit95 ], [ %.0.i90, %65 ], [ %.0.i90, %.lr.ph ]
-  %.057 = phi i32 [ 1, %.thread106 ], [ 0, %.thread112 ], [ 0, %compare_extension_printout.exit ], [ 0, %read_text_file.exit ], [ 1, %150 ], [ 0, %compare_extension_printout.exit.thread ], [ 0, %108 ], [ 0, %load_pem_cert.exit ], [ 0, %106 ], [ 0, %load_pem_cert.exit95 ], [ 0, %65 ], [ 0, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %compare_extension_printout.exit.thread, %108, %106, %compare_extension_printout.exit, %65, %load_pem_cert.exit95, %load_pem_cert.exit, %.thread106, %150, %.thread112, %read_text_file.exit
+  %.060 = phi ptr [ null, %read_text_file.exit ], [ %.161, %.thread112 ], [ %.161, %150 ], [ %.161, %.thread106 ], [ %.3, %compare_extension_printout.exit.thread ], [ %.3, %108 ], [ %.3, %106 ], [ %.3, %compare_extension_printout.exit ], [ %.3, %65 ], [ %.0.i94, %load_pem_cert.exit95 ], [ null, %load_pem_cert.exit ], [ %.3, %.lr.ph ]
+  %.058 = phi ptr [ null, %read_text_file.exit ], [ %.159, %.thread112 ], [ %.159, %150 ], [ %.159, %.thread106 ], [ %.0.i90, %compare_extension_printout.exit.thread ], [ %.0.i90, %108 ], [ %.0.i90, %106 ], [ %.0.i90, %compare_extension_printout.exit ], [ %.0.i90, %65 ], [ %.0.i90, %load_pem_cert.exit95 ], [ %.0.i90, %load_pem_cert.exit ], [ %.0.i90, %.lr.ph ]
+  %.057 = phi i32 [ 0, %read_text_file.exit ], [ 0, %.thread112 ], [ 1, %150 ], [ 1, %.thread106 ], [ 0, %compare_extension_printout.exit.thread ], [ 0, %108 ], [ 0, %106 ], [ 0, %compare_extension_printout.exit ], [ 0, %65 ], [ 0, %load_pem_cert.exit95 ], [ 0, %load_pem_cert.exit ], [ 0, %.lr.ph ]
   call void @X509_free(ptr noundef %.058) #8
   call void @X509_free(ptr noundef %.060) #8
   %151 = load ptr, ptr %4, align 8, !tbaa !30
@@ -962,7 +962,7 @@ define internal fastcc range(i32 0, 2) i32 @assert_validity(ptr noundef nonnull 
   br label %25
 
 25:                                               ; preds = %._crit_edge, %3, %21
-  %.0 = phi i32 [ 0, %3 ], [ 0, %21 ], [ 1, %._crit_edge ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %3 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 

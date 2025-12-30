@@ -462,9 +462,9 @@ PACKET_get_1.exit.i56:                            ; preds = %334
   %.not17 = icmp eq i64 %.sroa.29.1, 0
   br i1 %.not17, label %PACKET_buf_init.exit.thread, label %19, !llvm.loop !9
 
-PACKET_buf_init.exit.thread:                      ; preds = %19, %346, %22, %24, %26, %PACKET_get_1.exit.i, %69, %77, %121, %165, %209, %290, %334, %PACKET_get_1.exit.i56, %339, %.preheader, %PACKET_buf_init.exit, %2, %12, %PACKET_get_1.exit
-  %.013 = phi i32 [ -1, %12 ], [ -1, %PACKET_get_1.exit ], [ -1, %PACKET_buf_init.exit ], [ 0, %2 ], [ 0, %.preheader ], [ -1, %334 ], [ -1, %290 ], [ -1, %26 ], [ -1, %24 ], [ -1, %165 ], [ -1, %22 ], [ 0, %19 ], [ -1, %PACKET_get_1.exit.i56 ], [ -1, %121 ], [ -1, %77 ], [ -1, %69 ], [ -1, %PACKET_get_1.exit.i ], [ -1, %209 ], [ 0, %346 ], [ -1, %339 ]
-  %.012 = phi ptr [ null, %12 ], [ null, %PACKET_get_1.exit ], [ null, %PACKET_buf_init.exit ], [ null, %2 ], [ %16, %.preheader ], [ %16, %339 ], [ %16, %PACKET_get_1.exit.i56 ], [ %16, %334 ], [ %16, %290 ], [ %16, %209 ], [ %16, %165 ], [ %16, %121 ], [ %16, %77 ], [ %16, %69 ], [ %16, %PACKET_get_1.exit.i ], [ %16, %26 ], [ %16, %24 ], [ %16, %22 ], [ %16, %346 ], [ %16, %19 ]
+PACKET_buf_init.exit.thread:                      ; preds = %19, %346, %22, %24, %PACKET_get_1.exit.i, %26, %69, %77, %121, %165, %209, %290, %PACKET_get_1.exit.i56, %334, %339, %.preheader, %PACKET_buf_init.exit, %2, %12, %PACKET_get_1.exit
+  %.013 = phi i32 [ -1, %PACKET_get_1.exit ], [ -1, %12 ], [ 0, %2 ], [ -1, %PACKET_buf_init.exit ], [ 0, %.preheader ], [ 0, %19 ], [ 0, %346 ], [ -1, %22 ], [ -1, %24 ], [ -1, %PACKET_get_1.exit.i ], [ -1, %26 ], [ -1, %69 ], [ -1, %77 ], [ -1, %121 ], [ -1, %165 ], [ -1, %209 ], [ -1, %290 ], [ -1, %PACKET_get_1.exit.i56 ], [ -1, %334 ], [ -1, %339 ]
+  %.012 = phi ptr [ null, %PACKET_get_1.exit ], [ null, %12 ], [ null, %2 ], [ null, %PACKET_buf_init.exit ], [ %16, %.preheader ], [ %16, %339 ], [ %16, %334 ], [ %16, %PACKET_get_1.exit.i56 ], [ %16, %290 ], [ %16, %209 ], [ %16, %165 ], [ %16, %121 ], [ %16, %77 ], [ %16, %69 ], [ %16, %26 ], [ %16, %PACKET_get_1.exit.i ], [ %16, %24 ], [ %16, %22 ], [ %16, %346 ], [ %16, %19 ]
   call void @ossl_quic_lcidm_free(ptr noundef %.012) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

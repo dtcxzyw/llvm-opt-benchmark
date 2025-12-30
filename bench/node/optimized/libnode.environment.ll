@@ -306,7 +306,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %cmp12.not.i.i.i = icmp eq ptr %6, %5
   br i1 %cmp12.not.i.i.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread10
 
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread10: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
+_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread10: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br label %land.end
@@ -395,7 +395,7 @@ _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %_Z
   %cmp = icmp eq i64 %8, 0
   br i1 %cmp, label %if.then, label %if.end.i.i10
 
-if.then:                                          ; preds = %entry, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
+if.then:                                          ; preds = %if.end.i.i, %entry, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
   %call18 = tail call ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %exception.coerce, ptr %context.coerce) #12
   br label %return
 
@@ -870,7 +870,7 @@ do.body6:                                         ; preds = %for.cond.i.i.i.i.i,
   tail call void @abort() #22
   unreachable
 
-do.end8:                                          ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, %if.end15.i.i.i
+do.end8:                                          ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPvSt4pairIKS1_mESaIS4_ENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 8 dereferenceable(56) %allocations_, ptr noundef nonnull align 8 dereferenceable(8) %data.addr)
   store i64 %size, ptr %call.i, align 8
   br label %return
@@ -1066,13 +1066,13 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
   br label %do.body11, !llvm.loop !8
 
-do.body11:                                        ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
+do.body11:                                        ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator25UnregisterPointerInternalEPvmE4args) #12
   tail call void @abort() #22
   unreachable
 
 do.end13:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
   %cmp14.not = icmp eq i64 %size, 0
   br i1 %cmp14.not, label %if.end27, label %do.body16
 
@@ -1275,7 +1275,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
   br label %do.body17, !llvm.loop !8
 
-do.body17:                                        ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
+do.body17:                                        ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node29DebuggingArrayBufferAllocator10ReallocateEPvmmE4args) #12
   tail call void @abort() #22
   unreachable
@@ -1289,10 +1289,10 @@ do.end20.loopexit:                                ; preds = %for.body.i.i
   br label %do.end20
 
 do.end20:                                         ; preds = %for.cond.i.i.i.i, %do.end20.loopexit, %if.end.i.i.i.i
-  %rem.i.i.i.i.i.i.pre-phi = phi i64 [ %rem.i.i.i.i.i, %if.end.i.i.i.i ], [ %.pre41, %do.end20.loopexit ], [ %rem.i.i.i.i.i, %for.cond.i.i.i.i ]
-  %14 = phi ptr [ %7, %if.end.i.i.i.i ], [ %.pre38, %do.end20.loopexit ], [ %7, %for.cond.i.i.i.i ]
-  %15 = phi i64 [ %6, %if.end.i.i.i.i ], [ %.pre, %do.end20.loopexit ], [ %6, %for.cond.i.i.i.i ]
-  %retval.sroa.0.1.i.i = phi ptr [ %9, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %do.end20.loopexit ], [ %11, %for.cond.i.i.i.i ]
+  %rem.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre41, %do.end20.loopexit ], [ %rem.i.i.i.i.i, %if.end.i.i.i.i ], [ %rem.i.i.i.i.i, %for.cond.i.i.i.i ]
+  %14 = phi ptr [ %.pre38, %do.end20.loopexit ], [ %7, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
+  %15 = phi i64 [ %.pre, %do.end20.loopexit ], [ %6, %if.end.i.i.i.i ], [ %6, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %do.end20.loopexit ], [ %9, %if.end.i.i.i.i ], [ %11, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i6 = getelementptr inbounds ptr, ptr %14, i64 %rem.i.i.i.i.i.i.pre-phi
   %16 = load ptr, ptr %arrayidx.i.i.i.i6, align 8
   br label %while.cond.i.i.i.i
@@ -2261,7 +2261,7 @@ cleanup.thread:                                   ; preds = %do.end58
   br label %if.end74
 
 if.end74:                                         ; preds = %cleanup.thread, %if.end13
-  %context.sroa.0.0 = phi ptr [ %call37, %cleanup.thread ], [ %context.coerce, %if.end13 ]
+  %context.sroa.0.0 = phi ptr [ %context.coerce, %if.end13 ], [ %call37, %cleanup.thread ]
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %context.sroa.0.0) #12
   call void @_ZN4node11Environment21InitializeMainContextEN2v85LocalINS1_7ContextEEEPKNS_16EnvSerializeInfoE(ptr noundef nonnull align 8 dereferenceable(2872) %call14, ptr nonnull %context.sroa.0.0, ptr noundef %env_snapshot_info.0) #12
   %flags_.i = getelementptr inbounds nuw i8, ptr %call14, i64 2064
@@ -2314,7 +2314,7 @@ if.end92.sink.split.sink.split:                   ; preds = %if.else, %if.then87
   br label %if.end92.sink.split
 
 if.end92.sink.split:                              ; preds = %if.end92.sink.split.sink.split, %if.else, %if.then87
-  %agg.tmp88.sink = phi ptr [ %agg.tmp90, %if.else ], [ %agg.tmp88, %if.then87 ], [ %agg.tmp88.sink.ph, %if.end92.sink.split.sink.split ]
+  %agg.tmp88.sink = phi ptr [ %agg.tmp88, %if.then87 ], [ %agg.tmp90, %if.else ], [ %agg.tmp88.sink.ph, %if.end92.sink.split.sink.split ]
   store ptr null, ptr %agg.tmp88.sink, align 8
   br label %if.end92
 
@@ -2334,8 +2334,8 @@ cleanup105.sink.split:                            ; preds = %land.rhs, %do.end58
   br label %cleanup105
 
 cleanup105:                                       ; preds = %cleanup105.sink.split, %if.end92, %land.rhs
-  %call37.sink = phi ptr [ %context.sroa.0.0, %if.end92 ], [ %context.sroa.0.0, %land.rhs ], [ %call37.sink.ph, %cleanup105.sink.split ]
-  %retval.1 = phi ptr [ %call14, %if.end92 ], [ %call14, %land.rhs ], [ null, %cleanup105.sink.split ]
+  %call37.sink = phi ptr [ %context.sroa.0.0, %land.rhs ], [ %context.sroa.0.0, %if.end92 ], [ %call37.sink.ph, %cleanup105.sink.split ]
+  %retval.1 = phi ptr [ %call14, %land.rhs ], [ %call14, %if.end92 ], [ null, %cleanup105.sink.split ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call37.sink) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #12
@@ -2457,7 +2457,7 @@ if.end177:                                        ; preds = %if.end142, %if.else
   br label %cleanup180
 
 cleanup180:                                       ; preds = %if.then123, %if.then100, %if.end58, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %entry, %if.end142, %if.end177
-  %retval.sroa.0.0 = phi i16 [ 0, %if.end142 ], [ 257, %entry ], [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 0, %if.end58 ], [ 257, %if.end177 ], [ 0, %if.then100 ], [ 0, %if.then123 ]
+  %retval.sroa.0.0 = phi i16 [ 257, %if.end177 ], [ 0, %if.end142 ], [ 257, %entry ], [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 0, %if.end58 ], [ 0, %if.then100 ], [ 0, %if.then123 ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   ret i16 %retval.sroa.0.0
 }
@@ -2768,7 +2768,7 @@ if.end.i:                                         ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %entry, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.end.i.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %entry ], [ null, %if.end.i.i ]
   ret ptr %retval.0.i
 }
 
@@ -2903,7 +2903,7 @@ cleanup.sink.split:                               ; preds = %lor.rhs, %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %lor.rhs, %if.end54, %_ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %retval.sroa.0.0 = phi ptr [ null, %if.end54 ], [ null, %lor.rhs ], [ null, %_ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ %call4.i, %cleanup.sink.split ]
+  %retval.sroa.0.0 = phi ptr [ null, %_ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ null, %if.end54 ], [ null, %lor.rhs ], [ %call4.i, %cleanup.sink.split ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   ret ptr %retval.sroa.0.0
 }
@@ -2986,7 +2986,7 @@ for.body:                                         ; preds = %init.end, %for.cond
   br i1 %cmp.i.i, label %cleanup, label %for.cond
 
 cleanup:                                          ; preds = %for.cond, %for.body, %lor.rhs, %_ZN4node21FIXED_ONE_BYTE_STRINGILi12EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %lor.lhs.false
-  %retval.sroa.0.0 = phi i16 [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi12EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 0, %lor.rhs ], [ 0, %lor.lhs.false ], [ 257, %for.cond ], [ 0, %for.body ]
+  %retval.sroa.0.0 = phi i16 [ 0, %lor.lhs.false ], [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi12EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 0, %lor.rhs ], [ 257, %for.cond ], [ 0, %for.body ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #12
   ret i16 %retval.sroa.0.0
 }
@@ -3105,7 +3105,7 @@ land.rhs:                                         ; preds = %if.end
   %tobool.i = trunc i16 %call62 to i1
   br i1 %tobool.i, label %cleanup.cont, label %cleanup69
 
-cleanup.cont:                                     ; preds = %land.rhs, %if.end
+cleanup.cont:                                     ; preds = %if.end, %land.rhs
   br label %cleanup69
 
 cleanup69:                                        ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %land.rhs, %cleanup.cont
@@ -3723,9 +3723,9 @@ if.then.i3:                                       ; preds = %entry
   br label %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2ERKS4_.exit
 
 _ZNSt8functionIFvPN4node11EnvironmentEiEEC2ERKS4_.exit: ; preds = %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread, %if.then.i3
-  %_M_manager.i.i.i124 = phi ptr [ %_M_manager.i.i.i122, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ], [ %_M_manager.i.i.i1, %if.then.i3 ]
-  %4 = phi ptr [ null, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ], [ %3, %if.then.i3 ]
-  %5 = phi ptr [ null, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ], [ %2, %if.then.i3 ]
+  %_M_manager.i.i.i124 = phi ptr [ %_M_manager.i.i.i1, %if.then.i3 ], [ %_M_manager.i.i.i122, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ]
+  %4 = phi ptr [ %3, %if.then.i3 ], [ null, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ]
+  %5 = phi ptr [ %2, %if.then.i3 ], [ null, %_ZNSt8functionIFvPN4node11EnvironmentEiEEC2EOS4_.exit.thread ]
   %call.i.i.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_M_invoker.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, i8 0, i64 24, i1 false)

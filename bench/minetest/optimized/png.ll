@@ -293,7 +293,7 @@ for.body56.i.epil:                                ; preds = %.loopexit.loopexit2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %for.body36.i, %for.body56.i.epil, %.loopexit.loopexit263.unr-lcssa, %for.body36.i.prol.loopexit, %if.then29.thread.i
-  %retval.sroa.0.0.i.ph = phi i8 [ 0, %if.then29.thread.i ], [ 2, %for.body56.i.epil ], [ 0, %for.body36.i.prol.loopexit ], [ 2, %.loopexit.loopexit263.unr-lcssa ], [ 0, %for.body36.i ]
+  %retval.sroa.0.0.i.ph = phi i8 [ 0, %if.then29.thread.i ], [ 0, %for.body36.i.prol.loopexit ], [ 2, %.loopexit.loopexit263.unr-lcssa ], [ 2, %for.body56.i.epil ], [ 0, %for.body36.i ]
   %34 = load ptr, ptr %new_data, align 8
   br label %if.end9
 

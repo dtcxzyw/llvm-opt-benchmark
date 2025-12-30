@@ -698,7 +698,7 @@ define hidden noundef align 8 ptr @"_ZN10ockam_core5error4code1_86_$LT$impl$u20$
   br label %14
 
 14:                                               ; preds = %11, %2, %7
-  %.1 = phi ptr [ %13, %11 ], [ %9, %7 ], [ %5, %2 ]
+  %.1 = phi ptr [ %5, %2 ], [ %9, %7 ], [ %13, %11 ]
   ret ptr %.1
 }
 
@@ -1732,9 +1732,9 @@ default.unreachable:                              ; preds = %256, %209, %181
   br label %231
 
 .critedge236.i:                                   ; preds = %209, %205, %163, %181, %165
-  %.sroa.23.sroa.27.2 = phi i8 [ %.sroa.23.sroa.27.0, %163 ], [ %.sroa.23.sroa.27.0, %205 ], [ %.sroa.23.sroa.27.0, %181 ], [ %157, %165 ], [ %.sroa.23.sroa.27.0, %209 ]
-  %.sroa.23.sroa.24.2 = phi i8 [ %.sroa.23.sroa.24.0, %163 ], [ %.sroa.23.sroa.24.0, %205 ], [ %157, %181 ], [ %156, %165 ], [ %157, %209 ]
-  %.sroa.23.sroa.0.2 = phi i8 [ 17, %163 ], [ 18, %205 ], [ 20, %181 ], [ 22, %165 ], [ 19, %209 ]
+  %.sroa.23.sroa.27.2 = phi i8 [ %157, %165 ], [ %.sroa.23.sroa.27.0, %181 ], [ %.sroa.23.sroa.27.0, %163 ], [ %.sroa.23.sroa.27.0, %205 ], [ %.sroa.23.sroa.27.0, %209 ]
+  %.sroa.23.sroa.24.2 = phi i8 [ %156, %165 ], [ %157, %181 ], [ %.sroa.23.sroa.24.0, %163 ], [ %.sroa.23.sroa.24.0, %205 ], [ %157, %209 ]
+  %.sroa.23.sroa.0.2 = phi i8 [ 22, %165 ], [ 20, %181 ], [ 17, %163 ], [ 18, %205 ], [ 19, %209 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !236
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %26), !noalias !202
   %238 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1764,7 +1764,7 @@ default.unreachable:                              ; preds = %256, %209, %181
   br label %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit.thread
 
 .critedge.i:                                      ; preds = %164, %151, %111, %99, %98
-  %.sink281.i = phi i8 [ 13, %98 ], [ 16, %111 ], [ 14, %99 ], [ 15, %151 ], [ 21, %164 ]
+  %.sink281.i = phi i8 [ 13, %98 ], [ 14, %99 ], [ 15, %151 ], [ 16, %111 ], [ 21, %164 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !246
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %26), !noalias !202
   %247 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1794,7 +1794,7 @@ default.unreachable:                              ; preds = %256, %209, %181
           to label %common.resume unwind label %203, !noalias !202
 
 common.resume:                                    ; preds = %285, %302, %303, %304, %274, %187, %198, %223, %255
-  %common.resume.op = phi { ptr, i32 } [ %188, %187 ], [ %lpad.thr_comm.split-lp.i, %255 ], [ %199, %198 ], [ %224, %223 ], [ %286, %285 ], [ %275, %304 ], [ %275, %302 ], [ %275, %303 ], [ %275, %274 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %255 ], [ %224, %223 ], [ %188, %187 ], [ %199, %198 ], [ %286, %285 ], [ %275, %304 ], [ %275, %302 ], [ %275, %303 ], [ %275, %274 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit: ; preds = %.critedge236.i, %240, %244
@@ -1852,7 +1852,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f2
   br label %301
 
 274:                                              ; preds = %282, %278, %259
-  %.0 = phi i1 [ false, %282 ], [ true, %259 ], [ false, %278 ]
+  %.0 = phi i1 [ true, %259 ], [ false, %278 ], [ false, %282 ]
   %275 = landingpad { ptr, i32 }
           cleanup
   %276 = load i64, ptr %32, align 8, !range !192, !noundef !5
@@ -1862,7 +1862,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f2
   ]
 
 _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %270, %267, %263, %259
-  %.0.i = phi i8 [ %272, %270 ], [ %spec.select.i.i.i, %263 ], [ %269, %267 ], [ %262, %259 ]
+  %.0.i = phi i8 [ %spec.select.i.i.i, %263 ], [ %269, %267 ], [ %272, %270 ], [ %262, %259 ]
   %277 = icmp eq i8 %.0.i, 13
   br i1 %277, label %278, label %273
 
@@ -1890,13 +1890,13 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %270, %267, %263
   call fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %32)
   br label %.thread243
 
-284:                                              ; preds = %171, %201, %200, %179, %216, %231, %221
-  %.sroa.49.sroa.15.2.ph = phi i8 [ %.sroa.49.sroa.15.0, %171 ], [ %.sroa.7137.i.sroa.8.0.copyload204, %201 ], [ %.sroa.49.sroa.15.0, %200 ], [ %.sroa.7101.i.sroa.8.0.copyload199, %179 ], [ %208, %216 ], [ %.sroa.49.sroa.15.0.copyload180, %231 ], [ %.sroa.6.i.sroa.5.2, %221 ]
-  %.sroa.6.i.sroa.5.1.ph = phi i8 [ %.sroa.6.i.sroa.5.0, %171 ], [ %.sroa.6.i.sroa.5.0, %201 ], [ %.sroa.6.i.sroa.5.0, %200 ], [ %.sroa.6.i.sroa.5.0, %179 ], [ %.sroa.6.i.sroa.5.0, %216 ], [ %.sroa.6.i.sroa.5.0, %231 ], [ %.sroa.6.i.sroa.5.2, %221 ]
-  %.sroa.23.sroa.28.sroa.0.2.ph = phi i40 [ 0, %171 ], [ %.sroa.23.sroa.28.0.extract.trunc137, %201 ], [ 0, %200 ], [ %.sroa.23.sroa.28.0.extract.trunc141, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
-  %.sroa.23.sroa.27.3.ph = phi i8 [ 0, %171 ], [ %.sroa.23.sroa.27.0.extract.trunc117, %201 ], [ 0, %200 ], [ %.sroa.23.sroa.27.0.extract.trunc121, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
-  %.sroa.23.sroa.24.3.ph = phi i8 [ 0, %171 ], [ %.sroa.23.sroa.24.0.extract.trunc97, %201 ], [ 0, %200 ], [ %.sroa.23.sroa.24.0.extract.trunc101, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
-  %.sroa.23.sroa.0.3.ph = phi i8 [ 6, %171 ], [ %.sroa.23.sroa.0.0.extract.trunc81, %201 ], [ 6, %200 ], [ %.sroa.23.sroa.0.0.extract.trunc83, %179 ], [ 3, %216 ], [ 2, %231 ], [ %.sroa.056.0.i, %221 ]
+284:                                              ; preds = %171, %200, %201, %179, %216, %231, %221
+  %.sroa.49.sroa.15.2.ph = phi i8 [ %.sroa.49.sroa.15.0, %171 ], [ %.sroa.49.sroa.15.0, %200 ], [ %.sroa.7137.i.sroa.8.0.copyload204, %201 ], [ %.sroa.7101.i.sroa.8.0.copyload199, %179 ], [ %208, %216 ], [ %.sroa.49.sroa.15.0.copyload180, %231 ], [ %.sroa.6.i.sroa.5.2, %221 ]
+  %.sroa.6.i.sroa.5.1.ph = phi i8 [ %.sroa.6.i.sroa.5.0, %171 ], [ %.sroa.6.i.sroa.5.0, %200 ], [ %.sroa.6.i.sroa.5.0, %201 ], [ %.sroa.6.i.sroa.5.0, %179 ], [ %.sroa.6.i.sroa.5.0, %216 ], [ %.sroa.6.i.sroa.5.0, %231 ], [ %.sroa.6.i.sroa.5.2, %221 ]
+  %.sroa.23.sroa.28.sroa.0.2.ph = phi i40 [ 0, %171 ], [ 0, %200 ], [ %.sroa.23.sroa.28.0.extract.trunc137, %201 ], [ %.sroa.23.sroa.28.0.extract.trunc141, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
+  %.sroa.23.sroa.27.3.ph = phi i8 [ 0, %171 ], [ 0, %200 ], [ %.sroa.23.sroa.27.0.extract.trunc117, %201 ], [ %.sroa.23.sroa.27.0.extract.trunc121, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
+  %.sroa.23.sroa.24.3.ph = phi i8 [ 0, %171 ], [ 0, %200 ], [ %.sroa.23.sroa.24.0.extract.trunc97, %201 ], [ %.sroa.23.sroa.24.0.extract.trunc101, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
+  %.sroa.23.sroa.0.3.ph = phi i8 [ 6, %171 ], [ 6, %200 ], [ %.sroa.23.sroa.0.0.extract.trunc81, %201 ], [ %.sroa.23.sroa.0.0.extract.trunc83, %179 ], [ 3, %216 ], [ 2, %231 ], [ %.sroa.056.0.i, %221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !197
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1931,13 +1931,13 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %270, %267, %263
   %.not47 = icmp eq i64 %.sroa.23.sroa.0.0.insert.insert79, 6
   br i1 %.not47, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..Message$GT$$GT$17hda067340edbc2558E.exit", label %289
 
-_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit.thread: ; preds = %246, %91, %95, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit
-  %.sroa.0.3227 = phi i64 [ 8, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %spec.select260, %95 ], [ %88, %91 ], [ %.sroa.0.0206, %246 ]
-  %.sroa.23.sroa.0.5226 = phi i8 [ %.sroa.23.sroa.0.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %spec.select, %95 ], [ %.sroa.23.sroa.0.0.extract.trunc84, %91 ], [ %.sroa.23.sroa.0.1, %246 ]
-  %.sroa.23.sroa.24.4224 = phi i8 [ %.sroa.23.sroa.24.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.23.sroa.24.0, %95 ], [ %.sroa.23.sroa.24.0.extract.trunc103, %91 ], [ %.sroa.23.sroa.24.1, %246 ]
-  %.sroa.23.sroa.27.4222 = phi i8 [ %.sroa.23.sroa.27.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.23.sroa.27.0, %95 ], [ %.sroa.23.sroa.27.0.extract.trunc123, %91 ], [ %.sroa.23.sroa.27.1, %246 ]
-  %.sroa.23.sroa.28.sroa.0.3220 = phi i40 [ %.sroa.23.sroa.28.sroa.0.0, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.23.sroa.28.sroa.0.0, %95 ], [ %.sroa.23.sroa.28.0.extract.trunc143, %91 ], [ %.sroa.23.sroa.28.sroa.0.1, %246 ]
-  %.sroa.49.sroa.15.3216 = phi i8 [ %.sroa.49.sroa.15.0, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.49.sroa.15.0, %95 ], [ %.sroa.7.i.sroa.8.0.copyload164, %91 ], [ %.sroa.49.sroa.15.1, %246 ]
+_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit.thread: ; preds = %91, %246, %95, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit
+  %.sroa.0.3227 = phi i64 [ 8, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %88, %91 ], [ %.sroa.0.0206, %246 ], [ %spec.select260, %95 ]
+  %.sroa.23.sroa.0.5226 = phi i8 [ %.sroa.23.sroa.0.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.23.sroa.0.0.extract.trunc84, %91 ], [ %.sroa.23.sroa.0.1, %246 ], [ %spec.select, %95 ]
+  %.sroa.23.sroa.24.4224 = phi i8 [ %.sroa.23.sroa.24.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.23.sroa.24.0.extract.trunc103, %91 ], [ %.sroa.23.sroa.24.1, %246 ], [ %.sroa.23.sroa.24.0, %95 ]
+  %.sroa.23.sroa.27.4222 = phi i8 [ %.sroa.23.sroa.27.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.23.sroa.27.0.extract.trunc123, %91 ], [ %.sroa.23.sroa.27.1, %246 ], [ %.sroa.23.sroa.27.0, %95 ]
+  %.sroa.23.sroa.28.sroa.0.3220 = phi i40 [ %.sroa.23.sroa.28.sroa.0.0, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.23.sroa.28.0.extract.trunc143, %91 ], [ %.sroa.23.sroa.28.sroa.0.1, %246 ], [ %.sroa.23.sroa.28.sroa.0.0, %95 ]
+  %.sroa.49.sroa.15.3216 = phi i8 [ %.sroa.49.sroa.15.0, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h156e5a2f4957f228E.exit ], [ %.sroa.7.i.sroa.8.0.copyload164, %91 ], [ %.sroa.49.sroa.15.1, %246 ], [ %.sroa.49.sroa.15.0, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3215.i)
@@ -2804,9 +2804,9 @@ default.unreachable:                              ; preds = %256, %209, %181
   br label %231
 
 .critedge236.i:                                   ; preds = %209, %205, %163, %181, %165
-  %.sroa.23.sroa.27.2 = phi i8 [ %.sroa.23.sroa.27.0, %163 ], [ %.sroa.23.sroa.27.0, %205 ], [ %.sroa.23.sroa.27.0, %181 ], [ %157, %165 ], [ %.sroa.23.sroa.27.0, %209 ]
-  %.sroa.23.sroa.24.2 = phi i8 [ %.sroa.23.sroa.24.0, %163 ], [ %.sroa.23.sroa.24.0, %205 ], [ %157, %181 ], [ %156, %165 ], [ %157, %209 ]
-  %.sroa.23.sroa.0.2 = phi i8 [ 17, %163 ], [ 18, %205 ], [ 20, %181 ], [ 22, %165 ], [ 19, %209 ]
+  %.sroa.23.sroa.27.2 = phi i8 [ %157, %165 ], [ %.sroa.23.sroa.27.0, %181 ], [ %.sroa.23.sroa.27.0, %163 ], [ %.sroa.23.sroa.27.0, %205 ], [ %.sroa.23.sroa.27.0, %209 ]
+  %.sroa.23.sroa.24.2 = phi i8 [ %156, %165 ], [ %157, %181 ], [ %.sroa.23.sroa.24.0, %163 ], [ %.sroa.23.sroa.24.0, %205 ], [ %157, %209 ]
+  %.sroa.23.sroa.0.2 = phi i8 [ 22, %165 ], [ 20, %181 ], [ 17, %163 ], [ 18, %205 ], [ 19, %209 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !309
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %26), !noalias !279
   %238 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2836,7 +2836,7 @@ default.unreachable:                              ; preds = %256, %209, %181
   br label %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit.thread
 
 .critedge.i:                                      ; preds = %164, %151, %111, %99, %98
-  %.sink281.i = phi i8 [ 13, %98 ], [ 16, %111 ], [ 14, %99 ], [ 15, %151 ], [ 21, %164 ]
+  %.sink281.i = phi i8 [ 13, %98 ], [ 14, %99 ], [ 15, %151 ], [ 16, %111 ], [ 21, %164 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !318
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83a8871edfc1374bE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %26), !noalias !279
   %247 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2866,7 +2866,7 @@ default.unreachable:                              ; preds = %256, %209, %181
           to label %common.resume unwind label %203, !noalias !279
 
 common.resume:                                    ; preds = %285, %302, %303, %304, %274, %187, %198, %223, %255
-  %common.resume.op = phi { ptr, i32 } [ %188, %187 ], [ %lpad.thr_comm.split-lp.i, %255 ], [ %199, %198 ], [ %224, %223 ], [ %286, %285 ], [ %275, %304 ], [ %275, %302 ], [ %275, %303 ], [ %275, %274 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %255 ], [ %224, %223 ], [ %188, %187 ], [ %199, %198 ], [ %286, %285 ], [ %275, %304 ], [ %275, %302 ], [ %275, %303 ], [ %275, %274 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit: ; preds = %.critedge236.i, %240, %244
@@ -2924,7 +2924,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05
   br label %301
 
 274:                                              ; preds = %282, %278, %259
-  %.0 = phi i1 [ false, %282 ], [ true, %259 ], [ false, %278 ]
+  %.0 = phi i1 [ true, %259 ], [ false, %278 ], [ false, %282 ]
   %275 = landingpad { ptr, i32 }
           cleanup
   %276 = load i64, ptr %32, align 8, !range !192, !noundef !5
@@ -2934,7 +2934,7 @@ _ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05
   ]
 
 _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %270, %267, %263, %259
-  %.0.i = phi i8 [ %272, %270 ], [ %spec.select.i.i.i, %263 ], [ %269, %267 ], [ %262, %259 ]
+  %.0.i = phi i8 [ %spec.select.i.i.i, %263 ], [ %269, %267 ], [ %272, %270 ], [ %262, %259 ]
   %277 = icmp eq i8 %.0.i, 13
   br i1 %277, label %278, label %273
 
@@ -2962,13 +2962,13 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %270, %267, %263
   call fastcc void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE"(ptr noalias noundef align 8 dereferenceable(136) %32)
   br label %.thread243
 
-284:                                              ; preds = %171, %201, %200, %179, %216, %231, %221
-  %.sroa.49.sroa.15.2.ph = phi i8 [ %.sroa.49.sroa.15.0, %171 ], [ %.sroa.7137.i.sroa.8.0.copyload204, %201 ], [ %.sroa.49.sroa.15.0, %200 ], [ %.sroa.7101.i.sroa.8.0.copyload199, %179 ], [ %208, %216 ], [ %.sroa.49.sroa.15.0.copyload180, %231 ], [ %.sroa.6.i.sroa.5.2, %221 ]
-  %.sroa.6.i.sroa.5.1.ph = phi i8 [ %.sroa.6.i.sroa.5.0, %171 ], [ %.sroa.6.i.sroa.5.0, %201 ], [ %.sroa.6.i.sroa.5.0, %200 ], [ %.sroa.6.i.sroa.5.0, %179 ], [ %.sroa.6.i.sroa.5.0, %216 ], [ %.sroa.6.i.sroa.5.0, %231 ], [ %.sroa.6.i.sroa.5.2, %221 ]
-  %.sroa.23.sroa.28.sroa.0.2.ph = phi i40 [ 0, %171 ], [ %.sroa.23.sroa.28.0.extract.trunc137, %201 ], [ 0, %200 ], [ %.sroa.23.sroa.28.0.extract.trunc141, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
-  %.sroa.23.sroa.27.3.ph = phi i8 [ 0, %171 ], [ %.sroa.23.sroa.27.0.extract.trunc117, %201 ], [ 0, %200 ], [ %.sroa.23.sroa.27.0.extract.trunc121, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
-  %.sroa.23.sroa.24.3.ph = phi i8 [ 0, %171 ], [ %.sroa.23.sroa.24.0.extract.trunc97, %201 ], [ 0, %200 ], [ %.sroa.23.sroa.24.0.extract.trunc101, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
-  %.sroa.23.sroa.0.3.ph = phi i8 [ 6, %171 ], [ %.sroa.23.sroa.0.0.extract.trunc81, %201 ], [ 6, %200 ], [ %.sroa.23.sroa.0.0.extract.trunc83, %179 ], [ 3, %216 ], [ 2, %231 ], [ %.sroa.056.0.i, %221 ]
+284:                                              ; preds = %171, %200, %201, %179, %216, %231, %221
+  %.sroa.49.sroa.15.2.ph = phi i8 [ %.sroa.49.sroa.15.0, %171 ], [ %.sroa.49.sroa.15.0, %200 ], [ %.sroa.7137.i.sroa.8.0.copyload204, %201 ], [ %.sroa.7101.i.sroa.8.0.copyload199, %179 ], [ %208, %216 ], [ %.sroa.49.sroa.15.0.copyload180, %231 ], [ %.sroa.6.i.sroa.5.2, %221 ]
+  %.sroa.6.i.sroa.5.1.ph = phi i8 [ %.sroa.6.i.sroa.5.0, %171 ], [ %.sroa.6.i.sroa.5.0, %200 ], [ %.sroa.6.i.sroa.5.0, %201 ], [ %.sroa.6.i.sroa.5.0, %179 ], [ %.sroa.6.i.sroa.5.0, %216 ], [ %.sroa.6.i.sroa.5.0, %231 ], [ %.sroa.6.i.sroa.5.2, %221 ]
+  %.sroa.23.sroa.28.sroa.0.2.ph = phi i40 [ 0, %171 ], [ 0, %200 ], [ %.sroa.23.sroa.28.0.extract.trunc137, %201 ], [ %.sroa.23.sroa.28.0.extract.trunc141, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
+  %.sroa.23.sroa.27.3.ph = phi i8 [ 0, %171 ], [ 0, %200 ], [ %.sroa.23.sroa.27.0.extract.trunc117, %201 ], [ %.sroa.23.sroa.27.0.extract.trunc121, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
+  %.sroa.23.sroa.24.3.ph = phi i8 [ 0, %171 ], [ 0, %200 ], [ %.sroa.23.sroa.24.0.extract.trunc97, %201 ], [ %.sroa.23.sroa.24.0.extract.trunc101, %179 ], [ 0, %216 ], [ 0, %231 ], [ 0, %221 ]
+  %.sroa.23.sroa.0.3.ph = phi i8 [ 6, %171 ], [ 6, %200 ], [ %.sroa.23.sroa.0.0.extract.trunc81, %201 ], [ %.sroa.23.sroa.0.0.extract.trunc83, %179 ], [ 3, %216 ], [ 2, %231 ], [ %.sroa.056.0.i, %221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !275
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3003,13 +3003,13 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %270, %267, %263
   %.not47 = icmp eq i64 %.sroa.23.sroa.0.0.insert.insert79, 6
   br i1 %.not47, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$tungstenite..protocol..message..Message$GT$$GT$17hda067340edbc2558E.exit", label %289
 
-_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit.thread: ; preds = %246, %91, %95, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit
-  %.sroa.0.3227 = phi i64 [ 8, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %spec.select260, %95 ], [ %88, %91 ], [ %.sroa.0.0206, %246 ]
-  %.sroa.23.sroa.0.5226 = phi i8 [ %.sroa.23.sroa.0.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %spec.select, %95 ], [ %.sroa.23.sroa.0.0.extract.trunc84, %91 ], [ %.sroa.23.sroa.0.1, %246 ]
-  %.sroa.23.sroa.24.4224 = phi i8 [ %.sroa.23.sroa.24.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.23.sroa.24.0, %95 ], [ %.sroa.23.sroa.24.0.extract.trunc103, %91 ], [ %.sroa.23.sroa.24.1, %246 ]
-  %.sroa.23.sroa.27.4222 = phi i8 [ %.sroa.23.sroa.27.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.23.sroa.27.0, %95 ], [ %.sroa.23.sroa.27.0.extract.trunc123, %91 ], [ %.sroa.23.sroa.27.1, %246 ]
-  %.sroa.23.sroa.28.sroa.0.3220 = phi i40 [ %.sroa.23.sroa.28.sroa.0.0, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.23.sroa.28.sroa.0.0, %95 ], [ %.sroa.23.sroa.28.0.extract.trunc143, %91 ], [ %.sroa.23.sroa.28.sroa.0.1, %246 ]
-  %.sroa.49.sroa.15.3216 = phi i8 [ %.sroa.49.sroa.15.0, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.49.sroa.15.0, %95 ], [ %.sroa.7.i.sroa.8.0.copyload164, %91 ], [ %.sroa.49.sroa.15.1, %246 ]
+_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit.thread: ; preds = %91, %246, %95, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit
+  %.sroa.0.3227 = phi i64 [ 8, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %88, %91 ], [ %.sroa.0.0206, %246 ], [ %spec.select260, %95 ]
+  %.sroa.23.sroa.0.5226 = phi i8 [ %.sroa.23.sroa.0.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.23.sroa.0.0.extract.trunc84, %91 ], [ %.sroa.23.sroa.0.1, %246 ], [ %spec.select, %95 ]
+  %.sroa.23.sroa.24.4224 = phi i8 [ %.sroa.23.sroa.24.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.23.sroa.24.0.extract.trunc103, %91 ], [ %.sroa.23.sroa.24.1, %246 ], [ %.sroa.23.sroa.24.0, %95 ]
+  %.sroa.23.sroa.27.4222 = phi i8 [ %.sroa.23.sroa.27.2, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.23.sroa.27.0.extract.trunc123, %91 ], [ %.sroa.23.sroa.27.1, %246 ], [ %.sroa.23.sroa.27.0, %95 ]
+  %.sroa.23.sroa.28.sroa.0.3220 = phi i40 [ %.sroa.23.sroa.28.sroa.0.0, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.23.sroa.28.0.extract.trunc143, %91 ], [ %.sroa.23.sroa.28.sroa.0.1, %246 ], [ %.sroa.23.sroa.28.sroa.0.0, %95 ]
+  %.sroa.49.sroa.15.3216 = phi i8 [ %.sroa.49.sroa.15.0, %_ZN11tungstenite8protocol16WebSocketContext18read_message_frame17h5bbac79addbb05ebE.exit ], [ %.sroa.7.i.sroa.8.0.copyload164, %91 ], [ %.sroa.49.sroa.15.1, %246 ], [ %.sroa.49.sroa.15.0, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3215.i)
@@ -3373,12 +3373,12 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext5write17h28a3c6cd
           to label %41 unwind label %34
 
 34:                                               ; preds = %102, %.noexc, %87, %155, %139, %129, %128, %54, %44, %4
-  %.075 = phi i1 [ true, %155 ], [ true, %128 ], [ false, %.noexc ], [ true, %54 ], [ true, %4 ], [ true, %44 ], [ false, %87 ], [ true, %139 ], [ true, %129 ], [ false, %102 ]
-  %.073 = phi i1 [ true, %155 ], [ true, %128 ], [ true, %.noexc ], [ true, %54 ], [ true, %4 ], [ true, %44 ], [ true, %87 ], [ false, %139 ], [ false, %129 ], [ true, %102 ]
-  %.070 = phi i8 [ %.272, %155 ], [ %.272, %128 ], [ 1, %.noexc ], [ 1, %54 ], [ 1, %4 ], [ 1, %44 ], [ 1, %87 ], [ 1, %139 ], [ 1, %129 ], [ 1, %102 ]
-  %.067 = phi i8 [ %.269, %155 ], [ %.269, %128 ], [ 1, %.noexc ], [ 1, %54 ], [ 1, %4 ], [ 1, %44 ], [ 1, %87 ], [ 1, %139 ], [ 1, %129 ], [ 1, %102 ]
-  %.064 = phi i8 [ %.266, %155 ], [ %.266, %128 ], [ 1, %.noexc ], [ 0, %54 ], [ 1, %4 ], [ 1, %44 ], [ 1, %87 ], [ 1, %139 ], [ 1, %129 ], [ 1, %102 ]
-  %.0 = phi i8 [ %.2, %155 ], [ %.2, %128 ], [ 1, %.noexc ], [ 1, %54 ], [ 1, %4 ], [ 1, %44 ], [ 1, %87 ], [ 1, %139 ], [ 1, %129 ], [ 1, %102 ]
+  %.075 = phi i1 [ true, %155 ], [ true, %128 ], [ true, %54 ], [ true, %139 ], [ true, %129 ], [ true, %44 ], [ true, %4 ], [ false, %87 ], [ false, %.noexc ], [ false, %102 ]
+  %.073 = phi i1 [ true, %155 ], [ true, %128 ], [ true, %54 ], [ false, %139 ], [ false, %129 ], [ true, %44 ], [ true, %4 ], [ true, %87 ], [ true, %.noexc ], [ true, %102 ]
+  %.070 = phi i8 [ %.272, %155 ], [ %.272, %128 ], [ 1, %54 ], [ 1, %139 ], [ 1, %129 ], [ 1, %44 ], [ 1, %4 ], [ 1, %87 ], [ 1, %.noexc ], [ 1, %102 ]
+  %.067 = phi i8 [ %.269, %155 ], [ %.269, %128 ], [ 1, %54 ], [ 1, %139 ], [ 1, %129 ], [ 1, %44 ], [ 1, %4 ], [ 1, %87 ], [ 1, %.noexc ], [ 1, %102 ]
+  %.064 = phi i8 [ %.266, %155 ], [ %.266, %128 ], [ 0, %54 ], [ 1, %139 ], [ 1, %129 ], [ 1, %44 ], [ 1, %4 ], [ 1, %87 ], [ 1, %.noexc ], [ 1, %102 ]
+  %.0 = phi i8 [ %.2, %155 ], [ %.2, %128 ], [ 1, %54 ], [ 1, %139 ], [ 1, %129 ], [ 1, %44 ], [ 1, %4 ], [ 1, %87 ], [ 1, %.noexc ], [ 1, %102 ]
   %35 = landingpad { ptr, i32 }
           cleanup
   %36 = trunc nuw i8 %.070 to i1
@@ -3388,13 +3388,13 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext5write17h28a3c6cd
   br label %.body
 
 .body:                                            ; preds = %116, %91, %111, %81, %68, %56, %34
-  %.075.lpad-body = phi i1 [ false, %91 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ %.075, %34 ], [ false, %111 ], [ true, %116 ]
-  %.073.lpad-body = phi i1 [ true, %91 ], [ true, %56 ], [ true, %68 ], [ false, %81 ], [ %.073, %34 ], [ true, %111 ], [ true, %116 ]
-  %.070.lpad-body = phi i1 [ true, %91 ], [ true, %56 ], [ false, %68 ], [ true, %81 ], [ %36, %34 ], [ true, %111 ], [ true, %116 ]
-  %.067.lpad-body = phi i1 [ true, %91 ], [ false, %56 ], [ true, %68 ], [ true, %81 ], [ %37, %34 ], [ true, %111 ], [ true, %116 ]
-  %.064.lpad-body = phi i1 [ true, %91 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ %38, %34 ], [ true, %111 ], [ false, %116 ]
-  %.0.lpad-body = phi i1 [ true, %91 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ %39, %34 ], [ true, %111 ], [ true, %116 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %91 ], [ %57, %56 ], [ %69, %68 ], [ %82, %81 ], [ %35, %34 ], [ %lpad.thr_comm.split-lp.i, %111 ], [ %117, %116 ]
+  %.075.lpad-body = phi i1 [ %.075, %34 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ false, %111 ], [ false, %91 ], [ true, %116 ]
+  %.073.lpad-body = phi i1 [ %.073, %34 ], [ true, %56 ], [ true, %68 ], [ false, %81 ], [ true, %111 ], [ true, %91 ], [ true, %116 ]
+  %.070.lpad-body = phi i1 [ %36, %34 ], [ true, %56 ], [ false, %68 ], [ true, %81 ], [ true, %111 ], [ true, %91 ], [ true, %116 ]
+  %.067.lpad-body = phi i1 [ %37, %34 ], [ false, %56 ], [ true, %68 ], [ true, %81 ], [ true, %111 ], [ true, %91 ], [ true, %116 ]
+  %.064.lpad-body = phi i1 [ %38, %34 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ true, %111 ], [ true, %91 ], [ false, %116 ]
+  %.0.lpad-body = phi i1 [ %39, %34 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ true, %111 ], [ true, %91 ], [ true, %116 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %57, %56 ], [ %69, %68 ], [ %82, %81 ], [ %lpad.thr_comm.split-lp.i, %111 ], [ %lpad.thr_comm.split-lp.i, %91 ], [ %117, %116 ]
   %40 = load i64, ptr %3, align 8, !range !361, !noundef !5
   switch i64 %40, label %238 [
     i64 0, label %239
@@ -4147,12 +4147,12 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext5write17hd66fa510
           to label %41 unwind label %34
 
 34:                                               ; preds = %102, %.noexc, %87, %155, %139, %129, %128, %54, %44, %4
-  %.075 = phi i1 [ true, %155 ], [ true, %128 ], [ false, %.noexc ], [ true, %54 ], [ true, %4 ], [ true, %44 ], [ false, %87 ], [ true, %139 ], [ true, %129 ], [ false, %102 ]
-  %.073 = phi i1 [ true, %155 ], [ true, %128 ], [ true, %.noexc ], [ true, %54 ], [ true, %4 ], [ true, %44 ], [ true, %87 ], [ false, %139 ], [ false, %129 ], [ true, %102 ]
-  %.070 = phi i8 [ %.272, %155 ], [ %.272, %128 ], [ 1, %.noexc ], [ 1, %54 ], [ 1, %4 ], [ 1, %44 ], [ 1, %87 ], [ 1, %139 ], [ 1, %129 ], [ 1, %102 ]
-  %.067 = phi i8 [ %.269, %155 ], [ %.269, %128 ], [ 1, %.noexc ], [ 1, %54 ], [ 1, %4 ], [ 1, %44 ], [ 1, %87 ], [ 1, %139 ], [ 1, %129 ], [ 1, %102 ]
-  %.064 = phi i8 [ %.266, %155 ], [ %.266, %128 ], [ 1, %.noexc ], [ 0, %54 ], [ 1, %4 ], [ 1, %44 ], [ 1, %87 ], [ 1, %139 ], [ 1, %129 ], [ 1, %102 ]
-  %.0 = phi i8 [ %.2, %155 ], [ %.2, %128 ], [ 1, %.noexc ], [ 1, %54 ], [ 1, %4 ], [ 1, %44 ], [ 1, %87 ], [ 1, %139 ], [ 1, %129 ], [ 1, %102 ]
+  %.075 = phi i1 [ true, %155 ], [ true, %128 ], [ true, %54 ], [ true, %139 ], [ true, %129 ], [ true, %44 ], [ true, %4 ], [ false, %87 ], [ false, %.noexc ], [ false, %102 ]
+  %.073 = phi i1 [ true, %155 ], [ true, %128 ], [ true, %54 ], [ false, %139 ], [ false, %129 ], [ true, %44 ], [ true, %4 ], [ true, %87 ], [ true, %.noexc ], [ true, %102 ]
+  %.070 = phi i8 [ %.272, %155 ], [ %.272, %128 ], [ 1, %54 ], [ 1, %139 ], [ 1, %129 ], [ 1, %44 ], [ 1, %4 ], [ 1, %87 ], [ 1, %.noexc ], [ 1, %102 ]
+  %.067 = phi i8 [ %.269, %155 ], [ %.269, %128 ], [ 1, %54 ], [ 1, %139 ], [ 1, %129 ], [ 1, %44 ], [ 1, %4 ], [ 1, %87 ], [ 1, %.noexc ], [ 1, %102 ]
+  %.064 = phi i8 [ %.266, %155 ], [ %.266, %128 ], [ 0, %54 ], [ 1, %139 ], [ 1, %129 ], [ 1, %44 ], [ 1, %4 ], [ 1, %87 ], [ 1, %.noexc ], [ 1, %102 ]
+  %.0 = phi i8 [ %.2, %155 ], [ %.2, %128 ], [ 1, %54 ], [ 1, %139 ], [ 1, %129 ], [ 1, %44 ], [ 1, %4 ], [ 1, %87 ], [ 1, %.noexc ], [ 1, %102 ]
   %35 = landingpad { ptr, i32 }
           cleanup
   %36 = trunc nuw i8 %.070 to i1
@@ -4162,13 +4162,13 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext5write17hd66fa510
   br label %.body
 
 .body:                                            ; preds = %116, %91, %111, %81, %68, %56, %34
-  %.075.lpad-body = phi i1 [ false, %91 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ %.075, %34 ], [ false, %111 ], [ true, %116 ]
-  %.073.lpad-body = phi i1 [ true, %91 ], [ true, %56 ], [ true, %68 ], [ false, %81 ], [ %.073, %34 ], [ true, %111 ], [ true, %116 ]
-  %.070.lpad-body = phi i1 [ true, %91 ], [ true, %56 ], [ false, %68 ], [ true, %81 ], [ %36, %34 ], [ true, %111 ], [ true, %116 ]
-  %.067.lpad-body = phi i1 [ true, %91 ], [ false, %56 ], [ true, %68 ], [ true, %81 ], [ %37, %34 ], [ true, %111 ], [ true, %116 ]
-  %.064.lpad-body = phi i1 [ true, %91 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ %38, %34 ], [ true, %111 ], [ false, %116 ]
-  %.0.lpad-body = phi i1 [ true, %91 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ %39, %34 ], [ true, %111 ], [ true, %116 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %91 ], [ %57, %56 ], [ %69, %68 ], [ %82, %81 ], [ %35, %34 ], [ %lpad.thr_comm.split-lp.i, %111 ], [ %117, %116 ]
+  %.075.lpad-body = phi i1 [ %.075, %34 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ false, %111 ], [ false, %91 ], [ true, %116 ]
+  %.073.lpad-body = phi i1 [ %.073, %34 ], [ true, %56 ], [ true, %68 ], [ false, %81 ], [ true, %111 ], [ true, %91 ], [ true, %116 ]
+  %.070.lpad-body = phi i1 [ %36, %34 ], [ true, %56 ], [ false, %68 ], [ true, %81 ], [ true, %111 ], [ true, %91 ], [ true, %116 ]
+  %.067.lpad-body = phi i1 [ %37, %34 ], [ false, %56 ], [ true, %68 ], [ true, %81 ], [ true, %111 ], [ true, %91 ], [ true, %116 ]
+  %.064.lpad-body = phi i1 [ %38, %34 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ true, %111 ], [ true, %91 ], [ false, %116 ]
+  %.0.lpad-body = phi i1 [ %39, %34 ], [ true, %56 ], [ true, %68 ], [ true, %81 ], [ true, %111 ], [ true, %91 ], [ true, %116 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %57, %56 ], [ %69, %68 ], [ %82, %81 ], [ %lpad.thr_comm.split-lp.i, %111 ], [ %lpad.thr_comm.split-lp.i, %91 ], [ %117, %116 ]
   %40 = load i64, ptr %3, align 8, !range !361, !noundef !5
   switch i64 %40, label %238 [
     i64 0, label %239
@@ -5053,7 +5053,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
   ]
 
 .thread94:                                        ; preds = %58, %61, %62, %51, %43
-  %.15493 = phi i8 [ 0, %58 ], [ 0, %51 ], [ 0, %62 ], [ 0, %61 ], [ 1, %43 ]
+  %.15493 = phi i8 [ 0, %51 ], [ 0, %62 ], [ 0, %61 ], [ 0, %58 ], [ 1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %74
@@ -5389,7 +5389,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
   ]
 
 .thread94:                                        ; preds = %58, %61, %62, %51, %43
-  %.15493 = phi i8 [ 0, %58 ], [ 0, %51 ], [ 0, %62 ], [ 0, %61 ], [ 1, %43 ]
+  %.15493 = phi i8 [ 0, %51 ], [ 0, %62 ], [ 0, %61 ], [ 0, %58 ], [ 1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %74
@@ -6231,10 +6231,10 @@ define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame10into_c
   br label %53
 
 .body.thread:                                     ; preds = %41, %63
-  %eh.lpad-body46 = phi { ptr, i32 } [ %42, %41 ], [ %lpad.thr_comm, %63 ]
+  %eh.lpad-body46 = phi { ptr, i32 } [ %lpad.thr_comm, %63 ], [ %42, %41 ]
   resume { ptr, i32 } %eh.lpad-body46
 
-63:                                               ; preds = %.invoke, %27, %22, %18
+63:                                               ; preds = %.invoke, %18, %22, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h05ddb67f6d63684cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #31
@@ -6463,7 +6463,7 @@ define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17
   ret void
 
 .thread:                                          ; preds = %13, %68, %59
-  %.pn923 = phi { ptr, i32 } [ %66, %59 ], [ %66, %68 ], [ %.pn, %13 ]
+  %.pn923 = phi { ptr, i32 } [ %66, %68 ], [ %66, %59 ], [ %.pn, %13 ]
   resume { ptr, i32 } %.pn923
 
 68:                                               ; preds = %59
@@ -6525,7 +6525,7 @@ default.unreachable:                              ; preds = %"_ZN3std2io5impls74
   br label %29
 
 29:                                               ; preds = %28, %27, %.noexc
-  %.037.i = phi i8 [ 127, %28 ], [ 126, %27 ], [ %.sroa.8.0.i, %.noexc ]
+  %.037.i = phi i8 [ 126, %27 ], [ 127, %28 ], [ %.sroa.8.0.i, %.noexc ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %31 = load i8, ptr %30, align 1, !range !73, !alias.scope !774, !noalias !779, !noundef !5
   %32 = trunc nuw i8 %31 to i1
@@ -7046,8 +7046,8 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %switch149 = icmp samesign ugt i64 %22, 4
   br i1 %switch149, label %28, label %24
 
-.thread208:                                       ; preds = %177, %28
-  %.0121.ph = phi i1 [ true, %28 ], [ false, %177 ]
+.thread208:                                       ; preds = %28, %177
+  %.0121.ph = phi i1 [ false, %177 ], [ true, %28 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -7102,7 +7102,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %.not142.not = icmp ugt i64 %43, %45
   br i1 %.not142.not, label %138, label %.invoke
 
-.thread222:                                       ; preds = %53, %66, %34, %60, %49
+.thread222:                                       ; preds = %53, %66, %60, %34, %49
   %lpad.thr_comm220 = landingpad { ptr, i32 }
           cleanup
   br label %.thread212
@@ -7622,9 +7622,9 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   br i1 %.not147254, label %.thread264, label %.thread260
 
 .thread:                                          ; preds = %125, %111, %.thread212, %136, %.thread208
-  %.pn145191 = phi { ptr, i32 } [ %112, %111 ], [ %lpad.thr_comm, %.thread208 ], [ %137, %136 ], [ %.pn140215, %.thread212 ], [ %126, %125 ]
-  %.1189 = phi i1 [ true, %111 ], [ %.0121.ph, %.thread208 ], [ false, %136 ], [ true, %.thread212 ], [ true, %125 ]
-  %.1123187 = phi i1 [ false, %111 ], [ true, %.thread208 ], [ true, %136 ], [ false, %.thread212 ], [ false, %125 ]
+  %.pn145191 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread208 ], [ %.pn140215, %.thread212 ], [ %137, %136 ], [ %112, %111 ], [ %126, %125 ]
+  %.1189 = phi i1 [ %.0121.ph, %.thread208 ], [ true, %.thread212 ], [ false, %136 ], [ true, %111 ], [ true, %125 ]
+  %.1123187 = phi i1 [ true, %.thread208 ], [ false, %.thread212 ], [ true, %136 ], [ false, %111 ], [ false, %125 ]
   invoke void @"_ZN4core3ptr147drop_in_place$LT$tokio_tungstenite..compat..AllowStd$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$17h7fe7d2c6612c46f5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #31
           to label %.thread192 unwind label %94
 
@@ -7685,8 +7685,8 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %switch160 = icmp samesign ugt i64 %22, 4
   br i1 %switch160, label %28, label %24
 
-.thread219:                                       ; preds = %178, %28
-  %.0132.ph = phi i1 [ true, %28 ], [ false, %178 ]
+.thread219:                                       ; preds = %28, %178
+  %.0132.ph = phi i1 [ false, %178 ], [ true, %28 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -7741,7 +7741,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %.not153.not = icmp ugt i64 %43, %45
   br i1 %.not153.not, label %139, label %.invoke
 
-.thread233:                                       ; preds = %53, %66, %34, %60, %49
+.thread233:                                       ; preds = %53, %66, %60, %34, %49
   %lpad.thr_comm231 = landingpad { ptr, i32 }
           cleanup
   br label %.thread223
@@ -8256,9 +8256,9 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   br i1 %.not158267, label %.thread277, label %.thread273
 
 .thread:                                          ; preds = %126, %112, %.thread223, %137, %.thread219
-  %.pn156202 = phi { ptr, i32 } [ %113, %112 ], [ %lpad.thr_comm, %.thread219 ], [ %138, %137 ], [ %.pn151226, %.thread223 ], [ %127, %126 ]
-  %.1200 = phi i1 [ true, %112 ], [ %.0132.ph, %.thread219 ], [ false, %137 ], [ true, %.thread223 ], [ true, %126 ]
-  %.1134198 = phi i1 [ false, %112 ], [ true, %.thread219 ], [ true, %137 ], [ false, %.thread223 ], [ false, %126 ]
+  %.pn156202 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread219 ], [ %.pn151226, %.thread223 ], [ %138, %137 ], [ %113, %112 ], [ %127, %126 ]
+  %.1200 = phi i1 [ %.0132.ph, %.thread219 ], [ true, %.thread223 ], [ false, %137 ], [ true, %112 ], [ true, %126 ]
+  %.1134198 = phi i1 [ true, %.thread219 ], [ false, %.thread223 ], [ true, %137 ], [ false, %112 ], [ false, %126 ]
   invoke void @"_ZN4core3ptr98drop_in_place$LT$tokio_tungstenite..compat..AllowStd$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h676bfa4d7a0bebc5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #31
           to label %.thread203 unwind label %96
 
@@ -8797,8 +8797,8 @@ define hidden void @_ZN3std2io19default_read_to_end17h404967c0228c9759E(ptr noal
   br label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hf56cb68273f1bdf9E.exit.split"
 
 "_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hf56cb68273f1bdf9E.exit.split": ; preds = %5, %12, %16, %19
-  %.sroa.5.0 = phi i64 [ undef, %5 ], [ undef, %12 ], [ %23, %19 ], [ %14, %16 ]
-  %.sroa.05.0 = phi i1 [ false, %5 ], [ false, %12 ], [ %not..i.i, %19 ], [ true, %16 ]
+  %.sroa.5.0 = phi i64 [ undef, %5 ], [ undef, %12 ], [ %14, %16 ], [ %23, %19 ]
+  %.sroa.05.0 = phi i1 [ false, %5 ], [ false, %12 ], [ true, %16 ], [ %not..i.i, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %1, align 8, !nonnull !5, !align !74
   %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
@@ -11120,9 +11120,9 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner15allocation_info17h5d
   br label %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd42b690389ecd742E.llvm.5011910573033027287.exit
 
 _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd42b690389ecd742E.llvm.5011910573033027287.exit: ; preds = %4, %10, %15, %25
-  %.sroa.9.0 = phi i64 [ undef, %4 ], [ %18, %25 ], [ undef, %15 ], [ undef, %10 ]
-  %.sroa.7.0 = phi i64 [ undef, %4 ], [ %22, %25 ], [ undef, %15 ], [ undef, %10 ]
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %3, %25 ], [ 0, %15 ], [ 0, %10 ]
+  %.sroa.9.0 = phi i64 [ %18, %25 ], [ undef, %15 ], [ undef, %10 ], [ undef, %4 ]
+  %.sroa.7.0 = phi i64 [ %22, %25 ], [ undef, %15 ], [ undef, %10 ], [ undef, %4 ]
+  %.sroa.0.0 = phi i64 [ %3, %25 ], [ 0, %15 ], [ 0, %10 ], [ 0, %4 ]
   %28 = icmp ne i64 %.sroa.0.0, 0
   tail call void @llvm.assume(i1 %28)
   %29 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5

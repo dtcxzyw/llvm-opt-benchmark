@@ -1077,8 +1077,8 @@ define void @mouse_moved(ptr noundef readonly captures(none) %0, double noundef 
   br label %59
 
 59:                                               ; preds = %20, %50, %41, %32, %23
-  %.036 = phi i32 [ %54, %50 ], [ %27, %23 ], [ %36, %32 ], [ %45, %41 ], [ 0, %20 ]
-  %.0 = phi i32 [ %58, %50 ], [ %31, %23 ], [ %40, %32 ], [ %49, %41 ], [ 0, %20 ]
+  %.036 = phi i32 [ %27, %23 ], [ %36, %32 ], [ %45, %41 ], [ %54, %50 ], [ 0, %20 ]
+  %.0 = phi i32 [ %31, %23 ], [ %40, %32 ], [ %49, %41 ], [ %58, %50 ], [ 0, %20 ]
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 33012
   %61 = load i32, ptr %60, align 4, !tbaa !172
   %62 = add nsw i32 %61, %.036
@@ -1172,7 +1172,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr noundef readonly captures(none) %
   br label %.thread
 
 .thread:                                          ; preds = %14, %17, %24, %26, %33, %34, %20
-  %.0 = phi i32 [ 1, %20 ], [ 1, %33 ], [ 1, %34 ], [ 0, %26 ], [ 0, %24 ], [ 0, %17 ], [ 0, %14 ]
+  %.0 = phi i32 [ 1, %20 ], [ 1, %34 ], [ 1, %33 ], [ 0, %26 ], [ 0, %24 ], [ 0, %17 ], [ 0, %14 ]
   ret i32 %.0
 }
 

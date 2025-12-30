@@ -397,7 +397,7 @@ define { i64, i16 } @_ZN6uu_sum7bsd_sum17h9e992a2d924c8664E(ptr noundef nonnull 
   br label %"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17h279e7348f5d9cdb2E.exit"
 
 common.resume:                                    ; preds = %10, %42, %50
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %43, %50 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %50 ], [ %43, %42 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17h279e7348f5d9cdb2E.exit": ; preds = %51, %58
@@ -555,7 +555,7 @@ define { i64, i16 } @_ZN6uu_sum8sysv_sum17hf6762f1308909be6E(ptr noundef nonnull
   br label %"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17h279e7348f5d9cdb2E.exit"
 
 common.resume:                                    ; preds = %10, %41, %49
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %42, %49 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %49 ], [ %42, %41 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17h279e7348f5d9cdb2E.exit": ; preds = %50, %57
@@ -679,7 +679,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN73_$LT$$u5b$A$u
   unreachable
 
 common.resume:                                    ; preds = %77, %66, %48, %35
-  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %36, %35 ], [ %49, %48 ], [ %78, %77 ]
+  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %49, %48 ], [ %67, %66 ], [ %78, %77 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit: ; preds = %.noexc.i
@@ -1312,7 +1312,7 @@ define void @_ZN6uu_sum6uu_app17h5032e009fac05fcfE(ptr noalias noundef writeonly
   ret void
 
 .body:                                            ; preds = %118, %86, %54, %43, %129, %127, %126, %123
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body47.ph, %123 ], [ %87, %86 ], [ %eh.lpad-body31.ph, %126 ], [ %55, %54 ], [ %128, %127 ], [ %44, %43 ], [ %130, %129 ], [ %119, %118 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body47.ph, %123 ], [ %eh.lpad-body31.ph, %126 ], [ %128, %127 ], [ %130, %129 ], [ %44, %43 ], [ %55, %54 ], [ %87, %86 ], [ %119, %118 ]
   resume { ptr, i32 } %.pn
 
 123:                                              ; preds = %91, %95

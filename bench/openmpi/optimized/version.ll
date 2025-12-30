@@ -339,9 +339,9 @@ pmix_pointer_array_get_item.exit40:               ; preds = %pmix_pointer_array_
   br label %56
 
 56:                                               ; preds = %.thread.i, %47
-  %.03953.i = phi i1 [ %53, %.thread.i ], [ true, %47 ]
-  %.0384350.i = phi i1 [ %51, %.thread.i ], [ true, %47 ]
-  %.040.i = phi i1 [ %55, %.thread.i ], [ true, %47 ]
+  %.03953.i = phi i1 [ true, %47 ], [ %53, %.thread.i ]
+  %.0384350.i = phi i1 [ true, %47 ], [ %51, %.thread.i ]
+  %.040.i = phi i1 [ true, %47 ], [ %55, %.thread.i ]
   %57 = load i32, ptr %42, align 8, !tbaa !39
   %58 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !41

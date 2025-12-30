@@ -178,7 +178,7 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
   br label %64
 
 70:                                               ; preds = %93, %58, %26, %64, %99, %87
-  %.sroa.05.2 = phi i64 [ 0, %26 ], [ %spec.store.select, %64 ], [ 0, %58 ], [ %102, %99 ], [ %.sroa.05.1, %87 ], [ 0, %93 ]
+  %.sroa.05.2 = phi i64 [ %spec.store.select, %64 ], [ %102, %99 ], [ %.sroa.05.1, %87 ], [ 0, %26 ], [ 0, %58 ], [ 0, %93 ]
   %71 = call i32 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1ca238a767ccf968E"(ptr nonnull align 8 %4)
   %72 = load i32, ptr %11, align 4
   %73 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %72, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.5)
@@ -344,7 +344,7 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
   br i1 %135, label %.backedge.i, label %138
 
 136:                                              ; preds = %146, %._crit_edge.thread.i, %._crit_edge.i, %.noexc21
-  %.sroa.02.1.i = phi i64 [ %149, %146 ], [ %123, %.noexc21 ], [ 0, %._crit_edge.thread.i ], [ %.sroa.02.0.be.i, %._crit_edge.i ]
+  %.sroa.02.1.i = phi i64 [ %123, %.noexc21 ], [ %149, %146 ], [ 0, %._crit_edge.thread.i ], [ %.sroa.02.0.be.i, %._crit_edge.i ]
   %137 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 range(i32 1, 0) %104, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
           to label %_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit unwind label %.loopexit.split-lp.loopexit
 

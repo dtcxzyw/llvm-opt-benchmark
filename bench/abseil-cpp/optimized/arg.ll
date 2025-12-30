@@ -277,7 +277,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
-  %.0 = phi i1 [ %51, %49 ], [ true, %14 ], [ true, %84 ], [ %13, %11 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
+  %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -418,7 +418,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.ex
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %36, %80, %77, %68
-  %84 = phi i1 [ true, %68 ], [ true, %77 ], [ %83, %80 ], [ false, %36 ]
+  %84 = phi i1 [ %83, %80 ], [ true, %68 ], [ true, %77 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %84
 }
@@ -616,8 +616,8 @@ define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123Conver
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit: ; preds = %3, %12, %14
-  %.sroa.5.0.i = phi ptr [ %.mux.i, %3 ], [ %spec.select.i, %14 ], [ @.str.4, %12 ]
-  %.sroa.03.0.i = phi i64 [ %.mux6.i, %3 ], [ %spec.select5.i, %14 ], [ 1, %12 ]
+  %.sroa.5.0.i = phi ptr [ %.mux.i, %3 ], [ @.str.4, %12 ], [ %spec.select.i, %14 ]
+  %.sroa.03.0.i = phi i64 [ %.mux6.i, %3 ], [ 1, %12 ], [ %spec.select5.i, %14 ]
   %16 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 %.sroa.03.0.i)
   %.sroa.01.0.extract.trunc.i = trunc i64 %0 to i8
   switch i8 %.sroa.01.0.extract.trunc.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit [
@@ -1164,7 +1164,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
-  %.0 = phi i1 [ %51, %49 ], [ true, %14 ], [ true, %84 ], [ %13, %11 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
+  %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -1345,7 +1345,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
-  %.0 = phi i1 [ %51, %49 ], [ true, %14 ], [ true, %84 ], [ %13, %11 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
+  %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -1526,7 +1526,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %78, %69, %57, %81, %46, %8
-  %.0 = phi i1 [ %9, %8 ], [ %48, %46 ], [ true, %81 ], [ true, %57 ], [ true, %69 ], [ true, %78 ]
+  %.0 = phi i1 [ %9, %8 ], [ true, %81 ], [ %48, %46 ], [ true, %57 ], [ true, %69 ], [ true, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -1720,7 +1720,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperItEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %86, %77, %65, %11, %14, %89, %54
-  %.0 = phi i1 [ %56, %54 ], [ true, %14 ], [ true, %89 ], [ %13, %11 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
+  %.0 = phi i1 [ true, %89 ], [ %56, %54 ], [ %13, %11 ], [ true, %14 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -1914,7 +1914,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperItEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %86, %77, %65, %11, %14, %89, %54
-  %.0 = phi i1 [ %56, %54 ], [ true, %14 ], [ true, %89 ], [ %13, %11 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
+  %.0 = phi i1 [ true, %89 ], [ %56, %54 ], [ %13, %11 ], [ true, %14 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -2105,7 +2105,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %83, %74, %62, %11, %13, %86, %51
-  %.0 = phi i1 [ %53, %51 ], [ true, %13 ], [ true, %86 ], [ %12, %11 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
+  %.0 = phi i1 [ true, %86 ], [ %53, %51 ], [ %12, %11 ], [ true, %13 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -2296,7 +2296,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %83, %74, %62, %11, %13, %86, %51
-  %.0 = phi i1 [ %53, %51 ], [ true, %13 ], [ true, %86 ], [ %12, %11 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
+  %.0 = phi i1 [ true, %86 ], [ %53, %51 ], [ %12, %11 ], [ true, %13 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -2486,7 +2486,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperImEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
-  %.0 = phi i1 [ %52, %50 ], [ true, %14 ], [ true, %85 ], [ %13, %11 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
+  %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -2676,7 +2676,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperImEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
-  %.0 = phi i1 [ %52, %50 ], [ true, %14 ], [ true, %85 ], [ %13, %11 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
+  %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -2866,7 +2866,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIyEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
-  %.0 = phi i1 [ %52, %50 ], [ true, %14 ], [ true, %85 ], [ %13, %11 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
+  %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -3056,7 +3056,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIyEEvT_.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
-  %.0 = phi i1 [ %52, %50 ], [ true, %14 ], [ true, %85 ], [ %13, %11 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
+  %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -3763,7 +3763,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   br label %12
 
 12:                                               ; preds = %4, %7, %10
-  %.0 = phi i1 [ false, %7 ], [ %11, %10 ], [ false, %4 ]
+  %.0 = phi i1 [ %11, %10 ], [ false, %7 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -3794,7 +3794,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   br label %12
 
 12:                                               ; preds = %4, %7, %10
-  %.0 = phi i1 [ false, %7 ], [ %11, %10 ], [ false, %4 ]
+  %.0 = phi i1 [ %11, %10 ], [ false, %7 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -3849,7 +3849,7 @@ _ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImpl
   br label %22
 
 22:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
-  %.0 = phi i1 [ false, %8 ], [ %21, %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
+  %.0 = phi i1 [ %21, %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %8 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -3927,7 +3927,7 @@ _ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImpl
   br label %21
 
 21:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
-  %.0 = phi i1 [ false, %8 ], [ %20, %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
+  %.0 = phi i1 [ %20, %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %8 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -4004,7 +4004,7 @@ _ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImpl
   br label %20
 
 20:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
-  %.0 = phi i1 [ false, %8 ], [ %19, %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
+  %.0 = phi i1 [ %19, %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %8 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -4057,7 +4057,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   br label %13
 
 13:                                               ; preds = %4, %7, %10
-  %.0 = phi i1 [ false, %7 ], [ %12, %10 ], [ false, %4 ]
+  %.0 = phi i1 [ %12, %10 ], [ false, %7 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -4252,13 +4252,13 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit70: ; preds = %71
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit68, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit70, %80, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %91
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %55, %91 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %.029.lcssa.i.i.i, %80 ], [ %94, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit70 ], [ %93, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit68 ], [ %92, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %60 ]
+  %.028.i.i.i = phi ptr [ %55, %91 ], [ %.029.lcssa.i.i.i, %80 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %92, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %93, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit68 ], [ %94, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit70 ], [ %.02946.i.i.i, %60 ]
   %95 = ptrtoint ptr %.028.i.i.i to i64
   %96 = sub i64 %95, %57
   br label %97
 
 97:                                               ; preds = %51, %_ZSt4findIPKccET_S2_S2_RKT0_.exit
-  %.0 = phi i64 [ %96, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ], [ %52, %51 ]
+  %.0 = phi i64 [ %52, %51 ], [ %96, %_ZSt4findIPKccET_S2_S2_RKT0_.exit ]
   %.sroa.1.0.extract.shift.i = lshr i64 %1, 8
   %.sroa.1.0.extract.trunc.i = trunc i64 %.sroa.1.0.extract.shift.i to i8
   %98 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 0
@@ -4321,7 +4321,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %60, %_ZSt4findIPKcc
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 _ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %.thread, %124, %121, %112, %100, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i, %28, %19
-  %.sroa.018.0 = phi i8 [ 1, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i ], [ 1, %19 ], [ 1, %28 ], [ %128, %124 ], [ 1, %100 ], [ 1, %112 ], [ 1, %121 ], [ 1, %.thread ]
+  %.sroa.018.0 = phi i8 [ 1, %19 ], [ 1, %28 ], [ 1, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i ], [ %128, %124 ], [ 1, %100 ], [ 1, %112 ], [ 1, %121 ], [ 1, %.thread ]
   ret i8 %.sroa.018.0
 }
 
@@ -4612,7 +4612,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   br label %13
 
 13:                                               ; preds = %4, %7, %10
-  %.0 = phi i1 [ false, %7 ], [ %12, %10 ], [ false, %4 ]
+  %.0 = phi i1 [ %12, %10 ], [ false, %7 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -4806,14 +4806,14 @@ _ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit61: ; preds = %70
   br label %_ZSt4findIPKwwET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %59, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit59, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit61, %79, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %90
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %55, %90 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %.029.lcssa.i.i.i, %79 ], [ %93, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit61 ], [ %92, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit59 ], [ %91, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %59 ]
+  %.028.i.i.i = phi ptr [ %55, %90 ], [ %.029.lcssa.i.i.i, %79 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %91, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %92, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit59 ], [ %93, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit.loopexit.split.loop.exit61 ], [ %.02946.i.i.i, %59 ]
   %94 = ptrtoint ptr %.028.i.i.i to i64
   %95 = sub i64 %94, %56
   %96 = ashr exact i64 %95, 2
   br label %97
 
 97:                                               ; preds = %48, %51, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit
-  %.0 = phi i64 [ %96, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit ], [ %52, %51 ], [ 0, %48 ]
+  %.0 = phi i64 [ %52, %51 ], [ %96, %_ZSt4findIPKwwET_S2_S2_RKT0_.exit ], [ 0, %48 ]
   %98 = tail call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgEPKwmNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef %0, i64 noundef %.0, i64 %1, i32 %2, ptr noundef %3)
   %99 = zext i1 %98 to i8
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
@@ -4843,7 +4843,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   br label %15
 
 15:                                               ; preds = %4, %7, %10
-  %.0 = phi i1 [ false, %7 ], [ %14, %10 ], [ false, %4 ]
+  %.0 = phi i1 [ %14, %10 ], [ false, %7 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -4877,7 +4877,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   br label %12
 
 12:                                               ; preds = %4, %7, %10
-  %.0 = phi i1 [ false, %7 ], [ %11, %10 ], [ false, %4 ]
+  %.0 = phi i1 [ %11, %10 ], [ false, %7 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -5205,7 +5205,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
   br i1 %139, label %_ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit42, label %144
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %89, %._crit_edge.thread, %128, %107, %.noexc39, %131
-  %.3 = phi i1 [ %135, %131 ], [ true, %.noexc39 ], [ true, %107 ], [ true, %128 ], [ true, %._crit_edge.thread ], [ false, %89 ]
+  %.3 = phi i1 [ true, %107 ], [ true, %128 ], [ true, %.noexc39 ], [ %135, %131 ], [ true, %._crit_edge.thread ], [ false, %89 ]
   %140 = load i64, ptr %8, align 8, !tbaa !41
   %141 = icmp ult i64 %140, 257
   br i1 %141, label %_ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit, label %142
@@ -5292,7 +5292,7 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
   br label %_ZN4absl19str_format_internal17FormatConvertImplEPKcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 _ZN4absl19str_format_internal17FormatConvertImplEPKcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %17, %26, %29, %31
-  %.sroa.018.0.i = phi i8 [ 1, %29 ], [ 1, %17 ], [ 1, %26 ], [ %35, %31 ]
+  %.sroa.018.0.i = phi i8 [ 1, %17 ], [ 1, %26 ], [ %35, %31 ], [ 1, %29 ]
   ret i8 %.sroa.018.0.i
 }
 
@@ -5613,7 +5613,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.ex
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %123, %114, %102, %12, %15, %126, %95
-  %.0 = phi i1 [ %97, %95 ], [ true, %15 ], [ true, %126 ], [ %14, %12 ], [ true, %102 ], [ true, %114 ], [ true, %123 ]
+  %.0 = phi i1 [ true, %126 ], [ %97, %95 ], [ %14, %12 ], [ true, %15 ], [ true, %102 ], [ true, %114 ], [ true, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -5907,7 +5907,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %122, %113, %101, %12, %15, %125, %92
-  %.0 = phi i1 [ %96, %92 ], [ true, %15 ], [ true, %125 ], [ %14, %12 ], [ true, %101 ], [ true, %113 ], [ true, %122 ]
+  %.0 = phi i1 [ true, %125 ], [ %96, %92 ], [ %14, %12 ], [ true, %15 ], [ true, %101 ], [ true, %113 ], [ true, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }

@@ -364,7 +364,7 @@ define internal fastcc range(i32 -1, 1) i32 @lo_initialize(ptr noundef %0) unnam
   br label %133
 
 133:                                              ; preds = %3, %1, %132, %131, %129, %127, %125, %123, %121, %119, %116, %32, %14, %10
-  %.0 = phi i32 [ 0, %132 ], [ -1, %1 ], [ -1, %10 ], [ -1, %14 ], [ -1, %32 ], [ -1, %116 ], [ -1, %119 ], [ -1, %121 ], [ -1, %123 ], [ -1, %125 ], [ -1, %127 ], [ -1, %129 ], [ -1, %131 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %14 ], [ -1, %32 ], [ -1, %116 ], [ -1, %119 ], [ -1, %121 ], [ -1, %123 ], [ -1, %125 ], [ -1, %127 ], [ -1, %129 ], [ -1, %131 ], [ 0, %132 ], [ -1, %1 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -466,7 +466,7 @@ define i32 @lo_truncate(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_un
   br label %30
 
 30:                                               ; preds = %19, %3, %18, %15
-  %.0 = phi i32 [ -1, %3 ], [ -1, %15 ], [ -1, %18 ], [ %spec.select, %19 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %18 ], [ -1, %3 ], [ %spec.select, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -523,7 +523,7 @@ define i32 @lo_truncate64(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_
   br label %27
 
 27:                                               ; preds = %17, %3, %16
-  %.0 = phi i32 [ -1, %3 ], [ -1, %16 ], [ %spec.select, %17 ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %3 ], [ %spec.select, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -574,7 +574,7 @@ define i32 @lo_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef 
   br label %27
 
 27:                                               ; preds = %12, %4, %11
-  %.0 = phi i32 [ -1, %4 ], [ -1, %11 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %4 ], [ %spec.select, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -626,7 +626,7 @@ define i32 @lo_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef
   br label %28
 
 28:                                               ; preds = %13, %4, %12
-  %.0 = phi i32 [ -1, %4 ], [ -1, %12 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %4 ], [ %spec.select, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -743,7 +743,7 @@ define noundef i64 @lo_lseek64(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
   br label %35
 
 35:                                               ; preds = %18, %4, %32, %17
-  %.0 = phi i64 [ -1, %4 ], [ -1, %17 ], [ %34, %32 ], [ -1, %18 ]
+  %.0 = phi i64 [ -1, %17 ], [ %34, %32 ], [ -1, %4 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -827,7 +827,7 @@ define i32 @lo_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %15, %2, %14
-  %.0 = phi i32 [ 0, %2 ], [ 0, %14 ], [ %spec.select, %15 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %2 ], [ %spec.select, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -917,7 +917,7 @@ define noundef i64 @lo_tell64(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %26
 
 26:                                               ; preds = %15, %2, %23, %14
-  %.0 = phi i64 [ -1, %2 ], [ -1, %14 ], [ %25, %23 ], [ -1, %15 ]
+  %.0 = phi i64 [ -1, %14 ], [ %25, %23 ], [ -1, %2 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1198,7 +1198,7 @@ lo_close.exit49:                                  ; preds = %98
   br label %108
 
 108:                                              ; preds = %lo_close.exit49, %lo_close.exit49.thread, %3, %lo_close.exit, %75, %67, %48, %24
-  %.0 = phi i32 [ 0, %3 ], [ 0, %24 ], [ 0, %48 ], [ 0, %67 ], [ 0, %75 ], [ 0, %lo_close.exit ], [ 0, %lo_close.exit49.thread ], [ %spec.select, %lo_close.exit49 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %48 ], [ 0, %67 ], [ 0, %75 ], [ 0, %lo_close.exit ], [ 0, %3 ], [ 0, %lo_close.exit49.thread ], [ %spec.select, %lo_close.exit49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0
@@ -1458,7 +1458,7 @@ lo_close.exit49:                                  ; preds = %98
   br label %115
 
 115:                                              ; preds = %.thread58, %lo_open.exit.thread, %109, %111, %lo_open.exit, %lo_close.exit46, %lo_close.exit
-  %.0 = phi i32 [ -1, %lo_open.exit ], [ -1, %lo_close.exit ], [ -1, %lo_close.exit46 ], [ -1, %111 ], [ 1, %109 ], [ -1, %lo_open.exit.thread ], [ -1, %.thread58 ]
+  %.0 = phi i32 [ -1, %lo_close.exit ], [ -1, %lo_close.exit46 ], [ -1, %lo_open.exit ], [ -1, %111 ], [ 1, %109 ], [ -1, %lo_open.exit.thread ], [ -1, %.thread58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.0

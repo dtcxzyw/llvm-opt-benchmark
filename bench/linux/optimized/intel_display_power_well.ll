@@ -2504,8 +2504,8 @@ define internal void @chv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nounde
   br label %30
 
 30:                                               ; preds = %14, %29, %27
-  %31 = phi i32 [ 1, %29 ], [ 2, %14 ], [ 2, %27 ]
-  %32 = phi i32 [ 0, %29 ], [ 1, %14 ], [ 1, %27 ]
+  %31 = phi i32 [ 1, %29 ], [ 2, %27 ], [ 2, %14 ]
+  %32 = phi i32 [ 0, %29 ], [ 1, %27 ], [ 1, %14 ]
   tail call void @assert_pll_disabled(ptr noundef %0, i32 noundef %31) #9
   %33 = shl nuw nsw i32 1, %32
   %34 = xor i32 %33, -1
@@ -3523,7 +3523,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   br label %.thread30
 
 .thread30:                                        ; preds = %.preheader, %126, %.loopexit
-  %127 = phi ptr [ @.str.59, %.loopexit ], [ @.str.60, %126 ], [ @.str.59, %.preheader ]
+  %127 = phi ptr [ @.str.60, %126 ], [ @.str.59, %.loopexit ], [ @.str.59, %.preheader ]
   %128 = icmp eq ptr %0, null
   br i1 %128, label %132, label %129
 

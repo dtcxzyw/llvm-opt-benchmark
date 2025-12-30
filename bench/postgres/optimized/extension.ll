@@ -1898,7 +1898,7 @@ find_install_path.exit.thread.i:                  ; preds = %277, %find_install_
   br i1 %280, label %.lr.ph.i, label %.critedge55.i, !llvm.loop !11
 
 .critedge55.i:                                    ; preds = %find_install_path.exit.thread.i, %117, %.lr.ph
-  %281 = phi i32 [ %52, %.lr.ph ], [ %118, %117 ], [ %278, %find_install_path.exit.thread.i ]
+  %281 = phi i32 [ %118, %117 ], [ %52, %.lr.ph ], [ %278, %find_install_path.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i19, 1
@@ -3120,7 +3120,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %65, %64, %56, %54, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ %66, %65 ], [ 0, %64 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
+  %.0 = phi i64 [ %13, %12 ], [ 0, %64 ], [ %66, %65 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
   ret i64 %.0
 }
 
@@ -5743,8 +5743,8 @@ define internal void @script_error_callback(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %39, %38, %25
-  %.pre-phi = phi i32 [ %30, %25 ], [ %30, %39 ], [ %30, %38 ], [ %24, %.lr.ph ]
-  %42 = phi i32 [ %20, %25 ], [ %20, %39 ], [ %36, %38 ], [ %20, %.lr.ph ]
+  %.pre-phi = phi i32 [ %30, %39 ], [ %30, %38 ], [ %30, %25 ], [ %24, %.lr.ph ]
+  %42 = phi i32 [ %20, %39 ], [ %36, %38 ], [ %20, %25 ], [ %20, %.lr.ph ]
   %43 = icmp slt i32 %.pre-phi, %18
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !23
 

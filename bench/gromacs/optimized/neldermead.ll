@@ -461,7 +461,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit53:                  ; preds = %143, %144
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit, %132, %133, %137, %139, %95, %97, %101, %103, %147
-  %.pn18.pn = phi { ptr, i32 } [ %102, %103 ], [ %148, %147 ], [ %96, %97 ], [ %138, %139 ], [ %96, %95 ], [ %102, %101 ], [ %lpad.phi141, %133 ], [ %138, %137 ], [ %lpad.phi141, %132 ], [ %lpad.loopexit, %.loopexit ]
+  %.pn18.pn = phi { ptr, i32 } [ %148, %147 ], [ %96, %95 ], [ %96, %97 ], [ %102, %101 ], [ %102, %103 ], [ %lpad.phi141, %132 ], [ %lpad.phi141, %133 ], [ %138, %137 ], [ %138, %139 ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i54 = icmp eq ptr %.sroa.090.0115127, null
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIfSaIfEED2Ev.exit55, label %149
 
@@ -2024,7 +2024,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %175, %176
   br label %.body24
 
 .body24:                                          ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt6vectorIfSaIfEED2Ev.exit10.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit10.thread.i.i
-  %eh.lpad-body25 = phi { ptr, i32 } [ %.pn34.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit10.thread.i.i ], [ %lpad.phi20.i, %_ZNSt6vectorIfSaIfEED2Ev.exit10.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body25 = phi { ptr, i32 } [ %lpad.phi20.i, %_ZNSt6vectorIfSaIfEED2Ev.exit10.i.i ], [ %.pn34.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit10.thread.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call fastcc void @"_ZZN3gmx17NelderMeadSimplex29shrinkSimplexPointsExceptBestERKSt8functionIFfNS_8ArrayRefIKfEEEEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit32
 

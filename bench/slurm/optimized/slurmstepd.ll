@@ -508,7 +508,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split135.us.i:                                   ; preds = %.lr.ph172.i, %.lr.ph157.preheader.i, %.lr.ph172.i.preheader, %.lr.ph157.preheader.i.preheader
-  %.us-phi136.i = phi i64 [ %110, %.lr.ph157.preheader.i ], [ %91, %.lr.ph157.preheader.i.preheader ], [ %79, %.lr.ph172.i.preheader ], [ %88, %.lr.ph172.i ]
+  %.us-phi136.i = phi i64 [ %91, %.lr.ph157.preheader.i.preheader ], [ %79, %.lr.ph172.i.preheader ], [ %110, %.lr.ph157.preheader.i ], [ %88, %.lr.ph172.i ]
   %116 = and i64 %.us-phi136.i, 2147483647
   %117 = getelementptr inbounds nuw i8, ptr %.0299.ph174.i, i64 %116
   %118 = sub i64 %.0296.ph176.i, %116
@@ -602,7 +602,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split184.i:                                      ; preds = %.lr.ph222.i, %.lr.ph207.preheader.i, %.lr.ph222.i.preheader, %.lr.ph207.preheader.i.preheader
-  %.us-phi185.i = phi i64 [ %143, %.lr.ph207.preheader.i ], [ %169, %.lr.ph207.preheader.i.preheader ], [ %157, %.lr.ph222.i.preheader ], [ %166, %.lr.ph222.i ]
+  %.us-phi185.i = phi i64 [ %169, %.lr.ph207.preheader.i.preheader ], [ %157, %.lr.ph222.i.preheader ], [ %143, %.lr.ph207.preheader.i ], [ %166, %.lr.ph222.i ]
   %149 = and i64 %.us-phi185.i, 2147483647
   %150 = getelementptr inbounds nuw i8, ptr %.0306.ph225.i, i64 %149
   %151 = sub i64 %.0305.ph227.i, %149
@@ -728,7 +728,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split235.i:                                      ; preds = %.lr.ph273.i, %.lr.ph258.preheader.i, %.lr.ph273.i.preheader, %.lr.ph258.preheader.i.preheader
-  %.us-phi236.i = phi i64 [ %188, %.lr.ph258.preheader.i ], [ %214, %.lr.ph258.preheader.i.preheader ], [ %202, %.lr.ph273.i.preheader ], [ %211, %.lr.ph273.i ]
+  %.us-phi236.i = phi i64 [ %214, %.lr.ph258.preheader.i.preheader ], [ %202, %.lr.ph273.i.preheader ], [ %188, %.lr.ph258.preheader.i ], [ %211, %.lr.ph273.i ]
   %194 = and i64 %.us-phi236.i, 2147483647
   %195 = getelementptr inbounds nuw i8, ptr %.0312.ph276.i, i64 %194
   %196 = sub i64 %.0309.ph278.i, %194
@@ -854,7 +854,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split286.i:                                      ; preds = %.lr.ph324.i, %.lr.ph309.preheader.i, %.lr.ph324.i.preheader, %.lr.ph309.preheader.i.preheader
-  %.us-phi287.i = phi i64 [ %233, %.lr.ph309.preheader.i ], [ %259, %.lr.ph309.preheader.i.preheader ], [ %247, %.lr.ph324.i.preheader ], [ %256, %.lr.ph324.i ]
+  %.us-phi287.i = phi i64 [ %259, %.lr.ph309.preheader.i.preheader ], [ %247, %.lr.ph324.i.preheader ], [ %233, %.lr.ph309.preheader.i ], [ %256, %.lr.ph324.i ]
   %239 = and i64 %.us-phi287.i, 2147483647
   %240 = getelementptr inbounds nuw i8, ptr %.0318.ph327.i, i64 %239
   %241 = sub i64 %.0315.ph329.i, %239
@@ -980,7 +980,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split337.i:                                      ; preds = %.lr.ph375.i, %.lr.ph360.preheader.i, %.lr.ph375.i.preheader, %.lr.ph360.preheader.i.preheader
-  %.us-phi338.i = phi i64 [ %278, %.lr.ph360.preheader.i ], [ %304, %.lr.ph360.preheader.i.preheader ], [ %292, %.lr.ph375.i.preheader ], [ %301, %.lr.ph375.i ]
+  %.us-phi338.i = phi i64 [ %304, %.lr.ph360.preheader.i.preheader ], [ %292, %.lr.ph375.i.preheader ], [ %278, %.lr.ph360.preheader.i ], [ %301, %.lr.ph375.i ]
   %284 = and i64 %.us-phi338.i, 2147483647
   %285 = getelementptr inbounds nuw i8, ptr %.0316.ph380.i, i64 %284
   %286 = sub i64 %.0317.ph378.i, %284
@@ -1106,7 +1106,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split388.i:                                      ; preds = %.lr.ph426.i, %.lr.ph411.preheader.i, %.lr.ph426.i.preheader, %.lr.ph411.preheader.i.preheader
-  %.us-phi389.i = phi i64 [ %323, %.lr.ph411.preheader.i ], [ %349, %.lr.ph411.preheader.i.preheader ], [ %337, %.lr.ph426.i.preheader ], [ %346, %.lr.ph426.i ]
+  %.us-phi389.i = phi i64 [ %349, %.lr.ph411.preheader.i.preheader ], [ %337, %.lr.ph426.i.preheader ], [ %323, %.lr.ph411.preheader.i ], [ %346, %.lr.ph426.i ]
   %329 = and i64 %.us-phi389.i, 2147483647
   %330 = getelementptr inbounds nuw i8, ptr %.0313.ph431.i, i64 %329
   %331 = sub i64 %.0314.ph429.i, %329
@@ -1232,7 +1232,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split440.i:                                      ; preds = %.lr.ph478.i, %.lr.ph463.preheader.i, %.lr.ph478.i.preheader, %.lr.ph463.preheader.i.preheader
-  %.us-phi441.i = phi i64 [ %368, %.lr.ph463.preheader.i ], [ %394, %.lr.ph463.preheader.i.preheader ], [ %382, %.lr.ph478.i.preheader ], [ %391, %.lr.ph478.i ]
+  %.us-phi441.i = phi i64 [ %394, %.lr.ph463.preheader.i.preheader ], [ %382, %.lr.ph478.i.preheader ], [ %368, %.lr.ph463.preheader.i ], [ %391, %.lr.ph478.i ]
   %374 = and i64 %.us-phi441.i, 2147483647
   %375 = getelementptr inbounds nuw i8, ptr %.0310.ph483.i, i64 %374
   %376 = sub i64 %.0311.ph481.i, %374
@@ -1423,7 +1423,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split491.us.i:                                   ; preds = %.lr.ph529.i, %.lr.ph514.preheader.i, %.lr.ph529.i.preheader, %.lr.ph514.preheader.i.preheader
-  %.us-phi492.i = phi i64 [ %436, %.lr.ph514.preheader.i ], [ %417, %.lr.ph514.preheader.i.preheader ], [ %405, %.lr.ph529.i.preheader ], [ %414, %.lr.ph529.i ]
+  %.us-phi492.i = phi i64 [ %417, %.lr.ph514.preheader.i.preheader ], [ %405, %.lr.ph529.i.preheader ], [ %436, %.lr.ph514.preheader.i ], [ %414, %.lr.ph529.i ]
   %442 = and i64 %.us-phi492.i, 2147483647
   %443 = getelementptr inbounds nuw i8, ptr %.0307.ph534.i, i64 %442
   %444 = sub i64 %.0308.ph532.i, %442
@@ -1587,7 +1587,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split543.us.i:                                   ; preds = %.lr.ph581.i, %.lr.ph566.preheader.i, %.lr.ph581.i.preheader, %.lr.ph566.preheader.i.preheader
-  %.us-phi544.i = phi i64 [ %496, %.lr.ph566.preheader.i ], [ %477, %.lr.ph566.preheader.i.preheader ], [ %465, %.lr.ph581.i.preheader ], [ %474, %.lr.ph581.i ]
+  %.us-phi544.i = phi i64 [ %477, %.lr.ph566.preheader.i.preheader ], [ %465, %.lr.ph581.i.preheader ], [ %496, %.lr.ph566.preheader.i ], [ %474, %.lr.ph581.i ]
   %502 = and i64 %.us-phi544.i, 2147483647
   %503 = getelementptr inbounds nuw i8, ptr %.0303.ph586.i, i64 %502
   %504 = sub i64 %.0304.ph584.i, %502
@@ -1720,7 +1720,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split595.us.i:                                   ; preds = %.lr.ph633.i, %.lr.ph618.preheader.i, %.lr.ph633.i.preheader, %.lr.ph618.preheader.i.preheader
-  %.us-phi596.i = phi i64 [ %543, %.lr.ph618.preheader.i ], [ %524, %.lr.ph618.preheader.i.preheader ], [ %512, %.lr.ph633.i.preheader ], [ %521, %.lr.ph633.i ]
+  %.us-phi596.i = phi i64 [ %524, %.lr.ph618.preheader.i.preheader ], [ %512, %.lr.ph633.i.preheader ], [ %543, %.lr.ph618.preheader.i ], [ %521, %.lr.ph633.i ]
   %549 = and i64 %.us-phi596.i, 2147483647
   %550 = getelementptr inbounds nuw i8, ptr %.0300.ph639.i, i64 %549
   %551 = sub i64 %.0301.ph637.i, %549
@@ -1871,7 +1871,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split647.us.i:                                   ; preds = %.lr.ph685.i, %.lr.ph670.preheader.i, %.lr.ph685.i.preheader, %.lr.ph670.preheader.i.preheader
-  %.us-phi648.i = phi i64 [ %597, %.lr.ph670.preheader.i ], [ %578, %.lr.ph670.preheader.i.preheader ], [ %566, %.lr.ph685.i.preheader ], [ %575, %.lr.ph685.i ]
+  %.us-phi648.i = phi i64 [ %578, %.lr.ph670.preheader.i.preheader ], [ %566, %.lr.ph685.i.preheader ], [ %597, %.lr.ph670.preheader.i ], [ %575, %.lr.ph685.i ]
   %603 = and i64 %.us-phi648.i, 2147483647
   %604 = getelementptr inbounds nuw i8, ptr %.0297.ph690.i, i64 %603
   %605 = sub i64 %.0298.ph688.i, %603
@@ -1946,7 +1946,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split699.i:                                      ; preds = %.lr.ph737.i, %.lr.ph722.preheader.i, %.lr.ph737.i.preheader, %.lr.ph722.preheader.i.preheader
-  %.us-phi700.i = phi i64 [ %624, %.lr.ph722.preheader.i ], [ %650, %.lr.ph722.preheader.i.preheader ], [ %638, %.lr.ph737.i.preheader ], [ %647, %.lr.ph737.i ]
+  %.us-phi700.i = phi i64 [ %650, %.lr.ph722.preheader.i.preheader ], [ %638, %.lr.ph737.i.preheader ], [ %624, %.lr.ph722.preheader.i ], [ %647, %.lr.ph737.i ]
   %630 = and i64 %.us-phi700.i, 2147483647
   %631 = getelementptr inbounds nuw i8, ptr %.0294.ph742.i, i64 %630
   %632 = sub i64 %.0295.ph740.i, %630
@@ -2130,7 +2130,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.thread.i
 
 .split751.us.i:                                   ; preds = %.lr.ph789.i, %.lr.ph774.preheader.i, %.lr.ph789.i.preheader, %.lr.ph774.preheader.i.preheader
-  %.us-phi752.i = phi i64 [ %688, %.lr.ph774.preheader.i ], [ %669, %.lr.ph774.preheader.i.preheader ], [ %657, %.lr.ph789.i.preheader ], [ %666, %.lr.ph789.i ]
+  %.us-phi752.i = phi i64 [ %669, %.lr.ph774.preheader.i.preheader ], [ %657, %.lr.ph789.i.preheader ], [ %688, %.lr.ph774.preheader.i ], [ %666, %.lr.ph789.i ]
   %694 = and i64 %.us-phi752.i, 2147483647
   %695 = getelementptr inbounds nuw i8, ptr %.0.ph795.i, i64 %694
   %696 = sub i64 %.0293.ph793.i, %694
@@ -2831,7 +2831,7 @@ _init_from_slurmd.exit:                           ; preds = %820, %836
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1008
 
-1008:                                             ; preds = %1005, %.critedge.i, %925
+1008:                                             ; preds = %1005, %925, %.critedge.i
   call fastcc void @_send_fail_to_slurmd(i32 noundef -1)
   br label %1079
 
@@ -3214,7 +3214,7 @@ define internal fastcc void @_send_fail_to_slurmd(i32 noundef range(i32 1, 0) %0
 .lr.ph.split.backedge:                            ; preds = %20, %17
   br label %.lr.ph.split, !llvm.loop !26
 
-21:                                               ; preds = %.split23.us, %13
+21:                                               ; preds = %13, %.split23.us
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.74) #15
   br label %.loopexit
 
@@ -3425,7 +3425,7 @@ _send_ok_to_slurmd.exit:                          ; preds = %.split.us.i, %29
   br label %77
 
 .split32.us.i:                                    ; preds = %.lr.ph69.i, %.lr.ph54.preheader.i, %.lr.ph69.i.preheader, %.lr.ph54.preheader.i.preheader
-  %.us-phi33.i = phi i64 [ %64, %.lr.ph54.preheader.i ], [ %45, %.lr.ph54.preheader.i.preheader ], [ %33, %.lr.ph69.i.preheader ], [ %42, %.lr.ph69.i ]
+  %.us-phi33.i = phi i64 [ %45, %.lr.ph54.preheader.i.preheader ], [ %33, %.lr.ph69.i.preheader ], [ %64, %.lr.ph54.preheader.i ], [ %42, %.lr.ph69.i ]
   %70 = and i64 %.us-phi33.i, 2147483647
   %71 = getelementptr inbounds nuw i8, ptr %.018.ph71.i, i64 %70
   %72 = sub i64 %.017.ph73.i, %70
@@ -4016,10 +4016,10 @@ _get_jobid_uid_gid_from_env.exit.thread:          ; preds = %34
   br label %_get_jobid_uid_gid_from_env.exit
 
 _get_jobid_uid_gid_from_env.exit:                 ; preds = %10, %17, %21, %28, %32, %39
-  %.011 = phi i32 [ -1, %10 ], [ -1, %21 ], [ %25, %32 ], [ -1, %17 ], [ %25, %39 ], [ %25, %28 ]
-  %.010 = phi i32 [ -1, %10 ], [ -1, %21 ], [ -1, %32 ], [ -1, %17 ], [ %36, %39 ], [ -1, %28 ]
-  %.09 = phi i32 [ -1, %10 ], [ %14, %21 ], [ %14, %32 ], [ %14, %17 ], [ %14, %39 ], [ %14, %28 ]
-  %.0.i = phi i32 [ %11, %10 ], [ %22, %21 ], [ %33, %32 ], [ %18, %17 ], [ %40, %39 ], [ %29, %28 ]
+  %.011 = phi i32 [ -1, %10 ], [ -1, %21 ], [ %25, %32 ], [ %25, %39 ], [ %25, %28 ], [ -1, %17 ]
+  %.010 = phi i32 [ -1, %10 ], [ -1, %21 ], [ -1, %32 ], [ %36, %39 ], [ -1, %28 ], [ -1, %17 ]
+  %.09 = phi i32 [ -1, %10 ], [ %14, %21 ], [ %14, %32 ], [ %14, %39 ], [ %14, %28 ], [ %14, %17 ]
+  %.0.i = phi i32 [ %11, %10 ], [ %22, %21 ], [ %33, %32 ], [ %40, %39 ], [ %29, %28 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %43, label %41
@@ -4068,7 +4068,7 @@ _get_jobid_uid_gid_from_env.exit:                 ; preds = %10, %17, %21, %28, 
   br label %60
 
 60:                                               ; preds = %54, %49, %59, %57, %41
-  %.0 = phi i32 [ %42, %41 ], [ -1, %57 ], [ -1, %49 ], [ 0, %59 ], [ -1, %54 ]
+  %.0 = phi i32 [ %42, %41 ], [ -1, %57 ], [ 0, %59 ], [ -1, %49 ], [ -1, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -4217,7 +4217,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   br label %.thread114
 
 .split131.us:                                     ; preds = %.lr.ph168, %.lr.ph153.preheader, %.lr.ph168.preheader, %.lr.ph153.preheader.preheader
-  %.us-phi132 = phi i64 [ %40, %.lr.ph153.preheader ], [ %22, %.lr.ph153.preheader.preheader ], [ %11, %.lr.ph168.preheader ], [ %19, %.lr.ph168 ]
+  %.us-phi132 = phi i64 [ %22, %.lr.ph153.preheader.preheader ], [ %11, %.lr.ph168.preheader ], [ %40, %.lr.ph153.preheader ], [ %19, %.lr.ph168 ]
   %46 = and i64 %.us-phi132, 2147483647
   %47 = getelementptr inbounds nuw i8, ptr %.074.ph172, i64 %46
   %48 = sub i64 %.075.ph170, %46
@@ -4355,7 +4355,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   br label %158
 
 .split181.us:                                     ; preds = %.lr.ph219, %.lr.ph204.preheader, %.lr.ph219.preheader, %.lr.ph204.preheader.preheader
-  %.us-phi182 = phi i64 [ %88, %.lr.ph204.preheader ], [ %70, %.lr.ph204.preheader.preheader ], [ %59, %.lr.ph219.preheader ], [ %67, %.lr.ph219 ]
+  %.us-phi182 = phi i64 [ %70, %.lr.ph204.preheader.preheader ], [ %59, %.lr.ph219.preheader ], [ %88, %.lr.ph204.preheader ], [ %67, %.lr.ph219 ]
   %94 = and i64 %.us-phi182, 2147483647
   %95 = getelementptr inbounds nuw i8, ptr %.071.ph225, i64 %94
   %96 = sub i64 %.072.ph223, %94
@@ -4451,7 +4451,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   br label %131
 
 131:                                              ; preds = %.thread110, %127, %123, %130
-  %.sink = phi i32 [ %117, %127 ], [ 1, %130 ], [ %124, %123 ], [ %spec.select, %.thread110 ]
+  %.sink = phi i32 [ 1, %130 ], [ %124, %123 ], [ %117, %127 ], [ %spec.select, %.thread110 ]
   %132 = getelementptr inbounds nuw i8, ptr %.076, i64 4392
   store i32 %.sink, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %.076, i64 4328
@@ -4505,7 +4505,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   call void @assoc_mgr_unlock(ptr noundef nonnull %4) #15
   br label %160
 
-158:                                              ; preds = %78, %83, %.split184.us, %93
+158:                                              ; preds = %78, %83, %93, %.split184.us
   %.not93 = icmp eq ptr %54, null
   br i1 %.not93, label %.thread114, label %159
 
@@ -4513,12 +4513,12 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   tail call void @free_buf(ptr noundef nonnull %54) #15
   br label %.thread114
 
-.thread114:                                       ; preds = %30, %35, %.split134.us, %45, %159, %158
+.thread114:                                       ; preds = %30, %35, %45, %.split134.us, %159, %158
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   br label %160
 
 160:                                              ; preds = %.thread114, %157
-  %.0 = phi ptr [ null, %.thread114 ], [ %.076, %157 ]
+  %.0 = phi ptr [ %.076, %157 ], [ null, %.thread114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

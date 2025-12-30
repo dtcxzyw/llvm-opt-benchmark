@@ -47,7 +47,7 @@ define double @SuiteSparse_hypot(double noundef %0, double noundef %1) #3 {
   br label %19
 
 19:                                               ; preds = %13, %7, %15, %9
-  %.0 = phi double [ %18, %15 ], [ %12, %9 ], [ %3, %7 ], [ %4, %13 ]
+  %.0 = phi double [ %12, %9 ], [ %18, %15 ], [ %3, %7 ], [ %4, %13 ]
   ret double %.0
 }
 
@@ -146,8 +146,8 @@ SuiteSparse_malloc.exit:                          ; preds = %12
   br label %23
 
 23:                                               ; preds = %19, %17, %5, %SuiteSparse_malloc.exit
-  %.sink.shrunk = phi i1 [ false, %5 ], [ true, %17 ], [ %spec.select, %19 ], [ %16, %SuiteSparse_malloc.exit ]
-  %.0 = phi ptr [ %3, %5 ], [ %3, %17 ], [ %spec.select32, %19 ], [ %15, %SuiteSparse_malloc.exit ]
+  %.sink.shrunk = phi i1 [ %16, %SuiteSparse_malloc.exit ], [ false, %5 ], [ true, %17 ], [ %spec.select, %19 ]
+  %.0 = phi ptr [ %15, %SuiteSparse_malloc.exit ], [ %3, %5 ], [ %3, %17 ], [ %spec.select32, %19 ]
   %.sink = zext i1 %.sink.shrunk to i32
   store i32 %.sink, ptr %4, align 4, !tbaa !10
   ret ptr %.0

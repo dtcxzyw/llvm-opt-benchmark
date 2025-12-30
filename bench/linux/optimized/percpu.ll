@@ -1417,7 +1417,7 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   br i1 %178, label %.loopexit, label %.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %175, %103, %.preheader
-  %179 = phi ptr [ %104, %103 ], [ %88, %.preheader ], [ %176, %175 ]
+  %179 = phi ptr [ %88, %.preheader ], [ %104, %103 ], [ %176, %175 ]
   %180 = add i32 %89, 1
   %181 = load i32, ptr @pcpu_free_slot, align 4
   %182 = icmp sgt i32 %180, %181
@@ -1815,7 +1815,7 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   br label %410
 
 410:                                              ; preds = %409, %406, %404, %362, %358, %345, %.thread23, %56, %50, %49
-  %411 = phi ptr [ null, %409 ], [ null, %50 ], [ null, %49 ], [ null, %56 ], [ %339, %.thread23 ], [ %339, %345 ], [ %339, %358 ], [ %339, %362 ], [ null, %406 ], [ null, %404 ]
+  %411 = phi ptr [ null, %50 ], [ null, %49 ], [ null, %56 ], [ %339, %.thread23 ], [ %339, %345 ], [ %339, %358 ], [ %339, %362 ], [ null, %406 ], [ null, %404 ], [ null, %409 ]
   ret ptr %411
 }
 
@@ -2753,7 +2753,7 @@ define dso_local noundef zeroext i1 @__is_kernel_percpu_address(i64 noundef %0, 
   br label %.thread
 
 .thread:                                          ; preds = %9, %5, %13, %30, %28
-  %38 = phi i1 [ true, %28 ], [ true, %30 ], [ false, %13 ], [ false, %5 ], [ false, %9 ]
+  %38 = phi i1 [ true, %30 ], [ true, %28 ], [ false, %13 ], [ false, %5 ], [ false, %9 ]
   ret i1 %38
 }
 
@@ -2795,7 +2795,7 @@ define dso_local noundef zeroext i1 @is_kernel_percpu_address(i64 noundef %0) lo
   br i1 %25, label %.thread, label %4, !llvm.loop !62
 
 .thread:                                          ; preds = %8, %4, %16, %12
-  %27 = phi i1 [ false, %12 ], [ true, %16 ], [ false, %4 ], [ false, %8 ]
+  %27 = phi i1 [ true, %16 ], [ false, %12 ], [ false, %4 ], [ false, %8 ]
   ret i1 %27
 }
 
@@ -4691,7 +4691,7 @@ define internal fastcc ptr @pcpu_fc_alloc(i32 noundef %0, i64 noundef %1, i64 no
   br i1 %24, label %.thread, label %28
 
 .thread:                                          ; preds = %4, %21, %16, %13
-  %25 = phi i32 [ -1, %13 ], [ %14, %21 ], [ %14, %16 ], [ -1, %4 ]
+  %25 = phi i32 [ %14, %21 ], [ %14, %16 ], [ -1, %13 ], [ -1, %4 ]
   %26 = tail call ptr @memblock_alloc_try_nid(i64 noundef %1, i64 noundef %2, i64 noundef %11, i64 noundef 0, i32 noundef -1) #23
   %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.127, i32 noundef %0, i32 noundef %25) #26
   br label %30
@@ -5536,8 +5536,8 @@ define internal fastcc i32 @pcpu_find_block_fit(ptr noundef %0, i32 noundef %1, 
   br label %pcpu_next_fit_region.exit
 
 pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loopexit11.i
-  %.217 = phi i32 [ %105, %.loopexit11.i ], [ %91, %86 ], [ %99, %92 ], [ %.015, %51 ]
-  %.4 = phi i32 [ %.1, %.loopexit11.i ], [ %89, %86 ], [ %97, %92 ], [ %54, %51 ]
+  %.217 = phi i32 [ %105, %.loopexit11.i ], [ %91, %86 ], [ %.015, %51 ], [ %99, %92 ]
+  %.4 = phi i32 [ %.1, %.loopexit11.i ], [ %89, %86 ], [ %54, %51 ], [ %97, %92 ]
   %106 = shl i32 %36, 10
   %107 = icmp slt i32 %.217, %106
   %108 = and i1 %3, %107
@@ -5682,8 +5682,8 @@ pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loo
   br label %pcpu_next_fit_region.exit6
 
 pcpu_next_fit_region.exit6:                       ; preds = %147, %188, %182, %.loopexit11.i5
-  %.520 = phi i32 [ %200, %.loopexit11.i5 ], [ %187, %182 ], [ %195, %188 ], [ %.318, %147 ]
-  %.8 = phi i32 [ %.5, %.loopexit11.i5 ], [ %185, %182 ], [ %193, %188 ], [ %150, %147 ]
+  %.520 = phi i32 [ %200, %.loopexit11.i5 ], [ %187, %182 ], [ %.318, %147 ], [ %195, %188 ]
+  %.8 = phi i32 [ %.5, %.loopexit11.i5 ], [ %185, %182 ], [ %150, %147 ], [ %193, %188 ]
   %201 = shl i32 %135, 10
   %202 = icmp slt i32 %.520, %201
   br i1 %202, label %113, label %.critedge, !llvm.loop !148
@@ -5796,9 +5796,9 @@ define internal fastcc range(i32 -1, -3) i32 @pcpu_alloc_area(ptr noundef %0, i3
   br i1 %70, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %62, %.lr.ph
-  %.lcssa16 = phi i64 [ %45, %.lr.ph ], [ %63, %62 ]
-  %.lcssa = phi i64 [ %44, %.lr.ph ], [ %64, %62 ]
-  %71 = phi i64 [ %43, %.lr.ph ], [ %69, %62 ]
+  %.lcssa16 = phi i64 [ %63, %62 ], [ %45, %.lr.ph ]
+  %.lcssa = phi i64 [ %64, %62 ], [ %44, %.lr.ph ]
+  %71 = phi i64 [ %69, %62 ], [ %43, %.lr.ph ]
   %72 = trunc i64 %71 to i32
   %73 = icmp sgt i32 %30, %72
   br i1 %73, label %76, label %174
@@ -5840,8 +5840,8 @@ define internal fastcc range(i32 -1, -3) i32 @pcpu_alloc_area(ptr noundef %0, i3
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %84, %78, %76
-  %100 = phi i64 [ %71, %76 ], [ %71, %84 ], [ %71, %78 ], [ %40, %._crit_edge.thread ]
-  %101 = phi i32 [ %72, %76 ], [ %72, %84 ], [ %72, %78 ], [ %74, %._crit_edge.thread ]
+  %100 = phi i64 [ %71, %84 ], [ %71, %78 ], [ %71, %76 ], [ %40, %._crit_edge.thread ]
+  %101 = phi i32 [ %72, %84 ], [ %72, %78 ], [ %72, %76 ], [ %74, %._crit_edge.thread ]
   %102 = load ptr, ptr %31, align 8
   tail call void @__bitmap_set(ptr noundef %102, i32 noundef %101, i32 noundef %1) #23
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6225,7 +6225,7 @@ define internal fastcc ptr @pcpu_create_chunk(i32 noundef range(i32 0, 76993) %0
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread, %11, %89, %130, %126, %113, %103, %99
-  %133 = phi ptr [ null, %99 ], [ %12, %130 ], [ %12, %103 ], [ %12, %113 ], [ %12, %126 ], [ null, %89 ], [ null, %11 ], [ null, %.thread ]
+  %133 = phi ptr [ null, %99 ], [ %12, %103 ], [ %12, %113 ], [ %12, %126 ], [ %12, %130 ], [ null, %89 ], [ null, %11 ], [ null, %.thread ]
   ret ptr %133
 }
 
@@ -6629,7 +6629,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
   br i1 %266, label %254, label %.thread27, !prof !40, !llvm.loop !162
 
 .thread27:                                        ; preds = %.loopexit38, %118, %97, %129, %.loopexit34, %135, %259, %263, %254, %.loopexit.us, %226, %.thread31.split.us, %.thread24, %20
-  %267 = phi i32 [ -12, %20 ], [ -12, %.thread24 ], [ -12, %259 ], [ -12, %.loopexit.us ], [ 0, %129 ], [ -12, %.thread31.split.us ], [ -12, %226 ], [ -12, %254 ], [ -12, %263 ], [ 0, %135 ], [ 0, %.loopexit34 ], [ -12, %97 ], [ -12, %118 ], [ -12, %.loopexit38 ]
+  %267 = phi i32 [ -12, %20 ], [ -12, %.thread24 ], [ -12, %.thread31.split.us ], [ -12, %226 ], [ -12, %.loopexit.us ], [ -12, %254 ], [ -12, %263 ], [ -12, %259 ], [ 0, %135 ], [ 0, %.loopexit34 ], [ 0, %129 ], [ -12, %97 ], [ -12, %118 ], [ -12, %.loopexit38 ]
   ret i32 %267
 }
 
@@ -7752,7 +7752,7 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %pcpu_reintegrate_ch
   br i1 %264, label %.thread.loopexit, label %223, !llvm.loop !173
 
 .thread.loopexit:                                 ; preds = %223, %263, %238
-  %.ph = phi i32 [ %225, %223 ], [ 0, %238 ], [ 0, %263 ]
+  %.ph = phi i32 [ 0, %263 ], [ %225, %223 ], [ 0, %238 ]
   %.pre = load i32, ptr @pcpu_free_slot, align 4
   br label %.thread
 

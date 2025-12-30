@@ -1791,8 +1791,8 @@ _ZN7testing15AssertionResultD2Ev.exit198:         ; preds = %.thread, %259, %_ZN
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %267, %.critedge62, %183, %_ZN7testing15AssertionResultD2Ev.exit147, %_ZN7testing15AssertionResultD2Ev.exit198
-  %.sroa.25.4 = phi ptr [ %205, %_ZN7testing15AssertionResultD2Ev.exit198 ], [ %138, %183 ], [ %138, %_ZN7testing15AssertionResultD2Ev.exit147 ], [ %28, %.critedge62 ], [ %28, %267 ]
-  %.sroa.0.4 = phi ptr [ %202, %_ZN7testing15AssertionResultD2Ev.exit198 ], [ %134, %183 ], [ %134, %_ZN7testing15AssertionResultD2Ev.exit147 ], [ %25, %.critedge62 ], [ %25, %267 ]
+  %.sroa.25.4 = phi ptr [ %205, %_ZN7testing15AssertionResultD2Ev.exit198 ], [ %138, %_ZN7testing15AssertionResultD2Ev.exit147 ], [ %138, %183 ], [ %28, %.critedge62 ], [ %28, %267 ]
+  %.sroa.0.4 = phi ptr [ %202, %_ZN7testing15AssertionResultD2Ev.exit198 ], [ %134, %_ZN7testing15AssertionResultD2Ev.exit147 ], [ %134, %183 ], [ %25, %.critedge62 ], [ %25, %267 ]
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   %270 = ptrtoint ptr %.sroa.25.4 to i64
   %271 = ptrtoint ptr %.sroa.0.4 to i64
@@ -2039,8 +2039,8 @@ define dso_local void @_ZN52ProxyCreationTests_TestMakeProxyInplace_InPlace_Test
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %28
 
 26:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %130, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %127, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ]
+  %.sroa.19.0 = phi ptr [ %130, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %127, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ], [ null, %1 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165
@@ -2715,9 +2715,9 @@ _ZN7testing15AssertionResultD2Ev.exit179:         ; preds = %.thread, %251, %_ZN
   call void %261(ptr noundef nonnull %22) #21
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-262:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit179, %175, %_ZN7testing15AssertionResultD2Ev.exit128
-  %.sroa.19.3.ph = phi ptr [ %130, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %130, %175 ], [ %197, %_ZN7testing15AssertionResultD2Ev.exit179 ]
-  %.sroa.0.3.ph = phi ptr [ %127, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %127, %175 ], [ %193, %_ZN7testing15AssertionResultD2Ev.exit179 ]
+262:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit179, %_ZN7testing15AssertionResultD2Ev.exit128, %175
+  %.sroa.19.3.ph = phi ptr [ %130, %175 ], [ %130, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %197, %_ZN7testing15AssertionResultD2Ev.exit179 ]
+  %.sroa.0.3.ph = phi ptr [ %127, %175 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %193, %_ZN7testing15AssertionResultD2Ev.exit179 ]
   %263 = ptrtoint ptr %.sroa.19.3.ph to i64
   %264 = ptrtoint ptr %.sroa.0.3.ph to i64
   %265 = sub i64 %263, %264
@@ -2747,9 +2747,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165: ; preds = %219, %218, %26
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %219 ], [ %.sroa.19.0, %26 ], [ %.sroa.19.2, %218 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %219 ], [ %.sroa.0.0, %26 ], [ %.sroa.0.2, %218 ]
-  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn.pn, %219 ], [ %27, %26 ], [ %.pn45.pn.pn.pn, %218 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %26 ], [ %.sroa.19.2, %218 ], [ %.sroa.19.2, %219 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %26 ], [ %.sroa.0.2, %218 ], [ %.sroa.0.2, %219 ]
+  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn45.pn.pn.pn, %218 ], [ %.pn45.pn.pn.pn, %219 ]
   %.not.i.i.i185 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i185, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit186, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165._crit_edge
 
@@ -2820,8 +2820,8 @@ define dso_local void @_ZN67ProxyCreationTests_TestMakeProxyInplace_InPlaceIniti
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %28
 
 26:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %130, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ]
-  %.sroa.0199.0 = phi ptr [ null, %1 ], [ %127, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ]
+  %.sroa.19.0 = phi ptr [ %130, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ], [ null, %1 ]
+  %.sroa.0199.0 = phi ptr [ %127, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ], [ null, %1 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165
@@ -3496,9 +3496,9 @@ _ZN7testing15AssertionResultD2Ev.exit179:         ; preds = %.thread, %251, %_ZN
   call void %261(ptr noundef nonnull %22) #21
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-262:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit179, %175, %_ZN7testing15AssertionResultD2Ev.exit128
-  %.sroa.19.3.ph = phi ptr [ %130, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %130, %175 ], [ %197, %_ZN7testing15AssertionResultD2Ev.exit179 ]
-  %.sroa.0199.3.ph = phi ptr [ %127, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %127, %175 ], [ %193, %_ZN7testing15AssertionResultD2Ev.exit179 ]
+262:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit179, %_ZN7testing15AssertionResultD2Ev.exit128, %175
+  %.sroa.19.3.ph = phi ptr [ %130, %175 ], [ %130, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %197, %_ZN7testing15AssertionResultD2Ev.exit179 ]
+  %.sroa.0199.3.ph = phi ptr [ %127, %175 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %193, %_ZN7testing15AssertionResultD2Ev.exit179 ]
   %263 = ptrtoint ptr %.sroa.19.3.ph to i64
   %264 = ptrtoint ptr %.sroa.0199.3.ph to i64
   %265 = sub i64 %263, %264
@@ -3528,9 +3528,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165: ; preds = %219, %218, %26
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %219 ], [ %.sroa.19.0, %26 ], [ %.sroa.19.2, %218 ]
-  %.sroa.0199.1 = phi ptr [ %.sroa.0199.2, %219 ], [ %.sroa.0199.0, %26 ], [ %.sroa.0199.2, %218 ]
-  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn.pn, %219 ], [ %27, %26 ], [ %.pn45.pn.pn.pn, %218 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %26 ], [ %.sroa.19.2, %218 ], [ %.sroa.19.2, %219 ]
+  %.sroa.0199.1 = phi ptr [ %.sroa.0199.0, %26 ], [ %.sroa.0199.2, %218 ], [ %.sroa.0199.2, %219 ]
+  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn45.pn.pn.pn, %218 ], [ %.pn45.pn.pn.pn, %219 ]
   %.not.i.i.i185 = icmp eq ptr %.sroa.0199.1, null
   br i1 %.not.i.i.i185, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit186, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165._crit_edge
 
@@ -3643,8 +3643,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   br i1 %53, label %98, label %64
 
 56:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ %345, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %341, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279 ]
+  %.sroa.31.0 = phi ptr [ %345, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %341, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279 ], [ null, %1 ]
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit321
@@ -4947,8 +4947,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %487, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338, %393, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit335
-  %.sroa.31.5 = phi ptr [ %418, %_ZN7testing15AssertionResultD2Ev.exit335 ], [ %345, %393 ], [ %345, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %45, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338 ], [ %45, %487 ]
-  %.sroa.0.5 = phi ptr [ %415, %_ZN7testing15AssertionResultD2Ev.exit335 ], [ %341, %393 ], [ %341, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338 ], [ %42, %487 ]
+  %.sroa.31.5 = phi ptr [ %418, %_ZN7testing15AssertionResultD2Ev.exit335 ], [ %345, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %345, %393 ], [ %45, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338 ], [ %45, %487 ]
+  %.sroa.0.5 = phi ptr [ %415, %_ZN7testing15AssertionResultD2Ev.exit335 ], [ %341, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %341, %393 ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338 ], [ %42, %487 ]
   %490 = ptrtoint ptr %.sroa.31.5 to i64
   %491 = ptrtoint ptr %.sroa.0.5 to i64
   %492 = sub i64 %490, %491
@@ -4975,9 +4975,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit321._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit321: ; preds = %444, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318, %56
-  %.sroa.31.2 = phi ptr [ %.sroa.31.3, %444 ], [ %.sroa.31.0, %56 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %444 ], [ %.sroa.0.0, %56 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ]
-  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn, %444 ], [ %57, %56 ], [ %.pn74.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ]
+  %.sroa.31.2 = phi ptr [ %.sroa.31.0, %56 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ], [ %.sroa.31.3, %444 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %56 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ], [ %.sroa.0.3, %444 ]
+  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn74.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ], [ %.pn74.pn.pn.pn.pn, %444 ]
   %.not.i.i.i344 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i344, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit345, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit321._crit_edge
 
@@ -5064,8 +5064,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267
 
 33:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153, %85
-  %.sroa.31.1 = phi ptr [ %37, %85 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %191, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ]
-  %.sroa.0.1 = phi ptr [ %30, %85 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %187, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ]
+  %.sroa.31.1 = phi ptr [ %191, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %37, %85 ]
+  %.sroa.0.1 = phi ptr [ %187, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %30, %85 ]
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %286
@@ -5947,8 +5947,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %330, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260, %243, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit257
-  %.sroa.31.5 = phi ptr [ %195, %_ZN7testing15AssertionResultD2Ev.exit257 ], [ %195, %243 ], [ %195, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260 ], [ %37, %330 ]
-  %.sroa.0.5 = phi ptr [ %192, %_ZN7testing15AssertionResultD2Ev.exit257 ], [ %192, %243 ], [ %192, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260 ], [ %30, %330 ]
+  %.sroa.31.5 = phi ptr [ %195, %_ZN7testing15AssertionResultD2Ev.exit257 ], [ %195, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %195, %243 ], [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260 ], [ %37, %330 ]
+  %.sroa.0.5 = phi ptr [ %192, %_ZN7testing15AssertionResultD2Ev.exit257 ], [ %192, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %192, %243 ], [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260 ], [ %30, %330 ]
   %333 = ptrtoint ptr %.sroa.31.5 to i64
   %334 = ptrtoint ptr %.sroa.0.5 to i64
   %335 = sub i64 %333, %334
@@ -5991,7 +5991,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread
-  %.pn62.pn.pn.pn337 = phi { ptr, i32 } [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406 ], [ %.pn62.pn.pn.pn336, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread ], [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401 ]
+  %.pn62.pn.pn.pn337 = phi { ptr, i32 } [ %.pn62.pn.pn.pn336, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread ], [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406 ]
   %349 = load ptr, ptr %26, align 8
   %.not.i.i.i.i268 = icmp eq ptr %349, null
   br i1 %.not.i.i.i.i268, label %_ZN5utils15LifetimeTrackerD2Ev.exit269, label %350
@@ -6898,8 +6898,8 @@ _ZN7testing15AssertionResultD2Ev.exit230:         ; preds = %.thread, %308, %_ZN
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %316, %.critedge74, %232, %_ZN7testing15AssertionResultD2Ev.exit179, %_ZN7testing15AssertionResultD2Ev.exit230
-  %.sroa.25.4 = phi ptr [ %254, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %187, %232 ], [ %187, %_ZN7testing15AssertionResultD2Ev.exit179 ], [ %32, %.critedge74 ], [ %32, %316 ]
-  %.sroa.0.4 = phi ptr [ %251, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %183, %232 ], [ %183, %_ZN7testing15AssertionResultD2Ev.exit179 ], [ %29, %.critedge74 ], [ %29, %316 ]
+  %.sroa.25.4 = phi ptr [ %254, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %187, %_ZN7testing15AssertionResultD2Ev.exit179 ], [ %187, %232 ], [ %32, %.critedge74 ], [ %32, %316 ]
+  %.sroa.0.4 = phi ptr [ %251, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %183, %_ZN7testing15AssertionResultD2Ev.exit179 ], [ %183, %232 ], [ %29, %.critedge74 ], [ %29, %316 ]
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   %319 = ptrtoint ptr %.sroa.25.4 to i64
   %320 = ptrtoint ptr %.sroa.0.4 to i64
@@ -7025,8 +7025,8 @@ define dso_local void @_ZN65ProxyCreationTests_TestAllocateProxy_DirectAllocator
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %34
 
 32:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %179, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %176, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ]
+  %.sroa.19.0 = phi ptr [ %179, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %176, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ], [ null, %1 ]
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -7831,9 +7831,9 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %.thread, %300, %_ZN
   call void %310(ptr noundef nonnull %30) #21
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-311:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213, %224, %_ZN7testing15AssertionResultD2Ev.exit162
-  %.sroa.19.3.ph = phi ptr [ %179, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %179, %224 ], [ %246, %_ZN7testing15AssertionResultD2Ev.exit213 ]
-  %.sroa.0.3.ph = phi ptr [ %176, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %176, %224 ], [ %242, %_ZN7testing15AssertionResultD2Ev.exit213 ]
+311:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213, %_ZN7testing15AssertionResultD2Ev.exit162, %224
+  %.sroa.19.3.ph = phi ptr [ %179, %224 ], [ %179, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %246, %_ZN7testing15AssertionResultD2Ev.exit213 ]
+  %.sroa.0.3.ph = phi ptr [ %176, %224 ], [ %176, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %242, %_ZN7testing15AssertionResultD2Ev.exit213 ]
   %312 = ptrtoint ptr %.sroa.19.3.ph to i64
   %313 = ptrtoint ptr %.sroa.0.3.ph to i64
   %314 = sub i64 %312, %313
@@ -7863,9 +7863,9 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %.body._crit_edge
 
 .body:                                            ; preds = %268, %267, %32
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %268 ], [ %.sroa.19.2, %267 ], [ %.sroa.19.0, %32 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %268 ], [ %.sroa.0.2, %267 ], [ %.sroa.0.0, %32 ]
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %268 ], [ %.pn55.pn.pn.pn, %267 ], [ %33, %32 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %32 ], [ %.sroa.19.2, %267 ], [ %.sroa.19.2, %268 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %32 ], [ %.sroa.0.2, %267 ], [ %.sroa.0.2, %268 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %.pn55.pn.pn.pn, %267 ], [ %.pn55.pn.pn.pn, %268 ]
   %.not.i.i.i219 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i219, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit220, label %.body._crit_edge
 
@@ -7954,8 +7954,8 @@ define dso_local void @_ZN80ProxyCreationTests_TestAllocateProxy_DirectAllocator
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %34
 
 32:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %179, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ]
-  %.sroa.0235.0 = phi ptr [ null, %1 ], [ %176, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ]
+  %.sroa.19.0 = phi ptr [ %179, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ], [ null, %1 ]
+  %.sroa.0235.0 = phi ptr [ %176, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ], [ null, %1 ]
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8760,9 +8760,9 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %.thread, %300, %_ZN
   call void %310(ptr noundef nonnull %30) #21
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-311:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213, %224, %_ZN7testing15AssertionResultD2Ev.exit162
-  %.sroa.19.3.ph = phi ptr [ %179, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %179, %224 ], [ %246, %_ZN7testing15AssertionResultD2Ev.exit213 ]
-  %.sroa.0235.3.ph = phi ptr [ %176, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %176, %224 ], [ %242, %_ZN7testing15AssertionResultD2Ev.exit213 ]
+311:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213, %_ZN7testing15AssertionResultD2Ev.exit162, %224
+  %.sroa.19.3.ph = phi ptr [ %179, %224 ], [ %179, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %246, %_ZN7testing15AssertionResultD2Ev.exit213 ]
+  %.sroa.0235.3.ph = phi ptr [ %176, %224 ], [ %176, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %242, %_ZN7testing15AssertionResultD2Ev.exit213 ]
   %312 = ptrtoint ptr %.sroa.19.3.ph to i64
   %313 = ptrtoint ptr %.sroa.0235.3.ph to i64
   %314 = sub i64 %312, %313
@@ -8792,9 +8792,9 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %.body._crit_edge
 
 .body:                                            ; preds = %268, %267, %32
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %268 ], [ %.sroa.19.2, %267 ], [ %.sroa.19.0, %32 ]
-  %.sroa.0235.1 = phi ptr [ %.sroa.0235.2, %268 ], [ %.sroa.0235.2, %267 ], [ %.sroa.0235.0, %32 ]
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %268 ], [ %.pn55.pn.pn.pn, %267 ], [ %33, %32 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %32 ], [ %.sroa.19.2, %267 ], [ %.sroa.19.2, %268 ]
+  %.sroa.0235.1 = phi ptr [ %.sroa.0235.0, %32 ], [ %.sroa.0235.2, %267 ], [ %.sroa.0235.2, %268 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %.pn55.pn.pn.pn, %267 ], [ %.pn55.pn.pn.pn, %268 ]
   %.not.i.i.i219 = icmp eq ptr %.sroa.0235.1, null
   br i1 %.not.i.i.i219, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit220, label %.body._crit_edge
 
@@ -8940,8 +8940,8 @@ _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_S
   br i1 %65, label %110, label %76
 
 68:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ %443, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %439, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344 ]
+  %.sroa.31.0 = phi ptr [ %443, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %439, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344 ], [ null, %1 ]
   %69 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -10351,9 +10351,9 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383: ; preds = %70, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i, %539, %538
-  %.sroa.31.3 = phi ptr [ %.sroa.31.4, %539 ], [ %.sroa.31.4, %538 ], [ %.sroa.31.1, %70 ], [ %55, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %539 ], [ %.sroa.0.4, %538 ], [ %.sroa.0.1, %70 ], [ %52, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
-  %.pn94.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn.pn, %539 ], [ %.pn94.pn.pn.pn, %538 ], [ %71, %70 ], [ %59, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
+  %.sroa.31.3 = phi ptr [ %.sroa.31.4, %538 ], [ %.sroa.31.4, %539 ], [ %.sroa.31.1, %70 ], [ %55, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %538 ], [ %.sroa.0.4, %539 ], [ %.sroa.0.1, %70 ], [ %52, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
+  %.pn94.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn.pn, %538 ], [ %.pn94.pn.pn.pn, %539 ], [ %71, %70 ], [ %59, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
   %.val.i384 = load ptr, ptr %3, align 8
   %.not.i385 = icmp eq ptr %.val.i384, null
   br i1 %.not.i385, label %.body, label %542
@@ -10504,8 +10504,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %585, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403, %491, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit400
-  %.sroa.31.5 = phi ptr [ %516, %_ZN7testing15AssertionResultD2Ev.exit400 ], [ %443, %491 ], [ %443, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %55, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403 ], [ %55, %585 ]
-  %.sroa.0.5 = phi ptr [ %513, %_ZN7testing15AssertionResultD2Ev.exit400 ], [ %439, %491 ], [ %439, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %52, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403 ], [ %52, %585 ]
+  %.sroa.31.5 = phi ptr [ %516, %_ZN7testing15AssertionResultD2Ev.exit400 ], [ %443, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %443, %491 ], [ %55, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403 ], [ %55, %585 ]
+  %.sroa.0.5 = phi ptr [ %513, %_ZN7testing15AssertionResultD2Ev.exit400 ], [ %439, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %439, %491 ], [ %52, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403 ], [ %52, %585 ]
   %588 = ptrtoint ptr %.sroa.31.5 to i64
   %589 = ptrtoint ptr %.sroa.0.5 to i64
   %590 = sub i64 %588, %589
@@ -10532,9 +10532,9 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %.body._crit_edge
 
 .body:                                            ; preds = %542, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383, %68
-  %.sroa.31.2 = phi ptr [ %.sroa.31.3, %542 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.sroa.31.0, %68 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %542 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.sroa.0.0, %68 ]
-  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn.pn.pn, %542 ], [ %.pn94.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %69, %68 ]
+  %.sroa.31.2 = phi ptr [ %.sroa.31.0, %68 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.sroa.31.3, %542 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %68 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.sroa.0.3, %542 ]
+  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %.pn94.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.pn94.pn.pn.pn.pn, %542 ]
   %.not.i.i.i409 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i409, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit410, label %.body._crit_edge
 
@@ -10624,8 +10624,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
           to label %38 unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit241.thread
 
 33:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %40, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218 ]
+  %.sroa.19.0 = phi ptr [ %40, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218 ], [ null, %1 ]
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11487,8 +11487,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %323, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261, %230, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit258
-  %.sroa.19.3 = phi ptr [ %255, %_ZN7testing15AssertionResultD2Ev.exit258 ], [ %40, %230 ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261 ], [ %40, %323 ]
-  %.sroa.0.3 = phi ptr [ %251, %_ZN7testing15AssertionResultD2Ev.exit258 ], [ %32, %230 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261 ], [ %32, %323 ]
+  %.sroa.19.3 = phi ptr [ %255, %_ZN7testing15AssertionResultD2Ev.exit258 ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %40, %230 ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261 ], [ %40, %323 ]
+  %.sroa.0.3 = phi ptr [ %251, %_ZN7testing15AssertionResultD2Ev.exit258 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %32, %230 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261 ], [ %32, %323 ]
   %326 = ptrtoint ptr %.sroa.19.3 to i64
   %327 = ptrtoint ptr %.sroa.0.3 to i64
   %328 = sub i64 %326, %327
@@ -12348,9 +12348,9 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %.body
 
 .body:                                            ; preds = %293, %292, %56, %47
-  %.sroa.25.3 = phi ptr [ %36, %56 ], [ %36, %47 ], [ %.sroa.25.4, %292 ], [ %.sroa.25.4, %293 ]
-  %.sroa.0258.3 = phi ptr [ %33, %56 ], [ %33, %47 ], [ %.sroa.0258.4, %292 ], [ %.sroa.0258.4, %293 ]
-  %.pn57.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %48, %47 ], [ %.pn57.pn.pn.pn, %292 ], [ %.pn57.pn.pn.pn, %293 ]
+  %.sroa.25.3 = phi ptr [ %36, %47 ], [ %36, %56 ], [ %.sroa.25.4, %292 ], [ %.sroa.25.4, %293 ]
+  %.sroa.0258.3 = phi ptr [ %33, %47 ], [ %33, %56 ], [ %.sroa.0258.4, %292 ], [ %.sroa.0258.4, %293 ]
+  %.pn57.pn.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %57, %56 ], [ %.pn57.pn.pn.pn, %292 ], [ %.pn57.pn.pn.pn, %293 ]
   call void @_ZNSt3pmr28unsynchronized_pool_resourceD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #21
   br label %.thread283
 
@@ -12644,8 +12644,8 @@ define dso_local void @_ZN67ProxyCreationTests_TestAllocateProxy_IndirectAllocat
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %50
 
 46:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %195, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178 ]
-  %.sroa.0236.0 = phi ptr [ null, %1 ], [ %192, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178 ]
+  %.sroa.19.0 = phi ptr [ %195, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178 ], [ null, %1 ]
+  %.sroa.0236.0 = phi ptr [ %192, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178 ], [ null, %1 ]
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %339
@@ -13336,9 +13336,9 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178
   br label %.body
 
 .body:                                            ; preds = %286, %285, %48, %39
-  %.sroa.19.2 = phi ptr [ null, %48 ], [ null, %39 ], [ %.sroa.19.3, %285 ], [ %.sroa.19.3, %286 ]
-  %.sroa.0236.2 = phi ptr [ null, %48 ], [ null, %39 ], [ %.sroa.0236.3, %285 ], [ %.sroa.0236.3, %286 ]
-  %.pn56.pn.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %40, %39 ], [ %.pn56.pn.pn.pn, %285 ], [ %.pn56.pn.pn.pn, %286 ]
+  %.sroa.19.2 = phi ptr [ null, %39 ], [ null, %48 ], [ %.sroa.19.3, %285 ], [ %.sroa.19.3, %286 ]
+  %.sroa.0236.2 = phi ptr [ null, %39 ], [ null, %48 ], [ %.sroa.0236.3, %285 ], [ %.sroa.0236.3, %286 ]
+  %.pn56.pn.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %49, %48 ], [ %.pn56.pn.pn.pn, %285 ], [ %.pn56.pn.pn.pn, %286 ]
   call void @_ZNSt3pmr28unsynchronized_pool_resourceD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #21
   br label %339
 
@@ -13627,8 +13627,8 @@ define dso_local void @_ZN82ProxyCreationTests_TestAllocateProxy_IndirectAllocat
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %50
 
 46:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %195, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178 ]
-  %.sroa.0237.0 = phi ptr [ null, %1 ], [ %192, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178 ]
+  %.sroa.19.0 = phi ptr [ %195, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178 ], [ null, %1 ]
+  %.sroa.0237.0 = phi ptr [ %192, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178 ], [ null, %1 ]
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %339
@@ -14319,9 +14319,9 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i178
   br label %.body
 
 .body:                                            ; preds = %286, %285, %48, %39
-  %.sroa.19.2 = phi ptr [ null, %48 ], [ null, %39 ], [ %.sroa.19.3, %285 ], [ %.sroa.19.3, %286 ]
-  %.sroa.0237.2 = phi ptr [ null, %48 ], [ null, %39 ], [ %.sroa.0237.3, %285 ], [ %.sroa.0237.3, %286 ]
-  %.pn56.pn.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %40, %39 ], [ %.pn56.pn.pn.pn, %285 ], [ %.pn56.pn.pn.pn, %286 ]
+  %.sroa.19.2 = phi ptr [ null, %39 ], [ null, %48 ], [ %.sroa.19.3, %285 ], [ %.sroa.19.3, %286 ]
+  %.sroa.0237.2 = phi ptr [ null, %39 ], [ null, %48 ], [ %.sroa.0237.3, %285 ], [ %.sroa.0237.3, %286 ]
+  %.pn56.pn.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %49, %48 ], [ %.pn56.pn.pn.pn, %285 ], [ %.pn56.pn.pn.pn, %286 ]
   call void @_ZNSt3pmr28unsynchronized_pool_resourceD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #21
   br label %339
 
@@ -14686,8 +14686,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   br i1 %90, label %137, label %103
 
 93:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i346, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ %470, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i346 ]
-  %.sroa.0436.0 = phi ptr [ null, %1 ], [ %466, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i346 ]
+  %.sroa.31.0 = phi ptr [ %470, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i346 ], [ null, %1 ]
+  %.sroa.0436.0 = phi ptr [ %466, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i346 ], [ null, %1 ]
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %626
@@ -16107,9 +16107,9 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385: ; preds = %97, %81, %568, %567
-  %.sroa.31.4 = phi ptr [ %.sroa.31.5, %568 ], [ %.sroa.31.5, %567 ], [ %.sroa.31.1, %97 ], [ %71, %81 ]
-  %.sroa.0436.4 = phi ptr [ %.sroa.0436.5, %568 ], [ %.sroa.0436.5, %567 ], [ %.sroa.0436.1, %97 ], [ %68, %81 ]
-  %.pn95.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn.pn, %568 ], [ %.pn95.pn.pn.pn, %567 ], [ %98, %97 ], [ %82, %81 ]
+  %.sroa.31.4 = phi ptr [ %.sroa.31.5, %567 ], [ %.sroa.31.5, %568 ], [ %.sroa.31.1, %97 ], [ %71, %81 ]
+  %.sroa.0436.4 = phi ptr [ %.sroa.0436.5, %567 ], [ %.sroa.0436.5, %568 ], [ %.sroa.0436.1, %97 ], [ %68, %81 ]
+  %.pn95.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn.pn, %567 ], [ %.pn95.pn.pn.pn, %568 ], [ %98, %97 ], [ %82, %81 ]
   %.val.i386 = load ptr, ptr %9, align 8
   %.not.i387 = icmp eq ptr %.val.i386, null
   br i1 %.not.i387, label %.body, label %571
@@ -16121,9 +16121,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20
   br label %.body
 
 .body:                                            ; preds = %571, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385, %95, %62
-  %.sroa.31.3 = phi ptr [ null, %95 ], [ null, %62 ], [ %.sroa.31.4, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385 ], [ %.sroa.31.4, %571 ]
-  %.sroa.0436.3 = phi ptr [ null, %95 ], [ null, %62 ], [ %.sroa.0436.4, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385 ], [ %.sroa.0436.4, %571 ]
-  %.pn95.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %63, %62 ], [ %.pn95.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385 ], [ %.pn95.pn.pn.pn.pn, %571 ]
+  %.sroa.31.3 = phi ptr [ null, %62 ], [ null, %95 ], [ %.sroa.31.4, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385 ], [ %.sroa.31.4, %571 ]
+  %.sroa.0436.3 = phi ptr [ null, %62 ], [ null, %95 ], [ %.sroa.0436.4, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385 ], [ %.sroa.0436.4, %571 ]
+  %.pn95.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %96, %95 ], [ %.pn95.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385 ], [ %.pn95.pn.pn.pn.pn, %571 ]
   call void @_ZNSt3pmr28unsynchronized_pool_resourceD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #21
   br label %626
 
@@ -16423,8 +16423,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
           to label %54 unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread
 
 47:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i220, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %56, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i220 ]
-  %.sroa.0285.0 = phi ptr [ null, %1 ], [ %46, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i220 ]
+  %.sroa.19.0 = phi ptr [ %56, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i220 ], [ null, %1 ]
+  %.sroa.0285.0 = phi ptr [ %46, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i220 ], [ null, %1 ]
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %352
@@ -17156,9 +17156,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20
   br label %.body
 
 .body:                                            ; preds = %296, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243, %49, %40
-  %.sroa.19.2 = phi ptr [ null, %49 ], [ null, %40 ], [ %56, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243 ], [ %.sroa.19.3305, %296 ]
-  %.sroa.0285.2 = phi ptr [ null, %49 ], [ null, %40 ], [ %46, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243 ], [ %.sroa.0285.3307, %296 ]
-  %.pn67.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %41, %40 ], [ %.pn67.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243 ], [ %.pn67.pn.pn.pn.pn309, %296 ]
+  %.sroa.19.2 = phi ptr [ null, %40 ], [ null, %49 ], [ %56, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243 ], [ %.sroa.19.3305, %296 ]
+  %.sroa.0285.2 = phi ptr [ null, %40 ], [ null, %49 ], [ %46, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243 ], [ %.sroa.0285.3307, %296 ]
+  %.pn67.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %50, %49 ], [ %.pn67.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243 ], [ %.pn67.pn.pn.pn.pn309, %296 ]
   call void @_ZNSt3pmr28unsynchronized_pool_resourceD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #21
   br label %352
 
@@ -18112,8 +18112,8 @@ _ZN7testing15AssertionResultD2Ev.exit198:         ; preds = %.thread, %259, %_ZN
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %267, %.critedge62, %183, %_ZN7testing15AssertionResultD2Ev.exit147, %_ZN7testing15AssertionResultD2Ev.exit198
-  %.sroa.25.4 = phi ptr [ %205, %_ZN7testing15AssertionResultD2Ev.exit198 ], [ %138, %183 ], [ %138, %_ZN7testing15AssertionResultD2Ev.exit147 ], [ %28, %.critedge62 ], [ %28, %267 ]
-  %.sroa.0.4 = phi ptr [ %202, %_ZN7testing15AssertionResultD2Ev.exit198 ], [ %134, %183 ], [ %134, %_ZN7testing15AssertionResultD2Ev.exit147 ], [ %25, %.critedge62 ], [ %25, %267 ]
+  %.sroa.25.4 = phi ptr [ %205, %_ZN7testing15AssertionResultD2Ev.exit198 ], [ %138, %_ZN7testing15AssertionResultD2Ev.exit147 ], [ %138, %183 ], [ %28, %.critedge62 ], [ %28, %267 ]
+  %.sroa.0.4 = phi ptr [ %202, %_ZN7testing15AssertionResultD2Ev.exit198 ], [ %134, %_ZN7testing15AssertionResultD2Ev.exit147 ], [ %134, %183 ], [ %25, %.critedge62 ], [ %25, %267 ]
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   %270 = ptrtoint ptr %.sroa.25.4 to i64
   %271 = ptrtoint ptr %.sroa.0.4 to i64
@@ -18221,8 +18221,8 @@ define dso_local void @_ZN53ProxyCreationTests_TestMakeProxy_WithSBO_InPlace_Tes
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %28
 
 26:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %130, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %127, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ]
+  %.sroa.19.0 = phi ptr [ %130, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %127, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ], [ null, %1 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165
@@ -18897,9 +18897,9 @@ _ZN7testing15AssertionResultD2Ev.exit179:         ; preds = %.thread, %251, %_ZN
   call void %261(ptr noundef nonnull %22) #21
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-262:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit179, %175, %_ZN7testing15AssertionResultD2Ev.exit128
-  %.sroa.19.3.ph = phi ptr [ %130, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %130, %175 ], [ %197, %_ZN7testing15AssertionResultD2Ev.exit179 ]
-  %.sroa.0.3.ph = phi ptr [ %127, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %127, %175 ], [ %193, %_ZN7testing15AssertionResultD2Ev.exit179 ]
+262:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit179, %_ZN7testing15AssertionResultD2Ev.exit128, %175
+  %.sroa.19.3.ph = phi ptr [ %130, %175 ], [ %130, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %197, %_ZN7testing15AssertionResultD2Ev.exit179 ]
+  %.sroa.0.3.ph = phi ptr [ %127, %175 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %193, %_ZN7testing15AssertionResultD2Ev.exit179 ]
   %263 = ptrtoint ptr %.sroa.19.3.ph to i64
   %264 = ptrtoint ptr %.sroa.0.3.ph to i64
   %265 = sub i64 %263, %264
@@ -18929,9 +18929,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165: ; preds = %219, %218, %26
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %219 ], [ %.sroa.19.0, %26 ], [ %.sroa.19.2, %218 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %219 ], [ %.sroa.0.0, %26 ], [ %.sroa.0.2, %218 ]
-  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn.pn, %219 ], [ %27, %26 ], [ %.pn45.pn.pn.pn, %218 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %26 ], [ %.sroa.19.2, %218 ], [ %.sroa.19.2, %219 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %26 ], [ %.sroa.0.2, %218 ], [ %.sroa.0.2, %219 ]
+  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn45.pn.pn.pn, %218 ], [ %.pn45.pn.pn.pn, %219 ]
   %.not.i.i.i185 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i185, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit186, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165._crit_edge
 
@@ -19002,8 +19002,8 @@ define dso_local void @_ZN68ProxyCreationTests_TestMakeProxy_WithSBO_InPlaceInit
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %28
 
 26:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %130, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ]
-  %.sroa.0199.0 = phi ptr [ null, %1 ], [ %127, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ]
+  %.sroa.19.0 = phi ptr [ %130, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ], [ null, %1 ]
+  %.sroa.0199.0 = phi ptr [ %127, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i142 ], [ null, %1 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165
@@ -19678,9 +19678,9 @@ _ZN7testing15AssertionResultD2Ev.exit179:         ; preds = %.thread, %251, %_ZN
   call void %261(ptr noundef nonnull %22) #21
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-262:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit179, %175, %_ZN7testing15AssertionResultD2Ev.exit128
-  %.sroa.19.3.ph = phi ptr [ %130, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %130, %175 ], [ %197, %_ZN7testing15AssertionResultD2Ev.exit179 ]
-  %.sroa.0199.3.ph = phi ptr [ %127, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %127, %175 ], [ %193, %_ZN7testing15AssertionResultD2Ev.exit179 ]
+262:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit179, %_ZN7testing15AssertionResultD2Ev.exit128, %175
+  %.sroa.19.3.ph = phi ptr [ %130, %175 ], [ %130, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %197, %_ZN7testing15AssertionResultD2Ev.exit179 ]
+  %.sroa.0199.3.ph = phi ptr [ %127, %175 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit128 ], [ %193, %_ZN7testing15AssertionResultD2Ev.exit179 ]
   %263 = ptrtoint ptr %.sroa.19.3.ph to i64
   %264 = ptrtoint ptr %.sroa.0199.3.ph to i64
   %265 = sub i64 %263, %264
@@ -19710,9 +19710,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165: ; preds = %219, %218, %26
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %219 ], [ %.sroa.19.0, %26 ], [ %.sroa.19.2, %218 ]
-  %.sroa.0199.1 = phi ptr [ %.sroa.0199.2, %219 ], [ %.sroa.0199.0, %26 ], [ %.sroa.0199.2, %218 ]
-  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn.pn, %219 ], [ %27, %26 ], [ %.pn45.pn.pn.pn, %218 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %26 ], [ %.sroa.19.2, %218 ], [ %.sroa.19.2, %219 ]
+  %.sroa.0199.1 = phi ptr [ %.sroa.0199.0, %26 ], [ %.sroa.0199.2, %218 ], [ %.sroa.0199.2, %219 ]
+  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn45.pn.pn.pn, %218 ], [ %.pn45.pn.pn.pn, %219 ]
   %.not.i.i.i185 = icmp eq ptr %.sroa.0199.1, null
   br i1 %.not.i.i.i185, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit186, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit165._crit_edge
 
@@ -19825,8 +19825,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   br i1 %53, label %98, label %64
 
 56:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ %345, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %341, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279 ]
+  %.sroa.31.0 = phi ptr [ %345, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %341, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i279 ], [ null, %1 ]
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit321
@@ -21129,8 +21129,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %487, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338, %393, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit335
-  %.sroa.31.5 = phi ptr [ %418, %_ZN7testing15AssertionResultD2Ev.exit335 ], [ %345, %393 ], [ %345, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %45, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338 ], [ %45, %487 ]
-  %.sroa.0.5 = phi ptr [ %415, %_ZN7testing15AssertionResultD2Ev.exit335 ], [ %341, %393 ], [ %341, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338 ], [ %42, %487 ]
+  %.sroa.31.5 = phi ptr [ %418, %_ZN7testing15AssertionResultD2Ev.exit335 ], [ %345, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %345, %393 ], [ %45, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338 ], [ %45, %487 ]
+  %.sroa.0.5 = phi ptr [ %415, %_ZN7testing15AssertionResultD2Ev.exit335 ], [ %341, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %341, %393 ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit338 ], [ %42, %487 ]
   %490 = ptrtoint ptr %.sroa.31.5 to i64
   %491 = ptrtoint ptr %.sroa.0.5 to i64
   %492 = sub i64 %490, %491
@@ -21157,9 +21157,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit321._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit321: ; preds = %444, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318, %56
-  %.sroa.31.2 = phi ptr [ %.sroa.31.3, %444 ], [ %.sroa.31.0, %56 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %444 ], [ %.sroa.0.0, %56 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ]
-  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn, %444 ], [ %57, %56 ], [ %.pn74.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ]
+  %.sroa.31.2 = phi ptr [ %.sroa.31.0, %56 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ], [ %.sroa.31.3, %444 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %56 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ], [ %.sroa.0.3, %444 ]
+  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn74.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit318 ], [ %.pn74.pn.pn.pn.pn, %444 ]
   %.not.i.i.i344 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i344, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit345, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit321._crit_edge
 
@@ -21246,8 +21246,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267
 
 33:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153, %85
-  %.sroa.31.1 = phi ptr [ %37, %85 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %191, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ]
-  %.sroa.0.1 = phi ptr [ %30, %85 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %187, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ]
+  %.sroa.31.1 = phi ptr [ %191, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %37, %85 ]
+  %.sroa.0.1 = phi ptr [ %187, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %30, %85 ]
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %286
@@ -22129,8 +22129,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %330, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260, %243, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit257
-  %.sroa.31.5 = phi ptr [ %195, %_ZN7testing15AssertionResultD2Ev.exit257 ], [ %195, %243 ], [ %195, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260 ], [ %37, %330 ]
-  %.sroa.0.5 = phi ptr [ %192, %_ZN7testing15AssertionResultD2Ev.exit257 ], [ %192, %243 ], [ %192, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260 ], [ %30, %330 ]
+  %.sroa.31.5 = phi ptr [ %195, %_ZN7testing15AssertionResultD2Ev.exit257 ], [ %195, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %195, %243 ], [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260 ], [ %37, %330 ]
+  %.sroa.0.5 = phi ptr [ %192, %_ZN7testing15AssertionResultD2Ev.exit257 ], [ %192, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %192, %243 ], [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit260 ], [ %30, %330 ]
   %333 = ptrtoint ptr %.sroa.31.5 to i64
   %334 = ptrtoint ptr %.sroa.0.5 to i64
   %335 = sub i64 %333, %334
@@ -22173,7 +22173,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread
-  %.pn62.pn.pn.pn337 = phi { ptr, i32 } [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406 ], [ %.pn62.pn.pn.pn336, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread ], [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401 ]
+  %.pn62.pn.pn.pn337 = phi { ptr, i32 } [ %.pn62.pn.pn.pn336, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread ], [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406 ]
   %349 = load ptr, ptr %26, align 8
   %.not.i.i.i.i268 = icmp eq ptr %349, null
   br i1 %.not.i.i.i.i268, label %_ZN5utils15LifetimeTrackerD2Ev.exit269, label %350
@@ -23081,8 +23081,8 @@ _ZN7testing15AssertionResultD2Ev.exit230:         ; preds = %.thread, %308, %_ZN
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %316, %.critedge74, %232, %_ZN7testing15AssertionResultD2Ev.exit179, %_ZN7testing15AssertionResultD2Ev.exit230
-  %.sroa.25.4 = phi ptr [ %254, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %187, %232 ], [ %187, %_ZN7testing15AssertionResultD2Ev.exit179 ], [ %32, %.critedge74 ], [ %32, %316 ]
-  %.sroa.0.4 = phi ptr [ %251, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %183, %232 ], [ %183, %_ZN7testing15AssertionResultD2Ev.exit179 ], [ %29, %.critedge74 ], [ %29, %316 ]
+  %.sroa.25.4 = phi ptr [ %254, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %187, %_ZN7testing15AssertionResultD2Ev.exit179 ], [ %187, %232 ], [ %32, %.critedge74 ], [ %32, %316 ]
+  %.sroa.0.4 = phi ptr [ %251, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %183, %_ZN7testing15AssertionResultD2Ev.exit179 ], [ %183, %232 ], [ %29, %.critedge74 ], [ %29, %316 ]
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   %319 = ptrtoint ptr %.sroa.25.4 to i64
   %320 = ptrtoint ptr %.sroa.0.4 to i64
@@ -23209,8 +23209,8 @@ define dso_local void @_ZN56ProxyCreationTests_TestMakeProxy_WithoutSBO_InPlace_
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %34
 
 32:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %179, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %176, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ]
+  %.sroa.19.0 = phi ptr [ %179, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %176, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ], [ null, %1 ]
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -24015,9 +24015,9 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %.thread, %300, %_ZN
   call void %310(ptr noundef nonnull %30) #21
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-311:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213, %224, %_ZN7testing15AssertionResultD2Ev.exit162
-  %.sroa.19.3.ph = phi ptr [ %179, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %179, %224 ], [ %246, %_ZN7testing15AssertionResultD2Ev.exit213 ]
-  %.sroa.0.3.ph = phi ptr [ %176, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %176, %224 ], [ %242, %_ZN7testing15AssertionResultD2Ev.exit213 ]
+311:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213, %_ZN7testing15AssertionResultD2Ev.exit162, %224
+  %.sroa.19.3.ph = phi ptr [ %179, %224 ], [ %179, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %246, %_ZN7testing15AssertionResultD2Ev.exit213 ]
+  %.sroa.0.3.ph = phi ptr [ %176, %224 ], [ %176, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %242, %_ZN7testing15AssertionResultD2Ev.exit213 ]
   %312 = ptrtoint ptr %.sroa.19.3.ph to i64
   %313 = ptrtoint ptr %.sroa.0.3.ph to i64
   %314 = sub i64 %312, %313
@@ -24047,9 +24047,9 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %.body._crit_edge
 
 .body:                                            ; preds = %268, %267, %32
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %268 ], [ %.sroa.19.2, %267 ], [ %.sroa.19.0, %32 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %268 ], [ %.sroa.0.2, %267 ], [ %.sroa.0.0, %32 ]
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %268 ], [ %.pn55.pn.pn.pn, %267 ], [ %33, %32 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %32 ], [ %.sroa.19.2, %267 ], [ %.sroa.19.2, %268 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %32 ], [ %.sroa.0.2, %267 ], [ %.sroa.0.2, %268 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %.pn55.pn.pn.pn, %267 ], [ %.pn55.pn.pn.pn, %268 ]
   %.not.i.i.i219 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i219, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit220, label %.body._crit_edge
 
@@ -24139,8 +24139,8 @@ define dso_local void @_ZN71ProxyCreationTests_TestMakeProxy_WithoutSBO_InPlaceI
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISJ_Efp_EEE.exit unwind label %34
 
 32:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %179, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ]
-  %.sroa.0235.0 = phi ptr [ null, %1 ], [ %176, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ]
+  %.sroa.19.0 = phi ptr [ %179, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ], [ null, %1 ]
+  %.sroa.0235.0 = phi ptr [ %176, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176 ], [ null, %1 ]
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -24945,9 +24945,9 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %.thread, %300, %_ZN
   call void %310(ptr noundef nonnull %30) #21
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-311:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213, %224, %_ZN7testing15AssertionResultD2Ev.exit162
-  %.sroa.19.3.ph = phi ptr [ %179, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %179, %224 ], [ %246, %_ZN7testing15AssertionResultD2Ev.exit213 ]
-  %.sroa.0235.3.ph = phi ptr [ %176, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %176, %224 ], [ %242, %_ZN7testing15AssertionResultD2Ev.exit213 ]
+311:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213, %_ZN7testing15AssertionResultD2Ev.exit162, %224
+  %.sroa.19.3.ph = phi ptr [ %179, %224 ], [ %179, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %246, %_ZN7testing15AssertionResultD2Ev.exit213 ]
+  %.sroa.0235.3.ph = phi ptr [ %176, %224 ], [ %176, %_ZN7testing15AssertionResultD2Ev.exit162 ], [ %242, %_ZN7testing15AssertionResultD2Ev.exit213 ]
   %312 = ptrtoint ptr %.sroa.19.3.ph to i64
   %313 = ptrtoint ptr %.sroa.0235.3.ph to i64
   %314 = sub i64 %312, %313
@@ -24977,9 +24977,9 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %.body._crit_edge
 
 .body:                                            ; preds = %268, %267, %32
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %268 ], [ %.sroa.19.2, %267 ], [ %.sroa.19.0, %32 ]
-  %.sroa.0235.1 = phi ptr [ %.sroa.0235.2, %268 ], [ %.sroa.0235.2, %267 ], [ %.sroa.0235.0, %32 ]
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %268 ], [ %.pn55.pn.pn.pn, %267 ], [ %33, %32 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %32 ], [ %.sroa.19.2, %267 ], [ %.sroa.19.2, %268 ]
+  %.sroa.0235.1 = phi ptr [ %.sroa.0235.0, %32 ], [ %.sroa.0235.2, %267 ], [ %.sroa.0235.2, %268 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %.pn55.pn.pn.pn, %267 ], [ %.pn55.pn.pn.pn, %268 ]
   %.not.i.i.i219 = icmp eq ptr %.sroa.0235.1, null
   br i1 %.not.i.i.i219, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit220, label %.body._crit_edge
 
@@ -25126,8 +25126,8 @@ _ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_S
   br i1 %64, label %109, label %75
 
 67:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ %442, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %438, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344 ]
+  %.sroa.31.0 = phi ptr [ %442, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %438, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i344 ], [ null, %1 ]
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -26537,9 +26537,9 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383: ; preds = %69, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i, %538, %537
-  %.sroa.31.3 = phi ptr [ %.sroa.31.4, %538 ], [ %.sroa.31.4, %537 ], [ %.sroa.31.1, %69 ], [ %54, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %538 ], [ %.sroa.0.4, %537 ], [ %.sroa.0.1, %69 ], [ %52, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
-  %.pn94.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn.pn, %538 ], [ %.pn94.pn.pn.pn, %537 ], [ %70, %69 ], [ %58, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
+  %.sroa.31.3 = phi ptr [ %.sroa.31.4, %537 ], [ %.sroa.31.4, %538 ], [ %.sroa.31.1, %69 ], [ %54, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %537 ], [ %.sroa.0.4, %538 ], [ %.sroa.0.1, %69 ], [ %52, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
+  %.pn94.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn.pn, %537 ], [ %.pn94.pn.pn.pn, %538 ], [ %70, %69 ], [ %58, %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i ]
   %.val.i384 = load ptr, ptr %3, align 8
   %.not.i385 = icmp eq ptr %.val.i384, null
   br i1 %.not.i385, label %.body, label %541
@@ -26690,8 +26690,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %584, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403, %490, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit400
-  %.sroa.31.5 = phi ptr [ %515, %_ZN7testing15AssertionResultD2Ev.exit400 ], [ %442, %490 ], [ %442, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %54, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403 ], [ %54, %584 ]
-  %.sroa.0.5 = phi ptr [ %512, %_ZN7testing15AssertionResultD2Ev.exit400 ], [ %438, %490 ], [ %438, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %52, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403 ], [ %52, %584 ]
+  %.sroa.31.5 = phi ptr [ %515, %_ZN7testing15AssertionResultD2Ev.exit400 ], [ %442, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %442, %490 ], [ %54, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403 ], [ %54, %584 ]
+  %.sroa.0.5 = phi ptr [ %512, %_ZN7testing15AssertionResultD2Ev.exit400 ], [ %438, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %438, %490 ], [ %52, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit403 ], [ %52, %584 ]
   %587 = ptrtoint ptr %.sroa.31.5 to i64
   %588 = ptrtoint ptr %.sroa.0.5 to i64
   %589 = sub i64 %587, %588
@@ -26718,9 +26718,9 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %.body._crit_edge
 
 .body:                                            ; preds = %541, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383, %67
-  %.sroa.31.2 = phi ptr [ %.sroa.31.3, %541 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.sroa.31.0, %67 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %541 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.sroa.0.0, %67 ]
-  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn.pn.pn, %541 ], [ %.pn94.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %68, %67 ]
+  %.sroa.31.2 = phi ptr [ %.sroa.31.0, %67 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.sroa.31.3, %541 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %67 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.sroa.0.3, %541 ]
+  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn94.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383 ], [ %.pn94.pn.pn.pn.pn, %541 ]
   %.not.i.i.i409 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i409, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit410, label %.body._crit_edge
 
@@ -26811,8 +26811,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
           to label %38 unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit241.thread
 
 33:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %40, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218 ]
+  %.sroa.19.0 = phi ptr [ %40, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i218 ], [ null, %1 ]
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -27674,8 +27674,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %323, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261, %230, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit258
-  %.sroa.19.3 = phi ptr [ %255, %_ZN7testing15AssertionResultD2Ev.exit258 ], [ %40, %230 ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261 ], [ %40, %323 ]
-  %.sroa.0.3 = phi ptr [ %251, %_ZN7testing15AssertionResultD2Ev.exit258 ], [ %32, %230 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261 ], [ %32, %323 ]
+  %.sroa.19.3 = phi ptr [ %255, %_ZN7testing15AssertionResultD2Ev.exit258 ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %40, %230 ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261 ], [ %40, %323 ]
+  %.sroa.0.3 = phi ptr [ %251, %_ZN7testing15AssertionResultD2Ev.exit258 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit ], [ %32, %230 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit261 ], [ %32, %323 ]
   %326 = ptrtoint ptr %.sroa.19.3 to i64
   %327 = ptrtoint ptr %.sroa.0.3 to i64
   %328 = sub i64 %326, %327
@@ -29188,7 +29188,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !567
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
@@ -30339,8 +30339,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %820, %826, %790, %796, %760, %766, %730, %736, %700, %706, %670, %676, %640, %646, %610, %616, %580, %586, %550, %556, %520, %526, %490, %496, %460, %466, %430, %436, %400, %406, %370, %376, %340, %346, %310, %316, %280, %286, %250, %256, %220, %226, %190, %196, %160, %166, %130, %136, %100, %106
-  %.sink = phi ptr [ %6, %790 ], [ %9, %760 ], [ %12, %730 ], [ %15, %700 ], [ %18, %670 ], [ %21, %640 ], [ %24, %610 ], [ %27, %580 ], [ %30, %550 ], [ %33, %520 ], [ %36, %490 ], [ %39, %460 ], [ %42, %430 ], [ %45, %400 ], [ %48, %370 ], [ %51, %340 ], [ %54, %310 ], [ %57, %280 ], [ %60, %250 ], [ %63, %220 ], [ %66, %190 ], [ %69, %160 ], [ %72, %130 ], [ %75, %100 ], [ %75, %106 ], [ %72, %136 ], [ %69, %166 ], [ %66, %196 ], [ %63, %226 ], [ %60, %256 ], [ %57, %286 ], [ %54, %316 ], [ %51, %346 ], [ %48, %376 ], [ %45, %406 ], [ %42, %436 ], [ %39, %466 ], [ %36, %496 ], [ %33, %526 ], [ %30, %556 ], [ %27, %586 ], [ %24, %616 ], [ %21, %646 ], [ %18, %676 ], [ %15, %706 ], [ %12, %736 ], [ %9, %766 ], [ %6, %796 ], [ %3, %826 ], [ %3, %820 ]
-  %common.resume.op = phi { ptr, i32 } [ %791, %790 ], [ %761, %760 ], [ %731, %730 ], [ %701, %700 ], [ %671, %670 ], [ %641, %640 ], [ %611, %610 ], [ %581, %580 ], [ %551, %550 ], [ %521, %520 ], [ %491, %490 ], [ %461, %460 ], [ %431, %430 ], [ %401, %400 ], [ %371, %370 ], [ %341, %340 ], [ %311, %310 ], [ %281, %280 ], [ %251, %250 ], [ %221, %220 ], [ %191, %190 ], [ %161, %160 ], [ %131, %130 ], [ %101, %100 ], [ %.pn.pn.i, %106 ], [ %.pn.i, %136 ], [ %.pn.i8, %166 ], [ %.pn.i15, %196 ], [ %.pn.i22, %226 ], [ %.pn.i29, %256 ], [ %.pn.i36, %286 ], [ %.pn.i43, %316 ], [ %.pn.i50, %346 ], [ %.pn.i57, %376 ], [ %.pn.i64, %406 ], [ %.pn.i71, %436 ], [ %.pn.i78, %466 ], [ %.pn.i85, %496 ], [ %.pn.i92, %526 ], [ %.pn.i99, %556 ], [ %.pn.i106, %586 ], [ %.pn.i113, %616 ], [ %.pn.i120, %646 ], [ %.pn.i127, %676 ], [ %.pn.i134, %706 ], [ %.pn.i141, %736 ], [ %.pn.i148, %766 ], [ %.pn.i155, %796 ], [ %.pn.i162, %826 ], [ %821, %820 ]
+  %.sink = phi ptr [ %75, %106 ], [ %75, %100 ], [ %72, %136 ], [ %72, %130 ], [ %69, %166 ], [ %69, %160 ], [ %66, %196 ], [ %66, %190 ], [ %63, %226 ], [ %63, %220 ], [ %60, %256 ], [ %60, %250 ], [ %57, %286 ], [ %57, %280 ], [ %54, %316 ], [ %54, %310 ], [ %51, %346 ], [ %51, %340 ], [ %48, %376 ], [ %48, %370 ], [ %45, %406 ], [ %45, %400 ], [ %42, %436 ], [ %42, %430 ], [ %39, %466 ], [ %39, %460 ], [ %36, %496 ], [ %36, %490 ], [ %33, %526 ], [ %33, %520 ], [ %30, %556 ], [ %30, %550 ], [ %27, %586 ], [ %27, %580 ], [ %24, %616 ], [ %24, %610 ], [ %21, %646 ], [ %21, %640 ], [ %18, %676 ], [ %18, %670 ], [ %15, %706 ], [ %15, %700 ], [ %12, %736 ], [ %12, %730 ], [ %9, %766 ], [ %9, %760 ], [ %6, %796 ], [ %6, %790 ], [ %3, %826 ], [ %3, %820 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %106 ], [ %101, %100 ], [ %.pn.i, %136 ], [ %131, %130 ], [ %.pn.i8, %166 ], [ %161, %160 ], [ %.pn.i15, %196 ], [ %191, %190 ], [ %.pn.i22, %226 ], [ %221, %220 ], [ %.pn.i29, %256 ], [ %251, %250 ], [ %.pn.i36, %286 ], [ %281, %280 ], [ %.pn.i43, %316 ], [ %311, %310 ], [ %.pn.i50, %346 ], [ %341, %340 ], [ %.pn.i57, %376 ], [ %371, %370 ], [ %.pn.i64, %406 ], [ %401, %400 ], [ %.pn.i71, %436 ], [ %431, %430 ], [ %.pn.i78, %466 ], [ %461, %460 ], [ %.pn.i85, %496 ], [ %491, %490 ], [ %.pn.i92, %526 ], [ %521, %520 ], [ %.pn.i99, %556 ], [ %551, %550 ], [ %.pn.i106, %586 ], [ %581, %580 ], [ %.pn.i113, %616 ], [ %611, %610 ], [ %.pn.i120, %646 ], [ %641, %640 ], [ %.pn.i127, %676 ], [ %671, %670 ], [ %.pn.i134, %706 ], [ %701, %700 ], [ %.pn.i141, %736 ], [ %731, %730 ], [ %.pn.i148, %766 ], [ %761, %760 ], [ %.pn.i155, %796 ], [ %791, %790 ], [ %.pn.i162, %826 ], [ %821, %820 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #21
   resume { ptr, i32 } %common.resume.op
 

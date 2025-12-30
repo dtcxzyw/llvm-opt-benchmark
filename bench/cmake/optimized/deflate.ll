@@ -223,7 +223,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
   br label %124
 
 124:                                              ; preds = %50, %40, %48, %32, %14, %8, %10, %114, %111
-  %.0116 = phi i32 [ %123, %114 ], [ -6, %8 ], [ -2, %14 ], [ -2, %32 ], [ -2, %40 ], [ -4, %111 ], [ -6, %10 ], [ -2, %48 ], [ -4, %50 ]
+  %.0116 = phi i32 [ -4, %111 ], [ %123, %114 ], [ -6, %10 ], [ -6, %8 ], [ -2, %14 ], [ -2, %32 ], [ -2, %48 ], [ -2, %40 ], [ -4, %50 ]
   ret i32 %.0116
 }
 
@@ -349,8 +349,8 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
   %52 = select i1 %51, i32 -3, i32 0
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %11, %15, %17, %3, %7, %1, %46
-  %.0 = phi i32 [ %52, %46 ], [ -2, %1 ], [ -2, %7 ], [ -2, %3 ], [ -2, %17 ], [ -2, %15 ], [ -2, %11 ]
+deflateStateCheck.exit.thread:                    ; preds = %11, %15, %17, %1, %3, %7, %46
+  %.0 = phi i32 [ %52, %46 ], [ -2, %7 ], [ -2, %3 ], [ -2, %1 ], [ -2, %17 ], [ -2, %15 ], [ -2, %11 ]
   ret i32 %.0
 }
 
@@ -640,8 +640,8 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   store i32 %25, ptr %24, align 8, !tbaa !28
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %23, %13, %17, %19, %5, %9, %3, %.thread, %26, %27, %deflateStateCheck.exit, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -2, %deflateStateCheck.exit ], [ -2, %27 ], [ -2, %26 ], [ -2, %23 ], [ -2, %.thread ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ]
+deflateStateCheck.exit.thread:                    ; preds = %23, %13, %17, %19, %3, %5, %9, %.thread, %26, %27, %deflateStateCheck.exit, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -2, %deflateStateCheck.exit ], [ -2, %27 ], [ -2, %26 ], [ -2, %23 ], [ -2, %.thread ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ]
   ret i32 %.0
 }
 
@@ -1017,8 +1017,8 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   store i32 %spec.select, ptr %2, align 4, !tbaa !81
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %5, %9, %3, %41, %42
-  %.019 = phi i32 [ 0, %41 ], [ 0, %42 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ]
+deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %3, %5, %9, %41, %42
+  %.019 = phi i32 [ 0, %42 ], [ 0, %41 ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ]
   ret i32 %.019
 }
 
@@ -1114,8 +1114,8 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
   tail call void @cm_zlib__tr_init(ptr noundef nonnull %13) #11
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %11, %15, %17, %3, %7, %1, %40
-  %.0 = phi i32 [ 0, %40 ], [ -2, %1 ], [ -2, %7 ], [ -2, %3 ], [ -2, %17 ], [ -2, %15 ], [ -2, %11 ]
+deflateStateCheck.exit.thread:                    ; preds = %11, %15, %17, %1, %3, %7, %40
+  %.0 = phi i32 [ 0, %40 ], [ -2, %7 ], [ -2, %3 ], [ -2, %1 ], [ -2, %17 ], [ -2, %15 ], [ -2, %11 ]
   ret i32 %.0
 }
 
@@ -1176,8 +1176,8 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   store ptr %1, ptr %24, align 8, !tbaa !29
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %12, %16, %18, %4, %8, %2, %deflateStateCheck.exit, %23
-  %.0 = phi i32 [ 0, %23 ], [ -2, %deflateStateCheck.exit ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %18 ], [ -2, %16 ], [ -2, %12 ]
+deflateStateCheck.exit.thread:                    ; preds = %12, %16, %18, %2, %4, %8, %deflateStateCheck.exit, %23
+  %.0 = phi i32 [ 0, %23 ], [ -2, %deflateStateCheck.exit ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %18 ], [ -2, %16 ], [ -2, %12 ]
   ret i32 %.0
 }
 
@@ -1244,8 +1244,8 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   store i32 %29, ptr %2, align 4, !tbaa !81
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %5, %9, %3, %26, %27
-  %.0 = phi i32 [ 0, %26 ], [ 0, %27 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ]
+deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %3, %5, %9, %26, %27
+  %.0 = phi i32 [ 0, %27 ], [ 0, %26 ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ]
   ret i32 %.0
 }
 
@@ -1331,8 +1331,8 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   %.not29 = icmp eq i32 %42, 0
   br i1 %.not29, label %deflateStateCheck.exit.thread, label %31, !llvm.loop !88
 
-deflateStateCheck.exit.thread:                    ; preds = %31, %13, %17, %19, %5, %9, %3, %deflateStateCheck.exit, %22
-  %.023 = phi i32 [ -5, %deflateStateCheck.exit ], [ -2, %13 ], [ -5, %22 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ -2, %19 ], [ -2, %17 ], [ 0, %31 ]
+deflateStateCheck.exit.thread:                    ; preds = %31, %13, %17, %19, %3, %5, %9, %deflateStateCheck.exit, %22
+  %.023 = phi i32 [ -5, %22 ], [ -5, %deflateStateCheck.exit ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ], [ 0, %31 ]
   ret i32 %.023
 }
 
@@ -1506,8 +1506,8 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   store i32 %2, ptr %26, align 8, !tbaa !48
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %41, %44, %13, %17, %19, %5, %9, %3, %deflateStateCheck.exit, %47, %94
-  %.0 = phi i32 [ -5, %47 ], [ -2, %13 ], [ 0, %94 ], [ -2, %deflateStateCheck.exit ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ -2, %19 ], [ -2, %17 ], [ -2, %41 ], [ -5, %44 ]
+deflateStateCheck.exit.thread:                    ; preds = %44, %41, %13, %17, %19, %3, %5, %9, %deflateStateCheck.exit, %47, %94
+  %.0 = phi i32 [ 0, %94 ], [ -5, %47 ], [ -2, %deflateStateCheck.exit ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %19 ], [ -2, %17 ], [ -2, %13 ], [ -5, %44 ], [ -2, %41 ]
   ret i32 %.0
 }
 
@@ -1738,7 +1738,7 @@ thread-pre-split:                                 ; preds = %98
   br label %117
 
 117:                                              ; preds = %115, %113, %thread-pre-split, %109
-  %.0372 = phi i32 [ 64, %113 ], [ 0, %thread-pre-split ], [ %., %115 ], [ 0, %109 ]
+  %.0372 = phi i32 [ 0, %109 ], [ 0, %thread-pre-split ], [ 64, %113 ], [ %., %115 ]
   %118 = or disjoint i32 %.0372, %105
   %119 = getelementptr inbounds nuw i8, ptr %14, i64 172
   %120 = load i32, ptr %119, align 4, !tbaa !61
@@ -2884,8 +2884,8 @@ flush_pending.exit443._crit_edge:                 ; preds = %flush_pending.exit4
   %795 = zext i1 %.not428 to i32
   br label %.critedge437
 
-.critedge437:                                     ; preds = %646, %12, %16, %18, %4, %8, %2, %.thread456, %168, %674, %703, %677, %705, %704, %.critedge435, %.critedge432, %deflateStateCheck.exit, %793, %643, %623, %231, %95, %88, %78, %42, %35
-  %.0 = phi i32 [ -5, %88 ], [ -2, %35 ], [ -5, %42 ], [ 0, %78 ], [ -5, %95 ], [ 0, %231 ], [ 0, %623 ], [ 0, %643 ], [ -2, %deflateStateCheck.exit ], [ 0, %704 ], [ %795, %793 ], [ 1, %705 ], [ 0, %.critedge435 ], [ 0, %.critedge432 ], [ 0, %.thread456 ], [ 0, %168 ], [ 0, %677 ], [ 0, %703 ], [ 0, %674 ], [ -2, %12 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %18 ], [ -2, %16 ], [ 0, %646 ]
+.critedge437:                                     ; preds = %646, %12, %16, %18, %2, %4, %8, %.thread456, %168, %703, %677, %674, %705, %704, %.critedge435, %.critedge432, %deflateStateCheck.exit, %793, %643, %623, %231, %95, %88, %78, %42, %35
+  %.0 = phi i32 [ -2, %35 ], [ -5, %42 ], [ 0, %78 ], [ -5, %95 ], [ 0, %231 ], [ 0, %623 ], [ 0, %643 ], [ %795, %793 ], [ 0, %168 ], [ -5, %88 ], [ -2, %deflateStateCheck.exit ], [ 0, %.critedge432 ], [ 0, %.critedge435 ], [ 0, %704 ], [ 1, %705 ], [ 0, %674 ], [ 0, %677 ], [ 0, %703 ], [ 0, %.thread456 ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %18 ], [ -2, %16 ], [ -2, %12 ], [ 0, %646 ]
   ret i32 %.0
 }
 
@@ -2991,8 +2991,8 @@ deflateStateCheck.exit:                           ; preds = %21, %21, %21, %21, 
   store i32 %4, ptr %27, align 4, !tbaa !60
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %15, %19, %21, %7, %11, %5, %deflateStateCheck.exit
-  %.0 = phi i32 [ 0, %deflateStateCheck.exit ], [ -2, %5 ], [ -2, %11 ], [ -2, %7 ], [ -2, %21 ], [ -2, %19 ], [ -2, %15 ]
+deflateStateCheck.exit.thread:                    ; preds = %15, %19, %21, %5, %7, %11, %deflateStateCheck.exit
+  %.0 = phi i32 [ 0, %deflateStateCheck.exit ], [ -2, %11 ], [ -2, %7 ], [ -2, %5 ], [ -2, %21 ], [ -2, %19 ], [ -2, %15 ]
   ret i32 %.0
 }
 
@@ -3052,7 +3052,7 @@ define dso_local i64 @cm_zlib_deflateBound(ptr noundef readonly captures(address
     i32 666, label %deflateStateCheck.exit
   ]
 
-35:                                               ; preds = %2, %22, %18, %32, %30, %26
+35:                                               ; preds = %22, %18, %2, %32, %30, %26
   %36 = tail call i64 @llvm.umax.i64(i64 %9, i64 %16)
   %37 = add i64 %36, 6
   br label %89
@@ -3132,7 +3132,7 @@ deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, 
   br label %69
 
 69:                                               ; preds = %deflateStateCheck.exit, %44, %.loopexit, %68, %40
-  %.043 = phi i64 [ 6, %68 ], [ 18, %44 ], [ %43, %40 ], [ %spec.select, %.loopexit ], [ 0, %deflateStateCheck.exit ]
+  %.043 = phi i64 [ 6, %68 ], [ %43, %40 ], [ %spec.select, %.loopexit ], [ 18, %44 ], [ 0, %deflateStateCheck.exit ]
   %70 = getelementptr inbounds nuw i8, ptr %28, i64 84
   %71 = load i32, ptr %70, align 4, !tbaa !30
   %.not57 = icmp eq i32 %71, 15
@@ -3838,7 +3838,7 @@ flush_pending.exit272:                            ; preds = %342, %358, %376
   br label %381
 
 381:                                              ; preds = %328, %flush_pending.exit272, %326, %237, %230
-  %.0225 = phi i32 [ 1, %237 ], [ 3, %230 ], [ %380, %flush_pending.exit272 ], [ 0, %326 ], [ 0, %328 ]
+  %.0225 = phi i32 [ 3, %230 ], [ 1, %237 ], [ %380, %flush_pending.exit272 ], [ 0, %328 ], [ 0, %326 ]
   ret i32 %.0225
 }
 
@@ -4148,7 +4148,7 @@ flush_pending.exit61:                             ; preds = %159, %175, %193
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit, %flush_pending.exit61, %flush_pending.exit59, %18, %200
-  %.0 = phi i32 [ 0, %18 ], [ %., %flush_pending.exit59 ], [ 0, %flush_pending.exit61 ], [ 1, %200 ], [ 0, %flush_pending.exit ]
+  %.0 = phi i32 [ 1, %200 ], [ 0, %18 ], [ %., %flush_pending.exit59 ], [ 0, %flush_pending.exit61 ], [ 0, %flush_pending.exit ]
   ret i32 %.0
 }
 
@@ -4313,7 +4313,7 @@ thread-pre-split138.split.loop.exit193:           ; preds = %45
   br label %thread-pre-split138
 
 thread-pre-split138:                              ; preds = %thread-pre-split138.split.loop.exit193, %thread-pre-split138.split.loop.exit191, %thread-pre-split138.split.loop.exit189, %thread-pre-split138.split.loop.exit187, %thread-pre-split138.split.loop.exit185, %thread-pre-split138.split.loop.exit183, %thread-pre-split138.split.loop.exit181, %thread-pre-split138.split.loop.exit
-  %.1 = phi ptr [ %80, %thread-pre-split138.split.loop.exit187 ], [ %79, %thread-pre-split138.split.loop.exit185 ], [ %81, %thread-pre-split138.split.loop.exit189 ], [ %82, %thread-pre-split138.split.loop.exit191 ], [ %.ptr.le, %thread-pre-split138.split.loop.exit ], [ %77, %thread-pre-split138.split.loop.exit181 ], [ %78, %thread-pre-split138.split.loop.exit183 ], [ %83, %thread-pre-split138.split.loop.exit193 ]
+  %.1 = phi ptr [ %.ptr.le, %thread-pre-split138.split.loop.exit ], [ %77, %thread-pre-split138.split.loop.exit181 ], [ %78, %thread-pre-split138.split.loop.exit183 ], [ %79, %thread-pre-split138.split.loop.exit185 ], [ %80, %thread-pre-split138.split.loop.exit187 ], [ %81, %thread-pre-split138.split.loop.exit189 ], [ %82, %thread-pre-split138.split.loop.exit191 ], [ %83, %thread-pre-split138.split.loop.exit193 ]
   %84 = ptrtoint ptr %44 to i64
   %85 = ptrtoint ptr %.1 to i64
   %.neg = sub i64 %85, %84
@@ -4828,8 +4828,8 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   store ptr %106, ptr %107, align 8, !tbaa !112
   br label %deflateStateCheck.exit.thread
 
-deflateStateCheck.exit.thread:                    ; preds = %12, %16, %18, %4, %8, %2, %22, %deflateStateCheck.exit, %65, %63
-  %.0 = phi i32 [ 0, %65 ], [ -2, %deflateStateCheck.exit ], [ -4, %63 ], [ -4, %22 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %18 ], [ -2, %16 ], [ -2, %12 ]
+deflateStateCheck.exit.thread:                    ; preds = %12, %16, %18, %2, %4, %8, %22, %deflateStateCheck.exit, %65, %63
+  %.0 = phi i32 [ -4, %63 ], [ 0, %65 ], [ -2, %deflateStateCheck.exit ], [ -4, %22 ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %18 ], [ -2, %16 ], [ -2, %12 ]
   ret i32 %.0
 }
 
@@ -4928,7 +4928,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
 .thread154:                                       ; preds = %.thread154thread-pre-split, %62
   %64 = phi i32 [ %.pr, %.thread154thread-pre-split ], [ %63, %62 ]
   %65 = icmp ugt i32 %64, 2
-  br i1 %65, label %66, label %152
+  br i1 %65, label %66, label %170
 
 66:                                               ; preds = %.thread154
   %67 = trunc i32 %64 to i8
@@ -5004,7 +5004,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %.not146 = icmp ule i32 %116, %119
   %120 = icmp ugt i32 %118, 2
   %or.cond149 = select i1 %.not146, i1 %120, i1 false
-  br i1 %or.cond149, label %121, label %184
+  br i1 %or.cond149, label %121, label %152
 
 121:                                              ; preds = %108
   %122 = add i32 %116, -1
@@ -5053,78 +5053,78 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   store i32 %151, ptr %8, align 4, !tbaa !61
   br i1 %115, label %202, label %.backedge
 
-152:                                              ; preds = %.thread154
-  %153 = load ptr, ptr %7, align 8, !tbaa !37
-  %154 = load i32, ptr %8, align 4, !tbaa !61
-  %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %155
-  %157 = load i8, ptr %156, align 1, !tbaa !4
-  %158 = load ptr, ptr %15, align 8, !tbaa !45
-  %159 = load i32, ptr %16, align 4, !tbaa !108
-  %160 = add i32 %159, 1
-  store i32 %160, ptr %16, align 4, !tbaa !108
-  %161 = zext i32 %159 to i64
-  %162 = getelementptr inbounds nuw i8, ptr %158, i64 %161
-  store i8 0, ptr %162, align 1, !tbaa !4
-  %163 = load ptr, ptr %15, align 8, !tbaa !45
-  %164 = load i32, ptr %16, align 4, !tbaa !108
-  %165 = add i32 %164, 1
-  store i32 %165, ptr %16, align 4, !tbaa !108
-  %166 = zext i32 %164 to i64
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 %166
-  store i8 0, ptr %167, align 1, !tbaa !4
-  %168 = load ptr, ptr %15, align 8, !tbaa !45
-  %169 = load i32, ptr %16, align 4, !tbaa !108
-  %170 = add i32 %169, 1
-  store i32 %170, ptr %16, align 4, !tbaa !108
-  %171 = zext i32 %169 to i64
-  %172 = getelementptr inbounds nuw i8, ptr %168, i64 %171
-  store i8 %157, ptr %172, align 1, !tbaa !4
-  %173 = zext i8 %157 to i64
-  %174 = getelementptr inbounds nuw %struct.ct_data_s, ptr %17, i64 %173
-  %175 = load i16, ptr %174, align 4, !tbaa !4
-  %176 = add i16 %175, 1
-  store i16 %176, ptr %174, align 4, !tbaa !4
-  %177 = load i32, ptr %16, align 4, !tbaa !108
-  %178 = load i32, ptr %18, align 8, !tbaa !46
-  %179 = icmp eq i32 %177, %178
-  %180 = load i32, ptr %3, align 4, !tbaa !63
-  %181 = add i32 %180, -1
-  store i32 %181, ptr %3, align 4, !tbaa !63
-  %182 = load i32, ptr %8, align 4, !tbaa !61
-  %183 = add i32 %182, 1
-  store i32 %183, ptr %8, align 4, !tbaa !61
-  br i1 %179, label %202, label %.backedge
-
-.backedge:                                        ; preds = %152, %150, %flush_pending.exit, %184
-  br label %24
-
-184:                                              ; preds = %108
-  %185 = load i32, ptr %8, align 4, !tbaa !61
-  %186 = add i32 %185, %116
-  store i32 %186, ptr %8, align 4, !tbaa !61
+152:                                              ; preds = %108
+  %153 = load i32, ptr %8, align 4, !tbaa !61
+  %154 = add i32 %153, %116
+  store i32 %154, ptr %8, align 4, !tbaa !61
   store i32 0, ptr %14, align 8, !tbaa !66
-  %187 = load ptr, ptr %7, align 8, !tbaa !37
-  %188 = zext i32 %186 to i64
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 %188
-  %190 = load i8, ptr %189, align 1, !tbaa !4
-  %191 = zext i8 %190 to i32
-  store i32 %191, ptr %5, align 8, !tbaa !68
-  %192 = load i32, ptr %6, align 8, !tbaa !36
-  %193 = shl i32 %191, %192
-  %194 = add i32 %186, 1
-  %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw i8, ptr %187, i64 %195
-  %197 = load i8, ptr %196, align 1, !tbaa !4
-  %198 = zext i8 %197 to i32
-  %199 = xor i32 %193, %198
-  %200 = load i32, ptr %9, align 4, !tbaa !35
-  %201 = and i32 %199, %200
-  store i32 %201, ptr %5, align 8, !tbaa !68
+  %155 = load ptr, ptr %7, align 8, !tbaa !37
+  %156 = zext i32 %154 to i64
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 %156
+  %158 = load i8, ptr %157, align 1, !tbaa !4
+  %159 = zext i8 %158 to i32
+  store i32 %159, ptr %5, align 8, !tbaa !68
+  %160 = load i32, ptr %6, align 8, !tbaa !36
+  %161 = shl i32 %159, %160
+  %162 = add i32 %154, 1
+  %163 = zext i32 %162 to i64
+  %164 = getelementptr inbounds nuw i8, ptr %155, i64 %163
+  %165 = load i8, ptr %164, align 1, !tbaa !4
+  %166 = zext i8 %165 to i32
+  %167 = xor i32 %161, %166
+  %168 = load i32, ptr %9, align 4, !tbaa !35
+  %169 = and i32 %167, %168
+  store i32 %169, ptr %5, align 8, !tbaa !68
   br i1 %115, label %202, label %.backedge
 
-202:                                              ; preds = %152, %150, %184
-  %203 = phi i32 [ %183, %152 ], [ %151, %150 ], [ %186, %184 ]
+.backedge:                                        ; preds = %152, %150, %flush_pending.exit, %170
+  br label %24
+
+170:                                              ; preds = %.thread154
+  %171 = load ptr, ptr %7, align 8, !tbaa !37
+  %172 = load i32, ptr %8, align 4, !tbaa !61
+  %173 = zext i32 %172 to i64
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 %173
+  %175 = load i8, ptr %174, align 1, !tbaa !4
+  %176 = load ptr, ptr %15, align 8, !tbaa !45
+  %177 = load i32, ptr %16, align 4, !tbaa !108
+  %178 = add i32 %177, 1
+  store i32 %178, ptr %16, align 4, !tbaa !108
+  %179 = zext i32 %177 to i64
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 %179
+  store i8 0, ptr %180, align 1, !tbaa !4
+  %181 = load ptr, ptr %15, align 8, !tbaa !45
+  %182 = load i32, ptr %16, align 4, !tbaa !108
+  %183 = add i32 %182, 1
+  store i32 %183, ptr %16, align 4, !tbaa !108
+  %184 = zext i32 %182 to i64
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 %184
+  store i8 0, ptr %185, align 1, !tbaa !4
+  %186 = load ptr, ptr %15, align 8, !tbaa !45
+  %187 = load i32, ptr %16, align 4, !tbaa !108
+  %188 = add i32 %187, 1
+  store i32 %188, ptr %16, align 4, !tbaa !108
+  %189 = zext i32 %187 to i64
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 %189
+  store i8 %175, ptr %190, align 1, !tbaa !4
+  %191 = zext i8 %175 to i64
+  %192 = getelementptr inbounds nuw %struct.ct_data_s, ptr %17, i64 %191
+  %193 = load i16, ptr %192, align 4, !tbaa !4
+  %194 = add i16 %193, 1
+  store i16 %194, ptr %192, align 4, !tbaa !4
+  %195 = load i32, ptr %16, align 4, !tbaa !108
+  %196 = load i32, ptr %18, align 8, !tbaa !46
+  %197 = icmp eq i32 %195, %196
+  %198 = load i32, ptr %3, align 4, !tbaa !63
+  %199 = add i32 %198, -1
+  store i32 %199, ptr %3, align 4, !tbaa !63
+  %200 = load i32, ptr %8, align 4, !tbaa !61
+  %201 = add i32 %200, 1
+  store i32 %201, ptr %8, align 4, !tbaa !61
+  br i1 %197, label %202, label %.backedge
+
+202:                                              ; preds = %152, %150, %170
+  %203 = phi i32 [ %154, %152 ], [ %151, %150 ], [ %201, %170 ]
   %204 = load i64, ptr %23, align 8, !tbaa !62
   %205 = icmp sgt i64 %204, -1
   br i1 %205, label %206, label %210
@@ -6043,7 +6043,7 @@ flush_pending.exit195:                            ; preds = %400, %415, %433
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit191, %flush_pending.exit, %30, %flush_pending.exit195, %flush_pending.exit193, %440
-  %.1 = phi i32 [ 0, %flush_pending.exit195 ], [ %., %flush_pending.exit193 ], [ 1, %440 ], [ 0, %30 ], [ 0, %flush_pending.exit ], [ 0, %flush_pending.exit191 ]
+  %.1 = phi i32 [ 1, %440 ], [ %., %flush_pending.exit193 ], [ 0, %flush_pending.exit195 ], [ 0, %30 ], [ 0, %flush_pending.exit ], [ 0, %flush_pending.exit191 ]
   ret i32 %.1
 }
 
@@ -6228,7 +6228,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.split.loop.exit155, %.critedge.split.loop.exit153, %.critedge.split.loop.exit151, %.critedge.split.loop.exit149, %.critedge.split.loop.exit147, %.critedge.split.loop.exit145, %.critedge.split.loop.exit143, %.critedge.split.loop.exit
-  %.3 = phi ptr [ %103, %.critedge.split.loop.exit143 ], [ %104, %.critedge.split.loop.exit145 ], [ %102, %.critedge.split.loop.exit ], [ %108, %.critedge.split.loop.exit153 ], [ %107, %.critedge.split.loop.exit151 ], [ %106, %.critedge.split.loop.exit149 ], [ %105, %.critedge.split.loop.exit147 ], [ %.ptr.le, %.critedge.split.loop.exit155 ]
+  %.3 = phi ptr [ %102, %.critedge.split.loop.exit ], [ %103, %.critedge.split.loop.exit143 ], [ %104, %.critedge.split.loop.exit145 ], [ %105, %.critedge.split.loop.exit147 ], [ %106, %.critedge.split.loop.exit149 ], [ %107, %.critedge.split.loop.exit151 ], [ %108, %.critedge.split.loop.exit153 ], [ %.ptr.le, %.critedge.split.loop.exit155 ]
   %109 = ptrtoint ptr %.3 to i64
   %.neg = sub i64 %109, %35
   %.neg107 = trunc i64 %.neg to i32
@@ -6268,7 +6268,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   br i1 %or.cond111, label %.critedge2, label %36, !llvm.loop !117
 
 .critedge2:                                       ; preds = %121, %112
-  %.291 = phi i32 [ %110, %112 ], [ %.190, %121 ]
+  %.291 = phi i32 [ %.190, %121 ], [ %110, %112 ]
   %..291 = tail call i32 @llvm.umin.i32(i32 %.291, i32 %32)
   ret i32 %..291
 }

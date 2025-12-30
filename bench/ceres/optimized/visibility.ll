@@ -1168,8 +1168,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit: ; preds = %.lr.ph.i.i.i, %252, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334, %231
-  %.sroa.0256.2 = phi ptr [ %storemerge.i.i.i, %252 ], [ %.sroa.0256.0339, %231 ], [ %238, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334 ], [ %.sroa.0256.0339, %.lr.ph.i.i.i ]
-  %.sroa.11.2 = phi i32 [ 0, %252 ], [ %232, %231 ], [ %256, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334 ], [ %232, %.lr.ph.i.i.i ]
+  %.sroa.0256.2 = phi ptr [ %.sroa.0256.0339, %231 ], [ %238, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334 ], [ %storemerge.i.i.i, %252 ], [ %.sroa.0256.0339, %.lr.ph.i.i.i ]
+  %.sroa.11.2 = phi i32 [ %232, %231 ], [ %256, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit315.split.loop.exit334 ], [ 0, %252 ], [ %232, %.lr.ph.i.i.i ]
   %257 = icmp ne ptr %.sroa.0256.2, %72
   %258 = icmp ne i32 %.sroa.11.2, %75
   %.not3.i = select i1 %257, i1 true, i1 %258
@@ -1276,8 +1276,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123: ; preds = %.lr.ph.i.i.i117, %298, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347, %277
-  %.sroa.16.2 = phi i32 [ 0, %298 ], [ %278, %277 ], [ %302, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347 ], [ %278, %.lr.ph.i.i.i117 ]
-  %.sroa.0214.2 = phi ptr [ %storemerge.i.i.i121, %298 ], [ %.sroa.0238.0365, %277 ], [ %284, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347 ], [ %.sroa.0238.0365, %.lr.ph.i.i.i117 ]
+  %.sroa.16.2 = phi i32 [ %278, %277 ], [ %302, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347 ], [ 0, %298 ], [ %278, %.lr.ph.i.i.i117 ]
+  %.sroa.0214.2 = phi ptr [ %.sroa.0238.0365, %277 ], [ %284, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit123.loopexit314.split.loop.exit347 ], [ %storemerge.i.i.i121, %298 ], [ %.sroa.0238.0365, %.lr.ph.i.i.i117 ]
   %303 = zext i8 %273 to i32
   %304 = icmp ne ptr %.sroa.0214.2, %274
   %305 = icmp ne i32 %.sroa.16.2, %303
@@ -1445,8 +1445,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145: ; preds = %.lr.ph.i.i.i139, %397, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351, %376
-  %.sroa.16.4 = phi i32 [ 0, %397 ], [ %377, %376 ], [ %401, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351 ], [ %377, %.lr.ph.i.i.i139 ]
-  %.sroa.0214.4 = phi ptr [ %storemerge.i.i.i143, %397 ], [ %.sroa.0214.0357, %376 ], [ %383, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351 ], [ %.sroa.0214.0357, %.lr.ph.i.i.i139 ]
+  %.sroa.16.4 = phi i32 [ %377, %376 ], [ %401, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351 ], [ 0, %397 ], [ %377, %.lr.ph.i.i.i139 ]
+  %.sroa.0214.4 = phi ptr [ %.sroa.0214.0357, %376 ], [ %383, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145.loopexit312.split.loop.exit351 ], [ %storemerge.i.i.i143, %397 ], [ %.sroa.0214.0357, %.lr.ph.i.i.i139 ]
   %402 = load ptr, ptr %266, align 8, !tbaa !19
   %403 = getelementptr i8, ptr %402, i64 10
   %404 = load i8, ptr %403, align 1, !tbaa !40
@@ -1518,8 +1518,8 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   br label %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158
 
 _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158: ; preds = %.lr.ph.i.i.i152, %434, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360, %413
-  %.sroa.0238.2 = phi ptr [ %storemerge.i.i.i156, %434 ], [ %.sroa.0238.0365, %413 ], [ %420, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360 ], [ %.sroa.0238.0365, %.lr.ph.i.i.i152 ]
-  %.sroa.12.2 = phi i32 [ 0, %434 ], [ %414, %413 ], [ %438, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360 ], [ %414, %.lr.ph.i.i.i152 ]
+  %.sroa.0238.2 = phi ptr [ %.sroa.0238.0365, %413 ], [ %420, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360 ], [ %storemerge.i.i.i156, %434 ], [ %.sroa.0238.0365, %.lr.ph.i.i.i152 ]
+  %.sroa.12.2 = phi i32 [ %414, %413 ], [ %438, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit158.loopexit313.split.loop.exit360 ], [ 0, %434 ], [ %414, %.lr.ph.i.i.i152 ]
   %439 = zext i8 %410 to i32
   %440 = icmp ne ptr %.sroa.0238.2, %411
   %441 = icmp ne i32 %.sroa.12.2, %439
@@ -1812,15 +1812,15 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EED2Ev.exit:
   br label %568
 
 568:                                              ; preds = %561, %567, %522, %479
-  %.pn74 = phi { ptr, i32 } [ %480, %479 ], [ %523, %522 ], [ %562, %561 ], [ %.pn, %567 ]
+  %.pn74 = phi { ptr, i32 } [ %480, %479 ], [ %523, %522 ], [ %.pn, %567 ], [ %562, %561 ]
   call void @_ZNSt10unique_ptrIN5ceres8internal13WeightedGraphIiEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #32
   br label %569
 
 569:                                              ; preds = %408, %568, %466
-  %.sroa.0267.0469479 = phi ptr [ %.sroa.0267.0469480, %466 ], [ %.sroa.0267.0469480, %568 ], [ %.sroa.0267.0, %408 ]
-  %.0.lcssa.i.i.i.i.i471477 = phi ptr [ %.0.lcssa.i.i.i.i.i471478, %466 ], [ %.0.lcssa.i.i.i.i.i471478, %568 ], [ %.0.lcssa.i.i.i.i.i, %408 ]
-  %.sroa.16274.0465 = phi i64 [ %.sroa.16274.0463481, %466 ], [ %.sroa.16274.0463481, %568 ], [ %.sroa.16274.0, %408 ]
-  %.pn76.pn.pn = phi { ptr, i32 } [ %467, %466 ], [ %.pn74, %568 ], [ %409, %408 ]
+  %.sroa.0267.0469479 = phi ptr [ %.sroa.0267.0469480, %568 ], [ %.sroa.0267.0469480, %466 ], [ %.sroa.0267.0, %408 ]
+  %.0.lcssa.i.i.i.i.i471477 = phi ptr [ %.0.lcssa.i.i.i.i.i471478, %568 ], [ %.0.lcssa.i.i.i.i.i471478, %466 ], [ %.0.lcssa.i.i.i.i.i, %408 ]
+  %.sroa.16274.0465 = phi i64 [ %.sroa.16274.0463481, %568 ], [ %.sroa.16274.0463481, %466 ], [ %.sroa.16274.0, %408 ]
+  %.pn76.pn.pn = phi { ptr, i32 } [ %.pn74, %568 ], [ %467, %466 ], [ %409, %408 ]
   %570 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %571 = load i64, ptr %570, align 8, !tbaa !77
   %572 = icmp eq i64 %571, 0
@@ -3082,7 +3082,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   br label %13
 
 13:                                               ; preds = %4, %9, %5
-  %.sink = phi i8 [ %8, %5 ], [ %12, %9 ], [ 0, %4 ]
+  %.sink = phi i8 [ %12, %9 ], [ %8, %5 ], [ 0, %4 ]
   %14 = getelementptr i8, ptr %2, i64 10
   store i8 %.sink, ptr %14, align 1, !tbaa !40
   %15 = getelementptr i8, ptr %0, i64 10
@@ -3283,8 +3283,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
-  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
+  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
+  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2
@@ -4236,8 +4236,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
-  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
+  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
+  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2
@@ -4574,8 +4574,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
-  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
+  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
+  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2
@@ -5022,8 +5022,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
-  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
+  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
+  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2
@@ -5458,8 +5458,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
-  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
+  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
+  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2

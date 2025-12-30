@@ -388,7 +388,7 @@ _ZN7QStringD2Ev.exit30:                           ; preds = %113, %_ZN17QArrayDa
   br label %119
 
 119:                                              ; preds = %103, %105, %_ZN7QStringD2Ev.exit30, %115, %117, %101, %_ZN7QStringD2Ev.exit26, %93
-  %.pn14.pn = phi { ptr, i32 } [ %96, %_ZN7QStringD2Ev.exit26 ], [ %102, %101 ], [ %94, %93 ], [ %104, %103 ], [ %118, %117 ], [ %116, %115 ], [ %.pn, %_ZN7QStringD2Ev.exit30 ], [ %106, %105 ]
+  %.pn14.pn = phi { ptr, i32 } [ %102, %101 ], [ %94, %93 ], [ %96, %_ZN7QStringD2Ev.exit26 ], [ %104, %103 ], [ %118, %117 ], [ %116, %115 ], [ %.pn, %_ZN7QStringD2Ev.exit30 ], [ %106, %105 ]
   call void @_ZN15WiresharkDialogD2Ev(ptr noundef align 8 dereferenceable_or_null(141) %0) #14
   resume { ptr, i32 } %.pn14.pn
 }

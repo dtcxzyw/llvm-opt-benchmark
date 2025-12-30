@@ -241,7 +241,7 @@ define internal i64 @sbr_sum_square_c(ptr noundef readonly captures(none) %0, i3
   br label %av_int2sf.exit
 
 av_int2sf.exit:                                   ; preds = %.loopexit, %._crit_edge.i.i
-  %.sroa.05.0.insert.insert.i.i = phi i64 [ -639950127104, %.loopexit ], [ %84, %._crit_edge.i.i ]
+  %.sroa.05.0.insert.insert.i.i = phi i64 [ %84, %._crit_edge.i.i ], [ -639950127104, %.loopexit ]
   ret i64 %.sroa.05.0.insert.insert.i.i
 }
 
@@ -488,7 +488,7 @@ autocorr_calc.exit61:                             ; preds = %26, %._crit_edge.lo
   br label %av_int2sf.exit
 
 av_int2sf.exit:                                   ; preds = %autocorr_calc.exit61, %._crit_edge.i.i
-  %.sroa.05.0.insert.insert.i.i = phi i64 [ -639950127104, %autocorr_calc.exit61 ], [ %57, %._crit_edge.i.i ]
+  %.sroa.05.0.insert.insert.i.i = phi i64 [ %57, %._crit_edge.i.i ], [ -639950127104, %autocorr_calc.exit61 ]
   store i64 %.sroa.05.0.insert.insert.i.i, ptr %23, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %59 = load i32, ptr %58, align 4, !tbaa !19
@@ -575,7 +575,7 @@ autocorr_calc.exit54:                             ; preds = %71, %._crit_edge202
   br label %av_int2sf.exit76
 
 av_int2sf.exit76:                                 ; preds = %autocorr_calc.exit54, %._crit_edge.i.i67
-  %.sroa.05.0.insert.insert.i.i72 = phi i64 [ -639950127104, %autocorr_calc.exit54 ], [ %102, %._crit_edge.i.i67 ]
+  %.sroa.05.0.insert.insert.i.i72 = phi i64 [ %102, %._crit_edge.i.i67 ], [ -639950127104, %autocorr_calc.exit54 ]
   store i64 %.sroa.05.0.insert.insert.i.i72, ptr %68, align 4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
@@ -699,7 +699,7 @@ autocorr_calc.exit47:                             ; preds = %139, %._crit_edge21
   br label %av_int2sf.exit91
 
 av_int2sf.exit91:                                 ; preds = %autocorr_calc.exit47, %._crit_edge.i.i82
-  %.sroa.05.0.insert.insert.i.i87 = phi i64 [ -639950127104, %autocorr_calc.exit47 ], [ %170, %._crit_edge.i.i82 ]
+  %.sroa.05.0.insert.insert.i.i87 = phi i64 [ %170, %._crit_edge.i.i82 ], [ -639950127104, %autocorr_calc.exit47 ]
   store i64 %.sroa.05.0.insert.insert.i.i87, ptr %136, align 4
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %172 = lshr i64 %135, 32
@@ -776,7 +776,7 @@ autocorr_calc.exit40:                             ; preds = %174, %._crit_edge21
   br label %av_int2sf.exit106
 
 av_int2sf.exit106:                                ; preds = %autocorr_calc.exit40, %._crit_edge.i.i97
-  %.sroa.05.0.insert.insert.i.i102 = phi i64 [ -639950127104, %autocorr_calc.exit40 ], [ %205, %._crit_edge.i.i97 ]
+  %.sroa.05.0.insert.insert.i.i102 = phi i64 [ %205, %._crit_edge.i.i97 ], [ -639950127104, %autocorr_calc.exit40 ]
   store i64 %.sroa.05.0.insert.insert.i.i102, ptr %171, align 4
   %206 = load i32, ptr %58, align 4, !tbaa !19
   %207 = sext i32 %206 to i64
@@ -870,7 +870,7 @@ autocorr_calc.exit33:                             ; preds = %226, %._crit_edge22
   br label %av_int2sf.exit121
 
 av_int2sf.exit121:                                ; preds = %autocorr_calc.exit33, %._crit_edge.i.i112
-  %.sroa.05.0.insert.insert.i.i117 = phi i64 [ -639950127104, %autocorr_calc.exit33 ], [ %257, %._crit_edge.i.i112 ]
+  %.sroa.05.0.insert.insert.i.i117 = phi i64 [ %257, %._crit_edge.i.i112 ], [ -639950127104, %autocorr_calc.exit33 ]
   store i64 %.sroa.05.0.insert.insert.i.i117, ptr %1, align 4
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %259 = lshr i64 %223, 32
@@ -947,7 +947,7 @@ autocorr_calc.exit26:                             ; preds = %261, %._crit_edge22
   br label %av_int2sf.exit136
 
 av_int2sf.exit136:                                ; preds = %autocorr_calc.exit26, %._crit_edge.i.i127
-  %.sroa.05.0.insert.insert.i.i132 = phi i64 [ -639950127104, %autocorr_calc.exit26 ], [ %292, %._crit_edge.i.i127 ]
+  %.sroa.05.0.insert.insert.i.i132 = phi i64 [ %292, %._crit_edge.i.i127 ], [ -639950127104, %autocorr_calc.exit26 ]
   store i64 %.sroa.05.0.insert.insert.i.i132, ptr %258, align 4
   br label %293
 
@@ -1073,7 +1073,7 @@ autocorr_calc.exit19:                             ; preds = %335, %._crit_edge23
   br label %av_int2sf.exit151
 
 av_int2sf.exit151:                                ; preds = %autocorr_calc.exit19, %._crit_edge.i.i142
-  %.sroa.05.0.insert.insert.i.i147 = phi i64 [ -639950127104, %autocorr_calc.exit19 ], [ %366, %._crit_edge.i.i142 ]
+  %.sroa.05.0.insert.insert.i.i147 = phi i64 [ %366, %._crit_edge.i.i142 ], [ -639950127104, %autocorr_calc.exit19 ]
   store i64 %.sroa.05.0.insert.insert.i.i147, ptr %332, align 4
   %367 = lshr i64 %331, 32
   %368 = icmp eq i64 %367, 0
@@ -1149,7 +1149,7 @@ autocorr_calc.exit:                               ; preds = %369, %._crit_edge24
   br label %av_int2sf.exit166
 
 av_int2sf.exit166:                                ; preds = %autocorr_calc.exit, %._crit_edge.i.i157
-  %.sroa.05.0.insert.insert.i.i162 = phi i64 [ -639950127104, %autocorr_calc.exit ], [ %400, %._crit_edge.i.i157 ]
+  %.sroa.05.0.insert.insert.i.i162 = phi i64 [ %400, %._crit_edge.i.i157 ], [ -639950127104, %autocorr_calc.exit ]
   %401 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.sroa.05.0.insert.insert.i.i162, ptr %401, align 4
   ret void
@@ -1409,8 +1409,8 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %37, %39, %21, %23
-  %.276.i = phi i32 [ %30, %23 ], [ %11, %21 ], [ %11, %37 ], [ %64, %39 ]
-  %.271.i = phi i32 [ %28, %23 ], [ %9, %21 ], [ %9, %37 ], [ %54, %39 ]
+  %.276.i = phi i32 [ %11, %21 ], [ %30, %23 ], [ %11, %37 ], [ %64, %39 ]
+  %.271.i = phi i32 [ %9, %21 ], [ %28, %23 ], [ %9, %37 ], [ %54, %39 ]
   store i32 %.271.i, ptr %8, align 4, !tbaa !19
   store i32 %.276.i, ptr %10, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1516,8 +1516,8 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %41, %43, %24, %26
-  %.276.i = phi i32 [ %34, %26 ], [ %14, %24 ], [ %14, %41 ], [ %68, %43 ]
-  %.271.i = phi i32 [ %30, %26 ], [ %12, %24 ], [ %12, %41 ], [ %58, %43 ]
+  %.276.i = phi i32 [ %14, %24 ], [ %34, %26 ], [ %14, %41 ], [ %68, %43 ]
+  %.271.i = phi i32 [ %12, %24 ], [ %30, %26 ], [ %12, %41 ], [ %58, %43 ]
   store i32 %.271.i, ptr %11, align 4, !tbaa !19
   store i32 %.276.i, ptr %13, align 4, !tbaa !19
   %69 = sub nsw i32 0, %.063.i14
@@ -1619,8 +1619,8 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %37, %39, %21, %23
-  %.276.i = phi i32 [ %30, %23 ], [ %11, %21 ], [ %11, %37 ], [ %64, %39 ]
-  %.271.i = phi i32 [ %28, %23 ], [ %9, %21 ], [ %9, %37 ], [ %54, %39 ]
+  %.276.i = phi i32 [ %11, %21 ], [ %30, %23 ], [ %11, %37 ], [ %64, %39 ]
+  %.271.i = phi i32 [ %9, %21 ], [ %28, %23 ], [ %9, %37 ], [ %54, %39 ]
   store i32 %.271.i, ptr %8, align 4, !tbaa !19
   store i32 %.276.i, ptr %10, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1726,8 +1726,8 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %40, %42, %23, %25
-  %.276.i = phi i32 [ %33, %25 ], [ %13, %23 ], [ %13, %40 ], [ %67, %42 ]
-  %.271.i = phi i32 [ %29, %25 ], [ %11, %23 ], [ %11, %40 ], [ %57, %42 ]
+  %.276.i = phi i32 [ %13, %23 ], [ %33, %25 ], [ %13, %40 ], [ %67, %42 ]
+  %.271.i = phi i32 [ %11, %23 ], [ %29, %25 ], [ %11, %40 ], [ %57, %42 ]
   store i32 %.271.i, ptr %10, align 4, !tbaa !19
   store i32 %.276.i, ptr %12, align 4, !tbaa !19
   %68 = sub nsw i32 0, %.063.i14

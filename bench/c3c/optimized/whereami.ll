@@ -91,7 +91,7 @@ get_executable_path_raw.exit31:                   ; preds = %get_executable_path
   br label %28
 
 28:                                               ; preds = %get_executable_path_raw.exit.thread, %27, %24
-  %.025 = phi ptr [ %8, %27 ], [ %8, %24 ], [ @.str, %get_executable_path_raw.exit.thread ]
+  %.025 = phi ptr [ %8, %24 ], [ %8, %27 ], [ @.str, %get_executable_path_raw.exit.thread ]
   ret ptr %.025
 }
 

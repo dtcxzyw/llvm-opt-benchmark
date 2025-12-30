@@ -363,7 +363,7 @@ skip_1stop_8data_bits.exit:                       ; preds = %.preheader.i, %25
   br label %skip_1stop_8data_bits.exit.thread
 
 skip_1stop_8data_bits.exit.thread:                ; preds = %63, %49, %skip_1stop_8data_bits.exit, %3, %78
-  %.0 = phi i32 [ 0, %skip_1stop_8data_bits.exit ], [ -1094995529, %3 ], [ %76, %78 ], [ -1094995529, %49 ], [ -1094995529, %63 ]
+  %.0 = phi i32 [ %76, %78 ], [ -1094995529, %3 ], [ 0, %skip_1stop_8data_bits.exit ], [ -1094995529, %49 ], [ -1094995529, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

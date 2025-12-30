@@ -1382,7 +1382,7 @@ Py_DECREF.exit19:                                 ; preds = %Py_DECREF.exit21, %
   br label %Py_DECREF.exit23
 
 Py_DECREF.exit23:                                 ; preds = %42, %39, %37, %23, %20, %18, %Py_DECREF.exit19, %7, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %23 ], [ -1, %Py_DECREF.exit19 ], [ -1, %7 ], [ -1, %18 ], [ -1, %20 ], [ 0, %37 ], [ 0, %39 ], [ 0, %42 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %7 ], [ -1, %Py_DECREF.exit19 ], [ -1, %18 ], [ -1, %20 ], [ -1, %23 ], [ 0, %37 ], [ 0, %39 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -1434,7 +1434,7 @@ define dso_local range(i32 -1, 1) i32 @PyFile_WriteString(ptr noundef %0, ptr no
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %18, %15, %12, %8, %9, %5, %6
-  %.0 = phi i32 [ -1, %5 ], [ -1, %9 ], [ -1, %6 ], [ -1, %8 ], [ %13, %12 ], [ %13, %15 ], [ %13, %18 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %5 ], [ -1, %9 ], [ -1, %8 ], [ %13, %12 ], [ %13, %15 ], [ %13, %18 ]
   ret i32 %.0
 }
 
@@ -1594,7 +1594,7 @@ Py_DECREF.exit25:                                 ; preds = %48, %45, %42, %10
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %52, %49, %Py_DECREF.exit27, %61, %59, %12, %7, %.thread, %56
-  %.0 = phi i32 [ -1, %56 ], [ -1, %12 ], [ -1, %.thread ], [ -1, %59 ], [ -1, %7 ], [ %.015, %61 ], [ -1, %Py_DECREF.exit27 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ]
+  %.0 = phi i32 [ -1, %.thread ], [ -1, %56 ], [ -1, %7 ], [ -1, %12 ], [ -1, %59 ], [ %.015, %61 ], [ -1, %Py_DECREF.exit27 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2083,7 +2083,7 @@ Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exitthre
   br label %40
 
 40:                                               ; preds = %35, %14, %8, %2, %38, %37
-  %.0 = phi ptr [ @_Py_NoneStruct, %2 ], [ null, %8 ], [ @_Py_NoneStruct, %37 ], [ null, %14 ], [ %39, %38 ], [ null, %35 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %37 ], [ %39, %38 ], [ @_Py_NoneStruct, %2 ], [ null, %8 ], [ null, %14 ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

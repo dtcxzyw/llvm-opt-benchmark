@@ -113,21 +113,21 @@ define internal i32 @bmp_parse(ptr noundef readonly captures(none) %0, ptr readn
   br label %.sink.split
 
 .sink.split:                                      ; preds = %37, %32, %50
-  %.sink = phi i32 [ 1, %32 ], [ %51, %50 ], [ 0, %37 ]
+  %.sink = phi i32 [ %51, %50 ], [ 1, %32 ], [ 0, %37 ]
   store i32 %.sink, ptr %12, align 8, !tbaa !18
   br label %52
 
 52:                                               ; preds = %.sink.split, %32, %29
-  %53 = phi i32 [ 0, %29 ], [ 0, %32 ], [ %.sink, %.sink.split ]
+  %53 = phi i32 [ 0, %32 ], [ 0, %29 ], [ %.sink, %.sink.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph113, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %41, %52
-  %.184 = phi i32 [ %5, %52 ], [ %42, %41 ], [ %.057.lcssa, %.preheader ]
-  %.263 = phi i64 [ %28, %52 ], [ 0, %41 ], [ %.061.ph, %.preheader ]
-  %.260 = phi i32 [ -100, %52 ], [ %44, %41 ], [ -100, %.preheader ]
+  %.184 = phi i32 [ %5, %52 ], [ %.057.lcssa, %.preheader ], [ %42, %41 ]
+  %.263 = phi i64 [ %28, %52 ], [ %.061.ph, %.preheader ], [ 0, %41 ]
+  %.260 = phi i32 [ -100, %52 ], [ -100, %.preheader ], [ %44, %41 ]
   store i64 %.263, ptr %10, align 8, !tbaa !15
   br label %.loopexit78
 

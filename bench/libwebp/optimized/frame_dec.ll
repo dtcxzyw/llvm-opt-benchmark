@@ -239,7 +239,7 @@ define hidden i32 @VP8ProcessRow(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %66
 
 66:                                               ; preds = %57, %28, %22
-  %.0 = phi i32 [ %27, %22 ], [ 0, %28 ], [ 1, %57 ]
+  %.0 = phi i32 [ %27, %22 ], [ 1, %57 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -1662,7 +1662,7 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %exitcond.not.i, label %PrecomputeFilterStrengths.exit, label %.split.i, !llvm.loop !115
 
 PrecomputeFilterStrengths.exit:                   ; preds = %.split59.i, %.split59.i.us56, %.split59.i.us, %.split59.us.us.i, %60, %7
-  %.0 = phi i32 [ %9, %7 ], [ 0, %60 ], [ 0, %.split59.i.us56 ], [ 0, %.split59.us.us.i ], [ 0, %.split59.i.us ], [ 0, %.split59.i ]
+  %.0 = phi i32 [ %9, %7 ], [ 0, %60 ], [ 0, %.split59.us.us.i ], [ 0, %.split59.i.us ], [ 0, %.split59.i.us56 ], [ 0, %.split59.i ]
   ret i32 %.0
 }
 
@@ -1715,7 +1715,7 @@ define hidden range(i32 0, 3) i32 @VP8GetThreadMethod(ptr noundef readonly captu
   br label %12
 
 12:                                               ; preds = %10, %4, %6
-  %.0 = phi i32 [ 0, %4 ], [ %., %10 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ %., %10 ]
   ret i32 %.0
 }
 

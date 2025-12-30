@@ -157,7 +157,7 @@ _ZL16keep_alive_young8zaddress.exit:              ; preds = %23, %18, %15
   br label %25
 
 25:                                               ; preds = %15, %2, %_ZL16keep_alive_young8zaddress.exit
-  %.0 = phi i64 [ 0, %2 ], [ %1, %_ZL16keep_alive_young8zaddress.exit ], [ 0, %15 ]
+  %.0 = phi i64 [ %1, %_ZL16keep_alive_young8zaddress.exit ], [ 0, %2 ], [ 0, %15 ]
   ret i64 %.0
 }
 
@@ -201,7 +201,7 @@ _ZL16keep_alive_young8zaddress.exit:              ; preds = %23, %18, %15
   br label %25
 
 25:                                               ; preds = %15, %2, %_ZL16keep_alive_young8zaddress.exit
-  %.0 = phi i64 [ 0, %2 ], [ %1, %_ZL16keep_alive_young8zaddress.exit ], [ 0, %15 ]
+  %.0 = phi i64 [ %1, %_ZL16keep_alive_young8zaddress.exit ], [ 0, %2 ], [ 0, %15 ]
   ret i64 %.0
 }
 
@@ -245,7 +245,7 @@ _ZL16keep_alive_young8zaddress.exit:              ; preds = %23, %18, %15
   br label %25
 
 25:                                               ; preds = %15, %2, %_ZL16keep_alive_young8zaddress.exit
-  %.0 = phi i64 [ 0, %2 ], [ %1, %_ZL16keep_alive_young8zaddress.exit ], [ 0, %15 ]
+  %.0 = phi i64 [ %1, %_ZL16keep_alive_young8zaddress.exit ], [ 0, %2 ], [ 0, %15 ]
   ret i64 %.0
 }
 
@@ -289,7 +289,7 @@ _ZL16keep_alive_young8zaddress.exit:              ; preds = %23, %18, %15
   br label %25
 
 25:                                               ; preds = %15, %2, %_ZL16keep_alive_young8zaddress.exit
-  %.0 = phi i64 [ 0, %2 ], [ %1, %_ZL16keep_alive_young8zaddress.exit ], [ 0, %15 ]
+  %.0 = phi i64 [ %1, %_ZL16keep_alive_young8zaddress.exit ], [ 0, %2 ], [ 0, %15 ]
   ret i64 %.0
 }
 
@@ -403,7 +403,7 @@ define hidden noundef i64 @_ZN8ZBarrier23mark_from_old_slow_pathE8zaddress(i64 n
   br label %17
 
 17:                                               ; preds = %3, %1, %14
-  %.0 = phi i64 [ 0, %1 ], [ %0, %14 ], [ 0, %3 ]
+  %.0 = phi i64 [ %0, %14 ], [ 0, %1 ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -503,7 +503,7 @@ define hidden noundef i64 @_ZN8ZBarrier35mark_finalizable_from_old_slow_pathE8za
   br label %17
 
 17:                                               ; preds = %3, %1, %14
-  %.0 = phi i64 [ 0, %1 ], [ %0, %14 ], [ 0, %3 ]
+  %.0 = phi i64 [ %0, %14 ], [ 0, %1 ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -551,7 +551,7 @@ _ZN19ZStoreBarrierBuffer3addEPV8zpointerS0_.exit: ; preds = %17, %21
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %26
 
-_ZN19ZStoreBarrierBuffer16buffer_for_storeEb.exit.thread: ; preds = %5, %12, %4
+_ZN19ZStoreBarrierBuffer16buffer_for_storeEb.exit.thread: ; preds = %5, %4, %12
   tail call void @_ZN8ZBarrier17mark_and_rememberEPV8zpointer8zaddress(ptr noundef %0, i64 noundef %1)
   br label %26
 

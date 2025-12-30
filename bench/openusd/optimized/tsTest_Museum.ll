@@ -188,7 +188,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13TsTest_Museum7GetDataENS0_6D
   br label %common.resume
 
 common.resume:                                    ; preds = %217, %219, %221, %176, %178, %180, %135, %137, %139, %81, %83, %85, %60, %62, %64
-  %common.resume.op = phi { ptr, i32 } [ %179, %178 ], [ %63, %62 ], [ %84, %83 ], [ %138, %137 ], [ %61, %60 ], [ %65, %64 ], [ %82, %81 ], [ %86, %85 ], [ %136, %135 ], [ %140, %139 ], [ %177, %176 ], [ %181, %180 ], [ %218, %217 ], [ %222, %221 ], [ %220, %219 ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %65, %64 ], [ %63, %62 ], [ %82, %81 ], [ %86, %85 ], [ %84, %83 ], [ %136, %135 ], [ %140, %139 ], [ %138, %137 ], [ %177, %176 ], [ %181, %180 ], [ %179, %178 ], [ %218, %217 ], [ %222, %221 ], [ %220, %219 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #14
   resume { ptr, i32 } %common.resume.op
 
@@ -924,7 +924,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsT
   br label %11
 
 11:                                               ; preds = %8, %5
-  %12 = phi i1 [ %10, %8 ], [ true, %5 ]
+  %12 = phi i1 [ true, %5 ], [ %10, %8 ]
   %13 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %14, ptr noundef nonnull align 8 dereferenceable(74) %3)

@@ -1029,7 +1029,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread253, %.thread290, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn294, %.thread290 ], [ %.pn89256, %.thread253 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn89256, %.thread253 ], [ %.pn294, %.thread290 ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %13, %44
@@ -1073,7 +1073,7 @@ common.resume:                                    ; preds = %.thread253, %.threa
   store i64 %.sroa.7.i.sroa.8.0.copyload, ptr %.sroa.3184.0..sroa_idx, align 8
   br label %156
 
-.thread258:                                       ; preds = %97, %65, %50, %94
+.thread258:                                       ; preds = %50, %65, %94, %97
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread253
@@ -1308,7 +1308,7 @@ common.resume:                                    ; preds = %.thread253, %.threa
   store i64 -9223372036854775798, ptr %0, align 8
   br label %156
 
-.thread299:                                       ; preds = %145, %115, %142
+.thread299:                                       ; preds = %115, %142, %145
   %lpad.thr_comm297 = landingpad { ptr, i32 }
           cleanup
   br label %.thread290

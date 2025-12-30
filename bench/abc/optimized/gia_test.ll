@@ -1243,8 +1243,8 @@ _ZN7testing15AssertionResultD2Ev.exit34:          ; preds = %195, %_ZNKSt14defau
   br i1 %216, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %214, %.thread25.i.i, %207
-  %217 = phi ptr [ %213, %.thread25.i.i ], [ %215, %214 ], [ %211, %207 ]
-  %218 = phi i32 [ %205, %.thread25.i.i ], [ %.pre.pre.i.i, %214 ], [ %205, %207 ]
+  %217 = phi ptr [ %215, %214 ], [ %213, %.thread25.i.i ], [ %211, %207 ]
+  %218 = phi i32 [ %.pre.pre.i.i, %214 ], [ %205, %.thread25.i.i ], [ %205, %207 ]
   %219 = sext i32 %218 to i64
   %220 = shl nsw i64 %219, 3
   %scevgep.i.i = getelementptr i8, ptr %217, i64 %220

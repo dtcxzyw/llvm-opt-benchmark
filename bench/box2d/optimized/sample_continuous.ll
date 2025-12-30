@@ -3311,7 +3311,7 @@ _Z9b2MakeRotf.exit:                               ; preds = %16
   br label %53
 
 53:                                               ; preds = %46, %52, %44, %42
-  %.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %.pn, %52 ], [ %47, %46 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %.pn, %52 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 

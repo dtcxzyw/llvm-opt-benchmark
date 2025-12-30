@@ -391,12 +391,12 @@ ExtractMetadataFromTIFF.exit.thread:              ; preds = %187, %185
   br label %193
 
 193:                                              ; preds = %ExtractMetadataFromTIFF.exit.thread, %.thread, %42, %169, %190, %99, %96, %86, %58, %48, %39
-  %.067 = phi i32 [ 0, %86 ], [ 0, %99 ], [ 0, %39 ], [ 1, %ExtractMetadataFromTIFF.exit.thread ], [ 0, %190 ], [ %.1, %169 ], [ 0, %96 ], [ 0, %58 ], [ 0, %48 ], [ 0, %42 ], [ 0, %.thread ]
+  %.067 = phi i32 [ 0, %86 ], [ 0, %99 ], [ 0, %190 ], [ %.1, %169 ], [ 0, %96 ], [ 0, %58 ], [ 0, %48 ], [ 0, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 1, %ExtractMetadataFromTIFF.exit.thread ]
   call void @TIFFClose(ptr noundef nonnull %24) #10
   br label %194
 
 194:                                              ; preds = %5, %193, %26
-  %.066 = phi i32 [ %.067, %193 ], [ 0, %26 ], [ 0, %5 ]
+  %.066 = phi i32 [ 0, %26 ], [ %.067, %193 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

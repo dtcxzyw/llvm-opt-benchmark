@@ -207,7 +207,7 @@ define noundef ptr @_ZNK11dtTileCache12getTileByRefEj(ptr noundef nonnull readon
   br label %21
 
 21:                                               ; preds = %10, %3, %2
-  %.0 = phi ptr [ null, %2 ], [ %., %10 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %., %10 ]
   ret ptr %.0
 }
 
@@ -391,7 +391,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   br label %119
 
 119:                                              ; preds = %._crit_edge25, %56, %._crit_edge, %5
-  %.016 = phi i32 [ %., %._crit_edge25 ], [ -2147483644, %56 ], [ -2147483644, %._crit_edge ], [ -2147483644, %5 ]
+  %.016 = phi i32 [ -2147483644, %5 ], [ -2147483644, %._crit_edge ], [ -2147483644, %56 ], [ %., %._crit_edge25 ]
   ret i32 %.016
 }
 
@@ -459,7 +459,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit: ; preds = %25
   br label %43
 
 43:                                               ; preds = %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit, %25, %21, %18
-  %.1 = phi i32 [ %40, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit ], [ %.01621, %18 ], [ %.01621, %25 ], [ %.01621, %21 ]
+  %.1 = phi i32 [ %40, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit ], [ %.01621, %25 ], [ %.01621, %21 ], [ %.01621, %18 ]
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 48
   %.0 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %.0, null
@@ -598,7 +598,7 @@ define noundef ptr @_ZN11dtTileCache16getObstacleByRefEj(ptr noundef nonnull rea
   br label %16
 
 16:                                               ; preds = %7, %3, %2
-  %.0 = phi ptr [ null, %2 ], [ %., %7 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %., %7 ]
   ret ptr %.0
 }
 
@@ -741,7 +741,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit: ; preds = %45
   br label %_ZN11dtTileCache9getTileAtEiii.exit
 
 _ZN11dtTileCache9getTileAtEiii.exit:              ; preds = %37, %.loopexit, %45, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit, %7, %5
-  %.0 = phi i32 [ 1073741824, %45 ], [ -2147483647, %5 ], [ -2147483646, %7 ], [ -2147483644, %.loopexit ], [ 1073741824, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit ], [ -2147483648, %37 ]
+  %.0 = phi i32 [ -2147483647, %5 ], [ -2147483646, %7 ], [ 1073741824, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit ], [ 1073741824, %45 ], [ -2147483644, %.loopexit ], [ -2147483648, %37 ]
   ret i32 %.0
 }
 
@@ -895,7 +895,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
   br label %74
 
 74:                                               ; preds = %13, %5, %4, %64
-  %.048 = phi i32 [ -2147483640, %4 ], [ -2147483640, %5 ], [ 1073741824, %64 ], [ -2147483640, %13 ]
+  %.048 = phi i32 [ 1073741824, %64 ], [ -2147483640, %4 ], [ -2147483640, %5 ], [ -2147483640, %13 ]
   ret i32 %.048
 }
 
@@ -964,7 +964,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
   br label %.thread
 
 .thread:                                          ; preds = %9, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit, %43, %5
-  %.0 = phi i32 [ -2147483632, %5 ], [ 1073741824, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit ], [ 1073741824, %43 ], [ -2147483644, %9 ]
+  %.0 = phi i32 [ -2147483632, %5 ], [ 1073741824, %43 ], [ 1073741824, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit ], [ -2147483644, %9 ]
   ret i32 %.0
 }
 
@@ -1042,7 +1042,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %8
   br label %.thread
 
 .thread:                                          ; preds = %8, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit, %49, %4
-  %.0 = phi i32 [ -2147483632, %4 ], [ 1073741824, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit ], [ 1073741824, %49 ], [ -2147483644, %8 ]
+  %.0 = phi i32 [ -2147483632, %4 ], [ 1073741824, %49 ], [ 1073741824, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit ], [ -2147483644, %8 ]
   ret i32 %.0
 }
 
@@ -1130,7 +1130,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
   br label %.thread
 
 .thread:                                          ; preds = %9, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit, %58, %5
-  %.0 = phi i32 [ -2147483632, %5 ], [ 1073741824, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit ], [ 1073741824, %58 ], [ -2147483644, %9 ]
+  %.0 = phi i32 [ -2147483632, %5 ], [ 1073741824, %58 ], [ 1073741824, %_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit ], [ -2147483644, %9 ]
   ret i32 %.0
 }
 
@@ -1166,7 +1166,7 @@ define noundef range(i32 1073741824, -2147483631) i32 @_ZN11dtTileCache14removeO
   br label %13
 
 13:                                               ; preds = %3, %2, %7
-  %.0 = phi i32 [ 1073741824, %2 ], [ 1073741824, %7 ], [ -2147483632, %3 ]
+  %.0 = phi i32 [ 1073741824, %7 ], [ 1073741824, %2 ], [ -2147483632, %3 ]
   ret i32 %.0
 }
 
@@ -1285,7 +1285,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i: ; preds = %69
   br label %84
 
 84:                                               ; preds = %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i, %69, %65, %62
-  %.1.i = phi i32 [ %81, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i ], [ %.01621.i, %62 ], [ %.01621.i, %69 ], [ %.01621.i, %65 ]
+  %.1.i = phi i32 [ %81, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i ], [ %.01621.i, %69 ], [ %.01621.i, %65 ], [ %.01621.i, %62 ]
   %85 = getelementptr inbounds nuw i8, ptr %.022.i, i64 48
   %.0.i = load ptr, ptr %85, align 8
   %.not.i = icmp eq ptr %.0.i, null
@@ -1390,7 +1390,7 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %84
   br label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
 
 _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %140, %144, %149
-  %.3 = phi i32 [ %150, %149 ], [ %.242, %140 ], [ %.242, %144 ]
+  %.3 = phi i32 [ %150, %149 ], [ %.242, %144 ], [ %.242, %140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -2418,7 +2418,7 @@ _ZL8containsPKjij.exit.thread:                    ; preds = %75, %71, %_ZL8conta
           to label %246 unwind label %.loopexit.split-lp
 
 246:                                              ; preds = %237, %242, %244, %225, %155, %139, %133, %128, %120, %115, %57
-  %.1 = phi i32 [ %114, %115 ], [ %56, %57 ], [ -2147483644, %120 ], [ -2147483644, %133 ], [ -2147483648, %225 ], [ %241, %244 ], [ 1073741824, %155 ], [ %138, %139 ], [ %127, %128 ], [ 1073741824, %242 ], [ 1073741824, %237 ]
+  %.1 = phi i32 [ %56, %57 ], [ %114, %115 ], [ -2147483644, %120 ], [ %127, %128 ], [ -2147483644, %133 ], [ %138, %139 ], [ 1073741824, %155 ], [ -2147483648, %225 ], [ %241, %244 ], [ 1073741824, %242 ], [ 1073741824, %237 ]
   %247 = load ptr, ptr %44, align 8
   %248 = load ptr, ptr %4, align 8
   invoke void @_Z20dtFreeTileCacheLayerP16dtTileCacheAllocP16dtTileCacheLayer(ptr noundef %247, ptr noundef %248)
@@ -2448,7 +2448,7 @@ _ZL8containsPKjij.exit.thread:                    ; preds = %75, %71, %_ZL8conta
   unreachable
 
 _ZN23NavMeshTileBuildContextD2Ev.exit:            ; preds = %.noexc1.i, %27, %19
-  %.0 = phi i32 [ -2147483640, %27 ], [ -2147483640, %19 ], [ %.1, %.noexc1.i ]
+  %.0 = phi i32 [ -2147483640, %19 ], [ -2147483640, %27 ], [ %.1, %.noexc1.i ]
   ret i32 %.0
 }
 
@@ -2517,7 +2517,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i: ; preds = %28
   br label %43
 
 43:                                               ; preds = %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i, %28, %24, %21
-  %.1.i = phi i32 [ %40, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i ], [ %.01621.i, %21 ], [ %.01621.i, %28 ], [ %.01621.i, %24 ]
+  %.1.i = phi i32 [ %40, %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i ], [ %.01621.i, %28 ], [ %.01621.i, %24 ], [ %.01621.i, %21 ]
   %44 = getelementptr inbounds nuw i8, ptr %.022.i, i64 48
   %.0.i = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %.0.i, null
@@ -2545,7 +2545,7 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %43
   br i1 %50, label %._crit_edge, label %46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46, %4, %_ZNK11dtTileCache10getTilesAtEiiPji.exit
-  %.0 = phi i32 [ 1073741824, %_ZNK11dtTileCache10getTilesAtEiiPji.exit ], [ 1073741824, %4 ], [ %49, %.lr.ph ], [ 1073741824, %46 ]
+  %.0 = phi i32 [ 1073741824, %_ZNK11dtTileCache10getTilesAtEiiPji.exit ], [ 1073741824, %4 ], [ 1073741824, %46 ], [ %49, %.lr.ph ]
   ret i32 %.0
 }
 

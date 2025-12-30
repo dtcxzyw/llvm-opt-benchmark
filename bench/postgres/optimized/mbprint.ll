@@ -122,10 +122,10 @@ define dso_local void @pg_wcssize(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %37, %40, %21, %32, %29, %24
-  %.258 = phi i32 [ 0, %21 ], [ %25, %24 ], [ %41, %40 ], [ %30, %29 ], [ %33, %32 ], [ %38, %37 ], [ %sub, %.preheader.preheader ]
-  %.255 = phi i32 [ %spec.select, %21 ], [ %.05377, %24 ], [ %.05377, %40 ], [ %.05377, %29 ], [ %.05377, %32 ], [ %.05377, %37 ], [ %.05377, %.preheader.preheader ]
-  %.152 = phi i32 [ %22, %21 ], [ %.05178, %24 ], [ %.05178, %40 ], [ %.05178, %29 ], [ %.05178, %32 ], [ %.05178, %37 ], [ %.05178, %.preheader.preheader ]
-  %.2 = phi i32 [ %23, %21 ], [ %26, %24 ], [ %42, %40 ], [ %31, %29 ], [ %34, %32 ], [ %39, %37 ], [ %sub96, %.preheader.preheader ]
+  %.258 = phi i32 [ 0, %21 ], [ %25, %24 ], [ %30, %29 ], [ %33, %32 ], [ %38, %37 ], [ %41, %40 ], [ %sub, %.preheader.preheader ]
+  %.255 = phi i32 [ %spec.select, %21 ], [ %.05377, %24 ], [ %.05377, %29 ], [ %.05377, %32 ], [ %.05377, %37 ], [ %.05377, %40 ], [ %.05377, %.preheader.preheader ]
+  %.152 = phi i32 [ %22, %21 ], [ %.05178, %24 ], [ %.05178, %29 ], [ %.05178, %32 ], [ %.05178, %37 ], [ %.05178, %40 ], [ %.05178, %.preheader.preheader ]
+  %.2 = phi i32 [ %23, %21 ], [ %26, %24 ], [ %31, %29 ], [ %34, %32 ], [ %39, %37 ], [ %42, %40 ], [ %sub96, %.preheader.preheader ]
   %43 = sub i64 %.06074, %12
   %44 = getelementptr inbounds i8, ptr %.05975, i64 %12
   %45 = load i8, ptr %44, align 1
@@ -384,10 +384,10 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %105, %._crit_edge, %32, %44, %40, %35
-  %.167 = phi ptr [ %33, %32 ], [ %.06684, %35 ], [ %.06684, %._crit_edge ], [ %.06684, %40 ], [ %.06684, %44 ], [ %.06684, %105 ], [ %.06684, %.preheader.preheader ]
-  %.165 = phi i32 [ %29, %32 ], [ %.06485, %35 ], [ %.06485, %._crit_edge ], [ %.06485, %40 ], [ %.06485, %44 ], [ %.06485, %105 ], [ %.06485, %.preheader.preheader ]
-  %.262 = phi i32 [ 0, %32 ], [ %36, %35 ], [ %111, %._crit_edge ], [ %42, %40 ], [ %45, %44 ], [ %107, %105 ], [ %26, %.preheader.preheader ]
-  %.2 = phi ptr [ %34, %32 ], [ %37, %35 ], [ %.3.lcssa, %._crit_edge ], [ %43, %40 ], [ %46, %44 ], [ %106, %105 ], [ %scevgep106, %.preheader.preheader ]
+  %.167 = phi ptr [ %33, %32 ], [ %.06684, %35 ], [ %.06684, %40 ], [ %.06684, %44 ], [ %.06684, %105 ], [ %.06684, %._crit_edge ], [ %.06684, %.preheader.preheader ]
+  %.165 = phi i32 [ %29, %32 ], [ %.06485, %35 ], [ %.06485, %40 ], [ %.06485, %44 ], [ %.06485, %105 ], [ %.06485, %._crit_edge ], [ %.06485, %.preheader.preheader ]
+  %.262 = phi i32 [ 0, %32 ], [ %36, %35 ], [ %42, %40 ], [ %45, %44 ], [ %107, %105 ], [ %111, %._crit_edge ], [ %26, %.preheader.preheader ]
+  %.2 = phi ptr [ %34, %32 ], [ %37, %35 ], [ %43, %40 ], [ %46, %44 ], [ %106, %105 ], [ %.3.lcssa, %._crit_edge ], [ %scevgep106, %.preheader.preheader ]
   %112 = sub i64 %.06883, %12
   %113 = getelementptr inbounds i8, ptr %.06386, i64 %12
   %114 = load i8, ptr %113, align 1
@@ -547,7 +547,7 @@ pg_get_utf8_id.exit:                              ; preds = %2, %5
   br i1 %or.cond48.i.i, label %select.unfold.i, label %utf_charcheck.exit.i
 
 utf_charcheck.exit.i:                             ; preds = %69, %39, %17, %.lr.ph.i
-  %.0.i.i = phi i32 [ 2, %17 ], [ 1, %.lr.ph.i ], [ 3, %39 ], [ 4, %69 ]
+  %.0.i.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %17 ], [ 4, %69 ], [ 3, %39 ]
   %.not23.i = icmp eq ptr %.01831.i, %.01732.i
   br i1 %.not23.i, label %80, label %.preheader.i
 
@@ -573,8 +573,8 @@ select.unfold.i:                                  ; preds = %69, %63, %57, %44, 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %select.unfold.i, %80
-  %.220.i = phi ptr [ %.01831.i, %select.unfold.i ], [ %82, %80 ], [ %78, %.preheader.i ]
-  %.2.i = phi ptr [ %83, %select.unfold.i ], [ %82, %80 ], [ %76, %.preheader.i ]
+  %.220.i = phi ptr [ %82, %80 ], [ %.01831.i, %select.unfold.i ], [ %78, %.preheader.i ]
+  %.2.i = phi ptr [ %82, %80 ], [ %83, %select.unfold.i ], [ %76, %.preheader.i ]
   %84 = load i8, ptr %.2.i, align 1
   %.not.i = icmp eq i8 %84, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9

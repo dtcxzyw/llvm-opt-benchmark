@@ -759,11 +759,11 @@ bytestream2_get_byte.exit.i56:                    ; preds = %bytestream2_get_byt
   br label %390
 
 390:                                              ; preds = %330, %289
-  %391 = phi i32 [ %288, %289 ], [ %.pre270.i, %330 ]
-  %.sroa.0.4.i = phi ptr [ %.sroa.0.2239.i, %289 ], [ %.sroa.0.5.i, %330 ]
-  %.3175.i = phi i32 [ %.1173240.i, %289 ], [ %.4176.i, %330 ]
-  %.3168.i = phi i32 [ %.1166241.i, %289 ], [ %.4169.i, %330 ]
-  %.4164.i = phi ptr [ %290, %289 ], [ %.3163.i, %330 ]
+  %391 = phi i32 [ %.pre270.i, %330 ], [ %288, %289 ]
+  %.sroa.0.4.i = phi ptr [ %.sroa.0.5.i, %330 ], [ %.sroa.0.2239.i, %289 ]
+  %.3175.i = phi i32 [ %.4176.i, %330 ], [ %.1173240.i, %289 ]
+  %.3168.i = phi i32 [ %.4169.i, %330 ], [ %.1166241.i, %289 ]
+  %.4164.i = phi ptr [ %.3163.i, %330 ], [ %290, %289 ]
   %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 2
   %392 = trunc nuw i64 %indvars.iv.next266.i to i32
   %393 = icmp sgt i32 %391, %392
@@ -789,8 +789,8 @@ decode_mvdv.exit:                                 ; preds = %.loopexit.i54, %254
   %403 = load i32, ptr %9, align 8, !tbaa !35
   br label %lzss_uncompress.exit.thread
 
-lzss_uncompress.exit.thread:                      ; preds = %92, %bytestream2_get_byte.exit61.i, %bytestream2_get_byte.exit.i56, %292, %bytestream2_get_le32.exit.i, %239, %.loopexit229.i, %168, %decode_mvdv.exit, %116, %lzss_uncompress.exit, %21, %4, %397
-  %.0 = phi i32 [ -1094995529, %4 ], [ %110, %lzss_uncompress.exit ], [ %118, %116 ], [ -1094995529, %bytestream2_get_le32.exit.i ], [ %403, %397 ], [ -12, %21 ], [ %395, %decode_mvdv.exit ], [ -1094995529, %239 ], [ -1094995529, %bytestream2_get_byte.exit.i56 ], [ -1094995529, %168 ], [ -1094995529, %.loopexit229.i ], [ -1094995529, %292 ], [ -1094995529, %bytestream2_get_byte.exit61.i ], [ -1094995529, %92 ]
+lzss_uncompress.exit.thread:                      ; preds = %92, %bytestream2_get_byte.exit61.i, %bytestream2_get_byte.exit.i56, %292, %bytestream2_get_le32.exit.i, %168, %239, %.loopexit229.i, %decode_mvdv.exit, %116, %lzss_uncompress.exit, %21, %4, %397
+  %.0 = phi i32 [ %403, %397 ], [ -1094995529, %4 ], [ -12, %21 ], [ %110, %lzss_uncompress.exit ], [ %118, %116 ], [ %395, %decode_mvdv.exit ], [ -1094995529, %.loopexit229.i ], [ -1094995529, %239 ], [ -1094995529, %168 ], [ -1094995529, %bytestream2_get_le32.exit.i ], [ -1094995529, %292 ], [ -1094995529, %bytestream2_get_byte.exit.i56 ], [ -1094995529, %bytestream2_get_byte.exit61.i ], [ -1094995529, %92 ]
   ret i32 %.0
 }
 

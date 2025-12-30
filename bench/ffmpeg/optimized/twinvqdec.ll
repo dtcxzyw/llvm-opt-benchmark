@@ -779,7 +779,7 @@ read_cb_data.exit100:                             ; preds = %247, %._crit_edge19
   br label %321
 
 321:                                              ; preds = %4, %.loopexit, %32
-  %.0 = phi i32 [ %320, %.loopexit ], [ -1094995529, %32 ], [ -1094995529, %4 ]
+  %.0 = phi i32 [ -1094995529, %32 ], [ %320, %.loopexit ], [ -1094995529, %4 ]
   ret i32 %.0
 }
 

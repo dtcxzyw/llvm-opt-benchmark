@@ -361,7 +361,7 @@ define dso_local void @_ZN4llvm6object14GOFFObjectFileC2ENS_15MemoryBufferRefERN
   br i1 %69, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %66, %64, %60, %56, %52
-  %.0.i.i = phi i32 [ %65, %64 ], [ %57, %56 ], [ %61, %60 ], [ 1, %52 ], [ %68, %66 ]
+  %.0.i.i = phi i32 [ %57, %56 ], [ %61, %60 ], [ %65, %64 ], [ 1, %52 ], [ %68, %66 ]
   %70 = zext i32 %.0.i.i to i64
   %71 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %71, ptr %16, align 8, !tbaa !29, !alias.scope !24
@@ -736,7 +736,7 @@ _ZN4llvm15SmallVectorImplINS_6object11DataRefImplEE12emplace_backIJRS2_EEES5_DpO
   br i1 %220, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i67, label %.lr.ph.i.i64, !llvm.loop !27
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i67:  ; preds = %217, %215, %211, %207, %199
-  %.0.i.i68 = phi i32 [ %216, %215 ], [ %208, %207 ], [ %212, %211 ], [ 1, %199 ], [ %219, %217 ]
+  %.0.i.i68 = phi i32 [ %208, %207 ], [ %212, %211 ], [ %216, %215 ], [ 1, %199 ], [ %219, %217 ]
   %221 = zext i32 %.0.i.i68 to i64
   %222 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %222, ptr %24, align 8, !tbaa !29, !alias.scope !58
@@ -991,7 +991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   br i1 %328, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i103, label %.lr.ph.i.i100, !llvm.loop !27
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i103: ; preds = %325, %323, %319, %315, %307
-  %.0.i.i104 = phi i32 [ %324, %323 ], [ %316, %315 ], [ %320, %319 ], [ 1, %307 ], [ %327, %325 ]
+  %.0.i.i104 = phi i32 [ %316, %315 ], [ %320, %319 ], [ %324, %323 ], [ 1, %307 ], [ %327, %325 ]
   %329 = zext i32 %.0.i.i104 to i64
   %330 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %330, ptr %29, align 8, !tbaa !29, !alias.scope !70
@@ -1243,7 +1243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_Z
   br i1 %435, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i139, label %.lr.ph.i.i136, !llvm.loop !27
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i139: ; preds = %432, %430, %426, %422, %414
-  %.0.i.i140 = phi i32 [ %431, %430 ], [ %423, %422 ], [ %427, %426 ], [ 1, %414 ], [ %434, %432 ]
+  %.0.i.i140 = phi i32 [ %423, %422 ], [ %427, %426 ], [ %431, %430 ], [ 1, %414 ], [ %434, %432 ]
   %436 = zext i32 %.0.i.i140 to i64
   %437 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %437, ptr %34, align 8, !tbaa !29, !alias.scope !82
@@ -2030,7 +2030,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14GOFFObjectFile18isSymbolU
   br label %12
 
 12:                                               ; preds = %2, %9, %11
-  %.05 = phi i1 [ true, %9 ], [ false, %11 ], [ true, %2 ]
+  %.05 = phi i1 [ false, %11 ], [ true, %9 ], [ true, %2 ]
   ret i1 %.05
 }
 
@@ -2137,7 +2137,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %_ZN4l
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
 
 _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread21, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit, %29, %31
-  %.328 = phi i32 [ %30, %29 ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %spec.select23, %31 ], [ %spec.select, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit.thread21 ]
+  %.328 = phi i32 [ %spec.select23, %31 ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %30, %29 ], [ %spec.select, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
@@ -2492,7 +2492,7 @@ _ZNK4llvm6object14GOFFObjectFile21getSectionPrEsdRecordEj.exit.thread: ; preds =
   br i1 %66, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !194
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %63, %61, %57, %53, %.critedge25
-  %.0.i.i27 = phi i32 [ %62, %61 ], [ %54, %53 ], [ %58, %57 ], [ 1, %.critedge25 ], [ %65, %63 ]
+  %.0.i.i27 = phi i32 [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ 1, %.critedge25 ], [ %65, %63 ]
   %67 = zext i32 %.0.i.i27 to i64
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %68, ptr %10, align 8, !tbaa !29, !alias.scope !191
@@ -2670,7 +2670,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   br i1 %149, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i34, label %.lr.ph.i.i31, !llvm.loop !194
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i34:  ; preds = %146, %144, %140, %136, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit
-  %.0.i.i35 = phi i32 [ %145, %144 ], [ %137, %136 ], [ %141, %140 ], [ 1, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit ], [ %148, %146 ]
+  %.0.i.i35 = phi i32 [ %137, %136 ], [ %141, %140 ], [ %145, %144 ], [ 1, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit ], [ %148, %146 ]
   %150 = zext i32 %.0.i.i35 to i64
   %151 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %151, ptr %11, align 8, !tbaa !29, !alias.scope !202
@@ -3416,8 +3416,8 @@ _ZN4llvm5ErrorD2Ev.exit33:                        ; preds = %_ZN4llvm15SmallVect
   br i1 %106, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPcPhET0_T_S3_S2_.exit, !llvm.loop !222
 
 _ZSt4copyIPcPhET0_T_S3_S2_.exit:                  ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit33, %_ZN4llvm5ErrorD2Ev.exit
-  %107 = phi i8 [ %97, %_ZN4llvm5ErrorD2Ev.exit ], [ %85, %_ZN4llvm5ErrorD2Ev.exit33 ], [ %85, %.lr.ph.i.i.i.i.i ]
-  %108 = phi ptr [ %96, %_ZN4llvm5ErrorD2Ev.exit ], [ %86, %_ZN4llvm5ErrorD2Ev.exit33 ], [ %86, %.lr.ph.i.i.i.i.i ]
+  %107 = phi i8 [ %85, %_ZN4llvm5ErrorD2Ev.exit33 ], [ %97, %_ZN4llvm5ErrorD2Ev.exit ], [ %85, %.lr.ph.i.i.i.i.i ]
+  %108 = phi ptr [ %86, %_ZN4llvm5ErrorD2Ev.exit33 ], [ %96, %_ZN4llvm5ErrorD2Ev.exit ], [ %86, %.lr.ph.i.i.i.i.i ]
   %109 = load ptr, ptr %6, align 8, !tbaa !121
   %110 = icmp eq ptr %109, %80
   br i1 %110, label %112, label %111

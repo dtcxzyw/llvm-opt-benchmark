@@ -83,7 +83,7 @@ define hidden ptr @lexbor_bst_destroy(ptr noundef %0, i1 noundef zeroext %1) loc
   br label %9
 
 9:                                                ; preds = %4, %2, %7
-  %.0 = phi ptr [ null, %2 ], [ %8, %7 ], [ %0, %4 ]
+  %.0 = phi ptr [ %8, %7 ], [ null, %2 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -306,7 +306,7 @@ lexbor_bst_entry_make.exit35:                     ; preds = %39, %44
   br i1 %53, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %50, %.preheader, %lexbor_bst_entry_make.exit35, %lexbor_bst_entry_make.exit34, %lexbor_bst_entry_make.exit
-  %.028 = phi ptr [ %11, %lexbor_bst_entry_make.exit ], [ %42, %lexbor_bst_entry_make.exit35 ], [ %27, %lexbor_bst_entry_make.exit34 ], [ %4, %.preheader ], [ %.1, %50 ]
+  %.028 = phi ptr [ %11, %lexbor_bst_entry_make.exit ], [ %27, %lexbor_bst_entry_make.exit34 ], [ %42, %lexbor_bst_entry_make.exit35 ], [ %4, %.preheader ], [ %.1, %50 ]
   ret ptr %.028
 }
 

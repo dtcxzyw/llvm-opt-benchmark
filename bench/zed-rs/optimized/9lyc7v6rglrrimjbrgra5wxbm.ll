@@ -514,7 +514,7 @@ define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6optio
   br label %9
 
 9:                                                ; preds = %4, %2
-  %.sroa.05.0 = phi ptr [ %spec.select, %4 ], [ null, %2 ]
+  %.sroa.05.0 = phi ptr [ null, %2 ], [ %spec.select, %4 ]
   ret ptr %.sroa.05.0
 }
 
@@ -3634,7 +3634,7 @@ define hidden noundef align 8 dereferenceable_or_null(3920) ptr @"_ZN7slotmap5ba
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hf3fa347f5c9c6befE.llvm.708020327771926830.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hf3fa347f5c9c6befE.llvm.708020327771926830.exit": ; preds = %3, %11
-  %.sroa.05.0.i = phi ptr [ %spec.select.i, %11 ], [ null, %3 ]
+  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %11 ]
   ret ptr %.sroa.05.0.i
 }
 
@@ -3700,7 +3700,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h903f8d8d7
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h92d9f80332e0f515E.exit"
 
-.thread135:                                       ; preds = %302, %253, %120, %122, %select.unfold139, %249, %298
+.thread135:                                       ; preds = %122, %select.unfold139, %120, %249, %253, %298, %302
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -3983,8 +3983,8 @@ select.unfold139:                                 ; preds = %._crit_edge.i.i57, 
   br label %138
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %232, %259, %211, %177
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %260, %259 ], [ %233, %232 ], [ %212, %211 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit174, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit178, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.03.1 = phi i8 [ 1, %177 ], [ %.sroa.03.2, %259 ], [ %.sroa.03.2, %232 ], [ 0, %211 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.03.2, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %260, %259 ], [ %233, %232 ], [ %212, %211 ], [ %178, %177 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit174, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit178, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.03.1 = phi i8 [ %.sroa.03.2, %259 ], [ %.sroa.03.2, %232 ], [ 0, %211 ], [ 1, %177 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.03.2, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a86647292a9b4bfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38) #40
           to label %263 unwind label %261
 
@@ -4383,8 +4383,8 @@ select.unfold144:                                 ; preds = %179, %._crit_edge.i
   %279 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17hb284af8b32a2cd6fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %280 unwind label %.body.thread160
 
-.body.thread160:                                  ; preds = %292, %277, %273, %289
-  %.sroa.05.2.ph = phi i1 [ false, %289 ], [ true, %273 ], [ true, %277 ], [ false, %292 ]
+.body.thread160:                                  ; preds = %273, %277, %289, %292
+  %.sroa.05.2.ph = phi i1 [ false, %292 ], [ false, %289 ], [ true, %277 ], [ true, %273 ]
   %lpad.thr_comm158 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -4656,7 +4656,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator15root_schema_for17h1ed73e0
   unreachable
 
 common.resume:                                    ; preds = %88, %66, %15, %18
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %19, %18 ], [ %.pn.ph, %88 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %16, %15 ], [ %.pn.ph, %88 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 34:                                               ; preds = %15

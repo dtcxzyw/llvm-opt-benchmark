@@ -1528,11 +1528,11 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br label %27
 
 27:                                               ; preds = %7, %23, %21
-  %.041 = phi ptr [ null, %7 ], [ %9, %21 ], [ %9, %23 ]
-  %.040 = phi i32 [ 0, %7 ], [ 18, %21 ], [ 0, %23 ]
-  %.039 = phi ptr [ null, %7 ], [ null, %21 ], [ %26, %23 ]
-  %.038 = phi i32 [ 0, %7 ], [ 1, %21 ], [ 1, %23 ]
-  %.037 = phi i32 [ 1, %7 ], [ 9, %21 ], [ 3, %23 ]
+  %.041 = phi ptr [ null, %7 ], [ %9, %23 ], [ %9, %21 ]
+  %.040 = phi i32 [ 0, %7 ], [ 0, %23 ], [ 18, %21 ]
+  %.039 = phi ptr [ null, %7 ], [ %26, %23 ], [ null, %21 ]
+  %.038 = phi i32 [ 0, %7 ], [ 1, %23 ], [ 1, %21 ]
+  %.037 = phi i32 [ 1, %7 ], [ 3, %23 ], [ 9, %21 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.037, i32 noundef %.038, ptr noundef %.039, i32 noundef %.040, ptr noundef %.041) #22
   br label %75
 
@@ -1852,7 +1852,7 @@ define hidden void @zim_Fiber_getReturn(ptr noundef readonly captures(none) %0, 
   br label %36
 
 36:                                               ; preds = %.sink.split, %18, %26
-  %.021 = phi ptr [ %19, %18 ], [ %28, %26 ], [ %.sink.in, %.sink.split ]
+  %.021 = phi ptr [ %28, %26 ], [ %19, %18 ], [ %.sink.in, %.sink.split ]
   %37 = load ptr, ptr %.021, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !56
@@ -2327,14 +2327,14 @@ zend_get_gc_buffer_add_zval.exit67:               ; preds = %83, %97, %88
   br i1 %.not63, label %.thread, label %83
 
 .thread:                                          ; preds = %zend_get_gc_buffer_add_zval.exit67, %72, %51, %70, %71
-  %.1 = phi ptr [ %.3, %71 ], [ %.04974, %70 ], [ %.04974, %51 ], [ %.3, %72 ], [ %.3, %zend_get_gc_buffer_add_zval.exit67 ]
+  %.1 = phi ptr [ %.04974, %70 ], [ %.3, %71 ], [ %.04974, %51 ], [ %.3, %72 ], [ %.3, %zend_get_gc_buffer_add_zval.exit67 ]
   %107 = getelementptr inbounds nuw i8, ptr %.05375, i64 48
   %.053 = load ptr, ptr %107, align 8, !tbaa !194
   %.not56 = icmp eq ptr %.053, null
   br i1 %.not56, label %._crit_edge, label %47
 
 ._crit_edge:                                      ; preds = %.thread, %44, %zend_get_gc_buffer_add_zval.exit65, %41
-  %.045 = phi ptr [ null, %zend_get_gc_buffer_add_zval.exit65 ], [ null, %41 ], [ null, %44 ], [ %.1, %.thread ]
+  %.045 = phi ptr [ null, %41 ], [ null, %zend_get_gc_buffer_add_zval.exit65 ], [ null, %44 ], [ %.1, %.thread ]
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !203
   store ptr %109, ptr %1, align 8, !tbaa !129

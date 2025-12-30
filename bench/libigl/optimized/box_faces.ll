@@ -462,9 +462,9 @@ _ZNSt6vectorISt4pairIPKN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3E
   ret void
 
 _ZNSt6vectorISt4pairIPKN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3EEEiESaIS9_EED2Ev.exit92: ; preds = %.loopexit156, %.loopexit.split-lp157, %.loopexit, %.loopexit.split-lp, %112, %110, %108
-  %.sroa.29.3 = phi ptr [ %.sroa.29.0182, %.loopexit.split-lp ], [ %.sroa.29.0182, %112 ], [ %.sroa.29.0182, %108 ], [ %.sroa.29.0182, %110 ], [ %.sroa.29.0182, %.loopexit ], [ %.sroa.29.1, %.loopexit156 ], [ %.sroa.29.1, %.loopexit.split-lp157 ]
-  %.sroa.0121.3 = phi ptr [ %.sroa.0121.0184, %.loopexit.split-lp ], [ %.sroa.0121.0184, %112 ], [ %.sroa.0121.0184, %108 ], [ %.sroa.0121.0184, %110 ], [ %.sroa.0121.0184, %.loopexit ], [ %.sroa.0121.1, %.loopexit156 ], [ %.sroa.0121.1, %.loopexit.split-lp157 ]
-  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %113, %112 ], [ %109, %108 ], [ %111, %110 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit158, %.loopexit156 ], [ %lpad.loopexit.split-lp159, %.loopexit.split-lp157 ]
+  %.sroa.29.3 = phi ptr [ %.sroa.29.0182, %110 ], [ %.sroa.29.0182, %108 ], [ %.sroa.29.0182, %112 ], [ %.sroa.29.0182, %.loopexit ], [ %.sroa.29.0182, %.loopexit.split-lp ], [ %.sroa.29.1, %.loopexit156 ], [ %.sroa.29.1, %.loopexit.split-lp157 ]
+  %.sroa.0121.3 = phi ptr [ %.sroa.0121.0184, %110 ], [ %.sroa.0121.0184, %108 ], [ %.sroa.0121.0184, %112 ], [ %.sroa.0121.0184, %.loopexit ], [ %.sroa.0121.0184, %.loopexit.split-lp ], [ %.sroa.0121.1, %.loopexit156 ], [ %.sroa.0121.1, %.loopexit.split-lp157 ]
+  %.pn49 = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ], [ %113, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit158, %.loopexit156 ], [ %lpad.loopexit.split-lp159, %.loopexit.split-lp157 ]
   %144 = load ptr, ptr %13, align 8, !tbaa !49
   call void @free(ptr noundef %144) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

@@ -57,9 +57,9 @@ define dso_local ptr @curl_easy_escape(ptr readnone captures(none) %0, ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %21
 
-21:                                               ; preds = %.lr.ph, %41
-  %.in = phi i64 [ %16, %.lr.ph ], [ %22, %41 ]
-  %.03749 = phi ptr [ %1, %.lr.ph ], [ %23, %41 ]
+21:                                               ; preds = %.lr.ph, %.critedge
+  %.in = phi i64 [ %16, %.lr.ph ], [ %22, %.critedge ]
+  %.03749 = phi ptr [ %1, %.lr.ph ], [ %23, %.critedge ]
   %22 = add i64 %.in, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = getelementptr inbounds nuw i8, ptr %.03749, i64 1
@@ -85,7 +85,7 @@ switch.early.test:                                ; preds = %21
 29:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %21
   %30 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 1) #6
   %.not44 = icmp eq i32 %30, 0
-  br i1 %.not44, label %41, label %.critedge
+  br i1 %.not44, label %.critedge, label %41
 
 31:                                               ; preds = %switch.early.test
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -103,23 +103,23 @@ switch.early.test:                                ; preds = %21
   %40 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef 3) #6
   %.not43 = icmp eq i32 %40, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not43, label %41, label %.critedge
+  br i1 %.not43, label %.critedge, label %41
 
-41:                                               ; preds = %31, %29
+.critedge:                                        ; preds = %31, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not42 = icmp eq i64 %22, 0
-  br i1 %.not42, label %._crit_edge, label %21, !llvm.loop !9
+  br i1 %.not42, label %._crit_edge, label %21
 
-._crit_edge:                                      ; preds = %41
+41:                                               ; preds = %29, %31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %43, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %.critedge
   %42 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #6
   br label %43
 
-.critedge:                                        ; preds = %29, %31
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %43
-
-43:                                               ; preds = %.critedge, %3, %._crit_edge, %13
-  %.035 = phi ptr [ %15, %13 ], [ null, %.critedge ], [ %42, %._crit_edge ], [ null, %3 ]
+43:                                               ; preds = %41, %3, %._crit_edge, %13
+  %.035 = phi ptr [ null, %41 ], [ %42, %._crit_edge ], [ %15, %13 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.035
 }
@@ -240,7 +240,7 @@ switch.early.test80.us.us.i.i:                    ; preds = %22
   br label %curl_easy_unescape.exit
 
 curl_easy_unescape.exit:                          ; preds = %2, %9, %.loopexit.i
-  %.1.i = phi ptr [ null, %9 ], [ null, %2 ], [ %13, %.loopexit.i ]
+  %.1.i = phi ptr [ null, %2 ], [ %13, %.loopexit.i ], [ null, %9 ]
   ret ptr %.1.i
 }
 
@@ -378,7 +378,7 @@ switch.early.test80.us.us.i:                      ; preds = %24
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %4, %.loopexit, %50, %48
-  %.1 = phi ptr [ null, %50 ], [ null, %4 ], [ %15, %.loopexit ], [ %15, %48 ], [ null, %11 ]
+  %.1 = phi ptr [ null, %4 ], [ %15, %.loopexit ], [ %15, %48 ], [ null, %50 ], [ null, %11 ]
   ret ptr %.1
 }
 
@@ -695,7 +695,7 @@ switch.early.test80:                              ; preds = %75
   br label %103
 
 103:                                              ; preds = %._crit_edge, %98, %.critedge, %8
-  %.054 = phi i32 [ 3, %.critedge ], [ 27, %8 ], [ 0, %98 ], [ 0, %._crit_edge ]
+  %.054 = phi i32 [ 27, %8 ], [ 3, %.critedge ], [ 0, %98 ], [ 0, %._crit_edge ]
   ret i32 %.054
 }
 

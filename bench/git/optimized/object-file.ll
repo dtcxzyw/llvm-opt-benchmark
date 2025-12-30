@@ -653,14 +653,14 @@ select.unfold:                                    ; preds = %65, %44, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.split
 
-.loopexit.sink.split:                             ; preds = %65, %48, %62, %32, %25
+.loopexit.sink.split:                             ; preds = %65, %62, %48, %25, %32
   %.024.lcssa7579.sink = phi ptr [ %.024.us, %25 ], [ %.024.us, %32 ], [ %.024, %62 ], [ %.024, %48 ], [ %.024, %65 ]
   %.126.ph = phi i32 [ %..us, %25 ], [ -3, %32 ], [ %., %62 ], [ -3, %48 ], [ -2, %65 ]
   store i8 47, ptr %.024.lcssa7579.sink, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %.critedge, %8, %.critedge.us, %.loopexit.sink.split
-  %.126 = phi i32 [ 0, %.critedge.us ], [ %.126.ph, %.loopexit.sink.split ], [ 0, %.critedge ], [ 0, %8 ], [ 0, %37 ]
+  %.126 = phi i32 [ %.126.ph, %.loopexit.sink.split ], [ 0, %.critedge.us ], [ 0, %8 ], [ 0, %.critedge ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.126
 }
@@ -1626,7 +1626,7 @@ _.exit47.sink.split:                              ; preds = %23
   br label %_.exit47
 
 _.exit47:                                         ; preds = %23, %_.exit47.sink.split
-  %.0.i49.sink = phi ptr [ %.str.18..str.17, %23 ], [ %26, %_.exit47.sink.split ]
+  %.0.i49.sink = phi ptr [ %26, %_.exit47.sink.split ], [ %.str.18..str.17, %23 ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i49.sink, ptr noundef %0) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
@@ -2013,7 +2013,7 @@ define dso_local range(i32 0, 2) i32 @check_and_freshen_file(ptr noundef readonl
   br label %8
 
 8:                                                ; preds = %5, %2, %7
-  %.0 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2121,7 +2121,7 @@ check_and_freshen_odb.exit.i:                     ; preds = %25, %.lr.ph.split.i
   br i1 %.not.i, label %check_and_freshen_local.exit, label %.lr.ph.split.i, !llvm.loop !99
 
 check_and_freshen_local.exit:                     ; preds = %check_and_freshen_odb.exit.i, %25, %check_and_freshen_odb.exit.us.i, %.lr.ph.split.us.i, %13, %11, %10
-  %27 = phi i32 [ 1, %11 ], [ 1, %10 ], [ 0, %13 ], [ 1, %.lr.ph.split.us.i ], [ 0, %check_and_freshen_odb.exit.us.i ], [ 1, %25 ], [ 0, %check_and_freshen_odb.exit.i ]
+  %27 = phi i32 [ 1, %10 ], [ 1, %11 ], [ 0, %13 ], [ 0, %check_and_freshen_odb.exit.us.i ], [ 1, %.lr.ph.split.us.i ], [ 0, %check_and_freshen_odb.exit.i ], [ 1, %25 ]
   ret i32 %27
 }
 
@@ -2386,7 +2386,7 @@ format_object_header.exit:                        ; preds = %10
   br label %40
 
 40:                                               ; preds = %.thread, %2, %35
-  %.0 = phi i32 [ -1, %.thread ], [ %sext, %35 ], [ -1, %2 ]
+  %.0 = phi i32 [ %sext, %35 ], [ -1, %2 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2452,7 +2452,7 @@ define dso_local noundef i32 @git_open_cloexec(ptr noundef readonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %10, %22, %27, %18
-  %.022 = phi i32 [ %.0, %18 ], [ %.0, %22 ], [ %.0, %27 ], [ %5, %10 ]
+  %.022 = phi i32 [ %.0, %22 ], [ %.0, %27 ], [ %.0, %18 ], [ %5, %10 ]
   ret i32 %.022
 }
 
@@ -2644,7 +2644,7 @@ obj_read_lock.exit45:                             ; preds = %obj_read_unlock.exi
   br i1 %.not40, label %.loopexit, label %27, !llvm.loop !111
 
 .loopexit:                                        ; preds = %42, %obj_read_lock.exit45, %25, %19, %obj_read_lock.exit
-  %.0 = phi i32 [ 0, %19 ], [ 1, %obj_read_lock.exit ], [ 2, %25 ], [ 2, %42 ], [ 0, %obj_read_lock.exit45 ]
+  %.0 = phi i32 [ 1, %obj_read_lock.exit ], [ 0, %19 ], [ 2, %25 ], [ 2, %42 ], [ 0, %obj_read_lock.exit45 ]
   ret i32 %.0
 }
 
@@ -2764,7 +2764,7 @@ st_mult.exit:                                     ; preds = %.lr.ph
   br label %.thread
 
 .thread:                                          ; preds = %3, %44, %17
-  %.2 = phi i32 [ %., %44 ], [ -1, %17 ], [ -1, %3 ]
+  %.2 = phi i32 [ -1, %17 ], [ %., %44 ], [ -1, %3 ]
   ret i32 %.2
 }
 
@@ -2927,7 +2927,7 @@ define dso_local i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %1, p
   br label %59
 
 59:                                               ; preds = %55, %52, %45
-  %.047.i = phi ptr [ %8, %52 ], [ %2, %45 ], [ %8, %55 ]
+  %.047.i = phi ptr [ %2, %45 ], [ %8, %55 ], [ %8, %52 ]
   %60 = call i32 @oid_object_info_extended(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %.047.i, i32 noundef %3)
   %.not65.i = icmp eq i32 %60, 0
   br i1 %.not65.i, label %62, label %oid_object_info_convert.exit
@@ -3067,7 +3067,7 @@ define dso_local i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %1, p
   br label %oid_object_info_convert.exit
 
 oid_object_info_convert.exit:                     ; preds = %.thread17, %30, %59, %62, %111, %116, %.critedge.i
-  %.0.i = phi i32 [ -1, %.critedge.i ], [ -1, %30 ], [ -1, %59 ], [ 0, %62 ], [ %.045.i, %116 ], [ -1, %111 ], [ %spec.select, %.thread17 ]
+  %.0.i = phi i32 [ %.045.i, %116 ], [ -1, %30 ], [ -1, %59 ], [ 0, %62 ], [ -1, %.critedge.i ], [ -1, %111 ], [ %spec.select, %.thread17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3592,7 +3592,7 @@ default.unreachable:                              ; preds = %167
   unreachable
 
 209:                                              ; preds = %_.exit85.i, %_.exit82.i, %190, %188
-  %.050.i = phi i32 [ -1, %_.exit85.i ], [ -1, %_.exit82.i ], [ %.151.i, %188 ], [ -1, %190 ]
+  %.050.i = phi i32 [ %.151.i, %188 ], [ -1, %_.exit82.i ], [ -1, %_.exit85.i ], [ -1, %190 ]
   %.not73.i = icmp eq i32 %.050.i, 0
   %or.cond76.i = or i1 %.not74.i, %.not73.i
   br i1 %or.cond76.i, label %213, label %210
@@ -3632,7 +3632,7 @@ default.unreachable:                              ; preds = %167
   store i32 1, ptr %55, align 8, !tbaa !127
   br label %loose_object_info.exit
 
-loose_object_info.exit.thread:                    ; preds = %149, %_.exit.i, %open_loose_object.exit.i, %.thread.i
+loose_object_info.exit.thread:                    ; preds = %_.exit.i, %149, %open_loose_object.exit.i, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3643,7 +3643,7 @@ loose_object_info.exit.thread:                    ; preds = %149, %_.exit.i, %op
   br label %224
 
 loose_object_info.exit:                           ; preds = %136, %223
-  %.1.i = phi i32 [ %.0.i100, %136 ], [ %.2.i, %223 ]
+  %.1.i = phi i32 [ %.2.i, %223 ], [ %.0.i100, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3762,7 +3762,7 @@ find_cached_object.exit.outer:                    ; preds = %find_cached_object.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %loose_object_info.exit, %267, %264, %253, %240, %247, %lookup_replace_object.exit, %261, %102
-  %.0 = phi i32 [ -1, %lookup_replace_object.exit ], [ 0, %102 ], [ -1, %240 ], [ %263, %261 ], [ 0, %253 ], [ 0, %267 ], [ -1, %247 ], [ 0, %264 ], [ 0, %loose_object_info.exit ]
+  %.0 = phi i32 [ 0, %102 ], [ %263, %261 ], [ -1, %lookup_replace_object.exit ], [ -1, %247 ], [ -1, %240 ], [ 0, %253 ], [ 0, %264 ], [ 0, %267 ], [ 0, %loose_object_info.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
@@ -4217,7 +4217,7 @@ _.exit40.i.us:                                    ; preds = %49, %47
   br label %.thread50.i.us
 
 .thread50.i.us:                                   ; preds = %40, %_.exit40.i.us, %_.exit43.i.us, %_.exit46.i.us
-  %.02556.i.us = phi i32 [ -1, %_.exit43.i.us ], [ -1, %_.exit46.i.us ], [ -1, %_.exit40.i.us ], [ 0, %40 ]
+  %.02556.i.us = phi i32 [ -1, %_.exit46.i.us ], [ -1, %_.exit43.i.us ], [ -1, %_.exit40.i.us ], [ 0, %40 ]
   %52 = call i32 @close(i32 noundef %23) #27
   br label %check_collision.exit.us
 
@@ -4369,7 +4369,7 @@ _.exit39:                                         ; preds = %96, %98
   br label %.loopexit46
 
 .loopexit46:                                      ; preds = %check_collision.exit.us, %check_collision.exit.thread, %.loopexit, %_.exit39, %_.exit36, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit39 ], [ -1, %check_collision.exit.thread ], [ -1, %_.exit36 ], [ 0, %.loopexit ], [ -1, %check_collision.exit.us ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit39 ], [ -1, %_.exit36 ], [ 0, %.loopexit ], [ -1, %check_collision.exit.thread ], [ -1, %check_collision.exit.us ]
   ret i32 %.0
 }
 
@@ -4707,7 +4707,7 @@ freshen_packed_object.exit:                       ; preds = %111, %116
   br label %163
 
 163:                                              ; preds = %151, %format_object_header.exit, %154, %160, %123
-  %.037 = phi i32 [ -1, %151 ], [ 0, %123 ], [ %162, %160 ], [ %157, %154 ], [ -1, %format_object_header.exit ]
+  %.037 = phi i32 [ 0, %123 ], [ %162, %160 ], [ %157, %154 ], [ -1, %151 ], [ -1, %format_object_header.exit ]
   call void @strbuf_release(ptr noundef nonnull %10) #27
   call void @strbuf_release(ptr noundef nonnull %11) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -4809,7 +4809,7 @@ create_tmpfile.exit:                              ; preds = %strbuf_setlen.exit.
   %49 = icmp slt i32 %.0.i, 0
   br i1 %49, label %create_tmpfile.exit.thread, label %66
 
-create_tmpfile.exit.thread:                       ; preds = %30, %41, %43, %create_tmpfile.exit
+create_tmpfile.exit.thread:                       ; preds = %30, %43, %41, %create_tmpfile.exit
   %50 = and i32 %2, 8
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %51, label %90
@@ -4895,7 +4895,7 @@ _.exit43:                                         ; preds = %62, %63
   br label %90
 
 90:                                               ; preds = %84, %87, %create_tmpfile.exit.thread, %_.exit43, %_.exit
-  %.0 = phi i32 [ -1, %create_tmpfile.exit.thread ], [ -1, %_.exit ], [ -1, %_.exit43 ], [ %.0.i, %87 ], [ %.0.i, %84 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit43 ], [ -1, %create_tmpfile.exit.thread ], [ %.0.i, %87 ], [ %.0.i, %84 ]
   ret i32 %.0
 }
 
@@ -5123,7 +5123,7 @@ freshen_packed_object.exit:                       ; preds = %77, %82
   br label %93
 
 93:                                               ; preds = %freshen_packed_object.exit, %89, %87, %91
-  %.0 = phi i32 [ %.mux, %89 ], [ 0, %freshen_packed_object.exit ], [ %92, %91 ], [ 0, %87 ]
+  %.0 = phi i32 [ %92, %91 ], [ 0, %87 ], [ 0, %freshen_packed_object.exit ], [ %.mux, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
@@ -5375,7 +5375,7 @@ define dso_local i32 @write_object_file_literally(ptr noundef %0, i64 noundef %1
   br label %50
 
 50:                                               ; preds = %19, %21, %33, %5
-  %.0 = phi i1 [ false, %21 ], [ false, %33 ], [ true, %19 ], [ true, %5 ]
+  %.0 = phi i1 [ false, %21 ], [ false, %33 ], [ true, %5 ], [ true, %19 ]
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
   %52 = shl i64 %51, 32
   %sext = add i64 %52, 137438953472
@@ -5574,7 +5574,7 @@ format_object_header.exit:                        ; preds = %36
   br label %52
 
 52:                                               ; preds = %2, %50, %_.exit24, %_.exit
-  %.018 = phi i32 [ %.0, %50 ], [ -1, %_.exit ], [ -1, %_.exit24 ], [ 0, %2 ]
+  %.018 = phi i32 [ -1, %_.exit ], [ -1, %_.exit24 ], [ %.0, %50 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5807,7 +5807,7 @@ xsize_t.exit47:                                   ; preds = %.split37
   br label %82
 
 82:                                               ; preds = %xsize_t.exit45, %xsize_t.exit46, %xsize_t.exit, %xsize_t.exit47, %index_pipe.exit, %index_stream_convert_blob.exit
-  %.0 = phi i32 [ %.0.i, %index_stream_convert_blob.exit ], [ %.0.i44, %index_pipe.exit ], [ %81, %xsize_t.exit47 ], [ %69, %xsize_t.exit ], [ %73, %xsize_t.exit45 ], [ %79, %xsize_t.exit46 ]
+  %.0 = phi i32 [ %.0.i, %index_stream_convert_blob.exit ], [ %.0.i44, %index_pipe.exit ], [ %69, %xsize_t.exit ], [ %81, %xsize_t.exit47 ], [ %73, %xsize_t.exit45 ], [ %79, %xsize_t.exit46 ]
   %83 = call i32 @close(i32 noundef %2) #27
   ret i32 %.0
 }
@@ -6029,7 +6029,7 @@ _.exit31:                                         ; preds = %67, %69
   br label %72
 
 72:                                               ; preds = %63, %17, %_.exit31, %64, %29, %_.exit, %15
-  %.022 = phi i32 [ -1, %_.exit31 ], [ -1, %15 ], [ -1, %_.exit ], [ %66, %64 ], [ -1, %29 ], [ 0, %17 ], [ %.1, %63 ]
+  %.022 = phi i32 [ -1, %_.exit31 ], [ -1, %15 ], [ -1, %_.exit ], [ -1, %29 ], [ %66, %64 ], [ 0, %17 ], [ %.1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
@@ -6063,7 +6063,7 @@ git_bswap32.exit7:                                ; preds = %git_bswap32.exit
   br label %13
 
 13:                                               ; preds = %git_bswap32.exit7, %4, %2, %12
-  %.0 = phi i32 [ -2, %4 ], [ -1, %2 ], [ 0, %12 ], [ -3, %git_bswap32.exit7 ]
+  %.0 = phi i32 [ 0, %12 ], [ -1, %2 ], [ -2, %4 ], [ -3, %git_bswap32.exit7 ]
   ret i32 %.0
 }
 
@@ -6331,7 +6331,7 @@ oid_set_algo.exit:                                ; preds = %88, %.split.loop.ex
   %96 = load ptr, ptr %27, align 8, !tbaa !49
   %97 = call i32 %2(ptr noundef nonnull %7, ptr noundef %96, ptr noundef %5) #27
   %.not66 = icmp eq i32 %97, 0
-  br i1 %.not66, label %select.unfold, label %..thread_crit_edge, !llvm.loop !165
+  br i1 %.not66, label %select.unfold, label %..thread_crit_edge90, !llvm.loop !165
 
 98:                                               ; preds = %77, %strbuf_setlen.exit77
   br i1 %.not67, label %select.unfold, label %99
@@ -6342,16 +6342,16 @@ oid_set_algo.exit:                                ; preds = %88, %.split.loop.ex
   %.not68 = icmp eq i32 %101, 0
   br i1 %.not68, label %select.unfold, label %.thread
 
-select.unfold:                                    ; preds = %95, %99, %98, %oid_set_algo.exit
+select.unfold:                                    ; preds = %99, %95, %98, %oid_set_algo.exit
   %102 = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %29) #27
   %.not63 = icmp eq ptr %102, null
   br i1 %.not63, label %.thread, label %59
 
-..thread_crit_edge:                               ; preds = %95
+..thread_crit_edge90:                             ; preds = %95
   br label %.thread, !llvm.loop !165
 
-.thread:                                          ; preds = %select.unfold, %99, %..thread_crit_edge, %strbuf_addch.exit
-  %.2 = phi i32 [ 0, %strbuf_addch.exit ], [ %97, %..thread_crit_edge ], [ %101, %99 ], [ 0, %select.unfold ]
+.thread:                                          ; preds = %select.unfold, %99, %..thread_crit_edge90, %strbuf_addch.exit
+  %.2 = phi i32 [ %97, %..thread_crit_edge90 ], [ 0, %strbuf_addch.exit ], [ %101, %99 ], [ 0, %select.unfold ]
   %103 = call i32 @closedir(ptr noundef nonnull %29)
   %104 = add i64 %55, -1
   %105 = load i64, ptr %1, align 8, !tbaa !72
@@ -6410,7 +6410,7 @@ strbuf_setlen.exit.sink.split:                    ; preds = %121, %43
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %strbuf_setlen.exit.sink.split, %121, %43
-  %.0 = phi i32 [ %.6, %121 ], [ %.050, %43 ], [ %.0.ph, %strbuf_setlen.exit.sink.split ]
+  %.0 = phi i32 [ %.050, %43 ], [ %.6, %121 ], [ %.0.ph, %strbuf_setlen.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -6922,7 +6922,7 @@ _.exit46:                                         ; preds = %126, %128
   br label %.thread57
 
 .thread57:                                        ; preds = %150, %151, %131, %_.exit46, %_.exit42, %_.exit39
-  %.062 = phi i32 [ -1, %_.exit46 ], [ -1, %151 ], [ 0, %150 ], [ -1, %_.exit39 ], [ -1, %_.exit42 ], [ %spec.select, %131 ]
+  %.062 = phi i32 [ -1, %151 ], [ 0, %150 ], [ -1, %_.exit39 ], [ -1, %_.exit42 ], [ -1, %_.exit46 ], [ %spec.select, %131 ]
   %152 = call i32 @munmap(ptr noundef nonnull %19, i64 noundef %25) #27
   br label %153
 
@@ -7677,7 +7677,7 @@ define internal fastcc i32 @index_mem(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %get_conv_flags.exit
 
 get_conv_flags.exit:                              ; preds = %15, %17, %18
-  %.0.i = phi i32 [ 4, %15 ], [ %20, %18 ], [ 0, %17 ]
+  %.0.i = phi i32 [ %20, %18 ], [ 4, %15 ], [ 0, %17 ]
   %21 = call i32 @convert_to_git(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %10, i32 noundef %.0.i) #27
   %.not26 = icmp eq i32 %21, 0
   br i1 %.not26, label %27, label %22

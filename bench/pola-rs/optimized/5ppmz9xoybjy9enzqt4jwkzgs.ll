@@ -157,7 +157,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17ha2fbc93a3b80503dE.exit, label %14
 
 61:                                               ; preds = %56, %48, %.body.i.i.i, %12
-  %eh.lpad-body.i = phi { ptr, i32 } [ %13, %12 ], [ %49, %48 ], [ %49, %56 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %13, %12 ], [ %49, %56 ], [ %49, %48 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
   %62 = icmp ne ptr %.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %62)
   store i64 %.val6.i, ptr %.sroa.0.0.copyload, align 8, !noalias !10

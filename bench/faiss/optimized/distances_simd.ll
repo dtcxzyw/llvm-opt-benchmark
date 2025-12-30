@@ -538,7 +538,7 @@ define noundef i64 @_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader31.thread.i, %.preheader31.i
-  %.017.lcssa = phi i64 [ 0, %.preheader31.thread.i ], [ 0, %.preheader31.i ], [ %.118, %.lr.ph ]
+  %.017.lcssa = phi i64 [ 0, %.preheader31.i ], [ 0, %.preheader31.thread.i ], [ %.118, %.lr.ph ]
   ret i64 %.017.lcssa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1278,7 +1278,7 @@ define noundef i64 @_ZN5faiss34fvec_L2sqr_ny_nearest_y_transposedEPfPKfS2_S2_mmm
   br i1 %exitcond.not.i, label %_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.lr.ph.i, !llvm.loop !26
 
 _ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit: ; preds = %.lr.ph.i, %.preheader31.i.i, %.preheader31.thread.i.i
-  %.017.lcssa.i = phi i64 [ 0, %.preheader31.thread.i.i ], [ 0, %.preheader31.i.i ], [ %.118.i, %.lr.ph.i ]
+  %.017.lcssa.i = phi i64 [ 0, %.preheader31.i.i ], [ 0, %.preheader31.thread.i.i ], [ %.118.i, %.lr.ph.i ]
   ret i64 %.017.lcssa.i
 }
 

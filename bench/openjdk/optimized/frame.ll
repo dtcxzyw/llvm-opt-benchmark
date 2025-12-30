@@ -1157,7 +1157,7 @@ _ZNK7nmethod14is_java_methodEv.exit.i:            ; preds = %13
   br label %_ZNK5frame17is_compiled_frameEv.exit
 
 _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_java_methodEv.exit.i, %13, %9, %6, %29, %1, %32
-  %.0 = phi i1 [ false, %1 ], [ %36, %32 ], [ false, %29 ], [ false, %6 ], [ false, %9 ], [ false, %13 ], [ false, %_ZNK7nmethod14is_java_methodEv.exit.i ]
+  %.0 = phi i1 [ %36, %32 ], [ false, %1 ], [ false, %29 ], [ false, %6 ], [ false, %9 ], [ false, %13 ], [ false, %_ZNK7nmethod14is_java_methodEv.exit.i ]
   ret i1 %.0
 }
 
@@ -1207,7 +1207,7 @@ _ZNK7nmethod18can_be_deoptimizedEv.exit:          ; preds = %_ZNK7nmethod14is_ja
   br label %_ZNK5frame17is_compiled_frameEv.exit
 
 _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_java_methodEv.exit.i, %8, %4, %1, %_ZNK7nmethod18can_be_deoptimizedEv.exit
-  %.0 = phi i1 [ %16, %_ZNK7nmethod18can_be_deoptimizedEv.exit ], [ false, %_ZNK7nmethod14is_java_methodEv.exit.i ], [ false, %1 ], [ false, %4 ], [ false, %8 ]
+  %.0 = phi i1 [ %16, %_ZNK7nmethod18can_be_deoptimizedEv.exit ], [ false, %1 ], [ false, %4 ], [ false, %8 ], [ false, %_ZNK7nmethod14is_java_methodEv.exit.i ]
   ret i1 %.0
 }
 
@@ -1741,7 +1741,7 @@ _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_ja
   br label %39
 
 39:                                               ; preds = %_ZNK5frame17is_compiled_frameEv.exit, %33, %_ZNK5frame20is_interpreted_frameEv.exit, %_ZNK5frame15is_native_frameEv.exit
-  %.0 = phi ptr [ %.str.14..str.15, %_ZNK5frame17is_compiled_frameEv.exit ], [ @.str.10, %_ZNK5frame15is_native_frameEv.exit ], [ %.str.12..str.13, %33 ], [ @.str.11, %_ZNK5frame20is_interpreted_frameEv.exit ]
+  %.0 = phi ptr [ @.str.10, %_ZNK5frame15is_native_frameEv.exit ], [ @.str.11, %_ZNK5frame20is_interpreted_frameEv.exit ], [ %.str.12..str.13, %33 ], [ %.str.14..str.15, %_ZNK5frame17is_compiled_frameEv.exit ]
   ret ptr %.0
 }
 
@@ -1826,7 +1826,7 @@ _ZNK5frame17is_compiled_frameEv.exit.i:           ; preds = %_ZNK7nmethod14is_ja
   br label %_ZNK5frame10print_nameEv.exit
 
 _ZNK5frame10print_nameEv.exit:                    ; preds = %_ZNK5frame15is_native_frameEv.exit.i, %_ZNK5frame20is_interpreted_frameEv.exit.i, %35, %_ZNK5frame17is_compiled_frameEv.exit.i
-  %.0.i = phi ptr [ %.str.14..str.15.i, %_ZNK5frame17is_compiled_frameEv.exit.i ], [ @.str.10, %_ZNK5frame15is_native_frameEv.exit.i ], [ %.str.12..str.13.i, %35 ], [ @.str.11, %_ZNK5frame20is_interpreted_frameEv.exit.i ]
+  %.0.i = phi ptr [ @.str.10, %_ZNK5frame15is_native_frameEv.exit.i ], [ @.str.11, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ %.str.12..str.13.i, %35 ], [ %.str.14..str.15.i, %_ZNK5frame17is_compiled_frameEv.exit.i ]
   %41 = load ptr, ptr %0, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2583,7 +2583,7 @@ _ZNK15Bytecode_invoke15is_invokestaticEv.exit.i:  ; preds = %88
   br label %_ZNK15Bytecode_invoke12has_receiverEv.exit
 
 _ZNK15Bytecode_invoke12has_receiverEv.exit:       ; preds = %88, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i
-  %96 = phi i1 [ %spec.select.i, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i ], [ true, %88 ]
+  %96 = phi i1 [ true, %88 ], [ %spec.select.i, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i ]
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 4952
   %98 = load i8, ptr %97, align 8
   %99 = trunc i8 %98 to i1
@@ -2677,7 +2677,7 @@ _ZNK5frame29oops_interpreted_arguments_doEP6SymbolbP10OopClosure.exit: ; preds =
   br label %_ZNK15Bytecode_invoke8is_validEv.exit
 
 _ZNK15Bytecode_invoke8is_validEv.exit:            ; preds = %146, %144, %_ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i, %.thread, %_Z21Bytecode_invoke_checkRK12methodHandlei.exit, %100, %_ZNK15Bytecode_invoke12has_receiverEv.exit
-  %.in = phi i16 [ %71, %.thread ], [ %74, %_Z21Bytecode_invoke_checkRK12methodHandlei.exit ], [ %74, %_ZNK15Bytecode_invoke12has_receiverEv.exit ], [ %74, %_ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i ], [ %74, %100 ], [ %74, %144 ], [ %74, %146 ]
+  %.in = phi i16 [ %71, %.thread ], [ %74, %_Z21Bytecode_invoke_checkRK12methodHandlei.exit ], [ %74, %100 ], [ %74, %_ZNK15Bytecode_invoke12has_receiverEv.exit ], [ %74, %_ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i ], [ %74, %144 ], [ %74, %146 ]
   %147 = zext i16 %.in to i32
   %148 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %149 = load ptr, ptr %148, align 8
@@ -3029,7 +3029,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i.i:    ; preds = %_ZNK11RegisterMap7i
   br label %_ZN25CompiledArgumentOopFinder17handle_oop_offsetEv.exit
 
 _ZN25CompiledArgumentOopFinder17handle_oop_offsetEv.exit: ; preds = %48, %52, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i.i, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i.i
-  %.0.i.i.i = phi ptr [ %88, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i.i ], [ %84, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i.i ], [ %51, %48 ], [ %53, %52 ]
+  %.0.i.i.i = phi ptr [ %84, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i.i ], [ %88, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i.i ], [ %51, %48 ], [ %53, %52 ]
   %89 = load ptr, ptr %5, align 8
   %90 = load ptr, ptr %89, align 8
   call void %90(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.0.i.i.i) #21
@@ -3139,7 +3139,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame25oopmapreg_to_oop_locationI11RegisterMapEEPP7oopDescP9VMRegImplPKT_.exit
 
 _ZNK5frame25oopmapreg_to_oop_locationI11RegisterMapEEPP7oopDescP9VMRegImplPKT_.exit: ; preds = %19, %23, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i
-  %.0.i.i = phi ptr [ %49, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i ], [ %47, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i ], [ %22, %19 ], [ %24, %23 ]
+  %.0.i.i = phi ptr [ %47, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i ], [ %49, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i ], [ %22, %19 ], [ %24, %23 ]
   %50 = icmp eq ptr %.0.i.i, null
   br i1 %50, label %51, label %53
 
@@ -3724,7 +3724,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -3882,7 +3882,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -4060,7 +4060,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -4251,7 +4251,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -4366,7 +4366,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 
@@ -5266,7 +5266,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame25oopmapreg_to_oop_locationI11RegisterMapEEPP7oopDescP9VMRegImplPKT_.exit
 
 _ZNK5frame25oopmapreg_to_oop_locationI11RegisterMapEEPP7oopDescP9VMRegImplPKT_.exit: ; preds = %27, %31, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i
-  %.0.i.i = phi ptr [ %67, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i ], [ %63, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i ], [ %30, %27 ], [ %32, %31 ]
+  %.0.i.i = phi ptr [ %63, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i ], [ %67, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i ], [ %30, %27 ], [ %32, %31 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8

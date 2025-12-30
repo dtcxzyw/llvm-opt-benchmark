@@ -890,8 +890,8 @@ define hidden noundef ptr @_ZN12StubRoutines20select_fill_functionE9BasicTypebRP
   unreachable
 
 .sink.split:                                      ; preds = %6, %5, %4
-  %.str.20.sink = phi ptr [ %.str.18..str.17, %5 ], [ %.str.20..str.19, %6 ], [ %.str.16..str.15, %4 ]
-  %_ZN12StubRoutines18_arrayof_jint_fillE.sink = phi ptr [ %_ZN12StubRoutines20_arrayof_jshort_fillE._ZN12StubRoutines12_jshort_fillE, %5 ], [ %_ZN12StubRoutines18_arrayof_jint_fillE._ZN12StubRoutines10_jint_fillE, %6 ], [ %_ZN12StubRoutines19_arrayof_jbyte_fillE._ZN12StubRoutines11_jbyte_fillE, %4 ]
+  %.str.20.sink = phi ptr [ %.str.16..str.15, %4 ], [ %.str.18..str.17, %5 ], [ %.str.20..str.19, %6 ]
+  %_ZN12StubRoutines18_arrayof_jint_fillE.sink = phi ptr [ %_ZN12StubRoutines19_arrayof_jbyte_fillE._ZN12StubRoutines11_jbyte_fillE, %4 ], [ %_ZN12StubRoutines20_arrayof_jshort_fillE._ZN12StubRoutines12_jshort_fillE, %5 ], [ %_ZN12StubRoutines18_arrayof_jint_fillE._ZN12StubRoutines10_jint_fillE, %6 ]
   store ptr %.str.20.sink, ptr %2, align 8
   %9 = load ptr, ptr %_ZN12StubRoutines18_arrayof_jint_fillE.sink, align 8
   br label %10

@@ -322,7 +322,7 @@ ehcleanup22:                                      ; preds = %ehcleanup, %if.then
   %27 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i15 = icmp eq ptr %27, %28
-  br i1 %cmp.i.i.i15, label %ehcleanup26, label %if.then.i.i16
+  br i1 %cmp.i.i.i15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, label %ehcleanup26
 
 ehcleanup22.thread:                               ; preds = %invoke.cont11
   %29 = landingpad { ptr, i32 }
@@ -332,15 +332,20 @@ ehcleanup22.thread:                               ; preds = %invoke.cont11
   %30 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i1527 = icmp eq ptr %30, %31
-  br i1 %cmp.i.i.i1527, label %cleanup.action.sink.split, label %if.then.i.i16.thread
+  br i1 %cmp.i.i.i1527, label %cleanup.action.sink.split, label %ehcleanup26.thread36
 
-if.then.i.i16.thread:                             ; preds = %ehcleanup22.thread
+ehcleanup26.thread36:                             ; preds = %ehcleanup22.thread
   %32 = load i64, ptr %31, align 8, !tbaa !26
   %add.i.i.i1739 = add i64 %32, 1
   call void @_ZdlPvm(ptr noundef %30, i64 noundef %add.i.i.i1739) #23
   br label %cleanup.action.sink.split
 
-if.then.i.i16:                                    ; preds = %ehcleanup22
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18: ; preds = %ehcleanup22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup30
+
+ehcleanup26:                                      ; preds = %ehcleanup22
   %33 = load i64, ptr %28, align 8, !tbaa !26
   %add.i.i.i17 = add i64 %33, 1
   call void @_ZdlPvm(ptr noundef %27, i64 noundef %add.i.i.i17) #23
@@ -348,24 +353,19 @@ if.then.i.i16:                                    ; preds = %ehcleanup22
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup30
 
-ehcleanup26:                                      ; preds = %ehcleanup22
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup30
-
-cleanup.action.sink.split:                        ; preds = %ehcleanup22.thread, %ehcleanup26.thread, %if.then.i.i16.thread
-  %.pn.pn.pn24.ph = phi { ptr, i32 } [ %29, %if.then.i.i16.thread ], [ %18, %ehcleanup26.thread ], [ %29, %ehcleanup22.thread ]
+cleanup.action.sink.split:                        ; preds = %ehcleanup22.thread, %ehcleanup26.thread, %ehcleanup26.thread36
+  %.pn.pn.pn24.ph = phi { ptr, i32 } [ %29, %ehcleanup26.thread36 ], [ %18, %ehcleanup26.thread ], [ %29, %ehcleanup22.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i16, %ehcleanup26
-  %.pn.pn.pn24 = phi { ptr, i32 } [ %.pn, %if.then.i.i16 ], [ %.pn, %ehcleanup26 ], [ %.pn.pn.pn24.ph, %cleanup.action.sink.split ]
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, %ehcleanup26
+  %.pn.pn.pn24 = phi { ptr, i32 } [ %.pn, %ehcleanup26 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18 ], [ %.pn.pn.pn24.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #19
   br label %ehcleanup30
 
-ehcleanup30:                                      ; preds = %if.then.i.i16, %ehcleanup26, %cleanup.action, %lpad6
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn24, %cleanup.action ], [ %.pn, %ehcleanup26 ], [ %17, %lpad6 ], [ %.pn, %if.then.i.i16 ]
+ehcleanup30:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, %ehcleanup26, %cleanup.action, %lpad6
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn24, %cleanup.action ], [ %.pn, %ehcleanup26 ], [ %17, %lpad6 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #19
   br label %ehcleanup31
 
@@ -1069,7 +1069,7 @@ _ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit1
   br label %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit
 
 _ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i", %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i" ], [ %__first.sroa.0.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i" ], [ %incdec.ptr.i34.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198 ], [ %incdec.ptr.i.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i24.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196 ], [ %__first.sroa.0.0105.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i" ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i" ], [ %__first.sroa.0.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i24.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit196 ], [ %incdec.ptr.i34.i.i.i.i.i.i.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit.loopexit.split.loop.exit198 ], [ %__first.sroa.0.0105.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i" ]
   %cmp.i.i.i.i.not = icmp eq ptr %10, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not, label %lor.lhs.false8, label %cleanup
 
@@ -1452,7 +1452,7 @@ _ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit2
   br label %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit
 
 _ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i", %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i"
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i50 = phi ptr [ %__first.sroa.0.1.i.i.i.i.i.i54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i" ], [ %__first.sroa.0.2.i.i.i.i.i.i44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i" ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i" ], [ %incdec.ptr.i34.i.i.i.i.i.i95.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206 ], [ %incdec.ptr.i.i.i.i.i.i.i79.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i24.i.i.i.i.i.i87.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204 ], [ %__first.sroa.0.0105.i.i.i.i.i.i72, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i" ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i50 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit57.i.i.i.i.i.i" ], [ %__first.sroa.0.1.i.i.i.i.i.i54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit67.i.i.i.i.i.i" ], [ %__first.sroa.0.2.i.i.i.i.i.i44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit77.i.i.i.i.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i79.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i24.i.i.i.i.i.i87.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit204 ], [ %incdec.ptr.i34.i.i.i.i.i.i95.le, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit.loopexit.split.loop.exit206 ], [ %__first.sroa.0.0105.i.i.i.i.i.i72, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS2_4DateEE3$_0EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i.i" ]
   %cmp.i.i.i.i51.not = icmp eq ptr %31, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i50
   br i1 %cmp.i.i.i.i51.not, label %lor.lhs.false12, label %cleanup
 
@@ -1479,7 +1479,7 @@ lor.lhs.false20:                                  ; preds = %lor.lhs.false14
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false20, %entry, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit, %lor.lhs.false12, %lor.lhs.false14
-  %retval.0 = phi i1 [ false, %entry ], [ %not.or.cond4, %lor.lhs.false20 ], [ false, %lor.lhs.false14 ], [ false, %lor.lhs.false12 ], [ false, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false14 ], [ false, %lor.lhs.false12 ], [ false, %_ZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateE.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateE.exit ], [ false, %entry ], [ %not.or.cond4, %lor.lhs.false20 ]
   ret i1 %retval.0
 }
 

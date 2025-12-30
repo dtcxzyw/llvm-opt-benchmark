@@ -379,7 +379,7 @@ define ptr @X509_ACERT_get0_issuerName(ptr noundef readonly captures(none) %0) l
   br label %get_dirName.exit
 
 get_dirName.exit:                                 ; preds = %15, %12, %9, %1, %5
-  %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ %17, %15 ], [ null, %9 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %1 ], [ %17, %15 ], [ null, %9 ], [ null, %12 ]
   ret ptr %.0
 }
 

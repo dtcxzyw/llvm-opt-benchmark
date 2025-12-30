@@ -1200,7 +1200,7 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph8is_validEP15ClassLoa
   br i1 %7, label %.loopexit, label %5
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %.preheader, %1, %2
-  %.07 = phi i1 [ false, %1 ], [ true, %2 ], [ false, %.preheader ], [ %7, %5 ], [ %7, %.lr.ph ]
+  %.07 = phi i1 [ true, %2 ], [ false, %1 ], [ false, %.preheader ], [ %7, %5 ], [ %7, %.lr.ph ]
   ret i1 %.07
 }
 

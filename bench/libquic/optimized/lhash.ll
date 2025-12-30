@@ -34,7 +34,7 @@ define hidden noalias noundef ptr @lh_new(ptr noundef %0, ptr noundef %1) local_
   br label %14
 
 14:                                               ; preds = %2, %9, %8
-  %.0 = phi ptr [ %calloc24, %9 ], [ null, %8 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %8 ], [ %calloc24, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 

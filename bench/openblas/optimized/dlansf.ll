@@ -118,7 +118,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1940
 
 ._crit_edge1940:                                  ; preds = %53, %.lr.ph1015
-  %.2 = phi double [ %spec.select, %53 ], [ %51, %.lr.ph1015 ]
+  %.2 = phi double [ %51, %.lr.ph1015 ], [ %spec.select, %53 ]
   %55 = add nuw nsw i32 %.07951012, 1
   %56 = load i32, ptr %8, align 4, !tbaa !3
   %.not988.not = icmp slt i32 %.07951012, %56
@@ -178,7 +178,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1937
 
 ._crit_edge1937:                                  ; preds = %76, %.lr.ph
-  %.5 = phi double [ %spec.select2214, %76 ], [ %74, %.lr.ph ]
+  %.5 = phi double [ %74, %.lr.ph ], [ %spec.select2214, %76 ]
   %78 = add nuw nsw i32 %.17961004, 1
   %79 = load i32, ptr %8, align 4, !tbaa !3
   %.not984.not = icmp slt i32 %.17961004, %79
@@ -241,7 +241,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1948
 
 ._crit_edge1948:                                  ; preds = %99, %.lr.ph1039
-  %.8 = phi double [ %spec.select2215, %99 ], [ %97, %.lr.ph1039 ]
+  %.8 = phi double [ %97, %.lr.ph1039 ], [ %spec.select2215, %99 ]
   %101 = add nuw nsw i32 %.27971036, 1
   %102 = load i32, ptr %8, align 4, !tbaa !3
   %.not980.not = icmp slt i32 %.27971036, %102
@@ -301,7 +301,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1944
 
 ._crit_edge1944:                                  ; preds = %121, %.lr.ph1027
-  %.11 = phi double [ %spec.select2216, %121 ], [ %119, %.lr.ph1027 ]
+  %.11 = phi double [ %119, %.lr.ph1027 ], [ %spec.select2216, %121 ]
   %123 = add nuw nsw i32 %.37981024, 1
   %124 = load i32, ptr %8, align 4, !tbaa !3
   %.not976.not = icmp slt i32 %.37981024, %124
@@ -519,7 +519,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1979
 
 ._crit_edge1979:                                  ; preds = %209, %.lr.ph1476
-  %.14 = phi double [ %spec.select2217, %209 ], [ %207, %.lr.ph1476 ]
+  %.14 = phi double [ %207, %.lr.ph1476 ], [ %spec.select2217, %209 ]
   %indvars.iv.next1861 = add nuw nsw i64 %indvars.iv1860, 1
   %211 = load i32, ptr %7, align 4, !tbaa !3
   %212 = sext i32 %211 to i64
@@ -699,7 +699,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1982
 
 ._crit_edge1982:                                  ; preds = %284, %.lr.ph1513
-  %.16 = phi double [ %spec.select2218, %284 ], [ %282, %.lr.ph1513 ]
+  %.16 = phi double [ %282, %.lr.ph1513 ], [ %spec.select2218, %284 ]
   %indvars.iv.next1882 = add nuw nsw i64 %indvars.iv1881, 1
   %286 = load i32, ptr %7, align 4, !tbaa !3
   %287 = sext i32 %286 to i64
@@ -856,7 +856,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1985
 
 ._crit_edge1985:                                  ; preds = %350, %.lr.ph1552
-  %.18 = phi double [ %spec.select2219, %350 ], [ %348, %.lr.ph1552 ]
+  %.18 = phi double [ %348, %.lr.ph1552 ], [ %spec.select2219, %350 ]
   %indvars.iv.next1913 = add nuw nsw i64 %indvars.iv1912, 1
   %352 = load i32, ptr %7, align 4, !tbaa !3
   %353 = sext i32 %352 to i64
@@ -1019,7 +1019,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1988
 
 ._crit_edge1988:                                  ; preds = %421, %.lr.ph1592
-  %.20 = phi double [ %spec.select2220, %421 ], [ %419, %.lr.ph1592 ]
+  %.20 = phi double [ %419, %.lr.ph1592 ], [ %spec.select2220, %421 ]
   %indvars.iv.next1935 = add nuw nsw i64 %indvars.iv1934, 1
   %423 = load i32, ptr %7, align 4, !tbaa !3
   %424 = sext i32 %423 to i64
@@ -1099,7 +1099,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %exitcond1662.not, label %._crit_edge1167, label %.lr.ph1157, !llvm.loop !36
 
 ._crit_edge1167:                                  ; preds = %._crit_edge1158, %._crit_edge1153.thread, %._crit_edge1153
-  %storemerge936.lcssa1159 = phi i32 [ 0, %._crit_edge1153.thread ], [ 0, %._crit_edge1153 ], [ %137, %._crit_edge1158 ]
+  %storemerge936.lcssa1159 = phi i32 [ 0, %._crit_edge1153 ], [ 0, %._crit_edge1153.thread ], [ %137, %._crit_edge1158 ]
   %452 = mul nsw i32 %storemerge936.lcssa1159, %.0784
   %453 = sext i32 %452 to i64
   %454 = getelementptr inbounds double, ptr %4, i64 %453
@@ -1286,7 +1286,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1970
 
 ._crit_edge1970:                                  ; preds = %529, %.lr.ph1210
-  %.22 = phi double [ %spec.select2221, %529 ], [ %527, %.lr.ph1210 ]
+  %.22 = phi double [ %527, %.lr.ph1210 ], [ %spec.select2221, %529 ]
   %indvars.iv.next1694 = add nuw nsw i64 %indvars.iv1693, 1
   %531 = load i32, ptr %7, align 4, !tbaa !3
   %532 = sext i32 %531 to i64
@@ -1542,7 +1542,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1972
 
 ._crit_edge1972:                                  ; preds = %637, %.lr.ph1277
-  %.24 = phi double [ %spec.select2222, %637 ], [ %635, %.lr.ph1277 ]
+  %.24 = phi double [ %635, %.lr.ph1277 ], [ %spec.select2222, %637 ]
   %indvars.iv.next1735 = add nuw nsw i64 %indvars.iv1734, 1
   %639 = load i32, ptr %7, align 4, !tbaa !3
   %640 = sext i32 %639 to i64
@@ -1849,7 +1849,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1974
 
 ._crit_edge1974:                                  ; preds = %772, %.lr.ph1357
-  %.26 = phi double [ %spec.select2223, %772 ], [ %770, %.lr.ph1357 ]
+  %.26 = phi double [ %770, %.lr.ph1357 ], [ %spec.select2223, %772 ]
   %indvars.iv.next1781 = add nuw nsw i64 %indvars.iv1780, 1
   %774 = load i32, ptr %7, align 4, !tbaa !3
   %775 = sext i32 %774 to i64
@@ -2151,7 +2151,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge1976
 
 ._crit_edge1976:                                  ; preds = %908, %.lr.ph1434
-  %.28 = phi double [ %spec.select2224, %908 ], [ %906, %.lr.ph1434 ]
+  %.28 = phi double [ %906, %.lr.ph1434 ], [ %spec.select2224, %908 ]
   %indvars.iv.next1834 = add nuw nsw i64 %indvars.iv1833, 1
   %910 = load i32, ptr %7, align 4, !tbaa !3
   %911 = sext i32 %910 to i64
@@ -2879,7 +2879,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge1016, %._crit_edge1028, %._crit_edge1040, %._crit_edge1970, %._crit_edge1972, %._crit_edge1974, %._crit_edge1976, %._crit_edge1979, %._crit_edge1982, %._crit_edge1985, %._crit_edge1988, %.thread2106, %.thread2087, %.thread2082, %.thread2080, %.thread, %60, %37, %106, %84, %524, %632, %._crit_edge2000, %903, %202, %279, %914, %1199, %6, %15
-  %.0785 = phi double [ 0.000000e+00, %6 ], [ %19, %15 ], [ %.20, %._crit_edge1988 ], [ %.18, %._crit_edge1985 ], [ %.10.lcssa, %._crit_edge1028 ], [ %.1.lcssa, %._crit_edge1016 ], [ %883, %.thread2106 ], [ %.14, %._crit_edge1979 ], [ %.16, %._crit_edge1982 ], [ undef, %914 ], [ %.7.lcssa, %._crit_edge1040 ], [ %291, %.thread2082 ], [ %.24, %._crit_edge1972 ], [ %.26, %._crit_edge1974 ], [ %1203, %1199 ], [ %415, %.thread2087 ], [ %.22, %._crit_edge1970 ], [ %280, %279 ], [ %204, %202 ], [ %904, %903 ], [ %768, %._crit_edge2000 ], [ %633, %632 ], [ %525, %524 ], [ 0.000000e+00, %84 ], [ 0.000000e+00, %106 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %60 ], [ %.28, %._crit_edge1976 ], [ %145, %.thread ], [ %225, %.thread2080 ], [ %.4.lcssa, %._crit_edge ]
+  %.0785 = phi double [ %19, %15 ], [ 0.000000e+00, %6 ], [ %1203, %1199 ], [ undef, %914 ], [ %280, %279 ], [ %204, %202 ], [ %904, %903 ], [ %768, %._crit_edge2000 ], [ %633, %632 ], [ %525, %524 ], [ 0.000000e+00, %84 ], [ 0.000000e+00, %106 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %60 ], [ %145, %.thread ], [ %225, %.thread2080 ], [ %291, %.thread2082 ], [ %415, %.thread2087 ], [ %883, %.thread2106 ], [ %.20, %._crit_edge1988 ], [ %.18, %._crit_edge1985 ], [ %.16, %._crit_edge1982 ], [ %.14, %._crit_edge1979 ], [ %.28, %._crit_edge1976 ], [ %.26, %._crit_edge1974 ], [ %.24, %._crit_edge1972 ], [ %.22, %._crit_edge1970 ], [ %.7.lcssa, %._crit_edge1040 ], [ %.10.lcssa, %._crit_edge1028 ], [ %.1.lcssa, %._crit_edge1016 ], [ %.4.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

@@ -76,7 +76,7 @@ switch.early.test:                                ; preds = %10
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %.preheader, %2
-  %.060 = phi i32 [ %spec.select87, %.critedge ], [ 19, %2 ], [ 19, %.preheader ]
+  %.060 = phi i32 [ 19, %2 ], [ 19, %.preheader ], [ %spec.select87, %.critedge ]
   ret i32 %.060
 }
 
@@ -220,7 +220,7 @@ switch.early.test.i:                              ; preds = %40
   br label %ASN1_PRINTABLE_type.exit
 
 ASN1_PRINTABLE_type.exit:                         ; preds = %._crit_edge, %.preheader.i, %.critedge.i
-  %.060.i = phi i32 [ %spec.select87.i, %.critedge.i ], [ 19, %._crit_edge ], [ 19, %.preheader.i ]
+  %.060.i = phi i32 [ 19, %._crit_edge ], [ 19, %.preheader.i ], [ %spec.select87.i, %.critedge.i ]
   store i32 %.060.i, ptr %2, align 4, !tbaa !11
   br label %.thread
 

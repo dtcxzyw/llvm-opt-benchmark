@@ -254,99 +254,99 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
   %72 = load i32, ptr %25, align 8
   %73 = call i32 (i32, i64, ...) @ioctl(i32 noundef %72, i64 noundef 2149074287, ptr noundef nonnull %8) #10
   %74 = icmp slt i32 %73, 0
-  br i1 %74, label %SDL_EVDEV_init_touchscreen.exit.i, label %75
+  br i1 %74, label %75, label %80
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, 0
-  %79 = add nsw i32 %77, 1
-  %.050.i.i = select i1 %78, i64 2149074240, i64 2149074293
-  %80 = load ptr, ptr %58, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 44
-  store i32 %79, ptr %81, align 4
-  %82 = load i32, ptr %25, align 8
-  %83 = call i32 (i32, i64, ...) @ioctl(i32 noundef %82, i64 noundef %.050.i.i, ptr noundef nonnull %8) #10
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %85, label %90
-
-85:                                               ; preds = %75
-  %86 = load ptr, ptr %58, align 8
-  %87 = load ptr, ptr %86, align 8
-  call void @SDL_free_REAL(ptr noundef %87) #10
-  %88 = load ptr, ptr %58, align 8
-  call void @SDL_free_REAL(ptr noundef %88) #10
-  %89 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
+  %76 = load ptr, ptr %58, align 8
+  %77 = load ptr, ptr %76, align 8
+  call void @SDL_free_REAL(ptr noundef %77) #10
+  %78 = load ptr, ptr %58, align 8
+  call void @SDL_free_REAL(ptr noundef %78) #10
+  %79 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %89, label %169, label %165
+  br i1 %79, label %169, label %165
 
-90:                                               ; preds = %75
-  %.0.i.i = select i1 %78, i64 2149074241, i64 2149074294
-  %91 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %92 = load i32, ptr %91, align 4
+80:                                               ; preds = %71
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %82, 0
+  %84 = add nsw i32 %82, 1
+  %.050.i.i = select i1 %83, i64 2149074240, i64 2149074293
+  %85 = load ptr, ptr %58, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 44
+  store i32 %84, ptr %86, align 4
+  %87 = load i32, ptr %25, align 8
+  %88 = call i32 (i32, i64, ...) @ioctl(i32 noundef %87, i64 noundef %.050.i.i, ptr noundef nonnull %8) #10
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %90, label %95
+
+90:                                               ; preds = %80
+  %91 = load ptr, ptr %58, align 8
+  %92 = load ptr, ptr %91, align 8
+  call void @SDL_free_REAL(ptr noundef %92) #10
   %93 = load ptr, ptr %58, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store i32 %92, ptr %94, align 8
-  %95 = load i32, ptr %76, align 4
-  %96 = load ptr, ptr %58, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
-  store i32 %95, ptr %97, align 4
-  %98 = sub nsw i32 %95, %92
-  %99 = load ptr, ptr %58, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  store i32 %98, ptr %100, align 8
-  %101 = load i32, ptr %25, align 8
-  %102 = call i32 (i32, i64, ...) @ioctl(i32 noundef %101, i64 noundef %.0.i.i, ptr noundef nonnull %8) #10
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %104, label %109
-
-104:                                              ; preds = %90
-  %105 = load ptr, ptr %58, align 8
-  %106 = load ptr, ptr %105, align 8
-  call void @SDL_free_REAL(ptr noundef %106) #10
-  %107 = load ptr, ptr %58, align 8
-  call void @SDL_free_REAL(ptr noundef %107) #10
-  %108 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
+  call void @SDL_free_REAL(ptr noundef %93) #10
+  %94 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %108, label %169, label %165
+  br i1 %94, label %169, label %165
 
-109:                                              ; preds = %90
-  %110 = load i32, ptr %91, align 4
-  %111 = load ptr, ptr %58, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 20
-  store i32 %110, ptr %112, align 4
-  %113 = load i32, ptr %76, align 4
-  %114 = load ptr, ptr %58, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store i32 %113, ptr %115, align 8
-  %116 = sub nsw i32 %113, %110
-  %117 = load ptr, ptr %58, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 28
-  store i32 %116, ptr %118, align 4
-  %119 = load i32, ptr %25, align 8
-  %120 = call i32 (i32, i64, ...) @ioctl(i32 noundef %119, i64 noundef 2149074298, ptr noundef nonnull %8) #10
-  %121 = icmp slt i32 %120, 0
-  br i1 %121, label %122, label %127
+95:                                               ; preds = %80
+  %.0.i.i = select i1 %83, i64 2149074241, i64 2149074294
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = load ptr, ptr %58, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store i32 %97, ptr %99, align 8
+  %100 = load i32, ptr %81, align 4
+  %101 = load ptr, ptr %58, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 12
+  store i32 %100, ptr %102, align 4
+  %103 = sub nsw i32 %100, %97
+  %104 = load ptr, ptr %58, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store i32 %103, ptr %105, align 8
+  %106 = load i32, ptr %25, align 8
+  %107 = call i32 (i32, i64, ...) @ioctl(i32 noundef %106, i64 noundef %.0.i.i, ptr noundef nonnull %8) #10
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %109, label %114
 
-122:                                              ; preds = %109
-  %123 = load ptr, ptr %58, align 8
-  %124 = load ptr, ptr %123, align 8
-  call void @SDL_free_REAL(ptr noundef %124) #10
-  %125 = load ptr, ptr %58, align 8
-  call void @SDL_free_REAL(ptr noundef %125) #10
-  %126 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
+109:                                              ; preds = %95
+  %110 = load ptr, ptr %58, align 8
+  %111 = load ptr, ptr %110, align 8
+  call void @SDL_free_REAL(ptr noundef %111) #10
+  %112 = load ptr, ptr %58, align 8
+  call void @SDL_free_REAL(ptr noundef %112) #10
+  %113 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %126, label %169, label %165
+  br i1 %113, label %169, label %165
 
-127:                                              ; preds = %109
-  %128 = load i32, ptr %91, align 4
+114:                                              ; preds = %95
+  %115 = load i32, ptr %96, align 4
+  %116 = load ptr, ptr %58, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 20
+  store i32 %115, ptr %117, align 4
+  %118 = load i32, ptr %81, align 4
+  %119 = load ptr, ptr %58, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  store i32 %118, ptr %120, align 8
+  %121 = sub nsw i32 %118, %115
+  %122 = load ptr, ptr %58, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 28
+  store i32 %121, ptr %123, align 4
+  %124 = load i32, ptr %25, align 8
+  %125 = call i32 (i32, i64, ...) @ioctl(i32 noundef %124, i64 noundef 2149074298, ptr noundef nonnull %8) #10
+  %126 = icmp slt i32 %125, 0
+  br i1 %126, label %SDL_EVDEV_init_touchscreen.exit.i, label %127
+
+127:                                              ; preds = %114
+  %128 = load i32, ptr %96, align 4
   %129 = load ptr, ptr %58, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
   store i32 %128, ptr %130, align 8
-  %131 = load i32, ptr %76, align 4
+  %131 = load i32, ptr %81, align 4
   %132 = load ptr, ptr %58, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 36
   store i32 %131, ptr %133, align 4
@@ -408,7 +408,7 @@ SDL_EVDEV_init_touchscreen.exit.thread.i:         ; preds = %SDL_EVDEV_init_touc
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %165
 
-SDL_EVDEV_init_touchscreen.exit.i:                ; preds = %71
+SDL_EVDEV_init_touchscreen.exit.i:                ; preds = %114
   %161 = load ptr, ptr %58, align 8
   %162 = load ptr, ptr %161, align 8
   call void @SDL_free_REAL(ptr noundef %162) #10
@@ -419,7 +419,7 @@ SDL_EVDEV_init_touchscreen.exit.i:                ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %164, label %169, label %165
 
-165:                                              ; preds = %SDL_EVDEV_init_touchscreen.exit.i, %SDL_EVDEV_init_touchscreen.exit.thread.i, %122, %104, %85, %63
+165:                                              ; preds = %SDL_EVDEV_init_touchscreen.exit.i, %SDL_EVDEV_init_touchscreen.exit.thread.i, %109, %90, %75, %63
   %166 = load i32, ptr %25, align 8
   %167 = call i32 @close(i32 noundef %166) #10
   %168 = load ptr, ptr %22, align 8
@@ -427,7 +427,7 @@ SDL_EVDEV_init_touchscreen.exit.i:                ; preds = %71
   call void @SDL_free_REAL(ptr noundef nonnull %22) #10
   br label %SDL_EVDEV_device_added.exit
 
-169:                                              ; preds = %SDL_EVDEV_init_touchscreen.exit.i, %SDL_EVDEV_init_touchscreen.exit.thread56.i, %122, %104, %85, %63, %53
+169:                                              ; preds = %SDL_EVDEV_init_touchscreen.exit.i, %SDL_EVDEV_init_touchscreen.exit.thread56.i, %109, %90, %75, %63, %53
   %170 = and i32 %1, 1
   %.not50.i = icmp eq i32 %170, 0
   br i1 %.not50.i, label %197, label %171

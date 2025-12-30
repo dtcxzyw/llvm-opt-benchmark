@@ -500,7 +500,7 @@ define noundef zeroext i1 @_ZNK6marisa8grimoire2io6Writer7is_openEv(ptr noundef 
   br label %9
 
 9:                                                ; preds = %5, %1
-  %10 = phi i1 [ %8, %5 ], [ true, %1 ]
+  %10 = phi i1 [ true, %1 ], [ %8, %5 ]
   ret i1 %10
 }
 

@@ -23,7 +23,7 @@ define range(i64 7, 1) i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef
   br label %14
 
 14:                                               ; preds = %12, %10, %7
-  %.027 = phi i16 [ 30784, %10 ], [ 30720, %7 ], [ %., %12 ]
+  %.027 = phi i16 [ 30720, %7 ], [ 30784, %10 ], [ %., %12 ]
   %15 = urem i16 %.027, 31
   %16 = or disjoint i16 %15, %.027
   %17 = xor i16 %16, 31

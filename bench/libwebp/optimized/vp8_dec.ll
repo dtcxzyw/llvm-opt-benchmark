@@ -157,7 +157,7 @@ define hidden nonnull ptr @VP8StatusMessage(ptr noundef readonly captures(addres
   br label %6
 
 6:                                                ; preds = %3, %1
-  %.0 = phi ptr [ %.str.1., %3 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str, %1 ], [ %.str.1., %3 ]
   ret ptr %.0
 }
 
@@ -344,7 +344,7 @@ VP8CheckSignature.exit:                           ; preds = %12
   br label %VP8CheckSignature.exit.thread
 
 VP8CheckSignature.exit.thread:                    ; preds = %8, %12, %18, %45, %51, %50, %VP8CheckSignature.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %VP8CheckSignature.exit ], [ 0, %18 ], [ 1, %51 ], [ 1, %50 ], [ 0, %45 ], [ 0, %12 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %VP8CheckSignature.exit ], [ 0, %18 ], [ 0, %45 ], [ 1, %51 ], [ 1, %50 ], [ 0, %12 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -651,7 +651,7 @@ VP8SetError.exit130:                              ; preds = %40, %43, %VP8CheckS
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %144, %138, %132, %126, %104, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %144 ], [ 0, %104 ], [ 0, %126 ], [ 0, %132 ], [ 0, %138 ], [ %.sink, %.critedge.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %104 ], [ 0, %126 ], [ 0, %132 ], [ 0, %138 ], [ 0, %144 ], [ %.sink, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -1412,7 +1412,7 @@ VP8SetError.exit.i:                               ; preds = %._crit_edge.i
   br label %82
 
 82:                                               ; preds = %20, %43, %46, %49, %52, %63, %66, %75, %81
-  %.2 = phi i32 [ 0, %20 ], [ 0, %75 ], [ 1, %81 ], [ 0, %46 ], [ 0, %52 ], [ 0, %43 ], [ 0, %49 ], [ 0, %63 ], [ 0, %66 ]
+  %.2 = phi i32 [ 0, %20 ], [ 1, %81 ], [ 0, %75 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %52 ], [ 0, %63 ], [ 0, %66 ]
   %83 = tail call i32 @VP8ExitCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #14
   %84 = and i32 %83, %.2
   %.not28 = icmp eq i32 %84, 0
@@ -1439,7 +1439,7 @@ VP8Clear.exit:                                    ; preds = %17, %82
   br label %VP8SetError.exit
 
 VP8SetError.exit:                                 ; preds = %9, %6, %15, %2, %92, %VP8Clear.exit
-  %.022 = phi i32 [ 0, %2 ], [ 0, %15 ], [ 1, %92 ], [ 0, %VP8Clear.exit ], [ 0, %6 ], [ 0, %9 ]
+  %.022 = phi i32 [ 1, %92 ], [ 0, %VP8Clear.exit ], [ 0, %2 ], [ 0, %15 ], [ 0, %6 ], [ 0, %9 ]
   ret i32 %.022
 }
 

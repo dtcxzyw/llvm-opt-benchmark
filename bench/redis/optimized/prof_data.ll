@@ -424,7 +424,7 @@ iallocztm.exit:                                   ; preds = %136, %124, %112, %1
   br label %iallocztm.exit.thread
 
 iallocztm.exit.thread:                            ; preds = %tsdn_witness_tsdp_get.exit, %tsdn_witness_tsdp_get.exit.thread, %6, %2, %iallocztm.exit
-  %.0 = phi ptr [ %44, %iallocztm.exit ], [ null, %2 ], [ @.str, %6 ], [ null, %tsdn_witness_tsdp_get.exit ], [ null, %tsdn_witness_tsdp_get.exit.thread ]
+  %.0 = phi ptr [ %44, %iallocztm.exit ], [ null, %2 ], [ @.str, %6 ], [ null, %tsdn_witness_tsdp_get.exit.thread ], [ null, %tsdn_witness_tsdp_get.exit ]
   ret ptr %.0
 }
 
@@ -2717,7 +2717,7 @@ rtree_metadata_read.exit.i:                       ; preds = %604, %592, %580, %5
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef nonnull %1)
   br label %prof_tctx_destroy.exit
 
-prof_tctx_should_destroy.exit.thread:             ; preds = %8, %2, %11, %prof_tctx_should_destroy.exit
+prof_tctx_should_destroy.exit.thread:             ; preds = %11, %8, %2, %prof_tctx_should_destroy.exit
   %612 = load ptr, ptr %1, align 8, !tbaa !91
   %613 = load ptr, ptr %612, align 8, !tbaa !45
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 104
@@ -2997,7 +2997,7 @@ tailrecurse:                                      ; preds = %8
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph, %8, %3
-  %.015 = phi ptr [ null, %3 ], [ %7, %.lr.ph ], [ %9, %8 ], [ null, %tailrecurse ]
+  %.015 = phi ptr [ null, %3 ], [ %9, %8 ], [ %7, %.lr.ph ], [ null, %tailrecurse ]
   ret ptr %.015
 }
 

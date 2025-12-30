@@ -105,7 +105,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !12
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit, %4, %2
-  %.011 = phi ptr [ null, %4 ], [ null, %2 ], [ %7, %Vec_PtrPush.exit ]
+  %.011 = phi ptr [ null, %2 ], [ null, %4 ], [ %7, %Vec_PtrPush.exit ]
   ret ptr %.011
 }
 
@@ -210,7 +210,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !14
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit, %5, %3
-  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ %8, %Vec_PtrPush.exit ]
+  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ %8, %Vec_PtrPush.exit ]
   ret ptr %.0
 }
 
@@ -310,7 +310,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !15
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit, %4, %2
-  %.011 = phi ptr [ null, %4 ], [ null, %2 ], [ %7, %Vec_PtrPush.exit ]
+  %.011 = phi ptr [ null, %2 ], [ null, %4 ], [ %7, %Vec_PtrPush.exit ]
   ret ptr %.011
 }
 
@@ -501,7 +501,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !38
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit, %5, %3
-  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ %8, %Vec_PtrPush.exit ]
+  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ %8, %Vec_PtrPush.exit ]
   ret ptr %.0
 }
 

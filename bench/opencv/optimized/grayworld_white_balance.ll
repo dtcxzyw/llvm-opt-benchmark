@@ -991,9 +991,9 @@ _ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit: ; preds = %.lr.p
   br label %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit
 
 _ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit: ; preds = %104, %_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit, %66, %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit, %_ZNK2cv11_InputArray6getMatEi.exit
-  %.076 = phi double [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %102, %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit ], [ 0.000000e+00, %66 ], [ 0.000000e+00, %104 ], [ %138, %_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit ]
-  %.075 = phi double [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %103, %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit ], [ 0.000000e+00, %66 ], [ 0.000000e+00, %104 ], [ %139, %_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit ]
-  %.073 = phi double [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %101, %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit ], [ 0.000000e+00, %66 ], [ 0.000000e+00, %104 ], [ %137, %_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit ]
+  %.076 = phi double [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit ], [ 0.000000e+00, %66 ], [ %102, %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit ], [ 0.000000e+00, %104 ], [ %138, %_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit ]
+  %.075 = phi double [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit ], [ 0.000000e+00, %66 ], [ %103, %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit ], [ 0.000000e+00, %104 ], [ %139, %_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit ]
+  %.073 = phi double [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit ], [ 0.000000e+00, %66 ], [ %101, %_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif.exit.loopexit ], [ 0.000000e+00, %104 ], [ %137, %_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif.exit.loopexit ]
   %140 = fcmp olt double %.075, %.076
   %141 = select i1 %140, double %.076, double %.075
   %142 = fcmp olt double %.073, %141

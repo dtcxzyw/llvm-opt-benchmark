@@ -280,7 +280,7 @@ _ZN6bufferISt4pairIP4exprjELb1ELj16EE6expandEv.exit.i56: ; preds = %.noexc61, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %..loopexit_crit_edge, %33, %88, %71
-  %.pr = phi i32 [ %.pr.pre, %..loopexit_crit_edge ], [ %14, %71 ], [ %14, %33 ], [ %92, %88 ], [ %62, %56 ]
+  %.pr = phi i32 [ %.pr.pre, %..loopexit_crit_edge ], [ %14, %33 ], [ %92, %88 ], [ %14, %71 ], [ %62, %56 ]
   %97 = icmp eq i32 %.pr, 0
   br i1 %97, label %98, label %11, !llvm.loop !41
 
@@ -307,7 +307,7 @@ _ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit:   ; preds = %98, %101
   ret void
 
 105:                                              ; preds = %25, %63, %93
-  %.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %26, %25 ], [ %64, %63 ]
+  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %64, %63 ], [ %94, %93 ]
   call void @_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
@@ -536,11 +536,11 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i43:    ; preds = %.noexc48, %._crit_e
   br label %82
 
 .loopexit:                                        ; preds = %._crit_edge.i27, %17, %5, %63
-  %.pr = phi i32 [ %67, %63 ], [ %10, %17 ], [ %10, %5 ], [ %44, %._crit_edge.i27 ]
-  %71 = phi ptr [ %.pre.i2867, %63 ], [ %.pre.i2868, %17 ], [ %.pre.i2868, %5 ], [ %.pre.i2870, %._crit_edge.i27 ]
-  %72 = phi i32 [ %64, %63 ], [ %6, %17 ], [ %6, %5 ], [ %40, %._crit_edge.i27 ]
-  %73 = phi i32 [ %65, %63 ], [ %7, %17 ], [ %7, %5 ], [ %40, %._crit_edge.i27 ]
-  %74 = phi ptr [ %66, %63 ], [ %8, %17 ], [ %8, %5 ], [ %.pre.i2870, %._crit_edge.i27 ]
+  %.pr = phi i32 [ %10, %17 ], [ %10, %5 ], [ %67, %63 ], [ %44, %._crit_edge.i27 ]
+  %71 = phi ptr [ %.pre.i2868, %17 ], [ %.pre.i2868, %5 ], [ %.pre.i2867, %63 ], [ %.pre.i2870, %._crit_edge.i27 ]
+  %72 = phi i32 [ %6, %17 ], [ %6, %5 ], [ %64, %63 ], [ %40, %._crit_edge.i27 ]
+  %73 = phi i32 [ %7, %17 ], [ %7, %5 ], [ %65, %63 ], [ %40, %._crit_edge.i27 ]
+  %74 = phi ptr [ %8, %17 ], [ %8, %5 ], [ %66, %63 ], [ %.pre.i2870, %._crit_edge.i27 ]
   %75 = icmp eq i32 %.pr, 0
   br i1 %75, label %76, label %5, !llvm.loop !50
 
@@ -566,7 +566,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %76, %78
   ret i32 %14
 
 82:                                               ; preds = %45, %69
-  %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %46, %45 ]
+  %.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %70, %69 ]
   call void @_ZN6bufferIP4exprLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn.pn

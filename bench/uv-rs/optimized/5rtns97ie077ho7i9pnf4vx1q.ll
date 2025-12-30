@@ -663,7 +663,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %82, label %.loopexit, label %42
 
 .body:                                            ; preds = %40, %53, %62, %66, %74
-  %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %41, %40 ], [ %63, %62 ], [ %54, %53 ], [ %75, %74 ], [ %67, %66 ]
+  %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %63, %62 ], [ %75, %74 ], [ %67, %66 ]
   store i64 %.val20.i.i.i.i.i, ptr %30, align 8, !alias.scope !225, !noalias !196
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hc762e755f8796ce4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #28
           to label %85 unwind label %83
@@ -1167,7 +1167,7 @@ default.unreachable:                              ; preds = %21
   br label %"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hec385471b38b5b5dE.exit.i.i.i.i.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hec385471b38b5b5dE.exit.i.i.i.i.i.i.i": ; preds = %26, %24, %22, %18
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i8 [ %23, %22 ], [ %19, %18 ], [ %25, %24 ], [ %27, %26 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i8 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %19, %18 ]
   %.sroa.0.0.i.i.fr.i.i.i.i.i.i.i = freeze i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i
   switch i8 %.sroa.0.0.i.i.fr.i.i.i.i.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66b7ec84a706aa6fE.exit.thread" [
     i8 0, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he9e6a506490f090bE.exit.i.i.i"
@@ -1271,8 +1271,8 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17hd2db989a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %"_ZN4core4iter6traits8iterator8Iterator6cmp_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he44a4f77d6d0d761E.exit.i.i.i.i", %32, %33
-  %.sroa.3.0 = phi i8 [ 0, %32 ], [ -1, %33 ], [ 1, %13 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator6cmp_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he44a4f77d6d0d761E.exit.i.i.i.i" ]
-  %.sroa.0.0 = phi i1 [ false, %32 ], [ false, %33 ], [ %.not.i.i.i.not.not.not.i.not.not.not.i.not.not.not, %"_ZN4core4iter6traits8iterator8Iterator6cmp_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he44a4f77d6d0d761E.exit.i.i.i.i" ], [ %.not.i.i.i.not.not.not.i.not.not.not.i.not.not.not, %13 ]
+  %.sroa.3.0 = phi i8 [ -1, %33 ], [ 0, %32 ], [ 1, %13 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator6cmp_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he44a4f77d6d0d761E.exit.i.i.i.i" ]
+  %.sroa.0.0 = phi i1 [ false, %33 ], [ false, %32 ], [ %.not.i.i.i.not.not.not.i.not.not.not.i.not.not.not, %"_ZN4core4iter6traits8iterator8Iterator6cmp_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he44a4f77d6d0d761E.exit.i.i.i.i" ], [ %.not.i.i.i.not.not.not.i.not.not.not.i.not.not.not, %13 ]
   %36 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %37 = insertvalue { i1, i8 } %36, i8 %.sroa.3.0, 1
   ret { i1, i8 } %37
@@ -1969,7 +1969,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator6cmp_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he44a4f77d6d0d761E.exit.i.i.i.i.i", %.lr.ph, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17haaf5c73eeeaa4079E.exit.i.i.i._crit_edge"
-  %.sroa.3.0.i = phi i8 [ %spec.select, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17haaf5c73eeeaa4079E.exit.i.i.i._crit_edge" ], [ %.sroa.0.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator6cmp_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he44a4f77d6d0d761E.exit.i.i.i.i.i" ], [ 1, %.lr.ph ]
+  %.sroa.3.0.i = phi i8 [ %spec.select, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17haaf5c73eeeaa4079E.exit.i.i.i._crit_edge" ], [ 1, %.lr.ph ], [ %.sroa.0.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator6cmp_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he44a4f77d6d0d761E.exit.i.i.i.i.i" ]
   ret i8 %.sroa.3.0.i
 }
 
@@ -2117,7 +2117,7 @@ default.unreachable:                              ; preds = %21
   br label %"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hec385471b38b5b5dE.exit.i.i.i.i.i.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hec385471b38b5b5dE.exit.i.i.i.i.i.i.i.i": ; preds = %26, %24, %22, %18
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %23, %22 ], [ %19, %18 ], [ %25, %24 ], [ %27, %26 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %19, %18 ]
   %.sroa.0.0.i.i.fr.i.i.i.i.i.i.i.i = freeze i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i
   switch i8 %.sroa.0.0.i.i.fr.i.i.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator12iter_compare17hc0917b77e6b22a06E.llvm.8488369856913705139.exit [
     i8 0, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he9e6a506490f090bE.exit.i.i.i.i"
@@ -4466,7 +4466,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %27, label %19, label %_ZN4core4iter6traits8iterator8Iterator3all17h6358570f0ab1ed05E.llvm.8488369856913705139.exit
 
 _ZN4core4iter6traits8iterator8Iterator3all17h6358570f0ab1ed05E.llvm.8488369856913705139.exit: ; preds = %10, %8, %21, %19
-  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7, %21 ], [ %.not.not.not.i.not.not.not.i.not.i7, %19 ], [ %.not.not.not.i.not.not.not.i.not.i, %8 ], [ %.not.not.not.i.not.not.not.i.not.i, %10 ]
+  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7, %19 ], [ %.not.not.not.i.not.not.not.i.not.i7, %21 ], [ %.not.not.not.i.not.not.not.i.not.i, %8 ], [ %.not.not.not.i.not.not.not.i.not.i, %10 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4539,7 +4539,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %27, label %19, label %_ZN4core4iter6traits8iterator8Iterator3all17h9f560f7a35f958cfE.llvm.8488369856913705139.exit
 
 _ZN4core4iter6traits8iterator8Iterator3all17h9f560f7a35f958cfE.llvm.8488369856913705139.exit: ; preds = %10, %8, %21, %19
-  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7, %21 ], [ %.not.not.not.i.not.not.not.i.not.i7, %19 ], [ %.not.not.not.i.not.not.not.i.not.i, %8 ], [ %.not.not.not.i.not.not.not.i.not.i, %10 ]
+  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7, %19 ], [ %.not.not.not.i.not.not.not.i.not.i7, %21 ], [ %.not.not.not.i.not.not.not.i.not.i, %8 ], [ %.not.not.not.i.not.not.not.i.not.i, %10 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4612,7 +4612,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %27, label %19, label %_ZN4core4iter6traits8iterator8Iterator3all17h0788af6250902b65E.llvm.8488369856913705139.exit
 
 _ZN4core4iter6traits8iterator8Iterator3all17h0788af6250902b65E.llvm.8488369856913705139.exit: ; preds = %10, %8, %21, %19
-  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7, %21 ], [ %.not.not.not.i.not.not.not.i.not.i7, %19 ], [ %.not.not.not.i.not.not.not.i.not.i, %8 ], [ %.not.not.not.i.not.not.not.i.not.i, %10 ]
+  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7, %19 ], [ %.not.not.not.i.not.not.not.i.not.i7, %21 ], [ %.not.not.not.i.not.not.not.i.not.i, %8 ], [ %.not.not.not.i.not.not.not.i.not.i, %10 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4710,7 +4710,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %.not.i.i, label %30, label %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17h9954d3ce0d05d0ecE.llvm.8488369856913705139.exit"
 
 "_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17h9954d3ce0d05d0ecE.llvm.8488369856913705139.exit": ; preds = %14, %12, %22, %20, %32, %30
-  %.sroa.0.0.in = phi i1 [ %.not9.not.not.i.not.not.not.i.not.i2.i, %22 ], [ %.not.i.not.not.not.i.not.i, %32 ], [ %.not.i.not.not.not.i.not.i, %30 ], [ %.not9.not.not.i.not.not.not.i.not.i2.i, %20 ], [ %.not9.not.not.i.not.not.not.i.not.i.i, %12 ], [ %.not9.not.not.i.not.not.not.i.not.i.i, %14 ]
+  %.sroa.0.0.in = phi i1 [ %.not.i.not.not.not.i.not.i, %30 ], [ %.not.i.not.not.not.i.not.i, %32 ], [ %.not9.not.not.i.not.not.not.i.not.i2.i, %20 ], [ %.not9.not.not.i.not.not.not.i.not.i2.i, %22 ], [ %.not9.not.not.i.not.not.not.i.not.i.i, %12 ], [ %.not9.not.not.i.not.not.not.i.not.i.i, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4825,7 +4825,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %45, label %35, label %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17h16e48215f848ba94E.llvm.8488369856913705139.exit"
 
 "_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17h16e48215f848ba94E.llvm.8488369856913705139.exit": ; preds = %13, %11, %24, %22, %37, %35
-  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7.i, %24 ], [ %.not.i.not.not.not.i.not.i, %37 ], [ %.not.i.not.not.not.i.not.i, %35 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %22 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %11 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %13 ]
+  %.sroa.0.0.in = phi i1 [ %.not.i.not.not.not.i.not.i, %35 ], [ %.not.i.not.not.not.i.not.i, %37 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %22 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %24 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %11 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %13 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4940,7 +4940,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %45, label %35, label %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17h14de0c52d5d94681E.llvm.8488369856913705139.exit"
 
 "_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17h14de0c52d5d94681E.llvm.8488369856913705139.exit": ; preds = %13, %11, %24, %22, %37, %35
-  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7.i, %24 ], [ %.not.i.not.not.not.i.not.i, %37 ], [ %.not.i.not.not.not.i.not.i, %35 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %22 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %11 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %13 ]
+  %.sroa.0.0.in = phi i1 [ %.not.i.not.not.not.i.not.i, %35 ], [ %.not.i.not.not.not.i.not.i, %37 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %22 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %24 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %11 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %13 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5003,7 +5003,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %.not.i.i.i4, label %17, label %_ZN4core4iter6traits8iterator8Iterator3all17he8d934ddc1061f1eE.llvm.8488369856913705139.exit
 
 _ZN4core4iter6traits8iterator8Iterator3all17he8d934ddc1061f1eE.llvm.8488369856913705139.exit: ; preds = %11, %9, %19, %17
-  %.sroa.0.0.in = phi i1 [ %.not9.not.not.i.not.not.not.i.not.i2, %19 ], [ %.not9.not.not.i.not.not.not.i.not.i2, %17 ], [ %.not9.not.not.i.not.not.not.i.not.i, %9 ], [ %.not9.not.not.i.not.not.not.i.not.i, %11 ]
+  %.sroa.0.0.in = phi i1 [ %.not9.not.not.i.not.not.not.i.not.i2, %17 ], [ %.not9.not.not.i.not.not.not.i.not.i2, %19 ], [ %.not9.not.not.i.not.not.not.i.not.i, %9 ], [ %.not9.not.not.i.not.not.not.i.not.i, %11 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5118,7 +5118,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %45, label %35, label %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17h530cfa6f422d00f1E.llvm.8488369856913705139.exit"
 
 "_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17h530cfa6f422d00f1E.llvm.8488369856913705139.exit": ; preds = %13, %11, %24, %22, %37, %35
-  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7.i, %24 ], [ %.not.i.not.not.not.i.not.i, %37 ], [ %.not.i.not.not.not.i.not.i, %35 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %22 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %11 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %13 ]
+  %.sroa.0.0.in = phi i1 [ %.not.i.not.not.not.i.not.i, %35 ], [ %.not.i.not.not.not.i.not.i, %37 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %22 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %24 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %11 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %13 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5191,7 +5191,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %27, label %19, label %_ZN4core4iter6traits8iterator8Iterator3all17h15ae3bedca8dfb7cE.llvm.8488369856913705139.exit
 
 _ZN4core4iter6traits8iterator8Iterator3all17h15ae3bedca8dfb7cE.llvm.8488369856913705139.exit: ; preds = %10, %8, %21, %19
-  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7, %21 ], [ %.not.not.not.i.not.not.not.i.not.i7, %19 ], [ %.not.not.not.i.not.not.not.i.not.i, %8 ], [ %.not.not.not.i.not.not.not.i.not.i, %10 ]
+  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7, %19 ], [ %.not.not.not.i.not.not.not.i.not.i7, %21 ], [ %.not.not.not.i.not.not.not.i.not.i, %8 ], [ %.not.not.not.i.not.not.not.i.not.i, %10 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5306,7 +5306,7 @@ define hidden noundef zeroext i1 @"_ZN6either8iterator96_$LT$impl$u20$core..iter
   br i1 %45, label %35, label %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17hcf35a38014657d45E.llvm.8488369856913705139.exit"
 
 "_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$3all17hcf35a38014657d45E.llvm.8488369856913705139.exit": ; preds = %13, %11, %24, %22, %37, %35
-  %.sroa.0.0.in = phi i1 [ %.not.not.not.i.not.not.not.i.not.i7.i, %24 ], [ %.not.i.not.not.not.i.not.i, %37 ], [ %.not.i.not.not.not.i.not.i, %35 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %22 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %11 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %13 ]
+  %.sroa.0.0.in = phi i1 [ %.not.i.not.not.not.i.not.i, %35 ], [ %.not.i.not.not.not.i.not.i, %37 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %22 ], [ %.not.not.not.i.not.not.not.i.not.i7.i, %24 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %11 ], [ %.not.not.not.i.not.not.not.i.not.i.i, %13 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5347,8 +5347,8 @@ define hidden { i64, i64 } @"_ZN6either8iterator96_$LT$impl$u20$core..iter..trai
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa76de8d1391f814E.llvm.8488369856913705139.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa76de8d1391f814E.llvm.8488369856913705139.exit": ; preds = %17, %13, %9, %5
-  %.sroa.0.0.i.pn = phi i64 [ 0, %5 ], [ 1, %9 ], [ 1, %17 ], [ 0, %13 ]
-  %.sroa.3.0.i.pn = phi i64 [ undef, %5 ], [ %12, %9 ], [ %20, %17 ], [ undef, %13 ]
+  %.sroa.0.0.i.pn = phi i64 [ 1, %9 ], [ 0, %5 ], [ 1, %17 ], [ 0, %13 ]
+  %.sroa.3.0.i.pn = phi i64 [ %12, %9 ], [ undef, %5 ], [ %20, %17 ], [ undef, %13 ]
   %.pn4 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn, 0
   %.pn = insertvalue { i64, i64 } %.pn4, i64 %.sroa.3.0.i.pn, 1
   ret { i64, i64 } %.pn
@@ -5416,8 +5416,8 @@ define hidden { i64, i64 } @"_ZN6either8iterator96_$LT$impl$u20$core..iter..trai
   br label %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h68e84d9a157282b6E.llvm.8488369856913705139.exit"
 
 "_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h68e84d9a157282b6E.llvm.8488369856913705139.exit": ; preds = %29, %24, %20, %16, %12, %8
-  %.sroa.0.0.i.pn.i.pn = phi i64 [ 0, %16 ], [ 0, %8 ], [ 1, %12 ], [ 1, %20 ], [ 1, %29 ], [ 0, %24 ]
-  %.sroa.3.0.i.pn.i.pn = phi i64 [ undef, %16 ], [ undef, %8 ], [ %15, %12 ], [ %23, %20 ], [ %34, %29 ], [ undef, %24 ]
+  %.sroa.0.0.i.pn.i.pn = phi i64 [ 1, %12 ], [ 0, %8 ], [ 1, %20 ], [ 0, %16 ], [ 1, %29 ], [ 0, %24 ]
+  %.sroa.3.0.i.pn.i.pn = phi i64 [ %15, %12 ], [ undef, %8 ], [ %23, %20 ], [ undef, %16 ], [ %34, %29 ], [ undef, %24 ]
   %.pn4.i.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn.i.pn, 0
   %.pn = insertvalue { i64, i64 } %.pn4.i.pn, i64 %.sroa.3.0.i.pn.i.pn, 1
   ret { i64, i64 } %.pn
@@ -5932,7 +5932,7 @@ common.resume:                                    ; preds = %37, %29
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %67, %77
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi6.i.i.i, %77 ], [ %lpad.phi.i.i.i, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %67 ], [ %lpad.phi6.i.i.i, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe51974c639eab41E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #28
           to label %37 unwind label %103
 

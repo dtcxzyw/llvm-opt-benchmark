@@ -1181,7 +1181,7 @@ _ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread: ; preds = 
   br label %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread3
 
 _ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread3: ; preds = %17, %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit, %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread, %7, %9
-  %.0 = phi i1 [ %13, %9 ], [ false, %7 ], [ false, %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit ], [ %24, %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread ], [ false, %17 ]
+  %.0 = phi i1 [ false, %7 ], [ %13, %9 ], [ false, %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit ], [ %24, %_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit.thread ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -1569,7 +1569,7 @@ _ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit26:    ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !24
   %57 = load ptr, ptr %.0, align 8, !tbaa !21
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -177,7 +177,7 @@ isXTestAvailable.exit:                            ; preds = %73, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %78
 
-.thread59:                                        ; preds = %65, %73, %62
+.thread59:                                        ; preds = %65, %62, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -334,7 +334,7 @@ define void @Java_sun_awt_X11_XRobotPeer_getRGBPixelsImpl(ptr noundef %0, ptr no
   %.not3.i = icmp eq i32 %61, 0
   br i1 %.not3.i, label %hasXCompositeOverlayExtension.exit.thread, label %hasXCompositeOverlayExtension.exit
 
-hasXCompositeOverlayExtension.exit.thread:        ; preds = %52, %60
+hasXCompositeOverlayExtension.exit.thread:        ; preds = %60, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -623,7 +623,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   br i1 %.not163, label %227, label %.sink.split
 
 .sink.split:                                      ; preds = %222, %192, %119
-  %.sink = phi ptr [ %173, %192 ], [ %100, %119 ], [ %203, %222 ]
+  %.sink = phi ptr [ %100, %119 ], [ %173, %192 ], [ %203, %222 ]
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 104
   %225 = load ptr, ptr %224, align 8

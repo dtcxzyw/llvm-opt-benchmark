@@ -1013,16 +1013,16 @@ terminate.lpad.i100:                              ; preds = %_ZNK8proxygen15HPAC
   unreachable
 
 if.end68.sink.split:                              ; preds = %call.i.i.i.i.noexc.i101, %call.i.i.i.i.noexc.i80, %call.i.i.i.i.noexc.i37
-  %.sink315 = phi ptr [ %35, %call.i.i.i.i.noexc.i80 ], [ %19, %call.i.i.i.i.noexc.i37 ], [ %42, %call.i.i.i.i.noexc.i101 ]
-  %agg.tmp44.sink.ph = phi ptr [ %agg.tmp44, %call.i.i.i.i.noexc.i80 ], [ %agg.tmp19, %call.i.i.i.i.noexc.i37 ], [ %agg.tmp57, %call.i.i.i.i.noexc.i101 ]
-  %.ph = phi i32 [ %conv54, %call.i.i.i.i.noexc.i80 ], [ %conv27, %call.i.i.i.i.noexc.i37 ], [ %38, %call.i.i.i.i.noexc.i101 ]
+  %.sink315 = phi ptr [ %19, %call.i.i.i.i.noexc.i37 ], [ %35, %call.i.i.i.i.noexc.i80 ], [ %42, %call.i.i.i.i.noexc.i101 ]
+  %agg.tmp44.sink.ph = phi ptr [ %agg.tmp19, %call.i.i.i.i.noexc.i37 ], [ %agg.tmp44, %call.i.i.i.i.noexc.i80 ], [ %agg.tmp57, %call.i.i.i.i.noexc.i101 ]
+  %.ph = phi i32 [ %conv27, %call.i.i.i.i.noexc.i37 ], [ %conv54, %call.i.i.i.i.noexc.i80 ], [ %38, %call.i.i.i.i.noexc.i101 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink315) #26
   call void @_ZdlPv(ptr noundef nonnull %.sink315) #28
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end68.sink.split, %call.i.i.i.i.noexc.i101, %invoke.cont63, %call.i.i.i.i.noexc.i80, %invoke.cont50, %call.i.i.i.i.noexc.i37, %invoke.cont23
-  %agg.tmp44.sink = phi ptr [ %agg.tmp57, %call.i.i.i.i.noexc.i101 ], [ %agg.tmp57, %invoke.cont63 ], [ %agg.tmp19, %invoke.cont23 ], [ %agg.tmp19, %call.i.i.i.i.noexc.i37 ], [ %agg.tmp44.sink.ph, %if.end68.sink.split ], [ %agg.tmp44, %invoke.cont50 ], [ %agg.tmp44, %call.i.i.i.i.noexc.i80 ]
-  %45 = phi i32 [ %38, %call.i.i.i.i.noexc.i101 ], [ %38, %invoke.cont63 ], [ %conv27, %invoke.cont23 ], [ %conv27, %call.i.i.i.i.noexc.i37 ], [ %.ph, %if.end68.sink.split ], [ %conv54, %invoke.cont50 ], [ %conv54, %call.i.i.i.i.noexc.i80 ]
+  %agg.tmp44.sink = phi ptr [ %agg.tmp19, %invoke.cont23 ], [ %agg.tmp19, %call.i.i.i.i.noexc.i37 ], [ %agg.tmp44, %invoke.cont50 ], [ %agg.tmp44, %call.i.i.i.i.noexc.i80 ], [ %agg.tmp57, %invoke.cont63 ], [ %agg.tmp57, %call.i.i.i.i.noexc.i101 ], [ %agg.tmp44.sink.ph, %if.end68.sink.split ]
+  %45 = phi i32 [ %conv27, %invoke.cont23 ], [ %conv27, %call.i.i.i.i.noexc.i37 ], [ %conv54, %invoke.cont50 ], [ %conv54, %call.i.i.i.i.noexc.i80 ], [ %38, %invoke.cont63 ], [ %38, %call.i.i.i.i.noexc.i101 ], [ %.ph, %if.end68.sink.split ]
   store ptr null, ptr %agg.tmp44.sink, align 8
   invoke void @_ZNK8proxygen11HTTPMessage9getMethodEv(ptr nonnull sret(%"class.folly::Optional.89") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(616) %msg)
           to label %invoke.cont71 unwind label %terminate.lpad
@@ -1411,14 +1411,14 @@ terminate.lpad.i217:                              ; preds = %_ZNK8proxygen15HPAC
   unreachable
 
 if.end150.sink.split:                             ; preds = %call.i.i.i.i.noexc.i218, %call.i.i.i.i.noexc.i192, %call.i.i.i.i.noexc.i169
-  %.sink317 = phi ptr [ %80, %call.i.i.i.i.noexc.i192 ], [ %73, %call.i.i.i.i.noexc.i169 ], [ %98, %call.i.i.i.i.noexc.i218 ]
-  %agg.tmp124.sink.ph = phi ptr [ %agg.tmp124, %call.i.i.i.i.noexc.i192 ], [ %agg.tmp110, %call.i.i.i.i.noexc.i169 ], [ %agg.tmp135, %call.i.i.i.i.noexc.i218 ]
+  %.sink317 = phi ptr [ %73, %call.i.i.i.i.noexc.i169 ], [ %80, %call.i.i.i.i.noexc.i192 ], [ %98, %call.i.i.i.i.noexc.i218 ]
+  %agg.tmp124.sink.ph = phi ptr [ %agg.tmp110, %call.i.i.i.i.noexc.i169 ], [ %agg.tmp124, %call.i.i.i.i.noexc.i192 ], [ %agg.tmp135, %call.i.i.i.i.noexc.i218 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink317) #26
   call void @_ZdlPv(ptr noundef nonnull %.sink317) #28
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end150.sink.split, %call.i.i.i.i.noexc.i218, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, %call.i.i.i.i.noexc.i192, %invoke.cont128, %call.i.i.i.i.noexc.i169, %invoke.cont114
-  %agg.tmp124.sink = phi ptr [ %agg.tmp135, %call.i.i.i.i.noexc.i218 ], [ %agg.tmp135, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit ], [ %agg.tmp110, %invoke.cont114 ], [ %agg.tmp110, %call.i.i.i.i.noexc.i169 ], [ %agg.tmp124.sink.ph, %if.end150.sink.split ], [ %agg.tmp124, %invoke.cont128 ], [ %agg.tmp124, %call.i.i.i.i.noexc.i192 ]
+  %agg.tmp124.sink = phi ptr [ %agg.tmp110, %invoke.cont114 ], [ %agg.tmp110, %call.i.i.i.i.noexc.i169 ], [ %agg.tmp124, %invoke.cont128 ], [ %agg.tmp124, %call.i.i.i.i.noexc.i192 ], [ %agg.tmp135, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit ], [ %agg.tmp135, %call.i.i.i.i.noexc.i218 ], [ %agg.tmp124.sink.ph, %if.end150.sink.split ]
   store ptr null, ptr %agg.tmp124.sink, align 8
   store i8 0, ptr %hasDateHeader, align 1
   %headers_.i228 = getelementptr inbounds nuw i8, ptr %msg, i64 480
@@ -1615,7 +1615,7 @@ terminate.lpad:                                   ; preds = %invoke.cont.i257.in
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %lpad.i205, %if.else.i.i.i277, %if.end.sink.split.i.i.i280, %lpad.i256, %terminate.lpad, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad.i ], [ %83, %if.end.sink.split.i.i.i280 ], [ %83, %lpad.i205 ], [ %83, %if.else.i.i.i277 ], [ %128, %terminate.lpad ], [ %119, %lpad.i256 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad.i ], [ %83, %lpad.i205 ], [ %83, %if.else.i.i.i277 ], [ %83, %if.end.sink.split.i.i.i280 ], [ %128, %terminate.lpad ], [ %119, %lpad.i256 ]
   %129 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %129) #27
   unreachable
@@ -2972,7 +2972,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i = phi i64 [ %add, %_ZN5folly10canNallocxEv.exit.i ], [ %cond.i, %if.end2.i ]
+  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i = call noalias ptr @malloc(i64 noundef %retval.0.i) #31
   %tobool.not.i6 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i6, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit
@@ -3069,7 +3069,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i = phi i64 [ %add, %_ZN5folly10canNallocxEv.exit.i ], [ %cond.i, %if.end2.i ]
+  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
   %4 = load ptr, ptr %this, align 8
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %size_, align 8
@@ -3330,7 +3330,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %if.end7, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i9 = phi i64 [ 0, %if.end7 ], [ %cond.i, %if.end2.i ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i9 = phi i64 [ %cond.i, %if.end2.i ], [ 0, %if.end7 ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i10 = call noalias ptr @malloc(i64 noundef %retval.0.i9) #31
   %tobool.not.i11 = icmp eq ptr %call.i10, null
   br i1 %tobool.not.i11, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit
@@ -3485,7 +3485,7 @@ if.end18:                                         ; preds = %init.end
   br label %return
 
 return:                                           ; preds = %init.end, %if.end, %entry, %if.end18
-  %retval.0 = phi i1 [ false, %init.end ], [ false, %entry ], [ false, %if.end ], [ %cmp19, %if.end18 ]
+  %retval.0 = phi i1 [ %cmp19, %if.end18 ], [ false, %entry ], [ false, %if.end ], [ false, %init.end ]
   ret i1 %retval.0
 }
 
@@ -3585,7 +3585,7 @@ _ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5: ; preds = %if.end6
   br label %return
 
 return:                                           ; preds = %init.end, %entry, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %init.end ]
+  %retval.0 = phi i1 [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %entry ], [ false, %init.end ]
   ret i1 %retval.0
 }
 
@@ -3706,7 +3706,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %if.end7, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i5 = phi i64 [ 0, %if.end7 ], [ %cond.i, %if.end2.i ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i5 = phi i64 [ %cond.i, %if.end2.i ], [ 0, %if.end7 ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 -8
   %add11 = add i64 %currentSize, 9
   %sub.i = sub i64 %currentCapacity, %currentSize

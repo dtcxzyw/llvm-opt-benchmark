@@ -785,7 +785,7 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
   br label %_ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit.thread
 
 _ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit.thread: ; preds = %63, %60, %60, %60, %60, %60, %60, %19, %_ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit, %58
-  %.0 = phi i32 [ 0, %60 ], [ %59, %58 ], [ %26, %19 ], [ %17, %_ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit ], [ %70, %63 ], [ 0, %60 ], [ 0, %60 ], [ 0, %60 ], [ 0, %60 ], [ 0, %60 ]
+  %.0 = phi i32 [ %59, %58 ], [ %26, %19 ], [ %17, %_ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit ], [ %70, %63 ], [ 0, %60 ], [ 0, %60 ], [ 0, %60 ], [ 0, %60 ], [ 0, %60 ], [ 0, %60 ]
   ret i32 %.0
 }
 
@@ -1107,7 +1107,7 @@ _ZNK4llvm12MachineInstr11isTransientEv.exit.thread: ; preds = %174, %174, %174, 
   br label %181
 
 181:                                              ; preds = %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread, %_ZNK4llvm12MachineInstr11isTransientEv.exit, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit, %16, %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit48, %95
-  %.0 = phi i32 [ %9, %16 ], [ %111, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit48 ], [ %.sroa.0.0.extract.trunc, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ], [ %111, %95 ], [ %.3, %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit ], [ %.in.sroa.speculate.load.58.sroa.speculated, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread ], [ 0, %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread ], [ %9, %_ZNK4llvm12MachineInstr11isTransientEv.exit ]
+  %.0 = phi i32 [ %111, %95 ], [ %.3, %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit ], [ %111, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit48 ], [ %9, %16 ], [ %.in.sroa.speculate.load.58.sroa.speculated, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread ], [ %.sroa.0.0.extract.trunc, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ], [ 0, %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread ], [ %9, %_ZNK4llvm12MachineInstr11isTransientEv.exit ]
   ret i32 %.0
 }
 
@@ -1411,7 +1411,7 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
   br i1 %.not24, label %.critedge26, label %77
 
 .critedge26:                                      ; preds = %79, %77, %62, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit, %30, %32, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %32 ], [ %31, %30 ], [ 0, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit ], [ 0, %62 ], [ 1, %79 ], [ 0, %77 ]
+  %.0 = phi i32 [ 1, %4 ], [ %31, %30 ], [ 0, %32 ], [ 0, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit ], [ 0, %62 ], [ 1, %79 ], [ 0, %77 ]
   ret i32 %.0
 }
 

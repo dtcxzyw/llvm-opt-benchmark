@@ -1382,7 +1382,7 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   br label %68
 
 68:                                               ; preds = %66, %64
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %67, %66 ]
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #30
   br label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit22
 
@@ -1405,7 +1405,7 @@ _ZN7mitsuba3refINS_6ObjectEED2Ev.exit:            ; preds = %41, %45, %_ZN7mitsu
   ret void
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit22:          ; preds = %48, %46, %72, %68, %62, %17
-  %.pn17.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn, %68 ], [ %63, %62 ], [ %73, %72 ], [ %.pn17, %46 ], [ %.pn17, %48 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ], [ %73, %72 ], [ %18, %17 ], [ %.pn17, %46 ], [ %.pn17, %48 ]
   resume { ptr, i32 } %.pn17.pn
 }
 
@@ -2207,8 +2207,8 @@ default.unreachable1176:                          ; preds = %245, %524
   unreachable
 
 248:                                              ; preds = %245, %247, %246
-  %.019.i988 = phi float [ %208, %247 ], [ %218, %246 ], [ %228, %245 ]
-  %.0.i = phi float [ %211, %247 ], [ %221, %246 ], [ %231, %245 ]
+  %.019.i988 = phi float [ %218, %246 ], [ %208, %247 ], [ %228, %245 ]
+  %.0.i = phi float [ %221, %246 ], [ %211, %247 ], [ %231, %245 ]
   %249 = tail call contract noundef float @llvm.fabs.f32(float %.0.i)
   %250 = icmp eq i64 %.09141155, %232
   %spec.select = select i1 %250, float %.019.i988, float %.011341153
@@ -2586,8 +2586,8 @@ default.unreachable1176:                          ; preds = %245, %524
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit
 
 _ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit: ; preds = %543, %534, %525
-  %.019.i1014 = phi float [ %548, %543 ], [ %530, %525 ], [ %539, %534 ]
-  %.0.i1015 = phi float [ %551, %543 ], [ %533, %525 ], [ %542, %534 ]
+  %.019.i1014 = phi float [ %530, %525 ], [ %539, %534 ], [ %548, %543 ]
+  %.0.i1015 = phi float [ %533, %525 ], [ %542, %534 ], [ %551, %543 ]
   %552 = call contract noundef float @llvm.fabs.f32(float %.0.i1015)
   %553 = fmul contract float %552, %.sroa.01057.4.vec.extract
   %554 = fmul contract float %552, %.sroa.01057.0.vec.extract
@@ -3406,8 +3406,8 @@ define weak_odr <2 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   br label %38
 
 38:                                               ; preds = %4, %27, %16, %5
-  %.019 = phi float [ %34, %27 ], [ %12, %5 ], [ %23, %16 ], [ %1, %4 ]
-  %.0 = phi float [ %37, %27 ], [ %15, %5 ], [ %26, %16 ], [ %2, %4 ]
+  %.019 = phi float [ %12, %5 ], [ %23, %16 ], [ %34, %27 ], [ %1, %4 ]
+  %.0 = phi float [ %15, %5 ], [ %26, %16 ], [ %37, %27 ], [ %2, %4 ]
   %39 = tail call contract noundef float @llvm.fabs.f32(float %.0)
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %.019, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %39, i64 1
@@ -4175,8 +4175,8 @@ default.unreachable488:                           ; preds = %410
   unreachable
 
 439:                                              ; preds = %430, %421, %412
-  %.019.i = phi float [ %435, %430 ], [ %417, %412 ], [ %426, %421 ]
-  %.0.i = phi float [ %438, %430 ], [ %420, %412 ], [ %429, %421 ]
+  %.019.i = phi float [ %417, %412 ], [ %426, %421 ], [ %435, %430 ]
+  %.0.i = phi float [ %420, %412 ], [ %429, %421 ], [ %438, %430 ]
   %440 = call contract noundef float @llvm.fabs.f32(float %.0.i)
   %441 = fmul contract float %440, %.sroa.0415.4.vec.extract
   %442 = fmul contract float %440, %.sroa.0415.0.vec.extract
@@ -4752,8 +4752,8 @@ default.unreachable213:                           ; preds = %226
   unreachable
 
 _ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit: ; preds = %246, %237, %228
-  %.019.i = phi float [ %251, %246 ], [ %233, %228 ], [ %242, %237 ]
-  %.0.i = phi float [ %254, %246 ], [ %236, %228 ], [ %245, %237 ]
+  %.019.i = phi float [ %233, %228 ], [ %242, %237 ], [ %251, %246 ]
+  %.0.i = phi float [ %236, %228 ], [ %245, %237 ], [ %254, %246 ]
   %255 = call contract noundef float @llvm.fabs.f32(float %.0.i)
   %256 = fmul contract float %255, %.sroa.0172.4.vec.extract
   %257 = fmul contract float %255, %.sroa.0172.0.vec.extract
@@ -4792,7 +4792,7 @@ _ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scat
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit167, %5, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
-  %.0 = phi float [ %spec.select, %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit167 ], [ 0.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit ], [ 0.000000e+00, %5 ]
+  %.0 = phi float [ 0.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit ], [ 0.000000e+00, %5 ], [ %spec.select, %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit167 ]
   ret float %.0
 }
 
@@ -5330,8 +5330,8 @@ default.unreachable514:                           ; preds = %415
   unreachable
 
 _ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit: ; preds = %435, %426, %417
-  %.019.i412 = phi float [ %440, %435 ], [ %422, %417 ], [ %431, %426 ]
-  %.0.i = phi float [ %443, %435 ], [ %425, %417 ], [ %434, %426 ]
+  %.019.i412 = phi float [ %422, %417 ], [ %431, %426 ], [ %440, %435 ]
+  %.0.i = phi float [ %425, %417 ], [ %434, %426 ], [ %443, %435 ]
   %444 = call contract noundef float @llvm.fabs.f32(float %.0.i)
   %445 = fmul contract float %444, %.sroa.0435.4.vec.extract
   %446 = fmul contract float %444, %.sroa.0435.0.vec.extract
@@ -5772,7 +5772,7 @@ _ZN7mitsuba4warp6detail2i0IfEET_S3_.exit:         ; preds = %24
   br label %_ZN5drjit4sinhIfEET_RKS1_.exit
 
 _ZN5drjit4sinhIfEET_RKS1_.exit:                   ; preds = %.thread.i, %60
-  %.056..055.i = phi float [ %59, %.thread.i ], [ %66, %60 ]
+  %.056..055.i = phi float [ %66, %60 ], [ %59, %.thread.i ]
   %foldExtExtBinop = fmul contract <4 x float> %7, %10
   %67 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %68 = fneg contract float %3
@@ -6499,7 +6499,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -7630,7 +7630,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -7705,7 +7705,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
   ret ptr %.069
 }
 

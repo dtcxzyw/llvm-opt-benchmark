@@ -3032,7 +3032,7 @@ define hidden void @_ZN6ignore3dir6Ignore11add_parents17h13a6565abc0fe2e0E(ptr n
   br label %188
 
 "_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17h65869b1c177493c1E.exit": ; preds = %78, %"_ZN4core3ptr48drop_in_place$LT$ignore..PartialErrorBuilder$GT$17h25833fe2b1c04031E.exit", %92
-  %.pn86 = phi { ptr, i32 } [ %.pn81.pn, %"_ZN4core3ptr48drop_in_place$LT$ignore..PartialErrorBuilder$GT$17h25833fe2b1c04031E.exit" ], [ %.pn81.pn, %92 ], [ %79, %78 ]
+  %.pn86 = phi { ptr, i32 } [ %.pn81.pn, %92 ], [ %.pn81.pn, %"_ZN4core3ptr48drop_in_place$LT$ignore..PartialErrorBuilder$GT$17h25833fe2b1c04031E.exit" ], [ %79, %78 ]
   resume { ptr, i32 } %.pn86
 
 63:                                               ; preds = %47
@@ -3598,7 +3598,7 @@ _ZN3std4sync6poison4Flag5guard17h3499cbc1fb4e261dE.llvm.5691774266493119662.exit
   br label %242
 
 .critedge98:                                      ; preds = %365, %.body184.thread, %334, %310, %.critedge97, %278, %263
-  %.pn74 = phi { ptr, i32 } [ %279, %278 ], [ %.pn72259, %.critedge97 ], [ %lpad.thr_comm.split-lp, %310 ], [ %264, %263 ], [ %335, %334 ], [ %.pn, %.body184.thread ], [ %.pn, %365 ]
+  %.pn74 = phi { ptr, i32 } [ %279, %278 ], [ %.pn72259, %.critedge97 ], [ %264, %263 ], [ %lpad.thr_comm.split-lp, %310 ], [ %335, %334 ], [ %.pn, %.body184.thread ], [ %.pn, %365 ]
   invoke void @"_ZN4core3ptr186drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$std..ffi..os_str..OsString$C$alloc..sync..Weak$LT$ignore..dir..IgnoreInner$GT$$GT$$GT$$GT$17h8245a587093f06adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #34
           to label %.body unwind label %189
 
@@ -4201,8 +4201,8 @@ _ZN3std4path4Path4join17h7862befbb5430f8fE.exit:  ; preds = %328
   br label %.thread286
 
 .thread286:                                       ; preds = %458, %462
-  %469 = phi i8 [ %460, %458 ], [ %.pre.i180, %462 ]
-  %.sroa.4.0.ph.i = phi i64 [ %.sroa.6.1.i.i.i, %458 ], [ %468, %462 ]
+  %469 = phi i8 [ %.pre.i180, %462 ], [ %460, %458 ]
+  %.sroa.4.0.ph.i = phi i64 [ %468, %462 ], [ %.sroa.6.1.i.i.i, %458 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.016.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016.i, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !822
   call void @llvm.experimental.noalias.scope.decl(metadata !912)
@@ -4353,7 +4353,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.12875954175451687458.exit
           to label %.body184.thread unwind label %189
 
 .thread266:                                       ; preds = %321, %342, %301, %.thread270
-  %.pn72259 = phi { ptr, i32 } [ %302, %301 ], [ %lpad.thr_comm, %.thread270 ], [ %322, %321 ], [ %343, %342 ]
+  %.pn72259 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread270 ], [ %302, %301 ], [ %322, %321 ], [ %343, %342 ]
   %519 = getelementptr inbounds nuw i8, ptr %30, i64 448
   call void @llvm.experimental.noalias.scope.decl(metadata !944)
   call void @llvm.experimental.noalias.scope.decl(metadata !947)
@@ -5206,7 +5206,7 @@ _ZN3std4path4Path4join17h8f08fbb6e8b6d12bE.exit:  ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1125
   br label %139
 
-147:                                              ; preds = %134, %_ZN3std4path4Path4join17h8f08fbb6e8b6d12bE.exit, %130
+147:                                              ; preds = %_ZN3std4path4Path4join17h8f08fbb6e8b6d12bE.exit, %130, %134
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #34
@@ -5680,7 +5680,7 @@ _ZN3std4path4Path4join17h8f08fbb6e8b6d12bE.exit:  ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1223
   br label %140
 
-148:                                              ; preds = %135, %_ZN3std4path4Path4join17h8f08fbb6e8b6d12bE.exit, %131
+148:                                              ; preds = %_ZN3std4path4Path4join17h8f08fbb6e8b6d12bE.exit, %131, %135
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #34

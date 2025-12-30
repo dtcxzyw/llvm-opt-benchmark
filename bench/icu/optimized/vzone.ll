@@ -178,7 +178,7 @@ define noundef signext i8 @vzone_getTZURL_77(ptr noundef nonnull %0, ptr noundef
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %7, %19, %21
-  %.0.i = phi ptr [ %23, %21 ], [ %20, %19 ], [ null, %7 ]
+  %.0.i = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %7 ]
   %24 = sext i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %15, ptr align 2 %.0.i, i64 %24, i1 false)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #7
@@ -302,7 +302,7 @@ define void @vzone_write_77(ptr noundef nonnull %0, ptr noundef nonnull writeonl
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %17, %22, %24
-  %.0.i = phi ptr [ %26, %24 ], [ %23, %22 ], [ null, %17 ]
+  %.0.i = phi ptr [ %23, %22 ], [ %26, %24 ], [ null, %17 ]
   %27 = load i32, ptr %2, align 4, !tbaa !13
   %28 = sext i32 %27 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %16, ptr align 2 %.0.i, i64 %28, i1 false)
@@ -368,7 +368,7 @@ define void @vzone_writeFromStart_77(ptr noundef nonnull %0, double noundef %1, 
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %18, %23, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %18 ]
+  %.0.i = phi ptr [ %24, %23 ], [ %27, %25 ], [ null, %18 ]
   %28 = load i32, ptr %3, align 4, !tbaa !13
   %29 = sext i32 %28 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %17, ptr align 2 %.0.i, i64 %29, i1 false)
@@ -431,7 +431,7 @@ define void @vzone_writeSimple_77(ptr noundef nonnull %0, double noundef %1, ptr
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %18, %23, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %18 ]
+  %.0.i = phi ptr [ %24, %23 ], [ %27, %25 ], [ null, %18 ]
   %28 = load i32, ptr %3, align 4, !tbaa !13
   %29 = sext i32 %28 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %17, ptr align 2 %.0.i, i64 %29, i1 false)

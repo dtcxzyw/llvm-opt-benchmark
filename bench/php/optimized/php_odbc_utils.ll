@@ -42,7 +42,7 @@ define dso_local noundef zeroext i1 @php_odbc_connstr_is_quoted(ptr noundef read
   br i1 %.not19.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %12, %8, %3, %1
-  %.016 = phi i1 [ false, %1 ], [ true, %3 ], [ false, %8 ], [ true, %12 ]
+  %.016 = phi i1 [ false, %1 ], [ true, %3 ], [ true, %12 ], [ false, %8 ]
   ret i1 %.016
 }
 

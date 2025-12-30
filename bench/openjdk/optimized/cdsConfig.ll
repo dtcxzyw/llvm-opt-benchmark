@@ -904,7 +904,7 @@ _ZL34find_any_unsupported_module_optionv.exit:    ; preds = %5
   br label %_ZL34find_any_unsupported_module_optionv.exit.thread
 
 _ZL34find_any_unsupported_module_optionv.exit.thread: ; preds = %10, %16, %17, %19, %0
-  %.0 = phi i1 [ true, %16 ], [ false, %0 ], [ true, %19 ], [ true, %17 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %0 ], [ true, %19 ], [ true, %17 ], [ true, %16 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -1061,7 +1061,7 @@ _ZL34find_any_unsupported_module_optionv.exit.i:  ; preds = %50
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.24, ptr noundef nonnull %58)
   br label %65
 
-65:                                               ; preds = %61, %64, %62
+65:                                               ; preds = %64, %62, %61
   store i8 0, ptr @UseSharedSpaces, align 1
   br label %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit
 
@@ -1088,7 +1088,7 @@ _ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit: ; preds = %55, %45
   br label %76
 
 76:                                               ; preds = %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, %75, %73, %38, %36, %34, %32, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %38 ], [ false, %34 ], [ false, %32 ], [ false, %36 ], [ true, %73 ], [ true, %75 ], [ true, %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit ]
+  %.0 = phi i1 [ false, %18 ], [ false, %32 ], [ false, %34 ], [ false, %36 ], [ false, %38 ], [ true, %73 ], [ true, %75 ], [ true, %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit ]
   ret i1 %.0
 }
 
@@ -1138,7 +1138,7 @@ _ZN17ArchiveHeapLoader7can_useEv.exit:            ; preds = %8
   br label %_ZN17ArchiveHeapLoader7can_useEv.exit.thread
 
 _ZN17ArchiveHeapLoader7can_useEv.exit.thread:     ; preds = %8, %_ZN17ArchiveHeapLoader7can_useEv.exit, %3, %0, %15
-  %.0 = phi i1 [ true, %0 ], [ false, %3 ], [ false, %15 ], [ true, %_ZN17ArchiveHeapLoader7can_useEv.exit ], [ true, %8 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %0 ], [ false, %3 ], [ true, %_ZN17ArchiveHeapLoader7can_useEv.exit ], [ true, %8 ]
   ret i1 %.0
 }
 

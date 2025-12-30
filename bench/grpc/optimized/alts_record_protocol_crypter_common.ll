@@ -53,7 +53,7 @@ define noundef range(i32 0, 4) i32 @_Z18input_sanity_checkPK28alts_record_protoc
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %17, %16, %12, %11, %7, %6, %14
-  %.0 = phi i32 [ 0, %14 ], [ 3, %7 ], [ 3, %12 ], [ 3, %6 ], [ 3, %11 ], [ 3, %16 ], [ 3, %17 ]
+  %.0 = phi i32 [ 0, %14 ], [ 3, %6 ], [ 3, %7 ], [ 3, %11 ], [ 3, %12 ], [ 3, %16 ], [ 3, %17 ]
   ret i32 %.0
 }
 

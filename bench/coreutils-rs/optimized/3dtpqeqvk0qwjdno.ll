@@ -1228,7 +1228,7 @@ _ZN6uucore8features5perms5chown17h71e4b0dd24dee6fcE.exit: ; preds = %198, %196
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit unwind label %227
 
 .body187:                                         ; preds = %.body.i244, %.body.i, %227, %521, %517, %.body257, %419, %.body195, %235
-  %.pn172 = phi { ptr, i32 } [ %522, %521 ], [ %.pn170, %517 ], [ %.pn168, %.body257 ], [ %236, %235 ], [ %.pn166, %419 ], [ %.pn158.pn.pn, %.body195 ], [ %260, %.body.i ], [ %228, %227 ], [ %447, %.body.i244 ]
+  %.pn172 = phi { ptr, i32 } [ %522, %521 ], [ %.pn170, %517 ], [ %.pn168, %.body257 ], [ %.pn166, %419 ], [ %.pn158.pn.pn, %.body195 ], [ %236, %235 ], [ %228, %227 ], [ %260, %.body.i ], [ %447, %.body.i244 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5fc32887a0cc20aaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %162) #17
           to label %.thread unwind label %430
 
@@ -3817,8 +3817,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit421: ; preds = %908
   store i64 0, ptr %0, align 8
   br label %525
 
-.thread:                                          ; preds = %618, %.body289, %935, %931, %.body413, %837, %.body346, %656, %653, %640, %.body.i330, %.body.i276, %.body.i397, %.thread620, %.body187, %175, %188, %191, %205
-  %.pn174.pn531 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread620 ], [ %206, %205 ], [ %176, %175 ], [ %189, %191 ], [ %189, %188 ], [ %.pn172, %.body187 ], [ %863, %.body.i397 ], [ %550, %.body.i276 ], [ %680, %.body.i330 ], [ %641, %640 ], [ %654, %653 ], [ %657, %656 ], [ %.pn144.pn.pn, %.body346 ], [ %.pn152, %837 ], [ %.pn154, %.body413 ], [ %.pn156, %931 ], [ %936, %935 ], [ %.pn, %.body289 ], [ %.pn142, %618 ]
+.thread:                                          ; preds = %935, %931, %.body413, %837, %.body346, %656, %653, %640, %618, %.body289, %.body.i276, %.body.i330, %.body.i397, %.thread620, %.body187, %175, %188, %191, %205
+  %.pn174.pn531 = phi { ptr, i32 } [ %206, %205 ], [ %176, %175 ], [ %189, %191 ], [ %189, %188 ], [ %.pn172, %.body187 ], [ %lpad.thr_comm, %.thread620 ], [ %863, %.body.i397 ], [ %680, %.body.i330 ], [ %550, %.body.i276 ], [ %.pn, %.body289 ], [ %.pn142, %618 ], [ %641, %640 ], [ %654, %653 ], [ %657, %656 ], [ %.pn144.pn.pn, %.body346 ], [ %.pn152, %837 ], [ %.pn154, %.body413 ], [ %.pn156, %931 ], [ %936, %935 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1966f919ba4162f7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %163) #17
           to label %204 unwind label %430
 }

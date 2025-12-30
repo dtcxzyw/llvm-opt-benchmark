@@ -946,7 +946,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
   br label %205
 
 205:                                              ; preds = %.loopexit, %.loopexit.split-lp, %203, %202, %194, %167, %155, %153, %151, %120, %114, %102, %97
-  %.pn74.pn = phi { ptr, i32 } [ %.pn74, %102 ], [ %.pn72, %97 ], [ %.pn68.pn.pn, %167 ], [ %121, %120 ], [ %204, %203 ], [ %.pn63.pn, %202 ], [ %.pn61, %194 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %115, %114 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn74.pn = phi { ptr, i32 } [ %.pn74, %102 ], [ %.pn72, %97 ], [ %.pn68.pn.pn, %167 ], [ %204, %203 ], [ %.pn63.pn, %202 ], [ %.pn61, %194 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %115, %114 ], [ %121, %120 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #16
   br label %206
 
@@ -1461,7 +1461,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
 ._crit_edge.us:                                   ; preds = %92
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %.sroa.2103.0.insert.ext
-  br i1 %exitcond162.not, label %.preheader104, label %.preheader105.us, !llvm.loop !69
+  br i1 %exitcond162.not, label %.preheader104.loopexit, label %.preheader105.us, !llvm.loop !69
 
 99:                                               ; preds = %6
   %100 = landingpad { ptr, i32 }
@@ -1482,7 +1482,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %152
 
-.preheader104:                                    ; preds = %._crit_edge.us
+.preheader104.loopexit:                           ; preds = %._crit_edge.us
   %105 = uitofp nneg i32 %.274.us to float
   %106 = uitofp nneg i32 %spec.select101.us to float
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1495,8 +1495,8 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader104, %._crit_edge.us140
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %._crit_edge.us140 ], [ 0, %.preheader104 ]
+.preheader.us:                                    ; preds = %.preheader104.loopexit, %._crit_edge.us140
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %._crit_edge.us140 ], [ 0, %.preheader104.loopexit ]
   br label %115
 
 115:                                              ; preds = %.preheader.us, %115

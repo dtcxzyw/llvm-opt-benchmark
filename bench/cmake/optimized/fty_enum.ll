@@ -465,7 +465,7 @@ Compare.exit62:                                   ; preds = %.loopexit42.i54.loo
   br i1 %.not4277, label %.critedge, label %.critedge3.thread84
 
 .critedge3.thread84:                              ; preds = %39, %53, %29, %25, %95, %116, %109, %83, %75, %79, %.split.us, %.critedge3.thread
-  %.02879 = phi ptr [ %.1.lcssa, %.critedge3.thread ], [ %87, %95 ], [ %12, %29 ], [ %12, %25 ], [ %.us-phi139, %.split.us ], [ %87, %109 ], [ %32, %53 ], [ %63, %83 ], [ %63, %79 ], [ %63, %75 ], [ %87, %116 ], [ %32, %39 ]
+  %.02879 = phi ptr [ %.1.lcssa, %.critedge3.thread ], [ %.us-phi139, %.split.us ], [ %63, %79 ], [ %63, %75 ], [ %63, %83 ], [ %87, %109 ], [ %87, %116 ], [ %87, %95 ], [ %12, %25 ], [ %12, %29 ], [ %32, %53 ], [ %32, %39 ]
   %120 = tail call i32 @set_field_buffer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %.02879) #10
   br label %.critedge
 

@@ -3381,7 +3381,7 @@ _Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filte
   br label %122
 
 121:                                              ; preds = %.thread, %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEEvPT_.exit
-  %.1 = phi ptr [ %82, %.thread ], [ %118, %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEEvPT_.exit ]
+  %.1 = phi ptr [ %118, %_Z7deallocIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_filter_fnEEvPT_.exit ], [ %82, %.thread ]
   ret ptr %.1
 
 122:                                              ; preds = %119, %83

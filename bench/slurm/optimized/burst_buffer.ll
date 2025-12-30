@@ -561,7 +561,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_state_pack(i32 noundef %0, 
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %33, %34
-  %.029.lcssa4650 = phi i32 [ %24, %34 ], [ %24, %33 ], [ 0, %._crit_edge.thread ]
+  %.029.lcssa4650 = phi i32 [ %24, %33 ], [ %24, %34 ], [ 0, %._crit_edge.thread ]
   %36 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #11
   call void @slurm_diff_tv_str(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 20, ptr noundef nonnull @__func__.bb_g_state_pack, i64 noundef 0, ptr noundef nonnull %7) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1617,7 +1617,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_stage_out(ptr noun
   br label %40
 
 40:                                               ; preds = %31, %33, %37, %1, %10
-  %.0 = phi i32 [ 1, %1 ], [ 1, %10 ], [ %.021.lcssa, %37 ], [ %.021.lcssa, %33 ], [ 0, %31 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %1 ], [ %.021.lcssa, %37 ], [ %.021.lcssa, %33 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

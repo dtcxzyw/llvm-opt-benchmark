@@ -100,8 +100,8 @@ define { ptr, i8 } @_ZNK4LIEF12MemoryStream7read_atEmmm(ptr noundef nonnull read
   br label %25
 
 25:                                               ; preds = %4, %22, %.critedge
-  %.sroa.012.0 = phi ptr [ %23, %22 ], [ %24, %.critedge ], [ inttoptr (i64 7 to ptr), %4 ]
-  %.sroa.4.0 = phi i8 [ 1, %22 ], [ 1, %.critedge ], [ 0, %4 ]
+  %.sroa.012.0 = phi ptr [ %24, %.critedge ], [ %23, %22 ], [ inttoptr (i64 7 to ptr), %4 ]
+  %.sroa.4.0 = phi i8 [ 1, %.critedge ], [ 1, %22 ], [ 0, %4 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.012.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -166,7 +166,7 @@ define linkonce_odr hidden i64 @_ZN4LIEF12BinaryStream9peek_dataERSt6vectorIhSaI
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %12, %7, %5
-  %.sroa.3.0 = phi i64 [ %28, %22 ], [ 4294967297, %5 ], [ 1, %12 ], [ 1, %7 ]
+  %.sroa.3.0 = phi i64 [ 4294967297, %5 ], [ 1, %7 ], [ 1, %12 ], [ %28, %22 ]
   ret i64 %.sroa.3.0
 }
 
@@ -318,7 +318,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !23
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 

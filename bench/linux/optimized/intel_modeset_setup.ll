@@ -980,11 +980,11 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   br label %.thread74
 
 .thread74:                                        ; preds = %.thread71, %566, %596, %587, %583, %581, %572
-  %601 = phi ptr [ %.pre107, %596 ], [ %560, %587 ], [ %560, %583 ], [ %560, %572 ], [ %560, %581 ], [ %560, %.thread71 ], [ %560, %566 ]
-  %602 = phi ptr [ %568, %596 ], [ %568, %587 ], [ %568, %583 ], [ %568, %572 ], [ %568, %581 ], [ null, %.thread71 ], [ null, %566 ]
-  %603 = phi ptr [ %570, %596 ], [ %570, %587 ], [ %570, %583 ], [ %570, %572 ], [ %570, %581 ], [ %565, %.thread71 ], [ %570, %566 ]
-  %604 = phi i1 [ false, %596 ], [ false, %587 ], [ false, %583 ], [ false, %572 ], [ false, %581 ], [ true, %.thread71 ], [ true, %566 ]
-  %605 = phi i8 [ 0, %596 ], [ 1, %587 ], [ 1, %583 ], [ %574, %572 ], [ 0, %581 ], [ 0, %.thread71 ], [ 0, %566 ]
+  %601 = phi ptr [ %.pre107, %596 ], [ %560, %587 ], [ %560, %572 ], [ %560, %581 ], [ %560, %583 ], [ %560, %.thread71 ], [ %560, %566 ]
+  %602 = phi ptr [ %568, %596 ], [ %568, %587 ], [ %568, %572 ], [ %568, %581 ], [ %568, %583 ], [ null, %.thread71 ], [ null, %566 ]
+  %603 = phi ptr [ %570, %596 ], [ %570, %587 ], [ %570, %572 ], [ %570, %581 ], [ %570, %583 ], [ %565, %.thread71 ], [ %570, %566 ]
+  %604 = phi i1 [ false, %596 ], [ false, %587 ], [ false, %572 ], [ false, %581 ], [ false, %583 ], [ true, %.thread71 ], [ true, %566 ]
+  %605 = phi i8 [ 0, %596 ], [ 1, %587 ], [ %574, %572 ], [ 0, %581 ], [ 1, %583 ], [ 0, %.thread71 ], [ 0, %566 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !5
   call void @drm_connector_list_iter_begin(ptr noundef %601, ptr noundef nonnull %4) #6

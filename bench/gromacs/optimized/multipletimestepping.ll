@@ -561,7 +561,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA33_KcEEERS5_DpOT_.exit
 
 .loopexit:                                        ; preds = %.loopexit.split.us, %.loopexit.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %114
-  %.pn43.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit, %.loopexit.split ]
+  %.pn43.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   br label %131
 
@@ -2731,7 +2731,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %560
 
 551:                                              ; preds = %523, %487, %423, %359, %298, %237, %175, %173
-  %.pn35.pn = phi { ptr, i32 } [ %174, %173 ], [ %176, %175 ], [ %488, %487 ], [ %424, %423 ], [ %360, %359 ], [ %299, %298 ], [ %238, %237 ], [ %524, %523 ]
+  %.pn35.pn = phi { ptr, i32 } [ %176, %175 ], [ %488, %487 ], [ %424, %423 ], [ %360, %359 ], [ %299, %298 ], [ %238, %237 ], [ %174, %173 ], [ %524, %523 ]
   %552 = load i8, ptr %111, align 8, !tbaa !175, !range !107, !noundef !108
   %553 = trunc nuw i8 %552 to i1
   br i1 %553, label %554, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit172

@@ -80,7 +80,7 @@ define void @dimatcopy_(ptr noundef readonly captures(none) %0, ptr noundef read
   br label %41
 
 41:                                               ; preds = %.sink.split, %27, %22, %23
-  %.pr164173.ph = phi i32 [ -1, %23 ], [ -1, %27 ], [ -1, %22 ], [ 8, %.sink.split ]
+  %.pr164173.ph = phi i32 [ -1, %27 ], [ -1, %22 ], [ -1, %23 ], [ 8, %.sink.split ]
   %42 = load i32, ptr %6, align 4, !tbaa !3
   %43 = load i32, ptr %2, align 4, !tbaa !3
   %spec.select159 = tail call i32 @llvm.smax.i32(i32 %43, i32 1)
@@ -105,7 +105,7 @@ define void @dimatcopy_(ptr noundef readonly captures(none) %0, ptr noundef read
   br label %47
 
 47:                                               ; preds = %.sink.split200, %33, %32, %37
-  %.pr164172.ph.ph = phi i32 [ -1, %33 ], [ -1, %37 ], [ -1, %32 ], [ 8, %.sink.split200 ]
+  %.pr164172.ph.ph = phi i32 [ -1, %33 ], [ -1, %32 ], [ -1, %37 ], [ 8, %.sink.split200 ]
   %.pr.pre192 = load i32, ptr %3, align 4, !tbaa !3
   %48 = load i32, ptr %6, align 4, !tbaa !3
   %spec.select160 = tail call i32 @llvm.smax.i32(i32 %.pr.pre192, i32 1)

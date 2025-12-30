@@ -134,7 +134,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ], [ %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -942,7 +942,7 @@ _ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6: ; preds = 
   br label %_ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit7: ; preds = %2, %16, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6
-  %.010 = phi i1 [ %9, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6 ], [ %9, %16 ], [ false, %2 ]
+  %.010 = phi i1 [ %9, %16 ], [ %9, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.010
 }
@@ -996,7 +996,7 @@ _ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6: ; preds = 
   br label %_ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit7: ; preds = %2, %16, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6
-  %.010 = phi i1 [ %9, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6 ], [ %9, %16 ], [ false, %2 ]
+  %.010 = phi i1 [ %9, %16 ], [ %9, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.010
 }
@@ -1123,7 +1123,7 @@ _ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcS3_EEEvEERS4_T_SD_.exit unwind label %26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcS3_EEEvEERS4_T_SD_.exit: ; preds = %39, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6.i, %.thread, %25
-  %.010.i16 = phi i1 [ false, %.thread ], [ false, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6.i ], [ false, %25 ], [ true, %39 ]
+  %.010.i16 = phi i1 [ false, %.thread ], [ false, %25 ], [ false, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i6.i ], [ true, %39 ]
   %48 = load ptr, ptr %5, align 8, !tbaa !45
   %.not.i.i.i10 = icmp eq ptr %48, null
   br i1 %.not.i.i.i10, label %55, label %49
@@ -1151,7 +1151,7 @@ _ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i13: ; preds =
   br label %_ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit14
 
 _ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit14: ; preds = %6, %55, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i13
-  %.121 = phi i1 [ %.010.i16, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i13 ], [ %.010.i16, %55 ], [ false, %6 ]
+  %.121 = phi i1 [ %.010.i16, %55 ], [ %.010.i16, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i13 ], [ false, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
@@ -1207,7 +1207,7 @@ _ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7: ; preds = 
   br label %_ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit8
 
 _ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit8: ; preds = %3, %17, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7
-  %.011 = phi i1 [ %10, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7 ], [ %10, %17 ], [ false, %3 ]
+  %.011 = phi i1 [ %10, %17 ], [ %10, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.011
 }
@@ -1261,7 +1261,7 @@ _ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7.i: ; preds 
   br label %_ZN5draco17WriteBufferToFileEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN5draco17WriteBufferToFileEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3, %17, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7.i
-  %.011.i = phi i1 [ %10, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7.i ], [ %10, %17 ], [ false, %3 ]
+  %.011.i = phi i1 [ %10, %17 ], [ %10, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7.i ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.011.i
 }
@@ -1313,7 +1313,7 @@ _ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7.i: ; preds 
   br label %_ZN5draco17WriteBufferToFileEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN5draco17WriteBufferToFileEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3, %17, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7.i
-  %.011.i = phi i1 [ %10, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7.i ], [ %10, %17 ], [ false, %3 ]
+  %.011.i = phi i1 [ %10, %17 ], [ %10, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i7.i ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.011.i
 }
@@ -1365,7 +1365,7 @@ _ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i5: ; preds = 
   br label %_ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit6
 
 _ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit6: ; preds = %1, %15, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i5
-  %.09 = phi i64 [ %8, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i5 ], [ %8, %15 ], [ 0, %1 ]
+  %.09 = phi i64 [ %8, %15 ], [ %8, %_ZNKSt14default_deleteIN5draco19FileReaderInterfaceEEclEPS1_.exit.i5 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.09
 }

@@ -356,8 +356,8 @@ Vec_IntStart.exit.i:                              ; preds = %34, %Vec_IntAlloc.e
   br label %79
 
 79:                                               ; preds = %74, %72, %65, %62, %60, %.lr.ph.i
-  %.228.i = phi i32 [ %.02650.i, %.lr.ph.i ], [ %spec.select.i, %65 ], [ %spec.select.i, %60 ], [ %spec.select.i, %62 ], [ %spec.select.i, %74 ], [ %spec.select.i, %72 ]
-  %.2.i = phi i32 [ %.02551.i, %.lr.ph.i ], [ %.1.i, %65 ], [ %.1.i, %60 ], [ %.1.i, %62 ], [ %70, %74 ], [ %70, %72 ]
+  %.228.i = phi i32 [ %.02650.i, %.lr.ph.i ], [ %spec.select.i, %65 ], [ %spec.select.i, %62 ], [ %spec.select.i, %60 ], [ %spec.select.i, %74 ], [ %spec.select.i, %72 ]
+  %.2.i = phi i32 [ %.02551.i, %.lr.ph.i ], [ %.1.i, %65 ], [ %.1.i, %62 ], [ %.1.i, %60 ], [ %70, %74 ], [ %70, %72 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %80 = load ptr, ptr %15, align 8, !tbaa !3
   %81 = getelementptr i8, ptr %80, i64 4
@@ -737,7 +737,7 @@ define ptr @Abc_NodeGetCuts(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %.thread
 
 .thread:                                          ; preds = %4, %9, %7
-  %10 = phi i1 [ false, %7 ], [ true, %9 ], [ false, %4 ]
+  %10 = phi i1 [ true, %9 ], [ false, %7 ], [ false, %4 ]
   %.not40 = icmp eq i32 %2, 0
   %11 = or i1 %.not40, %10
   %.not41 = icmp eq i32 %3, 0
@@ -1435,7 +1435,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %51, %._crit_edge.i.
   br label %tailrecurse
 
 118:                                              ; preds = %99, %99, %Abc_NodeSetTravIdCurrent.exit, %Abc_NodeIsTravIdCurrent.exit
-  %.0 = phi i32 [ 1, %99 ], [ 0, %Abc_NodeIsTravIdCurrent.exit ], [ 0, %Abc_NodeSetTravIdCurrent.exit ], [ 1, %99 ]
+  %.0 = phi i32 [ 0, %Abc_NodeIsTravIdCurrent.exit ], [ 0, %Abc_NodeSetTravIdCurrent.exit ], [ 1, %99 ], [ 1, %99 ]
   %accumulator.ret.tr = add nsw i32 %.0, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }

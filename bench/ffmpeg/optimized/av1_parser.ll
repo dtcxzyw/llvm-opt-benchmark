@@ -221,7 +221,7 @@ switch.lookup:                                    ; preds = %73
   br i1 %.not101, label %.sink.split117.sink.split, label %.sink.split117
 
 .sink.split117.sink.split:                        ; preds = %85, %82, %79
-  %pix_fmts_12bit.sink = phi ptr [ @pix_fmts_10bit, %82 ], [ @pix_fmts_8bit, %79 ], [ @pix_fmts_12bit, %85 ]
+  %pix_fmts_12bit.sink = phi ptr [ @pix_fmts_8bit, %79 ], [ @pix_fmts_10bit, %82 ], [ @pix_fmts_12bit, %85 ]
   %88 = getelementptr inbounds nuw i8, ptr %33, i64 583
   %89 = load i8, ptr %88, align 1, !tbaa !74
   %90 = zext i8 %89 to i64
@@ -234,7 +234,7 @@ switch.lookup:                                    ; preds = %73
   br label %.sink.split117
 
 .sink.split117:                                   ; preds = %.sink.split117.sink.split, %85, %82, %79
-  %.sink118 = phi i32 [ 168, %82 ], [ 8, %79 ], [ 166, %85 ], [ %96, %.sink.split117.sink.split ]
+  %.sink118 = phi i32 [ 8, %79 ], [ 168, %82 ], [ 166, %85 ], [ %96, %.sink.split117.sink.split ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %.sink118, ptr %97, align 8, !tbaa !76
   br label %98

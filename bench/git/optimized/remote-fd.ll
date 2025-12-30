@@ -93,7 +93,7 @@ define dso_local noundef i32 @cmd_remote_fd(i32 noundef %0, ptr noundef %1, ptr 
   %.not18.i = icmp eq ptr %34, null
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph19.i
 
-._crit_edge.i:                                    ; preds = %49, %32
+._crit_edge.i:                                    ; preds = %.critedge14.i, %32
   %35 = load ptr, ptr @stdin, align 8, !tbaa !10
   %36 = call i32 @ferror(ptr noundef %35) #11
   %.not7.i = icmp eq i32 %36, 0
@@ -103,7 +103,7 @@ define dso_local noundef i32 @cmd_remote_fd(i32 noundef %0, ptr noundef %1, ptr 
   call void (ptr, ...) @die(ptr noundef nonnull @.str.3) #10
   unreachable
 
-.lr.ph19.i:                                       ; preds = %32, %49
+.lr.ph19.i:                                       ; preds = %32, %.critedge14.i
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %.not815.i = icmp eq i64 %38, 0
   br i1 %.not815.i, label %.critedge.i, label %.lr.ph.i
@@ -130,39 +130,39 @@ define dso_local noundef i32 @cmd_remote_fd(i32 noundef %0, ptr noundef %1, ptr 
 .critedge.i:                                      ; preds = %46, %.lr.ph.i, %.lr.ph19.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %5, ptr noundef nonnull dereferenceable(13) @.str.4, i64 13)
   %.not10.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not10.i, label %49, label %54
+  br i1 %.not10.i, label %.critedge14.i, label %53
 
-49:                                               ; preds = %.critedge.i
+.critedge14.i:                                    ; preds = %.critedge.i
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %50 = load ptr, ptr @stdout, align 8, !tbaa !10
-  %51 = call i32 @fflush(ptr noundef %50)
-  %52 = load ptr, ptr @stdin, align 8, !tbaa !10
-  %53 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4095, ptr noundef %52)
-  %.not.i = icmp eq ptr %53, null
+  %49 = load ptr, ptr @stdout, align 8, !tbaa !10
+  %50 = call i32 @fflush(ptr noundef %49)
+  %51 = load ptr, ptr @stdin, align 8, !tbaa !10
+  %52 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4095, ptr noundef %51)
+  %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph19.i
 
-54:                                               ; preds = %.critedge.i
-  %55 = call i32 @starts_with(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #11
-  %.not11.i = icmp eq i32 %55, 0
-  br i1 %.not11.i, label %61, label %56
+53:                                               ; preds = %.critedge.i
+  %54 = call i32 @starts_with(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #11
+  %.not11.i = icmp eq i32 %54, 0
+  br i1 %.not11.i, label %60, label %55
 
-56:                                               ; preds = %54
+55:                                               ; preds = %53
   %putchar.i = call i32 @putchar(i32 10)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !10
-  %58 = call i32 @fflush(ptr noundef %57)
-  %59 = call i32 @bidirectional_transfer_loop(i32 noundef %15, i32 noundef %.0) #11
-  %.not12.i = icmp eq i32 %59, 0
-  br i1 %.not12.i, label %command_loop.exit, label %60
+  %56 = load ptr, ptr @stdout, align 8, !tbaa !10
+  %57 = call i32 @fflush(ptr noundef %56)
+  %58 = call i32 @bidirectional_transfer_loop(i32 noundef %15, i32 noundef %.0) #11
+  %.not12.i = icmp eq i32 %58, 0
+  br i1 %.not12.i, label %command_loop.exit, label %59
 
-60:                                               ; preds = %56
+59:                                               ; preds = %55
   call void (ptr, ...) @die(ptr noundef nonnull @.str.8) #10
   unreachable
 
-61:                                               ; preds = %54
+60:                                               ; preds = %53
   call void (ptr, ...) @die(ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #10
   unreachable
 
-command_loop.exit:                                ; preds = %._crit_edge.i, %56
+command_loop.exit:                                ; preds = %._crit_edge.i, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0

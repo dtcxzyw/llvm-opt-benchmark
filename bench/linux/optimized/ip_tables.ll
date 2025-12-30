@@ -579,10 +579,10 @@ define dso_local i32 @ipt_do_table(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %287
 
 287:                                              ; preds = %278, %267, %260, %252, %243, %239, %.loopexit
-  %288 = phi i32 [ %79, %.loopexit ], [ %79, %278 ], [ %79, %260 ], [ 0, %239 ], [ %244, %243 ], [ %268, %267 ], [ %79, %252 ]
-  %289 = phi ptr [ %177, %.loopexit ], [ %286, %278 ], [ %254, %260 ], [ %242, %239 ], [ %251, %243 ], [ %254, %267 ], [ %254, %252 ]
-  %290 = phi i32 [ %81, %.loopexit ], [ -1, %278 ], [ %81, %260 ], [ %81, %239 ], [ %81, %243 ], [ %81, %267 ], [ %81, %252 ]
-  %291 = phi ptr [ %82, %.loopexit ], [ %282, %278 ], [ %82, %260 ], [ %82, %239 ], [ %82, %243 ], [ %82, %267 ], [ %82, %252 ]
+  %288 = phi i32 [ %79, %.loopexit ], [ %79, %278 ], [ 0, %239 ], [ %244, %243 ], [ %79, %260 ], [ %268, %267 ], [ %79, %252 ]
+  %289 = phi ptr [ %177, %.loopexit ], [ %286, %278 ], [ %242, %239 ], [ %251, %243 ], [ %254, %260 ], [ %254, %267 ], [ %254, %252 ]
+  %290 = phi i32 [ %81, %.loopexit ], [ -1, %278 ], [ %81, %239 ], [ %81, %243 ], [ %81, %260 ], [ %81, %267 ], [ %81, %252 ]
+  %291 = phi ptr [ %82, %.loopexit ], [ %282, %278 ], [ %82, %239 ], [ %82, %243 ], [ %82, %260 ], [ %82, %267 ], [ %82, %252 ]
   %292 = load i8, ptr %33, align 2, !range !32
   %293 = icmp eq i8 %292, 0
   br i1 %293, label %78, label %.thread, !llvm.loop !33
@@ -1626,12 +1626,12 @@ cleanup_entry.exit:                               ; preds = %.loopexit.i, %445
   br i1 %459, label %.thread57, label %409, !llvm.loop !48
 
 .thread:                                          ; preds = %52, %60, %56, %31, %41, %44, %89, %92, %95, %98, %149, %220, %217, %.thread42, %206, %136, %.loopexit67
-  %460 = phi i32 [ -22, %.loopexit67 ], [ %139, %136 ], [ -22, %89 ], [ -40, %220 ], [ -40, %149 ], [ -40, %206 ], [ -40, %.thread42 ], [ -40, %217 ], [ -22, %98 ], [ -22, %95 ], [ -22, %92 ], [ -22, %52 ], [ -22, %31 ], [ -22, %56 ], [ %65, %60 ], [ -22, %44 ], [ -22, %41 ]
+  %460 = phi i32 [ -22, %.loopexit67 ], [ %139, %136 ], [ -40, %206 ], [ -40, %.thread42 ], [ -40, %217 ], [ -40, %220 ], [ -40, %149 ], [ -22, %98 ], [ -22, %95 ], [ -22, %92 ], [ -22, %89 ], [ -22, %44 ], [ -22, %41 ], [ -22, %31 ], [ -22, %56 ], [ %65, %60 ], [ -22, %52 ]
   tail call void @kvfree(ptr noundef nonnull %17) #15
   br label %.thread57
 
 .thread57:                                        ; preds = %386, %cleanup_entry.exit, %244, %.thread, %.loopexit63, %4
-  %461 = phi i32 [ %460, %.thread ], [ -12, %4 ], [ %396, %cleanup_entry.exit ], [ %396, %.loopexit63 ], [ 0, %244 ], [ 0, %386 ]
+  %461 = phi i32 [ %460, %.thread ], [ -12, %4 ], [ %396, %.loopexit63 ], [ 0, %244 ], [ %396, %cleanup_entry.exit ], [ 0, %386 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %461
 }
@@ -2553,7 +2553,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   br i1 %209, label %.preheader18, label %.thread17, !llvm.loop !64
 
 .thread17:                                        ; preds = %.loopexit, %174, %.preheader18, %203, %.preheader, %165
-  %210 = phi i32 [ 0, %165 ], [ -14, %.preheader ], [ -14, %174 ], [ -14, %.loopexit ], [ -14, %.preheader18 ], [ 0, %203 ]
+  %210 = phi i32 [ 0, %165 ], [ -14, %.preheader ], [ -14, %.preheader18 ], [ -14, %174 ], [ -14, %.loopexit ], [ 0, %203 ]
   call void @vfree(ptr noundef nonnull %91) #15
   br label %211
 
@@ -2618,7 +2618,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   br label %241
 
 241:                                              ; preds = %15, %58, %218, %240, %4
-  %242 = phi i32 [ -1, %4 ], [ %59, %58 ], [ %.pre, %240 ], [ %219, %218 ], [ -22, %15 ]
+  %242 = phi i32 [ -1, %4 ], [ %.pre, %240 ], [ %219, %218 ], [ %59, %58 ], [ -22, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %242
 }

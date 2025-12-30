@@ -149,7 +149,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %18, %20, %14, %10
-  %.0 = phi i32 [ 1, %18 ], [ 0, %10 ], [ 0, %14 ], [ 1, %20 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %14 ], [ 1, %20 ], [ 1, %18 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -288,7 +288,7 @@ switch.lookup:                                    ; preds = %1
   br i1 %.not17.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %23, %.lr.ph.i
-  %.014.lcssa.i = phi ptr [ %.01420.i, %.lr.ph.i ], [ %.115.i, %23 ]
+  %.014.lcssa.i = phi ptr [ %.115.i, %23 ], [ %.01420.i, %.lr.ph.i ]
   %.not18.i = icmp eq ptr %.014.lcssa.i, null
   br i1 %.not18.i, label %.critedge.thread.i, label %25
 

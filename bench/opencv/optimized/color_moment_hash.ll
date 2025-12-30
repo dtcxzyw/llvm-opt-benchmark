@@ -220,7 +220,7 @@ _ZN2cv3PtrINS_8img_hash15ColorMomentHashEEC2IS2_EEPT_.exit: ; preds = %3
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %40, %37
-  %42 = phi ptr [ %.pr.pre.i.i.i.i, %40 ], [ %34, %37 ]
+  %42 = phi ptr [ %34, %37 ], [ %.pr.pre.i.i.i.i, %40 ]
   %.not8.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %43
 
@@ -950,7 +950,7 @@ _ZN12_GLOBAL__N_119ColorMomentHashImpl14computeMomentsEPd.exit73: ; preds = %.no
   br label %182
 
 182:                                              ; preds = %.loopexit, %.loopexit.split-lp, %180, %178, %176
-  %.pn57 = phi { ptr, i32 } [ %177, %176 ], [ %181, %180 ], [ %179, %178 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn57 = phi { ptr, i32 } [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #18
   br label %183
 

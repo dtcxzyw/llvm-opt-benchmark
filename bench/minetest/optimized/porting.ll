@@ -1848,7 +1848,7 @@ if.then.i.i374:                                   ; preds = %lpad48
   br label %cleanup.action60
 
 cleanup.action60:                                 ; preds = %lpad48, %if.then.i.i374, %lpad45.loopexit.split-lp, %lpad45.loopexit
-  %.pn166 = phi { ptr, i32 } [ %lpad.loopexit.split-lp651, %lpad45.loopexit.split-lp ], [ %115, %if.then.i.i374 ], [ %lpad.loopexit650, %lpad45.loopexit ], [ %115, %lpad48 ]
+  %.pn166 = phi { ptr, i32 } [ %115, %if.then.i.i374 ], [ %lpad.loopexit650, %lpad45.loopexit ], [ %lpad.loopexit.split-lp651, %lpad45.loopexit.split-lp ], [ %115, %lpad48 ]
   %117 = load ptr, ptr %ref.tmp40, align 8, !tbaa !41
   %cmp.i.i.i379 = icmp eq ptr %117, %75
   br i1 %cmp.i.i.i379, label %cleanup.action67, label %if.then.i.i380
@@ -3444,7 +3444,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i505, %lpad.i.i, %lpad.i, %ehcleanup88, %ehcleanup20.i, %if.then.i.i5.i.i507, %ehcleanup43.i, %if.then.i.i5.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420, %if.then.i.i5.i, %ehcleanup44, %ehcleanup16
-  %common.resume.op = phi { ptr, i32 } [ %118, %if.then.i.i5.i ], [ %140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420 ], [ %.pn50.pn.i, %ehcleanup43.i ], [ %151, %if.then.i.i5.i.i ], [ %118, %lpad.i ], [ %.pn.pn.pn.i, %ehcleanup20.i ], [ %272, %if.then.i.i5.i.i507 ], [ %151, %lpad.i.i ], [ %.pn117, %ehcleanup88 ], [ %.pn114.pn, %ehcleanup16 ], [ %.pn.pn.pn.pn, %ehcleanup44 ], [ %272, %lpad.i.i505 ]
+  %common.resume.op = phi { ptr, i32 } [ %118, %if.then.i.i5.i ], [ %.pn50.pn.i, %ehcleanup43.i ], [ %151, %if.then.i.i5.i.i ], [ %.pn.pn.pn.i, %ehcleanup20.i ], [ %272, %if.then.i.i5.i.i507 ], [ %.pn117, %ehcleanup88 ], [ %.pn114.pn, %ehcleanup16 ], [ %.pn.pn.pn.pn, %ehcleanup44 ], [ %140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420 ], [ %118, %lpad.i ], [ %151, %lpad.i.i ], [ %272, %lpad.i.i505 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i

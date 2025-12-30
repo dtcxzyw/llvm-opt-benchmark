@@ -1754,8 +1754,8 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i:    ; preds = %44
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit37
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit37:      ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i, %61, %64
-  %68 = phi ptr [ %55, %64 ], [ %55, %61 ], [ null, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i ]
-  %.not.i.i356771 = phi i1 [ %.not.i.i35, %64 ], [ %.not.i.i35, %61 ], [ true, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i ]
+  %68 = phi ptr [ %55, %61 ], [ %55, %64 ], [ null, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i ]
+  %.not.i.i356771 = phi i1 [ %.not.i.i35, %61 ], [ %.not.i.i35, %64 ], [ true, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 233
   %70 = load i8, ptr %69, align 1, !tbaa !61, !range !59, !noundef !60
   %71 = trunc nuw i8 %70 to i1

@@ -596,7 +596,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i: ; preds = %55, %5
   br i1 %59, label %51, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit, !llvm.loop !10
 
 _ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit: ; preds = %14, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i, %_ZN15ZMarkStackSpace5allocEm.exit
-  %.0 = phi ptr [ %49, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i ], [ null, %_ZN15ZMarkStackSpace5allocEm.exit ], [ %15, %14 ]
+  %.0 = phi ptr [ null, %_ZN15ZMarkStackSpace5allocEm.exit ], [ %49, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i ], [ %15, %14 ]
   ret ptr %.0
 }
 

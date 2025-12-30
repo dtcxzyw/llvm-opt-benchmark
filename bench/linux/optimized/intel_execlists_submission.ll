@@ -1081,7 +1081,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   call void @dma_fence_release(ptr noundef nonnull %411) #17
   br label %.thread57
 
-.thread57.thread:                                 ; preds = %319, %307, %313
+.thread57.thread:                                 ; preds = %319, %313, %307
   %418 = load ptr, ptr %308, align 8
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 4
   call void @_raw_spin_unlock(ptr noundef nonnull %419) #17
@@ -1100,8 +1100,8 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   br i1 %425, label %.thread56, label %.lr.ph
 
 .thread56:                                        ; preds = %.thread57, %303, %422, %298, %.loopexit83, %336
-  %426 = phi i8 [ 0, %336 ], [ 0, %.loopexit83 ], [ 0, %298 ], [ 0, %303 ], [ %409, %.thread57 ], [ 0, %422 ]
-  %427 = phi ptr [ %272, %336 ], [ %262, %.loopexit83 ], [ %272, %298 ], [ %272, %303 ], [ %410, %.thread57 ], [ %423, %422 ]
+  %426 = phi i8 [ 0, %336 ], [ 0, %.loopexit83 ], [ 0, %298 ], [ 0, %422 ], [ %409, %.thread57 ], [ 0, %303 ]
+  %427 = phi ptr [ %272, %336 ], [ %262, %.loopexit83 ], [ %272, %298 ], [ %423, %422 ], [ %410, %.thread57 ], [ %272, %303 ]
   %428 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %429 = load ptr, ptr %267, align 8
   %430 = icmp eq ptr %429, null
@@ -1214,9 +1214,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   br label %500
 
 500:                                              ; preds = %485, %.thread62, %498
-  %501 = phi i8 [ %spec.select, %485 ], [ 1, %498 ], [ %441, %.thread62 ]
-  %502 = phi ptr [ %spec.select70, %485 ], [ %442, %498 ], [ %439, %.thread62 ]
-  %503 = phi ptr [ %438, %485 ], [ %499, %498 ], [ %438, %.thread62 ]
+  %501 = phi i8 [ 1, %498 ], [ %441, %.thread62 ], [ %spec.select, %485 ]
+  %502 = phi ptr [ %442, %498 ], [ %439, %.thread62 ], [ %spec.select70, %485 ]
+  %503 = phi ptr [ %499, %498 ], [ %438, %.thread62 ], [ %438, %485 ]
   %504 = icmp eq ptr %443, %435
   br i1 %504, label %._crit_edge, label %.lr.ph119, !llvm.loop !23
 
@@ -2354,22 +2354,22 @@ define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef captures(ret
 
 54:                                               ; preds = %36
   %55 = icmp ugt i8 %40, 11
-  br i1 %55, label %58, label %56
+  br i1 %55, label %56, label %62
 
 56:                                               ; preds = %54
-  %57 = and i64 %37, 3
-  %.not = icmp eq i64 %57, 0
+  %57 = and i64 %37, 288089638663356416
+  %58 = icmp eq i64 %57, 288089638663356416
+  %59 = and i64 %37, 1
+  %60 = icmp ne i64 %59, 0
+  %61 = or i1 %58, %60
+  br i1 %61, label %64, label %106
+
+62:                                               ; preds = %54
+  %63 = and i64 %37, 3
+  %.not = icmp eq i64 %63, 0
   br i1 %.not, label %106, label %64
 
-58:                                               ; preds = %54
-  %59 = and i64 %37, 288089638663356416
-  %60 = icmp eq i64 %59, 288089638663356416
-  %61 = and i64 %37, 1
-  %62 = icmp ne i64 %61, 0
-  %63 = or i1 %60, %62
-  br i1 %63, label %64, label %106
-
-64:                                               ; preds = %56, %48, %58
+64:                                               ; preds = %56, %48, %62
   %65 = load ptr, ptr %18, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.thread.sink.split, label %67
@@ -2439,7 +2439,7 @@ define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef captures(ret
   store volatile ptr null, ptr %18, align 8
   br label %114
 
-106:                                              ; preds = %56, %48, %58
+106:                                              ; preds = %56, %48, %62
   %107 = load ptr, ptr %16, align 8
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
@@ -2454,7 +2454,7 @@ define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef captures(ret
   br label %114
 
 114:                                              ; preds = %110, %100
-  %115 = phi ptr [ %80, %100 ], [ %113, %110 ]
+  %115 = phi ptr [ %113, %110 ], [ %80, %100 ]
   %116 = icmp eq i8 %29, %13
   br i1 %116, label %.thread, label %24, !llvm.loop !52
 
@@ -5240,7 +5240,7 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
   br label %168
 
 .loopexit:                                        ; preds = %81, %112, %78, %29, %11
-  %155 = phi i64 [ -12, %11 ], [ -12, %29 ], [ -22, %78 ], [ -22, %112 ], [ -19, %81 ]
+  %155 = phi i64 [ -12, %11 ], [ -12, %29 ], [ -22, %112 ], [ -22, %78 ], [ -19, %81 ]
   %156 = getelementptr inbounds nuw i8, ptr %9, i64 5496
   %157 = getelementptr inbounds nuw i8, ptr %9, i64 5896
   %158 = load ptr, ptr %157, align 8
@@ -5348,7 +5348,7 @@ define internal ptr @execlists_create_parallel(ptr noundef readonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %39, %41, %42, %.loopexit, %12
-  %43 = phi ptr [ %10, %12 ], [ %10, %39 ], [ %10, %42 ], [ %21, %.loopexit ], [ %10, %41 ], [ %21, %.preheader ]
+  %43 = phi ptr [ %10, %12 ], [ %10, %42 ], [ %21, %.loopexit ], [ %10, %41 ], [ %10, %39 ], [ %21, %.preheader ]
   ret ptr %43
 }
 

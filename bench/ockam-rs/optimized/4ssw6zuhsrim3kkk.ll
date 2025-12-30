@@ -390,7 +390,7 @@ default.unreachable:                              ; preds = %2
           to label %30 unwind label %28
 
 _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %18, %15, %11, %7
-  %.0.i = phi i8 [ %20, %18 ], [ %spec.select.i.i.i, %11 ], [ %17, %15 ], [ %10, %7 ]
+  %.0.i = phi i8 [ %spec.select.i.i.i, %11 ], [ %17, %15 ], [ %20, %18 ], [ %10, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd2aa1fbdd123cc9eE.llvm.12192176430880052379(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %0), !noalias !7
   %23 = load i8, ptr %3, align 8, !range !14, !alias.scope !15, !noalias !7, !noundef !5

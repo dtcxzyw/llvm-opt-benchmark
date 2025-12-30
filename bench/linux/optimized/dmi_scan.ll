@@ -486,7 +486,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
   br label %.thread6
 
 .thread6:                                         ; preds = %43, %45, %53, %56, %.split, %.thread5, %40, %.thread5.us, %20, %17, %9, %.split.us, %.thread6.loopexit30
-  %61 = phi i1 [ false, %40 ], [ true, %.split.us ], [ false, %.thread6.loopexit30 ], [ true, %.thread5.us ], [ false, %17 ], [ false, %9 ], [ false, %20 ], [ true, %.split ], [ false, %53 ], [ false, %45 ], [ false, %43 ], [ true, %.thread5 ], [ false, %56 ]
+  %61 = phi i1 [ true, %.split.us ], [ true, %.thread5.us ], [ false, %20 ], [ false, %17 ], [ false, %9 ], [ false, %.thread6.loopexit30 ], [ false, %40 ], [ true, %.thread5 ], [ true, %.split ], [ false, %56 ], [ false, %53 ], [ false, %45 ], [ false, %43 ]
   ret i1 %61
 }
 
@@ -646,7 +646,7 @@ define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly captu
   br i1 %36, label %.thread, label %.lr.ph.split.split, !llvm.loop !14
 
 .thread:                                          ; preds = %34, %29, %22, %.lr.ph.split.split.us, %14, %.lr.ph.split.us.split, %.lr.ph.split.us, %3
-  %37 = phi ptr [ null, %22 ], [ %10, %.lr.ph.split.us.split ], [ null, %3 ], [ %7, %.lr.ph.split.us ], [ null, %14 ], [ %17, %.lr.ph.split.split.us ], [ %25, %29 ], [ null, %34 ]
+  %37 = phi ptr [ null, %3 ], [ %7, %.lr.ph.split.us ], [ %10, %.lr.ph.split.us.split ], [ null, %14 ], [ %17, %.lr.ph.split.split.us ], [ null, %22 ], [ %25, %29 ], [ null, %34 ]
   ret ptr %37
 }
 

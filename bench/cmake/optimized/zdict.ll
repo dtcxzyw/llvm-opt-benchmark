@@ -209,7 +209,7 @@ define dso_local i64 @ZDICT_finalizeDictionary(ptr noundef writeonly captures(no
   br label %55
 
 55:                                               ; preds = %45, %8, %.critedge, %50
-  %.0 = phi i64 [ %37, %.critedge ], [ -70, %8 ], [ -70, %45 ], [ %52, %50 ]
+  %.0 = phi i64 [ %52, %50 ], [ %37, %.critedge ], [ -70, %8 ], [ -70, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0
 }
@@ -825,10 +825,10 @@ ZDICT_insertSortCount.exit:                       ; preds = %187, %192
   br label %.thread
 
 .thread:                                          ; preds = %277, %278, %266, %267, %255, %256, %244, %245, %160, %161, %ZDICT_totalSampleSize.exit, %286, %287, %234, %235, %220, %221, %206, %207, %51, %52, %292
-  %.sroa.0.0 = phi ptr [ null, %ZDICT_totalSampleSize.exit ], [ %43, %286 ], [ %43, %287 ], [ %43, %292 ], [ %43, %266 ], [ %43, %255 ], [ %43, %244 ], [ %43, %160 ], [ %43, %234 ], [ %43, %235 ], [ %43, %220 ], [ %43, %221 ], [ %43, %206 ], [ %43, %207 ], [ %43, %52 ], [ %43, %51 ], [ %43, %161 ], [ %43, %245 ], [ %43, %256 ], [ %43, %267 ], [ %43, %278 ], [ %43, %277 ]
-  %.sroa.7.0 = phi ptr [ null, %ZDICT_totalSampleSize.exit ], [ %44, %286 ], [ %44, %287 ], [ %44, %292 ], [ %44, %266 ], [ %44, %255 ], [ %44, %244 ], [ %44, %160 ], [ %44, %234 ], [ %44, %235 ], [ %44, %220 ], [ %44, %221 ], [ %44, %206 ], [ %44, %207 ], [ %44, %52 ], [ %44, %51 ], [ %44, %161 ], [ %44, %245 ], [ %44, %256 ], [ %44, %267 ], [ %44, %278 ], [ %44, %277 ]
-  %.sroa.9.0 = phi ptr [ null, %ZDICT_totalSampleSize.exit ], [ %45, %286 ], [ %45, %287 ], [ %45, %292 ], [ %45, %266 ], [ %45, %255 ], [ %45, %244 ], [ %45, %160 ], [ %45, %234 ], [ %45, %235 ], [ %45, %220 ], [ %45, %221 ], [ %45, %206 ], [ %45, %207 ], [ %45, %52 ], [ %45, %51 ], [ %45, %161 ], [ %45, %245 ], [ %45, %256 ], [ %45, %267 ], [ %45, %278 ], [ %45, %277 ]
-  %.0173 = phi i64 [ -34, %ZDICT_totalSampleSize.exit ], [ -70, %286 ], [ -70, %287 ], [ %299, %292 ], [ %264, %266 ], [ %253, %255 ], [ %242, %244 ], [ %158, %160 ], [ %232, %234 ], [ %232, %235 ], [ %218, %220 ], [ %218, %221 ], [ %204, %206 ], [ %204, %207 ], [ -64, %52 ], [ -64, %51 ], [ %158, %161 ], [ %242, %245 ], [ %253, %256 ], [ %264, %267 ], [ %275, %278 ], [ %275, %277 ]
+  %.sroa.0.0 = phi ptr [ null, %ZDICT_totalSampleSize.exit ], [ %43, %286 ], [ %43, %287 ], [ %43, %292 ], [ %43, %234 ], [ %43, %235 ], [ %43, %220 ], [ %43, %221 ], [ %43, %206 ], [ %43, %207 ], [ %43, %51 ], [ %43, %52 ], [ %43, %161 ], [ %43, %160 ], [ %43, %245 ], [ %43, %244 ], [ %43, %256 ], [ %43, %255 ], [ %43, %267 ], [ %43, %266 ], [ %43, %278 ], [ %43, %277 ]
+  %.sroa.7.0 = phi ptr [ null, %ZDICT_totalSampleSize.exit ], [ %44, %286 ], [ %44, %287 ], [ %44, %292 ], [ %44, %234 ], [ %44, %235 ], [ %44, %220 ], [ %44, %221 ], [ %44, %206 ], [ %44, %207 ], [ %44, %51 ], [ %44, %52 ], [ %44, %161 ], [ %44, %160 ], [ %44, %245 ], [ %44, %244 ], [ %44, %256 ], [ %44, %255 ], [ %44, %267 ], [ %44, %266 ], [ %44, %278 ], [ %44, %277 ]
+  %.sroa.9.0 = phi ptr [ null, %ZDICT_totalSampleSize.exit ], [ %45, %286 ], [ %45, %287 ], [ %45, %292 ], [ %45, %234 ], [ %45, %235 ], [ %45, %220 ], [ %45, %221 ], [ %45, %206 ], [ %45, %207 ], [ %45, %51 ], [ %45, %52 ], [ %45, %161 ], [ %45, %160 ], [ %45, %245 ], [ %45, %244 ], [ %45, %256 ], [ %45, %255 ], [ %45, %267 ], [ %45, %266 ], [ %45, %278 ], [ %45, %277 ]
+  %.0173 = phi i64 [ -34, %ZDICT_totalSampleSize.exit ], [ -70, %286 ], [ -70, %287 ], [ %299, %292 ], [ %232, %234 ], [ %232, %235 ], [ %218, %220 ], [ %218, %221 ], [ %204, %206 ], [ %204, %207 ], [ -64, %51 ], [ -64, %52 ], [ %158, %161 ], [ %158, %160 ], [ %242, %245 ], [ %242, %244 ], [ %253, %256 ], [ %253, %255 ], [ %264, %267 ], [ %264, %266 ], [ %275, %278 ], [ %275, %277 ]
   %300 = call i64 @ZSTD_freeCDict(ptr noundef %.sroa.0.0) #15
   %301 = call i64 @ZSTD_freeCCtx(ptr noundef %.sroa.7.0) #15
   call void @free(ptr noundef %.sroa.9.0) #15
@@ -1591,7 +1591,7 @@ ZDICT_count.exit309.i.i.i:                        ; preds = %.lr.ph.i303.i.i.i, 
   br label %331
 
 331:                                              ; preds = %ZDICT_count.exit309.i.i.i, %.lr.ph354.i.i.i
-  %.0.i.i.i = phi i32 [ %spec.select250.i.i.i, %ZDICT_count.exit309.i.i.i ], [ %.0202.i.i.i, %.lr.ph354.i.i.i ]
+  %.0.i.i.i = phi i32 [ %.0202.i.i.i, %.lr.ph354.i.i.i ], [ %spec.select250.i.i.i, %ZDICT_count.exit309.i.i.i ]
   %332 = add i32 %.0.i.i.i, %317
   %333 = icmp ult i32 %317, %332
   br i1 %333, label %.lr.ph350.preheader.i.i.i, label %._crit_edge351.i.i.i
@@ -2026,7 +2026,7 @@ ZDICT_dictSize.exit224.thread.critedge.i:         ; preds = %394
   br label %.thread233.sink.split.i
 
 .thread233.sink.split.i:                          ; preds = %.lr.ph.i24, %.lr.ph270.i, %._crit_edge271.i, %ZDICT_dictSize.exit224.thread.critedge.i, %ZDICT_dictSize.exit224.i, %.critedge179.i, %42, %40
-  %.0.ph.i = phi i64 [ -1, %.lr.ph270.i ], [ -34, %ZDICT_dictSize.exit224.i ], [ -34, %42 ], [ %528, %._crit_edge271.i ], [ -70, %40 ], [ -34, %ZDICT_dictSize.exit224.thread.critedge.i ], [ -34, %.critedge179.i ], [ -1, %.lr.ph.i24 ]
+  %.0.ph.i = phi i64 [ %528, %._crit_edge271.i ], [ -70, %40 ], [ -34, %42 ], [ -34, %ZDICT_dictSize.exit224.thread.critedge.i ], [ -34, %.critedge179.i ], [ -34, %ZDICT_dictSize.exit224.i ], [ -1, %.lr.ph270.i ], [ -1, %.lr.ph.i24 ]
   tail call void @free(ptr noundef nonnull %31) #15
   br label %ZDICT_trainFromBuffer_unsafe_legacy.exit
 
@@ -2036,7 +2036,7 @@ ZDICT_trainFromBuffer_unsafe_legacy.exit:         ; preds = %ZDICT_totalSampleSi
   br label %ZDICT_totalSampleSize.exit.thread
 
 ZDICT_totalSampleSize.exit.thread:                ; preds = %6, %15, %ZDICT_totalSampleSize.exit, %ZDICT_trainFromBuffer_unsafe_legacy.exit
-  %.0 = phi i64 [ 0, %ZDICT_totalSampleSize.exit ], [ %.0.i, %ZDICT_trainFromBuffer_unsafe_legacy.exit ], [ -64, %15 ], [ 0, %6 ]
+  %.0 = phi i64 [ %.0.i, %ZDICT_trainFromBuffer_unsafe_legacy.exit ], [ 0, %ZDICT_totalSampleSize.exit ], [ -64, %15 ], [ 0, %6 ]
   ret i64 %.0
 }
 

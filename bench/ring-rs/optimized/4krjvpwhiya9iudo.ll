@@ -419,7 +419,7 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i: ; preds = 
   %29 = icmp eq i64 %27, %28
   br i1 %29, label %30, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread19"
 
-"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread19": ; preds = %21, %14, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i, %26
+"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread19": ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i, %14, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i, %21, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !55
   br label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread"
 
@@ -441,7 +441,7 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i: ; preds = 
   br label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread"
 
 "_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread": ; preds = %34, %30, %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread19", %2
-  %.sink.sink = phi ptr [ null, %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread19" ], [ null, %2 ], [ %.fca.0.extract.i.i.i.i.i, %34 ], [ null, %30 ]
+  %.sink.sink = phi ptr [ null, %2 ], [ null, %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread19" ], [ %.fca.0.extract.i.i.i.i.i, %34 ], [ null, %30 ]
   store ptr %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -650,8 +650,8 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i: ; preds = %13
   store i64 %.fca.1.extract.i21.i, ptr %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx, align 8
   br label %23
 
-23:                                               ; preds = %22, %18, %13, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i, %2
-  %.sink.sink = phi ptr [ null, %13 ], [ null, %2 ], [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i ], [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i ], [ %.fca.0.extract.i.i, %22 ], [ null, %18 ]
+23:                                               ; preds = %22, %18, %13, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i, %2, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i
+  %.sink.sink = phi ptr [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i ], [ null, %2 ], [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i ], [ null, %13 ], [ %.fca.0.extract.i.i, %22 ], [ null, %18 ]
   store ptr %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1009,9 +1009,9 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i: ; pr
   %.sroa.01.0. = select i1 %19, ptr %16, ptr null
   br label %20
 
-20:                                               ; preds = %12, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i, %1, %14
-  %.sroa.4.0 = phi i64 [ %.sroa.7.0., %14 ], [ undef, %1 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i ], [ undef, %12 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.01.0., %14 ], [ null, %1 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i ], [ null, %12 ]
+20:                                               ; preds = %1, %12, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i, %14
+  %.sroa.4.0 = phi i64 [ %.sroa.7.0., %14 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i ], [ undef, %12 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.01.0., %14 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i ], [ null, %12 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %22 = insertvalue { ptr, i64 } %21, i64 %.sroa.4.0, 1
@@ -1138,8 +1138,8 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i: ; preds = %7
   br label %_ZN9untrusted5input5Input8read_all17h44e99081b328cf83E.llvm.4525565709555364834.exit
 
 _ZN9untrusted5input5Input8read_all17h44e99081b328cf83E.llvm.4525565709555364834.exit: ; preds = %2, %7, %11, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i
-  %.sroa.3.0 = phi i64 [ undef, %2 ], [ %12, %11 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i ], [ undef, %7 ]
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ %13, %11 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i ], [ null, %7 ]
+  %.sroa.3.0 = phi i64 [ %12, %11 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i ], [ undef, %7 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %13, %11 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i ], [ null, %7 ], [ null, %2 ]
   %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %15
@@ -1218,7 +1218,7 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i: ; preds = %19
   br label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit
 
 _ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit: ; preds = %12, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i, %19, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i, %24, %28
-  %.sink.sink.i = phi ptr [ null, %19 ], [ null, %12 ], [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i ], [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i ], [ %.fca.0.extract.i.i.i, %28 ], [ null, %24 ]
+  %.sink.sink.i = phi ptr [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i ], [ null, %12 ], [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i ], [ null, %19 ], [ %.fca.0.extract.i.i.i, %28 ], [ null, %24 ]
   store ptr %.sink.sink.i, ptr %0, align 8, !alias.scope !180, !noalias !188
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !183
   br label %30
@@ -1294,8 +1294,8 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i: ; 
   br label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit
 
 _ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit: ; preds = %12, %18, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i, %20
-  %.sroa.4.0.i8 = phi i64 [ %.sroa.7.0..i, %20 ], [ undef, %12 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i ], [ undef, %18 ]
-  %.sroa.0.0.i9 = phi ptr [ %.sroa.01.0..i, %20 ], [ null, %12 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i ], [ null, %18 ]
+  %.sroa.4.0.i8 = phi i64 [ %.sroa.7.0..i, %20 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i ], [ undef, %18 ], [ undef, %12 ]
+  %.sroa.0.0.i9 = phi ptr [ %.sroa.01.0..i, %20 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i ], [ null, %18 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !192
   br label %26
 
@@ -1359,7 +1359,7 @@ define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_const
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %24, %.lr.ph, %2
-  %18 = phi i1 [ true, %.lr.ph ], [ false, %2 ], [ false, %24 ]
+  %18 = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ false, %24 ]
   ret i1 %18
 
 ._crit_edge:                                      ; preds = %27, %15

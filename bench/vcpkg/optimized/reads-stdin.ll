@@ -77,7 +77,7 @@ define dso_local range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef readonly 
   br i1 %37, label %.split18.us, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph21, %28, %.split18.us
-  %.1.ph = phi i32 [ 0, %28 ], [ 1, %.split18.us ], [ 2, %.lr.ph21 ], [ 2, %.lr.ph ]
+  %.1.ph = phi i32 [ 1, %.split18.us ], [ 0, %28 ], [ 2, %.lr.ph21 ], [ 2, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1.ph
 }

@@ -268,7 +268,7 @@ _ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit60:  ; preds = %102, %._crit_edge79
   ret void
 
 _ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit:    ; preds = %46, %45
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %lpad.phi, %45 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %45 ], [ %47, %46 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -511,7 +511,7 @@ _ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit60:  ; preds = %96, %._crit_edge79,
   ret void
 
 _ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit:    ; preds = %79, %78
-  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi, %78 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %78 ], [ %80, %79 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -109,9 +109,9 @@ _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit:
   %.sroa.3.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = icmp eq i8 %2, 0
   %4 = load i64, ptr %.sroa.3.0.i.i, align 8, !alias.scope !40, !noalias !4, !noundef !4
-  %5 = icmp uge i64 %.val, %4
-  %6 = icmp ugt i64 %.val, %4
-  %.014.i = select i1 %3, i1 %6, i1 %5
+  %5 = icmp ugt i64 %.val, %4
+  %6 = icmp uge i64 %.val, %4
+  %.014.i = select i1 %3, i1 %5, i1 %6
   ret i1 %.014.i
 }
 

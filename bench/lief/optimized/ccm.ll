@@ -54,7 +54,7 @@ define hidden i32 @mbedtls_ccm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %15
 
 15:                                               ; preds = %13, %10, %7, %4
-  %.0 = phi i32 [ %12, %10 ], [ -13, %4 ], [ -13, %7 ], [ %14, %13 ]
+  %.0 = phi i32 [ -13, %4 ], [ -13, %7 ], [ %12, %10 ], [ %14, %13 ]
   ret i32 %.0
 }
 
@@ -199,7 +199,7 @@ define hidden i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %ccm_calculate_first_block_if_ready.exit
 
 ccm_calculate_first_block_if_ready.exit:          ; preds = %7, %29, %59, %.sink.split.i
-  %.029.i = phi i32 [ 0, %7 ], [ 0, %59 ], [ -13, %29 ], [ %.029.ph.i, %.sink.split.i ]
+  %.029.i = phi i32 [ 0, %7 ], [ -13, %29 ], [ 0, %59 ], [ %.029.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %64
 
@@ -311,7 +311,7 @@ define hidden i32 @mbedtls_ccm_set_lengths(ptr noundef %0, i64 noundef %1, i64 n
   br label %ccm_calculate_first_block_if_ready.exit
 
 ccm_calculate_first_block_if_ready.exit:          ; preds = %10, %21, %48, %.sink.split.i
-  %.029.i = phi i32 [ 0, %10 ], [ 0, %48 ], [ -13, %21 ], [ %.029.ph.i, %.sink.split.i ]
+  %.029.i = phi i32 [ 0, %10 ], [ -13, %21 ], [ 0, %48 ], [ %.029.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %53
 
@@ -466,7 +466,7 @@ mbedtls_xor.exit:                                 ; preds = %.lr.ph62, %.prehead
   br label %78
 
 78:                                               ; preds = %8, %75, %71, %27, %13, %9, %3, %67
-  %.0 = phi i32 [ -13, %9 ], [ -13, %3 ], [ -13, %13 ], [ %66, %67 ], [ -13, %27 ], [ 0, %71 ], [ 0, %75 ], [ 0, %8 ]
+  %.0 = phi i32 [ %66, %67 ], [ -13, %3 ], [ -13, %9 ], [ -13, %13 ], [ -13, %27 ], [ 0, %71 ], [ 0, %75 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -962,7 +962,7 @@ mbedtls_ccm_crypt.exit:                           ; preds = %._crit_edge
   br label %43
 
 43:                                               ; preds = %mbedtls_ccm_crypt.exit, %16, %9, %3, %42
-  %.021 = phi i32 [ -110, %3 ], [ -13, %9 ], [ -13, %16 ], [ 0, %42 ], [ %34, %mbedtls_ccm_crypt.exit ]
+  %.021 = phi i32 [ 0, %42 ], [ -110, %3 ], [ -13, %9 ], [ -13, %16 ], [ %34, %mbedtls_ccm_crypt.exit ]
   ret i32 %.021
 }
 
@@ -994,7 +994,7 @@ define hidden i32 @mbedtls_ccm_star_encrypt_and_tag(ptr noundef %0, i64 noundef 
   br label %ccm_auth_crypt.exit
 
 ccm_auth_crypt.exit:                              ; preds = %10, %13, %15, %17, %19
-  %.0.i = phi i32 [ %18, %17 ], [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %20, %19 ]
+  %.0.i = phi i32 [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0.i
 }
@@ -1027,7 +1027,7 @@ define hidden i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %0, i64 noundef %1, p
   br label %ccm_auth_crypt.exit
 
 ccm_auth_crypt.exit:                              ; preds = %10, %13, %15, %17, %19
-  %.0.i = phi i32 [ %18, %17 ], [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %20, %19 ]
+  %.0.i = phi i32 [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0.i
 }
@@ -1063,8 +1063,8 @@ define internal fastcc i32 @ccm_auth_decrypt(ptr noundef %0, i32 noundef range(i
   %.not31.i = icmp eq i32 %20, 0
   br i1 %.not31.i, label %ccm_auth_crypt.exit, label %ccm_auth_crypt.exit.thread
 
-ccm_auth_crypt.exit.thread:                       ; preds = %19, %11, %15, %17
-  %.0.i.ph = phi i32 [ %18, %17 ], [ %16, %15 ], [ %14, %11 ], [ %20, %19 ]
+ccm_auth_crypt.exit.thread:                       ; preds = %11, %15, %17, %19
+  %.0.i.ph = phi i32 [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %25
 
@@ -1084,7 +1084,7 @@ ccm_auth_crypt.exit:                              ; preds = %19
   br label %25
 
 25:                                               ; preds = %ccm_auth_crypt.exit.thread, %22, %ccm_auth_crypt.exit, %24
-  %.0 = phi i32 [ %21, %ccm_auth_crypt.exit ], [ -15, %24 ], [ 0, %22 ], [ %.0.i.ph, %ccm_auth_crypt.exit.thread ]
+  %.0 = phi i32 [ -15, %24 ], [ %21, %ccm_auth_crypt.exit ], [ 0, %22 ], [ %.0.i.ph, %ccm_auth_crypt.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
@@ -1132,7 +1132,7 @@ mbedtls_ccm_setkey.exit:                          ; preds = %11
   %.not29 = icmp eq i32 %0, 0
   br label %17
 
-mbedtls_ccm_setkey.exit.thread:                   ; preds = %8, %1, %11, %mbedtls_ccm_setkey.exit
+mbedtls_ccm_setkey.exit.thread:                   ; preds = %11, %8, %1, %mbedtls_ccm_setkey.exit
   %.not37 = icmp eq i32 %0, 0
   br i1 %.not37, label %55, label %15
 
@@ -1183,7 +1183,7 @@ mbedtls_ccm_setkey.exit.thread:                   ; preds = %8, %1, %11, %mbedtl
   %.not31.i.i = icmp eq i32 %38, 0
   br i1 %.not31.i.i, label %mbedtls_ccm_encrypt_and_tag.exit, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
-mbedtls_ccm_encrypt_and_tag.exit.thread:          ; preds = %37, %22, %33, %35
+mbedtls_ccm_encrypt_and_tag.exit.thread:          ; preds = %22, %33, %35, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -1247,7 +1247,7 @@ mbedtls_ccm_encrypt_and_tag.exit:                 ; preds = %37
   br label %55
 
 55:                                               ; preds = %53, %54, %47, %48, %.loopexit, %43, %mbedtls_ccm_setkey.exit.thread, %15
-  %.027 = phi i32 [ 1, %47 ], [ 1, %mbedtls_ccm_setkey.exit.thread ], [ 1, %.loopexit ], [ 1, %15 ], [ 1, %43 ], [ 1, %48 ], [ 0, %54 ], [ 0, %53 ]
+  %.027 = phi i32 [ 1, %15 ], [ 1, %mbedtls_ccm_setkey.exit.thread ], [ 1, %43 ], [ 1, %.loopexit ], [ 1, %48 ], [ 1, %47 ], [ 0, %54 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

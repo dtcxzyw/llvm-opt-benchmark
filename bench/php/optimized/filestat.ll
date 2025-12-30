@@ -542,14 +542,14 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %24
   br i1 %cond.fr, label %.critedge, label %.thread115, !prof !53
 
 .thread115:                                       ; preds = %zend_parse_arg_str_or_long.exit, %zend_parse_arg_path.exit, %9
-  %.065125 = phi i32 [ 1, %9 ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_str_or_long.exit ]
-  %.067124 = phi i32 [ 0, %9 ], [ 1, %zend_parse_arg_path.exit ], [ 2, %zend_parse_arg_str_or_long.exit ]
-  %.068123 = phi i32 [ 0, %9 ], [ 16, %zend_parse_arg_path.exit ], [ 28, %zend_parse_arg_str_or_long.exit ]
-  %.069122 = phi ptr [ null, %9 ], [ %11, %zend_parse_arg_path.exit ], [ %26, %zend_parse_arg_str_or_long.exit ]
+  %.065125 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_str_or_long.exit ]
+  %.067124 = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %9 ], [ 2, %zend_parse_arg_str_or_long.exit ]
+  %.068123 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %9 ], [ 28, %zend_parse_arg_str_or_long.exit ]
+  %.069122 = phi ptr [ %11, %zend_parse_arg_path.exit ], [ null, %9 ], [ %26, %zend_parse_arg_str_or_long.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.065125, i32 noundef %.067124, ptr noundef null, i32 noundef %.068123, ptr noundef %.069122) #16
   br label %82
 
-.critedge:                                        ; preds = %zend_parse_arg_str_or_long.exit, %29, %31
+.critedge:                                        ; preds = %zend_parse_arg_str_or_long.exit, %31, %29
   %34 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %25, ptr noundef null, i32 noundef 0) #16
   %.not75 = icmp eq ptr %34, @php_plain_files_wrapper
   br i1 %.not75, label %35, label %38
@@ -786,14 +786,14 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %24
   br i1 %cond.fr, label %.critedge, label %.thread115, !prof !53
 
 .thread115:                                       ; preds = %zend_parse_arg_str_or_long.exit, %zend_parse_arg_path.exit, %9
-  %.065125 = phi i32 [ 1, %9 ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_str_or_long.exit ]
-  %.067124 = phi i32 [ 0, %9 ], [ 1, %zend_parse_arg_path.exit ], [ 2, %zend_parse_arg_str_or_long.exit ]
-  %.068123 = phi i32 [ 0, %9 ], [ 16, %zend_parse_arg_path.exit ], [ 28, %zend_parse_arg_str_or_long.exit ]
-  %.069122 = phi ptr [ null, %9 ], [ %11, %zend_parse_arg_path.exit ], [ %26, %zend_parse_arg_str_or_long.exit ]
+  %.065125 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_str_or_long.exit ]
+  %.067124 = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %9 ], [ 2, %zend_parse_arg_str_or_long.exit ]
+  %.068123 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %9 ], [ 28, %zend_parse_arg_str_or_long.exit ]
+  %.069122 = phi ptr [ %11, %zend_parse_arg_path.exit ], [ null, %9 ], [ %26, %zend_parse_arg_str_or_long.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.065125, i32 noundef %.067124, ptr noundef null, i32 noundef %.068123, ptr noundef %.069122) #16
   br label %82
 
-.critedge:                                        ; preds = %zend_parse_arg_str_or_long.exit, %29, %31
+.critedge:                                        ; preds = %zend_parse_arg_str_or_long.exit, %31, %29
   %34 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %25, ptr noundef null, i32 noundef 0) #16
   %.not75 = icmp eq ptr %34, @php_plain_files_wrapper
   br i1 %.not75, label %35, label %38
@@ -995,10 +995,10 @@ zend_parse_arg_long_ex.exit:                      ; preds = %22
   br i1 %29, label %.critedge, label %.thread, !prof !61
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_path.exit, %7
-  %.05896 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_path.exit ]
-  %.05995 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 1, %zend_parse_arg_path.exit ]
-  %.06094 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 16, %zend_parse_arg_path.exit ]
-  %.06193 = phi ptr [ %24, %zend_parse_arg_long_ex.exit ], [ null, %7 ], [ %9, %zend_parse_arg_path.exit ]
+  %.05896 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  %.05995 = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %7 ], [ 2, %zend_parse_arg_long_ex.exit ]
+  %.06094 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %7 ], [ 0, %zend_parse_arg_long_ex.exit ]
+  %.06193 = phi ptr [ %9, %zend_parse_arg_path.exit ], [ null, %7 ], [ %24, %zend_parse_arg_long_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05896, i32 noundef %.05995, ptr noundef null, i32 noundef %.06094, ptr noundef %.06193) #16
   br label %61
 
@@ -1217,17 +1217,17 @@ zend_parse_arg_long_ex.exit122:                   ; preds = %37
   %cond.fr158 = freeze i1 %43
   br i1 %cond.fr158, label %.critedge, label %.thread174, !prof !53
 
-.thread174:                                       ; preds = %zend_parse_arg_long_ex.exit122, %zend_parse_arg_path.exit, %zend_parse_arg_long_ex.exit, %10
-  %.096187 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_long_ex.exit122 ]
-  %.097186 = phi i32 [ 0, %10 ], [ 2, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_path.exit ], [ 3, %zend_parse_arg_long_ex.exit122 ]
-  %.098185 = phi i32 [ 0, %10 ], [ 1, %zend_parse_arg_long_ex.exit ], [ 16, %zend_parse_arg_path.exit ], [ 1, %zend_parse_arg_long_ex.exit122 ]
-  %.099184 = phi ptr [ null, %10 ], [ %30, %zend_parse_arg_long_ex.exit ], [ %12, %zend_parse_arg_path.exit ], [ %38, %zend_parse_arg_long_ex.exit122 ]
+.thread174:                                       ; preds = %zend_parse_arg_long_ex.exit122, %zend_parse_arg_long_ex.exit, %zend_parse_arg_path.exit, %10
+  %.096187 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_path.exit ], [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit122 ]
+  %.097186 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_path.exit ], [ 0, %10 ], [ 3, %zend_parse_arg_long_ex.exit122 ]
+  %.098185 = phi i32 [ 1, %zend_parse_arg_long_ex.exit ], [ 16, %zend_parse_arg_path.exit ], [ 0, %10 ], [ 1, %zend_parse_arg_long_ex.exit122 ]
+  %.099184 = phi ptr [ %30, %zend_parse_arg_long_ex.exit ], [ %12, %zend_parse_arg_path.exit ], [ null, %10 ], [ %38, %zend_parse_arg_long_ex.exit122 ]
   call void @zend_wrong_parameter_error(i32 noundef %.096187, i32 noundef %.097186, ptr noundef null, i32 noundef %.098185, ptr noundef %.099184) #16
   br label %107
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit122, %.thread190, %36, %25
-  %.1138 = phi i1 [ %.3140157, %.thread190 ], [ true, %25 ], [ %.3140157, %36 ], [ %.3140157, %zend_parse_arg_long_ex.exit122 ]
-  %.1 = phi i1 [ %.2, %.thread190 ], [ true, %25 ], [ true, %36 ], [ false, %zend_parse_arg_long_ex.exit122 ]
+  %.1138 = phi i1 [ true, %25 ], [ %.3140157, %36 ], [ %.3140157, %.thread190 ], [ %.3140157, %zend_parse_arg_long_ex.exit122 ]
+  %.1 = phi i1 [ true, %25 ], [ true, %36 ], [ %.2, %.thread190 ], [ false, %zend_parse_arg_long_ex.exit122 ]
   %.not107 = icmp eq i64 %26, 0
   br i1 %.not107, label %44, label %46
 
@@ -1269,7 +1269,7 @@ zend_parse_arg_long_ex.exit122:                   ; preds = %37
   br label %57
 
 57:                                               ; preds = %46, %48, %53
-  %.0 = phi ptr [ %6, %53 ], [ %6, %48 ], [ null, %46 ]
+  %.0 = phi ptr [ %6, %48 ], [ %6, %53 ], [ null, %46 ]
   %58 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %27, ptr noundef null, i32 noundef 0) #16
   %.not108 = icmp eq ptr %58, @php_plain_files_wrapper
   br i1 %.not108, label %59, label %62
@@ -1722,7 +1722,7 @@ define dso_local void @php_stat(ptr noundef %0, i32 noundef %1, ptr noundef capt
   br label %.critedge395
 
 .critedge395:                                     ; preds = %46, %43
-  %.0359 = phi ptr [ %spec.select, %46 ], [ %44, %43 ]
+  %.0359 = phi ptr [ %44, %43 ], [ %spec.select, %46 ]
   %switch.tableidx = add i32 %1, -9
   %49 = icmp ult i32 %switch.tableidx, 7
   %switch.maskindex = trunc i32 %switch.tableidx to i8
@@ -1736,7 +1736,7 @@ define dso_local void @php_stat(ptr noundef %0, i32 noundef %1, ptr noundef capt
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %50, %3
-  %.0355 = phi ptr [ @php_plain_files_wrapper, %50 ], [ %36, %35 ], [ null, %3 ]
+  %.0355 = phi ptr [ @php_plain_files_wrapper, %50 ], [ null, %3 ], [ %36, %35 ]
   %51 = add i32 %1, -8
   %52 = call i32 @llvm.fshl.i32(i32 %51, i32 %51, i32 31)
   %53 = icmp ult i32 %52, 6
@@ -1749,7 +1749,7 @@ switch.lookup546:                                 ; preds = %.critedge
   br label %55
 
 55:                                               ; preds = %switch.lookup546, %.critedge
-  %.0346 = phi i32 [ %switch.load548, %switch.lookup546 ], [ 0, %.critedge ]
+  %.0346 = phi i32 [ 0, %.critedge ], [ %switch.load548, %switch.lookup546 ]
   switch i32 %1, label %58 [
     i32 18, label %56
     i32 15, label %56
@@ -1903,7 +1903,7 @@ switch.early.test:                                ; preds = %85
   br label %108
 
 108:                                              ; preds = %106, %106, %107
-  %109 = phi ptr [ @.str.11, %106 ], [ @.str.12, %107 ], [ @.str.11, %106 ]
+  %109 = phi ptr [ @.str.12, %107 ], [ @.str.11, %106 ], [ @.str.11, %106 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %109, ptr noundef nonnull %110) #16
   br label %111
@@ -2024,20 +2024,20 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
   br label %159
 
 159:                                              ; preds = %71, %zend_string_equal_content.exit403, %60, %zend_string_equal_content.exit, %zend_string_copy.exit406, %135
-  %.1356 = phi ptr [ %.0355, %60 ], [ %.2357497, %135 ], [ %.2357497, %zend_string_copy.exit406 ], [ %.0355, %zend_string_equal_content.exit ], [ %.0355, %zend_string_equal_content.exit403 ], [ %.0355, %71 ]
-  %.0.sroa.phi = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 724), %60 ], [ %.0.sroa.gep, %135 ], [ %.0.sroa.gep, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 724), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 580), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 580), %71 ]
-  %.0.sroa.phi408 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 728), %60 ], [ %.0.sroa.gep409, %135 ], [ %.0.sroa.gep409, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 728), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 584), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 584), %71 ]
-  %.0.sroa.phi411 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 704), %60 ], [ %.0.sroa.gep412, %135 ], [ %.0.sroa.gep412, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 704), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 560), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 560), %71 ]
-  %.0.sroa.phi414 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 720), %60 ], [ %.0.sroa.gep415, %135 ], [ %.0.sroa.gep415, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 720), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 576), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 576), %71 ]
-  %.0.sroa.phi417 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 712), %60 ], [ %.0.sroa.gep418, %135 ], [ %.0.sroa.gep418, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 712), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 568), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 568), %71 ]
-  %.0.sroa.phi426 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 736), %60 ], [ %.0.sroa.gep427, %135 ], [ %.0.sroa.gep427, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 736), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 592), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 592), %71 ]
-  %.0.sroa.phi429 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 744), %60 ], [ %.0.sroa.gep430, %135 ], [ %.0.sroa.gep430, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 744), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 600), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 600), %71 ]
-  %.0.sroa.phi432 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 768), %60 ], [ %.0.sroa.gep433, %135 ], [ %.0.sroa.gep433, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 768), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 624), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 624), %71 ]
-  %.0.sroa.phi435 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 784), %60 ], [ %.0.sroa.gep436, %135 ], [ %.0.sroa.gep436, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 784), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 640), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 640), %71 ]
-  %.0.sroa.phi438 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 800), %60 ], [ %.0.sroa.gep439, %135 ], [ %.0.sroa.gep439, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 800), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 656), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 656), %71 ]
-  %.0.sroa.phi441 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 752), %60 ], [ %.0.sroa.gep442, %135 ], [ %.0.sroa.gep442, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 752), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 608), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 608), %71 ]
-  %.0.sroa.phi444 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 760), %60 ], [ %.0.sroa.gep445, %135 ], [ %.0.sroa.gep445, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 760), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 616), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 616), %71 ]
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 696), %60 ], [ %4, %135 ], [ %4, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 696), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 552), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 552), %71 ]
+  %.1356 = phi ptr [ %.2357497, %135 ], [ %.2357497, %zend_string_copy.exit406 ], [ %.0355, %zend_string_equal_content.exit ], [ %.0355, %60 ], [ %.0355, %zend_string_equal_content.exit403 ], [ %.0355, %71 ]
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %135 ], [ %.0.sroa.gep, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 724), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 724), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 580), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 580), %71 ]
+  %.0.sroa.phi408 = phi ptr [ %.0.sroa.gep409, %135 ], [ %.0.sroa.gep409, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 728), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 728), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 584), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 584), %71 ]
+  %.0.sroa.phi411 = phi ptr [ %.0.sroa.gep412, %135 ], [ %.0.sroa.gep412, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 704), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 704), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 560), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 560), %71 ]
+  %.0.sroa.phi414 = phi ptr [ %.0.sroa.gep415, %135 ], [ %.0.sroa.gep415, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 720), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 720), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 576), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 576), %71 ]
+  %.0.sroa.phi417 = phi ptr [ %.0.sroa.gep418, %135 ], [ %.0.sroa.gep418, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 712), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 712), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 568), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 568), %71 ]
+  %.0.sroa.phi426 = phi ptr [ %.0.sroa.gep427, %135 ], [ %.0.sroa.gep427, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 736), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 736), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 592), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 592), %71 ]
+  %.0.sroa.phi429 = phi ptr [ %.0.sroa.gep430, %135 ], [ %.0.sroa.gep430, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 744), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 744), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 600), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 600), %71 ]
+  %.0.sroa.phi432 = phi ptr [ %.0.sroa.gep433, %135 ], [ %.0.sroa.gep433, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 768), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 768), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 624), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 624), %71 ]
+  %.0.sroa.phi435 = phi ptr [ %.0.sroa.gep436, %135 ], [ %.0.sroa.gep436, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 784), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 784), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 640), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 640), %71 ]
+  %.0.sroa.phi438 = phi ptr [ %.0.sroa.gep439, %135 ], [ %.0.sroa.gep439, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 800), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 800), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 656), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 656), %71 ]
+  %.0.sroa.phi441 = phi ptr [ %.0.sroa.gep442, %135 ], [ %.0.sroa.gep442, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 752), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 752), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 608), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 608), %71 ]
+  %.0.sroa.phi444 = phi ptr [ %.0.sroa.gep445, %135 ], [ %.0.sroa.gep445, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 760), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 760), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 616), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 616), %71 ]
+  %.0 = phi ptr [ %4, %135 ], [ %4, %zend_string_copy.exit406 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 696), %zend_string_equal_content.exit ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 696), %60 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 552), %zend_string_equal_content.exit403 ], [ getelementptr inbounds nuw (i8, ptr @basic_globals, i64 552), %71 ]
   br i1 %or.cond3, label %160, label %.thread508
 
 160:                                              ; preds = %159
@@ -2106,9 +2106,9 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
   br label %386
 
 .thread508:                                       ; preds = %159, %.thread499
-  %.0347506 = phi i32 [ 4, %159 ], [ %.0347507, %.thread499 ]
-  %.0349504 = phi i32 [ 2, %159 ], [ %.0349505, %.thread499 ]
-  %.3 = phi i32 [ 1, %159 ], [ %.0352.mux, %.thread499 ]
+  %.0347506 = phi i32 [ %.0347507, %.thread499 ], [ 4, %159 ]
+  %.0349504 = phi i32 [ %.0349505, %.thread499 ], [ 2, %159 ]
+  %.3 = phi i32 [ %.0352.mux, %.thread499 ], [ 1, %159 ]
   switch i32 %1, label %379 [
     i32 0, label %187
     i32 18, label %187
@@ -2620,7 +2620,7 @@ define internal fastcc zeroext i1 @php_is_stream_path(ptr noundef readonly captu
   br label %19
 
 19:                                               ; preds = %15, %11, %9
-  %20 = phi i1 [ false, %11 ], [ %18, %15 ], [ false, %9 ]
+  %20 = phi i1 [ false, %11 ], [ false, %9 ], [ %18, %15 ]
   ret i1 %20
 }
 

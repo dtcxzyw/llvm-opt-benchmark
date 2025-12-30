@@ -992,8 +992,8 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %63
 
 63:                                               ; preds = %58, %56, %52, %49
-  %.sroa.8.0 = phi i64 [ undef, %56 ], [ undef, %49 ], [ %62, %58 ], [ undef, %52 ]
-  %.sroa.021.0 = phi i64 [ 0, %56 ], [ 0, %49 ], [ %spec.select52, %58 ], [ 0, %52 ]
+  %.sroa.8.0 = phi i64 [ undef, %49 ], [ undef, %52 ], [ undef, %56 ], [ %62, %58 ]
+  %.sroa.021.0 = phi i64 [ 0, %49 ], [ 0, %52 ], [ 0, %56 ], [ %spec.select52, %58 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %64, align 8
@@ -1147,8 +1147,8 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %62
 
 62:                                               ; preds = %57, %55, %51, %48
-  %.sroa.8.0 = phi i64 [ undef, %55 ], [ undef, %48 ], [ %61, %57 ], [ undef, %51 ]
-  %.sroa.021.0 = phi i64 [ 0, %55 ], [ 0, %48 ], [ %spec.select52, %57 ], [ 0, %51 ]
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -1301,8 +1301,8 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %62
 
 62:                                               ; preds = %57, %55, %51, %48
-  %.sroa.8.0 = phi i64 [ undef, %55 ], [ undef, %48 ], [ %61, %57 ], [ undef, %51 ]
-  %.sroa.021.0 = phi i64 [ 0, %55 ], [ 0, %48 ], [ %spec.select52, %57 ], [ 0, %51 ]
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -1455,8 +1455,8 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %62
 
 62:                                               ; preds = %57, %55, %51, %48
-  %.sroa.8.0 = phi i64 [ undef, %55 ], [ undef, %48 ], [ %61, %57 ], [ undef, %51 ]
-  %.sroa.021.0 = phi i64 [ 0, %55 ], [ 0, %48 ], [ %spec.select52, %57 ], [ 0, %51 ]
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -1609,8 +1609,8 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %62
 
 62:                                               ; preds = %57, %55, %51, %48
-  %.sroa.8.0 = phi i64 [ undef, %55 ], [ undef, %48 ], [ %61, %57 ], [ undef, %51 ]
-  %.sroa.021.0 = phi i64 [ 0, %55 ], [ 0, %48 ], [ %spec.select52, %57 ], [ 0, %51 ]
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -1765,8 +1765,8 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %64
 
 64:                                               ; preds = %59, %57, %53, %50
-  %.sroa.8.0 = phi i64 [ undef, %57 ], [ undef, %50 ], [ %63, %59 ], [ undef, %53 ]
-  %.sroa.021.0 = phi i64 [ 0, %57 ], [ 0, %50 ], [ %spec.select52, %59 ], [ 0, %53 ]
+  %.sroa.8.0 = phi i64 [ undef, %50 ], [ undef, %53 ], [ undef, %57 ], [ %63, %59 ]
+  %.sroa.021.0 = phi i64 [ 0, %50 ], [ 0, %53 ], [ 0, %57 ], [ %spec.select52, %59 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %65, align 8
@@ -1919,7 +1919,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator6reduce17h8ab3c3655a33554cE(p
   ret void
 
 .body.thread:                                     ; preds = %22, %17, %26
-  %eh.lpad-body5 = phi { ptr, i32 } [ %13, %22 ], [ %27, %26 ], [ %18, %17 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %27, %26 ], [ %18, %17 ], [ %13, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 26:                                               ; preds = %2
@@ -1989,11 +1989,11 @@ define void @"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7
   unreachable
 
 22:                                               ; preds = %23, %9
-  %.pn3 = phi { ptr, i32 } [ %12, %9 ], [ %.pn4, %23 ]
+  %.pn3 = phi { ptr, i32 } [ %.pn4, %23 ], [ %12, %9 ]
   resume { ptr, i32 } %.pn3
 
 23:                                               ; preds = %.thread, %9
-  %.pn4 = phi { ptr, i32 } [ %8, %.thread ], [ %12, %9 ]
+  %.pn4 = phi { ptr, i32 } [ %12, %9 ], [ %8, %.thread ]
   invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17h0f776584e3fcf3ceE"(ptr align 8 %2) #6
           to label %22 unwind label %20
 }

@@ -450,7 +450,7 @@ zend_string_release_ex.exit239:                   ; preds = %230, %238, %243
   br i1 %246, label %230, label %._crit_edge263
 
 ._crit_edge263:                                   ; preds = %zend_string_release_ex.exit, %zend_string_release_ex.exit239, %.preheader, %201
-  %.sink301 = phi ptr [ %203, %201 ], [ null, %zend_string_release_ex.exit239 ], [ null, %.preheader ], [ %203, %zend_string_release_ex.exit ]
+  %.sink301 = phi ptr [ %203, %201 ], [ null, %.preheader ], [ null, %zend_string_release_ex.exit239 ], [ %203, %zend_string_release_ex.exit ]
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %248 = load ptr, ptr %247, align 8, !tbaa !37
   call void @_efree(ptr noundef %248) #6

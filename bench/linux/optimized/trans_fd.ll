@@ -1494,7 +1494,7 @@ define internal void @p9_read_work(ptr noundef %0) #2 align 16 {
   br label %.thread25
 
 .thread16:                                        ; preds = %49, %.thread18, %109, %82, %72, %69, %63, %60
-  %169 = phi i32 [ -121, %.thread18 ], [ -5, %109 ], [ -5, %82 ], [ %61, %60 ], [ -5, %69 ], [ -5, %63 ], [ -5, %72 ], [ %45, %49 ]
+  %169 = phi i32 [ -5, %109 ], [ -5, %82 ], [ %61, %60 ], [ -5, %69 ], [ -5, %63 ], [ -5, %72 ], [ -121, %.thread18 ], [ %45, %49 ]
   call fastcc void @p9_conn_cancel(ptr noundef %3, i32 noundef %169)
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17, i32 -3, ptr elementtype(i8) %17) #13, !srcloc !25
   br label %.thread25

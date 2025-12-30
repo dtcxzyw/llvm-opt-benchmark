@@ -160,7 +160,7 @@ define hidden void @_ZN19uv_requirements_txt11requirement26RequirementsTxtRequir
   br i1 %25, label %28, label %26
 
 common.resume:                                    ; preds = %110, %91, %67, %.body, %.body56
-  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %eh.lpad-body57, %.body56 ], [ %68, %67 ], [ %eh.lpad-body, %.body ], [ %111, %110 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body57, %.body56 ], [ %eh.lpad-body, %.body ], [ %68, %67 ], [ %92, %91 ], [ %111, %110 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %5
@@ -3090,7 +3090,7 @@ define void @_ZN15uv_requirements13specification25RequirementsSpecification14fro
           to label %95 unwind label %90
 
 .thread63:                                        ; preds = %78, %70, %17, %97, %95
-  %.pn7.pn.pn.pn4966 = phi { ptr, i32 } [ %.pn7.pn.pn.pn50, %95 ], [ %.pn7.pn.pn.pn50, %97 ], [ %.pn7.pn.pn.ph, %17 ], [ %.pn, %70 ], [ %79, %78 ]
+  %.pn7.pn.pn.pn4966 = phi { ptr, i32 } [ %.pn7.pn.pn.pn50, %97 ], [ %.pn7.pn.pn.pn50, %95 ], [ %.pn7.pn.pn.ph, %17 ], [ %.pn, %70 ], [ %79, %78 ]
   resume { ptr, i32 } %.pn7.pn.pn.pn4966
 
 97:                                               ; preds = %95

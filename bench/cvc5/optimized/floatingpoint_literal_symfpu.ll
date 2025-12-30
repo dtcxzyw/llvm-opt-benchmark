@@ -1313,7 +1313,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit140:          ; preds = %_ZN4cvc58internal9B
   br label %345
 
 345:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit140, %256, %_ZN4cvc58internal9BitVectorD2Ev.exit132
-  %.pn79.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit132 ], [ %257, %256 ], [ %.pn79.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit140 ]
+  %.pn79.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit132 ], [ %.pn79.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit140 ], [ %257, %256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %346 = getelementptr inbounds nuw i8, ptr %6, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %346)
@@ -5984,7 +5984,7 @@ define linkonce_odr hidden void @_ZN6symfpu4sqrtIN4cvc58internal13symfpuLiteral6
   br label %27
 
 27:                                               ; preds = %14, %22, %24
-  %28 = phi i8 [ 0, %14 ], [ 1, %22 ], [ %26, %24 ]
+  %28 = phi i8 [ 1, %22 ], [ %26, %24 ], [ 0, %14 ]
   store i8 1, ptr %7, align 1, !tbaa !69
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 1, ptr %29, align 1, !tbaa !71
@@ -7038,7 +7038,7 @@ _ZN6symfpu24significandRounderResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit131:          ; preds = %_ZN6symfpu24significandRounderResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit130, %_ZN4cvc58internal9BitVectorD2Ev.exit125, %235
-  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %.pn65, %_ZN4cvc58internal9BitVectorD2Ev.exit125 ], [ %.pn67.pn.ph, %235 ], [ %.pn78.pn.pn, %_ZN6symfpu24significandRounderResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit130 ]
+  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn.ph, %235 ], [ %.pn65, %_ZN4cvc58internal9BitVectorD2Ev.exit125 ], [ %.pn78.pn.pn, %_ZN6symfpu24significandRounderResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %280
 
@@ -7992,7 +7992,7 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidth
   br i1 %59, label %76, label %.thread90
 
 73:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55.thread.thread, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55.thread, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55
-  %74 = phi i1 [ %46, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55.thread ], [ %45, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55 ], [ %51, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55.thread.thread ]
+  %74 = phi i1 [ %45, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55 ], [ %46, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55.thread ], [ %51, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidthERKNS2_17FloatingPointSizeE.exit55.thread.thread ]
   br i1 %74, label %.thread92, label %.thread90
 
 .thread92:                                        ; preds = %73
@@ -8396,7 +8396,7 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit86: ; 
   ret void
 
 .body:                                            ; preds = %109, %102, %193, %107
-  %.pn48 = phi { ptr, i32 } [ %.pn45.pn, %193 ], [ %108, %107 ], [ %110, %109 ], [ %103, %102 ]
+  %.pn48 = phi { ptr, i32 } [ %108, %107 ], [ %.pn45.pn, %193 ], [ %110, %109 ], [ %103, %102 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn48
@@ -10035,8 +10035,8 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE13exponentWidth
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %45, %52, %54
-  %57 = phi i8 [ 1, %52 ], [ %.pre, %54 ], [ %.pre, %45 ]
-  %58 = phi i1 [ false, %52 ], [ %56, %54 ], [ false, %45 ]
+  %57 = phi i8 [ %.pre, %54 ], [ 1, %52 ], [ %.pre, %45 ]
+  %58 = phi i1 [ %56, %54 ], [ false, %52 ], [ false, %45 ]
   %or.cond110 = select i1 %48, i1 true, i1 %51
   %59 = trunc nuw i8 %57 to i1
   %60 = select i1 %or.cond110, i1 true, i1 %59
@@ -10353,7 +10353,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit125:          ; preds = %152
   br label %163
 
 163:                                              ; preds = %161, %158
-  %164 = phi i1 [ %162, %161 ], [ false, %158 ]
+  %164 = phi i1 [ false, %158 ], [ %162, %161 ]
   %165 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %165)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit126 unwind label %166
@@ -11749,7 +11749,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit133:          ; preds = %_ZN4cvc58internal9B
   br label %281
 
 281:                                              ; preds = %263, %_ZN4cvc58internal9BitVectorD2Ev.exit133, %265, %261, %_ZN4cvc58internal9BitVectorD2Ev.exit131
-  %.pn73.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit131 ], [ %262, %261 ], [ %264, %263 ], [ %.pn73.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit133 ], [ %266, %265 ]
+  %.pn73.pn.pn.pn.pn = phi { ptr, i32 } [ %262, %261 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit131 ], [ %264, %263 ], [ %.pn73.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit133 ], [ %266, %265 ]
   call void @_ZN6symfpu20normaliseShiftResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #18
   br label %common.resume
 }
@@ -14358,9 +14358,9 @@ define linkonce_odr hidden void @_ZN6symfpu13arithmeticAddIN4cvc58internal13symf
   br label %117
 
 117:                                              ; preds = %112, %.thread, %.thread347
-  %118 = phi ptr [ %111, %.thread347 ], [ %116, %112 ], [ %107, %.thread ]
-  %119 = phi i1 [ false, %.thread347 ], [ %narrow, %112 ], [ true, %.thread ]
-  %120 = phi ptr [ %111, %.thread347 ], [ %spec.select349, %112 ], [ %93, %.thread ]
+  %118 = phi ptr [ %111, %.thread347 ], [ %107, %.thread ], [ %116, %112 ]
+  %119 = phi i1 [ false, %.thread347 ], [ true, %.thread ], [ %narrow, %112 ]
+  %120 = phi ptr [ %111, %.thread347 ], [ %93, %.thread ], [ %spec.select349, %112 ]
   %121 = load i32, ptr %120, align 8, !tbaa !9, !noalias !144
   store i32 %121, ptr %14, align 8, !tbaa !9, !alias.scope !144
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -17446,7 +17446,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit332:          ; preds = %_ZN4cvc58internal9B
   br label %349
 
 349:                                              ; preds = %347, %.noexc
-  %350 = phi i1 [ %spec.select, %347 ], [ false, %.noexc ]
+  %350 = phi i1 [ false, %.noexc ], [ %spec.select, %347 ]
   %351 = load i32, ptr %2, align 4, !tbaa !34
   %352 = invoke noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNAEv()
           to label %.noexc333 unwind label %833
@@ -19480,7 +19480,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit441:          ; preds = %_ZN4cvc58internal9B
   br label %991
 
 991:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit418, %_ZN4cvc58internal9BitVectorD2Ev.exit441, %833, %814
-  %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %815, %814 ], [ %834, %833 ], [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit441 ], [ %.pn219.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit418 ]
+  %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %815, %814 ], [ %.pn219.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit418 ], [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit441 ], [ %834, %833 ]
   %992 = getelementptr inbounds nuw i8, ptr %47, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %992)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit442 unwind label %993
@@ -19567,7 +19567,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit446:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit447:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit446, %_ZN4cvc58internal9BitVectorD2Ev.exit408, %751
-  %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn201, %_ZN4cvc58internal9BitVectorD2Ev.exit408 ], [ %.pn203.pn.ph, %751 ], [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit446 ]
+  %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn203.pn.ph, %751 ], [ %.pn201, %_ZN4cvc58internal9BitVectorD2Ev.exit408 ], [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1017
 
@@ -19608,7 +19608,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit449:          ; preds = %1022, %_ZN4cvc58int
   br label %1027
 
 1027:                                             ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit390, %_ZN4cvc58internal9BitVectorD2Ev.exit395, %_ZN4cvc58internal9BitVectorD2Ev.exit400, %_ZN4cvc58internal9BitVectorD2Ev.exit449, %_ZN4cvc58internal9BitVectorD2Ev.exit398, %_ZN4cvc58internal9BitVectorD2Ev.exit393, %603, %601
-  %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %602, %601 ], [ %.pn187.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit400 ], [ %604, %603 ], [ %.pn173.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit390 ], [ %.pn176.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit393 ], [ %.pn180.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit395 ], [ %.pn183.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit398 ], [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit449 ]
+  %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %602, %601 ], [ %604, %603 ], [ %.pn173.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit390 ], [ %.pn176.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit393 ], [ %.pn180.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit395 ], [ %.pn183.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit398 ], [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit449 ], [ %.pn187.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit400 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %105)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit450 unwind label %1028
 
@@ -21086,7 +21086,7 @@ define linkonce_odr hidden void @_ZN6symfpu19rounderSpecialCasesIN4cvc58internal
   br label %42
 
 42:                                               ; preds = %37, %30, %26, %7
-  %43 = phi i8 [ 1, %30 ], [ 1, %26 ], [ 1, %7 ], [ %spec.select, %37 ]
+  %43 = phi i8 [ 1, %26 ], [ 1, %7 ], [ 1, %30 ], [ %spec.select, %37 ]
   store i8 %43, ptr %8, align 1, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = load i32, ptr %2, align 4, !tbaa !34
@@ -21128,7 +21128,7 @@ define linkonce_odr hidden void @_ZN6symfpu19rounderSpecialCasesIN4cvc58internal
   br label %69
 
 69:                                               ; preds = %55, %62, %66, %51, %47, %42
-  %70 = phi i8 [ 1, %55 ], [ 1, %51 ], [ 1, %47 ], [ 1, %42 ], [ 0, %62 ], [ %68, %66 ]
+  %70 = phi i8 [ 1, %51 ], [ 1, %47 ], [ 1, %42 ], [ 0, %62 ], [ %68, %66 ], [ 1, %55 ]
   store i8 %70, ptr %9, align 1, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 3
@@ -24084,7 +24084,7 @@ define linkonce_odr hidden void @_ZN6symfpu21addDivideSpecialCasesIN4cvc58intern
   br label %.thread42
 
 .thread42:                                        ; preds = %42, %.thread70, %.thread.thread69, %.thread62, %43, %.thread, %44
-  %47 = phi i8 [ %24, %43 ], [ 0, %.thread ], [ %46, %44 ], [ %spec.select, %42 ], [ 0, %.thread62 ], [ %24, %.thread70 ], [ 0, %.thread.thread69 ]
+  %47 = phi i8 [ %24, %43 ], [ 0, %.thread ], [ %46, %44 ], [ 0, %.thread62 ], [ 0, %.thread.thread69 ], [ %24, %.thread70 ], [ %spec.select, %42 ]
   store i8 %47, ptr %9, align 1, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE7makeNaNERKNS2_17FloatingPointSizeE(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %10, ptr noundef nonnull align 4 dereferenceable(8) %1)
@@ -26706,7 +26706,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit95:           ; preds = %87
   br label %98
 
 98:                                               ; preds = %96, %.noexc
-  %99 = phi i1 [ %spec.select, %96 ], [ false, %.noexc ]
+  %99 = phi i1 [ false, %.noexc ], [ %spec.select, %96 ]
   %100 = load i32, ptr %1, align 4, !tbaa !34
   %101 = invoke noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNAEv()
           to label %.noexc96 unwind label %299
@@ -28501,7 +28501,7 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; pr
   br label %231
 
 231:                                              ; preds = %.noexc135, %228
-  %232 = phi i1 [ %230, %228 ], [ %or.cond27.i, %.noexc135 ]
+  %232 = phi i1 [ %or.cond27.i, %.noexc135 ], [ %230, %228 ]
   %233 = load i32, ptr %2, align 4, !tbaa !34
   %234 = invoke noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNAEv()
           to label %.noexc136 unwind label %393
@@ -29133,7 +29133,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit176:          ; preds = %_ZN6symfpu22resultW
   br label %424
 
 424:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit118, %_ZN4cvc58internal9BitVectorD2Ev.exit120, %423, %87, %85
-  %.pn101.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %86, %85 ], [ %88, %87 ], [ %.pn85.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %423 ], [ %.pn101.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit120 ], [ %.pn99, %_ZN4cvc58internal9BitVectorD2Ev.exit118 ]
+  %.pn101.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %86, %85 ], [ %.pn85.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %423 ], [ %.pn101.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit120 ], [ %.pn99, %_ZN4cvc58internal9BitVectorD2Ev.exit118 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %52)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit177 unwind label %425
 
@@ -29666,9 +29666,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   br label %40
 
 40:                                               ; preds = %35, %.thread110
-  %41 = phi i8 [ %37, %.thread110 ], [ %21, %35 ]
-  %42 = phi i8 [ %38, %.thread110 ], [ %24, %35 ]
-  %43 = phi i1 [ %39, %.thread110 ], [ false, %35 ]
+  %41 = phi i8 [ %21, %35 ], [ %37, %.thread110 ]
+  %42 = phi i8 [ %24, %35 ], [ %38, %.thread110 ]
+  %43 = phi i1 [ false, %35 ], [ %39, %.thread110 ]
   %44 = select i1 %3, i1 %43, i1 false
   br label %.thread119
 
@@ -29748,9 +29748,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   br label %84
 
 84:                                               ; preds = %80, %.critedge
-  %85 = phi i8 [ %.pre163, %80 ], [ %46, %.critedge ]
-  %86 = phi i8 [ %.pre, %80 ], [ %17, %.critedge ]
-  %87 = phi i1 [ %83, %80 ], [ false, %.critedge ]
+  %85 = phi i8 [ %46, %.critedge ], [ %.pre163, %80 ]
+  %86 = phi i8 [ %17, %.critedge ], [ %.pre, %80 ]
+  %87 = phi i1 [ false, %.critedge ], [ %83, %80 ]
   %88 = trunc nuw i8 %86 to i1
   %89 = trunc nuw i8 %85 to i1
   %or.cond144 = select i1 %88, i1 %89, i1 false
@@ -29763,7 +29763,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   br label %94
 
 94:                                               ; preds = %90, %84
-  %95 = phi i1 [ %93, %90 ], [ false, %84 ]
+  %95 = phi i1 [ false, %84 ], [ %93, %90 ]
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %98 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %97)
@@ -29783,9 +29783,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   br label %107
 
 107:                                              ; preds = %103, %94
-  %108 = phi i8 [ %.pre165, %103 ], [ %101, %94 ]
-  %109 = phi i8 [ %.pre164, %103 ], [ %99, %94 ]
-  %110 = phi i1 [ %106, %103 ], [ false, %94 ]
+  %108 = phi i8 [ %101, %94 ], [ %.pre165, %103 ]
+  %109 = phi i8 [ %99, %94 ], [ %.pre164, %103 ]
+  %110 = phi i1 [ false, %94 ], [ %106, %103 ]
   %111 = trunc nuw i8 %109 to i1
   %112 = trunc nuw i8 %108 to i1
   %or.cond150 = select i1 %111, i1 %112, i1 false
@@ -29800,9 +29800,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   br label %117
 
 117:                                              ; preds = %113, %107
-  %118 = phi i8 [ %.pre167, %113 ], [ %108, %107 ]
-  %119 = phi i8 [ %.pre166, %113 ], [ %109, %107 ]
-  %120 = phi i1 [ %116, %113 ], [ false, %107 ]
+  %118 = phi i8 [ %108, %107 ], [ %.pre167, %113 ]
+  %119 = phi i8 [ %109, %107 ], [ %.pre166, %113 ]
+  %120 = phi i1 [ false, %107 ], [ %116, %113 ]
   %121 = trunc nuw i8 %119 to i1
   %122 = trunc nuw i8 %118 to i1
   %or.cond153 = select i1 %121, i1 true, i1 %122
@@ -29817,9 +29817,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   br label %127
 
 127:                                              ; preds = %123, %117
-  %128 = phi i8 [ %.pre169, %123 ], [ %118, %117 ]
-  %129 = phi i8 [ %.pre168, %123 ], [ %119, %117 ]
-  %130 = phi i1 [ %126, %123 ], [ false, %117 ]
+  %128 = phi i8 [ %118, %117 ], [ %.pre169, %123 ]
+  %129 = phi i8 [ %119, %117 ], [ %.pre168, %123 ]
+  %130 = phi i1 [ false, %117 ], [ %126, %123 ]
   %131 = trunc nuw i8 %129 to i1
   %132 = trunc nuw i8 %128 to i1
   %or.cond156 = select i1 %131, i1 %132, i1 false
@@ -29832,7 +29832,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   br label %137
 
 137:                                              ; preds = %133, %127
-  %138 = phi i1 [ %136, %133 ], [ false, %127 ]
+  %138 = phi i1 [ false, %127 ], [ %136, %133 ]
   %139 = trunc nuw i8 %11 to i1
   %140 = select i1 %139, i1 true, i1 %76
   %141 = xor i1 %140, true
@@ -30280,7 +30280,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit92:           ; preds = %102, %100
   br label %108
 
 108:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit92, %98, %_ZN4cvc58internal9BitVectorD2Ev.exit91
-  %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN4cvc58internal9BitVectorD2Ev.exit92 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit91 ], [ %99, %98 ]
+  %.pn61.pn = phi { ptr, i32 } [ %.pn61, %_ZN4cvc58internal9BitVectorD2Ev.exit92 ], [ %99, %98 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit91 ]
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %109)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit93 unwind label %110
@@ -31255,7 +31255,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit71:           ; preds = %58
   br label %69
 
 69:                                               ; preds = %67, %.noexc
-  %70 = phi i1 [ %spec.select, %67 ], [ false, %.noexc ]
+  %70 = phi i1 [ false, %.noexc ], [ %spec.select, %67 ]
   %71 = load i32, ptr %1, align 4, !tbaa !34
   %72 = invoke noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNAEv()
           to label %.noexc72 unwind label %157

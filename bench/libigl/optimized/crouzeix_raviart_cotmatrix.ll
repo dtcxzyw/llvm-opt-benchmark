@@ -664,9 +664,9 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %221, %222
   br label %231
 
 231:                                              ; preds = %.loopexit.split.us, %.loopexit.split-lp, %229, %227
-  %.sroa.17.4 = phi ptr [ %.sroa.17.5.lcssa, %227 ], [ %.sroa.17.5.lcssa, %229 ], [ %.sroa.11.11624.us, %.loopexit.split.us ], [ %.sroa.11.11624.us, %.loopexit.split-lp ]
-  %.sroa.01311.4 = phi ptr [ %.sroa.01311.5.lcssa, %227 ], [ %.sroa.01311.5.lcssa, %229 ], [ %.sroa.01311.61625.us, %.loopexit.split.us ], [ %.sroa.01311.61625.us, %.loopexit.split-lp ]
-  %.pn256.pn = phi { ptr, i32 } [ %228, %227 ], [ %230, %229 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.17.4 = phi ptr [ %.sroa.17.5.lcssa, %229 ], [ %.sroa.17.5.lcssa, %227 ], [ %.sroa.11.11624.us, %.loopexit.split.us ], [ %.sroa.11.11624.us, %.loopexit.split-lp ]
+  %.sroa.01311.4 = phi ptr [ %.sroa.01311.5.lcssa, %229 ], [ %.sroa.01311.5.lcssa, %227 ], [ %.sroa.01311.61625.us, %.loopexit.split.us ], [ %.sroa.01311.61625.us, %.loopexit.split-lp ]
+  %.pn256.pn = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @free(ptr noundef %.sroa.01495.0) #20
   br label %.body284
 
@@ -688,9 +688,9 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %221, %222
   br label %.body269
 
 .body269:                                         ; preds = %.body276, %59
-  %.sroa.17.0 = phi ptr [ %.sroa.17.7, %59 ], [ %.sroa.17.2, %.body276 ]
-  %.sroa.01311.0 = phi ptr [ %.sroa.11.2, %59 ], [ %.sroa.01311.2, %.body276 ]
-  %.pn256.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn256.pn.pn.pn, %.body276 ]
+  %.sroa.17.0 = phi ptr [ %.sroa.17.2, %.body276 ], [ %.sroa.17.7, %59 ]
+  %.sroa.01311.0 = phi ptr [ %.sroa.01311.2, %.body276 ], [ %.sroa.11.2, %59 ]
+  %.pn256.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn256.pn.pn.pn, %.body276 ], [ %60, %59 ]
   %.not.i.i.i695 = icmp eq ptr %.sroa.01311.0, null
   br i1 %.not.i.i.i695, label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit696, label %232
 
@@ -702,7 +702,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %221, %222
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit696
 
 _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit696: ; preds = %232, %.body269, %.body269.thread
-  %.pn263 = phi { ptr, i32 } [ %.pn256.pn.pn.pn.pn.pn, %232 ], [ %84, %.body269.thread ], [ %.pn256.pn.pn.pn.pn.pn, %.body269 ]
+  %.pn263 = phi { ptr, i32 } [ %84, %.body269.thread ], [ %.pn256.pn.pn.pn.pn.pn, %.body269 ], [ %.pn256.pn.pn.pn.pn.pn, %232 ]
   call void @free(ptr noundef %.sroa.01327.0) #20
   br label %.body
 
@@ -1388,9 +1388,9 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %221, %222
   br label %231
 
 231:                                              ; preds = %.loopexit.split.us, %.loopexit.split-lp, %229, %227
-  %.sroa.17.4 = phi ptr [ %.sroa.17.5.lcssa, %227 ], [ %.sroa.17.5.lcssa, %229 ], [ %.sroa.11.11624.us, %.loopexit.split.us ], [ %.sroa.11.11624.us, %.loopexit.split-lp ]
-  %.sroa.01311.4 = phi ptr [ %.sroa.01311.5.lcssa, %227 ], [ %.sroa.01311.5.lcssa, %229 ], [ %.sroa.01311.61625.us, %.loopexit.split.us ], [ %.sroa.01311.61625.us, %.loopexit.split-lp ]
-  %.pn256.pn = phi { ptr, i32 } [ %228, %227 ], [ %230, %229 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.17.4 = phi ptr [ %.sroa.17.5.lcssa, %229 ], [ %.sroa.17.5.lcssa, %227 ], [ %.sroa.11.11624.us, %.loopexit.split.us ], [ %.sroa.11.11624.us, %.loopexit.split-lp ]
+  %.sroa.01311.4 = phi ptr [ %.sroa.01311.5.lcssa, %229 ], [ %.sroa.01311.5.lcssa, %227 ], [ %.sroa.01311.61625.us, %.loopexit.split.us ], [ %.sroa.01311.61625.us, %.loopexit.split-lp ]
+  %.pn256.pn = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @free(ptr noundef %.sroa.01495.0) #20
   br label %.body284
 
@@ -1412,9 +1412,9 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %221, %222
   br label %.body269
 
 .body269:                                         ; preds = %.body276, %59
-  %.sroa.17.0 = phi ptr [ %.sroa.17.7, %59 ], [ %.sroa.17.2, %.body276 ]
-  %.sroa.01311.0 = phi ptr [ %.sroa.11.2, %59 ], [ %.sroa.01311.2, %.body276 ]
-  %.pn256.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn256.pn.pn.pn, %.body276 ]
+  %.sroa.17.0 = phi ptr [ %.sroa.17.2, %.body276 ], [ %.sroa.17.7, %59 ]
+  %.sroa.01311.0 = phi ptr [ %.sroa.01311.2, %.body276 ], [ %.sroa.11.2, %59 ]
+  %.pn256.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn256.pn.pn.pn, %.body276 ], [ %60, %59 ]
   %.not.i.i.i695 = icmp eq ptr %.sroa.01311.0, null
   br i1 %.not.i.i.i695, label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit696, label %232
 
@@ -1426,7 +1426,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %221, %222
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit696
 
 _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit696: ; preds = %232, %.body269, %.body269.thread
-  %.pn263 = phi { ptr, i32 } [ %.pn256.pn.pn.pn.pn.pn, %232 ], [ %84, %.body269.thread ], [ %.pn256.pn.pn.pn.pn.pn, %.body269 ]
+  %.pn263 = phi { ptr, i32 } [ %84, %.body269.thread ], [ %.pn256.pn.pn.pn.pn.pn, %.body269 ], [ %.pn256.pn.pn.pn.pn.pn, %232 ]
   call void @free(ptr noundef %.sroa.01327.0) #20
   br label %.body
 
@@ -1642,7 +1642,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !32
   call void @free(ptr noundef %76) #20
   br label %.body

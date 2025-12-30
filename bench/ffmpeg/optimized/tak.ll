@@ -259,13 +259,13 @@ bits_priv_refill_64_le.exit.i.i:                  ; preds = %74
   br label %bits_read_64_le.exit
 
 bits_read_64_le.exit:                             ; preds = %bits_read_nz_le.exit42, %74, %bits_priv_refill_64_le.exit.i.i
-  %84 = phi i32 [ %63, %bits_read_nz_le.exit42 ], [ %77, %bits_priv_refill_64_le.exit.i.i ], [ %77, %74 ]
-  %.val.i.i39139 = phi i64 [ %.val.i.i39, %bits_read_nz_le.exit42 ], [ %.val.i.i39140143, %bits_priv_refill_64_le.exit.i.i ], [ %.val.i.i39140143, %74 ]
-  %.val.i22.i.i = phi i64 [ %60, %bits_read_nz_le.exit42 ], [ %82, %bits_priv_refill_64_le.exit.i.i ], [ %.val.i22.i.i100, %74 ]
-  %85 = phi i32 [ %61, %bits_read_nz_le.exit42 ], [ 64, %bits_priv_refill_64_le.exit.i.i ], [ %75, %74 ]
-  %.018.i.i = phi i32 [ 35, %bits_read_nz_le.exit42 ], [ %75, %bits_priv_refill_64_le.exit.i.i ], [ %75, %74 ]
-  %.017.i.i = phi i64 [ 0, %bits_read_nz_le.exit42 ], [ %.1.i.i, %bits_priv_refill_64_le.exit.i.i ], [ %.1.i.i, %74 ]
-  %.0.i.i = phi i32 [ 0, %bits_read_nz_le.exit42 ], [ %76, %bits_priv_refill_64_le.exit.i.i ], [ %76, %74 ]
+  %84 = phi i32 [ %77, %bits_priv_refill_64_le.exit.i.i ], [ %63, %bits_read_nz_le.exit42 ], [ %77, %74 ]
+  %.val.i.i39139 = phi i64 [ %.val.i.i39140143, %bits_priv_refill_64_le.exit.i.i ], [ %.val.i.i39, %bits_read_nz_le.exit42 ], [ %.val.i.i39140143, %74 ]
+  %.val.i22.i.i = phi i64 [ %82, %bits_priv_refill_64_le.exit.i.i ], [ %60, %bits_read_nz_le.exit42 ], [ %.val.i22.i.i100, %74 ]
+  %85 = phi i32 [ 64, %bits_priv_refill_64_le.exit.i.i ], [ %61, %bits_read_nz_le.exit42 ], [ %75, %74 ]
+  %.018.i.i = phi i32 [ %75, %bits_priv_refill_64_le.exit.i.i ], [ 35, %bits_read_nz_le.exit42 ], [ %75, %74 ]
+  %.017.i.i = phi i64 [ %.1.i.i, %bits_priv_refill_64_le.exit.i.i ], [ 0, %bits_read_nz_le.exit42 ], [ %.1.i.i, %74 ]
+  %.0.i.i = phi i32 [ %76, %bits_priv_refill_64_le.exit.i.i ], [ 0, %bits_read_nz_le.exit42 ], [ %76, %74 ]
   %86 = sub nuw nsw i32 64, %.018.i.i
   %87 = zext nneg i32 %86 to i64
   %88 = lshr i64 -1, %87
@@ -584,7 +584,7 @@ bits_read_nz_le.exit85:                           ; preds = %218, %222, %bits_pr
   br i1 %exitcond.not, label %bits_read_bit_le.exit.thread, label %218, !llvm.loop !26
 
 bits_read_bit_le.exit.thread:                     ; preds = %242, %bits_read_bit_le.exit.thread144, %207, %176, %bits_read_bit_le.exit81, %bits_read_bit_le.exit
-  %.032 = phi i64 [ 0, %207 ], [ 0, %bits_read_bit_le.exit81 ], [ 0, %bits_read_bit_le.exit ], [ 0, %176 ], [ 0, %bits_read_bit_le.exit.thread144 ], [ %.2, %242 ]
+  %.032 = phi i64 [ 0, %bits_read_bit_le.exit81 ], [ 0, %bits_read_bit_le.exit ], [ 0, %176 ], [ 0, %207 ], [ 0, %bits_read_bit_le.exit.thread144 ], [ %.2, %242 ]
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.032, ptr %244, align 8, !tbaa !28
   %245 = icmp samesign ult i32 %84, 4
@@ -930,8 +930,8 @@ bits_priv_refill_64_le.exit.i49:                  ; preds = %139, %135
   br label %bits_skip_le.exit53
 
 bits_skip_le.exit53:                              ; preds = %bits_priv_refill_64_le.exit.i49, %.sink.split.i51, %bits_read_nz_le.exit45
-  %148 = phi i64 [ %127, %bits_read_nz_le.exit45 ], [ %147, %.sink.split.i51 ], [ %142, %bits_priv_refill_64_le.exit.i49 ]
-  %149 = phi i32 [ %128, %bits_read_nz_le.exit45 ], [ %.sink.i52, %.sink.split.i51 ], [ %.pr, %bits_priv_refill_64_le.exit.i49 ]
+  %148 = phi i64 [ %147, %.sink.split.i51 ], [ %127, %bits_read_nz_le.exit45 ], [ %142, %bits_priv_refill_64_le.exit.i49 ]
+  %149 = phi i32 [ %.sink.i52, %.sink.split.i51 ], [ %128, %bits_read_nz_le.exit45 ], [ %.pr, %bits_priv_refill_64_le.exit.i49 ]
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %151 = load ptr, ptr %150, align 8, !tbaa !14
   %152 = and i32 %149, 7
@@ -1041,7 +1041,7 @@ bits_priv_refill_64_le.exit.i59:                  ; preds = %190, %186
   br label %bits_skip_le.exit63
 
 bits_skip_le.exit63:                              ; preds = %.sink.split.i61, %bits_priv_refill_64_le.exit.i59, %108, %167, %.thread, %24
-  %.024 = phi i32 [ -1094995529, %24 ], [ -1094995529, %167 ], [ -1094995529, %.thread ], [ %109, %108 ], [ 0, %bits_priv_refill_64_le.exit.i59 ], [ 0, %.sink.split.i61 ]
+  %.024 = phi i32 [ -1094995529, %24 ], [ -1094995529, %.thread ], [ -1094995529, %167 ], [ %109, %108 ], [ 0, %bits_priv_refill_64_le.exit.i59 ], [ 0, %.sink.split.i61 ]
   ret i32 %.024
 }
 

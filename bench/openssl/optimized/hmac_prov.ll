@@ -136,7 +136,7 @@ hmac_free.exit35:                                 ; preds = %29
   br label %hmac_new.exit.thread
 
 hmac_new.exit.thread:                             ; preds = %3, %12, %26, %38, %1, %hmac_free.exit35, %hmac_free.exit
-  %.0 = phi ptr [ null, %1 ], [ null, %hmac_free.exit35 ], [ %6, %26 ], [ null, %hmac_free.exit ], [ %6, %38 ], [ null, %12 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %hmac_free.exit35 ], [ null, %hmac_free.exit ], [ null, %1 ], [ %6, %38 ], [ %6, %26 ], [ null, %12 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -217,7 +217,7 @@ define internal i32 @hmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   br label %hmac_setkey.exit
 
 hmac_setkey.exit:                                 ; preds = %19, %15, %4, %6, %28
-  %.0 = phi i32 [ 0, %4 ], [ %31, %28 ], [ 0, %6 ], [ 0, %15 ], [ %27, %19 ]
+  %.0 = phi i32 [ %31, %28 ], [ 0, %6 ], [ 0, %4 ], [ %27, %19 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -269,7 +269,7 @@ define internal i32 @hmac_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %30
 
 30:                                               ; preds = %12, %9, %26, %14, %10
-  %.0 = phi i32 [ 0, %9 ], [ %25, %14 ], [ %29, %26 ], [ 1, %10 ], [ 0, %12 ]
+  %.0 = phi i32 [ %25, %14 ], [ 1, %10 ], [ %29, %26 ], [ 0, %9 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -322,7 +322,7 @@ define internal range(i32 0, 2) i32 @hmac_final(ptr noundef readonly captures(no
   br label %26
 
 26:                                               ; preds = %19, %10, %4, %23, %16
-  %.0 = phi i32 [ 0, %4 ], [ 1, %16 ], [ 1, %23 ], [ 0, %10 ], [ 0, %19 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %23 ], [ 0, %4 ], [ 0, %10 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -433,7 +433,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %23, %15, %12, %7, %ossl_param_is_empty.exit, %26
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 1, %26 ], [ 0, %15 ], [ 0, %12 ], [ 0, %23 ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %26 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 0, %12 ], [ 0, %15 ], [ 0, %23 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -509,7 +509,7 @@ define internal fastcc i32 @hmac_setkey(ptr noundef %0, ptr noundef %1, i64 noun
   br label %28
 
 28:                                               ; preds = %17, %9, %22
-  %.0 = phi i32 [ 0, %9 ], [ %27, %22 ], [ 1, %17 ]
+  %.0 = phi i32 [ %27, %22 ], [ 0, %9 ], [ 1, %17 ]
   ret i32 %.0
 }
 

@@ -295,7 +295,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_cbo_invalP
   br label %61
 
 61:                                               ; preds = %.thread, %50
-  %.sink62 = phi i1 [ %or.cond58, %.thread ], [ true, %50 ]
+  %.sink62 = phi i1 [ true, %50 ], [ %or.cond58, %.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %63 = load ptr, ptr %62, align 8, !tbaa !95
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -729,7 +729,7 @@ _ZN16memtracer_list_t16clean_invalidateEmmbb.exit: ; preds = %34, %.noexc59, %28
           to label %202 unwind label %203
 
 202:                                              ; preds = %201, %196, %191, %186, %156
-  %.merged = phi { ptr, i32 } [ %.pn54, %196 ], [ %.pn52, %191 ], [ %.pn50, %186 ], [ %lpad.phi, %156 ], [ %.pn56, %201 ]
+  %.merged = phi { ptr, i32 } [ %lpad.phi, %156 ], [ %.pn50, %186 ], [ %.pn52, %191 ], [ %.pn54, %196 ], [ %.pn56, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.merged
 
@@ -853,7 +853,7 @@ define noundef i64 @_Z20fast_rv64i_cbo_invalP11processor_t6insn_tm(ptr noundef r
   br label %61
 
 61:                                               ; preds = %.thread, %50
-  %.sink62 = phi i1 [ %or.cond58, %.thread ], [ true, %50 ]
+  %.sink62 = phi i1 [ true, %50 ], [ %or.cond58, %.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %63 = load ptr, ptr %62, align 8, !tbaa !95
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -972,7 +972,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_cbo_inva
   br label %61
 
 61:                                               ; preds = %.thread, %50
-  %.sink62 = phi i1 [ %or.cond58, %.thread ], [ true, %50 ]
+  %.sink62 = phi i1 [ true, %50 ], [ %or.cond58, %.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %63 = load ptr, ptr %62, align 8, !tbaa !95
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1093,7 +1093,7 @@ define noundef i64 @_Z22logged_rv64i_cbo_invalP11processor_t6insn_tm(ptr noundef
   br label %61
 
 61:                                               ; preds = %.thread, %50
-  %.sink62 = phi i1 [ %or.cond58, %.thread ], [ true, %50 ]
+  %.sink62 = phi i1 [ true, %50 ], [ %or.cond58, %.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %63 = load ptr, ptr %62, align 8, !tbaa !95
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256

@@ -179,9 +179,9 @@ sub_0.i:                                          ; preds = %34, %31, %26
   unreachable
 
 ProcessArgs.exit:                                 ; preds = %.tail40.i, %.tail.i, %12
-  %.not65 = phi i1 [ false, %.tail.i ], [ true, %12 ], [ true, %.tail40.i ]
-  %.0144 = phi i32 [ 1, %.tail.i ], [ 0, %12 ], [ 0, %.tail40.i ]
-  %.0143 = phi i32 [ %.sink.i, %.tail.i ], [ -1, %12 ], [ %.sink.i, %.tail40.i ]
+  %.not65 = phi i1 [ true, %12 ], [ false, %.tail.i ], [ true, %.tail40.i ]
+  %.0144 = phi i32 [ 0, %12 ], [ 1, %.tail.i ], [ 0, %.tail40.i ]
+  %.0143 = phi i32 [ -1, %12 ], [ %.sink.i, %.tail.i ], [ %.sink.i, %.tail40.i ]
   %51 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   %52 = icmp eq ptr %51, null
   br i1 %52, label %check_retval.exit, label %55
@@ -389,8 +389,8 @@ check_retval.exit117:                             ; preds = %143
   br label %151
 
 151:                                              ; preds = %148, %115
-  %.str.21.sink = phi ptr [ %spec.select, %148 ], [ @.str.23, %115 ]
-  %.0 = phi ptr [ %122, %148 ], [ null, %115 ]
+  %.str.21.sink = phi ptr [ @.str.23, %115 ], [ %spec.select, %148 ]
+  %.0 = phi ptr [ null, %115 ], [ %122, %148 ]
   %152 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.21.sink)
   %puts66 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %153 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25)
@@ -520,7 +520,7 @@ check_retval.exit121:                             ; preds = %167
   br label %196
 
 196:                                              ; preds = %check_retval.exit117, %check_retval.exit115, %check_retval.exit113, %check_retval.exit111, %check_retval.exit109.thread, %check_retval.exit107, %check_retval.exit105, %check_retval.exit103, %check_retval.exit101, %check_retval.exit99, %check_retval.exit97, %check_retval.exit95, %check_retval.exit93, %check_retval.exit91, %check_retval.exit89, %check_retval.exit, %193
-  %.044 = phi i32 [ 0, %193 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit89 ], [ 1, %check_retval.exit91 ], [ 1, %check_retval.exit93 ], [ 1, %check_retval.exit95 ], [ 1, %check_retval.exit97 ], [ 1, %check_retval.exit99 ], [ 1, %check_retval.exit101 ], [ 1, %check_retval.exit103 ], [ 1, %check_retval.exit105 ], [ 1, %check_retval.exit107 ], [ 1, %check_retval.exit109.thread ], [ 1, %check_retval.exit111 ], [ 1, %check_retval.exit113 ], [ 1, %check_retval.exit115 ], [ 1, %check_retval.exit117 ]
+  %.044 = phi i32 [ 0, %193 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit89 ], [ 1, %check_retval.exit91 ], [ 1, %check_retval.exit93 ], [ 1, %check_retval.exit95 ], [ 1, %check_retval.exit97 ], [ 1, %check_retval.exit99 ], [ 1, %check_retval.exit101 ], [ 1, %check_retval.exit103 ], [ 1, %check_retval.exit105 ], [ 1, %check_retval.exit107 ], [ 1, %check_retval.exit111 ], [ 1, %check_retval.exit113 ], [ 1, %check_retval.exit115 ], [ 1, %check_retval.exit117 ], [ 1, %check_retval.exit109.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

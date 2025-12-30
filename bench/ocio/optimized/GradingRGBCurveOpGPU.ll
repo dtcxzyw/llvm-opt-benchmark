@@ -4087,7 +4087,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %14
   br label %.body132
 
 .body132:                                         ; preds = %1154, %1156, %1163, %1165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i138, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i, %970, %968, %961, %959, %1142, %1411, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172, %938, %932
-  %.pn64.pn.pn = phi { ptr, i32 } [ %933, %932 ], [ %.pn60, %938 ], [ %.pn64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172 ], [ %.pn62, %1411 ], [ %960, %959 ], [ %.pn59.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i ], [ %971, %970 ], [ %969, %968 ], [ %962, %961 ], [ %1143, %1142 ], [ %.pn59.pn.pn.i139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i138 ], [ %1166, %1165 ], [ %1164, %1163 ], [ %1157, %1156 ], [ %1155, %1154 ]
+  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn60, %938 ], [ %933, %932 ], [ %.pn64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172 ], [ %.pn62, %1411 ], [ %.pn59.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i ], [ %971, %970 ], [ %969, %968 ], [ %962, %961 ], [ %960, %959 ], [ %1143, %1142 ], [ %.pn59.pn.pn.i139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i138 ], [ %1166, %1165 ], [ %1164, %1163 ], [ %1157, %1156 ], [ %1155, %1154 ]
   call fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GCPropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %64) #19
   br label %.body
 
@@ -4768,7 +4768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %231
   br label %238
 
 238:                                              ; preds = %222, %228, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64, %220, %219, %159, %130, %118, %85
-  %.pn46.pn.pn = phi { ptr, i32 } [ %.pn32, %85 ], [ %221, %220 ], [ %.pn42, %219 ], [ %.pn39.pn, %130 ], [ %.pn36.pn, %159 ], [ %.pn34, %118 ], [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64 ], [ %.pn44, %228 ], [ %223, %222 ]
+  %.pn46.pn.pn = phi { ptr, i32 } [ %221, %220 ], [ %.pn42, %219 ], [ %.pn39.pn, %130 ], [ %.pn36.pn, %159 ], [ %.pn34, %118 ], [ %.pn32, %85 ], [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64 ], [ %.pn44, %228 ], [ %223, %222 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn46.pn.pn
@@ -5088,7 +5088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   br i1 %28, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !93
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %25, %23, %19, %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
-  %.0.i.i = phi i32 [ %24, %23 ], [ %16, %15 ], [ %20, %19 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %27, %25 ]
+  %.0.i.i = phi i32 [ %16, %15 ], [ %20, %19 ], [ %24, %23 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %27, %25 ]
   %29 = zext i32 %.0.i.i to i64
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %30, ptr %5, align 8, !tbaa !30, !alias.scope !90

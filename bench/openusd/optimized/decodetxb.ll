@@ -131,9 +131,9 @@ get_txb_wide.exit.thread413:                      ; preds = %8, %get_txb_bwl.exi
   br label %get_txb_high.exit
 
 get_txb_high.exit:                                ; preds = %get_txb_wide.exit, %get_txb_wide.exit, %get_txb_wide.exit, %get_txb_wide.exit.thread, %get_txb_wide.exit.thread413, %60
-  %61 = phi i32 [ %55, %60 ], [ %58, %get_txb_wide.exit.thread413 ], [ %56, %get_txb_wide.exit.thread ], [ %55, %get_txb_wide.exit ], [ %55, %get_txb_wide.exit ], [ %55, %get_txb_wide.exit ]
-  %62 = phi i32 [ %52, %60 ], [ %59, %get_txb_wide.exit.thread413 ], [ %57, %get_txb_wide.exit.thread ], [ %52, %get_txb_wide.exit ], [ %52, %get_txb_wide.exit ], [ %52, %get_txb_wide.exit ]
-  %.0.i.i278 = phi i64 [ %18, %60 ], [ 9, %get_txb_wide.exit.thread413 ], [ 10, %get_txb_wide.exit.thread ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ]
+  %61 = phi i32 [ %55, %60 ], [ %56, %get_txb_wide.exit.thread ], [ %58, %get_txb_wide.exit.thread413 ], [ %55, %get_txb_wide.exit ], [ %55, %get_txb_wide.exit ], [ %55, %get_txb_wide.exit ]
+  %62 = phi i32 [ %52, %60 ], [ %57, %get_txb_wide.exit.thread ], [ %59, %get_txb_wide.exit.thread413 ], [ %52, %get_txb_wide.exit ], [ %52, %get_txb_wide.exit ], [ %52, %get_txb_wide.exit ]
+  %.0.i.i278 = phi i64 [ %18, %60 ], [ 10, %get_txb_wide.exit.thread ], [ 9, %get_txb_wide.exit.thread413 ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ]
   %63 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %.0.i.i278
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i16 %27 to i64
@@ -339,7 +339,7 @@ is_inter_block.exit33.i:                          ; preds = %is_inter_block.exit
   br label %av1_get_ext_tx_set_type.exit.i
 
 av1_get_ext_tx_set_type.exit.i:                   ; preds = %186, %184, %181
-  %.0.i.i280 = phi i8 [ %192, %186 ], [ %182, %181 ], [ %185, %184 ]
+  %.0.i.i280 = phi i8 [ %182, %181 ], [ %185, %184 ], [ %192, %186 ]
   %193 = zext i8 %.0.i.i280 to i64
   %194 = getelementptr inbounds nuw [16 x i32], ptr @av1_ext_tx_used, i64 %193
   %195 = zext i8 %.137.i to i64
@@ -350,7 +350,7 @@ av1_get_ext_tx_set_type.exit.i:                   ; preds = %186, %184, %181
   br label %av1_get_tx_type.exit
 
 av1_get_tx_type.exit:                             ; preds = %123, %136, %140, %av1_get_ext_tx_set_type.exit.i
-  %.0.i = phi i8 [ 0, %123 ], [ 0, %136 ], [ %149, %140 ], [ %spec.store.select.i, %av1_get_ext_tx_set_type.exit.i ]
+  %.0.i = phi i8 [ 0, %136 ], [ 0, %123 ], [ %149, %140 ], [ %spec.store.select.i, %av1_get_ext_tx_set_type.exit.i ]
   %198 = zext i8 %.0.i to i64
   %199 = getelementptr inbounds nuw i8, ptr @tx_type_to_class, i64 %198
   %200 = load i8, ptr %199, align 1
@@ -809,7 +809,7 @@ update_cdf.exit.i348:                             ; preds = %466
   br label %aom_read_symbol_.exit290
 
 aom_read_symbol_.exit290:                         ; preds = %update_cdf.exit.i348, %433, %update_cdf.exit.i338, %396, %update_cdf.exit.i328, %359, %update_cdf.exit.i318, %322, %update_cdf.exit.i308, %285, %update_cdf.exit.i298, %248, %update_cdf.exit.i288, %211
-  %.0259.in = phi i32 [ %400, %update_cdf.exit.i338 ], [ %363, %update_cdf.exit.i328 ], [ %215, %update_cdf.exit.i288 ], [ %252, %update_cdf.exit.i298 ], [ %289, %update_cdf.exit.i308 ], [ %326, %update_cdf.exit.i318 ], [ %215, %211 ], [ %252, %248 ], [ %289, %285 ], [ %326, %322 ], [ %363, %359 ], [ %400, %396 ], [ %437, %433 ], [ %437, %update_cdf.exit.i348 ]
+  %.0259.in = phi i32 [ %215, %211 ], [ %215, %update_cdf.exit.i288 ], [ %252, %248 ], [ %252, %update_cdf.exit.i298 ], [ %289, %285 ], [ %289, %update_cdf.exit.i308 ], [ %326, %322 ], [ %326, %update_cdf.exit.i318 ], [ %363, %359 ], [ %363, %update_cdf.exit.i328 ], [ %400, %396 ], [ %400, %update_cdf.exit.i338 ], [ %437, %433 ], [ %437, %update_cdf.exit.i348 ]
   %.0259 = add nsw i32 %.0259.in, 1
   %470 = sext i32 %.0259 to i64
   %471 = getelementptr inbounds i16, ptr @av1_eob_offset_bits, i64 %470
@@ -941,7 +941,7 @@ aom_read_symbol_.exit360:                         ; preds = %475, %update_cdf.ex
   br label %get_lower_levels_ctx_eob.exit
 
 get_lower_levels_ctx_eob.exit:                    ; preds = %533, %541, %544
-  %.0.i362 = phi i64 [ 1, %541 ], [ 0, %533 ], [ %..i, %544 ]
+  %.0.i362 = phi i64 [ 0, %533 ], [ 1, %541 ], [ %..i, %544 ]
   %546 = getelementptr inbounds nuw i8, ptr %11, i64 1470
   %547 = getelementptr inbounds nuw [2 x [4 x [4 x i16]]], ptr %546, i64 %65
   %548 = zext i1 %29 to i64
@@ -1040,7 +1040,7 @@ aom_read_symbol_.exit372:                         ; preds = %get_lower_levels_ct
   br label %603
 
 603:                                              ; preds = %599, %590, %594, %587
-  %.0250 = phi i64 [ 7, %590 ], [ 0, %587 ], [ %spec.select, %599 ], [ 7, %594 ]
+  %.0250 = phi i64 [ 0, %587 ], [ 7, %594 ], [ 7, %590 ], [ %spec.select, %599 ]
   %604 = getelementptr inbounds nuw i8, ptr %11, i64 5990
   %605 = tail call i8 @llvm.umin.i8(i8 %28, i8 3)
   %606 = zext nneg i8 %605 to i64
@@ -1115,8 +1115,8 @@ aom_read_symbol_.exit382:                         ; preds = %611, %update_cdf.ex
   %645 = icmp sgt i32 %612, 2
   %646 = add nuw nsw i32 %.0260422, 3
   %647 = icmp samesign ult i32 %.0260422, 9
-  %or.cond515 = select i1 %645, i1 %647, i1 false
-  br i1 %or.cond515, label %611, label %.loopexit, !llvm.loop !7
+  %or.cond513 = select i1 %645, i1 %647, i1 false
+  br i1 %or.cond513, label %611, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %aom_read_symbol_.exit382, %aom_read_symbol_.exit372
   %.0261 = phi i32 [ %584, %aom_read_symbol_.exit372 ], [ %644, %aom_read_symbol_.exit382 ]
@@ -1576,16 +1576,16 @@ get_dqv.exit:                                     ; preds = %875, %887
 set_dc_sign.exit:                                 ; preds = %904
   %908 = tail call i32 @llvm.smin.i32(i32 %.1407, i32 7)
   %909 = icmp slt i32 %.2, 0
+  %910 = or i32 %908, 8
   %.not.i401 = icmp eq i32 %.2, 0
-  %910 = add nsw i32 %908, 16
-  %911 = or i32 %908, 8
-  %.516 = select i1 %.not.i401, i32 %908, i32 %910
-  %spec.select517 = select i1 %909, i32 %911, i32 %.516
-  %912 = trunc i32 %spec.select517 to i8
+  %911 = add nsw i32 %908, 16
+  %.514 = select i1 %.not.i401, i32 %908, i32 %911
+  %spec.select515 = select i1 %909, i32 %910, i32 %.514
+  %912 = trunc i32 %spec.select515 to i8
   br label %.thread
 
 .thread:                                          ; preds = %803, %set_dc_sign.exit, %111, %112
-  %.0253 = phi i8 [ 0, %111 ], [ 0, %112 ], [ %912, %set_dc_sign.exit ], [ 0, %803 ]
+  %.0253 = phi i8 [ 0, %112 ], [ 0, %111 ], [ 0, %803 ], [ %912, %set_dc_sign.exit ]
   ret i8 %.0253
 }
 
@@ -1756,7 +1756,7 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   br label %133
 
 133:                                              ; preds = %106, %103, %128, %122, %115
-  %.0 = phi i32 [ %132, %128 ], [ 0, %103 ], [ %121, %115 ], [ %127, %122 ], [ 0, %106 ]
+  %.0 = phi i32 [ %121, %115 ], [ %127, %122 ], [ %132, %128 ], [ 0, %103 ], [ 0, %106 ]
   %134 = sext i32 %.0 to i64
   %135 = getelementptr inbounds [5 x i16], ptr %7, i64 %134
   %136 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %14, ptr noundef %135, i32 noundef range(i32 2, 12) 4) #4
@@ -1910,7 +1910,7 @@ aom_read_symbol_.exit:                            ; preds = %133, %update_cdf.ex
   br label %230
 
 230:                                              ; preds = %213, %200, %186, %228, %226, %211, %198
-  %.0144 = phi i32 [ %229, %228 ], [ %227, %226 ], [ %199, %198 ], [ %193, %186 ], [ %212, %211 ], [ %207, %200 ], [ %222, %213 ]
+  %.0144 = phi i32 [ %229, %228 ], [ %199, %198 ], [ %212, %211 ], [ %227, %226 ], [ %193, %186 ], [ %207, %200 ], [ %222, %213 ]
   %231 = zext nneg i32 %.0144 to i64
   %232 = getelementptr inbounds nuw [5 x i16], ptr %8, i64 %231
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
@@ -2315,7 +2315,7 @@ get_entropy_context.exit.i:                       ; preds = %194, %186, %181, %1
   br label %get_txb_ctx.exit
 
 get_txb_ctx.exit:                                 ; preds = %65, %77, %get_entropy_context.exit.i
-  %.sink.i = phi i32 [ %212, %get_entropy_context.exit.i ], [ %87, %77 ], [ 0, %65 ]
+  %.sink.i = phi i32 [ %87, %77 ], [ %212, %get_entropy_context.exit.i ], [ 0, %65 ]
   store i32 %.sink.i, ptr %8, align 4
   %213 = call zeroext i8 @av1_read_coeffs_txb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %3, ptr noundef nonnull %8, i8 noundef zeroext %6)
   %214 = zext i8 %213 to i32

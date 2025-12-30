@@ -120,12 +120,12 @@ define ptr @load_certs_pem(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %15, %16
-  %.0.ph = phi ptr [ %7, %16 ], [ null, %15 ], [ null, %6 ]
+  %.0.ph = phi ptr [ null, %15 ], [ %7, %16 ], [ null, %6 ]
   %18 = tail call i32 @BIO_free(ptr noundef nonnull %4) #3
   br label %19
 
 19:                                               ; preds = %.sink.split, %1, %3
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

@@ -254,7 +254,7 @@ define internal void @_ellipse_modify_property(ptr noundef readonly captures(non
   br label %50
 
 50:                                               ; preds = %38, %49, %47
-  %51 = phi reassoc nsz arcp contract afn float [ 0x3F50624DE0000000, %47 ], [ %45, %49 ], [ %37, %38 ]
+  %51 = phi reassoc nsz arcp contract afn float [ %45, %49 ], [ 0x3F50624DE0000000, %47 ], [ %37, %38 ]
   %52 = fmul reassoc nsz arcp contract afn float %51, %31
   %53 = fdiv reassoc nsz arcp contract afn float %52, %33
   br i1 %.not122133137, label %.critedge, label %54
@@ -530,7 +530,7 @@ define internal void @_ellipse_get_distance(float noundef %0, float noundef %1, 
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %46, %43, %40, %34, %31
-  %.0.i.neg.i = phi i32 [ %.1.i.neg.i, %46 ], [ -1, %43 ], [ 0, %31 ], [ 0, %40 ], [ %spec.select.i.neg.i, %34 ]
+  %.0.i.neg.i = phi i32 [ %.1.i.neg.i, %46 ], [ 0, %31 ], [ 0, %40 ], [ -1, %43 ], [ %spec.select.i.neg.i, %34 ]
   %56 = add nsw i32 %17, -7
   %wide.trip.count.i = zext nneg i32 %56 to i64
   br label %.lr.ph.i
@@ -605,7 +605,7 @@ define internal void @_ellipse_get_distance(float noundef %0, float noundef %1, 
   br label %_ellipse_cross_test.exit37.i
 
 _ellipse_cross_test.exit37.i:                     ; preds = %78, %75, %72, %66, %63
-  %.0.i33.i = phi i32 [ %.1.i32.i, %78 ], [ 1, %75 ], [ 0, %63 ], [ 0, %72 ], [ %spec.select.i36.i, %66 ]
+  %.0.i33.i = phi i32 [ %.1.i32.i, %78 ], [ 0, %63 ], [ 0, %72 ], [ 1, %75 ], [ %spec.select.i36.i, %66 ]
   %88 = mul nsw i32 %.0.i33.i, %.01638.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ellipse_point_in_polygon.exit, label %.lr.ph.i
@@ -732,7 +732,7 @@ define internal range(i32 0, 2) i32 @_ellipse_get_points(ptr noundef %0, float n
   br label %25
 
 25:                                               ; preds = %19, %8, %23
-  %.0 = phi i32 [ 0, %8 ], [ 0, %23 ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %8 ], [ 1, %19 ]
   ret i32 %.0
 }
 
@@ -945,8 +945,8 @@ _ellipse_get_points.exit:                         ; preds = %92
   store i32 0, ptr %5, align 4, !tbaa !30
   br label %_ellipse_get_points_source.exit
 
-_ellipse_get_points_source.exit:                  ; preds = %96, %79, %129, %125, %111, %77, %76, %19, %_ellipse_get_points.exit
-  %.0 = phi i32 [ 1, %125 ], [ 0, %19 ], [ 1, %_ellipse_get_points.exit ], [ 0, %77 ], [ 1, %76 ], [ 0, %111 ], [ 0, %129 ], [ 0, %79 ], [ 0, %96 ]
+_ellipse_get_points_source.exit:                  ; preds = %79, %96, %129, %125, %111, %77, %76, %19, %_ellipse_get_points.exit
+  %.0 = phi i32 [ 1, %_ellipse_get_points.exit ], [ 0, %77 ], [ 1, %76 ], [ 0, %19 ], [ 0, %129 ], [ 0, %111 ], [ 1, %125 ], [ 0, %96 ], [ 0, %79 ]
   ret i32 %.0
 }
 
@@ -1288,7 +1288,7 @@ _fill_mask.exit:                                  ; preds = %166, %157
   br label %222
 
 222:                                              ; preds = %_fill_mask.exit, %210, %93, %113, %42, %dt_get_debug_wtime.exit
-  %.0 = phi i32 [ 0, %dt_get_debug_wtime.exit ], [ 0, %93 ], [ 0, %113 ], [ 0, %42 ], [ 1, %210 ], [ 1, %_fill_mask.exit ]
+  %.0 = phi i32 [ 0, %dt_get_debug_wtime.exit ], [ 0, %113 ], [ 0, %93 ], [ 0, %42 ], [ 1, %210 ], [ 1, %_fill_mask.exit ]
   ret i32 %.0
 }
 
@@ -2449,7 +2449,7 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %108, %105, %109, %106, %110, %107
-  %.sink = phi i32 [ %.mux, %105 ], [ 2, %107 ], [ 2, %109 ], [ 1, %106 ], [ %.mux300, %108 ], [ 1, %110 ]
+  %.sink = phi i32 [ 2, %107 ], [ 1, %110 ], [ %.mux, %105 ], [ 1, %106 ], [ %.mux300, %108 ], [ 2, %109 ]
   store i32 %.sink, ptr %67, align 8, !tbaa !146
   br label %111
 
@@ -2557,7 +2557,7 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   br label %178
 
 178:                                              ; preds = %.thread291, %.thread, %.thread273, %.thread271, %160, %138, %171, %.thread292, %.thread274
-  %179 = phi reassoc nsz arcp contract afn float [ %177, %.thread292 ], [ %123, %138 ], [ %157, %.thread274 ], [ %174, %171 ], [ 0x3F50624DE0000000, %160 ], [ %158, %.thread271 ], [ %169, %.thread273 ], [ %123, %.thread ], [ 0x3F50624DE0000000, %.thread291 ]
+  %179 = phi reassoc nsz arcp contract afn float [ %157, %.thread274 ], [ %174, %171 ], [ %177, %.thread292 ], [ %123, %138 ], [ 0x3F50624DE0000000, %160 ], [ %158, %.thread271 ], [ %169, %.thread273 ], [ %123, %.thread ], [ 0x3F50624DE0000000, %.thread291 ]
   %180 = getelementptr inbounds nuw i8, ptr %118, i64 20
   store float %179, ptr %180, align 4, !tbaa !28
   tail call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #13
@@ -2830,7 +2830,7 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   br label %347
 
 347:                                              ; preds = %344, %341
-  %.2 = phi i32 [ %., %344 ], [ 0, %341 ]
+  %.2 = phi i32 [ 0, %341 ], [ %., %344 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2843,7 +2843,7 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   br label %349
 
 349:                                              ; preds = %196, %184, %348, %347, %178, %111, %65
-  %.0 = phi i32 [ 1, %65 ], [ 1, %111 ], [ 1, %178 ], [ %.2, %347 ], [ 1, %348 ], [ 1, %196 ], [ 0, %184 ]
+  %.0 = phi i32 [ 1, %65 ], [ 1, %111 ], [ 1, %178 ], [ 1, %348 ], [ %.2, %347 ], [ 1, %196 ], [ 0, %184 ]
   ret i32 %.0
 }
 
@@ -3144,7 +3144,7 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_scrolled(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %144, %169, %102, %192, %85, %83
-  %.0 = phi i32 [ 1, %83 ], [ 0, %85 ], [ %., %192 ], [ 1, %102 ], [ 1, %169 ], [ 1, %144 ]
+  %.0 = phi i32 [ 1, %83 ], [ %., %192 ], [ 0, %85 ], [ 1, %102 ], [ 1, %169 ], [ 1, %144 ]
   ret i32 %.0
 }
 
@@ -3645,12 +3645,12 @@ define internal range(i32 0, 2) i32 @_ellipse_events_button_pressed(ptr noundef 
   store ptr %276, ptr %280, align 8, !tbaa !166
   br label %.critedge
 
-.critedge:                                        ; preds = %208, %.preheader, %._crit_edge, %196, %200, %231, %235, %240, %.critedge204, %249
+.critedge:                                        ; preds = %208, %.preheader, %._crit_edge, %200, %196, %231, %235, %240, %.critedge204, %249
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
 .thread:                                          ; preds = %31, %101, %97, %91, %85, %51, %42, %104, %.critedge, %121, %117, %99, %44, %11
-  %.0 = phi i32 [ 0, %11 ], [ 1, %104 ], [ 1, %121 ], [ 1, %.critedge ], [ 1, %117 ], [ 0, %99 ], [ 0, %44 ], [ 0, %31 ], [ 1, %101 ], [ 1, %97 ], [ 1, %91 ], [ 1, %85 ], [ 1, %51 ], [ 1, %42 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %104 ], [ 1, %.critedge ], [ 1, %121 ], [ 1, %117 ], [ 0, %44 ], [ 0, %99 ], [ 0, %31 ], [ 1, %101 ], [ 1, %97 ], [ 1, %91 ], [ 1, %85 ], [ 1, %51 ], [ 1, %42 ]
   ret i32 %.0
 }
 
@@ -4101,7 +4101,7 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   br label %276
 
 276:                                              ; preds = %230, %154, %149, %272, %229, %220, %131, %97, %60
-  %.0 = phi i32 [ 1, %60 ], [ 1, %97 ], [ 1, %131 ], [ 0, %149 ], [ 1, %220 ], [ 1, %229 ], [ 1, %272 ], [ 1, %154 ], [ 0, %230 ]
+  %.0 = phi i32 [ 1, %60 ], [ 1, %97 ], [ 1, %131 ], [ 1, %220 ], [ 1, %229 ], [ 1, %272 ], [ 1, %154 ], [ 0, %149 ], [ 0, %230 ]
   ret i32 %.0
 }
 
@@ -4258,8 +4258,8 @@ _ellipse_get_points.exit:                         ; preds = %79
   br label %.thread
 
 _ellipse_get_points.exit168:                      ; preds = %104, %_ellipse_get_points.exit
-  %109 = phi i32 [ %105, %104 ], [ 0, %_ellipse_get_points.exit ]
-  %.0180 = phi ptr [ %103, %104 ], [ null, %_ellipse_get_points.exit ]
+  %109 = phi i32 [ 0, %_ellipse_get_points.exit ], [ %105, %104 ]
+  %.0180 = phi ptr [ null, %_ellipse_get_points.exit ], [ %103, %104 ]
   %110 = icmp sgt i32 %80, 1
   br i1 %110, label %111, label %115
 
@@ -4281,9 +4281,9 @@ _ellipse_get_points.exit168:                      ; preds = %104, %_ellipse_get_
   call fastcc void @_ellipse_draw_shape(i32 noundef 1, i32 noundef 0, ptr noundef %0, i32 noundef 0, float noundef %1, float noundef %118, float noundef %120, ptr noundef nonnull %.0180, i32 noundef %109)
   br label %.thread
 
-.thread:                                          ; preds = %85, %108, %36, %83, %117, %115
-  %.0181185190196 = phi ptr [ %78, %115 ], [ %78, %117 ], [ %78, %108 ], [ %78, %85 ], [ null, %83 ], [ null, %36 ]
-  %.0180191195 = phi ptr [ %.0180, %115 ], [ %.0180, %117 ], [ null, %108 ], [ null, %85 ], [ null, %83 ], [ null, %36 ]
+.thread:                                          ; preds = %108, %85, %83, %36, %117, %115
+  %.0181185190196 = phi ptr [ %78, %117 ], [ %78, %115 ], [ %78, %108 ], [ %78, %85 ], [ null, %83 ], [ null, %36 ]
+  %.0180191195 = phi ptr [ %.0180, %117 ], [ %.0180, %115 ], [ null, %108 ], [ null, %85 ], [ null, %83 ], [ null, %36 ]
   %121 = load i32, ptr %37, align 8, !tbaa !25
   %122 = and i32 %121, 8
   %.not162 = icmp eq i32 %122, 0

@@ -107,7 +107,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %28
 
 28:                                               ; preds = %20, %24, %8, %12
-  %final_block_filtering.sink = phi ptr [ @basic_block_filtering, %8 ], [ @basic_block_filtering, %12 ], [ @final_block_filtering, %24 ], [ @final_block_filtering, %20 ]
+  %final_block_filtering.sink = phi ptr [ @basic_block_filtering, %12 ], [ @basic_block_filtering, %8 ], [ @final_block_filtering, %24 ], [ @final_block_filtering, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 136680
   store ptr %final_block_filtering.sink, ptr %29, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -165,7 +165,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %57
 
 57:                                               ; preds = %53, %45, %1, %56
-  %.0 = phi i32 [ -558323010, %1 ], [ %48, %45 ], [ 0, %56 ], [ %54, %53 ]
+  %.0 = phi i32 [ 0, %56 ], [ -558323010, %1 ], [ %48, %45 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -322,7 +322,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %46
 
 46:                                               ; preds = %18, %41, %43, %30, %21, %38
-  %.1 = phi i32 [ 0, %18 ], [ %23, %21 ], [ 0, %38 ], [ %.020, %30 ], [ 0, %43 ], [ 0, %41 ]
+  %.1 = phi i32 [ 0, %38 ], [ 0, %18 ], [ %23, %21 ], [ %.020, %30 ], [ 0, %43 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -385,9 +385,9 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   br label %61
 
 26:                                               ; preds = %10, %._crit_edge54
-  %27 = phi i32 [ %18, %10 ], [ %.pre58, %._crit_edge54 ]
-  %28 = phi i32 [ %14, %10 ], [ %.pre56, %._crit_edge54 ]
-  %.047 = phi ptr [ %12, %10 ], [ undef, %._crit_edge54 ]
+  %27 = phi i32 [ %.pre58, %._crit_edge54 ], [ %18, %10 ]
+  %28 = phi i32 [ %.pre56, %._crit_edge54 ], [ %14, %10 ]
+  %.047 = phi ptr [ undef, %._crit_edge54 ], [ %12, %10 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %28, ptr %29, align 8, !tbaa !58
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -443,7 +443,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   br label %61
 
 61:                                               ; preds = %41, %26, %45, %._crit_edge
-  %.0 = phi i32 [ -22, %._crit_edge ], [ 0, %26 ], [ %60, %45 ], [ %43, %41 ]
+  %.0 = phi i32 [ -22, %._crit_edge ], [ %60, %45 ], [ 0, %26 ], [ %43, %41 ]
   ret i32 %.0
 }
 
@@ -502,7 +502,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %35
 
 35:                                               ; preds = %18, %1, %15, %23
-  %.011 = phi i32 [ %34, %23 ], [ %16, %15 ], [ %13, %1 ], [ %21, %18 ]
+  %.011 = phi i32 [ %34, %23 ], [ %13, %1 ], [ %16, %15 ], [ %21, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -798,7 +798,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   br label %search_boundary.exit.i.i.us
 
 search_boundary.exit.i.i.us:                      ; preds = %97, %.loopexit.loopexit.i.i.i.i.us, %82
-  %.0.i.i.i.i.us = phi i32 [ %109, %.loopexit.loopexit.i.i.i.i.us ], [ 0, %82 ], [ %.2.i.i.i.i.us, %97 ]
+  %.0.i.i.i.i.us = phi i32 [ 0, %82 ], [ %109, %.loopexit.loopexit.i.i.i.i.us ], [ %.2.i.i.i.i.us, %97 ]
   %110 = sub nsw i32 %83, %85
   %111 = icmp eq i32 %spec.select84.us, %110
   br i1 %111, label %search_boundary.exit77.i.i.us, label %112
@@ -835,7 +835,7 @@ search_boundary.exit.i.i.us:                      ; preds = %97, %.loopexit.loop
   br label %search_boundary.exit77.i.i.us
 
 search_boundary.exit77.i.i.us:                    ; preds = %116, %.loopexit.loopexit.i.i72.i.i.us, %search_boundary.exit.i.i.us
-  %.0.i.i71.i.i.us = phi i32 [ %128, %.loopexit.loopexit.i.i72.i.i.us ], [ %spec.select84.us, %search_boundary.exit.i.i.us ], [ %.2.i.i70.i.i.us, %116 ]
+  %.0.i.i71.i.i.us = phi i32 [ %spec.select84.us, %search_boundary.exit.i.i.us ], [ %128, %.loopexit.loopexit.i.i72.i.i.us ], [ %.2.i.i70.i.i.us, %116 ]
   br i1 %74, label %search_boundary.exit85.i.i.us, label %129
 
 129:                                              ; preds = %search_boundary.exit77.i.i.us
@@ -869,7 +869,7 @@ search_boundary.exit77.i.i.us:                    ; preds = %116, %.loopexit.loo
   br label %search_boundary.exit85.i.i.us
 
 search_boundary.exit85.i.i.us:                    ; preds = %132, %.loopexit.loopexit.i.i80.i.i.us, %search_boundary.exit77.i.i.us
-  %.0.i.i79.i.i.us = phi i32 [ %144, %.loopexit.loopexit.i.i80.i.i.us ], [ 0, %search_boundary.exit77.i.i.us ], [ %.2.i.i78.i.i.us, %132 ]
+  %.0.i.i79.i.i.us = phi i32 [ 0, %search_boundary.exit77.i.i.us ], [ %144, %.loopexit.loopexit.i.i80.i.i.us ], [ %.2.i.i78.i.i.us, %132 ]
   %145 = sub nsw i32 %84, %85
   %146 = icmp eq i32 %spec.select83.us, %145
   br i1 %146, label %search_boundary.exit93.i.i.us, label %147
@@ -906,7 +906,7 @@ search_boundary.exit85.i.i.us:                    ; preds = %132, %.loopexit.loo
   br label %search_boundary.exit93.i.i.us
 
 search_boundary.exit93.i.i.us:                    ; preds = %151, %.loopexit.loopexit.i.i88.i.i.us, %search_boundary.exit85.i.i.us
-  %.0.i.i87.i.i.us = phi i32 [ %163, %.loopexit.loopexit.i.i88.i.i.us ], [ %spec.select83.us, %search_boundary.exit85.i.i.us ], [ %.2.i.i86.i.i.us, %151 ]
+  %.0.i.i87.i.i.us = phi i32 [ %spec.select83.us, %search_boundary.exit85.i.i.us ], [ %163, %.loopexit.loopexit.i.i88.i.i.us ], [ %.2.i.i86.i.i.us, %151 ]
   %.not102.i.i.us = icmp sgt i32 %.0.i.i79.i.i.us, %.0.i.i87.i.i.us
   %.not6998.i.i.us = icmp sgt i32 %.0.i.i.i.i.us, %.0.i.i71.i.i.us
   %or.cond = select i1 %.not102.i.i.us, i1 true, i1 %.not6998.i.i.us
@@ -1337,7 +1337,7 @@ define internal void @basic_block_filtering(ptr noundef readonly captures(none) 
   br i1 %exitcond410.not, label %._crit_edge, label %109, !llvm.loop !132
 
 ._crit_edge281:                                   ; preds = %._crit_edge272.split.split.us.us.us, %._crit_edge272.split.us.split.us293.us, %._crit_edge272.split.us.split.us.us.us.us, %.preheader256.lr.ph.thread, %.preheader257.thread, %.preheader257
-  %115 = phi i1 [ false, %.preheader257.thread ], [ false, %.preheader257 ], [ true, %._crit_edge272.split.us.split.us293.us ], [ true, %.preheader256.lr.ph.thread ], [ true, %._crit_edge272.split.us.split.us.us.us.us ], [ true, %._crit_edge272.split.split.us.us.us ]
+  %115 = phi i1 [ false, %.preheader257.thread ], [ false, %.preheader257 ], [ true, %.preheader256.lr.ph.thread ], [ true, %._crit_edge272.split.us.split.us.us.us.us ], [ true, %._crit_edge272.split.us.split.us293.us ], [ true, %._crit_edge272.split.split.us.us.us ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %117 = load float, ptr %116, align 4, !tbaa !133
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2031,8 +2031,8 @@ define internal void @final_block_filtering(ptr noundef readonly captures(none) 
   %exitcond542.not = icmp eq i32 %172, %19
   br i1 %exitcond542.not, label %._crit_edge402, label %.preheader331.us.us, !llvm.loop !164
 
-.preheader329.lr.ph.thread:                       ; preds = %.preheader331.lr.ph.thread, %._crit_edge368
-  %.ph604 = phi ptr [ %154, %.preheader331.lr.ph.thread ], [ %155, %._crit_edge368 ]
+.preheader329.lr.ph.thread:                       ; preds = %._crit_edge368, %.preheader331.lr.ph.thread
+  %.ph604 = phi ptr [ %155, %._crit_edge368 ], [ %154, %.preheader331.lr.ph.thread ]
   %173 = load ptr, ptr %31, align 8, !tbaa !115
   %174 = icmp sgt i32 %27, 1
   %175 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -2577,8 +2577,8 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %.not158 = icmp eq ptr %210, null
   br i1 %.not158, label %.thread166, label %211
 
-.thread166:                                       ; preds = %82, %113, %181, %142, %119, %135, %176, %174, %172, %209, %207, %.thread
-  %.2.ph = phi i32 [ %133, %.thread ], [ -12, %82 ], [ %117, %113 ], [ -12, %181 ], [ -12, %142 ], [ %124, %119 ], [ %140, %135 ], [ -12, %176 ], [ -12, %174 ], [ -12, %172 ], [ -12, %209 ], [ -12, %207 ]
+.thread166:                                       ; preds = %135, %82, %113, %119, %176, %174, %172, %142, %209, %207, %181, %.thread
+  %.2.ph = phi i32 [ %133, %.thread ], [ %140, %135 ], [ -12, %82 ], [ %117, %113 ], [ %124, %119 ], [ -12, %176 ], [ -12, %174 ], [ -12, %172 ], [ -12, %142 ], [ -12, %209 ], [ -12, %207 ], [ -12, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread170
@@ -2617,7 +2617,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %.thread170
 
 .thread170:                                       ; preds = %211, %.thread166, %._crit_edge, %226
-  %.5 = phi i32 [ 0, %._crit_edge ], [ 0, %226 ], [ %.2.ph, %.thread166 ], [ -12, %211 ]
+  %.5 = phi i32 [ 0, %226 ], [ 0, %._crit_edge ], [ %.2.ph, %.thread166 ], [ -12, %211 ]
   ret i32 %.5
 }
 

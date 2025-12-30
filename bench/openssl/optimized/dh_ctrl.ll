@@ -475,7 +475,7 @@ select.unfold:                                    ; preds = %16, %16, %12
   br label %dh_param_derive_check.exit
 
 dh_param_derive_check.exit:                       ; preds = %16, %11, %21, %25, %select.unfold
-  %.0 = phi i32 [ -2, %select.unfold ], [ %23, %21 ], [ -2, %25 ], [ -2, %11 ], [ -1, %16 ]
+  %.0 = phi i32 [ -2, %select.unfold ], [ -2, %25 ], [ %23, %21 ], [ -2, %11 ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -621,7 +621,7 @@ select.unfold:                                    ; preds = %17, %17, %13
   br label %dh_param_derive_check.exit
 
 dh_param_derive_check.exit:                       ; preds = %17, %12, %24, %25, %select.unfold, %3
-  %.0 = phi i32 [ -2, %24 ], [ -1, %3 ], [ %23, %select.unfold ], [ 1, %25 ], [ -2, %12 ], [ -1, %17 ]
+  %.0 = phi i32 [ -1, %3 ], [ %23, %select.unfold ], [ 1, %25 ], [ -2, %24 ], [ -2, %12 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -691,7 +691,7 @@ select.unfold:                                    ; preds = %14, %14, %10
   br label %dh_param_derive_check.exit
 
 dh_param_derive_check.exit:                       ; preds = %14, %9, %21, %20, %select.unfold
-  %.0 = phi i32 [ %spec.select, %21 ], [ -1, %select.unfold ], [ -1, %20 ], [ -2, %9 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %select.unfold ], [ -1, %20 ], [ %spec.select, %21 ], [ -2, %9 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

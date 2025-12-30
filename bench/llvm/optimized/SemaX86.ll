@@ -523,8 +523,8 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaX8625CheckBuiltinRoundingOrSA
   br label %17
 
 17:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %16, %15, %14, %13, %12, %11, %10, %9
-  %.013 = phi i32 [ 1, %3 ], [ 2, %9 ], [ 3, %10 ], [ 4, %11 ], [ 5, %12 ], [ 1, %13 ], [ 2, %14 ], [ 3, %15 ], [ 4, %16 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
-  %.012 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ]
+  %.013 = phi i32 [ 2, %9 ], [ 3, %10 ], [ 4, %11 ], [ 5, %12 ], [ 1, %13 ], [ 2, %14 ], [ 3, %15 ], [ 4, %16 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %.012 = phi i1 [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %18, align 8, !tbaa !3
@@ -639,7 +639,7 @@ _ZNK4llvm6APSInteqEl.exit14:                      ; preds = %48, %54, %57
   br label %73
 
 73:                                               ; preds = %.critedge, %_ZNK4llvm6APSInteqEl.exit, %_ZNK4llvm6APSInteqEl.exit14, %60, %34, %17, %66
-  %.1 = phi i1 [ %72, %66 ], [ false, %17 ], [ true, %34 ], [ false, %_ZNK4llvm6APSInteqEl.exit ], [ false, %.critedge ], [ false, %60 ], [ false, %_ZNK4llvm6APSInteqEl.exit14 ]
+  %.1 = phi i1 [ %72, %66 ], [ false, %17 ], [ true, %34 ], [ false, %60 ], [ false, %_ZNK4llvm6APSInteqEl.exit14 ], [ false, %_ZNK4llvm6APSInteqEl.exit ], [ false, %.critedge ]
   %74 = load i32, ptr %18, align 8, !tbaa !3
   %75 = icmp ugt i32 %74, 64
   br i1 %75, label %76, label %_ZN4llvm5APIntD2Ev.exit
@@ -971,7 +971,7 @@ _ZNK4llvm6APSInteqEl.exit11:                      ; preds = %50, %56, %59
   br label %70
 
 70:                                               ; preds = %_ZNK4llvm6APSInteqEl.exit, %_ZNK4llvm6APSInteqEl.exit10, %_ZNK4llvm6APSInteqEl.exit11, %61, %25, %10, %63
-  %.1 = phi i1 [ %69, %63 ], [ false, %10 ], [ true, %25 ], [ false, %_ZNK4llvm6APSInteqEl.exit ], [ false, %61 ], [ false, %_ZNK4llvm6APSInteqEl.exit11 ], [ false, %_ZNK4llvm6APSInteqEl.exit10 ]
+  %.1 = phi i1 [ %69, %63 ], [ false, %10 ], [ true, %25 ], [ false, %61 ], [ false, %_ZNK4llvm6APSInteqEl.exit11 ], [ false, %_ZNK4llvm6APSInteqEl.exit10 ], [ false, %_ZNK4llvm6APSInteqEl.exit ]
   %71 = load i32, ptr %11, align 8, !tbaa !3
   %72 = icmp ugt i32 %71, 64
   br i1 %72, label %73, label %_ZN4llvm5APIntD2Ev.exit
@@ -1219,8 +1219,8 @@ _ZNSt6bitsetILm8EE3setEmb.exit:                   ; preds = %_ZNKSt6bitsetILm8EE
   br i1 %cond, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %105, %18
-  %.236 = phi i1 [ %.042, %18 ], [ %.3, %105 ]
-  %.sroa.028.135 = phi i64 [ %.sroa.028.040, %18 ], [ %.sroa.028.2, %105 ]
+  %.236 = phi i1 [ %.3, %105 ], [ %.042, %18 ]
+  %.sroa.028.135 = phi i64 [ %.sroa.028.2, %105 ], [ %.sroa.028.040, %18 ]
   %106 = getelementptr inbounds nuw i8, ptr %.02241, i64 4
   %.not.not = icmp eq ptr %106, %10
   br i1 %.not.not, label %._crit_edge, label %18
@@ -1350,7 +1350,7 @@ _ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayR
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9, %17
-  %.01317.i10.idx = phi i64 [ %.01317.i10.add, %.lr.ph.i9 ], [ 0, %17 ]
+  %.01317.i10.idx = phi i64 [ 0, %17 ], [ %.01317.i10.add, %.lr.ph.i9 ]
   %.01317.i10.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.01317.i10.idx
   %19 = load i32, ptr %.01317.i10.ptr, align 4, !tbaa !48
   %20 = load ptr, ptr %0, align 8, !tbaa !15
@@ -1365,7 +1365,7 @@ _ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefI
   br label %22
 
 22:                                               ; preds = %3, %_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit13, %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit, %.lr.ph.i
-  %.0 = phi i1 [ %21, %_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit13 ], [ %7, %.lr.ph.i ], [ %16, %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit ], [ false, %3 ]
+  %.0 = phi i1 [ %7, %.lr.ph.i ], [ %16, %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit ], [ %21, %_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit13 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1800,14 +1800,14 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaX8624CheckBuiltinFunctionCall
   br label %41
 
 41:                                               ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26
-  %.017 = phi i32 [ 3, %40 ], [ 2, %26 ], [ 1, %27 ], [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 2, %31 ], [ 1, %32 ], [ 2, %33 ], [ 1, %34 ], [ 2, %35 ], [ 1, %36 ], [ 2, %37 ], [ 3, %38 ], [ 4, %39 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
-  %.0 = phi i32 [ 15, %40 ], [ 1, %26 ], [ 3, %27 ], [ 7, %28 ], [ 3, %29 ], [ 3, %30 ], [ 7, %31 ], [ 15, %32 ], [ 15, %33 ], [ 31, %34 ], [ 31, %35 ], [ 255, %36 ], [ 255, %37 ], [ 255, %38 ], [ 255, %39 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
+  %.017 = phi i32 [ 2, %26 ], [ 1, %27 ], [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 2, %31 ], [ 1, %32 ], [ 2, %33 ], [ 1, %34 ], [ 2, %35 ], [ 1, %36 ], [ 2, %37 ], [ 3, %38 ], [ 4, %39 ], [ 3, %40 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
+  %.0 = phi i32 [ 1, %26 ], [ 3, %27 ], [ 7, %28 ], [ 3, %29 ], [ 3, %30 ], [ 7, %31 ], [ 15, %32 ], [ 15, %33 ], [ 31, %34 ], [ 31, %35 ], [ 255, %36 ], [ 255, %37 ], [ 255, %38 ], [ 255, %39 ], [ 15, %40 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
   %42 = load ptr, ptr %0, align 8, !tbaa !15
   %43 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %42, ptr noundef %3, i32 noundef %.017, i32 noundef 0, i32 noundef %.0, i1 noundef zeroext false) #15
   br label %44
 
 44:                                               ; preds = %41, %25, %23, %21, %19, %9
-  %.018 = phi i1 [ %18, %9 ], [ true, %23 ], [ true, %19 ], [ true, %21 ], [ %43, %41 ], [ false, %25 ]
+  %.018 = phi i1 [ %18, %9 ], [ true, %19 ], [ true, %21 ], [ true, %23 ], [ %43, %41 ], [ false, %25 ]
   ret i1 %.018
 }
 
@@ -2436,7 +2436,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %_ZNK5clang15Declara
   br label %_ZN5clang36getFunctionOrMethodResultSourceRangeEPKNS_4DeclE.exit
 
 _ZN5clang36getFunctionOrMethodResultSourceRangeEPKNS_4DeclE.exit: ; preds = %312, %314, %316
-  %.sroa.0.1.i50 = phi i64 [ %313, %312 ], [ %317, %316 ], [ 0, %314 ]
+  %.sroa.0.1.i50 = phi i64 [ %317, %316 ], [ %313, %312 ], [ 0, %314 ]
   %.sroa.0108.0.extract.trunc = trunc i64 %.sroa.0.1.i50 to i32
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %.sroa.0108.0.extract.trunc, i32 noundef 2742, i1 noundef zeroext false) #15
   %318 = load ptr, ptr %0, align 8, !tbaa !15
@@ -2833,7 +2833,7 @@ define linkonce_odr hidden i64 @_ZN5clang29getFunctionOrMethodParamRangeEPKNS_4D
   br i1 %.not22.not.i, label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit.thread, label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit
 
 _ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit: ; preds = %2, %8, %11
-  %.sink38.i = phi i64 [ 96, %8 ], [ 120, %2 ], [ 72, %11 ]
+  %.sink38.i = phi i64 [ 120, %2 ], [ 96, %8 ], [ 72, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink38.i
   %14 = load ptr, ptr %13, align 8, !tbaa !1125
   %15 = zext i32 %1 to i64
@@ -3842,7 +3842,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit30.thread:     ; preds = %76, %_ZNK4llvm6APSI
   br label %92
 
 92:                                               ; preds = %_ZNK4llvm6APSInt10isNegativeEv.exit30, %_ZNK4llvm6APSInt10isNegativeEv.exit, %21, %23, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread, %_ZN4llvm5APIntD2Ev.exit28, %_ZN4llvm5APIntD2Ev.exit
-  %.0 = phi i32 [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ %36, %_ZN4llvm5APIntD2Ev.exit ], [ %54, %_ZN4llvm5APIntD2Ev.exit28 ], [ %24, %23 ], [ %91, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread ], [ %22, %21 ], [ 1, %_ZNK4llvm6APSInt10isNegativeEv.exit30 ]
+  %.0 = phi i32 [ %36, %_ZN4llvm5APIntD2Ev.exit ], [ %54, %_ZN4llvm5APIntD2Ev.exit28 ], [ %91, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread ], [ %22, %21 ], [ %24, %23 ], [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ 1, %_ZNK4llvm6APSInt10isNegativeEv.exit30 ]
   ret i32 %.0
 }
 

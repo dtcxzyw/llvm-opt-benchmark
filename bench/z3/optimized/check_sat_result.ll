@@ -633,7 +633,7 @@ _ZN3refI5modelE7inc_refEv.exit.i:                 ; preds = %8, %5
   br label %_ZN3refI5modelEaSERS1_.exit
 
 _ZN3refI5modelEaSERS1_.exit:                      ; preds = %28, %23, %21, %18, %13, %_ZN3refI5modelE7inc_refEv.exit.i
-  %storemerge = phi ptr [ %.pre.i, %18 ], [ %7, %_ZN3refI5modelE7inc_refEv.exit.i ], [ %7, %13 ], [ null, %21 ], [ null, %23 ], [ null, %28 ]
+  %storemerge = phi ptr [ %7, %_ZN3refI5modelE7inc_refEv.exit.i ], [ %7, %13 ], [ %.pre.i, %18 ], [ null, %21 ], [ null, %23 ], [ null, %28 ]
   store ptr %storemerge, ptr %1, align 8, !tbaa !55
   ret void
 }

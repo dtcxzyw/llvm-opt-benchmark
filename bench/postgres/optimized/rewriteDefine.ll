@@ -784,7 +784,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   br i1 %57, label %119, label %59
 
 .critedge:                                        ; preds = %119, %48, %.lr.ph.split.us.split, %.lr.ph.split.split, %4
-  %.057.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.split ], [ 0, %.lr.ph.split.us.split ], [ %.1.us, %48 ], [ %.1, %119 ]
+  %.057.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.split ], [ %.1.us, %48 ], [ %.1, %119 ]
   %58 = load i32, ptr %1, align 8
   %.not65 = icmp eq i32 %.057.lcssa, %58
   br i1 %.not65, label %127, label %123
@@ -979,7 +979,7 @@ define internal zeroext i1 @setRuleCheckAsUser_walker(ptr noundef %0, ptr nounde
   br label %11
 
 11:                                               ; preds = %2, %9, %7
-  %.0 = phi i1 [ %10, %9 ], [ false, %7 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %7 ], [ %10, %9 ], [ false, %2 ]
   ret i1 %.0
 }
 

@@ -95,9 +95,9 @@ define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr noundef %0, ptr noundef %1, i16 
   br label %68
 
 36:                                               ; preds = %32, %24, %22
-  %.1 = phi ptr [ %.045, %24 ], [ %.045, %22 ], [ %.2, %32 ]
-  %37 = phi i1 [ false, %24 ], [ true, %22 ], [ false, %32 ]
-  %38 = phi i1 [ true, %24 ], [ false, %22 ], [ true, %32 ]
+  %.1 = phi ptr [ %.045, %22 ], [ %.045, %24 ], [ %.2, %32 ]
+  %37 = phi i1 [ true, %22 ], [ false, %24 ], [ false, %32 ]
+  %38 = phi i1 [ false, %22 ], [ true, %24 ], [ true, %32 ]
   %.not52 = icmp eq ptr %.1, null
   br i1 %.not52, label %57, label %39
 

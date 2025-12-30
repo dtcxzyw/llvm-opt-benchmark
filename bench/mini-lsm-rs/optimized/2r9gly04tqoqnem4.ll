@@ -701,7 +701,7 @@ define void @_ZN16mini_lsm_starter11lsm_storage7MiniLsm21add_compaction_filter17
   unreachable
 
 .thread.i:                                        ; preds = %46, %33, %.body.i
-  %.pn3.i = phi { ptr, i32 } [ %47, %46 ], [ %20, %33 ], [ %20, %.body.i ]
+  %.pn3.i = phi { ptr, i32 } [ %20, %.body.i ], [ %20, %33 ], [ %47, %46 ]
   resume { ptr, i32 } %.pn3.i
 
 46:                                               ; preds = %11
@@ -887,7 +887,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   unreachable
 
 "_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..sync..Arc$LT$mini_lsm_starter..lsm_storage..LsmStorageState$GT$$GT$$GT$17h0f1ecadcaa81b8c7E.exit": ; preds = %47, %51, %26, %31
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %27, %31 ], [ %48, %51 ], [ %48, %47 ]
+  %.pn = phi { ptr, i32 } [ %27, %31 ], [ %27, %26 ], [ %48, %51 ], [ %48, %47 ]
   resume { ptr, i32 } %.pn
 
 _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit.thread: ; preds = %59, %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..sync..Arc$LT$mini_lsm_starter..lsm_storage..LsmStorageState$GT$$GT$$GT$17h0f1ecadcaa81b8c7E.exit30", %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit

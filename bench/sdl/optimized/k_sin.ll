@@ -40,7 +40,7 @@ define hidden double @__kernel_sin(double noundef %0, double noundef %1, i32 nou
   br label %29
 
 29:                                               ; preds = %3, %20, %17
-  %.0 = phi double [ %28, %20 ], [ %19, %17 ], [ %0, %3 ]
+  %.0 = phi double [ %19, %17 ], [ %28, %20 ], [ %0, %3 ]
   ret double %.0
 }
 

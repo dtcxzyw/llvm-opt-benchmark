@@ -509,9 +509,9 @@ define void @dlarrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %304, label %.critedge, label %319
 
 .critedge:                                        ; preds = %215, %216, %._crit_edge484, %._crit_edge495, %.thread
-  %.1411 = phi i32 [ %.0410, %.thread ], [ 1, %._crit_edge495 ], [ 2, %._crit_edge484 ], [ %.4, %215 ], [ %.4, %216 ]
-  %.1395 = phi double [ %.0394, %.thread ], [ %.3397, %._crit_edge495 ], [ %.3397, %._crit_edge484 ], [ %.3397, %215 ], [ %.3397, %216 ]
-  %.1392 = phi double [ %.0391, %.thread ], [ %.3, %._crit_edge495 ], [ %.3, %._crit_edge484 ], [ %.3, %215 ], [ %.3, %216 ]
+  %.1411 = phi i32 [ %.0410, %.thread ], [ 1, %._crit_edge495 ], [ 2, %._crit_edge484 ], [ %.4, %216 ], [ %.4, %215 ]
+  %.1395 = phi double [ %.0394, %.thread ], [ %.3397, %._crit_edge495 ], [ %.3397, %._crit_edge484 ], [ %.3397, %216 ], [ %.3397, %215 ]
+  %.1392 = phi double [ %.0391, %.thread ], [ %.3, %._crit_edge495 ], [ %.3, %._crit_edge484 ], [ %.3, %216 ], [ %.3, %215 ]
   br i1 %102, label %305, label %316
 
 305:                                              ; preds = %.critedge

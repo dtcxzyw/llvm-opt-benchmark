@@ -507,7 +507,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %89
   unreachable
 
 .body:                                            ; preds = %93, %91, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i, %82
-  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %92, %91 ], [ %83, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %94, %93 ]
+  %.pn = phi { ptr, i32 } [ %92, %91 ], [ %83, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %83, %82 ], [ %94, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %117
 

@@ -434,7 +434,7 @@ _ZN22CompilationResourceObjnwEm.exit61:           ; preds = %157, %159
   br label %163
 
 163:                                              ; preds = %142, %_ZN22CompilationResourceObjnwEm.exit61, %162
-  %164 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit61 ], [ %.0.i.i.i60, %162 ], [ null, %142 ]
+  %164 = phi ptr [ %.0.i.i.i60, %162 ], [ null, %_ZN22CompilationResourceObjnwEm.exit61 ], [ null, %142 ]
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i.i57, i64 8
   store i32 -1, ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i57, i64 28
@@ -538,7 +538,7 @@ _ZN22CompilationResourceObjnwEm.exit64:           ; preds = %202, %204
   br label %222
 
 222:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit64, %207, %_ZN22CompilationResourceObjnwEm.exit58, %163
-  %.040 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit58 ], [ %.0.i.i.i57, %163 ], [ %.0.i.i.i63, %207 ], [ null, %_ZN22CompilationResourceObjnwEm.exit64 ]
+  %.040 = phi ptr [ %.0.i.i.i57, %163 ], [ null, %_ZN22CompilationResourceObjnwEm.exit58 ], [ %.0.i.i.i63, %207 ], [ null, %_ZN22CompilationResourceObjnwEm.exit64 ]
   %223 = load ptr, ptr %38, align 8
   tail call void @_ZN8LIR_List6branchE13LIR_ConditionP8CodeStub(ptr noundef nonnull align 8 dereferenceable(32) %223, i32 noundef 1, ptr noundef %.040)
   %224 = load ptr, ptr %38, align 8
@@ -1368,7 +1368,7 @@ _ZN11LIR_OprFact8intConstEi.exit.sink.split:      ; preds = %_ZN22CompilationRes
   br label %_ZN11LIR_OprFact8intConstEi.exit
 
 _ZN11LIR_OprFact8intConstEi.exit:                 ; preds = %_ZN11LIR_OprFact8intConstEi.exit.sink.split, %_ZN22CompilationResourceObjnwEm.exit.i63, %_ZN22CompilationResourceObjnwEm.exit.i
-  %phi.call.in = phi i64 [ 0, %_ZN22CompilationResourceObjnwEm.exit.i63 ], [ 0, %_ZN22CompilationResourceObjnwEm.exit.i ], [ %117, %_ZN11LIR_OprFact8intConstEi.exit.sink.split ]
+  %phi.call.in = phi i64 [ 0, %_ZN22CompilationResourceObjnwEm.exit.i ], [ 0, %_ZN22CompilationResourceObjnwEm.exit.i63 ], [ %117, %_ZN11LIR_OprFact8intConstEi.exit.sink.split ]
   %118 = tail call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 10) #8
   %119 = load ptr, ptr %57, align 8
   tail call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %119, i64 %phi.call.in, i64 %118, ptr noundef null)
@@ -2135,9 +2135,9 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit:    ; preds = %21, %24, %41, %.sin
   br i1 %.not17.i.i16, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
 
 _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split: ; preds = %78, %78, %103, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, %74
-  %.sink27 = phi i64 [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 192, %74 ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 24, %103 ], [ 24, %78 ], [ 24, %78 ]
-  %.sink = phi i64 [ 12, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 12, %74 ], [ 12, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 8, %103 ], [ 8, %78 ], [ 8, %78 ]
-  %.sink.i.i13.sink = phi ptr [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %75, %74 ], [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %104, %103 ], [ %80, %78 ], [ %80, %78 ]
+  %.sink27 = phi i64 [ 192, %74 ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 24, %103 ], [ 24, %78 ], [ 24, %78 ]
+  %.sink = phi i64 [ 12, %74 ], [ 12, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 12, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 8, %103 ], [ 8, %78 ], [ 8, %78 ]
+  %.sink.i.i13.sink = phi ptr [ %75, %74 ], [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %104, %103 ], [ %80, %78 ], [ %80, %78 ]
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink27
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %109 = load i32, ptr %108, align 4

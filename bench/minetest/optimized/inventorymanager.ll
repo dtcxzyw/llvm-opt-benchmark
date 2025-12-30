@@ -7832,7 +7832,7 @@ cleanup315:                                       ; preds = %if.then.i716, %_ZN9
   ret void
 
 ehcleanup302.thread897:                           ; preds = %lpad.i541, %lpad131, %if.then.i.i8.i543
-  %.pn365.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %116, %lpad131 ], [ %101, %if.then.i.i8.i543 ], [ %101, %lpad.i541 ]
+  %.pn365.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %101, %if.then.i.i8.i543 ], [ %116, %lpad131 ], [ %101, %lpad.i541 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %item1)
   call void @_ZN9ItemStackD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %src_item) #28
   br label %if.then.i719.sink.split
@@ -7848,7 +7848,7 @@ ehcleanup302:                                     ; preds = %ehcleanup291, %lpad
   br i1 %cmp.not.i718, label %ehcleanup318, label %if.then.i719
 
 if.then.i719.sink.split:                          ; preds = %lpad.i, %if.then.i.i8.i, %lpad81, %ehcleanup302.thread892, %ehcleanup302.thread897
-  %.pn365.pn.pn.pn.pn.pn.pn890.ph = phi { ptr, i32 } [ %.pn365.pn.pn.pn.pn.ph, %ehcleanup302.thread897 ], [ %77, %ehcleanup302.thread892 ], [ %74, %lpad81 ], [ %71, %if.then.i.i8.i ], [ %71, %lpad.i ]
+  %.pn365.pn.pn.pn.pn.pn.pn890.ph = phi { ptr, i32 } [ %.pn365.pn.pn.pn.pn.ph, %ehcleanup302.thread897 ], [ %77, %ehcleanup302.thread892 ], [ %71, %if.then.i.i8.i ], [ %74, %lpad81 ], [ %71, %lpad.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %src_item)
   br label %if.then.i719
 

@@ -813,8 +813,8 @@ Extra_TruthIsImplyWords.exit71.i:                 ; preds = %.preheader.i, %381
   br label %.critedge4.i119
 
 .critedge4.i119:                                  ; preds = %.critedge4.loopexit.i, %Extra_TruthOrWords.exit.i
-  %.05385.i = phi i32 [ %385, %.critedge4.loopexit.i ], [ 0, %Extra_TruthOrWords.exit.i ]
-  %.15283.i = phi i32 [ %.15291.i, %.critedge4.loopexit.i ], [ 0, %Extra_TruthOrWords.exit.i ]
+  %.05385.i = phi i32 [ 0, %Extra_TruthOrWords.exit.i ], [ %385, %.critedge4.loopexit.i ]
+  %.15283.i = phi i32 [ 0, %Extra_TruthOrWords.exit.i ], [ %.15291.i, %.critedge4.loopexit.i ]
   %.not59.i = icmp eq i32 %.05385.i, %.val60.i
   br i1 %.not59.i, label %.critedge4.thread.i120, label %413
 

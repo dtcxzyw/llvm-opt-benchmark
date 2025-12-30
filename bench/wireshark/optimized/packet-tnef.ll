@@ -728,7 +728,7 @@ switch.lookup:                                    ; preds = %50
   br label %239
 
 239:                                              ; preds = %50, %switch.lookup, %211, %231, %236, %206, %188, %dissect_mapiprops.exit, %61, %58, %55
-  %.1 = phi i32 [ %.0145, %236 ], [ %.0145, %211 ], [ %.0145, %231 ], [ %.0145, %dissect_mapiprops.exit ], [ %.0145, %206 ], [ %switch.load, %switch.lookup ], [ %.0145, %188 ], [ %.0145, %55 ], [ %.0145, %58 ], [ %.0145, %61 ], [ 0, %50 ]
+  %.1 = phi i32 [ %.0145, %236 ], [ %.0145, %211 ], [ %.0145, %231 ], [ %.0145, %55 ], [ %.0145, %58 ], [ %.0145, %61 ], [ %.0145, %dissect_mapiprops.exit ], [ %.0145, %188 ], [ %.0145, %206 ], [ %switch.load, %switch.lookup ], [ 0, %50 ]
   %240 = add i32 %46, %49
   %spec.select = call i32 @llvm.umax.i32(i32 %240, i32 %49)
   %241 = load i32, ptr @hf_tnef_attribute_checksum, align 4

@@ -531,8 +531,8 @@ _ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exi
   br i1 %.not.i438389, label %_ZN7mitsuba3refINS_5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit57, label %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread
 
 _ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread: ; preds = %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit.split-lp, %87, %84, %92, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51
-  %.pn103 = phi { ptr, i32 } [ %93, %92 ], [ %lpad.thr_comm.split-lp, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51 ], [ %85, %87 ], [ %85, %84 ], [ %lpad.loopexit116, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit ], [ %lpad.loopexit.split-lp117, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit.split-lp ]
-  %98 = phi ptr [ %50, %92 ], [ %57, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51 ], [ %50, %87 ], [ %50, %84 ], [ %50, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit ], [ %50, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit.split-lp ]
+  %.pn103 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51 ], [ %85, %87 ], [ %85, %84 ], [ %93, %92 ], [ %lpad.loopexit116, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit ], [ %lpad.loopexit.split-lp117, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit.split-lp ]
+  %98 = phi ptr [ %57, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51 ], [ %50, %87 ], [ %50, %84 ], [ %50, %92 ], [ %50, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit ], [ %50, %_ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit51.thread106.loopexit.split-lp ]
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %98, i1 noundef zeroext true) #22
   br label %_ZN7mitsuba3refINS_5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit57
 
@@ -744,7 +744,7 @@ _ZN5drjit12DynamicArrayIPKN7mitsuba6SensorIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4E
   ret void
 
 183:                                              ; preds = %.loopexit, %.loopexit.split-lp, %171, %128, %106, %101
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %101 ], [ %107, %106 ], [ %172, %171 ], [ %129, %128 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %101 ], [ %107, %106 ], [ %129, %128 ], [ %172, %171 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %184 = load i8, ptr %16, align 8
   %185 = trunc i8 %184 to i1
   br i1 %185, label %186, label %_ZN5drjit12DynamicArrayIPKN7mitsuba6SensorIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit67
@@ -1426,18 +1426,18 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   br label %94
 
 94:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %.lcssa496 = phi i64 [ %91, %._crit_edge ], [ %24, %._crit_edge.thread ]
-  %.sroa.0.3.lcssa494 = phi <4 x float> [ %.sroa.0.4, %._crit_edge ], [ zeroinitializer, %._crit_edge.thread ]
-  %.sroa.4.3.lcssa492 = phi <4 x float> [ %.sroa.4.4, %._crit_edge ], [ zeroinitializer, %._crit_edge.thread ]
-  %.sroa.5.3.lcssa490 = phi <2 x float> [ %.sroa.5.4, %._crit_edge ], [ zeroinitializer, %._crit_edge.thread ]
-  %.sroa.6.3.lcssa488 = phi float [ %.sroa.6.4, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ]
-  %.sroa.7.3.lcssa486 = phi float [ %.sroa.7.4, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ]
-  %.sroa.10.3.lcssa484 = phi i8 [ %.sroa.10.4, %._crit_edge ], [ 0, %._crit_edge.thread ]
-  %.sroa.11407.3.lcssa482 = phi <4 x float> [ %.sroa.11407.4, %._crit_edge ], [ zeroinitializer, %._crit_edge.thread ]
-  %.sroa.12.3.lcssa480 = phi float [ %.sroa.12.4, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ]
-  %.sroa.13.3.lcssa478 = phi i32 [ %.sroa.13.4, %._crit_edge ], [ undef, %._crit_edge.thread ]
-  %.sroa.13420.3.lcssa476 = phi ptr [ %.sroa.13420.4, %._crit_edge ], [ null, %._crit_edge.thread ]
-  %95 = phi float [ %spec.select, %._crit_edge ], [ 1.000000e+00, %._crit_edge.thread ]
+  %.lcssa496 = phi i64 [ %24, %._crit_edge.thread ], [ %91, %._crit_edge ]
+  %.sroa.0.3.lcssa494 = phi <4 x float> [ zeroinitializer, %._crit_edge.thread ], [ %.sroa.0.4, %._crit_edge ]
+  %.sroa.4.3.lcssa492 = phi <4 x float> [ zeroinitializer, %._crit_edge.thread ], [ %.sroa.4.4, %._crit_edge ]
+  %.sroa.5.3.lcssa490 = phi <2 x float> [ zeroinitializer, %._crit_edge.thread ], [ %.sroa.5.4, %._crit_edge ]
+  %.sroa.6.3.lcssa488 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.6.4, %._crit_edge ]
+  %.sroa.7.3.lcssa486 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.7.4, %._crit_edge ]
+  %.sroa.10.3.lcssa484 = phi i8 [ 0, %._crit_edge.thread ], [ %.sroa.10.4, %._crit_edge ]
+  %.sroa.11407.3.lcssa482 = phi <4 x float> [ zeroinitializer, %._crit_edge.thread ], [ %.sroa.11407.4, %._crit_edge ]
+  %.sroa.12.3.lcssa480 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.12.4, %._crit_edge ]
+  %.sroa.13.3.lcssa478 = phi i32 [ undef, %._crit_edge.thread ], [ %.sroa.13.4, %._crit_edge ]
+  %.sroa.13420.3.lcssa476 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.13420.4, %._crit_edge ]
+  %95 = phi float [ 1.000000e+00, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   %96 = uitofp i64 %.lcssa496 to float
   %97 = fdiv contract float %95, %96
   %98 = insertelement <4 x float> poison, float %97, i64 0
@@ -3418,7 +3418,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -3493,7 +3493,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -3718,7 +3718,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 

@@ -883,7 +883,7 @@ SendIdentificationRequest.exit.i:                 ; preds = %SendProtocolPacket.
   br label %GetHomeLEDBrightness.exit.i.i
 
 GetHomeLEDBrightness.exit.i.i:                    ; preds = %361, %357, %353, %351
-  %.0.i.i.i = phi i32 [ %360, %357 ], [ %spec.select.i27.i.i, %361 ], [ 20, %351 ], [ 20, %353 ]
+  %.0.i.i.i = phi i32 [ %360, %357 ], [ 20, %353 ], [ 20, %351 ], [ %spec.select.i27.i.i, %361 ]
   %363 = icmp sgt i32 %.0.i.i.i, 0
   %364 = zext i1 %363 to i8
   store i8 %364, ptr %314, align 1
@@ -1295,7 +1295,7 @@ thread-pre-split.thread:                          ; preds = %1, %6, %9, %19
   br label %61
 
 61:                                               ; preds = %58, %46, %25, %23, %thread-pre-split.thread, %60
-  %.028 = phi i1 [ true, %thread-pre-split.thread ], [ true, %60 ], [ %47, %46 ], [ %59, %58 ], [ true, %23 ], [ false, %25 ]
+  %.028 = phi i1 [ true, %60 ], [ %47, %46 ], [ %59, %58 ], [ true, %thread-pre-split.thread ], [ true, %23 ], [ false, %25 ]
   ret i1 %.028
 }
 
@@ -1686,9 +1686,9 @@ define internal fastcc void @HIDAPI_DriverXboxOne_HandleStatePacket(ptr noundef 
 106:                                              ; preds = %102
   switch i32 %3, label %147 [
     i32 29, label %107
-    i32 34, label %116
-    i32 46, label %110
-    i32 47, label %113
+    i32 34, label %110
+    i32 46, label %113
+    i32 47, label %116
   ]
 
 107:                                              ; preds = %106
@@ -1698,39 +1698,39 @@ define internal fastcc void @HIDAPI_DriverXboxOne_HandleStatePacket(ptr noundef 
   br i1 %.not222, label %121, label %119
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 19
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 15
   %112 = load i8, ptr %111, align 1
-  %.not220 = icmp eq i8 %112, 0
-  br i1 %.not220, label %121, label %119
-
-113:                                              ; preds = %106
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %115 = load i8, ptr %114, align 1
-  %.not219 = icmp eq i8 %115, 0
-  br i1 %.not219, label %121, label %119
-
-116:                                              ; preds = %106
-  %117 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  %118 = load i8, ptr %117, align 1
-  %.not221 = icmp eq i8 %118, 0
+  %.not221 = icmp eq i8 %112, 0
   br i1 %.not221, label %121, label %119
 
-119:                                              ; preds = %110, %113, %107, %116
-  %.0179218 = phi i32 [ 4, %107 ], [ 8, %116 ], [ 8, %113 ], [ 8, %110 ]
-  %.0180216 = phi i32 [ 1, %107 ], [ 4, %116 ], [ 4, %113 ], [ 4, %110 ]
-  %.0181214 = phi i32 [ 8, %107 ], [ 2, %116 ], [ 2, %113 ], [ 2, %110 ]
-  %.0182212 = phi i32 [ 2, %107 ], [ 1, %116 ], [ 1, %113 ], [ 1, %110 ]
-  %.0183210 = phi i64 [ 28, %107 ], [ 14, %116 ], [ 14, %113 ], [ 18, %110 ]
+113:                                              ; preds = %106
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 19
+  %115 = load i8, ptr %114, align 1
+  %.not220 = icmp eq i8 %115, 0
+  br i1 %.not220, label %121, label %119
+
+116:                                              ; preds = %106
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %118 = load i8, ptr %117, align 1
+  %.not219 = icmp eq i8 %118, 0
+  br i1 %.not219, label %121, label %119
+
+119:                                              ; preds = %113, %110, %107, %116
+  %.0179218 = phi i32 [ 4, %107 ], [ 8, %116 ], [ 8, %110 ], [ 8, %113 ]
+  %.0180216 = phi i32 [ 1, %107 ], [ 4, %116 ], [ 4, %110 ], [ 4, %113 ]
+  %.0181214 = phi i32 [ 8, %107 ], [ 2, %116 ], [ 2, %110 ], [ 2, %113 ]
+  %.0182212 = phi i32 [ 2, %107 ], [ 1, %116 ], [ 1, %110 ], [ 1, %113 ]
+  %.0183210 = phi i64 [ 28, %107 ], [ 14, %116 ], [ 14, %110 ], [ 18, %113 ]
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 %.0183210
   store i8 0, ptr %120, align 1
   br label %121
 
-121:                                              ; preds = %110, %113, %107, %119, %116
-  %.0179217 = phi i32 [ 4, %107 ], [ %.0179218, %119 ], [ 8, %116 ], [ 8, %113 ], [ 8, %110 ]
-  %.0180215 = phi i32 [ 1, %107 ], [ %.0180216, %119 ], [ 4, %116 ], [ 4, %113 ], [ 4, %110 ]
-  %.0181213 = phi i32 [ 8, %107 ], [ %.0181214, %119 ], [ 2, %116 ], [ 2, %113 ], [ 2, %110 ]
-  %.0182211 = phi i32 [ 2, %107 ], [ %.0182212, %119 ], [ 1, %116 ], [ 1, %113 ], [ 1, %110 ]
-  %.0183209 = phi i64 [ 28, %107 ], [ %.0183210, %119 ], [ 14, %116 ], [ 14, %113 ], [ 18, %110 ]
+121:                                              ; preds = %113, %110, %107, %119, %116
+  %.0179217 = phi i32 [ 4, %107 ], [ %.0179218, %119 ], [ 8, %116 ], [ 8, %110 ], [ 8, %113 ]
+  %.0180215 = phi i32 [ 1, %107 ], [ %.0180216, %119 ], [ 4, %116 ], [ 4, %110 ], [ 4, %113 ]
+  %.0181213 = phi i32 [ 8, %107 ], [ %.0181214, %119 ], [ 2, %116 ], [ 2, %110 ], [ 2, %113 ]
+  %.0182211 = phi i32 [ 2, %107 ], [ %.0182212, %119 ], [ 1, %116 ], [ 1, %110 ], [ 1, %113 ]
+  %.0183209 = phi i64 [ 28, %107 ], [ %.0183210, %119 ], [ 14, %116 ], [ 14, %110 ], [ 18, %113 ]
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 46
   %123 = load i8, ptr %122, align 2
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 %.0183209

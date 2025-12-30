@@ -76,7 +76,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
   br label %36
 
 36:                                               ; preds = %33, %29, %27, %23
-  %.172 = phi i32 [ 0, %23 ], [ %spec.select, %33 ], [ 64, %27 ], [ 1, %29 ]
+  %.172 = phi i32 [ 0, %23 ], [ 64, %27 ], [ 1, %29 ], [ %spec.select, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, 281479271677954
@@ -88,7 +88,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
   br label %.thread140
 
 .thread140:                                       ; preds = %36, %12, %21
-  %.071 = phi i32 [ 0, %12 ], [ %spec.select147, %36 ], [ 0, %21 ]
+  %.071 = phi i32 [ 0, %21 ], [ 0, %12 ], [ %spec.select147, %36 ]
   %43 = and i64 %13, 4
   %.not110 = icmp eq i64 %43, 0
   br i1 %.not110, label %53, label %44
@@ -109,7 +109,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
   br label %53
 
 53:                                               ; preds = %47, %44, %.thread140
-  %.273 = phi i32 [ %.071, %44 ], [ %spec.select137, %47 ], [ %.071, %.thread140 ]
+  %.273 = phi i32 [ %.071, %44 ], [ %.071, %.thread140 ], [ %spec.select137, %47 ]
   %54 = and i64 %13, 2
   %.not114 = icmp eq i64 %54, 0
   br i1 %.not114, label %77, label %.preheader148
@@ -184,7 +184,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
   br label %82
 
 82:                                               ; preds = %19, %15, %10, %8, %5, %77
-  %.070 = phi i32 [ 64, %10 ], [ 32, %5 ], [ 1, %8 ], [ %spec.select139, %77 ], [ 32, %15 ], [ 32, %19 ]
+  %.070 = phi i32 [ %spec.select139, %77 ], [ 32, %5 ], [ 1, %8 ], [ 64, %10 ], [ 32, %15 ], [ 32, %19 ]
   ret i32 %.070
 }
 

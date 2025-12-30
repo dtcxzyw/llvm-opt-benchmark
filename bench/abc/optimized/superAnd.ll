@@ -1150,7 +1150,7 @@ Super2_LibWriteCompare.exit:                      ; preds = %60, %63
   br label %71
 
 71:                                               ; preds = %Super2_LibWriteCompare.exit, %49, %47, %select.unfold63, %15, %19
-  %.0 = phi ptr [ %6, %15 ], [ %6, %19 ], [ %8, %select.unfold63 ], [ %8, %49 ], [ %8, %Super2_LibWriteCompare.exit ], [ %8, %47 ]
+  %.0 = phi ptr [ %6, %19 ], [ %6, %15 ], [ %8, %select.unfold63 ], [ %8, %Super2_LibWriteCompare.exit ], [ %8, %47 ], [ %8, %49 ]
   ret ptr %.0
 }
 

@@ -216,7 +216,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit34: ; preds = %.lr.p
   br label %.body
 
 .body:                                            ; preds = %37, %56, %50
-  %.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %38, %37 ], [ %57, %56 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %57, %56 ], [ %38, %37 ]
   call void @_ZN6vectorIN3euf13justificationELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn
@@ -244,7 +244,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit34: ; preds = %.lr.p
   br label %74
 
 74:                                               ; preds = %_ZNKSt8functionIFvRSoPvEEclES0_S1_.exit, %15, %73, %58, %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit, %19, %17
-  %.0 = phi ptr [ %1, %73 ], [ %72, %58 ], [ %1, %17 ], [ %1, %19 ], [ %1, %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit ], [ %1, %15 ], [ %1, %_ZNKSt8functionIFvRSoPvEEclES0_S1_.exit ]
+  %.0 = phi ptr [ %1, %73 ], [ %1, %17 ], [ %1, %19 ], [ %1, %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit ], [ %72, %58 ], [ %1, %15 ], [ %1, %_ZNKSt8functionIFvRSoPvEEclES0_S1_.exit ]
   ret ptr %.0
 }
 

@@ -212,7 +212,7 @@ tcg_gen_req_mo.exit:                              ; preds = %4, %10
   br label %memop_alignment_bits.exit.i
 
 memop_alignment_bits.exit.i:                      ; preds = %14, %12, %tcg_gen_req_mo.exit
-  %.0.i.i = phi i32 [ %15, %14 ], [ %13, %12 ], [ 0, %tcg_gen_req_mo.exit ]
+  %.0.i.i = phi i32 [ %13, %12 ], [ %15, %14 ], [ 0, %tcg_gen_req_mo.exit ]
   %16 = and i32 %3, 7
   %17 = icmp eq i32 %.0.i.i, %16
   %18 = or i32 %3, 224
@@ -384,7 +384,7 @@ define internal fastcc void @tcg_gen_qemu_st_i32_int(ptr noundef %0, ptr noundef
   br label %memop_alignment_bits.exit.i
 
 memop_alignment_bits.exit.i:                      ; preds = %10, %8, %4
-  %.0.i.i = phi i32 [ %11, %10 ], [ %9, %8 ], [ 0, %4 ]
+  %.0.i.i = phi i32 [ %9, %8 ], [ %11, %10 ], [ 0, %4 ]
   %12 = and i32 %3, 7
   %13 = icmp eq i32 %.0.i.i, %12
   %14 = or i32 %3, 224
@@ -559,7 +559,7 @@ tcg_gen_req_mo.exit:                              ; preds = %4, %10
   br label %memop_alignment_bits.exit.i
 
 memop_alignment_bits.exit.i:                      ; preds = %14, %12, %tcg_gen_req_mo.exit
-  %.0.i.i = phi i32 [ %15, %14 ], [ %13, %12 ], [ 0, %tcg_gen_req_mo.exit ]
+  %.0.i.i = phi i32 [ %13, %12 ], [ %15, %14 ], [ 0, %tcg_gen_req_mo.exit ]
   %16 = and i32 %3, 7
   %17 = icmp eq i32 %.0.i.i, %16
   %18 = or i32 %3, 224
@@ -649,7 +649,7 @@ tcg_canonicalize_memop.exit:                      ; preds = %memop_alignment_bit
   br label %plugin_maybe_preserve_addr.exit
 
 plugin_maybe_preserve_addr.exit:                  ; preds = %45, %59, %60
-  %.0.i = phi ptr [ %50, %59 ], [ %50, %60 ], [ null, %45 ]
+  %.0.i = phi ptr [ %50, %60 ], [ %50, %59 ], [ null, %45 ]
   %61 = load ptr, ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 60
   %63 = load i32, ptr %62, align 4
@@ -736,7 +736,7 @@ define internal fastcc void @tcg_gen_qemu_st_i64_int(ptr noundef %0, ptr noundef
   br label %memop_alignment_bits.exit.i
 
 memop_alignment_bits.exit.i:                      ; preds = %10, %8, %4
-  %.0.i.i = phi i32 [ %11, %10 ], [ %9, %8 ], [ 0, %4 ]
+  %.0.i.i = phi i32 [ %9, %8 ], [ %11, %10 ], [ 0, %4 ]
   %12 = and i32 %3, 7
   %13 = icmp eq i32 %.0.i.i, %12
   %14 = or i32 %3, 224
@@ -1027,8 +1027,8 @@ default.unreachable:                              ; preds = %use_two_i64_for_i12
   unreachable
 
 71:                                               ; preds = %69, %66, %64, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
-  %.016.i = phi i32 [ %61, %69 ], [ %65, %64 ], [ %68, %66 ], [ %61, %use_two_i64_for_i128.exit ], [ %61, %use_two_i64_for_i128.exit ], [ %61, %use_two_i64_for_i128.exit ]
-  %.0.i81 = phi i32 [ %70, %69 ], [ %65, %64 ], [ %61, %66 ], [ %61, %use_two_i64_for_i128.exit ], [ %61, %use_two_i64_for_i128.exit ], [ %61, %use_two_i64_for_i128.exit ]
+  %.016.i = phi i32 [ %65, %64 ], [ %68, %66 ], [ %61, %69 ], [ %61, %use_two_i64_for_i128.exit ], [ %61, %use_two_i64_for_i128.exit ], [ %61, %use_two_i64_for_i128.exit ]
+  %.0.i81 = phi i32 [ %65, %64 ], [ %61, %66 ], [ %70, %69 ], [ %61, %use_two_i64_for_i128.exit ], [ %61, %use_two_i64_for_i128.exit ], [ %61, %use_two_i64_for_i128.exit ]
   %72 = and i32 %.062, 16
   %.not.i82 = icmp eq i32 %72, 0
   br i1 %.not.i82, label %canonicalize_memop_i128_as_i64.exit, label %73
@@ -1158,8 +1158,8 @@ canonicalize_memop_i128_as_i64.exit:              ; preds = %71, %73, %75
   br label %156
 
 156:                                              ; preds = %113, %125, %.critedge, %gen_ldst.exit, %140
-  %.072 = phi ptr [ %.173, %140 ], [ null, %.critedge ], [ null, %gen_ldst.exit ], [ null, %125 ], [ null, %113 ]
-  %.0 = phi ptr [ %.1, %140 ], [ %1, %.critedge ], [ %1, %gen_ldst.exit ], [ %1, %125 ], [ %1, %113 ]
+  %.072 = phi ptr [ %.173, %140 ], [ null, %gen_ldst.exit ], [ null, %.critedge ], [ null, %125 ], [ null, %113 ]
+  %.0 = phi ptr [ %.1, %140 ], [ %1, %gen_ldst.exit ], [ %1, %.critedge ], [ %1, %125 ], [ %1, %113 ]
   %157 = load ptr, ptr %.pre87, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 232
   %159 = load ptr, ptr %158, align 8
@@ -1339,8 +1339,8 @@ default.unreachable:                              ; preds = %use_two_i64_for_i12
   unreachable
 
 76:                                               ; preds = %74, %71, %69, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
-  %.016.i = phi i32 [ %66, %74 ], [ %70, %69 ], [ %73, %71 ], [ %66, %use_two_i64_for_i128.exit ], [ %66, %use_two_i64_for_i128.exit ], [ %66, %use_two_i64_for_i128.exit ]
-  %.0.i89 = phi i32 [ %75, %74 ], [ %70, %69 ], [ %66, %71 ], [ %66, %use_two_i64_for_i128.exit ], [ %66, %use_two_i64_for_i128.exit ], [ %66, %use_two_i64_for_i128.exit ]
+  %.016.i = phi i32 [ %70, %69 ], [ %73, %71 ], [ %66, %74 ], [ %66, %use_two_i64_for_i128.exit ], [ %66, %use_two_i64_for_i128.exit ], [ %66, %use_two_i64_for_i128.exit ]
+  %.0.i89 = phi i32 [ %70, %69 ], [ %66, %71 ], [ %75, %74 ], [ %66, %use_two_i64_for_i128.exit ], [ %66, %use_two_i64_for_i128.exit ], [ %66, %use_two_i64_for_i128.exit ]
   %77 = and i32 %.067, 16
   %.not.i90 = icmp eq i32 %77, 0
   br i1 %.not.i90, label %89, label %78
@@ -1503,8 +1503,8 @@ default.unreachable:                              ; preds = %use_two_i64_for_i12
   br label %182
 
 182:                                              ; preds = %.critedge, %gen_ldst.exit, %151, %166
-  %.079 = phi ptr [ %.180, %166 ], [ null, %151 ], [ null, %gen_ldst.exit ], [ null, %.critedge ]
-  %.0 = phi ptr [ %.1, %166 ], [ %1, %151 ], [ %1, %gen_ldst.exit ], [ %1, %.critedge ]
+  %.079 = phi ptr [ null, %151 ], [ %.180, %166 ], [ null, %gen_ldst.exit ], [ null, %.critedge ]
+  %.0 = phi ptr [ %1, %151 ], [ %.1, %166 ], [ %1, %gen_ldst.exit ], [ %1, %.critedge ]
   %183 = load ptr, ptr %.pre106, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 232
   %185 = load ptr, ptr %184, align 8
@@ -1722,7 +1722,7 @@ define internal fastcc void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %0, ptr 
   br label %memop_alignment_bits.exit.i
 
 memop_alignment_bits.exit.i:                      ; preds = %19, %17, %15
-  %.0.i.i = phi i32 [ %20, %19 ], [ %18, %17 ], [ 0, %15 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ %20, %19 ], [ 0, %15 ]
   %21 = and i32 %5, 7
   %22 = icmp eq i32 %.0.i.i, %21
   %23 = or i32 %5, 224
@@ -1887,7 +1887,7 @@ define dso_local void @tcg_gen_atomic_cmpxchg_i64_chk(ptr noundef %0, ptr nounde
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %27, %26, %24
-  %.0.i.i.i = phi i1 [ %28, %27 ], [ true, %26 ], [ false, %24 ]
+  %.0.i.i.i = phi i1 [ true, %26 ], [ %28, %27 ], [ false, %24 ]
   %29 = or i32 %5, 224
   %spec.select.i.i = select i1 %.0.i.i.i, i32 %29, i32 %5
   %30 = and i32 %spec.select.i.i, 19
@@ -2107,7 +2107,7 @@ define dso_local void @tcg_gen_atomic_fetch_add_i32_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -2173,7 +2173,7 @@ define internal fastcc void @do_atomic_op_i32(ptr noundef %0, ptr noundef %1, pt
   br label %memop_alignment_bits.exit.i
 
 memop_alignment_bits.exit.i:                      ; preds = %10, %8, %6
-  %.0.i.i = phi i32 [ %11, %10 ], [ %9, %8 ], [ 0, %6 ]
+  %.0.i.i = phi i32 [ %9, %8 ], [ %11, %10 ], [ 0, %6 ]
   %12 = and i32 %4, 7
   %13 = icmp eq i32 %.0.i.i, %12
   %14 = or i32 %4, 224
@@ -2308,7 +2308,7 @@ define dso_local void @tcg_gen_atomic_fetch_add_i64_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -2375,7 +2375,7 @@ define internal fastcc void @do_atomic_op_i64(ptr noundef %0, ptr noundef %1, pt
   br label %memop_alignment_bits.exit.i
 
 memop_alignment_bits.exit.i:                      ; preds = %10, %8, %6
-  %.0.i.i = phi i32 [ %11, %10 ], [ %9, %8 ], [ 0, %6 ]
+  %.0.i.i = phi i32 [ %9, %8 ], [ %11, %10 ], [ 0, %6 ]
   %12 = and i32 %4, 7
   %13 = icmp eq i32 %.0.i.i, %12
   %14 = or i32 %4, 224
@@ -2536,7 +2536,7 @@ define dso_local void @tcg_gen_atomic_fetch_and_i32_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -2624,7 +2624,7 @@ define dso_local void @tcg_gen_atomic_fetch_and_i64_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -2712,7 +2712,7 @@ define dso_local void @tcg_gen_atomic_fetch_or_i32_chk(ptr noundef %0, ptr nound
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -2800,7 +2800,7 @@ define dso_local void @tcg_gen_atomic_fetch_or_i64_chk(ptr noundef %0, ptr nound
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -2888,7 +2888,7 @@ define dso_local void @tcg_gen_atomic_fetch_xor_i32_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -2976,7 +2976,7 @@ define dso_local void @tcg_gen_atomic_fetch_xor_i64_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -3064,7 +3064,7 @@ define dso_local void @tcg_gen_atomic_fetch_smin_i32_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -3152,7 +3152,7 @@ define dso_local void @tcg_gen_atomic_fetch_smin_i64_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -3240,7 +3240,7 @@ define dso_local void @tcg_gen_atomic_fetch_umin_i32_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -3328,7 +3328,7 @@ define dso_local void @tcg_gen_atomic_fetch_umin_i64_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -3416,7 +3416,7 @@ define dso_local void @tcg_gen_atomic_fetch_smax_i32_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -3504,7 +3504,7 @@ define dso_local void @tcg_gen_atomic_fetch_smax_i64_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -3592,7 +3592,7 @@ define dso_local void @tcg_gen_atomic_fetch_umax_i32_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -3680,7 +3680,7 @@ define dso_local void @tcg_gen_atomic_fetch_umax_i64_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -3768,7 +3768,7 @@ define dso_local void @tcg_gen_atomic_add_fetch_i32_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -3854,7 +3854,7 @@ define dso_local void @tcg_gen_atomic_add_fetch_i64_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -3940,7 +3940,7 @@ define dso_local void @tcg_gen_atomic_and_fetch_i32_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -4026,7 +4026,7 @@ define dso_local void @tcg_gen_atomic_and_fetch_i64_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -4112,7 +4112,7 @@ define dso_local void @tcg_gen_atomic_or_fetch_i32_chk(ptr noundef %0, ptr nound
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -4198,7 +4198,7 @@ define dso_local void @tcg_gen_atomic_or_fetch_i64_chk(ptr noundef %0, ptr nound
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -4284,7 +4284,7 @@ define dso_local void @tcg_gen_atomic_xor_fetch_i32_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -4370,7 +4370,7 @@ define dso_local void @tcg_gen_atomic_xor_fetch_i64_chk(ptr noundef %0, ptr noun
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -4456,7 +4456,7 @@ define dso_local void @tcg_gen_atomic_smin_fetch_i32_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -4542,7 +4542,7 @@ define dso_local void @tcg_gen_atomic_smin_fetch_i64_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -4628,7 +4628,7 @@ define dso_local void @tcg_gen_atomic_umin_fetch_i32_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -4714,7 +4714,7 @@ define dso_local void @tcg_gen_atomic_umin_fetch_i64_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -4800,7 +4800,7 @@ define dso_local void @tcg_gen_atomic_smax_fetch_i32_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -4886,7 +4886,7 @@ define dso_local void @tcg_gen_atomic_smax_fetch_i64_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -4972,7 +4972,7 @@ define dso_local void @tcg_gen_atomic_umax_fetch_i32_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -5058,7 +5058,7 @@ define dso_local void @tcg_gen_atomic_umax_fetch_i64_chk(ptr noundef %0, ptr nou
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224
@@ -5144,7 +5144,7 @@ define dso_local void @tcg_gen_atomic_xchg_i32_chk(ptr noundef %0, ptr noundef %
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %22, %21, %17
-  %.0.i.i.i = phi i32 [ %23, %22 ], [ %9, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %9, %21 ], [ %23, %22 ], [ 0, %17 ]
   %24 = icmp eq i32 %.0.i.i.i, %9
   %25 = or i32 %4, 224
   %spec.select.i.i = select i1 %24, i32 %25, i32 %4
@@ -5230,7 +5230,7 @@ define dso_local void @tcg_gen_atomic_xchg_i64_chk(ptr noundef %0, ptr noundef %
   br label %memop_alignment_bits.exit.i.i
 
 memop_alignment_bits.exit.i.i:                    ; preds = %23, %21, %17
-  %.0.i.i.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ 0, %17 ]
+  %.0.i.i.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ 0, %17 ]
   %25 = and i32 %4, 3
   %26 = icmp eq i32 %.0.i.i.i, %25
   %27 = or i32 %4, 224

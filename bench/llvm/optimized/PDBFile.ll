@@ -2640,7 +2640,7 @@ _ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit: ; preds = %8
   br label %16
 
 16:                                               ; preds = %8, %1, %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit
-  %.0 = phi i1 [ false, %1 ], [ %15, %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit ], [ false, %8 ]
+  %.0 = phi i1 [ %15, %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit ], [ false, %1 ], [ false, %8 ]
   ret i1 %.0
 }
 

@@ -1101,7 +1101,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %179, %191, %189, %.critedge97, %45, %49, %52, %55, %58, %61, %65, %69, %72, %75, %78, %81, %85, %41, %38, %34, %21, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %45 ], [ 0, %41 ], [ 0, %38 ], [ 0, %34 ], [ 0, %21 ], [ 1, %179 ], [ 0, %85 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %65 ], [ 0, %61 ], [ 0, %58 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ 1, %.critedge97 ], [ 1, %189 ], [ 1, %191 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %21 ], [ 0, %34 ], [ 0, %38 ], [ 0, %41 ], [ 0, %85 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %65 ], [ 0, %61 ], [ 0, %58 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ 0, %45 ], [ 1, %.critedge97 ], [ 1, %189 ], [ 1, %191 ], [ 1, %179 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -3351,10 +3351,10 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
   store ptr %.3, ptr %2, align 8, !tbaa !23
   br label %.thread
 
-.thread:                                          ; preds = %48, %27, %30, %34, %45, %18, %10, %53
-  %.052 = phi ptr [ null, %10 ], [ null, %53 ], [ %24, %18 ], [ null, %45 ], [ %24, %34 ], [ %24, %30 ], [ %24, %27 ], [ null, %48 ]
-  %.051 = phi ptr [ null, %10 ], [ null, %53 ], [ %.168, %18 ], [ %.168, %45 ], [ %.168, %34 ], [ %.168, %30 ], [ %.168, %27 ], [ %.168, %48 ]
-  %.050 = phi i32 [ 0, %10 ], [ 1, %53 ], [ 0, %18 ], [ 0, %45 ], [ 0, %34 ], [ 0, %30 ], [ 0, %27 ], [ 0, %48 ]
+.thread:                                          ; preds = %48, %45, %18, %27, %30, %34, %10, %53
+  %.052 = phi ptr [ null, %53 ], [ null, %10 ], [ %24, %34 ], [ %24, %30 ], [ %24, %27 ], [ %24, %18 ], [ null, %45 ], [ null, %48 ]
+  %.051 = phi ptr [ null, %53 ], [ null, %10 ], [ %.168, %34 ], [ %.168, %30 ], [ %.168, %27 ], [ %.168, %18 ], [ %.168, %45 ], [ %.168, %48 ]
+  %.050 = phi i32 [ 1, %53 ], [ 0, %10 ], [ 0, %34 ], [ 0, %30 ], [ 0, %27 ], [ 0, %18 ], [ 0, %45 ], [ 0, %48 ]
   call void @EVP_PKEY_free(ptr noundef %.051) #8
   %54 = load ptr, ptr %11, align 8, !tbaa !21
   call void @EVP_PKEY_free(ptr noundef %54) #8
@@ -3691,7 +3691,7 @@ sub_117:                                          ; preds = %sub_016
   br i1 %21, label %.thread, label %.thread26
 
 .thread:                                          ; preds = %.tail15, %14, %.tail.thread, %.tail
-  %.014 = phi i32 [ 28, %.tail ], [ 116, %14 ], [ 920, %.tail.thread ], [ 408, %.tail15 ]
+  %.014 = phi i32 [ 116, %14 ], [ 920, %.tail.thread ], [ 28, %.tail ], [ 408, %.tail15 ]
   %22 = call ptr @d2i_KeyParams(i32 noundef %.014, ptr noundef null, ptr noundef nonnull %5, i64 noundef %4) #8
   %23 = icmp ne ptr %22, null
   %24 = zext i1 %23 to i32

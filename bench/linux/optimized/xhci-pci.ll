@@ -1169,7 +1169,7 @@ thread-pre-split:                                 ; preds = %.thread34
   br label %.thread37
 
 .thread37:                                        ; preds = %132, %96, %.thread20, %79, %86, %.thread28, %108, %.thread28.thread, %.thread34
-  %134 = phi i16 [ %.pr39.pre, %132 ], [ %.pr36.pr.pr.pre, %.thread34 ], [ %.pr32, %.thread28.thread ], [ %.pr30.pr.pr.pre, %.thread28 ], [ %.pr26.pre, %108 ], [ %.pr15.pre, %86 ], [ %80, %79 ], [ %.pr18, %96 ], [ %.pr22.pr, %.thread20 ]
+  %134 = phi i16 [ %.pr36.pr.pr.pre, %.thread34 ], [ %.pr32, %.thread28.thread ], [ %.pr30.pr.pr.pre, %.thread28 ], [ %.pr26.pre, %108 ], [ %80, %79 ], [ %.pr15.pre, %86 ], [ %.pr18, %96 ], [ %.pr22.pr, %.thread20 ], [ %.pr39.pre, %132 ]
   %135 = icmp eq i16 %134, -32634
   br i1 %135, label %136, label %.thread65
 
@@ -1348,7 +1348,7 @@ thread-pre-split188:                              ; preds = %164
   br label %.thread65
 
 .thread65:                                        ; preds = %.thread37, %186, %152, %.thread45, %136, %145, %.thread53, %164, %175, %.thread61
-  %190 = phi i16 [ %.pr67.pre, %186 ], [ %.pr63.pr.pr, %.thread61 ], [ %.pr59.pre, %175 ], [ %.pr55.pr.pr, %.thread53 ], [ %.pr51.pre, %164 ], [ %.pr41.pre, %145 ], [ %.pre124, %136 ], [ %.pr43, %152 ], [ %.pr48.pr.pre, %.thread45 ], [ %134, %.thread37 ]
+  %190 = phi i16 [ %.pr63.pr.pr, %.thread61 ], [ %.pr59.pre, %175 ], [ %.pr55.pr.pr, %.thread53 ], [ %.pr51.pre, %164 ], [ %.pre124, %136 ], [ %.pr41.pre, %145 ], [ %.pr43, %152 ], [ %.pr48.pr.pre, %.thread45 ], [ %.pr67.pre, %186 ], [ %134, %.thread37 ]
   %191 = icmp eq i16 %190, 7023
   br i1 %191, label %192, label %200
 
@@ -1404,7 +1404,7 @@ thread-pre-split197:                              ; preds = %207
   br label %.thread70
 
 .thread70:                                        ; preds = %214, %200, %207
-  %218 = phi i16 [ %.pr72.pre, %214 ], [ %.pr69.pre, %207 ], [ %201, %200 ]
+  %218 = phi i16 [ %.pr69.pre, %207 ], [ %201, %200 ], [ %.pr72.pre, %214 ]
   %219 = icmp eq i16 %218, 4358
   br i1 %219, label %220, label %.thread75
 
@@ -1450,7 +1450,7 @@ thread-pre-split205:                              ; preds = %229
   br label %.thread75
 
 .thread75:                                        ; preds = %.thread70, %236, %220, %229
-  %240 = phi i16 [ %.pr77.pre, %236 ], [ %.pr74.pre, %229 ], [ %.pre139, %220 ], [ %218, %.thread70 ]
+  %240 = phi i16 [ %.pr74.pre, %229 ], [ %.pre139, %220 ], [ %.pr77.pre, %236 ], [ %218, %.thread70 ]
   %241 = icmp eq i16 %240, 6945
   br i1 %241, label %242, label %thread-pre-split85
 
@@ -1563,7 +1563,7 @@ thread-pre-split85.thread228:                     ; preds = %277, %thread-pre-sp
   br label %thread-pre-split87
 
 thread-pre-split87:                               ; preds = %286, %thread-pre-split85.thread228
-  %290 = phi i16 [ %.pr88.pre, %286 ], [ %281, %thread-pre-split85.thread228 ]
+  %290 = phi i16 [ %281, %thread-pre-split85.thread228 ], [ %.pr88.pre, %286 ]
   %291 = icmp eq i16 %290, 4130
   br i1 %291, label %thread-pre-split87.thread231, label %298
 
@@ -1615,7 +1615,7 @@ thread-pre-split87.thread231:                     ; preds = %.thread34.thread, %
   store i64 %315, ptr %302, align 8
   br label %.thread221
 
-.thread221:                                       ; preds = %.thread169, %192, %.thread64, %.thread195, %.thread203, %.thread84, %273, %282, %thread-pre-split87.thread231, %314, %310, %298
+.thread221:                                       ; preds = %.thread169, %.thread195, %192, %.thread64, %.thread203, %.thread84, %273, %282, %thread-pre-split87.thread231, %314, %310, %298
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %317 = load i16, ptr %316, align 2
   %318 = icmp ugt i16 %317, 287

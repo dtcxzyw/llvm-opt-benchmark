@@ -2006,7 +2006,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -2053,7 +2053,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -2875,7 +2875,7 @@ lean_alloc_ctor.exit194:                          ; preds = %lean_alloc_ctor.exi
   br label %299
 
 299:                                              ; preds = %lean_alloc_ctor.exit177, %lean_dec.exit108, %lean_alloc_ctor.exit189, %lean_alloc_ctor.exit194, %lean_dec.exit102, %lean_alloc_ctor.exit188, %lean_dec.exit114, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %69, %lean_alloc_ctor.exit ], [ %11, %lean_dec.exit114 ], [ %164, %lean_alloc_ctor.exit177 ], [ %99, %lean_dec.exit108 ], [ %254, %lean_alloc_ctor.exit188 ], [ %189, %lean_dec.exit102 ], [ %189, %lean_alloc_ctor.exit189 ], [ %294, %lean_alloc_ctor.exit194 ]
+  %.1 = phi ptr [ %11, %lean_dec.exit114 ], [ %69, %lean_alloc_ctor.exit ], [ %99, %lean_dec.exit108 ], [ %164, %lean_alloc_ctor.exit177 ], [ %189, %lean_dec.exit102 ], [ %254, %lean_alloc_ctor.exit188 ], [ %189, %lean_alloc_ctor.exit189 ], [ %294, %lean_alloc_ctor.exit194 ]
   ret ptr %.1
 }
 
@@ -4314,7 +4314,7 @@ lean_alloc_ctor.exit194:                          ; preds = %lean_alloc_ctor.exi
   br label %298
 
 298:                                              ; preds = %lean_alloc_ctor.exit177, %lean_dec.exit108, %lean_alloc_ctor.exit189, %lean_alloc_ctor.exit194, %lean_dec.exit102, %lean_alloc_ctor.exit188, %lean_dec.exit114, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %69, %lean_alloc_ctor.exit ], [ %11, %lean_dec.exit114 ], [ %164, %lean_alloc_ctor.exit177 ], [ %99, %lean_dec.exit108 ], [ %253, %lean_alloc_ctor.exit188 ], [ %188, %lean_dec.exit102 ], [ %188, %lean_alloc_ctor.exit189 ], [ %293, %lean_alloc_ctor.exit194 ]
+  %.1 = phi ptr [ %11, %lean_dec.exit114 ], [ %69, %lean_alloc_ctor.exit ], [ %99, %lean_dec.exit108 ], [ %164, %lean_alloc_ctor.exit177 ], [ %188, %lean_dec.exit102 ], [ %253, %lean_alloc_ctor.exit188 ], [ %188, %lean_alloc_ctor.exit189 ], [ %293, %lean_alloc_ctor.exit194 ]
   ret ptr %.1
 }
 
@@ -5383,7 +5383,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -5430,7 +5430,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -7912,7 +7912,7 @@ lean_dec.exit:                                    ; preds = %896, %895, %893, %l
   br label %908
 
 908:                                              ; preds = %lean_alloc_ctor.exit522, %lean_dec.exit333, %lean_alloc_ctor.exit550, %lean_dec.exit318, %lean_dec.exit297, %lean_dec.exit299, %lean_dec.exit275, %lean_dec.exit277, %lean_dec.exit, %871, %lean_dec.exit288, %lean_dec.exit286, %lean_dec.exit309, %lean_alloc_ctor.exit564, %lean_dec.exit326, %lean_alloc_ctor.exit536, %lean_dec.exit339, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %69, %lean_alloc_ctor.exit ], [ %11, %lean_dec.exit339 ], [ %164, %lean_alloc_ctor.exit522 ], [ %99, %lean_dec.exit333 ], [ %267, %lean_alloc_ctor.exit536 ], [ %195, %lean_dec.exit326 ], [ %376, %lean_alloc_ctor.exit550 ], [ %297, %lean_dec.exit318 ], [ %492, %lean_alloc_ctor.exit564 ], [ %406, %lean_dec.exit309 ], [ %615, %lean_dec.exit297 ], [ %522, %lean_dec.exit299 ], [ %743, %lean_dec.exit286 ], [ %643, %lean_dec.exit288 ], [ %865, %lean_dec.exit275 ], [ %765, %lean_dec.exit277 ], [ %765, %871 ], [ %906, %lean_dec.exit ]
+  %.1 = phi ptr [ %11, %lean_dec.exit339 ], [ %69, %lean_alloc_ctor.exit ], [ %99, %lean_dec.exit333 ], [ %164, %lean_alloc_ctor.exit522 ], [ %195, %lean_dec.exit326 ], [ %267, %lean_alloc_ctor.exit536 ], [ %297, %lean_dec.exit318 ], [ %376, %lean_alloc_ctor.exit550 ], [ %406, %lean_dec.exit309 ], [ %492, %lean_alloc_ctor.exit564 ], [ %522, %lean_dec.exit299 ], [ %615, %lean_dec.exit297 ], [ %643, %lean_dec.exit288 ], [ %743, %lean_dec.exit286 ], [ %765, %lean_dec.exit277 ], [ %865, %lean_dec.exit275 ], [ %765, %871 ], [ %906, %lean_dec.exit ]
   ret ptr %.1
 }
 
@@ -9678,7 +9678,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -9725,7 +9725,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -10217,7 +10217,7 @@ lean_alloc_ctor.exit152:                          ; preds = %lean_dec.exit94
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_inc.exit102.thread, %180, %179, %177
-  %181 = phi ptr [ %90, %180 ], [ %92, %lean_inc.exit102.thread ], [ %90, %177 ], [ %90, %179 ]
+  %181 = phi ptr [ %90, %177 ], [ %90, %179 ], [ %90, %180 ], [ %92, %lean_inc.exit102.thread ]
   %182 = ptrtoint ptr %181 to i64
   %183 = and i64 %182, 1
   %.not.i153 = icmp eq i64 %183, 0
@@ -10462,7 +10462,7 @@ lean_alloc_ctor.exit169:                          ; preds = %261
   br label %268
 
 268:                                              ; preds = %227, %266, %145, %lean_alloc_ctor.exit152, %lean_alloc_ctor.exit148, %116, %24, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit137, %lean_alloc_ctor.exit132, %10
-  %.090 = phi ptr [ %78, %lean_alloc_ctor.exit137 ], [ %11, %10 ], [ %13, %24 ], [ %43, %lean_alloc_ctor.exit ], [ %13, %lean_alloc_ctor.exit132 ], [ %.0, %266 ], [ %.092, %227 ], [ %95, %116 ], [ %136, %lean_alloc_ctor.exit148 ], [ %95, %145 ], [ %170, %lean_alloc_ctor.exit152 ]
+  %.090 = phi ptr [ %11, %10 ], [ %43, %lean_alloc_ctor.exit ], [ %13, %24 ], [ %13, %lean_alloc_ctor.exit132 ], [ %78, %lean_alloc_ctor.exit137 ], [ %.092, %227 ], [ %.0, %266 ], [ %136, %lean_alloc_ctor.exit148 ], [ %95, %116 ], [ %95, %145 ], [ %170, %lean_alloc_ctor.exit152 ]
   ret ptr %.090
 }
 
@@ -11087,7 +11087,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -11134,7 +11134,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -12575,7 +12575,7 @@ lean_alloc_ctor.exit348:                          ; preds = %lean_alloc_ctor.exi
   br label %531
 
 531:                                              ; preds = %lean_alloc_ctor.exit303, %lean_dec.exit192, %lean_alloc_ctor.exit331, %lean_dec.exit177, %lean_alloc_ctor.exit343, %lean_alloc_ctor.exit348, %lean_dec.exit169, %lean_alloc_ctor.exit342, %lean_dec.exit185, %lean_alloc_ctor.exit317, %lean_dec.exit198, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %70, %lean_alloc_ctor.exit ], [ %12, %lean_dec.exit198 ], [ %166, %lean_alloc_ctor.exit303 ], [ %101, %lean_dec.exit192 ], [ %269, %lean_alloc_ctor.exit317 ], [ %197, %lean_dec.exit185 ], [ %379, %lean_alloc_ctor.exit331 ], [ %300, %lean_dec.exit177 ], [ %482, %lean_alloc_ctor.exit342 ], [ %403, %lean_dec.exit169 ], [ %403, %lean_alloc_ctor.exit343 ], [ %526, %lean_alloc_ctor.exit348 ]
+  %.1 = phi ptr [ %12, %lean_dec.exit198 ], [ %70, %lean_alloc_ctor.exit ], [ %101, %lean_dec.exit192 ], [ %166, %lean_alloc_ctor.exit303 ], [ %197, %lean_dec.exit185 ], [ %269, %lean_alloc_ctor.exit317 ], [ %300, %lean_dec.exit177 ], [ %379, %lean_alloc_ctor.exit331 ], [ %403, %lean_dec.exit169 ], [ %482, %lean_alloc_ctor.exit342 ], [ %403, %lean_alloc_ctor.exit343 ], [ %526, %lean_alloc_ctor.exit348 ]
   ret ptr %.1
 }
 
@@ -12997,7 +12997,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %43
 
 43:                                               ; preds = %lean_obj_tag.exit, %15, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %38, %lean_alloc_ctor.exit ], [ %0, %15 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.0 = phi ptr [ %0, %15 ], [ %38, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.0
 }
 
@@ -14332,7 +14332,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -14379,7 +14379,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -14975,7 +14975,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -15022,7 +15022,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -16796,7 +16796,7 @@ lean_alloc_ctor.exit430:                          ; preds = %lean_alloc_ctor.exi
   br label %653
 
 653:                                              ; preds = %lean_alloc_ctor.exit372, %lean_dec.exit237, %lean_alloc_ctor.exit400, %lean_dec.exit222, %lean_dec.exit202, %lean_dec.exit204, %lean_alloc_ctor.exit430, %lean_alloc_ctor.exit425, %lean_dec.exit213, %lean_alloc_ctor.exit414, %lean_dec.exit230, %lean_alloc_ctor.exit386, %lean_dec.exit243, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %70, %lean_alloc_ctor.exit ], [ %12, %lean_dec.exit243 ], [ %166, %lean_alloc_ctor.exit372 ], [ %101, %lean_dec.exit237 ], [ %269, %lean_alloc_ctor.exit386 ], [ %197, %lean_dec.exit230 ], [ %378, %lean_alloc_ctor.exit400 ], [ %299, %lean_dec.exit222 ], [ %495, %lean_alloc_ctor.exit414 ], [ %409, %lean_dec.exit213 ], [ %605, %lean_dec.exit202 ], [ %519, %lean_dec.exit204 ], [ %519, %lean_alloc_ctor.exit425 ], [ %648, %lean_alloc_ctor.exit430 ]
+  %.1 = phi ptr [ %12, %lean_dec.exit243 ], [ %70, %lean_alloc_ctor.exit ], [ %101, %lean_dec.exit237 ], [ %166, %lean_alloc_ctor.exit372 ], [ %197, %lean_dec.exit230 ], [ %269, %lean_alloc_ctor.exit386 ], [ %299, %lean_dec.exit222 ], [ %378, %lean_alloc_ctor.exit400 ], [ %409, %lean_dec.exit213 ], [ %495, %lean_alloc_ctor.exit414 ], [ %519, %lean_dec.exit204 ], [ %605, %lean_dec.exit202 ], [ %519, %lean_alloc_ctor.exit425 ], [ %648, %lean_alloc_ctor.exit430 ]
   ret ptr %.1
 }
 
@@ -18570,7 +18570,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -18617,7 +18617,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -21087,7 +21087,7 @@ lean_dec.exit:                                    ; preds = %900, %899, %897, %l
   br label %912
 
 912:                                              ; preds = %lean_alloc_ctor.exit522, %lean_dec.exit333, %lean_alloc_ctor.exit550, %lean_dec.exit318, %lean_dec.exit297, %lean_dec.exit299, %lean_dec.exit275, %lean_dec.exit277, %lean_dec.exit, %875, %lean_dec.exit288, %lean_dec.exit286, %lean_dec.exit309, %lean_alloc_ctor.exit564, %lean_dec.exit326, %lean_alloc_ctor.exit536, %lean_dec.exit339, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %70, %lean_alloc_ctor.exit ], [ %12, %lean_dec.exit339 ], [ %166, %lean_alloc_ctor.exit522 ], [ %101, %lean_dec.exit333 ], [ %269, %lean_alloc_ctor.exit536 ], [ %197, %lean_dec.exit326 ], [ %379, %lean_alloc_ctor.exit550 ], [ %300, %lean_dec.exit318 ], [ %496, %lean_alloc_ctor.exit564 ], [ %410, %lean_dec.exit309 ], [ %620, %lean_dec.exit297 ], [ %527, %lean_dec.exit299 ], [ %748, %lean_dec.exit286 ], [ %648, %lean_dec.exit288 ], [ %869, %lean_dec.exit275 ], [ %769, %lean_dec.exit277 ], [ %769, %875 ], [ %910, %lean_dec.exit ]
+  %.1 = phi ptr [ %12, %lean_dec.exit339 ], [ %70, %lean_alloc_ctor.exit ], [ %101, %lean_dec.exit333 ], [ %166, %lean_alloc_ctor.exit522 ], [ %197, %lean_dec.exit326 ], [ %269, %lean_alloc_ctor.exit536 ], [ %300, %lean_dec.exit318 ], [ %379, %lean_alloc_ctor.exit550 ], [ %410, %lean_dec.exit309 ], [ %496, %lean_alloc_ctor.exit564 ], [ %527, %lean_dec.exit299 ], [ %620, %lean_dec.exit297 ], [ %648, %lean_dec.exit288 ], [ %748, %lean_dec.exit286 ], [ %769, %lean_dec.exit277 ], [ %869, %lean_dec.exit275 ], [ %769, %875 ], [ %910, %lean_dec.exit ]
   ret ptr %.1
 }
 
@@ -22628,7 +22628,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -22675,7 +22675,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -26399,7 +26399,7 @@ lean_dec.exit:                                    ; preds = %1350, %1349, %1347,
   br label %1365
 
 1365:                                             ; preds = %lean_alloc_ctor.exit777, %lean_dec.exit492, %lean_alloc_ctor.exit805, %lean_dec.exit477, %lean_dec.exit456, %lean_dec.exit458, %lean_dec.exit433, %lean_dec.exit435, %lean_dec.exit406, %lean_dec.exit408, %1322, %lean_dec.exit, %lean_dec.exit394, %lean_dec.exit392, %lean_dec.exit422, %lean_dec.exit420, %lean_dec.exit447, %lean_dec.exit445, %lean_dec.exit468, %lean_alloc_ctor.exit819, %lean_dec.exit485, %lean_alloc_ctor.exit791, %lean_dec.exit498, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %70, %lean_alloc_ctor.exit ], [ %12, %lean_dec.exit498 ], [ %166, %lean_alloc_ctor.exit777 ], [ %101, %lean_dec.exit492 ], [ %269, %lean_alloc_ctor.exit791 ], [ %197, %lean_dec.exit485 ], [ %379, %lean_alloc_ctor.exit805 ], [ %300, %lean_dec.exit477 ], [ %496, %lean_alloc_ctor.exit819 ], [ %410, %lean_dec.exit468 ], [ %620, %lean_dec.exit456 ], [ %527, %lean_dec.exit458 ], [ %748, %lean_dec.exit445 ], [ %648, %lean_dec.exit447 ], [ %883, %lean_dec.exit433 ], [ %776, %lean_dec.exit435 ], [ %1025, %lean_dec.exit420 ], [ %911, %lean_dec.exit422 ], [ %1174, %lean_dec.exit406 ], [ %1053, %lean_dec.exit408 ], [ %1316, %lean_dec.exit392 ], [ %1195, %lean_dec.exit394 ], [ %1195, %1322 ], [ %1363, %lean_dec.exit ]
+  %.1 = phi ptr [ %12, %lean_dec.exit498 ], [ %70, %lean_alloc_ctor.exit ], [ %101, %lean_dec.exit492 ], [ %166, %lean_alloc_ctor.exit777 ], [ %197, %lean_dec.exit485 ], [ %269, %lean_alloc_ctor.exit791 ], [ %300, %lean_dec.exit477 ], [ %379, %lean_alloc_ctor.exit805 ], [ %410, %lean_dec.exit468 ], [ %496, %lean_alloc_ctor.exit819 ], [ %527, %lean_dec.exit458 ], [ %620, %lean_dec.exit456 ], [ %648, %lean_dec.exit447 ], [ %748, %lean_dec.exit445 ], [ %776, %lean_dec.exit435 ], [ %883, %lean_dec.exit433 ], [ %911, %lean_dec.exit422 ], [ %1025, %lean_dec.exit420 ], [ %1053, %lean_dec.exit408 ], [ %1174, %lean_dec.exit406 ], [ %1195, %lean_dec.exit394 ], [ %1316, %lean_dec.exit392 ], [ %1195, %1322 ], [ %1363, %lean_dec.exit ]
   ret ptr %.1
 }
 
@@ -28423,7 +28423,7 @@ lean_dec.exit90:                                  ; preds = %240, %239, %237, %l
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %245, %249, %258, %257, %255
-  %.0.i179 = phi ptr [ %252, %258 ], [ %252, %255 ], [ %252, %257 ], [ %250, %249 ], [ %248, %245 ]
+  %.0.i179 = phi ptr [ %252, %255 ], [ %252, %257 ], [ %252, %258 ], [ %250, %249 ], [ %248, %245 ]
   tail call void @lean_inc_heartbeat() #8
   %259 = tail call noalias ptr @mi_malloc_small(i64 noundef 96) #8
   %260 = icmp eq ptr %259, null
@@ -29265,7 +29265,7 @@ lean_alloc_ctor.exit194:                          ; preds = %lean_alloc_ctor.exi
   br label %300
 
 300:                                              ; preds = %lean_alloc_ctor.exit177, %lean_dec.exit108, %lean_alloc_ctor.exit189, %lean_alloc_ctor.exit194, %lean_dec.exit102, %lean_alloc_ctor.exit188, %lean_dec.exit114, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %70, %lean_alloc_ctor.exit ], [ %12, %lean_dec.exit114 ], [ %166, %lean_alloc_ctor.exit177 ], [ %101, %lean_dec.exit108 ], [ %255, %lean_alloc_ctor.exit188 ], [ %190, %lean_dec.exit102 ], [ %190, %lean_alloc_ctor.exit189 ], [ %295, %lean_alloc_ctor.exit194 ]
+  %.1 = phi ptr [ %12, %lean_dec.exit114 ], [ %70, %lean_alloc_ctor.exit ], [ %101, %lean_dec.exit108 ], [ %166, %lean_alloc_ctor.exit177 ], [ %190, %lean_dec.exit102 ], [ %255, %lean_alloc_ctor.exit188 ], [ %190, %lean_alloc_ctor.exit189 ], [ %295, %lean_alloc_ctor.exit194 ]
   ret ptr %.1
 }
 
@@ -30071,7 +30071,7 @@ lean_alloc_ctor.exit123:                          ; preds = %lean_alloc_ctor.exi
   br label %195
 
 195:                                              ; preds = %lean_alloc_ctor.exit117, %lean_dec.exit70, %lean_alloc_ctor.exit123, %lean_alloc_ctor.exit118, %lean_dec.exit75, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %70, %lean_alloc_ctor.exit ], [ %12, %lean_dec.exit75 ], [ %152, %lean_alloc_ctor.exit117 ], [ %94, %lean_dec.exit70 ], [ %94, %lean_alloc_ctor.exit118 ], [ %190, %lean_alloc_ctor.exit123 ]
+  %.1 = phi ptr [ %12, %lean_dec.exit75 ], [ %70, %lean_alloc_ctor.exit ], [ %94, %lean_dec.exit70 ], [ %152, %lean_alloc_ctor.exit117 ], [ %94, %lean_alloc_ctor.exit118 ], [ %190, %lean_alloc_ctor.exit123 ]
   ret ptr %.1
 }
 
@@ -33640,7 +33640,7 @@ lean_dec.exit:                                    ; preds = %1219, %1218, %1216,
   br label %1223
 
 1223:                                             ; preds = %lean_alloc_ctor.exit698, %lean_dec.exit443, %lean_alloc_ctor.exit726, %lean_dec.exit428, %lean_dec.exit407, %lean_dec.exit409, %lean_dec.exit384, %lean_dec.exit386, %lean_dec.exit358, %lean_dec.exit360, %lean_dec.exit, %lean_dec.exit357, %lean_dec.exit373, %lean_dec.exit371, %lean_dec.exit398, %lean_dec.exit396, %lean_dec.exit419, %lean_alloc_ctor.exit740, %lean_dec.exit436, %lean_alloc_ctor.exit712, %lean_dec.exit449, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %69, %lean_alloc_ctor.exit ], [ %11, %lean_dec.exit449 ], [ %164, %lean_alloc_ctor.exit698 ], [ %99, %lean_dec.exit443 ], [ %266, %lean_alloc_ctor.exit712 ], [ %194, %lean_dec.exit436 ], [ %376, %lean_alloc_ctor.exit726 ], [ %297, %lean_dec.exit428 ], [ %493, %lean_alloc_ctor.exit740 ], [ %407, %lean_dec.exit419 ], [ %617, %lean_dec.exit407 ], [ %524, %lean_dec.exit409 ], [ %745, %lean_dec.exit396 ], [ %645, %lean_dec.exit398 ], [ %880, %lean_dec.exit384 ], [ %773, %lean_dec.exit386 ], [ %1022, %lean_dec.exit371 ], [ %908, %lean_dec.exit373 ], [ %1158, %lean_dec.exit358 ], [ %1044, %lean_dec.exit360 ], [ %1044, %lean_dec.exit357 ], [ %1221, %lean_dec.exit ]
+  %.1 = phi ptr [ %11, %lean_dec.exit449 ], [ %69, %lean_alloc_ctor.exit ], [ %99, %lean_dec.exit443 ], [ %164, %lean_alloc_ctor.exit698 ], [ %194, %lean_dec.exit436 ], [ %266, %lean_alloc_ctor.exit712 ], [ %297, %lean_dec.exit428 ], [ %376, %lean_alloc_ctor.exit726 ], [ %407, %lean_dec.exit419 ], [ %493, %lean_alloc_ctor.exit740 ], [ %524, %lean_dec.exit409 ], [ %617, %lean_dec.exit407 ], [ %645, %lean_dec.exit398 ], [ %745, %lean_dec.exit396 ], [ %773, %lean_dec.exit386 ], [ %880, %lean_dec.exit384 ], [ %908, %lean_dec.exit373 ], [ %1022, %lean_dec.exit371 ], [ %1044, %lean_dec.exit360 ], [ %1158, %lean_dec.exit358 ], [ %1044, %lean_dec.exit357 ], [ %1221, %lean_dec.exit ]
   ret ptr %.1
 }
 
@@ -35282,7 +35282,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
+  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____spec__2___closed__1, align 8, !tbaa !4
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #8
   %119 = ptrtoint ptr %116 to i64
@@ -35329,7 +35329,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -36142,7 +36142,7 @@ lean_alloc_ctor.exit194:                          ; preds = %lean_alloc_ctor.exi
   br label %301
 
 301:                                              ; preds = %lean_alloc_ctor.exit177, %lean_dec.exit108, %lean_alloc_ctor.exit189, %lean_alloc_ctor.exit194, %lean_dec.exit102, %lean_alloc_ctor.exit188, %lean_dec.exit114, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %70, %lean_alloc_ctor.exit ], [ %12, %lean_dec.exit114 ], [ %166, %lean_alloc_ctor.exit177 ], [ %101, %lean_dec.exit108 ], [ %256, %lean_alloc_ctor.exit188 ], [ %191, %lean_dec.exit102 ], [ %191, %lean_alloc_ctor.exit189 ], [ %296, %lean_alloc_ctor.exit194 ]
+  %.1 = phi ptr [ %12, %lean_dec.exit114 ], [ %70, %lean_alloc_ctor.exit ], [ %101, %lean_dec.exit108 ], [ %166, %lean_alloc_ctor.exit177 ], [ %191, %lean_dec.exit102 ], [ %256, %lean_alloc_ctor.exit188 ], [ %191, %lean_alloc_ctor.exit189 ], [ %296, %lean_alloc_ctor.exit194 ]
   ret ptr %.1
 }
 
@@ -36979,8 +36979,8 @@ lean_alloc_ctor.exit61:                           ; preds = %lean_alloc_ctor.exi
   store ptr inttoptr (i64 1 to ptr), ptr %96, align 8, !tbaa !4
   br label %97
 
-97:                                               ; preds = %lean_alloc_ctor.exit55, %lean_alloc_ctor.exit61, %18, %17, %15, %._crit_edge
-  %.1.ph = phi ptr [ %.041.lcssa, %._crit_edge ], [ %.041.lcssa, %15 ], [ %.041.lcssa, %17 ], [ %.041.lcssa, %18 ], [ %57, %lean_alloc_ctor.exit55 ], [ %91, %lean_alloc_ctor.exit61 ]
+97:                                               ; preds = %lean_alloc_ctor.exit61, %lean_alloc_ctor.exit55, %18, %17, %15, %._crit_edge
+  %.1.ph = phi ptr [ %.041.lcssa, %._crit_edge ], [ %.041.lcssa, %15 ], [ %.041.lcssa, %17 ], [ %.041.lcssa, %18 ], [ %91, %lean_alloc_ctor.exit61 ], [ %57, %lean_alloc_ctor.exit55 ]
   ret ptr %.1.ph
 }
 
@@ -37067,7 +37067,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_box_float.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %lean_obj_tag.exit, %lean_alloc_ctor.exit, %32
-  %.1 = phi ptr [ %35, %32 ], [ %27, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.1 = phi ptr [ %27, %lean_alloc_ctor.exit ], [ %35, %32 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.1
 }
 
@@ -38727,7 +38727,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.022) #8
   br label %lean_dec.exit29.backedge
 
-76:                                               ; preds = %lean_dec.exit30, %29, %28, %26
+76:                                               ; preds = %29, %28, %26, %lean_dec.exit30
   ret ptr %.026
 }
 
@@ -38758,7 +38758,7 @@ define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Pr
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %10, %1
-  %.2.i = phi ptr [ %15, %14 ], [ %5, %1 ], [ %13, %10 ]
+  %.2.i = phi ptr [ %5, %1 ], [ %13, %10 ], [ %15, %14 ]
   %16 = tail call ptr @lean_mk_array(ptr noundef %.2.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %17 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, ptr noundef %16)
   ret ptr %17
@@ -40138,8 +40138,8 @@ lean_array_uset.exit245:                          ; preds = %lean_ensure_exclusi
   br label %.backedge
 
 .backedge:                                        ; preds = %lean_array_uset.exit245, %lean_array_uset.exit261, %lean_array_uset.exit, %lean_array_uset.exit213
-  %.0146.be = phi ptr [ %19, %lean_array_uset.exit ], [ %19, %lean_array_uset.exit213 ], [ %158, %lean_array_uset.exit261 ], [ %158, %lean_array_uset.exit245 ]
-  %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i210, %lean_array_uset.exit213 ], [ %.0.i.i258, %lean_array_uset.exit261 ], [ %.0.i.i242, %lean_array_uset.exit245 ]
+  %.0146.be = phi ptr [ %19, %lean_array_uset.exit213 ], [ %19, %lean_array_uset.exit ], [ %158, %lean_array_uset.exit261 ], [ %158, %lean_array_uset.exit245 ]
+  %.0.be = phi ptr [ %.0.i.i210, %lean_array_uset.exit213 ], [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i258, %lean_array_uset.exit261 ], [ %.0.i.i242, %lean_array_uset.exit245 ]
   br label %3
 
 270:                                              ; preds = %lean_obj_tag.exit235
@@ -40492,7 +40492,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.022) #8
   br label %lean_dec.exit29.backedge
 
-76:                                               ; preds = %lean_dec.exit30, %29, %28, %26
+76:                                               ; preds = %29, %28, %26, %lean_dec.exit30
   ret ptr %.026
 }
 
@@ -40523,7 +40523,7 @@ define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Pr
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %10, %1
-  %.2.i = phi ptr [ %15, %14 ], [ %5, %1 ], [ %13, %10 ]
+  %.2.i = phi ptr [ %5, %1 ], [ %13, %10 ], [ %15, %14 ]
   %16 = tail call ptr @lean_mk_array(ptr noundef %.2.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %17 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__10(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, ptr noundef %16)
   ret ptr %17
@@ -41131,7 +41131,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -41914,7 +41914,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -43074,7 +43074,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -44423,7 +44423,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -44709,8 +44709,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -45657,7 +45657,7 @@ lean_alloc_ctor.exit208:                          ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit122
 
 lean_dec.exit122:                                 ; preds = %214, %219, %221, %222, %lean_alloc_ctor.exit206, %lean_alloc_ctor.exit208, %lean_alloc_ctor.exit205, %lean_alloc_ctor.exit194, %lean_alloc_ctor.exit186, %lean_alloc_ctor.exit184
-  %.0 = phi ptr [ %269, %lean_alloc_ctor.exit205 ], [ %48, %lean_alloc_ctor.exit184 ], [ %86, %lean_alloc_ctor.exit186 ], [ %166, %lean_alloc_ctor.exit194 ], [ %340, %lean_alloc_ctor.exit208 ], [ %321, %lean_alloc_ctor.exit206 ], [ %215, %222 ], [ %215, %221 ], [ %215, %219 ], [ %215, %214 ]
+  %.0 = phi ptr [ %48, %lean_alloc_ctor.exit184 ], [ %86, %lean_alloc_ctor.exit186 ], [ %166, %lean_alloc_ctor.exit194 ], [ %269, %lean_alloc_ctor.exit205 ], [ %321, %lean_alloc_ctor.exit206 ], [ %340, %lean_alloc_ctor.exit208 ], [ %215, %222 ], [ %215, %221 ], [ %215, %219 ], [ %215, %214 ]
   ret ptr %.0
 }
 
@@ -46263,7 +46263,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -47046,7 +47046,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -48206,7 +48206,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -49555,7 +49555,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -49841,8 +49841,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -50154,7 +50154,7 @@ lean_dec.exit117:                                 ; preds = %112, %111, %109, %1
   br label %lean_dec.exit116
 
 common.ret284:                                    ; preds = %lean_dec.exit121, %28, %30, %31, %lean_dec.exit112, %lean_alloc_ctor.exit222, %lean_alloc_ctor.exit223, %lean_alloc_ctor.exit, %173, %lean_dec.exit116
-  %common.ret284.op = phi ptr [ %2, %173 ], [ %2, %lean_dec.exit116 ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %31 ], [ %389, %lean_alloc_ctor.exit223 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit121 ], [ inttoptr (i64 1 to ptr), %28 ], [ %2, %lean_dec.exit112 ], [ %306, %lean_alloc_ctor.exit ], [ %367, %lean_alloc_ctor.exit222 ]
+  %common.ret284.op = phi ptr [ %2, %lean_dec.exit116 ], [ %2, %173 ], [ %2, %lean_dec.exit112 ], [ %306, %lean_alloc_ctor.exit ], [ %367, %lean_alloc_ctor.exit222 ], [ %389, %lean_alloc_ctor.exit223 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit121 ]
   ret ptr %common.ret284.op
 
 lean_dec.exit116:                                 ; preds = %119, %118, %116, %lean_dec.exit117
@@ -51489,7 +51489,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -52272,7 +52272,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -53432,7 +53432,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -54781,7 +54781,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -55067,8 +55067,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -55880,7 +55880,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -56663,7 +56663,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -57823,7 +57823,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -59172,7 +59172,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -59458,8 +59458,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -60077,7 +60077,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -60860,7 +60860,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -62020,7 +62020,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -63369,7 +63369,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -63655,8 +63655,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -64274,7 +64274,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -65057,7 +65057,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -66217,7 +66217,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -67566,7 +67566,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -67852,8 +67852,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -68471,7 +68471,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -69254,7 +69254,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -70414,7 +70414,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -71763,7 +71763,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -72049,8 +72049,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -72668,7 +72668,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -73451,7 +73451,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -74611,7 +74611,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -75960,7 +75960,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -76246,8 +76246,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -76865,7 +76865,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -77648,7 +77648,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -78808,7 +78808,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -80157,7 +80157,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -80443,8 +80443,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -81062,7 +81062,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -81845,7 +81845,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -83005,7 +83005,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -84354,7 +84354,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -84640,8 +84640,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -84757,7 +84757,7 @@ lean_nat_eq.exit:                                 ; preds = %40
   br i1 %47, label %50, label %48
 
 common.ret114:                                    ; preds = %lean_dec.exit59, %28, %30, %31, %lean_dec.exit56, %lean_alloc_ctor.exit87, %lean_alloc_ctor.exit, %48
-  %common.ret114.op = phi ptr [ %2, %48 ], [ inttoptr (i64 1 to ptr), %28 ], [ %129, %lean_alloc_ctor.exit87 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit59 ], [ %2, %lean_dec.exit56 ], [ %107, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %30 ]
+  %common.ret114.op = phi ptr [ %2, %48 ], [ %2, %lean_dec.exit56 ], [ %107, %lean_alloc_ctor.exit ], [ %129, %lean_alloc_ctor.exit87 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit59 ]
   ret ptr %common.ret114.op
 
 48:                                               ; preds = %45, %lean_nat_eq.exit
@@ -85613,7 +85613,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -86396,7 +86396,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -87556,7 +87556,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -88905,7 +88905,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -89191,8 +89191,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -89810,7 +89810,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -90593,7 +90593,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -91753,7 +91753,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -93102,7 +93102,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -93388,8 +93388,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -94007,7 +94007,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -94790,7 +94790,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -95950,7 +95950,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -97299,7 +97299,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -97585,8 +97585,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -98204,7 +98204,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -98987,7 +98987,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -100147,7 +100147,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -101496,7 +101496,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -101782,8 +101782,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -102401,7 +102401,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -103184,7 +103184,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -104344,7 +104344,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -105693,7 +105693,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -105979,8 +105979,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -106598,7 +106598,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -107381,7 +107381,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -108541,7 +108541,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -109890,7 +109890,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -110176,8 +110176,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -110795,7 +110795,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -111578,7 +111578,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -112738,7 +112738,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -114087,7 +114087,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -114373,8 +114373,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -114992,7 +114992,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -115775,7 +115775,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -116935,7 +116935,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -118284,7 +118284,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -118570,8 +118570,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -119189,7 +119189,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -119972,7 +119972,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -121132,7 +121132,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -122481,7 +122481,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -122767,8 +122767,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -123386,7 +123386,7 @@ lean_dec.exit636:                                 ; preds = %229, %228, %226, %l
   br label %lean_dec.exit635
 
 lean_dec.exit635:                                 ; preds = %234, %238, %247, %246, %244
-  %.0.i6141152 = phi ptr [ %241, %247 ], [ %241, %244 ], [ %241, %246 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.i6141152 = phi ptr [ %241, %244 ], [ %241, %246 ], [ %241, %247 ], [ %239, %238 ], [ %237, %234 ]
   %248 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -124169,7 +124169,7 @@ lean_dec.exit630:                                 ; preds = %531, %530, %528, %l
   br label %lean_dec.exit629
 
 lean_dec.exit629:                                 ; preds = %536, %540, %549, %548, %546
-  %.0.i6111154 = phi ptr [ %543, %549 ], [ %543, %546 ], [ %543, %548 ], [ %541, %540 ], [ %539, %536 ]
+  %.0.i6111154 = phi ptr [ %543, %546 ], [ %543, %548 ], [ %543, %549 ], [ %541, %540 ], [ %539, %536 ]
   %550 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %551 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -125329,7 +125329,7 @@ lean_dec.exit624:                                 ; preds = %979, %978, %976, %l
   br label %lean_dec.exit623
 
 lean_dec.exit623:                                 ; preds = %984, %988, %997, %996, %994
-  %.0.i6081156 = phi ptr [ %991, %997 ], [ %991, %994 ], [ %991, %996 ], [ %989, %988 ], [ %987, %984 ]
+  %.0.i6081156 = phi ptr [ %991, %994 ], [ %991, %996 ], [ %991, %997 ], [ %989, %988 ], [ %987, %984 ]
   %998 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %999 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -126678,7 +126678,7 @@ lean_dec.exit618:                                 ; preds = %1498, %1497, %1495,
   br label %lean_dec.exit617
 
 lean_dec.exit617:                                 ; preds = %1503, %1507, %1516, %1515, %1513
-  %.0.i1158 = phi ptr [ %1510, %1516 ], [ %1510, %1513 ], [ %1510, %1515 ], [ %1508, %1507 ], [ %1506, %1503 ]
+  %.0.i1158 = phi ptr [ %1510, %1513 ], [ %1510, %1515 ], [ %1510, %1516 ], [ %1508, %1507 ], [ %1506, %1503 ]
   %1517 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1518 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -126964,8 +126964,8 @@ lean_inc.exit:                                    ; preds = %1616, %1615, %1613,
   br label %lean_dec.exit639
 
 lean_dec.exit639:                                 ; preds = %lean_inc.exit, %1620, %1622, %1623, %lean_inc.exit667, %1092, %1094, %1095, %lean_inc.exit691, %630, %632, %633, %lean_inc.exit712, %314, %316, %317, %72, %76, %78, %79
-  %.1591 = phi ptr [ %283, %lean_inc.exit712 ], [ %.05901338, %72 ], [ %1061, %lean_inc.exit667 ], [ %599, %lean_inc.exit691 ], [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
-  %.1585 = phi ptr [ %302, %lean_inc.exit712 ], [ %.05841339, %72 ], [ %1080, %lean_inc.exit667 ], [ %618, %lean_inc.exit691 ], [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
+  %.1591 = phi ptr [ %.05901338, %79 ], [ %.05901338, %78 ], [ %.05901338, %76 ], [ %.05901338, %72 ], [ %283, %317 ], [ %283, %316 ], [ %283, %314 ], [ %283, %lean_inc.exit712 ], [ %599, %633 ], [ %599, %632 ], [ %599, %630 ], [ %599, %lean_inc.exit691 ], [ %1061, %1095 ], [ %1061, %1094 ], [ %1061, %1092 ], [ %1061, %lean_inc.exit667 ], [ %1589, %1623 ], [ %1589, %1622 ], [ %1589, %1620 ], [ %1589, %lean_inc.exit ]
+  %.1585 = phi ptr [ %.05841339, %79 ], [ %.05841339, %78 ], [ %.05841339, %76 ], [ %.05841339, %72 ], [ %302, %317 ], [ %302, %316 ], [ %302, %314 ], [ %302, %lean_inc.exit712 ], [ %618, %633 ], [ %618, %632 ], [ %618, %630 ], [ %618, %lean_inc.exit691 ], [ %1080, %1095 ], [ %1080, %1094 ], [ %1080, %1092 ], [ %1080, %lean_inc.exit667 ], [ %1608, %1623 ], [ %1608, %1622 ], [ %1608, %1620 ], [ %1608, %lean_inc.exit ]
   %.1577 = add nuw i64 %.05761341, 1
   %exitcond.not = icmp eq i64 %.1577, %6
   br i1 %exitcond.not, label %._crit_edge, label %42
@@ -127635,7 +127635,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.022) #8
   br label %lean_dec.exit29.backedge
 
-76:                                               ; preds = %lean_dec.exit30, %29, %28, %26
+76:                                               ; preds = %29, %28, %26, %lean_dec.exit30
   ret ptr %.026
 }
 
@@ -127666,7 +127666,7 @@ define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Pr
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %10, %1
-  %.2.i = phi ptr [ %15, %14 ], [ %5, %1 ], [ %13, %10 ]
+  %.2.i = phi ptr [ %5, %1 ], [ %13, %10 ], [ %15, %14 ]
   %16 = tail call ptr @lean_mk_array(ptr noundef %.2.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %17 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__39(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, ptr noundef %16)
   ret ptr %17
@@ -127771,7 +127771,7 @@ lean_string_dec_eq.exit:                          ; preds = %42
   br i1 %46, label %lean_string_dec_eq.exit.thread87, label %lean_string_dec_eq.exit.thread
 
 common.ret114:                                    ; preds = %lean_dec.exit59, %28, %30, %31, %lean_dec.exit56, %lean_alloc_ctor.exit86, %lean_alloc_ctor.exit, %lean_string_dec_eq.exit.thread
-  %common.ret114.op = phi ptr [ %2, %lean_string_dec_eq.exit.thread ], [ inttoptr (i64 1 to ptr), %28 ], [ %126, %lean_alloc_ctor.exit86 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit59 ], [ %2, %lean_dec.exit56 ], [ %105, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %30 ]
+  %common.ret114.op = phi ptr [ %2, %lean_string_dec_eq.exit.thread ], [ %2, %lean_dec.exit56 ], [ %105, %lean_alloc_ctor.exit ], [ %126, %lean_alloc_ctor.exit86 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit59 ]
   ret ptr %common.ret114.op
 
 lean_string_dec_eq.exit.thread:                   ; preds = %42, %lean_string_dec_eq.exit
@@ -128444,7 +128444,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit28951
 
 lean_inc.exit28951:                               ; preds = %170, %174, %182, %181, %179
-  %.0.i2520042032 = phi ptr [ %177, %182 ], [ %177, %179 ], [ %177, %181 ], [ %175, %174 ], [ %173, %170 ]
+  %.0.i2520042032 = phi ptr [ %177, %179 ], [ %177, %181 ], [ %177, %182 ], [ %175, %174 ], [ %173, %170 ]
   %183 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store ptr %6, ptr %184, align 8, !tbaa !4
@@ -128555,13 +128555,13 @@ lean_dec.exit26142.thread:                        ; preds = %lean_dec.exit26143
 lean_dec.exit26141:                               ; preds = %229
   br i1 %224, label %233, label %231
 
-231:                                              ; preds = %227, %230, %lean_dec.exit26142.thread, %lean_dec.exit26141
+231:                                              ; preds = %230, %227, %lean_dec.exit26142.thread, %lean_dec.exit26141
   %232 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38(ptr noundef nonnull %187)
   store ptr %232, ptr %56, align 8, !tbaa !4
   store ptr %.0.i2520042032, ptr %54, align 8, !tbaa !4
   br label %lean_dec.exit26125
 
-233:                                              ; preds = %227, %230, %lean_dec.exit26142.thread, %lean_dec.exit26141
+233:                                              ; preds = %230, %227, %lean_dec.exit26142.thread, %lean_dec.exit26141
   store ptr %187, ptr %56, align 8, !tbaa !4
   store ptr %.0.i2520042032, ptr %54, align 8, !tbaa !4
   br label %lean_dec.exit26125
@@ -129103,7 +129103,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit28938
 
 lean_inc.exit28938:                               ; preds = %431, %435, %443, %442, %440
-  %.0.i2519742038 = phi ptr [ %438, %443 ], [ %438, %440 ], [ %438, %442 ], [ %436, %435 ], [ %434, %431 ]
+  %.0.i2519742038 = phi ptr [ %438, %440 ], [ %438, %442 ], [ %438, %443 ], [ %436, %435 ], [ %434, %431 ]
   %444 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
   store ptr %6, ptr %445, align 8, !tbaa !4
@@ -129214,14 +129214,14 @@ lean_dec.exit26138.thread:                        ; preds = %lean_dec.exit26139
 lean_dec.exit26137:                               ; preds = %490
   br i1 %485, label %494, label %492
 
-492:                                              ; preds = %488, %491, %lean_dec.exit26138.thread, %lean_dec.exit26137
+492:                                              ; preds = %491, %488, %lean_dec.exit26138.thread, %lean_dec.exit26137
   %493 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38(ptr noundef nonnull %448)
   store ptr %493, ptr %56, align 8, !tbaa !4
   store ptr %.0.i2519742038, ptr %54, align 8, !tbaa !4
   store ptr %388, ptr %11, align 8, !tbaa !4
   br label %lean_dec.exit26125
 
-494:                                              ; preds = %488, %491, %lean_dec.exit26138.thread, %lean_dec.exit26137
+494:                                              ; preds = %491, %488, %lean_dec.exit26138.thread, %lean_dec.exit26137
   store ptr %448, ptr %56, align 8, !tbaa !4
   store ptr %.0.i2519742038, ptr %54, align 8, !tbaa !4
   store ptr %388, ptr %11, align 8, !tbaa !4
@@ -130038,7 +130038,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit28925
 
 lean_inc.exit28925:                               ; preds = %796, %800, %808, %807, %805
-  %.0.i2519442044 = phi ptr [ %803, %808 ], [ %803, %805 ], [ %803, %807 ], [ %801, %800 ], [ %799, %796 ]
+  %.0.i2519442044 = phi ptr [ %803, %805 ], [ %803, %807 ], [ %803, %808 ], [ %801, %800 ], [ %799, %796 ]
   tail call void @lean_inc_heartbeat() #8
   %809 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %810 = icmp eq ptr %809, null
@@ -130202,7 +130202,7 @@ lean_dec.exit26134.thread:                        ; preds = %lean_dec.exit26135
 lean_dec.exit26133:                               ; preds = %875
   br i1 %870, label %885, label %877
 
-877:                                              ; preds = %873, %876, %lean_dec.exit26134.thread, %lean_dec.exit26133
+877:                                              ; preds = %876, %873, %lean_dec.exit26134.thread, %lean_dec.exit26133
   %878 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38(ptr noundef nonnull %.0.i.i32240)
   store ptr %878, ptr %56, align 8, !tbaa !4
   store ptr %.0.i2519442044, ptr %54, align 8, !tbaa !4
@@ -130219,7 +130219,7 @@ lean_dec.exit26133:                               ; preds = %875
   store double %53, ptr %884, align 8, !tbaa !12
   br label %lean_dec.exit26125
 
-885:                                              ; preds = %873, %876, %lean_dec.exit26134.thread, %lean_dec.exit26133
+885:                                              ; preds = %876, %873, %lean_dec.exit26134.thread, %lean_dec.exit26133
   store ptr %.0.i.i32240, ptr %56, align 8, !tbaa !4
   store ptr %.0.i2519442044, ptr %54, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
@@ -131525,7 +131525,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit28909
 
 lean_inc.exit28909:                               ; preds = %1376, %1380, %1388, %1387, %1385
-  %.0.i2519142050 = phi ptr [ %1383, %1388 ], [ %1383, %1385 ], [ %1383, %1387 ], [ %1381, %1380 ], [ %1379, %1376 ]
+  %.0.i2519142050 = phi ptr [ %1383, %1385 ], [ %1383, %1387 ], [ %1383, %1388 ], [ %1381, %1380 ], [ %1379, %1376 ]
   tail call void @lean_inc_heartbeat() #8
   %1389 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %1390 = icmp eq ptr %1389, null
@@ -131689,7 +131689,7 @@ lean_dec.exit26121.thread:                        ; preds = %lean_dec.exit26122
 lean_dec.exit26120:                               ; preds = %1455
   br i1 %1450, label %1492, label %1457
 
-1457:                                             ; preds = %1453, %1456, %lean_dec.exit26121.thread, %lean_dec.exit26120
+1457:                                             ; preds = %1456, %1453, %lean_dec.exit26121.thread, %lean_dec.exit26120
   %.val.i32385 = load i64, ptr %1443, align 8, !tbaa !14
   %1458 = shl i64 %.val.i32385, 1
   %1459 = or disjoint i64 %1458, 1
@@ -131714,7 +131714,7 @@ lean_dec.exit26120:                               ; preds = %1455
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38.exit: ; preds = %1457, %1465, %1469
-  %.2.i.i = phi ptr [ %1470, %1469 ], [ %1460, %1457 ], [ %1468, %1465 ]
+  %.2.i.i = phi ptr [ %1460, %1457 ], [ %1468, %1465 ], [ %1470, %1469 ]
   %1471 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %1472 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__39(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i32377, ptr noundef %1471)
   tail call void @lean_inc_heartbeat() #8
@@ -131761,7 +131761,7 @@ lean_alloc_ctor.exit32386:                        ; preds = %l_Std_DHashMap_Inte
   store double %53, ptr %1491, align 8, !tbaa !12
   br label %lean_dec.exit26125
 
-1492:                                             ; preds = %1453, %1456, %lean_dec.exit26121.thread, %lean_dec.exit26120
+1492:                                             ; preds = %1456, %1453, %lean_dec.exit26121.thread, %lean_dec.exit26120
   tail call void @lean_inc_heartbeat() #8
   %1493 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %1494 = icmp eq ptr %1493, null
@@ -132200,8 +132200,8 @@ lean_inc.exit28906:                               ; preds = %1648, %1647, %1645,
   br label %lean_dec.exit26125
 
 lean_dec.exit26125:                               ; preds = %lean_inc.exit28906, %1652, %1654, %1655, %lean_inc.exit28922, %1025, %1027, %1028, %1486, %1512, %1581, %lean_alloc_ctor.exit32267, %lean_alloc_ctor.exit32248, %877, %231, %233, %lean_inc.exit28949, %492, %494, %lean_inc.exit28936
-  %.923881 = phi ptr [ %886, %lean_alloc_ctor.exit32248 ], [ %.023957, %1512 ], [ %8, %231 ], [ %8, %lean_inc.exit28936 ], [ %8, %494 ], [ %8, %492 ], [ %8, %lean_inc.exit28949 ], [ %8, %233 ], [ %944, %lean_alloc_ctor.exit32267 ], [ %879, %877 ], [ %8, %lean_inc.exit28922 ], [ %.023958, %1581 ], [ %.023956, %1486 ], [ %8, %1028 ], [ %8, %1027 ], [ %8, %1025 ], [ %8, %1655 ], [ %8, %1654 ], [ %8, %1652 ], [ %8, %lean_inc.exit28906 ]
-  %.923868 = phi ptr [ %55, %lean_alloc_ctor.exit32248 ], [ %55, %1512 ], [ %55, %231 ], [ %55, %lean_inc.exit28936 ], [ %55, %494 ], [ %55, %492 ], [ %55, %lean_inc.exit28949 ], [ %55, %233 ], [ %55, %lean_alloc_ctor.exit32267 ], [ %55, %877 ], [ %1013, %lean_inc.exit28922 ], [ %55, %1581 ], [ %55, %1486 ], [ %1013, %1028 ], [ %1013, %1027 ], [ %1013, %1025 ], [ %1640, %1655 ], [ %1640, %1654 ], [ %1640, %1652 ], [ %1640, %lean_inc.exit28906 ]
+  %.923881 = phi ptr [ %8, %lean_inc.exit28936 ], [ %8, %494 ], [ %8, %492 ], [ %8, %lean_inc.exit28949 ], [ %8, %233 ], [ %8, %231 ], [ %944, %lean_alloc_ctor.exit32267 ], [ %879, %877 ], [ %886, %lean_alloc_ctor.exit32248 ], [ %.023958, %1581 ], [ %.023956, %1486 ], [ %.023957, %1512 ], [ %8, %1028 ], [ %8, %1027 ], [ %8, %1025 ], [ %8, %lean_inc.exit28922 ], [ %8, %1655 ], [ %8, %1654 ], [ %8, %1652 ], [ %8, %lean_inc.exit28906 ]
+  %.923868 = phi ptr [ %55, %lean_inc.exit28936 ], [ %55, %494 ], [ %55, %492 ], [ %55, %lean_inc.exit28949 ], [ %55, %233 ], [ %55, %231 ], [ %55, %lean_alloc_ctor.exit32267 ], [ %55, %877 ], [ %55, %lean_alloc_ctor.exit32248 ], [ %55, %1581 ], [ %55, %1486 ], [ %55, %1512 ], [ %1013, %1028 ], [ %1013, %1027 ], [ %1013, %1025 ], [ %1013, %lean_inc.exit28922 ], [ %1640, %1655 ], [ %1640, %1654 ], [ %1640, %1652 ], [ %1640, %lean_inc.exit28906 ]
   tail call void @lean_inc_heartbeat() #8
   %1656 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %1657 = icmp eq ptr %1656, null
@@ -132892,7 +132892,7 @@ lean_dec.exit26107:                               ; preds = %1927, %1926, %1924,
   br label %lean_dec.exit26106
 
 lean_dec.exit26106:                               ; preds = %1932, %1936, %1945, %1944, %1942
-  %.0.i2518842056 = phi ptr [ %1939, %1945 ], [ %1939, %1942 ], [ %1939, %1944 ], [ %1937, %1936 ], [ %1935, %1932 ]
+  %.0.i2518842056 = phi ptr [ %1939, %1942 ], [ %1939, %1944 ], [ %1939, %1945 ], [ %1937, %1936 ], [ %1935, %1932 ]
   %1946 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1947 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #8
@@ -133385,7 +133385,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit28880
 
 lean_inc.exit28880:                               ; preds = %2114, %2118, %2126, %2125, %2123
-  %.0.i2518542059 = phi ptr [ %2121, %2126 ], [ %2121, %2123 ], [ %2121, %2125 ], [ %2119, %2118 ], [ %2117, %2114 ]
+  %.0.i2518542059 = phi ptr [ %2121, %2123 ], [ %2121, %2125 ], [ %2121, %2126 ], [ %2119, %2118 ], [ %2117, %2114 ]
   tail call void @lean_inc_heartbeat() #8
   %2127 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %2128 = icmp eq ptr %2127, null
@@ -133545,7 +133545,7 @@ lean_dec.exit26104.thread:                        ; preds = %lean_dec.exit26105
 lean_dec.exit26103:                               ; preds = %2190
   br i1 %2185, label %9499, label %2192
 
-2192:                                             ; preds = %2188, %2191, %lean_dec.exit26104.thread, %lean_dec.exit26103
+2192:                                             ; preds = %2191, %2188, %lean_dec.exit26104.thread, %lean_dec.exit26103
   %2193 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3(ptr noundef nonnull %.0.i.i32531)
   store ptr %2193, ptr %1714, align 8, !tbaa !4
   store ptr %.0.i2518542059, ptr %1704, align 8, !tbaa !4
@@ -134507,7 +134507,7 @@ lean_dec.exit26081:                               ; preds = %2559, %2558, %2556,
   br label %lean_dec.exit26080
 
 lean_dec.exit26080:                               ; preds = %2564, %2568, %2577, %2576, %2574
-  %.0.i2518242065 = phi ptr [ %2571, %2577 ], [ %2571, %2574 ], [ %2571, %2576 ], [ %2569, %2568 ], [ %2567, %2564 ]
+  %.0.i2518242065 = phi ptr [ %2571, %2574 ], [ %2571, %2576 ], [ %2571, %2577 ], [ %2569, %2568 ], [ %2567, %2564 ]
   %2578 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %2579 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %2580 = getelementptr inbounds nuw i8, ptr %2579, i64 8
@@ -135018,7 +135018,7 @@ lean_dec.exit26078:                               ; preds = %2770, %2769, %2767,
   br label %lean_dec.exit26077
 
 lean_dec.exit26077:                               ; preds = %2775, %2779, %2788, %2787, %2785
-  %.0.i2517942067 = phi ptr [ %2782, %2788 ], [ %2782, %2785 ], [ %2782, %2787 ], [ %2780, %2779 ], [ %2778, %2775 ]
+  %.0.i2517942067 = phi ptr [ %2782, %2785 ], [ %2782, %2787 ], [ %2782, %2788 ], [ %2780, %2779 ], [ %2778, %2775 ]
   %2789 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %2790 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %2791 = getelementptr inbounds nuw i8, ptr %2790, i64 8
@@ -135668,7 +135668,7 @@ lean_dec.exit26075:                               ; preds = %3034, %3033, %3031,
   br label %lean_dec.exit26074
 
 lean_dec.exit26074:                               ; preds = %3039, %3043, %3052, %3051, %3049
-  %.0.i2517642069 = phi ptr [ %3046, %3052 ], [ %3046, %3049 ], [ %3046, %3051 ], [ %3044, %3043 ], [ %3042, %3039 ]
+  %.0.i2517642069 = phi ptr [ %3046, %3049 ], [ %3046, %3051 ], [ %3046, %3052 ], [ %3044, %3043 ], [ %3042, %3039 ]
   %3053 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %3054 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %3055 = getelementptr inbounds nuw i8, ptr %3054, i64 8
@@ -136394,7 +136394,7 @@ lean_dec.exit26072:                               ; preds = %3326, %3325, %3323,
   br label %lean_dec.exit26071
 
 lean_dec.exit26071:                               ; preds = %3331, %3335, %3344, %3343, %3341
-  %.0.i2517342071 = phi ptr [ %3338, %3344 ], [ %3338, %3341 ], [ %3338, %3343 ], [ %3336, %3335 ], [ %3334, %3331 ]
+  %.0.i2517342071 = phi ptr [ %3338, %3341 ], [ %3338, %3343 ], [ %3338, %3344 ], [ %3336, %3335 ], [ %3334, %3331 ]
   %3345 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %3346 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %3347 = getelementptr inbounds nuw i8, ptr %3346, i64 8
@@ -137212,7 +137212,7 @@ lean_dec.exit26069:                               ; preds = %3650, %3649, %3647,
   br label %lean_dec.exit26068
 
 lean_dec.exit26068:                               ; preds = %3655, %3659, %3668, %3667, %3665
-  %.0.i2517042073 = phi ptr [ %3662, %3668 ], [ %3662, %3665 ], [ %3662, %3667 ], [ %3660, %3659 ], [ %3658, %3655 ]
+  %.0.i2517042073 = phi ptr [ %3662, %3665 ], [ %3662, %3667 ], [ %3662, %3668 ], [ %3660, %3659 ], [ %3658, %3655 ]
   %3669 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %3670 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %3671 = getelementptr inbounds nuw i8, ptr %3670, i64 8
@@ -138220,7 +138220,7 @@ lean_dec.exit26045:                               ; preds = %4062, %4061, %4059,
   br label %lean_dec.exit26044
 
 lean_dec.exit26044:                               ; preds = %4067, %4071, %4080, %4079, %4077
-  %.0.i2516742078 = phi ptr [ %4074, %4080 ], [ %4074, %4077 ], [ %4074, %4079 ], [ %4072, %4071 ], [ %4070, %4067 ]
+  %.0.i2516742078 = phi ptr [ %4074, %4077 ], [ %4074, %4079 ], [ %4074, %4080 ], [ %4072, %4071 ], [ %4070, %4067 ]
   %4081 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %4082 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %4083 = getelementptr inbounds nuw i8, ptr %4082, i64 8
@@ -138731,7 +138731,7 @@ lean_dec.exit26042:                               ; preds = %4273, %4272, %4270,
   br label %lean_dec.exit26041
 
 lean_dec.exit26041:                               ; preds = %4278, %4282, %4291, %4290, %4288
-  %.0.i2516442080 = phi ptr [ %4285, %4291 ], [ %4285, %4288 ], [ %4285, %4290 ], [ %4283, %4282 ], [ %4281, %4278 ]
+  %.0.i2516442080 = phi ptr [ %4285, %4288 ], [ %4285, %4290 ], [ %4285, %4291 ], [ %4283, %4282 ], [ %4281, %4278 ]
   %4292 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %4293 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %4294 = getelementptr inbounds nuw i8, ptr %4293, i64 8
@@ -139381,7 +139381,7 @@ lean_dec.exit26039:                               ; preds = %4537, %4536, %4534,
   br label %lean_dec.exit26038
 
 lean_dec.exit26038:                               ; preds = %4542, %4546, %4555, %4554, %4552
-  %.0.i2516142082 = phi ptr [ %4549, %4555 ], [ %4549, %4552 ], [ %4549, %4554 ], [ %4547, %4546 ], [ %4545, %4542 ]
+  %.0.i2516142082 = phi ptr [ %4549, %4552 ], [ %4549, %4554 ], [ %4549, %4555 ], [ %4547, %4546 ], [ %4545, %4542 ]
   %4556 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %4557 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %4558 = getelementptr inbounds nuw i8, ptr %4557, i64 8
@@ -140107,7 +140107,7 @@ lean_dec.exit26036:                               ; preds = %4829, %4828, %4826,
   br label %lean_dec.exit26035
 
 lean_dec.exit26035:                               ; preds = %4834, %4838, %4847, %4846, %4844
-  %.0.i2515842084 = phi ptr [ %4841, %4847 ], [ %4841, %4844 ], [ %4841, %4846 ], [ %4839, %4838 ], [ %4837, %4834 ]
+  %.0.i2515842084 = phi ptr [ %4841, %4844 ], [ %4841, %4846 ], [ %4841, %4847 ], [ %4839, %4838 ], [ %4837, %4834 ]
   %4848 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %4849 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %4850 = getelementptr inbounds nuw i8, ptr %4849, i64 8
@@ -140925,7 +140925,7 @@ lean_dec.exit26033:                               ; preds = %5153, %5152, %5150,
   br label %lean_dec.exit26032
 
 lean_dec.exit26032:                               ; preds = %5158, %5162, %5171, %5170, %5168
-  %.0.i2515542086 = phi ptr [ %5165, %5171 ], [ %5165, %5168 ], [ %5165, %5170 ], [ %5163, %5162 ], [ %5161, %5158 ]
+  %.0.i2515542086 = phi ptr [ %5165, %5168 ], [ %5165, %5170 ], [ %5165, %5171 ], [ %5163, %5162 ], [ %5161, %5158 ]
   %5172 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %5173 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %5174 = getelementptr inbounds nuw i8, ptr %5173, i64 8
@@ -141275,7 +141275,7 @@ lean_dec.exit26030:                               ; preds = %5296, %5295, %5293,
   br label %lean_dec.exit26029
 
 lean_dec.exit26029:                               ; preds = %5301, %5305, %5314, %5313, %5311
-  %.0.i2515242089 = phi ptr [ %5308, %5314 ], [ %5308, %5311 ], [ %5308, %5313 ], [ %5306, %5305 ], [ %5304, %5301 ]
+  %.0.i2515242089 = phi ptr [ %5308, %5311 ], [ %5308, %5313 ], [ %5308, %5314 ], [ %5306, %5305 ], [ %5304, %5301 ]
   %5315 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 5, i32 noundef 0)
   %5316 = getelementptr inbounds nuw i8, ptr %5315, i64 8
   store ptr %5240, ptr %5316, align 8, !tbaa !4
@@ -141565,7 +141565,7 @@ lean_dec.exit26025:                               ; preds = %5404, %5403, %5401,
   br label %lean_dec.exit26024
 
 lean_dec.exit26024:                               ; preds = %5422, %5426, %5435, %5434, %5432
-  %.0.i2514942091 = phi ptr [ %5429, %5435 ], [ %5429, %5432 ], [ %5429, %5434 ], [ %5427, %5426 ], [ %5425, %5422 ]
+  %.0.i2514942091 = phi ptr [ %5429, %5432 ], [ %5429, %5434 ], [ %5429, %5435 ], [ %5427, %5426 ], [ %5425, %5422 ]
   br i1 %.not45356, label %5436, label %lean_inc.exit28698
 
 5436:                                             ; preds = %lean_dec.exit26024
@@ -141697,7 +141697,7 @@ lean_dec.exit26022.thread:                        ; preds = %lean_dec.exit26023
 lean_dec.exit26021:                               ; preds = %5488
   br i1 %5483, label %6824, label %5490
 
-5490:                                             ; preds = %5486, %5489, %lean_dec.exit26022.thread, %lean_dec.exit26021
+5490:                                             ; preds = %5489, %5486, %lean_dec.exit26022.thread, %lean_dec.exit26021
   %5491 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %5446)
   %5492 = ptrtoint ptr %.023989 to i64
   %5493 = and i64 %5492, 1
@@ -142151,7 +142151,7 @@ lean_dec.exit26017:                               ; preds = %5671, %5670, %5668,
   br label %lean_dec.exit26016
 
 lean_dec.exit26016:                               ; preds = %5676, %5680, %5689, %5688, %5686
-  %.0.i2514642097 = phi ptr [ %5683, %5689 ], [ %5683, %5686 ], [ %5683, %5688 ], [ %5681, %5680 ], [ %5679, %5676 ]
+  %.0.i2514642097 = phi ptr [ %5683, %5686 ], [ %5683, %5688 ], [ %5683, %5689 ], [ %5681, %5680 ], [ %5679, %5676 ]
   %5690 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %5691 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %5692 = getelementptr inbounds nuw i8, ptr %5691, i64 8
@@ -142662,7 +142662,7 @@ lean_dec.exit26014:                               ; preds = %5882, %5881, %5879,
   br label %lean_dec.exit26013
 
 lean_dec.exit26013:                               ; preds = %5887, %5891, %5900, %5899, %5897
-  %.0.i2514342099 = phi ptr [ %5894, %5900 ], [ %5894, %5897 ], [ %5894, %5899 ], [ %5892, %5891 ], [ %5890, %5887 ]
+  %.0.i2514342099 = phi ptr [ %5894, %5897 ], [ %5894, %5899 ], [ %5894, %5900 ], [ %5892, %5891 ], [ %5890, %5887 ]
   %5901 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %5902 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %5903 = getelementptr inbounds nuw i8, ptr %5902, i64 8
@@ -143312,7 +143312,7 @@ lean_dec.exit26011:                               ; preds = %6146, %6145, %6143,
   br label %lean_dec.exit26010
 
 lean_dec.exit26010:                               ; preds = %6151, %6155, %6164, %6163, %6161
-  %.0.i2514042101 = phi ptr [ %6158, %6164 ], [ %6158, %6161 ], [ %6158, %6163 ], [ %6156, %6155 ], [ %6154, %6151 ]
+  %.0.i2514042101 = phi ptr [ %6158, %6161 ], [ %6158, %6163 ], [ %6158, %6164 ], [ %6156, %6155 ], [ %6154, %6151 ]
   %6165 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %6166 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %6167 = getelementptr inbounds nuw i8, ptr %6166, i64 8
@@ -144038,7 +144038,7 @@ lean_dec.exit26008:                               ; preds = %6438, %6437, %6435,
   br label %lean_dec.exit26007
 
 lean_dec.exit26007:                               ; preds = %6443, %6447, %6456, %6455, %6453
-  %.0.i2513742103 = phi ptr [ %6450, %6456 ], [ %6450, %6453 ], [ %6450, %6455 ], [ %6448, %6447 ], [ %6446, %6443 ]
+  %.0.i2513742103 = phi ptr [ %6450, %6453 ], [ %6450, %6455 ], [ %6450, %6456 ], [ %6448, %6447 ], [ %6446, %6443 ]
   %6457 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %6458 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %6459 = getelementptr inbounds nuw i8, ptr %6458, i64 8
@@ -144856,7 +144856,7 @@ lean_dec.exit26005:                               ; preds = %6762, %6761, %6759,
   br label %lean_dec.exit26004
 
 lean_dec.exit26004:                               ; preds = %6767, %6771, %6780, %6779, %6777
-  %.0.i2513442105 = phi ptr [ %6774, %6780 ], [ %6774, %6777 ], [ %6774, %6779 ], [ %6772, %6771 ], [ %6770, %6767 ]
+  %.0.i2513442105 = phi ptr [ %6774, %6777 ], [ %6774, %6779 ], [ %6774, %6780 ], [ %6772, %6771 ], [ %6770, %6767 ]
   %6781 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %6782 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %6783 = getelementptr inbounds nuw i8, ptr %6782, i64 8
@@ -144945,7 +144945,7 @@ lean_dec.exit26004:                               ; preds = %6767, %6771, %6780,
   store ptr %6521, ptr %6823, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-6824:                                             ; preds = %5486, %5489, %lean_dec.exit26022.thread, %lean_dec.exit26021
+6824:                                             ; preds = %5489, %5486, %lean_dec.exit26022.thread, %lean_dec.exit26021
   %6825 = ptrtoint ptr %.023989 to i64
   %6826 = and i64 %6825, 1
   %.not45458 = icmp eq i64 %6826, 0
@@ -145398,7 +145398,7 @@ lean_dec.exit26000:                               ; preds = %7004, %7003, %7001,
   br label %lean_dec.exit25999
 
 lean_dec.exit25999:                               ; preds = %7009, %7013, %7022, %7021, %7019
-  %.0.i2513142108 = phi ptr [ %7016, %7022 ], [ %7016, %7019 ], [ %7016, %7021 ], [ %7014, %7013 ], [ %7012, %7009 ]
+  %.0.i2513142108 = phi ptr [ %7016, %7019 ], [ %7016, %7021 ], [ %7016, %7022 ], [ %7014, %7013 ], [ %7012, %7009 ]
   %7023 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %7024 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %7025 = getelementptr inbounds nuw i8, ptr %7024, i64 8
@@ -145909,7 +145909,7 @@ lean_dec.exit25997:                               ; preds = %7215, %7214, %7212,
   br label %lean_dec.exit25996
 
 lean_dec.exit25996:                               ; preds = %7220, %7224, %7233, %7232, %7230
-  %.0.i2512842110 = phi ptr [ %7227, %7233 ], [ %7227, %7230 ], [ %7227, %7232 ], [ %7225, %7224 ], [ %7223, %7220 ]
+  %.0.i2512842110 = phi ptr [ %7227, %7230 ], [ %7227, %7232 ], [ %7227, %7233 ], [ %7225, %7224 ], [ %7223, %7220 ]
   %7234 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %7235 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %7236 = getelementptr inbounds nuw i8, ptr %7235, i64 8
@@ -146559,7 +146559,7 @@ lean_dec.exit25994:                               ; preds = %7479, %7478, %7476,
   br label %lean_dec.exit25993
 
 lean_dec.exit25993:                               ; preds = %7484, %7488, %7497, %7496, %7494
-  %.0.i2512542112 = phi ptr [ %7491, %7497 ], [ %7491, %7494 ], [ %7491, %7496 ], [ %7489, %7488 ], [ %7487, %7484 ]
+  %.0.i2512542112 = phi ptr [ %7491, %7494 ], [ %7491, %7496 ], [ %7491, %7497 ], [ %7489, %7488 ], [ %7487, %7484 ]
   %7498 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %7499 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %7500 = getelementptr inbounds nuw i8, ptr %7499, i64 8
@@ -147285,7 +147285,7 @@ lean_dec.exit25991:                               ; preds = %7771, %7770, %7768,
   br label %lean_dec.exit25990
 
 lean_dec.exit25990:                               ; preds = %7776, %7780, %7789, %7788, %7786
-  %.0.i2512242114 = phi ptr [ %7783, %7789 ], [ %7783, %7786 ], [ %7783, %7788 ], [ %7781, %7780 ], [ %7779, %7776 ]
+  %.0.i2512242114 = phi ptr [ %7783, %7786 ], [ %7783, %7788 ], [ %7783, %7789 ], [ %7781, %7780 ], [ %7779, %7776 ]
   %7790 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %7791 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %7792 = getelementptr inbounds nuw i8, ptr %7791, i64 8
@@ -148103,7 +148103,7 @@ lean_dec.exit25988:                               ; preds = %8095, %8094, %8092,
   br label %lean_dec.exit25987
 
 lean_dec.exit25987:                               ; preds = %8100, %8104, %8113, %8112, %8110
-  %.0.i2511942116 = phi ptr [ %8107, %8113 ], [ %8107, %8110 ], [ %8107, %8112 ], [ %8105, %8104 ], [ %8103, %8100 ]
+  %.0.i2511942116 = phi ptr [ %8107, %8110 ], [ %8107, %8112 ], [ %8107, %8113 ], [ %8105, %8104 ], [ %8103, %8100 ]
   %8114 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %8115 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %8116 = getelementptr inbounds nuw i8, ptr %8115, i64 8
@@ -148669,7 +148669,7 @@ lean_dec.exit25983:                               ; preds = %8346, %8345, %8343,
   br label %lean_dec.exit25982
 
 lean_dec.exit25982:                               ; preds = %8351, %8355, %8364, %8363, %8361
-  %.0.i2511642119 = phi ptr [ %8358, %8364 ], [ %8358, %8361 ], [ %8358, %8363 ], [ %8356, %8355 ], [ %8354, %8351 ]
+  %.0.i2511642119 = phi ptr [ %8358, %8361 ], [ %8358, %8363 ], [ %8358, %8364 ], [ %8356, %8355 ], [ %8354, %8351 ]
   %8365 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %8366 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %8367 = getelementptr inbounds nuw i8, ptr %8366, i64 8
@@ -149180,7 +149180,7 @@ lean_dec.exit25980:                               ; preds = %8557, %8556, %8554,
   br label %lean_dec.exit25979
 
 lean_dec.exit25979:                               ; preds = %8562, %8566, %8575, %8574, %8572
-  %.0.i2511342121 = phi ptr [ %8569, %8575 ], [ %8569, %8572 ], [ %8569, %8574 ], [ %8567, %8566 ], [ %8565, %8562 ]
+  %.0.i2511342121 = phi ptr [ %8569, %8572 ], [ %8569, %8574 ], [ %8569, %8575 ], [ %8567, %8566 ], [ %8565, %8562 ]
   %8576 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %8577 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %8578 = getelementptr inbounds nuw i8, ptr %8577, i64 8
@@ -149830,7 +149830,7 @@ lean_dec.exit25977:                               ; preds = %8821, %8820, %8818,
   br label %lean_dec.exit25976
 
 lean_dec.exit25976:                               ; preds = %8826, %8830, %8839, %8838, %8836
-  %.0.i2511042123 = phi ptr [ %8833, %8839 ], [ %8833, %8836 ], [ %8833, %8838 ], [ %8831, %8830 ], [ %8829, %8826 ]
+  %.0.i2511042123 = phi ptr [ %8833, %8836 ], [ %8833, %8838 ], [ %8833, %8839 ], [ %8831, %8830 ], [ %8829, %8826 ]
   %8840 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %8841 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %8842 = getelementptr inbounds nuw i8, ptr %8841, i64 8
@@ -150556,7 +150556,7 @@ lean_dec.exit25974:                               ; preds = %9113, %9112, %9110,
   br label %lean_dec.exit25973
 
 lean_dec.exit25973:                               ; preds = %9118, %9122, %9131, %9130, %9128
-  %.0.i2510742125 = phi ptr [ %9125, %9131 ], [ %9125, %9128 ], [ %9125, %9130 ], [ %9123, %9122 ], [ %9121, %9118 ]
+  %.0.i2510742125 = phi ptr [ %9125, %9128 ], [ %9125, %9130 ], [ %9125, %9131 ], [ %9123, %9122 ], [ %9121, %9118 ]
   %9132 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %9133 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %9134 = getelementptr inbounds nuw i8, ptr %9133, i64 8
@@ -151374,7 +151374,7 @@ lean_dec.exit25971:                               ; preds = %9437, %9436, %9434,
   br label %lean_dec.exit25970
 
 lean_dec.exit25970:                               ; preds = %9442, %9446, %9455, %9454, %9452
-  %.0.i2510442127 = phi ptr [ %9449, %9455 ], [ %9449, %9452 ], [ %9449, %9454 ], [ %9447, %9446 ], [ %9445, %9442 ]
+  %.0.i2510442127 = phi ptr [ %9449, %9452 ], [ %9449, %9454 ], [ %9449, %9455 ], [ %9447, %9446 ], [ %9445, %9442 ]
   %9456 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %9457 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %9458 = getelementptr inbounds nuw i8, ptr %9457, i64 8
@@ -151463,7 +151463,7 @@ lean_dec.exit25970:                               ; preds = %9442, %9446, %9455,
   store ptr %9196, ptr %9498, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-9499:                                             ; preds = %2188, %2191, %lean_dec.exit26104.thread, %lean_dec.exit26103
+9499:                                             ; preds = %2191, %2188, %lean_dec.exit26104.thread, %lean_dec.exit26103
   store ptr %.0.i.i32531, ptr %1714, align 8, !tbaa !4
   store ptr %.0.i2518542059, ptr %1704, align 8, !tbaa !4
   %9500 = ptrtoint ptr %1 to i64
@@ -152436,7 +152436,7 @@ lean_dec.exit25948:                               ; preds = %9868, %9867, %9865,
   br label %lean_dec.exit25947
 
 lean_dec.exit25947:                               ; preds = %9873, %9877, %9886, %9885, %9883
-  %.0.i2510142130 = phi ptr [ %9880, %9886 ], [ %9880, %9883 ], [ %9880, %9885 ], [ %9878, %9877 ], [ %9876, %9873 ]
+  %.0.i2510142130 = phi ptr [ %9880, %9883 ], [ %9880, %9885 ], [ %9880, %9886 ], [ %9878, %9877 ], [ %9876, %9873 ]
   %9887 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %9888 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %9889 = getelementptr inbounds nuw i8, ptr %9888, i64 8
@@ -152947,7 +152947,7 @@ lean_dec.exit25945:                               ; preds = %10079, %10078, %100
   br label %lean_dec.exit25944
 
 lean_dec.exit25944:                               ; preds = %10084, %10088, %10097, %10096, %10094
-  %.0.i2509842132 = phi ptr [ %10091, %10097 ], [ %10091, %10094 ], [ %10091, %10096 ], [ %10089, %10088 ], [ %10087, %10084 ]
+  %.0.i2509842132 = phi ptr [ %10091, %10094 ], [ %10091, %10096 ], [ %10091, %10097 ], [ %10089, %10088 ], [ %10087, %10084 ]
   %10098 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %10099 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %10100 = getelementptr inbounds nuw i8, ptr %10099, i64 8
@@ -153597,7 +153597,7 @@ lean_dec.exit25942:                               ; preds = %10343, %10342, %103
   br label %lean_dec.exit25941
 
 lean_dec.exit25941:                               ; preds = %10348, %10352, %10361, %10360, %10358
-  %.0.i2509542134 = phi ptr [ %10355, %10361 ], [ %10355, %10358 ], [ %10355, %10360 ], [ %10353, %10352 ], [ %10351, %10348 ]
+  %.0.i2509542134 = phi ptr [ %10355, %10358 ], [ %10355, %10360 ], [ %10355, %10361 ], [ %10353, %10352 ], [ %10351, %10348 ]
   %10362 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %10363 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %10364 = getelementptr inbounds nuw i8, ptr %10363, i64 8
@@ -154323,7 +154323,7 @@ lean_dec.exit25939:                               ; preds = %10635, %10634, %106
   br label %lean_dec.exit25938
 
 lean_dec.exit25938:                               ; preds = %10640, %10644, %10653, %10652, %10650
-  %.0.i2509242136 = phi ptr [ %10647, %10653 ], [ %10647, %10650 ], [ %10647, %10652 ], [ %10645, %10644 ], [ %10643, %10640 ]
+  %.0.i2509242136 = phi ptr [ %10647, %10650 ], [ %10647, %10652 ], [ %10647, %10653 ], [ %10645, %10644 ], [ %10643, %10640 ]
   %10654 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %10655 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %10656 = getelementptr inbounds nuw i8, ptr %10655, i64 8
@@ -155141,7 +155141,7 @@ lean_dec.exit25936:                               ; preds = %10959, %10958, %109
   br label %lean_dec.exit25935
 
 lean_dec.exit25935:                               ; preds = %10964, %10968, %10977, %10976, %10974
-  %.0.i2508942138 = phi ptr [ %10971, %10977 ], [ %10971, %10974 ], [ %10971, %10976 ], [ %10969, %10968 ], [ %10967, %10964 ]
+  %.0.i2508942138 = phi ptr [ %10971, %10974 ], [ %10971, %10976 ], [ %10971, %10977 ], [ %10969, %10968 ], [ %10967, %10964 ]
   %10978 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %10979 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %10980 = getelementptr inbounds nuw i8, ptr %10979, i64 8
@@ -156149,7 +156149,7 @@ lean_dec.exit25912:                               ; preds = %11371, %11370, %113
   br label %lean_dec.exit25911
 
 lean_dec.exit25911:                               ; preds = %11376, %11380, %11389, %11388, %11386
-  %.0.i2508642143 = phi ptr [ %11383, %11389 ], [ %11383, %11386 ], [ %11383, %11388 ], [ %11381, %11380 ], [ %11379, %11376 ]
+  %.0.i2508642143 = phi ptr [ %11383, %11386 ], [ %11383, %11388 ], [ %11383, %11389 ], [ %11381, %11380 ], [ %11379, %11376 ]
   %11390 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %11391 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %11392 = getelementptr inbounds nuw i8, ptr %11391, i64 8
@@ -156660,7 +156660,7 @@ lean_dec.exit25909:                               ; preds = %11582, %11581, %115
   br label %lean_dec.exit25908
 
 lean_dec.exit25908:                               ; preds = %11587, %11591, %11600, %11599, %11597
-  %.0.i2508342145 = phi ptr [ %11594, %11600 ], [ %11594, %11597 ], [ %11594, %11599 ], [ %11592, %11591 ], [ %11590, %11587 ]
+  %.0.i2508342145 = phi ptr [ %11594, %11597 ], [ %11594, %11599 ], [ %11594, %11600 ], [ %11592, %11591 ], [ %11590, %11587 ]
   %11601 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %11602 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %11603 = getelementptr inbounds nuw i8, ptr %11602, i64 8
@@ -157310,7 +157310,7 @@ lean_dec.exit25906:                               ; preds = %11846, %11845, %118
   br label %lean_dec.exit25905
 
 lean_dec.exit25905:                               ; preds = %11851, %11855, %11864, %11863, %11861
-  %.0.i2508042147 = phi ptr [ %11858, %11864 ], [ %11858, %11861 ], [ %11858, %11863 ], [ %11856, %11855 ], [ %11854, %11851 ]
+  %.0.i2508042147 = phi ptr [ %11858, %11861 ], [ %11858, %11863 ], [ %11858, %11864 ], [ %11856, %11855 ], [ %11854, %11851 ]
   %11865 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %11866 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %11867 = getelementptr inbounds nuw i8, ptr %11866, i64 8
@@ -158036,7 +158036,7 @@ lean_dec.exit25903:                               ; preds = %12138, %12137, %121
   br label %lean_dec.exit25902
 
 lean_dec.exit25902:                               ; preds = %12143, %12147, %12156, %12155, %12153
-  %.0.i2507742149 = phi ptr [ %12150, %12156 ], [ %12150, %12153 ], [ %12150, %12155 ], [ %12148, %12147 ], [ %12146, %12143 ]
+  %.0.i2507742149 = phi ptr [ %12150, %12153 ], [ %12150, %12155 ], [ %12150, %12156 ], [ %12148, %12147 ], [ %12146, %12143 ]
   %12157 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %12158 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %12159 = getelementptr inbounds nuw i8, ptr %12158, i64 8
@@ -158854,7 +158854,7 @@ lean_dec.exit25900:                               ; preds = %12462, %12461, %124
   br label %lean_dec.exit25899
 
 lean_dec.exit25899:                               ; preds = %12467, %12471, %12480, %12479, %12477
-  %.0.i2507442151 = phi ptr [ %12474, %12480 ], [ %12474, %12477 ], [ %12474, %12479 ], [ %12472, %12471 ], [ %12470, %12467 ]
+  %.0.i2507442151 = phi ptr [ %12474, %12477 ], [ %12474, %12479 ], [ %12474, %12480 ], [ %12472, %12471 ], [ %12470, %12467 ]
   %12481 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %12482 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %12483 = getelementptr inbounds nuw i8, ptr %12482, i64 8
@@ -159204,7 +159204,7 @@ lean_dec.exit25897:                               ; preds = %12605, %12604, %126
   br label %lean_dec.exit25896
 
 lean_dec.exit25896:                               ; preds = %12610, %12614, %12623, %12622, %12620
-  %.0.i2507142154 = phi ptr [ %12617, %12623 ], [ %12617, %12620 ], [ %12617, %12622 ], [ %12615, %12614 ], [ %12613, %12610 ]
+  %.0.i2507142154 = phi ptr [ %12617, %12620 ], [ %12617, %12622 ], [ %12617, %12623 ], [ %12615, %12614 ], [ %12613, %12610 ]
   %12624 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 5, i32 noundef 0)
   %12625 = getelementptr inbounds nuw i8, ptr %12624, i64 8
   store ptr %12549, ptr %12625, align 8, !tbaa !4
@@ -159494,7 +159494,7 @@ lean_dec.exit25892:                               ; preds = %12713, %12712, %127
   br label %lean_dec.exit25891
 
 lean_dec.exit25891:                               ; preds = %12731, %12735, %12744, %12743, %12741
-  %.0.i2506842156 = phi ptr [ %12738, %12744 ], [ %12738, %12741 ], [ %12738, %12743 ], [ %12736, %12735 ], [ %12734, %12731 ]
+  %.0.i2506842156 = phi ptr [ %12738, %12741 ], [ %12738, %12743 ], [ %12738, %12744 ], [ %12736, %12735 ], [ %12734, %12731 ]
   br i1 %.not44885, label %12745, label %lean_inc.exit28269
 
 12745:                                            ; preds = %lean_dec.exit25891
@@ -159626,7 +159626,7 @@ lean_dec.exit25889.thread:                        ; preds = %lean_dec.exit25890
 lean_dec.exit25888:                               ; preds = %12797
   br i1 %12792, label %14133, label %12799
 
-12799:                                            ; preds = %12795, %12798, %lean_dec.exit25889.thread, %lean_dec.exit25888
+12799:                                            ; preds = %12798, %12795, %lean_dec.exit25889.thread, %lean_dec.exit25888
   %12800 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %12755)
   %12801 = ptrtoint ptr %.024073 to i64
   %12802 = and i64 %12801, 1
@@ -160080,7 +160080,7 @@ lean_dec.exit25884:                               ; preds = %12980, %12979, %129
   br label %lean_dec.exit25883
 
 lean_dec.exit25883:                               ; preds = %12985, %12989, %12998, %12997, %12995
-  %.0.i2506542162 = phi ptr [ %12992, %12998 ], [ %12992, %12995 ], [ %12992, %12997 ], [ %12990, %12989 ], [ %12988, %12985 ]
+  %.0.i2506542162 = phi ptr [ %12992, %12995 ], [ %12992, %12997 ], [ %12992, %12998 ], [ %12990, %12989 ], [ %12988, %12985 ]
   %12999 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %13000 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %13001 = getelementptr inbounds nuw i8, ptr %13000, i64 8
@@ -160591,7 +160591,7 @@ lean_dec.exit25881:                               ; preds = %13191, %13190, %131
   br label %lean_dec.exit25880
 
 lean_dec.exit25880:                               ; preds = %13196, %13200, %13209, %13208, %13206
-  %.0.i2506242164 = phi ptr [ %13203, %13209 ], [ %13203, %13206 ], [ %13203, %13208 ], [ %13201, %13200 ], [ %13199, %13196 ]
+  %.0.i2506242164 = phi ptr [ %13203, %13206 ], [ %13203, %13208 ], [ %13203, %13209 ], [ %13201, %13200 ], [ %13199, %13196 ]
   %13210 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %13211 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %13212 = getelementptr inbounds nuw i8, ptr %13211, i64 8
@@ -161241,7 +161241,7 @@ lean_dec.exit25878:                               ; preds = %13455, %13454, %134
   br label %lean_dec.exit25877
 
 lean_dec.exit25877:                               ; preds = %13460, %13464, %13473, %13472, %13470
-  %.0.i2505942166 = phi ptr [ %13467, %13473 ], [ %13467, %13470 ], [ %13467, %13472 ], [ %13465, %13464 ], [ %13463, %13460 ]
+  %.0.i2505942166 = phi ptr [ %13467, %13470 ], [ %13467, %13472 ], [ %13467, %13473 ], [ %13465, %13464 ], [ %13463, %13460 ]
   %13474 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %13475 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %13476 = getelementptr inbounds nuw i8, ptr %13475, i64 8
@@ -161967,7 +161967,7 @@ lean_dec.exit25875:                               ; preds = %13747, %13746, %137
   br label %lean_dec.exit25874
 
 lean_dec.exit25874:                               ; preds = %13752, %13756, %13765, %13764, %13762
-  %.0.i2505642168 = phi ptr [ %13759, %13765 ], [ %13759, %13762 ], [ %13759, %13764 ], [ %13757, %13756 ], [ %13755, %13752 ]
+  %.0.i2505642168 = phi ptr [ %13759, %13762 ], [ %13759, %13764 ], [ %13759, %13765 ], [ %13757, %13756 ], [ %13755, %13752 ]
   %13766 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %13767 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %13768 = getelementptr inbounds nuw i8, ptr %13767, i64 8
@@ -162785,7 +162785,7 @@ lean_dec.exit25872:                               ; preds = %14071, %14070, %140
   br label %lean_dec.exit25871
 
 lean_dec.exit25871:                               ; preds = %14076, %14080, %14089, %14088, %14086
-  %.0.i2505342170 = phi ptr [ %14083, %14089 ], [ %14083, %14086 ], [ %14083, %14088 ], [ %14081, %14080 ], [ %14079, %14076 ]
+  %.0.i2505342170 = phi ptr [ %14083, %14086 ], [ %14083, %14088 ], [ %14083, %14089 ], [ %14081, %14080 ], [ %14079, %14076 ]
   %14090 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %14091 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %14092 = getelementptr inbounds nuw i8, ptr %14091, i64 8
@@ -162874,7 +162874,7 @@ lean_dec.exit25871:                               ; preds = %14076, %14080, %140
   store ptr %13830, ptr %14132, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-14133:                                            ; preds = %12795, %12798, %lean_dec.exit25889.thread, %lean_dec.exit25888
+14133:                                            ; preds = %12798, %12795, %lean_dec.exit25889.thread, %lean_dec.exit25888
   %14134 = ptrtoint ptr %.024073 to i64
   %14135 = and i64 %14134, 1
   %.not44987 = icmp eq i64 %14135, 0
@@ -163327,7 +163327,7 @@ lean_dec.exit25867:                               ; preds = %14313, %14312, %143
   br label %lean_dec.exit25866
 
 lean_dec.exit25866:                               ; preds = %14318, %14322, %14331, %14330, %14328
-  %.0.i2505042173 = phi ptr [ %14325, %14331 ], [ %14325, %14328 ], [ %14325, %14330 ], [ %14323, %14322 ], [ %14321, %14318 ]
+  %.0.i2505042173 = phi ptr [ %14325, %14328 ], [ %14325, %14330 ], [ %14325, %14331 ], [ %14323, %14322 ], [ %14321, %14318 ]
   %14332 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %14333 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %14334 = getelementptr inbounds nuw i8, ptr %14333, i64 8
@@ -163838,7 +163838,7 @@ lean_dec.exit25864:                               ; preds = %14524, %14523, %145
   br label %lean_dec.exit25863
 
 lean_dec.exit25863:                               ; preds = %14529, %14533, %14542, %14541, %14539
-  %.0.i2504742175 = phi ptr [ %14536, %14542 ], [ %14536, %14539 ], [ %14536, %14541 ], [ %14534, %14533 ], [ %14532, %14529 ]
+  %.0.i2504742175 = phi ptr [ %14536, %14539 ], [ %14536, %14541 ], [ %14536, %14542 ], [ %14534, %14533 ], [ %14532, %14529 ]
   %14543 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %14544 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %14545 = getelementptr inbounds nuw i8, ptr %14544, i64 8
@@ -164488,7 +164488,7 @@ lean_dec.exit25861:                               ; preds = %14788, %14787, %147
   br label %lean_dec.exit25860
 
 lean_dec.exit25860:                               ; preds = %14793, %14797, %14806, %14805, %14803
-  %.0.i2504442177 = phi ptr [ %14800, %14806 ], [ %14800, %14803 ], [ %14800, %14805 ], [ %14798, %14797 ], [ %14796, %14793 ]
+  %.0.i2504442177 = phi ptr [ %14800, %14803 ], [ %14800, %14805 ], [ %14800, %14806 ], [ %14798, %14797 ], [ %14796, %14793 ]
   %14807 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %14808 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %14809 = getelementptr inbounds nuw i8, ptr %14808, i64 8
@@ -165214,7 +165214,7 @@ lean_dec.exit25858:                               ; preds = %15080, %15079, %150
   br label %lean_dec.exit25857
 
 lean_dec.exit25857:                               ; preds = %15085, %15089, %15098, %15097, %15095
-  %.0.i2504142179 = phi ptr [ %15092, %15098 ], [ %15092, %15095 ], [ %15092, %15097 ], [ %15090, %15089 ], [ %15088, %15085 ]
+  %.0.i2504142179 = phi ptr [ %15092, %15095 ], [ %15092, %15097 ], [ %15092, %15098 ], [ %15090, %15089 ], [ %15088, %15085 ]
   %15099 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %15100 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %15101 = getelementptr inbounds nuw i8, ptr %15100, i64 8
@@ -166032,7 +166032,7 @@ lean_dec.exit25855:                               ; preds = %15404, %15403, %154
   br label %lean_dec.exit25854
 
 lean_dec.exit25854:                               ; preds = %15409, %15413, %15422, %15421, %15419
-  %.0.i2503842181 = phi ptr [ %15416, %15422 ], [ %15416, %15419 ], [ %15416, %15421 ], [ %15414, %15413 ], [ %15412, %15409 ]
+  %.0.i2503842181 = phi ptr [ %15416, %15419 ], [ %15416, %15421 ], [ %15416, %15422 ], [ %15414, %15413 ], [ %15412, %15409 ]
   %15423 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %15424 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %15425 = getelementptr inbounds nuw i8, ptr %15424, i64 8
@@ -166598,7 +166598,7 @@ lean_dec.exit25850:                               ; preds = %15655, %15654, %156
   br label %lean_dec.exit25849
 
 lean_dec.exit25849:                               ; preds = %15660, %15664, %15673, %15672, %15670
-  %.0.i2503542184 = phi ptr [ %15667, %15673 ], [ %15667, %15670 ], [ %15667, %15672 ], [ %15665, %15664 ], [ %15663, %15660 ]
+  %.0.i2503542184 = phi ptr [ %15667, %15670 ], [ %15667, %15672 ], [ %15667, %15673 ], [ %15665, %15664 ], [ %15663, %15660 ]
   %15674 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %15675 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %15676 = getelementptr inbounds nuw i8, ptr %15675, i64 8
@@ -167109,7 +167109,7 @@ lean_dec.exit25847:                               ; preds = %15866, %15865, %158
   br label %lean_dec.exit25846
 
 lean_dec.exit25846:                               ; preds = %15871, %15875, %15884, %15883, %15881
-  %.0.i2503242186 = phi ptr [ %15878, %15884 ], [ %15878, %15881 ], [ %15878, %15883 ], [ %15876, %15875 ], [ %15874, %15871 ]
+  %.0.i2503242186 = phi ptr [ %15878, %15881 ], [ %15878, %15883 ], [ %15878, %15884 ], [ %15876, %15875 ], [ %15874, %15871 ]
   %15885 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %15886 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %15887 = getelementptr inbounds nuw i8, ptr %15886, i64 8
@@ -167759,7 +167759,7 @@ lean_dec.exit25844:                               ; preds = %16130, %16129, %161
   br label %lean_dec.exit25843
 
 lean_dec.exit25843:                               ; preds = %16135, %16139, %16148, %16147, %16145
-  %.0.i2502942188 = phi ptr [ %16142, %16148 ], [ %16142, %16145 ], [ %16142, %16147 ], [ %16140, %16139 ], [ %16138, %16135 ]
+  %.0.i2502942188 = phi ptr [ %16142, %16145 ], [ %16142, %16147 ], [ %16142, %16148 ], [ %16140, %16139 ], [ %16138, %16135 ]
   %16149 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %16150 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %16151 = getelementptr inbounds nuw i8, ptr %16150, i64 8
@@ -168485,7 +168485,7 @@ lean_dec.exit25841:                               ; preds = %16422, %16421, %164
   br label %lean_dec.exit25840
 
 lean_dec.exit25840:                               ; preds = %16427, %16431, %16440, %16439, %16437
-  %.0.i2502642190 = phi ptr [ %16434, %16440 ], [ %16434, %16437 ], [ %16434, %16439 ], [ %16432, %16431 ], [ %16430, %16427 ]
+  %.0.i2502642190 = phi ptr [ %16434, %16437 ], [ %16434, %16439 ], [ %16434, %16440 ], [ %16432, %16431 ], [ %16430, %16427 ]
   %16441 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %16442 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %16443 = getelementptr inbounds nuw i8, ptr %16442, i64 8
@@ -169303,7 +169303,7 @@ lean_dec.exit25838:                               ; preds = %16746, %16745, %167
   br label %lean_dec.exit25837
 
 lean_dec.exit25837:                               ; preds = %16751, %16755, %16764, %16763, %16761
-  %.0.i2502342192 = phi ptr [ %16758, %16764 ], [ %16758, %16761 ], [ %16758, %16763 ], [ %16756, %16755 ], [ %16754, %16751 ]
+  %.0.i2502342192 = phi ptr [ %16758, %16761 ], [ %16758, %16763 ], [ %16758, %16764 ], [ %16756, %16755 ], [ %16754, %16751 ]
   %16765 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %16766 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %16767 = getelementptr inbounds nuw i8, ptr %16766, i64 8
@@ -170506,7 +170506,7 @@ lean_dec.exit25815:                               ; preds = %17228, %17227, %172
   br label %lean_dec.exit25814
 
 lean_dec.exit25814:                               ; preds = %17233, %17237, %17246, %17245, %17243
-  %.0.i2502042195 = phi ptr [ %17240, %17246 ], [ %17240, %17243 ], [ %17240, %17245 ], [ %17238, %17237 ], [ %17236, %17233 ]
+  %.0.i2502042195 = phi ptr [ %17240, %17243 ], [ %17240, %17245 ], [ %17240, %17246 ], [ %17238, %17237 ], [ %17236, %17233 ]
   %17247 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %17248 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %17249 = getelementptr inbounds nuw i8, ptr %17248, i64 8
@@ -171017,7 +171017,7 @@ lean_dec.exit25812:                               ; preds = %17439, %17438, %174
   br label %lean_dec.exit25811
 
 lean_dec.exit25811:                               ; preds = %17444, %17448, %17457, %17456, %17454
-  %.0.i2501742197 = phi ptr [ %17451, %17457 ], [ %17451, %17454 ], [ %17451, %17456 ], [ %17449, %17448 ], [ %17447, %17444 ]
+  %.0.i2501742197 = phi ptr [ %17451, %17454 ], [ %17451, %17456 ], [ %17451, %17457 ], [ %17449, %17448 ], [ %17447, %17444 ]
   %17458 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %17459 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %17460 = getelementptr inbounds nuw i8, ptr %17459, i64 8
@@ -171667,7 +171667,7 @@ lean_dec.exit25809:                               ; preds = %17703, %17702, %177
   br label %lean_dec.exit25808
 
 lean_dec.exit25808:                               ; preds = %17708, %17712, %17721, %17720, %17718
-  %.0.i2501442199 = phi ptr [ %17715, %17721 ], [ %17715, %17718 ], [ %17715, %17720 ], [ %17713, %17712 ], [ %17711, %17708 ]
+  %.0.i2501442199 = phi ptr [ %17715, %17718 ], [ %17715, %17720 ], [ %17715, %17721 ], [ %17713, %17712 ], [ %17711, %17708 ]
   %17722 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %17723 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %17724 = getelementptr inbounds nuw i8, ptr %17723, i64 8
@@ -172393,7 +172393,7 @@ lean_dec.exit25806:                               ; preds = %17995, %17994, %179
   br label %lean_dec.exit25805
 
 lean_dec.exit25805:                               ; preds = %18000, %18004, %18013, %18012, %18010
-  %.0.i2501142201 = phi ptr [ %18007, %18013 ], [ %18007, %18010 ], [ %18007, %18012 ], [ %18005, %18004 ], [ %18003, %18000 ]
+  %.0.i2501142201 = phi ptr [ %18007, %18010 ], [ %18007, %18012 ], [ %18007, %18013 ], [ %18005, %18004 ], [ %18003, %18000 ]
   %18014 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %18015 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %18016 = getelementptr inbounds nuw i8, ptr %18015, i64 8
@@ -173211,7 +173211,7 @@ lean_dec.exit25803:                               ; preds = %18319, %18318, %183
   br label %lean_dec.exit25802
 
 lean_dec.exit25802:                               ; preds = %18324, %18328, %18337, %18336, %18334
-  %.0.i2500842203 = phi ptr [ %18331, %18337 ], [ %18331, %18334 ], [ %18331, %18336 ], [ %18329, %18328 ], [ %18327, %18324 ]
+  %.0.i2500842203 = phi ptr [ %18331, %18334 ], [ %18331, %18336 ], [ %18331, %18337 ], [ %18329, %18328 ], [ %18327, %18324 ]
   %18338 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %18339 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %18340 = getelementptr inbounds nuw i8, ptr %18339, i64 8
@@ -174254,7 +174254,7 @@ lean_dec.exit25779:                               ; preds = %18742, %18741, %187
   br label %lean_dec.exit25778
 
 lean_dec.exit25778:                               ; preds = %18747, %18751, %18760, %18759, %18757
-  %.0.i2500542208 = phi ptr [ %18754, %18760 ], [ %18754, %18757 ], [ %18754, %18759 ], [ %18752, %18751 ], [ %18750, %18747 ]
+  %.0.i2500542208 = phi ptr [ %18754, %18757 ], [ %18754, %18759 ], [ %18754, %18760 ], [ %18752, %18751 ], [ %18750, %18747 ]
   %18761 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %18762 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %18763 = getelementptr inbounds nuw i8, ptr %18762, i64 8
@@ -174765,7 +174765,7 @@ lean_dec.exit25776:                               ; preds = %18953, %18952, %189
   br label %lean_dec.exit25775
 
 lean_dec.exit25775:                               ; preds = %18958, %18962, %18971, %18970, %18968
-  %.0.i2500242210 = phi ptr [ %18965, %18971 ], [ %18965, %18968 ], [ %18965, %18970 ], [ %18963, %18962 ], [ %18961, %18958 ]
+  %.0.i2500242210 = phi ptr [ %18965, %18968 ], [ %18965, %18970 ], [ %18965, %18971 ], [ %18963, %18962 ], [ %18961, %18958 ]
   %18972 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %18973 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %18974 = getelementptr inbounds nuw i8, ptr %18973, i64 8
@@ -175415,7 +175415,7 @@ lean_dec.exit25773:                               ; preds = %19217, %19216, %192
   br label %lean_dec.exit25772
 
 lean_dec.exit25772:                               ; preds = %19222, %19226, %19235, %19234, %19232
-  %.0.i2499942212 = phi ptr [ %19229, %19235 ], [ %19229, %19232 ], [ %19229, %19234 ], [ %19227, %19226 ], [ %19225, %19222 ]
+  %.0.i2499942212 = phi ptr [ %19229, %19232 ], [ %19229, %19234 ], [ %19229, %19235 ], [ %19227, %19226 ], [ %19225, %19222 ]
   %19236 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %19237 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %19238 = getelementptr inbounds nuw i8, ptr %19237, i64 8
@@ -176141,7 +176141,7 @@ lean_dec.exit25770:                               ; preds = %19509, %19508, %195
   br label %lean_dec.exit25769
 
 lean_dec.exit25769:                               ; preds = %19514, %19518, %19527, %19526, %19524
-  %.0.i2499642214 = phi ptr [ %19521, %19527 ], [ %19521, %19524 ], [ %19521, %19526 ], [ %19519, %19518 ], [ %19517, %19514 ]
+  %.0.i2499642214 = phi ptr [ %19521, %19524 ], [ %19521, %19526 ], [ %19521, %19527 ], [ %19519, %19518 ], [ %19517, %19514 ]
   %19528 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %19529 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %19530 = getelementptr inbounds nuw i8, ptr %19529, i64 8
@@ -176959,7 +176959,7 @@ lean_dec.exit25767:                               ; preds = %19833, %19832, %198
   br label %lean_dec.exit25766
 
 lean_dec.exit25766:                               ; preds = %19838, %19842, %19851, %19850, %19848
-  %.0.i2499342216 = phi ptr [ %19845, %19851 ], [ %19845, %19848 ], [ %19845, %19850 ], [ %19843, %19842 ], [ %19841, %19838 ]
+  %.0.i2499342216 = phi ptr [ %19845, %19848 ], [ %19845, %19850 ], [ %19845, %19851 ], [ %19843, %19842 ], [ %19841, %19838 ]
   %19852 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %19853 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %19854 = getelementptr inbounds nuw i8, ptr %19853, i64 8
@@ -177309,7 +177309,7 @@ lean_dec.exit25764:                               ; preds = %19976, %19975, %199
   br label %lean_dec.exit25763
 
 lean_dec.exit25763:                               ; preds = %19981, %19985, %19994, %19993, %19991
-  %.0.i2499042219 = phi ptr [ %19988, %19994 ], [ %19988, %19991 ], [ %19988, %19993 ], [ %19986, %19985 ], [ %19984, %19981 ]
+  %.0.i2499042219 = phi ptr [ %19988, %19991 ], [ %19988, %19993 ], [ %19988, %19994 ], [ %19986, %19985 ], [ %19984, %19981 ]
   tail call void @lean_inc_heartbeat() #8
   %19995 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #8
   %19996 = icmp eq ptr %19995, null
@@ -177650,7 +177650,7 @@ lean_array_uget.exit35907:                        ; preds = %20093, %20107, %201
   br label %lean_dec.exit25758
 
 lean_dec.exit25758:                               ; preds = %20118, %20122, %20131, %20130, %20128
-  %.0.i2498742221 = phi ptr [ %20125, %20131 ], [ %20125, %20128 ], [ %20125, %20130 ], [ %20123, %20122 ], [ %20121, %20118 ]
+  %.0.i2498742221 = phi ptr [ %20125, %20128 ], [ %20125, %20130 ], [ %20125, %20131 ], [ %20123, %20122 ], [ %20121, %20118 ]
   br i1 %.not44411, label %20132, label %lean_inc.exit27838
 
 20132:                                            ; preds = %lean_dec.exit25758
@@ -177782,7 +177782,7 @@ lean_dec.exit25756.thread:                        ; preds = %lean_dec.exit25757
 lean_dec.exit25755:                               ; preds = %20184
   br i1 %20179, label %21520, label %20186
 
-20186:                                            ; preds = %20182, %20185, %lean_dec.exit25756.thread, %lean_dec.exit25755
+20186:                                            ; preds = %20185, %20182, %lean_dec.exit25756.thread, %lean_dec.exit25755
   %20187 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %20142)
   %20188 = ptrtoint ptr %.024156 to i64
   %20189 = and i64 %20188, 1
@@ -178236,7 +178236,7 @@ lean_dec.exit25751:                               ; preds = %20367, %20366, %203
   br label %lean_dec.exit25750
 
 lean_dec.exit25750:                               ; preds = %20372, %20376, %20385, %20384, %20382
-  %.0.i2498442227 = phi ptr [ %20379, %20385 ], [ %20379, %20382 ], [ %20379, %20384 ], [ %20377, %20376 ], [ %20375, %20372 ]
+  %.0.i2498442227 = phi ptr [ %20379, %20382 ], [ %20379, %20384 ], [ %20379, %20385 ], [ %20377, %20376 ], [ %20375, %20372 ]
   %20386 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %20387 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %20388 = getelementptr inbounds nuw i8, ptr %20387, i64 8
@@ -178747,7 +178747,7 @@ lean_dec.exit25748:                               ; preds = %20578, %20577, %205
   br label %lean_dec.exit25747
 
 lean_dec.exit25747:                               ; preds = %20583, %20587, %20596, %20595, %20593
-  %.0.i2498142229 = phi ptr [ %20590, %20596 ], [ %20590, %20593 ], [ %20590, %20595 ], [ %20588, %20587 ], [ %20586, %20583 ]
+  %.0.i2498142229 = phi ptr [ %20590, %20593 ], [ %20590, %20595 ], [ %20590, %20596 ], [ %20588, %20587 ], [ %20586, %20583 ]
   %20597 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %20598 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %20599 = getelementptr inbounds nuw i8, ptr %20598, i64 8
@@ -179397,7 +179397,7 @@ lean_dec.exit25745:                               ; preds = %20842, %20841, %208
   br label %lean_dec.exit25744
 
 lean_dec.exit25744:                               ; preds = %20847, %20851, %20860, %20859, %20857
-  %.0.i2497842231 = phi ptr [ %20854, %20860 ], [ %20854, %20857 ], [ %20854, %20859 ], [ %20852, %20851 ], [ %20850, %20847 ]
+  %.0.i2497842231 = phi ptr [ %20854, %20857 ], [ %20854, %20859 ], [ %20854, %20860 ], [ %20852, %20851 ], [ %20850, %20847 ]
   %20861 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %20862 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %20863 = getelementptr inbounds nuw i8, ptr %20862, i64 8
@@ -180123,7 +180123,7 @@ lean_dec.exit25742:                               ; preds = %21134, %21133, %211
   br label %lean_dec.exit25741
 
 lean_dec.exit25741:                               ; preds = %21139, %21143, %21152, %21151, %21149
-  %.0.i2497542233 = phi ptr [ %21146, %21152 ], [ %21146, %21149 ], [ %21146, %21151 ], [ %21144, %21143 ], [ %21142, %21139 ]
+  %.0.i2497542233 = phi ptr [ %21146, %21149 ], [ %21146, %21151 ], [ %21146, %21152 ], [ %21144, %21143 ], [ %21142, %21139 ]
   %21153 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %21154 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %21155 = getelementptr inbounds nuw i8, ptr %21154, i64 8
@@ -180941,7 +180941,7 @@ lean_dec.exit25739:                               ; preds = %21458, %21457, %214
   br label %lean_dec.exit25738
 
 lean_dec.exit25738:                               ; preds = %21463, %21467, %21476, %21475, %21473
-  %.0.i2497242235 = phi ptr [ %21470, %21476 ], [ %21470, %21473 ], [ %21470, %21475 ], [ %21468, %21467 ], [ %21466, %21463 ]
+  %.0.i2497242235 = phi ptr [ %21470, %21473 ], [ %21470, %21475 ], [ %21470, %21476 ], [ %21468, %21467 ], [ %21466, %21463 ]
   %21477 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %21478 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %21479 = getelementptr inbounds nuw i8, ptr %21478, i64 8
@@ -181030,7 +181030,7 @@ lean_dec.exit25738:                               ; preds = %21463, %21467, %214
   store ptr %21217, ptr %21519, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-21520:                                            ; preds = %20182, %20185, %lean_dec.exit25756.thread, %lean_dec.exit25755
+21520:                                            ; preds = %20185, %20182, %lean_dec.exit25756.thread, %lean_dec.exit25755
   %21521 = ptrtoint ptr %.024156 to i64
   %21522 = and i64 %21521, 1
   %.not44513 = icmp eq i64 %21522, 0
@@ -181483,7 +181483,7 @@ lean_dec.exit25734:                               ; preds = %21700, %21699, %216
   br label %lean_dec.exit25733
 
 lean_dec.exit25733:                               ; preds = %21705, %21709, %21718, %21717, %21715
-  %.0.i2496942238 = phi ptr [ %21712, %21718 ], [ %21712, %21715 ], [ %21712, %21717 ], [ %21710, %21709 ], [ %21708, %21705 ]
+  %.0.i2496942238 = phi ptr [ %21712, %21715 ], [ %21712, %21717 ], [ %21712, %21718 ], [ %21710, %21709 ], [ %21708, %21705 ]
   %21719 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %21720 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %21721 = getelementptr inbounds nuw i8, ptr %21720, i64 8
@@ -181994,7 +181994,7 @@ lean_dec.exit25731:                               ; preds = %21911, %21910, %219
   br label %lean_dec.exit25730
 
 lean_dec.exit25730:                               ; preds = %21916, %21920, %21929, %21928, %21926
-  %.0.i2496642240 = phi ptr [ %21923, %21929 ], [ %21923, %21926 ], [ %21923, %21928 ], [ %21921, %21920 ], [ %21919, %21916 ]
+  %.0.i2496642240 = phi ptr [ %21923, %21926 ], [ %21923, %21928 ], [ %21923, %21929 ], [ %21921, %21920 ], [ %21919, %21916 ]
   %21930 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %21931 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %21932 = getelementptr inbounds nuw i8, ptr %21931, i64 8
@@ -182644,7 +182644,7 @@ lean_dec.exit25728:                               ; preds = %22175, %22174, %221
   br label %lean_dec.exit25727
 
 lean_dec.exit25727:                               ; preds = %22180, %22184, %22193, %22192, %22190
-  %.0.i2496342242 = phi ptr [ %22187, %22193 ], [ %22187, %22190 ], [ %22187, %22192 ], [ %22185, %22184 ], [ %22183, %22180 ]
+  %.0.i2496342242 = phi ptr [ %22187, %22190 ], [ %22187, %22192 ], [ %22187, %22193 ], [ %22185, %22184 ], [ %22183, %22180 ]
   %22194 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %22195 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %22196 = getelementptr inbounds nuw i8, ptr %22195, i64 8
@@ -183370,7 +183370,7 @@ lean_dec.exit25725:                               ; preds = %22467, %22466, %224
   br label %lean_dec.exit25724
 
 lean_dec.exit25724:                               ; preds = %22472, %22476, %22485, %22484, %22482
-  %.0.i2496042244 = phi ptr [ %22479, %22485 ], [ %22479, %22482 ], [ %22479, %22484 ], [ %22477, %22476 ], [ %22475, %22472 ]
+  %.0.i2496042244 = phi ptr [ %22479, %22482 ], [ %22479, %22484 ], [ %22479, %22485 ], [ %22477, %22476 ], [ %22475, %22472 ]
   %22486 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %22487 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %22488 = getelementptr inbounds nuw i8, ptr %22487, i64 8
@@ -184188,7 +184188,7 @@ lean_dec.exit25722:                               ; preds = %22791, %22790, %227
   br label %lean_dec.exit25721
 
 lean_dec.exit25721:                               ; preds = %22796, %22800, %22809, %22808, %22806
-  %.0.i2495742246 = phi ptr [ %22803, %22809 ], [ %22803, %22806 ], [ %22803, %22808 ], [ %22801, %22800 ], [ %22799, %22796 ]
+  %.0.i2495742246 = phi ptr [ %22803, %22806 ], [ %22803, %22808 ], [ %22803, %22809 ], [ %22801, %22800 ], [ %22799, %22796 ]
   %22810 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %22811 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %22812 = getelementptr inbounds nuw i8, ptr %22811, i64 8
@@ -184754,7 +184754,7 @@ lean_dec.exit25717:                               ; preds = %23042, %23041, %230
   br label %lean_dec.exit25716
 
 lean_dec.exit25716:                               ; preds = %23047, %23051, %23060, %23059, %23057
-  %.0.i2495442249 = phi ptr [ %23054, %23060 ], [ %23054, %23057 ], [ %23054, %23059 ], [ %23052, %23051 ], [ %23050, %23047 ]
+  %.0.i2495442249 = phi ptr [ %23054, %23057 ], [ %23054, %23059 ], [ %23054, %23060 ], [ %23052, %23051 ], [ %23050, %23047 ]
   %23061 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %23062 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %23063 = getelementptr inbounds nuw i8, ptr %23062, i64 8
@@ -185265,7 +185265,7 @@ lean_dec.exit25714:                               ; preds = %23253, %23252, %232
   br label %lean_dec.exit25713
 
 lean_dec.exit25713:                               ; preds = %23258, %23262, %23271, %23270, %23268
-  %.0.i2495142251 = phi ptr [ %23265, %23271 ], [ %23265, %23268 ], [ %23265, %23270 ], [ %23263, %23262 ], [ %23261, %23258 ]
+  %.0.i2495142251 = phi ptr [ %23265, %23268 ], [ %23265, %23270 ], [ %23265, %23271 ], [ %23263, %23262 ], [ %23261, %23258 ]
   %23272 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %23273 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %23274 = getelementptr inbounds nuw i8, ptr %23273, i64 8
@@ -185915,7 +185915,7 @@ lean_dec.exit25711:                               ; preds = %23517, %23516, %235
   br label %lean_dec.exit25710
 
 lean_dec.exit25710:                               ; preds = %23522, %23526, %23535, %23534, %23532
-  %.0.i2494842253 = phi ptr [ %23529, %23535 ], [ %23529, %23532 ], [ %23529, %23534 ], [ %23527, %23526 ], [ %23525, %23522 ]
+  %.0.i2494842253 = phi ptr [ %23529, %23532 ], [ %23529, %23534 ], [ %23529, %23535 ], [ %23527, %23526 ], [ %23525, %23522 ]
   %23536 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %23537 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %23538 = getelementptr inbounds nuw i8, ptr %23537, i64 8
@@ -186641,7 +186641,7 @@ lean_dec.exit25708:                               ; preds = %23809, %23808, %238
   br label %lean_dec.exit25707
 
 lean_dec.exit25707:                               ; preds = %23814, %23818, %23827, %23826, %23824
-  %.0.i2494542255 = phi ptr [ %23821, %23827 ], [ %23821, %23824 ], [ %23821, %23826 ], [ %23819, %23818 ], [ %23817, %23814 ]
+  %.0.i2494542255 = phi ptr [ %23821, %23824 ], [ %23821, %23826 ], [ %23821, %23827 ], [ %23819, %23818 ], [ %23817, %23814 ]
   %23828 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %23829 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %23830 = getelementptr inbounds nuw i8, ptr %23829, i64 8
@@ -187459,7 +187459,7 @@ lean_dec.exit25705:                               ; preds = %24133, %24132, %241
   br label %lean_dec.exit25704
 
 lean_dec.exit25704:                               ; preds = %24138, %24142, %24151, %24150, %24148
-  %.0.i2494242257 = phi ptr [ %24145, %24151 ], [ %24145, %24148 ], [ %24145, %24150 ], [ %24143, %24142 ], [ %24141, %24138 ]
+  %.0.i2494242257 = phi ptr [ %24145, %24148 ], [ %24145, %24150 ], [ %24145, %24151 ], [ %24143, %24142 ], [ %24141, %24138 ]
   %24152 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %24153 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %24154 = getelementptr inbounds nuw i8, ptr %24153, i64 8
@@ -188142,7 +188142,7 @@ lean_dec.exit25702:                               ; preds = %24405, %24404, %244
   br label %lean_dec.exit25701
 
 lean_dec.exit25701:                               ; preds = %24410, %24414, %24423, %24422, %24420
-  %.0.i2493942259 = phi ptr [ %24417, %24423 ], [ %24417, %24420 ], [ %24417, %24422 ], [ %24415, %24414 ], [ %24413, %24410 ]
+  %.0.i2493942259 = phi ptr [ %24417, %24420 ], [ %24417, %24422 ], [ %24417, %24423 ], [ %24415, %24414 ], [ %24413, %24410 ]
   %24424 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %24425 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #8
@@ -188646,7 +188646,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit27561
 
 lean_inc.exit27561:                               ; preds = %24592, %24596, %24604, %24603, %24601
-  %.0.i2493642262 = phi ptr [ %24599, %24604 ], [ %24599, %24601 ], [ %24599, %24603 ], [ %24597, %24596 ], [ %24595, %24592 ]
+  %.0.i2493642262 = phi ptr [ %24599, %24601 ], [ %24599, %24603 ], [ %24599, %24604 ], [ %24597, %24596 ], [ %24595, %24592 ]
   tail call void @lean_inc_heartbeat() #8
   %24605 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %24606 = icmp eq ptr %24605, null
@@ -188806,7 +188806,7 @@ lean_dec.exit25699.thread:                        ; preds = %lean_dec.exit25700
 lean_dec.exit25698:                               ; preds = %24668
   br i1 %24663, label %27184, label %24670
 
-24670:                                            ; preds = %24666, %24669, %lean_dec.exit25699.thread, %lean_dec.exit25698
+24670:                                            ; preds = %24669, %24666, %lean_dec.exit25699.thread, %lean_dec.exit25698
   %24671 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3(ptr noundef nonnull %.0.i.i36812)
   store ptr %24671, ptr %1714, align 8, !tbaa !4
   store ptr %.0.i2493642262, ptr %1704, align 8, !tbaa !4
@@ -190155,7 +190155,7 @@ lean_dec.exit25679:                               ; preds = %25167, %25166, %251
   br label %lean_dec.exit25678
 
 lean_dec.exit25678:                               ; preds = %25172, %25176, %25185, %25184, %25182
-  %.0.i2493342267 = phi ptr [ %25179, %25185 ], [ %25179, %25182 ], [ %25179, %25184 ], [ %25177, %25176 ], [ %25175, %25172 ]
+  %.0.i2493342267 = phi ptr [ %25179, %25182 ], [ %25179, %25184 ], [ %25179, %25185 ], [ %25177, %25176 ], [ %25175, %25172 ]
   %25186 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %25187 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %25188 = getelementptr inbounds nuw i8, ptr %25187, i64 8
@@ -191560,7 +191560,7 @@ lean_dec.exit25658:                               ; preds = %25712, %25711, %257
   br label %lean_dec.exit25657
 
 lean_dec.exit25657:                               ; preds = %25717, %25721, %25730, %25729, %25727
-  %.0.i2493042271 = phi ptr [ %25724, %25730 ], [ %25724, %25727 ], [ %25724, %25729 ], [ %25722, %25721 ], [ %25720, %25717 ]
+  %.0.i2493042271 = phi ptr [ %25724, %25727 ], [ %25724, %25729 ], [ %25724, %25730 ], [ %25722, %25721 ], [ %25720, %25717 ]
   %25731 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %25732 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %25733 = getelementptr inbounds nuw i8, ptr %25732, i64 8
@@ -191920,7 +191920,7 @@ lean_dec.exit25655:                               ; preds = %25858, %25857, %258
   br label %lean_dec.exit25654
 
 lean_dec.exit25654:                               ; preds = %25863, %25867, %25876, %25875, %25873
-  %.0.i2492742274 = phi ptr [ %25870, %25876 ], [ %25870, %25873 ], [ %25870, %25875 ], [ %25868, %25867 ], [ %25866, %25863 ]
+  %.0.i2492742274 = phi ptr [ %25870, %25873 ], [ %25870, %25875 ], [ %25870, %25876 ], [ %25868, %25867 ], [ %25866, %25863 ]
   %25877 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 5, i32 noundef 0)
   %25878 = getelementptr inbounds nuw i8, ptr %25877, i64 8
   store ptr %25802, ptr %25878, align 8, !tbaa !4
@@ -192210,7 +192210,7 @@ lean_dec.exit25650:                               ; preds = %25966, %25965, %259
   br label %lean_dec.exit25649
 
 lean_dec.exit25649:                               ; preds = %25984, %25988, %25997, %25996, %25994
-  %.0.i2492442276 = phi ptr [ %25991, %25997 ], [ %25991, %25994 ], [ %25991, %25996 ], [ %25989, %25988 ], [ %25987, %25984 ]
+  %.0.i2492442276 = phi ptr [ %25991, %25994 ], [ %25991, %25996 ], [ %25991, %25997 ], [ %25989, %25988 ], [ %25987, %25984 ]
   br i1 %.not44109, label %25998, label %lean_inc.exit27497
 
 25998:                                            ; preds = %lean_dec.exit25649
@@ -192342,7 +192342,7 @@ lean_dec.exit25647.thread:                        ; preds = %lean_dec.exit25648
 lean_dec.exit25646:                               ; preds = %26050
   br i1 %26045, label %26427, label %26052
 
-26052:                                            ; preds = %26048, %26051, %lean_dec.exit25647.thread, %lean_dec.exit25646
+26052:                                            ; preds = %26051, %26048, %lean_dec.exit25647.thread, %lean_dec.exit25646
   %26053 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %26008)
   %26054 = ptrtoint ptr %.024226 to i64
   %26055 = and i64 %26054, 1
@@ -193180,7 +193180,7 @@ lean_dec.exit25645:                               ; preds = %26361, %26360, %263
   br label %lean_dec.exit25644
 
 lean_dec.exit25644:                               ; preds = %26366, %26370, %26379, %26378, %26376
-  %.0.i2492142281 = phi ptr [ %26373, %26379 ], [ %26373, %26376 ], [ %26373, %26378 ], [ %26371, %26370 ], [ %26369, %26366 ]
+  %.0.i2492142281 = phi ptr [ %26373, %26376 ], [ %26373, %26378 ], [ %26373, %26379 ], [ %26371, %26370 ], [ %26369, %26366 ]
   %26380 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %26381 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %26382 = getelementptr inbounds nuw i8, ptr %26381, i64 8
@@ -193279,7 +193279,7 @@ lean_dec.exit25644:                               ; preds = %26366, %26370, %263
   store ptr %26120, ptr %26426, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-26427:                                            ; preds = %26048, %26051, %lean_dec.exit25647.thread, %lean_dec.exit25646
+26427:                                            ; preds = %26051, %26048, %lean_dec.exit25647.thread, %lean_dec.exit25646
   %26428 = ptrtoint ptr %.024226 to i64
   %26429 = and i64 %26428, 1
   %.not44148 = icmp eq i64 %26429, 0
@@ -194116,7 +194116,7 @@ lean_dec.exit25643:                               ; preds = %26735, %26734, %267
   br label %lean_dec.exit25642
 
 lean_dec.exit25642:                               ; preds = %26740, %26744, %26753, %26752, %26750
-  %.0.i2491842283 = phi ptr [ %26747, %26753 ], [ %26747, %26750 ], [ %26747, %26752 ], [ %26745, %26744 ], [ %26743, %26740 ]
+  %.0.i2491842283 = phi ptr [ %26747, %26750 ], [ %26747, %26752 ], [ %26747, %26753 ], [ %26745, %26744 ], [ %26743, %26740 ]
   %26754 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %26755 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %26756 = getelementptr inbounds nuw i8, ptr %26755, i64 8
@@ -195076,7 +195076,7 @@ lean_dec.exit25641:                               ; preds = %27118, %27117, %271
   br label %lean_dec.exit25640
 
 lean_dec.exit25640:                               ; preds = %27123, %27127, %27136, %27135, %27133
-  %.0.i2491542285 = phi ptr [ %27130, %27136 ], [ %27130, %27133 ], [ %27130, %27135 ], [ %27128, %27127 ], [ %27126, %27123 ]
+  %.0.i2491542285 = phi ptr [ %27130, %27133 ], [ %27130, %27135 ], [ %27130, %27136 ], [ %27128, %27127 ], [ %27126, %27123 ]
   %27137 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %27138 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %27139 = getelementptr inbounds nuw i8, ptr %27138, i64 8
@@ -195175,7 +195175,7 @@ lean_dec.exit25640:                               ; preds = %27123, %27127, %271
   store ptr %26877, ptr %27183, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-27184:                                            ; preds = %24666, %24669, %lean_dec.exit25699.thread, %lean_dec.exit25698
+27184:                                            ; preds = %24669, %24666, %lean_dec.exit25699.thread, %lean_dec.exit25698
   store ptr %.0.i.i36812, ptr %1714, align 8, !tbaa !4
   store ptr %.0.i2493642262, ptr %1704, align 8, !tbaa !4
   %27185 = ptrtoint ptr %1 to i64
@@ -196535,7 +196535,7 @@ lean_dec.exit25621:                               ; preds = %27683, %27682, %276
   br label %lean_dec.exit25620
 
 lean_dec.exit25620:                               ; preds = %27688, %27692, %27701, %27700, %27698
-  %.0.i2491242287 = phi ptr [ %27695, %27701 ], [ %27695, %27698 ], [ %27695, %27700 ], [ %27693, %27692 ], [ %27691, %27688 ]
+  %.0.i2491242287 = phi ptr [ %27695, %27698 ], [ %27695, %27700 ], [ %27695, %27701 ], [ %27693, %27692 ], [ %27691, %27688 ]
   %27702 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %27703 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %27704 = getelementptr inbounds nuw i8, ptr %27703, i64 8
@@ -197940,7 +197940,7 @@ lean_dec.exit25600:                               ; preds = %28228, %28227, %282
   br label %lean_dec.exit25599
 
 lean_dec.exit25599:                               ; preds = %28233, %28237, %28246, %28245, %28243
-  %.0.i2490942291 = phi ptr [ %28240, %28246 ], [ %28240, %28243 ], [ %28240, %28245 ], [ %28238, %28237 ], [ %28236, %28233 ]
+  %.0.i2490942291 = phi ptr [ %28240, %28243 ], [ %28240, %28245 ], [ %28240, %28246 ], [ %28238, %28237 ], [ %28236, %28233 ]
   %28247 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %28248 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %28249 = getelementptr inbounds nuw i8, ptr %28248, i64 8
@@ -198300,7 +198300,7 @@ lean_dec.exit25597:                               ; preds = %28374, %28373, %283
   br label %lean_dec.exit25596
 
 lean_dec.exit25596:                               ; preds = %28379, %28383, %28392, %28391, %28389
-  %.0.i2490642294 = phi ptr [ %28386, %28392 ], [ %28386, %28389 ], [ %28386, %28391 ], [ %28384, %28383 ], [ %28382, %28379 ]
+  %.0.i2490642294 = phi ptr [ %28386, %28389 ], [ %28386, %28391 ], [ %28386, %28392 ], [ %28384, %28383 ], [ %28382, %28379 ]
   %28393 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 5, i32 noundef 0)
   %28394 = getelementptr inbounds nuw i8, ptr %28393, i64 8
   store ptr %28318, ptr %28394, align 8, !tbaa !4
@@ -198590,7 +198590,7 @@ lean_dec.exit25592:                               ; preds = %28482, %28481, %284
   br label %lean_dec.exit25591
 
 lean_dec.exit25591:                               ; preds = %28500, %28504, %28513, %28512, %28510
-  %.0.i2490342296 = phi ptr [ %28507, %28513 ], [ %28507, %28510 ], [ %28507, %28512 ], [ %28505, %28504 ], [ %28503, %28500 ]
+  %.0.i2490342296 = phi ptr [ %28507, %28510 ], [ %28507, %28512 ], [ %28507, %28513 ], [ %28505, %28504 ], [ %28503, %28500 ]
   br i1 %.not43951, label %28514, label %lean_inc.exit27363
 
 28514:                                            ; preds = %lean_dec.exit25591
@@ -198722,7 +198722,7 @@ lean_dec.exit25589.thread:                        ; preds = %lean_dec.exit25590
 lean_dec.exit25588:                               ; preds = %28566
   br i1 %28561, label %28943, label %28568
 
-28568:                                            ; preds = %28564, %28567, %lean_dec.exit25589.thread, %lean_dec.exit25588
+28568:                                            ; preds = %28567, %28564, %lean_dec.exit25589.thread, %lean_dec.exit25588
   %28569 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %28524)
   %28570 = ptrtoint ptr %.024282 to i64
   %28571 = and i64 %28570, 1
@@ -199560,7 +199560,7 @@ lean_dec.exit25587:                               ; preds = %28877, %28876, %288
   br label %lean_dec.exit25586
 
 lean_dec.exit25586:                               ; preds = %28882, %28886, %28895, %28894, %28892
-  %.0.i2490042301 = phi ptr [ %28889, %28895 ], [ %28889, %28892 ], [ %28889, %28894 ], [ %28887, %28886 ], [ %28885, %28882 ]
+  %.0.i2490042301 = phi ptr [ %28889, %28892 ], [ %28889, %28894 ], [ %28889, %28895 ], [ %28887, %28886 ], [ %28885, %28882 ]
   %28896 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %28897 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %28898 = getelementptr inbounds nuw i8, ptr %28897, i64 8
@@ -199659,7 +199659,7 @@ lean_dec.exit25586:                               ; preds = %28882, %28886, %288
   store ptr %28636, ptr %28942, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-28943:                                            ; preds = %28564, %28567, %lean_dec.exit25589.thread, %lean_dec.exit25588
+28943:                                            ; preds = %28567, %28564, %lean_dec.exit25589.thread, %lean_dec.exit25588
   %28944 = ptrtoint ptr %.024282 to i64
   %28945 = and i64 %28944, 1
   %.not43990 = icmp eq i64 %28945, 0
@@ -200496,7 +200496,7 @@ lean_dec.exit25585:                               ; preds = %29251, %29250, %292
   br label %lean_dec.exit25584
 
 lean_dec.exit25584:                               ; preds = %29256, %29260, %29269, %29268, %29266
-  %.0.i2489742303 = phi ptr [ %29263, %29269 ], [ %29263, %29266 ], [ %29263, %29268 ], [ %29261, %29260 ], [ %29259, %29256 ]
+  %.0.i2489742303 = phi ptr [ %29263, %29266 ], [ %29263, %29268 ], [ %29263, %29269 ], [ %29261, %29260 ], [ %29259, %29256 ]
   %29270 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %29271 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %29272 = getelementptr inbounds nuw i8, ptr %29271, i64 8
@@ -201456,7 +201456,7 @@ lean_dec.exit25583:                               ; preds = %29634, %29633, %296
   br label %lean_dec.exit25582
 
 lean_dec.exit25582:                               ; preds = %29639, %29643, %29652, %29651, %29649
-  %.0.i2489442305 = phi ptr [ %29646, %29652 ], [ %29646, %29649 ], [ %29646, %29651 ], [ %29644, %29643 ], [ %29642, %29639 ]
+  %.0.i2489442305 = phi ptr [ %29646, %29649 ], [ %29646, %29651 ], [ %29646, %29652 ], [ %29644, %29643 ], [ %29642, %29639 ]
   %29653 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %29654 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %29655 = getelementptr inbounds nuw i8, ptr %29654, i64 8
@@ -203056,7 +203056,7 @@ lean_dec.exit25563:                               ; preds = %30250, %30249, %302
   br label %lean_dec.exit25562
 
 lean_dec.exit25562:                               ; preds = %30255, %30259, %30268, %30267, %30265
-  %.0.i2489142307 = phi ptr [ %30262, %30268 ], [ %30262, %30265 ], [ %30262, %30267 ], [ %30260, %30259 ], [ %30258, %30255 ]
+  %.0.i2489142307 = phi ptr [ %30262, %30265 ], [ %30262, %30267 ], [ %30262, %30268 ], [ %30260, %30259 ], [ %30258, %30255 ]
   %30269 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %30270 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %30271 = getelementptr inbounds nuw i8, ptr %30270, i64 8
@@ -204552,7 +204552,7 @@ lean_dec.exit25542:                               ; preds = %30822, %30821, %308
   br label %lean_dec.exit25541
 
 lean_dec.exit25541:                               ; preds = %30827, %30831, %30840, %30839, %30837
-  %.0.i2488842311 = phi ptr [ %30834, %30840 ], [ %30834, %30837 ], [ %30834, %30839 ], [ %30832, %30831 ], [ %30830, %30827 ]
+  %.0.i2488842311 = phi ptr [ %30834, %30837 ], [ %30834, %30839 ], [ %30834, %30840 ], [ %30832, %30831 ], [ %30830, %30827 ]
   %30841 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %30842 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -204924,7 +204924,7 @@ lean_dec.exit25539:                               ; preds = %30971, %30970, %309
   br label %lean_dec.exit25538
 
 lean_dec.exit25538:                               ; preds = %30976, %30980, %30989, %30988, %30986
-  %.0.i2488542314 = phi ptr [ %30983, %30989 ], [ %30983, %30986 ], [ %30983, %30988 ], [ %30981, %30980 ], [ %30979, %30976 ]
+  %.0.i2488542314 = phi ptr [ %30983, %30986 ], [ %30983, %30988 ], [ %30983, %30989 ], [ %30981, %30980 ], [ %30979, %30976 ]
   tail call void @lean_inc_heartbeat() #8
   %30990 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #8
   %30991 = icmp eq ptr %30990, null
@@ -205265,7 +205265,7 @@ lean_array_uget.exit37972:                        ; preds = %31088, %31102, %311
   br label %lean_dec.exit25533
 
 lean_dec.exit25533:                               ; preds = %31113, %31117, %31126, %31125, %31123
-  %.0.i2488242316 = phi ptr [ %31120, %31126 ], [ %31120, %31123 ], [ %31120, %31125 ], [ %31118, %31117 ], [ %31116, %31113 ]
+  %.0.i2488242316 = phi ptr [ %31120, %31123 ], [ %31120, %31125 ], [ %31120, %31126 ], [ %31118, %31117 ], [ %31116, %31113 ]
   br i1 %.not43790, label %31127, label %lean_inc.exit27227
 
 31127:                                            ; preds = %lean_dec.exit25533
@@ -205397,7 +205397,7 @@ lean_dec.exit25531.thread:                        ; preds = %lean_dec.exit25532
 lean_dec.exit25530:                               ; preds = %31179
   br i1 %31174, label %31556, label %31181
 
-31181:                                            ; preds = %31177, %31180, %lean_dec.exit25531.thread, %lean_dec.exit25530
+31181:                                            ; preds = %31180, %31177, %lean_dec.exit25531.thread, %lean_dec.exit25530
   %31182 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %31137)
   %31183 = ptrtoint ptr %.024336 to i64
   %31184 = and i64 %31183, 1
@@ -206235,7 +206235,7 @@ lean_dec.exit25529:                               ; preds = %31490, %31489, %314
   br label %lean_dec.exit25528
 
 lean_dec.exit25528:                               ; preds = %31495, %31499, %31508, %31507, %31505
-  %.0.i2487942321 = phi ptr [ %31502, %31508 ], [ %31502, %31505 ], [ %31502, %31507 ], [ %31500, %31499 ], [ %31498, %31495 ]
+  %.0.i2487942321 = phi ptr [ %31502, %31505 ], [ %31502, %31507 ], [ %31502, %31508 ], [ %31500, %31499 ], [ %31498, %31495 ]
   %31509 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %31510 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %31511 = getelementptr inbounds nuw i8, ptr %31510, i64 8
@@ -206334,7 +206334,7 @@ lean_dec.exit25528:                               ; preds = %31495, %31499, %315
   store ptr %31249, ptr %31555, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-31556:                                            ; preds = %31177, %31180, %lean_dec.exit25531.thread, %lean_dec.exit25530
+31556:                                            ; preds = %31180, %31177, %lean_dec.exit25531.thread, %lean_dec.exit25530
   %31557 = ptrtoint ptr %.024336 to i64
   %31558 = and i64 %31557, 1
   %.not43829 = icmp eq i64 %31558, 0
@@ -207171,7 +207171,7 @@ lean_dec.exit25527:                               ; preds = %31864, %31863, %318
   br label %lean_dec.exit25526
 
 lean_dec.exit25526:                               ; preds = %31869, %31873, %31882, %31881, %31879
-  %.0.i2487642323 = phi ptr [ %31876, %31882 ], [ %31876, %31879 ], [ %31876, %31881 ], [ %31874, %31873 ], [ %31872, %31869 ]
+  %.0.i2487642323 = phi ptr [ %31876, %31879 ], [ %31876, %31881 ], [ %31876, %31882 ], [ %31874, %31873 ], [ %31872, %31869 ]
   %31883 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %31884 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %31885 = getelementptr inbounds nuw i8, ptr %31884, i64 8
@@ -208131,7 +208131,7 @@ lean_dec.exit25525:                               ; preds = %32247, %32246, %322
   br label %lean_dec.exit25524
 
 lean_dec.exit25524:                               ; preds = %32252, %32256, %32265, %32264, %32262
-  %.0.i2487342325 = phi ptr [ %32259, %32265 ], [ %32259, %32262 ], [ %32259, %32264 ], [ %32257, %32256 ], [ %32255, %32252 ]
+  %.0.i2487342325 = phi ptr [ %32259, %32262 ], [ %32259, %32264 ], [ %32259, %32265 ], [ %32257, %32256 ], [ %32255, %32252 ]
   %32266 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %32267 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %32268 = getelementptr inbounds nuw i8, ptr %32267, i64 8
@@ -209116,7 +209116,7 @@ lean_dec.exit25522:                               ; preds = %32636, %32635, %326
   br label %lean_dec.exit25521
 
 lean_dec.exit25521:                               ; preds = %32641, %32645, %32654, %32653, %32651
-  %.0.i2487042327 = phi ptr [ %32648, %32654 ], [ %32648, %32651 ], [ %32648, %32653 ], [ %32646, %32645 ], [ %32644, %32641 ]
+  %.0.i2487042327 = phi ptr [ %32648, %32651 ], [ %32648, %32653 ], [ %32648, %32654 ], [ %32646, %32645 ], [ %32644, %32641 ]
   %32655 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %32656 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #8
@@ -209639,7 +209639,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit27126
 
 lean_inc.exit27126:                               ; preds = %32834, %32838, %32846, %32845, %32843
-  %.0.i2486742330 = phi ptr [ %32841, %32846 ], [ %32841, %32843 ], [ %32841, %32845 ], [ %32839, %32838 ], [ %32837, %32834 ]
+  %.0.i2486742330 = phi ptr [ %32841, %32843 ], [ %32841, %32845 ], [ %32841, %32846 ], [ %32839, %32838 ], [ %32837, %32834 ]
   tail call void @lean_inc_heartbeat() #8
   %32847 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %32848 = icmp eq ptr %32847, null
@@ -209803,7 +209803,7 @@ lean_dec.exit25519.thread:                        ; preds = %lean_dec.exit25520
 lean_dec.exit25518:                               ; preds = %32913
   br i1 %32908, label %35458, label %32915
 
-32915:                                            ; preds = %32911, %32914, %lean_dec.exit25519.thread, %lean_dec.exit25518
+32915:                                            ; preds = %32914, %32911, %lean_dec.exit25519.thread, %lean_dec.exit25518
   %.val.i38360 = load i64, ptr %32901, align 8, !tbaa !14
   %32916 = shl i64 %.val.i38360, 1
   %32917 = or disjoint i64 %32916, 1
@@ -209828,7 +209828,7 @@ lean_dec.exit25518:                               ; preds = %32913
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit: ; preds = %32915, %32923, %32927
-  %.2.i.i38362 = phi ptr [ %32928, %32927 ], [ %32918, %32915 ], [ %32926, %32923 ]
+  %.2.i.i38362 = phi ptr [ %32918, %32915 ], [ %32926, %32923 ], [ %32928, %32927 ]
   %32929 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i38362, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %32930 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i38352, ptr noundef %32929)
   tail call void @lean_inc_heartbeat() #8
@@ -211213,7 +211213,7 @@ lean_dec.exit25499:                               ; preds = %33441, %33440, %334
   br label %lean_dec.exit25498
 
 lean_dec.exit25498:                               ; preds = %33446, %33450, %33459, %33458, %33456
-  %.0.i2486442335 = phi ptr [ %33453, %33459 ], [ %33453, %33456 ], [ %33453, %33458 ], [ %33451, %33450 ], [ %33449, %33446 ]
+  %.0.i2486442335 = phi ptr [ %33453, %33456 ], [ %33453, %33458 ], [ %33453, %33459 ], [ %33451, %33450 ], [ %33449, %33446 ]
   %33460 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %33461 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %33462 = getelementptr inbounds nuw i8, ptr %33461, i64 8
@@ -212618,7 +212618,7 @@ lean_dec.exit25478:                               ; preds = %33986, %33985, %339
   br label %lean_dec.exit25477
 
 lean_dec.exit25477:                               ; preds = %33991, %33995, %34004, %34003, %34001
-  %.0.i2486142339 = phi ptr [ %33998, %34004 ], [ %33998, %34001 ], [ %33998, %34003 ], [ %33996, %33995 ], [ %33994, %33991 ]
+  %.0.i2486142339 = phi ptr [ %33998, %34001 ], [ %33998, %34003 ], [ %33998, %34004 ], [ %33996, %33995 ], [ %33994, %33991 ]
   %34005 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %34006 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %34007 = getelementptr inbounds nuw i8, ptr %34006, i64 8
@@ -212978,7 +212978,7 @@ lean_dec.exit25475:                               ; preds = %34132, %34131, %341
   br label %lean_dec.exit25474
 
 lean_dec.exit25474:                               ; preds = %34137, %34141, %34150, %34149, %34147
-  %.0.i2485842342 = phi ptr [ %34144, %34150 ], [ %34144, %34147 ], [ %34144, %34149 ], [ %34142, %34141 ], [ %34140, %34137 ]
+  %.0.i2485842342 = phi ptr [ %34144, %34147 ], [ %34144, %34149 ], [ %34144, %34150 ], [ %34142, %34141 ], [ %34140, %34137 ]
   %34151 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 5, i32 noundef 0)
   %34152 = getelementptr inbounds nuw i8, ptr %34151, i64 8
   store ptr %34076, ptr %34152, align 8, !tbaa !4
@@ -213268,7 +213268,7 @@ lean_dec.exit25470:                               ; preds = %34240, %34239, %342
   br label %lean_dec.exit25469
 
 lean_dec.exit25469:                               ; preds = %34258, %34262, %34271, %34270, %34268
-  %.0.i2485542344 = phi ptr [ %34265, %34271 ], [ %34265, %34268 ], [ %34265, %34270 ], [ %34263, %34262 ], [ %34261, %34258 ]
+  %.0.i2485542344 = phi ptr [ %34265, %34268 ], [ %34265, %34270 ], [ %34265, %34271 ], [ %34263, %34262 ], [ %34261, %34258 ]
   br i1 %.not43608, label %34272, label %lean_inc.exit27062
 
 34272:                                            ; preds = %lean_dec.exit25469
@@ -213400,7 +213400,7 @@ lean_dec.exit25467.thread:                        ; preds = %lean_dec.exit25468
 lean_dec.exit25466:                               ; preds = %34324
   br i1 %34319, label %34701, label %34326
 
-34326:                                            ; preds = %34322, %34325, %lean_dec.exit25467.thread, %lean_dec.exit25466
+34326:                                            ; preds = %34325, %34322, %lean_dec.exit25467.thread, %lean_dec.exit25466
   %34327 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %34282)
   %34328 = ptrtoint ptr %.024391 to i64
   %34329 = and i64 %34328, 1
@@ -214238,7 +214238,7 @@ lean_dec.exit25465:                               ; preds = %34635, %34634, %346
   br label %lean_dec.exit25464
 
 lean_dec.exit25464:                               ; preds = %34640, %34644, %34653, %34652, %34650
-  %.0.i2485242349 = phi ptr [ %34647, %34653 ], [ %34647, %34650 ], [ %34647, %34652 ], [ %34645, %34644 ], [ %34643, %34640 ]
+  %.0.i2485242349 = phi ptr [ %34647, %34650 ], [ %34647, %34652 ], [ %34647, %34653 ], [ %34645, %34644 ], [ %34643, %34640 ]
   %34654 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %34655 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %34656 = getelementptr inbounds nuw i8, ptr %34655, i64 8
@@ -214337,7 +214337,7 @@ lean_dec.exit25464:                               ; preds = %34640, %34644, %346
   store ptr %34394, ptr %34700, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-34701:                                            ; preds = %34322, %34325, %lean_dec.exit25467.thread, %lean_dec.exit25466
+34701:                                            ; preds = %34325, %34322, %lean_dec.exit25467.thread, %lean_dec.exit25466
   %34702 = ptrtoint ptr %.024391 to i64
   %34703 = and i64 %34702, 1
   %.not43647 = icmp eq i64 %34703, 0
@@ -215174,7 +215174,7 @@ lean_dec.exit25463:                               ; preds = %35009, %35008, %350
   br label %lean_dec.exit25462
 
 lean_dec.exit25462:                               ; preds = %35014, %35018, %35027, %35026, %35024
-  %.0.i2484942351 = phi ptr [ %35021, %35027 ], [ %35021, %35024 ], [ %35021, %35026 ], [ %35019, %35018 ], [ %35017, %35014 ]
+  %.0.i2484942351 = phi ptr [ %35021, %35024 ], [ %35021, %35026 ], [ %35021, %35027 ], [ %35019, %35018 ], [ %35017, %35014 ]
   %35028 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %35029 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %35030 = getelementptr inbounds nuw i8, ptr %35029, i64 8
@@ -216134,7 +216134,7 @@ lean_dec.exit25461:                               ; preds = %35392, %35391, %353
   br label %lean_dec.exit25460
 
 lean_dec.exit25460:                               ; preds = %35397, %35401, %35410, %35409, %35407
-  %.0.i2484642353 = phi ptr [ %35404, %35410 ], [ %35404, %35407 ], [ %35404, %35409 ], [ %35402, %35401 ], [ %35400, %35397 ]
+  %.0.i2484642353 = phi ptr [ %35404, %35407 ], [ %35404, %35409 ], [ %35404, %35410 ], [ %35402, %35401 ], [ %35400, %35397 ]
   %35411 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %35412 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %35413 = getelementptr inbounds nuw i8, ptr %35412, i64 8
@@ -216233,7 +216233,7 @@ lean_dec.exit25460:                               ; preds = %35397, %35401, %354
   store ptr %35151, ptr %35457, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-35458:                                            ; preds = %32911, %32914, %lean_dec.exit25519.thread, %lean_dec.exit25518
+35458:                                            ; preds = %32914, %32911, %lean_dec.exit25519.thread, %lean_dec.exit25518
   tail call void @lean_inc_heartbeat() #8
   %35459 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %35460 = icmp eq ptr %35459, null
@@ -217616,7 +217616,7 @@ lean_dec.exit25441:                               ; preds = %35969, %35968, %359
   br label %lean_dec.exit25440
 
 lean_dec.exit25440:                               ; preds = %35974, %35978, %35987, %35986, %35984
-  %.0.i2484342355 = phi ptr [ %35981, %35987 ], [ %35981, %35984 ], [ %35981, %35986 ], [ %35979, %35978 ], [ %35977, %35974 ]
+  %.0.i2484342355 = phi ptr [ %35981, %35984 ], [ %35981, %35986 ], [ %35981, %35987 ], [ %35979, %35978 ], [ %35977, %35974 ]
   %35988 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %35989 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %35990 = getelementptr inbounds nuw i8, ptr %35989, i64 8
@@ -219044,7 +219044,7 @@ lean_dec.exit25420:                               ; preds = %36522, %36521, %365
   br label %lean_dec.exit25419
 
 lean_dec.exit25419:                               ; preds = %36527, %36531, %36540, %36539, %36537
-  %.0.i2484042359 = phi ptr [ %36534, %36540 ], [ %36534, %36537 ], [ %36534, %36539 ], [ %36532, %36531 ], [ %36530, %36527 ]
+  %.0.i2484042359 = phi ptr [ %36534, %36537 ], [ %36534, %36539 ], [ %36534, %36540 ], [ %36532, %36531 ], [ %36530, %36527 ]
   %36541 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %36542 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %36543 = getelementptr inbounds nuw i8, ptr %36542, i64 8
@@ -219404,7 +219404,7 @@ lean_dec.exit25417:                               ; preds = %36668, %36667, %366
   br label %lean_dec.exit25416
 
 lean_dec.exit25416:                               ; preds = %36673, %36677, %36686, %36685, %36683
-  %.0.i2483742362 = phi ptr [ %36680, %36686 ], [ %36680, %36683 ], [ %36680, %36685 ], [ %36678, %36677 ], [ %36676, %36673 ]
+  %.0.i2483742362 = phi ptr [ %36680, %36683 ], [ %36680, %36685 ], [ %36680, %36686 ], [ %36678, %36677 ], [ %36676, %36673 ]
   %36687 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 5, i32 noundef 0)
   %36688 = getelementptr inbounds nuw i8, ptr %36687, i64 8
   store ptr %36612, ptr %36688, align 8, !tbaa !4
@@ -219694,7 +219694,7 @@ lean_dec.exit25412:                               ; preds = %36776, %36775, %367
   br label %lean_dec.exit25411
 
 lean_dec.exit25411:                               ; preds = %36794, %36798, %36807, %36806, %36804
-  %.0.i2483442364 = phi ptr [ %36801, %36807 ], [ %36801, %36804 ], [ %36801, %36806 ], [ %36799, %36798 ], [ %36797, %36794 ]
+  %.0.i2483442364 = phi ptr [ %36801, %36804 ], [ %36801, %36806 ], [ %36801, %36807 ], [ %36799, %36798 ], [ %36797, %36794 ]
   br i1 %.not43450, label %36808, label %lean_inc.exit26928
 
 36808:                                            ; preds = %lean_dec.exit25411
@@ -219826,7 +219826,7 @@ lean_dec.exit25409.thread:                        ; preds = %lean_dec.exit25410
 lean_dec.exit25408:                               ; preds = %36860
   br i1 %36855, label %37237, label %36862
 
-36862:                                            ; preds = %36858, %36861, %lean_dec.exit25409.thread, %lean_dec.exit25408
+36862:                                            ; preds = %36861, %36858, %lean_dec.exit25409.thread, %lean_dec.exit25408
   %36863 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %36818)
   %36864 = ptrtoint ptr %.024442 to i64
   %36865 = and i64 %36864, 1
@@ -220664,7 +220664,7 @@ lean_dec.exit25407:                               ; preds = %37171, %37170, %371
   br label %lean_dec.exit25406
 
 lean_dec.exit25406:                               ; preds = %37176, %37180, %37189, %37188, %37186
-  %.0.i2483142369 = phi ptr [ %37183, %37189 ], [ %37183, %37186 ], [ %37183, %37188 ], [ %37181, %37180 ], [ %37179, %37176 ]
+  %.0.i2483142369 = phi ptr [ %37183, %37186 ], [ %37183, %37188 ], [ %37183, %37189 ], [ %37181, %37180 ], [ %37179, %37176 ]
   %37190 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %37191 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %37192 = getelementptr inbounds nuw i8, ptr %37191, i64 8
@@ -220763,7 +220763,7 @@ lean_dec.exit25406:                               ; preds = %37176, %37180, %371
   store ptr %36930, ptr %37236, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-37237:                                            ; preds = %36858, %36861, %lean_dec.exit25409.thread, %lean_dec.exit25408
+37237:                                            ; preds = %36861, %36858, %lean_dec.exit25409.thread, %lean_dec.exit25408
   %37238 = ptrtoint ptr %.024442 to i64
   %37239 = and i64 %37238, 1
   %.not43489 = icmp eq i64 %37239, 0
@@ -221600,7 +221600,7 @@ lean_dec.exit25405:                               ; preds = %37545, %37544, %375
   br label %lean_dec.exit25404
 
 lean_dec.exit25404:                               ; preds = %37550, %37554, %37563, %37562, %37560
-  %.0.i2482842371 = phi ptr [ %37557, %37563 ], [ %37557, %37560 ], [ %37557, %37562 ], [ %37555, %37554 ], [ %37553, %37550 ]
+  %.0.i2482842371 = phi ptr [ %37557, %37560 ], [ %37557, %37562 ], [ %37557, %37563 ], [ %37555, %37554 ], [ %37553, %37550 ]
   %37564 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %37565 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %37566 = getelementptr inbounds nuw i8, ptr %37565, i64 8
@@ -222560,7 +222560,7 @@ lean_dec.exit25403:                               ; preds = %37928, %37927, %379
   br label %lean_dec.exit25402
 
 lean_dec.exit25402:                               ; preds = %37933, %37937, %37946, %37945, %37943
-  %.0.i2482542373 = phi ptr [ %37940, %37946 ], [ %37940, %37943 ], [ %37940, %37945 ], [ %37938, %37937 ], [ %37936, %37933 ]
+  %.0.i2482542373 = phi ptr [ %37940, %37943 ], [ %37940, %37945 ], [ %37940, %37946 ], [ %37938, %37937 ], [ %37936, %37933 ]
   %37947 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %37948 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %37949 = getelementptr inbounds nuw i8, ptr %37948, i64 8
@@ -224256,7 +224256,7 @@ lean_dec.exit25383:                               ; preds = %38578, %38577, %385
   br label %lean_dec.exit25382
 
 lean_dec.exit25382:                               ; preds = %38583, %38587, %38596, %38595, %38593
-  %.0.i2482242375 = phi ptr [ %38590, %38596 ], [ %38590, %38593 ], [ %38590, %38595 ], [ %38588, %38587 ], [ %38586, %38583 ]
+  %.0.i2482242375 = phi ptr [ %38590, %38593 ], [ %38590, %38595 ], [ %38590, %38596 ], [ %38588, %38587 ], [ %38586, %38583 ]
   %38597 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %38598 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -226198,7 +226198,7 @@ lean_dec.exit25362:                               ; preds = %39330, %39329, %393
   br label %lean_dec.exit25361
 
 lean_dec.exit25361:                               ; preds = %39335, %39339, %39348, %39347, %39345
-  %.0.i2481942379 = phi ptr [ %39342, %39348 ], [ %39342, %39345 ], [ %39342, %39347 ], [ %39340, %39339 ], [ %39338, %39335 ]
+  %.0.i2481942379 = phi ptr [ %39342, %39345 ], [ %39342, %39347 ], [ %39342, %39348 ], [ %39340, %39339 ], [ %39338, %39335 ]
   %39349 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %39350 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -226640,7 +226640,7 @@ lean_dec.exit25359:                               ; preds = %39507, %39506, %395
   br label %lean_dec.exit25358
 
 lean_dec.exit25358:                               ; preds = %39512, %39516, %39525, %39524, %39522
-  %.0.i2481642382 = phi ptr [ %39519, %39525 ], [ %39519, %39522 ], [ %39519, %39524 ], [ %39517, %39516 ], [ %39515, %39512 ]
+  %.0.i2481642382 = phi ptr [ %39519, %39522 ], [ %39519, %39524 ], [ %39519, %39525 ], [ %39517, %39516 ], [ %39515, %39512 ]
   tail call void @lean_inc_heartbeat() #8
   %39526 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #8
   %39527 = icmp eq ptr %39526, null
@@ -227039,7 +227039,7 @@ lean_array_uget.exit39592:                        ; preds = %39650, %39664, %396
   br label %lean_dec.exit25353
 
 lean_dec.exit25353:                               ; preds = %39675, %39679, %39688, %39687, %39685
-  %.0.i2481342384 = phi ptr [ %39682, %39688 ], [ %39682, %39685 ], [ %39682, %39687 ], [ %39680, %39679 ], [ %39678, %39675 ]
+  %.0.i2481342384 = phi ptr [ %39682, %39685 ], [ %39682, %39687 ], [ %39682, %39688 ], [ %39680, %39679 ], [ %39678, %39675 ]
   br i1 %.not43289, label %39689, label %lean_inc.exit26792
 
 39689:                                            ; preds = %lean_dec.exit25353
@@ -227171,7 +227171,7 @@ lean_dec.exit25351.thread:                        ; preds = %lean_dec.exit25352
 lean_dec.exit25350:                               ; preds = %39741
   br i1 %39736, label %40118, label %39743
 
-39743:                                            ; preds = %39739, %39742, %lean_dec.exit25351.thread, %lean_dec.exit25350
+39743:                                            ; preds = %39742, %39739, %lean_dec.exit25351.thread, %lean_dec.exit25350
   %39744 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %39699)
   %39745 = ptrtoint ptr %.024498 to i64
   %39746 = and i64 %39745, 1
@@ -228009,7 +228009,7 @@ lean_dec.exit25349:                               ; preds = %40052, %40051, %400
   br label %lean_dec.exit25348
 
 lean_dec.exit25348:                               ; preds = %40057, %40061, %40070, %40069, %40067
-  %.0.i2481042389 = phi ptr [ %40064, %40070 ], [ %40064, %40067 ], [ %40064, %40069 ], [ %40062, %40061 ], [ %40060, %40057 ]
+  %.0.i2481042389 = phi ptr [ %40064, %40067 ], [ %40064, %40069 ], [ %40064, %40070 ], [ %40062, %40061 ], [ %40060, %40057 ]
   %40071 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %40072 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %40073 = getelementptr inbounds nuw i8, ptr %40072, i64 8
@@ -228108,7 +228108,7 @@ lean_dec.exit25348:                               ; preds = %40057, %40061, %400
   store ptr %39811, ptr %40117, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-40118:                                            ; preds = %39739, %39742, %lean_dec.exit25351.thread, %lean_dec.exit25350
+40118:                                            ; preds = %39742, %39739, %lean_dec.exit25351.thread, %lean_dec.exit25350
   %40119 = ptrtoint ptr %.024498 to i64
   %40120 = and i64 %40119, 1
   %.not43328 = icmp eq i64 %40120, 0
@@ -228945,7 +228945,7 @@ lean_dec.exit25347:                               ; preds = %40426, %40425, %404
   br label %lean_dec.exit25346
 
 lean_dec.exit25346:                               ; preds = %40431, %40435, %40444, %40443, %40441
-  %.0.i2480742391 = phi ptr [ %40438, %40444 ], [ %40438, %40441 ], [ %40438, %40443 ], [ %40436, %40435 ], [ %40434, %40431 ]
+  %.0.i2480742391 = phi ptr [ %40438, %40441 ], [ %40438, %40443 ], [ %40438, %40444 ], [ %40436, %40435 ], [ %40434, %40431 ]
   %40445 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %40446 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %40447 = getelementptr inbounds nuw i8, ptr %40446, i64 8
@@ -230035,7 +230035,7 @@ lean_dec.exit25345:                               ; preds = %40853, %40852, %408
   br label %lean_dec.exit25344
 
 lean_dec.exit25344:                               ; preds = %40858, %40862, %40871, %40870, %40868
-  %.0.i2480442393 = phi ptr [ %40865, %40871 ], [ %40865, %40868 ], [ %40865, %40870 ], [ %40863, %40862 ], [ %40861, %40858 ]
+  %.0.i2480442393 = phi ptr [ %40865, %40868 ], [ %40865, %40870 ], [ %40865, %40871 ], [ %40863, %40862 ], [ %40861, %40858 ]
   %40872 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %40873 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -231123,7 +231123,7 @@ lean_dec.exit25326:                               ; preds = %41300, %41299, %412
   br label %lean_dec.exit25325
 
 lean_dec.exit25325:                               ; preds = %41305, %41309, %41318, %41317, %41315
-  %.0.i2480142396 = phi ptr [ %41312, %41318 ], [ %41312, %41315 ], [ %41312, %41317 ], [ %41310, %41309 ], [ %41308, %41305 ]
+  %.0.i2480142396 = phi ptr [ %41312, %41315 ], [ %41312, %41317 ], [ %41312, %41318 ], [ %41310, %41309 ], [ %41308, %41305 ]
   %41319 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %41320 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %41321 = getelementptr inbounds nuw i8, ptr %41320, i64 8
@@ -231634,7 +231634,7 @@ lean_dec.exit25323:                               ; preds = %41511, %41510, %415
   br label %lean_dec.exit25322
 
 lean_dec.exit25322:                               ; preds = %41516, %41520, %41529, %41528, %41526
-  %.0.i2479842398 = phi ptr [ %41523, %41529 ], [ %41523, %41526 ], [ %41523, %41528 ], [ %41521, %41520 ], [ %41519, %41516 ]
+  %.0.i2479842398 = phi ptr [ %41523, %41526 ], [ %41523, %41528 ], [ %41523, %41529 ], [ %41521, %41520 ], [ %41519, %41516 ]
   %41530 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %41531 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %41532 = getelementptr inbounds nuw i8, ptr %41531, i64 8
@@ -232284,7 +232284,7 @@ lean_dec.exit25320:                               ; preds = %41775, %41774, %417
   br label %lean_dec.exit25319
 
 lean_dec.exit25319:                               ; preds = %41780, %41784, %41793, %41792, %41790
-  %.0.i2479542400 = phi ptr [ %41787, %41793 ], [ %41787, %41790 ], [ %41787, %41792 ], [ %41785, %41784 ], [ %41783, %41780 ]
+  %.0.i2479542400 = phi ptr [ %41787, %41790 ], [ %41787, %41792 ], [ %41787, %41793 ], [ %41785, %41784 ], [ %41783, %41780 ]
   %41794 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %41795 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %41796 = getelementptr inbounds nuw i8, ptr %41795, i64 8
@@ -233010,7 +233010,7 @@ lean_dec.exit25317:                               ; preds = %42067, %42066, %420
   br label %lean_dec.exit25316
 
 lean_dec.exit25316:                               ; preds = %42072, %42076, %42085, %42084, %42082
-  %.0.i2479242402 = phi ptr [ %42079, %42085 ], [ %42079, %42082 ], [ %42079, %42084 ], [ %42077, %42076 ], [ %42075, %42072 ]
+  %.0.i2479242402 = phi ptr [ %42079, %42082 ], [ %42079, %42084 ], [ %42079, %42085 ], [ %42077, %42076 ], [ %42075, %42072 ]
   %42086 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %42087 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %42088 = getelementptr inbounds nuw i8, ptr %42087, i64 8
@@ -233884,7 +233884,7 @@ lean_dec.exit25314:                               ; preds = %42407, %42406, %424
   br label %lean_dec.exit25313
 
 lean_dec.exit25313:                               ; preds = %42412, %42416, %42425, %42424, %42422
-  %.0.i2478942404 = phi ptr [ %42419, %42425 ], [ %42419, %42422 ], [ %42419, %42424 ], [ %42417, %42416 ], [ %42415, %42412 ]
+  %.0.i2478942404 = phi ptr [ %42419, %42422 ], [ %42419, %42424 ], [ %42419, %42425 ], [ %42417, %42416 ], [ %42415, %42412 ]
   %42426 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %42427 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -235390,7 +235390,7 @@ lean_dec.exit25311:                               ; preds = %42999, %42998, %429
   br label %lean_dec.exit25310
 
 lean_dec.exit25310:                               ; preds = %43004, %43008, %43017, %43016, %43014
-  %.0.i2478642406 = phi ptr [ %43011, %43017 ], [ %43011, %43014 ], [ %43011, %43016 ], [ %43009, %43008 ], [ %43007, %43004 ]
+  %.0.i2478642406 = phi ptr [ %43011, %43014 ], [ %43011, %43016 ], [ %43011, %43017 ], [ %43009, %43008 ], [ %43007, %43004 ]
   %43018 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %43019 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -236331,7 +236331,7 @@ lean_dec.exit25296:                               ; preds = %43394, %43393, %433
   br label %lean_dec.exit25295
 
 lean_dec.exit25295:                               ; preds = %43399, %43403, %43412, %43411, %43409
-  %.0.i2478342413 = phi ptr [ %43406, %43412 ], [ %43406, %43409 ], [ %43406, %43411 ], [ %43404, %43403 ], [ %43402, %43399 ]
+  %.0.i2478342413 = phi ptr [ %43406, %43409 ], [ %43406, %43411 ], [ %43406, %43412 ], [ %43404, %43403 ], [ %43402, %43399 ]
   %43413 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %43414 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %43415 = getelementptr inbounds nuw i8, ptr %43414, i64 8
@@ -236842,7 +236842,7 @@ lean_dec.exit25293:                               ; preds = %43605, %43604, %436
   br label %lean_dec.exit25292
 
 lean_dec.exit25292:                               ; preds = %43610, %43614, %43623, %43622, %43620
-  %.0.i2478042415 = phi ptr [ %43617, %43623 ], [ %43617, %43620 ], [ %43617, %43622 ], [ %43615, %43614 ], [ %43613, %43610 ]
+  %.0.i2478042415 = phi ptr [ %43617, %43620 ], [ %43617, %43622 ], [ %43617, %43623 ], [ %43615, %43614 ], [ %43613, %43610 ]
   %43624 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %43625 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %43626 = getelementptr inbounds nuw i8, ptr %43625, i64 8
@@ -237492,7 +237492,7 @@ lean_dec.exit25290:                               ; preds = %43869, %43868, %438
   br label %lean_dec.exit25289
 
 lean_dec.exit25289:                               ; preds = %43874, %43878, %43887, %43886, %43884
-  %.0.i2477742417 = phi ptr [ %43881, %43887 ], [ %43881, %43884 ], [ %43881, %43886 ], [ %43879, %43878 ], [ %43877, %43874 ]
+  %.0.i2477742417 = phi ptr [ %43881, %43884 ], [ %43881, %43886 ], [ %43881, %43887 ], [ %43879, %43878 ], [ %43877, %43874 ]
   %43888 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %43889 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %43890 = getelementptr inbounds nuw i8, ptr %43889, i64 8
@@ -238274,7 +238274,7 @@ lean_dec.exit25287:                               ; preds = %44177, %44176, %441
   br label %lean_dec.exit25286
 
 lean_dec.exit25286:                               ; preds = %44182, %44186, %44195, %44194, %44192
-  %.0.i2477442419 = phi ptr [ %44189, %44195 ], [ %44189, %44192 ], [ %44189, %44194 ], [ %44187, %44186 ], [ %44185, %44182 ]
+  %.0.i2477442419 = phi ptr [ %44189, %44192 ], [ %44189, %44194 ], [ %44189, %44195 ], [ %44187, %44186 ], [ %44185, %44182 ]
   %44196 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %44197 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -239555,7 +239555,7 @@ lean_dec.exit25284:                               ; preds = %44679, %44678, %446
   br label %lean_dec.exit25283
 
 lean_dec.exit25283:                               ; preds = %44684, %44688, %44697, %44696, %44694
-  %.0.i2477142421 = phi ptr [ %44691, %44697 ], [ %44691, %44694 ], [ %44691, %44696 ], [ %44689, %44688 ], [ %44687, %44684 ]
+  %.0.i2477142421 = phi ptr [ %44691, %44694 ], [ %44691, %44696 ], [ %44691, %44697 ], [ %44689, %44688 ], [ %44687, %44684 ]
   %44698 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %44699 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -241111,7 +241111,7 @@ lean_dec.exit25281:                               ; preds = %45290, %45289, %452
   br label %lean_dec.exit25280
 
 lean_dec.exit25280:                               ; preds = %45295, %45299, %45308, %45307, %45305
-  %.0.i2476842423 = phi ptr [ %45302, %45308 ], [ %45302, %45305 ], [ %45302, %45307 ], [ %45300, %45299 ], [ %45298, %45295 ]
+  %.0.i2476842423 = phi ptr [ %45302, %45305 ], [ %45302, %45307 ], [ %45302, %45308 ], [ %45300, %45299 ], [ %45298, %45295 ]
   %45309 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %45310 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -241588,7 +241588,7 @@ lean_dec.exit25278:                               ; preds = %45483, %45482, %454
   br label %lean_dec.exit25277
 
 lean_dec.exit25277:                               ; preds = %45488, %45492, %45501, %45500, %45498
-  %.0.i2476542430 = phi ptr [ %45495, %45501 ], [ %45495, %45498 ], [ %45495, %45500 ], [ %45493, %45492 ], [ %45491, %45488 ]
+  %.0.i2476542430 = phi ptr [ %45495, %45498 ], [ %45495, %45500 ], [ %45495, %45501 ], [ %45493, %45492 ], [ %45491, %45488 ]
   tail call void @lean_inc_heartbeat() #8
   %45502 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #8
   %45503 = icmp eq ptr %45502, null
@@ -242106,7 +242106,7 @@ lean_array_uget.exit40814:                        ; preds = %45667, %45681, %456
   br label %lean_dec.exit25272
 
 lean_dec.exit25272:                               ; preds = %45692, %45696, %45705, %45704, %45702
-  %.0.i2476242432 = phi ptr [ %45699, %45705 ], [ %45699, %45702 ], [ %45699, %45704 ], [ %45697, %45696 ], [ %45695, %45692 ]
+  %.0.i2476242432 = phi ptr [ %45699, %45702 ], [ %45699, %45704 ], [ %45699, %45705 ], [ %45697, %45696 ], [ %45695, %45692 ]
   br i1 %.not42815, label %45706, label %lean_inc.exit26486
 
 45706:                                            ; preds = %lean_dec.exit25272
@@ -242291,7 +242291,7 @@ lean_dec.exit25270.thread:                        ; preds = %lean_dec.exit25271
 lean_dec.exit25269:                               ; preds = %45778
   br i1 %45773, label %47114, label %45780
 
-45780:                                            ; preds = %45776, %45779, %lean_dec.exit25270.thread, %lean_dec.exit25269
+45780:                                            ; preds = %45779, %45776, %lean_dec.exit25270.thread, %lean_dec.exit25269
   %45781 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %.0.i.i40823)
   %45782 = ptrtoint ptr %.024582 to i64
   %45783 = and i64 %45782, 1
@@ -242745,7 +242745,7 @@ lean_dec.exit25265:                               ; preds = %45961, %45960, %459
   br label %lean_dec.exit25264
 
 lean_dec.exit25264:                               ; preds = %45966, %45970, %45979, %45978, %45976
-  %.0.i2475942438 = phi ptr [ %45973, %45979 ], [ %45973, %45976 ], [ %45973, %45978 ], [ %45971, %45970 ], [ %45969, %45966 ]
+  %.0.i2475942438 = phi ptr [ %45973, %45976 ], [ %45973, %45978 ], [ %45973, %45979 ], [ %45971, %45970 ], [ %45969, %45966 ]
   %45980 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %45981 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %45982 = getelementptr inbounds nuw i8, ptr %45981, i64 8
@@ -243256,7 +243256,7 @@ lean_dec.exit25262:                               ; preds = %46172, %46171, %461
   br label %lean_dec.exit25261
 
 lean_dec.exit25261:                               ; preds = %46177, %46181, %46190, %46189, %46187
-  %.0.i2475642440 = phi ptr [ %46184, %46190 ], [ %46184, %46187 ], [ %46184, %46189 ], [ %46182, %46181 ], [ %46180, %46177 ]
+  %.0.i2475642440 = phi ptr [ %46184, %46187 ], [ %46184, %46189 ], [ %46184, %46190 ], [ %46182, %46181 ], [ %46180, %46177 ]
   %46191 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %46192 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %46193 = getelementptr inbounds nuw i8, ptr %46192, i64 8
@@ -243906,7 +243906,7 @@ lean_dec.exit25259:                               ; preds = %46436, %46435, %464
   br label %lean_dec.exit25258
 
 lean_dec.exit25258:                               ; preds = %46441, %46445, %46454, %46453, %46451
-  %.0.i2475342442 = phi ptr [ %46448, %46454 ], [ %46448, %46451 ], [ %46448, %46453 ], [ %46446, %46445 ], [ %46444, %46441 ]
+  %.0.i2475342442 = phi ptr [ %46448, %46451 ], [ %46448, %46453 ], [ %46448, %46454 ], [ %46446, %46445 ], [ %46444, %46441 ]
   %46455 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %46456 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %46457 = getelementptr inbounds nuw i8, ptr %46456, i64 8
@@ -244632,7 +244632,7 @@ lean_dec.exit25256:                               ; preds = %46728, %46727, %467
   br label %lean_dec.exit25255
 
 lean_dec.exit25255:                               ; preds = %46733, %46737, %46746, %46745, %46743
-  %.0.i2475042444 = phi ptr [ %46740, %46746 ], [ %46740, %46743 ], [ %46740, %46745 ], [ %46738, %46737 ], [ %46736, %46733 ]
+  %.0.i2475042444 = phi ptr [ %46740, %46743 ], [ %46740, %46745 ], [ %46740, %46746 ], [ %46738, %46737 ], [ %46736, %46733 ]
   %46747 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %46748 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %46749 = getelementptr inbounds nuw i8, ptr %46748, i64 8
@@ -245450,7 +245450,7 @@ lean_dec.exit25253:                               ; preds = %47052, %47051, %470
   br label %lean_dec.exit25252
 
 lean_dec.exit25252:                               ; preds = %47057, %47061, %47070, %47069, %47067
-  %.0.i2474742446 = phi ptr [ %47064, %47070 ], [ %47064, %47067 ], [ %47064, %47069 ], [ %47062, %47061 ], [ %47060, %47057 ]
+  %.0.i2474742446 = phi ptr [ %47064, %47067 ], [ %47064, %47069 ], [ %47064, %47070 ], [ %47062, %47061 ], [ %47060, %47057 ]
   %47071 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %47072 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %47073 = getelementptr inbounds nuw i8, ptr %47072, i64 8
@@ -245539,7 +245539,7 @@ lean_dec.exit25252:                               ; preds = %47057, %47061, %470
   store ptr %46811, ptr %47113, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-47114:                                            ; preds = %45776, %45779, %lean_dec.exit25270.thread, %lean_dec.exit25269
+47114:                                            ; preds = %45779, %45776, %lean_dec.exit25270.thread, %lean_dec.exit25269
   %47115 = ptrtoint ptr %.024582 to i64
   %47116 = and i64 %47115, 1
   %.not43021 = icmp eq i64 %47116, 0
@@ -245992,7 +245992,7 @@ lean_dec.exit25248:                               ; preds = %47294, %47293, %472
   br label %lean_dec.exit25247
 
 lean_dec.exit25247:                               ; preds = %47299, %47303, %47312, %47311, %47309
-  %.0.i2474442449 = phi ptr [ %47306, %47312 ], [ %47306, %47309 ], [ %47306, %47311 ], [ %47304, %47303 ], [ %47302, %47299 ]
+  %.0.i2474442449 = phi ptr [ %47306, %47309 ], [ %47306, %47311 ], [ %47306, %47312 ], [ %47304, %47303 ], [ %47302, %47299 ]
   %47313 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %47314 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %47315 = getelementptr inbounds nuw i8, ptr %47314, i64 8
@@ -246503,7 +246503,7 @@ lean_dec.exit25245:                               ; preds = %47505, %47504, %475
   br label %lean_dec.exit25244
 
 lean_dec.exit25244:                               ; preds = %47510, %47514, %47523, %47522, %47520
-  %.0.i2474142451 = phi ptr [ %47517, %47523 ], [ %47517, %47520 ], [ %47517, %47522 ], [ %47515, %47514 ], [ %47513, %47510 ]
+  %.0.i2474142451 = phi ptr [ %47517, %47520 ], [ %47517, %47522 ], [ %47517, %47523 ], [ %47515, %47514 ], [ %47513, %47510 ]
   %47524 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %47525 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %47526 = getelementptr inbounds nuw i8, ptr %47525, i64 8
@@ -247153,7 +247153,7 @@ lean_dec.exit25242:                               ; preds = %47769, %47768, %477
   br label %lean_dec.exit25241
 
 lean_dec.exit25241:                               ; preds = %47774, %47778, %47787, %47786, %47784
-  %.0.i2473842453 = phi ptr [ %47781, %47787 ], [ %47781, %47784 ], [ %47781, %47786 ], [ %47779, %47778 ], [ %47777, %47774 ]
+  %.0.i2473842453 = phi ptr [ %47781, %47784 ], [ %47781, %47786 ], [ %47781, %47787 ], [ %47779, %47778 ], [ %47777, %47774 ]
   %47788 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %47789 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %47790 = getelementptr inbounds nuw i8, ptr %47789, i64 8
@@ -247879,7 +247879,7 @@ lean_dec.exit25239:                               ; preds = %48061, %48060, %480
   br label %lean_dec.exit25238
 
 lean_dec.exit25238:                               ; preds = %48066, %48070, %48079, %48078, %48076
-  %.0.i2473542455 = phi ptr [ %48073, %48079 ], [ %48073, %48076 ], [ %48073, %48078 ], [ %48071, %48070 ], [ %48069, %48066 ]
+  %.0.i2473542455 = phi ptr [ %48073, %48076 ], [ %48073, %48078 ], [ %48073, %48079 ], [ %48071, %48070 ], [ %48069, %48066 ]
   %48080 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %48081 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %48082 = getelementptr inbounds nuw i8, ptr %48081, i64 8
@@ -248697,7 +248697,7 @@ lean_dec.exit25236:                               ; preds = %48385, %48384, %483
   br label %lean_dec.exit25235
 
 lean_dec.exit25235:                               ; preds = %48390, %48394, %48403, %48402, %48400
-  %.0.i2473242457 = phi ptr [ %48397, %48403 ], [ %48397, %48400 ], [ %48397, %48402 ], [ %48395, %48394 ], [ %48393, %48390 ]
+  %.0.i2473242457 = phi ptr [ %48397, %48400 ], [ %48397, %48402 ], [ %48397, %48403 ], [ %48395, %48394 ], [ %48393, %48390 ]
   %48404 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %48405 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %48406 = getelementptr inbounds nuw i8, ptr %48405, i64 8
@@ -249369,7 +249369,7 @@ lean_dec.exit25231:                               ; preds = %48676, %48675, %486
   br label %lean_dec.exit25230
 
 lean_dec.exit25230:                               ; preds = %48681, %48685, %48694, %48693, %48691
-  %.0.i2472942460 = phi ptr [ %48688, %48694 ], [ %48688, %48691 ], [ %48688, %48693 ], [ %48686, %48685 ], [ %48684, %48681 ]
+  %.0.i2472942460 = phi ptr [ %48688, %48691 ], [ %48688, %48693 ], [ %48688, %48694 ], [ %48686, %48685 ], [ %48684, %48681 ]
   %48695 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %48696 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %48697 = getelementptr inbounds nuw i8, ptr %48696, i64 8
@@ -249880,7 +249880,7 @@ lean_dec.exit25228:                               ; preds = %48887, %48886, %488
   br label %lean_dec.exit25227
 
 lean_dec.exit25227:                               ; preds = %48892, %48896, %48905, %48904, %48902
-  %.0.i2472642462 = phi ptr [ %48899, %48905 ], [ %48899, %48902 ], [ %48899, %48904 ], [ %48897, %48896 ], [ %48895, %48892 ]
+  %.0.i2472642462 = phi ptr [ %48899, %48902 ], [ %48899, %48904 ], [ %48899, %48905 ], [ %48897, %48896 ], [ %48895, %48892 ]
   %48906 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %48907 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %48908 = getelementptr inbounds nuw i8, ptr %48907, i64 8
@@ -250530,7 +250530,7 @@ lean_dec.exit25225:                               ; preds = %49151, %49150, %491
   br label %lean_dec.exit25224
 
 lean_dec.exit25224:                               ; preds = %49156, %49160, %49169, %49168, %49166
-  %.0.i2472342464 = phi ptr [ %49163, %49169 ], [ %49163, %49166 ], [ %49163, %49168 ], [ %49161, %49160 ], [ %49159, %49156 ]
+  %.0.i2472342464 = phi ptr [ %49163, %49166 ], [ %49163, %49168 ], [ %49163, %49169 ], [ %49161, %49160 ], [ %49159, %49156 ]
   %49170 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %49171 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %49172 = getelementptr inbounds nuw i8, ptr %49171, i64 8
@@ -251256,7 +251256,7 @@ lean_dec.exit25222:                               ; preds = %49443, %49442, %494
   br label %lean_dec.exit25221
 
 lean_dec.exit25221:                               ; preds = %49448, %49452, %49461, %49460, %49458
-  %.0.i2472042466 = phi ptr [ %49455, %49461 ], [ %49455, %49458 ], [ %49455, %49460 ], [ %49453, %49452 ], [ %49451, %49448 ]
+  %.0.i2472042466 = phi ptr [ %49455, %49458 ], [ %49455, %49460 ], [ %49455, %49461 ], [ %49453, %49452 ], [ %49451, %49448 ]
   %49462 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %49463 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %49464 = getelementptr inbounds nuw i8, ptr %49463, i64 8
@@ -252130,7 +252130,7 @@ lean_dec.exit25219:                               ; preds = %49783, %49782, %497
   br label %lean_dec.exit25218
 
 lean_dec.exit25218:                               ; preds = %49788, %49792, %49801, %49800, %49798
-  %.0.i2471742468 = phi ptr [ %49795, %49801 ], [ %49795, %49798 ], [ %49795, %49800 ], [ %49793, %49792 ], [ %49791, %49788 ]
+  %.0.i2471742468 = phi ptr [ %49795, %49798 ], [ %49795, %49800 ], [ %49795, %49801 ], [ %49793, %49792 ], [ %49791, %49788 ]
   %49802 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %49803 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -252744,7 +252744,7 @@ lean_dec.exit25216:                               ; preds = %50028, %50027, %500
   br label %lean_dec.exit25215
 
 lean_dec.exit25215:                               ; preds = %50033, %50037, %50046, %50045, %50043
-  %.0.i2471442470 = phi ptr [ %50040, %50046 ], [ %50040, %50043 ], [ %50040, %50045 ], [ %50038, %50037 ], [ %50036, %50033 ]
+  %.0.i2471442470 = phi ptr [ %50040, %50043 ], [ %50040, %50045 ], [ %50040, %50046 ], [ %50038, %50037 ], [ %50036, %50033 ]
   tail call void @lean_inc_heartbeat() #8
   %50047 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #8
   %50048 = icmp eq ptr %50047, null
@@ -253299,7 +253299,7 @@ lean_array_uget.exit41717:                        ; preds = %50229, %50243, %502
   br label %lean_dec.exit25210
 
 lean_dec.exit25210:                               ; preds = %50254, %50258, %50267, %50266, %50264
-  %.0.i2471142472 = phi ptr [ %50261, %50267 ], [ %50261, %50264 ], [ %50261, %50266 ], [ %50259, %50258 ], [ %50257, %50254 ]
+  %.0.i2471142472 = phi ptr [ %50261, %50264 ], [ %50261, %50266 ], [ %50261, %50267 ], [ %50259, %50258 ], [ %50257, %50254 ]
   br i1 %.not42815, label %50268, label %lean_inc.exit26218
 
 50268:                                            ; preds = %lean_dec.exit25210
@@ -253484,7 +253484,7 @@ lean_dec.exit25208.thread:                        ; preds = %lean_dec.exit25209
 lean_dec.exit25207:                               ; preds = %50340
   br i1 %50335, label %50717, label %50342
 
-50342:                                            ; preds = %50338, %50341, %lean_dec.exit25208.thread, %lean_dec.exit25207
+50342:                                            ; preds = %50341, %50338, %lean_dec.exit25208.thread, %lean_dec.exit25207
   %50343 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %.0.i.i41726)
   %50344 = ptrtoint ptr %.024177 to i64
   %50345 = and i64 %50344, 1
@@ -254322,7 +254322,7 @@ lean_dec.exit25206:                               ; preds = %50651, %50650, %506
   br label %lean_dec.exit25205
 
 lean_dec.exit25205:                               ; preds = %50656, %50660, %50669, %50668, %50666
-  %.0.i2470842477 = phi ptr [ %50663, %50669 ], [ %50663, %50666 ], [ %50663, %50668 ], [ %50661, %50660 ], [ %50659, %50656 ]
+  %.0.i2470842477 = phi ptr [ %50663, %50666 ], [ %50663, %50668 ], [ %50663, %50669 ], [ %50661, %50660 ], [ %50659, %50656 ]
   %50670 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %50671 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 6, i32 noundef 0)
   %50672 = getelementptr inbounds nuw i8, ptr %50671, i64 8
@@ -254421,7 +254421,7 @@ lean_dec.exit25205:                               ; preds = %50656, %50660, %506
   store ptr %50410, ptr %50716, align 8, !tbaa !4
   br label %lean_dec.exit26099.thread
 
-50717:                                            ; preds = %50338, %50341, %lean_dec.exit25208.thread, %lean_dec.exit25207
+50717:                                            ; preds = %50341, %50338, %lean_dec.exit25208.thread, %lean_dec.exit25207
   %50718 = ptrtoint ptr %.024177 to i64
   %50719 = and i64 %50718, 1
   %.not42864 = icmp eq i64 %50719, 0
@@ -255314,7 +255314,7 @@ lean_dec.exit25204:                               ; preds = %51041, %51040, %510
   br label %lean_dec.exit25203
 
 lean_dec.exit25203:                               ; preds = %51046, %51050, %51059, %51058, %51056
-  %.0.i2470542479 = phi ptr [ %51053, %51059 ], [ %51053, %51056 ], [ %51053, %51058 ], [ %51051, %51050 ], [ %51049, %51046 ]
+  %.0.i2470542479 = phi ptr [ %51053, %51056 ], [ %51053, %51058 ], [ %51053, %51059 ], [ %51051, %51050 ], [ %51049, %51046 ]
   %51060 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %51061 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -256878,7 +256878,7 @@ lean_dec.exit25202:                               ; preds = %51657, %51656, %516
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %51662, %51666, %51675, %51674, %51672
-  %.0.i42481 = phi ptr [ %51669, %51675 ], [ %51669, %51672 ], [ %51669, %51674 ], [ %51667, %51666 ], [ %51665, %51662 ]
+  %.0.i42481 = phi ptr [ %51669, %51672 ], [ %51669, %51674 ], [ %51669, %51675 ], [ %51667, %51666 ], [ %51665, %51662 ]
   %51676 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %51677 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -257060,7 +257060,7 @@ lean_alloc_ctor.exit42029:                        ; preds = %51743
   br label %lean_dec.exit26099.thread
 
 lean_dec.exit26099.thread:                        ; preds = %44769, %43900, %lean_dec.exit25292, %lean_dec.exit25295, %lean_alloc_ctor.exit40482, %42478, %41806, %lean_dec.exit25322, %lean_dec.exit25325, %42113, %19555, %lean_dec.exit25778, %lean_dec.exit25775, %19248, %19892, %18041, %lean_dec.exit25814, %lean_dec.exit25811, %17734, %18378, %12184, %lean_dec.exit25911, %lean_dec.exit25908, %11877, %12521, %10681, %lean_dec.exit25947, %lean_dec.exit25944, %10374, %11018, %4875, %lean_dec.exit26044, %lean_dec.exit26041, %4568, %5212, %3372, %lean_dec.exit26080, %lean_dec.exit26077, %3065, %3709, %45384, %43093, %lean_dec.exit25378, %lean_dec.exit25398, %lean_dec.exit25436, %lean_dec.exit25456, %lean_dec.exit25494, %lean_dec.exit25514, %lean_dec.exit25558, %lean_dec.exit25578, %lean_dec.exit25616, %lean_dec.exit25636, %lean_dec.exit25674, %lean_dec.exit25694, %50714, %51110, %51751, %49854, %49182, %lean_dec.exit25227, %lean_dec.exit25230, %49489, %46774, %lean_dec.exit25264, %lean_dec.exit25261, %46467, %47111, %48107, %lean_dec.exit25247, %lean_dec.exit25244, %47800, %48444, %29697, %29314, %28940, %27181, %26798, %26424, %31553, %31927, %32310, %15463, %14819, %lean_dec.exit25863, %lean_dec.exit25866, %15126, %14130, %13486, %lean_dec.exit25880, %lean_dec.exit25883, %13793, %16468, %lean_dec.exit25849, %lean_dec.exit25846, %16161, %16805, %8154, %7510, %lean_dec.exit25996, %lean_dec.exit25999, %7817, %6821, %6177, %lean_dec.exit26013, %lean_dec.exit26016, %6484, %9159, %lean_dec.exit25982, %lean_dec.exit25979, %8852, %9496, %24192, %23548, %lean_dec.exit25713, %lean_dec.exit25716, %23855, %21180, %lean_dec.exit25750, %lean_dec.exit25747, %20873, %21517, %22513, %lean_dec.exit25733, %lean_dec.exit25730, %22206, %22850, %40922, %40489, %40115, %34698, %35072, %35455, %37234, %37608, %37991
-  %.133 = phi ptr [ %.024522, %40489 ], [ %.024358, %31927 ], [ %22889, %23548 ], [ %15502, %16161 ], [ %8193, %8852 ], [ %2406, %3065 ], [ %41147, %41806 ], [ %6851, %7510 ], [ %5518, %6177 ], [ %.024008, %6821 ], [ %6490, %6484 ], [ %5518, %lean_dec.exit26016 ], [ %5518, %lean_dec.exit26013 ], [ %.024027, %8154 ], [ %7823, %7817 ], [ %6851, %lean_dec.exit25999 ], [ %6851, %lean_dec.exit25996 ], [ %.024041, %9496 ], [ %9165, %9159 ], [ %8193, %lean_dec.exit25982 ], [ %8193, %lean_dec.exit25979 ], [ %9715, %10374 ], [ %3909, %4568 ], [ %14160, %14819 ], [ %12827, %13486 ], [ %.024094, %14130 ], [ %13799, %13793 ], [ %12827, %lean_dec.exit25883 ], [ %12827, %lean_dec.exit25880 ], [ %.024108, %15463 ], [ %15132, %15126 ], [ %14160, %lean_dec.exit25866 ], [ %14160, %lean_dec.exit25863 ], [ %.024123, %16805 ], [ %16474, %16468 ], [ %15502, %lean_dec.exit25849 ], [ %15502, %lean_dec.exit25846 ], [ %17075, %17734 ], [ %11218, %11877 ], [ %21547, %22206 ], [ %20214, %20873 ], [ %.024171, %21517 ], [ %21186, %21180 ], [ %20214, %lean_dec.exit25750 ], [ %20214, %lean_dec.exit25747 ], [ %.024188, %22850 ], [ %22519, %22513 ], [ %21547, %lean_dec.exit25733 ], [ %21547, %lean_dec.exit25730 ], [ %.024202, %24192 ], [ %23861, %23855 ], [ %22889, %lean_dec.exit25716 ], [ %22889, %lean_dec.exit25713 ], [ %.024304, %29314 ], [ %.024248, %26798 ], [ %.024225, %lean_dec.exit25674 ], [ %.024217, %lean_dec.exit25694 ], [ %.024260, %27181 ], [ %.024237, %26424 ], [ %.024281, %lean_dec.exit25616 ], [ %.024273, %lean_dec.exit25636 ], [ %.024315, %29697 ], [ %.024293, %28940 ], [ %.024335, %lean_dec.exit25558 ], [ %.024327, %lean_dec.exit25578 ], [ %.024368, %32310 ], [ %.024347, %31553 ], [ %.024465, %37608 ], [ %.024412, %35072 ], [ %.024390, %lean_dec.exit25494 ], [ %.024382, %lean_dec.exit25514 ], [ %.024422, %35455 ], [ %.024402, %34698 ], [ %.024441, %lean_dec.exit25436 ], [ %.024433, %lean_dec.exit25456 ], [ %.024478, %37991 ], [ %.024453, %37234 ], [ %.024497, %lean_dec.exit25378 ], [ %.024489, %lean_dec.exit25398 ], [ %.024534, %40922 ], [ %.024510, %40115 ], [ %.024580, %45384 ], [ %.024557, %43093 ], [ %48523, %49182 ], [ %47141, %47800 ], [ %45808, %46467 ], [ %.024597, %47111 ], [ %46780, %46774 ], [ %45808, %lean_dec.exit25264 ], [ %45808, %lean_dec.exit25261 ], [ %.024466, %48444 ], [ %48113, %48107 ], [ %47141, %lean_dec.exit25247 ], [ %47141, %lean_dec.exit25244 ], [ %.024207, %49854 ], [ %49495, %49489 ], [ %48523, %lean_dec.exit25230 ], [ %48523, %lean_dec.exit25227 ], [ %.0, %51751 ], [ %.024081, %50714 ], [ %.024014, %51110 ], [ %18589, %19248 ], [ %2406, %lean_dec.exit26077 ], [ %2406, %lean_dec.exit26080 ], [ %3378, %3372 ], [ %.023975, %3709 ], [ %3909, %lean_dec.exit26041 ], [ %3909, %lean_dec.exit26044 ], [ %4881, %4875 ], [ %.023988, %5212 ], [ %9715, %lean_dec.exit25944 ], [ %9715, %lean_dec.exit25947 ], [ %10687, %10681 ], [ %.024057, %11018 ], [ %11218, %lean_dec.exit25908 ], [ %11218, %lean_dec.exit25911 ], [ %12190, %12184 ], [ %.024072, %12521 ], [ %17075, %lean_dec.exit25811 ], [ %17075, %lean_dec.exit25814 ], [ %18047, %18041 ], [ %.024141, %18378 ], [ %18589, %lean_dec.exit25775 ], [ %18589, %lean_dec.exit25778 ], [ %19561, %19555 ], [ %.024155, %19892 ], [ %41147, %lean_dec.exit25322 ], [ %41147, %lean_dec.exit25325 ], [ %42119, %42113 ], [ %.024549, %42478 ], [ %43241, %lean_dec.exit25292 ], [ %43241, %lean_dec.exit25295 ], [ %44235, %lean_alloc_ctor.exit40482 ], [ %.024571, %44769 ], [ %43241, %43900 ]
+  %.133 = phi ptr [ %.024008, %6821 ], [ %6490, %6484 ], [ %5518, %lean_dec.exit26016 ], [ %5518, %lean_dec.exit26013 ], [ %5518, %6177 ], [ %.024027, %8154 ], [ %7823, %7817 ], [ %6851, %lean_dec.exit25999 ], [ %6851, %lean_dec.exit25996 ], [ %6851, %7510 ], [ %.024041, %9496 ], [ %9165, %9159 ], [ %8193, %lean_dec.exit25982 ], [ %8193, %lean_dec.exit25979 ], [ %8193, %8852 ], [ %.024094, %14130 ], [ %13799, %13793 ], [ %12827, %lean_dec.exit25883 ], [ %12827, %lean_dec.exit25880 ], [ %12827, %13486 ], [ %.024108, %15463 ], [ %15132, %15126 ], [ %14160, %lean_dec.exit25866 ], [ %14160, %lean_dec.exit25863 ], [ %14160, %14819 ], [ %.024123, %16805 ], [ %16474, %16468 ], [ %15502, %lean_dec.exit25849 ], [ %15502, %lean_dec.exit25846 ], [ %15502, %16161 ], [ %.024171, %21517 ], [ %21186, %21180 ], [ %20214, %lean_dec.exit25750 ], [ %20214, %lean_dec.exit25747 ], [ %20214, %20873 ], [ %.024188, %22850 ], [ %22519, %22513 ], [ %21547, %lean_dec.exit25733 ], [ %21547, %lean_dec.exit25730 ], [ %21547, %22206 ], [ %.024202, %24192 ], [ %23861, %23855 ], [ %22889, %lean_dec.exit25716 ], [ %22889, %lean_dec.exit25713 ], [ %22889, %23548 ], [ %.024217, %lean_dec.exit25694 ], [ %.024225, %lean_dec.exit25674 ], [ %.024260, %27181 ], [ %.024237, %26424 ], [ %.024248, %26798 ], [ %.024273, %lean_dec.exit25636 ], [ %.024281, %lean_dec.exit25616 ], [ %.024315, %29697 ], [ %.024293, %28940 ], [ %.024304, %29314 ], [ %.024327, %lean_dec.exit25578 ], [ %.024335, %lean_dec.exit25558 ], [ %.024368, %32310 ], [ %.024347, %31553 ], [ %.024358, %31927 ], [ %.024382, %lean_dec.exit25514 ], [ %.024390, %lean_dec.exit25494 ], [ %.024422, %35455 ], [ %.024402, %34698 ], [ %.024412, %35072 ], [ %.024433, %lean_dec.exit25456 ], [ %.024441, %lean_dec.exit25436 ], [ %.024478, %37991 ], [ %.024453, %37234 ], [ %.024465, %37608 ], [ %.024489, %lean_dec.exit25398 ], [ %.024497, %lean_dec.exit25378 ], [ %.024534, %40922 ], [ %.024510, %40115 ], [ %.024522, %40489 ], [ %.024557, %43093 ], [ %.024580, %45384 ], [ %.024597, %47111 ], [ %46780, %46774 ], [ %45808, %lean_dec.exit25264 ], [ %45808, %lean_dec.exit25261 ], [ %45808, %46467 ], [ %.024466, %48444 ], [ %48113, %48107 ], [ %47141, %lean_dec.exit25247 ], [ %47141, %lean_dec.exit25244 ], [ %47141, %47800 ], [ %.024207, %49854 ], [ %49495, %49489 ], [ %48523, %lean_dec.exit25230 ], [ %48523, %lean_dec.exit25227 ], [ %48523, %49182 ], [ %.0, %51751 ], [ %.024081, %50714 ], [ %.024014, %51110 ], [ %2406, %3065 ], [ %2406, %lean_dec.exit26077 ], [ %2406, %lean_dec.exit26080 ], [ %3378, %3372 ], [ %.023975, %3709 ], [ %3909, %4568 ], [ %3909, %lean_dec.exit26041 ], [ %3909, %lean_dec.exit26044 ], [ %4881, %4875 ], [ %.023988, %5212 ], [ %9715, %10374 ], [ %9715, %lean_dec.exit25944 ], [ %9715, %lean_dec.exit25947 ], [ %10687, %10681 ], [ %.024057, %11018 ], [ %11218, %11877 ], [ %11218, %lean_dec.exit25908 ], [ %11218, %lean_dec.exit25911 ], [ %12190, %12184 ], [ %.024072, %12521 ], [ %17075, %17734 ], [ %17075, %lean_dec.exit25811 ], [ %17075, %lean_dec.exit25814 ], [ %18047, %18041 ], [ %.024141, %18378 ], [ %18589, %19248 ], [ %18589, %lean_dec.exit25775 ], [ %18589, %lean_dec.exit25778 ], [ %19561, %19555 ], [ %.024155, %19892 ], [ %41147, %41806 ], [ %41147, %lean_dec.exit25322 ], [ %41147, %lean_dec.exit25325 ], [ %42119, %42113 ], [ %.024549, %42478 ], [ %43241, %43900 ], [ %43241, %lean_dec.exit25292 ], [ %43241, %lean_dec.exit25295 ], [ %44235, %lean_alloc_ctor.exit40482 ], [ %.024571, %44769 ]
   ret ptr %.133
 }
 
@@ -257540,7 +257540,7 @@ lean_dec.exit50:                                  ; preds = %lean_dec.exit54.thr
   br label %lean_dec.exit51
 
 lean_dec.exit51:                                  ; preds = %lean_dec.exit50, %89, %91, %92, %lean_dec.exit52, %72, %74, %75
-  %.0 = phi ptr [ %66, %lean_dec.exit52 ], [ %66, %75 ], [ %66, %74 ], [ %66, %72 ], [ %83, %92 ], [ %83, %91 ], [ %83, %89 ], [ %83, %lean_dec.exit50 ]
+  %.0 = phi ptr [ %66, %75 ], [ %66, %74 ], [ %66, %72 ], [ %66, %lean_dec.exit52 ], [ %83, %92 ], [ %83, %91 ], [ %83, %89 ], [ %83, %lean_dec.exit50 ]
   ret ptr %.0
 }
 
@@ -261740,7 +261740,7 @@ lean_dec.exit19:                                  ; preds = %47, %46, %44, %lean
   br label %lean_dec.exit.thread
 
 lean_dec.exit.thread:                             ; preds = %lean_obj_tag.exit, %48, %52, %54, %55
-  %.1 = phi i8 [ 1, %48 ], [ 1, %55 ], [ 1, %54 ], [ 1, %52 ], [ 0, %lean_obj_tag.exit ]
+  %.1 = phi i8 [ 1, %55 ], [ 1, %54 ], [ 1, %52 ], [ 1, %48 ], [ 0, %lean_obj_tag.exit ]
   ret i8 %.1
 }
 
@@ -262714,7 +262714,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.022) #8
   br label %lean_dec.exit29.backedge
 
-76:                                               ; preds = %lean_dec.exit30, %29, %28, %26
+76:                                               ; preds = %29, %28, %26, %lean_dec.exit30
   ret ptr %.026
 }
 
@@ -262745,7 +262745,7 @@ define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Firefox_Profile_e
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %10, %1
-  %.2.i = phi ptr [ %15, %14 ], [ %5, %1 ], [ %13, %10 ]
+  %.2.i = phi ptr [ %5, %1 ], [ %13, %10 ], [ %15, %14 ]
   %16 = tail call ptr @lean_mk_array(ptr noundef %.2.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %17 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_Firefox_Profile_export___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, ptr noundef %16)
   ret ptr %17
@@ -262829,7 +262829,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_box_uint64.exi
   br i1 %.not94, label %40, label %36
 
 common.ret108:                                    ; preds = %lean_box_uint64.exit78, %lean_alloc_ctor.exit89, %lean_alloc_ctor.exit87, %lean_alloc_ctor.exit, %36
-  %common.ret108.op = phi ptr [ %2, %36 ], [ %93, %lean_alloc_ctor.exit87 ], [ %21, %lean_alloc_ctor.exit ], [ %114, %lean_alloc_ctor.exit89 ], [ %2, %lean_box_uint64.exit78 ]
+  %common.ret108.op = phi ptr [ %2, %36 ], [ %21, %lean_alloc_ctor.exit ], [ %2, %lean_box_uint64.exit78 ], [ %93, %lean_alloc_ctor.exit87 ], [ %114, %lean_alloc_ctor.exit89 ]
   ret ptr %common.ret108.op
 
 36:                                               ; preds = %34
@@ -263340,7 +263340,7 @@ lean_inc.exit265:                                 ; preds = %84, %91, %90, %88, 
   br label %lean_dec.exit254
 
 lean_dec.exit254:                                 ; preds = %103, %107, %116, %115, %113
-  %.0.i242406 = phi ptr [ %110, %116 ], [ %110, %113 ], [ %110, %115 ], [ %108, %107 ], [ %106, %103 ]
+  %.0.i242406 = phi ptr [ %110, %113 ], [ %110, %115 ], [ %110, %116 ], [ %108, %107 ], [ %106, %103 ]
   tail call void @lean_inc_heartbeat() #8
   %117 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #8
   %118 = icmp eq ptr %117, null
@@ -263515,7 +263515,7 @@ lean_dec.exit252.thread:                          ; preds = %lean_dec.exit253
 lean_dec.exit251:                                 ; preds = %185
   br i1 %180, label %203, label %187
 
-187:                                              ; preds = %183, %186, %lean_dec.exit252.thread, %lean_dec.exit251
+187:                                              ; preds = %186, %183, %lean_dec.exit252.thread, %lean_dec.exit251
   %.val.i327 = load i64, ptr %173, align 8, !tbaa !14
   %188 = shl i64 %.val.i327, 1
   %189 = or disjoint i64 %188, 1
@@ -263540,14 +263540,14 @@ lean_dec.exit251:                                 ; preds = %185
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Firefox_Profile_export___spec__3.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Firefox_Profile_export___spec__3.exit: ; preds = %187, %195, %199
-  %.2.i.i = phi ptr [ %200, %199 ], [ %190, %187 ], [ %198, %195 ]
+  %.2.i.i = phi ptr [ %190, %187 ], [ %198, %195 ], [ %200, %199 ]
   %201 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %202 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_Firefox_Profile_export___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i, ptr noundef %201)
   store ptr %202, ptr %65, align 8, !tbaa !4
   store ptr %.0.i242406, ptr %63, align 8, !tbaa !4
   br label %lean_dec.exit257
 
-203:                                              ; preds = %183, %186, %lean_dec.exit252.thread, %lean_dec.exit251
+203:                                              ; preds = %186, %183, %lean_dec.exit252.thread, %lean_dec.exit251
   store ptr %.0.i.i, ptr %65, align 8, !tbaa !4
   store ptr %.0.i242406, ptr %63, align 8, !tbaa !4
   br label %lean_dec.exit257
@@ -263714,7 +263714,7 @@ lean_array_uset.exit345:                          ; preds = %lean_ensure_exclusi
   br label %lean_dec.exit250
 
 lean_dec.exit250:                                 ; preds = %257, %255, %267, %266, %264
-  %.1.i231411 = phi ptr [ %261, %267 ], [ %261, %264 ], [ %261, %266 ], [ inttoptr (i64 1 to ptr), %255 ], [ %259, %257 ]
+  %.1.i231411 = phi ptr [ %261, %264 ], [ %261, %266 ], [ %261, %267 ], [ inttoptr (i64 1 to ptr), %255 ], [ %259, %257 ]
   store ptr %.0.i.i342, ptr %65, align 8, !tbaa !4
   store ptr %.1.i231411, ptr %63, align 8, !tbaa !4
   br label %lean_dec.exit257
@@ -263896,7 +263896,7 @@ lean_inc.exit260:                                 ; preds = %312, %319, %318, %3
   br label %lean_dec.exit247
 
 lean_dec.exit247:                                 ; preds = %329, %333, %342, %341, %339
-  %.0.i419 = phi ptr [ %336, %342 ], [ %336, %339 ], [ %336, %341 ], [ %334, %333 ], [ %332, %329 ]
+  %.0.i419 = phi ptr [ %336, %339 ], [ %336, %341 ], [ %336, %342 ], [ %334, %333 ], [ %332, %329 ]
   tail call void @lean_inc_heartbeat() #8
   %343 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #8
   %344 = icmp eq ptr %343, null
@@ -264071,7 +264071,7 @@ lean_dec.exit245.thread:                          ; preds = %lean_dec.exit246
 lean_dec.exit244:                                 ; preds = %411
   br i1 %406, label %435, label %413
 
-413:                                              ; preds = %409, %412, %lean_dec.exit245.thread, %lean_dec.exit244
+413:                                              ; preds = %412, %409, %lean_dec.exit245.thread, %lean_dec.exit244
   %.val.i374 = load i64, ptr %399, align 8, !tbaa !14
   %414 = shl i64 %.val.i374, 1
   %415 = or disjoint i64 %414, 1
@@ -264096,7 +264096,7 @@ lean_dec.exit244:                                 ; preds = %411
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Firefox_Profile_export___spec__3.exit377
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Firefox_Profile_export___spec__3.exit377: ; preds = %413, %421, %425
-  %.2.i.i376 = phi ptr [ %426, %425 ], [ %416, %413 ], [ %424, %421 ]
+  %.2.i.i376 = phi ptr [ %416, %413 ], [ %424, %421 ], [ %426, %425 ]
   %427 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i376, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %428 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_Firefox_Profile_export___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i366, ptr noundef %427)
   tail call void @lean_inc_heartbeat() #8
@@ -264118,7 +264118,7 @@ lean_alloc_ctor.exit378:                          ; preds = %l_Std_DHashMap_Inte
   store ptr %428, ptr %434, align 8, !tbaa !4
   br label %lean_dec.exit257
 
-435:                                              ; preds = %409, %412, %lean_dec.exit245.thread, %lean_dec.exit244
+435:                                              ; preds = %412, %409, %lean_dec.exit245.thread, %lean_dec.exit244
   tail call void @lean_inc_heartbeat() #8
   %436 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %437 = icmp eq ptr %436, null
@@ -264297,7 +264297,7 @@ lean_array_uset.exit397:                          ; preds = %lean_ensure_exclusi
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %493, %491, %503, %502, %500
-  %.1.i424 = phi ptr [ %497, %503 ], [ %497, %500 ], [ %497, %502 ], [ inttoptr (i64 1 to ptr), %491 ], [ %495, %493 ]
+  %.1.i424 = phi ptr [ %497, %500 ], [ %497, %502 ], [ %497, %503 ], [ inttoptr (i64 1 to ptr), %491 ], [ %495, %493 ]
   tail call void @lean_inc_heartbeat() #8
   %504 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %505 = icmp eq ptr %504, null
@@ -264338,7 +264338,7 @@ lean_alloc_ctor.exit399:                          ; preds = %510
   br label %lean_dec.exit257
 
 lean_dec.exit257:                                 ; preds = %lean_dec.exit250, %268, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Firefox_Profile_export___spec__3.exit, %203, %lean_alloc_ctor.exit398, %lean_alloc_ctor.exit399, %lean_alloc_ctor.exit378, %lean_alloc_ctor.exit379
-  %.1217 = phi ptr [ %511, %lean_alloc_ctor.exit399 ], [ %.0216459, %203 ], [ %.0216459, %lean_dec.exit250 ], [ %.0216459, %268 ], [ %.0216459, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Firefox_Profile_export___spec__3.exit ], [ %436, %lean_alloc_ctor.exit379 ], [ %429, %lean_alloc_ctor.exit378 ], [ %504, %lean_alloc_ctor.exit398 ]
+  %.1217 = phi ptr [ %.0216459, %lean_dec.exit250 ], [ %.0216459, %268 ], [ %.0216459, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Firefox_Profile_export___spec__3.exit ], [ %.0216459, %203 ], [ %429, %lean_alloc_ctor.exit378 ], [ %436, %lean_alloc_ctor.exit379 ], [ %504, %lean_alloc_ctor.exit398 ], [ %511, %lean_alloc_ctor.exit399 ]
   %.1215 = add nuw i64 %.0214460, 1
   %exitcond.not = icmp eq i64 %.1215, %6
   br i1 %exitcond.not, label %._crit_edge, label %31
@@ -265718,7 +265718,7 @@ lean_dec.exit442:                                 ; preds = %390, %389, %387, %l
   br label %lean_dec.exit441
 
 lean_dec.exit441:                                 ; preds = %395, %399, %408, %407, %405
-  %.0.i425798 = phi ptr [ %402, %408 ], [ %402, %405 ], [ %402, %407 ], [ %400, %399 ], [ %398, %395 ]
+  %.0.i425798 = phi ptr [ %402, %405 ], [ %402, %407 ], [ %402, %408 ], [ %400, %399 ], [ %398, %395 ]
   %409 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %410 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -266384,7 +266384,7 @@ lean_dec.exit436:                                 ; preds = %655, %654, %652, %l
   br label %lean_dec.exit435
 
 lean_dec.exit435:                                 ; preds = %660, %664, %673, %672, %670
-  %.0.i422800 = phi ptr [ %667, %673 ], [ %667, %670 ], [ %667, %672 ], [ %665, %664 ], [ %663, %660 ]
+  %.0.i422800 = phi ptr [ %667, %670 ], [ %667, %672 ], [ %667, %673 ], [ %665, %664 ], [ %663, %660 ]
   %674 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %675 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -267393,7 +267393,7 @@ lean_dec.exit429:                                 ; preds = %1050, %1049, %1047,
   br label %lean_dec.exit428
 
 lean_dec.exit428:                                 ; preds = %1055, %1059, %1068, %1067, %1065
-  %.0.i802 = phi ptr [ %1062, %1068 ], [ %1062, %1065 ], [ %1062, %1067 ], [ %1060, %1059 ], [ %1058, %1055 ]
+  %.0.i802 = phi ptr [ %1062, %1065 ], [ %1062, %1067 ], [ %1062, %1068 ], [ %1060, %1059 ], [ %1058, %1055 ]
   %1069 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1070 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -267612,8 +267612,8 @@ lean_inc.exit:                                    ; preds = %1147, %1146, %1144,
   br label %lean_dec.exit455
 
 lean_dec.exit455:                                 ; preds = %lean_inc.exit, %1151, %1153, %1154, %lean_inc.exit478, %742, %744, %745, %lean_inc.exit495, %463, %465, %466, %lean_inc.exit504, %231, %233, %234, %lean_inc.exit507, %143, %145, %146
-  %.1409 = phi ptr [ %432, %lean_inc.exit495 ], [ %200, %lean_inc.exit504 ], [ %112, %lean_inc.exit507 ], [ %711, %lean_inc.exit478 ], [ %112, %146 ], [ %112, %145 ], [ %112, %143 ], [ %200, %234 ], [ %200, %233 ], [ %200, %231 ], [ %432, %466 ], [ %432, %465 ], [ %432, %463 ], [ %711, %745 ], [ %711, %744 ], [ %711, %742 ], [ %1120, %1154 ], [ %1120, %1153 ], [ %1120, %1151 ], [ %1120, %lean_inc.exit ]
-  %.1403 = phi ptr [ %451, %lean_inc.exit495 ], [ %219, %lean_inc.exit504 ], [ %131, %lean_inc.exit507 ], [ %730, %lean_inc.exit478 ], [ %131, %146 ], [ %131, %145 ], [ %131, %143 ], [ %219, %234 ], [ %219, %233 ], [ %219, %231 ], [ %451, %466 ], [ %451, %465 ], [ %451, %463 ], [ %730, %745 ], [ %730, %744 ], [ %730, %742 ], [ %1139, %1154 ], [ %1139, %1153 ], [ %1139, %1151 ], [ %1139, %lean_inc.exit ]
+  %.1409 = phi ptr [ %112, %146 ], [ %112, %145 ], [ %112, %143 ], [ %112, %lean_inc.exit507 ], [ %200, %234 ], [ %200, %233 ], [ %200, %231 ], [ %200, %lean_inc.exit504 ], [ %432, %466 ], [ %432, %465 ], [ %432, %463 ], [ %432, %lean_inc.exit495 ], [ %711, %745 ], [ %711, %744 ], [ %711, %742 ], [ %711, %lean_inc.exit478 ], [ %1120, %1154 ], [ %1120, %1153 ], [ %1120, %1151 ], [ %1120, %lean_inc.exit ]
+  %.1403 = phi ptr [ %131, %146 ], [ %131, %145 ], [ %131, %143 ], [ %131, %lean_inc.exit507 ], [ %219, %234 ], [ %219, %233 ], [ %219, %231 ], [ %219, %lean_inc.exit504 ], [ %451, %466 ], [ %451, %465 ], [ %451, %463 ], [ %451, %lean_inc.exit495 ], [ %730, %745 ], [ %730, %744 ], [ %730, %742 ], [ %730, %lean_inc.exit478 ], [ %1139, %1154 ], [ %1139, %1153 ], [ %1139, %1151 ], [ %1139, %lean_inc.exit ]
   %.1401 = add nuw i64 %.0400905, 1
   %exitcond.not = icmp eq i64 %.1401, %4
   br i1 %exitcond.not, label %._crit_edge, label %13
@@ -268581,7 +268581,7 @@ lean_dec.exit:                                    ; preds = %325, %324, %322, %l
   br label %327
 
 327:                                              ; preds = %lean_obj_tag.exit204, %123, %lean_obj_tag.exit, %5, %lean_dec.exit104, %lean_dec.exit106, %lean_dec.exit, %lean_dec.exit100, %lean_dec.exit112
-  %.0.shrunk = phi i1 [ %326, %lean_dec.exit ], [ %77, %lean_dec.exit112 ], [ false, %5 ], [ false, %lean_obj_tag.exit ], [ %195, %lean_dec.exit106 ], [ %223, %lean_dec.exit104 ], [ false, %123 ], [ %291, %lean_dec.exit100 ], [ false, %lean_obj_tag.exit204 ]
+  %.0.shrunk = phi i1 [ %77, %lean_dec.exit112 ], [ %223, %lean_dec.exit104 ], [ %195, %lean_dec.exit106 ], [ %291, %lean_dec.exit100 ], [ %326, %lean_dec.exit ], [ false, %5 ], [ false, %lean_obj_tag.exit ], [ false, %123 ], [ false, %lean_obj_tag.exit204 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -268903,15 +268903,15 @@ lean_dec.exit45:                                  ; preds = %lean_nat_le.exit.th
   br label %124
 
 lean_dec.exit48:                                  ; preds = %93, %97, %104, %106, %107
-  %.141 = phi ptr [ %101, %107 ], [ %101, %106 ], [ %101, %104 ], [ %98, %97 ], [ %96, %93 ]
-  %.138 = phi ptr [ %100, %107 ], [ %100, %106 ], [ %100, %104 ], [ %89, %97 ], [ %89, %93 ]
+  %.141 = phi ptr [ %101, %104 ], [ %101, %106 ], [ %101, %107 ], [ %98, %97 ], [ %96, %93 ]
+  %.138 = phi ptr [ %100, %104 ], [ %100, %106 ], [ %100, %107 ], [ %89, %97 ], [ %89, %93 ]
   tail call void @lean_inc_heartbeat() #8
   %122 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #8
   %123 = icmp eq ptr %122, null
   br i1 %123, label %._crit_edge, label %lean_box_float.exit
 
-124:                                              ; preds = %lean_dec.exit49, %44, %43, %41, %121, %120, %118, %lean_dec.exit45
-  %.1.ph = phi ptr [ %63, %lean_dec.exit45 ], [ %63, %118 ], [ %63, %120 ], [ %63, %121 ], [ %.037128, %41 ], [ %.037128, %43 ], [ %.037128, %44 ], [ %.037128, %lean_dec.exit49 ]
+124:                                              ; preds = %44, %43, %41, %lean_dec.exit49, %121, %120, %118, %lean_dec.exit45
+  %.1.ph = phi ptr [ %63, %lean_dec.exit45 ], [ %63, %118 ], [ %63, %120 ], [ %63, %121 ], [ %.037128, %lean_dec.exit49 ], [ %.037128, %41 ], [ %.037128, %43 ], [ %.037128, %44 ]
   ret ptr %.1.ph
 }
 
@@ -269312,15 +269312,15 @@ lean_dec.exit45:                                  ; preds = %lean_nat_le.exit.th
   br label %124
 
 lean_dec.exit48:                                  ; preds = %93, %97, %104, %106, %107
-  %.141 = phi ptr [ %101, %107 ], [ %101, %106 ], [ %101, %104 ], [ %98, %97 ], [ %96, %93 ]
-  %.138 = phi ptr [ %100, %107 ], [ %100, %106 ], [ %100, %104 ], [ %89, %97 ], [ %89, %93 ]
+  %.141 = phi ptr [ %101, %104 ], [ %101, %106 ], [ %101, %107 ], [ %98, %97 ], [ %96, %93 ]
+  %.138 = phi ptr [ %100, %104 ], [ %100, %106 ], [ %100, %107 ], [ %89, %97 ], [ %89, %93 ]
   tail call void @lean_inc_heartbeat() #8
   %122 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #8
   %123 = icmp eq ptr %122, null
   br i1 %123, label %._crit_edge, label %lean_box_float.exit
 
-124:                                              ; preds = %lean_dec.exit49, %44, %43, %41, %121, %120, %118, %lean_dec.exit45
-  %.1.ph = phi ptr [ %63, %lean_dec.exit45 ], [ %63, %118 ], [ %63, %120 ], [ %63, %121 ], [ %.037128, %41 ], [ %.037128, %43 ], [ %.037128, %44 ], [ %.037128, %lean_dec.exit49 ]
+124:                                              ; preds = %44, %43, %41, %lean_dec.exit49, %121, %120, %118, %lean_dec.exit45
+  %.1.ph = phi ptr [ %63, %lean_dec.exit45 ], [ %63, %118 ], [ %63, %120 ], [ %63, %121 ], [ %.037128, %lean_dec.exit49 ], [ %.037128, %41 ], [ %.037128, %43 ], [ %.037128, %44 ]
   ret ptr %.1.ph
 }
 
@@ -271100,8 +271100,8 @@ lean_nat_le.exit.thread:                          ; preds = %62
   br label %lean_dec.exit43.backedge
 
 lean_dec.exit43.backedge:                         ; preds = %74, %78, %85, %87, %88
-  %.035.be = phi ptr [ %82, %88 ], [ %82, %85 ], [ %82, %87 ], [ %79, %78 ], [ %77, %74 ]
-  %.032.be = phi ptr [ %81, %88 ], [ %81, %85 ], [ %81, %87 ], [ %70, %78 ], [ %70, %74 ]
+  %.035.be = phi ptr [ %82, %85 ], [ %82, %87 ], [ %82, %88 ], [ %79, %78 ], [ %77, %74 ]
+  %.032.be = phi ptr [ %81, %85 ], [ %81, %87 ], [ %81, %88 ], [ %70, %78 ], [ %70, %74 ]
   br label %lean_dec.exit43
 
 78:                                               ; preds = %69
@@ -271171,7 +271171,7 @@ lean_dec.exit40:                                  ; preds = %lean_nat_le.exit.th
   br label %.thread
 
 .thread:                                          ; preds = %lean_nat_lt.exit, %lean_nat_lt.exit.thread, %21, %20, %18, %102, %101, %99, %lean_dec.exit40
-  %.1.ph = phi ptr [ %44, %lean_dec.exit40 ], [ %44, %99 ], [ %44, %101 ], [ %44, %102 ], [ %.032, %21 ], [ %.032, %18 ], [ %.032, %20 ], [ %.032, %lean_nat_lt.exit.thread ], [ %.032, %lean_nat_lt.exit ]
+  %.1.ph = phi ptr [ %44, %lean_dec.exit40 ], [ %44, %99 ], [ %44, %101 ], [ %44, %102 ], [ %.032, %18 ], [ %.032, %20 ], [ %.032, %21 ], [ %.032, %lean_nat_lt.exit.thread ], [ %.032, %lean_nat_lt.exit ]
   ret ptr %.1.ph
 }
 
@@ -271808,7 +271808,7 @@ lean_alloc_ctor.exit247:                          ; preds = %lean_alloc_ctor.exi
   br label %242
 
 lean_nat_eq.exit:                                 ; preds = %l_Array_foldlMUnsafe_fold___at_Lean_Firefox_Profile_export___spec__18.exit, %125, %127, %128, %lean_dec.exit169, %94, %96, %97
-  %.0155 = phi ptr [ %64, %94 ], [ %64, %lean_dec.exit169 ], [ %64, %97 ], [ %64, %96 ], [ %120, %128 ], [ %120, %127 ], [ %120, %125 ], [ %120, %l_Array_foldlMUnsafe_fold___at_Lean_Firefox_Profile_export___spec__18.exit ]
+  %.0155 = phi ptr [ %64, %97 ], [ %64, %96 ], [ %64, %94 ], [ %64, %lean_dec.exit169 ], [ %120, %128 ], [ %120, %127 ], [ %120, %125 ], [ %120, %l_Array_foldlMUnsafe_fold___at_Lean_Firefox_Profile_export___spec__18.exit ]
   %229 = getelementptr i8, ptr %.0155, i64 8
   %.0155.val = load i64, ptr %229, align 8, !tbaa !14
   %230 = shl i64 %.0155.val, 1
@@ -273555,7 +273555,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit990
 
 lean_inc.exit990:                                 ; preds = %148, %152, %160, %159, %157
-  %.0.i8731628 = phi ptr [ %155, %160 ], [ %155, %157 ], [ %155, %159 ], [ %153, %152 ], [ %151, %148 ]
+  %.0.i8731628 = phi ptr [ %155, %157 ], [ %155, %159 ], [ %155, %160 ], [ %153, %152 ], [ %151, %148 ]
   %161 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr %0, ptr %162, align 8, !tbaa !4
@@ -273666,14 +273666,14 @@ lean_dec.exit921.thread:                          ; preds = %lean_dec.exit922
 lean_dec.exit920:                                 ; preds = %207
   br i1 %202, label %212, label %209
 
-209:                                              ; preds = %205, %208, %lean_dec.exit921.thread, %lean_dec.exit920
+209:                                              ; preds = %208, %205, %lean_dec.exit921.thread, %lean_dec.exit920
   %210 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38(ptr noundef nonnull %165)
   store ptr %210, ptr %54, align 8, !tbaa !4
   store ptr %.0.i8731628, ptr %52, align 8, !tbaa !4
   %211 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %2224
 
-212:                                              ; preds = %205, %208, %lean_dec.exit921.thread, %lean_dec.exit920
+212:                                              ; preds = %208, %205, %lean_dec.exit921.thread, %lean_dec.exit920
   store ptr %165, ptr %54, align 8, !tbaa !4
   store ptr %.0.i8731628, ptr %52, align 8, !tbaa !4
   %213 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
@@ -274142,7 +274142,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit977
 
 lean_inc.exit977:                                 ; preds = %383, %387, %395, %394, %392
-  %.0.i8701634 = phi ptr [ %390, %395 ], [ %390, %392 ], [ %390, %394 ], [ %388, %387 ], [ %386, %383 ]
+  %.0.i8701634 = phi ptr [ %390, %392 ], [ %390, %394 ], [ %390, %395 ], [ %388, %387 ], [ %386, %383 ]
   %396 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   store ptr %0, ptr %397, align 8, !tbaa !4
@@ -274253,7 +274253,7 @@ lean_dec.exit917.thread:                          ; preds = %lean_dec.exit918
 lean_dec.exit916:                                 ; preds = %442
   br i1 %437, label %447, label %444
 
-444:                                              ; preds = %440, %443, %lean_dec.exit917.thread, %lean_dec.exit916
+444:                                              ; preds = %443, %440, %lean_dec.exit917.thread, %lean_dec.exit916
   %445 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38(ptr noundef nonnull %400)
   store ptr %445, ptr %54, align 8, !tbaa !4
   store ptr %.0.i8701634, ptr %52, align 8, !tbaa !4
@@ -274261,7 +274261,7 @@ lean_dec.exit916:                                 ; preds = %442
   %446 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %2224
 
-447:                                              ; preds = %440, %443, %lean_dec.exit917.thread, %lean_dec.exit916
+447:                                              ; preds = %443, %440, %lean_dec.exit917.thread, %lean_dec.exit916
   store ptr %400, ptr %54, align 8, !tbaa !4
   store ptr %.0.i8701634, ptr %52, align 8, !tbaa !4
   store ptr %343, ptr %13, align 8, !tbaa !4
@@ -275002,7 +275002,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit964
 
 lean_inc.exit964:                                 ; preds = %720, %724, %732, %731, %729
-  %.0.i8671640 = phi ptr [ %727, %732 ], [ %727, %729 ], [ %727, %731 ], [ %725, %724 ], [ %723, %720 ]
+  %.0.i8671640 = phi ptr [ %727, %729 ], [ %727, %731 ], [ %727, %732 ], [ %725, %724 ], [ %723, %720 ]
   %733 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 8
   store ptr %0, ptr %734, align 8, !tbaa !4
@@ -275113,7 +275113,7 @@ lean_dec.exit913.thread:                          ; preds = %lean_dec.exit914
 lean_dec.exit912:                                 ; preds = %779
   br i1 %774, label %787, label %781
 
-781:                                              ; preds = %777, %780, %lean_dec.exit913.thread, %lean_dec.exit912
+781:                                              ; preds = %780, %777, %lean_dec.exit913.thread, %lean_dec.exit912
   %782 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38(ptr noundef nonnull %737)
   store ptr %782, ptr %54, align 8, !tbaa !4
   store ptr %.0.i8671640, ptr %52, align 8, !tbaa !4
@@ -275126,7 +275126,7 @@ lean_dec.exit912:                                 ; preds = %779
   %786 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %2224
 
-787:                                              ; preds = %777, %780, %lean_dec.exit913.thread, %lean_dec.exit912
+787:                                              ; preds = %780, %777, %lean_dec.exit913.thread, %lean_dec.exit912
   store ptr %737, ptr %54, align 8, !tbaa !4
   store ptr %.0.i8671640, ptr %52, align 8, !tbaa !4
   store ptr %.0822, ptr %13, align 8, !tbaa !4
@@ -276407,7 +276407,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit948
 
 lean_inc.exit948:                                 ; preds = %1262, %1266, %1274, %1273, %1271
-  %.0.i8641646 = phi ptr [ %1269, %1274 ], [ %1269, %1271 ], [ %1269, %1273 ], [ %1267, %1266 ], [ %1265, %1262 ]
+  %.0.i8641646 = phi ptr [ %1269, %1271 ], [ %1269, %1273 ], [ %1269, %1274 ], [ %1267, %1266 ], [ %1265, %1262 ]
   tail call void @lean_inc_heartbeat() #8
   %1275 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %1276 = icmp eq ptr %1275, null
@@ -276567,7 +276567,7 @@ lean_dec.exit899.thread:                          ; preds = %lean_dec.exit900
 lean_dec.exit898:                                 ; preds = %1338
   br i1 %1333, label %1353, label %1340
 
-1340:                                             ; preds = %1336, %1339, %lean_dec.exit899.thread, %lean_dec.exit898
+1340:                                             ; preds = %1339, %1336, %lean_dec.exit899.thread, %lean_dec.exit898
   %1341 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38(ptr noundef nonnull %.0.i.i1435)
   %1342 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %1343 = getelementptr inbounds nuw i8, ptr %1342, i64 8
@@ -276594,7 +276594,7 @@ lean_dec.exit898:                                 ; preds = %1338
   %1352 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %2224
 
-1353:                                             ; preds = %1336, %1339, %lean_dec.exit899.thread, %lean_dec.exit898
+1353:                                             ; preds = %1339, %1336, %lean_dec.exit899.thread, %lean_dec.exit898
   tail call void @lean_inc_heartbeat() #8
   %1354 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %1355 = icmp eq ptr %1354, null
@@ -278086,7 +278086,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit929
 
 lean_inc.exit929:                                 ; preds = %1903, %1907, %1915, %1914, %1912
-  %.0.i1652 = phi ptr [ %1910, %1915 ], [ %1910, %1912 ], [ %1910, %1914 ], [ %1908, %1907 ], [ %1906, %1903 ]
+  %.0.i1652 = phi ptr [ %1910, %1912 ], [ %1910, %1914 ], [ %1910, %1915 ], [ %1908, %1907 ], [ %1906, %1903 ]
   tail call void @lean_inc_heartbeat() #8
   %1916 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %1917 = icmp eq ptr %1916, null
@@ -278246,7 +278246,7 @@ lean_dec.exit885.thread:                          ; preds = %lean_dec.exit886
 lean_dec.exit884:                                 ; preds = %1979
   br i1 %1974, label %2024, label %1981
 
-1981:                                             ; preds = %1977, %1980, %lean_dec.exit885.thread, %lean_dec.exit884
+1981:                                             ; preds = %1980, %1977, %lean_dec.exit885.thread, %lean_dec.exit884
   %.val.i1593 = load i64, ptr %1967, align 8, !tbaa !14
   %1982 = shl i64 %.val.i1593, 1
   %1983 = or disjoint i64 %1982, 1
@@ -278271,7 +278271,7 @@ lean_dec.exit884:                                 ; preds = %1979
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__38.exit: ; preds = %1981, %1989, %1993
-  %.2.i.i = phi ptr [ %1994, %1993 ], [ %1984, %1981 ], [ %1992, %1989 ]
+  %.2.i.i = phi ptr [ %1984, %1981 ], [ %1992, %1989 ], [ %1994, %1993 ]
   %1995 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %1996 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__39(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i1585, ptr noundef %1995)
   %1997 = ptrtoint ptr %.0832 to i64
@@ -278342,7 +278342,7 @@ lean_alloc_ctor.exit1595:                         ; preds = %2017
   store i32 131096, ptr %2023, align 4
   br label %2224
 
-2024:                                             ; preds = %1977, %1980, %lean_dec.exit885.thread, %lean_dec.exit884
+2024:                                             ; preds = %1980, %1977, %lean_dec.exit885.thread, %lean_dec.exit884
   %2025 = ptrtoint ptr %.0832 to i64
   %2026 = and i64 %2025, 1
   %.not1683 = icmp eq i64 %2026, 0
@@ -279426,7 +279426,7 @@ lean_dec.exit.i2887:                              ; preds = %186, %185, %183, %1
   br label %lean_dec.exit2349
 
 lean_dec.exit2349:                                ; preds = %197, %196, %194, %lean_dec.exit.i2887, %205, %204, %202, %lean_array_get.exit2892.thread4047
-  %.1.i28854046 = phi ptr [ %199, %205 ], [ %176, %lean_array_get.exit2892.thread4047 ], [ %199, %202 ], [ %199, %204 ], [ %189, %lean_dec.exit.i2887 ], [ %189, %194 ], [ %189, %196 ], [ %189, %197 ]
+  %.1.i28854046 = phi ptr [ %176, %lean_array_get.exit2892.thread4047 ], [ %199, %202 ], [ %199, %204 ], [ %199, %205 ], [ %189, %lean_dec.exit.i2887 ], [ %189, %194 ], [ %189, %196 ], [ %189, %197 ]
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %207 = load ptr, ptr %206, align 8, !tbaa !4
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
@@ -279518,7 +279518,7 @@ lean_dec.exit.i2898:                              ; preds = %226, %225, %223, %2
   br label %lean_dec.exit2348
 
 lean_dec.exit2348:                                ; preds = %237, %236, %234, %lean_dec.exit.i2898, %245, %244, %242, %lean_array_get.exit2903.thread4050
-  %.1.i28964049 = phi ptr [ %239, %245 ], [ %216, %lean_array_get.exit2903.thread4050 ], [ %239, %242 ], [ %239, %244 ], [ %229, %lean_dec.exit.i2898 ], [ %229, %234 ], [ %229, %236 ], [ %229, %237 ]
+  %.1.i28964049 = phi ptr [ %216, %lean_array_get.exit2903.thread4050 ], [ %239, %242 ], [ %239, %244 ], [ %239, %245 ], [ %229, %lean_dec.exit.i2898 ], [ %229, %234 ], [ %229, %236 ], [ %229, %237 ]
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %247 = load ptr, ptr %246, align 8, !tbaa !4
   %248 = load ptr, ptr @l_String_instInhabited, align 8, !tbaa !4
@@ -279609,7 +279609,7 @@ lean_dec.exit.i2909:                              ; preds = %265, %264, %262, %2
   br label %lean_dec.exit2347
 
 lean_dec.exit2347:                                ; preds = %276, %275, %273, %lean_dec.exit.i2909, %284, %283, %281, %lean_array_get.exit2914.thread4053
-  %.1.i29074052 = phi ptr [ %278, %284 ], [ %255, %lean_array_get.exit2914.thread4053 ], [ %278, %281 ], [ %278, %283 ], [ %268, %lean_dec.exit.i2909 ], [ %268, %273 ], [ %268, %275 ], [ %268, %276 ]
+  %.1.i29074052 = phi ptr [ %255, %lean_array_get.exit2914.thread4053 ], [ %278, %281 ], [ %278, %283 ], [ %278, %284 ], [ %268, %lean_dec.exit.i2909 ], [ %268, %273 ], [ %268, %275 ], [ %268, %276 ]
   %285 = tail call ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_collideThreads_getStrIdx(ptr noundef %.1.i29074052, ptr noundef %.02024)
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 16
@@ -280248,7 +280248,7 @@ lean_dec.exit2341:                                ; preds = %535, %534, %532, %l
   br label %lean_dec.exit2340
 
 lean_dec.exit2340:                                ; preds = %540, %544, %553, %552, %550
-  %.0.i22294055 = phi ptr [ %547, %553 ], [ %547, %550 ], [ %547, %552 ], [ %545, %544 ], [ %543, %540 ]
+  %.0.i22294055 = phi ptr [ %547, %550 ], [ %547, %552 ], [ %547, %553 ], [ %545, %544 ], [ %543, %540 ]
   %554 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %555 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #8
@@ -280366,7 +280366,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit2500
 
 lean_inc.exit2500:                                ; preds = %590, %594, %602, %601, %599
-  %.0.i22264058 = phi ptr [ %597, %602 ], [ %597, %599 ], [ %597, %601 ], [ %595, %594 ], [ %593, %590 ]
+  %.0.i22264058 = phi ptr [ %597, %599 ], [ %597, %601 ], [ %597, %602 ], [ %595, %594 ], [ %593, %590 ]
   %603 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 8
   store ptr %318, ptr %604, align 8, !tbaa !4
@@ -280477,13 +280477,13 @@ lean_dec.exit2338.thread:                         ; preds = %lean_dec.exit2339
 lean_dec.exit2337:                                ; preds = %649
   br i1 %644, label %653, label %651
 
-651:                                              ; preds = %647, %650, %lean_dec.exit2338.thread, %lean_dec.exit2337
+651:                                              ; preds = %650, %647, %lean_dec.exit2338.thread, %lean_dec.exit2337
   %652 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3(ptr noundef nonnull %607)
   store ptr %652, ptr %366, align 8, !tbaa !4
   store ptr %.0.i22264058, ptr %364, align 8, !tbaa !4
   br label %lean_dec.exit2316
 
-653:                                              ; preds = %647, %650, %lean_dec.exit2338.thread, %lean_dec.exit2337
+653:                                              ; preds = %650, %647, %lean_dec.exit2338.thread, %lean_dec.exit2337
   store ptr %607, ptr %366, align 8, !tbaa !4
   store ptr %.0.i22264058, ptr %364, align 8, !tbaa !4
   br label %lean_dec.exit2316
@@ -281098,7 +281098,7 @@ lean_dec.exit2335:                                ; preds = %872, %871, %869, %l
   br label %lean_dec.exit2334
 
 lean_dec.exit2334:                                ; preds = %877, %881, %890, %889, %887
-  %.0.i22234063 = phi ptr [ %884, %890 ], [ %884, %887 ], [ %884, %889 ], [ %882, %881 ], [ %880, %877 ]
+  %.0.i22234063 = phi ptr [ %884, %887 ], [ %884, %889 ], [ %884, %890 ], [ %882, %881 ], [ %880, %877 ]
   %891 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %892 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #8
@@ -281248,7 +281248,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit2480
 
 lean_inc.exit2480:                                ; preds = %941, %945, %953, %952, %950
-  %.0.i22204066 = phi ptr [ %948, %953 ], [ %948, %950 ], [ %948, %952 ], [ %946, %945 ], [ %944, %941 ]
+  %.0.i22204066 = phi ptr [ %948, %950 ], [ %948, %952 ], [ %948, %953 ], [ %946, %945 ], [ %944, %941 ]
   %954 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 8
   store ptr %318, ptr %955, align 8, !tbaa !4
@@ -281359,14 +281359,14 @@ lean_dec.exit2332.thread:                         ; preds = %lean_dec.exit2333
 lean_dec.exit2331:                                ; preds = %1000
   br i1 %995, label %1004, label %1002
 
-1002:                                             ; preds = %998, %1001, %lean_dec.exit2332.thread, %lean_dec.exit2331
+1002:                                             ; preds = %1001, %998, %lean_dec.exit2332.thread, %lean_dec.exit2331
   %1003 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3(ptr noundef nonnull %958)
   store ptr %1003, ptr %366, align 8, !tbaa !4
   store ptr %.0.i22204066, ptr %364, align 8, !tbaa !4
   store ptr %904, ptr %307, align 8, !tbaa !4
   br label %lean_dec.exit2316
 
-1004:                                             ; preds = %998, %1001, %lean_dec.exit2332.thread, %lean_dec.exit2331
+1004:                                             ; preds = %1001, %998, %lean_dec.exit2332.thread, %lean_dec.exit2331
   store ptr %958, ptr %366, align 8, !tbaa !4
   store ptr %.0.i22204066, ptr %364, align 8, !tbaa !4
   store ptr %904, ptr %307, align 8, !tbaa !4
@@ -282239,7 +282239,7 @@ lean_dec.exit2329:                                ; preds = %1318, %1317, %1315,
   br label %lean_dec.exit2328
 
 lean_dec.exit2328:                                ; preds = %1323, %1327, %1336, %1335, %1333
-  %.0.i22174071 = phi ptr [ %1330, %1336 ], [ %1330, %1333 ], [ %1330, %1335 ], [ %1328, %1327 ], [ %1326, %1323 ]
+  %.0.i22174071 = phi ptr [ %1330, %1333 ], [ %1330, %1335 ], [ %1330, %1336 ], [ %1328, %1327 ], [ %1326, %1323 ]
   %1337 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1338 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #8
@@ -282400,7 +282400,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit2460
 
 lean_inc.exit2460:                                ; preds = %1392, %1396, %1404, %1403, %1401
-  %.0.i22144074 = phi ptr [ %1399, %1404 ], [ %1399, %1401 ], [ %1399, %1403 ], [ %1397, %1396 ], [ %1395, %1392 ]
+  %.0.i22144074 = phi ptr [ %1399, %1401 ], [ %1399, %1403 ], [ %1399, %1404 ], [ %1397, %1396 ], [ %1395, %1392 ]
   %1405 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
   %1406 = getelementptr inbounds nuw i8, ptr %1405, i64 8
   store ptr %318, ptr %1406, align 8, !tbaa !4
@@ -282511,7 +282511,7 @@ lean_dec.exit2326.thread:                         ; preds = %lean_dec.exit2327
 lean_dec.exit2325:                                ; preds = %1451
   br i1 %1446, label %1458, label %1453
 
-1453:                                             ; preds = %1449, %1452, %lean_dec.exit2326.thread, %lean_dec.exit2325
+1453:                                             ; preds = %1452, %1449, %lean_dec.exit2326.thread, %lean_dec.exit2325
   %1454 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3(ptr noundef nonnull %1409)
   store ptr %1454, ptr %366, align 8, !tbaa !4
   store ptr %.0.i22144074, ptr %364, align 8, !tbaa !4
@@ -282523,7 +282523,7 @@ lean_dec.exit2325:                                ; preds = %1451
   store ptr %337, ptr %1457, align 8, !tbaa !4
   br label %lean_dec.exit2316
 
-1458:                                             ; preds = %1449, %1452, %lean_dec.exit2326.thread, %lean_dec.exit2325
+1458:                                             ; preds = %1452, %1449, %lean_dec.exit2326.thread, %lean_dec.exit2325
   store ptr %1409, ptr %366, align 8, !tbaa !4
   store ptr %.0.i22144074, ptr %364, align 8, !tbaa !4
   store ptr %.02088, ptr %307, align 8, !tbaa !4
@@ -283919,7 +283919,7 @@ lean_dec.exit2313:                                ; preds = %1971, %1970, %1968,
   br label %lean_dec.exit2312
 
 lean_dec.exit2312:                                ; preds = %1976, %1980, %1989, %1988, %1986
-  %.0.i22114079 = phi ptr [ %1983, %1989 ], [ %1983, %1986 ], [ %1983, %1988 ], [ %1981, %1980 ], [ %1979, %1976 ]
+  %.0.i22114079 = phi ptr [ %1983, %1986 ], [ %1983, %1988 ], [ %1983, %1989 ], [ %1981, %1980 ], [ %1979, %1976 ]
   %1990 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1991 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #8
@@ -284080,7 +284080,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit2437
 
 lean_inc.exit2437:                                ; preds = %2045, %2049, %2057, %2056, %2054
-  %.0.i22084082 = phi ptr [ %2052, %2057 ], [ %2052, %2054 ], [ %2052, %2056 ], [ %2050, %2049 ], [ %2048, %2045 ]
+  %.0.i22084082 = phi ptr [ %2052, %2054 ], [ %2052, %2056 ], [ %2052, %2057 ], [ %2050, %2049 ], [ %2048, %2045 ]
   tail call void @lean_inc_heartbeat() #8
   %2058 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %2059 = icmp eq ptr %2058, null
@@ -284240,7 +284240,7 @@ lean_dec.exit2310.thread:                         ; preds = %lean_dec.exit2311
 lean_dec.exit2309:                                ; preds = %2121
   br i1 %2116, label %2135, label %2123
 
-2123:                                             ; preds = %2119, %2122, %lean_dec.exit2310.thread, %lean_dec.exit2309
+2123:                                             ; preds = %2122, %2119, %lean_dec.exit2310.thread, %lean_dec.exit2309
   %2124 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3(ptr noundef nonnull %.0.i.i3331)
   %2125 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %2126 = getelementptr inbounds nuw i8, ptr %2125, i64 8
@@ -284266,7 +284266,7 @@ lean_dec.exit2309:                                ; preds = %2121
   store ptr %337, ptr %2134, align 8, !tbaa !4
   br label %lean_dec.exit2316
 
-2135:                                             ; preds = %2119, %2122, %lean_dec.exit2310.thread, %lean_dec.exit2309
+2135:                                             ; preds = %2122, %2119, %lean_dec.exit2310.thread, %lean_dec.exit2309
   tail call void @lean_inc_heartbeat() #8
   %2136 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %2137 = icmp eq ptr %2136, null
@@ -285864,7 +285864,7 @@ lean_dec.exit2297:                                ; preds = %2722, %2721, %2719,
   br label %lean_dec.exit2296
 
 lean_dec.exit2296:                                ; preds = %2727, %2731, %2740, %2739, %2737
-  %.0.i22054087 = phi ptr [ %2734, %2740 ], [ %2734, %2737 ], [ %2734, %2739 ], [ %2732, %2731 ], [ %2730, %2727 ]
+  %.0.i22054087 = phi ptr [ %2734, %2737 ], [ %2734, %2739 ], [ %2734, %2740 ], [ %2732, %2731 ], [ %2730, %2727 ]
   %2741 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375____closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %2742 = tail call noalias ptr @mi_malloc_small(i64 noundef 72) #8
@@ -286025,7 +286025,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_inc.exit2411
 
 lean_inc.exit2411:                                ; preds = %2796, %2800, %2808, %2807, %2805
-  %.0.i22024090 = phi ptr [ %2803, %2808 ], [ %2803, %2805 ], [ %2803, %2807 ], [ %2801, %2800 ], [ %2799, %2796 ]
+  %.0.i22024090 = phi ptr [ %2803, %2805 ], [ %2803, %2807 ], [ %2803, %2808 ], [ %2801, %2800 ], [ %2799, %2796 ]
   tail call void @lean_inc_heartbeat() #8
   %2809 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %2810 = icmp eq ptr %2809, null
@@ -286185,7 +286185,7 @@ lean_dec.exit2294.thread:                         ; preds = %lean_dec.exit2295
 lean_dec.exit2293:                                ; preds = %2872
   br i1 %2867, label %2913, label %2874
 
-2874:                                             ; preds = %2870, %2873, %lean_dec.exit2294.thread, %lean_dec.exit2293
+2874:                                             ; preds = %2873, %2870, %lean_dec.exit2294.thread, %lean_dec.exit2293
   %.val.i3528 = load i64, ptr %2860, align 8, !tbaa !14
   %2875 = shl i64 %.val.i3528, 1
   %2876 = or disjoint i64 %2875, 1
@@ -286210,7 +286210,7 @@ lean_dec.exit2293:                                ; preds = %2872
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit: ; preds = %2874, %2882, %2886
-  %.2.i.i = phi ptr [ %2887, %2886 ], [ %2877, %2874 ], [ %2885, %2882 ]
+  %.2.i.i = phi ptr [ %2877, %2874 ], [ %2885, %2882 ], [ %2887, %2886 ]
   %2888 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %2889 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i3519, ptr noundef %2888)
   %2890 = ptrtoint ptr %.02095 to i64
@@ -286268,7 +286268,7 @@ lean_alloc_ctor.exit3530:                         ; preds = %2894
   store ptr %337, ptr %2912, align 8, !tbaa !4
   br label %lean_dec.exit2316
 
-2913:                                             ; preds = %2870, %2873, %lean_dec.exit2294.thread, %lean_dec.exit2293
+2913:                                             ; preds = %2873, %2870, %lean_dec.exit2294.thread, %lean_dec.exit2293
   %2914 = ptrtoint ptr %.02095 to i64
   %2915 = and i64 %2914, 1
   %.not4166 = icmp eq i64 %2915, 0
@@ -286787,8 +286787,8 @@ lean_inc.exit2408:                                ; preds = %3091, %3090, %3088,
   br label %lean_dec.exit2316
 
 lean_dec.exit2316:                                ; preds = %lean_inc.exit2408, %3095, %3097, %3098, %lean_inc.exit2434, %2285, %2287, %2288, %lean_inc.exit2457, %1592, %1594, %1595, %2910, %2940, %3013, %lean_inc.exit2478, %1004, %1002, %lean_inc.exit2498, %653, %651, %1453, %1458, %lean_alloc_ctor.exit3191, %2206, %2146, %2132
-  %.132083 = phi ptr [ %.02093, %2146 ], [ %1459, %1458 ], [ %.02102, %2940 ], [ %288, %651 ], [ %288, %lean_inc.exit2478 ], [ %288, %1004 ], [ %288, %1002 ], [ %288, %lean_inc.exit2498 ], [ %288, %653 ], [ %1506, %lean_alloc_ctor.exit3191 ], [ %1455, %1453 ], [ %288, %lean_inc.exit2457 ], [ %.02094, %2206 ], [ %.02092, %2132 ], [ %288, %lean_inc.exit2434 ], [ %.02104, %3013 ], [ %.02100, %2910 ], [ %288, %1595 ], [ %288, %1594 ], [ %288, %1592 ], [ %288, %2288 ], [ %288, %2287 ], [ %288, %2285 ], [ %288, %3098 ], [ %288, %3097 ], [ %288, %3095 ], [ %288, %lean_inc.exit2408 ]
-  %.132066 = phi ptr [ %365, %2146 ], [ %365, %1458 ], [ %2324, %2940 ], [ %365, %651 ], [ %365, %lean_inc.exit2478 ], [ %365, %1004 ], [ %365, %1002 ], [ %365, %lean_inc.exit2498 ], [ %365, %653 ], [ %365, %lean_alloc_ctor.exit3191 ], [ %365, %1453 ], [ %1580, %lean_inc.exit2457 ], [ %365, %2206 ], [ %365, %2132 ], [ %2273, %lean_inc.exit2434 ], [ %2324, %3013 ], [ %2324, %2910 ], [ %1580, %1595 ], [ %1580, %1594 ], [ %1580, %1592 ], [ %2273, %2288 ], [ %2273, %2287 ], [ %2273, %2285 ], [ %3083, %3098 ], [ %3083, %3097 ], [ %3083, %3095 ], [ %3083, %lean_inc.exit2408 ]
+  %.132083 = phi ptr [ %288, %lean_inc.exit2478 ], [ %288, %1004 ], [ %288, %1002 ], [ %288, %lean_inc.exit2498 ], [ %288, %653 ], [ %288, %651 ], [ %1506, %lean_alloc_ctor.exit3191 ], [ %1455, %1453 ], [ %1459, %1458 ], [ %.02094, %2206 ], [ %.02092, %2132 ], [ %.02093, %2146 ], [ %.02104, %3013 ], [ %.02100, %2910 ], [ %.02102, %2940 ], [ %288, %1595 ], [ %288, %1594 ], [ %288, %1592 ], [ %288, %lean_inc.exit2457 ], [ %288, %2288 ], [ %288, %2287 ], [ %288, %2285 ], [ %288, %lean_inc.exit2434 ], [ %288, %3098 ], [ %288, %3097 ], [ %288, %3095 ], [ %288, %lean_inc.exit2408 ]
+  %.132066 = phi ptr [ %365, %lean_inc.exit2478 ], [ %365, %1004 ], [ %365, %1002 ], [ %365, %lean_inc.exit2498 ], [ %365, %653 ], [ %365, %651 ], [ %365, %lean_alloc_ctor.exit3191 ], [ %365, %1453 ], [ %365, %1458 ], [ %365, %2206 ], [ %365, %2132 ], [ %365, %2146 ], [ %2324, %3013 ], [ %2324, %2910 ], [ %2324, %2940 ], [ %1580, %1595 ], [ %1580, %1594 ], [ %1580, %1592 ], [ %1580, %lean_inc.exit2457 ], [ %2273, %2288 ], [ %2273, %2287 ], [ %2273, %2285 ], [ %2273, %lean_inc.exit2434 ], [ %3083, %3098 ], [ %3083, %3097 ], [ %3083, %3095 ], [ %3083, %lean_inc.exit2408 ]
   %3099 = getelementptr inbounds nuw i8, ptr %.132083, i64 8
   %3100 = load ptr, ptr %3099, align 8, !tbaa !4
   %3101 = ptrtoint ptr %3100 to i64
@@ -288506,7 +288506,7 @@ lean_inc.exit2388:                                ; preds = %3740, %3739, %3737,
   br label %lean_dec.exit2258
 
 lean_dec.exit2258:                                ; preds = %3748, %3752, %3761, %3760, %3758
-  %.0.i21994101 = phi ptr [ %3755, %3761 ], [ %3755, %3758 ], [ %3755, %3760 ], [ %3753, %3752 ], [ %3751, %3748 ]
+  %.0.i21994101 = phi ptr [ %3755, %3758 ], [ %3755, %3760 ], [ %3755, %3761 ], [ %3753, %3752 ], [ %3751, %3748 ]
   store ptr %.0.i21994101, ptr %3664, align 8, !tbaa !4
   store ptr %3741, ptr %3662, align 8, !tbaa !4
   store ptr %3734, ptr %3660, align 8, !tbaa !4
@@ -288874,7 +288874,7 @@ lean_array_uget.exit3736:                         ; preds = %3867, %3881, %3883,
   br label %lean_dec.exit2253
 
 lean_dec.exit2253:                                ; preds = %3892, %3896, %3905, %3904, %3902
-  %.0.i21964103 = phi ptr [ %3899, %3905 ], [ %3899, %3902 ], [ %3899, %3904 ], [ %3897, %3896 ], [ %3895, %3892 ]
+  %.0.i21964103 = phi ptr [ %3899, %3902 ], [ %3899, %3904 ], [ %3899, %3905 ], [ %3897, %3896 ], [ %3895, %3892 ]
   tail call void @lean_inc_heartbeat() #8
   %3906 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %3907 = icmp eq ptr %3906, null
@@ -289034,7 +289034,7 @@ lean_dec.exit2251.thread:                         ; preds = %lean_dec.exit2252
 lean_dec.exit2250:                                ; preds = %3969
   br i1 %3964, label %4004, label %3971
 
-3971:                                             ; preds = %3967, %3970, %lean_dec.exit2251.thread, %lean_dec.exit2250
+3971:                                             ; preds = %3970, %3967, %lean_dec.exit2251.thread, %lean_dec.exit2250
   %3972 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %.0.i.i3742)
   %3973 = ptrtoint ptr %.02112 to i64
   %3974 = and i64 %3973, 1
@@ -289104,7 +289104,7 @@ lean_dec.exit2250:                                ; preds = %3969
   store ptr %.02116, ptr %4003, align 8, !tbaa !4
   br label %.thread
 
-4004:                                             ; preds = %3967, %3970, %lean_dec.exit2251.thread, %lean_dec.exit2250
+4004:                                             ; preds = %3970, %3967, %lean_dec.exit2251.thread, %lean_dec.exit2250
   %4005 = ptrtoint ptr %.02112 to i64
   %4006 = and i64 %4005, 1
   %.not4365 = icmp eq i64 %4006, 0
@@ -289737,7 +289737,7 @@ lean_inc.exit2377:                                ; preds = %4232, %4231, %4229,
   br label %lean_dec.exit2248
 
 lean_dec.exit2248:                                ; preds = %4238, %4242, %4251, %4250, %4248
-  %.0.i21934109 = phi ptr [ %4245, %4251 ], [ %4245, %4248 ], [ %4245, %4250 ], [ %4243, %4242 ], [ %4241, %4238 ]
+  %.0.i21934109 = phi ptr [ %4245, %4248 ], [ %4245, %4250 ], [ %4245, %4251 ], [ %4243, %4242 ], [ %4241, %4238 ]
   tail call void @lean_inc_heartbeat() #8
   %4252 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #8
   %4253 = icmp eq ptr %4252, null
@@ -290122,7 +290122,7 @@ lean_array_uget.exit3847:                         ; preds = %4367, %4381, %4383,
   br label %lean_dec.exit2243
 
 lean_dec.exit2243:                                ; preds = %4392, %4396, %4405, %4404, %4402
-  %.0.i21904111 = phi ptr [ %4399, %4405 ], [ %4399, %4402 ], [ %4399, %4404 ], [ %4397, %4396 ], [ %4395, %4392 ]
+  %.0.i21904111 = phi ptr [ %4399, %4402 ], [ %4399, %4404 ], [ %4399, %4405 ], [ %4397, %4396 ], [ %4395, %4392 ]
   tail call void @lean_inc_heartbeat() #8
   %4406 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %4407 = icmp eq ptr %4406, null
@@ -290282,7 +290282,7 @@ lean_dec.exit2241.thread:                         ; preds = %lean_dec.exit2242
 lean_dec.exit2240:                                ; preds = %4469
   br i1 %4464, label %4504, label %4471
 
-4471:                                             ; preds = %4467, %4470, %lean_dec.exit2241.thread, %lean_dec.exit2240
+4471:                                             ; preds = %4470, %4467, %lean_dec.exit2241.thread, %lean_dec.exit2240
   %4472 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9(ptr noundef nonnull %.0.i.i3853)
   %4473 = ptrtoint ptr %.02128 to i64
   %4474 = and i64 %4473, 1
@@ -290352,7 +290352,7 @@ lean_dec.exit2240:                                ; preds = %4469
   store ptr %.02132, ptr %4503, align 8, !tbaa !4
   br label %.thread
 
-4504:                                             ; preds = %4467, %4470, %lean_dec.exit2241.thread, %lean_dec.exit2240
+4504:                                             ; preds = %4470, %4467, %lean_dec.exit2241.thread, %lean_dec.exit2240
   %4505 = ptrtoint ptr %.02128 to i64
   %4506 = and i64 %4505, 1
   %.not4344 = icmp eq i64 %4506, 0
@@ -291360,7 +291360,7 @@ lean_inc.exit2358:                                ; preds = %4880, %4879, %4877,
   br label %lean_dec.exit2238
 
 lean_dec.exit2238:                                ; preds = %4886, %4890, %4899, %4898, %4896
-  %.0.i21874117 = phi ptr [ %4893, %4899 ], [ %4893, %4896 ], [ %4893, %4898 ], [ %4891, %4890 ], [ %4889, %4886 ]
+  %.0.i21874117 = phi ptr [ %4893, %4896 ], [ %4893, %4898 ], [ %4893, %4899 ], [ %4891, %4890 ], [ %4889, %4886 ]
   %4900 = ptrtoint ptr %.02136 to i64
   %4901 = and i64 %4900, 1
   %.not4306 = icmp eq i64 %4901, 0
@@ -291788,7 +291788,7 @@ lean_array_uget.exit4004:                         ; preds = %5033, %5047, %5049,
   br label %lean_dec.exit2233
 
 lean_dec.exit2233:                                ; preds = %5058, %5062, %5071, %5070, %5068
-  %.0.i4119 = phi ptr [ %5065, %5071 ], [ %5065, %5068 ], [ %5065, %5070 ], [ %5063, %5062 ], [ %5061, %5058 ]
+  %.0.i4119 = phi ptr [ %5065, %5068 ], [ %5065, %5070 ], [ %5065, %5071 ], [ %5063, %5062 ], [ %5061, %5058 ]
   tail call void @lean_inc_heartbeat() #8
   %5072 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %5073 = icmp eq ptr %5072, null
@@ -291948,7 +291948,7 @@ lean_dec.exit2231.thread:                         ; preds = %lean_dec.exit2232
 lean_dec.exit:                                    ; preds = %5135
   br i1 %5130, label %5184, label %5137
 
-5137:                                             ; preds = %5133, %5136, %lean_dec.exit2231.thread, %lean_dec.exit
+5137:                                             ; preds = %5136, %5133, %lean_dec.exit2231.thread, %lean_dec.exit
   %.val.i4019 = load i64, ptr %5123, align 8, !tbaa !14
   %5138 = shl i64 %.val.i4019, 1
   %5139 = or disjoint i64 %5138, 1
@@ -291973,7 +291973,7 @@ lean_dec.exit:                                    ; preds = %5135
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__9.exit: ; preds = %5137, %5145, %5149
-  %.2.i.i4022 = phi ptr [ %5150, %5149 ], [ %5140, %5137 ], [ %5148, %5145 ]
+  %.2.i.i4022 = phi ptr [ %5140, %5137 ], [ %5148, %5145 ], [ %5150, %5149 ]
   %5151 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i4022, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %5152 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__10(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i4010, ptr noundef %5151)
   %5153 = ptrtoint ptr %.02119 to i64
@@ -292044,7 +292044,7 @@ l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Le
   store ptr %.02050, ptr %5183, align 8, !tbaa !4
   br label %.thread
 
-5184:                                             ; preds = %5133, %5136, %lean_dec.exit2231.thread, %lean_dec.exit
+5184:                                             ; preds = %5136, %5133, %lean_dec.exit2231.thread, %lean_dec.exit
   %5185 = ptrtoint ptr %.02119 to i64
   %5186 = and i64 %5185, 1
   %.not4318 = icmp eq i64 %5186, 0
@@ -292356,7 +292356,7 @@ lean_alloc_ctor.exit4044:                         ; preds = %5295
   br label %.thread
 
 .thread:                                          ; preds = %lean_alloc_ctor.exit3617, %lean_dec.exit2263, %lean_alloc_ctor.exit3597, %lean_dec.exit2274, %4501, %4533, %4608, %4001, %4033, %4108, %5300, %5225, %5181
-  %.4 = phi ptr [ %3296, %lean_alloc_ctor.exit3597 ], [ %.02045, %5225 ], [ %.02138, %4533 ], [ %.02122, %4033 ], [ %.02127, %4108 ], [ %.02117, %4001 ], [ %.02142, %4608 ], [ %.02133, %4501 ], [ %.0, %5300 ], [ %.02049, %5181 ], [ %3110, %lean_dec.exit2274 ], [ %3110, %lean_dec.exit2263 ], [ %3452, %lean_alloc_ctor.exit3617 ]
+  %.4 = phi ptr [ %.02127, %4108 ], [ %.02117, %4001 ], [ %.02122, %4033 ], [ %.02142, %4608 ], [ %.02133, %4501 ], [ %.02138, %4533 ], [ %.0, %5300 ], [ %.02049, %5181 ], [ %.02045, %5225 ], [ %3296, %lean_alloc_ctor.exit3597 ], [ %3110, %lean_dec.exit2274 ], [ %3452, %lean_alloc_ctor.exit3617 ], [ %3110, %lean_dec.exit2263 ]
   ret ptr %.4
 }
 
@@ -293270,7 +293270,7 @@ lean_box_float.exit2466:                          ; preds = %lean_dec.exit1945
   br label %lean_dec.exit1944
 
 lean_dec.exit1944:                                ; preds = %346, %350, %359, %358, %356
-  %.0.i18493788 = phi ptr [ %353, %359 ], [ %353, %356 ], [ %353, %358 ], [ %351, %350 ], [ %349, %346 ]
+  %.0.i18493788 = phi ptr [ %353, %356 ], [ %353, %358 ], [ %353, %359 ], [ %351, %350 ], [ %349, %346 ]
   %360 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   store ptr %.0.i18493788, ptr %261, align 8, !tbaa !4
   store ptr %339, ptr %259, align 8, !tbaa !4
@@ -293407,7 +293407,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_dec.exit1942
 
 lean_dec.exit1942:                                ; preds = %406, %410, %419, %418, %416
-  %.0.i18463791 = phi ptr [ %413, %419 ], [ %413, %416 ], [ %413, %418 ], [ %411, %410 ], [ %409, %406 ]
+  %.0.i18463791 = phi ptr [ %413, %416 ], [ %413, %418 ], [ %413, %419 ], [ %411, %410 ], [ %409, %406 ]
   tail call void @lean_inc_heartbeat() #8
   %420 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %421 = icmp eq ptr %420, null
@@ -293567,7 +293567,7 @@ lean_dec.exit1940.thread:                         ; preds = %lean_dec.exit1941
 lean_dec.exit1939:                                ; preds = %483
   br i1 %478, label %525, label %485
 
-485:                                              ; preds = %481, %484, %lean_dec.exit1940.thread, %lean_dec.exit1939
+485:                                              ; preds = %484, %481, %lean_dec.exit1940.thread, %lean_dec.exit1939
   %.val.i2486 = load i64, ptr %471, align 8, !tbaa !14
   %486 = shl i64 %.val.i2486, 1
   %487 = or disjoint i64 %486, 1
@@ -293592,7 +293592,7 @@ lean_dec.exit1939:                                ; preds = %483
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit: ; preds = %485, %493, %497
-  %.2.i.i = phi ptr [ %498, %497 ], [ %488, %485 ], [ %496, %493 ]
+  %.2.i.i = phi ptr [ %488, %485 ], [ %496, %493 ], [ %498, %497 ]
   %499 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %500 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i, ptr noundef %499)
   store ptr %500, ptr %364, align 8, !tbaa !4
@@ -293646,7 +293646,7 @@ lean_nat_add.exit1844.thread3797:                 ; preds = %502
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.01610) #8
   br label %lean_dec.exit1938.backedge
 
-525:                                              ; preds = %481, %484, %lean_dec.exit1940.thread, %lean_dec.exit1939
+525:                                              ; preds = %484, %481, %lean_dec.exit1940.thread, %lean_dec.exit1939
   store ptr %.0.i.i, ptr %364, align 8, !tbaa !4
   store ptr %.0.i18463791, ptr %362, align 8, !tbaa !4
   %526 = load ptr, ptr %13, align 8, !tbaa !4
@@ -294016,7 +294016,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_dec.exit1933
 
 lean_dec.exit1933:                                ; preds = %670, %674, %683, %682, %680
-  %.0.i18343806 = phi ptr [ %677, %683 ], [ %677, %680 ], [ %677, %682 ], [ %675, %674 ], [ %673, %670 ]
+  %.0.i18343806 = phi ptr [ %677, %680 ], [ %677, %682 ], [ %677, %683 ], [ %675, %674 ], [ %673, %670 ]
   tail call void @lean_inc_heartbeat() #8
   %684 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %685 = icmp eq ptr %684, null
@@ -294176,7 +294176,7 @@ lean_dec.exit1931.thread:                         ; preds = %lean_dec.exit1932
 lean_dec.exit1930:                                ; preds = %747
   br i1 %742, label %795, label %749
 
-749:                                              ; preds = %745, %748, %lean_dec.exit1931.thread, %lean_dec.exit1930
+749:                                              ; preds = %748, %745, %lean_dec.exit1931.thread, %lean_dec.exit1930
   %.val.i2543 = load i64, ptr %735, align 8, !tbaa !14
   %750 = shl i64 %.val.i2543, 1
   %751 = or disjoint i64 %750, 1
@@ -294201,7 +294201,7 @@ lean_dec.exit1930:                                ; preds = %747
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit2547
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit2547: ; preds = %749, %757, %761
-  %.2.i.i2546 = phi ptr [ %762, %761 ], [ %752, %749 ], [ %760, %757 ]
+  %.2.i.i2546 = phi ptr [ %752, %749 ], [ %760, %757 ], [ %762, %761 ]
   %763 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i2546, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %764 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i2534, ptr noundef %763)
   tail call void @lean_inc_heartbeat() #8
@@ -294271,7 +294271,7 @@ lean_nat_add.exit1832.thread3812:                 ; preds = %772
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.01610) #8
   br label %lean_dec.exit1938.backedge
 
-795:                                              ; preds = %745, %748, %lean_dec.exit1931.thread, %lean_dec.exit1930
+795:                                              ; preds = %748, %745, %lean_dec.exit1931.thread, %lean_dec.exit1930
   tail call void @lean_inc_heartbeat() #8
   %796 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %797 = icmp eq ptr %796, null
@@ -294823,7 +294823,7 @@ lean_box_float.exit2601:                          ; preds = %lean_dec.exit1924
   br label %lean_dec.exit1923
 
 lean_dec.exit1923:                                ; preds = %1005, %1009, %1018, %1017, %1015
-  %.0.i18223820 = phi ptr [ %1012, %1018 ], [ %1012, %1015 ], [ %1012, %1017 ], [ %1010, %1009 ], [ %1008, %1005 ]
+  %.0.i18223820 = phi ptr [ %1012, %1015 ], [ %1012, %1017 ], [ %1012, %1018 ], [ %1010, %1009 ], [ %1008, %1005 ]
   %1019 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #8
   %1020 = tail call noalias ptr @mi_malloc_small(i64 noundef 56) #8
@@ -295123,7 +295123,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_dec.exit1921
 
 lean_dec.exit1921:                                ; preds = %1125, %1129, %1138, %1137, %1135
-  %.0.i18193823 = phi ptr [ %1132, %1138 ], [ %1132, %1135 ], [ %1132, %1137 ], [ %1130, %1129 ], [ %1128, %1125 ]
+  %.0.i18193823 = phi ptr [ %1132, %1135 ], [ %1132, %1137 ], [ %1132, %1138 ], [ %1130, %1129 ], [ %1128, %1125 ]
   tail call void @lean_inc_heartbeat() #8
   %1139 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %1140 = icmp eq ptr %1139, null
@@ -295283,7 +295283,7 @@ lean_dec.exit1919.thread:                         ; preds = %lean_dec.exit1920
 lean_dec.exit1918:                                ; preds = %1202
   br i1 %1197, label %1254, label %1204
 
-1204:                                             ; preds = %1200, %1203, %lean_dec.exit1919.thread, %lean_dec.exit1918
+1204:                                             ; preds = %1203, %1200, %lean_dec.exit1919.thread, %lean_dec.exit1918
   %.val.i2650 = load i64, ptr %1190, align 8, !tbaa !14
   %1205 = shl i64 %.val.i2650, 1
   %1206 = or disjoint i64 %1205, 1
@@ -295308,7 +295308,7 @@ lean_dec.exit1918:                                ; preds = %1202
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit2654
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit2654: ; preds = %1204, %1212, %1216
-  %.2.i.i2653 = phi ptr [ %1217, %1216 ], [ %1207, %1204 ], [ %1215, %1212 ]
+  %.2.i.i2653 = phi ptr [ %1207, %1204 ], [ %1215, %1212 ], [ %1217, %1216 ]
   %1218 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i2653, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %1219 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i2641, ptr noundef %1218)
   %1220 = ptrtoint ptr %.01684 to i64
@@ -295388,7 +295388,7 @@ lean_nat_add.exit1817.thread3829:                 ; preds = %1231
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.01610) #8
   br label %lean_dec.exit1938.backedge
 
-1254:                                             ; preds = %1200, %1203, %lean_dec.exit1919.thread, %lean_dec.exit1918
+1254:                                             ; preds = %1203, %1200, %lean_dec.exit1919.thread, %lean_dec.exit1918
   %1255 = ptrtoint ptr %.01684 to i64
   %1256 = and i64 %1255, 1
   %.not4129 = icmp eq i64 %1256, 0
@@ -296362,7 +296362,7 @@ lean_box_float.exit2756:                          ; preds = %lean_dec.exit1912
   br label %lean_dec.exit1911
 
 lean_dec.exit1911:                                ; preds = %1631, %1635, %1644, %1643, %1641
-  %.0.i18073837 = phi ptr [ %1638, %1644 ], [ %1638, %1641 ], [ %1638, %1643 ], [ %1636, %1635 ], [ %1634, %1631 ]
+  %.0.i18073837 = phi ptr [ %1638, %1641 ], [ %1638, %1643 ], [ %1638, %1644 ], [ %1636, %1635 ], [ %1634, %1631 ]
   %1645 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %1646 = ptrtoint ptr %.01688 to i64
   %1647 = and i64 %1646, 1
@@ -296706,7 +296706,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_dec.exit1909
 
 lean_dec.exit1909:                                ; preds = %1769, %1773, %1782, %1781, %1779
-  %.0.i18043840 = phi ptr [ %1776, %1782 ], [ %1776, %1779 ], [ %1776, %1781 ], [ %1774, %1773 ], [ %1772, %1769 ]
+  %.0.i18043840 = phi ptr [ %1776, %1779 ], [ %1776, %1781 ], [ %1776, %1782 ], [ %1774, %1773 ], [ %1772, %1769 ]
   tail call void @lean_inc_heartbeat() #8
   %1783 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %1784 = icmp eq ptr %1783, null
@@ -296866,7 +296866,7 @@ lean_dec.exit1907.thread:                         ; preds = %lean_dec.exit1908
 lean_dec.exit1906:                                ; preds = %1846
   br i1 %1841, label %1898, label %1848
 
-1848:                                             ; preds = %1844, %1847, %lean_dec.exit1907.thread, %lean_dec.exit1906
+1848:                                             ; preds = %1847, %1844, %lean_dec.exit1907.thread, %lean_dec.exit1906
   %.val.i2807 = load i64, ptr %1834, align 8, !tbaa !14
   %1849 = shl i64 %.val.i2807, 1
   %1850 = or disjoint i64 %1849, 1
@@ -296891,7 +296891,7 @@ lean_dec.exit1906:                                ; preds = %1846
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit2811
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit2811: ; preds = %1848, %1856, %1860
-  %.2.i.i2810 = phi ptr [ %1861, %1860 ], [ %1851, %1848 ], [ %1859, %1856 ]
+  %.2.i.i2810 = phi ptr [ %1851, %1848 ], [ %1859, %1856 ], [ %1861, %1860 ]
   %1862 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i2810, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %1863 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i2798, ptr noundef %1862)
   %1864 = ptrtoint ptr %.01690 to i64
@@ -296971,7 +296971,7 @@ lean_nat_add.exit1802.thread3846:                 ; preds = %1875
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.01610) #8
   br label %lean_dec.exit1938.backedge
 
-1898:                                             ; preds = %1844, %1847, %lean_dec.exit1907.thread, %lean_dec.exit1906
+1898:                                             ; preds = %1847, %1844, %lean_dec.exit1907.thread, %lean_dec.exit1906
   %1899 = ptrtoint ptr %.01690 to i64
   %1900 = and i64 %1899, 1
   %.not4110 = icmp eq i64 %1900, 0
@@ -298285,7 +298285,7 @@ lean_box_float.exit2958:                          ; preds = %lean_dec.exit1900
   br label %lean_dec.exit1899
 
 lean_dec.exit1899:                                ; preds = %2405, %2409, %2418, %2417, %2415
-  %.0.i17923854 = phi ptr [ %2412, %2418 ], [ %2412, %2415 ], [ %2412, %2417 ], [ %2410, %2409 ], [ %2408, %2405 ]
+  %.0.i17923854 = phi ptr [ %2412, %2415 ], [ %2412, %2417 ], [ %2412, %2418 ], [ %2410, %2409 ], [ %2408, %2405 ]
   %2419 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %2420 = ptrtoint ptr %.01696 to i64
   %2421 = and i64 %2420, 1
@@ -298662,7 +298662,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_dec.exit1897
 
 lean_dec.exit1897:                                ; preds = %2557, %2561, %2570, %2569, %2567
-  %.0.i17893857 = phi ptr [ %2564, %2570 ], [ %2564, %2567 ], [ %2564, %2569 ], [ %2562, %2561 ], [ %2560, %2557 ]
+  %.0.i17893857 = phi ptr [ %2564, %2567 ], [ %2564, %2569 ], [ %2564, %2570 ], [ %2562, %2561 ], [ %2560, %2557 ]
   tail call void @lean_inc_heartbeat() #8
   %2571 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %2572 = icmp eq ptr %2571, null
@@ -298822,7 +298822,7 @@ lean_dec.exit1895.thread:                         ; preds = %lean_dec.exit1896
 lean_dec.exit1894:                                ; preds = %2634
   br i1 %2629, label %2686, label %2636
 
-2636:                                             ; preds = %2632, %2635, %lean_dec.exit1895.thread, %lean_dec.exit1894
+2636:                                             ; preds = %2635, %2632, %lean_dec.exit1895.thread, %lean_dec.exit1894
   %.val.i3011 = load i64, ptr %2622, align 8, !tbaa !14
   %2637 = shl i64 %.val.i3011, 1
   %2638 = or disjoint i64 %2637, 1
@@ -298847,7 +298847,7 @@ lean_dec.exit1894:                                ; preds = %2634
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit3015
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit3015: ; preds = %2636, %2644, %2648
-  %.2.i.i3014 = phi ptr [ %2649, %2648 ], [ %2639, %2636 ], [ %2647, %2644 ]
+  %.2.i.i3014 = phi ptr [ %2639, %2636 ], [ %2647, %2644 ], [ %2649, %2648 ]
   %2650 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i3014, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %2651 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i3002, ptr noundef %2650)
   %2652 = ptrtoint ptr %.01700 to i64
@@ -298928,7 +298928,7 @@ lean_nat_add.exit1787.thread3863:                 ; preds = %2663
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.01610) #8
   br label %lean_dec.exit1938.backedge
 
-2686:                                             ; preds = %2632, %2635, %lean_dec.exit1895.thread, %lean_dec.exit1894
+2686:                                             ; preds = %2635, %2632, %lean_dec.exit1895.thread, %lean_dec.exit1894
   %2687 = ptrtoint ptr %.01700 to i64
   %2688 = and i64 %2687, 1
   %.not4082 = icmp eq i64 %2688, 0
@@ -300398,7 +300398,7 @@ lean_box_float.exit3181:                          ; preds = %lean_dec.exit1888
   br label %lean_dec.exit1887
 
 lean_dec.exit1887:                                ; preds = %3249, %3253, %3262, %3261, %3259
-  %.0.i17773871 = phi ptr [ %3256, %3262 ], [ %3256, %3259 ], [ %3256, %3261 ], [ %3254, %3253 ], [ %3252, %3249 ]
+  %.0.i17773871 = phi ptr [ %3256, %3259 ], [ %3256, %3261 ], [ %3256, %3262 ], [ %3254, %3253 ], [ %3252, %3249 ]
   %3263 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__13___closed__2, align 8, !tbaa !4
   %3264 = ptrtoint ptr %.01706 to i64
   %3265 = and i64 %3264, 1
@@ -300785,7 +300785,7 @@ l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__
   br label %lean_dec.exit1885
 
 lean_dec.exit1885:                                ; preds = %3405, %3409, %3418, %3417, %3415
-  %.0.i17743874 = phi ptr [ %3412, %3418 ], [ %3412, %3415 ], [ %3412, %3417 ], [ %3410, %3409 ], [ %3408, %3405 ]
+  %.0.i17743874 = phi ptr [ %3412, %3415 ], [ %3412, %3417 ], [ %3412, %3418 ], [ %3410, %3409 ], [ %3408, %3405 ]
   tail call void @lean_inc_heartbeat() #8
   %3419 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #8
   %3420 = icmp eq ptr %3419, null
@@ -300945,7 +300945,7 @@ lean_dec.exit1883.thread:                         ; preds = %lean_dec.exit1884
 lean_dec.exit1882:                                ; preds = %3482
   br i1 %3477, label %3540, label %3484
 
-3484:                                             ; preds = %3480, %3483, %lean_dec.exit1883.thread, %lean_dec.exit1882
+3484:                                             ; preds = %3483, %3480, %lean_dec.exit1883.thread, %lean_dec.exit1882
   %.val.i3234 = load i64, ptr %3470, align 8, !tbaa !14
   %3485 = shl i64 %.val.i3234, 1
   %3486 = or disjoint i64 %3485, 1
@@ -300970,7 +300970,7 @@ lean_dec.exit1882:                                ; preds = %3482
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit3238
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__3.exit3238: ; preds = %3484, %3492, %3496
-  %.2.i.i3237 = phi ptr [ %3497, %3496 ], [ %3487, %3484 ], [ %3495, %3492 ]
+  %.2.i.i3237 = phi ptr [ %3487, %3484 ], [ %3495, %3492 ], [ %3497, %3496 ]
   %3498 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i3237, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %3499 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__4(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i3225, ptr noundef %3498)
   %3500 = ptrtoint ptr %.01711 to i64
@@ -301066,7 +301066,7 @@ lean_nat_add.exit1772.thread3880:                 ; preds = %3517
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.01610) #8
   br label %lean_dec.exit1938.backedge
 
-3540:                                             ; preds = %3480, %3483, %lean_dec.exit1883.thread, %lean_dec.exit1882
+3540:                                             ; preds = %3483, %3480, %lean_dec.exit1883.thread, %lean_dec.exit1882
   %3541 = ptrtoint ptr %.01711 to i64
   %3542 = and i64 %3541, 1
   %.not4050 = icmp eq i64 %3542, 0
@@ -306249,8 +306249,8 @@ lean_nat_add.exit.thread3916:                     ; preds = %5550
   br label %lean_dec.exit1938.backedge
 
 lean_dec.exit1938.backedge:                       ; preds = %5559, %5563, %4972, %4976, %4452, %4456, %4076, %4080, %3866, %3870, %3639, %3643, %3567, %3571, %3526, %3530, %2773, %2777, %2707, %2711, %2672, %2676, %1985, %1989, %1919, %1923, %1884, %1888, %1341, %1345, %1275, %1279, %1240, %1244, %874, %878, %812, %816, %781, %785, %592, %596, %536, %540, %511, %515, %lean_nat_add.exit.thread3916, %5569, %5571, %5572, %lean_nat_add.exit1754.thread3910, %4982, %4984, %4985, %lean_nat_add.exit1757.thread3904, %4462, %4464, %4465, %lean_nat_add.exit1760.thread3898, %4086, %4088, %4089, %lean_nat_add.exit1763.thread3892, %3876, %3878, %3879, %lean_nat_add.exit1766.thread3886, %3649, %3651, %3652, %lean_nat_add.exit1769.thread3883, %3577, %3579, %3580, %lean_nat_add.exit1772.thread3880, %3536, %3538, %3539, %lean_nat_add.exit1781.thread3869, %2783, %2785, %2786, %lean_nat_add.exit1784.thread3866, %2717, %2719, %2720, %lean_nat_add.exit1787.thread3863, %2682, %2684, %2685, %lean_nat_add.exit1796.thread3852, %1995, %1997, %1998, %lean_nat_add.exit1799.thread3849, %1929, %1931, %1932, %lean_nat_add.exit1802.thread3846, %1894, %1896, %1897, %lean_nat_add.exit1811.thread3835, %1351, %1353, %1354, %lean_nat_add.exit1814.thread3832, %1285, %1287, %1288, %lean_nat_add.exit1817.thread3829, %1250, %1252, %1253, %lean_nat_add.exit1826.thread3818, %884, %886, %887, %lean_nat_add.exit1829.thread3815, %822, %824, %825, %lean_nat_add.exit1832.thread3812, %791, %793, %794, %lean_nat_add.exit1838.thread3803, %602, %604, %605, %lean_nat_add.exit1841.thread3800, %546, %548, %549, %lean_nat_add.exit1844.thread3797, %521, %523, %524
-  %.01637.be = phi ptr [ %81, %4972 ], [ %81, %2773 ], [ %81, %1884 ], [ %81, %2672 ], [ %81, %1985 ], [ %81, %1919 ], [ %81, %1240 ], [ %81, %874 ], [ %81, %812 ], [ %81, %4076 ], [ %5543, %lean_nat_add.exit.thread3916 ], [ %81, %511 ], [ %81, %536 ], [ %81, %592 ], [ %81, %781 ], [ %81, %1275 ], [ %81, %1341 ], [ %3510, %3526 ], [ %81, %2707 ], [ %81, %4452 ], [ %81, %3866 ], [ %3623, %3639 ], [ %3551, %3567 ], [ %81, %524 ], [ %81, %523 ], [ %81, %521 ], [ %81, %lean_nat_add.exit1844.thread3797 ], [ %81, %549 ], [ %81, %548 ], [ %81, %546 ], [ %81, %lean_nat_add.exit1841.thread3800 ], [ %81, %605 ], [ %81, %604 ], [ %81, %602 ], [ %81, %lean_nat_add.exit1838.thread3803 ], [ %81, %794 ], [ %81, %793 ], [ %81, %791 ], [ %81, %lean_nat_add.exit1832.thread3812 ], [ %81, %825 ], [ %81, %824 ], [ %81, %822 ], [ %81, %lean_nat_add.exit1829.thread3815 ], [ %81, %887 ], [ %81, %886 ], [ %81, %884 ], [ %81, %lean_nat_add.exit1826.thread3818 ], [ %81, %1253 ], [ %81, %1252 ], [ %81, %1250 ], [ %81, %lean_nat_add.exit1817.thread3829 ], [ %81, %1288 ], [ %81, %1287 ], [ %81, %1285 ], [ %81, %lean_nat_add.exit1814.thread3832 ], [ %81, %1354 ], [ %81, %1353 ], [ %81, %1351 ], [ %81, %lean_nat_add.exit1811.thread3835 ], [ %81, %1897 ], [ %81, %1896 ], [ %81, %1894 ], [ %81, %lean_nat_add.exit1802.thread3846 ], [ %81, %1932 ], [ %81, %1931 ], [ %81, %1929 ], [ %81, %lean_nat_add.exit1799.thread3849 ], [ %81, %1998 ], [ %81, %1997 ], [ %81, %1995 ], [ %81, %lean_nat_add.exit1796.thread3852 ], [ %81, %2685 ], [ %81, %2684 ], [ %81, %2682 ], [ %81, %lean_nat_add.exit1787.thread3863 ], [ %81, %2720 ], [ %81, %2719 ], [ %81, %2717 ], [ %81, %lean_nat_add.exit1784.thread3866 ], [ %81, %2786 ], [ %81, %2785 ], [ %81, %2783 ], [ %81, %lean_nat_add.exit1781.thread3869 ], [ %3510, %3539 ], [ %3510, %3538 ], [ %3510, %3536 ], [ %3510, %lean_nat_add.exit1772.thread3880 ], [ %3551, %3580 ], [ %3551, %3579 ], [ %3551, %3577 ], [ %3551, %lean_nat_add.exit1769.thread3883 ], [ %3623, %3652 ], [ %3623, %3651 ], [ %3623, %3649 ], [ %3623, %lean_nat_add.exit1766.thread3886 ], [ %81, %3879 ], [ %81, %3878 ], [ %81, %3876 ], [ %81, %lean_nat_add.exit1763.thread3892 ], [ %81, %4089 ], [ %81, %4088 ], [ %81, %4086 ], [ %81, %lean_nat_add.exit1760.thread3898 ], [ %81, %4465 ], [ %81, %4464 ], [ %81, %4462 ], [ %81, %lean_nat_add.exit1757.thread3904 ], [ %81, %4985 ], [ %81, %4984 ], [ %81, %4982 ], [ %81, %lean_nat_add.exit1754.thread3910 ], [ %5543, %5572 ], [ %5543, %5571 ], [ %5543, %5569 ], [ %81, %515 ], [ %81, %540 ], [ %81, %596 ], [ %81, %785 ], [ %81, %816 ], [ %81, %878 ], [ %81, %1244 ], [ %81, %1279 ], [ %81, %1345 ], [ %81, %1888 ], [ %81, %1923 ], [ %81, %1989 ], [ %81, %2676 ], [ %81, %2711 ], [ %81, %2777 ], [ %3510, %3530 ], [ %3551, %3571 ], [ %3623, %3643 ], [ %81, %3870 ], [ %81, %4080 ], [ %81, %4456 ], [ %81, %4976 ], [ %5543, %5563 ], [ %5543, %5559 ]
-  %.01610.be = phi ptr [ %4975, %4972 ], [ %2776, %2773 ], [ %1887, %1884 ], [ %2675, %2672 ], [ %1988, %1985 ], [ %1922, %1919 ], [ %1243, %1240 ], [ %877, %874 ], [ %815, %812 ], [ %4079, %4076 ], [ %5553, %lean_nat_add.exit.thread3916 ], [ %514, %511 ], [ %539, %536 ], [ %595, %592 ], [ %784, %781 ], [ %1278, %1275 ], [ %1344, %1341 ], [ %3529, %3526 ], [ %2710, %2707 ], [ %4455, %4452 ], [ %3869, %3866 ], [ %3642, %3639 ], [ %3570, %3567 ], [ %518, %524 ], [ %518, %523 ], [ %518, %521 ], [ %505, %lean_nat_add.exit1844.thread3797 ], [ %543, %549 ], [ %543, %548 ], [ %543, %546 ], [ %530, %lean_nat_add.exit1841.thread3800 ], [ %599, %605 ], [ %599, %604 ], [ %599, %602 ], [ %586, %lean_nat_add.exit1838.thread3803 ], [ %788, %794 ], [ %788, %793 ], [ %788, %791 ], [ %775, %lean_nat_add.exit1832.thread3812 ], [ %819, %825 ], [ %819, %824 ], [ %819, %822 ], [ %806, %lean_nat_add.exit1829.thread3815 ], [ %881, %887 ], [ %881, %886 ], [ %881, %884 ], [ %868, %lean_nat_add.exit1826.thread3818 ], [ %1247, %1253 ], [ %1247, %1252 ], [ %1247, %1250 ], [ %1234, %lean_nat_add.exit1817.thread3829 ], [ %1282, %1288 ], [ %1282, %1287 ], [ %1282, %1285 ], [ %1269, %lean_nat_add.exit1814.thread3832 ], [ %1348, %1354 ], [ %1348, %1353 ], [ %1348, %1351 ], [ %1335, %lean_nat_add.exit1811.thread3835 ], [ %1891, %1897 ], [ %1891, %1896 ], [ %1891, %1894 ], [ %1878, %lean_nat_add.exit1802.thread3846 ], [ %1926, %1932 ], [ %1926, %1931 ], [ %1926, %1929 ], [ %1913, %lean_nat_add.exit1799.thread3849 ], [ %1992, %1998 ], [ %1992, %1997 ], [ %1992, %1995 ], [ %1979, %lean_nat_add.exit1796.thread3852 ], [ %2679, %2685 ], [ %2679, %2684 ], [ %2679, %2682 ], [ %2666, %lean_nat_add.exit1787.thread3863 ], [ %2714, %2720 ], [ %2714, %2719 ], [ %2714, %2717 ], [ %2701, %lean_nat_add.exit1784.thread3866 ], [ %2780, %2786 ], [ %2780, %2785 ], [ %2780, %2783 ], [ %2767, %lean_nat_add.exit1781.thread3869 ], [ %3533, %3539 ], [ %3533, %3538 ], [ %3533, %3536 ], [ %3520, %lean_nat_add.exit1772.thread3880 ], [ %3574, %3580 ], [ %3574, %3579 ], [ %3574, %3577 ], [ %3561, %lean_nat_add.exit1769.thread3883 ], [ %3646, %3652 ], [ %3646, %3651 ], [ %3646, %3649 ], [ %3633, %lean_nat_add.exit1766.thread3886 ], [ %3873, %3879 ], [ %3873, %3878 ], [ %3873, %3876 ], [ %3860, %lean_nat_add.exit1763.thread3892 ], [ %4083, %4089 ], [ %4083, %4088 ], [ %4083, %4086 ], [ %4070, %lean_nat_add.exit1760.thread3898 ], [ %4459, %4465 ], [ %4459, %4464 ], [ %4459, %4462 ], [ %4446, %lean_nat_add.exit1757.thread3904 ], [ %4979, %4985 ], [ %4979, %4984 ], [ %4979, %4982 ], [ %4966, %lean_nat_add.exit1754.thread3910 ], [ %5566, %5572 ], [ %5566, %5571 ], [ %5566, %5569 ], [ %516, %515 ], [ %541, %540 ], [ %597, %596 ], [ %786, %785 ], [ %817, %816 ], [ %879, %878 ], [ %1245, %1244 ], [ %1280, %1279 ], [ %1346, %1345 ], [ %1889, %1888 ], [ %1924, %1923 ], [ %1990, %1989 ], [ %2677, %2676 ], [ %2712, %2711 ], [ %2778, %2777 ], [ %3531, %3530 ], [ %3572, %3571 ], [ %3644, %3643 ], [ %3871, %3870 ], [ %4081, %4080 ], [ %4457, %4456 ], [ %4977, %4976 ], [ %5564, %5563 ], [ %5562, %5559 ]
+  %.01637.be = phi ptr [ %81, %524 ], [ %81, %523 ], [ %81, %521 ], [ %81, %lean_nat_add.exit1844.thread3797 ], [ %81, %549 ], [ %81, %548 ], [ %81, %546 ], [ %81, %lean_nat_add.exit1841.thread3800 ], [ %81, %605 ], [ %81, %604 ], [ %81, %602 ], [ %81, %lean_nat_add.exit1838.thread3803 ], [ %81, %794 ], [ %81, %793 ], [ %81, %791 ], [ %81, %lean_nat_add.exit1832.thread3812 ], [ %81, %825 ], [ %81, %824 ], [ %81, %822 ], [ %81, %lean_nat_add.exit1829.thread3815 ], [ %81, %887 ], [ %81, %886 ], [ %81, %884 ], [ %81, %lean_nat_add.exit1826.thread3818 ], [ %81, %1253 ], [ %81, %1252 ], [ %81, %1250 ], [ %81, %lean_nat_add.exit1817.thread3829 ], [ %81, %1288 ], [ %81, %1287 ], [ %81, %1285 ], [ %81, %lean_nat_add.exit1814.thread3832 ], [ %81, %1354 ], [ %81, %1353 ], [ %81, %1351 ], [ %81, %lean_nat_add.exit1811.thread3835 ], [ %81, %1897 ], [ %81, %1896 ], [ %81, %1894 ], [ %81, %lean_nat_add.exit1802.thread3846 ], [ %81, %1932 ], [ %81, %1931 ], [ %81, %1929 ], [ %81, %lean_nat_add.exit1799.thread3849 ], [ %81, %1998 ], [ %81, %1997 ], [ %81, %1995 ], [ %81, %lean_nat_add.exit1796.thread3852 ], [ %81, %2685 ], [ %81, %2684 ], [ %81, %2682 ], [ %81, %lean_nat_add.exit1787.thread3863 ], [ %81, %2720 ], [ %81, %2719 ], [ %81, %2717 ], [ %81, %lean_nat_add.exit1784.thread3866 ], [ %81, %2786 ], [ %81, %2785 ], [ %81, %2783 ], [ %81, %lean_nat_add.exit1781.thread3869 ], [ %3510, %3539 ], [ %3510, %3538 ], [ %3510, %3536 ], [ %3510, %lean_nat_add.exit1772.thread3880 ], [ %3551, %3580 ], [ %3551, %3579 ], [ %3551, %3577 ], [ %3551, %lean_nat_add.exit1769.thread3883 ], [ %3623, %3652 ], [ %3623, %3651 ], [ %3623, %3649 ], [ %3623, %lean_nat_add.exit1766.thread3886 ], [ %81, %3879 ], [ %81, %3878 ], [ %81, %3876 ], [ %81, %lean_nat_add.exit1763.thread3892 ], [ %81, %4089 ], [ %81, %4088 ], [ %81, %4086 ], [ %81, %lean_nat_add.exit1760.thread3898 ], [ %81, %4465 ], [ %81, %4464 ], [ %81, %4462 ], [ %81, %lean_nat_add.exit1757.thread3904 ], [ %81, %4985 ], [ %81, %4984 ], [ %81, %4982 ], [ %81, %lean_nat_add.exit1754.thread3910 ], [ %5543, %5572 ], [ %5543, %5571 ], [ %5543, %5569 ], [ %5543, %lean_nat_add.exit.thread3916 ], [ %81, %515 ], [ %81, %511 ], [ %81, %540 ], [ %81, %536 ], [ %81, %596 ], [ %81, %592 ], [ %81, %785 ], [ %81, %781 ], [ %81, %816 ], [ %81, %812 ], [ %81, %878 ], [ %81, %874 ], [ %81, %1244 ], [ %81, %1240 ], [ %81, %1279 ], [ %81, %1275 ], [ %81, %1345 ], [ %81, %1341 ], [ %81, %1888 ], [ %81, %1884 ], [ %81, %1923 ], [ %81, %1919 ], [ %81, %1989 ], [ %81, %1985 ], [ %81, %2676 ], [ %81, %2672 ], [ %81, %2711 ], [ %81, %2707 ], [ %81, %2777 ], [ %81, %2773 ], [ %3510, %3530 ], [ %3510, %3526 ], [ %3551, %3571 ], [ %3551, %3567 ], [ %3623, %3643 ], [ %3623, %3639 ], [ %81, %3870 ], [ %81, %3866 ], [ %81, %4080 ], [ %81, %4076 ], [ %81, %4456 ], [ %81, %4452 ], [ %81, %4976 ], [ %81, %4972 ], [ %5543, %5563 ], [ %5543, %5559 ]
+  %.01610.be = phi ptr [ %518, %524 ], [ %518, %523 ], [ %518, %521 ], [ %505, %lean_nat_add.exit1844.thread3797 ], [ %543, %549 ], [ %543, %548 ], [ %543, %546 ], [ %530, %lean_nat_add.exit1841.thread3800 ], [ %599, %605 ], [ %599, %604 ], [ %599, %602 ], [ %586, %lean_nat_add.exit1838.thread3803 ], [ %788, %794 ], [ %788, %793 ], [ %788, %791 ], [ %775, %lean_nat_add.exit1832.thread3812 ], [ %819, %825 ], [ %819, %824 ], [ %819, %822 ], [ %806, %lean_nat_add.exit1829.thread3815 ], [ %881, %887 ], [ %881, %886 ], [ %881, %884 ], [ %868, %lean_nat_add.exit1826.thread3818 ], [ %1247, %1253 ], [ %1247, %1252 ], [ %1247, %1250 ], [ %1234, %lean_nat_add.exit1817.thread3829 ], [ %1282, %1288 ], [ %1282, %1287 ], [ %1282, %1285 ], [ %1269, %lean_nat_add.exit1814.thread3832 ], [ %1348, %1354 ], [ %1348, %1353 ], [ %1348, %1351 ], [ %1335, %lean_nat_add.exit1811.thread3835 ], [ %1891, %1897 ], [ %1891, %1896 ], [ %1891, %1894 ], [ %1878, %lean_nat_add.exit1802.thread3846 ], [ %1926, %1932 ], [ %1926, %1931 ], [ %1926, %1929 ], [ %1913, %lean_nat_add.exit1799.thread3849 ], [ %1992, %1998 ], [ %1992, %1997 ], [ %1992, %1995 ], [ %1979, %lean_nat_add.exit1796.thread3852 ], [ %2679, %2685 ], [ %2679, %2684 ], [ %2679, %2682 ], [ %2666, %lean_nat_add.exit1787.thread3863 ], [ %2714, %2720 ], [ %2714, %2719 ], [ %2714, %2717 ], [ %2701, %lean_nat_add.exit1784.thread3866 ], [ %2780, %2786 ], [ %2780, %2785 ], [ %2780, %2783 ], [ %2767, %lean_nat_add.exit1781.thread3869 ], [ %3533, %3539 ], [ %3533, %3538 ], [ %3533, %3536 ], [ %3520, %lean_nat_add.exit1772.thread3880 ], [ %3574, %3580 ], [ %3574, %3579 ], [ %3574, %3577 ], [ %3561, %lean_nat_add.exit1769.thread3883 ], [ %3646, %3652 ], [ %3646, %3651 ], [ %3646, %3649 ], [ %3633, %lean_nat_add.exit1766.thread3886 ], [ %3873, %3879 ], [ %3873, %3878 ], [ %3873, %3876 ], [ %3860, %lean_nat_add.exit1763.thread3892 ], [ %4083, %4089 ], [ %4083, %4088 ], [ %4083, %4086 ], [ %4070, %lean_nat_add.exit1760.thread3898 ], [ %4459, %4465 ], [ %4459, %4464 ], [ %4459, %4462 ], [ %4446, %lean_nat_add.exit1757.thread3904 ], [ %4979, %4985 ], [ %4979, %4984 ], [ %4979, %4982 ], [ %4966, %lean_nat_add.exit1754.thread3910 ], [ %5566, %5572 ], [ %5566, %5571 ], [ %5566, %5569 ], [ %5553, %lean_nat_add.exit.thread3916 ], [ %516, %515 ], [ %514, %511 ], [ %541, %540 ], [ %539, %536 ], [ %597, %596 ], [ %595, %592 ], [ %786, %785 ], [ %784, %781 ], [ %817, %816 ], [ %815, %812 ], [ %879, %878 ], [ %877, %874 ], [ %1245, %1244 ], [ %1243, %1240 ], [ %1280, %1279 ], [ %1278, %1275 ], [ %1346, %1345 ], [ %1344, %1341 ], [ %1889, %1888 ], [ %1887, %1884 ], [ %1924, %1923 ], [ %1922, %1919 ], [ %1990, %1989 ], [ %1988, %1985 ], [ %2677, %2676 ], [ %2675, %2672 ], [ %2712, %2711 ], [ %2710, %2707 ], [ %2778, %2777 ], [ %2776, %2773 ], [ %3531, %3530 ], [ %3529, %3526 ], [ %3572, %3571 ], [ %3570, %3567 ], [ %3644, %3643 ], [ %3642, %3639 ], [ %3871, %3870 ], [ %3869, %3866 ], [ %4081, %4080 ], [ %4079, %4076 ], [ %4457, %4456 ], [ %4455, %4452 ], [ %4977, %4976 ], [ %4975, %4972 ], [ %5564, %5563 ], [ %5562, %5559 ]
   br label %lean_dec.exit1938
 
 5563:                                             ; preds = %5554
@@ -307697,7 +307697,7 @@ lean_alloc_ctor.exit209:                          ; preds = %216
   br label %lean_dec.exit129
 
 lean_dec.exit129:                                 ; preds = %2, %8, %10, %11, %lean_alloc_ctor.exit209, %lean_alloc_ctor.exit197
-  %.0 = phi ptr [ %220, %lean_alloc_ctor.exit209 ], [ %150, %lean_alloc_ctor.exit197 ], [ inttoptr (i64 1 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %11 ], [ inttoptr (i64 1 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %8 ]
+  %.0 = phi ptr [ %150, %lean_alloc_ctor.exit197 ], [ %220, %lean_alloc_ctor.exit209 ], [ inttoptr (i64 1 to ptr), %11 ], [ inttoptr (i64 1 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %8 ], [ inttoptr (i64 1 to ptr), %2 ]
   ret ptr %.0
 }
 
@@ -310528,7 +310528,7 @@ lean_alloc_ctor.exit.i:                           ; preds = %lean_dec.exit.i
   br label %_init_l___private_Lean_Util_Profiler_0__Lean_Firefox_getFirstStart_x3f___lambda__2___closed__4.exit
 
 _init_l___private_Lean_Util_Profiler_0__Lean_Firefox_getFirstStart_x3f___lambda__2___closed__4.exit: ; preds = %lean_obj_tag.exit.i, %1185, %lean_alloc_ctor.exit.i
-  %.0.i = phi ptr [ %1175, %1185 ], [ %1205, %lean_alloc_ctor.exit.i ], [ %1175, %lean_obj_tag.exit.i ]
+  %.0.i = phi ptr [ %1205, %lean_alloc_ctor.exit.i ], [ %1175, %1185 ], [ %1175, %lean_obj_tag.exit.i ]
   store ptr %.0.i, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_getFirstStart_x3f___lambda__2___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.0.i) #8
   %1210 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8

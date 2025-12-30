@@ -498,7 +498,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit89:         ; preds = %118, %121
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %128, %.thread.i, %135, %138, %141
-  %.sroa.04.0.i = phi double [ 0x43E0000000000000, %128 ], [ 0x43E0000000000000, %135 ], [ %143, %141 ], [ 0x43E0000000000000, %.thread.i ], [ 0xC3E0000000000000, %138 ]
+  %.sroa.04.0.i = phi double [ 0x43E0000000000000, %.thread.i ], [ %143, %141 ], [ 0x43E0000000000000, %135 ], [ 0xC3E0000000000000, %138 ], [ 0x43E0000000000000, %128 ]
   %144 = fdiv double %.sroa.04.0.i, 1.000000e+03
   call void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr noundef nonnull align 8 dereferenceable(56) %129, double noundef %144)
   %145 = getelementptr inbounds nuw i8, ptr %30, i64 64
@@ -768,7 +768,7 @@ _ZL20note_deadline_changeP11timer_shard.exit:     ; preds = %240, %.lr.ph13.i, %
   ret void
 
 254:                                              ; preds = %126, %191, %205, %103, %64
-  %.pn56.pn = phi { ptr, i32 } [ %.pn, %64 ], [ %.pn51, %103 ], [ %127, %126 ], [ %206, %205 ], [ %.pn53, %191 ]
+  %.pn56.pn = phi { ptr, i32 } [ %.pn51, %103 ], [ %.pn, %64 ], [ %127, %126 ], [ %206, %205 ], [ %.pn53, %191 ]
   resume { ptr, i32 } %.pn56.pn
 }
 
@@ -1305,7 +1305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %.cr
   br label %132
 
 132:                                              ; preds = %122, %131, %97, %79
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %80, %79 ], [ %.pn.pn, %131 ], [ %123, %122 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %98, %97 ], [ %.pn.pn, %131 ], [ %123, %122 ]
   %133 = load ptr, ptr %11, align 8, !tbaa !74
   %134 = icmp eq ptr %133, %72
   br i1 %134, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i100
@@ -1524,7 +1524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %.c
   br label %208
 
 208:                                              ; preds = %198, %207, %178, %160
-  %.pn54.pn.pn.pn = phi { ptr, i32 } [ %179, %178 ], [ %161, %160 ], [ %.pn54.pn, %207 ], [ %199, %198 ]
+  %.pn54.pn.pn.pn = phi { ptr, i32 } [ %161, %160 ], [ %179, %178 ], [ %.pn54.pn, %207 ], [ %199, %198 ]
   %209 = load ptr, ptr %17, align 8, !tbaa !74
   %210 = icmp eq ptr %209, %153
   br i1 %210, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i115
@@ -1579,7 +1579,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit119:        ; preds = %213, %217
   br label %225
 
 .critedge64:                                      ; preds = %36, %.critedge, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, %33, %_ZN4absl12lts_202407226StatusD2Ev.exit119
-  %.028 = phi i32 [ %214, %_ZN4absl12lts_202407226StatusD2Ev.exit119 ], [ 1, %33 ], [ 1, %.critedge ], [ 1, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ 1, %36 ]
+  %.028 = phi i32 [ %214, %_ZN4absl12lts_202407226StatusD2Ev.exit119 ], [ 1, %33 ], [ 1, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ 1, %.critedge ], [ 1, %36 ]
   ret i32 %.028
 
 225:                                              ; preds = %224, %46
@@ -2048,7 +2048,7 @@ define linkonce_odr i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %0, i64 %1) local
   br label %_ZN9grpc_core11time_detail9MillisAddEll.exit
 
 _ZN9grpc_core11time_detail9MillisAddEll.exit:     ; preds = %4, %19, %16, %13, %8, %.thread, %3
-  %.sroa.04.0 = phi i64 [ %spec.select, %4 ], [ 9223372036854775807, %3 ], [ -9223372036854775808, %8 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %16 ], [ %20, %19 ], [ 9223372036854775807, %13 ]
+  %.sroa.04.0 = phi i64 [ 9223372036854775807, %3 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %8 ], [ %20, %19 ], [ 9223372036854775807, %13 ], [ -9223372036854775808, %16 ], [ %spec.select, %4 ]
   ret i64 %.sroa.04.0
 }
 
@@ -2510,7 +2510,7 @@ _ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit.i.i.i: ; preds = %.noexc52
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i: ; preds = %137, %134, %131, %126, %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit.i.i.i, %.noexc52
-  %.0.i.i.i.i.i = phi i64 [ -9223372036854775808, %126 ], [ 9223372036854775807, %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit.i.i.i ], [ -9223372036854775808, %134 ], [ %138, %137 ], [ 9223372036854775807, %131 ], [ 9223372036854775807, %.noexc52 ]
+  %.0.i.i.i.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit.i.i.i ], [ -9223372036854775808, %126 ], [ %138, %137 ], [ 9223372036854775807, %131 ], [ -9223372036854775808, %134 ], [ 9223372036854775807, %.noexc52 ]
   store i64 %.0.i.i.i.i.i, ptr %81, align 8, !tbaa !17
   %139 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core17timer_check_traceE, i64 16) monotonic, align 8
   %140 = trunc i8 %139 to i1
@@ -3009,7 +3009,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %269, %270
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %156, %175, %224, %242, %267
-  %eh.lpad-body = phi { ptr, i32 } [ %268, %267 ], [ %157, %156 ], [ %.pn38.pn.pn.i.i, %224 ], [ %176, %175 ], [ %243, %242 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit108, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp109, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn38.pn.pn.i.i, %224 ], [ %176, %175 ], [ %157, %156 ], [ %243, %242 ], [ %268, %267 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit108, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp109, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #28
   br label %361
 

@@ -824,12 +824,12 @@ unlock_avcodec.exit277:                           ; preds = %lock_avcodec.exit27
   unreachable
 
 320:                                              ; preds = %.thread286, %304, %306, %216, %221, %72, %59, %unlock_avcodec.exit, %242, %107, %80, %287, %191, %188, %178, %163, %158
-  %.1 = phi i32 [ %81, %80 ], [ -22, %158 ], [ -22, %163 ], [ -22, %191 ], [ -12, %72 ], [ %.3, %242 ], [ %279, %287 ], [ -733130664, %216 ], [ -22, %304 ], [ %255, %unlock_avcodec.exit ], [ -22, %188 ], [ -22, %178 ], [ %.2, %107 ], [ -12, %59 ], [ -733130664, %221 ], [ -22, %306 ], [ -22, %.thread286 ]
+  %.1 = phi i32 [ %81, %80 ], [ -22, %158 ], [ -22, %163 ], [ -22, %191 ], [ %.3, %242 ], [ %279, %287 ], [ %255, %unlock_avcodec.exit ], [ -22, %188 ], [ -22, %178 ], [ %.2, %107 ], [ -12, %59 ], [ -12, %72 ], [ -733130664, %221 ], [ -733130664, %216 ], [ -22, %306 ], [ -22, %304 ], [ -22, %.thread286 ]
   tail call void @ff_codec_close(ptr noundef nonnull %0)
   br label %321
 
 321:                                              ; preds = %320, %314, %311, %57, %35, %._crit_edge, %3, %47, %23, %11, %10
-  %.0 = phi i32 [ -22, %10 ], [ -22, %11 ], [ -22, %23 ], [ 0, %3 ], [ -22, %._crit_edge ], [ -22, %47 ], [ %39, %35 ], [ %.1, %320 ], [ 0, %314 ], [ 0, %311 ], [ -12, %57 ]
+  %.0 = phi i32 [ -22, %11 ], [ -22, %23 ], [ -22, %47 ], [ -22, %10 ], [ 0, %3 ], [ -22, %._crit_edge ], [ %39, %35 ], [ %.1, %320 ], [ 0, %314 ], [ 0, %311 ], [ -12, %57 ]
   ret i32 %.0
 }
 
@@ -929,7 +929,7 @@ define internal fastcc i64 @get_bit_rate(ptr noundef readonly captures(none) %0)
   br label %26
 
 26:                                               ; preds = %11, %1, %23, %4
-  %.0 = phi i64 [ %spec.select, %11 ], [ %6, %4 ], [ %25, %23 ], [ 0, %1 ]
+  %.0 = phi i64 [ %6, %4 ], [ %25, %23 ], [ 0, %1 ], [ %spec.select, %11 ]
   ret i64 %.0
 }
 
@@ -1519,7 +1519,7 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   br label %115
 
 115:                                              ; preds = %109, %.fold.split, %112, %114, %113
-  %.0130 = phi ptr [ @.str.36, %109 ], [ @.str.37, %112 ], [ @.str.38, %113 ], [ @.str.39, %114 ], [ @.str.35, %.fold.split ]
+  %.0130 = phi ptr [ @.str.37, %112 ], [ @.str.38, %113 ], [ @.str.39, %114 ], [ @.str.36, %109 ], [ @.str.35, %.fold.split ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.33, ptr noundef nonnull %.0130) #12
   br label %116
 
@@ -2181,12 +2181,12 @@ define range(i32 -22, 1) i32 @ff_default_get_supported_config(ptr readnone captu
   br i1 %.not, label %77, label %.sink.split
 
 .sink.split:                                      ; preds = %76, %.preheader100, %._crit_edge.loopexit, %.preheader99, %._crit_edge107.loopexit, %.preheader98, %._crit_edge115.loopexit, %.preheader97, %._crit_edge123.loopexit, %.preheader, %._crit_edge131.loopexit, %58
-  %.sink = phi i32 [ %46, %._crit_edge.loopexit ], [ %75, %58 ], [ %38, %._crit_edge107.loopexit ], [ %30, %._crit_edge115.loopexit ], [ %22, %._crit_edge123.loopexit ], [ %14, %._crit_edge131.loopexit ], [ 0, %.preheader ], [ 0, %.preheader97 ], [ 0, %.preheader98 ], [ 0, %.preheader99 ], [ 0, %.preheader100 ], [ 0, %76 ]
+  %.sink = phi i32 [ %75, %58 ], [ 0, %.preheader ], [ %14, %._crit_edge131.loopexit ], [ 0, %.preheader97 ], [ %22, %._crit_edge123.loopexit ], [ 0, %.preheader98 ], [ %30, %._crit_edge115.loopexit ], [ 0, %.preheader99 ], [ %38, %._crit_edge107.loopexit ], [ 0, %.preheader100 ], [ %46, %._crit_edge.loopexit ], [ 0, %76 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !6
   br label %77
 
 77:                                               ; preds = %.sink.split, %6, %76, %50, %47, %42, %39, %34, %31, %26, %23, %18, %15, %10, %7
-  %.064 = phi i32 [ 0, %76 ], [ 0, %50 ], [ -22, %7 ], [ 0, %10 ], [ -22, %15 ], [ 0, %18 ], [ -22, %23 ], [ 0, %26 ], [ -22, %31 ], [ 0, %34 ], [ -22, %39 ], [ 0, %42 ], [ -22, %47 ], [ -22, %6 ], [ 0, %.sink.split ]
+  %.064 = phi i32 [ -22, %7 ], [ 0, %10 ], [ -22, %15 ], [ 0, %18 ], [ -22, %23 ], [ 0, %26 ], [ -22, %31 ], [ 0, %34 ], [ -22, %39 ], [ 0, %42 ], [ -22, %47 ], [ 0, %50 ], [ 0, %76 ], [ -22, %6 ], [ 0, %.sink.split ]
   ret i32 %.064
 }
 

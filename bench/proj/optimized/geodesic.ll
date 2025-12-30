@@ -385,8 +385,8 @@ default.unreachable:                              ; preds = %AngRound.exit
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %AngRound.exit, %35, %32, %30
-  %.0 = phi double [ %36, %35 ], [ %27, %30 ], [ %33, %32 ], [ %26, %AngRound.exit ]
-  %37 = phi double [ %26, %35 ], [ %31, %30 ], [ %34, %32 ], [ %27, %AngRound.exit ]
+  %.0 = phi double [ %27, %30 ], [ %33, %32 ], [ %36, %35 ], [ %26, %AngRound.exit ]
+  %37 = phi double [ %31, %30 ], [ %34, %32 ], [ %26, %35 ], [ %27, %AngRound.exit ]
   %38 = fadd double %37, 0.000000e+00
   %39 = fcmp oeq double %.0, 0.000000e+00
   %40 = tail call double @llvm.copysign.f64(double %.0, double %14)
@@ -498,8 +498,8 @@ default.unreachable:                              ; preds = %AngRound.exit
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %AngRound.exit, %57, %54, %52
-  %.0 = phi double [ %58, %57 ], [ %49, %52 ], [ %55, %54 ], [ %48, %AngRound.exit ]
-  %59 = phi double [ %48, %57 ], [ %53, %52 ], [ %56, %54 ], [ %49, %AngRound.exit ]
+  %.0 = phi double [ %49, %52 ], [ %55, %54 ], [ %58, %57 ], [ %48, %AngRound.exit ]
+  %59 = phi double [ %53, %52 ], [ %56, %54 ], [ %48, %57 ], [ %49, %AngRound.exit ]
   %60 = fadd double %59, 0.000000e+00
   %61 = fcmp oeq double %.0, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double %.0, double %32)
@@ -1174,8 +1174,8 @@ default.unreachable:                              ; preds = %339, %318, %42
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %42, %56, %53, %51
-  %.1338 = phi double [ %57, %56 ], [ %48, %51 ], [ %54, %53 ], [ %47, %42 ]
-  %58 = phi double [ %47, %56 ], [ %52, %51 ], [ %55, %53 ], [ %48, %42 ]
+  %.1338 = phi double [ %48, %51 ], [ %54, %53 ], [ %57, %56 ], [ %47, %42 ]
+  %58 = phi double [ %52, %51 ], [ %55, %53 ], [ %47, %56 ], [ %48, %42 ]
   %59 = fadd double %58, 0.000000e+00
   %60 = fcmp oeq double %.1338, 0.000000e+00
   %61 = tail call double @llvm.copysign.f64(double %.1338, double %2)
@@ -2184,8 +2184,8 @@ default.unreachable:                              ; preds = %sincosdx.exit, %Ang
   br label %sincosde.exit
 
 sincosde.exit:                                    ; preds = %AngRound.exit.i, %66, %63, %61
-  %.0477 = phi double [ %67, %66 ], [ %58, %61 ], [ %64, %63 ], [ %57, %AngRound.exit.i ]
-  %68 = phi double [ %57, %66 ], [ %62, %61 ], [ %65, %63 ], [ %58, %AngRound.exit.i ]
+  %.0477 = phi double [ %58, %61 ], [ %64, %63 ], [ %67, %66 ], [ %57, %AngRound.exit.i ]
+  %68 = phi double [ %62, %61 ], [ %65, %63 ], [ %57, %66 ], [ %58, %AngRound.exit.i ]
   %69 = fadd double %68, 0.000000e+00
   %70 = fcmp oeq double %.0477, 0.000000e+00
   %71 = call double @llvm.copysign.f64(double %.0477, double %41)
@@ -2300,8 +2300,8 @@ AngRound.exit291:                                 ; preds = %92, %94
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %AngRound.exit291, %120, %117, %115
-  %.0483 = phi double [ %121, %120 ], [ %112, %115 ], [ %118, %117 ], [ %111, %AngRound.exit291 ]
-  %122 = phi double [ %111, %120 ], [ %116, %115 ], [ %119, %117 ], [ %112, %AngRound.exit291 ]
+  %.0483 = phi double [ %112, %115 ], [ %118, %117 ], [ %121, %120 ], [ %111, %AngRound.exit291 ]
+  %122 = phi double [ %116, %115 ], [ %119, %117 ], [ %111, %120 ], [ %112, %AngRound.exit291 ]
   %123 = fadd double %122, 0.000000e+00
   %124 = fcmp oeq double %.0483, 0.000000e+00
   %125 = call double @llvm.copysign.f64(double %.0483, double %107)
@@ -2344,8 +2344,8 @@ sincosdx.exit:                                    ; preds = %AngRound.exit291, %
   br label %sincosdx.exit293
 
 sincosdx.exit293:                                 ; preds = %sincosdx.exit, %145, %142, %140
-  %.1481 = phi double [ %146, %145 ], [ %137, %140 ], [ %143, %142 ], [ %136, %sincosdx.exit ]
-  %147 = phi double [ %136, %145 ], [ %141, %140 ], [ %144, %142 ], [ %137, %sincosdx.exit ]
+  %.1481 = phi double [ %137, %140 ], [ %143, %142 ], [ %146, %145 ], [ %136, %sincosdx.exit ]
+  %147 = phi double [ %141, %140 ], [ %144, %142 ], [ %136, %145 ], [ %137, %sincosdx.exit ]
   %148 = fadd double %147, 0.000000e+00
   %149 = fcmp oeq double %.1481, 0.000000e+00
   %150 = call double @llvm.copysign.f64(double %.1481, double %108)
@@ -3064,7 +3064,7 @@ A3f.exit.i301:                                    ; preds = %.lr.ph.i.i114.i
   br label %Lambda12.exit
 
 Lambda12.exit:                                    ; preds = %618, %A3f.exit.i301, %620
-  %.0441 = phi double [ 0.000000e+00, %A3f.exit.i301 ], [ %623, %620 ], [ %486, %618 ]
+  %.0441 = phi double [ %623, %620 ], [ 0.000000e+00, %A3f.exit.i301 ], [ %486, %618 ]
   %624 = fadd double %546, %617
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not276 = icmp eq i32 %.0250, 0
@@ -3118,10 +3118,10 @@ Lambda12.exit:                                    ; preds = %618, %A3f.exit.i301
   br label %652
 
 652:                                              ; preds = %635, %638, %642, %647, %651
-  %.2242 = phi double [ %.0240, %642 ], [ %.0240, %651 ], [ %.0240, %647 ], [ %.3469, %638 ], [ %.3469, %635 ]
-  %.2239 = phi double [ %.0237, %642 ], [ %.0237, %651 ], [ %.0237, %647 ], [ %.3463, %638 ], [ %.3463, %635 ]
-  %.2236 = phi double [ %.0234, %642 ], [ %.3469, %651 ], [ %.0234, %647 ], [ %.0234, %638 ], [ %.0234, %635 ]
-  %.2233 = phi double [ %.0231, %642 ], [ %.3463, %651 ], [ %.0231, %647 ], [ %.0231, %638 ], [ %.0231, %635 ]
+  %.2242 = phi double [ %.0240, %651 ], [ %.0240, %647 ], [ %.0240, %642 ], [ %.3469, %638 ], [ %.3469, %635 ]
+  %.2239 = phi double [ %.0237, %651 ], [ %.0237, %647 ], [ %.0237, %642 ], [ %.3463, %638 ], [ %.3463, %635 ]
+  %.2236 = phi double [ %.3469, %651 ], [ %.0234, %647 ], [ %.0234, %642 ], [ %.0234, %638 ], [ %.0234, %635 ]
+  %.2233 = phi double [ %.3463, %651 ], [ %.0231, %647 ], [ %.0231, %642 ], [ %.0231, %638 ], [ %.0231, %635 ]
   %653 = select i1 %.b.pre.pre, i1 %503, i1 false
   %654 = fcmp ogt double %.0441, 0.000000e+00
   %or.cond8 = select i1 %653, i1 %654, i1 false
@@ -3222,15 +3222,15 @@ Lambda12.exit:                                    ; preds = %618, %A3f.exit.i301
   br label %724
 
 718:                                              ; preds = %.thread, %498, %229
-  %719 = phi double [ %208, %.thread ], [ %495, %498 ], [ %226, %229 ]
-  %720 = phi double [ %209, %.thread ], [ %490, %498 ], [ %221, %229 ]
-  %721 = phi i1 [ false, %.thread ], [ true, %498 ], [ true, %229 ]
-  %.1467 = phi double [ %69, %.thread ], [ %.1.i, %498 ], [ 0.000000e+00, %229 ]
-  %.1461 = phi double [ %.1478, %.thread ], [ %.1177.i, %498 ], [ 1.000000e+00, %229 ]
-  %.1455 = phi double [ 1.000000e+00, %.thread ], [ %.0173.i, %498 ], [ 0.000000e+00, %229 ]
-  %.1450 = phi double [ 0.000000e+00, %.thread ], [ %.0174.i, %498 ], [ 1.000000e+00, %229 ]
-  %.0219 = phi double [ 0.000000e+00, %.thread ], [ %501, %498 ], [ %222, %229 ]
-  %.2 = phi double [ %210, %.thread ], [ %499, %498 ], [ %230, %229 ]
+  %719 = phi double [ %226, %229 ], [ %208, %.thread ], [ %495, %498 ]
+  %720 = phi double [ %221, %229 ], [ %209, %.thread ], [ %490, %498 ]
+  %721 = phi i1 [ true, %229 ], [ false, %.thread ], [ true, %498 ]
+  %.1467 = phi double [ 0.000000e+00, %229 ], [ %69, %.thread ], [ %.1.i, %498 ]
+  %.1461 = phi double [ 1.000000e+00, %229 ], [ %.1478, %.thread ], [ %.1177.i, %498 ]
+  %.1455 = phi double [ 0.000000e+00, %229 ], [ 1.000000e+00, %.thread ], [ %.0173.i, %498 ]
+  %.1450 = phi double [ 1.000000e+00, %229 ], [ 0.000000e+00, %.thread ], [ %.0174.i, %498 ]
+  %.0219 = phi double [ %222, %229 ], [ 0.000000e+00, %.thread ], [ %501, %498 ]
+  %.2 = phi double [ %230, %229 ], [ %210, %.thread ], [ %499, %498 ]
   %722 = fadd double %720, 0.000000e+00
   %.0211 = select i1 %.not, double 0.000000e+00, double %722
   %723 = fadd double %719, 0.000000e+00
@@ -4503,7 +4503,7 @@ accadd.exit84:                                    ; preds = %213, %sumx.exit20.i
   br i1 %230, label %.sink.split.i, label %areareduceA.exit
 
 .sink.split.i:                                    ; preds = %229, %227, %222, %220
-  %.sink.i38 = phi double [ %228, %227 ], [ %130, %222 ], [ %221, %220 ], [ %130, %229 ]
+  %.sink.i38 = phi double [ %228, %227 ], [ %221, %220 ], [ %130, %222 ], [ %130, %229 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %231 = fadd double %.sroa.22.2, %.sink.i38
   store volatile double %231, ptr %22, align 8, !tbaa !3
@@ -4583,7 +4583,7 @@ sumx.exit20.i55:                                  ; preds = %sumx.exit.i46, %248
   br label %areareduceA.exit
 
 areareduceA.exit:                                 ; preds = %250, %sumx.exit20.i55, %222, %229
-  %.sroa.0.3 = phi double [ %.sroa.0.2, %222 ], [ %.sroa.0.2, %229 ], [ %.0..0..0..0..0..0..0..0.9.i17.i56, %250 ], [ %241, %sumx.exit20.i55 ]
+  %.sroa.0.3 = phi double [ %.sroa.0.2, %229 ], [ %.sroa.0.2, %222 ], [ %.0..0..0..0..0..0..0..0.9.i17.i56, %250 ], [ %241, %sumx.exit20.i55 ]
   %251 = fadd double %.sroa.0.3, 0.000000e+00
   store double %251, ptr %4, align 8, !tbaa !3
   br label %252
@@ -5078,7 +5078,7 @@ areareduceB.exit:                                 ; preds = %118, %120, %123, %1
   br label %134
 
 134:                                              ; preds = %98, %areareduceB.exit, %38, %39, %25, %30
-  %.0 = phi i32 [ %20, %38 ], [ 0, %25 ], [ 0, %30 ], [ %20, %39 ], [ %20, %areareduceB.exit ], [ %20, %98 ]
+  %.0 = phi i32 [ 0, %30 ], [ 0, %25 ], [ %20, %39 ], [ %20, %38 ], [ %20, %areareduceB.exit ], [ %20, %98 ]
   ret i32 %.0
 }
 

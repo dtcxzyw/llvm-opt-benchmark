@@ -279,7 +279,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_init(ptr readnone captures(none) 
   br label %53
 
 53:                                               ; preds = %18, %28, %33, %42, %49, %46, %3
-  %.0 = phi i32 [ -1, %18 ], [ -1, %28 ], [ -1, %33 ], [ -1, %42 ], [ -1, %49 ], [ 0, %3 ], [ 0, %46 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %28 ], [ -1, %33 ], [ -1, %42 ], [ -1, %49 ], [ 0, %46 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -919,8 +919,8 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
   br i1 %.not.i, label %.thread.i, label %36, !llvm.loop !97
 
 .thread.i:                                        ; preds = %._crit_edge.i, %110, %.critedge.thread.i, %87, %77, %75, %61, %49, %38, %.loopexit.i
-  %.176.i = phi i32 [ -1, %38 ], [ -1, %49 ], [ -1, %61 ], [ %67, %75 ], [ %67, %77 ], [ %67, %87 ], [ %67, %110 ], [ %67, %.critedge.thread.i ], [ -1, %.loopexit.i ], [ -1, %._crit_edge.i ]
-  %122 = phi i1 [ true, %38 ], [ true, %49 ], [ true, %61 ], [ true, %75 ], [ true, %77 ], [ true, %87 ], [ true, %110 ], [ true, %.critedge.thread.i ], [ false, %.loopexit.i ], [ false, %._crit_edge.i ]
+  %.176.i = phi i32 [ -1, %38 ], [ -1, %49 ], [ -1, %61 ], [ %67, %75 ], [ %67, %77 ], [ %67, %87 ], [ %67, %.critedge.thread.i ], [ %67, %110 ], [ -1, %.loopexit.i ], [ -1, %._crit_edge.i ]
+  %122 = phi i1 [ true, %38 ], [ true, %49 ], [ true, %61 ], [ true, %75 ], [ true, %77 ], [ true, %87 ], [ true, %.critedge.thread.i ], [ true, %110 ], [ false, %.loopexit.i ], [ false, %._crit_edge.i ]
   %123 = load ptr, ptr %5, align 8, !tbaa !83
   %.not90.i = icmp eq ptr %123, null
   br i1 %.not90.i, label %126, label %124

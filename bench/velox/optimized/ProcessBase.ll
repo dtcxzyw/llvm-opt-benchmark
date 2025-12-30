@@ -303,8 +303,8 @@ return:                                           ; preds = %.noexc8, %.noexc
   ret void
 
 eh.resume:                                        ; preds = %lpad3, %lpad.i5, %lpad, %lpad.i
-  %ref.tmp2.sink11 = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp, %lpad.i ], [ %ref.tmp2, %lpad.i5 ], [ %ref.tmp2, %lpad3 ]
-  %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i ], [ %2, %lpad.i5 ], [ %3, %lpad3 ]
+  %ref.tmp2.sink11 = phi ptr [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ], [ %ref.tmp2, %lpad.i5 ], [ %ref.tmp2, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ], [ %2, %lpad.i5 ], [ %3, %lpad3 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.sink11) #16
   resume { ptr, i32 } %.pn
 }

@@ -161,7 +161,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h14ae0dab6acdcd8fE.exit: ; preds
           to label %.body unwind label %36
 
 35:                                               ; preds = %.invoke.i, %.noexc4.i, %25, %.noexc3.i, %.noexc2.i
-  %.sroa.0.1.i.i = phi ptr [ %24, %.noexc3.i ], [ null, %.noexc4.i ], [ %22, %.noexc2.i ], [ null, %25 ], [ %32, %.invoke.i ]
+  %.sroa.0.1.i.i = phi ptr [ %22, %.noexc2.i ], [ %24, %.noexc3.i ], [ null, %25 ], [ null, %.noexc4.i ], [ %32, %.invoke.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !9
   invoke void @"_ZN4core3ptr69drop_in_place$LT$serde_json..ser..Serializer$LT$std..fs..File$GT$$GT$17ha11cee0d5c6a805cE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %4)
           to label %40 unwind label %38
@@ -178,7 +178,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h14ae0dab6acdcd8fE.exit: ; preds
   br label %.body
 
 .body:                                            ; preds = %42, %38, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %39, %38 ], [ %43, %42 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %34, %33 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$perf..stats..json..Interval$GT$$GT$17hfed9f58e59db130eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #9
           to label %.thread unwind label %47
 
@@ -221,7 +221,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h14ae0dab6acdcd8fE.exit: ; preds
   unreachable
 
 .thread:                                          ; preds = %.body, %49
-  %.pn7 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %50, %49 ]
+  %.pn7 = phi { ptr, i32 } [ %50, %49 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn7
 
 49:                                               ; preds = %2
@@ -313,8 +313,8 @@ define hidden void @_ZN4perf5stats4json5print17h3b500a14b51d5d78E(ptr noalias no
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$perf..stats..json..Interval$GT$$GT$17hfed9f58e59db130eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #9
           to label %42 unwind label %40
 
-33:                                               ; preds = %.noexc4, %.noexc3, %"_ZN4perf5stats4json1_77_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$perf..stats..json..Report$GT$9serialize17h73fbc0fd7d0bfd99E.exit.sink.split.i"
-  %.sroa.0.1.i.i.ph = phi ptr [ %30, %"_ZN4perf5stats4json1_77_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$perf..stats..json..Report$GT$9serialize17h73fbc0fd7d0bfd99E.exit.sink.split.i" ], [ %21, %.noexc3 ], [ %23, %.noexc4 ]
+33:                                               ; preds = %.noexc3, %.noexc4, %"_ZN4perf5stats4json1_77_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$perf..stats..json..Report$GT$9serialize17h73fbc0fd7d0bfd99E.exit.sink.split.i"
+  %.sroa.0.1.i.i.ph = phi ptr [ %30, %"_ZN4perf5stats4json1_77_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$perf..stats..json..Report$GT$9serialize17h73fbc0fd7d0bfd99E.exit.sink.split.i" ], [ %23, %.noexc4 ], [ %21, %.noexc3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !26
@@ -409,7 +409,7 @@ define hidden noundef align 8 ptr @"_ZN69_$LT$perf..stats..json..Interval$u20$as
   br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hc018f4c5c26d4802E.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hc018f4c5c26d4802E.exit": ; preds = %24, %21, %18, %5, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit", %12, %15
-  %.sroa.0.1 = phi ptr [ %17, %15 ], [ %6, %5 ], [ %8, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit" ], [ %14, %12 ], [ null, %18 ], [ %25, %24 ], [ null, %21 ]
+  %.sroa.0.1 = phi ptr [ %6, %5 ], [ %8, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit" ], [ %14, %12 ], [ %17, %15 ], [ null, %18 ], [ %25, %24 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.1
 }
@@ -468,7 +468,7 @@ define hidden noundef align 8 ptr @"_ZN69_$LT$perf..stats..json..Interval$u20$as
   br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17ha844bba51a0cedfdE.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17ha844bba51a0cedfdE.exit": ; preds = %24, %21, %18, %5, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit", %12, %15
-  %.sroa.0.1 = phi ptr [ %17, %15 ], [ %6, %5 ], [ %8, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit" ], [ %14, %12 ], [ null, %18 ], [ %25, %24 ], [ null, %21 ]
+  %.sroa.0.1 = phi ptr [ %6, %5 ], [ %8, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit" ], [ %14, %12 ], [ %17, %15 ], [ null, %18 ], [ %25, %24 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.1
 }
@@ -513,7 +513,7 @@ define hidden noundef align 8 ptr @"_ZN4perf5stats4json1_76_$LT$impl$u20$serde..
   br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17ha844bba51a0cedfdE.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17ha844bba51a0cedfdE.exit": ; preds = %16, %13, %10, %6, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit"
-  %.sroa.0.1 = phi ptr [ %9, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit" ], [ %7, %6 ], [ null, %10 ], [ %17, %16 ], [ null, %13 ]
+  %.sroa.0.1 = phi ptr [ %7, %6 ], [ %9, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit" ], [ null, %10 ], [ %17, %16 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.1
 }
@@ -558,7 +558,7 @@ define hidden noundef align 8 ptr @"_ZN4perf5stats4json1_76_$LT$impl$u20$serde..
   br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hc018f4c5c26d4802E.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hc018f4c5c26d4802E.exit": ; preds = %16, %13, %10, %6, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit"
-  %.sroa.0.1 = phi ptr [ %9, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit" ], [ %7, %6 ], [ null, %10 ], [ %17, %16 ], [ null, %13 ]
+  %.sroa.0.1 = phi ptr [ %7, %6 ], [ %9, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit" ], [ null, %10 ], [ %17, %16 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.1
 }
@@ -629,7 +629,7 @@ define hidden noundef align 8 ptr @"_ZN167_$LT$perf..stats..json.._..$LT$impl$u2
   br label %_ZN4perf5stats4json19serialize_timestamp17hf3d296bbcf6be6b5E.exit
 
 _ZN4perf5stats4json19serialize_timestamp17hf3d296bbcf6be6b5E.exit: ; preds = %9, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hebd17a95fd95beb2E.exit.i", %23, %26, %29
-  %.sroa.0.1.i = phi ptr [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hebd17a95fd95beb2E.exit.i" ], [ %10, %9 ], [ null, %23 ], [ %30, %29 ], [ null, %26 ]
+  %.sroa.0.1.i = phi ptr [ %10, %9 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hebd17a95fd95beb2E.exit.i" ], [ null, %23 ], [ %30, %29 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !49
   ret ptr %.sroa.0.1.i
 }
@@ -700,7 +700,7 @@ define hidden noundef align 8 ptr @"_ZN167_$LT$perf..stats..json.._..$LT$impl$u2
   br label %_ZN4perf5stats4json19serialize_timestamp17h5d702ca4611de26eE.exit
 
 _ZN4perf5stats4json19serialize_timestamp17h5d702ca4611de26eE.exit: ; preds = %9, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hebd17a95fd95beb2E.exit.i", %23, %26, %29
-  %.sroa.0.1.i = phi ptr [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hebd17a95fd95beb2E.exit.i" ], [ %10, %9 ], [ null, %23 ], [ %30, %29 ], [ null, %26 ]
+  %.sroa.0.1.i = phi ptr [ %10, %9 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hebd17a95fd95beb2E.exit.i" ], [ null, %23 ], [ %30, %29 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !62
   ret ptr %.sroa.0.1.i
 }
@@ -772,7 +772,7 @@ define hidden noundef align 8 ptr @"_ZN4perf5stats4json1_77_$LT$impl$u20$serde..
   br label %32
 
 32:                                               ; preds = %6, %10, %13, %16, %19, %22, %25, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit", %28
-  %.sroa.0.1 = phi ptr [ %31, %28 ], [ %7, %6 ], [ %27, %25 ], [ %24, %22 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %9, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit" ]
+  %.sroa.0.1 = phi ptr [ %31, %28 ], [ %7, %6 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %9, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.1
 }
@@ -844,7 +844,7 @@ define hidden noundef align 8 ptr @"_ZN4perf5stats4json1_77_$LT$impl$u20$serde..
   br label %32
 
 32:                                               ; preds = %6, %10, %13, %16, %19, %22, %25, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit", %28
-  %.sroa.0.1 = phi ptr [ %31, %28 ], [ %7, %6 ], [ %27, %25 ], [ %24, %22 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %9, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit" ]
+  %.sroa.0.1 = phi ptr [ %31, %28 ], [ %7, %6 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %9, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.1
 }
@@ -1104,7 +1104,7 @@ define hidden noundef align 8 ptr @"_ZN4perf5stats4json1_74_$LT$impl$u20$serde..
   br label %28
 
 28:                                               ; preds = %5, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit", %9, %12, %15, %18, %21, %24
-  %.sroa.0.1 = phi ptr [ %27, %24 ], [ %6, %5 ], [ %20, %18 ], [ %8, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit" ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %23, %21 ]
+  %.sroa.0.1 = phi ptr [ %27, %24 ], [ %6, %5 ], [ %8, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h7c6b08bcae2446adE.exit" ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.1
 }
@@ -1166,7 +1166,7 @@ define hidden noundef align 8 ptr @"_ZN4perf5stats4json1_74_$LT$impl$u20$serde..
   br label %28
 
 28:                                               ; preds = %5, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit", %9, %12, %15, %18, %21, %24
-  %.sroa.0.1 = phi ptr [ %27, %24 ], [ %6, %5 ], [ %20, %18 ], [ %8, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit" ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %23, %21 ]
+  %.sroa.0.1 = phi ptr [ %27, %24 ], [ %6, %5 ], [ %8, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h4f84979629418435E.exit" ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.1
 }

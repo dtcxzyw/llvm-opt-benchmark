@@ -1189,7 +1189,7 @@ Aig_ObjChild0Copy.exit82:                         ; preds = %111, %115
   br label %Aig_ObjChild0Copy.exit
 
 Aig_ObjChild0Copy.exit:                           ; preds = %102, %64, %60, %Aig_ObjChild1Copy.exit, %Aig_ObjChild0Copy.exit82, %125, %103
-  %.1 = phi ptr [ %.089, %102 ], [ %101, %Aig_ObjChild1Copy.exit ], [ %104, %103 ], [ %124, %Aig_ObjChild0Copy.exit82 ], [ %.val61, %125 ], [ %71, %64 ], [ null, %60 ]
+  %.1 = phi ptr [ %101, %Aig_ObjChild1Copy.exit ], [ %104, %103 ], [ %124, %Aig_ObjChild0Copy.exit82 ], [ %.val61, %125 ], [ %71, %64 ], [ null, %60 ], [ %.089, %102 ]
   %126 = getelementptr inbounds nuw i8, ptr %55, i64 40
   store ptr %.1, ptr %126, align 8, !tbaa !34
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
@@ -1764,7 +1764,7 @@ Aig_ObjChild0Copy.exit67:                         ; preds = %74, %78
   br label %Saig_ObjIsLo.exit.thread
 
 Saig_ObjIsLo.exit.thread:                         ; preds = %69, %72, %Saig_ObjIsLo.exit, %88, %Aig_ObjChild0Copy.exit67, %Aig_ObjChild1Copy.exit
-  %.1 = phi ptr [ %68, %Aig_ObjChild1Copy.exit ], [ %.075, %69 ], [ %87, %Aig_ObjChild0Copy.exit67 ], [ %.val49, %88 ], [ %73, %72 ], [ null, %Saig_ObjIsLo.exit ]
+  %.1 = phi ptr [ %68, %Aig_ObjChild1Copy.exit ], [ %87, %Aig_ObjChild0Copy.exit67 ], [ %.val49, %88 ], [ %73, %72 ], [ null, %Saig_ObjIsLo.exit ], [ %.075, %69 ]
   %89 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store ptr %.1, ptr %89, align 8, !tbaa !34
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
@@ -2032,7 +2032,7 @@ Aig_ObjChild0Copy.exit80:                         ; preds = %112, %116
   br label %Aig_ObjChild0Copy.exit
 
 Aig_ObjChild0Copy.exit:                           ; preds = %103, %65, %61, %Aig_ObjChild1Copy.exit, %Aig_ObjChild0Copy.exit80, %126, %104
-  %.1 = phi ptr [ %.04786, %103 ], [ %102, %Aig_ObjChild1Copy.exit ], [ %105, %104 ], [ %125, %Aig_ObjChild0Copy.exit80 ], [ %.val59, %126 ], [ %72, %65 ], [ null, %61 ]
+  %.1 = phi ptr [ %102, %Aig_ObjChild1Copy.exit ], [ %105, %104 ], [ %125, %Aig_ObjChild0Copy.exit80 ], [ %.val59, %126 ], [ %72, %65 ], [ null, %61 ], [ %.04786, %103 ]
   %127 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store ptr %.1, ptr %127, align 8, !tbaa !34
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
@@ -2225,7 +2225,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Aig_ObjChild1Copy.exit, %82, %79, %26, %23
-  %.sink = phi ptr [ null, %23 ], [ %33, %26 ], [ %64, %79 ], [ %64, %82 ], [ %64, %Aig_ObjChild1Copy.exit ]
+  %.sink = phi ptr [ %33, %26 ], [ null, %23 ], [ %64, %79 ], [ %64, %82 ], [ %64, %Aig_ObjChild1Copy.exit ]
   store ptr %.sink, ptr %4, align 8, !tbaa !34
   br label %93
 
@@ -2668,10 +2668,10 @@ Vec_PtrGrow.exit.i34:                             ; preds = %71, %69
   br label %.sink.split
 
 .sink.split:                                      ; preds = %83, %Vec_PtrGrow.exit.i34, %.Vec_PtrGrow.exit11_crit_edge.i29, %57, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.sink50 = phi ptr [ %47, %Vec_PtrGrow.exit.i ], [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %58, %57 ], [ %.pre.i31, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %84, %83 ], [ %73, %Vec_PtrGrow.exit.i34 ]
-  %.sink = phi ptr [ %37, %Vec_PtrGrow.exit.i ], [ %37, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %37, %57 ], [ %63, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %63, %83 ], [ %63, %Vec_PtrGrow.exit.i34 ]
-  %.ph = phi i32 [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %49, %57 ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %75, %83 ], [ 16, %Vec_PtrGrow.exit.i34 ]
-  %.ph47 = phi i32 [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %49, %57 ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %75, %83 ], [ 16, %Vec_PtrGrow.exit.i34 ]
+  %.sink50 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %58, %57 ], [ %47, %Vec_PtrGrow.exit.i ], [ %.pre.i31, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %84, %83 ], [ %73, %Vec_PtrGrow.exit.i34 ]
+  %.sink = phi ptr [ %37, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %37, %57 ], [ %37, %Vec_PtrGrow.exit.i ], [ %63, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %63, %83 ], [ %63, %Vec_PtrGrow.exit.i34 ]
+  %.ph = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %49, %57 ], [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %75, %83 ], [ 16, %Vec_PtrGrow.exit.i34 ]
+  %.ph47 = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %49, %57 ], [ 16, %Vec_PtrGrow.exit.i ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %75, %83 ], [ 16, %Vec_PtrGrow.exit.i34 ]
   %85 = add nsw i32 %24, 1
   store i32 %85, ptr %8, align 4, !tbaa !21
   %86 = sext i32 %24 to i64
@@ -2862,12 +2862,12 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Aig_ObjChild1Copy.exit, %86, %83, %29, %26
-  %.sink = phi ptr [ null, %26 ], [ %36, %29 ], [ %68, %83 ], [ %68, %86 ], [ %68, %Aig_ObjChild1Copy.exit ]
+  %.sink = phi ptr [ %36, %29 ], [ null, %26 ], [ %68, %83 ], [ %68, %86 ], [ %68, %Aig_ObjChild1Copy.exit ]
   store ptr %.sink, ptr %4, align 8, !tbaa !34
   br label %97
 
 97:                                               ; preds = %.sink.split, %37, %18, %6, %3
-  %.035 = phi ptr [ null, %6 ], [ %5, %3 ], [ null, %18 ], [ null, %37 ], [ %.sink, %.sink.split ]
+  %.035 = phi ptr [ %5, %3 ], [ null, %6 ], [ null, %18 ], [ null, %37 ], [ %.sink, %.sink.split ]
   ret ptr %.035
 }
 

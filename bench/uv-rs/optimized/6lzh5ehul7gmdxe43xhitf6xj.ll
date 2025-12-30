@@ -23,7 +23,7 @@ default.unreachable6:                             ; preds = %2
   br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h547a18ea4c78f2f7E.exit", label %7
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h547a18ea4c78f2f7E.exit": ; preds = %"_ZN8uv_types6builds14BuildIsolation11is_isolated28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf6aacb0c0eae3770E.exit.backedge.i", %23, %14, %7, %5, %2, %4
-  %.sroa.02.0 = phi i1 [ true, %5 ], [ false, %4 ], [ true, %2 ], [ true, %7 ], [ true, %"_ZN8uv_types6builds14BuildIsolation11is_isolated28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf6aacb0c0eae3770E.exit.backedge.i" ], [ false, %14 ], [ false, %23 ]
+  %.sroa.02.0 = phi i1 [ false, %4 ], [ true, %2 ], [ true, %5 ], [ true, %7 ], [ true, %"_ZN8uv_types6builds14BuildIsolation11is_isolated28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf6aacb0c0eae3770E.exit.backedge.i" ], [ false, %23 ], [ false, %14 ]
   ret i1 %.sroa.02.0
 
 7:                                                ; preds = %5
@@ -89,7 +89,7 @@ default.unreachable7:                             ; preds = %2
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit": ; preds = %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i", %9, %7, %2, %28, %4
-  %.sroa.02.0 = phi ptr [ %30, %28 ], [ %6, %4 ], [ null, %2 ], [ null, %7 ], [ null, %9 ], [ null, %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i" ]
+  %.sroa.02.0 = phi ptr [ %6, %4 ], [ %30, %28 ], [ null, %2 ], [ null, %7 ], [ null, %9 ], [ null, %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i" ]
   ret ptr %.sroa.02.0
 
 9:                                                ; preds = %7
@@ -132,7 +132,7 @@ default.unreachable7:                             ; preds = %2
   %.not14.i = icmp eq ptr %18, %14
   br i1 %.not14.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit", label %16
 
-28:                                               ; preds = %25, %16
+28:                                               ; preds = %16, %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !align !5, !noundef !4
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit"

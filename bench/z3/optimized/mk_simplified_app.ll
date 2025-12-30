@@ -363,7 +363,7 @@ _ZNK4decl13get_family_idEv.exit63.thread:         ; preds = %16, %_ZNK4decl13get
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %5, %70, %77, %84, %90, %96, %68, %.thread, %92, %_ZNK4decl13get_family_idEv.exit
-  %.0 = phi i32 [ 5, %_ZNK4decl13get_family_idEv.exit ], [ %.060, %68 ], [ %72, %70 ], [ %79, %77 ], [ %85, %84 ], [ %91, %90 ], [ %98, %96 ], [ %69, %.thread ], [ 5, %92 ], [ 5, %5 ]
+  %.0 = phi i32 [ 5, %_ZNK4decl13get_family_idEv.exit ], [ %72, %70 ], [ %79, %77 ], [ %85, %84 ], [ %91, %90 ], [ %98, %96 ], [ %69, %.thread ], [ %.060, %68 ], [ 5, %92 ], [ 5, %5 ]
   ret i32 %.0
 }
 

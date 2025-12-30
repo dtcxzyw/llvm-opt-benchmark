@@ -157,7 +157,7 @@ define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %0, i32 noundef %1, 
   br label %64
 
 64:                                               ; preds = %18, %12, %62, %58, %44, %34, %30
-  %.0 = phi i32 [ 0, %12 ], [ -1, %30 ], [ -1, %34 ], [ -1, %44 ], [ -1, %62 ], [ 0, %58 ], [ -1, %18 ]
+  %.0 = phi i32 [ -1, %30 ], [ -1, %34 ], [ -1, %44 ], [ -1, %62 ], [ 0, %58 ], [ 0, %12 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

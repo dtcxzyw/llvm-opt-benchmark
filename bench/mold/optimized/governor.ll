@@ -760,7 +760,7 @@ _ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11: ; preds
   br label %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit
 
 _ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit: ; preds = %_ZN3tbb6detail2d114global_controlD2Ev.exit.i, %4, %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11, %20
-  %.0 = phi i1 [ %12, %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11 ], [ false, %20 ], [ true, %4 ], [ true, %_ZN3tbb6detail2d114global_controlD2Ev.exit.i ]
+  %.0 = phi i1 [ false, %20 ], [ %12, %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11 ], [ true, %4 ], [ true, %_ZN3tbb6detail2d114global_controlD2Ev.exit.i ]
   ret i1 %.0
 }
 
@@ -1184,7 +1184,7 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit71: ; preds = %30
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
 _ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %19, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit69, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit71, %39, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %39 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %52, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit71 ], [ %51, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit69 ], [ %50, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %19 ]
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %39 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %50, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit69 ], [ %52, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit71 ], [ %.02946.i.i.i, %19 ]
   %.not = icmp eq ptr %.028.i.i.i, %12
   br i1 %.not, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.thread, label %53
 
@@ -1296,7 +1296,7 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit79: ; preds = %75
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit30
 
 _ZSt4findIPiiET_S1_S1_RKT0_.exit30:               ; preds = %64, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit77, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit79, %84, %._crit_edge._crit_edge.i.i.i17, %._crit_edge._crit_edge52.i.i.i13
-  %.028.i.i.i16 = phi ptr [ %.1.i.i.i19, %._crit_edge._crit_edge.i.i.i17 ], [ %.029.lcssa.i.i.i12, %84 ], [ %.2.i.i.i15, %._crit_edge._crit_edge52.i.i.i13 ], [ %97, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit79 ], [ %96, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit77 ], [ %95, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit ], [ %.02946.i.i.i23, %64 ]
+  %.028.i.i.i16 = phi ptr [ %.029.lcssa.i.i.i12, %84 ], [ %.1.i.i.i19, %._crit_edge._crit_edge.i.i.i17 ], [ %.2.i.i.i15, %._crit_edge._crit_edge52.i.i.i13 ], [ %95, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit ], [ %96, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit77 ], [ %97, %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.loopexit.split.loop.exit79 ], [ %.02946.i.i.i23, %64 ]
   %.not9 = icmp eq ptr %.028.i.i.i16, %57
   br i1 %.not9, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit30.thread, label %98
 

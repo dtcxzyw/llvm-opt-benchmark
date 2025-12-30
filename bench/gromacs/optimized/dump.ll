@@ -1526,7 +1526,7 @@ _ZN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIiSaIiEELS1_10EED2Ev
   br i1 %.not124.i, label %._crit_edge134.i, label %.lr.ph.i
 
 338:                                              ; preds = %331, %306, %290
-  %.pn86.pn.i = phi { ptr, i32 } [ %332, %331 ], [ %307, %306 ], [ %291, %290 ]
+  %.pn86.pn.i = phi { ptr, i32 } [ %291, %290 ], [ %307, %306 ], [ %332, %331 ]
   %339 = getelementptr inbounds nuw i8, ptr %61, i64 240
   br label %340
 
@@ -1572,7 +1572,7 @@ _ZN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIiSaIiEELS1_10EED2Ev
   br label %354
 
 common.resume:                                    ; preds = %406, %466, %528, %852, %810, %791, %354
-  %common.resume.op = phi { ptr, i32 } [ %.pn86.pn.pn.pn.pn.pn.i, %354 ], [ %.pn.i19, %852 ], [ %.pn.pn.pn.i, %791 ], [ %811, %810 ], [ %407, %406 ], [ %467, %466 ], [ %529, %528 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn86.pn.pn.pn.pn.pn.i, %354 ], [ %.pn.pn.pn.i, %791 ], [ %811, %810 ], [ %.pn.i19, %852 ], [ %407, %406 ], [ %467, %466 ], [ %529, %528 ]
   resume { ptr, i32 } %common.resume.op
 
 354:                                              ; preds = %353, %128
@@ -3414,7 +3414,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !176
   br label %41
 

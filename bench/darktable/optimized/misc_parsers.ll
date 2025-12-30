@@ -680,7 +680,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw10parse_jpegEi(ptr noundef nonnull
   br i1 %88, label %30, label %.critedge, !llvm.loop !97
 
 .critedge:                                        ; preds = %75, %30, %.preheader, %2, %15
-  %.0 = phi i32 [ 0, %2 ], [ 0, %15 ], [ 1, %.preheader ], [ 1, %30 ], [ 1, %75 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %2 ], [ 1, %.preheader ], [ 1, %30 ], [ 1, %75 ]
   ret i32 %.0
 }
 

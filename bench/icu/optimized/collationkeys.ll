@@ -173,7 +173,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1369,8 +1369,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit520: ; preds = %278, %283, %269
   br label %_ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split.sink.split.sink.split
 
 _ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split.sink.split.sink.split: ; preds = %315, %._crit_edge.i526, %299, %._crit_edge.i522
-  %.sink1195 = phi i32 [ %300, %299 ], [ %.pre.i523, %._crit_edge.i522 ], [ %.pre.i527, %._crit_edge.i526 ], [ %316, %315 ]
-  %.sink = phi i8 [ 3, %299 ], [ 3, %._crit_edge.i522 ], [ -1, %._crit_edge.i526 ], [ -1, %315 ]
+  %.sink1195 = phi i32 [ %.pre.i523, %._crit_edge.i522 ], [ %300, %299 ], [ %.pre.i527, %._crit_edge.i526 ], [ %316, %315 ]
+  %.sink = phi i8 [ 3, %._crit_edge.i522 ], [ 3, %299 ], [ -1, %._crit_edge.i526 ], [ -1, %315 ]
   %324 = load ptr, ptr %63, align 8, !tbaa !19
   %325 = sext i32 %.sink1195 to i64
   %326 = getelementptr inbounds i8, ptr %324, i64 %325
@@ -1438,7 +1438,7 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exit534:     ; preds = %348, %331
   br label %351
 
 351:                                              ; preds = %_ZN6icu_7715SortKeyByteSink6AppendEj.exit534, %_ZNK6icu_7717CollationSettings7reorderEj.exit520
-  %.2297 = phi i32 [ %..4349, %_ZN6icu_7715SortKeyByteSink6AppendEj.exit534 ], [ %.0295, %_ZNK6icu_7717CollationSettings7reorderEj.exit520 ]
+  %.2297 = phi i32 [ %.0295, %_ZNK6icu_7717CollationSettings7reorderEj.exit520 ], [ %..4349, %_ZN6icu_7715SortKeyByteSink6AppendEj.exit534 ]
   %352 = and i32 %.4349, 16711680
   %.not381 = icmp eq i32 %352, 0
   br i1 %.not381, label %370, label %353
@@ -2183,9 +2183,9 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i624: ; preds = %6
   br label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit
 
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit: ; preds = %643, %638, %635, %617, %489, %483, %482, %464, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit617, %386, %382, %381
-  %.3354 = phi i32 [ %.0351.ph, %381 ], [ %.0351.ph, %382 ], [ %.0351.ph, %386 ], [ %.0351.ph, %489 ], [ %.val442, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit617 ], [ %.0351.ph, %464 ], [ %.0351.ph, %482 ], [ %.0351.ph, %483 ], [ %.0351.ph, %617 ], [ %.0351.ph, %635 ], [ %.0351.ph, %638 ], [ %.0351.ph, %643 ]
-  %.3343 = phi i32 [ %.0340.ph, %381 ], [ %.0340.ph, %382 ], [ %.0340.ph, %386 ], [ %.0340.ph, %489 ], [ 0, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit617 ], [ %.0340.ph, %464 ], [ %.0340.ph, %482 ], [ %.0340.ph, %483 ], [ %383, %617 ], [ %383, %635 ], [ %383, %638 ], [ %383, %643 ]
-  %.3313 = phi i32 [ %.0310.ph, %381 ], [ %.0310.ph, %382 ], [ %387, %386 ], [ 0, %489 ], [ %.7317, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit617 ], [ 0, %464 ], [ 0, %482 ], [ 0, %483 ], [ %.7317, %617 ], [ %.7317, %635 ], [ %.7317, %638 ], [ %.7317, %643 ]
+  %.3354 = phi i32 [ %.0351.ph, %381 ], [ %.0351.ph, %382 ], [ %.0351.ph, %386 ], [ %.val442, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit617 ], [ %.0351.ph, %464 ], [ %.0351.ph, %482 ], [ %.0351.ph, %483 ], [ %.0351.ph, %489 ], [ %.0351.ph, %617 ], [ %.0351.ph, %635 ], [ %.0351.ph, %638 ], [ %.0351.ph, %643 ]
+  %.3343 = phi i32 [ %.0340.ph, %381 ], [ %.0340.ph, %382 ], [ %.0340.ph, %386 ], [ 0, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit617 ], [ %.0340.ph, %464 ], [ %.0340.ph, %482 ], [ %.0340.ph, %483 ], [ %.0340.ph, %489 ], [ %383, %617 ], [ %383, %635 ], [ %383, %638 ], [ %383, %643 ]
+  %.3313 = phi i32 [ %.0310.ph, %381 ], [ %.0310.ph, %382 ], [ %387, %386 ], [ %.7317, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit617 ], [ 0, %464 ], [ 0, %482 ], [ 0, %483 ], [ 0, %489 ], [ %.7317, %617 ], [ %.7317, %635 ], [ %.7317, %638 ], [ %.7317, %643 ]
   br i1 %.not395, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit698, label %654
 
 654:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit
@@ -2672,7 +2672,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i690: ; preds = %8
   br label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit698
 
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit698: ; preds = %826, %825, %808, %665, %657, %655, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit
-  %.3303 = phi i32 [ %.0300.ph, %655 ], [ %.0300.ph, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit ], [ %.0300.ph, %657 ], [ %666, %665 ], [ %.7307, %808 ], [ %.7307, %825 ], [ %.7307, %826 ]
+  %.3303 = phi i32 [ %.0300.ph, %655 ], [ %.0300.ph, %657 ], [ %.0300.ph, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit ], [ %666, %665 ], [ %.7307, %808 ], [ %.7307, %825 ], [ %.7307, %826 ]
   br i1 %.not401, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit741, label %833
 
 833:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit698
@@ -3517,7 +3517,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i821: ; preds = %1
   br label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit741
 
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit741: ; preds = %1166, %1160, %1159, %1141, %1050, %1044, %1043, %1025, %941, %935, %934, %916, %836, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit698
-  %.3322 = phi i32 [ %.0319.ph, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit698 ], [ %837, %836 ], [ 0, %1050 ], [ 0, %941 ], [ 0, %916 ], [ 0, %934 ], [ 0, %935 ], [ 0, %1025 ], [ 0, %1043 ], [ 0, %1044 ], [ 0, %1141 ], [ 0, %1159 ], [ 0, %1160 ], [ 0, %1166 ]
+  %.3322 = phi i32 [ %.0319.ph, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit698 ], [ %837, %836 ], [ 0, %916 ], [ 0, %934 ], [ 0, %935 ], [ 0, %941 ], [ 0, %1025 ], [ 0, %1043 ], [ 0, %1044 ], [ 0, %1050 ], [ 0, %1141 ], [ 0, %1159 ], [ 0, %1160 ], [ 0, %1166 ]
   br i1 %.not374, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit841, label %1172
 
 1172:                                             ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit741
@@ -3849,7 +3849,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i875: ; preds = %1
   br label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit841
 
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit841: ; preds = %1285, %1284, %1267, %1193, %1192, %1184, %1177, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit741
-  %.6336 = phi i32 [ %.1331, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit741 ], [ %1178, %1177 ], [ %.1331, %1193 ], [ %.1331, %1184 ], [ %.1331, %1192 ], [ 0, %1267 ], [ 0, %1284 ], [ 0, %1285 ]
+  %.6336 = phi i32 [ %.1331, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit741 ], [ %1178, %1177 ], [ %.1331, %1184 ], [ %.1331, %1192 ], [ %.1331, %1193 ], [ 0, %1267 ], [ 0, %1284 ], [ 0, %1285 ]
   %.mask = and i32 %379, -16777216
   %1295 = icmp eq i32 %.mask, 16777216
   br i1 %1295, label %1296, label %.critedge.outer
@@ -4159,7 +4159,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev.exit900: ; preds = %_ZN6icu_7712_GLOB
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit934, %.loopexit.split-lp935, %.loopexit939, %.loopexit.split-lp940.loopexit.split-lp.loopexit, %.loopexit.split-lp940.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp940.loopexit, %.loopexit950, %.loopexit.split-lp951.loopexit.split-lp, %.loopexit.split-lp951.loopexit, %.loopexit964, %.loopexit.split-lp965, %.loopexit958, %.loopexit.split-lp959, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %1306, %1358, %1330, %117, %575, %453, %733, %1130, %1012, %903, %1262, %285, %368, %308
-  %.pn428.pn.pn = phi { ptr, i32 } [ %1359, %1358 ], [ %1263, %1262 ], [ %118, %117 ], [ %1307, %1306 ], [ %309, %308 ], [ %286, %285 ], [ %369, %368 ], [ %1131, %1130 ], [ %734, %733 ], [ %1331, %1330 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %454, %453 ], [ %lpad.loopexit.split-lp961, %.loopexit.split-lp959 ], [ %576, %575 ], [ %lpad.loopexit.split-lp967, %.loopexit.split-lp965 ], [ %lpad.loopexit.split-lp956, %.loopexit.split-lp951.loopexit.split-lp ], [ %904, %903 ], [ %1013, %1012 ], [ %lpad.loopexit.split-lp948, %.loopexit.split-lp940.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit969, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit973, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit960, %.loopexit958 ], [ %lpad.loopexit966, %.loopexit964 ], [ %lpad.loopexit952, %.loopexit950 ], [ %lpad.loopexit955, %.loopexit.split-lp951.loopexit ], [ %lpad.loopexit941, %.loopexit939 ], [ %lpad.loopexit944, %.loopexit.split-lp940.loopexit ], [ %lpad.loopexit947, %.loopexit.split-lp940.loopexit.split-lp.loopexit ], [ %lpad.loopexit936, %.loopexit934 ], [ %lpad.loopexit.split-lp937, %.loopexit.split-lp935 ]
+  %.pn428.pn.pn = phi { ptr, i32 } [ %118, %117 ], [ %286, %285 ], [ %369, %368 ], [ %309, %308 ], [ %454, %453 ], [ %576, %575 ], [ %734, %733 ], [ %904, %903 ], [ %1013, %1012 ], [ %1131, %1130 ], [ %1263, %1262 ], [ %1307, %1306 ], [ %1331, %1330 ], [ %1359, %1358 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit969, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit973, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit960, %.loopexit958 ], [ %lpad.loopexit.split-lp961, %.loopexit.split-lp959 ], [ %lpad.loopexit966, %.loopexit964 ], [ %lpad.loopexit.split-lp967, %.loopexit.split-lp965 ], [ %lpad.loopexit952, %.loopexit950 ], [ %lpad.loopexit955, %.loopexit.split-lp951.loopexit ], [ %lpad.loopexit.split-lp956, %.loopexit.split-lp951.loopexit.split-lp ], [ %lpad.loopexit941, %.loopexit939 ], [ %lpad.loopexit944, %.loopexit.split-lp940.loopexit ], [ %lpad.loopexit947, %.loopexit.split-lp940.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp948, %.loopexit.split-lp940.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit936, %.loopexit934 ], [ %lpad.loopexit.split-lp937, %.loopexit.split-lp935 ]
   %.val466 = load ptr, ptr %12, align 8
   %.val467 = load i8, ptr %52, align 4, !tbaa !34
   call fastcc void @_ZN6icu_7712_GLOBAL__N_112SortKeyLevelD2Ev(ptr %.val466, i8 %.val467) #15

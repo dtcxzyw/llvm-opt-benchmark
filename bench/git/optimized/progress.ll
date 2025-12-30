@@ -179,13 +179,13 @@ define internal fastcc void @display(ptr noundef nonnull %0, i64 noundef %1, ptr
 9:                                                ; preds = %3
   %10 = load volatile i32, ptr @progress_update, align 4, !tbaa !4
   %.not60 = icmp eq i32 %10, 0
-  br i1 %.not60, label %.critedge, label %11
+  br i1 %.not60, label %101, label %11
 
 11:                                               ; preds = %9
   %12 = add i32 %8, -1
   store i32 %12, ptr %7, align 4, !tbaa !29
   %.not61 = icmp eq i32 %12, 0
-  br i1 %.not61, label %13, label %.critedge
+  br i1 %.not61, label %13, label %101
 
 13:                                               ; preds = %11, %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -219,7 +219,7 @@ define internal fastcc void @display(ptr noundef nonnull %0, i64 noundef %1, ptr
 30:                                               ; preds = %24
   %31 = load volatile i32, ptr @progress_update, align 4, !tbaa !4
   %.not66 = icmp eq i32 %31, 0
-  br i1 %.not66, label %.critedge, label %32
+  br i1 %.not66, label %101, label %32
 
 32:                                               ; preds = %30, %24
   store i32 %27, ptr %28, align 8, !tbaa !32
@@ -237,12 +237,12 @@ define internal fastcc void @display(ptr noundef nonnull %0, i64 noundef %1, ptr
 strbuf_setlen.exit:                               ; preds = %32, %35
   %36 = phi i64 [ %23, %32 ], [ %.pre, %35 ]
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i32 noundef %27, i64 noundef %1, i64 noundef %36, ptr noundef %21) #12
-  br label %43
+  br label %.critedge
 
 37:                                               ; preds = %20
   %38 = load volatile i32, ptr @progress_update, align 4, !tbaa !4
   %.not64 = icmp eq i32 %38, 0
-  br i1 %.not64, label %.critedge, label %39
+  br i1 %.not64, label %101, label %39
 
 39:                                               ; preds = %37
   store i64 0, ptr %5, align 8, !tbaa !25
@@ -257,96 +257,96 @@ strbuf_setlen.exit:                               ; preds = %32, %35
 
 strbuf_setlen.exit73:                             ; preds = %39, %42
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef %1, ptr noundef %21) #12
-  br label %43
-
-43:                                               ; preds = %strbuf_setlen.exit73, %strbuf_setlen.exit
-  %44 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %45 = tail call i32 @fileno(ptr noundef %44) #12
-  %46 = tail call i32 @tcgetpgrp(i32 noundef %45) #12
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %is_foreground_fd.exit.thread, label %is_foreground_fd.exit
-
-is_foreground_fd.exit.thread:                     ; preds = %43
-  %48 = icmp ne ptr %2, null
-  br label %52
-
-is_foreground_fd.exit:                            ; preds = %43
-  %49 = tail call i32 @getpgid(i32 noundef 0) #12
-  %50 = icmp eq i32 %46, %49
-  %51 = icmp ne ptr %2, null
-  %or.cond = or i1 %51, %50
-  br i1 %or.cond, label %52, label %101
-
-52:                                               ; preds = %is_foreground_fd.exit.thread, %is_foreground_fd.exit
-  %53 = phi i1 [ %48, %is_foreground_fd.exit.thread ], [ %51, %is_foreground_fd.exit ]
-  %54 = select i1 %53, ptr %2, ptr @.str.9
-  %55 = load i64, ptr %5, align 8, !tbaa !25
-  %sext = shl i64 %6, 32
-  %56 = ashr exact i64 %sext, 32
-  %57 = icmp ult i64 %55, %56
-  %58 = sub i64 %6, %55
-  %59 = trunc i64 %58 to i32
-  %60 = add i32 %59, 1
-  %61 = select i1 %57, i32 %60, i32 0
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %63 = load i32, ptr %62, align 8, !tbaa !35
-  %64 = tail call i32 @term_columns() #12
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %66 = load i32, ptr %65, align 4, !tbaa !36
-  %.not68 = icmp eq i32 %66, 0
-  br i1 %.not68, label %72, label %67
-
-67:                                               ; preds = %52
-  %68 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %70 = load ptr, ptr %69, align 8, !tbaa !26
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.10, ptr noundef %70, i32 noundef %61, ptr noundef nonnull %54) #13
-  br label %98
-
-72:                                               ; preds = %52
-  %73 = sext i32 %63 to i64
-  %74 = add i64 %55, 2
-  %75 = add i64 %74, %73
-  %76 = sext i32 %64 to i64
-  %77 = icmp ule i64 %75, %76
-  %or.cond71.not = select i1 %53, i1 true, i1 %77
-  br i1 %or.cond71.not, label %91, label %78
-
-78:                                               ; preds = %72
-  %79 = load i32, ptr %62, align 8, !tbaa !35
-  %80 = add nsw i32 %79, 1
-  %81 = icmp slt i32 %80, %64
-  %82 = xor i32 %79, -1
-  %83 = add i32 %64, %82
-  %84 = select i1 %81, i32 %83, i32 0
-  %85 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !37
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %89 = load ptr, ptr %88, align 8, !tbaa !26
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.11, ptr noundef %87, i32 noundef %84, ptr noundef nonnull @.str.6, ptr noundef %89, ptr noundef nonnull %54) #13
-  store i32 1, ptr %65, align 4, !tbaa !36
-  br label %98
-
-91:                                               ; preds = %72
-  %92 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !37
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %96 = load ptr, ptr %95, align 8, !tbaa !26
-  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.12, ptr noundef %94, ptr noundef %96, i32 noundef %61, ptr noundef nonnull %54) #13
-  br label %98
-
-98:                                               ; preds = %78, %91, %67
-  %99 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %100 = tail call i32 @fflush(ptr noundef %99)
-  br label %101
-
-101:                                              ; preds = %is_foreground_fd.exit, %98
-  store volatile i32 0, ptr @progress_update, align 4, !tbaa !4
   br label %.critedge
 
-.critedge:                                        ; preds = %101, %30, %37, %9, %11
+.critedge:                                        ; preds = %strbuf_setlen.exit, %strbuf_setlen.exit73
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %44 = tail call i32 @fileno(ptr noundef %43) #12
+  %45 = tail call i32 @tcgetpgrp(i32 noundef %44) #12
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %is_foreground_fd.exit.thread, label %is_foreground_fd.exit
+
+is_foreground_fd.exit.thread:                     ; preds = %.critedge
+  %47 = icmp ne ptr %2, null
+  br label %51
+
+is_foreground_fd.exit:                            ; preds = %.critedge
+  %48 = tail call i32 @getpgid(i32 noundef 0) #12
+  %49 = icmp eq i32 %45, %48
+  %50 = icmp ne ptr %2, null
+  %or.cond = or i1 %50, %49
+  br i1 %or.cond, label %51, label %100
+
+51:                                               ; preds = %is_foreground_fd.exit.thread, %is_foreground_fd.exit
+  %52 = phi i1 [ %47, %is_foreground_fd.exit.thread ], [ %50, %is_foreground_fd.exit ]
+  %53 = select i1 %52, ptr %2, ptr @.str.9
+  %54 = load i64, ptr %5, align 8, !tbaa !25
+  %sext = shl i64 %6, 32
+  %55 = ashr exact i64 %sext, 32
+  %56 = icmp ult i64 %54, %55
+  %57 = sub i64 %6, %54
+  %58 = trunc i64 %57 to i32
+  %59 = add i32 %58, 1
+  %60 = select i1 %56, i32 %59, i32 0
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %62 = load i32, ptr %61, align 8, !tbaa !35
+  %63 = tail call i32 @term_columns() #12
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %65 = load i32, ptr %64, align 4, !tbaa !36
+  %.not68 = icmp eq i32 %65, 0
+  br i1 %.not68, label %71, label %66
+
+66:                                               ; preds = %51
+  %67 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %69 = load ptr, ptr %68, align 8, !tbaa !26
+  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.10, ptr noundef %69, i32 noundef %60, ptr noundef nonnull %53) #13
+  br label %97
+
+71:                                               ; preds = %51
+  %72 = sext i32 %62 to i64
+  %73 = add i64 %54, 2
+  %74 = add i64 %73, %72
+  %75 = sext i32 %63 to i64
+  %76 = icmp ule i64 %74, %75
+  %or.cond71.not = select i1 %52, i1 true, i1 %76
+  br i1 %or.cond71.not, label %90, label %77
+
+77:                                               ; preds = %71
+  %78 = load i32, ptr %61, align 8, !tbaa !35
+  %79 = add nsw i32 %78, 1
+  %80 = icmp slt i32 %79, %63
+  %81 = xor i32 %78, -1
+  %82 = add i32 %63, %81
+  %83 = select i1 %80, i32 %82, i32 0
+  %84 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !37
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %88 = load ptr, ptr %87, align 8, !tbaa !26
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.11, ptr noundef %86, i32 noundef %83, ptr noundef nonnull @.str.6, ptr noundef %88, ptr noundef nonnull %53) #13
+  store i32 1, ptr %64, align 4, !tbaa !36
+  br label %97
+
+90:                                               ; preds = %71
+  %91 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !37
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %95 = load ptr, ptr %94, align 8, !tbaa !26
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.12, ptr noundef %93, ptr noundef %95, i32 noundef %60, ptr noundef nonnull %53) #13
+  br label %97
+
+97:                                               ; preds = %77, %90, %66
+  %98 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %99 = tail call i32 @fflush(ptr noundef %98)
+  br label %100
+
+100:                                              ; preds = %is_foreground_fd.exit, %97
+  store volatile i32 0, ptr @progress_update, align 4, !tbaa !4
+  br label %101
+
+101:                                              ; preds = %100, %30, %37, %9, %11
   ret void
 }
 

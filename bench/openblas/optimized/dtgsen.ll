@@ -116,8 +116,8 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %or.cond599, label %.thread, label %84
 
 .thread:                                          ; preds = %77, %80, %71, %74, %68, %65, %62, %59
-  %.sink = phi i32 [ -1, %59 ], [ -5, %62 ], [ -9, %68 ], [ -14, %71 ], [ -7, %65 ], [ -14, %74 ], [ -16, %80 ], [ -16, %77 ]
-  %.neg = phi i32 [ 1, %59 ], [ 5, %62 ], [ 9, %68 ], [ 14, %71 ], [ 7, %65 ], [ 14, %74 ], [ 16, %80 ], [ 16, %77 ]
+  %.sink = phi i32 [ -1, %59 ], [ -5, %62 ], [ -7, %65 ], [ -9, %68 ], [ -14, %74 ], [ -14, %71 ], [ -16, %80 ], [ -16, %77 ]
+  %.neg = phi i32 [ 1, %59 ], [ 5, %62 ], [ 7, %65 ], [ 9, %68 ], [ 14, %74 ], [ 14, %71 ], [ 16, %80 ], [ 16, %77 ]
   store i32 %.sink, ptr %24, align 4, !tbaa !3
   store i32 %.neg, ptr %26, align 4, !tbaa !3
   %83 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %26, i32 noundef 6) #6
@@ -196,15 +196,15 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %.not574, label %120, label %.sink.split
 
 .sink.split:                                      ; preds = %116, %112, %113, %111
-  %.sink675 = phi i32 [ 2, %112 ], [ 1, %111 ], [ 2, %113 ], [ 1, %116 ]
-  %.1530.ph = phi i32 [ 1, %112 ], [ 0, %111 ], [ 1, %113 ], [ 0, %116 ]
+  %.sink675 = phi i32 [ 1, %111 ], [ 2, %113 ], [ 2, %112 ], [ 1, %116 ]
+  %.1530.ph = phi i32 [ 0, %111 ], [ 1, %113 ], [ 1, %112 ], [ 0, %116 ]
   %119 = add nsw i32 %97, %.sink675
   store i32 %119, ptr %16, align 4, !tbaa !3
   br label %120
 
 120:                                              ; preds = %.sink.split, %.lr.ph, %116, %111, %113
-  %121 = phi i32 [ %97, %116 ], [ %97, %113 ], [ %97, %111 ], [ %97, %.lr.ph ], [ %119, %.sink.split ]
-  %.1530 = phi i32 [ 0, %116 ], [ 1, %113 ], [ 0, %111 ], [ 0, %.lr.ph ], [ %.1530.ph, %.sink.split ]
+  %121 = phi i32 [ %97, %111 ], [ %97, %113 ], [ %97, %116 ], [ %97, %.lr.ph ], [ %119, %.sink.split ]
+  %.1530 = phi i32 [ 0, %111 ], [ 1, %113 ], [ 0, %116 ], [ 0, %.lr.ph ], [ %.1530.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -403,9 +403,9 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br label %212
 
 212:                                              ; preds = %207, %199, %193
-  %.not566 = phi i1 [ true, %193 ], [ true, %199 ], [ false, %207 ]
-  %.3 = phi i32 [ 0, %193 ], [ 0, %199 ], [ 1, %207 ]
-  %.0528 = phi i32 [ %195, %193 ], [ %195, %199 ], [ %211, %207 ]
+  %.not566 = phi i1 [ true, %199 ], [ true, %193 ], [ false, %207 ]
+  %.3 = phi i32 [ 0, %199 ], [ 0, %193 ], [ 1, %207 ]
+  %.0528 = phi i32 [ %195, %199 ], [ %195, %193 ], [ %211, %207 ]
   %.not562 = icmp eq i32 %.0528, 0
   br i1 %.not562, label %231, label %.thread592
 
@@ -458,8 +458,8 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br label %231
 
 231:                                              ; preds = %.lr.ph609, %227, %228, %212
-  %232 = phi i32 [ %192, %212 ], [ %219, %228 ], [ %219, %227 ], [ %192, %.lr.ph609 ]
-  %.4 = phi i32 [ %.3, %212 ], [ 1, %228 ], [ 0, %227 ], [ 0, %.lr.ph609 ]
+  %232 = phi i32 [ %219, %228 ], [ %219, %227 ], [ %192, %212 ], [ %192, %.lr.ph609 ]
+  %.4 = phi i32 [ 1, %228 ], [ 0, %227 ], [ %.3, %212 ], [ 0, %.lr.ph609 ]
   %indvars.iv.next632 = add nuw nsw i64 %indvars.iv631, 1
   %233 = load i32, ptr %26, align 4, !tbaa !3
   %234 = sext i32 %233 to i64
@@ -918,8 +918,8 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br label %521
 
 521:                                              ; preds = %437, %.loopexit, %.critedge
-  %522 = phi i32 [ %438, %.loopexit ], [ %.pre653, %.critedge ], [ %438, %437 ]
-  %.7 = phi i32 [ 0, %.loopexit ], [ 1, %.critedge ], [ 0, %437 ]
+  %522 = phi i32 [ %.pre653, %.critedge ], [ %438, %.loopexit ], [ %438, %437 ]
+  %.7 = phi i32 [ 1, %.critedge ], [ 0, %.loopexit ], [ 0, %437 ]
   %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
   %523 = sext i32 %522 to i64
   %.not568.not = icmp slt i64 %indvars.iv647, %523

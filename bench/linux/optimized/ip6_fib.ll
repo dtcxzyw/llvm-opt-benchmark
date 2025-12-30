@@ -616,8 +616,8 @@ fib6_walk_continue.exit:                          ; preds = %74
   %102 = icmp slt i32 %76, 1
   br i1 %102, label %fib6_walk_continue.exit.thread, label %108
 
-fib6_walk_continue.exit.thread:                   ; preds = %99, %.loopexit.i, %41, %fib6_walk_continue.exit
-  %103 = phi i32 [ %76, %fib6_walk_continue.exit ], [ 0, %41 ], [ 0, %.loopexit.i ], [ 0, %99 ]
+fib6_walk_continue.exit.thread:                   ; preds = %.loopexit.i, %99, %41, %fib6_walk_continue.exit
+  %103 = phi i32 [ %76, %fib6_walk_continue.exit ], [ 0, %41 ], [ 0, %99 ], [ 0, %.loopexit.i ]
   call void @_raw_write_lock_bh(ptr noundef nonnull %17) #13
   %104 = load ptr, ptr %19, align 8
   %105 = load ptr, ptr %6, align 8
@@ -888,8 +888,8 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread
 
 .thread:                                          ; preds = %4, %18, %9
-  %20 = phi i1 [ %16, %9 ], [ %16, %18 ], [ true, %4 ]
-  %21 = phi i32 [ %14, %9 ], [ 0, %18 ], [ 1, %4 ]
+  %20 = phi i1 [ %16, %18 ], [ %16, %9 ], [ true, %4 ]
+  %21 = phi i32 [ 0, %18 ], [ %14, %9 ], [ 1, %4 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1119,7 +1119,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store volatile ptr %141, ptr %153, align 8
   br label %.thread56
 
-154:                                              ; preds = %._crit_edge, %87
+154:                                              ; preds = %87, %._crit_edge
   %155 = load ptr, ptr %.lcssa138, align 8
   br label %157
 
@@ -1309,12 +1309,12 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread56
 
 .thread56:                                        ; preds = %104, %106, %107, %98, %116, %112, %109, %266, %264, %242, %239, %152, %150
-  %268 = phi ptr [ %177, %266 ], [ %141, %152 ], [ %141, %150 ], [ %189, %239 ], [ %189, %242 ], [ %177, %264 ], [ %50, %107 ], [ %50, %104 ], [ %50, %98 ], [ %50, %116 ], [ %50, %112 ], [ %50, %109 ], [ %50, %106 ]
+  %268 = phi ptr [ %141, %152 ], [ %141, %150 ], [ %189, %239 ], [ %189, %242 ], [ %177, %264 ], [ %177, %266 ], [ %50, %107 ], [ %50, %98 ], [ %50, %116 ], [ %50, %112 ], [ %50, %109 ], [ %50, %106 ], [ %50, %104 ]
   %269 = icmp ugt ptr %268, inttoptr (i64 -4096 to ptr)
   br i1 %269, label %.thread64, label %273
 
 .thread64:                                        ; preds = %180, %191, %.thread56.thread, %245, %139, %197, %135, %.thread56
-  %270 = phi ptr [ %268, %.thread56 ], [ inttoptr (i64 -12 to ptr), %191 ], [ inttoptr (i64 -2 to ptr), %135 ], [ inttoptr (i64 -12 to ptr), %245 ], [ inttoptr (i64 -12 to ptr), %139 ], [ inttoptr (i64 -2 to ptr), %.thread56.thread ], [ inttoptr (i64 -12 to ptr), %197 ], [ inttoptr (i64 -12 to ptr), %180 ]
+  %270 = phi ptr [ %268, %.thread56 ], [ inttoptr (i64 -12 to ptr), %191 ], [ inttoptr (i64 -12 to ptr), %245 ], [ inttoptr (i64 -12 to ptr), %139 ], [ inttoptr (i64 -12 to ptr), %197 ], [ inttoptr (i64 -2 to ptr), %135 ], [ inttoptr (i64 -2 to ptr), %.thread56.thread ], [ inttoptr (i64 -12 to ptr), %180 ]
   %271 = ptrtoint ptr %270 to i64
   %272 = trunc i64 %271 to i32
   br label %.thread96
@@ -1573,10 +1573,10 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %434, label %435, label %317, !llvm.loop !41
 
 435:                                              ; preds = %.thread255, %426
-  %436 = phi ptr [ %320, %426 ], [ %431, %.thread255 ]
-  %437 = phi ptr [ %319, %426 ], [ %432, %.thread255 ]
-  %438 = phi ptr [ %318, %426 ], [ null, %.thread255 ]
-  %439 = phi i16 [ %428, %426 ], [ %430, %.thread255 ]
+  %436 = phi ptr [ %431, %.thread255 ], [ %320, %426 ]
+  %437 = phi ptr [ %432, %.thread255 ], [ %319, %426 ]
+  %438 = phi ptr [ null, %.thread255 ], [ %318, %426 ]
+  %439 = phi i16 [ %430, %.thread255 ], [ %428, %426 ]
   %440 = icmp eq ptr %436, null
   br i1 %440, label %.thread74, label %441
 
@@ -2198,7 +2198,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread96
 
 .thread76:                                        ; preds = %328, %620, %612, %547, %.loopexit101, %378, %392, %403, %409
-  %.ph90 = phi i32 [ -17, %409 ], [ -17, %403 ], [ -17, %392 ], [ -17, %378 ], [ %545, %547 ], [ -2, %612 ], [ %545, %.loopexit101 ], [ %628, %620 ], [ -17, %328 ]
+  %.ph90 = phi i32 [ -17, %409 ], [ -17, %403 ], [ -17, %392 ], [ -17, %378 ], [ %545, %.loopexit101 ], [ %545, %547 ], [ %628, %620 ], [ -2, %612 ], [ -17, %328 ]
   %796 = icmp eq ptr %268, null
   br i1 %796, label %.thread96, label %797
 
@@ -2226,7 +2226,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread96
 
 .thread96:                                        ; preds = %.thread64, %789, %785, %.loopexit, %809, %806, %803, %.thread76
-  %812 = phi i32 [ %.ph90, %.thread76 ], [ %.ph90, %809 ], [ %.ph90, %806 ], [ %.ph90, %803 ], [ 0, %789 ], [ 0, %785 ], [ 0, %.loopexit ], [ %272, %.thread64 ]
+  %812 = phi i32 [ %.ph90, %809 ], [ %.ph90, %806 ], [ %.ph90, %803 ], [ %.ph90, %.thread76 ], [ 0, %789 ], [ 0, %785 ], [ 0, %.loopexit ], [ %272, %.thread64 ]
   ret i32 %812
 }
 
@@ -2747,7 +2747,7 @@ define dso_local ptr @fib6_locate(ptr noundef %0, ptr noundef readonly captures(
   br i1 %75, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %61, %17, %19, %43, %30, %24
-  %.lcssa10 = phi ptr [ %10, %24 ], [ %62, %61 ], [ %10, %17 ], [ %10, %19 ], [ %10, %43 ], [ %10, %30 ]
+  %.lcssa10 = phi ptr [ %62, %61 ], [ %10, %17 ], [ %10, %19 ], [ %10, %43 ], [ %10, %30 ], [ %10, %24 ]
   %76 = icmp eq ptr %.lcssa10, null
   %or.cond = select i1 %5, i1 true, i1 %76
   br i1 %or.cond, label %.thread7, label %.thread8
@@ -3522,7 +3522,7 @@ define internal i32 @inet6_dump_fib(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %114
 
 114:                                              ; preds = %111, %74
-  %115 = phi i32 [ %113, %111 ], [ %76, %74 ]
+  %115 = phi i32 [ %76, %74 ], [ %113, %111 ]
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %.thread12, label %.thread
 
@@ -4154,7 +4154,7 @@ thread-pre-split8:                                ; preds = %22, %71, %74, %.thr
   br i1 %77, label %.thread, label %19, !llvm.loop !27
 
 .thread:                                          ; preds = %50, %75, %.loopexit, %9
-  %78 = phi i32 [ 0, %9 ], [ %52, %50 ], [ 0, %.loopexit ], [ 0, %75 ]
+  %78 = phi i32 [ 0, %9 ], [ %52, %50 ], [ 0, %75 ], [ 0, %.loopexit ]
   ret i32 %78
 }
 

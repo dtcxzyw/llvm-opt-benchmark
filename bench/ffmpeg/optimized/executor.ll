@@ -97,15 +97,15 @@ define ptr @av_executor_alloc(ptr noundef readonly captures(address_is_null) %0,
   br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit56:                                      ; preds = %.lr.ph, %28, %24, %16
-  %.040.shrunk = phi i1 [ false, %16 ], [ %.not53, %28 ], [ false, %24 ], [ true, %.lr.ph ]
-  %.039.shrunk = phi i1 [ false, %16 ], [ %.not54, %28 ], [ false, %24 ], [ true, %.lr.ph ]
+  %.040.shrunk = phi i1 [ %.not53, %28 ], [ false, %24 ], [ false, %16 ], [ true, %.lr.ph ]
+  %.039.shrunk = phi i1 [ %.not54, %28 ], [ false, %24 ], [ false, %16 ], [ true, %.lr.ph ]
   %.039 = zext i1 %.039.shrunk to i32
   %.040 = zext i1 %.040.shrunk to i32
   tail call fastcc void @executor_free(ptr noundef %15, i32 noundef %.040, i32 noundef %.039)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.preheader, %27, %14, %2, %3, %5, %8, %11, %.loopexit56
-  %.0 = phi ptr [ null, %3 ], [ null, %.loopexit56 ], [ %15, %27 ], [ null, %14 ], [ null, %2 ], [ null, %11 ], [ null, %8 ], [ null, %5 ], [ %15, %.preheader ], [ %15, %42 ]
+  %.0 = phi ptr [ null, %.loopexit56 ], [ null, %11 ], [ null, %8 ], [ null, %5 ], [ null, %3 ], [ null, %2 ], [ null, %14 ], [ %15, %27 ], [ %15, %.preheader ], [ %15, %42 ]
   ret ptr %.0
 }
 

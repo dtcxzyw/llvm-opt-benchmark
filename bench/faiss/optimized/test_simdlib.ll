@@ -1578,7 +1578,7 @@ _ZN7testing15AssertionResultD2Ev.exit134:         ; preds = %_ZNK5faiss10simd256
   ret void
 
 240:                                              ; preds = %_ZN7testing7MessageD2Ev.exit107, %_ZN7testing7MessageD2Ev.exit129, %_ZN7testing7MessageD2Ev.exit80, %_ZN7testing7MessageD2Ev.exit53
-  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn29.pn.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %.pn37.pn.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn33.pn.pn, %_ZN7testing7MessageD2Ev.exit107 ]
+  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn37.pn.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn33.pn.pn, %_ZN7testing7MessageD2Ev.exit107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2415,7 +2415,7 @@ _ZN7testing15AssertionResultD2Ev.exit134:         ; preds = %_ZNK5faiss10simd256
   ret void
 
 240:                                              ; preds = %_ZN7testing7MessageD2Ev.exit107, %_ZN7testing7MessageD2Ev.exit129, %_ZN7testing7MessageD2Ev.exit80, %_ZN7testing7MessageD2Ev.exit53
-  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn29.pn.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %.pn37.pn.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn33.pn.pn, %_ZN7testing7MessageD2Ev.exit107 ]
+  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn37.pn.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn33.pn.pn, %_ZN7testing7MessageD2Ev.exit107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3383,7 +3383,7 @@ _ZN7testing15AssertionResultD2Ev.exit134:         ; preds = %_ZNK5faiss10simd256
   ret void
 
 240:                                              ; preds = %_ZN7testing7MessageD2Ev.exit107, %_ZN7testing7MessageD2Ev.exit129, %_ZN7testing7MessageD2Ev.exit80, %_ZN7testing7MessageD2Ev.exit53
-  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn29.pn.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %.pn37.pn.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn33.pn.pn, %_ZN7testing7MessageD2Ev.exit107 ]
+  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn37.pn.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn33.pn.pn, %_ZN7testing7MessageD2Ev.exit107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

@@ -1422,8 +1422,8 @@ ieee80211_he_ofdm_rate.exit:                      ; preds = %488, %477
   br label %527
 
 527:                                              ; preds = %521, %524, %516
-  %.4663895 = phi i1 [ %spec.select1063, %516 ], [ %.3662, %524 ], [ %.3662, %521 ]
-  %.0701 = phi i32 [ %520, %516 ], [ %526, %524 ], [ 7, %521 ]
+  %.4663895 = phi i1 [ %.3662, %524 ], [ %spec.select1063, %516 ], [ %.3662, %521 ]
+  %.0701 = phi i32 [ %526, %524 ], [ %520, %516 ], [ 7, %521 ]
   %.not765 = icmp eq i32 %506, 1
   br i1 %.not765, label %530, label %528
 
@@ -1506,14 +1506,14 @@ ieee80211_eht_rate.exit.thread:                   ; preds = %555, %ieee80211_eht
   br i1 %581, label %499, label %ieee80211_he_ofdm_rate.exit.thread, !llvm.loop !10
 
 ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.exit.thread, %.preheader, %484, %485, %475, %459, %ieee80211_he_ofdm_rate.exit, %450, %276, %186, %177, %147, %121, %116
-  %.1648 = phi i1 [ %.not750, %121 ], [ %.not750, %116 ], [ %.not750, %ieee80211_he_ofdm_rate.exit ], [ %.not750, %147 ], [ %.not750, %177 ], [ %.not750, %186 ], [ %.2649888, %276 ], [ %.5652, %450 ], [ %.not750, %459 ], [ %.not750, %.preheader ], [ %.not750, %485 ], [ %.not750, %475 ], [ %.not750, %484 ], [ %.not750, %ieee80211_eht_rate.exit.thread ]
-  %.1 = phi float [ %.0, %121 ], [ %.0, %116 ], [ %.7, %ieee80211_he_ofdm_rate.exit ], [ %.0, %147 ], [ %.0, %177 ], [ %.0, %186 ], [ %.2890, %276 ], [ %.5, %450 ], [ %.0, %459 ], [ %.0, %.preheader ], [ 0.000000e+00, %485 ], [ 0.000000e+00, %475 ], [ 0.000000e+00, %484 ], [ %.9, %ieee80211_eht_rate.exit.thread ]
+  %.1648 = phi i1 [ %.not750, %121 ], [ %.not750, %116 ], [ %.not750, %147 ], [ %.not750, %177 ], [ %.not750, %186 ], [ %.2649888, %276 ], [ %.5652, %450 ], [ %.not750, %ieee80211_he_ofdm_rate.exit ], [ %.not750, %459 ], [ %.not750, %475 ], [ %.not750, %485 ], [ %.not750, %484 ], [ %.not750, %.preheader ], [ %.not750, %ieee80211_eht_rate.exit.thread ]
+  %.1 = phi float [ %.0, %121 ], [ %.0, %116 ], [ %.0, %147 ], [ %.0, %177 ], [ %.0, %186 ], [ %.2890, %276 ], [ %.5, %450 ], [ %.7, %ieee80211_he_ofdm_rate.exit ], [ %.0, %459 ], [ 0.000000e+00, %475 ], [ 0.000000e+00, %485 ], [ 0.000000e+00, %484 ], [ %.0, %.preheader ], [ %.9, %ieee80211_eht_rate.exit.thread ]
   br i1 %.1648, label %.thread898, label %586
 
-.thread898:                                       ; preds = %453, %500, %279, %189, %180, %150, %165, %ieee80211_he_ofdm_rate.exit, %ieee80211_he_ofdm_rate.exit.thread
-  %.1907 = phi float [ %.1, %ieee80211_he_ofdm_rate.exit.thread ], [ %.7, %ieee80211_he_ofdm_rate.exit ], [ %.0, %165 ], [ %.0, %150 ], [ %.0, %180 ], [ %.0, %189 ], [ %.2890, %279 ], [ %.8964, %500 ], [ %.5, %453 ]
-  %.0654906 = phi i1 [ true, %ieee80211_he_ofdm_rate.exit.thread ], [ true, %ieee80211_he_ofdm_rate.exit ], [ %167, %165 ], [ true, %150 ], [ true, %180 ], [ true, %189 ], [ true, %279 ], [ true, %500 ], [ true, %453 ]
-  %.0655904 = phi i8 [ 1, %ieee80211_he_ofdm_rate.exit.thread ], [ 1, %ieee80211_he_ofdm_rate.exit ], [ %.1656, %165 ], [ 1, %150 ], [ 1, %180 ], [ 1, %189 ], [ 1, %279 ], [ 1, %500 ], [ 1, %453 ]
+.thread898:                                       ; preds = %500, %453, %279, %189, %180, %150, %165, %ieee80211_he_ofdm_rate.exit, %ieee80211_he_ofdm_rate.exit.thread
+  %.1907 = phi float [ %.1, %ieee80211_he_ofdm_rate.exit.thread ], [ %.7, %ieee80211_he_ofdm_rate.exit ], [ %.0, %165 ], [ %.0, %150 ], [ %.0, %180 ], [ %.0, %189 ], [ %.2890, %279 ], [ %.5, %453 ], [ %.8964, %500 ]
+  %.0654906 = phi i1 [ true, %ieee80211_he_ofdm_rate.exit.thread ], [ true, %ieee80211_he_ofdm_rate.exit ], [ %167, %165 ], [ true, %150 ], [ true, %180 ], [ true, %189 ], [ true, %279 ], [ true, %453 ], [ true, %500 ]
+  %.0655904 = phi i8 [ 1, %ieee80211_he_ofdm_rate.exit.thread ], [ 1, %ieee80211_he_ofdm_rate.exit ], [ %.1656, %165 ], [ 1, %150 ], [ 1, %180 ], [ 1, %189 ], [ 1, %279 ], [ 1, %453 ], [ 1, %500 ]
   %582 = load ptr, ptr %10, align 8
   %583 = fpext float %.1907 to double
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %582, i32 noundef 23, ptr noundef nonnull @.str.218, double noundef %583)
@@ -1521,11 +1521,11 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   %585 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %120, i32 noundef %584, ptr noundef %0, i32 noundef 0, i32 noundef 0, float noundef %.1907, ptr noundef nonnull @.str.217, double noundef %583)
   br label %586
 
-586:                                              ; preds = %453, %500, %279, %189, %180, %150, %165, %.thread898, %ieee80211_he_ofdm_rate.exit.thread
-  %587 = phi i1 [ true, %.thread898 ], [ false, %ieee80211_he_ofdm_rate.exit.thread ], [ false, %165 ], [ false, %150 ], [ false, %180 ], [ false, %189 ], [ false, %279 ], [ false, %500 ], [ false, %453 ]
-  %.1908 = phi float [ %.1907, %.thread898 ], [ %.1, %ieee80211_he_ofdm_rate.exit.thread ], [ %.0, %165 ], [ %.0, %150 ], [ %.0, %180 ], [ %.0, %189 ], [ %.2890, %279 ], [ %.8964, %500 ], [ %.5, %453 ]
-  %.0654905 = phi i1 [ %.0654906, %.thread898 ], [ true, %ieee80211_he_ofdm_rate.exit.thread ], [ %167, %165 ], [ true, %150 ], [ true, %180 ], [ true, %189 ], [ true, %279 ], [ true, %500 ], [ true, %453 ]
-  %.0655903 = phi i8 [ %.0655904, %.thread898 ], [ 1, %ieee80211_he_ofdm_rate.exit.thread ], [ %.1656, %165 ], [ 1, %150 ], [ 1, %180 ], [ 1, %189 ], [ 1, %279 ], [ 1, %500 ], [ 1, %453 ]
+586:                                              ; preds = %500, %453, %279, %189, %180, %150, %165, %.thread898, %ieee80211_he_ofdm_rate.exit.thread
+  %587 = phi i1 [ true, %.thread898 ], [ false, %ieee80211_he_ofdm_rate.exit.thread ], [ false, %165 ], [ false, %150 ], [ false, %180 ], [ false, %189 ], [ false, %279 ], [ false, %453 ], [ false, %500 ]
+  %.1908 = phi float [ %.1907, %.thread898 ], [ %.1, %ieee80211_he_ofdm_rate.exit.thread ], [ %.0, %165 ], [ %.0, %150 ], [ %.0, %180 ], [ %.0, %189 ], [ %.2890, %279 ], [ %.5, %453 ], [ %.8964, %500 ]
+  %.0654905 = phi i1 [ %.0654906, %.thread898 ], [ true, %ieee80211_he_ofdm_rate.exit.thread ], [ %167, %165 ], [ true, %150 ], [ true, %180 ], [ true, %189 ], [ true, %279 ], [ true, %453 ], [ true, %500 ]
+  %.0655903 = phi i8 [ %.0655904, %.thread898 ], [ 1, %ieee80211_he_ofdm_rate.exit.thread ], [ %.1656, %165 ], [ 1, %150 ], [ 1, %180 ], [ 1, %189 ], [ 1, %279 ], [ 1, %453 ], [ 1, %500 ]
   %588 = load i16, ptr %13, align 8
   %589 = and i16 %588, 1
   %.not799 = icmp eq i16 %589, 0
@@ -1986,15 +1986,15 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   br label %870
 
 870:                                              ; preds = %847, %863, %830, %822, %.critedge.thread, %.critedge.thread913
-  %.0707 = phi i32 [ %825, %822 ], [ 0, %830 ], [ 0, %.critedge.thread913 ], [ 0, %.critedge.thread ], [ %854, %847 ], [ 0, %863 ]
-  %.0702 = phi i32 [ %829, %822 ], [ %832, %830 ], [ %754, %.critedge.thread913 ], [ %763, %.critedge.thread ], [ %862, %847 ], [ %869, %863 ]
-  %.0695 = phi i1 [ false, %822 ], [ false, %830 ], [ %or.cond68, %.critedge.thread913 ], [ false, %.critedge.thread ], [ false, %847 ], [ false, %863 ]
-  %.0692 = phi i1 [ %.not814, %822 ], [ %.not814, %830 ], [ false, %.critedge.thread913 ], [ false, %.critedge.thread ], [ false, %847 ], [ false, %863 ]
-  %.0687 = phi i1 [ %.not816, %822 ], [ %.not816, %830 ], [ false, %.critedge.thread913 ], [ false, %.critedge.thread ], [ %.not, %847 ], [ %.not, %863 ]
-  %.0683 = phi i1 [ %.not817, %822 ], [ %.not817, %830 ], [ false, %.critedge.thread913 ], [ false, %.critedge.thread ], [ false, %847 ], [ false, %863 ]
-  %.0680 = phi i1 [ %.not820, %822 ], [ %.not820, %830 ], [ false, %.critedge.thread913 ], [ false, %.critedge.thread ], [ false, %847 ], [ false, %863 ]
-  %.0676 = phi i32 [ %811, %822 ], [ 0, %830 ], [ 0, %.critedge.thread913 ], [ 0, %.critedge.thread ], [ %844, %847 ], [ 0, %863 ]
-  %.0669 = phi i32 [ %spec.select857, %822 ], [ %811, %830 ], [ %747, %.critedge.thread913 ], [ 20, %.critedge.thread ], [ %spec.select858, %847 ], [ %844, %863 ]
+  %.0707 = phi i32 [ 0, %.critedge.thread913 ], [ 0, %.critedge.thread ], [ %825, %822 ], [ 0, %830 ], [ %854, %847 ], [ 0, %863 ]
+  %.0702 = phi i32 [ %754, %.critedge.thread913 ], [ %763, %.critedge.thread ], [ %829, %822 ], [ %832, %830 ], [ %862, %847 ], [ %869, %863 ]
+  %.0695 = phi i1 [ %or.cond68, %.critedge.thread913 ], [ false, %.critedge.thread ], [ false, %822 ], [ false, %830 ], [ false, %847 ], [ false, %863 ]
+  %.0692 = phi i1 [ false, %.critedge.thread913 ], [ false, %.critedge.thread ], [ %.not814, %822 ], [ %.not814, %830 ], [ false, %847 ], [ false, %863 ]
+  %.0687 = phi i1 [ false, %.critedge.thread913 ], [ false, %.critedge.thread ], [ %.not816, %822 ], [ %.not816, %830 ], [ %.not, %847 ], [ %.not, %863 ]
+  %.0683 = phi i1 [ false, %.critedge.thread913 ], [ false, %.critedge.thread ], [ %.not817, %822 ], [ %.not817, %830 ], [ false, %847 ], [ false, %863 ]
+  %.0680 = phi i1 [ false, %.critedge.thread913 ], [ false, %.critedge.thread ], [ %.not820, %822 ], [ %.not820, %830 ], [ false, %847 ], [ false, %863 ]
+  %.0676 = phi i32 [ 0, %.critedge.thread913 ], [ 0, %.critedge.thread ], [ %811, %822 ], [ 0, %830 ], [ %844, %847 ], [ 0, %863 ]
+  %.0669 = phi i32 [ %747, %.critedge.thread913 ], [ 20, %.critedge.thread ], [ %spec.select857, %822 ], [ %811, %830 ], [ %spec.select858, %847 ], [ %844, %863 ]
   %871 = load ptr, ptr %22, align 8
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 57
   %873 = load i16, ptr %872, align 1
@@ -2389,7 +2389,7 @@ proto_item_set_generated.exit881:                 ; preds = %1061, %1058, %1055,
   store i32 %1076, ptr %1074, align 4
   br label %proto_item_set_generated.exit884
 
-proto_item_set_generated.exit884:                 ; preds = %734, %1073, %1070, %1067, %767, %790, %764, %794, %.critedge, %proto_item_set_generated.exit881, %proto_item_set_generated.exit869, %710
+proto_item_set_generated.exit884:                 ; preds = %734, %1073, %1070, %1067, %794, %790, %764, %767, %.critedge, %proto_item_set_generated.exit881, %proto_item_set_generated.exit869, %710
   %1077 = load i16, ptr %13, align 8
   %1078 = and i16 %1077, 2048
   %.not843 = icmp eq i16 %1078, 0

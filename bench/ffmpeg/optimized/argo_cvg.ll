@@ -67,7 +67,7 @@ define internal range(i32 0, 27) i32 @argo_cvg_probe(ptr noundef readonly captur
   br label %19
 
 19:                                               ; preds = %18, %15, %8, %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 0, %8 ], [ %., %18 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 0, %8 ], [ 0, %15 ], [ %., %18 ]
   ret i32 %.0
 }
 
@@ -148,8 +148,8 @@ define internal range(i32 -2147483648, 1) i32 @argo_cvg_read_header(ptr noundef 
   %.pre = load i32, ptr %20, align 4, !tbaa !34
   br label %47
 
-argo_cvg_read_checksum.exit.thread:               ; preds = %41, %31, %37, %40
-  %.0.i.ph = phi i32 [ -5, %40 ], [ %38, %37 ], [ %35, %31 ], [ %43, %41 ]
+argo_cvg_read_checksum.exit.thread:               ; preds = %31, %37, %40, %41
+  %.0.i.ph = phi i32 [ %43, %41 ], [ -5, %40 ], [ %38, %37 ], [ %35, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %110
 
@@ -278,7 +278,7 @@ argo_cvg_read_checksum.exit.thread:               ; preds = %41, %31, %37, %40
   br label %110
 
 110:                                              ; preds = %argo_cvg_read_checksum.exit.thread, %58, %53, %47, %16, %15, %10, %1, %.loopexit
-  %.0 = phi i32 [ -12, %1 ], [ %13, %10 ], [ -5, %15 ], [ -1094995529, %16 ], [ %.0.i.ph, %argo_cvg_read_checksum.exit.thread ], [ %51, %47 ], [ %56, %53 ], [ 0, %.loopexit ], [ %61, %58 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ %13, %10 ], [ -5, %15 ], [ -1094995529, %16 ], [ %51, %47 ], [ %56, %53 ], [ %61, %58 ], [ %.0.i.ph, %argo_cvg_read_checksum.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -371,7 +371,7 @@ define internal i32 @argo_cvg_seek(ptr noundef readonly captures(none) %0, i32 n
   br label %18
 
 18:                                               ; preds = %4, %16, %14
-  %.0 = phi i32 [ 0, %16 ], [ %15, %14 ], [ -22, %4 ]
+  %.0 = phi i32 [ %15, %14 ], [ 0, %16 ], [ -22, %4 ]
   ret i32 %.0
 }
 
@@ -464,7 +464,7 @@ define internal range(i32 -1094995529, 1) i32 @argo_cvg_write_packet(ptr noundef
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !83
 
 .loopexit:                                        ; preds = %29, %.preheader, %15, %2
-  %.016 = phi i32 [ -1094995529, %15 ], [ -1094995529, %2 ], [ 0, %.preheader ], [ 0, %29 ]
+  %.016 = phi i32 [ -1094995529, %2 ], [ -1094995529, %15 ], [ 0, %.preheader ], [ 0, %29 ]
   ret i32 %.016
 }
 
@@ -558,7 +558,7 @@ define internal range(i32 -22, 1) i32 @argo_cvg_write_init(ptr noundef %0) #0 {
   br i1 %.not13, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %20, %17, %1
-  %.str.20.sink = phi ptr [ @.str.19, %17 ], [ @.str.18, %1 ], [ @.str.20, %20 ]
+  %.str.20.sink = phi ptr [ @.str.18, %1 ], [ @.str.19, %17 ], [ @.str.20, %20 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.20.sink) #4
   br label %26
 

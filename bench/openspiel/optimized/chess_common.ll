@@ -297,7 +297,7 @@ define noundef i32 @_ZN10open_spiel12chess_common24OffsetToDestinationIndexERKNS
   br i1 %47, label %_ZSt9__find_ifIPKN10open_spiel12chess_common6OffsetEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.thread.i, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i
 
 _ZSt9__find_ifIPKN10open_spiel12chess_common6OffsetEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.thread.i: ; preds = %40, %33
-  %.028.i46.i = phi ptr [ %1, %33 ], [ %41, %40 ]
+  %.028.i46.i = phi ptr [ %41, %40 ], [ %1, %33 ]
   %48 = ptrtoint ptr %.028.i46.i to i64
   %49 = ptrtoint ptr %1 to i64
   %50 = sub i64 %48, %49
@@ -531,8 +531,8 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
   resume { ptr, i32 } %.pn.i
 
 _ZN10open_spiel12chess_common12_GLOBAL__N_128DestinationIndexToOffsetImplISt5arrayINS0_6OffsetELm8EEEES4_iRKT_i.exit: ; preds = %3, %23, %24, %25, %39
-  %.sroa.0.0.i = phi i8 [ %.sroa.0.0.copyload.i, %39 ], [ %22, %23 ], [ %22, %24 ], [ %22, %25 ], [ 0, %3 ]
-  %.sroa.6.0.i = phi i8 [ %.sroa.6.0.copyload.i, %39 ], [ 0, %23 ], [ %22, %24 ], [ %26, %25 ], [ %22, %3 ]
+  %.sroa.0.0.i = phi i8 [ %22, %23 ], [ %22, %24 ], [ %22, %25 ], [ %.sroa.0.0.copyload.i, %39 ], [ 0, %3 ]
+  %.sroa.6.0.i = phi i8 [ 0, %23 ], [ %22, %24 ], [ %26, %25 ], [ %.sroa.6.0.copyload.i, %39 ], [ %22, %3 ]
   %.sroa.6.0.insert.ext.i = zext i8 %.sroa.6.0.i to i16
   %.sroa.6.0.insert.shift.i = shl nuw i16 %.sroa.6.0.insert.ext.i, 8
   %.sroa.0.0.insert.ext.i = zext i8 %.sroa.0.0.i to i16
@@ -695,8 +695,8 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
   resume { ptr, i32 } %.pn.i
 
 _ZN10open_spiel12chess_common12_GLOBAL__N_128DestinationIndexToOffsetImplISt5arrayINS0_6OffsetELm2EEEES4_iRKT_i.exit: ; preds = %3, %23, %24, %25, %39
-  %.sroa.0.0.i = phi i8 [ %.sroa.0.0.copyload.i, %39 ], [ %22, %23 ], [ %22, %24 ], [ %22, %25 ], [ 0, %3 ]
-  %.sroa.6.0.i = phi i8 [ %.sroa.6.0.copyload.i, %39 ], [ 0, %23 ], [ %22, %24 ], [ %26, %25 ], [ %22, %3 ]
+  %.sroa.0.0.i = phi i8 [ %22, %23 ], [ %22, %24 ], [ %22, %25 ], [ %.sroa.0.0.copyload.i, %39 ], [ 0, %3 ]
+  %.sroa.6.0.i = phi i8 [ 0, %23 ], [ %22, %24 ], [ %26, %25 ], [ %.sroa.6.0.copyload.i, %39 ], [ %22, %3 ]
   %.sroa.6.0.insert.ext.i = zext i8 %.sroa.6.0.i to i16
   %.sroa.6.0.insert.shift.i = shl nuw i16 %.sroa.6.0.insert.ext.i, 8
   %.sroa.0.0.insert.ext.i = zext i8 %.sroa.0.0.i to i16
@@ -1254,7 +1254,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN10open_spiel12chess_common6Of
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit60, %.loopexit.loopexit.split.loop.exit62, %72, %61, %49, %81
-  %.028 = phi ptr [ %.1, %61 ], [ %1, %81 ], [ %.2, %72 ], [ %.029.lcssa, %49 ], [ %84, %.loopexit.loopexit.split.loop.exit62 ], [ %82, %.loopexit.loopexit.split.loop.exit ], [ %83, %.loopexit.loopexit.split.loop.exit60 ], [ %.02946, %13 ]
+  %.028 = phi ptr [ %1, %81 ], [ %.029.lcssa, %49 ], [ %.1, %61 ], [ %.2, %72 ], [ %82, %.loopexit.loopexit.split.loop.exit ], [ %83, %.loopexit.loopexit.split.loop.exit60 ], [ %84, %.loopexit.loopexit.split.loop.exit62 ], [ %.02946, %13 ]
   ret ptr %.028
 }
 

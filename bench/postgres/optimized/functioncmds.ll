@@ -1031,11 +1031,11 @@ sub_1.i:                                          ; preds = %sub_0.i
   unreachable
 
 83:                                               ; preds = %._crit_edge, %68, %61, %56, %52
-  %84 = phi i32 [ %.pre, %._crit_edge ], [ %40, %61 ], [ %40, %52 ], [ %40, %56 ], [ %40, %68 ]
-  %.264.i = phi ptr [ %.062130.i211, %._crit_edge ], [ %43, %61 ], [ %.062130.i211, %52 ], [ %.062130.i211, %56 ], [ %.062130.i211, %68 ]
-  %.261.i = phi ptr [ %.059131.i210, %._crit_edge ], [ %.059131.i210, %61 ], [ %.059131.i210, %52 ], [ %.059131.i210, %56 ], [ %43, %68 ]
-  %.258.i = phi ptr [ %.056132.i209, %._crit_edge ], [ %.056132.i209, %61 ], [ %.056132.i209, %52 ], [ %43, %56 ], [ %.056132.i209, %68 ]
-  %.2.i = phi ptr [ %.055134.i208, %._crit_edge ], [ %.055134.i208, %61 ], [ %43, %52 ], [ %.055134.i208, %56 ], [ %.055134.i208, %68 ]
+  %84 = phi i32 [ %.pre, %._crit_edge ], [ %40, %52 ], [ %40, %56 ], [ %40, %61 ], [ %40, %68 ]
+  %.264.i = phi ptr [ %.062130.i211, %._crit_edge ], [ %.062130.i211, %52 ], [ %.062130.i211, %56 ], [ %43, %61 ], [ %.062130.i211, %68 ]
+  %.261.i = phi ptr [ %.059131.i210, %._crit_edge ], [ %.059131.i210, %52 ], [ %.059131.i210, %56 ], [ %.059131.i210, %61 ], [ %43, %68 ]
+  %.258.i = phi ptr [ %.056132.i209, %._crit_edge ], [ %.056132.i209, %52 ], [ %43, %56 ], [ %.056132.i209, %61 ], [ %.056132.i209, %68 ]
+  %.2.i = phi ptr [ %.055134.i208, %._crit_edge ], [ %43, %52 ], [ %.055134.i208, %56 ], [ %.055134.i208, %61 ], [ %.055134.i208, %68 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i207, 1
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next.i, %85
@@ -1117,7 +1117,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   unreachable
 
 interpret_func_volatility.exit.i:                 ; preds = %109, %114, %117, %.thread180.i
-  %.0153 = phi i8 [ 118, %.thread180.i ], [ 115, %114 ], [ 105, %109 ], [ 118, %117 ]
+  %.0153 = phi i8 [ 118, %.thread180.i ], [ 105, %109 ], [ 115, %114 ], [ 118, %117 ]
   %123 = load ptr, ptr %5, align 8
   %.not81.i = icmp eq ptr %123, null
   br i1 %.not81.i, label %130, label %124
@@ -1893,9 +1893,9 @@ list_length.exit131.i:                            ; preds = %408
   br label %interpret_AS_clause.exit
 
 interpret_AS_clause.exit:                         ; preds = %511, %sub_0.i114, %sub_1.i116, %list_length.exit.i, %497, %509
-  %.0166 = phi ptr [ null, %509 ], [ %395, %list_length.exit.i ], [ null, %497 ], [ %395, %sub_0.i114 ], [ null, %511 ], [ %395, %sub_1.i116 ]
-  %.0165 = phi ptr [ %502, %509 ], [ %366, %list_length.exit.i ], [ %498, %497 ], [ %402, %sub_0.i114 ], [ %spec.select, %511 ], [ %407, %sub_1.i116 ]
-  %.0164 = phi ptr [ null, %509 ], [ null, %list_length.exit.i ], [ %storemerge.i, %497 ], [ null, %sub_0.i114 ], [ null, %511 ], [ null, %sub_1.i116 ]
+  %.0166 = phi ptr [ null, %497 ], [ null, %509 ], [ %395, %list_length.exit.i ], [ %395, %sub_1.i116 ], [ %395, %sub_0.i114 ], [ null, %511 ]
+  %.0165 = phi ptr [ %498, %497 ], [ %502, %509 ], [ %366, %list_length.exit.i ], [ %407, %sub_1.i116 ], [ %402, %sub_0.i114 ], [ %spec.select, %511 ]
+  %.0164 = phi ptr [ %storemerge.i, %497 ], [ null, %509 ], [ null, %list_length.exit.i ], [ null, %sub_1.i116 ], [ null, %sub_0.i114 ], [ null, %511 ]
   %513 = fcmp olt float %.1151, 0.000000e+00
   br i1 %513, label %514, label %517
 
@@ -1908,7 +1908,7 @@ interpret_AS_clause.exit:                         ; preds = %511, %sub_0.i114, %
   br label %517
 
 517:                                              ; preds = %514, %516, %interpret_AS_clause.exit
-  %.0150 = phi float [ %.1151, %interpret_AS_clause.exit ], [ 1.000000e+02, %516 ], [ 1.000000e+00, %514 ]
+  %.0150 = phi float [ 1.000000e+02, %516 ], [ %.1151, %interpret_AS_clause.exit ], [ 1.000000e+00, %514 ]
   %518 = fcmp olt float %.1149, 0.000000e+00
   %519 = trunc nuw i8 %.0162 to i1
   br i1 %518, label %520, label %522
@@ -2232,7 +2232,7 @@ define dso_local { i64, i32 } @AlterFunction(ptr noundef %0, ptr noundef readonl
   unreachable
 
 interpret_func_volatility.exit:                   ; preds = %77, %82, %85
-  %.0.i = phi i8 [ 115, %82 ], [ 105, %77 ], [ 118, %85 ]
+  %.0.i = phi i8 [ 105, %77 ], [ 115, %82 ], [ 118, %85 ]
   %91 = getelementptr inbounds nuw i8, ptr %36, i64 101
   store i8 %.0.i, ptr %91, align 1
   br label %.critedge.thread
@@ -2795,7 +2795,7 @@ define internal fastcc signext range(i8 114, 118) i8 @interpret_func_parallel(pt
   unreachable
 
 13:                                               ; preds = %6, %3, %0
-  %.0 = phi i8 [ 117, %3 ], [ 115, %0 ], [ 114, %6 ]
+  %.0 = phi i8 [ 115, %0 ], [ 117, %3 ], [ 114, %6 ]
   ret i8 %.0
 }
 
@@ -3220,7 +3220,7 @@ define dso_local { i64, i32 } @CreateCast(ptr noundef readonly captures(none) %0
   unreachable
 
 210:                                              ; preds = %201, %205, %204
-  %.095 = phi i8 [ 101, %205 ], [ 97, %204 ], [ 105, %201 ]
+  %.095 = phi i8 [ 97, %204 ], [ 101, %205 ], [ 105, %201 ]
   %211 = load i32, ptr %2, align 4
   %212 = load i32, ptr %3, align 4
   %213 = call { i64, i32 } @CastCreate(i32 noundef %12, i32 noundef %15, i32 noundef %.0124, i32 noundef %211, i32 noundef %212, i8 noundef signext %.095, i8 noundef signext %.096116122, i32 noundef 110) #7

@@ -200,7 +200,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
   %31 = call fastcc zeroext i1 @check_compressed_file(ptr noundef %0, ptr noundef %5, ptr noundef nonnull @.str.6)
   br i1 %31, label %38, label %32
 
-32:                                               ; preds = %hasSuffix.exit21.thread, %30
+32:                                               ; preds = %30, %hasSuffix.exit21.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %33 = tail call ptr @pg_malloc0(i64 noundef 112) #9
@@ -216,7 +216,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
   tail call void @InitCompressFileHandleGzip(ptr noundef %35, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
   br label %InitCompressFileHandle.exit
 
-36:                                               ; preds = %28, %hasSuffix.exit16
+36:                                               ; preds = %hasSuffix.exit16, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2, ptr %3, align 8
   %.sroa.12.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -235,7 +235,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
   br label %InitCompressFileHandle.exit
 
 InitCompressFileHandle.exit:                      ; preds = %32, %34, %36, %38
-  %40 = phi ptr [ %39, %38 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
+  %40 = phi ptr [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %5, align 8

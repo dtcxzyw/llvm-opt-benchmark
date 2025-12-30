@@ -667,7 +667,7 @@ define dso_local void @_ZNK22cmCTestMemCheckCommand23ProcessAdditionalValuesEP21
   br i1 %29, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !74
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %26, %24, %20, %16, %11
-  %.0.i.i = phi i32 [ %25, %24 ], [ %17, %16 ], [ %21, %20 ], [ 1, %11 ], [ %28, %26 ]
+  %.0.i.i = phi i32 [ %17, %16 ], [ %21, %20 ], [ %25, %24 ], [ 1, %11 ], [ %28, %26 ]
   %.lobit.i = lshr i32 %12, 31
   %30 = add i32 %.0.i.i, %.lobit.i
   %31 = zext i32 %30 to i64
@@ -1963,7 +1963,7 @@ _ZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEEC2ERKS2_.exi
   br label %.body
 
 .body:                                            ; preds = %55, %52, %93, %90, %131, %128, %169, %166, %207, %204, %245, %242, %283, %280, %321, %318, %359, %356, %403, %397, %394, %375, %378, %337, %340, %299, %302, %261, %264, %223, %226, %185, %188, %147, %150, %109, %112, %71, %74, %33, %36
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %34, %36 ], [ %53, %52 ], [ %53, %55 ], [ %72, %71 ], [ %72, %74 ], [ %91, %90 ], [ %91, %93 ], [ %110, %109 ], [ %110, %112 ], [ %129, %128 ], [ %129, %131 ], [ %148, %147 ], [ %148, %150 ], [ %167, %166 ], [ %167, %169 ], [ %186, %185 ], [ %186, %188 ], [ %205, %204 ], [ %205, %207 ], [ %224, %223 ], [ %224, %226 ], [ %243, %242 ], [ %243, %245 ], [ %262, %261 ], [ %262, %264 ], [ %281, %280 ], [ %281, %283 ], [ %300, %299 ], [ %300, %302 ], [ %319, %318 ], [ %319, %321 ], [ %338, %337 ], [ %338, %340 ], [ %357, %356 ], [ %357, %359 ], [ %376, %375 ], [ %376, %378 ], [ %404, %403 ], [ %395, %397 ], [ %395, %394 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %53, %55 ], [ %53, %52 ], [ %72, %74 ], [ %72, %71 ], [ %91, %93 ], [ %91, %90 ], [ %110, %112 ], [ %110, %109 ], [ %129, %131 ], [ %129, %128 ], [ %148, %150 ], [ %148, %147 ], [ %167, %169 ], [ %167, %166 ], [ %186, %188 ], [ %186, %185 ], [ %205, %207 ], [ %205, %204 ], [ %224, %226 ], [ %224, %223 ], [ %243, %245 ], [ %243, %242 ], [ %262, %264 ], [ %262, %261 ], [ %281, %283 ], [ %281, %280 ], [ %300, %302 ], [ %300, %299 ], [ %319, %321 ], [ %319, %318 ], [ %338, %340 ], [ %338, %337 ], [ %357, %359 ], [ %357, %356 ], [ %376, %378 ], [ %376, %375 ], [ %404, %403 ], [ %395, %397 ], [ %395, %394 ]
   call void @_ZN14ArgumentParser9ActionMapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %22) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   resume { ptr, i32 } %eh.lpad-body
@@ -2304,7 +2304,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
   unreachable
 
 .body13:                                          ; preds = %100, %.body20, %64, %61
-  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %eh.lpad-body21, %100 ], [ %62, %64 ], [ %eh.lpad-body21, %.body20 ]
+  %.pn = phi { ptr, i32 } [ %62, %64 ], [ %62, %61 ], [ %eh.lpad-body21, %.body20 ], [ %eh.lpad-body21, %100 ]
   %105 = load ptr, ptr %30, align 8, !tbaa !84
   %.not.i22 = icmp eq ptr %105, null
   br i1 %.not.i22, label %.body, label %106
@@ -2321,7 +2321,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
   unreachable
 
 .body:                                            ; preds = %106, %.body13, %44, %41
-  %.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn, %106 ], [ %42, %44 ], [ %.pn, %.body13 ]
+  %.pn.pn = phi { ptr, i32 } [ %42, %44 ], [ %42, %41 ], [ %.pn, %.body13 ], [ %.pn, %106 ]
   tail call void @_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   br label %common.resume
 }
@@ -3095,7 +3095,7 @@ _ZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEEC2ERKS2_.exi
   br label %.body
 
 .body:                                            ; preds = %41, %38, %79, %76, %123, %117, %114, %95, %98, %57, %60, %19, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %20, %22 ], [ %39, %38 ], [ %39, %41 ], [ %58, %57 ], [ %58, %60 ], [ %77, %76 ], [ %77, %79 ], [ %96, %95 ], [ %96, %98 ], [ %124, %123 ], [ %115, %117 ], [ %115, %114 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %39, %41 ], [ %39, %38 ], [ %58, %60 ], [ %58, %57 ], [ %77, %79 ], [ %77, %76 ], [ %96, %98 ], [ %96, %95 ], [ %124, %123 ], [ %115, %117 ], [ %115, %114 ]
   call void @_ZN14ArgumentParser9ActionMapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %eh.lpad-body

@@ -1659,8 +1659,8 @@ _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEv
   br i1 %153, label %.lr.ph.i37, label %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit33, !llvm.loop !54
 
 _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit33: ; preds = %.lr.ph.i37, %.lr.ph.i32, %147, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35, %137
-  %154 = phi i8 [ %138, %.lr.ph.i32 ], [ %145, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35 ], [ %134, %137 ], [ %148, %147 ], [ %151, %.lr.ph.i37 ]
-  %.113 = phi i8 [ 1, %.lr.ph.i32 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35 ], [ 1, %137 ], [ 1, %147 ], [ 1, %.lr.ph.i37 ]
+  %154 = phi i8 [ %134, %137 ], [ %145, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35 ], [ %148, %147 ], [ %138, %.lr.ph.i32 ], [ %151, %.lr.ph.i37 ]
+  %.113 = phi i8 [ 1, %137 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit35 ], [ 1, %147 ], [ 1, %.lr.ph.i32 ], [ 1, %.lr.ph.i37 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 128
   switch i8 %154, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40 [
     i8 101, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit39.thread
@@ -1749,7 +1749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i45: ; preds = %
   br i1 %182, label %.preheader.i, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40, !llvm.loop !55
 
 _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40: ; preds = %.preheader.i, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i49
-  %.214 = phi i8 [ %.113, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit33 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i49 ], [ 1, %.preheader.i ]
+  %.214 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i49 ], [ %.113, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit33 ], [ 1, %.preheader.i ]
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %184 = load i8, ptr %183, align 4, !tbaa !28, !range !49, !noundef !50
   %185 = trunc nuw i8 %184 to i1
@@ -1771,7 +1771,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit52.thread: ; preds = %186
   br label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit
 
 _ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit: ; preds = %switch.early.test4.i, %.lr.ph.i28, %186, %switch.early.test4.i.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit51.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit52.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40
-  %.012 = phi i8 [ %.214, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40 ], [ 0, %switch.early.test4.i.thread ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %.214, %186 ], [ 0, %.lr.ph.i28 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit52.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit51.thread ], [ 0, %switch.early.test4.i ]
+  %.012 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %.214, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit40 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit52.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit51.thread ], [ 0, %switch.early.test4.i.thread ], [ %.214, %186 ], [ 0, %.lr.ph.i28 ], [ 0, %switch.early.test4.i ]
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val26 = load i8, ptr %188, align 8, !tbaa !47
   %189 = and i8 %.val26, -33
@@ -2768,7 +2768,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit3.thread: ; preds = %_ZN6goog
   br label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit3
 
 _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit3: ; preds = %7, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit3.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit2.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit1.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit2
-  %.0 = phi i32 [ 0, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit3.thread ], [ 0, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit1.thread ], [ 2, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit2 ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit2.thread ], [ 3, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit ], [ 3, %7 ]
+  %.0 = phi i32 [ 2, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit2 ], [ 0, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit1.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit2.thread ], [ 0, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit3.thread ], [ 3, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit ], [ 3, %7 ]
   ret i32 %.0
 }
 
@@ -2847,7 +2847,7 @@ _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110Whitespa
   br label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEbv.exit
 
 _ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEbv.exit: ; preds = %10, %7, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110WhitespaceEEEvv.exit, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit
-  %.0 = phi i1 [ true, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit ], [ false, %7 ], [ %15, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110WhitespaceEEEvv.exit ], [ false, %10 ]
+  %.0 = phi i1 [ true, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_119WhitespaceNoNewlineEEEvv.exit ], [ %15, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110WhitespaceEEEvv.exit ], [ false, %7 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -3250,7 +3250,7 @@ _ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread: ; preds = 
   br label %_ZN6google8protobuf2io9Tokenizer17TryConsumeNewlineEv.exit
 
 _ZN6google8protobuf2io9Tokenizer17TryConsumeNewlineEv.exit: ; preds = %102, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread, %166
-  %or.cond6.i186 = phi i1 [ true, %166 ], [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread ], [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit ], [ false, %102 ]
+  %or.cond6.i186 = phi i1 [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread ], [ true, %166 ], [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit ], [ false, %102 ]
   %167 = load i32, ptr %23, align 4, !tbaa !40
   %168 = load i32, ptr %24, align 8, !tbaa !27
   %.not.i.i = icmp eq i32 %167, %168
@@ -4768,7 +4768,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit60: ; preds = %375
   br label %.loopexit.split-lp
 
 .loopexit110:                                     ; preds = %239, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke, %390, %393, %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i1 [ %381, %393 ], [ true, %390 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %135 ], [ %171, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke ], [ true, %239 ]
+  %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %135 ], [ %381, %393 ], [ true, %390 ], [ %171, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit35.invoke ], [ true, %239 ]
   %396 = load ptr, ptr %13, align 8, !tbaa !72
   %.not.i61 = icmp ne ptr %396, null
   %397 = load i8, ptr %17, align 8, !range !49
@@ -4794,7 +4794,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_116CommentCollectorD2Ev.exit: ; preds = %400,
   ret i1 %.0
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %394, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %.pn12 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %395, %394 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit98, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit100, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit103, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit105, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit108, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit111, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit114, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit119, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn12 = phi { ptr, i32 } [ %395, %394 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit98, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit100, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit103, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit105, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit108, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit111, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit114, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit119, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %10) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn12
@@ -5456,8 +5456,8 @@ _ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit: ; preds = %87
   br label %_ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit97
 
 _ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit97: ; preds = %94, %97, %95, %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit
-  %.3 = phi ptr [ %52, %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit ], [ %88, %97 ], [ %88, %95 ], [ %88, %94 ]
-  %.054 = phi i8 [ 0, %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit ], [ %spec.select.i95, %97 ], [ %96, %95 ], [ %90, %94 ]
+  %.3 = phi ptr [ %52, %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit ], [ %88, %95 ], [ %88, %97 ], [ %88, %94 ]
+  %.054 = phi i8 [ 0, %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit ], [ %96, %95 ], [ %spec.select.i95, %97 ], [ %90, %94 ]
   %100 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !12
   %102 = add i8 %101, -48
@@ -5497,8 +5497,8 @@ _ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit101: ; preds = %_ZN6
   br label %_ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit107
 
 _ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit107: ; preds = %107, %111, %113
-  %116 = phi i8 [ %110, %113 ], [ %110, %111 ], [ %108, %107 ]
-  %.0.i106 = phi i8 [ %spec.select.i105, %113 ], [ %112, %111 ], [ %102, %107 ]
+  %116 = phi i8 [ %110, %111 ], [ %110, %113 ], [ %108, %107 ]
+  %.0.i106 = phi i8 [ %112, %111 ], [ %spec.select.i105, %113 ], [ %102, %107 ]
   %117 = add i8 %.0.i106, %116
   br label %118
 
@@ -5663,14 +5663,14 @@ _ZN6google8protobuf2io12_GLOBAL__N_110DigitValueEc.exit.i25.i: ; preds = %174, %
   %.add126 = add nuw nsw i64 %.add, 6
   br label %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
 
-.thread153:                                       ; preds = %155, %158
+.thread153:                                       ; preds = %158, %155
   %.0.i111.ptr143 = getelementptr inbounds nuw i8, ptr %.pn, i64 %.add
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %210
 
 _ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit: ; preds = %.lr.ph.i18.i, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i, %178, %181
-  %.1 = phi i32 [ %151, %178 ], [ %151, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i ], [ %184, %181 ], [ %151, %.lr.ph.i18.i ]
-  %.0.i111.idx = phi i64 [ %.add, %178 ], [ %.add, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i ], [ %.add126, %181 ], [ %.add, %.lr.ph.i18.i ]
+  %.1 = phi i32 [ %184, %181 ], [ %151, %178 ], [ %151, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i ], [ %151, %.lr.ph.i18.i ]
+  %.0.i111.idx = phi i64 [ %.add126, %181 ], [ %.add, %178 ], [ %.add, %_ZN6google8protobuf2ioL13ReadHexDigitsEPKciPj.exit.i ], [ %.add, %.lr.ph.i18.i ]
   %.0.i111.ptr = getelementptr inbounds nuw i8, ptr %.pn, i64 %.0.i111.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %185 = icmp ult i32 %.1, 128
@@ -5710,7 +5710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit114: ; pre
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit114, %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit122
-  %.pn.be = phi ptr [ %.260, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit110 ], [ %.058, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit122 ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit119 ], [ %.058, %271 ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit114 ], [ %244, %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %.pn.be = phi ptr [ %.260, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit110 ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit119 ], [ %.058, %271 ], [ %.058, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit122 ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit114 ], [ %244, %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   br label %49, !llvm.loop !85
 
 200:                                              ; preds = %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
@@ -5765,9 +5765,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit114: ; pre
   br label %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 234:                                              ; preds = %221, %210, %202, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
-  %.0.i111.ptr147 = phi ptr [ %.0.i111.ptr, %221 ], [ %.0.i111.ptr, %202 ], [ %.0.i111.ptr146151157, %210 ], [ %.0.i111.ptr, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
-  %235 = phi i32 [ %232, %221 ], [ %207, %202 ], [ %218, %210 ], [ %.1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
-  %.0.i115 = phi i64 [ 4, %221 ], [ 2, %202 ], [ 3, %210 ], [ 1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
+  %.0.i111.ptr147 = phi ptr [ %.0.i111.ptr, %202 ], [ %.0.i111.ptr146151157, %210 ], [ %.0.i111.ptr, %221 ], [ %.0.i111.ptr, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
+  %235 = phi i32 [ %207, %202 ], [ %218, %210 ], [ %232, %221 ], [ %.1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
+  %.0.i115 = phi i64 [ 2, %202 ], [ 3, %210 ], [ 4, %221 ], [ 1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %236 = call noundef i32 @_ZN6google8protobuf6ghtonlEj(i32 noundef %235)
   store i32 %236, ptr %3, align 4, !tbaa !86
   %237 = load i64, ptr %34, align 8, !tbaa !9
@@ -5816,7 +5816,7 @@ _ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traits
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit: ; preds = %86, %245, %246, %247, %248, %249, %250, %251, %252
-  %.0.i116 = phi i8 [ 63, %252 ], [ 7, %86 ], [ 8, %245 ], [ 12, %246 ], [ 10, %247 ], [ 13, %248 ], [ 9, %249 ], [ 11, %250 ], [ %53, %251 ]
+  %.0.i116 = phi i8 [ 63, %252 ], [ 8, %245 ], [ 12, %246 ], [ 10, %247 ], [ 13, %248 ], [ 9, %249 ], [ 11, %250 ], [ %53, %251 ], [ 7, %86 ]
   %253 = load i64, ptr %34, align 8, !tbaa !9
   %254 = add i64 %253, 1
   %255 = load ptr, ptr %1, align 8, !tbaa !48
@@ -6003,7 +6003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %35
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ %.not.lcssa.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit ]
+  %.0 = phi i1 [ false, %1 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit ], [ %.not.lcssa.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret i1 %.0
 }
 

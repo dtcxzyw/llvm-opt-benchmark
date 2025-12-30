@@ -456,7 +456,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm7objca
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %182, %180, %175, %173, %168, %166, %161, %159, %154, %152, %147, %145, %140, %138, %133, %131, %126, %124, %119, %117, %112, %110, %105, %103, %98, %96, %91, %89, %84, %82, %77, %75, %70, %68, %63, %61, %56, %54, %49, %47, %42, %40, %35, %33, %28, %26, %21, %19, %14, %12
-  %.0 = phi ptr [ %0, %182 ], [ %104, %103 ], [ %0, %105 ], [ %111, %110 ], [ %0, %112 ], [ %118, %117 ], [ %0, %119 ], [ %125, %124 ], [ %0, %126 ], [ %132, %131 ], [ %0, %133 ], [ %139, %138 ], [ %0, %140 ], [ %146, %145 ], [ %0, %147 ], [ %153, %152 ], [ %0, %154 ], [ %160, %159 ], [ %0, %161 ], [ %167, %166 ], [ %0, %168 ], [ %174, %173 ], [ %0, %175 ], [ %181, %180 ], [ %13, %12 ], [ %0, %14 ], [ %20, %19 ], [ %0, %21 ], [ %27, %26 ], [ %0, %28 ], [ %34, %33 ], [ %0, %35 ], [ %41, %40 ], [ %0, %42 ], [ %48, %47 ], [ %0, %49 ], [ %55, %54 ], [ %0, %56 ], [ %62, %61 ], [ %0, %63 ], [ %69, %68 ], [ %0, %70 ], [ %76, %75 ], [ %0, %77 ], [ %83, %82 ], [ %0, %84 ], [ %90, %89 ], [ %0, %91 ], [ %97, %96 ], [ %0, %98 ]
+  %.0 = phi ptr [ %13, %12 ], [ %0, %14 ], [ %20, %19 ], [ %0, %21 ], [ %27, %26 ], [ %0, %28 ], [ %34, %33 ], [ %0, %35 ], [ %41, %40 ], [ %0, %42 ], [ %48, %47 ], [ %0, %49 ], [ %55, %54 ], [ %0, %56 ], [ %62, %61 ], [ %0, %63 ], [ %69, %68 ], [ %0, %70 ], [ %76, %75 ], [ %0, %77 ], [ %83, %82 ], [ %0, %84 ], [ %90, %89 ], [ %0, %91 ], [ %97, %96 ], [ %0, %98 ], [ %104, %103 ], [ %0, %105 ], [ %111, %110 ], [ %0, %112 ], [ %118, %117 ], [ %0, %119 ], [ %125, %124 ], [ %0, %126 ], [ %132, %131 ], [ %0, %133 ], [ %139, %138 ], [ %0, %140 ], [ %146, %145 ], [ %0, %147 ], [ %153, %152 ], [ %0, %154 ], [ %160, %159 ], [ %0, %161 ], [ %167, %166 ], [ %0, %168 ], [ %174, %173 ], [ %0, %175 ], [ %181, %180 ], [ %0, %182 ]
   ret ptr %.0
 }
 
@@ -572,7 +572,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
     i32 243, label %.thread
   ]
 
-_ZL18isUseOnlyIntrinsicj.exit:                    ; preds = %8, %5, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %21
+_ZL18isUseOnlyIntrinsicj.exit:                    ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %5, %8, %21
   %22 = tail call noundef i32 @_ZN4llvm7objcarc16GetCallSiteClassERKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(88) %0)
   br label %.thread
 
@@ -672,13 +672,13 @@ _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit: ; preds = %59, 
   %.not8.i = and i1 %.not815.i, %71
   br i1 %.not8.i, label %.thread, label %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread
 
-_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %62, %64, %60, %.lr.ph, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
+_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %60, %62, %64, %.lr.ph, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
   %72 = getelementptr inbounds nuw i8, ptr %.03862, i64 32
   %.not44 = icmp eq ptr %72, %54
   br i1 %.not44, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit, %_ZNK4llvm4User8operandsEv.exit, %_ZNK4llvm4User10getOperandEj.exit, %21, %21, %21, %17, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %23, %_ZL18isUseOnlyIntrinsicj.exit, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %73 = phi i32 [ 23, %21 ], [ 24, %1 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ %spec.select, %_ZNK4llvm4User10getOperandEj.exit ], [ 23, %21 ], [ %22, %_ZL18isUseOnlyIntrinsicj.exit ], [ %24, %23 ], [ %16, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 24, %17 ], [ 23, %21 ], [ 24, %_ZNK4llvm4User8operandsEv.exit ], [ 24, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread ], [ 23, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit ]
+.thread:                                          ; preds = %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit, %_ZNK4llvm4User8operandsEv.exit, %_ZNK4llvm4User10getOperandEj.exit, %21, %21, %21, %17, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZL18isUseOnlyIntrinsicj.exit, %23, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
+  %73 = phi i32 [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %1 ], [ %22, %_ZL18isUseOnlyIntrinsicj.exit ], [ %24, %23 ], [ 24, %17 ], [ %16, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 23, %21 ], [ 23, %21 ], [ 23, %21 ], [ %spec.select, %_ZNK4llvm4User10getOperandEj.exit ], [ 24, %_ZNK4llvm4User8operandsEv.exit ], [ 24, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread ], [ 23, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit ]
   ret i32 %73
 }
 
@@ -769,7 +769,7 @@ _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit: ; preds = %13, 
   %.not8.i = and i1 %.not815.i, %25
   br i1 %.not8.i, label %27, label %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread
 
-_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %16, %18, %14, %.lr.ph, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
+_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %14, %16, %18, %.lr.ph, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
   %26 = getelementptr inbounds nuw i8, ptr %.01424, i64 32
   %.not = icmp eq ptr %26, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -825,7 +825,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm7objcarc27IsPotentialReta
   br label %.thread
 
 .thread:                                          ; preds = %6, %8, %10, %1, %12
-  %.0 = phi i1 [ false, %1 ], [ %.not8, %12 ], [ false, %6 ], [ false, %10 ], [ false, %8 ]
+  %.0 = phi i1 [ %.not8, %12 ], [ false, %1 ], [ false, %10 ], [ false, %8 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -945,7 +945,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

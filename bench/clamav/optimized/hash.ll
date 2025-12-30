@@ -38,7 +38,7 @@ define dso_local range(i32 0, 21) i32 @onas_ht_init(ptr noundef writeonly captur
   br label %11
 
 11:                                               ; preds = %6, %4, %2, %10
-  %.0 = phi i32 [ 3, %2 ], [ 20, %4 ], [ 20, %10 ], [ 0, %6 ]
+  %.0 = phi i32 [ 20, %10 ], [ 3, %2 ], [ 20, %4 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -391,7 +391,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i, %7
   br label %65
 
 65:                                               ; preds = %63, %57, %2, %5
-  %.0 = phi i32 [ 2, %2 ], [ 2, %5 ], [ 0, %57 ], [ 0, %63 ]
+  %.0 = phi i32 [ 2, %5 ], [ 2, %2 ], [ 0, %57 ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -482,7 +482,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
   br label %.critedge34
 
 .critedge34:                                      ; preds = %44, %40, %.critedge, %37, %onas_hash.exit, %46, %6
-  %.023 = phi i32 [ 2, %6 ], [ 3, %onas_hash.exit ], [ 3, %37 ], [ 0, %.critedge ], [ 0, %46 ], [ 3, %40 ], [ 3, %44 ]
+  %.023 = phi i32 [ 2, %6 ], [ 3, %37 ], [ 3, %onas_hash.exit ], [ 0, %.critedge ], [ 0, %46 ], [ 3, %40 ], [ 3, %44 ]
   ret i32 %.023
 }
 
@@ -684,7 +684,7 @@ onas_bucket_remove.exit:                          ; preds = %72, %100
   br label %onas_ht_get.exit.thread
 
 onas_ht_get.exit.thread:                          ; preds = %64, %60, %57, %onas_hash.exit.i, %103, %onas_bucket_remove.exit, %onas_hash.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_hash.exit ], [ %.1.i, %onas_bucket_remove.exit ], [ %.1.i, %103 ], [ 3, %60 ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %64 ]
+  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_hash.exit ], [ %.1.i, %103 ], [ %.1.i, %onas_bucket_remove.exit ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %60 ], [ 3, %64 ]
   ret i32 %.0
 }
 
@@ -990,8 +990,8 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i37
   tail call void @free(ptr noundef nonnull %73) #21
   br label %onas_ht_get.exit.thread
 
-onas_ht_get.exit.thread:                          ; preds = %61, %71, %77, %onas_ht_get.exit, %54, %onas_hash.exit.i, %57, %onas_get_dirname_idx.exit, %88, %5
-  %.0 = phi i32 [ 2, %5 ], [ 3, %71 ], [ 0, %onas_get_dirname_idx.exit ], [ 0, %88 ], [ 3, %57 ], [ 3, %onas_hash.exit.i ], [ 3, %54 ], [ 3, %onas_ht_get.exit ], [ 3, %77 ], [ 3, %61 ]
+onas_ht_get.exit.thread:                          ; preds = %61, %71, %77, %onas_ht_get.exit, %57, %onas_hash.exit.i, %54, %onas_get_dirname_idx.exit, %88, %5
+  %.0 = phi i32 [ 2, %5 ], [ 0, %onas_get_dirname_idx.exit ], [ 0, %88 ], [ 3, %54 ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %onas_ht_get.exit ], [ 3, %77 ], [ 3, %71 ], [ 3, %61 ]
   ret i32 %.0
 }
 
@@ -1134,8 +1134,8 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i36
   store ptr %calloc.i.i, ptr %74, align 8, !tbaa !49
   br label %onas_add_hashnode_child.exit
 
-onas_add_hashnode_child.exit:                     ; preds = %61, %54, %onas_hash.exit.i, %57, %onas_get_dirname_idx.exit, %onas_ht_get.exit, %67, %68, %73, %5
-  %.0 = phi i32 [ 2, %5 ], [ 0, %73 ], [ 0, %onas_get_dirname_idx.exit ], [ 2, %onas_ht_get.exit ], [ 20, %67 ], [ 0, %68 ], [ 3, %57 ], [ 3, %onas_hash.exit.i ], [ 3, %54 ], [ 3, %61 ]
+onas_add_hashnode_child.exit:                     ; preds = %61, %57, %onas_hash.exit.i, %54, %onas_get_dirname_idx.exit, %onas_ht_get.exit, %67, %68, %73, %5
+  %.0 = phi i32 [ 2, %5 ], [ 0, %onas_get_dirname_idx.exit ], [ 2, %onas_ht_get.exit ], [ 20, %67 ], [ 0, %68 ], [ 0, %73 ], [ 3, %54 ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %61 ]
   ret i32 %.0
 }
 
@@ -1304,7 +1304,7 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   br i1 %65, label %.lr.ph.i82, label %.critedge.i77
 
 .critedge.i77:                                    ; preds = %63, %.lr.ph.i82
-  %.0.lcssa.i78 = phi i32 [ %.020.i83, %.lr.ph.i82 ], [ -1, %63 ]
+  %.0.lcssa.i78 = phi i32 [ -1, %63 ], [ %.020.i83, %.lr.ph.i82 ]
   %spec.select.i79 = call i32 @llvm.umax.i32(i32 %.0.lcssa.i78, i32 1)
   %66 = sext i32 %spec.select.i79 to i64
   %67 = call noalias ptr @strndup(ptr noundef nonnull readonly %54, i64 noundef %66) #21
@@ -1397,7 +1397,7 @@ onas_free_hashnode.exit:                          ; preds = %onas_free_listnode.
   call void @free(ptr noundef nonnull %calloc.i) #21
   br label %.thread113
 
-onas_add_hashnode_child.exit.thread:              ; preds = %84, %89, %.preheader
+onas_add_hashnode_child.exit.thread:              ; preds = %89, %84, %.preheader
   %102 = getelementptr inbounds nuw i8, ptr %.054, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !60
   %.not70 = icmp eq ptr %103, null
@@ -1464,7 +1464,7 @@ onas_free_hashnode.exit99:                        ; preds = %onas_free_hashnode.
   br i1 %.not66, label %.thread113, label %.lr.ph
 
 .thread113:                                       ; preds = %119, %32, %.preheader118, %onas_free_hashnode.exit99, %118, %onas_free_hashnode.exit, %onas_free_hashnode.exit22.i, %onas_free_hashnode.exit.i
-  %.052115 = phi i32 [ -1, %118 ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %onas_free_hashnode.exit ], [ 20, %onas_free_hashnode.exit.i ], [ 20, %onas_free_hashnode.exit99 ], [ 0, %.preheader118 ], [ 0, %119 ], [ 20, %32 ]
+  %.052115 = phi i32 [ 20, %onas_free_hashnode.exit.i ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %onas_free_hashnode.exit99 ], [ -1, %118 ], [ 20, %onas_free_hashnode.exit ], [ 0, %.preheader118 ], [ 0, %119 ], [ 20, %32 ]
   %121 = call i32 @fts_close(ptr noundef nonnull %26) #21
   br label %122
 
@@ -1647,8 +1647,8 @@ onas_get_parent.exit:                             ; preds = %.critedge.i59
   tail call void @onas_free_element(ptr noundef nonnull %.038.i)
   br label %.critedge
 
-.critedge:                                        ; preds = %42, %75, %onas_get_parent.exit, %63, %49, %35, %onas_hash.exit.i, %38, %._crit_edge, %4
-  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_get_parent.exit ], [ 20, %75 ], [ 3, %63 ], [ 0, %._crit_edge ], [ 3, %38 ], [ 3, %onas_hash.exit.i ], [ 3, %35 ], [ 3, %49 ], [ 3, %42 ]
+.critedge:                                        ; preds = %42, %75, %onas_get_parent.exit, %63, %49, %38, %onas_hash.exit.i, %35, %._crit_edge, %4
+  %.0 = phi i32 [ 2, %4 ], [ 0, %._crit_edge ], [ 3, %35 ], [ 3, %onas_hash.exit.i ], [ 3, %38 ], [ 3, %49 ], [ 3, %63 ], [ 3, %onas_get_parent.exit ], [ 20, %75 ], [ 3, %42 ]
   ret i32 %.0
 }
 

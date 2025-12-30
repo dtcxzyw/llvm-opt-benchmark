@@ -267,7 +267,7 @@ getNSItemForSpecialRelationTypes.exit.thread:     ; preds = %18, %28
   br label %33
 
 getNSItemForSpecialRelationTypes.exit:            ; preds = %25, %31
-  %.0.i = phi ptr [ %32, %31 ], [ %27, %25 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not406 = icmp eq ptr %.0.i, null
   br i1 %.not406, label %33, label %40
@@ -1220,7 +1220,7 @@ list_length.exit77.i:                             ; preds = %530, %list_length.e
   br i1 %553, label %557, label %.thread.i
 
 .thread.i:                                        ; preds = %549, %544, %list_length.exit71.thread.thread.i, %list_length.exit71.i, %list_length.exit.thread.i
-  %.us-phi.i = phi ptr [ null, %list_length.exit71.thread.thread.i ], [ null, %list_length.exit.thread.i ], [ null, %list_length.exit71.i ], [ %.0.i429, %544 ], [ %.0.i429, %549 ]
+  %.us-phi.i = phi ptr [ null, %list_length.exit.thread.i ], [ null, %list_length.exit71.thread.thread.i ], [ null, %list_length.exit71.i ], [ %.0.i429, %544 ], [ %.0.i429, %549 ]
   %554 = getelementptr inbounds nuw i8, ptr %496, i64 8
   store ptr %.us-phi.i, ptr %554, align 8
   %555 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1597,9 +1597,9 @@ list_length.exit.i445:                            ; preds = %.thread.i443
   br label %transformJoinUsingClause.exit
 
 list_length.exit.thread.i446:                     ; preds = %.critedge416.thread, %list_length.exit.i445, %.thread.i443, %.critedge416
-  %.lcssa576776 = phi ptr [ %775, %list_length.exit.i445 ], [ %775, %.thread.i443 ], [ %775, %.critedge416 ], [ null, %.critedge416.thread ]
-  %.lcssa584774 = phi ptr [ %798, %list_length.exit.i445 ], [ %798, %.thread.i443 ], [ %798, %.critedge416 ], [ null, %.critedge416.thread ]
-  %.us-phi49.i = phi ptr [ %.030.i, %list_length.exit.i445 ], [ null, %.thread.i443 ], [ null, %.critedge416 ], [ null, %.critedge416.thread ]
+  %.lcssa576776 = phi ptr [ %775, %.thread.i443 ], [ %775, %list_length.exit.i445 ], [ %775, %.critedge416 ], [ null, %.critedge416.thread ]
+  %.lcssa584774 = phi ptr [ %798, %.thread.i443 ], [ %798, %list_length.exit.i445 ], [ %798, %.critedge416 ], [ null, %.critedge416.thread ]
+  %.us-phi49.i = phi ptr [ null, %.thread.i443 ], [ %.030.i, %list_length.exit.i445 ], [ null, %.critedge416 ], [ null, %.critedge416.thread ]
   %738 = tail call ptr @makeBoolExpr(i32 noundef 0, ptr noundef %.us-phi49.i, i32 noundef -1) #8
   br label %transformJoinUsingClause.exit
 
@@ -2094,7 +2094,7 @@ list_length.exit451:                              ; preds = %869, %874
   unreachable
 
 buildMergedJoinVar.exit:                          ; preds = %990, %991, %994, %997, %998
-  %.057.i = phi ptr [ %999, %998 ], [ %.056..0.i, %994 ], [ %.0.i453, %991 ], [ %.056.i, %997 ], [ %.0.i453, %990 ]
+  %.057.i = phi ptr [ %.056.i, %997 ], [ %999, %998 ], [ %.0.i453, %991 ], [ %.056..0.i, %994 ], [ %.0.i453, %990 ]
   tail call void @assign_expr_collations(ptr noundef %0, ptr noundef %.057.i) #8
   %1007 = tail call ptr @lappend(ptr noundef %900, ptr noundef %.057.i) #8
   %1008 = getelementptr inbounds nuw %struct.ParseNamespaceColumn, ptr %680, i64 %indvars.iv698
@@ -2580,8 +2580,8 @@ define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr n
   br label %45
 
 45:                                               ; preds = %.sink.split, %33, %35, %28
-  %.142 = phi ptr [ %.0415059, %28 ], [ %.0415059, %33 ], [ %36, %35 ], [ %.142.ph, %.sink.split ]
-  %.2 = phi ptr [ %.0395158, %28 ], [ %.0395158, %33 ], [ %.0395158, %35 ], [ %44, %.sink.split ]
+  %.142 = phi ptr [ %.0415059, %28 ], [ %36, %35 ], [ %.0415059, %33 ], [ %.142.ph, %.sink.split ]
+  %.2 = phi ptr [ %.0395158, %28 ], [ %.0395158, %35 ], [ %.0395158, %33 ], [ %44, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv57, 1
   %46 = load i32, ptr %19, align 4
   %47 = sext i32 %46 to i64
@@ -2748,7 +2748,7 @@ tailrecurse:                                      ; preds = %9
   br i1 %.not, label %51, label %.critedge66, !llvm.loop !16
 
 .critedge66:                                      ; preds = %tailrecurse, %.lr.ph, %9, %63, %.critedge, %3, %.preheader, %.critedge._crit_edge, %19
-  %.0 = phi ptr [ %.054.lcssa, %.critedge ], [ null, %19 ], [ %50, %.critedge._crit_edge ], [ %.153, %63 ], [ null, %.preheader ], [ null, %3 ], [ %.tr77, %.lr.ph ], [ null, %tailrecurse ], [ %.tr77, %9 ]
+  %.0 = phi ptr [ %50, %.critedge._crit_edge ], [ null, %19 ], [ null, %.preheader ], [ null, %3 ], [ %.054.lcssa, %.critedge ], [ %.153, %63 ], [ null, %tailrecurse ], [ %.tr77, %.lr.ph ], [ %.tr77, %9 ]
   ret ptr %.0
 }
 
@@ -2910,7 +2910,7 @@ targetIsInSortList.exit.i:                        ; preds = %50, %.lr.ph.i.i, %4
   br label %73
 
 .thread57.i:                                      ; preds = %59, %.lr.ph.i50, %targetIsInSortList.exit.i, %..thread57_crit_edge.i
-  %69 = phi ptr [ %.pre.i, %..thread57_crit_edge.i ], [ %42, %.lr.ph.i50 ], [ %42, %targetIsInSortList.exit.i ], [ %42, %59 ]
+  %69 = phi ptr [ %.pre.i, %..thread57_crit_edge.i ], [ %42, %targetIsInSortList.exit.i ], [ %42, %.lr.ph.i50 ], [ %42, %59 ]
   %70 = load ptr, ptr %3, align 8
   %71 = tail call i32 @exprLocation(ptr noundef %31) #8
   %72 = tail call fastcc ptr @addTargetToGroupList(ptr noundef %1, ptr noundef %.041.i, ptr noundef %69, ptr noundef %70, i32 noundef %71)
@@ -3100,7 +3100,7 @@ targetIsInSortList.exit:                          ; preds = %28, %19, %.lr.ph.i
   br label %54
 
 .thread57:                                        ; preds = %39, %..thread57_crit_edge, %targetIsInSortList.exit, %.lr.ph
-  %50 = phi ptr [ %.pre, %..thread57_crit_edge ], [ %20, %.lr.ph ], [ %20, %targetIsInSortList.exit ], [ %20, %39 ]
+  %50 = phi ptr [ %.pre, %..thread57_crit_edge ], [ %20, %targetIsInSortList.exit ], [ %20, %.lr.ph ], [ %20, %39 ]
   %51 = load ptr, ptr %4, align 8
   %52 = tail call i32 @exprLocation(ptr noundef %3) #8
   %53 = tail call fastcc ptr @addTargetToGroupList(ptr noundef %2, ptr noundef %.041, ptr noundef %50, ptr noundef %51, i32 noundef %52)
@@ -3172,7 +3172,7 @@ define dso_local ptr @transformSortClause(ptr noundef %0, ptr noundef readonly c
   br i1 %31, label %.lr.ph37, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph37, %.lr.ph42, %.lr.ph.split.us.split, %.lr.ph.split.split, %5
-  %.020.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ %17, %.lr.ph42 ], [ %28, %.lr.ph37 ]
+  %.020.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ %17, %.lr.ph42 ], [ %28, %.lr.ph37 ]
   ret ptr %.020.lcssa
 }
 
@@ -3337,7 +3337,7 @@ select.unfold:                                    ; preds = %18
   tail call fastcc void @checkTargetlistEntrySQL92(ptr noundef %0, ptr noundef nonnull %.176, i32 noundef %3)
   br label %103
 
-thread-pre-split:                                 ; preds = %.lr.ph, %26, %24, %select.unfold, %.critedge, %7, %list_length.exit, %13
+thread-pre-split:                                 ; preds = %.lr.ph, %26, %24, %.critedge, %select.unfold, %7, %list_length.exit, %13
   %.pr = load i32, ptr %1, align 4
   br label %60
 
@@ -3606,7 +3606,7 @@ define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr noundef captures(n
   %90 = icmp slt i64 %indvars.iv.next.i, %89
   br i1 %90, label %.lr.ph52.i, label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge.i, %68, %57, %.lr.ph.split.us.split.i, %.lr.ph.split.split.i, %.preheader.i
+.loopexit:                                        ; preds = %.critedge.i, %68, %57, %.preheader.i, %.lr.ph.split.us.split.i, %.lr.ph.split.split.i
   %91 = call noundef ptr @palloc0(i64 noundef 20) #8
   store i32 106, ptr %91, align 4
   %92 = load i32, ptr %59, align 8
@@ -3833,8 +3833,8 @@ findWindowClause.exit.thread.thread:              ; preds = %16
   %exitcond.not.i136 = icmp eq i64 %indvars.iv.next.i135, %wide.trip.count.i132
   br i1 %exitcond.not.i136, label %.thread150, label %48
 
-.thread150:                                       ; preds = %findWindowClause.exit.thread.thread, %.lr.ph.i130, %42, %56
-  %57 = phi ptr [ %38, %56 ], [ %38, %42 ], [ %38, %.lr.ph.i130 ], [ %40, %findWindowClause.exit.thread.thread ]
+.thread150:                                       ; preds = %findWindowClause.exit.thread.thread, %42, %.lr.ph.i130, %56
+  %57 = phi ptr [ %38, %56 ], [ %40, %findWindowClause.exit.thread.thread ], [ %38, %.lr.ph.i130 ], [ %38, %42 ]
   %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %59 = call i32 @errcode(i32 noundef 67137668) #8
   %60 = load ptr, ptr %57, align 8
@@ -5020,7 +5020,7 @@ define dso_local noundef zeroext i1 @targetIsInSortList(ptr noundef readonly cap
   br i1 %34, label %.lr.ph52, label %.thread30
 
 .thread30:                                        ; preds = %.critedge, %29, %25, %.critedge.us, %.preheader, %.lr.ph.split.split, %.lr.ph.split.us.split, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %.lr.ph.split.us.split ], [ %17, %.critedge.us ], [ false, %.lr.ph.split.split ], [ false, %.preheader ], [ true, %29 ], [ false, %.critedge ], [ true, %25 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %.preheader ], [ false, %.lr.ph.split.us.split ], [ false, %.lr.ph.split.split ], [ %17, %.critedge.us ], [ false, %.critedge ], [ true, %29 ], [ true, %25 ]
   ret i1 %.0
 }
 

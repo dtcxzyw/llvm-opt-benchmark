@@ -252,9 +252,9 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorItSaItEEC2EmRKS0_.exit
 
 _ZNSt6vectorItSaItEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc, %2
-  %.sroa.14.0 = phi ptr [ %7, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %7, %.noexc ], [ null, %2 ]
-  %.sroa.023.0 = phi ptr [ %6, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %6, %.noexc ], [ null, %2 ]
-  %.0.i.i.i.i.i = phi ptr [ %11, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %8, %.noexc ], [ null, %2 ]
+  %.sroa.14.0 = phi ptr [ %7, %.noexc ], [ %7, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %2 ]
+  %.sroa.023.0 = phi ptr [ %6, %.noexc ], [ %6, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %2 ]
+  %.0.i.i.i.i.i = phi ptr [ %8, %.noexc ], [ %11, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !14
   %.not.i = icmp ugt i32 %13, %1

@@ -607,7 +607,7 @@ _ZN11time_format20format_relative_time17he3ebb24f8c462b51E.exit: ; preds = %_ZN1
   br label %_ZN11time_format26calculate_month_difference17hfa5bf32235074b7fE.exit.i
 
 _ZN11time_format26calculate_month_difference17hfa5bf32235074b7fE.exit.i: ; preds = %168, %166, %161, %157
-  %.sroa.0.0.i.i = phi i64 [ %160, %157 ], [ %167, %166 ], [ %170, %168 ], [ %164, %161 ]
+  %.sroa.0.0.i.i = phi i64 [ %160, %157 ], [ %170, %168 ], [ %167, %166 ], [ %164, %161 ]
   store i64 %.sroa.0.0.i.i, ptr %17, align 8, !noalias !143
   %171 = icmp ult i64 %.sroa.0.0.i.i, 2
   br i1 %171, label %175, label %173
@@ -1186,7 +1186,7 @@ define void @_ZN11time_format22format_timestamp_naive17h6176d2f3829a3c0eE(ptr de
           to label %61 unwind label %134
 
 _ZN4time4date4Date12previous_day17hb28310c4d0e5342dE.exit: ; preds = %104, %91
-  %.sroa.0.0.i = phi i32 [ %92, %91 ], [ %106, %104 ]
+  %.sroa.0.0.i = phi i32 [ %106, %104 ], [ %92, %91 ]
   %110 = icmp eq i32 %.sroa.0.0.i, %45
   br i1 %110, label %112, label %_ZN4time4date4Date12previous_day17hb28310c4d0e5342dE.exit.thread
 

@@ -1316,7 +1316,7 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit134:         ; preds = %_ZN7mitsuba3refINS_
   br label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit136
 
 _ZN7mitsuba10TensorFile5FieldD2Ev.exit136:        ; preds = %434, %.body112, %351
-  %.pn39.pn = phi { ptr, i32 } [ %352, %351 ], [ %eh.lpad-body113, %.body112 ], [ %.pn39, %434 ]
+  %.pn39.pn = phi { ptr, i32 } [ %eh.lpad-body113, %.body112 ], [ %352, %351 ], [ %.pn39, %434 ]
   %.not.i.i.i137 = icmp eq ptr %220, null
   br i1 %.not.i.i.i137, label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit138, label %435
 
@@ -1326,7 +1326,7 @@ _ZN7mitsuba10TensorFile5FieldD2Ev.exit136:        ; preds = %434, %.body112, %35
   br label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit138
 
 _ZN7mitsuba10TensorFile5FieldD2Ev.exit138:        ; preds = %435, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit136, %.body101, %347
-  %.pn39.pn.pn = phi { ptr, i32 } [ %348, %347 ], [ %eh.lpad-body102, %.body101 ], [ %.pn39.pn, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit136 ], [ %.pn39.pn, %435 ]
+  %.pn39.pn.pn = phi { ptr, i32 } [ %eh.lpad-body102, %.body101 ], [ %348, %347 ], [ %.pn39.pn, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit136 ], [ %.pn39.pn, %435 ]
   %.not.i.i.i139 = icmp eq ptr %192, null
   br i1 %.not.i.i.i139, label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit140, label %436
 
@@ -1336,7 +1336,7 @@ _ZN7mitsuba10TensorFile5FieldD2Ev.exit138:        ; preds = %435, %_ZN7mitsuba10
   br label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit140
 
 _ZN7mitsuba10TensorFile5FieldD2Ev.exit140:        ; preds = %436, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit138, %.body90, %343
-  %.pn39.pn.pn.pn = phi { ptr, i32 } [ %344, %343 ], [ %eh.lpad-body91, %.body90 ], [ %.pn39.pn.pn, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit138 ], [ %.pn39.pn.pn, %436 ]
+  %.pn39.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body91, %.body90 ], [ %344, %343 ], [ %.pn39.pn.pn, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit138 ], [ %.pn39.pn.pn, %436 ]
   %.not.i.i.i141 = icmp eq ptr %164, null
   br i1 %.not.i.i.i141, label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit142, label %437
 
@@ -1346,7 +1346,7 @@ _ZN7mitsuba10TensorFile5FieldD2Ev.exit140:        ; preds = %436, %_ZN7mitsuba10
   br label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit142
 
 _ZN7mitsuba10TensorFile5FieldD2Ev.exit142:        ; preds = %437, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit140, %.body79, %339
-  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %340, %339 ], [ %eh.lpad-body80, %.body79 ], [ %.pn39.pn.pn.pn, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit140 ], [ %.pn39.pn.pn.pn, %437 ]
+  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body80, %.body79 ], [ %340, %339 ], [ %.pn39.pn.pn.pn, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit140 ], [ %.pn39.pn.pn.pn, %437 ]
   %.not.i.i.i143 = icmp eq ptr %136, null
   br i1 %.not.i.i.i143, label %_ZN7mitsuba3refINS_10TensorFileEED2Ev.exit146, label %438
 
@@ -1356,7 +1356,7 @@ _ZN7mitsuba10TensorFile5FieldD2Ev.exit142:        ; preds = %437, %_ZN7mitsuba10
   br label %_ZN7mitsuba3refINS_10TensorFileEED2Ev.exit146
 
 _ZN7mitsuba3refINS_10TensorFileEED2Ev.exit146:    ; preds = %438, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit142, %.body69, %335
-  %.pn39.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %336, %335 ], [ %eh.lpad-body70, %.body69 ], [ %.pn39.pn.pn.pn.pn, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit142 ], [ %.pn39.pn.pn.pn.pn, %438 ]
+  %.pn39.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body70, %.body69 ], [ %336, %335 ], [ %.pn39.pn.pn.pn.pn, %_ZN7mitsuba10TensorFile5FieldD2Ev.exit142 ], [ %.pn39.pn.pn.pn.pn, %438 ]
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %108, i1 noundef zeroext true) #27
   br label %439
 
@@ -2011,7 +2011,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit180: ; pre
   br label %201
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us256.us, %._crit_edge.us256.us277, %.lr.ph251.split, %.lr.ph251.split.us.split, %.preheader235, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174
-  %188 = phi i32 [ %39, %._crit_edge.us256.us ], [ %30, %.lr.ph251.split.us.split ], [ %79, %._crit_edge.us256.us277 ], [ %30, %.lr.ph251.split ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174 ], [ 0, %.preheader235 ], [ %87, %._crit_edge.us ]
+  %188 = phi i32 [ 0, %.preheader235 ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174 ], [ %30, %.lr.ph251.split.us.split ], [ %30, %.lr.ph251.split ], [ %79, %._crit_edge.us256.us277 ], [ %39, %._crit_edge.us256.us ], [ %87, %._crit_edge.us ]
   %189 = mul i32 %188, %21
   %190 = zext i32 %189 to i64
   %191 = icmp eq i32 %189, 0
@@ -2567,7 +2567,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.i: ; preds = %.crited
   br label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i
 
 _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i: ; preds = %167, %.noexc, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.i, %.critedge362
-  %.0.i = phi float [ 0.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.i ], [ 0.000000e+00, %.noexc ], [ %176, %167 ], [ 0.000000e+00, %.critedge362 ]
+  %.0.i = phi float [ 0.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit.i ], [ %176, %167 ], [ 0.000000e+00, %.noexc ], [ 0.000000e+00, %.critedge362 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store float %.0.i, ptr %31, align 16
@@ -3220,7 +3220,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %40, %14, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
-  %.0 = phi float [ 0.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit ], [ 0.000000e+00, %14 ], [ %50, %40 ], [ 0.000000e+00, %5 ]
+  %.0 = phi float [ 0.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit ], [ %50, %40 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %5 ]
   ret float %.0
 }
 
@@ -6079,7 +6079,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -7116,7 +7116,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -7191,7 +7191,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
   ret ptr %.069
 }
 

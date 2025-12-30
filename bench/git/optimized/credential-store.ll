@@ -584,7 +584,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %0
   br i1 %.not24, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %61, %46, %34, %23, %.preheader, %.split.us
-  %.1 = phi i32 [ 1, %.split.us ], [ 0, %.preheader ], [ %.2.us35, %46 ], [ 0, %34 ], [ %.2.us.us, %23 ], [ 0, %61 ]
+  %.1 = phi i32 [ 1, %.split.us ], [ 0, %.preheader ], [ %.2.us.us, %23 ], [ 0, %34 ], [ %.2.us35, %46 ], [ 0, %61 ]
   call void @credential_clear(ptr noundef nonnull %7) #13
   call void @strbuf_release(ptr noundef nonnull %6) #13
   %63 = call i32 @fclose(ptr noundef nonnull %8)
@@ -808,7 +808,7 @@ switch.early.test:                                ; preds = %1
   br label %9
 
 9:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %1, %6
-  %10 = phi i32 [ %8, %6 ], [ 1, %switch.early.test ], [ 1, %1 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ]
+  %10 = phi i32 [ 1, %switch.early.test ], [ %8, %6 ], [ 1, %1 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ]
   ret i32 %10
 }
 
@@ -852,7 +852,7 @@ switch.early.test.i:                              ; preds = %1
   br label %is_rfc3986_unreserved.exit.thread
 
 is_rfc3986_unreserved.exit.thread:                ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %1, %6
-  %.0 = phi i32 [ 1, %switch.early.test.i ], [ 0, %6 ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %1 ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ]
   ret i32 %.0
 }
 

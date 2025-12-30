@@ -164,7 +164,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -973,8 +973,8 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %29
   tail call void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
   br label %_ZN6icu_7713UnicodeString6removeEii.exit.thread
 
-_ZN6icu_7713UnicodeString6removeEii.exit.thread:  ; preds = %20, %16, %37, %26, %1, %_ZN6icu_7713UnicodeString6removeEii.exit
-  %.1 = phi i8 [ 0, %1 ], [ 0, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ 1, %26 ], [ 1, %37 ], [ 1, %16 ], [ 1, %20 ]
+_ZN6icu_7713UnicodeString6removeEii.exit.thread:  ; preds = %20, %16, %26, %37, %1, %_ZN6icu_7713UnicodeString6removeEii.exit
+  %.1 = phi i8 [ 0, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ 0, %1 ], [ 1, %37 ], [ 1, %26 ], [ 1, %16 ], [ 1, %20 ]
   ret i8 %.1
 }
 
@@ -1066,8 +1066,8 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %26
   %60 = zext i1 %59 to i8
   br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %48, %50, %5, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i, %.sink.split.i.i.i, %34, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
-  %61 = phi i8 [ 0, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ 1, %34 ], [ 0, %5 ], [ 0, %.sink.split.i.i.i ], [ 0, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i ], [ %60, %50 ], [ 0, %48 ]
+_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %48, %50, %.sink.split.i.i.i, %5, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i, %34, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
+  %61 = phi i8 [ 0, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ 1, %34 ], [ 0, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i ], [ 0, %5 ], [ 0, %.sink.split.i.i.i ], [ %60, %50 ], [ 0, %48 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %61

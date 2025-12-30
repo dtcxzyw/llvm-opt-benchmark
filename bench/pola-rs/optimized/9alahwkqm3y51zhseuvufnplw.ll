@@ -501,7 +501,7 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   br i1 %192, label %194, label %.invoke, !prof !14
 
 .invoke:                                          ; preds = %194, %189, %185
-  %193 = phi ptr [ @anon.98434e219670b7020a4dc0f3f5333e65.7, %189 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.6, %185 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.8, %194 ]
+  %193 = phi ptr [ @anon.98434e219670b7020a4dc0f3f5333e65.6, %185 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.7, %189 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.8, %194 ]
   invoke void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.98434e219670b7020a4dc0f3f5333e65.4, i64 noundef 71, ptr noalias noundef readonly align 8 dereferenceable(24) %193) #8
           to label %.cont unwind label %.loopexit.split-lp1108
 
@@ -557,7 +557,7 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
           to label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeaderV2$GT$$GT$17h6cce533d640ee1f9E.exit333" unwind label %630
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit.split-lp.i383, %435, %386, %345, %.loopexit.split-lp.i, %230, %615, %600
-  %.pn = phi { ptr, i32 } [ %616, %615 ], [ %601, %600 ], [ %387, %386 ], [ %.pn268.i, %.loopexit.split-lp.i ], [ %346, %345 ], [ %.pn374.i, %.loopexit.split-lp.i383 ], [ %.pn268.i, %230 ], [ %.pn374.i, %435 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1104, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit1111, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1112, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %601, %600 ], [ %616, %615 ], [ %.pn268.i, %230 ], [ %.pn268.i, %.loopexit.split-lp.i ], [ %346, %345 ], [ %387, %386 ], [ %.pn374.i, %435 ], [ %.pn374.i, %.loopexit.split-lp.i383 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1104, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit1111, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1112, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_parquet_format..thrift..protocol..TFieldIdentifier$GT$17h9e44ee3430fb4a33E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %84) #9
           to label %152 unwind label %625
 
@@ -2203,7 +2203,7 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   br label %.invoke.i389
 
 .invoke.i389:                                     ; preds = %472, %476, %481, %485, %.invoke.i389.split.loop.exit
-  %480 = phi ptr [ %anon.98434e219670b7020a4dc0f3f5333e65.28.mux.le, %.invoke.i389.split.loop.exit ], [ @anon.98434e219670b7020a4dc0f3f5333e65.26, %481 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.27, %485 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.25, %476 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.24, %472 ]
+  %480 = phi ptr [ %anon.98434e219670b7020a4dc0f3f5333e65.28.mux.le, %.invoke.i389.split.loop.exit ], [ @anon.98434e219670b7020a4dc0f3f5333e65.27, %485 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.26, %481 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.25, %476 ], [ @anon.98434e219670b7020a4dc0f3f5333e65.24, %472 ]
   invoke void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.98434e219670b7020a4dc0f3f5333e65.4, i64 noundef 71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %480) #8
           to label %.cont.i390 unwind label %.loopexit.split-lp.i383.loopexit.split-lp
 

@@ -155,7 +155,7 @@ define ptr @Cudd_addNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %30, label %23, label %Cudd_addIthVar.exit, !llvm.loop !30
 
 Cudd_addIthVar.exit:                              ; preds = %12, %23, %7, %18, %2
-  %.0 = phi ptr [ null, %2 ], [ %28, %23 ], [ null, %18 ], [ null, %7 ], [ %15, %12 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %7 ], [ %28, %23 ], [ %15, %12 ]
   ret ptr %.0
 }
 
@@ -247,7 +247,7 @@ define ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %Cudd_bddIthVar.exit
 
 Cudd_bddIthVar.exit:                              ; preds = %9, %7, %16, %2, %18
-  %.0 = phi ptr [ null, %2 ], [ null, %16 ], [ %25, %18 ], [ null, %7 ], [ %15, %9 ]
+  %.0 = phi ptr [ %25, %18 ], [ null, %2 ], [ null, %16 ], [ null, %7 ], [ %15, %9 ]
   ret ptr %.0
 }
 
@@ -399,7 +399,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br label %69
 
 69:                                               ; preds = %31, %2, %._crit_edge, %57
-  %.035 = phi ptr [ %.036.lcssa, %._crit_edge ], [ null, %2 ], [ null, %57 ], [ null, %31 ]
+  %.035 = phi ptr [ null, %57 ], [ %.036.lcssa, %._crit_edge ], [ null, %2 ], [ null, %31 ]
   ret ptr %.035
 }
 
@@ -661,7 +661,7 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge141, %86, %102, %109, %95, %87, %83, %._crit_edge, %12, %2, %69
-  %.0107 = phi i32 [ 0, %12 ], [ 0, %2 ], [ 0, %._crit_edge ], [ 0, %87 ], [ 1, %95 ], [ 0, %83 ], [ 0, %69 ], [ 0, %102 ], [ 1, %86 ], [ %111, %._crit_edge141 ], [ 0, %109 ]
+  %.0107 = phi i32 [ 0, %69 ], [ 0, %2 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %83 ], [ 0, %87 ], [ 1, %86 ], [ 1, %95 ], [ 0, %109 ], [ 0, %102 ], [ %111, %._crit_edge141 ]
   ret i32 %.0107
 }
 
@@ -2401,7 +2401,7 @@ Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   br label %274
 
 274:                                              ; preds = %267, %262, %255, %250, %245, %239, %234, %230, %225, %221, %214, %209, %201, %198, %193, %188, %183, %177, %163, %158, %153, %148, %Cudd_ReadPeakLiveNodeCount.exit, %Cudd_ReadPeakNodeCount.exit, %124, %121, %116, %111, %106, %101, %96, %91, %86, %80, %74, %68, %65, %57, %54, %46, %41, %36, %31, %26, %20, %10, %5, %2
-  %.0 = phi i32 [ 0, %262 ], [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %20 ], [ 0, %26 ], [ 0, %31 ], [ 0, %36 ], [ 0, %41 ], [ 0, %46 ], [ 0, %54 ], [ 0, %57 ], [ 0, %65 ], [ 0, %68 ], [ 0, %74 ], [ 0, %80 ], [ 0, %86 ], [ 0, %91 ], [ 0, %96 ], [ 0, %101 ], [ 0, %106 ], [ 0, %111 ], [ 0, %116 ], [ 0, %121 ], [ 0, %124 ], [ 0, %Cudd_ReadPeakNodeCount.exit ], [ 0, %Cudd_ReadPeakLiveNodeCount.exit ], [ 0, %148 ], [ 0, %153 ], [ 0, %158 ], [ 0, %163 ], [ 0, %177 ], [ 0, %183 ], [ 0, %188 ], [ 0, %193 ], [ 0, %198 ], [ 0, %201 ], [ 0, %209 ], [ 0, %214 ], [ 0, %221 ], [ 0, %225 ], [ 0, %230 ], [ 0, %234 ], [ 0, %239 ], [ 0, %245 ], [ 0, %250 ], [ 0, %255 ], [ %., %267 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %20 ], [ 0, %26 ], [ 0, %31 ], [ 0, %36 ], [ 0, %41 ], [ 0, %46 ], [ 0, %54 ], [ 0, %57 ], [ 0, %65 ], [ 0, %68 ], [ 0, %74 ], [ 0, %80 ], [ 0, %86 ], [ 0, %91 ], [ 0, %96 ], [ 0, %101 ], [ 0, %106 ], [ 0, %111 ], [ 0, %116 ], [ 0, %121 ], [ 0, %124 ], [ 0, %Cudd_ReadPeakNodeCount.exit ], [ 0, %Cudd_ReadPeakLiveNodeCount.exit ], [ 0, %148 ], [ 0, %153 ], [ 0, %158 ], [ 0, %163 ], [ 0, %177 ], [ 0, %183 ], [ 0, %188 ], [ 0, %193 ], [ 0, %198 ], [ 0, %201 ], [ 0, %209 ], [ 0, %214 ], [ 0, %221 ], [ 0, %225 ], [ 0, %230 ], [ 0, %234 ], [ 0, %239 ], [ 0, %245 ], [ 0, %250 ], [ 0, %255 ], [ 0, %262 ], [ %., %267 ]
   ret i32 %.0
 }
 
@@ -2576,7 +2576,7 @@ switch.lookup:                                    ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %18, %16
-  %.0 = phi i32 [ 1, %18 ], [ 0, %3 ], [ 0, %16 ], [ 2, %.lr.ph ]
+  %.0 = phi i32 [ 0, %16 ], [ 1, %18 ], [ 0, %3 ], [ 2, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2625,7 +2625,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !142
 
 .loopexit:                                        ; preds = %.lr.ph30, %3, %switch.lookup, %.lr.ph._crit_edge
-  %.016 = phi i32 [ 0, %3 ], [ 1, %.lr.ph._crit_edge ], [ 0, %switch.lookup ], [ 0, %.lr.ph30 ]
+  %.016 = phi i32 [ 1, %.lr.ph._crit_edge ], [ 0, %3 ], [ 0, %switch.lookup ], [ 0, %.lr.ph30 ]
   ret i32 %.016
 }
 
@@ -2827,7 +2827,7 @@ Cudd_ReadNodeCount.exit:                          ; preds = %45, %33
   br label %85
 
 85:                                               ; preds = %78, %25, %9, %11, %3, %82
-  %.025 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 0, %78 ], [ 0, %25 ], [ 1, %82 ], [ 0, %9 ]
+  %.025 = phi i32 [ 1, %82 ], [ 0, %3 ], [ 0, %11 ], [ 0, %9 ], [ 0, %25 ], [ 0, %78 ]
   ret i32 %.025
 }
 
@@ -3095,7 +3095,7 @@ Cudd_RemoveHook.exit11:                           ; preds = %Cudd_RemoveHook.exi
   br label %Cudd_RemoveHook.exit.thread
 
 Cudd_RemoveHook.exit.thread:                      ; preds = %.lr.ph, %.lr.ph24, %1, %Cudd_RemoveHook.exit11, %.lr.ph.i._crit_edge
-  %.0 = phi i32 [ 0, %.lr.ph.i._crit_edge ], [ 1, %Cudd_RemoveHook.exit11 ], [ 0, %1 ], [ 0, %.lr.ph24 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %Cudd_RemoveHook.exit11 ], [ 0, %.lr.ph.i._crit_edge ], [ 0, %1 ], [ 0, %.lr.ph24 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -3119,7 +3119,7 @@ define range(i32 0, 2) i32 @Cudd_ReorderingReporting(ptr noundef readonly captur
   br i1 %6, label %Cudd_IsInHook.exit, label %3
 
 Cudd_IsInHook.exit:                               ; preds = %3, %.lr.ph.i, %1
-  %.09.i = phi i32 [ 0, %1 ], [ 1, %.lr.ph.i ], [ 0, %3 ]
+  %.09.i = phi i32 [ 0, %1 ], [ 0, %3 ], [ 1, %.lr.ph.i ]
   ret i32 %.09.i
 }
 

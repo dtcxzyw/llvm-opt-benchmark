@@ -1180,7 +1180,7 @@ define internal i32 @dissect_spx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %122
 
 122:                                              ; preds = %118, %112
-  %.0 = phi ptr [ %113, %112 ], [ %121, %118 ]
+  %.0 = phi ptr [ %121, %118 ], [ %113, %112 ]
   %.not145 = icmp eq ptr %.0, null
   br i1 %.not145, label %.thread152, label %123
 

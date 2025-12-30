@@ -686,7 +686,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br i1 %.not, label %._crit_edge, label %189
 
 "_ZZN12_GLOBAL__N_124X86ArgumentStackSlotPass20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clEv.exit": ; preds = %._crit_edge.i, %128, %.loopexit, %34, %34, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread101, %_ZL13getArgBaseRegRN4llvm15MachineFunctionE.exit, %_ZN4llvm8DebugLocD2Ev.exit69, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit, %28, %24, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ false, %34 ], [ false, %24 ], [ false, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit ], [ false, %128 ], [ false, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread101 ], [ %.056.lcssa, %_ZN4llvm8DebugLocD2Ev.exit69 ], [ false, %_ZL13getArgBaseRegRN4llvm15MachineFunctionE.exit ], [ false, %34 ], [ false, %.loopexit ], [ false, %._crit_edge.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %24 ], [ false, %28 ], [ false, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit ], [ false, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread101 ], [ %.056.lcssa, %_ZN4llvm8DebugLocD2Ev.exit69 ], [ false, %_ZL13getArgBaseRegRN4llvm15MachineFunctionE.exit ], [ false, %34 ], [ false, %34 ], [ false, %.loopexit ], [ false, %128 ], [ false, %._crit_edge.i ]
   ret i1 %.0
 }
 

@@ -119,8 +119,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h342d66d699c811fbE.exit.thread
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h342d66d699c811fbE.exit.thread: ; preds = %30, %20, %24, %40
-  %.sroa.4.0 = phi ptr [ %.0.i.i.i.i, %24 ], [ %.0.i.i.i, %40 ], [ undef, %20 ], [ undef, %30 ]
-  %.sroa.0.0 = phi i64 [ 1, %24 ], [ 1, %40 ], [ 0, %20 ], [ 0, %30 ]
+  %.sroa.4.0 = phi ptr [ %.0.i.i.i, %40 ], [ %.0.i.i.i.i, %24 ], [ undef, %20 ], [ undef, %30 ]
+  %.sroa.0.0 = phi i64 [ 1, %40 ], [ 1, %24 ], [ 0, %20 ], [ 0, %30 ]
   %41 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %42 = insertvalue { i64, ptr } %41, ptr %.sroa.4.0, 1
   ret { i64, ptr } %42
@@ -357,7 +357,7 @@ default.unreachable:                              ; preds = %99
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit": ; preds = %44, %99, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit91", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit89", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit82", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit"
-  %.062 = phi ptr [ null, %99 ], [ %81, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit82" ], [ %115, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit89" ], [ %122, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit91" ], [ %68, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit" ], [ %.sink, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit.sink.split" ], [ null, %44 ]
+  %.062 = phi ptr [ %68, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit" ], [ %81, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit82" ], [ %115, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit89" ], [ %122, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE.exit91" ], [ %.sink, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit.sink.split" ], [ null, %99 ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.062
 

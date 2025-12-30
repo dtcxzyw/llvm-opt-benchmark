@@ -476,7 +476,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMa
   br i1 %120, label %.split.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h82d6d8ed3a8d1a06E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h82d6d8ed3a8d1a06E.exit: ; preds = %.split.i, %98, %104, %110, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5cb576b60c2df64dE.exit.i", %._crit_edge.i.i.i.i.i, %.split.us.i, %15
-  %121 = phi i1 [ true, %.split.us.i ], [ false, %._crit_edge.i.i.i.i.i ], [ false, %15 ], [ %.not.not.not.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5cb576b60c2df64dE.exit.i" ], [ %.not.not.not.i, %110 ], [ %.not.not.not.i, %104 ], [ %.not.not.not.i, %98 ], [ %.not.not.not.i, %.split.i ]
+  %121 = phi i1 [ false, %15 ], [ true, %.split.us.i ], [ false, %._crit_edge.i.i.i.i.i ], [ %.not.not.not.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5cb576b60c2df64dE.exit.i" ], [ %.not.not.not.i, %110 ], [ %.not.not.not.i, %104 ], [ %.not.not.not.i, %98 ], [ %.not.not.not.i, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %122
 

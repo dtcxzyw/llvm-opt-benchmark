@@ -435,8 +435,8 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %._crit_edge1004
 
 ._crit_edge1004:                                  ; preds = %._crit_edge1004.sink.split, %107, %143, %215
-  %.3821 = phi double [ %.1819924, %107 ], [ %.1819924, %143 ], [ %.1819924, %215 ], [ %235, %._crit_edge1004.sink.split ]
-  %.2808 = phi i32 [ %.0806926, %107 ], [ %.1807879, %143 ], [ %218, %215 ], [ %.2808.ph, %._crit_edge1004.sink.split ]
+  %.3821 = phi double [ %.1819924, %143 ], [ %.1819924, %215 ], [ %.1819924, %107 ], [ %235, %._crit_edge1004.sink.split ]
+  %.2808 = phi i32 [ %.1807879, %143 ], [ %218, %215 ], [ %.0806926, %107 ], [ %.2808.ph, %._crit_edge1004.sink.split ]
   %236 = icmp sgt i64 %indvars.iv968, 1
   br i1 %236, label %107, label %.loopexit907, !llvm.loop !12
 
@@ -694,8 +694,8 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %._crit_edge1003
 
 ._crit_edge1003:                                  ; preds = %241, %381, %314
-  %.8826 = phi double [ %322, %314 ], [ %394, %381 ], [ %.4822919, %241 ]
-  %.5 = phi i32 [ %.4, %314 ], [ %.4, %381 ], [ %.3809921, %241 ]
+  %.8826 = phi double [ %394, %381 ], [ %322, %314 ], [ %.4822919, %241 ]
+  %.5 = phi i32 [ %.4, %381 ], [ %.4, %314 ], [ %.3809921, %241 ]
   %395 = load i32, ptr %12, align 4, !tbaa !3
   %396 = sext i32 %395 to i64
   %.not865.not = icmp slt i64 %indvars.iv965, %396
@@ -1149,8 +1149,8 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %419, %479, %618
-  %.13 = phi double [ %.9827948, %618 ], [ %.9827948, %479 ], [ %.9827948, %419 ], [ %.13.ph, %.loopexit.sink.split ]
-  %.8 = phi i32 [ %621, %618 ], [ %.7889901, %479 ], [ %.6951, %419 ], [ %.8.ph, %.loopexit.sink.split ]
+  %.13 = phi double [ %.9827948, %479 ], [ %.9827948, %618 ], [ %.9827948, %419 ], [ %.13.ph, %.loopexit.sink.split ]
+  %.8 = phi i32 [ %.7889901, %479 ], [ %621, %618 ], [ %.6951, %419 ], [ %.8.ph, %.loopexit.sink.split ]
   %685 = icmp sgt i64 %indvars.iv988, 1
   %indvars.iv.next987 = add nsw i64 %indvars.iv986, -1
   br i1 %685, label %419, label %.loopexit907, !llvm.loop !16
@@ -1572,9 +1572,9 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %._crit_edge1005
 
 ._crit_edge1005:                                  ; preds = %694, %947, %815
-  %980 = phi i32 [ %822, %815 ], [ %951, %947 ], [ %695, %694 ]
-  %.18 = phi double [ %835, %815 ], [ %979, %947 ], [ %.14930, %694 ]
-  %.11 = phi i32 [ %.10, %815 ], [ %.10, %947 ], [ %.9932, %694 ]
+  %980 = phi i32 [ %951, %947 ], [ %822, %815 ], [ %695, %694 ]
+  %.18 = phi double [ %979, %947 ], [ %835, %815 ], [ %.14930, %694 ]
+  %.11 = phi i32 [ %.10, %947 ], [ %.10, %815 ], [ %.9932, %694 ]
   %981 = load i32, ptr %12, align 4, !tbaa !3
   %982 = sext i32 %981 to i64
   %.not859.not = icmp slt i64 %indvars.iv971, %982

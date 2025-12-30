@@ -355,7 +355,7 @@ define internal range(i32 -2147483648, 1) i32 @v9fs_dir_readdir_dotl(ptr noundef
   br i1 %62, label %.preheader, label %.loopexit7, !llvm.loop !15
 
 .loopexit:                                        ; preds = %31, %48, %.preheader, %13
-  %63 = phi i32 [ -12, %13 ], [ -5, %.preheader ], [ 0, %48 ], [ %33, %31 ]
+  %63 = phi i32 [ -12, %13 ], [ 0, %48 ], [ -5, %.preheader ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %63
 }

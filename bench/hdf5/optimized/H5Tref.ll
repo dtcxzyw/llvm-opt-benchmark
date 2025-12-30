@@ -364,7 +364,7 @@ define range(i32 -1, 2) i32 @H5T__ref_set_loc(ptr noundef %0, ptr noundef %1, i3
   br label %154
 
 154:                                              ; preds = %145, %54, %59, %46, %.thread, %.thread81, %133, %.thread84, %108, %92, %3, %150, %73, %64, %32, %20
-  %.066 = phi i32 [ 0, %3 ], [ -1, %150 ], [ -1, %32 ], [ 0, %20 ], [ -1, %64 ], [ -1, %73 ], [ -1, %92 ], [ -1, %108 ], [ -1, %.thread84 ], [ 1, %133 ], [ 1, %.thread81 ], [ 1, %.thread ], [ 1, %46 ], [ 1, %59 ], [ 1, %54 ], [ 1, %145 ]
+  %.066 = phi i32 [ -1, %150 ], [ -1, %32 ], [ -1, %64 ], [ -1, %73 ], [ -1, %92 ], [ -1, %108 ], [ 0, %3 ], [ 0, %20 ], [ -1, %.thread84 ], [ 1, %133 ], [ 1, %.thread81 ], [ 1, %.thread ], [ 1, %46 ], [ 1, %59 ], [ 1, %54 ], [ 1, %145 ]
   ret i32 %.066
 }
 
@@ -677,7 +677,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr readnone captures(none) %0, ptr no
   br label %106
 
 106:                                              ; preds = %.thread, %98, %104
-  %.040 = phi ptr [ null, %.thread ], [ %.141, %98 ], [ null, %104 ]
+  %.040 = phi ptr [ %.141, %98 ], [ null, %104 ], [ null, %.thread ]
   %107 = call ptr @H5MM_xfree(ptr noundef %.040) #11
   %.pre = load i64, ptr %6, align 8, !tbaa !26
   br label %108
@@ -855,8 +855,8 @@ define internal range(i32 -1, 1) i32 @H5T__ref_mem_read(ptr readnone captures(no
   br label %103
 
 95:                                               ; preds = %87, %76
-  %.144 = phi ptr [ %9, %76 ], [ %81, %87 ]
-  %.241 = phi ptr [ null, %76 ], [ %81, %87 ]
+  %.144 = phi ptr [ %81, %87 ], [ %9, %76 ]
+  %.241 = phi ptr [ %81, %87 ], [ null, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %96
@@ -875,8 +875,8 @@ define internal range(i32 -1, 1) i32 @H5T__ref_mem_read(ptr readnone captures(no
   br label %103
 
 103:                                              ; preds = %.thread59, %62, %96, %99, %34, %27, %21
-  %.039 = phi ptr [ null, %21 ], [ null, %27 ], [ null, %34 ], [ %.140, %99 ], [ %.140, %96 ], [ %.241.ph, %.thread59 ], [ null, %62 ]
-  %.137 = phi i32 [ 0, %21 ], [ 0, %27 ], [ -1, %34 ], [ -1, %99 ], [ 0, %96 ], [ 0, %.thread59 ], [ 0, %62 ]
+  %.039 = phi ptr [ null, %21 ], [ null, %27 ], [ null, %34 ], [ %.140, %99 ], [ %.140, %96 ], [ null, %62 ], [ %.241.ph, %.thread59 ]
+  %.137 = phi i32 [ 0, %21 ], [ 0, %27 ], [ -1, %34 ], [ -1, %99 ], [ 0, %96 ], [ 0, %62 ], [ 0, %.thread59 ]
   %104 = call ptr @H5MM_xfree(ptr noundef %.039) #11
   br label %105
 
@@ -1044,7 +1044,7 @@ define internal range(i32 -1, 1) i32 @H5T__ref_mem_write(ptr noundef %0, ptr nou
   br label %.thread53
 
 .thread53:                                        ; preds = %52, %44, %61, %33, %65, %23, %19, %8, %90, %87, %86
-  %.038 = phi i32 [ -1, %90 ], [ %.13961, %87 ], [ %.139, %86 ], [ 0, %8 ], [ -1, %61 ], [ 0, %19 ], [ -1, %33 ], [ -1, %65 ], [ -1, %23 ], [ -1, %44 ], [ -1, %52 ]
+  %.038 = phi i32 [ -1, %90 ], [ %.13961, %87 ], [ %.139, %86 ], [ 0, %8 ], [ -1, %61 ], [ -1, %33 ], [ -1, %65 ], [ -1, %23 ], [ 0, %19 ], [ -1, %44 ], [ -1, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.038
 }
@@ -1325,7 +1325,7 @@ define internal range(i32 -1, 1) i32 @H5T__ref_disk_isnull(ptr noundef %0, ptr n
   br label %24
 
 24:                                               ; preds = %3, %13, %23
-  %.011 = phi i32 [ 0, %13 ], [ 0, %3 ], [ %.1, %23 ]
+  %.011 = phi i32 [ 0, %13 ], [ %.1, %23 ], [ 0, %3 ]
   ret i32 %.011
 }
 

@@ -1136,7 +1136,7 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   br label %.thread
 
 .thread:                                          ; preds = %48, %37, %.thread.loopexit56.split.loop.exit, %.thread.loopexit.split.loop.exit, %9
-  %.1.lcssa = phi i32 [ 0, %9 ], [ 0, %37 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit56.split.loop.exit ], [ 0, %48 ]
+  %.1.lcssa = phi i32 [ 0, %9 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit56.split.loop.exit ], [ 0, %37 ], [ 0, %48 ]
   %55 = load i32, ptr %4, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %60

@@ -351,7 +351,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %69
   br label %81
 
 81:                                               ; preds = %63, %60, %80, %58, %42, %10
-  %.0 = phi i32 [ %9, %10 ], [ %57, %58 ], [ %77, %80 ], [ %41, %42 ], [ %62, %60 ], [ %62, %63 ]
+  %.0 = phi i32 [ %9, %10 ], [ %77, %80 ], [ %41, %42 ], [ %57, %58 ], [ %62, %60 ], [ %62, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -439,7 +439,7 @@ define internal noundef i32 @ssh_launch(ptr noundef %0) #0 {
   br label %53
 
 53:                                               ; preds = %31, %48, %42, %32, %9, %26, %20, %10
-  %.sink = phi i32 [ 5, %9 ], [ 5, %10 ], [ 5, %20 ], [ 5, %26 ], [ 1, %32 ], [ 1, %42 ], [ 1, %48 ], [ 1, %31 ]
+  %.sink = phi i32 [ 5, %10 ], [ 5, %20 ], [ 5, %26 ], [ 5, %9 ], [ 1, %32 ], [ 1, %42 ], [ 1, %48 ], [ 1, %31 ]
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8, !tbaa !60
   tail call void %54(ptr noundef nonnull %0, i32 noundef %.sink) #19
   ret i32 0
@@ -717,8 +717,8 @@ pmix_obj_new_tma.exit65:                          ; preds = %.lr.ph.i.i62, %98, 
   br label %130
 
 130:                                              ; preds = %35, %38, %129, %51, %34
-  %131 = phi i32 [ 0, %34 ], [ %37, %38 ], [ %37, %35 ], [ -13, %51 ], [ 0, %129 ]
-  %.038 = phi i1 [ false, %34 ], [ true, %38 ], [ true, %35 ], [ true, %51 ], [ false, %129 ]
+  %131 = phi i32 [ 0, %34 ], [ %37, %38 ], [ -13, %51 ], [ 0, %129 ], [ %37, %35 ]
+  %.038 = phi i1 [ false, %34 ], [ true, %38 ], [ true, %51 ], [ false, %129 ], [ true, %35 ]
   %132 = load ptr, ptr %3, align 8, !tbaa !27
   %.not52 = icmp eq ptr %132, null
   br i1 %.not52, label %134, label %133
@@ -805,7 +805,7 @@ pmix_obj_new_tma.exit65:                          ; preds = %.lr.ph.i.i62, %98, 
   br label %.thread
 
 .thread:                                          ; preds = %134, %._crit_edge74, %162, %145, %140
-  %.1 = phi i32 [ %131, %140 ], [ %163, %162 ], [ %142, %145 ], [ %.pre, %._crit_edge74 ], [ %131, %134 ]
+  %.1 = phi i32 [ %163, %162 ], [ %142, %145 ], [ %131, %140 ], [ %.pre, %._crit_edge74 ], [ %131, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1260,7 +1260,7 @@ define internal fastcc range(i32 -13, 1) i32 @launch_agent_setup(ptr noundef %0,
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %20, %2, %31
-  %.019 = phi i32 [ -13, %20 ], [ -13, %2 ], [ -13, %31 ], [ 0, %32 ], [ 0, %.loopexit ]
+  %.019 = phi i32 [ -13, %31 ], [ -13, %2 ], [ -13, %20 ], [ 0, %32 ], [ 0, %.loopexit ]
   ret i32 %.019
 }
 
@@ -2481,7 +2481,7 @@ find_shell.exit61.i:                              ; preds = %62
   br i1 %68, label %find_shell.exit61.thread.i, label %find_shell.exit61.thread77.i
 
 find_shell.exit61.thread.i:                       ; preds = %66, %find_shell.exit61.i, %57, %54, %find_shell.exit.thread.i
-  %69 = phi ptr [ %53, %find_shell.exit61.i ], [ %53, %57 ], [ %53, %54 ], [ @.str.71, %find_shell.exit.thread.i ], [ %53, %66 ]
+  %69 = phi ptr [ %53, %57 ], [ %53, %54 ], [ @.str.71, %find_shell.exit.thread.i ], [ %53, %find_shell.exit61.i ], [ %53, %66 ]
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.70, ptr noundef nonnull %69) #19
   br label %find_shell.exit61.thread77.i
 
@@ -2730,9 +2730,9 @@ find_shell.exit61.thread77.i:                     ; preds = %find_shell.exit61.t
   br i1 %.not56.i.i, label %.loopexit60.i.i, label %.preheader.i.i, !llvm.loop !139
 
 .loopexit60.i.i:                                  ; preds = %205, %196, %190, %188
-  %.not52.i = phi i1 [ false, %188 ], [ false, %196 ], [ false, %190 ], [ true, %205 ]
-  %.043.i.i = phi i32 [ -11, %188 ], [ -11, %196 ], [ -11, %190 ], [ 0, %205 ]
-  %.2.i.i = phi ptr [ %.039.i.i, %188 ], [ %.039.i.i, %196 ], [ %.039.i.i, %190 ], [ %.140.i.i, %205 ]
+  %.not52.i = phi i1 [ false, %196 ], [ false, %190 ], [ false, %188 ], [ true, %205 ]
+  %.043.i.i = phi i32 [ -11, %196 ], [ -11, %190 ], [ -11, %188 ], [ 0, %205 ]
+  %.2.i.i = phi ptr [ %.039.i.i, %196 ], [ %.039.i.i, %190 ], [ %.039.i.i, %188 ], [ %.140.i.i, %205 ]
   store i8 0, ptr %.2.i.i, align 1, !tbaa !140
   %206 = load i32, ptr %9, align 4, !tbaa !34
   %207 = call i32 @close(i32 noundef %206) #19
@@ -2841,7 +2841,7 @@ ssh_probe.exit.i:                                 ; preds = %234, %221, %.loopex
   br label %.thread.i
 
 .thread.i:                                        ; preds = %246, %240, %239, %85
-  %.07086.i = phi i32 [ %.070.ph.i, %239 ], [ %.070.ph.i, %246 ], [ %.070.ph.i, %240 ], [ %.2.i, %85 ]
+  %.07086.i = phi i32 [ %.070.ph.i, %246 ], [ %.070.ph.i, %240 ], [ %.070.ph.i, %239 ], [ %.2.i, %85 ]
   %251 = and i32 %.07086.i, -2
   %or.cond7.i = icmp eq i32 %251, 4
   br i1 %or.cond7.i, label %252, label %setup_shell.exit.thread
@@ -3258,7 +3258,7 @@ setup_shell.exit.thread:                          ; preds = %.thread.i, %._crit_
   br label %473
 
 473:                                              ; preds = %setup_shell.exit.thread141, %470, %452
-  %.0 = phi i32 [ 0, %470 ], [ -43, %452 ], [ %.0.i144, %setup_shell.exit.thread141 ]
+  %.0 = phi i32 [ -43, %452 ], [ 0, %470 ], [ %.0.i144, %setup_shell.exit.thread141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -4072,7 +4072,7 @@ pmix_obj_run_destructors.exit196:                 ; preds = %.lr.ph.i193, %344
   tail call void @free(ptr noundef nonnull %2) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %pmix_obj_update.exit145, %pmix_obj_update.exit143, %135, %137, %187, %189, %251, %253, %pmix_obj_update.exit141, %pmix_obj_update.exit, %357, %355, %pmix_obj_update.exit147, %60, %58
+.critedge:                                        ; preds = %135, %137, %pmix_obj_update.exit145, %187, %189, %pmix_obj_update.exit143, %251, %253, %pmix_obj_update.exit141, %pmix_obj_update.exit, %357, %355, %pmix_obj_update.exit147, %60, %58
   ret void
 }
 

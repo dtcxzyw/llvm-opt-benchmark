@@ -1431,7 +1431,7 @@ _ZN4llvm11raw_ostreamlsEc.exit34:                 ; preds = %77, %79
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %88, %86, %71, %69, %57, %55, %49, %47
-  %.1 = phi ptr [ %.038, %71 ], [ %.038, %49 ], [ %.038, %57 ], [ %.038, %47 ], [ %60, %86 ], [ %.038, %55 ], [ %.038, %69 ], [ %60, %88 ]
+  %.1 = phi ptr [ %.038, %47 ], [ %.038, %49 ], [ %.038, %55 ], [ %.038, %57 ], [ %.038, %69 ], [ %.038, %71 ], [ %60, %86 ], [ %60, %88 ]
   %90 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %91 = icmp ult ptr %90, %32
   br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !85

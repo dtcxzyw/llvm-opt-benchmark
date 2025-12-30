@@ -253,8 +253,8 @@ IsPlanar2x2Format.exit:                           ; preds = %5
   %108 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #7
   br label %.thread87
 
-.thread87:                                        ; preds = %96, %102, %74, %79, %58, %64, %49, %40, %17, %22, %31, %55, %84, %93, %66, %.thread104, %104, %88, %11, %107
-  %.150 = phi i1 [ %108, %107 ], [ %32, %31 ], [ %41, %40 ], [ %89, %88 ], [ %65, %64 ], [ %80, %79 ], [ true, %55 ], [ %12, %11 ], [ true, %104 ], [ true, %.thread104 ], [ true, %66 ], [ true, %93 ], [ true, %84 ], [ %18, %17 ], [ %23, %22 ], [ %50, %49 ], [ %59, %58 ], [ %75, %74 ], [ %97, %96 ], [ %103, %102 ]
+.thread87:                                        ; preds = %96, %102, %74, %79, %58, %64, %40, %49, %17, %22, %31, %55, %84, %93, %66, %.thread104, %104, %88, %11, %107
+  %.150 = phi i1 [ %108, %107 ], [ %89, %88 ], [ %12, %11 ], [ true, %104 ], [ true, %.thread104 ], [ true, %66 ], [ true, %93 ], [ true, %84 ], [ true, %55 ], [ %18, %17 ], [ %23, %22 ], [ %32, %31 ], [ %41, %40 ], [ %50, %49 ], [ %59, %58 ], [ %65, %64 ], [ %75, %74 ], [ %80, %79 ], [ %97, %96 ], [ %103, %102 ]
   ret i1 %.150
 }
 
@@ -521,8 +521,8 @@ yuv_rgb_std.exit.thread109:                       ; preds = %45, %yuv_rgb_std.ex
   %88 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #7
   br label %yuv_rgb_std.exit.thread105
 
-yuv_rgb_std.exit.thread105:                       ; preds = %43, %42, %41, %40, %39, %52, %51, %50, %49, %48, %47, %59, %58, %57, %56, %55, %54, %44, %62, %GetYUVConversionType.exit, %84, %85, %76, %73, %74, %65, %12, %87
-  %.0 = phi i1 [ false, %12 ], [ false, %65 ], [ %88, %87 ], [ false, %76 ], [ %75, %74 ], [ false, %73 ], [ %86, %85 ], [ false, %84 ], [ true, %62 ], [ true, %44 ], [ true, %54 ], [ true, %55 ], [ true, %56 ], [ true, %57 ], [ true, %58 ], [ true, %59 ], [ true, %47 ], [ true, %48 ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %52 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ false, %GetYUVConversionType.exit ]
+yuv_rgb_std.exit.thread105:                       ; preds = %44, %43, %42, %41, %40, %39, %52, %51, %50, %49, %48, %47, %59, %58, %57, %56, %55, %54, %62, %GetYUVConversionType.exit, %84, %85, %76, %73, %74, %65, %12, %87
+  %.0 = phi i1 [ %88, %87 ], [ false, %12 ], [ %75, %74 ], [ false, %73 ], [ false, %65 ], [ %86, %85 ], [ false, %84 ], [ false, %76 ], [ true, %62 ], [ true, %54 ], [ true, %55 ], [ true, %56 ], [ true, %57 ], [ true, %58 ], [ true, %59 ], [ true, %47 ], [ true, %48 ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %52 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ true, %44 ], [ false, %GetYUVConversionType.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -588,9 +588,9 @@ define internal fastcc zeroext i1 @GetYUVPlanes(i32 noundef %0, i32 noundef %1, 
   br label %66
 
 40:                                               ; preds = %10, %10, %10, %22, %11
-  %.sroa.18.0 = phi ptr [ %16, %11 ], [ null, %10 ], [ %28, %22 ], [ null, %10 ], [ null, %10 ]
-  %.sroa.27.0 = phi ptr [ %21, %11 ], [ null, %10 ], [ null, %22 ], [ null, %10 ], [ null, %10 ]
-  %.sroa.26.0 = phi i32 [ %13, %11 ], [ 0, %10 ], [ %25, %22 ], [ 0, %10 ], [ 0, %10 ]
+  %.sroa.18.0 = phi ptr [ %16, %11 ], [ %28, %22 ], [ null, %10 ], [ null, %10 ], [ null, %10 ]
+  %.sroa.27.0 = phi ptr [ %21, %11 ], [ null, %22 ], [ null, %10 ], [ null, %10 ], [ null, %10 ]
+  %.sroa.26.0 = phi i32 [ %13, %11 ], [ %25, %22 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ]
   switch i32 %2, label %63 [
     i32 842094169, label %41
     i32 1448433993, label %42
@@ -799,7 +799,7 @@ GetYUVConversionType.exit.thread:                 ; preds = %18, %16, %14, %GetY
   br label %60
 
 60:                                               ; preds = %57, %58, %49, %46, %47, %38, %GetYUVConversionType.exit, %36, %26
-  %.0 = phi i1 [ %27, %26 ], [ %37, %36 ], [ false, %GetYUVConversionType.exit ], [ false, %38 ], [ %48, %47 ], [ false, %46 ], [ %59, %58 ], [ false, %57 ], [ false, %49 ]
+  %.0 = phi i1 [ %27, %26 ], [ %37, %36 ], [ false, %GetYUVConversionType.exit ], [ %48, %47 ], [ false, %46 ], [ false, %38 ], [ %59, %58 ], [ false, %57 ], [ false, %49 ]
   ret i1 %.0
 }
 
@@ -2829,7 +2829,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   br label %.thread1424
 
 .thread1424:                                      ; preds = %1359, %1207, %1055, %.preheader1448, %.preheader1445, %.preheader1443, %860, %._crit_edge1530._crit_edge, %.thread, %.critedge, %1363
-  %.1 = phi i1 [ %1365, %1363 ], [ %859, %.thread ], [ false, %.critedge ], [ true, %.preheader1445 ], [ true, %.preheader1443 ], [ true, %860 ], [ true, %._crit_edge1530._crit_edge ], [ true, %.preheader1448 ], [ true, %1207 ], [ true, %1055 ], [ true, %1359 ]
+  %.1 = phi i1 [ %1365, %1363 ], [ false, %.critedge ], [ %859, %.thread ], [ true, %._crit_edge1530._crit_edge ], [ true, %860 ], [ true, %.preheader1443 ], [ true, %.preheader1445 ], [ true, %.preheader1448 ], [ true, %1055 ], [ true, %1207 ], [ true, %1359 ]
   ret i1 %.1
 }
 
@@ -5199,7 +5199,7 @@ IsPacked4Format.exit:                             ; preds = %610
   br label %SDL_ConvertPixels_Planar2x2_to_Packed4.exit
 
 SDL_ConvertPixels_Planar2x2_to_Packed4.exit:      ; preds = %772, %774, %785, %._crit_edge119.i, %._crit_edge135.i, %932
-  %.0.i72 = phi i1 [ %773, %772 ], [ false, %785 ], [ false, %774 ], [ true, %._crit_edge135.i ], [ true, %932 ], [ true, %._crit_edge119.i ]
+  %.0.i72 = phi i1 [ %773, %772 ], [ false, %774 ], [ false, %785 ], [ true, %._crit_edge135.i ], [ true, %932 ], [ true, %._crit_edge119.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -5566,7 +5566,7 @@ IsPlanar2x2Format.exit70:                         ; preds = %769
   br label %SDL_ConvertPixels_Packed4_to_Planar2x2.exit
 
 SDL_ConvertPixels_Packed4_to_Planar2x2.exit:      ; preds = %946, %948, %950, %._crit_edge112.i, %._crit_edge128.i, %1121
-  %.075.i = phi i1 [ %947, %946 ], [ false, %950 ], [ false, %948 ], [ true, %._crit_edge128.i ], [ true, %1121 ], [ true, %._crit_edge112.i ]
+  %.075.i = phi i1 [ %947, %946 ], [ false, %948 ], [ false, %950 ], [ true, %._crit_edge128.i ], [ true, %1121 ], [ true, %._crit_edge112.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -5586,7 +5586,7 @@ IsPacked4Format.exit75:                           ; preds = %116, %IsPlanar2x2Fo
   br label %SDL_ConvertPixels_YUV_to_YUV_Copy.exit
 
 SDL_ConvertPixels_YUV_to_YUV_Copy.exit:           ; preds = %._crit_edge.i.i285.i, %._crit_edge75.i.i298.i, %._crit_edge.i.i218.i, %._crit_edge75.i.i.i, %._crit_edge.i.i110.i, %._crit_edge.i.i96.i, %._crit_edge.i.i82.i, %._crit_edge.i.i68.i, %._crit_edge.i.i54.i, %._crit_edge.i.i.i68, %110, %99, %79, %60, %765, %.preheader.lr.ph.i.i99.i, %740, %.preheader.lr.ph.i.i85.i, %715, %.preheader.lr.ph.i.i71.i, %689, %.preheader.lr.ph.i.i57.i, %664, %.preheader.lr.ph.i.i43.i, %638, %.preheader.lr.ph.i.i.i64, %613, %606, %.preheader61.lr.ph.i.i274.i, %589, %.preheader.lr.ph.i.i287.i, %572, %549, %._crit_edge77.i.i267.i, %524, %504, %._crit_edge77.i.i242.i, %479, %.preheader61.lr.ph.i.i.i, %442, %.preheader.lr.ph.i.i220.i, %425, %402, %._crit_edge77.i.i212.i, %377, %357, %._crit_edge77.i.i188.i, %332, %311, %._crit_edge77.i.i168.i, %286, %266, %._crit_edge77.i.i143.i, %241, %220, %218, %._crit_edge77.i.i118.i, %193, %173, %._crit_edge77.i.i.i, %148, %127, %IsPacked4Format.exit.i, %103, %83, %64, %47, %._crit_edge.i, %37, %IsPacked4Format.exit75, %SDL_ConvertPixels_Packed4_to_Planar2x2.exit, %SDL_ConvertPixels_Planar2x2_to_Packed4.exit, %33
-  %.0 = phi i1 [ %34, %33 ], [ %1131, %IsPacked4Format.exit75 ], [ true, %37 ], [ true, %._crit_edge.i.i68.i ], [ true, %110 ], [ %.0.i72, %SDL_ConvertPixels_Planar2x2_to_Packed4.exit ], [ %.075.i, %SDL_ConvertPixels_Packed4_to_Planar2x2.exit ], [ %115, %IsPacked4Format.exit.i ], [ true, %64 ], [ true, %._crit_edge.i ], [ true, %83 ], [ true, %47 ], [ true, %103 ], [ true, %._crit_edge75.i.i298.i ], [ true, %._crit_edge.i.i.i68 ], [ true, %._crit_edge.i.i54.i ], [ %609, %606 ], [ %128, %127 ], [ true, %._crit_edge77.i.i267.i ], [ true, %._crit_edge77.i.i.i ], [ %221, %220 ], [ true, %._crit_edge77.i.i118.i ], [ true, %._crit_edge77.i.i143.i ], [ true, %._crit_edge77.i.i168.i ], [ true, %._crit_edge77.i.i188.i ], [ true, %._crit_edge77.i.i212.i ], [ true, %79 ], [ true, %._crit_edge77.i.i242.i ], [ false, %148 ], [ true, %173 ], [ false, %193 ], [ true, %218 ], [ false, %241 ], [ true, %266 ], [ false, %286 ], [ true, %311 ], [ false, %332 ], [ true, %357 ], [ false, %377 ], [ true, %402 ], [ true, %425 ], [ true, %.preheader.lr.ph.i.i220.i ], [ true, %60 ], [ true, %442 ], [ true, %.preheader61.lr.ph.i.i.i ], [ false, %479 ], [ true, %504 ], [ false, %524 ], [ true, %549 ], [ true, %572 ], [ true, %.preheader.lr.ph.i.i287.i ], [ true, %99 ], [ true, %589 ], [ true, %.preheader61.lr.ph.i.i274.i ], [ %768, %765 ], [ true, %._crit_edge75.i.i.i ], [ true, %._crit_edge.i.i218.i ], [ true, %._crit_edge.i.i82.i ], [ true, %._crit_edge.i.i96.i ], [ true, %._crit_edge.i.i110.i ], [ true, %613 ], [ true, %.preheader.lr.ph.i.i.i64 ], [ true, %638 ], [ true, %.preheader.lr.ph.i.i43.i ], [ true, %664 ], [ true, %.preheader.lr.ph.i.i57.i ], [ true, %689 ], [ true, %.preheader.lr.ph.i.i71.i ], [ true, %715 ], [ true, %.preheader.lr.ph.i.i85.i ], [ true, %740 ], [ true, %.preheader.lr.ph.i.i99.i ], [ true, %._crit_edge.i.i285.i ]
+  %.0 = phi i1 [ %34, %33 ], [ %.0.i72, %SDL_ConvertPixels_Planar2x2_to_Packed4.exit ], [ %.075.i, %SDL_ConvertPixels_Packed4_to_Planar2x2.exit ], [ %1131, %IsPacked4Format.exit75 ], [ true, %37 ], [ %115, %IsPacked4Format.exit.i ], [ true, %._crit_edge.i ], [ true, %47 ], [ true, %64 ], [ true, %83 ], [ true, %103 ], [ %609, %606 ], [ %128, %127 ], [ %221, %220 ], [ false, %148 ], [ true, %173 ], [ true, %._crit_edge77.i.i.i ], [ false, %193 ], [ true, %218 ], [ true, %._crit_edge77.i.i118.i ], [ false, %241 ], [ true, %266 ], [ true, %._crit_edge77.i.i143.i ], [ false, %286 ], [ true, %311 ], [ true, %._crit_edge77.i.i168.i ], [ false, %332 ], [ true, %357 ], [ true, %._crit_edge77.i.i188.i ], [ false, %377 ], [ true, %402 ], [ true, %._crit_edge77.i.i212.i ], [ true, %425 ], [ true, %.preheader.lr.ph.i.i220.i ], [ true, %442 ], [ true, %.preheader61.lr.ph.i.i.i ], [ false, %479 ], [ true, %504 ], [ true, %._crit_edge77.i.i242.i ], [ false, %524 ], [ true, %549 ], [ true, %._crit_edge77.i.i267.i ], [ true, %572 ], [ true, %.preheader.lr.ph.i.i287.i ], [ true, %589 ], [ true, %.preheader61.lr.ph.i.i274.i ], [ %768, %765 ], [ true, %613 ], [ true, %.preheader.lr.ph.i.i.i64 ], [ true, %638 ], [ true, %.preheader.lr.ph.i.i43.i ], [ true, %664 ], [ true, %.preheader.lr.ph.i.i57.i ], [ true, %689 ], [ true, %.preheader.lr.ph.i.i71.i ], [ true, %715 ], [ true, %.preheader.lr.ph.i.i85.i ], [ true, %740 ], [ true, %.preheader.lr.ph.i.i99.i ], [ true, %60 ], [ true, %79 ], [ true, %99 ], [ true, %110 ], [ true, %._crit_edge.i.i.i68 ], [ true, %._crit_edge.i.i54.i ], [ true, %._crit_edge.i.i68.i ], [ true, %._crit_edge.i.i82.i ], [ true, %._crit_edge.i.i96.i ], [ true, %._crit_edge.i.i110.i ], [ true, %._crit_edge75.i.i.i ], [ true, %._crit_edge.i.i218.i ], [ true, %._crit_edge75.i.i298.i ], [ true, %._crit_edge.i.i285.i ]
   ret i1 %.0
 }
 

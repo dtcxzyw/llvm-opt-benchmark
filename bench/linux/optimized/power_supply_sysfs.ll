@@ -654,7 +654,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   br i1 %122, label %93, label %.thread17, !llvm.loop !16
 
 .thread17:                                        ; preds = %83, %89, %110, %.thread22, %116, %41, %.loopexit, %47
-  %123 = phi i32 [ %49, %47 ], [ 0, %.loopexit ], [ 0, %.thread22 ], [ %40, %41 ], [ %109, %110 ], [ %118, %116 ], [ %91, %89 ], [ %82, %83 ]
+  %123 = phi i32 [ %49, %47 ], [ 0, %.loopexit ], [ %40, %41 ], [ %109, %110 ], [ %118, %116 ], [ 0, %.thread22 ], [ %82, %83 ], [ %91, %89 ]
   call void @free_pages(i64 noundef %19, i32 noundef 0) #9
   br label %124
 

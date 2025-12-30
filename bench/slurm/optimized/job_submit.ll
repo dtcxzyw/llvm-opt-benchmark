@@ -175,7 +175,7 @@ define dso_local range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) 
   br label %job_submit_g_fini.exit
 
 job_submit_g_fini.exit:                           ; preds = %12, %14, %9, %._crit_edge.i, %52, %.thread22
-  %.021 = phi i32 [ -1, %._crit_edge.i ], [ 0, %.thread22 ], [ -1, %52 ], [ 0, %9 ], [ 0, %14 ], [ 0, %12 ]
+  %.021 = phi i32 [ 0, %.thread22 ], [ -1, %52 ], [ -1, %._crit_edge.i ], [ 0, %9 ], [ 0, %14 ], [ 0, %12 ]
   br i1 %0, label %72, label %68
 
 68:                                               ; preds = %job_submit_g_fini.exit

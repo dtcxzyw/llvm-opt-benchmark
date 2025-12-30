@@ -21941,7 +21941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %23
           cleanup
   br label %300
 
-245:                                              ; preds = %221, %224, %.critedge
+245:                                              ; preds = %224, %221, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %246 unwind label %254
@@ -30830,7 +30830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit321: ; preds = %22
           cleanup
   br label %403
 
-236:                                              ; preds = %212, %215, %.critedge
+236:                                              ; preds = %215, %212, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %237 unwind label %245
@@ -31477,7 +31477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit375: ; preds = %47
           cleanup
   br label %694
 
-483:                                              ; preds = %459, %462, %.critedge292
+483:                                              ; preds = %462, %459, %.critedge292
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %484 unwind label %492
@@ -32294,7 +32294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %77
           cleanup
   br label %975
 
-788:                                              ; preds = %764, %767, %.critedge295
+788:                                              ; preds = %767, %764, %.critedge295
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34)
           to label %789 unwind label %797
@@ -33000,7 +33000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit529: ; preds = %10
           cleanup
   br label %1246
 
-1060:                                             ; preds = %1036, %1039, %.critedge298
+1060:                                             ; preds = %1039, %1036, %.critedge298
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %1061 unwind label %1069
@@ -33705,7 +33705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit603: ; preds = %13
           cleanup
   br label %1543
 
-1331:                                             ; preds = %1307, %1310, %.critedge301
+1331:                                             ; preds = %1310, %1307, %.critedge301
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %1332 unwind label %1340
@@ -34537,7 +34537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit684: ; preds = %16
           cleanup
   br label %1684
 
-1637:                                             ; preds = %1613, %1616, %.critedge304
+1637:                                             ; preds = %1616, %1613, %.critedge304
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %67)
           to label %1638 unwind label %1646

@@ -1017,7 +1017,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h3d458eb9092f77fdE.exit: ; preds = %
   br label %94
 
 94:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a24c5838cb79b45E.exit32", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a24c5838cb79b45E.exit", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he1d368130032f696E.exit.thread"
-  %.sroa.0.0 = phi ptr [ %76, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a24c5838cb79b45E.exit32" ], [ null, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he1d368130032f696E.exit.thread" ], [ %87, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a24c5838cb79b45E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he1d368130032f696E.exit.thread" ], [ %76, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a24c5838cb79b45E.exit32" ], [ %87, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a24c5838cb79b45E.exit" ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$wasmi..value..Val$GT$$GT$17hdae67875f4ee1257E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %98 unwind label %96
 
@@ -1134,7 +1134,7 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN11wasmi_c_api4func16error
   br label %common.resume
 
 common.resume:                                    ; preds = %6, %39, %47
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %40, %47 ], [ %7, %6 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %47 ], [ %40, %39 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hf0459d8342559f04E.exit": ; preds = %31, %38

@@ -2514,7 +2514,7 @@ _mi_usable_size.exit.thread:                      ; preds = %4
   br label %_mi_usable_size.exit
 
 _mi_usable_size.exit:                             ; preds = %24, %26
-  %.0.i = phi i64 [ %27, %26 ], [ %.val12.i, %24 ]
+  %.0.i = phi i64 [ %.val12.i, %24 ], [ %27, %26 ]
   %.not = icmp ugt i64 %2, %.0.i
   %28 = lshr i64 %.0.i, 1
   %.not35 = icmp ult i64 %2, %28
@@ -2634,7 +2634,7 @@ mi_heap_malloc.exit:                              ; preds = %.critedge, %32
   br label %mi_free.exit
 
 mi_free.exit:                                     ; preds = %87, %86, %85, %77, %55, %_mi_usable_size.exit, %mi_heap_malloc.exit, %54
-  %.0 = phi ptr [ %1, %_mi_usable_size.exit ], [ %.0.i.i.i42, %54 ], [ null, %mi_heap_malloc.exit ], [ %.0.i.i.i42, %55 ], [ %.0.i.i.i42, %77 ], [ %.0.i.i.i42, %85 ], [ %.0.i.i.i42, %86 ], [ %.0.i.i.i42, %87 ]
+  %.0 = phi ptr [ %.0.i.i.i42, %54 ], [ null, %mi_heap_malloc.exit ], [ %1, %_mi_usable_size.exit ], [ %.0.i.i.i42, %55 ], [ %.0.i.i.i42, %77 ], [ %.0.i.i.i42, %85 ], [ %.0.i.i.i42, %86 ], [ %.0.i.i.i42, %87 ]
   ret ptr %.0
 }
 
@@ -2972,7 +2972,7 @@ mi_heap_malloc.exit.i:                            ; preds = %13, %9
   br label %mi_heap_strdup.exit
 
 mi_heap_strdup.exit:                              ; preds = %mi_heap_malloc.exit.i, %28
-  %.0.i = phi ptr [ null, %mi_heap_malloc.exit.i ], [ %.0.i.i.i14.i, %28 ]
+  %.0.i = phi ptr [ %.0.i.i.i14.i, %28 ], [ null, %mi_heap_malloc.exit.i ]
   tail call void @mi_cfree(ptr noundef nonnull %7) #20
   br label %30
 
@@ -3067,7 +3067,7 @@ mi_heap_malloc.exit:                              ; preds = %.split, %24
   br i1 %29, label %24, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %mi_heap_malloc.exit, %mi_heap_malloc.exit.us, %mi_heap_malloc.exit.us.thread, %.split8.us
-  %.05 = phi ptr [ null, %.split8.us ], [ %22, %mi_heap_malloc.exit.us ], [ %15, %mi_heap_malloc.exit.us.thread ], [ %28, %mi_heap_malloc.exit ]
+  %.05 = phi ptr [ null, %.split8.us ], [ %15, %mi_heap_malloc.exit.us.thread ], [ %22, %mi_heap_malloc.exit.us ], [ %28, %mi_heap_malloc.exit ]
   ret ptr %.05
 }
 

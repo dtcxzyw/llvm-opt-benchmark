@@ -816,7 +816,7 @@ _ZN10__cxxabiv112_GLOBAL__N_114st_heap_block3D2Ev.exit: ; preds = %_ZN10__cxxabi
   resume { ptr, i32 } %29
 
 .thread:                                          ; preds = %8, %11, %__cxa_vec_dtor.exit
-  %34 = phi i64 [ %14, %11 ], [ %14, %__cxa_vec_dtor.exit ], [ 0, %8 ]
+  %34 = phi i64 [ %14, %__cxa_vec_dtor.exit ], [ %14, %11 ], [ 0, %8 ]
   invoke void %4(ptr noundef nonnull %10, i64 noundef %34)
           to label %_ZN10__cxxabiv112_GLOBAL__N_114st_heap_block3D2Ev.exit21 unwind label %35
 

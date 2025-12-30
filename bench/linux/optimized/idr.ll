@@ -173,7 +173,7 @@ idr_alloc_u32.exit:                               ; preds = %24
   br label %38
 
 38:                                               ; preds = %idr_alloc_u32.exit, %idr_alloc_u32.exit.thread, %8
-  %39 = phi i32 [ -22, %8 ], [ %spec.select, %idr_alloc_u32.exit ], [ %34, %idr_alloc_u32.exit.thread ]
+  %39 = phi i32 [ -22, %8 ], [ %34, %idr_alloc_u32.exit.thread ], [ %spec.select, %idr_alloc_u32.exit ]
   ret i32 %39
 }
 

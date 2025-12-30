@@ -381,8 +381,8 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   br i1 %88, label %77, label %.loopexit.us, !llvm.loop !18
 
 89:                                               ; preds = %.loopexit.us, %55
-  %90 = phi double [ %72, %.loopexit.us ], [ %56, %55 ]
-  %.1.us = phi double [ %76, %.loopexit.us ], [ %.0105.us, %55 ]
+  %90 = phi double [ %56, %55 ], [ %72, %.loopexit.us ]
+  %.1.us = phi double [ %.0105.us, %55 ], [ %76, %.loopexit.us ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 116
   br i1 %exitcond125.not, label %.split.us, label %55, !llvm.loop !19
@@ -459,7 +459,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   br label %129
 
 129:                                              ; preds = %.loopexit, %.critedge.split
-  %.1 = phi double [ %125, %.loopexit ], [ %.0105, %.critedge.split ]
+  %.1 = phi double [ %.0105, %.critedge.split ], [ %125, %.loopexit ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 116
   br i1 %exitcond118.not, label %.split.us, label %.critedge.split, !llvm.loop !19

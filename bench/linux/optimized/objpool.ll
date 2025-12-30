@@ -564,7 +564,7 @@ define dso_local noundef range(i32 -22, 1) i32 @objpool_drop(ptr noundef readnon
   br label %.thread
 
 .thread:                                          ; preds = %10, %12, %33, %.loopexit, %13, %2
-  %37 = phi i32 [ -22, %2 ], [ 0, %33 ], [ 0, %13 ], [ 0, %.loopexit ], [ -11, %12 ], [ -11, %10 ]
+  %37 = phi i32 [ -22, %2 ], [ 0, %13 ], [ 0, %.loopexit ], [ 0, %33 ], [ -11, %12 ], [ -11, %10 ]
   ret i32 %37
 }
 

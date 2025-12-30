@@ -166,9 +166,9 @@ define internal void @create_ml_dsa_raw_key(ptr noundef captures(none) %0, ptr n
   br label %select_keytype_and_size.exit
 
 select_keytype_and_size.exit:                     ; preds = %19, %14, %13, %12, %11, %4
-  %20 = phi ptr [ %7, %19 ], [ %15, %14 ], [ %7, %11 ], [ %7, %12 ], [ %7, %13 ], [ %7, %4 ]
-  %.012 = phi ptr [ null, %19 ], [ @.str.14, %14 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.12, %4 ]
-  %.sink.i = phi i64 [ 0, %19 ], [ %18, %14 ], [ 1952, %11 ], [ 2592, %12 ], [ 33, %13 ], [ 1312, %4 ]
+  %20 = phi ptr [ %7, %19 ], [ %7, %11 ], [ %7, %12 ], [ %7, %13 ], [ %15, %14 ], [ %7, %4 ]
+  %.012 = phi ptr [ null, %19 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.14, %14 ], [ @.str.12, %4 ]
+  %.sink.i = phi i64 [ 0, %19 ], [ 1952, %11 ], [ 2592, %12 ], [ 33, %13 ], [ %18, %14 ], [ 1312, %4 ]
   %21 = load i8, ptr %20, align 1, !tbaa !8
   %22 = and i8 %21, 1
   %.not6.not = icmp eq i8 %22, 0
@@ -188,7 +188,7 @@ select_keytype_and_size.exit:                     ; preds = %19, %14, %13, %12, 
   br label %26
 
 26:                                               ; preds = %23, %24, %25
-  %.0 = phi i64 [ 2560, %23 ], [ 4032, %24 ], [ 4896, %25 ]
+  %.0 = phi i64 [ 4032, %24 ], [ 4896, %25 ], [ 2560, %23 ]
   %27 = trunc nuw nsw i64 %.0 to i32
   %28 = call i32 @RAND_bytes(ptr noundef nonnull %5, i32 noundef %27) #6
   %.not7 = icmp eq i32 %28, 0
@@ -579,7 +579,7 @@ switch.lookup:
   br label %26
 
 26:                                               ; preds = %21, %18, %23, %15, %10
-  %.0 = phi i32 [ 0, %18 ], [ 1, %21 ], [ 0, %23 ], [ 0, %15 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %23 ], [ 0, %15 ], [ 0, %10 ], [ 1, %21 ]
   tail call void @EVP_PKEY_CTX_free(ptr noundef %9) #6
   ret i32 %.0
 }

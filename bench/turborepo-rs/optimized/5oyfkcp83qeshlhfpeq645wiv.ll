@@ -654,8 +654,8 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
   br label %24
 
 24:                                               ; preds = %.thread, %21
-  %.sroa.5.1 = phi ptr [ undef, %.thread ], [ %23, %21 ]
-  %.sroa.0.1 = phi ptr [ null, %.thread ], [ %22, %21 ]
+  %.sroa.5.1 = phi ptr [ %23, %21 ], [ undef, %.thread ]
+  %.sroa.0.1 = phi ptr [ %22, %21 ], [ null, %.thread ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.0.1, ptr %25, align 8
@@ -1087,7 +1087,7 @@ define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_p
           to label %44 unwind label %17
 
 .thread:                                          ; preds = %30, %32, %28, %19
-  %.sroa.01.0 = phi ptr [ %7, %19 ], [ %7, %28 ], [ %34, %32 ], [ inttoptr (i64 8 to ptr), %30 ]
+  %.sroa.01.0 = phi ptr [ %7, %28 ], [ %7, %19 ], [ %34, %32 ], [ inttoptr (i64 8 to ptr), %30 ]
   store i64 %11, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0, ptr %37, align 8
@@ -1193,7 +1193,7 @@ define noundef zeroext i1 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clone
   br i1 %19, label %_RINvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iterINtB6_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8try_folduNCINvNtNtB2c_8adapters6cloned14clone_try_foldB19_uINtNtNtB2e_3ops12control_flow11ControlFlowINtNtB44_9try_trait17NeverShortCircuituEENCINvNvXs_NtB3i_4takeINtB5u_4TakepEB26_8try_fold5checkB19_uB4F_NCINvMB4I_B4F_10wrap_mut_2uB19_NCINvNvXs_NtB3i_9enumerateINtB70_9EnumeratepEB26_4fold9enumerateB19_uNCINvNvB26_8for_each4callTjB19_ENCINvMs1_B8_INtB8_8VecDequeB19_E10write_iterIB5G_INtNtB3i_12by_ref_sized10ByRefSizedINtB3g_6ClonedBY_EEEE0E0E0E0E0E0B3Z_EB1f_.exit, label %15
 
 _RINvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iterINtB6_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8try_folduNCINvNtNtB2c_8adapters6cloned14clone_try_foldB19_uINtNtNtB2e_3ops12control_flow11ControlFlowINtNtB44_9try_trait17NeverShortCircuituEENCINvNvXs_NtB3i_4takeINtB5u_4TakepEB26_8try_fold5checkB19_uB4F_NCINvMB4I_B4F_10wrap_mut_2uB19_NCINvNvXs_NtB3i_9enumerateINtB70_9EnumeratepEB26_4fold9enumerateB19_uNCINvNvB26_8for_each4callTjB19_ENCINvMs1_B8_INtB8_8VecDequeB19_E10write_iterIB5G_INtNtB3i_12by_ref_sized10ByRefSizedINtB3g_6ClonedBY_EEEE0E0E0E0E0E0B3Z_EB1f_.exit: ; preds = %8, %15, %17
-  %.sroa.0.0.in.i = phi i1 [ %.not.not.not.i4.not.not.i.not.not, %15 ], [ %.not.not.not.i4.not.not.i.not.not, %17 ], [ true, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %.not.not.not.i4.not.not.i.not.not, %17 ], [ %.not.not.not.i4.not.not.i.not.not, %15 ], [ true, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0.in.i
 }
@@ -2318,10 +2318,10 @@ define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters
   br label %_RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragmentNtNtCs1LoaDTb72WA_4core5clone5Clone5clone.llvm.8413233830278194149.exit
 
 _RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragmentNtNtCs1LoaDTb72WA_4core5clone5Clone5clone.llvm.8413233830278194149.exit: ; preds = %9, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i", %22, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i"
-  %.sroa.06.0.sink.i = phi i64 [ -9223372036854775808, %9 ], [ %17, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ %30, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i" ], [ -9223372036854775808, %22 ]
-  %.sroa.57.0.sink.i = phi ptr [ %12, %9 ], [ %21, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ %34, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i" ], [ %25, %22 ]
-  %.sink.i = phi i64 [ %13, %9 ], [ %13, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ %26, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i" ], [ %26, %22 ]
-  %storemerge.i = phi i64 [ 0, %9 ], [ 0, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ 1, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i" ], [ 1, %22 ]
+  %.sroa.06.0.sink.i = phi i64 [ %17, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ -9223372036854775808, %9 ], [ %30, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i" ], [ -9223372036854775808, %22 ]
+  %.sroa.57.0.sink.i = phi ptr [ %21, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ %12, %9 ], [ %34, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i" ], [ %25, %22 ]
+  %.sink.i = phi i64 [ %13, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ %13, %9 ], [ %26, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i" ], [ %26, %22 ]
+  %storemerge.i = phi i64 [ 0, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ 0, %9 ], [ 1, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2.i" ], [ 1, %22 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !570)
   %35 = load ptr, ptr %0, align 8, !alias.scope !570, !noalias !573, !nonnull !4, !align !153, !noundef !4
   %36 = load i64, ptr %35, align 8, !noalias !575, !noundef !4
@@ -4174,8 +4174,8 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator4nextB1z_.exit13.i.i.i.i.i.i.i.i.i
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator4nextB1z_.exit13.i.i.i.i.i.i.i.i.i: ; preds = %66, %63
-  %68 = phi ptr [ %67, %66 ], [ %50, %63 ]
-  %.sroa.06.2.i.i.i.i.i.i.i.i.i = phi ptr [ %50, %66 ], [ %48, %63 ]
+  %68 = phi ptr [ %50, %63 ], [ %67, %66 ]
+  %.sroa.06.2.i.i.i.i.i.i.i.i.i = phi ptr [ %48, %63 ], [ %50, %66 ]
   %69 = icmp eq ptr %.sroa.06.2.i.i.i.i.i.i.i.i.i, null
   br i1 %69, label %_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_9itertools8adaptors8BatchingINtNtB7_8peekable8PeekableIB1I_INtNtNtBb_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENCINvB2E_10componentsTjjEB27_E0ENCINvNtB2E_8variance21invariant_text_prefixB3y_B2c_Es_0ENtNtNtB9_6traits8iterator8Iterator4nextB2G_.exit.thread.i.i.i.i.i.i, label %49
 
@@ -4864,10 +4864,10 @@ define hidden void @_RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17Invarian
   br label %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit
 
 _RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit: ; preds = %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2", %22, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i", %9
-  %.sroa.06.0.sink = phi i64 [ -9223372036854775808, %9 ], [ %17, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i" ], [ %30, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2" ], [ -9223372036854775808, %22 ]
-  %.sroa.57.0.sink = phi ptr [ %12, %9 ], [ %21, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i" ], [ %34, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2" ], [ %25, %22 ]
-  %.sink = phi i64 [ %13, %9 ], [ %13, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i" ], [ %26, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2" ], [ %26, %22 ]
-  %storemerge = phi i64 [ 0, %9 ], [ 0, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i" ], [ 1, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2" ], [ 1, %22 ]
+  %.sroa.06.0.sink = phi i64 [ %17, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i" ], [ -9223372036854775808, %9 ], [ %30, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2" ], [ -9223372036854775808, %22 ]
+  %.sroa.57.0.sink = phi ptr [ %21, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i" ], [ %12, %9 ], [ %34, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2" ], [ %25, %22 ]
+  %.sink = phi i64 [ %13, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i" ], [ %13, %9 ], [ %26, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2" ], [ %26, %22 ]
+  %storemerge = phi i64 [ 0, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i" ], [ 0, %9 ], [ 1, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i2" ], [ 1, %22 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.06.0.sink, ptr %35, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

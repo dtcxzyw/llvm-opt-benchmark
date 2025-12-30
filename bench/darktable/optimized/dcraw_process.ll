@@ -92,7 +92,7 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
   br label %42
 
 42:                                               ; preds = %39, %31, %26
-  %43 = phi i1 [ %.not92, %39 ], [ false, %31 ], [ false, %26 ]
+  %43 = phi i1 [ false, %31 ], [ false, %26 ], [ %.not92, %39 ]
   %44 = zext i1 %43 to i32
   %45 = invoke noundef i32 @_ZN6LibRaw12raw2image_exEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %44)
           to label %46 unwind label %49
@@ -441,7 +441,7 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
           to label %228 unwind label %61
 
 .thread:                                          ; preds = %195, %200, %198
-  %204 = phi i1 [ false, %198 ], [ true, %200 ], [ false, %195 ]
+  %204 = phi i1 [ true, %200 ], [ false, %198 ], [ false, %195 ]
   switch i32 %spec.select, label %206 [
     i32 0, label %205
     i32 1, label %211
@@ -801,7 +801,7 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
           to label %347 unwind label %339
 
 347:                                              ; preds = %.invoke184, %335, %346, %345, %344, %343, %342, %341, %338
-  %.2 = phi i32 [ -2, %346 ], [ -100011, %345 ], [ -100013, %338 ], [ -100007, %341 ], [ -100012, %342 ], [ -1, %335 ], [ -100008, %.invoke184 ], [ -100009, %343 ], [ -100010, %344 ]
+  %.2 = phi i32 [ -100013, %338 ], [ -100007, %341 ], [ -100012, %342 ], [ -100009, %343 ], [ -100010, %344 ], [ -100011, %345 ], [ -2, %346 ], [ -1, %335 ], [ -100008, %.invoke184 ]
   call void @__cxa_end_catch() #8
   br label %350
 
@@ -812,11 +812,11 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
           to label %351 unwind label %352
 
 350:                                              ; preds = %1, %347, %331, %325
-  %.0 = phi i32 [ %.2, %347 ], [ %.1, %325 ], [ -100007, %331 ], [ -4, %1 ]
+  %.0 = phi i32 [ %.1, %325 ], [ -100007, %331 ], [ %.2, %347 ], [ -4, %1 ]
   ret i32 %.0
 
 351:                                              ; preds = %348, %339, %332
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %332 ], [ %340, %339 ], [ %349, %348 ]
+  %.merged = phi { ptr, i32 } [ %340, %339 ], [ %.pn.pn, %332 ], [ %349, %348 ]
   resume { ptr, i32 } %.merged
 
 352:                                              ; preds = %348

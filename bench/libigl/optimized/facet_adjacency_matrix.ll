@@ -436,9 +436,9 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS
   br i1 %134, label %.lr.ph148, label %._crit_edge149, !llvm.loop !45
 
 135:                                              ; preds = %.loopexit.split.us, %.loopexit.split-lp, %115, %117
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0.lcssa, %115 ], [ %.sroa.17.0.lcssa, %117 ], [ %.sroa.11.2120.us, %.loopexit.split.us ], [ %.sroa.11.2120.us, %.loopexit.split-lp ]
-  %.sroa.074.1 = phi ptr [ %.sroa.074.0.lcssa, %115 ], [ %.sroa.074.0.lcssa, %117 ], [ %.sroa.074.3121.us, %.loopexit.split.us ], [ %.sroa.074.3121.us, %.loopexit.split-lp ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %116, %115 ], [ %118, %117 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0.lcssa, %117 ], [ %.sroa.17.0.lcssa, %115 ], [ %.sroa.11.2120.us, %.loopexit.split.us ], [ %.sroa.11.2120.us, %.loopexit.split-lp ]
+  %.sroa.074.1 = phi ptr [ %.sroa.074.0.lcssa, %117 ], [ %.sroa.074.0.lcssa, %115 ], [ %.sroa.074.3121.us, %.loopexit.split.us ], [ %.sroa.074.3121.us, %.loopexit.split-lp ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i62 = icmp eq ptr %.sroa.074.1, null
   br i1 %.not.i.i.i62, label %_ZNSt6vectorIN5Eigen7TripletIiiEESaIS2_EED2Ev.exit63, label %.thread89
 
@@ -887,9 +887,9 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi0EiEEE13InnerIteratorC2ERKS
   br i1 %132, label %.lr.ph149, label %._crit_edge150, !llvm.loop !67
 
 133:                                              ; preds = %.loopexit.split.us, %.loopexit.split-lp, %114, %116
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0.lcssa, %114 ], [ %.sroa.17.0.lcssa, %116 ], [ %.sroa.11.2121.us, %.loopexit.split.us ], [ %.sroa.11.2121.us, %.loopexit.split-lp ]
-  %.sroa.075.1 = phi ptr [ %.sroa.075.0.lcssa, %114 ], [ %.sroa.075.0.lcssa, %116 ], [ %.sroa.075.3122.us, %.loopexit.split.us ], [ %.sroa.075.3122.us, %.loopexit.split-lp ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %117, %116 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0.lcssa, %116 ], [ %.sroa.17.0.lcssa, %114 ], [ %.sroa.11.2121.us, %.loopexit.split.us ], [ %.sroa.11.2121.us, %.loopexit.split-lp ]
+  %.sroa.075.1 = phi ptr [ %.sroa.075.0.lcssa, %116 ], [ %.sroa.075.0.lcssa, %114 ], [ %.sroa.075.3122.us, %.loopexit.split.us ], [ %.sroa.075.3122.us, %.loopexit.split-lp ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %117, %116 ], [ %115, %114 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i63 = icmp eq ptr %.sroa.075.1, null
   br i1 %.not.i.i.i63, label %_ZNSt6vectorIN5Eigen7TripletIiiEESaIS2_EED2Ev.exit64, label %.thread90
 
@@ -1182,7 +1182,7 @@ _ZN5Eigen12SparseMatrixIbLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %79
 
 77:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
   %78 = load ptr, ptr %6, align 8, !tbaa !15
   call void @free(ptr noundef %78) #22
   br label %.body
@@ -2474,7 +2474,7 @@ _ZN5Eigen12SparseMatrixIiLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !15
   call void @free(ptr noundef %76) #22
   br label %.body

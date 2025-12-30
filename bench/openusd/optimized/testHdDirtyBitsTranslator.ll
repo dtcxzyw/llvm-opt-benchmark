@@ -1286,7 +1286,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   br label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit: ; preds = %.invoke, %102, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i
-  %.0 = phi i1 [ false, %.invoke ], [ %.not8, %102 ], [ %.not8, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i ]
+  %.0 = phi i1 [ %.not8, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i ], [ %.not8, %102 ], [ false, %.invoke ]
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 452
   %105 = load i32, ptr %104, align 4
   %106 = icmp ult i32 %105, 9

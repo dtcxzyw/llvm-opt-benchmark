@@ -480,7 +480,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -909,7 +909,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -1327,7 +1327,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -1752,7 +1752,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -2100,7 +2100,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -2529,7 +2529,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -2758,7 +2758,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -3380,7 +3380,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -3609,7 +3609,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -4207,7 +4207,7 @@ common.resume.i:                                  ; preds = %.body.i, %100
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %165, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %166, %165 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %166, %165 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -4634,7 +4634,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -4863,7 +4863,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -5227,7 +5227,7 @@ common.resume.i:                                  ; preds = %.body.i, %94
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %148, %89, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %50, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %89 ], [ %149, %148 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %50 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %149, %148 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %89 ], [ 1, %50 ]
   ret i8 %.sroa.0.0
 }
 
@@ -5613,7 +5613,7 @@ common.resume.i:                                  ; preds = %.body.i, %97
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %166, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %48, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %167, %166 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %48 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %167, %166 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %48 ]
   ret i8 %.sroa.0.0
 }
 
@@ -5997,7 +5997,7 @@ common.resume.i:                                  ; preds = %.body.i, %97
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %164, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %48, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %165, %164 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %48 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %165, %164 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %48 ]
   ret i8 %.sroa.0.0
 }
 
@@ -6415,7 +6415,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -6640,7 +6640,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -7260,7 +7260,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -7842,7 +7842,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -8267,7 +8267,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -8694,7 +8694,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -8921,7 +8921,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -9322,7 +9322,7 @@ common.resume.i:                                  ; preds = %.body.i, %96
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %161, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %162, %161 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %162, %161 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -9745,7 +9745,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -10170,7 +10170,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -10597,7 +10597,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -11024,7 +11024,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -11423,7 +11423,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -11850,7 +11850,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -12277,7 +12277,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -12702,7 +12702,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -12931,7 +12931,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -13354,7 +13354,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -13583,7 +13583,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -13814,7 +13814,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -14043,7 +14043,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -14274,7 +14274,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -14703,7 +14703,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -14932,7 +14932,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -15361,7 +15361,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -15788,7 +15788,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -16013,7 +16013,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -16242,7 +16242,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -16660,7 +16660,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -17278,7 +17278,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -17707,7 +17707,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -18132,7 +18132,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -18554,7 +18554,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -18962,7 +18962,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -19189,7 +19189,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -19418,7 +19418,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -19821,7 +19821,7 @@ common.resume.i:                                  ; preds = %.body.i, %100
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %163, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %164, %163 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %164, %163 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -20245,7 +20245,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -20672,7 +20672,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -20903,7 +20903,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -21130,7 +21130,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -21557,7 +21557,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -22157,7 +22157,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -22447,7 +22447,7 @@ common.resume.i:                                  ; preds = %.body.i, %92
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %128, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %48, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %129, %128 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %48 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %129, %128 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %48 ]
   ret i8 %.sroa.0.0
 }
 
@@ -22839,7 +22839,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %174, %93, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %50, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %93 ], [ %175, %174 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %50 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %175, %174 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %93 ], [ 1, %50 ]
   ret i8 %.sroa.0.0
 }
 
@@ -23644,7 +23644,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -24071,7 +24071,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -24687,7 +24687,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -24916,7 +24916,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -25345,7 +25345,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -25772,7 +25772,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -26366,7 +26366,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -26593,7 +26593,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -27022,7 +27022,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -27253,7 +27253,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -27545,7 +27545,7 @@ common.resume.i:                                  ; preds = %.body.i, %96
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %130, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %48, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %131, %130 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %48 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %131, %130 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %91 ], [ 0, %48 ]
   ret i8 %.sroa.0.0
 }
 
@@ -27965,7 +27965,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -28190,7 +28190,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -28615,7 +28615,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -29044,7 +29044,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -29432,7 +29432,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %170, %89, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %50, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %89 ], [ %171, %170 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %50 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %171, %170 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %89 ], [ 1, %50 ]
   ret i8 %.sroa.0.0
 }
 
@@ -29855,7 +29855,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -30282,7 +30282,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -30570,7 +30570,7 @@ common.resume.i:                                  ; preds = %.body.i, %92
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %126, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %48, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %127, %126 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %48 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %127, %126 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %48 ]
   ret i8 %.sroa.0.0
 }
 
@@ -31190,7 +31190,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -31415,7 +31415,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -31783,7 +31783,7 @@ common.resume.i:                                  ; preds = %.body.i, %98
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %152, %93, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %50, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %93 ], [ %153, %152 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %50 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %153, %152 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %93 ], [ 1, %50 ]
   ret i8 %.sroa.0.0
 }
 
@@ -32014,7 +32014,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -32443,7 +32443,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -32828,7 +32828,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -33218,7 +33218,7 @@ common.resume.i:                                  ; preds = %.body.i, %101
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %170, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %48, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %171, %170 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %48 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %171, %170 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %91 ], [ 1, %48 ]
   ret i8 %.sroa.0.0
 }
 
@@ -33641,7 +33641,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -34070,7 +34070,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -34688,7 +34688,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -34913,7 +34913,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -35144,7 +35144,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -35371,7 +35371,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -35596,7 +35596,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -35823,7 +35823,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -36048,7 +36048,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -36273,7 +36273,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -37078,7 +37078,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -37501,7 +37501,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -37900,7 +37900,7 @@ common.resume.i:                                  ; preds = %.body.i, %96
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %159, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %160, %159 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %160, %159 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -38125,7 +38125,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -38352,7 +38352,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -38951,7 +38951,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -39567,7 +39567,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -40180,7 +40180,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -40409,7 +40409,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -40832,7 +40832,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -41059,7 +41059,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -41484,7 +41484,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -41874,7 +41874,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %172, %93, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %50, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %93 ], [ %173, %172 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %50 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %173, %172 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %93 ], [ 0, %50 ]
   ret i8 %.sroa.0.0
 }
 
@@ -42099,7 +42099,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -42330,7 +42330,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -42557,7 +42557,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -42923,7 +42923,7 @@ common.resume.i:                                  ; preds = %.body.i, %98
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %150, %93, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %50, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %93 ], [ %151, %150 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %50 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %151, %150 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %93 ], [ 0, %50 ]
   ret i8 %.sroa.0.0
 }
 
@@ -43309,7 +43309,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %168, %89, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %50, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %89 ], [ %169, %168 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %50 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %169, %168 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %89 ], [ 0, %50 ]
   ret i8 %.sroa.0.0
 }
 
@@ -43540,7 +43540,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -43771,7 +43771,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -44580,7 +44580,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -45005,7 +45005,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -45558,7 +45558,7 @@ common.resume.i:                                  ; preds = %.body.i, %94
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %146, %89, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %50, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %89 ], [ %147, %146 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %50 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %147, %146 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %89 ], [ 0, %50 ]
   ret i8 %.sroa.0.0
 }
 
@@ -45783,7 +45783,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -46210,7 +46210,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -46635,7 +46635,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -46864,7 +46864,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %109, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %87 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %110, %109 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %87 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -47158,7 +47158,7 @@ common.resume.i:                                  ; preds = %.body.i, %96
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %132, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %48, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %133, %132 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %48 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %133, %132 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %91 ], [ 1, %48 ]
   ret i8 %.sroa.0.0
 }
 
@@ -47585,7 +47585,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %185, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %95 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %186, %185 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %95 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -48008,7 +48008,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -48437,7 +48437,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -49051,7 +49051,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -49276,7 +49276,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -49503,7 +49503,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -49926,7 +49926,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -50711,7 +50711,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -50938,7 +50938,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -51482,7 +51482,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -51713,7 +51713,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -51938,7 +51938,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -52747,7 +52747,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -53365,7 +53365,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -53590,7 +53590,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -54019,7 +54019,7 @@ common.resume.i:                                  ; preds = %.body.i, %122
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %187, %95, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %95 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %188, %187 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %95 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -54444,7 +54444,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -54869,7 +54869,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -55483,7 +55483,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %181, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %182, %181 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %91 ], [ 0, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -55908,7 +55908,7 @@ common.resume.i:                                  ; preds = %.body.i, %118
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %183, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i, %52, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %91 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 1, %52 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %184, %183 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit33.i ], [ 0, %91 ], [ 1, %52 ]
   ret i8 %.sroa.0.0
 }
 
@@ -56139,7 +56139,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -56370,7 +56370,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -56595,7 +56595,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %105, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %83 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %106, %105 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %83 ], [ 0, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -56826,7 +56826,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -57057,7 +57057,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -57288,7 +57288,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %111, %87, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %87 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %112, %111 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %87 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -57676,7 +57676,7 @@ common.resume.i:                                  ; preds = %.body.i, %101
   unreachable
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %168, %91, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %48, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 1, %91 ], [ %169, %168 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %48 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %169, %168 ], [ 1, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %91 ], [ 0, %48 ]
   ret i8 %.sroa.0.0
 }
 
@@ -57903,7 +57903,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.thread.
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h32780e43fef07012E.exit": ; preds = %107, %83, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i, %44, %1
-  %.sroa.0.0 = phi i8 [ 2, %1 ], [ 0, %83 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 1, %44 ]
+  %.sroa.0.0 = phi i8 [ 2, %1 ], [ %108, %107 ], [ 0, %_ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit31.i ], [ 0, %83 ], [ 1, %44 ]
   ret i8 %.sroa.0.0
 }
 
@@ -64410,7 +64410,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h89350b4169ab6a89E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2a5a26b23a99ec64E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -64749,7 +64749,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h210196f289a584ebE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha29926c3546a15beE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -65088,7 +65088,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd4d7ce9f230b1d39E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h28e3030501286be6E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -65427,7 +65427,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h98ad6fe2dbd03dbeE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb3036007dfdccae1E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -65766,7 +65766,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3e8bc5dcd7e3edcfE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6040719f309291ceE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -66105,7 +66105,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h239303ba92e93a71E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h90c4131e9ba8f92bE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -66444,7 +66444,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h025f03161b13f698E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hae3b3db191d2b867E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -66783,7 +66783,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3951b12b51ed331cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6baf74827aa0f876E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -67122,7 +67122,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h8817142982e19e6aE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd3c12c5853b17ddaE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -67461,7 +67461,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hca35e1bf66506bceE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h7392fa08723235b0E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -67800,7 +67800,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb834f11b665f77edE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb6f71a00fef898cdE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -68139,7 +68139,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h06b36d379bc5c687E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h4515cda9bd181b01E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -68478,7 +68478,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he127acce59eb2281E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hc32c436768f90cdeE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -68817,7 +68817,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5825f17e7c7e5c54E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2ffe4af29df3f409E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -69156,7 +69156,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h91dd93c4e350cd42E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h5ea1c46e2bbb0b41E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -69963,7 +69963,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1eb57e34bd57333fE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !5441
 
@@ -69974,7 +69974,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1eb57e34bd57333fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h91da310963d13119E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -70312,7 +70312,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h47e32203ff55cbbfE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h89d0fa0ab7cceafbE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -70651,7 +70651,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he31a40a211fb09ecE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h7260c56f215b6918E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -70990,7 +70990,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb82cb34adfb79558E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hee64c0f0ac87767aE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -71329,7 +71329,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hdf06ad4710ea9956E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h4b58762d8b857fb9E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -71668,7 +71668,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha9d17d76399d9b1bE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hfbdaf0c4599bf45aE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -72007,7 +72007,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4a79a83f7ad08a24E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0291b69580b07c43E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -72346,7 +72346,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc60afa97d72b0cdeE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h8923cc8a3686aea0E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -72685,7 +72685,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9d414022e9066b2dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h099e3d1353967ddeE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -73024,7 +73024,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha7eef33d8d08ce4bE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h896ba7e840bc83a7E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -73363,7 +73363,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h73a22642f27b3d92E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h9a2195245d9cc768E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -73919,7 +73919,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h52e3e679de4e3fb5E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %.body.i.i.i, %.body.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #14
           to label %common.resume unwind label %138, !noalias !5978
 
@@ -73930,7 +73930,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h52e3e679de4e3fb5E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %151, %146, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %147, %146 ], [ %eh.lpad-body.i, %.body.i ], [ %152, %151 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %147, %146 ], [ %152, %151 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h4fa041bdcf8ad026E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -74268,7 +74268,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h45b9255e81bf643cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h824fa45862966ea1E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -74607,7 +74607,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h590c9916a717f1b3E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hca5ef6fc5a242f66E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -74946,7 +74946,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha130d4c39c0b41b0E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h47f1722099c147cfE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -75285,7 +75285,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h944c416fb8768c39E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h7c5e2c2c44c33ef0E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -75624,7 +75624,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3fdedfab82e6f2b2E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h5325e92ede3dae2bE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -75963,7 +75963,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1bd253661fb6b68dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hacb48d1d4e98ec77E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -76302,7 +76302,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he2a49008ee779363E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hf5eb9809a2bb043dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -76641,7 +76641,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hade9bb2d1b21f2fbE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h24966fe4fd43833dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -76980,7 +76980,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h02c1ab524c38229bE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1028cb3f4d3dc187E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -77319,7 +77319,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf73688e3c9bd40d4E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb3ed1d05bf8c4c8cE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -77658,7 +77658,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5359443219d4234dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h34cc26ffeb62cbadE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -78423,7 +78423,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha550dfa3098969c7E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %196, %.body.i.i.i, %.body.i.i.i.i.i, %98
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %.pn.i.i.i, %196 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %98 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %98 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %196 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #14
           to label %common.resume unwind label %219, !noalias !6539
 
@@ -78434,7 +78434,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha550dfa3098969c7E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %232, %227, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %228, %227 ], [ %eh.lpad-body.i, %.body.i ], [ %233, %232 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %228, %227 ], [ %233, %232 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hbdf503f04d5537fbE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -78772,7 +78772,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h64b74e05490df01cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1fe379ae9cae33d7E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -79546,7 +79546,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h06c7b5dd2f73e331E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %201, %.body.i.i.i, %.body.i.i.i.i.i, %100
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %.pn.i.i.i, %201 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %100 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %100 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %201 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #14
           to label %common.resume unwind label %225, !noalias !6652
 
@@ -79557,7 +79557,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h06c7b5dd2f73e331E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %238, %233, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %234, %233 ], [ %eh.lpad-body.i, %.body.i ], [ %239, %238 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %234, %233 ], [ %239, %238 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd22a784441055b11E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -79895,7 +79895,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd269ebb455fddb92E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h73b5984c45fdc941E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -80234,7 +80234,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1ad1b4be82a3081fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hfe965a35df67161aE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -80573,7 +80573,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3178e73ad23ffd0bE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha0427d70af67ac21E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -80912,7 +80912,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h48cdddeaae0c1010E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h5ea82d998a8ee9adE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -81251,7 +81251,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4490ed8d5abc7a2aE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h136d78737d7ee1b9E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -82067,7 +82067,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2042b8dc0522da92E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !6958
 
@@ -82078,7 +82078,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2042b8dc0522da92E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2a29810a2c1f7c27E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -82861,7 +82861,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9397b0f03ff4df6dE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %213, %.body.i.i.i, %.body.i.i.i.i.i, %111
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %208, %213 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %106, %111 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %106, %111 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %208, %213 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #14
           to label %common.resume unwind label %235, !noalias !7044
 
@@ -82872,7 +82872,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9397b0f03ff4df6dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %248, %243, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %244, %243 ], [ %eh.lpad-body.i, %.body.i ], [ %249, %248 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %244, %243 ], [ %249, %248 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1b8427508463a1eeE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -83210,7 +83210,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9b0202308d033f8fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6701864e96d8b924E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -83549,7 +83549,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hbc83a6419753e3c7E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hc41e2ed663c87b90E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -83888,7 +83888,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h316e0398c8bd0f2dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h80ccab13e625fcf7E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -84227,7 +84227,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h299fd7adebab0d4fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha161e596bc5952cfE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -84566,7 +84566,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9f0319dbd6798cc9E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6164b87d545e77beE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -84905,7 +84905,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf28ddd1b77a8a42fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2a14f539af139a31E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -85244,7 +85244,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7f4de3f474b64bf6E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h9935ded373b896b0E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -85583,7 +85583,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hbea6d5856b98a411E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h56d7c3a3103b59e0E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -85922,7 +85922,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h771c351a19e26a02E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hf738f74294566119E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -86261,7 +86261,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2045e130ea34e989E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb2dfdc2ee90ee045E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -86600,7 +86600,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf827229cd8f3520fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hf5945177c6d07524E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -86939,7 +86939,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h18911a28f746d13bE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h953b8d6ce642d777E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -87278,7 +87278,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he03382f8c6c67cd4E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd657791f2381c6e2E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -87617,7 +87617,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h845fd80b8fa0c7c7E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h7d927740c0d888c4E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -87956,7 +87956,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf3d2372e5f489d81E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd438ea93f05bf2a6E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -88295,7 +88295,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7f6814857f86fc71E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h382bb181183170e5E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -88634,7 +88634,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h6cee6aec1f21df2dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h61c3cde5200bc9f3E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -88973,7 +88973,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h75292bec72e89cc1E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hda7ed8bcbf950f85E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -89748,7 +89748,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3b07845922e6ada5E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %208, %.body.i.i.i, %.body.i.i.i.i.i, %109
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %203, %208 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %104, %109 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %104, %109 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %203, %208 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #14
           to label %common.resume unwind label %229, !noalias !7946
 
@@ -89759,7 +89759,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3b07845922e6ada5E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %242, %237, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %238, %237 ], [ %eh.lpad-body.i, %.body.i ], [ %243, %242 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %238, %237 ], [ %243, %242 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1b0d57c06173d8fcE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -90097,7 +90097,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h836318739a085e87E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h9c9839db7d4b4877E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -90436,7 +90436,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h72f113cb2935cf22E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb34008e4655bfd56E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -90775,7 +90775,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd2c993c8242d0768E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h989789780bb3b3d6E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -91114,7 +91114,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf070f449415ad992E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h75087cb983770810E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -91453,7 +91453,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17habe8f2b07a0d282cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hdbeb7de99dabc243E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -91792,7 +91792,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he5890130d144ebbcE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17he9b751f59c26642fE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -92131,7 +92131,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb9b32b42ff764a7cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1fa06cf8f3b0c234E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -92470,7 +92470,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha3280ad94bc4f9abE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h93742dfaa73ce441E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -92809,7 +92809,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf04c069376293498E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17had8f7a6b7041451bE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -93148,7 +93148,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h46a75a3906233e0eE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17heee489f0016a8bd5E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -93487,7 +93487,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha66260e868742f91E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hbbbeb622468eddbbE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -93826,7 +93826,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2b270562d1f5cc08E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb98c25ccc5f39c39E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -94642,7 +94642,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha22c79e0b304c71eE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !8563
 
@@ -94653,7 +94653,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha22c79e0b304c71eE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17he4b4aad3b1c7b458E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -94991,7 +94991,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h04bbbb4a68d1ff9aE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hffb2fb4b6bc70e75E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -95330,7 +95330,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0ba2ae9629c1b066E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd906f70f094b5533E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -95669,7 +95669,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h75fa5466f9b92bfbE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h14a4cf79884a3225E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -96008,7 +96008,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h43c71eba35efd8f6E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17had0a6a368dd55387E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -96347,7 +96347,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb9e2a25b781e37feE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h8d7d036fa1de8855E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -97154,7 +97154,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc50cf1463c2b0c45E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !8879
 
@@ -97165,7 +97165,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc50cf1463c2b0c45E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17haa88bcbad5a2f3feE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -97503,7 +97503,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd0b22556fcac1bcbE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha942f17a3917c95dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -97842,7 +97842,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7c61d18e279c0072E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h740b76c44c4ae126E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -98181,7 +98181,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h40eb93b4351bf2ceE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hea7e6f89ae674025E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -98956,7 +98956,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5e8844c5c07d9bd3E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %208, %.body.i.i.i, %.body.i.i.i.i.i, %109
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %203, %208 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %104, %109 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %104, %109 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %203, %208 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #14
           to label %common.resume unwind label %229, !noalias !9094
 
@@ -98967,7 +98967,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5e8844c5c07d9bd3E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %242, %237, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %238, %237 ], [ %eh.lpad-body.i, %.body.i ], [ %243, %242 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %238, %237 ], [ %243, %242 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h8e6b69f47b8b7946E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -99305,7 +99305,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h6d317ece98178b37E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h5c36db1b71aea660E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -99644,7 +99644,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h76ef871d2a979572E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h654595b9a386d767E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -100460,7 +100460,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h74ab471f4a17eb37E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !9251
 
@@ -100471,7 +100471,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h74ab471f4a17eb37E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hf55e1fd2f08d7820E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -100809,7 +100809,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7c581a1462751294E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h53e77083fe3454efE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -101148,7 +101148,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h661d490bf75746a5E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb5d33c58a117dd6cE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -101487,7 +101487,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf791e83e35da9b0bE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h260ff12ac48c4f59E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -101826,7 +101826,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7ec1ba93fa8d5450E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h21b2f7eef34b2fdcE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -102165,7 +102165,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h02453680fbf12b08E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h578f4788dfb24cedE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -102972,7 +102972,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hba071edcacdfde66E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !9567
 
@@ -102983,7 +102983,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hba071edcacdfde66E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb056005bd35b7b4bE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -103321,7 +103321,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb93ae3c7b96bf970E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0e9f24ac7f5c6578E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -103660,7 +103660,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2dbeb11df4453c16E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1f23477be11de979E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -103999,7 +103999,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h762e41b7a335246eE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h11de7bb32afed3ceE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -104338,7 +104338,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb1e918759b491b2dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h008c467cec283523E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -104677,7 +104677,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h908e943b5fb76a46E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1e53fba33b5d7acbE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -105016,7 +105016,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17habaf8b7aa41db890E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha46eb1d75a63d95eE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -105355,7 +105355,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h35d97ffd6dcb1ca0E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0bbe956ea137c450E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -105694,7 +105694,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc1867da7a052ec76E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd4e60b8c45a3450dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -106033,7 +106033,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb9eaf63514e0e413E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hfd6e0652f64a7586E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -106840,7 +106840,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha9e36ac3b2fde918E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !10058
 
@@ -106851,7 +106851,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha9e36ac3b2fde918E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6541cafd2d7daad8E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -107189,7 +107189,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0ed98d7a16236131E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hec56109d921700aeE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -107528,7 +107528,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc45da5c5b82b17a5E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h3070cbf54c8136a9E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -107867,7 +107867,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf65c29b61139d7baE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h5df121bba8087d57E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -108206,7 +108206,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hba5798ed8894e43fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha247280f12a9d713E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -108545,7 +108545,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4b7e85cc3b3a4dd4E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h539d7103be8c2f4dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -109310,7 +109310,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7d46a656aca6b774E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %196, %.body.i.i.i, %.body.i.i.i.i.i, %98
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %.pn.i.i.i, %196 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %98 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %98 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %196 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #14
           to label %common.resume unwind label %219, !noalias !10365
 
@@ -109321,7 +109321,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7d46a656aca6b774E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %232, %227, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %228, %227 ], [ %eh.lpad-body.i, %.body.i ], [ %233, %232 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %228, %227 ], [ %233, %232 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17haab93a806d3723ecE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -109659,7 +109659,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h349180675d35f39aE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h9d0f03f6396af199E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -109998,7 +109998,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h27cb8dbafb47b54cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h195d283ca6f94116E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -110337,7 +110337,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3fd14d5c114ce20bE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h71ab73082bffd317E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -110676,7 +110676,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17heea718a3c5816770E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0aaedfdea5121ff4E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -111015,7 +111015,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5c3cb610dcb52565E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17had10540e96ac4aecE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -111789,7 +111789,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf3b8aa2996917553E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %201, %.body.i.i.i, %.body.i.i.i.i.i, %100
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %.pn.i.i.i, %201 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %100 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %100 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %201 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #14
           to label %common.resume unwind label %225, !noalias !10662
 
@@ -111800,7 +111800,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf3b8aa2996917553E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %238, %233, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %234, %233 ], [ %eh.lpad-body.i, %.body.i ], [ %239, %238 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %234, %233 ], [ %239, %238 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h7b64ca526189eec4E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -112615,7 +112615,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5b61c46345a662aeE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !10738
 
@@ -112626,7 +112626,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5b61c46345a662aeE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb4495fbe0a9cb2baE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -112964,7 +112964,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h10b1bc9d0d02c4f4E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hc8b70a9327b9797aE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -113303,7 +113303,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he999a0669aaa7309E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17he20b7ea36a717915E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -113642,7 +113642,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hae877ef18e94313dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h9f0df0ad43f046c1E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -113981,7 +113981,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h11d53de938e0726eE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hdbacc25c9a6c178aE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -114320,7 +114320,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hfef77d5094672f9fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h303bdbe8508d8bc9E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -114659,7 +114659,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h6fded3e07bc0526aE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17heb04837af356ec6bE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -114998,7 +114998,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h721be0b87586545cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6a717387b0dd0018E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -115814,7 +115814,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h6c801b91e7486f93E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !11146
 
@@ -115825,7 +115825,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h6c801b91e7486f93E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h4a366a4bb1a131ebE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -116163,7 +116163,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h20cbc504194e253aE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd22b67b5885fb752E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -116502,7 +116502,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h035381d29fe32c2dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h28146e6584830eb2E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -117309,7 +117309,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h97ce524cced5af41E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !11324
 
@@ -117320,7 +117320,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h97ce524cced5af41E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h275697fc9dd756d4E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -117658,7 +117658,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h60dc31a16779f829E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hf7e56f1d18d69eb6E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -117997,7 +117997,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h63745ad2aaaac596E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h110660d67cfe774bE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -118336,7 +118336,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hca81a56418402b60E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h00e29cc0696c436eE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -119120,7 +119120,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb80cb27501ee842cE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %213, %.body.i.i.i, %.body.i.i.i.i.i, %111
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %208, %213 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %106, %111 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %106, %111 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %208, %213 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #14
           to label %common.resume unwind label %235, !noalias !11539
 
@@ -119131,7 +119131,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb80cb27501ee842cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %248, %243, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %244, %243 ], [ %eh.lpad-body.i, %.body.i ], [ %249, %248 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %244, %243 ], [ %249, %248 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h666014313db4cf3fE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -119469,7 +119469,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h6252d87846ca7a7dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h7d123b06156b3a80E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -119808,7 +119808,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3a2ca2fc5278a18cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hbbc7813745fce3dbE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -120147,7 +120147,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h8a9c11a86f24c87dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hea9b1fa87abd7840E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -120486,7 +120486,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb3e5720b2dc4d781E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd05d4f656e2812d8E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -120825,7 +120825,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9a9727a9630d1201E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6bdf6e38ef159af1E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -121164,7 +121164,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hcd1b10f73e45fbe3E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb26e44c8f41508b3E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -121503,7 +121503,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5feb3ffb7eb27d51E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hc4997d95b6a6f793E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -121842,7 +121842,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2b6fbc49e3235616E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17he66426134e69757dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -122626,7 +122626,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he0dee65c4c81d6c9E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %213, %.body.i.i.i, %.body.i.i.i.i.i, %111
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %208, %213 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %106, %111 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %106, %111 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %208, %213 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #14
           to label %common.resume unwind label %235, !noalias !11981
 
@@ -122637,7 +122637,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he0dee65c4c81d6c9E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %248, %243, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %244, %243 ], [ %eh.lpad-body.i, %.body.i ], [ %249, %248 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %244, %243 ], [ %249, %248 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h3dca0c072a83ef6cE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -122975,7 +122975,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h965b190dc4c2850fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h207ac1b454118f01E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -123314,7 +123314,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf0fcc2a4eaeaaa1fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h8646d4feee4fa0a1E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -123653,7 +123653,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0a94465425d70a66E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd1cefc737fa24cccE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -124460,7 +124460,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1dba378bc90643a6E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !12193
 
@@ -124471,7 +124471,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1dba378bc90643a6E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h5b0f42e33b779368E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -124809,7 +124809,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5a4f9370a2e43476E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h58c411783a15bd6dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -125148,7 +125148,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha1a1c73bbd100ebbE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hfb4845974f907a1eE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -125487,7 +125487,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc6d3598efea24296E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2c2b9c43560637f6E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -126294,7 +126294,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h05e506f11445f0fcE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !12408
 
@@ -126305,7 +126305,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h05e506f11445f0fcE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h03a7104e04dd2184E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -126643,7 +126643,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h62857f2841deee19E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha3326ca2b1f4f590E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -126982,7 +126982,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5c8a0ba82ed2edabE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h196235974594180dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -127321,7 +127321,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h6a21fc94c9df495cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h366d53cde64428faE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -127660,7 +127660,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd51cdcfebf7e0d24E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hee8585e939e9d96dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -127999,7 +127999,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17haed2c953d7d18e5bE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hbb5a3e9320b411c9E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -128338,7 +128338,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd44efbc62b98b5a9E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hc920a4d87bfed656E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -128677,7 +128677,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h37aaad9e4a7388a1E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h5336fb90b225151cE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -129016,7 +129016,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h795eb7c5391ec7e3E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1f30d29d6d776093E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -129355,7 +129355,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd1b55aa0165dc83dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hc0f01510b8e30fc1E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -129694,7 +129694,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc108f2505310c459E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb817dd224e226165E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -130469,7 +130469,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h51962e4d370e7293E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %208, %.body.i.i.i, %.body.i.i.i.i.i, %109
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %203, %208 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %104, %109 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %104, %109 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %203, %208 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #14
           to label %common.resume unwind label %229, !noalias !12945
 
@@ -130480,7 +130480,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h51962e4d370e7293E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %242, %237, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %238, %237 ], [ %eh.lpad-body.i, %.body.i ], [ %243, %242 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %238, %237 ], [ %243, %242 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1a3d27cdb62d2a75E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -130818,7 +130818,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hef384e730cc51638E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hde91f5f14766cc86E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -131157,7 +131157,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4d07a583ba412bbcE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h414bfe94b9e1fec2E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -131496,7 +131496,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha588d1c7e377864cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1ed340068122fbbcE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -131835,7 +131835,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4bfbe4fe4dc312b7E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h12c06cb77c318cc9E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -132619,7 +132619,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1a1a6e87b38dcc57E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %213, %.body.i.i.i, %.body.i.i.i.i.i, %111
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %208, %213 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %106, %111 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %106, %111 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %208, %213 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #14
           to label %common.resume unwind label %235, !noalias !13194
 
@@ -132630,7 +132630,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1a1a6e87b38dcc57E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %248, %243, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %244, %243 ], [ %eh.lpad-body.i, %.body.i ], [ %249, %248 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %244, %243 ], [ %249, %248 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6ff414cb72289f54E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -132968,7 +132968,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h537f83469e341bd6E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hdb9bda638b4dc69eE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -133307,7 +133307,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd3b14c0b95717eb2E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h672dc24dcaed093eE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -133646,7 +133646,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9fd4b59371175c83E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb13fa68446289ed3E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -133985,7 +133985,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h78ea577523140169E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h662d6d518eaa4b93E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -134324,7 +134324,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0ddd1a5ef01855cfE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hd7421d69d1165504E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -134892,7 +134892,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9d9a3000a2d4133aE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %.body.i.i.i, %.body.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #14
           to label %common.resume unwind label %145, !noalias !13498
 
@@ -134903,7 +134903,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9d9a3000a2d4133aE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %158, %153, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %154, %153 ], [ %eh.lpad-body.i, %.body.i ], [ %159, %158 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %154, %153 ], [ %159, %158 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h03f85a52e43ec048E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -135241,7 +135241,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9d92ea2c9e5042d1E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1e42f4d8424fb1d6E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -135580,7 +135580,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3be630e40dc38bf3E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hf8cc6a5cf2537cacE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -135919,7 +135919,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2b5b62a77c06afa4E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0af255547c3bff18E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -136258,7 +136258,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc49549cbf2d3d853E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h7c2faba42a769b00E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -136597,7 +136597,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h1a39e61ee022f8afE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h50aab21ac618aceeE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -136936,7 +136936,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5af421161f1c7b2dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h4ce374e640be453aE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -137275,7 +137275,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h64c387f183840978E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h581d51f6cd825d88E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -138082,7 +138082,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd17b6b52de38682eE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !13884
 
@@ -138093,7 +138093,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd17b6b52de38682eE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h437a1766a630dd76E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -138431,7 +138431,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he3fea609e3605a8cE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0fda5d590c7361d8E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -138770,7 +138770,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5d0f1947a1be87c3E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h9ebc3abcc5225405E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -139586,7 +139586,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hae0850cd5d5d1dc4E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !14053
 
@@ -139597,7 +139597,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hae0850cd5d5d1dc4E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h99944b6c001b3050E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -139935,7 +139935,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h84b7643ed323f482E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h88a0c5a9af79e1c1E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -140274,7 +140274,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he8fc8fdab2b0e2f7E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hc1618c8b50e47a4dE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -140613,7 +140613,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h588a927c43a56997E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0c3a453adbc2fec5E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -140952,7 +140952,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h843c1b0e7aa2c5f8E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h3546247782ae4646E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -141727,7 +141727,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h07e6bf7e2db4c79fE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %208, %.body.i.i.i, %.body.i.i.i.i.i, %109
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %203, %208 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %104, %109 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %104, %109 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %203, %208 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #14
           to label %common.resume unwind label %229, !noalias !14323
 
@@ -141738,7 +141738,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h07e6bf7e2db4c79fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %242, %237, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %238, %237 ], [ %eh.lpad-body.i, %.body.i ], [ %243, %242 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %238, %237 ], [ %243, %242 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hec46b578d1e6bf18E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -142076,7 +142076,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7d94ab177aeae5bcE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h577028f5547cfbcfE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -142415,7 +142415,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2a0c806892edfd52E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hee2959f6bbe74493E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -142754,7 +142754,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3c79e8fc8faf90ebE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hf01846c73d7023f7E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -143093,7 +143093,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd43265931f5e7dafE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hfdb3e979360e240eE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -143432,7 +143432,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h83872855f3780a89E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h239414e430ddcbafE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -143988,7 +143988,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7a3aa73f57755adfE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %.body.i.i.i, %.body.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #14
           to label %common.resume unwind label %138, !noalias !14618
 
@@ -143999,7 +143999,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7a3aa73f57755adfE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %151, %146, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %147, %146 ], [ %eh.lpad-body.i, %.body.i ], [ %152, %151 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %147, %146 ], [ %152, %151 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h281d27a325ba9265E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -144337,7 +144337,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf893dc73e6f83a6fE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h8b89db035a4e0aecE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -144676,7 +144676,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4a70b403ff41a3aaE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h7d841934a40e34acE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -145015,7 +145015,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4c7aab142027b9aeE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hdca3c623d444628eE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -145354,7 +145354,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0a0b7193207131a4E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h3ecf5d3153bd2de5E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -146161,7 +146161,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb20bc875da097957E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %231, !noalias !14857
 
@@ -146172,7 +146172,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb20bc875da097957E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %244, %239, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body.i, %.body.i ], [ %245, %244 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %240, %239 ], [ %245, %244 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hdb1a983378b02f01E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -146510,7 +146510,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha510e2012a6544c2E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hf14342d9f49fd47cE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -146849,7 +146849,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf98183b825ca26f4E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h81b59f8165bf4760E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -147188,7 +147188,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h236e7067b877e36aE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hbcce6bd1937c755bE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -147527,7 +147527,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9a909642c94feedeE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h030872846b8ae708E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -147866,7 +147866,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd98b1429a364d122E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2e991730e9e044d0E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -148682,7 +148682,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc1b8cccd155517c3E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !15164
 
@@ -148693,7 +148693,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc1b8cccd155517c3E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h34b80d54f87038dbE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -149031,7 +149031,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hd152369f80d5e685E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17he710499f196e3ad7E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -149370,7 +149370,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4cc594de0a65b2f8E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2c4f55de678b7851E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -149709,7 +149709,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h93e948960b177223E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h933c9532139bc049E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -150048,7 +150048,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7e6f4bb3158349d9E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hdad6205b41c3a630E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -150387,7 +150387,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc8609a64c94897bbE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6cc9f4bb73d25ef7E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -150726,7 +150726,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h8bbf5d68407334fcE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h6f9d1bf4a37d2965E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -151065,7 +151065,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17ha80c51a359550e44E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hef8447d0fcb04be4E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -151404,7 +151404,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4db2f5e8ea8dc5eaE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h9c6fea8a10e5d953E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -151743,7 +151743,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h80e7924bf24a976dE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0297f7d8f409c938E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -152559,7 +152559,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h316a425919fce2c0E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !15664
 
@@ -152570,7 +152570,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h316a425919fce2c0E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h0c5d14b698f3aa75E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -152908,7 +152908,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h59a90d1ab230dab0E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hb5a60adb25b46101E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -153247,7 +153247,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h9b963382ccc41985E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2353d9f4d5a9d733E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -154063,7 +154063,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h434f70a5b4fd8971E.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i28.i.i, %.body.i.i.i, %.body.i.i10.i, %.body.i.i.i.i.i, %.body.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %.pn.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i28.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i10.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit15.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit18.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit20.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit23.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %common.resume unwind label %237, !noalias !15842
 
@@ -154074,7 +154074,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h434f70a5b4fd8971E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %250, %245, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %eh.lpad-body.i, %.body.i ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h1acda97902878cf5E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -154412,7 +154412,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h04811d99aa88cdaaE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hbbad3b63374a3d00E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -154751,7 +154751,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc1e17760dff0a799E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h590688273df6a9ceE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -155090,7 +155090,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hbe1edd7977bcdee0E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17hae02e6f38443a2d1E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -155658,7 +155658,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3b3966c428b77bccE.exit.i
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.body.i.i.i.i, %.body.i.i.i, %.body.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit14.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit17.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h58f59f711723f10bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #14
           to label %common.resume unwind label %145, !noalias !16066
 
@@ -155669,7 +155669,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h3b3966c428b77bccE.exit.i
   unreachable
 
 common.resume:                                    ; preds = %158, %153, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %154, %153 ], [ %eh.lpad-body.i, %.body.i ], [ %159, %158 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %154, %153 ], [ %159, %158 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha807d37425c8af03E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -156007,7 +156007,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hb28b9223f65f7952E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h2592ada616855451E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -156346,7 +156346,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h035d819390b4f929E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %84, %79, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %80, %79 ], [ %85, %84 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17ha692bd7ddbc53405E.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -156543,7 +156543,7 @@ define internal fastcc void @_ZN12polars_arrow5array7boolean12BooleanArray15slic
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -156580,7 +156580,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload7, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload7, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16229
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -156755,7 +156755,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -156792,7 +156792,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16249
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -156908,7 +156908,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -156945,7 +156945,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16266
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -157061,7 +157061,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -157098,7 +157098,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16283
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -157214,7 +157214,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -157251,7 +157251,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16300
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -157367,7 +157367,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -157404,7 +157404,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16317
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -157520,7 +157520,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -157557,7 +157557,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16334
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -157673,7 +157673,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -157710,7 +157710,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16351
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -157826,7 +157826,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -157863,7 +157863,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16368
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -157979,7 +157979,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -158016,7 +158016,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16385
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -158132,7 +158132,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -158169,7 +158169,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16402
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -158285,7 +158285,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -158322,7 +158322,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16419
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -158438,7 +158438,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -158475,7 +158475,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16436
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -158591,7 +158591,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -158628,7 +158628,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16453
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -158744,7 +158744,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -158781,7 +158781,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16470
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -158897,7 +158897,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -158934,7 +158934,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16487
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -159050,7 +159050,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -159087,7 +159087,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16504
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 

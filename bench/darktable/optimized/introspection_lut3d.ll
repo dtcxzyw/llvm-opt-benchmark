@@ -499,7 +499,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   br label %202
 
 202:                                              ; preds = %194, %200, %198
-  %203 = phi float [ %11, %198 ], [ %201, %200 ], [ 0.000000e+00, %194 ]
+  %203 = phi float [ %201, %200 ], [ %11, %198 ], [ 0.000000e+00, %194 ]
   %204 = getelementptr inbounds nuw float, ptr %6, i64 %.0114125
   store float %203, ptr %204, align 4, !tbaa !18
   %205 = add nuw nsw i64 %.0114125, 1
@@ -589,7 +589,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   br label %61
 
 61:                                               ; preds = %53, %59, %57
-  %62 = phi float [ %11, %57 ], [ %60, %59 ], [ 0.000000e+00, %53 ]
+  %62 = phi float [ %60, %59 ], [ %11, %57 ], [ 0.000000e+00, %53 ]
   %63 = getelementptr inbounds nuw float, ptr %6, i64 %.0204215
   store float %62, ptr %63, align 4, !tbaa !18
   %64 = add nuw nsw i64 %.0204215, 1
@@ -1020,7 +1020,7 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
   br label %60
 
 60:                                               ; preds = %52, %58, %56
-  %61 = phi float [ %11, %56 ], [ %59, %58 ], [ 0.000000e+00, %52 ]
+  %61 = phi float [ %59, %58 ], [ %11, %56 ], [ 0.000000e+00, %52 ]
   %62 = getelementptr inbounds nuw float, ptr %6, i64 %.0249306
   store float %61, ptr %62, align 4, !tbaa !18
   %63 = add nuw nsw i64 %.0249306, 1
@@ -1590,7 +1590,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   br label %120
 
 120:                                              ; preds = %41, %53, %95, %.loopexit, %82, %75, %23, %6
-  %.054 = phi i16 [ 0, %23 ], [ 0, %6 ], [ 0, %41 ], [ 0, %53 ], [ 0, %75 ], [ 0, %82 ], [ %50, %.loopexit ], [ 0, %95 ]
+  %.054 = phi i16 [ 0, %23 ], [ 0, %6 ], [ 0, %41 ], [ 0, %53 ], [ 0, %82 ], [ 0, %75 ], [ %50, %.loopexit ], [ 0, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i16 %.054
 }
@@ -1655,8 +1655,8 @@ sub_191:                                          ; preds = %sub_0
   br label %sub_095thread-pre-split
 
 sub_095thread-pre-split:                          ; preds = %.tail, %sub_1, %sub_191, %.tail89, %14, %12
-  %.074.ph = phi double [ 1.000000e+00, %.tail89 ], [ 1.000000e+00, %12 ], [ -1.000000e+00, %14 ], [ 1.000000e+00, %sub_191 ], [ 1.000000e+00, %sub_1 ], [ 1.000000e+00, %.tail ]
-  %.072.ph = phi ptr [ %0, %.tail89 ], [ %13, %12 ], [ %15, %14 ], [ %0, %sub_191 ], [ %0, %sub_1 ], [ %0, %.tail ]
+  %.074.ph = phi double [ -1.000000e+00, %14 ], [ 1.000000e+00, %12 ], [ 1.000000e+00, %.tail89 ], [ 1.000000e+00, %sub_191 ], [ 1.000000e+00, %sub_1 ], [ 1.000000e+00, %.tail ]
+  %.072.ph = phi ptr [ %15, %14 ], [ %13, %12 ], [ %0, %.tail89 ], [ %0, %sub_191 ], [ %0, %sub_1 ], [ %0, %.tail ]
   %.pr = load i8, ptr %.072.ph, align 1
   br label %sub_095
 
@@ -1824,7 +1824,7 @@ sub_1101:                                         ; preds = %sub_095
   br label %73
 
 73:                                               ; preds = %27, %.critedge2._crit_edge, %.critedge4, %.tail, %.tail89
-  %.068 = phi nsz double [ 0x7FF8000000000000, %.tail ], [ 0x7FF8000000000000, %.tail89 ], [ %28, %27 ], [ %.1, %.critedge4 ], [ %53, %.critedge2._crit_edge ]
+  %.068 = phi nsz double [ 0x7FF8000000000000, %.tail89 ], [ 0x7FF8000000000000, %.tail ], [ %28, %27 ], [ %.1, %.critedge4 ], [ %53, %.critedge2._crit_edge ]
   ret double %.068
 }
 
@@ -1905,7 +1905,7 @@ define hidden zeroext i8 @parse_cube_line(ptr noundef readonly captures(none) %0
   br label %30
 
 30:                                               ; preds = %9, %26, %24
-  %.039 = phi i8 [ %spec.select, %9 ], [ %.035, %26 ], [ %25, %24 ]
+  %.039 = phi i8 [ %25, %24 ], [ %.035, %26 ], [ %spec.select, %9 ]
   ret i8 %.039
 }
 
@@ -2017,7 +2017,7 @@ define hidden zeroext i16 @calculate_clut_cube(ptr noundef %0, ptr noundef write
   br label %parse_cube_line.exit
 
 parse_cube_line.exit:                             ; preds = %22, %37, %39
-  %.039.i = phi i8 [ %spec.select.i, %22 ], [ %.035.i, %39 ], [ %38, %37 ]
+  %.039.i = phi i8 [ %38, %37 ], [ %.035.i, %39 ], [ %spec.select.i, %22 ]
   %.not93 = icmp eq i8 %.039.i, 0
   %40 = load i8, ptr %5, align 16
   %41 = icmp eq i8 %40, 84
@@ -2186,11 +2186,11 @@ select.unfold:                                    ; preds = %108
   br label %117
 
 117:                                              ; preds = %select.unfold, %parse_cube_line.exit, %44, %93, %86, %53
-  %.284 = phi ptr [ %.082169, %44 ], [ %.082169, %53 ], [ %.082169, %select.unfold ], [ %88, %86 ], [ %.082169, %parse_cube_line.exit ], [ %.082169, %93 ]
-  %.281 = phi i32 [ %.079170, %44 ], [ %.079170, %53 ], [ %116, %select.unfold ], [ %.079170, %86 ], [ %.079170, %parse_cube_line.exit ], [ %.079170, %93 ]
-  %.278 = phi i64 [ %.076171, %44 ], [ %.076171, %53 ], [ %.076171, %select.unfold ], [ %82, %86 ], [ %.076171, %parse_cube_line.exit ], [ %.076171, %93 ]
-  %.273 = phi i32 [ %.071172, %44 ], [ %.071172, %53 ], [ %.475, %select.unfold ], [ %.071172, %86 ], [ %.071172, %parse_cube_line.exit ], [ %.071172, %93 ]
-  %.270 = phi i16 [ %.068173, %44 ], [ %.068173, %53 ], [ %.068173, %select.unfold ], [ %70, %86 ], [ %.068173, %parse_cube_line.exit ], [ %.068173, %93 ]
+  %.284 = phi ptr [ %.082169, %44 ], [ %.082169, %53 ], [ %88, %86 ], [ %.082169, %93 ], [ %.082169, %parse_cube_line.exit ], [ %.082169, %select.unfold ]
+  %.281 = phi i32 [ %.079170, %44 ], [ %.079170, %53 ], [ %.079170, %86 ], [ %.079170, %93 ], [ %.079170, %parse_cube_line.exit ], [ %116, %select.unfold ]
+  %.278 = phi i64 [ %.076171, %44 ], [ %.076171, %53 ], [ %82, %86 ], [ %.076171, %93 ], [ %.076171, %parse_cube_line.exit ], [ %.076171, %select.unfold ]
+  %.273 = phi i32 [ %.071172, %44 ], [ %.071172, %53 ], [ %.071172, %86 ], [ %.071172, %93 ], [ %.071172, %parse_cube_line.exit ], [ %.475, %select.unfold ]
+  %.270 = phi i16 [ %.068173, %44 ], [ %.068173, %53 ], [ %70, %86 ], [ %.068173, %93 ], [ %.068173, %parse_cube_line.exit ], [ %.068173, %select.unfold ]
   %118 = call i64 @getline(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6) #25
   %.not91 = icmp eq i64 %118, -1
   br i1 %.not91, label %._crit_edge, label %14
@@ -2235,8 +2235,8 @@ select.unfold:                                    ; preds = %108
   %133 = call i32 @fclose(ptr noundef nonnull %6)
   br label %.thread
 
-.thread:                                          ; preds = %.thread113, %89, %74, %62, %56, %47, %96, %131, %._crit_edge.thread, %12
-  %.065 = phi i16 [ 0, %.thread113 ], [ 0, %._crit_edge.thread ], [ %.270, %131 ], [ 0, %12 ], [ 0, %96 ], [ 0, %47 ], [ 0, %56 ], [ 0, %62 ], [ 0, %74 ], [ 0, %89 ]
+.thread:                                          ; preds = %.thread113, %96, %89, %74, %62, %56, %47, %131, %._crit_edge.thread, %12
+  %.065 = phi i16 [ 0, %._crit_edge.thread ], [ %.270, %131 ], [ 0, %12 ], [ 0, %47 ], [ 0, %56 ], [ 0, %62 ], [ 0, %74 ], [ 0, %89 ], [ 0, %96 ], [ 0, %.thread113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2367,7 +2367,7 @@ define hidden zeroext range(i16 0, 256) i16 @calculate_clut_3dl(ptr noundef %0, 
   br label %parse_cube_line.exit
 
 parse_cube_line.exit:                             ; preds = %23, %38, %40
-  %.039.i = phi i8 [ %spec.select.i, %23 ], [ %.035.i, %40 ], [ %39, %38 ]
+  %.039.i = phi i8 [ %39, %38 ], [ %.035.i, %40 ], [ %spec.select.i, %23 ]
   %.not133 = icmp eq i8 %.039.i, 0
   br i1 %.not133, label %.outer.loopexit, label %41
 
@@ -2377,6 +2377,9 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
 42:                                               ; preds = %41
   %43 = icmp ugt i8 %.039.i, 3
   br i1 %43, label %46, label %.outer.outer222.backedge
+
+.outer.outer222.backedge:                         ; preds = %42, %46
+  br label %.outer.outer222
 
 .outer.outer222:                                  ; preds = %.outer.outer222.backedge, %.outer.outer
   %.0111.ph.ph223 = phi i32 [ %.0111.ph.ph, %.outer.outer ], [ %.0111, %.outer.outer222.backedge ]
@@ -2394,9 +2397,6 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %50 = trunc i64 %49 to i32
   %51 = icmp sgt i32 %50, %48
   br i1 %51, label %52, label %.outer.outer222.backedge
-
-.outer.outer222.backedge:                         ; preds = %46, %42
-  br label %.outer.outer222
 
 52:                                               ; preds = %46
   %53 = zext i8 %.039.i to i16
@@ -2492,8 +2492,8 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   br label %13
 
 99:                                               ; preds = %86, %13
-  %.1112 = phi i32 [ %87, %86 ], [ %.0111, %13 ]
-  %.1106 = phi i32 [ %spec.select, %86 ], [ %.0105, %13 ]
+  %.1112 = phi i32 [ %.0111, %13 ], [ %87, %86 ]
+  %.1106 = phi i32 [ %.0105, %13 ], [ %spec.select, %86 ]
   %100 = mul i32 %.1112, 3
   %101 = zext i32 %100 to i64
   %102 = icmp ne i64 %.0116.ph.ph, %101
@@ -2571,8 +2571,8 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   store ptr %.099.ph.ph, ptr %1, align 8, !tbaa !22
   br label %.thread144
 
-.thread144:                                       ; preds = %71, %55, %116, %._crit_edge, %104, %11
-  %.0 = phi i16 [ 0, %71 ], [ 0, %104 ], [ 0, %11 ], [ 0, %116 ], [ %.092.ph.ph225, %._crit_edge ], [ 0, %55 ]
+.thread144:                                       ; preds = %55, %71, %116, %._crit_edge, %104, %11
+  %.0 = phi i16 [ 0, %104 ], [ 0, %11 ], [ 0, %116 ], [ %.092.ph.ph225, %._crit_edge ], [ 0, %71 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3385,8 +3385,8 @@ define internal fastcc void @show_hide_controls(ptr readonly captures(none) %.70
   br label %.thread
 
 .thread:                                          ; preds = %13, %8
-  %.sink1 = phi i32 [ %spec.select, %13 ], [ 0, %8 ]
-  %20 = phi double [ %19, %13 ], [ 2.000000e+01, %8 ]
+  %.sink1 = phi i32 [ 0, %8 ], [ %spec.select, %13 ]
+  %20 = phi double [ 2.000000e+01, %8 ], [ %19, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %.704.val, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !150
   tail call void @gtk_widget_set_visible(ptr noundef %22, i32 noundef %.sink1) #25
@@ -4152,7 +4152,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %33
 
 33:                                               ; preds = %30, %4, %2, %28, %24, %20, %16, %12, %8
-  %.0 = phi ptr [ %0, %4 ], [ %spec.select, %30 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %0, %2 ]
+  %.0 = phi ptr [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %0, %2 ], [ %0, %4 ], [ %spec.select, %30 ]
   ret ptr %.0
 }
 
@@ -4204,7 +4204,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %19
 
 19:                                               ; preds = %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ %., %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ %., %17 ]
   ret ptr %.0
 }
 
@@ -4296,7 +4296,7 @@ define internal fastcc range(i32 0, 2) i32 @select_lutname_in_list(ptr noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %10, %.thread, %20, %22
-  %.3 = phi i32 [ 0, %20 ], [ 1, %22 ], [ 1, %.thread ], [ 0, %10 ], [ 0, %17 ]
+  %.3 = phi i32 [ 1, %22 ], [ 0, %20 ], [ 1, %.thread ], [ 0, %10 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
 }

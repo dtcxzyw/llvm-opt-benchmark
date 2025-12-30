@@ -318,7 +318,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   br i1 %139, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge.sink.split:                             ; preds = %63, %61, %21, %10, %13, %17
-  %.sink = phi i32 [ 5, %61 ], [ 30, %21 ], [ 1, %10 ], [ 1, %17 ], [ 1, %13 ], [ 7, %63 ]
+  %.sink = phi i32 [ 1, %17 ], [ 1, %13 ], [ 1, %10 ], [ 30, %21 ], [ 5, %61 ], [ 7, %63 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !3
   br label %.critedge
 
@@ -448,7 +448,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   br label %69
 
 69:                                               ; preds = %14, %._crit_edge, %62, %48, %43, %31, %24
-  %.062 = phi ptr [ %9, %48 ], [ %20, %24 ], [ %27, %31 ], [ %40, %43 ], [ %55, %62 ], [ %68, %._crit_edge ], [ %12, %14 ]
+  %.062 = phi ptr [ %20, %24 ], [ %27, %31 ], [ %40, %43 ], [ %55, %62 ], [ %68, %._crit_edge ], [ %9, %48 ], [ %12, %14 ]
   ret ptr %.062
 }
 
@@ -595,7 +595,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   br label %_ZL8_findRowP13UPropsVectorsi.exit
 
 _ZL8_findRowP13UPropsVectorsi.exit:               ; preds = %23, %33, %40, %52, %57, %71, %._crit_edge.i
-  %.062.i = phi ptr [ %18, %57 ], [ %29, %33 ], [ %36, %40 ], [ %49, %52 ], [ %64, %71 ], [ %77, %._crit_edge.i ], [ %21, %23 ]
+  %.062.i = phi ptr [ %29, %33 ], [ %36, %40 ], [ %49, %52 ], [ %64, %71 ], [ %77, %._crit_edge.i ], [ %18, %57 ], [ %21, %23 ]
   %78 = zext nneg i32 %2 to i64
   %79 = getelementptr inbounds nuw i32, ptr %.062.i, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -951,7 +951,7 @@ define noalias ptr @upvec_cloneArray_77(ptr noundef readonly captures(none) %0, 
   br label %31
 
 31:                                               ; preds = %27, %28, %4, %22, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %22 ], [ null, %4 ], [ %20, %28 ], [ %20, %27 ]
+  %.0 = phi ptr [ null, %22 ], [ null, %10 ], [ null, %4 ], [ %20, %28 ], [ %20, %27 ]
   ret ptr %.0
 }
 

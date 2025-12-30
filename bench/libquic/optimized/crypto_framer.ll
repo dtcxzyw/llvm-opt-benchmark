@@ -306,7 +306,7 @@ _ZN3net12CryptoFramer12ProcessInputEN4base16BasicStringPieceINSt7__cxx1112basic_
   br label %_ZN3net12CryptoFramer12ProcessInputEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread
 
 _ZN3net12CryptoFramer12ProcessInputEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread: ; preds = %13, %7, %_ZN3net12CryptoFramer12ProcessInputEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit, %25
-  %.0 = phi ptr [ %26, %25 ], [ null, %13 ], [ null, %_ZN3net12CryptoFramer12ProcessInputEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit ], [ null, %7 ]
+  %.0 = phi ptr [ %26, %25 ], [ null, %_ZN3net12CryptoFramer12ProcessInputEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit ], [ null, %7 ], [ null, %13 ]
   call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 16), ptr %3, align 8, !tbaa !3
@@ -354,7 +354,7 @@ define noundef zeroext i1 @_ZN3net12CryptoFramer12ProcessInputEN4base16BasicStri
   br label %14
 
 14:                                               ; preds = %6, %3, %8
-  %.0 = phi i1 [ false, %3 ], [ false, %8 ], [ true, %6 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %6 ]
   ret i1 %.0
 }
 
@@ -1537,7 +1537,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit69
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i68: ; preds = %.thread116, %.thread111, %.thread104
-  %.pn.pn.pn109 = phi { ptr, i32 } [ %23, %.thread104 ], [ %.pn.ph, %.thread116 ], [ %24, %.thread111 ]
+  %.pn.pn.pn109 = phi { ptr, i32 } [ %23, %.thread104 ], [ %24, %.thread111 ], [ %.pn.ph, %.thread116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdaPv(ptr noundef nonnull %18) #16
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit69

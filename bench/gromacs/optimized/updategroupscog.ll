@@ -538,7 +538,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIS_IbSa
   br label %.body
 
 .body:                                            ; preds = %205, %203, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit68
-  %.pn.pn = phi { ptr, i32 } [ %98, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit68 ], [ %.pn, %205 ], [ %.pn, %203 ]
+  %.pn.pn = phi { ptr, i32 } [ %98, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit68 ], [ %.pn, %203 ], [ %.pn, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %222
 
@@ -1567,8 +1567,8 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %51
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %182, %181, %.critedge.i.i
-  %.1.lcssa39.i.i = phi i64 [ -1, %182 ], [ %.1.lcssa.i.i, %.critedge.i.i ], [ %173, %181 ]
-  %183 = phi ptr [ %120, %182 ], [ %120, %.critedge.i.i ], [ %.pre.i.i, %181 ]
+  %.1.lcssa39.i.i = phi i64 [ -1, %182 ], [ %173, %181 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
+  %183 = phi ptr [ %120, %182 ], [ %.pre.i.i, %181 ], [ %120, %.critedge.i.i ]
   %184 = trunc i64 %.1.lcssa39.i.i to i32
   %185 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %183, i64 %161
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8

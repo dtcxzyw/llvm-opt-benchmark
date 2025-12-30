@@ -561,7 +561,7 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
   br label %30
 
 30:                                               ; preds = %read_token.exit, %26, %._crit_edge
-  %.1 = phi ptr [ %1, %._crit_edge ], [ @expand_reference.expanded_reference, %26 ], [ @.str.1, %read_token.exit ]
+  %.1 = phi ptr [ @expand_reference.expanded_reference, %26 ], [ %1, %._crit_edge ], [ @.str.1, %read_token.exit ]
   ret ptr %.1
 }
 
@@ -821,7 +821,7 @@ skipWhiteSpace.exit.i.i:                          ; preds = %skipWhiteSpace.exit
   br i1 %53, label %54, label %parse_variables_line.exit
 
 54:                                               ; preds = %52, %50, %45
-  %.024.i = phi i32 [ 1, %50 ], [ 0, %45 ], [ 2, %52 ]
+  %.024.i = phi i32 [ 0, %45 ], [ 1, %50 ], [ 2, %52 ]
   %55 = sext i32 %46 to i64
   %56 = getelementptr i8, ptr %7, i64 %55
   br label %57
@@ -934,7 +934,7 @@ default.unreachable:                              ; preds = %91
   unreachable
 
 .sink.split.i:                                    ; preds = %91, %92, %95, %99
-  %.sink.in.i = phi ptr [ %10, %99 ], [ %0, %92 ], [ %0, %95 ], [ %11, %91 ]
+  %.sink.in.i = phi ptr [ %10, %99 ], [ %0, %95 ], [ %0, %92 ], [ %11, %91 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %100 = call i32 @g_hash_table_insert(ptr noundef %.sink.i, ptr noundef nonnull %70, ptr noundef nonnull %88)
   br label %parse_variables_line.exit
@@ -1160,7 +1160,7 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
   br label %185
 
 185:                                              ; preds = %183, %181, %177, %175
-  %.1.i = phi ptr [ %182, %181 ], [ %184, %183 ], [ %176, %175 ], [ %178, %177 ]
+  %.1.i = phi ptr [ %184, %183 ], [ %182, %181 ], [ %176, %175 ], [ %178, %177 ]
   %186 = call noalias ptr @fopen(ptr noundef %.1.i, ptr noundef nonnull @.str.2)
   %.not59 = icmp eq ptr %186, null
   br i1 %.not59, label %187, label %188
@@ -1185,7 +1185,7 @@ parse_include_file.exit:                          ; preds = %188, %189
   %192 = call i32 @fclose(ptr noundef nonnull %186)
   br label %parse_rule.exit.thread, !llvm.loop !44
 
-193:                                              ; preds = %187, %read_token.exit49, %152, %read_token.exit
+193:                                              ; preds = %read_token.exit49, %152, %187, %read_token.exit
   %bcmp60 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.12, i64 6)
   %.not.i32 = icmp eq i32 %bcmp60, 0
   br i1 %.not.i32, label %194, label %parse_rule.exit.thread
@@ -2071,12 +2071,12 @@ content_get_nibble_value.exit:                    ; preds = %31, %41
   br label %51
 
 51:                                               ; preds = %45, %content_get_nibble_value.exit, %19, %25, %21, %29, %15
-  %52 = phi i1 [ %11, %15 ], [ %11, %29 ], [ %11, %19 ], [ %11, %25 ], [ %11, %21 ], [ true, %content_get_nibble_value.exit ], [ true, %45 ]
-  %.142 = phi i1 [ %16, %15 ], [ true, %29 ], [ false, %19 ], [ false, %25 ], [ false, %21 ], [ true, %content_get_nibble_value.exit ], [ true, %45 ]
-  %.139 = phi i1 [ %.038, %15 ], [ %.038, %29 ], [ %.038, %19 ], [ %.038, %25 ], [ %.038, %21 ], [ true, %content_get_nibble_value.exit ], [ false, %45 ]
-  %.136 = phi i8 [ %.035, %15 ], [ %.035, %29 ], [ %.035, %19 ], [ %.035, %25 ], [ %.035, %21 ], [ %44, %content_get_nibble_value.exit ], [ %.035, %45 ]
-  %.134 = phi i32 [ %.033, %15 ], [ %.033, %29 ], [ %.033, %19 ], [ %26, %25 ], [ %22, %21 ], [ %.033, %content_get_nibble_value.exit ], [ %48, %45 ]
-  %.1 = phi i1 [ %.031, %15 ], [ %.031, %29 ], [ true, %19 ], [ false, %25 ], [ false, %21 ], [ %.031, %content_get_nibble_value.exit ], [ %.031, %45 ]
+  %52 = phi i1 [ %11, %15 ], [ %11, %29 ], [ %11, %25 ], [ %11, %21 ], [ %11, %19 ], [ true, %content_get_nibble_value.exit ], [ true, %45 ]
+  %.142 = phi i1 [ %16, %15 ], [ true, %29 ], [ false, %25 ], [ false, %21 ], [ false, %19 ], [ true, %content_get_nibble_value.exit ], [ true, %45 ]
+  %.139 = phi i1 [ %.038, %15 ], [ %.038, %29 ], [ %.038, %25 ], [ %.038, %21 ], [ %.038, %19 ], [ true, %content_get_nibble_value.exit ], [ false, %45 ]
+  %.136 = phi i8 [ %.035, %15 ], [ %.035, %29 ], [ %.035, %25 ], [ %.035, %21 ], [ %.035, %19 ], [ %44, %content_get_nibble_value.exit ], [ %.035, %45 ]
+  %.134 = phi i32 [ %.033, %15 ], [ %.033, %29 ], [ %26, %25 ], [ %22, %21 ], [ %.033, %19 ], [ %.033, %content_get_nibble_value.exit ], [ %48, %45 ]
+  %.1 = phi i1 [ %.031, %15 ], [ %.031, %29 ], [ false, %25 ], [ false, %21 ], [ true, %19 ], [ %.031, %content_get_nibble_value.exit ], [ %.031, %45 ]
   %53 = add i32 %.032, 1
   br label %10, !llvm.loop !67
 

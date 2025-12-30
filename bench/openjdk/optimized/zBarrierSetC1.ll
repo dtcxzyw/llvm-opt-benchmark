@@ -511,7 +511,7 @@ _ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit:   ; preds = %72, %75, %92, %.sin
   br i1 %.not17.i.i21, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %.sink.split.i.i17
 
 .sink.split.i.i17:                                ; preds = %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit, %127
-  %.sink.i.i18 = phi ptr [ %104, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ], [ %104, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ], [ %128, %127 ]
+  %.sink.i.i18 = phi ptr [ %128, %127 ], [ %104, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ], [ %104, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ]
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %133 = load i32, ptr %132, align 4
@@ -1695,7 +1695,7 @@ define hidden i64 @_ZN13ZBarrierSetC126atomic_cmpxchg_at_resolvedER9LIRAccessR7L
   br label %_ZN7LIRItem6resultEv.exit42
 
 _ZN7LIRItem6resultEv.exit42:                      ; preds = %36, %42, %47
-  %.sroa.03.0.i40 = phi i64 [ %44, %42 ], [ %.sroa.03.0.i40.pre, %47 ], [ %40, %36 ]
+  %.sroa.03.0.i40 = phi i64 [ %.sroa.03.0.i40.pre, %47 ], [ %44, %42 ], [ %40, %36 ]
   %58 = tail call i64 @_ZNK13ZBarrierSetC15colorER9LIRAccess7LIR_Opr(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.sroa.03.0.i40)
   %.sroa.013.0.copyload = load i64, ptr @_ZN8FrameMap11rax_oop_oprE, align 8
   %59 = load ptr, ptr %1, align 8
@@ -1737,7 +1737,7 @@ _ZN7LIRItem6resultEv.exit42:                      ; preds = %36, %42, %47
   br label %_ZN7LIRItem6resultEv.exit46
 
 _ZN7LIRItem6resultEv.exit46:                      ; preds = %_ZN7LIRItem6resultEv.exit42, %64, %67, %72
-  %.sroa.03.0.in.i43 = phi ptr [ %68, %67 ], [ %68, %72 ], [ %39, %64 ], [ %39, %_ZN7LIRItem6resultEv.exit42 ]
+  %.sroa.03.0.in.i43 = phi ptr [ %68, %72 ], [ %68, %67 ], [ %39, %64 ], [ %39, %_ZN7LIRItem6resultEv.exit42 ]
   %.sroa.03.0.i44 = load i64, ptr %.sroa.03.0.in.i43, align 8
   tail call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 %.sroa.03.0.i44, i64 %.sroa.013.0.copyload, ptr noundef null)
   %83 = load ptr, ptr %1, align 8

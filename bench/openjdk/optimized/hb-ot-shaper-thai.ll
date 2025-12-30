@@ -356,7 +356,7 @@ _ZL13get_mark_typej.exit.i:                       ; preds = %161
   br label %_ZL18get_consonant_typej.exit.i
 
 _ZL18get_consonant_typej.exit.i:                  ; preds = %.fold.split.i.i, %166, %164, %_ZL13get_mark_typej.exit.i, %_ZL13get_mark_typej.exit.i, %_ZL13get_mark_typej.exit.i
-  %.0.i46.i = phi i64 [ 3, %164 ], [ 1, %_ZL13get_mark_typej.exit.i ], [ 1, %_ZL13get_mark_typej.exit.i ], [ %..i47.i, %166 ], [ 1, %_ZL13get_mark_typej.exit.i ], [ 2, %.fold.split.i.i ]
+  %.0.i46.i = phi i64 [ 1, %_ZL13get_mark_typej.exit.i ], [ 1, %_ZL13get_mark_typej.exit.i ], [ 1, %_ZL13get_mark_typej.exit.i ], [ 3, %164 ], [ %..i47.i, %166 ], [ 2, %.fold.split.i.i ]
   %169 = getelementptr inbounds nuw i32, ptr @_ZL22thai_above_start_state, i64 %.0.i46.i
   %170 = load i32, ptr %169, align 4
   %171 = getelementptr inbounds nuw i32, ptr @_ZL22thai_below_start_state, i64 %.0.i46.i
@@ -365,7 +365,7 @@ _ZL18get_consonant_typej.exit.i:                  ; preds = %.fold.split.i.i, %1
   br label %233
 
 select.unfold.i:                                  ; preds = %161, %158, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i
-  %.0.i.ph.i = phi i64 [ 1, %158 ], [ 0, %switch.early.test.i.i ], [ 0, %switch.early.test.i.i ], [ 0, %switch.early.test.i.i ], [ 0, %.lr.ph.i ], [ 2, %161 ]
+  %.0.i.ph.i = phi i64 [ 0, %switch.early.test.i.i ], [ 0, %switch.early.test.i.i ], [ 1, %158 ], [ 0, %.lr.ph.i ], [ 0, %switch.early.test.i.i ], [ 2, %161 ]
   %174 = zext i32 %.08.i to i64
   %175 = getelementptr inbounds nuw [3 x %struct.thai_above_state_machine_edge_t], ptr @_ZL24thai_above_state_machine, i64 %174
   %176 = getelementptr inbounds nuw %struct.thai_above_state_machine_edge_t, ptr %175, i64 %.0.i.ph.i
@@ -454,7 +454,7 @@ unreachable.i.i:                                  ; preds = %211
   unreachable
 
 215:                                              ; preds = %214, %213, %211
-  %.0.i49.i = phi ptr [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE11SD_mappings, %211 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE11SL_mappings, %214 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE12SDL_mappings, %213 ]
+  %.0.i49.i = phi ptr [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE12SDL_mappings, %213 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE11SL_mappings, %214 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE11SD_mappings, %211 ]
   %216 = load i16, ptr %.0.i49.i, align 16
   %.not18.i.i = icmp eq i16 %216, 0
   br i1 %.not18.i.i, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i, label %.lr.ph.i50.i
@@ -490,7 +490,7 @@ unreachable.i.i:                                  ; preds = %211
   br i1 %.not.i52.i, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i, label %.lr.ph.i50.i, !llvm.loop !9
 
 _ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i: ; preds = %230, %225, %220, %215, %211
-  %.013.i53.i = phi i32 [ %223, %220 ], [ %212, %215 ], [ %212, %211 ], [ %spec.select.i56.i, %225 ], [ %212, %230 ]
+  %.013.i53.i = phi i32 [ %212, %211 ], [ %212, %215 ], [ %223, %220 ], [ %spec.select.i56.i, %225 ], [ %212, %230 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %.013.i53.i, ptr %153, align 4
   br label %233
@@ -961,7 +961,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !15
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated

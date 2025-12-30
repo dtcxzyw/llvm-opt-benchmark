@@ -102,7 +102,7 @@ define hidden { i64, i64 } @SDL_StringToGUID_REAL(ptr noundef %0) local_unnamed_
   br label %nibble.exit
 
 nibble.exit:                                      ; preds = %.lr.ph, %12, %14
-  %.0.i = phi i8 [ %spec.select.i, %14 ], [ %13, %12 ], [ %9, %.lr.ph ]
+  %.0.i = phi i8 [ %13, %12 ], [ %spec.select.i, %14 ], [ %9, %.lr.ph ]
   %17 = shl nuw i8 %.0.i, 4
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %19 = load i8, ptr %18, align 1
@@ -127,7 +127,7 @@ nibble.exit:                                      ; preds = %.lr.ph, %12, %14
   br label %nibble.exit18
 
 nibble.exit18:                                    ; preds = %nibble.exit, %23, %25
-  %.0.i17 = phi i8 [ %spec.select.i16, %25 ], [ %24, %23 ], [ %20, %nibble.exit ]
+  %.0.i17 = phi i8 [ %24, %23 ], [ %spec.select.i16, %25 ], [ %20, %nibble.exit ]
   %28 = add nuw nsw i8 %.0.i17, %17
   store i8 %28, ptr %.01219, align 1
   %29 = add nuw nsw i64 %.020, 2

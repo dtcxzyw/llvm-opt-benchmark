@@ -443,7 +443,7 @@ terminate.lpad.i.i16:                             ; preds = %if.then.i.i14
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i14, %lpad4, %lpad2, %if.then.i.i, %lpad.body.i
-  %.pn = phi { ptr, i32 } [ %0, %lpad.body.i ], [ %21, %lpad2 ], [ %0, %if.then.i.i ], [ %22, %lpad4 ], [ %22, %if.then.i.i14 ]
+  %.pn = phi { ptr, i32 } [ %21, %lpad2 ], [ %0, %if.then.i.i ], [ %0, %lpad.body.i ], [ %22, %lpad4 ], [ %22, %if.then.i.i14 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   br label %ehcleanup6
 
@@ -1604,7 +1604,7 @@ terminate.lpad.i.i16:                             ; preds = %if.then.i.i14
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i14, %lpad4, %lpad2, %if.then.i.i, %lpad.body.i
-  %.pn = phi { ptr, i32 } [ %0, %lpad.body.i ], [ %21, %lpad2 ], [ %0, %if.then.i.i ], [ %22, %lpad4 ], [ %22, %if.then.i.i14 ]
+  %.pn = phi { ptr, i32 } [ %21, %lpad2 ], [ %0, %if.then.i.i ], [ %0, %lpad.body.i ], [ %22, %lpad4 ], [ %22, %if.then.i.i14 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   br label %ehcleanup6
 
@@ -2227,7 +2227,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -3096,7 +3096,7 @@ lpad5.i:                                          ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad.i.loopexit, %lpad.i.loopexit.split-lp, %if.then.i.i.i, %lpad10.i, %lpad5.i
-  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %lpad10.i ], [ %4, %if.then.i.i.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %if.then.i.i.i ], [ %4, %lpad10.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__cur.015) #26
   br label %lpad.body
 
@@ -5853,7 +5853,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then5.i.i, %for.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end18.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !51
 
 if.end18.i.i:                                     ; preds = %for.body.i.i.i.i.i.i, %if.then5.i.i, %if.then.i.i, %if.end21.i
-  %nullCnt.0.i.i = phi i32 [ 0, %if.end21.i ], [ 0, %if.then.i.i ], [ 0, %if.then5.i.i ], [ %.sroa.speculated.i.i, %for.body.i.i.i.i.i.i ]
+  %nullCnt.0.i.i = phi i32 [ 0, %if.then.i.i ], [ 0, %if.end21.i ], [ 0, %if.then5.i.i ], [ %.sroa.speculated.i.i, %for.body.i.i.i.i.i.i ]
   %ignoreNullsForPartition_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 81
   %24 = load i8, ptr %ignoreNullsForPartition_.i.i, align 1
   %tobool19.i.i = trunc i8 %24 to i1
@@ -6413,7 +6413,7 @@ if.end25.i84:                                     ; preds = %if.end.i80
   br label %for.inc.i87
 
 for.inc.i87:                                      ; preds = %if.end25.i84, %if.end.i80, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit.i69
-  %.sink.i88 = phi i32 [ -1, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit.i69 ], [ %conv30.i, %if.end25.i84 ], [ -2, %if.end.i80 ]
+  %.sink.i88 = phi i32 [ %conv30.i, %if.end25.i84 ], [ -1, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit.i69 ], [ -2, %if.end.i80 ]
   %116 = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i89 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.i66
   store i32 %.sink.i88, ptr %add.ptr.i.i89, align 4
@@ -7665,7 +7665,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end44
 
@@ -10836,7 +10836,7 @@ if.end25.i90:                                     ; preds = %if.end.i86
   br label %for.inc.i92
 
 for.inc.i92:                                      ; preds = %if.end25.i90, %if.end.i86, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit.i75
-  %.sink.i93 = phi i32 [ -1, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit.i75 ], [ %conv31.i, %if.end25.i90 ], [ -2, %if.end.i86 ]
+  %.sink.i93 = phi i32 [ %conv31.i, %if.end25.i90 ], [ -1, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit.i75 ], [ -2, %if.end.i86 ]
   %120 = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i94 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i72
   store i32 %.sink.i93, ptr %add.ptr.i.i94, align 4

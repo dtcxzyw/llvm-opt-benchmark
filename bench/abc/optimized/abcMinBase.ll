@@ -502,7 +502,7 @@ Vec_StrFree.exit.sink.split:                      ; preds = %Vec_PtrFree.exit, %
   br label %Vec_StrFree.exit
 
 Vec_StrFree.exit:                                 ; preds = %Vec_StrFree.exit.sink.split, %Vec_PtrFree.exit, %14
-  %.0 = phi i32 [ 1, %Vec_PtrFree.exit ], [ 0, %14 ], [ %.0.ph, %Vec_StrFree.exit.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %Vec_PtrFree.exit ], [ %.0.ph, %Vec_StrFree.exit.sink.split ]
   tail call void @free(ptr noundef nonnull %2) #16
   ret i32 %.0
 }
@@ -716,7 +716,7 @@ Abc_NodeRemoveDupFanins_int.exit:                 ; preds = %.lr.ph.i
   br i1 %45, label %.lr.ph48.i, label %Abc_NodeRemoveDupFanins.exit, !llvm.loop !61
 
 Abc_NodeRemoveDupFanins.exit:                     ; preds = %Abc_NodeRemoveDupFanins_int.exit, %.critedge2.i, %.preheader
-  %.0.i20 = phi i32 [ %.0.i22, %.critedge2.i ], [ 0, %.preheader ], [ %44, %Abc_NodeRemoveDupFanins_int.exit ]
+  %.0.i20 = phi i32 [ 0, %.preheader ], [ %.0.i22, %.critedge2.i ], [ %44, %Abc_NodeRemoveDupFanins_int.exit ]
   %46 = add nsw i32 %.0.i20, %.026
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
   br label %47
@@ -1112,8 +1112,8 @@ Vec_PtrPush.exit.i:                               ; preds = %51, %Vec_PtrGrow.ex
   br label %Vec_PtrPushUnique.exit
 
 Vec_PtrPushUnique.exit:                           ; preds = %27, %Vec_PtrPush.exit.i, %14
-  %.val21 = phi i32 [ %.val2150, %14 ], [ %.val21.pre, %Vec_PtrPush.exit.i ], [ %.val2150, %27 ]
-  %58 = phi i32 [ %15, %14 ], [ %55, %Vec_PtrPush.exit.i ], [ %15, %27 ]
+  %.val21 = phi i32 [ %.val21.pre, %Vec_PtrPush.exit.i ], [ %.val2150, %14 ], [ %.val2150, %27 ]
+  %58 = phi i32 [ %55, %Vec_PtrPush.exit.i ], [ %15, %14 ], [ %15, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %.val21 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
@@ -2740,8 +2740,8 @@ define range(i32 0, 2) i32 @Abc_NtkEliminate1(ptr noundef %0, i32 noundef %1, i3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph.preheader
-  %.val = phi i32 [ %.val14, %10 ], [ %.val.pre, %.lr.ph.preheader ]
-  %.01318 = phi i32 [ %12, %10 ], [ 0, %.lr.ph.preheader ]
+  %.val = phi i32 [ %.val.pre, %.lr.ph.preheader ], [ %.val14, %10 ]
+  %.01318 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %10 ]
   %9 = tail call i32 @Abc_NtkEliminate1One(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.thread, label %10
@@ -3298,7 +3298,7 @@ Vec_PtrFree.exit119:                              ; preds = %Vec_PtrFree.exit117
   br label %186
 
 186:                                              ; preds = %185, %184, %116, %Vec_PtrFree.exit, %30, %5
-  %.0 = phi i32 [ 1, %Vec_PtrFree.exit ], [ 0, %5 ], [ 0, %116 ], [ 0, %30 ], [ 1, %184 ], [ 1, %185 ]
+  %.0 = phi i32 [ 1, %Vec_PtrFree.exit ], [ 0, %116 ], [ 0, %30 ], [ 0, %5 ], [ 1, %184 ], [ 1, %185 ]
   ret i32 %.0
 }
 

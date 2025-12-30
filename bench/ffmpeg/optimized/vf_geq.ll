@@ -403,7 +403,7 @@ define internal i32 @geq_init(ptr noundef %0) #0 {
   br i1 %exitcond130.not, label %.loopexit, label %119, !llvm.loop !33
 
 .loopexit:                                        ; preds = %143, %92, %142, %17, %37, %99, %96, %94, %90
-  %.072 = phi i32 [ -12, %90 ], [ -22, %37 ], [ %140, %142 ], [ -12, %92 ], [ -22, %17 ], [ -12, %99 ], [ -12, %96 ], [ -12, %94 ], [ %140, %143 ]
+  %.072 = phi i32 [ -22, %37 ], [ %140, %142 ], [ -22, %17 ], [ -12, %99 ], [ -12, %96 ], [ -12, %94 ], [ -12, %92 ], [ -12, %90 ], [ %140, %143 ]
   ret i32 %.072
 }
 
@@ -1530,7 +1530,7 @@ define internal fastcc double @getpix(ptr noundef readonly captures(none) %0, do
   br label %.thread156
 
 .thread156:                                       ; preds = %128, %96, %63, %171, %95, %32, %180, %172, %163
-  %.0 = phi nsz double [ 0.000000e+00, %32 ], [ 0.000000e+00, %171 ], [ %170, %163 ], [ %179, %172 ], [ %186, %180 ], [ 0.000000e+00, %95 ], [ %158, %128 ], [ %127, %96 ], [ %94, %63 ]
+  %.0 = phi nsz double [ %170, %163 ], [ %179, %172 ], [ %186, %180 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %95 ], [ 0.000000e+00, %171 ], [ %158, %128 ], [ %127, %96 ], [ %94, %63 ]
   ret double %.0
 }
 
@@ -1543,7 +1543,7 @@ define internal fastcc double @getpix_integrate_internal(ptr noundef %0, i32 nou
   br i1 %.not, label %15, label %7
 
 common.ret64:                                     ; preds = %34, %26, %40, %36, %28, %16, %7
-  %common.ret64.op = phi double [ %39, %36 ], [ %14, %7 ], [ %23, %16 ], [ %31, %28 ], [ %49, %40 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %34 ]
+  %common.ret64.op = phi double [ %14, %7 ], [ %23, %16 ], [ %31, %28 ], [ %39, %36 ], [ %49, %40 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %34 ]
   ret double %common.ret64.op
 
 7:                                                ; preds = %6

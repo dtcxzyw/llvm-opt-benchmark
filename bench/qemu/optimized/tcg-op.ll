@@ -940,8 +940,8 @@ define dso_local void @tcg_gen_brcond_i32(i32 noundef %0, ptr noundef %1, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %36, %17, %15
-  %.0.i.i.sink14 = phi ptr [ %10, %17 ], [ %16, %15 ], [ %37, %36 ], [ %31, %38 ]
-  %.sink = phi ptr [ %7, %17 ], [ %7, %15 ], [ %29, %36 ], [ %29, %38 ]
+  %.0.i.i.sink14 = phi ptr [ %16, %15 ], [ %10, %17 ], [ %37, %36 ], [ %31, %38 ]
+  %.sink = phi ptr [ %7, %15 ], [ %7, %17 ], [ %29, %36 ], [ %29, %38 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.sink14, i64 8
   store ptr %.sink, ptr %39, align 8
   store ptr null, ptr %.0.i.i.sink14, align 8
@@ -4290,8 +4290,8 @@ define dso_local void @tcg_gen_brcond_i64(i32 noundef %0, ptr noundef %1, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %36, %17, %15
-  %.0.i.i.sink14 = phi ptr [ %10, %17 ], [ %16, %15 ], [ %37, %36 ], [ %31, %38 ]
-  %.sink = phi ptr [ %7, %17 ], [ %7, %15 ], [ %29, %36 ], [ %29, %38 ]
+  %.0.i.i.sink14 = phi ptr [ %16, %15 ], [ %10, %17 ], [ %37, %36 ], [ %31, %38 ]
+  %.sink = phi ptr [ %7, %15 ], [ %7, %17 ], [ %29, %36 ], [ %29, %38 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.sink14, i64 8
   store ptr %.sink, ptr %39, align 8
   store ptr null, ptr %.0.i.i.sink14, align 8

@@ -2858,8 +2858,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %127, %133, %97, %103, %67, %73, %37, %43
-  %.sink = phi ptr [ %6, %97 ], [ %9, %67 ], [ %12, %37 ], [ %12, %43 ], [ %9, %73 ], [ %6, %103 ], [ %3, %133 ], [ %3, %127 ]
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %68, %67 ], [ %38, %37 ], [ %.pn.pn.i, %43 ], [ %.pn.i, %73 ], [ %.pn.i8, %103 ], [ %.pn.i15, %133 ], [ %128, %127 ]
+  %.sink = phi ptr [ %12, %43 ], [ %12, %37 ], [ %9, %73 ], [ %9, %67 ], [ %6, %103 ], [ %6, %97 ], [ %3, %133 ], [ %3, %127 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %43 ], [ %38, %37 ], [ %.pn.i, %73 ], [ %68, %67 ], [ %.pn.i8, %103 ], [ %98, %97 ], [ %.pn.i15, %133 ], [ %128, %127 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #13
   resume { ptr, i32 } %common.resume.op
 

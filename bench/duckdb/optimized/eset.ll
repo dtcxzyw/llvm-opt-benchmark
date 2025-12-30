@@ -496,7 +496,7 @@ fb_ffs.exit36.i:                                  ; preds = %90, %80
   br i1 %97, label %54, label %eset_first_fit.exit
 
 eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %54, %78, %fb_ffs.exit36.i, %.lr.ph.i34.i, %30, %34, %fb_ffs.exit.i
-  %.0.i = phi ptr [ null, %30 ], [ %35, %34 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i34.i ], [ %.2.i, %fb_ffs.exit36.i ], [ %.02741.i, %54 ], [ %.2.i, %78 ], [ null, %.lr.ph.i.i ]
+  %.0.i = phi ptr [ %35, %34 ], [ null, %30 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i34.i ], [ %.2.i, %fb_ffs.exit36.i ], [ %.02741.i, %54 ], [ %.2.i, %78 ], [ null, %.lr.ph.i.i ]
   %98 = icmp ugt i64 %2, 4096
   %99 = icmp eq ptr %.0.i, null
   %or.cond = select i1 %98, i1 %99, i1 false
@@ -657,7 +657,7 @@ fb_ffs.exit46.i:                                  ; preds = %.lr.ph.i44.i, %._cr
   br i1 %.not35.i, label %154, label %eset_fit_alignment.exit
 
 eset_fit_alignment.exit:                          ; preds = %fb_ffs.exit46.i, %154, %fb_ffs.exit.i25, %eset_first_fit.exit, %5
-  %.016 = phi ptr [ null, %5 ], [ %.0.i, %eset_first_fit.exit ], [ null, %fb_ffs.exit.i25 ], [ null, %fb_ffs.exit46.i ], [ %157, %154 ]
+  %.016 = phi ptr [ null, %5 ], [ %.0.i, %eset_first_fit.exit ], [ null, %fb_ffs.exit.i25 ], [ %157, %154 ], [ null, %fb_ffs.exit46.i ]
   ret ptr %.016
 }
 

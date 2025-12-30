@@ -916,8 +916,8 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
 _ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %64, %35
-  %.026 = phi i32 [ %40, %64 ], [ 0, %35 ]
-  %.0.in = phi i64 [ %57, %64 ], [ %28, %35 ]
+  %.026 = phi i32 [ 0, %35 ], [ %40, %64 ]
+  %.0.in = phi i64 [ %28, %35 ], [ %57, %64 ]
   %.0 = inttoptr i64 %.0.in to ptr
   %68 = icmp eq i64 %.0.in, 0
   br i1 %68, label %69, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
@@ -1104,8 +1104,8 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
 _ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %62, %33
-  %.022 = phi i32 [ %38, %62 ], [ 0, %33 ]
-  %.0.in = phi i64 [ %55, %62 ], [ %26, %33 ]
+  %.022 = phi i32 [ 0, %33 ], [ %38, %62 ]
+  %.0.in = phi i64 [ %26, %33 ], [ %55, %62 ]
   %.0 = inttoptr i64 %.0.in to ptr
   %66 = icmp eq i64 %.0.in, 0
   br i1 %66, label %67, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
@@ -1204,8 +1204,8 @@ define dso_local noundef ptr @_ZN5clang15ObjCMessageExpr6CreateERKNS_10ASTContex
   br label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
 
 _ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit: ; preds = %62, %33
-  %.022 = phi i32 [ %38, %62 ], [ 0, %33 ]
-  %.0.in = phi i64 [ %55, %62 ], [ %26, %33 ]
+  %.022 = phi i32 [ 0, %33 ], [ %38, %62 ]
+  %.0.in = phi i64 [ %26, %33 ], [ %55, %62 ]
   %.0 = inttoptr i64 %.0.in to ptr
   %66 = icmp eq i64 %.0.in, 0
   br i1 %66, label %67, label %_ZN5clang15ObjCMessageExpr5allocERKNS_10ASTContextEjj.exit.thread
@@ -1599,7 +1599,7 @@ _ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i: ; preds = %10
   unreachable
 
 _ZNK5clang15ObjCMessageExpr16getClassReceiverEv.exit: ; preds = %18, %16, %15, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i, %10, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit ], [ 0, %10 ], [ %.sroa.0.0.copyload.i.i, %15 ], [ 0, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i ], [ %21, %18 ], [ 0, %16 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit ], [ %.sroa.0.0.copyload.i.i, %15 ], [ 0, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i ], [ 0, %10 ], [ %21, %18 ], [ 0, %16 ]
   ret i64 %.sroa.0.0
 }
 
@@ -1656,7 +1656,7 @@ _ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i.i: ; preds = %10
   unreachable
 
 _ZNK5clang15ObjCMessageExpr15getReceiverTypeEv.exit: ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i, %10, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i.i, %15, %16, %18
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i ], [ 0, %10 ], [ %.sroa.0.0.copyload.i.i.i, %15 ], [ 0, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i.i ], [ %21, %18 ], [ 0, %16 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.i ], [ %.sroa.0.0.copyload.i.i.i, %15 ], [ 0, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.i.i ], [ 0, %10 ], [ %21, %18 ], [ 0, %16 ]
   %23 = and i64 %.sroa.0.0.i, -16
   %24 = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %24, align 16, !tbaa !94
@@ -1824,7 +1824,7 @@ _ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.sink.split: ; preds =
   br label %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit
 
 _ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit: ; preds = %80, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i, %52, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.sink.split, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit, %65
-  %.1 = phi ptr [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit ], [ null, %52 ], [ %90, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.sink.split ], [ null, %65 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i ], [ null, %80 ]
+  %.1 = phi ptr [ null, %65 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit ], [ %90, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.sink.split ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ null, %52 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i ], [ null, %80 ]
   ret ptr %.1
 }
 

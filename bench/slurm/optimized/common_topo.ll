@@ -424,9 +424,9 @@ _set_span.exit.thread:                            ; preds = %._crit_edge.us.i
   br label %_set_span.exit.thread.thread49
 
 _set_span.exit.thread.thread49:                   ; preds = %_set_span.exit, %_set_span.exit.thread, %_set_span.exit.thread.thread
-  %39 = phi ptr [ %15, %_set_span.exit ], [ %15, %_set_span.exit.thread ], [ null, %_set_span.exit.thread.thread ]
-  %.053.i4247 = phi i32 [ %36, %_set_span.exit ], [ %24, %_set_span.exit.thread ], [ 1, %_set_span.exit.thread.thread ]
-  %40 = phi i16 [ %spec.select, %_set_span.exit ], [ %spec.select52, %_set_span.exit.thread ], [ %12, %_set_span.exit.thread.thread ]
+  %39 = phi ptr [ null, %_set_span.exit.thread.thread ], [ %15, %_set_span.exit ], [ %15, %_set_span.exit.thread ]
+  %.053.i4247 = phi i32 [ 1, %_set_span.exit.thread.thread ], [ %36, %_set_span.exit ], [ %24, %_set_span.exit.thread ]
+  %40 = phi i16 [ %12, %_set_span.exit.thread.thread ], [ %spec.select, %_set_span.exit ], [ %spec.select52, %_set_span.exit.thread ]
   %41 = zext i16 %40 to i64
   %42 = tail call ptr @slurm_xcalloc(i64 noundef %41, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 304, ptr noundef nonnull @__func__._split_hostlist_treewidth) #7
   store ptr %42, ptr %1, align 8
@@ -807,9 +807,9 @@ define dso_local i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_add
   br label %114
 
 114:                                              ; preds = %._crit_edge209, %.lr.ph178.split.us
-  %115 = phi i32 [ %101, %.lr.ph178.split.us ], [ %.pre210, %._crit_edge209 ]
-  %.3.us = phi i32 [ %.188175.us, %.lr.ph178.split.us ], [ %112, %._crit_edge209 ]
-  %.2.us = phi i32 [ %.0176.us, %.lr.ph178.split.us ], [ 0, %._crit_edge209 ]
+  %115 = phi i32 [ %.pre210, %._crit_edge209 ], [ %101, %.lr.ph178.split.us ]
+  %.3.us = phi i32 [ %112, %._crit_edge209 ], [ %.188175.us, %.lr.ph178.split.us ]
+  %.2.us = phi i32 [ 0, %._crit_edge209 ], [ %.0176.us, %.lr.ph178.split.us ]
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %2, align 4
   %117 = load ptr, ptr %15, align 8
@@ -988,7 +988,7 @@ select.unfold:                                    ; preds = %145, %._crit_edge17
   br i1 %.not131, label %.thread149.thread156, label %.lr.ph194, !llvm.loop !22
 
 .thread149.thread156:                             ; preds = %145, %198, %.preheader160, %.preheader, %.thread149, %.thread153
-  %.6 = phi i32 [ %.4, %198 ], [ 0, %.thread153 ], [ %.093, %.thread149 ], [ 0, %.preheader ], [ %71, %.preheader160 ], [ %143, %145 ]
+  %.6 = phi i32 [ 0, %.thread153 ], [ %.093, %.thread149 ], [ 0, %.preheader ], [ %71, %.preheader160 ], [ %.4, %198 ], [ %143, %145 ]
   %203 = load ptr, ptr %3, align 8
   %.not132 = icmp eq ptr %203, null
   br i1 %.not132, label %205, label %204

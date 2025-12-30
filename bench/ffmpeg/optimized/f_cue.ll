@@ -180,7 +180,7 @@ thread-pre-split67:                               ; preds = %thread-pre-split, %
   br label %.thread69
 
 .thread69:                                        ; preds = %.thread69.sink.split, %32, %79
-  %.3.ph = phi i32 [ %33, %32 ], [ %80, %79 ], [ %83, %.thread69.sink.split ]
+  %.3.ph = phi i32 [ %80, %79 ], [ %33, %32 ], [ %83, %.thread69.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %93
 
@@ -215,7 +215,7 @@ thread-pre-split67:                               ; preds = %thread-pre-split, %
   br label %93
 
 93:                                               ; preds = %87, %.thread69, %14, %90, %92
-  %.1 = phi i32 [ 0, %92 ], [ 0, %14 ], [ 0, %87 ], [ %.3.ph, %.thread69 ], [ -1497649742, %90 ]
+  %.1 = phi i32 [ 0, %92 ], [ 0, %87 ], [ 0, %14 ], [ -1497649742, %90 ], [ %.3.ph, %.thread69 ]
   ret i32 %.1
 }
 

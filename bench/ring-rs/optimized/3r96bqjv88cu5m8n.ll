@@ -969,7 +969,7 @@ _ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_dige
   br label %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit
 
 _ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit: ; preds = %.thread42.i, %72, %127, %131
-  %.5.i = phi i1 [ true, %127 ], [ true, %72 ], [ %.1.i, %131 ], [ true, %.thread42.i ]
+  %.5.i = phi i1 [ true, %127 ], [ %.1.i, %131 ], [ true, %72 ], [ true, %.thread42.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !99
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   ret i1 %.5.i

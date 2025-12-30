@@ -497,8 +497,8 @@ update_sample_stats.exit.loopexit304:             ; preds = %.lr.ph.split.i.i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %update_sample_stats.exit.us330, %update_sample_stats.exit.us, %._crit_edge.sink.split
-  %.us-phi325 = phi i32 [ %71, %update_sample_stats.exit.us ], [ %.us-phi325.ph, %._crit_edge.sink.split ], [ %86, %update_sample_stats.exit.us330 ]
-  %.us-phi326 = phi i32 [ %72, %update_sample_stats.exit.us ], [ %.us-phi326.ph, %._crit_edge.sink.split ], [ %87, %update_sample_stats.exit.us330 ]
+  %.us-phi325 = phi i32 [ %.us-phi325.ph, %._crit_edge.sink.split ], [ %71, %update_sample_stats.exit.us ], [ %86, %update_sample_stats.exit.us330 ]
+  %.us-phi326 = phi i32 [ %.us-phi326.ph, %._crit_edge.sink.split ], [ %72, %update_sample_stats.exit.us ], [ %87, %update_sample_stats.exit.us330 ]
   %.pn = mul i32 %54, %59
   %.us-phi = add i32 %.promoted323, %.pn
   store i32 %.us-phi325, ptr %62, align 4, !tbaa !39
@@ -751,7 +751,7 @@ av_ts_make_string.exit:                           ; preds = %127, %128
   br i1 %.not22.i, label %242, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.._crit_edge.i_crit_edge, %236
-  %237 = phi double [ %235, %.._crit_edge.i_crit_edge ], [ 0.000000e+00, %236 ]
+  %237 = phi double [ 0.000000e+00, %236 ], [ %235, %.._crit_edge.i_crit_edge ]
   %238 = sitofp i32 %229 to double
   %239 = fmul nsz double %238, 0x3EF0000000000000
   %240 = sitofp i32 %233 to double

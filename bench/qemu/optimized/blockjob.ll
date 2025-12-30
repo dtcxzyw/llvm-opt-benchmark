@@ -384,7 +384,7 @@ ratelimit_set_speed.exit:                         ; preds = %16, %22
   br label %36
 
 36:                                               ; preds = %34, %10, %35, %15
-  %.0 = phi i1 [ true, %35 ], [ false, %15 ], [ false, %10 ], [ true, %34 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %35 ], [ false, %10 ], [ true, %34 ]
   ret i1 %.0
 }
 
@@ -571,7 +571,7 @@ define dso_local void @block_job_ratelimit_sleep(ptr noundef %0) local_unnamed_a
   br label %ratelimit_calculate_delay.exit
 
 ratelimit_calculate_delay.exit:                   ; preds = %7, %20, %23
-  %.0.i = phi i64 [ 0, %7 ], [ %32, %23 ], [ 0, %20 ]
+  %.0.i = phi i64 [ %32, %23 ], [ 0, %7 ], [ 0, %20 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %2, ptr noundef nonnull @.str.13, i32 noundef 56) #8
   tail call void @job_sleep_ns(ptr noundef nonnull %0, i64 noundef %.0.i) #8
   %.not = icmp eq i64 %.0.i, 0
@@ -1132,7 +1132,7 @@ define dso_local range(i32 0, 3) i32 @block_job_error_action(ptr noundef %0, i32
   unreachable
 
 11:                                               ; preds = %4, %9, %8, %5
-  %.0 = phi i32 [ %7, %5 ], [ 0, %9 ], [ 1, %8 ], [ 2, %4 ]
+  %.0 = phi i32 [ %7, %5 ], [ 1, %8 ], [ 0, %9 ], [ 2, %4 ]
   %12 = load ptr, ptr %0, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14

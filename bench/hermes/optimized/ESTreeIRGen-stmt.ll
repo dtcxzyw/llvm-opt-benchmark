@@ -2452,7 +2452,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.ex
   br label %if.end29
 
 if.end29:                                         ; preds = %for.body.i.i, %for.body, %if.end31.i.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit
-  %defaultBlock.1 = phi ptr [ %defaultBlock.049, %if.end31.i.i ], [ %defaultBlock.049, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit ], [ %call21, %for.body ], [ %defaultBlock.049, %for.body.i.i ]
+  %defaultBlock.1 = phi ptr [ %defaultBlock.049, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit ], [ %defaultBlock.049, %if.end31.i.i ], [ %call21, %for.body ], [ %defaultBlock.049, %for.body.i.i ]
   br i1 %isFirstCase.047, label %if.end34, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
@@ -2486,7 +2486,7 @@ if.then38:                                        ; preds = %_ZN6hermes5irgen11E
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end, %if.then38
-  %defaultBlock.0.lcssa62 = phi ptr [ %call4, %if.end ], [ %defaultBlock.1, %if.then38 ]
+  %defaultBlock.0.lcssa62 = phi ptr [ %defaultBlock.1, %if.then38 ], [ %call4, %if.end ]
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call12) #8
   %call44 = call noundef ptr @_ZN6hermes9IRBuilder16createSwitchInstEPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call6, ptr noundef %defaultBlock.0.lcssa62, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) #8
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call4) #8

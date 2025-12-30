@@ -121,7 +121,7 @@ define noundef i32 @SUNModifiedGS(ptr noundef readonly captures(none) %0, ptr no
   br label %71
 
 71:                                               ; preds = %64, %69
-  %72 = phi double [ 0.000000e+00, %64 ], [ %70, %69 ]
+  %72 = phi double [ %70, %69 ], [ 0.000000e+00, %64 ]
   store double %72, ptr %4, align 8, !tbaa !12
   br label %._crit_edge92.thread
 
@@ -379,8 +379,8 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   br label %53
 
 53:                                               ; preds = %._crit_edge163, %37, %45
-  %.0146 = phi double [ %52, %45 ], [ %42, %37 ], [ 0.000000e+00, %._crit_edge163 ]
-  %.0141 = phi double [ %50, %45 ], [ %44, %37 ], [ 1.000000e+00, %._crit_edge163 ]
+  %.0146 = phi double [ %42, %37 ], [ %52, %45 ], [ 0.000000e+00, %._crit_edge163 ]
+  %.0141 = phi double [ %44, %37 ], [ %50, %45 ], [ 1.000000e+00, %._crit_edge163 ]
   %.idx187 = shl nuw nsw i64 %indvars.iv174, 4
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx187
   store double %.0141, ptr %54, align 8, !tbaa !12
@@ -482,8 +482,8 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   br label %112
 
 112:                                              ; preds = %._crit_edge, %96, %104
-  %.1147 = phi double [ %111, %104 ], [ %101, %96 ], [ 0.000000e+00, %._crit_edge ]
-  %.1142 = phi double [ %109, %104 ], [ %103, %96 ], [ 1.000000e+00, %._crit_edge ]
+  %.1147 = phi double [ %101, %96 ], [ %111, %104 ], [ 0.000000e+00, %._crit_edge ]
+  %.1142 = phi double [ %103, %96 ], [ %109, %104 ], [ 1.000000e+00, %._crit_edge ]
   %113 = shl nsw i32 %62, 1
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds double, ptr %2, i64 %114
@@ -501,7 +501,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %.preheader159, %112, %121
-  %.2 = phi i32 [ 0, %112 ], [ %0, %121 ], [ 0, %.preheader159 ], [ %.1, %53 ]
+  %.2 = phi i32 [ %0, %121 ], [ 0, %112 ], [ 0, %.preheader159 ], [ %.1, %53 ]
   ret i32 %.2
 }
 
@@ -598,7 +598,7 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %.lr.ph56.preheader, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge, %4
-  %.0 = phi i32 [ 0, %4 ], [ %0, %.lr.ph56.preheader ], [ %47, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %4 ], [ %47, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge ], [ %0, %.lr.ph56.preheader ], [ 0, %32 ]
   ret i32 %.0
 }
 

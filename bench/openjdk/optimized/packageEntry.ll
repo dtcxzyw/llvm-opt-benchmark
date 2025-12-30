@@ -215,7 +215,7 @@ define hidden noundef zeroext i1 @_ZNK12PackageEntry15is_qexported_toEP11ModuleE
   br i1 %or.cond, label %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit, label %27, !llvm.loop !6
 
 _ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit: ; preds = %27, %22, %15, %12
-  %.0 = phi i1 [ false, %15 ], [ true, %12 ], [ false, %22 ], [ %30, %27 ]
+  %.0 = phi i1 [ true, %12 ], [ false, %15 ], [ false, %22 ], [ %30, %27 ]
   ret i1 %.0
 }
 
@@ -1706,7 +1706,7 @@ _ZN12PackageEntryD2Ev.exit:                       ; preds = %52, %_ZN13GrowableA
   br label %61
 
 61:                                               ; preds = %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread, %_ZN12PackageEntryD2Ev.exit
-  %.0.in.sroa.speculated = phi ptr [ %3, %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread ], [ %.0.in.sroa.speculate.load._ZN12PackageEntryD2Ev.exit, %_ZN12PackageEntryD2Ev.exit ]
+  %.0.in.sroa.speculated = phi ptr [ %.0.in.sroa.speculate.load._ZN12PackageEntryD2Ev.exit, %_ZN12PackageEntryD2Ev.exit ], [ %3, %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread ]
   ret ptr %.0.in.sroa.speculated
 }
 

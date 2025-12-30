@@ -237,7 +237,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %.noexc12
   br label %.body
 
 .body:                                            ; preds = %29, %24, %21
-  %.pn9.pn = phi { ptr, i32 } [ %22, %21 ], [ %30, %29 ], [ %22, %24 ]
+  %.pn9.pn = phi { ptr, i32 } [ %30, %29 ], [ %22, %24 ], [ %22, %21 ]
   tail call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   resume { ptr, i32 } %.pn9.pn
 }

@@ -82,8 +82,8 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br i1 %19, label %20, label %.sink.split
 
 .sink.split:                                      ; preds = %14, %.critedge, %1
-  %.str.32.sink = phi ptr [ @.str.31, %.critedge ], [ @.str.30, %1 ], [ @.str.32, %14 ]
-  %.1.ph = phi i32 [ %12, %.critedge ], [ %7, %1 ], [ %18, %14 ]
+  %.str.32.sink = phi ptr [ @.str.30, %1 ], [ @.str.31, %.critedge ], [ @.str.32, %14 ]
+  %.1.ph = phi i32 [ %7, %1 ], [ %12, %.critedge ], [ %18, %14 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.32.sink) #6
   br label %20
 

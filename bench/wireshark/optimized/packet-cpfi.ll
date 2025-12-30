@@ -690,7 +690,7 @@ dissect_cpfi_footer.exit:                         ; preds = %dissect_cpfi_header
   br label %258
 
 258:                                              ; preds = %26, %22, %16, %19, %4, %dissect_cpfi_footer.exit
-  %.0 = phi i32 [ 0, %4 ], [ 0, %16 ], [ 0, %22 ], [ %257, %dissect_cpfi_footer.exit ], [ 0, %19 ], [ 0, %26 ]
+  %.0 = phi i32 [ %257, %dissect_cpfi_footer.exit ], [ 0, %4 ], [ 0, %19 ], [ 0, %16 ], [ 0, %22 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }

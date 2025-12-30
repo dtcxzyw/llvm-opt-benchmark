@@ -281,7 +281,7 @@ switch.lookup:                                    ; preds = %3
   br label %123
 
 123:                                              ; preds = %switch.lookup, %16, %92, %68, %35, %11, %8, %6, %121
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ -51, %6 ], [ -31, %8 ], [ -55, %92 ], [ 0, %121 ], [ -32, %11 ], [ -55, %35 ], [ -55, %68 ], [ -34, %16 ]
+  %.0 = phi i32 [ 0, %121 ], [ -51, %6 ], [ -31, %8 ], [ -32, %11 ], [ -55, %35 ], [ -55, %68 ], [ -55, %92 ], [ -34, %16 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -453,7 +453,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   br label %.backedge
 
 .backedge:                                        ; preds = %52, %60, %70, %101, %145, %153, %45, %41, %35
-  %.057.be = phi ptr [ %69, %60 ], [ %79, %70 ], [ %107, %101 ], [ %158, %153 ], [ %51, %45 ], [ %40, %41 ], [ %40, %35 ], [ %152, %145 ], [ %spec.select, %52 ]
+  %.057.be = phi ptr [ %158, %153 ], [ %51, %45 ], [ %40, %41 ], [ %40, %35 ], [ %69, %60 ], [ %79, %70 ], [ %107, %101 ], [ %152, %145 ], [ %spec.select, %52 ]
   br label %33
 
 60:                                               ; preds = %33, %33
@@ -581,8 +581,8 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %158 = getelementptr inbounds nuw i8, ptr %.057, i64 %157
   br label %.backedge
 
-.thread:                                          ; preds = %33, %80, %108, %12, %6, %3
-  %.056 = phi i32 [ -32, %12 ], [ -51, %3 ], [ -31, %6 ], [ %144, %108 ], [ %100, %80 ], [ 0, %33 ]
+.thread:                                          ; preds = %108, %80, %33, %12, %6, %3
+  %.056 = phi i32 [ -51, %3 ], [ -31, %6 ], [ -32, %12 ], [ 0, %33 ], [ %100, %80 ], [ %144, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.056
 }

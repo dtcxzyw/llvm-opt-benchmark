@@ -235,7 +235,7 @@ define range(i32 -1, 2) i32 @H5G__is_empty_test(i64 noundef %0) local_unnamed_ad
   br i1 %or.cond73, label %83, label %.thread
 
 .thread:                                          ; preds = %58, %63, %70, %74
-  %.3.ph = phi i32 [ 0, %74 ], [ -1, %58 ], [ -1, %70 ], [ -1, %63 ]
+  %.3.ph = phi i32 [ 0, %74 ], [ -1, %70 ], [ -1, %63 ], [ -1, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %126
 
@@ -324,8 +324,8 @@ define range(i32 -1, 2) i32 @H5G__is_empty_test(i64 noundef %0) local_unnamed_ad
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %126
 
-126:                                              ; preds = %30, %38, %43, %.thread, %50, %87, %42, %125, %91
-  %.138.ph = phi i32 [ 1, %91 ], [ %.4, %125 ], [ 0, %42 ], [ -1, %87 ], [ -1, %50 ], [ %.3.ph, %.thread ], [ -1, %43 ], [ -1, %38 ], [ -1, %30 ]
+126:                                              ; preds = %30, %38, %43, %50, %87, %125, %91, %42, %.thread
+  %.138.ph = phi i32 [ %.3.ph, %.thread ], [ 0, %42 ], [ 1, %91 ], [ %.4, %125 ], [ -1, %87 ], [ -1, %50 ], [ -1, %43 ], [ -1, %38 ], [ -1, %30 ]
   %127 = call i32 @H5CX_pop(i1 noundef zeroext false) #5
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %129, label %133
@@ -452,8 +452,8 @@ define range(i32 -1, 2) i32 @H5G__has_links_test(i64 noundef %0, ptr noundef wri
   store i32 %48, ptr %1, align 4, !tbaa !14
   br label %55
 
-55:                                               ; preds = %28, %46, %37, %42, %32, %54, %50
-  %.1.ph = phi i32 [ 1, %54 ], [ -1, %50 ], [ 0, %32 ], [ -1, %42 ], [ -1, %37 ], [ 1, %46 ], [ -1, %28 ]
+55:                                               ; preds = %28, %37, %42, %46, %32, %54, %50
+  %.1.ph = phi i32 [ 1, %54 ], [ -1, %50 ], [ 0, %32 ], [ 1, %46 ], [ -1, %42 ], [ -1, %37 ], [ -1, %28 ]
   %56 = call i32 @H5CX_pop(i1 noundef zeroext false) #5
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
@@ -544,8 +544,8 @@ define range(i32 -1, 2) i32 @H5G__has_stab_test(i64 noundef %0) local_unnamed_ad
   %44 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__has_stab_test, i32 noundef 301, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.4) #5
   br label %45
 
-45:                                               ; preds = %27, %40, %36, %41, %31
-  %.1.ph = phi i32 [ 0, %31 ], [ -1, %41 ], [ -1, %36 ], [ 1, %40 ], [ -1, %27 ]
+45:                                               ; preds = %27, %36, %41, %40, %31
+  %.1.ph = phi i32 [ 0, %31 ], [ 1, %40 ], [ -1, %41 ], [ -1, %36 ], [ -1, %27 ]
   %46 = call i32 @H5CX_pop(i1 noundef zeroext false) #5
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %52
@@ -674,8 +674,8 @@ define range(i32 -1, 2) i32 @H5G__is_new_dense_test(i64 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %63
 
-63:                                               ; preds = %28, %48, %36, %32, %44, %40, %62
-  %.1.ph = phi i32 [ %.2, %62 ], [ 0, %40 ], [ -1, %44 ], [ 0, %32 ], [ -1, %36 ], [ 1, %48 ], [ -1, %28 ]
+63:                                               ; preds = %28, %36, %44, %62, %48, %32, %40
+  %.1.ph = phi i32 [ 0, %40 ], [ 0, %32 ], [ 1, %48 ], [ %.2, %62 ], [ -1, %44 ], [ -1, %36 ], [ -1, %28 ]
   %64 = call i32 @H5CX_pop(i1 noundef zeroext false) #5
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %70
@@ -846,8 +846,8 @@ define range(i32 -1, 1) i32 @H5G__new_dense_info_test(i64 noundef %0, ptr nounde
   br label %.thread67
 
 88:                                               ; preds = %86, %80, %72, %60
-  %.130 = phi ptr [ %70, %80 ], [ %.231, %86 ], [ null, %60 ], [ null, %72 ]
-  %.2 = phi i32 [ -1, %80 ], [ 0, %86 ], [ -1, %60 ], [ -1, %72 ]
+  %.130 = phi ptr [ null, %60 ], [ null, %72 ], [ %70, %80 ], [ %.231, %86 ]
+  %.2 = phi i32 [ -1, %60 ], [ -1, %72 ], [ -1, %80 ], [ 0, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %89 = call i32 @H5B2_close(ptr noundef nonnull %50) #5
   %90 = icmp slt i32 %89, 0
@@ -1480,8 +1480,8 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
   br label %107
 
 .loopexit:                                        ; preds = %24, %17, %86, %79, %70, %58, %50, %42, %35
-  %.039.ph = phi ptr [ null, %35 ], [ %33, %79 ], [ %33, %86 ], [ %33, %70 ], [ %33, %58 ], [ %33, %50 ], [ %33, %42 ], [ null, %17 ], [ null, %24 ]
-  %.1.ph = phi i32 [ -1, %35 ], [ -1, %79 ], [ -1, %86 ], [ -1, %70 ], [ -1, %58 ], [ -1, %50 ], [ -1, %42 ], [ 0, %17 ], [ 0, %24 ]
+  %.039.ph = phi ptr [ %33, %79 ], [ %33, %86 ], [ %33, %70 ], [ %33, %58 ], [ %33, %50 ], [ %33, %42 ], [ null, %35 ], [ null, %17 ], [ null, %24 ]
+  %.1.ph = phi i32 [ -1, %79 ], [ -1, %86 ], [ -1, %70 ], [ -1, %58 ], [ -1, %50 ], [ -1, %42 ], [ -1, %35 ], [ 0, %17 ], [ 0, %24 ]
   %93 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %2, ptr noundef nonnull %15, i32 noundef 0) #5
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %99

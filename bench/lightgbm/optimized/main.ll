@@ -243,7 +243,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit33: ; preds = %40
           to label %49 unwind label %50
 
 49:                                               ; preds = %47, %45, %43
-  %.pn15 = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ], [ %48, %47 ]
+  %.pn15 = phi { ptr, i32 } [ %44, %43 ], [ %46, %45 ], [ %48, %47 ]
   resume { ptr, i32 } %.pn15
 
 50:                                               ; preds = %47, %45, %43

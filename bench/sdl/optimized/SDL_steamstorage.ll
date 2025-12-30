@@ -148,7 +148,7 @@ define internal ptr @STEAM_User_Create(ptr readnone captures(none) %0, ptr readn
   br i1 %68, label %70, label %72
 
 .sink.split:                                      ; preds = %63, %60, %57, %53, %48, %43, %38, %33, %28, %23, %18, %13, %9
-  %.str.24.sink = phi ptr [ @.str.23, %60 ], [ @.str.22, %57 ], [ @.str.21, %53 ], [ @.str.20, %48 ], [ @.str.18, %43 ], [ @.str.16, %38 ], [ @.str.14, %33 ], [ @.str.12, %28 ], [ @.str.10, %23 ], [ @.str.8, %18 ], [ @.str.6, %13 ], [ @.str.4, %9 ], [ @.str.24, %63 ]
+  %.str.24.sink = phi ptr [ @.str.4, %9 ], [ @.str.6, %13 ], [ @.str.8, %18 ], [ @.str.10, %23 ], [ @.str.12, %28 ], [ @.str.14, %33 ], [ @.str.16, %38 ], [ @.str.18, %43 ], [ @.str.20, %48 ], [ @.str.21, %53 ], [ @.str.22, %57 ], [ @.str.23, %60 ], [ @.str.24, %63 ]
   %69 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.24.sink) #5
   br label %70
 

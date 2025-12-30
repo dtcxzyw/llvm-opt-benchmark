@@ -166,7 +166,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_avif(ptr noundef %0, ptr noundef %1,
   br label %dt_image_transformation_to_flip_bits.exit
 
 dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
-  %.0.i = phi i32 [ %switch.select19.i, %54 ], [ %switch.select15.i, %53 ], [ %switch.select27.i, %56 ], [ %switch.select23.i, %55 ]
+  %.0.i = phi i32 [ %switch.select15.i, %53 ], [ %switch.select19.i, %54 ], [ %switch.select23.i, %55 ], [ %switch.select27.i, %56 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.0.i, ptr %57, align 4, !tbaa !79
   call void @avifRGBImageSetDefaults(ptr noundef nonnull %4, ptr noundef nonnull %5) #6
@@ -391,7 +391,7 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
   br label %171
 
 171:                                              ; preds = %152, %155, %80, %83, %60, %63, %16, %19, %9, %12, %169
-  %.0 = phi i32 [ 0, %169 ], [ 2, %9 ], [ 6, %16 ], [ 2, %60 ], [ 8, %80 ], [ 2, %12 ], [ 6, %19 ], [ 2, %63 ], [ 8, %83 ], [ 8, %155 ], [ 8, %152 ]
+  %.0 = phi i32 [ 0, %169 ], [ 2, %12 ], [ 2, %9 ], [ 6, %19 ], [ 6, %16 ], [ 2, %63 ], [ 2, %60 ], [ 8, %83 ], [ 8, %80 ], [ 8, %155 ], [ 8, %152 ]
   call void @avifImageDestroy(ptr noundef %5) #6
   call void @avifDecoderDestroy(ptr noundef %6) #6
   call void @avifRGBImageFreePixels(ptr noundef nonnull %4) #6
@@ -532,7 +532,7 @@ define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly c
   br label %49
 
 49:                                               ; preds = %48, %.critedge, %29, %27, %33, %16, %19, %10, %13
-  %.042 = phi i32 [ 0, %33 ], [ 0, %13 ], [ 0, %10 ], [ 0, %27 ], [ 0, %19 ], [ 0, %16 ], [ %32, %29 ], [ 0, %48 ], [ 0, %.critedge ]
+  %.042 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %19 ], [ 0, %16 ], [ %32, %29 ], [ 0, %27 ], [ 0, %33 ], [ 0, %.critedge ], [ 0, %48 ]
   tail call void @avifImageDestroy(ptr noundef %7) #6
   tail call void @avifDecoderDestroy(ptr noundef %6) #6
   ret i32 %.042

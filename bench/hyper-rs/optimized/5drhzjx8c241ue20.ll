@@ -451,8 +451,8 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
 
 _ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit: ; preds = %switch.lookup, %2, %10
-  %.sroa.6.0.i = phi i64 [ 20, %2 ], [ %switch.load, %switch.lookup ], [ 22, %10 ]
-  %.sroa.0.0.i = phi ptr [ @anon.3ec2cf8333d55addd664f7f348231227.4, %2 ], [ %switch.load2, %switch.lookup ], [ @anon.3ec2cf8333d55addd664f7f348231227.5, %10 ]
+  %.sroa.6.0.i = phi i64 [ 22, %10 ], [ 20, %2 ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.0.i = phi ptr [ @anon.3ec2cf8333d55addd664f7f348231227.5, %10 ], [ @anon.3ec2cf8333d55addd664f7f348231227.4, %2 ], [ %switch.load2, %switch.lookup ]
   %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.6.0.i)
   ret i1 %13
 }

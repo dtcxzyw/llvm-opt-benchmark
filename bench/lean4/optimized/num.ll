@@ -788,7 +788,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL6is_numERKNS_4exprEb(ptr nou
           to label %thread-pre-split unwind label %12
 
 thread-pre-split:                                 ; preds = %.invoke, %8, %34, %47, %71
-  %.0.ph = phi i1 [ false, %71 ], [ false, %47 ], [ false, %34 ], [ %77, %.invoke ], [ false, %8 ]
+  %.0.ph = phi i1 [ false, %71 ], [ false, %47 ], [ false, %34 ], [ false, %8 ], [ %77, %.invoke ]
   %.pr = load i64, ptr %5, align 8, !tbaa !48
   br label %78
 
@@ -923,7 +923,7 @@ _ZN4lean6is_numERKNS_4exprE.exit:                 ; preds = %7
   unreachable
 
 _ZN4lean8optionalINS_4exprEED2Ev.exit:            ; preds = %4, %_ZN4lean6is_numERKNS_4exprE.exit, %13, %21, %23, %24
-  %.17 = phi i1 [ %9, %24 ], [ %9, %_ZN4lean6is_numERKNS_4exprE.exit ], [ %9, %13 ], [ %9, %21 ], [ %9, %23 ], [ false, %4 ]
+  %.17 = phi i1 [ %9, %_ZN4lean6is_numERKNS_4exprE.exit ], [ %9, %13 ], [ %9, %21 ], [ %9, %23 ], [ %9, %24 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
@@ -1507,7 +1507,7 @@ _ZN4lean8optionalINS_3mpzEED2Ev.exit113:          ; preds = %71
   br label %190
 
 190:                                              ; preds = %_ZN4lean8optionalINS_3mpzEED2Ev.exit113, %_ZN4lean8optionalINS_4exprEED2Ev.exit, %_ZN4lean8optionalINS_3mpzEED2Ev.exit, %187
-  %191 = phi i1 [ false, %187 ], [ false, %_ZN4lean8optionalINS_3mpzEED2Ev.exit ], [ true, %_ZN4lean8optionalINS_4exprEED2Ev.exit ], [ true, %_ZN4lean8optionalINS_3mpzEED2Ev.exit113 ]
+  %191 = phi i1 [ false, %_ZN4lean8optionalINS_3mpzEED2Ev.exit ], [ false, %187 ], [ true, %_ZN4lean8optionalINS_4exprEED2Ev.exit ], [ true, %_ZN4lean8optionalINS_3mpzEED2Ev.exit113 ]
   %192 = load i8, ptr %8, align 8, !tbaa !8, !range !39, !noundef !40
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %194, label %_ZN4lean8optionalINS_4exprEED2Ev.exit116
@@ -1560,7 +1560,7 @@ _ZN4lean8optionalINS_4exprEED2Ev.exit116:         ; preds = %190, %194, %202, %2
   br label %229
 
 211:                                              ; preds = %37, %_ZN4lean8optionalINS_4exprEED2Ev.exit116, %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit91
-  %.0 = phi i1 [ %191, %_ZN4lean8optionalINS_4exprEED2Ev.exit116 ], [ false, %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit91 ], [ false, %37 ]
+  %.0 = phi i1 [ false, %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit91 ], [ %191, %_ZN4lean8optionalINS_4exprEED2Ev.exit116 ], [ false, %37 ]
   %212 = load i8, ptr %6, align 8, !tbaa !8, !range !39, !noundef !40
   %213 = trunc nuw i8 %212 to i1
   br i1 %213, label %214, label %_ZN4lean8optionalINS_4exprEED2Ev.exit119
@@ -1616,7 +1616,7 @@ _ZN4lean8optionalINS_4exprEED2Ev.exit119:         ; preds = %211, %214, %222, %2
   ret void
 
 231:                                              ; preds = %26, %229, %32
-  %.pn76 = phi { ptr, i32 } [ %27, %26 ], [ %.pn74, %229 ], [ %33, %32 ]
+  %.pn76 = phi { ptr, i32 } [ %27, %26 ], [ %33, %32 ], [ %.pn74, %229 ]
   resume { ptr, i32 } %.pn76
 }
 

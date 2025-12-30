@@ -454,7 +454,7 @@ ff_bufqueue_peek.exit:                            ; preds = %151
   br label %170
 
 170:                                              ; preds = %filter_frame.exit.thread57, %filter_frame.exit.thread55, %26, %167, %.critedge51, %filter_frame.exit, %1, %169, %148
-  %.0 = phi i32 [ 0, %26 ], [ %16, %1 ], [ 0, %148 ], [ 0, %169 ], [ %131, %filter_frame.exit ], [ 0, %.critedge51 ], [ -1497649742, %167 ], [ %91, %filter_frame.exit.thread55 ], [ -12, %filter_frame.exit.thread57 ]
+  %.0 = phi i32 [ 0, %148 ], [ 0, %169 ], [ 0, %26 ], [ %16, %1 ], [ %131, %filter_frame.exit ], [ 0, %.critedge51 ], [ -1497649742, %167 ], [ %91, %filter_frame.exit.thread55 ], [ -12, %filter_frame.exit.thread57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -864,7 +864,7 @@ define internal void @filter_channels_flt(ptr noundef readonly captures(none) %0
   br label %next_gain.exit.i.us
 
 next_gain.exit.i.us:                              ; preds = %91, %90, %84, %82
-  %.044.i.i.us = phi nsz double [ 1.000000e+00, %82 ], [ %..0.i.i.us, %91 ], [ %.55.i.i.us, %90 ], [ %.0.i.i.us, %84 ]
+  %.044.i.i.us = phi nsz double [ %..0.i.i.us, %91 ], [ 1.000000e+00, %82 ], [ %.55.i.i.us, %90 ], [ %.0.i.i.us, %84 ]
   store double %.044.i.i.us, ptr %36, align 8, !tbaa !71
   br label %consume_pi.exit.us
 
@@ -1087,7 +1087,7 @@ define internal void @filter_link_channels_flt(ptr noundef readonly captures(non
   br label %next_gain.exit.i
 
 next_gain.exit.i:                                 ; preds = %98, %92, %87, %85
-  %.044.i.i = phi nsz double [ 1.000000e+00, %85 ], [ %..0.i.i, %87 ], [ %.55.i.i, %98 ], [ %.0.i.i, %92 ]
+  %.044.i.i = phi nsz double [ %..0.i.i, %87 ], [ 1.000000e+00, %85 ], [ %.55.i.i, %98 ], [ %.0.i.i, %92 ]
   store double %.044.i.i, ptr %59, align 8, !tbaa !71
   br label %next_pi.exit
 
@@ -1101,8 +1101,8 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
   br i1 %102, label %.lr.ph, label %.preheader117, !llvm.loop !100
 
 .preheader116.._crit_edge_crit_edge:              ; preds = %20, %.preheader117
-  %103 = phi i32 [ %21, %20 ], [ %100, %.preheader117 ]
-  %.070.lcssa163167 = phi i32 [ %22, %20 ], [ %..070, %.preheader117 ]
+  %103 = phi i32 [ %100, %.preheader117 ], [ %21, %20 ]
+  %.070.lcssa163167 = phi i32 [ %..070, %.preheader117 ], [ %22, %20 ]
   %.pre149 = add nsw i32 %.070.lcssa163167, %.0132
   br label %._crit_edge
 
@@ -1220,7 +1220,7 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
   br label %next_gain.exit.i87
 
 next_gain.exit.i87:                               ; preds = %175, %170, %166
-  %.044.i.i88 = phi nsz double [ %.0.i.i85, %170 ], [ %..0.i.i92, %166 ], [ %.55.i.i86, %175 ]
+  %.044.i.i88 = phi nsz double [ %..0.i.i92, %166 ], [ %.55.i.i86, %175 ], [ %.0.i.i85, %170 ]
   %176 = fcmp nsz ogt double %.0322.i, %.044.i.i88
   %177 = select nsz i1 %176, double %.044.i.i88, double %.0322.i
   %178 = add nsw i32 %145, %.0304.i
@@ -1231,7 +1231,7 @@ next_gain.exit.i87:                               ; preds = %175, %170, %166
   br i1 %.not.i90, label %min_gain.exit, label %138, !llvm.loop !101
 
 min_gain.exit:                                    ; preds = %138, %next_gain.exit.i87
-  %.032.lcssa.i = phi double [ %177, %next_gain.exit.i87 ], [ %.0322.i, %138 ]
+  %.032.lcssa.i = phi double [ %.0322.i, %138 ], [ %177, %next_gain.exit.i87 ]
   %181 = fcmp nsz olt double %.032.lcssa.i, %117
   br i1 %181, label %.lr.ph.i95, label %226
 
@@ -1303,7 +1303,7 @@ min_gain.exit.thread:                             ; preds = %116
   br label %next_gain.exit.i105
 
 next_gain.exit.i105:                              ; preds = %219, %214, %210
-  %.044.i.i106 = phi nsz double [ %.0.i.i103, %214 ], [ %..0.i.i111, %210 ], [ %.55.i.i104, %219 ]
+  %.044.i.i106 = phi nsz double [ %..0.i.i111, %210 ], [ %.55.i.i104, %219 ], [ %.0.i.i103, %214 ]
   %220 = fcmp nsz ogt double %.0322.i99, %.044.i.i106
   %221 = select nsz i1 %220, double %.044.i.i106, double %.0322.i99
   %222 = add nsw i32 %189, %.0304.i97
@@ -1701,7 +1701,7 @@ define internal void @filter_channels_dbl(ptr noundef readonly captures(none) %0
   br label %next_gain.exit.i.us
 
 next_gain.exit.i.us:                              ; preds = %91, %90, %84, %82
-  %.044.i.i.us = phi nsz double [ 1.000000e+00, %82 ], [ %..0.i.i.us, %91 ], [ %.55.i.i.us, %90 ], [ %.0.i.i.us, %84 ]
+  %.044.i.i.us = phi nsz double [ %..0.i.i.us, %91 ], [ 1.000000e+00, %82 ], [ %.55.i.i.us, %90 ], [ %.0.i.i.us, %84 ]
   store double %.044.i.i.us, ptr %36, align 8, !tbaa !71
   br label %consume_pi.exit.us
 
@@ -1922,7 +1922,7 @@ define internal void @filter_link_channels_dbl(ptr noundef readonly captures(non
   br label %next_gain.exit.i
 
 next_gain.exit.i:                                 ; preds = %97, %91, %86, %84
-  %.044.i.i = phi nsz double [ 1.000000e+00, %84 ], [ %..0.i.i, %86 ], [ %.55.i.i, %97 ], [ %.0.i.i, %91 ]
+  %.044.i.i = phi nsz double [ %..0.i.i, %86 ], [ 1.000000e+00, %84 ], [ %.55.i.i, %97 ], [ %.0.i.i, %91 ]
   store double %.044.i.i, ptr %58, align 8, !tbaa !71
   br label %next_pi.exit
 
@@ -1936,8 +1936,8 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
   br i1 %101, label %.lr.ph, label %.preheader117, !llvm.loop !113
 
 .preheader116.._crit_edge_crit_edge:              ; preds = %20, %.preheader117
-  %102 = phi i32 [ %21, %20 ], [ %99, %.preheader117 ]
-  %.070.lcssa163167 = phi i32 [ %22, %20 ], [ %..070, %.preheader117 ]
+  %102 = phi i32 [ %99, %.preheader117 ], [ %21, %20 ]
+  %.070.lcssa163167 = phi i32 [ %..070, %.preheader117 ], [ %22, %20 ]
   %.pre149 = add nsw i32 %.070.lcssa163167, %.0132
   br label %._crit_edge
 
@@ -2054,7 +2054,7 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
   br label %next_gain.exit.i86
 
 next_gain.exit.i86:                               ; preds = %173, %168, %164
-  %.044.i.i87 = phi nsz double [ %.0.i.i84, %168 ], [ %..0.i.i91, %164 ], [ %.55.i.i85, %173 ]
+  %.044.i.i87 = phi nsz double [ %..0.i.i91, %164 ], [ %.55.i.i85, %173 ], [ %.0.i.i84, %168 ]
   %174 = fcmp nsz ogt double %.0322.i, %.044.i.i87
   %175 = select nsz i1 %174, double %.044.i.i87, double %.0322.i
   %176 = add nsw i32 %143, %.0304.i
@@ -2065,7 +2065,7 @@ next_gain.exit.i86:                               ; preds = %173, %168, %164
   br i1 %.not.i89, label %min_gain.exit, label %136, !llvm.loop !101
 
 min_gain.exit:                                    ; preds = %136, %next_gain.exit.i86
-  %.032.lcssa.i = phi double [ %175, %next_gain.exit.i86 ], [ %.0322.i, %136 ]
+  %.032.lcssa.i = phi double [ %.0322.i, %136 ], [ %175, %next_gain.exit.i86 ]
   %179 = fcmp nsz ule double %.071124, %.032.lcssa.i
   br i1 %179, label %min_gain.exit112, label %.lr.ph.i94
 
@@ -2140,7 +2140,7 @@ min_gain.exit.thread:                             ; preds = %115
   br label %next_gain.exit.i104
 
 next_gain.exit.i104:                              ; preds = %217, %212, %208
-  %.044.i.i105 = phi nsz double [ %.0.i.i102, %212 ], [ %..0.i.i110, %208 ], [ %.55.i.i103, %217 ]
+  %.044.i.i105 = phi nsz double [ %..0.i.i110, %208 ], [ %.55.i.i103, %217 ], [ %.0.i.i102, %212 ]
   %218 = fcmp nsz ogt double %.0322.i98, %.044.i.i105
   %219 = select nsz i1 %218, double %.044.i.i105, double %.0322.i98
   %220 = add nsw i32 %187, %.0304.i96
@@ -2151,7 +2151,7 @@ next_gain.exit.i104:                              ; preds = %217, %212, %208
   br i1 %.not.i107, label %min_gain.exit112, label %.lr.ph.i94, !llvm.loop !101
 
 min_gain.exit112:                                 ; preds = %next_gain.exit.i104, %.lr.ph.i94, %min_gain.exit, %.thread, %min_gain.exit.thread, %111
-  %.1 = phi nsz double [ %.071124, %111 ], [ %.071124, %min_gain.exit.thread ], [ %.071124, %min_gain.exit ], [ %123, %.thread ], [ %219, %next_gain.exit.i104 ], [ %.0322.i98, %.lr.ph.i94 ]
+  %.1 = phi nsz double [ %.071124, %111 ], [ %.071124, %min_gain.exit ], [ %.071124, %min_gain.exit.thread ], [ %123, %.thread ], [ %219, %next_gain.exit.i104 ], [ %.0322.i98, %.lr.ph.i94 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph131, label %111, !llvm.loop !114
@@ -2302,7 +2302,7 @@ define internal fastcc i32 @available_samples(ptr readonly captures(none) %.32.v
   br i1 %.not.i, label %get_pi_samples.exit, label %.lr.ph.i, !llvm.loop !118
 
 get_pi_samples.exit:                              ; preds = %.lr.ph.i, %20, %0
-  %.014.i = phi i32 [ %7, %0 ], [ %.018.i, %.lr.ph.i ], [ %22, %20 ]
+  %.014.i = phi i32 [ %7, %0 ], [ %22, %20 ], [ %.018.i, %.lr.ph.i ]
   %23 = getelementptr inbounds nuw i8, ptr %.32.val.0.val, i64 76
   %24 = load i32, ptr %23, align 4, !tbaa !59
   %25 = icmp sgt i32 %24, 1
@@ -2386,7 +2386,7 @@ get_pi_samples.exit31.thread:                     ; preds = %.lr.ph
   br i1 %.not.i38, label %get_pi_samples.exit40, label %.lr.ph.i34, !llvm.loop !118
 
 get_pi_samples.exit40:                            ; preds = %59, %.lr.ph.i34, %get_pi_samples.exit31.thread, %get_pi_samples.exit31
-  %62 = phi i32 [ %spec.select, %get_pi_samples.exit31.thread ], [ %.03, %get_pi_samples.exit31 ], [ %61, %59 ], [ %.018.i35, %.lr.ph.i34 ]
+  %62 = phi i32 [ %.03, %get_pi_samples.exit31 ], [ %spec.select, %get_pi_samples.exit31.thread ], [ %61, %59 ], [ %.018.i35, %.lr.ph.i34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = icmp samesign ult i64 %indvars.iv.next, %28
   %64 = icmp sgt i32 %62, 0

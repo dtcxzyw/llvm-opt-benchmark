@@ -11807,7 +11807,7 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %44, %51, %39, %60, %54
-  %62 = phi ptr [ @.str.85, %54 ], [ %2, %60 ], [ @.str.85, %39 ], [ @.str.85, %51 ], [ @.str.85, %44 ]
+  %62 = phi ptr [ %2, %60 ], [ @.str.85, %54 ], [ @.str.85, %39 ], [ @.str.85, %51 ], [ @.str.85, %44 ]
   %63 = zext i32 %0 to i64
   %64 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %63) #30, !srcloc !10
   %65 = icmp ult i8 %64, 2

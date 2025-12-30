@@ -5688,9 +5688,9 @@ sub_1:                                            ; preds = %sub_0
   br label %f_tostring.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %386
-  %.0406.lcssa = phi i32 [ %.1407, %386 ], [ %.0406595, %.lr.ph ]
-  %.0404.lcssa = phi i32 [ %.1405, %386 ], [ %.0404596, %.lr.ph ]
-  %.0403.lcssa = phi i32 [ %.1, %386 ], [ %.0403597, %.lr.ph ]
+  %.0406.lcssa = phi i32 [ %.0406595, %.lr.ph ], [ %.1407, %386 ]
+  %.0404.lcssa = phi i32 [ %.0404596, %.lr.ph ], [ %.1405, %386 ]
+  %.0403.lcssa = phi i32 [ %.0403597, %.lr.ph ], [ %.1, %386 ]
   switch i32 %.0404.lcssa, label %._crit_edge.thread [
     i32 3, label %388
     i32 2, label %._crit_edge.thread.sink.split
@@ -5742,7 +5742,7 @@ sub_1:                                            ; preds = %sub_0
   br label %f_tostring.exit
 
 f_tostring.exit:                                  ; preds = %394, %._crit_edge.thread, %.critedge19, %.thread540, %296, %245, %.thread519, %.thread498, %107, %37, %34, %27, %f_tostring.exit484, %._crit_edge640, %._crit_edge615, %402, %45, %16
-  %.fca.1.insert.merged = phi { i64, ptr } [ %23, %16 ], [ %409, %402 ], [ %297, %296 ], [ %.pn478.lcssa, %._crit_edge615 ], [ %.pn558, %245 ], [ %114, %107 ], [ %.pn459.lcssa, %._crit_edge640 ], [ %129, %f_tostring.exit484 ], [ %28, %27 ], [ %38, %37 ], [ %52, %45 ], [ %36, %34 ], [ %.merged718, %.thread498 ], [ %.pn554, %.thread519 ], [ %.merged, %.thread540 ], [ %401, %._crit_edge.thread ], [ %395, %394 ], [ %387, %.critedge19 ]
+  %.fca.1.insert.merged = phi { i64, ptr } [ %23, %16 ], [ %409, %402 ], [ %.pn478.lcssa, %._crit_edge615 ], [ %.pn459.lcssa, %._crit_edge640 ], [ %129, %f_tostring.exit484 ], [ %28, %27 ], [ %52, %45 ], [ %36, %34 ], [ %38, %37 ], [ %.merged718, %.thread498 ], [ %114, %107 ], [ %.pn558, %245 ], [ %.pn554, %.thread519 ], [ %.merged, %.thread540 ], [ %297, %296 ], [ %401, %._crit_edge.thread ], [ %395, %394 ], [ %387, %.critedge19 ]
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
@@ -6023,8 +6023,8 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br label %87
 
 87:                                               ; preds = %.lr.ph, %73, %75, %77, %79, %81, %83, %85
-  %.3411 = phi i32 [ %86, %85 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %.2410494, %.lr.ph ]
-  %.3 = phi i32 [ %.2495, %85 ], [ %.2495, %73 ], [ %.2495, %75 ], [ %.2495, %77 ], [ %.2495, %79 ], [ %.2495, %81 ], [ %.2495, %83 ], [ 1, %.lr.ph ]
+  %.3411 = phi i32 [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %.2410494, %.lr.ph ]
+  %.3 = phi i32 [ %.2495, %73 ], [ %.2495, %75 ], [ %.2495, %77 ], [ %.2495, %79 ], [ %.2495, %81 ], [ %.2495, %83 ], [ %.2495, %85 ], [ 1, %.lr.ph ]
   %88 = add nuw nsw i32 %.1414493, 1
   %exitcond.not = icmp eq i32 %88, %64
   br i1 %exitcond.not, label %.thread468.loopexit, label %.lr.ph, !llvm.loop !40
@@ -6674,8 +6674,8 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %431, %.split534.us, %520, %515
-  %.sroa.0353.2 = phi i64 [ %517, %515 ], [ %532, %520 ], [ %.us-phi, %.split534.us ], [ %.sroa.0353.3.us, %431 ]
-  %.sroa.12.2 = phi ptr [ %518, %515 ], [ %533, %520 ], [ %.us-phi535, %.split534.us ], [ %.sroa.12.3.us, %431 ]
+  %.sroa.0353.2 = phi i64 [ %517, %515 ], [ %.us-phi, %.split534.us ], [ %532, %520 ], [ %.sroa.0353.3.us, %431 ]
+  %.sroa.12.2 = phi ptr [ %518, %515 ], [ %.us-phi535, %.split534.us ], [ %533, %520 ], [ %.sroa.12.3.us, %431 ]
   call void @onig_region_free(ptr noundef %144, i32 noundef 1) #14
   %534 = load ptr, ptr %11, align 8, !tbaa !41
   call void @onig_free(ptr noundef %534) #14
@@ -6686,7 +6686,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %118, %.loopexit, %89, %38, %25
-  %.fca.1.insert.merged = phi { i64, ptr } [ %35, %25 ], [ %48, %38 ], [ %129, %118 ], [ %536, %.loopexit ], [ %96, %89 ], [ %107, %100 ]
+  %.fca.1.insert.merged = phi { i64, ptr } [ %35, %25 ], [ %48, %38 ], [ %129, %118 ], [ %536, %.loopexit ], [ %107, %100 ], [ %96, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret { i64, ptr } %.fca.1.insert.merged

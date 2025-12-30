@@ -185,8 +185,8 @@ GenerateShapeMask.exit:                           ; preds = %23, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %22, %72, %GenerateShapeMask.exit, %71
-  %.1 = phi i1 [ %.not.i, %71 ], [ true, %72 ], [ %.not.i, %GenerateShapeMask.exit ], [ false, %22 ], [ false, %17 ]
+.critedge:                                        ; preds = %22, %17, %72, %GenerateShapeMask.exit, %71
+  %.1 = phi i1 [ true, %72 ], [ %.not.i, %GenerateShapeMask.exit ], [ %.not.i, %71 ], [ false, %17 ], [ false, %22 ]
   ret i1 %.1
 }
 

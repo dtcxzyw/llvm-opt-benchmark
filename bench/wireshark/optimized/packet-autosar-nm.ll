@@ -1141,7 +1141,7 @@ get_ett_for_user_data.exit:                       ; preds = %get_hf_for_user_dat
   br label %98
 
 98:                                               ; preds = %87, %get_ett_for_user_data.exit, %91, %95, %94
-  %.1 = phi ptr [ %.06891, %get_ett_for_user_data.exit ], [ %93, %91 ], [ %.06891, %95 ], [ null, %94 ], [ null, %87 ]
+  %.1 = phi ptr [ %93, %91 ], [ %.06891, %95 ], [ null, %94 ], [ %.06891, %get_ett_for_user_data.exit ], [ null, %87 ]
   call void @g_free(ptr noundef %63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %99 = load i32, ptr @num_user_data_fields, align 4
@@ -1227,7 +1227,7 @@ is_relevant_can_message.exit:                     ; preds = %6
   br label %is_relevant_can_message.exit.thread
 
 is_relevant_can_message.exit.thread:              ; preds = %6, %is_relevant_can_message.exit, %14
-  %.0.i7 = phi i1 [ true, %14 ], [ false, %is_relevant_can_message.exit ], [ false, %6 ]
+  %.0.i7 = phi i1 [ false, %is_relevant_can_message.exit ], [ true, %14 ], [ false, %6 ]
   ret i1 %.0.i7
 }
 

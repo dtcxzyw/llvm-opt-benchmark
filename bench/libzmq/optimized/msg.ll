@@ -97,7 +97,7 @@ _ZN3zmq5msg_t21init_external_storageEPNS0_9content_tEPvmPFvS3_S3_ES3_.exit: ; pr
   br label %37
 
 37:                                               ; preds = %8, %35, %_ZN3zmq5msg_t21init_external_storageEPNS0_9content_tEPvmPFvS3_S3_ES3_.exit
-  %.1 = phi i32 [ %36, %35 ], [ 0, %_ZN3zmq5msg_t21init_external_storageEPNS0_9content_tEPvmPFvS3_S3_ES3_.exit ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %_ZN3zmq5msg_t21init_external_storageEPNS0_9content_tEPvmPFvS3_S3_ES3_.exit ], [ %36, %35 ], [ 0, %8 ]
   ret i32 %.1
 }
 
@@ -1309,7 +1309,7 @@ define noundef i64 @_ZNK3zmq5msg_t17command_body_sizeEv(ptr noundef nonnull read
   br label %20
 
 20:                                               ; preds = %10, %13, %17, %14, %11, %5
-  %.0 = phi i64 [ %7, %5 ], [ %16, %14 ], [ %19, %17 ], [ %12, %11 ], [ 0, %10 ], [ 0, %13 ]
+  %.0 = phi i64 [ %7, %5 ], [ %16, %14 ], [ %19, %17 ], [ %12, %11 ], [ 0, %13 ], [ 0, %10 ]
   ret i64 %.0
 }
 
@@ -1360,7 +1360,7 @@ define noundef ptr @_ZN3zmq5msg_t12command_bodyEv(ptr noundef nonnull align 8 ca
   br label %20
 
 20:                                               ; preds = %10, %13, %11, %17, %14, %5
-  %.0 = phi ptr [ %7, %5 ], [ %16, %14 ], [ %19, %17 ], [ null, %10 ], [ %12, %11 ], [ null, %13 ]
+  %.0 = phi ptr [ %7, %5 ], [ %16, %14 ], [ %19, %17 ], [ %12, %11 ], [ null, %13 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -1580,7 +1580,7 @@ define noundef zeroext i1 @_ZN3zmq5msg_t7rm_refsEi(ptr noundef nonnull align 8 c
   br label %58
 
 58:                                               ; preds = %42, %45, %50, %54, %16, %40, %23
-  %.0 = phi i1 [ false, %23 ], [ false, %50 ], [ true, %16 ], [ false, %40 ], [ false, %54 ], [ true, %45 ], [ true, %42 ]
+  %.0 = phi i1 [ false, %23 ], [ false, %40 ], [ true, %16 ], [ false, %54 ], [ false, %50 ], [ true, %45 ], [ true, %42 ]
   ret i1 %.0
 }
 

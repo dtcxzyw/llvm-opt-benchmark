@@ -226,7 +226,7 @@ _Py_NewRef.exit68:                                ; preds = %_Py_NewRef.exit67, 
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %5, %95, %92, %90, %_Py_NewRef.exit68
-  %.0 = phi ptr [ null, %95 ], [ %8, %_Py_NewRef.exit68 ], [ null, %90 ], [ null, %92 ], [ null, %5 ]
+  %.0 = phi ptr [ %8, %_Py_NewRef.exit68 ], [ null, %90 ], [ null, %92 ], [ null, %95 ], [ null, %5 ]
   ret ptr %.0
 }
 

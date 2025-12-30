@@ -143,11 +143,11 @@ thread-pre-split.thread115:                       ; preds = %.critedge, %thread-
   br i1 %exitcond96.not, label %.critedge2, label %.lr.ph80, !llvm.loop !27
 
 .critedge2:                                       ; preds = %51, %.lr.ph80, %.preheader, %thread-pre-split.thread115
-  %.152113 = phi ptr [ %.152118, %thread-pre-split.thread115 ], [ %.152114, %.preheader ], [ %.152114, %.lr.ph80 ], [ %.152114, %51 ]
-  %53 = phi ptr [ %19, %thread-pre-split.thread115 ], [ %45, %.preheader ], [ %45, %.lr.ph80 ], [ %45, %51 ]
-  %.pre-phi = phi i64 [ %.pre102, %thread-pre-split.thread115 ], [ %47, %.preheader ], [ %47, %.lr.ph80 ], [ %47, %51 ]
-  %54 = phi ptr [ %.pre101, %thread-pre-split.thread115 ], [ %46, %.preheader ], [ %46, %.lr.ph80 ], [ %46, %51 ]
-  %.3 = phi ptr [ %8, %thread-pre-split.thread115 ], [ %8, %.preheader ], [ %scevgep95, %51 ], [ %.479, %.lr.ph80 ]
+  %.152113 = phi ptr [ %.152114, %.preheader ], [ %.152118, %thread-pre-split.thread115 ], [ %.152114, %.lr.ph80 ], [ %.152114, %51 ]
+  %53 = phi ptr [ %45, %.preheader ], [ %19, %thread-pre-split.thread115 ], [ %45, %.lr.ph80 ], [ %45, %51 ]
+  %.pre-phi = phi i64 [ %47, %.preheader ], [ %.pre102, %thread-pre-split.thread115 ], [ %47, %.lr.ph80 ], [ %47, %51 ]
+  %54 = phi ptr [ %46, %.preheader ], [ %.pre101, %thread-pre-split.thread115 ], [ %46, %.lr.ph80 ], [ %46, %51 ]
+  %.3 = phi ptr [ %8, %.preheader ], [ %8, %thread-pre-split.thread115 ], [ %scevgep95, %51 ], [ %.479, %.lr.ph80 ]
   %55 = ptrtoint ptr %.3 to i64
   %56 = sub i64 %.pre-phi, %55
   %57 = ptrtoint ptr %53 to i64

@@ -1155,7 +1155,7 @@ _ZN19uv_options_metadata9OptionSet6record17ha6a32f5812319acaE.exit: ; preds = %5
   br label %33
 
 .body.thread:                                     ; preds = %48, %.body.thread35, %60
-  %eh.lpad-body34 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread35 ], [ %lpad.thr_comm.split-lp, %60 ], [ %49, %48 ]
+  %eh.lpad-body34 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %60 ], [ %lpad.thr_comm, %.body.thread35 ], [ %49, %48 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h11ddd0626783a8cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #11
           to label %34 unwind label %61
 
@@ -1172,7 +1172,7 @@ _ZN19uv_options_metadata9OptionSet6record17ha6a32f5812319acaE.exit: ; preds = %5
   unreachable
 
 .thread:                                          ; preds = %34, %63
-  %.pn1129 = phi { ptr, i32 } [ %.pn, %34 ], [ %64, %63 ]
+  %.pn1129 = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %34 ]
   resume { ptr, i32 } %.pn1129
 
 63:                                               ; preds = %5
@@ -1282,10 +1282,10 @@ define void @"_ZN84_$LT$uv_options_metadata..SerializeVisitor$u20$as$u20$uv_opti
   ret void
 
 .body.thread:                                     ; preds = %29, %34
-  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %34 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %34 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body6
 
-34:                                               ; preds = %18, %4
+34:                                               ; preds = %4, %18
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$uv_options_metadata..OptionField$GT$17h90bf95a450e2e9deE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %3) #11
@@ -1490,7 +1490,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit118: ; preds = %_ZN4cor
   br label %61
 
 61:                                               ; preds = %92, %79, %select.unfold, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit108, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit, %101, %62, %46, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit113, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit103, %60, %68
-  %.sroa.0.0 = phi i1 [ %74, %68 ], [ true, %62 ], [ true, %79 ], [ true, %select.unfold ], [ true, %60 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit108 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit103 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ true, %101 ], [ true, %46 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit113 ], [ true, %92 ]
+  %.sroa.0.0 = phi i1 [ %74, %68 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit103 ], [ true, %46 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit113 ], [ true, %60 ], [ true, %62 ], [ true, %101 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit108 ], [ true, %select.unfold ], [ true, %79 ], [ true, %92 ]
   ret i1 %.sroa.0.0
 
 62:                                               ; preds = %.loopexit

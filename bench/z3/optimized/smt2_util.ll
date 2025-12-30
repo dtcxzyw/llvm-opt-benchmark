@@ -62,7 +62,7 @@ switch.early.test:                                ; preds = %1
   br label %switch.edge
 
 switch.edge:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %1, %6
-  %7 = phi i1 [ true, %switch.early.test ], [ false, %6 ], [ true, %1 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
+  %7 = phi i1 [ false, %6 ], [ true, %1 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
   ret i1 %7
 }
 
@@ -125,7 +125,7 @@ define hidden noundef zeroext i1 @_Z21is_smt2_quoted_symbolPKc(ptr noundef reado
   ]
 
 29:                                               ; preds = %28, %24, %24
-  %.134 = phi i32 [ %.03355, %28 ], [ %17, %24 ], [ %17, %24 ]
+  %.134 = phi i32 [ %17, %24 ], [ %17, %24 ], [ %.03355, %28 ]
   %30 = add i32 %.134, 1
   %31 = add i32 %.134, 2
   %.not43 = icmp ult i32 %31, %8
@@ -154,7 +154,7 @@ define hidden noundef zeroext i1 @_Z21is_smt2_quoted_symbolPKc(ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %28, %28, %29, %24, %.thread.loopexit64, %32, %.preheader, %3, %1
-  %.035 = phi i1 [ true, %3 ], [ false, %1 ], [ false, %32 ], [ %.035.ph65, %.thread.loopexit64 ], [ false, %.preheader ], [ true, %24 ], [ false, %29 ], [ true, %28 ], [ true, %28 ]
+  %.035 = phi i1 [ false, %1 ], [ true, %3 ], [ false, %.preheader ], [ false, %32 ], [ %.035.ph65, %.thread.loopexit64 ], [ true, %28 ], [ true, %28 ], [ false, %29 ], [ true, %24 ]
   ret i1 %.035
 }
 

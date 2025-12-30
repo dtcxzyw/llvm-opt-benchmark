@@ -281,7 +281,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr noundef readonly captures(n
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %26, %85, %49, %19, %18, %14, %8
-  %86 = phi i32 [ -12, %8 ], [ %12, %14 ], [ %16, %18 ], [ 0, %19 ], [ 0, %85 ], [ 0, %49 ], [ 0, %26 ], [ 0, %.loopexit ]
+  %86 = phi i32 [ -12, %8 ], [ %12, %14 ], [ %16, %18 ], [ 0, %19 ], [ 0, %49 ], [ 0, %85 ], [ 0, %26 ], [ 0, %.loopexit ]
   ret i32 %86
 }
 
@@ -633,38 +633,38 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %188 = load i8, ptr %187, align 2
   %189 = and i8 %188, 1
   %190 = icmp eq i8 %189, 0
-  br i1 %190, label %195, label %191
+  br i1 %190, label %199, label %191
 
 191:                                              ; preds = %186
   switch i32 %57, label %.thread25 [
-    i32 1, label %198
-    i32 2, label %192
+    i32 1, label %192
+    i32 2, label %196
   ]
 
 192:                                              ; preds = %191
   %193 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %194 = load i32, ptr %193, align 8
-  %.not = icmp eq i32 %194, 0
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %202, label %.thread25
+
+196:                                              ; preds = %191
+  %197 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %198 = load i32, ptr %197, align 8
+  %.not = icmp eq i32 %198, 0
   br i1 %.not, label %.thread25, label %202
 
-195:                                              ; preds = %186
-  %196 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %197 = load i32, ptr %196, align 8
-  %.not28 = icmp eq i32 %197, 0
+199:                                              ; preds = %186
+  %200 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %201 = load i32, ptr %200, align 8
+  %.not28 = icmp eq i32 %201, 0
   br i1 %.not28, label %.thread25, label %202
 
-198:                                              ; preds = %191
-  %199 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %200 = load i32, ptr %199, align 8
-  %201 = icmp eq i32 %200, 0
-  br i1 %201, label %202, label %.thread25
-
-202:                                              ; preds = %195, %192, %198
+202:                                              ; preds = %192, %196, %199
   %203 = load i16, ptr %174, align 2
   br label %.thread25
 
-.thread25:                                        ; preds = %163, %156, %195, %192, %.thread26, %202, %198, %191, %184, %167
-  %204 = phi i16 [ %133, %167 ], [ %133, %184 ], [ %203, %202 ], [ %133, %198 ], [ %133, %191 ], [ %133, %195 ], [ %183, %.thread26 ], [ %133, %192 ], [ %133, %156 ], [ %133, %163 ]
+.thread25:                                        ; preds = %163, %156, %192, %196, %.thread26, %202, %199, %191, %184, %167
+  %204 = phi i16 [ %133, %167 ], [ %133, %184 ], [ %203, %202 ], [ %133, %199 ], [ %133, %191 ], [ %183, %.thread26 ], [ %133, %196 ], [ %133, %192 ], [ %133, %156 ], [ %133, %163 ]
   %205 = load i64, ptr %20, align 8
   %206 = and i64 %205, 256
   %207 = icmp eq i64 %206, 0
@@ -756,7 +756,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   br label %255
 
 255:                                              ; preds = %44, %.thread27, %252, %42, %15, %11, %4
-  %256 = phi i32 [ 1, %42 ], [ 1, %252 ], [ 0, %15 ], [ 0, %11 ], [ 0, %4 ], [ 0, %.thread27 ], [ 0, %44 ]
+  %256 = phi i32 [ 1, %42 ], [ 0, %15 ], [ 0, %11 ], [ 0, %4 ], [ 1, %252 ], [ 0, %.thread27 ], [ 0, %44 ]
   ret i32 %256
 }
 

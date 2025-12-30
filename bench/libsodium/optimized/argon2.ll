@@ -188,7 +188,7 @@ define hidden i32 @_sodium_argon2_hash(i32 noundef %0, i32 noundef %1, i32 nound
   br label %52
 
 52:                                               ; preds = %.sink.split, %21, %19, %17, %15
-  %.0 = phi i32 [ -7, %19 ], [ -5, %15 ], [ -3, %17 ], [ -22, %21 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -5, %15 ], [ -3, %17 ], [ -7, %19 ], [ -22, %21 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
@@ -331,7 +331,7 @@ define hidden i32 @_sodium_argon2_verify(ptr noundef %0, ptr noundef %1, i64 nou
   br label %55
 
 55:                                               ; preds = %4, %53, %28, %25, %22
-  %.0 = phi i32 [ -22, %22 ], [ %27, %28 ], [ %.024, %53 ], [ -22, %25 ], [ -34, %4 ]
+  %.0 = phi i32 [ %27, %28 ], [ %.024, %53 ], [ -22, %25 ], [ -22, %22 ], [ -34, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

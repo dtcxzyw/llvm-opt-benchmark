@@ -67,7 +67,7 @@ define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) lo
   br label %17
 
 17:                                               ; preds = %13, %.lr.ph.split.us.split.i
-  %.034.us.i = phi i64 [ 15, %.lr.ph.split.us.split.i ], [ %16, %13 ]
+  %.034.us.i = phi i64 [ %16, %13 ], [ 15, %.lr.ph.split.us.split.i ]
   %18 = icmp eq i32 %11, 4
   %19 = zext i1 %18 to i64
   %20 = add i64 %.034.us.i, %19
@@ -370,7 +370,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader76, %35, %.loopexit.sink.split, %27
-  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ %31, %35 ], [ null, %27 ], [ %31, %.preheader76 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %.loopexit.sink.split ], [ %31, %35 ], [ %31, %.preheader76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

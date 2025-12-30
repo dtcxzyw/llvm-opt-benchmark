@@ -1293,7 +1293,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation14ParameterValue15_is
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %6, %4, %35, %33, %23, %16, %9, %45, %39, %17
-  %.0 = phi i1 [ %.not12, %45 ], [ true, %33 ], [ false, %9 ], [ %22, %17 ], [ true, %16 ], [ %44, %39 ], [ false, %23 ], [ %38, %35 ], [ false, %4 ], [ false, %6 ]
+  %.0 = phi i1 [ %22, %17 ], [ %44, %39 ], [ %.not12, %45 ], [ false, %9 ], [ true, %16 ], [ false, %23 ], [ %38, %35 ], [ true, %33 ], [ false, %4 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -1376,7 +1376,7 @@ define hidden noundef zeroext i1 @_ZThn24_NK5osgeo4proj9operation14ParameterValu
   br label %_ZNK5osgeo4proj9operation14ParameterValue15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit
 
 _ZNK5osgeo4proj9operation14ParameterValue15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit: ; preds = %4, %6, %9, %16, %17, %23, %33, %35, %39, %45
-  %.0.i = phi i1 [ %.not12.i, %45 ], [ true, %33 ], [ false, %9 ], [ %22, %17 ], [ true, %16 ], [ %44, %39 ], [ false, %23 ], [ %38, %35 ], [ false, %4 ], [ false, %6 ]
+  %.0.i = phi i1 [ %22, %17 ], [ %44, %39 ], [ %.not12.i, %45 ], [ false, %9 ], [ true, %16 ], [ false, %23 ], [ %38, %35 ], [ true, %33 ], [ false, %4 ], [ false, %6 ]
   ret i1 %.0.i
 }
 

@@ -99,7 +99,7 @@ define hidden ptr @lexbor_mraw_destroy(ptr noundef %0, i1 noundef zeroext %1) lo
   br label %12
 
 12:                                               ; preds = %4, %2, %10
-  %.0 = phi ptr [ null, %2 ], [ %11, %10 ], [ %0, %4 ]
+  %.0 = phi ptr [ %11, %10 ], [ null, %2 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -218,7 +218,7 @@ define hidden ptr @lexbor_mraw_alloc(ptr noundef captures(none) %0, i64 noundef 
   br label %lexbor_mraw_mem_alloc.exit
 
 lexbor_mraw_mem_alloc.exit:                       ; preds = %33, %60
-  %.0.i = phi ptr [ %36, %33 ], [ %65, %60 ]
+  %.0.i = phi ptr [ %65, %60 ], [ %36, %33 ]
   %66 = icmp eq ptr %.0.i, null
   br i1 %66, label %lexbor_mraw_mem_alloc.exit.thread, label %67
 
@@ -413,7 +413,7 @@ lexbor_mraw_realloc_tail.exit:                    ; preds = %26
   br label %lexbor_mraw_realloc_tail.exit.thread
 
 lexbor_mraw_realloc_tail.exit.thread:             ; preds = %43, %25, %23, %72, %60, %64, %77, %52
-  %.1 = phi ptr [ null, %52 ], [ null, %72 ], [ %1, %60 ], [ %73, %77 ], [ %1, %64 ], [ %.1.i, %43 ], [ %1, %25 ], [ null, %23 ]
+  %.1 = phi ptr [ null, %52 ], [ %73, %77 ], [ %1, %64 ], [ %1, %60 ], [ null, %72 ], [ %.1.i, %43 ], [ %1, %25 ], [ null, %23 ]
   ret ptr %.1
 }
 

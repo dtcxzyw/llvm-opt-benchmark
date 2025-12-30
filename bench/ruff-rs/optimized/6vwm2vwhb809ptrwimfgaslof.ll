@@ -1368,7 +1368,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hbfc3a8216a39fe11E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hbfc3a8216a39fe11E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hbfc3a8216a39fe11E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hbfc3a8216a39fe11E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hbfc3a8216a39fe11E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67

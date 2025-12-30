@@ -137,7 +137,7 @@ define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.loopexit.split.loop.exit, %7, %14, %4
-  %.0 = phi i32 [ %6, %4 ], [ 1, %7 ], [ %16, %14 ], [ %31, %.loopexit.split.loop.exit ], [ 0, %27 ]
+  %.0 = phi i32 [ %6, %4 ], [ %16, %14 ], [ 1, %7 ], [ %31, %.loopexit.split.loop.exit ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -321,7 +321,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_nul
   br label %30
 
 30:                                               ; preds = %2, %28, %27
-  %.024 = phi ptr [ %13, %28 ], [ null, %27 ], [ null, %2 ]
+  %.024 = phi ptr [ null, %27 ], [ %13, %28 ], [ null, %2 ]
   ret ptr %.024
 }
 
@@ -429,7 +429,7 @@ bms_copy.exit33:                                  ; preds = %18, %12
   br label %bms_nonempty_difference.exit
 
 bms_nonempty_difference.exit:                     ; preds = %25, %.preheader, %55, %2, %bms_copy.exit
-  %.028 = phi ptr [ null, %2 ], [ %11, %bms_copy.exit ], [ %29, %55 ], [ %29, %.preheader ], [ null, %25 ]
+  %.028 = phi ptr [ %11, %bms_copy.exit ], [ null, %2 ], [ %29, %55 ], [ %29, %.preheader ], [ null, %25 ]
   ret ptr %.028
 }
 
@@ -472,7 +472,7 @@ define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonl
   br i1 %or.cond, label %.loopexit, label %14, !llvm.loop !9
 
 .loopexit:                                        ; preds = %14, %6, %4, %2
-  %.010 = phi i1 [ true, %6 ], [ false, %2 ], [ true, %4 ], [ %.not.not, %14 ]
+  %.010 = phi i1 [ false, %2 ], [ true, %4 ], [ true, %6 ], [ %.not.not, %14 ]
   ret i1 %.010
 }
 
@@ -515,7 +515,7 @@ define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly captures
   br i1 %or.cond.not, label %14, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %14, %6, %4, %2
-  %.010 = phi i1 [ false, %6 ], [ true, %2 ], [ false, %4 ], [ %.not, %14 ]
+  %.010 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %6 ], [ %.not, %14 ]
   ret i1 %.010
 }
 
@@ -602,7 +602,7 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
   br label %.thread47
 
 .thread47:                                        ; preds = %.thread54, %23, %30, %35, %36, %33, %6, %4
-  %.0 = phi i32 [ %., %4 ], [ %.22946, %35 ], [ %.42, %36 ], [ %.41, %33 ], [ 2, %6 ], [ 3, %30 ], [ 3, %23 ], [ 3, %.thread54 ]
+  %.0 = phi i32 [ %., %4 ], [ 2, %6 ], [ %.41, %33 ], [ %.42, %36 ], [ %.22946, %35 ], [ 3, %30 ], [ 3, %23 ], [ 3, %.thread54 ]
   ret i32 %.0
 }
 
@@ -641,7 +641,7 @@ define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly 
   br label %22
 
 22:                                               ; preds = %13, %9, %7
-  %.0 = phi i1 [ false, %9 ], [ false, %7 ], [ %.not12, %13 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %9 ], [ %.not12, %13 ]
   ret i1 %.0
 }
 
@@ -718,8 +718,8 @@ bms_is_member.exit:                               ; preds = %9
   %34 = add i32 %33, %.019.lcssa
   br label %bms_is_member.exit.thread
 
-bms_is_member.exit.thread:                        ; preds = %7, %9, %bms_is_member.exit, %._crit_edge
-  %.0 = phi i32 [ %34, %._crit_edge ], [ -1, %bms_is_member.exit ], [ -1, %9 ], [ -1, %7 ]
+bms_is_member.exit.thread:                        ; preds = %9, %7, %bms_is_member.exit, %._crit_edge
+  %.0 = phi i32 [ %34, %._crit_edge ], [ -1, %bms_is_member.exit ], [ -1, %7 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -743,7 +743,7 @@ define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly captures(a
   br label %12
 
 12:                                               ; preds = %12, %5
-  %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %5 ]
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
@@ -916,7 +916,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   br label %20
 
 20:                                               ; preds = %14, %8
-  %.221 = phi i32 [ %.019, %8 ], [ %19, %14 ]
+  %.221 = phi i32 [ %19, %14 ], [ %.019, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %21, label %8, !llvm.loop !18
@@ -926,7 +926,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %2, %21
-  %.0 = phi i1 [ false, %2 ], [ true, %21 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %21 ], [ false, %2 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -1154,7 +1154,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   br label %34
 
 34:                                               ; preds = %32, %13, %9, %7, %.critedge
-  %.026 = phi ptr [ %0, %9 ], [ null, %7 ], [ null, %.critedge ], [ %0, %32 ], [ %0, %13 ]
+  %.026 = phi ptr [ null, %.critedge ], [ %0, %32 ], [ null, %7 ], [ %0, %9 ], [ %0, %13 ]
   ret ptr %.026
 }
 
@@ -1228,7 +1228,7 @@ bms_copy.exit27:                                  ; preds = %14
   br label %bms_copy.exit
 
 bms_copy.exit:                                    ; preds = %6, %5, %34, %35, %13
-  %.021 = phi ptr [ %.023, %34 ], [ %0, %13 ], [ %.023, %35 ], [ %12, %6 ], [ null, %5 ]
+  %.021 = phi ptr [ %0, %13 ], [ %.023, %35 ], [ %.023, %34 ], [ %12, %6 ], [ null, %5 ]
   ret ptr %.021
 }
 
@@ -1297,7 +1297,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly c
   br label %bms_copy.exit
 
 bms_copy.exit:                                    ; preds = %6, %5, %36, %14
-  %.017 = phi ptr [ %.018, %36 ], [ null, %14 ], [ %12, %6 ], [ null, %5 ]
+  %.017 = phi ptr [ null, %14 ], [ %.018, %36 ], [ %12, %6 ], [ null, %5 ]
   ret ptr %.017
 }
 
@@ -1478,7 +1478,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   br label %26
 
 26:                                               ; preds = %2, %24, %23, %6
-  %.021 = phi ptr [ %0, %24 ], [ null, %6 ], [ null, %23 ], [ null, %2 ]
+  %.021 = phi ptr [ null, %6 ], [ null, %23 ], [ %0, %24 ], [ null, %2 ]
   ret ptr %.021
 }
 
@@ -1552,7 +1552,7 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %32, %.thread, %4, %2
-  %.029 = phi ptr [ null, %.thread ], [ null, %2 ], [ %0, %4 ], [ %0, %32 ], [ %0, %.preheader ]
+  %.029 = phi ptr [ null, %2 ], [ %0, %4 ], [ null, %.thread ], [ %0, %32 ], [ %0, %.preheader ]
   ret ptr %.029
 }
 
@@ -1602,7 +1602,7 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %24
 
 24:                                               ; preds = %22, %23, %4, %2
-  %.021 = phi ptr [ %0, %4 ], [ %1, %2 ], [ %., %23 ], [ %., %22 ]
+  %.021 = phi ptr [ %1, %2 ], [ %0, %4 ], [ %., %23 ], [ %., %22 ]
   ret ptr %.021
 }
 
@@ -1649,7 +1649,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly captures(address_is_n
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !31
 
 .loopexit:                                        ; preds = %24, %4, %19, %2
-  %.0 = phi i32 [ -2, %2 ], [ %23, %19 ], [ -2, %4 ], [ -2, %24 ]
+  %.0 = phi i32 [ %23, %19 ], [ -2, %2 ], [ -2, %4 ], [ -2, %24 ]
   ret i32 %.0
 }
 
@@ -1709,7 +1709,7 @@ define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef rea
   br i1 %32, label %19, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %30, %11, %24, %2
-  %.0 = phi i32 [ -2, %2 ], [ %29, %24 ], [ -2, %11 ], [ -2, %30 ]
+  %.0 = phi i32 [ %29, %24 ], [ -2, %2 ], [ -2, %11 ], [ -2, %30 ]
   ret i32 %.0
 }
 

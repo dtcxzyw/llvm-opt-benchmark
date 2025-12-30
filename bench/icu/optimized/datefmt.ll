@@ -864,8 +864,8 @@ define noundef double @_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringER10UEr
   br label %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit
 
 _ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit: ; preds = %29, %.noexc
-  %33 = phi i32 [ %.pre10, %.noexc ], [ %.pre, %29 ]
-  %.0.i = phi double [ 0.000000e+00, %.noexc ], [ %.2.i, %29 ]
+  %33 = phi i32 [ %.pre, %29 ], [ %.pre10, %.noexc ]
+  %.0.i = phi double [ %.2.i, %29 ], [ 0.000000e+00, %.noexc ]
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit.thread, label %37
 
@@ -1082,7 +1082,7 @@ define noundef ptr @_ZN6icu_7710DateFormat6createENS0_6EStyleES1_RKNS_6LocaleE(i
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %.thread45, %.thread43, %12, %24, %38, %43
-  %.1 = phi ptr [ null, %.thread43 ], [ null, %.thread45 ], [ %35, %38 ], [ %21, %24 ], [ null, %43 ], [ %9, %12 ], [ null, %8 ]
+  %.1 = phi ptr [ %21, %24 ], [ %35, %38 ], [ null, %43 ], [ %9, %12 ], [ null, %.thread43 ], [ null, %.thread45 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 
@@ -1197,8 +1197,8 @@ _ZN6icu_7712SharedObject7copyPtrINS_18DateFmtBestPatternEEEvPKT_RS5_.exit.i.i: ;
   br label %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i
 
 _ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i: ; preds = %.noexc14._ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge, %28
-  %29 = phi i32 [ %26, %28 ], [ %.pre, %.noexc14._ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge ]
-  %.1 = phi ptr [ null, %28 ], [ %.0, %.noexc14._ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge ]
+  %29 = phi i32 [ %.pre, %.noexc14._ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge ], [ %26, %28 ]
+  %.1 = phi ptr [ %.0, %.noexc14._ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge ], [ null, %28 ]
   %30 = load i32, ptr %3, align 4, !tbaa !6
   %31 = icmp ne i32 %30, 0
   %32 = icmp slt i32 %29, 1
@@ -1379,7 +1379,7 @@ define noundef ptr @_ZN6icu_7710DateFormat25createInstanceForSkeletonEPNS_8Calen
   br label %_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit: ; preds = %.thread38, %42
-  %.pn.pn34 = phi { ptr, i32 } [ %38, %.thread38 ], [ %.pn.pn33, %42 ]
+  %.pn.pn34 = phi { ptr, i32 } [ %.pn.pn33, %42 ], [ %38, %.thread38 ]
   resume { ptr, i32 } %.pn.pn34
 
 46:                                               ; preds = %4, %39
@@ -1804,7 +1804,7 @@ define noundef i32 @_ZNK6icu_7710DateFormat10getContextE19UDisplayContextTypeR10
   br label %11
 
 11:                                               ; preds = %3, %8, %7
-  %.0 = phi i32 [ %10, %8 ], [ 0, %7 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %7 ], [ %10, %8 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -2109,7 +2109,7 @@ _ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBase
   br label %_ZNK6icu_7721DateFmtBestPatternKeyeqERKS0_.exit
 
 _ZNK6icu_7721DateFmtBestPatternKeyeqERKS0_.exit:  ; preds = %16, %_ZNK6icu_778CacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit.i, %53, %36, %31, %_ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit
-  %.0 = phi i1 [ false, %36 ], [ false, %_ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit ], [ %35, %31 ], [ %60, %53 ], [ false, %_ZNK6icu_778CacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit.i ], [ false, %16 ]
+  %.0 = phi i1 [ false, %_ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit ], [ %35, %31 ], [ false, %36 ], [ %60, %53 ], [ false, %_ZNK6icu_778CacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit.i ], [ false, %16 ]
   ret i1 %.0
 }
 

@@ -555,9 +555,9 @@ Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge: ; preds = %Gia_ManAppendCi.e
   br label %.critedge2, !llvm.loop !47
 
 .critedge2:                                       ; preds = %.lr.ph121, %.lr.ph121.preheader, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge, %.preheader
-  %.val84.lcssa = phi i32 [ %.val84115, %.preheader ], [ %.val84115, %.lr.ph121.preheader ], [ %.val84, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val84, %.lr.ph121 ]
-  %.val85.lcssa = phi ptr [ %.val85116, %.preheader ], [ %.val85116, %.lr.ph121.preheader ], [ %.val85, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val85, %.lr.ph121 ]
-  %.lcssa = phi i32 [ %45, %.preheader ], [ %45, %.lr.ph121.preheader ], [ %112, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %112, %.lr.ph121 ]
+  %.val84.lcssa = phi i32 [ %.val84115, %.preheader ], [ %.val84, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val84115, %.lr.ph121.preheader ], [ %.val84, %.lr.ph121 ]
+  %.val85.lcssa = phi ptr [ %.val85116, %.preheader ], [ %.val85, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val85116, %.lr.ph121.preheader ], [ %.val85, %.lr.ph121 ]
+  %.lcssa = phi i32 [ %45, %.preheader ], [ %112, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %45, %.lr.ph121.preheader ], [ %112, %.lr.ph121 ]
   %115 = icmp sgt i32 %.val84.lcssa, 0
   br i1 %115, label %.lr.ph129, label %.critedge4
 
@@ -1148,8 +1148,8 @@ Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge: ; preds = %Gia_ManAppendCi.e
   br label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %.lr.ph183, %.lr.ph183.preheader, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge, %.preheader
-  %.val144186 = phi i32 [ %.val142177, %.preheader ], [ %.val142177, %.lr.ph183.preheader ], [ %.val142, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val142, %.lr.ph183 ]
-  %.1.lcssa = phi i32 [ %.0201, %.preheader ], [ %.0201, %.lr.ph183.preheader ], [ %54, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %54, %.lr.ph183 ]
+  %.val144186 = phi i32 [ %.val142177, %.preheader ], [ %.val142, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val142177, %.lr.ph183.preheader ], [ %.val142, %.lr.ph183 ]
+  %.1.lcssa = phi i32 [ %.0201, %.preheader ], [ %54, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.0201, %.lr.ph183.preheader ], [ %54, %.lr.ph183 ]
   %124 = icmp sgt i32 %.val144186, 0
   br i1 %124, label %.lr.ph190, label %.critedge4
 
@@ -2623,9 +2623,9 @@ define noundef ptr @Bmc_CexInnerStates(ptr noundef %0, ptr noundef readonly capt
   br label %.critedge2, !llvm.loop !82
 
 .critedge2:                                       ; preds = %.lr.ph193, %.lr.ph193.preheader, %..critedge2.loopexit_crit_edge, %.preheader
-  %78 = phi ptr [ %.val153188, %.preheader ], [ %.val153188, %.lr.ph193.preheader ], [ %.val153, %..critedge2.loopexit_crit_edge ], [ %.val153, %.lr.ph193 ]
-  %.val154196 = phi i32 [ %.val152187, %.preheader ], [ %.val152187, %.lr.ph193.preheader ], [ %.val152, %..critedge2.loopexit_crit_edge ], [ %.val152, %.lr.ph193 ]
-  %.1.lcssa = phi i32 [ %.0215, %.preheader ], [ %.0215, %.lr.ph193.preheader ], [ %61, %..critedge2.loopexit_crit_edge ], [ %61, %.lr.ph193 ]
+  %78 = phi ptr [ %.val153188, %.preheader ], [ %.val153, %..critedge2.loopexit_crit_edge ], [ %.val153188, %.lr.ph193.preheader ], [ %.val153, %.lr.ph193 ]
+  %.val154196 = phi i32 [ %.val152187, %.preheader ], [ %.val152, %..critedge2.loopexit_crit_edge ], [ %.val152187, %.lr.ph193.preheader ], [ %.val152, %.lr.ph193 ]
+  %.1.lcssa = phi i32 [ %.0215, %.preheader ], [ %61, %..critedge2.loopexit_crit_edge ], [ %.0215, %.lr.ph193.preheader ], [ %61, %.lr.ph193 ]
   %79 = icmp sgt i32 %.val154196, 0
   br i1 %79, label %.lr.ph200, label %.critedge4
 
@@ -3928,8 +3928,8 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr noundef readonly captures(none) %
   %or.cond11.not = select i1 %225, i1 %226, i1 false
   br i1 %or.cond11.not, label %.critedge140, label %.critedge7.thread
 
-.critedge7.thread:                                ; preds = %182, %.lr.ph183, %.critedge7
-  %.0112.lcssa210 = phi i32 [ %.1113, %.critedge7 ], [ %38, %.lr.ph183 ], [ %38, %182 ]
+.critedge7.thread:                                ; preds = %.lr.ph183, %182, %.critedge7
+  %.0112.lcssa210 = phi i32 [ %.1113, %.critedge7 ], [ %38, %182 ], [ %38, %.lr.ph183 ]
   br i1 %.not, label %228, label %227
 
 227:                                              ; preds = %.critedge7.thread
@@ -4101,8 +4101,8 @@ define noundef ptr @Bmc_CexEssentialBits(ptr noundef readonly captures(none) %0,
   br i1 %.not37, label %.sink.split, label %59
 
 .sink.split:                                      ; preds = %46, %42, %34
-  %.ph = phi ptr [ %26, %42 ], [ %26, %34 ], [ %40, %46 ]
-  %.1.ph = phi i32 [ 1, %42 ], [ %.048, %34 ], [ 1, %46 ]
+  %.ph = phi ptr [ %26, %34 ], [ %26, %42 ], [ %40, %46 ]
+  %.1.ph = phi i32 [ %.048, %34 ], [ 1, %42 ], [ 1, %46 ]
   %56 = getelementptr inbounds nuw i32, ptr %22, i64 %28
   %57 = load i32, ptr %56, align 4, !tbaa !10
   %58 = or i32 %57, %32
@@ -4110,8 +4110,8 @@ define noundef ptr @Bmc_CexEssentialBits(ptr noundef readonly captures(none) %0,
   br label %59
 
 59:                                               ; preds = %.sink.split, %46, %42, %25
-  %60 = phi ptr [ %40, %46 ], [ %26, %25 ], [ %26, %42 ], [ %.ph, %.sink.split ]
-  %.1 = phi i32 [ 0, %46 ], [ %.048, %25 ], [ %.048, %42 ], [ %.1.ph, %.sink.split ]
+  %60 = phi ptr [ %26, %42 ], [ %40, %46 ], [ %26, %25 ], [ %.ph, %.sink.split ]
+  %.1 = phi i32 [ %.048, %42 ], [ 0, %46 ], [ %.048, %25 ], [ %.1.ph, %.sink.split ]
   %61 = add nuw nsw i32 %.03447, 1
   %62 = load i32, ptr %16, align 4, !tbaa !3
   %63 = icmp slt i32 %61, %62
@@ -4537,7 +4537,7 @@ define void @Gia_ManCountCareBits(ptr noundef readonly captures(none) %0, ptr no
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.critedge10.loopexit, %.lr.ph146, %.critedge8
-  %.0.lcssa = phi i64 [ 0, %.lr.ph146 ], [ 0, %.critedge8 ], [ %163, %.critedge10.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %.critedge8 ], [ 0, %.lr.ph146 ], [ %163, %.critedge10.loopexit ]
   %164 = add i64 %.082151, %.0.lcssa
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %.val118 = load i32, ptr %3, align 4, !tbaa !102

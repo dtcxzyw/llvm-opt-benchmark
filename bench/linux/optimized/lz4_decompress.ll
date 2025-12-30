@@ -183,11 +183,11 @@ define dso_local i32 @LZ4_decompress_safe(ptr noundef %0, ptr noundef %1, i32 no
   br label %95
 
 95:                                               ; preds = %88, %36
-  %.1380 = phi ptr [ %73, %88 ], [ %37, %36 ]
-  %.0369 = phi i64 [ %94, %88 ], [ %40, %36 ]
-  %.0364 = phi ptr [ %92, %88 ], [ %44, %36 ]
-  %.0363 = phi i64 [ %89, %88 ], [ %41, %36 ]
-  %.1 = phi ptr [ %90, %88 ], [ %42, %36 ]
+  %.1380 = phi ptr [ %37, %36 ], [ %73, %88 ]
+  %.0369 = phi i64 [ %40, %36 ], [ %94, %88 ]
+  %.0364 = phi ptr [ %44, %36 ], [ %92, %88 ]
+  %.0363 = phi i64 [ %41, %36 ], [ %89, %88 ]
+  %.1 = phi ptr [ %42, %36 ], [ %90, %88 ]
   %96 = icmp ult ptr %.0364, %1
   br i1 %96, label %.loopexit429, label %97
 
@@ -313,8 +313,8 @@ define dso_local i32 @LZ4_decompress_safe(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %163, label %164, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %166, %.lr.ph, %161, %155, %47
-  %.0379.be = phi ptr [ %56, %47 ], [ %113, %.lr.ph ], [ %113, %155 ], [ %113, %161 ], [ %113, %166 ]
-  %.0362.be = phi ptr [ %42, %47 ], [ %.7, %.lr.ph ], [ %.7, %155 ], [ %.7, %161 ], [ %.7, %166 ]
+  %.0379.be = phi ptr [ %56, %47 ], [ %113, %155 ], [ %113, %161 ], [ %113, %.lr.ph ], [ %113, %166 ]
+  %.0362.be = phi ptr [ %42, %47 ], [ %.7, %155 ], [ %.7, %161 ], [ %.7, %.lr.ph ], [ %.7, %166 ]
   br label %.backedge
 
 164:                                              ; preds = %161
@@ -332,7 +332,7 @@ define dso_local i32 @LZ4_decompress_safe(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %169, label %166, label %.backedge.backedge, !llvm.loop !7
 
 .loopexit429:                                     ; preds = %143, %107, %95, %65, %57, %.preheader428, %77
-  %.3 = phi ptr [ %100, %.preheader428 ], [ %.2, %77 ], [ %27, %57 ], [ %.7, %143 ], [ %100, %107 ], [ %58, %65 ], [ %.1, %95 ]
+  %.3 = phi ptr [ %.2, %77 ], [ %100, %.preheader428 ], [ %58, %65 ], [ %27, %57 ], [ %.7, %143 ], [ %100, %107 ], [ %.1, %95 ]
   %170 = ptrtoint ptr %.3 to i64
   %171 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %171, %170
@@ -341,7 +341,7 @@ define dso_local i32 @LZ4_decompress_safe(ptr noundef %0, ptr noundef %1, i32 no
   br label %174
 
 174:                                              ; preds = %18, %12, %14, %.loopexit429, %79
-  %.0361 = phi i32 [ %173, %.loopexit429 ], [ %83, %79 ], [ %17, %14 ], [ -1, %12 ], [ -1, %18 ]
+  %.0361 = phi i32 [ %173, %.loopexit429 ], [ %83, %79 ], [ -1, %12 ], [ %17, %14 ], [ -1, %18 ]
   ret i32 %.0361
 }
 
@@ -510,11 +510,11 @@ define dso_local i32 @LZ4_decompress_safe_partial(ptr noundef %0, ptr noundef %1
   br label %96
 
 96:                                               ; preds = %.loopexit437, %37
-  %.0387 = phi i64 [ %95, %.loopexit437 ], [ %41, %37 ]
-  %.0382 = phi ptr [ %93, %.loopexit437 ], [ %45, %37 ]
-  %.0381 = phi i64 [ %90, %.loopexit437 ], [ %42, %37 ]
-  %.1371 = phi ptr [ %.3373, %.loopexit437 ], [ %38, %37 ]
-  %.1 = phi ptr [ %91, %.loopexit437 ], [ %43, %37 ]
+  %.0387 = phi i64 [ %41, %37 ], [ %95, %.loopexit437 ]
+  %.0382 = phi ptr [ %45, %37 ], [ %93, %.loopexit437 ]
+  %.0381 = phi i64 [ %42, %37 ], [ %90, %.loopexit437 ]
+  %.1371 = phi ptr [ %38, %37 ], [ %.3373, %.loopexit437 ]
+  %.1 = phi ptr [ %43, %37 ], [ %91, %.loopexit437 ]
   %97 = icmp ult ptr %.0382, %1
   br i1 %97, label %.loopexit435, label %98
 
@@ -629,8 +629,8 @@ define dso_local i32 @LZ4_decompress_safe_partial(ptr noundef %0, ptr noundef %1
   br i1 %158, label %159, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %161, %155, %48, %.loopexit
-  %.0370.be = phi ptr [ %120, %.loopexit ], [ %57, %48 ], [ %113, %155 ], [ %113, %161 ]
-  %.0368.be = phi ptr [ %.7, %.loopexit ], [ %43, %48 ], [ %.7, %155 ], [ %.7, %161 ]
+  %.0370.be = phi ptr [ %57, %48 ], [ %120, %.loopexit ], [ %113, %155 ], [ %113, %161 ]
+  %.0368.be = phi ptr [ %43, %48 ], [ %.7, %.loopexit ], [ %.7, %155 ], [ %.7, %161 ]
   br label %.backedge
 
 159:                                              ; preds = %155
@@ -655,7 +655,7 @@ split:                                            ; preds = %.loopexit, %._crit_
   br label %172
 
 .loopexit435:                                     ; preds = %107, %96, %78, %66, %58, %.preheader434
-  %.3 = phi ptr [ %100, %.preheader434 ], [ %59, %66 ], [ %.2, %78 ], [ %100, %107 ], [ %28, %58 ], [ %.1, %96 ]
+  %.3 = phi ptr [ %100, %.preheader434 ], [ %.2, %78 ], [ %59, %66 ], [ %28, %58 ], [ %100, %107 ], [ %.1, %96 ]
   %168 = ptrtoint ptr %.3 to i64
   %169 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %169, %168
@@ -664,7 +664,7 @@ split:                                            ; preds = %.loopexit, %._crit_
   br label %172
 
 172:                                              ; preds = %20, %14, %16, %.loopexit435, %split
-  %.0367 = phi i32 [ %171, %.loopexit435 ], [ %167, %split ], [ %19, %16 ], [ -1, %14 ], [ -1, %20 ]
+  %.0367 = phi i32 [ %171, %.loopexit435 ], [ %167, %split ], [ -1, %14 ], [ %19, %16 ], [ -1, %20 ]
   ret i32 %.0367
 }
 
@@ -791,11 +791,11 @@ define dso_local i32 @LZ4_decompress_fast(ptr noundef %0, ptr noundef %1, i32 no
   br label %73
 
 73:                                               ; preds = %23, %65
-  %.1379 = phi ptr [ %52, %65 ], [ %25, %23 ]
-  %.0368 = phi i64 [ %72, %65 ], [ %28, %23 ]
-  %.0363 = phi ptr [ %70, %65 ], [ %32, %23 ]
-  %.0362 = phi i64 [ %67, %65 ], [ %29, %23 ]
-  %.1 = phi ptr [ %68, %65 ], [ %30, %23 ]
+  %.1379 = phi ptr [ %25, %23 ], [ %52, %65 ]
+  %.0368 = phi i64 [ %28, %23 ], [ %72, %65 ]
+  %.0363 = phi ptr [ %32, %23 ], [ %70, %65 ]
+  %.0362 = phi i64 [ %29, %23 ], [ %67, %65 ]
+  %.1 = phi ptr [ %30, %23 ], [ %68, %65 ]
   %74 = trunc nuw nsw i64 %.0362 to i32
   store i32 %74, ptr %.1379, align 1
   %75 = icmp eq i64 %.0368, 15
@@ -907,8 +907,8 @@ define dso_local i32 @LZ4_decompress_fast(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %132, label %133, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %135, %.lr.ph, %130, %124, %35
-  %.0378.be = phi ptr [ %44, %35 ], [ %82, %.lr.ph ], [ %82, %124 ], [ %82, %130 ], [ %82, %135 ]
-  %.0361.be = phi ptr [ %30, %35 ], [ %.7, %.lr.ph ], [ %.7, %124 ], [ %.7, %130 ], [ %.7, %135 ]
+  %.0378.be = phi ptr [ %44, %35 ], [ %82, %124 ], [ %82, %130 ], [ %82, %.lr.ph ], [ %82, %135 ]
+  %.0361.be = phi ptr [ %30, %35 ], [ %.7, %124 ], [ %.7, %130 ], [ %.7, %.lr.ph ], [ %.7, %135 ]
   br label %.backedge
 
 133:                                              ; preds = %130
@@ -935,7 +935,7 @@ define dso_local i32 @LZ4_decompress_fast(ptr noundef %0, ptr noundef %1, i32 no
   br label %143
 
 143:                                              ; preds = %.loopexit420, %55, %13
-  %.0360 = phi i32 [ %60, %55 ], [ %16, %13 ], [ %142, %.loopexit420 ]
+  %.0360 = phi i32 [ %16, %13 ], [ %142, %.loopexit420 ], [ %60, %55 ]
   ret i32 %.0360
 }
 
@@ -1156,11 +1156,11 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr noundef captures(none) %0
   br label %127
 
 127:                                              ; preds = %68, %120
-  %.0445 = phi i64 [ %126, %120 ], [ %72, %68 ]
-  %.0440 = phi ptr [ %124, %120 ], [ %76, %68 ]
-  %.0439 = phi i64 [ %121, %120 ], [ %73, %68 ]
-  %.1428 = phi ptr [ %105, %120 ], [ %69, %68 ]
-  %.1426 = phi ptr [ %122, %120 ], [ %74, %68 ]
+  %.0445 = phi i64 [ %72, %68 ], [ %126, %120 ]
+  %.0440 = phi ptr [ %76, %68 ], [ %124, %120 ]
+  %.0439 = phi i64 [ %73, %68 ], [ %121, %120 ]
+  %.1428 = phi ptr [ %69, %68 ], [ %105, %120 ]
+  %.1426 = phi ptr [ %74, %68 ], [ %122, %120 ]
   %128 = getelementptr i8, ptr %.0440, i64 %26
   %129 = icmp ult ptr %128, %33
   %or.cond499 = select i1 %39, i1 %129, i1 false
@@ -1337,8 +1337,8 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr noundef captures(none) %0
   br i1 %220, label %221, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %223, %.lr.ph, %.lr.ph525, %218, %212, %153, %169, %.preheader, %79
-  %.0427.be = phi ptr [ %147, %218 ], [ %88, %79 ], [ %147, %153 ], [ %147, %169 ], [ %160, %.preheader ], [ %167, %.lr.ph525 ], [ %147, %212 ], [ %147, %.lr.ph ], [ %147, %223 ]
-  %.0425.be = phi ptr [ %.7, %218 ], [ %74, %79 ], [ %.7, %153 ], [ %.7, %169 ], [ %.7, %.preheader ], [ %.7, %.lr.ph525 ], [ %.7, %212 ], [ %.7, %.lr.ph ], [ %.7, %223 ]
+  %.0427.be = phi ptr [ %88, %79 ], [ %147, %153 ], [ %147, %169 ], [ %160, %.preheader ], [ %147, %212 ], [ %147, %218 ], [ %167, %.lr.ph525 ], [ %147, %.lr.ph ], [ %147, %223 ]
+  %.0425.be = phi ptr [ %74, %79 ], [ %.7, %153 ], [ %.7, %169 ], [ %.7, %.preheader ], [ %.7, %212 ], [ %.7, %218 ], [ %.7, %.lr.ph525 ], [ %.7, %.lr.ph ], [ %.7, %223 ]
   br label %.backedge
 
 221:                                              ; preds = %218
@@ -1356,7 +1356,7 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr noundef captures(none) %0
   br i1 %226, label %223, label %.backedge.backedge, !llvm.loop !7
 
 .loopexit508:                                     ; preds = %148, %127, %200, %140, %97, %89, %.preheader507, %109
-  %.3 = phi ptr [ %133, %.preheader507 ], [ %.2, %109 ], [ %90, %97 ], [ %59, %89 ], [ %.7, %200 ], [ %133, %140 ], [ %.7, %148 ], [ %.1426, %127 ]
+  %.3 = phi ptr [ %.2, %109 ], [ %133, %.preheader507 ], [ %.7, %148 ], [ %.1426, %127 ], [ %90, %97 ], [ %59, %89 ], [ %.7, %200 ], [ %133, %140 ]
   %227 = ptrtoint ptr %.3 to i64
   %228 = ptrtoint ptr %1 to i64
   %.neg = sub i64 %228, %227
@@ -1396,8 +1396,8 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr noundef captures(none) %0
   store ptr %247, ptr %17, align 8
   br label %.thread
 
-.thread:                                          ; preds = %49, %43, %45, %12, %245, %233, %239, %231, %9
-  %.0421 = phi i32 [ %.1, %231 ], [ %243, %239 ], [ %10, %9 ], [ %10, %12 ], [ %.1, %233 ], [ %243, %245 ], [ -1, %49 ], [ -1, %43 ], [ %48, %45 ]
+.thread:                                          ; preds = %49, %45, %43, %12, %245, %233, %239, %231, %9
+  %.0421 = phi i32 [ %10, %9 ], [ %.1, %231 ], [ %243, %239 ], [ %10, %12 ], [ %.1, %233 ], [ %243, %245 ], [ -1, %49 ], [ %48, %45 ], [ -1, %43 ]
   ret i32 %.0421
 }
 
@@ -1556,11 +1556,11 @@ define internal fastcc i32 @LZ4_decompress_safe_withPrefix64k(ptr noundef %0, pt
   br label %96
 
 96:                                               ; preds = %89, %37
-  %.1380 = phi ptr [ %74, %89 ], [ %38, %37 ]
-  %.0369 = phi i64 [ %95, %89 ], [ %41, %37 ]
-  %.0364 = phi ptr [ %93, %89 ], [ %45, %37 ]
-  %.0363 = phi i64 [ %90, %89 ], [ %42, %37 ]
-  %.1 = phi ptr [ %91, %89 ], [ %43, %37 ]
+  %.1380 = phi ptr [ %38, %37 ], [ %74, %89 ]
+  %.0369 = phi i64 [ %41, %37 ], [ %95, %89 ]
+  %.0364 = phi ptr [ %45, %37 ], [ %93, %89 ]
+  %.0363 = phi i64 [ %42, %37 ], [ %90, %89 ]
+  %.1 = phi ptr [ %43, %37 ], [ %91, %89 ]
   %97 = icmp ult ptr %.0364, %5
   br i1 %97, label %.loopexit425, label %98
 
@@ -1686,8 +1686,8 @@ define internal fastcc i32 @LZ4_decompress_safe_withPrefix64k(ptr noundef %0, pt
   br i1 %164, label %165, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %167, %.lr.ph, %162, %156, %48
-  %.0379.be = phi ptr [ %57, %48 ], [ %114, %.lr.ph ], [ %114, %156 ], [ %114, %162 ], [ %114, %167 ]
-  %.0362.be = phi ptr [ %43, %48 ], [ %.7, %.lr.ph ], [ %.7, %156 ], [ %.7, %162 ], [ %.7, %167 ]
+  %.0379.be = phi ptr [ %57, %48 ], [ %114, %156 ], [ %114, %162 ], [ %114, %.lr.ph ], [ %114, %167 ]
+  %.0362.be = phi ptr [ %43, %48 ], [ %.7, %156 ], [ %.7, %162 ], [ %.7, %.lr.ph ], [ %.7, %167 ]
   br label %.backedge
 
 165:                                              ; preds = %162
@@ -1705,7 +1705,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withPrefix64k(ptr noundef %0, pt
   br i1 %170, label %167, label %.backedge.backedge, !llvm.loop !7
 
 .loopexit425:                                     ; preds = %144, %108, %96, %66, %58, %.preheader424, %78
-  %.3 = phi ptr [ %101, %.preheader424 ], [ %.2, %78 ], [ %28, %58 ], [ %.7, %144 ], [ %101, %108 ], [ %59, %66 ], [ %.1, %96 ]
+  %.3 = phi ptr [ %.2, %78 ], [ %101, %.preheader424 ], [ %59, %66 ], [ %28, %58 ], [ %.7, %144 ], [ %101, %108 ], [ %.1, %96 ]
   %171 = ptrtoint ptr %.3 to i64
   %172 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %172, %171
@@ -1714,7 +1714,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withPrefix64k(ptr noundef %0, pt
   br label %175
 
 175:                                              ; preds = %19, %13, %15, %.loopexit425, %80
-  %.0361 = phi i32 [ %174, %.loopexit425 ], [ %84, %80 ], [ %18, %15 ], [ -1, %13 ], [ -1, %19 ]
+  %.0361 = phi i32 [ %174, %.loopexit425 ], [ %84, %80 ], [ -1, %13 ], [ %18, %15 ], [ -1, %19 ]
   ret i32 %.0361
 }
 
@@ -1876,11 +1876,11 @@ define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, 
   br label %98
 
 98:                                               ; preds = %91, %39
-  %.0379 = phi i64 [ %97, %91 ], [ %43, %39 ]
-  %.0374 = phi ptr [ %95, %91 ], [ %47, %39 ]
-  %.0373 = phi i64 [ %92, %91 ], [ %44, %39 ]
-  %.1365 = phi ptr [ %76, %91 ], [ %40, %39 ]
-  %.1 = phi ptr [ %93, %91 ], [ %45, %39 ]
+  %.0379 = phi i64 [ %43, %39 ], [ %97, %91 ]
+  %.0374 = phi ptr [ %47, %39 ], [ %95, %91 ]
+  %.0373 = phi i64 [ %44, %39 ], [ %92, %91 ]
+  %.1365 = phi ptr [ %40, %39 ], [ %76, %91 ]
+  %.1 = phi ptr [ %45, %39 ], [ %93, %91 ]
   %99 = icmp ult ptr %.0374, %7
   br i1 %99, label %.loopexit430, label %100
 
@@ -2006,8 +2006,8 @@ define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, 
   br i1 %166, label %167, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %169, %.lr.ph, %164, %158, %50
-  %.0364.be = phi ptr [ %59, %50 ], [ %116, %.lr.ph ], [ %116, %158 ], [ %116, %164 ], [ %116, %169 ]
-  %.0363.be = phi ptr [ %45, %50 ], [ %.7, %.lr.ph ], [ %.7, %158 ], [ %.7, %164 ], [ %.7, %169 ]
+  %.0364.be = phi ptr [ %59, %50 ], [ %116, %158 ], [ %116, %164 ], [ %116, %.lr.ph ], [ %116, %169 ]
+  %.0363.be = phi ptr [ %45, %50 ], [ %.7, %158 ], [ %.7, %164 ], [ %.7, %.lr.ph ], [ %.7, %169 ]
   br label %.backedge
 
 167:                                              ; preds = %164
@@ -2025,7 +2025,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, 
   br i1 %172, label %169, label %.backedge.backedge, !llvm.loop !7
 
 .loopexit430:                                     ; preds = %146, %110, %98, %68, %60, %.preheader429, %80
-  %.3 = phi ptr [ %103, %.preheader429 ], [ %.2, %80 ], [ %30, %60 ], [ %.7, %146 ], [ %103, %110 ], [ %61, %68 ], [ %.1, %98 ]
+  %.3 = phi ptr [ %.2, %80 ], [ %103, %.preheader429 ], [ %61, %68 ], [ %30, %60 ], [ %.7, %146 ], [ %103, %110 ], [ %.1, %98 ]
   %173 = ptrtoint ptr %.3 to i64
   %174 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %174, %173
@@ -2034,7 +2034,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, 
   br label %177
 
 177:                                              ; preds = %21, %15, %17, %.loopexit430, %82
-  %.0362 = phi i32 [ %176, %.loopexit430 ], [ %86, %82 ], [ %20, %17 ], [ -1, %15 ], [ -1, %21 ]
+  %.0362 = phi i32 [ %176, %.loopexit430 ], [ %86, %82 ], [ -1, %15 ], [ %20, %17 ], [ -1, %21 ]
   ret i32 %.0362
 }
 
@@ -2196,11 +2196,11 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
   br label %99
 
 99:                                               ; preds = %41, %92
-  %.0380 = phi i64 [ %98, %92 ], [ %45, %41 ]
-  %.0375 = phi ptr [ %96, %92 ], [ %49, %41 ]
-  %.0374 = phi i64 [ %93, %92 ], [ %46, %41 ]
-  %.1366 = phi ptr [ %78, %92 ], [ %42, %41 ]
-  %.1 = phi ptr [ %94, %92 ], [ %47, %41 ]
+  %.0380 = phi i64 [ %45, %41 ], [ %98, %92 ]
+  %.0375 = phi ptr [ %49, %41 ], [ %96, %92 ]
+  %.0374 = phi i64 [ %46, %41 ], [ %93, %92 ]
+  %.1366 = phi ptr [ %42, %41 ], [ %78, %92 ]
+  %.1 = phi ptr [ %47, %41 ], [ %94, %92 ]
   %100 = getelementptr i8, ptr %.0375, i64 %5
   %101 = icmp ult ptr %100, %1
   %or.cond429 = select i1 %12, i1 %101, i1 false
@@ -2377,8 +2377,8 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
   br i1 %192, label %193, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %195, %.lr.ph, %.lr.ph454, %190, %184, %125, %141, %.preheader, %52
-  %.0365.be = phi ptr [ %119, %190 ], [ %61, %52 ], [ %119, %125 ], [ %119, %141 ], [ %132, %.preheader ], [ %139, %.lr.ph454 ], [ %119, %184 ], [ %119, %.lr.ph ], [ %119, %195 ]
-  %.0364.be = phi ptr [ %.7, %190 ], [ %47, %52 ], [ %.7, %125 ], [ %.7, %141 ], [ %.7, %.preheader ], [ %.7, %.lr.ph454 ], [ %.7, %184 ], [ %.7, %.lr.ph ], [ %.7, %195 ]
+  %.0365.be = phi ptr [ %61, %52 ], [ %119, %125 ], [ %119, %141 ], [ %132, %.preheader ], [ %119, %184 ], [ %119, %190 ], [ %139, %.lr.ph454 ], [ %119, %.lr.ph ], [ %119, %195 ]
+  %.0364.be = phi ptr [ %47, %52 ], [ %.7, %125 ], [ %.7, %141 ], [ %.7, %.preheader ], [ %.7, %184 ], [ %.7, %190 ], [ %.7, %.lr.ph454 ], [ %.7, %.lr.ph ], [ %.7, %195 ]
   br label %.backedge
 
 193:                                              ; preds = %190
@@ -2396,7 +2396,7 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
   br i1 %198, label %195, label %.backedge.backedge, !llvm.loop !7
 
 .loopexit437:                                     ; preds = %120, %99, %172, %112, %70, %62, %.preheader436, %82
-  %.3 = phi ptr [ %105, %.preheader436 ], [ %.2, %82 ], [ %63, %70 ], [ %32, %62 ], [ %.7, %172 ], [ %105, %112 ], [ %.7, %120 ], [ %.1, %99 ]
+  %.3 = phi ptr [ %.2, %82 ], [ %105, %.preheader436 ], [ %.7, %120 ], [ %.1, %99 ], [ %63, %70 ], [ %32, %62 ], [ %.7, %172 ], [ %105, %112 ]
   %199 = ptrtoint ptr %.3 to i64
   %200 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %200, %199
@@ -2405,7 +2405,7 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
   br label %203
 
 203:                                              ; preds = %22, %16, %18, %.loopexit437, %84
-  %.0362 = phi i32 [ %202, %.loopexit437 ], [ %87, %84 ], [ %21, %18 ], [ -1, %16 ], [ -1, %22 ]
+  %.0362 = phi i32 [ %202, %.loopexit437 ], [ %87, %84 ], [ -1, %16 ], [ %21, %18 ], [ -1, %22 ]
   ret i32 %.0362
 }
 
@@ -2577,11 +2577,11 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr noundef captures(none) %0
   br label %101
 
 101:                                              ; preds = %51, %93
-  %.0435 = phi i64 [ %100, %93 ], [ %56, %51 ]
-  %.0430 = phi ptr [ %98, %93 ], [ %60, %51 ]
-  %.0429 = phi i64 [ %95, %93 ], [ %57, %51 ]
-  %.1418 = phi ptr [ %80, %93 ], [ %53, %51 ]
-  %.1416 = phi ptr [ %96, %93 ], [ %58, %51 ]
+  %.0435 = phi i64 [ %56, %51 ], [ %100, %93 ]
+  %.0430 = phi ptr [ %60, %51 ], [ %98, %93 ]
+  %.0429 = phi i64 [ %57, %51 ], [ %95, %93 ]
+  %.1418 = phi ptr [ %53, %51 ], [ %80, %93 ]
+  %.1416 = phi ptr [ %58, %51 ], [ %96, %93 ]
   %102 = trunc nuw nsw i64 %.0429 to i32
   store i32 %102, ptr %.1418, align 1
   %103 = icmp eq i64 %.0435, 15
@@ -2742,8 +2742,8 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr noundef captures(none) %0
   br i1 %184, label %185, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %187, %.lr.ph, %.lr.ph506, %182, %176, %117, %133, %.preheader, %63
-  %.0417.be = phi ptr [ %111, %182 ], [ %72, %63 ], [ %111, %117 ], [ %111, %133 ], [ %124, %.preheader ], [ %131, %.lr.ph506 ], [ %111, %176 ], [ %111, %.lr.ph ], [ %111, %187 ]
-  %.0415.be = phi ptr [ %.7, %182 ], [ %58, %63 ], [ %.7, %117 ], [ %.7, %133 ], [ %.7, %.preheader ], [ %.7, %.lr.ph506 ], [ %.7, %176 ], [ %.7, %.lr.ph ], [ %.7, %187 ]
+  %.0417.be = phi ptr [ %72, %63 ], [ %111, %117 ], [ %111, %133 ], [ %124, %.preheader ], [ %111, %176 ], [ %111, %182 ], [ %131, %.lr.ph506 ], [ %111, %.lr.ph ], [ %111, %187 ]
+  %.0415.be = phi ptr [ %58, %63 ], [ %.7, %117 ], [ %.7, %133 ], [ %.7, %.preheader ], [ %.7, %176 ], [ %.7, %182 ], [ %.7, %.lr.ph506 ], [ %.7, %.lr.ph ], [ %.7, %187 ]
   br label %.backedge
 
 185:                                              ; preds = %182
@@ -2770,7 +2770,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr noundef captures(none) %0
   br label %195
 
 195:                                              ; preds = %83, %.loopexit496, %25
-  %.1 = phi i32 [ %26, %25 ], [ %88, %83 ], [ %194, %.loopexit496 ]
+  %.1 = phi i32 [ %26, %25 ], [ %194, %.loopexit496 ], [ %88, %83 ]
   %196 = icmp slt i32 %.1, 1
   br i1 %196, label %.thread, label %..thread481_crit_edge
 
@@ -2809,7 +2809,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr noundef captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %42, %11, %207, %.thread481, %201, %195, %8
-  %.0410 = phi i32 [ %.1, %195 ], [ %205, %201 ], [ %9, %8 ], [ %9, %11 ], [ %.1483, %.thread481 ], [ %205, %207 ], [ -1, %42 ]
+  %.0410 = phi i32 [ %9, %8 ], [ %.1, %195 ], [ %205, %201 ], [ %9, %11 ], [ %.1483, %.thread481 ], [ %205, %207 ], [ -1, %42 ]
   ret i32 %.0410
 }
 
@@ -2940,11 +2940,11 @@ define internal fastcc i32 @LZ4_decompress_fast_extDict(ptr noundef %0, ptr noun
   br label %77
 
 77:                                               ; preds = %27, %69
-  %.0379 = phi i64 [ %76, %69 ], [ %32, %27 ]
-  %.0374 = phi ptr [ %74, %69 ], [ %36, %27 ]
-  %.0373 = phi i64 [ %71, %69 ], [ %33, %27 ]
-  %.1365 = phi ptr [ %56, %69 ], [ %29, %27 ]
-  %.1 = phi ptr [ %72, %69 ], [ %34, %27 ]
+  %.0379 = phi i64 [ %32, %27 ], [ %76, %69 ]
+  %.0374 = phi ptr [ %36, %27 ], [ %74, %69 ]
+  %.0373 = phi i64 [ %33, %27 ], [ %71, %69 ]
+  %.1365 = phi ptr [ %29, %27 ], [ %56, %69 ]
+  %.1 = phi ptr [ %34, %27 ], [ %72, %69 ]
   %78 = trunc nuw nsw i64 %.0373 to i32
   store i32 %78, ptr %.1365, align 1
   %79 = icmp eq i64 %.0379, 15
@@ -3105,8 +3105,8 @@ define internal fastcc i32 @LZ4_decompress_fast_extDict(ptr noundef %0, ptr noun
   br i1 %160, label %161, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %163, %.lr.ph, %.lr.ph440, %158, %152, %93, %109, %.preheader, %39
-  %.0364.be = phi ptr [ %87, %158 ], [ %48, %39 ], [ %87, %93 ], [ %87, %109 ], [ %100, %.preheader ], [ %107, %.lr.ph440 ], [ %87, %152 ], [ %87, %.lr.ph ], [ %87, %163 ]
-  %.0363.be = phi ptr [ %.7, %158 ], [ %34, %39 ], [ %.7, %93 ], [ %.7, %109 ], [ %.7, %.preheader ], [ %.7, %.lr.ph440 ], [ %.7, %152 ], [ %.7, %.lr.ph ], [ %.7, %163 ]
+  %.0364.be = phi ptr [ %48, %39 ], [ %87, %93 ], [ %87, %109 ], [ %100, %.preheader ], [ %87, %152 ], [ %87, %158 ], [ %107, %.lr.ph440 ], [ %87, %.lr.ph ], [ %87, %163 ]
+  %.0363.be = phi ptr [ %34, %39 ], [ %.7, %93 ], [ %.7, %109 ], [ %.7, %.preheader ], [ %.7, %152 ], [ %.7, %158 ], [ %.7, %.lr.ph440 ], [ %.7, %.lr.ph ], [ %.7, %163 ]
   br label %.backedge
 
 161:                                              ; preds = %158
@@ -3133,7 +3133,7 @@ define internal fastcc i32 @LZ4_decompress_fast_extDict(ptr noundef %0, ptr noun
   br label %171
 
 171:                                              ; preds = %.loopexit430, %59, %17
-  %.0362 = phi i32 [ %64, %59 ], [ %20, %17 ], [ %170, %.loopexit430 ]
+  %.0362 = phi i32 [ %20, %17 ], [ %170, %.loopexit430 ], [ %64, %59 ]
   ret i32 %.0362
 }
 

@@ -526,7 +526,7 @@ define internal fastcc range(i32 0, 2) i32 @idct_row(ptr noundef captures(none) 
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %93, %110, %99, %91
-  %.3 = phi i32 [ 1, %110 ], [ 0, %91 ], [ 1, %99 ], [ 1, %93 ], [ 1, %48 ]
+  %.3 = phi i32 [ 0, %91 ], [ 1, %99 ], [ 1, %110 ], [ 1, %93 ], [ 1, %48 ]
   ret i32 %.3
 }
 

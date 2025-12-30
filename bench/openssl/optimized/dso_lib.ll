@@ -63,7 +63,7 @@ define internal fastcc ptr @DSO_new_method() unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %8, %13, %15, %0, %7
-  %.014 = phi ptr [ null, %0 ], [ null, %7 ], [ %1, %13 ], [ null, %15 ], [ %1, %8 ]
+  %.014 = phi ptr [ null, %7 ], [ null, %0 ], [ %1, %13 ], [ null, %15 ], [ %1, %8 ]
   ret ptr %.014
 }
 
@@ -147,7 +147,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
   br label %33
 
 33:                                               ; preds = %CRYPTO_DOWN_REF.exit, %1, %26, %25, %18
-  %.0 = phi i32 [ 0, %25 ], [ 0, %18 ], [ 1, %1 ], [ 1, %26 ], [ 1, %CRYPTO_DOWN_REF.exit ]
+  %.0 = phi i32 [ 1, %26 ], [ 0, %25 ], [ 0, %18 ], [ 1, %1 ], [ 1, %CRYPTO_DOWN_REF.exit ]
   ret i32 %.0
 }
 
@@ -263,9 +263,9 @@ DSO_ctrl.exit:                                    ; preds = %5
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %28, label %31
 
-28:                                               ; preds = %26, %20, %12, %16, %17, %9
-  %.sink42 = phi i32 [ 143, %20 ], [ 139, %12 ], [ 134, %16 ], [ 125, %9 ], [ 134, %17 ], [ 147, %26 ]
-  %.sink = phi i32 [ 108, %20 ], [ 111, %12 ], [ 112, %16 ], [ 110, %9 ], [ 112, %17 ], [ 103, %26 ]
+28:                                               ; preds = %26, %20, %12, %17, %16, %9
+  %.sink42 = phi i32 [ 125, %9 ], [ 134, %16 ], [ 134, %17 ], [ 139, %12 ], [ 143, %20 ], [ 147, %26 ]
+  %.sink = phi i32 [ 110, %9 ], [ 112, %16 ], [ 112, %17 ], [ 111, %12 ], [ 108, %20 ], [ 103, %26 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink42, ptr noundef nonnull @__func__.DSO_load) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef %.sink, ptr noundef null) #3
@@ -406,8 +406,8 @@ define ptr @DSO_bind_func(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %12, label %.sink.split, label %13
 
 .sink.split:                                      ; preds = %10, %5, %2
-  %.sink17 = phi i32 [ 167, %5 ], [ 163, %2 ], [ 171, %10 ]
-  %.sink = phi i32 [ 108, %5 ], [ 786690, %2 ], [ 106, %10 ]
+  %.sink17 = phi i32 [ 163, %2 ], [ 167, %5 ], [ 171, %10 ]
+  %.sink = phi i32 [ 786690, %2 ], [ 108, %5 ], [ 106, %10 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink17, ptr noundef nonnull @__func__.DSO_bind_func) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef %.sink, ptr noundef null) #3
@@ -546,7 +546,7 @@ define ptr @DSO_convert_filename(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %27
 
 27:                                               ; preds = %.thread28, %23, %11, %4
-  %.019 = phi ptr [ null, %4 ], [ null, %11 ], [ %26, %.thread28 ], [ %24, %23 ]
+  %.019 = phi ptr [ null, %4 ], [ null, %11 ], [ %24, %23 ], [ %26, %.thread28 ]
   ret ptr %.019
 }
 

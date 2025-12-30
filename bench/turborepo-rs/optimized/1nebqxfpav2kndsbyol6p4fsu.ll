@@ -143,7 +143,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mute
   ret void
 
 common.resume:                                    ; preds = %37, %29, %103
-  %common.resume.op = phi { ptr, i32 } [ %104, %103 ], [ %30, %29 ], [ %38, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %104, %103 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %14

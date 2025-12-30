@@ -414,7 +414,7 @@ define internal fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %1)
   br label %common.ret105
 
 common.ret105:                                    ; preds = %6, %8, %10, %12, %14, %16, %18, %43, %45, %47, %49, %51, %57, %59, %61, %63, %65, %67, %69, %71, %81, %83, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %37, %35, %33, %31, %29, %27, %25, %23, %4, %4, %2, %73, %53
-  %common.ret105.op = phi ptr [ %1, %73 ], [ %1, %53 ], [ %36, %35 ], [ %34, %33 ], [ null, %2 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %111, %110 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %1, %51 ], [ %1, %4 ], [ %1, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %1, %67 ], [ %70, %69 ], [ %72, %71 ], [ %1, %4 ], [ %1, %81 ], [ %1, %83 ], [ %38, %37 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
+  %common.ret105.op = phi ptr [ %1, %53 ], [ %1, %73 ], [ null, %2 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %1, %51 ], [ %1, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %1, %67 ], [ %70, %69 ], [ %72, %71 ], [ %1, %81 ], [ %1, %83 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %1, %4 ], [ %1, %4 ]
   ret ptr %common.ret105.op
 
 53:                                               ; preds = %4
@@ -789,11 +789,11 @@ list_length.exit:                                 ; preds = %18
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %18, %list_length.exit, %141, %115, %133, %152, %145, %93, %75, %104, %97, %53, %39, %64, %57, %23, %35, %32
-  %.0150 = phi i32 [ 0, %145 ], [ 0, %97 ], [ 0, %23 ], [ 0, %57 ], [ 0, %32 ], [ 0, %35 ], [ 1, %39 ], [ 0, %53 ], [ 0, %64 ], [ 1, %75 ], [ 0, %93 ], [ 0, %104 ], [ 1, %133 ], [ 2, %115 ], [ 0, %141 ], [ 0, %152 ], [ 3, %list_length.exit ], [ 3, %18 ]
-  %.0146 = phi ptr [ %147, %145 ], [ %99, %97 ], [ %27, %23 ], [ %59, %57 ], [ %27, %32 ], [ %27, %35 ], [ null, %39 ], [ null, %53 ], [ %59, %64 ], [ null, %75 ], [ null, %93 ], [ %99, %104 ], [ null, %133 ], [ null, %115 ], [ null, %141 ], [ %147, %152 ], [ null, %list_length.exit ], [ null, %18 ]
-  %.0145 = phi ptr [ %129, %145 ], [ %85, %97 ], [ null, %23 ], [ %45, %57 ], [ null, %32 ], [ null, %35 ], [ %45, %39 ], [ %45, %53 ], [ %45, %64 ], [ %85, %75 ], [ %85, %93 ], [ %85, %104 ], [ %129, %133 ], [ %129, %115 ], [ %129, %141 ], [ %129, %152 ], [ null, %list_length.exit ], [ null, %18 ]
-  %.0144 = phi ptr [ %127, %145 ], [ %83, %97 ], [ null, %23 ], [ null, %57 ], [ null, %32 ], [ null, %35 ], [ null, %39 ], [ null, %53 ], [ null, %64 ], [ %83, %75 ], [ %83, %93 ], [ %83, %104 ], [ %127, %133 ], [ %127, %115 ], [ %127, %141 ], [ %127, %152 ], [ null, %list_length.exit ], [ null, %18 ]
-  %.2 = phi ptr [ %150, %145 ], [ %102, %97 ], [ %30, %23 ], [ %62, %57 ], [ null, %32 ], [ %38, %35 ], [ null, %39 ], [ %56, %53 ], [ %74, %64 ], [ null, %75 ], [ %96, %93 ], [ %114, %104 ], [ null, %133 ], [ null, %115 ], [ %144, %141 ], [ %162, %152 ], [ null, %list_length.exit ], [ null, %18 ]
+  %.0150 = phi i32 [ 0, %32 ], [ 0, %35 ], [ 0, %23 ], [ 0, %53 ], [ 1, %39 ], [ 0, %64 ], [ 0, %57 ], [ 0, %93 ], [ 1, %75 ], [ 0, %104 ], [ 0, %97 ], [ 0, %141 ], [ 2, %115 ], [ 1, %133 ], [ 0, %152 ], [ 0, %145 ], [ 3, %list_length.exit ], [ 3, %18 ]
+  %.0146 = phi ptr [ %27, %32 ], [ %27, %35 ], [ %27, %23 ], [ null, %53 ], [ null, %39 ], [ %59, %64 ], [ %59, %57 ], [ null, %93 ], [ null, %75 ], [ %99, %104 ], [ %99, %97 ], [ null, %141 ], [ null, %115 ], [ null, %133 ], [ %147, %152 ], [ %147, %145 ], [ null, %list_length.exit ], [ null, %18 ]
+  %.0145 = phi ptr [ null, %32 ], [ null, %35 ], [ null, %23 ], [ %45, %53 ], [ %45, %39 ], [ %45, %64 ], [ %45, %57 ], [ %85, %93 ], [ %85, %75 ], [ %85, %104 ], [ %85, %97 ], [ %129, %141 ], [ %129, %115 ], [ %129, %133 ], [ %129, %152 ], [ %129, %145 ], [ null, %list_length.exit ], [ null, %18 ]
+  %.0144 = phi ptr [ null, %32 ], [ null, %35 ], [ null, %23 ], [ null, %53 ], [ null, %39 ], [ null, %64 ], [ null, %57 ], [ %83, %93 ], [ %83, %75 ], [ %83, %104 ], [ %83, %97 ], [ %127, %141 ], [ %127, %115 ], [ %127, %133 ], [ %127, %152 ], [ %127, %145 ], [ null, %list_length.exit ], [ null, %18 ]
+  %.2 = phi ptr [ null, %32 ], [ %38, %35 ], [ %30, %23 ], [ %56, %53 ], [ null, %39 ], [ %74, %64 ], [ %62, %57 ], [ %96, %93 ], [ null, %75 ], [ %114, %104 ], [ %102, %97 ], [ %144, %141 ], [ null, %115 ], [ null, %133 ], [ %162, %152 ], [ %150, %145 ], [ null, %list_length.exit ], [ null, %18 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %164 = load ptr, ptr %163, align 8
   %.not172 = icmp eq ptr %164, null
@@ -1116,7 +1116,7 @@ define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr nound
   br label %28
 
 28:                                               ; preds = %.sink.split, %21, %25
-  %.080 = phi ptr [ %22, %25 ], [ %22, %21 ], [ %.080.ph, %.sink.split ]
+  %.080 = phi ptr [ %22, %21 ], [ %22, %25 ], [ %.080.ph, %.sink.split ]
   %29 = tail call ptr @lappend(ptr noundef %.079102106, ptr noundef %.080) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %10, align 4
@@ -1226,9 +1226,9 @@ define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr nound
   br i1 %92, label %.split.us, label %107
 
 .critedge99:                                      ; preds = %107, %.lr.ph132, %.lr.ph111.split.us.split, %.lr.ph111.split.split, %67
-  %.076158 = phi i32 [ %2, %67 ], [ %2, %.lr.ph111.split.split ], [ %.076.ph, %.lr.ph111.split.us.split ], [ %.076.ph, %.lr.ph132 ], [ %2, %107 ]
-  %.077156 = phi i32 [ %3, %67 ], [ %3, %.lr.ph111.split.split ], [ %.077.ph, %.lr.ph111.split.us.split ], [ %.077.ph, %.lr.ph132 ], [ %3, %107 ]
-  %.081.lcssa = phi ptr [ null, %67 ], [ null, %.lr.ph111.split.split ], [ null, %.lr.ph111.split.us.split ], [ %79, %.lr.ph132 ], [ %108, %107 ]
+  %.076158 = phi i32 [ %2, %67 ], [ %.076.ph, %.lr.ph111.split.us.split ], [ %2, %.lr.ph111.split.split ], [ %.076.ph, %.lr.ph132 ], [ %2, %107 ]
+  %.077156 = phi i32 [ %3, %67 ], [ %.077.ph, %.lr.ph111.split.us.split ], [ %3, %.lr.ph111.split.split ], [ %.077.ph, %.lr.ph132 ], [ %3, %107 ]
+  %.081.lcssa = phi ptr [ null, %67 ], [ null, %.lr.ph111.split.us.split ], [ null, %.lr.ph111.split.split ], [ %79, %.lr.ph132 ], [ %108, %107 ]
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.076158, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -2029,7 +2029,7 @@ list_length.exit:                                 ; preds = %.critedge
   %70 = tail call ptr @make_scalar_array_op(ptr noundef %0, ptr noundef %67, i1 noundef zeroext %14, ptr noundef %17, ptr noundef nonnull %61, i32 noundef %69) #8
   br label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %41, %45, %.critedge, %47, %.critedge118, %list_length.exit
+list_length.exit.thread:                          ; preds = %45, %41, %.critedge, %47, %.critedge118, %list_length.exit
   %.193 = phi ptr [ %28, %list_length.exit ], [ %.197, %.critedge118 ], [ %28, %47 ], [ %28, %.critedge ], [ %28, %41 ], [ %28, %45 ]
   %.0 = phi ptr [ null, %list_length.exit ], [ %70, %.critedge118 ], [ null, %47 ], [ null, %.critedge ], [ null, %41 ], [ null, %45 ]
   %71 = getelementptr inbounds nuw i8, ptr %.193, i64 4
@@ -2057,7 +2057,7 @@ list_length.exit.thread:                          ; preds = %41, %45, %.critedge
   br i1 %83, label %84, label %95
 
 .critedge120:                                     ; preds = %108, %.lr.ph157, %.tail, %.lr.ph, %list_length.exit.thread
-  %.2.lcssa = phi ptr [ %.0, %list_length.exit.thread ], [ null, %.tail ], [ null, %.lr.ph ], [ %.0, %.lr.ph157 ], [ %.3, %108 ]
+  %.2.lcssa = phi ptr [ %.0, %list_length.exit.thread ], [ null, %.lr.ph ], [ null, %.tail ], [ %.0, %.lr.ph157 ], [ %.3, %108 ]
   ret ptr %.2.lcssa
 
 84:                                               ; preds = %.lr.ph185
@@ -3003,8 +3003,8 @@ define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nounde
   br i1 %81, label %.lr.ph127, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph127, %.lr.ph136, %.thread, %.lr.ph.split.us.split, %.lr.ph.split.split, %14
-  %.085.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ null, %.thread ], [ %51, %.lr.ph136 ], [ %78, %.lr.ph127 ]
-  %.084.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ null, %.thread ], [ %49, %.lr.ph136 ], [ %76, %.lr.ph127 ]
+  %.085.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ null, %.thread ], [ %51, %.lr.ph136 ], [ %78, %.lr.ph127 ]
+  %.084.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ null, %.thread ], [ %49, %.lr.ph136 ], [ %76, %.lr.ph127 ]
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.084.lcssa, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4536,8 +4536,8 @@ define internal fastcc noundef ptr @transformJsonFuncExpr(ptr noundef %0, ptr no
   unreachable
 
 11:                                               ; preds = %2, %6, %5
-  %.0165 = phi i32 [ 2, %6 ], [ %4, %2 ], [ 0, %5 ]
-  %.0 = phi ptr [ @.str.168, %6 ], [ @.str.165, %2 ], [ @.str.167, %5 ]
+  %.0165 = phi i32 [ 0, %5 ], [ 2, %6 ], [ %4, %2 ]
+  %.0 = phi ptr [ @.str.167, %5 ], [ @.str.168, %6 ], [ @.str.165, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -4585,9 +4585,9 @@ define internal fastcc noundef ptr @transformJsonFuncExpr(ptr noundef %0, ptr no
   ]
 
 .thread228:                                       ; preds = %33, %.thread, %15
-  %.0165221234 = phi i32 [ %.0165, %33 ], [ 2, %.thread ], [ %.0165, %15 ]
-  %.0223232 = phi ptr [ %.0, %33 ], [ @.str.166, %.thread ], [ %.0, %15 ]
-  %34 = phi ptr [ %12, %33 ], [ %14, %.thread ], [ %12, %15 ]
+  %.0165221234 = phi i32 [ %.0165, %33 ], [ %.0165, %15 ], [ 2, %.thread ]
+  %.0223232 = phi ptr [ %.0, %33 ], [ %.0, %15 ], [ @.str.166, %.thread ]
+  %34 = phi ptr [ %12, %33 ], [ %12, %15 ], [ %14, %.thread ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 2
@@ -4838,9 +4838,9 @@ define internal fastcc noundef ptr @transformJsonFuncExpr(ptr noundef %0, ptr no
   unreachable
 
 .thread243:                                       ; preds = %33, %76, %79, %79, %79, %79, %79, %79, %103, %106, %106, %106, %106, %160, %160, %160, %157
-  %.0165221233239247 = phi i32 [ %.0165, %33 ], [ %.0165, %160 ], [ %.0165, %160 ], [ %.0165, %160 ], [ %.0165, %157 ], [ %.0165, %103 ], [ %.0165, %106 ], [ %.0165, %106 ], [ %.0165, %106 ], [ %.0165, %106 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %76 ]
-  %.0223231240246 = phi ptr [ %.0, %33 ], [ %.0, %160 ], [ %.0, %160 ], [ %.0, %160 ], [ %.0, %157 ], [ %.0, %103 ], [ %.0, %106 ], [ %.0, %106 ], [ %.0, %106 ], [ %.0, %106 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %76 ]
-  %184 = phi ptr [ %12, %33 ], [ %12, %160 ], [ %12, %160 ], [ %12, %160 ], [ %12, %157 ], [ %12, %103 ], [ %12, %106 ], [ %12, %106 ], [ %12, %106 ], [ %12, %106 ], [ %34, %79 ], [ %34, %79 ], [ %34, %79 ], [ %34, %79 ], [ %34, %79 ], [ %34, %79 ], [ %34, %76 ]
+  %.0165221233239247 = phi i32 [ %.0165, %160 ], [ %.0165, %160 ], [ %.0165, %160 ], [ %.0165, %157 ], [ %.0165, %103 ], [ %.0165, %106 ], [ %.0165, %106 ], [ %.0165, %106 ], [ %.0165, %106 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %79 ], [ %.0165221234, %76 ], [ %.0165, %33 ]
+  %.0223231240246 = phi ptr [ %.0, %160 ], [ %.0, %160 ], [ %.0, %160 ], [ %.0, %157 ], [ %.0, %103 ], [ %.0, %106 ], [ %.0, %106 ], [ %.0, %106 ], [ %.0, %106 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %79 ], [ %.0223232, %76 ], [ %.0, %33 ]
+  %184 = phi ptr [ %12, %160 ], [ %12, %160 ], [ %12, %160 ], [ %12, %157 ], [ %12, %103 ], [ %12, %106 ], [ %12, %106 ], [ %12, %106 ], [ %12, %106 ], [ %34, %79 ], [ %34, %79 ], [ %34, %79 ], [ %34, %79 ], [ %34, %79 ], [ %34, %79 ], [ %34, %76 ], [ %12, %33 ]
   %185 = tail call noundef ptr @palloc0(i64 noundef 104) #8
   store i32 48, ptr %185, align 4
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -5580,7 +5580,7 @@ list_length.exit178:                              ; preds = %list_length.exit, %
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
   br i1 %exitcond269.not, label %.preheader, label %.lr.ph215, !llvm.loop !14
 
-.critedge169.thread:                              ; preds = %.lr.ph208, %.lr.ph215, %.critedge169, %144
+.critedge169.thread:                              ; preds = %.lr.ph215, %.lr.ph208, %.critedge169, %144
   %153 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %154 = tail call i32 @errcode(i32 noundef 1088) #8
   %155 = getelementptr i8, ptr %1, i64 4
@@ -5941,7 +5941,7 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   br label %91
 
 91:                                               ; preds = %.thread, %85, %87, %39, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
-  %.0 = phi ptr [ %.089, %39 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %.thread ], [ %88, %87 ], [ %.089, %85 ]
+  %.0 = phi ptr [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %39 ], [ %.089, %.thread ], [ %88, %87 ], [ %.089, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -6058,7 +6058,7 @@ define internal fastcc noundef ptr @makeJsonConstructorExpr(ptr noundef %0, i32 
   unreachable
 
 coerceJsonFuncExpr.exit:                          ; preds = %53, %60
-  %.0.i = phi ptr [ %63, %60 ], [ %58, %53 ]
+  %.0.i = phi ptr [ %58, %53 ], [ %63, %60 ]
   %.not36 = icmp eq ptr %.0.i, %19
   br i1 %.not36, label %coerceJsonFuncExpr.exit.thread, label %73
 
@@ -6105,8 +6105,8 @@ switch.lookup:                                    ; preds = %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
-.thread:                                          ; preds = %1, %3, %switch.lookup
-  %.08 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.140, %3 ], [ @.str.140, %1 ]
+.thread:                                          ; preds = %3, %1, %switch.lookup
+  %.08 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.140, %1 ], [ @.str.140, %3 ]
   tail call void @namestrcpy(ptr noundef %2, ptr noundef nonnull %.08) #8
   %15 = ptrtoint ptr %2 to i64
   %16 = tail call ptr @makeConst(i32 noundef 19, i32 noundef -1, i32 noundef 0, i32 noundef 64, i64 noundef %15, i1 noundef zeroext false, i1 noundef zeroext false) #8
@@ -6489,7 +6489,7 @@ define internal fastcc ptr @transformJsonReturning(ptr noundef %0, ptr noundef r
   br label %26
 
 26:                                               ; preds = %4, %4, %20
-  %.0 = phi ptr [ %5, %4 ], [ %5, %4 ], [ %21, %20 ]
+  %.0 = phi ptr [ %5, %4 ], [ %21, %20 ], [ %5, %4 ]
   ret ptr %.0
 }
 
@@ -6567,8 +6567,8 @@ ValidJsonBehaviorDefaultExpr.exit.thread78:       ; preds = %16, %16, %16, %Vali
   unreachable
 
 39:                                               ; preds = %5, %4
-  %.066 = phi i32 [ -1, %4 ], [ %9, %5 ]
-  %.062 = phi i32 [ %2, %4 ], [ %7, %5 ]
+  %.066 = phi i32 [ %9, %5 ], [ -1, %4 ]
+  %.062 = phi i32 [ %7, %5 ], [ %2, %4 ]
   switch i32 %.062, label %46 [
     i32 1, label %109
     i32 6, label %40
@@ -6601,11 +6601,11 @@ ValidJsonBehaviorDefaultExpr.exit.thread78:       ; preds = %16, %16, %16, %Vali
   unreachable
 
 GetJsonBehaviorConst.exit:                        ; preds = %39, %40, %42, %44, %45
-  %.012.i = phi i32 [ 3802, %40 ], [ 3802, %42 ], [ 23, %45 ], [ 16, %44 ], [ 16, %39 ]
-  %.011.i = phi i32 [ -1, %40 ], [ -1, %42 ], [ 4, %45 ], [ 1, %44 ], [ 1, %39 ]
-  %.010.i = phi i1 [ false, %40 ], [ false, %42 ], [ true, %45 ], [ true, %44 ], [ true, %39 ]
-  %.09.i = phi i1 [ false, %40 ], [ false, %42 ], [ true, %45 ], [ false, %44 ], [ false, %39 ]
-  %.0.i75 = phi i64 [ %41, %40 ], [ %43, %42 ], [ 0, %45 ], [ 0, %44 ], [ 1, %39 ]
+  %.012.i = phi i32 [ 3802, %40 ], [ 3802, %42 ], [ 16, %44 ], [ 23, %45 ], [ 16, %39 ]
+  %.011.i = phi i32 [ -1, %40 ], [ -1, %42 ], [ 1, %44 ], [ 4, %45 ], [ 1, %39 ]
+  %.010.i = phi i1 [ false, %40 ], [ false, %42 ], [ true, %44 ], [ true, %45 ], [ true, %39 ]
+  %.09.i = phi i1 [ false, %40 ], [ false, %42 ], [ false, %44 ], [ true, %45 ], [ false, %39 ]
+  %.0.i75 = phi i64 [ %41, %40 ], [ %43, %42 ], [ 0, %44 ], [ 0, %45 ], [ 1, %39 ]
   %49 = tail call ptr @makeConst(i32 noundef %.012.i, i32 noundef -1, i32 noundef 0, i32 noundef %.011.i, i64 noundef %.0.i75, i1 noundef zeroext %.09.i, i1 noundef zeroext %.010.i) #8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 36
   store i32 %.066, ptr %50, align 4
@@ -6703,10 +6703,10 @@ GetJsonBehaviorConst.exit:                        ; preds = %39, %40, %42, %44, 
   unreachable
 
 109:                                              ; preds = %39, %72, %69, %77, %.thread
-  %.0668494 = phi i32 [ %.06684.ph, %77 ], [ %.06684.ph, %.thread ], [ %.06684.ph, %72 ], [ %.06684.ph, %69 ], [ %.066, %39 ]
-  %.06286 = phi i32 [ %.06285.ph, %77 ], [ %.06285.ph, %.thread ], [ %.06285.ph, %72 ], [ %.06285.ph, %69 ], [ %.062, %39 ]
-  %.064 = phi i8 [ 0, %77 ], [ 0, %.thread ], [ 1, %72 ], [ 1, %69 ], [ 0, %39 ]
-  %.2 = phi ptr [ %89, %77 ], [ %.1.ph, %.thread ], [ %76, %72 ], [ %.1.ph, %69 ], [ null, %39 ]
+  %.0668494 = phi i32 [ %.06684.ph, %.thread ], [ %.06684.ph, %72 ], [ %.06684.ph, %69 ], [ %.06684.ph, %77 ], [ %.066, %39 ]
+  %.06286 = phi i32 [ %.06285.ph, %.thread ], [ %.06285.ph, %72 ], [ %.06285.ph, %69 ], [ %.06285.ph, %77 ], [ %.062, %39 ]
+  %.064 = phi i8 [ 0, %.thread ], [ 1, %72 ], [ 1, %69 ], [ 0, %77 ], [ 0, %39 ]
+  %.2 = phi ptr [ %.1.ph, %.thread ], [ %76, %72 ], [ %.1.ph, %69 ], [ %89, %77 ], [ null, %39 ]
   br i1 %.not, label %112, label %110
 
 110:                                              ; preds = %109
@@ -6754,7 +6754,7 @@ define internal zeroext i1 @ValidJsonBehaviorDefaultExpr(ptr noundef %0, ptr nou
   br label %9
 
 9:                                                ; preds = %4, %4, %4, %2, %8, %6
-  %.0 = phi i1 [ %7, %6 ], [ false, %8 ], [ false, %2 ], [ true, %4 ], [ true, %4 ], [ true, %4 ]
+  %.0 = phi i1 [ false, %8 ], [ %7, %6 ], [ false, %2 ], [ true, %4 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 

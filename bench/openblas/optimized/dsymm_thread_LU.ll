@@ -74,7 +74,7 @@ define noundef i32 @dsymm_thread_LU(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %32
-  %.056 = phi i64 [ 1, %30 ], [ %34, %32 ], [ %37, %.lr.ph ]
+  %.056 = phi i64 [ %34, %32 ], [ 1, %30 ], [ %37, %.lr.ph ]
   %40 = shl nsw i64 %.056, 3
   %41 = icmp slt i64 %.059, %40
   br i1 %41, label %.critedge, label %42
@@ -653,7 +653,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %106
 
 106:                                              ; preds = %98, %101, %103
-  %.0292 = phi i64 [ %99, %101 ], [ %105, %103 ], [ 384, %98 ]
+  %.0292 = phi i64 [ %105, %103 ], [ %99, %101 ], [ 384, %98 ]
   br i1 %85, label %110, label %107
 
 107:                                              ; preds = %106
@@ -663,8 +663,8 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %110
 
 110:                                              ; preds = %106, %107
-  %.0293 = phi i64 [ %83, %107 ], [ %.mux, %106 ]
-  %.0285 = phi i64 [ %109, %107 ], [ %.0292, %106 ]
+  %.0293 = phi i64 [ %.mux, %106 ], [ %83, %107 ]
+  %.0285 = phi i64 [ %.0292, %106 ], [ %109, %107 ]
   %111 = tail call i32 @dsymm_iutcopy(i64 noundef %.0292, i64 noundef %.0293, ptr noundef %13, i64 noundef %19, i64 noundef %.0291, i64 noundef %.0299397, ptr noundef %3) #6
   br i1 %89, label %.preheader352.lr.ph, label %.preheader353
 
@@ -872,7 +872,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %197
 
 197:                                              ; preds = %.lr.ph395, %190, %192
-  %.1294 = phi i64 [ %188, %190 ], [ %196, %192 ], [ 192, %.lr.ph395 ]
+  %.1294 = phi i64 [ %196, %192 ], [ %188, %190 ], [ 192, %.lr.ph395 ]
   %198 = tail call i32 @dsymm_iutcopy(i64 noundef %.0292, i64 noundef %.1294, ptr noundef %13, i64 noundef %19, i64 noundef %.0304393, i64 noundef %.0299397, ptr noundef %3) #6
   %199 = getelementptr double, ptr %17, i64 %.0304393
   %200 = add i64 %.1294, %.0304393

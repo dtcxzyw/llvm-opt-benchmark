@@ -151,7 +151,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %get_bzr_pdu_len.exit.thread, !llvm.loop !6
 
-get_bzr_pdu_len.exit.thread:                      ; preds = %29, %37, %16, %13, %.preheader.i
+get_bzr_pdu_len.exit.thread:                      ; preds = %29, %37, %13, %16, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 

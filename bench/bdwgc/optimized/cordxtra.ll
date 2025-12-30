@@ -340,8 +340,8 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not43 = icmp eq i32 %106, 1431655765
   br i1 %.not43, label %._crit_edge, label %30
 
-.thread56:                                        ; preds = %30, %80, %._crit_edge, %76, %9, %15, %6
-  %.0 = phi i32 [ %8, %6 ], [ -1, %9 ], [ %16, %15 ], [ %29, %._crit_edge ], [ %79, %76 ], [ %90, %80 ], [ 1, %30 ]
+.thread56:                                        ; preds = %80, %30, %._crit_edge, %76, %9, %15, %6
+  %.0 = phi i32 [ %8, %6 ], [ %16, %15 ], [ -1, %9 ], [ %29, %._crit_edge ], [ %79, %76 ], [ 1, %30 ], [ %90, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -548,8 +548,8 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   %99 = icmp ult i64 %.132, %4
   br i1 %99, label %16, label %.thread63, !llvm.loop !21
 
-.thread63:                                        ; preds = %.thread60, %72, %21, %5, %19, %68
-  %.5 = phi i32 [ %71, %68 ], [ %20, %19 ], [ 0, %5 ], [ 0, %.thread60 ], [ %83, %72 ], [ 1, %21 ]
+.thread63:                                        ; preds = %.thread60, %21, %72, %5, %19, %68
+  %.5 = phi i32 [ %20, %19 ], [ %71, %68 ], [ 0, %5 ], [ 0, %.thread60 ], [ 1, %21 ], [ %83, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.5
@@ -1064,7 +1064,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br label %.preheader.split
 
 .loopexit:                                        ; preds = %101, %97, %.lr.ph73, %61, %.preheader.split.us, %15, %3
-  %.054 = phi i64 [ -1, %15 ], [ %1, %3 ], [ %1, %.preheader.split.us ], [ -1, %.lr.ph73 ], [ %62, %61 ], [ %.0, %97 ], [ -1, %101 ]
+  %.054 = phi i64 [ %1, %3 ], [ -1, %15 ], [ %1, %.preheader.split.us ], [ %62, %61 ], [ -1, %.lr.ph73 ], [ %.0, %97 ], [ -1, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.054
 }

@@ -550,7 +550,7 @@ define hidden range(i32 0, 2) i32 @xsettings_client_process_event(ptr noundef ca
   br label %39
 
 39:                                               ; preds = %24, %18, %15, %31, %35, %38, %37, %30
-  %.0 = phi i32 [ 1, %30 ], [ 1, %38 ], [ 0, %37 ], [ 0, %35 ], [ 0, %31 ], [ 0, %15 ], [ 0, %18 ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %30 ], [ 0, %37 ], [ 1, %38 ], [ 0, %35 ], [ 0, %31 ], [ 0, %15 ], [ 0, %18 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -971,7 +971,7 @@ xsettings_setting_free.exit.i.i:                  ; preds = %209, %207
   br i1 %.not.i118.i, label %parse_settings.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 parse_settings.exit:                              ; preds = %fetch_card8.exit97.i, %xsettings_setting_free.exit.i.i, %.thread, %fetch_card32.exit95.i, %197
-  %210 = phi ptr [ null, %.thread ], [ null, %fetch_card32.exit95.i ], [ null, %xsettings_setting_free.exit.i.i ], [ null, %197 ], [ %.6, %fetch_card8.exit97.i ]
+  %210 = phi ptr [ null, %fetch_card32.exit95.i ], [ null, %197 ], [ null, %.thread ], [ null, %xsettings_setting_free.exit.i.i ], [ %.6, %fetch_card8.exit97.i ]
   store ptr %210, ptr %7, align 8
   br label %211
 
@@ -1042,42 +1042,42 @@ parse_settings.exit:                              ; preds = %fetch_card8.exit97.
 
 241:                                              ; preds = %236
   switch i32 %238, label %xsettings_setting_equal.exit.thread.i [
-    i32 0, label %xsettings_setting_equal.exit.i
-    i32 2, label %242
+    i32 0, label %242
+    i32 2, label %248
     i32 1, label %266
   ]
 
 242:                                              ; preds = %241
   %243 = getelementptr inbounds nuw i8, ptr %228, i64 16
-  %244 = load i16, ptr %243, align 8
+  %244 = load i32, ptr %243, align 8
   %245 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %246 = load i16, ptr %245, align 8
-  %247 = icmp eq i16 %244, %246
-  br i1 %247, label %248, label %xsettings_setting_equal.exit.thread.i
+  %246 = load i32, ptr %245, align 8
+  %247 = icmp eq i32 %244, %246
+  br i1 %247, label %.thread49.i, label %xsettings_setting_equal.exit.thread.i
 
-248:                                              ; preds = %242
-  %249 = getelementptr inbounds nuw i8, ptr %228, i64 18
-  %250 = load i16, ptr %249, align 2
-  %251 = getelementptr inbounds nuw i8, ptr %230, i64 18
-  %252 = load i16, ptr %251, align 2
+248:                                              ; preds = %241
+  %249 = getelementptr inbounds nuw i8, ptr %228, i64 16
+  %250 = load i16, ptr %249, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %230, i64 16
+  %252 = load i16, ptr %251, align 8
   %253 = icmp eq i16 %250, %252
   br i1 %253, label %254, label %xsettings_setting_equal.exit.thread.i
 
 254:                                              ; preds = %248
-  %255 = getelementptr inbounds nuw i8, ptr %228, i64 20
-  %256 = load i16, ptr %255, align 4
-  %257 = getelementptr inbounds nuw i8, ptr %230, i64 20
-  %258 = load i16, ptr %257, align 4
+  %255 = getelementptr inbounds nuw i8, ptr %228, i64 18
+  %256 = load i16, ptr %255, align 2
+  %257 = getelementptr inbounds nuw i8, ptr %230, i64 18
+  %258 = load i16, ptr %257, align 2
   %259 = icmp eq i16 %256, %258
   br i1 %259, label %260, label %xsettings_setting_equal.exit.thread.i
 
 260:                                              ; preds = %254
-  %261 = getelementptr inbounds nuw i8, ptr %228, i64 22
-  %262 = load i16, ptr %261, align 2
-  %263 = getelementptr inbounds nuw i8, ptr %230, i64 22
-  %264 = load i16, ptr %263, align 2
+  %261 = getelementptr inbounds nuw i8, ptr %228, i64 20
+  %262 = load i16, ptr %261, align 4
+  %263 = getelementptr inbounds nuw i8, ptr %230, i64 20
+  %264 = load i16, ptr %263, align 4
   %265 = icmp eq i16 %262, %264
-  br i1 %265, label %.thread49.i, label %xsettings_setting_equal.exit.thread.i
+  br i1 %265, label %xsettings_setting_equal.exit.i, label %xsettings_setting_equal.exit.thread.i
 
 266:                                              ; preds = %241
   %267 = getelementptr inbounds nuw i8, ptr %228, i64 16
@@ -1088,12 +1088,12 @@ parse_settings.exit:                              ; preds = %fetch_card8.exit97.
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %.thread49.i, label %xsettings_setting_equal.exit.thread.i
 
-xsettings_setting_equal.exit.i:                   ; preds = %241
-  %273 = getelementptr inbounds nuw i8, ptr %228, i64 16
-  %274 = load i32, ptr %273, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %276 = load i32, ptr %275, align 8
-  %277 = icmp eq i32 %274, %276
+xsettings_setting_equal.exit.i:                   ; preds = %260
+  %273 = getelementptr inbounds nuw i8, ptr %228, i64 22
+  %274 = load i16, ptr %273, align 2
+  %275 = getelementptr inbounds nuw i8, ptr %230, i64 22
+  %276 = load i16, ptr %275, align 2
+  %277 = icmp eq i16 %274, %276
   br i1 %277, label %.thread49.i, label %xsettings_setting_equal.exit.thread.i
 
 xsettings_setting_equal.exit.thread.i:            ; preds = %xsettings_setting_equal.exit.i, %266, %260, %254, %248, %242, %241, %236
@@ -1110,7 +1110,7 @@ xsettings_setting_equal.exit.thread.i:            ; preds = %xsettings_setting_e
   %283 = load ptr, ptr %282, align 8
   br label %.thread43.i
 
-.thread49.i:                                      ; preds = %xsettings_setting_equal.exit.thread.i, %xsettings_setting_equal.exit.i, %266, %260
+.thread49.i:                                      ; preds = %xsettings_setting_equal.exit.thread.i, %xsettings_setting_equal.exit.i, %266, %242
   %284 = getelementptr inbounds nuw i8, ptr %.03050.i, i64 8
   %285 = load ptr, ptr %284, align 8
   br label %.thread43.i
@@ -1132,7 +1132,7 @@ xsettings_setting_equal.exit.thread.i:            ; preds = %xsettings_setting_e
   br label %.thread43.i
 
 .thread43.i:                                      ; preds = %.thread43.critedge.i, %.thread.i21, %.thread49.i, %.thread37.i
-  %.13146.i = phi ptr [ %285, %.thread49.i ], [ %290, %.thread.i21 ], [ %283, %.thread37.i ], [ null, %.thread43.critedge.i ]
+  %.13146.i = phi ptr [ %290, %.thread.i21 ], [ %283, %.thread37.i ], [ %285, %.thread49.i ], [ null, %.thread43.critedge.i ]
   %294 = getelementptr inbounds nuw i8, ptr %.02951.i, i64 8
   %295 = load ptr, ptr %294, align 8
   br label %296
@@ -1267,7 +1267,7 @@ xsettings_setting_free.exit.i:                    ; preds = %22, %20
   br i1 %.not.i, label %xsettings_list_free.exit, label %.lr.ph.i, !llvm.loop !3
 
 xsettings_list_free.exit:                         ; preds = %7, %xsettings_setting_free.exit.i, %1, %.loopexit
-  %.017 = phi ptr [ null, %xsettings_setting_free.exit.i ], [ null, %.loopexit ], [ null, %1 ], [ %..02139, %7 ]
+  %.017 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %xsettings_setting_free.exit.i ], [ %..02139, %7 ]
   ret ptr %.017
 }
 
@@ -1344,7 +1344,7 @@ define hidden range(i32 0, 2) i32 @xsettings_setting_equal(ptr noundef readonly 
   br label %49
 
 49:                                               ; preds = %11, %18, %24, %30, %36, %7, %2, %42, %12
-  %.0.shrunk = phi i1 [ %48, %42 ], [ false, %2 ], [ %41, %36 ], [ %17, %12 ], [ false, %7 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ false, %11 ]
+  %.0.shrunk = phi i1 [ %17, %12 ], [ %48, %42 ], [ false, %2 ], [ false, %7 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ %41, %36 ], [ false, %11 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1447,7 +1447,7 @@ define hidden range(i32 0, 6) i32 @xsettings_list_insert(ptr noundef captures(no
   br label %22
 
 22:                                               ; preds = %.thread, %2, %20
-  %.0 = phi i32 [ 5, %.thread ], [ 0, %20 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %20 ], [ 1, %2 ], [ 5, %.thread ]
   ret i32 %.0
 }
 

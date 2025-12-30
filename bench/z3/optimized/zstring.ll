@@ -102,7 +102,7 @@ define hidden noundef zeroext i1 @_ZN7zstring14is_escape_charERPKcRj(ptr nonnull
   br i1 %or.cond8.i, label %29, label %_ZL12is_hex_digitcRj.exit
 
 29:                                               ; preds = %19, %25, %27
-  %.sink21.i = phi i32 [ -55, %25 ], [ -48, %19 ], [ -87, %27 ]
+  %.sink21.i = phi i32 [ -48, %19 ], [ -55, %25 ], [ -87, %27 ]
   %30 = add nsw i32 %.sink21.i, %23
   %31 = shl i32 %20, 4
   %32 = add i32 %30, %31
@@ -148,7 +148,7 @@ switch.lookup:                                    ; preds = %_ZL12is_hex_digitcR
   br i1 %or.cond8.i37, label %50, label %_ZL12is_hex_digitcRj.exit41
 
 50:                                               ; preds = %41, %46, %48
-  %.sink21.i40 = phi i32 [ -55, %46 ], [ -48, %41 ], [ -87, %48 ]
+  %.sink21.i40 = phi i32 [ -48, %41 ], [ -55, %46 ], [ -87, %48 ]
   %51 = add nsw i32 %.sink21.i40, %44
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !8
@@ -168,7 +168,7 @@ switch.lookup:                                    ; preds = %_ZL12is_hex_digitcR
   br i1 %or.cond8.i44, label %60, label %_ZL12is_hex_digitcRj.exit41
 
 60:                                               ; preds = %50, %56, %58
-  %.sink21.i47 = phi i32 [ -55, %56 ], [ -48, %50 ], [ -87, %58 ]
+  %.sink21.i47 = phi i32 [ -48, %50 ], [ -55, %56 ], [ -87, %58 ]
   %61 = add nsw i32 %.sink21.i47, %54
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %63 = load i8, ptr %62, align 1, !tbaa !8
@@ -188,7 +188,7 @@ switch.lookup:                                    ; preds = %_ZL12is_hex_digitcR
   br i1 %or.cond8.i51, label %70, label %_ZL12is_hex_digitcRj.exit41
 
 70:                                               ; preds = %60, %66, %68
-  %.sink21.i54 = phi i32 [ -55, %66 ], [ -48, %60 ], [ -87, %68 ]
+  %.sink21.i54 = phi i32 [ -48, %60 ], [ -55, %66 ], [ -87, %68 ]
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %72 = load i8, ptr %71, align 1, !tbaa !8
   %73 = sext i8 %72 to i32
@@ -207,7 +207,7 @@ switch.lookup:                                    ; preds = %_ZL12is_hex_digitcR
   br i1 %or.cond8.i58, label %switch.lookup108, label %_ZL12is_hex_digitcRj.exit41
 
 switch.lookup108:                                 ; preds = %70, %75, %77
-  %.sink21.i61 = phi i32 [ -55, %75 ], [ -48, %70 ], [ -87, %77 ]
+  %.sink21.i61 = phi i32 [ -48, %70 ], [ -55, %75 ], [ -87, %77 ]
   %79 = shl nsw i32 %51, 8
   %80 = shl nsw i32 %61, 4
   %81 = add nsw i32 %80, %79
@@ -235,7 +235,7 @@ _ZL12is_hex_digitcRj.exit41.sink.split:           ; preds = %37, %90
   br label %_ZL12is_hex_digitcRj.exit41
 
 _ZL12is_hex_digitcRj.exit41:                      ; preds = %29, %_ZL12is_hex_digitcRj.exit41.sink.split, %7, %switch.lookup108, %3, %48, %58, %68, %77, %switch.lookup, %_ZL12is_hex_digitcRj.exit
-  %.1 = phi i1 [ false, %_ZL12is_hex_digitcRj.exit ], [ false, %7 ], [ false, %switch.lookup ], [ false, %77 ], [ false, %switch.lookup108 ], [ true, %_ZL12is_hex_digitcRj.exit41.sink.split ], [ false, %68 ], [ false, %58 ], [ false, %48 ], [ false, %3 ], [ false, %29 ]
+  %.1 = phi i1 [ false, %switch.lookup ], [ false, %_ZL12is_hex_digitcRj.exit ], [ false, %switch.lookup108 ], [ false, %3 ], [ false, %48 ], [ false, %58 ], [ false, %68 ], [ false, %77 ], [ false, %7 ], [ true, %_ZL12is_hex_digitcRj.exit41.sink.split ], [ false, %29 ]
   ret i1 %.1
 }
 
@@ -585,7 +585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   br label %34
 
 34:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i32 [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.0.i.i15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
+  %.0 = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10 ], [ %.0.i.i15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
   ret i32 %.0
 }
 
@@ -641,7 +641,7 @@ define hidden noundef zeroext i1 @_ZNK7zstring11well_formedEv(ptr noundef nonnul
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %1, %15, %21
-  %.not19 = phi i1 [ false, %21 ], [ false, %15 ], [ true, %1 ], [ true, %7 ]
+  %.not19 = phi i1 [ false, %15 ], [ false, %21 ], [ true, %1 ], [ true, %7 ]
   ret i1 %.not19
 }
 
@@ -1925,7 +1925,7 @@ define hidden noundef i32 @_ZNK7zstring8indexofuERKS_j(ptr noundef nonnull reado
   br i1 %.not35, label %.critedge.thread, label %.preheader, !llvm.loop !60
 
 .critedge.thread:                                 ; preds = %30, %20, %16, %3, %11, %9
-  %.031 = phi i32 [ -1, %11 ], [ %2, %3 ], [ -1, %9 ], [ -1, %16 ], [ %.03045, %20 ], [ -1, %30 ]
+  %.031 = phi i32 [ -1, %9 ], [ -1, %11 ], [ %2, %3 ], [ -1, %16 ], [ %.03045, %20 ], [ -1, %30 ]
   ret i32 %.031
 }
 
@@ -1976,7 +1976,7 @@ define hidden noundef i32 @_ZNK7zstring12last_indexofERKS_(ptr noundef nonnull r
   br i1 %23, label %14, label %.critedge.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.critedge.loopexit, %14, %2, %8
-  %.020 = phi i32 [ %13, %14 ], [ -1, %8 ], [ %7, %2 ], [ -1, %.critedge.loopexit ]
+  %.020 = phi i32 [ -1, %8 ], [ %7, %2 ], [ %13, %14 ], [ -1, %.critedge.loopexit ]
   ret i32 %.020
 }
 

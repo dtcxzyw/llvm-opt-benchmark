@@ -332,7 +332,7 @@ if.then4.i.i:                                     ; preds = %if.end12
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i12, %if.then4.i.i
-  %phi.call.i = phi ptr [ %call13, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i12 ]
+  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i12 ], [ %call13, %if.then4.i.i ]
   %call.i13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %atomic-temp.i.0.i1.i.i) #22
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %atomic-temp.i.0.i1.i.i) #22
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i13, i64 noundef %call2.i) #22
@@ -1774,7 +1774,7 @@ if.then4.i.i:                                     ; preds = %for.end
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %OS, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
+  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %OS, %if.then4.i.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #22
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #22
@@ -1855,7 +1855,7 @@ if.then4.i.i51:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit56
 
 _ZN4llvh11raw_ostreamlsEPKc.exit56:               ; preds = %if.then.i.i54, %if.then4.i.i51
-  %phi.call.i53 = phi ptr [ %OS, %if.then4.i.i51 ], [ %call3.i.i55, %if.then.i.i54 ]
+  %phi.call.i53 = phi ptr [ %call3.i.i55, %if.then.i.i54 ], [ %OS, %if.then4.i.i51 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #22
   %call.i57 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef %call.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #22
@@ -2687,7 +2687,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %OS, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
+  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %OS, %if.then4.i.i ]
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i, i64 noundef %call2.i) #22
@@ -2745,7 +2745,7 @@ if.then4.i.i14:                                   ; preds = %if.end.i.i12
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit19
 
 _ZN4llvh11raw_ostreamlsEPKc.exit19:               ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i.i17, %if.end.i.i12, %if.then4.i.i14
-  %phi.call.i16 = phi ptr [ %call3.i4, %if.end.i.i12 ], [ %call3.i.i18, %if.then.i.i17 ], [ %call3.i4, %if.then4.i.i14 ], [ %call3.i4, %_ZN4llvh11raw_ostreamlsEc.exit ]
+  %phi.call.i16 = phi ptr [ %call3.i.i18, %if.then.i.i17 ], [ %call3.i4, %if.then4.i.i14 ], [ %call3.i4, %if.end.i.i12 ], [ %call3.i4, %_ZN4llvh11raw_ostreamlsEc.exit ]
   %OutBufEnd.i5.i22 = getelementptr inbounds nuw i8, ptr %phi.call.i16, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i22, align 8
   %OutBufCur.i6.i23 = getelementptr inbounds nuw i8, ptr %phi.call.i16, i64 24
@@ -2768,7 +2768,7 @@ if.then4.i.i30:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit35
 
 _ZN4llvh11raw_ostreamlsEPKc.exit35:               ; preds = %if.then.i.i33, %if.then4.i.i30
-  %phi.call.i32 = phi ptr [ %phi.call.i16, %if.then4.i.i30 ], [ %call3.i.i34, %if.then.i.i33 ]
+  %phi.call.i32 = phi ptr [ %call3.i.i34, %if.then.i.i33 ], [ %phi.call.i16, %if.then4.i.i30 ]
   %Fmt.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr @.str.23, ptr %Fmt.i.i.i, align 8, !alias.scope !65
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJidEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !65
@@ -2959,7 +2959,7 @@ _ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i: ; pr
   br label %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE5clearEv.exit: ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit, %for.end, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i
-  %delim.addr.0.lcssa89 = phi ptr [ @.str.24, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i ], [ @.str.24, %for.end ], [ %delim, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
+  %delim.addr.0.lcssa89 = phi ptr [ @.str.24, %for.end ], [ @.str.24, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %delim, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
   %call.i.i73 = tail call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #22
   br i1 %call.i.i73, label %if.then.i.i76, label %if.else.i.i74
 

@@ -1434,7 +1434,7 @@ _ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImp
   ret void
 
 _ZN5folly6detail14ScopeGuardImplIZZNS_6fibers12FiberManager20loopUntilNoReadyImplEvENKUlvE_clEvEUlvE_Lb1EED2Ev.exit26: ; preds = %27, %36, %17
-  %.pn12 = phi { ptr, i32 } [ %18, %17 ], [ %28, %27 ], [ %37, %36 ]
+  %.pn12 = phi { ptr, i32 } [ %18, %17 ], [ %37, %36 ], [ %28, %27 ]
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i8 0, ptr %41, align 16, !tbaa !205
   resume { ptr, i32 } %.pn12
@@ -2262,7 +2262,7 @@ _ZN5folly8OptionalINS_27ExecutionObserverScopeGuardEED2Ev.exit: ; preds = %.loop
   ret void
 
 305:                                              ; preds = %.loopexit121, %.loopexit.split-lp, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit24, %300, %207, %205, %122
-  %.pn = phi { ptr, i32 } [ %301, %300 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit24 ], [ %123, %122 ], [ %208, %207 ], [ %206, %205 ], [ %157, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46 ], [ %lpad.loopexit, %.loopexit121 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit24 ], [ %123, %122 ], [ %208, %207 ], [ %206, %205 ], [ %157, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46 ], [ %301, %300 ], [ %lpad.loopexit, %.loopexit121 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %306 = load i8, ptr %37, align 8, !tbaa !207, !range !133, !noundef !134
   %307 = trunc nuw i8 %306 to i1
   br i1 %307, label %.body.sink.split, label %.body

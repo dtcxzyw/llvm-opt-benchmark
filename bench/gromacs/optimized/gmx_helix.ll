@@ -709,7 +709,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %214, %.loopexit172, %.loopexit.split-lp173, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134
-  %.pn101 = phi { ptr, i32 } [ %215, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp173 ], [ %lpad.loopexit174, %.loopexit172 ], [ %215, %214 ]
+  %.pn101 = phi { ptr, i32 } [ %215, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134 ], [ %lpad.loopexit174, %.loopexit172 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp173 ], [ %215, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %220 = load ptr, ptr %28, align 8, !tbaa !24
   %221 = icmp eq ptr %220, %129
@@ -1286,7 +1286,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 .loopexit.split-lp:                               ; preds = %.loopexit166, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %358, %267, %229, %224, %108, %103, %98
-  %.pn107.pn = phi { ptr, i32 } [ %.pn107, %108 ], [ %.pn105, %229 ], [ %.pn101.pn.pn, %224 ], [ %.pn, %98 ], [ %.pn98, %358 ], [ %.pn96, %267 ], [ %.pn94, %103 ], [ %lpad.loopexit, %.loopexit166 ], [ %lpad.loopexit169, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp170, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn107.pn = phi { ptr, i32 } [ %.pn107, %108 ], [ %.pn105, %229 ], [ %.pn101.pn.pn, %224 ], [ %.pn98, %358 ], [ %.pn96, %267 ], [ %.pn94, %103 ], [ %.pn, %98 ], [ %lpad.loopexit, %.loopexit166 ], [ %lpad.loopexit169, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp170, %.loopexit.split-lp.loopexit.split-lp ]
   %499 = getelementptr inbounds nuw i8, ptr %21, i64 224
   br label %500
 

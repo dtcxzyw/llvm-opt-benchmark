@@ -586,8 +586,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i:                      ; preds = %121, %._crit_edge.i
   br i1 %.not8688.i, label %.thread80.i, label %.critedge25.i
 
 .thread80.i:                                      ; preds = %132, %72
-  %.sroa.060.285.i = phi ptr [ %.sroa.060.196.i, %72 ], [ %.sroa.060.379.i, %132 ]
-  %.sroa.6.284.i = phi i64 [ %.sroa.6.195.i, %72 ], [ %.sroa.6.378.i, %132 ]
+  %.sroa.060.285.i = phi ptr [ %.sroa.060.379.i, %132 ], [ %.sroa.060.196.i, %72 ]
+  %.sroa.6.284.i = phi i64 [ %.sroa.6.378.i, %132 ], [ %.sroa.6.195.i, %72 ]
   %133 = getelementptr inbounds nuw i8, ptr %.02097.i, i64 32
   %.not.i = icmp eq ptr %133, %66
   br i1 %.not.i, label %.critedge25.i, label %72
@@ -858,8 +858,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i68:                    ; preds = %222, %._crit_edge.i
   br i1 %.not8688.i69, label %.thread80.i37, label %.critedge25.i41
 
 .thread80.i37:                                    ; preds = %233, %166
-  %.sroa.060.285.i38 = phi ptr [ %.sroa.060.196.i33, %166 ], [ %.sroa.060.379.i70, %233 ]
-  %.sroa.6.284.i39 = phi i64 [ %.sroa.6.195.i34, %166 ], [ %.sroa.6.378.i71, %233 ]
+  %.sroa.060.285.i38 = phi ptr [ %.sroa.060.379.i70, %233 ], [ %.sroa.060.196.i33, %166 ]
+  %.sroa.6.284.i39 = phi i64 [ %.sroa.6.378.i71, %233 ], [ %.sroa.6.195.i34, %166 ]
   %234 = getelementptr inbounds nuw i8, ptr %.02097.i32, i64 32
   %.not.i40 = icmp eq ptr %234, %160
   br i1 %.not.i40, label %.critedge25.i41, label %166
@@ -1116,8 +1116,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i126:                   ; preds = %315, %._crit_edge.i
   br i1 %.not8688.i127, label %.thread80.i94, label %.critedge25.i98
 
 .thread80.i94:                                    ; preds = %326, %267
-  %.sroa.060.285.i95 = phi ptr [ %.sroa.060.196.i90, %267 ], [ %.sroa.060.379.i128, %326 ]
-  %.sroa.6.284.i96 = phi i64 [ %.sroa.6.195.i91, %267 ], [ %.sroa.6.378.i129, %326 ]
+  %.sroa.060.285.i95 = phi ptr [ %.sroa.060.379.i128, %326 ], [ %.sroa.060.196.i90, %267 ]
+  %.sroa.6.284.i96 = phi i64 [ %.sroa.6.378.i129, %326 ], [ %.sroa.6.195.i91, %267 ]
   %327 = getelementptr inbounds nuw i8, ptr %.02097.i89, i64 56
   %.not.i97 = icmp eq ptr %327, %261
   br i1 %.not.i97, label %.critedge25.i98, label %267
@@ -1387,8 +1387,8 @@ _ZN4llvm5ErrorD2Ev.exit38.i184:                   ; preds = %415, %._crit_edge.i
   br i1 %.not8688.i185, label %.thread80.i152, label %.critedge25.i156
 
 .thread80.i152:                                   ; preds = %426, %360
-  %.sroa.060.285.i153 = phi ptr [ %.sroa.060.196.i148, %360 ], [ %.sroa.060.379.i186, %426 ]
-  %.sroa.6.284.i154 = phi i64 [ %.sroa.6.195.i149, %360 ], [ %.sroa.6.378.i187, %426 ]
+  %.sroa.060.285.i153 = phi ptr [ %.sroa.060.379.i186, %426 ], [ %.sroa.060.196.i148, %360 ]
+  %.sroa.6.284.i154 = phi i64 [ %.sroa.6.378.i187, %426 ], [ %.sroa.6.195.i149, %360 ]
   %427 = getelementptr inbounds nuw i8, ptr %.02097.i147, i64 56
   %.not.i155 = icmp eq ptr %427, %354
   br i1 %.not.i155, label %.critedge25.i156, label %360
@@ -1417,8 +1417,8 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i162: ; preds = %
   br label %.thread216
 
 .thread216:                                       ; preds = %.thread211, %435, %335, %242, %141
-  %.sroa.0.1 = phi ptr [ %.sroa.060.0.i, %141 ], [ %.sroa.060.0.i158, %435 ], [ %.sroa.060.0.i100, %335 ], [ %.sroa.060.0.i43, %242 ], [ null, %.thread211 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.6.0.i, %141 ], [ %.sroa.6.0.i157, %435 ], [ %.sroa.6.0.i99, %335 ], [ %.sroa.6.0.i42, %242 ], [ 0, %.thread211 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.060.0.i158, %435 ], [ %.sroa.060.0.i100, %335 ], [ %.sroa.060.0.i43, %242 ], [ %.sroa.060.0.i, %141 ], [ null, %.thread211 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.6.0.i157, %435 ], [ %.sroa.6.0.i99, %335 ], [ %.sroa.6.0.i42, %242 ], [ %.sroa.6.0.i, %141 ], [ 0, %.thread211 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.7.1, 1
   ret { ptr, i64 } %.fca.1.insert

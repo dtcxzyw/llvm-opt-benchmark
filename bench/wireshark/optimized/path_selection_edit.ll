@@ -263,7 +263,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %73, %_ZN17QArrayDat
   br label %79
 
 79:                                               ; preds = %75, %77, %_ZN7QStringD2Ev.exit34, %65, %63, %61
-  %.pn21.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %.pn, %_ZN7QStringD2Ev.exit34 ], [ %66, %65 ], [ %76, %75 ], [ %78, %77 ]
+  %.pn21.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn, %_ZN7QStringD2Ev.exit34 ], [ %66, %65 ], [ %64, %63 ], [ %76, %75 ], [ %78, %77 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %16) #9
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %15) #9
   call void @_ZN7QWidgetD2Ev(ptr noundef align 8 dereferenceable_or_null(40) %0) #9

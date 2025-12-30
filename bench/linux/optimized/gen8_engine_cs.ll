@@ -143,8 +143,8 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   br label %78
 
 .critedge:                                        ; preds = %.thread7.thread, %54, %59
-  %73 = phi ptr [ %58, %54 ], [ %45, %59 ], [ %47, %.thread7.thread ]
-  %74 = phi i32 [ %10, %54 ], [ %10, %59 ], [ %6, %.thread7.thread ]
+  %73 = phi ptr [ %45, %59 ], [ %58, %54 ], [ %47, %.thread7.thread ]
+  %74 = phi i32 [ %10, %59 ], [ %10, %54 ], [ %6, %.thread7.thread ]
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %75, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %73, align 4
@@ -699,7 +699,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   br label %.thread12
 
 .thread12:                                        ; preds = %135, %172, %55, %92, %.thread, %.thread20
-  %216 = phi i32 [ 0, %.thread ], [ %94, %92 ], [ 0, %.thread20 ], [ %57, %55 ], [ %137, %135 ], [ %174, %172 ]
+  %216 = phi i32 [ 0, %.thread20 ], [ 0, %.thread ], [ %57, %55 ], [ %94, %92 ], [ %137, %135 ], [ %174, %172 ]
   ret i32 %216
 }
 
@@ -742,7 +742,7 @@ define dso_local i32 @gen12_emit_flush_xcs(ptr noundef %0, i32 noundef %1) local
   br label %.thread
 
 .thread:                                          ; preds = %5, %15, %10
-  %23 = phi i32 [ %22, %15 ], [ 6, %10 ], [ 6, %5 ]
+  %23 = phi i32 [ 6, %10 ], [ %22, %15 ], [ 6, %5 ]
   %24 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef %23) #5
   %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
   br i1 %25, label %28, label %32
@@ -800,8 +800,8 @@ define dso_local i32 @gen12_emit_flush_xcs(ptr noundef %0, i32 noundef %1) local
   br label %.thread3
 
 .thread3:                                         ; preds = %32, %.thread1, %53, %46, %41
-  %56 = phi ptr [ %33, %46 ], [ %26, %.thread1 ], [ %33, %53 ], [ %33, %41 ], [ %33, %32 ]
-  %57 = phi i32 [ %38, %46 ], [ 320880642, %.thread1 ], [ %55, %53 ], [ %38, %41 ], [ %38, %32 ]
+  %56 = phi ptr [ %33, %46 ], [ %33, %53 ], [ %33, %41 ], [ %26, %.thread1 ], [ %33, %32 ]
+  %57 = phi i32 [ %38, %46 ], [ %55, %53 ], [ %38, %41 ], [ 320880642, %.thread1 ], [ %38, %32 ]
   %58 = getelementptr i8, ptr %56, i64 4
   store i32 %57, ptr %56, align 4
   %59 = getelementptr i8, ptr %56, i64 8

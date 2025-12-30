@@ -732,8 +732,8 @@ define dso_local { i64, i64 } @i128_shl64(i64 %0, i64 %1, i64 noundef %2) local_
   br label %20
 
 20:                                               ; preds = %7, %5, %3, %14, %11
-  %.sroa.011.0 = phi i64 [ %18, %14 ], [ %0, %3 ], [ 0, %5 ], [ %13, %11 ], [ %1, %7 ]
-  %.sroa.6.0 = phi i64 [ %19, %14 ], [ %1, %3 ], [ 0, %5 ], [ 0, %11 ], [ 0, %7 ]
+  %.sroa.011.0 = phi i64 [ %13, %11 ], [ %18, %14 ], [ %0, %3 ], [ 0, %5 ], [ %1, %7 ]
+  %.sroa.6.0 = phi i64 [ 0, %11 ], [ %19, %14 ], [ %1, %3 ], [ 0, %5 ], [ 0, %7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -808,8 +808,8 @@ define dso_local { i64, i64 } @i128_extend(i64 %0, i64 %1, i32 noundef %2) local
   br label %i128_shl64.exit
 
 i128_shl64.exit:                                  ; preds = %14, %17
-  %.sroa.011.0.i = phi i64 [ %21, %17 ], [ %16, %14 ]
-  %.sroa.6.0.i = phi i64 [ %22, %17 ], [ 0, %14 ]
+  %.sroa.011.0.i = phi i64 [ %16, %14 ], [ %21, %17 ]
+  %.sroa.6.0.i = phi i64 [ 0, %14 ], [ %22, %17 ]
   %23 = add i32 %2, -3
   %24 = icmp ult i32 %23, 5
   br i1 %24, label %27, label %49
@@ -876,8 +876,8 @@ i128_shl64.exit.thread56:                         ; preds = %10
   br label %i128_ashr64.exit
 
 i128_ashr64.exit:                                 ; preds = %i128_shl64.exit.thread56, %6, %54, %51, %43, %40, %33, %30, %3
-  %.pn37 = phi i64 [ %59, %54 ], [ %0, %3 ], [ %spec.select, %i128_shl64.exit.thread56 ], [ 0, %30 ], [ 0, %51 ], [ -1, %40 ], [ %44, %43 ], [ %38, %33 ], [ 0, %6 ]
-  %.pn35 = phi i64 [ %58, %54 ], [ %1, %3 ], [ %1, %i128_shl64.exit.thread56 ], [ %32, %30 ], [ %53, %51 ], [ %42, %40 ], [ %48, %43 ], [ %37, %33 ], [ 0, %6 ]
+  %.pn37 = phi i64 [ %0, %3 ], [ -1, %40 ], [ %44, %43 ], [ 0, %30 ], [ %38, %33 ], [ 0, %51 ], [ %59, %54 ], [ 0, %6 ], [ %spec.select, %i128_shl64.exit.thread56 ]
+  %.pn35 = phi i64 [ %1, %3 ], [ %42, %40 ], [ %48, %43 ], [ %32, %30 ], [ %37, %33 ], [ %53, %51 ], [ %58, %54 ], [ 0, %6 ], [ %1, %i128_shl64.exit.thread56 ]
   %.pn = insertvalue { i64, i64 } poison, i64 %.pn37, 0
   %.fca.1.insert.merged = insertvalue { i64, i64 } %.pn, i64 %.pn35, 1
   ret { i64, i64 } %.fca.1.insert.merged
@@ -944,8 +944,8 @@ define dso_local { i64, i64 } @i128_ashr64(i64 %0, i64 %1, i64 noundef %2) local
   br label %i128_lshr64.exit
 
 i128_lshr64.exit:                                 ; preds = %15, %12, %8, %7, %22, %21, %3, %29, %26
-  %.sroa.015.0 = phi i64 [ -1, %22 ], [ %0, %3 ], [ -1, %21 ], [ -1, %26 ], [ %30, %29 ], [ %20, %15 ], [ 0, %8 ], [ 0, %7 ], [ 0, %12 ]
-  %.sroa.7.0 = phi i64 [ %0, %22 ], [ %1, %3 ], [ -1, %21 ], [ %28, %26 ], [ %34, %29 ], [ %19, %15 ], [ %0, %8 ], [ 0, %7 ], [ %14, %12 ]
+  %.sroa.015.0 = phi i64 [ -1, %26 ], [ %30, %29 ], [ %0, %3 ], [ -1, %21 ], [ -1, %22 ], [ 0, %12 ], [ %20, %15 ], [ 0, %7 ], [ 0, %8 ]
+  %.sroa.7.0 = phi i64 [ %28, %26 ], [ %34, %29 ], [ %1, %3 ], [ -1, %21 ], [ %0, %22 ], [ %14, %12 ], [ %19, %15 ], [ 0, %7 ], [ %0, %8 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.015.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -982,8 +982,8 @@ define dso_local { i64, i64 } @i128_lshr64(i64 %0, i64 %1, i64 noundef %2) local
   br label %20
 
 20:                                               ; preds = %7, %5, %3, %14, %11
-  %.sroa.015.0 = phi i64 [ %19, %14 ], [ %0, %3 ], [ 0, %5 ], [ 0, %11 ], [ 0, %7 ]
-  %.sroa.6.0 = phi i64 [ %18, %14 ], [ %1, %3 ], [ 0, %5 ], [ %13, %11 ], [ %0, %7 ]
+  %.sroa.015.0 = phi i64 [ 0, %11 ], [ %19, %14 ], [ %0, %3 ], [ 0, %5 ], [ 0, %7 ]
+  %.sroa.6.0 = phi i64 [ %13, %11 ], [ %18, %14 ], [ %1, %3 ], [ 0, %5 ], [ %0, %7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.015.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1103,7 +1103,7 @@ define dso_local range(i32 -1, 2) i32 @int128_scomp64(i64 %0, i64 %1, i64 nounde
   br label %24
 
 24:                                               ; preds = %19, %18, %13, %12, %3, %21, %15, %9
-  %.0 = phi i32 [ %10, %9 ], [ 0, %3 ], [ -1, %12 ], [ %17, %15 ], [ 0, %13 ], [ 1, %18 ], [ %23, %21 ], [ 0, %19 ]
+  %.0 = phi i32 [ %10, %9 ], [ %17, %15 ], [ %23, %21 ], [ 0, %3 ], [ -1, %12 ], [ 0, %13 ], [ 1, %18 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1184,8 +1184,8 @@ define dso_local { i64, i64 } @i128_shl(i64 %0, i64 %1, i64 %2, i64 %3) local_un
   br label %i128_shl64.exit
 
 i128_shl64.exit:                                  ; preds = %16, %13, %9, %7, %5, %4
-  %.sroa.03.0 = phi i64 [ 0, %4 ], [ %20, %16 ], [ %0, %5 ], [ 0, %7 ], [ %15, %13 ], [ %1, %9 ]
-  %.sroa.3.0 = phi i64 [ 0, %4 ], [ %21, %16 ], [ %1, %5 ], [ 0, %7 ], [ 0, %13 ], [ 0, %9 ]
+  %.sroa.03.0 = phi i64 [ 0, %4 ], [ %15, %13 ], [ %20, %16 ], [ %0, %5 ], [ 0, %7 ], [ %1, %9 ]
+  %.sroa.3.0 = phi i64 [ 0, %4 ], [ 0, %13 ], [ %21, %16 ], [ %1, %5 ], [ 0, %7 ], [ 0, %9 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1242,8 +1242,8 @@ define dso_local { i64, i64 } @i128_lshr(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br label %i128_lshr64.exit
 
 i128_lshr64.exit:                                 ; preds = %16, %13, %9, %7, %5, %4
-  %.sroa.03.0 = phi i64 [ 0, %4 ], [ %21, %16 ], [ %0, %5 ], [ 0, %7 ], [ 0, %13 ], [ 0, %9 ]
-  %.sroa.3.0 = phi i64 [ 0, %4 ], [ %20, %16 ], [ %1, %5 ], [ 0, %7 ], [ %15, %13 ], [ %0, %9 ]
+  %.sroa.03.0 = phi i64 [ 0, %4 ], [ 0, %13 ], [ %21, %16 ], [ %0, %5 ], [ 0, %7 ], [ 0, %9 ]
+  %.sroa.3.0 = phi i64 [ 0, %4 ], [ %15, %13 ], [ %20, %16 ], [ %1, %5 ], [ 0, %7 ], [ %0, %9 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1316,8 +1316,8 @@ define dso_local { i64, i64 } @i128_ashr(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br label %i128_ashr64.exit
 
 i128_ashr64.exit:                                 ; preds = %32, %29, %25, %24, %18, %15, %11, %10, %6, %5
-  %.sroa.03.0 = phi i64 [ %.lobit, %5 ], [ -1, %25 ], [ %0, %6 ], [ -1, %24 ], [ -1, %29 ], [ %33, %32 ], [ %23, %18 ], [ 0, %11 ], [ 0, %10 ], [ 0, %15 ]
-  %.sroa.4.0 = phi i64 [ %.lobit, %5 ], [ %0, %25 ], [ %1, %6 ], [ -1, %24 ], [ %31, %29 ], [ %37, %32 ], [ %22, %18 ], [ %0, %11 ], [ 0, %10 ], [ %17, %15 ]
+  %.sroa.03.0 = phi i64 [ %.lobit, %5 ], [ -1, %29 ], [ %33, %32 ], [ %0, %6 ], [ -1, %24 ], [ -1, %25 ], [ 0, %15 ], [ %23, %18 ], [ 0, %10 ], [ 0, %11 ]
+  %.sroa.4.0 = phi i64 [ %.lobit, %5 ], [ %31, %29 ], [ %37, %32 ], [ %1, %6 ], [ -1, %24 ], [ %0, %25 ], [ %17, %15 ], [ %22, %18 ], [ 0, %10 ], [ %0, %11 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1352,7 +1352,7 @@ define dso_local { i64, i64 } @i128_add_swrap64(i64 %0, i64 %1, i64 noundef %2, 
   br label %i128_scomp.exit
 
 i128_scomp.exit:                                  ; preds = %15, %9, %11, %13
-  %.0.i = phi i1 [ %10, %9 ], [ %spec.select10, %15 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ %10, %9 ], [ false, %11 ], [ true, %13 ], [ %spec.select10, %15 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %8, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %5, 1
   %18 = icmp slt i64 %2, 0
@@ -1495,7 +1495,7 @@ define dso_local range(i32 -1, 2) i32 @i128_comp(i64 %0, i64 %1, i64 %2, i64 %3,
   br label %i128_scomp.exit
 
 i128_scomp.exit:                                  ; preds = %32, %30, %28, %.critedge16, %24, %22, %20, %18, %15
-  %35 = phi i32 [ 0, %22 ], [ %17, %15 ], [ %26, %24 ], [ 1, %18 ], [ -1, %20 ], [ %34, %32 ], [ 1, %.critedge16 ], [ -1, %28 ], [ 0, %30 ]
+  %35 = phi i32 [ %17, %15 ], [ %26, %24 ], [ 1, %18 ], [ -1, %20 ], [ 0, %22 ], [ %34, %32 ], [ 1, %.critedge16 ], [ -1, %28 ], [ 0, %30 ]
   ret i32 %35
 }
 
@@ -2381,7 +2381,7 @@ define dso_local zeroext i1 @int_comp(ptr noundef readonly byval(%struct.Int) al
   br label %int_compare.exit
 
 int_compare.exit:                                 ; preds = %20, %23, %25, %27, %29, %32, %34, %41, %43, %45, %48, %53, %60, %62, %64
-  %.0.i = phi i32 [ 1, %48 ], [ 0, %43 ], [ 0, %27 ], [ -1, %32 ], [ %22, %20 ], [ %31, %29 ], [ 1, %23 ], [ -1, %25 ], [ %47, %45 ], [ 1, %34 ], [ -1, %41 ], [ %66, %64 ], [ 1, %53 ], [ -1, %60 ], [ 0, %62 ]
+  %.0.i = phi i32 [ -1, %32 ], [ 1, %48 ], [ %22, %20 ], [ %31, %29 ], [ 1, %23 ], [ -1, %25 ], [ 0, %27 ], [ %47, %45 ], [ 1, %34 ], [ -1, %41 ], [ 0, %43 ], [ %66, %64 ], [ 1, %53 ], [ -1, %60 ], [ 0, %62 ]
   switch i32 %2, label %79 [
     i32 14, label %67
     i32 15, label %69
@@ -2552,7 +2552,7 @@ thread-pre-split.i:                               ; preds = %3
   br label %int_unsigned_compare.exit
 
 int_unsigned_compare.exit:                        ; preds = %3, %thread-pre-split.i, %10, %14
-  %.0.i = phi i32 [ 1, %thread-pre-split.i ], [ -1, %3 ], [ %..i, %14 ], [ 1, %10 ]
+  %.0.i = phi i32 [ 1, %10 ], [ 1, %thread-pre-split.i ], [ %..i, %14 ], [ -1, %3 ]
   switch i32 %2, label %28 [
     i32 14, label %16
     i32 15, label %18
@@ -2693,8 +2693,8 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
   br label %i128_scomp.exit
 
 36:                                               ; preds = %2, %7, %8, %9, %10
-  %.sroa.031.0 = phi i64 [ 0, %10 ], [ 0, %9 ], [ 0, %7 ], [ 0, %8 ], [ -1, %2 ]
-  %.sroa.14.0 = phi i64 [ 255, %10 ], [ 65535, %9 ], [ -1, %7 ], [ 4294967295, %8 ], [ -1, %2 ]
+  %.sroa.031.0 = phi i64 [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ -1, %2 ]
+  %.sroa.14.0 = phi i64 [ -1, %7 ], [ 4294967295, %8 ], [ 65535, %9 ], [ 255, %10 ], [ -1, %2 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -3
@@ -2729,7 +2729,7 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
   br label %i128_scomp.exit
 
 i128_scomp.exit:                                  ; preds = %52, %31, %50, %29, %45, %26, %i128_scomp.exit47.thread, %24, %22, %42
-  %.0 = phi i1 [ false, %29 ], [ false, %22 ], [ %or.cond74.not, %45 ], [ false, %26 ], [ false, %42 ], [ false, %24 ], [ false, %50 ], [ true, %i128_scomp.exit47.thread ], [ %spec.select84, %52 ], [ %spec.select, %31 ]
+  %.0 = phi i1 [ false, %42 ], [ false, %22 ], [ true, %i128_scomp.exit47.thread ], [ false, %24 ], [ false, %26 ], [ %or.cond74.not, %45 ], [ false, %29 ], [ false, %50 ], [ %spec.select, %31 ], [ %spec.select84, %52 ]
   ret i1 %.0
 }
 
@@ -2800,7 +2800,7 @@ i128_neg.exit:                                    ; preds = %11, %13
   br label %24
 
 24:                                               ; preds = %1, %7, %i128_neg.exit
-  %.sink = phi i32 [ 129, %7 ], [ 129, %i128_neg.exit ], [ 128, %1 ]
+  %.sink = phi i32 [ 129, %i128_neg.exit ], [ 129, %7 ], [ 128, %1 ]
   %25 = call i32 @i128_clz(ptr noundef nonnull %2)
   %26 = sub nuw nsw i32 %.sink, %25
   ret i32 %26
@@ -3011,8 +3011,8 @@ define dso_local void @int_conv(ptr dead_on_unwind noalias writable writeonly sr
   br label %i128_lshr64.exit
 
 i128_lshr64.exit:                                 ; preds = %18, %25, %29, %33
-  %.sroa.015.0.i = phi i64 [ %42, %33 ], [ 0, %25 ], [ 0, %29 ], [ 0, %18 ]
-  %.sroa.6.0.i33 = phi i64 [ %41, %33 ], [ %23, %25 ], [ %32, %29 ], [ 0, %18 ]
+  %.sroa.015.0.i = phi i64 [ 0, %29 ], [ %42, %33 ], [ 0, %25 ], [ 0, %18 ]
+  %.sroa.6.0.i33 = phi i64 [ %32, %29 ], [ %41, %33 ], [ %23, %25 ], [ 0, %18 ]
   store i64 %.sroa.015.0.i, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.0.i33, ptr %43, align 8
@@ -3054,8 +3054,8 @@ i128_lshr64.exit:                                 ; preds = %18, %25, %29, %33
   br label %i128_lshr64.exit45
 
 i128_lshr64.exit45:                               ; preds = %51, %55, %59
-  %.sroa.015.0.i41 = phi i64 [ %68, %59 ], [ 0, %55 ], [ 0, %51 ]
-  %.sroa.6.0.i42 = phi i64 [ %67, %59 ], [ %58, %55 ], [ %49, %51 ]
+  %.sroa.015.0.i41 = phi i64 [ 0, %55 ], [ %68, %59 ], [ 0, %51 ]
+  %.sroa.6.0.i42 = phi i64 [ %58, %55 ], [ %67, %59 ], [ %49, %51 ]
   br i1 %12, label %69, label %97
 
 i128_lshr64.exit45.thread:                        ; preds = %44
@@ -3114,8 +3114,8 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   br label %i128_ashr64.exit
 
 i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.thread, %.thread126, %82, %.thread161, %89, %.thread166
-  %.sroa.015.0.i51 = phi i64 [ 0, %82 ], [ %.sroa.6.0.i42.lobit, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ], [ -1, %89 ], [ %91, %.thread166 ], [ %88, %.thread161 ]
-  %.sroa.7.0.i = phi i64 [ %83, %82 ], [ %.sroa.6.0.i42, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ], [ %90, %89 ], [ %95, %.thread166 ], [ %87, %.thread161 ]
+  %.sroa.015.0.i51 = phi i64 [ -1, %89 ], [ %91, %.thread166 ], [ 0, %82 ], [ %88, %.thread161 ], [ %.sroa.6.0.i42.lobit, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
+  %.sroa.7.0.i = phi i64 [ %90, %89 ], [ %95, %.thread166 ], [ %83, %82 ], [ %87, %.thread161 ], [ %.sroa.6.0.i42, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
   store i64 %.sroa.015.0.i51, ptr %0, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.0.i, ptr %96, align 8
@@ -3531,8 +3531,8 @@ define dso_local void @int_shr64(ptr dead_on_unwind noalias writable writeonly s
   br label %i128_lshr64.exit
 
 i128_lshr64.exit:                                 ; preds = %12, %13, %15, %19, %22
-  %.sroa.015.0.i = phi i64 [ %27, %22 ], [ %8, %12 ], [ 0, %13 ], [ 0, %19 ], [ 0, %15 ]
-  %.sroa.6.0.i = phi i64 [ %26, %22 ], [ %10, %12 ], [ 0, %13 ], [ %21, %19 ], [ %8, %15 ]
+  %.sroa.015.0.i = phi i64 [ 0, %19 ], [ %27, %22 ], [ %8, %12 ], [ 0, %13 ], [ 0, %15 ]
+  %.sroa.6.0.i = phi i64 [ %21, %19 ], [ %26, %22 ], [ %10, %12 ], [ 0, %13 ], [ %8, %15 ]
   %28 = tail call { i64, i64 } @i128_extend(i64 %.sroa.015.0.i, i64 %.sroa.6.0.i, i32 noundef %5)
   br label %61
 
@@ -3593,8 +3593,8 @@ i128_lshr64.exit:                                 ; preds = %12, %13, %15, %19, 
   br label %i128_ashr64.exit
 
 i128_ashr64.exit:                                 ; preds = %29, %32, %33, %37, %40, %46, %47, %51, %54
-  %.sroa.015.0.i6 = phi i64 [ -1, %47 ], [ %8, %29 ], [ -1, %46 ], [ -1, %51 ], [ %55, %54 ], [ %45, %40 ], [ 0, %33 ], [ 0, %32 ], [ 0, %37 ]
-  %.sroa.7.0.i = phi i64 [ %8, %47 ], [ %10, %29 ], [ -1, %46 ], [ %53, %51 ], [ %59, %54 ], [ %44, %40 ], [ %8, %33 ], [ 0, %32 ], [ %39, %37 ]
+  %.sroa.015.0.i6 = phi i64 [ -1, %51 ], [ %55, %54 ], [ %8, %29 ], [ -1, %46 ], [ -1, %47 ], [ 0, %37 ], [ %45, %40 ], [ 0, %32 ], [ 0, %33 ]
+  %.sroa.7.0.i = phi i64 [ %53, %51 ], [ %59, %54 ], [ %10, %29 ], [ -1, %46 ], [ %8, %47 ], [ %39, %37 ], [ %44, %40 ], [ 0, %32 ], [ %8, %33 ]
   %60 = tail call { i64, i64 } @i128_extend(i64 %.sroa.015.0.i6, i64 %.sroa.7.0.i, i32 noundef %5)
   br label %61
 
@@ -3651,8 +3651,8 @@ define dso_local void @int_shl64(ptr dead_on_unwind noalias writable writeonly s
   br label %i128_shl64.exit
 
 i128_shl64.exit:                                  ; preds = %12, %13, %15, %19, %22
-  %.sroa.011.0.i = phi i64 [ %26, %22 ], [ %8, %12 ], [ 0, %13 ], [ %21, %19 ], [ %10, %15 ]
-  %.sroa.6.0.i = phi i64 [ %27, %22 ], [ %10, %12 ], [ 0, %13 ], [ 0, %19 ], [ 0, %15 ]
+  %.sroa.011.0.i = phi i64 [ %21, %19 ], [ %26, %22 ], [ %8, %12 ], [ 0, %13 ], [ %10, %15 ]
+  %.sroa.6.0.i = phi i64 [ 0, %19 ], [ %27, %22 ], [ %10, %12 ], [ 0, %13 ], [ 0, %15 ]
   %28 = tail call { i64, i64 } @i128_extend(i64 %.sroa.011.0.i, i64 %.sroa.6.0.i, i32 noundef %5)
   br label %46
 
@@ -3685,8 +3685,8 @@ i128_shl64.exit:                                  ; preds = %12, %13, %15, %19, 
   br label %i128_shl64.exit10
 
 i128_shl64.exit10:                                ; preds = %29, %30, %32, %36, %39
-  %.sroa.011.0.i6 = phi i64 [ %43, %39 ], [ %8, %29 ], [ 0, %30 ], [ %38, %36 ], [ %10, %32 ]
-  %.sroa.6.0.i7 = phi i64 [ %44, %39 ], [ %10, %29 ], [ 0, %30 ], [ 0, %36 ], [ 0, %32 ]
+  %.sroa.011.0.i6 = phi i64 [ %38, %36 ], [ %43, %39 ], [ %8, %29 ], [ 0, %30 ], [ %10, %32 ]
+  %.sroa.6.0.i7 = phi i64 [ 0, %36 ], [ %44, %39 ], [ %10, %29 ], [ 0, %30 ], [ 0, %32 ]
   %45 = tail call { i64, i64 } @i128_extend(i64 %.sroa.011.0.i6, i64 %.sroa.6.0.i7, i32 noundef %5)
   br label %46
 
@@ -3755,7 +3755,7 @@ define dso_local zeroext i1 @i128_can_convert_from_double(double noundef %0) loc
   br label %8
 
 8:                                                ; preds = %5, %1
-  %9 = phi i1 [ %7, %5 ], [ false, %1 ]
+  %9 = phi i1 [ false, %1 ], [ %7, %5 ]
   ret i1 %9
 }
 

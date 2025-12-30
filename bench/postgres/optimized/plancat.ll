@@ -649,7 +649,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %155, %163
   br label %.loopexit
 
 .loopexit:                                        ; preds = %355, %301, %317, %293, %354, %359, %361
-  %.0294 = phi ptr [ null, %361 ], [ %244, %354 ], [ %244, %293 ], [ %244, %359 ], [ %244, %317 ], [ %244, %301 ], [ %244, %355 ]
+  %.0294 = phi ptr [ %244, %354 ], [ %244, %359 ], [ null, %361 ], [ %244, %293 ], [ %244, %317 ], [ %244, %301 ], [ %244, %355 ]
   %365 = call ptr @RelationGetIndexExpressions(ptr noundef nonnull %144) #9
   %366 = getelementptr inbounds nuw i8, ptr %171, i64 136
   store ptr %365, ptr %366, align 8
@@ -2035,7 +2035,7 @@ infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opc
   br i1 %196, label %.lr.ph200.us, label %._crit_edge.us, !llvm.loop !21
 
 .critedge150.thread165.us:                        ; preds = %115, %infer_collation_opclass_match.exit.us, %157, %181, %178, %.critedge150.thread.us, %._crit_edge.us, %90, %86, %.lr.ph300
-  %.2119.us = phi ptr [ %.0117207.us298, %157 ], [ %.0117207.us298, %90 ], [ %.0117207.us298, %.critedge150.thread.us ], [ %183, %181 ], [ %.0117207.us298, %178 ], [ %.0117207.us298, %.lr.ph300 ], [ %.0117207.us298, %._crit_edge.us ], [ %.0117207.us298, %86 ], [ %.0117207.us298, %infer_collation_opclass_match.exit.us ], [ %.0117207.us298, %115 ]
+  %.2119.us = phi ptr [ %.0117207.us298, %90 ], [ %.0117207.us298, %.critedge150.thread.us ], [ %183, %181 ], [ %.0117207.us298, %178 ], [ %.0117207.us298, %._crit_edge.us ], [ %.0117207.us298, %86 ], [ %.0117207.us298, %.lr.ph300 ], [ %.0117207.us298, %157 ], [ %.0117207.us298, %infer_collation_opclass_match.exit.us ], [ %.0117207.us298, %115 ]
   tail call void @index_close(ptr noundef %77, i32 noundef 0) #9
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260297, 1
   %197 = load i32, ptr %66, align 4
@@ -2122,7 +2122,7 @@ infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opc
   br i1 %240, label %.lr.ph237, label %._crit_edge210
 
 ._crit_edge210:                                   ; preds = %.critedge150.thread165, %.critedge150.thread165.us, %.lr.ph209.split.us.preheader, %.lr.ph209.split.split, %64
-  %.0117.lcssa = phi ptr [ null, %64 ], [ %.2119.us, %.critedge150.thread165.us ], [ null, %.lr.ph209.split.split ], [ null, %.lr.ph209.split.us.preheader ], [ null, %.critedge150.thread165 ]
+  %.0117.lcssa = phi ptr [ null, %64 ], [ null, %.lr.ph209.split.split ], [ null, %.lr.ph209.split.us.preheader ], [ %.2119.us, %.critedge150.thread165.us ], [ null, %.critedge150.thread165 ]
   tail call void @list_free(ptr noundef %65) #9
   tail call void @table_close(ptr noundef %25, i32 noundef 0) #9
   %241 = icmp eq ptr %.0117.lcssa, null
@@ -2136,7 +2136,7 @@ infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opc
   unreachable
 
 246:                                              ; preds = %236, %._crit_edge210, %9
-  %.0 = phi ptr [ %.0117.lcssa, %._crit_edge210 ], [ null, %9 ], [ %237, %236 ]
+  %.0 = phi ptr [ null, %9 ], [ %.0117.lcssa, %._crit_edge210 ], [ %237, %236 ]
   ret ptr %.0
 }
 
@@ -2264,8 +2264,8 @@ define dso_local i32 @get_rel_data_width(ptr noundef readonly captures(none) %0,
   br label %67
 
 67:                                               ; preds = %.lr.ph.split, %64, %51
-  %68 = phi ptr [ %.pre, %64 ], [ %37, %51 ], [ %37, %.lr.ph.split ]
-  %.1 = phi i64 [ %66, %64 ], [ %53, %51 ], [ %.02333, %.lr.ph.split ]
+  %68 = phi ptr [ %37, %51 ], [ %.pre, %64 ], [ %37, %.lr.ph.split ]
+  %.1 = phi i64 [ %53, %51 ], [ %66, %64 ], [ %.02333, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 116
   %70 = load i16, ptr %69, align 4
@@ -2545,7 +2545,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %109, %127, %95, %74
-  %.1.lcssa.i = phi ptr [ null, %74 ], [ %.2.i, %127 ], [ %.2.us.i, %95 ], [ %.2.us65.i, %109 ]
+  %.1.lcssa.i = phi ptr [ null, %74 ], [ %.2.us.i, %95 ], [ %.2.i, %127 ], [ %.2.us65.i, %109 ]
   br i1 %64, label %128, label %.loopexit.i
 
 128:                                              ; preds = %._crit_edge.i
@@ -2612,7 +2612,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   br i1 %.not57.i, label %.loopexit.i, label %.lr.ph72.i, !llvm.loop !26
 
 .loopexit.i:                                      ; preds = %166, %132, %128, %._crit_edge.i, %63
-  %.0.i = phi ptr [ null, %63 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.1.lcssa.i, %128 ], [ %.1.lcssa.i, %132 ], [ %.5.i, %166 ]
+  %.0.i = phi ptr [ null, %63 ], [ %.1.lcssa.i, %128 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.1.lcssa.i, %132 ], [ %.5.i, %166 ]
   br i1 %.055, label %168, label %get_relation_constraints.exit
 
 168:                                              ; preds = %.loopexit.i
@@ -2698,7 +2698,7 @@ get_relation_constraints.exit:                    ; preds = %.loopexit.i, %168, 
   br i1 %201, label %.lr.ph101, label %.critedge81
 
 .critedge:                                        ; preds = %19, %23, %.critedge81, %52, %.critedge79, %27, %.critedge82, %3
-  %.0 = phi i1 [ false, %.critedge82 ], [ false, %27 ], [ true, %.critedge79 ], [ false, %52 ], [ %195, %.critedge81 ], [ false, %3 ], [ true, %23 ], [ true, %19 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %.critedge82 ], [ false, %27 ], [ true, %.critedge79 ], [ false, %52 ], [ %195, %.critedge81 ], [ true, %23 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -2802,7 +2802,7 @@ define dso_local ptr @build_physical_tlist(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %.thread, label %33, !llvm.loop !27
 
 .thread:                                          ; preds = %47, %43, %33, %24
-  %.1 = phi ptr [ null, %24 ], [ null, %43 ], [ null, %33 ], [ %56, %47 ]
+  %.1 = phi ptr [ null, %24 ], [ null, %33 ], [ null, %43 ], [ %56, %47 ]
   tail call void @table_close(ptr noundef nonnull %27, i32 noundef 0) #9
   br label %.critedge
 
@@ -2883,7 +2883,7 @@ define dso_local ptr @build_physical_tlist(ptr noundef readonly captures(none) %
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph81, %91, %.lr.ph93, %80, %.lr.ph.split, %57, %.lr.ph85, %.thread
-  %.3 = phi ptr [ %.1, %.thread ], [ null, %.lr.ph.split ], [ null, %57 ], [ null, %.lr.ph85 ], [ null, %80 ], [ %76, %.lr.ph93 ], [ null, %.lr.ph81 ], [ %95, %91 ]
+  %.3 = phi ptr [ %.1, %.thread ], [ null, %57 ], [ null, %.lr.ph85 ], [ null, %80 ], [ null, %.lr.ph.split ], [ %76, %.lr.ph93 ], [ null, %.lr.ph81 ], [ %95, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.3
 }
@@ -3492,7 +3492,7 @@ define dso_local ptr @get_dependent_generated_columns(ptr noundef readonly captu
   br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %56, %.preheader, %28, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %28 ], [ null, %.preheader ], [ %.2, %56 ]
+  %.0 = phi ptr [ null, %28 ], [ null, %19 ], [ null, %.preheader ], [ %.2, %56 ]
   call void @table_close(ptr noundef %23, i32 noundef 0) #9
   ret ptr %.0
 }

@@ -1093,7 +1093,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %83, %86
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %76, %123, %128, %127, %96, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, %33, %119, %10, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %10 ], [ true, %123 ], [ false, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ], [ false, %33 ], [ false, %96 ], [ true, %119 ], [ true, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit ], [ true, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit ], [ true, %127 ], [ true, %128 ], [ true, %76 ], [ true, %71 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %10 ], [ true, %119 ], [ false, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ], [ true, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit ], [ true, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit ], [ false, %96 ], [ true, %127 ], [ true, %128 ], [ true, %123 ], [ false, %33 ], [ true, %76 ], [ true, %71 ]
   ret i1 %.0
 }
 
@@ -1622,8 +1622,8 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread91.i
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit.thread91.i:   ; preds = %149, %148, %144, %143, %139, %138, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %110
-  %.ph.i = phi i1 [ true, %148 ], [ false, %149 ], [ false, %144 ], [ false, %139 ], [ true, %143 ], [ true, %138 ], [ false, %134 ], [ false, %133 ], [ false, %132 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ false, %123 ], [ false, %122 ], [ false, %121 ], [ false, %120 ], [ false, %119 ], [ false, %118 ], [ false, %117 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ true, %110 ]
-  %.0.ph.i = phi i32 [ 0, %148 ], [ 10, %149 ], [ 8, %144 ], [ 3, %139 ], [ 0, %143 ], [ 0, %138 ], [ 22, %134 ], [ 21, %133 ], [ 7, %132 ], [ 11, %131 ], [ 9, %130 ], [ 26, %129 ], [ 25, %128 ], [ 1, %127 ], [ 23, %126 ], [ 4, %125 ], [ 17, %124 ], [ 13, %123 ], [ 15, %122 ], [ 2, %121 ], [ 19, %120 ], [ 12, %119 ], [ 18, %118 ], [ 14, %117 ], [ 16, %116 ], [ 20, %115 ], [ 5, %114 ], [ 24, %113 ], [ 0, %110 ]
+  %.ph.i = phi i1 [ true, %148 ], [ false, %149 ], [ true, %143 ], [ false, %144 ], [ true, %138 ], [ false, %139 ], [ false, %134 ], [ false, %133 ], [ false, %132 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ false, %123 ], [ false, %122 ], [ false, %121 ], [ false, %120 ], [ false, %119 ], [ false, %118 ], [ false, %117 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ true, %110 ]
+  %.0.ph.i = phi i32 [ 0, %148 ], [ 10, %149 ], [ 0, %143 ], [ 8, %144 ], [ 0, %138 ], [ 3, %139 ], [ 22, %134 ], [ 21, %133 ], [ 7, %132 ], [ 11, %131 ], [ 9, %130 ], [ 26, %129 ], [ 25, %128 ], [ 1, %127 ], [ 23, %126 ], [ 4, %125 ], [ 17, %124 ], [ 13, %123 ], [ 15, %122 ], [ 2, %121 ], [ 19, %120 ], [ 12, %119 ], [ 18, %118 ], [ 14, %117 ], [ 16, %116 ], [ 20, %115 ], [ 5, %114 ], [ 24, %113 ], [ 0, %110 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !554
   store i8 0, ptr %9, align 8, !tbaa !563, !noalias !554
   store ptr %94, ptr %45, align 8, !tbaa !571, !noalias !554

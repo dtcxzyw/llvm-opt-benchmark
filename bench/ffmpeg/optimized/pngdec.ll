@@ -308,7 +308,7 @@ define void @ff_png_filter_row(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not322, label %.loopexit, label %.lr.ph384, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph384, %.lr.ph391, %54, %38, %31, %._crit_edge376
-  %.3 = phi i32 [ %.0.lcssa, %._crit_edge376 ], [ %.0.lcssa, %54 ], [ %53, %.lr.ph391 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %38 ], [ %76, %.lr.ph384 ]
+  %.3 = phi i32 [ %.0.lcssa, %._crit_edge376 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %38 ], [ %.0.lcssa, %54 ], [ %53, %.lr.ph391 ], [ %76, %.lr.ph384 ]
   %77 = icmp slt i32 %.3, %5
   br i1 %77, label %.lr.ph405.preheader, label %ff_add_png_paeth_prediction.exit
 
@@ -576,7 +576,7 @@ define void @ff_png_filter_row(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not298, label %.loopexit329, label %.lr.ph348, !llvm.loop !24
 
 .loopexit329:                                     ; preds = %.lr.ph348, %.lr.ph356, %.lr.ph363, %166, %131, %107, %96, %._crit_edge339
-  %.10 = phi i32 [ %.8.lcssa, %._crit_edge339 ], [ %130, %.lr.ph363 ], [ %.8.lcssa, %166 ], [ %165, %.lr.ph356 ], [ %.8.lcssa, %96 ], [ %.8.lcssa, %107 ], [ %.8.lcssa, %131 ], [ %211, %.lr.ph348 ]
+  %.10 = phi i32 [ %.8.lcssa, %._crit_edge339 ], [ %.8.lcssa, %96 ], [ %.8.lcssa, %107 ], [ %.8.lcssa, %131 ], [ %.8.lcssa, %166 ], [ %130, %.lr.ph363 ], [ %165, %.lr.ph356 ], [ %211, %.lr.ph348 ]
   %212 = icmp slt i32 %.10, %5
   br i1 %212, label %.lr.ph373.preheader, label %ff_add_png_paeth_prediction.exit
 
@@ -972,7 +972,7 @@ output_frame.exit.thread:                         ; preds = %67
   br label %94
 
 94:                                               ; preds = %output_frame.exit.thread, %61, %bytestream2_init.exit49, %38, %bytestream2_init.exit, %22, %19, %87
-  %.0 = phi i32 [ %36, %bytestream2_init.exit ], [ -542398533, %38 ], [ -1094995529, %61 ], [ %93, %87 ], [ %55, %bytestream2_init.exit49 ], [ -1094995529, %19 ], [ -542398533, %22 ], [ -12, %output_frame.exit.thread ]
+  %.0 = phi i32 [ %93, %87 ], [ -1094995529, %19 ], [ -542398533, %22 ], [ %36, %bytestream2_init.exit ], [ -542398533, %38 ], [ %55, %bytestream2_init.exit49 ], [ -1094995529, %61 ], [ -12, %output_frame.exit.thread ]
   ret i32 %.0
 }
 
@@ -1160,7 +1160,7 @@ output_frame.exit.thread:                         ; preds = %56
   br label %78
 
 78:                                               ; preds = %output_frame.exit.thread, %39, %71, %46
-  %.0 = phi i32 [ %40, %39 ], [ %52, %46 ], [ -12, %output_frame.exit.thread ], [ %77, %71 ]
+  %.0 = phi i32 [ %40, %39 ], [ %52, %46 ], [ %77, %71 ], [ -12, %output_frame.exit.thread ]
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 1408
   store ptr null, ptr %79, align 8, !tbaa !101
   br label %80
@@ -1815,7 +1815,7 @@ bytestream2_get_byte.exit98.i:                    ; preds = %bytestream2_get_be3
   br label %decode_fctl_chunk.exit
 
 decode_fctl_chunk.exit:                           ; preds = %332, %334, %336, %338
-  %.0.i371 = phi i8 [ 1, %334 ], [ 0, %338 ], [ 1, %336 ], [ 0, %332 ]
+  %.0.i371 = phi i8 [ 1, %334 ], [ 0, %338 ], [ 0, %332 ], [ 1, %336 ]
   store i32 %284, ptr %66, align 8, !tbaa !106
   store i32 %286, ptr %110, align 4, !tbaa !107
   store i32 %290, ptr %109, align 8, !tbaa !112
@@ -1932,7 +1932,7 @@ bytestream2_get_be32.exit329.thread:              ; preds = %343, %bytestream2_g
   br label %402
 
 .thread191.i:                                     ; preds = %376, %.split._crit_edge.i, %.split.i, %362
-  %382 = phi i1 [ true, %.split._crit_edge.i ], [ false, %376 ], [ false, %.split.i ], [ false, %362 ]
+  %382 = phi i1 [ false, %.split.i ], [ false, %362 ], [ false, %376 ], [ true, %.split._crit_edge.i ]
   %383 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %366)
   %384 = icmp eq i32 %383, 1
   %385 = and i32 %366, 15
@@ -1983,7 +1983,7 @@ bytestream2_get_be32.exit329.thread:              ; preds = %343, %bytestream2_g
   br label %apng_reset_background.exit
 
 402:                                              ; preds = %.thread193.i, %398, %396, %389, %381, %380, %379, %378, %376, %.split._crit_edge.i
-  %.sink260.i = phi i32 [ 26, %378 ], [ %377, %376 ], [ 104, %381 ], [ 29, %.split._crit_edge.i ], [ 56, %398 ], [ 10, %396 ], [ %392, %389 ], [ 34, %380 ], [ 8, %379 ], [ 109, %.thread193.i ]
+  %.sink260.i = phi i32 [ 26, %378 ], [ 104, %381 ], [ %392, %389 ], [ 34, %380 ], [ 8, %379 ], [ %377, %376 ], [ 29, %.split._crit_edge.i ], [ 10, %396 ], [ 56, %398 ], [ 109, %.thread193.i ]
   store i32 %.sink260.i, ptr %68, align 8, !tbaa !111
   %403 = load i32, ptr %60, align 4, !tbaa !65
   %.not174.i = icmp eq i32 %403, 0
@@ -2278,7 +2278,7 @@ bytestream2_get_be32.exit329.thread:              ; preds = %343, %bytestream2_g
   br i1 %or.cond156.i.i, label %.thread200.sink.split.i.i, label %.thread200.i.i
 
 .thread200.sink.split.i.i:                        ; preds = %523, %521, %519, %517
-  %.sink203.i.i = phi i32 [ 4, %517 ], [ 17, %521 ], [ 5, %519 ], [ 8, %523 ]
+  %.sink203.i.i = phi i32 [ 4, %517 ], [ 5, %519 ], [ 17, %521 ], [ 8, %523 ]
   store i32 %.sink203.i.i, ptr %77, align 8, !tbaa !126
   store i32 %.sink203.i.i, ptr %78, align 4, !tbaa !127
   br label %.thread200.i.i
@@ -2692,7 +2692,7 @@ deloco_rgb16.exit.loopexit118.i.i.i:              ; preds = %713
   br label %deloco_rgb16.exit.i.i.i
 
 deloco_rgb16.exit.i.i.i:                          ; preds = %697, %deloco_rgb16.exit.loopexit118.i.i.i, %707, %690, %676
-  %723 = phi i32 [ %.pre124.i.i.i, %deloco_rgb16.exit.loopexit118.i.i.i ], [ %.pre125.i.i.i, %676 ], [ %.pre125.i.i.i, %707 ], [ %.pre125.i.i.i, %690 ], [ %.pre125.i.i.i, %697 ]
+  %723 = phi i32 [ %.pre124.i.i.i, %deloco_rgb16.exit.loopexit118.i.i.i ], [ %.pre125.i.i.i, %707 ], [ %.pre125.i.i.i, %690 ], [ %.pre125.i.i.i, %676 ], [ %.pre125.i.i.i, %697 ]
   %724 = add nsw i32 %723, 1
   store i32 %724, ptr %107, align 4, !tbaa !79
   %725 = load i32, ptr %110, align 4, !tbaa !107
@@ -3450,7 +3450,7 @@ bytestream2_get_byte.exit349:                     ; preds = %bytestream2_get_byt
   br label %bytestream2_get_byte.exit349.thread
 
 bytestream2_get_byte.exit349.thread:              ; preds = %bytestream2_get_byte.exit347, %1088, %bytestream2_get_byte.exit349
-  %.sroa.0.10515 = phi ptr [ %1086, %bytestream2_get_byte.exit349 ], [ %1086, %1088 ], [ %189, %bytestream2_get_byte.exit347 ]
+  %.sroa.0.10515 = phi ptr [ %1086, %1088 ], [ %1086, %bytestream2_get_byte.exit349 ], [ %189, %bytestream2_get_byte.exit347 ]
   %1089 = ptrtoint ptr %.sroa.0.10515 to i64
   %1090 = sub i64 %1072, %1089
   %1091 = icmp slt i64 %1090, 1
@@ -3706,7 +3706,7 @@ bytestream2_get_be32.exit337:                     ; preds = %bytestream2_get_be3
   br i1 %1187, label %._crit_edge.thread.i, label %1188
 
 ._crit_edge.thread.i:                             ; preds = %1185, %._crit_edge.i406, %1171
-  %.031.lcssa43.i = phi i32 [ 0, %._crit_edge.i406 ], [ %1178, %1185 ], [ 0, %1171 ]
+  %.031.lcssa43.i = phi i32 [ %1178, %1185 ], [ 0, %._crit_edge.i406 ], [ 0, %1171 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.54, i32 noundef %.031.lcssa43.i) #14
   br label %.thread496
 
@@ -3835,7 +3835,7 @@ bytestream2_get_be32.exit339:                     ; preds = %1189, %1191
   br i1 %.not307, label %apng_reset_background.exit, label %.thread540
 
 .thread496:                                       ; preds = %bytestream2_get_be32.exit337, %267, %bytestream2_get_be32.exit.i361, %decode_idat_chunk.exit, %1169, %1188, %._crit_edge.thread.i, %1161, %168, %201, %1095, %1096, %1201, %1202, %1209, %1211, %1061, %1058, %1065, %1062, %1070, %bytestream2_get_byte.exit.thread, %bytestream2_get_byte.exit75.i, %246, %decode_fctl_chunk.exit, %953, %._crit_edge.i, %999, %1003, %1004, %1006, %1023, %1026, %1029, %.loopexit.i, %decode_iccp_chunk.exit, %.thread520, %bytestream2_get_be32.exit329, %340, %268, %200
-  %.1262 = phi i32 [ %.0261598, %decode_idat_chunk.exit ], [ %.0261598, %1209 ], [ %.0261598, %.thread520 ], [ %.0261598, %1201 ], [ %.0261598, %953 ], [ %.0261598, %999 ], [ %.0261598, %1202 ], [ %.0261598, %1003 ], [ %.0261598, %200 ], [ %.0261598, %1004 ], [ %.0261598, %1006 ], [ %.0261598, %268 ], [ %.0261598, %1023 ], [ %.0261598, %340 ], [ 0, %bytestream2_get_be32.exit329 ], [ %.0261598, %1026 ], [ %.0261598, %1029 ], [ %.0261598, %.loopexit.i ], [ %.0261598, %1070 ], [ %.0261598, %1169 ], [ %.0261598, %bytestream2_get_byte.exit75.i ], [ %.0261598, %201 ], [ %.0261598, %bytestream2_get_byte.exit.thread ], [ %.0261598, %1188 ], [ %.0261598, %1211 ], [ %.0261598, %246 ], [ %.0261598, %._crit_edge.i ], [ %.0261598, %1061 ], [ %.0261598, %1058 ], [ %.0261598, %1065 ], [ %.0261598, %1062 ], [ 1, %decode_fctl_chunk.exit ], [ %.0261598, %1095 ], [ %.0261598, %1096 ], [ %.0261598, %decode_iccp_chunk.exit ], [ %.0261598, %267 ], [ %.0261598, %168 ], [ %.0261598, %1161 ], [ %.0261598, %._crit_edge.thread.i ], [ %.0261598, %bytestream2_get_be32.exit.i361 ], [ %.0261598, %bytestream2_get_be32.exit337 ]
+  %.1262 = phi i32 [ %.0261598, %200 ], [ %.0261598, %268 ], [ %.0261598, %340 ], [ 0, %bytestream2_get_be32.exit329 ], [ %.0261598, %201 ], [ %.0261598, %1061 ], [ %.0261598, %1058 ], [ %.0261598, %1065 ], [ %.0261598, %1062 ], [ %.0261598, %1095 ], [ %.0261598, %1096 ], [ %.0261598, %decode_iccp_chunk.exit ], [ %.0261598, %1201 ], [ %.0261598, %1202 ], [ %.0261598, %1209 ], [ %.0261598, %1211 ], [ 1, %decode_fctl_chunk.exit ], [ %.0261598, %1070 ], [ %.0261598, %bytestream2_get_byte.exit.thread ], [ %.0261598, %bytestream2_get_byte.exit75.i ], [ %.0261598, %246 ], [ %.0261598, %953 ], [ %.0261598, %._crit_edge.i ], [ %.0261598, %999 ], [ %.0261598, %1003 ], [ %.0261598, %1004 ], [ %.0261598, %1006 ], [ %.0261598, %1023 ], [ %.0261598, %1026 ], [ %.0261598, %1029 ], [ %.0261598, %.loopexit.i ], [ %.0261598, %.thread520 ], [ %.0261598, %168 ], [ %.0261598, %1161 ], [ %.0261598, %._crit_edge.thread.i ], [ %.0261598, %1188 ], [ %.0261598, %1169 ], [ %.0261598, %decode_idat_chunk.exit ], [ %.0261598, %bytestream2_get_be32.exit.i361 ], [ %.0261598, %267 ], [ %.0261598, %bytestream2_get_be32.exit337 ]
   %1239 = load ptr, ptr %15, align 8, !tbaa !78
   %1240 = load ptr, ptr %14, align 8, !tbaa !76
   %1241 = ptrtoint ptr %1239 to i64
@@ -3845,7 +3845,7 @@ bytestream2_get_be32.exit339:                     ; preds = %1189, %1191
   %1245 = icmp eq i64 %1244, 0
   br i1 %1245, label %._crit_edge, label %134
 
-.thread540:                                       ; preds = %130, %1236, %123
+.thread540:                                       ; preds = %1236, %130, %123
   %.not318 = icmp eq ptr %2, null
   br i1 %.not318, label %.thread532, label %1246
 
@@ -4719,8 +4719,8 @@ handle_small_bpp.exit:                            ; preds = %.loopexit199.i, %.l
   %1758 = icmp ult i64 %1755, %1757
   br i1 %1758, label %1750, label %apng_reset_background.exit, !llvm.loop !211
 
-apng_reset_background.exit:                       ; preds = %425, %422, %419, %416, %607, %616, %428, %357, %bytestream2_get_be32.exit329.thread, %620, %302, %304, %310, %311, %315, %319, %269, %202, %decode_idat_chunk.exit, %341, %1750, %.thread496.thread, %1236, %.thread186.i.i, %558, %.thread193.i.thread, %353, %410, %.critedge.i.i, %324, %278, %274, %249, %218, %211, %207, %.thread, %130, %decode_sbit_chunk.exit, %decode_iccp_chunk.exit.thread, %decode_phys_chunk.exit.thread, %151, %1730, %1717, %percent_missing.exit, %1714
-  %.5 = phi i32 [ -1094995529, %.thread496.thread ], [ -1094995529, %percent_missing.exit ], [ %1715, %1714 ], [ %546, %558 ], [ 0, %1717 ], [ 0, %1730 ], [ %464, %.critedge.i.i ], [ -1094995529, %1236 ], [ -1094995529, %decode_sbit_chunk.exit ], [ %.020.i.ph, %decode_iccp_chunk.exit.thread ], [ -1163346256, %.thread193.i.thread ], [ 0, %1750 ], [ -1094995529, %249 ], [ -1094995529, %decode_phys_chunk.exit.thread ], [ -1094995529, %.thread ], [ -1094995529, %353 ], [ -1094995529, %151 ], [ -1094995529, %130 ], [ -1094995529, %410 ], [ -1094995529, %207 ], [ -1094995529, %211 ], [ -1094995529, %218 ], [ -1094995529, %274 ], [ -1094995529, %278 ], [ %563, %.thread186.i.i ], [ -1094995529, %324 ], [ -1094995529, %bytestream2_get_be32.exit329.thread ], [ %360, %357 ], [ %430, %428 ], [ -1094995529, %616 ], [ -1094995529, %607 ], [ %417, %416 ], [ %420, %419 ], [ %423, %422 ], [ %426, %425 ], [ -1094995529, %304 ], [ -1094995529, %310 ], [ -1094995529, %311 ], [ -1094995529, %315 ], [ -1094995529, %319 ], [ -1094995529, %269 ], [ -1094995529, %202 ], [ -1094995529, %302 ], [ -1094995529, %341 ], [ %..i374, %decode_idat_chunk.exit ], [ -12, %620 ]
+apng_reset_background.exit:                       ; preds = %620, %616, %607, %428, %425, %422, %419, %416, %357, %bytestream2_get_be32.exit329.thread, %302, %304, %310, %311, %315, %319, %269, %202, %decode_idat_chunk.exit, %341, %1750, %.thread496.thread, %1236, %558, %.critedge.i.i, %.thread186.i.i, %353, %.thread193.i.thread, %410, %274, %324, %278, %249, %218, %211, %207, %.thread, %130, %decode_iccp_chunk.exit.thread, %decode_phys_chunk.exit.thread, %decode_sbit_chunk.exit, %151, %1730, %1717, %percent_missing.exit, %1714
+  %.5 = phi i32 [ %1715, %1714 ], [ -1094995529, %percent_missing.exit ], [ 0, %1717 ], [ 0, %1730 ], [ %.020.i.ph, %decode_iccp_chunk.exit.thread ], [ -1094995529, %decode_phys_chunk.exit.thread ], [ -1094995529, %decode_sbit_chunk.exit ], [ -1094995529, %151 ], [ -1094995529, %130 ], [ -1094995529, %.thread ], [ -1094995529, %207 ], [ -1094995529, %211 ], [ -1094995529, %218 ], [ -1094995529, %249 ], [ -1094995529, %278 ], [ -1094995529, %324 ], [ -1094995529, %274 ], [ %546, %558 ], [ %464, %.critedge.i.i ], [ %563, %.thread186.i.i ], [ -1094995529, %353 ], [ -1163346256, %.thread193.i.thread ], [ -1094995529, %410 ], [ -1094995529, %1236 ], [ -1094995529, %.thread496.thread ], [ 0, %1750 ], [ -1094995529, %bytestream2_get_be32.exit329.thread ], [ %360, %357 ], [ %417, %416 ], [ %420, %419 ], [ %423, %422 ], [ %426, %425 ], [ %430, %428 ], [ -1094995529, %607 ], [ -1094995529, %616 ], [ -12, %620 ], [ -1094995529, %302 ], [ -1094995529, %304 ], [ -1094995529, %310 ], [ -1094995529, %311 ], [ -1094995529, %315 ], [ -1094995529, %319 ], [ -1094995529, %269 ], [ -1094995529, %202 ], [ -1094995529, %341 ], [ %..i374, %decode_idat_chunk.exit ]
   %1759 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1760 = load ptr, ptr %1759, align 8, !tbaa !119
   %.not326 = icmp eq ptr %1760, null
@@ -4730,8 +4730,8 @@ apng_reset_background.exit:                       ; preds = %425, %422, %419, %4
   call void @ff_progress_frame_report(ptr noundef nonnull %1759, i32 noundef 2147483647) #14
   br label %.thread532
 
-.thread532:                                       ; preds = %123, %1199, %119, %apng_reset_background.exit, %1761, %1250, %.thread540
-  %.4 = phi i32 [ 0, %123 ], [ -1094995529, %.thread540 ], [ 0, %1250 ], [ %.5, %1761 ], [ %.5, %apng_reset_background.exit ], [ 0, %119 ], [ %1195, %1199 ]
+.thread532:                                       ; preds = %123, %119, %1199, %apng_reset_background.exit, %1761, %1250, %.thread540
+  %.4 = phi i32 [ -1094995529, %.thread540 ], [ 0, %1250 ], [ %.5, %1761 ], [ %.5, %apng_reset_background.exit ], [ 0, %119 ], [ %1195, %1199 ], [ 0, %123 ]
   ret i32 %.4
 }
 
@@ -4872,7 +4872,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_text_chunk(ptr noun
   br label %iso88591_to_utf8.exit
 
 iso88591_to_utf8.exit:                            ; preds = %._crit_edge.i, %._crit_edge.i.thread, %._crit_edge41.i
-  %.028.i = phi ptr [ null, %._crit_edge.i ], [ %39, %._crit_edge41.i ], [ null, %._crit_edge.i.thread ]
+  %.028.i = phi ptr [ %39, %._crit_edge41.i ], [ null, %._crit_edge.i ], [ null, %._crit_edge.i.thread ]
   br i1 %.not40, label %55, label %53
 
 53:                                               ; preds = %iso88591_to_utf8.exit
@@ -4961,7 +4961,7 @@ iso88591_to_utf8.exit63.thread5:                  ; preds = %82, %.preheader.i53
   br label %86
 
 86:                                               ; preds = %55, %14, %12, %10, %2, %iso88591_to_utf8.exit63.thread5, %iso88591_to_utf8.exit63.thread
-  %.033 = phi i32 [ -1094995529, %2 ], [ -1094995529, %10 ], [ -1094995529, %12 ], [ 0, %iso88591_to_utf8.exit63.thread5 ], [ -12, %iso88591_to_utf8.exit63.thread ], [ %18, %14 ], [ -12, %55 ]
+  %.033 = phi i32 [ 0, %iso88591_to_utf8.exit63.thread5 ], [ -12, %iso88591_to_utf8.exit63.thread ], [ -1094995529, %2 ], [ -1094995529, %10 ], [ -1094995529, %12 ], [ %18, %14 ], [ -12, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.033
 }
@@ -5589,7 +5589,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @handle_p_frame_apng(ptr no
   br i1 %286, label %.lr.ph203.split, label %.loopexit, !llvm.loop !220
 
 .loopexit:                                        ; preds = %._crit_edge183.split, %._crit_edge183.split.us.us.split.us.us, %._crit_edge183.split.us.us.split, %100, %._crit_edge, %29
-  %.0 = phi i32 [ -1163346256, %29 ], [ 0, %._crit_edge ], [ 0, %100 ], [ 0, %._crit_edge183.split.us.us.split.us.us ], [ 0, %._crit_edge183.split.us.us.split ], [ 0, %._crit_edge183.split ]
+  %.0 = phi i32 [ -1163346256, %29 ], [ 0, %._crit_edge ], [ 0, %100 ], [ 0, %._crit_edge183.split.us.us.split ], [ 0, %._crit_edge183.split.us.us.split.us.us ], [ 0, %._crit_edge183.split ]
   ret i32 %.0
 }
 
@@ -5711,7 +5711,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_zbuf(ptr noundef no
   br label %44
 
 44:                                               ; preds = %4, %42, %.loopexit
-  %.024 = phi i32 [ 0, %.loopexit ], [ %.0, %42 ], [ %8, %4 ]
+  %.024 = phi i32 [ %.0, %42 ], [ 0, %.loopexit ], [ %8, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

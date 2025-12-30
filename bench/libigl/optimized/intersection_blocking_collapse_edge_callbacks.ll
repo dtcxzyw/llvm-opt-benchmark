@@ -98,7 +98,7 @@ define dso_local void @_ZN3igl45intersection_blocking_collapse_edge_callbacksERK
   unreachable
 
 common.resume:                                    ; preds = %"_ZZN3igl45intersection_blocking_collapse_edge_callbacksERKSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEES8_RKNS2_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISE_SaISE_EESt7greaterISE_EESB_S5_iEERKS0_IFvS5_S8_S8_SB_S8_S8_SM_SB_S5_iiiiibEERKSF_IPNS_4AABBIS3_Li3EEESaISX_EERSX_RSO_RSS_EN3$_0D2Ev.exit41", %_ZNSt14_Function_baseD2Ev.exit, %91, %94, %29, %32
-  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %30, %29 ], [ %30, %32 ], [ %92, %94 ], [ %.pn, %_ZNSt14_Function_baseD2Ev.exit ], [ %eh.lpad-body, %"_ZZN3igl45intersection_blocking_collapse_edge_callbacksERKSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEES8_RKNS2_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISE_SaISE_EESt7greaterISE_EESB_S5_iEERKS0_IFvS5_S8_S8_SB_S8_S8_SM_SB_S5_iiiiibEERKSF_IPNS_4AABBIS3_Li3EEESaISX_EERSX_RSO_RSS_EN3$_0D2Ev.exit41" ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %32 ], [ %30, %29 ], [ %92, %94 ], [ %92, %91 ], [ %.pn, %_ZNSt14_Function_baseD2Ev.exit ], [ %eh.lpad-body, %"_ZZN3igl45intersection_blocking_collapse_edge_callbacksERKSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEES8_RKNS2_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISE_SaISE_EESt7greaterISE_EESB_S5_iEERKS0_IFvS5_S8_S8_SB_S8_S8_SM_SB_S5_iiiiibEERKSF_IPNS_4AABBIS3_Li3EEESaISX_EERSX_RSO_RSS_EN3$_0D2Ev.exit41" ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1ELi0ELin1ELin1EEES7_RKNS1_IiLin1ELi1ELi0ELin1ELi1EEES7_S7_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISD_SaISD_EESt7greaterISD_EESA_S4_iEEC2ERKSN_.exit: ; preds = %6, %25
@@ -451,7 +451,7 @@ _ZNSt15__new_allocatorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3
   unreachable
 
 .body.i.i27:                                      ; preds = %169, %166, %140, %137
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %167, %169 ], [ %138, %137 ], [ %138, %140 ], [ %167, %166 ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %138, %140 ], [ %138, %137 ], [ %167, %166 ], [ %167, %169 ]
   call void @_ZdlPvm(ptr noundef nonnull %129, i64 noundef 80) #20
   %.pr.i.i28 = load ptr, ptr %128, align 8, !tbaa !12
   %.not.i.i.i29 = icmp eq ptr %.pr.i.i28, null
@@ -1724,7 +1724,7 @@ _ZNSt15__new_allocatorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3
   unreachable
 
 .body.i.i.i:                                      ; preds = %53, %50, %22, %19
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %53 ], [ %20, %19 ], [ %20, %22 ], [ %51, %50 ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %51, %50 ], [ %51, %53 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 80) #20
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 

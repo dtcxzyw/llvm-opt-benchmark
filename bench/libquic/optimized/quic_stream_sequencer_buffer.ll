@@ -3152,7 +3152,7 @@ _ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEm
   resume { ptr, i32 } %.pn114.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
 1020:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417, %933, %944, %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit, %56, %42
-  %.0 = phi i32 [ 50, %42 ], [ 0, %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit ], [ 87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239 ], [ 87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417 ], [ 1, %933 ], [ 93, %944 ], [ 0, %56 ]
+  %.0 = phi i32 [ 50, %42 ], [ 87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239 ], [ 87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417 ], [ 1, %933 ], [ 93, %944 ], [ 0, %_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm.exit ], [ 0, %56 ]
   ret i32 %.0
 }
 
@@ -3978,7 +3978,7 @@ define noundef i64 @_ZN3net25QuicStreamSequencerBuffer5ReadvEPK5iovecm(ptr nound
   br i1 %.not, label %.critedge, label %16
 
 .critedge:                                        ; preds = %11, %.critedge2
-  %.0.lcssa = phi i64 [ %.1.lcssa, %.critedge2 ], [ %.059, %11 ]
+  %.0.lcssa = phi i64 [ %.059, %11 ], [ %.1.lcssa, %.critedge2 ]
   %.not29 = icmp eq i64 %.0.lcssa, 0
   br i1 %.not29, label %.critedge.thread, label %83
 
@@ -4118,7 +4118,7 @@ _ZN3net25QuicStreamSequencerBuffer18RetireBlockIfEmptyEm.exit: ; preds = %.sink.
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %3, %83, %.critedge
-  %.0.lcssa75 = phi i64 [ 0, %.critedge ], [ %.0.lcssa, %83 ], [ 0, %3 ]
+  %.0.lcssa75 = phi i64 [ %.0.lcssa, %83 ], [ 0, %.critedge ], [ 0, %3 ]
   ret i64 %.0.lcssa75
 }
 
@@ -4228,7 +4228,7 @@ _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.thread: ; preds = %2, %_ZNK3net
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %40, %19, %13
-  %.sink12 = phi ptr [ %15, %13 ], [ %.pre.i, %19 ], [ %.pre.i8, %46 ], [ %42, %40 ]
+  %.sink12 = phi ptr [ %.pre.i, %19 ], [ %15, %13 ], [ %.pre.i8, %46 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw ptr, ptr %.sink12, i64 %1
   store ptr null, ptr %47, align 8, !tbaa !56
   br label %48
@@ -4836,7 +4836,7 @@ select.unfold:                                    ; preds = %18, %._crit_edge.th
   br label %.thread24
 
 .thread24:                                        ; preds = %select.unfold, %22
-  %26 = phi i1 [ %25, %22 ], [ true, %select.unfold ]
+  %26 = phi i1 [ true, %select.unfold ], [ %25, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !53
@@ -4929,7 +4929,7 @@ select.unfold:                                    ; preds = %18, %._crit_edge.th
   br label %.thread24
 
 .thread24:                                        ; preds = %select.unfold, %22
-  %26 = phi i1 [ %25, %22 ], [ true, %select.unfold ]
+  %26 = phi i1 [ true, %select.unfold ], [ %25, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !53

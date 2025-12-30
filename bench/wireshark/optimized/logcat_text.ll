@@ -144,8 +144,8 @@ define hidden range(i32 -1, 2) i32 @logcat_text_open(ptr noundef captures(none) 
   br i1 %.not48, label %.sink.split, label %33
 
 33:                                               ; preds = %31, %29, %27, %25, %23, %21, %.critedge
-  %logcat_text_tag_file_type_subtype.sink = phi ptr [ @logcat_text_brief_file_type_subtype, %.critedge ], [ @logcat_text_process_file_type_subtype, %23 ], [ @logcat_text_thread_file_type_subtype, %27 ], [ @logcat_text_threadtime_file_type_subtype, %29 ], [ @logcat_text_time_file_type_subtype, %25 ], [ @logcat_text_tag_file_type_subtype, %21 ], [ @logcat_text_long_file_type_subtype, %31 ]
-  %.sink = phi i32 [ 164, %.critedge ], [ 165, %23 ], [ 167, %27 ], [ 169, %29 ], [ 168, %25 ], [ 166, %21 ], [ 170, %31 ]
+  %logcat_text_tag_file_type_subtype.sink = phi ptr [ @logcat_text_brief_file_type_subtype, %.critedge ], [ @logcat_text_tag_file_type_subtype, %21 ], [ @logcat_text_process_file_type_subtype, %23 ], [ @logcat_text_time_file_type_subtype, %25 ], [ @logcat_text_thread_file_type_subtype, %27 ], [ @logcat_text_threadtime_file_type_subtype, %29 ], [ @logcat_text_long_file_type_subtype, %31 ]
+  %.sink = phi i32 [ 164, %.critedge ], [ 166, %21 ], [ 165, %23 ], [ 168, %25 ], [ 167, %27 ], [ 169, %29 ], [ 170, %31 ]
   %34 = load i32, ptr %logcat_text_tag_file_type_subtype.sink, align 4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %34, ptr %35, align 4
@@ -235,7 +235,7 @@ define internal noundef zeroext i1 @logcat_text_seek_read(ptr noundef readonly c
   br label %19
 
 19:                                               ; preds = %10, %15, %18, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ false, %18 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %18 ], [ false, %15 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -545,7 +545,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_brief_dump_can_write_encap(i32
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8, %3 ], [ -9, %1 ]
+  %.0 = phi i32 [ -8, %3 ], [ 0, %2 ], [ -9, %1 ]
   ret i32 %.0
 }
 
@@ -658,9 +658,9 @@ get_priority.exit.sink.split:                     ; preds = %46, %42
   br label %get_priority.exit
 
 get_priority.exit:                                ; preds = %get_priority.exit.sink.split, %46, %42
-  %.sink122 = phi i64 [ 25, %46 ], [ 21, %42 ], [ %.sink122.ph, %get_priority.exit.sink.split ]
-  %.sink = phi ptr [ %47, %46 ], [ %43, %42 ], [ %.sink.ph, %get_priority.exit.sink.split ]
-  %.084 = phi i32 [ 63, %46 ], [ 63, %42 ], [ %55, %get_priority.exit.sink.split ]
+  %.sink122 = phi i64 [ 21, %42 ], [ 25, %46 ], [ %.sink122.ph, %get_priority.exit.sink.split ]
+  %.sink = phi ptr [ %43, %42 ], [ %47, %46 ], [ %.sink.ph, %get_priority.exit.sink.split ]
+  %.084 = phi i32 [ 63, %42 ], [ 63, %46 ], [ %55, %get_priority.exit.sink.split ]
   %56 = getelementptr i8, ptr %2, i64 %.sink122
   %57 = tail call i64 @strlen(ptr noundef %56) #11
   %58 = trunc i64 %57 to i32
@@ -700,8 +700,8 @@ get_priority.exit:                                ; preds = %get_priority.exit.s
   br label %75
 
 75:                                               ; preds = %69, %71
-  %.val = phi i32 [ %.val.pr, %71 ], [ %67, %69 ]
-  %.189 = phi ptr [ %spec.store.select, %71 ], [ null, %69 ]
+  %.val = phi i32 [ %67, %69 ], [ %.val.pr, %71 ]
+  %.189 = phi ptr [ null, %69 ], [ %spec.store.select, %71 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %65, ptr %7, align 8
@@ -780,8 +780,8 @@ logcat_log.exit.thread:                           ; preds = %75
   br label %logcat_log.exit
 
 logcat_log.exit:                                  ; preds = %76, %78, %80, %82, %86, %89, %93, %96, %100, %103
-  %.189105 = phi ptr [ %.189104, %103 ], [ %.189, %76 ], [ %.189, %78 ], [ %.189, %80 ], [ %.189, %82 ], [ %.189, %86 ], [ %.189, %89 ], [ %.189, %93 ], [ %.189, %96 ], [ %.189104, %100 ]
-  %.0.i101 = phi ptr [ %104, %103 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %88, %86 ], [ %90, %89 ], [ %95, %93 ], [ %97, %96 ], [ %102, %100 ]
+  %.189105 = phi ptr [ %.189, %76 ], [ %.189, %78 ], [ %.189, %80 ], [ %.189, %82 ], [ %.189, %86 ], [ %.189, %89 ], [ %.189, %93 ], [ %.189, %96 ], [ %.189104, %100 ], [ %.189104, %103 ]
+  %.0.i101 = phi ptr [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %88, %86 ], [ %90, %89 ], [ %95, %93 ], [ %97, %96 ], [ %102, %100 ], [ %104, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not97 = icmp eq ptr %.0.i101, null
@@ -870,7 +870,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_process_dump_can_write_encap(i
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8, %3 ], [ -9, %1 ]
+  %.0 = phi i32 [ -8, %3 ], [ 0, %2 ], [ -9, %1 ]
   ret i32 %.0
 }
 
@@ -901,7 +901,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_tag_dump_can_write_encap(i32 n
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8, %3 ], [ -9, %1 ]
+  %.0 = phi i32 [ -8, %3 ], [ 0, %2 ], [ -9, %1 ]
   ret i32 %.0
 }
 
@@ -932,7 +932,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_thread_dump_can_write_encap(i3
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8, %3 ], [ -9, %1 ]
+  %.0 = phi i32 [ -8, %3 ], [ 0, %2 ], [ -9, %1 ]
   ret i32 %.0
 }
 
@@ -963,7 +963,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_time_dump_can_write_encap(i32 
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8, %3 ], [ -9, %1 ]
+  %.0 = phi i32 [ -8, %3 ], [ 0, %2 ], [ -9, %1 ]
   ret i32 %.0
 }
 
@@ -994,7 +994,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_threadtime_dump_can_write_enca
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8, %3 ], [ -9, %1 ]
+  %.0 = phi i32 [ -8, %3 ], [ 0, %2 ], [ -9, %1 ]
   ret i32 %.0
 }
 
@@ -1025,7 +1025,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_long_dump_can_write_encap(i32 
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8, %3 ], [ -9, %1 ]
+  %.0 = phi i32 [ -8, %3 ], [ 0, %2 ], [ -9, %1 ]
   ret i32 %.0
 }
 

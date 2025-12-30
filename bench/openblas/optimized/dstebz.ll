@@ -67,10 +67,10 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %42
 
 42:                                               ; preds = %40, %38, %18
-  %43 = phi i1 [ false, %38 ], [ false, %18 ], [ %.not710, %40 ]
-  %44 = phi i1 [ true, %38 ], [ false, %18 ], [ false, %40 ]
-  %45 = phi i1 [ false, %38 ], [ false, %18 ], [ %not..not710, %40 ]
-  %.0648 = phi i32 [ 2, %38 ], [ 1, %18 ], [ %.741, %40 ]
+  %43 = phi i1 [ false, %18 ], [ false, %38 ], [ %.not710, %40 ]
+  %44 = phi i1 [ false, %18 ], [ true, %38 ], [ false, %40 ]
+  %45 = phi i1 [ false, %18 ], [ false, %38 ], [ %not..not710, %40 ]
+  %.0648 = phi i32 [ 1, %18 ], [ 2, %38 ], [ %.741, %40 ]
   %46 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.3) #6
   %.not711 = icmp eq i32 %46, 0
   br i1 %.not711, label %47, label %.thread
@@ -125,7 +125,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not714, label %69, label %.critedge.thread
 
 .critedge.thread.sink.split:                      ; preds = %62, %58, %53, %.thread754, %49, %47, %.thread
-  %.sink993 = phi i32 [ -1, %47 ], [ -2, %49 ], [ -5, %53 ], [ -6, %58 ], [ -3, %.thread754 ], [ -1, %.thread ], [ -7, %62 ]
+  %.sink993 = phi i32 [ -1, %.thread ], [ -1, %47 ], [ -2, %49 ], [ -3, %.thread754 ], [ -5, %53 ], [ -6, %58 ], [ -7, %62 ]
   store i32 %.sink993, ptr %17, align 4, !tbaa !3
   br label %.critedge.thread
 
@@ -157,7 +157,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %79
 
 79:                                               ; preds = %76, %73, %72
-  %.1649 = phi i32 [ %.0648, %72 ], [ %spec.select745, %76 ], [ 3, %73 ]
+  %.1649 = phi i32 [ 3, %73 ], [ %.0648, %72 ], [ %spec.select745, %76 ]
   %80 = tail call double @dlamch_(ptr noundef nonnull @.str.6) #6
   %81 = tail call double @dlamch_(ptr noundef nonnull @.str.7) #6
   %82 = fmul double %81, 2.000000e+00
@@ -440,10 +440,10 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %241
 
 241:                                              ; preds = %._crit_edge784, %224, %238
-  %.1651 = phi double [ %.0650, %224 ], [ %239, %238 ], [ 0.000000e+00, %._crit_edge784 ]
-  %.1644 = phi double [ %.0643, %224 ], [ %240, %238 ], [ 0.000000e+00, %._crit_edge784 ]
-  %.1629 = phi double [ %.0628, %224 ], [ undef, %238 ], [ undef, %._crit_edge784 ]
-  %.1627 = phi double [ %.0626, %224 ], [ undef, %238 ], [ undef, %._crit_edge784 ]
+  %.1651 = phi double [ %239, %238 ], [ %.0650, %224 ], [ 0.000000e+00, %._crit_edge784 ]
+  %.1644 = phi double [ %240, %238 ], [ %.0643, %224 ], [ 0.000000e+00, %._crit_edge784 ]
+  %.1629 = phi double [ undef, %238 ], [ %.0628, %224 ], [ undef, %._crit_edge784 ]
+  %.1627 = phi double [ undef, %238 ], [ %.0626, %224 ], [ undef, %._crit_edge784 ]
   store i32 0, ptr %10, align 4, !tbaa !3
   store i32 0, ptr %17, align 4, !tbaa !3
   %242 = load i32, ptr %11, align 4, !tbaa !3
@@ -749,9 +749,9 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %434
 
 434:                                              ; preds = %334, %337, %.thread757, %266, %._crit_edge817
-  %.3638 = phi i32 [ %.0635823, %266 ], [ %.1636.lcssa, %._crit_edge817 ], [ %.0635823, %.thread757 ], [ %.0635823, %334 ], [ %.0635823, %337 ]
-  %.3633 = phi i32 [ %.2632760767, %266 ], [ %365, %._crit_edge817 ], [ %.2632761, %.thread757 ], [ %335, %334 ], [ %.1631824, %337 ]
-  %.3625 = phi i32 [ %.2624769, %266 ], [ %371, %._crit_edge817 ], [ %.2624768, %.thread757 ], [ %336, %334 ], [ %.1623825, %337 ]
+  %.3638 = phi i32 [ %.0635823, %266 ], [ %.0635823, %.thread757 ], [ %.0635823, %334 ], [ %.0635823, %337 ], [ %.1636.lcssa, %._crit_edge817 ]
+  %.3633 = phi i32 [ %.2632760767, %266 ], [ %.2632761, %.thread757 ], [ %335, %334 ], [ %.1631824, %337 ], [ %365, %._crit_edge817 ]
+  %.3625 = phi i32 [ %.2624769, %266 ], [ %.2624768, %.thread757 ], [ %336, %334 ], [ %.1623825, %337 ], [ %371, %._crit_edge817 ]
   %indvars.iv.next915 = add nuw nsw i64 %indvars.iv914, 1
   %.not719.not = icmp samesign ult i64 %indvars.iv914, %245
   br i1 %.not719.not, label %246, label %._crit_edge828.loopexit, !llvm.loop !15

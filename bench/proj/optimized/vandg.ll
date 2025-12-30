@@ -189,8 +189,8 @@ define internal { double, double } @_ZL15vandg_s_inverse5PJ_XYP8PJconsts(double 
   br label %94
 
 94:                                               ; preds = %44, %92, %67, %87, %11, %8
-  %.sroa.073.0 = phi double [ 0.000000e+00, %8 ], [ %18, %11 ], [ %.sroa.073.0.copyload, %44 ], [ 0.000000e+00, %92 ], [ %91, %87 ], [ 0.000000e+00, %67 ]
-  %.sroa.5.0 = phi double [ 0.000000e+00, %8 ], [ 0.000000e+00, %11 ], [ %.sroa.5.0.copyload, %44 ], [ 0.000000e+00, %92 ], [ %.sroa.8.0, %87 ], [ %.sroa.8.0, %67 ]
+  %.sroa.073.0 = phi double [ %18, %11 ], [ 0.000000e+00, %8 ], [ %.sroa.073.0.copyload, %44 ], [ 0.000000e+00, %92 ], [ %91, %87 ], [ 0.000000e+00, %67 ]
+  %.sroa.5.0 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %8 ], [ %.sroa.5.0.copyload, %44 ], [ 0.000000e+00, %92 ], [ %.sroa.8.0, %87 ], [ %.sroa.8.0, %67 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.073.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
@@ -306,8 +306,8 @@ define internal { double, double } @_ZL15vandg_s_forward5PJ_LPP8PJconsts(double 
   br label %80
 
 80:                                               ; preds = %71, %73, %11, %31, %25, %75, %9
-  %.sroa.12.0 = phi double [ 0.000000e+00, %9 ], [ %69, %71 ], [ %79, %75 ], [ %32, %31 ], [ %29, %25 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %73 ]
-  %.sroa.041.0 = phi double [ 0.000000e+00, %9 ], [ %.sroa.041.2, %71 ], [ %.sroa.041.2, %75 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %25 ], [ %0, %11 ], [ %.sroa.041.2, %73 ]
+  %.sroa.12.0 = phi double [ 0.000000e+00, %9 ], [ %69, %71 ], [ %32, %31 ], [ %29, %25 ], [ %79, %75 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %73 ]
+  %.sroa.041.0 = phi double [ 0.000000e+00, %9 ], [ %.sroa.041.2, %71 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %25 ], [ %.sroa.041.2, %75 ], [ %0, %11 ], [ %.sroa.041.2, %73 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.041.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.12.0, 1
   ret { double, double } %.fca.1.insert

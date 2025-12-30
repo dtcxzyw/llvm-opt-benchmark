@@ -937,7 +937,7 @@ _ZN4ring5debug15write_hex_bytes17h78da22ec055b5923E.exit: ; preds = %19
   br label %24
 
 24:                                               ; preds = %_ZN4ring5debug15write_hex_bytes17h78da22ec055b5923E.exit, %.loopexit, %2
-  %.0 = phi i1 [ true, %_ZN4ring5debug15write_hex_bytes17h78da22ec055b5923E.exit ], [ %23, %.loopexit ], [ true, %2 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %_ZN4ring5debug15write_hex_bytes17h78da22ec055b5923E.exit ], [ %23, %.loopexit ]
   ret i1 %.0
 }
 

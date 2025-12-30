@@ -128,7 +128,7 @@ define dso_local range(i32 0, 2) i32 @strstart(ptr noundef %0, ptr noundef reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %11
-  %.011 = phi i32 [ 1, %._crit_edge ], [ 1, %11 ], [ 0, %.lr.ph ]
+  %.011 = phi i32 [ 1, %11 ], [ 1, %._crit_edge ], [ 0, %.lr.ph ]
   ret i32 %.011
 }
 
@@ -278,7 +278,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_write(ptr noundef captures(none) %0,
   br label %dbuf_realloc.exit
 
 dbuf_realloc.exit:                                ; preds = %21, %9, %23, %29
-  %.0 = phi i32 [ 0, %23 ], [ 0, %29 ], [ -1, %9 ], [ -1, %21 ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %23 ], [ -1, %9 ], [ -1, %21 ]
   ret i32 %.0
 }
 
@@ -539,7 +539,7 @@ memcpy_no_ub.exit.i:                              ; preds = %18, %17
   br label %dbuf_put.exit
 
 dbuf_put.exit:                                    ; preds = %41, %29, %memcpy_no_ub.exit.i, %15, %43
-  %.0 = phi i32 [ -1, %15 ], [ 0, %43 ], [ 0, %memcpy_no_ub.exit.i ], [ -1, %29 ], [ -1, %41 ]
+  %.0 = phi i32 [ 0, %43 ], [ 0, %memcpy_no_ub.exit.i ], [ -1, %15 ], [ -1, %29 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -766,7 +766,7 @@ switch.lookup:                                    ; preds = %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %9, %.loopexit.sink.split, %31, %switch.lookup
-  %.024 = phi i32 [ -1, %31 ], [ %.024.ph, %.loopexit.sink.split ], [ -1, %9 ], [ -1, %switch.lookup ], [ -1, %22 ]
+  %.024 = phi i32 [ -1, %9 ], [ -1, %switch.lookup ], [ -1, %31 ], [ %.024.ph, %.loopexit.sink.split ], [ -1, %22 ]
   ret i32 %.024
 }
 
@@ -814,7 +814,7 @@ exchange_func.exit.thread314:                     ; preds = %5
   br label %exchange_func.exit
 
 exchange_func.exit:                               ; preds = %12, %14, %16
-  %.0.i = phi ptr [ %exchange_one_byte.exchange_bytes.i, %16 ], [ %exchange_one_int16.exchange_int16s.i, %14 ], [ %exchange_one_int32.exchange_int32s.i, %12 ]
+  %.0.i = phi ptr [ %exchange_one_int32.exchange_int32s.i, %12 ], [ %exchange_one_int16.exchange_int16s.i, %14 ], [ %exchange_one_byte.exchange_bytes.i, %16 ]
   switch i64 %9, label %21 [
     i64 0, label %exchange_func.exit215
     i64 8, label %18
@@ -839,8 +839,8 @@ exchange_func.exit:                               ; preds = %12, %14, %16
   br label %exchange_func.exit215
 
 exchange_func.exit215:                            ; preds = %exchange_func.exit.thread314, %exchange_func.exit.thread, %exchange_func.exit, %18, %19, %20, %21
-  %.0.i313 = phi ptr [ %.0.i, %21 ], [ %.0.i, %20 ], [ %exchange_one_int128.exchange_int128s.i, %exchange_func.exit.thread ], [ %.0.i, %19 ], [ %.0.i, %exchange_func.exit ], [ %exchange_one_int64.exchange_int64s.i, %exchange_func.exit.thread314 ], [ %.0.i, %18 ]
-  %.0.i210 = phi ptr [ @exchange_bytes, %21 ], [ @exchange_int16s, %20 ], [ @exchange_int128s, %exchange_func.exit.thread ], [ @exchange_int32s, %19 ], [ @exchange_int128s, %exchange_func.exit ], [ @exchange_int64s, %exchange_func.exit.thread314 ], [ @exchange_int64s, %18 ]
+  %.0.i313 = phi ptr [ %.0.i, %19 ], [ %.0.i, %20 ], [ %.0.i, %21 ], [ %.0.i, %exchange_func.exit ], [ %exchange_one_int128.exchange_int128s.i, %exchange_func.exit.thread ], [ %exchange_one_int64.exchange_int64s.i, %exchange_func.exit.thread314 ], [ %.0.i, %18 ]
+  %.0.i210 = phi ptr [ @exchange_int32s, %19 ], [ @exchange_int16s, %20 ], [ @exchange_bytes, %21 ], [ @exchange_int128s, %exchange_func.exit ], [ @exchange_int128s, %exchange_func.exit.thread ], [ @exchange_int64s, %exchange_func.exit.thread314 ], [ @exchange_int64s, %18 ]
   %22 = icmp ult i64 %1, 2
   %23 = icmp eq i64 %2, 0
   %or.cond = or i1 %22, %23
@@ -921,7 +921,7 @@ exchange_func.exit215:                            ; preds = %exchange_func.exit.
   br label %exchange_func.exit.i
 
 exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, %49
-  %.0.i.i = phi ptr [ %exchange_one_byte.exchange_bytes.i.i, %52 ], [ %exchange_one_int16.exchange_int16s.i.i, %51 ], [ %exchange_one_int64.exchange_int64s.i.i, %49 ], [ %exchange_one_int32.exchange_int32s.i.i, %50 ], [ %exchange_one_int128.exchange_int128s.i.i, %45 ]
+  %.0.i.i = phi ptr [ %exchange_one_int64.exchange_int64s.i.i, %49 ], [ %exchange_one_int32.exchange_int32s.i.i, %50 ], [ %exchange_one_int16.exchange_int16s.i.i, %51 ], [ %exchange_one_byte.exchange_bytes.i.i, %52 ], [ %exchange_one_int128.exchange_int128s.i.i, %45 ]
   %53 = lshr i64 %.0256, 1
   %54 = mul i64 %53, %2
   %55 = mul i64 %.0256, %2
@@ -1181,9 +1181,9 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   br i1 %175, label %.lr.ph257, label %heapsortx.exit, !llvm.loop !38
 
 heapsortx.exit:                                   ; preds = %172, %._crit_edge95.i, %35, %.preheader.i
-  %.0180225 = phi ptr [ %.0180253, %._crit_edge95.i ], [ %.0180253, %.preheader.i ], [ %37, %35 ], [ %.1181, %172 ]
-  %.1167223 = phi ptr [ %.1167255, %._crit_edge95.i ], [ %.1167255, %.preheader.i ], [ %36, %35 ], [ %.2168, %172 ]
-  %.1 = phi i64 [ 0, %._crit_edge95.i ], [ 0, %.preheader.i ], [ %39, %35 ], [ %.2, %172 ]
+  %.0180225 = phi ptr [ %.0180253, %.preheader.i ], [ %37, %35 ], [ %.0180253, %._crit_edge95.i ], [ %.1181, %172 ]
+  %.1167223 = phi ptr [ %.1167255, %.preheader.i ], [ %36, %35 ], [ %.1167255, %._crit_edge95.i ], [ %.2168, %172 ]
+  %.1 = phi i64 [ 0, %.preheader.i ], [ %39, %35 ], [ 0, %._crit_edge95.i ], [ %.2, %172 ]
   %176 = mul i64 %.1, %2
   %177 = getelementptr inbounds nuw i8, ptr %.0180225, i64 %176
   %178 = icmp samesign ult i64 %2, %176

@@ -909,7 +909,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %185, label %146, label %.critedge2, !llvm.loop !74
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit, %Vec_IntGrow.exit, %._crit_edge179, %._crit_edge, %87
-  %.val139237 = phi ptr [ %.val139, %87 ], [ %.val139235, %Vec_IntGrow.exit ], [ %.val140, %._crit_edge179 ], [ %.val140, %._crit_edge ], [ %.val139235, %Vec_IntPush.exit ]
+  %.val139237 = phi ptr [ %.val139235, %Vec_IntGrow.exit ], [ %.val140, %._crit_edge179 ], [ %.val140, %._crit_edge ], [ %.val139, %87 ], [ %.val139235, %Vec_IntPush.exit ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %.val = load i32, ptr %15, align 4, !tbaa !24
   %186 = sext i32 %.val to i64
@@ -1776,7 +1776,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %2
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.exit.i, %9
-  %12 = phi ptr [ %8, %9 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %2 ]
+  %12 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %8, %9 ], [ null, %2 ]
   %13 = getelementptr i8, ptr %0, i64 56
   %.val86 = load ptr, ptr %13, align 8, !tbaa !3
   %14 = getelementptr i8, ptr %.val86, i64 4

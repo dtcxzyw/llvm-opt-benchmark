@@ -811,7 +811,7 @@ data_new.exit:                                    ; preds = %5, %10, %13
   br label %25
 
 25:                                               ; preds = %data_new.exit, %21, %18, %1, %2
-  %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ %6, %18 ], [ %6, %21 ], [ %6, %data_new.exit ]
+  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ %6, %18 ], [ %6, %21 ], [ %6, %data_new.exit ]
   ret ptr %.0
 }
 
@@ -994,7 +994,7 @@ _data_list_prepend.exit:                          ; preds = %32, %38, %41
   br label %55
 
 55:                                               ; preds = %_data_list_prepend.exit, %51, %48, %1, %2
-  %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ %6, %48 ], [ %6, %51 ], [ %6, %_data_list_prepend.exit ]
+  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ %6, %48 ], [ %6, %51 ], [ %6, %_data_list_prepend.exit ]
   ret ptr %.0
 }
 
@@ -1041,7 +1041,7 @@ define dso_local ptr @data_list_dequeue(ptr noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %10, %19, %16, %5, %1, %2
-  %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %2 ], [ %12, %16 ], [ %12, %19 ], [ %12, %10 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ null, %5 ], [ %12, %16 ], [ %12, %19 ], [ %12, %10 ]
   ret ptr %.0
 }
 
@@ -1432,7 +1432,7 @@ define dso_local ptr @data_key_get_const(ptr noundef readonly captures(address_i
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %11, %6, %3, %2, %18
-  %.015 = phi ptr [ null, %2 ], [ %20, %18 ], [ null, %6 ], [ null, %3 ], [ null, %11 ], [ null, %16 ]
+  %.015 = phi ptr [ %20, %18 ], [ null, %2 ], [ null, %3 ], [ null, %6 ], [ null, %11 ], [ null, %16 ]
   ret ptr %.015
 }
 
@@ -1483,7 +1483,7 @@ define dso_local ptr @data_key_get(ptr noundef readonly captures(address_is_null
   br label %data_dict_find_first.exit
 
 data_dict_find_first.exit:                        ; preds = %16, %2, %3, %6, %11, %18
-  %.016.i = phi ptr [ null, %2 ], [ %20, %18 ], [ null, %6 ], [ null, %3 ], [ null, %11 ], [ null, %16 ]
+  %.016.i = phi ptr [ %20, %18 ], [ null, %2 ], [ null, %3 ], [ null, %6 ], [ null, %11 ], [ null, %16 ]
   ret ptr %.016.i
 }
 
@@ -1533,7 +1533,7 @@ define dso_local ptr @data_dict_find_first(ptr noundef readonly captures(address
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %12, %7, %4, %3, %21
-  %.016 = phi ptr [ null, %3 ], [ %23, %21 ], [ null, %7 ], [ null, %4 ], [ null, %12 ], [ null, %19 ]
+  %.016 = phi ptr [ %23, %21 ], [ null, %3 ], [ null, %4 ], [ null, %7 ], [ null, %12 ], [ null, %19 ]
   ret ptr %.016
 }
 
@@ -1585,7 +1585,7 @@ define dso_local ptr @data_key_get_int(ptr noundef readonly captures(address_is_
   br label %data_key_get.exit
 
 data_key_get.exit:                                ; preds = %18, %2, %5, %8, %13, %20
-  %.016.i.i = phi ptr [ null, %2 ], [ %22, %20 ], [ null, %8 ], [ null, %5 ], [ null, %13 ], [ null, %18 ]
+  %.016.i.i = phi ptr [ %22, %20 ], [ null, %2 ], [ null, %5 ], [ null, %8 ], [ null, %13 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.016.i.i
 }
@@ -1637,7 +1637,7 @@ define dso_local ptr @data_list_find_first(ptr noundef readonly captures(address
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %12, %7, %4, %3, %19
-  %.015 = phi ptr [ null, %3 ], [ %21, %19 ], [ null, %7 ], [ null, %4 ], [ null, %12 ], [ null, %17 ]
+  %.015 = phi ptr [ %21, %19 ], [ null, %3 ], [ null, %4 ], [ null, %7 ], [ null, %12 ], [ null, %17 ]
   ret ptr %.015
 }
 
@@ -1740,7 +1740,7 @@ data_new.exit:                                    ; preds = %data_key_get.exit.t
   br label %42
 
 42:                                               ; preds = %data_new.exit, %41, %38, %20, %26, %23, %3, %2
-  %.0 = phi ptr [ null, %2 ], [ %27, %data_new.exit ], [ %19, %20 ], [ null, %3 ], [ %19, %23 ], [ %19, %26 ], [ %27, %38 ], [ %27, %41 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %19, %23 ], [ %19, %26 ], [ %19, %20 ], [ %27, %38 ], [ %27, %41 ], [ %27, %data_new.exit ]
   ret ptr %.0
 }
 
@@ -1830,7 +1830,7 @@ define dso_local noundef zeroext i1 @data_key_unset(ptr noundef %0, ptr noundef 
   br label %35
 
 35:                                               ; preds = %.critedge, %20, %17, %3, %2, %33
-  %.022 = phi i1 [ false, %2 ], [ true, %33 ], [ false, %.critedge ], [ false, %3 ], [ false, %17 ], [ false, %20 ]
+  %.022 = phi i1 [ true, %33 ], [ false, %2 ], [ false, %3 ], [ false, %17 ], [ false, %20 ], [ false, %.critedge ]
   ret i1 %.022
 }
 
@@ -1882,7 +1882,7 @@ define dso_local i64 @data_get_int(ptr noundef readonly captures(address_is_null
   br label %9
 
 9:                                                ; preds = %2, %1, %6
-  %.0 = phi i64 [ 0, %1 ], [ %8, %6 ], [ 0, %2 ]
+  %.0 = phi i64 [ %8, %6 ], [ 0, %1 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -1998,8 +1998,8 @@ data_get_string.exit40:                           ; preds = %29, %32
   br label %37
 
 37:                                               ; preds = %35, %28
-  %.1 = phi ptr [ %36, %35 ], [ %.024, %28 ]
-  %.0 = phi ptr [ @.str.16, %35 ], [ @.str.23, %28 ]
+  %.1 = phi ptr [ %.024, %28 ], [ %36, %35 ]
+  %.0 = phi ptr [ @.str.23, %28 ], [ @.str.16, %35 ]
   %.not34 = icmp eq ptr %.1, null
   br i1 %.not34, label %43, label %.thread
 
@@ -2034,7 +2034,7 @@ data_get_string.exit40:                           ; preds = %29, %32
   br label %50
 
 50:                                               ; preds = %43, %49, %46, %.thread, %40, %2
-  %.025 = phi i32 [ 9201, %2 ], [ 0, %.thread ], [ 0, %40 ], [ 9202, %46 ], [ 9202, %49 ], [ 9202, %43 ]
+  %.025 = phi i32 [ 9201, %2 ], [ 0, %40 ], [ 0, %.thread ], [ 9202, %46 ], [ 9202, %49 ], [ 9202, %43 ]
   ret i32 %.025
 }
 
@@ -2242,7 +2242,7 @@ data_get_string.exit:                             ; preds = %22, %25
   unreachable
 
 data_set_bool.exit:                               ; preds = %.lr.ph, %.lr.ph61, %71, %83, %70, %67, %63, %62, %59, %52, %51, %48, %41, %39, %36, %28, %2, %data_get_string.exit
-  %.035 = phi ptr [ %.036, %data_get_string.exit ], [ %.036, %70 ], [ %.036, %39 ], [ %.036, %51 ], [ %.036, %62 ], [ null, %2 ], [ %.036, %83 ], [ %.036, %28 ], [ %.036, %36 ], [ %.036, %41 ], [ %.036, %48 ], [ %.036, %52 ], [ %.036, %59 ], [ %.036, %63 ], [ %.036, %67 ], [ %.036, %71 ], [ %.036, %.lr.ph61 ], [ %.036, %.lr.ph ]
+  %.035 = phi ptr [ %.036, %data_get_string.exit ], [ null, %2 ], [ %.036, %28 ], [ %.036, %36 ], [ %.036, %39 ], [ %.036, %41 ], [ %.036, %48 ], [ %.036, %51 ], [ %.036, %52 ], [ %.036, %59 ], [ %.036, %62 ], [ %.036, %63 ], [ %.036, %67 ], [ %.036, %70 ], [ %.036, %83 ], [ %.036, %71 ], [ %.036, %.lr.ph61 ], [ %.036, %.lr.ph ]
   ret ptr %.035
 }
 
@@ -2307,7 +2307,7 @@ define dso_local range(i32 0, 8) i32 @data_convert_type(ptr noundef %0, i32 noun
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
-27:                                               ; preds = %22, %9, %15, %17, %6, %6
+27:                                               ; preds = %9, %15, %17, %22, %6, %6
   br label %_convert_data_string.exit
 
 28:                                               ; preds = %5
@@ -2383,7 +2383,7 @@ data_convert_type.exit:                           ; preds = %28, %30, %32, %34, 
   %59 = tail call ptr @data_set_bool(ptr noundef nonnull %0, i1 noundef zeroext %58)
   br label %60
 
-60:                                               ; preds = %data_convert_type.exit, %55, %48, %50, %40, %44, %47
+60:                                               ; preds = %48, %50, %55, %data_convert_type.exit, %40, %44, %47
   br label %_convert_data_string.exit
 
 61:                                               ; preds = %5
@@ -2431,7 +2431,7 @@ data_convert_type.exit:                           ; preds = %28, %30, %32, %34, 
   br label %_convert_data_string.exit
 
 _convert_data_string.exit:                        ; preds = %60, %data_convert_type.exit, %27, %6, %5, %78, %76, %74, %72, %70, %2, %67, %64, %61
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %6 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ 4, %76 ], [ %., %78 ], [ 6, %74 ], [ 4, %72 ], [ 1, %70 ], [ 5, %27 ], [ 7, %60 ], [ 0, %data_convert_type.exit ]
+  %.0 = phi i32 [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ 0, %2 ], [ 1, %70 ], [ 4, %72 ], [ 6, %74 ], [ 4, %76 ], [ %., %78 ], [ 0, %5 ], [ 5, %27 ], [ 0, %6 ], [ 7, %60 ], [ 0, %data_convert_type.exit ]
   ret i32 %.0
 }
 
@@ -2508,7 +2508,7 @@ data_get_bool.exit26:                             ; preds = %5
   br label %34
 
 34:                                               ; preds = %22, %28, %25, %2, %data_get_bool.exit26
-  %.017 = phi i32 [ 9201, %2 ], [ 0, %data_get_bool.exit26 ], [ %.0, %25 ], [ %.0, %28 ], [ %.0, %22 ]
+  %.017 = phi i32 [ 0, %data_get_bool.exit26 ], [ 9201, %2 ], [ %.0, %25 ], [ %.0, %28 ], [ %.0, %22 ]
   ret i32 %.017
 }
 
@@ -2601,7 +2601,7 @@ data_convert_type.exit:                           ; preds = %8, %13, %16
   br label %data_get_int.exit
 
 data_get_int.exit:                                ; preds = %19, %22
-  %.0.i25 = phi i64 [ 0, %19 ], [ %24, %22 ]
+  %.0.i25 = phi i64 [ %24, %22 ], [ 0, %19 ]
   store i64 %.0.i25, ptr %1, align 8
   br label %25
 
@@ -2736,7 +2736,7 @@ define dso_local ptr @data_get_list_last(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 32:                                               ; preds = %5, %2, %1, %28
-  %.015 = phi ptr [ null, %1 ], [ %30, %28 ], [ null, %2 ], [ null, %5 ]
+  %.015 = phi ptr [ %30, %28 ], [ null, %1 ], [ null, %2 ], [ null, %5 ]
   ret ptr %.015
 }
 
@@ -2820,7 +2820,7 @@ define dso_local range(i32 -1, 1) i32 @data_list_split_str(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %14, %17, %12, %._crit_edge
-  %.0 = phi i32 [ -1, %12 ], [ 0, %._crit_edge ], [ 0, %17 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %12 ], [ 0, %17 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -3329,7 +3329,7 @@ data_get_string.exit:                             ; preds = %7, %10
   br label %data_set_int.exit
 
 data_set_int.exit:                                ; preds = %75, %72, %67, %57, %54, %44, %41, %36, %76, %77, %45, %46, %13, %16
-  %.042 = phi i32 [ 9202, %76 ], [ 9202, %13 ], [ 9202, %57 ], [ 9202, %45 ], [ 0, %44 ], [ 9202, %16 ], [ 9202, %46 ], [ 9202, %77 ], [ 0, %36 ], [ 0, %41 ], [ 9202, %54 ], [ 0, %67 ], [ 0, %72 ], [ 0, %75 ]
+  %.042 = phi i32 [ 9202, %16 ], [ 9202, %13 ], [ 9202, %46 ], [ 9202, %45 ], [ 9202, %77 ], [ 9202, %76 ], [ 0, %36 ], [ 0, %41 ], [ 0, %44 ], [ 9202, %54 ], [ 9202, %57 ], [ 0, %67 ], [ 0, %72 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %data_set_int.exit58
@@ -3384,7 +3384,7 @@ data_set_int.exit:                                ; preds = %75, %72, %67, %57, 
   br label %data_set_int.exit58
 
 data_set_int.exit58:                              ; preds = %98, %95, %91, %89, %86, %80, %2, %79, %99, %data_set_int.exit
-  %.2 = phi i32 [ 9202, %99 ], [ %.042, %data_set_int.exit ], [ 0, %2 ], [ 0, %89 ], [ 9202, %79 ], [ 0, %80 ], [ 0, %86 ], [ 0, %91 ], [ 0, %95 ], [ 0, %98 ]
+  %.2 = phi i32 [ 9202, %99 ], [ %.042, %data_set_int.exit ], [ 9202, %79 ], [ 0, %2 ], [ 0, %80 ], [ 0, %86 ], [ 0, %89 ], [ 0, %91 ], [ 0, %95 ], [ 0, %98 ]
   ret i32 %.2
 }
 
@@ -3425,8 +3425,8 @@ data_get_string.exit.i:                           ; preds = %9, %6
   br label %13
 
 13:                                               ; preds = %.fold.split.i, %12, %data_get_string.exit.i
-  %.046.i = phi i1 [ false, %data_get_string.exit.i ], [ true, %12 ], [ false, %.fold.split.i ]
-  %.045.i = phi i64 [ 1, %data_get_string.exit.i ], [ 1, %12 ], [ 0, %.fold.split.i ]
+  %.046.i = phi i1 [ true, %12 ], [ false, %data_get_string.exit.i ], [ false, %.fold.split.i ]
+  %.045.i = phi i64 [ 1, %12 ], [ 1, %data_get_string.exit.i ], [ 0, %.fold.split.i ]
   %14 = tail call ptr @__ctype_tolower_loc() #18
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.045.i
@@ -3672,7 +3672,7 @@ data_get_int.exit19:                              ; preds = %data_get_int.exit
   br label %_convert_data_float_from_string.exit
 
 _convert_data_float_from_string.exit:             ; preds = %1, %113, %110, %data_get_int.exit19, %106, %103, %100, %99, %96, %93, %89, %86, %83, %80, %data_set_float.exit.i, %114
-  %.0 = phi i32 [ 9202, %114 ], [ 0, %1 ], [ 9202, %86 ], [ 0, %99 ], [ 0, %106 ], [ 0, %data_set_float.exit.i ], [ 0, %80 ], [ 0, %83 ], [ 9202, %89 ], [ 0, %93 ], [ 0, %96 ], [ 0, %100 ], [ 0, %103 ], [ 0, %data_get_int.exit19 ], [ 0, %110 ], [ 0, %113 ]
+  %.0 = phi i32 [ 9202, %114 ], [ 0, %1 ], [ 0, %80 ], [ 0, %83 ], [ 0, %data_set_float.exit.i ], [ 9202, %89 ], [ 9202, %86 ], [ 0, %93 ], [ 0, %96 ], [ 0, %99 ], [ 0, %100 ], [ 0, %103 ], [ 0, %106 ], [ 0, %data_get_int.exit19 ], [ 0, %110 ], [ 0, %113 ]
   ret i32 %.0
 }
 
@@ -3751,7 +3751,7 @@ data_get_string.exit18:                           ; preds = %15, %data_get_strin
   br label %data_set_null.exit
 
 data_set_null.exit:                               ; preds = %1, %27, %24, %21, %10, %12
-  %.011 = phi i32 [ 9202, %12 ], [ 9202, %10 ], [ 0, %1 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ]
+  %.011 = phi i32 [ 9202, %12 ], [ 0, %1 ], [ 9202, %10 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ]
   ret i32 %.011
 }
 
@@ -4093,7 +4093,7 @@ data_set_bool.exit:                               ; preds = %154, %151, %147, %1
   br label %187
 
 187:                                              ; preds = %1, %178, %.thread.thread, %183, %186, %180, %data_set_bool.exit, %170
-  %.0 = phi i32 [ 0, %data_set_bool.exit ], [ 0, %1 ], [ 0, %170 ], [ 9202, %180 ], [ 9202, %186 ], [ 9202, %183 ], [ 9202, %.thread.thread ], [ 9202, %178 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %170 ], [ 0, %data_set_bool.exit ], [ 9202, %180 ], [ 9202, %186 ], [ 9202, %183 ], [ 9202, %.thread.thread ], [ 9202, %178 ]
   ret i32 %.0
 }
 
@@ -4177,7 +4177,7 @@ data_get_type.exit.i:                             ; preds = %.preheader.i.i
   br label %data_dict_for_each.exit
 
 data_dict_for_each.exit:                          ; preds = %.preheader18, %.preheader, %30, %data_get_type.exit.thread.i, %data_get_type.exit.i, %19, %2
-  %.0 = phi i64 [ 0, %2 ], [ 0, %19 ], [ %spec.select, %30 ], [ %16, %.preheader ], [ 0, %data_get_type.exit.thread.i ], [ 0, %data_get_type.exit.i ], [ %27, %.preheader18 ]
+  %.0 = phi i64 [ 0, %2 ], [ 0, %data_get_type.exit.i ], [ 0, %data_get_type.exit.thread.i ], [ 0, %19 ], [ %spec.select, %30 ], [ %16, %.preheader ], [ %27, %.preheader18 ]
   ret i64 %.0
 }
 
@@ -4587,7 +4587,7 @@ data_get_bool.exit192:                            ; preds = %151
   br label %data_get_int.exit197
 
 data_get_int.exit197:                             ; preds = %167, %171
-  %.0.i196 = phi i64 [ 0, %167 ], [ %173, %171 ]
+  %.0.i196 = phi i64 [ %173, %171 ], [ 0, %167 ]
   %174 = icmp eq i64 %169, %.0.i196
   %175 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %176 = and i64 %175, 256
@@ -4611,7 +4611,7 @@ data_get_int.exit197:                             ; preds = %167, %171
   br label %187
 
 187:                                              ; preds = %185, %180
-  %.0.i199 = phi i64 [ 0, %180 ], [ %186, %185 ]
+  %.0.i199 = phi i64 [ %186, %185 ], [ 0, %180 ]
   %188 = select i1 %174, ptr @.str.39, ptr @.str.40
   %189 = load i32, ptr %17, align 4
   %190 = tail call fastcc ptr @_type_to_string(i32 noundef %189)
@@ -4625,7 +4625,7 @@ data_get_int.exit197:                             ; preds = %167, %171
   br label %data_get_int.exit203
 
 data_get_int.exit203:                             ; preds = %187, %193
-  %.0.i202 = phi i64 [ 0, %187 ], [ %195, %193 ]
+  %.0.i202 = phi i64 [ %195, %193 ], [ 0, %187 ]
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.45, ptr noundef nonnull %182, i64 noundef %183, i64 noundef %.0.i199, ptr noundef nonnull %188, ptr noundef nonnull %190, i64 noundef %191, i64 noundef %.0.i202) #15
   br label %257
 
@@ -4725,7 +4725,7 @@ data_get_list_length.exit218:                     ; preds = %237
   unreachable
 
 257:                                              ; preds = %233, %data_get_list_length.exit218, %237, %211, %data_get_dict_length.exit213, %215, %.critedge, %data_get_float.exit208, %198, %data_get_int.exit197, %data_get_int.exit203, %177, %data_get_bool.exit186, %data_get_bool.exit192, %151, %data_get_string.exit175, %data_get_string.exit181, %123, %95, %102, %99, %82, %81, %93, %92, %6, %3
-  %.0113 = phi i1 [ %212, %211 ], [ true, %3 ], [ false, %6 ], [ %84, %92 ], [ %96, %95 ], [ %.not125, %data_get_string.exit175 ], [ %.not219, %data_get_bool.exit186 ], [ %174, %data_get_int.exit197 ], [ true, %.critedge ], [ false, %81 ], [ false, %82 ], [ %84, %93 ], [ %96, %99 ], [ %96, %102 ], [ %.not125, %123 ], [ %.not125, %data_get_string.exit181 ], [ %.not219, %151 ], [ %.not219, %data_get_bool.exit192 ], [ %174, %177 ], [ %174, %data_get_int.exit203 ], [ true, %198 ], [ true, %data_get_float.exit208 ], [ %212, %215 ], [ %212, %data_get_dict_length.exit213 ], [ %234, %237 ], [ %234, %data_get_list_length.exit218 ], [ %234, %233 ]
+  %.0113 = phi i1 [ true, %3 ], [ false, %6 ], [ false, %82 ], [ false, %81 ], [ %84, %93 ], [ %84, %92 ], [ %96, %99 ], [ %96, %102 ], [ %96, %95 ], [ %.not125, %123 ], [ %.not125, %data_get_string.exit181 ], [ %.not125, %data_get_string.exit175 ], [ %.not219, %151 ], [ %.not219, %data_get_bool.exit192 ], [ %.not219, %data_get_bool.exit186 ], [ %174, %177 ], [ %174, %data_get_int.exit203 ], [ %174, %data_get_int.exit197 ], [ true, %198 ], [ true, %data_get_float.exit208 ], [ true, %.critedge ], [ %212, %215 ], [ %212, %data_get_dict_length.exit213 ], [ %212, %211 ], [ %234, %237 ], [ %234, %data_get_list_length.exit218 ], [ %234, %233 ]
   ret i1 %.0113
 }
 
@@ -4850,7 +4850,7 @@ define internal fastcc zeroext i1 @_data_match_dict(ptr noundef nonnull %0, ptr 
   br label %data_key_get_const.exit
 
 data_key_get_const.exit:                          ; preds = %37, %.lr.ph.i, %26, %28, %32, %39
-  %.015.i = phi ptr [ null, %.lr.ph.i ], [ %41, %39 ], [ null, %28 ], [ null, %26 ], [ null, %32 ], [ null, %37 ]
+  %.015.i = phi ptr [ %41, %39 ], [ null, %.lr.ph.i ], [ null, %26 ], [ null, %28 ], [ null, %32 ], [ null, %37 ]
   %42 = tail call zeroext i1 @data_check_match(ptr noundef %25, ptr noundef %.015.i, i1 noundef zeroext %2)
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %44 = and i64 %43, 256
@@ -4928,7 +4928,7 @@ switch.lookup120:                                 ; preds = %tailrecurse.i.i
   br label %_type_to_string.exit
 
 _type_to_string.exit:                             ; preds = %62, %switch.lookup120, %_type_to_string.exit32
-  %68 = phi ptr [ %switch.load122, %switch.lookup120 ], [ @.str.70, %_type_to_string.exit32 ], [ @.str.70, %62 ]
+  %68 = phi ptr [ @.str.70, %_type_to_string.exit32 ], [ %switch.load122, %switch.lookup120 ], [ @.str.70, %62 ]
   %69 = ptrtoint ptr %.015.i to i64
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.101, ptr noundef %23, i64 noundef %20, ptr noundef nonnull %.08.i.i21, i64 noundef %57, ptr noundef nonnull %58, ptr noundef %23, i64 noundef %21, ptr noundef nonnull %68, i64 noundef %69) #15
   br label %_find_dict_match.exit
@@ -5062,7 +5062,7 @@ define internal fastcc noundef zeroext i1 @_data_match_lists(ptr noundef nonnull
   br i1 %50, label %.split.us, label %.outer.split, !llvm.loop !30
 
 .split.us:                                        ; preds = %.outer, %.outer.split, %.outer.us, %38, %18, %9, %6, %3
-  %.027 = phi i1 [ false, %9 ], [ false, %3 ], [ false, %6 ], [ false, %38 ], [ true, %18 ], [ %30, %.outer.us ], [ false, %.outer.split ], [ %43, %.outer ]
+  %.027 = phi i1 [ false, %3 ], [ false, %6 ], [ false, %9 ], [ true, %18 ], [ false, %38 ], [ %30, %.outer.us ], [ %43, %.outer ], [ false, %.outer.split ]
   ret i1 %.027
 }
 
@@ -5204,7 +5204,7 @@ data_key_get.exit:                                ; preds = %.lr.ph.i.i
   br i1 %.not42, label %data_key_get.exit.thread, label %.preheader, !llvm.loop !33
 
 data_key_get.exit.thread:                         ; preds = %58, %data_key_get.exit, %._crit_edge, %44, %49, %54, %13
-  %.136 = phi ptr [ null, %54 ], [ %0, %13 ], [ null, %._crit_edge ], [ null, %44 ], [ null, %data_key_get.exit ], [ %57, %58 ], [ null, %49 ]
+  %.136 = phi ptr [ %0, %13 ], [ null, %54 ], [ %57, %58 ], [ null, %data_key_get.exit ], [ null, %._crit_edge ], [ null, %44 ], [ null, %49 ]
   %60 = load ptr, ptr %4, align 8
   %.not48 = icmp eq ptr %60, %5
   br i1 %.not48, label %62, label %61

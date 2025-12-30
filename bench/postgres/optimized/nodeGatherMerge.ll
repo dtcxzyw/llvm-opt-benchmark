@@ -657,7 +657,7 @@ gather_merge_getnext.exit:                        ; preds = %208
   br label %gather_merge_getnext.exit.thread
 
 gather_merge_getnext.exit.thread:                 ; preds = %._crit_edge.i14.i, %213, %257, %gather_merge_getnext.exit, %253, %261
-  %.0 = phi ptr [ %268, %261 ], [ null, %gather_merge_getnext.exit ], [ null, %253 ], [ %251, %257 ], [ null, %213 ], [ null, %._crit_edge.i14.i ]
+  %.0 = phi ptr [ %268, %261 ], [ null, %253 ], [ null, %gather_merge_getnext.exit ], [ %251, %257 ], [ null, %213 ], [ null, %._crit_edge.i14.i ]
   ret ptr %.0
 }
 
@@ -1069,7 +1069,7 @@ load_tuple_array.exit:                            ; preds = %89, %gm_readnext_tu
   br label %gm_readnext_tuple.exit.thread
 
 gm_readnext_tuple.exit.thread:                    ; preds = %60, %gm_readnext_tuple.exit, %53, %5, %.critedge, %33, %load_tuple_array.exit
-  %.1 = phi i1 [ false, %53 ], [ true, %33 ], [ true, %load_tuple_array.exit ], [ false, %5 ], [ false, %.critedge ], [ false, %gm_readnext_tuple.exit ], [ false, %60 ]
+  %.1 = phi i1 [ true, %33 ], [ true, %load_tuple_array.exit ], [ false, %.critedge ], [ false, %5 ], [ false, %53 ], [ false, %gm_readnext_tuple.exit ], [ false, %60 ]
   ret i1 %.1
 }
 
@@ -1199,11 +1199,11 @@ slot_getattr.exit29:                              ; preds = %slot_getattr.exit, 
   %67 = sub nsw i32 0, %61
   br i1 %66, label %ApplySortComparator.exit.thread.thread, label %ApplySortComparator.exit
 
-ApplySortComparator.exit.thread.thread:           ; preds = %65, %54, %49
+ApplySortComparator.exit.thread.thread:           ; preds = %65, %49, %54
   br label %.thread46
 
 ApplySortComparator.exit:                         ; preds = %65, %58
-  %.0.i = phi i32 [ %61, %58 ], [ %67, %65 ]
+  %.0.i = phi i32 [ %67, %65 ], [ %61, %58 ]
   %.0.i.fr = freeze i32 %.0.i
   %.not = icmp eq i32 %.0.i.fr, 0
   br i1 %.not, label %ApplySortComparator.exit.thread, label %.thread46.loopexit.split.loop.exit53
@@ -1222,7 +1222,7 @@ ApplySortComparator.exit.thread:                  ; preds = %48, %ApplySortCompa
   br label %.thread46
 
 .thread46:                                        ; preds = %ApplySortComparator.exit.thread, %.thread46.loopexit.split.loop.exit53, %3, %54, %49, %ApplySortComparator.exit.thread.thread
-  %.2 = phi i32 [ 1, %54 ], [ 1, %49 ], [ -1, %ApplySortComparator.exit.thread.thread ], [ %..le, %.thread46.loopexit.split.loop.exit53 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread ]
+  %.2 = phi i32 [ -1, %ApplySortComparator.exit.thread.thread ], [ 1, %49 ], [ 1, %54 ], [ %..le, %.thread46.loopexit.split.loop.exit53 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread ]
   ret i32 %.2
 }
 

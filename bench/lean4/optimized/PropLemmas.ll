@@ -59,7 +59,7 @@ define ptr @l_Or_by__cases___rarg(i8 noundef zeroext %0, ptr noundef readnone ca
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %17, %23, %25, %26, %7, %13, %15, %16
-  %.sink = phi ptr [ %4, %7 ], [ %4, %16 ], [ %4, %15 ], [ %4, %13 ], [ %3, %26 ], [ %3, %25 ], [ %3, %23 ], [ %3, %17 ]
+  %.sink = phi ptr [ %4, %16 ], [ %4, %15 ], [ %4, %13 ], [ %4, %7 ], [ %3, %26 ], [ %3, %25 ], [ %3, %23 ], [ %3, %17 ]
   %27 = tail call ptr @lean_apply_1(ptr noundef %.sink, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   ret ptr %27
 }
@@ -169,7 +169,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %5
   br label %l_Or_by__cases___rarg.exit
 
 l_Or_by__cases___rarg.exit:                       ; preds = %17, %23, %25, %26, %27, %33, %35, %36
-  %.sink.i = phi ptr [ %4, %17 ], [ %4, %26 ], [ %4, %25 ], [ %4, %23 ], [ %3, %36 ], [ %3, %35 ], [ %3, %33 ], [ %3, %27 ]
+  %.sink.i = phi ptr [ %4, %26 ], [ %4, %25 ], [ %4, %23 ], [ %4, %17 ], [ %3, %36 ], [ %3, %35 ], [ %3, %33 ], [ %3, %27 ]
   %37 = tail call ptr @lean_apply_1(ptr noundef %.sink.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   ret ptr %37
 }
@@ -228,7 +228,7 @@ define ptr @l_Or_by__cases_x27___rarg(i8 noundef zeroext %0, ptr noundef readnon
   br label %lean_dec.exit7
 
 lean_dec.exit7:                                   ; preds = %17, %23, %25, %26, %7, %13, %15, %16
-  %.sink = phi ptr [ %3, %7 ], [ %3, %16 ], [ %3, %15 ], [ %3, %13 ], [ %4, %26 ], [ %4, %25 ], [ %4, %23 ], [ %4, %17 ]
+  %.sink = phi ptr [ %3, %16 ], [ %3, %15 ], [ %3, %13 ], [ %3, %7 ], [ %4, %26 ], [ %4, %25 ], [ %4, %23 ], [ %4, %17 ]
   %27 = tail call ptr @lean_apply_1(ptr noundef %.sink, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   ret ptr %27
 }
@@ -336,7 +336,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %5
   br label %l_Or_by__cases_x27___rarg.exit
 
 l_Or_by__cases_x27___rarg.exit:                   ; preds = %17, %23, %25, %26, %27, %33, %35, %36
-  %.sink.i = phi ptr [ %3, %17 ], [ %3, %26 ], [ %3, %25 ], [ %3, %23 ], [ %4, %36 ], [ %4, %35 ], [ %4, %33 ], [ %4, %27 ]
+  %.sink.i = phi ptr [ %3, %26 ], [ %3, %25 ], [ %3, %23 ], [ %3, %17 ], [ %4, %36 ], [ %4, %35 ], [ %4, %33 ], [ %4, %27 ]
   %37 = tail call ptr @lean_apply_1(ptr noundef %.sink.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   ret ptr %37
 }

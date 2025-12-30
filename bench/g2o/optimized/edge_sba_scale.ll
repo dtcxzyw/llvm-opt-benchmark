@@ -634,7 +634,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit29:                  ; preds = %._crit_edge.i.i27, 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %472
 
-_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %21, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
+_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %21, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
   %252 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %253 = load <2 x i64>, ptr %252, align 16, !tbaa !69, !noalias !122
   %254 = xor <2 x i64> %253, splat (i64 -9223372036854775808)
@@ -2320,7 +2320,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit: ; preds = %57
   ret void
 
 71:                                               ; preds = %68, %18
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %19, %18 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %69, %68 ]
   %72 = load i64, ptr %9, align 8, !tbaa !256
   %73 = icmp ult i64 %72, 7
   br i1 %73, label %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEED2Ev.exit32, label %74
@@ -2479,7 +2479,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit: ; preds = %58
   ret void
 
 72:                                               ; preds = %69, %19
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %20, %19 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %70, %69 ]
   %73 = load i64, ptr %10, align 8, !tbaa !256
   %74 = icmp ult i64 %73, 7
   br i1 %74, label %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEED2Ev.exit32, label %75

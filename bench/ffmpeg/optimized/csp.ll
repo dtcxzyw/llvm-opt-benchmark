@@ -186,7 +186,7 @@ av_cmp_q.exit:                                    ; preds = %63, %72
   %74 = icmp slt i32 %.0.i, 0
   br i1 %74, label %av_cmp_q.exit.thread.split.loop.exit109, label %av_cmp_q.exit.thread103
 
-av_cmp_q.exit.thread103:                          ; preds = %69, %av_cmp_q.exit, %9
+av_cmp_q.exit.thread103:                          ; preds = %69, %9, %av_cmp_q.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 23
   br i1 %exitcond, label %av_cmp_q.exit.thread, label %9, !llvm.loop !4
@@ -200,7 +200,7 @@ av_cmp_q.exit.thread.split.loop.exit109:          ; preds = %av_cmp_q.exit
   br label %av_cmp_q.exit.thread
 
 av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.thread103, %av_cmp_q.exit.thread.split.loop.exit109, %av_cmp_q.exit.thread.split.loop.exit
-  %spec.select = phi i32 [ %76, %av_cmp_q.exit.thread.split.loop.exit109 ], [ %75, %av_cmp_q.exit.thread.split.loop.exit ], [ 2, %av_cmp_q.exit.thread103 ]
+  %spec.select = phi i32 [ %75, %av_cmp_q.exit.thread.split.loop.exit ], [ %76, %av_cmp_q.exit.thread.split.loop.exit109 ], [ 2, %av_cmp_q.exit.thread103 ]
   ret i32 %spec.select
 }
 
@@ -225,7 +225,7 @@ define double @av_csp_approximate_trc_gamma(i32 noundef %0) local_unnamed_addr #
   br label %10
 
 10:                                               ; preds = %3, %1, %7
-  %.0 = phi nsz double [ 0.000000e+00, %1 ], [ %9, %7 ], [ 0.000000e+00, %3 ]
+  %.0 = phi nsz double [ %9, %7 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %3 ]
   ret double %.0
 }
 

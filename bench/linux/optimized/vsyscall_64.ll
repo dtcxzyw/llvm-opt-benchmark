@@ -524,7 +524,7 @@ default.unreachable17:                            ; preds = %192, %158
   unreachable
 
 175:                                              ; preds = %171, %169, %165
-  %176 = phi i64 [ 309, %171 ], [ 96, %165 ], [ 201, %169 ]
+  %176 = phi i64 [ 96, %165 ], [ 201, %169 ], [ 309, %171 ]
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %176, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -594,7 +594,7 @@ default.unreachable17:                            ; preds = %192, %158
   br label %205
 
 205:                                              ; preds = %197, %199, %201
-  %206 = phi i64 [ %198, %197 ], [ %204, %201 ], [ %200, %199 ]
+  %206 = phi i64 [ %204, %201 ], [ %200, %199 ], [ %198, %197 ]
   %207 = load i8, ptr %193, align 16
   %208 = and i8 %207, -3
   %209 = or disjoint i8 %208, %195
@@ -603,7 +603,7 @@ default.unreachable17:                            ; preds = %192, %158
   br i1 %210, label %.thread7, label %221
 
 .thread7.sink.split:                              ; preds = %171, %170, %169, %165, %164
-  %.sink24 = phi i64 [ %162, %169 ], [ %162, %170 ], [ %167, %165 ], [ %162, %164 ], [ %173, %171 ]
+  %.sink24 = phi i64 [ %162, %164 ], [ %167, %165 ], [ %162, %169 ], [ %162, %170 ], [ %173, %171 ]
   %211 = inttoptr i64 %.sink24 to ptr
   %212 = getelementptr inbounds nuw i8, ptr %160, i64 2936
   store i64 6, ptr %212, align 8
@@ -753,7 +753,7 @@ define dso_local range(i32 0, 2) i32 @in_gate_area(ptr noundef %0, i64 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %2, %4, %13
-  %17 = phi i32 [ %16, %13 ], [ 0, %2 ], [ 0, %4 ]
+  %17 = phi i32 [ %16, %13 ], [ 0, %4 ], [ 0, %2 ]
   ret i32 %17
 }
 

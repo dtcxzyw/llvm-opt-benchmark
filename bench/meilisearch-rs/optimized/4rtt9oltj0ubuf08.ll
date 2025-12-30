@@ -2727,7 +2727,7 @@ default.unreachable:                              ; preds = %135
   unreachable
 
 .thread587.i:                                     ; preds = %550, %527, %427, %.thread624.loopexit.split-lp.i, %.thread624.loopexit.i, %408, %.thread591.i, %380, %361, %356, %.body448.i, %.body448.i, %.body448.i, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn402.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp623.i, %527 ], [ %lpad.thr_comm.split-lp.i, %550 ], [ %lpad.thr_comm.split-lp.i, %408 ], [ %381, %380 ], [ %357, %356 ], [ %.pn393.pn.pn.pn.pn.pn.i, %361 ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %428, %427 ], [ %lpad.thr_comm.i, %.thread591.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit672.i, %.thread624.loopexit.i ], [ %lpad.loopexit.split-lp673.i, %.thread624.loopexit.split-lp.i ]
+  %.pn402.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %550 ], [ %lpad.thr_comm.split-lp.i, %408 ], [ %381, %380 ], [ %357, %356 ], [ %.pn393.pn.pn.pn.pn.pn.i, %361 ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %lpad.thr_comm.i, %.thread591.i ], [ %428, %427 ], [ %lpad.thr_comm.split-lp623.i, %527 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit672.i, %.thread624.loopexit.i ], [ %lpad.loopexit.split-lp673.i, %.thread624.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr170drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17h7a1567c6483a1fa6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %50) #57
           to label %.critedge409.i unwind label %261, !noalias !428
 
@@ -2874,7 +2874,7 @@ default.unreachable:                              ; preds = %135
           to label %351 unwind label %349, !noalias !428
 
 .body.i:                                          ; preds = %253, %233, %228, %211, %206, %195
-  %.pn393.pn.pn.i = phi { ptr, i32 } [ %196, %195 ], [ %212, %211 ], [ %207, %206 ], [ %234, %233 ], [ %229, %228 ], [ %254, %253 ]
+  %.pn393.pn.pn.i = phi { ptr, i32 } [ %196, %195 ], [ %207, %206 ], [ %212, %211 ], [ %229, %228 ], [ %234, %233 ], [ %254, %253 ]
   invoke void @"_ZN4core3ptr111drop_in_place$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h2c86901c74d9153cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %23) #57
           to label %.body435.i unwind label %261, !noalias !428
 
@@ -3325,7 +3325,7 @@ default.unreachable:                              ; preds = %135
           to label %"_ZN4core3ptr111drop_in_place$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h2c86901c74d9153cE.exit451.i" unwind label %303, !noalias !428
 
 .body448.i:                                       ; preds = %360, %321, %.body461.i, %303, %289, %.body442.i
-  %.pn393.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn393.pn.pn.pn.pn.i, %.body442.i ], [ %350, %360 ], [ %.pn.i, %.body461.i ], [ %290, %289 ], [ %304, %303 ], [ %322, %321 ]
+  %.pn393.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn393.pn.pn.pn.pn.i, %.body442.i ], [ %.pn.i, %.body461.i ], [ %350, %360 ], [ %290, %289 ], [ %304, %303 ], [ %322, %321 ]
   %299 = load i64, ptr %26, align 8, !range !571, !noalias !428, !noundef !4
   %300 = xor i64 %299, -9223372036854775808
   %301 = icmp ult i64 %300, 15
@@ -4240,7 +4240,7 @@ default.unreachable:                              ; preds = %135
           to label %.thread587.i unwind label %261, !noalias !428
 
 .critedge409.i:                                   ; preds = %531, %383, %364, %.thread587.i
-  %.pn404.i = phi { ptr, i32 } [ %.pn402.i, %.thread587.i ], [ %384, %383 ], [ %365, %364 ], [ %532, %531 ]
+  %.pn404.i = phi { ptr, i32 } [ %.pn402.i, %.thread587.i ], [ %365, %364 ], [ %384, %383 ], [ %532, %531 ]
   resume { ptr, i32 } %.pn404.i
 
 "_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw28_$u7b$$u7b$closure$u7d$$u7d$17h2fd6ce4eebb20b1cE.exit": ; preds = %"_ZN4core3ptr170drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17h7a1567c6483a1fa6E.exit474.i", %"_ZN4core3ptr170drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17h7a1567c6483a1fa6E.exit517.i"
@@ -4688,7 +4688,7 @@ default.unreachable:                              ; preds = %139
   unreachable
 
 .thread607.i:                                     ; preds = %560, %537, %433, %.thread644.loopexit.split-lp.i, %.thread644.loopexit.i, %412, %.thread611.i, %384, %365, %360, %.body448.i, %.body448.i, %.body448.i, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn402.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp643.i, %537 ], [ %lpad.thr_comm.split-lp.i, %560 ], [ %lpad.thr_comm.split-lp.i, %412 ], [ %385, %384 ], [ %361, %360 ], [ %.pn393.pn.pn.pn.pn.pn.i, %365 ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %434, %433 ], [ %lpad.thr_comm.i, %.thread611.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit692.i, %.thread644.loopexit.i ], [ %lpad.loopexit.split-lp693.i, %.thread644.loopexit.split-lp.i ]
+  %.pn402.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %560 ], [ %lpad.thr_comm.split-lp.i, %412 ], [ %385, %384 ], [ %361, %360 ], [ %.pn393.pn.pn.pn.pn.pn.i, %365 ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %.pn393.pn.pn.pn.pn.pn.i, %.body448.i ], [ %lpad.thr_comm.i, %.thread611.i ], [ %434, %433 ], [ %lpad.thr_comm.split-lp643.i, %537 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit692.i, %.thread644.loopexit.i ], [ %lpad.loopexit.split-lp693.i, %.thread644.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr170drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17h7a1567c6483a1fa6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %52) #57
           to label %.critedge409.i unwind label %265, !noalias !694
 
@@ -4835,7 +4835,7 @@ default.unreachable:                              ; preds = %139
           to label %355 unwind label %353, !noalias !694
 
 .body.i:                                          ; preds = %257, %237, %232, %215, %210, %199
-  %.pn393.pn.pn.i = phi { ptr, i32 } [ %200, %199 ], [ %216, %215 ], [ %211, %210 ], [ %238, %237 ], [ %233, %232 ], [ %258, %257 ]
+  %.pn393.pn.pn.i = phi { ptr, i32 } [ %200, %199 ], [ %211, %210 ], [ %216, %215 ], [ %233, %232 ], [ %238, %237 ], [ %258, %257 ]
   invoke void @"_ZN4core3ptr111drop_in_place$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h2c86901c74d9153cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %27) #57
           to label %.body435.i unwind label %265, !noalias !694
 
@@ -5286,7 +5286,7 @@ default.unreachable:                              ; preds = %139
           to label %"_ZN4core3ptr111drop_in_place$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h2c86901c74d9153cE.exit451.i" unwind label %307, !noalias !694
 
 .body448.i:                                       ; preds = %364, %325, %.body461.i, %307, %293, %.body442.i
-  %.pn393.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn393.pn.pn.pn.pn.i, %.body442.i ], [ %354, %364 ], [ %.pn.i, %.body461.i ], [ %294, %293 ], [ %308, %307 ], [ %326, %325 ]
+  %.pn393.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn393.pn.pn.pn.pn.i, %.body442.i ], [ %.pn.i, %.body461.i ], [ %354, %364 ], [ %294, %293 ], [ %308, %307 ], [ %326, %325 ]
   %303 = load i64, ptr %30, align 8, !range !571, !noalias !694, !noundef !4
   %304 = xor i64 %303, -9223372036854775808
   %305 = icmp ult i64 %304, 15
@@ -6209,7 +6209,7 @@ default.unreachable:                              ; preds = %139
           to label %.thread607.i unwind label %265, !noalias !694
 
 .critedge409.i:                                   ; preds = %541, %387, %368, %.thread607.i
-  %.pn404.i = phi { ptr, i32 } [ %.pn402.i, %.thread607.i ], [ %388, %387 ], [ %369, %368 ], [ %542, %541 ]
+  %.pn404.i = phi { ptr, i32 } [ %.pn402.i, %.thread607.i ], [ %369, %368 ], [ %388, %387 ], [ %542, %541 ]
   resume { ptr, i32 } %.pn404.i
 
 "_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw28_$u7b$$u7b$closure$u7d$$u7d$17hc68f466353005b61E.exit": ; preds = %"_ZN4core3ptr170drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17h7a1567c6483a1fa6E.exit474.i", %"_ZN4core3ptr170drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17h7a1567c6483a1fa6E.exit523.i"
@@ -6647,7 +6647,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h5b66c2dd35cf7af7E.exit:
           to label %142 unwind label %139
 
 .thread79:                                        ; preds = %.body, %65, %148, %142
-  %.pn.pn6482 = phi { ptr, i32 } [ %.pn.pn65, %142 ], [ %.pn.pn65, %148 ], [ %eh.lpad-body29, %65 ], [ %104, %.body ]
+  %.pn.pn6482 = phi { ptr, i32 } [ %.pn.pn65, %148 ], [ %.pn.pn65, %142 ], [ %eh.lpad-body29, %65 ], [ %104, %.body ]
   resume { ptr, i32 } %.pn.pn6482
 
 148:                                              ; preds = %142
@@ -7089,7 +7089,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h5b66c2dd35cf7af7E.exit:
           to label %141 unwind label %135
 
 "_ZN4core3ptr1012drop_in_place$LT$rayon_core..join..join..call$LT$core..result..Result$LT$$LP$$RP$$C$milli..error..Error$GT$$C$milli..update..index_documents..extract..data_from_obkv_documents$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$C$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$": ; preds = %127, %132, %"_ZN4core3ptr79drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$milli..error..Error$GT$$GT$17h1946ec783ce6b800E.exit31", %144, %141
-  %.pn205875 = phi { ptr, i32 } [ %128, %132 ], [ %.pn2059, %141 ], [ %.pn2059, %144 ], [ %eh.lpad-body, %"_ZN4core3ptr79drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$milli..error..Error$GT$$GT$17h1946ec783ce6b800E.exit31" ], [ %128, %127 ]
+  %.pn205875 = phi { ptr, i32 } [ %.pn2059, %141 ], [ %.pn2059, %144 ], [ %eh.lpad-body, %"_ZN4core3ptr79drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$milli..error..Error$GT$$GT$17h1946ec783ce6b800E.exit31" ], [ %128, %127 ], [ %128, %132 ]
   resume { ptr, i32 } %.pn205875
 
 144:                                              ; preds = %141
@@ -7531,7 +7531,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h5b66c2dd35cf7af7E.exit:
           to label %143 unwind label %140
 
 .thread79:                                        ; preds = %.body, %66, %149, %143
-  %.pn.pn6482 = phi { ptr, i32 } [ %.pn.pn65, %143 ], [ %.pn.pn65, %149 ], [ %eh.lpad-body29, %66 ], [ %105, %.body ]
+  %.pn.pn6482 = phi { ptr, i32 } [ %.pn.pn65, %149 ], [ %.pn.pn65, %143 ], [ %eh.lpad-body29, %66 ], [ %105, %.body ]
   resume { ptr, i32 } %.pn.pn6482
 
 149:                                              ; preds = %143
@@ -7975,7 +7975,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h5b66c2dd35cf7af7E.exit:
           to label %143 unwind label %140
 
 .thread79:                                        ; preds = %.body, %66, %149, %143
-  %.pn.pn6482 = phi { ptr, i32 } [ %.pn.pn65, %143 ], [ %.pn.pn65, %149 ], [ %eh.lpad-body29, %66 ], [ %105, %.body ]
+  %.pn.pn6482 = phi { ptr, i32 } [ %.pn.pn65, %149 ], [ %.pn.pn65, %143 ], [ %eh.lpad-body29, %66 ], [ %105, %.body ]
   resume { ptr, i32 } %.pn.pn6482
 
 149:                                              ; preds = %143
@@ -9211,7 +9211,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h5b66c2dd35cf7af7E.exit:
           to label %126 unwind label %122
 
 126:                                              ; preds = %117, %"_ZN4core3ptr193drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$arroy..parallel..TmpNodesReader$GT$$GT$$RP$$GT$17h9db772ebce73952dE.exit30", %.thread
-  %.pn.pn55 = phi { ptr, i32 } [ %lpad.phi, %"_ZN4core3ptr193drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$arroy..parallel..TmpNodesReader$GT$$GT$$RP$$GT$17h9db772ebce73952dE.exit30" ], [ %.pn.pn56, %.thread ], [ %118, %117 ]
+  %.pn.pn55 = phi { ptr, i32 } [ %.pn.pn56, %.thread ], [ %lpad.phi, %"_ZN4core3ptr193drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$arroy..parallel..TmpNodesReader$GT$$GT$$RP$$GT$17h9db772ebce73952dE.exit30" ], [ %118, %117 ]
   resume { ptr, i32 } %.pn.pn55
 }
 
@@ -9766,7 +9766,7 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
           cleanup
   br label %.thread53
 
-.thread53.loopexit.split-lp.loopexit:             ; preds = %78, %95
+.thread53.loopexit.split-lp.loopexit:             ; preds = %95, %78
   %lpad.loopexit56 = landingpad { ptr, i32 }
           cleanup
   br label %.thread53
@@ -9947,7 +9947,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h5b66c2dd35cf7af7E.exit:
   unreachable
 
 .thread53:                                        ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %.thread53.loopexit, %.thread53.loopexit.split-lp.loopexit.split-lp, %.thread53.loopexit.split-lp.loopexit
-  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit.split-lp57, %.thread53.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.thread53.loopexit ], [ %lpad.loopexit56, %.thread53.loopexit.split-lp.loopexit ], [ %lpad.loopexit59, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
+  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit, %.thread53.loopexit ], [ %lpad.loopexit56, %.thread53.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp57, %.thread53.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit59, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr2943drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$$LP$$RP$$C$rayon..iter..plumbing..bridge_unindexed_producer_consumer$LT$$RF$rayon..iter..par_bridge..IterParallelProducer$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..noop..NoopConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$milli..error..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$milli..update..index_documents..extract..data_from_obkv_documents$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$C$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$milli..update..index_documents..extract..data_from_obkv_documents$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$C$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h6a049b7533f71d33E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %6) #57
           to label %104 unwind label %102
 
@@ -10070,7 +10070,7 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
           cleanup
   br label %.thread53
 
-.thread53.loopexit.split-lp.loopexit:             ; preds = %78, %95
+.thread53.loopexit.split-lp.loopexit:             ; preds = %95, %78
   %lpad.loopexit56 = landingpad { ptr, i32 }
           cleanup
   br label %.thread53
@@ -10251,7 +10251,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h5b66c2dd35cf7af7E.exit:
   unreachable
 
 .thread53:                                        ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %.thread53.loopexit, %.thread53.loopexit.split-lp.loopexit.split-lp, %.thread53.loopexit.split-lp.loopexit
-  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit.split-lp57, %.thread53.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.thread53.loopexit ], [ %lpad.loopexit56, %.thread53.loopexit.split-lp.loopexit ], [ %lpad.loopexit59, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
+  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit, %.thread53.loopexit ], [ %lpad.loopexit56, %.thread53.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp57, %.thread53.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit59, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr2009drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$$LP$$RP$$C$rayon..iter..plumbing..bridge_unindexed_producer_consumer$LT$$RF$rayon..iter..par_bridge..IterParallelProducer$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..noop..NoopConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$milli..error..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$milli..update..index_documents..extract..data_from_obkv_documents$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$C$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h7bec740b0ccc443dE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %6) #57
           to label %104 unwind label %102
 
@@ -10637,7 +10637,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h5b66c2dd35cf7af7E.exit:
           to label %124 unwind label %120
 
 .thread75:                                        ; preds = %.body, %"_ZN4core3ptr193drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$arroy..parallel..TmpNodesReader$GT$$GT$$RP$$GT$17h9db772ebce73952dE.exit28", %125, %124
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %124 ], [ %.pn.pn61, %125 ], [ %lpad.phi, %"_ZN4core3ptr193drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$arroy..parallel..TmpNodesReader$GT$$GT$$RP$$GT$17h9db772ebce73952dE.exit28" ], [ %102, %.body ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %125 ], [ %.pn.pn61, %124 ], [ %lpad.phi, %"_ZN4core3ptr193drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$arroy..parallel..TmpNodesReader$GT$$GT$$RP$$GT$17h9db772ebce73952dE.exit28" ], [ %102, %.body ]
   resume { ptr, i32 } %.pn.pn6078
 
 125:                                              ; preds = %124
@@ -12162,7 +12162,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr477dro
   unreachable
 
 101:                                              ; preds = %96, %91, %86
-  %.sroa.4.0.i.i.i = phi ptr [ %92, %91 ], [ %87, %86 ], [ %97, %96 ]
+  %.sroa.4.0.i.i.i = phi ptr [ %87, %86 ], [ %92, %91 ], [ %97, %96 ]
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.562.0.copyload, i64 16
   %103 = load ptr, ptr %102, align 8, !alias.scope !1647, !noalias !1648, !nonnull !4, !align !5, !noundef !4
   %.val.i.i32 = load ptr, ptr %103, align 8, !noalias !1638, !nonnull !4, !noundef !4
@@ -12264,7 +12264,7 @@ _ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.llvm.4616129397091597767.exit.
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   br label %"_ZN4core3ptr477drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$$GT$$GT$17h3bcd6e01fdd71897E.exit44"
 
-134:                                              ; preds = %80, %75
+134:                                              ; preds = %75, %80
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$17h4abc0021f5964348E"(ptr noalias noundef align 8 dereferenceable(216) %9) #57
@@ -12317,7 +12317,7 @@ _ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i.i41: ; preds = %146, %.
           to label %"_ZN4core3ptr477drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$$GT$$GT$17h3bcd6e01fdd71897E.exit44" unwind label %152
 
 .thread:                                          ; preds = %109, %.body33, %134, %.body37, %152
-  %.pn13 = phi { ptr, i32 } [ %153, %152 ], [ %eh.lpad-body, %.body37 ], [ %lpad.thr_comm, %134 ], [ %lpad.thr_comm.split-lp, %.body33 ], [ %110, %109 ]
+  %.pn13 = phi { ptr, i32 } [ %153, %152 ], [ %eh.lpad-body, %.body37 ], [ %lpad.thr_comm.split-lp, %.body33 ], [ %lpad.thr_comm, %134 ], [ %110, %109 ]
   %150 = load i64, ptr %10, align 8, !range !1598, !noundef !4
   %151 = icmp eq i64 %150, 0
   br i1 %151, label %169, label %168
@@ -12637,7 +12637,7 @@ _ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i.i: ; preds = %125, %.no
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hb69143d82f88043dE(ptr noundef nonnull align 4 %91)
           to label %"_ZN4core3ptr477drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$$GT$$GT$17h3bcd6e01fdd71897E.exit" unwind label %409
 
-.body33.thread74:                                 ; preds = %"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17h10e120e2a8b433c7E.exit.i", %.noexc36, %"_ZN5milli6update15index_documents7extract24data_from_obkv_documents28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f1d85fe74d1b9f9E.exit.i"
+.body33.thread74:                                 ; preds = %"_ZN5milli6update15index_documents7extract24data_from_obkv_documents28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f1d85fe74d1b9f9E.exit.i", %"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17h10e120e2a8b433c7E.exit.i", %.noexc36
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -12700,7 +12700,7 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   unreachable
 
 149:                                              ; preds = %144, %139, %134
-  %.sroa.4.0.i.i.i = phi ptr [ %140, %139 ], [ %135, %134 ], [ %145, %144 ]
+  %.sroa.4.0.i.i.i = phi ptr [ %135, %134 ], [ %140, %139 ], [ %145, %144 ]
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.665.0.copyload, i64 16
   %151 = load ptr, ptr %150, align 8, !alias.scope !1760, !noalias !1761, !nonnull !4, !align !1450, !noundef !4
   %152 = load i16, ptr %151, align 2, !noalias !1751, !noundef !4
@@ -12764,7 +12764,7 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   unreachable
 
 "_ZN4core3ptr150drop_in_place$LT$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$GT$17h6b189cb8922353bdE.exit.i.i.i": ; preds = %385, %381, %376, %372, %367, %363, %358, %354, %349, %345, %340, %336, %327, %302, %276, %250, %225, %200
-  %.pn39.pn.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp185.i.i.i, %327 ], [ %lpad.thr_comm.split-lp172.i.i.i, %302 ], [ %lpad.thr_comm.i.i.i, %381 ], [ %lpad.thr_comm184.i.i.i, %336 ], [ %lpad.thr_comm.split-lp159.i.i.i, %276 ], [ %lpad.thr_comm171.i.i.i, %345 ], [ %lpad.thr_comm.split-lp146.i.i.i, %250 ], [ %lpad.thr_comm158.i.i.i, %354 ], [ %lpad.thr_comm.split-lp133.i.i.i, %225 ], [ %lpad.thr_comm145.i.i.i, %363 ], [ %lpad.thr_comm.split-lp.i.i.i, %200 ], [ %lpad.thr_comm132.i.i.i, %372 ], [ %lpad.thr_comm184.i.i.i, %340 ], [ %lpad.thr_comm171.i.i.i, %349 ], [ %lpad.thr_comm158.i.i.i, %358 ], [ %lpad.thr_comm145.i.i.i, %367 ], [ %lpad.thr_comm132.i.i.i, %376 ], [ %lpad.thr_comm.i.i.i, %385 ]
+  %.pn39.pn.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i, %200 ], [ %lpad.thr_comm.split-lp133.i.i.i, %225 ], [ %lpad.thr_comm.split-lp146.i.i.i, %250 ], [ %lpad.thr_comm.split-lp159.i.i.i, %276 ], [ %lpad.thr_comm.split-lp172.i.i.i, %302 ], [ %lpad.thr_comm.split-lp185.i.i.i, %327 ], [ %lpad.thr_comm184.i.i.i, %340 ], [ %lpad.thr_comm184.i.i.i, %336 ], [ %lpad.thr_comm171.i.i.i, %349 ], [ %lpad.thr_comm171.i.i.i, %345 ], [ %lpad.thr_comm158.i.i.i, %358 ], [ %lpad.thr_comm158.i.i.i, %354 ], [ %lpad.thr_comm145.i.i.i, %367 ], [ %lpad.thr_comm145.i.i.i, %363 ], [ %lpad.thr_comm132.i.i.i, %376 ], [ %lpad.thr_comm132.i.i.i, %372 ], [ %lpad.thr_comm.i.i.i, %385 ], [ %lpad.thr_comm.i.i.i, %381 ]
   invoke fastcc void @"_ZN4core3ptr480drop_in_place$LT$core..result..Result$LT$$LP$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$C$$LP$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$C$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$RP$$RP$$C$milli..error..Error$GT$$GT$17heb99c74fad4549f4E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %27) #57
           to label %.thread unwind label %334, !noalias !1794
 
@@ -12808,6 +12808,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %189 = icmp slt i64 %188, 0
   br i1 %189, label %.invoke198.i.i.i, label %201
 
+.invoke198.i.i.i:                                 ; preds = %195, %190, %185
+  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
+          to label %.cont199.i.i.i unwind label %377, !noalias !1795
+
+.cont199.i.i.i:                                   ; preds = %.invoke198.i.i.i
+  unreachable
+
 190:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfa20291fe5cc8f70E.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !1805)
   %191 = load ptr, ptr %184, align 8, !alias.scope !1808, !noalias !1795, !noundef !4
@@ -12824,20 +12831,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %199 = icmp slt i64 %198, 0
   br i1 %199, label %.invoke198.i.i.i, label %201
 
-.invoke198.i.i.i:                                 ; preds = %195, %190, %185
-  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
-          to label %.cont199.i.i.i unwind label %377, !noalias !1795
-
-.cont199.i.i.i:                                   ; preds = %.invoke198.i.i.i
-  unreachable
-
 200:                                              ; preds = %201
   %lpad.thr_comm.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr150drop_in_place$LT$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$GT$17h6b189cb8922353bdE.exit.i.i.i"
 
 201:                                              ; preds = %195, %190, %185
-  %.sroa.4.0.i.i.i.i = phi ptr [ %191, %190 ], [ %186, %185 ], [ %196, %195 ]
+  %.sroa.4.0.i.i.i.i = phi ptr [ %186, %185 ], [ %191, %190 ], [ %196, %195 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false), !noalias !1795
   invoke void @_ZN5milli6update15index_documents7extract19run_extraction_task17h7165c2285eef35ceE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull %.val.i.i.i, i64 noundef %183, ptr noundef %.sroa.4.0.i.i.i.i)
@@ -12891,6 +12891,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %214 = icmp slt i64 %213, 0
   br i1 %214, label %.invoke196.i.i.i, label %226
 
+.invoke196.i.i.i:                                 ; preds = %220, %215, %210
+  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
+          to label %.cont197.i.i.i unwind label %368, !noalias !1795
+
+.cont197.i.i.i:                                   ; preds = %.invoke196.i.i.i
+  unreachable
+
 215:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfa20291fe5cc8f70E.exit56.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !1823)
   %216 = load ptr, ptr %184, align 8, !alias.scope !1826, !noalias !1795, !noundef !4
@@ -12907,20 +12914,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %224 = icmp slt i64 %223, 0
   br i1 %224, label %.invoke196.i.i.i, label %226
 
-.invoke196.i.i.i:                                 ; preds = %220, %215, %210
-  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
-          to label %.cont197.i.i.i unwind label %368, !noalias !1795
-
-.cont197.i.i.i:                                   ; preds = %.invoke196.i.i.i
-  unreachable
-
 225:                                              ; preds = %226
   %lpad.thr_comm.split-lp133.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr150drop_in_place$LT$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$GT$17h6b189cb8922353bdE.exit.i.i.i"
 
 226:                                              ; preds = %220, %215, %210
-  %.sroa.4.0.i57.i.i.i = phi ptr [ %216, %215 ], [ %211, %210 ], [ %221, %220 ]
+  %.sroa.4.0.i57.i.i.i = phi ptr [ %211, %210 ], [ %216, %215 ], [ %221, %220 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false), !noalias !1795
   invoke void @_ZN5milli6update15index_documents7extract19run_extraction_task17ha9db84a48e94e86dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull %.val42.i.i.i, i64 noundef %209, ptr noundef %.sroa.4.0.i57.i.i.i)
@@ -12974,6 +12974,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %239 = icmp slt i64 %238, 0
   br i1 %239, label %.invoke194.i.i.i, label %251
 
+.invoke194.i.i.i:                                 ; preds = %245, %240, %235
+  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
+          to label %.cont195.i.i.i unwind label %359, !noalias !1795
+
+.cont195.i.i.i:                                   ; preds = %.invoke194.i.i.i
+  unreachable
+
 240:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfa20291fe5cc8f70E.exit64.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !1841)
   %241 = load ptr, ptr %184, align 8, !alias.scope !1844, !noalias !1795, !noundef !4
@@ -12990,20 +12997,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %249 = icmp slt i64 %248, 0
   br i1 %249, label %.invoke194.i.i.i, label %251
 
-.invoke194.i.i.i:                                 ; preds = %245, %240, %235
-  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
-          to label %.cont195.i.i.i unwind label %359, !noalias !1795
-
-.cont195.i.i.i:                                   ; preds = %.invoke194.i.i.i
-  unreachable
-
 250:                                              ; preds = %251
   %lpad.thr_comm.split-lp146.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr150drop_in_place$LT$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$GT$17h6b189cb8922353bdE.exit.i.i.i"
 
 251:                                              ; preds = %245, %240, %235
-  %.sroa.4.0.i65.i.i.i = phi ptr [ %241, %240 ], [ %236, %235 ], [ %246, %245 ]
+  %.sroa.4.0.i65.i.i.i = phi ptr [ %236, %235 ], [ %241, %240 ], [ %246, %245 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false), !noalias !1795
   invoke void @_ZN5milli6update15index_documents7extract19run_extraction_task17h0b020f9721616323E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull %.val43.i.i.i, i64 noundef %234, ptr noundef %.sroa.4.0.i65.i.i.i)
@@ -13059,6 +13059,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %265 = icmp slt i64 %264, 0
   br i1 %265, label %.invoke192.i.i.i, label %277
 
+.invoke192.i.i.i:                                 ; preds = %271, %266, %261
+  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
+          to label %.cont193.i.i.i unwind label %350, !noalias !1795
+
+.cont193.i.i.i:                                   ; preds = %.invoke192.i.i.i
+  unreachable
+
 266:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfa20291fe5cc8f70E.exit72.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !1859)
   %267 = load ptr, ptr %184, align 8, !alias.scope !1862, !noalias !1795, !noundef !4
@@ -13075,20 +13082,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %275 = icmp slt i64 %274, 0
   br i1 %275, label %.invoke192.i.i.i, label %277
 
-.invoke192.i.i.i:                                 ; preds = %271, %266, %261
-  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
-          to label %.cont193.i.i.i unwind label %350, !noalias !1795
-
-.cont193.i.i.i:                                   ; preds = %.invoke192.i.i.i
-  unreachable
-
 276:                                              ; preds = %277
   %lpad.thr_comm.split-lp159.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr150drop_in_place$LT$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$GT$17h6b189cb8922353bdE.exit.i.i.i"
 
 277:                                              ; preds = %271, %266, %261
-  %.sroa.4.0.i73.i.i.i = phi ptr [ %267, %266 ], [ %262, %261 ], [ %272, %271 ]
+  %.sroa.4.0.i73.i.i.i = phi ptr [ %262, %261 ], [ %267, %266 ], [ %272, %271 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false), !noalias !1795
   invoke void @_ZN5milli6update15index_documents7extract19run_extraction_task17h07b9deb1d630f36bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull %.val44.i.i.i, i64 noundef %260, ptr noundef %.sroa.4.0.i73.i.i.i)
@@ -13144,6 +13144,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %291 = icmp slt i64 %290, 0
   br i1 %291, label %.invoke190.i.i.i, label %303
 
+.invoke190.i.i.i:                                 ; preds = %297, %292, %287
+  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
+          to label %.cont191.i.i.i unwind label %341, !noalias !1795
+
+.cont191.i.i.i:                                   ; preds = %.invoke190.i.i.i
+  unreachable
+
 292:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfa20291fe5cc8f70E.exit80.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !1877)
   %293 = load ptr, ptr %184, align 8, !alias.scope !1880, !noalias !1795, !noundef !4
@@ -13160,20 +13167,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %301 = icmp slt i64 %300, 0
   br i1 %301, label %.invoke190.i.i.i, label %303
 
-.invoke190.i.i.i:                                 ; preds = %297, %292, %287
-  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
-          to label %.cont191.i.i.i unwind label %341, !noalias !1795
-
-.cont191.i.i.i:                                   ; preds = %.invoke190.i.i.i
-  unreachable
-
 302:                                              ; preds = %303
   %lpad.thr_comm.split-lp172.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr150drop_in_place$LT$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$GT$17h6b189cb8922353bdE.exit.i.i.i"
 
 303:                                              ; preds = %297, %292, %287
-  %.sroa.4.0.i81.i.i.i = phi ptr [ %293, %292 ], [ %288, %287 ], [ %298, %297 ]
+  %.sroa.4.0.i81.i.i.i = phi ptr [ %288, %287 ], [ %293, %292 ], [ %298, %297 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false), !noalias !1795
   invoke void @_ZN5milli6update15index_documents7extract19run_extraction_task17hcfc8a429fb7cddbcE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull %.val45.i.i.i, i64 noundef %286, ptr noundef %.sroa.4.0.i81.i.i.i)
@@ -13227,6 +13227,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %316 = icmp slt i64 %315, 0
   br i1 %316, label %.invoke.i.i.i, label %328
 
+.invoke.i.i.i:                                    ; preds = %322, %317, %312
+  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
+          to label %.cont.i.i.i unwind label %330, !noalias !1795
+
+.cont.i.i.i:                                      ; preds = %.invoke.i.i.i
+  unreachable
+
 317:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfa20291fe5cc8f70E.exit88.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !1895)
   %318 = load ptr, ptr %184, align 8, !alias.scope !1898, !noalias !1795, !noundef !4
@@ -13243,20 +13250,13 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   %326 = icmp slt i64 %325, 0
   br i1 %326, label %.invoke.i.i.i, label %328
 
-.invoke.i.i.i:                                    ; preds = %322, %317, %312
-  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
-          to label %.cont.i.i.i unwind label %330, !noalias !1795
-
-.cont.i.i.i:                                      ; preds = %.invoke.i.i.i
-  unreachable
-
 327:                                              ; preds = %328
   %lpad.thr_comm.split-lp185.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr150drop_in_place$LT$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$GT$17h6b189cb8922353bdE.exit.i.i.i"
 
 328:                                              ; preds = %322, %317, %312
-  %.sroa.4.0.i89.i.i.i = phi ptr [ %318, %317 ], [ %313, %312 ], [ %323, %322 ]
+  %.sroa.4.0.i89.i.i.i = phi ptr [ %313, %312 ], [ %318, %317 ], [ %323, %322 ]
   invoke void @_ZN5milli6update15index_documents7extract19run_extraction_task17h85f51860b4b1221fE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25, ptr noundef nonnull %.val46.i.i.i, i64 noundef %311, ptr noundef %.sroa.4.0.i89.i.i.i)
           to label %329 unwind label %327, !noalias !1795
 
@@ -15047,10 +15047,10 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.
   br i1 %131, label %.thread, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162"
 
 132:                                              ; preds = %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162", %164, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit"
-  %.sroa.734.i.sroa.10.2 = phi i32 [ %.sroa.734.i.sroa.10.1876, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77 ], [ %150, %164 ], [ %.sroa.734.i.sroa.10.1876, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162" ], [ %.sroa.734.i.sroa.10.1876, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit" ]
-  %.sroa.734.i.sroa.8.2 = phi i64 [ %.sroa.734.i.sroa.8.1877, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77 ], [ %136, %164 ], [ %.sroa.734.i.sroa.8.1877, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162" ], [ %.sroa.734.i.sroa.8.1877, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit" ]
-  %.sroa.734.i.sroa.0.2 = phi i64 [ %.sroa.734.i.sroa.0.1878, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77 ], [ %162, %164 ], [ %.sroa.734.i.sroa.0.1878, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162" ], [ %.sroa.734.i.sroa.0.1878, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit" ]
-  %.sroa.030.2.i = phi i64 [ %.sroa.030.1.i881, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77 ], [ 1, %164 ], [ %.sroa.030.1.i881, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162" ], [ %.sroa.030.1.i881, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit" ]
+  %.sroa.734.i.sroa.10.2 = phi i32 [ %.sroa.734.i.sroa.10.1876, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77 ], [ %150, %164 ], [ %.sroa.734.i.sroa.10.1876, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit" ], [ %.sroa.734.i.sroa.10.1876, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162" ]
+  %.sroa.734.i.sroa.8.2 = phi i64 [ %.sroa.734.i.sroa.8.1877, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77 ], [ %136, %164 ], [ %.sroa.734.i.sroa.8.1877, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit" ], [ %.sroa.734.i.sroa.8.1877, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162" ]
+  %.sroa.734.i.sroa.0.2 = phi i64 [ %.sroa.734.i.sroa.0.1878, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77 ], [ %162, %164 ], [ %.sroa.734.i.sroa.0.1878, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit" ], [ %.sroa.734.i.sroa.0.1878, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162" ]
+  %.sroa.030.2.i = phi i64 [ %.sroa.030.1.i881, %_ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit77 ], [ 1, %164 ], [ %.sroa.030.1.i881, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE.exit" ], [ %.sroa.030.1.i881, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit162" ]
   %133 = add nuw i64 %.sroa.018.0.i880, 1
   %exitcond1300.not = icmp eq i64 %133, %26
   br i1 %exitcond1300.not, label %._crit_edge883, label %89
@@ -15830,7 +15830,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.
   br label %.backedge
 
 .backedge:                                        ; preds = %433, %470
-  %.sroa.018.0.i25.be = phi i64 [ %471, %470 ], [ %434, %433 ]
+  %.sroa.018.0.i25.be = phi i64 [ %434, %433 ], [ %471, %470 ]
   %435 = icmp ult i64 %.sroa.018.0.i25.be, %26
   br i1 %435, label %383, label %._crit_edge825
 
@@ -17438,7 +17438,7 @@ _ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit67: ; preds = %"_Z
   br label %.backedge
 
 .backedge:                                        ; preds = %361, %404
-  %.sroa.018.0.i25.be = phi i64 [ %405, %404 ], [ %362, %361 ]
+  %.sroa.018.0.i25.be = phi i64 [ %362, %361 ], [ %405, %404 ]
   %363 = icmp ult i64 %.sroa.018.0.i25.be, %20
   br i1 %363, label %342, label %._crit_edge
 
@@ -18451,7 +18451,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit75: ; preds = %"_Z
   unreachable
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit.sink.split": ; preds = %176, %149, %156, %164, %170
-  %.sink.sink = phi i64 [ %173, %170 ], [ %167, %164 ], [ %159, %156 ], [ %151, %149 ], [ %177, %176 ]
+  %.sink.sink = phi i64 [ %151, %149 ], [ %159, %156 ], [ %167, %164 ], [ %173, %170 ], [ %177, %176 ]
   %180 = getelementptr inbounds i32, ptr %.val368, i64 %.sink.sink
   %.sroa.02.0.i = load i32, ptr %180, align 4, !noalias !3190, !noundef !4
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit"
@@ -18472,10 +18472,10 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit75: ; preds = %"_Z
   br i1 %184, label %.thread, label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207"
 
 185:                                              ; preds = %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207", %237, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit"
-  %.sroa.734.i.sroa.10.2 = phi i32 [ %.sroa.734.i.sroa.10.11519, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77 ], [ %.sroa.06.0.i.i202, %237 ], [ %.sroa.734.i.sroa.10.11519, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207" ], [ %.sroa.734.i.sroa.10.11519, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit" ]
-  %.sroa.734.i.sroa.8.2 = phi i64 [ %.sroa.734.i.sroa.8.11521, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77 ], [ %189, %237 ], [ %.sroa.734.i.sroa.8.11521, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207" ], [ %.sroa.734.i.sroa.8.11521, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit" ]
-  %.sroa.734.i.sroa.0.2 = phi i64 [ %.sroa.734.i.sroa.0.11523, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77 ], [ %235, %237 ], [ %.sroa.734.i.sroa.0.11523, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207" ], [ %.sroa.734.i.sroa.0.11523, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit" ]
-  %.sroa.030.2.i = phi i64 [ %.sroa.030.1.i1527, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77 ], [ 1, %237 ], [ %.sroa.030.1.i1527, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207" ], [ %.sroa.030.1.i1527, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit" ]
+  %.sroa.734.i.sroa.10.2 = phi i32 [ %.sroa.734.i.sroa.10.11519, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77 ], [ %.sroa.06.0.i.i202, %237 ], [ %.sroa.734.i.sroa.10.11519, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit" ], [ %.sroa.734.i.sroa.10.11519, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207" ]
+  %.sroa.734.i.sroa.8.2 = phi i64 [ %.sroa.734.i.sroa.8.11521, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77 ], [ %189, %237 ], [ %.sroa.734.i.sroa.8.11521, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit" ], [ %.sroa.734.i.sroa.8.11521, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207" ]
+  %.sroa.734.i.sroa.0.2 = phi i64 [ %.sroa.734.i.sroa.0.11523, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77 ], [ %235, %237 ], [ %.sroa.734.i.sroa.0.11523, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit" ], [ %.sroa.734.i.sroa.0.11523, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207" ]
+  %.sroa.030.2.i = phi i64 [ %.sroa.030.1.i1527, %_ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit77 ], [ 1, %237 ], [ %.sroa.030.1.i1527, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit" ], [ %.sroa.030.1.i1527, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit207" ]
   %186 = add nuw i64 %.sroa.018.0.i1526, 1
   %exitcond2360.not = icmp eq i64 %186, %20
   br i1 %exitcond2360.not, label %._crit_edge1530, label %105
@@ -19023,7 +19023,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit71: ; preds = %"_Z
   br i1 %420, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit383", label %._crit_edge, !prof !2365
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit100.sink.split": ; preds = %410, %379, %387, %396, %403
-  %.sink3389.sink = phi i64 [ %407, %403 ], [ %400, %396 ], [ %391, %387 ], [ %382, %379 ], [ %411, %410 ]
+  %.sink3389.sink = phi i64 [ %382, %379 ], [ %391, %387 ], [ %400, %396 ], [ %407, %403 ], [ %411, %410 ]
   %421 = getelementptr inbounds i32, ptr %.val352, i64 %.sink3389.sink
   %.sroa.02.0.i99 = load i32, ptr %421, align 4, !noalias !3315, !noundef !4
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit100"
@@ -19589,7 +19589,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit67: ; preds = %"_Z
   br i1 %655, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit400", label %._crit_edge1467, !prof !2365
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit118.sink.split": ; preds = %645, %614, %622, %631, %638
-  %.sink3391.sink = phi i64 [ %642, %638 ], [ %635, %631 ], [ %626, %622 ], [ %617, %614 ], [ %646, %645 ]
+  %.sink3391.sink = phi i64 [ %617, %614 ], [ %626, %622 ], [ %635, %631 ], [ %642, %638 ], [ %646, %645 ]
   %656 = getelementptr inbounds i32, ptr %.val334, i64 %.sink3391.sink
   %.sroa.02.0.i117 = load i32, ptr %656, align 4, !noalias !3437, !noundef !4
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit118"
@@ -19613,7 +19613,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit67: ; preds = %"_Z
   br label %.backedge
 
 .backedge:                                        ; preds = %661, %724
-  %.sroa.018.0.i25.be = phi i64 [ %725, %724 ], [ %662, %661 ]
+  %.sroa.018.0.i25.be = phi i64 [ %662, %661 ], [ %725, %724 ]
   %663 = icmp ult i64 %.sroa.018.0.i25.be, %20
   br i1 %663, label %571, label %._crit_edge1476
 
@@ -20127,7 +20127,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit63: ; preds = %"_Z
   br i1 %881, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit417", label %._crit_edge1484, !prof !2365
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit136.sink.split": ; preds = %871, %840, %848, %857, %864
-  %.sink3393.sink = phi i64 [ %868, %864 ], [ %861, %857 ], [ %852, %848 ], [ %843, %840 ], [ %872, %871 ]
+  %.sink3393.sink = phi i64 [ %843, %840 ], [ %852, %848 ], [ %861, %857 ], [ %868, %864 ], [ %872, %871 ]
   %882 = getelementptr inbounds i32, ptr %.val316, i64 %.sink3393.sink
   %.sroa.02.0.i135 = load i32, ptr %882, align 4, !noalias !3556, !noundef !4
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit136"
@@ -20628,7 +20628,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit: ; preds = %"_ZN8
   br i1 %1090, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit434", label %._crit_edge1509, !prof !2365
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit154.sink.split": ; preds = %1080, %1049, %1057, %1066, %1073
-  %.sink3395.sink = phi i64 [ %1077, %1073 ], [ %1070, %1066 ], [ %1061, %1057 ], [ %1052, %1049 ], [ %1081, %1080 ]
+  %.sink3395.sink = phi i64 [ %1052, %1049 ], [ %1061, %1057 ], [ %1070, %1066 ], [ %1077, %1073 ], [ %1081, %1080 ]
   %1091 = getelementptr inbounds i32, ptr %.val298, i64 %.sink3395.sink
   %.sroa.02.0.i153 = load i32, ptr %1091, align 4, !noalias !3675, !noundef !4
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit154"
@@ -20993,8 +20993,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf4fbdbc3c55371d8E.exit.thread: ; p
   br label %.preheader
 
 .preheader:                                       ; preds = %..preheader_crit_edge, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit60.thread", %_ZN4core4iter6traits8iterator8Iterator4fold17hf4fbdbc3c55371d8E.exit.thread
-  %.promoted365 = phi i64 [ %95, %_ZN4core4iter6traits8iterator8Iterator4fold17hf4fbdbc3c55371d8E.exit.thread ], [ %.promoted365.pre, %..preheader_crit_edge ], [ %13, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit60.thread" ]
-  %.sroa.028.0.i.ph = phi i32 [ %30, %_ZN4core4iter6traits8iterator8Iterator4fold17hf4fbdbc3c55371d8E.exit.thread ], [ %30, %..preheader_crit_edge ], [ %.sroa.5.0, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit60.thread" ]
+  %.promoted365 = phi i64 [ %.promoted365.pre, %..preheader_crit_edge ], [ %95, %_ZN4core4iter6traits8iterator8Iterator4fold17hf4fbdbc3c55371d8E.exit.thread ], [ %13, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit60.thread" ]
+  %.sroa.028.0.i.ph = phi i32 [ %30, %..preheader_crit_edge ], [ %30, %_ZN4core4iter6traits8iterator8Iterator4fold17hf4fbdbc3c55371d8E.exit.thread ], [ %.sroa.5.0, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h73a41ae327f410f7E.exit60.thread" ]
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %97 = icmp ult i64 %.promoted365, %15
   br i1 %97, label %.lr.ph367, label %._crit_edge368
@@ -22391,8 +22391,8 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit28: ; preds = %"_Z
   br label %.preheader
 
 .preheader:                                       ; preds = %..preheader_crit_edge, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit84.thread", %157
-  %.promoted648 = phi i64 [ %160, %157 ], [ %.promoted648.pre, %..preheader_crit_edge ], [ %19, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit84.thread" ]
-  %.sroa.028.0.i.ph = phi i32 [ %36, %157 ], [ %36, %..preheader_crit_edge ], [ %.sroa.5.0, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit84.thread" ]
+  %.promoted648 = phi i64 [ %.promoted648.pre, %..preheader_crit_edge ], [ %160, %157 ], [ %19, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit84.thread" ]
+  %.sroa.028.0.i.ph = phi i32 [ %36, %..preheader_crit_edge ], [ %36, %157 ], [ %.sroa.5.0, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hd55b751d96fb240fE.exit84.thread" ]
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %162 = icmp ult i64 %.promoted648, %21
   br i1 %162, label %.lr.ph650, label %._crit_edge651
@@ -22814,7 +22814,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit30: ; preds = %"_Z
   unreachable
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit198": ; preds = %.split624.us, %.split617.us, %.split610.us, %.split603.us
-  %.sink = phi i64 [ %319, %.split617.us ], [ %311, %.split610.us ], [ %303, %.split603.us ], [ %325, %.split624.us ]
+  %.sink = phi i64 [ %303, %.split603.us ], [ %311, %.split610.us ], [ %319, %.split617.us ], [ %325, %.split624.us ]
   %328 = getelementptr inbounds i32, ptr %.val188, i64 %.sink
   %.sroa.02.0.i36 = load i32, ptr %328, align 4, !noalias !4157, !noundef !4
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit"
@@ -22856,7 +22856,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit30: ; preds = %"_Z
   br label %_ZN12aho_corasick9automaton28try_find_overlapping_fwd_imp17ha3871d50921e307eE.exit
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit194", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit194.us", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit198", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit202"
-  %.sroa.02.1.i = phi i32 [ %333, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit202" ], [ %.sroa.02.0.i36, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit198" ], [ %251, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit194.us" ], [ %280, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit194" ]
+  %.sroa.02.1.i = phi i32 [ %.sroa.02.0.i36, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit198" ], [ %333, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit202" ], [ %251, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit194.us" ], [ %280, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit194" ]
   %340 = load i32, ptr %170, align 8, !alias.scope !4190, !noalias !4193, !noundef !4
   %.not272 = icmp ugt i32 %.sroa.02.1.i, %340
   br i1 %.not272, label %344, label %342
@@ -23689,7 +23689,7 @@ _ZN12aho_corasick9automaton9get_match17hbc91d5f20c7ad1b7E.exit24: ; preds = %"_Z
   br i1 %687, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit212", label %._crit_edge, !prof !2365
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit54.sink.split": ; preds = %677, %646, %654, %663, %670
-  %.sink1265.sink = phi i64 [ %674, %670 ], [ %667, %663 ], [ %658, %654 ], [ %649, %646 ], [ %678, %677 ]
+  %.sink1265.sink = phi i64 [ %649, %646 ], [ %658, %654 ], [ %667, %663 ], [ %674, %670 ], [ %678, %677 ]
   %688 = getelementptr inbounds i32, ptr %.val170, i64 %.sink1265.sink
   %.sroa.02.0.i53 = load i32, ptr %688, align 4, !noalias !4329, !noundef !4
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17ha5400500c1398a16E.exit54"
@@ -24113,8 +24113,8 @@ _ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit28: ; preds = %"_Z
   br label %.preheader
 
 .preheader:                                       ; preds = %..preheader_crit_edge, %45, %110
-  %.promoted212 = phi i64 [ %113, %110 ], [ %.promoted212.pre, %..preheader_crit_edge ], [ %11, %45 ]
-  %.sroa.028.0.i.ph = phi i32 [ %40, %110 ], [ %40, %..preheader_crit_edge ], [ %.sroa.8.0.ph, %45 ]
+  %.promoted212 = phi i64 [ %.promoted212.pre, %..preheader_crit_edge ], [ %113, %110 ], [ %11, %45 ]
+  %.sroa.028.0.i.ph = phi i32 [ %40, %..preheader_crit_edge ], [ %40, %110 ], [ %.sroa.8.0.ph, %45 ]
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %115 = icmp ult i64 %.promoted212, %13
   br i1 %115, label %.lr.ph214, label %._crit_edge215
@@ -24809,7 +24809,7 @@ _ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit26: ; preds = %"_Z
   br i1 %410, label %.backedge, label %358
 
 _ZN12aho_corasick9automaton28try_find_overlapping_fwd_imp17h93dc7447595a3816E.exit: ; preds = %356, %173, %34, %36, %407, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit26, %._crit_edge, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit24, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit, %225, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit32, %._crit_edge215, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit30, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit28, %3
-  %.sroa.0.0 = phi ptr [ null, %173 ], [ null, %3 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit28 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit30 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit32 ], [ %37, %36 ], [ null, %._crit_edge215 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit24 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit26 ], [ null, %407 ], [ null, %._crit_edge ], [ %226, %225 ], [ %35, %34 ], [ null, %356 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit28 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit32 ], [ null, %._crit_edge215 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit30 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit26 ], [ null, %407 ], [ null, %._crit_edge ], [ %226, %225 ], [ null, %_ZN12aho_corasick9automaton9get_match17h656b731eff8610f1E.exit24 ], [ %35, %34 ], [ %37, %36 ], [ null, %173 ], [ null, %356 ]
   ret ptr %.sroa.0.0
 }
 
@@ -26582,7 +26582,7 @@ define hidden noundef zeroext i1 @_ZN16futures_executor10local_pool8block_on17h5
   unreachable
 
 common.resume:                                    ; preds = %17, %22, %5
-  %common.resume.op = phi { ptr, i32 } [ %6, %5 ], [ %18, %17 ], [ %18, %22 ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %5 ], [ %18, %22 ], [ %18, %17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr106drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$$RP$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4a3cb79dc1b28d64E.llvm.8265446259410684974.exit": ; preds = %31, %10, %27, %7
@@ -26646,7 +26646,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore3new17h83734d937a6
   resume { ptr, i32 } %.pn95
 
 .body:                                            ; preds = %.body106, %72, %63, %59, %39
-  %.pn95 = phi { ptr, i32 } [ %60, %63 ], [ %40, %39 ], [ %60, %59 ], [ %.pn, %72 ], [ %.pn, %.body106 ]
+  %.pn95 = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %60, %63 ], [ %.pn, %72 ], [ %.pn, %.body106 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h45d6c1cf4b3656a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #57
           to label %38 unwind label %149
 
@@ -26743,7 +26743,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore3new17h83734d937a6
           to label %75 unwind label %73
 
 .body106:                                         ; preds = %127, %131, %136, %86, %73, %148
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %86 ], [ %lpad.thr_comm, %148 ], [ %74, %73 ], [ %128, %136 ], [ %128, %131 ], [ %128, %127 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %148 ], [ %lpad.thr_comm.split-lp, %86 ], [ %74, %73 ], [ %128, %136 ], [ %128, %131 ], [ %128, %127 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4933)
   call void @llvm.experimental.noalias.scope.decl(metadata !4936)
   %69 = load ptr, ptr %26, align 8, !alias.scope !4939, !nonnull !4, !noundef !4
@@ -27007,7 +27007,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore3new17h83734d937a6
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #58
   unreachable
 
-148:                                              ; preds = %109, %94, %100, %79
+148:                                              ; preds = %109, %100, %79, %94
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr37drop_in_place$LT$heed..txn..RwTxn$GT$17h00a0a6baeaa42b4eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #57
@@ -27822,8 +27822,8 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3f629dbea4664985E.exit.i"
 
 "_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3f629dbea4664985E.exit.i": ; preds = %9, %7
-  %.sroa.02.0.i.i = phi i64 [ %spec.select.i.i, %9 ], [ 0, %7 ]
-  %.sroa.3.0.i.i = phi i64 [ %spec.select4.i.i, %9 ], [ undef, %7 ]
+  %.sroa.02.0.i.i = phi i64 [ 0, %7 ], [ %spec.select.i.i, %9 ]
+  %.sroa.3.0.i.i = phi i64 [ undef, %7 ], [ %spec.select4.i.i, %9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !5185
   store i64 1, ptr %0, align 8, !noalias !5185
@@ -28689,8 +28689,8 @@ default.unreachable:                              ; preds = %5
   br label %"_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3f629dbea4664985E.exit.i.i"
 
 "_ZN12sharded_slab3tid12REGISTRATION7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3f629dbea4664985E.exit.i.i": ; preds = %11, %9
-  %.sroa.02.0.i.i.i = phi i64 [ %spec.select.i.i.i, %11 ], [ 0, %9 ]
-  %.sroa.3.0.i.i.i = phi i64 [ %spec.select4.i.i.i, %11 ], [ undef, %9 ]
+  %.sroa.02.0.i.i.i = phi i64 [ 0, %9 ], [ %spec.select.i.i.i, %11 ]
+  %.sroa.3.0.i.i.i = phi i64 [ undef, %9 ], [ %spec.select4.i.i.i, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5412
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !5412
   store i64 1, ptr %0, align 8, !noalias !5412
@@ -29627,7 +29627,7 @@ default.unreachable:                              ; preds = %31, %23, %.loopexit
   br label %48
 
 .body.i.i.i.i.i:                                  ; preds = %80, %64, %59, %54
-  %.pn14.i.i.i.i.i = phi { ptr, i32 } [ %60, %59 ], [ %55, %54 ], [ %81, %80 ], [ %60, %64 ]
+  %.pn14.i.i.i.i.i = phi { ptr, i32 } [ %55, %54 ], [ %81, %80 ], [ %60, %64 ], [ %60, %59 ]
   store i8 2, ptr %50, align 8, !noalias !5598
   br label %.body.i.i.i.i
 
@@ -29722,9 +29722,9 @@ default.unreachable:                              ; preds = %31, %23, %.loopexit
   br i1 %87, label %97, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17h124460acd0b7bfa5E.exit.thread.i.i.i"
 
 .body.i.i.i.i:                                    ; preds = %84, %.body.i.i.i.i.i
-  %88 = phi ptr [ %49, %.body.i.i.i.i.i ], [ %.phi.trans.insert.i.i.i, %84 ]
-  %89 = phi ptr [ %51, %.body.i.i.i.i.i ], [ %32, %84 ]
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %.pn14.i.i.i.i.i, %.body.i.i.i.i.i ], [ %85, %84 ]
+  %88 = phi ptr [ %.phi.trans.insert.i.i.i, %84 ], [ %49, %.body.i.i.i.i.i ]
+  %89 = phi ptr [ %32, %84 ], [ %51, %.body.i.i.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %85, %84 ], [ %.pn14.i.i.i.i.i, %.body.i.i.i.i.i ]
   invoke void @"_ZN4core3ptr115drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$$RP$$GT$..reserve_inner..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60d59cab243bf1faE.llvm.8265446259410684974"(ptr noundef nonnull align 8 %89) #57
           to label %28 unwind label %90
 
@@ -29760,7 +29760,7 @@ default.unreachable:                              ; preds = %31, %23, %.loopexit
   br label %.body12.i.i.i
 
 .body.i.i.i:                                      ; preds = %92, %28
-  %.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %28 ], [ %93, %92 ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %93, %92 ], [ %.pn.i.i.i.i, %28 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$$RP$$GT$..reserve..$u7b$$u7b$closure$u7d$$u7d$$GT$17h37bbecba4f59e683E.llvm.8265446259410684974"(ptr noundef nonnull align 8 %14) #57
           to label %.body12.i.i.i unwind label %101
 
@@ -29867,7 +29867,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0039c22514ffa74eE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -29953,7 +29953,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h00c8345c3e3bbc57E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -30132,7 +30132,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h019ee7a680da9c19E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -30405,7 +30405,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h02d3a231216eb41eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -30616,7 +30616,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h034b1e24ef0e74ffE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -30779,7 +30779,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h041584b1fd67bcc0E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -30865,7 +30865,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h047c08b45b022f26E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -30951,7 +30951,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h04a343f90170fe1cE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -31115,7 +31115,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h05090589caa8f2d5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -31219,7 +31219,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h050f5d0fc6d10c40E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -31323,7 +31323,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0627e20f9ae0ee94E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -31436,7 +31436,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h06e39f88ec62dde0E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -31517,7 +31517,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h07e311d0263e35aeE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -31605,7 +31605,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h08000e9cefe54af2E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -31691,7 +31691,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0833bd3543adbd72E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -31777,7 +31777,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0881731465eef943E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -31865,7 +31865,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0932137b2aba33ecE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -32033,7 +32033,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0a5ce43126c6d6e0E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -32204,7 +32204,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0a7428fa722802d7E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -32290,7 +32290,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0a9dc39ac1d2bfc0E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -32376,7 +32376,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0ac1458e595022c4E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -32720,7 +32720,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0c97bb0f9d4ba915E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -32904,7 +32904,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0d742ed7db838e8fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -32992,7 +32992,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0da49d01f0730e32E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -33096,7 +33096,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0e1af5574a277595E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -33182,7 +33182,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h11107ac56e39a5d8E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -33286,7 +33286,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h115cf27e889731a3E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -33390,7 +33390,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1169585fc24ab9baE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -33478,7 +33478,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h116cb00f44256b9bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -33754,7 +33754,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1291456205d42887E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -33853,7 +33853,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h133804ef5dea3c36E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -33966,7 +33966,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h13df68b5fdd104b0E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -34065,7 +34065,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1405f2d91fe041fcE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -34178,7 +34178,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h14c5c4b054c0af26E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -34261,7 +34261,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h14de83b82a9e65e5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -34445,7 +34445,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h15a8ca797fb6006aE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -34558,7 +34558,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h16833e37c2178101E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -34746,7 +34746,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h17206291fa855c54E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -34854,7 +34854,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h17c84f9c1bb43c9dE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -35045,7 +35045,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h17f359f7e6159e8fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -35144,7 +35144,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h180c59e50b59b503E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -35328,7 +35328,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h191377c4110976e4E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -35512,7 +35512,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1ae57c8373bd2ff5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -35600,7 +35600,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1b6d9f32b00f81d7E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -35688,7 +35688,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1d30d2608b6d7bcaE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -35776,7 +35776,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1eb8f0e221662169E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -36014,7 +36014,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1f7aa6e7b376f12bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -36102,7 +36102,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1fd97fde9d19293eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -36286,7 +36286,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h202159f7719d2d12E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -36439,7 +36439,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2102b76f8a61a93eE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -36607,7 +36607,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h212ee2fe09220da0E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -36693,7 +36693,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2139205966e98b39E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -36806,7 +36806,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2205068e992f1a59E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -37074,7 +37074,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h23b574b732a47bc9E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -37187,7 +37187,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h251a07f7aaa14ce8E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -37295,7 +37295,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2543da2af9400520E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -37378,7 +37378,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h255944fe3b3b64dbE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -37466,7 +37466,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2598720d2617383cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -37552,7 +37552,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h26444fd01509aab3E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -37665,7 +37665,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h266104aab8099be1E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -37826,7 +37826,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h275cff3f4f13cd7bE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -37914,7 +37914,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h280548efca3e8f4eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -38002,7 +38002,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h28f54f30b2dbb795E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -38106,7 +38106,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h291dd21d4e081785E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -38194,7 +38194,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h295cc23e7b59d8a1E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -38298,7 +38298,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h29b466e4884587fbE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -38411,7 +38411,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2a3c5d7514a4b043E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -38494,7 +38494,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2ae6222171a92732E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -38647,7 +38647,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2bcea5dabd9a81dfE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -39036,7 +39036,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2ea5114302184e07E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -39304,7 +39304,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2fdb3b020379ec5eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -39385,7 +39385,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h300227cb880f5209E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -39551,7 +39551,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h318ffe23758f162eE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -39655,7 +39655,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h31b5c5c98cfb53a8E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -39753,7 +39753,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h322fbb69af4e240bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %23 unwind label %21
@@ -39866,7 +39866,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3319d1b40bc9f869E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -39949,7 +39949,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h332e955afb8346b4E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -40037,7 +40037,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h351baa331f3dfd70E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -40123,7 +40123,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h357320839b7d8903E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -40236,7 +40236,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3581d536a8fc6159E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -40319,7 +40319,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h35ba9224068a19dcE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -40499,7 +40499,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3640092a3498cbe0E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -40612,7 +40612,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h36d85793888c6d29E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -40720,7 +40720,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h36dbda18362e0033E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -40883,7 +40883,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h38363b78fa303df4E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -41051,7 +41051,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h38f728aad5e557e8E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -41139,7 +41139,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h38fcf60c26195bbbE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -41252,7 +41252,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3983b9181b49f70bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -41415,7 +41415,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3b1cf9e00d13394fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -41503,7 +41503,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3b8a61b27ce1e62bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -41669,7 +41669,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3bb7b81a864de077E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -41782,7 +41782,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3c044d0a90c45a65E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -41890,7 +41890,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3c1520ffae3315f7E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -41971,7 +41971,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3c66890ed5cd3726E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -42057,7 +42057,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3cc2da48154d3e76E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -42365,7 +42365,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3e7955b9949ac391E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -42473,7 +42473,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3fd0f0a356d62948E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -42581,7 +42581,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4000e5ac49cf3d18E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -42680,7 +42680,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h41692c92a51dfe78E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -42784,7 +42784,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h424dec18922309a1E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -42872,7 +42872,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h42e23531388762c1E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -43076,7 +43076,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h441257df09de7cf4E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -43264,7 +43264,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h44dd1513ccbcb9e4E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -43372,7 +43372,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4584a1e98fbec44fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -43551,7 +43551,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h468f4b9dfa98b498E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -43664,7 +43664,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h46931e5d0467083dE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -43843,7 +43843,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h474df17571113bf3E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -43992,7 +43992,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4951ecbff6cfc277E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -44160,7 +44160,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h495c95d571cb4c56E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -44273,7 +44273,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h49ac7b1259d5cb8cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -44416,7 +44416,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4a723d271ec8a544E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -44497,7 +44497,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4aa876a591a104e4E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -44647,7 +44647,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4ae099aa92d07202E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -44730,7 +44730,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4af88e104a6e35feE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -45080,7 +45080,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4c92e29200c2b9cbE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -45344,7 +45344,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4f0362a96407eb1bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -45457,7 +45457,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4fb60b8022005449E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -45556,7 +45556,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4fcb6dc47ddd0dd0E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -45912,7 +45912,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h51880c80392503d6E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -46011,7 +46011,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h520b6444dcdfbdfaE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -46274,7 +46274,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h53896a903df45e6bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -46360,7 +46360,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h54c708e66df56469E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -46645,7 +46645,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h55a2f7c1c20ccf1bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -46758,7 +46758,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h55e7bcfa98a71966E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -46839,7 +46839,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h5622f6e482599e7aE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -46937,7 +46937,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h5670a94fc09ba12dE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %23 unwind label %21
@@ -47103,7 +47103,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h573563072d0cd0b7E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -47269,7 +47269,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h57ae0a5cb872bbebE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -47355,7 +47355,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h5852b0e188dc3a68E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -47468,7 +47468,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h58ab87e12c87c568E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -47549,7 +47549,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h58d403fe1d26451dE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -47635,7 +47635,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h58f49faaee85d109E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -47739,7 +47739,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h5962682b365858edE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -47969,7 +47969,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h5c1efdfe624ab5a1E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -48282,7 +48282,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h5fa193afadd83fc9E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -48368,7 +48368,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6118e344e3e0f51aE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -48481,7 +48481,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h61d1d12e71188bdeE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -48564,7 +48564,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h62371905ae736e93E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -48652,7 +48652,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6296436b100b556bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -48960,7 +48960,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h64b425ea61132831E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -49346,7 +49346,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6971e8e71fa087c1E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -49509,7 +49509,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6aefbbbeec53c8e2E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -49597,7 +49597,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6b84fd881054f43cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -49685,7 +49685,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6bba35cdf915424dE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -49853,7 +49853,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6cfec668e67ead1fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -49966,7 +49966,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6d096703c8fa1f57E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -50145,7 +50145,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6e20c2335b5d4c74E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -50249,7 +50249,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6e6b6fb9271e9dfbE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -50417,7 +50417,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6eb98672edf5e08eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -50620,7 +50620,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h6fa81468cf22336aE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -50825,7 +50825,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h70b8845ee20eae25E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -50911,7 +50911,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h7116381ed0b81c7aE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -51076,7 +51076,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h71488bb118681661E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -51174,7 +51174,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h71bf6a4a0d6a4c78E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %23 unwind label %21
@@ -51376,7 +51376,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h72603458be4c1d25E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -51540,7 +51540,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h74edcdcdc883237bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -51628,7 +51628,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h75055556019f990fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -51741,7 +51741,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h75258fd7dfbdad63E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -51920,7 +51920,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h766ec151a5851d90E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -52024,7 +52024,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h7850641230433a1aE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -52112,7 +52112,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h788466b9363c9be5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -52200,7 +52200,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h79ede3256079784aE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -52288,7 +52288,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h7a4f8c6447dfd2cdE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -52491,7 +52491,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h7bc14a09301a74e8E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -52595,7 +52595,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h7c8b4e1a3a732885E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -52816,7 +52816,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h7ca7552d7f2378d5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -52902,7 +52902,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h7cec5ba51ac2f789E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -53356,7 +53356,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h7fb813d287dd6e3fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -53524,7 +53524,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h80bfd58c2df342aeE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -53637,7 +53637,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h80ee847cd15a9cdcE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -53736,7 +53736,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h811b22a668a3d04eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -53822,7 +53822,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8139691b20a856f5E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -53991,7 +53991,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h81a38cacf0a0b367E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -54104,7 +54104,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h81ee8919410b8a0eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -54187,7 +54187,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8237531763499dd4E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -54501,7 +54501,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8354383949f3ab70E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -54614,7 +54614,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h849ebb26eaf4b604E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -54770,7 +54770,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h85738aad3387d0a3E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -54883,7 +54883,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h85bddd48bc4cb28bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -54991,7 +54991,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h863eb591168e3d12E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -55099,7 +55099,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h86931e8f9ebf8dbaE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -55180,7 +55180,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h87b947adf12e76a9E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -55284,7 +55284,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h87f472aff1d531fbE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -55388,7 +55388,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h88d9be1672ae019fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -55476,7 +55476,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h88eda308b4baa1caE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -55730,7 +55730,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h89798fd8109fc3c9E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -55896,7 +55896,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8ace04d33564c974E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -56000,7 +56000,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8b01a0c03988558bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -56193,7 +56193,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8b844dbc0d3bcf78E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -56354,7 +56354,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8c55346d4d1a65caE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -56440,7 +56440,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8d517689a542f2cdE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -56528,7 +56528,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8d6a9e1972b07f3cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -56699,7 +56699,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8dc027ca87408694E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -56785,7 +56785,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8e9d2a4526cf1aa4E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -56873,7 +56873,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8eb72c846c6c2185E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -56959,7 +56959,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8ed55fce2752adbbE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -57125,7 +57125,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h90c895246361983eE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -57229,7 +57229,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h910852482dfdf716E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -57390,7 +57390,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h91ba2d1145f6b37fE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -57476,7 +57476,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h91bda67ccbb70959E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -57589,7 +57589,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9209b74eaeca47d3E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -57672,7 +57672,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9218e16e122e100eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -57776,7 +57776,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9224096383b19fa5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -57960,7 +57960,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h938659c8d7164988E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -58163,7 +58163,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h95ecde221062614aE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -58267,7 +58267,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9622640da6170d8cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -58355,7 +58355,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h964bd459428f9c72E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -58588,7 +58588,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h974efbf88382e668E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -58674,7 +58674,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h97bb62ffc661ab4fE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -58778,7 +58778,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h97ce00b9de870a85E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -58944,7 +58944,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9901b3dbb8fbae36E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -59279,7 +59279,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9b0068984fc02e22E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -59367,7 +59367,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9c3576dfcb9c736cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -59453,7 +59453,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9cc4ea360d8e1feaE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -59726,7 +59726,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9d8aae8c28ac1c07E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -59807,7 +59807,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9da0afab3d031638E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -59920,7 +59920,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9dabcfa0651200e3E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -60099,7 +60099,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9f55df6d778f9475E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -60508,7 +60508,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha0eb77eaacd92176E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -60594,7 +60594,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha16504defaaa136dE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -60707,7 +60707,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha31efd717477a95eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -60790,7 +60790,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha3deb73e6acc0822E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -60903,7 +60903,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha3e45d2a416e1b8aE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -60986,7 +60986,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha404a1e725ef9e8bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -61072,7 +61072,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha44b9692cfc301a6E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -61158,7 +61158,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha538a1c2900c3c1bE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -61288,7 +61288,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha5d443b1d1385ad2E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -61376,7 +61376,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha5f83e1caa425d3bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -61489,7 +61489,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha6f056f68281c000E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -61570,7 +61570,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha73c56eaeebe930aE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -61674,7 +61674,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha7f6ca5765d5368fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -61760,7 +61760,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha81e7f9d7f8ee26fE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -61873,7 +61873,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha877f28e4c2c51e5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -61981,7 +61981,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17haa1932d1b578964cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -62080,7 +62080,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hab13ca4fa4c6cfcaE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -62184,7 +62184,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hab69e0a8d430d202E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -62272,7 +62272,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hac98ea3c2ca71477E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -62395,7 +62395,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17had70573ed9573140E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -62508,7 +62508,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17had749a891c5f6aa2E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -62589,7 +62589,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hae7cabb264ec085bE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -62693,7 +62693,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17haeb9895f042b292bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -62781,7 +62781,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hafbd48fdd668110cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -63016,7 +63016,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb260227166394401E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -63099,7 +63099,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb2f7ed660d500a05E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -63212,7 +63212,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb2fb68dc4eb2e0f9E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -63305,7 +63305,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb2fc7fcbb117da1eE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %23 unwind label %21
@@ -63418,7 +63418,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb3e6088444e2fcecE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -63517,7 +63517,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb48d31ea335c7dabE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -63621,7 +63621,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb48dbca99df71221E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -63709,7 +63709,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb59761d0d0410e0aE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -63795,7 +63795,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb6a9da7abc508d52E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -63883,7 +63883,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb6ebe0d17b264333E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -63996,7 +63996,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb6f414bd578181efE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -64077,7 +64077,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb72b90c37d3bd641E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -64175,7 +64175,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb749753f8fe4dd24E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %23 unwind label %21
@@ -64263,7 +64263,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb7753902b8eed51dE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -64349,7 +64349,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb80618c5ac1f1218E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -64437,7 +64437,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb8da2e961fd2d178E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -64550,7 +64550,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hba3bd980200b7c47E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -64658,7 +64658,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbab88ac86fc76b2aE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -64757,7 +64757,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbbdb959862b4be97E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -65021,7 +65021,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbc3de676d65f5d30E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -65134,7 +65134,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbd7d9315c556f065E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -65217,7 +65217,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbdafa84e6995b92dE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -65330,7 +65330,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbee071a430c22eeaE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -65423,7 +65423,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbf329f9c1bdee4cbE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %23 unwind label %21
@@ -65616,7 +65616,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc0303a4e32af2669E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -65795,7 +65795,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc0b354d9d08eebfaE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -65908,7 +65908,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc0fe913655b1b811E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -65991,7 +65991,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc1143f1f635eea14E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -66147,7 +66147,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc16b301452374dc1E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -66246,7 +66246,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc1eb702577c46bfcE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -66412,7 +66412,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc30fa543b689e5f4E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -66500,7 +66500,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc31fee607cee75d9E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -66588,7 +66588,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc320b00906863603E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -66674,7 +66674,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc3e3b462b09e8d43E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -66921,7 +66921,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc603aaa945cd6ac5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -67007,7 +67007,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc60a9366c7771050E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -67095,7 +67095,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc6125391d9d3d3feE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -67261,7 +67261,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc70415cbd050ebf4E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -67365,7 +67365,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc75682644923ab40E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -67549,7 +67549,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hc8c5708159ef9c1cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -67742,7 +67742,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hcb53f9677e6ba24bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -67850,7 +67850,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hcb7d840c52506ec8E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -67958,7 +67958,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hcc4aafdd201c5936E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -68117,7 +68117,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hce6ce79b08a370edE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -68230,7 +68230,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hced79c90705a64b6E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -68433,7 +68433,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hcf53dbc08c304f49E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -68519,7 +68519,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hcf8e187dbb90fdbeE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -68623,7 +68623,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hcfa9cf044447b0e5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -68807,7 +68807,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd058bddb13f99e6fE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -68905,7 +68905,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd07b43b07a3858faE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %23 unwind label %21
@@ -68991,7 +68991,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd0bdffdc1d52ea79E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -69095,7 +69095,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd163ce9732a0eba2E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -69262,7 +69262,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd1cc12f6e9c3b89dE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -69475,7 +69475,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd2303b63bfe02a46E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -69563,7 +69563,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd319cbce422d096cE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -69667,7 +69667,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd324b3add11185f8E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -69771,7 +69771,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd3b82b807f4c6d6bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -69884,7 +69884,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd4678c41e55ebcb0E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -70045,7 +70045,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hd57ae6799406bb04E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -70288,7 +70288,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hda2f125d12e937d9E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -70374,7 +70374,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hda3305c94f4f2287E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -70542,7 +70542,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hda95cbd882e2d7a2E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -70630,7 +70630,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hdab64519e76889eeE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -70718,7 +70718,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hdae488cfd5c81085E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -70884,7 +70884,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hdbc6e56535973046E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -71077,7 +71077,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hdd75231d5454246aE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -71176,7 +71176,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hddccb61d2d2e7b06E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -71387,7 +71387,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he26fca24eeed9bf3E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -71500,7 +71500,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he3b363a57d79b308E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -71822,7 +71822,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he4f30bb0c7d7f582E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -72041,7 +72041,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he57d2e96ec89ca77E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -72285,7 +72285,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he831db4383941f0bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -72398,7 +72398,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he83dc3809295c742E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -72523,7 +72523,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he94df03f50abbb72E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -72611,7 +72611,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he9d25c2314ab97baE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -72724,7 +72724,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17he9e74e9154f41cfeE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -72832,7 +72832,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hea4cb4a74df07d16E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -72931,7 +72931,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17heb96c094b26631d5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -73152,7 +73152,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hef2a9e20b2474ef7E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -73238,7 +73238,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hefb0d7fa3573849bE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -73324,7 +73324,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf00a9fdaf9472f60E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -73437,7 +73437,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf01874230bb9c9eaE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -73536,7 +73536,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf097acde801b9cd5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -73640,7 +73640,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf0ebb5a6f7156575E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -73726,7 +73726,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf3acba973537ce8eE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -73839,7 +73839,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf434547d7ead7c07E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -74026,7 +74026,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf457aa87b7272869E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -74205,7 +74205,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf6ab4423a601f677E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -74453,7 +74453,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf81ed43922eb32ddE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %.body.i.i.i.i.i ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %.body.i.i.i.i.i ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %19)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %21
@@ -74637,7 +74637,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf89c250f2b296642E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -74803,7 +74803,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf91e28af871005efE(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -74916,7 +74916,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf93be5ea4f9c6589E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -74997,7 +74997,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf9d66fb98a487394E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -75101,7 +75101,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hfa74f48290042c57E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -75278,7 +75278,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hfab238ac6f9f736bE(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -75413,7 +75413,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hfcd044fc2e64c262E(ptr nounde
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %20
@@ -75606,7 +75606,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hff087ce0463c84b8E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i.i, %19, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %16, %.body.i.i.i.i.i ], [ %20, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %16, %.body.i.i.i.i.i ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %28)
           to label %__rust_try.llvm.8265446259410684974.exit unwind label %30
@@ -75785,7 +75785,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hff7aef365431b4e5E(ptr noalia
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %14, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %11, %.body.i.i.i.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ], [ %11, %.body.i.i.i.i ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h7dd15139d1b0ea42E(ptr noundef %18)
           to label %22 unwind label %20
@@ -75909,7 +75909,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h00ecc3e2a395c94cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -75996,7 +75996,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h02128a6592cbcad2E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -76052,7 +76052,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h024455612170350eE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -76159,7 +76159,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h038bac13381be3aeE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -76867,7 +76867,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h077cbcd63c1b577aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -76968,7 +76968,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h08a576b819aa86ffE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -77065,7 +77065,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0916586f81745932E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -77160,7 +77160,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0c235ae0cc4bbf5eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -77225,7 +77225,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0c53a9ac22c45a59E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -77324,7 +77324,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0cbb5f7802684dbcE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -77395,7 +77395,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0d19bdd9e2220b96E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -77450,7 +77450,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0d3f178631b26e12E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -77503,7 +77503,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0d4d5947adcc3e2bE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -77590,7 +77590,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0d78ba2bfb395deeE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -77646,7 +77646,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0e1b9f5a9add6a0cE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -77756,7 +77756,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h0f96051735e64b79E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -77863,7 +77863,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1166e478e2176f39E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -77973,7 +77973,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h13807e3317b55b97E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -78026,7 +78026,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1469e0091a9d13b5E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -78091,7 +78091,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h148f26e16d38046fE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -78162,7 +78162,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h149638510fa8e593E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -78519,7 +78519,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1511838300b8844cE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -78584,7 +78584,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1585daa35aa1d14aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -78664,7 +78664,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1605a2d418ee46b9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -78735,7 +78735,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1662b6ddf15826daE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -78788,7 +78788,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1792f9d845f387feE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -78853,7 +78853,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h179be27d68b66c0dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -78924,7 +78924,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h17abd464c3962d59E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -79025,7 +79025,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h18393aef81e66541E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -79080,7 +79080,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h195b3b158eeb3cbaE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -79145,7 +79145,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h199e4e5ba6a74327E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -79255,7 +79255,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1a9235dd76c9ed67E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -79350,7 +79350,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1affaf179880e487E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -79403,7 +79403,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1b077180508a6bc8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -79458,7 +79458,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1b4bed98a337511cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -79593,7 +79593,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1f607f530653e13bE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -79691,7 +79691,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h210745376d41f39bE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -79798,7 +79798,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h21dbf0bf90249900E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -79869,7 +79869,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h225d817dd4b5eb3fE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -79922,7 +79922,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h22a23f5a73a3f335E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -79975,7 +79975,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h2300d54a1e52af98E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -80028,7 +80028,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h232ce14d75589a6eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -80083,7 +80083,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h23577507f2f575a3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -80191,7 +80191,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h238fde61bcf9e4cfE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -80271,7 +80271,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h23f1577a1cdfe7aaE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -80883,7 +80883,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h240fcb8328ee10c0E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -80969,7 +80969,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h244d7a81c39909ccE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -81037,7 +81037,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h2469e711eed3b066E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -81092,7 +81092,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h247a71c45e3ba090E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -81196,7 +81196,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h287625e448b66a5eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -81261,7 +81261,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h28f291320406ad12E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -81329,7 +81329,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h2aefec97113e64ffE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -81405,7 +81405,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h2be1f6e0c6a96136E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -81501,7 +81501,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h2ebf22ee3d5bf915E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -81584,7 +81584,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3058e5ff1f436e61E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -81639,7 +81639,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h306ab8579ad0a31dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -81695,7 +81695,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h31f64eed19a0b80aE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %15, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 15:                                               ; preds = %1
@@ -81760,7 +81760,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h324b4a69e3446bbbE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -81840,7 +81840,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h32acc25866698d46E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -81908,7 +81908,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h32b741456948d7c0E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -82513,7 +82513,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h343384f9f573d3c9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -82578,7 +82578,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h360cfce50fe4104bE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -82648,7 +82648,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h360fae278217c072E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -82704,7 +82704,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h365930c0e0d40069E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -82757,7 +82757,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h36712843ee2ef815E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -82812,7 +82812,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h374f295610d0e65cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -82865,7 +82865,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h379c6d75540fc36eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -82921,7 +82921,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h382b1a2833ca8cf1E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -82977,7 +82977,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h38e83e58cf9690d3E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -83072,7 +83072,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3916edff8e40090eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -83137,7 +83137,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3a9324b29c6ff989E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -83250,7 +83250,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3b9d9ccb855676e6E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -83305,7 +83305,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3ba5d7c352baed99E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -83370,7 +83370,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3bc1940a6071be70E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -83485,7 +83485,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3c19d596409b3b8fE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -83592,7 +83592,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3c2f02c7d17752f6E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -83674,7 +83674,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3d04b87e7bd31e35E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -83739,7 +83739,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3d0f04915701e8ceE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -83809,7 +83809,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3d12532d06ac4bfcE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -83874,7 +83874,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3dcacb2eab48e09fE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -84019,7 +84019,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3e68054f39d2efcfE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -84113,7 +84113,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3fe734bd642141b5E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -84208,7 +84208,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h411d94a52a5cba50E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -84263,7 +84263,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h41be53f1af43cdadE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -84319,7 +84319,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h425fcdf777c9e894E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -84384,7 +84384,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h43e1fc5dd5edb3f6E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -84500,7 +84500,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4471f7e7f121cc10E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -84654,7 +84654,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h462730ad42f92d3aE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -84761,7 +84761,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h469d0a11ecb66a41E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -84901,7 +84901,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h495d153e0c0d5e26E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -84966,7 +84966,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4970ae07866672ebE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -85034,7 +85034,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4ad00d76d6887418E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -85090,7 +85090,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4aeef08471b37853E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -85143,7 +85143,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4bdbabede8cb6b98E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -85196,7 +85196,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4bfd846deaaa98deE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -85251,7 +85251,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4c1447a5a69f42f0E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -85307,7 +85307,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4c1b55566386ff82E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -85360,7 +85360,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4c5c2c4a1e340f16E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -85455,7 +85455,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4cfaf00dcfadbe5eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -85508,7 +85508,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4d080dcc796d5cfaE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -85563,7 +85563,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4db493d3b6f541a2E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -85686,7 +85686,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4f05fa542ad3577bE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -85766,7 +85766,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4f333575465f46fbE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -85837,7 +85837,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4f8aae96588f7766E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -85890,7 +85890,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4f9d3c0378a1abb8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -85997,7 +85997,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h50a046ed9522820bE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -86138,7 +86138,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h52349d18102da26eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -86206,7 +86206,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h526fabd03e8dfb1aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -86271,7 +86271,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h52e412a78035b5d4E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -86342,7 +86342,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5458c443b543c11fE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -86397,7 +86397,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h547c531d4b47acaeE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -86452,7 +86452,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h54e9dd5683fbb4e6E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -86539,7 +86539,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h56611af81ab868c3E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -86604,7 +86604,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h56f2c9e0cd087616E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -86693,7 +86693,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h587eef0ee30bcf05E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -86758,7 +86758,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h59d20c72e2c558c5E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -86829,7 +86829,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h59eabdb39697d8edE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -87426,7 +87426,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5a7666376dd3a4aaE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -87481,7 +87481,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5b5726e5fde156b3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -87537,7 +87537,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5b7d6efbedf4fab9E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -87590,7 +87590,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5bb61060e7f1fc81E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -87741,7 +87741,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5c7a1db29342633aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -87836,7 +87836,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5db554cb4d2edc4dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -87931,7 +87931,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5f58229cf35006d2E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -87987,7 +87987,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5f71a4cbcf3e7f6aE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -88042,7 +88042,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h60197e41dde01ce3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -88098,7 +88098,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h615ec2353ecc7cb6E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -88327,9 +88327,9 @@ define hidden void @_ZN3std9panicking3try7do_call17h61f9218d7bff8bf3E.llvm.82654
           to label %25 unwind label %77, !noalias !13241
 
 84:                                               ; preds = %67, %180, %174, %60
-  %.sroa.036.2.i.i = phi i8 [ 0, %180 ], [ 1, %67 ], [ 1, %60 ], [ 0, %174 ]
-  %.sroa.037.2.i.i = phi i1 [ %93, %180 ], [ true, %67 ], [ true, %60 ], [ %93, %174 ]
-  %.sroa.038.2.i.i = phi i1 [ %88, %180 ], [ true, %67 ], [ true, %60 ], [ %88, %174 ]
+  %.sroa.036.2.i.i = phi i8 [ 1, %60 ], [ 1, %67 ], [ 0, %174 ], [ 0, %180 ]
+  %.sroa.037.2.i.i = phi i1 [ true, %60 ], [ true, %67 ], [ %93, %174 ], [ %93, %180 ]
+  %.sroa.038.2.i.i = phi i1 [ true, %60 ], [ true, %67 ], [ %88, %174 ], [ %88, %180 ]
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %83
@@ -88358,8 +88358,8 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit.i.i: ; preds = %.noexc60
   br i1 %93, label %104, label %100
 
 .body.i.i:                                        ; preds = %149, %.thread283.i.i, %141, %138, %98
-  %.sroa.035.4.i.i = phi i8 [ %.sroa.035.7.ph.i.i, %.thread283.i.i ], [ 0, %149 ], [ 1, %141 ], [ 1, %138 ], [ 1, %98 ]
-  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.thread283.i.i ], [ %lpad.thr_comm.split-lp.i.i, %149 ], [ %lpad.thr_comm.i.i.i, %141 ], [ %lpad.thr_comm.i.i.i, %138 ], [ %99, %98 ]
+  %.sroa.035.4.i.i = phi i8 [ 0, %149 ], [ 1, %98 ], [ 1, %141 ], [ 1, %138 ], [ %.sroa.035.7.ph.i.i, %.thread283.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i, %149 ], [ %99, %98 ], [ %lpad.thr_comm.i.i.i, %141 ], [ %lpad.thr_comm.i.i.i, %138 ], [ %lpad.thr_comm.i.i, %.thread283.i.i ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E"(ptr nonnull %21) #57
           to label %83 unwind label %77, !noalias !13241
 
@@ -88534,6 +88534,13 @@ default.unreachable:                              ; preds = %104
   %117 = icmp slt i64 %116, 0
   br i1 %117, label %.invoke.i.i.i, label %128
 
+.invoke.i.i.i:                                    ; preds = %123, %118, %113
+  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
+          to label %.cont.i.i.i unwind label %133, !noalias !13258
+
+.cont.i.i.i:                                      ; preds = %.invoke.i.i.i
+  unreachable
+
 118:                                              ; preds = %104
   call void @llvm.experimental.noalias.scope.decl(metadata !13267)
   %119 = load ptr, ptr %112, align 8, !alias.scope !13270, !noalias !13258, !noundef !4
@@ -88550,15 +88557,8 @@ default.unreachable:                              ; preds = %104
   %127 = icmp slt i64 %126, 0
   br i1 %127, label %.invoke.i.i.i, label %128
 
-.invoke.i.i.i:                                    ; preds = %123, %118, %113
-  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
-          to label %.cont.i.i.i unwind label %133, !noalias !13258
-
-.cont.i.i.i:                                      ; preds = %.invoke.i.i.i
-  unreachable
-
 128:                                              ; preds = %123, %118, %113
-  %.sroa.4.0.i.i.i.i = phi ptr [ %119, %118 ], [ %114, %113 ], [ %124, %123 ]
+  %.sroa.4.0.i.i.i.i = phi ptr [ %114, %113 ], [ %119, %118 ], [ %124, %123 ]
   %129 = load i16, ptr %107, align 8, !noalias !13258, !noundef !4
   %130 = load i32, ptr %108, align 8, !range !430, !noalias !13258, !noundef !4
   %131 = getelementptr inbounds nuw i8, ptr %22, i64 108
@@ -88630,7 +88630,7 @@ default.unreachable:                              ; preds = %104
           to label %"_ZN4core3ptr168drop_in_place$LT$crossbeam_channel..channel..Sender$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17h7c667c12dd33fadeE.exit.i.i" unwind label %149, !noalias !13241
 
 .thread283.i.i:                                   ; preds = %"_ZN4core3ptr206drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$crossbeam_channel..err..SendError$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$$GT$17ha575e9752b06a081E.exit.i.i", %167, %163, %162, %161, %154, %143
-  %.sroa.035.7.ph.i.i = phi i8 [ 1, %163 ], [ 1, %162 ], [ 1, %161 ], [ 1, %154 ], [ 1, %143 ], [ 1, %167 ], [ 0, %"_ZN4core3ptr206drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$crossbeam_channel..err..SendError$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$$GT$17ha575e9752b06a081E.exit.i.i" ]
+  %.sroa.035.7.ph.i.i = phi i8 [ 0, %"_ZN4core3ptr206drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$crossbeam_channel..err..SendError$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$$GT$17ha575e9752b06a081E.exit.i.i" ], [ 1, %167 ], [ 1, %163 ], [ 1, %162 ], [ 1, %161 ], [ 1, %154 ], [ 1, %143 ]
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -88886,7 +88886,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h626d9f34a925c535E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -89082,7 +89082,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6410987ad39856aeE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -89135,7 +89135,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h64154aac24e645e1E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -89190,7 +89190,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h641cdc547bd33c2dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -89245,7 +89245,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h647343a83724a1b3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -89310,7 +89310,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h64775201bc7788e8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -89422,7 +89422,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h669fe6ff502ba1a8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -89478,7 +89478,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h672d3cad637999d3E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -89543,7 +89543,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h69fd6a6b050fdee4E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -89613,7 +89613,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6a0203281fe03380E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -89678,7 +89678,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6a51f3cb03ca2f95E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -89749,7 +89749,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6ac30829a64611cbE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -89804,7 +89804,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6b0db29d59f4bf31E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -89857,7 +89857,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6b558cfb1d5647f3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -89913,7 +89913,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6ba93a0021fcf438E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -90008,7 +90008,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6e762b4b2c5db00dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -90115,7 +90115,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6ef85a0266111780E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -90195,7 +90195,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6f5898f69de70f4dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -90306,7 +90306,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h6fa0edb3588de6dcE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -90386,7 +90386,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7052425ac95aaa08E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -90466,7 +90466,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h70c39e50c0aff01bE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -90534,7 +90534,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h70cf55cf7a07c5b8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -90587,7 +90587,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h71156da45c0c5143E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -90652,7 +90652,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h711873a1e1c3f33cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -90723,7 +90723,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h714347164380afd5E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -90776,7 +90776,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h71fb7c5d68ffdd11E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -90871,7 +90871,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7328d75f9d2297b5E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -90924,7 +90924,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7338db81fe2d4615E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -91019,7 +91019,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h73a1d5cb4adfc084E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -91159,7 +91159,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h741bc0a40d99eebaE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -91257,7 +91257,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7614f400794b9ac9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -91364,7 +91364,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h77880d76db9f674fE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -91432,7 +91432,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h77884a1e705b09a4E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -91487,7 +91487,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h77bc35a9d7ac6a22E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -91542,7 +91542,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h77eaf7d3c94f5f77E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -91607,7 +91607,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h781bec3716476883E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -91678,7 +91678,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7841f9d597259b3fE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -91733,7 +91733,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7883044615dbf8fcE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -91786,7 +91786,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h78aa871c6851a6bbE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -91858,7 +91858,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7971542c02674ec7E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -91923,7 +91923,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h79aebc5146b3eb53E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -91994,7 +91994,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7a19876d4ff81fc8E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -92059,7 +92059,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7d081f788899f2c8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -92181,7 +92181,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7ded029c1862124aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -92249,7 +92249,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7df27837290b97fcE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -92302,7 +92302,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7e9b9c4d085d3ea9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -92355,7 +92355,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7f58184c2649e29dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -92408,7 +92408,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7ff670056f9eefc9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -92506,7 +92506,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h812d6d84fec0a901E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -92571,7 +92571,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8172f2f6785f938dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -92651,7 +92651,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h81bbead8efe971afE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -92759,7 +92759,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8311cec3dc7e6f12E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -92812,7 +92812,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h83d1581a061c1d0eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -92867,7 +92867,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h83ed753b3915b29cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -92923,7 +92923,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h84ca3a9fdc7568f9E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -92978,7 +92978,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h84d694567be374b0E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -93031,7 +93031,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8565b92af010d9ccE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -93096,7 +93096,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h85bf3d72fb8e60c6E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -93166,7 +93166,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h85e71981ad20c673E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -93221,7 +93221,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h85eb0629805293d0E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -93286,7 +93286,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h87206c4478ff4736E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -93366,7 +93366,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h88617db71bd04271E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -93436,7 +93436,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h88c6705817960acdE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -93548,7 +93548,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h89a7d8b40efed33aE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -93603,7 +93603,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h89b24efe4f5814faE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -93656,7 +93656,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h89fb20ab698bb689E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -93709,7 +93709,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8a362a13ffbfefc1E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -93765,7 +93765,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8a57ef288d8b5ed6E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %15, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 15:                                               ; preds = %1
@@ -93863,7 +93863,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8ac10d0daedb2958E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -93970,7 +93970,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8c7b0b9e4ea6c000E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -94038,7 +94038,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8cf50f94fa75b16dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -94163,7 +94163,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8e56f30b6b8c080eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -94218,7 +94218,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8e676f5a775a9795E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -94316,7 +94316,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8f0a4a3cb699b178E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -94413,7 +94413,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h908ca46db1d8249cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -94543,7 +94543,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h94400a54fb70b93bE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -94608,7 +94608,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h955818bb0e57ac78E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -94676,7 +94676,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h95cf9ff34cd6bf76E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -94773,7 +94773,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h96633fa38643341aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -94826,7 +94826,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h96a8c7feb1bee268E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -94882,7 +94882,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h96cd64a71b22d39cE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -94947,7 +94947,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h977086b061ed4b46E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -95060,7 +95060,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h97e4b7daadcf4d27E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -95113,7 +95113,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9839d97b6a1db6ddE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -95168,7 +95168,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9841081c53e6d2afE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -95224,7 +95224,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9991e455c3459141E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -95291,7 +95291,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h99d041748c9a0cd8E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -95392,7 +95392,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9a0cb10cbfcaa003E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -95448,7 +95448,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9d0ffbcdc8a23988E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -95504,7 +95504,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9d88569a87540684E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -95560,7 +95560,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9e42da293a05adcfE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -95657,7 +95657,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9f6eb416871d8d22E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -95710,7 +95710,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9f91ed59edb58968E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -96064,7 +96064,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha048ede4e636e125E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -96120,7 +96120,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha0dc32c93f9b112fE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -96185,7 +96185,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha16b48c3d4ec064cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -96286,7 +96286,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha1d05343908a2f18E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -96399,7 +96399,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha1fe40cbadccf801E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -96464,7 +96464,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha21e15c60cd72127E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -96535,7 +96535,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha2fe512a5559b6dcE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -96719,7 +96719,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha4a08dcaf3ffebd8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -96774,7 +96774,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha52ec434ee4e1253E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -96871,7 +96871,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha589a45babd32a85E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -96926,7 +96926,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha5c5249209d0dcceE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -97024,7 +97024,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha629a795b193ed95E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %15, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 15:                                               ; preds = %1
@@ -97080,7 +97080,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha664a1f1e77aba2fE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -97135,7 +97135,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha72e48dd582c9ad6E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -97191,7 +97191,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha77feb1527636d90E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -97247,7 +97247,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha821e637a93b336dE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -97312,7 +97312,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha969b87e96ee85a3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -97382,7 +97382,7 @@ define hidden void @_ZN3std9panicking3try7do_call17ha9bcc0363e37ff92E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -97479,7 +97479,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hab0f0580ffdfcd64E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -97532,7 +97532,7 @@ define hidden void @_ZN3std9panicking3try7do_call17habb57d8415120e62E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -97585,7 +97585,7 @@ define hidden void @_ZN3std9panicking3try7do_call17habfafef510ada109E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -97650,7 +97650,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hac03581a734d5619E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -97762,7 +97762,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hadc3c68e5967fe0aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -97860,7 +97860,7 @@ define hidden void @_ZN3std9panicking3try7do_call17haf4bb4c4fbe4dc91E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -97956,7 +97956,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hafff8a22b5462721E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -98027,7 +98027,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb1474fccd7cd2e18E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -98105,7 +98105,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb25400da172287d7E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -98176,7 +98176,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb2625fdf2d85a1f1E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %15, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 15:                                               ; preds = %1
@@ -98232,7 +98232,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb27a97c9d0b9357dE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -98287,7 +98287,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb32a7a232adb49dcE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -98384,7 +98384,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb443e50f5d71b5a6E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -98479,7 +98479,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb4f4f5880b9cdd5dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -98661,7 +98661,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb677d839b0578acfE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -98726,7 +98726,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb7c63a261d542115E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -98796,7 +98796,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb8863e4684e3ca30E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -98861,7 +98861,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb8e0203fa1ea53eeE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -98931,7 +98931,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hb919869f08854e23E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -99059,7 +99059,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hbac38d9522d4d64fE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -99130,7 +99130,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hbb35ad4901f47cb6E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -99185,7 +99185,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hbd0be6d010e85cb3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -99240,7 +99240,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hbd718aed10514cb5E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -99382,7 +99382,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hbe94d57ecd107639E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -99438,7 +99438,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hbf7679a74d39f6beE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -99533,7 +99533,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc11d5dfa83181c76E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -99630,7 +99630,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc157470a07323de9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -99757,7 +99757,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc2b32d31537d2a9eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -99812,7 +99812,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc320dd7c1dc7d6f9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -99910,7 +99910,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc3f38204f10bbcaeE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -99963,7 +99963,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc40a65aaf71b807aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -100049,7 +100049,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc4929e352ea8b139E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -100105,7 +100105,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc4f38b63aeffe593E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %15, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 15:                                               ; preds = %1
@@ -100245,7 +100245,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc5cfb5370d780be9E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %15, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 15:                                               ; preds = %1
@@ -100382,7 +100382,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc8a4302139cf8499E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -100531,7 +100531,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hca6d8c2fe7c294c8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -100602,7 +100602,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hca819141c0d12c41E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -100655,7 +100655,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hcabea851dcd69b72E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -100708,7 +100708,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hcc092559032690aaE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -100773,7 +100773,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hcc2db9b0a3ea548dE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -100841,7 +100841,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hcd9f4973f3193994E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -100897,7 +100897,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hcda432592fd8ea5aE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -100952,7 +100952,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hce57226de63db3f1E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -101017,7 +101017,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hcf1f421aced84a6cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -101129,7 +101129,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hcf95338d1475932cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -101185,7 +101185,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hcfe3e18630d9baf1E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -101288,7 +101288,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd005c2e979fe50c6E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -101371,7 +101371,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd2d21fb2db841877E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -101469,7 +101469,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd4571b6e32addd6aE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -101522,7 +101522,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd529f1b6cf93fb7aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -101587,7 +101587,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd552ec092d0ae7dfE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -101888,7 +101888,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd726ce9fde47e5dcE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -101944,7 +101944,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd82ba2195a610af4E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -102084,7 +102084,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hda77c7f931e8c18cE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -102175,7 +102175,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hdbd9e958ff513cbdE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -102251,7 +102251,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hdc399bdcd72f5b9fE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -102321,7 +102321,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hdccb82e5b78ca832E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -102404,7 +102404,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hdd8c02f71ac3080eE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -102500,7 +102500,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hde13012e83fbe219E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -102570,7 +102570,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hdea6de1a6425fbfeE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -102626,7 +102626,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hdf05a3d29a061911E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -102724,7 +102724,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he126a9065114b67fE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -102814,7 +102814,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he24059090f4a5d01E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -102867,7 +102867,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he2543bd545412d68E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -102923,7 +102923,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he2604b4688478889E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -102979,7 +102979,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he2b624bb00abb9a4E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -103034,7 +103034,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he2f2ae4a8ac22591E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -103099,7 +103099,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he2fd4707bfeaa8c9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -103343,9 +103343,9 @@ define hidden void @_ZN3std9panicking3try7do_call17he433cd9279e67cd3E.llvm.82654
           to label %25 unwind label %77, !noalias !16117
 
 84:                                               ; preds = %67, %180, %174, %60
-  %.sroa.036.2.i.i = phi i8 [ 0, %180 ], [ 1, %67 ], [ 1, %60 ], [ 0, %174 ]
-  %.sroa.037.2.i.i = phi i1 [ %93, %180 ], [ true, %67 ], [ true, %60 ], [ %93, %174 ]
-  %.sroa.038.2.i.i = phi i1 [ %88, %180 ], [ true, %67 ], [ true, %60 ], [ %88, %174 ]
+  %.sroa.036.2.i.i = phi i8 [ 1, %60 ], [ 1, %67 ], [ 0, %174 ], [ 0, %180 ]
+  %.sroa.037.2.i.i = phi i1 [ true, %60 ], [ true, %67 ], [ %93, %174 ], [ %93, %180 ]
+  %.sroa.038.2.i.i = phi i1 [ true, %60 ], [ true, %67 ], [ %88, %174 ], [ %88, %180 ]
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %83
@@ -103374,8 +103374,8 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit.i.i: ; preds = %.noexc60
   br i1 %93, label %104, label %100
 
 .body.i.i:                                        ; preds = %149, %.thread283.i.i, %141, %138, %98
-  %.sroa.035.4.i.i = phi i8 [ %.sroa.035.7.ph.i.i, %.thread283.i.i ], [ 0, %149 ], [ 1, %141 ], [ 1, %138 ], [ 1, %98 ]
-  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.thread283.i.i ], [ %lpad.thr_comm.split-lp.i.i, %149 ], [ %lpad.thr_comm.i.i.i, %141 ], [ %lpad.thr_comm.i.i.i, %138 ], [ %99, %98 ]
+  %.sroa.035.4.i.i = phi i8 [ 0, %149 ], [ 1, %98 ], [ 1, %141 ], [ 1, %138 ], [ %.sroa.035.7.ph.i.i, %.thread283.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i, %149 ], [ %99, %98 ], [ %lpad.thr_comm.i.i.i, %141 ], [ %lpad.thr_comm.i.i.i, %138 ], [ %lpad.thr_comm.i.i, %.thread283.i.i ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E"(ptr nonnull %21) #57
           to label %83 unwind label %77, !noalias !16117
 
@@ -103550,6 +103550,13 @@ default.unreachable:                              ; preds = %104
   %117 = icmp slt i64 %116, 0
   br i1 %117, label %.invoke.i.i.i, label %128
 
+.invoke.i.i.i:                                    ; preds = %123, %118, %113
+  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
+          to label %.cont.i.i.i unwind label %133, !noalias !16134
+
+.cont.i.i.i:                                      ; preds = %.invoke.i.i.i
+  unreachable
+
 118:                                              ; preds = %104
   call void @llvm.experimental.noalias.scope.decl(metadata !16143)
   %119 = load ptr, ptr %112, align 8, !alias.scope !16146, !noalias !16134, !noundef !4
@@ -103566,15 +103573,8 @@ default.unreachable:                              ; preds = %104
   %127 = icmp slt i64 %126, 0
   br i1 %127, label %.invoke.i.i.i, label %128
 
-.invoke.i.i.i:                                    ; preds = %123, %118, %113
-  invoke void @_ZN3std7process5abort17h8f77798d6b866a44E() #56
-          to label %.cont.i.i.i unwind label %133, !noalias !16134
-
-.cont.i.i.i:                                      ; preds = %.invoke.i.i.i
-  unreachable
-
 128:                                              ; preds = %123, %118, %113
-  %.sroa.4.0.i.i.i.i = phi ptr [ %119, %118 ], [ %114, %113 ], [ %124, %123 ]
+  %.sroa.4.0.i.i.i.i = phi ptr [ %114, %113 ], [ %119, %118 ], [ %124, %123 ]
   %129 = load i16, ptr %107, align 8, !noalias !16134, !noundef !4
   %130 = load i32, ptr %108, align 8, !range !430, !noalias !16134, !noundef !4
   %131 = getelementptr inbounds nuw i8, ptr %22, i64 108
@@ -103646,7 +103646,7 @@ default.unreachable:                              ; preds = %104
           to label %"_ZN4core3ptr168drop_in_place$LT$crossbeam_channel..channel..Sender$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17h7c667c12dd33fadeE.exit.i.i" unwind label %149, !noalias !16117
 
 .thread283.i.i:                                   ; preds = %"_ZN4core3ptr206drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$crossbeam_channel..err..SendError$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$$GT$17ha575e9752b06a081E.exit.i.i", %167, %163, %162, %161, %154, %143
-  %.sroa.035.7.ph.i.i = phi i8 [ 1, %163 ], [ 1, %162 ], [ 1, %161 ], [ 1, %154 ], [ 1, %143 ], [ 1, %167 ], [ 0, %"_ZN4core3ptr206drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$crossbeam_channel..err..SendError$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$$GT$17ha575e9752b06a081E.exit.i.i" ]
+  %.sroa.035.7.ph.i.i = phi i8 [ 0, %"_ZN4core3ptr206drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$crossbeam_channel..err..SendError$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$$GT$17ha575e9752b06a081E.exit.i.i" ], [ 1, %167 ], [ 1, %163 ], [ 1, %162 ], [ 1, %161 ], [ 1, %154 ], [ 1, %143 ]
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -103893,7 +103893,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he458f50b82baf8f9E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -104490,7 +104490,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he58d2a3ab69afb6dE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -104543,7 +104543,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he5c15e90e60efd8cE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -104629,7 +104629,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he6cb4be9a89304efE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -104718,7 +104718,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he8cc60bcb898dd91E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -104773,7 +104773,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he91acffd00347318E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -104855,7 +104855,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he99d9d7749b70d62E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -104925,7 +104925,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he9a4adf4a465fba1E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -104980,7 +104980,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he9b4cfdbe3541991E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -105045,7 +105045,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hea5a9216d5de436fE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -105167,7 +105167,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hec0efb5137848fd3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -105289,7 +105289,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hece736efdd683867E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -105407,7 +105407,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hed3e1acf895eeceeE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -105517,7 +105517,7 @@ define hidden void @_ZN3std9panicking3try7do_call17heee2db7b3fcfbf6bE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -105582,7 +105582,7 @@ define hidden void @_ZN3std9panicking3try7do_call17heef75bddc692a627E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -105663,7 +105663,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hef67489465418c93E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -105718,7 +105718,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf2ebe6a46e6d1c29E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -105802,7 +105802,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf426ac40ce9e9feeE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -105858,7 +105858,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf474d99ff7ef7f06E.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -105913,7 +105913,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf4c6d3376c7a2c23E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -105968,7 +105968,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf5e9086fbac3025aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -106033,7 +106033,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf5ed52a8a4625a61E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -106101,7 +106101,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf64f118e790482f9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -106195,7 +106195,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf68f3129317e0596E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -106250,7 +106250,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf6c57deb604f75e9E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -106315,7 +106315,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf6ee9b0f8d943ed8E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -106428,7 +106428,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf7d2a0d6ce2489ccE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -106523,7 +106523,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf8b424229bcad8a3E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %15, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 15:                                               ; preds = %1
@@ -106578,7 +106578,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf905497932cef1e7E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -106634,7 +106634,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf943a9d71ca946aeE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %15, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %12, %.body.i.i.i ], [ %16, %15 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 15:                                               ; preds = %1
@@ -107376,7 +107376,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hfe015cace11a2498E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %16, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %13, %.body.i.i.i.i ], [ %17, %16 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 16:                                               ; preds = %1
@@ -107441,7 +107441,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hfe507da35ef77966E.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -107521,7 +107521,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hfe7b05c94350436aE.llvm.82654
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %21, %.body.i.i.i.i
-  %.pn7.i.i.i.i = phi { ptr, i32 } [ %18, %.body.i.i.i.i ], [ %22, %21 ]
+  %.pn7.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %18, %.body.i.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i.i
 
 21:                                               ; preds = %8
@@ -107592,7 +107592,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hfe7f90d66b6273ebE.llvm.82654
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn7.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn7.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn7.i.i.i
 
 14:                                               ; preds = %1
@@ -121501,7 +121501,7 @@ define internal fastcc void @"_ZN4core3ptr378drop_in_place$LT$$LP$actix_router..
   br label %"_ZN4core3ptr195drop_in_place$LT$actix_service..boxed..BoxServiceFactory$LT$$LP$$RP$$C$actix_web..service..ServiceRequest$C$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$C$$LP$$RP$$GT$$GT$17hafde9710ab76dd65E.exit"
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i", %11, %2
-  %.pn = phi { ptr, i32 } [ %3, %2 ], [ %12, %11 ], [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i" ]
+  %.pn = phi { ptr, i32 } [ %3, %2 ], [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4616129397091597767.exit.i.i.i" ], [ %12, %11 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
   invoke void @"_ZN4core3ptr155drop_in_place$LT$core..cell..RefCell$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$$GT$17h06e751586fe0ffd0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26) #57
           to label %common.resume unwind label %39
@@ -121958,7 +121958,7 @@ default.unreachable:                              ; preds = %78
   unreachable
 
 common.resume:                                    ; preds = %500, %550, %610, %625, %640, %673, %699, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i.i.i.i", %718, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i4.i.i.i", %132, %139, %149, %152, %157, %256, %321, %325, %421, %428, %433, %438, %443, %448, %453, %458, %461, %475
-  %common.resume.op = phi { ptr, i32 } [ %459, %458 ], [ %326, %325 ], [ %257, %256 ], [ %322, %321 ], [ %158, %157 ], [ %133, %132 ], [ %140, %139 ], [ %.pn.i.i, %149 ], [ %153, %152 ], [ %476, %475 ], [ %422, %421 ], [ %429, %428 ], [ %434, %433 ], [ %439, %438 ], [ %444, %443 ], [ %462, %461 ], [ %449, %448 ], [ %454, %453 ], [ %501, %500 ], [ %641, %640 ], [ %551, %550 ], [ %674, %673 ], [ %611, %610 ], [ %626, %625 ], [ %700, %699 ], [ %700, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i.i.i.i" ], [ %719, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i4.i.i.i" ], [ %719, %718 ]
+  %common.resume.op = phi { ptr, i32 } [ %257, %256 ], [ %322, %321 ], [ %133, %132 ], [ %140, %139 ], [ %.pn.i.i, %149 ], [ %153, %152 ], [ %158, %157 ], [ %326, %325 ], [ %476, %475 ], [ %422, %421 ], [ %429, %428 ], [ %434, %433 ], [ %439, %438 ], [ %444, %443 ], [ %462, %461 ], [ %449, %448 ], [ %454, %453 ], [ %459, %458 ], [ %501, %500 ], [ %674, %673 ], [ %551, %550 ], [ %611, %610 ], [ %626, %625 ], [ %641, %640 ], [ %700, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i.i.i.i" ], [ %700, %699 ], [ %719, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i4.i.i.i" ], [ %719, %718 ]
   resume { ptr, i32 } %common.resume.op
 
 139:                                              ; preds = %129
@@ -122017,7 +122017,7 @@ common.resume:                                    ; preds = %500, %550, %610, %6
   br label %"_ZN4core3ptr43drop_in_place$LT$milli..error..GeoError$GT$17h9ca2b610e9cffea9E.exit.i"
 
 "_ZN4core3ptr43drop_in_place$LT$milli..error..GeoError$GT$17h9ca2b610e9cffea9E.exit.i": ; preds = %160, %155, %147, %142, %135, %123, %123, %123
-  %.sink.i.i = phi ptr [ %161, %160 ], [ %156, %155 ], [ %60, %147 ], [ %143, %142 ], [ %136, %135 ], [ %0, %123 ], [ %0, %123 ], [ %0, %123 ]
+  %.sink.i.i = phi ptr [ %161, %160 ], [ %156, %155 ], [ %143, %142 ], [ %136, %135 ], [ %60, %147 ], [ %0, %123 ], [ %0, %123 ], [ %0, %123 ]
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h8c450484c5264072E"(ptr noalias noundef align 8 dereferenceable(72) %.sink.i.i)
   br label %"_ZN4core3ptr44drop_in_place$LT$milli..error..UserError$GT$17hd82ba3ae0ada1cc6E.exit"
 
@@ -124038,7 +124038,7 @@ define internal fastcc void @"_ZN4core3ptr480drop_in_place$LT$core..result..Resu
   unreachable
 
 common.resume.i:                                  ; preds = %24, %18, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %19, %18 ], [ %19, %24 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %19, %24 ], [ %19, %18 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 32:                                               ; preds = %10
@@ -124310,7 +124310,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$milli..update..inde
   unreachable
 
 common.resume:                                    ; preds = %.body39, %.body50, %204, %164, %152, %140, %128, %116, %.body.i, %102, %76, %64, %40
-  %common.resume.op = phi { ptr, i32 } [ %205, %204 ], [ %41, %40 ], [ %65, %64 ], [ %77, %76 ], [ %eh.lpad-body.i, %.body.i ], [ %117, %116 ], [ %129, %128 ], [ %141, %140 ], [ %153, %152 ], [ %165, %164 ], [ %103, %102 ], [ %.pn4, %.body39 ], [ %.pn2, %.body50 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %65, %64 ], [ %77, %76 ], [ %103, %102 ], [ %eh.lpad-body.i, %.body.i ], [ %117, %116 ], [ %129, %128 ], [ %141, %140 ], [ %153, %152 ], [ %165, %164 ], [ %205, %204 ], [ %.pn4, %.body39 ], [ %.pn2, %.body50 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr111drop_in_place$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h2c86901c74d9153cE.exit": ; preds = %38
@@ -128232,8 +128232,8 @@ define hidden { i64, ptr } @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h1a34688
   br label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h0237ce6f138ecf49E.llvm.8265446259410684974.exit"
 
 "_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h0237ce6f138ecf49E.llvm.8265446259410684974.exit": ; preds = %.lr.ph.i, %24, %28
-  %.sroa.5.0 = phi ptr [ undef, %24 ], [ %30, %28 ], [ undef, %.lr.ph.i ]
-  %.sroa.0.0 = phi i64 [ %spec.select, %24 ], [ 0, %28 ], [ 2, %.lr.ph.i ]
+  %.sroa.5.0 = phi ptr [ %30, %28 ], [ undef, %24 ], [ undef, %.lr.ph.i ]
+  %.sroa.0.0 = phi i64 [ 0, %28 ], [ %spec.select, %24 ], [ 2, %.lr.ph.i ]
   %26 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, ptr } %26, ptr %.sroa.5.0, 1
   ret { i64, ptr } %27
@@ -133382,7 +133382,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   unreachable
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit43": ; preds = %.split160.us, %.split153.us, %.split146.us, %.split139.us
-  %.sink = phi i64 [ %93, %.split153.us ], [ %85, %.split146.us ], [ %77, %.split139.us ], [ %99, %.split160.us ]
+  %.sink = phi i64 [ %77, %.split139.us ], [ %85, %.split146.us ], [ %93, %.split153.us ], [ %99, %.split160.us ]
   %102 = getelementptr inbounds i32, ptr %.val39, i64 %.sink
   %.sroa.02.0 = load i32, ptr %102, align 4, !noundef !4
   br label %.loopexit
@@ -133419,7 +133419,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %113, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit", label %._crit_edge, !prof !2365
 
 .loopexit:                                        ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit41", %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit41.us", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit42.us", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit47", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit43"
-  %.sroa.02.1 = phi i32 [ %107, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit47" ], [ %.sroa.02.0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit43" ], [ 0, %35 ], [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit42.us" ], [ %25, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit41.us" ], [ %54, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit41" ]
+  %.sroa.02.1 = phi i32 [ %.sroa.02.0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit43" ], [ %107, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit47" ], [ 0, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit42.us" ], [ %25, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit41.us" ], [ 0, %35 ], [ %54, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3a9eb93a8fd9fb67E.exit41" ]
   ret i32 %.sroa.02.1
 }
 
@@ -134038,7 +134038,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.
   br i1 %73, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit", label %._crit_edge, !prof !2365
 
 .split.loop.exit28:                               ; preds = %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit, %36, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.us, %25, %33
-  %.sroa.03.0 = phi i32 [ 0, %36 ], [ 0, %33 ], [ 0, %25 ], [ %35, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.us ], [ %.sroa.0.0.i, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit ]
+  %.sroa.03.0 = phi i32 [ 0, %33 ], [ 0, %25 ], [ %35, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.us ], [ 0, %36 ], [ %.sroa.0.0.i, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit ]
   ret i32 %.sroa.03.0
 }
 
@@ -134977,7 +134977,7 @@ define hidden void @"_ZN94_$LT$arroy..item_iter..ItemIter$LT$D$GT$$u20$as$u20$co
   br label %"_ZN115_$LT$heed..iterator..prefix..RoPrefix$LT$KC$C$DC$C$C$C$IM$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb310db01acc381c4E.exit.thread54"
 
 common.resume:                                    ; preds = %91, %95, %40, %64, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %65, %64 ], [ %41, %40 ], [ %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i.i" ], [ %92, %95 ], [ %92, %91 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.8265446259410684974.exit.i.i.i" ], [ %65, %64 ], [ %92, %95 ], [ %92, %91 ]
   resume { ptr, i32 } %common.resume.op
 
 58:                                               ; preds = %40
@@ -135318,10 +135318,10 @@ define hidden void @"_ZN97_$LT$rayon..iter..par_bridge..IterBridge$LT$Iter$GT$$u
   unreachable
 
 "_ZN4core3ptr401drop_in_place$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$17h0d6d11d33bb02605E.exit": ; preds = %30, %33, %44, %46
-  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %44 ], [ %.pn, %33 ], [ %lpad.thr_comm, %46 ], [ %.pn, %30 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %46 ], [ %lpad.thr_comm, %44 ], [ %.pn, %30 ], [ %.pn, %33 ]
   resume { ptr, i32 } %.pn1526
 
-44:                                               ; preds = %8, %2
+44:                                               ; preds = %2, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %45 = load i64, ptr %0, align 8, !range !310, !alias.scope !20610, !noundef !4
@@ -135449,10 +135449,10 @@ define hidden void @"_ZN97_$LT$rayon..iter..par_bridge..IterBridge$LT$Iter$GT$$u
   unreachable
 
 "_ZN4core3ptr401drop_in_place$LT$either..Either$LT$core..iter..sources..from_fn..FromFn$LT$milli..update..index_documents..helpers..grenad_helpers..grenad_obkv_into_chunks$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..empty..Empty$LT$core..result..Result$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$milli..error..Error$GT$$GT$$GT$$GT$17h0d6d11d33bb02605E.exit": ; preds = %30, %33, %44, %46
-  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %44 ], [ %.pn, %33 ], [ %lpad.thr_comm, %46 ], [ %.pn, %30 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %46 ], [ %lpad.thr_comm, %44 ], [ %.pn, %30 ], [ %.pn, %33 ]
   resume { ptr, i32 } %.pn1526
 
-44:                                               ; preds = %8, %2
+44:                                               ; preds = %2, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %45 = load i64, ptr %0, align 8, !range !310, !alias.scope !20645, !noundef !4
@@ -135998,7 +135998,7 @@ define internal fastcc { ptr, ptr } @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C
   br i1 %9, label %46, label %45
 
 10:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.thread.i", %7
-  %.sroa.02.0.i = phi i8 [ 1, %7 ], [ %.sroa.02.25.i, %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.thread.i" ]
+  %.sroa.02.0.i = phi i8 [ %.sroa.02.25.i, %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.thread.i" ], [ 1, %7 ]
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %8
@@ -136086,7 +136086,7 @@ _ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i.i.i: ; preds = %32, %.n
           to label %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit20.i" unwind label %10, !noalias !20784
 
 "_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit20.i": ; preds = %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.thread.i", %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.i"
-  %.sroa.02.24.i = phi i8 [ %.sroa.02.3.i, %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.i" ], [ %.sroa.02.25.i, %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.thread.i" ]
+  %.sroa.02.24.i = phi i8 [ %.sroa.02.25.i, %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.thread.i" ], [ %.sroa.02.3.i, %"_ZN4core3ptr104drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$milli..error..Error$GT$$GT$$GT$17heec8e3a4e6bf1a66E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20784
   %43 = trunc nuw i8 %.sroa.02.24.i to i1
   br i1 %43, label %44, label %47

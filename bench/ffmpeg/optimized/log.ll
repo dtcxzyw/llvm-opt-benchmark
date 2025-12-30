@@ -205,7 +205,7 @@ define internal fastcc void @format_line(ptr noundef %0, i32 noundef %1, ptr nou
   br label %get_category.exit
 
 get_category.exit:                                ; preds = %36, %38, %44, %51, %54
-  %.0.i = phi i32 [ %55, %54 ], [ %53, %51 ], [ 16, %44 ], [ 16, %38 ], [ 16, %36 ]
+  %.0.i = phi i32 [ %53, %51 ], [ %55, %54 ], [ 16, %44 ], [ 16, %38 ], [ 16, %36 ]
   store i32 %.0.i, ptr %6, align 4, !tbaa !17
   br label %56
 
@@ -254,7 +254,7 @@ get_category.exit:                                ; preds = %36, %38, %44, %51, 
   br label %get_category.exit85
 
 get_category.exit85:                              ; preds = %59, %61, %67, %74, %77
-  %.0.i84 = phi i32 [ %78, %77 ], [ %76, %74 ], [ 16, %67 ], [ 16, %61 ], [ 16, %59 ]
+  %.0.i84 = phi i32 [ %76, %74 ], [ %78, %77 ], [ 16, %67 ], [ 16, %61 ], [ 16, %59 ]
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.0.i84, ptr %79, align 4, !tbaa !17
   br label %82

@@ -980,7 +980,7 @@ define range(i32 -1, 1) i32 @H5G__ent_to_link(ptr noundef readonly captures(none
   br label %70
 
 70:                                               ; preds = %66, %68, %62, %61, %3
-  %.039 = phi i32 [ 0, %62 ], [ 0, %61 ], [ 0, %3 ], [ -1, %68 ], [ -1, %66 ]
+  %.039 = phi i32 [ 0, %3 ], [ 0, %61 ], [ 0, %62 ], [ -1, %68 ], [ -1, %66 ]
   ret i32 %.039
 }
 

@@ -614,7 +614,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %18
   br i1 %28, label %.lr.ph, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, !llvm.loop !36
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %20, %18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %3
-  %29 = phi i64 [ -1, %3 ], [ %.01015, %18 ], [ %.01015, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ -1, %20 ]
+  %29 = phi i64 [ -1, %3 ], [ %.01015, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.01015, %18 ], [ -1, %20 ]
   ret i64 %29
 }
 

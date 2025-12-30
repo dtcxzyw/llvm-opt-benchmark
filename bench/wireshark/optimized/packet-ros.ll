@@ -282,14 +282,14 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 251658240
   %31 = icmp eq i32 %30, 16777216
-  %32 = and i32 %29, -268435456
-  %33 = icmp eq i32 %32, 805306368
-  %..i = select i1 %33, i32 -2, i32 -1
-  %34 = and i32 %29, 16777215
-  %.039.i = select i1 %31, i32 %..i, i32 %34
+  %32 = and i32 %29, 16777215
+  %33 = and i32 %29, -268435456
+  %34 = icmp eq i32 %33, 805306368
+  %..i = select i1 %34, i32 -2, i32 -1
+  %.039.i = select i1 %31, i32 %..i, i32 %32
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %36 = load ptr, ptr %35, align 8
-  switch i32 %32, label %ros_try_string.exit.thread [
+  switch i32 %33, label %ros_try_string.exit.thread [
     i32 268435456, label %37
     i32 536870912, label %49
     i32 805306368, label %63
@@ -395,10 +395,10 @@ ros_lookup_err_dissector.exit.i:                  ; preds = %.lr.ph.i58.i, %.ros
   br label %ros_lookup_opr_dissector.exit.i
 
 ros_lookup_opr_dissector.exit.i:                  ; preds = %.lr.ph.i.i, %ros_lookup_err_dissector.exit.i, %56, %.lr.ph.i.preheader.i
-  %.not47.i = phi i1 [ false, %56 ], [ true, %ros_lookup_err_dissector.exit.i ], [ false, %.lr.ph.i.preheader.i ], [ false, %.lr.ph.i.i ]
-  %.038.i = phi ptr [ @.str.80, %56 ], [ null, %ros_lookup_err_dissector.exit.i ], [ @.str.79, %.lr.ph.i.preheader.i ], [ @.str.79, %.lr.ph.i.i ]
-  %.037.i = phi ptr [ %58, %56 ], [ %.06.i.i, %ros_lookup_err_dissector.exit.i ], [ %41, %.lr.ph.i.preheader.i ], [ %48, %.lr.ph.i.i ]
-  %.036.i = phi ptr [ %36, %56 ], [ %76, %ros_lookup_err_dissector.exit.i ], [ %36, %.lr.ph.i.preheader.i ], [ %36, %.lr.ph.i.i ]
+  %.not47.i = phi i1 [ true, %ros_lookup_err_dissector.exit.i ], [ false, %56 ], [ false, %.lr.ph.i.preheader.i ], [ false, %.lr.ph.i.i ]
+  %.038.i = phi ptr [ null, %ros_lookup_err_dissector.exit.i ], [ @.str.80, %56 ], [ @.str.79, %.lr.ph.i.preheader.i ], [ @.str.79, %.lr.ph.i.i ]
+  %.037.i = phi ptr [ %.06.i.i, %ros_lookup_err_dissector.exit.i ], [ %58, %56 ], [ %41, %.lr.ph.i.preheader.i ], [ %48, %.lr.ph.i.i ]
+  %.036.i = phi ptr [ %76, %ros_lookup_err_dissector.exit.i ], [ %36, %56 ], [ %36, %.lr.ph.i.preheader.i ], [ %36, %.lr.ph.i.i ]
   %.not46.i = icmp eq ptr %.037.i, null
   br i1 %.not46.i, label %ros_try_string.exit.thread, label %77
 
@@ -418,7 +418,7 @@ ros_try_string.exit:                              ; preds = %77, %80
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %ros_try_string.exit.thread, label %93
 
-ros_try_string.exit.thread:                       ; preds = %59, %.lr.ph70.i, %49, %37, %.preheader.i49.i, %.preheader.i.i, %24, %6, %11, %ros_lookup_opr_dissector.exit.i, %ros_try_string.exit
+ros_try_string.exit.thread:                       ; preds = %59, %.lr.ph70.i, %.preheader.i49.i, %49, %.preheader.i.i, %37, %24, %6, %11, %ros_lookup_opr_dissector.exit.i, %ros_try_string.exit
   %84 = load ptr, ptr @ros_oid_dissector_table, align 8
   %85 = tail call i32 @dissector_try_string_with_data(ptr noundef %84, ptr noundef %0, ptr noundef %8, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true, ptr noundef %5)
   %86 = icmp eq i32 %85, 0

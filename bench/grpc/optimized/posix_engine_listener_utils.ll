@@ -1071,7 +1071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213.i: ; preds = %
   unreachable
 
 .body.i:                                          ; preds = %344, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201.i, %265, %255, %130, %124, %122, %99
-  %.pn128.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn128.pn.pn.pn.pn.pn.i, %255 ], [ %.pn120.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201.i ], [ %.pn116.pn.pn.i, %344 ], [ %125, %124 ], [ %123, %122 ], [ %100, %99 ], [ %.pn112.i, %130 ], [ %266, %265 ]
+  %.pn128.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn128.pn.pn.pn.pn.pn.i, %255 ], [ %.pn120.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201.i ], [ %.pn116.pn.pn.i, %344 ], [ %123, %122 ], [ %100, %99 ], [ %266, %265 ], [ %.pn112.i, %130 ], [ %125, %124 ]
   call fastcc void @"_ZN4absl12lts_202407227CleanupINS0_16cleanup_internal3TagEZN17grpc_event_engine12experimental12_GLOBAL__N_113PrepareSocketERKNS5_15PosixTcpOptionsERNS5_24ListenerSocketsContainer14ListenerSocketEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !21
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !21
@@ -1207,7 +1207,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12ex
   ret void
 
 .body:                                            ; preds = %63, %52, %381, %387, %.body23
-  %.pn15.pn = phi { ptr, i32 } [ %.pn, %.body23 ], [ %382, %381 ], [ %388, %387 ], [ %64, %63 ], [ %53, %52 ]
+  %.pn15.pn = phi { ptr, i32 } [ %.pn, %.body23 ], [ %388, %387 ], [ %382, %381 ], [ %64, %63 ], [ %53, %52 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental18PosixSocketWrapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %29) #27
   br label %_ZNSt14_Function_baseD2Ev.exit20
 
@@ -2035,7 +2035,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev.exit: ; preds = %
   br label %280
 
 280:                                              ; preds = %273, %279, %271, %.body169
-  %.pn102.pn.pn = phi { ptr, i32 } [ %240, %.body169 ], [ %272, %271 ], [ %.pn102, %279 ], [ %274, %273 ]
+  %.pn102.pn.pn = phi { ptr, i32 } [ %272, %271 ], [ %240, %.body169 ], [ %.pn102, %279 ], [ %274, %273 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %24) #27
   br label %.body
 
@@ -2505,7 +2505,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %441, %439, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i200
-  %.pn111.pn = phi { ptr, i32 } [ %442, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i200 ], [ %440, %439 ], [ %442, %441 ]
+  %.pn111.pn = phi { ptr, i32 } [ %440, %439 ], [ %442, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i200 ], [ %442, %441 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %447
 
@@ -2591,8 +2591,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %44
   br label %474
 
 474:                                              ; preds = %472, %466
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %472 ], [ %471, %466 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %472 ], [ %469, %466 ]
+  %.sroa.0.0.i = phi i64 [ %471, %466 ], [ %spec.select.i, %472 ]
+  %.sroa.4.0.i = phi ptr [ %469, %466 ], [ %spec.select2.i, %472 ]
   store i64 %.sroa.0.0.i, ptr %46, align 8, !tbaa !88
   store ptr %.sroa.4.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !78
   invoke void @_ZN4absl12lts_202407226StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %42, ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(48) %46)
@@ -2758,9 +2758,9 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12ex
   br label %.critedge154
 
 .critedge154:                                     ; preds = %412, %.critedge153, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit162, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit224
-  %.3263 = phi i32 [ %.4264368, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit224 ], [ %.0261.ph, %.critedge153 ], [ %.0261.ph, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit162 ], [ %.0261.ph, %412 ]
-  %.390 = phi i1 [ %461, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit224 ], [ false, %.critedge153 ], [ false, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit162 ], [ false, %412 ]
-  %.3 = phi i1 [ %.4369, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit224 ], [ %.046.ph, %.critedge153 ], [ %.046.ph, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit162 ], [ %.046.ph, %412 ]
+  %.3263 = phi i32 [ %.4264368, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit224 ], [ %.0261.ph, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit162 ], [ %.0261.ph, %.critedge153 ], [ %.0261.ph, %412 ]
+  %.390 = phi i1 [ %461, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit224 ], [ false, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit162 ], [ false, %.critedge153 ], [ false, %412 ]
+  %.3 = phi i1 [ %.4369, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit224 ], [ %.046.ph, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit162 ], [ %.046.ph, %.critedge153 ], [ %.046.ph, %412 ]
   %523 = load ptr, ptr %34, align 8, !tbaa !35
   %524 = icmp eq ptr %523, %337
   br i1 %524, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i225
@@ -2795,7 +2795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227: ; preds = %.c
   br label %530
 
 530:                                              ; preds = %451, %457, %433, %448, %529, %449
-  %.pn126.pn.pn = phi { ptr, i32 } [ %434, %433 ], [ %.pn123.pn, %529 ], [ %450, %449 ], [ %.pn111.pn.pn.pn, %448 ], [ %.pn126, %457 ], [ %452, %451 ]
+  %.pn126.pn.pn = phi { ptr, i32 } [ %.pn123.pn, %529 ], [ %450, %449 ], [ %.pn111.pn.pn.pn, %448 ], [ %434, %433 ], [ %.pn126, %457 ], [ %452, %451 ]
   %531 = load ptr, ptr %34, align 8, !tbaa !35
   %532 = icmp eq ptr %531, %337
   br i1 %532, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i228
@@ -2987,7 +2987,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit252:        ; preds = %.thread373, %577, %
   ret void
 
 584:                                              ; preds = %567, %.body236, %535, %361, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186, %.body
-  %.pn136.pn.pn.pn = phi { ptr, i32 } [ %.pn136.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186 ], [ %.pn134, %567 ], [ %.pn102.pn.pn.pn, %.body ], [ %546, %.body236 ], [ %.pn126.pn.pn.pn.pn, %535 ], [ %362, %361 ]
+  %.pn136.pn.pn.pn = phi { ptr, i32 } [ %.pn136.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186 ], [ %.pn134, %567 ], [ %546, %.body236 ], [ %.pn126.pn.pn.pn.pn, %535 ], [ %362, %361 ], [ %.pn102.pn.pn.pn, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -3303,8 +3303,8 @@ _ZN4absl12lts_202407228StatusOrIN17grpc_event_engine12experimental24ListenerSock
   br label %207
 
 61:                                               ; preds = %50, %39
-  %.0130 = phi i32 [ %52, %50 ], [ 0, %39 ]
-  %.0 = phi i32 [ %52, %50 ], [ %3, %39 ]
+  %.0130 = phi i32 [ 0, %39 ], [ %52, %50 ]
+  %.0 = phi i32 [ %3, %39 ], [ %52, %50 ]
   invoke void @_ZN17grpc_event_engine12experimental22ResolvedAddressSetPortERNS0_11EventEngine15ResolvedAddressEi(ptr noundef nonnull align 4 dereferenceable(132) %5, i32 noundef %.0)
           to label %62 unwind label %27
 
@@ -3563,8 +3563,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi71EEERS2_RAT__Kc.exit: ; pr
   br label %151
 
 151:                                              ; preds = %149, %143
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %149 ], [ %148, %143 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %149 ], [ %146, %143 ]
+  %.sroa.0.0.i = phi i64 [ %148, %143 ], [ %spec.select.i, %149 ]
+  %.sroa.4.0.i = phi ptr [ %146, %143 ], [ %spec.select2.i, %149 ]
   store i64 %.sroa.0.0.i, ptr %18, align 8, !tbaa !88
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %.sroa.4.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !78
@@ -3589,8 +3589,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi71EEERS2_RAT__Kc.exit: ; pr
   br label %161
 
 161:                                              ; preds = %159, %153
-  %.sroa.0.0.i106 = phi i64 [ %spec.select.i104, %159 ], [ %158, %153 ]
-  %.sroa.4.0.i107 = phi ptr [ %spec.select2.i105, %159 ], [ %156, %153 ]
+  %.sroa.0.0.i106 = phi i64 [ %158, %153 ], [ %spec.select.i104, %159 ]
+  %.sroa.4.0.i107 = phi ptr [ %156, %153 ], [ %spec.select2.i105, %159 ]
   store i64 %.sroa.0.0.i106, ptr %19, align 8, !tbaa !88
   %.sroa.2.0..sroa_idx.i111 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %.sroa.4.0.i107, ptr %.sroa.2.0..sroa_idx.i111, align 8, !tbaa !78
@@ -3736,7 +3736,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12ex
   ret void
 
 207:                                              ; preds = %120, %126, %101, %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116, %138, %131, %85, %60, %27
-  %.pn65 = phi { ptr, i32 } [ %28, %27 ], [ %102, %101 ], [ %.pn, %60 ], [ %.pn54.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ %139, %138 ], [ %132, %131 ], [ %.pn52, %85 ], [ %.pn59, %107 ], [ %.pn62, %126 ], [ %121, %120 ]
+  %.pn65 = phi { ptr, i32 } [ %28, %27 ], [ %.pn54.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ %139, %138 ], [ %132, %131 ], [ %.pn52, %85 ], [ %.pn, %60 ], [ %.pn59, %107 ], [ %102, %101 ], [ %.pn62, %126 ], [ %121, %120 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev(ptr noundef nonnull align 8 dereferenceable(156) %8) #27
   br label %208
 

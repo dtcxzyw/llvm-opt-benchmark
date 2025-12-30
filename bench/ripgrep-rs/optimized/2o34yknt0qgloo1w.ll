@@ -855,7 +855,7 @@ define hidden void @_ZN10grep_regex7matcher19RegexMatcherBuilder10build_many17he
   br label %199
 
 .body:                                            ; preds = %.body94, %176, %169, %121, %102, %146, %127
-  %.pn = phi { ptr, i32 } [ %170, %169 ], [ %128, %127 ], [ %147, %146 ], [ %122, %121 ], [ %103, %102 ], [ %eh.lpad-body95, %176 ], [ %eh.lpad-body95, %.body94 ]
+  %.pn = phi { ptr, i32 } [ %147, %146 ], [ %128, %127 ], [ %103, %102 ], [ %122, %121 ], [ %170, %169 ], [ %eh.lpad-body95, %176 ], [ %eh.lpad-body95, %.body94 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17h039e39ab55110738E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18) #11
           to label %.thread119 unwind label %197
 
@@ -1196,7 +1196,7 @@ define hidden void @_ZN10grep_regex7matcher19RegexMatcherBuilder10build_many17he
   unreachable
 
 common.resume:                                    ; preds = %.thread119, %203, %191
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i107, %203 ], [ %.pn.i.i, %191 ], [ %.pn.pn123, %.thread119 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %191 ], [ %.pn.i.i107, %203 ], [ %.pn.pn123, %.thread119 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr54drop_in_place$LT$grep_regex..config..ConfiguredHIR$GT$17h935cd84be05b45f6E.exit": ; preds = %190

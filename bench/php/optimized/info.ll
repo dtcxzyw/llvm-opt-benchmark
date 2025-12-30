@@ -516,7 +516,7 @@ define dso_local ptr @php_get_uname(i8 noundef signext %0) local_unnamed_addr #0
   br label %29
 
 zend_string_alloc.exit:                           ; preds = %5, %1, %8, %12, %10, %6
-  %.0 = phi ptr [ %13, %12 ], [ @.str.6, %1 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %2, %5 ]
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ @.str.6, %1 ], [ %2, %5 ]
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #13
   %21 = and i64 %20, -8
   %22 = add i64 %21, 32

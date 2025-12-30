@@ -334,7 +334,7 @@ switch.lookup:                                    ; preds = %55
   br label %62
 
 62:                                               ; preds = %60, %53
-  %hf_vlan_cfi.sink = phi ptr [ %hf_vlan_cfi.hf_vlan_dei, %60 ], [ @hf_vlan_cfi, %53 ]
+  %hf_vlan_cfi.sink = phi ptr [ @hf_vlan_cfi, %53 ], [ %hf_vlan_cfi.hf_vlan_dei, %60 ]
   %63 = load i32, ptr %hf_vlan_cfi.sink, align 4
   store i32 %63, ptr %7, align 4
   call void @proto_tree_add_bitmask_list(ptr noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 0)
@@ -365,7 +365,7 @@ switch.lookup:                                    ; preds = %55
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %75, %72, %66, %62, %40
-  %.085 = phi ptr [ null, %40 ], [ %50, %62 ], [ %50, %66 ], [ %50, %72 ], [ %50, %75 ]
+  %.085 = phi ptr [ %50, %62 ], [ null, %40 ], [ %50, %66 ], [ %50, %72 ], [ %50, %75 ]
   %79 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %80 = zext i16 %79 to i32
   %81 = icmp ult i16 %79, 1501

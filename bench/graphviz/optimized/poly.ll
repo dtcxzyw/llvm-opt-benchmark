@@ -390,7 +390,7 @@ gv_calloc.exit134:                                ; preds = %175
   br label %228
 
 .loopexit:                                        ; preds = %156, %gv_calloc.exit134, %197, %gv_calloc.exit132.thread, %173, %gv_calloc.exit
-  %.0124 = phi ptr [ %16, %gv_calloc.exit ], [ %115, %gv_calloc.exit132.thread ], [ %199, %197 ], [ %174, %173 ], [ %176, %gv_calloc.exit134 ], [ %104, %156 ]
+  %.0124 = phi ptr [ %16, %gv_calloc.exit ], [ %115, %gv_calloc.exit132.thread ], [ %174, %173 ], [ %176, %gv_calloc.exit134 ], [ %199, %197 ], [ %104, %156 ]
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0124, ptr %205, align 8, !tbaa !10
   %206 = load i64, ptr %5, align 8, !tbaa !3
@@ -1318,7 +1318,7 @@ edgesIntersect.exit:                              ; preds = %130
   br label %250
 
 250:                                              ; preds = %edgesIntersect.exit, %229, %246, %233, %47, %6, %55
-  %.0 = phi i32 [ 0, %6 ], [ %., %55 ], [ 1, %47 ], [ 1, %229 ], [ 1, %edgesIntersect.exit ], [ 0, %233 ], [ %249, %246 ]
+  %.0 = phi i32 [ %., %55 ], [ 0, %6 ], [ 1, %47 ], [ 1, %229 ], [ 1, %edgesIntersect.exit ], [ 0, %233 ], [ %249, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1482,7 +1482,7 @@ gv_calloc.exit:                                   ; preds = %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %47, %._crit_edge.loopexit, %20
-  %.036 = phi i32 [ 0, %20 ], [ %79, %._crit_edge.loopexit ], [ 1, %47 ], [ 1, %57 ]
+  %.036 = phi i32 [ %79, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %57 ]
   ret i32 %.036
 }
 

@@ -298,7 +298,7 @@ define i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef
   br label %64
 
 .thread:                                          ; preds = %16, %48, %39, %28, %18, %14, %10, %10, %10, %10, %._crit_edge..thread_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge..thread_crit_edge ], [ %9, %14 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ], [ %9, %18 ], [ %9, %28 ], [ %9, %39 ], [ %9, %48 ], [ %9, %16 ]
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge..thread_crit_edge ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ], [ %9, %14 ], [ %9, %18 ], [ %9, %28 ], [ %9, %39 ], [ %9, %48 ], [ %9, %16 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %.pre-phi, i1 false)
   br label %64
 

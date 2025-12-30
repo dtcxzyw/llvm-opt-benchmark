@@ -121,8 +121,8 @@ define void @ff_h263_update_motion_val(ptr noundef readonly captures(none) %0) l
   br label %73
 
 73:                                               ; preds = %16, %23, %47
-  %.066 = phi i32 [ %52, %47 ], [ %22, %23 ], [ 0, %16 ]
-  %.065 = phi i32 [ %49, %47 ], [ %25, %23 ], [ 0, %16 ]
+  %.066 = phi i32 [ %22, %23 ], [ %52, %47 ], [ 0, %16 ]
+  %.065 = phi i32 [ %25, %23 ], [ %49, %47 ], [ 0, %16 ]
   %74 = trunc i32 %.066 to i16
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %76 = load ptr, ptr %75, align 8, !tbaa !42
@@ -509,7 +509,7 @@ define ptr @ff_h263_pred_motion(ptr noundef readonly captures(none) %0, i32 noun
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %56, %58, %60, %62
-  %.0.i = phi i32 [ %59, %58 ], [ 0, %60 ], [ 0, %56 ], [ %.20.i, %62 ]
+  %.0.i = phi i32 [ 0, %56 ], [ 0, %60 ], [ %59, %58 ], [ %.20.i, %62 ]
   store i32 %.0.i, ptr %3, align 4, !tbaa !39
   %63 = getelementptr inbounds i8, ptr %17, i64 -2
   %64 = load i16, ptr %63, align 2, !tbaa !43
@@ -537,7 +537,7 @@ mid_pred.exit:                                    ; preds = %56, %58, %60, %62
   br label %mid_pred.exit88
 
 mid_pred.exit88:                                  ; preds = %70, %72, %74, %76
-  %.0.i85 = phi i32 [ %73, %72 ], [ 0, %74 ], [ 0, %70 ], [ %.20.i86, %76 ]
+  %.0.i85 = phi i32 [ 0, %70 ], [ 0, %74 ], [ %73, %72 ], [ %.20.i86, %76 ]
   store i32 %.0.i85, ptr %4, align 4, !tbaa !39
   br label %215
 
@@ -596,7 +596,7 @@ mid_pred.exit88:                                  ; preds = %70, %72, %74, %76
   br label %mid_pred.exit92
 
 mid_pred.exit92:                                  ; preds = %104, %106, %108, %110
-  %.0.i89 = phi i32 [ %107, %106 ], [ 0, %108 ], [ 0, %104 ], [ %.20.i90, %110 ]
+  %.0.i89 = phi i32 [ 0, %104 ], [ 0, %108 ], [ %107, %106 ], [ %.20.i90, %110 ]
   store i32 %.0.i89, ptr %3, align 4, !tbaa !39
   %111 = getelementptr inbounds i8, ptr %17, i64 -2
   %112 = load i16, ptr %111, align 2, !tbaa !43
@@ -624,7 +624,7 @@ mid_pred.exit92:                                  ; preds = %104, %106, %108, %1
   br label %mid_pred.exit96
 
 mid_pred.exit96:                                  ; preds = %118, %120, %122, %124
-  %.0.i93 = phi i32 [ %121, %120 ], [ 0, %122 ], [ 0, %118 ], [ %.20.i94, %124 ]
+  %.0.i93 = phi i32 [ 0, %118 ], [ 0, %122 ], [ %121, %120 ], [ %.20.i94, %124 ]
   store i32 %.0.i93, ptr %4, align 4, !tbaa !39
   br label %215
 
@@ -691,7 +691,7 @@ mid_pred.exit96:                                  ; preds = %118, %120, %122, %1
   br label %mid_pred.exit100
 
 mid_pred.exit100:                                 ; preds = %155, %157, %158, %160
-  %.0.i97 = phi i32 [ %..i99, %157 ], [ %151, %158 ], [ %151, %155 ], [ %.20.i98, %160 ]
+  %.0.i97 = phi i32 [ %151, %155 ], [ %151, %158 ], [ %..i99, %157 ], [ %.20.i98, %160 ]
   store i32 %.0.i97, ptr %3, align 4, !tbaa !39
   %161 = getelementptr inbounds i8, ptr %17, i64 -2
   %162 = load i16, ptr %161, align 2, !tbaa !43
@@ -722,7 +722,7 @@ mid_pred.exit100:                                 ; preds = %155, %157, %158, %1
   br label %mid_pred.exit104
 
 mid_pred.exit104:                                 ; preds = %171, %173, %174, %176
-  %.0.i101 = phi i32 [ %..i103, %173 ], [ %166, %174 ], [ %166, %171 ], [ %.20.i102, %176 ]
+  %.0.i101 = phi i32 [ %166, %171 ], [ %166, %174 ], [ %..i103, %173 ], [ %.20.i102, %176 ]
   store i32 %.0.i101, ptr %4, align 4, !tbaa !39
   br label %215
 
@@ -761,7 +761,7 @@ mid_pred.exit104:                                 ; preds = %171, %173, %174, %1
   br label %mid_pred.exit108
 
 mid_pred.exit108:                                 ; preds = %193, %195, %196, %198
-  %.0.i105 = phi i32 [ %..i107, %195 ], [ %189, %196 ], [ %189, %193 ], [ %.20.i106, %198 ]
+  %.0.i105 = phi i32 [ %189, %193 ], [ %189, %196 ], [ %..i107, %195 ], [ %.20.i106, %198 ]
   store i32 %.0.i105, ptr %3, align 4, !tbaa !39
   %199 = getelementptr inbounds i8, ptr %17, i64 -2
   %200 = load i16, ptr %199, align 2, !tbaa !43
@@ -792,7 +792,7 @@ mid_pred.exit108:                                 ; preds = %193, %195, %196, %1
   br label %mid_pred.exit112
 
 mid_pred.exit112:                                 ; preds = %209, %211, %212, %214
-  %.0.i109 = phi i32 [ %..i111, %211 ], [ %204, %212 ], [ %204, %209 ], [ %.20.i110, %214 ]
+  %.0.i109 = phi i32 [ %204, %209 ], [ %204, %212 ], [ %..i111, %211 ], [ %.20.i110, %214 ]
   store i32 %.0.i109, ptr %4, align 4, !tbaa !39
   br label %215
 

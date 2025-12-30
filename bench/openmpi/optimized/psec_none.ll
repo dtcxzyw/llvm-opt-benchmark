@@ -168,7 +168,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr readnone captures(none)
   br label %41
 
 41:                                               ; preds = %.loopexit, %39, %36, %.critedge
-  %.024 = phi i32 [ -32, %36 ], [ 0, %.loopexit ], [ -47, %.critedge ], [ 0, %39 ]
+  %.024 = phi i32 [ -47, %.critedge ], [ -32, %36 ], [ 0, %39 ], [ 0, %.loopexit ]
   ret i32 %.024
 }
 

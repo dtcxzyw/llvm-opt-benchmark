@@ -903,7 +903,7 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17he9da911d7f95580
           to label %.thread11.i unwind label %431, !noalias !10
 
 .thread.i:                                        ; preds = %.thread23.i, %504, %478, %456, %.thread11.i, %422, %396, %374
-  %.pn45.pn.i = phi { ptr, i32 } [ %.pn4514.i, %.thread11.i ], [ %.pn43.i, %374 ], [ %.pn3726.i, %.thread23.i ], [ %.pn35.i, %456 ], [ %.pn33.i, %504 ], [ %.pn39.i, %396 ], [ %.pn41.i, %422 ], [ %.pn.i, %478 ]
+  %.pn45.pn.i = phi { ptr, i32 } [ %.pn4514.i, %.thread11.i ], [ %.pn43.i, %374 ], [ %.pn3726.i, %.thread23.i ], [ %.pn35.i, %456 ], [ %.pn39.i, %396 ], [ %.pn41.i, %422 ], [ %.pn.i, %478 ], [ %.pn33.i, %504 ]
   resume { ptr, i32 } %.pn45.pn.i
 
 .thread11.i:                                      ; preds = %453, %375, %374
@@ -5214,7 +5214,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h32e370ad7d817f3eE.exit: ; preds = %
   br label %393
 
 "_ZN4core3ptr85drop_in_place$LT$$u5b$polars_core..datatypes..any_value..AnyValue$u3b$$u20$1$u5d$$GT$17hb57d5a9ad5ef6867E.exit239": ; preds = %.loopexit385, %.loopexit.split-lp386, %433, %"_ZN4core3ptr85drop_in_place$LT$$u5b$polars_core..datatypes..any_value..AnyValue$u3b$$u20$1$u5d$$GT$17hb57d5a9ad5ef6867E.exit235", %429
-  %.pn118.i = phi { ptr, i32 } [ %434, %433 ], [ %.pn116.i, %"_ZN4core3ptr85drop_in_place$LT$$u5b$polars_core..datatypes..any_value..AnyValue$u3b$$u20$1$u5d$$GT$17hb57d5a9ad5ef6867E.exit235" ], [ %430, %429 ], [ %lpad.loopexit387, %.loopexit385 ], [ %lpad.loopexit.split-lp388, %.loopexit.split-lp386 ]
+  %.pn118.i = phi { ptr, i32 } [ %.pn116.i, %"_ZN4core3ptr85drop_in_place$LT$$u5b$polars_core..datatypes..any_value..AnyValue$u3b$$u20$1$u5d$$GT$17hb57d5a9ad5ef6867E.exit235" ], [ %430, %429 ], [ %434, %433 ], [ %lpad.loopexit387, %.loopexit385 ], [ %lpad.loopexit.split-lp388, %.loopexit.split-lp386 ]
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$polars_core..datatypes..any_value..AnyValue$GT$17h5808cdbeb8617ea4E"(ptr noalias noundef align 16 dereferenceable(48) %36) #19
           to label %472 unwind label %409, !noalias !229
 
@@ -5276,7 +5276,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h32e370ad7d817f3eE.exit: ; preds = %
           to label %438 unwind label %.loopexit390
 
 "_ZN4core3ptr85drop_in_place$LT$$u5b$polars_core..datatypes..any_value..AnyValue$u3b$$u20$1$u5d$$GT$17hb57d5a9ad5ef6867E.exit235": ; preds = %.loopexit390, %.loopexit.split-lp391, %443, %448, %439
-  %.pn116.i = phi { ptr, i32 } [ %444, %443 ], [ %.pn114.i, %448 ], [ %440, %439 ], [ %lpad.loopexit392, %.loopexit390 ], [ %lpad.loopexit.split-lp393, %.loopexit.split-lp391 ]
+  %.pn116.i = phi { ptr, i32 } [ %.pn114.i, %448 ], [ %440, %439 ], [ %444, %443 ], [ %lpad.loopexit392, %.loopexit390 ], [ %lpad.loopexit.split-lp393, %.loopexit.split-lp391 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %32) #19
           to label %"_ZN4core3ptr85drop_in_place$LT$$u5b$polars_core..datatypes..any_value..AnyValue$u3b$$u20$1$u5d$$GT$17hb57d5a9ad5ef6867E.exit239" unwind label %409, !noalias !229
 
@@ -5554,7 +5554,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h32e370ad7d817f3eE.exit: ; preds = %
   br label %484
 
 .body221:                                         ; preds = %.loopexit, %.loopexit.split-lp, %491, %495, %472, %360, %415
-  %.pn = phi { ptr, i32 } [ %416, %415 ], [ %.pn.i208, %360 ], [ %.pn120.i, %472 ], [ %492, %491 ], [ %492, %495 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %.pn120.i, %472 ], [ %.pn.i208, %360 ], [ %416, %415 ], [ %492, %495 ], [ %492, %491 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %56) #19
           to label %312 unwind label %134
 

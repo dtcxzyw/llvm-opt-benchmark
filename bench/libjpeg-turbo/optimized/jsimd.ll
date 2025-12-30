@@ -101,7 +101,7 @@ GETENV_S.exit:                                    ; preds = %8
   store i8 0, ptr %1, align 2, !tbaa !7
   br label %17
 
-14:                                               ; preds = %7, %12
+14:                                               ; preds = %12, %7
   %lhsv = load i16, ptr %1, align 2
   %.not32 = icmp eq i16 %lhsv, 49
   br i1 %.not32, label %15, label %17
@@ -135,7 +135,7 @@ GETENV_S.exit14:                                  ; preds = %21
   store i8 0, ptr %1, align 2, !tbaa !7
   br label %30
 
-27:                                               ; preds = %20, %25
+27:                                               ; preds = %25, %20
   %lhsv33 = load i16, ptr %1, align 2
   %.not34 = icmp eq i16 %lhsv33, 49
   br i1 %.not34, label %28, label %30
@@ -168,7 +168,7 @@ GETENV_S.exit17:                                  ; preds = %33
   store i8 0, ptr %1, align 2, !tbaa !7
   br label %41
 
-39:                                               ; preds = %32, %37
+39:                                               ; preds = %37, %32
   %lhsv35 = load i16, ptr %1, align 2
   %.not36 = icmp eq i16 %lhsv35, 49
   br i1 %.not36, label %40, label %41
@@ -196,7 +196,7 @@ GETENV_S.exit17:                                  ; preds = %33
   %49 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %42, i64 noundef 2) #8
   br label %50
 
-50:                                               ; preds = %43, %48
+50:                                               ; preds = %48, %43
   %lhsv37 = load i16, ptr %1, align 2
   %.not38 = icmp eq i16 %lhsv37, 49
   br i1 %.not38, label %51, label %GETENV_S.exit20

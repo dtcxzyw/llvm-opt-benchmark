@@ -504,7 +504,7 @@ define hidden void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_code
   br label %46
 
 .thread:                                          ; preds = %48, %62, %.thread26
-  %.pn25 = phi { ptr, i32 } [ %63, %62 ], [ %.pn29, %.thread26 ], [ %49, %48 ]
+  %.pn25 = phi { ptr, i32 } [ %.pn29, %.thread26 ], [ %49, %48 ], [ %63, %62 ]
   resume { ptr, i32 } %.pn25
 
 .thread26:                                        ; preds = %40, %.thread31

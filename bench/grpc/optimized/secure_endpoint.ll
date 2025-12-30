@@ -1277,7 +1277,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit: ; pre
           to label %116 unwind label %.loopexit.split-lp
 
 116:                                              ; preds = %113, %112, %111
-  %.144 = phi i32 [ %.043, %111 ], [ 0, %112 ], [ %115, %113 ]
+  %.144 = phi i32 [ 0, %112 ], [ %.043, %111 ], [ %115, %113 ]
   invoke void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %93)
           to label %205 unwind label %.loopexit.split-lp
 
@@ -1678,7 +1678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %271
 
 251:                                              ; preds = %.loopexit169, %.loopexit.split-lp, %204, %162, %88, %77
-  %.pn99.pn = phi { ptr, i32 } [ %.pn99, %88 ], [ %78, %77 ], [ %.pn90, %204 ], [ %.pn.pn.pn, %162 ], [ %lpad.loopexit, %.loopexit169 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn99.pn = phi { ptr, i32 } [ %.pn99, %88 ], [ %.pn90, %204 ], [ %.pn.pn.pn, %162 ], [ %78, %77 ], [ %lpad.loopexit, %.loopexit169 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
@@ -2371,7 +2371,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit108:        ; preds = %185, %188
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit118
 
 193:                                              ; preds = %69, %97, %160, %46
-  %.pn94.pn = phi { ptr, i32 } [ %.pn.pn.pn, %160 ], [ %47, %46 ], [ %98, %97 ], [ %70, %69 ]
+  %.pn94.pn = phi { ptr, i32 } [ %47, %46 ], [ %98, %97 ], [ %70, %69 ], [ %.pn.pn.pn, %160 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit109 unwind label %194
 
@@ -4543,7 +4543,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i12.i: ; preds = %92, %.thread.i11.
   br label %.body
 
 .body:                                            ; preds = %.body.i.i, %.body.i13.i, %119
-  %eh.lpad-body = phi { ptr, i32 } [ %120, %119 ], [ %108, %.body.i13.i ], [ %52, %.body.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %120, %119 ], [ %52, %.body.i.i ], [ %108, %.body.i13.i ]
   call fastcc void @"_ZZL8on_writePvN4absl12lts_202407226StatusEEN3$_0D2Ev"(i64 %10) #31
   resume { ptr, i32 } %eh.lpad-body
 }

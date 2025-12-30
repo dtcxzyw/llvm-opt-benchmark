@@ -233,7 +233,7 @@ Abc_Clock.exit87:                                 ; preds = %51, %59
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %40, %69, %49, %46, %44
-  %.1 = phi ptr [ %calloc, %69 ], [ null, %49 ], [ null, %44 ], [ null, %46 ], [ null, %40 ], [ null, %36 ]
+  %.1 = phi ptr [ %calloc, %69 ], [ null, %44 ], [ null, %46 ], [ null, %49 ], [ null, %40 ], [ null, %36 ]
   ret ptr %.1
 }
 
@@ -475,7 +475,7 @@ define range(i32 0, 2) i32 @Map_SuperLibDeriveFromGenlib2(ptr noundef %0, i32 no
   br label %12
 
 12:                                               ; preds = %5, %2, %9
-  %.0 = phi i32 [ 0, %2 ], [ 0, %9 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %2 ], [ 1, %5 ]
   ret i32 %.0
 }
 

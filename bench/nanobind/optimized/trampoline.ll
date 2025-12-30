@@ -366,8 +366,8 @@ _ZL10_Py_DECREFP7_object.exit109.i:               ; preds = %78, %75
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
 .thread127.thread135.i:                           ; preds = %.thread127.i, %_ZL10_Py_DECREFP7_object.exit109.i, %55, %53, %._crit_edge.i, %40, %.thread116.i
-  %93 = phi i32 [ %24, %.thread116.i ], [ %51, %_ZL10_Py_DECREFP7_object.exit109.i ], [ %51, %55 ], [ %51, %53 ], [ %51, %._crit_edge.i ], [ %25, %40 ], [ %25, %.thread127.i ]
-  %.3.i = phi ptr [ @.str.1, %.thread116.i ], [ @.str.1, %_ZL10_Py_DECREFP7_object.exit109.i ], [ @.str.4, %55 ], [ @.str.3, %53 ], [ @.str.2, %._crit_edge.i ], [ @.str.1, %40 ], [ @.str.2, %.thread127.i ]
+  %93 = phi i32 [ %24, %.thread116.i ], [ %51, %._crit_edge.i ], [ %51, %53 ], [ %51, %55 ], [ %51, %_ZL10_Py_DECREFP7_object.exit109.i ], [ %25, %40 ], [ %25, %.thread127.i ]
+  %.3.i = phi ptr [ @.str.1, %.thread116.i ], [ @.str.2, %._crit_edge.i ], [ @.str.3, %53 ], [ @.str.4, %55 ], [ @.str.1, %_ZL10_Py_DECREFP7_object.exit109.i ], [ @.str.1, %40 ], [ @.str.2, %.thread127.i ]
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %95 = load ptr, ptr %94, align 8
   tail call void @PyGILState_Release(i32 noundef %93)

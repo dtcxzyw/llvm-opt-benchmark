@@ -239,8 +239,8 @@ PLATFORM_hid_init.exit:                           ; preds = %2, %11
   br label %58
 
 58:                                               ; preds = %.loopexit.us, %41, %.lr.ph.split.us
-  %.144.us = phi ptr [ %.04377.us, %41 ], [ %.04377.us, %.lr.ph.split.us ], [ %.245.us, %.loopexit.us ]
-  %.1.us = phi ptr [ %.04278.us, %41 ], [ %.04278.us, %.lr.ph.split.us ], [ %.2.us, %.loopexit.us ]
+  %.144.us = phi ptr [ %.245.us, %.loopexit.us ], [ %.04377.us, %.lr.ph.split.us ], [ %.04377.us, %41 ]
+  %.1.us = phi ptr [ %.2.us, %.loopexit.us ], [ %.04278.us, %.lr.ph.split.us ], [ %.04278.us, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -406,8 +406,8 @@ parse_hid_vid_pid_from_sysfs.exit.thread73:       ; preds = %96, %84
   br label %120
 
 120:                                              ; preds = %parse_hid_vid_pid_from_sysfs.exit.thread73, %parse_hid_vid_pid_from_sysfs.exit.thread70, %parse_hid_vid_pid_from_sysfs.exit.thread, %103, %101, %99, %.lr.ph.split, %.loopexit
-  %.144 = phi ptr [ %.04377, %parse_hid_vid_pid_from_sysfs.exit.thread73 ], [ %.04377, %99 ], [ %.245, %.loopexit ], [ %.04377, %101 ], [ %.04377, %.lr.ph.split ], [ %.04377, %103 ], [ %.04377, %parse_hid_vid_pid_from_sysfs.exit.thread ], [ %.04377, %parse_hid_vid_pid_from_sysfs.exit.thread70 ]
-  %.1 = phi ptr [ %.04278, %parse_hid_vid_pid_from_sysfs.exit.thread73 ], [ %.04278, %99 ], [ %.2, %.loopexit ], [ %.04278, %101 ], [ %.04278, %.lr.ph.split ], [ %.04278, %103 ], [ %.04278, %parse_hid_vid_pid_from_sysfs.exit.thread ], [ %.04278, %parse_hid_vid_pid_from_sysfs.exit.thread70 ]
+  %.144 = phi ptr [ %.245, %.loopexit ], [ %.04377, %.lr.ph.split ], [ %.04377, %99 ], [ %.04377, %101 ], [ %.04377, %103 ], [ %.04377, %parse_hid_vid_pid_from_sysfs.exit.thread ], [ %.04377, %parse_hid_vid_pid_from_sysfs.exit.thread70 ], [ %.04377, %parse_hid_vid_pid_from_sysfs.exit.thread73 ]
+  %.1 = phi ptr [ %.2, %.loopexit ], [ %.04278, %.lr.ph.split ], [ %.04278, %99 ], [ %.04278, %101 ], [ %.04278, %103 ], [ %.04278, %parse_hid_vid_pid_from_sysfs.exit.thread ], [ %.04278, %parse_hid_vid_pid_from_sysfs.exit.thread70 ], [ %.04278, %parse_hid_vid_pid_from_sysfs.exit.thread73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1023,7 +1023,7 @@ PLATFORM_hid_free_enumeration.exit:               ; preds = %.lr.ph.i, %.lr.ph14
   br i1 %.not121, label %.loopexit, label %.lr.ph148, !llvm.loop !9
 
 .loopexit:                                        ; preds = %PLATFORM_hid_free_enumeration.exit, %31, %29, %23, %1
-  %.0 = phi ptr [ null, %29 ], [ null, %1 ], [ null, %31 ], [ null, %23 ], [ %.3, %PLATFORM_hid_free_enumeration.exit ]
+  %.0 = phi ptr [ null, %29 ], [ null, %31 ], [ null, %23 ], [ null, %1 ], [ %.3, %PLATFORM_hid_free_enumeration.exit ]
   %287 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %287) #23
   %288 = load ptr, ptr %5, align 8
@@ -1479,7 +1479,7 @@ define hidden noundef i32 @PLATFORM_hid_write(ptr noundef readonly captures(none
   br label %register_device_error.exit
 
 register_device_error.exit:                       ; preds = %27, %25, %12, %10
-  %.0 = phi i32 [ -1, %12 ], [ -1, %10 ], [ -1, %25 ], [ %17, %27 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %12 ], [ -1, %25 ], [ %17, %27 ]
   ret i32 %.0
 }
 
@@ -1539,8 +1539,8 @@ define hidden noundef i32 @PLATFORM_hid_read_timeout(ptr noundef readonly captur
   %26 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.10) #23
   br label %register_device_error.exit.thread
 
-register_device_error.exit.thread:                ; preds = %9, %25, %18, %20
-  %.017.ph = phi i32 [ -1, %20 ], [ -1, %18 ], [ -1, %25 ], [ %13, %9 ]
+register_device_error.exit.thread:                ; preds = %25, %9, %18, %20
+  %.017.ph = phi i32 [ -1, %20 ], [ -1, %18 ], [ %13, %9 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %register_device_error.exit29
 
@@ -1579,7 +1579,7 @@ register_device_error.exit:                       ; preds = %22
   br label %register_device_error.exit29
 
 register_device_error.exit29:                     ; preds = %39, %37, %register_device_error.exit.thread, %27, %32, %32
-  %.1 = phi i32 [ %.017.ph, %register_device_error.exit.thread ], [ %30, %27 ], [ 0, %32 ], [ 0, %32 ], [ %30, %37 ], [ %30, %39 ]
+  %.1 = phi i32 [ %30, %27 ], [ 0, %32 ], [ 0, %32 ], [ %.017.ph, %register_device_error.exit.thread ], [ %30, %37 ], [ %30, %39 ]
   ret i32 %.1
 }
 
@@ -2083,13 +2083,13 @@ define hidden zeroext i1 @SDL_HIDAPI_ShouldIgnoreDevice(i32 noundef %0, i16 noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %22
-  %.028.ph = phi i1 [ %.not31, %29 ], [ true, %22 ]
+  %.028.ph = phi i1 [ true, %22 ], [ %.not31, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
 32:                                               ; preds = %.sink.split, %20, %17, %19, %13
-  %.028 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %20 ], [ true, %19 ], [ %.028.ph, %.sink.split ]
+  %.028 = phi i1 [ true, %13 ], [ true, %19 ], [ true, %17 ], [ false, %20 ], [ %.028.ph, %.sink.split ]
   ret i1 %.028
 }
 
@@ -2117,8 +2117,8 @@ define hidden range(i32 -1, 1) i32 @SDL_hid_init_REAL() local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %7, %3
-  %.str.23.sink = phi ptr [ %.str.24..str.23, %7 ], [ @.str.22, %3 ]
-  %.sink = phi i32 [ %., %7 ], [ 2, %3 ]
+  %.str.23.sink = phi ptr [ @.str.22, %3 ], [ %.str.24..str.23, %7 ]
+  %.sink = phi i32 [ 2, %3 ], [ %., %7 ]
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull %.str.23.sink) #23
   store i32 %.sink, ptr @linux_enumeration_method, align 4
   %10 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.25, i1 noundef zeroext true) #23
@@ -2686,7 +2686,7 @@ AddDeviceToEnumeration.exit26:                    ; preds = %24, %23, %.lr.ph
   br i1 %.not.i27, label %PLATFORM_hid_free_enumeration.exit, label %.lr.ph.i, !llvm.loop !8
 
 PLATFORM_hid_free_enumeration.exit:               ; preds = %.lr.ph.i, %9, %.preheader37, %.preheader, %.loopexit, %5
-  %.022 = phi ptr [ null, %5 ], [ %.134, %.loopexit ], [ null, %9 ], [ null, %.preheader ], [ null, %.preheader37 ], [ %.134, %.lr.ph.i ]
+  %.022 = phi ptr [ null, %5 ], [ %.134, %.loopexit ], [ null, %.preheader ], [ null, %.preheader37 ], [ null, %9 ], [ %.134, %.lr.ph.i ]
   ret ptr %.022
 }
 
@@ -2753,7 +2753,7 @@ define hidden noundef ptr @SDL_hid_open_REAL(i16 noundef zeroext %0, i16 noundef
   br label %17
 
 17:                                               ; preds = %10, %11, %6, %13
-  %.0 = phi ptr [ null, %6 ], [ %14, %13 ], [ null, %11 ], [ null, %10 ]
+  %.0 = phi ptr [ %14, %13 ], [ null, %6 ], [ null, %11 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -2792,7 +2792,7 @@ define hidden noundef ptr @SDL_hid_open_path_REAL(ptr noundef %0) local_unnamed_
   br label %15
 
 15:                                               ; preds = %8, %9, %4, %11
-  %.0 = phi ptr [ null, %4 ], [ %12, %11 ], [ null, %9 ], [ null, %8 ]
+  %.0 = phi ptr [ %12, %11 ], [ null, %4 ], [ null, %9 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -3482,7 +3482,7 @@ get_hid_item_size.exit:                           ; preds = %23, %28
   br label %get_hid_report_bytes.exit
 
 get_hid_report_bytes.exit:                        ; preds = %32, %35, %36, %40, %44
-  %.0.i = phi i32 [ 0, %35 ], [ 0, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ]
+  %.0.i = phi i32 [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %32 ], [ 0, %35 ]
   %47 = trunc i32 %.0.i to i16
   store i16 %47, ptr %11, align 4
   store i32 1, ptr %9, align 4
@@ -3554,7 +3554,7 @@ get_hid_report_bytes.exit58:                      ; preds = %get_hid_report_byte
   br label %get_hid_report_bytes.exit61
 
 get_hid_report_bytes.exit61:                      ; preds = %62, %65, %66, %70, %74
-  %.0.i60 = phi i32 [ 0, %65 ], [ 0, %62 ], [ %69, %66 ], [ %73, %70 ], [ %76, %74 ]
+  %.0.i60 = phi i32 [ %69, %66 ], [ %73, %70 ], [ %76, %74 ], [ 0, %62 ], [ 0, %65 ]
   %77 = trunc i32 %.0.i60 to i16
   store i16 %77, ptr %4, align 2
   br label %108
@@ -3660,8 +3660,8 @@ hid_iterate_over_collection.exit:                 ; preds = %.thread36.i
   store i16 %.sink, ptr %3, align 2
   br label %.thread
 
-.thread:                                          ; preds = %98, %102, %.thread.sink.split, %5, %._crit_edge, %114
-  %.2 = phi i32 [ 1, %._crit_edge ], [ 1, %5 ], [ 1, %114 ], [ 0, %.thread.sink.split ], [ -1, %102 ], [ -1, %98 ]
+.thread:                                          ; preds = %102, %98, %.thread.sink.split, %5, %._crit_edge, %114
+  %.2 = phi i32 [ 1, %114 ], [ 1, %._crit_edge ], [ 1, %5 ], [ 0, %.thread.sink.split ], [ -1, %98 ], [ -1, %102 ]
   ret i32 %.2
 }
 

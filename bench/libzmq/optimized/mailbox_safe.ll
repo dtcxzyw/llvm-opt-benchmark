@@ -316,7 +316,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE10ch
   br label %22
 
 22:                                               ; preds = %10, %1
-  %.0 = phi i1 [ %or.cond6.not, %10 ], [ true, %1 ]
+  %.0 = phi i1 [ true, %1 ], [ %or.cond6.not, %10 ]
   ret i1 %.0
 }
 
@@ -737,7 +737,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit: ; preds = %13, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25, %33, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %46, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25 ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23 ], [ %44, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i, %13 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %44, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23 ], [ %46, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25 ], [ %.sroa.032.051.i.i.i, %13 ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %5
   br i1 %.not, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3zmq10signaler_tESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread, label %47
 
@@ -1198,7 +1198,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit25: ; preds = %_ZN3zmq7ypipe_
   br label %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread
 
 _ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread: ; preds = %69, %91, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i17, %29, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i, %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit25
-  %.0 = phi i32 [ 0, %29 ], [ 0, %91 ], [ -1, %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit25 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i ], [ -1, %69 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i17 ]
+  %.0 = phi i32 [ -1, %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit25 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i ], [ 0, %29 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i17 ], [ 0, %91 ], [ -1, %69 ]
   ret i32 %.0
 }
 

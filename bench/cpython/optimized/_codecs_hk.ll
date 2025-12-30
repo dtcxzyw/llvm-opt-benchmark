@@ -190,7 +190,7 @@ Py_DECREF.exit21.i:                               ; preds = %53, %50, %47
   br i1 %57, label %Py_DECREF.exit.sink.split.i, label %.thread
 
 Py_DECREF.exit.sink.split.i:                      ; preds = %55, %44, %35
-  %.0.ph.i = phi ptr [ null, %44 ], [ null, %35 ], [ %48, %55 ]
+  %.0.ph.i = phi ptr [ null, %35 ], [ null, %44 ], [ %48, %55 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %22) #7
   br label %.thread
 
@@ -200,7 +200,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %55, %44, %35
   br label %.thread
 
 .thread:                                          ; preds = %Py_DECREF.exit.sink.split.i, %55, %Py_DECREF.exit21.i, %44, %42, %35, %32, %21, %8, %._crit_edge, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %._crit_edge ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ null, %44 ], [ null, %42 ], [ null, %35 ], [ null, %32 ], [ %48, %55 ], [ %48, %Py_DECREF.exit21.i ], [ null, %21 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %._crit_edge ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ %48, %55 ], [ %48, %Py_DECREF.exit21.i ], [ null, %44 ], [ null, %42 ], [ null, %35 ], [ null, %32 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -364,7 +364,7 @@ add_codecs.exit.i:                                ; preds = %18, %14
   br i1 %38, label %28, label %register_maps.exit
 
 register_maps.exit:                               ; preds = %28, %31, %1, %7, %add_codecs.exit.i
-  %.0.i = phi i32 [ -1, %7 ], [ -1, %1 ], [ 0, %add_codecs.exit.i ], [ -1, %31 ], [ 0, %28 ]
+  %.0.i = phi i32 [ -1, %1 ], [ -1, %7 ], [ 0, %add_codecs.exit.i ], [ -1, %31 ], [ 0, %28 ]
   ret i32 %.0.i
 }
 
@@ -452,8 +452,8 @@ importmap.exit.thread.sink.split:                 ; preds = %32, %27
   tail call void @_Py_Dealloc(ptr noundef nonnull %6) #7
   br label %importmap.exit.thread
 
-importmap.exit.thread:                            ; preds = %importmap.exit.thread.sink.split, %Py_DECREF.exit25.i, %27, %30, %32, %1
-  %35 = phi i32 [ -1, %30 ], [ 0, %27 ], [ 0, %Py_DECREF.exit25.i ], [ -1, %1 ], [ -1, %32 ], [ %.ph, %importmap.exit.thread.sink.split ]
+importmap.exit.thread:                            ; preds = %importmap.exit.thread.sink.split, %27, %Py_DECREF.exit25.i, %32, %30, %1
+  %35 = phi i32 [ -1, %1 ], [ -1, %30 ], [ -1, %32 ], [ 0, %Py_DECREF.exit25.i ], [ 0, %27 ], [ %.ph, %importmap.exit.thread.sink.split ]
   ret i32 %35
 }
 
@@ -580,7 +580,7 @@ PyUnicode_READ.exit:                              ; preds = %16, %20, %24
   br label %PyUnicode_READ.exit117
 
 PyUnicode_READ.exit117:                           ; preds = %69, %65, %61
-  %.0 = phi i32 [ %71, %69 ], [ %64, %61 ], [ %68, %65 ]
+  %.0 = phi i32 [ %64, %61 ], [ %68, %65 ], [ %71, %69 ]
   %72 = and i32 %.0.i, 65503
   %73 = icmp eq i32 %72, 202
   %74 = and i32 %.0, 65527
@@ -676,8 +676,8 @@ PyUnicode_READ.exit117:                           ; preds = %69, %65, %61
   br i1 %.not101, label %.thread129, label %.thread123
 
 .thread123:                                       ; preds = %76, %.thread, %51, %101, %123
-  %.279 = phi i16 [ %127, %123 ], [ %55, %51 ], [ %105, %101 ], [ %., %.thread ], [ %83, %76 ]
-  %.2 = phi i64 [ 1, %123 ], [ 1, %51 ], [ 1, %101 ], [ 1, %.thread ], [ 2, %76 ]
+  %.279 = phi i16 [ %105, %101 ], [ %127, %123 ], [ %55, %51 ], [ %., %.thread ], [ %83, %76 ]
+  %.2 = phi i64 [ 1, %101 ], [ 1, %123 ], [ 1, %51 ], [ 1, %.thread ], [ 2, %76 ]
   %128 = lshr i16 %.279, 8
   %129 = trunc nuw i16 %128 to i8
   %130 = load ptr, ptr %6, align 8, !tbaa !39
@@ -702,8 +702,8 @@ PyUnicode_READ.exit117:                           ; preds = %69, %65, %61
   %140 = icmp slt i64 %136, %5
   br i1 %140, label %14, label %.thread129
 
-.thread129:                                       ; preds = %134, %108, %28, %114, %33, %86, %106, %101, %97, %92, %123, %119, %84, %9
-  %.4 = phi i64 [ 0, %9 ], [ 1, %108 ], [ -2, %84 ], [ 1, %119 ], [ 1, %123 ], [ 1, %92 ], [ 1, %97 ], [ 1, %101 ], [ 1, %106 ], [ 1, %86 ], [ -1, %33 ], [ 1, %114 ], [ -1, %28 ], [ 0, %134 ]
+.thread129:                                       ; preds = %134, %28, %33, %101, %97, %92, %86, %106, %123, %119, %114, %108, %84, %9
+  %.4 = phi i64 [ 0, %9 ], [ -2, %84 ], [ 1, %108 ], [ 1, %114 ], [ 1, %119 ], [ 1, %123 ], [ 1, %106 ], [ 1, %86 ], [ 1, %92 ], [ 1, %97 ], [ 1, %101 ], [ -1, %33 ], [ -1, %28 ], [ 0, %134 ]
   ret i64 %.4
 }
 
@@ -843,8 +843,8 @@ define internal range(i64 -4, 2) i64 @big5hkscs_decode(ptr readnone captures(non
   br i1 %or.cond11, label %81, label %.thread198
 
 81:                                               ; preds = %79, %77, %73
-  %.0158 = phi ptr [ @big5hkscs_phint_12130, %77 ], [ @big5hkscs_phint_0, %73 ], [ @big5hkscs_phint_21924, %79 ]
-  %.0157 = phi i32 [ %78, %77 ], [ %76, %73 ], [ %80, %79 ]
+  %.0158 = phi ptr [ @big5hkscs_phint_0, %73 ], [ @big5hkscs_phint_12130, %77 ], [ @big5hkscs_phint_21924, %79 ]
+  %.0157 = phi i32 [ %76, %73 ], [ %78, %77 ], [ %80, %79 ]
   %82 = lshr i32 %.0157, 3
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr i8, ptr %.0158, i64 %83
@@ -1187,14 +1187,14 @@ PyUnicode_WRITE.exit185:                          ; preds = %203, %207
   br label %219
 
 219:                                              ; preds = %210, %212, %217, %180, %182, %187, %150, %152, %157, %120, %122, %127
-  %.sink262 = phi i64 [ %.pre233, %180 ], [ %.pre237, %150 ], [ %.pre241, %120 ], [ %.ph, %127 ], [ %125, %122 ], [ %.ph253, %157 ], [ %155, %152 ], [ %.ph256, %187 ], [ %185, %182 ], [ %.ph259, %217 ], [ %215, %212 ], [ %.pre229, %210 ]
+  %.sink262 = phi i64 [ %.ph, %127 ], [ %125, %122 ], [ %.pre241, %120 ], [ %.ph253, %157 ], [ %155, %152 ], [ %.pre237, %150 ], [ %.ph256, %187 ], [ %185, %182 ], [ %.pre233, %180 ], [ %.ph259, %217 ], [ %215, %212 ], [ %.pre229, %210 ]
   %220 = add i64 %.sink262, 2
   store i64 %220, ptr %10, align 8, !tbaa !69
   br label %221
 
 221:                                              ; preds = %90, %94, %52, %18, %219
-  %.sink263 = phi i64 [ 2, %52 ], [ 2, %219 ], [ 1, %18 ], [ 2, %94 ], [ 2, %90 ]
-  %.sink = phi i64 [ -2, %52 ], [ -2, %219 ], [ -1, %18 ], [ -2, %94 ], [ -2, %90 ]
+  %.sink263 = phi i64 [ 2, %219 ], [ 1, %18 ], [ 2, %52 ], [ 2, %94 ], [ 2, %90 ]
+  %.sink = phi i64 [ -2, %219 ], [ -1, %18 ], [ -2, %52 ], [ -2, %94 ], [ -2, %90 ]
   %.pn = load ptr, ptr %2, align 8, !tbaa !39
   %storemerge = getelementptr i8, ptr %.pn, i64 %.sink263
   store ptr %storemerge, ptr %2, align 8, !tbaa !39
@@ -1202,8 +1202,8 @@ PyUnicode_WRITE.exit185:                          ; preds = %203, %207
   %222 = icmp sgt i64 %.3150, 0
   br i1 %222, label %13, label %.thread198
 
-.thread198:                                       ; preds = %221, %18, %21, %52, %94, %79, %90, %._crit_edge, %107, %137, %167, %197, %5
-  %.8 = phi i64 [ 0, %5 ], [ -4, %18 ], [ -4, %107 ], [ 1, %._crit_edge ], [ -4, %90 ], [ -4, %167 ], [ -4, %137 ], [ -4, %197 ], [ -3, %79 ], [ -4, %94 ], [ -4, %52 ], [ -2, %21 ], [ 0, %221 ]
+.thread198:                                       ; preds = %221, %18, %21, %52, %79, %90, %94, %._crit_edge, %107, %137, %167, %197, %5
+  %.8 = phi i64 [ 0, %5 ], [ -4, %197 ], [ -4, %167 ], [ -4, %137 ], [ -4, %107 ], [ 1, %._crit_edge ], [ -4, %94 ], [ -4, %90 ], [ -3, %79 ], [ -4, %52 ], [ -2, %21 ], [ -4, %18 ], [ 0, %221 ]
   ret i64 %.8
 }
 

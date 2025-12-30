@@ -186,7 +186,7 @@ define internal range(i32 -1, 2) i32 @H5O__dset_isa(ptr noundef %0) #0 {
   br label %24
 
 24:                                               ; preds = %23, %15, %11, %19, %1
-  %.0 = phi i32 [ -1, %11 ], [ -1, %19 ], [ %spec.select, %23 ], [ 0, %15 ], [ 1, %1 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %19 ], [ 1, %1 ], [ 0, %15 ], [ %spec.select, %23 ]
   ret i32 %.0
 }
 
@@ -325,7 +325,7 @@ define internal ptr @H5O__dset_create(ptr noundef %0, ptr noundef readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %20, %31, %42, %39, %3
-  %.0 = phi ptr [ null, %42 ], [ null, %39 ], [ null, %20 ], [ null, %3 ], [ %18, %31 ]
+  %.0 = phi ptr [ null, %42 ], [ null, %39 ], [ null, %3 ], [ %18, %31 ], [ null, %20 ]
   ret ptr %.0
 }
 

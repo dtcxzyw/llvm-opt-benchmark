@@ -1084,7 +1084,7 @@ define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef
   br label %21
 
 21:                                               ; preds = %._crit_edge, %10
-  %22 = phi i1 [ %20, %._crit_edge ], [ false, %10 ]
+  %22 = phi i1 [ false, %10 ], [ %20, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = add nuw nsw i32 %7, 1
   %24 = icmp eq i32 %23, 16

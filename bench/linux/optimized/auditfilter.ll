@@ -388,12 +388,12 @@ define dso_local ptr @audit_dupe_rule(ptr noundef %0) local_unnamed_addr #0 alig
   br label %80
 
 80:                                               ; preds = %78, %62
-  %81 = phi i32 [ %68, %62 ], [ %79, %78 ]
+  %81 = phi i32 [ %79, %78 ], [ %68, %62 ]
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %.thread14, label %.thread16
 
-.thread16:                                        ; preds = %73, %56, %80
-  %83 = phi i32 [ %81, %80 ], [ -12, %56 ], [ -12, %73 ]
+.thread16:                                        ; preds = %56, %73, %80
+  %83 = phi i32 [ %81, %80 ], [ -12, %73 ], [ -12, %56 ]
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
@@ -781,7 +781,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_match_signal(ptr nound
   br i1 %62, label %53, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader11, %53, %.preheader8, %39, %.preheader5, %.preheader, %21, %49, %35, %31, %.loopexit7
-  %63 = phi i32 [ 1, %31 ], [ 1, %.loopexit7 ], [ 1, %35 ], [ 1, %49 ], [ 0, %.preheader5 ], [ 0, %.preheader8 ], [ 0, %.preheader ], [ 1, %21 ], [ 1, %39 ], [ 1, %53 ], [ 0, %.preheader11 ]
+  %63 = phi i32 [ 1, %31 ], [ 1, %.loopexit7 ], [ 1, %35 ], [ 1, %49 ], [ 1, %21 ], [ 0, %.preheader ], [ 0, %.preheader5 ], [ 1, %39 ], [ 0, %.preheader8 ], [ 1, %53 ], [ 0, %.preheader11 ]
   ret i32 %63
 }
 
@@ -1259,7 +1259,7 @@ define internal fastcc ptr @audit_data_to_entry(ptr noundef readonly captures(ad
   br label %.thread
 
 .thread:                                          ; preds = %13, %22, %60, %9, %6, %2
-  %63 = phi i64 [ -22, %2 ], [ -22, %9 ], [ -22, %60 ], [ -22, %6 ], [ -12, %22 ], [ -12, %13 ]
+  %63 = phi i64 [ -22, %2 ], [ -22, %9 ], [ -22, %6 ], [ -22, %60 ], [ -12, %22 ], [ -12, %13 ]
   %64 = inttoptr i64 %63 to ptr
   br label %.loopexit125
 
@@ -1835,7 +1835,7 @@ audit_unpack_string.exit43.thread:                ; preds = %297, %291, %audit_u
   br label %365
 
 .thread72:                                        ; preds = %248, %251, %245, %148, %144, %139, %135, %131, %124, %.thread70, %.thread69, %123, %119, %118, %152, %155, %180, %238, %261, %286, %121, %audit_unpack_string.exit43.thread, %311, %audit_unpack_string.exit.thread, %.thread90, %.thread83, %214, %.thread76, %.thread64
-  %.ph108.ph = phi i32 [ %237, %.thread90 ], [ %209, %.thread83 ], [ %212, %214 ], [ %179, %.thread76 ], [ -22, %.thread64 ], [ %307, %audit_unpack_string.exit43.thread ], [ %313, %311 ], [ %280, %audit_unpack_string.exit.thread ], [ -22, %248 ], [ -22, %251 ], [ -22, %245 ], [ -22, %144 ], [ -22, %139 ], [ -22, %135 ], [ -22, %131 ], [ -22, %124 ], [ -22, %.thread70 ], [ -22, %.thread69 ], [ -22, %123 ], [ -22, %121 ], [ -22, %119 ], [ -22, %118 ], [ -22, %152 ], [ -22, %155 ], [ %187, %180 ], [ %240, %238 ], [ -22, %148 ], [ -22, %261 ], [ -22, %286 ]
+  %.ph108.ph = phi i32 [ %307, %audit_unpack_string.exit43.thread ], [ %313, %311 ], [ %280, %audit_unpack_string.exit.thread ], [ %237, %.thread90 ], [ %209, %.thread83 ], [ %212, %214 ], [ %179, %.thread76 ], [ -22, %.thread64 ], [ -22, %248 ], [ -22, %251 ], [ -22, %245 ], [ -22, %148 ], [ -22, %144 ], [ -22, %139 ], [ -22, %135 ], [ -22, %131 ], [ -22, %124 ], [ -22, %.thread70 ], [ -22, %.thread69 ], [ -22, %123 ], [ -22, %121 ], [ -22, %119 ], [ -22, %118 ], [ -22, %152 ], [ -22, %155 ], [ %187, %180 ], [ %240, %238 ], [ -22, %261 ], [ -22, %286 ]
   %.pr112 = load ptr, ptr %84, align 8
   %330 = icmp eq ptr %.pr112, null
   br i1 %330, label %.thread72.thread, label %.thread72.thread115
@@ -1847,7 +1847,7 @@ audit_unpack_string.exit43.thread:                ; preds = %297, %291, %audit_u
   br label %.thread72.thread
 
 .thread72.thread:                                 ; preds = %257, %.thread72.thread115, %.thread72
-  %.ph108114 = phi i32 [ %.ph108.ph, %.thread72 ], [ %.ph108117, %.thread72.thread115 ], [ -22, %257 ]
+  %.ph108114 = phi i32 [ %.ph108117, %.thread72.thread115 ], [ %.ph108.ph, %.thread72 ], [ -22, %257 ]
   %332 = load ptr, ptr %79, align 8
   %333 = icmp eq ptr %332, null
   br i1 %333, label %335, label %334
@@ -2954,12 +2954,12 @@ define dso_local range(i32 0, 2) i32 @audit_filter(i32 noundef %0, i32 noundef %
   br label %.thread
 
 217:                                              ; preds = %206, %199, %189, %50
-  %218 = phi i32 [ %190, %189 ], [ %210, %206 ], [ %205, %199 ], [ %51, %50 ]
+  %218 = phi i32 [ %210, %206 ], [ %205, %199 ], [ %51, %50 ], [ %190, %189 ]
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %.thread5, label %.thread
 
 .thread:                                          ; preds = %195, %171, %174, %177, %180, %183, %186, %191, %143, %146, %149, %152, %155, %158, %161, %163, %32, %35, %38, %41, %44, %47, %52, %79, %105, %129, %214, %217
-  %220 = phi i32 [ %218, %217 ], [ %107, %105 ], [ %173, %171 ], [ %176, %174 ], [ %179, %177 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %194, %191 ], [ %131, %129 ], [ %145, %143 ], [ %148, %146 ], [ %151, %149 ], [ %154, %152 ], [ %157, %155 ], [ %160, %158 ], [ %162, %161 ], [ %165, %163 ], [ %216, %214 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %55, %52 ], [ %81, %79 ], [ %18, %195 ]
+  %220 = phi i32 [ %218, %217 ], [ %173, %171 ], [ %176, %174 ], [ %179, %177 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %194, %191 ], [ %145, %143 ], [ %148, %146 ], [ %151, %149 ], [ %154, %152 ], [ %157, %155 ], [ %160, %158 ], [ %162, %161 ], [ %165, %163 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %55, %52 ], [ %81, %79 ], [ %107, %105 ], [ %131, %129 ], [ %216, %214 ], [ %18, %195 ]
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %.thread.thread, label %222
 
@@ -2992,7 +2992,7 @@ define dso_local range(i32 0, 2) i32 @audit_filter(i32 noundef %0, i32 noundef %
   br i1 %233, label %.thread13, label %.lr.ph
 
 .thread13:                                        ; preds = %231, %2, %.thread5, %226
-  %234 = phi i32 [ %230, %226 ], [ 1, %.thread5 ], [ 1, %2 ], [ 1, %231 ]
+  %234 = phi i32 [ 1, %.thread5 ], [ %230, %226 ], [ 1, %2 ], [ 1, %231 ]
   call void @__rcu_read_unlock() #14
   ret i32 %234
 }
@@ -3377,7 +3377,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_compare_rule(ptr nound
   br i1 %126, label %117, label %.loopexit
 
 .loopexit:                                        ; preds = %107, %101, %95, %88, %83, %76, %69, %62, %55, %45, %120, %117, %24, %18, %12, %8, %2
-  %127 = phi i32 [ 1, %24 ], [ 1, %18 ], [ 1, %12 ], [ 1, %8 ], [ 1, %2 ], [ 1, %120 ], [ 0, %117 ], [ 1, %45 ], [ 1, %55 ], [ 1, %62 ], [ 1, %69 ], [ 1, %76 ], [ 1, %83 ], [ 1, %88 ], [ 1, %95 ], [ 1, %101 ], [ 1, %107 ]
+  %127 = phi i32 [ 1, %24 ], [ 1, %18 ], [ 1, %12 ], [ 1, %8 ], [ 1, %2 ], [ 0, %117 ], [ 1, %120 ], [ 1, %45 ], [ 1, %55 ], [ 1, %62 ], [ 1, %69 ], [ 1, %76 ], [ 1, %83 ], [ 1, %88 ], [ 1, %95 ], [ 1, %101 ], [ 1, %107 ]
   ret i32 %127
 }
 

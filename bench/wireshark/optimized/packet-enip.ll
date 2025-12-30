@@ -3722,7 +3722,7 @@ enip_exp_conv_valid.exit:                         ; preds = %enip_io_conv_valid.
   br label %enip_io_conv_filter.exit
 
 enip_io_conv_filter.exit:                         ; preds = %enip_io_conv_valid.exit.thread, %69, %67, %44, %35, %33, %10, %enip_exp_conv_valid.exit
-  %.0 = phi ptr [ null, %enip_exp_conv_valid.exit ], [ %70, %69 ], [ null, %10 ], [ %34, %33 ], [ %36, %35 ], [ null, %44 ], [ %68, %67 ], [ null, %enip_io_conv_valid.exit.thread ]
+  %.0 = phi ptr [ null, %enip_exp_conv_valid.exit ], [ null, %10 ], [ %34, %33 ], [ %36, %35 ], [ null, %44 ], [ %68, %67 ], [ %70, %69 ], [ null, %enip_io_conv_valid.exit.thread ]
   ret ptr %.0
 }
 
@@ -4132,7 +4132,7 @@ define internal i32 @dissect_enip_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %classify_packet.exit
 
 classify_packet.exit:                             ; preds = %12, %13, %14, %.thread15.i
-  %.0.i = phi i32 [ 2, %.thread15.i ], [ 1, %12 ], [ 1, %13 ], [ %15, %14 ]
+  %.0.i = phi i32 [ 2, %.thread15.i ], [ 1, %13 ], [ 1, %12 ], [ %15, %14 ]
   %switch.selectcmp = icmp eq i32 %.0.i, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.996, ptr @.str.997
   %switch.selectcmp92 = icmp eq i32 %.0.i, 0
@@ -4494,7 +4494,7 @@ enip_get_explicit_connid.exit.thread.i.thread:    ; preds = %85
   br label %enip_get_explicit_connid.exit.i
 
 enip_get_explicit_connid.exit.i:                  ; preds = %.thread.i.i, %108, %92, %89
-  %.024.i.i = phi ptr [ null, %89 ], [ %spec.select.i.i, %.thread.i.i ], [ null, %92 ], [ null, %108 ]
+  %.024.i.i = phi ptr [ null, %89 ], [ null, %92 ], [ null, %108 ], [ %spec.select.i.i, %.thread.i.i ]
   br i1 %.not.i21.i, label %122, label %enip_get_explicit_connid.exit.thread.i
 
 enip_get_explicit_connid.exit.thread.i:           ; preds = %enip_get_explicit_connid.exit.i
@@ -4724,7 +4724,7 @@ dissect_item_unconnected_message_over_udp.exit:   ; preds = %127, %139
   br label %enip_calculate_timing_information.exit
 
 enip_calculate_timing_information.exit:           ; preds = %205, %.sink.split.i, %221, %215
-  %.3196 = phi i32 [ %.3, %.sink.split.i ], [ %.3, %215 ], [ %.3, %221 ], [ %59, %205 ]
+  %.3196 = phi i32 [ %.3, %215 ], [ %.3, %221 ], [ %.3, %.sink.split.i ], [ %59, %205 ]
   %230 = load i32, ptr %21, align 4
   br i1 %39, label %231, label %269
 
@@ -5296,13 +5296,13 @@ dissect_item_sequenced_address.exit:              ; preds = %enip_get_io_connid.
   br label %dissect_item_sockaddr_info.exit
 
 dissect_item_sockaddr_info.exit:                  ; preds = %291, %294, %.sink.split.i153, %465, %450, %202, %198, %dissect_item_connected_address.exit, %386, %435, %dissect_item_sequenced_address.exit, %538, %551, %display_connection_information.exit, %dissect_cip_class01_io.exit, %68
-  %.1188 = phi ptr [ %.0187214, %68 ], [ %.0187214, %551 ], [ %.0187214, %dissect_item_connected_address.exit ], [ %.2189, %202 ], [ %.2189, %198 ], [ %.0187214, %dissect_cip_class01_io.exit ], [ %.0187214, %display_connection_information.exit ], [ %.0187214, %386 ], [ %.0187214, %435 ], [ %.0187214, %.sink.split.i153 ], [ %.0187214, %dissect_item_sequenced_address.exit ], [ %.0187214, %538 ], [ %.0187214, %450 ], [ %.0187214, %465 ], [ %.0187214, %294 ], [ %.0187214, %291 ]
-  %.1184 = phi ptr [ %.0183216, %68 ], [ %.0183216, %551 ], [ %.3186, %dissect_item_connected_address.exit ], [ %.0183216, %202 ], [ %.0183216, %198 ], [ null, %dissect_cip_class01_io.exit ], [ %.0183216, %display_connection_information.exit ], [ %.0183216, %386 ], [ %.0183216, %435 ], [ %.0183216, %.sink.split.i153 ], [ %.028.i.i201, %dissect_item_sequenced_address.exit ], [ %.0183216, %538 ], [ %.0183216, %450 ], [ %.0183216, %465 ], [ null, %294 ], [ null, %291 ]
-  %.1181 = phi i32 [ %.0180217, %68 ], [ %.0180217, %551 ], [ %.0180217, %dissect_item_connected_address.exit ], [ %.0180217, %202 ], [ %.0180217, %198 ], [ %.0180217, %dissect_cip_class01_io.exit ], [ %.0180217, %display_connection_information.exit ], [ %.0180217, %386 ], [ %.0180217, %435 ], [ %.0180217, %.sink.split.i153 ], [ %.2182200, %dissect_item_sequenced_address.exit ], [ %.0180217, %538 ], [ %.0180217, %450 ], [ %.0180217, %465 ], [ %.0180217, %294 ], [ %.0180217, %291 ]
-  %.1131 = phi i8 [ %.0130219, %68 ], [ %.0130219, %551 ], [ %.0130219, %dissect_item_connected_address.exit ], [ %.0130219, %202 ], [ %.0130., %198 ], [ %.0130219, %dissect_cip_class01_io.exit ], [ %.0130219, %display_connection_information.exit ], [ %.0130219, %386 ], [ %.0130219, %435 ], [ %.0130219, %.sink.split.i153 ], [ %.0130219, %dissect_item_sequenced_address.exit ], [ %.0130219, %538 ], [ 0, %450 ], [ %.0130219, %465 ], [ %.0130219, %294 ], [ %.0130219, %291 ]
-  %.1127 = phi i8 [ %.0126220, %68 ], [ %.0126220, %551 ], [ %.0126220, %dissect_item_connected_address.exit ], [ %.0126220, %202 ], [ %..0126, %198 ], [ %.0126220, %dissect_cip_class01_io.exit ], [ %.0126220, %display_connection_information.exit ], [ %.0126220, %386 ], [ %.0126220, %435 ], [ %.0126220, %.sink.split.i153 ], [ %.0126220, %dissect_item_sequenced_address.exit ], [ %.0126220, %538 ], [ 0, %450 ], [ %.0126220, %465 ], [ %.0126220, %294 ], [ %.0126220, %291 ]
-  %.1123 = phi i32 [ %.0122221, %68 ], [ %.0122221, %551 ], [ %.0122221, %dissect_item_connected_address.exit ], [ %.2124, %202 ], [ %.2124, %198 ], [ %.0122221, %dissect_cip_class01_io.exit ], [ %.0122221, %display_connection_information.exit ], [ %.0122221, %386 ], [ %.0122221, %435 ], [ %.0122221, %.sink.split.i153 ], [ %.0122221, %dissect_item_sequenced_address.exit ], [ %.0122221, %538 ], [ %.0122221, %450 ], [ %.0122221, %465 ], [ %.0122221, %294 ], [ %.0122221, %291 ]
-  %.1 = phi i32 [ %59, %68 ], [ %59, %551 ], [ %59, %dissect_item_connected_address.exit ], [ %.2, %202 ], [ %.2, %198 ], [ %.3196, %dissect_cip_class01_io.exit ], [ %.3196, %display_connection_information.exit ], [ %59, %386 ], [ %59, %435 ], [ %59, %.sink.split.i153 ], [ %59, %dissect_item_sequenced_address.exit ], [ %59, %538 ], [ %59, %450 ], [ %59, %465 ], [ %.3196, %294 ], [ %.3196, %291 ]
+  %.1188 = phi ptr [ %.0187214, %68 ], [ %.0187214, %551 ], [ %.0187214, %dissect_item_connected_address.exit ], [ %.2189, %202 ], [ %.2189, %198 ], [ %.0187214, %dissect_cip_class01_io.exit ], [ %.0187214, %display_connection_information.exit ], [ %.0187214, %386 ], [ %.0187214, %435 ], [ %.0187214, %dissect_item_sequenced_address.exit ], [ %.0187214, %538 ], [ %.0187214, %450 ], [ %.0187214, %465 ], [ %.0187214, %.sink.split.i153 ], [ %.0187214, %294 ], [ %.0187214, %291 ]
+  %.1184 = phi ptr [ %.0183216, %68 ], [ %.0183216, %551 ], [ %.3186, %dissect_item_connected_address.exit ], [ %.0183216, %202 ], [ %.0183216, %198 ], [ null, %dissect_cip_class01_io.exit ], [ %.0183216, %display_connection_information.exit ], [ %.0183216, %386 ], [ %.0183216, %435 ], [ %.028.i.i201, %dissect_item_sequenced_address.exit ], [ %.0183216, %538 ], [ %.0183216, %450 ], [ %.0183216, %465 ], [ %.0183216, %.sink.split.i153 ], [ null, %294 ], [ null, %291 ]
+  %.1181 = phi i32 [ %.0180217, %68 ], [ %.0180217, %551 ], [ %.0180217, %dissect_item_connected_address.exit ], [ %.0180217, %202 ], [ %.0180217, %198 ], [ %.0180217, %dissect_cip_class01_io.exit ], [ %.0180217, %display_connection_information.exit ], [ %.0180217, %386 ], [ %.0180217, %435 ], [ %.2182200, %dissect_item_sequenced_address.exit ], [ %.0180217, %538 ], [ %.0180217, %450 ], [ %.0180217, %465 ], [ %.0180217, %.sink.split.i153 ], [ %.0180217, %294 ], [ %.0180217, %291 ]
+  %.1131 = phi i8 [ %.0130219, %68 ], [ %.0130219, %551 ], [ %.0130219, %dissect_item_connected_address.exit ], [ %.0130219, %202 ], [ %.0130., %198 ], [ %.0130219, %dissect_cip_class01_io.exit ], [ %.0130219, %display_connection_information.exit ], [ %.0130219, %386 ], [ %.0130219, %435 ], [ %.0130219, %dissect_item_sequenced_address.exit ], [ %.0130219, %538 ], [ 0, %450 ], [ %.0130219, %465 ], [ %.0130219, %.sink.split.i153 ], [ %.0130219, %294 ], [ %.0130219, %291 ]
+  %.1127 = phi i8 [ %.0126220, %68 ], [ %.0126220, %551 ], [ %.0126220, %dissect_item_connected_address.exit ], [ %.0126220, %202 ], [ %..0126, %198 ], [ %.0126220, %dissect_cip_class01_io.exit ], [ %.0126220, %display_connection_information.exit ], [ %.0126220, %386 ], [ %.0126220, %435 ], [ %.0126220, %dissect_item_sequenced_address.exit ], [ %.0126220, %538 ], [ 0, %450 ], [ %.0126220, %465 ], [ %.0126220, %.sink.split.i153 ], [ %.0126220, %294 ], [ %.0126220, %291 ]
+  %.1123 = phi i32 [ %.0122221, %68 ], [ %.0122221, %551 ], [ %.0122221, %dissect_item_connected_address.exit ], [ %.2124, %202 ], [ %.2124, %198 ], [ %.0122221, %dissect_cip_class01_io.exit ], [ %.0122221, %display_connection_information.exit ], [ %.0122221, %386 ], [ %.0122221, %435 ], [ %.0122221, %dissect_item_sequenced_address.exit ], [ %.0122221, %538 ], [ %.0122221, %450 ], [ %.0122221, %465 ], [ %.0122221, %.sink.split.i153 ], [ %.0122221, %294 ], [ %.0122221, %291 ]
+  %.1 = phi i32 [ %59, %68 ], [ %59, %551 ], [ %59, %dissect_item_connected_address.exit ], [ %.2, %202 ], [ %.2, %198 ], [ %.3196, %dissect_cip_class01_io.exit ], [ %.3196, %display_connection_information.exit ], [ %59, %386 ], [ %59, %435 ], [ %59, %dissect_item_sequenced_address.exit ], [ %59, %538 ], [ %59, %450 ], [ %59, %465 ], [ %59, %.sink.split.i153 ], [ %.3196, %294 ], [ %.3196, %291 ]
   %554 = load i32, ptr %21, align 4
   %555 = add i32 %554, %.1
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -5556,7 +5556,7 @@ define internal fastcc ptr @enip_match_request(ptr noundef %0, ptr noundef %1, p
   br label %56
 
 56:                                               ; preds = %51, %38, %39, %47
-  %.154 = phi ptr [ %55, %51 ], [ %.053, %39 ], [ %46, %47 ], [ %.053, %38 ]
+  %.154 = phi ptr [ %55, %51 ], [ %46, %47 ], [ %.053, %39 ], [ %.053, %38 ]
   %57 = icmp eq ptr %1, null
   %58 = icmp eq ptr %.154, null
   %or.cond3.not86 = select i1 %57, i1 true, i1 %58
@@ -5653,7 +5653,7 @@ proto_item_set_generated.exit73:                  ; preds = %proto_item_set_gene
   br label %.critedge
 
 .critedge:                                        ; preds = %59, %12, %42, %50, %71, %68, %65, %75, %77, %proto_item_set_generated.exit73, %56
-  %.15480 = phi ptr [ %.154, %68 ], [ null, %12 ], [ %.154, %75 ], [ %.154, %56 ], [ %.154, %77 ], [ %.154, %proto_item_set_generated.exit73 ], [ %.154, %59 ], [ %.154, %71 ], [ %.154, %65 ], [ null, %50 ], [ null, %42 ]
+  %.15480 = phi ptr [ %.154, %75 ], [ %.154, %77 ], [ %.154, %proto_item_set_generated.exit73 ], [ %.154, %56 ], [ %.154, %65 ], [ %.154, %68 ], [ %.154, %71 ], [ null, %50 ], [ null, %42 ], [ null, %12 ], [ %.154, %59 ]
   ret ptr %.15480
 }
 

@@ -555,7 +555,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   br label %.critedge
 
 .critedge:                                        ; preds = %89, %52, %112
-  %114 = phi i32 [ %90, %89 ], [ %53, %52 ], [ %113, %112 ]
+  %114 = phi i32 [ %113, %112 ], [ %53, %52 ], [ %90, %89 ]
   %115 = icmp sgt i32 %114, 0
   br i1 %115, label %116, label %119
 

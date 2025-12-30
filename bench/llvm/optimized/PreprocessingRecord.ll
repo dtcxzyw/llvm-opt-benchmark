@@ -387,8 +387,8 @@ define dso_local i64 @_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInR
   br label %33
 
 33:                                               ; preds = %19, %13, %2, %6, %30
-  %.sroa.038.0.in = phi i64 [ %3, %13 ], [ %3, %2 ], [ %29, %30 ], [ %3, %6 ], [ %29, %19 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.6.0.extract.shift32, %13 ], [ %.sroa.6.0.extract.shift32, %2 ], [ %32, %30 ], [ %.sroa.6.0.extract.shift32, %6 ], [ %.sroa.6.0.extract.shift32, %19 ]
+  %.sroa.038.0.in = phi i64 [ %29, %30 ], [ %3, %6 ], [ %3, %2 ], [ %3, %13 ], [ %29, %19 ]
+  %.sroa.5.0 = phi i64 [ %32, %30 ], [ %.sroa.6.0.extract.shift32, %6 ], [ %.sroa.6.0.extract.shift32, %2 ], [ %.sroa.6.0.extract.shift32, %13 ], [ %.sroa.6.0.extract.shift32, %19 ]
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0, 32
   %.sroa.038.0.insert.ext = and i64 %.sroa.038.0.in, 4294967295
   %.sroa.038.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.038.0.insert.ext
@@ -515,7 +515,7 @@ _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit.i31: ; preds = %
   br label %_ZL30isPreprocessedEntityIfInFileIDPN5clang18PreprocessedEntityENS_6FileIDERNS_13SourceManagerE.exit34
 
 _ZL30isPreprocessedEntityIfInFileIDPN5clang18PreprocessedEntityENS_6FileIDERNS_13SourceManagerE.exit34: ; preds = %25, %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit.i, %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit.i31, %64, %59, %.thread, %8, %44, %49, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %49 ], [ false, %8 ], [ false, %64 ], [ %48, %44 ], [ %43, %.thread ], [ false, %59 ], [ %72, %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit.i31 ], [ %35, %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit.i ], [ false, %25 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ %48, %44 ], [ false, %49 ], [ %43, %.thread ], [ false, %59 ], [ %72, %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit.i31 ], [ false, %64 ], [ false, %25 ], [ %35, %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit.i ]
   ret i1 %.0
 }
 
@@ -1689,7 +1689,7 @@ _ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.i: ; preds = %
   br label %_ZN5clang19PreprocessingRecord27getLoadedPreprocessedEntityEj.exit
 
 _ZN5clang19PreprocessingRecord27getLoadedPreprocessedEntityEj.exit: ; preds = %39, %11, %4, %41, %43
-  %.0 = phi ptr [ null, %41 ], [ %49, %43 ], [ %17, %11 ], [ %40, %39 ], [ %10, %4 ]
+  %.0 = phi ptr [ %49, %43 ], [ null, %41 ], [ %17, %11 ], [ %40, %39 ], [ %10, %4 ]
   ret ptr %.0
 }
 
@@ -1910,7 +1910,7 @@ _ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16: ; preds = %
   br label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread.sink.split
 
 _ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread.sink.split: ; preds = %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16, %90, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit, %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %.sink = phi ptr [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit ], [ %.0.i.i.i.i.i18, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ %.0.i.i.i.i.i1521, %90 ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16 ]
+  %.sink = phi ptr [ %.0.i.i.i.i.i18, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit ], [ %.0.i.i.i.i.i1521, %90 ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16 ]
   %95 = tail call i32 @_ZN5clang19PreprocessingRecord21addPreprocessedEntityEPNS_18PreprocessedEntityE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %.sink)
   br label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread
 
@@ -1959,7 +1959,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i: ; preds = %19, %11
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
 
 _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i
-  %.04.i = phi ptr [ null, %19 ], [ null, %17 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
+  %.04.i = phi ptr [ null, %17 ], [ null, %19 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
   %24 = load i32, ptr %2, align 8, !tbaa !184
   %.sroa.2.0.insert.ext = zext i32 %24 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -2012,7 +2012,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i: ; preds = %19, %11
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
 
 _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i
-  %.04.i = phi ptr [ null, %19 ], [ null, %17 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
+  %.04.i = phi ptr [ null, %17 ], [ null, %19 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
   %24 = load i32, ptr %2, align 8, !tbaa !184
   %.sroa.2.0.insert.ext = zext i32 %24 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -2065,7 +2065,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i: ; preds = %19, %11
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
 
 _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i
-  %.04.i = phi ptr [ null, %19 ], [ null, %17 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
+  %.04.i = phi ptr [ null, %17 ], [ null, %19 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
   %24 = load i32, ptr %2, align 8, !tbaa !184
   %.sroa.2.0.insert.ext = zext i32 %24 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -2118,7 +2118,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i: ; preds = %19, %11
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
 
 _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i
-  %.04.i = phi ptr [ null, %19 ], [ null, %17 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
+  %.04.i = phi ptr [ null, %17 ], [ null, %19 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
   %24 = load i32, ptr %2, align 8, !tbaa !184
   %.sroa.2.0.insert.ext = zext i32 %24 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -2171,7 +2171,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i: ; preds = %19, %11
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
 
 _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i
-  %.04.i = phi ptr [ null, %19 ], [ null, %17 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
+  %.04.i = phi ptr [ null, %17 ], [ null, %19 ], [ %23, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
   %24 = load i32, ptr %1, align 8, !tbaa !184
   %.sroa.2.0.insert.ext = zext i32 %24 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -2300,7 +2300,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i: ; preds = %17, %9
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
 
 _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %15, %17, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i
-  %.04.i = phi ptr [ null, %17 ], [ null, %15 ], [ %21, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
+  %.04.i = phi ptr [ null, %15 ], [ null, %17 ], [ %21, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i ]
   tail call void @_ZN5clang19PreprocessingRecord17addMacroExpansionERKNS_5TokenEPKNS_9MacroInfoENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.04.i, i64 %3)
   ret void
 }
@@ -3289,7 +3289,7 @@ _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11Page
   br label %102
 
 102:                                              ; preds = %50, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit, %57
-  %.0 = phi i1 [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %60, %57 ], [ true, %50 ]
+  %.0 = phi i1 [ %60, %57 ], [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ true, %50 ]
   ret i1 %.0
 }
 
@@ -3473,7 +3473,7 @@ _ZSt6fill_nIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN5clang18PreprocessedEntityEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !146
   br label %41
 

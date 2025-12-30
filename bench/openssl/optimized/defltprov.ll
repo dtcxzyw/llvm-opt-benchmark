@@ -910,7 +910,7 @@ define range(i32 0, 2) i32 @ossl_default_provider_init(ptr noundef %0, ptr nound
   br label %15
 
 15:                                               ; preds = %.preheader, %9, %11, %13
-  %.1 = phi ptr [ %.021, %.preheader ], [ %.021, %9 ], [ %.021, %11 ], [ %.022.val28, %13 ]
+  %.1 = phi ptr [ %.021, %9 ], [ %.021, %11 ], [ %.022.val28, %13 ], [ %.021, %.preheader ]
   %16 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   br label %.preheader, !llvm.loop !11
 
@@ -951,7 +951,7 @@ define range(i32 0, 2) i32 @ossl_default_provider_init(ptr noundef %0, ptr nound
   br label %33
 
 33:                                               ; preds = %17, %4, %6, %27, %25
-  %.0 = phi i32 [ 0, %4 ], [ 0, %25 ], [ 1, %27 ], [ 0, %6 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %25 ], [ 1, %27 ], [ 0, %6 ], [ 0, %4 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1034,7 +1034,7 @@ define internal range(i32 0, 2) i32 @deflt_get_params(ptr readnone captures(none
   br label %20
 
 20:                                               ; preds = %16, %12, %8, %4, %19
-  %.0 = phi i32 [ 1, %19 ], [ 0, %12 ], [ 0, %8 ], [ 0, %4 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %16 ]
   ret i32 %.0
 }
 

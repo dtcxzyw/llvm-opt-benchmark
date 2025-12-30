@@ -201,8 +201,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h218a9c1fdc
   br label %22
 
 .thread:                                          ; preds = %.outer, %30, %4
-  %.lcssa40 = phi i64 [ %31, %30 ], [ %.promoted60, %4 ], [ %.promoted, %.outer ]
-  %.lcssa = phi i64 [ %19, %30 ], [ %15, %4 ], [ %112, %.outer ]
+  %.lcssa40 = phi i64 [ %.promoted60, %4 ], [ %31, %30 ], [ %.promoted, %.outer ]
+  %.lcssa = phi i64 [ %15, %4 ], [ %19, %30 ], [ %112, %.outer ]
   %21 = icmp eq i64 %.lcssa40, %.lcssa
   br i1 %21, label %33, label %35
 
@@ -488,8 +488,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h588b36e201
   br label %16
 
 .thread:                                          ; preds = %.outer, %24, %4
-  %.lcssa39 = phi i64 [ %25, %24 ], [ %.promoted59, %4 ], [ %.promoted, %.outer ]
-  %.lcssa = phi i64 [ %13, %24 ], [ %9, %4 ], [ %82, %.outer ]
+  %.lcssa39 = phi i64 [ %.promoted59, %4 ], [ %25, %24 ], [ %.promoted, %.outer ]
+  %.lcssa = phi i64 [ %9, %4 ], [ %13, %24 ], [ %82, %.outer ]
   %15 = icmp eq i64 %.lcssa39, %.lcssa
   br i1 %15, label %27, label %29
 
@@ -685,8 +685,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17hbce210c632
   br label %16
 
 .thread:                                          ; preds = %.outer, %24, %4
-  %.lcssa39 = phi i64 [ %25, %24 ], [ %.promoted59, %4 ], [ %.promoted, %.outer ]
-  %.lcssa = phi i64 [ %13, %24 ], [ %9, %4 ], [ %82, %.outer ]
+  %.lcssa39 = phi i64 [ %.promoted59, %4 ], [ %25, %24 ], [ %.promoted, %.outer ]
+  %.lcssa = phi i64 [ %9, %4 ], [ %13, %24 ], [ %82, %.outer ]
   %15 = icmp eq i64 %.lcssa39, %.lcssa
   br i1 %15, label %27, label %29
 
@@ -1573,7 +1573,7 @@ _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.e
   br label %200
 
 200:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit29", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit31", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit33", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit35", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit37", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit39", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit41", %149, %199, %34, %31
-  %.0 = phi ptr [ %35, %34 ], [ %33, %31 ], [ %.1, %199 ], [ null, %149 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit41" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit39" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit37" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit35" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit33" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit31" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit29" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit" ]
+  %.0 = phi ptr [ %35, %34 ], [ %.1, %199 ], [ %33, %31 ], [ null, %149 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit41" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit39" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit37" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit35" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit33" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit31" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit29" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit" ]
   ret ptr %.0
 
 201:                                              ; preds = %176
@@ -1700,7 +1700,7 @@ _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.e
   br label %31
 
 31:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %27, %28, %23, %20
-  %.0 = phi ptr [ %24, %23 ], [ %22, %20 ], [ %30, %28 ], [ null, %27 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ]
+  %.0 = phi ptr [ %24, %23 ], [ %30, %28 ], [ %22, %20 ], [ null, %27 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ]
   ret ptr %.0
 }
 

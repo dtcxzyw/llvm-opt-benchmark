@@ -532,7 +532,7 @@ define noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St
   br label %22
 
 ._crit_edge:                                      ; preds = %90, %79, %_ZNKSt8functionIFvmEEclEm.exit31, %26, %_ZNKSt8functionIFvmEEclEm.exit, %4
-  %.0.lcssa = phi i1 [ false, %4 ], [ true, %79 ], [ true, %_ZNKSt8functionIFvmEEclEm.exit ], [ true, %26 ], [ true, %_ZNKSt8functionIFvmEEclEm.exit31 ], [ false, %90 ]
+  %.0.lcssa = phi i1 [ false, %4 ], [ true, %_ZNKSt8functionIFvmEEclEm.exit ], [ true, %26 ], [ true, %_ZNKSt8functionIFvmEEclEm.exit31 ], [ true, %79 ], [ false, %90 ]
   store i8 0, ptr %11, align 8, !tbaa !31
   ret i1 %.0.lcssa
 
@@ -670,7 +670,7 @@ _ZN4toku3wfg9find_nodeEm.exit:                    ; preds = %46, %49
   unreachable
 
 common.resume:                                    ; preds = %85, %82, %63, %66
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %64, %66 ], [ %83, %82 ], [ %83, %85 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %66 ], [ %64, %63 ], [ %83, %82 ], [ %83, %85 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvmEEC2ERKS1_.exit:                ; preds = %56, %60
@@ -859,7 +859,7 @@ _ZN4toku3wfg9find_nodeEm.exit:                    ; preds = %27, %30
   unreachable
 
 common.resume:                                    ; preds = %63, %60, %44, %47
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %45, %47 ], [ %61, %60 ], [ %61, %63 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %47 ], [ %45, %44 ], [ %61, %60 ], [ %61, %63 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvmEEC2ERKS1_.exit:                ; preds = %33, %40
@@ -901,7 +901,7 @@ _ZNSt8functionIFvmEEC2ERKS1_.exit:                ; preds = %33, %40
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %55, %53, %_ZN4toku3wfg9find_nodeEm.exit.thread, %_ZN4toku3wfg9find_nodeEm.exit
-  %.0 = phi i1 [ false, %_ZN4toku3wfg9find_nodeEm.exit.thread ], [ false, %_ZN4toku3wfg9find_nodeEm.exit ], [ %52, %53 ], [ %52, %55 ]
+  %.0 = phi i1 [ false, %_ZN4toku3wfg9find_nodeEm.exit ], [ false, %_ZN4toku3wfg9find_nodeEm.exit.thread ], [ %52, %53 ], [ %52, %55 ]
   ret i1 %.0
 }
 
@@ -1185,7 +1185,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread: ; preds = %3
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit16
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit16: ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread, %21
-  %.0.i15 = phi i32 [ %19, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread ], [ %27, %21 ], [ 0, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit ]
+  %.0.i15 = phi i32 [ %27, %21 ], [ %19, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread ], [ 0, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit ]
   %28 = add i32 %.0.i15, 1
   tail call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE23maybe_resize_or_convertEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %28)
   %29 = load i8, ptr %0, align 8, !tbaa !4, !range !12, !noundef !13
@@ -1395,7 +1395,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templa
   br label %51
 
 51:                                               ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37, %49, %37, %tailrecurse._crit_edge
-  %.030 = phi i32 [ -30989, %tailrecurse._crit_edge ], [ %20, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ 0, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37 ], [ %38, %37 ], [ 0, %49 ]
+  %.030 = phi i32 [ -30989, %tailrecurse._crit_edge ], [ %20, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ %38, %37 ], [ 0, %49 ], [ 0, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37 ]
   ret i32 %.030
 }
 
@@ -1494,7 +1494,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templa
   br label %_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE16convert_to_arrayEv.exit
 
 _ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE16convert_to_arrayEv.exit: ; preds = %51, %52
-  %.0.i.i = phi i32 [ 0, %51 ], [ %58, %52 ]
+  %.0.i.i = phi i32 [ %58, %52 ], [ 0, %51 ]
   %59 = shl i32 %.0.i.i, 1
   %60 = tail call i32 @llvm.umax.i32(i32 %59, i32 4)
   %61 = zext i32 %60 to i64
@@ -1533,7 +1533,7 @@ define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15insert_internalEP
   br label %21
 
 tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39, %tailrecurse, %5
-  %.tr40.lcssa = phi ptr [ %29, %tailrecurse ], [ %1, %5 ], [ %111, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
+  %.tr40.lcssa = phi ptr [ %1, %5 ], [ %29, %tailrecurse ], [ %111, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = add i32 %11, 1
@@ -1734,7 +1734,7 @@ define linkonce_odr void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9rebalanceEPNS_12om
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i: ; preds = %12, %10
-  %.0.i.i = phi i32 [ 0, %10 ], [ %18, %12 ]
+  %.0.i.i = phi i32 [ %18, %12 ], [ 0, %10 ]
   %19 = shl i32 %.0.i.i, 1
   %20 = tail call i32 @llvm.umax.i32(i32 %19, i32 4)
   %21 = zext i32 %20 to i64

@@ -2789,7 +2789,7 @@ _ZN13b3ProfileZoneD2Ev.exit98:                    ; preds = %_ZN13b3ProfileZoneD
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit99:                    ; preds = %640, %646, %633, %635, %623, %629, %349, %619, %347, %275
-  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %275 ], [ %.pn37.pn, %619 ], [ %636, %635 ], [ %348, %347 ], [ %.pn29, %629 ], [ %350, %349 ], [ %624, %623 ], [ %634, %633 ], [ %641, %640 ], [ %.pn34, %646 ]
+  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %275 ], [ %348, %347 ], [ %350, %349 ], [ %.pn37.pn, %619 ], [ %624, %623 ], [ %.pn29, %629 ], [ %634, %633 ], [ %636, %635 ], [ %641, %640 ], [ %.pn34, %646 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN13b3ProfileZoneD2Ev.exit59
@@ -4875,7 +4875,7 @@ _ZN13b3ProfileZoneD2Ev.exit81:                    ; preds = %494, %496, %663, %6
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit77:                    ; preds = %492, %_ZN13b3ProfileZoneD2Ev.exit81, %482, %488, %472, %478, %462, %468, %452, %458
-  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %.pn23, %488 ], [ %.pn20, %478 ], [ %.pn17, %468 ], [ %.pn, %458 ], [ %453, %452 ], [ %463, %462 ], [ %473, %472 ], [ %483, %482 ], [ %493, %492 ], [ %.pn28.pn, %_ZN13b3ProfileZoneD2Ev.exit81 ]
+  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %453, %452 ], [ %.pn, %458 ], [ %463, %462 ], [ %.pn17, %468 ], [ %473, %472 ], [ %.pn20, %478 ], [ %483, %482 ], [ %.pn23, %488 ], [ %493, %492 ], [ %.pn28.pn, %_ZN13b3ProfileZoneD2Ev.exit81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   invoke void @b3LeaveProfileZone()

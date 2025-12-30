@@ -3074,7 +3074,7 @@ define void @_ZN3zmq12udp_engine_t9out_eventEv(ptr noundef nonnull align 8 deref
   call void @_ZN3zmq11io_object_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %105)
   br label %106
 
-.critedge49:                                      ; preds = %53, %51
+.critedge49:                                      ; preds = %51, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %106
 

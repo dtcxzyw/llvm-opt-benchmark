@@ -936,8 +936,8 @@ CCT_to_xy_blackbody.exit:                         ; preds = %77, %82, %88
   br label %100
 
 100:                                              ; preds = %8, %._crit_edge, %CCT_to_xy_blackbody.exit, %CCT_to_xy_daylight.exit, %23, %15, %12, %11
-  %101 = phi float [ %.pre29, %._crit_edge ], [ %94, %CCT_to_xy_blackbody.exit ], [ %52, %CCT_to_xy_daylight.exit ], [ 0x3FD5555560000000, %11 ], [ 0x3FDA13A920000000, %12 ], [ %28, %23 ], [ %20, %15 ], [ 0x3FD6F1AA00000000, %8 ]
-  %102 = phi float [ %.pre, %._crit_edge ], [ %.038.i, %CCT_to_xy_blackbody.exit ], [ %.0.i, %CCT_to_xy_daylight.exit ], [ 0x3FD5555560000000, %11 ], [ 0x3FDCA4FCA0000000, %12 ], [ %26, %23 ], [ %18, %15 ], [ 0x3FD61F7520000000, %8 ]
+  %101 = phi float [ %.pre29, %._crit_edge ], [ %94, %CCT_to_xy_blackbody.exit ], [ %52, %CCT_to_xy_daylight.exit ], [ %28, %23 ], [ %20, %15 ], [ 0x3FDA13A920000000, %12 ], [ 0x3FD5555560000000, %11 ], [ 0x3FD6F1AA00000000, %8 ]
+  %102 = phi float [ %.pre, %._crit_edge ], [ %.038.i, %CCT_to_xy_blackbody.exit ], [ %.0.i, %CCT_to_xy_daylight.exit ], [ %26, %23 ], [ %18, %15 ], [ 0x3FDCA4FCA0000000, %12 ], [ 0x3FD5555560000000, %11 ], [ 0x3FD61F7520000000, %8 ]
   %103 = fcmp reassoc nsz arcp contract afn une float %102, 0.000000e+00
   %104 = fcmp reassoc nsz arcp contract afn une float %101, 0.000000e+00
   %or.cond5 = select i1 %103, i1 %104, i1 false
@@ -1845,8 +1845,8 @@ convert_any_XYZ_to_LMS.exit313.i:                 ; preds = %475, %508
   br label %575
 
 .thread.i:                                        ; preds = %521, %513
-  %.sroa.18.0.i = phi nsz float [ %525, %521 ], [ %520, %513 ]
-  %.pn.in.i = phi float [ %522, %521 ], [ %514, %513 ]
+  %.sroa.18.0.i = phi nsz float [ %520, %513 ], [ %525, %521 ]
+  %.pn.in.i = phi float [ %514, %513 ], [ %522, %521 ]
   %.pn109.in.i = load float, ptr %24, align 16, !tbaa !12, !noalias !113
   %540 = fmul reassoc nsz arcp contract afn float %.pn109.in.i, 0x3FEFDFDF00000000
   %541 = fmul reassoc nsz arcp contract afn float %.pn.in.i, 0x3FF05490E0000000
@@ -2586,7 +2586,7 @@ convert_any_XYZ_to_LMS.exit343.i:                 ; preds = %842, %825, %856
   br label %893
 
 893:                                              ; preds = %889, %887, %883, %876, %871
-  %.0266.i = phi nsz float [ %874, %887 ], [ %874, %876 ], [ %886, %883 ], [ %892, %889 ], [ 0.000000e+00, %871 ]
+  %.0266.i = phi nsz float [ %874, %876 ], [ %886, %883 ], [ %892, %889 ], [ %874, %887 ], [ 0.000000e+00, %871 ]
   %894 = fmul reassoc nsz arcp contract afn float %.0266.i, %.0266.i
   %merged.sqrt276.i = fmul reassoc nsz arcp contract afn float %894, -2.500000e-01
   %895 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %merged.sqrt276.i)
@@ -2629,7 +2629,7 @@ convert_any_XYZ_to_LMS.exit343.i:                 ; preds = %842, %825, %856
   br label %918
 
 918:                                              ; preds = %914, %912, %908, %901, %896
-  %.0264.i = phi nsz float [ %899, %912 ], [ %899, %901 ], [ %911, %908 ], [ %917, %914 ], [ 0.000000e+00, %896 ]
+  %.0264.i = phi nsz float [ %899, %901 ], [ %911, %908 ], [ %917, %914 ], [ %899, %912 ], [ 0.000000e+00, %896 ]
   %919 = fmul reassoc nsz arcp contract afn float %.0264.i, %.0264.i
   %merged.sqrt275.i = fmul reassoc nsz arcp contract afn float %919, -2.500000e-01
   %920 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %merged.sqrt275.i)
@@ -2672,7 +2672,7 @@ convert_any_XYZ_to_LMS.exit343.i:                 ; preds = %842, %825, %856
   br label %943
 
 943:                                              ; preds = %939, %937, %933, %926, %921
-  %.0261.i = phi nsz float [ %924, %937 ], [ %924, %926 ], [ %936, %933 ], [ %942, %939 ], [ 0.000000e+00, %921 ]
+  %.0261.i = phi nsz float [ %924, %926 ], [ %936, %933 ], [ %942, %939 ], [ %924, %937 ], [ 0.000000e+00, %921 ]
   %944 = fmul reassoc nsz arcp contract afn float %.0261.i, %.0261.i
   %merged.sqrt.i = fmul reassoc nsz arcp contract afn float %944, -2.500000e-01
   %945 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %merged.sqrt.i)
@@ -4994,7 +4994,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1, float 
   br label %86
 
 86:                                               ; preds = %85, %15, %11, %22, %18, %6
-  %.0 = phi i32 [ 0, %6 ], [ %.2, %85 ], [ 0, %11 ], [ 0, %15 ], [ 0, %22 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %6 ], [ %.2, %85 ], [ 0, %15 ], [ 0, %11 ], [ 0, %22 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -5191,7 +5191,7 @@ _init_bounding_box.exit:                          ; preds = %24
   br label %85
 
 85:                                               ; preds = %.sink.split, %71, %63, %67, %20
-  %.2 = phi i32 [ 0, %67 ], [ 0, %20 ], [ 0, %71 ], [ 0, %63 ], [ 1, %.sink.split ]
+  %.2 = phi i32 [ 0, %20 ], [ 0, %67 ], [ 0, %63 ], [ 0, %71 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %86
@@ -5285,7 +5285,7 @@ define range(i32 0, 2) i32 @button_released(ptr noundef %0, float noundef %1, fl
   br label %53
 
 53:                                               ; preds = %52, %15, %11, %22, %18, %29, %26, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %18 ], [ 0, %11 ], [ %.2, %52 ], [ 0, %15 ], [ 0, %22 ], [ 0, %29 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %6 ], [ %.2, %52 ], [ 0, %15 ], [ 0, %11 ], [ 0, %22 ], [ 0, %18 ], [ 0, %29 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -5769,7 +5769,7 @@ dt_apply_transposed_color_matrix.exit.i:          ; preds = %263
   br label %318
 
 318:                                              ; preds = %308, %290, %281
-  %319 = phi reassoc nsz arcp contract afn float [ %317, %308 ], [ %307, %290 ], [ %287, %281 ]
+  %319 = phi reassoc nsz arcp contract afn float [ %307, %290 ], [ %317, %308 ], [ %287, %281 ]
   %320 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
   store float %319, ptr %320, align 4, !tbaa !12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6337,7 +6337,7 @@ convert_any_XYZ_to_LMS.exit:                      ; preds = %.preheader, %229, %
   br i1 %309, label %dt_introspection_get_enum_name.exit, label %.lr.ph
 
 dt_introspection_get_enum_name.exit:              ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %276, %295, %298
-  %.010.i = phi ptr [ null, %276 ], [ null, %295 ], [ null, %298 ], [ %301, %.lr.ph.i.preheader ], [ %306, %.lr.ph.i ], [ null, %.lr.ph ]
+  %.010.i = phi ptr [ null, %295 ], [ null, %276 ], [ null, %298 ], [ %301, %.lr.ph.i.preheader ], [ %306, %.lr.ph.i ], [ null, %.lr.ph ]
   %.not150 = icmp eq ptr %.010.i, null
   %..str.87 = select i1 %.not150, ptr @.str.87, ptr %.010.i
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.82, ptr noundef nonnull %277, ptr noundef nonnull %278, i32 noundef %280, double noundef %281, double noundef %282, double noundef %283, double noundef 1.000000e+00, double noundef %284, double noundef %286, double noundef %289, double noundef %292, ptr noundef nonnull %..str.87) #28
@@ -6751,7 +6751,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #3 {
   br label %57
 
 57:                                               ; preds = %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2288), %53 ], [ %., %55 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2200), %51 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2112), %49 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2024), %47 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1936), %45 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1848), %43 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1848), %43 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1936), %45 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2024), %47 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2112), %49 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2200), %51 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2288), %53 ], [ %., %55 ]
   ret ptr %.0
 }
 
@@ -11414,8 +11414,8 @@ CCT_to_xy_daylight.exit.i.i:                      ; preds = %126, %123, %116
   br label %CCT_to_xy_blackbody.exit.i.i
 
 CCT_to_xy_blackbody.exit.i.i:                     ; preds = %158, %156, %149, %CCT_to_xy_daylight.exit.i.i
-  %.08.i.i = phi nsz float [ %.0.i.i.i, %CCT_to_xy_daylight.exit.i.i ], [ %.038.i.i.i, %158 ], [ %.038.i.i.i, %149 ], [ %.038.i.i.i, %156 ]
-  %.0.i.i = phi nsz float [ %136, %CCT_to_xy_daylight.exit.i.i ], [ %164, %158 ], [ %155, %149 ], [ 0.000000e+00, %156 ]
+  %.08.i.i = phi nsz float [ %.0.i.i.i, %CCT_to_xy_daylight.exit.i.i ], [ %.038.i.i.i, %149 ], [ %.038.i.i.i, %158 ], [ %.038.i.i.i, %156 ]
+  %.0.i.i = phi nsz float [ %136, %CCT_to_xy_daylight.exit.i.i ], [ %155, %149 ], [ %164, %158 ], [ 0.000000e+00, %156 ]
   %165 = fadd reassoc nsz arcp contract afn float %.08.i.i, %.0.i.i
   %166 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %165
   %167 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.0.i.i
@@ -12198,7 +12198,7 @@ define internal void @_preview_pipe_finished_callback(ptr readnone captures(none
   br label %70
 
 70:                                               ; preds = %68, %66
-  %71 = phi i1 [ %.not94.i, %68 ], [ false, %66 ]
+  %71 = phi i1 [ false, %66 ], [ %.not94.i, %68 ]
   %or.cond5.i = select i1 %65, i1 %58, i1 false
   br i1 %or.cond5.i, label %72, label %77
 
@@ -13871,7 +13871,7 @@ sub_0:                                            ; preds = %82
   br label %111
 
 111:                                              ; preds = %108, %4, %2, %106, %102, %98, %95, %90, %84, %80, %76, %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %16, %12, %8
-  %.0 = phi ptr [ %0, %4 ], [ %spec.select, %108 ], [ %107, %106 ], [ %103, %102 ], [ %99, %98 ], [ %96, %95 ], [ %91, %90 ], [ %85, %84 ], [ %81, %80 ], [ %77, %76 ], [ %73, %72 ], [ %69, %68 ], [ %65, %64 ], [ %61, %60 ], [ %57, %56 ], [ %53, %52 ], [ %49, %48 ], [ %45, %44 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %0, %2 ]
+  %.0 = phi ptr [ %107, %106 ], [ %103, %102 ], [ %99, %98 ], [ %96, %95 ], [ %91, %90 ], [ %85, %84 ], [ %81, %80 ], [ %77, %76 ], [ %73, %72 ], [ %69, %68 ], [ %65, %64 ], [ %61, %60 ], [ %57, %56 ], [ %53, %52 ], [ %49, %48 ], [ %45, %44 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %0, %2 ], [ %0, %4 ], [ %spec.select, %108 ]
   ret ptr %.0
 }
 
@@ -15031,7 +15031,7 @@ dt_XYZ_to_Lab.exit:                               ; preds = %57
   br label %145
 
 145:                                              ; preds = %142, %dt_XYZ_to_Lab.exit, %135, %140
-  %.0127 = phi nsz float [ %spec.select, %142 ], [ %133, %135 ], [ %141, %140 ], [ 0.000000e+00, %dt_XYZ_to_Lab.exit ]
+  %.0127 = phi nsz float [ %133, %135 ], [ %141, %140 ], [ 0.000000e+00, %dt_XYZ_to_Lab.exit ], [ %spec.select, %142 ]
   %146 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %.0127)
   %147 = fmul reassoc nsz arcp contract afn float %110, %107
   %148 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %147)
@@ -16139,7 +16139,7 @@ convert_any_LMS_to_RGB.exit.i:                    ; preds = %87
   br label %143
 
 143:                                              ; preds = %133, %115, %106
-  %144 = phi reassoc nsz arcp contract afn float [ %142, %133 ], [ %132, %115 ], [ %112, %106 ]
+  %144 = phi reassoc nsz arcp contract afn float [ %132, %115 ], [ %142, %133 ], [ %112, %106 ]
   %145 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i
   store float %144, ptr %145, align 4, !tbaa !12
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1

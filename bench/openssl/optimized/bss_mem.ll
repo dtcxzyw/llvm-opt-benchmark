@@ -360,7 +360,7 @@ mem_read.exit.thread:                             ; preds = %29
   br label %mem_read.exit
 
 mem_read.exit:                                    ; preds = %.thread.i, %47
-  %.026.i = phi i32 [ %42, %.thread.i ], [ %46, %47 ]
+  %.026.i = phi i32 [ %46, %47 ], [ %42, %.thread.i ]
   %48 = icmp sgt i32 %.026.i, 0
   br i1 %48, label %49, label %mem_read.exit.thread35
 
@@ -592,7 +592,7 @@ mem_buf_sync.exit:                                ; preds = %.mem_buf_sync.exit_
   br label %99
 
 99:                                               ; preds = %48, %51, %mem_buf_free.exit, %89, %93, %96, %97, %98, %31, %34, %21, %55, %54, %mem_buf_sync.exit, %69, %40, %4, %36
-  %.0 = phi i64 [ -1, %36 ], [ 0, %98 ], [ 1, %34 ], [ 1, %31 ], [ 1, %21 ], [ 1, %97 ], [ %50, %48 ], [ 1, %51 ], [ %20, %55 ], [ %20, %54 ], [ 1, %mem_buf_free.exit ], [ 1, %mem_buf_sync.exit ], [ 1, %69 ], [ %92, %89 ], [ 1, %93 ], [ %19, %4 ], [ %20, %96 ], [ %2, %40 ]
+  %.0 = phi i64 [ -1, %36 ], [ 0, %98 ], [ 1, %34 ], [ 1, %31 ], [ 1, %21 ], [ %50, %48 ], [ 1, %51 ], [ %20, %55 ], [ %20, %54 ], [ 1, %mem_buf_free.exit ], [ 1, %mem_buf_sync.exit ], [ 1, %69 ], [ %92, %89 ], [ 1, %93 ], [ %20, %96 ], [ 1, %97 ], [ %2, %40 ], [ %19, %4 ]
   ret i64 %.0
 }
 
@@ -648,7 +648,7 @@ mem_buf_free.exit:                                ; preds = %18, %8, %3
   br label %21
 
 21:                                               ; preds = %1, %mem_buf_free.exit
-  %.0 = phi i32 [ 0, %1 ], [ 1, %mem_buf_free.exit ]
+  %.0 = phi i32 [ 1, %mem_buf_free.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -708,7 +708,7 @@ define internal fastcc range(i32 0, 2) i32 @mem_init(ptr noundef writeonly captu
   br label %20
 
 20:                                               ; preds = %2, %15, %14, %8
-  %.0 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 0, %14 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %14 ], [ 1, %15 ], [ 0, %2 ]
   ret i32 %.0
 }
 

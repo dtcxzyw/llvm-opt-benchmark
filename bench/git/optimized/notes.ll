@@ -3682,7 +3682,7 @@ _.exit12.sink.split:                              ; preds = %11
   br label %_.exit12
 
 _.exit12:                                         ; preds = %11, %_.exit12.sink.split
-  %.0.i14.sink = phi ptr [ %.str.47..str.138, %11 ], [ %15, %_.exit12.sink.split ]
+  %.0.i14.sink = phi ptr [ %15, %_.exit12.sink.split ], [ %.str.47..str.138, %11 ]
   %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef %.0.i14.sink, ptr noundef %0) #19
   %17 = and i32 %1, 1
   %.not9 = icmp eq i32 %17, 0

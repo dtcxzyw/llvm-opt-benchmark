@@ -269,7 +269,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit27: ; preds = %17
   br label %23
 
 .critedge23:                                      ; preds = %.critedge25, %15, %.critedge, %5, %13
-  %.020 = phi i32 [ %0, %13 ], [ 1, %.critedge ], [ 1, %5 ], [ 256, %15 ], [ 256, %.critedge25 ]
+  %.020 = phi i32 [ %0, %13 ], [ 1, %5 ], [ 1, %.critedge ], [ 256, %15 ], [ 256, %.critedge25 ]
   ret i32 %.020
 
 23:                                               ; preds = %21, %11
@@ -377,7 +377,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %9
   resume { ptr, i32 } %14
 
 .critedge26:                                      ; preds = %6, %4, %.critedge, %7
-  %.0 = phi i1 [ false, %.critedge ], [ %spec.select28, %6 ], [ false, %7 ], [ %spec.select, %4 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %.critedge ], [ %spec.select, %4 ], [ %spec.select28, %6 ]
   ret i1 %.0
 }
 
@@ -498,7 +498,7 @@ switch.lookup41:                                  ; preds = %16
   br label %.critedge29
 
 .critedge29:                                      ; preds = %switch.lookup41, %switch.lookup, %.critedge34, %26, %.critedge31, %18, %.critedge, %8
-  %.027 = phi i32 [ -1, %.critedge31 ], [ %switch.load43, %switch.lookup41 ], [ -1, %.critedge ], [ -1, %.critedge34 ], [ -1, %26 ], [ -1, %18 ], [ -1, %8 ], [ %switch.load, %switch.lookup ]
+  %.027 = phi i32 [ -1, %8 ], [ -1, %.critedge ], [ -1, %18 ], [ -1, %.critedge31 ], [ -1, %26 ], [ -1, %.critedge34 ], [ %switch.load, %switch.lookup ], [ %switch.load43, %switch.lookup41 ]
   ret i32 %.027
 
 36:                                               ; preds = %32, %24, %14
@@ -567,7 +567,7 @@ switch.lookup13:                                  ; preds = %6
   br label %.critedge12
 
 .critedge12:                                      ; preds = %switch.lookup13, %switch.lookup, %.critedge, %8
-  %.0 = phi i32 [ %switch.load15, %switch.lookup13 ], [ %switch.load, %switch.lookup ], [ 0, %.critedge ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %.critedge ], [ %switch.load, %switch.lookup ], [ %switch.load15, %switch.lookup13 ]
   ret i32 %.0
 }
 
@@ -630,7 +630,7 @@ switch.lookup:                                    ; preds = %4
   br label %8
 
 8:                                                ; preds = %4, %switch.lookup, %6
-  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch, %6 ], [ true, %4 ]
+  %.0 = phi i1 [ %switch, %6 ], [ %switch.masked, %switch.lookup ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -680,7 +680,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   resume { ptr, i32 } %15
 
 .critedge22:                                      ; preds = %6, %4, %.critedge, %8
-  %.0 = phi i1 [ false, %8 ], [ %spec.select23, %6 ], [ false, %.critedge ], [ %spec.select, %4 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %.critedge ], [ %spec.select, %4 ], [ %spec.select23, %6 ]
   ret i1 %.0
 }
 
@@ -796,7 +796,7 @@ switch.lookup42:                                  ; preds = %16
   br label %.critedge29
 
 .critedge29:                                      ; preds = %6, %switch.lookup42, %.critedge34, %26, %.critedge31, %18, %.critedge, %8
-  %.027 = phi i32 [ -1, %.critedge31 ], [ %switch.load, %switch.lookup42 ], [ -1, %.critedge ], [ -1, %.critedge34 ], [ -1, %26 ], [ -1, %18 ], [ -1, %8 ], [ %1, %6 ]
+  %.027 = phi i32 [ -1, %8 ], [ -1, %.critedge ], [ -1, %18 ], [ -1, %.critedge31 ], [ -1, %26 ], [ -1, %.critedge34 ], [ %switch.load, %switch.lookup42 ], [ %1, %6 ]
   ret i32 %.027
 
 35:                                               ; preds = %32, %24, %14
@@ -856,7 +856,7 @@ switch.lookup14:                                  ; preds = %6
   br label %.critedge12
 
 .critedge12:                                      ; preds = %4, %switch.lookup14, %.critedge, %8
-  %.0 = phi i32 [ %switch.load, %switch.lookup14 ], [ 1, %8 ], [ 1, %.critedge ], [ %1, %4 ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %.critedge ], [ %switch.load, %switch.lookup14 ], [ %1, %4 ]
   ret i32 %.0
 }
 
@@ -906,7 +906,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   resume { ptr, i32 } %15
 
 .critedge22:                                      ; preds = %6, %4, %.critedge, %8
-  %.0 = phi i1 [ false, %8 ], [ %spec.select23, %6 ], [ false, %.critedge ], [ %spec.select, %4 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %.critedge ], [ %spec.select, %4 ], [ %spec.select23, %6 ]
   ret i1 %.0
 }
 
@@ -1032,7 +1032,7 @@ switch.lookup43:                                  ; preds = %16
   br label %.critedge29
 
 .critedge29:                                      ; preds = %switch.lookup43, %switch.lookup, %.critedge34, %26, %.critedge31, %18, %.critedge, %8
-  %.027 = phi i32 [ -1, %.critedge31 ], [ %switch.load48, %switch.lookup43 ], [ -1, %.critedge ], [ -1, %.critedge34 ], [ -1, %26 ], [ -1, %18 ], [ -1, %8 ], [ %switch.load, %switch.lookup ]
+  %.027 = phi i32 [ -1, %8 ], [ -1, %.critedge ], [ -1, %18 ], [ -1, %.critedge31 ], [ -1, %26 ], [ -1, %.critedge34 ], [ %switch.load, %switch.lookup ], [ %switch.load48, %switch.lookup43 ]
   ret i32 %.027
 
 36:                                               ; preds = %32, %24, %14
@@ -1106,7 +1106,7 @@ switch.lookup16:                                  ; preds = %6
   br label %.critedge12
 
 .critedge12:                                      ; preds = %switch.lookup16, %switch.lookup, %.critedge, %8
-  %.0 = phi i32 [ %switch.load21, %switch.lookup16 ], [ %switch.load, %switch.lookup ], [ 1, %.critedge ], [ 1, %8 ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %.critedge ], [ %switch.load, %switch.lookup ], [ %switch.load21, %switch.lookup16 ]
   ret i32 %.0
 }
 
@@ -1154,7 +1154,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   resume { ptr, i32 } %15
 
 .critedge22:                                      ; preds = %6, %4, %.critedge, %8
-  %.0 = phi i1 [ false, %8 ], [ %7, %6 ], [ false, %.critedge ], [ %5, %4 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %.critedge ], [ %5, %4 ], [ %7, %6 ]
   ret i1 %.0
 }
 
@@ -1264,7 +1264,7 @@ switch.lookup:                                    ; preds = %6
   br label %.critedge29
 
 .critedge29:                                      ; preds = %switch.lookup, %16, %.critedge34, %26, %.critedge31, %18, %.critedge, %8
-  %.027 = phi i32 [ -1, %.critedge31 ], [ -1, %18 ], [ -1, %8 ], [ %1, %16 ], [ -1, %.critedge ], [ %switch.load, %switch.lookup ], [ -1, %.critedge34 ], [ -1, %26 ]
+  %.027 = phi i32 [ -1, %8 ], [ -1, %.critedge ], [ -1, %18 ], [ -1, %.critedge31 ], [ -1, %26 ], [ -1, %.critedge34 ], [ %1, %16 ], [ %switch.load, %switch.lookup ]
   ret i32 %.027
 
 35:                                               ; preds = %32, %24, %14
@@ -1316,7 +1316,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   resume { ptr, i32 } %15
 
 .critedge12:                                      ; preds = %6, %4, %.critedge, %8
-  %.0 = phi i32 [ %1, %4 ], [ 1, %8 ], [ 1, %.critedge ], [ %1, %6 ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %.critedge ], [ %1, %4 ], [ %1, %6 ]
   ret i32 %.0
 }
 
@@ -1359,7 +1359,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %6
   resume { ptr, i32 } %11
 
 .critedge10:                                      ; preds = %.critedge, %4, %1, %3
-  %.0 = phi i64 [ 8, %1 ], [ 9, %3 ], [ 0, %4 ], [ 0, %.critedge ]
+  %.0 = phi i64 [ 9, %3 ], [ 8, %1 ], [ 0, %4 ], [ 0, %.critedge ]
   ret i64 %.0
 }
 

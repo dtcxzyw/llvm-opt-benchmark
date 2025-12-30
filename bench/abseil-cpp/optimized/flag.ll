@@ -1336,7 +1336,7 @@ _ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit: ; preds = %2, %8
           to label %28 unwind label %51
 
 28:                                               ; preds = %.noexc, %.noexc5, %.noexc7
-  %29 = phi ptr [ %21, %.noexc5 ], [ %18, %.noexc ], [ %25, %.noexc7 ]
+  %29 = phi ptr [ %18, %.noexc ], [ %21, %.noexc5 ], [ %25, %.noexc7 ]
   %30 = load ptr, ptr %13, align 8, !tbaa !21, !noalias !65
   %31 = ptrtoint ptr %30 to i64
   store i64 %31, ptr %5, align 8, !tbaa !44, !alias.scope !65
@@ -1517,7 +1517,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %26, %.body, %.body12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %eh.lpad-body13, %.body12 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body13, %.body12 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit: ; preds = %16
@@ -2071,7 +2071,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %90
   ret void
 
 97:                                               ; preds = %86, %88, %64, %68, %66, %31, %33
-  %.pn12.pn = phi { ptr, i32 } [ %67, %66 ], [ %32, %31 ], [ %34, %33 ], [ %65, %64 ], [ %69, %68 ], [ %89, %88 ], [ %87, %86 ]
+  %.pn12.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %65, %64 ], [ %69, %68 ], [ %67, %66 ], [ %89, %88 ], [ %87, %86 ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN4absl9MutexLockD2Ev.exit25 unwind label %98
 
@@ -3285,7 +3285,7 @@ _ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit56: ; preds
   br label %97
 
 97:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit47, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit50, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit56, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit54, %40, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit52
-  %.1 = phi i1 [ true, %40 ], [ false, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit56 ], [ false, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit52 ], [ false, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit54 ], [ true, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit50 ], [ true, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit47 ], [ true, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit ], [ true, %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit ]
+  %.1 = phi i1 [ false, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit52 ], [ true, %40 ], [ false, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit54 ], [ false, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit56 ], [ true, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit50 ], [ true, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit47 ], [ true, %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit ], [ true, %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %98
 
@@ -3397,7 +3397,7 @@ _ZN4absl9MutexLockC2EPNS_5MutexE.exit:            ; preds = %18
           to label %38 unwind label %67
 
 38:                                               ; preds = %.noexc19, %.noexc21, %.noexc23
-  %39 = phi ptr [ %31, %.noexc21 ], [ %28, %.noexc19 ], [ %35, %.noexc23 ]
+  %39 = phi ptr [ %28, %.noexc19 ], [ %31, %.noexc21 ], [ %35, %.noexc23 ]
   %40 = load ptr, ptr %23, align 8, !tbaa !21, !noalias !113
   %41 = ptrtoint ptr %40 to i64
   store i64 %41, ptr %6, align 8, !tbaa !44, !alias.scope !113
@@ -3771,7 +3771,7 @@ _ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit: ; preds = %3, %11
           to label %31 unwind label %55
 
 31:                                               ; preds = %.noexc, %.noexc7, %.noexc9
-  %32 = phi ptr [ %24, %.noexc7 ], [ %21, %.noexc ], [ %28, %.noexc9 ]
+  %32 = phi ptr [ %21, %.noexc ], [ %24, %.noexc7 ], [ %28, %.noexc9 ]
   %33 = load ptr, ptr %16, align 8, !tbaa !21, !noalias !116
   %34 = ptrtoint ptr %33 to i64
   store i64 %34, ptr %7, align 8, !tbaa !44, !alias.scope !116

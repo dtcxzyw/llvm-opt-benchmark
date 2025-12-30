@@ -388,7 +388,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !12
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -1273,7 +1273,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_enc
   br label %.thread121
 
 .thread121:                                       ; preds = %86, %83, %.thread135, %.thread117, %115, %73, %55
-  %.1 = phi i32 [ 13, %55 ], [ %.4.ph, %.thread117 ], [ 3, %73 ], [ 13, %.thread135 ], [ %.10, %115 ], [ 3, %83 ], [ 3, %86 ]
+  %.1 = phi i32 [ 13, %55 ], [ 3, %73 ], [ %.10, %115 ], [ %.4.ph, %.thread117 ], [ 13, %.thread135 ], [ 3, %83 ], [ 3, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %116
 
@@ -1684,7 +1684,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
   br label %168
 
 168:                                              ; preds = %.thread189, %.thread185, %85, %167, %124, %93, %63
-  %.2137 = phi i32 [ %.5.ph, %.thread185 ], [ 13, %63 ], [ 3, %85 ], [ 3, %93 ], [ %.10.ph, %.thread189 ], [ 3, %124 ], [ %.11, %167 ]
+  %.2137 = phi i32 [ 13, %63 ], [ 3, %85 ], [ 3, %93 ], [ 3, %124 ], [ %.11, %167 ], [ %.5.ph, %.thread185 ], [ %.10.ph, %.thread189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %169
 
@@ -1953,7 +1953,7 @@ define internal fastcc noundef range(i32 0, 14) i32 @_ZL23aes_gcm_derive_aead_ke
   br label %20
 
 20:                                               ; preds = %5, %19, %18
-  %.0 = phi i32 [ 13, %18 ], [ 0, %19 ], [ 13, %5 ]
+  %.0 = phi i32 [ 0, %19 ], [ 13, %18 ], [ 13, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

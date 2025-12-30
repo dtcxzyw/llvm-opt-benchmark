@@ -1493,7 +1493,7 @@ define noundef ptr @_ZN5arrow7compute6detail17DispatchExactImplEPKNS0_8FunctionE
   br label %38
 
 38:                                               ; preds = %.noexc11, %.noexc9
-  %.0.i = phi ptr [ %spec.select.i, %.noexc11 ], [ %17, %.noexc9 ]
+  %.0.i = phi ptr [ %17, %.noexc9 ], [ %spec.select.i, %.noexc11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %39 = load ptr, ptr %7, align 8, !tbaa !121
   %.not.i.i.i = icmp eq ptr %39, null
@@ -1609,7 +1609,7 @@ _ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EED2Ev.exit13: ; preds = %46,
   br label %79
 
 79:                                               ; preds = %.noexc29, %.noexc27
-  %.0.i25 = phi ptr [ %spec.select.i24, %.noexc29 ], [ %58, %.noexc27 ]
+  %.0.i25 = phi ptr [ %58, %.noexc27 ], [ %spec.select.i24, %.noexc29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %80 = load ptr, ptr %8, align 8, !tbaa !128
   %.not.i.i.i30 = icmp eq ptr %80, null
@@ -1725,7 +1725,7 @@ _ZNSt6vectorIPKN5arrow7compute12VectorKernelESaIS4_EED2Ev.exit32: ; preds = %87,
   br label %120
 
 120:                                              ; preds = %.noexc48, %.noexc46
-  %.0.i44 = phi ptr [ %spec.select.i43, %.noexc48 ], [ %99, %.noexc46 ]
+  %.0.i44 = phi ptr [ %99, %.noexc46 ], [ %spec.select.i43, %.noexc48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %121 = load ptr, ptr %9, align 8, !tbaa !135
   %.not.i.i.i49 = icmp eq ptr %121, null
@@ -1841,7 +1841,7 @@ _ZNSt6vectorIPKN5arrow7compute21ScalarAggregateKernelESaIS4_EED2Ev.exit51: ; pre
   br label %161
 
 161:                                              ; preds = %.noexc67, %.noexc65
-  %.0.i63 = phi ptr [ %spec.select.i62, %.noexc67 ], [ %140, %.noexc65 ]
+  %.0.i63 = phi ptr [ %140, %.noexc65 ], [ %spec.select.i62, %.noexc67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %162 = load ptr, ptr %10, align 8, !tbaa !142
   %.not.i.i.i68 = icmp eq ptr %162, null
@@ -12563,7 +12563,7 @@ _ZNSt12__shared_ptrIN5arrow7compute15KernelSignatureELN9__gnu_cxx12_Lock_policyE
   unreachable
 
 .body:                                            ; preds = %68, %.body.i, %28, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %41, %68 ], [ %26, %28 ], [ %41, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %26, %28 ], [ %26, %25 ], [ %41, %.body.i ], [ %41, %68 ]
   call void @_ZNSt12__shared_ptrIN5arrow7compute15KernelSignatureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   resume { ptr, i32 } %.pn
 }

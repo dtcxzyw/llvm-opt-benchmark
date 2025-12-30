@@ -47,7 +47,7 @@ define internal fastcc ptr @parse_public_key(ptr noundef %0, i32 noundef range(i
   br label %parse_integer_buggy.exit
 
 parse_integer_buggy.exit:                         ; preds = %13, %15
-  %.0.i = phi i32 [ %16, %15 ], [ %14, %13 ]
+  %.0.i = phi i32 [ %14, %13 ], [ %16, %15 ]
   %.not11 = icmp eq i32 %.0.i, 0
   br i1 %.not11, label %parse_integer_buggy.exit.thread, label %17
 
@@ -440,9 +440,9 @@ parse_integer.exit73:                             ; preds = %30
   %.not64.not = icmp eq i32 %84, 0
   br i1 %.not64.not, label %85, label %.preheader, !llvm.loop !30
 
-.thread85:                                        ; preds = %71, %78, %55, %60, %61, %66, %77
-  %.246.ph = phi ptr [ null, %55 ], [ %63, %66 ], [ %63, %61 ], [ null, %60 ], [ %63, %77 ], [ %63, %78 ], [ %63, %71 ]
-  %.2.ph = phi ptr [ null, %55 ], [ %62, %66 ], [ %62, %61 ], [ null, %60 ], [ %62, %77 ], [ %62, %78 ], [ %62, %71 ]
+.thread85:                                        ; preds = %71, %78, %55, %60, %66, %61, %77
+  %.246.ph = phi ptr [ %63, %61 ], [ %63, %66 ], [ null, %60 ], [ null, %55 ], [ %63, %77 ], [ %63, %78 ], [ %63, %71 ]
+  %.2.ph = phi ptr [ %62, %61 ], [ %62, %66 ], [ null, %60 ], [ null, %55 ], [ %62, %77 ], [ %62, %78 ], [ %62, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %parse_integer.exit.thread
 
@@ -451,8 +451,8 @@ parse_integer.exit73:                             ; preds = %30
   br label %parse_integer.exit.thread
 
 86:                                               ; preds = %.thread89, %47
-  %.145 = phi ptr [ %63, %.thread89 ], [ null, %47 ]
-  %.143 = phi ptr [ %62, %.thread89 ], [ null, %47 ]
+  %.145 = phi ptr [ null, %47 ], [ %63, %.thread89 ]
+  %.143 = phi ptr [ null, %47 ], [ %62, %.thread89 ]
   %87 = call i64 @CBS_len(ptr noundef nonnull %2) #5
   %.not65 = icmp eq i64 %87, 0
   br i1 %.not65, label %89, label %88
@@ -827,7 +827,7 @@ marshal_integer.exit65:                           ; preds = %70
   br label %82
 
 82:                                               ; preds = %.critedge, %79, %.critedge45, %81, %52
-  %.0 = phi i32 [ 0, %.critedge45 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %52 ], [ 1, %79 ]
+  %.0 = phi i32 [ 0, %81 ], [ 0, %.critedge ], [ 0, %52 ], [ 0, %.critedge45 ], [ 1, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

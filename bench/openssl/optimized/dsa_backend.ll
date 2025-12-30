@@ -203,7 +203,7 @@ dsa_bn_dup_check.exit.thread:                     ; preds = %38, %30, %18, %dsa_
   br label %ossl_dsa_is_foreign.exit.thread
 
 ossl_dsa_is_foreign.exit.thread:                  ; preds = %2, %dsa_bn_dup_check.exit31, %7, %ossl_dsa_is_foreign.exit, %dsa_bn_dup_check.exit.thread
-  %.0 = phi ptr [ null, %7 ], [ null, %ossl_dsa_is_foreign.exit ], [ null, %dsa_bn_dup_check.exit.thread ], [ %10, %dsa_bn_dup_check.exit31 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %dsa_bn_dup_check.exit.thread ], [ null, %ossl_dsa_is_foreign.exit ], [ null, %7 ], [ %10, %dsa_bn_dup_check.exit31 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -296,12 +296,12 @@ define ptr @ossl_dsa_key_from_pkcs8(ptr noundef %0, ptr noundef readnone capture
   br i1 %.not40, label %48, label %49
 
 48:                                               ; preds = %11, %17, %23, %46, %42, %39, %36, %31, %34
-  %.sink45 = phi i32 [ 177, %46 ], [ 173, %42 ], [ 165, %39 ], [ 161, %36 ], [ 156, %31 ], [ 156, %34 ], [ 184, %23 ], [ 184, %17 ], [ 184, %11 ]
-  %.sink = phi i32 [ 786691, %46 ], [ 109, %42 ], [ 524291, %39 ], [ 524291, %36 ], [ 109, %31 ], [ 109, %34 ], [ 104, %23 ], [ 104, %17 ], [ 104, %11 ]
-  %.028 = phi ptr [ %37, %46 ], [ %37, %42 ], [ %37, %39 ], [ null, %36 ], [ null, %31 ], [ null, %34 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
-  %.027 = phi ptr [ %32, %46 ], [ %32, %42 ], [ %32, %39 ], [ %32, %36 ], [ %32, %31 ], [ %32, %34 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
-  %.025 = phi ptr [ %40, %46 ], [ %40, %42 ], [ null, %39 ], [ null, %36 ], [ null, %31 ], [ null, %34 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
-  %.1 = phi ptr [ %29, %46 ], [ %29, %42 ], [ %29, %39 ], [ %29, %36 ], [ %29, %31 ], [ %29, %34 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
+  %.sink45 = phi i32 [ 156, %34 ], [ 156, %31 ], [ 161, %36 ], [ 165, %39 ], [ 173, %42 ], [ 177, %46 ], [ 184, %23 ], [ 184, %17 ], [ 184, %11 ]
+  %.sink = phi i32 [ 109, %34 ], [ 109, %31 ], [ 524291, %36 ], [ 524291, %39 ], [ 109, %42 ], [ 786691, %46 ], [ 104, %23 ], [ 104, %17 ], [ 104, %11 ]
+  %.028 = phi ptr [ null, %34 ], [ null, %31 ], [ null, %36 ], [ %37, %39 ], [ %37, %42 ], [ %37, %46 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
+  %.027 = phi ptr [ %32, %34 ], [ %32, %31 ], [ %32, %36 ], [ %32, %39 ], [ %32, %42 ], [ %32, %46 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
+  %.025 = phi ptr [ null, %34 ], [ null, %31 ], [ null, %36 ], [ null, %39 ], [ %40, %42 ], [ %40, %46 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
+  %.1 = phi ptr [ %29, %34 ], [ %29, %31 ], [ %29, %36 ], [ %29, %39 ], [ %29, %42 ], [ %29, %46 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink45, ptr noundef nonnull @__func__.ossl_dsa_key_from_pkcs8) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink, ptr noundef null) #3

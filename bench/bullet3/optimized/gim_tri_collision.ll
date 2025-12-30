@@ -681,7 +681,7 @@ _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit146:
   br label %409
 
 409:                                              ; preds = %406, %351, %304, %267, %247, %138, %118
-  %.070 = phi i1 [ false, %118 ], [ false, %138 ], [ false, %267 ], [ false, %247 ], [ false, %304 ], [ %408, %406 ], [ false, %351 ]
+  %.070 = phi i1 [ false, %118 ], [ false, %138 ], [ false, %247 ], [ false, %267 ], [ false, %304 ], [ false, %351 ], [ %408, %406 ]
   ret i1 %.070
 }
 

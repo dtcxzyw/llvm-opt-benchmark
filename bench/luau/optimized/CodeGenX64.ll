@@ -593,7 +593,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit174.i: ; preds = %
   br label %207
 
 199:                                              ; preds = %169, %162, %160, %158, %156, %154, %152, %150, %132, %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit174.i, %109, %107, %.loopexit.split-lp.i, %.loopexit461.i, %83, %45
-  %.pn166.pn.i = phi { ptr, i32 } [ %133, %132 ], [ %46, %45 ], [ %108, %107 ], [ %170, %169 ], [ %110, %109 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ %112, %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit174.i ], [ %84, %83 ], [ %lpad.loopexit.i, %.loopexit461.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn166.pn.i = phi { ptr, i32 } [ %108, %107 ], [ %46, %45 ], [ %170, %169 ], [ %110, %109 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ %112, %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit174.i ], [ %133, %132 ], [ %84, %83 ], [ %lpad.loopexit.i, %.loopexit461.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %200 = load ptr, ptr %2, align 8, !tbaa !47, !noalias !11
   %.not.i.i.i195.i = icmp eq ptr %200, null
   br i1 %.not.i.i.i195.i, label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit196.i, label %201

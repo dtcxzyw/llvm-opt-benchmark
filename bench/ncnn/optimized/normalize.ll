@@ -771,7 +771,7 @@ _ZN4ncnn3MatD2Ev.exit50:                          ; preds = %167, %_ZNK4ncnn3Mat
   br label %182
 
 182:                                              ; preds = %118, %_ZN4ncnn3MatD2Ev.exit50, %115, %_ZN4ncnn3MatD2Ev.exit
-  %.1 = phi i32 [ %.034, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %115 ], [ %.2, %_ZN4ncnn3MatD2Ev.exit50 ], [ 0, %118 ]
+  %.1 = phi i32 [ %.034, %_ZN4ncnn3MatD2Ev.exit ], [ %.2, %_ZN4ncnn3MatD2Ev.exit50 ], [ 0, %115 ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1

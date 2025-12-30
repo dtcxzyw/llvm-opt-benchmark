@@ -274,8 +274,8 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br label %98
 
 98:                                               ; preds = %.thread, %94, %96
-  %.144111 = phi ptr [ %.144112, %96 ], [ %.144113, %.thread ], [ %.144112, %94 ]
-  %.040 = phi i16 [ 1, %96 ], [ 0, %.thread ], [ 1, %94 ]
+  %.144111 = phi ptr [ %.144112, %94 ], [ %.144112, %96 ], [ %.144113, %.thread ]
+  %.040 = phi i16 [ 1, %94 ], [ 1, %96 ], [ 0, %.thread ]
   %.not62 = icmp eq ptr %.144111, null
   br i1 %.not62, label %.thread66, label %.thread72
 
@@ -291,7 +291,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br label %.thread66
 
 .thread66:                                        ; preds = %18, %6, %.thread72, %98
-  %.04070 = phi i16 [ %.040, %98 ], [ %.04077, %.thread72 ], [ -1, %6 ], [ -1, %18 ]
+  %.04070 = phi i16 [ %.04077, %.thread72 ], [ %.040, %98 ], [ -1, %6 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i16 %.04070
@@ -466,7 +466,7 @@ define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %55, %17, %12, %8
-  %.0 = phi i32 [ 0, %8 ], [ %., %55 ], [ 0, %17 ], [ 0, %12 ], [ 0, %.backedge ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %12 ], [ 0, %17 ], [ %., %55 ], [ 0, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -703,8 +703,8 @@ sub_0:                                            ; preds = %15
   br label %61
 
 61:                                               ; preds = %57, %53, %.critedge, %45
-  %.062 = phi i32 [ %52, %.critedge ], [ %48, %45 ], [ 0, %57 ], [ 0, %53 ]
-  %.060 = phi i32 [ 2, %.critedge ], [ 3, %45 ], [ %., %57 ], [ 1, %53 ]
+  %.062 = phi i32 [ %52, %.critedge ], [ %48, %45 ], [ 0, %53 ], [ 0, %57 ]
+  %.060 = phi i32 [ 2, %.critedge ], [ 3, %45 ], [ 1, %53 ], [ %., %57 ]
   %62 = load ptr, ptr @clamdopts, align 8, !tbaa !16
   %63 = tail call ptr @optget(ptr noundef %62, ptr noundef nonnull @.str.25) #15
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -850,7 +850,7 @@ sub_0109:                                         ; preds = %sub_0109.lr.ph, %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %125, %.thread103, %131
-  %.267 = phi i32 [ %.065.ph, %.thread103 ], [ %132, %131 ], [ %.368.ph116, %125 ], [ %129, %.outer ]
+  %.267 = phi i32 [ %132, %131 ], [ %.065.ph, %.thread103 ], [ %.368.ph116, %125 ], [ %129, %.outer ]
   %.267.fr = freeze i32 %.267
   %.not94 = icmp eq i32 %.267.fr, 0
   %spec.select = select i1 %.not94, i32 0, i32 2

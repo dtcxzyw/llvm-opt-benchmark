@@ -280,7 +280,7 @@ define internal i32 @ssl3_cipher(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %83
 
 83:                                               ; preds = %74, %.critedge83, %64, %43, %45, %17, %10, %14, %6, %75, %73
-  %.0 = phi i32 [ 0, %17 ], [ 0, %6 ], [ 0, %10 ], [ 0, %43 ], [ 0, %64 ], [ 0, %73 ], [ %82, %75 ], [ 0, %14 ], [ 0, %45 ], [ 1, %.critedge83 ], [ 1, %74 ]
+  %.0 = phi i32 [ 0, %64 ], [ 0, %73 ], [ %82, %75 ], [ 0, %6 ], [ 0, %14 ], [ 0, %10 ], [ 0, %17 ], [ 0, %45 ], [ 0, %43 ], [ 1, %.critedge83 ], [ 1, %74 ]
   ret i32 %.0
 }
 
@@ -359,7 +359,7 @@ define internal range(i32 0, 2) i32 @ssl3_mac(ptr noundef %0, ptr noundef readon
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %51 = tail call ptr @EVP_MD_CTX_new() #5
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %106, label %53
+  br i1 %52, label %.critedge, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -440,29 +440,29 @@ define internal range(i32 0, 2) i32 @ssl3_mac(ptr noundef %0, ptr noundef readon
 102:                                              ; preds = %99
   %103 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %51, ptr noundef nonnull %2, ptr noundef nonnull %8) #5
   %104 = icmp slt i32 %103, 1
-  br i1 %104, label %105, label %.critedge
+  br i1 %104, label %105, label %106
 
 105:                                              ; preds = %102, %99, %96, %93, %90, %87, %81, %78, %75, %72, %69, %66, %53
   call void @EVP_MD_CTX_free(ptr noundef nonnull %51) #5
-  br label %106
+  br label %.critedge
 
-.critedge:                                        ; preds = %102
+106:                                              ; preds = %102
   call void @EVP_MD_CTX_free(ptr noundef nonnull %51) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %107
 
-106:                                              ; preds = %50, %105
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %109
-
-107:                                              ; preds = %.critedge, %27
+107:                                              ; preds = %106, %27
   %108 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %0) #5
   %.not76 = icmp ne i32 %108, 0
   %. = zext i1 %.not76 to i32
   br label %109
 
-109:                                              ; preds = %107, %106, %4, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %4 ], [ %., %107 ], [ 0, %106 ]
+.critedge:                                        ; preds = %50, %105
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %109
+
+109:                                              ; preds = %107, %.critedge, %4, %27
+  %.0 = phi i32 [ 0, %27 ], [ 0, %4 ], [ 0, %.critedge ], [ %., %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

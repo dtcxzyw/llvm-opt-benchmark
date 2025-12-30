@@ -418,8 +418,8 @@ define internal i32 @overlay_vaapi_config_output(ptr noundef initializes((96, 10
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 16, ptr noundef nonnull @.str.22) #7
   br label %overlay_vaapi_build_filter_params.exit.thread
 
-overlay_vaapi_build_filter_params.exit.thread:    ; preds = %30, %35, %38
-  %.0.i.ph = phi i32 [ -22, %38 ], [ -22, %35 ], [ -5, %30 ]
+overlay_vaapi_build_filter_params.exit.thread:    ; preds = %30, %38, %35
+  %.0.i.ph = phi i32 [ -22, %35 ], [ -22, %38 ], [ -5, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
@@ -440,7 +440,7 @@ overlay_vaapi_build_filter_params.exit.thread:    ; preds = %30, %35, %38
   br label %48
 
 48:                                               ; preds = %overlay_vaapi_build_filter_params.exit.thread, %39, %1, %43
-  %.0 = phi i32 [ %47, %43 ], [ %20, %1 ], [ %.0.i.ph, %overlay_vaapi_build_filter_params.exit.thread ], [ %41, %39 ]
+  %.0 = phi i32 [ %47, %43 ], [ %20, %1 ], [ %41, %39 ], [ %.0.i.ph, %overlay_vaapi_build_filter_params.exit.thread ]
   ret i32 %.0
 }
 
@@ -673,7 +673,7 @@ define internal i32 @overlay_vaapi_blend(ptr noundef %0) #0 {
   br label %140
 
 140:                                              ; preds = %21, %18, %1, %139, %130
-  %.0 = phi i32 [ %138, %130 ], [ %16, %1 ], [ %19, %18 ], [ %.037, %139 ], [ -22, %21 ]
+  %.0 = phi i32 [ %.037, %139 ], [ %138, %130 ], [ %16, %1 ], [ %19, %18 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

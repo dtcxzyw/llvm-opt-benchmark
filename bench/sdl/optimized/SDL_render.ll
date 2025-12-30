@@ -635,7 +635,7 @@ define hidden zeroext i1 @SDL_CreateWindowAndRenderer_REAL(ptr noundef %0, i32 n
   br label %28
 
 28:                                               ; preds = %24, %25, %22, %16, %11, %8
-  %.0 = phi i1 [ %9, %8 ], [ false, %22 ], [ false, %16 ], [ %12, %11 ], [ true, %25 ], [ true, %24 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %16 ], [ %12, %11 ], [ %9, %8 ], [ true, %25 ], [ true, %24 ]
   ret i1 %.0
 }
 
@@ -2526,7 +2526,7 @@ switch.lookup:                                    ; preds = %95
   br label %98
 
 98:                                               ; preds = %switch.lookup, %91, %75, %95
-  %.shrunk = phi i1 [ %switch.masked, %switch.lookup ], [ false, %95 ], [ false, %75 ], [ %switch.selectcmp, %91 ]
+  %.shrunk = phi i1 [ false, %95 ], [ false, %75 ], [ %switch.selectcmp, %91 ], [ %switch.masked, %switch.lookup ]
   %99 = zext i1 %.shrunk to i32
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store i32 %99, ptr %100, align 8
@@ -2685,7 +2685,7 @@ IsSupportedFormat.exit279:                        ; preds = %172
   br label %191
 
 191:                                              ; preds = %186, %182
-  %.sink.shrunk = phi i64 [ %190, %186 ], [ 570426566, %182 ]
+  %.sink.shrunk = phi i64 [ 570426566, %182 ], [ %190, %186 ]
   %192 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %183, ptr noundef nonnull @.str.40, i64 noundef %.sink.shrunk) #15
   %193 = zext i32 %.0217 to i64
   %194 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %183, ptr noundef nonnull @.str.31, i64 noundef %193) #15
@@ -2793,7 +2793,7 @@ IsSupportedFormat.exit279:                        ; preds = %172
   br label %switch.edge
 
 switch.edge:                                      ; preds = %239, %240, %241, %240, %240, %240
-  %242 = phi i32 [ 2, %240 ], [ 2, %240 ], [ 1, %241 ], [ 2, %240 ], [ 2, %240 ], [ %27, %239 ]
+  %242 = phi i32 [ 2, %240 ], [ 1, %241 ], [ 2, %240 ], [ 2, %240 ], [ 2, %240 ], [ %27, %239 ]
   %243 = mul i32 %242, %8
   %244 = add i32 %243, 3
   %245 = and i32 %244, -4
@@ -2839,8 +2839,8 @@ switch.edge:                                      ; preds = %239, %240, %241, %2
   %275 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %254, ptr noundef nonnull @.str.50, float noundef %272) #15
   br label %.critedge268
 
-.critedge268:                                     ; preds = %70, %179, %72, %274, %253, %252, %236, %207, %48, %.loopexit, %29, %18, %12
-  %.0 = phi ptr [ null, %18 ], [ null, %29 ], [ null, %48 ], [ null, %12 ], [ null, %.loopexit ], [ null, %70 ], [ null, %72 ], [ %74, %253 ], [ null, %179 ], [ %74, %274 ], [ null, %252 ], [ null, %236 ], [ null, %207 ]
+.critedge268:                                     ; preds = %70, %179, %72, %274, %253, %207, %252, %236, %48, %.loopexit, %29, %18, %12
+  %.0 = phi ptr [ null, %18 ], [ null, %29 ], [ null, %48 ], [ null, %.loopexit ], [ null, %12 ], [ null, %70 ], [ null, %179 ], [ null, %72 ], [ %74, %274 ], [ %74, %253 ], [ null, %207 ], [ null, %252 ], [ null, %236 ]
   ret ptr %.0
 }
 
@@ -3048,7 +3048,7 @@ switch.lookup:                                    ; preds = %62
   br label %65
 
 65:                                               ; preds = %switch.lookup, %58, %62
-  %.shrunk = phi i1 [ %switch.masked, %switch.lookup ], [ false, %62 ], [ %switch.selectcmp, %58 ]
+  %.shrunk = phi i1 [ false, %62 ], [ %switch.selectcmp, %58 ], [ %switch.masked, %switch.lookup ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %67 = load i32, ptr %66, align 8
   %.not183235 = icmp sgt i32 %67, 0
@@ -3099,7 +3099,7 @@ switch.lookup330:                                 ; preds = %80
   br label %83
 
 83:                                               ; preds = %switch.lookup330, %76, %80
-  %.shrunk315 = phi i1 [ %switch.masked334, %switch.lookup330 ], [ false, %80 ], [ %switch.selectcmp314, %76 ]
+  %.shrunk315 = phi i1 [ false, %80 ], [ %switch.selectcmp314, %76 ], [ %switch.masked334, %switch.lookup330 ]
   %84 = xor i1 %.shrunk315, %.shrunk
   br i1 %84, label %85, label %.thread214
 
@@ -3115,7 +3115,7 @@ switch.lookup330:                                 ; preds = %80
   br label %.thread214
 
 .thread214:                                       ; preds = %28, %83, %42, %51, %12, %17, %.loopexit
-  %.0 = phi i32 [ 376840196, %17 ], [ 842094158, %12 ], [ %88, %.loopexit ], [ %72, %83 ], [ %53, %51 ], [ %44, %42 ], [ %1, %28 ]
+  %.0 = phi i32 [ %88, %.loopexit ], [ 376840196, %17 ], [ 842094158, %12 ], [ %53, %51 ], [ %44, %42 ], [ %72, %83 ], [ %1, %28 ]
   ret i32 %.0
 }
 
@@ -3431,7 +3431,7 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
   br i1 %or.cond288, label %.loopexit.thread, label %.thread335
 
 .loopexit.thread:                                 ; preds = %72, %67, %.preheader350, %.preheader348, %88, %.loopexit
-  %102 = phi i32 [ %90, %.loopexit ], [ 370546692, %67 ], [ 370546692, %.preheader348 ], [ 0, %88 ], [ 374740996, %.preheader350 ], [ 374740996, %72 ]
+  %102 = phi i32 [ %90, %.loopexit ], [ 374740996, %.preheader350 ], [ 370546692, %.preheader348 ], [ 0, %88 ], [ 370546692, %67 ], [ 374740996, %72 ]
   %103 = and i32 %102, 252641280
   %or.cond290 = icmp eq i32 %103, 101122048
   %104 = and i32 %102, 234881024
@@ -3516,7 +3516,7 @@ switch.lookup462:                                 ; preds = %131
   br label %134
 
 134:                                              ; preds = %switch.lookup462, %127, %131
-  %.shrunk = phi i1 [ %switch.masked, %switch.lookup462 ], [ false, %131 ], [ %switch.selectcmp, %127 ]
+  %.shrunk = phi i1 [ false, %131 ], [ %switch.selectcmp, %127 ], [ %switch.masked, %switch.lookup462 ]
   %135 = xor i1 %.shrunk, %.1
   br i1 %135, label %136, label %.thread338
 
@@ -3526,7 +3526,7 @@ switch.lookup462:                                 ; preds = %131
   br i1 %exitcond402.not, label %.thread338, label %121, !llvm.loop !25
 
 .thread338:                                       ; preds = %73, %68, %98, %111, %136, %134, %.thread335, %88
-  %.3204 = phi i32 [ %123, %134 ], [ 372645892, %68 ], [ %113, %111 ], [ %100, %98 ], [ %.pre, %88 ], [ %117, %.thread335 ], [ %117, %136 ], [ 376840196, %73 ]
+  %.3204 = phi i32 [ %.pre, %88 ], [ %117, %.thread335 ], [ %117, %136 ], [ %123, %134 ], [ %113, %111 ], [ %100, %98 ], [ 372645892, %68 ], [ 376840196, %73 ]
   %137 = call i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef %1) #15
   %138 = icmp eq i32 %137, 301991168
   %139 = and i32 %137, 992
@@ -3546,7 +3546,7 @@ switch.lookup462:                                 ; preds = %131
   br label %145
 
 145:                                              ; preds = %141, %143, %.thread338
-  %.0 = phi i32 [ 301991168, %141 ], [ %spec.select321, %143 ], [ %137, %.thread338 ]
+  %.0 = phi i32 [ %137, %.thread338 ], [ %spec.select321, %143 ], [ 301991168, %141 ]
   %146 = call i32 @SDL_CreateProperties_REAL() #15
   %147 = zext i32 %.0 to i64
   %148 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %146, ptr noundef nonnull @.str.40, i64 noundef %147) #15
@@ -3631,7 +3631,7 @@ SDL_GetTextureProperties_REAL.exit.thread3.i:     ; preds = %SDL_GetTexturePrope
   br label %191
 
 191:                                              ; preds = %189, %187, %182
-  %.080.i = phi i32 [ 301991168, %187 ], [ %spec.select.i, %189 ], [ %183, %182 ]
+  %.080.i = phi i32 [ %183, %182 ], [ %spec.select.i, %189 ], [ 301991168, %187 ]
   %192 = load i32, ptr %24, align 4
   %193 = icmp eq i32 %192, %179
   %194 = icmp eq i32 %.080.i, %183
@@ -3817,7 +3817,7 @@ SDL_UpdateTextureFromSurface.exit:                ; preds = %IsSupportedBlendMod
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_DestroyTexture_REAL.exit
 
-272:                                              ; preds = %SDL_GetTextureProperties_REAL.exit.thread.i, %SDL_GetTextureProperties_REAL.exit.thread3.i, %223, %SDL_GetTextureProperties_REAL.exit.i, %177
+272:                                              ; preds = %SDL_GetTextureProperties_REAL.exit.i, %SDL_GetTextureProperties_REAL.exit.thread3.i, %177, %223, %SDL_GetTextureProperties_REAL.exit.thread.i
   %273 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %167, i32 noundef 3) #15
   br i1 %273, label %276, label %274
 
@@ -3838,7 +3838,7 @@ SDL_UpdateTextureFromSurface.exit:                ; preds = %IsSupportedBlendMod
   br label %SDL_DestroyTexture_REAL.exit
 
 SDL_DestroyTexture_REAL.exit:                     ; preds = %281, %276, %274, %SDL_UpdateTextureFromSurface.exit, %153, %21, %17, %11
-  %.0196 = phi ptr [ null, %17 ], [ null, %153 ], [ %167, %SDL_UpdateTextureFromSurface.exit ], [ null, %11 ], [ null, %21 ], [ null, %274 ], [ null, %276 ], [ null, %281 ]
+  %.0196 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %11 ], [ null, %153 ], [ %167, %SDL_UpdateTextureFromSurface.exit ], [ null, %274 ], [ null, %276 ], [ null, %281 ]
   ret ptr %.0196
 }
 
@@ -4278,7 +4278,7 @@ define hidden noundef zeroext i1 @SDL_GetTextureAlphaModFloat_REAL(ptr noundef %
   br label %11
 
 11:                                               ; preds = %3, %8, %6
-  %12 = phi i1 [ false, %6 ], [ true, %8 ], [ true, %3 ]
+  %12 = phi i1 [ true, %8 ], [ false, %6 ], [ true, %3 ]
   ret i1 %12
 }
 
@@ -4382,7 +4382,7 @@ define hidden noundef zeroext i1 @SDL_GetTextureBlendMode_REAL(ptr noundef %0, p
   br label %11
 
 11:                                               ; preds = %3, %8, %6
-  %12 = phi i1 [ false, %6 ], [ true, %8 ], [ true, %3 ]
+  %12 = phi i1 [ true, %8 ], [ false, %6 ], [ true, %3 ]
   ret i1 %12
 }
 
@@ -4446,7 +4446,7 @@ define hidden noundef zeroext i1 @SDL_GetTextureScaleMode_REAL(ptr noundef %0, p
   br label %11
 
 11:                                               ; preds = %3, %8, %6
-  %12 = phi i1 [ false, %6 ], [ true, %8 ], [ true, %3 ]
+  %12 = phi i1 [ true, %8 ], [ false, %6 ], [ true, %3 ]
   ret i1 %12
 }
 
@@ -4585,7 +4585,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   br label %switch.edge.i
 
 switch.edge.i:                                    ; preds = %63, %62, %61, %61, %61, %61
-  %65 = phi i32 [ %64, %63 ], [ 2, %61 ], [ 2, %61 ], [ 2, %61 ], [ 1, %62 ], [ 2, %61 ]
+  %65 = phi i32 [ %64, %63 ], [ 2, %61 ], [ 1, %62 ], [ 2, %61 ], [ 2, %61 ], [ 2, %61 ]
   %66 = mul i32 %65, %42
   %67 = add i32 %66, 3
   %68 = and i32 %67, -4
@@ -4616,7 +4616,7 @@ switch.edge.i:                                    ; preds = %63, %62, %61, %61, 
   br label %SDL_UpdateTextureYUV.exit
 
 SDL_UpdateTextureYUV.exit:                        ; preds = %38, %51, %switch.edge.i, %72, %74, %.critedge.i
-  %.0.i = phi i1 [ false, %38 ], [ false, %72 ], [ false, %.critedge.i ], [ true, %switch.edge.i ], [ true, %74 ], [ true, %51 ]
+  %.0.i = phi i1 [ false, %38 ], [ false, %.critedge.i ], [ false, %72 ], [ true, %switch.edge.i ], [ true, %74 ], [ true, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
@@ -4643,7 +4643,7 @@ SDL_UpdateTextureYUV.exit:                        ; preds = %38, %51, %switch.ed
   br label %93
 
 93:                                               ; preds = %89, %84, %28, %26, %82, %SDL_UpdateTextureYUV.exit, %16, %13, %10
-  %.0 = phi i1 [ true, %26 ], [ %.0.i, %SDL_UpdateTextureYUV.exit ], [ %83, %82 ], [ true, %28 ], [ false, %10 ], [ %17, %16 ], [ %14, %13 ], [ %92, %89 ], [ false, %84 ]
+  %.0 = phi i1 [ %.0.i, %SDL_UpdateTextureYUV.exit ], [ %83, %82 ], [ %17, %16 ], [ %14, %13 ], [ false, %10 ], [ true, %26 ], [ true, %28 ], [ %92, %89 ], [ false, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -4722,7 +4722,7 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNative(ptr noundef r
   br label %switch.edge
 
 switch.edge:                                      ; preds = %34, %35, %34, %34, %34, %36
-  %38 = phi i32 [ %37, %36 ], [ 2, %34 ], [ 2, %34 ], [ 2, %34 ], [ 1, %35 ], [ 2, %34 ]
+  %38 = phi i32 [ %37, %36 ], [ 2, %34 ], [ 1, %35 ], [ 2, %34 ], [ 2, %34 ], [ 2, %34 ]
   %39 = mul i32 %38, %10
   %40 = add i32 %39, 3
   %41 = and i32 %40, -4
@@ -4757,7 +4757,7 @@ switch.edge:                                      ; preds = %34, %35, %34, %34, 
   br label %.critedge61
 
 .critedge61:                                      ; preds = %20, %47, %switch.edge, %42, %.critedge, %4, %11
-  %.0 = phi i1 [ true, %4 ], [ false, %42 ], [ false, %.critedge ], [ true, %11 ], [ true, %switch.edge ], [ true, %47 ], [ true, %20 ]
+  %.0 = phi i1 [ true, %11 ], [ true, %4 ], [ false, %.critedge ], [ false, %42 ], [ true, %switch.edge ], [ true, %47 ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -4948,7 +4948,7 @@ define hidden zeroext i1 @SDL_UpdateYUVTexture_REAL(ptr noundef %0, ptr noundef 
   br label %68
 
 68:                                               ; preds = %60, %45, %66, %63, %53, %33, %29, %26, %23, %20, %17, %14, %11
-  %.0 = phi i1 [ %34, %33 ], [ false, %11 ], [ %54, %53 ], [ %65, %63 ], [ true, %45 ], [ %67, %66 ], [ %30, %29 ], [ %27, %26 ], [ %24, %23 ], [ %21, %20 ], [ %18, %17 ], [ %15, %14 ], [ false, %60 ]
+  %.0 = phi i1 [ %34, %33 ], [ %54, %53 ], [ %65, %63 ], [ %67, %66 ], [ %30, %29 ], [ %27, %26 ], [ %24, %23 ], [ %21, %20 ], [ %18, %17 ], [ %15, %14 ], [ false, %11 ], [ true, %45 ], [ false, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
@@ -5034,7 +5034,7 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureYUVPlanar(ptr nounde
   br label %switch.edge
 
 switch.edge:                                      ; preds = %41, %42, %41, %41, %41, %43
-  %45 = phi i32 [ %44, %43 ], [ 2, %41 ], [ 2, %41 ], [ 2, %41 ], [ 1, %42 ], [ 2, %41 ]
+  %45 = phi i32 [ %44, %43 ], [ 2, %41 ], [ 1, %42 ], [ 2, %41 ], [ 2, %41 ], [ 2, %41 ]
   %46 = mul i32 %45, %20
   %47 = add i32 %46, 3
   %48 = and i32 %47, -4
@@ -5063,7 +5063,7 @@ switch.edge:                                      ; preds = %41, %42, %41, %41, 
   br label %.critedge66
 
 .critedge66:                                      ; preds = %31, %54, %switch.edge, %52, %.critedge, %17, %8
-  %.0 = phi i1 [ true, %17 ], [ false, %52 ], [ false, %.critedge ], [ false, %8 ], [ true, %switch.edge ], [ true, %54 ], [ true, %31 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %17 ], [ false, %.critedge ], [ false, %52 ], [ true, %switch.edge ], [ true, %54 ], [ true, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
@@ -5185,7 +5185,7 @@ define hidden zeroext i1 @SDL_UpdateNVTexture_REAL(ptr noundef %0, ptr noundef %
   br label %60
 
 60:                                               ; preds = %52, %37, %58, %55, %45, %25, %21, %18, %15, %12, %9
-  %.0 = phi i1 [ %26, %25 ], [ false, %9 ], [ %46, %45 ], [ %57, %55 ], [ true, %37 ], [ %59, %58 ], [ %22, %21 ], [ %19, %18 ], [ %16, %15 ], [ %13, %12 ], [ false, %52 ]
+  %.0 = phi i1 [ %26, %25 ], [ %46, %45 ], [ %57, %55 ], [ %59, %58 ], [ %22, %21 ], [ %19, %18 ], [ %16, %15 ], [ %13, %12 ], [ false, %9 ], [ true, %37 ], [ false, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -5271,7 +5271,7 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNVPlanar(ptr noundef
   br label %switch.edge
 
 switch.edge:                                      ; preds = %39, %40, %39, %39, %39, %41
-  %43 = phi i32 [ %42, %41 ], [ 2, %39 ], [ 2, %39 ], [ 2, %39 ], [ 1, %40 ], [ 2, %39 ]
+  %43 = phi i32 [ %42, %41 ], [ 2, %39 ], [ 1, %40 ], [ 2, %39 ], [ 2, %39 ], [ 2, %39 ]
   %44 = mul i32 %43, %18
   %45 = add i32 %44, 3
   %46 = and i32 %45, -4
@@ -5300,7 +5300,7 @@ switch.edge:                                      ; preds = %39, %40, %39, %39, 
   br label %.critedge64
 
 .critedge64:                                      ; preds = %29, %52, %switch.edge, %50, %.critedge, %15, %6
-  %.0 = phi i1 [ true, %15 ], [ false, %50 ], [ false, %.critedge ], [ false, %6 ], [ true, %switch.edge ], [ true, %52 ], [ true, %29 ]
+  %.0 = phi i1 [ false, %6 ], [ true, %15 ], [ false, %.critedge ], [ false, %50 ], [ true, %switch.edge ], [ true, %52 ], [ true, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -5452,7 +5452,7 @@ FlushRenderCommandsIfTextureNeeded.exit.thread:   ; preds = %FlushRenderCommands
   br label %SDL_LockTextureNative.exit
 
 SDL_LockTextureNative.exit:                       ; preds = %67, %67, %67, %67, %68, %69
-  %71 = phi i32 [ %70, %69 ], [ 2, %67 ], [ 2, %67 ], [ 2, %67 ], [ 1, %68 ], [ 2, %67 ]
+  %71 = phi i32 [ %70, %69 ], [ 2, %67 ], [ 1, %68 ], [ 2, %67 ], [ 2, %67 ], [ 2, %67 ]
   %72 = mul nsw i32 %64, %62
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i8, ptr %61, i64 %73
@@ -5523,7 +5523,7 @@ FlushRenderCommandsIfTextureNeeded.exit37.thread: ; preds = %86, %79, %FlushRend
   br label %112
 
 112:                                              ; preds = %FlushRenderCommandsIfTextureNeeded.exit37.thread, %FlushRenderCommandsIfTextureNeeded.exit37, %FlushRenderCommandsIfTextureNeeded.exit, %SDL_LockTextureNative.exit, %FlushRenderCommandsIfTextureNeeded.exit.thread, %12, %7
-  %.0 = phi i1 [ %13, %12 ], [ %54, %FlushRenderCommandsIfTextureNeeded.exit.thread ], [ false, %7 ], [ true, %SDL_LockTextureNative.exit ], [ false, %FlushRenderCommandsIfTextureNeeded.exit ], [ %111, %FlushRenderCommandsIfTextureNeeded.exit37.thread ], [ false, %FlushRenderCommandsIfTextureNeeded.exit37 ]
+  %.0 = phi i1 [ %13, %12 ], [ %54, %FlushRenderCommandsIfTextureNeeded.exit.thread ], [ true, %SDL_LockTextureNative.exit ], [ false, %7 ], [ false, %FlushRenderCommandsIfTextureNeeded.exit ], [ %111, %FlushRenderCommandsIfTextureNeeded.exit37.thread ], [ false, %FlushRenderCommandsIfTextureNeeded.exit37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -5704,7 +5704,7 @@ SDL_UnlockTextureYUV.exit:                        ; preds = %18, %27
   br label %switch.edge.i
 
 switch.edge.i:                                    ; preds = %51, %50, %49, %49, %49, %49
-  %53 = phi i32 [ %52, %51 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 1, %50 ], [ 2, %49 ]
+  %53 = phi i32 [ %52, %51 ], [ 2, %49 ], [ 1, %50 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ]
   %54 = call zeroext i1 @SDL_LockTexture_REAL(ptr noundef nonnull %17, ptr noundef nonnull %37, ptr noundef nonnull %2, ptr noundef nonnull %3)
   br i1 %54, label %55, label %SDL_UnlockTextureNative.exit
 
@@ -6027,7 +6027,7 @@ QueueCmdSetClipRect.exit:                         ; preds = %109, %118, %126
   br label %134
 
 134:                                              ; preds = %FlushRenderCommands.exit, %QueueCmdSetViewport.exit, %QueueCmdSetClipRect.exit, %22, %17, %12, %7
-  %.027 = phi i1 [ %13, %12 ], [ %18, %17 ], [ false, %7 ], [ false, %QueueCmdSetViewport.exit ], [ %.0.i41, %QueueCmdSetClipRect.exit ], [ true, %22 ], [ false, %FlushRenderCommands.exit ]
+  %.027 = phi i1 [ %13, %12 ], [ %18, %17 ], [ false, %7 ], [ true, %22 ], [ false, %QueueCmdSetViewport.exit ], [ %.0.i41, %QueueCmdSetClipRect.exit ], [ false, %FlushRenderCommands.exit ]
   ret i1 %.027
 }
 
@@ -7019,7 +7019,7 @@ define hidden noundef zeroext i1 @SDL_ConvertEventToRenderCoordinates_REAL(ptr n
   br label %151
 
 151:                                              ; preds = %59, %23, %16, %40, %33, %53, %46, %93, %86, %106, %99, %119, %112, %132, %125, %14, %145, %138, %.thread, %85, %12, %6
-  %.0 = phi i1 [ false, %12 ], [ false, %6 ], [ false, %85 ], [ true, %.thread ], [ true, %138 ], [ true, %145 ], [ true, %14 ], [ true, %125 ], [ true, %132 ], [ true, %112 ], [ true, %119 ], [ true, %99 ], [ true, %106 ], [ true, %86 ], [ true, %93 ], [ true, %46 ], [ true, %53 ], [ true, %33 ], [ true, %40 ], [ true, %16 ], [ true, %23 ], [ true, %59 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %85 ], [ false, %6 ], [ true, %.thread ], [ true, %138 ], [ true, %145 ], [ true, %14 ], [ true, %125 ], [ true, %132 ], [ true, %112 ], [ true, %119 ], [ true, %99 ], [ true, %106 ], [ true, %86 ], [ true, %93 ], [ true, %46 ], [ true, %53 ], [ true, %33 ], [ true, %40 ], [ true, %16 ], [ true, %23 ], [ true, %59 ]
   ret i1 %.0
 }
 
@@ -7328,8 +7328,8 @@ define hidden zeroext i1 @SDL_GetRenderSafeArea_REAL(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72
 
-.thread33:                                        ; preds = %48, %69
-  %.3.ph = phi i1 [ %70, %69 ], [ false, %48 ]
+.thread33:                                        ; preds = %69, %48
+  %.3.ph = phi i1 [ false, %48 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -7348,7 +7348,7 @@ define hidden zeroext i1 @SDL_GetRenderSafeArea_REAL(ptr noundef %0, ptr noundef
   br label %72
 
 72:                                               ; preds = %28, %71, %.thread33, %.thread29, %.thread, %26, %18, %12
-  %.020 = phi i1 [ false, %18 ], [ %27, %26 ], [ false, %.thread29 ], [ %.3.ph, %.thread33 ], [ false, %12 ], [ false, %.thread ], [ true, %71 ], [ true, %28 ]
+  %.020 = phi i1 [ false, %18 ], [ %27, %26 ], [ false, %12 ], [ false, %.thread ], [ false, %.thread29 ], [ %.3.ph, %.thread33 ], [ true, %71 ], [ true, %28 ]
   ret i1 %.020
 }
 
@@ -8317,7 +8317,7 @@ IsSupportedBlendMode.exit.thread:                 ; preds = %12, %12, %12, %12, 
   br label %21
 
 21:                                               ; preds = %IsSupportedBlendMode.exit.thread, %IsSupportedBlendMode.exit.thread10, %13, %10, %4
-  %.0 = phi i1 [ false, %10 ], [ %14, %13 ], [ false, %4 ], [ true, %IsSupportedBlendMode.exit.thread ], [ %19, %IsSupportedBlendMode.exit.thread10 ]
+  %.0 = phi i1 [ false, %10 ], [ %14, %13 ], [ true, %IsSupportedBlendMode.exit.thread ], [ %19, %IsSupportedBlendMode.exit.thread10 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -8501,7 +8501,7 @@ define hidden noundef zeroext i1 @SDL_RenderPoint_REAL(ptr noundef %0, float nou
   br label %SDL_RenderPoints_REAL.exit
 
 SDL_RenderPoints_REAL.exit:                       ; preds = %8, %14, %.lr.ph.i, %37
-  %.0.i = phi i1 [ false, %14 ], [ false, %8 ], [ %38, %37 ], [ %36, %.lr.ph.i ]
+  %.0.i = phi i1 [ false, %14 ], [ false, %8 ], [ %36, %.lr.ph.i ], [ %38, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }
@@ -8560,7 +8560,7 @@ define hidden zeroext i1 @SDL_RenderPoints_REAL(ptr noundef %0, ptr noundef %1, 
   br label %32
 
 32:                                               ; preds = %28, %30, %16, %14, %11, %5
-  %.0 = phi i1 [ false, %11 ], [ false, %5 ], [ true, %16 ], [ %15, %14 ], [ %29, %28 ], [ %31, %30 ]
+  %.0 = phi i1 [ false, %11 ], [ %15, %14 ], [ false, %5 ], [ true, %16 ], [ %29, %28 ], [ %31, %30 ]
   ret i1 %.0
 }
 
@@ -9042,8 +9042,8 @@ define hidden zeroext i1 @SDL_RenderLines_REAL(ptr noundef %0, ptr noundef %1, i
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %113, %106, %158, %141, %191, %185, %127, %133, %87
-  %.2301 = phi ptr [ %96, %87 ], [ %117, %113 ], [ %111, %106 ], [ %172, %158 ], [ %156, %141 ], [ %183, %191 ], [ %183, %185 ], [ %131, %127 ], [ %136, %133 ], [ %.0299320, %.lr.ph ]
-  %.2 = phi i32 [ %97, %87 ], [ %118, %113 ], [ %112, %106 ], [ %173, %158 ], [ %157, %141 ], [ %184, %191 ], [ %184, %185 ], [ %132, %127 ], [ %137, %133 ], [ %.0296322, %.lr.ph ]
+  %.2301 = phi ptr [ %117, %113 ], [ %111, %106 ], [ %172, %158 ], [ %156, %141 ], [ %183, %191 ], [ %183, %185 ], [ %131, %127 ], [ %136, %133 ], [ %96, %87 ], [ %.0299320, %.lr.ph ]
+  %.2 = phi i32 [ %118, %113 ], [ %112, %106 ], [ %173, %158 ], [ %157, %141 ], [ %184, %191 ], [ %184, %185 ], [ %132, %127 ], [ %137, %133 ], [ %97, %87 ], [ %.0296322, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
@@ -9093,7 +9093,7 @@ define hidden zeroext i1 @SDL_RenderLines_REAL(ptr noundef %0, ptr noundef %1, i
   br label %217
 
 217:                                              ; preds = %213, %215, %203, %201, %202, %16, %14, %11, %5
-  %.0 = phi i1 [ false, %11 ], [ false, %5 ], [ true, %16 ], [ %15, %14 ], [ %216, %215 ], [ %204, %203 ], [ %214, %213 ], [ %.0294, %201 ], [ %.0294, %202 ]
+  %.0 = phi i1 [ false, %11 ], [ %15, %14 ], [ false, %5 ], [ true, %16 ], [ %204, %203 ], [ %214, %213 ], [ %216, %215 ], [ %.0294, %201 ], [ %.0294, %202 ]
   ret i1 %.0
 }
 
@@ -9554,7 +9554,7 @@ SDL_RenderRect_REAL.exit:                         ; preds = %33
   br i1 %or.cond.not, label %28, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %SDL_RenderRect_REAL.exit, %SDL_RenderRect_REAL.exit.thread, %17, %15, %12, %6
-  %.010 = phi i1 [ false, %12 ], [ false, %6 ], [ true, %17 ], [ false, %SDL_RenderRect_REAL.exit.thread ], [ %16, %15 ], [ %42, %SDL_RenderRect_REAL.exit ]
+  %.010 = phi i1 [ false, %12 ], [ %16, %15 ], [ false, %6 ], [ true, %17 ], [ false, %SDL_RenderRect_REAL.exit.thread ], [ %42, %SDL_RenderRect_REAL.exit ]
   ret i1 %.010
 }
 
@@ -9794,7 +9794,7 @@ define hidden zeroext i1 @SDL_RenderFillRects_REAL(ptr noundef %0, ptr noundef r
   br label %50
 
 50:                                               ; preds = %49, %._crit_edge, %23, %16, %14, %11, %5
-  %.0 = phi i1 [ false, %11 ], [ false, %5 ], [ false, %23 ], [ true, %16 ], [ %15, %14 ], [ %48, %._crit_edge ], [ %48, %49 ]
+  %.0 = phi i1 [ false, %11 ], [ %15, %14 ], [ false, %5 ], [ true, %16 ], [ false, %23 ], [ %48, %._crit_edge ], [ %48, %49 ]
   ret i1 %.0
 }
 
@@ -9945,7 +9945,7 @@ define internal fastcc noundef zeroext i1 @QueueCmdFillRects(ptr noundef %0, ptr
   br label %76
 
 76:                                               ; preds = %71, %70, %75, %72, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %72 ], [ false, %75 ], [ %.1, %70 ], [ %.1, %71 ]
+  %.0 = phi i1 [ true, %72 ], [ false, %75 ], [ false, %3 ], [ %.1, %70 ], [ %.1, %71 ]
   ret i1 %.0
 }
 
@@ -10503,7 +10503,7 @@ QueueCmdGeometry.exit:                            ; preds = %146, %149, %156
   br label %157
 
 157:                                              ; preds = %46, %QueueCmdGeometry.exit, %34, %26, %21, %17, %11
-  %.0 = phi i1 [ false, %17 ], [ %27, %26 ], [ %.0.shrunk.i, %QueueCmdGeometry.exit ], [ false, %11 ], [ %35, %34 ], [ false, %21 ], [ true, %46 ]
+  %.0 = phi i1 [ false, %17 ], [ %27, %26 ], [ %.0.shrunk.i, %QueueCmdGeometry.exit ], [ %35, %34 ], [ false, %21 ], [ false, %11 ], [ true, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -10826,7 +10826,7 @@ GetRenderViewportSize.exit:                       ; preds = %80, %82
   br label %195
 
 195:                                              ; preds = %58, %194, %46, %38, %33, %29, %23, %19
-  %.0 = phi i1 [ %20, %19 ], [ false, %29 ], [ %39, %38 ], [ %.0128.in, %194 ], [ false, %23 ], [ %47, %46 ], [ false, %33 ], [ true, %58 ]
+  %.0 = phi i1 [ %20, %19 ], [ false, %29 ], [ %39, %38 ], [ %.0128.in, %194 ], [ %47, %46 ], [ false, %33 ], [ false, %23 ], [ true, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
@@ -11045,7 +11045,7 @@ GetRenderViewportSize.exit:                       ; preds = %64, %66
   br label %104
 
 104:                                              ; preds = %40, %103, %28, %24, %19, %15, %9
-  %.031 = phi i1 [ false, %15 ], [ %25, %24 ], [ %29, %28 ], [ %.1, %103 ], [ false, %9 ], [ false, %19 ], [ true, %40 ]
+  %.031 = phi i1 [ false, %15 ], [ %25, %24 ], [ %29, %28 ], [ %.1, %103 ], [ false, %19 ], [ false, %9 ], [ true, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.031
 }
@@ -11430,7 +11430,7 @@ SDL_RenderTextureInternal.exit.thread:            ; preds = %86, %.split.us
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.us93, %72, %.lr.ph, %QueueCmdGeometry.exit.i.thread, %SDL_RenderTextureInternal.exit.thread, %140, %143
-  %.3 = phi i1 [ true, %143 ], [ false, %140 ], [ false, %72 ], [ false, %QueueCmdGeometry.exit.i.thread ], [ false, %SDL_RenderTextureInternal.exit.thread ], [ false, %.lr.ph ], [ false, %.critedge.us93 ]
+  %.3 = phi i1 [ true, %143 ], [ false, %140 ], [ false, %SDL_RenderTextureInternal.exit.thread ], [ false, %QueueCmdGeometry.exit.i.thread ], [ false, %.lr.ph ], [ false, %72 ], [ false, %.critedge.us93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -11776,7 +11776,7 @@ GetRenderViewportSize.exit:                       ; preds = %58, %60
   br label %185
 
 185:                                              ; preds = %175, %161, %151, %139, %135, %125, %115, %109, %80, %28, %23, %19, %13
-  %.0136 = phi i1 [ false, %19 ], [ %29, %28 ], [ false, %161 ], [ %184, %175 ], [ false, %151 ], [ false, %139 ], [ false, %135 ], [ false, %125 ], [ false, %115 ], [ false, %109 ], [ false, %80 ], [ false, %13 ], [ false, %23 ]
+  %.0136 = phi i1 [ false, %19 ], [ %29, %28 ], [ false, %23 ], [ false, %13 ], [ false, %80 ], [ false, %109 ], [ false, %115 ], [ false, %125 ], [ false, %135 ], [ false, %139 ], [ false, %151 ], [ false, %161 ], [ %184, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0260)
@@ -12128,7 +12128,7 @@ GetRenderViewportSize.exit:                       ; preds = %59, %61
   br label %186
 
 186:                                              ; preds = %176, %162, %152, %140, %136, %126, %116, %110, %81, %29, %24, %20, %14
-  %.0140 = phi i1 [ false, %20 ], [ %30, %29 ], [ false, %162 ], [ %185, %176 ], [ false, %152 ], [ false, %140 ], [ false, %136 ], [ false, %126 ], [ false, %116 ], [ false, %110 ], [ false, %81 ], [ false, %14 ], [ false, %24 ]
+  %.0140 = phi i1 [ false, %20 ], [ %30, %29 ], [ false, %24 ], [ false, %14 ], [ false, %81 ], [ false, %110 ], [ false, %116 ], [ false, %126 ], [ false, %136 ], [ false, %140 ], [ false, %152 ], [ false, %162 ], [ %185, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0265)
@@ -12334,15 +12334,15 @@ define hidden zeroext i1 @SDL_RenderGeometryRaw_REAL(ptr noundef %0, ptr noundef
   br i1 %or.cond11176, label %.thread180, label %select.unfold
 
 select.unfold:                                    ; preds = %82, %.thread174
-  %.3132179 = phi i32 [ 2, %.thread174 ], [ %.1130184.mux, %82 ]
-  %.3.ph = phi i32 [ 0, %.thread174 ], [ %.1127185.mux, %82 ]
+  %.3132179 = phi i32 [ %.1130184.mux, %82 ], [ 2, %.thread174 ]
+  %.3.ph = phi i32 [ %.1127185.mux, %82 ], [ 0, %.thread174 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread180, label %.lr.ph, !llvm.loop !35
 
 .thread180:                                       ; preds = %82, %select.unfold, %81, %.thread174
-  %.2131.ph = phi i32 [ %.3132179, %select.unfold ], [ 2, %.thread174 ], [ 2, %81 ], [ %.1130184, %82 ]
-  %.2128.ph = phi i32 [ %.3.ph, %select.unfold ], [ 2, %.thread174 ], [ %.1127185, %81 ], [ 2, %82 ]
+  %.2131.ph = phi i32 [ %.3132179, %select.unfold ], [ 2, %81 ], [ 2, %.thread174 ], [ %.1130184, %82 ]
+  %.2128.ph = phi i32 [ %.3.ph, %select.unfold ], [ %.1127185, %81 ], [ 2, %.thread174 ], [ 2, %82 ]
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.2131.ph, i32 1)
   %spec.store.select20 = tail call i32 @llvm.umax.i32(i32 %.2128.ph, i32 1)
   br label %88
@@ -12439,7 +12439,7 @@ select.unfold:                                    ; preds = %82, %.thread174
   br label %122
 
 122:                                              ; preds = %.split.us, %57, %114, %112, %55, %50, %46, %42, %39, %36, %31, %26, %21, %15
-  %.0 = phi i1 [ false, %21 ], [ %37, %36 ], [ %52, %50 ], [ %56, %55 ], [ false, %15 ], [ %101, %.split.us ], [ %113, %112 ], [ %121, %114 ], [ %47, %46 ], [ %43, %42 ], [ %40, %39 ], [ false, %31 ], [ %27, %26 ], [ true, %57 ]
+  %.0 = phi i1 [ false, %21 ], [ %37, %36 ], [ %52, %50 ], [ %56, %55 ], [ %101, %.split.us ], [ %113, %112 ], [ %121, %114 ], [ %47, %46 ], [ %43, %42 ], [ %40, %39 ], [ false, %31 ], [ %27, %26 ], [ false, %15 ], [ true, %57 ]
   ret i1 %.0
 }
 
@@ -12706,7 +12706,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   br label %152
 
 152:                                              ; preds = %149, %122
-  %.1299 = phi i32 [ %spec.select348, %149 ], [ %112, %122 ]
+  %.1299 = phi i32 [ %112, %122 ], [ %spec.select348, %149 ]
   %153 = mul nsw i32 %spec.select344, %3
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds i8, ptr %2, i64 %154
@@ -13057,7 +13057,7 @@ QueueCmdGeometry.exit360.sink.split:              ; preds = %320, %332
   br label %QueueCmdGeometry.exit360
 
 QueueCmdGeometry.exit360:                         ; preds = %.thread, %318, %QueueCmdGeometry.exit360.sink.split, %SDL_GetTextureSize_REAL.exit, %332, %330, %._crit_edge
-  %.4 = phi i1 [ true, %._crit_edge ], [ false, %330 ], [ true, %SDL_GetTextureSize_REAL.exit ], [ true, %332 ], [ false, %QueueCmdGeometry.exit360.sink.split ], [ true, %.thread ], [ false, %318 ]
+  %.4 = phi i1 [ true, %._crit_edge ], [ true, %332 ], [ false, %330 ], [ true, %SDL_GetTextureSize_REAL.exit ], [ false, %QueueCmdGeometry.exit360.sink.split ], [ true, %.thread ], [ false, %318 ]
   %338 = call zeroext i1 @SDL_SetRenderDrawBlendMode_REAL(ptr noundef %0, i32 noundef %.0374)
   %339 = call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   br i1 %339, label %342, label %340
@@ -13894,7 +13894,7 @@ FlushRenderCommands.exit:                         ; preds = %SDL_RenderApplyWind
   br label %SDL_SimulateRenderVSync.exit
 
 SDL_SimulateRenderVSync.exit:                     ; preds = %253, %233, %228, %229, %18, %13, %7
-  %.013 = phi i1 [ false, %13 ], [ %19, %18 ], [ false, %7 ], [ true, %228 ], [ true, %229 ], [ true, %233 ], [ true, %253 ]
+  %.013 = phi i1 [ false, %13 ], [ %19, %18 ], [ false, %7 ], [ true, %229 ], [ true, %228 ], [ true, %233 ], [ true, %253 ]
   ret i1 %.013
 }
 
@@ -14279,7 +14279,7 @@ define hidden range(i32 18940194, 18940193) i32 @SDL_ComposeCustomBlendMode_REAL
   br label %SDL_GetShortBlendMode.exit
 
 SDL_GetShortBlendMode.exit:                       ; preds = %6, %17, %18, %19, %20, %21, %22, %23
-  %.0.i = phi i32 [ %16, %23 ], [ 1, %17 ], [ 16, %18 ], [ 2, %19 ], [ 32, %20 ], [ 4, %21 ], [ 8, %22 ], [ 0, %6 ]
+  %.0.i = phi i32 [ 1, %17 ], [ 16, %18 ], [ 2, %19 ], [ 32, %20 ], [ 4, %21 ], [ 8, %22 ], [ %16, %23 ], [ 0, %6 ]
   ret i32 %.0.i
 }
 
@@ -14310,7 +14310,7 @@ define hidden range(i32 0, 16) i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %
   br label %SDL_GetLongBlendMode.exit
 
 SDL_GetLongBlendMode.exit:                        ; preds = %1, %1, %1, %2, %3, %4, %5
-  %.0.i = phi i32 [ %7, %5 ], [ 5, %2 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ], [ 1, %3 ], [ 7, %4 ]
+  %.0.i = phi i32 [ 5, %2 ], [ 1, %3 ], [ 7, %4 ], [ %7, %5 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ]
   ret i32 %.0.i
 }
 
@@ -14341,7 +14341,7 @@ define hidden range(i32 0, 16) i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %
   br label %SDL_GetLongBlendMode.exit
 
 SDL_GetLongBlendMode.exit:                        ; preds = %1, %2, %3, %4, %5
-  %.0.i = phi i32 [ %7, %5 ], [ 6, %2 ], [ 1, %1 ], [ 2, %3 ], [ 3, %4 ]
+  %.0.i = phi i32 [ 6, %2 ], [ 2, %3 ], [ 3, %4 ], [ %7, %5 ], [ 1, %1 ]
   ret i32 %.0.i
 }
 
@@ -14387,7 +14387,7 @@ define hidden range(i32 0, 16) i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %
   br label %SDL_GetLongBlendMode.exit
 
 SDL_GetLongBlendMode.exit:                        ; preds = %1, %1, %1, %2, %3
-  %.0.i = phi i32 [ %5, %3 ], [ 2, %1 ], [ 2, %1 ], [ 1, %2 ], [ 2, %1 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %5, %3 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ]
   ret i32 %.0.i
 }
 
@@ -14415,7 +14415,7 @@ define hidden range(i32 0, 16) i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %
   br label %SDL_GetLongBlendMode.exit
 
 SDL_GetLongBlendMode.exit:                        ; preds = %1, %2, %3, %4
-  %.0.i = phi i32 [ %6, %4 ], [ 6, %2 ], [ 1, %1 ], [ 2, %3 ]
+  %.0.i = phi i32 [ 6, %2 ], [ 2, %3 ], [ %6, %4 ], [ 1, %1 ]
   ret i32 %.0.i
 }
 
@@ -14784,7 +14784,7 @@ SDL_SetTextureAlphaMod_REAL.exit:                 ; preds = %109
   br label %131
 
 131:                                              ; preds = %129, %127, %123
-  %.017.i = phi i32 [ %130, %129 ], [ %128, %127 ], [ 189, %123 ]
+  %.017.i = phi i32 [ %128, %127 ], [ %130, %129 ], [ 189, %123 ]
   %132 = urem i32 %.017.i, 14
   %133 = mul nuw nsw i32 %132, 10
   %134 = or disjoint i32 %133, 1
@@ -14816,7 +14816,7 @@ SDL_SetTextureAlphaMod_REAL.exit:                 ; preds = %109
   br i1 %.not22, label %.critedge, label %.lr.ph57, !llvm.loop !42
 
 .critedge:                                        ; preds = %131, %.backedge, %.lr.ph, %SDL_SetTextureAlphaMod_REAL.exit.thread, %SDL_SetTextureAlphaMod_REAL.exit, %20, %CreateDebugTextAtlas.exit.thread35, %15, %9
-  %.0 = phi i1 [ false, %15 ], [ false, %CreateDebugTextAtlas.exit.thread35 ], [ false, %9 ], [ false, %20 ], [ false, %SDL_SetTextureAlphaMod_REAL.exit ], [ false, %SDL_SetTextureAlphaMod_REAL.exit.thread ], [ true, %.lr.ph ], [ true, %.backedge ], [ false, %131 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %9 ], [ false, %CreateDebugTextAtlas.exit.thread35 ], [ false, %20 ], [ false, %SDL_SetTextureAlphaMod_REAL.exit ], [ false, %SDL_SetTextureAlphaMod_REAL.exit.thread ], [ true, %.lr.ph ], [ true, %.backedge ], [ false, %131 ]
   ret i1 %.0
 }
 
@@ -15120,7 +15120,7 @@ define hidden noundef ptr @SDL_CreateGPURenderState_REAL(ptr noundef %0, ptr nou
   br label %83
 
 83:                                               ; preds = %29, %67, %76, %31, %75, %59, %43, %23, %18, %13, %10, %4
-  %.0 = phi ptr [ null, %10 ], [ null, %18 ], [ null, %4 ], [ null, %23 ], [ null, %13 ], [ null, %29 ], [ null, %31 ], [ null, %75 ], [ null, %59 ], [ null, %43 ], [ %32, %76 ], [ %32, %67 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %18 ], [ null, %23 ], [ null, %13 ], [ null, %4 ], [ null, %29 ], [ null, %75 ], [ null, %59 ], [ null, %43 ], [ null, %31 ], [ %32, %76 ], [ %32, %67 ]
   ret ptr %.0
 }
 
@@ -15361,7 +15361,7 @@ define hidden zeroext i1 @SDL_SetGPURenderStateFragmentUniforms_REAL(ptr noundef
   br label %69
 
 69:                                               ; preds = %45, %50, %30, %._crit_edge, %66, %65, %5
-  %.0 = phi i1 [ false, %30 ], [ false, %65 ], [ %6, %5 ], [ false, %._crit_edge ], [ true, %66 ], [ false, %45 ], [ true, %50 ]
+  %.0 = phi i1 [ %6, %5 ], [ false, %._crit_edge ], [ true, %66 ], [ false, %65 ], [ false, %30 ], [ true, %50 ], [ false, %45 ]
   ret i1 %.0
 }
 
@@ -15614,7 +15614,7 @@ define internal fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef range(i
   store i32 0, ptr %.0.i.i51, align 8
   br label %.thread73
 
-.thread73:                                        ; preds = %76, %91
+.thread73:                                        ; preds = %91, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread76
 
@@ -15772,7 +15772,7 @@ define internal fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef range(i
   br label %.thread76
 
 .thread76:                                        ; preds = %128, %61, %43, %.thread73, %122, %155, %149
-  %.041 = phi ptr [ %.0.i62, %155 ], [ %.0.i62, %149 ], [ null, %61 ], [ null, %122 ], [ null, %.thread73 ], [ null, %43 ], [ null, %128 ]
+  %.041 = phi ptr [ %.0.i62, %155 ], [ %.0.i62, %149 ], [ null, %122 ], [ null, %.thread73 ], [ null, %43 ], [ null, %61 ], [ null, %128 ]
   ret ptr %.041
 }
 
@@ -15942,7 +15942,7 @@ QueueCmdDrawPoints.exit:                          ; preds = %79, %75, %73, %71
   br label %81
 
 81:                                               ; preds = %80, %QueueCmdDrawPoints.exit, %55, %6, %48
-  %.0 = phi i1 [ %49, %48 ], [ false, %55 ], [ true, %6 ], [ %.069.in, %QueueCmdDrawPoints.exit ], [ %.069.in, %80 ]
+  %.0 = phi i1 [ %49, %48 ], [ true, %6 ], [ false, %55 ], [ %.069.in, %QueueCmdDrawPoints.exit ], [ %.069.in, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
@@ -16053,13 +16053,13 @@ remap_one_indice.exit:                            ; preds = %60
   %.not = icmp eq i32 %..i, %1
   br i1 %.not, label %remap_one_indice.exit.thread, label %.loopexit
 
-remap_one_indice.exit.thread:                     ; preds = %53, %48, %.preheader.split, %60, %remap_one_indice.exit
+remap_one_indice.exit.thread:                     ; preds = %60, %53, %48, %.preheader.split, %remap_one_indice.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %remap_one_indice.exit, %remap_one_indice.exit.thread, %remap_one_indice.exit.thread.us, %remap_one_indice.exit.us, %9
-  %.0 = phi i32 [ %1, %9 ], [ %..i.us, %remap_one_indice.exit.us ], [ %1, %remap_one_indice.exit.thread.us ], [ %1, %remap_one_indice.exit.thread ], [ %..i, %remap_one_indice.exit ]
+  %.0 = phi i32 [ %1, %9 ], [ %1, %remap_one_indice.exit.thread.us ], [ %..i.us, %remap_one_indice.exit.us ], [ %1, %remap_one_indice.exit.thread ], [ %..i, %remap_one_indice.exit ]
   ret i32 %.0
 }
 

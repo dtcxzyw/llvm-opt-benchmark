@@ -532,7 +532,7 @@ get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.
   br i1 %227, label %.lr.ph.i209, label %get_optional_string_array_as_array.exit217, !llvm.loop !11
 
 get_optional_string_array_as_array.exit217:       ; preds = %214, %166, %.preheader.i.i201, %190
-  %.022.i215 = phi ptr [ null, %166 ], [ null, %.preheader.i.i201 ], [ %196, %190 ], [ %217, %214 ]
+  %.022.i215 = phi ptr [ null, %166 ], [ %196, %190 ], [ null, %.preheader.i.i201 ], [ %217, %214 ]
   %228 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store ptr %.022.i215, ptr %228, align 8
   %229 = call ptr @json_obj_get(ptr noundef nonnull %128, ptr noundef nonnull @.str.26) #8
@@ -639,7 +639,7 @@ get_optional_string_array_as_array.exit217:       ; preds = %214, %166, %.prehea
   br i1 %282, label %.lr.ph.i190, label %get_optional_string_array_as_array.exit198, !llvm.loop !11
 
 get_optional_string_array_as_array.exit198:       ; preds = %269, %get_optional_string_array_as_array.exit217, %.preheader.i.i182, %245
-  %.022.i196 = phi ptr [ null, %get_optional_string_array_as_array.exit217 ], [ null, %.preheader.i.i182 ], [ %251, %245 ], [ %272, %269 ]
+  %.022.i196 = phi ptr [ null, %get_optional_string_array_as_array.exit217 ], [ %251, %245 ], [ null, %.preheader.i.i182 ], [ %272, %269 ]
   %283 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store ptr %.022.i196, ptr %283, align 8
   %284 = call ptr @json_obj_get(ptr noundef nonnull %128, ptr noundef nonnull @.str.16) #8
@@ -746,7 +746,7 @@ get_optional_string_array_as_array.exit198:       ; preds = %269, %get_optional_
   br i1 %337, label %.lr.ph.i171, label %get_optional_string_array_as_array.exit179, !llvm.loop !11
 
 get_optional_string_array_as_array.exit179:       ; preds = %324, %get_optional_string_array_as_array.exit198, %.preheader.i.i163, %300
-  %.022.i177 = phi ptr [ null, %get_optional_string_array_as_array.exit198 ], [ null, %.preheader.i.i163 ], [ %306, %300 ], [ %327, %324 ]
+  %.022.i177 = phi ptr [ null, %get_optional_string_array_as_array.exit198 ], [ %306, %300 ], [ null, %.preheader.i.i163 ], [ %327, %324 ]
   %338 = getelementptr inbounds nuw i8, ptr %136, i64 32
   store ptr %.022.i177, ptr %338, align 8
   %339 = call ptr @json_obj_get(ptr noundef nonnull %128, ptr noundef nonnull @.str.15) #8
@@ -853,7 +853,7 @@ get_optional_string_array_as_array.exit179:       ; preds = %324, %get_optional_
   br i1 %392, label %.lr.ph.i160, label %get_optional_string_array_as_array.exit, !llvm.loop !11
 
 get_optional_string_array_as_array.exit:          ; preds = %379, %get_optional_string_array_as_array.exit179, %.preheader.i.i157, %355
-  %.022.i = phi ptr [ null, %get_optional_string_array_as_array.exit179 ], [ null, %.preheader.i.i157 ], [ %361, %355 ], [ %382, %379 ]
+  %.022.i = phi ptr [ null, %get_optional_string_array_as_array.exit179 ], [ %361, %355 ], [ null, %.preheader.i.i157 ], [ %382, %379 ]
   %393 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr %.022.i, ptr %393, align 8
   %394 = add nuw i64 %.03038.i.i, 1
@@ -1513,7 +1513,7 @@ define internal fastcc ptr @get_optional_string_array_as_array(ptr noundef reado
   br i1 %58, label %.lr.ph, label %get_optional_string_array.exit.thread, !llvm.loop !11
 
 get_optional_string_array.exit.thread:            ; preds = %45, %.preheader.i, %20, %3
-  %.022 = phi ptr [ null, %3 ], [ null, %.preheader.i ], [ %27, %20 ], [ %48, %45 ]
+  %.022 = phi ptr [ null, %3 ], [ %27, %20 ], [ null, %.preheader.i ], [ %48, %45 ]
   ret ptr %.022
 }
 

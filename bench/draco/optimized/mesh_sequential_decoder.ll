@@ -688,7 +688,7 @@ _ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 .critedge88:                                      ; preds = %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit161, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit146, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit132, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit, %..critedge88_crit_edge, %204, %.preheader194, %.preheader192, %.preheader
-  %249 = phi i32 [ %.pre240, %..critedge88_crit_edge ], [ %62, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit146 ], [ %62, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit132 ], [ %62, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit ], [ %62, %.preheader ], [ %62, %204 ], [ %62, %.preheader194 ], [ %62, %.preheader192 ], [ %62, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit161 ]
+  %249 = phi i32 [ %.pre240, %..critedge88_crit_edge ], [ %62, %204 ], [ %62, %.preheader194 ], [ %62, %.preheader192 ], [ %62, %.preheader ], [ %62, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit ], [ %62, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit132 ], [ %62, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit146 ], [ %62, %_ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3EE.exit161 ]
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %251 = load ptr, ptr %250, align 8, !tbaa !74
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 160
@@ -696,7 +696,7 @@ _ZN5draco4Mesh7AddFaceERKSt5arrayINS_9IndexTypeIjNS_20PointIndex_tag_type_EEELm3
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.critedge88, %59, %52, %.critedge86, %.critedge94, %.critedge102, %.critedge110, %26, %20, %38, %41, %35, %33
-  %.061 = phi i1 [ false, %35 ], [ false, %41 ], [ false, %20 ], [ false, %33 ], [ false, %26 ], [ false, %38 ], [ true, %.critedge88 ], [ false, %59 ], [ false, %.critedge86 ], [ false, %.critedge94 ], [ false, %.critedge102 ], [ false, %.critedge110 ], [ false, %52 ]
+  %.061 = phi i1 [ false, %33 ], [ false, %35 ], [ false, %38 ], [ false, %41 ], [ false, %20 ], [ false, %26 ], [ true, %.critedge88 ], [ false, %.critedge86 ], [ false, %.critedge94 ], [ false, %.critedge102 ], [ false, %.critedge110 ], [ false, %59 ], [ false, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.061
@@ -726,8 +726,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc, %2
-  %.sroa.11.0 = phi ptr [ %8, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %8, %.noexc ], [ null, %2 ]
-  %.sroa.060.0 = phi ptr [ %7, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %7, %.noexc ], [ null, %2 ]
+  %.sroa.11.0 = phi ptr [ %8, %.noexc ], [ %8, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %2 ]
+  %.sroa.060.0 = phi ptr [ %7, %.noexc ], [ %7, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = invoke noundef zeroext i1 @_ZN5draco13DecodeSymbolsEjiPNS_13DecoderBufferEPj(i32 noundef %4, i32 noundef 1, ptr noundef %13, ptr noundef %.sroa.060.0)

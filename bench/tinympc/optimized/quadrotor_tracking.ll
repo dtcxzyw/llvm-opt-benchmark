@@ -1072,7 +1072,7 @@ _ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll.exit.i.i.i.i.i.i.i.i146
   br label %.body111
 
 .body111:                                         ; preds = %.loopexit, %.loopexit.split-lp, %371, %328, %373, %376, %378, %380, %382
-  %.pn41.pn.pn = phi { ptr, i32 } [ %329, %328 ], [ %372, %371 ], [ %383, %382 ], [ %374, %373 ], [ %381, %380 ], [ %379, %378 ], [ %377, %376 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn41.pn.pn = phi { ptr, i32 } [ %383, %382 ], [ %381, %380 ], [ %379, %378 ], [ %377, %376 ], [ %374, %373 ], [ %372, %371 ], [ %329, %328 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %384
 

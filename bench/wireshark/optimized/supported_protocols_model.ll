@@ -1972,7 +1972,7 @@ _ZN7QStringD2Ev.exit30:                           ; preds = %75, %_ZN17QArrayDat
   br label %82
 
 81:                                               ; preds = %_ZN7QStringD2Ev.exit26, %_ZN7QStringD2Ev.exit17, %_ZN7QStringD2Ev.exit, %9
-  %.07 = phi i1 [ false, %9 ], [ true, %_ZN7QStringD2Ev.exit ], [ %69, %_ZN7QStringD2Ev.exit26 ], [ true, %_ZN7QStringD2Ev.exit17 ]
+  %.07 = phi i1 [ false, %9 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %_ZN7QStringD2Ev.exit17 ], [ %69, %_ZN7QStringD2Ev.exit26 ]
   call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.07
@@ -2129,7 +2129,7 @@ _ZN19ModelHelperTreeItemI22SupportedProtocolsItemE5childEi.exit: ; preds = %_ZNK
   br i1 %.not19, label %40, label %.critedge, !llvm.loop !67
 
 .critedge:                                        ; preds = %53, %55, %.preheader, %32, %16, %20, %3
-  %.015 = phi i1 [ true, %16 ], [ true, %20 ], [ true, %3 ], [ false, %32 ], [ false, %.preheader ], [ true, %53 ], [ false, %55 ]
+  %.015 = phi i1 [ true, %3 ], [ true, %20 ], [ true, %16 ], [ false, %32 ], [ false, %.preheader ], [ true, %53 ], [ false, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.015
 }

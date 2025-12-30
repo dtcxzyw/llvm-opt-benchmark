@@ -187,7 +187,7 @@ define void @"_ZN86_$LT$paths..AbsPathBuf$u20$as$u20$core..convert..TryFrom$LT$s
   br label %17
 
 17:                                               ; preds = %13, %11
-  %.sink = phi i64 [ %14, %13 ], [ 1, %11 ]
+  %.sink = phi i64 [ 1, %11 ], [ %14, %13 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

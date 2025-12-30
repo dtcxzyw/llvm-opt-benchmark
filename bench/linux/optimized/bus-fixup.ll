@@ -258,7 +258,7 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   br label %70
 
 66:                                               ; preds = %61, %63
-  %67 = phi ptr [ @.str.11, %63 ], [ @.str.10, %61 ]
+  %67 = phi ptr [ @.str.10, %61 ], [ @.str.11, %63 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %69 = call i64 @strscpy(ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef 32) #10
   br label %70

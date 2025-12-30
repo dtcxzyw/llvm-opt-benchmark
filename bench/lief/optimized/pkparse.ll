@@ -97,8 +97,8 @@ pk_get_pk_alg.exit.thread68:                      ; preds = %.thread29.i, %23, %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
-pk_get_pk_alg.exit.thread:                        ; preds = %18, %25, %27, %20
-  %.015.i.ph = phi i32 [ -15488, %20 ], [ -14976, %27 ], [ -14976, %25 ], [ -15488, %18 ]
+pk_get_pk_alg.exit.thread:                        ; preds = %25, %27, %20, %18
+  %.015.i.ph = phi i32 [ -15488, %18 ], [ -15488, %20 ], [ -14976, %27 ], [ -14976, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
@@ -229,12 +229,12 @@ pk_use_ecparams_rfc8410.exit:                     ; preds = %75, %77
   br i1 %.not61, label %93, label %.thread
 
 .thread:                                          ; preds = %65, %91, %73, %68, %pk_use_ecparams_rfc8410.exit, %80
-  %.2.ph = phi i32 [ -15616, %73 ], [ %85, %80 ], [ -15206, %91 ], [ -15488, %68 ], [ %.1, %pk_use_ecparams_rfc8410.exit ], [ %spec.select, %65 ]
+  %.2.ph = phi i32 [ %85, %80 ], [ -15488, %68 ], [ %.1, %pk_use_ecparams_rfc8410.exit ], [ -15616, %73 ], [ -15206, %91 ], [ %spec.select, %65 ]
   call void @mbedtls_pk_free(ptr noundef %2) #9
   br label %93
 
 93:                                               ; preds = %91, %35, %pk_get_pk_alg.exit.thread, %.thread, %43, %39, %pk_get_pk_alg.exit, %33, %11
-  %.0 = phi i32 [ %12, %11 ], [ %44, %43 ], [ %34, %33 ], [ %.015.i.ph, %pk_get_pk_alg.exit.thread ], [ %30, %pk_get_pk_alg.exit ], [ -15488, %39 ], [ %.2.ph, %.thread ], [ -15206, %35 ], [ 0, %91 ]
+  %.0 = phi i32 [ %12, %11 ], [ %34, %33 ], [ %30, %pk_get_pk_alg.exit ], [ -15488, %39 ], [ %44, %43 ], [ %.2.ph, %.thread ], [ %.015.i.ph, %pk_get_pk_alg.exit.thread ], [ -15206, %35 ], [ 0, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -469,14 +469,14 @@ pk_group_from_specified.exit.thread8.i:           ; preds = %104
   br label %112
 
 pk_group_from_specified.exit.thread.i:            ; preds = %101, %94, %88, %84, %80, %75, %71, %40, %36, %30, %28, %23, %21, %18
-  %.0.i.ph.i = phi i32 [ -15718, %71 ], [ -15616, %88 ], [ -15616, %94 ], [ -15616, %101 ], [ -15616, %75 ], [ -15616, %80 ], [ -14720, %30 ], [ %41, %40 ], [ -15718, %36 ], [ -14720, %28 ], [ -15616, %84 ], [ %27, %23 ], [ %22, %21 ], [ -15616, %18 ]
+  %.0.i.ph.i = phi i32 [ -15718, %71 ], [ -15718, %36 ], [ -15616, %84 ], [ -15616, %88 ], [ -15616, %94 ], [ -15616, %101 ], [ -15616, %75 ], [ -15616, %80 ], [ %41, %40 ], [ -14720, %28 ], [ -14720, %30 ], [ %27, %23 ], [ %22, %21 ], [ -15616, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %pk_ecc_group_id_from_specified.exit
 
 pk_group_from_specified.exit.i:                   ; preds = %104, %73, %57, %52, %47, %42, %32, %13
-  %.0.i.in.i = phi i32 [ %17, %13 ], [ %74, %73 ], [ %61, %57 ], [ %35, %32 ], [ %51, %47 ], [ %46, %42 ], [ %56, %52 ], [ %109, %104 ]
+  %.0.i.in.i = phi i32 [ %17, %13 ], [ %35, %32 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %74, %73 ], [ %109, %104 ]
   %.0.i.i = add nsw i32 %.0.i.in.i, -15616
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -612,7 +612,7 @@ pk_ecc_group_id_from_specified.exit:              ; preds = %pk_group_from_speci
   br label %182
 
 182:                                              ; preds = %pk_ecc_group_id_from_specified.exit, %11, %179
-  %.0 = phi i32 [ -14848, %11 ], [ %181, %179 ], [ %.0.i, %pk_ecc_group_id_from_specified.exit ]
+  %.0 = phi i32 [ %181, %179 ], [ -14848, %11 ], [ %.0.i, %pk_ecc_group_id_from_specified.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -862,7 +862,7 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %97, %84, %77, %.thread142, %73, %62, %52, %38, %17, %7, %100, %70, %60, %51, %50, %49, %36, %35, %34
-  %.0 = phi i32 [ -16256, %71 ], [ %.2, %34 ], [ -15616, %7 ], [ -15360, %35 ], [ %18, %36 ], [ %.5, %49 ], [ -15232, %17 ], [ -15360, %50 ], [ %39, %51 ], [ %58, %60 ], [ -15232, %38 ], [ %68, %70 ], [ %53, %52 ], [ 0, %97 ], [ 0, %73 ], [ -15232, %.thread142 ], [ 0, %77 ], [ 0, %84 ], [ -15616, %100 ], [ %63, %62 ]
+  %.0 = phi i32 [ %.2, %34 ], [ -15360, %35 ], [ %18, %36 ], [ %.5, %49 ], [ -15360, %50 ], [ %39, %51 ], [ %58, %60 ], [ %68, %70 ], [ -15616, %100 ], [ -15616, %7 ], [ -15232, %17 ], [ -15232, %38 ], [ %53, %52 ], [ %63, %62 ], [ 0, %73 ], [ -15232, %.thread142 ], [ 0, %77 ], [ 0, %84 ], [ 0, %97 ], [ -16256, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -1014,7 +1014,7 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   br label %68
 
 68:                                               ; preds = %55, %.critedge, %59, %42, %33, %38, %21, %67, %64, %53, %40, %25, %19, %12
-  %.0 = phi i32 [ %13, %12 ], [ %20, %19 ], [ %41, %40 ], [ %26, %25 ], [ -15744, %21 ], [ %39, %38 ], [ %54, %53 ], [ %66, %.critedge ], [ 0, %67 ], [ -15616, %59 ], [ %43, %42 ], [ %65, %64 ], [ %37, %33 ], [ -15718, %55 ]
+  %.0 = phi i32 [ %13, %12 ], [ %20, %19 ], [ %26, %25 ], [ %54, %53 ], [ 0, %67 ], [ %65, %64 ], [ %41, %40 ], [ -15744, %21 ], [ %37, %33 ], [ %39, %38 ], [ %43, %42 ], [ -15616, %59 ], [ %66, %.critedge ], [ -15718, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1112,8 +1112,8 @@ pk_get_pk_alg.exit.thread66:                      ; preds = %.thread29.i, %34, %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
-pk_get_pk_alg.exit.thread:                        ; preds = %29, %36, %38, %31
-  %.015.i.ph = phi i32 [ -15488, %31 ], [ -14976, %38 ], [ -14976, %36 ], [ -15488, %29 ]
+pk_get_pk_alg.exit.thread:                        ; preds = %36, %38, %31, %29
+  %.015.i.ph = phi i32 [ -15488, %29 ], [ -15488, %31 ], [ -14976, %38 ], [ -14976, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %92
 
@@ -1239,7 +1239,7 @@ pk_use_ecparams_rfc8410.exit.thread:              ; preds = %74, %77, %pk_use_ec
   br label %92
 
 92:                                               ; preds = %88, %46, %pk_get_pk_alg.exit.thread, %25, %69, %53, %49, %pk_get_pk_alg.exit, %87, %pk_use_ecparams_rfc8410.exit.thread, %68, %44, %23, %16
-  %.0 = phi i32 [ %17, %16 ], [ %24, %23 ], [ %spec.select, %88 ], [ %54, %53 ], [ %45, %44 ], [ %.015.i.ph, %pk_get_pk_alg.exit.thread ], [ %41, %pk_get_pk_alg.exit ], [ -15488, %49 ], [ %67, %68 ], [ -15712, %46 ], [ -15488, %69 ], [ %.036, %pk_use_ecparams_rfc8410.exit.thread ], [ %.1, %87 ], [ -15744, %25 ]
+  %.0 = phi i32 [ %17, %16 ], [ %24, %23 ], [ %45, %44 ], [ %67, %68 ], [ %.036, %pk_use_ecparams_rfc8410.exit.thread ], [ %.1, %87 ], [ %41, %pk_get_pk_alg.exit ], [ -15488, %49 ], [ %54, %53 ], [ -15488, %69 ], [ -15744, %25 ], [ %.015.i.ph, %pk_get_pk_alg.exit.thread ], [ -15712, %46 ], [ %spec.select, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1352,7 +1352,7 @@ define internal fastcc i32 @mbedtls_pk_parse_key_pkcs8_encrypted_der(ptr noundef
   br label %.critedge38
 
 .critedge38:                                      ; preds = %46, %43, %49, %36, %7, %.critedge, %53, %42, %30, %26, %19
-  %.0 = phi i32 [ %52, %53 ], [ %20, %19 ], [ %27, %26 ], [ %31, %30 ], [ -15360, %7 ], [ %41, %42 ], [ -15232, %49 ], [ %55, %.critedge ], [ -15232, %36 ], [ -14720, %43 ], [ -14720, %46 ]
+  %.0 = phi i32 [ %20, %19 ], [ %27, %26 ], [ %31, %30 ], [ %41, %42 ], [ %55, %.critedge ], [ %52, %53 ], [ -15360, %7 ], [ -15232, %36 ], [ -15232, %49 ], [ -14720, %43 ], [ -14720, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1520,7 +1520,7 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
   br label %65
 
 65:                                               ; preds = %62, %52, %50, %.thread56, %3, %63, %47, %41, %37, %36, %23, %20
-  %.036 = phi i32 [ %64, %63 ], [ -15488, %20 ], [ %22, %23 ], [ %34, %36 ], [ %15, %37 ], [ %46, %41 ], [ %40, %47 ], [ -15616, %3 ], [ -15488, %.thread56 ], [ %51, %50 ], [ 0, %52 ], [ %60, %62 ]
+  %.036 = phi i32 [ -15488, %20 ], [ %22, %23 ], [ %34, %36 ], [ %15, %37 ], [ %46, %41 ], [ %40, %47 ], [ %64, %63 ], [ -15616, %3 ], [ -15488, %.thread56 ], [ %51, %50 ], [ 0, %52 ], [ %60, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1585,7 +1585,7 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_load_file(ptr noundef readonl
   br label %33
 
 33:                                               ; preds = %26, %30, %3, %25, %17, %10
-  %.0 = phi i32 [ -15872, %3 ], [ -15872, %10 ], [ -16256, %17 ], [ -15872, %25 ], [ 0, %30 ], [ 0, %26 ]
+  %.0 = phi i32 [ -15872, %10 ], [ -16256, %17 ], [ -15872, %25 ], [ -15872, %3 ], [ 0, %30 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -1759,7 +1759,7 @@ define internal fastcc range(i32 -2147483648, 2147468032) i32 @pk_get_ecparams(p
   br label %22
 
 22:                                               ; preds = %9, %17, %3, %15
-  %.0 = phi i32 [ %spec.select, %17 ], [ %16, %15 ], [ -15714, %9 ], [ -15712, %3 ]
+  %.0 = phi i32 [ %16, %15 ], [ -15712, %3 ], [ %spec.select, %17 ], [ -15714, %9 ]
   ret i32 %.0
 }
 
@@ -1801,7 +1801,7 @@ define internal fastcc i32 @pk_parse_key_rfc8410_der(ptr noundef %0, ptr noundef
   br label %23
 
 23:                                               ; preds = %19, %17, %13, %11
-  %.0 = phi i32 [ %12, %11 ], [ %18, %17 ], [ -15616, %13 ], [ %22, %19 ]
+  %.0 = phi i32 [ %12, %11 ], [ -15616, %13 ], [ %18, %17 ], [ %22, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

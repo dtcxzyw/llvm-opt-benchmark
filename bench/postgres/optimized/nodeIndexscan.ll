@@ -1502,12 +1502,12 @@ thread-pre-split389:                              ; preds = %297
   br label %381
 
 381:                                              ; preds = %352, %368, %375
-  %.2298 = phi i32 [ %380, %375 ], [ %.0296462653, %352 ], [ %.0296462653, %368 ]
-  %.8295 = phi i32 [ %.0287463652, %375 ], [ %.0287463652, %352 ], [ %.7294, %368 ]
-  %.5286 = phi i32 [ %.0281464651, %375 ], [ %.0281464651, %352 ], [ %374, %368 ]
-  %.8 = phi ptr [ %.0278465650, %375 ], [ %.0278465650, %352 ], [ %.7, %368 ]
-  %.0277 = phi i32 [ 0, %375 ], [ %spec.select370, %352 ], [ 32, %368 ]
-  %.0276 = phi i64 [ 0, %375 ], [ %354, %352 ], [ 0, %368 ]
+  %.2298 = phi i32 [ %.0296462653, %368 ], [ %380, %375 ], [ %.0296462653, %352 ]
+  %.8295 = phi i32 [ %.7294, %368 ], [ %.0287463652, %375 ], [ %.0287463652, %352 ]
+  %.5286 = phi i32 [ %374, %368 ], [ %.0281464651, %375 ], [ %.0281464651, %352 ]
+  %.8 = phi ptr [ %.7, %368 ], [ %.0278465650, %375 ], [ %.0278465650, %352 ]
+  %.0277 = phi i32 [ 32, %368 ], [ 0, %375 ], [ %spec.select370, %352 ]
+  %.0276 = phi i64 [ 0, %368 ], [ 0, %375 ], [ %354, %352 ]
   %382 = load i32, ptr %11, align 4
   %383 = trunc i32 %382 to i16
   %384 = load i32, ptr %13, align 4
@@ -1706,7 +1706,7 @@ define internal i32 @reorderqueue_cmp(ptr noundef readonly captures(none) %0, pt
   br i1 %.not.i, label %16, label %cmp_orderbyvals.exit
 
 cmp_orderbyvals.exit:                             ; preds = %16, %30, %32, %3, %28
-  %.2.i = phi i32 [ 0, %3 ], [ %not..i, %28 ], [ -1, %30 ], [ 0, %16 ], [ %39, %32 ]
+  %.2.i = phi i32 [ 0, %3 ], [ %not..i, %28 ], [ %39, %32 ], [ 0, %16 ], [ -1, %30 ]
   ret i32 %.2.i
 }
 
@@ -2033,7 +2033,7 @@ cmp_orderbyvals.exit:                             ; preds = %93, %89
   %101 = icmp slt i32 %.2.i, 1
   br i1 %101, label %cmp_orderbyvals.exit.thread, label %141
 
-cmp_orderbyvals.exit.thread:                      ; preds = %69, %cmp_orderbyvals.exit, %65, %91, %78
+cmp_orderbyvals.exit.thread:                      ; preds = %69, %cmp_orderbyvals.exit, %65, %78, %91
   %102 = load ptr, ptr %39, align 8
   %103 = call ptr @pairingheap_remove_first(ptr noundef %102) #7
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
@@ -2419,7 +2419,7 @@ reorderqueue_push.exit:                           ; preds = %291, %252
   store ptr %257, ptr @CurrentMemoryContext, align 8
   br label %.backedge.backedge
 
-cmp_orderbyvals.exit104.thread:                   ; preds = %221, %.thread127, %cmp_orderbyvals.exit104, %241, %228, %137, %reorderqueue_pop.exit
+cmp_orderbyvals.exit104.thread:                   ; preds = %221, %.thread127, %cmp_orderbyvals.exit104, %228, %241, %137, %reorderqueue_pop.exit
   ret ptr %8
 }
 

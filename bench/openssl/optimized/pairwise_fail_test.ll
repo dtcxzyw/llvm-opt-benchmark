@@ -127,7 +127,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %9, %16, %14
-  %.02 = phi i32 [ 0, %14 ], [ 0, %9 ], [ 1, %16 ], [ 0, %1 ]
+  %.02 = phi i32 [ 1, %16 ], [ 0, %14 ], [ 0, %9 ], [ 0, %1 ]
   ret i32 %.02
 }
 
@@ -211,7 +211,7 @@ setup_selftest_pairwise_failure.exit42.sink.split: ; preds = %21
   br label %setup_selftest_pairwise_failure.exit42
 
 setup_selftest_pairwise_failure.exit42:           ; preds = %21, %setup_selftest_pairwise_failure.exit42.sink.split
-  %phi.call = phi i32 [ 0, %21 ], [ 1, %setup_selftest_pairwise_failure.exit42.sink.split ]
+  %phi.call = phi i32 [ 1, %setup_selftest_pairwise_failure.exit42.sink.split ], [ 0, %21 ]
   %28 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %24) #5
   %29 = tail call i32 @test_true(ptr noundef nonnull @.str.24, i32 noundef 104, ptr noundef nonnull @.str.25, i32 noundef %phi.call) #5
   %.not36 = icmp eq i32 %29, 0
@@ -254,7 +254,7 @@ setup_selftest_pairwise_failure.exit48.sink.split: ; preds = %39
   br label %setup_selftest_pairwise_failure.exit48
 
 setup_selftest_pairwise_failure.exit48:           ; preds = %39, %setup_selftest_pairwise_failure.exit48.sink.split
-  %phi.call24 = phi i32 [ 0, %39 ], [ 1, %setup_selftest_pairwise_failure.exit48.sink.split ]
+  %phi.call24 = phi i32 [ 1, %setup_selftest_pairwise_failure.exit48.sink.split ], [ 0, %39 ]
   %46 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %42) #5
   %47 = tail call i32 @test_true(ptr noundef nonnull @.str.24, i32 noundef 111, ptr noundef nonnull @.str.25, i32 noundef %phi.call24) #5
   %.not29 = icmp eq i32 %47, 0
@@ -460,7 +460,7 @@ define internal range(i32 0, 2) i32 @self_test_on_pairwise_fail(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %19, %13, %16, %2, %5, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %2 ], [ 0, %13 ], [ 0, %5 ], [ 0, %16 ], [ 0, %19 ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %5 ], [ 0, %2 ], [ 0, %16 ], [ 0, %13 ], [ 0, %19 ]
   ret i32 %.0
 }
 

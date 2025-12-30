@@ -747,8 +747,8 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   br i1 %exitcond378.not, label %._crit_edge315, label %321, !llvm.loop !154
 
 ._crit_edge315:                                   ; preds = %321, %.preheader, %.preheader293
-  %.0233.lcssa = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader293 ], [ %327, %321 ]
-  %.0232.lcssa = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader293 ], [ %324, %321 ]
+  %.0233.lcssa = phi float [ 0.000000e+00, %.preheader293 ], [ 0.000000e+00, %.preheader ], [ %327, %321 ]
+  %.0232.lcssa = phi float [ 0.000000e+00, %.preheader293 ], [ 0.000000e+00, %.preheader ], [ %324, %321 ]
   %328 = fmul float %.0233.lcssa, %.0233.lcssa
   %329 = tail call float @llvm.fmuladd.f32(float %.0232.lcssa, float %.0232.lcssa, float %328)
   %330 = tail call float @llvm.fmuladd.f32(float %272, float %329, float %266)

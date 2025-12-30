@@ -124,7 +124,7 @@ define range(i32 0, 2) i32 @X509_ALGOR_set0(ptr noundef captures(address_is_null
   br label %21
 
 21:                                               ; preds = %17, %.thread, %19, %14, %4
-  %.0 = phi i32 [ 1, %17 ], [ 0, %4 ], [ 0, %14 ], [ 1, %19 ], [ 1, %.thread ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 1, %17 ], [ 1, %19 ], [ 1, %.thread ]
   ret i32 %.0
 }
 
@@ -194,8 +194,8 @@ define ptr @ossl_X509_ALGOR_from_nid(i32 noundef %0, i32 noundef %1, ptr noundef
   tail call void @ASN1_item_free(ptr noundef nonnull %7, ptr noundef nonnull @X509_ALGOR_it.local_it) #5
   br label %X509_ALGOR_set0.exit.thread
 
-X509_ALGOR_set0.exit.thread:                      ; preds = %22, %.thread.i, %20, %.split, %.split9, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %.split ], [ null, %.split9 ], [ %7, %20 ], [ %7, %.thread.i ], [ %7, %22 ]
+X509_ALGOR_set0.exit.thread:                      ; preds = %.thread.i, %22, %20, %.split, %.split9, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %.split9 ], [ null, %.split ], [ %7, %20 ], [ %7, %22 ], [ %7, %.thread.i ]
   ret ptr %.0
 }
 
@@ -314,7 +314,7 @@ define i32 @X509_ALGOR_cmp(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %12
 
 12:                                               ; preds = %6, %2, %._crit_edge
-  %.0 = phi i32 [ %5, %2 ], [ %11, %._crit_edge ], [ 0, %6 ]
+  %.0 = phi i32 [ %11, %._crit_edge ], [ %5, %2 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -415,7 +415,7 @@ define range(i32 0, 2) i32 @ossl_x509_algor_new_from_md(ptr noundef writeonly ca
   br label %10
 
 10:                                               ; preds = %6, %2, %4, %9
-  %.0 = phi i32 [ 1, %9 ], [ 1, %2 ], [ 1, %4 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %4 ], [ 1, %2 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -512,7 +512,7 @@ define range(i32 0, 2) i32 @ossl_x509_algor_md_to_mgf1(ptr noundef captures(none
   br label %13
 
 13:                                               ; preds = %12, %7
-  %.010.ph = phi ptr [ %10, %12 ], [ null, %7 ]
+  %.010.ph = phi ptr [ null, %7 ], [ %10, %12 ]
   %14 = call ptr @ASN1_item_pack(ptr noundef %.010.ph, ptr noundef nonnull @X509_ALGOR_it.local_it, ptr noundef nonnull %3) #5
   %15 = icmp eq ptr %14, null
   %.pre16 = load ptr, ptr %3, align 8, !tbaa !26

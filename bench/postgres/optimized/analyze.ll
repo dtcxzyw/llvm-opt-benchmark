@@ -1539,10 +1539,10 @@ list_length.exit175.i:                            ; preds = %475, %474
   br label %.split.split.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.thread.split.i, %.split.us.us.i, %.lr.ph189.i, %.critedge.i42, %454
-  %.0140.lcssa266.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ %526, %.split.us.us.i ], [ null, %.lr.ph189.i ], [ %526, %.thread.split.i ]
-  %.0141.lcssa265.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ %527, %.split.us.us.i ], [ null, %.lr.ph189.i ], [ %527, %.thread.split.i ]
-  %.0142.lcssa264.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ %528, %.split.us.us.i ], [ null, %.lr.ph189.i ], [ %528, %.thread.split.i ]
-  %.0.lcssa256263.i = phi ptr [ %499, %.critedge.i42 ], [ null, %454 ], [ null, %.split.us.us.i ], [ null, %.lr.ph189.i ], [ %499, %.thread.split.i ]
+  %.0140.lcssa266.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ %526, %.split.us.us.i ], [ %526, %.thread.split.i ]
+  %.0141.lcssa265.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ %527, %.split.us.us.i ], [ %527, %.thread.split.i ]
+  %.0142.lcssa264.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ %528, %.split.us.us.i ], [ %528, %.thread.split.i ]
+  %.0.lcssa256263.i = phi ptr [ %499, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ null, %.split.us.us.i ], [ %499, %.thread.split.i ]
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %556 = load ptr, ptr %555, align 8
   %.not161.i = icmp eq ptr %556, null
@@ -2210,7 +2210,7 @@ transformDeclareCursorStmt.exit:                  ; preds = %876, %906
   br label %.critedge.i64.thread
 
 .critedge.i64.thread:                             ; preds = %.lr.ph, %926, %947, %.critedge.i64
-  %.1.i62.lcssa257 = phi i1 [ false, %.critedge.i64 ], [ true, %947 ], [ false, %926 ], [ false, %.lr.ph ]
+  %.1.i62.lcssa257 = phi i1 [ true, %947 ], [ false, %.critedge.i64 ], [ false, %926 ], [ false, %.lr.ph ]
   %948 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %949 = load ptr, ptr %948, align 8
   %950 = load i32, ptr %949, align 4
@@ -2604,7 +2604,7 @@ transformCallStmt.exit:                           ; preds = %1069, %.critedge89.
   br label %transformDeleteStmt.exit
 
 transformDeleteStmt.exit:                         ; preds = %841, %839, %379, %335, %transformValuesClause.exit, %610, %608, %1133, %transformCallStmt.exit, %transformCreateTableAsStmt.exit, %transformExplainStmt.exit, %transformDeclareCursorStmt.exit, %transformReturnStmt.exit, %434, %transformUpdateStmt.exit, %transformInsertStmt.exit
-  %.0 = phi ptr [ %1134, %1133 ], [ %12, %transformInsertStmt.exit ], [ %611, %610 ], [ %381, %transformUpdateStmt.exit ], [ %435, %434 ], [ %1130, %transformCallStmt.exit ], [ %613, %transformReturnStmt.exit ], [ %321, %379 ], [ %919, %transformDeclareCursorStmt.exit ], [ %987, %transformExplainStmt.exit ], [ %1033, %transformCreateTableAsStmt.exit ], [ %440, %transformValuesClause.exit ], [ %609, %608 ], [ %321, %335 ], [ %649, %839 ], [ %649, %841 ]
+  %.0 = phi ptr [ %1134, %1133 ], [ %12, %transformInsertStmt.exit ], [ %381, %transformUpdateStmt.exit ], [ %435, %434 ], [ %613, %transformReturnStmt.exit ], [ %919, %transformDeclareCursorStmt.exit ], [ %987, %transformExplainStmt.exit ], [ %1033, %transformCreateTableAsStmt.exit ], [ %1130, %transformCallStmt.exit ], [ %440, %transformValuesClause.exit ], [ %609, %608 ], [ %611, %610 ], [ %321, %335 ], [ %321, %379 ], [ %649, %839 ], [ %649, %841 ]
   %1137 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i32 0, ptr %1137, align 8
   %1138 = getelementptr inbounds nuw i8, ptr %.0, i64 24
@@ -2644,8 +2644,8 @@ transformDeleteStmt.exit:                         ; preds = %841, %839, %379, %3
   br label %.thread.sink.split.i
 
 1152:                                             ; preds = %1142, %1147, %1146, %1145
-  %.sink276 = phi i64 [ 160, %1147 ], [ 60, %1142 ], [ 56, %1146 ], [ 48, %1145 ]
-  %.sink.i = phi i64 [ 164, %1147 ], [ 64, %1142 ], [ 60, %1146 ], [ 52, %1145 ]
+  %.sink276 = phi i64 [ 160, %1147 ], [ 56, %1146 ], [ 48, %1145 ], [ 60, %1142 ]
+  %.sink.i = phi i64 [ 164, %1147 ], [ 60, %1146 ], [ 52, %1145 ], [ 64, %1142 ]
   %1153 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink276
   %.sink29.i = load i32, ptr %1153, align 4
   store i32 %.sink29.i, ptr %1144, align 8
@@ -3601,7 +3601,7 @@ list_length.exit97:                               ; preds = %41, %59
   br i1 %or.cond6, label %138, label %.critedge
 
 .critedge:                                        ; preds = %93, %89, %128, %133, %.split.split.us, %68
-  %.us-phi = phi ptr [ null, %68 ], [ null, %.split.split.us ], [ %.0, %128 ], [ %.0, %133 ], [ %.0.us115, %89 ], [ %.0.us115, %93 ]
+  %.us-phi = phi ptr [ null, %.split.split.us ], [ null, %68 ], [ %.0, %133 ], [ %.0, %128 ], [ %.0.us115, %89 ], [ %.0.us115, %93 ]
   ret ptr %.us-phi
 
 138:                                              ; preds = %133
@@ -3619,7 +3619,7 @@ list_length.exit97:                               ; preds = %41, %59
   %.not126 = icmp eq ptr %149, null
   br i1 %.not126, label %.thread107, label %.preheader
 
-.thread103:                                       ; preds = %155, %160
+.thread103:                                       ; preds = %160, %155
   %.4106 = phi ptr [ %162, %160 ], [ %159, %155 ]
   %.old2.not = icmp eq ptr %.4106, null
   br i1 %.old2.not, label %.thread107, label %.preheader
@@ -3751,8 +3751,8 @@ list_length.exit.sink.split:                      ; preds = %42, %6
   %46 = load i32, ptr %45, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %list_length.exit.sink.split, %37, %17, %13, %9, %4, %42, %33, %26, %6, %2
-  %.023 = phi i32 [ 0, %6 ], [ -1, %2 ], [ -1, %26 ], [ -1, %17 ], [ 0, %42 ], [ -1, %37 ], [ -1, %33 ], [ -1, %4 ], [ -1, %9 ], [ -1, %13 ], [ %46, %list_length.exit.sink.split ]
+list_length.exit:                                 ; preds = %list_length.exit.sink.split, %37, %17, %9, %13, %4, %42, %26, %33, %6, %2
+  %.023 = phi i32 [ -1, %2 ], [ 0, %6 ], [ 0, %42 ], [ -1, %26 ], [ -1, %33 ], [ -1, %4 ], [ -1, %13 ], [ -1, %9 ], [ -1, %17 ], [ -1, %37 ], [ %46, %list_length.exit.sink.split ]
   ret i32 %.023
 }
 
@@ -4934,7 +4934,7 @@ applyLockingClause.exit129:                       ; preds = %81, %92
   br label %157
 
 157:                                              ; preds = %147, %154, %143
-  %.0109 = phi ptr [ %156, %154 ], [ %139, %147 ], [ %139, %143 ]
+  %.0109 = phi ptr [ %156, %154 ], [ %139, %143 ], [ %139, %147 ]
   %158 = load ptr, ptr %129, align 8
   %159 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0109, ptr noundef nonnull dereferenceable(1) %158) #13
   %160 = icmp eq i32 %159, 0
@@ -5144,7 +5144,7 @@ applyLockingClause.exit135:                       ; preds = %199, %210
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3700, ptr noundef nonnull @__func__.transformLockingClause) #11
   unreachable
 
-279:                                              ; preds = %133, %147, %147, %150, %157
+279:                                              ; preds = %133, %150, %147, %147, %157
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread142, label %133
 

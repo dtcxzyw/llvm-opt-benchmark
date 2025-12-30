@@ -135,7 +135,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h4d926b16ec7dd628E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %17, %14, %12
-  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %12 ], [ %16, %14 ], [ %.sroa.07.0.i.us, %17 ]
+  %.0.us.be = phi i32 [ %16, %14 ], [ %.sroa.07.0.i.us, %17 ], [ %.sroa.07.0.i16.us, %12 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -263,7 +263,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h4d926b16ec7dd628E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %47, %23, %45
-  %.0.be = phi i32 [ %.sroa.07.0.i16, %45 ], [ %49, %47 ], [ %.sroa.07.0.i, %23 ]
+  %.0.be = phi i32 [ %49, %47 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %45 ]
   br label %.split
 }
 
@@ -305,7 +305,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7fd323c85a68f273E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
+  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -417,7 +417,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7fd323c85a68f273E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
+  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
   br label %.split
 }
 
@@ -461,7 +461,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hef6091a92609785eE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %17, %14, %12
-  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %12 ], [ %16, %14 ], [ %.sroa.07.0.i.us, %17 ]
+  %.0.us.be = phi i32 [ %16, %14 ], [ %.sroa.07.0.i.us, %17 ], [ %.sroa.07.0.i16.us, %12 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -589,7 +589,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hef6091a92609785eE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %47, %23, %45
-  %.0.be = phi i32 [ %.sroa.07.0.i16, %45 ], [ %49, %47 ], [ %.sroa.07.0.i, %23 ]
+  %.0.be = phi i32 [ %49, %47 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %45 ]
   br label %.split
 }
 
@@ -633,7 +633,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hf1f3131d6dadbd9cE
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %17, %14, %12
-  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %12 ], [ %16, %14 ], [ %.sroa.07.0.i.us, %17 ]
+  %.0.us.be = phi i32 [ %16, %14 ], [ %.sroa.07.0.i.us, %17 ], [ %.sroa.07.0.i16.us, %12 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -761,7 +761,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hf1f3131d6dadbd9cE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %47, %23, %45
-  %.0.be = phi i32 [ %.sroa.07.0.i16, %45 ], [ %49, %47 ], [ %.sroa.07.0.i, %23 ]
+  %.0.be = phi i32 [ %49, %47 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %45 ]
   br label %.split
 }
 
@@ -803,7 +803,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hfecf829c791b67a0E
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %.sroa.07.0.i16.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
+  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -915,7 +915,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hfecf829c791b67a0E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.0.be = phi i32 [ %.sroa.07.0.i16, %39 ], [ %43, %41 ], [ %.sroa.07.0.i, %21 ]
+  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
   br label %.split
 }
 
@@ -5775,7 +5775,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -5939,7 +5939,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h837d684fd1f0c16fE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h837d684fd1f0c16fE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h837d684fd1f0c16fE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -6267,7 +6267,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -6431,7 +6431,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h62740f0f162d7a79E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h62740f0f162d7a79E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h62740f0f162d7a79E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -6759,7 +6759,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -6923,7 +6923,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb84b60a257e6cd89E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb84b60a257e6cd89E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb84b60a257e6cd89E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -7251,7 +7251,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -7415,7 +7415,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h3f43c47a167c94feE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h3f43c47a167c94feE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h3f43c47a167c94feE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -7743,7 +7743,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -7907,7 +7907,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he0380869d36f7862E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he0380869d36f7862E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he0380869d36f7862E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -8235,7 +8235,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -8399,7 +8399,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hdf1b92a22de389bfE.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hdf1b92a22de389bfE.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hdf1b92a22de389bfE.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -8727,7 +8727,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -8891,7 +8891,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hbb976c1b15155da9E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hbb976c1b15155da9E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hbb976c1b15155da9E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -9219,7 +9219,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44:
   unreachable
 
 common.resume:                                    ; preds = %147, %151, %99, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %99 ], [ %95, %94 ], [ %148, %151 ], [ %148, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %148, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %78
@@ -9383,7 +9383,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35:
   br label %197
 
 197:                                              ; preds = %.critedge, %67, %196, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfec3efa3ae3d3595E.exit"
-  %.0 = phi ptr [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfec3efa3ae3d3595E.exit" ], [ null, %67 ], [ null, %196 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %67 ], [ null, %196 ], [ %.0.i26, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfec3efa3ae3d3595E.exit" ], [ null, %.critedge ]
   ret ptr %.0
 }
 

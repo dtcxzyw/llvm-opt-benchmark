@@ -505,7 +505,7 @@ lean_obj_tag.exit.thread:                         ; preds = %lean_dec.exit10
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, %32, %34, %35, %lean_obj_tag.exit.thread
-  %.0 = phi i8 [ 0, %lean_obj_tag.exit.thread ], [ %spec.select, %lean_obj_tag.exit ], [ 1, %35 ], [ 1, %34 ], [ 1, %32 ]
+  %.0 = phi i8 [ 0, %lean_obj_tag.exit.thread ], [ 1, %35 ], [ 1, %34 ], [ 1, %32 ], [ %spec.select, %lean_obj_tag.exit ]
   ret i8 %.0
 }
 
@@ -2130,7 +2130,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit24
 
 lean_dec.exit24:                                  ; preds = %lean_dec.exit25, %11, %13, %14, %lean_dec.exit
-  %.0 = phi ptr [ %15, %lean_dec.exit ], [ %1, %lean_dec.exit25 ], [ %1, %14 ], [ %1, %13 ], [ %1, %11 ]
+  %.0 = phi ptr [ %15, %lean_dec.exit ], [ %1, %14 ], [ %1, %13 ], [ %1, %11 ], [ %1, %lean_dec.exit25 ]
   ret ptr %.0
 }
 
@@ -2197,7 +2197,7 @@ lean_dec.exit.i:                                  ; preds = %3
   br label %l_Lake_RBArray_foldl___rarg.exit
 
 l_Lake_RBArray_foldl___rarg.exit:                 ; preds = %lean_dec.exit25.i, %12, %14, %15, %lean_dec.exit.i
-  %.0.i = phi ptr [ %16, %lean_dec.exit.i ], [ %1, %lean_dec.exit25.i ], [ %1, %15 ], [ %1, %14 ], [ %1, %12 ]
+  %.0.i = phi ptr [ %16, %lean_dec.exit.i ], [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ %1, %lean_dec.exit25.i ]
   %17 = ptrtoint ptr %2 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
@@ -3044,7 +3044,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_le.exit
   br label %lean_dec.exit36
 
 lean_dec.exit36:                                  ; preds = %lean_dec.exit34, %11, %13, %14, %lean_dec.exit
-  %.1 = phi ptr [ %1, %11 ], [ %15, %lean_dec.exit ], [ %1, %lean_dec.exit34 ], [ %1, %14 ], [ %1, %13 ]
+  %.1 = phi ptr [ %15, %lean_dec.exit ], [ %1, %14 ], [ %1, %13 ], [ %1, %11 ], [ %1, %lean_dec.exit34 ]
   ret ptr %.1
 }
 
@@ -3111,7 +3111,7 @@ lean_dec.exit.i:                                  ; preds = %3
   br label %l_Lake_RBArray_foldr___rarg.exit
 
 l_Lake_RBArray_foldr___rarg.exit:                 ; preds = %lean_dec.exit34.i, %12, %14, %15, %lean_dec.exit.i
-  %.1.i = phi ptr [ %1, %12 ], [ %16, %lean_dec.exit.i ], [ %1, %lean_dec.exit34.i ], [ %1, %15 ], [ %1, %14 ]
+  %.1.i = phi ptr [ %16, %lean_dec.exit.i ], [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ %1, %lean_dec.exit34.i ]
   %17 = ptrtoint ptr %2 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
@@ -5563,7 +5563,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit29
 
 lean_dec.exit29:                                  ; preds = %lean_dec.exit30, %35, %37, %38, %lean_dec.exit
-  %.0 = phi ptr [ %39, %lean_dec.exit ], [ %15, %lean_dec.exit30 ], [ %15, %38 ], [ %15, %37 ], [ %15, %35 ]
+  %.0 = phi ptr [ %39, %lean_dec.exit ], [ %15, %38 ], [ %15, %37 ], [ %15, %35 ], [ %15, %lean_dec.exit30 ]
   ret ptr %.0
 }
 

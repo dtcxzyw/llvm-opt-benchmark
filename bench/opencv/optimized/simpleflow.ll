@@ -1159,7 +1159,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit227:       ; preds = %_ZSt8_DestroyIPN2cv
   br label %409
 
 409:                                              ; preds = %337, %355, %408, %402, %400, %398
-  %.pn159.pn.pn = phi { ptr, i32 } [ %399, %398 ], [ %.pn143, %408 ], [ %403, %402 ], [ %401, %400 ], [ %.pn159, %355 ], [ %338, %337 ]
+  %.pn159.pn.pn = phi { ptr, i32 } [ %.pn143, %408 ], [ %403, %402 ], [ %401, %400 ], [ %399, %398 ], [ %.pn159, %355 ], [ %338, %337 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %47) #22
   br label %410
 
@@ -3068,8 +3068,8 @@ _ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge:       ; preds = %.preheader.us152, %
   br label %_ZN2cv7optflowL22extrapolateValueInRectEiiffffii.exit109.us
 
 _ZN2cv7optflowL22extrapolateValueInRectEiiffffii.exit109.us: ; preds = %_ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge, %82, %102, %100, %99
-  %.0.i136.us = phi float [ %.0.i.ph.us.ph, %102 ], [ %65, %82 ], [ %.0.i.ph.us.ph, %100 ], [ %.0.i.ph.us.ph, %99 ], [ %61, %_ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge ]
-  %.0.i105.us = phi float [ %113, %102 ], [ %67, %82 ], [ %77, %100 ], [ %73, %99 ], [ %63, %_ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge ]
+  %.0.i136.us = phi float [ %.0.i.ph.us.ph, %102 ], [ %.0.i.ph.us.ph, %99 ], [ %.0.i.ph.us.ph, %100 ], [ %65, %82 ], [ %61, %_ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge ]
+  %.0.i105.us = phi float [ %113, %102 ], [ %73, %99 ], [ %77, %100 ], [ %67, %82 ], [ %63, %_ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge ]
   %114 = mul i64 %57, %indvars.iv166
   %115 = getelementptr inbounds nuw i8, ptr %55, i64 %114
   %116 = getelementptr inbounds nuw %"class.cv::Vec.8", ptr %115, i64 %indvars.iv161
@@ -3842,7 +3842,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit123:                 ; preds = %237, %234, %222
   br label %241
 
 241:                                              ; preds = %240, %168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117
-  %.pn68.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn.pn, %240 ], [ %.pn57, %168 ], [ %.pn53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ %.pn55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120 ]
+  %.pn68.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn.pn, %240 ], [ %.pn57, %168 ], [ %.pn55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120 ], [ %.pn53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #22
   br label %242
 

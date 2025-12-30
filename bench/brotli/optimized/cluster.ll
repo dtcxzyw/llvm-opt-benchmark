@@ -137,7 +137,7 @@ HistogramAddHistogramLiteral.exit:                ; preds = %75
   br i1 %84, label %.critedge61, label %.critedge
 
 .critedge:                                        ; preds = %HistogramAddHistogramLiteral.exit, %57, %FastLog2.exit
-  %.sroa.10.0 = phi double [ %48, %57 ], [ %52, %FastLog2.exit ], [ %82, %HistogramAddHistogramLiteral.exit ]
+  %.sroa.10.0 = phi double [ %52, %FastLog2.exit ], [ %48, %57 ], [ %82, %HistogramAddHistogramLiteral.exit ]
   %85 = fadd double %53, %.sroa.10.0
   %86 = load i64, ptr %7, align 8, !tbaa !13
   %.not = icmp eq i64 %86, 0
@@ -378,7 +378,7 @@ HistogramAddHistogramLiteral.exit.i:              ; preds = %90
   br i1 %99, label %BrotliCompareAndPushToQueueLiteral.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %HistogramAddHistogramLiteral.exit.i, %75, %FastLog2.exit.i
-  %.sroa.10.0.i = phi double [ %66, %75 ], [ %70, %FastLog2.exit.i ], [ %97, %HistogramAddHistogramLiteral.exit.i ]
+  %.sroa.10.0.i = phi double [ %70, %FastLog2.exit.i ], [ %66, %75 ], [ %97, %HistogramAddHistogramLiteral.exit.i ]
   %100 = fadd double %71, %.sroa.10.0.i
   %.not.i = icmp eq i64 %.1138146, 0
   br i1 %.not.i, label %117, label %101
@@ -726,7 +726,7 @@ HistogramAddHistogramLiteral.exit.i120:           ; preds = %264
   br i1 %273, label %BrotliCompareAndPushToQueueLiteral.exit130, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %HistogramAddHistogramLiteral.exit.i120, %249, %FastLog2.exit.i116
-  %.sroa.10.0.i122 = phi double [ %240, %249 ], [ %244, %FastLog2.exit.i116 ], [ %271, %HistogramAddHistogramLiteral.exit.i120 ]
+  %.sroa.10.0.i122 = phi double [ %244, %FastLog2.exit.i116 ], [ %240, %249 ], [ %271, %HistogramAddHistogramLiteral.exit.i120 ]
   %274 = fadd double %245, %.sroa.10.0.i122
   %.not.i123 = icmp eq i64 %.4160, 0
   br i1 %.not.i123, label %291, label %275
@@ -1434,7 +1434,7 @@ HistogramAddHistogramCommand.exit:                ; preds = %75
   br i1 %84, label %.critedge61, label %.critedge
 
 .critedge:                                        ; preds = %HistogramAddHistogramCommand.exit, %57, %FastLog2.exit
-  %.sroa.10.0 = phi double [ %48, %57 ], [ %52, %FastLog2.exit ], [ %82, %HistogramAddHistogramCommand.exit ]
+  %.sroa.10.0 = phi double [ %52, %FastLog2.exit ], [ %48, %57 ], [ %82, %HistogramAddHistogramCommand.exit ]
   %85 = fadd double %53, %.sroa.10.0
   %86 = load i64, ptr %7, align 8, !tbaa !13
   %.not = icmp eq i64 %86, 0
@@ -1672,7 +1672,7 @@ HistogramAddHistogramCommand.exit.i:              ; preds = %90
   br i1 %99, label %BrotliCompareAndPushToQueueCommand.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %HistogramAddHistogramCommand.exit.i, %75, %FastLog2.exit.i
-  %.sroa.10.0.i = phi double [ %66, %75 ], [ %70, %FastLog2.exit.i ], [ %97, %HistogramAddHistogramCommand.exit.i ]
+  %.sroa.10.0.i = phi double [ %70, %FastLog2.exit.i ], [ %66, %75 ], [ %97, %HistogramAddHistogramCommand.exit.i ]
   %100 = fadd double %71, %.sroa.10.0.i
   %.not.i = icmp eq i64 %.1138146, 0
   br i1 %.not.i, label %117, label %101
@@ -2020,7 +2020,7 @@ HistogramAddHistogramCommand.exit.i120:           ; preds = %264
   br i1 %273, label %BrotliCompareAndPushToQueueCommand.exit130, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %HistogramAddHistogramCommand.exit.i120, %249, %FastLog2.exit.i116
-  %.sroa.10.0.i122 = phi double [ %240, %249 ], [ %244, %FastLog2.exit.i116 ], [ %271, %HistogramAddHistogramCommand.exit.i120 ]
+  %.sroa.10.0.i122 = phi double [ %244, %FastLog2.exit.i116 ], [ %240, %249 ], [ %271, %HistogramAddHistogramCommand.exit.i120 ]
   %274 = fadd double %245, %.sroa.10.0.i122
   %.not.i123 = icmp eq i64 %.4160, 0
   br i1 %.not.i123, label %291, label %275
@@ -2721,7 +2721,7 @@ HistogramAddHistogramDistance.exit:               ; preds = %75
   br i1 %84, label %.critedge61, label %.critedge
 
 .critedge:                                        ; preds = %HistogramAddHistogramDistance.exit, %57, %FastLog2.exit
-  %.sroa.10.0 = phi double [ %48, %57 ], [ %52, %FastLog2.exit ], [ %82, %HistogramAddHistogramDistance.exit ]
+  %.sroa.10.0 = phi double [ %52, %FastLog2.exit ], [ %48, %57 ], [ %82, %HistogramAddHistogramDistance.exit ]
   %85 = fadd double %53, %.sroa.10.0
   %86 = load i64, ptr %7, align 8, !tbaa !13
   %.not = icmp eq i64 %86, 0
@@ -2959,7 +2959,7 @@ HistogramAddHistogramDistance.exit.i:             ; preds = %90
   br i1 %99, label %BrotliCompareAndPushToQueueDistance.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %HistogramAddHistogramDistance.exit.i, %75, %FastLog2.exit.i
-  %.sroa.10.0.i = phi double [ %66, %75 ], [ %70, %FastLog2.exit.i ], [ %97, %HistogramAddHistogramDistance.exit.i ]
+  %.sroa.10.0.i = phi double [ %70, %FastLog2.exit.i ], [ %66, %75 ], [ %97, %HistogramAddHistogramDistance.exit.i ]
   %100 = fadd double %71, %.sroa.10.0.i
   %.not.i = icmp eq i64 %.1138146, 0
   br i1 %.not.i, label %117, label %101
@@ -3307,7 +3307,7 @@ HistogramAddHistogramDistance.exit.i120:          ; preds = %264
   br i1 %273, label %BrotliCompareAndPushToQueueDistance.exit130, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %HistogramAddHistogramDistance.exit.i120, %249, %FastLog2.exit.i116
-  %.sroa.10.0.i122 = phi double [ %240, %249 ], [ %244, %FastLog2.exit.i116 ], [ %271, %HistogramAddHistogramDistance.exit.i120 ]
+  %.sroa.10.0.i122 = phi double [ %244, %FastLog2.exit.i116 ], [ %240, %249 ], [ %271, %HistogramAddHistogramDistance.exit.i120 ]
   %274 = fadd double %245, %.sroa.10.0.i122
   %.not.i123 = icmp eq i64 %.4160, 0
   br i1 %.not.i123, label %291, label %275

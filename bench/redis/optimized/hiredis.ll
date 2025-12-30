@@ -194,7 +194,7 @@ define i32 @redisvFormatCommand(ptr noundef writeonly captures(address_is_null) 
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %33, %36, %40, %44, %48
-  %.0.i = phi i64 [ %50, %48 ], [ %35, %33 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ]
+  %.0.i = phi i64 [ %35, %33 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %50, %48 ]
   %51 = icmp ult i64 %.0.i, 10
   br i1 %51, label %bulklen.exit, label %.lr.ph.i.i
 
@@ -231,8 +231,8 @@ hi_sdslen.exit:                                   ; preds = %33, %36, %40, %44, 
   br i1 %66, label %bulklen.exit, label %.lr.ph.i.i
 
 bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen.exit, %53, %57, %61
-  %.0.i265 = phi i64 [ %.0.i, %61 ], [ %.0.i, %53 ], [ %.0.i, %57 ], [ %.0.i, %hi_sdslen.exit ], [ 0, %26 ], [ %.0.i, %63 ]
-  %.012.i.i = phi i32 [ %62, %61 ], [ %54, %53 ], [ %58, %57 ], [ 1, %hi_sdslen.exit ], [ 1, %26 ], [ %65, %63 ]
+  %.0.i265 = phi i64 [ %.0.i, %53 ], [ %.0.i, %57 ], [ %.0.i, %61 ], [ %.0.i, %hi_sdslen.exit ], [ 0, %26 ], [ %.0.i, %63 ]
+  %.012.i.i = phi i32 [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ 1, %hi_sdslen.exit ], [ 1, %26 ], [ %65, %63 ]
   %67 = call ptr @hi_sdsempty() #13
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.loopexit, label %69
@@ -398,7 +398,7 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
   br i1 %.not231, label %.critedge4, label %.preheader295
 
 .critedge4:                                       ; preds = %127, %138, %143, %.preheader295, %.critedge, %.critedge2
-  %.2 = phi ptr [ %.1335, %.critedge2 ], [ %.0331, %.critedge ], [ %139, %138 ], [ %.3, %143 ], [ %.3, %.preheader295 ], [ %128, %127 ]
+  %.2 = phi ptr [ %.1335, %.critedge2 ], [ %.0331, %.critedge ], [ %.3, %.preheader295 ], [ %.3, %143 ], [ %139, %138 ], [ %128, %127 ]
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
   %148 = load i8, ptr %.2, align 1, !tbaa !22
   %149 = sext i8 %148 to i32
@@ -601,8 +601,8 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
   br label %.loopexit
 
 232:                                              ; preds = %.thread268, %115, %119, %87, %91, %121
-  %.2185 = phi ptr [ %.4187, %.thread268 ], [ %.0183, %91 ], [ %.0183, %87 ], [ %.0183, %119 ], [ %.0183, %115 ], [ %.0183, %121 ]
-  %.0171 = phi ptr [ %.2173, %.thread268 ], [ %92, %91 ], [ %.0174, %87 ], [ %120, %119 ], [ %.0174, %115 ], [ %122, %121 ]
+  %.2185 = phi ptr [ %.0183, %91 ], [ %.0183, %87 ], [ %.0183, %119 ], [ %.0183, %115 ], [ %.0183, %121 ], [ %.4187, %.thread268 ]
+  %.0171 = phi ptr [ %92, %91 ], [ %.0174, %87 ], [ %120, %119 ], [ %.0174, %115 ], [ %122, %121 ], [ %.2173, %.thread268 ]
   %233 = icmp eq ptr %.0171, null
   br i1 %233, label %.loopexit, label %234
 
@@ -681,7 +681,7 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
   br label %hi_sdslen.exit252
 
 hi_sdslen.exit252:                                ; preds = %253, %256, %260, %264, %268
-  %.0.i251 = phi i64 [ %270, %268 ], [ %255, %253 ], [ %259, %256 ], [ %263, %260 ], [ %267, %264 ]
+  %.0.i251 = phi i64 [ %255, %253 ], [ %259, %256 ], [ %263, %260 ], [ %267, %264 ], [ %270, %268 ]
   %271 = icmp ult i64 %.0.i251, 10
   br i1 %271, label %bulklen.exit257, label %.lr.ph.i.i253
 
@@ -718,8 +718,8 @@ hi_sdslen.exit252:                                ; preds = %253, %256, %260, %2
   br i1 %286, label %bulklen.exit257, label %.lr.ph.i.i253
 
 bulklen.exit257:                                  ; preds = %283, %246, %hi_sdslen.exit252, %273, %277, %281
-  %.0.i251294 = phi i64 [ %.0.i251, %281 ], [ %.0.i251, %273 ], [ %.0.i251, %277 ], [ %.0.i251, %hi_sdslen.exit252 ], [ 0, %246 ], [ %.0.i251, %283 ]
-  %.012.i.i256 = phi i32 [ %282, %281 ], [ %274, %273 ], [ %278, %277 ], [ 1, %hi_sdslen.exit252 ], [ 1, %246 ], [ %285, %283 ]
+  %.0.i251294 = phi i64 [ %.0.i251, %273 ], [ %.0.i251, %277 ], [ %.0.i251, %281 ], [ %.0.i251, %hi_sdslen.exit252 ], [ 0, %246 ], [ %.0.i251, %283 ]
+  %.012.i.i256 = phi i32 [ %274, %273 ], [ %278, %277 ], [ %282, %281 ], [ 1, %hi_sdslen.exit252 ], [ 1, %246 ], [ %285, %283 ]
   %287 = trunc i64 %.0.i251294 to i32
   %288 = add i32 %.0154, 5
   %289 = add i32 %288, %287
@@ -772,7 +772,7 @@ bulklen.exit257:                                  ; preds = %283, %246, %hi_sdsl
   br i1 %308, label %countDigits.exit, label %.lr.ph.i
 
 countDigits.exit:                                 ; preds = %305, %292, %295, %299, %303
-  %.012.i = phi i32 [ %304, %303 ], [ %296, %295 ], [ %300, %299 ], [ 1, %292 ], [ %307, %305 ]
+  %.012.i = phi i32 [ %296, %295 ], [ %300, %299 ], [ %304, %303 ], [ 1, %292 ], [ %307, %305 ]
   %309 = add i32 %.2156, 3
   %310 = add i32 %309, %.012.i
   %311 = add nsw i32 %310, 1
@@ -839,7 +839,7 @@ countDigits.exit:                                 ; preds = %305, %292, %295, %2
   br label %hi_sdslen.exit259
 
 hi_sdslen.exit259:                                ; preds = %.lr.ph340, %327, %330, %334, %338, %342
-  %.0.i258 = phi i64 [ %344, %342 ], [ %329, %327 ], [ %333, %330 ], [ %337, %334 ], [ %341, %338 ], [ 0, %.lr.ph340 ]
+  %.0.i258 = phi i64 [ %329, %327 ], [ %333, %330 ], [ %337, %334 ], [ %341, %338 ], [ %344, %342 ], [ 0, %.lr.ph340 ]
   %345 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %320, ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %.0.i258) #13
   %346 = add nsw i32 %345, %.0180338
   %347 = sext i32 %346 to i64
@@ -886,7 +886,7 @@ hi_sdslen.exit259:                                ; preds = %.lr.ph340, %327, %3
   br label %hi_sdslen.exit261
 
 hi_sdslen.exit261:                                ; preds = %hi_sdslen.exit259, %354, %357, %361, %365, %369
-  %.0.i260 = phi i64 [ %371, %369 ], [ %356, %354 ], [ %360, %357 ], [ %364, %361 ], [ %368, %365 ], [ 0, %hi_sdslen.exit259 ]
+  %.0.i260 = phi i64 [ %356, %354 ], [ %360, %357 ], [ %364, %361 ], [ %368, %365 ], [ %371, %369 ], [ 0, %hi_sdslen.exit259 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %348, ptr nonnull align 1 %349, i64 %.0.i260, i1 false)
   %372 = load ptr, ptr %321, align 8, !tbaa !24
   %373 = getelementptr inbounds i8, ptr %372, i64 -1
@@ -930,7 +930,7 @@ hi_sdslen.exit261:                                ; preds = %hi_sdslen.exit259, 
   br label %hi_sdslen.exit263
 
 hi_sdslen.exit263:                                ; preds = %hi_sdslen.exit261, %377, %380, %384, %388, %392
-  %.0.i262 = phi i64 [ %394, %392 ], [ %379, %377 ], [ %383, %380 ], [ %387, %384 ], [ %391, %388 ], [ 0, %hi_sdslen.exit261 ]
+  %.0.i262 = phi i64 [ %379, %377 ], [ %383, %380 ], [ %387, %384 ], [ %391, %388 ], [ %394, %392 ], [ 0, %hi_sdslen.exit261 ]
   %395 = trunc i64 %.0.i262 to i32
   %396 = add i32 %346, %395
   call void @hi_sdsfree(ptr noundef nonnull %372) #13
@@ -955,10 +955,10 @@ hi_sdslen.exit263:                                ; preds = %hi_sdslen.exit261, 
   br label %410
 
 .loopexit:                                        ; preds = %232, %19, %bulklen.exit, %.thread, %.thread283, %.thread288, %countDigits.exit
-  %.5179 = phi ptr [ %.0174, %.thread283 ], [ null, %countDigits.exit ], [ %.1175292, %.thread288 ], [ %.0174, %232 ], [ %.0174, %.thread ], [ null, %bulklen.exit ], [ %.0174, %19 ]
-  %.4166 = phi ptr [ %.0162, %.thread283 ], [ %.3165, %countDigits.exit ], [ %.0162, %.thread288 ], [ %.0162, %232 ], [ %.0162, %.thread ], [ %24, %bulklen.exit ], [ %.0162, %19 ]
-  %.4161 = phi i32 [ %.0157, %.thread283 ], [ %.3160, %countDigits.exit ], [ %.0157, %.thread288 ], [ %.0157, %232 ], [ %.0157, %.thread ], [ %20, %bulklen.exit ], [ %.0157, %19 ]
-  %.0153 = phi i32 [ -2, %.thread283 ], [ -1, %countDigits.exit ], [ -1, %.thread288 ], [ -1, %.thread ], [ -1, %bulklen.exit ], [ -1, %19 ], [ -1, %232 ]
+  %.5179 = phi ptr [ %.1175292, %.thread288 ], [ null, %countDigits.exit ], [ %.0174, %.thread283 ], [ %.0174, %232 ], [ %.0174, %.thread ], [ null, %bulklen.exit ], [ %.0174, %19 ]
+  %.4166 = phi ptr [ %.0162, %.thread288 ], [ %.3165, %countDigits.exit ], [ %.0162, %.thread283 ], [ %.0162, %232 ], [ %.0162, %.thread ], [ %24, %bulklen.exit ], [ %.0162, %19 ]
+  %.4161 = phi i32 [ %.0157, %.thread288 ], [ %.3160, %countDigits.exit ], [ %.0157, %.thread283 ], [ %.0157, %232 ], [ %.0157, %.thread ], [ %20, %bulklen.exit ], [ %.0157, %19 ]
+  %.0153 = phi i32 [ -1, %.thread288 ], [ -1, %countDigits.exit ], [ -2, %.thread283 ], [ -1, %.thread ], [ -1, %bulklen.exit ], [ -1, %19 ], [ -1, %232 ]
   %.not249 = icmp eq ptr %.4166, null
   br i1 %.not249, label %408, label %.preheader
 
@@ -991,7 +991,7 @@ hi_sdslen.exit263:                                ; preds = %hi_sdslen.exit261, 
   br label %410
 
 410:                                              ; preds = %7, %3, %408, %._crit_edge
-  %.0189 = phi i32 [ %310, %._crit_edge ], [ -1, %3 ], [ %.0153, %408 ], [ -1, %7 ]
+  %.0189 = phi i32 [ %.0153, %408 ], [ %310, %._crit_edge ], [ -1, %3 ], [ -1, %7 ]
   ret i32 %.0189
 }
 
@@ -1084,7 +1084,7 @@ define i64 @redisFormatSdsCommandArgv(ptr noundef writeonly captures(address_is_
   br i1 %23, label %countDigits.exit, label %.lr.ph.i
 
 countDigits.exit:                                 ; preds = %20, %6, %10, %14, %18
-  %.012.i = phi i32 [ %19, %18 ], [ %11, %10 ], [ %15, %14 ], [ 1, %6 ], [ %22, %20 ]
+  %.012.i = phi i32 [ %11, %10 ], [ %15, %14 ], [ %19, %18 ], [ 1, %6 ], [ %22, %20 ]
   %24 = add i32 %.012.i, 3
   %25 = zext i32 %24 to i64
   %26 = icmp sgt i32 %1, 0
@@ -1137,7 +1137,7 @@ countDigits.exit:                                 ; preds = %20, %6, %10, %14, %
   br label %bulklen.exit.us
 
 bulklen.exit.us:                                  ; preds = %36, %44, %42, %40, %.lr.ph.split.us
-  %.012.i.i.us = phi i32 [ %41, %40 ], [ %45, %44 ], [ %43, %42 ], [ 1, %.lr.ph.split.us ], [ %38, %36 ]
+  %.012.i.i.us = phi i32 [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ 1, %.lr.ph.split.us ], [ %38, %36 ]
   %46 = add i32 %.012.i.i.us, 3
   %47 = zext i32 %46 to i64
   %48 = add i64 %.03855.us, 2
@@ -1188,7 +1188,7 @@ bulklen.exit.us:                                  ; preds = %36, %44, %42, %40, 
   br i1 %68, label %bulklen.exit, label %.lr.ph.i.i
 
 bulklen.exit:                                     ; preds = %65, %.lr.ph.split, %55, %59, %63
-  %.012.i.i = phi i32 [ %64, %63 ], [ %56, %55 ], [ %60, %59 ], [ 1, %.lr.ph.split ], [ %67, %65 ]
+  %.012.i.i = phi i32 [ %56, %55 ], [ %60, %59 ], [ %64, %63 ], [ 1, %.lr.ph.split ], [ %67, %65 ]
   %69 = add i32 %.012.i.i, 3
   %70 = zext i32 %69 to i64
   %71 = add i64 %.03855, 2
@@ -1256,7 +1256,7 @@ bulklen.exit:                                     ; preds = %65, %.lr.ph.split, 
   br label %96
 
 96:                                               ; preds = %._crit_edge, %4, %._crit_edge61, %79
-  %.039 = phi i64 [ %.038.lcssa, %._crit_edge61 ], [ -1, %4 ], [ -1, %79 ], [ -1, %._crit_edge ]
+  %.039 = phi i64 [ -1, %79 ], [ %.038.lcssa, %._crit_edge61 ], [ -1, %4 ], [ -1, %._crit_edge ]
   ret i64 %.039
 }
 
@@ -1316,7 +1316,7 @@ define i64 @redisFormatCommandArgv(ptr noundef writeonly captures(address_is_nul
   br i1 %23, label %countDigits.exit, label %.lr.ph.i
 
 countDigits.exit:                                 ; preds = %20, %6, %10, %14, %18
-  %.012.i = phi i32 [ %19, %18 ], [ %11, %10 ], [ %15, %14 ], [ 1, %6 ], [ %22, %20 ]
+  %.012.i = phi i32 [ %11, %10 ], [ %15, %14 ], [ %19, %18 ], [ 1, %6 ], [ %22, %20 ]
   %24 = add i32 %.012.i, 3
   %25 = zext i32 %24 to i64
   %26 = icmp sgt i32 %1, 0
@@ -1369,7 +1369,7 @@ countDigits.exit:                                 ; preds = %20, %6, %10, %14, %
   br label %bulklen.exit.us
 
 bulklen.exit.us:                                  ; preds = %36, %44, %42, %40, %.lr.ph.split.us
-  %.012.i.i.us = phi i32 [ %41, %40 ], [ %45, %44 ], [ %43, %42 ], [ 1, %.lr.ph.split.us ], [ %38, %36 ]
+  %.012.i.i.us = phi i32 [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ 1, %.lr.ph.split.us ], [ %38, %36 ]
   %46 = add i32 %.012.i.i.us, 3
   %47 = zext i32 %46 to i64
   %48 = add i64 %.04460.us, 2
@@ -1420,7 +1420,7 @@ bulklen.exit.us:                                  ; preds = %36, %44, %42, %40, 
   br i1 %68, label %bulklen.exit, label %.lr.ph.i.i
 
 bulklen.exit:                                     ; preds = %65, %.lr.ph.split, %55, %59, %63
-  %.012.i.i = phi i32 [ %64, %63 ], [ %56, %55 ], [ %60, %59 ], [ 1, %.lr.ph.split ], [ %67, %65 ]
+  %.012.i.i = phi i32 [ %56, %55 ], [ %60, %59 ], [ %64, %63 ], [ 1, %.lr.ph.split ], [ %67, %65 ]
   %69 = add i32 %.012.i.i, 3
   %70 = zext i32 %69 to i64
   %71 = add i64 %.04460, 2
@@ -2014,8 +2014,8 @@ redisContextInit.exit:                            ; preds = %5
   %115 = tail call i32 @redisContextSetTimeout(ptr noundef nonnull %3, i64 %112, i64 %114) #13
   br label %redisContextInit.exit.thread
 
-redisContextInit.exit.thread:                     ; preds = %14, %1, %99, %103, %105, %107, %111, %98, %72
-  %.0 = phi ptr [ null, %98 ], [ %3, %72 ], [ %3, %99 ], [ %3, %111 ], [ %3, %107 ], [ %3, %105 ], [ %3, %103 ], [ null, %1 ], [ null, %14 ]
+redisContextInit.exit.thread:                     ; preds = %1, %14, %99, %103, %105, %107, %111, %98, %72
+  %.0 = phi ptr [ %3, %72 ], [ null, %98 ], [ %3, %111 ], [ %3, %107 ], [ %3, %105 ], [ %3, %103 ], [ %3, %99 ], [ null, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -2267,7 +2267,7 @@ define range(i32 -1, 1) i32 @redisBufferRead(ptr noundef %0) local_unnamed_addr 
   br label %26
 
 26:                                               ; preds = %12, %13, %5, %1, %18
-  %.0 = phi i32 [ -1, %5 ], [ -1, %1 ], [ -1, %18 ], [ 0, %13 ], [ 0, %12 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %1 ], [ -1, %5 ], [ 0, %13 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2325,7 +2325,7 @@ define range(i32 -1, 1) i32 @redisBufferWrite(ptr noundef %0, ptr noundef writeo
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ]
   %.not21 = icmp eq i64 %.0.i, 0
   br i1 %.not21, label %hi_sdslen.exit.thread, label %30
 
@@ -2384,7 +2384,7 @@ hi_sdslen.exit:                                   ; preds = %12, %15, %19, %23, 
   br label %hi_sdslen.exit25
 
 hi_sdslen.exit25:                                 ; preds = %43, %46, %50, %54, %58
-  %.0.i24 = phi i64 [ %60, %58 ], [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ]
+  %.0.i24 = phi i64 [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %60, %58 ]
   %61 = icmp eq i64 %34, %.0.i24
   br i1 %61, label %62, label %hi_sdslen.exit25.thread
 
@@ -2447,7 +2447,7 @@ hi_sdslen.exit.thread:                            ; preds = %36, %hi_sdslen.exit
   br label %hi_sdslen.exit27
 
 hi_sdslen.exit27:                                 ; preds = %67, %73, %76, %80, %84, %88
-  %.0.i26 = phi i64 [ %90, %88 ], [ %75, %73 ], [ %79, %76 ], [ %83, %80 ], [ %87, %84 ], [ 0, %67 ]
+  %.0.i26 = phi i64 [ %75, %73 ], [ %79, %76 ], [ %83, %80 ], [ %87, %84 ], [ %90, %88 ], [ 0, %67 ]
   %91 = icmp eq i64 %.0.i26, 0
   %92 = zext i1 %91 to i32
   store i32 %92, ptr %1, align 4, !tbaa !27
@@ -2462,7 +2462,7 @@ hi_sdslen.exit27:                                 ; preds = %67, %73, %76, %80, 
   br label %96
 
 96:                                               ; preds = %30, %hi_sdslen.exit.thread, %hi_sdslen.exit27, %2, %93
-  %.018 = phi i32 [ -1, %93 ], [ -1, %2 ], [ 0, %hi_sdslen.exit.thread ], [ 0, %hi_sdslen.exit27 ], [ -1, %30 ]
+  %.018 = phi i32 [ -1, %93 ], [ -1, %2 ], [ 0, %hi_sdslen.exit27 ], [ 0, %hi_sdslen.exit.thread ], [ -1, %30 ]
   ret i32 %.018
 }
 
@@ -2611,7 +2611,7 @@ redisNextInBandReplyFromReader.exit:              ; preds = %redisHandledPushRep
   store i8 0, ptr %57, align 1, !tbaa !22
   br label %redisBufferRead.exit.thread
 
-redisBufferRead.exit.thread:                      ; preds = %.critedge.backedge, %.lr.ph, %.critedge.preheader, %50
+redisBufferRead.exit.thread:                      ; preds = %.lr.ph, %.critedge.backedge, %.critedge.preheader, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
@@ -2665,7 +2665,7 @@ redisNextInBandReplyFromReader.exit18:            ; preds = %58, %redisHandledPu
   br i1 %.not.i, label %.lr.ph, label %redisBufferRead.exit.thread
 
 .thread20:                                        ; preds = %13, %15, %65, %63, %.thread
-  %80 = phi ptr [ null, %.thread ], [ %62, %65 ], [ %62, %63 ], [ %12, %15 ], [ %12, %13 ]
+  %80 = phi ptr [ null, %.thread ], [ %62, %63 ], [ %62, %65 ], [ %12, %15 ], [ %12, %13 ]
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %82, label %81
 
@@ -2678,7 +2678,7 @@ redisNextInBandReplyFromReader.exit18:            ; preds = %58, %redisHandledPu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %redisNextInBandReplyFromReader.exit18, %redisBufferRead.exit.thread, %redisNextInBandReplyFromReader.exit, %81, %82
-  %.0 = phi i32 [ -1, %redisNextInBandReplyFromReader.exit18 ], [ -1, %redisNextInBandReplyFromReader.exit ], [ 0, %81 ], [ -1, %redisBufferRead.exit.thread ], [ 0, %82 ], [ -1, %.preheader ]
+  %.0 = phi i32 [ -1, %redisNextInBandReplyFromReader.exit ], [ -1, %redisNextInBandReplyFromReader.exit18 ], [ 0, %82 ], [ 0, %81 ], [ -1, %redisBufferRead.exit.thread ], [ -1, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2980,7 +2980,7 @@ redisvAppendCommand.exit.thread:                  ; preds = %7, %11, %22
   br label %__redisBlockForReply.exit
 
 __redisBlockForReply.exit:                        ; preds = %27, %32
-  %.0.i5 = phi ptr [ %spec.select.i, %32 ], [ null, %27 ]
+  %.0.i5 = phi ptr [ null, %27 ], [ %spec.select.i, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
@@ -3059,7 +3059,7 @@ redisAppendCommandArgv.exit.thread:               ; preds = %9, %19
   br label %__redisBlockForReply.exit
 
 __redisBlockForReply.exit:                        ; preds = %23, %27
-  %.0.i5 = phi ptr [ %spec.select.i, %27 ], [ null, %23 ]
+  %.0.i5 = phi ptr [ null, %23 ], [ %spec.select.i, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
@@ -3142,7 +3142,7 @@ define internal ptr @createStringObject(ptr noundef readonly captures(none) %0, 
   br label %createReplyObject.exit.thread
 
 createReplyObject.exit.thread:                    ; preds = %3, %28, %33, %42
-  %.033 = phi ptr [ %6, %28 ], [ null, %42 ], [ %6, %33 ], [ null, %3 ]
+  %.033 = phi ptr [ null, %42 ], [ %6, %33 ], [ %6, %28 ], [ null, %3 ]
   ret ptr %.033
 }
 
@@ -3201,7 +3201,7 @@ hi_calloc.exit:                                   ; preds = %8
   br label %createReplyObject.exit.thread
 
 createReplyObject.exit.thread:                    ; preds = %2, %15, %19, %14
-  %.0 = phi ptr [ %5, %15 ], [ null, %14 ], [ %5, %19 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %14 ], [ %5, %19 ], [ %5, %15 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -3289,7 +3289,7 @@ define internal ptr @createDoubleObject(ptr noundef readonly captures(none) %0, 
   br label %createReplyObject.exit.thread
 
 createReplyObject.exit.thread:                    ; preds = %6, %18, %24, %4, %17
-  %.0 = phi ptr [ %8, %18 ], [ null, %4 ], [ null, %17 ], [ %8, %24 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %4 ], [ %8, %24 ], [ %8, %18 ], [ null, %6 ]
   ret ptr %.0
 }
 

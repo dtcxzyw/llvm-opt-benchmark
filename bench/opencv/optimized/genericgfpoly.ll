@@ -382,7 +382,7 @@ _ZN5zxing8ArrayRefIiEaSERKS1_.exit57:             ; preds = %41, %43
   ret void
 
 119:                                              ; preds = %109, %111, %90, %_ZN5zxing12ErrorHandlerD2Ev.exit40
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %_ZN5zxing12ErrorHandlerD2Ev.exit40 ], [ %112, %111 ], [ %91, %90 ], [ %110, %109 ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %_ZN5zxing12ErrorHandlerD2Ev.exit40 ], [ %91, %90 ], [ %110, %109 ], [ %112, %111 ]
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %9, align 8, !tbaa !8
   %120 = load ptr, ptr %11, align 8, !tbaa !13
   %.not.i58 = icmp eq ptr %120, null
@@ -614,7 +614,7 @@ define hidden noundef i32 @_ZN5zxing13GenericGFPoly10evaluateAtEi(ptr noundef no
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !41
 
 .loopexit:                                        ; preds = %33, %.lr.ph26, %29, %.preheader, %13
-  %.019 = phi i32 [ %17, %13 ], [ %28, %.lr.ph26 ], [ 0, %.preheader ], [ %30, %29 ], [ %41, %33 ]
+  %.019 = phi i32 [ %17, %13 ], [ 0, %.preheader ], [ %30, %29 ], [ %28, %.lr.ph26 ], [ %41, %33 ]
   ret i32 %.019
 }
 
@@ -1097,7 +1097,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit72:                 ; preds = %234, %_ZN5zxing8Arr
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit74
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %152, %210, %205, %_ZN5zxing8ArrayRefIiED2Ev.exit63, %194
-  %.pn36 = phi { ptr, i32 } [ %206, %210 ], [ %153, %152 ], [ %195, %194 ], [ %197, %_ZN5zxing8ArrayRefIiED2Ev.exit63 ], [ %206, %205 ]
+  %.pn36 = phi { ptr, i32 } [ %153, %152 ], [ %197, %_ZN5zxing8ArrayRefIiED2Ev.exit63 ], [ %195, %194 ], [ %206, %205 ], [ %206, %210 ]
   %246 = load i32, ptr %111, align 8, !tbaa !3
   %247 = add i32 %246, -1
   store i32 %247, ptr %111, align 8, !tbaa !3
@@ -1113,7 +1113,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %152, %210, %205, %_
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit76.thread
 
 _ZN5zxing8ArrayRefIiED2Ev.exit76.thread:          ; preds = %249, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit, %145, %143
-  %.pn36.pn.pn120 = phi { ptr, i32 } [ %146, %145 ], [ %.pn36, %249 ], [ %.pn36, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit ], [ %144, %143 ]
+  %.pn36.pn.pn120 = phi { ptr, i32 } [ %.pn36, %249 ], [ %.pn36, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit ], [ %146, %145 ], [ %144, %143 ]
   %253 = getelementptr inbounds nuw i8, ptr %.sroa.798.0, i64 8
   %254 = load i32, ptr %253, align 8, !tbaa !3
   %255 = add i32 %254, -1
@@ -1149,7 +1149,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit74:                 ; preds = %242, %_ZN5zxing8Arr
   ret void
 
 _ZN5zxing8ArrayRefIiED2Ev.exit80:                 ; preds = %265, %_ZN5zxing8ArrayRefIiED2Ev.exit78, %_ZN5zxing12ErrorHandlerD2Ev.exit44
-  %.pn36.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %_ZN5zxing12ErrorHandlerD2Ev.exit44 ], [ %.pn36.pn.pn120, %265 ], [ %.pn36.pn.pn120, %_ZN5zxing8ArrayRefIiED2Ev.exit78 ]
+  %.pn36.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %_ZN5zxing12ErrorHandlerD2Ev.exit44 ], [ %.pn36.pn.pn120, %_ZN5zxing8ArrayRefIiED2Ev.exit78 ], [ %.pn36.pn.pn120, %265 ]
   resume { ptr, i32 } %.pn36.pn.pn.pn.pn
 }
 
@@ -1524,7 +1524,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit58:                 ; preds = %167, %_ZN5zxing8Arr
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit60
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %.split.us, %144, %139, %_ZN5zxing8ArrayRefIiED2Ev.exit50, %128
-  %.pn35.pn = phi { ptr, i32 } [ %140, %144 ], [ %100, %.split.us ], [ %129, %128 ], [ %131, %_ZN5zxing8ArrayRefIiED2Ev.exit50 ], [ %140, %139 ]
+  %.pn35.pn = phi { ptr, i32 } [ %100, %.split.us ], [ %131, %_ZN5zxing8ArrayRefIiED2Ev.exit50 ], [ %129, %128 ], [ %140, %139 ], [ %140, %144 ]
   %179 = load i32, ptr %67, align 8, !tbaa !3
   %180 = add i32 %179, -1
   store i32 %180, ptr %67, align 8, !tbaa !3
@@ -1540,7 +1540,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %.split.us, %144, %1
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit62
 
 _ZN5zxing8ArrayRefIiED2Ev.exit62:                 ; preds = %102, %104, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit, %182
-  %.pn35.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %.pn35.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit ], [ %.pn35.pn, %182 ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %105, %104 ], [ %.pn35.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit ], [ %.pn35.pn, %182 ]
   %186 = load i32, ptr %53, align 8, !tbaa !3
   %187 = add i32 %186, -1
   store i32 %187, ptr %53, align 8, !tbaa !3
@@ -1575,7 +1575,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit60:                 ; preds = %175, %_ZN5zxing8Arr
   ret void
 
 _ZN5zxing8ArrayRefIiED2Ev.exit66:                 ; preds = %197, %_ZN5zxing8ArrayRefIiED2Ev.exit64, %_ZN5zxing12ErrorHandlerD2Ev.exit43
-  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %_ZN5zxing12ErrorHandlerD2Ev.exit43 ], [ %.pn35.pn.pn, %197 ], [ %.pn35.pn.pn, %_ZN5zxing8ArrayRefIiED2Ev.exit64 ]
+  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %_ZN5zxing12ErrorHandlerD2Ev.exit43 ], [ %.pn35.pn.pn, %_ZN5zxing8ArrayRefIiED2Ev.exit64 ], [ %.pn35.pn.pn, %197 ]
   resume { ptr, i32 } %.pn35.pn.pn.pn.pn
 }
 
@@ -1818,7 +1818,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit35:    ; preds = %101, %97
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit37
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %51, %92, %87, %_ZN5zxing8ArrayRefIiED2Ev.exit31, %76
-  %.pn25 = phi { ptr, i32 } [ %52, %51 ], [ %77, %76 ], [ %79, %_ZN5zxing8ArrayRefIiED2Ev.exit31 ], [ %88, %87 ], [ %88, %92 ]
+  %.pn25 = phi { ptr, i32 } [ %52, %51 ], [ %79, %_ZN5zxing8ArrayRefIiED2Ev.exit31 ], [ %77, %76 ], [ %88, %87 ], [ %88, %92 ]
   %112 = load i32, ptr %26, align 8, !tbaa !3
   %113 = add i32 %112, -1
   store i32 %113, ptr %26, align 8, !tbaa !3
@@ -2123,7 +2123,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit44:    ; preds = %119, %115
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit46
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %69, %110, %105, %_ZN5zxing8ArrayRefIiED2Ev.exit40, %94
-  %.pn29 = phi { ptr, i32 } [ %70, %69 ], [ %95, %94 ], [ %97, %_ZN5zxing8ArrayRefIiED2Ev.exit40 ], [ %106, %105 ], [ %106, %110 ]
+  %.pn29 = phi { ptr, i32 } [ %70, %69 ], [ %97, %_ZN5zxing8ArrayRefIiED2Ev.exit40 ], [ %95, %94 ], [ %106, %105 ], [ %106, %110 ]
   %130 = load i32, ptr %42, align 8, !tbaa !3
   %131 = add i32 %130, -1
   store i32 %131, ptr %42, align 8, !tbaa !3
@@ -2927,8 +2927,8 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100:   ; preds = %_ZN5zxing3RefINS_13
   br i1 %.not.i101, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit102, label %.thread119
 
 .thread119:                                       ; preds = %97, %126, %330, %.thread132, %371
-  %.pn.pn.pn.pn.pn.pn.pn.pn124 = phi { ptr, i32 } [ %128, %.thread132 ], [ %.pn.pn.pn, %371 ], [ %98, %97 ], [ %127, %126 ], [ %331, %330 ]
-  %.sroa.0105.1123 = phi ptr [ %.sroa.0105.2155, %.thread132 ], [ %.sroa.0105.4, %371 ], [ %1, %97 ], [ %.sroa.0105.2155, %126 ], [ %.sroa.0105.2.lcssa, %330 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn124 = phi { ptr, i32 } [ %.pn.pn.pn, %371 ], [ %128, %.thread132 ], [ %127, %126 ], [ %98, %97 ], [ %331, %330 ]
+  %.sroa.0105.1123 = phi ptr [ %.sroa.0105.4, %371 ], [ %.sroa.0105.2155, %.thread132 ], [ %.sroa.0105.2155, %126 ], [ %1, %97 ], [ %.sroa.0105.2.lcssa, %330 ]
   %372 = getelementptr inbounds nuw i8, ptr %.sroa.0105.1123, i64 8
   %373 = load i32, ptr %372, align 8, !tbaa !3
   %374 = add i32 %373, -1
@@ -2945,7 +2945,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit102
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit102:   ; preds = %376, %.thread119, %371
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn124, %376 ], [ %.pn.pn.pn, %371 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn124, %.thread119 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %371 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn124, %.thread119 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn124, %376 ]
   %380 = load ptr, ptr %7, align 8, !tbaa !30
   %.not.i103 = icmp eq ptr %380, null
   br i1 %.not.i103, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit104, label %381

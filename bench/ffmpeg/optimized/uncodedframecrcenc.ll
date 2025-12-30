@@ -126,7 +126,7 @@ define internal range(i32 -12, 1) i32 @write_frame(ptr noundef readonly captures
   br label %57
 
 57:                                               ; preds = %51, %48, %43
-  %.0.i = phi i32 [ %45, %43 ], [ %45, %48 ], [ %56, %51 ]
+  %.0.i = phi i32 [ %45, %48 ], [ %45, %43 ], [ %56, %51 ]
   %58 = icmp sgt i32 %.0.i, 0
   br i1 %58, label %.lr.ph.i, label %._crit_edge.i
 
@@ -339,7 +339,7 @@ cksum_line_dbl.exit.loopexit.i:                   ; preds = %.lr.ph.i59.i
   unreachable
 
 cksum_line_u8.exit.i:                             ; preds = %cksum_line_dbl.exit.loopexit.i, %138, %cksum_line_flt.exit.loopexit.i, %126, %cksum_line_s32.exit.loopexit.i, %115, %cksum_line_s16.exit.loopexit.i, %103, %cksum_line_u8.exit.loopexit.i, %92
-  %.0.i21 = phi i32 [ %137, %cksum_line_flt.exit.loopexit.i ], [ %102, %cksum_line_u8.exit.loopexit.i ], [ %114, %cksum_line_s16.exit.loopexit.i ], [ %125, %cksum_line_s32.exit.loopexit.i ], [ 0, %92 ], [ 0, %103 ], [ 0, %115 ], [ 0, %126 ], [ 0, %138 ], [ %149, %cksum_line_dbl.exit.loopexit.i ]
+  %.0.i21 = phi i32 [ 0, %92 ], [ %102, %cksum_line_u8.exit.loopexit.i ], [ 0, %103 ], [ %114, %cksum_line_s16.exit.loopexit.i ], [ 0, %115 ], [ %125, %cksum_line_s32.exit.loopexit.i ], [ 0, %126 ], [ %137, %cksum_line_flt.exit.loopexit.i ], [ 0, %138 ], [ %149, %cksum_line_dbl.exit.loopexit.i ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.0.i21) #8
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i

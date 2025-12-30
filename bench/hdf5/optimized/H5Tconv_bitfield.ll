@@ -162,11 +162,11 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %91
 
 91:                                               ; preds = %60, %72, %79
-  %.0184 = phi ptr [ %88, %79 ], [ %7, %72 ], [ %7, %60 ]
-  %.0180 = phi ptr [ %90, %79 ], [ %7, %72 ], [ %7, %60 ]
-  %.0171 = phi i64 [ %85, %79 ], [ %78, %72 ], [ %4, %60 ]
-  %92 = phi i1 [ false, %79 ], [ true, %72 ], [ true, %60 ]
-  %.0169 = phi i64 [ -1, %79 ], [ 1, %72 ], [ 1, %60 ]
+  %.0184 = phi ptr [ %7, %72 ], [ %88, %79 ], [ %7, %60 ]
+  %.0180 = phi ptr [ %7, %72 ], [ %90, %79 ], [ %7, %60 ]
+  %.0171 = phi i64 [ %78, %72 ], [ %85, %79 ], [ %4, %60 ]
+  %92 = phi i1 [ true, %72 ], [ false, %79 ], [ true, %60 ]
+  %.0169 = phi i64 [ 1, %72 ], [ -1, %79 ], [ 1, %60 ]
   %93 = load ptr, ptr %3, align 8, !tbaa !25
   %.not202 = icmp eq ptr %93, null
   br i1 %.not202, label %101, label %94
@@ -342,7 +342,7 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %183
 
 183:                                              ; preds = %155, %.thread216, %167, %168
-  %.0173 = phi i1 [ true, %.thread216 ], [ false, %167 ], [ true, %155 ], [ true, %168 ]
+  %.0173 = phi i1 [ true, %.thread216 ], [ false, %167 ], [ true, %168 ], [ true, %155 ]
   %184 = load ptr, ptr %65, align 8, !tbaa !16
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 72
   %186 = load i32, ptr %185, align 8, !tbaa !25
@@ -465,7 +465,7 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.thread221
 
 .loopexit226:                                     ; preds = %245, %101, %.thread, %204, %188, %163
-  %.1 = phi i32 [ -1, %204 ], [ -1, %163 ], [ -1, %.thread ], [ -1, %188 ], [ 0, %101 ], [ 0, %245 ]
+  %.1 = phi i32 [ -1, %188 ], [ -1, %204 ], [ -1, %163 ], [ -1, %.thread ], [ 0, %101 ], [ 0, %245 ]
   %.not210 = icmp eq ptr %.1177, null
   br i1 %.not210, label %.thread221, label %251
 

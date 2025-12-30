@@ -58,7 +58,7 @@ define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly capture
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %13, %4, %11, %12
-  %.0 = phi ptr [ %.01115, %11 ], [ %.01115, %12 ], [ null, %4 ], [ null, %13 ]
+  %.0 = phi ptr [ %.01115, %12 ], [ %.01115, %11 ], [ null, %4 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -105,7 +105,7 @@ define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   br i1 %exitcond.not.i, label %ws_mempbrk_portable_exec.exit, label %.lr.ph.i, !llvm.loop !8
 
 ws_mempbrk_portable_exec.exit:                    ; preds = %21, %20, %19, %12, %10
-  %.0 = phi ptr [ %11, %10 ], [ %.01115.i, %19 ], [ %.01115.i, %20 ], [ null, %12 ], [ null, %21 ]
+  %.0 = phi ptr [ %11, %10 ], [ %.01115.i, %20 ], [ %.01115.i, %19 ], [ null, %12 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -140,7 +140,7 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %14, %15
-  %.010 = phi ptr [ %9, %14 ], [ %9, %15 ], [ null, %6 ]
+  %.010 = phi ptr [ %9, %15 ], [ %9, %14 ], [ null, %6 ]
   ret ptr %.010
 }
 

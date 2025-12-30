@@ -507,8 +507,8 @@ _ZL6d_compRK5t_dihS1_.exit52.i:                   ; preds = %173
   br label %.thread65.i
 
 .thread65.i:                                      ; preds = %_ZL6d_compRK5t_dihS1_.exit52.i, %173, %.thread.i
-  %181 = phi i64 [ %165, %173 ], [ %spec.select.i, %_ZL6d_compRK5t_dihS1_.exit52.i ], [ %172, %.thread.i ]
-  %182 = phi ptr [ %.017.i.i.i, %173 ], [ %spec.select73.i, %_ZL6d_compRK5t_dihS1_.exit52.i ], [ %170, %.thread.i ]
+  %181 = phi i64 [ %165, %173 ], [ %172, %.thread.i ], [ %spec.select.i, %_ZL6d_compRK5t_dihS1_.exit52.i ]
+  %182 = phi ptr [ %.017.i.i.i, %173 ], [ %170, %.thread.i ], [ %spec.select73.i, %_ZL6d_compRK5t_dihS1_.exit52.i ]
   %183 = icmp sgt i64 %181, 0
   br i1 %183, label %_ZSt7advanceIP5t_dihlEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIP5t_dihS0_PFbRKS0_S3_EET_S6_S6_RKT0_T1_.exit.i, !llvm.loop !82
 

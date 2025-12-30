@@ -313,8 +313,8 @@ define dso_local noundef i64 @tsvectorin(ptr noundef captures(none) %0) local_un
   br label %144
 
 144:                                              ; preds = %143, %139, %133
-  %145 = phi i16 [ %128, %133 ], [ %128, %143 ], [ %127, %139 ]
-  %.2.i.i = phi ptr [ %134, %133 ], [ %.033.i.i, %143 ], [ %.033.i.i, %139 ]
+  %145 = phi i16 [ %128, %143 ], [ %127, %139 ], [ %128, %133 ]
+  %.2.i.i = phi ptr [ %.033.i.i, %143 ], [ %.033.i.i, %139 ], [ %134, %133 ]
   %.025.i.i = getelementptr inbounds nuw i8, ptr %.02534.i.i, i64 2
   %146 = ptrtoint ptr %.025.i.i to i64
   %147 = sub i64 %146, %125
@@ -471,8 +471,8 @@ uniquePos.exit.i:                                 ; preds = %150, %117
   br label %234
 
 234:                                              ; preds = %233, %229, %223
-  %235 = phi i16 [ %218, %223 ], [ %218, %233 ], [ %217, %229 ]
-  %.2.i79.i = phi ptr [ %224, %223 ], [ %.033.i76.i, %233 ], [ %.033.i76.i, %229 ]
+  %235 = phi i16 [ %218, %233 ], [ %217, %229 ], [ %218, %223 ]
+  %.2.i79.i = phi ptr [ %.033.i76.i, %233 ], [ %.033.i76.i, %229 ], [ %224, %223 ]
   %.025.i80.i = getelementptr inbounds nuw i8, ptr %.02534.i75.i, i64 2
   %236 = ptrtoint ptr %.025.i80.i to i64
   %237 = sub i64 %236, %215
@@ -617,7 +617,7 @@ uniquePos.exit83.i:                               ; preds = %240, %207
   br label %321
 
 321:                                              ; preds = %258, %260, %29, %31, %17, %19, %._crit_edge174, %89
-  %.0 = phi i64 [ %320, %._crit_edge174 ], [ 0, %17 ], [ 0, %89 ], [ 0, %29 ], [ 0, %19 ], [ 0, %31 ], [ 0, %260 ], [ 0, %258 ]
+  %.0 = phi i64 [ 0, %89 ], [ %320, %._crit_edge174 ], [ 0, %19 ], [ 0, %17 ], [ 0, %31 ], [ 0, %29 ], [ 0, %260 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

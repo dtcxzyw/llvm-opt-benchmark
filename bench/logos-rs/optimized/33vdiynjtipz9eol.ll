@@ -565,8 +565,8 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %62
 
 62:                                               ; preds = %57, %55, %51, %48
-  %.sroa.8.0 = phi i64 [ undef, %55 ], [ undef, %48 ], [ %61, %57 ], [ undef, %51 ]
-  %.sroa.021.0 = phi i64 [ 0, %55 ], [ 0, %48 ], [ %spec.select52, %57 ], [ 0, %51 ]
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -719,8 +719,8 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br label %62
 
 62:                                               ; preds = %57, %55, %51, %48
-  %.sroa.8.0 = phi i64 [ undef, %55 ], [ undef, %48 ], [ %61, %57 ], [ undef, %51 ]
-  %.sroa.021.0 = phi i64 [ 0, %55 ], [ 0, %48 ], [ %spec.select52, %57 ], [ 0, %51 ]
+  %.sroa.8.0 = phi i64 [ undef, %48 ], [ undef, %51 ], [ undef, %55 ], [ %61, %57 ]
+  %.sroa.021.0 = phi i64 [ 0, %48 ], [ 0, %51 ], [ 0, %55 ], [ %spec.select52, %57 ]
   store i64 %.sroa.020.0, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %63, align 8
@@ -915,8 +915,8 @@ define void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fo
   call void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %12)
   br label %31
 
-33:                                               ; preds = %14, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit"
-  %.sroa.013.0.ph = phi i1 [ true, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit" ], [ false, %14 ]
+33:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit", %14
+  %.sroa.013.0.ph = phi i1 [ false, %14 ], [ true, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit" ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %34 = load ptr, ptr %3, align 8
@@ -931,8 +931,8 @@ define void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fo
           to label %.thread30 unwind label %29
 
 .thread30:                                        ; preds = %36, %40, %33
-  %.sroa.013.02736 = phi i1 [ %.sroa.013.0.ph, %33 ], [ %.sroa.013.0.ph, %40 ], [ true, %36 ]
-  %lpad.phi2935 = phi { ptr, i32 } [ %lpad.thr_comm, %33 ], [ %lpad.thr_comm, %40 ], [ %lpad.thr_comm.split-lp, %36 ]
+  %.sroa.013.02736 = phi i1 [ %.sroa.013.0.ph, %40 ], [ %.sroa.013.0.ph, %33 ], [ true, %36 ]
+  %lpad.phi2935 = phi { ptr, i32 } [ %lpad.thr_comm, %40 ], [ %lpad.thr_comm, %33 ], [ %lpad.thr_comm.split-lp, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ne ptr %38, null

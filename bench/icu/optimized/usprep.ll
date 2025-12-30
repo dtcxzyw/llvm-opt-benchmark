@@ -136,7 +136,7 @@ _ZL9initCacheP10UErrorCode.exit.i:                ; preds = %22, %17
   br label %.critedge.i
 
 39:                                               ; preds = %114, %.invoke.i, %.noexc66.i, %.noexc65.i, %61, %55, %.noexc61.i, %47, %43, %37, %35
-  %.sroa.091.0.i = phi ptr [ %36, %114 ], [ %36, %.invoke.i ], [ null, %35 ], [ %36, %.noexc66.i ], [ %36, %.noexc65.i ], [ %36, %61 ], [ %36, %55 ], [ null, %37 ], [ %36, %.noexc61.i ], [ %36, %47 ], [ %36, %43 ]
+  %.sroa.091.0.i = phi ptr [ %36, %114 ], [ %36, %.noexc66.i ], [ %36, %.noexc65.i ], [ %36, %61 ], [ %36, %55 ], [ %36, %.noexc61.i ], [ %36, %47 ], [ %36, %43 ], [ null, %37 ], [ null, %35 ], [ %36, %.invoke.i ]
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit81.i
@@ -540,7 +540,7 @@ _ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i: ; preds = %.critedge
   br label %_ZL17usprep_getProfilePKcS0_P10UErrorCode.exit
 
 _ZL17usprep_getProfilePKcS0_P10UErrorCode.exit:   ; preds = %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i, %_ZL9initCacheP10UErrorCode.exit.i, %25, %3, %10
-  %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ %.341.i, %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i ], [ null, %_ZL9initCacheP10UErrorCode.exit.i ], [ null, %25 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %.341.i, %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i ], [ null, %_ZL9initCacheP10UErrorCode.exit.i ], [ null, %25 ]
   ret ptr %.0
 }
 
@@ -570,7 +570,7 @@ define ptr @usprep_openByType_77(i32 noundef %0, ptr noundef %1) local_unnamed_a
   br label %14
 
 14:                                               ; preds = %8, %9, %2, %4
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %8 ], [ %13, %9 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ %13, %9 ]
   ret ptr %.0
 }
 
@@ -884,7 +884,7 @@ define noundef i32 @usprep_prepare_77(ptr noundef readonly captures(address_is_n
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %104, %109, %111
-  %.0.i = phi ptr [ %113, %111 ], [ %110, %109 ], [ null, %104 ]
+  %.0.i = phi ptr [ %110, %109 ], [ %113, %111 ], [ null, %104 ]
   %114 = icmp slt i16 %105, 0
   %115 = ashr i16 %105, 5
   %116 = sext i16 %115 to i32
@@ -1115,12 +1115,12 @@ _ZL9getValuestRsRa.exit:                          ; preds = %205
   br label %uprv_syntaxError_77.exit
 
 uprv_syntaxError_77.exit:                         ; preds = %237, %.thread243, %241
-  %.2179 = phi i32 [ %.0177275, %.thread243 ], [ %236, %241 ], [ %236, %237 ]
-  %.2174 = phi i32 [ %.0172276, %.thread243 ], [ %spec.select, %241 ], [ %spec.select, %237 ]
-  %.2169 = phi i8 [ %.0167277, %.thread243 ], [ %.4171, %241 ], [ %.4171, %237 ]
-  %.2165 = phi i8 [ %.0163278, %.thread243 ], [ 1, %241 ], [ %.0163278, %237 ]
-  %.2161 = phi i32 [ %.0159279, %.thread243 ], [ %240, %241 ], [ %.0159279, %237 ]
-  %.2156 = phi i32 [ %.0154280, %.thread243 ], [ %.4158, %241 ], [ %.4158, %237 ]
+  %.2179 = phi i32 [ %236, %241 ], [ %236, %237 ], [ %.0177275, %.thread243 ]
+  %.2174 = phi i32 [ %spec.select, %241 ], [ %spec.select, %237 ], [ %.0172276, %.thread243 ]
+  %.2169 = phi i8 [ %.4171, %241 ], [ %.4171, %237 ], [ %.0167277, %.thread243 ]
+  %.2165 = phi i8 [ 1, %241 ], [ %.0163278, %237 ], [ %.0163278, %.thread243 ]
+  %.2161 = phi i32 [ %240, %241 ], [ %.0159279, %237 ], [ %.0159279, %.thread243 ]
+  %.2156 = phi i32 [ %.4158, %241 ], [ %.4158, %237 ], [ %.0154280, %.thread243 ]
   %.not218 = icmp slt i32 %.2153235, %119
   br i1 %.not218, label %124, label %._crit_edge, !llvm.loop !52
 
@@ -1186,13 +1186,13 @@ uprv_syntaxError_77.exit:                         ; preds = %237, %.thread243, %
   br label %.thread253
 
 .thread253:                                       ; preds = %.invoke, %209, %.noexc232, %256, %101, %.critedge
-  %.4 = phi i32 [ 0, %.critedge ], [ 0, %101 ], [ 0, %.invoke ], [ 0, %209 ], [ %255, %256 ], [ 0, %.noexc232 ]
+  %.4 = phi i32 [ 0, %.critedge ], [ 0, %101 ], [ %255, %256 ], [ 0, %.noexc232 ], [ 0, %209 ], [ 0, %.invoke ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %262
 
 261:                                              ; preds = %.loopexit, %.loopexit.split-lp, %195, %258, %249, %87, %96, %99
-  %.pn220.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %100, %99 ], [ %.pn, %96 ], [ %196, %195 ], [ %250, %249 ], [ %259, %258 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn220.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %96 ], [ %88, %87 ], [ %250, %249 ], [ %259, %258 ], [ %196, %195 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %263
@@ -1210,7 +1210,7 @@ uprv_syntaxError_77.exit:                         ; preds = %237, %.thread243, %
   resume { ptr, i32 } %.pn220.pn.pn.pn.pn.pn
 
 264:                                              ; preds = %8, %262, %27
-  %.0 = phi i32 [ %.1, %262 ], [ 0, %27 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %27 ], [ %.1, %262 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -1469,8 +1469,8 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   br i1 %.not153, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .lr.ph:                                           ; preds = %141, %138, %144, %147
-  %.098174 = phi i64 [ %153, %147 ], [ 3, %144 ], [ 2, %141 ], [ 1, %138 ]
-  %.099173 = phi i32 [ %149, %147 ], [ %137, %144 ], [ %137, %141 ], [ %137, %138 ]
+  %.098174 = phi i64 [ %153, %147 ], [ 3, %144 ], [ 1, %138 ], [ 2, %141 ]
+  %.099173 = phi i32 [ %149, %147 ], [ %137, %144 ], [ %137, %138 ], [ %137, %141 ]
   %154 = sext i32 %.099173 to i64
   %155 = sext i32 %.0105150 to i64
   br label %156, !llvm.loop !58
@@ -1501,7 +1501,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   br label %166
 
 166:                                              ; preds = %.thread139, %135
-  %.3111 = phi i32 [ %165, %.thread139 ], [ %.1109137, %135 ]
+  %.3111 = phi i32 [ %.1109137, %135 ], [ %165, %.thread139 ]
   %167 = icmp slt i32 %.3111, 65536
   br i1 %167, label %168, label %176
 
@@ -1549,7 +1549,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   br label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %147, %..loopexit_crit_edge, %174, %190, %135
-  %.1106 = phi i32 [ %191, %190 ], [ %.0105150, %135 ], [ %175, %174 ], [ %192, %..loopexit_crit_edge ], [ %.0105150, %147 ]
+  %.1106 = phi i32 [ %.0105150, %135 ], [ %175, %174 ], [ %191, %190 ], [ %192, %..loopexit_crit_edge ], [ %.0105150, %147 ]
   %193 = icmp slt i32 %.2114135, %2
   br i1 %193, label %20, label %._crit_edge
 
@@ -1559,7 +1559,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   br label %195
 
 195:                                              ; preds = %.thread143, %._crit_edge
-  %.2 = phi i32 [ 0, %.thread143 ], [ %194, %._crit_edge ]
+  %.2 = phi i32 [ %194, %._crit_edge ], [ 0, %.thread143 ]
   ret i32 %.2
 }
 
@@ -1625,7 +1625,7 @@ define i32 @usprep_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br i1 %30, label %43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %27, %23, %19
-  %31 = phi i8 [ %17, %12 ], [ 80, %27 ], [ 80, %23 ], [ 80, %19 ]
+  %31 = phi i8 [ 80, %27 ], [ 80, %23 ], [ 80, %19 ], [ %17, %12 ]
   %32 = zext i8 %14 to i32
   %33 = zext i8 %31 to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1722,7 +1722,7 @@ define i32 @usprep_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %88
 
 88:                                               ; preds = %5, %9, %86, %69, %53, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %53 ], [ 0, %69 ], [ %87, %86 ], [ 0, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %53 ], [ 0, %69 ], [ %87, %86 ], [ 0, %._crit_edge ], [ 0, %9 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1768,7 +1768,7 @@ define linkonce_odr noundef ptr @_ZN6icu_7711LocalMemoryIcE22allocateInsteadAndC
   br label %13
 
 13:                                               ; preds = %3, %5, %12
-  %.0 = phi ptr [ null, %5 ], [ %7, %12 ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %12 ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 

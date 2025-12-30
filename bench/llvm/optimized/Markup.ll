@@ -1176,7 +1176,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %12
   br label %_ZNK4llvm9StringRef4findEcm.exit.thread
 
 _ZNK4llvm9StringRef4findEcm.exit.thread:          ; preds = %23, %12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %9, %4, %28
-  %.sink = phi i8 [ 0, %4 ], [ 0, %12 ], [ 1, %28 ], [ 0, %9 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %23 ]
+  %.sink = phi i8 [ 1, %28 ], [ 0, %4 ], [ 0, %9 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %12 ], [ 0, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %33, align 8, !tbaa !54
   ret void

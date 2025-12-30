@@ -272,7 +272,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   br label %52
 
 52:                                               ; preds = %._crit_edge, %47, %34, %35, %26, %27, %12, %13
-  %.0 = phi i32 [ -30, %34 ], [ -30, %12 ], [ -30, %26 ], [ -30, %13 ], [ -30, %27 ], [ -30, %35 ], [ 0, %47 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -30, %13 ], [ -30, %12 ], [ -30, %27 ], [ -30, %26 ], [ -30, %35 ], [ -30, %34 ], [ 0, %47 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

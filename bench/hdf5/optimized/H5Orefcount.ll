@@ -104,7 +104,7 @@ define internal ptr @H5O__refcount_decode(ptr readnone captures(none) %0, ptr re
   br label %.thread
 
 .thread:                                          ; preds = %31, %24, %17, %38, %56, %6
-  %.0 = phi ptr [ null, %56 ], [ null, %17 ], [ null, %6 ], [ %29, %38 ], [ null, %31 ], [ null, %24 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %6 ], [ %29, %38 ], [ null, %31 ], [ null, %24 ], [ null, %17 ]
   ret ptr %.0
 }
 

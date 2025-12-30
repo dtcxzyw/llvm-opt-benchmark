@@ -1067,7 +1067,7 @@ thread-pre-split:                                 ; preds = %380
   br label %459
 
 459:                                              ; preds = %450, %455, %453
-  %460 = phi i8 [ -1, %453 ], [ %458, %455 ], [ 0, %450 ]
+  %460 = phi i8 [ %458, %455 ], [ -1, %453 ], [ 0, %450 ]
   %461 = getelementptr inbounds nuw i8, ptr %.0396714, i64 %indvars.iv834
   store i8 %460, ptr %461, align 1, !tbaa !45
   %indvars.iv.next835 = add nuw nsw i64 %indvars.iv834, 1
@@ -1117,18 +1117,18 @@ thread-pre-split:                                 ; preds = %380
   br label %.thread603
 
 .thread603:                                       ; preds = %._crit_edge662, %._crit_edge670, %._crit_edge678, %.thread603.sink.split, %205
-  %.0407613 = phi ptr [ %56, %._crit_edge670 ], [ %56, %._crit_edge678 ], [ %56, %205 ], [ %309, %.thread603.sink.split ], [ %56, %._crit_edge662 ]
-  %.0410612 = phi ptr [ %233, %._crit_edge670 ], [ %233, %._crit_edge678 ], [ null, %205 ], [ %.0410612.ph, %.thread603.sink.split ], [ %233, %._crit_edge662 ]
-  %.0412611 = phi ptr [ null, %._crit_edge670 ], [ null, %._crit_edge678 ], [ null, %205 ], [ %.0412611.ph, %.thread603.sink.split ], [ null, %._crit_edge662 ]
-  %.0420610 = phi i32 [ 1, %._crit_edge670 ], [ 1, %._crit_edge678 ], [ 1, %205 ], [ %.0420610.ph, %.thread603.sink.split ], [ 1, %._crit_edge662 ]
+  %.0407613 = phi ptr [ %56, %205 ], [ %309, %.thread603.sink.split ], [ %56, %._crit_edge678 ], [ %56, %._crit_edge670 ], [ %56, %._crit_edge662 ]
+  %.0410612 = phi ptr [ null, %205 ], [ %.0410612.ph, %.thread603.sink.split ], [ %233, %._crit_edge678 ], [ %233, %._crit_edge670 ], [ %233, %._crit_edge662 ]
+  %.0412611 = phi ptr [ null, %205 ], [ %.0412611.ph, %.thread603.sink.split ], [ null, %._crit_edge678 ], [ null, %._crit_edge670 ], [ null, %._crit_edge662 ]
+  %.0420610 = phi i32 [ 1, %205 ], [ %.0420610.ph, %.thread603.sink.split ], [ 1, %._crit_edge678 ], [ 1, %._crit_edge670 ], [ 1, %._crit_edge662 ]
   call void @TIFFClose(ptr noundef nonnull %.0407613) #15
   br label %.thread591
 
-.thread591:                                       ; preds = %.thread, %308, %25, %306, %._crit_edge, %.thread603
-  %.1601 = phi ptr [ %.0402, %._crit_edge ], [ %.0402, %.thread603 ], [ %.0402, %.thread ], [ %.0402, %308 ], [ null, %25 ], [ %.0402, %306 ]
-  %.0410600 = phi ptr [ null, %._crit_edge ], [ %.0410612, %.thread603 ], [ null, %.thread ], [ %233, %308 ], [ null, %25 ], [ %233, %306 ]
-  %.0412599 = phi ptr [ null, %._crit_edge ], [ %.0412611, %.thread603 ], [ null, %.thread ], [ null, %308 ], [ null, %25 ], [ null, %306 ]
-  %.0420598 = phi i32 [ 1, %._crit_edge ], [ %.0420610, %.thread603 ], [ 1, %.thread ], [ 1, %308 ], [ 1, %25 ], [ %.10, %306 ]
+.thread591:                                       ; preds = %.thread, %308, %._crit_edge, %25, %306, %.thread603
+  %.1601 = phi ptr [ %.0402, %.thread603 ], [ %.0402, %.thread ], [ %.0402, %308 ], [ %.0402, %._crit_edge ], [ null, %25 ], [ %.0402, %306 ]
+  %.0410600 = phi ptr [ %.0410612, %.thread603 ], [ null, %.thread ], [ %233, %308 ], [ null, %._crit_edge ], [ null, %25 ], [ %233, %306 ]
+  %.0412599 = phi ptr [ %.0412611, %.thread603 ], [ null, %.thread ], [ null, %308 ], [ null, %._crit_edge ], [ null, %25 ], [ null, %306 ]
+  %.0420598 = phi i32 [ %.0420610, %.thread603 ], [ 1, %.thread ], [ 1, %308 ], [ 1, %._crit_edge ], [ 1, %25 ], [ %.10, %306 ]
   call void @free(ptr noundef %.1601) #15
   call void @free(ptr noundef %.0410600) #15
   %471 = load i32, ptr %14, align 4, !tbaa !6
@@ -1491,7 +1491,7 @@ define range(i32 256, 261) i32 @levels(ptr noundef readonly captures(none) %0) l
   br label %8
 
 8:                                                ; preds = %4, %1, %7
-  %.0 = phi i32 [ 256, %1 ], [ 260, %7 ], [ 258, %4 ]
+  %.0 = phi i32 [ 260, %7 ], [ 256, %1 ], [ 258, %4 ]
   ret i32 %.0
 }
 

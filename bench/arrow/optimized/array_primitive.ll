@@ -501,7 +501,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %81, %77, %75, %69
-  %.sink.i = phi ptr [ null, %75 ], [ %83, %81 ], [ null, %77 ], [ null, %69 ]
+  %.sink.i = phi ptr [ %83, %81 ], [ null, %77 ], [ null, %75 ], [ null, %69 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %84, align 8, !tbaa !67
   store ptr %70, ptr %12, align 8, !tbaa !53
@@ -1559,7 +1559,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %82, %78, %76, %70
-  %.sink.i = phi ptr [ null, %76 ], [ %84, %82 ], [ null, %78 ], [ null, %70 ]
+  %.sink.i = phi ptr [ %84, %82 ], [ null, %78 ], [ null, %76 ], [ null, %70 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %85, align 8, !tbaa !67
   store ptr %71, ptr %12, align 8, !tbaa !53
@@ -2238,7 +2238,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %82, %78, %76, %70
-  %.sink.i = phi ptr [ null, %76 ], [ %84, %82 ], [ null, %78 ], [ null, %70 ]
+  %.sink.i = phi ptr [ %84, %82 ], [ null, %78 ], [ null, %76 ], [ null, %70 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %85, align 8, !tbaa !67
   store ptr %71, ptr %12, align 8, !tbaa !53
@@ -3079,7 +3079,7 @@ define linkonce_odr void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayData
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit: ; preds = %2, %14, %10, %8
-  %.sink = phi ptr [ null, %8 ], [ %16, %14 ], [ null, %10 ], [ null, %2 ]
+  %.sink = phi ptr [ %16, %14 ], [ null, %10 ], [ null, %8 ], [ null, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %17, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8

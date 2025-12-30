@@ -193,7 +193,7 @@ define internal void @do_rand_init_ossl_() #0 {
   br label %do_rand_init.exit
 
 do_rand_init.exit:                                ; preds = %0, %8, %9
-  %.0.i = phi i32 [ 1, %8 ], [ 0, %9 ], [ 0, %0 ]
+  %.0.i = phi i32 [ 0, %9 ], [ 1, %8 ], [ 0, %0 ]
   store i32 %.0.i, ptr @do_rand_init_ossl_ret_, align 4, !tbaa !13
   ret void
 }
@@ -273,7 +273,7 @@ RAND_get0_primary.exit.i:                         ; preds = %33
   br label %RAND_seed.exit
 
 RAND_seed.exit:                                   ; preds = %37, %RAND_get0_primary.exit.i, %33, %31, %26, %6, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %6 ], [ %.012.shrunk, %26 ], [ 1, %31 ], [ 1, %33 ], [ 1, %RAND_get0_primary.exit.i ], [ 1, %37 ]
+  %.0 = phi i32 [ 0, %0 ], [ %.012.shrunk, %26 ], [ 0, %6 ], [ 1, %31 ], [ 1, %33 ], [ 1, %RAND_get0_primary.exit.i ], [ 1, %37 ]
   ret i32 %.0
 }
 
@@ -340,7 +340,7 @@ define ptr @RAND_get_rand_method() local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %12, %8, %5, %0, %26
-  %.0 = phi ptr [ null, %5 ], [ %27, %26 ], [ %9, %8 ], [ null, %0 ], [ null, %12 ]
+  %.0 = phi ptr [ %27, %26 ], [ null, %0 ], [ null, %5 ], [ %9, %8 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -604,7 +604,7 @@ RAND_get0_primary.exit:                           ; preds = %9
   br label %RAND_get0_primary.exit.thread
 
 RAND_get0_primary.exit.thread:                    ; preds = %9, %RAND_get0_primary.exit, %7, %4, %14
-  %.0 = phi i32 [ %17, %14 ], [ 0, %4 ], [ %8, %7 ], [ 0, %RAND_get0_primary.exit ], [ 0, %9 ]
+  %.0 = phi i32 [ %17, %14 ], [ %8, %7 ], [ 0, %4 ], [ 0, %RAND_get0_primary.exit ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -663,7 +663,7 @@ define i32 @RAND_priv_bytes_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %27
 
 27:                                               ; preds = %23, %15, %25, %21, %14, %11
-  %.0 = phi i32 [ %13, %11 ], [ -1, %14 ], [ 0, %15 ], [ %22, %21 ], [ %26, %25 ], [ 0, %23 ]
+  %.0 = phi i32 [ %13, %11 ], [ -1, %14 ], [ %22, %21 ], [ %26, %25 ], [ 0, %15 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -703,7 +703,7 @@ define internal fastcc ptr @rand_get0_private(ptr noundef %0, ptr noundef nonnul
   br label %21
 
 21:                                               ; preds = %2, %18, %16, %9, %6
-  %.0 = phi ptr [ null, %9 ], [ null, %6 ], [ null, %16 ], [ %19, %18 ], [ %4, %2 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %9 ], [ null, %16 ], [ %19, %18 ], [ %4, %2 ]
   ret ptr %.0
 }
 
@@ -777,7 +777,7 @@ define i32 @RAND_bytes_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 no
   br label %27
 
 27:                                               ; preds = %23, %15, %25, %21, %14, %11
-  %.0 = phi i32 [ %13, %11 ], [ -1, %14 ], [ 0, %15 ], [ %22, %21 ], [ %26, %25 ], [ 0, %23 ]
+  %.0 = phi i32 [ %13, %11 ], [ -1, %14 ], [ %22, %21 ], [ %26, %25 ], [ 0, %15 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -815,7 +815,7 @@ define internal fastcc ptr @rand_get0_public(ptr noundef %0, ptr noundef nonnull
   br label %21
 
 21:                                               ; preds = %2, %18, %16, %9, %6
-  %.0 = phi ptr [ null, %9 ], [ null, %16 ], [ null, %6 ], [ %19, %18 ], [ %4, %2 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %9 ], [ null, %16 ], [ %19, %18 ], [ %4, %2 ]
   ret ptr %.0
 }
 
@@ -883,7 +883,7 @@ define ptr @ossl_rand_ctx_new(ptr noundef readnone captures(none) %0) local_unna
   br label %24
 
 24:                                               ; preds = %15, %1, %22
-  %.0 = phi ptr [ null, %1 ], [ null, %22 ], [ %2, %15 ]
+  %.0 = phi ptr [ null, %22 ], [ null, %1 ], [ %2, %15 ]
   ret ptr %.0
 }
 
@@ -969,7 +969,7 @@ define ptr @ossl_rand_get0_seed_noncreating(ptr noundef %0) local_unnamed_addr #
   br label %12
 
 12:                                               ; preds = %4, %1, %7
-  %.0 = phi ptr [ null, %1 ], [ %9, %7 ], [ null, %4 ]
+  %.0 = phi ptr [ %9, %7 ], [ null, %1 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -1034,9 +1034,9 @@ define internal fastcc ptr @rand_get0_primary(ptr noundef %0, ptr noundef nonnul
   br i1 %.not21.i, label %35, label %rand_new_seed.exit
 
 35:                                               ; preds = %33, %30, %23
-  %.sink25.i = phi i32 [ 631, %30 ], [ 625, %23 ], [ 635, %33 ]
-  %.sink.i = phi i32 [ 143, %30 ], [ 144, %23 ], [ 108, %33 ]
-  %.016.i = phi ptr [ null, %30 ], [ null, %23 ], [ %31, %33 ]
+  %.sink25.i = phi i32 [ 625, %23 ], [ 631, %30 ], [ 635, %33 ]
+  %.sink.i = phi i32 [ 144, %23 ], [ 143, %30 ], [ 108, %33 ]
+  %.016.i = phi ptr [ null, %23 ], [ null, %30 ], [ %31, %33 ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink25.i, ptr noundef nonnull @__func__.rand_new_seed) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef %.sink.i, ptr noundef null) #8
@@ -1044,7 +1044,7 @@ define internal fastcc ptr @rand_get0_primary(ptr noundef %0, ptr noundef nonnul
   br label %rand_new_seed.exit
 
 rand_new_seed.exit:                               ; preds = %19, %33, %35
-  %.0.i = phi ptr [ null, %19 ], [ null, %35 ], [ %31, %33 ]
+  %.0.i = phi ptr [ null, %35 ], [ null, %19 ], [ %31, %33 ]
   store ptr %.0.i, ptr %16, align 8, !tbaa !28
   %36 = tail call i32 @ERR_pop_to_mark() #8
   %.pre = load ptr, ptr %16, align 8, !tbaa !28
@@ -1077,7 +1077,7 @@ rand_new_seed.exit:                               ; preds = %19, %33, %35
   br label %45
 
 45:                                               ; preds = %.sink.split, %10, %5, %2
-  %.025 = phi ptr [ %7, %5 ], [ null, %2 ], [ null, %10 ], [ %.025.ph, %.sink.split ]
+  %.025 = phi ptr [ null, %2 ], [ %7, %5 ], [ null, %10 ], [ %.025.ph, %.sink.split ]
   ret ptr %.025
 }
 
@@ -1401,7 +1401,7 @@ set_random_provider_name.exit.thread.i:           ; preds = %set_random_provider
   store ptr %95, ptr %100, align 8, !tbaa !20
   br label %RAND_set1_random_provider.exit
 
-112:                                              ; preds = %set_random_provider_name.exit.i, %96
+112:                                              ; preds = %96, %set_random_provider_name.exit.i
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1011, ptr noundef nonnull @__func__.random_conf_init) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef null) #8
@@ -1452,7 +1452,7 @@ set_random_provider_name.exit:                    ; preds = %115, %._crit_edge.i
   br i1 %129, label %20, label %random_set_string.exit.thread, !llvm.loop !39
 
 random_set_string.exit.thread:                    ; preds = %set_random_provider_name.exit, %.critedge, %29, %40, %51, %62, %73, %84, %.preheader, %112, %9, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %112 ], [ 0, %9 ], [ 1, %.preheader ], [ 0, %73 ], [ 0, %62 ], [ 0, %51 ], [ 0, %40 ], [ 0, %29 ], [ %.145, %.critedge ], [ 0, %set_random_provider_name.exit ], [ 0, %84 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %9 ], [ 0, %112 ], [ 1, %.preheader ], [ 0, %set_random_provider_name.exit ], [ %.145, %.critedge ], [ 0, %29 ], [ 0, %40 ], [ 0, %51 ], [ 0, %62 ], [ 0, %73 ], [ 0, %84 ]
   ret i32 %.0
 }
 
@@ -1539,7 +1539,7 @@ define range(i32 0, 2) i32 @RAND_set_DRBG_type(ptr noundef %0, ptr noundef %1, p
   br label %random_set_string.exit26
 
 random_set_string.exit26:                         ; preds = %26, %20, %14, %35, %32, %5, %11
-  %.0 = phi i32 [ 0, %5 ], [ 0, %11 ], [ 0, %20 ], [ 0, %14 ], [ 0, %32 ], [ 1, %35 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %5 ], [ 1, %35 ], [ 0, %32 ], [ 0, %14 ], [ 0, %20 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -1593,7 +1593,7 @@ define range(i32 0, 2) i32 @RAND_set_seed_source_type(ptr noundef %0, ptr nounde
   br label %random_set_string.exit12
 
 random_set_string.exit12:                         ; preds = %12, %21, %18, %3, %9
-  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %18 ], [ 1, %21 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %3 ], [ 1, %21 ], [ 0, %18 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -1650,7 +1650,7 @@ set_random_provider_name.exit.thread:             ; preds = %19, %set_random_pro
   br label %24
 
 24:                                               ; preds = %set_random_provider_name.exit, %11, %2, %set_random_provider_name.exit.thread, %7
-  %.0 = phi i32 [ 1, %11 ], [ 1, %7 ], [ 0, %2 ], [ 1, %set_random_provider_name.exit.thread ], [ 0, %set_random_provider_name.exit ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %set_random_provider_name.exit.thread ], [ 0, %2 ], [ 1, %11 ], [ 0, %set_random_provider_name.exit ]
   ret i32 %.0
 }
 
@@ -1685,7 +1685,7 @@ define range(i32 0, 2) i32 @ossl_rand_check_random_provider_on_load(ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %5, %9, %2, %15
-  %.0 = phi i32 [ 1, %15 ], [ 0, %2 ], [ 1, %5 ], [ 1, %9 ], [ 1, %12 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %2 ], [ 1, %9 ], [ 1, %5 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -1894,7 +1894,7 @@ define internal fastcc ptr @rand_new_drbg(ptr noundef %0, ptr noundef %1, i32 no
   br label %68
 
 68:                                               ; preds = %63, %4, %67, %32, %26
-  %.0 = phi ptr [ null, %67 ], [ null, %26 ], [ null, %32 ], [ null, %4 ], [ %30, %63 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %32 ], [ null, %67 ], [ null, %4 ], [ %30, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0

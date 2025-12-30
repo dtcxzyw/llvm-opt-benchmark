@@ -798,7 +798,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   br i1 %349, label %365, label %.thread26
 
 .thread26:                                        ; preds = %340, %342, %345, %294, %286, %275, %183
-  %350 = phi i32 [ -22, %183 ], [ %348, %345 ], [ -22, %294 ], [ -22, %286 ], [ -22, %275 ], [ -95, %340 ], [ -22, %342 ]
+  %350 = phi i32 [ %348, %345 ], [ -22, %294 ], [ -22, %286 ], [ -22, %275 ], [ -22, %183 ], [ -95, %340 ], [ -22, %342 ]
   %351 = load ptr, ptr %90, align 8
   call void @put_disk(ptr noundef %351) #14
   br label %352
@@ -830,7 +830,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   br label %365
 
 365:                                              ; preds = %363, %345, %24, %22
-  %366 = phi i32 [ %364, %363 ], [ -22, %22 ], [ 0, %345 ], [ %25, %24 ]
+  %366 = phi i32 [ -22, %22 ], [ 0, %345 ], [ %25, %24 ], [ %364, %363 ]
   ret i32 %366
 }
 
@@ -1291,8 +1291,8 @@ define internal fastcc void @virtblk_update_capacity(ptr noundef readonly captur
   br label %62
 
 62:                                               ; preds = %.thread5, %41
-  %63 = phi i64 [ %37, %.thread5 ], [ %50, %41 ]
-  %64 = phi i32 [ 512, %.thread5 ], [ %61, %41 ]
+  %63 = phi i64 [ %50, %41 ], [ %37, %.thread5 ]
+  %64 = phi i32 [ %61, %41 ], [ 512, %.thread5 ]
   %65 = load ptr, ptr %8, align 8
   %66 = select i1 %1, ptr @.str.21, ptr @.str.22
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 12
@@ -2005,7 +2005,7 @@ define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %2, %115, %113
-  %120 = phi i32 [ 0, %113 ], [ %26, %115 ], [ 0, %2 ]
+  %120 = phi i32 [ %26, %115 ], [ 0, %113 ], [ 0, %2 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %13, i64 noundef %14) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %120

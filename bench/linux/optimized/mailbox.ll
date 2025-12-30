@@ -691,8 +691,8 @@ define dso_local noundef range(i32 -22, 1) i32 @mbox_controller_register(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %14, %26, %18
-  %30 = phi i32 [ %12, %18 ], [ %.pre, %26 ], [ %12, %14 ]
-  %31 = phi i32 [ 4, %18 ], [ 2, %26 ], [ 1, %14 ]
+  %30 = phi i32 [ %.pre, %26 ], [ %12, %18 ], [ %12, %14 ]
+  %31 = phi i32 [ 2, %26 ], [ 4, %18 ], [ 1, %14 ]
   %32 = icmp sgt i32 %30, 0
   br i1 %32, label %33, label %.loopexit
 

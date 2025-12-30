@@ -1374,7 +1374,7 @@ _ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE19SimpleItertatorImplIS1
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 54:                                               ; preds = %50, %45
-  %.pn23.pn = phi { ptr, i32 } [ %51, %50 ], [ %46, %45 ]
+  %.pn23.pn = phi { ptr, i32 } [ %46, %45 ], [ %51, %50 ]
   call void @_ZN13V3UniqueNamesD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #22
   br label %55
 

@@ -221,7 +221,7 @@ _ZN2cv3PtrINS_8img_hash5PHashEEC2IS2_EEPT_.exit:  ; preds = %3
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %41, %38
-  %43 = phi ptr [ %.pr.pre.i.i.i.i, %41 ], [ %35, %38 ]
+  %43 = phi ptr [ %35, %38 ], [ %.pr.pre.i.i.i.i, %41 ]
   %.not8.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %44
 
@@ -871,7 +871,7 @@ _ZNSt6bitsetILm8EE9referenceaSEb.exit:            ; preds = %127, %_ZNSt6bitsetI
   br label %164
 
 164:                                              ; preds = %138, %140, %142, %144, %163, %137, %131, %129, %65, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %33
-  %.pn57.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn48.pn, %137 ], [ %132, %131 ], [ %130, %129 ], [ %66, %65 ], [ %34, %33 ], [ %64, %63 ], [ %.pn57, %163 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ]
+  %.pn57.pn.pn = phi { ptr, i32 } [ %.pn48.pn, %137 ], [ %132, %131 ], [ %130, %129 ], [ %66, %65 ], [ %34, %33 ], [ %64, %63 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn57, %163 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn57.pn.pn

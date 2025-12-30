@@ -727,7 +727,7 @@ _ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2E
   br label %100
 
 _ZNK5boost6system10error_codecvbEv.exit.thread10.i: ; preds = %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit.i, %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit.thread.i, %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEEaSILb1EEENSt9enable_ifIXT_ERS4_E4typeEOS4_.exit.i
-  %71 = phi i32 [ %45, %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEEaSILb1EEENSt9enable_ifIXT_ERS4_E4typeEOS4_.exit.i ], [ -1, %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit.i ], [ %50, %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit.thread.i ]
+  %71 = phi i32 [ -1, %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit.i ], [ %45, %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEEaSILb1EEENSt9enable_ifIXT_ERS4_E4typeEOS4_.exit.i ], [ %50, %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit.thread.i ]
   %72 = invoke ptr @fdopendir(i32 noundef %71)
           to label %73 unwind label %86, !noalias !47
 
@@ -1142,8 +1142,8 @@ _ZN5boost10filesystem4pathD2Ev.exit49:            ; preds = %.loopexit, %_ZNKSt7
   br label %_ZN5boost13intrusive_ptrINS_10filesystem6detail11dir_itr_impEED2Ev.exit
 
 .body:                                            ; preds = %125, %103, %100, %_ZN5boost10filesystem4pathD2Ev.exit46, %211, %127
-  %.sroa.059.0 = phi ptr [ %.sroa.059.5, %211 ], [ %.sroa.059.5, %127 ], [ %.sroa.059.5, %_ZN5boost10filesystem4pathD2Ev.exit46 ], [ %.sroa.059.5, %125 ], [ null, %103 ], [ null, %100 ]
-  %.pn37 = phi { ptr, i32 } [ %212, %211 ], [ %128, %127 ], [ %.pn, %_ZN5boost10filesystem4pathD2Ev.exit46 ], [ %126, %125 ], [ %.pn.i, %103 ], [ %.pn.i, %100 ]
+  %.sroa.059.0 = phi ptr [ %.sroa.059.5, %127 ], [ %.sroa.059.5, %_ZN5boost10filesystem4pathD2Ev.exit46 ], [ %.sroa.059.5, %211 ], [ %.sroa.059.5, %125 ], [ null, %103 ], [ null, %100 ]
+  %.pn37 = phi { ptr, i32 } [ %128, %127 ], [ %.pn, %_ZN5boost10filesystem4pathD2Ev.exit46 ], [ %212, %211 ], [ %126, %125 ], [ %.pn.i, %103 ], [ %.pn.i, %100 ]
   %.025 = extractvalue { ptr, i32 } %.pn37, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1703,7 +1703,7 @@ _ZN5boost10filesystem4pathD2Ev.exit40:            ; preds = %.critedge, %_ZNKSt7
   br label %110
 
 _ZN5boost13intrusive_ptrINS_10filesystem6detail11dir_itr_impEED2Ev.exit36: ; preds = %53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i33, %84, %28
-  %.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %85, %84 ], [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i33 ], [ %.pn.pn, %53 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %29, %28 ], [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i33 ], [ %.pn.pn, %53 ]
   %.020 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2295,7 +2295,7 @@ _ZN5boost10filesystem18directory_iteratorD2Ev.exit57: ; preds = %_ZNK5boost6syst
   ret void
 
 166:                                              ; preds = %138, %136, %118, %51
-  %.merged32 = phi { ptr, i32 } [ %52, %51 ], [ %119, %118 ], [ %139, %138 ], [ %137, %136 ]
+  %.merged32 = phi { ptr, i32 } [ %119, %118 ], [ %52, %51 ], [ %139, %138 ], [ %137, %136 ]
   call void @_ZN5boost13intrusive_ptrINS_10filesystem6detail17recur_dir_itr_impEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %167
@@ -3049,8 +3049,8 @@ _ZN5boost10filesystem4pathD2Ev.exit.i:            ; preds = %_ZN5boost10filesyst
   br label %355
 
 _ZNK5boost6system10error_codecvbEv.exit106.thread168.i: ; preds = %106, %102, %25
-  %.083.i = phi i32 [ %31, %25 ], [ %103, %106 ], [ %103, %102 ]
-  %.079.i = phi i32 [ -1, %25 ], [ %34, %106 ], [ %34, %102 ]
+  %.083.i = phi i32 [ %31, %25 ], [ %103, %102 ], [ %103, %106 ]
+  %.079.i = phi i32 [ -1, %25 ], [ %34, %102 ], [ %34, %106 ]
   %114 = load i32, ptr %16, align 8, !tbaa !87
   %115 = and i32 %114, 2
   %116 = icmp ne i32 %115, 0
@@ -3659,8 +3659,8 @@ _ZN5boost10filesystem18directory_iteratorD2Ev.exit143.i: ; preds = %336, %_ZNK5b
   br label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit133.thread.i, %_ZNK5boost6system10error_code8categoryEv.exit.i, %341, %287, %.critedge.i, %267
-  %343 = phi i32 [ %.pre219.i, %341 ], [ %storemerge.i.i, %287 ], [ %storemerge.i.i, %267 ], [ %storemerge.i.i, %.critedge.i ], [ %storemerge.i.i, %_ZNK5boost6system10error_code8categoryEv.exit.i ], [ %storemerge.i.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit133.thread.i ]
-  %.389.i = phi i32 [ %342, %341 ], [ 2, %287 ], [ 0, %267 ], [ 0, %.critedge.i ], [ 0, %_ZNK5boost6system10error_code8categoryEv.exit.i ], [ 0, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit133.thread.i ]
+  %343 = phi i32 [ %storemerge.i.i, %287 ], [ %.pre219.i, %341 ], [ %storemerge.i.i, %.critedge.i ], [ %storemerge.i.i, %267 ], [ %storemerge.i.i, %_ZNK5boost6system10error_code8categoryEv.exit.i ], [ %storemerge.i.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit133.thread.i ]
+  %.389.i = phi i32 [ 2, %287 ], [ %342, %341 ], [ 0, %.critedge.i ], [ 0, %267 ], [ 0, %_ZNK5boost6system10error_code8categoryEv.exit.i ], [ 0, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit133.thread.i ]
   %344 = icmp sgt i32 %343, -1
   br i1 %344, label %345, label %_ZN5boost10filesystem6detail25directory_iterator_paramsD2Ev.exit.i, !prof !46
 
@@ -3685,7 +3685,7 @@ _ZN5boost10filesystem6detail25directory_iterator_paramsD2Ev.exit.i: ; preds = %3
   br label %355
 
 .critedge99.i:                                    ; preds = %_ZN5boost10filesystem6detail25directory_iterator_paramsD2Ev.exit.i, %147, %.thread.i, %_ZNK5boost6system10error_codecvbEv.exit106.thread168.i, %106, %52
-  %cond.i = phi i32 [ 0, %.thread.i ], [ 0, %52 ], [ 0, %_ZNK5boost6system10error_codecvbEv.exit106.thread168.i ], [ 0, %147 ], [ 0, %106 ], [ %.389.i, %_ZN5boost10filesystem6detail25directory_iterator_paramsD2Ev.exit.i ]
+  %cond.i = phi i32 [ 0, %_ZNK5boost6system10error_codecvbEv.exit106.thread168.i ], [ %.389.i, %_ZN5boost10filesystem6detail25directory_iterator_paramsD2Ev.exit.i ], [ 0, %.thread.i ], [ 0, %52 ], [ 0, %106 ], [ 0, %147 ]
   %351 = load ptr, ptr %5, align 8, !tbaa !13
   %352 = icmp eq ptr %351, %22
   br i1 %352, label %_ZZN5boost10filesystem6detail38recursive_directory_iterator_incrementERNS0_28recursive_directory_iteratorEPNS_6system10error_codeEEN5local14push_directoryEPNS1_17recur_dir_itr_impERS5_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i144.i
@@ -3697,7 +3697,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZZN5boost10filesystem6detail38recursive_directory_iterator_incrementERNS0_28recursive_directory_iteratorEPNS_6system10error_codeEEN5local14push_directoryEPNS1_17recur_dir_itr_impERS5_.exit
 
 355:                                              ; preds = %350, %197, %112, %110
-  %.pn94.pn.pn.i = phi { ptr, i32 } [ %111, %110 ], [ %198, %197 ], [ %113, %112 ], [ %.pn94.i, %350 ]
+  %.pn94.pn.pn.i = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ], [ %.pn94.i, %350 ], [ %198, %197 ]
   %.176.i = extractvalue { ptr, i32 } %.pn94.pn.pn.i, 1
   %356 = load ptr, ptr %5, align 8, !tbaa !13
   %357 = icmp eq ptr %356, %22
@@ -4147,7 +4147,7 @@ _ZNK5boost6system15error_condition6cat_idEv.exit12.i: ; preds = %20
   br label %_ZN5boost6systemeqERKNS0_15error_conditionES3_.exit
 
 _ZN5boost6systemeqERKNS0_15error_conditionES3_.exit: ; preds = %3, %15, %16, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i, %24
-  %.0.i = phi i1 [ %32, %24 ], [ false, %3 ], [ %23, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i ], [ %19, %16 ], [ true, %15 ]
+  %.0.i = phi i1 [ %23, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i ], [ %32, %24 ], [ false, %3 ], [ %19, %16 ], [ true, %15 ]
   ret i1 %.0.i
 }
 
@@ -4205,7 +4205,7 @@ _ZNK5boost6system10error_code5valueEv.exit.i:     ; preds = %12
   br label %_ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit
 
 _ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit: ; preds = %6, %12, %_ZNK5boost6system10error_code5valueEv.exit.i, %25, %28
-  %.0.i = phi i1 [ %11, %6 ], [ %24, %_ZNK5boost6system10error_code5valueEv.exit.i ], [ false, %12 ], [ false, %25 ], [ %38, %28 ]
+  %.0.i = phi i1 [ %11, %6 ], [ false, %12 ], [ %24, %_ZNK5boost6system10error_code5valueEv.exit.i ], [ false, %25 ], [ %38, %28 ]
   ret i1 %.0.i
 }
 

@@ -512,7 +512,7 @@ udp_detect_and_report_out_of_order.exit:          ; preds = %122, %114, %72
   br label %127
 
 127:                                              ; preds = %31, %13, %11, %udp_detect_and_report_out_of_order.exit
-  %.1 = phi i32 [ %9, %udp_detect_and_report_out_of_order.exit ], [ 0, %11 ], [ 4, %13 ], [ 0, %31 ]
+  %.1 = phi i32 [ %9, %udp_detect_and_report_out_of_order.exit ], [ 4, %13 ], [ 0, %11 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1

@@ -108,8 +108,8 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   br label %13
 
 13:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbe1362c6e5e7c155E.llvm.13509343365583292059.exit.thread", %8
-  %.sink20.i11 = phi i64 [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbe1362c6e5e7c155E.llvm.13509343365583292059.exit.thread" ], [ %9, %8 ]
-  %.sroa.5.sroa.4.0 = phi i64 [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbe1362c6e5e7c155E.llvm.13509343365583292059.exit.thread" ], [ %12, %8 ]
+  %.sink20.i11 = phi i64 [ %9, %8 ], [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbe1362c6e5e7c155E.llvm.13509343365583292059.exit.thread" ]
+  %.sroa.5.sroa.4.0 = phi i64 [ %12, %8 ], [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hbe1362c6e5e7c155E.llvm.13509343365583292059.exit.thread" ]
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 896, i64 992
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %., i64 noundef 8) #25
@@ -256,9 +256,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %33
 
 33:                                               ; preds = %32, %30, %29, %17
-  %.0.i = phi i64 [ 5, %32 ], [ 6, %30 ], [ 4, %17 ], [ %19, %29 ]
-  %34 = phi i1 [ false, %32 ], [ false, %30 ], [ true, %17 ], [ true, %29 ]
-  %.sroa.725.0.i = phi i64 [ 0, %32 ], [ %31, %30 ], [ %19, %17 ], [ %19, %29 ]
+  %.0.i = phi i64 [ 6, %30 ], [ 5, %32 ], [ 4, %17 ], [ %19, %29 ]
+  %34 = phi i1 [ false, %30 ], [ false, %32 ], [ true, %17 ], [ true, %29 ]
+  %.sroa.725.0.i = phi i64 [ %31, %30 ], [ 0, %32 ], [ %19, %17 ], [ %19, %29 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i64, ptr %35, align 8, !alias.scope !8, !noalias !11, !noundef !4
   %37 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17he89d9e4d08eb34dfE.llvm.1556857618463152152"()
@@ -642,9 +642,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %175
 
 175:                                              ; preds = %174, %172, %171, %139
-  %.0.i38 = phi i64 [ 5, %174 ], [ 6, %172 ], [ 4, %139 ], [ 5, %171 ]
-  %176 = phi i1 [ false, %174 ], [ false, %172 ], [ true, %139 ], [ true, %171 ]
-  %.sroa.7.0.i = phi i64 [ 0, %174 ], [ %173, %172 ], [ %132, %139 ], [ 5, %171 ]
+  %.0.i38 = phi i64 [ 6, %172 ], [ 5, %174 ], [ 4, %139 ], [ 5, %171 ]
+  %176 = phi i1 [ false, %172 ], [ false, %174 ], [ true, %139 ], [ true, %171 ]
+  %.sroa.7.0.i = phi i64 [ %173, %172 ], [ 0, %174 ], [ %132, %139 ], [ 5, %171 ]
   %177 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hd0cf011ae8465d79E.llvm.1556857618463152152"()
           to label %.noexc.i39 unwind label %.loopexit80, !noalias !70
 
@@ -901,7 +901,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   ret void
 
 .body:                                            ; preds = %257, %120, %116, %73
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %73 ], [ %.pn.ph.i36, %257 ], [ %eh.lpad-body.ph.i, %120 ], [ %117, %116 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %73 ], [ %eh.lpad-body.ph.i, %120 ], [ %117, %116 ], [ %.pn.ph.i36, %257 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1160,7 +1160,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$
   %66 = insertvalue { i64, i64 } %65, i64 %.sroa.4.0, 1
   ret { i64, i64 } %66
 
-"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit": ; preds = %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit", %46, %34, %40, %52
+"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit": ; preds = %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit", %34, %40, %46, %52
   br label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread"
 
 "_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread": ; preds = %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit", %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit"

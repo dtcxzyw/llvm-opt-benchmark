@@ -1617,7 +1617,7 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %29, %41, %22, %._crit_edge, %65, %19
-  %.063 = phi ptr [ null, %._crit_edge ], [ %21, %19 ], [ %67, %65 ], [ %40, %29 ], [ %27, %22 ], [ %46, %41 ], [ %52, %48 ]
+  %.063 = phi ptr [ null, %._crit_edge ], [ %21, %19 ], [ %67, %65 ], [ %27, %22 ], [ %46, %41 ], [ %40, %29 ], [ %52, %48 ]
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %.063, ptr %68, align 8, !tbaa !58
   %69 = ptrtoint ptr %7 to i64

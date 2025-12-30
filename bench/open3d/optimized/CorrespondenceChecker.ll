@@ -155,7 +155,7 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration38CorrespondenceCh
   br i1 %or.cond, label %.thread, label %36
 
 .thread:                                          ; preds = %.loopexit, %.critedge, %5
-  %68 = phi i1 [ false, %.critedge ], [ true, %5 ], [ true, %.loopexit ]
+  %68 = phi i1 [ true, %5 ], [ false, %.critedge ], [ true, %.loopexit ]
   ret i1 %68
 }
 

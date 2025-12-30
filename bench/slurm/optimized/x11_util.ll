@@ -91,7 +91,7 @@ define dso_local noundef nonnull ptr @x11_flags2str(i16 noundef zeroext %0) loca
   br label %10
 
 10:                                               ; preds = %8, %6, %4, %1
-  %.0 = phi ptr [ @.str.2, %6 ], [ @.str, %1 ], [ @.str.1, %4 ], [ %.str.4..str.3, %8 ]
+  %.0 = phi ptr [ @.str, %1 ], [ @.str.1, %4 ], [ @.str.2, %6 ], [ %.str.4..str.3, %8 ]
   ret ptr %.0
 }
 
@@ -483,7 +483,7 @@ define dso_local i32 @x11_set_xauth(ptr noundef %0, ptr noundef %1, i16 noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %67
 
-68:                                               ; preds = %.split39.us, %39
+68:                                               ; preds = %39, %.split39.us
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.x11_set_xauth) #18
   unreachable
 }

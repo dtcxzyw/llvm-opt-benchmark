@@ -30,7 +30,7 @@ define range(i32 0, 2) i32 @OSSL_OBJECT_DIGEST_INFO_set1_digest(ptr noundef %0, 
   br label %16
 
 16:                                               ; preds = %12, %8, %4
-  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ %., %12 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -75,10 +75,10 @@ define internal fastcc range(i32 0, 2) i32 @replace_dirName(ptr noundef captures
   br label %17
 
 16:                                               ; preds = %11, %8, %5, %2
-  %.sink20 = phi i32 [ 54, %8 ], [ 49, %5 ], [ 44, %2 ], [ 59, %11 ]
-  %.sink = phi i32 [ 524301, %8 ], [ 524301, %5 ], [ 524301, %2 ], [ 524303, %11 ]
-  %.012 = phi ptr [ null, %8 ], [ null, %5 ], [ null, %2 ], [ %9, %11 ]
-  %.011 = phi ptr [ %6, %8 ], [ null, %5 ], [ null, %2 ], [ %6, %11 ]
+  %.sink20 = phi i32 [ 44, %2 ], [ 49, %5 ], [ 54, %8 ], [ 59, %11 ]
+  %.sink = phi i32 [ 524301, %2 ], [ 524301, %5 ], [ 524301, %8 ], [ 524303, %11 ]
+  %.012 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %8 ], [ %9, %11 ]
+  %.011 = phi ptr [ null, %2 ], [ null, %5 ], [ %6, %8 ], [ %6, %11 ]
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.replace_dirName) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #2
@@ -261,7 +261,7 @@ define range(i32 0, 2) i32 @X509_ACERT_set1_notBefore(ptr noundef readonly captu
   br label %replace_gentime.exit
 
 replace_gentime.exit:                             ; preds = %2, %7, %13, %14
-  %.0.i = phi i32 [ 1, %14 ], [ 0, %2 ], [ 0, %13 ], [ 1, %7 ]
+  %.0.i = phi i32 [ 0, %13 ], [ 1, %14 ], [ 0, %2 ], [ 1, %7 ]
   ret i32 %.0.i
 }
 
@@ -297,7 +297,7 @@ define range(i32 0, 2) i32 @X509_ACERT_set1_notAfter(ptr noundef readonly captur
   br label %replace_gentime.exit
 
 replace_gentime.exit:                             ; preds = %2, %7, %13, %14
-  %.0.i = phi i32 [ 1, %14 ], [ 0, %2 ], [ 0, %13 ], [ 1, %7 ]
+  %.0.i = phi i32 [ 0, %13 ], [ 1, %14 ], [ 0, %2 ], [ 1, %7 ]
   ret i32 %.0.i
 }
 

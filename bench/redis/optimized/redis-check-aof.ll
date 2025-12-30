@@ -170,7 +170,7 @@ define dso_local range(i32 0, 2) i32 @readLong(ptr noundef captures(none) %0, i8
   br label %consumeNewline.exit
 
 consumeNewline.exit:                              ; preds = %32, %.tail.thread.i, %3, %13
-  %.0 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 0, %.tail.thread.i ], [ 1, %32 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %3 ], [ 0, %.tail.thread.i ], [ 1, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -643,7 +643,7 @@ define dso_local range(i32 0, 4) i32 @checkSingleAof(ptr noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %44, %64
-  %66 = phi i32 [ %.pre80.ph, %64 ], [ %.pre80.ph, %44 ], [ %.pre82, %62 ]
+  %66 = phi i32 [ %.pre80.ph, %44 ], [ %.pre80.ph, %64 ], [ %.pre82, %62 ]
   %67 = call i32 @feof(ptr noundef nonnull %12) #16
   %68 = icmp ne i32 %67, 0
   %69 = icmp ne i32 %66, 0
@@ -1259,8 +1259,8 @@ sub_1:                                            ; preds = %sub_0
   br label %43
 
 43:                                               ; preds = %.tail.thread, %40, %23
-  %.025 = phi i32 [ 0, %40 ], [ 1, %23 ], [ 0, %.tail.thread ]
-  %.0 = phi ptr [ %42, %40 ], [ %25, %23 ], [ %8, %.tail.thread ]
+  %.025 = phi i32 [ 1, %23 ], [ 0, %40 ], [ 0, %.tail.thread ]
+  %.0 = phi ptr [ %25, %23 ], [ %42, %40 ], [ %8, %.tail.thread ]
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #18
   %45 = add i64 %44, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.0, i64 %45, i1 false)

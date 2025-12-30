@@ -209,7 +209,7 @@ _ZL27ucnv_getSharedConverterDataPKc.exit.thread:  ; preds = %14, %_ZL27ucnv_getS
   br label %33
 
 33:                                               ; preds = %29, %25, %28, %_ZL27ucnv_getSharedConverterDataPKc.exit.thread, %2, %4, %12
-  %.018 = phi ptr [ null, %_ZL27ucnv_getSharedConverterDataPKc.exit.thread ], [ %13, %12 ], [ null, %2 ], [ null, %4 ], [ %21, %25 ], [ %21, %28 ], [ %19, %29 ]
+  %.018 = phi ptr [ %13, %12 ], [ null, %4 ], [ null, %2 ], [ null, %_ZL27ucnv_getSharedConverterDataPKc.exit.thread ], [ %21, %25 ], [ %21, %28 ], [ %19, %29 ]
   ret ptr %.018
 }
 
@@ -309,7 +309,7 @@ _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.ex
   br i1 %55, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread
 
 _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread.sink.split: ; preds = %37, %19, %23, %29, %32, %35
-  %.sink = phi i32 [ 13, %19 ], [ 13, %35 ], [ 13, %32 ], [ 13, %29 ], [ 13, %23 ], [ 7, %37 ]
+  %.sink = phi i32 [ 13, %35 ], [ 13, %32 ], [ 13, %29 ], [ 13, %23 ], [ 13, %19 ], [ 7, %37 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !13
   br label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread
 
@@ -318,7 +318,7 @@ _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.ex
   br label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17
 
 _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17: ; preds = %48, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit, %5, %2, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread ], [ %.0.i.ph, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit ], [ %38, %48 ]
+  %.0 = phi ptr [ null, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread ], [ null, %2 ], [ null, %5 ], [ %.0.i.ph, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit ], [ %38, %48 ]
   ret ptr %.0
 }
 
@@ -779,7 +779,7 @@ _ZL27ucnv_getSharedConverterDataPKc.exit.thread.i: ; preds = %_ZL27ucnv_getShare
   br label %ucnv_load_77.exit
 
 ucnv_load_77.exit:                                ; preds = %93, %100, %_ZL27ucnv_getSharedConverterDataPKc.exit.thread.i, %112, %114, %115
-  %.018.i = phi ptr [ null, %_ZL27ucnv_getSharedConverterDataPKc.exit.thread.i ], [ %101, %100 ], [ %106, %115 ], [ null, %93 ], [ %108, %112 ], [ %108, %114 ]
+  %.018.i = phi ptr [ %101, %100 ], [ null, %93 ], [ null, %_ZL27ucnv_getSharedConverterDataPKc.exit.thread.i ], [ %108, %112 ], [ %108, %114 ], [ %106, %115 ]
   call void @umtx_unlock_77(ptr noundef nonnull @_ZL13cnvCacheMutex)
   %119 = load i32, ptr %3, align 4, !tbaa !13
   %120 = icmp sgt i32 %119, 0
@@ -787,7 +787,7 @@ ucnv_load_77.exit:                                ; preds = %93, %100, %_ZL27ucn
   br label %121
 
 121:                                              ; preds = %ucnv_load_77.exit, %_ZL26getAlgorithmicTypeFromNamePKc.exit, %54, %4, %53, %19, %15
-  %.0 = phi ptr [ %spec.select, %ucnv_load_77.exit ], [ null, %15 ], [ @_UTF8Data_77, %19 ], [ @_UTF8Data_77, %53 ], [ null, %4 ], [ null, %54 ], [ %90, %_ZL26getAlgorithmicTypeFromNamePKc.exit ]
+  %.0 = phi ptr [ null, %15 ], [ @_UTF8Data_77, %19 ], [ @_UTF8Data_77, %53 ], [ null, %4 ], [ null, %54 ], [ %90, %_ZL26getAlgorithmicTypeFromNamePKc.exit ], [ %spec.select, %ucnv_load_77.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1205,7 +1205,7 @@ ucnv_unload_77.exit.i53:                          ; preds = %_ZL30ucnv_deleteSha
   br label %ucnv_unloadSharedDataIfReady_77.exit
 
 ucnv_unloadSharedDataIfReady_77.exit:             ; preds = %ucnv_unload_77.exit.i53, %36, %35, %ucnv_unload_77.exit.i, %8, %7, %88, %96, %93, %98
-  %.041 = phi ptr [ %.042, %88 ], [ %0, %ucnv_unload_77.exit.i ], [ null, %98 ], [ %.042, %93 ], [ %.042, %96 ], [ %0, %7 ], [ %0, %8 ], [ null, %35 ], [ null, %36 ], [ null, %ucnv_unload_77.exit.i53 ]
+  %.041 = phi ptr [ null, %98 ], [ %.042, %93 ], [ %.042, %96 ], [ %.042, %88 ], [ %0, %7 ], [ %0, %8 ], [ %0, %ucnv_unload_77.exit.i ], [ null, %35 ], [ null, %36 ], [ null, %ucnv_unload_77.exit.i53 ]
   ret ptr %.041
 }
 
@@ -1389,7 +1389,7 @@ define noundef ptr @ucnv_createConverterFromPackage_77(ptr noundef %0, ptr nound
   br label %25
 
 25:                                               ; preds = %20, %14, %9, %3, %24
-  %.0 = phi ptr [ null, %14 ], [ null, %3 ], [ null, %9 ], [ null, %24 ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %3 ], [ null, %9 ], [ null, %14 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -1722,7 +1722,7 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %33, label %49, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %30, %26, %22, %18
-  %34 = phi i8 [ %16, %11 ], [ 110, %30 ], [ 110, %26 ], [ 110, %22 ], [ 110, %18 ]
+  %34 = phi i8 [ 110, %30 ], [ 110, %26 ], [ 110, %22 ], [ 110, %18 ], [ %16, %11 ]
   %35 = zext i8 %13 to i32
   %36 = zext i8 %34 to i32
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -2241,7 +2241,7 @@ switch.early.test:                                ; preds = %169
   br label %372
 
 372:                                              ; preds = %5, %8, %369, %367, %196, %185, %168, %166, %.thread423, %105, %92, %65, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %92 ], [ 0, %105 ], [ 0, %166 ], [ 0, %168 ], [ 0, %196 ], [ %371, %369 ], [ 0, %185 ], [ 0, %.thread423 ], [ 0, %367 ], [ 0, %65 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %92 ], [ 0, %105 ], [ 0, %166 ], [ 0, %168 ], [ 0, %196 ], [ %371, %369 ], [ 0, %185 ], [ 0, %.thread423 ], [ 0, %367 ], [ 0, %65 ], [ 0, %._crit_edge ], [ 0, %8 ], [ 0, %5 ]
   ret i32 %.0
 }
 

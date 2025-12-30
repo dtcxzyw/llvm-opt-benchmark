@@ -277,7 +277,7 @@ lxb_selectors_state_tree.exit.loopexit23:         ; preds = %lxb_selectors_state
   br label %lxb_selectors_state_tree.exit
 
 lxb_selectors_state_tree.exit:                    ; preds = %49, %lxb_selectors_state_run.exit.i, %44, %lxb_selectors_state_tree.exit.loopexit23, %5
-  %.020.i = phi i32 [ %.pre.i.i, %lxb_selectors_state_tree.exit.loopexit23 ], [ 0, %5 ], [ 0, %lxb_selectors_state_run.exit.i ], [ 0, %44 ], [ 0, %49 ]
+  %.020.i = phi i32 [ 0, %5 ], [ %.pre.i.i, %lxb_selectors_state_tree.exit.loopexit23 ], [ 0, %44 ], [ 0, %lxb_selectors_state_run.exit.i ], [ 0, %49 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   call void @lexbor_dobject_clean(ptr noundef %53) #7
@@ -566,7 +566,7 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
   br label %92
 
 lxb_selectors_descendant.exit:                    ; preds = %88, %86, %71, %51, %49, %79, %77, %67, %65, %42, %52
-  %.051 = phi ptr [ null, %71 ], [ %..i, %52 ], [ null, %79 ], [ %.val, %65 ], [ null, %42 ], [ %.014.i, %49 ], [ null, %67 ], [ %.0..i, %77 ], [ null, %51 ], [ %.014.i61, %86 ], [ null, %88 ]
+  %.051 = phi ptr [ %..i, %52 ], [ null, %42 ], [ null, %67 ], [ %.val, %65 ], [ %.0..i, %77 ], [ null, %79 ], [ %.014.i, %49 ], [ null, %51 ], [ null, %71 ], [ %.014.i61, %86 ], [ null, %88 ]
   %91 = tail call fastcc ptr @lxb_selectors_state_find_check(ptr noundef %0, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %1)
   br label %92
 
@@ -791,7 +791,7 @@ lxb_selectors_state_has_relative.exit:            ; preds = %.lr.ph6.i.loopexit,
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   br label %97
 
-lxb_selectors_next_node.exit.thread:              ; preds = %18, %2, %9, %13, %lxb_selectors_next_node.exit.thread81, %lxb_selectors_next_node.exit
+lxb_selectors_next_node.exit.thread:              ; preds = %18, %2, %13, %9, %lxb_selectors_next_node.exit.thread81, %lxb_selectors_next_node.exit
   store ptr %.val76, ptr %3, align 8, !tbaa !32
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   %94 = getelementptr inbounds nuw i8, ptr %.val76.val, i64 24
@@ -935,7 +935,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
   br label %129
 
 .loopexit:                                        ; preds = %53, %53, %60, %66, %71
-  %.068 = phi ptr [ null, %66 ], [ null, %60 ], [ %75, %71 ], [ null, %53 ], [ null, %53 ]
+  %.068 = phi ptr [ %75, %71 ], [ null, %66 ], [ null, %60 ], [ null, %53 ], [ null, %53 ]
   %78 = icmp eq ptr %.068, null
   br i1 %78, label %.preheader, label %.thread
 
@@ -1017,7 +1017,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
   br label %129
 
 129:                                              ; preds = %19, %28, %84, %104, %30, %49, %.loopexit78, %127, %116, %.thread, %76
-  %.0 = phi ptr [ %114, %127 ], [ null, %84 ], [ null, %.loopexit78 ], [ null, %76 ], [ %.3, %.thread ], [ %33, %30 ], [ %119, %116 ], [ %33, %49 ], [ null, %104 ], [ %18, %28 ], [ %18, %19 ]
+  %.0 = phi ptr [ null, %76 ], [ %.3, %.thread ], [ %119, %116 ], [ %114, %127 ], [ null, %.loopexit78 ], [ %33, %49 ], [ %33, %30 ], [ null, %104 ], [ null, %84 ], [ %18, %28 ], [ %18, %19 ]
   ret ptr %.0
 }
 
@@ -1574,7 +1574,7 @@ dom_lxb_str_wrapper_release.exit.sink.split:      ; preds = %79, %89
   br label %dom_lxb_str_wrapper_release.exit
 
 dom_lxb_str_wrapper_release.exit:                 ; preds = %dom_lxb_str_wrapper_release.exit.sink.split, %81, %79
-  %.2 = phi i1 [ %87, %81 ], [ false, %79 ], [ %.2.ph, %dom_lxb_str_wrapper_release.exit.sink.split ]
+  %.2 = phi i1 [ false, %79 ], [ %87, %81 ], [ %.2.ph, %dom_lxb_str_wrapper_release.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %lxb_selectors_match_element.exit
 
@@ -1810,7 +1810,7 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   unreachable
 
 lxb_selectors_match_attribute_value.exit.i:       ; preds = %208, %206, %198, %196, %194, %187, %184, %182, %180, %171, %170, %164, %153, %151, %141, %139, %137, %129
-  %.0.i20.i = phi i1 [ %138, %137 ], [ %140, %139 ], [ %209, %208 ], [ %142, %141 ], [ %152, %151 ], [ %154, %153 ], [ false, %129 ], [ false, %170 ], [ %181, %180 ], [ %183, %182 ], [ true, %164 ], [ false, %171 ], [ %197, %196 ], [ false, %184 ], [ %207, %206 ], [ false, %198 ], [ %195, %194 ], [ false, %187 ]
+  %.0.i20.i = phi i1 [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %152, %151 ], [ %154, %153 ], [ false, %170 ], [ %181, %180 ], [ %183, %182 ], [ %207, %206 ], [ %209, %208 ], [ false, %129 ], [ true, %164 ], [ false, %171 ], [ %195, %194 ], [ %197, %196 ], [ false, %187 ], [ false, %184 ], [ false, %198 ]
   %.val17.i = load i8, ptr %115, align 8, !tbaa !93, !range !72, !noundef !73
   %211 = trunc nuw i8 %.val17.i to i1
   br i1 %211, label %212, label %dom_lxb_str_wrapper_release.exit.i35
@@ -2042,14 +2042,14 @@ lxb_selectors_adapted_attr.exit.i44:              ; preds = %.thread12.i
   br i1 %.not17.i.i73.i, label %lxb_selectors_adapted_has_attr.exit71.i, label %lxb_selectors_adapted_has_attr.exit71.sink.split.i
 
 lxb_selectors_adapted_has_attr.exit71.sink.split.i: ; preds = %.lr.ph152.i, %.lr.ph156.i, %292, %279
-  %.1.i.i7232.sink.i = phi ptr [ %.0.i.i69155.i, %.lr.ph156.i ], [ %280, %279 ], [ %293, %292 ], [ %.0.i.i77151.i, %.lr.ph152.i ]
+  %.1.i.i7232.sink.i = phi ptr [ %280, %279 ], [ %293, %292 ], [ %.0.i.i69155.i, %.lr.ph156.i ], [ %.0.i.i77151.i, %.lr.ph152.i ]
   %294 = getelementptr inbounds nuw i8, ptr %.1.i.i7232.sink.i, i64 72
   %295 = load ptr, ptr %294, align 8, !tbaa !84
   %.not18.i.i74.i = icmp eq ptr %295, null
   br label %lxb_selectors_adapted_has_attr.exit71.i
 
 lxb_selectors_adapted_has_attr.exit71.i:          ; preds = %290, %277, %lxb_selectors_adapted_has_attr.exit71.sink.split.i, %292, %285, %281, %279, %272, %268, %lxb_selectors_adapted_attr.exit.i44
-  %.0.shrunk.i45 = phi i1 [ false, %lxb_selectors_adapted_attr.exit.i44 ], [ false, %268 ], [ false, %279 ], [ false, %281 ], [ %.not18.i.i74.i, %lxb_selectors_adapted_has_attr.exit71.sink.split.i ], [ false, %292 ], [ false, %277 ], [ false, %272 ], [ false, %285 ], [ false, %290 ]
+  %.0.shrunk.i45 = phi i1 [ false, %268 ], [ false, %281 ], [ false, %lxb_selectors_adapted_attr.exit.i44 ], [ false, %279 ], [ false, %292 ], [ false, %272 ], [ false, %285 ], [ %.not18.i.i74.i, %lxb_selectors_adapted_has_attr.exit71.sink.split.i ], [ false, %277 ], [ false, %290 ]
   %.val120.i = load i8, ptr %264, align 8, !tbaa !93, !range !72, !noundef !73
   %296 = trunc nuw i8 %.val120.i to i1
   br i1 %296, label %297, label %dom_lxb_str_wrapper_release.exit.i46
@@ -2720,7 +2720,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
   br i1 %.not41.i, label %.loopexit.i55, label %.lr.ph88.i
 
 .loopexit.i55:                                    ; preds = %.lr.ph83.i, %.lr.ph88.i, %.preheader.i56, %.preheader66.i
-  %.236.i = phi i64 [ %spec.select43.i, %.lr.ph88.i ], [ 0, %.preheader.i56 ], [ 0, %.preheader66.i ], [ %spec.select.i, %.lr.ph83.i ]
+  %.236.i = phi i64 [ 0, %.preheader.i56 ], [ 0, %.preheader66.i ], [ %spec.select43.i, %.lr.ph88.i ], [ %spec.select.i, %.lr.ph83.i ]
   %577 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %578 = load ptr, ptr %577, align 8, !tbaa !52
   %579 = load i64, ptr %578, align 8, !tbaa !75
@@ -2802,7 +2802,7 @@ lxb_selectors_adapted_cmp_ns.exit.i:              ; preds = %616
   br label %lxb_selectors_adapted_cmp_ns.exit.thread55.i
 
 lxb_selectors_adapted_cmp_ns.exit.thread55.i:     ; preds = %lxb_selectors_adapted_cmp_ns.exit.i, %616, %lxb_selectors_adapted_cmp_ns.exit.thread.i, %605, %600
-  %.6.i = phi i64 [ %.576.i, %600 ], [ %.576.i, %605 ], [ %.576.i, %616 ], [ %spec.select61.i, %lxb_selectors_adapted_cmp_ns.exit.i ], [ %615, %lxb_selectors_adapted_cmp_ns.exit.thread.i ]
+  %.6.i = phi i64 [ %.576.i, %605 ], [ %.576.i, %600 ], [ %615, %lxb_selectors_adapted_cmp_ns.exit.thread.i ], [ %.576.i, %616 ], [ %spec.select61.i, %lxb_selectors_adapted_cmp_ns.exit.i ]
   %623 = getelementptr inbounds nuw i8, ptr %.277.i, i64 56
   %624 = load ptr, ptr %623, align 8, !tbaa !58
   %.not39.i = icmp eq ptr %624, null
@@ -2855,14 +2855,14 @@ lxb_selectors_adapted_cmp_ns.exit49.i:            ; preds = %641
   br label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i
 
 lxb_selectors_adapted_cmp_ns.exit49.thread59.i:   ; preds = %lxb_selectors_adapted_cmp_ns.exit49.i, %641, %lxb_selectors_adapted_cmp_ns.exit49.thread.i, %630, %625
-  %.9.i = phi i64 [ %.873.i, %625 ], [ %.873.i, %630 ], [ %.873.i, %641 ], [ %spec.select62.i, %lxb_selectors_adapted_cmp_ns.exit49.i ], [ %640, %lxb_selectors_adapted_cmp_ns.exit49.thread.i ]
+  %.9.i = phi i64 [ %.873.i, %630 ], [ %.873.i, %625 ], [ %640, %lxb_selectors_adapted_cmp_ns.exit49.thread.i ], [ %.873.i, %641 ], [ %spec.select62.i, %lxb_selectors_adapted_cmp_ns.exit49.i ]
   %648 = getelementptr inbounds nuw i8, ptr %.374.i, i64 48
   %649 = load ptr, ptr %648, align 8, !tbaa !45
   %.not.i51 = icmp eq ptr %649, null
   br i1 %.not.i51, label %.loopexit69.i, label %625
 
 .loopexit69.i:                                    ; preds = %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, %lxb_selectors_adapted_cmp_ns.exit.thread55.i, %.preheader68.i, %.preheader70.i
-  %.7.i = phi i64 [ %.6.i, %lxb_selectors_adapted_cmp_ns.exit.thread55.i ], [ 0, %.preheader68.i ], [ 0, %.preheader70.i ], [ %.9.i, %lxb_selectors_adapted_cmp_ns.exit49.thread59.i ]
+  %.7.i = phi i64 [ 0, %.preheader68.i ], [ 0, %.preheader70.i ], [ %.6.i, %lxb_selectors_adapted_cmp_ns.exit.thread55.i ], [ %.9.i, %lxb_selectors_adapted_cmp_ns.exit49.thread59.i ]
   %650 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %651 = load ptr, ptr %650, align 8, !tbaa !52
   %652 = load i64, ptr %651, align 8, !tbaa !75
@@ -2910,7 +2910,7 @@ switch.lookup:                                    ; preds = %552
   br label %lxb_selectors_match_element.exit
 
 lxb_selectors_match_element.exit:                 ; preds = %409, %414, %.preheader106.i, %lxb_selectors_adapted_cmp_ns.exit.i170.i, %432, %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i, %lxb_selectors_adapted_cmp_ns.exit.i187.i, %455, %487, %511, %543, %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i, %lxb_selectors_adapted_cmp_ns.exit.i.i, %345, %327, %.preheader95.i, %.lr.ph134.i, %319, %403, %356, %.preheader.i, %309, %258, %234, %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i, %lxb_selectors_adapted_cmp_ns.exit.i144.i, %374, %105, %68, %37, %552, %switch.lookup, %63, %70, %.thread60, %672, %668, %654, %599, %595, %581, %556, %549, %.thread70.i, %545, %538, %533, %522, %520, %517, %.thread62.i, %513, %506, %501, %493, %.thread54.i, %489, %482, %477, %466, %.loopexit.i, %.thread45.i, %405, %398, %.tail82.thread.i, %385, %361, %332, %324, %317, %315, %.thread37.i, %311, %304, %299, %dom_lxb_str_wrapper_release.exit.i46, %.thread12.i, %260, %253, %243, %242, %240, %.thread4.i, %236, %229, %.tail.thread.i, %216, %214, %dom_lxb_str_wrapper_release.exit.i35, %lxb_selectors_adapted_attr.exit.i34, %.thread25.i, %107, %98, %dom_lxb_str_wrapper_release.exit.i, %.thread18.i, %39, %32, %24, %22, %dom_lxb_str_wrapper_release.exit, %4, %673
-  %.0 = phi i1 [ false, %68 ], [ true, %668 ], [ %26, %24 ], [ true, %4 ], [ false, %70 ], [ false, %552 ], [ false, %258 ], [ false, %673 ], [ %.2, %dom_lxb_str_wrapper_release.exit ], [ %23, %22 ], [ %.0.shrunk.i, %dom_lxb_str_wrapper_release.exit.i ], [ false, %.thread18.i ], [ false, %39 ], [ false, %32 ], [ true, %lxb_selectors_adapted_attr.exit.i34 ], [ %.0.i20.i, %dom_lxb_str_wrapper_release.exit.i35 ], [ false, %.thread25.i ], [ false, %107 ], [ false, %98 ], [ false, %214 ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i170.i ], [ true, %487 ], [ false, %304 ], [ false, %216 ], [ false, %243 ], [ false, %236 ], [ false, %229 ], [ false, %240 ], [ false, %299 ], [ %316, %315 ], [ %.0.shrunk.i45, %dom_lxb_str_wrapper_release.exit.i46 ], [ %.not18.i.i106.i, %.thread62.i ], [ %326, %324 ], [ %switch.masked, %switch.lookup ], [ false, %538 ], [ false, %522 ], [ false, %513 ], [ false, %493 ], [ %521, %520 ], [ %519, %517 ], [ true, %489 ], [ false, %466 ], [ false, %405 ], [ %.not18.i.i82.i, %.thread37.i ], [ false, %105 ], [ false, %385 ], [ false, %311 ], [ false, %599 ], [ false, %.tail.thread.i ], [ false, %242 ], [ false, %.tail82.thread.i ], [ %.not18.i.i114.i, %.thread70.i ], [ false, %403 ], [ false, %477 ], [ false, %501 ], [ false, %533 ], [ false, %549 ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i187.i ], [ false, %345 ], [ %.not.i129.i, %356 ], [ false, %398 ], [ true, %332 ], [ %.not18.i.i98.i, %.thread54.i ], [ true, %654 ], [ false, %253 ], [ true, %361 ], [ true, %581 ], [ false, %545 ], [ true, %595 ], [ true, %482 ], [ true, %.loopexit.i ], [ %.not18.i.i90.i, %.thread45.i ], [ false, %506 ], [ false, %.thread12.i ], [ false, %260 ], [ %.not18.i.i.i, %.thread4.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i144.i ], [ false, %234 ], [ false, %309 ], [ false, %511 ], [ %.not.i154.i, %414 ], [ false, %672 ], [ false, %543 ], [ true, %317 ], [ false, %.thread60 ], [ false, %63 ], [ %.not.i123.i, %327 ], [ %switch.i, %.lr.ph134.i ], [ false, %37 ], [ false, %556 ], [ false, %374 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i ], [ %.not.i129.i, %.preheader.i ], [ %switch.i, %319 ], [ %.not.i123.i, %.preheader95.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i.i ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i ], [ false, %455 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i ], [ false, %432 ], [ %.not.i154.i, %.preheader106.i ], [ false, %409 ]
+  %.0 = phi i1 [ false, %673 ], [ true, %4 ], [ %.2, %dom_lxb_str_wrapper_release.exit ], [ %23, %22 ], [ %26, %24 ], [ %.0.shrunk.i, %dom_lxb_str_wrapper_release.exit.i ], [ false, %.thread18.i ], [ false, %39 ], [ false, %32 ], [ %.0.i20.i, %dom_lxb_str_wrapper_release.exit.i35 ], [ true, %lxb_selectors_adapted_attr.exit.i34 ], [ false, %.thread25.i ], [ false, %107 ], [ false, %98 ], [ %316, %315 ], [ %326, %324 ], [ %521, %520 ], [ %519, %517 ], [ false, %.tail.thread.i ], [ false, %216 ], [ false, %242 ], [ false, %240 ], [ false, %243 ], [ %.0.shrunk.i45, %dom_lxb_str_wrapper_release.exit.i46 ], [ false, %299 ], [ false, %.tail82.thread.i ], [ false, %385 ], [ false, %477 ], [ false, %466 ], [ false, %501 ], [ false, %493 ], [ false, %533 ], [ false, %522 ], [ false, %549 ], [ false, %214 ], [ true, %332 ], [ true, %361 ], [ true, %.loopexit.i ], [ false, %.thread12.i ], [ false, %260 ], [ false, %236 ], [ %.not18.i.i.i, %.thread4.i ], [ false, %311 ], [ %.not18.i.i82.i, %.thread37.i ], [ false, %405 ], [ %.not18.i.i90.i, %.thread45.i ], [ true, %489 ], [ %.not18.i.i98.i, %.thread54.i ], [ false, %513 ], [ %.not18.i.i106.i, %.thread62.i ], [ false, %545 ], [ %.not18.i.i114.i, %.thread70.i ], [ false, %229 ], [ false, %253 ], [ false, %304 ], [ false, %398 ], [ true, %317 ], [ false, %538 ], [ false, %506 ], [ true, %482 ], [ false, %556 ], [ false, %599 ], [ true, %581 ], [ true, %595 ], [ false, %672 ], [ true, %654 ], [ true, %668 ], [ false, %.thread60 ], [ false, %70 ], [ false, %63 ], [ %switch.masked, %switch.lookup ], [ false, %552 ], [ false, %37 ], [ false, %68 ], [ false, %105 ], [ false, %374 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i144.i ], [ false, %234 ], [ false, %258 ], [ false, %309 ], [ %.not.i129.i, %.preheader.i ], [ %.not.i129.i, %356 ], [ false, %403 ], [ %switch.i, %319 ], [ %switch.i, %.lr.ph134.i ], [ %.not.i123.i, %.preheader95.i ], [ %.not.i123.i, %327 ], [ false, %345 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i.i ], [ false, %543 ], [ false, %511 ], [ true, %487 ], [ false, %455 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i187.i ], [ false, %432 ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i170.i ], [ %.not.i154.i, %.preheader106.i ], [ %.not.i154.i, %414 ], [ false, %409 ]
   ret i1 %.0
 }
 
@@ -3030,8 +3030,8 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
   br i1 %55, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %51, %29, %9
-  %56 = phi i64 [ %30, %29 ], [ %7, %9 ], [ %52, %51 ]
-  %.053.lcssa = phi ptr [ %.154.us, %29 ], [ %10, %9 ], [ %.154, %51 ]
+  %56 = phi i64 [ %7, %9 ], [ %30, %29 ], [ %52, %51 ]
+  %.053.lcssa = phi ptr [ %10, %9 ], [ %.154.us, %29 ], [ %.154, %51 ]
   %57 = ptrtoint ptr %.053.lcssa to i64
   %58 = sub i64 %.pre75, %57
   %59 = icmp ne i64 %58, %56
@@ -3964,8 +3964,8 @@ lxb_selectors_adapted_has_attr.exit.thread:       ; preds = %59, %82, %54, %61, 
   %.not = icmp eq ptr %.035, null
   br i1 %.not, label %.critedge, label %.lr.ph87
 
-.critedge:                                        ; preds = %lxb_selectors_adapted_has_attr.exit.thread, %.lr.ph87, %79, %.preheader, %.preheader71, %lxb_selectors_adapted_has_attr.exit46.thread, %lxb_selectors_adapted_has_attr.exit46, %21, %24, %27, %30, %33, %1
-  %.032 = phi i1 [ false, %1 ], [ false, %lxb_selectors_adapted_has_attr.exit46.thread ], [ true, %lxb_selectors_adapted_has_attr.exit46 ], [ true, %33 ], [ true, %30 ], [ true, %27 ], [ true, %24 ], [ true, %21 ], [ %.not69.not.not, %79 ], [ false, %.preheader71 ], [ %.not69.not.not, %.preheader ], [ false, %.lr.ph87 ], [ false, %lxb_selectors_adapted_has_attr.exit.thread ]
+.critedge:                                        ; preds = %lxb_selectors_adapted_has_attr.exit.thread, %.lr.ph87, %.preheader, %79, %.preheader71, %lxb_selectors_adapted_has_attr.exit46.thread, %lxb_selectors_adapted_has_attr.exit46, %21, %24, %27, %30, %33, %1
+  %.032 = phi i1 [ false, %1 ], [ true, %33 ], [ true, %30 ], [ true, %27 ], [ true, %24 ], [ true, %21 ], [ true, %lxb_selectors_adapted_has_attr.exit46 ], [ false, %lxb_selectors_adapted_has_attr.exit46.thread ], [ false, %.preheader71 ], [ %.not69.not.not, %79 ], [ %.not69.not.not, %.preheader ], [ false, %.lr.ph87 ], [ false, %lxb_selectors_adapted_has_attr.exit.thread ]
   ret i1 %.032
 }
 
@@ -4098,7 +4098,7 @@ lxb_selectors_adapted_attr.exit:                  ; preds = %.thread38
   br label %lxb_selectors_adapted_has_attr.exit17
 
 lxb_selectors_adapted_has_attr.exit17:            ; preds = %44, %31, %39, %26, %33, %.thread30, %46, %.thread38, %.thread21, %1, %lxb_selectors_adapted_attr.exit
-  %.0 = phi i1 [ %51, %lxb_selectors_adapted_attr.exit ], [ true, %26 ], [ false, %1 ], [ false, %.thread21 ], [ false, %.thread38 ], [ false, %46 ], [ %.not18.i.i, %.thread30 ], [ true, %33 ], [ false, %39 ], [ true, %31 ], [ false, %44 ]
+  %.0 = phi i1 [ %51, %lxb_selectors_adapted_attr.exit ], [ false, %1 ], [ false, %.thread21 ], [ false, %.thread38 ], [ false, %46 ], [ true, %33 ], [ %.not18.i.i, %.thread30 ], [ true, %26 ], [ false, %39 ], [ true, %31 ], [ false, %44 ]
   ret i1 %.0
 }
 

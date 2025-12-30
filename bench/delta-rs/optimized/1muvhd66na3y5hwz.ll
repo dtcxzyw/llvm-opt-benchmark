@@ -2377,7 +2377,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr69drop
   br label %"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..models..schema..DataType$GT$17h7dd222d14abdfe28E.llvm.14011817705576975213.exit"
 
 .body:                                            ; preds = %.body.i, %11, %.body.i6
-  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %37, %.body.i ], [ %21, %.body.i6 ]
+  %.pn = phi { ptr, i32 } [ %37, %.body.i ], [ %21, %.body.i6 ], [ %12, %11 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..models..schema..DataType$GT$17h7dd222d14abdfe28E.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(16) %44) #19
           to label %common.resume unwind label %83

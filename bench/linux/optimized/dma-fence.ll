@@ -1445,8 +1445,8 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %._crit_edge.loopexit, %.thread, %._crit_edge14
-  %.lcssa6 = phi i64 [ %6, %._crit_edge14 ], [ %71, %._crit_edge.loopexit ], [ %.ph, %.thread ], [ %43, %.lr.ph.split.us ]
-  %.lcssa = phi i64 [ %8, %._crit_edge14 ], [ %56, %._crit_edge.loopexit ], [ %56, %.thread ], [ %45, %.lr.ph.split.us ]
+  %.lcssa6 = phi i64 [ %6, %._crit_edge14 ], [ %.ph, %.thread ], [ %71, %._crit_edge.loopexit ], [ %43, %.lr.ph.split.us ]
+  %.lcssa = phi i64 [ %8, %._crit_edge14 ], [ %56, %.thread ], [ %56, %._crit_edge.loopexit ], [ %45, %.lr.ph.split.us ]
   %72 = load volatile ptr, ptr %4, align 8
   %73 = icmp eq ptr %72, %4
   br i1 %73, label %77, label %74
@@ -1465,8 +1465,8 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
   br label %.thread5
 
 .thread5:                                         ; preds = %20, %14, %77, %25, %3
-  %78 = phi i64 [ %.lcssa6, %77 ], [ %6, %3 ], [ -512, %14 ], [ 0, %25 ], [ %., %20 ]
-  %79 = phi i64 [ %.lcssa, %77 ], [ %8, %3 ], [ %8, %14 ], [ %8, %25 ], [ %8, %20 ]
+  %78 = phi i64 [ %.lcssa6, %77 ], [ %6, %3 ], [ 0, %25 ], [ -512, %14 ], [ %., %20 ]
+  %79 = phi i64 [ %.lcssa, %77 ], [ %8, %3 ], [ %8, %25 ], [ %8, %14 ], [ %8, %20 ]
   %80 = load ptr, ptr %0, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %80, i64 noundef %79) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2055,7 +2055,7 @@ select.unfold:                                    ; preds = %.critedge
   br label %.thread24
 
 .thread24:                                        ; preds = %.thread24.loopexit.split.loop.exit, %.loopexit28, %select.unfold, %107, %114, %._crit_edge.thread, %.thread89
-  %122 = phi i64 [ %87, %._crit_edge.thread ], [ %87, %.thread89 ], [ %111, %select.unfold ], [ %.mux.le, %.thread24.loopexit.split.loop.exit ], [ %87, %.loopexit28 ], [ %87, %107 ], [ -512, %114 ]
+  %122 = phi i64 [ %87, %.thread89 ], [ %87, %._crit_edge.thread ], [ %.mux.le, %.thread24.loopexit.split.loop.exit ], [ %87, %.loopexit28 ], [ %111, %select.unfold ], [ %87, %107 ], [ -512, %114 ]
   store volatile i32 0, ptr %53, align 8
   br label %.thread22
 

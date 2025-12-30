@@ -962,7 +962,7 @@ cpool_shutdown_dest_count.exit118:                ; preds = %.lr.ph.i111, %87
   br i1 %.not94, label %.thread, label %.lr.ph144
 
 .thread:                                          ; preds = %.lr.ph170, %101, %.lr.ph144..thread.loopexit_crit_edge, %.critedge, %100
-  %.268 = phi i32 [ %.mux, %.critedge ], [ 0, %100 ], [ 0, %101 ], [ %110, %.lr.ph144..thread.loopexit_crit_edge ], [ 0, %.lr.ph170 ]
+  %.268 = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ 0, %101 ], [ %110, %.lr.ph144..thread.loopexit_crit_edge ], [ 0, %.lr.ph170 ]
   %115 = load i8, ptr %44, align 8
   %116 = and i8 %115, -2
   store i8 %116, ptr %44, align 8
@@ -984,7 +984,7 @@ cpool_shutdown_dest_count.exit118:                ; preds = %.lr.ph.i111, %87
   br label %cpool_get_instance.exit
 
 cpool_get_instance.exit:                          ; preds = %17, %2, %122, %118, %.thread, %29
-  %.0 = phi i32 [ %.268, %122 ], [ 0, %29 ], [ %.268, %118 ], [ %.268, %.thread ], [ 0, %2 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %29 ], [ %.268, %.thread ], [ %.268, %118 ], [ %.268, %122 ], [ 0, %2 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1428,7 +1428,7 @@ cpool_add_bundle.exit.thread:                     ; preds = %39, %47, %cpool_add
   br label %cpool_get_instance.exit
 
 cpool_get_instance.exit:                          ; preds = %17, %2, %66, %62, %cpool_add_bundle.exit.thread
-  %.0 = phi i32 [ %.025, %66 ], [ %.025, %cpool_add_bundle.exit.thread ], [ %.025, %62 ], [ 2, %2 ], [ 2, %17 ]
+  %.0 = phi i32 [ %.025, %cpool_add_bundle.exit.thread ], [ %.025, %62 ], [ %.025, %66 ], [ 2, %2 ], [ 2, %17 ]
   ret i32 %.0
 }
 
@@ -2080,7 +2080,7 @@ define internal fastcc i32 @cpool_add_pollfds(ptr noundef %0, ptr noundef %1) un
   br label %18
 
 18:                                               ; preds = %2, %.loopexit
-  %.2 = phi i32 [ 0, %2 ], [ %.1, %.loopexit ]
+  %.2 = phi i32 [ %.1, %.loopexit ], [ 0, %2 ]
   ret i32 %.2
 }
 
@@ -3140,7 +3140,7 @@ cpool_foreach.exit:                               ; preds = %.critedge.loopexit.
   br label %cpool_get_instance.exit
 
 cpool_get_instance.exit:                          ; preds = %18, %56, %52, %cpool_foreach.exit, %2
-  %.0 = phi ptr [ %.sroa.4.2, %56 ], [ null, %2 ], [ %.sroa.4.2, %cpool_foreach.exit ], [ %.sroa.4.2, %52 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %2 ], [ %.sroa.4.2, %cpool_foreach.exit ], [ %.sroa.4.2, %52 ], [ %.sroa.4.2, %56 ], [ null, %18 ]
   ret ptr %.0
 }
 

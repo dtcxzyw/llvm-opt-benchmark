@@ -851,8 +851,8 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
   br label %69
 
 69:                                               ; preds = %66, %63
-  %.063 = phi double [ %68, %66 ], [ %65, %63 ]
-  %.062 = phi double [ %67, %66 ], [ %64, %63 ]
+  %.063 = phi double [ %65, %63 ], [ %68, %66 ]
+  %.062 = phi double [ %64, %63 ], [ %67, %66 ]
   %70 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !19
   %72 = load ptr, ptr %71, align 8, !tbaa !11

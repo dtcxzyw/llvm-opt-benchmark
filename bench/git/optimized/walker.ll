@@ -893,9 +893,9 @@ strbuf_setlen.exit:                               ; preds = %284, %286
   br label %301
 
 301:                                              ; preds = %loop.exit.thread, %loop.exit, %._crit_edge93, %297, %291, %interpret_target.exit.thread61, %19
-  %.141 = phi ptr [ %.040, %interpret_target.exit.thread61 ], [ null, %19 ], [ %.040, %loop.exit ], [ %.040, %291 ], [ %.040, %297 ], [ %.040, %._crit_edge93 ], [ %.040, %loop.exit.thread ]
-  %.038 = phi ptr [ null, %interpret_target.exit.thread61 ], [ null, %19 ], [ null, %loop.exit ], [ %.139, %291 ], [ %.139, %297 ], [ %.139, %._crit_edge93 ], [ null, %loop.exit.thread ]
-  %.0 = phi i32 [ -1, %interpret_target.exit.thread61 ], [ -1, %19 ], [ 0, %loop.exit ], [ -1, %291 ], [ -1, %297 ], [ 0, %._crit_edge93 ], [ -1, %loop.exit.thread ]
+  %.141 = phi ptr [ %.040, %interpret_target.exit.thread61 ], [ %.040, %loop.exit ], [ %.040, %291 ], [ %.040, %297 ], [ null, %19 ], [ %.040, %._crit_edge93 ], [ %.040, %loop.exit.thread ]
+  %.038 = phi ptr [ null, %interpret_target.exit.thread61 ], [ null, %loop.exit ], [ %.139, %291 ], [ %.139, %297 ], [ null, %19 ], [ %.139, %._crit_edge93 ], [ null, %loop.exit.thread ]
+  %.0 = phi i32 [ -1, %interpret_target.exit.thread61 ], [ 0, %loop.exit ], [ -1, %291 ], [ -1, %297 ], [ -1, %19 ], [ 0, %._crit_edge93 ], [ -1, %loop.exit.thread ]
   call void @ref_transaction_free(ptr noundef %.141) #15
   call void @free(ptr noundef %.038) #15
   call void @free(ptr noundef %14) #15

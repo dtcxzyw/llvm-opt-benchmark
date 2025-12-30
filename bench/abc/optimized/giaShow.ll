@@ -239,8 +239,8 @@ Vec_BitStart.exit:                                ; preds = %2, %10
   br i1 %98, label %71, label %.critedge2, !llvm.loop !37
 
 .critedge2:                                       ; preds = %92, %63, %51, %54
-  %.1303 = phi i32 [ %.0302556, %51 ], [ %.0302556, %54 ], [ %64, %63 ], [ %64, %92 ]
-  %.1 = phi i32 [ %.0557, %51 ], [ %.0557, %54 ], [ %.0557, %63 ], [ %.3, %92 ]
+  %.1303 = phi i32 [ %.0302556, %54 ], [ %.0302556, %51 ], [ %64, %63 ], [ %64, %92 ]
+  %.1 = phi i32 [ %.0557, %54 ], [ %.0557, %51 ], [ %.0557, %63 ], [ %.3, %92 ]
   %99 = icmp sgt i64 %indvars.iv616, 2
   br i1 %99, label %51, label %._crit_edge, !llvm.loop !38
 
@@ -1026,8 +1026,8 @@ Gia_ObjLevel.exit483:                             ; preds = %406, %._crit_edge.i
   br label %.critedge12, !llvm.loop !53
 
 .critedge12:                                      ; preds = %.lr.ph592, %..critedge12_crit_edge, %.lr.ph592.preheader
-  %.val388594.pre = phi i32 [ %.val387590, %.lr.ph592.preheader ], [ %.val387, %..critedge12_crit_edge ], [ %.val387, %.lr.ph592 ]
-  %468 = phi ptr [ %394, %.lr.ph592.preheader ], [ %464, %..critedge12_crit_edge ], [ %464, %.lr.ph592 ]
+  %.val388594.pre = phi i32 [ %.val387, %..critedge12_crit_edge ], [ %.val387590, %.lr.ph592.preheader ], [ %.val387, %.lr.ph592 ]
+  %468 = phi ptr [ %464, %..critedge12_crit_edge ], [ %394, %.lr.ph592.preheader ], [ %464, %.lr.ph592 ]
   %469 = icmp sgt i32 %.val388594.pre, 0
   br i1 %469, label %.lr.ph597, label %.critedge14
 
@@ -2151,8 +2151,8 @@ Gia_ObjIsMux.exit436.thread:                      ; preds = %Gia_ObjIsXor.exit43
   br label %.critedge12, !llvm.loop !70
 
 .critedge12:                                      ; preds = %.lr.ph504, %..critedge12_crit_edge, %.lr.ph504.preheader
-  %.val370506.pre = phi i32 [ %.val371502, %.lr.ph504.preheader ], [ %.val371, %..critedge12_crit_edge ], [ %.val371, %.lr.ph504 ]
-  %293 = phi ptr [ %281, %.lr.ph504.preheader ], [ %289, %..critedge12_crit_edge ], [ %289, %.lr.ph504 ]
+  %.val370506.pre = phi i32 [ %.val371, %..critedge12_crit_edge ], [ %.val371502, %.lr.ph504.preheader ], [ %.val371, %.lr.ph504 ]
+  %293 = phi ptr [ %289, %..critedge12_crit_edge ], [ %281, %.lr.ph504.preheader ], [ %289, %.lr.ph504 ]
   %294 = icmp sgt i32 %.val370506.pre, 0
   br i1 %294, label %.lr.ph509.preheader, label %.critedge14
 
@@ -3099,8 +3099,8 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
   br label %.critedge10, !llvm.loop !84
 
 .critedge10:                                      ; preds = %.lr.ph659, %..critedge10_crit_edge, %.lr.ph659.preheader
-  %.val487661.pre = phi i32 [ %.val488657, %.lr.ph659.preheader ], [ %.val488, %..critedge10_crit_edge ], [ %.val488, %.lr.ph659 ]
-  %309 = phi ptr [ %297, %.lr.ph659.preheader ], [ %305, %..critedge10_crit_edge ], [ %305, %.lr.ph659 ]
+  %.val487661.pre = phi i32 [ %.val488, %..critedge10_crit_edge ], [ %.val488657, %.lr.ph659.preheader ], [ %.val488, %.lr.ph659 ]
+  %309 = phi ptr [ %305, %..critedge10_crit_edge ], [ %297, %.lr.ph659.preheader ], [ %305, %.lr.ph659 ]
   %310 = icmp sgt i32 %.val487661.pre, 0
   br i1 %310, label %.lr.ph664.preheader, label %.critedge12
 
@@ -3148,7 +3148,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
   br i1 %329, label %.lr.ph664, label %.critedge12, !llvm.loop !85
 
 .critedge12:                                      ; preds = %.lr.ph664, %320, %.critedge8, %.critedge10
-  %330 = phi ptr [ %297, %.critedge8 ], [ %309, %.critedge10 ], [ %321, %320 ], [ %311, %.lr.ph664 ]
+  %330 = phi ptr [ %309, %.critedge10 ], [ %297, %.critedge8 ], [ %311, %.lr.ph664 ], [ %321, %320 ]
   %331 = load ptr, ptr %12, align 8, !tbaa !51
   %332 = getelementptr i8, ptr %331, i64 4
   %.val486666 = load i32, ptr %332, align 4, !tbaa !29

@@ -165,7 +165,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE5clearEv.exit.i: ; preds = %44, %41, %_ZN2
           to label %_ZN20GraphStreamUnordered5nextpEv.exit unwind label %56
 
 _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
-  %.0.i = phi ptr [ %55, %54 ], [ %53, %52 ]
+  %.0.i = phi ptr [ %53, %52 ], [ %55, %54 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %thread-pre-split, label %58
 
@@ -457,7 +457,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE5clearEv.exit.i: ; preds = %44, %41, %_ZN2
           to label %_ZN20GraphStreamUnordered5nextpEv.exit unwind label %56
 
 _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
-  %.0.i = phi ptr [ %55, %54 ], [ %53, %52 ]
+  %.0.i = phi ptr [ %53, %52 ], [ %55, %54 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %thread-pre-split, label %58
 
@@ -784,7 +784,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   br i1 %.not37, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %58, %45, %33, %28, %21, %19, %15, %16
-  %.0 = phi i1 [ false, %28 ], [ false, %15 ], [ true, %19 ], [ false, %21 ], [ false, %16 ], [ false, %33 ], [ %.1.us, %45 ], [ %.1, %58 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %15 ], [ true, %19 ], [ false, %21 ], [ false, %28 ], [ false, %33 ], [ %.1.us, %45 ], [ %.1, %58 ]
   ret i1 %.0
 }
 

@@ -165,7 +165,7 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %25
   br label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
 _ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread: ; preds = %7, %25, %switch.early.test, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
-  %.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit ], [ false, %switch.early.test ], [ true, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit ], [ false, %25 ], [ true, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ false, %7 ]
+  %.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit ], [ false, %25 ], [ false, %switch.early.test ], [ true, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit ], [ false, %7 ]
   ret i1 %.0
 }
 

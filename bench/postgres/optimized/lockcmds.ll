@@ -441,7 +441,7 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   br label %70
 
 70:                                               ; preds = %2, %68, %.critedge
-  %.0 = phi i1 [ %69, %68 ], [ %25, %.critedge ], [ false, %2 ]
+  %.0 = phi i1 [ %25, %.critedge ], [ %69, %68 ], [ false, %2 ]
   ret i1 %.0
 }
 

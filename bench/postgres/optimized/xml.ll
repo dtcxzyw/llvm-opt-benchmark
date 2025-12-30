@@ -843,7 +843,7 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br label %112
 
 112:                                              ; preds = %106, %55, %110, %97, %80, %64
-  %.1 = phi ptr [ %111, %110 ], [ %82, %80 ], [ %.str.7..str.8, %55 ], [ %101, %97 ], [ %69, %64 ], [ %108, %106 ]
+  %.1 = phi ptr [ %111, %110 ], [ %69, %64 ], [ %82, %80 ], [ %101, %97 ], [ %.str.7..str.8, %55 ], [ %108, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %113
@@ -2008,7 +2008,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %.not47 = icmp eq i32 %42, %41
   br i1 %.not47, label %49, label %47
 
-.critedge49.thread:                               ; preds = %.critedge, %.lr.ph57, %1
+.critedge49.thread:                               ; preds = %.critedge, %1, %.lr.ph57
   call void @initStringInfo(ptr noundef nonnull %4) #11
   br label %.critedge51
 

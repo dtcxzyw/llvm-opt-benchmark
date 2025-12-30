@@ -197,7 +197,7 @@ make_sin_table.exit:                              ; preds = %.preheader.i
   br label %94
 
 94:                                               ; preds = %89, %1
-  %.0 = phi i32 [ %., %89 ], [ -12, %1 ]
+  %.0 = phi i32 [ -12, %1 ], [ %., %89 ]
   ret i32 %.0
 }
 
@@ -428,7 +428,7 @@ sampling_advance.exit63:                          ; preds = %95, %81, %sampling_
   br label %108
 
 108:                                              ; preds = %42, %1, %102, %41
-  %.0 = phi i32 [ %107, %102 ], [ -1497649742, %1 ], [ 0, %41 ], [ -12, %42 ]
+  %.0 = phi i32 [ %107, %102 ], [ 0, %41 ], [ -1497649742, %1 ], [ -12, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

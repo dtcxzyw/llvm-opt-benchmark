@@ -163,7 +163,7 @@ _ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dict
   br label %30
 
 30:                                               ; preds = %.thread.i, %22
-  %.031.i = phi i64 [ %1, %.thread.i ], [ %spec.select.i, %22 ]
+  %.031.i = phi i64 [ %spec.select.i, %22 ], [ %1, %.thread.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i64 %.031.i, ptr %31, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 10288
@@ -242,7 +242,7 @@ _ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit.i: ; preds = %_ZN
   br label %_ZN11duckdb_zstd14ZSTD_freeDDictEPNS_12ZSTD_DDict_sE.exit
 
 _ZN11duckdb_zstd14ZSTD_freeDDictEPNS_12ZSTD_DDict_sE.exit: ; preds = %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i, %48, %38, %30, %51, %50, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit ], [ null, %50 ], [ null, %51 ], [ %.0.i, %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i ], [ %.0.i, %30 ], [ %.0.i, %38 ], [ %.0.i, %48 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit ], [ null, %51 ], [ null, %50 ], [ %.0.i, %30 ], [ %.0.i, %38 ], [ %.0.i, %48 ], [ %.0.i, %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i ]
   ret ptr %.0
 }
 
@@ -384,7 +384,7 @@ _ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictC
   br label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit
 
 _ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit: ; preds = %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i, %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i, %30, %27, %9, %6
-  %.0 = phi ptr [ null, %9 ], [ null, %6 ], [ null, %27 ], [ %0, %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i ], [ null, %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i ], [ null, %30 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %9 ], [ %0, %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i ], [ null, %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i ], [ null, %30 ], [ null, %27 ]
   ret ptr %.0
 }
 

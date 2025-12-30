@@ -146,7 +146,7 @@ init_digest_with_data.exit11:                     ; preds = %23
   br label %init_digest_with_data.exit.thread
 
 init_digest_with_data.exit.thread:                ; preds = %23, %1, %17, %init_digest_with_data.exit11
-  %.0 = phi i32 [ 0, %1 ], [ 1, %17 ], [ 1, %init_digest_with_data.exit11 ], [ 0, %23 ]
+  %.0 = phi i32 [ 1, %init_digest_with_data.exit11 ], [ 1, %17 ], [ 0, %1 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -222,7 +222,7 @@ define hidden range(i32 0, 2) i32 @ssl3_update_handshake_hash(ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %13, %12, %30, %34
-  %.1 = phi i32 [ 1, %30 ], [ 1, %34 ], [ 0, %12 ], [ 0, %13 ]
+  %.1 = phi i32 [ 1, %34 ], [ 1, %30 ], [ 0, %12 ], [ 0, %13 ]
   ret i32 %.1
 }
 
@@ -364,7 +364,7 @@ define internal i32 @ssl3_final_finish_mac(ptr noundef readonly captures(none) %
   br label %13
 
 13:                                               ; preds = %7, %3
-  %.0 = phi i32 [ %spec.select, %7 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 

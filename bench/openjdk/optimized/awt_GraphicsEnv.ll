@@ -551,7 +551,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr readnone captures(none) 
   br label %67
 
 67:                                               ; preds = %57, %35, %29, %23, %17, %11, %5, %2, %66, %53
-  %.0 = phi ptr [ null, %53 ], [ %4, %2 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %23 ], [ null, %29 ], [ null, %35 ], [ %52, %66 ], [ null, %57 ]
+  %.0 = phi ptr [ %52, %66 ], [ null, %53 ], [ %4, %2 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %23 ], [ null, %29 ], [ null, %35 ], [ null, %57 ]
   ret ptr %.0
 }
 
@@ -2167,7 +2167,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %235
 
 .sink.split:                                      ; preds = %81, %123, %147, %171, %195, %216
-  %.0190.ph = phi i32 [ %172, %171 ], [ %148, %147 ], [ %124, %123 ], [ %217, %216 ], [ %196, %195 ], [ %82, %81 ]
+  %.0190.ph = phi i32 [ %217, %216 ], [ %196, %195 ], [ %172, %171 ], [ %148, %147 ], [ %124, %123 ], [ %82, %81 ]
   call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.51) #17
   br label %231
 
@@ -2661,7 +2661,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nounde
   br label %183
 
 183:                                              ; preds = %178, %11, %3
-  %.0 = phi ptr [ %spec.select, %178 ], [ null, %3 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %11 ], [ %spec.select, %178 ]
   ret ptr %.0
 }
 
@@ -3709,7 +3709,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
   br label %X11GD_InitXrandrFuncs.exit
 
 X11GD_InitXrandrFuncs.exit:                       ; preds = %40, %43, %48, %58, %64, %68, %73, %78, %83, %88, %93, %98, %103, %108, %113, %118, %123, %128, %130, %133
-  %.040.i = phi i8 [ 0, %40 ], [ 0, %43 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %78 ], [ 0, %83 ], [ 0, %88 ], [ 0, %93 ], [ 0, %98 ], [ 0, %103 ], [ 0, %108 ], [ 0, %113 ], [ 0, %118 ], [ 0, %123 ], [ 0, %128 ], [ 0, %133 ], [ 0, %48 ], [ 0, %58 ], [ 1, %130 ]
+  %.040.i = phi i8 [ 0, %40 ], [ 0, %43 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %78 ], [ 0, %83 ], [ 0, %88 ], [ 0, %93 ], [ 0, %98 ], [ 0, %103 ], [ 0, %108 ], [ 0, %113 ], [ 0, %118 ], [ 0, %123 ], [ 0, %128 ], [ 0, %133 ], [ 0, %58 ], [ 0, %48 ], [ 1, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %135
@@ -3871,7 +3871,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
   br label %X11GD_CreateDisplayMode.exit
 
 X11GD_CreateDisplayMode.exit:                     ; preds = %67, %61, %53, %49, %42
-  %.0 = phi ptr [ null, %42 ], [ null, %49 ], [ null, %53 ], [ %72, %67 ], [ null, %61 ]
+  %.0 = phi ptr [ null, %49 ], [ null, %42 ], [ %72, %67 ], [ null, %53 ], [ null, %61 ]
   %73 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
   call void %73(ptr noundef nonnull %41) #17
   br label %74
@@ -4271,7 +4271,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   br label %.critedge
 
 .critedge:                                        ; preds = %64, %59, %.preheader, %53, %65, %42
-  %73 = phi i1 [ true, %42 ], [ %72, %65 ], [ true, %53 ], [ true, %.preheader ], [ true, %59 ], [ true, %64 ]
+  %73 = phi i1 [ %72, %65 ], [ true, %42 ], [ true, %53 ], [ true, %.preheader ], [ true, %59 ], [ true, %64 ]
   %74 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
   call void %74(ptr noundef nonnull %41) #17
   br label %75

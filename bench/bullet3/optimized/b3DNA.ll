@@ -3544,9 +3544,9 @@ _ZN12b3HashStringD2Ev.exit.i:                     ; preds = %42, %_ZNKSt7__cxx11
   %50 = icmp eq i64 %indvars.iv.next.i21, %zext28
   br i1 %50, label %_ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit, label %42, !llvm.loop !69
 
-_ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit: ; preds = %_ZN12b3HashStringD2Ev.exit.i, %.split, %.split7, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit
-  %.039 = phi i32 [ 0, %.split7 ], [ %1, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit ], [ %1, %.split ], [ %1, %_ZN12b3HashStringD2Ev.exit.i ]
-  %.0.i2638 = phi ptr [ null, %.split7 ], [ %10, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit ], [ %10, %.split ], [ %10, %_ZN12b3HashStringD2Ev.exit.i ]
+_ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit: ; preds = %_ZN12b3HashStringD2Ev.exit.i, %.split7, %.split, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit
+  %.039 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit ], [ 0, %.split7 ], [ %1, %.split ], [ %1, %_ZN12b3HashStringD2Ev.exit.i ]
+  %.0.i2638 = phi ptr [ %10, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit ], [ null, %.split7 ], [ %10, %.split ], [ %10, %_ZN12b3HashStringD2Ev.exit.i ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !55
   %.not.i24 = icmp ne ptr %52, null

@@ -222,7 +222,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1416,11 +1416,11 @@ _ZNK6icu_7711Formattable9getStringERNS_13UnicodeStringE.exit: ; preds = %64
   br label %.thread153
 
 .thread153:                                       ; preds = %71, %84, %.thread, %97
-  %.4103 = phi ptr [ %.2101278, %84 ], [ %.sroa.017.0.copyload, %97 ], [ %.2101278, %.thread ], [ %.2101278, %71 ]
-  %.497 = phi i32 [ %.295279, %84 ], [ %88, %97 ], [ %.295279, %.thread ], [ %.295279, %71 ]
-  %.491 = phi i32 [ %.289280, %84 ], [ %98, %97 ], [ %.289280, %.thread ], [ %.289280, %71 ]
-  %.464 = phi i32 [ %.262282, %84 ], [ %28, %97 ], [ %.262282, %.thread ], [ %.262282, %71 ]
-  %.4 = phi i8 [ %.2283, %84 ], [ %.6, %97 ], [ %.2283, %.thread ], [ %.2283, %71 ]
+  %.4103 = phi ptr [ %.sroa.017.0.copyload, %97 ], [ %.2101278, %.thread ], [ %.2101278, %84 ], [ %.2101278, %71 ]
+  %.497 = phi i32 [ %88, %97 ], [ %.295279, %.thread ], [ %.295279, %84 ], [ %.295279, %71 ]
+  %.491 = phi i32 [ %98, %97 ], [ %.289280, %.thread ], [ %.289280, %84 ], [ %.289280, %71 ]
+  %.464 = phi i32 [ %28, %97 ], [ %.262282, %.thread ], [ %.262282, %84 ], [ %.262282, %71 ]
+  %.4 = phi i8 [ %.6, %97 ], [ %.2283, %.thread ], [ %.2283, %84 ], [ %.2283, %71 ]
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %99
@@ -2345,7 +2345,7 @@ switch.lookup:                                    ; preds = %49
   br label %_ZN6icu_7714TimeUnitFormat15getTimeUnitNameENS_8TimeUnit15UTimeUnitFieldsER10UErrorCode.exit
 
 _ZN6icu_7714TimeUnitFormat15getTimeUnitNameENS_8TimeUnit15UTimeUnitFieldsER10UErrorCode.exit: ; preds = %switch.lookup, %50, %46
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ null, %50 ], [ null, %46 ]
+  %.0.i = phi ptr [ null, %50 ], [ null, %46 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %51 = invoke ptr @ures_getByKey_77(ptr noundef %45, ptr noundef %.0.i, ptr noundef null, ptr noundef nonnull %10)
           to label %52 unwind label %75
@@ -2789,7 +2789,7 @@ switch.lookup346:                                 ; preds = %178
   br label %_ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit242
 
 .critedge221:                                     ; preds = %188, %185
-  %.sroa.0249.4 = phi ptr [ %181, %185 ], [ null, %188 ]
+  %.sroa.0249.4 = phi ptr [ null, %188 ], [ %181, %185 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %24) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %22) #16
@@ -2920,7 +2920,7 @@ _ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit241: ; preds = %224
   br label %_ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit242
 
 _ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit240: ; preds = %215, %217, %213
-  %.pn201.pn.pn = phi { ptr, i32 } [ %218, %217 ], [ %214, %213 ], [ %216, %215 ]
+  %.pn201.pn.pn = phi { ptr, i32 } [ %214, %213 ], [ %216, %215 ], [ %218, %217 ]
   %238 = icmp eq ptr %.sroa.0249.0.ph, null
   br i1 %238, label %_ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit243, label %239
 
@@ -2961,7 +2961,7 @@ _ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit242: ; preds = %_ZN6icu_77
   ret void
 
 _ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit243: ; preds = %239, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit240, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit240.thread, %.body233, %159, %141, %69
-  %.pn201.pn.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %160, %159 ], [ %.pn189.pn, %.body233 ], [ %.pn177.pn.pn.pn.pn.pn.pn.pn, %141 ], [ %.pn195.pn, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit240.thread ], [ %.pn201.pn.pn, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit240 ], [ %.pn201.pn.pn, %239 ]
+  %.pn201.pn.pn.pn = phi { ptr, i32 } [ %160, %159 ], [ %.pn189.pn, %.body233 ], [ %.pn177.pn.pn.pn.pn.pn.pn.pn, %141 ], [ %70, %69 ], [ %.pn195.pn, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit240.thread ], [ %.pn201.pn.pn, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit240 ], [ %.pn201.pn.pn, %239 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2996,7 +2996,7 @@ switch.lookup:                                    ; preds = %5
   br label %9
 
 9:                                                ; preds = %switch.lookup, %2, %7
-  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ null, %7 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 
@@ -3192,7 +3192,7 @@ define linkonce_odr void @_ZN6icu_7722TimeUnitFormatReadSink3putEPKcRNS_13Resour
   br i1 %50, label %51, label %.thread166
 
 51:                                               ; preds = %48, %45, %42, %39, %36, %33, %30
-  %.089 = phi i64 [ 6, %45 ], [ 0, %30 ], [ 1, %33 ], [ 2, %36 ], [ 4, %39 ], [ 5, %42 ], [ 3, %48 ]
+  %.089 = phi i64 [ 0, %30 ], [ 1, %33 ], [ 2, %36 ], [ 4, %39 ], [ 5, %42 ], [ 6, %45 ], [ 3, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !76
   %52 = load ptr, ptr %24, align 8, !tbaa !59

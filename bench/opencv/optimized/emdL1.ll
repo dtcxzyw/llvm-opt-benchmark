@@ -2144,7 +2144,7 @@ _ZNSt6vectorI9cvEMDEdgeSaIS0_EE6resizeEm.exit161: ; preds = %_ZNSt12_Vector_base
   br i1 %709, label %.lr.ph, label %._crit_edge, !llvm.loop !121
 
 _ZNSt6vectorIP9cvEMDEdgeSaIS1_EE6resizeEm.exit59: ; preds = %396, %394, %392, %390, %154, %152, %150, %148, %14, %4
-  %.030 = phi i1 [ true, %4 ], [ false, %14 ], [ true, %154 ], [ true, %148 ], [ true, %150 ], [ true, %152 ], [ true, %390 ], [ true, %392 ], [ true, %394 ], [ true, %396 ]
+  %.030 = phi i1 [ true, %4 ], [ false, %14 ], [ true, %148 ], [ true, %150 ], [ true, %152 ], [ true, %154 ], [ true, %390 ], [ true, %392 ], [ true, %394 ], [ true, %396 ]
   ret i1 %.030
 }
 
@@ -2814,9 +2814,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %178, 
   br label %.thread143
 
 .thread143:                                       ; preds = %151, %135, %116, %200, %202, %115, %173, %186, %183, %165, %121
-  %.3117 = phi i32 [ %.2116148, %115 ], [ %.2116148, %186 ], [ %.2116148, %183 ], [ %.2116148, %173 ], [ %.2116148, %121 ], [ %193, %200 ], [ %.2116148, %151 ], [ %.2116148, %165 ], [ %193, %202 ], [ %.2116148, %116 ], [ %.2116148, %135 ]
-  %.1112 = phi ptr [ %.0111149, %115 ], [ %.0111149, %186 ], [ %.0111149, %183 ], [ %.0111149, %173 ], [ %.0111149, %121 ], [ %185, %200 ], [ %.0111149, %151 ], [ %.0111149, %165 ], [ %185, %202 ], [ %.0111149, %116 ], [ %.0111149, %135 ]
-  %.3 = phi ptr [ %.2150, %115 ], [ %.4, %186 ], [ %.4, %183 ], [ %.4, %173 ], [ %.2150, %121 ], [ %.4, %200 ], [ %.2150, %151 ], [ %.2150, %165 ], [ %.4, %202 ], [ %.2150, %116 ], [ %.2150, %135 ]
+  %.3117 = phi i32 [ %.2116148, %186 ], [ %.2116148, %183 ], [ %.2116148, %173 ], [ %.2116148, %121 ], [ %.2116148, %165 ], [ %.2116148, %115 ], [ %193, %202 ], [ %193, %200 ], [ %.2116148, %116 ], [ %.2116148, %135 ], [ %.2116148, %151 ]
+  %.1112 = phi ptr [ %.0111149, %186 ], [ %.0111149, %183 ], [ %.0111149, %173 ], [ %.0111149, %121 ], [ %.0111149, %165 ], [ %.0111149, %115 ], [ %185, %202 ], [ %185, %200 ], [ %.0111149, %116 ], [ %.0111149, %135 ], [ %.0111149, %151 ]
+  %.3 = phi ptr [ %.4, %186 ], [ %.4, %183 ], [ %.4, %173 ], [ %.2150, %121 ], [ %.2150, %165 ], [ %.2150, %115 ], [ %.4, %202 ], [ %.4, %200 ], [ %.2150, %116 ], [ %.2150, %135 ], [ %.2150, %151 ]
   %203 = add nuw nsw i32 %.0109151, 1
   %exitcond.not = icmp eq i32 %203, %51
   br i1 %exitcond.not, label %.loopexit, label %103, !llvm.loop !132
@@ -2978,7 +2978,7 @@ define hidden noundef zeroext i1 @_ZN5EmdL19isOptimalEv(ptr noundef nonnull alig
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %48, %._crit_edge
-  %50 = phi i32 [ %30, %._crit_edge ], [ %30, %48 ], [ -1, %1 ]
+  %50 = phi i32 [ %30, %48 ], [ %30, %._crit_edge ], [ -1, %1 ]
   %51 = icmp eq i32 %50, -1
   ret i1 %51
 }
@@ -3485,7 +3485,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %193
 
 ._crit_edge157:                                   ; preds = %.loopexit143, %..loopexit143_crit_edge.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %77 = phi i32 [ %61, %..loopexit143_crit_edge.us ], [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %61, %.loopexit143 ]
+  %77 = phi i32 [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %61, %..loopexit143_crit_edge.us ], [ %61, %.loopexit143 ]
   %78 = sext i32 %.lcssa145 to i64
   %79 = icmp slt i32 %.lcssa145, 0
   br i1 %79, label %80, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i102
@@ -3916,7 +3916,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %62
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %62
-  %.0.i.i.i.i = phi ptr [ %66, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %63, %62 ]
+  %.0.i.i.i.i = phi ptr [ %63, %62 ], [ %66, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
   store ptr %.0.i.i.i.i, ptr %44, align 8, !tbaa !147
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -4168,8 +4168,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %.loopexit.split-lp
 
 ._crit_edge273:                                   ; preds = %.loopexit246, %..loopexit246_crit_edge.split.us.us.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %141 = phi i32 [ %117, %..loopexit246_crit_edge.split.us.us.us ], [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %117, %.loopexit246 ]
-  %.lcssa253499503510 = phi i32 [ %107, %..loopexit246_crit_edge.split.us.us.us ], [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %107, %.loopexit246 ]
+  %141 = phi i32 [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %117, %..loopexit246_crit_edge.split.us.us.us ], [ %117, %.loopexit246 ]
+  %.lcssa253499503510 = phi i32 [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %107, %..loopexit246_crit_edge.split.us.us.us ], [ %107, %.loopexit246 ]
   %142 = icmp slt i32 %120, 0
   br i1 %142, label %143, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i172
 
@@ -4280,8 +4280,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180:            ; preds = %_ZSt6fill_nIPfmfET_
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit200
 
 ._crit_edge288:                                   ; preds = %.preheader243.lr.ph.us, %..loopexit244_crit_edge.split.us.us.us, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180
-  %171 = phi i32 [ %151, %..loopexit244_crit_edge.split.us.us.us ], [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180 ], [ %151, %.preheader243.lr.ph.us ]
-  %172 = phi i32 [ %120, %..loopexit244_crit_edge.split.us.us.us ], [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180 ], [ %120, %.preheader243.lr.ph.us ]
+  %171 = phi i32 [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180 ], [ %151, %..loopexit244_crit_edge.split.us.us.us ], [ %151, %.preheader243.lr.ph.us ]
+  %172 = phi i32 [ 1, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180 ], [ %120, %..loopexit244_crit_edge.split.us.us.us ], [ %120, %.preheader243.lr.ph.us ]
   %173 = sext i32 %154 to i64
   %174 = icmp slt i32 %154, 0
   br i1 %174, label %175, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i181
@@ -4731,7 +4731,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit200:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit247, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %139, %_ZNSt6vectorIfSaIfEED2Ev.exit200
-  %.pn160 = phi { ptr, i32 } [ %140, %139 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit200 ], [ %lpad.loopexit, %.loopexit247 ], [ %lpad.loopexit248, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp249, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn160 = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit200 ], [ %140, %139 ], [ %lpad.loopexit, %.loopexit247 ], [ %lpad.loopexit248, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp249, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IS_IfSaIfEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn160
@@ -6118,7 +6118,7 @@ _ZSt6fill_nIPP9cvEMDEdgemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPP9cvEMDEdgemS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP9cvEMDEdgemS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP9cvEMDEdgemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPP9cvEMDEdgemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPP9cvEMDEdgemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !101
   br label %40
 
@@ -6216,7 +6216,7 @@ _ZSt6fill_nIPP9cvEMDNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPP9cvEMDNodemS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP9cvEMDNodemS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP9cvEMDNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPP9cvEMDNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPP9cvEMDNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !102
   br label %40
 
@@ -6502,7 +6502,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !147
   br label %40
 

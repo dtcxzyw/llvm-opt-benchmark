@@ -233,7 +233,7 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17h6cf3e149f63a79e4E(ptr write
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %3, %26, %23
-  %.sink = phi i64 [ 0, %26 ], [ 1, %23 ], [ 0, %3 ]
+  %.sink = phi i64 [ 1, %23 ], [ 0, %26 ], [ 0, %3 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

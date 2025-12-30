@@ -2669,7 +2669,7 @@ _ZN7testing15AssertionResultlsIA105_cEERS0_RKT_.exit: ; preds = %125, %_ZNKSt14d
           to label %.body unwind label %185
 
 139:                                              ; preds = %121, %_ZN7testing15AssertionResultlsIA105_cEERS0_RKT_.exit, %112
-  %.110 = phi i1 [ false, %_ZN7testing15AssertionResultlsIA105_cEERS0_RKT_.exit ], [ false, %112 ], [ %.not, %121 ]
+  %.110 = phi i1 [ false, %112 ], [ false, %_ZN7testing15AssertionResultlsIA105_cEERS0_RKT_.exit ], [ %.not, %121 ]
   %140 = load ptr, ptr %10, align 8, !tbaa !101
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %142 = icmp eq ptr %140, %141
@@ -2686,7 +2686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %139
   br i1 %.110, label %174, label %150
 
 .body:                                            ; preds = %115, %_ZN7testing7MessageD2Ev.exit5.i, %136, %138, %113
-  %.pn32 = phi { ptr, i32 } [ %.pn28, %138 ], [ %114, %113 ], [ %137, %136 ], [ %116, %115 ], [ %131, %_ZN7testing7MessageD2Ev.exit5.i ]
+  %.pn32 = phi { ptr, i32 } [ %114, %113 ], [ %137, %136 ], [ %.pn28, %138 ], [ %116, %115 ], [ %131, %_ZN7testing7MessageD2Ev.exit5.i ]
   %145 = load ptr, ptr %10, align 8, !tbaa !101
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %147 = icmp eq ptr %145, %146
@@ -4904,7 +4904,7 @@ _ZN7testing15AssertionResultlsIA108_cEERS0_RKT_.exit: ; preds = %87, %_ZNKSt14de
           to label %.body unwind label %190
 
 101:                                              ; preds = %83, %_ZN7testing15AssertionResultlsIA108_cEERS0_RKT_.exit, %74
-  %.110 = phi i1 [ false, %_ZN7testing15AssertionResultlsIA108_cEERS0_RKT_.exit ], [ false, %74 ], [ %.not, %83 ]
+  %.110 = phi i1 [ false, %74 ], [ false, %_ZN7testing15AssertionResultlsIA108_cEERS0_RKT_.exit ], [ %.not, %83 ]
   %102 = load ptr, ptr %6, align 8, !tbaa !101
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %104 = icmp eq ptr %102, %103
@@ -4921,7 +4921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %101
   br i1 %.110, label %136, label %112
 
 .body:                                            ; preds = %77, %_ZN7testing7MessageD2Ev.exit5.i, %98, %100, %75
-  %.pn31 = phi { ptr, i32 } [ %.pn27, %100 ], [ %76, %75 ], [ %99, %98 ], [ %78, %77 ], [ %93, %_ZN7testing7MessageD2Ev.exit5.i ]
+  %.pn31 = phi { ptr, i32 } [ %76, %75 ], [ %99, %98 ], [ %.pn27, %100 ], [ %78, %77 ], [ %93, %_ZN7testing7MessageD2Ev.exit5.i ]
   %107 = load ptr, ptr %6, align 8, !tbaa !101
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %109 = icmp eq ptr %107, %108
@@ -5850,7 +5850,7 @@ _ZN7testing15AssertionResultlsIA95_cEERS0_RKT_.exit: ; preds = %201, %_ZNKSt14de
           to label %.body unwind label %284
 
 215:                                              ; preds = %197, %_ZN7testing15AssertionResultlsIA95_cEERS0_RKT_.exit, %188
-  %.110 = phi i1 [ false, %_ZN7testing15AssertionResultlsIA95_cEERS0_RKT_.exit ], [ false, %188 ], [ %.not, %197 ]
+  %.110 = phi i1 [ false, %188 ], [ false, %_ZN7testing15AssertionResultlsIA95_cEERS0_RKT_.exit ], [ %.not, %197 ]
   %216 = load ptr, ptr %17, align 8, !tbaa !101
   %217 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %218 = icmp eq ptr %216, %217
@@ -5867,7 +5867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %215
   br i1 %.110, label %250, label %226
 
 .body:                                            ; preds = %191, %_ZN7testing7MessageD2Ev.exit5.i, %212, %214, %189
-  %.pn48 = phi { ptr, i32 } [ %.pn44, %214 ], [ %190, %189 ], [ %213, %212 ], [ %192, %191 ], [ %207, %_ZN7testing7MessageD2Ev.exit5.i ]
+  %.pn48 = phi { ptr, i32 } [ %190, %189 ], [ %213, %212 ], [ %.pn44, %214 ], [ %192, %191 ], [ %207, %_ZN7testing7MessageD2Ev.exit5.i ]
   %221 = load ptr, ptr %17, align 8, !tbaa !101
   %222 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %223 = icmp eq ptr %221, %222
@@ -7626,7 +7626,7 @@ _ZN7testing15AssertionResultlsIA107_cEERS0_RKT_.exit: ; preds = %93, %_ZNKSt14de
           to label %.body unwind label %152
 
 107:                                              ; preds = %89, %_ZN7testing15AssertionResultlsIA107_cEERS0_RKT_.exit, %80
-  %.110 = phi i1 [ false, %_ZN7testing15AssertionResultlsIA107_cEERS0_RKT_.exit ], [ false, %80 ], [ %.not, %89 ]
+  %.110 = phi i1 [ false, %80 ], [ false, %_ZN7testing15AssertionResultlsIA107_cEERS0_RKT_.exit ], [ %.not, %89 ]
   %108 = load ptr, ptr %5, align 8, !tbaa !101
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %110 = icmp eq ptr %108, %109
@@ -7643,7 +7643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %107
   br i1 %.110, label %142, label %118
 
 .body:                                            ; preds = %83, %_ZN7testing7MessageD2Ev.exit5.i, %104, %106, %81
-  %.pn26 = phi { ptr, i32 } [ %.pn22, %106 ], [ %82, %81 ], [ %105, %104 ], [ %84, %83 ], [ %99, %_ZN7testing7MessageD2Ev.exit5.i ]
+  %.pn26 = phi { ptr, i32 } [ %82, %81 ], [ %105, %104 ], [ %.pn22, %106 ], [ %84, %83 ], [ %99, %_ZN7testing7MessageD2Ev.exit5.i ]
   %113 = load ptr, ptr %5, align 8, !tbaa !101
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %115 = icmp eq ptr %113, %114
@@ -8744,7 +8744,7 @@ _ZN7testing15AssertionResultlsIA98_cEERS0_RKT_.exit: ; preds = %81, %_ZNKSt14def
           to label %.body unwind label %140
 
 95:                                               ; preds = %77, %_ZN7testing15AssertionResultlsIA98_cEERS0_RKT_.exit, %68
-  %.110 = phi i1 [ false, %_ZN7testing15AssertionResultlsIA98_cEERS0_RKT_.exit ], [ false, %68 ], [ %.not, %77 ]
+  %.110 = phi i1 [ false, %68 ], [ false, %_ZN7testing15AssertionResultlsIA98_cEERS0_RKT_.exit ], [ %.not, %77 ]
   %96 = load ptr, ptr %5, align 8, !tbaa !101
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %98 = icmp eq ptr %96, %97
@@ -8761,7 +8761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %95,
   br i1 %.110, label %130, label %106
 
 .body:                                            ; preds = %71, %_ZN7testing7MessageD2Ev.exit5.i, %92, %94, %69
-  %.pn26 = phi { ptr, i32 } [ %.pn22, %94 ], [ %70, %69 ], [ %93, %92 ], [ %72, %71 ], [ %87, %_ZN7testing7MessageD2Ev.exit5.i ]
+  %.pn26 = phi { ptr, i32 } [ %70, %69 ], [ %93, %92 ], [ %.pn22, %94 ], [ %72, %71 ], [ %87, %_ZN7testing7MessageD2Ev.exit5.i ]
   %101 = load ptr, ptr %5, align 8, !tbaa !101
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %103 = icmp eq ptr %101, %102
@@ -9229,7 +9229,7 @@ _ZN7testing15AssertionResultlsIA112_cEERS0_RKT_.exit: ; preds = %93, %_ZNKSt14de
           to label %.body unwind label %153
 
 107:                                              ; preds = %89, %_ZN7testing15AssertionResultlsIA112_cEERS0_RKT_.exit, %80
-  %.110 = phi i1 [ false, %_ZN7testing15AssertionResultlsIA112_cEERS0_RKT_.exit ], [ false, %80 ], [ %.not, %89 ]
+  %.110 = phi i1 [ false, %80 ], [ false, %_ZN7testing15AssertionResultlsIA112_cEERS0_RKT_.exit ], [ %.not, %89 ]
   %108 = load ptr, ptr %6, align 8, !tbaa !101
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %110 = icmp eq ptr %108, %109
@@ -9246,7 +9246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %107
   br i1 %.110, label %142, label %118
 
 .body:                                            ; preds = %83, %_ZN7testing7MessageD2Ev.exit5.i, %104, %106, %81
-  %.pn27 = phi { ptr, i32 } [ %.pn23, %106 ], [ %82, %81 ], [ %105, %104 ], [ %84, %83 ], [ %99, %_ZN7testing7MessageD2Ev.exit5.i ]
+  %.pn27 = phi { ptr, i32 } [ %82, %81 ], [ %105, %104 ], [ %.pn23, %106 ], [ %84, %83 ], [ %99, %_ZN7testing7MessageD2Ev.exit5.i ]
   %113 = load ptr, ptr %6, align 8, !tbaa !101
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %115 = icmp eq ptr %113, %114
@@ -11063,7 +11063,7 @@ _ZN7testing15AssertionResultlsIA96_cEERS0_RKT_.exit: ; preds = %91, %_ZNKSt14def
           to label %.body unwind label %199
 
 105:                                              ; preds = %87, %_ZN7testing15AssertionResultlsIA96_cEERS0_RKT_.exit, %78
-  %.110 = phi i1 [ false, %_ZN7testing15AssertionResultlsIA96_cEERS0_RKT_.exit ], [ false, %78 ], [ %.not, %87 ]
+  %.110 = phi i1 [ false, %78 ], [ false, %_ZN7testing15AssertionResultlsIA96_cEERS0_RKT_.exit ], [ %.not, %87 ]
   %106 = load ptr, ptr %7, align 8, !tbaa !101
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = icmp eq ptr %106, %107
@@ -11080,7 +11080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %105
   br i1 %.110, label %140, label %116
 
 .body:                                            ; preds = %81, %_ZN7testing7MessageD2Ev.exit5.i, %102, %104, %79
-  %.pn32 = phi { ptr, i32 } [ %.pn28, %104 ], [ %80, %79 ], [ %103, %102 ], [ %82, %81 ], [ %97, %_ZN7testing7MessageD2Ev.exit5.i ]
+  %.pn32 = phi { ptr, i32 } [ %80, %79 ], [ %103, %102 ], [ %.pn28, %104 ], [ %82, %81 ], [ %97, %_ZN7testing7MessageD2Ev.exit5.i ]
   %111 = load ptr, ptr %7, align 8, !tbaa !101
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %113 = icmp eq ptr %111, %112
@@ -11697,7 +11697,7 @@ _ZN7testing15AssertionResultlsIA103_cEERS0_RKT_.exit: ; preds = %92, %_ZNKSt14de
           to label %.body unwind label %205
 
 106:                                              ; preds = %88, %_ZN7testing15AssertionResultlsIA103_cEERS0_RKT_.exit, %79
-  %.110 = phi i1 [ false, %_ZN7testing15AssertionResultlsIA103_cEERS0_RKT_.exit ], [ false, %79 ], [ %.not, %88 ]
+  %.110 = phi i1 [ false, %79 ], [ false, %_ZN7testing15AssertionResultlsIA103_cEERS0_RKT_.exit ], [ %.not, %88 ]
   %107 = load ptr, ptr %7, align 8, !tbaa !101
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %109 = icmp eq ptr %107, %108
@@ -11714,7 +11714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %106
   br i1 %.110, label %141, label %117
 
 .body:                                            ; preds = %82, %_ZN7testing7MessageD2Ev.exit5.i, %103, %105, %80
-  %.pn32 = phi { ptr, i32 } [ %.pn28, %105 ], [ %81, %80 ], [ %104, %103 ], [ %83, %82 ], [ %98, %_ZN7testing7MessageD2Ev.exit5.i ]
+  %.pn32 = phi { ptr, i32 } [ %81, %80 ], [ %104, %103 ], [ %.pn28, %105 ], [ %83, %82 ], [ %98, %_ZN7testing7MessageD2Ev.exit5.i ]
   %112 = load ptr, ptr %7, align 8, !tbaa !101
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %114 = icmp eq ptr %112, %113

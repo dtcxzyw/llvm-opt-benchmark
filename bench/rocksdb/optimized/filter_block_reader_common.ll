@@ -1606,7 +1606,7 @@ define weak_odr noundef i64 @_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFu
   br label %_ZNK7rocksdb21ParsedFullFilterBlock22ApproximateMemoryUsageEv.exit
 
 _ZNK7rocksdb21ParsedFullFilterBlock22ApproximateMemoryUsageEv.exit: ; preds = %5, %13, %20
-  %.1.i.i.i = phi i64 [ %21, %20 ], [ %19, %13 ], [ 0, %5 ]
+  %.1.i.i.i = phi i64 [ %19, %13 ], [ %21, %20 ], [ 0, %5 ]
   %22 = add i64 %.1.i.i.i, 32
   br label %23
 

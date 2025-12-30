@@ -5611,8 +5611,8 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31: ; preds = %if.then17
   br label %12
 
 _ZN5eastl28CharStringUninitializedFillNEPcmc.exit: ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
-  %9 = phi i64 [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ], [ %.pre23, %if.then21.i.i ]
-  %10 = phi i8 [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ], [ %.pre, %if.then21.i.i ]
+  %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
+  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
@@ -5624,7 +5624,7 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit: ; preds = %if.then21.i.i, %lo
   br label %12
 
 12:                                               ; preds = %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31
-  %13 = phi ptr [ %this, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31 ], [ %spec.select, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit ], [ %add.ptr.i.i25, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread ]
+  %13 = phi ptr [ %this, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31 ], [ %add.ptr.i.i25, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread ], [ %spec.select, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %13, i8 %c, i64 %n, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %n
   store i8 0, ptr %add.ptr.i, align 1
@@ -7126,8 +7126,8 @@ if.end.thread31:                                  ; preds = %if.then17.i.i
   br label %12
 
 if.end:                                           ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
-  %9 = phi i64 [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ], [ %.pre23, %if.then21.i.i ]
-  %10 = phi i8 [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ], [ %.pre, %if.then21.i.i ]
+  %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
+  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
@@ -7139,7 +7139,7 @@ if.end:                                           ; preds = %if.then21.i.i, %lor
   br label %12
 
 12:                                               ; preds = %if.end, %if.end.thread, %if.end.thread31
-  %13 = phi ptr [ %this, %if.end.thread31 ], [ %spec.select, %if.end ], [ %add.ptr.i.i25, %if.end.thread ]
+  %13 = phi ptr [ %this, %if.end.thread31 ], [ %add.ptr.i.i25, %if.end.thread ], [ %spec.select, %if.end ]
   %add.ptr.idx.i = shl nsw i64 %n, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %add.ptr.idx.i
   %cmp5.i = icmp sgt i64 %n, 0
@@ -8667,8 +8667,8 @@ if.end.thread31:                                  ; preds = %if.then17.i.i
   br label %12
 
 if.end:                                           ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
-  %9 = phi i64 [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ], [ %.pre23, %if.then21.i.i ]
-  %10 = phi i8 [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ], [ %.pre, %if.then21.i.i ]
+  %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
+  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
@@ -8680,7 +8680,7 @@ if.end:                                           ; preds = %if.then21.i.i, %lor
   br label %12
 
 12:                                               ; preds = %if.end, %if.end.thread, %if.end.thread31
-  %13 = phi ptr [ %this, %if.end.thread31 ], [ %spec.select, %if.end ], [ %add.ptr.i.i25, %if.end.thread ]
+  %13 = phi ptr [ %this, %if.end.thread31 ], [ %add.ptr.i.i25, %if.end.thread ], [ %spec.select, %if.end ]
   %add.ptr.idx.i = shl nsw i64 %n, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %add.ptr.idx.i
   %cmp5.i = icmp sgt i64 %n, 0
@@ -14371,8 +14371,8 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31: ; preds = %if.then17
   br label %12
 
 _ZN5eastl28CharStringUninitializedFillNEPcmc.exit: ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
-  %9 = phi i64 [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ], [ %.pre23, %if.then21.i.i ]
-  %10 = phi i8 [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ], [ %.pre, %if.then21.i.i ]
+  %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
+  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
@@ -14384,7 +14384,7 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit: ; preds = %if.then21.i.i, %lo
   br label %12
 
 12:                                               ; preds = %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31
-  %13 = phi ptr [ %this, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31 ], [ %spec.select, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit ], [ %add.ptr.i.i25, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread ]
+  %13 = phi ptr [ %this, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread31 ], [ %add.ptr.i.i25, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.thread ], [ %spec.select, %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %13, i8 %c, i64 %n, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %n
   store i8 0, ptr %add.ptr.i, align 1
@@ -15886,8 +15886,8 @@ if.end.thread31:                                  ; preds = %if.then17.i.i
   br label %12
 
 if.end:                                           ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
-  %9 = phi i64 [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ], [ %.pre23, %if.then21.i.i ]
-  %10 = phi i8 [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ], [ %.pre, %if.then21.i.i ]
+  %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
+  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
@@ -15899,7 +15899,7 @@ if.end:                                           ; preds = %if.then21.i.i, %lor
   br label %12
 
 12:                                               ; preds = %if.end, %if.end.thread, %if.end.thread31
-  %13 = phi ptr [ %this, %if.end.thread31 ], [ %spec.select, %if.end ], [ %add.ptr.i.i25, %if.end.thread ]
+  %13 = phi ptr [ %this, %if.end.thread31 ], [ %add.ptr.i.i25, %if.end.thread ], [ %spec.select, %if.end ]
   %add.ptr.idx.i = shl nsw i64 %n, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %add.ptr.idx.i
   %cmp5.i = icmp sgt i64 %n, 0
@@ -17427,8 +17427,8 @@ if.end.thread31:                                  ; preds = %if.then17.i.i
   br label %12
 
 if.end:                                           ; preds = %if.then21.i.i, %lor.lhs.false.i.i, %if.then
-  %9 = phi i64 [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ], [ %.pre23, %if.then21.i.i ]
-  %10 = phi i8 [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ], [ %.pre, %if.then21.i.i ]
+  %9 = phi i64 [ %.pre23, %if.then21.i.i ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.then ]
+  %10 = phi i8 [ %.pre, %if.then21.i.i ], [ %4, %lor.lhs.false.i.i ], [ %4, %if.then ]
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
@@ -17440,7 +17440,7 @@ if.end:                                           ; preds = %if.then21.i.i, %lor
   br label %12
 
 12:                                               ; preds = %if.end, %if.end.thread, %if.end.thread31
-  %13 = phi ptr [ %this, %if.end.thread31 ], [ %spec.select, %if.end ], [ %add.ptr.i.i25, %if.end.thread ]
+  %13 = phi ptr [ %this, %if.end.thread31 ], [ %add.ptr.i.i25, %if.end.thread ], [ %spec.select, %if.end ]
   %add.ptr.idx.i = shl nsw i64 %n, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %add.ptr.idx.i
   %cmp5.i = icmp sgt i64 %n, 0
@@ -19739,8 +19739,8 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit: ; preds = %invoke.cont
   br label %67
 
 67:                                               ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit.thread
-  %tobool.i.i.i.i214581 = phi i1 [ %66, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit ], [ true, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit.thread ]
-  %68 = phi i64 [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit ], [ %sub.i, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit.thread ]
+  %tobool.i.i.i.i214581 = phi i1 [ true, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit.thread ], [ %66, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit ]
+  %68 = phi i64 [ %sub.i, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit ]
   %cmp.i219 = icmp eq i64 %68, 21
   br i1 %cmp.i219, label %land.rhs.i220, label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit224
 
@@ -20032,7 +20032,7 @@ lpad155.loopexit.split-lp.loopexit:               ; preds = %for.body.i.i.i.i.i
   br label %ehcleanup234
 
 lpad155.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i, %if.then.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i
-  %v.sroa.11.1.ph.ph.ph = phi ptr [ %v.sroa.11.0562, %if.then.i.i.i ], [ %incdec.ptr.i, %if.then.i ], [ %v.sroa.11.0562, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i ]
+  %v.sroa.11.1.ph.ph.ph = phi ptr [ %v.sroa.11.0562, %if.then.i.i.i ], [ %v.sroa.11.0562, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i ], [ %incdec.ptr.i, %if.then.i ]
   %lpad.loopexit547 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup234
@@ -20494,7 +20494,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i527: ; preds = %if.then.i.i525
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i527, %if.then.i.i525, %ehcleanup236, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i330, %if.then.i.i328, %ehcleanup86, %lpad88
-  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i330 ], [ %98, %lpad88 ], [ %.pn.pn, %ehcleanup86 ], [ %.pn.pn, %if.then.i.i328 ], [ %.pn22.pn.pn, %ehcleanup236 ], [ %.pn22.pn.pn, %if.then.i.i525 ], [ %.pn22.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i527 ]
+  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %98, %lpad88 ], [ %.pn.pn, %ehcleanup86 ], [ %.pn.pn, %if.then.i.i328 ], [ %.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i330 ], [ %.pn22.pn.pn, %ehcleanup236 ], [ %.pn22.pn.pn, %if.then.i.i525 ], [ %.pn22.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i527 ]
   resume { ptr, i32 } %.pn22.pn.pn.pn
 }
 
@@ -25079,7 +25079,7 @@ ehcleanup.sink.split:                             ; preds = %if.then.i.i.i1972, 
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %ehcleanup.sink.split, %if.then.i.i.i1972, %lpad100, %lpad.i253, %if.then.i.i2386
-  %.pn = phi { ptr, i32 } [ %753, %lpad100 ], [ %753, %if.then.i.i.i1972 ], [ %110, %lpad.i253 ], [ %110, %if.then.i.i2386 ], [ %.pn.ph, %ehcleanup.sink.split ]
+  %.pn = phi { ptr, i32 } [ %110, %lpad.i253 ], [ %110, %if.then.i.i2386 ], [ %753, %lpad100 ], [ %753, %if.then.i.i.i1972 ], [ %.pn.ph, %ehcleanup.sink.split ]
   %mRemainingSizeField.i.i.i.i1979 = getelementptr inbounds nuw i8, ptr %fsc82, i64 23
   %757 = load i8, ptr %mRemainingSizeField.i.i.i.i1979, align 1
   %tobool.i.i.i.i1980 = icmp slt i8 %757, 0
@@ -25100,7 +25100,7 @@ ehcleanup118.sink.split:                          ; preds = %if.then.i.i.i1981, 
   br label %ehcleanup118
 
 ehcleanup118:                                     ; preds = %ehcleanup118.sink.split, %if.then.i.i.i1981, %ehcleanup, %lpad.i244, %if.then.i.i2376
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i1981 ], [ %105, %lpad.i244 ], [ %105, %if.then.i.i2376 ], [ %.pn.pn.ph, %ehcleanup118.sink.split ]
+  %.pn.pn = phi { ptr, i32 } [ %105, %lpad.i244 ], [ %105, %if.then.i.i2376 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i1981 ], [ %.pn.pn.ph, %ehcleanup118.sink.split ]
   %mRemainingSizeField.i.i.i.i1988 = getelementptr inbounds nuw i8, ptr %fsc81, i64 23
   %760 = load i8, ptr %mRemainingSizeField.i.i.i.i1988, align 1
   %tobool.i.i.i.i1989 = icmp slt i8 %760, 0
@@ -25119,7 +25119,7 @@ delete.notnull.i.i.i.i.i.i1995:                   ; preds = %if.then.i.i.i1990
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %delete.notnull.i.i.i.i.i.i1995, %if.then.i.i.i1990, %ehcleanup118, %lpad76, %lpad.i235, %if.then.i.i2366, %delete.notnull.i.i.i.i.i2371
-  %.pn.pn.pn = phi { ptr, i32 } [ %100, %delete.notnull.i.i.i.i.i2371 ], [ %752, %lpad76 ], [ %100, %lpad.i235 ], [ %100, %if.then.i.i2366 ], [ %.pn.pn, %ehcleanup118 ], [ %.pn.pn, %if.then.i.i.i1990 ], [ %.pn.pn, %delete.notnull.i.i.i.i.i.i1995 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %752, %lpad76 ], [ %100, %lpad.i235 ], [ %100, %if.then.i.i2366 ], [ %100, %delete.notnull.i.i.i.i.i2371 ], [ %.pn.pn, %ehcleanup118 ], [ %.pn.pn, %if.then.i.i.i1990 ], [ %.pn.pn, %delete.notnull.i.i.i.i.i.i1995 ]
   %763 = load i8, ptr %mnRemainingSize.i.i.i.i215, align 1
   %tobool.i.i.i.i1998 = icmp slt i8 %763, 0
   br i1 %tobool.i.i.i.i1998, label %if.then.i.i.i1999, label %ehcleanup120
@@ -25139,7 +25139,7 @@ ehcleanup120.sink.split:                          ; preds = %if.then.i.i.i1999, 
   br label %ehcleanup120
 
 ehcleanup120:                                     ; preds = %ehcleanup120.sink.split, %if.then.i.i.i1999, %ehcleanup119, %lpad.i185, %if.then.i.i2356
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup119 ], [ %.pn.pn.pn, %if.then.i.i.i1999 ], [ %77, %lpad.i185 ], [ %77, %if.then.i.i2356 ], [ %.pn.pn.pn.pn.ph, %ehcleanup120.sink.split ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %77, %lpad.i185 ], [ %77, %if.then.i.i2356 ], [ %.pn.pn.pn, %ehcleanup119 ], [ %.pn.pn.pn, %if.then.i.i.i1999 ], [ %.pn.pn.pn.pn.ph, %ehcleanup120.sink.split ]
   %mnRemainingSize.i.i.i.i2006 = getelementptr inbounds nuw i8, ptr %fswc2, i64 23
   %766 = load i8, ptr %mnRemainingSize.i.i.i.i2006, align 1
   %tobool.i.i.i.i2007 = icmp slt i8 %766, 0
@@ -25160,7 +25160,7 @@ ehcleanup121.sink.split:                          ; preds = %if.then.i.i.i2008, 
   br label %ehcleanup121
 
 ehcleanup121:                                     ; preds = %ehcleanup121.sink.split, %if.then.i.i.i2008, %ehcleanup120, %lpad.i176, %if.then.i.i2346
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup120 ], [ %.pn.pn.pn.pn, %if.then.i.i.i2008 ], [ %72, %lpad.i176 ], [ %72, %if.then.i.i2346 ], [ %.pn.pn.pn.pn.pn.ph, %ehcleanup121.sink.split ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %72, %lpad.i176 ], [ %72, %if.then.i.i2346 ], [ %.pn.pn.pn.pn, %ehcleanup120 ], [ %.pn.pn.pn.pn, %if.then.i.i.i2008 ], [ %.pn.pn.pn.pn.pn.ph, %ehcleanup121.sink.split ]
   %mnRemainingSize.i.i.i.i2015 = getelementptr inbounds nuw i8, ptr %fswc1, i64 23
   %769 = load i8, ptr %mnRemainingSize.i.i.i.i2015, align 1
   %tobool.i.i.i.i2016 = icmp slt i8 %769, 0
@@ -25179,7 +25179,7 @@ delete.notnull.i.i.i.i.i.i2022:                   ; preds = %if.then.i.i.i2017
   br label %ehcleanup122
 
 ehcleanup122:                                     ; preds = %delete.notnull.i.i.i.i.i.i2022, %if.then.i.i.i2017, %ehcleanup121, %lpad52, %lpad.i168, %if.then.i.i2337, %delete.notnull.i.i.i.i.i2342
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %delete.notnull.i.i.i.i.i2342 ], [ %751, %lpad52 ], [ %67, %lpad.i168 ], [ %67, %if.then.i.i2337 ], [ %.pn.pn.pn.pn.pn, %ehcleanup121 ], [ %.pn.pn.pn.pn.pn, %if.then.i.i.i2017 ], [ %.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2022 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %751, %lpad52 ], [ %67, %lpad.i168 ], [ %67, %if.then.i.i2337 ], [ %67, %delete.notnull.i.i.i.i.i2342 ], [ %.pn.pn.pn.pn.pn, %ehcleanup121 ], [ %.pn.pn.pn.pn.pn, %if.then.i.i.i2017 ], [ %.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2022 ]
   %772 = load i8, ptr %mRemainingSizeField.i.i.i.i148, align 1
   %tobool.i.i.i.i2025 = icmp slt i8 %772, 0
   br i1 %tobool.i.i.i.i2025, label %if.then.i.i.i2026, label %ehcleanup123
@@ -25199,7 +25199,7 @@ ehcleanup123.sink.split:                          ; preds = %if.then.i.i.i2026, 
   br label %ehcleanup123
 
 ehcleanup123:                                     ; preds = %ehcleanup123.sink.split, %if.then.i.i.i2026, %ehcleanup122, %lpad.i127, %if.then.i.i2328
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup122 ], [ %.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2026 ], [ %44, %lpad.i127 ], [ %44, %if.then.i.i2328 ], [ %.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup123.sink.split ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %44, %lpad.i127 ], [ %44, %if.then.i.i2328 ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup122 ], [ %.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2026 ], [ %.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup123.sink.split ]
   %mRemainingSizeField.i.i.i.i2033 = getelementptr inbounds nuw i8, ptr %fsc2, i64 23
   %775 = load i8, ptr %mRemainingSizeField.i.i.i.i2033, align 1
   %tobool.i.i.i.i2034 = icmp slt i8 %775, 0
@@ -25220,7 +25220,7 @@ ehcleanup124.sink.split:                          ; preds = %if.then.i.i.i2035, 
   br label %ehcleanup124
 
 ehcleanup124:                                     ; preds = %ehcleanup124.sink.split, %if.then.i.i.i2035, %ehcleanup123, %lpad.i118, %if.then.i.i2318
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup123 ], [ %.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2035 ], [ %39, %lpad.i118 ], [ %39, %if.then.i.i2318 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup124.sink.split ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %39, %lpad.i118 ], [ %39, %if.then.i.i2318 ], [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup123 ], [ %.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2035 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup124.sink.split ]
   %mRemainingSizeField.i.i.i.i2042 = getelementptr inbounds nuw i8, ptr %fsc1, i64 23
   %778 = load i8, ptr %mRemainingSizeField.i.i.i.i2042, align 1
   %tobool.i.i.i.i2043 = icmp slt i8 %778, 0
@@ -25516,7 +25516,7 @@ delete.notnull.i.i.i.i.i.i2146:                   ; preds = %if.then.i.i.i2141
   br label %ehcleanup569
 
 ehcleanup569:                                     ; preds = %delete.notnull.i.i.i.i.i.i2146, %if.then.i.i.i2141, %ehcleanup568, %delete.notnull.i.i.i.i.i.i2128, %if.then.i.i.i2123, %lpad547, %lpad.i.i1376, %if.then.i.i2581, %delete.notnull.i.i.i.i.i2586, %delete.notnull.i.i.i.i.i2596, %if.then.i.i2591, %lpad.i1434, %lpad545
-  %.pn20.pn = phi { ptr, i32 } [ %825, %delete.notnull.i.i.i.i.i.i2128 ], [ %561, %delete.notnull.i.i.i.i.i2596 ], [ %542, %delete.notnull.i.i.i.i.i2586 ], [ %542, %lpad.i.i1376 ], [ %542, %if.then.i.i2581 ], [ %824, %lpad545 ], [ %561, %lpad.i1434 ], [ %561, %if.then.i.i2591 ], [ %825, %lpad547 ], [ %825, %if.then.i.i.i2123 ], [ %.pn20, %ehcleanup568 ], [ %.pn20, %if.then.i.i.i2141 ], [ %.pn20, %delete.notnull.i.i.i.i.i.i2146 ]
+  %.pn20.pn = phi { ptr, i32 } [ %542, %lpad.i.i1376 ], [ %542, %if.then.i.i2581 ], [ %542, %delete.notnull.i.i.i.i.i2586 ], [ %824, %lpad545 ], [ %561, %lpad.i1434 ], [ %561, %if.then.i.i2591 ], [ %561, %delete.notnull.i.i.i.i.i2596 ], [ %825, %lpad547 ], [ %825, %if.then.i.i.i2123 ], [ %825, %delete.notnull.i.i.i.i.i.i2128 ], [ %.pn20, %ehcleanup568 ], [ %.pn20, %if.then.i.i.i2141 ], [ %.pn20, %delete.notnull.i.i.i.i.i.i2146 ]
   %mRemainingSizeField.i.i.i.i2148 = getelementptr inbounds nuw i8, ptr %a3, i64 23
   %837 = load i8, ptr %mRemainingSizeField.i.i.i.i2148, align 1
   %tobool.i.i.i.i2149 = icmp slt i8 %837, 0
@@ -25535,7 +25535,7 @@ delete.notnull.i.i.i.i.i.i2155:                   ; preds = %if.then.i.i.i2150
   br label %ehcleanup570
 
 ehcleanup570:                                     ; preds = %delete.notnull.i.i.i.i.i.i2155, %if.then.i.i.i2150, %ehcleanup569, %delete.notnull.i.i.i.i.i.i2119, %if.then.i.i.i2114, %lpad534, %lpad.i.i1298, %if.then.i.i2561, %delete.notnull.i.i.i.i.i2566, %delete.notnull.i.i.i.i.i2576, %if.then.i.i2571, %lpad.i1356, %lpad532
-  %.pn20.pn.pn = phi { ptr, i32 } [ %820, %delete.notnull.i.i.i.i.i.i2119 ], [ %534, %delete.notnull.i.i.i.i.i2576 ], [ %515, %delete.notnull.i.i.i.i.i2566 ], [ %515, %lpad.i.i1298 ], [ %515, %if.then.i.i2561 ], [ %819, %lpad532 ], [ %534, %lpad.i1356 ], [ %534, %if.then.i.i2571 ], [ %820, %lpad534 ], [ %820, %if.then.i.i.i2114 ], [ %.pn20.pn, %ehcleanup569 ], [ %.pn20.pn, %if.then.i.i.i2150 ], [ %.pn20.pn, %delete.notnull.i.i.i.i.i.i2155 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %515, %lpad.i.i1298 ], [ %515, %if.then.i.i2561 ], [ %515, %delete.notnull.i.i.i.i.i2566 ], [ %819, %lpad532 ], [ %534, %lpad.i1356 ], [ %534, %if.then.i.i2571 ], [ %534, %delete.notnull.i.i.i.i.i2576 ], [ %820, %lpad534 ], [ %820, %if.then.i.i.i2114 ], [ %820, %delete.notnull.i.i.i.i.i.i2119 ], [ %.pn20.pn, %ehcleanup569 ], [ %.pn20.pn, %if.then.i.i.i2150 ], [ %.pn20.pn, %delete.notnull.i.i.i.i.i.i2155 ]
   %840 = load i8, ptr %mRemainingSizeField.i.i.i.i1283, align 1
   %tobool.i.i.i.i2158 = icmp slt i8 %840, 0
   br i1 %tobool.i.i.i.i2158, label %if.then.i.i.i2159, label %ehcleanup571
@@ -25553,7 +25553,7 @@ delete.notnull.i.i.i.i.i.i2164:                   ; preds = %if.then.i.i.i2159
   br label %ehcleanup571
 
 ehcleanup571:                                     ; preds = %delete.notnull.i.i.i.i.i.i2164, %if.then.i.i.i2159, %ehcleanup570, %delete.notnull.i.i.i.i.i.i2110, %if.then.i.i.i2105, %lpad521, %lpad.i.i1219, %if.then.i.i2541, %delete.notnull.i.i.i.i.i2546, %delete.notnull.i.i.i.i.i2556, %if.then.i.i2551, %lpad.i1277, %lpad519
-  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %815, %delete.notnull.i.i.i.i.i.i2110 ], [ %505, %delete.notnull.i.i.i.i.i2556 ], [ %486, %delete.notnull.i.i.i.i.i2546 ], [ %486, %lpad.i.i1219 ], [ %486, %if.then.i.i2541 ], [ %814, %lpad519 ], [ %505, %lpad.i1277 ], [ %505, %if.then.i.i2551 ], [ %815, %lpad521 ], [ %815, %if.then.i.i.i2105 ], [ %.pn20.pn.pn, %ehcleanup570 ], [ %.pn20.pn.pn, %if.then.i.i.i2159 ], [ %.pn20.pn.pn, %delete.notnull.i.i.i.i.i.i2164 ]
+  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %486, %lpad.i.i1219 ], [ %486, %if.then.i.i2541 ], [ %486, %delete.notnull.i.i.i.i.i2546 ], [ %814, %lpad519 ], [ %505, %lpad.i1277 ], [ %505, %if.then.i.i2551 ], [ %505, %delete.notnull.i.i.i.i.i2556 ], [ %815, %lpad521 ], [ %815, %if.then.i.i.i2105 ], [ %815, %delete.notnull.i.i.i.i.i.i2110 ], [ %.pn20.pn.pn, %ehcleanup570 ], [ %.pn20.pn.pn, %if.then.i.i.i2159 ], [ %.pn20.pn.pn, %delete.notnull.i.i.i.i.i.i2164 ]
   %843 = load i8, ptr %mRemainingSizeField.i.i.i.i1197, align 1
   %tobool.i.i.i.i2167 = icmp slt i8 %843, 0
   br i1 %tobool.i.i.i.i2167, label %if.then.i.i.i2168, label %ehcleanup572
@@ -25573,7 +25573,7 @@ ehcleanup572.sink.split:                          ; preds = %if.then.i.i.i2168, 
   br label %ehcleanup572
 
 ehcleanup572:                                     ; preds = %ehcleanup572.sink.split, %if.then.i.i.i2168, %ehcleanup571, %lpad.i1193, %if.then.i.i2531
-  %.pn20.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn.pn.pn, %ehcleanup571 ], [ %.pn20.pn.pn.pn, %if.then.i.i.i2168 ], [ %475, %lpad.i1193 ], [ %475, %if.then.i.i2531 ], [ %.pn20.pn.pn.pn.pn.ph, %ehcleanup572.sink.split ]
+  %.pn20.pn.pn.pn.pn = phi { ptr, i32 } [ %475, %lpad.i1193 ], [ %475, %if.then.i.i2531 ], [ %.pn20.pn.pn.pn, %ehcleanup571 ], [ %.pn20.pn.pn.pn, %if.then.i.i.i2168 ], [ %.pn20.pn.pn.pn.pn.ph, %ehcleanup572.sink.split ]
   %mRemainingSizeField.i.i.i.i2175 = getelementptr inbounds nuw i8, ptr %a1, i64 23
   %846 = load i8, ptr %mRemainingSizeField.i.i.i.i2175, align 1
   %tobool.i.i.i.i2176 = icmp slt i8 %846, 0
@@ -25592,7 +25592,7 @@ delete.notnull.i.i.i.i.i.i2182:                   ; preds = %if.then.i.i.i2177
   br label %ehcleanup573
 
 ehcleanup573:                                     ; preds = %delete.notnull.i.i.i.i.i.i2182, %if.then.i.i.i2177, %ehcleanup572, %delete.notnull.i.i.i.i.i.i2101, %if.then.i.i.i2096, %lpad506, %delete.notnull.i.i.i.i.i.i2092, %if.then.i.i.i2087, %lpad494, %delete.notnull.i.i.i.i.i.i2083, %if.then.i.i.i2078, %lpad484, %delete.notnull.i.i.i.i.i.i2074, %if.then.i.i.i2069, %lpad474, %delete.notnull.i.i.i.i.i.i2065, %if.then.i.i.i2060, %lpad464, %lpad.i920, %if.then.i.i.i2483, %delete.notnull.i.i.i.i.i.i2488, %lpad.i1066, %if.then.i.i.i2501, %delete.notnull.i.i.i.i.i.i2506, %lpad457, %lpad.i1182, %if.then.i.i2521, %delete.notnull.i.i.i.i.i2526, %delete.notnull.i.i.i.i.i2516, %if.then.i.i2511, %lpad.i.i, %delete.notnull.i.i.i.i.i.i2497, %if.then.i.i.i2492, %lpad.i961
-  %.pn20.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %810, %delete.notnull.i.i.i.i.i.i2101 ], [ %470, %delete.notnull.i.i.i.i.i2526 ], [ %806, %delete.notnull.i.i.i.i.i.i2092 ], [ %802, %delete.notnull.i.i.i.i.i.i2083 ], [ %798, %delete.notnull.i.i.i.i.i.i2074 ], [ %794, %delete.notnull.i.i.i.i.i.i2065 ], [ %376, %delete.notnull.i.i.i.i.i.i2488 ], [ %376, %lpad.i920 ], [ %376, %if.then.i.i.i2483 ], [ %396, %delete.notnull.i.i.i.i.i.i2497 ], [ %396, %lpad.i961 ], [ %396, %if.then.i.i.i2492 ], [ %428, %delete.notnull.i.i.i.i.i.i2506 ], [ %428, %lpad.i1066 ], [ %428, %if.then.i.i.i2501 ], [ %451, %delete.notnull.i.i.i.i.i2516 ], [ %451, %lpad.i.i ], [ %451, %if.then.i.i2511 ], [ %793, %lpad457 ], [ %470, %lpad.i1182 ], [ %470, %if.then.i.i2521 ], [ %794, %lpad464 ], [ %794, %if.then.i.i.i2060 ], [ %798, %lpad474 ], [ %798, %if.then.i.i.i2069 ], [ %802, %lpad484 ], [ %802, %if.then.i.i.i2078 ], [ %806, %lpad494 ], [ %806, %if.then.i.i.i2087 ], [ %810, %lpad506 ], [ %810, %if.then.i.i.i2096 ], [ %.pn20.pn.pn.pn.pn, %ehcleanup572 ], [ %.pn20.pn.pn.pn.pn, %if.then.i.i.i2177 ], [ %.pn20.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2182 ]
+  %.pn20.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %376, %lpad.i920 ], [ %376, %if.then.i.i.i2483 ], [ %376, %delete.notnull.i.i.i.i.i.i2488 ], [ %396, %lpad.i961 ], [ %396, %if.then.i.i.i2492 ], [ %396, %delete.notnull.i.i.i.i.i.i2497 ], [ %428, %lpad.i1066 ], [ %428, %if.then.i.i.i2501 ], [ %428, %delete.notnull.i.i.i.i.i.i2506 ], [ %451, %lpad.i.i ], [ %451, %if.then.i.i2511 ], [ %451, %delete.notnull.i.i.i.i.i2516 ], [ %793, %lpad457 ], [ %470, %lpad.i1182 ], [ %470, %if.then.i.i2521 ], [ %470, %delete.notnull.i.i.i.i.i2526 ], [ %794, %lpad464 ], [ %794, %if.then.i.i.i2060 ], [ %794, %delete.notnull.i.i.i.i.i.i2065 ], [ %798, %lpad474 ], [ %798, %if.then.i.i.i2069 ], [ %798, %delete.notnull.i.i.i.i.i.i2074 ], [ %802, %lpad484 ], [ %802, %if.then.i.i.i2078 ], [ %802, %delete.notnull.i.i.i.i.i.i2083 ], [ %806, %lpad494 ], [ %806, %if.then.i.i.i2087 ], [ %806, %delete.notnull.i.i.i.i.i.i2092 ], [ %810, %lpad506 ], [ %810, %if.then.i.i.i2096 ], [ %810, %delete.notnull.i.i.i.i.i.i2101 ], [ %.pn20.pn.pn.pn.pn, %ehcleanup572 ], [ %.pn20.pn.pn.pn.pn, %if.then.i.i.i2177 ], [ %.pn20.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2182 ]
   %849 = load i8, ptr %mRemainingSizeField.i.i.i.i896, align 1
   %tobool.i.i.i.i2185 = icmp slt i8 %849, 0
   br i1 %tobool.i.i.i.i2185, label %if.then.i.i.i2186, label %ehcleanup574
@@ -25612,7 +25612,7 @@ ehcleanup574.sink.split:                          ; preds = %if.then.i.i.i2186, 
   br label %ehcleanup574
 
 ehcleanup574:                                     ; preds = %ehcleanup574.sink.split, %if.then.i.i.i2186, %ehcleanup573, %lpad.i892, %if.then.i.i.i2474
-  %.pn20.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn.pn.pn.pn.pn, %ehcleanup573 ], [ %.pn20.pn.pn.pn.pn.pn, %if.then.i.i.i2186 ], [ %364, %lpad.i892 ], [ %364, %if.then.i.i.i2474 ], [ %.pn20.pn.pn.pn.pn.pn.pn.ph, %ehcleanup574.sink.split ]
+  %.pn20.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %364, %lpad.i892 ], [ %364, %if.then.i.i.i2474 ], [ %.pn20.pn.pn.pn.pn.pn, %ehcleanup573 ], [ %.pn20.pn.pn.pn.pn.pn, %if.then.i.i.i2186 ], [ %.pn20.pn.pn.pn.pn.pn.pn.ph, %ehcleanup574.sink.split ]
   %mRemainingSizeField.i.i.i.i2193 = getelementptr inbounds nuw i8, ptr %b, i64 23
   %852 = load i8, ptr %mRemainingSizeField.i.i.i.i2193, align 1
   %tobool.i.i.i.i2194 = icmp slt i8 %852, 0
@@ -25633,7 +25633,7 @@ ehcleanup575.sink.split:                          ; preds = %if.then.i.i.i2195, 
   br label %ehcleanup575
 
 ehcleanup575:                                     ; preds = %ehcleanup575.sink.split, %if.then.i.i.i2195, %ehcleanup574, %lpad.i879, %if.then.i.i2465
-  %.pn20.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn.pn.pn.pn.pn.pn, %ehcleanup574 ], [ %.pn20.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2195 ], [ %353, %lpad.i879 ], [ %353, %if.then.i.i2465 ], [ %.pn20.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup575.sink.split ]
+  %.pn20.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %353, %lpad.i879 ], [ %353, %if.then.i.i2465 ], [ %.pn20.pn.pn.pn.pn.pn.pn, %ehcleanup574 ], [ %.pn20.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2195 ], [ %.pn20.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup575.sink.split ]
   %mRemainingSizeField.i.i.i.i2202 = getelementptr inbounds nuw i8, ptr %a, i64 23
   %855 = load i8, ptr %mRemainingSizeField.i.i.i.i2202, align 1
   %tobool.i.i.i.i2203 = icmp slt i8 %855, 0
@@ -25652,7 +25652,7 @@ delete.notnull.i.i.i.i.i.i2209:                   ; preds = %if.then.i.i.i2204
   br label %ehcleanup595
 
 ehcleanup595:                                     ; preds = %delete.notnull.i.i.i.i.i.i2209, %if.then.i.i.i2204, %ehcleanup575, %lpad430, %lpad.i871, %if.then.i.i2456, %delete.notnull.i.i.i.i.i2461
-  %.pn29 = phi { ptr, i32 } [ %348, %delete.notnull.i.i.i.i.i2461 ], [ %792, %lpad430 ], [ %348, %lpad.i871 ], [ %348, %if.then.i.i2456 ], [ %.pn20.pn.pn.pn.pn.pn.pn.pn, %ehcleanup575 ], [ %.pn20.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2204 ], [ %.pn20.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2209 ]
+  %.pn29 = phi { ptr, i32 } [ %792, %lpad430 ], [ %348, %lpad.i871 ], [ %348, %if.then.i.i2456 ], [ %348, %delete.notnull.i.i.i.i.i2461 ], [ %.pn20.pn.pn.pn.pn.pn.pn.pn, %ehcleanup575 ], [ %.pn20.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2204 ], [ %.pn20.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2209 ]
   %858 = load i8, ptr %mRemainingSizeField.i.i842, align 1
   %tobool.i.i.i.i2212 = icmp slt i8 %858, 0
   br i1 %tobool.i.i.i.i2212, label %if.then.i.i.i2213, label %ehcleanup596
@@ -25725,7 +25725,7 @@ delete.notnull.i.i.i.i.i.i2245:                   ; preds = %if.then.i.i.i2240
   br label %ehcleanup599
 
 ehcleanup599:                                     ; preds = %delete.notnull.i.i.i.i.i.i2245, %if.then.i.i.i2240, %ehcleanup598, %lpad238, %lpad.i607, %if.then.i.i2446, %delete.notnull.i.i.i.i.i2451
-  %.pn29.pn.pn.pn.pn = phi { ptr, i32 } [ %251, %delete.notnull.i.i.i.i.i2451 ], [ %788, %lpad238 ], [ %251, %lpad.i607 ], [ %251, %if.then.i.i2446 ], [ %.pn29.pn.pn.pn, %ehcleanup598 ], [ %.pn29.pn.pn.pn, %if.then.i.i.i2240 ], [ %.pn29.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2245 ]
+  %.pn29.pn.pn.pn.pn = phi { ptr, i32 } [ %788, %lpad238 ], [ %251, %lpad.i607 ], [ %251, %if.then.i.i2446 ], [ %251, %delete.notnull.i.i.i.i.i2451 ], [ %.pn29.pn.pn.pn, %ehcleanup598 ], [ %.pn29.pn.pn.pn, %if.then.i.i.i2240 ], [ %.pn29.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2245 ]
   %870 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i2248 = icmp slt i8 %870, 0
   br i1 %tobool.i.i.i.i2248, label %if.then.i.i.i2249, label %ehcleanup600
@@ -25761,7 +25761,7 @@ delete.notnull.i.i.i.i.i.i2263:                   ; preds = %if.then.i.i.i2258
   br label %ehcleanup601
 
 ehcleanup601:                                     ; preds = %delete.notnull.i.i.i.i.i.i2263, %if.then.i.i.i2258, %ehcleanup600, %lpad209, %lpad.i541, %if.then.i.i2436, %delete.notnull.i.i.i.i.i2441
-  %.pn29.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %229, %delete.notnull.i.i.i.i.i2441 ], [ %786, %lpad209 ], [ %229, %lpad.i541 ], [ %229, %if.then.i.i2436 ], [ %.pn29.pn.pn.pn.pn.pn, %ehcleanup600 ], [ %.pn29.pn.pn.pn.pn.pn, %if.then.i.i.i2258 ], [ %.pn29.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2263 ]
+  %.pn29.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %786, %lpad209 ], [ %229, %lpad.i541 ], [ %229, %if.then.i.i2436 ], [ %229, %delete.notnull.i.i.i.i.i2441 ], [ %.pn29.pn.pn.pn.pn.pn, %ehcleanup600 ], [ %.pn29.pn.pn.pn.pn.pn, %if.then.i.i.i2258 ], [ %.pn29.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2263 ]
   %876 = load i8, ptr %mRemainingSizeField.i.i.i511, align 1
   %tobool.i.i.i.i2266 = icmp slt i8 %876, 0
   br i1 %tobool.i.i.i.i2266, label %if.then.i.i.i2267, label %ehcleanup602
@@ -25779,7 +25779,7 @@ delete.notnull.i.i.i.i.i.i2272:                   ; preds = %if.then.i.i.i2267
   br label %ehcleanup602
 
 ehcleanup602:                                     ; preds = %delete.notnull.i.i.i.i.i.i2272, %if.then.i.i.i2267, %ehcleanup601, %lpad195, %lpad.i509, %if.then.i.i2426, %delete.notnull.i.i.i.i.i2431
-  %.pn29.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %216, %delete.notnull.i.i.i.i.i2431 ], [ %785, %lpad195 ], [ %216, %lpad.i509 ], [ %216, %if.then.i.i2426 ], [ %.pn29.pn.pn.pn.pn.pn.pn, %ehcleanup601 ], [ %.pn29.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2267 ], [ %.pn29.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2272 ]
+  %.pn29.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %785, %lpad195 ], [ %216, %lpad.i509 ], [ %216, %if.then.i.i2426 ], [ %216, %delete.notnull.i.i.i.i.i2431 ], [ %.pn29.pn.pn.pn.pn.pn.pn, %ehcleanup601 ], [ %.pn29.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2267 ], [ %.pn29.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2272 ]
   %879 = load i8, ptr %mRemainingSizeField.i.i.i482, align 1
   %tobool.i.i.i.i2275 = icmp slt i8 %879, 0
   br i1 %tobool.i.i.i.i2275, label %if.then.i.i.i2276, label %ehcleanup603
@@ -25797,7 +25797,7 @@ delete.notnull.i.i.i.i.i.i2281:                   ; preds = %if.then.i.i.i2276
   br label %ehcleanup603
 
 ehcleanup603:                                     ; preds = %delete.notnull.i.i.i.i.i.i2281, %if.then.i.i.i2276, %ehcleanup602, %lpad181, %lpad.i480, %if.then.i.i2416, %delete.notnull.i.i.i.i.i2421
-  %.pn29.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %203, %delete.notnull.i.i.i.i.i2421 ], [ %784, %lpad181 ], [ %203, %lpad.i480 ], [ %203, %if.then.i.i2416 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn, %ehcleanup602 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2276 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2281 ]
+  %.pn29.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %784, %lpad181 ], [ %203, %lpad.i480 ], [ %203, %if.then.i.i2416 ], [ %203, %delete.notnull.i.i.i.i.i2421 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn, %ehcleanup602 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2276 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2281 ]
   %882 = load i8, ptr %mRemainingSizeField.i.i.i445, align 1
   %tobool.i.i.i.i2284 = icmp slt i8 %882, 0
   br i1 %tobool.i.i.i.i2284, label %if.then.i.i.i2285, label %ehcleanup604
@@ -25815,7 +25815,7 @@ delete.notnull.i.i.i.i.i.i2290:                   ; preds = %if.then.i.i.i2285
   br label %ehcleanup604
 
 ehcleanup604:                                     ; preds = %delete.notnull.i.i.i.i.i.i2290, %if.then.i.i.i2285, %ehcleanup603, %lpad169, %lpad.i442, %if.then.i.i2406, %delete.notnull.i.i.i.i.i2411
-  %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %187, %delete.notnull.i.i.i.i.i2411 ], [ %783, %lpad169 ], [ %187, %lpad.i442 ], [ %187, %if.then.i.i2406 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup603 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2285 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2290 ]
+  %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %783, %lpad169 ], [ %187, %lpad.i442 ], [ %187, %if.then.i.i2406 ], [ %187, %delete.notnull.i.i.i.i.i2411 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup603 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2285 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2290 ]
   %885 = load i8, ptr %mRemainingSizeField.i.i.i410, align 1
   %tobool.i.i.i.i2293 = icmp slt i8 %885, 0
   br i1 %tobool.i.i.i.i2293, label %if.then.i.i.i2294, label %ehcleanup606
@@ -25833,7 +25833,7 @@ delete.notnull.i.i.i.i.i.i2299:                   ; preds = %if.then.i.i.i2294
   br label %ehcleanup606
 
 ehcleanup606:                                     ; preds = %delete.notnull.i.i.i.i.i2401, %if.then.i.i2396, %lpad.i408, %lpad137, %ehcleanup604, %if.then.i.i.i2294, %delete.notnull.i.i.i.i.i.i2299, %lpad129
-  %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %781, %lpad129 ], [ %173, %delete.notnull.i.i.i.i.i2401 ], [ %782, %lpad137 ], [ %173, %lpad.i408 ], [ %173, %if.then.i.i2396 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup604 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2294 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2299 ]
+  %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %781, %lpad129 ], [ %782, %lpad137 ], [ %173, %lpad.i408 ], [ %173, %if.then.i.i2396 ], [ %173, %delete.notnull.i.i.i.i.i2401 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup604 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2294 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2299 ]
   %888 = load i8, ptr %mRemainingSizeField.i.i.i385, align 1
   %tobool.i.i.i.i2302 = icmp slt i8 %888, 0
   br i1 %tobool.i.i.i.i2302, label %if.then.i.i.i2303, label %eh.resume
@@ -25874,7 +25874,7 @@ ehcleanup691:                                     ; preds = %lpad.i1907, %lpad68
   br label %eh.resume
 
 eh.resume:                                        ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i2313, %lpad.i, %ehcleanup124, %if.then.i.i.i2044, %delete.notnull.i.i.i.i.i.i2049, %delete.notnull.i.i.i.i.i.i2308, %if.then.i.i.i2303, %ehcleanup606, %delete.notnull.i.i.i.i.i.i1968, %if.then.i.i.i1963, %lpad23, %delete.notnull.i.i.i.i.i.i1959, %if.then.i.i.i1954, %lpad, %ehcleanup691, %lpad674, %lpad607
-  %.pn42.pn = phi { ptr, i32 } [ %.pn42, %ehcleanup691 ], [ %892, %lpad674 ], [ %891, %lpad607 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2303 ], [ %747, %delete.notnull.i.i.i.i.i.i1968 ], [ %743, %delete.notnull.i.i.i.i.i.i1959 ], [ %743, %lpad ], [ %743, %if.then.i.i.i1954 ], [ %747, %lpad23 ], [ %747, %if.then.i.i.i1963 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup606 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2308 ], [ %34, %delete.notnull.i.i.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2049 ], [ %34, %lpad.i ], [ %34, %if.then.i.i2313 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup124 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2044 ]
+  %.pn42.pn = phi { ptr, i32 } [ %.pn42, %ehcleanup691 ], [ %892, %lpad674 ], [ %891, %lpad607 ], [ %743, %lpad ], [ %743, %if.then.i.i.i1954 ], [ %743, %delete.notnull.i.i.i.i.i.i1959 ], [ %747, %lpad23 ], [ %747, %if.then.i.i.i1963 ], [ %747, %delete.notnull.i.i.i.i.i.i1968 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup606 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2303 ], [ %.pn29.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2308 ], [ %34, %lpad.i ], [ %34, %if.then.i.i2313 ], [ %34, %delete.notnull.i.i.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup124 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i2044 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %delete.notnull.i.i.i.i.i.i2049 ]
   resume { ptr, i32 } %.pn42.pn
 }
 
@@ -26656,14 +26656,14 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9all
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -27075,14 +27075,14 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ]
   store i16 0, ptr %7, align 2
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mnRemainingSize.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -27490,14 +27490,14 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ]
   store i32 0, ptr %7, align 4
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mnRemainingSize.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -29419,14 +29419,14 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15Mal
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i89, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i89, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -29867,14 +29867,14 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i89, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i89, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit ]
   store i16 0, ptr %7, align 2
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mnRemainingSize.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -30321,14 +30321,14 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i89, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i89, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit ]
   store i32 0, ptr %7, align 4
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mnRemainingSize.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -32289,14 +32289,14 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.th
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -32984,8 +32984,8 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148: ; preds = %if
   br label %27
 
 27:                                               ; preds = %26, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148, %.thread
-  %28 = phi i64 [ %.pre217, %26 ], [ %add64, %.thread ], [ %.fr, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148 ]
-  %29 = phi ptr [ %add.ptr.i1.i161, %26 ], [ %add.ptr.i.i158231, %.thread ], [ %add.ptr.i.i158235, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148 ]
+  %28 = phi i64 [ %add64, %.thread ], [ %.fr, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148 ], [ %.pre217, %26 ]
+  %29 = phi ptr [ %add.ptr.i.i158231, %.thread ], [ %add.ptr.i.i158235, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148 ], [ %add.ptr.i1.i161, %26 ]
   %sub.ptr.lhs.cast.i163 = ptrtoint ptr %add.ptr58 to i64
   %sub.ptr.sub.i165 = sub i64 %sub.ptr.lhs.cast.i163, %sub.ptr.lhs.cast
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %29, ptr align 1 %p, i64 %sub.ptr.sub.i165, i1 false)
@@ -33525,14 +33525,14 @@ _ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9al
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ]
   store i32 0, ptr %7, align 4
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mnRemainingSize.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -33885,14 +33885,14 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9al
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -34053,7 +34053,7 @@ common.resume.sink.split:                         ; preds = %if.then.i.i, %if.th
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %if.then.i.i.i36, %lpad, %if.then.i.i, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %21, %if.then.i.i.i36 ], [ %4, %lpad.i ], [ %4, %if.then.i.i ], [ %21, %lpad ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %4, %if.then.i.i ], [ %21, %lpad ], [ %21, %if.then.i.i.i36 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEEC2EOS2_.exit: ; preds = %entry
@@ -34296,14 +34296,14 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9all
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i82, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -34634,8 +34634,8 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9all
   br label %30
 
 30:                                               ; preds = %29, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152, %.thread
-  %31 = phi i64 [ %.pre221, %29 ], [ %add64, %.thread ], [ %.fr, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152 ]
-  %32 = phi ptr [ %add.ptr.i1.i165, %29 ], [ %add.ptr.i.i162235, %.thread ], [ %add.ptr.i.i162239, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152 ]
+  %31 = phi i64 [ %add64, %.thread ], [ %.fr, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152 ], [ %.pre221, %29 ]
+  %32 = phi ptr [ %add.ptr.i.i162235, %.thread ], [ %add.ptr.i.i162239, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152 ], [ %add.ptr.i1.i165, %29 ]
   %sub.ptr.lhs.cast.i167 = ptrtoint ptr %add.ptr58 to i64
   %sub.ptr.sub.i169 = sub i64 %sub.ptr.lhs.cast.i167, %sub.ptr.lhs.cast
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %32, ptr align 1 %p, i64 %sub.ptr.sub.i169, i1 false)
@@ -34807,14 +34807,14 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15Mall
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i89, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i89, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16

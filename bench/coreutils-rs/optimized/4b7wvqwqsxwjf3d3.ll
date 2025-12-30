@@ -124,7 +124,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %24, %31, %38
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm.i.i, %31 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %25, %24 ], [ %lpad.thr_comm.i.i, %31 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..str..Str$GT$$GT$17h3c74f0b21821f26dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #13
           to label %"_ZN4core3ptr305drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$clap_builder..builder..str..Str$C$1_usize$GT$$C$clap_builder..builder..arg..Arg..value_names$LT$clap_builder..builder..str..Str$C$$u5b$clap_builder..builder..str..Str$u3b$$u20$1$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h810534cb35358157E.exit" unwind label %41
 
@@ -312,8 +312,8 @@ define hidden { i32, i32 } @_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb79928
   br label %22
 
 22:                                               ; preds = %15, %19
-  %.pn = phi ptr [ %21, %19 ], [ %.sroa.5.0, %15 ]
-  %.sroa.5.1 = getelementptr inbounds i8, ptr %.pn, i64 -1
+  %.sroa.5.0.pn = phi ptr [ %21, %19 ], [ %.sroa.5.0, %15 ]
+  %.sroa.5.1 = getelementptr inbounds i8, ptr %.sroa.5.0.pn, i64 -1
   %.sroa.3.0.i2.pn.i = load i8, ptr %.sroa.5.1, align 1, !noalias !69, !noundef !4
   %23 = shl i32 %.sroa.01.0, 1
   %24 = zext i8 %.sroa.3.0.i2.pn.i to i32
@@ -350,11 +350,11 @@ define hidden void @_ZN6memchr6memmem13FinderBuilder13build_reverse17hd639ef99ee
   br i1 %16, label %_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b8385E.llvm.1100051835029668662.exit, label %39
 
 17:                                               ; preds = %39, %.noexc
-  %.sroa.5.sroa.0.0.i = phi i56 [ %.sroa.2.sroa.2.0.extract.trunc.i, %.noexc ], [ undef, %39 ]
-  %.sroa.5.sroa.2.0.i = phi i64 [ %6, %.noexc ], [ undef, %39 ]
-  %.sroa.5.sroa.3.0.i = phi i64 [ %.7.i.i, %.noexc ], [ undef, %39 ]
-  %.sroa.4.0.i = phi i8 [ %.sroa.2.sroa.0.0.extract.trunc.i, %.noexc ], [ %40, %39 ]
-  %.sroa.0.0.i = phi i64 [ %13, %.noexc ], [ 3, %39 ]
+  %.sroa.5.sroa.0.0.i = phi i56 [ undef, %39 ], [ %.sroa.2.sroa.2.0.extract.trunc.i, %.noexc ]
+  %.sroa.5.sroa.2.0.i = phi i64 [ undef, %39 ], [ %6, %.noexc ]
+  %.sroa.5.sroa.3.0.i = phi i64 [ undef, %39 ], [ %.7.i.i, %.noexc ]
+  %.sroa.4.0.i = phi i8 [ %40, %39 ], [ %.sroa.2.sroa.0.0.extract.trunc.i, %.noexc ]
+  %.sroa.0.0.i = phi i64 [ 3, %39 ], [ %13, %.noexc ]
   %18 = getelementptr i8, ptr %2, i64 %3
   %19 = getelementptr i8, ptr %18, i64 -1
   %20 = icmp eq ptr %19, null
@@ -392,8 +392,8 @@ define hidden void @_ZN6memchr6memmem13FinderBuilder13build_reverse17hd639ef99ee
   br label %34
 
 34:                                               ; preds = %31, %27
-  %.pn.i.i = phi ptr [ %33, %31 ], [ %.sroa.5.0.i.i, %27 ]
-  %.sroa.5.1.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -1
+  %.sroa.5.0.pn.i.i = phi ptr [ %33, %31 ], [ %.sroa.5.0.i.i, %27 ]
+  %.sroa.5.1.i.i = getelementptr inbounds i8, ptr %.sroa.5.0.pn.i.i, i64 -1
   %.sroa.3.0.i2.pn.i.i.i = load i8, ptr %.sroa.5.1.i.i, align 1, !alias.scope !72, !noalias !79, !noundef !4
   %35 = shl i32 %.sroa.01.0.i.i, 1
   %36 = zext i8 %.sroa.3.0.i2.pn.i.i.i to i32
@@ -463,11 +463,11 @@ define hidden void @_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b83
   br i1 %16, label %_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb799283b77cd3e98E.llvm.1100051835029668662.exit, label %41
 
 17:                                               ; preds = %41, %5
-  %.sroa.5.sroa.0.0 = phi i56 [ %.sroa.2.sroa.2.0.extract.trunc, %5 ], [ undef, %41 ]
-  %.sroa.5.sroa.2.0 = phi i64 [ %6, %5 ], [ undef, %41 ]
-  %.sroa.5.sroa.3.0 = phi i64 [ %.7.i, %5 ], [ undef, %41 ]
-  %.sroa.4.0 = phi i8 [ %.sroa.2.sroa.0.0.extract.trunc, %5 ], [ %42, %41 ]
-  %.sroa.0.0 = phi i64 [ %13, %5 ], [ 3, %41 ]
+  %.sroa.5.sroa.0.0 = phi i56 [ undef, %41 ], [ %.sroa.2.sroa.2.0.extract.trunc, %5 ]
+  %.sroa.5.sroa.2.0 = phi i64 [ undef, %41 ], [ %6, %5 ]
+  %.sroa.5.sroa.3.0 = phi i64 [ undef, %41 ], [ %.7.i, %5 ]
+  %.sroa.4.0 = phi i8 [ %42, %41 ], [ %.sroa.2.sroa.0.0.extract.trunc, %5 ]
+  %.sroa.0.0 = phi i64 [ 3, %41 ], [ %13, %5 ]
   %18 = getelementptr i8, ptr %1, i64 %2
   %19 = getelementptr i8, ptr %18, i64 -1
   %20 = icmp eq ptr %19, null
@@ -505,8 +505,8 @@ define hidden void @_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b83
   br label %34
 
 34:                                               ; preds = %31, %27
-  %.pn.i = phi ptr [ %33, %31 ], [ %.sroa.5.0.i, %27 ]
-  %.sroa.5.1.i = getelementptr inbounds i8, ptr %.pn.i, i64 -1
+  %.sroa.5.0.pn.i = phi ptr [ %33, %31 ], [ %.sroa.5.0.i, %27 ]
+  %.sroa.5.1.i = getelementptr inbounds i8, ptr %.sroa.5.0.pn.i, i64 -1
   %.sroa.3.0.i2.pn.i.i = load i8, ptr %.sroa.5.1.i, align 1, !alias.scope !86, !noalias !89, !noundef !4
   %35 = shl i32 %.sroa.01.0.i, 1
   %36 = zext i8 %.sroa.3.0.i2.pn.i.i to i32

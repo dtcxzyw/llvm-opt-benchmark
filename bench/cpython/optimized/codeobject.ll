@@ -1454,9 +1454,9 @@ define internal fastcc void @get_localsplus_counts(i64 %.16.val, ptr noundef rea
   br label %23
 
 23:                                               ; preds = %21, %13, %19
-  %.126 = phi i32 [ %.0252, %13 ], [ %spec.select35, %21 ], [ %.0252, %19 ]
-  %.124 = phi i32 [ %spec.select, %13 ], [ %.0233, %21 ], [ %20, %19 ]
-  %.1 = phi i32 [ %14, %13 ], [ %.05, %21 ], [ %.05, %19 ]
+  %.126 = phi i32 [ %.0252, %19 ], [ %.0252, %13 ], [ %spec.select35, %21 ]
+  %.124 = phi i32 [ %20, %19 ], [ %spec.select, %13 ], [ %.0233, %21 ]
+  %.1 = phi i32 [ %.05, %19 ], [ %14, %13 ], [ %.05, %21 ]
   %24 = add i32 %.0224, 1
   %25 = sext i32 %24 to i64
   %26 = icmp sgt i64 %.16.val, %25
@@ -1692,7 +1692,7 @@ scan_signed_varint.exit.i.i:                      ; preds = %.lr.ph.i.i.i.i, %92
   br label %get_line_delta.exit.thread.i
 
 get_line_delta.exit.thread.i:                     ; preds = %108, %107, %scan_signed_varint.exit.i.i, %85
-  %.0.i.ph.i = phi i32 [ 0, %108 ], [ 1, %85 ], [ 2, %107 ], [ %106, %scan_signed_varint.exit.i.i ]
+  %.0.i.ph.i = phi i32 [ 1, %85 ], [ 2, %107 ], [ 0, %108 ], [ %106, %scan_signed_varint.exit.i.i ]
   %109 = shl nuw i32 %.0.i.ph.i, 1
   br label %110
 
@@ -1869,9 +1869,9 @@ Py_XDECREF.exit:                                  ; preds = %148, %149, %151, %1
   br label %180
 
 180:                                              ; preds = %178, %176, %170
-  %.126.i.i = phi i32 [ %.0252.i.i, %170 ], [ %spec.select35.i.i, %178 ], [ %.0252.i.i, %176 ]
-  %.124.i.i = phi i32 [ %spec.select.i.i, %170 ], [ %.0233.i.i, %178 ], [ %177, %176 ]
-  %.1.i.i = phi i32 [ %171, %170 ], [ %.05.i.i, %178 ], [ %.05.i.i, %176 ]
+  %.126.i.i = phi i32 [ %.0252.i.i, %176 ], [ %.0252.i.i, %170 ], [ %spec.select35.i.i, %178 ]
+  %.124.i.i = phi i32 [ %177, %176 ], [ %spec.select.i.i, %170 ], [ %.0233.i.i, %178 ]
+  %.1.i.i = phi i32 [ %.05.i.i, %176 ], [ %171, %170 ], [ %.05.i.i, %178 ]
   %181 = add i32 %.0224.i.i, 1
   %182 = sext i32 %181 to i64
   %183 = icmp sgt i64 %.val75.i, %182
@@ -2158,7 +2158,7 @@ init_code.exit:                                   ; preds = %311, %.critedge.i23
   br label %Py_XDECREF.exit29
 
 Py_XDECREF.exit29:                                ; preds = %intern_strings.exit9.thread.sink.split.i, %.loopexit.i, %318, %315, %313, %init_code.exit, %remove_column_info.exit.thread, %remove_column_info.exit, %Py_XDECREF.exit
-  %.0 = phi ptr [ %146, %318 ], [ null, %remove_column_info.exit ], [ null, %Py_XDECREF.exit ], [ null, %remove_column_info.exit.thread ], [ %146, %init_code.exit ], [ %146, %313 ], [ %146, %315 ], [ null, %.loopexit.i ], [ null, %intern_strings.exit9.thread.sink.split.i ]
+  %.0 = phi ptr [ null, %remove_column_info.exit ], [ null, %Py_XDECREF.exit ], [ null, %remove_column_info.exit.thread ], [ %146, %init_code.exit ], [ %146, %313 ], [ %146, %315 ], [ %146, %318 ], [ null, %.loopexit.i ], [ null, %intern_strings.exit9.thread.sink.split.i ]
   ret ptr %.0
 }
 
@@ -2577,7 +2577,7 @@ _Py_set_localsplus_info.exit151:                  ; preds = %100, %105
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %40, %184, %185, %187, %190
-  %.0106167 = phi ptr [ %.0106.ph, %190 ], [ %.0106.ph, %184 ], [ %.0106.ph, %185 ], [ %.0106.ph, %187 ], [ null, %40 ]
+  %.0106167 = phi ptr [ %.0106.ph, %184 ], [ %.0106.ph, %185 ], [ %.0106.ph, %187 ], [ %.0106.ph, %190 ], [ null, %40 ]
   %191 = load ptr, ptr %20, align 8, !tbaa !96
   %.not.i152 = icmp eq ptr %191, null
   br i1 %.not.i152, label %Py_XDECREF.exit154, label %192
@@ -2786,7 +2786,7 @@ Py_XDECREF.exit41:                                ; preds = %Py_XDECREF.exit38, 
   br label %Py_XDECREF.exit44
 
 Py_XDECREF.exit44:                                ; preds = %3, %Py_XDECREF.exit41, %62, %64, %67
-  %.05966778287 = phi ptr [ %.0.ph, %67 ], [ %.0.ph, %Py_XDECREF.exit41 ], [ %.0.ph, %62 ], [ %.0.ph, %64 ], [ null, %3 ]
+  %.05966778287 = phi ptr [ %.0.ph, %Py_XDECREF.exit41 ], [ %.0.ph, %62 ], [ %.0.ph, %64 ], [ %.0.ph, %67 ], [ null, %3 ]
   ret ptr %.05966778287
 }
 
@@ -2971,7 +2971,7 @@ scan_signed_varint.exit.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i, %
   br label %get_line_delta.exit.i.i
 
 get_line_delta.exit.i.i:                          ; preds = %36, %35, %scan_signed_varint.exit.i.i.i, %15
-  %.0.i.i.i = phi i32 [ 0, %36 ], [ 2, %35 ], [ %.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 1, %15 ]
+  %.0.i.i.i = phi i32 [ 0, %36 ], [ %.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 2, %35 ], [ 1, %15 ]
   %37 = load i32, ptr %6, align 8, !tbaa !174
   %38 = add i32 %37, %.0.i.i.i
   store i32 %38, ptr %6, align 8, !tbaa !174
@@ -3071,7 +3071,7 @@ scan_signed_varint.exit.i.i.i20:                  ; preds = %.lr.ph.i.i.i.i.i14,
   br label %get_line_delta.exit.i.i9
 
 get_line_delta.exit.i.i9:                         ; preds = %81, %80, %scan_signed_varint.exit.i.i.i20, %61
-  %.0.i.neg.i.i = phi i32 [ 0, %81 ], [ -2, %80 ], [ %79, %scan_signed_varint.exit.i.i.i20 ], [ -1, %61 ]
+  %.0.i.neg.i.i = phi i32 [ 0, %81 ], [ %79, %scan_signed_varint.exit.i.i.i20 ], [ -2, %80 ], [ -1, %61 ]
   %82 = load i32, ptr %10, align 8, !tbaa !174
   %83 = add i32 %82, %.0.i.neg.i.i
   store i32 %83, ptr %10, align 8, !tbaa !174
@@ -3183,7 +3183,7 @@ scan_signed_varint.exit.i.i:                      ; preds = %.lr.ph.i.i.i.i, %9
   br label %get_line_delta.exit.i
 
 get_line_delta.exit.i:                            ; preds = %26, %25, %scan_signed_varint.exit.i.i, %4
-  %.0.i.i = phi i32 [ 0, %26 ], [ 2, %25 ], [ %.0.i.i.i, %scan_signed_varint.exit.i.i ], [ 1, %4 ]
+  %.0.i.i = phi i32 [ 0, %26 ], [ %.0.i.i.i, %scan_signed_varint.exit.i.i ], [ 2, %25 ], [ 1, %4 ]
   %27 = load i32, ptr %5, align 8, !tbaa !174
   %28 = add i32 %27, %.0.i.i
   store i32 %28, ptr %5, align 8, !tbaa !174
@@ -3290,7 +3290,7 @@ scan_signed_varint.exit.i.i:                      ; preds = %.lr.ph.i.i.i.i, %15
   br label %get_line_delta.exit.i
 
 get_line_delta.exit.i:                            ; preds = %32, %31, %scan_signed_varint.exit.i.i, %11
-  %.0.i.neg.i = phi i32 [ 0, %32 ], [ -2, %31 ], [ %30, %scan_signed_varint.exit.i.i ], [ -1, %11 ]
+  %.0.i.neg.i = phi i32 [ 0, %32 ], [ %30, %scan_signed_varint.exit.i.i ], [ -2, %31 ], [ -1, %11 ]
   %33 = load i32, ptr %12, align 8, !tbaa !174
   %34 = add i32 %33, %.0.i.neg.i
   store i32 %34, ptr %12, align 8, !tbaa !174
@@ -3422,7 +3422,7 @@ scan_signed_varint.exit.i.i:                      ; preds = %.lr.ph.i.i.i.i, %34
   br label %get_line_delta.exit.i
 
 get_line_delta.exit.i:                            ; preds = %51, %50, %scan_signed_varint.exit.i.i, %31
-  %.0.i.neg.i = phi i32 [ 0, %51 ], [ -2, %50 ], [ %49, %scan_signed_varint.exit.i.i ], [ -1, %31 ]
+  %.0.i.neg.i = phi i32 [ 0, %51 ], [ %49, %scan_signed_varint.exit.i.i ], [ -2, %50 ], [ -1, %31 ]
   %52 = load i32, ptr %19, align 8, !tbaa !174
   %53 = add i32 %52, %.0.i.neg.i
   store i32 %53, ptr %19, align 8, !tbaa !174
@@ -3789,7 +3789,7 @@ scan_signed_varint.exit.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i, %
   br label %get_line_delta.exit.i.i
 
 get_line_delta.exit.i.i:                          ; preds = %28, %27, %scan_signed_varint.exit.i.i.i, %6
-  %.0.i.i.i = phi i32 [ 0, %28 ], [ 2, %27 ], [ %.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 1, %6 ]
+  %.0.i.i.i = phi i32 [ 0, %28 ], [ %.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 2, %27 ], [ 1, %6 ]
   %29 = load i32, ptr %7, align 8, !tbaa !174
   %30 = add i32 %29, %.0.i.i.i
   store i32 %30, ptr %7, align 8, !tbaa !174
@@ -3885,7 +3885,7 @@ scan_signed_varint.exit.i.i.i28:                  ; preds = %.lr.ph.i.i.i.i.i22,
   br label %get_line_delta.exit.i.i16
 
 get_line_delta.exit.i.i16:                        ; preds = %73, %72, %scan_signed_varint.exit.i.i.i28, %52
-  %.0.i.i.i17 = phi i32 [ 0, %73 ], [ 2, %72 ], [ %.0.i.i.i.i31, %scan_signed_varint.exit.i.i.i28 ], [ 1, %52 ]
+  %.0.i.i.i17 = phi i32 [ 0, %73 ], [ %.0.i.i.i.i31, %scan_signed_varint.exit.i.i.i28 ], [ 2, %72 ], [ 1, %52 ]
   %74 = add i32 %50, %.0.i.i.i17
   store i32 %74, ptr %7, align 8, !tbaa !174
   %75 = load i8, ptr %51, align 1, !tbaa !97
@@ -3979,7 +3979,7 @@ scan_signed_varint.exit.i.i.i44:                  ; preds = %.lr.ph.i.i.i.i.i38,
   br label %get_line_delta.exit.i.i33
 
 get_line_delta.exit.i.i33:                        ; preds = %115, %114, %scan_signed_varint.exit.i.i.i44, %95
-  %.0.i.neg.i.i = phi i32 [ 0, %115 ], [ -2, %114 ], [ %113, %scan_signed_varint.exit.i.i.i44 ], [ -1, %95 ]
+  %.0.i.neg.i.i = phi i32 [ 0, %115 ], [ %113, %scan_signed_varint.exit.i.i.i44 ], [ -2, %114 ], [ -1, %95 ]
   %116 = add i32 %74, %.0.i.neg.i.i
   store i32 %116, ptr %7, align 8, !tbaa !174
   store i32 %49, ptr %34, align 4, !tbaa !173
@@ -4007,7 +4007,7 @@ retreat.exit.i:                                   ; preds = %.preheader.i.i
   br label %_PyLineTable_NextAddressRange.exit32
 
 _PyLineTable_NextAddressRange.exit32:             ; preds = %48, %retreat.exit.i, %89
-  %126 = phi i32 [ %80, %89 ], [ %49, %retreat.exit.i ], [ %49, %48 ]
+  %126 = phi i32 [ %49, %retreat.exit.i ], [ %80, %89 ], [ %49, %48 ]
   %127 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, i32 noundef %35, i32 noundef %126, ptr noundef nonnull @_source_offset_converter, ptr noundef nonnull %2) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_PyLineTable_NextAddressRange.exit
@@ -4331,7 +4331,7 @@ _Py_NewRef.exit.sink.split.i:                     ; preds = %get_localsplus_name
   br label %get_cached_locals.exit
 
 get_cached_locals.exit:                           ; preds = %_Py_NewRef.exit.sink.split.i, %get_localsplus_names.exit.thread17.i, %14, %11, %init_co_cached.exit
-  %.0 = phi ptr [ null, %init_co_cached.exit ], [ null, %14 ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
+  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
   ret ptr %.0
 }
 
@@ -4453,7 +4453,7 @@ _Py_NewRef.exit.sink.split.i:                     ; preds = %get_localsplus_name
   br label %get_cached_locals.exit
 
 get_cached_locals.exit:                           ; preds = %_Py_NewRef.exit.sink.split.i, %get_localsplus_names.exit.thread17.i, %14, %11, %init_co_cached.exit
-  %.0 = phi ptr [ null, %init_co_cached.exit ], [ null, %14 ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
+  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
   ret ptr %.0
 }
 
@@ -4574,7 +4574,7 @@ _Py_NewRef.exit.sink.split.i:                     ; preds = %get_localsplus_name
   br label %get_cached_locals.exit
 
 get_cached_locals.exit:                           ; preds = %_Py_NewRef.exit.sink.split.i, %get_localsplus_names.exit.thread17.i, %14, %11, %init_co_cached.exit
-  %.0 = phi ptr [ null, %init_co_cached.exit ], [ null, %14 ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
+  %.0 = phi ptr [ null, %init_co_cached.exit ], [ %10, %11 ], [ %18, %get_localsplus_names.exit.thread17.i ], [ null, %14 ], [ %.sink26.i, %_Py_NewRef.exit.sink.split.i ]
   ret ptr %.0
 }
 
@@ -4685,7 +4685,7 @@ init_co_cached.exit.thread:                       ; preds = %1
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %13, %39, %.loopexit, %11, %8, %init_co_cached.exit
-  %.016 = phi ptr [ null, %init_co_cached.exit ], [ %.pre, %11 ], [ %.pre, %8 ], [ %18, %.loopexit ], [ %18, %39 ], [ null, %13 ]
+  %.016 = phi ptr [ null, %init_co_cached.exit ], [ %.pre, %8 ], [ %.pre, %11 ], [ %18, %.loopexit ], [ %18, %39 ], [ null, %13 ]
   ret ptr %.016
 }
 
@@ -5323,7 +5323,7 @@ define internal i64 @code_hash(ptr noundef %0) #0 {
   br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !208
 
 79:                                               ; preds = %._crit_edge, %21, %17, %13, %9, %5, %1
-  %.1 = phi i64 [ %..679, %._crit_edge ], [ -1, %1 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %5 ]
+  %.1 = phi i64 [ -1, %21 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %5 ], [ -1, %1 ], [ %..679, %._crit_edge ]
   ret i64 %.1
 }
 
@@ -5533,8 +5533,8 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit86, %
   %117 = icmp slt i32 %.066, 0
   br i1 %117, label %Py_DECREF.exit88, label %.thread100
 
-.thread100:                                       ; preds = %.lr.ph, %116, %9, %45, %39, %33, %27, %21, %15, %109
-  %.sink117 = phi i32 [ 2, %109 ], [ 3, %116 ], [ 3, %15 ], [ 3, %21 ], [ 3, %27 ], [ 3, %33 ], [ 3, %39 ], [ 3, %45 ], [ 3, %9 ], [ 3, %.lr.ph ]
+.thread100:                                       ; preds = %.lr.ph, %116, %45, %39, %33, %27, %21, %15, %9, %109
+  %.sink117 = phi i32 [ 2, %109 ], [ 3, %9 ], [ 3, %15 ], [ 3, %21 ], [ 3, %27 ], [ 3, %33 ], [ 3, %39 ], [ 3, %45 ], [ 3, %116 ], [ 3, %.lr.ph ]
   %118 = icmp eq i32 %2, %.sink117
   %_Py_TrueStruct._Py_FalseStruct84 = select i1 %118, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   %119 = load i32, ptr %_Py_TrueStruct._Py_FalseStruct84, align 8, !tbaa !97
@@ -5547,7 +5547,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit86, %
   br label %Py_DECREF.exit88
 
 Py_DECREF.exit88:                                 ; preds = %121, %.thread100, %74, %71, %69, %116, %._crit_edge, %5, %7, %3
-  %.0 = phi ptr [ @_Py_NotImplementedStruct, %5 ], [ null, %116 ], [ null, %._crit_edge ], [ null, %74 ], [ @_Py_NotImplementedStruct, %7 ], [ @_Py_NotImplementedStruct, %3 ], [ null, %69 ], [ null, %71 ], [ %_Py_TrueStruct._Py_FalseStruct84, %.thread100 ], [ %_Py_TrueStruct._Py_FalseStruct84, %121 ]
+  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %7 ], [ @_Py_NotImplementedStruct, %5 ], [ null, %._crit_edge ], [ null, %116 ], [ null, %69 ], [ null, %71 ], [ null, %74 ], [ %_Py_TrueStruct._Py_FalseStruct84, %.thread100 ], [ %_Py_TrueStruct._Py_FalseStruct84, %121 ]
   ret ptr %.0
 }
 
@@ -6113,7 +6113,7 @@ Py_DECREF.exit152.sink.split:                     ; preds = %105, %89
   br label %Py_DECREF.exit152
 
 Py_DECREF.exit152:                                ; preds = %Py_DECREF.exit152.sink.split, %87, %89, %105, %102, %Py_DECREF.exit154, %78
-  %.4 = phi ptr [ null, %Py_DECREF.exit154 ], [ null, %89 ], [ null, %78 ], [ %103, %102 ], [ %103, %105 ], [ null, %87 ], [ %.4.ph, %Py_DECREF.exit152.sink.split ]
+  %.4 = phi ptr [ null, %78 ], [ null, %Py_DECREF.exit154 ], [ %103, %102 ], [ %103, %105 ], [ null, %89 ], [ null, %87 ], [ %.4.ph, %Py_DECREF.exit152.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6196,7 +6196,7 @@ Py_DECREF.exit150:                                ; preds = %133, %130, %127, %1
   br label %Py_DECREF.exit158
 
 Py_DECREF.exit158:                                ; preds = %136, %139, %142, %76, %73, %._crit_edge207, %62, %64, %67, %Py_DECREF.exit150, %15, %25, %23, %43, %48, %46, %40, %9, %12, %134, %51, %Py_DECREF.exit152
-  %.3 = phi ptr [ null, %134 ], [ null, %51 ], [ %.4, %Py_DECREF.exit152 ], [ %0, %12 ], [ %49, %48 ], [ %16, %15 ], [ %71, %76 ], [ %26, %25 ], [ null, %62 ], [ %.4109, %Py_DECREF.exit150 ], [ %24, %23 ], [ %41, %40 ], [ %44, %43 ], [ %47, %46 ], [ %0, %9 ], [ null, %67 ], [ null, %64 ], [ %71, %._crit_edge207 ], [ %71, %73 ], [ %137, %142 ], [ %137, %139 ], [ %137, %136 ]
+  %.3 = phi ptr [ %.4, %Py_DECREF.exit152 ], [ null, %51 ], [ null, %134 ], [ %16, %15 ], [ %.4109, %Py_DECREF.exit150 ], [ %24, %23 ], [ %26, %25 ], [ %41, %40 ], [ %44, %43 ], [ %47, %46 ], [ %49, %48 ], [ %0, %9 ], [ %0, %12 ], [ null, %67 ], [ null, %64 ], [ null, %62 ], [ %71, %._crit_edge207 ], [ %71, %73 ], [ %71, %76 ], [ %137, %142 ], [ %137, %139 ], [ %137, %136 ]
   ret ptr %.3
 }
 
@@ -7177,24 +7177,24 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %code_replace_impl.exit
 
 221:                                              ; preds = %214, %212, %202, %192, %182, %172, %162, %152, %142, %132, %122, %112, %102, %92, %82, %72, %62, %52, %.thread
-  %.0163 = phi i32 [ %12, %.thread ], [ %.1164, %212 ], [ %.1164, %202 ], [ %.1164, %192 ], [ %.1164, %182 ], [ %.1164, %172 ], [ %.1164, %162 ], [ %.1164, %152 ], [ %.1164, %142 ], [ %.1164, %132 ], [ %.1164, %122 ], [ %.1164, %112 ], [ %.1164, %102 ], [ %.1164, %92 ], [ %.1164, %82 ], [ %.1164, %72 ], [ %.1164, %62 ], [ %48, %52 ], [ %.1164, %214 ]
-  %.0161 = phi i32 [ %14, %.thread ], [ %.1162, %212 ], [ %.1162, %202 ], [ %.1162, %192 ], [ %.1162, %182 ], [ %.1162, %172 ], [ %.1162, %162 ], [ %.1162, %152 ], [ %.1162, %142 ], [ %.1162, %132 ], [ %.1162, %122 ], [ %.1162, %112 ], [ %.1162, %102 ], [ %.1162, %92 ], [ %.1162, %82 ], [ %.1162, %72 ], [ %58, %62 ], [ %14, %52 ], [ %.1162, %214 ]
-  %.0159 = phi i32 [ %16, %.thread ], [ %.1160, %212 ], [ %.1160, %202 ], [ %.1160, %192 ], [ %.1160, %182 ], [ %.1160, %172 ], [ %.1160, %162 ], [ %.1160, %152 ], [ %.1160, %142 ], [ %.1160, %132 ], [ %.1160, %122 ], [ %.1160, %112 ], [ %.1160, %102 ], [ %.1160, %92 ], [ %.1160, %82 ], [ %68, %72 ], [ %16, %62 ], [ %16, %52 ], [ %.1160, %214 ]
-  %.0157 = phi i32 [ %18, %.thread ], [ %.1158, %212 ], [ %.1158, %202 ], [ %.1158, %192 ], [ %.1158, %182 ], [ %.1158, %172 ], [ %.1158, %162 ], [ %.1158, %152 ], [ %.1158, %142 ], [ %.1158, %132 ], [ %.1158, %122 ], [ %.1158, %112 ], [ %.1158, %102 ], [ %.1158, %92 ], [ %78, %82 ], [ %18, %72 ], [ %18, %62 ], [ %18, %52 ], [ %.1158, %214 ]
-  %.0155 = phi i32 [ %20, %.thread ], [ %.1156, %212 ], [ %.1156, %202 ], [ %.1156, %192 ], [ %.1156, %182 ], [ %.1156, %172 ], [ %.1156, %162 ], [ %.1156, %152 ], [ %.1156, %142 ], [ %.1156, %132 ], [ %.1156, %122 ], [ %.1156, %112 ], [ %.1156, %102 ], [ %88, %92 ], [ %20, %82 ], [ %20, %72 ], [ %20, %62 ], [ %20, %52 ], [ %.1156, %214 ]
-  %.0153 = phi i32 [ %22, %.thread ], [ %.1154, %212 ], [ %.1154, %202 ], [ %.1154, %192 ], [ %.1154, %182 ], [ %.1154, %172 ], [ %.1154, %162 ], [ %.1154, %152 ], [ %.1154, %142 ], [ %.1154, %132 ], [ %.1154, %122 ], [ %.1154, %112 ], [ %98, %102 ], [ %22, %92 ], [ %22, %82 ], [ %22, %72 ], [ %22, %62 ], [ %22, %52 ], [ %.1154, %214 ]
-  %.0151 = phi i32 [ %24, %.thread ], [ %.1152, %212 ], [ %.1152, %202 ], [ %.1152, %192 ], [ %.1152, %182 ], [ %.1152, %172 ], [ %.1152, %162 ], [ %.1152, %152 ], [ %.1152, %142 ], [ %.1152, %132 ], [ %.1152, %122 ], [ %108, %112 ], [ %24, %102 ], [ %24, %92 ], [ %24, %82 ], [ %24, %72 ], [ %24, %62 ], [ %24, %52 ], [ %.1152, %214 ]
-  %.0149 = phi ptr [ null, %.thread ], [ %116, %212 ], [ %116, %202 ], [ %116, %192 ], [ %116, %182 ], [ %116, %172 ], [ %116, %162 ], [ %116, %152 ], [ %116, %142 ], [ %116, %132 ], [ %116, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ %116, %214 ]
-  %.0147 = phi ptr [ %26, %.thread ], [ %.1148, %212 ], [ %.1148, %202 ], [ %.1148, %192 ], [ %.1148, %182 ], [ %.1148, %172 ], [ %.1148, %162 ], [ %.1148, %152 ], [ %.1148, %142 ], [ %126, %132 ], [ %26, %122 ], [ %26, %112 ], [ %26, %102 ], [ %26, %92 ], [ %26, %82 ], [ %26, %72 ], [ %26, %62 ], [ %26, %52 ], [ %.1148, %214 ]
-  %.0145 = phi ptr [ %28, %.thread ], [ %.1146, %212 ], [ %.1146, %202 ], [ %.1146, %192 ], [ %.1146, %182 ], [ %.1146, %172 ], [ %.1146, %162 ], [ %.1146, %152 ], [ %136, %142 ], [ %28, %132 ], [ %28, %122 ], [ %28, %112 ], [ %28, %102 ], [ %28, %92 ], [ %28, %82 ], [ %28, %72 ], [ %28, %62 ], [ %28, %52 ], [ %.1146, %214 ]
-  %.0143 = phi ptr [ null, %.thread ], [ %146, %212 ], [ %146, %202 ], [ %146, %192 ], [ %146, %182 ], [ %146, %172 ], [ %146, %162 ], [ %146, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ %146, %214 ]
-  %.0141 = phi ptr [ null, %.thread ], [ %156, %212 ], [ %156, %202 ], [ %156, %192 ], [ %156, %182 ], [ %156, %172 ], [ %156, %162 ], [ null, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ %156, %214 ]
-  %.0139 = phi ptr [ null, %.thread ], [ %166, %212 ], [ %166, %202 ], [ %166, %192 ], [ %166, %182 ], [ %166, %172 ], [ null, %162 ], [ null, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ %166, %214 ]
-  %.0137 = phi ptr [ %30, %.thread ], [ %.1138, %212 ], [ %.1138, %202 ], [ %.1138, %192 ], [ %176, %182 ], [ %30, %172 ], [ %30, %162 ], [ %30, %152 ], [ %30, %142 ], [ %30, %132 ], [ %30, %122 ], [ %30, %112 ], [ %30, %102 ], [ %30, %92 ], [ %30, %82 ], [ %30, %72 ], [ %30, %62 ], [ %30, %52 ], [ %.1138, %214 ]
-  %.0135 = phi ptr [ %32, %.thread ], [ %.1136, %212 ], [ %.1136, %202 ], [ %186, %192 ], [ %32, %182 ], [ %32, %172 ], [ %32, %162 ], [ %32, %152 ], [ %32, %142 ], [ %32, %132 ], [ %32, %122 ], [ %32, %112 ], [ %32, %102 ], [ %32, %92 ], [ %32, %82 ], [ %32, %72 ], [ %32, %62 ], [ %32, %52 ], [ %.1136, %214 ]
-  %.0133 = phi ptr [ %34, %.thread ], [ %.1134, %212 ], [ %196, %202 ], [ %34, %192 ], [ %34, %182 ], [ %34, %172 ], [ %34, %162 ], [ %34, %152 ], [ %34, %142 ], [ %34, %132 ], [ %34, %122 ], [ %34, %112 ], [ %34, %102 ], [ %34, %92 ], [ %34, %82 ], [ %34, %72 ], [ %34, %62 ], [ %34, %52 ], [ %.1134, %214 ]
-  %.0132 = phi ptr [ %36, %.thread ], [ %206, %212 ], [ %36, %202 ], [ %36, %192 ], [ %36, %182 ], [ %36, %172 ], [ %36, %162 ], [ %36, %152 ], [ %36, %142 ], [ %36, %132 ], [ %36, %122 ], [ %36, %112 ], [ %36, %102 ], [ %36, %92 ], [ %36, %82 ], [ %36, %72 ], [ %36, %62 ], [ %36, %52 ], [ %.1, %214 ]
-  %.0 = phi ptr [ %38, %.thread ], [ %38, %212 ], [ %38, %202 ], [ %38, %192 ], [ %38, %182 ], [ %38, %172 ], [ %38, %162 ], [ %38, %152 ], [ %38, %142 ], [ %38, %132 ], [ %38, %122 ], [ %38, %112 ], [ %38, %102 ], [ %38, %92 ], [ %38, %82 ], [ %38, %72 ], [ %38, %62 ], [ %38, %52 ], [ %216, %214 ]
+  %.0163 = phi i32 [ %.1164, %212 ], [ %.1164, %202 ], [ %.1164, %192 ], [ %.1164, %182 ], [ %.1164, %172 ], [ %.1164, %162 ], [ %.1164, %152 ], [ %.1164, %142 ], [ %.1164, %132 ], [ %.1164, %122 ], [ %.1164, %112 ], [ %.1164, %102 ], [ %.1164, %92 ], [ %.1164, %82 ], [ %.1164, %72 ], [ %.1164, %62 ], [ %48, %52 ], [ %12, %.thread ], [ %.1164, %214 ]
+  %.0161 = phi i32 [ %.1162, %212 ], [ %.1162, %202 ], [ %.1162, %192 ], [ %.1162, %182 ], [ %.1162, %172 ], [ %.1162, %162 ], [ %.1162, %152 ], [ %.1162, %142 ], [ %.1162, %132 ], [ %.1162, %122 ], [ %.1162, %112 ], [ %.1162, %102 ], [ %.1162, %92 ], [ %.1162, %82 ], [ %.1162, %72 ], [ %58, %62 ], [ %14, %52 ], [ %14, %.thread ], [ %.1162, %214 ]
+  %.0159 = phi i32 [ %.1160, %212 ], [ %.1160, %202 ], [ %.1160, %192 ], [ %.1160, %182 ], [ %.1160, %172 ], [ %.1160, %162 ], [ %.1160, %152 ], [ %.1160, %142 ], [ %.1160, %132 ], [ %.1160, %122 ], [ %.1160, %112 ], [ %.1160, %102 ], [ %.1160, %92 ], [ %.1160, %82 ], [ %68, %72 ], [ %16, %62 ], [ %16, %52 ], [ %16, %.thread ], [ %.1160, %214 ]
+  %.0157 = phi i32 [ %.1158, %212 ], [ %.1158, %202 ], [ %.1158, %192 ], [ %.1158, %182 ], [ %.1158, %172 ], [ %.1158, %162 ], [ %.1158, %152 ], [ %.1158, %142 ], [ %.1158, %132 ], [ %.1158, %122 ], [ %.1158, %112 ], [ %.1158, %102 ], [ %.1158, %92 ], [ %78, %82 ], [ %18, %72 ], [ %18, %62 ], [ %18, %52 ], [ %18, %.thread ], [ %.1158, %214 ]
+  %.0155 = phi i32 [ %.1156, %212 ], [ %.1156, %202 ], [ %.1156, %192 ], [ %.1156, %182 ], [ %.1156, %172 ], [ %.1156, %162 ], [ %.1156, %152 ], [ %.1156, %142 ], [ %.1156, %132 ], [ %.1156, %122 ], [ %.1156, %112 ], [ %.1156, %102 ], [ %88, %92 ], [ %20, %82 ], [ %20, %72 ], [ %20, %62 ], [ %20, %52 ], [ %20, %.thread ], [ %.1156, %214 ]
+  %.0153 = phi i32 [ %.1154, %212 ], [ %.1154, %202 ], [ %.1154, %192 ], [ %.1154, %182 ], [ %.1154, %172 ], [ %.1154, %162 ], [ %.1154, %152 ], [ %.1154, %142 ], [ %.1154, %132 ], [ %.1154, %122 ], [ %.1154, %112 ], [ %98, %102 ], [ %22, %92 ], [ %22, %82 ], [ %22, %72 ], [ %22, %62 ], [ %22, %52 ], [ %22, %.thread ], [ %.1154, %214 ]
+  %.0151 = phi i32 [ %.1152, %212 ], [ %.1152, %202 ], [ %.1152, %192 ], [ %.1152, %182 ], [ %.1152, %172 ], [ %.1152, %162 ], [ %.1152, %152 ], [ %.1152, %142 ], [ %.1152, %132 ], [ %.1152, %122 ], [ %108, %112 ], [ %24, %102 ], [ %24, %92 ], [ %24, %82 ], [ %24, %72 ], [ %24, %62 ], [ %24, %52 ], [ %24, %.thread ], [ %.1152, %214 ]
+  %.0149 = phi ptr [ %116, %212 ], [ %116, %202 ], [ %116, %192 ], [ %116, %182 ], [ %116, %172 ], [ %116, %162 ], [ %116, %152 ], [ %116, %142 ], [ %116, %132 ], [ %116, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %116, %214 ]
+  %.0147 = phi ptr [ %.1148, %212 ], [ %.1148, %202 ], [ %.1148, %192 ], [ %.1148, %182 ], [ %.1148, %172 ], [ %.1148, %162 ], [ %.1148, %152 ], [ %.1148, %142 ], [ %126, %132 ], [ %26, %122 ], [ %26, %112 ], [ %26, %102 ], [ %26, %92 ], [ %26, %82 ], [ %26, %72 ], [ %26, %62 ], [ %26, %52 ], [ %26, %.thread ], [ %.1148, %214 ]
+  %.0145 = phi ptr [ %.1146, %212 ], [ %.1146, %202 ], [ %.1146, %192 ], [ %.1146, %182 ], [ %.1146, %172 ], [ %.1146, %162 ], [ %.1146, %152 ], [ %136, %142 ], [ %28, %132 ], [ %28, %122 ], [ %28, %112 ], [ %28, %102 ], [ %28, %92 ], [ %28, %82 ], [ %28, %72 ], [ %28, %62 ], [ %28, %52 ], [ %28, %.thread ], [ %.1146, %214 ]
+  %.0143 = phi ptr [ %146, %212 ], [ %146, %202 ], [ %146, %192 ], [ %146, %182 ], [ %146, %172 ], [ %146, %162 ], [ %146, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %146, %214 ]
+  %.0141 = phi ptr [ %156, %212 ], [ %156, %202 ], [ %156, %192 ], [ %156, %182 ], [ %156, %172 ], [ %156, %162 ], [ null, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %156, %214 ]
+  %.0139 = phi ptr [ %166, %212 ], [ %166, %202 ], [ %166, %192 ], [ %166, %182 ], [ %166, %172 ], [ null, %162 ], [ null, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %166, %214 ]
+  %.0137 = phi ptr [ %.1138, %212 ], [ %.1138, %202 ], [ %.1138, %192 ], [ %176, %182 ], [ %30, %172 ], [ %30, %162 ], [ %30, %152 ], [ %30, %142 ], [ %30, %132 ], [ %30, %122 ], [ %30, %112 ], [ %30, %102 ], [ %30, %92 ], [ %30, %82 ], [ %30, %72 ], [ %30, %62 ], [ %30, %52 ], [ %30, %.thread ], [ %.1138, %214 ]
+  %.0135 = phi ptr [ %.1136, %212 ], [ %.1136, %202 ], [ %186, %192 ], [ %32, %182 ], [ %32, %172 ], [ %32, %162 ], [ %32, %152 ], [ %32, %142 ], [ %32, %132 ], [ %32, %122 ], [ %32, %112 ], [ %32, %102 ], [ %32, %92 ], [ %32, %82 ], [ %32, %72 ], [ %32, %62 ], [ %32, %52 ], [ %32, %.thread ], [ %.1136, %214 ]
+  %.0133 = phi ptr [ %.1134, %212 ], [ %196, %202 ], [ %34, %192 ], [ %34, %182 ], [ %34, %172 ], [ %34, %162 ], [ %34, %152 ], [ %34, %142 ], [ %34, %132 ], [ %34, %122 ], [ %34, %112 ], [ %34, %102 ], [ %34, %92 ], [ %34, %82 ], [ %34, %72 ], [ %34, %62 ], [ %34, %52 ], [ %34, %.thread ], [ %.1134, %214 ]
+  %.0132 = phi ptr [ %206, %212 ], [ %36, %202 ], [ %36, %192 ], [ %36, %182 ], [ %36, %172 ], [ %36, %162 ], [ %36, %152 ], [ %36, %142 ], [ %36, %132 ], [ %36, %122 ], [ %36, %112 ], [ %36, %102 ], [ %36, %92 ], [ %36, %82 ], [ %36, %72 ], [ %36, %62 ], [ %36, %52 ], [ %36, %.thread ], [ %.1, %214 ]
+  %.0 = phi ptr [ %38, %212 ], [ %38, %202 ], [ %38, %192 ], [ %38, %182 ], [ %38, %172 ], [ %38, %162 ], [ %38, %152 ], [ %38, %142 ], [ %38, %132 ], [ %38, %122 ], [ %38, %112 ], [ %38, %102 ], [ %38, %92 ], [ %38, %82 ], [ %38, %72 ], [ %38, %62 ], [ %38, %52 ], [ %38, %.thread ], [ %216, %214 ]
   %222 = icmp slt i32 %.0163, 0
   br i1 %222, label %223, label %225
 
@@ -7400,7 +7400,7 @@ Py_XDECREF.exit94.i:                              ; preds = %298, %295, %293, %P
   br label %code_replace_impl.exit
 
 code_replace_impl.exit:                           ; preds = %304, %301, %299, %Py_XDECREF.exit94.i, %257, %251, %247, %243, %239, %235, %231, %227, %223, %110, %100, %90, %80, %70, %60, %50, %42, %220, %211, %201, %191, %181, %171, %161, %151, %141, %131, %121
-  %.0167 = phi ptr [ null, %50 ], [ null, %60 ], [ null, %70 ], [ null, %80 ], [ null, %90 ], [ null, %100 ], [ null, %110 ], [ null, %42 ], [ null, %220 ], [ null, %211 ], [ null, %201 ], [ null, %191 ], [ null, %181 ], [ null, %171 ], [ null, %161 ], [ null, %151 ], [ null, %141 ], [ null, %131 ], [ null, %121 ], [ null, %223 ], [ null, %227 ], [ null, %231 ], [ null, %235 ], [ null, %239 ], [ null, %243 ], [ null, %247 ], [ null, %251 ], [ null, %257 ], [ %.063.i, %Py_XDECREF.exit94.i ], [ %.063.i, %299 ], [ %.063.i, %301 ], [ %.063.i, %304 ]
+  %.0167 = phi ptr [ null, %50 ], [ null, %60 ], [ null, %70 ], [ null, %80 ], [ null, %90 ], [ null, %100 ], [ null, %110 ], [ null, %220 ], [ null, %211 ], [ null, %201 ], [ null, %191 ], [ null, %181 ], [ null, %171 ], [ null, %161 ], [ null, %151 ], [ null, %141 ], [ null, %131 ], [ null, %121 ], [ null, %42 ], [ null, %223 ], [ null, %227 ], [ null, %231 ], [ null, %235 ], [ null, %239 ], [ null, %243 ], [ null, %247 ], [ null, %257 ], [ null, %251 ], [ %.063.i, %Py_XDECREF.exit94.i ], [ %.063.i, %299 ], [ %.063.i, %301 ], [ %.063.i, %304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0167
 }
@@ -7466,7 +7466,7 @@ code__varname_from_oparg_impl.exit.sink.split:    ; preds = %27, %19
   br label %code__varname_from_oparg_impl.exit
 
 code__varname_from_oparg_impl.exit:               ; preds = %code__varname_from_oparg_impl.exit.sink.split, %27, %.split18, %19, %.split, %22, %9
-  %.0 = phi ptr [ null, %22 ], [ null, %9 ], [ %25, %27 ], [ null, %.split ], [ %17, %19 ], [ null, %.split18 ], [ %.sink33, %code__varname_from_oparg_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %22 ], [ null, %9 ], [ null, %.split ], [ %17, %19 ], [ null, %.split18 ], [ %25, %27 ], [ %.sink33, %code__varname_from_oparg_impl.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -7577,7 +7577,7 @@ scan_signed_varint.exit.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i,
   br label %get_line_delta.exit.i.i.i
 
 get_line_delta.exit.i.i.i:                        ; preds = %39, %38, %scan_signed_varint.exit.i.i.i.i, %.lr.ph.i
-  %.0.i.i.i.i = phi i32 [ 0, %39 ], [ 2, %38 ], [ %.0.i.i.i.i.i, %scan_signed_varint.exit.i.i.i.i ], [ 1, %.lr.ph.i ]
+  %.0.i.i.i.i = phi i32 [ 0, %39 ], [ %.0.i.i.i.i.i, %scan_signed_varint.exit.i.i.i.i ], [ 2, %38 ], [ 1, %.lr.ph.i ]
   %40 = add i32 %.0.i.i.i.i, %.sroa.1130.072.i
   %41 = shl i8 %19, 1
   %narrow.i.i.i.i = and i8 %41, 14
@@ -7933,9 +7933,9 @@ define internal fastcc ptr @code_new_impl(i32 noundef %0, i32 noundef %1, i32 no
   br label %59
 
 59:                                               ; preds = %57, %40, %48, %55
-  %.049 = phi ptr [ null, %55 ], [ %58, %57 ], [ null, %40 ], [ null, %48 ]
-  %.045 = phi ptr [ %.146, %55 ], [ %.146, %57 ], [ null, %40 ], [ null, %48 ]
-  %.0 = phi ptr [ null, %55 ], [ %.1, %57 ], [ null, %40 ], [ null, %48 ]
+  %.049 = phi ptr [ null, %40 ], [ null, %48 ], [ null, %55 ], [ %58, %57 ]
+  %.045 = phi ptr [ null, %40 ], [ null, %48 ], [ %.146, %55 ], [ %.146, %57 ]
+  %.0 = phi ptr [ null, %40 ], [ null, %48 ], [ null, %55 ], [ %.1, %57 ]
   %60 = load i32, ptr %38, align 8, !tbaa !97
   %.not.i.i = icmp sgt i32 %60, -1
   br i1 %.not.i.i, label %61, label %Py_XDECREF.exit
@@ -8007,7 +8007,7 @@ Py_XDECREF.exit66:                                ; preds = %Py_XDECREF.exit63, 
   br label %Py_XDECREF.exit69
 
 Py_XDECREF.exit69:                                ; preds = %18, %23, %27, %31, %35, %37, %Py_XDECREF.exit66, %77, %79, %82
-  %.0497182328 = phi ptr [ %.049, %82 ], [ %.049, %Py_XDECREF.exit66 ], [ %.049, %77 ], [ %.049, %79 ], [ null, %37 ], [ null, %35 ], [ null, %31 ], [ null, %27 ], [ null, %23 ], [ null, %18 ]
+  %.0497182328 = phi ptr [ %.049, %Py_XDECREF.exit66 ], [ %.049, %77 ], [ %.049, %79 ], [ %.049, %82 ], [ null, %37 ], [ null, %35 ], [ null, %31 ], [ null, %27 ], [ null, %23 ], [ null, %18 ]
   ret ptr %.0497182328
 }
 
@@ -8098,7 +8098,7 @@ Py_DECREF.exit26.sink.split:                      ; preds = %34, %26
   br label %Py_DECREF.exit26
 
 Py_DECREF.exit26:                                 ; preds = %Py_INCREF.exit, %Py_DECREF.exit26.sink.split, %.preheader, %34, %32, %26, %20, %1
-  %.0 = phi ptr [ null, %1 ], [ %3, %.preheader ], [ null, %Py_DECREF.exit26.sink.split ], [ null, %20 ], [ null, %26 ], [ null, %32 ], [ null, %34 ], [ %3, %Py_INCREF.exit ]
+  %.0 = phi ptr [ null, %1 ], [ null, %20 ], [ null, %26 ], [ null, %32 ], [ null, %34 ], [ %3, %.preheader ], [ null, %Py_DECREF.exit26.sink.split ], [ %3, %Py_INCREF.exit ]
   ret ptr %.0
 }
 

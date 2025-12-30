@@ -349,7 +349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   br label %.body
 
 .body:                                            ; preds = %31, %28, %85
-  %.pn14 = phi { ptr, i32 } [ %86, %85 ], [ %29, %28 ], [ %29, %31 ]
+  %.pn14 = phi { ptr, i32 } [ %86, %85 ], [ %29, %31 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %95
 

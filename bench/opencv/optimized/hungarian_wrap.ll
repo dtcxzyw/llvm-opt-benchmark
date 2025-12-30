@@ -827,7 +827,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit52:          ; preds = %96, %98, %100, %102
   br i1 %158, label %152, label %._crit_edge66.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %._crit_edge66, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit49, %.preheader55, %.preheader.lr.ph, %._crit_edge62
-  %159 = phi i32 [ %60, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit49 ], [ %114, %.preheader.lr.ph ], [ %114, %._crit_edge62 ], [ %103, %.preheader55 ], [ %148, %._crit_edge66 ]
+  %159 = phi i32 [ %114, %._crit_edge62 ], [ %114, %.preheader.lr.ph ], [ %103, %.preheader55 ], [ %60, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit49 ], [ %148, %._crit_edge66 ]
   ret i32 %159
 }
 
@@ -1089,9 +1089,9 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   br i1 %109, label %87, label %.preheader388, !llvm.loop !72
 
 .preheader387:                                    ; preds = %114, %.preheader391, %.preheader394.thread, %.preheader394, %.preheader388
-  %110 = phi i1 [ false, %.preheader391 ], [ false, %.preheader388 ], [ false, %.preheader394 ], [ false, %.preheader394.thread ], [ true, %114 ]
-  %.lcssa405610 = phi i32 [ %70, %.preheader391 ], [ %106, %.preheader388 ], [ %31, %.preheader394 ], [ %31, %.preheader394.thread ], [ %106, %114 ]
-  %111 = phi i32 [ %69, %.preheader391 ], [ %107, %.preheader388 ], [ %18, %.preheader394 ], [ %18, %.preheader394.thread ], [ %107, %114 ]
+  %110 = phi i1 [ false, %.preheader388 ], [ false, %.preheader394 ], [ false, %.preheader394.thread ], [ false, %.preheader391 ], [ true, %114 ]
+  %.lcssa405610 = phi i32 [ %106, %.preheader388 ], [ %31, %.preheader394 ], [ %31, %.preheader394.thread ], [ %70, %.preheader391 ], [ %106, %114 ]
+  %111 = phi i32 [ %107, %.preheader388 ], [ %18, %.preheader394 ], [ %18, %.preheader394.thread ], [ %69, %.preheader391 ], [ %107, %114 ]
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %.lr.ph437, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit269
 

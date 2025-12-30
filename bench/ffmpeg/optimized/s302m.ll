@@ -532,7 +532,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %316, label %.lr.ph197, label %.thread, !llvm.loop !51
 
 317:                                              ; preds = %149, %235, %310
-  %.1 = phi i32 [ %153, %149 ], [ %314, %310 ], [ %239, %235 ]
+  %.1 = phi i32 [ %153, %149 ], [ %239, %235 ], [ %314, %310 ]
   %318 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %319 = load i32, ptr %318, align 8, !tbaa !52
   %320 = icmp eq i32 %319, 3
@@ -551,7 +551,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %325 = load i32, ptr %9, align 8, !tbaa !29
   br label %s302m_parse_frame_header.exit
 
-.thread:                                          ; preds = %.lr.ph173, %218, %221, %224, %240, %.lr.ph185, %132, %135, %138, %154, %.lr.ph197, %293, %296, %299, %315, %.preheader165, %.preheader163, %._crit_edge195, %._crit_edge183, %._crit_edge, %322
+.thread:                                          ; preds = %.lr.ph173, %218, %221, %224, %240, %.lr.ph185, %132, %135, %138, %154, %.lr.ph197, %293, %296, %299, %315, %.preheader165, %.preheader163, %._crit_edge195, %._crit_edge, %._crit_edge183, %322
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i32 48000, ptr %326, align 8, !tbaa !54
   store i32 1, ptr %2, align 4, !tbaa !33
@@ -559,7 +559,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br label %s302m_parse_frame_header.exit
 
 s302m_parse_frame_header.exit:                    ; preds = %23, %12, %35, %.thread, %324, %321
-  %.0132 = phi i32 [ %327, %.thread ], [ %46, %35 ], [ -1163346256, %321 ], [ %325, %324 ], [ -1094995529, %12 ], [ -1094995529, %23 ]
+  %.0132 = phi i32 [ -1163346256, %321 ], [ %325, %324 ], [ %327, %.thread ], [ %46, %35 ], [ -1094995529, %12 ], [ -1094995529, %23 ]
   ret i32 %.0132
 }
 

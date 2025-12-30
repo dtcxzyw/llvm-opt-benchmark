@@ -301,10 +301,10 @@ define internal fastcc range(i32 -11, 2) i32 @__blk_mq_sched_dispatch_requests(p
   br label %.backedge, !llvm.loop !11
 
 .critedge.thread:                                 ; preds = %78, %123, %88, %81, %76, %102, %97
-  %126 = phi i32 [ %71, %97 ], [ %71, %102 ], [ %71, %81 ], [ %71, %88 ], [ %115, %123 ], [ %71, %78 ], [ %71, %76 ]
-  %127 = phi i1 [ true, %97 ], [ true, %102 ], [ false, %81 ], [ true, %88 ], [ true, %123 ], [ false, %78 ], [ true, %76 ]
-  %128 = phi i1 [ false, %97 ], [ false, %102 ], [ true, %76 ], [ true, %81 ], [ true, %88 ], [ true, %123 ], [ true, %78 ]
-  %129 = phi i8 [ %70, %97 ], [ %70, %102 ], [ %70, %81 ], [ %70, %88 ], [ %119, %123 ], [ %70, %78 ], [ %70, %76 ]
+  %126 = phi i32 [ %71, %102 ], [ %71, %97 ], [ %71, %76 ], [ %71, %81 ], [ %71, %88 ], [ %115, %123 ], [ %71, %78 ]
+  %127 = phi i1 [ true, %102 ], [ true, %97 ], [ true, %76 ], [ false, %81 ], [ true, %88 ], [ true, %123 ], [ false, %78 ]
+  %128 = phi i1 [ false, %102 ], [ false, %97 ], [ true, %76 ], [ true, %81 ], [ true, %88 ], [ true, %123 ], [ true, %78 ]
+  %129 = phi i8 [ %70, %102 ], [ %70, %97 ], [ %70, %76 ], [ %70, %81 ], [ %70, %88 ], [ %119, %123 ], [ %70, %78 ]
   %130 = icmp eq i32 %126, 0
   br i1 %130, label %131, label %.critedge.thread.thread
 
@@ -565,7 +565,7 @@ define internal fastcc range(i32 -11, 2) i32 @__blk_mq_sched_dispatch_requests(p
   br label %263
 
 263:                                              ; preds = %187, %.loopexit43, %.thread29, %261, %.critedge25.thread, %36
-  %264 = phi i32 [ 0, %36 ], [ %259, %.critedge25.thread ], [ 0, %261 ], [ %188, %187 ], [ -11, %.loopexit43 ], [ -11, %.thread29 ]
+  %264 = phi i32 [ %259, %.critedge25.thread ], [ 0, %261 ], [ 0, %36 ], [ %188, %187 ], [ -11, %.loopexit43 ], [ -11, %.thread29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %264
 }
@@ -954,7 +954,7 @@ blk_mq_sched_free_rqs.exit12:                     ; preds = %119, %105, %108
   br label %.thread
 
 .thread:                                          ; preds = %96, %19, %143, %blk_mq_sched_free_rqs.exit, %55
-  %145 = phi i32 [ %99, %143 ], [ %68, %blk_mq_sched_free_rqs.exit ], [ -12, %19 ], [ 0, %55 ], [ 0, %96 ]
+  %145 = phi i32 [ %99, %143 ], [ %68, %blk_mq_sched_free_rqs.exit ], [ 0, %55 ], [ -12, %19 ], [ 0, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %145
 }

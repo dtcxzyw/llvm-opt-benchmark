@@ -590,7 +590,7 @@ define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %123
 
 123:                                              ; preds = %108, %57
-  %.0160 = phi i32 [ 0, %57 ], [ %102, %108 ]
+  %.0160 = phi i32 [ %102, %108 ], [ 0, %57 ]
   %124 = load i32, ptr @ett_dlsw_data, align 4
   %125 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %19, i32 noundef %28, i32 noundef %124, ptr noundef nonnull %7, ptr noundef nonnull @.str.236)
   switch i8 %37, label %248 [
@@ -781,7 +781,7 @@ define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %191, %232, %227, %222, %217, %210, %202, %197, %183, %178, %173, %169, %164, %.preheader.i
-  %.1.i = phi i32 [ %.0103.i, %232 ], [ %.0103.i, %164 ], [ %.0103.i, %169 ], [ %.0103.i, %173 ], [ %.0103.i, %178 ], [ %.0103.i, %183 ], [ %.0103.i, %227 ], [ %.0103.i, %197 ], [ %.0103.i, %202 ], [ %.0103.i, %210 ], [ %.0103.i, %217 ], [ %.0103.i, %222 ], [ %.0103.i, %.preheader.i ], [ %161, %191 ]
+  %.1.i = phi i32 [ %.0103.i, %232 ], [ %.0103.i, %164 ], [ %.0103.i, %169 ], [ %.0103.i, %173 ], [ %.0103.i, %178 ], [ %.0103.i, %183 ], [ %.0103.i, %197 ], [ %.0103.i, %202 ], [ %.0103.i, %210 ], [ %.0103.i, %217 ], [ %.0103.i, %222 ], [ %.0103.i, %227 ], [ %.0103.i, %.preheader.i ], [ %161, %191 ]
   %237 = add i32 %.096102.i, %146
   %238 = load i32, ptr %6, align 4
   %239 = icmp ult i32 %237, %238

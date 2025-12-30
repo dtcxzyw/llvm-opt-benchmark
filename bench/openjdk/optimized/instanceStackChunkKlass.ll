@@ -876,7 +876,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -1053,7 +1053,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -1243,7 +1243,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 
@@ -1521,7 +1521,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i: ; preds = %31, %27
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i, %34
-  %.0.i.i.sink.i.i = phi ptr [ %39, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ], [ %38, %34 ]
+  %.0.i.i.sink.i.i = phi ptr [ %38, %34 ], [ %39, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.0.i.i.sink.i.i, ptr %40, align 8
   %.not.i4.i = icmp eq ptr %.0.i.i.sink.i.i, null
@@ -1627,7 +1627,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i12: ; preds = %82, %78
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i13
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i13: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i12, %85
-  %.0.i.i.sink.i.i14 = phi ptr [ %90, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i12 ], [ %89, %85 ]
+  %.0.i.i.sink.i.i14 = phi ptr [ %89, %85 ], [ %90, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i12 ]
   store ptr %.0.i.i.sink.i.i14, ptr %56, align 8
   %.not.i15 = icmp eq ptr %.0.i.i.sink.i.i14, null
   %or.cond.i = select i1 %spec.select.i.not.i, i1 true, i1 %.not.i15
@@ -1652,9 +1652,9 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exi
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread: ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit
-  %96 = phi ptr [ %56, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %55, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ], [ %56, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ]
-  %97 = phi ptr [ %16, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %16, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ], [ %.pre39, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ]
-  %98 = phi ptr [ %23, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %23, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ], [ %.pre38, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ]
+  %96 = phi ptr [ %56, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %56, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ], [ %55, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ]
+  %97 = phi ptr [ %16, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %.pre39, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ], [ %16, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ]
+  %98 = phi ptr [ %23, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %.pre38, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ], [ %23, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ]
   %.not36 = icmp ult ptr %98, %97
   br i1 %.not36, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i18, label %.critedge
 
@@ -1723,8 +1723,8 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i26: ; preds = %123, %119
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i27
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i27: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i26, %126
-  %.pre46 = phi ptr [ %.pre46.pre, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i26 ], [ %118, %126 ]
-  %.0.i.i.sink.i.i28 = phi ptr [ %131, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i26 ], [ %130, %126 ]
+  %.pre46 = phi ptr [ %118, %126 ], [ %.pre46.pre, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i26 ]
+  %.0.i.i.sink.i.i28 = phi ptr [ %130, %126 ], [ %131, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i26 ]
   store ptr %.0.i.i.sink.i.i28, ptr %96, align 8
   %.not.i29 = icmp eq ptr %.0.i.i.sink.i.i28, null
   %or.cond.i30 = select i1 %spec.select.i.not.i20, i1 true, i1 %.not.i29
@@ -1825,9 +1825,9 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %35, %_ZNK21StackChu
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit: ; preds = %2, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i, %38, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i
-  %44 = phi ptr [ %14, %2 ], [ %14, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %14, %38 ], [ %.pre8, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
-  %45 = phi ptr [ %21, %2 ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %21, %38 ], [ %.pre, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
-  %.0.i.i.sink.i = phi ptr [ null, %2 ], [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %42, %38 ], [ %43, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %44 = phi ptr [ %14, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %14, %2 ], [ %14, %38 ], [ %.pre8, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %45 = phi ptr [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %21, %2 ], [ %21, %38 ], [ %.pre, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %.0.i.i.sink.i = phi ptr [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ null, %2 ], [ %42, %38 ], [ %43, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i.i.sink.i, ptr %46, align 8
   %.not = icmp ult ptr %45, %44
@@ -1862,7 +1862,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_fra
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread: ; preds = %47, %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit
-  %65 = phi ptr [ %64, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit ], [ %45, %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit ], [ %45, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ %45, %47 ]
+  %65 = phi ptr [ %64, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit ], [ %45, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ %45, %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit ], [ %45, %47 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %65, ptr %66, align 8
   %.not.i7 = icmp eq ptr %.0.i.i.sink.i, null
@@ -2069,7 +2069,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %82, %_ZNK21StackChu
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit: ; preds = %69, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i, %85, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i
-  %.0.i.i.sink.i = phi ptr [ null, %69 ], [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %89, %85 ], [ %90, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %.0.i.i.sink.i = phi ptr [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ null, %69 ], [ %89, %85 ], [ %90, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
   store ptr %.0.i.i.sink.i, ptr %4, align 8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 4980
   %92 = load i8, ptr %91, align 4
@@ -2298,7 +2298,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %81, %_ZNK21StackChu
   %89 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef nonnull %.pre.i) #9
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit
 
-_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit.thread: ; preds = %68, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i
+_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit.thread: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i, %68
   store ptr null, ptr %4, align 8
   br label %95
 
@@ -2408,7 +2408,7 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i:    ; preds = %32
 _ZN7nmethod11is_deopt_pcEPh.exit:                 ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i
   br i1 %42, label %select.unfold21, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread
 
-_ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %select.unfold, %32, %43, %_ZN7nmethod11is_deopt_pcEPh.exit
+_ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %32, %select.unfold, %43, %_ZN7nmethod11is_deopt_pcEPh.exit
   br i1 %.not.i, label %46, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i
 
 46:                                               ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.thread
@@ -2477,8 +2477,8 @@ _ZN7nmethod11is_deopt_pcEPh.exit.thread.i:        ; preds = %_ZN7nmethod11is_deo
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i, %69, %_ZN7nmethod11is_deopt_pcEPh.exit.i, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i
-  %79 = phi i32 [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ], [ %.pre, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %22, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %22, %69 ], [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ]
-  %.0.i11 = phi ptr [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ], [ %78, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %21, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %21, %69 ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ]
+  %79 = phi i32 [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ], [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %.pre, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %22, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %22, %69 ], [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ]
+  %.0.i11 = phi ptr [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %78, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %21, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %21, %69 ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ]
   %.not.i13 = icmp eq i32 %79, 8658703
   br i1 %.not.i13, label %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15, label %select.unfold21
 
@@ -2507,8 +2507,8 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i15:    ; preds = %_ZNK21StackChunkFra
   %96 = getelementptr inbounds i8, ptr %94, i64 %95
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10get_oopmapEPhi.exit
 
-select.unfold21:                                  ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15, %43, %_ZN7nmethod11is_deopt_pcEPh.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit
-  %.06.ph = phi ptr [ %21, %43 ], [ %.0.i11, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit ], [ %21, %_ZN7nmethod11is_deopt_pcEPh.exit ], [ %.0.i11, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ]
+select.unfold21:                                  ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15, %_ZN7nmethod11is_deopt_pcEPh.exit, %43, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit
+  %.06.ph = phi ptr [ %.0.i11, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit ], [ %21, %43 ], [ %21, %_ZN7nmethod11is_deopt_pcEPh.exit ], [ %.0.i11, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ]
   %97 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %26, ptr noundef nonnull %.06.ph) #9
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10get_oopmapEPhi.exit
 
@@ -3002,7 +3002,7 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i:    ; preds = %19
 _ZN7nmethod11is_deopt_pcEPh.exit:                 ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i
   br i1 %29, label %select.unfold18, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i
 
-_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i: ; preds = %select.unfold, %19, %_ZN7nmethod11is_deopt_pcEPh.exit, %30
+_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i: ; preds = %19, %select.unfold, %_ZN7nmethod11is_deopt_pcEPh.exit, %30
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %34 = load i8, ptr %33, align 4
   switch i8 %34, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i [
@@ -3049,8 +3049,8 @@ _ZN7nmethod11is_deopt_pcEPh.exit.thread.i:        ; preds = %_ZN7nmethod11is_deo
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7orig_pcEv.exit
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7orig_pcEv.exit: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i, %46, %_ZN7nmethod11is_deopt_pcEPh.exit.i, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i
-  %54 = phi i32 [ %9, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %9, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i ], [ %.pre, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %9, %46 ], [ %9, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i ]
-  %.0.i9 = phi ptr [ %8, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %8, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i ], [ %53, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %8, %46 ], [ %8, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i ]
+  %54 = phi i32 [ %9, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i ], [ %.pre, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %9, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %9, %46 ], [ %9, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i ]
+  %.0.i9 = phi ptr [ %8, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i ], [ %53, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %8, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %8, %46 ], [ %8, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i ]
   %.not.i10 = icmp eq i32 %54, 8658703
   br i1 %.not.i10, label %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12, label %select.unfold18
 
@@ -3079,8 +3079,8 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i12:    ; preds = %_ZNK21StackChunkFra
   %71 = getelementptr inbounds i8, ptr %69, i64 %70
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10get_oopmapEPhi.exit
 
-select.unfold18:                                  ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12, %30, %_ZN7nmethod11is_deopt_pcEPh.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7orig_pcEv.exit
-  %.06.ph = phi ptr [ %8, %30 ], [ %.0.i9, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7orig_pcEv.exit ], [ %8, %_ZN7nmethod11is_deopt_pcEPh.exit ], [ %.0.i9, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12 ]
+select.unfold18:                                  ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12, %_ZN7nmethod11is_deopt_pcEPh.exit, %30, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7orig_pcEv.exit
+  %.06.ph = phi ptr [ %.0.i9, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7orig_pcEv.exit ], [ %8, %30 ], [ %8, %_ZN7nmethod11is_deopt_pcEPh.exit ], [ %.0.i9, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12 ]
   %72 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %13, ptr noundef nonnull %.06.ph) #9
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10get_oopmapEPhi.exit
 
@@ -3326,7 +3326,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i: ; preds = %33, %29
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i, %36
-  %.0.i.i.sink.i.i = phi ptr [ %41, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ], [ %40, %36 ]
+  %.0.i.i.sink.i.i = phi ptr [ %40, %36 ], [ %41, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %.0.i.i.sink.i.i, ptr %42, align 8
   %.not.i4.i = icmp eq ptr %.0.i.i.sink.i.i, null
@@ -3464,7 +3464,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i11: ; preds = %95, %91
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i12
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i12: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i11, %98
-  %.0.i.i.sink.i.i13 = phi ptr [ %103, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i11 ], [ %102, %98 ]
+  %.0.i.i.sink.i.i13 = phi ptr [ %102, %98 ], [ %103, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i11 ]
   store ptr %.0.i.i.sink.i.i13, ptr %58, align 8
   %.not.i14 = icmp eq ptr %.0.i.i.sink.i.i13, null
   %or.cond.i = select i1 %.not9.i, i1 true, i1 %.not.i14
@@ -3489,9 +3489,9 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exi
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread: ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit
-  %109 = phi ptr [ %58, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %57, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ], [ %58, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ]
-  %110 = phi ptr [ %18, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %18, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ], [ %.pre39, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ]
-  %111 = phi ptr [ %25, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %25, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ], [ %.pre, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ]
+  %109 = phi ptr [ %58, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %58, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ], [ %57, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ]
+  %110 = phi ptr [ %18, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %.pre39, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ], [ %18, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ]
+  %111 = phi ptr [ %25, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit ], [ %.pre, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextIK16SmallRegisterMapEEvPT_b.exit ], [ %25, %_ZN21StackChunkFrameStreamIL11ChunkFrames0EEC2EP17stackChunkOopDesc.exit.thread ]
   %.not38 = icmp ult ptr %111, %110
   br i1 %.not38, label %.lr.ph, label %.critedge
 
@@ -3591,8 +3591,8 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i31: ; preds = %145, %141
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i32
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i32: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i31, %148
-  %.pre41 = phi ptr [ %.pre41.pre, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i31 ], [ %139, %148 ]
-  %.0.i.i.sink.i.i33 = phi ptr [ %153, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i31 ], [ %152, %148 ]
+  %.pre41 = phi ptr [ %139, %148 ], [ %.pre41.pre, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i31 ]
+  %.0.i.i.sink.i.i33 = phi ptr [ %152, %148 ], [ %153, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i31 ]
   store ptr %.0.i.i.sink.i.i33, ptr %109, align 8
   %.not.i34 = icmp eq ptr %.0.i.i.sink.i.i33, null
   %or.cond.i35 = select i1 %.not9.i27, i1 true, i1 %.not.i34
@@ -4696,7 +4696,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i: ; preds = %31, %27
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i, %34
-  %.0.i.i.sink.i.i = phi ptr [ %39, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ], [ %38, %34 ]
+  %.0.i.i.sink.i.i = phi ptr [ %38, %34 ], [ %39, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.0.i.i.sink.i.i, ptr %40, align 8
   %.not.i4.i = icmp eq ptr %.0.i.i.sink.i.i, null
@@ -4794,7 +4794,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i11: ; preds = %78, %74
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i12
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i12: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i11, %81
-  %.0.i.i.sink.i.i13 = phi ptr [ %86, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i11 ], [ %85, %81 ]
+  %.0.i.i.sink.i.i13 = phi ptr [ %85, %81 ], [ %86, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i11 ]
   store ptr %.0.i.i.sink.i.i13, ptr %56, align 8
   %.not.i14 = icmp eq ptr %.0.i.i.sink.i.i13, null
   %or.cond.i = select i1 %.not9.i, i1 true, i1 %.not.i14
@@ -4878,7 +4878,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i23: ; preds = %114, %110
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i24
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE6get_cbEv.exit.i24: ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i23, %117
-  %.0.i.i.sink.i.i25 = phi ptr [ %122, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i23 ], [ %121, %117 ]
+  %.0.i.i.sink.i.i25 = phi ptr [ %121, %117 ], [ %122, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i23 ]
   store ptr %.0.i.i.sink.i.i25, ptr %92, align 8
   %.not.i26 = icmp eq ptr %.0.i.i.sink.i.i25, null
   %or.cond.i27 = select i1 %.not9.i19, i1 true, i1 %.not.i26
@@ -4966,9 +4966,9 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %_ZNK21StackChunkFra
   br label %_ZNK5frame10frame_sizeEv.exit
 
 _ZNK5frame20is_interpreted_frameEv.exit.thread.i: ; preds = %10, %_ZNK5frame20is_interpreted_frameEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
-  %.not.i.i.i817 = phi i1 [ true, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ false, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ true, %10 ]
-  %42 = phi i32 [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ %.ph31, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ 0, %10 ]
-  %43 = phi ptr [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ %.pr.pre, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ null, %10 ]
+  %.not.i.i.i817 = phi i1 [ false, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ true, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ true, %10 ]
+  %42 = phi i32 [ %.ph31, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ 0, %10 ]
+  %43 = phi ptr [ %.pr.pre, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ null, %10 ]
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 44
@@ -5087,7 +5087,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit: ; preds = %_ZNK21St
   br i1 %.not, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread19
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread19: ; preds = %71, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit
-  %116 = phi ptr [ %112, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread21 ], [ %115, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit ], [ %75, %71 ]
+  %116 = phi ptr [ %115, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit ], [ %112, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread21 ], [ %75, %71 ]
   %117 = load ptr, ptr %0, align 8
   call void @_ZNK15ImmutableOopMap8print_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(9) %116, ptr noundef %117) #9
   %118 = load ptr, ptr %0, align 8
@@ -5161,9 +5161,9 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %_ZNK21StackChunkFra
   br label %_ZNK5frame10frame_sizeEv.exit
 
 _ZNK5frame20is_interpreted_frameEv.exit.thread.i: ; preds = %10, %_ZNK5frame20is_interpreted_frameEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
-  %.not.i.i.i817 = phi i1 [ true, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ false, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ true, %10 ]
-  %42 = phi i32 [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ %.ph31, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ 0, %10 ]
-  %43 = phi ptr [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ %.pr.pre, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ null, %10 ]
+  %.not.i.i.i817 = phi i1 [ false, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ true, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ true, %10 ]
+  %42 = phi i32 [ %.ph31, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ 0, %10 ]
+  %43 = phi ptr [ %.pr.pre, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ null, %10 ]
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 44
@@ -5282,7 +5282,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit: ; preds = %_ZNK21St
   br i1 %.not, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread19
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread19: ; preds = %71, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit
-  %116 = phi ptr [ %112, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread21 ], [ %115, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit ], [ %75, %71 ]
+  %116 = phi ptr [ %115, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit ], [ %112, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread21 ], [ %75, %71 ]
   %117 = load ptr, ptr %0, align 8
   call void @_ZNK15ImmutableOopMap8print_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(9) %116, ptr noundef %117) #9
   %118 = load ptr, ptr %0, align 8
@@ -5406,7 +5406,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit: ; preds = %49, %_ZN
   br i1 %.not, label %78, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread: ; preds = %34, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread10, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit
-  %75 = phi ptr [ %71, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread10 ], [ %74, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit ], [ %47, %34 ]
+  %75 = phi ptr [ %74, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit ], [ %71, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread10 ], [ %47, %34 ]
   %76 = load ptr, ptr %0, align 8
   call void @_ZNK15ImmutableOopMap8print_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(9) %75, ptr noundef %76) #9
   %77 = load ptr, ptr %0, align 8
@@ -5526,7 +5526,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit: ; preds = %49, %_ZN
   br i1 %.not, label %78, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread: ; preds = %34, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread10, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit
-  %75 = phi ptr [ %71, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread10 ], [ %74, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit ], [ %47, %34 ]
+  %75 = phi ptr [ %74, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit ], [ %71, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread10 ], [ %47, %34 ]
   %76 = load ptr, ptr %0, align 8
   call void @_ZNK15ImmutableOopMap8print_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(9) %75, ptr noundef %76) #9
   %77 = load ptr, ptr %0, align 8

@@ -2618,7 +2618,7 @@ _ZNK6vectorIP4sortLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4sortL
   br i1 %87, label %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit.thread, label %215
 
 _ZNK6vectorIP4sortLb0EjE5emptyEv.exit.thread:     ; preds = %.thread, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit
-  %88 = phi ptr [ %86, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit ], [ %68, %.thread ]
+  %88 = phi ptr [ %68, %.thread ], [ %86, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit ]
   invoke void @_ZN11cmd_context12init_managerEv(ptr noundef nonnull align 8 dereferenceable(896) %1)
           to label %89 unwind label %117
 
@@ -3549,7 +3549,7 @@ define linkonce_odr hidden void @_ZN13get_proof_cmd7executeER11cmd_context(ptr n
           to label %.invoke unwind label %55
 
 .invoke:                                          ; preds = %52, %39, %36, %26
-  %54 = phi ptr [ %35, %39 ], [ %35, %36 ], [ %27, %26 ], [ %53, %52 ]
+  %54 = phi ptr [ %27, %26 ], [ %35, %36 ], [ %35, %39 ], [ %53, %52 ]
   invoke void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTI13cmd_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #25
           to label %.cont unwind label %24
 
@@ -4050,7 +4050,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK15cmd_is_declaredclEP4sort(pt
   br label %_ZNK14core_hashtableI17default_map_entryI6symbolP10psort_declEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i.i
 
 _ZNK14core_hashtableI17default_map_entryI6symbolP10psort_declEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE8get_hashERK9_key_dataIS1_S3_E.exit.i.i.i.i: ; preds = %16, %13, %2
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %19, %16 ], [ %15, %13 ], [ -1640531495, %2 ]
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %15, %13 ], [ %19, %16 ], [ -1640531495, %2 ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 680
   %21 = load i32, ptr %20, align 8, !tbaa !317
   %22 = add i32 %21, -1
@@ -4119,7 +4119,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolP10psort_declEN9table2mapIS4_16s
   br i1 %.not27.i.i.i.i, label %_ZNK11cmd_context12is_sort_declERK6symbol.exit, label %.lr.ph34.i.i.i.i, !llvm.loop !325
 
 _ZNK11cmd_context12is_sort_declERK6symbol.exit:   ; preds = %.lr.ph.i.i.i.i, %34, %.lr.ph34.i.i.i.i, %45, %49, %.preheader.i.i.i.i
-  %.026.i.i.i.i = phi i1 [ false, %.preheader.i.i.i.i ], [ false, %.lr.ph34.i.i.i.i ], [ true, %45 ], [ false, %49 ], [ true, %34 ], [ false, %.lr.ph.i.i.i.i ]
+  %.026.i.i.i.i = phi i1 [ false, %.preheader.i.i.i.i ], [ true, %45 ], [ false, %49 ], [ false, %.lr.ph34.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ], [ true, %34 ]
   ret i1 %.026.i.i.i.i
 }
 
@@ -4855,7 +4855,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %110
 
 110:                                              ; preds = %108, %61, %44, %33
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %109, %108 ], [ %45, %44 ], [ %.pn, %61 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %109, %108 ], [ %.pn, %61 ], [ %45, %44 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
@@ -5405,7 +5405,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK18set_get_option_cmd17is_buil
   br label %56
 
 56:                                               ; preds = %52, %2
-  %57 = phi i1 [ %55, %52 ], [ true, %2 ]
+  %57 = phi i1 [ true, %2 ], [ %55, %52 ]
   ret i1 %57
 }
 
@@ -6196,7 +6196,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %26
 
 26:                                               ; preds = %7, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %12
-  %.0 = phi i1 [ %14, %12 ], [ true, %2 ], [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %7 ]
+  %.0 = phi i1 [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %12 ], [ true, %2 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -9184,7 +9184,7 @@ _ZN6vectorISt4pairI6symbolP3cmdELb1EjED2Ev.exit:  ; preds = %_ZSt4sortIPSt4pairI
   br label %91
 
 91:                                               ; preds = %55, %57, %89
-  %.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %56, %55 ], [ %58, %57 ]
+  %.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %58, %57 ], [ %90, %89 ]
   call void @_ZN6vectorISt4pairI6symbolP3cmdELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn

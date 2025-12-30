@@ -283,7 +283,7 @@ define internal i32 @dissect_vjc_comp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %49, label %57, label %50
 
 50:                                               ; preds = %21, %21, %45, %43
-  %.2 = phi i32 [ %.1266, %21 ], [ %.1266, %21 ], [ %.8, %45 ], [ %.6, %43 ]
+  %.2 = phi i32 [ %.1266, %21 ], [ %.8, %45 ], [ %.6, %43 ], [ %.1266, %21 ]
   %51 = and i32 %16, 32
   %.not283 = icmp eq i32 %51, 0
   br i1 %.not283, label %57, label %52
@@ -298,9 +298,9 @@ define internal i32 @dissect_vjc_comp(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %57
 
 57:                                               ; preds = %52, %45, %38, %31, %25, %18, %4, %50
-  %.0265 = phi i32 [ %.7, %38 ], [ 3, %4 ], [ %.8, %45 ], [ %.9, %52 ], [ %.2, %50 ], [ 4, %18 ], [ %26, %25 ], [ %.5, %31 ]
-  %.0264 = phi i1 [ true, %38 ], [ true, %4 ], [ true, %45 ], [ %56, %52 ], [ false, %50 ], [ true, %18 ], [ true, %25 ], [ true, %31 ]
-  %.0257 = phi i8 [ %15, %38 ], [ 0, %4 ], [ %15, %45 ], [ %15, %52 ], [ %15, %50 ], [ %15, %18 ], [ %15, %25 ], [ %15, %31 ]
+  %.0265 = phi i32 [ %.2, %50 ], [ 3, %4 ], [ 4, %18 ], [ %26, %25 ], [ %.5, %31 ], [ %.7, %38 ], [ %.8, %45 ], [ %.9, %52 ]
+  %.0264 = phi i1 [ false, %50 ], [ true, %4 ], [ true, %18 ], [ true, %25 ], [ true, %31 ], [ true, %38 ], [ true, %45 ], [ %56, %52 ]
+  %.0257 = phi i8 [ %15, %50 ], [ 0, %4 ], [ %15, %18 ], [ %15, %25 ], [ %15, %31 ], [ %15, %38 ], [ %15, %45 ], [ %15, %52 ]
   %58 = load i32, ptr @proto_vjc, align 4
   %59 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %60 = icmp ult i32 %.0265, %59
@@ -582,8 +582,8 @@ proto_item_set_generated.exit311:                 ; preds = %185, %189, %192
   %.0361414424452 = phi i32 [ %.0361416, %.thread441 ], [ %.0361415, %156 ]
   %206 = phi i1 [ false, %.thread441 ], [ true, %156 ]
   %.0255385426451 = phi ptr [ %154, %.thread441 ], [ null, %156 ]
-  %.06.i375383429448 = phi ptr [ %149, %.thread441 ], [ %.06.i375384, %156 ]
-  %.not287376381432446 = phi i1 [ false, %.thread441 ], [ %.not287376382, %156 ]
+  %.06.i375383429449 = phi ptr [ %149, %.thread441 ], [ %.06.i375384, %156 ]
+  %.not287376381432447 = phi i1 [ false, %.thread441 ], [ %.not287376382, %156 ]
   %207 = phi i32 [ %163, %.thread441 ], [ %160, %156 ]
   %208 = and i32 %84, 1
   %.not288 = icmp eq i32 %208, 0
@@ -692,14 +692,14 @@ vjc_delta_uint.exit320:                           ; preds = %243, %245
   br label %proto_item_set_generated.exit308
 
 proto_item_set_generated.exit308:                 ; preds = %156, %156, %201, %198, %proto_item_set_generated.exit311, %180, %177, %proto_item_set_generated.exit305, %238, %vjc_delta_uint.exit320
-  %.not287376381431 = phi i1 [ false, %201 ], [ %.not287376381432446, %vjc_delta_uint.exit320 ], [ %.not287376382, %156 ], [ false, %180 ], [ %.not287376381432446, %238 ], [ false, %proto_item_set_generated.exit305 ], [ false, %177 ], [ false, %proto_item_set_generated.exit311 ], [ false, %198 ], [ %.not287376382, %156 ]
-  %.06.i375383428 = phi ptr [ %149, %201 ], [ %.06.i375383429448, %vjc_delta_uint.exit320 ], [ %.06.i375384, %156 ], [ %149, %180 ], [ %.06.i375383429448, %238 ], [ %149, %proto_item_set_generated.exit305 ], [ %149, %177 ], [ %149, %proto_item_set_generated.exit311 ], [ %149, %198 ], [ %.06.i375384, %156 ]
-  %.0255385427 = phi ptr [ %154, %201 ], [ %.0255385426451, %vjc_delta_uint.exit320 ], [ null, %156 ], [ %154, %180 ], [ %.0255385426451, %238 ], [ %154, %proto_item_set_generated.exit305 ], [ %154, %177 ], [ %154, %proto_item_set_generated.exit311 ], [ %154, %198 ], [ null, %156 ]
-  %250 = phi i1 [ false, %201 ], [ %206, %vjc_delta_uint.exit320 ], [ true, %156 ], [ false, %180 ], [ %206, %238 ], [ false, %proto_item_set_generated.exit305 ], [ false, %177 ], [ false, %proto_item_set_generated.exit311 ], [ false, %198 ], [ true, %156 ]
-  %.1362 = phi i32 [ %163, %201 ], [ %248, %vjc_delta_uint.exit320 ], [ %160, %156 ], [ %163, %180 ], [ %.4365, %238 ], [ %163, %proto_item_set_generated.exit305 ], [ %163, %177 ], [ %163, %proto_item_set_generated.exit311 ], [ %163, %198 ], [ %160, %156 ]
-  %.0262 = phi i32 [ %186, %201 ], [ %249, %vjc_delta_uint.exit320 ], [ 0, %156 ], [ %165, %180 ], [ 0, %238 ], [ %165, %proto_item_set_generated.exit305 ], [ %165, %177 ], [ %186, %proto_item_set_generated.exit311 ], [ %186, %198 ], [ 0, %156 ]
-  %.0260 = phi i32 [ %186, %201 ], [ %.1261, %vjc_delta_uint.exit320 ], [ 0, %156 ], [ 0, %180 ], [ %.1261, %238 ], [ 0, %proto_item_set_generated.exit305 ], [ 0, %177 ], [ %186, %proto_item_set_generated.exit311 ], [ %186, %198 ], [ 0, %156 ]
-  %.0258 = phi i32 [ 0, %201 ], [ %.1259, %vjc_delta_uint.exit320 ], [ 0, %156 ], [ 0, %180 ], [ %.1259, %238 ], [ 0, %proto_item_set_generated.exit305 ], [ 0, %177 ], [ 0, %proto_item_set_generated.exit311 ], [ 0, %198 ], [ 0, %156 ]
+  %.not287376381431 = phi i1 [ %.not287376381432447, %238 ], [ %.not287376381432447, %vjc_delta_uint.exit320 ], [ false, %proto_item_set_generated.exit305 ], [ false, %177 ], [ false, %180 ], [ false, %proto_item_set_generated.exit311 ], [ false, %198 ], [ false, %201 ], [ %.not287376382, %156 ], [ %.not287376382, %156 ]
+  %.06.i375383428 = phi ptr [ %.06.i375383429449, %238 ], [ %.06.i375383429449, %vjc_delta_uint.exit320 ], [ %149, %proto_item_set_generated.exit305 ], [ %149, %177 ], [ %149, %180 ], [ %149, %proto_item_set_generated.exit311 ], [ %149, %198 ], [ %149, %201 ], [ %.06.i375384, %156 ], [ %.06.i375384, %156 ]
+  %.0255385427 = phi ptr [ %.0255385426451, %238 ], [ %.0255385426451, %vjc_delta_uint.exit320 ], [ %154, %proto_item_set_generated.exit305 ], [ %154, %177 ], [ %154, %180 ], [ %154, %proto_item_set_generated.exit311 ], [ %154, %198 ], [ %154, %201 ], [ null, %156 ], [ null, %156 ]
+  %250 = phi i1 [ %206, %238 ], [ %206, %vjc_delta_uint.exit320 ], [ false, %proto_item_set_generated.exit305 ], [ false, %177 ], [ false, %180 ], [ false, %proto_item_set_generated.exit311 ], [ false, %198 ], [ false, %201 ], [ true, %156 ], [ true, %156 ]
+  %.1362 = phi i32 [ %.4365, %238 ], [ %248, %vjc_delta_uint.exit320 ], [ %163, %proto_item_set_generated.exit305 ], [ %163, %177 ], [ %163, %180 ], [ %163, %proto_item_set_generated.exit311 ], [ %163, %198 ], [ %163, %201 ], [ %160, %156 ], [ %160, %156 ]
+  %.0262 = phi i32 [ 0, %238 ], [ %249, %vjc_delta_uint.exit320 ], [ %165, %proto_item_set_generated.exit305 ], [ %165, %177 ], [ %165, %180 ], [ %186, %proto_item_set_generated.exit311 ], [ %186, %198 ], [ %186, %201 ], [ 0, %156 ], [ 0, %156 ]
+  %.0260 = phi i32 [ %.1261, %238 ], [ %.1261, %vjc_delta_uint.exit320 ], [ 0, %proto_item_set_generated.exit305 ], [ 0, %177 ], [ 0, %180 ], [ %186, %proto_item_set_generated.exit311 ], [ %186, %198 ], [ %186, %201 ], [ 0, %156 ], [ 0, %156 ]
+  %.0258 = phi i32 [ %.1259, %238 ], [ %.1259, %vjc_delta_uint.exit320 ], [ 0, %proto_item_set_generated.exit305 ], [ 0, %177 ], [ 0, %180 ], [ 0, %proto_item_set_generated.exit311 ], [ 0, %198 ], [ 0, %201 ], [ 0, %156 ], [ 0, %156 ]
   %251 = and i8 %.0257, 32
   %.not294 = icmp eq i8 %251, 0
   %252 = load i32, ptr @hf_vjc_d_ipid, align 4

@@ -363,7 +363,7 @@ dissect_tapa_discover_unknown_new_tlv.exit.i:     ; preds = %.critedge.i.i, %105
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %124, ptr noundef %0, i32 noundef 4, i32 noundef %21, i32 noundef 0)
   br label %dissect_tapa_discover.exit
 
-test_tapa_discover.exit.thread:                   ; preds = %4, %8, %test_tapa_discover.exit
+test_tapa_discover.exit.thread:                   ; preds = %8, %4, %test_tapa_discover.exit
   %126 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %127 = icmp ult i32 %126, 4
   br i1 %127, label %dissect_tapa_discover.exit, label %128
@@ -442,8 +442,8 @@ test_tapa_tunnel.exit:                            ; preds = %131
   %171 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %169, ptr noundef %0, i32 noundef %.1.i, i32 noundef %170, i32 noundef 0)
   br label %dissect_tapa_discover.exit
 
-dissect_tapa_discover.exit:                       ; preds = %44, %128, %131, %test_tapa_discover.exit.thread, %168, %135, %123, %dissect_tapa_discover_unknown_new_tlv.exit.i, %70, %39, %17, %test_tapa_tunnel.exit
-  %.0 = phi i32 [ 0, %test_tapa_tunnel.exit ], [ 0, %135 ], [ 4, %39 ], [ 5, %123 ], [ 0, %17 ], [ %20, %70 ], [ %.0.i.i, %dissect_tapa_discover_unknown_new_tlv.exit.i ], [ 0, %128 ], [ %138, %168 ], [ 0, %test_tapa_discover.exit.thread ], [ 0, %131 ], [ %67, %44 ]
+dissect_tapa_discover.exit:                       ; preds = %44, %test_tapa_discover.exit.thread, %128, %131, %168, %135, %123, %dissect_tapa_discover_unknown_new_tlv.exit.i, %70, %39, %17, %test_tapa_tunnel.exit
+  %.0 = phi i32 [ 0, %test_tapa_tunnel.exit ], [ 4, %39 ], [ 5, %123 ], [ %20, %70 ], [ %.0.i.i, %dissect_tapa_discover_unknown_new_tlv.exit.i ], [ 0, %17 ], [ %138, %168 ], [ 0, %135 ], [ 0, %131 ], [ 0, %128 ], [ 0, %test_tapa_discover.exit.thread ], [ %67, %44 ]
   ret i32 %.0
 }
 
@@ -499,8 +499,8 @@ ws_ip_protocol.exit:                              ; preds = %5, %7
   %17 = tail call i32 @dissect_tapa_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nonnull poison)
   br label %ws_ip_protocol.exit.thread
 
-ws_ip_protocol.exit.thread:                       ; preds = %4, %5, %ws_ip_protocol.exit, %10, %13, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %13 ], [ false, %10 ], [ false, %ws_ip_protocol.exit ], [ false, %5 ], [ false, %4 ]
+ws_ip_protocol.exit.thread:                       ; preds = %5, %4, %ws_ip_protocol.exit, %10, %13, %16
+  %.0 = phi i1 [ true, %16 ], [ false, %13 ], [ false, %10 ], [ false, %ws_ip_protocol.exit ], [ false, %4 ], [ false, %5 ]
   ret i1 %.0
 }
 

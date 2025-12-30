@@ -68,7 +68,7 @@ define noalias noundef ptr @NewDenseMat(i64 noundef %0, i64 noundef %1) local_un
   br label %29
 
 29:                                               ; preds = %5, %2, %._crit_edge, %20, %14
-  %.034 = phi ptr [ %6, %._crit_edge ], [ null, %2 ], [ null, %14 ], [ null, %20 ], [ null, %5 ]
+  %.034 = phi ptr [ null, %14 ], [ null, %20 ], [ %6, %._crit_edge ], [ null, %2 ], [ null, %5 ]
   ret ptr %.034
 }
 
@@ -118,7 +118,7 @@ define noalias noundef ptr @newDenseMat(i64 noundef %0, i64 noundef %1) local_un
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %5, %2, %15
-  %.020 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %15 ], [ %7, %.preheader ], [ %7, %.lr.ph ]
+  %.020 = phi ptr [ null, %15 ], [ null, %2 ], [ null, %5 ], [ %7, %.preheader ], [ %7, %.lr.ph ]
   ret ptr %.020
 }
 
@@ -189,7 +189,7 @@ define noalias noundef ptr @NewBandMat(i64 noundef %0, i64 noundef %1, i64 nound
   br label %35
 
 35:                                               ; preds = %6, %4, %._crit_edge, %23, %17
-  %.0 = phi ptr [ %7, %._crit_edge ], [ null, %4 ], [ null, %17 ], [ null, %23 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %23 ], [ %7, %._crit_edge ], [ null, %4 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -232,7 +232,7 @@ define noalias noundef ptr @newBandMat(i64 noundef %0, i64 noundef %1, i64 nound
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %5, %3, %15
-  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %15 ], [ %7, %.preheader ], [ %7, %.lr.ph ]
+  %.0 = phi ptr [ null, %15 ], [ null, %3 ], [ null, %5 ], [ %7, %.preheader ], [ %7, %.lr.ph ]
   ret ptr %.0
 }
 

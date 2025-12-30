@@ -1136,7 +1136,7 @@ _ZN7Imf_3_418MultiPartInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
   br i1 %93, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !42
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %90, %88, %84, %80, %._crit_edge.i.i
-  %.0.i.i = phi i32 [ %89, %88 ], [ %81, %80 ], [ %85, %84 ], [ 1, %._crit_edge.i.i ], [ %92, %90 ]
+  %.0.i.i = phi i32 [ %81, %80 ], [ %85, %84 ], [ %89, %88 ], [ 1, %._crit_edge.i.i ], [ %92, %90 ]
   %94 = zext i32 %.0.i.i to i64
   store ptr %12, ptr %6, align 8, !tbaa !18, !alias.scope !39
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %94, i8 noundef signext 45)
@@ -1566,7 +1566,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.phi79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   %251 = load ptr, ptr %6, align 8, !tbaa !12
   %252 = icmp eq ptr %251, %12
   br i1 %252, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65
@@ -2151,7 +2151,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %6
   br label %.preheader, !llvm.loop !101
 
 81:                                               ; preds = %.loopexit, %.loopexit.split-lp, %68, %64, %66, %62
-  %.pn.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %67, %66 ], [ %65, %64 ], [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   br label %common.resume
@@ -3104,7 +3104,7 @@ _ZNSt7__cxx1110_List_baseIN7Imf_3_47Array2DIjEESaIS3_EED2Ev.exit: ; preds = %_ZN
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit101.thread339
 
 294:                                              ; preds = %255, %257, %269, %253, %202, %190
-  %.pn51.pn = phi { ptr, i32 } [ %203, %202 ], [ %270, %269 ], [ %254, %253 ], [ %191, %190 ], [ %258, %257 ], [ %256, %255 ]
+  %.pn51.pn = phi { ptr, i32 } [ %270, %269 ], [ %254, %253 ], [ %191, %190 ], [ %203, %202 ], [ %258, %257 ], [ %256, %255 ]
   call void @_ZN7Imf_3_411FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
   br label %295
 
@@ -4352,7 +4352,7 @@ _ZN7Imf_3_47Array2DIjED2Ev.exit:                  ; preds = %_ZNSt7__cxx1110_Lis
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit101.thread339
 
 758:                                              ; preds = %635, %637, %649, %.loopexit.split-lp349, %.loopexit.split-lp
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi352, %.loopexit.split-lp349 ], [ %650, %649 ], [ %lpad.phi, %.loopexit.split-lp ], [ %638, %637 ], [ %636, %635 ]
+  %.pn.pn = phi { ptr, i32 } [ %650, %649 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi352, %.loopexit.split-lp349 ], [ %638, %637 ], [ %636, %635 ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %16) #23
   br label %759
 
@@ -4554,7 +4554,7 @@ define linkonce_odr dso_local void @_Z14modifyChannelsIN9Imath_3_24halfEEvRNSt7_
   br label %_ZN9Imath_3_24halfpLES0_.exit.us
 
 _ZN9Imath_3_24halfpLES0_.exit.us:                 ; preds = %69, %66, %64, %55, %49, %46, %32
-  %.0.i.i.i.us = phi i16 [ %30, %32 ], [ %76, %69 ], [ %65, %64 ], [ %63, %55 ], [ %67, %66 ], [ %50, %49 ], [ %44, %46 ]
+  %.0.i.i.i.us = phi i16 [ %76, %69 ], [ %65, %64 ], [ %63, %55 ], [ %67, %66 ], [ %30, %32 ], [ %50, %49 ], [ %44, %46 ]
   store i16 %.0.i.i.i.us, ptr %18, align 2, !tbaa !179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
@@ -4826,7 +4826,7 @@ define linkonce_odr dso_local void @_Z18modifyDeepChannelsIN9Imath_3_24halfEEvRN
   br label %_ZN9Imath_3_24halfpLES0_.exit.us
 
 _ZN9Imath_3_24halfpLES0_.exit.us:                 ; preds = %77, %74, %72, %63, %57, %54, %40
-  %.0.i.i.i.us = phi i16 [ %38, %40 ], [ %84, %77 ], [ %73, %72 ], [ %71, %63 ], [ %75, %74 ], [ %58, %57 ], [ %52, %54 ]
+  %.0.i.i.i.us = phi i16 [ %84, %77 ], [ %73, %72 ], [ %71, %63 ], [ %75, %74 ], [ %38, %40 ], [ %58, %57 ], [ %52, %54 ]
   store i16 %.0.i.i.i.us, ptr %26, align 2, !tbaa !179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

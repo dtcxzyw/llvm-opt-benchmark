@@ -1611,7 +1611,7 @@ proto_item_set_generated.exit341:                 ; preds = %155, %152, %149, %p
   br i1 %230, label %232, label %.thread357
 
 231:                                              ; preds = %173, %181, %218
-  %.0300 = phi ptr [ %174, %173 ], [ %225, %218 ], [ %198, %181 ]
+  %.0300 = phi ptr [ %198, %181 ], [ %225, %218 ], [ %174, %173 ]
   %.not329 = icmp eq ptr %.0300, null
   br i1 %.not329, label %.thread357, label %.thread353
 
@@ -2745,7 +2745,7 @@ is_ascii_str.exit.thread.i:                       ; preds = %.lr.ph.i.i, %is_asc
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %811, %577, %539, %843, %836, %814, %716, %712, %708, %702, %.loopexit543.i, %is_ascii_str.exit.thread.i, %640, %608, %606, %496, %.preheader.i, %.preheader540.i, %.preheader544.i, %480
-  %.1.i = phi i32 [ %484, %480 ], [ %817, %814 ], [ %497, %496 ], [ %846, %843 ], [ %.5.i, %577 ], [ %607, %606 ], [ %613, %608 ], [ %641, %640 ], [ %664, %is_ascii_str.exit.thread.i ], [ %701, %.loopexit543.i ], [ %488, %702 ], [ %711, %708 ], [ %715, %712 ], [ %721, %716 ], [ %.3.i, %539 ], [ %837, %836 ], [ %488, %.preheader.i ], [ %488, %.preheader540.i ], [ %488, %.preheader544.i ], [ %.7.i, %811 ]
+  %.1.i = phi i32 [ %484, %480 ], [ %817, %814 ], [ %497, %496 ], [ %607, %606 ], [ %613, %608 ], [ %641, %640 ], [ %664, %is_ascii_str.exit.thread.i ], [ %701, %.loopexit543.i ], [ %488, %702 ], [ %711, %708 ], [ %715, %712 ], [ %721, %716 ], [ %837, %836 ], [ %846, %843 ], [ %488, %.preheader.i ], [ %488, %.preheader540.i ], [ %488, %.preheader544.i ], [ %.3.i, %539 ], [ %.5.i, %577 ], [ %.7.i, %811 ]
   %847 = call i32 @tvb_reported_length_remaining(ptr noundef %.0301356, i32 noundef %.1.i)
   %848 = icmp sgt i32 %847, 0
   br i1 %848, label %432, label %dissect_headers.exit, !llvm.loop !15
@@ -4289,8 +4289,8 @@ define internal fastcc void @save_path(ptr noundef readonly captures(none) %0, p
   br label %52
 
 52:                                               ; preds = %45, %41, %43, %39, %40, %13
-  %.034 = phi ptr [ @.str.742, %13 ], [ @.str.742, %40 ], [ @.str.742, %39 ], [ @.str.742, %41 ], [ %51, %45 ], [ @.str.744, %43 ]
-  %.0 = phi ptr [ %1, %13 ], [ @.str.744, %40 ], [ @.str.742, %39 ], [ @.str.742, %41 ], [ %51, %45 ], [ @.str.744, %43 ]
+  %.034 = phi ptr [ @.str.742, %40 ], [ @.str.742, %39 ], [ @.str.742, %13 ], [ %51, %45 ], [ @.str.742, %41 ], [ @.str.744, %43 ]
+  %.0 = phi ptr [ @.str.744, %40 ], [ @.str.742, %39 ], [ %1, %13 ], [ %51, %45 ], [ @.str.742, %41 ], [ @.str.744, %43 ]
   %.not45 = icmp eq ptr %2, null
   br i1 %.not45, label %.critedge46, label %53
 
@@ -4313,7 +4313,7 @@ define internal fastcc void @save_path(ptr noundef readonly captures(none) %0, p
   br label %.critedge46
 
 .critedge46:                                      ; preds = %52, %53, %59, %.critedge
-  %.2 = phi ptr [ %.034, %52 ], [ %60, %59 ], [ %61, %.critedge ], [ @.str.744, %53 ]
+  %.2 = phi ptr [ %60, %59 ], [ %61, %.critedge ], [ @.str.744, %53 ], [ %.034, %52 ]
   %62 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %.2, ptr %62, align 8
   %63 = load ptr, ptr @obex_path, align 8

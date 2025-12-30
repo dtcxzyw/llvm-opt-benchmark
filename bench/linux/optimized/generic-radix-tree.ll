@@ -161,8 +161,8 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
   br label %65
 
 65:                                               ; preds = %59, %.lr.ph
-  %66 = phi ptr [ %42, %.lr.ph ], [ %63, %59 ]
-  %67 = phi ptr [ %51, %.lr.ph ], [ %64, %59 ]
+  %66 = phi ptr [ %63, %59 ], [ %42, %.lr.ph ]
+  %67 = phi ptr [ %64, %59 ], [ %51, %.lr.ph ]
   %68 = and i64 %indvars.iv.next, 4294967295
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %._crit_edge, label %.lr.ph, !llvm.loop !10

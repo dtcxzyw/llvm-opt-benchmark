@@ -291,7 +291,7 @@ define dso_local i32 @conn_reply_error(ptr noundef readonly captures(none) %0, p
   br label %conn_reply.exit
 
 conn_reply.exit:                                  ; preds = %10, %12
-  %.0.i = phi i32 [ %13, %12 ], [ %11, %10 ]
+  %.0.i = phi i32 [ %11, %10 ], [ %13, %12 ]
   ret i32 %.0.i
 }
 
@@ -556,7 +556,7 @@ define dso_local i32 @command(ptr noundef %0, ptr noundef writeonly captures(non
   br label %108
 
 108:                                              ; preds = %99, %102, %106, %101
-  %.1116 = phi i32 [ 0, %101 ], [ %.141, %102 ], [ 1, %106 ], [ 0, %99 ]
+  %.1116 = phi i32 [ 0, %101 ], [ 1, %106 ], [ %.141, %102 ], [ 0, %99 ]
   %109 = load i32, ptr %94, align 8, !tbaa !30
   %110 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.25, i32 noundef %109) #14
   %111 = load i32, ptr %94, align 8, !tbaa !30
@@ -607,7 +607,7 @@ define dso_local i32 @command(ptr noundef %0, ptr noundef writeonly captures(non
   br label %131
 
 131:                                              ; preds = %122, %125, %129, %124
-  %.2117 = phi i32 [ 0, %124 ], [ %.142, %125 ], [ 1, %129 ], [ 0, %122 ]
+  %.2117 = phi i32 [ 0, %124 ], [ 1, %129 ], [ %.142, %125 ], [ 0, %122 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load i32, ptr %132, align 8, !tbaa !30
   %134 = call i32 @ftruncate(i32 noundef %133, i64 noundef 0) #14
@@ -818,7 +818,7 @@ select.unfold:                                    ; preds = %conn_reply_single.e
   br label %243
 
 243:                                              ; preds = %select.unfold, %241, %66, %76, %188, %21, %25, %157, %149, %140, %118, %108, %97, %89, %87
-  %.0107 = phi i32 [ 1, %149 ], [ 1, %157 ], [ %.143, %188 ], [ 1, %21 ], [ %., %76 ], [ 1, %25 ], [ 1, %87 ], [ %92, %89 ], [ 1, %97 ], [ %.1116, %108 ], [ 0, %118 ], [ %.2117, %140 ], [ 1, %66 ], [ %.pre164, %241 ], [ %237, %select.unfold ]
+  %.0107 = phi i32 [ 1, %157 ], [ 1, %87 ], [ %92, %89 ], [ 1, %97 ], [ %.1116, %108 ], [ 0, %118 ], [ %.2117, %140 ], [ 1, %149 ], [ 1, %25 ], [ 1, %21 ], [ %.143, %188 ], [ 1, %66 ], [ %., %76 ], [ %.pre164, %241 ], [ %237, %select.unfold ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1169,8 +1169,8 @@ print_commands.exit:                              ; preds = %62, %71
   br label %.thread48.i
 
 .thread48.i:                                      ; preds = %128, %116, %111, %.thread63.i
-  %130 = phi ptr [ %98, %.thread63.i ], [ %.pre60.i, %128 ], [ %98, %111 ], [ %98, %116 ]
-  %.2.ph.i = phi i32 [ 1, %.thread63.i ], [ -2, %128 ], [ -1, %111 ], [ -2, %116 ]
+  %130 = phi ptr [ %.pre60.i, %128 ], [ %98, %111 ], [ %98, %116 ], [ %98, %.thread63.i ]
+  %.2.ph.i = phi i32 [ -2, %128 ], [ -1, %111 ], [ -2, %116 ], [ 1, %.thread63.i ]
   %131 = tail call i32 @cl_engine_free(ptr noundef %130) #14
   tail call void @free(ptr noundef nonnull %93) #14
   br label %dispatch_command.exit
@@ -1205,7 +1205,7 @@ print_commands.exit:                              ; preds = %62, %71
   br label %dispatch_command.exit
 
 dispatch_command.exit:                            ; preds = %143, %141, %.thread48.i, %123, %100, %94, %134, %132, %85, %76, %22, %22, %135, %print_commands.exit, %48, %40, %26, %23, %conn_reply_error.exit
-  %.0 = phi i32 [ 1, %conn_reply_error.exit ], [ 0, %123 ], [ 1, %23 ], [ 1, %26 ], [ %42, %40 ], [ %51, %48 ], [ %75, %print_commands.exit ], [ 1, %135 ], [ 1, %22 ], [ 1, %22 ], [ 1, %134 ], [ 1, %76 ], [ %., %132 ], [ 0, %85 ], [ -1, %100 ], [ -1, %94 ], [ %.2.ph.i, %.thread48.i ], [ 1, %141 ], [ 1, %143 ]
+  %.0 = phi i32 [ 1, %conn_reply_error.exit ], [ 1, %23 ], [ 1, %26 ], [ %42, %40 ], [ %51, %48 ], [ %75, %print_commands.exit ], [ 1, %135 ], [ 1, %22 ], [ 1, %22 ], [ 0, %85 ], [ 1, %76 ], [ %., %132 ], [ 1, %134 ], [ -1, %100 ], [ -1, %94 ], [ %.2.ph.i, %.thread48.i ], [ 0, %123 ], [ 1, %141 ], [ 1, %143 ]
   ret i32 %.0
 }
 

@@ -3206,7 +3206,7 @@ sw.bb40.i:                                        ; preds = %while.body.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb40.i, %sw.bb39.i, %sw.bb37.i, %while.body.i
-  %state.2.i = phi i32 [ 6, %sw.bb39.i ], [ 2, %while.body.i ], [ 4, %sw.bb37.i ], [ %.59.i, %sw.bb40.i ]
+  %state.2.i = phi i32 [ 6, %sw.bb39.i ], [ 4, %sw.bb37.i ], [ %.59.i, %sw.bb40.i ], [ 2, %while.body.i ]
   %cmp.not.i = icmp eq i32 %state.2.i, 0
   br i1 %cmp.not.i, label %_ZNK9GUIButton13getImageStateEbPKNS_11ButtonImageE.exit, label %land.rhs.i, !llvm.loop !103
 
@@ -3412,7 +3412,7 @@ sw.bb40:                                          ; preds = %while.body
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb40, %sw.bb39, %sw.bb37, %while.body
-  %state.2 = phi i32 [ 6, %sw.bb39 ], [ 2, %while.body ], [ 4, %sw.bb37 ], [ %.59, %sw.bb40 ]
+  %state.2 = phi i32 [ 6, %sw.bb39 ], [ 4, %sw.bb37 ], [ %.59, %sw.bb40 ], [ 2, %while.body ]
   %cmp.not = icmp eq i32 %state.2, 0
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !103
 
@@ -6626,7 +6626,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.not, label %cleanup16, label %for.body
 
 cleanup16:                                        ; preds = %if.end, %for.body, %for.inc.us, %if.end.us, %for.body.us, %entry
-  %spec.select = phi ptr [ null, %entry ], [ %0, %for.body.us ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %3, %for.body ], [ null, %if.end ]
+  %spec.select = phi ptr [ null, %entry ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %0, %for.body.us ], [ null, %if.end ], [ %3, %for.body ]
   ret ptr %spec.select
 }
 

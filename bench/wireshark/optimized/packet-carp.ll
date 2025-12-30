@@ -192,8 +192,8 @@ test_carp_packet.exit:                            ; preds = %11
   %72 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %71, ptr noundef %0, i32 noundef 16, i32 noundef 20, i32 noundef 0)
   br label %test_carp_packet.exit.thread
 
-test_carp_packet.exit.thread:                     ; preds = %11, %4, %8, %test_carp_packet.exit, %68
-  %.0 = phi i32 [ 36, %68 ], [ 0, %test_carp_packet.exit ], [ 0, %8 ], [ 0, %4 ], [ 0, %11 ]
+test_carp_packet.exit.thread:                     ; preds = %8, %11, %4, %test_carp_packet.exit, %68
+  %.0 = phi i32 [ 36, %68 ], [ 0, %test_carp_packet.exit ], [ 0, %4 ], [ 0, %11 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -253,8 +253,8 @@ test_carp_packet.exit:                            ; preds = %10
   %17 = tail call i32 @dissect_carp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %test_carp_packet.exit.thread
 
-test_carp_packet.exit.thread:                     ; preds = %10, %4, %7, %test_carp_packet.exit, %16
-  %.0.i10 = phi i1 [ true, %16 ], [ false, %test_carp_packet.exit ], [ false, %7 ], [ false, %4 ], [ false, %10 ]
+test_carp_packet.exit.thread:                     ; preds = %7, %10, %4, %test_carp_packet.exit, %16
+  %.0.i10 = phi i1 [ false, %test_carp_packet.exit ], [ true, %16 ], [ false, %4 ], [ false, %10 ], [ false, %7 ]
   ret i1 %.0.i10
 }
 

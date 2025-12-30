@@ -68,7 +68,7 @@ define hidden range(i32 -134, 1) i32 @mbedtls_cipher_values_from_psa(i32 noundef
   br i1 %21, label %22, label %mbedtls_cipher_validate_values.exit
 
 22:                                               ; preds = %20, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19
-  %.sink = phi i32 [ 11, %19 ], [ 5, %11 ], [ 3, %12 ], [ 4, %13 ], [ 1, %14 ], [ 2, %15 ], [ 7, %10 ], [ 9, %16 ], [ 8, %17 ], [ 6, %18 ], [ 1, %20 ]
+  %.sink = phi i32 [ 5, %11 ], [ 3, %12 ], [ 4, %13 ], [ 1, %14 ], [ 2, %15 ], [ 9, %16 ], [ 8, %17 ], [ 6, %18 ], [ 11, %19 ], [ 7, %10 ], [ 1, %20 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !3
   switch i16 %1, label %mbedtls_cipher_validate_values.exit [
     i16 9216, label %31
@@ -99,7 +99,7 @@ define hidden range(i32 -134, 1) i32 @mbedtls_cipher_values_from_psa(i32 noundef
   br label %31
 
 31:                                               ; preds = %22, %24, %28, %30, %29, %23
-  %.0 = phi i32 [ 7, %30 ], [ 6, %23 ], [ %., %28 ], [ %., %24 ], [ 5, %29 ], [ 2, %22 ]
+  %.0 = phi i32 [ 6, %23 ], [ %., %28 ], [ %., %24 ], [ 5, %29 ], [ 7, %30 ], [ 2, %22 ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %33, label %32
 
@@ -154,7 +154,7 @@ switch.lookup:                                    ; preds = %39
   br label %mbedtls_cipher_validate_values.exit
 
 mbedtls_cipher_validate_values.exit:              ; preds = %switch.lookup, %42, %41, %41, %41, %41, %33, %22, %20, %10
-  %.027 = phi i32 [ -134, %10 ], [ -134, %20 ], [ -134, %22 ], [ -134, %42 ], [ 0, %33 ], [ %switch.load, %switch.lookup ], [ 0, %41 ], [ 0, %41 ], [ 0, %41 ], [ 0, %41 ]
+  %.027 = phi i32 [ -134, %10 ], [ -134, %20 ], [ -134, %22 ], [ -134, %42 ], [ 0, %33 ], [ 0, %41 ], [ 0, %41 ], [ 0, %41 ], [ 0, %41 ], [ %switch.load, %switch.lookup ]
   ret i32 %.027
 }
 
@@ -510,7 +510,7 @@ mbedtls_cipher_info_get_block_size.exit.i:        ; preds = %28, %24
   br label %psa_cipher_update_ecb.exit
 
 psa_cipher_update_ecb.exit:                       ; preds = %.lr.ph.i, %mbedtls_cipher_info_get_block_size.exit.i, %46, %._crit_edge.i, %63
-  %.053.i = phi i32 [ 0, %._crit_edge.i ], [ %48, %46 ], [ 0, %mbedtls_cipher_info_get_block_size.exit.i ], [ 0, %63 ], [ %55, %.lr.ph.i ]
+  %.053.i = phi i32 [ 0, %mbedtls_cipher_info_get_block_size.exit.i ], [ 0, %63 ], [ 0, %._crit_edge.i ], [ %48, %46 ], [ %55, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %78
 
@@ -532,7 +532,7 @@ psa_cipher_update_ecb.exit:                       ; preds = %.lr.ph.i, %mbedtls_
   br label %78
 
 78:                                               ; preds = %72, %psa_cipher_update_ecb.exit, %71, %20
-  %.025 = phi i32 [ -138, %20 ], [ %spec.select, %72 ], [ %.053.i, %psa_cipher_update_ecb.exit ], [ 0, %71 ]
+  %.025 = phi i32 [ -138, %20 ], [ %.053.i, %psa_cipher_update_ecb.exit ], [ 0, %71 ], [ %spec.select, %72 ]
   ret i32 %.025
 }
 
@@ -575,7 +575,7 @@ define hidden i32 @mbedtls_psa_cipher_finish(ptr noundef %0, ptr noundef writeon
   br label %19
 
 19:                                               ; preds = %17, %9, %9, %14, %18, %11
-  %.0 = phi i32 [ -135, %9 ], [ %13, %11 ], [ 0, %14 ], [ 0, %18 ], [ -135, %9 ], [ -138, %17 ]
+  %.0 = phi i32 [ %13, %11 ], [ 0, %14 ], [ 0, %18 ], [ -135, %9 ], [ -135, %9 ], [ -138, %17 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 16) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -683,8 +683,8 @@ mbedtls_psa_cipher_set_iv.exit:                   ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 16 %12, i64 %42, i1 false)
   br label %46
 
-mbedtls_psa_cipher_finish.exit.thread:            ; preds = %36, %36, %38, %44
-  %.0.i30.ph = phi i32 [ -138, %44 ], [ -135, %36 ], [ %40, %38 ], [ -135, %36 ]
+mbedtls_psa_cipher_finish.exit.thread:            ; preds = %38, %36, %36, %44
+  %.0.i30.ph = phi i32 [ -138, %44 ], [ -135, %36 ], [ -135, %36 ], [ %40, %38 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 16) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %mbedtls_psa_cipher_set_iv.exit.thread
@@ -699,7 +699,7 @@ mbedtls_psa_cipher_finish.exit.thread:            ; preds = %36, %36, %38, %44
   br label %mbedtls_psa_cipher_set_iv.exit.thread
 
 mbedtls_psa_cipher_set_iv.exit.thread:            ; preds = %18, %mbedtls_psa_cipher_finish.exit.thread, %25, %mbedtls_psa_cipher_set_iv.exit, %11, %46
-  %.0 = phi i32 [ %16, %11 ], [ %24, %mbedtls_psa_cipher_set_iv.exit ], [ %26, %25 ], [ %.0.i30.ph, %mbedtls_psa_cipher_finish.exit.thread ], [ 0, %46 ], [ -135, %18 ]
+  %.0 = phi i32 [ %16, %11 ], [ %24, %mbedtls_psa_cipher_set_iv.exit ], [ %26, %25 ], [ 0, %46 ], [ %.0.i30.ph, %mbedtls_psa_cipher_finish.exit.thread ], [ -135, %18 ]
   %50 = load i32, ptr %13, align 8, !tbaa !13
   %51 = and i32 %50, 2130706432
   %52 = icmp eq i32 %51, 67108864
@@ -803,8 +803,8 @@ mbedtls_psa_cipher_set_iv.exit._crit_edge:        ; preds = %mbedtls_psa_cipher_
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 16 %10, i64 %44, i1 false)
   br label %48
 
-mbedtls_psa_cipher_finish.exit.thread:            ; preds = %38, %38, %40, %46
-  %.0.i30.ph = phi i32 [ -138, %46 ], [ -135, %38 ], [ %42, %40 ], [ -135, %38 ]
+mbedtls_psa_cipher_finish.exit.thread:            ; preds = %40, %38, %38, %46
+  %.0.i30.ph = phi i32 [ -138, %46 ], [ -135, %38 ], [ -135, %38 ], [ %42, %40 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %51
@@ -818,7 +818,7 @@ mbedtls_psa_cipher_finish.exit.thread:            ; preds = %38, %38, %40, %46
   br label %51
 
 51:                                               ; preds = %mbedtls_psa_cipher_finish.exit.thread, %22, %mbedtls_psa_cipher_set_iv.exit, %9, %48
-  %.0 = phi i32 [ %13, %9 ], [ %20, %mbedtls_psa_cipher_set_iv.exit ], [ %28, %22 ], [ %.0.i30.ph, %mbedtls_psa_cipher_finish.exit.thread ], [ 0, %48 ]
+  %.0 = phi i32 [ %13, %9 ], [ %20, %mbedtls_psa_cipher_set_iv.exit ], [ %28, %22 ], [ 0, %48 ], [ %.0.i30.ph, %mbedtls_psa_cipher_finish.exit.thread ]
   %52 = load i32, ptr %11, align 8, !tbaa !13
   %53 = and i32 %52, 2130706432
   %54 = icmp eq i32 %53, 67108864

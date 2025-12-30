@@ -333,7 +333,7 @@ _ZN12cimg_library8CImgListIfED2Ev.exit:           ; preds = %_ZN12cimg_library8C
   br label %141
 
 141:                                              ; preds = %28, %80, %78, %52, %50, %139, %65, %37, %30, %26
-  %.merged36 = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ], [ %140, %139 ], [ %51, %50 ], [ %66, %65 ], [ %31, %30 ], [ %38, %37 ], [ %53, %52 ], [ %81, %80 ], [ %79, %78 ]
+  %.merged36 = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ], [ %140, %139 ], [ %66, %65 ], [ %31, %30 ], [ %38, %37 ], [ %53, %52 ], [ %51, %50 ], [ %81, %80 ], [ %79, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %8) #15
   br label %142
@@ -677,7 +677,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr noundef writeonly captures(none) %0
           to label %102 unwind label %44
 
 102:                                              ; preds = %58, %91, %96, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %91 ], [ 0, %58 ], [ %.027, %96 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %58 ], [ 0, %91 ], [ %.027, %96 ]
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -774,7 +774,7 @@ _ZN12cimg_library8CImgListIfED2Ev.exit:           ; preds = %_ZN12cimg_library8C
   ret i32 %.0
 
 143:                                              ; preds = %44, %46, %79, %59, %61, %92, %94, %20, %22
-  %.merged40 = phi { ptr, i32 } [ %21, %20 ], [ %23, %22 ], [ %45, %44 ], [ %60, %59 ], [ %80, %79 ], [ %47, %46 ], [ %62, %61 ], [ %95, %94 ], [ %93, %92 ]
+  %.merged40 = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %45, %44 ], [ %80, %79 ], [ %47, %46 ], [ %62, %61 ], [ %60, %59 ], [ %95, %94 ], [ %93, %92 ]
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7) #15
   br label %144
 
@@ -1166,7 +1166,7 @@ _ZN12cimg_library8CImgListIfED2Ev.exit:           ; preds = %_ZN12cimg_library8C
   ret i32 %.066
 
 167:                                              ; preds = %52, %63, %84, %35, %33, %18
-  %.merged86 = phi { ptr, i32 } [ %34, %33 ], [ %19, %18 ], [ %36, %35 ], [ %85, %84 ], [ %64, %63 ], [ %53, %52 ]
+  %.merged86 = phi { ptr, i32 } [ %19, %18 ], [ %36, %35 ], [ %34, %33 ], [ %85, %84 ], [ %64, %63 ], [ %53, %52 ]
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %11) #15
   br label %168
 

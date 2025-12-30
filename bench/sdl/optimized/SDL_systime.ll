@@ -50,7 +50,7 @@ define hidden void @SDL_GetSystemTimeLocalePreferences(ptr noundef writeonly cap
   br label %.loopexit26.sink.split
 
 .loopexit26.sink.split:                           ; preds = %6, %6, %6, %6, %.loopexit26.sink.split.loopexit35, %.loopexit26.sink.split.loopexit
-  %.sink = phi i32 [ 1, %.loopexit26.sink.split.loopexit35 ], [ 0, %.loopexit26.sink.split.loopexit ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ]
+  %.sink = phi i32 [ 0, %.loopexit26.sink.split.loopexit ], [ 1, %.loopexit26.sink.split.loopexit35 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ]
   store i32 %.sink, ptr %0, align 4
   br label %.loopexit26
 

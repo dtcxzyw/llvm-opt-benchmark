@@ -204,12 +204,12 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre
   br i1 %21, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %7, %.lr.ph.i, %.lr.ph.i, %16, %20, %.thread18
-  %.str.2.sink.i.sink = phi ptr [ @.str.2, %.lr.ph.i ], [ @.str, %.thread18 ], [ @.str.1, %20 ], [ @.str.1, %16 ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
+  %.str.2.sink.i.sink = phi ptr [ @.str, %.thread18 ], [ @.str.1, %20 ], [ @.str.1, %16 ], [ @.str.2, %.lr.ph.i ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull %.str.2.sink.i.sink, i1 noundef zeroext true) #6
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %3, %13, %20, %15
-  %.0 = phi i1 [ true, %20 ], [ true, %13 ], [ true, %3 ], [ true, %15 ], [ false, %.thread.sink.split ]
+  %.0 = phi i1 [ true, %15 ], [ true, %20 ], [ true, %13 ], [ true, %3 ], [ false, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -292,7 +292,7 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_rep
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %3, %13, %._crit_edge
-  %.011 = phi i1 [ true, %3 ], [ true, %13 ], [ true, %._crit_edge ], [ false, %.critedge.sink.split ]
+  %.011 = phi i1 [ true, %._crit_edge ], [ true, %13 ], [ true, %3 ], [ false, %.critedge.sink.split ]
   ret i1 %.011
 }
 
@@ -545,7 +545,7 @@ dom_free_node_after_zval_single_node_creation.exit: ; preds = %98, %.loopexit63
   br label %.loopexit62
 
 .loopexit62:                                      ; preds = %.loopexit, %.preheader, %19, %26, %dom_free_node_after_zval_single_node_creation.exit, %31, %16
-  %.0 = phi ptr [ %18, %16 ], [ null, %dom_free_node_after_zval_single_node_creation.exit ], [ null, %31 ], [ %24, %19 ], [ null, %26 ], [ %28, %.preheader ], [ %28, %.loopexit ]
+  %.0 = phi ptr [ %18, %16 ], [ null, %31 ], [ null, %dom_free_node_after_zval_single_node_creation.exit ], [ null, %26 ], [ %24, %19 ], [ %28, %.preheader ], [ %28, %.loopexit ]
   ret ptr %.0
 }
 
@@ -735,7 +735,7 @@ php_dom_follow_spec_doc_ref.exit55.thread:        ; preds = %php_dom_follow_spec
   br label %70
 
 70:                                               ; preds = %37, %41, %45, %52, %60, %63, %69, %php_dom_follow_spec_doc_ref.exit55.thread, %48, %21, %15, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %15 ], [ false, %21 ], [ false, %37 ], [ false, %41 ], [ true, %php_dom_follow_spec_doc_ref.exit55.thread ], [ false, %45 ], [ false, %52 ], [ false, %60 ], [ false, %63 ], [ false, %69 ], [ false, %48 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %15 ], [ false, %21 ], [ false, %37 ], [ false, %41 ], [ true, %php_dom_follow_spec_doc_ref.exit55.thread ], [ false, %52 ], [ false, %60 ], [ false, %63 ], [ false, %69 ], [ false, %45 ], [ false, %48 ]
   ret i1 %.0
 }
 
@@ -802,7 +802,7 @@ dom_free_node_after_zval_single_node_creation.exit.i: ; preds = %24, %17
   br label %dom_insert_node_list_cleanup.exit
 
 dom_insert_node_list_cleanup.exit:                ; preds = %26, %dom_free_node_after_zval_single_node_creation.exit.i, %11, %4, %10
-  %.0 = phi i1 [ false, %4 ], [ true, %10 ], [ false, %11 ], [ false, %dom_free_node_after_zval_single_node_creation.exit.i ], [ false, %26 ]
+  %.0 = phi i1 [ true, %10 ], [ false, %4 ], [ false, %11 ], [ false, %dom_free_node_after_zval_single_node_creation.exit.i ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -1180,7 +1180,7 @@ instanceof_function.exit:                         ; preds = %7
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %.critedge, %3, %25, %28, %13
-  %35 = phi i32 [ -1, %25 ], [ -1, %13 ], [ -1, %28 ], [ 0, %3 ], [ 0, %.critedge ]
+  %35 = phi i32 [ -1, %13 ], [ -1, %28 ], [ -1, %25 ], [ 0, %3 ], [ 0, %.critedge ]
   ret i32 %35
 }
 
@@ -1520,7 +1520,7 @@ define hidden void @dom_child_node_remove(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not7.i, label %dom_child_removal_preconditions.exit, label %13
 
 dom_child_removal_preconditions.exit:             ; preds = %1, %4, %7, %9
-  %.sink.i = phi i32 [ 7, %1 ], [ 7, %7 ], [ 8, %4 ], [ 8, %9 ]
+  %.sink.i = phi i32 [ 7, %7 ], [ 7, %1 ], [ 8, %4 ], [ 8, %9 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %11) #6
@@ -1645,7 +1645,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
   br i1 %.not7.i, label %dom_child_removal_preconditions.exit, label %39
 
 dom_child_removal_preconditions.exit:             ; preds = %.critedge, %32, %34, %36
-  %.sink.i = phi i32 [ 7, %.critedge ], [ 7, %34 ], [ 8, %32 ], [ 8, %36 ]
+  %.sink.i = phi i32 [ 7, %34 ], [ 7, %.critedge ], [ 8, %32 ], [ 8, %36 ]
   %37 = load ptr, ptr %4, align 8, !tbaa !27
   %38 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %37) #6
   tail call void @php_dom_throw_error(i32 noundef %.sink.i, i1 noundef zeroext %38) #6

@@ -207,7 +207,7 @@ define hidden i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef %0, ptr noundef 
   br label %53
 
 53:                                               ; preds = %48, %44, %41, %52, %39
-  %.0 = phi i32 [ %40, %39 ], [ 0, %52 ], [ %.37, %48 ], [ %., %44 ], [ 318769153, %41 ]
+  %.0 = phi i32 [ %40, %39 ], [ 0, %52 ], [ 318769153, %41 ], [ %., %44 ], [ %.37, %48 ]
   ret i32 %.0
 }
 
@@ -1275,7 +1275,7 @@ switch.edge.i:                                    ; preds = %225, %224, %223, %2
   br label %X11_InitModes_StdXlib.exit
 
 X11_InitModes_StdXlib.exit:                       ; preds = %199, %206, %208, %216, %244
-  %.0.i10 = phi i1 [ %254, %244 ], [ false, %208 ], [ false, %216 ], [ %200, %199 ], [ %207, %206 ]
+  %.0.i10 = phi i1 [ false, %216 ], [ %207, %206 ], [ %200, %199 ], [ false, %208 ], [ %254, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1720,8 +1720,8 @@ define hidden zeroext i1 @X11_SetDisplayMode(ptr noundef readonly captures(none)
   tail call void %137(ptr noundef nonnull %37) #8
   br label %.thread
 
-.thread:                                          ; preds = %57, %38, %133, %49, %21, %74, %.critedge
-  %.170 = phi i1 [ true, %21 ], [ true, %.critedge ], [ true, %74 ], [ %60, %57 ], [ %39, %38 ], [ %134, %133 ], [ %51, %49 ]
+.thread:                                          ; preds = %38, %57, %133, %49, %21, %74, %.critedge
+  %.170 = phi i1 [ true, %.critedge ], [ true, %74 ], [ true, %21 ], [ %39, %38 ], [ %60, %57 ], [ %134, %133 ], [ %51, %49 ]
   ret i1 %.170
 }
 
@@ -2105,7 +2105,7 @@ switch.edge:                                      ; preds = %20, %21, %20, %20, 
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %16, %66, %54, %7, %103, %84, %52
-  %.0100 = phi i1 [ false, %52 ], [ true, %103 ], [ false, %84 ], [ false, %54 ], [ false, %66 ], [ false, %7 ], [ false, %16 ]
+  %.0100 = phi i1 [ false, %52 ], [ true, %103 ], [ false, %84 ], [ false, %7 ], [ false, %54 ], [ false, %66 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2191,7 +2191,7 @@ define internal fastcc zeroext i1 @get_visualinfo(ptr noundef %0, i32 noundef %1
   br label %37
 
 37:                                               ; preds = %34, %14, %25, %28, %31
-  %.1 = phi i1 [ true, %14 ], [ true, %25 ], [ %.not35, %34 ], [ true, %31 ], [ true, %28 ]
+  %.1 = phi i1 [ true, %14 ], [ true, %31 ], [ true, %28 ], [ true, %25 ], [ %.not35, %34 ]
   ret i1 %.1
 }
 
@@ -2252,7 +2252,7 @@ define internal fastcc void @SetXRandRDisplayName(ptr noundef %0, i64 noundef %1
   %33 = call i32 %31(ptr noundef %32) #8
   br label %.thread38
 
-.thread38:                                        ; preds = %30, %20
+.thread38:                                        ; preds = %20, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

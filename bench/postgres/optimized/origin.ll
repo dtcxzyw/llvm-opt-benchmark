@@ -1070,8 +1070,8 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @__func__.replorigin_advance) #9
   unreachable
 
-34:                                               ; preds = %21, %16
-  %.2.ph = phi ptr [ %17, %16 ], [ %.04269, %21 ]
+34:                                               ; preds = %16, %21
+  %.2.ph = phi ptr [ %.04269, %21 ], [ %17, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !13

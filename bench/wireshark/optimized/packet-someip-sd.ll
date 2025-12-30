@@ -801,7 +801,7 @@ switch.lookup:                                    ; preds = %254
   br label %260
 
 260:                                              ; preds = %switch.lookup, %258, %257, %256
-  %hf_someip_sd_entry_type_stopofferservice.sink.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @hf_someip_sd_entry_type_stopsubscribeeventgroup, %257 ], [ @hf_someip_sd_entry_type_subscribeeventgroupnack, %258 ], [ @hf_someip_sd_entry_type_stopofferservice, %256 ]
+  %hf_someip_sd_entry_type_stopofferservice.sink.i.i = phi ptr [ @hf_someip_sd_entry_type_stopsubscribeeventgroup, %257 ], [ @hf_someip_sd_entry_type_subscribeeventgroupnack, %258 ], [ @hf_someip_sd_entry_type_stopofferservice, %256 ], [ %switch.load, %switch.lookup ]
   %261 = load i32, ptr %hf_someip_sd_entry_type_stopofferservice.sink.i.i, align 4
   %262 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %112, i32 noundef %261, ptr noundef %0, i32 noundef %.04286.i, i32 noundef 16, i64 noundef %253, ptr noundef nonnull @.str.177, i64 noundef %253)
   %.not.i210.i.i = icmp eq ptr %262, null
@@ -1018,9 +1018,9 @@ dissect_someip_sd_pdu_entry.exit.i:               ; preds = %323, %someip_sd_reg
   br label %.thread55.i
 
 .thread55.i:                                      ; preds = %352, %349, %347, %dissect_someip_sd_pdu_entry.exit.i, %dissect_someip_sd_pdu_entry.exit.thread.i
-  %.13944.i = phi i32 [ %.03888.i, %349 ], [ %.03888.i, %352 ], [ %348, %347 ], [ %.03888.i, %dissect_someip_sd_pdu_entry.exit.i ], [ %.03888.i, %dissect_someip_sd_pdu_entry.exit.thread.i ]
-  %.14142.i = phi i32 [ %350, %349 ], [ %350, %352 ], [ %.04087.i, %347 ], [ %.04087.i, %dissect_someip_sd_pdu_entry.exit.i ], [ %.04087.i, %dissect_someip_sd_pdu_entry.exit.thread.i ]
-  %.1.i = phi i64 [ -1, %349 ], [ -1, %352 ], [ %spec.select.i, %347 ], [ -1, %dissect_someip_sd_pdu_entry.exit.i ], [ -1, %dissect_someip_sd_pdu_entry.exit.thread.i ]
+  %.13944.i = phi i32 [ %.03888.i, %352 ], [ %.03888.i, %349 ], [ %.03888.i, %dissect_someip_sd_pdu_entry.exit.thread.i ], [ %.03888.i, %dissect_someip_sd_pdu_entry.exit.i ], [ %348, %347 ]
+  %.14142.i = phi i32 [ %350, %352 ], [ %350, %349 ], [ %.04087.i, %dissect_someip_sd_pdu_entry.exit.thread.i ], [ %.04087.i, %dissect_someip_sd_pdu_entry.exit.i ], [ %.04087.i, %347 ]
+  %.1.i = phi i64 [ -1, %352 ], [ -1, %349 ], [ -1, %dissect_someip_sd_pdu_entry.exit.thread.i ], [ -1, %dissect_someip_sd_pdu_entry.exit.i ], [ %spec.select.i, %347 ]
   %354 = add i32 %.04385.i, -16
   %355 = add nuw i32 %.04286.i, 16
   %356 = icmp ugt i32 %354, 15
@@ -1121,7 +1121,7 @@ dissect_someip_sd_pdu_entries.exit:               ; preds = %.thread77.i, %389
   br label %394
 
 394:                                              ; preds = %dissect_someip_sd_pdu_entries.exit, %392, %38, %25
-  %.0 = phi i32 [ %27, %25 ], [ %40, %38 ], [ %391, %dissect_someip_sd_pdu_entries.exit ], [ %.079, %392 ]
+  %.0 = phi i32 [ %40, %38 ], [ %27, %25 ], [ %391, %dissect_someip_sd_pdu_entries.exit ], [ %.079, %392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1214,7 +1214,7 @@ switch.lookup:                                    ; preds = %32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %29, %31, %30
-  %.str.82.sink77 = phi ptr [ @.str.80, %29 ], [ %switch.load, %switch.lookup ], [ @.str.86, %30 ], [ @.str.197, %31 ]
+  %.str.82.sink77 = phi ptr [ @.str.86, %30 ], [ @.str.197, %31 ], [ @.str.80, %29 ], [ %switch.load, %switch.lookup ]
   tail call fastcc void @stat_create_entry_summary_string(ptr noundef %3)
   %35 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.82.sink77, i32 noundef %16, i1 noundef zeroext true, i32 noundef 1)
   %36 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @someipsd_entries_stats_tree_packet.tmp_str, i32 noundef %35, i1 noundef zeroext false, i32 noundef 1)

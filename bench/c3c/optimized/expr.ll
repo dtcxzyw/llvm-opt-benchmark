@@ -152,7 +152,7 @@ define dso_local zeroext i1 @expr_is_unwrapped_ident(ptr noundef readonly captur
   br label %30
 
 30:                                               ; preds = %11, %16, %28, %5, %1
-  %.012 = phi i1 [ false, %5 ], [ false, %1 ], [ false, %11 ], [ %29, %28 ], [ false, %16 ]
+  %.012 = phi i1 [ false, %1 ], [ false, %5 ], [ false, %11 ], [ %29, %28 ], [ false, %16 ]
   ret i1 %.012
 }
 
@@ -311,11 +311,11 @@ tailrecurse.backedge:                             ; preds = %.critedge, %.crited
   unreachable
 
 .loopexit.loopexit:                               ; preds = %10, %.critedge, %.critedge
-  %.016.ph = phi i1 [ false, %10 ], [ true, %.critedge ], [ true, %.critedge ]
+  %.016.ph = phi i1 [ true, %.critedge ], [ true, %.critedge ], [ false, %10 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.loopexit.loopexit, %20, %20, %20, %20, %20, %20, %20, %14, %.loopexit22, %24
-  %.016 = phi i1 [ true, %20 ], [ true, %20 ], [ true, %20 ], [ %28, %.loopexit22 ], [ false, %14 ], [ false, %24 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ %.016.ph, %.loopexit.loopexit ], [ true, %20 ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ]
+  %.016 = phi i1 [ %28, %.loopexit22 ], [ false, %24 ], [ false, %14 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ %.016.ph, %.loopexit.loopexit ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ]
   ret i1 %.016
 }
 
@@ -479,7 +479,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %29
   br label %tailrecurse.backedge286
 
 tailrecurse.backedge286:                          ; preds = %tailrecurse.backedge, %.critedge89, %126, %6, %22, %45, %59, %71, %77, %.critedge87, %148, %150
-  %.066.be = phi ptr [ %21, %tailrecurse.backedge ], [ %8, %6 ], [ %24, %22 ], [ %47, %45 ], [ %61, %59 ], [ %76, %71 ], [ %79, %77 ], [ %109, %.critedge87 ], [ %151, %150 ], [ %149, %148 ], [ %121, %126 ], [ %121, %.critedge89 ]
+  %.066.be = phi ptr [ %21, %tailrecurse.backedge ], [ %8, %6 ], [ %24, %22 ], [ %47, %45 ], [ %61, %59 ], [ %76, %71 ], [ %79, %77 ], [ %109, %.critedge87 ], [ %149, %148 ], [ %151, %150 ], [ %121, %126 ], [ %121, %.critedge89 ]
   br label %tailrecurse
 
 22:                                               ; preds = %tailrecurse, %tailrecurse
@@ -792,11 +792,11 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
   unreachable
 
 expr_list_is_constant_eval.exit.loopexit285:      ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %48, %57, %54, %54, %54, %54, %102, %114, %141, %141, %141, %141, %147, %.critedge, %12, %25, %29
-  %.0.ph = phi i1 [ true, %29 ], [ true, %.critedge ], [ false, %25 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %141 ], [ false, %147 ], [ false, %141 ], [ true, %54 ], [ false, %102 ], [ false, %114 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ false, %57 ], [ true, %48 ], [ false, %tailrecurse ], [ false, %141 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %12 ], [ false, %141 ]
+  %.0.ph = phi i1 [ true, %29 ], [ false, %25 ], [ true, %.critedge ], [ false, %12 ], [ false, %147 ], [ false, %141 ], [ false, %141 ], [ false, %141 ], [ false, %141 ], [ false, %114 ], [ false, %102 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ false, %57 ], [ true, %48 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
   br label %expr_list_is_constant_eval.exit
 
 expr_list_is_constant_eval.exit:                  ; preds = %.lr.ph, %.lr.ph139, %.lr.ph145, %.lr.ph151, %54, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %expr_list_is_constant_eval.exit.loopexit285, %89, %80, %62, %36, %92, %83, %65, %39, %133, %136, %145, %139, %138, %34, %32
-  %.0 = phi i1 [ %146, %145 ], [ false, %133 ], [ true, %62 ], [ true, %83 ], [ true, %92 ], [ true, %65 ], [ true, %138 ], [ false, %136 ], [ %33, %32 ], [ %35, %34 ], [ %88, %.lr.ph139 ], [ true, %80 ], [ %140, %139 ], [ %44, %.lr.ph151 ], [ true, %89 ], [ true, %39 ], [ false, %54 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit285 ], [ %70, %.lr.ph145 ], [ true, %36 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ %97, %.lr.ph ]
+  %.0 = phi i1 [ %33, %32 ], [ %35, %34 ], [ true, %138 ], [ %140, %139 ], [ %146, %145 ], [ false, %136 ], [ false, %133 ], [ true, %39 ], [ true, %65 ], [ true, %83 ], [ true, %92 ], [ true, %36 ], [ true, %62 ], [ true, %80 ], [ true, %89 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit285 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ false, %54 ], [ %44, %.lr.ph151 ], [ %70, %.lr.ph145 ], [ %88, %.lr.ph139 ], [ %97, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -827,7 +827,7 @@ define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr noundef read
   br label %20
 
 20:                                               ; preds = %16, %7, %2
-  %.0 = phi i1 [ %19, %16 ], [ false, %2 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %19, %16 ]
   ret i1 %.0
 }
 
@@ -925,8 +925,8 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr noundef readon
   unreachable
 
 .sink.split:                                      ; preds = %20, %15, %10, %7
-  %.sink = phi i32 [ %17, %15 ], [ %12, %10 ], [ %9, %7 ], [ %22, %20 ]
-  %.sink40 = phi i32 [ %1, %15 ], [ %1, %10 ], [ 0, %7 ], [ %1, %20 ]
+  %.sink = phi i32 [ %9, %7 ], [ %12, %10 ], [ %17, %15 ], [ %22, %20 ]
+  %.sink40 = phi i32 [ 0, %7 ], [ %1, %10 ], [ %1, %15 ], [ %1, %20 ]
   %24 = load ptr, ptr @expr_arena, align 8
   %25 = zext i32 %.sink to i64
   %26 = getelementptr inbounds nuw %struct.Expr_, ptr %24, i64 %25
@@ -934,7 +934,7 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr noundef readon
   br label %28
 
 28:                                               ; preds = %.sink.split, %20, %18, %15, %13, %10, %7, %6
-  %.0 = phi i1 [ false, %18 ], [ false, %6 ], [ true, %7 ], [ true, %10 ], [ false, %13 ], [ true, %15 ], [ true, %20 ], [ %27, %.sink.split ]
+  %.0 = phi i1 [ false, %6 ], [ true, %7 ], [ true, %10 ], [ false, %13 ], [ true, %15 ], [ false, %18 ], [ true, %20 ], [ %27, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1047,7 +1047,7 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef 
   br label %45
 
 45:                                               ; preds = %37, %37, %29, %27, %23, %17, %2, %44, %43, %40, %36, %25, %21
-  %.023 = phi i1 [ false, %43 ], [ false, %2 ], [ false, %44 ], [ %22, %21 ], [ false, %17 ], [ %26, %25 ], [ false, %23 ], [ true, %27 ], [ false, %36 ], [ true, %29 ], [ %42, %40 ], [ true, %37 ], [ true, %37 ]
+  %.023 = phi i1 [ false, %44 ], [ %22, %21 ], [ %26, %25 ], [ false, %36 ], [ %42, %40 ], [ false, %43 ], [ false, %2 ], [ false, %17 ], [ false, %23 ], [ true, %27 ], [ true, %29 ], [ true, %37 ], [ true, %37 ]
   ret i1 %.023
 }
 
@@ -1590,7 +1590,7 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
   unreachable
 
 initializer_for_index.exit:                       ; preds = %18, %42
-  %.041.i.in = phi ptr [ %43, %42 ], [ %20, %18 ]
+  %.041.i.in = phi ptr [ %20, %18 ], [ %43, %42 ]
   %.041.i = load ptr, ptr %.041.i.in, align 8
   %.not = icmp eq ptr %.041.i, null
   br i1 %.not, label %.thread, label %initializer_for_index.exit.thread24thread-pre-split
@@ -2019,11 +2019,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   unreachable
 
 .critedge.loopexit293:                            ; preds = %138, %146, %151, %135, %143, %123, %128, %120, %100, %108, %113, %97, %105, %90, %73, %62, %55, %55, %55, %44, %49, %41, %36, %24, %29, %21, %14, %7, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %tailrecurse.backedge
-  %.070.ph = phi i1 [ false, %138 ], [ false, %113 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %7 ], [ false, %14 ], [ false, %146 ], [ false, %21 ], [ false, %29 ], [ false, %24 ], [ false, %36 ], [ false, %108 ], [ false, %55 ], [ false, %128 ], [ false, %55 ], [ false, %120 ], [ false, %62 ], [ false, %55 ], [ false, %105 ], [ false, %73 ], [ false, %90 ], [ false, %100 ], [ false, %123 ], [ false, %97 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ true, %tailrecurse.backedge ], [ false, %135 ], [ false, %143 ], [ false, %49 ], [ false, %41 ], [ false, %151 ], [ false, %44 ]
+  %.070.ph = phi i1 [ false, %138 ], [ false, %146 ], [ false, %151 ], [ false, %135 ], [ false, %143 ], [ false, %123 ], [ false, %128 ], [ false, %120 ], [ false, %100 ], [ false, %108 ], [ false, %113 ], [ false, %97 ], [ false, %105 ], [ false, %90 ], [ false, %73 ], [ false, %62 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %44 ], [ false, %49 ], [ false, %41 ], [ false, %36 ], [ false, %24 ], [ false, %29 ], [ false, %21 ], [ false, %14 ], [ false, %7 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ true, %tailrecurse.backedge ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph246, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge.loopexit293, %80, %1, %83
-  %.070 = phi i1 [ true, %83 ], [ true, %80 ], [ true, %.lr.ph ], [ %.070.ph, %.critedge.loopexit293 ], [ true, %1 ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ %89, %.lr.ph246 ]
+  %.070 = phi i1 [ true, %83 ], [ true, %1 ], [ true, %80 ], [ %.070.ph, %.critedge.loopexit293 ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ %89, %.lr.ph246 ]
   ret i1 %.070
 }
 
@@ -2198,11 +2198,11 @@ tailrecurse.backedge:                             ; preds = %32, %23
   br label %.split36.us
 
 .split36.us.loopexit80:                           ; preds = %29, %tailrecurse, %32, %23
-  %.0.ph = phi i1 [ false, %32 ], [ false, %29 ], [ true, %tailrecurse ], [ false, %23 ]
+  %.0.ph = phi i1 [ false, %32 ], [ false, %23 ], [ true, %tailrecurse ], [ false, %29 ]
   br label %.split36.us
 
 .split36.us:                                      ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %6, %15, %9, %.split36.us.loopexit80, %.split36.us.loopexit, %.split31.us, %41, %40
-  %.0 = phi i1 [ %1, %.split31.us ], [ false, %40 ], [ false, %6 ], [ true, %.split36.us.loopexit ], [ true, %41 ], [ %.0.ph, %.split36.us.loopexit80 ], [ false, %9 ], [ false, %15 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
+  %.0 = phi i1 [ true, %41 ], [ false, %40 ], [ %1, %.split31.us ], [ true, %.split36.us.loopexit ], [ %.0.ph, %.split36.us.loopexit80 ], [ false, %9 ], [ false, %15 ], [ false, %6 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -2544,7 +2544,7 @@ thread-pre-split:                                 ; preds = %22
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %43, %46
-  %.033 = phi ptr [ %47, %46 ], [ %35, %41 ], [ %35, %43 ]
+  %.033 = phi ptr [ %47, %46 ], [ %35, %43 ], [ %35, %41 ]
   store ptr %.033, ptr %0, align 8
   br label %48
 

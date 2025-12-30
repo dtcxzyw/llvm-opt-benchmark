@@ -702,9 +702,9 @@ generate_setop_grouplist.exit:                    ; preds = %.lr.ph6.i, %list_he
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %239, %235, %231, %229
-  %.1195.i = phi i8 [ 0, %231 ], [ 1, %239 ], [ 0, %229 ], [ 1, %235 ]
-  %.1193.i = phi i1 [ false, %231 ], [ %.0192.i158195, %239 ], [ %.0192.i158195, %229 ], [ false, %235 ]
-  %.1191.i = phi ptr [ %.0190.i159194, %231 ], [ %242, %239 ], [ %.0190.i159194, %229 ], [ %.0190.i159194, %235 ]
+  %.1195.i = phi i8 [ 1, %239 ], [ 0, %229 ], [ 0, %231 ], [ 1, %235 ]
+  %.1193.i = phi i1 [ %.0192.i158195, %239 ], [ %.0192.i158195, %229 ], [ false, %231 ], [ false, %235 ]
+  %.1191.i = phi ptr [ %242, %239 ], [ %.0190.i159194, %229 ], [ %.0190.i159194, %231 ], [ %.0190.i159194, %235 ]
   %243 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %244 = load ptr, ptr %243, align 8
   %245 = tail call ptr @bms_union(ptr noundef %.0.i162191, ptr noundef %244) #7
@@ -744,7 +744,7 @@ list_length.exit108.thread:                       ; preds = %.critedge226.i.thre
   br label %list_length.exit106
 
 list_length.exit106:                              ; preds = %list_length.exit108.thread, %.critedge226.i
-  %261 = phi i32 [ %spec.select, %list_length.exit108.thread ], [ poison, %.critedge226.i ]
+  %261 = phi i32 [ poison, %.critedge226.i ], [ %spec.select, %list_length.exit108.thread ]
   %262 = load i32, ptr @max_parallel_workers_per_gather, align 4
   %263 = tail call i32 @llvm.smin.i32(i32 %261, i32 %262)
   br label %264
@@ -1077,7 +1077,7 @@ generate_setop_grouplist.exit127:                 ; preds = %.lr.ph6.i120, %list
   br label %440
 
 440:                                              ; preds = %434, %433, %430, %429
-  %.0127.i = phi double [ %425, %429 ], [ %432, %430 ], [ %..i, %434 ], [ %425, %433 ]
+  %.0127.i = phi double [ %432, %430 ], [ %425, %429 ], [ %..i, %434 ], [ %425, %433 ]
   %441 = getelementptr inbounds nuw i8, ptr %419, i64 16
   store double %.0127.i, ptr %441, align 8
   %442 = load i32, ptr %53, align 4
@@ -1139,7 +1139,7 @@ generate_setop_grouplist.exit127:                 ; preds = %.lr.ph6.i120, %list
   br label %474
 
 474:                                              ; preds = %470, %465, %460
-  %.0121.i = phi ptr [ %468, %465 ], [ %473, %470 ], [ %411, %460 ]
+  %.0121.i = phi ptr [ %473, %470 ], [ %468, %465 ], [ %411, %460 ]
   %475 = load ptr, ptr %12, align 8
   %476 = call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %340, ptr noundef %475) #7
   %477 = getelementptr inbounds nuw i8, ptr %413, i64 72
@@ -1161,7 +1161,7 @@ generate_setop_grouplist.exit127:                 ; preds = %.lr.ph6.i120, %list
   br label %489
 
 489:                                              ; preds = %485, %480, %474
-  %.0.i98 = phi ptr [ %483, %480 ], [ %488, %485 ], [ %413, %474 ]
+  %.0.i98 = phi ptr [ %488, %485 ], [ %483, %480 ], [ %413, %474 ]
   %490 = call ptr @create_setop_path(ptr noundef nonnull %1, ptr noundef nonnull %419, ptr noundef %.0121.i, ptr noundef %.0.i98, i32 noundef %.0124.i, i32 noundef 0, ptr noundef %340, double noundef %425, double noundef %.0127.i) #7
   call void @add_path(ptr noundef nonnull %419, ptr noundef %490) #7
   br label %generate_nonunion_paths.exit
@@ -1413,7 +1413,7 @@ define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly captures(a
   br i1 %67, label %78, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %57, %65, %64
-  %68 = phi ptr [ null, %64 ], [ %63, %65 ], [ %63, %57 ]
+  %68 = phi ptr [ %63, %65 ], [ null, %64 ], [ %63, %57 ]
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %70 = load i16, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 8

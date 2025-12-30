@@ -64,7 +64,7 @@ define internal range(i32 -1094995529, 1) i32 @msvideo1_decode_init(ptr noundef 
   br label %29
 
 29:                                               ; preds = %26, %1, %7
-  %.0 = phi i32 [ %., %26 ], [ -1094995529, %1 ], [ -1094995529, %7 ]
+  %.0 = phi i32 [ -1094995529, %7 ], [ -1094995529, %1 ], [ %., %26 ]
   ret i32 %.0
 }
 
@@ -358,7 +358,7 @@ define internal i32 @msvideo1_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   br label %._crit_edge187.i
 
 ._crit_edge187.i:                                 ; preds = %._crit_edge187.loopexit.i, %.lr.ph186.i, %36
-  %154 = phi ptr [ %41, %36 ], [ %.pre.i, %._crit_edge187.loopexit.i ], [ %41, %.lr.ph186.i ]
+  %154 = phi ptr [ %.pre.i, %._crit_edge187.loopexit.i ], [ %41, %36 ], [ %41, %.lr.ph186.i ]
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 136
   %156 = load i32, ptr %155, align 8, !tbaa !35
   %157 = icmp eq i32 %156, 11
@@ -589,8 +589,8 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   br label %.loopexit.us.i33
 
 .loopexit.us.i33:                                 ; preds = %217, %250, %267, %280, %190
-  %.2129.us.i = phi i32 [ %.1128191.us.i, %190 ], [ %193, %280 ], [ %234, %250 ], [ %225, %267 ], [ %193, %217 ]
-  %.2115.us.i = phi i32 [ %191, %190 ], [ %283, %280 ], [ 0, %250 ], [ 0, %267 ], [ 0, %217 ]
+  %.2129.us.i = phi i32 [ %.1128191.us.i, %190 ], [ %193, %280 ], [ %225, %267 ], [ %234, %250 ], [ %193, %217 ]
+  %.2115.us.i = phi i32 [ %191, %190 ], [ %283, %280 ], [ 0, %267 ], [ 0, %250 ], [ 0, %217 ]
   %.1.us.i34 = add nsw i32 %.0194.us.i, 4
   %.2123.us.i = add nsw i32 %.1122192.us.i, -1
   %284 = add nsw i32 %.0134190.us.i, -1
@@ -625,7 +625,7 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   br i1 %292, label %.lr.ph.us.i31, label %msvideo1_decode_16bit.exit, !llvm.loop !64
 
 msvideo1_decode_16bit.exit.sink.split:            ; preds = %233, %224, %192
-  %.sink = phi i32 [ %225, %224 ], [ %193, %192 ], [ %234, %233 ]
+  %.sink = phi i32 [ %193, %192 ], [ %225, %224 ], [ %234, %233 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %167, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.sink, i32 noundef %194) #6
   br label %msvideo1_decode_16bit.exit
 

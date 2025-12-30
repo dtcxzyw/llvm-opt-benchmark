@@ -612,7 +612,7 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   br i1 %155, label %100, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %152, %89, %115, %143
-  %.2 = phi i32 [ -22, %115 ], [ -22, %143 ], [ 0, %89 ], [ 0, %152 ]
+  %.2 = phi i32 [ -22, %143 ], [ -22, %115 ], [ 0, %89 ], [ 0, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

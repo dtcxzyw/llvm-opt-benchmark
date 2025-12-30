@@ -240,7 +240,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   br label %45
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h2a4204c3d4ec66caE.exit: ; preds = %.backedge.i8, %94, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h1ae89174e7e69454E.exit.us.preheader.i", %49, %45, %43
-  %.sroa.0.0 = phi i1 [ true, %43 ], [ false, %45 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h1ae89174e7e69454E.exit.us.preheader.i" ], [ false, %49 ], [ false, %.backedge.i8 ], [ true, %94 ]
+  %.sroa.0.0 = phi i1 [ true, %43 ], [ false, %45 ], [ false, %49 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h1ae89174e7e69454E.exit.us.preheader.i" ], [ false, %.backedge.i8 ], [ true, %94 ]
   ret i1 %.sroa.0.0
 
 49:                                               ; preds = %45
@@ -1226,7 +1226,7 @@ _ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.ex
   br i1 %22, label %29, label %27
 
 23:                                               ; preds = %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.exit, %31, %14
-  %.sroa.01.0 = phi i1 [ false, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.exit ], [ false, %14 ], [ true, %31 ]
+  %.sroa.01.0 = phi i1 [ false, %14 ], [ false, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.exit ], [ true, %31 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1279,7 +1279,7 @@ _ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.ex
   br i1 %.not7, label %42, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit, %45
-  %.sroa.0.2 = phi i1 [ %.sroa.0.1, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit ], [ true, %45 ], [ %.sroa.0.1, %37 ]
+  %.sroa.0.2 = phi i1 [ true, %45 ], [ %.sroa.0.1, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit ], [ %.sroa.0.1, %37 ]
   %spec.select = or i1 %.sroa.01.0, %.sroa.0.2
   br label %47
 
@@ -1293,7 +1293,7 @@ _ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.ex
   br label %.loopexit
 
 47:                                               ; preds = %31, %.loopexit, %3
-  %.sroa.0.0 = phi i1 [ %spec.select, %.loopexit ], [ false, %3 ], [ true, %31 ]
+  %.sroa.0.0 = phi i1 [ false, %3 ], [ %spec.select, %.loopexit ], [ true, %31 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2304,8 +2304,8 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection6pacing5Pacer5delay17hd5
   br i1 %.not27, label %160, label %157
 
 157:                                              ; preds = %138, %132, %29, %198
-  %.sroa.6.0 = phi i32 [ %213, %198 ], [ 1000000000, %29 ], [ 1000000000, %138 ], [ 1000000000, %132 ]
-  %.sroa.0.0 = phi i64 [ %212, %198 ], [ undef, %29 ], [ undef, %138 ], [ undef, %132 ]
+  %.sroa.6.0 = phi i32 [ %213, %198 ], [ 1000000000, %29 ], [ 1000000000, %132 ], [ 1000000000, %138 ]
+  %.sroa.0.0 = phi i64 [ %212, %198 ], [ undef, %29 ], [ undef, %132 ], [ undef, %138 ]
   %158 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %159 = insertvalue { i64, i32 } %158, i32 %.sroa.6.0, 1
   ret { i64, i32 } %159
@@ -2443,7 +2443,7 @@ define hidden void @_ZN11quinn_proto10connection5paths8PathData3new17hf6448ee096
           to label %42 unwind label %92
 
 .body:                                            ; preds = %54, %40
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %41, %40 ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %55, %54 ]
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$quinn_proto..congestion..Controller$GT$$GT$17ha1b4ebd74052eb11E"(ptr nonnull %27, ptr nonnull %28) #31
           to label %"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..congestion..ControllerFactory$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h91ec584b8dfe2239E.exit" unwind label %90
 
@@ -2588,7 +2588,7 @@ define hidden void @_ZN11quinn_proto10connection5paths8PathData3new17hf6448ee096
   unreachable
 
 "_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..congestion..ControllerFactory$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h91ec584b8dfe2239E.exit": ; preds = %94, %98, %.body, %92
-  %.pn.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %95, %94 ], [ %.pn, %.body ], [ %95, %98 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %.pn, %.body ], [ %95, %98 ], [ %95, %94 ]
   resume { ptr, i32 } %.pn.pn.pn
 
 92:                                               ; preds = %38, %23
@@ -2902,7 +2902,7 @@ define hidden void @_ZN11quinn_proto10connection5paths8PathData5reset17ha522f5be
   ret void
 
 "_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..congestion..ControllerFactory$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h91ec584b8dfe2239E.exit": ; preds = %58, %62, %.body
-  %.pn = phi { ptr, i32 } [ %46, %.body ], [ %59, %58 ], [ %59, %62 ]
+  %.pn = phi { ptr, i32 } [ %46, %.body ], [ %59, %62 ], [ %59, %58 ]
   resume { ptr, i32 } %.pn
 
 58:                                               ; preds = %19
@@ -3135,7 +3135,7 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection5paths12RttEstimator8pto
   %34 = insertvalue { i64, i32 } %33, i32 %.sroa.4.0.i, 1
   ret { i64, i32 } %34
 
-35:                                               ; preds = %26, %9
+35:                                               ; preds = %9, %26
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.6c1ca90c4085145c8ff21bb733e33876.47, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c1ca90c4085145c8ff21bb733e33876.48) #32
   unreachable
 }
@@ -3206,7 +3206,7 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   %39 = icmp eq i64 %.sroa.0.0.i, %3
   br i1 %39, label %41, label %42
 
-40:                                               ; preds = %25, %17
+40:                                               ; preds = %17, %25
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.6c1ca90c4085145c8ff21bb733e33876.47, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c1ca90c4085145c8ff21bb733e33876.48) #32
   unreachable
 
@@ -3257,8 +3257,8 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   unreachable
 
 60:                                               ; preds = %52, %56, %42, %41
-  %.sroa.6.0 = phi i32 [ %4, %42 ], [ %4, %41 ], [ %58, %56 ], [ %.sroa.04.0.i, %52 ]
-  %.sroa.01.0 = phi i64 [ %3, %42 ], [ %3, %41 ], [ %57, %56 ], [ %.sroa.02.0.i, %52 ]
+  %.sroa.6.0 = phi i32 [ %4, %41 ], [ %4, %42 ], [ %58, %56 ], [ %.sroa.04.0.i, %52 ]
+  %.sroa.01.0 = phi i64 [ %3, %41 ], [ %3, %42 ], [ %57, %56 ], [ %.sroa.02.0.i, %52 ]
   %61 = icmp eq i64 %18, %.sroa.01.0
   %62 = icmp ugt i64 %18, %.sroa.01.0
   %63 = icmp samesign ugt i32 %16, %.sroa.6.0
@@ -3348,8 +3348,8 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   unreachable
 
 _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %90, %77, %73
-  %.sroa.3.0 = phi i32 [ %.sroa.04.0.i70, %73 ], [ %79, %77 ], [ %96, %94 ], [ %.sroa.04.0.i77, %90 ]
-  %.sroa.0.0.i72.pn = phi i64 [ %.sroa.02.0.i68, %73 ], [ %78, %77 ], [ %95, %94 ], [ %.sroa.02.0.i75, %90 ]
+  %.sroa.3.0 = phi i32 [ %79, %77 ], [ %.sroa.04.0.i70, %73 ], [ %96, %94 ], [ %.sroa.04.0.i77, %90 ]
+  %.sroa.0.0.i72.pn = phi i64 [ %78, %77 ], [ %.sroa.02.0.i68, %73 ], [ %95, %94 ], [ %.sroa.02.0.i75, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %100 = load i64, ptr %99, align 8, !noundef !3
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3420,7 +3420,7 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %
   %144 = select i1 %140, i1 true, i1 %142
   br i1 %144, label %158, label %146, !prof !36
 
-145:                                              ; preds = %120, %113
+145:                                              ; preds = %113, %120
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.6c1ca90c4085145c8ff21bb733e33876.47, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c1ca90c4085145c8ff21bb733e33876.48) #32
   unreachable
 
@@ -3461,7 +3461,7 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %
   store i32 %165, ptr %15, align 8
   br label %167
 
-166:                                              ; preds = %153, %146
+166:                                              ; preds = %146, %153
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.6c1ca90c4085145c8ff21bb733e33876.47, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c1ca90c4085145c8ff21bb733e33876.48) #32
   unreachable
 
@@ -3863,7 +3863,7 @@ define hidden void @_ZN11quinn_proto10connection5paths13PathResponses12pop_off_p
   store i16 2, ptr %36, align 8
   br label %41
 
-"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %15, %6, %28, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit"
+"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %15, %28, %6, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit"
   %37 = add nsw i64 %5, -1
   store i64 %37, ptr %4, align 8
   %38 = load i64, ptr %1, align 8, !range !75, !noundef !3
@@ -3971,9 +3971,9 @@ define hidden { i64, i64 } @_ZN11quinn_proto10connection5paths13PathResponses11p
   tail call void @llvm.assume(i1 %38)
   br label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread"
 
-"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %2, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit", %27, %5, %14, %34
-  %.sroa.4.1 = phi i64 [ %.sroa.114.0.copyload, %34 ], [ undef, %14 ], [ undef, %5 ], [ undef, %27 ], [ undef, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit" ], [ undef, %2 ]
-  %.sroa.0.1 = phi i64 [ 1, %34 ], [ 0, %14 ], [ 0, %5 ], [ 0, %27 ], [ 0, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit" ], [ 0, %2 ]
+"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %2, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit", %5, %27, %14, %34
+  %.sroa.4.1 = phi i64 [ %.sroa.114.0.copyload, %34 ], [ undef, %14 ], [ undef, %27 ], [ undef, %5 ], [ undef, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit" ], [ undef, %2 ]
+  %.sroa.0.1 = phi i64 [ 1, %34 ], [ 0, %14 ], [ 0, %27 ], [ 0, %5 ], [ 0, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.4.1, 1
@@ -4306,8 +4306,8 @@ define { i64, i64 } @_ZN11quinn_proto10connection7streams10RecvStream14received_
   unreachable
 
 38:                                               ; preds = %23, %19, %17, %10, %33, %9
-  %.sroa.6.0 = phi i64 [ undef, %9 ], [ undef, %17 ], [ %26, %33 ], [ undef, %19 ], [ undef, %10 ], [ undef, %23 ]
-  %.sroa.0.0 = phi i64 [ 2, %9 ], [ 0, %17 ], [ 1, %33 ], [ 2, %19 ], [ 0, %10 ], [ 0, %23 ]
+  %.sroa.6.0 = phi i64 [ undef, %9 ], [ %26, %33 ], [ undef, %10 ], [ undef, %17 ], [ undef, %19 ], [ undef, %23 ]
+  %.sroa.0.0 = phi i64 [ 2, %9 ], [ 1, %33 ], [ 0, %10 ], [ 0, %17 ], [ 2, %19 ], [ 0, %23 ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.6.0, 1
   ret { i64, i64 } %40
@@ -5396,9 +5396,9 @@ define void @_ZN11quinn_proto10connection7streams10SendStream5write17h14f7313f9d
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.6c1ca90c4085145c8ff21bb733e33876.36, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c1ca90c4085145c8ff21bb733e33876.88) #32, !noalias !235
   unreachable
 
-.loopexit:                                        ; preds = %._crit_edge.i.i.i, %193, %66, %229, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i", %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i", %378, %350, %346, %.critedge402.i
-  %.sroa.16.0.ph = phi i64 [ undef, %.critedge402.i ], [ undef, %346 ], [ undef, %350 ], [ undef, %378 ], [ undef, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i" ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i" ], [ undef, %193 ], [ %122, %229 ], [ 0, %66 ], [ 0, %._crit_edge.i.i.i ]
-  %.sroa.9.0.ph = phi i64 [ 0, %.critedge402.i ], [ 0, %346 ], [ 0, %350 ], [ 0, %378 ], [ 0, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i" ], [ 0, %193 ], [ %120, %229 ], [ 2, %66 ], [ 2, %._crit_edge.i.i.i ]
+.loopexit:                                        ; preds = %._crit_edge.i.i.i, %229, %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i", %193, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i", %378, %350, %346, %.critedge402.i
+  %.sroa.16.0.ph = phi i64 [ undef, %.critedge402.i ], [ undef, %346 ], [ undef, %350 ], [ undef, %378 ], [ undef, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i" ], [ undef, %193 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i" ], [ 0, %66 ], [ %122, %229 ], [ 0, %._crit_edge.i.i.i ]
+  %.sroa.9.0.ph = phi i64 [ 0, %.critedge402.i ], [ 0, %346 ], [ 0, %350 ], [ 0, %378 ], [ 0, %"_ZN11quinn_proto10connection7streams10SendStream12write_source28_$u7b$$u7b$closure$u7d$$u7d$17h9aaed42898dfc8a4E.exit.i" ], [ 0, %193 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit.i" ], [ 2, %66 ], [ %120, %229 ], [ 2, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
@@ -6721,8 +6721,8 @@ _ZN4core3ops8function6FnOnce9call_once17h897f84b4fe06bd80E.exit: ; preds = %"_ZN
   br i1 %.not19, label %53, label %51
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread": ; preds = %._crit_edge.i.i, %1, %53, %54, %51
-  %.sroa.4.0 = phi i64 [ %52, %51 ], [ undef, %53 ], [ undef, %54 ], [ undef, %1 ], [ undef, %._crit_edge.i.i ]
-  %.sroa.0.0 = phi i64 [ %48, %51 ], [ 2, %53 ], [ 2, %54 ], [ 1, %1 ], [ 1, %._crit_edge.i.i ]
+  %.sroa.4.0 = phi i64 [ %52, %51 ], [ undef, %54 ], [ undef, %53 ], [ undef, %1 ], [ undef, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi i64 [ %48, %51 ], [ 2, %54 ], [ 2, %53 ], [ 1, %1 ], [ 1, %._crit_edge.i.i ]
   %49 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %50 = insertvalue { i64, i64 } %49, i64 %.sroa.4.0, 1
   ret { i64, i64 } %50
@@ -6848,7 +6848,7 @@ _ZN4core3ops8function6FnOnce9call_once17h897f84b4fe06bd80E.exit: ; preds = %"_ZN
   br i1 %49, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread", label %50
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread": ; preds = %._crit_edge.i.i, %2, %_ZN4core3ops8function6FnOnce9call_once17h897f84b4fe06bd80E.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5037f72649d3361E.exit"
-  %.sroa.0.0 = phi i1 [ true, %_ZN4core3ops8function6FnOnce9call_once17h897f84b4fe06bd80E.exit ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5037f72649d3361E.exit" ], [ true, %2 ], [ true, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5037f72649d3361E.exit" ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h897f84b4fe06bd80E.exit ], [ true, %2 ], [ true, %._crit_edge.i.i ]
   ret i1 %.sroa.0.0
 
 50:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h897f84b4fe06bd80E.exit
@@ -7048,8 +7048,8 @@ define { i32, i32 } @_ZN11quinn_proto10connection7streams10SendStream8priority17
   br i1 %.not10, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit.thread", label %41
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit.thread": ; preds = %._crit_edge.i.i, %1, %41, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit"
-  %.sroa.3.0 = phi i32 [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit" ], [ %43, %41 ], [ undef, %1 ], [ undef, %._crit_edge.i.i ]
-  %.sroa.0.0 = phi i32 [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit" ], [ 0, %41 ], [ 1, %1 ], [ 1, %._crit_edge.i.i ]
+  %.sroa.3.0 = phi i32 [ %43, %41 ], [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit" ], [ undef, %1 ], [ undef, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi i32 [ 0, %41 ], [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit" ], [ 1, %1 ], [ 1, %._crit_edge.i.i ]
   %39 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %40 = insertvalue { i32, i32 } %39, i32 %.sroa.3.0, 1
   ret { i32, i32 } %40
@@ -7333,7 +7333,7 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread35: ; preds =
   %82 = fcmp olt double %68, %81
   br i1 %82, label %86, label %83
 
-_ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread: ; preds = %35, %50, %_ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit
+_ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread: ; preds = %50, %35, %_ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.6c1ca90c4085145c8ff21bb733e33876.47, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c1ca90c4085145c8ff21bb733e33876.48) #32
   unreachable
 

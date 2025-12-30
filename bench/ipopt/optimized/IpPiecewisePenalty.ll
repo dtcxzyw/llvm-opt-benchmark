@@ -198,8 +198,8 @@ define noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty10AcceptableEdd(ptr nounde
 112:                                              ; preds = %.critedge108
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph117, %.critedge108, %112, %38, %53, %26
-  %.3 = phi i1 [ false, %53 ], [ true, %.lr.ph117 ], [ false, %38 ], [ false, %26 ], [ true, %112 ], [ false, %.critedge108 ], [ false, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph117, %.critedge108, %112, %38, %26, %53
+  %.3 = phi i1 [ false, %53 ], [ false, %26 ], [ false, %38 ], [ true, %112 ], [ false, %.critedge108 ], [ true, %.lr.ph117 ], [ false, %.lr.ph ]
   ret i1 %.3
 }
 

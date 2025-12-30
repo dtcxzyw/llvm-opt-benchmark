@@ -91,7 +91,7 @@ define noalias noundef ptr @N_VNewEmpty_Serial(i64 noundef %0) local_unnamed_add
   br label %40
 
 40:                                               ; preds = %1, %36, %35, %7
-  %.0 = phi ptr [ %2, %36 ], [ null, %7 ], [ null, %35 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %35 ], [ %2, %36 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -148,7 +148,7 @@ N_VDestroy_Serial.exit:                           ; preds = %14, %17
   br label %24
 
 24:                                               ; preds = %4, %22, %1, %N_VDestroy_Serial.exit
-  %.0 = phi ptr [ null, %1 ], [ null, %N_VDestroy_Serial.exit ], [ %2, %22 ], [ %2, %4 ]
+  %.0 = phi ptr [ null, %N_VDestroy_Serial.exit ], [ null, %1 ], [ %2, %22 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -295,7 +295,7 @@ define noalias noundef ptr @N_VCloneEmpty_Serial(ptr noundef readonly captures(a
   br label %95
 
 95:                                               ; preds = %3, %1, %89, %88, %9
-  %.0 = phi ptr [ %4, %89 ], [ null, %1 ], [ null, %9 ], [ null, %88 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %88 ], [ %4, %89 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1339,7 +1339,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
   br label %32
 
 32:                                               ; preds = %.sink.split, %26, %27, %21, %.lr.ph
-  %.1 = phi i32 [ %.035, %.lr.ph ], [ %.035, %27 ], [ %.035, %21 ], [ %.035, %26 ], [ 0, %.sink.split ]
+  %.1 = phi i32 [ %.035, %.lr.ph ], [ %.035, %21 ], [ %.035, %27 ], [ %.035, %26 ], [ 0, %.sink.split ]
   %33 = add nuw nsw i64 %.03134, 1
   %exitcond.not = icmp eq i64 %33, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
@@ -1439,7 +1439,7 @@ N_VDestroy_Serial.exit:                           ; preds = %12, %15
   br label %22
 
 22:                                               ; preds = %4, %20, %1, %N_VDestroy_Serial.exit
-  %.0 = phi ptr [ null, %1 ], [ null, %N_VDestroy_Serial.exit ], [ %2, %20 ], [ %2, %4 ]
+  %.0 = phi ptr [ null, %N_VDestroy_Serial.exit ], [ null, %1 ], [ %2, %20 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -1533,7 +1533,7 @@ N_VDestroyVectorArray_Serial.exit:                ; preds = %N_VDestroy_Serial.e
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !81
 
 .loopexit:                                        ; preds = %29, %4, %2, %N_VDestroyVectorArray_Serial.exit
-  %.016 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %N_VDestroyVectorArray_Serial.exit ], [ %7, %29 ]
+  %.016 = phi ptr [ null, %N_VDestroyVectorArray_Serial.exit ], [ null, %2 ], [ null, %4 ], [ %7, %29 ]
   ret ptr %.016
 }
 
@@ -1652,7 +1652,7 @@ N_VDestroyVectorArray_Serial.exit:                ; preds = %N_VDestroy_Serial.e
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !82
 
 .loopexit:                                        ; preds = %29, %4, %2, %N_VDestroyVectorArray_Serial.exit
-  %.016 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %N_VDestroyVectorArray_Serial.exit ], [ %7, %29 ]
+  %.016 = phi ptr [ null, %N_VDestroyVectorArray_Serial.exit ], [ null, %2 ], [ null, %4 ], [ %7, %29 ]
   ret ptr %.016
 }
 

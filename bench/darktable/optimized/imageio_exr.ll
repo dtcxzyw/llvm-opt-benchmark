@@ -369,7 +369,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_exr(ptr noundef %0, ptr noundef %1, 
   br label %62
 
 62:                                               ; preds = %58, %60, %49, %51
-  %.pn155.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %61, %60 ], [ %59, %58 ]
+  %.pn155.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ], [ %61, %60 ], [ %59, %58 ]
   %.3127 = extractvalue { ptr, i32 } %.pn155.pn, 1
   %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %64 = icmp eq i32 %.3127, %63
@@ -618,8 +618,8 @@ _ZNK7Imf_2_56Header18findTypedAttributeINS_14TypedAttributeINS_4BlobEEEEEPKT_PKc
   br label %470
 
 159:                                              ; preds = %152, %145
-  %.0123 = phi ptr [ %148, %145 ], [ %153, %152 ]
-  %.0122 = phi i32 [ %149, %145 ], [ %154, %152 ]
+  %.0123 = phi ptr [ %153, %152 ], [ %148, %145 ]
+  %.0122 = phi i32 [ %154, %152 ], [ %149, %145 ]
   %.not160 = icmp eq i32 %.0122, 0
   br i1 %.not160, label %247, label %.thread
 
@@ -1381,14 +1381,14 @@ _ZNSt10unique_ptrIN7Imf_2_514TiledInputFileESt14default_deleteIS1_EED2Ev.exit190
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0118
 
-_ZNSt10unique_ptrIN7Imf_2_59InputFileESt14default_deleteIS1_EED2Ev.exit193.thread: ; preds = %62, %67, %39
-  %.merged181.ph = phi { ptr, i32 } [ %.pn155.pn, %62 ], [ %68, %67 ], [ %40, %39 ]
+_ZNSt10unique_ptrIN7Imf_2_59InputFileESt14default_deleteIS1_EED2Ev.exit193.thread: ; preds = %39, %62, %67
+  %.merged181.ph = phi { ptr, i32 } [ %40, %39 ], [ %.pn155.pn, %62 ], [ %68, %67 ]
   call void @_ZN7Imf_2_511FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNSt10unique_ptrIN7Imf_2_514TiledInputFileESt14default_deleteIS1_EED2Ev.exit196
 
 470:                                              ; preds = %90, %92, %119, %88, %267, %318, %320, %322, %324, %458, %155, %157, %187, %123
-  %.merged181 = phi { ptr, i32 } [ %120, %119 ], [ %268, %267 ], [ %.pn172.pn, %458 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %124, %123 ], [ %156, %155 ], [ %188, %187 ], [ %158, %157 ], [ %89, %88 ], [ %93, %92 ], [ %91, %90 ]
+  %.merged181 = phi { ptr, i32 } [ %268, %267 ], [ %.pn172.pn, %458 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %124, %123 ], [ %156, %155 ], [ %188, %187 ], [ %158, %157 ], [ %89, %88 ], [ %120, %119 ], [ %93, %92 ], [ %91, %90 ]
   call void @_ZN7Imf_2_511FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i191 = icmp eq ptr %.sroa.0210.2, null

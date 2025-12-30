@@ -484,7 +484,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   ]
 
 .critedge5.i:                                     ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i, %133, %.critedge.i, %.thread
-  %.sroa.03.014.i = phi ptr [ %.sroa.03.016.i, %.critedge.i ], [ %.sroa.03.016.i, %133 ], [ %111, %.thread ], [ %132, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
+  %.sroa.03.014.i = phi ptr [ %.sroa.03.016.i, %133 ], [ %.sroa.03.016.i, %.critedge.i ], [ %111, %.thread ], [ %132, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
   br i1 %67, label %134, label %150
 
 134:                                              ; preds = %.critedge5.i

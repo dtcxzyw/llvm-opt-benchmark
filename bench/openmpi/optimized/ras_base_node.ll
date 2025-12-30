@@ -632,7 +632,7 @@ pmix_obj_update.exit106:                          ; preds = %pmix_obj_update.exi
   br i1 %314, label %pmix_list_remove_first.exit.thread, label %80, !llvm.loop !88
 
 pmix_list_remove_first.exit.thread:               ; preds = %.loopexit, %.lr.ph130, %.lr.ph138, %pmix_pointer_array_get_item.exit.thread, %229, %230, %32, %27, %2
-  %.0 = phi i32 [ %303, %.lr.ph130 ], [ 0, %2 ], [ %31, %32 ], [ 0, %pmix_pointer_array_get_item.exit.thread ], [ -43, %229 ], [ %31, %27 ], [ %225, %230 ], [ %187, %.lr.ph138 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 0, %2 ], [ %31, %27 ], [ %31, %32 ], [ %225, %230 ], [ -43, %229 ], [ 0, %pmix_pointer_array_get_item.exit.thread ], [ %187, %.lr.ph138 ], [ %303, %.lr.ph130 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

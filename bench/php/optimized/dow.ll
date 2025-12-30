@@ -226,10 +226,10 @@ timelib_day_of_year.exit:                         ; preds = %23
   br label %timelib_day_of_week.exit
 
 timelib_day_of_week.exit:                         ; preds = %25, %timelib_day_of_year.exit
-  %spec.select89 = phi i32 [ %spec.select81, %25 ], [ %spec.select, %timelib_day_of_year.exit ]
-  %.pre-phi86 = phi i64 [ %27, %25 ], [ %.pre74, %timelib_day_of_year.exit ]
-  %.pre-phi7383 = phi i64 [ %26, %25 ], [ %.pre, %timelib_day_of_year.exit ]
-  %m_table_common.sink.i.i = phi ptr [ %spec.select93, %25 ], [ @m_table_common, %timelib_day_of_year.exit ]
+  %spec.select89 = phi i32 [ %spec.select, %timelib_day_of_year.exit ], [ %spec.select81, %25 ]
+  %.pre-phi86 = phi i64 [ %.pre74, %timelib_day_of_year.exit ], [ %27, %25 ]
+  %.pre-phi7383 = phi i64 [ %.pre, %timelib_day_of_year.exit ], [ %26, %25 ]
+  %m_table_common.sink.i.i = phi ptr [ @m_table_common, %timelib_day_of_year.exit ], [ %spec.select93, %25 ]
   %42 = getelementptr inbounds nuw i8, ptr %m_table_common.sink.i.i, i64 4
   %43 = icmp slt i64 %.pre-phi7383, 0
   %44 = select i1 %43, i64 100, i64 0
@@ -539,8 +539,8 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   br label %.thread39
 
 .thread39:                                        ; preds = %51, %49, %.lr.ph
-  %54 = phi i1 [ true, %49 ], [ %53, %51 ], [ false, %.lr.ph ]
-  %55 = phi i64 [ 366, %49 ], [ %spec.select41, %51 ], [ 365, %.lr.ph ]
+  %54 = phi i1 [ false, %.lr.ph ], [ true, %49 ], [ %53, %51 ]
+  %55 = phi i64 [ 365, %.lr.ph ], [ 366, %49 ], [ %spec.select41, %51 ]
   %56 = add nsw i64 %55, %.03243
   %57 = icmp slt i64 %56, 1
   br i1 %57, label %.lr.ph, label %..preheader_crit_edge
@@ -567,8 +567,8 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   br label %.thread75
 
 .thread75:                                        ; preds = %66, %64, %.lr.ph46
-  %69 = phi i1 [ true, %64 ], [ %68, %66 ], [ false, %.lr.ph46 ]
-  %70 = phi i64 [ 366, %64 ], [ %spec.select84, %66 ], [ 365, %.lr.ph46 ]
+  %69 = phi i1 [ false, %.lr.ph46 ], [ true, %64 ], [ %68, %66 ]
+  %70 = phi i64 [ 365, %.lr.ph46 ], [ 366, %64 ], [ %spec.select84, %66 ]
   %71 = icmp sgt i64 %60, %70
   br i1 %71, label %.lr.ph46, label %._crit_edge
 

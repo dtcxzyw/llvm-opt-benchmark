@@ -511,7 +511,7 @@ create_listen.exit:                               ; preds = %19, %53, %59, %69, 
   br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %221, %217, %211, %203, %8
-  %.012 = phi i32 [ -13, %8 ], [ %218, %221 ], [ -2, %203 ], [ -11, %211 ], [ %218, %217 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+  %.012 = phi i32 [ -13, %8 ], [ -2, %203 ], [ -11, %211 ], [ %218, %217 ], [ %218, %221 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
   ret i32 %.012
 }
 
@@ -870,8 +870,8 @@ pmix_obj_run_destructors.exit84:                  ; preds = %.lr.ph.i81, %162
   %177 = add nsw i32 %.060103, 1
   br label %.thread
 
-.thread:                                          ; preds = %175, %173, %pmix_obj_update.exit77, %105, %.lr.ph106, %176, %116
-  %.1 = phi i32 [ %.060103, %.lr.ph106 ], [ %.060103, %105 ], [ %177, %176 ], [ %.060103, %116 ], [ %.060103, %pmix_obj_update.exit77 ], [ %.060103, %173 ], [ %.060103, %175 ]
+.thread:                                          ; preds = %pmix_obj_update.exit77, %175, %173, %105, %.lr.ph106, %176, %116
+  %.1 = phi i32 [ %.060103, %.lr.ph106 ], [ %.060103, %105 ], [ %.060103, %116 ], [ %177, %176 ], [ %.060103, %173 ], [ %.060103, %175 ], [ %.060103, %pmix_obj_update.exit77 ]
   %178 = getelementptr inbounds nuw i8, ptr %.165104, i64 120
   %.165 = load ptr, ptr %178, align 8, !tbaa !59
   %.not72 = icmp eq ptr %.165, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)

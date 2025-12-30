@@ -114,7 +114,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis13relat
   br label %31
 
 31:                                               ; preds = %17, %11, %23, %27
-  %.1 = phi i1 [ %30, %27 ], [ true, %23 ], [ %22, %17 ], [ true, %11 ]
+  %.1 = phi i1 [ true, %23 ], [ %30, %27 ], [ true, %11 ], [ %22, %17 ]
   ret i1 %.1
 }
 
@@ -255,7 +255,7 @@ _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit: ; preds = %
   %or.cond = select i1 %45, i1 true, i1 %.not36.not
   br i1 %or.cond, label %.loopexit, label %21, !llvm.loop !55
 
-46:                                               ; preds = %3, %6
+46:                                               ; preds = %6, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %47, ptr %4, align 8, !tbaa !56
@@ -360,7 +360,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZNK4llvm7PHINode15incoming_valuesEv.exit, %._crit_edge, %85
-  %.not37.lcssa73 = phi i1 [ %.not37.lcssa.ph, %85 ], [ %.not37.lcssa.ph, %._crit_edge ], [ false, %_ZNK4llvm7PHINode15incoming_valuesEv.exit ]
+  %.not37.lcssa73 = phi i1 [ %.not37.lcssa.ph, %._crit_edge ], [ %.not37.lcssa.ph, %85 ], [ false, %_ZNK4llvm7PHINode15incoming_valuesEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -475,7 +475,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis12relat
   br label %47
 
 47:                                               ; preds = %40, %37, %33, %46, %20, %25, %29, %23, %3, %13
-  %.0 = phi i1 [ false, %3 ], [ true, %13 ], [ %21, %20 ], [ %26, %25 ], [ %30, %29 ], [ false, %23 ], [ %spec.select, %46 ], [ %41, %40 ], [ %38, %37 ], [ %34, %33 ]
+  %.0 = phi i1 [ true, %13 ], [ false, %3 ], [ %21, %20 ], [ %26, %25 ], [ %41, %40 ], [ %38, %37 ], [ %34, %33 ], [ %30, %29 ], [ false, %23 ], [ %spec.select, %46 ]
   ret i1 %.0
 }
 
@@ -484,101 +484,101 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm7objcarc22IsObjCIdentifie
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %3, label %4 [
-    i8 85, label %.critedge21
-    i8 34, label %.critedge21
-    i8 22, label %.critedge21
+    i8 85, label %.critedge
+    i8 34, label %.critedge
+    i8 22, label %.critedge
   ]
 
 4:                                                ; preds = %1
   %5 = icmp ult i8 %3, 22
   %6 = icmp eq i8 %3, 60
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %.critedge21, label %7
+  br i1 %or.cond, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %.not = icmp eq i8 %3, 61
-  br i1 %.not, label %8, label %.critedge21
+  br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 -32
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = tail call noundef ptr @_ZN4llvm7objcarc17GetRCIdentityRootEPKNS_5ValueE(ptr noundef %10)
   %12 = load i8, ptr %11, align 8, !tbaa !3
-  %.not46 = icmp eq i8 %12, 3
-  br i1 %.not46, label %13, label %.critedge21
+  %.not47 = icmp eq i8 %12, 3
+  br i1 %.not47, label %13, label %.critedge
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %.critedge21.thread, label %17
+  br i1 %16, label %.critedge.thread, label %17
 
 17:                                               ; preds = %13
   %18 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #9
   %19 = extractvalue { ptr, i64 } %18, 1
   %.not.i = icmp ult i64 %19, 22
-  br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread42, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+  br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %17
   %20 = extractvalue { ptr, i64 } %18, 0
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %20, ptr noundef nonnull dereferenceable(22) @.str, i64 22)
   %21 = icmp eq i32 %bcmp.i, 0
-  br i1 %21, label %.critedge21.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread42
+  br i1 %21, label %.critedge.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread42: ; preds = %17, %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread43: ; preds = %17, %_ZNK4llvm9StringRef11starts_withES0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 67108864
-  %.not.i25 = icmp eq i32 %24, 0
-  br i1 %.not.i25, label %_ZNK4llvm12GlobalObject10getSectionEv.exit, label %25
+  %.not.i26 = icmp eq i32 %24, 0
+  br i1 %.not.i26, label %_ZNK4llvm12GlobalObject10getSectionEv.exit, label %25
 
-25:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread42
+25:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43
   %26 = tail call { ptr, i64 } @_ZNK4llvm12GlobalObject14getSectionImplEv(ptr noundef nonnull align 8 dereferenceable(56) %11) #9
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = extractvalue { ptr, i64 } %26, 1
   br label %_ZNK4llvm12GlobalObject10getSectionEv.exit
 
-_ZNK4llvm12GlobalObject10getSectionEv.exit:       ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread42, %25
-  %.sroa.0.0.i = phi ptr [ %27, %25 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread42 ]
-  %.sroa.4.0.i = phi i64 [ %28, %25 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread42 ]
+_ZNK4llvm12GlobalObject10getSectionEv.exit:       ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43, %25
+  %.sroa.0.0.i = phi ptr [ %27, %25 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43 ]
+  %.sroa.4.0.i = phi i64 [ %28, %25 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43 ]
   store ptr %.sroa.0.0.i, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.4.0.i, ptr %29, align 8
   %30 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @.str.1, i64 14, i64 noundef 0) #9
-  %.not47 = icmp eq i64 %30, -1
-  br i1 %.not47, label %31, label %.critedge21.critedge
+  %.not48 = icmp eq i64 %30, -1
+  br i1 %.not48, label %31, label %.critedge24
 
 31:                                               ; preds = %_ZNK4llvm12GlobalObject10getSectionEv.exit
   %32 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @.str.2, i64 16, i64 noundef 0) #9
-  %.not48 = icmp eq i64 %32, -1
-  br i1 %.not48, label %33, label %.critedge21.critedge
+  %.not49 = icmp eq i64 %32, -1
+  br i1 %.not49, label %33, label %.critedge24
 
 33:                                               ; preds = %31
   %34 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @.str.3, i64 16, i64 noundef 0) #9
-  %.not49 = icmp eq i64 %34, -1
-  br i1 %.not49, label %35, label %.critedge21.critedge
+  %.not50 = icmp eq i64 %34, -1
+  br i1 %.not50, label %35, label %.critedge24
 
 35:                                               ; preds = %33
   %36 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @.str.4, i64 15, i64 noundef 0) #9
-  %.not50 = icmp eq i64 %36, -1
-  br i1 %.not50, label %37, label %.critedge21.critedge
+  %.not51 = icmp eq i64 %36, -1
+  br i1 %.not51, label %37, label %.critedge24
 
 37:                                               ; preds = %35
   %38 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull @.str.5, i64 9, i64 noundef 0) #9
-  %.not51 = icmp eq i64 %38, -1
+  %.not52 = icmp eq i64 %38, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not51, label %.critedge21, label %.critedge21.thread
+  br i1 %.not52, label %.critedge, label %.critedge.thread
 
-.critedge21.critedge:                             ; preds = %31, %33, %35, %_ZNK4llvm12GlobalObject10getSectionEv.exit
+.critedge24:                                      ; preds = %_ZNK4llvm12GlobalObject10getSectionEv.exit, %31, %33, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.critedge21.thread
+  br label %.critedge.thread
 
-.critedge21.thread:                               ; preds = %.critedge21.critedge, %13, %37, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  br label %.critedge21
+.critedge.thread:                                 ; preds = %13, %37, %.critedge24, %_ZNK4llvm9StringRef11starts_withES0_.exit
+  br label %.critedge
 
-.critedge21:                                      ; preds = %1, %1, %1, %8, %37, %.critedge21.thread, %7, %4
-  %.013 = phi i1 [ true, %1 ], [ true, %1 ], [ false, %8 ], [ true, %4 ], [ true, %1 ], [ true, %.critedge21.thread ], [ false, %7 ], [ false, %37 ]
+.critedge:                                        ; preds = %1, %1, %1, %8, %37, %.critedge.thread, %7, %4
+  %.013 = phi i1 [ true, %4 ], [ true, %1 ], [ true, %.critedge.thread ], [ false, %7 ], [ false, %37 ], [ false, %8 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.013
 }
 
@@ -726,7 +726,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit44: ; pred
   br i1 %.not.i, label %select.unfold, label %12, !llvm.loop !99
 
 select.unfold:                                    ; preds = %.critedge, %24, %27
-  %61 = phi i1 [ true, %24 ], [ true, %27 ], [ false, %.critedge ]
+  %61 = phi i1 [ true, %27 ], [ true, %24 ], [ false, %.critedge ]
   %62 = load ptr, ptr %2, align 8, !tbaa !86
   %63 = icmp eq ptr %62, %8
   br i1 %63, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj8EED2Ev.exit, label %64
@@ -804,7 +804,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds =
   br label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i
 
 _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i: ; preds = %26, %24, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %16, %13
-  %.2.i.i = phi i32 [ %28, %26 ], [ 21, %16 ], [ 21, %13 ], [ 21, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ %25, %24 ]
+  %.2.i.i = phi i32 [ %28, %26 ], [ 21, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ 21, %13 ], [ 21, %16 ], [ %25, %24 ]
   %29 = call noundef zeroext i1 @_ZN4llvm7objcarc12IsForwardingENS0_11ARCInstKindE(i32 noundef %.2.i.i) #9
   br i1 %29, label %30, label %_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit
 
@@ -1061,7 +1061,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %
   br label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit
 
 _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit: ; preds = %6, %9, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %17, %19
-  %.2.i = phi i32 [ %21, %19 ], [ 21, %9 ], [ 21, %6 ], [ 21, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ %18, %17 ]
+  %.2.i = phi i32 [ %21, %19 ], [ 21, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ 21, %6 ], [ 21, %9 ], [ %18, %17 ]
   %22 = tail call noundef zeroext i1 @_ZN4llvm7objcarc12IsForwardingENS0_11ARCInstKindE(i32 noundef %.2.i) #9
   br i1 %22, label %23, label %31
 

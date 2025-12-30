@@ -478,9 +478,9 @@ Vec_WrdGrow.exit.i133:                            ; preds = %183, %181
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %195, %Vec_WrdGrow.exit.i133, %.Vec_WrdGrow.exit10_crit_edge.i128, %171, %Vec_WrdGrow.exit.i126, %.Vec_WrdGrow.exit10_crit_edge.i121, %76, %Vec_WrdGrow.exit.i, %.Vec_WrdGrow.exit10_crit_edge.i
-  %.sink227 = phi ptr [ %161, %Vec_WrdGrow.exit.i126 ], [ %66, %Vec_WrdGrow.exit.i ], [ %.pre.i, %.Vec_WrdGrow.exit10_crit_edge.i ], [ %77, %76 ], [ %.pre.i123, %.Vec_WrdGrow.exit10_crit_edge.i121 ], [ %172, %171 ], [ %.pre.i130, %.Vec_WrdGrow.exit10_crit_edge.i128 ], [ %196, %195 ], [ %185, %Vec_WrdGrow.exit.i133 ]
-  %spec.select215.sink = phi i64 [ 1311768465173141112, %Vec_WrdGrow.exit.i126 ], [ 1311768465173141112, %Vec_WrdGrow.exit.i ], [ 1311768465173141112, %.Vec_WrdGrow.exit10_crit_edge.i ], [ 1311768465173141112, %76 ], [ 1311768465173141112, %.Vec_WrdGrow.exit10_crit_edge.i121 ], [ 1311768465173141112, %171 ], [ %spec.select215, %.Vec_WrdGrow.exit10_crit_edge.i128 ], [ %spec.select215, %195 ], [ %spec.select215, %Vec_WrdGrow.exit.i133 ]
-  %.299 = phi i32 [ %149, %Vec_WrdGrow.exit.i126 ], [ %54, %Vec_WrdGrow.exit.i ], [ %54, %.Vec_WrdGrow.exit10_crit_edge.i ], [ %54, %76 ], [ %149, %.Vec_WrdGrow.exit10_crit_edge.i121 ], [ %149, %171 ], [ %.198149, %.Vec_WrdGrow.exit10_crit_edge.i128 ], [ %.198149, %195 ], [ %.198149, %Vec_WrdGrow.exit.i133 ]
+  %.sink227 = phi ptr [ %.pre.i, %.Vec_WrdGrow.exit10_crit_edge.i ], [ %77, %76 ], [ %66, %Vec_WrdGrow.exit.i ], [ %.pre.i123, %.Vec_WrdGrow.exit10_crit_edge.i121 ], [ %172, %171 ], [ %161, %Vec_WrdGrow.exit.i126 ], [ %.pre.i130, %.Vec_WrdGrow.exit10_crit_edge.i128 ], [ %196, %195 ], [ %185, %Vec_WrdGrow.exit.i133 ]
+  %spec.select215.sink = phi i64 [ 1311768465173141112, %.Vec_WrdGrow.exit10_crit_edge.i ], [ 1311768465173141112, %76 ], [ 1311768465173141112, %Vec_WrdGrow.exit.i ], [ 1311768465173141112, %.Vec_WrdGrow.exit10_crit_edge.i121 ], [ 1311768465173141112, %171 ], [ 1311768465173141112, %Vec_WrdGrow.exit.i126 ], [ %spec.select215, %.Vec_WrdGrow.exit10_crit_edge.i128 ], [ %spec.select215, %195 ], [ %spec.select215, %Vec_WrdGrow.exit.i133 ]
+  %.299 = phi i32 [ %54, %.Vec_WrdGrow.exit10_crit_edge.i ], [ %54, %76 ], [ %54, %Vec_WrdGrow.exit.i ], [ %149, %.Vec_WrdGrow.exit10_crit_edge.i121 ], [ %149, %171 ], [ %149, %Vec_WrdGrow.exit.i126 ], [ %.198149, %.Vec_WrdGrow.exit10_crit_edge.i128 ], [ %.198149, %195 ], [ %.198149, %Vec_WrdGrow.exit.i133 ]
   %197 = load i32, ptr %39, align 4, !tbaa !47
   %198 = add nsw i32 %197, 1
   store i32 %198, ptr %39, align 4, !tbaa !47
@@ -2143,8 +2143,8 @@ define i32 @Acec_MatchCountCommon(ptr noundef readonly captures(none) %0, ptr no
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %52, %54, %44, %46
-  %.sink49 = phi ptr [ %47, %46 ], [ %45, %44 ], [ %53, %52 ], [ %55, %54 ]
-  %.sink = phi i32 [ 16, %46 ], [ 16, %44 ], [ %49, %52 ], [ %49, %54 ]
+  %.sink49 = phi ptr [ %45, %44 ], [ %47, %46 ], [ %53, %52 ], [ %55, %54 ]
+  %.sink = phi i32 [ 16, %44 ], [ 16, %46 ], [ %49, %52 ], [ %49, %54 ]
   store ptr %.sink49, ptr %7, align 8, !tbaa !24
   store i32 %.sink, ptr %4, align 8, !tbaa !23
   br label %Vec_IntPush.exit.i

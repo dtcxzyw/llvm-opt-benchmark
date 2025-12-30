@@ -3012,7 +3012,7 @@ define internal range(i32 -29, 1) i32 @pmix3_bfrop_copy_modex(ptr noundef writeo
   br label %17
 
 17:                                               ; preds = %6, %16, %11, %3
-  %.0 = phi i32 [ -29, %11 ], [ -29, %3 ], [ 0, %16 ], [ 0, %6 ]
+  %.0 = phi i32 [ -29, %3 ], [ -29, %11 ], [ 0, %16 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -3323,7 +3323,7 @@ define internal range(i32 -32, 1) i32 @pmix3_bfrop_print_array(ptr noundef write
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %._crit_edge, %17
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -32, %17 ], [ -32, %4 ], [ -32, %.lr.ph ]
+  %.0 = phi i32 [ -32, %17 ], [ 0, %._crit_edge ], [ -32, %4 ], [ -32, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

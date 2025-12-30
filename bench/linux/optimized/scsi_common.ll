@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly c
   br label %.thread5
 
 .thread5:                                         ; preds = %41, %33, %16, %18, %23, %52, %48, %35, %28, %7, %3
-  %58 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %35 ], [ true, %48 ], [ true, %28 ], [ true, %52 ], [ true, %33 ], [ true, %16 ], [ true, %23 ], [ true, %18 ], [ true, %41 ]
+  %58 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %35 ], [ true, %48 ], [ true, %28 ], [ true, %52 ], [ true, %23 ], [ true, %18 ], [ true, %16 ], [ true, %33 ], [ true, %41 ]
   ret i1 %58
 }
 

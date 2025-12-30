@@ -280,7 +280,7 @@ _set_cond.exit.us:                                ; preds = %25, %20
   br i1 %exitcond.not.i, label %_set_cond.exit, label %49, !llvm.loop !11
 
 _set_cond.exit:                                   ; preds = %136, %46, %70
-  %.1 = phi i32 [ %.0108, %46 ], [ %72, %70 ], [ %0, %136 ]
+  %.1 = phi i32 [ %72, %70 ], [ %.0108, %46 ], [ %0, %136 ]
   %137 = add nsw i32 %.1, 1
   %138 = icmp slt i32 %137, %0
   br i1 %138, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
@@ -489,7 +489,7 @@ _set_cond.exit:                                   ; preds = %136, %46, %70
   br label %220
 
 220:                                              ; preds = %._crit_edge116, %219, %177, %180, %174, %175, %140, %141
-  %.073 = phi i32 [ %165, %174 ], [ -1, %140 ], [ -1, %177 ], [ -1, %141 ], [ %165, %175 ], [ -1, %180 ], [ 0, %219 ], [ 0, %._crit_edge116 ]
+  %.073 = phi i32 [ -1, %141 ], [ -1, %140 ], [ %165, %175 ], [ %165, %174 ], [ -1, %180 ], [ -1, %177 ], [ 0, %219 ], [ 0, %._crit_edge116 ]
   ret i32 %.073
 }
 

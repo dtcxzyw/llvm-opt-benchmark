@@ -658,7 +658,7 @@ evaluate_meta_item_dxt.exit.i:                    ; preds = %291, %.lr.ph.split.
   br i1 %295, label %.lr.ph.split.i, label %evaluate_meta_items.exit, !llvm.loop !6
 
 evaluate_meta_items.exit:                         ; preds = %evaluate_meta_item_dxt.exit.us34.i, %evaluate_meta_item_dxt.exit.us.i, %evaluate_meta_item_dxt.exit.i, %31
-  %.0.lcssa.i = phi i32 [ 0, %31 ], [ %201, %evaluate_meta_item_dxt.exit.us.i ], [ %294, %evaluate_meta_item_dxt.exit.i ], [ %259, %evaluate_meta_item_dxt.exit.us34.i ]
+  %.0.lcssa.i = phi i32 [ 0, %31 ], [ %294, %evaluate_meta_item_dxt.exit.i ], [ %201, %evaluate_meta_item_dxt.exit.us.i ], [ %259, %evaluate_meta_item_dxt.exit.us34.i ]
   %.not70 = icmp eq i32 %.0.lcssa.i, %.pre-phi
   br i1 %.not70, label %298, label %296
 
@@ -776,7 +776,7 @@ evaluate_meta_items.exit:                         ; preds = %evaluate_meta_item_
   br label %354
 
 354:                                              ; preds = %351, %296
-  %.066 = phi i32 [ %353, %351 ], [ 8, %296 ]
+  %.066 = phi i32 [ 8, %296 ], [ %353, %351 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.066
 }

@@ -3997,7 +3997,7 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %6, %2, %87, %83
-  %90 = phi i32 [ 0, %87 ], [ -19, %6 ], [ -19, %83 ], [ -19, %2 ]
+  %90 = phi i32 [ -19, %83 ], [ 0, %87 ], [ -19, %2 ], [ -19, %6 ]
   ret i32 %90
 }
 

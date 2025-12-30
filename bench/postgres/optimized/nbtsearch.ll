@@ -156,7 +156,7 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
   br label %69
 
 69:                                               ; preds = %67, %64, %BufferGetPage.exit.i
-  %.0.i = phi i16 [ %68, %67 ], [ %spec.select.i, %64 ], [ %44, %BufferGetPage.exit.i ]
+  %.0.i = phi i16 [ %68, %67 ], [ %44, %BufferGetPage.exit.i ], [ %spec.select.i, %64 ]
   %70 = zext i16 %.0.i to i64
   %71 = getelementptr i8, ptr %.0.i.i6668, i64 20
   %72 = getelementptr %struct.ItemIdData, ptr %71, i64 %70
@@ -305,7 +305,7 @@ BufferGetPage.exit.us:                            ; preds = %19, %13
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %50, %44
-  %.0.us.be = phi i32 [ %52, %50 ], [ %45, %44 ]
+  %.0.us.be = phi i32 [ %45, %44 ], [ %52, %50 ]
   br label %.split.us
 
 .split:                                           ; preds = %7, %.backedge
@@ -362,8 +362,8 @@ BufferGetPage.exit:                               ; preds = %54, %60
   br label %.split
 
 .split40.us:                                      ; preds = %BufferGetPage.exit, %77, %BufferGetPage.exit.us, %48
-  %.us-phi = phi ptr [ %28, %BufferGetPage.exit.us ], [ %28, %48 ], [ %69, %77 ], [ %69, %BufferGetPage.exit ]
-  %.us-phi41 = phi i32 [ %.0.us, %BufferGetPage.exit.us ], [ %.0.us, %48 ], [ %.0, %77 ], [ %.0, %BufferGetPage.exit ]
+  %.us-phi = phi ptr [ %28, %48 ], [ %28, %BufferGetPage.exit.us ], [ %69, %77 ], [ %69, %BufferGetPage.exit ]
+  %.us-phi41 = phi i32 [ %.0.us, %48 ], [ %.0.us, %BufferGetPage.exit.us ], [ %.0, %77 ], [ %.0, %BufferGetPage.exit ]
   %81 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
   %82 = load i16, ptr %81, align 4
   %83 = and i16 %82, 20
@@ -707,7 +707,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %72, %75, %78, %81, %86, %88, %100
-  %.1.i = phi i64 [ %89, %88 ], [ %101, %100 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %82, %81 ], [ %87, %86 ]
+  %.1.i = phi i64 [ %101, %100 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %82, %81 ], [ %87, %86 ], [ %89, %88 ]
   %102 = load i32, ptr %.063117, align 8
   %103 = and i32 %102, 1
   %.not71 = icmp eq i32 %103, 0
@@ -750,7 +750,7 @@ index_getattr.exit.thread:                        ; preds = %90
   br i1 %121, label %.thread104, label %123
 
 123:                                              ; preds = %120, %110
-  %.062 = phi i32 [ %122, %120 ], [ %117, %110 ]
+  %.062 = phi i32 [ %117, %110 ], [ %122, %120 ]
   %.not75 = icmp eq i32 %.062, 0
   br i1 %.not75, label %.thread96, label %.thread104
 
@@ -806,7 +806,7 @@ BTreeTupleIsPosting.exit.i:                       ; preds = %BTreeTupleIsPivot.e
   br label %BTreeTupleGetHeapTID.exit
 
 BTreeTupleGetHeapTID.exit:                        ; preds = %127, %135, %BTreeTupleIsPosting.exit.i
-  %.0.i81 = phi ptr [ %139, %135 ], [ %27, %127 ], [ %145, %BTreeTupleIsPosting.exit.i ]
+  %.0.i81 = phi ptr [ %139, %135 ], [ %145, %BTreeTupleIsPosting.exit.i ], [ %27, %127 ]
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, null
@@ -877,7 +877,7 @@ BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleIsPosting
   br label %.thread104
 
 .thread104:                                       ; preds = %120, %123, %166, %BTreeTupleGetHeapTID.exit.thread, %108, %106, %BTreeTupleGetMaxHeapTID.exit, %163, %BTreeTupleIsPosting.exit, %159, %._crit_edge, %14, %162
-  %.0 = phi i32 [ 1, %14 ], [ 0, %162 ], [ 1, %._crit_edge ], [ 1, %159 ], [ %.76, %106 ], [ %.78, %BTreeTupleGetMaxHeapTID.exit ], [ %164, %163 ], [ 1, %BTreeTupleGetHeapTID.exit.thread ], [ %164, %BTreeTupleIsPosting.exit ], [ %.77, %108 ], [ %164, %166 ], [ %.062, %123 ], [ 1, %120 ]
+  %.0 = phi i32 [ 0, %162 ], [ 1, %14 ], [ 1, %._crit_edge ], [ 1, %159 ], [ %164, %BTreeTupleIsPosting.exit ], [ %164, %163 ], [ %.78, %BTreeTupleGetMaxHeapTID.exit ], [ %.77, %108 ], [ %.76, %106 ], [ 1, %BTreeTupleGetHeapTID.exit.thread ], [ %164, %166 ], [ 1, %120 ], [ %.062, %123 ]
   ret i32 %.0
 }
 
@@ -1210,15 +1210,15 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   br label %114
 
 114:                                              ; preds = %113, %109, %103, %110, %107, %111
-  %.3156 = phi ptr [ %.1154, %103 ], [ %.0149., %109 ], [ %.1154, %111 ], [ %.1154, %107 ], [ %.0149, %110 ], [ %.0149.192, %113 ]
-  %.2152 = phi ptr [ %.1151, %103 ], [ %.1151..0149, %109 ], [ %.1151, %111 ], [ %.1151, %107 ], [ %.1151, %110 ], [ %.1151..0149193, %113 ]
+  %.3156 = phi ptr [ %.1154, %103 ], [ %.1154, %107 ], [ %.0149, %110 ], [ %.1154, %111 ], [ %.0149., %109 ], [ %.0149.192, %113 ]
+  %.2152 = phi ptr [ %.1151, %103 ], [ %.1151, %107 ], [ %.1151, %110 ], [ %.1151, %111 ], [ %.1151..0149, %109 ], [ %.1151..0149193, %113 ]
   %115 = getelementptr inbounds nuw i8, ptr %.0149, i64 72
   %116 = add i32 %.0148, 1
   br label %70
 
 .thread:                                          ; preds = %82, %81, %88, %89, %97, %95
-  %.0161 = phi i16 [ %93, %95 ], [ %93, %89 ], [ %.1162, %88 ], [ %93, %97 ], [ %.1162, %81 ], [ %.1162, %82 ]
-  %.0146 = phi i32 [ %90, %95 ], [ %90, %89 ], [ %.1, %88 ], [ %90, %97 ], [ %.1, %81 ], [ %.1, %82 ]
+  %.0161 = phi i16 [ %.1162, %88 ], [ %93, %89 ], [ %93, %97 ], [ %93, %95 ], [ %.1162, %81 ], [ %.1162, %82 ]
+  %.0146 = phi i32 [ %.1, %88 ], [ %90, %89 ], [ %90, %97 ], [ %90, %95 ], [ %.1, %81 ], [ %.1, %82 ]
   %117 = icmp eq i32 %.0146, 0
   br i1 %117, label %.thread207, label %.preheader238
 
@@ -1484,7 +1484,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   br i1 %exitcond.not, label %.loopexit, label %183, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread216, %207, %.preheader238, %212
-  %.5 = phi i32 [ %.0146, %.preheader238 ], [ %.6, %212 ], [ %198, %207 ], [ %.0146, %.thread216 ]
+  %.5 = phi i32 [ %.6, %212 ], [ %.0146, %.preheader238 ], [ %198, %207 ], [ %.0146, %.thread216 ]
   %269 = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %269) #7
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -1663,7 +1663,7 @@ BufferGetPage.exit.i196:                          ; preds = %314, %308
   br label %_bt_binsrch.exit
 
 _bt_binsrch.exit:                                 ; preds = %BufferGetPage.exit.i196, %349, %353
-  %.0.i = phi i16 [ %354, %353 ], [ %spec.select.i, %349 ], [ %327, %BufferGetPage.exit.i196 ]
+  %.0.i = phi i16 [ %354, %353 ], [ %327, %BufferGetPage.exit.i196 ], [ %spec.select.i, %349 ]
   %355 = call fastcc zeroext i1 @_bt_readfirstpage(ptr noundef %0, i16 noundef zeroext %.0.i, i32 noundef %1)
   br i1 %355, label %356, label %_bt_returnitem.exit
 
@@ -1690,7 +1690,7 @@ _bt_binsrch.exit:                                 ; preds = %BufferGetPage.exit.
   br label %_bt_returnitem.exit
 
 _bt_returnitem.exit:                              ; preds = %365, %356, %177, %168, %160, %.split.i, %129, %42, %33, %_bt_binsrch.exit, %30, %18, %.thread235, %14
-  %.0 = phi i1 [ false, %_bt_binsrch.exit ], [ false, %18 ], [ true, %42 ], [ true, %177 ], [ false, %30 ], [ false, %.thread235 ], [ false, %14 ], [ true, %33 ], [ false, %.split.i ], [ false, %129 ], [ false, %160 ], [ true, %168 ], [ true, %356 ], [ true, %365 ]
+  %.0 = phi i1 [ false, %.thread235 ], [ false, %14 ], [ false, %18 ], [ false, %30 ], [ false, %_bt_binsrch.exit ], [ true, %33 ], [ true, %42 ], [ false, %129 ], [ false, %160 ], [ false, %.split.i ], [ true, %168 ], [ true, %177 ], [ true, %356 ], [ true, %365 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2173,8 +2173,8 @@ BufferGetPage.exit:                               ; preds = %180, %186
   store i32 0, ptr %22, align 8
   br label %_bt_drop_lock_and_maybe_pin.exit
 
-_bt_drop_lock_and_maybe_pin.exit:                 ; preds = %.loopexit, %39, %._crit_edge, %254, %250, %246, %242, %232, %226
-  %.2 = phi i1 [ true, %254 ], [ true, %226 ], [ true, %232 ], [ true, %242 ], [ true, %246 ], [ true, %250 ], [ false, %._crit_edge ], [ false, %39 ], [ false, %.loopexit ]
+_bt_drop_lock_and_maybe_pin.exit:                 ; preds = %39, %.loopexit, %._crit_edge, %254, %250, %246, %242, %232, %226
+  %.2 = phi i1 [ true, %226 ], [ true, %232 ], [ true, %242 ], [ true, %246 ], [ true, %250 ], [ true, %254 ], [ false, %._crit_edge ], [ false, %.loopexit ], [ false, %39 ]
   ret i1 %.2
 }
 
@@ -2359,7 +2359,7 @@ define dso_local noundef zeroext i1 @_bt_next(ptr noundef %0, i32 noundef %1) lo
   br label %_bt_returnitem.exit
 
 _bt_returnitem.exit:                              ; preds = %31, %22, %20, %13
-  %.0 = phi i1 [ false, %20 ], [ false, %13 ], [ true, %22 ], [ true, %31 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %20 ], [ true, %22 ], [ true, %31 ]
   ret i1 %.0
 }
 
@@ -2566,8 +2566,8 @@ BufferGetPage.exit:                               ; preds = %12, %18
   br label %.split.us.us.sink.split
 
 .split.us.us.sink.split:                          ; preds = %50, %56, %74, %80
-  %.0.i.i58.us.sink122 = phi ptr [ %79, %74 ], [ %85, %80 ], [ %61, %56 ], [ %55, %50 ]
-  %.2.us.us.ph = phi i32 [ %72, %74 ], [ %72, %80 ], [ %48, %56 ], [ %48, %50 ]
+  %.0.i.i58.us.sink122 = phi ptr [ %85, %80 ], [ %79, %74 ], [ %61, %56 ], [ %55, %50 ]
+  %.2.us.us.ph = phi i32 [ %72, %80 ], [ %72, %74 ], [ %48, %56 ], [ %48, %50 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i58.us.sink122, i64 16
   %63 = load i16, ptr %62, align 4
   %64 = zext i16 %63 to i64
@@ -3130,7 +3130,7 @@ _bt_savepostingitem.exit:                         ; preds = %.lr.ph278, %203
   br i1 %207, label %.lr.ph278, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_bt_savepostingitem.exit, %_bt_setuppostingitems.exit, %_bt_saveitem.exit, %133
-  %.3190 = phi i32 [ %.0187281, %133 ], [ %158, %_bt_saveitem.exit ], [ %.4274, %_bt_setuppostingitems.exit ], [ %.4, %_bt_savepostingitem.exit ]
+  %.3190 = phi i32 [ %158, %_bt_saveitem.exit ], [ %.0187281, %133 ], [ %.4274, %_bt_setuppostingitems.exit ], [ %.4, %_bt_savepostingitem.exit ]
   %208 = load i8, ptr %70, align 4, !range !5, !noundef !6
   %209 = trunc nuw i8 %208 to i1
   %210 = add i16 %.0184282, 1
@@ -3414,7 +3414,7 @@ _bt_savepostingitem.exit249:                      ; preds = %.lr.ph, %349
   br i1 %353, label %.lr.ph, label %_bt_saveitem.exit238, !llvm.loop !21
 
 _bt_saveitem.exit238:                             ; preds = %_bt_savepostingitem.exit249, %_bt_setuppostingitems.exit245, %290, %BTreeTupleIsPosting.exit234.thread, %277
-  %.8 = phi i32 [ %.5268, %277 ], [ %285, %290 ], [ %285, %BTreeTupleIsPosting.exit234.thread ], [ %304, %_bt_setuppostingitems.exit245 ], [ %338, %_bt_savepostingitem.exit249 ]
+  %.8 = phi i32 [ %.5268, %277 ], [ %285, %BTreeTupleIsPosting.exit234.thread ], [ %285, %290 ], [ %304, %_bt_setuppostingitems.exit245 ], [ %338, %_bt_savepostingitem.exit249 ]
   %354 = load i8, ptr %70, align 4, !range !5, !noundef !6
   %355 = trunc nuw i8 %354 to i1
   %356 = add i16 %.2269, -1
@@ -3438,9 +3438,9 @@ select.unfold256:                                 ; preds = %_bt_saveitem.exit23
   br label %.thread301
 
 .thread301:                                       ; preds = %.thread257, %.thread257.thread305, %251, %235, %.thread302, %214
-  %.6304.sink = phi i32 [ 0, %235 ], [ 0, %214 ], [ 0, %.thread302 ], [ %.7, %.thread257 ], [ %.6307, %.thread257.thread305 ], [ 1358, %251 ]
-  %.sink314 = phi i32 [ %.1188, %235 ], [ %.1188, %214 ], [ %.1188, %.thread302 ], [ 1357, %.thread257 ], [ 1357, %.thread257.thread305 ], [ 1357, %251 ]
-  %.sink312 = phi i32 [ 0, %235 ], [ 0, %214 ], [ 0, %.thread302 ], [ 1357, %.thread257 ], [ 1357, %.thread257.thread305 ], [ 1357, %251 ]
+  %.6304.sink = phi i32 [ 0, %214 ], [ 0, %.thread302 ], [ 0, %235 ], [ %.6307, %.thread257.thread305 ], [ %.7, %.thread257 ], [ 1358, %251 ]
+  %.sink314 = phi i32 [ %.1188, %214 ], [ %.1188, %.thread302 ], [ %.1188, %235 ], [ 1357, %.thread257.thread305 ], [ 1357, %.thread257 ], [ 1357, %251 ]
+  %.sink312 = phi i32 [ 0, %214 ], [ 0, %.thread302 ], [ 0, %235 ], [ 1357, %.thread257.thread305 ], [ 1357, %.thread257 ], [ 1357, %251 ]
   %359 = getelementptr inbounds nuw i8, ptr %9, i64 124
   store i32 %.6304.sink, ptr %359, align 4
   %360 = getelementptr inbounds nuw i8, ptr %9, i64 128

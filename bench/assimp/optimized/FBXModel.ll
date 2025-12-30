@@ -724,7 +724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %22
   br label %233
 
 233:                                              ; preds = %231, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110, %166, %127, %125
-  %.pn32.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %128, %127 ], [ %232, %231 ], [ %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110 ], [ %167, %166 ]
+  %.pn32.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %232, %231 ], [ %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110 ], [ %167, %166 ], [ %128, %127 ]
   call void @_ZNSt12__shared_ptrIKN6Assimp3FBX13PropertyTableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #16
   %234 = load ptr, ptr %19, align 8
   %235 = icmp eq ptr %234, %20
@@ -897,9 +897,9 @@ _ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit: ; preds = %_ZNSt6v
   br i1 %39, label %.invoke, label %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread
 
 _ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread: ; preds = %20, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread173, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit
-  %40 = phi ptr [ %14, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread173 ], [ %.pre.pre, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit ], [ %14, %20 ]
-  %41 = phi ptr [ %15, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread173 ], [ %.pre104.pre, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit ], [ %15, %20 ]
-  %.pre-phi120172 = phi i64 [ %18, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread173 ], [ %.pre129, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit ], [ %18, %20 ]
+  %40 = phi ptr [ %.pre.pre, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit ], [ %14, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread173 ], [ %14, %20 ]
+  %41 = phi ptr [ %.pre104.pre, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit ], [ %15, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread173 ], [ %15, %20 ]
+  %.pre-phi120172 = phi i64 [ %.pre129, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit ], [ %18, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread173 ], [ %18, %20 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %44 = load ptr, ptr %43, align 8
@@ -961,9 +961,9 @@ _ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit: ; preds = %_ZNSt6v
   unreachable
 
 _ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit.thread: ; preds = %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit.thread179, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit
-  %62 = phi ptr [ %40, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit.thread179 ], [ %.pre105.pre, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit ], [ %40, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread ]
-  %63 = phi ptr [ %41, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit.thread179 ], [ %.pre106.pre, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit ], [ %41, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread ]
-  %.pre-phi126178 = phi i64 [ %.pre-phi120172, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit.thread179 ], [ %.pre132, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit ], [ %.pre-phi120172, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread ]
+  %62 = phi ptr [ %.pre105.pre, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit ], [ %40, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit.thread179 ], [ %40, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread ]
+  %63 = phi ptr [ %.pre106.pre, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit ], [ %41, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit.thread179 ], [ %41, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread ]
+  %.pre-phi126178 = phi i64 [ %.pre132, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit ], [ %.pre-phi120172, %_ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE7reserveEm.exit.thread179 ], [ %.pre-phi120172, %_ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE7reserveEm.exit.thread ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %66 = load ptr, ptr %65, align 8
@@ -1446,7 +1446,7 @@ _ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE9push_backERKS4_.exit: ; preds = %1
   br i1 %.not86, label %._crit_edge.loopexit, label %101
 
 229:                                              ; preds = %.loopexit92, %.loopexit.split-lp93, %.loopexit87, %.loopexit.split-lp88, %.loopexit, %.loopexit.split-lp, %117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, %99
-  %.pn34.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %118, %117 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit94, %.loopexit92 ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp93 ]
+  %.pn34.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %118, %117 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ], [ %lpad.loopexit94, %.loopexit92 ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp93 ]
   %230 = load ptr, ptr %7, align 8
   %.not.i.i.i74 = icmp eq ptr %230, null
   br i1 %.not.i.i.i74, label %_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EED2Ev.exit75, label %231

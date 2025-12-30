@@ -435,7 +435,7 @@ define noundef align 8 ptr @_ZN12pingora_http13RequestHeader12set_raw_path17h2b8
   br label %80
 
 80:                                               ; preds = %33, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e27d96afba10a27E.exit76", %40, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e27d96afba10a27E.exit79"
-  %.sroa.0.1 = phi ptr [ null, %40 ], [ null, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e27d96afba10a27E.exit79" ], [ %54, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e27d96afba10a27E.exit76" ], [ %35, %33 ]
+  %.sroa.0.1 = phi ptr [ null, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e27d96afba10a27E.exit79" ], [ null, %40 ], [ %54, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e27d96afba10a27E.exit76" ], [ %35, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret ptr %.sroa.0.1
 
@@ -578,9 +578,9 @@ _ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit: ; preds = %10
   %spec.select = select i1 %28, ptr @anon.ad37fb0b0341a3e76a450d43a359e130.12, ptr %15
   br label %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9
 
-_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9: ; preds = %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit, %24, %22, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i"
-  %spec.select.i8 = phi i64 [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i" ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit ], [ %17, %22 ], [ %19, %24 ]
-  %29 = phi ptr [ @anon.ad37fb0b0341a3e76a450d43a359e130.12, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i" ], [ %spec.select, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit ], [ %15, %22 ], [ %15, %24 ]
+_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit.thread9: ; preds = %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit, %22, %24, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i"
+  %spec.select.i8 = phi i64 [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i" ], [ %17, %22 ], [ %19, %24 ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit ]
+  %29 = phi ptr [ @anon.ad37fb0b0341a3e76a450d43a359e130.12, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17h6dabaedfa4a2418eE.exit.i" ], [ %15, %22 ], [ %15, %24 ], [ %spec.select, %_ZN4http3uri4path12PathAndQuery4path17h990eda621a5e144dE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !38
   store ptr %29, ptr %2, align 8, !alias.scope !42, !noalias !45
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -747,8 +747,8 @@ default.unreachable:                              ; preds = %24, %2
           to label %27 unwind label %113, !noalias !56
 
 24:                                               ; preds = %27, %20, %2, %2, %2, %2, %2, %2, %2, %2, %2
-  %.sroa.15.0.i = phi i64 [ %29, %27 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ %.sroa.15.0.copyload.i, %20 ], [ undef, %2 ]
-  %.sroa.145.0.i = phi ptr [ %28, %27 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ %.sroa.145.0.copyload.i, %20 ], [ undef, %2 ]
+  %.sroa.15.0.i = phi i64 [ %.sroa.15.0.copyload.i, %20 ], [ %29, %27 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.145.0.i = phi ptr [ %.sroa.145.0.copyload.i, %20 ], [ %28, %27 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ]
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.i, i64 7, i1 false), !noalias !56
@@ -818,8 +818,8 @@ default.unreachable:                              ; preds = %24, %2
   br label %47
 
 47:                                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i", %30, %24
-  %.sroa.72.0.i.i = phi ptr [ %35, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i" ], [ undef, %30 ], [ undef, %24 ]
-  %.sroa.6.0.i.i = phi i8 [ undef, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i" ], [ %32, %30 ], [ undef, %24 ]
+  %.sroa.72.0.i.i = phi ptr [ undef, %30 ], [ %35, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i" ], [ undef, %24 ]
+  %.sroa.6.0.i.i = phi i8 [ %32, %30 ], [ undef, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9532c3c7a0b6771E.exit.i.i" ], [ undef, %24 ]
   store i8 %26, ptr %9, align 8, !noalias !60
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %.sroa.6.0.i.i, ptr %.sroa.6.0..sroa_idx.i.i, align 1, !noalias !60
@@ -1154,7 +1154,7 @@ define void @"_ZN66_$LT$pingora_http..RequestHeader$u20$as$u20$core..clone..Clon
           to label %45 unwind label %42
 
 .body:                                            ; preds = %42, %44, %38, %20, %18
-  %.pn = phi { ptr, i32 } [ %.pn.i, %18 ], [ %39, %38 ], [ %.pn.i, %20 ], [ %43, %44 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn.i, %20 ], [ %.pn.i, %18 ], [ %43, %44 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$http..request..Parts$GT$17h1f69367a7db3ce5bE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %7) #16
           to label %53 unwind label %51
 
@@ -1332,7 +1332,7 @@ define void @"_ZN67_$LT$pingora_http..ResponseHeader$u20$as$u20$core..clone..Clo
   br i1 %.not4, label %43, label %42
 
 .body:                                            ; preds = %46, %48, %38, %20, %18
-  %.pn = phi { ptr, i32 } [ %.pn.i, %18 ], [ %39, %38 ], [ %.pn.i, %20 ], [ %47, %48 ], [ %47, %46 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn.i, %20 ], [ %.pn.i, %18 ], [ %47, %48 ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$http..response..Parts$GT$17h8d792a03edafddabE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %7) #16
           to label %52 unwind label %50
 

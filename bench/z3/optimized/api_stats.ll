@@ -1071,7 +1071,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %9, %12
           to label %30 unwind label %9
 
 30:                                               ; preds = %.invoke, %28
-  %.0 = phi double [ 0.000000e+00, %.invoke ], [ %29, %28 ]
+  %.0 = phi double [ %29, %28 ], [ 0.000000e+00, %.invoke ]
   br i1 %5, label %31, label %_ZN10z3_log_ctxD2Ev.exit22, !prof !176
 
 31:                                               ; preds = %30

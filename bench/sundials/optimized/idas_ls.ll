@@ -421,7 +421,7 @@ switch.early.test:                                ; preds = %67
   br label %.thread
 
 .thread:                                          ; preds = %139, %147
-  %.sink137 = phi i32 [ 1, %139 ], [ %151, %147 ]
+  %.sink137 = phi i32 [ %151, %147 ], [ 1, %139 ]
   %152 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
   store i32 %.sink137, ptr %152, align 8, !tbaa !66
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 1888
@@ -897,7 +897,7 @@ define i32 @idaLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %114
 
 114:                                              ; preds = %105, %105, %105, %105, %105, %105, %43, %113, %112, %111, %110, %63, %34, %10
-  %.0 = phi i32 [ -2, %10 ], [ -9, %34 ], [ -1, %112 ], [ %64, %63 ], [ 0, %113 ], [ -1, %43 ], [ -1, %111 ], [ -1, %110 ], [ 1, %105 ], [ 1, %105 ], [ 1, %105 ], [ 1, %105 ], [ 1, %105 ], [ 1, %105 ]
+  %.0 = phi i32 [ -2, %10 ], [ -9, %34 ], [ %64, %63 ], [ 0, %113 ], [ -1, %110 ], [ -1, %111 ], [ -1, %112 ], [ -1, %43 ], [ 1, %105 ], [ 1, %105 ], [ 1, %105 ], [ 1, %105 ], [ 1, %105 ], [ 1, %105 ]
   ret i32 %.0
 }
 
@@ -1245,7 +1245,7 @@ idaLs_AccessLMem.exit:                            ; preds = %13
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %47, %49, %17, %12, %.thread
-  %.0 = phi i32 [ -2, %17 ], [ -1, %12 ], [ 0, %.thread ], [ 1, %49 ], [ -1, %47 ]
+  %.0 = phi i32 [ 0, %.thread ], [ -2, %17 ], [ -1, %12 ], [ 1, %49 ], [ -1, %47 ]
   ret i32 %.0
 }
 
@@ -1376,7 +1376,7 @@ idaLs_AccessLMem.exit:                            ; preds = %5
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %15, %.critedge, %14
-  %.0 = phi i32 [ 0, %15 ], [ -3, %14 ], [ 0, %.critedge ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ -3, %14 ], [ 0, %.critedge ], [ 0, %15 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1444,7 +1444,7 @@ idaLs_AccessLMem.exit:                            ; preds = %5
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %12, %11
-  %.0 = phi i32 [ 0, %12 ], [ -3, %11 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ -3, %11 ], [ 0, %12 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1520,7 +1520,7 @@ idaLs_AccessLMem.exit:                            ; preds = %5
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %11, %36, %25
-  %.0 = phi i32 [ 0, %11 ], [ 0, %25 ], [ 0, %36 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %36 ], [ 0, %11 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1559,7 +1559,7 @@ idaLs_AccessLMem.exit:                            ; preds = %5
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit, %12
-  %.0 = phi i32 [ -3, %idaLs_AccessLMem.exit ], [ 0, %12 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ -3, %idaLs_AccessLMem.exit ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1596,7 +1596,7 @@ idaLs_AccessLMem.exit:                            ; preds = %5
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %12, %11
-  %.0 = phi i32 [ 0, %12 ], [ -3, %11 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ -3, %11 ], [ 0, %12 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1651,7 +1651,7 @@ idaLs_AccessLMem.exit:                            ; preds = %6
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %10, %5, %21, %27, %20
-  %.0 = phi i32 [ 0, %21 ], [ -3, %20 ], [ -9, %27 ], [ -2, %10 ], [ -1, %5 ]
+  %.0 = phi i32 [ -3, %20 ], [ -9, %27 ], [ 0, %21 ], [ -2, %10 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -1810,7 +1810,7 @@ idaLs_AccessLMem.exit:                            ; preds = %6
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %10, %5, %23, %27, %18
-  %.0 = phi i32 [ 0, %23 ], [ -3, %18 ], [ 0, %27 ], [ -2, %10 ], [ -1, %5 ]
+  %.0 = phi i32 [ -3, %18 ], [ 0, %27 ], [ 0, %23 ], [ -2, %10 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -1860,7 +1860,7 @@ idaLs_AccessLMem.exit:                            ; preds = %5
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %14, %16, %12
-  %.0 = phi i32 [ -3, %12 ], [ 0, %14 ], [ 0, %16 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ -3, %12 ], [ 0, %16 ], [ 0, %14 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -2064,7 +2064,7 @@ idaLs_AccessLMem.exit:                            ; preds = %10
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %14, %9, %30, %40, %37
-  %.0 = phi i32 [ 0, %30 ], [ 0, %37 ], [ 0, %40 ], [ -2, %14 ], [ -1, %9 ]
+  %.0 = phi i32 [ 0, %37 ], [ 0, %40 ], [ 0, %30 ], [ -2, %14 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3043,7 +3043,7 @@ idaLs_AccessLMem.exit.i12:                        ; preds = %34
   br label %IDASetJacFn.exit
 
 IDASetJacFn.exit:                                 ; preds = %idaLs_AccessLMem.exit.i12, %38, %33, %26, %25, %21, %16, %3
-  %.09 = phi i32 [ %8, %3 ], [ -2, %21 ], [ 0, %26 ], [ -3, %25 ], [ -1, %16 ], [ -2, %38 ], [ -1, %33 ], [ 0, %idaLs_AccessLMem.exit.i12 ]
+  %.09 = phi i32 [ %8, %3 ], [ -3, %25 ], [ 0, %26 ], [ -2, %21 ], [ -1, %16 ], [ 0, %idaLs_AccessLMem.exit.i12 ], [ -2, %38 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3289,7 +3289,7 @@ idaLs_AccessLMem.exit.i12:                        ; preds = %35
   br label %IDASetJacFn.exit
 
 IDASetJacFn.exit:                                 ; preds = %idaLs_AccessLMem.exit.i12, %39, %34, %27, %26, %22, %17, %3
-  %.09 = phi i32 [ %8, %3 ], [ -2, %22 ], [ 0, %27 ], [ -3, %26 ], [ -1, %17 ], [ -2, %39 ], [ -1, %34 ], [ 0, %idaLs_AccessLMem.exit.i12 ]
+  %.09 = phi i32 [ %8, %3 ], [ -3, %26 ], [ 0, %27 ], [ -2, %22 ], [ -1, %17 ], [ 0, %idaLs_AccessLMem.exit.i12 ], [ -2, %39 ], [ -1, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3454,7 +3454,7 @@ idaLs_AccessLMem.exit.i:                          ; preds = %15
   br label %IDASetEpsLin.exit
 
 IDASetEpsLin.exit:                                ; preds = %22, %21, %19, %14, %3
-  %.0 = phi i32 [ %8, %3 ], [ 0, %22 ], [ -3, %21 ], [ -2, %19 ], [ -1, %14 ]
+  %.0 = phi i32 [ %8, %3 ], [ -3, %21 ], [ 0, %22 ], [ -2, %19 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3539,7 +3539,7 @@ idaLs_AccessLMem.exit.i:                          ; preds = %15
   br label %IDASetLinearSolutionScaling.exit
 
 IDASetLinearSolutionScaling.exit:                 ; preds = %22, %idaLs_AccessLMem.exit.i, %19, %14, %3
-  %.0 = phi i32 [ %8, %3 ], [ -3, %idaLs_AccessLMem.exit.i ], [ 0, %22 ], [ -2, %19 ], [ -1, %14 ]
+  %.0 = phi i32 [ %8, %3 ], [ 0, %22 ], [ -3, %idaLs_AccessLMem.exit.i ], [ -2, %19 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3596,7 +3596,7 @@ idaLs_AccessLMem.exit.i:                          ; preds = %15
   br label %IDASetIncrementFactor.exit
 
 IDASetIncrementFactor.exit:                       ; preds = %22, %21, %19, %14, %3
-  %.0 = phi i32 [ %8, %3 ], [ 0, %22 ], [ -3, %21 ], [ -2, %19 ], [ -1, %14 ]
+  %.0 = phi i32 [ %8, %3 ], [ -3, %21 ], [ 0, %22 ], [ -2, %19 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4582,7 +4582,7 @@ idaLs_AccessLMem.exit.i:                          ; preds = %15
   br label %IDASetJacTimesResFn.exit
 
 IDASetJacTimesResFn.exit:                         ; preds = %26, %24, %22, %19, %14, %3
-  %.0 = phi i32 [ %8, %3 ], [ -3, %22 ], [ 0, %24 ], [ 0, %26 ], [ -2, %19 ], [ -1, %14 ]
+  %.0 = phi i32 [ %8, %3 ], [ -3, %22 ], [ 0, %26 ], [ 0, %24 ], [ -2, %19 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

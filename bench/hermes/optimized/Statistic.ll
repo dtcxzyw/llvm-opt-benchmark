@@ -455,7 +455,7 @@ if.then4.i.i:                                     ; preds = %_ZN12_GLOBAL__N_113
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %OS, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
+  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %OS, %if.then4.i.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #21
@@ -487,8 +487,8 @@ if.then4.i.i36:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit41
 
 _ZN4llvh11raw_ostreamlsEPKc.exit41:               ; preds = %if.then.i.i39, %if.then4.i.i36
-  %16 = phi ptr [ %add.ptr.i.i37, %if.then4.i.i36 ], [ %.pre, %if.then.i.i39 ]
-  %phi.call.i38 = phi ptr [ %call3.i, %if.then4.i.i36 ], [ %call3.i.i40, %if.then.i.i39 ]
+  %16 = phi ptr [ %.pre, %if.then.i.i39 ], [ %add.ptr.i.i37, %if.then4.i.i36 ]
+  %phi.call.i38 = phi ptr [ %call3.i.i40, %if.then.i.i39 ], [ %call3.i, %if.then4.i.i36 ]
   %OutBufEnd.i5.i43 = getelementptr inbounds nuw i8, ptr %phi.call.i38, i64 16
   %17 = load ptr, ptr %OutBufEnd.i5.i43, align 8
   %sub.ptr.lhs.cast.i7.i45 = ptrtoint ptr %17 to i64
@@ -512,8 +512,8 @@ if.then4.i.i51:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit56
 
 _ZN4llvh11raw_ostreamlsEPKc.exit56:               ; preds = %if.then.i.i54, %if.then4.i.i51
-  %19 = phi ptr [ %add.ptr.i.i52, %if.then4.i.i51 ], [ %.pre128, %if.then.i.i54 ]
-  %phi.call.i53 = phi ptr [ %phi.call.i38, %if.then4.i.i51 ], [ %call3.i.i55, %if.then.i.i54 ]
+  %19 = phi ptr [ %.pre128, %if.then.i.i54 ], [ %add.ptr.i.i52, %if.then4.i.i51 ]
+  %phi.call.i53 = phi ptr [ %call3.i.i55, %if.then.i.i54 ], [ %phi.call.i38, %if.then4.i.i51 ]
   %OutBufEnd.i5.i58 = getelementptr inbounds nuw i8, ptr %phi.call.i53, i64 16
   %20 = load ptr, ptr %OutBufEnd.i5.i58, align 8
   %sub.ptr.lhs.cast.i7.i60 = ptrtoint ptr %20 to i64
@@ -535,7 +535,7 @@ if.then4.i.i66:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit71
 
 _ZN4llvh11raw_ostreamlsEPKc.exit71:               ; preds = %if.then.i.i69, %if.then4.i.i66
-  %phi.call.i68 = phi ptr [ %phi.call.i53, %if.then4.i.i66 ], [ %call3.i.i70, %if.then.i.i69 ]
+  %phi.call.i68 = phi ptr [ %call3.i.i70, %if.then.i.i69 ], [ %phi.call.i53, %if.then4.i.i66 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #21
   %call.i72 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef %call.i72, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #21
@@ -815,7 +815,7 @@ if.then4.i.i41:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit46
 
 _ZN4llvh11raw_ostreamlsEPKc.exit46:               ; preds = %if.then.i.i44, %if.then4.i.i41
-  %phi.call.i43 = phi ptr [ %OS, %if.then4.i.i41 ], [ %call3.i.i45, %if.then.i.i44 ]
+  %phi.call.i43 = phi ptr [ %call3.i.i45, %if.then.i.i44 ], [ %OS, %if.then4.i.i41 ]
   %18 = load ptr, ptr %11, align 8
   %tobool.i.not.i = icmp eq ptr %18, null
   br i1 %tobool.i.not.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit61, label %cond.true.i.split.i
@@ -848,7 +848,7 @@ if.then4.i.i56:                                   ; preds = %if.end.i.i54
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit61
 
 _ZN4llvh11raw_ostreamlsEPKc.exit61:               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit46, %if.then.i.i59, %if.end.i.i54, %if.then4.i.i56
-  %phi.call.i58 = phi ptr [ %phi.call.i43, %if.end.i.i54 ], [ %call3.i.i60, %if.then.i.i59 ], [ %phi.call.i43, %if.then4.i.i56 ], [ %phi.call.i43, %_ZN4llvh11raw_ostreamlsEPKc.exit46 ]
+  %phi.call.i58 = phi ptr [ %call3.i.i60, %if.then.i.i59 ], [ %phi.call.i43, %if.then4.i.i56 ], [ %phi.call.i43, %if.end.i.i54 ], [ %phi.call.i43, %_ZN4llvh11raw_ostreamlsEPKc.exit46 ]
   %OutBufCur.i = getelementptr inbounds nuw i8, ptr %phi.call.i58, i64 24
   %22 = load ptr, ptr %OutBufCur.i, align 8
   %OutBufEnd.i = getelementptr inbounds nuw i8, ptr %phi.call.i58, i64 16
@@ -901,7 +901,7 @@ if.then4.i.i74:                                   ; preds = %if.end.i.i72
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit79
 
 _ZN4llvh11raw_ostreamlsEPKc.exit79:               ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i.i77, %if.end.i.i72, %if.then4.i.i74
-  %phi.call.i76 = phi ptr [ %retval.0.i, %if.end.i.i72 ], [ %call3.i.i78, %if.then.i.i77 ], [ %retval.0.i, %if.then4.i.i74 ], [ %retval.0.i, %_ZN4llvh11raw_ostreamlsEc.exit ]
+  %phi.call.i76 = phi ptr [ %call3.i.i78, %if.then.i.i77 ], [ %retval.0.i, %if.then4.i.i74 ], [ %retval.0.i, %if.end.i.i72 ], [ %retval.0.i, %_ZN4llvh11raw_ostreamlsEc.exit ]
   %OutBufEnd.i5.i82 = getelementptr inbounds nuw i8, ptr %phi.call.i76, i64 16
   %28 = load ptr, ptr %OutBufEnd.i5.i82, align 8
   %OutBufCur.i6.i83 = getelementptr inbounds nuw i8, ptr %phi.call.i76, i64 24
@@ -924,7 +924,7 @@ if.then4.i.i90:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit95
 
 _ZN4llvh11raw_ostreamlsEPKc.exit95:               ; preds = %if.then.i.i93, %if.then4.i.i90
-  %phi.call.i92 = phi ptr [ %phi.call.i76, %if.then4.i.i90 ], [ %call3.i.i94, %if.then.i.i93 ]
+  %phi.call.i92 = phi ptr [ %call3.i.i94, %if.then.i.i93 ], [ %phi.call.i76, %if.then4.i.i90 ]
   %Value.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %31 = load atomic i32, ptr %Value.i monotonic, align 4
   %conv.i = zext i32 %31 to i64
@@ -1024,8 +1024,8 @@ if.then4.i.i:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %5 = phi ptr [ %add.ptr.i.i, %if.then4.i.i ], [ %.pre, %if.then.i.i ]
-  %phi.call.i = phi ptr [ %1, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
+  %5 = phi ptr [ %.pre, %if.then.i.i ], [ %add.ptr.i.i, %if.then4.i.i ]
+  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %1, %if.then4.i.i ]
   %OutBufEnd.i5.i2 = getelementptr inbounds nuw i8, ptr %phi.call.i, i64 16
   %6 = load ptr, ptr %OutBufEnd.i5.i2, align 8
   %sub.ptr.lhs.cast.i7.i4 = ptrtoint ptr %6 to i64
@@ -1643,8 +1643,8 @@ while.body.i35:                                   ; preds = %"_ZN9__gnu_cxx5__op
   %__len.04.i36 = phi i64 [ %sub.ptr.div.i.i.i.i29, %while.body.lr.ph.i32 ], [ %__len.1.i51, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %__first.sroa.0.03.i37 = phi ptr [ %__first.coerce.tr73, %while.body.lr.ph.i32 ], [ %__first.sroa.0.1.i50, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %shr.i38 = lshr i64 %__len.04.i36, 1
-  %add.ptr.i.i.i.i42 = getelementptr inbounds nuw ptr, ptr %__first.sroa.0.03.i37, i64 %shr.i38
-  %17 = load ptr, ptr %add.ptr.i.i.i.i42, align 8
+  %add.ptr.i.i.i.i41 = getelementptr inbounds nuw ptr, ptr %__first.sroa.0.03.i37, i64 %shr.i38
+  %17 = load ptr, ptr %add.ptr.i.i.i.i41, align 8
   %18 = load ptr, ptr %17, align 8
   %call3.i.i.i44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %18) #25
   %tobool.not.i.i.i45 = icmp eq i32 %call3.i.i.i44, 0
@@ -1668,7 +1668,7 @@ if.end11.i.i.i57:                                 ; preds = %if.end.i.i.i53
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i": ; preds = %if.end11.i.i.i57, %if.end.i.i.i53, %while.body.i35
   %retval.0.in.i.i.i46 = phi i32 [ %call14.i.i.i59, %if.end11.i.i.i57 ], [ %call3.i.i.i44, %while.body.i35 ], [ %call7.i.i.i55, %if.end.i.i.i53 ]
   %retval.0.i.i.i47 = icmp slt i32 %retval.0.in.i.i.i46, 0
-  %incdec.ptr.i.i48 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i42, i64 8
+  %incdec.ptr.i.i48 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i41, i64 8
   %23 = xor i64 %shr.i38, -1
   %sub9.i49 = add nsw i64 %__len.04.i36, %23
   %__first.sroa.0.1.i50 = select i1 %retval.0.i.i.i47, ptr %__first.sroa.0.03.i37, ptr %incdec.ptr.i.i48
@@ -1867,7 +1867,7 @@ for.cond.backedge:                                ; preds = %for.end110, %if.end
   br label %for.cond, !llvm.loop !22
 
 return:                                           ; preds = %for.end110, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
-  %retval.sroa.0.0 = phi ptr [ %add.ptr.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %add.ptr.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %__middle.coerce, %for.body.i ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end110 ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %add.ptr.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %__middle.coerce, %for.body.i ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end110 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -2550,8 +2550,8 @@ while.body.i90:                                   ; preds = %"_ZN9__gnu_cxx5__op
   %__len.04.i91 = phi i64 [ %sub.ptr.div.i.i.i.i84, %while.body.lr.ph.i87 ], [ %__len.1.i106, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %__first.sroa.0.03.i92 = phi ptr [ %__first.coerce.tr140, %while.body.lr.ph.i87 ], [ %__first.sroa.0.1.i105, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %shr.i93 = lshr i64 %__len.04.i91, 1
-  %add.ptr.i.i.i.i97 = getelementptr inbounds nuw ptr, ptr %__first.sroa.0.03.i92, i64 %shr.i93
-  %23 = load ptr, ptr %add.ptr.i.i.i.i97, align 8
+  %add.ptr.i.i.i.i96 = getelementptr inbounds nuw ptr, ptr %__first.sroa.0.03.i92, i64 %shr.i93
+  %23 = load ptr, ptr %add.ptr.i.i.i.i96, align 8
   %24 = load ptr, ptr %23, align 8
   %call3.i.i.i99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %24) #25
   %tobool.not.i.i.i100 = icmp eq i32 %call3.i.i.i99, 0
@@ -2575,7 +2575,7 @@ if.end11.i.i.i112:                                ; preds = %if.end.i.i.i108
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i": ; preds = %if.end11.i.i.i112, %if.end.i.i.i108, %while.body.i90
   %retval.0.in.i.i.i101 = phi i32 [ %call14.i.i.i114, %if.end11.i.i.i112 ], [ %call3.i.i.i99, %while.body.i90 ], [ %call7.i.i.i110, %if.end.i.i.i108 ]
   %retval.0.i.i.i102 = icmp slt i32 %retval.0.in.i.i.i101, 0
-  %incdec.ptr.i.i103 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i97, i64 8
+  %incdec.ptr.i.i103 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i96, i64 8
   %29 = xor i64 %shr.i93, -1
   %sub9.i104 = add nsw i64 %__len.04.i91, %29
   %__first.sroa.0.1.i105 = select i1 %retval.0.i.i.i102, ptr %__first.sroa.0.03.i92, ptr %incdec.ptr.i.i103
@@ -2693,7 +2693,7 @@ if.else44.i:                                      ; preds = %if.else20.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_lET_SA_SA_SA_T1_SB_T0_SB_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_lET_SA_SA_SA_T1_SB_T0_SB_.exit: ; preds = %if.then.i120, %_ZSt4moveIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i125, %if.then22.i, %_ZSt13move_backwardIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i, %if.else44.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i.i.i.i21.i, %_ZSt4moveIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i125 ], [ %call.i.i, %if.else44.i ], [ %add.ptr2.i.i.i.i.i44.i, %_ZSt13move_backwardIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i ], [ %__first_cut.sroa.0.0, %if.then.i120 ], [ %__second_cut.sroa.0.0, %if.then22.i ]
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i.i.i.i21.i, %_ZSt4moveIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i125 ], [ %add.ptr2.i.i.i.i.i44.i, %_ZSt13move_backwardIPPN4llvh9StatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i ], [ %call.i.i, %if.else44.i ], [ %__first_cut.sroa.0.0, %if.then.i120 ], [ %__second_cut.sroa.0.0, %if.then22.i ]
   tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_SG_T0_SH_T1_SH_T2_"(ptr %__first.coerce.tr140, ptr %__first_cut.sroa.0.0, ptr %retval.sroa.0.0.i, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
   %sub83 = sub nsw i64 %__len2.tr144, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub83
@@ -2846,8 +2846,8 @@ if.then4.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit.i.i:             ; preds = %if.then4.i.i.i.i, %if.then.i.i.i.i
-  %6 = phi ptr [ %add.ptr.i.i.i.i, %if.then4.i.i.i.i ], [ %.pre.i.i, %if.then.i.i.i.i ]
-  %phi.call.i.i.i = phi ptr [ %2, %if.then4.i.i.i.i ], [ %call3.i.i.i.i, %if.then.i.i.i.i ]
+  %6 = phi ptr [ %.pre.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then4.i.i.i.i ]
+  %phi.call.i.i.i = phi ptr [ %call3.i.i.i.i, %if.then.i.i.i.i ], [ %2, %if.then4.i.i.i.i ]
   %OutBufEnd.i5.i2.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i.i, i64 16
   %7 = load ptr, ptr %OutBufEnd.i5.i2.i.i, align 8
   %sub.ptr.lhs.cast.i7.i4.i.i = ptrtoint ptr %7 to i64

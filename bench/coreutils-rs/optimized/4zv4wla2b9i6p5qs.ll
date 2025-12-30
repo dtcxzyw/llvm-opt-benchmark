@@ -134,7 +134,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   ret ptr %5
 
 .body.thread:                                     ; preds = %15, %20, %.body
-  %eh.lpad-body11 = phi { ptr, i32 } [ %6, %.body ], [ %6, %20 ], [ %16, %15 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %6, %20 ], [ %6, %.body ], [ %16, %15 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 20:                                               ; preds = %.body
@@ -284,7 +284,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
           to label %51 unwind label %49
 
 .critedge:                                        ; preds = %42, %51
-  %eh.lpad-body2629 = phi { ptr, i32 } [ %43, %42 ], [ %eh.lpad-body2630, %51 ]
+  %eh.lpad-body2629 = phi { ptr, i32 } [ %eh.lpad-body2630, %51 ], [ %43, %42 ]
   resume { ptr, i32 } %eh.lpad-body2629
 
 51:                                               ; preds = %.thread
@@ -619,7 +619,7 @@ _ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit: ; 
   unreachable
 
 74:                                               ; preds = %53, %23
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %54, %53 ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn
 }
 

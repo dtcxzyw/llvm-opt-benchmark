@@ -167,10 +167,10 @@ get_byte.exit.i:                                  ; preds = %73, %get_byte.exit.
   br label %get_byte.exit.thread.i
 
 get_byte.exit.thread.i:                           ; preds = %71, %73, %.preheader.i, %.loopexit.i
-  %.sroa.64.9 = phi i32 [ 1, %.preheader.i ], [ 0, %.loopexit.i ], [ 8, %71 ], [ 1, %73 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.1219, %.preheader.i ], [ %69, %.loopexit.i ], [ %scevgep243, %71 ], [ %69, %73 ]
-  %.118.i = phi i32 [ 0, %.preheader.i ], [ %.121.i, %.loopexit.i ], [ 2147482755, %71 ], [ %reass.mul190, %73 ]
-  %.0.i15.i = phi i32 [ 1, %.preheader.i ], [ %75, %.loopexit.i ], [ 0, %71 ], [ 1, %73 ]
+  %.sroa.64.9 = phi i32 [ 0, %.loopexit.i ], [ 1, %.preheader.i ], [ 8, %71 ], [ 1, %73 ]
+  %.sroa.0.6 = phi ptr [ %69, %.loopexit.i ], [ %.sroa.0.1219, %.preheader.i ], [ %scevgep243, %71 ], [ %69, %73 ]
+  %.118.i = phi i32 [ %.121.i, %.loopexit.i ], [ 0, %.preheader.i ], [ 2147482755, %71 ], [ %reass.mul190, %73 ]
+  %.0.i15.i = phi i32 [ %75, %.loopexit.i ], [ 1, %.preheader.i ], [ 0, %71 ], [ 1, %73 ]
   %76 = add nuw nsw i32 %.118.i, 31
   %77 = add nuw nsw i32 %76, %.0.i15.i
   br label %get_len.exit
@@ -230,10 +230,10 @@ get_byte.exit.i72:                                ; preds = %97, %get_byte.exit.
   br label %get_byte.exit.thread.i65
 
 get_byte.exit.thread.i65:                         ; preds = %95, %97, %.preheader.i63, %.loopexit.i75
-  %.sroa.64.11 = phi i32 [ 1, %.preheader.i63 ], [ 0, %.loopexit.i75 ], [ 8, %95 ], [ 1, %97 ]
-  %.sroa.0.9 = phi ptr [ %.sroa.0.1219, %.preheader.i63 ], [ %93, %.loopexit.i75 ], [ %scevgep242, %95 ], [ %93, %97 ]
-  %.118.i67 = phi i32 [ 0, %.preheader.i63 ], [ %.121.i73, %.loopexit.i75 ], [ 2147482755, %95 ], [ %reass.mul187, %97 ]
-  %.0.i15.i68 = phi i32 [ 1, %.preheader.i63 ], [ %99, %.loopexit.i75 ], [ 0, %95 ], [ 1, %97 ]
+  %.sroa.64.11 = phi i32 [ 0, %.loopexit.i75 ], [ 1, %.preheader.i63 ], [ 8, %95 ], [ 1, %97 ]
+  %.sroa.0.9 = phi ptr [ %93, %.loopexit.i75 ], [ %.sroa.0.1219, %.preheader.i63 ], [ %scevgep242, %95 ], [ %93, %97 ]
+  %.118.i67 = phi i32 [ %.121.i73, %.loopexit.i75 ], [ 0, %.preheader.i63 ], [ 2147482755, %95 ], [ %reass.mul187, %97 ]
+  %.0.i15.i68 = phi i32 [ %99, %.loopexit.i75 ], [ 1, %.preheader.i63 ], [ 0, %95 ], [ 1, %97 ]
   %100 = add nuw nsw i32 %.118.i67, 7
   %101 = add nuw nsw i32 %100, %.0.i15.i68
   br label %get_len.exit77
@@ -306,10 +306,10 @@ get_byte.exit.i89:                                ; preds = %127, %get_byte.exit
   br label %get_len.exit94
 
 get_len.exit94:                                   ; preds = %127, %125, %.loopexit.i92, %.preheader.i80
-  %.sroa.64.13 = phi i32 [ 1, %.preheader.i80 ], [ 0, %.loopexit.i92 ], [ 8, %125 ], [ 1, %127 ]
-  %.sroa.0.12 = phi ptr [ %.sroa.0.1219, %.preheader.i80 ], [ %123, %.loopexit.i92 ], [ %scevgep, %125 ], [ %123, %127 ]
-  %.118.i84 = phi i32 [ 0, %.preheader.i80 ], [ %.121.i90, %.loopexit.i92 ], [ 2147482755, %125 ], [ %reass.mul, %127 ]
-  %.0.i15.i85 = phi i32 [ 1, %.preheader.i80 ], [ %129, %.loopexit.i92 ], [ 0, %125 ], [ 1, %127 ]
+  %.sroa.64.13 = phi i32 [ 0, %.loopexit.i92 ], [ 1, %.preheader.i80 ], [ 8, %125 ], [ 1, %127 ]
+  %.sroa.0.12 = phi ptr [ %123, %.loopexit.i92 ], [ %.sroa.0.1219, %.preheader.i80 ], [ %scevgep, %125 ], [ %123, %127 ]
+  %.118.i84 = phi i32 [ %.121.i90, %.loopexit.i92 ], [ 0, %.preheader.i80 ], [ 2147482755, %125 ], [ %reass.mul, %127 ]
+  %.0.i15.i85 = phi i32 [ %129, %.loopexit.i92 ], [ 1, %.preheader.i80 ], [ 0, %125 ], [ 1, %127 ]
   %130 = add nuw nsw i32 %.118.i84, 15
   %131 = add nuw nsw i32 %130, %.0.i15.i85
   %132 = icmp sgt i32 %131, -4
@@ -402,11 +402,11 @@ copy.exit102:                                     ; preds = %.thread.i99, %selec
   br label %.thread
 
 181:                                              ; preds = %get_len.exit77, %get_len.exit
-  %.sroa.64.5 = phi i32 [ %.sroa.64.12, %get_len.exit77 ], [ %.sroa.64.10, %get_len.exit ]
-  %.sroa.0.4 = phi ptr [ %108, %get_len.exit77 ], [ %81, %get_len.exit ]
-  %.3 = phi i32 [ %107, %get_len.exit77 ], [ %80, %get_len.exit ]
-  %.043 = phi i32 [ %.0.i62, %get_len.exit77 ], [ %.0.i60, %get_len.exit ]
-  %.0 = phi i32 [ %114, %get_len.exit77 ], [ %87, %get_len.exit ]
+  %.sroa.64.5 = phi i32 [ %.sroa.64.10, %get_len.exit ], [ %.sroa.64.12, %get_len.exit77 ]
+  %.sroa.0.4 = phi ptr [ %81, %get_len.exit ], [ %108, %get_len.exit77 ]
+  %.3 = phi i32 [ %80, %get_len.exit ], [ %107, %get_len.exit77 ]
+  %.043 = phi i32 [ %.0.i60, %get_len.exit ], [ %.0.i62, %get_len.exit77 ]
+  %.0 = phi i32 [ %87, %get_len.exit ], [ %114, %get_len.exit77 ]
   %182 = add nsw i32 %.043, 2
   %183 = icmp sgt i32 %.043, -2
   br i1 %183, label %.thread, label %184
@@ -488,8 +488,8 @@ select.unfold.i108:                               ; preds = %206, %copy_backptr.
   br label %copy.exit113
 
 copy.exit113:                                     ; preds = %select.unfold.i108, %.thread.i110
-  %.sroa.64.22 = phi i32 [ %209, %.thread.i110 ], [ %.sroa.64.21, %select.unfold.i108 ]
-  %214 = phi i64 [ -4, %.thread.i110 ], [ %213, %select.unfold.i108 ]
+  %.sroa.64.22 = phi i32 [ %.sroa.64.21, %select.unfold.i108 ], [ %209, %.thread.i110 ]
+  %214 = phi i64 [ %213, %select.unfold.i108 ], [ -4, %.thread.i110 ]
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.48.5, i64 4
   %216 = getelementptr inbounds nuw i8, ptr %.sroa.0.4168, i64 4
   %217 = getelementptr inbounds i8, ptr %216, i64 %214

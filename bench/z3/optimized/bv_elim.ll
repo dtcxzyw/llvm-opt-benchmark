@@ -1104,13 +1104,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %.body149
 
 .body149:                                         ; preds = %.body428, %266, %.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i159, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %.pn101 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %266 ], [ %eh.lpad-body429, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i159 ], [ %lpad.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %lpad.loopexit, %.thread ], [ %eh.lpad-body429, %.body428 ]
+  %.pn101 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %eh.lpad-body429, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i159 ], [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %266 ], [ %eh.lpad-body429, %.body428 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %376
 
 376:                                              ; preds = %368, %.body149, %366, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158
-  %.pn101.pn.pn = phi { ptr, i32 } [ %.pn99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158 ], [ %367, %366 ], [ %.pn101, %.body149 ], [ %369, %368 ]
+  %.pn101.pn.pn = phi { ptr, i32 } [ %367, %366 ], [ %.pn99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158 ], [ %.pn101, %.body149 ], [ %369, %368 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %26) #20
   br label %.body
 
@@ -2582,7 +2582,7 @@ _ZN6vectorI6symbolLb0EjED2Ev.exit411:             ; preds = %_ZN6vectorI6symbolL
   ret i1 %.089.lcssa691
 
 908:                                              ; preds = %534, %582, %525, %631, %633, %665, %702, %107
-  %.pn101.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %108, %107 ], [ %634, %633 ], [ %535, %534 ], [ %583, %582 ], [ %.pn101.pn.pn.pn.pn.pn.pn.pn, %525 ], [ %632, %631 ], [ %.pn95, %665 ], [ %.pn, %702 ]
+  %.pn101.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %108, %107 ], [ %535, %534 ], [ %583, %582 ], [ %.pn101.pn.pn.pn.pn.pn.pn.pn, %525 ], [ %.pn95, %665 ], [ %.pn, %702 ], [ %632, %631 ], [ %634, %633 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %909

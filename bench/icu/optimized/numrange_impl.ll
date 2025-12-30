@@ -290,7 +290,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -806,7 +806,7 @@ _ZN12_GLOBAL__N_115NumberRangeDataC2Ev.exit:      ; preds = %51
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i.i.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i.i.i: ; preds = %96, %94, %88
-  %.0.i.i.i.i.i = phi ptr [ %98, %96 ], [ %95, %94 ], [ null, %88 ]
+  %.0.i.i.i.i.i = phi ptr [ %95, %94 ], [ %98, %96 ], [ null, %88 ]
   %99 = icmp slt i16 %90, 0
   %100 = ashr i16 %90, 5
   %101 = sext i16 %100 to i32
@@ -853,7 +853,7 @@ _ZN12_GLOBAL__N_119NumberRangeDataSink10isCompleteEv.exit.thread._crit_edge.i: ;
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i.i25.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i.i25.i: ; preds = %114, %112, %107
-  %.0.i.i.i.i26.i = phi ptr [ %116, %114 ], [ %113, %112 ], [ null, %107 ]
+  %.0.i.i.i.i26.i = phi ptr [ %113, %112 ], [ %116, %114 ], [ null, %107 ]
   %117 = icmp slt i16 %108, 0
   %118 = ashr i16 %108, 5
   %119 = sext i16 %118 to i32
@@ -1833,7 +1833,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   br label %48
 
 48:                                               ; preds = %42, %37, %29, %32
-  %.1 = phi i1 [ true, %32 ], [ %47, %42 ], [ true, %29 ], [ %41, %37 ]
+  %.1 = phi i1 [ true, %32 ], [ %41, %37 ], [ true, %29 ], [ %47, %42 ]
   %49 = load i32, ptr %15, align 4
   %.not158 = icmp eq i32 %49, 3
   %or.cond164 = select i1 %.1, i1 %.not158, i1 false
@@ -1848,9 +1848,9 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   br label %56
 
 56:                                               ; preds = %14, %50, %48, %23, %17
-  %.0146 = phi i1 [ false, %48 ], [ false, %23 ], [ false, %17 ], [ %55, %50 ], [ false, %14 ]
-  %.0145 = phi i1 [ %.1, %48 ], [ false, %23 ], [ false, %17 ], [ true, %50 ], [ false, %14 ]
-  %.0.shrunk = phi i1 [ true, %48 ], [ true, %23 ], [ false, %17 ], [ true, %50 ], [ false, %14 ]
+  %.0146 = phi i1 [ false, %17 ], [ false, %23 ], [ %55, %50 ], [ false, %48 ], [ false, %14 ]
+  %.0145 = phi i1 [ false, %17 ], [ false, %23 ], [ true, %50 ], [ %.1, %48 ], [ false, %14 ]
+  %.0.shrunk = phi i1 [ false, %17 ], [ true, %23 ], [ true, %50 ], [ true, %48 ], [ false, %14 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !12
@@ -2749,7 +2749,7 @@ define internal void @_ZN12_GLOBAL__N_119NumberRangeDataSink3putEPKcRN6icu_7713R
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i:  ; preds = %33, %31, %25
-  %.0.i.i.i = phi ptr [ %35, %33 ], [ %32, %31 ], [ null, %25 ]
+  %.0.i.i.i = phi ptr [ %32, %31 ], [ %35, %33 ], [ null, %25 ]
   %36 = icmp slt i16 %27, 0
   %37 = ashr i16 %27, 5
   %38 = sext i16 %37 to i32

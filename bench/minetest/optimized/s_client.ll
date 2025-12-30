@@ -368,7 +368,7 @@ lpad41:                                           ; preds = %invoke.cont40
   br label %ehcleanup44
 
 ehcleanup44:                                      ; preds = %lpad37, %lpad41, %lpad31, %lpad24
-  %.merged1 = phi { ptr, i32 } [ %4, %lpad24 ], [ %5, %lpad31 ], [ %14, %lpad41 ], [ %13, %lpad37 ]
+  %.merged1 = phi { ptr, i32 } [ %5, %lpad31 ], [ %4, %lpad24 ], [ %14, %lpad41 ], [ %13, %lpad37 ]
   call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #22
   br label %ehcleanup45
 
@@ -709,7 +709,7 @@ lpad41:                                           ; preds = %invoke.cont40
   br label %ehcleanup44
 
 ehcleanup44:                                      ; preds = %lpad37, %lpad41, %lpad31, %lpad24
-  %.merged1 = phi { ptr, i32 } [ %4, %lpad24 ], [ %5, %lpad31 ], [ %14, %lpad41 ], [ %13, %lpad37 ]
+  %.merged1 = phi { ptr, i32 } [ %5, %lpad31 ], [ %4, %lpad24 ], [ %14, %lpad41 ], [ %13, %lpad37 ]
   call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #22
   br label %ehcleanup45
 
@@ -1245,7 +1245,7 @@ lpad42:                                           ; preds = %invoke.cont41
   br label %ehcleanup45
 
 ehcleanup45:                                      ; preds = %lpad38, %lpad42, %lpad32, %lpad24
-  %.merged1 = phi { ptr, i32 } [ %4, %lpad24 ], [ %5, %lpad32 ], [ %14, %lpad42 ], [ %13, %lpad38 ]
+  %.merged1 = phi { ptr, i32 } [ %5, %lpad32 ], [ %4, %lpad24 ], [ %14, %lpad42 ], [ %13, %lpad38 ]
   call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #22
   br label %ehcleanup46
 
@@ -1421,7 +1421,7 @@ lpad42:                                           ; preds = %invoke.cont41
   br label %ehcleanup45
 
 ehcleanup45:                                      ; preds = %lpad38, %lpad42, %lpad32, %lpad24
-  %.merged1 = phi { ptr, i32 } [ %4, %lpad24 ], [ %5, %lpad32 ], [ %14, %lpad42 ], [ %13, %lpad38 ]
+  %.merged1 = phi { ptr, i32 } [ %5, %lpad32 ], [ %4, %lpad24 ], [ %14, %lpad42 ], [ %13, %lpad38 ]
   call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #22
   br label %ehcleanup46
 
@@ -1590,7 +1590,7 @@ lpad41:                                           ; preds = %invoke.cont40
   br label %ehcleanup44
 
 ehcleanup44:                                      ; preds = %lpad37, %lpad41, %lpad31, %lpad24
-  %.merged1 = phi { ptr, i32 } [ %4, %lpad24 ], [ %5, %lpad31 ], [ %14, %lpad41 ], [ %13, %lpad37 ]
+  %.merged1 = phi { ptr, i32 } [ %5, %lpad31 ], [ %4, %lpad24 ], [ %14, %lpad41 ], [ %13, %lpad37 ]
   call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #22
   br label %ehcleanup45
 
@@ -1764,7 +1764,7 @@ lpad42:                                           ; preds = %invoke.cont41
   br label %ehcleanup45
 
 ehcleanup45:                                      ; preds = %lpad38, %lpad42, %lpad32, %lpad24
-  %.merged1 = phi { ptr, i32 } [ %4, %lpad24 ], [ %5, %lpad32 ], [ %14, %lpad42 ], [ %13, %lpad38 ]
+  %.merged1 = phi { ptr, i32 } [ %5, %lpad32 ], [ %4, %lpad24 ], [ %14, %lpad42 ], [ %13, %lpad38 ]
   call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #22
   br label %ehcleanup46
 

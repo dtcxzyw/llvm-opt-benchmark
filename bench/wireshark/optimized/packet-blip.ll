@@ -427,7 +427,7 @@ decompress.exit:                                  ; preds = %104, %181
   %.not93 = icmp eq ptr %.1.i, null
   br i1 %.not93, label %decompress.exit.thread, label %195
 
-decompress.exit.thread:                           ; preds = %178, %160, %101, %85, %97, %decompress.exit
+decompress.exit.thread:                           ; preds = %178, %160, %97, %101, %85, %decompress.exit
   %194 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %243
 

@@ -204,7 +204,7 @@ define hidden ptr @avifImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %
   br label %18
 
 18:                                               ; preds = %7, %4, %9
-  %.0 = phi ptr [ null, %7 ], [ null, %4 ], [ %8, %9 ]
+  %.0 = phi ptr [ %8, %9 ], [ null, %4 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -382,8 +382,8 @@ avifImagePlaneRowBytes.exit57.thread136:          ; preds = %24
   br label %42
 
 avifImagePlaneRowBytes.exit57:                    ; preds = %22, %avifGetPixelFormatInfo.exit.thread.i48, %29, %26
-  %.0.i59.ph = phi i32 [ %32, %avifGetPixelFormatInfo.exit.thread.i48 ], [ %32, %29 ], [ %27, %26 ], [ 0, %22 ]
-  %.0.i46.ph = phi i32 [ %35, %avifGetPixelFormatInfo.exit.thread.i48 ], [ 0, %29 ], [ %28, %26 ], [ 0, %22 ]
+  %.0.i59.ph = phi i32 [ %32, %29 ], [ %32, %avifGetPixelFormatInfo.exit.thread.i48 ], [ %27, %26 ], [ 0, %22 ]
+  %.0.i46.ph = phi i32 [ 0, %29 ], [ %35, %avifGetPixelFormatInfo.exit.thread.i48 ], [ %28, %26 ], [ 0, %22 ]
   %38 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %39 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
@@ -488,7 +488,7 @@ avifGetPixelFormatInfo.exit.thread:               ; preds = %7, %avifGetPixelFor
   br label %avifGetPixelFormatInfo.exit
 
 avifGetPixelFormatInfo.exit:                      ; preds = %7, %13, %15, %18, %avifGetPixelFormatInfo.exit.thread, %4
-  %.0 = phi i32 [ %5, %4 ], [ 0, %13 ], [ %12, %avifGetPixelFormatInfo.exit.thread ], [ %19, %18 ], [ 0, %15 ], [ 0, %7 ]
+  %.0 = phi i32 [ %5, %4 ], [ %12, %avifGetPixelFormatInfo.exit.thread ], [ %19, %18 ], [ 0, %15 ], [ 0, %13 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -541,7 +541,7 @@ avifGetPixelFormatInfo.exit.thread:               ; preds = %8, %avifGetPixelFor
   br label %avifGetPixelFormatInfo.exit
 
 avifGetPixelFormatInfo.exit:                      ; preds = %8, %15, %17, %20, %avifGetPixelFormatInfo.exit.thread, %4
-  %.0 = phi i32 [ %6, %4 ], [ 0, %15 ], [ %14, %avifGetPixelFormatInfo.exit.thread ], [ %22, %20 ], [ 0, %17 ], [ 0, %8 ]
+  %.0 = phi i32 [ %6, %4 ], [ %14, %avifGetPixelFormatInfo.exit.thread ], [ %22, %20 ], [ 0, %17 ], [ 0, %15 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -855,8 +855,8 @@ avifImagePlaneRowBytes.exit57.thread136.i:        ; preds = %128
   br label %146
 
 avifImagePlaneRowBytes.exit57.i:                  ; preds = %avifGetPixelFormatInfo.exit.thread.i48.i, %133, %130, %126
-  %.0.i59.ph.i = phi i32 [ %136, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ %136, %133 ], [ %131, %130 ], [ 0, %126 ]
-  %.0.i46.ph.i = phi i32 [ %139, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ 0, %133 ], [ %132, %130 ], [ 0, %126 ]
+  %.0.i59.ph.i = phi i32 [ %136, %133 ], [ %136, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ %131, %130 ], [ 0, %126 ]
+  %.0.i46.ph.i = phi i32 [ 0, %133 ], [ %139, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ %132, %130 ], [ 0, %126 ]
   %142 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i
   %143 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i
   %144 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv.i
@@ -902,7 +902,7 @@ avifImagePlaneRowBytes.exit57.i:                  ; preds = %avifGetPixelFormatI
   br i1 %exitcond122.not.i, label %avifImageCopySamples.exit, label %122, !llvm.loop !6
 
 avifImageCopySamples.exit:                        ; preds = %.loopexit.i, %109, %102, %96, %99, %82, %75, %avifImageFreePlanes.exit
-  %.0 = phi i32 [ %88, %82 ], [ %74, %avifImageFreePlanes.exit ], [ %81, %75 ], [ 24, %96 ], [ %103, %102 ], [ %110, %109 ], [ 24, %99 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ %74, %avifImageFreePlanes.exit ], [ %81, %75 ], [ %88, %82 ], [ 24, %99 ], [ 24, %96 ], [ %103, %102 ], [ %110, %109 ], [ 0, %.loopexit.i ]
   ret i32 %.0
 }
 
@@ -1132,7 +1132,7 @@ avifGetPixelFormatInfo.exit:                      ; preds = %24, %.sink.split.i
   br label %.loopexit63
 
 .loopexit63:                                      ; preds = %57, %66, %30, %9, %2, %5, %70
-  %.048 = phi i32 [ 26, %30 ], [ 24, %9 ], [ 24, %2 ], [ 0, %70 ], [ 26, %66 ], [ 24, %5 ], [ 26, %57 ]
+  %.048 = phi i32 [ 0, %70 ], [ 24, %5 ], [ 24, %2 ], [ 24, %9 ], [ 26, %30 ], [ 26, %66 ], [ 26, %57 ]
   ret i32 %.048
 }
 
@@ -1402,7 +1402,7 @@ avifImageFreePlanes.exit:                         ; preds = %47, %50
   br label %150
 
 150:                                              ; preds = %.loopexit, %135, %28, %30, %avifGetPixelFormatInfo.exit, %12, %18, %22
-  %.0 = phi i32 [ 24, %avifGetPixelFormatInfo.exit ], [ 24, %28 ], [ 24, %22 ], [ 24, %18 ], [ 24, %12 ], [ 24, %30 ], [ 0, %135 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 24, %22 ], [ 24, %18 ], [ 24, %12 ], [ 24, %avifGetPixelFormatInfo.exit ], [ 24, %30 ], [ 24, %28 ], [ 0, %135 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
@@ -1678,7 +1678,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captur
   br i1 %exitcond53.not, label %.loopexit30, label %.preheader31.us, !llvm.loop !10
 
 .loopexit30:                                      ; preds = %..loopexit32_crit_edge.us, %23, %..loopexit_crit_edge.us.us, %14, %.lr.ph41.split, %.lr.ph41.split.us, %4, %1
-  %.023 = phi i32 [ 1, %1 ], [ 1, %.lr.ph41.split.us ], [ 0, %23 ], [ 1, %4 ], [ 1, %.lr.ph41.split ], [ 0, %14 ], [ 1, %..loopexit_crit_edge.us.us ], [ 1, %..loopexit32_crit_edge.us ]
+  %.023 = phi i32 [ 1, %1 ], [ 1, %4 ], [ 1, %.lr.ph41.split.us ], [ 1, %.lr.ph41.split ], [ 0, %14 ], [ 1, %..loopexit_crit_edge.us.us ], [ 0, %23 ], [ 1, %..loopexit32_crit_edge.us ]
   ret i32 %.023
 }
 
@@ -1739,7 +1739,7 @@ define hidden range(i32 0, 2) i32 @avifRGBFormatHasAlpha(i32 noundef %0) local_u
   br label %5
 
 5:                                                ; preds = %1, %1, %2
-  %6 = phi i32 [ %4, %2 ], [ 0, %1 ], [ 0, %1 ]
+  %6 = phi i32 [ 0, %1 ], [ %4, %2 ], [ 0, %1 ]
   ret i32 %6
 }
 
@@ -1755,7 +1755,7 @@ switch.lookup:                                    ; preds = %1
   br label %4
 
 4:                                                ; preds = %switch.lookup, %1
-  %5 = phi i32 [ %switch.load, %switch.lookup ], [ 4, %1 ]
+  %5 = phi i32 [ 4, %1 ], [ %switch.load, %switch.lookup ]
   ret i32 %5
 }
 
@@ -2132,12 +2132,12 @@ define internal fastcc range(i32 0, 2) i32 @avifCropRectIsValid(ptr noundef read
   br i1 %or.cond36, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %33, %29, %13, %19, %5, %9
-  %.str.63.sink = phi ptr [ @.str.62, %29 ], [ @.str.61, %13 ], [ @.str.60, %5 ], [ @.str.60, %9 ], [ @.str.61, %19 ], [ @.str.63, %33 ]
+  %.str.63.sink = phi ptr [ @.str.60, %9 ], [ @.str.60, %5 ], [ @.str.61, %19 ], [ @.str.61, %13 ], [ @.str.62, %29 ], [ @.str.63, %33 ]
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull %.str.63.sink) #14
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %33, %26, %32
-  %.0 = phi i32 [ 1, %26 ], [ 1, %33 ], [ 1, %32 ], [ 0, %.thread.sink.split ]
+  %.0 = phi i32 [ 1, %32 ], [ 1, %26 ], [ 1, %33 ], [ 0, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -2198,11 +2198,11 @@ define hidden range(i32 0, 2) i32 @avifCleanApertureBoxConvertCropRect(ptr nound
   br i1 %or.cond36.i, label %39, label %avifCropRectIsValid.exit
 
 avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %32, %36
-  %.str.63.sink.i = phi ptr [ @.str.62, %32 ], [ @.str.61, %16 ], [ @.str.60, %6 ], [ @.str.60, %12 ], [ @.str.61, %22 ], [ @.str.63, %36 ]
+  %.str.63.sink.i = phi ptr [ @.str.60, %12 ], [ @.str.60, %6 ], [ @.str.61, %22 ], [ @.str.61, %16 ], [ @.str.62, %32 ], [ @.str.63, %36 ]
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull %.str.63.sink.i) #14
   br label %89
 
-39:                                               ; preds = %29, %36, %35
+39:                                               ; preds = %35, %29, %36
   %40 = or i32 %3, %2
   %or.cond.not = icmp sgt i32 %40, -1
   br i1 %or.cond.not, label %42, label %41
@@ -2558,7 +2558,7 @@ avifStrdup.exit46:                                ; preds = %43
   br label %49
 
 49:                                               ; preds = %._crit_edge, %avifStrdup.exit46, %avifStrdup.exit46.thread, %avifStrdup.exit44.thread, %24, %19, %avifStrdup.exit, %avifStrdup.exit.thread, %37
-  %.0 = phi i32 [ 26, %avifStrdup.exit46.thread ], [ 26, %avifStrdup.exit.thread ], [ 0, %24 ], [ 26, %avifStrdup.exit44.thread ], [ 26, %37 ], [ 0, %avifStrdup.exit ], [ 0, %19 ], [ 0, %avifStrdup.exit46 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 26, %37 ], [ 26, %avifStrdup.exit.thread ], [ 0, %avifStrdup.exit ], [ 0, %19 ], [ 0, %24 ], [ 26, %avifStrdup.exit44.thread ], [ 26, %avifStrdup.exit46.thread ], [ 0, %avifStrdup.exit46 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

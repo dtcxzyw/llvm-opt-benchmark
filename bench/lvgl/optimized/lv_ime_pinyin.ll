@@ -1955,7 +1955,7 @@ pinyin_search_matching.exit.thread:               ; preds = %._crit_edge.us.thre
   br label %68
 
 pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %.lr.ph.i, %.preheader.lr.ph.i, %.preheader.lr.ph.split.us.i
-  %.us-phi.i = phi ptr [ %16, %.preheader.lr.ph.split.us.i ], [ %16, %.preheader.lr.ph.i ], [ %.02943.us.i, %.lr.ph.i ], [ %.02943.us.i, %._crit_edge.us.i ]
+  %.us-phi.i = phi ptr [ %16, %.preheader.lr.ph.i ], [ %16, %.preheader.lr.ph.split.us.i ], [ %.02943.us.i, %.lr.ph.i ], [ %.02943.us.i, %._crit_edge.us.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !39
   %41 = tail call i64 @lv_strlen(ptr noundef %40) #6
@@ -2202,9 +2202,9 @@ pinyin_k9_is_valid_py.exit:                       ; preds = %._crit_edge.us.thre
   br label %86
 
 86:                                               ; preds = %58, %pinyin_k9_is_valid_py.exit, %73, %84
-  %.148 = phi i32 [ %85, %84 ], [ %83, %73 ], [ %17, %pinyin_k9_is_valid_py.exit ], [ %17, %58 ]
-  %.246 = phi i16 [ %.0443, %84 ], [ %.0443, %73 ], [ %.0443, %pinyin_k9_is_valid_py.exit ], [ %59, %58 ]
-  %.3 = phi ptr [ %.04, %84 ], [ %.04, %73 ], [ %.04, %pinyin_k9_is_valid_py.exit ], [ %.2, %58 ]
+  %.148 = phi i32 [ %83, %73 ], [ %85, %84 ], [ %17, %pinyin_k9_is_valid_py.exit ], [ %17, %58 ]
+  %.246 = phi i16 [ %.0443, %73 ], [ %.0443, %84 ], [ %.0443, %pinyin_k9_is_valid_py.exit ], [ %59, %58 ]
+  %.3 = phi ptr [ %.04, %73 ], [ %.04, %84 ], [ %.04, %pinyin_k9_is_valid_py.exit ], [ %.2, %58 ]
   %.not = icmp eq i32 %.148, -1
   br i1 %.not, label %87, label %18, !llvm.loop !54
 

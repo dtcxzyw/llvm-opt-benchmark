@@ -177,7 +177,7 @@ set_base_rel_sizes.exit:                          ; preds = %54
   br label %75
 
 75:                                               ; preds = %70, %67, %65, %60
-  %.1 = phi double [ %.01830, %65 ], [ %.01830, %60 ], [ %74, %70 ], [ %.01830, %67 ]
+  %.1 = phi double [ %.01830, %60 ], [ %.01830, %65 ], [ %74, %70 ], [ %.01830, %67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %28, align 8
   %77 = zext i32 %76 to i64
@@ -329,7 +329,7 @@ list_length.exit:                                 ; preds = %2
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %2, %list_length.exit, %42, %40, %34, %28
-  %.0 = phi ptr [ %43, %42 ], [ %30, %28 ], [ %35, %34 ], [ %41, %40 ], [ null, %list_length.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %30, %28 ], [ %35, %34 ], [ %41, %40 ], [ %43, %42 ], [ null, %list_length.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -612,7 +612,7 @@ accumulate_append_subpath.exit285:                ; preds = %98, %94, %90, %accu
   br label %accumulate_append_subpath.exit286
 
 accumulate_append_subpath.exit286:                ; preds = %134, %129, %124, %101, %.split227, %.split, %accumulate_append_subpath.exit285
-  %.1194 = phi i8 [ 0, %accumulate_append_subpath.exit285 ], [ 1, %.split ], [ 0, %101 ], [ 1, %.split227 ], [ 1, %124 ], [ 1, %129 ], [ 1, %134 ]
+  %.1194 = phi i8 [ 0, %accumulate_append_subpath.exit285 ], [ 0, %101 ], [ 1, %.split227 ], [ 1, %.split ], [ 1, %124 ], [ 1, %129 ], [ 1, %134 ]
   %137 = load ptr, ptr %23, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %.not257 = icmp eq ptr %137, null
@@ -811,7 +811,7 @@ list_length.exit.thread:                          ; preds = %203
   br label %list_length.exit288
 
 list_length.exit288:                              ; preds = %list_length.exit.thread, %203
-  %207 = phi i32 [ %spec.select, %list_length.exit.thread ], [ poison, %203 ]
+  %207 = phi i32 [ poison, %203 ], [ %spec.select, %list_length.exit.thread ]
   %208 = load i32, ptr @max_parallel_workers_per_gather, align 4
   %209 = call i32 @llvm.smin.i32(i32 %207, i32 %208)
   br label %210
@@ -873,7 +873,7 @@ list_length.exit290.thread:                       ; preds = %.critedge276
   br label %list_length.exit292
 
 list_length.exit292:                              ; preds = %list_length.exit290.thread, %.critedge276
-  %234 = phi i32 [ %spec.select547, %list_length.exit290.thread ], [ poison, %.critedge276 ]
+  %234 = phi i32 [ poison, %.critedge276 ], [ %spec.select547, %list_length.exit290.thread ]
   %235 = load i32, ptr @max_parallel_workers_per_gather, align 4
   %236 = call i32 @llvm.smin.i32(i32 %234, i32 %235)
   %237 = call ptr @create_append_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %216, ptr noundef %219, ptr noundef null, ptr noundef null, i32 noundef %236, i1 noundef zeroext true, double noundef %.0207) #9
@@ -915,8 +915,8 @@ list_length.exit292:                              ; preds = %list_length.exit290
   br label %254
 
 254:                                              ; preds = %251, %245, %242, %239
-  %.097.i = phi ptr [ %253, %251 ], [ null, %245 ], [ null, %242 ], [ null, %239 ]
-  %.092.i = phi ptr [ %252, %251 ], [ null, %245 ], [ null, %242 ], [ null, %239 ]
+  %.097.i = phi ptr [ %253, %251 ], [ null, %245 ], [ null, %239 ], [ null, %242 ]
+  %.092.i = phi ptr [ %252, %251 ], [ null, %245 ], [ null, %239 ], [ null, %242 ]
   %255 = getelementptr inbounds nuw i8, ptr %.0196.lcssa521537, i64 4
   %.not109.i = icmp eq ptr %.0196.lcssa521537, null
   br i1 %.not109.i, label %generate_orderedappend_paths.exit, label %.lr.ph183.i
@@ -963,7 +963,7 @@ list_length.exit292:                              ; preds = %list_length.exit290
   br i1 %.not, label %._crit_edge.thread.i, label %list_length.exit124.thread208.i
 
 .critedge119.i:                                   ; preds = %274, %271, %268, %.lr.ph429
-  %276 = phi i1 [ false, %274 ], [ true, %268 ], [ false, %271 ], [ true, %.lr.ph429 ]
+  %276 = phi i1 [ true, %268 ], [ false, %271 ], [ false, %274 ], [ true, %.lr.ph429 ]
   br i1 %.not, label %list_length.exit124.thread.i, label %list_length.exit124.i
 
 list_length.exit124.thread.i:                     ; preds = %.critedge119.i
@@ -1071,7 +1071,7 @@ list_length.exit.i.us.i:                          ; preds = %308
   br label %get_singleton_append_subpath.exit.us.i
 
 get_singleton_append_subpath.exit.us.i:           ; preds = %.thread.sink.split.i.us.i, %list_length.exit.i.us.i, %308, %list_length.exit17.i.us.i, %302, %300
-  %.1.i.us.i = phi ptr [ %.091.us.i, %list_length.exit17.i.us.i ], [ %.091.us.i, %302 ], [ %.091.us.i, %308 ], [ %.091.us.i, %300 ], [ %.091.us.i, %list_length.exit.i.us.i ], [ %315, %.thread.sink.split.i.us.i ]
+  %.1.i.us.i = phi ptr [ %.091.us.i, %300 ], [ %.091.us.i, %list_length.exit.i.us.i ], [ %.091.us.i, %308 ], [ %.091.us.i, %list_length.exit17.i.us.i ], [ %.091.us.i, %302 ], [ %315, %.thread.sink.split.i.us.i ]
   %316 = load i32, ptr %.090.us.i, align 4
   switch i32 %316, label %get_singleton_append_subpath.exit133.us.i [
     i32 289, label %323
@@ -1110,7 +1110,7 @@ list_length.exit.i132.us.i:                       ; preds = %323
   br label %get_singleton_append_subpath.exit133.us.i
 
 get_singleton_append_subpath.exit133.us.i:        ; preds = %.thread.sink.split.i128.us.i, %list_length.exit.i132.us.i, %323, %list_length.exit17.i126.us.i, %317, %get_singleton_append_subpath.exit.us.i
-  %.1.i127.us.i = phi ptr [ %.090.us.i, %list_length.exit17.i126.us.i ], [ %.090.us.i, %317 ], [ %.090.us.i, %323 ], [ %.090.us.i, %get_singleton_append_subpath.exit.us.i ], [ %.090.us.i, %list_length.exit.i132.us.i ], [ %330, %.thread.sink.split.i128.us.i ]
+  %.1.i127.us.i = phi ptr [ %.090.us.i, %get_singleton_append_subpath.exit.us.i ], [ %.090.us.i, %list_length.exit.i132.us.i ], [ %.090.us.i, %323 ], [ %.090.us.i, %list_length.exit17.i126.us.i ], [ %.090.us.i, %317 ], [ %330, %.thread.sink.split.i128.us.i ]
   %331 = call ptr @lappend(ptr noundef %.0165170.us.i, ptr noundef %.1.i.us.i) #9
   %332 = call ptr @lappend(ptr noundef %.0162171.us.i, ptr noundef %.1.i127.us.i) #9
   %.not117.us.i = icmp eq ptr %.089.us.i, null
@@ -1155,7 +1155,7 @@ list_length.exit.i141.us.i:                       ; preds = %341
   br label %get_singleton_append_subpath.exit142.us.i
 
 get_singleton_append_subpath.exit142.us.i:        ; preds = %.thread.sink.split.i137.us.i, %list_length.exit.i141.us.i, %341, %list_length.exit17.i135.us.i, %335, %333
-  %.1.i136.us.i = phi ptr [ %.089.us.i, %list_length.exit17.i135.us.i ], [ %.089.us.i, %335 ], [ %.089.us.i, %341 ], [ %.089.us.i, %333 ], [ %.089.us.i, %list_length.exit.i141.us.i ], [ %348, %.thread.sink.split.i137.us.i ]
+  %.1.i136.us.i = phi ptr [ %.089.us.i, %333 ], [ %.089.us.i, %list_length.exit.i141.us.i ], [ %.089.us.i, %341 ], [ %.089.us.i, %list_length.exit17.i135.us.i ], [ %.089.us.i, %335 ], [ %348, %.thread.sink.split.i137.us.i ]
   %349 = call ptr @lappend(ptr noundef %.0172.us.i, ptr noundef %.1.i136.us.i) #9
   br label %accumulate_append_subpath.exit144.us.i
 
@@ -1323,16 +1323,16 @@ accumulate_append_subpath.exit143.i:              ; preds = %408, %404, %400
   br label %accumulate_append_subpath.exit144.i
 
 accumulate_append_subpath.exit144.i:              ; preds = %428, %424, %420, %accumulate_append_subpath.exit143.i
-  %.1.i = phi ptr [ %427, %424 ], [ %429, %428 ], [ %.0172.i, %accumulate_append_subpath.exit143.i ], [ %423, %420 ]
+  %.1.i = phi ptr [ %.0172.i, %accumulate_append_subpath.exit143.i ], [ %423, %420 ], [ %427, %424 ], [ %429, %428 ]
   %430 = add nuw i32 %.093174.i, 1
   %.not111.i = icmp eq i32 %430, %277
   br i1 %.not111.i, label %._crit_edge.i.thread336, label %.lr.ph.split.i, !llvm.loop !12
 
 ._crit_edge.thread.i:                             ; preds = %accumulate_append_subpath.exit144.us.i, %._crit_edge.i, %list_length.exit124.thread208.i, %list_length.exit124.thread.i, %.critedge121.i
-  %.099.lcssa234.i = phi i1 [ false, %list_length.exit124.thread208.i ], [ false, %._crit_edge.i ], [ false, %list_length.exit124.thread.i ], [ false, %.critedge121.i ], [ %spec.select122.us.i, %accumulate_append_subpath.exit144.us.i ]
-  %.0.lcssa233.i = phi ptr [ null, %list_length.exit124.thread208.i ], [ null, %._crit_edge.i ], [ null, %list_length.exit124.thread.i ], [ null, %.critedge121.i ], [ %.1.us.i, %accumulate_append_subpath.exit144.us.i ]
-  %.0162.lcssa232.i = phi ptr [ null, %list_length.exit124.thread208.i ], [ null, %._crit_edge.i ], [ null, %list_length.exit124.thread.i ], [ null, %.critedge121.i ], [ %332, %accumulate_append_subpath.exit144.us.i ]
-  %.0165.lcssa231.i = phi ptr [ null, %list_length.exit124.thread208.i ], [ null, %._crit_edge.i ], [ null, %list_length.exit124.thread.i ], [ null, %.critedge121.i ], [ %331, %accumulate_append_subpath.exit144.us.i ]
+  %.099.lcssa234.i = phi i1 [ false, %._crit_edge.i ], [ false, %list_length.exit124.thread.i ], [ false, %list_length.exit124.thread208.i ], [ false, %.critedge121.i ], [ %spec.select122.us.i, %accumulate_append_subpath.exit144.us.i ]
+  %.0.lcssa233.i = phi ptr [ null, %._crit_edge.i ], [ null, %list_length.exit124.thread.i ], [ null, %list_length.exit124.thread208.i ], [ null, %.critedge121.i ], [ %.1.us.i, %accumulate_append_subpath.exit144.us.i ]
+  %.0162.lcssa232.i = phi ptr [ null, %._crit_edge.i ], [ null, %list_length.exit124.thread.i ], [ null, %list_length.exit124.thread208.i ], [ null, %.critedge121.i ], [ %332, %accumulate_append_subpath.exit144.us.i ]
+  %.0165.lcssa231.i = phi ptr [ null, %._crit_edge.i ], [ null, %list_length.exit124.thread.i ], [ null, %list_length.exit124.thread208.i ], [ null, %.critedge121.i ], [ %331, %accumulate_append_subpath.exit144.us.i ]
   %431 = call ptr @create_append_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0165.lcssa231.i, ptr noundef null, ptr noundef %263, ptr noundef null, i32 noundef 0, i1 noundef zeroext false, double noundef -1.000000e+00) #9
   call void @add_path(ptr noundef %1, ptr noundef %431) #9
   br i1 %.099.lcssa234.i, label %432, label %434
@@ -1521,7 +1521,7 @@ list_length.exit295:                              ; preds = %.critedge278
   br label %512
 
 512:                                              ; preds = %509, %506, %503, %495, %491
-  %.1.i299 = phi ptr [ %.0324450.i, %491 ], [ %spec.select.i301, %509 ], [ %.0324450.i, %495 ], [ %.032.mux.i, %506 ], [ %485, %503 ]
+  %.1.i299 = phi ptr [ %.0324450.i, %491 ], [ %.0324450.i, %495 ], [ %.032.mux.i, %506 ], [ %485, %503 ], [ %spec.select.i301, %509 ]
   %indvars.iv.next.i300 = add nuw nsw i64 %indvars.iv.i298, 1
   %513 = load i32, ptr %479, align 4
   %514 = sext i32 %513 to i64
@@ -2320,7 +2320,7 @@ define dso_local i32 @compute_parallel_worker(ptr noundef readonly captures(none
   br label %49
 
 49:                                               ; preds = %4, %.loopexit, %46
-  %.035 = phi i32 [ %.136, %.loopexit ], [ %.2, %46 ], [ %6, %4 ]
+  %.035 = phi i32 [ %.2, %46 ], [ %.136, %.loopexit ], [ %6, %4 ]
   %50 = tail call i32 @llvm.smin.i32(i32 %.035, i32 %3)
   br label %51
 
@@ -2439,7 +2439,7 @@ define internal fastcc void @set_rel_consider_parallel(ptr noundef %0, ptr nound
   store i8 1, ptr %57, align 2
   br label %.thread
 
-.thread:                                          ; preds = %14, %18, %34, %50, %46, %42, %38, %3, %3, %3, %3, %3, %32, %27, %6, %56
+.thread:                                          ; preds = %18, %14, %34, %50, %46, %42, %38, %3, %3, %3, %3, %3, %32, %27, %6, %56
   ret void
 }
 
@@ -2830,10 +2830,10 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   br label %.split, !llvm.loop !18
 
 .thread:                                          ; preds = %196, %191, %160, %153, %93, %82, %.lr.ph158
-  %.1133.i = phi double [ %.0132.i86157, %153 ], [ %.0132.i86157, %.lr.ph158 ], [ %.0132.i86157, %93 ], [ %.0132.i86157, %82 ], [ %171, %160 ], [ %171, %191 ], [ %171, %196 ]
-  %.1131.i = phi double [ %.0130.i87156, %153 ], [ %.0130.i87156, %.lr.ph158 ], [ %.0130.i87156, %93 ], [ %.0130.i87156, %82 ], [ %166, %160 ], [ %166, %191 ], [ %166, %196 ]
-  %.1129.i = phi double [ %.0128.i88155, %153 ], [ %.0128.i88155, %.lr.ph158 ], [ %.0128.i88155, %93 ], [ %.0128.i88155, %82 ], [ %163, %160 ], [ %163, %191 ], [ %163, %196 ]
-  %.1.i = phi i1 [ %.0125.i89154, %153 ], [ %.0125.i89154, %.lr.ph158 ], [ %.0125.i89154, %93 ], [ %.0125.i89154, %82 ], [ true, %160 ], [ true, %191 ], [ true, %196 ]
+  %.1133.i = phi double [ %.0132.i86157, %93 ], [ %.0132.i86157, %.lr.ph158 ], [ %.0132.i86157, %82 ], [ %.0132.i86157, %153 ], [ %171, %160 ], [ %171, %191 ], [ %171, %196 ]
+  %.1131.i = phi double [ %.0130.i87156, %93 ], [ %.0130.i87156, %.lr.ph158 ], [ %.0130.i87156, %82 ], [ %.0130.i87156, %153 ], [ %166, %160 ], [ %166, %191 ], [ %166, %196 ]
+  %.1129.i = phi double [ %.0128.i88155, %93 ], [ %.0128.i88155, %.lr.ph158 ], [ %.0128.i88155, %82 ], [ %.0128.i88155, %153 ], [ %163, %160 ], [ %163, %191 ], [ %163, %196 ]
+  %.1.i = phi i1 [ %.0125.i89154, %93 ], [ %.0125.i89154, %.lr.ph158 ], [ %.0125.i89154, %82 ], [ %.0125.i89154, %153 ], [ true, %160 ], [ true, %191 ], [ true, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110153, 1
   %246 = load i32, ptr %65, align 4
@@ -3238,7 +3238,7 @@ qual_is_pushdown_safe.exit.thread.i:              ; preds = %qual_is_pushdown_sa
   br label %435
 
 435:                                              ; preds = %qual_is_pushdown_safe.exit.thread.i, %432, %check_and_push_window_quals.exit.i, %371, %335
-  %.1124.i = phi ptr [ %336, %335 ], [ %434, %qual_is_pushdown_safe.exit.thread.i ], [ %.0123178.i71, %371 ], [ %433, %432 ], [ %.0123178.i71, %check_and_push_window_quals.exit.i ]
+  %.1124.i = phi ptr [ %336, %335 ], [ %.0123178.i71, %371 ], [ %433, %432 ], [ %.0123178.i71, %check_and_push_window_quals.exit.i ], [ %434, %qual_is_pushdown_safe.exit.thread.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i70, 1
   %436 = load i32, ptr %317, align 4
   %437 = sext i32 %436 to i64
@@ -4154,7 +4154,7 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   br i1 %116, label %107, label %targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split
 
 targetIsInAllPartitionLists.exit.thread.sink.split.i.sink.split: ; preds = %.lr.ph12.i.i, %88, %73
-  %.sink41.i.ph = phi i8 [ 4, %88 ], [ 1, %73 ], [ 8, %.lr.ph12.i.i ]
+  %.sink41.i.ph = phi i8 [ 1, %73 ], [ 4, %88 ], [ 8, %.lr.ph12.i.i ]
   %117 = load ptr, ptr %2, align 8
   br label %targetIsInAllPartitionLists.exit.thread.sink.split.i
 
@@ -4297,7 +4297,7 @@ compare_tlist_datatypes.exit:                     ; preds = %.critedge.i, %127, 
   br label %184
 
 184:                                              ; preds = %130, %128, %12, %3, %6, %compare_tlist_datatypes.exit
-  %.0 = phi i1 [ false, %128 ], [ false, %3 ], [ true, %compare_tlist_datatypes.exit ], [ false, %12 ], [ false, %6 ], [ false, %130 ]
+  %.0 = phi i1 [ true, %compare_tlist_datatypes.exit ], [ false, %6 ], [ false, %3 ], [ false, %12 ], [ false, %128 ], [ false, %130 ]
   ret i1 %.0
 }
 
@@ -4693,8 +4693,8 @@ define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nounde
   store ptr %100, ptr %6, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %10, %55, %.lr.ph, %46, %63, %.critedge106, %69, %.critedge104, %.critedge, %26, %41, %21, %17, %15, %.critedge.thread
-  %.0 = phi i1 [ false, %.critedge ], [ false, %21 ], [ true, %.critedge.thread ], [ false, %26 ], [ false, %17 ], [ false, %15 ], [ false, %41 ], [ false, %55 ], [ false, %.critedge104 ], [ false, %69 ], [ false, %.critedge106 ], [ false, %63 ], [ false, %46 ], [ false, %.lr.ph ], [ false, %10 ]
+.loopexit:                                        ; preds = %10, %55, %46, %.lr.ph, %.critedge104, %.critedge106, %63, %69, %.critedge, %26, %41, %21, %17, %15, %.critedge.thread
+  %.0 = phi i1 [ true, %.critedge.thread ], [ false, %15 ], [ false, %17 ], [ false, %21 ], [ false, %41 ], [ false, %26 ], [ false, %.critedge ], [ false, %69 ], [ false, %63 ], [ false, %.critedge106 ], [ false, %.critedge104 ], [ false, %.lr.ph ], [ false, %46 ], [ false, %55 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -4929,7 +4929,7 @@ set_append_rel_pathlist.exit:                     ; preds = %43, %.lr.ph, %10
   br label %set_function_pathlist.exit
 
 set_function_pathlist.exit:                       ; preds = %101, %65, %70, %.lr.ph.i, %.critedge.i
-  %.0.i39 = phi ptr [ null, %65 ], [ %104, %.critedge.i ], [ null, %70 ], [ null, %.lr.ph.i ], [ null, %101 ]
+  %.0.i39 = phi ptr [ null, %65 ], [ %104, %.critedge.i ], [ null, %.lr.ph.i ], [ null, %70 ], [ null, %101 ]
   %105 = tail call ptr @create_functionscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i39, ptr noundef %68) #9
   tail call void @add_path(ptr noundef %1, ptr noundef %105) #9
   br label %118
@@ -5079,7 +5079,7 @@ define internal fastcc void @set_plain_rel_pathlist(ptr noundef %0, ptr noundef 
   br i1 %32, label %compute_parallel_worker.exit.i, label %27, !llvm.loop !16
 
 compute_parallel_worker.exit.i:                   ; preds = %30, %27, %12
-  %.035.i.i = phi i32 [ %17, %12 ], [ %31, %30 ], [ %.032.i.i, %27 ]
+  %.035.i.i = phi i32 [ %17, %12 ], [ %.032.i.i, %27 ], [ %31, %30 ]
   %33 = tail call i32 @llvm.smin.i32(i32 %.035.i.i, i32 %15)
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %create_plain_partial_paths.exit, label %35

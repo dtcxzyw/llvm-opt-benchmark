@@ -1207,7 +1207,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %217
 _ZltRK8rationalS1_.exit:                          ; preds = %253
   br i1 %254, label %255, label %.critedge
 
-255:                                              ; preds = %246, %.noexc86, %_ZltRK8rationalS1_.exit
+255:                                              ; preds = %.noexc86, %246, %_ZltRK8rationalS1_.exit
   invoke void @_ZN3opt18maxsmt_solver_base12trace_boundsEPKc(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull @.str)
           to label %256 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
@@ -1556,8 +1556,8 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i:   ; preds = %383, %379
   invoke void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %375, ptr noundef nonnull align 8 dereferenceable(16) %176, ptr noundef nonnull align 8 dereferenceable(16) %178)
           to label %.critedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.critedge:                                        ; preds = %_ZltRK8rationalS1_.exit, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, %.noexc86, %246, %216, %387, %391
-  %.2.ph = phi i32 [ 1, %387 ], [ 1, %391 ], [ 1, %_ZltRK8rationalS1_.exit ], [ %.042, %216 ], [ 1, %246 ], [ 1, %.noexc86 ], [ 1, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ]
+.critedge:                                        ; preds = %_ZltRK8rationalS1_.exit, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, %246, %.noexc86, %216, %387, %391
+  %.2.ph = phi i32 [ 1, %387 ], [ 1, %391 ], [ %.042, %216 ], [ 1, %.noexc86 ], [ 1, %246 ], [ 1, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ], [ 1, %_ZltRK8rationalS1_.exit ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !39
   %.not.i.i105 = icmp eq ptr %.pr, null
   br i1 %.not.i.i105, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %392
@@ -1575,7 +1575,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i:   ; preds = %383, %379
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %217, %.critedge, %392
-  %.2204 = phi i32 [ %.2.ph, %392 ], [ %.2.ph, %.critedge ], [ 1, %217 ]
+  %.2204 = phi i32 [ %.2.ph, %.critedge ], [ %.2.ph, %392 ], [ 1, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %397 = load ptr, ptr %5, align 8, !tbaa !89
   %.not.i.i106 = icmp eq ptr %397, null
@@ -1667,7 +1667,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %431
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit121, %.loopexit.split-lp122, %.loopexit126, %.loopexit.split-lp127, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %373, %93, %85, %196
-  %.pn72.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %86, %85 ], [ %149, %148 ], [ %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %94, %93 ], [ %88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %.pn, %373 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit115, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp226, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %94, %93 ], [ %86, %85 ], [ %.pn, %373 ], [ %88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %149, %148 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit115, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp226, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
@@ -2164,7 +2164,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %10, %16
   br label %_ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit
 
 _ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit: ; preds = %28, %.thread.i.i
-  %.sroa.6.1.i.i = phi i32 [ %.pre23.i.i, %28 ], [ %31, %.thread.i.i ]
+  %.sroa.6.1.i.i = phi i32 [ %31, %.thread.i.i ], [ %.pre23.i.i, %28 ]
   %32 = lshr i32 %1, 1
   %33 = tail call i64 @_ZN8psort_nwIN3opt7sortmaxEE10vc_sortingEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %32)
   %.sroa.415.0.extract.shift.i = lshr i64 %33, 32
@@ -3718,7 +3718,7 @@ _ZN8psort_nwIN3opt7sortmaxEE10vc_dsmergeEjjj.exit: ; preds = %11, %.thread.i
   br label %49
 
 49:                                               ; preds = %_ZN8psort_nwIN3opt7sortmaxEE10vc_dsmergeEjjj.exit, %4
-  %50 = phi i1 [ %48, %_ZN8psort_nwIN3opt7sortmaxEE10vc_dsmergeEjjj.exit ], [ false, %4 ]
+  %50 = phi i1 [ false, %4 ], [ %48, %_ZN8psort_nwIN3opt7sortmaxEE10vc_dsmergeEjjj.exit ]
   ret i1 %50
 }
 
@@ -3981,11 +3981,11 @@ _ZN3opt7sortmax5trailEP4expr.exit.i.i:            ; preds = %126, %120
   br label %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit
 
 _ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit:  ; preds = %76, %86, %108, %_ZN3opt7sortmax5trailEP4expr.exit.i.i
-  %133 = phi ptr [ %.pre253, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %85, %86 ], [ %85, %108 ], [ %85, %76 ]
-  %134 = phi ptr [ %.pre251, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %82, %86 ], [ %82, %108 ], [ %82, %76 ]
-  %135 = phi ptr [ %.pre249, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %80, %86 ], [ %80, %108 ], [ %80, %76 ]
-  %136 = phi ptr [ %.pre, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %78, %86 ], [ %78, %108 ], [ %78, %76 ]
-  %.0.i = phi ptr [ %112, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %82, %86 ], [ %110, %108 ], [ %85, %76 ]
+  %133 = phi ptr [ %85, %86 ], [ %85, %108 ], [ %.pre253, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %85, %76 ]
+  %134 = phi ptr [ %82, %86 ], [ %82, %108 ], [ %.pre251, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %82, %76 ]
+  %135 = phi ptr [ %80, %86 ], [ %80, %108 ], [ %.pre249, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %80, %76 ]
+  %136 = phi ptr [ %78, %86 ], [ %78, %108 ], [ %.pre, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %78, %76 ]
+  %.0.i = phi ptr [ %82, %86 ], [ %110, %108 ], [ %112, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %85, %76 ]
   %137 = add i32 %.066211, -1
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw ptr, ptr %5, i64 %138
@@ -4082,8 +4082,8 @@ _ZN3opt7sortmax5trailEP4expr.exit.i.i83:          ; preds = %182, %176
   br label %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit90
 
 _ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit90: ; preds = %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit, %142, %164, %_ZN3opt7sortmax5trailEP4expr.exit.i.i83
-  %189 = phi ptr [ %.pre258, %_ZN3opt7sortmax5trailEP4expr.exit.i.i83 ], [ %134, %142 ], [ %134, %164 ], [ %134, %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit ]
-  %.0.i84 = phi ptr [ %168, %_ZN3opt7sortmax5trailEP4expr.exit.i.i83 ], [ %134, %142 ], [ %166, %164 ], [ %133, %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit ]
+  %189 = phi ptr [ %134, %142 ], [ %134, %164 ], [ %.pre258, %_ZN3opt7sortmax5trailEP4expr.exit.i.i83 ], [ %134, %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit ]
+  %.0.i84 = phi ptr [ %134, %142 ], [ %166, %164 ], [ %168, %_ZN3opt7sortmax5trailEP4expr.exit.i.i83 ], [ %133, %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit ]
   %190 = add i32 %74, -1
   %191 = load ptr, ptr %6, align 8, !tbaa !39
   %192 = zext i32 %190 to i64
@@ -4231,7 +4231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i158: ; pr
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i158, %251, %.body, %276
-  %common.resume.op = phi { ptr, i32 } [ %.pn, %.body ], [ %277, %276 ], [ %246, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i158 ], [ %252, %251 ]
+  %common.resume.op = phi { ptr, i32 } [ %277, %276 ], [ %.pn, %.body ], [ %246, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i158 ], [ %252, %251 ]
   resume { ptr, i32 } %common.resume.op
 
 253:                                              ; preds = %225
@@ -5017,7 +5017,7 @@ _ZN8psort_nwIN3opt7sortmaxEE10add_clauseERK10ptr_vectorI4exprE.exit: ; preds = %
   br i1 %exitcond243.not, label %.loopexit192, label %.lr.ph219, !llvm.loop !208
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %394, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %549, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i169, %521, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i120, %446, %329, %327
-  %.pn = phi { ptr, i32 } [ %330, %329 ], [ %328, %327 ], [ %395, %394 ], [ %389, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %447, %446 ], [ %441, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i120 ], [ %550, %549 ], [ %522, %521 ], [ %516, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i169 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %328, %327 ], [ %330, %329 ], [ %389, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %395, %394 ], [ %441, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i120 ], [ %447, %446 ], [ %550, %549 ], [ %516, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i169 ], [ %522, %521 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %common.resume
@@ -5570,7 +5570,7 @@ _ZN3opt7sortmax5trailEP4expr.exit.i:              ; preds = %52, %46
   br label %_ZN3opt7sortmax6mk_notEP4expr.exit
 
 _ZN3opt7sortmax6mk_notEP4expr.exit:               ; preds = %2, %_ZN3opt7sortmax5trailEP4expr.exit.i, %34, %12
-  %.0 = phi ptr [ %38, %_ZN3opt7sortmax5trailEP4expr.exit.i ], [ %8, %12 ], [ %36, %34 ], [ %11, %2 ]
+  %.0 = phi ptr [ %8, %12 ], [ %36, %34 ], [ %38, %_ZN3opt7sortmax5trailEP4expr.exit.i ], [ %11, %2 ]
   ret ptr %.0
 }
 
@@ -5927,8 +5927,8 @@ _ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit.thread: ; preds = %26, %_ZN8p
   br label %_ZN8psort_nwIN3opt7sortmaxEE10vc_dsmergeEjjj.exit
 
 _ZN8psort_nwIN3opt7sortmaxEE10vc_dsmergeEjjj.exit: ; preds = %.thread.i, %43, %.thread.fold.split, %8, %11, %.thread, %_ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit.thread, %24, %20, %16
-  %.sroa.045.1 = phi i32 [ 1, %8 ], [ 0, %11 ], [ %.sroa.045.0.extract.trunc48, %24 ], [ %.sroa.045.0.extract.trunc, %16 ], [ %.sroa.045.0.extract.trunc47, %20 ], [ 1, %.thread ], [ %75, %_ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit.thread ], [ 1, %.thread.fold.split ], [ %3, %43 ], [ %3, %.thread.i ]
-  %.sroa.12.1 = phi i32 [ 2, %8 ], [ 0, %11 ], [ %.sroa.12.0.extract.trunc57, %24 ], [ %.sroa.12.0.extract.trunc, %16 ], [ %.sroa.12.0.extract.trunc55, %20 ], [ 1, %.thread ], [ %76, %_ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit.thread ], [ 3, %.thread.fold.split ], [ %44, %43 ], [ %45, %.thread.i ]
+  %.sroa.045.1 = phi i32 [ %.sroa.045.0.extract.trunc, %16 ], [ %.sroa.045.0.extract.trunc47, %20 ], [ %75, %_ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit.thread ], [ %.sroa.045.0.extract.trunc48, %24 ], [ 0, %11 ], [ 1, %8 ], [ 1, %.thread.fold.split ], [ 1, %.thread ], [ %3, %43 ], [ %3, %.thread.i ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.0.extract.trunc, %16 ], [ %.sroa.12.0.extract.trunc55, %20 ], [ %76, %_ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit.thread ], [ %.sroa.12.0.extract.trunc57, %24 ], [ 0, %11 ], [ 2, %8 ], [ 3, %.thread.fold.split ], [ 1, %.thread ], [ %44, %43 ], [ %45, %.thread.i ]
   %.sroa.12.0.insert.ext = zext i32 %.sroa.12.1 to i64
   %.sroa.12.0.insert.shift = shl nuw i64 %.sroa.12.0.insert.ext, 32
   %.sroa.045.0.insert.ext = zext i32 %.sroa.045.1 to i64
@@ -6803,7 +6803,7 @@ define linkonce_odr hidden i64 @_ZN8psort_nwIN3opt7sortmaxEE10vc_sortingEj(ptr n
   br label %_ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit
 
 _ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit: ; preds = %9, %.thread.i.i
-  %.sroa.6.1.i.i = phi i32 [ %.pre23.i.i, %9 ], [ %12, %.thread.i.i ]
+  %.sroa.6.1.i.i = phi i32 [ %12, %.thread.i.i ], [ %.pre23.i.i, %9 ]
   %13 = lshr i32 %1, 1
   %14 = tail call i64 @_ZN8psort_nwIN3opt7sortmaxEE10vc_sortingEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %13)
   %.sroa.415.0.extract.shift.i = lshr i64 %14, 32
@@ -6862,8 +6862,8 @@ _ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit.thread: ; preds = %._ZN8psort_
   br label %_ZN8psort_nwIN3opt7sortmaxEE11vc_dsortingEjj.exit
 
 _ZN8psort_nwIN3opt7sortmaxEE11vc_dsortingEjj.exit: ; preds = %.thread.i, %27, %2, %2, %_ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit.thread, %3
-  %.sroa.6.0 = phi i32 [ 0, %2 ], [ %36, %_ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit.thread ], [ %.sroa.5.0.extract.trunc.i, %3 ], [ 0, %2 ], [ %.pre23.i.i, %27 ], [ %29, %.thread.i ]
-  %.sroa.0.0 = phi i32 [ 0, %2 ], [ %.sroa.0.0.extract.trunc6, %_ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit.thread ], [ 2, %3 ], [ 0, %2 ], [ %1, %27 ], [ %1, %.thread.i ]
+  %.sroa.6.0 = phi i32 [ %36, %_ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit.thread ], [ %.sroa.5.0.extract.trunc.i, %3 ], [ 0, %2 ], [ 0, %2 ], [ %29, %.thread.i ], [ %.pre23.i.i, %27 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.extract.trunc6, %_ZN8psort_nwIN3opt7sortmaxEE12use_dsortingEj.exit.thread ], [ 2, %3 ], [ 0, %2 ], [ 0, %2 ], [ %1, %.thread.i ], [ %1, %27 ]
   %.sroa.6.0.insert.ext = zext i32 %.sroa.6.0 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64

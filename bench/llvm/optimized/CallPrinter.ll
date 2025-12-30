@@ -2346,7 +2346,7 @@ _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exi
   br i1 %.not25, label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit, label %.lr.ph, !llvm.loop !203
 
 _ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit: ; preds = %99, %18, %98, %95, %95, %95, %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exit
-  %101 = phi i1 [ true, %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exit ], [ true, %98 ], [ true, %95 ], [ true, %95 ], [ true, %95 ], [ false, %18 ], [ false, %99 ]
+  %101 = phi i1 [ true, %98 ], [ true, %95 ], [ true, %95 ], [ true, %95 ], [ true, %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exit ], [ false, %18 ], [ false, %99 ]
   %102 = load i8, ptr %12, align 4, !tbaa !32, !range !48, !noundef !49
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %104
@@ -4909,7 +4909,7 @@ _ZNK4llvm15mapped_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt8optionalI
   br i1 %75, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !255
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %72, %70, %66, %62, %52
-  %.0.i.i = phi i32 [ %71, %70 ], [ %63, %62 ], [ %67, %66 ], [ 1, %52 ], [ %74, %72 ]
+  %.0.i.i = phi i32 [ %63, %62 ], [ %67, %66 ], [ %71, %70 ], [ 1, %52 ], [ %74, %72 ]
   %76 = zext i32 %.0.i.i to i64
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %77, ptr %10, align 8, !tbaa !56, !alias.scope !252

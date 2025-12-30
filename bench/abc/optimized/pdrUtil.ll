@@ -309,7 +309,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr noundef readonly captures(no
   br i1 %exitcond36.not.i, label %Vec_IntSelectSort.exit, label %.lr.ph.preheader.i, !llvm.loop !21
 
 Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %3, %29
-  %.0.lcssa54 = phi i64 [ 20, %3 ], [ %32, %29 ], [ %32, %._crit_edge.i ]
+  %.0.lcssa54 = phi i64 [ %32, %29 ], [ 20, %3 ], [ %32, %._crit_edge.i ]
   %48 = icmp slt i32 %8, %5
   br i1 %48, label %.lr.ph37, label %._crit_edge38
 
@@ -723,8 +723,8 @@ Vec_IntFree.exit62:                               ; preds = %Hash_IntExists.exit
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %82, %84, %74, %76
-  %.sink91 = phi ptr [ %77, %76 ], [ %75, %74 ], [ %83, %82 ], [ %85, %84 ]
-  %.sink = phi i32 [ 16, %76 ], [ 16, %74 ], [ %79, %82 ], [ %79, %84 ]
+  %.sink91 = phi ptr [ %75, %74 ], [ %77, %76 ], [ %83, %82 ], [ %85, %84 ]
+  %.sink = phi i32 [ 16, %74 ], [ 16, %76 ], [ %79, %82 ], [ %79, %84 ]
   store ptr %.sink91, ptr %16, align 8, !tbaa !16
   store i32 %.sink, ptr %8, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -764,12 +764,12 @@ Vec_IntFree.exit66:                               ; preds = %.critedge, %96
   br i1 %.not.i67, label %Vec_IntFree.exit52, label %Vec_IntFree.exit52.sink.split
 
 Vec_IntFree.exit52.sink.split:                    ; preds = %Vec_IntFree.exit66, %Vec_IntFree.exit62, %Vec_IntFree.exit
-  %.042.ph = phi ptr [ null, %Vec_IntFree.exit62 ], [ null, %Vec_IntFree.exit ], [ %95, %Vec_IntFree.exit66 ]
+  %.042.ph = phi ptr [ null, %Vec_IntFree.exit ], [ null, %Vec_IntFree.exit62 ], [ %95, %Vec_IntFree.exit66 ]
   tail call void @free(ptr noundef nonnull %19) #31
   br label %Vec_IntFree.exit52
 
 Vec_IntFree.exit52:                               ; preds = %Vec_IntFree.exit52.sink.split, %Vec_IntFree.exit66, %Vec_IntFree.exit62, %Vec_IntFree.exit
-  %.042 = phi ptr [ null, %Vec_IntFree.exit62 ], [ %95, %Vec_IntFree.exit66 ], [ null, %Vec_IntFree.exit ], [ %.042.ph, %Vec_IntFree.exit52.sink.split ]
+  %.042 = phi ptr [ null, %Vec_IntFree.exit ], [ null, %Vec_IntFree.exit62 ], [ %95, %Vec_IntFree.exit66 ], [ %.042.ph, %Vec_IntFree.exit52.sink.split ]
   tail call void @free(ptr noundef nonnull %17) #31
   ret ptr %.042
 }
@@ -1169,7 +1169,7 @@ define range(i32 0, 2) i32 @Pdr_SetContains(ptr noundef readonly captures(none) 
   br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %23, %12, %8, %2
-  %.022 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 1, %12 ], [ 0, %21 ], [ 0, %.lr.ph ], [ 1, %23 ]
+  %.022 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 1, %12 ], [ 0, %.lr.ph ], [ 0, %21 ], [ 1, %23 ]
   ret i32 %.022
 }
 
@@ -1233,7 +1233,7 @@ define range(i32 0, 2) i32 @Pdr_SetContainsSimple(ptr noundef readonly captures(
   br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %19, %13, %.outer, %12, %2
-  %.019 = phi i32 [ 1, %2 ], [ 1, %12 ], [ 0, %19 ], [ 0, %13 ], [ 1, %.outer ]
+  %.019 = phi i32 [ 1, %2 ], [ 1, %12 ], [ 1, %.outer ], [ 0, %13 ], [ 0, %19 ]
   ret i32 %.019
 }
 
@@ -1544,8 +1544,8 @@ define void @Pdr_QueuePush(ptr noundef captures(none) %0, ptr noundef %1) local_
   br label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %28, %23, %._crit_edge39, %.preheader
-  %.024.lcssa = phi ptr [ %16, %.preheader ], [ null, %._crit_edge39 ], [ %.0242834, %28 ], [ %35, %23 ]
-  %.0.lcssa = phi ptr [ %15, %.preheader ], [ %34, %._crit_edge39 ], [ %.02933, %28 ], [ %34, %23 ]
+  %.024.lcssa = phi ptr [ null, %._crit_edge39 ], [ %16, %.preheader ], [ %.0242834, %28 ], [ %35, %23 ]
+  %.0.lcssa = phi ptr [ %34, %._crit_edge39 ], [ %15, %.preheader ], [ %.02933, %28 ], [ %34, %23 ]
   store ptr %1, ptr %.0.lcssa, align 8, !tbaa !81
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %.024.lcssa, ptr %36, align 8, !tbaa !61
@@ -1750,8 +1750,8 @@ Saig_ObjIsLo.exit:                                ; preds = %17
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thread115
-  %.tr127.be = phi ptr [ %59, %55 ], [ %49, %93 ], [ %77, %73 ], [ %., %.thread115 ]
-  %.tr128.be = phi i32 [ %62, %55 ], [ %51, %93 ], [ %79, %73 ], [ %.131, %.thread115 ]
+  %.tr127.be = phi ptr [ %59, %55 ], [ %77, %73 ], [ %49, %93 ], [ %., %.thread115 ]
+  %.tr128.be = phi i32 [ %62, %55 ], [ %79, %73 ], [ %51, %93 ], [ %.131, %.thread115 ]
   %63 = getelementptr i8, ptr %.tr127.be, i64 24
   %.val = load i64, ptr %63, align 8
   %64 = and i64 %.val, 7
@@ -1828,7 +1828,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   br label %tailrecurse.backedge
 
 Pdr_ObjSatValue.exit:                             ; preds = %tailrecurse.backedge, %52, %67, %93, %.thread, %5, %Saig_ObjIsLo.exit, %25, %12
-  %.0.shrunk = phi i1 [ true, %25 ], [ %16, %12 ], [ true, %Saig_ObjIsLo.exit ], [ true, %5 ], [ %.not4.i105158, %.thread ], [ false, %52 ], [ true, %tailrecurse.backedge ], [ true, %67 ], [ true, %93 ]
+  %.0.shrunk = phi i1 [ %16, %12 ], [ true, %25 ], [ true, %Saig_ObjIsLo.exit ], [ true, %5 ], [ %.not4.i105158, %.thread ], [ true, %tailrecurse.backedge ], [ false, %52 ], [ true, %67 ], [ true, %93 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

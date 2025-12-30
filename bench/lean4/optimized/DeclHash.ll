@@ -510,7 +510,7 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   ]
 
 common.ret132:                                    ; preds = %lean_dec.exit103, %lean_dec.exit, %lean_dec.exit106, %lean_dec.exit104, %49, %47, %35, %12
-  %common.ret132.op = phi i64 [ %27, %12 ], [ %71, %lean_dec.exit ], [ %34, %lean_dec.exit104 ], [ %69, %lean_dec.exit103 ], [ %50, %49 ], [ %46, %35 ], [ %48, %47 ], [ %32, %lean_dec.exit106 ]
+  %common.ret132.op = phi i64 [ %27, %12 ], [ %46, %35 ], [ %48, %47 ], [ %50, %49 ], [ %32, %lean_dec.exit106 ], [ %34, %lean_dec.exit104 ], [ %69, %lean_dec.exit103 ], [ %71, %lean_dec.exit ]
   ret i64 %common.ret132.op
 
 12:                                               ; preds = %lean_obj_tag.exit
@@ -1620,7 +1620,7 @@ lean_dec.exit142:                                 ; preds = %lean_dec.exit147
   br label %lean_dec.exit145
 
 lean_dec.exit145:                                 ; preds = %lean_dec.exit142, %152, %154, %155, %lean_dec.exit146, %144, %146, %147
-  %.0131 = phi i64 [ 7, %144 ], [ 7, %lean_dec.exit146 ], [ 7, %147 ], [ 7, %146 ], [ %148, %155 ], [ %148, %154 ], [ %148, %152 ], [ %148, %lean_dec.exit142 ]
+  %.0131 = phi i64 [ 7, %147 ], [ 7, %146 ], [ 7, %144 ], [ 7, %lean_dec.exit146 ], [ %148, %155 ], [ %148, %154 ], [ %148, %152 ], [ %148, %lean_dec.exit142 ]
   %156 = tail call i64 @lean_uint64_mix_hash(i64 noundef %117, i64 noundef %.0131) #3
   %157 = tail call i64 @lean_uint64_mix_hash(i64 noundef %156, i64 noundef %.0.i219) #3
   %158 = icmp eq i8 %53, 0
@@ -2036,7 +2036,7 @@ lean_dec.exit:                                    ; preds = %324, %323, %321, %l
   br label %328
 
 328:                                              ; preds = %212, %lean_dec.exit137, %171, %lean_dec.exit139, %296, %lean_dec.exit, %255, %lean_dec.exit135
-  %.4 = phi i64 [ %243, %lean_dec.exit137 ], [ %202, %lean_dec.exit139 ], [ %172, %171 ], [ %213, %212 ], [ %286, %lean_dec.exit135 ], [ %256, %255 ], [ %297, %296 ], [ %327, %lean_dec.exit ]
+  %.4 = phi i64 [ %172, %171 ], [ %202, %lean_dec.exit139 ], [ %213, %212 ], [ %243, %lean_dec.exit137 ], [ %256, %255 ], [ %286, %lean_dec.exit135 ], [ %297, %296 ], [ %327, %lean_dec.exit ]
   ret i64 %.4
 }
 

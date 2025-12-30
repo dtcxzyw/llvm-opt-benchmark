@@ -98,7 +98,7 @@ _posixshmem_shm_open_impl.exit:                   ; preds = %.preheader.i
   %32 = zext nneg i32 %21 to i64
   br label %34
 
-.loopexit:                                        ; preds = %27, %29, %18, %9
+.loopexit:                                        ; preds = %27, %18, %9, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = call ptr @PyErr_Occurred() #5
   %.not5 = icmp eq ptr %33, null
@@ -177,7 +177,7 @@ define internal ptr @_posixshmem_shm_unlink(ptr readnone captures(none) %0, ptr 
   br label %_posixshmem_shm_unlink_impl.exit
 
 _posixshmem_shm_unlink_impl.exit:                 ; preds = %25, %10, %16, %27, %.critedge13.i
-  %.0.i = phi ptr [ %30, %.critedge13.i ], [ null, %16 ], [ null, %10 ], [ null, %27 ], [ null, %25 ]
+  %.0.i = phi ptr [ null, %16 ], [ %30, %.critedge13.i ], [ null, %10 ], [ null, %27 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 

@@ -1044,7 +1044,7 @@ lean_nat_eq.exit16:                               ; preds = %27, %.critedge.i14
   br label %32
 
 32:                                               ; preds = %lean_nat_eq.exit13.thread25, %lean_nat_eq.exit13.thread, %lean_nat_eq.exit.thread, %lean_nat_eq.exit, %lean_nat_eq.exit16, %lean_nat_eq.exit13
-  %.1 = phi i8 [ 1, %lean_nat_eq.exit13 ], [ %31, %lean_nat_eq.exit16 ], [ 1, %lean_nat_eq.exit ], [ 1, %lean_nat_eq.exit.thread ], [ 1, %lean_nat_eq.exit13.thread ], [ 1, %lean_nat_eq.exit13.thread25 ]
+  %.1 = phi i8 [ %31, %lean_nat_eq.exit16 ], [ 1, %lean_nat_eq.exit13 ], [ 1, %lean_nat_eq.exit ], [ 1, %lean_nat_eq.exit.thread ], [ 1, %lean_nat_eq.exit13.thread ], [ 1, %lean_nat_eq.exit13.thread25 ]
   ret i8 %.1
 }
 
@@ -1752,7 +1752,7 @@ _init_l_Lean_Elab_throwAbortTactic___rarg___closed__2.exit: ; preds = %_init_l_L
   br label %196
 
 196:                                              ; preds = %.sink.split, %114, %101, %79, %66, %44, %31, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %103, %101 ], [ %119, %114 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %33, %31 ], [ %49, %44 ], [ %68, %66 ], [ %84, %79 ], [ %.sink106, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %33, %31 ], [ %49, %44 ], [ %68, %66 ], [ %84, %79 ], [ %103, %101 ], [ %119, %114 ], [ %.sink106, %.sink.split ]
   ret ptr %.0
 }
 

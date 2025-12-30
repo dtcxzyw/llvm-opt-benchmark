@@ -1128,32 +1128,32 @@ conn_maxage.exit:                                 ; preds = %36
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 120
   %61 = load ptr, ptr %60, align 8, !tbaa !201
   %.not37 = icmp eq ptr %61, null
-  br i1 %.not37, label %62, label %conn_maxage.exit.thread
+  br i1 %.not37, label %conn_maxage.exit.thread, label %62
 
 62:                                               ; preds = %conn_maxage.exit
+  tail call void @Curl_attach_connection(ptr noundef nonnull %1, ptr noundef nonnull %0) #11
+  %63 = load ptr, ptr %58, align 8, !tbaa !200
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 120
+  %65 = load ptr, ptr %64, align 8, !tbaa !201
+  %66 = tail call i32 %65(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 1) #11
+  %67 = trunc i32 %66 to i1
+  tail call void @Curl_detach_connection(ptr noundef nonnull %1) #11
+  br i1 %67, label %conn_maxage.exit.thread.thread, label %.critedge
+
+conn_maxage.exit.thread:                          ; preds = %conn_maxage.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !203
   tail call void @Curl_attach_connection(ptr noundef nonnull %1, ptr noundef nonnull %0) #11
-  %63 = call zeroext i1 @Curl_conn_is_alive(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #11
-  %64 = xor i1 %63, true
-  %65 = load i8, ptr %4, align 1, !tbaa !203, !range !204, !noundef !205
-  %66 = trunc nuw i8 %65 to i1
-  %narrow = select i1 %66, i1 true, i1 %64
+  %68 = call zeroext i1 @Curl_conn_is_alive(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #11
+  %69 = xor i1 %68, true
+  %70 = load i8, ptr %4, align 1, !tbaa !203, !range !204, !noundef !205
+  %71 = trunc nuw i8 %70 to i1
+  %narrow = select i1 %71, i1 true, i1 %69
   call void @Curl_detach_connection(ptr noundef nonnull %1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %narrow, label %conn_maxage.exit.thread.thread, label %.critedge
 
-conn_maxage.exit.thread:                          ; preds = %conn_maxage.exit
-  tail call void @Curl_attach_connection(ptr noundef nonnull %1, ptr noundef nonnull %0) #11
-  %67 = load ptr, ptr %58, align 8, !tbaa !200
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 120
-  %69 = load ptr, ptr %68, align 8, !tbaa !201
-  %70 = tail call i32 %69(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 1) #11
-  %71 = trunc i32 %70 to i1
-  tail call void @Curl_detach_connection(ptr noundef nonnull %1) #11
-  br i1 %71, label %conn_maxage.exit.thread.thread, label %.critedge
-
-conn_maxage.exit.thread.thread:                   ; preds = %53, %57, %24, %31, %35, %46, %62, %conn_maxage.exit.thread
+conn_maxage.exit.thread.thread:                   ; preds = %46, %53, %57, %24, %31, %35, %62, %conn_maxage.exit.thread
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 2658
   %73 = load i64, ptr %72, align 2
   %74 = and i64 %73, 2147483648
@@ -1179,7 +1179,7 @@ conn_maxage.exit.thread.thread:                   ; preds = %53, %57, %24, %31, 
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %62, %conn_maxage.exit.thread, %82, %78, %conn_maxage.exit.thread.thread
-  %.1 = phi i1 [ true, %82 ], [ true, %conn_maxage.exit.thread.thread ], [ true, %78 ], [ false, %conn_maxage.exit.thread ], [ false, %62 ], [ false, %3 ]
+  %.1 = phi i1 [ true, %conn_maxage.exit.thread.thread ], [ true, %78 ], [ true, %82 ], [ false, %conn_maxage.exit.thread ], [ false, %62 ], [ false, %3 ]
   ret i1 %.1
 }
 
@@ -1384,7 +1384,7 @@ define hidden void @Curl_verboseconnect(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %76, label %.sink.split, label %77
 
 .sink.split:                                      ; preds = %70, %73, %62, %65, %54, %57
-  %.str.5.sink = phi ptr [ @.str.6, %62 ], [ @.str.5, %54 ], [ @.str.5, %57 ], [ @.str.6, %65 ], [ @.str.7, %73 ], [ @.str.7, %70 ]
+  %.str.5.sink = phi ptr [ @.str.5, %57 ], [ @.str.5, %54 ], [ @.str.6, %65 ], [ @.str.6, %62 ], [ @.str.7, %73 ], [ @.str.7, %70 ]
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.5.sink) #11
   br label %77
 
@@ -1613,7 +1613,7 @@ define hidden range(i32 0, 28) i32 @Curl_parse_login_details(ptr noundef %0, i64
   br label %49
 
 46:                                               ; preds = %42, %37, %33
-  %.058 = phi ptr [ null, %33 ], [ null, %37 ], [ %.1, %42 ]
+  %.058 = phi ptr [ null, %37 ], [ null, %33 ], [ %.1, %42 ]
   %47 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   tail call void %47(ptr noundef %35) #11
   %48 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
@@ -1621,7 +1621,7 @@ define hidden range(i32 0, 28) i32 @Curl_parse_login_details(ptr noundef %0, i64
   br label %49
 
 49:                                               ; preds = %46, %45
-  %.057 = phi i32 [ 27, %46 ], [ 0, %45 ]
+  %.057 = phi i32 [ 0, %45 ], [ 27, %46 ]
   ret i32 %.057
 }
 
@@ -1774,9 +1774,9 @@ define hidden i32 @Curl_connect(ptr noundef %0, ptr noundef captures(none) initi
   br label %51
 
 51:                                               ; preds = %48, %44, %.thread.i.i
-  %52 = phi i64 [ %43, %.thread.i.i ], [ %47, %48 ], [ %47, %44 ]
-  %53 = phi ptr [ %41, %.thread.i.i ], [ %45, %48 ], [ %45, %44 ]
-  %54 = phi i64 [ 0, %.thread.i.i ], [ %50, %48 ], [ 1, %44 ]
+  %52 = phi i64 [ %47, %48 ], [ %47, %44 ], [ %43, %.thread.i.i ]
+  %53 = phi ptr [ %45, %48 ], [ %45, %44 ], [ %41, %.thread.i.i ]
+  %54 = phi i64 [ %50, %48 ], [ 1, %44 ], [ 0, %.thread.i.i ]
   %55 = and i64 %52, -4
   %56 = and i64 %52, 16
   %.not72.i.i = icmp eq i64 %56, 0
@@ -2061,7 +2061,7 @@ switch.lookup:                                    ; preds = %196
   br label %Curl_uc_to_curlcode.exit.thread.i.i
 
 Curl_uc_to_curlcode.exit.thread.i.i:              ; preds = %switch.lookup, %196, %203, %202, %201, %199
-  %.4.ph.i.i = phi i32 [ 3, %199 ], [ 27, %202 ], [ 1, %201 ], [ 67, %203 ], [ 3, %196 ], [ %switch.load, %switch.lookup ]
+  %.4.ph.i.i = phi i32 [ 67, %203 ], [ 27, %202 ], [ 1, %201 ], [ 3, %196 ], [ 3, %199 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %create_conn.exit.thread
 
@@ -2276,7 +2276,7 @@ switch.lookup97:                                  ; preds = %281
   br label %Curl_uc_to_curlcode.exit258.thread.i.i
 
 Curl_uc_to_curlcode.exit258.thread.i.i:           ; preds = %switch.lookup97, %281, %278, %277, %276, %274, %266, %265, %264, %260
-  %.6.ph.i.i = phi i32 [ 3, %281 ], [ %switch.load99, %switch.lookup97 ], [ 3, %260 ], [ 27, %277 ], [ 1, %276 ], [ 67, %278 ], [ 27, %265 ], [ 1, %264 ], [ 67, %266 ], [ 3, %274 ]
+  %.6.ph.i.i = phi i32 [ 3, %281 ], [ 67, %278 ], [ 27, %277 ], [ 1, %276 ], [ 67, %266 ], [ 27, %265 ], [ 1, %264 ], [ 3, %260 ], [ 3, %274 ], [ %switch.load99, %switch.lookup97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %create_conn.exit.thread
 
@@ -2790,7 +2790,7 @@ detect_proxy.exit.i.i:                            ; preds = %510, %506, %.thread
   br label %511
 
 511:                                              ; preds = %detect_proxy.exit.i.i, %481
-  %.2119.i.i = phi ptr [ %.1.i234.i.i, %detect_proxy.exit.i.i ], [ %.1118.i.i, %481 ]
+  %.2119.i.i = phi ptr [ %.1118.i.i, %481 ], [ %.1.i234.i.i, %detect_proxy.exit.i.i ]
   %512 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %512(ptr noundef %.0109.i.i) #11
   %.not150.i.i = icmp eq ptr %.2119.i.i, null
@@ -2822,7 +2822,7 @@ detect_proxy.exit.i.i:                            ; preds = %510, %506, %.thread
   br label %.thread181.i.i
 
 .thread181.i.i:                                   ; preds = %.thread181.sink.split.i.i, %518, %511
-  %.4121.i.i = phi ptr [ null, %511 ], [ %.2119.i.i, %518 ], [ null, %.thread181.sink.split.i.i ]
+  %.4121.i.i = phi ptr [ %.2119.i.i, %518 ], [ null, %511 ], [ null, %.thread181.sink.split.i.i ]
   %.not155.i.i = icmp eq ptr %.1112.i.i, null
   br i1 %.not155.i.i, label %538, label %525
 
@@ -2994,9 +2994,9 @@ detect_proxy.exit.i.i:                            ; preds = %510, %506, %.thread
   br label %create_conn_helper_init_proxy.exit.i
 
 create_conn_helper_init_proxy.exit.i:             ; preds = %605, %598, %.thread239.i.i, %543, %456, %450, %443, %433
-  %.0117.i.i = phi ptr [ null, %450 ], [ null, %598 ], [ null, %605 ], [ null, %443 ], [ %.1118.i.i, %456 ], [ null, %433 ], [ null, %543 ], [ null, %.thread239.i.i ]
-  %.0111.i.i = phi ptr [ null, %450 ], [ null, %598 ], [ null, %605 ], [ null, %443 ], [ null, %456 ], [ null, %433 ], [ %.3114189191.i.i, %543 ], [ null, %.thread239.i.i ]
-  %.1.i.i = phi i32 [ 27, %450 ], [ 0, %598 ], [ 0, %605 ], [ 27, %443 ], [ 27, %456 ], [ 27, %433 ], [ %547, %543 ], [ %552, %.thread239.i.i ]
+  %.0117.i.i = phi ptr [ null, %598 ], [ null, %605 ], [ %.1118.i.i, %456 ], [ null, %450 ], [ null, %443 ], [ null, %433 ], [ null, %543 ], [ null, %.thread239.i.i ]
+  %.0111.i.i = phi ptr [ null, %598 ], [ null, %605 ], [ null, %456 ], [ null, %450 ], [ null, %443 ], [ null, %433 ], [ %.3114189191.i.i, %543 ], [ null, %.thread239.i.i ]
+  %.1.i.i = phi i32 [ 0, %598 ], [ 0, %605 ], [ 27, %456 ], [ 27, %450 ], [ 27, %443 ], [ 27, %433 ], [ %547, %543 ], [ %552, %.thread239.i.i ]
   %607 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %607(ptr noundef %.0111.i.i) #11
   %608 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
@@ -3306,7 +3306,7 @@ create_conn_helper_init_proxy.exit.i:             ; preds = %605, %598, %.thread
   br label %756
 
 756:                                              ; preds = %753, %746
-  %.sink.i = phi i64 [ %..i, %753 ], [ 192, %746 ]
+  %.sink.i = phi i64 [ 192, %746 ], [ %..i, %753 ]
   %757 = getelementptr inbounds nuw i8, ptr %736, i64 %.sink.i
   %758 = load ptr, ptr %757, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %750, ptr noundef %758) #11
@@ -3335,11 +3335,11 @@ create_conn_helper_init_proxy.exit.i:             ; preds = %605, %598, %.thread
 769:                                              ; preds = %766, %763, %.critedge.i
   %770 = load i8, ptr %12, align 1, !tbaa !203, !range !204, !noundef !205
   %771 = trunc nuw i8 %770 to i1
-  br i1 %771, label %.critedge305.i, label %772
+  br i1 %771, label %807, label %772
 
 772:                                              ; preds = %769
   %773 = call i32 @Curl_cpool_check_limits(ptr noundef nonnull %0, ptr noundef nonnull %19) #11
-  switch i32 %773, label %818 [
+  switch i32 %773, label %.critedge305.i [
     i32 1, label %774
     i32 2, label %784
   ]
@@ -3348,19 +3348,19 @@ create_conn_helper_init_proxy.exit.i:             ; preds = %605, %598, %.thread
   %775 = load i64, ptr %75, align 2
   %776 = and i64 %775, 2147483648
   %.not275.i = icmp eq i64 %776, 0
-  br i1 %.not275.i, label %.critedge305.i, label %777
+  br i1 %.not275.i, label %807, label %777
 
 777:                                              ; preds = %774
   %778 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %779 = load ptr, ptr %778, align 8, !tbaa !196
   %.not276.i = icmp eq ptr %779, null
-  br i1 %.not276.i, label %.critedge305.sink.split.i, label %780
+  br i1 %.not276.i, label %.sink.split.i, label %780
 
 780:                                              ; preds = %777
   %781 = getelementptr inbounds nuw i8, ptr %779, i64 8
   %782 = load i32, ptr %781, align 8, !tbaa !197
   %783 = icmp sgt i32 %782, 0
-  br i1 %783, label %.critedge305.sink.split.i, label %.critedge305.i
+  br i1 %783, label %.sink.split.i, label %807
 
 784:                                              ; preds = %772
   %785 = getelementptr inbounds nuw i8, ptr %0, i64 2600
@@ -3372,7 +3372,7 @@ create_conn_helper_init_proxy.exit.i:             ; preds = %605, %598, %.thread
   br i1 %787, label %790, label %799
 
 790:                                              ; preds = %784
-  br i1 %.not272.i, label %818, label %791
+  br i1 %.not272.i, label %.critedge305.i, label %791
 
 791:                                              ; preds = %790
   %792 = getelementptr inbounds nuw i8, ptr %0, i64 4864
@@ -3384,64 +3384,64 @@ create_conn_helper_init_proxy.exit.i:             ; preds = %605, %598, %.thread
   %795 = getelementptr inbounds nuw i8, ptr %793, i64 8
   %796 = load i32, ptr %795, align 8, !tbaa !197
   %797 = icmp sgt i32 %796, 0
-  br i1 %797, label %798, label %818
+  br i1 %797, label %798, label %.critedge305.i
 
 798:                                              ; preds = %794, %791
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #11
-  br label %818
+  br label %.critedge305.i
 
 799:                                              ; preds = %784
-  br i1 %.not272.i, label %.critedge305.i, label %800
+  br i1 %.not272.i, label %807, label %800
 
 800:                                              ; preds = %799
   %801 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %802 = load ptr, ptr %801, align 8, !tbaa !196
   %.not270.i = icmp eq ptr %802, null
-  br i1 %.not270.i, label %.critedge305.sink.split.i, label %803
+  br i1 %.not270.i, label %.sink.split.i, label %803
 
 803:                                              ; preds = %800
   %804 = getelementptr inbounds nuw i8, ptr %802, i64 8
   %805 = load i32, ptr %804, align 8, !tbaa !197
   %806 = icmp sgt i32 %805, 0
-  br i1 %806, label %.critedge305.sink.split.i, label %.critedge305.i
+  br i1 %806, label %.sink.split.i, label %807
 
-.critedge305.sink.split.i:                        ; preds = %803, %800, %780, %777
-  %.str.13.sink.i = phi ptr [ @.str.13, %777 ], [ @.str.13, %780 ], [ @.str.15, %803 ], [ @.str.15, %800 ]
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.13.sink.i) #11
-  br label %.critedge305.i
+.sink.split.i:                                    ; preds = %803, %800, %780, %777
+  %.str.15.sink.i = phi ptr [ @.str.13, %780 ], [ @.str.13, %777 ], [ @.str.15, %803 ], [ @.str.15, %800 ]
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.15.sink.i) #11
+  br label %807
 
-.critedge305.i:                                   ; preds = %.critedge305.sink.split.i, %803, %799, %780, %774, %769
-  %807 = load i64, ptr %75, align 2
-  %808 = and i64 %807, 2147483648
-  %.not278.i = icmp eq i64 %808, 0
-  br i1 %.not278.i, label %817, label %809
+807:                                              ; preds = %.sink.split.i, %803, %799, %780, %774, %769
+  %808 = load i64, ptr %75, align 2
+  %809 = and i64 %808, 2147483648
+  %.not278.i = icmp eq i64 %809, 0
+  br i1 %.not278.i, label %818, label %810
 
-809:                                              ; preds = %.critedge305.i
-  %810 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %811 = load ptr, ptr %810, align 8, !tbaa !196
-  %.not279.i = icmp eq ptr %811, null
-  br i1 %.not279.i, label %816, label %812
+810:                                              ; preds = %807
+  %811 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %812 = load ptr, ptr %811, align 8, !tbaa !196
+  %.not279.i = icmp eq ptr %812, null
+  br i1 %.not279.i, label %817, label %813
 
-812:                                              ; preds = %809
-  %813 = getelementptr inbounds nuw i8, ptr %811, i64 8
-  %814 = load i32, ptr %813, align 8, !tbaa !197
-  %815 = icmp sgt i32 %814, 0
-  br i1 %815, label %816, label %817
+813:                                              ; preds = %810
+  %814 = getelementptr inbounds nuw i8, ptr %812, i64 8
+  %815 = load i32, ptr %814, align 8, !tbaa !197
+  %816 = icmp sgt i32 %815, 0
+  br i1 %816, label %817, label %818
 
-816:                                              ; preds = %812, %809
+817:                                              ; preds = %813, %810
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #11
-  br label %817
+  br label %818
 
-817:                                              ; preds = %816, %812, %.critedge305.i
+818:                                              ; preds = %817, %813, %807
   call void @Curl_conn_free(ptr noundef nonnull %0, ptr noundef nonnull %19)
   br label %create_conn.exit.thread
 
-818:                                              ; preds = %798, %794, %790, %772
+.critedge305.i:                                   ; preds = %798, %794, %790, %772
   %819 = call i32 @Curl_ssl_conn_config_init(ptr noundef nonnull %0, ptr noundef nonnull %19) #11
   %.not280.i = icmp eq i32 %819, 0
   br i1 %.not280.i, label %820, label %create_conn.exit.thread
 
-820:                                              ; preds = %818
+820:                                              ; preds = %.critedge305.i
   call void @Curl_attach_connection(ptr noundef nonnull %0, ptr noundef nonnull %19) #11
   %821 = call i32 @Curl_cpool_add_conn(ptr noundef nonnull %0, ptr noundef nonnull %19) #11
   %.not281.i = icmp eq i32 %821, 0
@@ -3581,17 +3581,17 @@ create_conn_helper_init_proxy.exit.i:             ; preds = %605, %598, %.thread
   %893 = call i32 @Curl_conn_ev_data_setup(ptr noundef nonnull %0) #11
   br label %create_conn.exit
 
-create_conn.exit.thread:                          ; preds = %655, %649, %643, %17, %create_conn_helper_init_proxy.exit.i, %417, %632, %634, %636, %682, %713, %866, %874, %818, %820, %817, %410, %403, %627, %3, %106, %372, %375, %374, %376, %370, %369, %371, %353, %352, %354, %331, %330, %332, %218, %217, %219, %162, %169, %Curl_uc_to_curlcode.exit.thread.i.i, %229, %222, %Curl_uc_to_curlcode.exit258.thread.i.i, %.thread276.i.i, %351, %355, %364, %379, %.thread283.i.i, %340, %300, %310, %215, %246, %241
-  %.1.ph = phi ptr [ null, %106 ], [ %19, %169 ], [ %19, %Curl_uc_to_curlcode.exit.thread.i.i ], [ %19, %219 ], [ %19, %218 ], [ %19, %217 ], [ %19, %222 ], [ %19, %246 ], [ %19, %Curl_uc_to_curlcode.exit258.thread.i.i ], [ %19, %300 ], [ %19, %332 ], [ %19, %331 ], [ %19, %330 ], [ %19, %.thread276.i.i ], [ %19, %354 ], [ %19, %353 ], [ %19, %352 ], [ %19, %351 ], [ %19, %355 ], [ %19, %371 ], [ %19, %370 ], [ %19, %369 ], [ %19, %376 ], [ %19, %375 ], [ %19, %374 ], [ %19, %379 ], [ %19, %403 ], [ %19, %410 ], [ %19, %417 ], [ %19, %create_conn_helper_init_proxy.exit.i ], [ %19, %627 ], [ %19, %632 ], [ %19, %634 ], [ %19, %636 ], [ %19, %643 ], [ %19, %649 ], [ %19, %655 ], [ %19, %682 ], [ %19, %713 ], [ %19, %818 ], [ %19, %820 ], [ null, %817 ], [ %.023, %866 ], [ %.023, %874 ], [ %19, %372 ], [ %19, %364 ], [ %19, %.thread283.i.i ], [ %19, %340 ], [ %19, %310 ], [ %19, %241 ], [ %19, %229 ], [ %19, %215 ], [ %19, %162 ], [ null, %17 ], [ null, %3 ]
-  %.0200.i.ph = phi i32 [ 27, %106 ], [ 27, %169 ], [ %.4.ph.i.i, %Curl_uc_to_curlcode.exit.thread.i.i ], [ 67, %219 ], [ 27, %218 ], [ 1, %217 ], [ 27, %222 ], [ %248, %246 ], [ %.6.ph.i.i, %Curl_uc_to_curlcode.exit258.thread.i.i ], [ 1, %300 ], [ 67, %332 ], [ 27, %331 ], [ 1, %330 ], [ %.8.ph.i.i, %.thread276.i.i ], [ 67, %354 ], [ 27, %353 ], [ 1, %352 ], [ %350, %351 ], [ %358, %355 ], [ 67, %371 ], [ 27, %370 ], [ 1, %369 ], [ 67, %376 ], [ 27, %375 ], [ 1, %374 ], [ 27, %379 ], [ 27, %403 ], [ 27, %410 ], [ 27, %417 ], [ %.1.i.i, %create_conn_helper_init_proxy.exit.i ], [ 27, %627 ], [ %633, %632 ], [ %635, %634 ], [ %639, %636 ], [ %645, %643 ], [ %651, %649 ], [ %657, %655 ], [ %683, %682 ], [ %724, %713 ], [ %819, %818 ], [ %821, %820 ], [ 89, %817 ], [ %868, %866 ], [ %875, %874 ], [ 3, %372 ], [ 27, %364 ], [ 3, %.thread283.i.i ], [ 3, %340 ], [ 3, %310 ], [ 27, %241 ], [ 3, %229 ], [ 3, %215 ], [ 27, %162 ], [ 27, %17 ], [ 3, %3 ]
+create_conn.exit.thread:                          ; preds = %643, %649, %655, %create_conn_helper_init_proxy.exit.i, %632, %634, %636, %682, %713, %866, %874, %.critedge305.i, %820, %818, %3, %403, %410, %417, %627, %106, %17, %372, %.thread283.i.i, %340, %310, %215, %376, %375, %374, %371, %370, %369, %354, %353, %352, %332, %331, %330, %.thread276.i.i, %Curl_uc_to_curlcode.exit258.thread.i.i, %219, %218, %217, %Curl_uc_to_curlcode.exit.thread.i.i, %169, %379, %364, %355, %300, %246, %241, %222, %162, %229, %351
+  %.1.ph = phi ptr [ null, %106 ], [ %19, %169 ], [ %19, %Curl_uc_to_curlcode.exit.thread.i.i ], [ %19, %219 ], [ %19, %218 ], [ %19, %217 ], [ %19, %222 ], [ %19, %246 ], [ %19, %Curl_uc_to_curlcode.exit258.thread.i.i ], [ %19, %300 ], [ %19, %332 ], [ %19, %331 ], [ %19, %330 ], [ %19, %.thread276.i.i ], [ %19, %354 ], [ %19, %353 ], [ %19, %352 ], [ %19, %351 ], [ %19, %355 ], [ %19, %371 ], [ %19, %370 ], [ %19, %369 ], [ %19, %376 ], [ %19, %375 ], [ %19, %374 ], [ %19, %379 ], [ %19, %403 ], [ %19, %410 ], [ %19, %417 ], [ %19, %create_conn_helper_init_proxy.exit.i ], [ %19, %627 ], [ %19, %632 ], [ %19, %634 ], [ %19, %636 ], [ %19, %643 ], [ %19, %649 ], [ %19, %655 ], [ %19, %682 ], [ %19, %713 ], [ %19, %.critedge305.i ], [ %19, %820 ], [ null, %818 ], [ %.023, %866 ], [ %.023, %874 ], [ %19, %372 ], [ %19, %364 ], [ %19, %.thread283.i.i ], [ %19, %340 ], [ %19, %310 ], [ %19, %241 ], [ %19, %229 ], [ %19, %215 ], [ %19, %162 ], [ null, %17 ], [ null, %3 ]
+  %.0200.i.ph = phi i32 [ 27, %106 ], [ 27, %169 ], [ %.4.ph.i.i, %Curl_uc_to_curlcode.exit.thread.i.i ], [ 67, %219 ], [ 27, %218 ], [ 1, %217 ], [ 27, %222 ], [ %248, %246 ], [ %.6.ph.i.i, %Curl_uc_to_curlcode.exit258.thread.i.i ], [ 1, %300 ], [ 67, %332 ], [ 27, %331 ], [ 1, %330 ], [ %.8.ph.i.i, %.thread276.i.i ], [ 67, %354 ], [ 27, %353 ], [ 1, %352 ], [ %350, %351 ], [ %358, %355 ], [ 67, %371 ], [ 27, %370 ], [ 1, %369 ], [ 67, %376 ], [ 27, %375 ], [ 1, %374 ], [ 27, %379 ], [ 27, %403 ], [ 27, %410 ], [ 27, %417 ], [ %.1.i.i, %create_conn_helper_init_proxy.exit.i ], [ 27, %627 ], [ %633, %632 ], [ %635, %634 ], [ %639, %636 ], [ %645, %643 ], [ %651, %649 ], [ %657, %655 ], [ %683, %682 ], [ %724, %713 ], [ %819, %.critedge305.i ], [ %821, %820 ], [ 89, %818 ], [ %868, %866 ], [ %875, %874 ], [ 3, %372 ], [ 27, %364 ], [ 3, %.thread283.i.i ], [ 3, %340 ], [ 3, %310 ], [ 27, %241 ], [ 3, %229 ], [ 3, %215 ], [ 27, %162 ], [ 27, %17 ], [ 3, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %924
 
 create_conn.exit:                                 ; preds = %712, %876
-  %.1 = phi ptr [ %19, %712 ], [ %.023, %876 ]
-  %.0200.i = phi i32 [ %.2.i, %712 ], [ %893, %876 ]
+  %.1 = phi ptr [ %.023, %876 ], [ %19, %712 ]
+  %.0200.i = phi i32 [ %893, %876 ], [ %.2.i, %712 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3982,7 +3982,7 @@ str_has_ctrl.exit138:                             ; preds = %79
   br label %.thread152
 
 .thread152:                                       ; preds = %.thread145, %107, %96, %101
-  %.089150 = phi ptr [ %.190, %96 ], [ %3, %101 ], [ %.089149, %107 ], [ %.089149, %.thread145 ]
+  %.089150 = phi ptr [ %3, %101 ], [ %.190, %96 ], [ %.089149, %107 ], [ %.089149, %.thread145 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %112 = load ptr, ptr %111, align 8, !tbaa !124
   %.not124 = icmp eq ptr %112, null
@@ -4081,8 +4081,8 @@ str_has_ctrl.exit138:                             ; preds = %79
 150:                                              ; preds = %144, %146, %134
   br label %Curl_uc_to_curlcode.exit
 
-Curl_uc_to_curlcode.exit:                         ; preds = %137, %113, %98, %64, %83, %88, %143, %142, %141, %128, %119, %118, %117, %105, %146, %122, %7, %150
-  %.0 = phi i32 [ %106, %105 ], [ %130, %128 ], [ 0, %150 ], [ 27, %122 ], [ 3, %113 ], [ 27, %7 ], [ 27, %146 ], [ 3, %137 ], [ 67, %119 ], [ 1, %117 ], [ 27, %118 ], [ 67, %143 ], [ 1, %141 ], [ 27, %142 ], [ 27, %98 ], [ 26, %64 ], [ 26, %83 ], [ 27, %88 ]
+Curl_uc_to_curlcode.exit:                         ; preds = %137, %113, %98, %88, %83, %64, %143, %142, %141, %128, %119, %118, %117, %105, %146, %122, %7, %150
+  %.0 = phi i32 [ 0, %150 ], [ 27, %7 ], [ 27, %122 ], [ 27, %146 ], [ %106, %105 ], [ 1, %117 ], [ 27, %118 ], [ 67, %119 ], [ %130, %128 ], [ 1, %141 ], [ 27, %142 ], [ 67, %143 ], [ 27, %98 ], [ 27, %88 ], [ 26, %83 ], [ 26, %64 ], [ 3, %113 ], [ 3, %137 ]
   ret i32 %.0
 }
 
@@ -4300,7 +4300,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br label %.tail.i.i
 
 .tail.i.i:                                        ; preds = %sub_2.i.i, %sub_1.i.i
-  %72 = phi i32 [ %71, %sub_2.i.i ], [ %67, %sub_1.i.i ]
+  %72 = phi i32 [ %67, %sub_1.i.i ], [ %71, %sub_2.i.i ]
   %73 = icmp ne i32 %72, 0
   %or.cond10.i.i = and i1 %10, %73
   br i1 %or.cond10.i.i, label %74, label %84
@@ -4369,7 +4369,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br label %105
 
 .critedge4.thread.i.i:                            ; preds = %.critedge2.i.i, %.critedge6.i.i, %.critedge4.i.i, %84, %57
-  %.1141.i.i = phi ptr [ %.1.ph.i.i, %.critedge4.i.i ], [ %.2.i.i, %.critedge6.i.i ], [ %64, %84 ], [ %58, %57 ], [ %62, %.critedge2.i.i ]
+  %.1141.i.i = phi ptr [ %.1.ph.i.i, %.critedge4.i.i ], [ %64, %84 ], [ %58, %57 ], [ %.2.i.i, %.critedge6.i.i ], [ %62, %.critedge2.i.i ]
   br i1 %.not121.i.i, label %105, label %95
 
 95:                                               ; preds = %.critedge4.thread.i.i
@@ -4441,7 +4441,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br label %parse_connect_to_string.exit.thread143
 
 121:                                              ; preds = %.thread150.i.i, %105
-  %.393.i.i = phi i32 [ %.292.ph.i.i, %.thread150.i.i ], [ -1, %105 ]
+  %.393.i.i = phi i32 [ -1, %105 ], [ %.292.ph.i.i, %.thread150.i.i ]
   %122 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
   %123 = tail call ptr %122(ptr noundef nonnull %.095.i.i) #11
   %.not127.i.i = icmp eq ptr %123, null
@@ -4500,8 +4500,8 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   br label %144
 
 144:                                              ; preds = %131, %136, %140, %.thread
-  %.3135151 = phi i32 [ %.3135152, %.thread ], [ %.393.i.i, %136 ], [ %.393.i.i, %131 ], [ %.393.i.i, %140 ]
-  %.1127 = phi ptr [ null, %.thread ], [ %123, %136 ], [ %123, %131 ], [ %123, %140 ]
+  %.3135151 = phi i32 [ %.3135152, %.thread ], [ %.393.i.i, %131 ], [ %.393.i.i, %140 ], [ %.393.i.i, %136 ]
+  %.1127 = phi ptr [ null, %.thread ], [ %123, %131 ], [ %123, %140 ], [ %123, %136 ]
   %145 = icmp sgt i32 %.3135151, -1
   %.pre = load i64, ptr %7, align 8
   br i1 %145, label %148, label %160
@@ -4595,8 +4595,8 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
 184:                                              ; preds = %176
   br label %185
 
-185:                                              ; preds = %184, %183, %176
-  %.082.ph = phi i32 [ 8, %176 ], [ 16, %183 ], [ 32, %184 ]
+185:                                              ; preds = %183, %184, %176
+  %.082.ph = phi i32 [ 8, %176 ], [ 32, %184 ], [ 16, %183 ]
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %187 = load ptr, ptr %186, align 8, !tbaa !186
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 1392
@@ -4697,7 +4697,7 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   br label %.critedge115.thread.sink.split
 
 .critedge115.thread.sink.split:                   ; preds = %241, %243, %242
-  %.sink = phi i8 [ 30, %243 ], [ 3, %242 ], [ 2, %241 ]
+  %.sink = phi i8 [ 3, %242 ], [ 30, %243 ], [ 2, %241 ]
   store i8 %.sink, ptr %181, align 8, !tbaa !276
   br label %.critedge115.thread
 
@@ -4706,12 +4706,12 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   br label %parse_connect_to_string.exit.thread137
 
 .critedge115:                                     ; preds = %176, %176, %176, %196
-  %.1 = phi i32 [ 0, %176 ], [ 0, %176 ], [ 27, %196 ], [ 0, %176 ]
+  %.1 = phi i32 [ 27, %196 ], [ 0, %176 ], [ 0, %176 ], [ 0, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %parse_connect_to_string.exit.thread137
 
-parse_connect_to_string.exit.thread137:           ; preds = %20, %51, %148, %150, %159, %155, %.thread161, %.critedge, %170, %.critedge115.thread, %.critedge115, %parse_connect_to_string.exit.thread143
-  %.0 = phi i32 [ %.1, %.critedge115 ], [ 0, %.critedge ], [ %.389.i.i.ph, %parse_connect_to_string.exit.thread143 ], [ 0, %.critedge115.thread ], [ 0, %170 ], [ 0, %150 ], [ 0, %148 ], [ 0, %.thread161 ], [ 0, %155 ], [ 0, %159 ], [ 27, %51 ], [ 27, %20 ]
+parse_connect_to_string.exit.thread137:           ; preds = %51, %20, %148, %150, %159, %155, %.thread161, %.critedge, %170, %.critedge115.thread, %.critedge115, %parse_connect_to_string.exit.thread143
+  %.0 = phi i32 [ %.1, %.critedge115 ], [ %.389.i.i.ph, %parse_connect_to_string.exit.thread143 ], [ 0, %.critedge115.thread ], [ 0, %170 ], [ 0, %.critedge ], [ 0, %.thread161 ], [ 0, %155 ], [ 0, %159 ], [ 0, %150 ], [ 0, %148 ], [ 27, %20 ], [ 27, %51 ]
   ret i32 %.0
 }
 
@@ -4767,8 +4767,8 @@ define internal fastcc i32 @setup_connection_internals(ptr noundef %0, ptr nound
   br label %27
 
 27:                                               ; preds = %23, %18
-  %.sink = phi i64 [ %., %23 ], [ 240, %18 ]
-  %.029 = phi i32 [ %25, %23 ], [ %19, %18 ]
+  %.sink = phi i64 [ 240, %18 ], [ %., %23 ]
+  %.029 = phi i32 [ %19, %18 ], [ %25, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.030 = load ptr, ptr %28, align 8, !tbaa !7
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 1400
@@ -4788,7 +4788,7 @@ define internal fastcc i32 @setup_connection_internals(ptr noundef %0, ptr nound
   br label %37
 
 37:                                               ; preds = %27, %7, %33
-  %.0 = phi i32 [ %8, %7 ], [ 0, %33 ], [ 27, %27 ]
+  %.0 = phi i32 [ 0, %33 ], [ %8, %7 ], [ 27, %27 ]
   ret i32 %.0
 }
 
@@ -5180,7 +5180,7 @@ resolve_unix.exit:                                ; preds = %select.unfold, %31,
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %74
 
-39:                                               ; preds = %15, %12
+39:                                               ; preds = %12, %15
   %40 = and i64 %10, 2
   %.not56 = icmp eq i64 %40, 0
   %.v57 = select i1 %.not56, i64 224, i64 168
@@ -5252,7 +5252,7 @@ resolve_unix.exit:                                ; preds = %select.unfold, %31,
   br label %74
 
 74:                                               ; preds = %57, %69, %46, %71, %58, %resolve_unix.exit
-  %.0 = phi i32 [ %.0.i, %resolve_unix.exit ], [ 27, %46 ], [ 28, %58 ], [ 6, %71 ], [ 0, %69 ], [ 0, %57 ]
+  %.0 = phi i32 [ %.0.i, %resolve_unix.exit ], [ 28, %58 ], [ 6, %71 ], [ 27, %46 ], [ 0, %69 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -5563,7 +5563,7 @@ define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef nonnull capt
   br label %147
 
 41:                                               ; preds = %29, %32, %26, %23, %20, %19, %35
-  %.0 = phi i32 [ %., %19 ], [ %3, %35 ], [ 6, %26 ], [ 7, %20 ], [ 5, %23 ], [ 4, %32 ], [ 4, %29 ]
+  %.0 = phi i32 [ %3, %35 ], [ %., %19 ], [ 7, %20 ], [ 5, %23 ], [ 6, %26 ], [ 4, %32 ], [ 4, %29 ]
   %42 = call zeroext i1 @Curl_ssl_supports(ptr noundef %0, i32 noundef 16) #11
   %43 = and i32 %.0, 254
   %or.cond = icmp ne i32 %43, 2
@@ -5796,7 +5796,7 @@ sub_1:                                            ; preds = %sub_0
   br label %147
 
 147:                                              ; preds = %45, %.critedge, %123, %112, %106, %73, %54, %14, %4, %144, %76, %61, %44, %39, %38
-  %.091 = phi i32 [ 5, %39 ], [ 27, %4 ], [ 0, %45 ], [ 0, %54 ], [ %67, %61 ], [ %79, %76 ], [ 27, %73 ], [ 27, %106 ], [ 0, %.critedge ], [ 0, %144 ], [ 27, %112 ], [ 27, %14 ], [ 4, %44 ], [ 7, %38 ], [ 27, %123 ]
+  %.091 = phi i32 [ 5, %39 ], [ 0, %45 ], [ 0, %54 ], [ %67, %61 ], [ %79, %76 ], [ 0, %144 ], [ 4, %44 ], [ 7, %38 ], [ 27, %4 ], [ 27, %14 ], [ 27, %73 ], [ 27, %106 ], [ 27, %112 ], [ 27, %123 ], [ 0, %.critedge ]
   %148 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %149 = load ptr, ptr %6, align 8, !tbaa !7
   call void %148(ptr noundef %149) #11
@@ -6658,7 +6658,7 @@ define internal noundef zeroext i1 @url_match_conn(ptr noundef %0, ptr noundef c
   br label %431
 
 431:                                              ; preds = %408, %412, %416, %389, %396, %400, %375, %376, %364, %354, %358, %348, %351, %342, %337, %341, %320, %304, %310, %290, %299, %278, %284, %243, %249, %255, %260, %237, %202, %208, %214, %220, %188, %192, %196, %154, %151, %143, %139, %132, %119, %124, %108, %116, %99, %94, %92, %91, %76, %47, %63, %59, %51, %37, %._crit_edge, %26, %32, %35, %16, %2, %9, %79, %430, %429, %379, %185, %74
-  %.0 = phi i1 [ false, %74 ], [ false, %2 ], [ false, %16 ], [ false, %._crit_edge ], [ false, %37 ], [ false, %416 ], [ false, %91 ], [ false, %92 ], [ false, %108 ], [ false, %132 ], [ false, %143 ], [ false, %278 ], [ false, %290 ], [ false, %320 ], [ false, %348 ], [ true, %379 ], [ false, %364 ], [ false, %375 ], [ false, %408 ], [ true, %430 ], [ false, %429 ], [ false, %342 ], [ false, %354 ], [ false, %337 ], [ false, %304 ], [ false, %243 ], [ false, %202 ], [ false, %237 ], [ false, %188 ], [ true, %185 ], [ false, %154 ], [ false, %151 ], [ false, %139 ], [ false, %119 ], [ false, %99 ], [ false, %76 ], [ false, %94 ], [ false, %79 ], [ false, %47 ], [ false, %9 ], [ false, %35 ], [ false, %32 ], [ false, %26 ], [ false, %412 ], [ false, %51 ], [ false, %59 ], [ false, %63 ], [ false, %116 ], [ false, %124 ], [ false, %196 ], [ false, %192 ], [ false, %220 ], [ false, %214 ], [ false, %208 ], [ false, %260 ], [ false, %255 ], [ false, %249 ], [ false, %284 ], [ false, %299 ], [ false, %310 ], [ false, %341 ], [ false, %351 ], [ false, %358 ], [ false, %376 ], [ false, %400 ], [ false, %396 ], [ false, %389 ]
+  %.0 = phi i1 [ true, %379 ], [ true, %430 ], [ false, %429 ], [ true, %185 ], [ false, %79 ], [ false, %74 ], [ false, %9 ], [ false, %2 ], [ false, %16 ], [ false, %35 ], [ false, %32 ], [ false, %26 ], [ false, %._crit_edge ], [ false, %37 ], [ false, %51 ], [ false, %59 ], [ false, %63 ], [ false, %47 ], [ false, %76 ], [ false, %91 ], [ false, %92 ], [ false, %94 ], [ false, %99 ], [ false, %116 ], [ false, %108 ], [ false, %124 ], [ false, %119 ], [ false, %132 ], [ false, %139 ], [ false, %143 ], [ false, %151 ], [ false, %154 ], [ false, %196 ], [ false, %192 ], [ false, %188 ], [ false, %220 ], [ false, %214 ], [ false, %208 ], [ false, %202 ], [ false, %237 ], [ false, %260 ], [ false, %255 ], [ false, %249 ], [ false, %243 ], [ false, %284 ], [ false, %278 ], [ false, %299 ], [ false, %290 ], [ false, %310 ], [ false, %304 ], [ false, %320 ], [ false, %341 ], [ false, %337 ], [ false, %342 ], [ false, %351 ], [ false, %348 ], [ false, %358 ], [ false, %354 ], [ false, %364 ], [ false, %376 ], [ false, %375 ], [ false, %400 ], [ false, %396 ], [ false, %389 ], [ false, %416 ], [ false, %412 ], [ false, %408 ]
   ret i1 %.0
 }
 
@@ -6791,7 +6791,7 @@ define internal fastcc zeroext i1 @socks_proxy_info_matches(ptr noundef readonly
   br label %proxy_info_matches.exit
 
 proxy_info_matches.exit:                          ; preds = %14, %8, %2, %26, %20
-  %.0 = phi i1 [ %.not7, %26 ], [ false, %20 ], [ false, %2 ], [ false, %8 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %20 ], [ %.not7, %26 ], [ false, %2 ], [ false, %8 ], [ false, %14 ]
   ret i1 %.0
 }
 

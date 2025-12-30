@@ -633,7 +633,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %.split.i.
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.i.i.i.i.i.i
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i, %.split.i.i.i.i.i
-  %.sroa.029.2.i.i.i.i.i.i = phi ptr [ %spec.select8.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i ], [ %.sroa.029.133.i.i.i.i.i.i, %.split.i.i.i.i.i ]
+  %.sroa.029.2.i.i.i.i.i.i = phi ptr [ %.sroa.029.133.i.i.i.i.i.i, %.split.i.i.i.i.i ], [ %spec.select8.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i ]
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx34.i.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 16
   br i1 %.not.i.i.i.i.i.i, label %.split7.us.i.i.i.i.i, label %.split.i.i.i.i.i

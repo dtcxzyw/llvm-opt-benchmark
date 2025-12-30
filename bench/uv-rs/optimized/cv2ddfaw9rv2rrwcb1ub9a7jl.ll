@@ -260,10 +260,10 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i: ; preds = %.
   br i1 %80, label %85, label %.invoke
 
 .invoke:                                          ; preds = %75, %77, %44, %46
-  %81 = phi i64 [ %41, %44 ], [ %41, %46 ], [ %73, %77 ], [ %73, %75 ]
-  %82 = phi i64 [ 0, %44 ], [ 0, %46 ], [ %74, %77 ], [ %74, %75 ]
-  %83 = phi i64 [ %24, %44 ], [ %24, %46 ], [ %73, %77 ], [ %73, %75 ]
-  %84 = phi ptr [ @anon.baa77f6aadc2be3babd4f168f5fe5e37.29, %44 ], [ @anon.baa77f6aadc2be3babd4f168f5fe5e37.29, %46 ], [ @anon.baa77f6aadc2be3babd4f168f5fe5e37.31, %77 ], [ @anon.baa77f6aadc2be3babd4f168f5fe5e37.31, %75 ]
+  %81 = phi i64 [ %41, %46 ], [ %41, %44 ], [ %73, %77 ], [ %73, %75 ]
+  %82 = phi i64 [ 0, %46 ], [ 0, %44 ], [ %74, %77 ], [ %74, %75 ]
+  %83 = phi i64 [ %24, %46 ], [ %24, %44 ], [ %73, %77 ], [ %73, %75 ]
+  %84 = phi ptr [ @anon.baa77f6aadc2be3babd4f168f5fe5e37.29, %46 ], [ @anon.baa77f6aadc2be3babd4f168f5fe5e37.29, %44 ], [ @anon.baa77f6aadc2be3babd4f168f5fe5e37.31, %77 ], [ @anon.baa77f6aadc2be3babd4f168f5fe5e37.31, %75 ]
   invoke void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %81, i64 noundef %82, i64 noundef %83, ptr noalias noundef readonly align 8 dereferenceable(24) %84) #16
           to label %.cont unwind label %53
 

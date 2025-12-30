@@ -668,7 +668,7 @@ define void @_ZN7uu_expr6uu_app17h0f965303dd0fd6c1E(ptr noalias noundef writeonl
   ret void
 
 .body:                                            ; preds = %120, %112, %79, %43, %131, %130, %129, %125
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %113, %112 ], [ %eh.lpad-body58.ph, %129 ], [ %80, %79 ], [ %eh.lpad-body43.ph, %130 ], [ %44, %43 ], [ %132, %131 ], [ %121, %120 ]
+  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %eh.lpad-body58.ph, %129 ], [ %eh.lpad-body43.ph, %130 ], [ %132, %131 ], [ %44, %43 ], [ %80, %79 ], [ %113, %112 ], [ %121, %120 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %116

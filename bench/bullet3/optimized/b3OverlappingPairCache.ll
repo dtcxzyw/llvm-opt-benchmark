@@ -1291,7 +1291,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i: ; preds = %._ZN20b3Al
   br label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %64, %2, %.preheader26
-  %49 = phi i32 [ 0, %2 ], [ %45, %.preheader26 ], [ %65, %64 ]
+  %49 = phi i32 [ %45, %.preheader26 ], [ 0, %2 ], [ %65, %64 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %51 = load i32, ptr %50, align 4, !tbaa !27
   %52 = icmp sgt i32 %51, 0

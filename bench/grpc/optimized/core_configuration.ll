@@ -1316,9 +1316,9 @@ _ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EED2Ev.exi
   ret ptr %.0
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %46, %38, %31, %34
-  %.sroa.13.043 = phi ptr [ %.sroa.13.0.lcssa, %46 ], [ %.sroa.13.0.lcssa, %34 ], [ %.sroa.13.0.lcssa, %38 ], [ %.sroa.13.0.lcssa, %31 ], [ %.sroa.9.047, %.loopexit ], [ %.sroa.9.047, %.loopexit.split-lp ]
-  %.sroa.024.037 = phi ptr [ %.sroa.024.0.lcssa, %46 ], [ %.sroa.024.0.lcssa, %34 ], [ %.sroa.024.0.lcssa, %38 ], [ %.sroa.024.0.lcssa, %31 ], [ %.sroa.024.048, %.loopexit ], [ %.sroa.024.048, %.loopexit.split-lp ]
-  %.pn12 = phi { ptr, i32 } [ %47, %46 ], [ %35, %34 ], [ %39, %38 ], [ %32, %31 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.13.043 = phi ptr [ %.sroa.13.0.lcssa, %34 ], [ %.sroa.13.0.lcssa, %31 ], [ %.sroa.13.0.lcssa, %46 ], [ %.sroa.13.0.lcssa, %38 ], [ %.sroa.9.047, %.loopexit ], [ %.sroa.9.047, %.loopexit.split-lp ]
+  %.sroa.024.037 = phi ptr [ %.sroa.024.0.lcssa, %34 ], [ %.sroa.024.0.lcssa, %31 ], [ %.sroa.024.0.lcssa, %46 ], [ %.sroa.024.0.lcssa, %38 ], [ %.sroa.024.048, %.loopexit ], [ %.sroa.024.048, %.loopexit.split-lp ]
+  %.pn12 = phi { ptr, i32 } [ %35, %34 ], [ %32, %31 ], [ %47, %46 ], [ %39, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i18 = icmp eq ptr %.sroa.024.037, null
   br i1 %.not.i.i.i18, label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EED2Ev.exit19, label %52
 

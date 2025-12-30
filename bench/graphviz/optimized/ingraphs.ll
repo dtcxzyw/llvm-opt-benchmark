@@ -75,7 +75,7 @@ define ptr @nextGraph(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %17, %4, %11
-  %.016 = phi ptr [ null, %4 ], [ %10, %11 ], [ null, %17 ], [ %22, %.lr.ph ], [ null, %28 ]
+  %.016 = phi ptr [ %10, %11 ], [ null, %4 ], [ null, %17 ], [ %22, %.lr.ph ], [ null, %28 ]
   ret ptr %.016
 }
 
@@ -174,12 +174,12 @@ select.unfold:                                    ; preds = %13
   br label %fileName.exit
 
 fileName.exit:                                    ; preds = %.thread21, %38, %40, %43
-  %.0.i = phi ptr [ @.str, %40 ], [ %.str.1..i, %43 ], [ @.str, %.thread21 ], [ @.str.1, %38 ]
+  %.0.i = phi ptr [ @.str, %.thread21 ], [ %.str.1..i, %43 ], [ @.str, %40 ], [ @.str.1, %38 ]
   tail call void @agsetfile(ptr noundef %.0.i) #8
   br label %.thread
 
 .thread:                                          ; preds = %19, %.preheader, %11, %fileName.exit, %select.unfold
-  %.020 = phi ptr [ null, %select.unfold ], [ %.024, %fileName.exit ], [ null, %11 ], [ null, %.preheader ], [ null, %19 ]
+  %.020 = phi ptr [ %.024, %fileName.exit ], [ null, %select.unfold ], [ null, %11 ], [ null, %.preheader ], [ null, %19 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.020, ptr %50, align 8, !tbaa !14
   ret void
@@ -410,7 +410,7 @@ define ptr @fileName(ptr noundef readonly captures(none) %0) local_unnamed_addr 
   br label %16
 
 16:                                               ; preds = %4, %6, %9, %1
-  %.0 = phi ptr [ @.str, %6 ], [ %.str.1., %9 ], [ @.str, %1 ], [ @.str.1, %4 ]
+  %.0 = phi ptr [ @.str, %1 ], [ %.str.1., %9 ], [ @.str, %6 ], [ @.str.1, %4 ]
   ret ptr %.0
 }
 

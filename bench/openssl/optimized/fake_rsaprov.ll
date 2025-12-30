@@ -197,7 +197,7 @@ define internal noundef ptr @fake_rsa_query(ptr readnone captures(none) %0, i32 
   br label %7
 
 7:                                                ; preds = %3, %6, %5, %4
-  %.0 = phi ptr [ null, %6 ], [ @fake_rsa_store_algs, %5 ], [ @fake_rsa_keymgmt_algs, %4 ], [ @fake_rsa_sig_algs, %3 ]
+  %.0 = phi ptr [ null, %6 ], [ @fake_rsa_keymgmt_algs, %4 ], [ @fake_rsa_store_algs, %5 ], [ @fake_rsa_sig_algs, %3 ]
   ret ptr %.0
 }
 
@@ -272,7 +272,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_sig_sign(ptr noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %12, %16, %13, %6, %8
-  %.0 = phi i32 [ 0, %13 ], [ 0, %6 ], [ 0, %8 ], [ 1, %16 ], [ 1, %12 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %6 ], [ 0, %13 ], [ 1, %16 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -295,7 +295,7 @@ define internal noundef ptr @fake_rsa_sig_dupctx(ptr noundef readonly captures(n
   br label %9
 
 9:                                                ; preds = %4, %1, %7
-  %.0 = phi ptr [ null, %1 ], [ %5, %7 ], [ null, %4 ]
+  %.0 = phi ptr [ %5, %7 ], [ null, %1 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -325,7 +325,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_update(ptr noundef %0, 
   br label %11
 
 11:                                               ; preds = %5, %3, %9
-  %.0 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -389,7 +389,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %0, p
   br label %31
 
 31:                                               ; preds = %26, %29, %21, %15, %11, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %11 ], [ 0, %21 ], [ 0, %15 ], [ 1, %29 ], [ 1, %26 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 1, %29 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -468,7 +468,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %0, ptr nounde
   br label %fake_rsa_dgstsgnvfy_final.exit
 
 fake_rsa_dgstsgnvfy_final.exit:                   ; preds = %8, %6, %38, %35, %30, %24, %20, %15, %12
-  %.0 = phi i32 [ 1, %35 ], [ 0, %12 ], [ 0, %15 ], [ 0, %20 ], [ 0, %30 ], [ 0, %24 ], [ 1, %38 ], [ 0, %6 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %15 ], [ 0, %20 ], [ 0, %24 ], [ 0, %30 ], [ 1, %38 ], [ 1, %35 ], [ 0, %6 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -547,7 +547,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy(ptr noundef %0, ptr readno
   br label %fake_rsa_dgstvfy_final.exit
 
 fake_rsa_dgstvfy_final.exit:                      ; preds = %7, %5, %21, %19, %14, %11
-  %.0 = phi i32 [ 1, %19 ], [ 0, %11 ], [ 0, %14 ], [ 1, %21 ], [ 0, %5 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %14 ], [ 1, %21 ], [ 1, %19 ], [ 0, %5 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -610,7 +610,7 @@ define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef
   br label %22
 
 22:                                               ; preds = %13, %21, %7, %9, %4
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %9 ], [ 1, %21 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %7 ], [ 1, %21 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -677,7 +677,7 @@ define internal i32 @fake_rsa_keymgmt_export(ptr readnone captures(none) %0, i32
   br label %12
 
 12:                                               ; preds = %7, %4, %10
-  %.0 = phi i32 [ 0, %4 ], [ %11, %10 ], [ 0, %7 ]
+  %.0 = phi i32 [ %11, %10 ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -749,7 +749,7 @@ define internal noundef ptr @fake_rsa_gen(ptr noundef %0, ptr readnone captures(
   br label %13
 
 13:                                               ; preds = %7, %3, %5, %11
-  %.0 = phi ptr [ %8, %11 ], [ null, %3 ], [ null, %5 ], [ null, %7 ]
+  %.0 = phi ptr [ %8, %11 ], [ null, %5 ], [ null, %3 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -787,7 +787,7 @@ define internal noundef ptr @fake_rsa_st_open(ptr readnone captures(none) %0, pt
   br label %fake_rsa_st_open_ex.exit
 
 fake_rsa_st_open_ex.exit:                         ; preds = %4, %2, %7, %10
-  %.0.i = phi ptr [ null, %7 ], [ %8, %10 ], [ null, %2 ], [ null, %4 ]
+  %.0.i = phi ptr [ %8, %10 ], [ null, %2 ], [ null, %7 ], [ null, %4 ]
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.9, i32 noundef 592, ptr noundef nonnull @.str.42) #12
   ret ptr %.0.i
 }
@@ -850,14 +850,14 @@ define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %0,
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.9, i32 noundef 581, ptr noundef nonnull @.str.48) #12
   br label %25
 
-.critedge:                                        ; preds = %13, %19, %17
+.critedge:                                        ; preds = %13, %17, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %25
 
 25:                                               ; preds = %21, %.critedge, %5, %24
-  %.0 = phi ptr [ null, %.critedge ], [ %22, %24 ], [ null, %5 ], [ null, %21 ]
+  %.0 = phi ptr [ %22, %24 ], [ null, %5 ], [ null, %.critedge ], [ null, %21 ]
   ret ptr %.0
 }
 

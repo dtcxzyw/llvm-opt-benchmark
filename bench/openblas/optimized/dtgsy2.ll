@@ -128,7 +128,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %84, label %.thread1419.sink.split, label %.thread
 
 .thread1419.sink.split:                           ; preds = %82, %79, %76, %73, %70, %67, %64, %61, %.critedge, %56
-  %.sink = phi i32 [ -1, %56 ], [ -2, %.critedge ], [ -3, %61 ], [ -6, %67 ], [ -10, %73 ], [ -14, %79 ], [ -12, %76 ], [ -8, %70 ], [ -4, %64 ], [ -16, %82 ]
+  %.sink = phi i32 [ -1, %56 ], [ -2, %.critedge ], [ -3, %61 ], [ -4, %64 ], [ -6, %67 ], [ -8, %70 ], [ -10, %73 ], [ -12, %76 ], [ -14, %79 ], [ -16, %82 ]
   store i32 %.sink, ptr %21, align 4, !tbaa !3
   br label %.thread1419
 

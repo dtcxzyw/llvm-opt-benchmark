@@ -191,9 +191,9 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
   br label %._crit_edge
 
 66:                                               ; preds = %49, %49, %49, %54, %52, %53
-  %67 = phi i1 [ true, %49 ], [ true, %52 ], [ false, %53 ], [ true, %49 ], [ true, %49 ], [ true, %54 ]
-  %.3 = phi i32 [ 0, %49 ], [ 1, %52 ], [ 2, %53 ], [ 0, %49 ], [ 0, %49 ], [ 0, %54 ]
-  %.0 = phi i64 [ 1, %49 ], [ 1, %52 ], [ 1, %53 ], [ 1, %49 ], [ 1, %49 ], [ 2, %54 ]
+  %67 = phi i1 [ true, %52 ], [ false, %53 ], [ true, %49 ], [ true, %49 ], [ true, %49 ], [ true, %54 ]
+  %.3 = phi i32 [ 1, %52 ], [ 2, %53 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %54 ]
+  %.0 = phi i64 [ 1, %52 ], [ 1, %53 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 2, %54 ]
   %68 = icmp samesign ult i32 %.3, %.04684
   br i1 %68, label %69, label %70
 
@@ -212,8 +212,8 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
   br i1 %67, label %34, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %70, %60, %.thread
-  %.143.ph104 = phi double [ %65, %.thread ], [ %.0.i, %60 ], [ %74, %70 ]
-  %77 = phi ptr [ %50, %.thread ], [ %61, %60 ], [ %75, %70 ]
+  %.143.ph104 = phi double [ %.0.i, %60 ], [ %65, %.thread ], [ %74, %70 ]
+  %77 = phi ptr [ %61, %60 ], [ %50, %.thread ], [ %75, %70 ]
   %.pre93 = load i8, ptr %77, align 1, !tbaa !10
   br label %split, !llvm.loop !19
 
@@ -255,7 +255,7 @@ split:                                            ; preds = %34, %._crit_edge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL11proj_strtodPcPS_.exit, %59, %69, %88, %92
-  %.141 = phi double [ 0x7FF0000000000000, %59 ], [ %.244, %88 ], [ %.244, %92 ], [ 0x7FF0000000000000, %69 ], [ 0x7FF0000000000000, %_ZL11proj_strtodPcPS_.exit ]
+  %.141 = phi double [ %.244, %92 ], [ %.244, %88 ], [ 0x7FF0000000000000, %69 ], [ 0x7FF0000000000000, %59 ], [ 0x7FF0000000000000, %_ZL11proj_strtodPcPS_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.141

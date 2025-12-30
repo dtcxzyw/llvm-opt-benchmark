@@ -1357,7 +1357,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   unreachable
 
 135:                                              ; preds = %108, %56, %45, %38, %18, %128, %93, %89, %85, %49, %32, %25
-  %.057 = phi ptr [ null, %56 ], [ %31, %25 ], [ null, %32 ], [ null, %38 ], [ %55, %49 ], [ null, %18 ], [ null, %45 ], [ %88, %85 ], [ null, %89 ], [ null, %93 ], [ %131, %128 ], [ null, %108 ]
+  %.057 = phi ptr [ %31, %25 ], [ null, %32 ], [ %55, %49 ], [ %88, %85 ], [ null, %89 ], [ null, %93 ], [ %131, %128 ], [ null, %18 ], [ null, %38 ], [ null, %45 ], [ null, %56 ], [ null, %108 ]
   ret ptr %.057
 }
 
@@ -1506,7 +1506,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %.critedge, %18, %3, %47, %44, %29, %26
-  %.0 = phi i1 [ false, %.critedge ], [ true, %3 ], [ true, %26 ], [ false, %29 ], [ true, %44 ], [ false, %47 ], [ false, %18 ], [ true, %57 ]
+  %.0 = phi i1 [ true, %26 ], [ false, %29 ], [ true, %44 ], [ false, %47 ], [ true, %3 ], [ false, %18 ], [ false, %.critedge ], [ true, %57 ]
   ret i1 %.0
 }
 

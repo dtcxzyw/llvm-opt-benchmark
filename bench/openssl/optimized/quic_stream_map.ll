@@ -389,7 +389,7 @@ ossl_quic_stream_map_notify_totally_acked.exit:   ; preds = %ossl_quic_stream_ma
   %67 = icmp eq i32 %66, 4
   br i1 %67, label %qsm_ready_for_gc.exit.thread69, label %qsm_ready_for_gc.exit
 
-qsm_ready_for_gc.exit.thread69:                   ; preds = %61, %63
+qsm_ready_for_gc.exit.thread69:                   ; preds = %63, %61
   %68 = or disjoint i64 %55, 274877906944
   store i64 %68, ptr %6, align 8
   br label %71
@@ -415,7 +415,7 @@ qsm_ready_for_gc.exit:                            ; preds = %63
   br label %qsm_ready_for_gc.exit.thread
 
 qsm_ready_for_gc.exit.thread:                     ; preds = %57, %qsm_ready_for_gc.exit, %71, %ossl_quic_stream_map_notify_totally_acked.exit
-  %.pre80 = phi i64 [ %55, %ossl_quic_stream_map_notify_totally_acked.exit ], [ %70, %qsm_ready_for_gc.exit ], [ %.pre80.pre, %71 ], [ %55, %57 ]
+  %.pre80 = phi i64 [ %70, %qsm_ready_for_gc.exit ], [ %.pre80.pre, %71 ], [ %55, %ossl_quic_stream_map_notify_totally_acked.exit ], [ %55, %57 ]
   %77 = and i64 %.pre80, 274877906944
   %.not43 = icmp eq i64 %77, 0
   %or.cond91 = select i1 %.0, i1 %.not43, i1 false
@@ -449,7 +449,7 @@ qsm_ready_for_gc.exit.thread:                     ; preds = %57, %qsm_ready_for_
   br i1 %.not47, label %._crit_edge, label %.critedge54
 
 ._crit_edge:                                      ; preds = %88, %80, %78
-  %91 = phi i64 [ %.pre80, %78 ], [ %.pre80, %80 ], [ %.pre78, %88 ]
+  %91 = phi i64 [ %.pre80, %80 ], [ %.pre80, %78 ], [ %.pre78, %88 ]
   %92 = and i64 %91, 51539607552
   %or.cond52 = icmp eq i64 %92, 0
   br i1 %or.cond52, label %93, label %.critedge54
@@ -511,7 +511,7 @@ stream_has_data_to_send.exit:                     ; preds = %97
   %.pre81 = load i64, ptr %6, align 8
   br i1 %narrow.i64, label %.critedge54, label %.critedge
 
-.critedge54:                                      ; preds = %stream_has_data_to_send.exit, %88, %86, %._crit_edge
+.critedge54:                                      ; preds = %stream_has_data_to_send.exit, %._crit_edge, %88, %86
   %115 = phi i64 [ %91, %._crit_edge ], [ %.pre78, %88 ], [ %.pre80, %86 ], [ %.pre81, %stream_has_data_to_send.exit ]
   %116 = and i64 %115, 16777216
   %.not.i65 = icmp eq i64 %116, 0
@@ -541,7 +541,7 @@ stream_has_data_to_send.exit:                     ; preds = %97
   br label %stream_map_mark_active.exit.sink.split
 
 .critedge:                                        ; preds = %stream_has_data_to_send.exit.thread, %qsm_ready_for_gc.exit.thread, %93, %stream_has_data_to_send.exit
-  %129 = phi i64 [ %.pre79, %stream_has_data_to_send.exit.thread ], [ %.pre81, %stream_has_data_to_send.exit ], [ %.pre80, %qsm_ready_for_gc.exit.thread ], [ %91, %93 ]
+  %129 = phi i64 [ %.pre79, %stream_has_data_to_send.exit.thread ], [ %.pre80, %qsm_ready_for_gc.exit.thread ], [ %91, %93 ], [ %.pre81, %stream_has_data_to_send.exit ]
   %130 = and i64 %129, 16777216
   %.not.i66 = icmp eq i64 %130, 0
   br i1 %.not.i66, label %stream_map_mark_active.exit, label %131
@@ -749,7 +749,7 @@ shutdown_flush_done.exit:                         ; preds = %13, %22
   br label %28
 
 28:                                               ; preds = %3, %27, %shutdown_flush_done.exit
-  %.0 = phi i32 [ 0, %3 ], [ 1, %27 ], [ 1, %shutdown_flush_done.exit ]
+  %.0 = phi i32 [ 1, %27 ], [ 1, %shutdown_flush_done.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -776,7 +776,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_reset_stream_acked(ptr n
   br label %10
 
 10:                                               ; preds = %2, %9, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %6 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -894,7 +894,7 @@ ossl_quic_stream_recv_get_final_size.exit.thread: ; preds = %ossl_quic_stream_re
   br label %20
 
 20:                                               ; preds = %ossl_quic_stream_recv_get_final_size.exit, %4, %19, %ossl_quic_stream_recv_get_final_size.exit.thread
-  %.0 = phi i32 [ 1, %19 ], [ 0, %4 ], [ 1, %ossl_quic_stream_recv_get_final_size.exit.thread ], [ 0, %ossl_quic_stream_recv_get_final_size.exit ]
+  %.0 = phi i32 [ 1, %ossl_quic_stream_recv_get_final_size.exit.thread ], [ 1, %19 ], [ 0, %4 ], [ 0, %ossl_quic_stream_recv_get_final_size.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -949,7 +949,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_stop_sending_recv_part(ptr noun
   br label %ossl_quic_stream_map_schedule_stop_sending.exit
 
 ossl_quic_stream_map_schedule_stop_sending.exit:  ; preds = %13, %9, %7, %3
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 1, %9 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %9 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -980,7 +980,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_schedule_stop_sending(ptr nound
   br label %12
 
 12:                                               ; preds = %8, %6, %2, %10
-  %.0 = phi i32 [ 0, %2 ], [ 1, %6 ], [ 1, %10 ], [ 1, %8 ]
+  %.0 = phi i32 [ 1, %10 ], [ 0, %2 ], [ 1, %6 ], [ 1, %8 ]
   ret i32 %.0
 }
 

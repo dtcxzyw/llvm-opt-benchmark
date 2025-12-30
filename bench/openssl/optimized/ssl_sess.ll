@@ -102,7 +102,7 @@ SSL_get_session.exit:                             ; preds = %5, %10
   br label %SSL_get_session.exit.thread
 
 SSL_get_session.exit.thread:                      ; preds = %8, %10, %16, %SSL_get_session.exit
-  %.0.i11 = phi ptr [ null, %SSL_get_session.exit ], [ %15, %16 ], [ null, %10 ], [ null, %8 ]
+  %.0.i11 = phi ptr [ %15, %16 ], [ null, %SSL_get_session.exit ], [ null, %10 ], [ null, %8 ]
   %19 = load ptr, ptr %2, align 8, !tbaa !71
   %20 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %19) #11
   br label %21
@@ -179,7 +179,7 @@ define ptr @SSL_SESSION_new() local_unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %5, %2, %0, %15
-  %.0 = phi ptr [ null, %0 ], [ null, %2 ], [ null, %15 ], [ %3, %5 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %0 ], [ null, %2 ], [ %3, %5 ]
   ret ptr %.0
 }
 
@@ -381,8 +381,8 @@ define internal fastcc ptr @ssl_session_dup_intern(ptr noundef %0, i32 noundef %
   br i1 %93, label %94, label %95
 
 .sink.split:                                      ; preds = %52, %30, %23, %5
-  %.sink107 = phi i32 [ 196, %30 ], [ 187, %23 ], [ 181, %5 ], [ 222, %52 ]
-  %.sink = phi i32 [ 524299, %30 ], [ 524299, %23 ], [ 524303, %5 ], [ 524303, %52 ]
+  %.sink107 = phi i32 [ 181, %5 ], [ 187, %23 ], [ 196, %30 ], [ 222, %52 ]
+  %.sink = phi i32 [ 524303, %5 ], [ 524299, %23 ], [ 524299, %30 ], [ 524303, %52 ]
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink107, ptr noundef nonnull @__func__.ssl_session_dup_intern) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #11
@@ -393,7 +393,7 @@ define internal fastcc ptr @ssl_session_dup_intern(ptr noundef %0, i32 noundef %
   br label %95
 
 95:                                               ; preds = %86, %89, %2, %94
-  %.0 = phi ptr [ null, %2 ], [ null, %94 ], [ %3, %89 ], [ %3, %86 ]
+  %.0 = phi ptr [ null, %94 ], [ null, %2 ], [ %3, %89 ], [ %3, %86 ]
   ret ptr %.0
 }
 
@@ -527,7 +527,7 @@ define range(i32 0, 2) i32 @ssl_generate_session_id(ptr noundef %0, ptr noundef 
   br label %31
 
 31:                                               ; preds = %28, %25
-  %.030 = phi ptr [ %spec.select, %28 ], [ %27, %25 ]
+  %.030 = phi ptr [ %27, %25 ], [ %spec.select, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 1024
   %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %33) #11
@@ -578,7 +578,7 @@ define range(i32 0, 2) i32 @ssl_generate_session_id(ptr noundef %0, ptr noundef 
   br label %53
 
 53:                                               ; preds = %50, %12, %52, %49, %41, %22, %11, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %11 ], [ 0, %49 ], [ 0, %52 ], [ 0, %12 ], [ 0, %41 ], [ 0, %22 ], [ 1, %50 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %11 ], [ 0, %49 ], [ 0, %52 ], [ 0, %41 ], [ 0, %22 ], [ 0, %12 ], [ 1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -666,7 +666,7 @@ define range(i32 0, 2) i32 @ssl_get_new_session(ptr noundef %0, i32 noundef %1) 
   tail call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 126) #11
   br label %18
 
-18:                                               ; preds = %2, %4, %17
+18:                                               ; preds = %17, %2, %4
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 445, ptr noundef nonnull @__func__.ssl_get_new_session) #11
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 524308, ptr noundef null) #11
@@ -960,11 +960,11 @@ define ptr @lookup_sess_in_cache(ptr noundef readonly captures(none) %0, ptr nou
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
-.critedge:                                        ; preds = %12, %16
+.critedge:                                        ; preds = %16, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %72
 
-.critedge48:                                      ; preds = %54, %52
+.critedge48:                                      ; preds = %52, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
@@ -1503,7 +1503,7 @@ thread-pre-split:                                 ; preds = %28, %25
   br label %118
 
 118:                                              ; preds = %101, %116, %115, %14, %19, %91
-  %.0 = phi i32 [ -1, %19 ], [ -1, %14 ], [ 1, %91 ], [ %not..not75, %115 ], [ %not..not75, %116 ], [ %not..not75, %101 ]
+  %.0 = phi i32 [ 1, %91 ], [ -1, %19 ], [ -1, %14 ], [ %not..not75, %115 ], [ %not..not75, %116 ], [ %not..not75, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1737,7 +1737,7 @@ ssl_clear_bad_session.exit:                       ; preds = %.thread26, %15, %19
   br label %.thread
 
 .thread:                                          ; preds = %7, %2, %32, %9, %41
-  %.0 = phi i32 [ 0, %9 ], [ 1, %41 ], [ 0, %32 ], [ 0, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %41 ], [ 0, %9 ], [ 0, %32 ], [ 0, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2592,7 +2592,7 @@ define range(i32 0, 2) i32 @SSL_set_session_ticket_ext(ptr noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %.thread28, %25, %29, %17, %10
-  %.0 = phi i32 [ 1, %25 ], [ 0, %10 ], [ 0, %17 ], [ 1, %29 ], [ 0, %.thread28 ], [ 0, %3 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %17 ], [ 1, %29 ], [ 1, %25 ], [ 0, %.thread28 ], [ 0, %3 ], [ 0, %8 ]
   ret i32 %.0
 }
 

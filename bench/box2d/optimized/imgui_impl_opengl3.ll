@@ -429,7 +429,7 @@ _ZL10load_procsPFPFvvEPKcE.exit:                  ; preds = %2
   br label %_ZL13parse_versionv.exit
 
 _ZL13parse_versionv.exit:                         ; preds = %_ZL10load_procsPFPFvvEPKcE.exit, %20
-  %.0.i = phi i32 [ %..i, %20 ], [ -1, %_ZL10load_procsPFPFvvEPKcE.exit ]
+  %.0.i = phi i32 [ -1, %_ZL10load_procsPFPFvvEPKcE.exit ], [ %..i, %20 ]
   ret i32 %.0.i
 }
 
@@ -453,7 +453,7 @@ define dso_local range(i32 0, 2) i32 @imgl3wIsSupported(i32 noundef %0, i32 noun
   br label %12
 
 12:                                               ; preds = %2, %10, %7
-  %.0.shrunk = phi i1 [ %11, %10 ], [ %9, %7 ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ %9, %7 ], [ %11, %10 ], [ false, %2 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -876,8 +876,8 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
   br label %34
 
 34:                                               ; preds = %32, %30, %24
-  %.045 = phi ptr [ @.str.16, %30 ], [ @.str.13, %24 ], [ %.str.15..str.14, %32 ]
-  %.0 = phi ptr [ @.str.12, %30 ], [ @.str.9, %24 ], [ %.str.11..str.10, %32 ]
+  %.045 = phi ptr [ @.str.13, %24 ], [ @.str.16, %30 ], [ %.str.15..str.14, %32 ]
+  %.0 = phi ptr [ @.str.9, %24 ], [ @.str.12, %30 ], [ %.str.11..str.10, %32 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %26, ptr %9, align 16, !tbaa !8
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8

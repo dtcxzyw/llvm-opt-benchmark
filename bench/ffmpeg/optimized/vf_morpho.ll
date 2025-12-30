@@ -337,7 +337,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #0 
   br label %51
 
 51:                                               ; preds = %37, %30, %12, %1
-  %.0 = phi i32 [ %28, %12 ], [ %10, %1 ], [ %spec.select, %37 ], [ -12, %30 ]
+  %.0 = phi i32 [ %10, %1 ], [ %28, %12 ], [ -12, %30 ], [ %spec.select, %37 ]
   ret i32 %.0
 }
 
@@ -685,7 +685,7 @@ define internal i32 @do_morpho(ptr noundef %0) #0 {
   br label %.thread
 
 196:                                              ; preds = %181, %168, %155, %143
-  %.1192.i = phi i32 [ %.0191241.i, %181 ], [ %142, %143 ], [ %.0191241.i, %155 ], [ %142, %168 ]
+  %.1192.i = phi i32 [ %.0191241.i, %155 ], [ %.0191241.i, %181 ], [ %142, %143 ], [ %142, %168 ]
   %indvars.iv.next.i161 = add nuw nsw i64 %indvars.iv.i160, 1
   %197 = icmp slt i64 %indvars.iv.next.i161, %141
   br i1 %197, label %.backedge, label %._crit_edge.i, !llvm.loop !92
@@ -957,8 +957,8 @@ insert_chord_set.exit224.i:                       ; preds = %223, %212
   br i1 %exitcond.not.i158, label %.loopexit230, label %.preheader.i, !llvm.loop !102
 
 .loopexit230:                                     ; preds = %.critedge206.i, %.critedge206.preheader.i, %.critedge206.preheader.thread.i
-  %.pre-phi = phi i64 [ %.pre251, %.critedge206.preheader.thread.i ], [ %301, %.critedge206.preheader.i ], [ %301, %.critedge206.i ]
-  %.pre286312.i = phi ptr [ %.pre286311.i, %.critedge206.preheader.thread.i ], [ %.pre286.i, %.critedge206.preheader.i ], [ %.pre286.i, %.critedge206.i ]
+  %.pre-phi = phi i64 [ %301, %.critedge206.preheader.i ], [ %.pre251, %.critedge206.preheader.thread.i ], [ %301, %.critedge206.i ]
+  %.pre286312.i = phi ptr [ %.pre286.i, %.critedge206.preheader.i ], [ %.pre286311.i, %.critedge206.preheader.thread.i ], [ %.pre286.i, %.critedge206.i ]
   call void @qsort(ptr noundef %.pre286312.i, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull @comp_chord) #14
   store i32 1, ptr %77, align 4, !tbaa !54
   br label %312
@@ -1204,13 +1204,13 @@ insert_chord_set.exit224.i:                       ; preds = %223, %212
   %424 = call i32 @ff_filter_frame(ptr noundef %10, ptr noundef %395) #14
   br label %425
 
-read_iplane.exit.thread208:                       ; preds = %373, %.loopexit233, %.critedge204.i, %344, %89, %315, %219, %287, %190, %164, %265
+read_iplane.exit.thread208:                       ; preds = %373, %.loopexit233, %.critedge204.i, %344, %315, %89, %219, %287, %164, %190, %265
   call void @av_frame_free(ptr noundef nonnull %5) #14
   call void @av_frame_free(ptr noundef nonnull %2) #14
   br label %425
 
 425:                                              ; preds = %1, %read_iplane.exit.thread208, %415, %26, %17
-  %.0 = phi i32 [ %19, %17 ], [ %13, %1 ], [ %424, %415 ], [ -12, %read_iplane.exit.thread208 ], [ -12, %26 ]
+  %.0 = phi i32 [ %424, %415 ], [ -12, %read_iplane.exit.thread208 ], [ -12, %26 ], [ %19, %17 ], [ %13, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1615,15 +1615,15 @@ difference.exit:                                  ; preds = %59, %54
   %128 = icmp slt i32 %.0104, 0
   br i1 %128, label %difference.exit.thread134, label %difference.exit.thread
 
-difference.exit.thread:                           ; preds = %118, %97, %76, %112, %91, %70, %30, %difference.exit, %35, %40, %44, %48, %.lr.ph.split
+difference.exit.thread:                           ; preds = %118, %97, %76, %112, %91, %70, %35, %40, %44, %48, %.lr.ph.split, %30, %difference.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = load i32, ptr %7, align 4, !tbaa !51
   %130 = sext i32 %129 to i64
   %.not115 = icmp slt i64 %indvars.iv.next, %130
   br i1 %.not115, label %.lr.ph.split, label %difference.exit.thread134, !llvm.loop !118
 
-difference.exit.thread134:                        ; preds = %difference.exit.thread, %difference.exit, %64, %106, %85, %.lr.ph, %4
-  %spec.select = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %.0104, %difference.exit ], [ %68, %64 ], [ %89, %85 ], [ %110, %106 ], [ 0, %difference.exit.thread ]
+difference.exit.thread134:                        ; preds = %difference.exit.thread, %difference.exit, %64, %85, %106, %.lr.ph, %4
+  %spec.select = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %110, %106 ], [ %89, %85 ], [ %68, %64 ], [ %.0104, %difference.exit ], [ 0, %difference.exit.thread ]
   ret i32 %spec.select
 }
 
@@ -2545,7 +2545,7 @@ alloc_lut.exit:                                   ; preds = %.critedge67.i, %.cr
   br label %alloc_lut.exit.thread
 
 alloc_lut.exit.thread:                            ; preds = %.lr.ph7.split.i, %.lr.ph.i, %.lr.ph7.split.us.i, %.lr.ph.us.i, %35, %30, %alloc_lut.exit
-  %.1 = phi i32 [ 0, %30 ], [ 0, %alloc_lut.exit ], [ -12, %35 ], [ -12, %.lr.ph.i ], [ -12, %.lr.ph.us.i ], [ -12, %.lr.ph7.split.us.i ], [ -12, %.lr.ph7.split.i ]
+  %.1 = phi i32 [ 0, %alloc_lut.exit ], [ 0, %30 ], [ -12, %35 ], [ -12, %.lr.ph.us.i ], [ -12, %.lr.ph7.split.us.i ], [ -12, %.lr.ph.i ], [ -12, %.lr.ph7.split.i ]
   ret i32 %.1
 }
 

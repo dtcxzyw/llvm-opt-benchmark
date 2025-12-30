@@ -180,8 +180,8 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   br label %.thread22.i
 
 .thread22.i:                                      ; preds = %73, %72, %.thread.i
-  %74 = phi double [ %69, %.thread.i ], [ %65, %73 ], [ %65, %72 ]
-  %75 = phi nsz double [ 1.990000e+00, %.thread.i ], [ %59, %73 ], [ 1.000000e-02, %72 ]
+  %74 = phi double [ %65, %73 ], [ %65, %72 ], [ %69, %.thread.i ]
+  %75 = phi nsz double [ %59, %73 ], [ 1.000000e-02, %72 ], [ 1.990000e+00, %.thread.i ]
   %76 = fdiv nsz double %58, %75
   %77 = fadd nsz double %74, %76
   br label %lfo_get.exit
@@ -401,7 +401,7 @@ samplereduction.exit:                             ; preds = %.lr.ph, %117
   br label %bitreduction.exit
 
 bitreduction.exit:                                ; preds = %144, %149, %163, %177, %194, %199, %218
-  %.0.i62 = phi nsz double [ %196, %194 ], [ %217, %199 ], [ %235, %218 ], [ %176, %163 ], [ %145, %144 ], [ %162, %149 ], [ 0.000000e+00, %177 ]
+  %.0.i62 = phi nsz double [ %196, %194 ], [ %217, %199 ], [ %235, %218 ], [ %145, %144 ], [ %162, %149 ], [ %176, %163 ], [ 0.000000e+00, %177 ]
   %236 = fsub nsz double %133, %.0.i62
   %237 = load double, ptr %16, align 8, !tbaa !42
   %238 = tail call nsz double @llvm.fmuladd.f64(double %236, double %237, double %.0.i62)

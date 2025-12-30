@@ -1411,7 +1411,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %318 = icmp eq i64 %317, 0
   br i1 %318, label %.thread96, label %326
 
-.thread88:                                        ; preds = %.noexc42, %260, %.noexc
+.thread88:                                        ; preds = %260, %.noexc, %.noexc42
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %319 = atomicrmw sub ptr %245, i64 16 release, align 8
@@ -1691,7 +1691,7 @@ _ZN5typst9visualize5image3svg8SvgImage4with17h1e4de1d3869a236bE.exit.i: ; preds 
   invoke void @"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #20
           to label %"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$$GT$$GT$17h3940d65e572552b4E.exit64" unwind label %419, !noalias !329
 
-.thread109:                                       ; preds = %425, %422
+.thread109:                                       ; preds = %422, %425
   %lpad.thr_comm107 = landingpad { ptr, i32 }
           cleanup
   br label %.thread101
@@ -1715,7 +1715,7 @@ _ZN5typst9visualize5image3svg8SvgImage4with17h1e4de1d3869a236bE.exit.i: ; preds 
           to label %429 unwind label %.thread109
 
 .body57:                                          ; preds = %482, %486, %487, %490
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %487 ], [ %eh.lpad-body.ph.i, %486 ], [ %483, %482 ], [ %eh.lpad-body.ph.i, %490 ]
+  %.pn = phi { ptr, i32 } [ %483, %482 ], [ %eh.lpad-body.ph.i, %490 ], [ %eh.lpad-body.ph.i, %486 ], [ %eh.lpad-body.ph.i, %487 ]
   %427 = cmpxchg ptr %423, i64 8, i64 0 release monotonic, align 8, !noalias !340
   %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %427, 1
   br i1 %.sroa.18.0.in.i.i.i.i, label %.thread101, label %428
@@ -1933,7 +1933,7 @@ _ZN5typst9visualize5image3svg8SvgImage4with17h1e4de1d3869a236bE.exit.i: ; preds 
           to label %"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$$GT$$GT$17h3940d65e572552b4E.exit64" unwind label %503
 
 "_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$$GT$$GT$17h3940d65e572552b4E.exit64": ; preds = %507, %.thread101, %510, %.thread39.i, %413, %.thread88, %511
-  %.pn3482 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread88 ], [ %.pn32104, %507 ], [ %lpad.thr_comm, %511 ], [ %414, %413 ], [ %.pn32104, %.thread101 ], [ %.pn32104, %510 ], [ %.pn43.i, %.thread39.i ]
+  %.pn3482 = phi { ptr, i32 } [ %lpad.thr_comm, %511 ], [ %lpad.thr_comm, %.thread88 ], [ %.pn43.i, %.thread39.i ], [ %414, %413 ], [ %.pn32104, %510 ], [ %.pn32104, %.thread101 ], [ %.pn32104, %507 ]
   resume { ptr, i32 } %.pn3482
 }
 
@@ -3248,9 +3248,9 @@ _ZN4core4hash6Hasher11write_isize17h31b2ca79545bf87fE.exit19.i.i.i.i.i: ; preds 
   br label %"_ZN42_$LT$T$u20$as$u20$comemo..input..Input$GT$3key17hd9186c1c7c8a7aeaE.exit.i"
 
 "_ZN42_$LT$T$u20$as$u20$comemo..input..Input$GT$3key17hd9186c1c7c8a7aeaE.exit.i": ; preds = %843, %819, %586, %562, %233, %209
-  %845 = phi i64 [ %585, %562 ], [ %232, %209 ], [ %207, %233 ], [ %560, %586 ], [ %817, %843 ], [ %842, %819 ]
-  %846 = phi i64 [ %555, %562 ], [ %202, %209 ], [ %202, %233 ], [ %555, %586 ], [ %812, %843 ], [ %812, %819 ]
-  %.sink.i.i.i27.sink.i.i.i.i = phi i64 [ %583, %562 ], [ %230, %209 ], [ %234, %233 ], [ %587, %586 ], [ %844, %843 ], [ %840, %819 ]
+  %845 = phi i64 [ %207, %233 ], [ %232, %209 ], [ %560, %586 ], [ %585, %562 ], [ %817, %843 ], [ %842, %819 ]
+  %846 = phi i64 [ %202, %233 ], [ %202, %209 ], [ %555, %586 ], [ %555, %562 ], [ %812, %843 ], [ %812, %819 ]
+  %.sink.i.i.i27.sink.i.i.i.i = phi i64 [ %234, %233 ], [ %230, %209 ], [ %587, %586 ], [ %583, %562 ], [ %844, %843 ], [ %840, %819 ]
   %847 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1.i = load i32, ptr %847, align 8, !alias.scope !390, !noalias !393, !noundef !8
   %848 = zext i32 %.val1.i to i64
@@ -3780,7 +3780,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %1162 = icmp eq i64 %1161, 0
   br i1 %1162, label %.thread107, label %1170
 
-.thread99:                                        ; preds = %.noexc43, %1104, %.noexc
+.thread99:                                        ; preds = %1104, %.noexc, %.noexc43
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %1163 = atomicrmw sub ptr %1089, i64 16 release, align 8
@@ -4069,7 +4069,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #19, !noalias !819
   unreachable
 
-.thread120:                                       ; preds = %1262, %1259
+.thread120:                                       ; preds = %1259, %1262
   %lpad.thr_comm118 = landingpad { ptr, i32 }
           cleanup
   br label %.thread112
@@ -4093,7 +4093,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
           to label %1266 unwind label %.thread120
 
 .body63:                                          ; preds = %1317, %1321, %1324
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %1321 ], [ %eh.lpad-body.ph.i, %1324 ], [ %1318, %1317 ]
+  %.pn = phi { ptr, i32 } [ %1318, %1317 ], [ %eh.lpad-body.ph.i, %1324 ], [ %eh.lpad-body.ph.i, %1321 ]
   %1264 = cmpxchg ptr %1260, i64 8, i64 0 release monotonic, align 8, !noalias !841
   %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %1264, 1
   br i1 %.sroa.18.0.in.i.i.i.i, label %.thread112, label %1265
@@ -4301,7 +4301,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
           to label %"_ZN4core3ptr232drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$$GT$17h4b08e93d6e46ee06E.exit70" unwind label %1337
 
 "_ZN4core3ptr232drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$alloc..sync..Arc$LT$tiny_skia..pixmap..Pixmap$GT$$GT$$GT$$GT$17h4b08e93d6e46ee06E.exit70": ; preds = %.thread112, %1342, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit.i", %1244, %.thread99, %1343
-  %.pn3493 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread99 ], [ %.pn32115, %.thread112 ], [ %lpad.thr_comm, %1343 ], [ %1245, %1244 ], [ %.pn32115, %1342 ], [ %lpad.phi.i, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit.i" ]
+  %.pn3493 = phi { ptr, i32 } [ %lpad.thr_comm, %1343 ], [ %lpad.thr_comm, %.thread99 ], [ %lpad.phi.i, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit.i" ], [ %1245, %1244 ], [ %.pn32115, %1342 ], [ %.pn32115, %.thread112 ]
   resume { ptr, i32 } %.pn3493
 }
 
@@ -4687,7 +4687,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %223 = icmp eq i64 %222, 0
   br i1 %223, label %.thread115, label %231
 
-.thread107:                                       ; preds = %.noexc42, %165, %.noexc
+.thread107:                                       ; preds = %165, %.noexc, %.noexc42
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %224 = atomicrmw sub ptr %150, i64 16 release, align 8
@@ -4837,7 +4837,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #19, !noalias !1016
   unreachable
 
-.thread128:                                       ; preds = %279, %276
+.thread128:                                       ; preds = %276, %279
   %lpad.thr_comm126 = landingpad { ptr, i32 }
           cleanup
   br label %.thread120
@@ -4859,7 +4859,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
           to label %283 unwind label %.thread128
 
 .body62:                                          ; preds = %336, %340, %341, %344
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %341 ], [ %eh.lpad-body.ph.i, %340 ], [ %337, %336 ], [ %eh.lpad-body.ph.i, %344 ]
+  %.pn = phi { ptr, i32 } [ %337, %336 ], [ %eh.lpad-body.ph.i, %344 ], [ %eh.lpad-body.ph.i, %340 ], [ %eh.lpad-body.ph.i, %341 ]
   %281 = cmpxchg ptr %277, i64 8, i64 0 release monotonic, align 8, !noalias !1031
   %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %281, 1
   br i1 %.sroa.18.0.in.i.i.i.i, label %.thread120, label %282
@@ -5077,7 +5077,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
           to label %"_ZN4core3ptr262drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$alloc..sync..Arc$LT$pixglyph..Bitmap$GT$$GT$$GT$$GT$$GT$17hcf94459783cc47baE.exit69" unwind label %357
 
 "_ZN4core3ptr262drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$C$$LP$$RP$$RP$$C$core..option..Option$LT$alloc..sync..Arc$LT$pixglyph..Bitmap$GT$$GT$$GT$$GT$$GT$17hcf94459783cc47baE.exit69": ; preds = %361, %.thread120, %364, %.body.i, %.thread107, %365
-  %.pn34101 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread107 ], [ %.pn32123, %361 ], [ %lpad.thr_comm, %365 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn32123, %.thread120 ], [ %.pn32123, %364 ]
+  %.pn34101 = phi { ptr, i32 } [ %lpad.thr_comm, %365 ], [ %lpad.thr_comm, %.thread107 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn32123, %364 ], [ %.pn32123, %.thread120 ], [ %.pn32123, %361 ]
   resume { ptr, i32 } %.pn34101
 }
 

@@ -264,13 +264,13 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   br i1 %110, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %55, %45, %._crit_edge121, %.thread91, %37
-  %.str.8.sink = phi ptr [ @.str.8, %37 ], [ @.str.8, %45 ], [ @.str, %._crit_edge121 ], [ @.str, %.thread91 ], [ @.str.8, %55 ]
-  %.0.ph = phi i32 [ 0, %37 ], [ 0, %45 ], [ 1, %._crit_edge121 ], [ 1, %.thread91 ], [ 0, %55 ]
+  %.str.8.sink = phi ptr [ @.str.8, %37 ], [ @.str, %.thread91 ], [ @.str, %._crit_edge121 ], [ @.str.8, %45 ], [ @.str.8, %55 ]
+  %.0.ph = phi i32 [ 0, %37 ], [ 1, %.thread91 ], [ 1, %._crit_edge121 ], [ 0, %45 ], [ 0, %55 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.8.sink, ptr noundef nonnull %4) #11
   br label %.thread
 
 .thread:                                          ; preds = %26, %25, %.thread.sink.split, %.critedge.thread, %._crit_edge121, %.critedge, %91, %._crit_edge, %7, %3
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %.critedge.thread ], [ 0, %.critedge ], [ %.0.ph, %.thread.sink.split ], [ 0, %91 ], [ 0, %._crit_edge121 ], [ 0, %25 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 0, %._crit_edge ], [ 0, %91 ], [ 0, %.critedge ], [ 0, %._crit_edge121 ], [ 0, %.critedge.thread ], [ %.0.ph, %.thread.sink.split ], [ 0, %25 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -505,7 +505,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly captures(addre
   br label %56
 
 56:                                               ; preds = %40, %54, %37, %35, %33, %26, %15, %9, %3, %39
-  %.035 = phi i32 [ 0, %33 ], [ 0, %3 ], [ 0, %9 ], [ 0, %39 ], [ 0, %15 ], [ 0, %26 ], [ 0, %37 ], [ 0, %35 ], [ 1, %54 ], [ 0, %40 ]
+  %.035 = phi i32 [ 0, %39 ], [ 0, %3 ], [ 0, %9 ], [ 0, %15 ], [ 0, %26 ], [ 0, %33 ], [ 0, %35 ], [ 0, %37 ], [ 1, %54 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -814,7 +814,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   br i1 %29, label %.lr.ph.split.us.i, label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %27, %23
-  %.023.i = phi i32 [ 0, %27 ], [ 1, %23 ]
+  %.023.i = phi i32 [ 1, %23 ], [ 0, %27 ]
   br label %.lr.ph.split.us.i6
 
 .lr.ph.split.us.i6:                               ; preds = %49, %.lr.ph.i4
@@ -1143,7 +1143,7 @@ define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly captures(addre
   br i1 %31, label %.loopexit, label %24
 
 .loopexit:                                        ; preds = %9, %24, %.preheader, %22, %5, %2
-  %.017 = phi i32 [ 0, %.preheader ], [ 0, %2 ], [ 0, %5 ], [ 0, %22 ], [ 1, %24 ], [ 0, %9 ]
+  %.017 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %22 ], [ 1, %24 ], [ 0, %.preheader ], [ 0, %9 ]
   ret i32 %.017
 }
 
@@ -1225,7 +1225,7 @@ define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly captures(addre
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %18, %2
-  %.015 = phi i32 [ %., %18 ], [ 0, %2 ], [ 0, %8 ]
+  %.015 = phi i32 [ 0, %2 ], [ %., %18 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.015
 }

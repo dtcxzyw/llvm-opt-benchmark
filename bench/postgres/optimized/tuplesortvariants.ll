@@ -254,7 +254,7 @@ define internal i32 @comparetup_heap(ptr noundef readonly captures(none) %0, ptr
   br i1 %34, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %33, %26
-  %.0.i = phi i32 [ %29, %26 ], [ %35, %33 ]
+  %.0.i = phi i32 [ %35, %33 ], [ %29, %26 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %ApplySortComparator.exit.thread15, label %ApplySortComparator.exit.thread
 
@@ -263,7 +263,7 @@ ApplySortComparator.exit.thread15:                ; preds = %16, %ApplySortCompa
   br label %ApplySortComparator.exit.thread
 
 ApplySortComparator.exit.thread:                  ; preds = %33, %22, %17, %ApplySortComparator.exit, %ApplySortComparator.exit.thread15
-  %.0 = phi i32 [ %36, %ApplySortComparator.exit.thread15 ], [ %.0.i, %ApplySortComparator.exit ], [ %..i, %17 ], [ %.12.i, %22 ], [ 1, %33 ]
+  %.0 = phi i32 [ %36, %ApplySortComparator.exit.thread15 ], [ %.0.i, %ApplySortComparator.exit ], [ %.12.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -347,7 +347,7 @@ define internal i32 @comparetup_heap_tiebreak(ptr noundef readonly captures(none
   br i1 %52, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %51, %44
-  %.0.i = phi i32 [ %47, %44 ], [ %53, %51 ]
+  %.0.i = phi i32 [ %53, %51 ], [ %47, %44 ]
   %.not37 = icmp eq i32 %.0.i, 0
   br i1 %.not37, label %ApplySortAbbrevFullComparator.exit.thread44, label %ApplySortAbbrevFullComparator.exit.thread
 
@@ -407,7 +407,7 @@ ApplySortAbbrevFullComparator.exit.thread44:      ; preds = %34, %ApplySortAbbre
   br i1 %84, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %83, %76
-  %.0.i39 = phi i32 [ %79, %76 ], [ %85, %83 ]
+  %.0.i39 = phi i32 [ %85, %83 ], [ %79, %76 ]
   %.not38 = icmp eq i32 %.0.i39, 0
   br i1 %.not38, label %ApplySortComparator.exit.thread50, label %ApplySortAbbrevFullComparator.exit.thread
 
@@ -418,7 +418,7 @@ ApplySortComparator.exit.thread50:                ; preds = %66, %ApplySortCompa
   br i1 %88, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !9
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread50, %83, %ApplySortAbbrevFullComparator.exit.thread44, %72, %67, %51, %40, %35, %ApplySortAbbrevFullComparator.exit
-  %.033 = phi i32 [ %..i41, %67 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.12.i40, %72 ], [ 1, %51 ], [ %..i, %35 ], [ %.12.i, %40 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread44 ], [ 0, %ApplySortComparator.exit.thread50 ], [ %.0.i39, %ApplySortComparator.exit ], [ 1, %83 ]
+  %.033 = phi i32 [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %40 ], [ %..i, %35 ], [ 1, %51 ], [ %.12.i40, %72 ], [ %..i41, %67 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread44 ], [ %.0.i39, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread50 ], [ 1, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -766,7 +766,7 @@ define internal i32 @comparetup_cluster(ptr noundef readonly captures(none) %0, 
   br i1 %38, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %37, %30
-  %.0.i = phi i32 [ %33, %30 ], [ %39, %37 ]
+  %.0.i = phi i32 [ %39, %37 ], [ %33, %30 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %ApplySortComparator.exit.thread16, label %ApplySortComparator.exit.thread
 
@@ -775,7 +775,7 @@ ApplySortComparator.exit.thread16:                ; preds = %20, %ApplySortCompa
   br label %ApplySortComparator.exit.thread
 
 ApplySortComparator.exit.thread:                  ; preds = %37, %26, %21, %ApplySortComparator.exit, %ApplySortComparator.exit.thread16
-  %.0 = phi i32 [ %40, %ApplySortComparator.exit.thread16 ], [ %.0.i, %ApplySortComparator.exit ], [ %..i, %21 ], [ %.12.i, %26 ], [ 1, %37 ]
+  %.0 = phi i32 [ %40, %ApplySortComparator.exit.thread16 ], [ %.0.i, %ApplySortComparator.exit ], [ %.12.i, %26 ], [ %..i, %21 ], [ 1, %37 ]
   ret i32 %.0
 }
 
@@ -941,7 +941,7 @@ ApplySortAbbrevFullComparator.exit.thread98:      ; preds = %35, %20, %ApplySort
   br i1 %99, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %98, %91
-  %.0.i88 = phi i32 [ %94, %91 ], [ %100, %98 ]
+  %.0.i88 = phi i32 [ %100, %98 ], [ %94, %91 ]
   %.not87 = icmp eq i32 %.0.i88, 0
   br i1 %.not87, label %ApplySortComparator.exit.thread106, label %ApplySortAbbrevFullComparator.exit.thread
 
@@ -1052,7 +1052,7 @@ ApplySortComparator.exit.thread106:               ; preds = %81, %ApplySortCompa
   br i1 %157, label %.thread, label %ApplySortComparator.exit94
 
 ApplySortComparator.exit94:                       ; preds = %156, %149
-  %.0.i91 = phi i32 [ %152, %149 ], [ %158, %156 ]
+  %.0.i91 = phi i32 [ %158, %156 ], [ %152, %149 ]
   %.not85 = icmp eq i32 %.0.i91, 0
   br i1 %.not85, label %ApplySortComparator.exit94.ApplySortComparator.exit94.thread114_crit_edge, label %.thread
 
@@ -1084,7 +1084,7 @@ ApplySortComparator.exit94.thread114:             ; preds = %ApplySortComparator
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread106, %98, %.preheader, %87, %82, %52, %41, %36, %._crit_edge, %.thread, %ApplySortAbbrevFullComparator.exit, %ApplySortAbbrevFullComparator.exit.thread98
-  %.0 = phi i32 [ %.3.ph, %.thread ], [ %..i90, %82 ], [ 1, %52 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread98 ], [ %.077, %ApplySortAbbrevFullComparator.exit ], [ %.12.i89, %87 ], [ 0, %._crit_edge ], [ %..i, %36 ], [ %.12.i, %41 ], [ 0, %.preheader ], [ 0, %ApplySortComparator.exit.thread106 ], [ %.0.i88, %ApplySortComparator.exit ], [ 1, %98 ]
+  %.0 = phi i32 [ 0, %ApplySortAbbrevFullComparator.exit.thread98 ], [ %.077, %ApplySortAbbrevFullComparator.exit ], [ %.3.ph, %.thread ], [ 0, %._crit_edge ], [ %.12.i, %41 ], [ %..i, %36 ], [ 1, %52 ], [ %.12.i89, %87 ], [ %..i90, %82 ], [ 0, %.preheader ], [ %.0.i88, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread106 ], [ 1, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1455,7 +1455,7 @@ define internal i32 @comparetup_index_btree(ptr noundef readonly captures(none) 
   br i1 %34, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %33, %26
-  %.0.i = phi i32 [ %29, %26 ], [ %35, %33 ]
+  %.0.i = phi i32 [ %35, %33 ], [ %29, %26 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %ApplySortComparator.exit.thread15, label %ApplySortComparator.exit.thread
 
@@ -1464,7 +1464,7 @@ ApplySortComparator.exit.thread15:                ; preds = %16, %ApplySortCompa
   br label %ApplySortComparator.exit.thread
 
 ApplySortComparator.exit.thread:                  ; preds = %33, %22, %17, %ApplySortComparator.exit, %ApplySortComparator.exit.thread15
-  %.0 = phi i32 [ %36, %ApplySortComparator.exit.thread15 ], [ %.0.i, %ApplySortComparator.exit ], [ %..i, %17 ], [ %.12.i, %22 ], [ 1, %33 ]
+  %.0 = phi i32 [ %36, %ApplySortComparator.exit.thread15 ], [ %.0.i, %ApplySortComparator.exit ], [ %.12.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -1576,8 +1576,8 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr noundef readonly captur
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %61, %43, %46, %49, %52, %57, %59, %65
-  %67 = phi i1 [ false, %57 ], [ false, %65 ], [ false, %59 ], [ false, %43 ], [ false, %46 ], [ false, %49 ], [ false, %52 ], [ true, %61 ]
-  %.1.i = phi i64 [ %58, %57 ], [ %66, %65 ], [ %60, %59 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ 0, %61 ]
+  %67 = phi i1 [ false, %65 ], [ false, %59 ], [ false, %43 ], [ false, %46 ], [ false, %49 ], [ false, %52 ], [ false, %57 ], [ true, %61 ]
+  %.1.i = phi i64 [ %66, %65 ], [ %60, %59 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %58, %57 ], [ 0, %61 ]
   %68 = getelementptr i8, ptr %13, i64 6
   %.val.i89 = load i16, ptr %68, align 2
   %69 = icmp slt i16 %.val.i89, 0
@@ -1660,7 +1660,7 @@ index_getattr.exit:                               ; preds = %61, %43, %46, %49, 
   br label %index_getattr.exit93
 
 index_getattr.exit93:                             ; preds = %88, %91, %94, %97, %102, %104, %110
-  %.1.i90 = phi i64 [ %103, %102 ], [ %111, %110 ], [ %105, %104 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %98, %97 ]
+  %.1.i90 = phi i64 [ %111, %110 ], [ %105, %104 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %98, %97 ], [ %103, %102 ]
   br i1 %67, label %112, label %120
 
 index_getattr.exit93.thread:                      ; preds = %106
@@ -1695,7 +1695,7 @@ index_getattr.exit93.thread:                      ; preds = %106
   br i1 %128, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %127, %120
-  %.0.i = phi i32 [ %123, %120 ], [ %129, %127 ]
+  %.0.i = phi i32 [ %129, %127 ], [ %123, %120 ]
   %.not76 = icmp eq i32 %.0.i, 0
   br i1 %.not76, label %ApplySortAbbrevFullComparator.exit.thread99, label %ApplySortAbbrevFullComparator.exit.thread
 
@@ -1753,7 +1753,7 @@ ApplySortAbbrevFullComparator.exit.thread99:      ; preds = %index_getattr.exit9
   br i1 %156, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %155, %148
-  %.0.i94 = phi i32 [ %151, %148 ], [ %157, %155 ]
+  %.0.i94 = phi i32 [ %157, %155 ], [ %151, %148 ]
   %.not81 = icmp eq i32 %.0.i94, 0
   br i1 %.not81, label %ApplySortComparator.exit.thread105, label %ApplySortAbbrevFullComparator.exit.thread
 
@@ -1842,7 +1842,7 @@ ApplySortComparator.exit.thread105:               ; preds = %138, %ApplySortComp
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %155, %ApplySortComparator.exit, %144, %139, %127, %116, %112, %201, %ApplySortAbbrevFullComparator.exit, %188
-  %.0 = phi i32 [ %200, %188 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.12.i95, %144 ], [ %spec.select83, %201 ], [ 1, %127 ], [ %..i, %112 ], [ %.12.i, %116 ], [ %..i96, %139 ], [ 1, %155 ], [ %.0.i94, %ApplySortComparator.exit ]
+  %.0 = phi i32 [ %200, %188 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %spec.select83, %201 ], [ %.12.i, %116 ], [ %..i, %112 ], [ 1, %127 ], [ %.12.i95, %144 ], [ %..i96, %139 ], [ 1, %155 ], [ %.0.i94, %ApplySortComparator.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2488,7 +2488,7 @@ define internal i32 @comparetup_datum(ptr noundef readonly captures(none) %0, pt
   br i1 %34, label %comparetup_datum_tiebreak.exit, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %33, %26
-  %.0.i = phi i32 [ %29, %26 ], [ %35, %33 ]
+  %.0.i = phi i32 [ %35, %33 ], [ %29, %26 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %ApplySortComparator.exit.ApplySortComparator.exit.thread15_crit_edge, label %comparetup_datum_tiebreak.exit
 
@@ -2550,7 +2550,7 @@ ApplySortComparator.exit.thread15:                ; preds = %ApplySortComparator
   br label %comparetup_datum_tiebreak.exit
 
 comparetup_datum_tiebreak.exit:                   ; preds = %33, %22, %17, %65, %58, %54, %49, %48, %ApplySortComparator.exit.thread15, %ApplySortComparator.exit
-  %.0 = phi i32 [ %68, %65 ], [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread15 ], [ %61, %58 ], [ %..i.i, %49 ], [ 0, %48 ], [ %.12.i.i, %54 ], [ %..i, %17 ], [ %.12.i, %22 ], [ 1, %33 ]
+  %.0 = phi i32 [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread15 ], [ %68, %65 ], [ %61, %58 ], [ 0, %48 ], [ %..i.i, %49 ], [ %.12.i.i, %54 ], [ %.12.i, %22 ], [ %..i, %17 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -2612,7 +2612,7 @@ define internal i32 @comparetup_datum_tiebreak(ptr noundef readonly captures(non
   br label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %36, %29, %25, %20, %19, %3
-  %.0 = phi i32 [ 0, %3 ], [ %32, %29 ], [ %..i, %20 ], [ 0, %19 ], [ %.12.i, %25 ], [ %39, %36 ]
+  %.0 = phi i32 [ 0, %3 ], [ %39, %36 ], [ %32, %29 ], [ 0, %19 ], [ %..i, %20 ], [ %.12.i, %25 ]
   ret i32 %.0
 }
 
@@ -2647,8 +2647,8 @@ define internal void @writetup_datum(ptr noundef readonly captures(none) %0, ptr
   br label %23
 
 23:                                               ; preds = %3, %14, %16
-  %.014 = phi ptr [ %15, %14 ], [ %17, %16 ], [ null, %3 ]
-  %.0 = phi i64 [ 8, %14 ], [ %22, %16 ], [ 0, %3 ]
+  %.014 = phi ptr [ %17, %16 ], [ %15, %14 ], [ null, %3 ]
+  %.0 = phi i64 [ %22, %16 ], [ 8, %14 ], [ 0, %3 ]
   %24 = trunc nuw i64 %.0 to i32
   %25 = add i32 %24, 4
   store i32 %25, ptr %4, align 4
@@ -2944,7 +2944,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %72, %71, %58, %56, %51, %48, %45, %42, %74, %14
-  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ %73, %72 ], [ 0, %71 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
+  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ 0, %71 ], [ %73, %72 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
   ret i64 %.0
 }
 
@@ -3173,7 +3173,7 @@ index_getattr.exit:                               ; preds = %39, %42, %45, %48, 
   br label %83
 
 83:                                               ; preds = %80, %77
-  %84 = phi i1 [ %spec.select, %80 ], [ false, %77 ]
+  %84 = phi i1 [ false, %77 ], [ %spec.select, %80 ]
   call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext %84, i64 noundef %.0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -3335,7 +3335,7 @@ define dso_local void @tuplesort_putbrintuple(ptr noundef %0, ptr noundef readon
   br label %30
 
 30:                                               ; preds = %27, %24
-  %31 = phi i1 [ %.not18, %27 ], [ false, %24 ]
+  %31 = phi i1 [ false, %24 ], [ %.not18, %27 ]
   call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext %31, i64 noundef %.0) #12
   store ptr %7, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3399,7 +3399,7 @@ define dso_local void @tuplesort_putdatum(ptr noundef %0, i64 noundef %1, i1 nou
   br label %36
 
 36:                                               ; preds = %30, %26
-  %37 = phi i1 [ %spec.select, %30 ], [ false, %26 ]
+  %37 = phi i1 [ false, %26 ], [ %spec.select, %30 ]
   call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext %37, i64 noundef 0) #12
   store ptr %8, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

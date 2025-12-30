@@ -98,6 +98,9 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.preheader.preheader, label %10
 
+.preheader.preheader:                             ; preds = %18, %15, %8
+  br label %.preheader
+
 10:                                               ; preds = %8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.2) #6
   %12 = icmp eq i32 %11, 0
@@ -113,16 +116,13 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %18, %8, %15
-  br label %.preheader
-
 18:                                               ; preds = %15
   %19 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #5
   %.not42 = icmp eq ptr %19, null
   br i1 %.not42, label %.preheader.preheader, label %.preheader44.preheader
 
 .preheader44.preheader:                           ; preds = %5, %13, %18
-  %.037 = phi i32 [ %0, %5 ], [ 393220, %18 ], [ 393219, %13 ]
+  %.037 = phi i32 [ %0, %5 ], [ 393219, %13 ], [ 393220, %18 ]
   br label %.preheader44
 
 20:                                               ; preds = %.preheader
@@ -164,7 +164,7 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %26, %36, %32, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ %35, %32 ], [ 0, %26 ], [ 0, %36 ], [ 1, %.preheader ]
+  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ %35, %32 ], [ 0, %36 ], [ 0, %26 ], [ 1, %.preheader ]
   ret i32 %.0
 }
 

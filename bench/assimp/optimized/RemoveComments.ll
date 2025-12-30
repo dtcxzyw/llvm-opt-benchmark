@@ -71,7 +71,7 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %.lr.ph
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !3
 
 .critedge2:                                       ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %18
-  %.4 = phi i64 [ %.1, %18 ], [ %.343, %.lr.ph ], [ %5, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ]
+  %.4 = phi i64 [ %.1, %18 ], [ %5, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ]
   %25 = add i64 %.4, 1
   %26 = icmp ult i64 %25, %5
   br i1 %26, label %.lr.ph53, label %.critedge._crit_edge, !llvm.loop !5
@@ -159,7 +159,7 @@ define void @_ZN6Assimp14CommentRemover23RemoveMultiLineCommentsEPKcS2_Pcc(ptr n
   br i1 %.not3035.us, label %.backedge.us, label %.lr.ph.us
 
 .backedge.us:                                     ; preds = %17, %.preheader.us, %.preheader32.us, %14
-  %.022.be.us = phi ptr [ %15, %14 ], [ %20, %.preheader.us ], [ %.1.us, %.preheader32.us ], [ %18, %17 ]
+  %.022.be.us = phi ptr [ %15, %14 ], [ %.1.us, %.preheader32.us ], [ %20, %.preheader.us ], [ %18, %17 ]
   br label %.split.us, !llvm.loop !8
 
 .split42.us:                                      ; preds = %.split.us, %4

@@ -1026,7 +1026,7 @@ set_refspecs.exit:                                ; preds = %408, %331
   br label %.thread50
 
 .thread50:                                        ; preds = %.thread, %set_refspecs.exit
-  %411 = phi ptr [ %323, %.thread ], [ %321, %set_refspecs.exit ]
+  %411 = phi ptr [ %321, %set_refspecs.exit ], [ %323, %.thread ]
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 144
   %413 = load i32, ptr %412, align 8, !tbaa !49
   %.not36 = icmp eq i32 %413, 0
@@ -1236,8 +1236,8 @@ set_refspecs.exit:                                ; preds = %408, %331
   br label %setup_default_push_refspecs.exit.i
 
 setup_default_push_refspecs.exit.i:               ; preds = %501, %459, %455, %453, %.critedge
-  %.1.i42 = phi i32 [ %spec.select.i, %.critedge ], [ %spec.select.i, %455 ], [ %spec.select.i, %453 ], [ %spec.select.i, %459 ], [ %.2.i46, %501 ]
-  %.018.i = phi ptr [ @rs, %.critedge ], [ @rs, %455 ], [ %454, %453 ], [ @rs, %459 ], [ @rs, %501 ]
+  %.1.i42 = phi i32 [ %spec.select.i, %455 ], [ %spec.select.i, %453 ], [ %spec.select.i, %.critedge ], [ %.2.i46, %501 ], [ %spec.select.i, %459 ]
+  %.018.i = phi ptr [ @rs, %455 ], [ %454, %453 ], [ @rs, %.critedge ], [ @rs, %501 ], [ @rs, %459 ]
   %503 = call ptr @push_url_of_remote(ptr noundef nonnull %411) #14
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 8
   %505 = load i64, ptr %504, align 8, !tbaa !57
@@ -1496,12 +1496,12 @@ _.exit34.i.i:                                     ; preds = %557, %552
   br i1 %.not4.i.i30.i, label %push_with_options.exit.thread.sink.split.i, label %push_with_options.exit.thread.sink.split.sink.split.i
 
 push_with_options.exit.thread.sink.split.sink.split.i: ; preds = %613, %605, %597, %589, %581, %573
-  %message_advice_ref_needs_update.sink.i = phi ptr [ @message_advice_ref_needs_force, %605 ], [ @message_advice_ref_fetch_first, %597 ], [ @message_advice_ref_already_exists, %589 ], [ @message_advice_checkout_pull_push, %581 ], [ @message_advice_pull_before_push, %573 ], [ @message_advice_ref_needs_update, %613 ]
+  %message_advice_ref_needs_update.sink.i = phi ptr [ @message_advice_pull_before_push, %573 ], [ @message_advice_checkout_pull_push, %581 ], [ @message_advice_ref_already_exists, %589 ], [ @message_advice_ref_fetch_first, %597 ], [ @message_advice_ref_needs_force, %605 ], [ @message_advice_ref_needs_update, %613 ]
   %615 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %message_advice_ref_needs_update.sink.i, i32 noundef 5) #14
   br label %push_with_options.exit.thread.sink.split.i
 
 push_with_options.exit.thread.sink.split.i:       ; preds = %push_with_options.exit.thread.sink.split.sink.split.i, %613, %605, %597, %589, %581, %573
-  %.0.i.i.i.sink.i = phi ptr [ @message_advice_ref_needs_force, %605 ], [ @message_advice_checkout_pull_push, %581 ], [ @message_advice_ref_fetch_first, %597 ], [ @message_advice_ref_already_exists, %589 ], [ @message_advice_pull_before_push, %573 ], [ @message_advice_ref_needs_update, %613 ], [ %615, %push_with_options.exit.thread.sink.split.sink.split.i ]
+  %.0.i.i.i.sink.i = phi ptr [ @message_advice_pull_before_push, %573 ], [ @message_advice_checkout_pull_push, %581 ], [ @message_advice_ref_already_exists, %589 ], [ @message_advice_ref_fetch_first, %597 ], [ @message_advice_ref_needs_force, %605 ], [ @message_advice_ref_needs_update, %613 ], [ %615, %push_with_options.exit.thread.sink.split.sink.split.i ]
   call void (ptr, ...) @advise(ptr noundef %.0.i.i.i.sink.i) #14
   br label %push_with_options.exit.thread.i
 
@@ -1776,7 +1776,7 @@ skip_prefix.exit:                                 ; preds = %56
   br label %78
 
 78:                                               ; preds = %65, %67, %61, %12, %14, %76, %72, %54, %50, %_.exit, %6
-  %.0 = phi i32 [ 0, %12 ], [ %77, %76 ], [ 0, %72 ], [ 0, %54 ], [ %51, %50 ], [ -1, %_.exit ], [ 0, %6 ], [ 0, %14 ], [ -1, %65 ], [ %70, %67 ], [ 0, %61 ]
+  %.0 = phi i32 [ %77, %76 ], [ 0, %72 ], [ 0, %54 ], [ %51, %50 ], [ -1, %_.exit ], [ 0, %6 ], [ 0, %14 ], [ 0, %12 ], [ %70, %67 ], [ -1, %65 ], [ 0, %61 ]
   ret i32 %.0
 }
 

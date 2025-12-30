@@ -208,7 +208,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_2(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %._crit_edge, %11, %10, %6
-  %.020 = phi i32 [ 0, %6 ], [ 0, %10 ], [ 0, %11 ], [ 1, %._crit_edge ], [ 0, %21 ]
+  %.020 = phi i32 [ 0, %6 ], [ 0, %10 ], [ 1, %._crit_edge ], [ 0, %11 ], [ 0, %21 ]
   ret i32 %.020
 }
 
@@ -569,7 +569,7 @@ define internal fastcc range(i32 -1, 1) i32 @PKCS1_MGF1(ptr noundef %0, i32 noun
   br i1 %42, label %15, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %26, %24, %15, %30, %40, %34, %.thread, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %.thread ], [ -1, %34 ], [ 0, %40 ], [ -1, %24 ], [ -1, %15 ], [ -1, %30 ], [ -1, %26 ]
+  %.0 = phi i32 [ 0, %5 ], [ -1, %34 ], [ 0, %.thread ], [ 0, %40 ], [ -1, %30 ], [ -1, %15 ], [ -1, %24 ], [ -1, %26 ]
   %43 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -734,8 +734,8 @@ define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captu
   br label %76
 
 76:                                               ; preds = %27, %._crit_edge107.thread, %28, %._crit_edge, %._crit_edge100, %71, %72
-  %.1.sink = phi ptr [ %25, %71 ], [ %25, %72 ], [ %.074, %._crit_edge107.thread ], [ null, %27 ], [ %25, %28 ], [ %25, %._crit_edge ], [ %25, %._crit_edge100 ]
-  %.0 = phi i32 [ -1, %71 ], [ %69, %72 ], [ -1, %._crit_edge107.thread ], [ -1, %27 ], [ -1, %28 ], [ -1, %._crit_edge ], [ -1, %._crit_edge100 ]
+  %.1.sink = phi ptr [ %25, %72 ], [ %25, %71 ], [ %.074, %._crit_edge107.thread ], [ null, %27 ], [ %25, %28 ], [ %25, %._crit_edge ], [ %25, %._crit_edge100 ]
+  %.0 = phi i32 [ %69, %72 ], [ -1, %71 ], [ -1, %._crit_edge107.thread ], [ -1, %27 ], [ -1, %28 ], [ -1, %._crit_edge ], [ -1, %._crit_edge100 ]
   call void @free(ptr noundef %.1.sink) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -947,8 +947,8 @@ define hidden range(i32 0, 2) i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr
   br label %98
 
 98:                                               ; preds = %96, %97, %94, %89, %82, %84, %86, %50, %81, %77, %49, %42, %36, %27, %15
-  %.068 = phi i32 [ 0, %27 ], [ 0, %36 ], [ 0, %42 ], [ 0, %50 ], [ 0, %77 ], [ 0, %81 ], [ 0, %97 ], [ 0, %15 ], [ 0, %94 ], [ 0, %89 ], [ 0, %86 ], [ 0, %84 ], [ 0, %82 ], [ 0, %49 ], [ 1, %96 ]
-  %.0 = phi ptr [ null, %27 ], [ null, %36 ], [ null, %42 ], [ %48, %50 ], [ %48, %77 ], [ %48, %81 ], [ %48, %97 ], [ null, %15 ], [ %48, %94 ], [ %48, %89 ], [ %48, %86 ], [ %48, %84 ], [ %48, %82 ], [ null, %49 ], [ %48, %96 ]
+  %.068 = phi i32 [ 0, %27 ], [ 0, %36 ], [ 0, %42 ], [ 0, %50 ], [ 0, %77 ], [ 0, %81 ], [ 0, %97 ], [ 0, %94 ], [ 0, %89 ], [ 0, %86 ], [ 0, %84 ], [ 0, %82 ], [ 0, %49 ], [ 0, %15 ], [ 1, %96 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %36 ], [ null, %42 ], [ %48, %50 ], [ %48, %77 ], [ %48, %81 ], [ %48, %97 ], [ %48, %94 ], [ %48, %89 ], [ %48, %86 ], [ %48, %84 ], [ %48, %82 ], [ null, %49 ], [ null, %15 ], [ %48, %96 ]
   call void @free(ptr noundef %.0) #8
   %99 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

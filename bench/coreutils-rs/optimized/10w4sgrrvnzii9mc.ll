@@ -1253,8 +1253,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   br label %.loopexit
 
 .body82:                                          ; preds = %159, %.body.thread.i, %106, %127, %72
-  %.2 = phi i1 [ false, %159 ], [ false, %.body.thread.i ], [ true, %72 ], [ true, %127 ], [ true, %106 ]
-  %.pn29 = phi { ptr, i32 } [ %160, %159 ], [ %178, %.body.thread.i ], [ %73, %72 ], [ %128, %127 ], [ %107, %106 ]
+  %.2 = phi i1 [ true, %72 ], [ true, %127 ], [ true, %106 ], [ false, %.body.thread.i ], [ false, %159 ]
+  %.pn29 = phi { ptr, i32 } [ %73, %72 ], [ %128, %127 ], [ %107, %106 ], [ %178, %.body.thread.i ], [ %160, %159 ]
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef align 8 dereferenceable(64) %18) #18
           to label %35 unwind label %129
 

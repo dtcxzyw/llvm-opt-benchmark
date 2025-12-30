@@ -65,7 +65,7 @@ define i32 @Llb_ManComputeCommonQuant(ptr noundef readonly captures(none) %0, i3
   br label %.thread27
 
 .thread27:                                        ; preds = %25, %21, %18, %36, %31
-  %.1 = phi i32 [ %spec.select, %25 ], [ %37, %36 ], [ %.029, %31 ], [ %.029, %18 ], [ %.029, %21 ]
+  %.1 = phi i32 [ %37, %36 ], [ %.029, %31 ], [ %.029, %18 ], [ %spec.select, %25 ], [ %.029, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !20
@@ -193,7 +193,7 @@ define i32 @Llb_ManComputeBestQuant(ptr noundef readonly captures(none) %0) loca
   br label %.thread27.i
 
 .thread27.i:                                      ; preds = %57, %52, %46, %42, %39
-  %.1.i = phi i32 [ %spec.select.i, %46 ], [ %58, %57 ], [ %.029.i, %52 ], [ %.029.i, %39 ], [ %.029.i, %42 ]
+  %.1.i = phi i32 [ %58, %57 ], [ %.029.i, %52 ], [ %.029.i, %39 ], [ %spec.select.i, %46 ], [ %.029.i, %42 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Llb_ManComputeCommonQuant.exit, label %39, !llvm.loop !20
@@ -209,8 +209,8 @@ Llb_ManComputeCommonQuant.exit:                   ; preds = %.thread27.i
   br label %Llb_ManComputeCommonQuant.exit.thread
 
 Llb_ManComputeCommonQuant.exit.thread:            ; preds = %Llb_ManComputeCommonQuant.exit, %30, %.lr.ph.split.split
-  %.229 = phi i32 [ %.12839, %30 ], [ %spec.select, %Llb_ManComputeCommonQuant.exit ], [ %.12839, %.lr.ph.split.split ]
-  %.2 = phi i32 [ %.140, %30 ], [ %spec.select58, %Llb_ManComputeCommonQuant.exit ], [ %.140, %.lr.ph.split.split ]
+  %.229 = phi i32 [ %.12839, %.lr.ph.split.split ], [ %.12839, %30 ], [ %spec.select, %Llb_ManComputeCommonQuant.exit ]
+  %.2 = phi i32 [ %.140, %.lr.ph.split.split ], [ %.140, %30 ], [ %spec.select58, %Llb_ManComputeCommonQuant.exit ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count67
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !37
@@ -330,7 +330,7 @@ define ptr @Llb_ManComputeQuant(ptr noundef readonly captures(none) %0) local_un
   br label %.thread27.i.us
 
 .thread27.i.us:                                   ; preds = %43, %41, %37, %32, %29
-  %.1.i.us = phi i32 [ %spec.select.i.us, %43 ], [ %42, %41 ], [ %.029.i.us, %32 ], [ %.029.i.us, %29 ], [ %.029.i.us, %37 ]
+  %.1.i.us = phi i32 [ %42, %41 ], [ %.029.i.us, %32 ], [ %.029.i.us, %29 ], [ %spec.select.i.us, %43 ], [ %.029.i.us, %37 ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %Llb_ManComputeCommonQuant.exit.loopexit.us, label %29, !llvm.loop !20
@@ -561,8 +561,8 @@ Llb_ManComputeCommonAttr.exit:                    ; preds = %51, %29
   br label %62
 
 62:                                               ; preds = %Llb_ManComputeCommonAttr.exit, %59, %.lr.ph.split.split
-  %.229 = phi float [ %57, %59 ], [ %.12834, %Llb_ManComputeCommonAttr.exit ], [ %.12834, %.lr.ph.split.split ]
-  %.2 = phi i32 [ %61, %59 ], [ %.137, %Llb_ManComputeCommonAttr.exit ], [ %.137, %.lr.ph.split.split ]
+  %.229 = phi float [ %.12834, %.lr.ph.split.split ], [ %57, %59 ], [ %.12834, %Llb_ManComputeCommonAttr.exit ]
+  %.2 = phi i32 [ %.137, %.lr.ph.split.split ], [ %61, %59 ], [ %.137, %Llb_ManComputeCommonAttr.exit ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count62
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !47
@@ -1102,7 +1102,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %60, %55, %49, %45, %42
-  %.1.i.i = phi i32 [ %spec.select.i.i, %49 ], [ %61, %60 ], [ %.029.i.i, %55 ], [ %.029.i.i, %42 ], [ %.029.i.i, %45 ]
+  %.1.i.i = phi i32 [ %61, %60 ], [ %.029.i.i, %55 ], [ %.029.i.i, %42 ], [ %spec.select.i.i, %49 ], [ %.029.i.i, %45 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Llb_ManComputeCommonQuant.exit.i, label %42, !llvm.loop !20
@@ -1118,8 +1118,8 @@ Llb_ManComputeCommonQuant.exit.i:                 ; preds = %.thread27.i.i
   br label %Llb_ManComputeCommonQuant.exit.thread.i
 
 Llb_ManComputeCommonQuant.exit.thread.i:          ; preds = %Llb_ManComputeCommonQuant.exit.i, %33, %.lr.ph.split.split.i
-  %.229.i = phi i32 [ %.12839.i, %33 ], [ %spec.select.i, %Llb_ManComputeCommonQuant.exit.i ], [ %.12839.i, %.lr.ph.split.split.i ]
-  %.2.i = phi i32 [ %.140.i, %33 ], [ %spec.select58.i, %Llb_ManComputeCommonQuant.exit.i ], [ %.140.i, %.lr.ph.split.split.i ]
+  %.229.i = phi i32 [ %.12839.i, %.lr.ph.split.split.i ], [ %.12839.i, %33 ], [ %spec.select.i, %Llb_ManComputeCommonQuant.exit.i ]
+  %.2.i = phi i32 [ %.140.i, %.lr.ph.split.split.i ], [ %.140.i, %33 ], [ %spec.select58.i, %Llb_ManComputeCommonQuant.exit.i ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next62.i, %15
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.split.split.i, !llvm.loop !37

@@ -759,7 +759,7 @@ in_hitlist.exit312:                               ; preds = %357, %353
   br label %203
 
 in_hitlist.exit306.thread:                        ; preds = %334, %345, %348, %.lr.ph, %.lr.ph330, %.lr.ph332, %.lr.ph334
-  %.9.idx = phi i64 [ %.8.add274, %.lr.ph332 ], [ %.8.add273, %.lr.ph330 ], [ %.8.add, %.lr.ph ], [ %.8.add275, %.lr.ph334 ], [ %.8.idx, %348 ], [ %.8.idx, %345 ], [ %.8.idx, %334 ]
+  %.9.idx = phi i64 [ %.8.add275, %.lr.ph334 ], [ %.8.add274, %.lr.ph332 ], [ %.8.add273, %.lr.ph330 ], [ %.8.add, %.lr.ph ], [ %.8.idx, %348 ], [ %.8.idx, %345 ], [ %.8.idx, %334 ]
   %367 = icmp eq i64 %.9.idx, 32
   br i1 %367, label %368, label %in_hitlist.exit300.thread
 

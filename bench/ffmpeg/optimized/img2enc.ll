@@ -119,7 +119,7 @@ define internal noundef i32 @write_header(ptr noundef readonly captures(none) %0
   br label %42
 
 42:                                               ; preds = %37, %33, %28, %25, %21
-  %43 = phi i32 [ 0, %33 ], [ %41, %37 ], [ 0, %28 ], [ 0, %25 ], [ 0, %21 ]
+  %43 = phi i32 [ 0, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %21 ], [ %41, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %43, ptr %44, align 8, !tbaa !45
   br label %45
@@ -458,8 +458,8 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   store i32 %188, ptr %186, align 4, !tbaa !47
   br label %.loopexit
 
-.thread:                                          ; preds = %131, %140, %103, %177, %166, %91, %86
-  %.0117 = phi i32 [ -5, %86 ], [ -22, %91 ], [ %178, %177 ], [ %168, %166 ], [ %138, %131 ], [ %129, %103 ], [ %148, %140 ]
+.thread:                                          ; preds = %103, %131, %140, %177, %166, %91, %86
+  %.0117 = phi i32 [ -5, %86 ], [ -22, %91 ], [ %178, %177 ], [ %168, %166 ], [ %148, %140 ], [ %138, %131 ], [ %129, %103 ]
   call void @av_dict_free(ptr noundef nonnull %5) #8
   br label %189
 
@@ -480,7 +480,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   br i1 %exitcond171.not, label %.loopexit, label %189, !llvm.loop !70
 
 .loopexit:                                        ; preds = %181, %194, %37, %._crit_edge, %64, %48
-  %.2 = phi i32 [ -22, %48 ], [ -22, %64 ], [ %.0117, %194 ], [ 0, %._crit_edge ], [ -22, %37 ], [ %184, %181 ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ -22, %37 ], [ -22, %48 ], [ -22, %64 ], [ %.0117, %194 ], [ %184, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

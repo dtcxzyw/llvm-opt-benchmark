@@ -775,7 +775,7 @@ common.ret:                                       ; preds = %184, %164, %156, %5
   unreachable
 
 .body.i.i:                                        ; preds = %142, %136, %127, %115
-  %.pn4.i.i = phi { ptr, i32 } [ %.pn.i.i, %127 ], [ %137, %136 ], [ %143, %142 ], [ %116, %115 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %137, %136 ], [ %.pn.i.i, %127 ], [ %143, %142 ], [ %116, %115 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %141, align 8
   br label %.body.i
@@ -799,7 +799,7 @@ common.ret:                                       ; preds = %184, %164, %156, %5
   br i1 %149, label %157, label %156
 
 .body.i:                                          ; preds = %154, %144, %.body.i.i, %83, %29, %11
-  %.pn.i = phi { ptr, i32 } [ %12, %11 ], [ %145, %144 ], [ %155, %154 ], [ %.pn4.i.i, %.body.i.i ], [ %30, %29 ], [ %.pn4.i.i.i, %83 ]
+  %.pn.i = phi { ptr, i32 } [ %145, %144 ], [ %12, %11 ], [ %155, %154 ], [ %.pn4.i.i, %.body.i.i ], [ %30, %29 ], [ %.pn4.i.i.i, %83 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 0, ptr %150, align 1
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -821,7 +821,7 @@ common.ret:                                       ; preds = %184, %164, %156, %5
           to label %156 unwind label %159
 
 common.resume:                                    ; preds = %.body.i2, %186, %188, %.body.i, %159, %161
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %160, %159 ], [ %.pn.i, %161 ], [ %187, %186 ], [ %.pn.i3, %188 ], [ %.pn.i3, %.body.i2 ]
+  %common.resume.op = phi { ptr, i32 } [ %160, %159 ], [ %.pn.i, %161 ], [ %.pn.i, %.body.i ], [ %187, %186 ], [ %.pn.i3, %188 ], [ %.pn.i3, %.body.i2 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 0, ptr %158, align 8
   resume { ptr, i32 } %common.resume.op
@@ -885,7 +885,7 @@ common.resume:                                    ; preds = %.body.i2, %186, %18
   br i1 %179, label %185, label %184
 
 .body.i2:                                         ; preds = %174, %170
-  %.pn.i3 = phi { ptr, i32 } [ %171, %170 ], [ %175, %174 ]
+  %.pn.i3 = phi { ptr, i32 } [ %175, %174 ], [ %171, %170 ]
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 0, ptr %180, align 1
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1296,7 +1296,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h23cc887923d08082E.exit.i"
 
 .body20.i.i:                                      ; preds = %122, %117, %113, %93, %.body6.i.i
-  %.pn2.i.i = phi { ptr, i32 } [ %eh.lpad-body7.i.i, %.body6.i.i ], [ %.pn.i.i, %117 ], [ %94, %93 ], [ %123, %122 ], [ %114, %113 ]
+  %.pn2.i.i = phi { ptr, i32 } [ %.pn.i.i, %117 ], [ %94, %93 ], [ %eh.lpad-body7.i.i, %.body6.i.i ], [ %123, %122 ], [ %114, %113 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 1259
   store i8 0, ptr %125, align 1
   br label %.body.i
@@ -1315,7 +1315,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %131, label %137, label %136
 
 .body.i:                                          ; preds = %126, %.body20.i.i, %.body.i.i, %10
-  %.pn.i = phi { ptr, i32 } [ %11, %10 ], [ %127, %126 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn2.i.i, %.body20.i.i ]
+  %.pn.i = phi { ptr, i32 } [ %127, %126 ], [ %11, %10 ], [ %.pn2.i.i, %.body20.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1161
   store i8 0, ptr %132, align 1
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1390,7 +1390,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %158, label %164, label %163
 
 .body.i4:                                         ; preds = %153, %149
-  %.pn.i5 = phi { ptr, i32 } [ %150, %149 ], [ %154, %153 ]
+  %.pn.i5 = phi { ptr, i32 } [ %154, %153 ], [ %150, %149 ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1161
   store i8 0, ptr %159, align 1
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1425,7 +1425,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   resume { ptr, i32 } %.pn
 
 .body:                                            ; preds = %.body.i4, %165, %167, %.body.i, %138, %140
-  %.pn = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %139, %138 ], [ %.pn.i, %140 ], [ %166, %165 ], [ %.pn.i5, %167 ], [ %.pn.i5, %.body.i4 ]
+  %.pn = phi { ptr, i32 } [ %139, %138 ], [ %.pn.i, %140 ], [ %.pn.i, %.body.i ], [ %166, %165 ], [ %.pn.i5, %167 ], [ %.pn.i5, %.body.i4 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store i8 0, ptr %171, align 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$GT$17hd3aef6b208ff83afE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %0) #15

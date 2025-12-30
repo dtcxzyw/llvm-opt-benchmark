@@ -49,7 +49,7 @@ switch.lookup:                                    ; preds = %4
   br label %16
 
 16:                                               ; preds = %12, %1, %15
-  %.0 = phi ptr [ null, %1 ], [ null, %15 ], [ %2, %12 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %1 ], [ %2, %12 ]
   ret ptr %.0
 }
 
@@ -200,7 +200,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %25, %36, %70, %71, %64, %69, %3
-  %.0 = phi i32 [ 0, %70 ], [ -1, %3 ], [ -1, %64 ], [ -1, %69 ], [ 0, %71 ], [ -1, %36 ], [ -1, %25 ], [ -1, %18 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %69 ], [ -1, %64 ], [ 0, %71 ], [ 0, %70 ], [ -1, %36 ], [ -1, %25 ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -235,7 +235,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef captures(addre
   br label %14
 
 14:                                               ; preds = %5, %3, %9
-  %.0 = phi i32 [ -1, %3 ], [ -1, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %3 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -323,7 +323,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_final(ptr noundef %0, ptr noundef
   br label %54
 
 54:                                               ; preds = %3, %53, %48, %21, %11
-  %.0 = phi i32 [ 0, %53 ], [ -1, %11 ], [ -1, %21 ], [ -1, %48 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %21 ], [ -1, %48 ], [ 0, %53 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -364,7 +364,7 @@ define dso_local ptr @pg_hmac_error(ptr noundef readonly captures(address_is_nul
   br label %9
 
 9:                                                ; preds = %6, %3, %1
-  %.0 = phi ptr [ %5, %3 ], [ @.str, %1 ], [ %switch.select8, %6 ]
+  %.0 = phi ptr [ @.str, %1 ], [ %5, %3 ], [ %switch.select8, %6 ]
   ret ptr %.0
 }
 

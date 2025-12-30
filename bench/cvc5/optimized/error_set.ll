@@ -378,7 +378,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %_ZSt11make_uniqueIN
   ret void
 
 .body:                                            ; preds = %36, %25
-  %.pn16.pn = phi { ptr, i32 } [ %26, %25 ], [ %37, %36 ]
+  %.pn16.pn = phi { ptr, i32 } [ %37, %36 ], [ %26, %25 ]
   tail call void @_ZNSt10unique_ptrIN4cvc58internal13DeltaRationalESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #24
   resume { ptr, i32 } %.pn16.pn
 }
@@ -2916,7 +2916,7 @@ _ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread: ; preds =
   br label %56
 
 56:                                               ; preds = %55, %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread, %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit, %52
-  %.0 = phi i32 [ %26, %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit ], [ %26, %52 ], [ 0, %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread ], [ 0, %55 ]
+  %.0 = phi i32 [ %26, %52 ], [ %26, %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit ], [ 0, %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread ], [ 0, %55 ]
   ret i32 %.0
 }
 

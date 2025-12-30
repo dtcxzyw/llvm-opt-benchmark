@@ -69,7 +69,7 @@ SDL_CalculateBlendLineFunc.exit:                  ; preds = %18
   %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #6
   br label %42
 
-select.unfold:                                    ; preds = %23, %33, %32
+select.unfold:                                    ; preds = %23, %32, %33
   %.0.i.ph = phi ptr [ %SDL_BlendLine_RGB4.SDL_BlendLine_RGBA4.i, %33 ], [ %SDL_BlendLine_XRGB8888.SDL_BlendLine_ARGB8888.i, %32 ], [ %spec.select, %23 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %36 = call zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef nonnull %35, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #6
@@ -84,7 +84,7 @@ select.unfold:                                    ; preds = %23, %33, %32
   br label %42
 
 42:                                               ; preds = %select.unfold, %37, %SDL_CalculateBlendLineFunc.exit, %16
-  %.0 = phi i1 [ true, %37 ], [ %17, %16 ], [ %34, %SDL_CalculateBlendLineFunc.exit ], [ true, %select.unfold ]
+  %.0 = phi i1 [ true, %37 ], [ %34, %SDL_CalculateBlendLineFunc.exit ], [ %17, %16 ], [ true, %select.unfold ]
   ret i1 %.0
 }
 
@@ -230,7 +230,7 @@ SDL_CalculateBlendLineFunc.exit:                  ; preds = %21, %30, %31
   br label %70
 
 70:                                               ; preds = %62, %67, %34, %14
-  %.0 = phi i1 [ %15, %14 ], [ %35, %34 ], [ true, %67 ], [ true, %62 ]
+  %.0 = phi i1 [ %35, %34 ], [ %15, %14 ], [ true, %67 ], [ true, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

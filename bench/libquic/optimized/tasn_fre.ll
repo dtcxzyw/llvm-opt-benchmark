@@ -404,9 +404,9 @@ define hidden void @ASN1_primitive_free(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not42, label %36, label %24
 
 24:                                               ; preds = %22, %.critedge45
-  %25 = phi ptr [ %12, %.critedge45 ], [ %23, %22 ]
-  %.031 = phi i32 [ %10, %.critedge45 ], [ %21, %22 ]
-  %.0 = phi ptr [ %11, %.critedge45 ], [ %0, %22 ]
+  %25 = phi ptr [ %23, %22 ], [ %12, %.critedge45 ]
+  %.031 = phi i32 [ %21, %22 ], [ %10, %.critedge45 ]
+  %.0 = phi ptr [ %0, %22 ], [ %11, %.critedge45 ]
   switch i32 %.031, label %.thread [
     i32 6, label %26
     i32 1, label %27

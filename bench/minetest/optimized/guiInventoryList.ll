@@ -1532,7 +1532,7 @@ if.then.i.i8.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %ehcleanup294, %if.then.i.i8.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit454, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404
-  %common.resume.op = phi { ptr, i32 } [ %73, %if.then.i.i8.i ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit454 ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.pn372.pn.pn.pn.pn, %ehcleanup294 ], [ %73, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %73, %if.then.i.i8.i ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.pn372.pn.pn.pn.pn, %ehcleanup294 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit454 ], [ %73, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9ItemStackC2ERKS_.exit:                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
@@ -2034,7 +2034,7 @@ if.then.i.i561:                                   ; preds = %lpad276
   br label %ehcleanup280
 
 ehcleanup280:                                     ; preds = %lpad276, %if.then.i.i561, %lpad274.loopexit.split-lp, %lpad274.loopexit
-  %.pn369 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad274.loopexit.split-lp ], [ %lpad.phi676, %if.then.i.i561 ], [ %lpad.loopexit, %lpad274.loopexit ], [ %lpad.phi676, %lpad276 ]
+  %.pn369 = phi { ptr, i32 } [ %lpad.phi676, %if.then.i.i561 ], [ %lpad.loopexit, %lpad274.loopexit ], [ %lpad.loopexit.split-lp, %lpad274.loopexit.split-lp ], [ %lpad.phi676, %lpad276 ]
   %150 = load ptr, ptr %ref.tmp271, align 8, !tbaa !4
   %cmp.i.i.i566 = icmp eq ptr %150, %58
   br i1 %cmp.i.i.i566, label %ehcleanup281, label %if.then.i.i567
@@ -3504,7 +3504,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.not, label %cleanup16, label %for.body
 
 cleanup16:                                        ; preds = %if.end, %for.body, %for.inc.us, %if.end.us, %for.body.us, %entry
-  %spec.select = phi ptr [ null, %entry ], [ %0, %for.body.us ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %3, %for.body ], [ null, %if.end ]
+  %spec.select = phi ptr [ null, %entry ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %0, %for.body.us ], [ null, %if.end ], [ %3, %for.body ]
   ret ptr %spec.select
 }
 

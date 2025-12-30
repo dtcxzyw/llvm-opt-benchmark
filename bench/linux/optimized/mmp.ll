@@ -455,7 +455,7 @@ thread-pre-split:                                 ; preds = %31, %74
   br label %.thread5
 
 .thread5:                                         ; preds = %.thread, %81, %77
-  %82 = phi i32 [ %79, %77 ], [ %79, %81 ], [ -12, %.thread ]
+  %82 = phi i32 [ %79, %81 ], [ %79, %77 ], [ -12, %.thread ]
   store ptr null, ptr %1, align 8
   call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.read_mmp_block, i32 noundef 115, ptr noundef nonnull @.str.11, i32 noundef %82, i64 noundef %2) #10
   br label %.thread15

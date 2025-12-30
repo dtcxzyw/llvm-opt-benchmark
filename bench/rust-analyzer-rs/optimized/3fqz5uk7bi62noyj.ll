@@ -4139,7 +4139,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   unreachable
 
 .body.i.i:                                        ; preds = %96, %92, %91
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %lpad.phi, %96 ], [ %70, %91 ], [ %lpad.phi19, %92 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %lpad.phi, %96 ], [ %lpad.phi19, %92 ], [ %70, %91 ]
   resume { ptr, i32 } %eh.lpad-body.i.i
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h1d697b388652183cE.exit": ; preds = %"_ZN7base_db5input10CrateGraph16hacky_find_crate28_$u7b$$u7b$closure$u7d$$u7d$17h85f201bfa9e42988E.exit.thread.i.i.i.i", %95

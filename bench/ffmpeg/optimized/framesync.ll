@@ -1068,7 +1068,7 @@ framesync_advance.exit.thread:                    ; preds = %.loopexit.i, %29, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.preheader, %framesync_advance.exit.thread29, %227, %framesync_advance.exit.thread, %225, %232
-  %.1 = phi i32 [ %230, %227 ], [ %.040.i.ph.i.ph, %framesync_advance.exit.thread29 ], [ 0, %framesync_advance.exit.thread ], [ 0, %232 ], [ 0, %225 ], [ 0, %.preheader ], [ 0, %14 ]
+  %.1 = phi i32 [ 0, %232 ], [ 0, %225 ], [ 0, %framesync_advance.exit.thread ], [ %230, %227 ], [ %.040.i.ph.i.ph, %framesync_advance.exit.thread29 ], [ 0, %.preheader ], [ 0, %14 ]
   ret i32 %.1
 }
 
@@ -1286,7 +1286,7 @@ define range(i32 -2147483648, 1) i32 @ff_framesync_dualinput_get_writable(ptr no
   br label %15
 
 15:                                               ; preds = %6, %3, %14
-  %.0 = phi i32 [ %4, %3 ], [ %12, %14 ], [ 0, %6 ]
+  %.0 = phi i32 [ %12, %14 ], [ %4, %3 ], [ 0, %6 ]
   ret i32 %.0
 }
 

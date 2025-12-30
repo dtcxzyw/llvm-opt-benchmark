@@ -1091,7 +1091,7 @@ define internal fastcc void @process_tree_contents(ptr noundef nonnull captures(
   ]
 
 28:                                               ; preds = %20, %19
-  %.1 = phi i32 [ %27, %20 ], [ 2, %19 ]
+  %.1 = phi i32 [ 2, %19 ], [ %27, %20 ]
   %29 = load i32, ptr %16, align 4, !tbaa !125
   %30 = trunc i32 %29 to i16
   %trunc = and i16 %30, -4096

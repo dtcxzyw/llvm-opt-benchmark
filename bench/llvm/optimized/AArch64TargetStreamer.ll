@@ -1119,7 +1119,7 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer28getActiveAtributesSubsec
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.critedge, %2, %11, %19
-  %storemerge = phi ptr [ %12, %11 ], [ %12, %19 ], [ null, %2 ], [ null, %.critedge ]
+  %storemerge = phi ptr [ %12, %19 ], [ %12, %11 ], [ null, %2 ], [ null, %.critedge ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !146
   ret void
 }
@@ -1194,7 +1194,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.us, %4, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %22
-  %storemerge = phi ptr [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %15, %22 ], [ null, %4 ], [ null, %.critedge.us ], [ null, %.critedge ]
+  %storemerge = phi ptr [ %15, %22 ], [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ null, %4 ], [ null, %.critedge.us ], [ null, %.critedge ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !146
   ret void
 }

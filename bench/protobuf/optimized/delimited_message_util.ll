@@ -324,7 +324,7 @@ if.end20:                                         ; preds = %if.end16
   br label %return
 
 return:                                           ; preds = %if.end16, %if.end13, %if.end8, %if.then2, %if.then4, %if.end20
-  %retval.0 = phi i1 [ false, %if.end13 ], [ true, %if.end20 ], [ false, %if.end8 ], [ false, %if.then2 ], [ false, %if.then4 ], [ false, %if.end16 ]
+  %retval.0 = phi i1 [ true, %if.end20 ], [ false, %if.then4 ], [ false, %if.then2 ], [ false, %if.end8 ], [ false, %if.end13 ], [ false, %if.end16 ]
   ret i1 %retval.0
 }
 
@@ -408,7 +408,7 @@ if.end9:                                          ; preds = %if.else, %if.then4
   br label %return
 
 return:                                           ; preds = %if.else, %entry, %if.end9
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end9 ], [ false, %if.else ]
+  %retval.0 = phi i1 [ true, %if.end9 ], [ false, %entry ], [ false, %if.else ]
   ret i1 %retval.0
 }
 

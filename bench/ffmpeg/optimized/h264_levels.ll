@@ -262,7 +262,7 @@ h264_get_br_factor.exit:                          ; preds = %105, %110
   br i1 %exitcond106.not, label %.thread63, label %switch.edge.split.split, !llvm.loop !18
 
 .thread63:                                        ; preds = %94, %.thread58.us80, %116, %.thread58, %.thread58.us.us, %44, %.thread58.us, %75
-  %.us-phi = phi ptr [ null, %.thread58 ], [ null, %.thread58.us.us ], [ null, %.thread58.us ], [ %48, %75 ], [ %19, %44 ], [ %99, %116 ], [ null, %.thread58.us80 ], [ %79, %94 ]
+  %.us-phi = phi ptr [ null, %.thread58.us ], [ %48, %75 ], [ null, %.thread58.us.us ], [ %19, %44 ], [ %99, %116 ], [ null, %.thread58 ], [ %79, %94 ], [ null, %.thread58.us80 ]
   ret ptr %.us-phi
 }
 

@@ -105,7 +105,7 @@ define internal noundef zeroext i1 @_ZN3net12_GLOBAL__N_113DefaultPolicyEN4base1
   br label %15
 
 15:                                               ; preds = %9, %4, %12
-  %.0 = phi i1 [ false, %4 ], [ %14, %12 ], [ true, %9 ]
+  %.0 = phi i1 [ %14, %12 ], [ false, %4 ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -421,7 +421,7 @@ define noundef zeroext i1 @_ZN3net12HpackEncoder15EncodeHeaderSetERKNS_15SpdyHea
           to label %37 unwind label %25
 
 37:                                               ; preds = %.invoke, %22
-  %.1 = phi i1 [ %.034, %.invoke ], [ true, %22 ]
+  %.1 = phi i1 [ true, %22 ], [ %.034, %.invoke ]
   %.sroa.029.0 = load ptr, ptr %.sroa.029.035, align 8, !tbaa !66
   %.not = icmp eq ptr %.sroa.029.0, %8
   br i1 %.not, label %._crit_edge.loopexit, label %17
@@ -455,7 +455,7 @@ _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
   br label %43
 
 43:                                               ; preds = %23, %25, %41
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %24, %23 ], [ %26, %25 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %26, %25 ], [ %24, %23 ]
   %44 = load ptr, ptr %5, align 8, !tbaa !69
   %.not.i.i.i25 = icmp eq ptr %44, null
   br i1 %.not.i.i.i25, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit26, label %45
@@ -714,7 +714,7 @@ _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
   br label %94
 
 94:                                               ; preds = %88, %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit38
-  %.1 = phi i64 [ %spec.select, %88 ], [ %86, %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit38 ]
+  %.1 = phi i64 [ %86, %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit38 ], [ %spec.select, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str.2, ptr %6, align 8, !tbaa !51
   store i64 1, ptr %20, align 8, !tbaa !53

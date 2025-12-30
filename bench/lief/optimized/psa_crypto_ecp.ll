@@ -105,8 +105,8 @@ define hidden i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %0, i
   %switch.selectcmp.i = icmp eq i64 %switch.and.i, 0
   br i1 %switch.selectcmp.i, label %select.unfold, label %56
 
-select.unfold:                                    ; preds = %37, %33, %32, %32, %32, %32, %32, %34, %34, %34, %36, %35, %35
-  %.1.ph = phi i64 [ %.065, %32 ], [ 255, %36 ], [ %.065, %35 ], [ %.065, %35 ], [ %.065, %34 ], [ %.065, %34 ], [ %.065, %34 ], [ 521, %33 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %37 ]
+select.unfold:                                    ; preds = %37, %33, %36, %32, %32, %32, %32, %32, %34, %34, %34, %35, %35
+  %.1.ph = phi i64 [ 255, %36 ], [ %.065, %35 ], [ %.065, %35 ], [ %.065, %34 ], [ %.065, %34 ], [ %.065, %34 ], [ 521, %33 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %37 ]
   %39 = tail call i32 @mbedtls_ecc_group_from_psa(i8 noundef zeroext %31, i64 noundef %.1.ph) #7
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %56, label %41
@@ -144,14 +144,14 @@ check_ecc_parameters.exit:                        ; preds = %49, %52
   store ptr %25, ptr %4, align 8, !tbaa !16
   br label %57
 
-56:                                               ; preds = %27, %32, %34, %35, %select.unfold, %52, %41, %45, %49, %37
-  %.041.ph = phi i32 [ -135, %37 ], [ -134, %select.unfold ], [ %51, %49 ], [ %48, %45 ], [ %43, %41 ], [ %55, %52 ], [ -135, %35 ], [ -135, %34 ], [ -135, %32 ], [ -135, %27 ]
+56:                                               ; preds = %27, %32, %34, %35, %41, %45, %49, %52, %select.unfold, %37
+  %.041.ph = phi i32 [ -135, %37 ], [ -134, %select.unfold ], [ %55, %52 ], [ %51, %49 ], [ %48, %45 ], [ %43, %41 ], [ -135, %35 ], [ -135, %34 ], [ -135, %32 ], [ -135, %27 ]
   tail call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %25) #7
   tail call void @free(ptr noundef nonnull %25) #7
   br label %57
 
 57:                                               ; preds = %check_ecc_parameters.exit, %56, %24, %19, %13
-  %.0 = phi i32 [ -141, %24 ], [ -135, %13 ], [ -135, %19 ], [ %.041.ph, %56 ], [ 0, %check_ecc_parameters.exit ]
+  %.0 = phi i32 [ -135, %13 ], [ -135, %19 ], [ -141, %24 ], [ %.041.ph, %56 ], [ 0, %check_ecc_parameters.exit ]
   ret i32 %.0
 }
 
@@ -337,7 +337,7 @@ define hidden i32 @mbedtls_psa_ecp_generate_key(ptr noundef readonly captures(no
   br label %24
 
 24:                                               ; preds = %4, %21, %19
-  %.0 = phi i32 [ %23, %21 ], [ %20, %19 ], [ -134, %4 ]
+  %.0 = phi i32 [ %20, %19 ], [ %23, %21 ], [ -134, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -423,7 +423,7 @@ switch.early.test:                                ; preds = %28
   br label %45
 
 45:                                               ; preds = %33, %18, %42, %40, %37
-  %.034 = phi i32 [ %39, %37 ], [ %41, %40 ], [ %44, %42 ], [ %36, %33 ], [ -20224, %18 ]
+  %.034 = phi i32 [ %41, %40 ], [ %44, %42 ], [ %36, %33 ], [ %39, %37 ], [ -20224, %18 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %12) #7
   %46 = icmp eq i32 %.034, 0
@@ -440,7 +440,7 @@ switch.early.test:                                ; preds = %28
   br label %50
 
 50:                                               ; preds = %9, %48
-  %.0 = phi i32 [ %17, %9 ], [ %49, %48 ]
+  %.0 = phi i32 [ %49, %48 ], [ %17, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -542,7 +542,7 @@ mbedtls_psa_ecp_load_public_part.exit:            ; preds = %31, %34
   br label %42
 
 42:                                               ; preds = %17, %mbedtls_psa_ecp_load_public_part.exit, %27, %24, %39
-  %.019 = phi i32 [ %41, %39 ], [ %26, %24 ], [ %30, %27 ], [ %38, %mbedtls_psa_ecp_load_public_part.exit ], [ -149, %17 ]
+  %.019 = phi i32 [ %26, %24 ], [ %30, %27 ], [ %38, %mbedtls_psa_ecp_load_public_part.exit ], [ %41, %39 ], [ -149, %17 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #7
   call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %18) #7

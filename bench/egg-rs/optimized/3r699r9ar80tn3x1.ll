@@ -244,7 +244,7 @@ define noundef zeroext i1 @_ZN3egg4util12pretty_print17h5ad8ff4d4dbfe793E(ptr no
   unreachable
 
 common.resume:                                    ; preds = %142, %111, %28
-  %common.resume.op = phi { ptr, i32 } [ %112, %111 ], [ %29, %28 ], [ %143, %142 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %112, %111 ], [ %143, %142 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h0054053b79b5a646E.exit": ; preds = %30
@@ -492,7 +492,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i41.us:
   br i1 %.not106, label %129, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i33
 
 .loopexit99:                                      ; preds = %.lr.ph.split.us, %..loopexit_crit_edge.us, %129, %._crit_edge, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7cbf3d3894bee245E.exit66"
-  %.sroa.0.0 = phi i1 [ %126, %._crit_edge ], [ %148, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7cbf3d3894bee245E.exit66" ], [ true, %..loopexit_crit_edge.us ], [ true, %129 ], [ true, %.lr.ph.split.us ]
+  %.sroa.0.0 = phi i1 [ %148, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7cbf3d3894bee245E.exit66" ], [ %126, %._crit_edge ], [ true, %129 ], [ true, %..loopexit_crit_edge.us ], [ true, %.lr.ph.split.us ]
   ret i1 %.sroa.0.0
 
 129:                                              ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h9a6435738387aa60E.exit.i38", %.lr.ph.split.split

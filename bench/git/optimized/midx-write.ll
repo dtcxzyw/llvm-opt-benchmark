@@ -1367,8 +1367,8 @@ _.exit335:                                        ; preds = %543, %545
   br label %.critedge, !llvm.loop !92
 
 .critedge:                                        ; preds = %.lr.ph500, %..critedge_crit_edge, %.lr.ph500.preheader
-  %561 = phi i64 [ %.pre594, %.lr.ph500.preheader ], [ %559, %..critedge_crit_edge ], [ %559, %.lr.ph500 ]
-  %.0207.lcssa.ph = phi i32 [ 0, %.lr.ph500.preheader ], [ %.1208, %..critedge_crit_edge ], [ %.1208, %.lr.ph500 ]
+  %561 = phi i64 [ %559, %..critedge_crit_edge ], [ %.pre594, %.lr.ph500.preheader ], [ %559, %.lr.ph500 ]
+  %.0207.lcssa.ph = phi i32 [ %.1208, %..critedge_crit_edge ], [ 0, %.lr.ph500.preheader ], [ %.1208, %.lr.ph500 ]
   %562 = icmp eq i32 %.0207.lcssa.ph, 0
   br i1 %562, label %563, label %1068
 
@@ -1510,9 +1510,9 @@ _.exit345:                                        ; preds = %627, %629
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %619, %st_mult.exit338, %_.exit345, %bsearch.exit, %._crit_edge513
-  %.0202.lcssa703 = phi i64 [ 0, %st_mult.exit338 ], [ %605, %._crit_edge513 ], [ %605, %bsearch.exit ], [ %605, %_.exit345 ], [ %605, %619 ]
-  %.0204.lcssa701 = phi i32 [ 0, %st_mult.exit338 ], [ %.1205, %._crit_edge513 ], [ %.1205, %bsearch.exit ], [ %.1205, %_.exit345 ], [ %.1205, %619 ]
-  %.0211.lcssa694699 = phi i32 [ 0, %st_mult.exit338 ], [ %.1212, %._crit_edge513 ], [ %.1212, %bsearch.exit ], [ %.1212, %_.exit345 ], [ %.1212, %619 ]
+  %.0202.lcssa703 = phi i64 [ %605, %_.exit345 ], [ %605, %bsearch.exit ], [ %605, %._crit_edge513 ], [ 0, %st_mult.exit338 ], [ %605, %619 ]
+  %.0204.lcssa701 = phi i32 [ %.1205, %_.exit345 ], [ %.1205, %bsearch.exit ], [ %.1205, %._crit_edge513 ], [ 0, %st_mult.exit338 ], [ %.1205, %619 ]
+  %.0211.lcssa694699 = phi i32 [ %.1212, %_.exit345 ], [ %.1212, %bsearch.exit ], [ %.1212, %._crit_edge513 ], [ 0, %st_mult.exit338 ], [ %.1212, %619 ]
   %631 = srem i32 %.0204.lcssa701, 4
   %.not283 = icmp eq i32 %631, 0
   %reass.sub = add i32 %.0204.lcssa701, 4
@@ -2580,8 +2580,8 @@ clear_midx_files.exit:                            ; preds = %1058, %1062
   br label %.critedge311.sink.split
 
 .critedge311.sink.split:                          ; preds = %.critedge311.sink.split.sink.split, %991, %980
-  %.0.i407.sink = phi ptr [ @.str.37, %980 ], [ @.str.38, %991 ], [ %1105, %.critedge311.sink.split.sink.split ]
-  %1106 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i407.sink) #19
+  %.0.i404.sink = phi ptr [ @.str.37, %980 ], [ @.str.38, %991 ], [ %1105, %.critedge311.sink.split.sink.split ]
+  %1106 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i404.sink) #19
   br label %.critedge311
 
 .critedge311:                                     ; preds = %.critedge311.sink.split, %982
@@ -2589,7 +2589,7 @@ clear_midx_files.exit:                            ; preds = %1058, %1062
   br label %1107
 
 1107:                                             ; preds = %.thread427, %.critedge311, %1104
-  %.0 = phi i32 [ -1, %.thread427 ], [ -1, %.critedge311 ], [ %.0213, %1104 ]
+  %.0 = phi i32 [ %.0213, %1104 ], [ -1, %.critedge311 ], [ -1, %.thread427 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -3085,7 +3085,7 @@ st_mult.exit.i:                                   ; preds = %93, %87
   br label %want_included_pack.exit.thread.i
 
 want_included_pack.exit.thread.i:                 ; preds = %100, %st_mult.exit.i, %want_included_pack.exit.i, %83, %75, %65
-  %.148.i = phi i64 [ %.04760.i, %want_included_pack.exit.i ], [ %101, %100 ], [ %.04760.i, %st_mult.exit.i ], [ %.04760.i, %65 ], [ %.04760.i, %75 ], [ %.04760.i, %83 ]
+  %.148.i = phi i64 [ %101, %100 ], [ %.04760.i, %want_included_pack.exit.i ], [ %.04760.i, %st_mult.exit.i ], [ %.04760.i, %65 ], [ %.04760.i, %83 ], [ %.04760.i, %75 ]
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %103 = icmp ult i64 %.148.i, %2
   br i1 %103, label %61, label %fill_included_packs_batch.exit, !llvm.loop !195
@@ -3494,7 +3494,7 @@ _.exit40:                                         ; preds = %54, %56
   store i64 %68, ptr %30, align 8, !tbaa !43
   br label %ends_with.exit.thread
 
-ends_with.exit.thread:                            ; preds = %28, %18, %23, %4, %ends_with.exit, %58, %_.exit40, %_.exit
+ends_with.exit.thread:                            ; preds = %28, %23, %18, %4, %ends_with.exit, %58, %_.exit40, %_.exit
   ret void
 }
 
@@ -4401,7 +4401,7 @@ define internal range(i32 -1, 2) i32 @midx_pack_order_cmp(ptr noundef readonly c
   br label %18
 
 18:                                               ; preds = %16, %10, %8, %2
-  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 1, %8 ], [ %., %16 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ %., %16 ]
   ret i32 %.0
 }
 

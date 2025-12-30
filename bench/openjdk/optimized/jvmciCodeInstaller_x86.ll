@@ -108,7 +108,7 @@ switch.edge.thread.i:                             ; preds = %11, %11, %11
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %9, %.thread6.i, %switch.edge.thread.i
-  %.in5.i = phi ptr [ %13, %switch.edge.thread.i ], [ %10, %9 ], [ %8, %.thread6.i ]
+  %.in5.i = phi ptr [ %8, %.thread6.i ], [ %13, %switch.edge.thread.i ], [ %10, %9 ]
   %14 = load i8, ptr %.in5.i, align 1
   %15 = and i8 %14, -8
   %16 = icmp eq i8 %15, -72
@@ -150,7 +150,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread: ; preds = %9, %_Z
   br i1 %or.cond29, label %_ZN17NativeInstruction11is_call_regEv.exit.thread, label %_ZN17NativeInstruction11is_call_regEv.exit.thread28
 
 _ZN17NativeInstruction11is_call_regEv.exit.thread: ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread, %9, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
-  %.0.i = phi i32 [ 3, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread ], [ 2, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread ], [ 2, %9 ]
+  %.0.i = phi i32 [ 2, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread ], [ 2, %9 ], [ 3, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread ]
   %38 = add nsw i32 %.0.i, %2
   br label %53
 
@@ -461,7 +461,7 @@ switch.edge.thread.i:                             ; preds = %27, %27, %27
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %.thread6.i, %25, %switch.edge.thread.i
-  %.in5.i = phi ptr [ %29, %switch.edge.thread.i ], [ %26, %25 ], [ %24, %.thread6.i ]
+  %.in5.i = phi ptr [ %24, %.thread6.i ], [ %29, %switch.edge.thread.i ], [ %26, %25 ]
   %30 = load i8, ptr %.in5.i, align 1
   %31 = and i8 %30, -8
   %32 = icmp eq i8 %31, -72
@@ -842,7 +842,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nounde
   br label %52
 
 52:                                               ; preds = %3, %47, %42, %37, %32, %27, %22, %17, %14, %11
-  %.0 = phi i1 [ true, %47 ], [ true, %11 ], [ true, %14 ], [ true, %17 ], [ true, %22 ], [ true, %27 ], [ true, %32 ], [ true, %37 ], [ true, %42 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %11 ], [ true, %14 ], [ true, %17 ], [ true, %22 ], [ true, %27 ], [ true, %32 ], [ true, %37 ], [ true, %42 ], [ true, %47 ], [ false, %3 ]
   ret i1 %.0
 }
 

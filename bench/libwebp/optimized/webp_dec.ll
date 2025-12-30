@@ -321,8 +321,8 @@ thread-pre-split:                                 ; preds = %97, %99
   store i64 %122, ptr %123, align 8, !tbaa !21
   br label %126
 
-124:                                              ; preds = %107, %85, %89, %102, %79
-  %.1.ph = phi i32 [ 7, %79 ], [ 7, %102 ], [ %93, %89 ], [ %88, %85 ], [ 7, %107 ]
+124:                                              ; preds = %85, %89, %79, %102, %107
+  %.1.ph = phi i32 [ 7, %107 ], [ 7, %102 ], [ 7, %79 ], [ %93, %89 ], [ %88, %85 ]
   %125 = icmp eq i32 %.1.ph, 7
   %or.cond15 = and i1 %.not.i99, %125
   %or.cond17 = and i1 %.not, %or.cond15
@@ -360,7 +360,7 @@ thread-pre-split:                                 ; preds = %97, %99
   br label %ParseRIFF.exit.thread
 
 ParseRIFF.exit.thread:                            ; preds = %45, %47, %49, %ParseRIFF.exit, %ParseVP8X.exit, %35, %27, %25, %124, %137, %138, %114, %109, %104, %94, %17
-  %.059 = phi i32 [ 3, %94 ], [ 7, %17 ], [ 3, %25 ], [ 3, %114 ], [ 0, %137 ], [ %.1.ph, %124 ], [ 3, %109 ], [ 3, %104 ], [ 7, %ParseRIFF.exit ], [ 0, %138 ], [ 7, %35 ], [ 3, %27 ], [ 3, %ParseVP8X.exit ], [ 3, %45 ], [ 7, %47 ], [ 3, %49 ]
+  %.059 = phi i32 [ 7, %17 ], [ 3, %94 ], [ 3, %104 ], [ 3, %109 ], [ 3, %114 ], [ 0, %138 ], [ 0, %137 ], [ %.1.ph, %124 ], [ 7, %35 ], [ 3, %27 ], [ 3, %25 ], [ 3, %ParseVP8X.exit ], [ 3, %45 ], [ 7, %47 ], [ 3, %49 ], [ 7, %ParseRIFF.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -416,7 +416,7 @@ define ptr @WebPDecodeRGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   br label %DecodeIntoRGBABuffer.exit
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
-  %.0.i = phi ptr [ null, %5 ], [ %..i, %11 ], [ null, %9 ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -455,7 +455,7 @@ define ptr @WebPDecodeRGBAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br label %DecodeIntoRGBABuffer.exit
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
-  %.0.i = phi ptr [ null, %5 ], [ %..i, %11 ], [ null, %9 ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -494,7 +494,7 @@ define ptr @WebPDecodeARGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br label %DecodeIntoRGBABuffer.exit
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
-  %.0.i = phi ptr [ null, %5 ], [ %..i, %11 ], [ null, %9 ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -533,7 +533,7 @@ define ptr @WebPDecodeBGRInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   br label %DecodeIntoRGBABuffer.exit
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
-  %.0.i = phi ptr [ null, %5 ], [ %..i, %11 ], [ null, %9 ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -572,7 +572,7 @@ define ptr @WebPDecodeBGRAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br label %DecodeIntoRGBABuffer.exit
 
 DecodeIntoRGBABuffer.exit:                        ; preds = %5, %9, %11
-  %.0.i = phi ptr [ null, %5 ], [ %..i, %11 ], [ null, %9 ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %5 ], [ %..i, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -623,7 +623,7 @@ define ptr @WebPDecodeYUVInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   br label %30
 
 30:                                               ; preds = %17, %11, %15
-  %.0 = phi ptr [ null, %11 ], [ %., %17 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %11 ], [ %., %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.0
@@ -811,7 +811,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %31, %78, %86, %83, %80, %18, %WebPParseHeaders.exit
-  %.0 = phi i32 [ %.0..0..0..0..0..0.3.i, %WebPParseHeaders.exit ], [ 1, %31 ], [ 0, %83 ], [ 1, %60 ], [ 2, %18 ], [ 0, %80 ], [ %.240, %78 ], [ %88, %86 ]
+  %.0 = phi i32 [ %.0..0..0..0..0..0.3.i, %WebPParseHeaders.exit ], [ 2, %18 ], [ %.240, %78 ], [ %88, %86 ], [ 0, %83 ], [ 0, %80 ], [ 1, %31 ], [ 1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -885,7 +885,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %Decode.exit
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
-  %.0.i = phi ptr [ null, %WebPGetInfo.exit.thread.i ], [ %29, %27 ], [ null, %4 ], [ null, %25 ]
+  %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -959,7 +959,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %Decode.exit
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
-  %.0.i = phi ptr [ null, %WebPGetInfo.exit.thread.i ], [ %29, %27 ], [ null, %4 ], [ null, %25 ]
+  %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -1033,7 +1033,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %Decode.exit
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
-  %.0.i = phi ptr [ null, %WebPGetInfo.exit.thread.i ], [ %29, %27 ], [ null, %4 ], [ null, %25 ]
+  %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -1107,7 +1107,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %Decode.exit
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
-  %.0.i = phi ptr [ null, %WebPGetInfo.exit.thread.i ], [ %29, %27 ], [ null, %4 ], [ null, %25 ]
+  %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -1181,7 +1181,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %Decode.exit
 
 Decode.exit:                                      ; preds = %4, %WebPGetInfo.exit.thread.i, %25, %27
-  %.0.i = phi ptr [ null, %WebPGetInfo.exit.thread.i ], [ %29, %27 ], [ null, %4 ], [ null, %25 ]
+  %.0.i = phi ptr [ %29, %27 ], [ null, %4 ], [ null, %25 ], [ null, %WebPGetInfo.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -1261,7 +1261,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   %.not18.i = icmp eq i32 %36, 0
   br i1 %.not18.i, label %Decode.exit, label %Decode.exit.thread
 
-Decode.exit.thread:                               ; preds = %WebPGetInfo.exit.thread.i, %17, %35
+Decode.exit.thread:                               ; preds = %17, %35, %WebPGetInfo.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %48
@@ -1358,7 +1358,7 @@ define range(i32 0, 2) i32 @WebPInitDecoderConfigInternal(ptr noundef %0, i32 no
   br label %7
 
 7:                                                ; preds = %4, %2
-  %.0 = phi i32 [ %., %4 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %2 ], [ %., %4 ]
   ret i32 %.0
 }
 
@@ -1511,7 +1511,7 @@ WebPCheckCropDimensions.exit.thread:              ; preds = %48, %69, %WebPCheck
   br label %79
 
 79:                                               ; preds = %76, %73, %WebPCheckCropDimensions.exit.thread, %27, %31, %12, %5, %1
-  %.032 = phi i32 [ 0, %1 ], [ 0, %12 ], [ 0, %27 ], [ 0, %73 ], [ 0, %WebPCheckCropDimensions.exit.thread ], [ 0, %5 ], [ %spec.select, %76 ], [ 0, %31 ]
+  %.032 = phi i32 [ 0, %WebPCheckCropDimensions.exit.thread ], [ 0, %1 ], [ 0, %5 ], [ 0, %12 ], [ 0, %31 ], [ 0, %27 ], [ 0, %73 ], [ %spec.select, %76 ]
   ret i32 %.032
 }
 
@@ -1651,7 +1651,7 @@ GetFeatures.exit:                                 ; preds = %3
   br label %GetFeatures.exit.thread
 
 GetFeatures.exit.thread:                          ; preds = %32, %33, %.critedge, %GetFeatures.exit, %3, %13
-  %.022 = phi i32 [ %.1, %32 ], [ 2, %3 ], [ %34, %33 ], [ 2, %.critedge ], [ 3, %GetFeatures.exit ], [ %12, %13 ]
+  %.022 = phi i32 [ 2, %3 ], [ 3, %GetFeatures.exit ], [ 2, %.critedge ], [ %34, %33 ], [ %.1, %32 ], [ %12, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.022
 }
@@ -1834,7 +1834,7 @@ WebPCheckCropDimensions.exit:                     ; preds = %15
   br label %WebPCheckCropDimensions.exit.thread
 
 WebPCheckCropDimensions.exit.thread:              ; preds = %15, %.thread78, %67, %90, %.critedge74, %WebPCheckCropDimensions.exit
-  %.064 = phi i32 [ 0, %.critedge74 ], [ 1, %67 ], [ 0, %WebPCheckCropDimensions.exit ], [ 1, %90 ], [ 1, %.thread78 ], [ 0, %15 ]
+  %.064 = phi i32 [ 0, %WebPCheckCropDimensions.exit ], [ 0, %.critedge74 ], [ 1, %90 ], [ 1, %67 ], [ 1, %.thread78 ], [ 0, %15 ]
   ret i32 %.064
 }
 
@@ -1962,8 +1962,8 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr noundef nonn
   %56 = icmp ult i64 %55, 8
   br i1 %56, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %46, %45, %44, %.lr.ph.split, %53, %38, %20, %19, %16, %.lr.ph.split.us, %27, %5
-  %.1.ph = phi i32 [ 7, %27 ], [ 7, %5 ], [ 3, %.lr.ph.split.us ], [ 0, %16 ], [ 0, %19 ], [ 7, %20 ], [ 7, %46 ], [ 0, %45 ], [ 0, %44 ], [ 3, %.lr.ph.split ], [ 7, %53 ], [ 3, %38 ]
+._crit_edge:                                      ; preds = %46, %44, %45, %38, %.lr.ph.split, %53, %20, %16, %19, %.lr.ph.split.us, %27, %5
+  %.1.ph = phi i32 [ 7, %5 ], [ 7, %27 ], [ 3, %.lr.ph.split.us ], [ 0, %19 ], [ 0, %16 ], [ 7, %20 ], [ 7, %53 ], [ 3, %.lr.ph.split ], [ 3, %38 ], [ 0, %45 ], [ 0, %44 ], [ 7, %46 ]
   ret i32 %.1.ph
 }
 
@@ -2023,7 +2023,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseVP8Header(ptr noundef nonnull c
   br label %.thread
 
 .thread:                                          ; preds = %22, %12, %29, %25, %6
-  %.0 = phi i32 [ 0, %29 ], [ 7, %6 ], [ 0, %25 ], [ 7, %22 ], [ 3, %12 ]
+  %.0 = phi i32 [ 7, %6 ], [ 0, %25 ], [ 0, %29 ], [ 3, %12 ], [ 7, %22 ]
   ret i32 %.0
 }
 

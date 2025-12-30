@@ -118,7 +118,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %65, label %68, label %.thread
 
 .thread.sink.split:                               ; preds = %61, %58, %56, %53, %50, %48, %45, %43
-  %.sink = phi i32 [ -1, %43 ], [ -2, %45 ], [ -4, %50 ], [ -7, %56 ], [ -11, %58 ], [ -5, %53 ], [ -3, %48 ], [ -13, %61 ]
+  %.sink = phi i32 [ -1, %43 ], [ -2, %45 ], [ -3, %48 ], [ -4, %50 ], [ -5, %53 ], [ -7, %56 ], [ -11, %58 ], [ -13, %61 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !3
   br label %.thread
 

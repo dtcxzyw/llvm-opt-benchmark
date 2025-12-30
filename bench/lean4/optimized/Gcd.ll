@@ -601,7 +601,7 @@ lean_nat_to_int.exit:                             ; preds = %118, %120, %121, %l
   br label %lean_dec.exit38
 
 lean_dec.exit38:                                  ; preds = %135, %131, %144, %143, %141
-  %.0.i83109 = phi ptr [ %138, %144 ], [ %138, %141 ], [ %138, %143 ], [ %136, %135 ], [ %134, %131 ]
+  %.0.i83109 = phi ptr [ %138, %141 ], [ %138, %143 ], [ %138, %144 ], [ %136, %135 ], [ %134, %131 ]
   %145 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !11
   %147 = ptrtoint ptr %146 to i64
@@ -662,7 +662,7 @@ lean_dec.exit37:                                  ; preds = %163, %162, %160, %l
   br label %lean_nat_to_int.exit90
 
 lean_nat_to_int.exit90:                           ; preds = %lean_dec.exit37, %165
-  %.1.i89 = phi ptr [ %146, %lean_dec.exit37 ], [ %167, %165 ]
+  %.1.i89 = phi ptr [ %167, %165 ], [ %146, %lean_dec.exit37 ]
   tail call void @lean_inc_heartbeat() #4
   %168 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %169 = icmp eq ptr %168, null
@@ -708,7 +708,7 @@ lean_inc.exit42:                                  ; preds = %171
   br label %lean_nat_to_int.exit97
 
 lean_nat_to_int.exit97:                           ; preds = %178, %180, %181, %lean_inc.exit42, %183
-  %.1.i96 = phi ptr [ %173, %lean_inc.exit42 ], [ %185, %183 ], [ %173, %181 ], [ %173, %180 ], [ %173, %178 ]
+  %.1.i96 = phi ptr [ %185, %183 ], [ %173, %lean_inc.exit42 ], [ %173, %181 ], [ %173, %180 ], [ %173, %178 ]
   %186 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %187 = load ptr, ptr %186, align 8, !tbaa !11
   %188 = ptrtoint ptr %187 to i64
@@ -769,7 +769,7 @@ lean_dec.exit:                                    ; preds = %204, %203, %201, %l
   br label %lean_nat_to_int.exit104
 
 lean_nat_to_int.exit104:                          ; preds = %lean_dec.exit, %206
-  %.1.i103 = phi ptr [ %187, %lean_dec.exit ], [ %208, %206 ]
+  %.1.i103 = phi ptr [ %208, %206 ], [ %187, %lean_dec.exit ]
   tail call void @lean_inc_heartbeat() #4
   %209 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %210 = icmp eq ptr %209, null

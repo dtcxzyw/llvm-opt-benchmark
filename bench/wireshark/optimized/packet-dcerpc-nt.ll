@@ -771,7 +771,7 @@ define hidden i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %1, ptr no
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %29 = tail call ptr @proto_registrar_get_nth(i32 noundef %7)
   %30 = load i32, ptr @ett_lsa_String, align 4
   %31 = load ptr, ptr %29, align 8
@@ -1087,8 +1087,8 @@ find_pol_handle.exit.thread:                      ; preds = %23, %12, %.preheade
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %57, %.critedge.i, %.preheader.i35
-  %.020.lcssa42.sink.i = phi ptr [ %spec.select.i, %.critedge.i ], [ %16, %.preheader.i35 ], [ %.026.i45, %57 ]
-  %.0.lcssa37.i = phi ptr [ %.026.i.lcssa, %.critedge.i ], [ null, %.preheader.i35 ], [ null, %57 ]
+  %.020.lcssa42.sink.i = phi ptr [ %16, %.preheader.i35 ], [ %spec.select.i, %.critedge.i ], [ %.026.i45, %57 ]
+  %.0.lcssa37.i = phi ptr [ null, %.preheader.i35 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %57 ]
   store ptr %39, ptr %.020.lcssa42.sink.i, align 8
   store ptr %.0.lcssa37.i, ptr %39, align 8
   br label %add_pol_handle.exit
@@ -1235,8 +1235,8 @@ define hidden void @dcerpc_store_polhnd_name(ptr noundef readonly captures(none)
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %49, %.critedge.i, %.preheader.i26
-  %.020.lcssa42.sink.i = phi ptr [ %spec.select.i, %.critedge.i ], [ %16, %.preheader.i26 ], [ %.026.i36, %49 ]
-  %.0.lcssa37.i = phi ptr [ %.026.i.lcssa, %.critedge.i ], [ null, %.preheader.i26 ], [ null, %49 ]
+  %.020.lcssa42.sink.i = phi ptr [ %16, %.preheader.i26 ], [ %spec.select.i, %.critedge.i ], [ %.026.i36, %49 ]
+  %.0.lcssa37.i = phi ptr [ null, %.preheader.i26 ], [ %.026.i.lcssa, %.critedge.i ], [ null, %49 ]
   store ptr %29, ptr %.020.lcssa42.sink.i, align 8
   store ptr %.0.lcssa37.i, ptr %29, align 8
   br label %add_pol_handle.exit
@@ -2053,7 +2053,7 @@ define hidden i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %1, ptr noun
   br label %43
 
 43:                                               ; preds = %36, %38, %14, %27
-  %.0 = phi i32 [ %1, %14 ], [ %20, %27 ], [ %37, %38 ], [ %37, %36 ]
+  %.0 = phi i32 [ %20, %27 ], [ %1, %14 ], [ %37, %38 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -2235,7 +2235,7 @@ dissect_ndr_nt_SID.exit._crit_edge:               ; preds = %dissect_ndr_nt_SID.
   br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %47, %dissect_ndr_nt_SID.exit.thread, %40, %43, %45, %30, %dissect_ndr_nt_SID.exit
-  %.018.i62 = phi i32 [ %25, %dissect_ndr_nt_SID.exit.thread ], [ %.018.i66, %40 ], [ %.018.i66, %43 ], [ %1, %dissect_ndr_nt_SID.exit ], [ %.018.i66, %45 ], [ %.018.i66, %30 ], [ %.018.i66, %47 ], [ %.018.i66, %.lr.ph ]
+  %.018.i62 = phi i32 [ %25, %dissect_ndr_nt_SID.exit.thread ], [ %.018.i66, %40 ], [ %.018.i66, %43 ], [ %.018.i66, %45 ], [ %.018.i66, %30 ], [ %1, %dissect_ndr_nt_SID.exit ], [ %.018.i66, %47 ], [ %.018.i66, %.lr.ph ]
   ret i32 %.018.i62
 }
 
@@ -2382,7 +2382,7 @@ define hidden i32 @dissect_ndr_nt_PSID_ARRAY(ptr noundef %0, i32 noundef %1, ptr
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %30 = load i32, ptr @hf_nt_count, align 4
   %31 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %7)
   %32 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_ndr_nt_PSID_ARRAY_sids, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef -1)

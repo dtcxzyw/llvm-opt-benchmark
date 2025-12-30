@@ -317,7 +317,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; 
   ret void
 
 86:                                               ; preds = %85, %56, %33
-  %.merged = phi { ptr, i32 } [ %34, %33 ], [ %57, %56 ], [ %.pn, %85 ]
+  %.merged = phi { ptr, i32 } [ %57, %56 ], [ %34, %33 ], [ %.pn, %85 ]
   resume { ptr, i32 } %.merged
 
 87:                                               ; preds = %85
@@ -428,7 +428,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
   br label %33
 
 33:                                               ; preds = %28, %26, %14
-  %.1 = phi i1 [ false, %26 ], [ false, %14 ], [ %32, %28 ]
+  %.1 = phi i1 [ false, %14 ], [ %32, %28 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34

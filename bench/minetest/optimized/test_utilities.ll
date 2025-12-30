@@ -2987,7 +2987,7 @@ if.then.i.i.i:                                    ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i111, %lpad.i76, %lpad.i, %cleanup.action57, %ehcleanup53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139, %if.then.i.i.i113, %cleanup.action32, %ehcleanup28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104, %if.then.i.i.i78, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i69, %if.then.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %9, %if.then.i.i.i ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139 ], [ %26, %if.then.i.i.i78 ], [ %9, %lpad.i ], [ %43, %if.then.i.i.i113 ], [ %26, %lpad.i76 ], [ %.pn64145, %cleanup.action ], [ %12, %ehcleanup ], [ %.pn62148, %cleanup.action32 ], [ %29, %ehcleanup28 ], [ %.pn151, %cleanup.action57 ], [ %46, %ehcleanup53 ], [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i69 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104 ], [ %43, %lpad.i111 ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %if.then.i.i.i ], [ %26, %if.then.i.i.i78 ], [ %43, %if.then.i.i.i113 ], [ %.pn64145, %cleanup.action ], [ %12, %ehcleanup ], [ %.pn62148, %cleanup.action32 ], [ %29, %ehcleanup28 ], [ %.pn151, %cleanup.action57 ], [ %46, %ehcleanup53 ], [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i69 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104 ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139 ], [ %9, %lpad.i ], [ %26, %lpad.i76 ], [ %43, %lpad.i111 ]
   resume { ptr, i32 } %common.resume.op
 
 if.then.i.i:                                      ; preds = %for.body.i.preheader
@@ -9495,7 +9495,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   ret void
 
 ehcleanup:                                        ; preds = %lpad.i.i, %lpad.loopexit.split-lp, %lpad.loopexit, %if.then.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %6, %if.then.i.i.i.i ], [ %lpad.loopexit.split-lp25, %lpad.loopexit.split-lp ], [ %lpad.loopexit24, %lpad.loopexit ], [ %6, %lpad.i.i ]
+  %.pn = phi { ptr, i32 } [ %6, %if.then.i.i.i.i ], [ %lpad.loopexit24, %lpad.loopexit ], [ %lpad.loopexit.split-lp25, %lpad.loopexit.split-lp ], [ %6, %lpad.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %oss)
   resume { ptr, i32 } %.pn
@@ -15645,7 +15645,7 @@ _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EED2Ev.exit171: ; preds = %invoke.cont
   ret void
 
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EED2Ev.exit176: ; preds = %lpad.i129, %lpad19, %ehcleanup22.sink.split, %lpad.i64, %lpad6, %ehcleanup.sink.split, %cleanup.action, %ehcleanup43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %lpad29
-  %.pn59.pn = phi { ptr, i32 } [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn59.ph, %ehcleanup.sink.split ], [ %.pn190, %cleanup.action ], [ %20, %ehcleanup43 ], [ %18, %lpad29 ], [ %lpad.phi.i, %lpad.i64 ], [ %7, %lpad6 ], [ %lpad.phi.i130, %lpad.i129 ], [ %17, %lpad19 ], [ %.pn57.ph, %ehcleanup22.sink.split ]
+  %.pn59.pn = phi { ptr, i32 } [ %.pn190, %cleanup.action ], [ %20, %ehcleanup43 ], [ %18, %lpad29 ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %lpad.phi.i, %lpad.i64 ], [ %7, %lpad6 ], [ %.pn59.ph, %ehcleanup.sink.split ], [ %lpad.phi.i130, %lpad.i129 ], [ %17, %lpad19 ], [ %.pn57.ph, %ehcleanup22.sink.split ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i5.i) #29
   resume { ptr, i32 } %.pn59.pn
 

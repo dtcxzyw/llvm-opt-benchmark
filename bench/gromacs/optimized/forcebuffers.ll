@@ -118,7 +118,7 @@ _ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPo
   br label %.body
 
 .body:                                            ; preds = %33, %29, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %34, %33 ], [ %27, %29 ]
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %27, %29 ], [ %27, %26 ]
   %35 = load ptr, ptr %7, align 8, !tbaa !9
   %.not.i.i.i.i13 = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i13, label %common.resume, label %common.resume.sink.split
@@ -801,7 +801,7 @@ _ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPo
   br label %.body
 
 .body:                                            ; preds = %33, %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ], [ %25, %27 ]
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %25, %27 ], [ %25, %24 ]
   %35 = load ptr, ptr %6, align 8, !tbaa !9
   %.not.i.i.i.i12 = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i12, label %common.resume, label %common.resume.sink.split

@@ -230,14 +230,14 @@ bytestream2_get_byte.exit:                        ; preds = %48, %52
   br label %.critedge.thread
 
 122:                                              ; preds = %75, %99, %74
-  %.5 = phi i32 [ -22, %74 ], [ -1094995529, %99 ], [ %77, %75 ]
+  %.5 = phi i32 [ -22, %74 ], [ %77, %75 ], [ -1094995529, %99 ]
   tail call void @av_packet_unref(ptr noundef %1) #2
   %123 = load ptr, ptr %4, align 8, !tbaa !14
   tail call void @av_packet_unref(ptr noundef %123) #2
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %115, %120, %103, %.thread154, %8, %122
-  %.083 = phi i32 [ %9, %8 ], [ %.5, %122 ], [ 0, %.thread154 ], [ 0, %103 ], [ 0, %120 ], [ 0, %115 ]
+  %.083 = phi i32 [ %.5, %122 ], [ %9, %8 ], [ 0, %.thread154 ], [ 0, %103 ], [ 0, %120 ], [ 0, %115 ]
   ret i32 %.083
 }
 

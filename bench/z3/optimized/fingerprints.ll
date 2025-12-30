@@ -127,7 +127,7 @@ define hidden noundef zeroext i1 @_ZNK3smt15fingerprint_set19fingerprint_eq_proc
   br i1 %or.cond.not, label %15, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %15, %.preheader, %6, %3
-  %.014 = phi i1 [ false, %6 ], [ false, %3 ], [ true, %.preheader ], [ %.not16, %15 ]
+  %.014 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %.preheader ], [ %.not16, %15 ]
   ret i1 %.014
 }
 
@@ -574,7 +574,7 @@ define hidden noundef ptr @_ZN3smt15fingerprint_set6insertEPvjjPKPNS_5enodeEP4ex
   br label %_Z18get_composite_hashIZN3smt15fingerprint_set6insertEPvjjPKPNS0_5enodeEP4exprE8arg_dataZNS1_6insertES2_jjS6_S8_E5khashZNS1_6insertES2_jjS6_S8_E7arghashEjT_jRKT0_RKT1_.exit
 
 _Z18get_composite_hashIZN3smt15fingerprint_set6insertEPvjjPKPNS0_5enodeEP4exprE8arg_dataZNS1_6insertES2_jjS6_S8_E5khashZNS1_6insertES2_jjS6_S8_E7arghashEjT_jRKT0_RKT1_.exit: ; preds = %6, %10, %49, %96, %256
-  %.0.i = phi i32 [ %292, %256 ], [ %183, %96 ], [ %48, %10 ], [ %95, %49 ], [ 11, %6 ]
+  %.0.i = phi i32 [ %292, %256 ], [ %48, %10 ], [ %95, %49 ], [ %183, %96 ], [ 11, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %294 = load ptr, ptr %293, align 8, !tbaa !20
@@ -1915,7 +1915,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI14ptr_hash_entryIN3
   %43 = icmp eq ptr %21, null
   br i1 %43, label %_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit, label %_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit.thread
 
-_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit.thread: ; preds = %37, %26, %29, %23, %42
+_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit.thread: ; preds = %37, %29, %26, %23, %42
   %44 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %.not = icmp eq ptr %44, %14
   br i1 %.not, label %.preheader, label %19, !llvm.loop !96
@@ -1977,7 +1977,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set2
   %or.cond = select i1 %68, i1 true, i1 %.not27
   br i1 %or.cond, label %_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit, label %.backedge.backedge
 
-_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit41.thread: ; preds = %62, %51, %54, %48
+_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit41.thread: ; preds = %62, %54, %51, %48
   %.old = getelementptr inbounds nuw i8, ptr %.155, i64 16
   %.not27.old = icmp eq ptr %.old, %12
   br i1 %.not27.old, label %_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit, label %.backedge.backedge
@@ -1987,7 +1987,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set2
   br label %.backedge, !llvm.loop !97
 
 _ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit: ; preds = %.preheader.i.i, %42, %36, %67, %_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit41.thread, %.preheader.i.i33, %61, %.preheader
-  %.026 = phi ptr [ %.053, %36 ], [ %.155, %61 ], [ null, %.preheader ], [ %.155, %.preheader.i.i33 ], [ null, %_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit41.thread ], [ null, %67 ], [ null, %42 ], [ %.053, %.preheader.i.i ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.155, %61 ], [ null, %67 ], [ null, %_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit41.thread ], [ %.155, %.preheader.i.i33 ], [ %.053, %36 ], [ %.053, %.preheader.i.i ], [ null, %42 ]
   ret ptr %.026
 }
 
@@ -2245,8 +2245,8 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set2
   store i32 %63, ptr %3, align 4, !tbaa !72
   br label %100
 
-_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit.thread: ; preds = %48, %37, %40, %54, %34
-  %.1 = phi ptr [ %.04588, %54 ], [ %.04489, %34 ], [ %.04489, %40 ], [ %.04489, %37 ], [ %.04489, %48 ]
+_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit.thread: ; preds = %48, %40, %37, %54, %34
+  %.1 = phi ptr [ %.04489, %34 ], [ %.04588, %54 ], [ %.04489, %37 ], [ %.04489, %40 ], [ %.04489, %48 ]
   %64 = getelementptr inbounds nuw i8, ptr %.04588, i64 16
   %.not = icmp eq ptr %64, %25
   br i1 %.not, label %.preheader, label %30, !llvm.loop !98
@@ -2331,8 +2331,8 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set2
   store i32 %98, ptr %3, align 4, !tbaa !72
   br label %100
 
-_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit63.thread: ; preds = %83, %72, %75, %89, %69
-  %.3 = phi ptr [ %.14692, %89 ], [ %.293, %69 ], [ %.293, %75 ], [ %.293, %72 ], [ %.293, %83 ]
+_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit63.thread: ; preds = %83, %75, %72, %89, %69
+  %.3 = phi ptr [ %.293, %69 ], [ %.14692, %89 ], [ %.293, %72 ], [ %.293, %75 ], [ %.293, %83 ]
   %99 = getelementptr inbounds nuw i8, ptr %.14692, i64 16
   %.not47 = icmp eq ptr %99, %23
   br i1 %.not47, label %._crit_edge, label %65, !llvm.loop !99
@@ -2555,7 +2555,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIN3smt11fin
   %43 = icmp eq ptr %21, null
   br i1 %43, label %.loopexit, label %_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit.thread
 
-_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit.thread: ; preds = %37, %26, %29, %23, %42
+_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit.thread: ; preds = %37, %29, %26, %23, %42
   %44 = getelementptr inbounds nuw i8, ptr %.02960, i64 16
   %.not = icmp eq ptr %44, %14
   br i1 %.not, label %.preheader, label %19, !llvm.loop !104
@@ -2617,7 +2617,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set2
   %or.cond65 = select i1 %68, i1 true, i1 %.not32
   br i1 %or.cond65, label %.loopexit, label %.backedge.backedge
 
-_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit46.thread: ; preds = %62, %51, %54, %48
+_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit46.thread: ; preds = %62, %54, %51, %48
   %.old = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.not32.old = icmp eq ptr %.old, %12
   br i1 %.not32.old, label %.loopexit, label %.backedge.backedge
@@ -2627,7 +2627,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set2
   br label %.backedge, !llvm.loop !105
 
 _ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE6equalsERKPS2_SA_.exit: ; preds = %.preheader.i.i, %36, %.preheader.i.i38, %61
-  %.1 = phi ptr [ %.262, %.preheader.i.i38 ], [ %.02960, %36 ], [ %.262, %61 ], [ %.02960, %.preheader.i.i ]
+  %.1 = phi ptr [ %.262, %61 ], [ %.262, %.preheader.i.i38 ], [ %.02960, %36 ], [ %.02960, %.preheader.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %71 = icmp eq ptr %70, %14
   %spec.select = select i1 %71, ptr %10, ptr %70

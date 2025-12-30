@@ -902,7 +902,7 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   br label %cpool_get_instance.exit
 
 cpool_get_instance.exit:                          ; preds = %17, %2, %86, %82, %.thread96, %29
-  %.0 = phi i32 [ 0, %29 ], [ %.047, %86 ], [ %.047, %.thread96 ], [ %.047, %82 ], [ 0, %2 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %29 ], [ %.047, %.thread96 ], [ %.047, %82 ], [ %.047, %86 ], [ 0, %2 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1346,7 +1346,7 @@ cpool_add_bundle.exit.thread:                     ; preds = %39, %47, %cpool_add
   br label %cpool_get_instance.exit
 
 cpool_get_instance.exit:                          ; preds = %17, %2, %66, %62, %cpool_add_bundle.exit.thread
-  %.0 = phi i32 [ %.025, %66 ], [ %.025, %cpool_add_bundle.exit.thread ], [ %.025, %62 ], [ 2, %2 ], [ 2, %17 ]
+  %.0 = phi i32 [ %.025, %cpool_add_bundle.exit.thread ], [ %.025, %62 ], [ %.025, %66 ], [ 2, %2 ], [ 2, %17 ]
   ret i32 %.0
 }
 
@@ -1980,7 +1980,7 @@ define internal fastcc i32 @cpool_add_pollfds(ptr noundef %0, ptr noundef %1) un
   br label %18
 
 18:                                               ; preds = %2, %.loopexit
-  %.2 = phi i32 [ 0, %2 ], [ %.1, %.loopexit ]
+  %.2 = phi i32 [ %.1, %.loopexit ], [ 0, %2 ]
   ret i32 %.2
 }
 
@@ -2057,7 +2057,7 @@ define dso_local i32 @Curl_cpool_add_waitfds(ptr noundef %0, ptr noundef %1) loc
   br label %33
 
 33:                                               ; preds = %19, %._crit_edge
-  %.2 = phi i32 [ 0, %19 ], [ %.1, %._crit_edge ]
+  %.2 = phi i32 [ %.1, %._crit_edge ], [ 0, %19 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, -2
@@ -2875,7 +2875,7 @@ cpool_foreach.exit:                               ; preds = %.critedge.loopexit.
   br label %cpool_get_instance.exit
 
 cpool_get_instance.exit:                          ; preds = %18, %56, %52, %cpool_foreach.exit, %2
-  %.0 = phi ptr [ %.sroa.4.2, %56 ], [ null, %2 ], [ %.sroa.4.2, %cpool_foreach.exit ], [ %.sroa.4.2, %52 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %2 ], [ %.sroa.4.2, %cpool_foreach.exit ], [ %.sroa.4.2, %52 ], [ %.sroa.4.2, %56 ], [ null, %18 ]
   ret ptr %.0
 }
 

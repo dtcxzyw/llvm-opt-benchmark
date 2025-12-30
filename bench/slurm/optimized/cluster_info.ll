@@ -80,8 +80,8 @@ _get_clusters_from_fed.exit.thread15:             ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
-_get_clusters_from_fed.exit.thread19:             ; preds = %30, %18
-  %.sink.i.ph = phi ptr [ %13, %18 ], [ %21, %30 ]
+_get_clusters_from_fed.exit.thread19:             ; preds = %18, %30
+  %.sink.i.ph = phi ptr [ %21, %30 ], [ %13, %18 ]
   call void @list_destroy(ptr noundef nonnull %.sink.i.ph) #3
   br label %.sink.split
 
@@ -102,7 +102,7 @@ _get_clusters_from_fed.exit:                      ; preds = %31
   br label %34
 
 34:                                               ; preds = %_get_clusters_from_fed.exit, %_get_clusters_from_fed.exit.thread15, %32, %3
-  %.0 = phi i32 [ 0, %_get_clusters_from_fed.exit ], [ %., %32 ], [ -1, %3 ], [ 0, %_get_clusters_from_fed.exit.thread15 ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %_get_clusters_from_fed.exit ], [ %., %32 ], [ 0, %_get_clusters_from_fed.exit.thread15 ]
   ret i32 %.0
 }
 
@@ -147,7 +147,7 @@ define internal range(i32 0, 2) i32 @_match_and_setup_cluster_rec(ptr noundef %0
   br label %9
 
 9:                                                ; preds = %5, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ %., %5 ], [ 1, %4 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %4 ], [ %., %5 ]
   ret i32 %.0
 }
 

@@ -252,8 +252,8 @@ _ZN3rmp6encode8RmpWrite14write_data_u3217hd29e8a845cf86c73E.exit.thread.i: ; pre
   br label %"_ZN43_$LT$T$u20$as$u20$rmp..encode..RmpWrite$GT$11write_bytes17h7d05bb19698f843bE.exit"
 
 "_ZN43_$LT$T$u20$as$u20$rmp..encode..RmpWrite$GT$11write_bytes17h7d05bb19698f843bE.exit": ; preds = %46, %41, %15, %.thread.i, %25, %40, %33
-  %.sroa.4.0 = phi ptr [ inttoptr (i64 163208757251 to ptr), %33 ], [ %16, %15 ], [ %17, %.thread.i ], [ inttoptr (i64 163208757251 to ptr), %25 ], [ inttoptr (i64 163208757251 to ptr), %40 ], [ null, %46 ], [ inttoptr (i64 163208757251 to ptr), %41 ]
-  %.sroa.0.0 = phi i64 [ 1, %33 ], [ 0, %15 ], [ 0, %.thread.i ], [ 1, %25 ], [ 1, %40 ], [ 2, %46 ], [ 1, %41 ]
+  %.sroa.4.0 = phi ptr [ %16, %15 ], [ %17, %.thread.i ], [ inttoptr (i64 163208757251 to ptr), %25 ], [ inttoptr (i64 163208757251 to ptr), %40 ], [ inttoptr (i64 163208757251 to ptr), %33 ], [ null, %46 ], [ inttoptr (i64 163208757251 to ptr), %41 ]
+  %.sroa.0.0 = phi i64 [ 0, %15 ], [ 0, %.thread.i ], [ 1, %25 ], [ 1, %40 ], [ 1, %33 ], [ 2, %46 ], [ 1, %41 ]
   %48 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %49 = insertvalue { i64, ptr } %48, ptr %.sroa.4.0, 1
   ret { i64, ptr } %49
@@ -641,7 +641,7 @@ _ZN4core4hash6Hasher11write_isize17h4e05725b1c5b1d04E.exit6.i.i: ; preds = %.lr.
   br label %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17hb7b5524a83d30a6dE.exit"
 
 "_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17hb7b5524a83d30a6dE.exit": ; preds = %.lr.ph.i.i.i21, %.lr.ph.i.i.i.i, %_ZN4core4hash6Hasher11write_isize17h4e05725b1c5b1d04E.exit6.i.i, %121, %122, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h52b2b7c4cf001a38E.exit"
-  %.sroa.0.0 = phi i64 [ %103, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h52b2b7c4cf001a38E.exit" ], [ %144, %_ZN4core4hash6Hasher11write_isize17h4e05725b1c5b1d04E.exit6.i.i ], [ %112, %121 ], [ %127, %.lr.ph.i.i.i.i ], [ %112, %122 ], [ %135, %.lr.ph.i.i.i21 ]
+  %.sroa.0.0 = phi i64 [ %103, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h52b2b7c4cf001a38E.exit" ], [ %144, %_ZN4core4hash6Hasher11write_isize17h4e05725b1c5b1d04E.exit6.i.i ], [ %112, %121 ], [ %112, %122 ], [ %127, %.lr.ph.i.i.i.i ], [ %135, %.lr.ph.i.i.i21 ]
   %146 = trunc i64 %.sroa.0.0 to i16
   %147 = and i16 %146, 32767
   ret i16 %147
@@ -1207,7 +1207,7 @@ common.resume:                                    ; preds = %104, %126
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h984d78e7bac35036E.exit"
 
 129:                                              ; preds = %114, %30, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h984d78e7bac35036E.exit"
-  %.sroa.0.0 = phi i1 [ true, %30 ], [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h984d78e7bac35036E.exit" ], [ true, %114 ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h984d78e7bac35036E.exit" ], [ true, %30 ], [ true, %114 ]
   ret i1 %.sroa.0.0
 }
 
@@ -1495,7 +1495,7 @@ common.resume:                                    ; preds = %104, %126
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hca396917f21cc2e9E.exit"
 
 129:                                              ; preds = %114, %30, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hca396917f21cc2e9E.exit"
-  %.sroa.0.0 = phi i1 [ true, %30 ], [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hca396917f21cc2e9E.exit" ], [ true, %114 ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hca396917f21cc2e9E.exit" ], [ true, %30 ], [ true, %114 ]
   ret i1 %.sroa.0.0
 }
 
@@ -1785,9 +1785,9 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   br label %_ZN4http6header3map18remove_extra_value17hcc11e63594002314E.exit
 
 .invoke.i:                                        ; preds = %121, %119, %105, %103, %93
-  %133 = phi i64 [ %97, %121 ], [ %99, %103 ], [ %99, %105 ], [ %97, %119 ], [ %.sroa.0.062, %93 ]
-  %134 = phi i64 [ %8, %121 ], [ %39, %103 ], [ %8, %105 ], [ %39, %119 ], [ %39, %93 ]
-  %135 = phi ptr [ @anon.1edb045931e9023cdef45a0c849faf9a.69, %121 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.68, %103 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.66, %105 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.71, %119 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.65, %93 ]
+  %133 = phi i64 [ %99, %105 ], [ %99, %103 ], [ %97, %121 ], [ %97, %119 ], [ %.sroa.0.062, %93 ]
+  %134 = phi i64 [ %8, %105 ], [ %39, %103 ], [ %8, %121 ], [ %39, %119 ], [ %39, %93 ]
+  %135 = phi ptr [ @anon.1edb045931e9023cdef45a0c849faf9a.66, %105 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.68, %103 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.69, %121 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.71, %119 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.65, %93 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %133, i64 noundef %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %135) #20
           to label %.cont.i unwind label %101, !noalias !266
 
@@ -2110,9 +2110,9 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   br label %_ZN4http6header3map18remove_extra_value17ha4b2cf0e41b8a848E.exit
 
 .invoke.i:                                        ; preds = %121, %119, %105, %103, %93
-  %133 = phi i64 [ %97, %121 ], [ %99, %103 ], [ %99, %105 ], [ %97, %119 ], [ %.sroa.0.062, %93 ]
-  %134 = phi i64 [ %8, %121 ], [ %39, %103 ], [ %8, %105 ], [ %39, %119 ], [ %39, %93 ]
-  %135 = phi ptr [ @anon.1edb045931e9023cdef45a0c849faf9a.69, %121 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.68, %103 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.66, %105 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.71, %119 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.65, %93 ]
+  %133 = phi i64 [ %99, %105 ], [ %99, %103 ], [ %97, %121 ], [ %97, %119 ], [ %.sroa.0.062, %93 ]
+  %134 = phi i64 [ %8, %105 ], [ %39, %103 ], [ %8, %121 ], [ %39, %119 ], [ %39, %93 ]
+  %135 = phi ptr [ @anon.1edb045931e9023cdef45a0c849faf9a.66, %105 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.68, %103 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.69, %121 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.71, %119 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.65, %93 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %133, i64 noundef %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %135) #20
           to label %.cont.i unwind label %101, !noalias !280
 
@@ -2496,7 +2496,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$6remove17h42969fd827
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %30, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.44) #20, !noalias !327
   unreachable
 
-.loopexit:                                        ; preds = %26, %29, %3
+.loopexit:                                        ; preds = %29, %26, %3
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 2, ptr %60, align 8
   br label %61
@@ -2669,9 +2669,9 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$6remove17h42969fd827
   br i1 %139, label %143, label %.invoke.i
 
 .invoke.i:                                        ; preds = %138, %113, %105
-  %140 = phi i64 [ %109, %113 ], [ %107, %105 ], [ %.sroa.0.0.i.ph, %138 ]
-  %141 = phi i64 [ %111, %113 ], [ %111, %105 ], [ %68, %138 ]
-  %142 = phi ptr [ @anon.1edb045931e9023cdef45a0c849faf9a.33, %113 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.32, %105 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.36, %138 ]
+  %140 = phi i64 [ %107, %105 ], [ %109, %113 ], [ %.sroa.0.0.i.ph, %138 ]
+  %141 = phi i64 [ %111, %105 ], [ %111, %113 ], [ %68, %138 ]
+  %142 = phi ptr [ @anon.1edb045931e9023cdef45a0c849faf9a.32, %105 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.33, %113 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.36, %138 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %140, i64 noundef %141, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %142) #20
           to label %.cont.i unwind label %96, !noalias !333
 
@@ -2807,7 +2807,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$6remove17h7aaacd7627
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %30, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.44) #20, !noalias !352
   unreachable
 
-.loopexit:                                        ; preds = %26, %29, %3
+.loopexit:                                        ; preds = %29, %26, %3
   store ptr null, ptr %0, align 8
   br label %60
 
@@ -2979,9 +2979,9 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$6remove17h7aaacd7627
   br i1 %138, label %142, label %.invoke.i
 
 .invoke.i:                                        ; preds = %137, %112, %104
-  %139 = phi i64 [ %108, %112 ], [ %106, %104 ], [ %.sroa.0.0.i.ph, %137 ]
-  %140 = phi i64 [ %110, %112 ], [ %110, %104 ], [ %67, %137 ]
-  %141 = phi ptr [ @anon.1edb045931e9023cdef45a0c849faf9a.33, %112 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.32, %104 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.36, %137 ]
+  %139 = phi i64 [ %106, %104 ], [ %108, %112 ], [ %.sroa.0.0.i.ph, %137 ]
+  %140 = phi i64 [ %110, %104 ], [ %110, %112 ], [ %67, %137 ]
+  %141 = phi ptr [ @anon.1edb045931e9023cdef45a0c849faf9a.32, %104 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.33, %112 ], [ @anon.1edb045931e9023cdef45a0c849faf9a.36, %137 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %139, i64 noundef %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %141) #20
           to label %.cont.i unwind label %95, !noalias !358
 

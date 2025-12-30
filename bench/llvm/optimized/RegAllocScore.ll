@@ -798,30 +798,30 @@ define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionEN
   %62 = and i32 %59, 4
   %63 = icmp ne i32 %62, 0
   %or.cond.i.i = or i1 %61, %63
-  br i1 %or.cond.i.i, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit, label %64
+  br i1 %or.cond.i.i, label %64, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
 
 64:                                               ; preds = %57
-  %65 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.072, i64 noundef 524288, i32 noundef 1) #16
-  %.pre104 = load i16, ptr %32, align 4, !tbaa !74
-  br i1 %65, label %._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge, label %94
-
-._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge: ; preds = %64
-  %.pre107 = add i16 %.pre104, -1
-  br label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
-
-_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit: ; preds = %57
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !89
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load i64, ptr %68, align 8, !tbaa !90
-  %70 = and i64 %69, 524288
-  %.not59 = icmp eq i64 %70, 0
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 16
+  %66 = load ptr, ptr %65, align 8, !tbaa !89
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load i64, ptr %67, align 8, !tbaa !90
+  %69 = and i64 %68, 524288
+  %.not59 = icmp eq i64 %69, 0
   br i1 %.not59, label %94, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
 
-_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread: ; preds = %._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
-  %.pre-phi108 = phi i16 [ %.pre107, %._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge ], [ %50, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ]
-  %71 = phi i16 [ %.pre104, %._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge ], [ %49, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ]
-  %spec.select.i.i23 = icmp ult i16 %.pre-phi108, 2
+_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit: ; preds = %57
+  %70 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.072, i64 noundef 524288, i32 noundef 1) #16
+  %.pre103 = load i16, ptr %32, align 4, !tbaa !74
+  br i1 %70, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge, label %94
+
+_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge: ; preds = %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
+  %.pre105 = add i16 %.pre103, -1
+  br label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
+
+_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread: ; preds = %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge, %64
+  %.pre-phi106 = phi i16 [ %.pre105, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge ], [ %50, %64 ]
+  %71 = phi i16 [ %.pre103, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread_crit_edge ], [ %49, %64 ]
+  %spec.select.i.i23 = icmp ult i16 %.pre-phi106, 2
   br i1 %spec.select.i.i23, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.thread, label %78
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.thread: ; preds = %51, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
@@ -843,31 +843,31 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.thread: ; preds = %5
   %84 = and i32 %81, 4
   %85 = icmp ne i32 %84, 0
   %or.cond.i.i24 = or i1 %83, %85
-  br i1 %or.cond.i.i24, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit, label %86
+  br i1 %or.cond.i.i24, label %86, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit
 
 86:                                               ; preds = %78
-  %87 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.072, i64 noundef 1048576, i32 noundef 1) #16
-  br i1 %87, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread, label %._crit_edge102
-
-._crit_edge102:                                   ; preds = %86
-  %.pre103 = load i16, ptr %32, align 4, !tbaa !74
-  br label %94
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !89
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !90
+  %91 = and i64 %90, 1048576
+  %.not60 = icmp eq i64 %91, 0
+  br i1 %.not60, label %94, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit: ; preds = %78
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !89
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load i64, ptr %90, align 8, !tbaa !90
-  %92 = and i64 %91, 1048576
-  %.not60 = icmp eq i64 %92, 0
-  br i1 %.not60, label %94, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread
+  %92 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.072, i64 noundef 1048576, i32 noundef 1) #16
+  br i1 %92, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit._crit_edge
+
+_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit
+  %.pre102 = load i16, ptr %32, align 4, !tbaa !74
+  br label %94
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread: ; preds = %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.thread, %86, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit
   %93 = fadd double %22, %.sroa.15.170
   br label %139
 
-94:                                               ; preds = %._crit_edge102, %64, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
-  %95 = phi i16 [ %.pre103, %._crit_edge102 ], [ %.pre104, %64 ], [ %79, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit ], [ %49, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ]
+94:                                               ; preds = %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit._crit_edge, %86, %64, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
+  %95 = phi i16 [ %.pre102, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit._crit_edge ], [ %79, %86 ], [ %49, %64 ], [ %.pre103, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ]
   %96 = add i16 %95, -1
   %spec.select.i.i27 = icmp ult i16 %96, 2
   br i1 %spec.select.i.i27, label %97, label %103
@@ -889,32 +889,32 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread: ; preds = %_ZNK4ll
   %108 = and i32 %105, 4
   %109 = icmp ne i32 %108, 0
   %or.cond.i.i28 = or i1 %107, %109
-  br i1 %or.cond.i.i28, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31, label %110
+  br i1 %or.cond.i.i28, label %110, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31
 
 110:                                              ; preds = %103
-  %111 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.072, i64 noundef 524288, i32 noundef 1) #16
-  br i1 %111, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread, label %._crit_edge105
-
-._crit_edge105:                                   ; preds = %110
-  %.pre = load i16, ptr %32, align 4, !tbaa !74
-  %.pre106 = add i16 %.pre, -1
-  br label %118
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 16
+  %112 = load ptr, ptr %111, align 8, !tbaa !89
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %114 = load i64, ptr %113, align 8, !tbaa !90
+  %115 = and i64 %114, 524288
+  %.not61 = icmp eq i64 %115, 0
+  br i1 %.not61, label %118, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31: ; preds = %103
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !89
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %115 = load i64, ptr %114, align 8, !tbaa !90
-  %116 = and i64 %115, 524288
-  %.not61 = icmp eq i64 %116, 0
-  br i1 %.not61, label %118, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread
+  %116 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.072, i64 noundef 524288, i32 noundef 1) #16
+  br i1 %116, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31._crit_edge
+
+_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31._crit_edge: ; preds = %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31
+  %.pre = load i16, ptr %32, align 4, !tbaa !74
+  %.pre104 = add i16 %.pre, -1
+  br label %118
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread: ; preds = %97, %110, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31
   %117 = fadd double %22, %.sroa.6.167
   br label %139
 
-118:                                              ; preds = %._crit_edge105, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31
-  %.pre-phi = phi i16 [ %.pre106, %._crit_edge105 ], [ %96, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31 ]
+118:                                              ; preds = %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31._crit_edge, %110
+  %.pre-phi = phi i16 [ %.pre104, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31._crit_edge ], [ %96, %110 ]
   %spec.select.i.i32 = icmp ult i16 %.pre-phi, 2
   br i1 %spec.select.i.i32, label %119, label %125
 
@@ -934,32 +934,32 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread: ; preds = %97, %1
   %129 = and i32 %126, 4
   %130 = icmp ne i32 %129, 0
   %or.cond.i.i33 = or i1 %128, %130
-  br i1 %or.cond.i.i33, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36, label %131
+  br i1 %or.cond.i.i33, label %131, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36
 
 131:                                              ; preds = %125
-  %132 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.072, i64 noundef 1048576, i32 noundef 1) #16
-  br i1 %132, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread, label %139
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 16
+  %133 = load ptr, ptr %132, align 8, !tbaa !89
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %135 = load i64, ptr %134, align 8, !tbaa !90
+  %136 = and i64 %135, 1048576
+  %.not62 = icmp eq i64 %136, 0
+  br i1 %.not62, label %139, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36: ; preds = %125
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.037.072, i64 16
-  %134 = load ptr, ptr %133, align 8, !tbaa !89
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %136 = load i64, ptr %135, align 8, !tbaa !90
-  %137 = and i64 %136, 1048576
-  %.not62 = icmp eq i64 %137, 0
-  br i1 %.not62, label %139, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread
+  %137 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.037.072, i64 noundef 1048576, i32 noundef 1) #16
+  br i1 %137, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread, label %139
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread: ; preds = %119, %131, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36
   %138 = fadd double %22, %.sroa.9.168
   br label %139
 
 139:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %131, %34, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread, %44, %46
-  %.sroa.039.2 = phi double [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %131 ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %35, %34 ], [ %.sroa.039.166, %44 ], [ %.sroa.039.166, %46 ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ]
-  %.sroa.6.2 = phi double [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %131 ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.6.167, %34 ], [ %.sroa.6.167, %44 ], [ %.sroa.6.167, %46 ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %117, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ]
-  %.sroa.9.2 = phi double [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %131 ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.9.168, %34 ], [ %.sroa.9.168, %44 ], [ %.sroa.9.168, %46 ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %138, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ]
-  %.sroa.12.2 = phi double [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %131 ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.12.169, %34 ], [ %45, %44 ], [ %.sroa.12.169, %46 ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ]
-  %.sroa.15.2 = phi double [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %131 ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.15.170, %34 ], [ %.sroa.15.170, %44 ], [ %.sroa.15.170, %46 ], [ %93, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ]
-  %.sroa.18.2 = phi double [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %131 ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.18.171, %34 ], [ %.sroa.18.171, %44 ], [ %47, %46 ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ]
+  %.sroa.039.2 = phi double [ %.sroa.039.166, %.lr.ph ], [ %35, %34 ], [ %.sroa.039.166, %44 ], [ %.sroa.039.166, %46 ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.039.166, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.039.166, %131 ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ], [ %.sroa.039.166, %.lr.ph ]
+  %.sroa.6.2 = phi double [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %34 ], [ %.sroa.6.167, %44 ], [ %.sroa.6.167, %46 ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %117, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.6.167, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.6.167, %131 ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ], [ %.sroa.6.167, %.lr.ph ]
+  %.sroa.9.2 = phi double [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %34 ], [ %.sroa.9.168, %44 ], [ %.sroa.9.168, %46 ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %138, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.9.168, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.9.168, %131 ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ], [ %.sroa.9.168, %.lr.ph ]
+  %.sroa.12.2 = phi double [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %34 ], [ %45, %44 ], [ %.sroa.12.169, %46 ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.12.169, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.12.169, %131 ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ], [ %.sroa.12.169, %.lr.ph ]
+  %.sroa.15.2 = phi double [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %34 ], [ %.sroa.15.170, %44 ], [ %.sroa.15.170, %46 ], [ %93, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.15.170, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.15.170, %131 ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ], [ %.sroa.15.170, %.lr.ph ]
+  %.sroa.18.2 = phi double [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %34 ], [ %.sroa.18.171, %44 ], [ %47, %46 ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit31.thread ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36.thread ], [ %.sroa.18.171, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit36 ], [ %.sroa.18.171, %131 ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ], [ %.sroa.18.171, %.lr.ph ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.037.072, align 8
   %140 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %140, 0
@@ -1280,7 +1280,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_12MachineInst
   br label %"_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.exit"
 
 "_ZZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEENK3$_1clERKNS_12MachineInstrE.exit": ; preds = %2, %15, %21
-  %26 = phi i1 [ true, %2 ], [ false, %15 ], [ %25, %21 ]
+  %26 = phi i1 [ false, %15 ], [ %25, %21 ], [ true, %2 ]
   ret i1 %26
 }
 

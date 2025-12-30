@@ -335,7 +335,7 @@ lv_label_set_dots.exit:                           ; preds = %73, %.critedge.i78
   br label %get_label_flags.exit.i
 
 get_label_flags.exit.i:                           ; preds = %134, %129, %116
-  %.2.i.i = phi i32 [ %spec.select11.i.i, %134 ], [ %.1.i.i, %116 ], [ %.1.i.i, %129 ]
+  %.2.i.i = phi i32 [ %.1.i.i, %129 ], [ %.1.i.i, %116 ], [ %spec.select11.i.i, %134 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %4) #7
   %139 = getelementptr inbounds nuw i8, ptr %117, i64 64
@@ -763,7 +763,7 @@ define internal fastcc void @lv_label_refr_text(ptr noundef %0) unnamed_addr #0 
   br label %get_label_flags.exit
 
 get_label_flags.exit:                             ; preds = %11, %31, %36
-  %.2.i = phi i32 [ %spec.select11.i, %36 ], [ %.1.i, %11 ], [ %.1.i, %31 ]
+  %.2.i = phi i32 [ %.1.i, %31 ], [ %.1.i, %11 ], [ %spec.select11.i, %36 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %42 = load i32, ptr %41, align 4, !tbaa !19
   %.not.i = icmp eq i32 %42, -1
@@ -1792,7 +1792,7 @@ lv_label_get_text.exit:                           ; preds = %5
   br label %get_label_flags.exit
 
 get_label_flags.exit:                             ; preds = %20, %31, %36
-  %.2.i = phi i32 [ %spec.select11.i, %36 ], [ %.1.i, %20 ], [ %.1.i, %31 ]
+  %.2.i = phi i32 [ %.1.i, %31 ], [ %.1.i, %20 ], [ %spec.select11.i, %36 ]
   %41 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !67
   %42 = tail call i32 %41(ptr noundef nonnull %7, i32 noundef %1) #7
   %43 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 92) #7
@@ -1881,8 +1881,8 @@ get_label_flags.exit:                             ; preds = %20, %31, %36
   br label %87
 
 87:                                               ; preds = %74, %79, %84, %.thread
-  %.389 = phi i32 [ %42, %84 ], [ %.090.lcssa, %79 ], [ %.090.lcssa, %74 ], [ %.090.lcssa, %.thread ]
-  %.3 = phi i32 [ %86, %84 ], [ %.083.lcssa, %79 ], [ %.083.lcssa, %74 ], [ %.083.lcssa, %.thread ]
+  %.389 = phi i32 [ %42, %84 ], [ %.090.lcssa, %79 ], [ %.090.lcssa, %.thread ], [ %.090.lcssa, %74 ]
+  %.3 = phi i32 [ %86, %84 ], [ %.083.lcssa, %79 ], [ %.083.lcssa, %.thread ], [ %.083.lcssa, %74 ]
   %88 = zext i32 %.389 to i64
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 %88
   %90 = sub i32 %42, %.389
@@ -2021,7 +2021,7 @@ lv_label_get_text.exit:                           ; preds = %10
   br label %get_label_flags.exit
 
 get_label_flags.exit:                             ; preds = %lv_label_get_text.exit, %40, %45
-  %.2.i = phi i32 [ %spec.select11.i, %45 ], [ %.1.i, %lv_label_get_text.exit ], [ %.1.i, %40 ]
+  %.2.i = phi i32 [ %.1.i, %40 ], [ %.1.i, %lv_label_get_text.exit ], [ %spec.select11.i, %45 ]
   %50 = load i8, ptr %21, align 1, !tbaa !25
   %.not94124 = icmp eq i8 %50, 0
   br i1 %.not94124, label %.loopexit118, label %.lr.ph
@@ -2195,7 +2195,7 @@ calculate_x_coordinate.exit:                      ; preds = %84, %89, %.loopexit
   br i1 %124, label %95, label %.loopexit
 
 .loopexit:                                        ; preds = %122, %.thread112, %calculate_x_coordinate.exit
-  %125 = phi i32 [ 0, %calculate_x_coordinate.exit ], [ %.079130, %.thread112 ], [ %123, %122 ]
+  %125 = phi i32 [ %.079130, %.thread112 ], [ 0, %calculate_x_coordinate.exit ], [ %123, %122 ]
   %126 = load ptr, ptr @lv_text_encoded_get_char_id, align 8, !tbaa !67
   %127 = call i32 %126(ptr noundef nonnull %80, i32 noundef %125) #7
   %128 = call i32 %126(ptr noundef nonnull %21, i32 noundef %.076121) #7
@@ -2278,7 +2278,7 @@ lv_label_get_text.exit:                           ; preds = %8
   br label %get_label_flags.exit
 
 get_label_flags.exit:                             ; preds = %lv_label_get_text.exit, %29, %34
-  %.2.i = phi i32 [ %spec.select11.i, %34 ], [ %.1.i, %lv_label_get_text.exit ], [ %.1.i, %29 ]
+  %.2.i = phi i32 [ %.1.i, %29 ], [ %.1.i, %lv_label_get_text.exit ], [ %spec.select11.i, %34 ]
   %39 = add i32 %18, %.sroa.0.0.extract.trunc.i
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %41
@@ -2428,8 +2428,8 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   br i1 %109, label %.split110.us, label %110
 
 .split110.us:                                     ; preds = %.split, %.split.us.us, %.split.us.us.preheader
-  %.us-phi111 = phi i32 [ %86, %.split.us.us ], [ %.086, %.split.us.us.preheader ], [ %.187.ph, %.split ]
-  %.us-phi112 = phi i32 [ %85, %.split.us.us ], [ %42, %.split.us.us.preheader ], [ %.078.ph, %.split ]
+  %.us-phi111 = phi i32 [ %.086, %.split.us.us.preheader ], [ %86, %.split.us.us ], [ %.187.ph, %.split ]
+  %.us-phi112 = phi i32 [ %42, %.split.us.us.preheader ], [ %85, %.split.us.us ], [ %.078.ph, %.split ]
   store i32 %.us-phi112, ptr %5, align 4, !tbaa !48
   br label %.loopexit
 
@@ -2439,7 +2439,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   br label %.outer, !llvm.loop !70
 
 .loopexit:                                        ; preds = %94, %.outer.us, %.preheader105.split.us, %.split110.us, %74
-  %.079 = phi i32 [ %.us-phi111, %.split110.us ], [ 0, %74 ], [ %.187.ph.us115147, %.outer.us ], [ 0, %.preheader105.split.us ], [ %.180.ph, %94 ]
+  %.079 = phi i32 [ %.us-phi111, %.split110.us ], [ 0, %74 ], [ 0, %.preheader105.split.us ], [ %.187.ph.us115147, %.outer.us ], [ %.180.ph, %94 ]
   %113 = load i32, ptr %6, align 4, !tbaa !48
   %114 = load i32, ptr %7, align 4, !tbaa !48
   %115 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %113, i32 noundef %114) #7

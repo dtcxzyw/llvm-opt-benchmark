@@ -81,8 +81,8 @@ define internal range(i32 0, 52) i32 @alias_pix_read_probe(ptr noundef readonly 
   %exitcond.not = icmp eq i32 %39, %invariant.umin
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !15
 
-.thread:                                          ; preds = %38, %33, %29, %25, %1
-  %.0 = phi i32 [ 0, %1 ], [ 12, %33 ], [ 0, %25 ], [ 0, %29 ], [ 51, %38 ]
+.thread:                                          ; preds = %38, %33, %25, %29, %1
+  %.0 = phi i32 [ 0, %1 ], [ 0, %29 ], [ 0, %25 ], [ 12, %33 ], [ 51, %38 ]
   ret i32 %.0
 }
 

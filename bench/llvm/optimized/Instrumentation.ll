@@ -382,77 +382,77 @@ define dso_local { ptr, i64 } @_ZN4llvm24PrepareToSplitEntryBlockERNS_10BasicBlo
 .lr.ph:                                           ; preds = %3, %.critedge
   %.sroa.516.037 = phi i64 [ %.sroa.516.1, %.critedge ], [ %2, %3 ]
   %.sroa.014.036 = phi ptr [ %.sroa.014.1, %.critedge ], [ %1, %3 ]
-  %.sroa.027.035 = phi ptr [ %35, %.critedge ], [ %1, %3 ]
+  %.sroa.027.035 = phi ptr [ %36, %.critedge ], [ %1, %3 ]
   %5 = getelementptr inbounds i8, ptr %.sroa.027.035, i64 -24
   %6 = load i8, ptr %5, align 8, !tbaa !164
   switch i8 %6, label %.critedge [
-    i8 60, label %24
-    i8 85, label %7
+    i8 60, label %7
+    i8 85, label %9
   ]
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.sroa.027.035, i64 -56
-  %9 = load ptr, ptr %8, align 8, !tbaa !168
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.critedge, label %10
+  %8 = tail call noundef zeroext i1 @_ZNK4llvm10AllocaInst14isStaticAllocaEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
+  br i1 %8, label %27, label %.critedge
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr %9, align 8, !tbaa !164
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i, label %.critedge
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds i8, ptr %.sroa.027.035, i64 -56
+  %11 = load ptr, ptr %10, align 8, !tbaa !168
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.critedge, label %12
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !173
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !178
-  %17 = icmp eq ptr %14, %16
-  br i1 %17, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i, label %.critedge
+12:                                               ; preds = %9
+  %13 = load i8, ptr %11, align 8, !tbaa !164
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i, label %.critedge
+
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !173
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 56
+  %18 = load ptr, ptr %17, align 8, !tbaa !178
+  %19 = icmp eq ptr %16, %18
+  br i1 %19, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i, label %.critedge
 
 _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %19 = load i32, ptr %18, align 8
-  %20 = and i32 %19, 8192
-  %.not.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i.i, label %.critedge, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEDcRT0_.exit
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 8192
+  %.not.i.i.i = icmp eq i32 %22, 0
+  br i1 %.not.i.i.i, label %.critedge, label %23
 
-_ZN4llvm8dyn_castINS_13IntrinsicInstENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEDcRT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %22 = load i32, ptr %21, align 4, !tbaa !197
-  %23 = icmp eq i32 %22, 216
-  br i1 %23, label %26, label %.critedge
+23:                                               ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %25 = load i32, ptr %24, align 4, !tbaa !197
+  %26 = icmp eq i32 %25, 216
+  br i1 %26, label %27, label %.critedge
 
-24:                                               ; preds = %.lr.ph
-  %25 = tail call noundef zeroext i1 @_ZNK4llvm10AllocaInst14isStaticAllocaEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
-  br i1 %25, label %26, label %.critedge
+27:                                               ; preds = %7, %23
+  %28 = icmp eq ptr %.sroa.027.035, %.sroa.014.036
+  br i1 %28, label %29, label %32
 
-26:                                               ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEDcRT0_.exit, %24
-  %27 = icmp eq ptr %.sroa.027.035, %.sroa.014.036
-  br i1 %27, label %28, label %31
-
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.036, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !198
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.036, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !198
   br label %_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit
 
-31:                                               ; preds = %26
+32:                                               ; preds = %27
   tail call void @_ZN4llvm11Instruction10moveBeforeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr %.sroa.014.036, i64 %.sroa.516.037) #14
-  %32 = and i64 %.sroa.516.037, 65535
+  %33 = and i64 %.sroa.516.037, 65535
   br label %_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit
 
-_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit: ; preds = %28, %31
-  %.sroa.0.0.i = phi ptr [ %30, %28 ], [ %.sroa.014.036, %31 ]
-  %33 = phi i64 [ 0, %28 ], [ %32, %31 ]
+_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit: ; preds = %29, %32
+  %.sroa.0.0.i = phi ptr [ %31, %29 ], [ %.sroa.014.036, %32 ]
+  %34 = phi i64 [ 0, %29 ], [ %33, %32 ]
   %.sroa.11.8.extract.shift.i = and i64 %.sroa.516.037, -65536
-  %.sroa.516.8.insert.insert = or disjoint i64 %33, %.sroa.11.8.extract.shift.i
+  %.sroa.516.8.insert.insert = or disjoint i64 %34, %.sroa.11.8.extract.shift.i
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i, %7, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %10, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEDcRT0_.exit, %_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit, %24
-  %.sroa.014.1 = phi ptr [ %.sroa.0.0.i, %_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit ], [ %.sroa.014.036, %24 ], [ %.sroa.014.036, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEDcRT0_.exit ], [ %.sroa.014.036, %10 ], [ %.sroa.014.036, %.lr.ph ], [ %.sroa.014.036, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.014.036, %7 ], [ %.sroa.014.036, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i ]
-  %.sroa.516.1 = phi i64 [ %.sroa.516.8.insert.insert, %_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit ], [ %.sroa.516.037, %24 ], [ %.sroa.516.037, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEDcRT0_.exit ], [ %.sroa.516.037, %10 ], [ %.sroa.516.037, %.lr.ph ], [ %.sroa.516.037, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.516.037, %7 ], [ %.sroa.516.037, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !198
-  %.not33 = icmp eq ptr %35, %4
+.critedge:                                        ; preds = %.lr.ph, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %9, %12, %7, %_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit, %23
+  %.sroa.014.1 = phi ptr [ %.sroa.0.0.i, %_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit ], [ %.sroa.014.036, %23 ], [ %.sroa.014.036, %7 ], [ %.sroa.014.036, %12 ], [ %.sroa.014.036, %9 ], [ %.sroa.014.036, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.014.036, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i ], [ %.sroa.014.036, %.lr.ph ]
+  %.sroa.516.1 = phi i64 [ %.sroa.516.8.insert.insert, %_ZL21moveBeforeInsertPointN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_.exit ], [ %.sroa.516.037, %23 ], [ %.sroa.516.037, %7 ], [ %.sroa.516.037, %12 ], [ %.sroa.516.037, %9 ], [ %.sroa.516.037, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.516.037, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i ], [ %.sroa.516.037, %.lr.ph ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !198
+  %.not33 = icmp eq ptr %36, %4
   br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !199
 }
 

@@ -56,7 +56,7 @@ define internal range(i32 -2147483648, 2147483643) i32 @utf32le_mbc_enc_len(ptr 
   br label %23
 
 23:                                               ; preds = %17, %13, %3, %10
-  %.0 = phi i32 [ -1, %3 ], [ %12, %10 ], [ -1, %13 ], [ %spec.select, %17 ]
+  %.0 = phi i32 [ %12, %10 ], [ -1, %3 ], [ -1, %13 ], [ %spec.select, %17 ]
   ret i32 %.0
 }
 

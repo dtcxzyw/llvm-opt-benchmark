@@ -497,7 +497,7 @@ define internal i32 @dissect_bthsp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread318
 
 .thread318:                                       ; preds = %67, %.thread315, %.thread320
-  %157 = phi i32 [ %.pre, %.thread320 ], [ 1, %67 ], [ 2, %.thread315 ]
+  %157 = phi i32 [ 1, %67 ], [ 2, %.thread315 ], [ %.pre, %.thread320 ]
   %158 = load i32, ptr @hf_role, align 4
   %159 = call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %158, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %157)
   %.not.i = icmp eq ptr %159, null
@@ -850,7 +850,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   br i1 %346, label %.thread334.thread.sink.split, label %.thread334
 
 .thread334:                                       ; preds = %344, %341, %337, %333, %330
-  %or.cond3337 = phi i1 [ %or.cond3, %330 ], [ true, %344 ], [ true, %341 ], [ true, %337 ], [ true, %333 ]
+  %or.cond3337 = phi i1 [ true, %344 ], [ true, %341 ], [ true, %337 ], [ true, %333 ], [ %or.cond3, %330 ]
   %347 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond9 = and i1 %347, %or.cond3337
   br i1 %or.cond9, label %348, label %.thread334.thread
@@ -906,7 +906,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   br label %.thread327
 
 .thread327:                                       ; preds = %274, %276, %.thread330, %294, %298, %303, %308, %313, %.thread334.thread, %280
-  %.1265 = phi i32 [ %.2266333, %.thread334.thread ], [ %.2266333, %313 ], [ %.2266333, %308 ], [ %.2266333, %303 ], [ %.2266333, %298 ], [ %.2266333, %294 ], [ %.2266333, %.thread330 ], [ %.0264348, %280 ], [ %.0264348, %274 ], [ %.0264348, %276 ]
+  %.1265 = phi i32 [ %.2266333, %.thread334.thread ], [ %.2266333, %313 ], [ %.2266333, %308 ], [ %.2266333, %303 ], [ %.2266333, %298 ], [ %.2266333, %294 ], [ %.2266333, %.thread330 ], [ %.0264348, %280 ], [ %.0264348, %276 ], [ %.0264348, %274 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %273
   br i1 %exitcond.not, label %.loopexit341, label %274, !llvm.loop !10
@@ -1469,10 +1469,10 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %.thread439
 
 .thread439:                                       ; preds = %.thread, %74, %.critedge
-  %.0388 = phi ptr [ %88, %.critedge ], [ %80, %74 ], [ %27, %.thread ]
-  %.0379 = phi i32 [ %.2382.lcssa.ph, %.critedge ], [ %78, %74 ], [ 0, %.thread ]
-  %.0378 = phi i32 [ %89, %.critedge ], [ %81, %74 ], [ %8, %.thread ]
-  %.1 = phi i32 [ %86, %.critedge ], [ %77, %74 ], [ %3, %.thread ]
+  %.0388 = phi ptr [ %80, %74 ], [ %88, %.critedge ], [ %27, %.thread ]
+  %.0379 = phi i32 [ %78, %74 ], [ %.2382.lcssa.ph, %.critedge ], [ 0, %.thread ]
+  %.0378 = phi i32 [ %81, %74 ], [ %89, %.critedge ], [ %8, %.thread ]
+  %.1 = phi i32 [ %77, %74 ], [ %86, %.critedge ], [ %3, %.thread ]
   %.not418 = icmp eq ptr %.0388, null
   br i1 %.not418, label %.thread501, label %.preheader514
 
@@ -1548,8 +1548,8 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %114
 
 114:                                              ; preds = %105, %.thread450
-  %.1377532 = phi ptr [ %.1377533, %.thread450 ], [ %.1377554, %105 ]
-  %.0389 = phi ptr [ %113, %.thread450 ], [ %109, %105 ]
+  %.1377532 = phi ptr [ %.1377554, %105 ], [ %.1377533, %.thread450 ]
+  %.0389 = phi ptr [ %109, %105 ], [ %113, %.thread450 ]
   %.not427 = icmp eq ptr %.1377532, null
   br i1 %.not427, label %170, label %115
 
@@ -1659,10 +1659,10 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %171 = add i32 %.3383.lcssa, %.1
   br label %179
 
-172:                                              ; preds = %141, %155, %.thread479.thread, %.thread479, %160, %125
-  %.4384.ph = phi i32 [ %.3383.lcssa, %125 ], [ %.3383.lcssa, %160 ], [ %.3383.lcssa, %.thread479 ], [ %169, %.thread479.thread ], [ %159, %155 ], [ %145, %141 ]
-  %.0362.ph = phi i16 [ 0, %125 ], [ 0, %160 ], [ 0, %.thread479 ], [ %164, %.thread479.thread ], [ 3338, %155 ], [ 15679, %141 ]
-  %.2.ph = phi i32 [ %126, %125 ], [ %126, %160 ], [ %126, %.thread479 ], [ %168, %.thread479.thread ], [ %158, %155 ], [ %144, %141 ]
+172:                                              ; preds = %141, %155, %.thread479.thread, %160, %125, %.thread479
+  %.4384.ph = phi i32 [ %.3383.lcssa, %.thread479 ], [ %.3383.lcssa, %125 ], [ %.3383.lcssa, %160 ], [ %169, %.thread479.thread ], [ %159, %155 ], [ %145, %141 ]
+  %.0362.ph = phi i16 [ 0, %.thread479 ], [ 0, %125 ], [ 0, %160 ], [ %164, %.thread479.thread ], [ 3338, %155 ], [ 15679, %141 ]
+  %.2.ph = phi i32 [ %126, %.thread479 ], [ %126, %125 ], [ %126, %160 ], [ %168, %.thread479.thread ], [ %158, %155 ], [ %144, %141 ]
   %173 = getelementptr inbounds nuw i8, ptr %.1377532, i64 16
   %174 = load ptr, ptr %173, align 8
   %.not429 = icmp eq ptr %174, null
@@ -1786,8 +1786,8 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %.critedge9
 
 .critedge9:                                       ; preds = %.outer, %209, %205, %198, %.critedge9.loopexit, %.preheader
-  %.1375523 = phi i32 [ 0, %.preheader ], [ %.1375556, %.critedge9.loopexit ], [ %.1375556, %198 ], [ %206, %205 ], [ %.1375556, %209 ], [ %216, %.outer ]
-  %.1356 = phi i1 [ false, %.preheader ], [ false, %.critedge9.loopexit ], [ true, %198 ], [ false, %205 ], [ false, %209 ], [ false, %.outer ]
+  %.1375523 = phi i32 [ 0, %.preheader ], [ %.1375556, %198 ], [ %206, %205 ], [ %.1375556, %.critedge9.loopexit ], [ %216, %.outer ], [ %.1375556, %209 ]
+  %.1356 = phi i1 [ false, %.preheader ], [ true, %198 ], [ false, %205 ], [ false, %.critedge9.loopexit ], [ false, %209 ], [ false, %.outer ]
   switch i16 %.0362497, label %.critedge438 [
     i16 61, label %220
     i16 58, label %220
@@ -1822,9 +1822,9 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %.critedge438
 
 .critedge438:                                     ; preds = %190, %220, %.critedge9, %229, %.thread500, %225
-  %.0374 = phi i32 [ %.1375523, %.thread500 ], [ %.1375523, %229 ], [ %.1375523, %220 ], [ %.1375523, %225 ], [ %.1375523, %.critedge9 ], [ 0, %190 ]
-  %.2368 = phi i32 [ %.5, %.thread500 ], [ %.5, %229 ], [ %.5, %220 ], [ %.5, %225 ], [ %.5, %.critedge9 ], [ %.0366568, %190 ]
-  %.0355 = phi i1 [ %.1356, %.thread500 ], [ %.1356, %229 ], [ %.1356, %220 ], [ %.1356, %225 ], [ %.1356, %.critedge9 ], [ false, %190 ]
+  %.0374 = phi i32 [ %.1375523, %.thread500 ], [ %.1375523, %229 ], [ %.1375523, %225 ], [ %.1375523, %.critedge9 ], [ %.1375523, %220 ], [ 0, %190 ]
+  %.2368 = phi i32 [ %.5, %.thread500 ], [ %.5, %229 ], [ %.5, %225 ], [ %.5, %.critedge9 ], [ %.5, %220 ], [ %.0366568, %190 ]
+  %.0355 = phi i1 [ %.1356, %.thread500 ], [ %.1356, %229 ], [ %.1356, %225 ], [ %.1356, %.critedge9 ], [ %.1356, %220 ], [ false, %190 ]
   switch i16 %.0362497, label %233 [
     i16 15679, label %235
     i16 3338, label %235

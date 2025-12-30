@@ -1112,7 +1112,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit84:            ; preds = %105, %_ZN17QArrayDa
   br label %.body17
 
 .body17:                                          ; preds = %36, %60, %87, %_ZN17QArrayDataPointerIDsED2Ev.exit84, %_ZN17QArrayDataPointerIDsED2Ev.exit76, %_ZN17QArrayDataPointerIDsED2Ev.exit64
-  %.pn9 = phi { ptr, i32 } [ %eh.lpad-body43, %_ZN17QArrayDataPointerIDsED2Ev.exit84 ], [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit64 ], [ %.pn7, %_ZN17QArrayDataPointerIDsED2Ev.exit76 ], [ %37, %36 ], [ %88, %87 ], [ %61, %60 ]
+  %.pn9 = phi { ptr, i32 } [ %eh.lpad-body43, %_ZN17QArrayDataPointerIDsED2Ev.exit84 ], [ %.pn7, %_ZN17QArrayDataPointerIDsED2Ev.exit76 ], [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit64 ], [ %37, %36 ], [ %88, %87 ], [ %61, %60 ]
   call void @_ZN4QMapIjP18LBMLBTRMFrameEntryED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %15) #19
   call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef align 8 dereferenceable_or_null(92) %0) #19
   resume { ptr, i32 } %.pn9
@@ -1489,7 +1489,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaI
   br label %_ZN4QMapIjP18LBMLBTRMFrameEntryE4findERKj.exit
 
 _ZN4QMapIjP18LBMLBTRMFrameEntryE4findERKj.exit:   ; preds = %_ZN4QMapIjP18LBMLBTRMFrameEntryE6detachEv.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %31
-  %.sroa.0.0.i.i.i = phi ptr [ %24, %_ZN4QMapIjP18LBMLBTRMFrameEntryE6detachEv.exit.i ], [ %24, %_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select.i.i.i, %31 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %24, %_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %24, %_ZN4QMapIjP18LBMLBTRMFrameEntryE6detachEv.exit.i ], [ %spec.select.i.i.i, %31 ]
   %.not.i.i7 = icmp eq ptr %21, null
   br i1 %.not.i.i7, label %36, label %35
 
@@ -2292,7 +2292,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit90:            ; preds = %164, %_ZN17QArrayDa
   br label %.body
 
 .body:                                            ; preds = %109, %133, %34, %_ZN17QArrayDataPointerIDsED2Ev.exit90, %_ZN17QArrayDataPointerIDsED2Ev.exit82, %_ZN17QArrayDataPointerIDsED2Ev.exit37
-  %.pn6 = phi { ptr, i32 } [ %eh.lpad-body61, %_ZN17QArrayDataPointerIDsED2Ev.exit90 ], [ %100, %_ZN17QArrayDataPointerIDsED2Ev.exit37 ], [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit82 ], [ %110, %109 ], [ %35, %34 ], [ %134, %133 ]
+  %.pn6 = phi { ptr, i32 } [ %eh.lpad-body61, %_ZN17QArrayDataPointerIDsED2Ev.exit90 ], [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit82 ], [ %100, %_ZN17QArrayDataPointerIDsED2Ev.exit37 ], [ %110, %109 ], [ %35, %34 ], [ %134, %133 ]
   call void @_ZN4QMapIjP18LBMLBTRMFrameEntryED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %19) #19
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %17) #19
   call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef align 8 dereferenceable_or_null(92) %0) #19
@@ -2558,7 +2558,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaI
   br label %_ZN4QMapIjP18LBMLBTRMFrameEntryE4findERKj.exit
 
 _ZN4QMapIjP18LBMLBTRMFrameEntryE4findERKj.exit:   ; preds = %_ZN4QMapIjP18LBMLBTRMFrameEntryE6detachEv.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %31
-  %.sroa.0.0.i.i.i = phi ptr [ %24, %_ZN4QMapIjP18LBMLBTRMFrameEntryE6detachEv.exit.i ], [ %24, %_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select.i.i.i, %31 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %24, %_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %24, %_ZN4QMapIjP18LBMLBTRMFrameEntryE6detachEv.exit.i ], [ %spec.select.i.i.i, %31 ]
   %.not.i.i7 = icmp eq ptr %21, null
   br i1 %.not.i.i7, label %36, label %35
 
@@ -3121,7 +3121,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit84:            ; preds = %105, %_ZN17QArrayDa
   br label %.body17
 
 .body17:                                          ; preds = %36, %60, %87, %_ZN17QArrayDataPointerIDsED2Ev.exit84, %_ZN17QArrayDataPointerIDsED2Ev.exit76, %_ZN17QArrayDataPointerIDsED2Ev.exit64
-  %.pn9 = phi { ptr, i32 } [ %eh.lpad-body43, %_ZN17QArrayDataPointerIDsED2Ev.exit84 ], [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit64 ], [ %.pn7, %_ZN17QArrayDataPointerIDsED2Ev.exit76 ], [ %37, %36 ], [ %88, %87 ], [ %61, %60 ]
+  %.pn9 = phi { ptr, i32 } [ %eh.lpad-body43, %_ZN17QArrayDataPointerIDsED2Ev.exit84 ], [ %.pn7, %_ZN17QArrayDataPointerIDsED2Ev.exit76 ], [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit64 ], [ %37, %36 ], [ %88, %87 ], [ %61, %60 ]
   call void @_ZN4QMapIjP22LBMLBTRMNCFReasonEntryED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %15) #19
   call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef align 8 dereferenceable_or_null(92) %0) #19
   resume { ptr, i32 } %.pn9
@@ -3478,7 +3478,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjP22LBMLBTRMNCFReasonEntryESt10_Select1stIS4_ESt4lessIj
   br label %_ZN4QMapIjP22LBMLBTRMNCFReasonEntryE4findERKj.exit
 
 _ZN4QMapIjP22LBMLBTRMNCFReasonEntryE4findERKj.exit: ; preds = %_ZN4QMapIjP22LBMLBTRMNCFReasonEntryE6detachEv.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjP22LBMLBTRMNCFReasonEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %31
-  %.sroa.0.0.i.i.i = phi ptr [ %26, %_ZN4QMapIjP22LBMLBTRMNCFReasonEntryE6detachEv.exit.i ], [ %26, %_ZNSt8_Rb_treeIjSt4pairIKjP22LBMLBTRMNCFReasonEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select.i.i.i, %31 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %26, %_ZNSt8_Rb_treeIjSt4pairIKjP22LBMLBTRMNCFReasonEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %26, %_ZN4QMapIjP22LBMLBTRMNCFReasonEntryE6detachEv.exit.i ], [ %spec.select.i.i.i, %31 ]
   %.not.i.i11 = icmp eq ptr %23, null
   br i1 %.not.i.i11, label %36, label %35
 
@@ -4813,7 +4813,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4
   br label %_ZN4QMapIjP16LBMLBTRMSQNEntryE4findERKj.exit
 
 _ZN4QMapIjP16LBMLBTRMSQNEntryE4findERKj.exit:     ; preds = %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %67
-  %.sroa.0.0.i.i.i = phi ptr [ %60, %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i ], [ %60, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select.i.i.i, %67 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %60, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %60, %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i ], [ %spec.select.i.i.i, %67 ]
   %.not.i.i51 = icmp eq ptr %57, null
   br i1 %.not.i.i51, label %72, label %71
 
@@ -4954,7 +4954,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4
   br label %_ZN4QMapIjP16LBMLBTRMSQNEntryE4findERKj.exit69
 
 _ZN4QMapIjP16LBMLBTRMSQNEntryE4findERKj.exit69:   ; preds = %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i55, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i65, %127
-  %.sroa.0.0.i.i.i67 = phi ptr [ %120, %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i55 ], [ %120, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i65 ], [ %spec.select.i.i.i66, %127 ]
+  %.sroa.0.0.i.i.i67 = phi ptr [ %120, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i65 ], [ %120, %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i55 ], [ %spec.select.i.i.i66, %127 ]
   %.not.i.i70 = icmp eq ptr %117, null
   br i1 %.not.i.i70, label %132, label %131
 
@@ -5134,7 +5134,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjP19LBMLBTRMNCFSQNEntryESt10_Select1stIS4_ESt4lessIjESa
   br label %_ZN4QMapIjP19LBMLBTRMNCFSQNEntryE4findERKj.exit
 
 _ZN4QMapIjP19LBMLBTRMNCFSQNEntryE4findERKj.exit:  ; preds = %_ZN4QMapIjP19LBMLBTRMNCFSQNEntryE6detachEv.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjP19LBMLBTRMNCFSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %206
-  %.sroa.0.0.i.i.i85 = phi ptr [ %199, %_ZN4QMapIjP19LBMLBTRMNCFSQNEntryE6detachEv.exit.i ], [ %199, %_ZNSt8_Rb_treeIjSt4pairIKjP19LBMLBTRMNCFSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select.i.i.i84, %206 ]
+  %.sroa.0.0.i.i.i85 = phi ptr [ %199, %_ZNSt8_Rb_treeIjSt4pairIKjP19LBMLBTRMNCFSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %199, %_ZN4QMapIjP19LBMLBTRMNCFSQNEntryE6detachEv.exit.i ], [ %spec.select.i.i.i84, %206 ]
   %.not.i.i87 = icmp eq ptr %196, null
   br i1 %.not.i.i87, label %211, label %210
 
@@ -5301,7 +5301,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4
   br label %_ZN4QMapIjP16LBMLBTRMSQNEntryE4findERKj.exit105
 
 _ZN4QMapIjP16LBMLBTRMSQNEntryE4findERKj.exit105:  ; preds = %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i91, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i101, %279
-  %.sroa.0.0.i.i.i103 = phi ptr [ %272, %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i91 ], [ %272, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i101 ], [ %spec.select.i.i.i102, %279 ]
+  %.sroa.0.0.i.i.i103 = phi ptr [ %272, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i101 ], [ %272, %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i91 ], [ %spec.select.i.i.i102, %279 ]
   %.not.i.i106 = icmp eq ptr %269, null
   br i1 %.not.i.i106, label %284, label %283
 
@@ -8748,9 +8748,9 @@ _ZN17QArrayDataPointerIDsED2Ev.exit99:            ; preds = %102, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit107
 
 _ZN7QStringD2Ev.exit103:                          ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit31, %_ZN17QArrayDataPointerIDsED2Ev.exit71, %_ZN17QArrayDataPointerIDsED2Ev.exit91, %_ZN17QArrayDataPointerIDsED2Ev.exit51, %15, %12
-  %.sink64 = phi ptr [ null, %15 ], [ null, %12 ], [ %89, %_ZN17QArrayDataPointerIDsED2Ev.exit91 ], [ %71, %_ZN17QArrayDataPointerIDsED2Ev.exit71 ], [ %50, %_ZN17QArrayDataPointerIDsED2Ev.exit51 ], [ %29, %_ZN17QArrayDataPointerIDsED2Ev.exit31 ]
-  %.str.36.sink = phi ptr [ @.str.36, %15 ], [ @.str.36, %12 ], [ %91, %_ZN17QArrayDataPointerIDsED2Ev.exit91 ], [ %73, %_ZN17QArrayDataPointerIDsED2Ev.exit71 ], [ %52, %_ZN17QArrayDataPointerIDsED2Ev.exit51 ], [ %31, %_ZN17QArrayDataPointerIDsED2Ev.exit31 ]
-  %.sink = phi i64 [ 1, %15 ], [ 1, %12 ], [ %93, %_ZN17QArrayDataPointerIDsED2Ev.exit91 ], [ %75, %_ZN17QArrayDataPointerIDsED2Ev.exit71 ], [ %54, %_ZN17QArrayDataPointerIDsED2Ev.exit51 ], [ %33, %_ZN17QArrayDataPointerIDsED2Ev.exit31 ]
+  %.sink64 = phi ptr [ null, %12 ], [ null, %15 ], [ %89, %_ZN17QArrayDataPointerIDsED2Ev.exit91 ], [ %71, %_ZN17QArrayDataPointerIDsED2Ev.exit71 ], [ %50, %_ZN17QArrayDataPointerIDsED2Ev.exit51 ], [ %29, %_ZN17QArrayDataPointerIDsED2Ev.exit31 ]
+  %.str.36.sink = phi ptr [ @.str.36, %12 ], [ @.str.36, %15 ], [ %91, %_ZN17QArrayDataPointerIDsED2Ev.exit91 ], [ %73, %_ZN17QArrayDataPointerIDsED2Ev.exit71 ], [ %52, %_ZN17QArrayDataPointerIDsED2Ev.exit51 ], [ %31, %_ZN17QArrayDataPointerIDsED2Ev.exit31 ]
+  %.sink = phi i64 [ 1, %12 ], [ 1, %15 ], [ %93, %_ZN17QArrayDataPointerIDsED2Ev.exit91 ], [ %75, %_ZN17QArrayDataPointerIDsED2Ev.exit71 ], [ %54, %_ZN17QArrayDataPointerIDsED2Ev.exit51 ], [ %33, %_ZN17QArrayDataPointerIDsED2Ev.exit31 ]
   store ptr %.sink64, ptr %0, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.str.36.sink, ptr %104, align 8
@@ -9702,7 +9702,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P28LBMLBTRMSourceTransportEntryESt10_Select1s
   br label %_ZNSt3mapI7QStringP28LBMLBTRMSourceTransportEntrySt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit
 
 _ZNSt3mapI7QStringP28LBMLBTRMSourceTransportEntrySt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit: ; preds = %_ZN4QMapI7QStringP28LBMLBTRMSourceTransportEntryE6detachEv.exit, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P28LBMLBTRMSourceTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %30
-  %.sroa.0.0.i.i = phi ptr [ %17, %_ZN4QMapI7QStringP28LBMLBTRMSourceTransportEntryE6detachEv.exit ], [ %17, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P28LBMLBTRMSourceTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %spec.select.i.i, %30 ]
+  %.sroa.0.0.i.i = phi ptr [ %17, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P28LBMLBTRMSourceTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %17, %_ZN4QMapI7QStringP28LBMLBTRMSourceTransportEntryE6detachEv.exit ], [ %spec.select.i.i, %30 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -12991,7 +12991,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4
   br label %_ZN4QMapIjP16LBMLBTRMSQNEntryE4findERKj.exit
 
 _ZN4QMapIjP16LBMLBTRMSQNEntryE4findERKj.exit:     ; preds = %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %73
-  %.sroa.0.0.i.i.i = phi ptr [ %66, %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i ], [ %66, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select.i.i.i, %73 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %66, %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %66, %_ZN4QMapIjP16LBMLBTRMSQNEntryE6detachEv.exit.i ], [ %spec.select.i.i.i, %73 ]
   %.not.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i21, label %78, label %77
 
@@ -14478,7 +14478,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P30LBMLBTRMReceiverTransportEntryESt10_Select
   br label %_ZNSt3mapI7QStringP30LBMLBTRMReceiverTransportEntrySt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit
 
 _ZNSt3mapI7QStringP30LBMLBTRMReceiverTransportEntrySt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit: ; preds = %_ZN4QMapI7QStringP30LBMLBTRMReceiverTransportEntryE6detachEv.exit, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P30LBMLBTRMReceiverTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %30
-  %.sroa.0.0.i.i = phi ptr [ %17, %_ZN4QMapI7QStringP30LBMLBTRMReceiverTransportEntryE6detachEv.exit ], [ %17, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P30LBMLBTRMReceiverTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %spec.select.i.i, %30 ]
+  %.sroa.0.0.i.i = phi ptr [ %17, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P30LBMLBTRMReceiverTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %17, %_ZN4QMapI7QStringP30LBMLBTRMReceiverTransportEntryE6detachEv.exit ], [ %spec.select.i.i, %30 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -15558,7 +15558,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %106, %_ZN17QArrayDa
   br label %218
 
 111:                                              ; preds = %93, %95, %97, %102, %91, %89
-  %.pn30 = phi { ptr, i32 } [ %103, %102 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %98, %97 ], [ %96, %95 ]
+  %.pn30 = phi { ptr, i32 } [ %103, %102 ], [ %92, %91 ], [ %90, %89 ], [ %94, %93 ], [ %98, %97 ], [ %96, %95 ]
   %112 = load ptr, ptr %9, align 8
   %.not.i.i.i41 = icmp eq ptr %112, null
   br i1 %.not.i.i.i41, label %_ZN7QStringD2Ev.exit44, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i42
@@ -15826,7 +15826,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %208, %_ZN17QArrayDa
   br label %218
 
 213:                                              ; preds = %195, %197, %199, %204, %193, %191
-  %.pn26 = phi { ptr, i32 } [ %205, %204 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %200, %199 ], [ %198, %197 ]
+  %.pn26 = phi { ptr, i32 } [ %205, %204 ], [ %194, %193 ], [ %192, %191 ], [ %196, %195 ], [ %200, %199 ], [ %198, %197 ]
   %214 = load ptr, ptr %11, align 8
   %.not.i.i.i61 = icmp eq ptr %214, null
   br i1 %.not.i.i.i61, label %_ZN7QStringD2Ev.exit64, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62
@@ -15934,7 +15934,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P19LBMLBTRMSourceEntryESt10_Select1stIS5_ESt4
   br label %_ZNSt3mapI7QStringP19LBMLBTRMSourceEntrySt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit
 
 _ZNSt3mapI7QStringP19LBMLBTRMSourceEntrySt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit: ; preds = %_ZN4QMapI7QStringP19LBMLBTRMSourceEntryE6detachEv.exit, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P19LBMLBTRMSourceEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %30
-  %.sroa.0.0.i.i = phi ptr [ %17, %_ZN4QMapI7QStringP19LBMLBTRMSourceEntryE6detachEv.exit ], [ %17, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P19LBMLBTRMSourceEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %spec.select.i.i, %30 ]
+  %.sroa.0.0.i.i = phi ptr [ %17, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P19LBMLBTRMSourceEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %17, %_ZN4QMapI7QStringP19LBMLBTRMSourceEntryE6detachEv.exit ], [ %spec.select.i.i, %30 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -16024,7 +16024,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRMReceiverEntryESt10_Select1stIS5_ES
   br label %_ZNSt3mapI7QStringP21LBMLBTRMReceiverEntrySt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit
 
 _ZNSt3mapI7QStringP21LBMLBTRMReceiverEntrySt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit: ; preds = %_ZN4QMapI7QStringP21LBMLBTRMReceiverEntryE6detachEv.exit, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRMReceiverEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %30
-  %.sroa.0.0.i.i = phi ptr [ %17, %_ZN4QMapI7QStringP21LBMLBTRMReceiverEntryE6detachEv.exit ], [ %17, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRMReceiverEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %spec.select.i.i, %30 ]
+  %.sroa.0.0.i.i = phi ptr [ %17, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRMReceiverEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS2_.exit.i.i ], [ %17, %_ZN4QMapI7QStringP21LBMLBTRMReceiverEntryE6detachEv.exit ], [ %spec.select.i.i, %30 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -21158,7 +21158,7 @@ _ZN7QStringD2Ev.exit750:                          ; preds = %1327, %_ZN17QArrayD
   br label %1333
 
 1333:                                             ; preds = %1041, %_ZN7QStringD2Ev.exit602, %1049, %_ZN7QStringD2Ev.exit606, %1057, %_ZN7QStringD2Ev.exit610, %1065, %_ZN7QStringD2Ev.exit614, %1073, %_ZN7QStringD2Ev.exit618, %1081, %_ZN7QStringD2Ev.exit622, %1089, %_ZN7QStringD2Ev.exit626, %1097, %_ZN7QStringD2Ev.exit630, %_ZN7QStringD2Ev.exit634, %_ZN7QStringD2Ev.exit638, %_ZN7QStringD2Ev.exit642, %_ZN7QStringD2Ev.exit646, %1129, %_ZN7QStringD2Ev.exit650, %1137, %_ZN7QStringD2Ev.exit654, %1145, %_ZN7QStringD2Ev.exit658, %1153, %_ZN7QStringD2Ev.exit662, %1161, %_ZN7QStringD2Ev.exit666, %1169, %_ZN7QStringD2Ev.exit670, %1177, %_ZN7QStringD2Ev.exit674, %1185, %_ZN7QStringD2Ev.exit678, %1193, %_ZN7QStringD2Ev.exit682, %_ZN7QStringD2Ev.exit686, %1207, %_ZN7QStringD2Ev.exit690, %1215, %_ZN7QStringD2Ev.exit694, %1223, %_ZN7QStringD2Ev.exit698, %1231, %_ZN7QStringD2Ev.exit702, %1239, %_ZN7QStringD2Ev.exit706, %1247, %_ZN7QStringD2Ev.exit710, %1255, %_ZN7QStringD2Ev.exit714, %1263, %_ZN7QStringD2Ev.exit718, %1271, %_ZN7QStringD2Ev.exit722, %1279, %_ZN7QStringD2Ev.exit726, %_ZN7QStringD2Ev.exit730, %1293, %_ZN7QStringD2Ev.exit734, %1301, %_ZN7QStringD2Ev.exit738, %1309, %_ZN7QStringD2Ev.exit742, %1317, %_ZN7QStringD2Ev.exit746, %1325, %_ZN7QStringD2Ev.exit750, %_ZN7QStringD2Ev.exit598, %1033, %_ZN7QStringD2Ev.exit594, %1025, %_ZN7QStringD2Ev.exit590, %1017, %_ZN7QStringD2Ev.exit586, %1009, %_ZN7QStringD2Ev.exit582, %1001, %_ZN7QStringD2Ev.exit578, %993, %_ZN7QStringD2Ev.exit574, %985, %_ZN7QStringD2Ev.exit570, %977, %_ZN7QStringD2Ev.exit566, %969, %_ZN7QStringD2Ev.exit562, %961, %_ZN7QStringD2Ev.exit558, %953, %_ZN7QStringD2Ev.exit554, %945, %_ZN7QStringD2Ev.exit550, %937, %_ZN7QStringD2Ev.exit546, %929, %_ZN7QStringD2Ev.exit542, %921, %_ZN7QStringD2Ev.exit538, %913, %_ZN7QStringD2Ev.exit534, %905, %_ZN7QStringD2Ev.exit530, %897, %_ZN7QStringD2Ev.exit526, %889, %_ZN7QStringD2Ev.exit522, %881, %_ZN7QStringD2Ev.exit518, %873, %_ZN7QStringD2Ev.exit514, %865, %_ZN7QStringD2Ev.exit510, %857, %_ZN7QStringD2Ev.exit506, %849, %_ZN7QStringD2Ev.exit502, %_ZN7QStringD2Ev.exit498, %832, %_ZN7QStringD2Ev.exit494, %_ZN7QStringD2Ev.exit490, %815, %_ZN7QStringD2Ev.exit84
-  %.pn73.pn = phi { ptr, i32 } [ %108, %_ZN7QStringD2Ev.exit84 ], [ %1036, %_ZN7QStringD2Ev.exit598 ], [ %1034, %1033 ], [ %1028, %_ZN7QStringD2Ev.exit594 ], [ %1026, %1025 ], [ %1020, %_ZN7QStringD2Ev.exit590 ], [ %1018, %1017 ], [ %1012, %_ZN7QStringD2Ev.exit586 ], [ %1010, %1009 ], [ %1004, %_ZN7QStringD2Ev.exit582 ], [ %1002, %1001 ], [ %996, %_ZN7QStringD2Ev.exit578 ], [ %994, %993 ], [ %988, %_ZN7QStringD2Ev.exit574 ], [ %986, %985 ], [ %980, %_ZN7QStringD2Ev.exit570 ], [ %978, %977 ], [ %972, %_ZN7QStringD2Ev.exit566 ], [ %970, %969 ], [ %964, %_ZN7QStringD2Ev.exit562 ], [ %962, %961 ], [ %956, %_ZN7QStringD2Ev.exit558 ], [ %954, %953 ], [ %948, %_ZN7QStringD2Ev.exit554 ], [ %946, %945 ], [ %940, %_ZN7QStringD2Ev.exit550 ], [ %938, %937 ], [ %932, %_ZN7QStringD2Ev.exit546 ], [ %930, %929 ], [ %924, %_ZN7QStringD2Ev.exit542 ], [ %922, %921 ], [ %916, %_ZN7QStringD2Ev.exit538 ], [ %914, %913 ], [ %908, %_ZN7QStringD2Ev.exit534 ], [ %906, %905 ], [ %900, %_ZN7QStringD2Ev.exit530 ], [ %898, %897 ], [ %892, %_ZN7QStringD2Ev.exit526 ], [ %890, %889 ], [ %884, %_ZN7QStringD2Ev.exit522 ], [ %882, %881 ], [ %876, %_ZN7QStringD2Ev.exit518 ], [ %874, %873 ], [ %868, %_ZN7QStringD2Ev.exit514 ], [ %866, %865 ], [ %860, %_ZN7QStringD2Ev.exit510 ], [ %858, %857 ], [ %852, %_ZN7QStringD2Ev.exit506 ], [ %850, %849 ], [ %.pn71, %_ZN7QStringD2Ev.exit502 ], [ %835, %_ZN7QStringD2Ev.exit498 ], [ %833, %832 ], [ %.pn, %_ZN7QStringD2Ev.exit494 ], [ %818, %_ZN7QStringD2Ev.exit490 ], [ %816, %815 ], [ %1328, %_ZN7QStringD2Ev.exit750 ], [ %1326, %1325 ], [ %1320, %_ZN7QStringD2Ev.exit746 ], [ %1318, %1317 ], [ %1312, %_ZN7QStringD2Ev.exit742 ], [ %1310, %1309 ], [ %1304, %_ZN7QStringD2Ev.exit738 ], [ %1302, %1301 ], [ %1296, %_ZN7QStringD2Ev.exit734 ], [ %1294, %1293 ], [ %1288, %_ZN7QStringD2Ev.exit730 ], [ %1282, %_ZN7QStringD2Ev.exit726 ], [ %1280, %1279 ], [ %1044, %_ZN7QStringD2Ev.exit602 ], [ %1274, %_ZN7QStringD2Ev.exit722 ], [ %1272, %1271 ], [ %1266, %_ZN7QStringD2Ev.exit718 ], [ %1264, %1263 ], [ %1258, %_ZN7QStringD2Ev.exit714 ], [ %1256, %1255 ], [ %1250, %_ZN7QStringD2Ev.exit710 ], [ %1248, %1247 ], [ %1242, %_ZN7QStringD2Ev.exit706 ], [ %1240, %1239 ], [ %1234, %_ZN7QStringD2Ev.exit702 ], [ %1232, %1231 ], [ %1226, %_ZN7QStringD2Ev.exit698 ], [ %1224, %1223 ], [ %1218, %_ZN7QStringD2Ev.exit694 ], [ %1216, %1215 ], [ %1210, %_ZN7QStringD2Ev.exit690 ], [ %1208, %1207 ], [ %1202, %_ZN7QStringD2Ev.exit686 ], [ %1196, %_ZN7QStringD2Ev.exit682 ], [ %1194, %1193 ], [ %1188, %_ZN7QStringD2Ev.exit678 ], [ %1186, %1185 ], [ %1180, %_ZN7QStringD2Ev.exit674 ], [ %1178, %1177 ], [ %1172, %_ZN7QStringD2Ev.exit670 ], [ %1170, %1169 ], [ %1164, %_ZN7QStringD2Ev.exit666 ], [ %1162, %1161 ], [ %1156, %_ZN7QStringD2Ev.exit662 ], [ %1154, %1153 ], [ %1148, %_ZN7QStringD2Ev.exit658 ], [ %1146, %1145 ], [ %1042, %1041 ], [ %1140, %_ZN7QStringD2Ev.exit654 ], [ %1138, %1137 ], [ %1132, %_ZN7QStringD2Ev.exit650 ], [ %1130, %1129 ], [ %1124, %_ZN7QStringD2Ev.exit646 ], [ %eh.lpad-body317, %_ZN7QStringD2Ev.exit642 ], [ %eh.lpad-body309, %_ZN7QStringD2Ev.exit638 ], [ %eh.lpad-body301, %_ZN7QStringD2Ev.exit634 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit630 ], [ %1098, %1097 ], [ %1092, %_ZN7QStringD2Ev.exit626 ], [ %1090, %1089 ], [ %1084, %_ZN7QStringD2Ev.exit622 ], [ %1082, %1081 ], [ %1076, %_ZN7QStringD2Ev.exit618 ], [ %1074, %1073 ], [ %1068, %_ZN7QStringD2Ev.exit614 ], [ %1066, %1065 ], [ %1060, %_ZN7QStringD2Ev.exit610 ], [ %1058, %1057 ], [ %1052, %_ZN7QStringD2Ev.exit606 ], [ %1050, %1049 ]
+  %.pn73.pn = phi { ptr, i32 } [ %1036, %_ZN7QStringD2Ev.exit598 ], [ %1034, %1033 ], [ %1028, %_ZN7QStringD2Ev.exit594 ], [ %1026, %1025 ], [ %1020, %_ZN7QStringD2Ev.exit590 ], [ %1018, %1017 ], [ %1012, %_ZN7QStringD2Ev.exit586 ], [ %1010, %1009 ], [ %1004, %_ZN7QStringD2Ev.exit582 ], [ %1002, %1001 ], [ %996, %_ZN7QStringD2Ev.exit578 ], [ %994, %993 ], [ %988, %_ZN7QStringD2Ev.exit574 ], [ %986, %985 ], [ %980, %_ZN7QStringD2Ev.exit570 ], [ %978, %977 ], [ %972, %_ZN7QStringD2Ev.exit566 ], [ %970, %969 ], [ %964, %_ZN7QStringD2Ev.exit562 ], [ %962, %961 ], [ %956, %_ZN7QStringD2Ev.exit558 ], [ %954, %953 ], [ %948, %_ZN7QStringD2Ev.exit554 ], [ %946, %945 ], [ %940, %_ZN7QStringD2Ev.exit550 ], [ %938, %937 ], [ %932, %_ZN7QStringD2Ev.exit546 ], [ %930, %929 ], [ %924, %_ZN7QStringD2Ev.exit542 ], [ %922, %921 ], [ %916, %_ZN7QStringD2Ev.exit538 ], [ %914, %913 ], [ %908, %_ZN7QStringD2Ev.exit534 ], [ %906, %905 ], [ %900, %_ZN7QStringD2Ev.exit530 ], [ %898, %897 ], [ %892, %_ZN7QStringD2Ev.exit526 ], [ %890, %889 ], [ %884, %_ZN7QStringD2Ev.exit522 ], [ %882, %881 ], [ %876, %_ZN7QStringD2Ev.exit518 ], [ %874, %873 ], [ %868, %_ZN7QStringD2Ev.exit514 ], [ %866, %865 ], [ %860, %_ZN7QStringD2Ev.exit510 ], [ %858, %857 ], [ %852, %_ZN7QStringD2Ev.exit506 ], [ %850, %849 ], [ %.pn71, %_ZN7QStringD2Ev.exit502 ], [ %835, %_ZN7QStringD2Ev.exit498 ], [ %833, %832 ], [ %.pn, %_ZN7QStringD2Ev.exit494 ], [ %818, %_ZN7QStringD2Ev.exit490 ], [ %816, %815 ], [ %108, %_ZN7QStringD2Ev.exit84 ], [ %1328, %_ZN7QStringD2Ev.exit750 ], [ %1326, %1325 ], [ %1320, %_ZN7QStringD2Ev.exit746 ], [ %1318, %1317 ], [ %1312, %_ZN7QStringD2Ev.exit742 ], [ %1310, %1309 ], [ %1304, %_ZN7QStringD2Ev.exit738 ], [ %1302, %1301 ], [ %1296, %_ZN7QStringD2Ev.exit734 ], [ %1294, %1293 ], [ %1288, %_ZN7QStringD2Ev.exit730 ], [ %1282, %_ZN7QStringD2Ev.exit726 ], [ %1280, %1279 ], [ %1274, %_ZN7QStringD2Ev.exit722 ], [ %1272, %1271 ], [ %1266, %_ZN7QStringD2Ev.exit718 ], [ %1264, %1263 ], [ %1258, %_ZN7QStringD2Ev.exit714 ], [ %1256, %1255 ], [ %1250, %_ZN7QStringD2Ev.exit710 ], [ %1248, %1247 ], [ %1242, %_ZN7QStringD2Ev.exit706 ], [ %1240, %1239 ], [ %1234, %_ZN7QStringD2Ev.exit702 ], [ %1232, %1231 ], [ %1226, %_ZN7QStringD2Ev.exit698 ], [ %1224, %1223 ], [ %1218, %_ZN7QStringD2Ev.exit694 ], [ %1216, %1215 ], [ %1210, %_ZN7QStringD2Ev.exit690 ], [ %1208, %1207 ], [ %1202, %_ZN7QStringD2Ev.exit686 ], [ %1196, %_ZN7QStringD2Ev.exit682 ], [ %1194, %1193 ], [ %1188, %_ZN7QStringD2Ev.exit678 ], [ %1186, %1185 ], [ %1180, %_ZN7QStringD2Ev.exit674 ], [ %1178, %1177 ], [ %1172, %_ZN7QStringD2Ev.exit670 ], [ %1170, %1169 ], [ %1164, %_ZN7QStringD2Ev.exit666 ], [ %1162, %1161 ], [ %1156, %_ZN7QStringD2Ev.exit662 ], [ %1154, %1153 ], [ %1148, %_ZN7QStringD2Ev.exit658 ], [ %1146, %1145 ], [ %1140, %_ZN7QStringD2Ev.exit654 ], [ %1138, %1137 ], [ %1132, %_ZN7QStringD2Ev.exit650 ], [ %1130, %1129 ], [ %1124, %_ZN7QStringD2Ev.exit646 ], [ %eh.lpad-body317, %_ZN7QStringD2Ev.exit642 ], [ %eh.lpad-body309, %_ZN7QStringD2Ev.exit638 ], [ %eh.lpad-body301, %_ZN7QStringD2Ev.exit634 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit630 ], [ %1098, %1097 ], [ %1092, %_ZN7QStringD2Ev.exit626 ], [ %1090, %1089 ], [ %1084, %_ZN7QStringD2Ev.exit622 ], [ %1082, %1081 ], [ %1076, %_ZN7QStringD2Ev.exit618 ], [ %1074, %1073 ], [ %1068, %_ZN7QStringD2Ev.exit614 ], [ %1066, %1065 ], [ %1060, %_ZN7QStringD2Ev.exit610 ], [ %1058, %1057 ], [ %1052, %_ZN7QStringD2Ev.exit606 ], [ %1050, %1049 ], [ %1044, %_ZN7QStringD2Ev.exit602 ], [ %1042, %1041 ]
   resume { ptr, i32 } %.pn73.pn
 }
 
@@ -28315,7 +28315,7 @@ _ZN7QStringD2Ev.exit949:                          ; preds = %1471, %_ZN17QArrayD
   br label %1477
 
 1477:                                             ; preds = %_ZN7QStringD2Ev.exit757, %_ZN7QStringD2Ev.exit761, %_ZN7QStringD2Ev.exit765, %_ZN7QStringD2Ev.exit769, %_ZN7QStringD2Ev.exit773, %_ZN7QStringD2Ev.exit777, %_ZN7QStringD2Ev.exit781, %_ZN7QStringD2Ev.exit785, %_ZN7QStringD2Ev.exit789, %_ZN7QStringD2Ev.exit793, %_ZN7QStringD2Ev.exit797, %_ZN7QStringD2Ev.exit801, %_ZN7QStringD2Ev.exit805, %_ZN7QStringD2Ev.exit809, %_ZN7QStringD2Ev.exit813, %_ZN7QStringD2Ev.exit817, %_ZN7QStringD2Ev.exit821, %_ZN7QStringD2Ev.exit825, %_ZN7QStringD2Ev.exit829, %_ZN7QStringD2Ev.exit833, %_ZN7QStringD2Ev.exit837, %_ZN7QStringD2Ev.exit841, %_ZN7QStringD2Ev.exit845, %_ZN7QStringD2Ev.exit849, %_ZN7QStringD2Ev.exit853, %_ZN7QStringD2Ev.exit857, %_ZN7QStringD2Ev.exit861, %_ZN7QStringD2Ev.exit865, %_ZN7QStringD2Ev.exit881, %_ZN7QStringD2Ev.exit885, %_ZN7QStringD2Ev.exit889, %_ZN7QStringD2Ev.exit893, %_ZN7QStringD2Ev.exit925, %_ZN7QStringD2Ev.exit929, %_ZN7QStringD2Ev.exit933, %_ZN7QStringD2Ev.exit937, %_ZN7QStringD2Ev.exit941, %_ZN7QStringD2Ev.exit945, %_ZN7QStringD2Ev.exit949, %_ZN7QStringD2Ev.exit921, %_ZN7QStringD2Ev.exit917, %_ZN7QStringD2Ev.exit913, %_ZN7QStringD2Ev.exit909, %_ZN7QStringD2Ev.exit905, %_ZN7QStringD2Ev.exit901, %_ZN7QStringD2Ev.exit897, %_ZN7QStringD2Ev.exit877, %_ZN7QStringD2Ev.exit873, %_ZN7QStringD2Ev.exit869, %_ZN7QStringD2Ev.exit753, %_ZN7QStringD2Ev.exit749, %_ZN7QStringD2Ev.exit745, %_ZN7QStringD2Ev.exit741, %_ZN7QStringD2Ev.exit737, %_ZN7QStringD2Ev.exit733, %_ZN7QStringD2Ev.exit729, %_ZN7QStringD2Ev.exit725, %_ZN7QStringD2Ev.exit721, %_ZN7QStringD2Ev.exit717, %_ZN7QStringD2Ev.exit713, %_ZN7QStringD2Ev.exit709, %_ZN7QStringD2Ev.exit705, %_ZN7QStringD2Ev.exit701, %_ZN7QStringD2Ev.exit697, %_ZN7QStringD2Ev.exit693, %_ZN7QStringD2Ev.exit689, %_ZN7QStringD2Ev.exit685, %_ZN7QStringD2Ev.exit681, %_ZN7QStringD2Ev.exit677, %_ZN7QStringD2Ev.exit673, %_ZN7QStringD2Ev.exit669, %_ZN7QStringD2Ev.exit665, %_ZN7QStringD2Ev.exit661, %_ZN7QStringD2Ev.exit657, %_ZN7QStringD2Ev.exit653, %_ZN7QStringD2Ev.exit649, %_ZN7QStringD2Ev.exit645, %_ZN7QStringD2Ev.exit641, %_ZN7QStringD2Ev.exit637, %_ZN7QStringD2Ev.exit633, %_ZN7QStringD2Ev.exit629, %_ZN7QStringD2Ev.exit625, %_ZN7QStringD2Ev.exit621, %_ZN7QStringD2Ev.exit617, %_ZN7QStringD2Ev.exit613, %_ZN7QStringD2Ev.exit609, %_ZN7QStringD2Ev.exit605, %_ZN7QStringD2Ev.exit601, %_ZN7QStringD2Ev.exit597, %_ZN7QStringD2Ev.exit593, %_ZN7QStringD2Ev.exit589, %_ZN7QStringD2Ev.exit585, %_ZN7QStringD2Ev.exit581, %_ZN7QStringD2Ev.exit577, %_ZN7QStringD2Ev.exit573, %_ZN7QStringD2Ev.exit569
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %902, %_ZN7QStringD2Ev.exit569 ], [ %1178, %_ZN7QStringD2Ev.exit753 ], [ %1172, %_ZN7QStringD2Ev.exit749 ], [ %1166, %_ZN7QStringD2Ev.exit745 ], [ %1160, %_ZN7QStringD2Ev.exit741 ], [ %1154, %_ZN7QStringD2Ev.exit737 ], [ %1148, %_ZN7QStringD2Ev.exit733 ], [ %1142, %_ZN7QStringD2Ev.exit729 ], [ %1136, %_ZN7QStringD2Ev.exit725 ], [ %1130, %_ZN7QStringD2Ev.exit721 ], [ %1124, %_ZN7QStringD2Ev.exit717 ], [ %1118, %_ZN7QStringD2Ev.exit713 ], [ %1112, %_ZN7QStringD2Ev.exit709 ], [ %1106, %_ZN7QStringD2Ev.exit705 ], [ %1100, %_ZN7QStringD2Ev.exit701 ], [ %1094, %_ZN7QStringD2Ev.exit697 ], [ %1088, %_ZN7QStringD2Ev.exit693 ], [ %1082, %_ZN7QStringD2Ev.exit689 ], [ %1076, %_ZN7QStringD2Ev.exit685 ], [ %1070, %_ZN7QStringD2Ev.exit681 ], [ %1064, %_ZN7QStringD2Ev.exit677 ], [ %1058, %_ZN7QStringD2Ev.exit673 ], [ %1052, %_ZN7QStringD2Ev.exit669 ], [ %1046, %_ZN7QStringD2Ev.exit665 ], [ %1040, %_ZN7QStringD2Ev.exit661 ], [ %1034, %_ZN7QStringD2Ev.exit657 ], [ %1028, %_ZN7QStringD2Ev.exit653 ], [ %1022, %_ZN7QStringD2Ev.exit649 ], [ %1016, %_ZN7QStringD2Ev.exit645 ], [ %1010, %_ZN7QStringD2Ev.exit641 ], [ %1004, %_ZN7QStringD2Ev.exit637 ], [ %998, %_ZN7QStringD2Ev.exit633 ], [ %992, %_ZN7QStringD2Ev.exit629 ], [ %986, %_ZN7QStringD2Ev.exit625 ], [ %980, %_ZN7QStringD2Ev.exit621 ], [ %974, %_ZN7QStringD2Ev.exit617 ], [ %968, %_ZN7QStringD2Ev.exit613 ], [ %962, %_ZN7QStringD2Ev.exit609 ], [ %956, %_ZN7QStringD2Ev.exit605 ], [ %950, %_ZN7QStringD2Ev.exit601 ], [ %944, %_ZN7QStringD2Ev.exit597 ], [ %938, %_ZN7QStringD2Ev.exit593 ], [ %932, %_ZN7QStringD2Ev.exit589 ], [ %926, %_ZN7QStringD2Ev.exit585 ], [ %920, %_ZN7QStringD2Ev.exit581 ], [ %914, %_ZN7QStringD2Ev.exit577 ], [ %908, %_ZN7QStringD2Ev.exit573 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit757 ], [ %1346, %_ZN7QStringD2Ev.exit865 ], [ %1340, %_ZN7QStringD2Ev.exit861 ], [ %1334, %_ZN7QStringD2Ev.exit857 ], [ %1328, %_ZN7QStringD2Ev.exit853 ], [ %1322, %_ZN7QStringD2Ev.exit849 ], [ %1316, %_ZN7QStringD2Ev.exit845 ], [ %1310, %_ZN7QStringD2Ev.exit841 ], [ %eh.lpad-body392, %_ZN7QStringD2Ev.exit837 ], [ %eh.lpad-body384, %_ZN7QStringD2Ev.exit833 ], [ %eh.lpad-body376, %_ZN7QStringD2Ev.exit829 ], [ %eh.lpad-body368, %_ZN7QStringD2Ev.exit825 ], [ %eh.lpad-body360, %_ZN7QStringD2Ev.exit821 ], [ %eh.lpad-body352, %_ZN7QStringD2Ev.exit817 ], [ %eh.lpad-body344, %_ZN7QStringD2Ev.exit813 ], [ %eh.lpad-body336, %_ZN7QStringD2Ev.exit809 ], [ %eh.lpad-body328, %_ZN7QStringD2Ev.exit805 ], [ %eh.lpad-body320, %_ZN7QStringD2Ev.exit801 ], [ %eh.lpad-body312, %_ZN7QStringD2Ev.exit797 ], [ %eh.lpad-body304, %_ZN7QStringD2Ev.exit793 ], [ %eh.lpad-body296, %_ZN7QStringD2Ev.exit789 ], [ %eh.lpad-body288, %_ZN7QStringD2Ev.exit785 ], [ %eh.lpad-body280, %_ZN7QStringD2Ev.exit781 ], [ %eh.lpad-body272, %_ZN7QStringD2Ev.exit777 ], [ %eh.lpad-body264, %_ZN7QStringD2Ev.exit773 ], [ %eh.lpad-body256, %_ZN7QStringD2Ev.exit769 ], [ %eh.lpad-body248, %_ZN7QStringD2Ev.exit765 ], [ %eh.lpad-body240, %_ZN7QStringD2Ev.exit761 ], [ %eh.lpad-body428, %_ZN7QStringD2Ev.exit869 ], [ %eh.lpad-body444, %_ZN7QStringD2Ev.exit877 ], [ %eh.lpad-body436, %_ZN7QStringD2Ev.exit873 ], [ %eh.lpad-body452, %_ZN7QStringD2Ev.exit881 ], [ %1388, %_ZN7QStringD2Ev.exit893 ], [ %eh.lpad-body468, %_ZN7QStringD2Ev.exit889 ], [ %eh.lpad-body460, %_ZN7QStringD2Ev.exit885 ], [ %eh.lpad-body480, %_ZN7QStringD2Ev.exit897 ], [ %1430, %_ZN7QStringD2Ev.exit921 ], [ %1424, %_ZN7QStringD2Ev.exit917 ], [ %eh.lpad-body512, %_ZN7QStringD2Ev.exit913 ], [ %eh.lpad-body504, %_ZN7QStringD2Ev.exit909 ], [ %eh.lpad-body496, %_ZN7QStringD2Ev.exit905 ], [ %eh.lpad-body488, %_ZN7QStringD2Ev.exit901 ], [ %1472, %_ZN7QStringD2Ev.exit949 ], [ %1466, %_ZN7QStringD2Ev.exit945 ], [ %1460, %_ZN7QStringD2Ev.exit941 ], [ %1454, %_ZN7QStringD2Ev.exit937 ], [ %eh.lpad-body544, %_ZN7QStringD2Ev.exit933 ], [ %eh.lpad-body536, %_ZN7QStringD2Ev.exit929 ], [ %eh.lpad-body528, %_ZN7QStringD2Ev.exit925 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1178, %_ZN7QStringD2Ev.exit753 ], [ %1172, %_ZN7QStringD2Ev.exit749 ], [ %1166, %_ZN7QStringD2Ev.exit745 ], [ %1160, %_ZN7QStringD2Ev.exit741 ], [ %1154, %_ZN7QStringD2Ev.exit737 ], [ %1148, %_ZN7QStringD2Ev.exit733 ], [ %1142, %_ZN7QStringD2Ev.exit729 ], [ %1136, %_ZN7QStringD2Ev.exit725 ], [ %1130, %_ZN7QStringD2Ev.exit721 ], [ %1124, %_ZN7QStringD2Ev.exit717 ], [ %1118, %_ZN7QStringD2Ev.exit713 ], [ %1112, %_ZN7QStringD2Ev.exit709 ], [ %1106, %_ZN7QStringD2Ev.exit705 ], [ %1100, %_ZN7QStringD2Ev.exit701 ], [ %1094, %_ZN7QStringD2Ev.exit697 ], [ %1088, %_ZN7QStringD2Ev.exit693 ], [ %1082, %_ZN7QStringD2Ev.exit689 ], [ %1076, %_ZN7QStringD2Ev.exit685 ], [ %1070, %_ZN7QStringD2Ev.exit681 ], [ %1064, %_ZN7QStringD2Ev.exit677 ], [ %1058, %_ZN7QStringD2Ev.exit673 ], [ %1052, %_ZN7QStringD2Ev.exit669 ], [ %1046, %_ZN7QStringD2Ev.exit665 ], [ %1040, %_ZN7QStringD2Ev.exit661 ], [ %1034, %_ZN7QStringD2Ev.exit657 ], [ %1028, %_ZN7QStringD2Ev.exit653 ], [ %1022, %_ZN7QStringD2Ev.exit649 ], [ %1016, %_ZN7QStringD2Ev.exit645 ], [ %1010, %_ZN7QStringD2Ev.exit641 ], [ %1004, %_ZN7QStringD2Ev.exit637 ], [ %998, %_ZN7QStringD2Ev.exit633 ], [ %992, %_ZN7QStringD2Ev.exit629 ], [ %986, %_ZN7QStringD2Ev.exit625 ], [ %980, %_ZN7QStringD2Ev.exit621 ], [ %974, %_ZN7QStringD2Ev.exit617 ], [ %968, %_ZN7QStringD2Ev.exit613 ], [ %962, %_ZN7QStringD2Ev.exit609 ], [ %956, %_ZN7QStringD2Ev.exit605 ], [ %950, %_ZN7QStringD2Ev.exit601 ], [ %944, %_ZN7QStringD2Ev.exit597 ], [ %938, %_ZN7QStringD2Ev.exit593 ], [ %932, %_ZN7QStringD2Ev.exit589 ], [ %926, %_ZN7QStringD2Ev.exit585 ], [ %920, %_ZN7QStringD2Ev.exit581 ], [ %914, %_ZN7QStringD2Ev.exit577 ], [ %908, %_ZN7QStringD2Ev.exit573 ], [ %902, %_ZN7QStringD2Ev.exit569 ], [ %1346, %_ZN7QStringD2Ev.exit865 ], [ %1340, %_ZN7QStringD2Ev.exit861 ], [ %1334, %_ZN7QStringD2Ev.exit857 ], [ %1328, %_ZN7QStringD2Ev.exit853 ], [ %1322, %_ZN7QStringD2Ev.exit849 ], [ %1316, %_ZN7QStringD2Ev.exit845 ], [ %1310, %_ZN7QStringD2Ev.exit841 ], [ %eh.lpad-body392, %_ZN7QStringD2Ev.exit837 ], [ %eh.lpad-body384, %_ZN7QStringD2Ev.exit833 ], [ %eh.lpad-body376, %_ZN7QStringD2Ev.exit829 ], [ %eh.lpad-body368, %_ZN7QStringD2Ev.exit825 ], [ %eh.lpad-body360, %_ZN7QStringD2Ev.exit821 ], [ %eh.lpad-body352, %_ZN7QStringD2Ev.exit817 ], [ %eh.lpad-body344, %_ZN7QStringD2Ev.exit813 ], [ %eh.lpad-body336, %_ZN7QStringD2Ev.exit809 ], [ %eh.lpad-body328, %_ZN7QStringD2Ev.exit805 ], [ %eh.lpad-body320, %_ZN7QStringD2Ev.exit801 ], [ %eh.lpad-body312, %_ZN7QStringD2Ev.exit797 ], [ %eh.lpad-body304, %_ZN7QStringD2Ev.exit793 ], [ %eh.lpad-body296, %_ZN7QStringD2Ev.exit789 ], [ %eh.lpad-body288, %_ZN7QStringD2Ev.exit785 ], [ %eh.lpad-body280, %_ZN7QStringD2Ev.exit781 ], [ %eh.lpad-body272, %_ZN7QStringD2Ev.exit777 ], [ %eh.lpad-body264, %_ZN7QStringD2Ev.exit773 ], [ %eh.lpad-body256, %_ZN7QStringD2Ev.exit769 ], [ %eh.lpad-body248, %_ZN7QStringD2Ev.exit765 ], [ %eh.lpad-body240, %_ZN7QStringD2Ev.exit761 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit757 ], [ %eh.lpad-body444, %_ZN7QStringD2Ev.exit877 ], [ %eh.lpad-body436, %_ZN7QStringD2Ev.exit873 ], [ %eh.lpad-body428, %_ZN7QStringD2Ev.exit869 ], [ %1388, %_ZN7QStringD2Ev.exit893 ], [ %eh.lpad-body468, %_ZN7QStringD2Ev.exit889 ], [ %eh.lpad-body460, %_ZN7QStringD2Ev.exit885 ], [ %eh.lpad-body452, %_ZN7QStringD2Ev.exit881 ], [ %1430, %_ZN7QStringD2Ev.exit921 ], [ %1424, %_ZN7QStringD2Ev.exit917 ], [ %eh.lpad-body512, %_ZN7QStringD2Ev.exit913 ], [ %eh.lpad-body504, %_ZN7QStringD2Ev.exit909 ], [ %eh.lpad-body496, %_ZN7QStringD2Ev.exit905 ], [ %eh.lpad-body488, %_ZN7QStringD2Ev.exit901 ], [ %eh.lpad-body480, %_ZN7QStringD2Ev.exit897 ], [ %1472, %_ZN7QStringD2Ev.exit949 ], [ %1466, %_ZN7QStringD2Ev.exit945 ], [ %1460, %_ZN7QStringD2Ev.exit941 ], [ %1454, %_ZN7QStringD2Ev.exit937 ], [ %eh.lpad-body544, %_ZN7QStringD2Ev.exit933 ], [ %eh.lpad-body536, %_ZN7QStringD2Ev.exit929 ], [ %eh.lpad-body528, %_ZN7QStringD2Ev.exit925 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -28737,7 +28737,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Se
   br label %.thread
 
 .thread:                                          ; preds = %19, %22
-  %27 = phi i1 [ %26, %22 ], [ true, %19 ]
+  %27 = phi i1 [ true, %19 ], [ %26, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef %6, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
@@ -28976,8 +28976,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntr
   br label %_ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjP18LBMLBTRMFrameEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -29268,7 +29268,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjP22LBMLBTRMNCFReasonEntryESt1
   br label %.thread
 
 .thread:                                          ; preds = %19, %22
-  %27 = phi i1 [ %26, %22 ], [ true, %19 ]
+  %27 = phi i1 [ true, %19 ], [ %26, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef %6, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
@@ -29507,8 +29507,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjP22LBMLBTRMNCFReason
   br label %_ZNSt8_Rb_treeIjSt4pairIKjP22LBMLBTRMNCFReasonEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjP22LBMLBTRMNCFReasonEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -30035,7 +30035,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Sele
   br label %.thread
 
 .thread:                                          ; preds = %19, %22
-  %27 = phi i1 [ %26, %22 ], [ true, %19 ]
+  %27 = phi i1 [ true, %19 ], [ %26, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef %6, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
@@ -30274,8 +30274,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryE
   br label %_ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjP16LBMLBTRMSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -30318,7 +30318,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjP19LBMLBTRMNCFSQNEntryESt10_S
   br label %.thread
 
 .thread:                                          ; preds = %19, %22
-  %27 = phi i1 [ %26, %22 ], [ true, %19 ]
+  %27 = phi i1 [ true, %19 ], [ %26, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef %6, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
@@ -30557,8 +30557,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjP19LBMLBTRMNCFSQNEnt
   br label %_ZNSt8_Rb_treeIjSt4pairIKjP19LBMLBTRMNCFSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjP19LBMLBTRMNCFSQNEntryESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -30914,7 +30914,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P28LBMLBTRMSourceTra
   br label %.thread
 
 .thread:                                          ; preds = %30, %34
-  %43 = phi i1 [ %42, %34 ], [ true, %30 ]
+  %43 = phi i1 [ true, %30 ], [ %42, %34 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef %7, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(32) %32) #19
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %45 = load i64, ptr %44, align 8
@@ -31210,8 +31210,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P28LBMLBTRM
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P28LBMLBTRMSourceTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit
 
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P28LBMLBTRMSourceTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit: ; preds = %122, %._crit_edge.thread.i47, %85, %._crit_edge.thread.i27, %40, %._crit_edge.thread.i, %105, %70, %90, %93, %58, %9
-  %.sroa.070.0 = phi ptr [ null, %93 ], [ %spec.select, %70 ], [ null, %9 ], [ %spec.select72, %105 ], [ null, %._crit_edge.thread.i ], [ %60, %58 ], [ %1, %90 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %40 ], [ %spec.select.i21, %85 ], [ %spec.select.i41, %122 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %95, %93 ], [ %spec.select71, %70 ], [ %11, %9 ], [ %spec.select73, %105 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %60, %58 ], [ null, %90 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %40 ], [ %spec.select21.i22, %85 ], [ %spec.select21.i42, %122 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %60, %58 ], [ null, %93 ], [ %1, %90 ], [ %spec.select, %70 ], [ %spec.select72, %105 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %40 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %85 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %122 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %60, %58 ], [ %95, %93 ], [ null, %90 ], [ %spec.select71, %70 ], [ %spec.select73, %105 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %40 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %85 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %122 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -31595,7 +31595,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P30LBMLBTRMReceiverT
   br label %.thread
 
 .thread:                                          ; preds = %30, %34
-  %43 = phi i1 [ %42, %34 ], [ true, %30 ]
+  %43 = phi i1 [ true, %30 ], [ %42, %34 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef %7, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(32) %32) #19
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %45 = load i64, ptr %44, align 8
@@ -31891,8 +31891,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P30LBMLBTRM
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P30LBMLBTRMReceiverTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit
 
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P30LBMLBTRMReceiverTransportEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit: ; preds = %122, %._crit_edge.thread.i47, %85, %._crit_edge.thread.i27, %40, %._crit_edge.thread.i, %105, %70, %90, %93, %58, %9
-  %.sroa.070.0 = phi ptr [ null, %93 ], [ %spec.select, %70 ], [ null, %9 ], [ %spec.select72, %105 ], [ null, %._crit_edge.thread.i ], [ %60, %58 ], [ %1, %90 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %40 ], [ %spec.select.i21, %85 ], [ %spec.select.i41, %122 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %95, %93 ], [ %spec.select71, %70 ], [ %11, %9 ], [ %spec.select73, %105 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %60, %58 ], [ null, %90 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %40 ], [ %spec.select21.i22, %85 ], [ %spec.select21.i42, %122 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %60, %58 ], [ null, %93 ], [ %1, %90 ], [ %spec.select, %70 ], [ %spec.select72, %105 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %40 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %85 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %122 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %60, %58 ], [ %95, %93 ], [ null, %90 ], [ %spec.select71, %70 ], [ %spec.select73, %105 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %40 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %85 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %122 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -32276,7 +32276,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P19LBMLBTRMSourceEnt
   br label %.thread
 
 .thread:                                          ; preds = %30, %34
-  %43 = phi i1 [ %42, %34 ], [ true, %30 ]
+  %43 = phi i1 [ true, %30 ], [ %42, %34 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef %7, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(32) %32) #19
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %45 = load i64, ptr %44, align 8
@@ -32572,8 +32572,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P19LBMLBTRM
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P19LBMLBTRMSourceEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit
 
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P19LBMLBTRMSourceEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit: ; preds = %122, %._crit_edge.thread.i47, %85, %._crit_edge.thread.i27, %40, %._crit_edge.thread.i, %105, %70, %90, %93, %58, %9
-  %.sroa.070.0 = phi ptr [ null, %93 ], [ %spec.select, %70 ], [ null, %9 ], [ %spec.select72, %105 ], [ null, %._crit_edge.thread.i ], [ %60, %58 ], [ %1, %90 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %40 ], [ %spec.select.i21, %85 ], [ %spec.select.i41, %122 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %95, %93 ], [ %spec.select71, %70 ], [ %11, %9 ], [ %spec.select73, %105 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %60, %58 ], [ null, %90 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %40 ], [ %spec.select21.i22, %85 ], [ %spec.select21.i42, %122 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %60, %58 ], [ null, %93 ], [ %1, %90 ], [ %spec.select, %70 ], [ %spec.select72, %105 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %40 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %85 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %122 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %60, %58 ], [ %95, %93 ], [ null, %90 ], [ %spec.select71, %70 ], [ %spec.select73, %105 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %40 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %85 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %122 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -32957,7 +32957,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRMReceiverE
   br label %.thread
 
 .thread:                                          ; preds = %30, %34
-  %43 = phi i1 [ %42, %34 ], [ true, %30 ]
+  %43 = phi i1 [ true, %30 ], [ %42, %34 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef %7, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(32) %32) #19
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %45 = load i64, ptr %44, align 8
@@ -33253,8 +33253,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRM
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRMReceiverEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit
 
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRMReceiverEntryESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit: ; preds = %122, %._crit_edge.thread.i47, %85, %._crit_edge.thread.i27, %40, %._crit_edge.thread.i, %105, %70, %90, %93, %58, %9
-  %.sroa.070.0 = phi ptr [ null, %93 ], [ %spec.select, %70 ], [ null, %9 ], [ %spec.select72, %105 ], [ null, %._crit_edge.thread.i ], [ %60, %58 ], [ %1, %90 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %40 ], [ %spec.select.i21, %85 ], [ %spec.select.i41, %122 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %95, %93 ], [ %spec.select71, %70 ], [ %11, %9 ], [ %spec.select73, %105 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %60, %58 ], [ null, %90 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %40 ], [ %spec.select21.i22, %85 ], [ %spec.select21.i42, %122 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %60, %58 ], [ null, %93 ], [ %1, %90 ], [ %spec.select, %70 ], [ %spec.select72, %105 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %40 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %85 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %122 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %60, %58 ], [ %95, %93 ], [ null, %90 ], [ %spec.select71, %70 ], [ %spec.select73, %105 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %40 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %85 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %122 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

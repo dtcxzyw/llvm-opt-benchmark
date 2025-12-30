@@ -750,7 +750,7 @@ define internal fastcc zeroext i1 @AddFileDescriptorCloseActions(ptr noundef non
   br label %.thread50
 
 .thread50:                                        ; preds = %30, %22, %.thread42, %32, %16
-  %.4 = phi i1 [ %36, %32 ], [ %21, %16 ], [ true, %.thread42 ], [ true, %22 ], [ true, %30 ]
+  %.4 = phi i1 [ %21, %16 ], [ %36, %32 ], [ true, %.thread42 ], [ true, %22 ], [ true, %30 ]
   ret i1 %.4
 }
 
@@ -903,7 +903,7 @@ define hidden zeroext i1 @SDL_SYS_WaitProcess(ptr noundef readonly captures(none
   br label %39
 
 39:                                               ; preds = %33, %38, %36, %16, %28, %21, %.loopexit
-  %.0 = phi i1 [ true, %.loopexit ], [ false, %16 ], [ %25, %21 ], [ false, %28 ], [ true, %36 ], [ true, %38 ], [ true, %33 ]
+  %.0 = phi i1 [ true, %.loopexit ], [ %25, %21 ], [ false, %28 ], [ false, %16 ], [ true, %36 ], [ true, %38 ], [ true, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

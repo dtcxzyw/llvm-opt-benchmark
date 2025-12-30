@@ -67,7 +67,7 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr noundef readonly captures(none) 
   br label %42
 
 42:                                               ; preds = %16, %35, %38, %13
-  %.036.ph = phi i32 [ %36, %35 ], [ 0, %38 ], [ -138, %16 ], [ %15, %13 ]
+  %.036.ph = phi i32 [ -138, %16 ], [ %36, %35 ], [ 0, %38 ], [ %15, %13 ]
   %.pr = load i32, ptr %14, align 8, !tbaa !9
   switch i32 %.pr, label %mbedtls_psa_aead_abort.exit [
     i32 89129216, label %43
@@ -186,7 +186,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr noundef readonly 
   br label %46
 
 46:                                               ; preds = %13, %36, %35, %28, %25, %18, %15, %4, %40
-  %.0 = phi i32 [ -134, %35 ], [ %39, %36 ], [ %12, %4 ], [ -135, %15 ], [ 0, %40 ], [ %24, %18 ], [ -135, %25 ], [ %34, %28 ], [ -134, %13 ]
+  %.0 = phi i32 [ 0, %40 ], [ %12, %4 ], [ -135, %15 ], [ %24, %18 ], [ -135, %25 ], [ %34, %28 ], [ -134, %35 ], [ %39, %36 ], [ -134, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -426,7 +426,7 @@ define hidden i32 @mbedtls_psa_aead_set_nonce(ptr noundef %0, ptr noundef %1, i6
   br label %29
 
 29:                                               ; preds = %.sink.split, %3, %19
-  %.016 = phi i32 [ -134, %3 ], [ -135, %19 ], [ %28, %.sink.split ]
+  %.016 = phi i32 [ -135, %19 ], [ -134, %3 ], [ %28, %.sink.split ]
   ret i32 %.016
 }
 
@@ -547,7 +547,7 @@ define hidden i32 @mbedtls_psa_aead_update(ptr noundef %0, ptr noundef %1, i64 n
   br label %29
 
 29:                                               ; preds = %25, %27, %6, %19, %13
-  %.025 = phi i32 [ -134, %6 ], [ -138, %19 ], [ -138, %13 ], [ 0, %27 ], [ %.0, %25 ]
+  %.025 = phi i32 [ -138, %13 ], [ -138, %19 ], [ -134, %6 ], [ 0, %27 ], [ %.0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.025
 }
@@ -607,7 +607,7 @@ define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 n
   br label %31
 
 31:                                               ; preds = %25, %28, %12, %20, %7
-  %.0 = phi i32 [ -138, %7 ], [ -134, %12 ], [ -138, %20 ], [ 0, %28 ], [ %26, %25 ]
+  %.0 = phi i32 [ -138, %7 ], [ -138, %20 ], [ -134, %12 ], [ 0, %28 ], [ %26, %25 ]
   ret i32 %.0
 }
 

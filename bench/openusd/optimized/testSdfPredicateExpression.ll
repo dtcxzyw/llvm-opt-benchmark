@@ -2061,7 +2061,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDef
   br label %.body8.i
 
 .body8.i:                                         ; preds = %640, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_1EEEclEPSD_.exit.i13.i.i", %.thread.i.i, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_1EESt14default_deleteISD_EED2Ev.exit.i.i.i"
-  %eh.lpad-body9.i = phi { ptr, i32 } [ %641, %640 ], [ %610, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_1EEEclEPSD_.exit.i13.i.i" ], [ %562, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_1EESt14default_deleteISD_EED2Ev.exit.i.i.i" ], [ %606, %.thread.i.i ]
+  %eh.lpad-body9.i = phi { ptr, i32 } [ %641, %640 ], [ %562, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_1EESt14default_deleteISD_EED2Ev.exit.i.i.i" ], [ %606, %.thread.i.i ], [ %610, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_1EEEclEPSD_.exit.i13.i.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #28
   br label %.body531
@@ -2354,7 +2354,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDef
   br label %.body8.i538
 
 .body8.i538:                                      ; preds = %747, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_2EEEclEPSD_.exit.i13.i.i", %.thread.i.i561, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_2EESt14default_deleteISD_EED2Ev.exit.i.i.i"
-  %eh.lpad-body9.i539 = phi { ptr, i32 } [ %748, %747 ], [ %717, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_2EEEclEPSD_.exit.i13.i.i" ], [ %669, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_2EESt14default_deleteISD_EED2Ev.exit.i.i.i" ], [ %713, %.thread.i.i561 ]
+  %eh.lpad-body9.i539 = phi { ptr, i32 } [ %748, %747 ], [ %669, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_2EESt14default_deleteISD_EED2Ev.exit.i.i.i" ], [ %713, %.thread.i.i561 ], [ %717, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_2EEEclEPSD_.exit.i13.i.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #28
   br label %.body531
@@ -10299,7 +10299,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body700
 
 .body700:                                         ; preds = %2895, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_6EEEclEPSD_.exit.i12.i", %.thread.i684, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_6EESt14default_deleteISD_EED2Ev.exit.i.i", %.body.i.i671, %.body704
-  %.pn244.pn = phi { ptr, i32 } [ %.pn244, %.body704 ], [ %2896, %2895 ], [ %eh.lpad-body.i.i672, %.body.i.i671 ], [ %1134, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_6EESt14default_deleteISD_EED2Ev.exit.i.i" ], [ %1178, %.thread.i684 ], [ %1182, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_6EEEclEPSD_.exit.i12.i" ]
+  %.pn244.pn = phi { ptr, i32 } [ %.pn244, %.body704 ], [ %2896, %2895 ], [ %1134, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_6EESt14default_deleteISD_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i672, %.body.i.i671 ], [ %1178, %.thread.i684 ], [ %1182, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_6EEEclEPSD_.exit.i12.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %168) #28
   br label %.loopexit2659.loopexit
 
@@ -10319,7 +10319,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body662
 
 .body662:                                         ; preds = %2887, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_5EEEclEPSD_.exit.i12.i", %.thread.i646, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_5EESt14default_deleteISD_EED2Ev.exit.i.i", %.body.i.i633, %.body666
-  %.pn244.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn244.pn.pn.pn.pn, %.body666 ], [ %2888, %2887 ], [ %eh.lpad-body.i.i634, %.body.i.i633 ], [ %1025, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_5EESt14default_deleteISD_EED2Ev.exit.i.i" ], [ %1069, %.thread.i646 ], [ %1073, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_5EEEclEPSD_.exit.i12.i" ]
+  %.pn244.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn244.pn.pn.pn.pn, %.body666 ], [ %2888, %2887 ], [ %1025, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_5EESt14default_deleteISD_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i634, %.body.i.i633 ], [ %1069, %.thread.i646 ], [ %1073, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_5EEEclEPSD_.exit.i12.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %163) #28
   br label %.loopexit2658.loopexit
 
@@ -10339,7 +10339,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body624
 
 .body624:                                         ; preds = %2879, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_4EEEclEPSD_.exit.i12.i", %.thread.i608, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_4EESt14default_deleteISD_EED2Ev.exit.i.i", %.body.i.i595, %.body628
-  %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn, %.body628 ], [ %2880, %2879 ], [ %eh.lpad-body.i.i596, %.body.i.i595 ], [ %916, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_4EESt14default_deleteISD_EED2Ev.exit.i.i" ], [ %960, %.thread.i608 ], [ %964, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_4EEEclEPSD_.exit.i12.i" ]
+  %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn, %.body628 ], [ %2880, %2879 ], [ %916, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_4EESt14default_deleteISD_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i596, %.body.i.i595 ], [ %960, %.thread.i608 ], [ %964, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_4EEEclEPSD_.exit.i12.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %158) #28
   br label %.loopexit2657.loopexit
 
@@ -10359,7 +10359,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body586
 
 .body586:                                         ; preds = %2871, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_3EEEclEPSD_.exit.i12.i", %.thread.i, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_3EESt14default_deleteISD_EED2Ev.exit.i.i", %.body.i.i, %.body590
-  %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body590 ], [ %2872, %2871 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %807, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_3EESt14default_deleteISD_EED2Ev.exit.i.i" ], [ %851, %.thread.i ], [ %855, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_3EEEclEPSD_.exit.i12.i" ]
+  %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body590 ], [ %2872, %2871 ], [ %807, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_3EESt14default_deleteISD_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %851, %.thread.i ], [ %855, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_OverloadBinderIZL10TestSimplevE3$_3EEEclEPSD_.exit.i12.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %153) #28
   br label %.loopexit.loopexit
 
@@ -10374,8 +10374,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body531
 
 .body531:                                         ; preds = %.loopexit, %751, %2865, %.body1759, %745, %.body8.i538, %.body1757, %638, %.body8.i
-  %.sink = phi ptr [ %105, %.body1759 ], [ %111, %.body1757 ], [ %111, %.body8.i ], [ %111, %638 ], [ %105, %.body8.i538 ], [ %105, %745 ], [ %152, %2865 ], [ %152, %751 ], [ %152, %.loopexit ]
-  %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %651, %.body1759 ], [ %544, %.body1757 ], [ %eh.lpad-body9.i, %.body8.i ], [ %639, %638 ], [ %eh.lpad-body9.i539, %.body8.i538 ], [ %746, %745 ], [ %2866, %2865 ], [ %752, %751 ], [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit ]
+  %.sink = phi ptr [ %111, %.body8.i ], [ %111, %638 ], [ %111, %.body1757 ], [ %105, %.body8.i538 ], [ %105, %745 ], [ %105, %.body1759 ], [ %152, %2865 ], [ %152, %751 ], [ %152, %.loopexit ]
+  %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body9.i, %.body8.i ], [ %639, %638 ], [ %544, %.body1757 ], [ %eh.lpad-body9.i539, %.body8.i538 ], [ %746, %745 ], [ %651, %.body1759 ], [ %2866, %2865 ], [ %752, %751 ], [ %.pn244.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #28
   %2901 = getelementptr inbounds nuw i8, ptr %150, i64 8
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ISt10unique_ptrINS0_19SdfPredicateLibraryIRKSA_E19_OverloadBinderBaseESt14default_deleteISG_EESaISJ_EEELb1EEESaISN_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2901) #28
@@ -10491,8 +10491,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body784
 
 .body784:                                         ; preds = %2937, %1521, %2935, %2933, %1512, %2931, %2929, %1503, %2927, %2925, %1494, %2923, %2921, %1485, %2919, %2917, %1476, %2915, %2913, %1467, %2911
-  %.sink2911 = phi ptr [ %190, %2933 ], [ %188, %2929 ], [ %186, %2925 ], [ %184, %2921 ], [ %182, %2917 ], [ %180, %2913 ], [ %180, %2911 ], [ %180, %1467 ], [ %182, %2915 ], [ %182, %1476 ], [ %184, %2919 ], [ %184, %1485 ], [ %186, %2923 ], [ %186, %1494 ], [ %188, %2927 ], [ %188, %1503 ], [ %190, %2931 ], [ %190, %1512 ], [ %192, %2935 ], [ %192, %1521 ], [ %192, %2937 ]
-  %.pn278.pn = phi { ptr, i32 } [ %2934, %2933 ], [ %2930, %2929 ], [ %2926, %2925 ], [ %2922, %2921 ], [ %2918, %2917 ], [ %2914, %2913 ], [ %2912, %2911 ], [ %1468, %1467 ], [ %2916, %2915 ], [ %1477, %1476 ], [ %2920, %2919 ], [ %1486, %1485 ], [ %2924, %2923 ], [ %1495, %1494 ], [ %2928, %2927 ], [ %1504, %1503 ], [ %2932, %2931 ], [ %1513, %1512 ], [ %2936, %2935 ], [ %1522, %1521 ], [ %2938, %2937 ]
+  %.sink2911 = phi ptr [ %180, %2911 ], [ %180, %1467 ], [ %180, %2913 ], [ %182, %2915 ], [ %182, %1476 ], [ %182, %2917 ], [ %184, %2919 ], [ %184, %1485 ], [ %184, %2921 ], [ %186, %2923 ], [ %186, %1494 ], [ %186, %2925 ], [ %188, %2927 ], [ %188, %1503 ], [ %188, %2929 ], [ %190, %2931 ], [ %190, %1512 ], [ %190, %2933 ], [ %192, %2935 ], [ %192, %1521 ], [ %192, %2937 ]
+  %.pn278.pn = phi { ptr, i32 } [ %2912, %2911 ], [ %1468, %1467 ], [ %2914, %2913 ], [ %2916, %2915 ], [ %1477, %1476 ], [ %2918, %2917 ], [ %2920, %2919 ], [ %1486, %1485 ], [ %2922, %2921 ], [ %2924, %2923 ], [ %1495, %1494 ], [ %2926, %2925 ], [ %2928, %2927 ], [ %1504, %1503 ], [ %2930, %2929 ], [ %2932, %2931 ], [ %1513, %1512 ], [ %2934, %2933 ], [ %2936, %2935 ], [ %1522, %1521 ], [ %2938, %2937 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2911) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %174) #28
   br label %3329
@@ -10602,8 +10602,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body851
 
 .body851:                                         ; preds = %2972, %1624, %2970, %2968, %1615, %2966, %2964, %1606, %2962, %2960, %1597, %2958, %2956, %1588, %2954, %2952, %1579, %2950, %2948, %1570, %2946
-  %.sink2912 = phi ptr [ %209, %2968 ], [ %207, %2964 ], [ %205, %2960 ], [ %203, %2956 ], [ %201, %2952 ], [ %199, %2948 ], [ %199, %2946 ], [ %199, %1570 ], [ %201, %2950 ], [ %201, %1579 ], [ %203, %2954 ], [ %203, %1588 ], [ %205, %2958 ], [ %205, %1597 ], [ %207, %2962 ], [ %207, %1606 ], [ %209, %2966 ], [ %209, %1615 ], [ %211, %2970 ], [ %211, %1624 ], [ %211, %2972 ]
-  %.pn296.pn = phi { ptr, i32 } [ %2969, %2968 ], [ %2965, %2964 ], [ %2961, %2960 ], [ %2957, %2956 ], [ %2953, %2952 ], [ %2949, %2948 ], [ %2947, %2946 ], [ %1571, %1570 ], [ %2951, %2950 ], [ %1580, %1579 ], [ %2955, %2954 ], [ %1589, %1588 ], [ %2959, %2958 ], [ %1598, %1597 ], [ %2963, %2962 ], [ %1607, %1606 ], [ %2967, %2966 ], [ %1616, %1615 ], [ %2971, %2970 ], [ %1625, %1624 ], [ %2973, %2972 ]
+  %.sink2912 = phi ptr [ %199, %2946 ], [ %199, %1570 ], [ %199, %2948 ], [ %201, %2950 ], [ %201, %1579 ], [ %201, %2952 ], [ %203, %2954 ], [ %203, %1588 ], [ %203, %2956 ], [ %205, %2958 ], [ %205, %1597 ], [ %205, %2960 ], [ %207, %2962 ], [ %207, %1606 ], [ %207, %2964 ], [ %209, %2966 ], [ %209, %1615 ], [ %209, %2968 ], [ %211, %2970 ], [ %211, %1624 ], [ %211, %2972 ]
+  %.pn296.pn = phi { ptr, i32 } [ %2947, %2946 ], [ %1571, %1570 ], [ %2949, %2948 ], [ %2951, %2950 ], [ %1580, %1579 ], [ %2953, %2952 ], [ %2955, %2954 ], [ %1589, %1588 ], [ %2957, %2956 ], [ %2959, %2958 ], [ %1598, %1597 ], [ %2961, %2960 ], [ %2963, %2962 ], [ %1607, %1606 ], [ %2965, %2964 ], [ %2967, %2966 ], [ %1616, %1615 ], [ %2969, %2968 ], [ %2971, %2970 ], [ %1625, %1624 ], [ %2973, %2972 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2912) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %193) #28
   br label %3329
@@ -10801,8 +10801,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body986
 
 .body986:                                         ; preds = %3029, %1825, %3027, %3025, %1816, %3023, %3021, %1807, %3019, %3017, %1798, %3015, %3013, %1789, %3011, %3009, %1780, %3007, %3005, %1771, %3003
-  %.sink2913 = phi ptr [ %242, %3025 ], [ %240, %3021 ], [ %238, %3017 ], [ %236, %3013 ], [ %234, %3009 ], [ %232, %3005 ], [ %232, %3003 ], [ %232, %1771 ], [ %234, %3007 ], [ %234, %1780 ], [ %236, %3011 ], [ %236, %1789 ], [ %238, %3015 ], [ %238, %1798 ], [ %240, %3019 ], [ %240, %1807 ], [ %242, %3023 ], [ %242, %1816 ], [ %244, %3027 ], [ %244, %1825 ], [ %244, %3029 ]
-  %.pn324.pn = phi { ptr, i32 } [ %3026, %3025 ], [ %3022, %3021 ], [ %3018, %3017 ], [ %3014, %3013 ], [ %3010, %3009 ], [ %3006, %3005 ], [ %3004, %3003 ], [ %1772, %1771 ], [ %3008, %3007 ], [ %1781, %1780 ], [ %3012, %3011 ], [ %1790, %1789 ], [ %3016, %3015 ], [ %1799, %1798 ], [ %3020, %3019 ], [ %1808, %1807 ], [ %3024, %3023 ], [ %1817, %1816 ], [ %3028, %3027 ], [ %1826, %1825 ], [ %3030, %3029 ]
+  %.sink2913 = phi ptr [ %232, %3003 ], [ %232, %1771 ], [ %232, %3005 ], [ %234, %3007 ], [ %234, %1780 ], [ %234, %3009 ], [ %236, %3011 ], [ %236, %1789 ], [ %236, %3013 ], [ %238, %3015 ], [ %238, %1798 ], [ %238, %3017 ], [ %240, %3019 ], [ %240, %1807 ], [ %240, %3021 ], [ %242, %3023 ], [ %242, %1816 ], [ %242, %3025 ], [ %244, %3027 ], [ %244, %1825 ], [ %244, %3029 ]
+  %.pn324.pn = phi { ptr, i32 } [ %3004, %3003 ], [ %1772, %1771 ], [ %3006, %3005 ], [ %3008, %3007 ], [ %1781, %1780 ], [ %3010, %3009 ], [ %3012, %3011 ], [ %1790, %1789 ], [ %3014, %3013 ], [ %3016, %3015 ], [ %1799, %1798 ], [ %3018, %3017 ], [ %3020, %3019 ], [ %1808, %1807 ], [ %3022, %3021 ], [ %3024, %3023 ], [ %1817, %1816 ], [ %3026, %3025 ], [ %3028, %3027 ], [ %1826, %1825 ], [ %3030, %3029 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2913) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %226) #28
   br label %3329
@@ -10912,8 +10912,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1063
 
 .body1063:                                        ; preds = %3064, %1928, %3062, %3060, %1919, %3058, %3056, %1910, %3054, %3052, %1901, %3050, %3048, %1892, %3046, %3044, %1883, %3042, %3040, %1874, %3038
-  %.sink2914 = phi ptr [ %261, %3060 ], [ %259, %3056 ], [ %257, %3052 ], [ %255, %3048 ], [ %253, %3044 ], [ %251, %3040 ], [ %251, %3038 ], [ %251, %1874 ], [ %253, %3042 ], [ %253, %1883 ], [ %255, %3046 ], [ %255, %1892 ], [ %257, %3050 ], [ %257, %1901 ], [ %259, %3054 ], [ %259, %1910 ], [ %261, %3058 ], [ %261, %1919 ], [ %263, %3062 ], [ %263, %1928 ], [ %263, %3064 ]
-  %.pn342.pn = phi { ptr, i32 } [ %3061, %3060 ], [ %3057, %3056 ], [ %3053, %3052 ], [ %3049, %3048 ], [ %3045, %3044 ], [ %3041, %3040 ], [ %3039, %3038 ], [ %1875, %1874 ], [ %3043, %3042 ], [ %1884, %1883 ], [ %3047, %3046 ], [ %1893, %1892 ], [ %3051, %3050 ], [ %1902, %1901 ], [ %3055, %3054 ], [ %1911, %1910 ], [ %3059, %3058 ], [ %1920, %1919 ], [ %3063, %3062 ], [ %1929, %1928 ], [ %3065, %3064 ]
+  %.sink2914 = phi ptr [ %251, %3038 ], [ %251, %1874 ], [ %251, %3040 ], [ %253, %3042 ], [ %253, %1883 ], [ %253, %3044 ], [ %255, %3046 ], [ %255, %1892 ], [ %255, %3048 ], [ %257, %3050 ], [ %257, %1901 ], [ %257, %3052 ], [ %259, %3054 ], [ %259, %1910 ], [ %259, %3056 ], [ %261, %3058 ], [ %261, %1919 ], [ %261, %3060 ], [ %263, %3062 ], [ %263, %1928 ], [ %263, %3064 ]
+  %.pn342.pn = phi { ptr, i32 } [ %3039, %3038 ], [ %1875, %1874 ], [ %3041, %3040 ], [ %3043, %3042 ], [ %1884, %1883 ], [ %3045, %3044 ], [ %3047, %3046 ], [ %1893, %1892 ], [ %3049, %3048 ], [ %3051, %3050 ], [ %1902, %1901 ], [ %3053, %3052 ], [ %3055, %3054 ], [ %1911, %1910 ], [ %3057, %3056 ], [ %3059, %3058 ], [ %1920, %1919 ], [ %3061, %3060 ], [ %3063, %3062 ], [ %1929, %1928 ], [ %3065, %3064 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2914) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %245) #28
   br label %3329
@@ -11023,8 +11023,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1144
 
 .body1144:                                        ; preds = %3099, %2031, %3097, %3095, %2022, %3093, %3091, %2013, %3089, %3087, %2004, %3085, %3083, %1995, %3081, %3079, %1986, %3077, %3075, %1977, %3073
-  %.sink2915 = phi ptr [ %280, %3095 ], [ %278, %3091 ], [ %276, %3087 ], [ %274, %3083 ], [ %272, %3079 ], [ %270, %3075 ], [ %270, %3073 ], [ %270, %1977 ], [ %272, %3077 ], [ %272, %1986 ], [ %274, %3081 ], [ %274, %1995 ], [ %276, %3085 ], [ %276, %2004 ], [ %278, %3089 ], [ %278, %2013 ], [ %280, %3093 ], [ %280, %2022 ], [ %282, %3097 ], [ %282, %2031 ], [ %282, %3099 ]
-  %.pn360.pn = phi { ptr, i32 } [ %3096, %3095 ], [ %3092, %3091 ], [ %3088, %3087 ], [ %3084, %3083 ], [ %3080, %3079 ], [ %3076, %3075 ], [ %3074, %3073 ], [ %1978, %1977 ], [ %3078, %3077 ], [ %1987, %1986 ], [ %3082, %3081 ], [ %1996, %1995 ], [ %3086, %3085 ], [ %2005, %2004 ], [ %3090, %3089 ], [ %2014, %2013 ], [ %3094, %3093 ], [ %2023, %2022 ], [ %3098, %3097 ], [ %2032, %2031 ], [ %3100, %3099 ]
+  %.sink2915 = phi ptr [ %270, %3073 ], [ %270, %1977 ], [ %270, %3075 ], [ %272, %3077 ], [ %272, %1986 ], [ %272, %3079 ], [ %274, %3081 ], [ %274, %1995 ], [ %274, %3083 ], [ %276, %3085 ], [ %276, %2004 ], [ %276, %3087 ], [ %278, %3089 ], [ %278, %2013 ], [ %278, %3091 ], [ %280, %3093 ], [ %280, %2022 ], [ %280, %3095 ], [ %282, %3097 ], [ %282, %2031 ], [ %282, %3099 ]
+  %.pn360.pn = phi { ptr, i32 } [ %3074, %3073 ], [ %1978, %1977 ], [ %3076, %3075 ], [ %3078, %3077 ], [ %1987, %1986 ], [ %3080, %3079 ], [ %3082, %3081 ], [ %1996, %1995 ], [ %3084, %3083 ], [ %3086, %3085 ], [ %2005, %2004 ], [ %3088, %3087 ], [ %3090, %3089 ], [ %2014, %2013 ], [ %3092, %3091 ], [ %3094, %3093 ], [ %2023, %2022 ], [ %3096, %3095 ], [ %3098, %3097 ], [ %2032, %2031 ], [ %3100, %3099 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2915) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %264) #28
   br label %3329
@@ -11134,8 +11134,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1229
 
 .body1229:                                        ; preds = %3134, %2134, %3132, %3130, %2125, %3128, %3126, %2116, %3124, %3122, %2107, %3120, %3118, %2098, %3116, %3114, %2089, %3112, %3110, %2080, %3108
-  %.sink2916 = phi ptr [ %299, %3130 ], [ %297, %3126 ], [ %295, %3122 ], [ %293, %3118 ], [ %291, %3114 ], [ %289, %3110 ], [ %289, %3108 ], [ %289, %2080 ], [ %291, %3112 ], [ %291, %2089 ], [ %293, %3116 ], [ %293, %2098 ], [ %295, %3120 ], [ %295, %2107 ], [ %297, %3124 ], [ %297, %2116 ], [ %299, %3128 ], [ %299, %2125 ], [ %301, %3132 ], [ %301, %2134 ], [ %301, %3134 ]
-  %.pn378.pn = phi { ptr, i32 } [ %3131, %3130 ], [ %3127, %3126 ], [ %3123, %3122 ], [ %3119, %3118 ], [ %3115, %3114 ], [ %3111, %3110 ], [ %3109, %3108 ], [ %2081, %2080 ], [ %3113, %3112 ], [ %2090, %2089 ], [ %3117, %3116 ], [ %2099, %2098 ], [ %3121, %3120 ], [ %2108, %2107 ], [ %3125, %3124 ], [ %2117, %2116 ], [ %3129, %3128 ], [ %2126, %2125 ], [ %3133, %3132 ], [ %2135, %2134 ], [ %3135, %3134 ]
+  %.sink2916 = phi ptr [ %289, %3108 ], [ %289, %2080 ], [ %289, %3110 ], [ %291, %3112 ], [ %291, %2089 ], [ %291, %3114 ], [ %293, %3116 ], [ %293, %2098 ], [ %293, %3118 ], [ %295, %3120 ], [ %295, %2107 ], [ %295, %3122 ], [ %297, %3124 ], [ %297, %2116 ], [ %297, %3126 ], [ %299, %3128 ], [ %299, %2125 ], [ %299, %3130 ], [ %301, %3132 ], [ %301, %2134 ], [ %301, %3134 ]
+  %.pn378.pn = phi { ptr, i32 } [ %3109, %3108 ], [ %2081, %2080 ], [ %3111, %3110 ], [ %3113, %3112 ], [ %2090, %2089 ], [ %3115, %3114 ], [ %3117, %3116 ], [ %2099, %2098 ], [ %3119, %3118 ], [ %3121, %3120 ], [ %2108, %2107 ], [ %3123, %3122 ], [ %3125, %3124 ], [ %2117, %2116 ], [ %3127, %3126 ], [ %3129, %3128 ], [ %2126, %2125 ], [ %3131, %3130 ], [ %3133, %3132 ], [ %2135, %2134 ], [ %3135, %3134 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2916) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %283) #28
   br label %3329
@@ -11245,8 +11245,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1310
 
 .body1310:                                        ; preds = %3169, %2237, %3167, %3165, %2228, %3163, %3161, %2219, %3159, %3157, %2210, %3155, %3153, %2201, %3151, %3149, %2192, %3147, %3145, %2183, %3143
-  %.sink2917 = phi ptr [ %318, %3165 ], [ %316, %3161 ], [ %314, %3157 ], [ %312, %3153 ], [ %310, %3149 ], [ %308, %3145 ], [ %308, %3143 ], [ %308, %2183 ], [ %310, %3147 ], [ %310, %2192 ], [ %312, %3151 ], [ %312, %2201 ], [ %314, %3155 ], [ %314, %2210 ], [ %316, %3159 ], [ %316, %2219 ], [ %318, %3163 ], [ %318, %2228 ], [ %320, %3167 ], [ %320, %2237 ], [ %320, %3169 ]
-  %.pn396.pn = phi { ptr, i32 } [ %3166, %3165 ], [ %3162, %3161 ], [ %3158, %3157 ], [ %3154, %3153 ], [ %3150, %3149 ], [ %3146, %3145 ], [ %3144, %3143 ], [ %2184, %2183 ], [ %3148, %3147 ], [ %2193, %2192 ], [ %3152, %3151 ], [ %2202, %2201 ], [ %3156, %3155 ], [ %2211, %2210 ], [ %3160, %3159 ], [ %2220, %2219 ], [ %3164, %3163 ], [ %2229, %2228 ], [ %3168, %3167 ], [ %2238, %2237 ], [ %3170, %3169 ]
+  %.sink2917 = phi ptr [ %308, %3143 ], [ %308, %2183 ], [ %308, %3145 ], [ %310, %3147 ], [ %310, %2192 ], [ %310, %3149 ], [ %312, %3151 ], [ %312, %2201 ], [ %312, %3153 ], [ %314, %3155 ], [ %314, %2210 ], [ %314, %3157 ], [ %316, %3159 ], [ %316, %2219 ], [ %316, %3161 ], [ %318, %3163 ], [ %318, %2228 ], [ %318, %3165 ], [ %320, %3167 ], [ %320, %2237 ], [ %320, %3169 ]
+  %.pn396.pn = phi { ptr, i32 } [ %3144, %3143 ], [ %2184, %2183 ], [ %3146, %3145 ], [ %3148, %3147 ], [ %2193, %2192 ], [ %3150, %3149 ], [ %3152, %3151 ], [ %2202, %2201 ], [ %3154, %3153 ], [ %3156, %3155 ], [ %2211, %2210 ], [ %3158, %3157 ], [ %3160, %3159 ], [ %2220, %2219 ], [ %3162, %3161 ], [ %3164, %3163 ], [ %2229, %2228 ], [ %3166, %3165 ], [ %3168, %3167 ], [ %2238, %2237 ], [ %3170, %3169 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2917) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %302) #28
   br label %3329
@@ -11356,8 +11356,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1387
 
 .body1387:                                        ; preds = %3204, %2340, %3202, %3200, %2331, %3198, %3196, %2322, %3194, %3192, %2313, %3190, %3188, %2304, %3186, %3184, %2295, %3182, %3180, %2286, %3178
-  %.sink2918 = phi ptr [ %337, %3200 ], [ %335, %3196 ], [ %333, %3192 ], [ %331, %3188 ], [ %329, %3184 ], [ %327, %3180 ], [ %327, %3178 ], [ %327, %2286 ], [ %329, %3182 ], [ %329, %2295 ], [ %331, %3186 ], [ %331, %2304 ], [ %333, %3190 ], [ %333, %2313 ], [ %335, %3194 ], [ %335, %2322 ], [ %337, %3198 ], [ %337, %2331 ], [ %339, %3202 ], [ %339, %2340 ], [ %339, %3204 ]
-  %.pn414.pn = phi { ptr, i32 } [ %3201, %3200 ], [ %3197, %3196 ], [ %3193, %3192 ], [ %3189, %3188 ], [ %3185, %3184 ], [ %3181, %3180 ], [ %3179, %3178 ], [ %2287, %2286 ], [ %3183, %3182 ], [ %2296, %2295 ], [ %3187, %3186 ], [ %2305, %2304 ], [ %3191, %3190 ], [ %2314, %2313 ], [ %3195, %3194 ], [ %2323, %2322 ], [ %3199, %3198 ], [ %2332, %2331 ], [ %3203, %3202 ], [ %2341, %2340 ], [ %3205, %3204 ]
+  %.sink2918 = phi ptr [ %327, %3178 ], [ %327, %2286 ], [ %327, %3180 ], [ %329, %3182 ], [ %329, %2295 ], [ %329, %3184 ], [ %331, %3186 ], [ %331, %2304 ], [ %331, %3188 ], [ %333, %3190 ], [ %333, %2313 ], [ %333, %3192 ], [ %335, %3194 ], [ %335, %2322 ], [ %335, %3196 ], [ %337, %3198 ], [ %337, %2331 ], [ %337, %3200 ], [ %339, %3202 ], [ %339, %2340 ], [ %339, %3204 ]
+  %.pn414.pn = phi { ptr, i32 } [ %3179, %3178 ], [ %2287, %2286 ], [ %3181, %3180 ], [ %3183, %3182 ], [ %2296, %2295 ], [ %3185, %3184 ], [ %3187, %3186 ], [ %2305, %2304 ], [ %3189, %3188 ], [ %3191, %3190 ], [ %2314, %2313 ], [ %3193, %3192 ], [ %3195, %3194 ], [ %2323, %2322 ], [ %3197, %3196 ], [ %3199, %3198 ], [ %2332, %2331 ], [ %3201, %3200 ], [ %3203, %3202 ], [ %2341, %2340 ], [ %3205, %3204 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2918) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %321) #28
   br label %3329
@@ -11495,8 +11495,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1470
 
 .body1470:                                        ; preds = %3250, %2461, %3248, %3246, %2452, %3244, %3242, %2443, %3240, %3238, %2434, %3236, %3234, %2425, %3232, %3230, %2416, %3228, %3226, %2407, %3224, %3222, %2398, %3220, %3218, %2389, %3216, %3214, %2380, %3212
-  %.sink2919 = phi ptr [ %362, %3246 ], [ %360, %3242 ], [ %358, %3238 ], [ %356, %3234 ], [ %354, %3230 ], [ %352, %3226 ], [ %350, %3222 ], [ %348, %3218 ], [ %346, %3214 ], [ %346, %3212 ], [ %346, %2380 ], [ %348, %3216 ], [ %348, %2389 ], [ %350, %3220 ], [ %350, %2398 ], [ %352, %3224 ], [ %352, %2407 ], [ %354, %3228 ], [ %354, %2416 ], [ %356, %3232 ], [ %356, %2425 ], [ %358, %3236 ], [ %358, %2434 ], [ %360, %3240 ], [ %360, %2443 ], [ %362, %3244 ], [ %362, %2452 ], [ %364, %3248 ], [ %364, %2461 ], [ %364, %3250 ]
-  %.pn437.pn = phi { ptr, i32 } [ %3247, %3246 ], [ %3243, %3242 ], [ %3239, %3238 ], [ %3235, %3234 ], [ %3231, %3230 ], [ %3227, %3226 ], [ %3223, %3222 ], [ %3219, %3218 ], [ %3215, %3214 ], [ %3213, %3212 ], [ %2381, %2380 ], [ %3217, %3216 ], [ %2390, %2389 ], [ %3221, %3220 ], [ %2399, %2398 ], [ %3225, %3224 ], [ %2408, %2407 ], [ %3229, %3228 ], [ %2417, %2416 ], [ %3233, %3232 ], [ %2426, %2425 ], [ %3237, %3236 ], [ %2435, %2434 ], [ %3241, %3240 ], [ %2444, %2443 ], [ %3245, %3244 ], [ %2453, %2452 ], [ %3249, %3248 ], [ %2462, %2461 ], [ %3251, %3250 ]
+  %.sink2919 = phi ptr [ %346, %3212 ], [ %346, %2380 ], [ %346, %3214 ], [ %348, %3216 ], [ %348, %2389 ], [ %348, %3218 ], [ %350, %3220 ], [ %350, %2398 ], [ %350, %3222 ], [ %352, %3224 ], [ %352, %2407 ], [ %352, %3226 ], [ %354, %3228 ], [ %354, %2416 ], [ %354, %3230 ], [ %356, %3232 ], [ %356, %2425 ], [ %356, %3234 ], [ %358, %3236 ], [ %358, %2434 ], [ %358, %3238 ], [ %360, %3240 ], [ %360, %2443 ], [ %360, %3242 ], [ %362, %3244 ], [ %362, %2452 ], [ %362, %3246 ], [ %364, %3248 ], [ %364, %2461 ], [ %364, %3250 ]
+  %.pn437.pn = phi { ptr, i32 } [ %3213, %3212 ], [ %2381, %2380 ], [ %3215, %3214 ], [ %3217, %3216 ], [ %2390, %2389 ], [ %3219, %3218 ], [ %3221, %3220 ], [ %2399, %2398 ], [ %3223, %3222 ], [ %3225, %3224 ], [ %2408, %2407 ], [ %3227, %3226 ], [ %3229, %3228 ], [ %2417, %2416 ], [ %3231, %3230 ], [ %3233, %3232 ], [ %2426, %2425 ], [ %3235, %3234 ], [ %3237, %3236 ], [ %2435, %2434 ], [ %3239, %3238 ], [ %3241, %3240 ], [ %2444, %2443 ], [ %3243, %3242 ], [ %3245, %3244 ], [ %2453, %2452 ], [ %3247, %3246 ], [ %3249, %3248 ], [ %2462, %2461 ], [ %3251, %3250 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2919) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %344) #28
   br label %3252
@@ -11567,8 +11567,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1578
 
 .body1578:                                        ; preds = %3270, %2537, %3268, %3266, %2528, %3264, %3262, %2519, %3260
-  %.sink2920 = phi ptr [ %373, %3266 ], [ %371, %3262 ], [ %371, %3260 ], [ %371, %2519 ], [ %373, %3264 ], [ %373, %2528 ], [ %375, %3268 ], [ %375, %2537 ], [ %375, %3270 ]
-  %.pn448.pn = phi { ptr, i32 } [ %3267, %3266 ], [ %3263, %3262 ], [ %3261, %3260 ], [ %2520, %2519 ], [ %3265, %3264 ], [ %2529, %2528 ], [ %3269, %3268 ], [ %2538, %2537 ], [ %3271, %3270 ]
+  %.sink2920 = phi ptr [ %371, %3260 ], [ %371, %2519 ], [ %371, %3262 ], [ %373, %3264 ], [ %373, %2528 ], [ %373, %3266 ], [ %375, %3268 ], [ %375, %2537 ], [ %375, %3270 ]
+  %.pn448.pn = phi { ptr, i32 } [ %3261, %3260 ], [ %2520, %2519 ], [ %3263, %3262 ], [ %3265, %3264 ], [ %2529, %2528 ], [ %3267, %3266 ], [ %3269, %3268 ], [ %2538, %2537 ], [ %3271, %3270 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2920) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %365) #28
   br label %3329
@@ -11634,8 +11634,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1627
 
 .body1627:                                        ; preds = %3289, %2604, %3287, %3285, %2595, %3283, %3281, %2586, %3279
-  %.sink2921 = phi ptr [ %384, %3285 ], [ %382, %3281 ], [ %382, %3279 ], [ %382, %2586 ], [ %384, %3283 ], [ %384, %2595 ], [ %386, %3287 ], [ %386, %2604 ], [ %386, %3289 ]
-  %.pn458.pn = phi { ptr, i32 } [ %3286, %3285 ], [ %3282, %3281 ], [ %3280, %3279 ], [ %2587, %2586 ], [ %3284, %3283 ], [ %2596, %2595 ], [ %3288, %3287 ], [ %2605, %2604 ], [ %3290, %3289 ]
+  %.sink2921 = phi ptr [ %382, %3279 ], [ %382, %2586 ], [ %382, %3281 ], [ %384, %3283 ], [ %384, %2595 ], [ %384, %3285 ], [ %386, %3287 ], [ %386, %2604 ], [ %386, %3289 ]
+  %.pn458.pn = phi { ptr, i32 } [ %3280, %3279 ], [ %2587, %2586 ], [ %3282, %3281 ], [ %3284, %3283 ], [ %2596, %2595 ], [ %3286, %3285 ], [ %3288, %3287 ], [ %2605, %2604 ], [ %3290, %3289 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2921) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %376) #28
   br label %3329
@@ -11701,8 +11701,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1676
 
 .body1676:                                        ; preds = %3308, %2671, %3306, %3304, %2662, %3302, %3300, %2653, %3298
-  %.sink2922 = phi ptr [ %395, %3304 ], [ %393, %3300 ], [ %393, %3298 ], [ %393, %2653 ], [ %395, %3302 ], [ %395, %2662 ], [ %397, %3306 ], [ %397, %2671 ], [ %397, %3308 ]
-  %.pn468.pn = phi { ptr, i32 } [ %3305, %3304 ], [ %3301, %3300 ], [ %3299, %3298 ], [ %2654, %2653 ], [ %3303, %3302 ], [ %2663, %2662 ], [ %3307, %3306 ], [ %2672, %2671 ], [ %3309, %3308 ]
+  %.sink2922 = phi ptr [ %393, %3298 ], [ %393, %2653 ], [ %393, %3300 ], [ %395, %3302 ], [ %395, %2662 ], [ %395, %3304 ], [ %397, %3306 ], [ %397, %2671 ], [ %397, %3308 ]
+  %.pn468.pn = phi { ptr, i32 } [ %3299, %3298 ], [ %2654, %2653 ], [ %3301, %3300 ], [ %3303, %3302 ], [ %2663, %2662 ], [ %3305, %3304 ], [ %3307, %3306 ], [ %2672, %2671 ], [ %3309, %3308 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2922) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %387) #28
   br label %3329
@@ -11768,8 +11768,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12buc
   br label %.body1721
 
 .body1721:                                        ; preds = %3327, %2738, %3325, %3323, %2729, %3321, %3319, %2720, %3317
-  %.sink2923 = phi ptr [ %406, %3323 ], [ %404, %3319 ], [ %404, %3317 ], [ %404, %2720 ], [ %406, %3321 ], [ %406, %2729 ], [ %408, %3325 ], [ %408, %2738 ], [ %408, %3327 ]
-  %.pn478.pn = phi { ptr, i32 } [ %3324, %3323 ], [ %3320, %3319 ], [ %3318, %3317 ], [ %2721, %2720 ], [ %3322, %3321 ], [ %2730, %2729 ], [ %3326, %3325 ], [ %2739, %2738 ], [ %3328, %3327 ]
+  %.sink2923 = phi ptr [ %404, %3317 ], [ %404, %2720 ], [ %404, %3319 ], [ %406, %3321 ], [ %406, %2729 ], [ %406, %3323 ], [ %408, %3325 ], [ %408, %2738 ], [ %408, %3327 ]
+  %.pn478.pn = phi { ptr, i32 } [ %3318, %3317 ], [ %2721, %2720 ], [ %3320, %3319 ], [ %3322, %3321 ], [ %2730, %2729 ], [ %3324, %3323 ], [ %3326, %3325 ], [ %2739, %2738 ], [ %3328, %3327 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink2923) #28
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %398) #28
   br label %3329
@@ -12169,7 +12169,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDef
   br label %.body8.i
 
 .body8.i:                                         ; preds = %180, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_0EEEclEPS6_.exit.i14.i.i", %.thread.i.i, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_0EESt14default_deleteIS6_EED2Ev.exit.i.i.i"
-  %eh.lpad-body9.i = phi { ptr, i32 } [ %181, %180 ], [ %150, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_0EEEclEPS6_.exit.i14.i.i" ], [ %104, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_0EESt14default_deleteIS6_EED2Ev.exit.i.i.i" ], [ %146, %.thread.i.i ]
+  %eh.lpad-body9.i = phi { ptr, i32 } [ %181, %180 ], [ %104, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_0EESt14default_deleteIS6_EED2Ev.exit.i.i.i" ], [ %146, %.thread.i.i ], [ %150, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_0EEEclEPS6_.exit.i14.i.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #28
   br label %.body
@@ -12478,7 +12478,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDef
   br label %.body8.i55
 
 .body8.i55:                                       ; preds = %292, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_1EEEclEPS6_.exit.i13.i.i", %.thread.i.i77, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_1EESt14default_deleteIS6_EED2Ev.exit.i.i.i"
-  %eh.lpad-body9.i56 = phi { ptr, i32 } [ %293, %292 ], [ %262, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_1EEEclEPS6_.exit.i13.i.i" ], [ %216, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_1EESt14default_deleteIS6_EED2Ev.exit.i.i.i" ], [ %258, %.thread.i.i77 ]
+  %eh.lpad-body9.i56 = phi { ptr, i32 } [ %293, %292 ], [ %216, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_1EESt14default_deleteIS6_EED2Ev.exit.i.i.i" ], [ %258, %.thread.i.i77 ], [ %262, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_1EEEclEPS6_.exit.i13.i.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #28
   br label %.body
@@ -12793,7 +12793,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDef
   br label %.body8.i95
 
 .body8.i95:                                       ; preds = %404, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_2EEEclEPS6_.exit.i14.i.i", %.thread.i.i118, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_2EESt14default_deleteIS6_EED2Ev.exit.i.i.i"
-  %eh.lpad-body9.i96 = phi { ptr, i32 } [ %405, %404 ], [ %374, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_2EEEclEPS6_.exit.i14.i.i" ], [ %328, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_2EESt14default_deleteIS6_EED2Ev.exit.i.i.i" ], [ %370, %.thread.i.i118 ]
+  %eh.lpad-body9.i96 = phi { ptr, i32 } [ %405, %404 ], [ %328, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_2EESt14default_deleteIS6_EED2Ev.exit.i.i.i" ], [ %370, %.thread.i.i118 ], [ %374, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_2EEEclEPS6_.exit.i14.i.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #28
   br label %.body
@@ -15192,7 +15192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4
   br label %.body264
 
 .body264:                                         ; preds = %1248, %916, %.body.i.i232, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_6EESt14default_deleteIS6_EED2Ev.exit.i.i", %.thread.i248, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_6EEEclEPS6_.exit.i14.i"
-  %eh.lpad-body265 = phi { ptr, i32 } [ %837, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_6EEEclEPS6_.exit.i14.i" ], [ %eh.lpad-body.i.i233, %.body.i.i232 ], [ %791, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_6EESt14default_deleteIS6_EED2Ev.exit.i.i" ], [ %833, %.thread.i248 ], [ %1249, %1248 ], [ %.pn.i268, %916 ]
+  %eh.lpad-body265 = phi { ptr, i32 } [ %791, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_6EESt14default_deleteIS6_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i233, %.body.i.i232 ], [ %833, %.thread.i248 ], [ %837, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_6EEEclEPS6_.exit.i14.i" ], [ %1249, %1248 ], [ %.pn.i268, %916 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #28
   br label %1250
 
@@ -15209,7 +15209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4
   br i1 %1255, label %.loopexit437, label %1252
 
 .loopexit437:                                     ; preds = %1252, %.loopexit437.loopexit455, %.thread422
-  %.pn.pn = phi { ptr, i32 } [ %1245, %.loopexit437.loopexit455 ], [ %734, %.thread422 ], [ %.pn, %1252 ]
+  %.pn.pn = phi { ptr, i32 } [ %734, %.thread422 ], [ %1245, %.loopexit437.loopexit455 ], [ %.pn, %1252 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #28
   br label %.body227
 
@@ -15219,7 +15219,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4
   br label %.body223
 
 .body223:                                         ; preds = %1241, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_5EEEclEPS6_.exit.i14.i", %.thread.i207, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_5EESt14default_deleteIS6_EED2Ev.exit.i.i", %.body.i.i191, %.body227
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body227 ], [ %1242, %1241 ], [ %eh.lpad-body.i.i192, %.body.i.i191 ], [ %681, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_5EESt14default_deleteIS6_EED2Ev.exit.i.i" ], [ %723, %.thread.i207 ], [ %727, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_5EEEclEPS6_.exit.i14.i" ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body227 ], [ %1242, %1241 ], [ %681, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_5EESt14default_deleteIS6_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i192, %.body.i.i191 ], [ %723, %.thread.i207 ], [ %727, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_5EEEclEPS6_.exit.i14.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #28
   br label %.loopexit436.loopexit
 
@@ -15239,7 +15239,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4
   br label %.body182
 
 .body182:                                         ; preds = %1233, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_4EEEclEPS6_.exit.i14.i", %.thread.i167, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_4EESt14default_deleteIS6_EED2Ev.exit.i.i", %.body.i.i154, %.body186
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %.body186 ], [ %1234, %1233 ], [ %eh.lpad-body.i.i155, %.body.i.i154 ], [ %574, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_4EESt14default_deleteIS6_EED2Ev.exit.i.i" ], [ %616, %.thread.i167 ], [ %620, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_4EEEclEPS6_.exit.i14.i" ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %.body186 ], [ %1234, %1233 ], [ %574, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_4EESt14default_deleteIS6_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i155, %.body.i.i154 ], [ %616, %.thread.i167 ], [ %620, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_4EEEclEPS6_.exit.i14.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #28
   br label %1256
 
@@ -15256,7 +15256,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4
   br i1 %1261, label %.loopexit435, label %1258
 
 .loopexit435:                                     ; preds = %1258, %.loopexit435.loopexit456, %.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1230, %.loopexit435.loopexit456 ], [ %517, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1258 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %517, %.thread ], [ %1230, %.loopexit435.loopexit456 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1258 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #28
   br label %.body149
 
@@ -15266,7 +15266,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4
   br label %.body145
 
 .body145:                                         ; preds = %1226, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_3EEEclEPS6_.exit.i13.i", %.thread.i, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_3EESt14default_deleteIS6_EED2Ev.exit.i.i", %.body.i.i, %.body149
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body149 ], [ %1227, %1226 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %464, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_3EESt14default_deleteIS6_EED2Ev.exit.i.i" ], [ %506, %.thread.i ], [ %510, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_3EEEclEPS6_.exit.i13.i" ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body149 ], [ %1227, %1226 ], [ %464, %"_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_3EESt14default_deleteIS6_EED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %506, %.thread.i ], [ %510, %"_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE15_OverloadBinderIZL14TestLinkErrorsvE3$_3EEEclEPS6_.exit.i13.i" ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaultsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #28
   br label %.loopexit434.loopexit
 
@@ -15281,8 +15281,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4
   br label %.body
 
 .body:                                            ; preds = %.loopexit434, %408, %1220, %.body360, %402, %.body8.i95, %.body356, %290, %.body8.i55, %.body353, %178, %.body8.i
-  %.sink = phi ptr [ %31, %.body360 ], [ %36, %.body356 ], [ %40, %.body353 ], [ %40, %.body8.i ], [ %40, %178 ], [ %36, %.body8.i55 ], [ %36, %290 ], [ %31, %.body8.i95 ], [ %31, %402 ], [ %45, %1220 ], [ %45, %408 ], [ %45, %.loopexit434 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %303, %.body360 ], [ %191, %.body356 ], [ %86, %.body353 ], [ %eh.lpad-body9.i, %.body8.i ], [ %179, %178 ], [ %eh.lpad-body9.i56, %.body8.i55 ], [ %291, %290 ], [ %eh.lpad-body9.i96, %.body8.i95 ], [ %403, %402 ], [ %1221, %1220 ], [ %409, %408 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit434 ]
+  %.sink = phi ptr [ %40, %.body8.i ], [ %40, %178 ], [ %40, %.body353 ], [ %36, %.body8.i55 ], [ %36, %290 ], [ %36, %.body356 ], [ %31, %.body8.i95 ], [ %31, %402 ], [ %31, %.body360 ], [ %45, %1220 ], [ %45, %408 ], [ %45, %.loopexit434 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body9.i, %.body8.i ], [ %179, %178 ], [ %86, %.body353 ], [ %eh.lpad-body9.i56, %.body8.i55 ], [ %291, %290 ], [ %191, %.body356 ], [ %eh.lpad-body9.i96, %.body8.i95 ], [ %403, %402 ], [ %303, %.body360 ], [ %1221, %1220 ], [ %409, %408 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit434 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #28
   br label %.body350
 
@@ -15585,7 +15585,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesA
   br label %.body
 
 .body:                                            ; preds = %17, %14, %28
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %15, %14 ], [ %15, %17 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %15, %17 ], [ %15, %14 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -16134,11 +16134,11 @@ _ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult
   br label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit: ; preds = %34, %31, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit, %.lr.ph, %21, %36, %38, %23
-  %.sroa.030.1 = phi ptr [ %.sroa.030.045, %.lr.ph ], [ %.sroa.030.045, %38 ], [ %.sroa.030.045, %21 ], [ %.sroa.030.045, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.sroa.030.045, %23 ], [ %.sroa.030.045, %36 ], [ %35, %34 ], [ %.sroa.030.2, %31 ]
-  %.1 = phi i32 [ %.046, %.lr.ph ], [ %39, %38 ], [ %.046, %21 ], [ %.046, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.046, %23 ], [ %37, %36 ], [ %.3, %34 ], [ %.046, %31 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.047, %.lr.ph ], [ %.sroa.0.047, %38 ], [ %.sroa.0.047, %21 ], [ %13, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.sroa.0.047, %23 ], [ %.sroa.0.047, %36 ], [ %.sroa.0.3, %34 ], [ %.sroa.0.2, %31 ]
-  %.sroa.010.1 = phi i8 [ %.sroa.010.048, %.lr.ph ], [ %.sroa.010.048, %38 ], [ %22, %21 ], [ %18, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.sroa.010.048, %23 ], [ %.sroa.010.048, %36 ], [ %.sroa.010.048, %31 ], [ %.sroa.010.048, %34 ]
-  %.sroa.619.1 = phi i32 [ %.sroa.619.049, %.lr.ph ], [ %.sroa.619.049, %38 ], [ %.sroa.619.049, %21 ], [ %spec.select, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.sroa.619.049, %23 ], [ %.sroa.619.049, %36 ], [ %.sroa.619.049, %31 ], [ %.sroa.619.049, %34 ]
+  %.sroa.030.1 = phi ptr [ %.sroa.030.045, %.lr.ph ], [ %.sroa.030.045, %21 ], [ %.sroa.030.045, %23 ], [ %.sroa.030.045, %36 ], [ %.sroa.030.045, %38 ], [ %.sroa.030.045, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.sroa.030.2, %31 ], [ %35, %34 ]
+  %.1 = phi i32 [ %.046, %.lr.ph ], [ %.046, %21 ], [ %.046, %23 ], [ %37, %36 ], [ %39, %38 ], [ %.046, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.046, %31 ], [ %.3, %34 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.047, %.lr.ph ], [ %.sroa.0.047, %21 ], [ %.sroa.0.047, %23 ], [ %.sroa.0.047, %36 ], [ %.sroa.0.047, %38 ], [ %13, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.sroa.0.2, %31 ], [ %.sroa.0.3, %34 ]
+  %.sroa.010.1 = phi i8 [ %.sroa.010.048, %.lr.ph ], [ %22, %21 ], [ %.sroa.010.048, %23 ], [ %.sroa.010.048, %36 ], [ %.sroa.010.048, %38 ], [ %18, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.sroa.010.048, %31 ], [ %.sroa.010.048, %34 ]
+  %.sroa.619.1 = phi i32 [ %.sroa.619.049, %.lr.ph ], [ %.sroa.619.049, %21 ], [ %.sroa.619.049, %23 ], [ %.sroa.619.049, %36 ], [ %.sroa.619.049, %38 ], [ %spec.select, %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES9_.exit ], [ %.sroa.619.049, %31 ], [ %.sroa.619.049, %34 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.030.1, i64 4
   %.not41 = icmp eq ptr %40, %5
   br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !172
@@ -25616,9 +25616,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   br i1 %.not36.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.thread.i.i.i, label %.lr.ph24.i.i.i, !llvm.loop !287
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.thread.i.i.i: ; preds = %.lr.ph24.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.i.i.i, %59, %55, %51
-  %83 = phi ptr [ %32, %51 ], [ %32, %55 ], [ %32, %59 ], [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.i.i.i ], [ %76, %.lr.ph24.i.i.i ]
-  %.134.i.i.i = phi i16 [ %.033.lcssa.i.i.i, %51 ], [ %.033.lcssa.i.i.i, %55 ], [ %.033.lcssa.i.i.i, %59 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.i.i.i ], [ %80, %.lr.ph24.i.i.i ]
-  %.1.i.i.i = phi i64 [ %.0.lcssa.i.i.i, %51 ], [ %.0.lcssa.i.i.i, %55 ], [ %.0.lcssa.i.i.i, %59 ], [ %.219.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.i.i.i ], [ %.2.i.i.i, %.lr.ph24.i.i.i ]
+  %83 = phi ptr [ %32, %55 ], [ %32, %59 ], [ %32, %51 ], [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.i.i.i ], [ %76, %.lr.ph24.i.i.i ]
+  %.134.i.i.i = phi i16 [ %.033.lcssa.i.i.i, %55 ], [ %.033.lcssa.i.i.i, %59 ], [ %.033.lcssa.i.i.i, %51 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.i.i.i ], [ %80, %.lr.ph24.i.i.i ]
+  %.1.i.i.i = phi i64 [ %.0.lcssa.i.i.i, %55 ], [ %.0.lcssa.i.i.i, %59 ], [ %.0.lcssa.i.i.i, %51 ], [ %.219.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E22rehash_on_extreme_loadEv.exit.i.i.i ], [ %.2.i.i.i, %.lr.ph24.i.i.i ]
   %84 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.243", ptr %83, i64 %.1.i.i.i
   %85 = getelementptr i8, ptr %84, i64 4
   %.val.i.i.i = load i16, ptr %85, align 4
@@ -30525,7 +30525,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLi
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4NoneE3_OpESaIS4_EE9push_backEOS4_.exit.i
 
 137:                                              ; preds = %148, %145, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4NoneE3_OpESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.invoke.i, %_ZNKSt6vectorISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %138 = phi ptr [ %62, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4NoneE3_OpESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %62, %.invoke.i ], [ %62, %_ZNKSt6vectorISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %141, %145 ], [ %141, %148 ]
+  %138 = phi ptr [ %62, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateProgramIZL14TestLinkErrorsvE4NoneE3_OpESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %62, %_ZNKSt6vectorISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKZL14TestLinkErrorsvE4NoneEESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %141, %148 ], [ %141, %145 ], [ %62, %.invoke.i ]
   %139 = landingpad { ptr, i32 }
           cleanup
   br label %162
@@ -30754,7 +30754,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   br label %_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23compare_exchange_strongERS7_S7_St12memory_order.exit.thread
 
 _ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23compare_exchange_strongERS7_S7_St12memory_order.exit.thread: ; preds = %63, %24, %43, %72
-  %.050 = phi ptr [ %28, %24 ], [ %38, %43 ], [ %38, %72 ], [ %38, %63 ]
+  %.050 = phi ptr [ %38, %72 ], [ %38, %43 ], [ %28, %24 ], [ %38, %63 ]
   %79 = load atomic i64, ptr %9 acquire, align 8
   %.0.i62 = inttoptr i64 %79 to ptr
   %80 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 8

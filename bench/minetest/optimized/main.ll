@@ -2510,7 +2510,7 @@ if.then.i.i156.i.i:                               ; preds = %ehcleanup40.i.i
   br label %ehcleanup41.i.i
 
 ehcleanup41.i.i:                                  ; preds = %ehcleanup40.i.i, %lpad9.i.i, %if.then.i.i156.i.i, %if.then.i.i119.i.i, %lpad7.i.i
-  %.pn56.pn.i.i = phi { ptr, i32 } [ %101, %lpad7.i.i ], [ %.pn56.i.i, %if.then.i.i156.i.i ], [ %102, %if.then.i.i119.i.i ], [ %102, %lpad9.i.i ], [ %.pn56.i.i, %ehcleanup40.i.i ]
+  %.pn56.pn.i.i = phi { ptr, i32 } [ %101, %lpad7.i.i ], [ %102, %if.then.i.i119.i.i ], [ %.pn56.i.i, %if.then.i.i156.i.i ], [ %102, %lpad9.i.i ], [ %.pn56.i.i, %ehcleanup40.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %opt_padded.i.i)
   br label %ehcleanup42.i.i
 
@@ -5817,7 +5817,7 @@ cleanup439:                                       ; preds = %421, %cleanup.threa
   ret i32 %retval.1
 
 ehcleanup442:                                     ; preds = %ehcleanup435, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166.i.i, %lpad9.loopexit, %lpad9.loopexit.split-lp, %ehcleanup12.i, %ehcleanup69.i, %ehcleanup93.i, %ehcleanup157.i, %lpad7, %catch.dispatch, %ehcleanup110, %ehcleanup96, %ehcleanup67
-  %.merged = phi { ptr, i32 } [ %.pn459.pn, %ehcleanup67 ], [ %49, %ehcleanup157.i ], [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp ], [ %.pn498, %catch.dispatch ], [ %130, %ehcleanup110 ], [ %126, %ehcleanup96 ], [ %119, %lpad7 ], [ %.pn.i, %ehcleanup12.i ], [ %27, %ehcleanup69.i ], [ %35, %ehcleanup93.i ], [ %.pn56.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166.i.i ], [ %lpad.loopexit, %lpad9.loopexit ], [ %.pn500, %ehcleanup435 ]
+  %.merged = phi { ptr, i32 } [ %.pn498, %catch.dispatch ], [ %130, %ehcleanup110 ], [ %126, %ehcleanup96 ], [ %.pn459.pn, %ehcleanup67 ], [ %119, %lpad7 ], [ %.pn.i, %ehcleanup12.i ], [ %27, %ehcleanup69.i ], [ %35, %ehcleanup93.i ], [ %49, %ehcleanup157.i ], [ %.pn56.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166.i.i ], [ %lpad.loopexit, %lpad9.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp ], [ %.pn500, %ehcleanup435 ]
   call void @_ZN8SettingsD1Ev(ptr noundef nonnull align 8 dereferenceable(236) %cmd_args) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %cmd_args)
   br label %ehcleanup446
@@ -7470,7 +7470,7 @@ ehcleanup126.i:                                   ; preds = %lpad122.i, %lpad95.
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i69, %ehcleanup24, %ehcleanup, %ehcleanup94.i, %if.then.i.i5.i.i71, %ehcleanup126.i, %ehcleanup50.i, %ehcleanup37.i, %ehcleanup18.i, %ehcleanup.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn147.i, %ehcleanup126.i ], [ %33, %ehcleanup.i ], [ %41, %ehcleanup50.i ], [ %37, %ehcleanup37.i ], [ %35, %ehcleanup18.i ], [ %.pn107.pn.pn.pn.pn.i, %ehcleanup94.i ], [ %148, %if.then.i.i5.i.i71 ], [ %.pn, %ehcleanup ], [ %245, %ehcleanup24 ], [ %148, %lpad.i.i69 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn147.i, %ehcleanup126.i ], [ %33, %ehcleanup.i ], [ %41, %ehcleanup50.i ], [ %37, %ehcleanup37.i ], [ %35, %ehcleanup18.i ], [ %.pn107.pn.pn.pn.pn.i, %ehcleanup94.i ], [ %148, %if.then.i.i5.i.i71 ], [ %245, %ehcleanup24 ], [ %.pn, %ehcleanup ], [ %148, %lpad.i.i69 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL16read_config_fileRK8Settings.exit:            ; preds = %invoke.cont34.i, %if.then.i.i200.i

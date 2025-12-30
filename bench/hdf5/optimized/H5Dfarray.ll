@@ -199,7 +199,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_create(ptr noundef readonl
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %24, %29, %36, %41
-  %.0.i = phi i32 [ %33, %29 ], [ %28, %24 ], [ %40, %36 ], [ %44, %41 ]
+  %.0.i = phi i32 [ %28, %24 ], [ %33, %29 ], [ %40, %36 ], [ %44, %41 ]
   %45 = add nuw nsw i32 %.0.i, 8
   %46 = lshr i32 %45, 3
   %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 7)
@@ -530,7 +530,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_insert(ptr noundef readonl
   br label %70
 
 70:                                               ; preds = %3, %63, %66, %39, %32, %19, %62
-  %.024 = phi i32 [ -1, %39 ], [ 0, %3 ], [ %.1, %62 ], [ -1, %66 ], [ 0, %63 ], [ -1, %32 ], [ -1, %19 ]
+  %.024 = phi i32 [ -1, %39 ], [ %.1, %62 ], [ -1, %66 ], [ 0, %63 ], [ -1, %32 ], [ -1, %19 ], [ 0, %3 ]
   ret i32 %.024
 }
 
@@ -996,7 +996,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_remove(ptr noundef readonl
   br label %113
 
 113:                                              ; preds = %2, %27, %19, %80, %112
-  %.033 = phi i32 [ -1, %27 ], [ 0, %2 ], [ %.134, %80 ], [ -1, %19 ], [ %.2, %112 ]
+  %.033 = phi i32 [ -1, %27 ], [ %.134, %80 ], [ %.2, %112 ], [ -1, %19 ], [ 0, %2 ]
   ret i32 %.033
 }
 
@@ -1098,7 +1098,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete(ptr noundef readonl
   br label %65
 
 65:                                               ; preds = %1, %9, %64
-  %.014 = phi i32 [ 0, %1 ], [ %.1, %64 ], [ 0, %9 ]
+  %.014 = phi i32 [ %.1, %64 ], [ 0, %9 ], [ 0, %1 ]
   ret i32 %.014
 }
 
@@ -1157,7 +1157,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_copy_setup(ptr noundef rea
   br label %32
 
 32:                                               ; preds = %2, %18, %31
-  %.07 = phi i32 [ 0, %2 ], [ %.1, %31 ], [ -1, %18 ]
+  %.07 = phi i32 [ %.1, %31 ], [ -1, %18 ], [ 0, %2 ]
   ret i32 %.07
 }
 
@@ -1292,7 +1292,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_size(ptr noundef readonly 
   br label %H5D__farray_idx_close.exit.thread
 
 H5D__farray_idx_close.exit.thread:                ; preds = %38, %48, %33, %51, %2
-  %.0 = phi i32 [ -1, %51 ], [ 0, %2 ], [ %.1, %33 ], [ %.1, %48 ], [ %.1, %38 ]
+  %.0 = phi i32 [ -1, %51 ], [ %.1, %33 ], [ 0, %2 ], [ %.1, %48 ], [ %.1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1407,7 +1407,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_dest(ptr noundef readonly 
   br label %H5D__farray_idx_close.exit.thread
 
 H5D__farray_idx_close.exit.thread:                ; preds = %21, %34, %17, %37, %8, %1
-  %.0 = phi i32 [ -1, %17 ], [ -1, %37 ], [ 0, %1 ], [ 0, %8 ], [ 0, %34 ], [ 0, %21 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %37 ], [ 0, %8 ], [ 0, %1 ], [ 0, %34 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -1482,7 +1482,7 @@ define internal noalias ptr @H5D__farray_crt_context(ptr noundef readonly captur
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %25, %30, %37, %42
-  %.0.i = phi i32 [ %34, %30 ], [ %29, %25 ], [ %41, %37 ], [ %45, %42 ]
+  %.0.i = phi i32 [ %29, %25 ], [ %34, %30 ], [ %41, %37 ], [ %45, %42 ]
   %46 = add nuw nsw i32 %.0.i, 8
   %47 = lshr i32 %46, 3
   %48 = add nuw nsw i32 %47, 1

@@ -97,8 +97,8 @@ define hidden i64 @lj_gc_separateudata(ptr noundef captures(none) %0, i32 nounde
   br label %47
 
 47:                                               ; preds = %9, %31, %46, %43
-  %.131 = phi ptr [ %.03040, %46 ], [ %11, %31 ], [ %.03040, %43 ], [ %11, %9 ]
-  %.1 = phi i64 [ %39, %46 ], [ %.041, %31 ], [ %39, %43 ], [ %.041, %9 ]
+  %.131 = phi ptr [ %11, %31 ], [ %.03040, %43 ], [ %.03040, %46 ], [ %11, %9 ]
+  %.1 = phi i64 [ %.041, %31 ], [ %39, %43 ], [ %39, %46 ], [ %.041, %9 ]
   %48 = load i64, ptr %.131, align 8, !tbaa !22
   %.not = icmp eq i64 %48, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !28
@@ -981,8 +981,8 @@ gc_propagate_gray.exit47.i:                       ; preds = %.lr.ph.i43.i, %gc_p
   br label %159
 
 159:                                              ; preds = %158, %155, %143, %122
-  %.131.i.i = phi ptr [ %.03040.i.i, %158 ], [ %124, %143 ], [ %.03040.i.i, %155 ], [ %124, %122 ]
-  %.1.i.i = phi i64 [ %151, %158 ], [ %.041.i.i, %143 ], [ %151, %155 ], [ %.041.i.i, %122 ]
+  %.131.i.i = phi ptr [ %124, %143 ], [ %.03040.i.i, %155 ], [ %.03040.i.i, %158 ], [ %124, %122 ]
+  %.1.i.i = phi i64 [ %.041.i.i, %143 ], [ %151, %155 ], [ %151, %158 ], [ %.041.i.i, %122 ]
   %160 = load i64, ptr %.131.i.i, align 8, !tbaa !22
   %.not.i49.i = icmp eq i64 %160, 0
   br i1 %.not.i49.i, label %lj_gc_separateudata.exit.i, label %122, !llvm.loop !28
@@ -1385,7 +1385,7 @@ gc_sweepstr.exit:                                 ; preds = %269, %._crit_edge.l
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %343, %348, %345
-  %350 = phi i64 [ %.pre, %345 ], [ %349, %348 ], [ %.pre, %343 ]
+  %350 = phi i64 [ %349, %348 ], [ %.pre, %345 ], [ %.pre, %343 ]
   %351 = icmp ugt i64 %350, 100
   br i1 %351, label %352, label %357
 
@@ -1402,7 +1402,7 @@ gc_sweepstr.exit:                                 ; preds = %269, %._crit_edge.l
   br label %357
 
 357:                                              ; preds = %1, %339, %352, %._crit_edge, %308, %334, %333, %58, %355, %303, %atomic.exit, %57, %55, %gc_mark_start.exit
-  %.0 = phi i64 [ 100, %._crit_edge ], [ 0, %gc_mark_start.exit ], [ %56, %55 ], [ 0, %57 ], [ 0, %355 ], [ 0, %atomic.exit ], [ 10, %303 ], [ 140737488355328, %58 ], [ 400, %308 ], [ 400, %333 ], [ 400, %334 ], [ 140737488355328, %339 ], [ 100, %352 ], [ 0, %1 ]
+  %.0 = phi i64 [ 0, %gc_mark_start.exit ], [ %56, %55 ], [ 0, %57 ], [ 0, %atomic.exit ], [ 10, %303 ], [ 0, %355 ], [ 140737488355328, %58 ], [ 400, %333 ], [ 400, %334 ], [ 400, %308 ], [ 140737488355328, %339 ], [ 100, %352 ], [ 100, %._crit_edge ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -2282,7 +2282,7 @@ define internal fastcc range(i64 0, 137438953505) i64 @propagatemark(ptr noundef
   br i1 %.not75.i, label %.thread84.thread.i, label %.loopexit93.i
 
 .thread84.thread.i:                               ; preds = %.thread84.i, %45, %44, %30, %25, %21, %12
-  %.0608690.i = phi i32 [ %.1.i.ph, %.thread84.i ], [ 0, %21 ], [ 0, %12 ], [ 0, %30 ], [ 0, %44 ], [ -17, %45 ], [ 0, %25 ]
+  %.0608690.i = phi i32 [ %.1.i.ph, %.thread84.i ], [ 0, %12 ], [ 0, %21 ], [ 0, %30 ], [ 0, %25 ], [ 0, %44 ], [ -17, %45 ]
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %59 = load i32, ptr %58, align 8, !tbaa !84
   %.not.i = icmp eq i32 %59, 0
@@ -2562,7 +2562,7 @@ gc_traverse_tab.exit.thread:                      ; preds = %49, %gc_traverse_ta
   br label %217
 
 217:                                              ; preds = %180, %182, %198, %188, %184, %159
-  %.0 = phi i64 [ %171, %159 ], [ %216, %198 ], [ %187, %184 ], [ %197, %188 ], [ %181, %180 ], [ %183, %182 ]
+  %.0 = phi i64 [ %171, %159 ], [ %187, %184 ], [ %197, %188 ], [ %216, %198 ], [ %181, %180 ], [ %183, %182 ]
   ret i64 %.0
 }
 

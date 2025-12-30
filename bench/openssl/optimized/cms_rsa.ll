@@ -174,13 +174,13 @@ rsa_oaep_decode.exit.i:                           ; preds = %30, %.rsa_oaep_deco
   br label %.thread.i
 
 .thread.i:                                        ; preds = %75, %72, %71, %68, %65, %62, %54, %49, %39, %rsa_oaep_decode.exit.i, %35
-  %.0.i48.i = phi ptr [ null, %35 ], [ %25, %rsa_oaep_decode.exit.i ], [ %25, %39 ], [ %25, %62 ], [ %25, %65 ], [ %25, %68 ], [ %25, %75 ], [ %25, %71 ], [ %25, %72 ], [ %25, %49 ], [ %25, %54 ]
-  %.031.i = phi i32 [ -1, %35 ], [ -1, %rsa_oaep_decode.exit.i ], [ -1, %39 ], [ -1, %62 ], [ -1, %65 ], [ -1, %68 ], [ -1, %75 ], [ 1, %71 ], [ 1, %72 ], [ -1, %49 ], [ -1, %54 ]
+  %.0.i48.i = phi ptr [ null, %35 ], [ %25, %rsa_oaep_decode.exit.i ], [ %25, %39 ], [ %25, %62 ], [ %25, %65 ], [ %25, %68 ], [ %25, %75 ], [ %25, %72 ], [ %25, %71 ], [ %25, %49 ], [ %25, %54 ]
+  %.031.i = phi i32 [ -1, %35 ], [ -1, %rsa_oaep_decode.exit.i ], [ -1, %39 ], [ -1, %62 ], [ -1, %65 ], [ -1, %68 ], [ -1, %75 ], [ 1, %72 ], [ 1, %71 ], [ -1, %49 ], [ -1, %54 ]
   call void @RSA_OAEP_PARAMS_free(ptr noundef %.0.i48.i) #4
   br label %rsa_cms_decrypt.exit
 
 rsa_cms_decrypt.exit:                             ; preds = %10, %13, %15, %19, %.thread.i
-  %.0.i = phi i32 [ 0, %10 ], [ -1, %13 ], [ -1, %19 ], [ %.031.i, %.thread.i ], [ 1, %15 ]
+  %.0.i = phi i32 [ -1, %19 ], [ %.031.i, %.thread.i ], [ 0, %10 ], [ -1, %13 ], [ 1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %130
 
@@ -304,7 +304,7 @@ rsa_cms_decrypt.exit:                             ; preds = %10, %13, %15, %19, 
   br label %rsa_cms_encrypt.exit
 
 rsa_cms_encrypt.exit:                             ; preds = %76, %81, %84, %.thread.i8, %127
-  %.0.i7 = phi i32 [ %.022.i, %127 ], [ 0, %76 ], [ %87, %.thread.i8 ], [ 0, %81 ], [ 0, %84 ]
+  %.0.i7 = phi i32 [ %87, %.thread.i8 ], [ %.022.i, %127 ], [ 0, %76 ], [ 0, %81 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -470,7 +470,7 @@ rsa_cms_verify.exit:                              ; preds = %18, %24, %25, %27
   br label %rsa_cms_sign.exit
 
 rsa_cms_sign.exit:                                ; preds = %34, %37, %.thread.i, %45, %48, %52, %53, %57, %61
-  %.0.i6 = phi i32 [ 0, %57 ], [ %40, %.thread.i ], [ 0, %34 ], [ 0, %37 ], [ 1, %48 ], [ 0, %53 ], [ %..i, %61 ], [ 0, %52 ], [ 0, %45 ]
+  %.0.i6 = phi i32 [ %40, %.thread.i ], [ 0, %34 ], [ 0, %37 ], [ 0, %52 ], [ 0, %45 ], [ 1, %48 ], [ 0, %53 ], [ 0, %57 ], [ %..i, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

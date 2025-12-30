@@ -532,7 +532,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %zval_get_string.exi
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %57, %52, %46, %41, %36, %zend_string_equals_cstr.exit16.thread, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %41 ], [ -1, %zend_string_equals_cstr.exit16.thread ], [ -1, %36 ], [ 0, %46 ], [ 0, %52 ], [ 0, %57 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %zend_string_equals_cstr.exit16.thread ], [ -1, %36 ], [ -1, %41 ], [ 0, %46 ], [ 0, %52 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -1017,7 +1017,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %19
   br label %55
 
 .critedge:                                        ; preds = %.thread85, %17
-  %.1 = phi ptr [ %26, %.thread85 ], [ null, %17 ]
+  %.1 = phi ptr [ null, %17 ], [ %26, %.thread85 ]
   %28 = load ptr, ptr %5, align 8, !tbaa !19
   %29 = getelementptr inbounds i8, ptr %28, i64 -24
   %30 = load ptr, ptr %29, align 8, !tbaa !80
@@ -1998,7 +1998,7 @@ define hidden void @zim_DOMDocument_importNode(ptr noundef readonly captures(non
   br label %86
 
 86:                                               ; preds = %42, %52, %56, %59, %85
-  %.0 = phi ptr [ %49, %52 ], [ %49, %85 ], [ %49, %59 ], [ %49, %56 ], [ %37, %42 ]
+  %.0 = phi ptr [ %49, %85 ], [ %49, %59 ], [ %49, %56 ], [ %49, %52 ], [ %37, %42 ]
   %87 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.0, ptr noundef %1, ptr noundef nonnull %14) #10
   br label %88
 
@@ -2340,10 +2340,10 @@ zend_parse_arg_str_ex.exit79:                     ; preds = %18
   br i1 %cond.fr81, label %.critedge, label %.thread91, !prof !79
 
 .thread91:                                        ; preds = %zend_parse_arg_str_ex.exit79, %zend_parse_arg_str_ex.exit, %10
-  %.065100 = phi i32 [ 0, %10 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_str_ex.exit79 ]
-  %.06699 = phi ptr [ null, %10 ], [ %12, %zend_parse_arg_str_ex.exit ], [ %19, %zend_parse_arg_str_ex.exit79 ]
-  %.06798 = phi i32 [ 0, %10 ], [ 5, %zend_parse_arg_str_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit79 ]
-  %.06997 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit79 ]
+  %.065100 = phi i32 [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_str_ex.exit79 ]
+  %.06699 = phi ptr [ %12, %zend_parse_arg_str_ex.exit ], [ null, %10 ], [ %19, %zend_parse_arg_str_ex.exit79 ]
+  %.06798 = phi i32 [ 5, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 4, %zend_parse_arg_str_ex.exit79 ]
+  %.06997 = phi i32 [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %10 ], [ 9, %zend_parse_arg_str_ex.exit79 ]
   call void @zend_wrong_parameter_error(i32 noundef %.06997, i32 noundef %.065100, ptr noundef null, i32 noundef %.06798, ptr noundef %.06699) #10
   br label %73
 
@@ -2636,8 +2636,8 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %26, %php_dom_follow
   br label %112
 
 php_dom_follow_spec_doc_ref.exit54.thread:        ; preds = %php_dom_follow_spec_doc_ref.exit54, %37, %98, %51, %49
-  %.035 = phi i32 [ 0, %51 ], [ 0, %49 ], [ %.1, %98 ], [ 14, %37 ], [ %spec.select, %php_dom_follow_spec_doc_ref.exit54 ]
-  %.0 = phi ptr [ %46, %51 ], [ %46, %49 ], [ %46, %98 ], [ null, %37 ], [ null, %php_dom_follow_spec_doc_ref.exit54 ]
+  %.035 = phi i32 [ %.1, %98 ], [ 0, %51 ], [ 0, %49 ], [ 14, %37 ], [ %spec.select, %php_dom_follow_spec_doc_ref.exit54 ]
+  %.0 = phi ptr [ %46, %98 ], [ %46, %51 ], [ %46, %49 ], [ null, %37 ], [ null, %php_dom_follow_spec_doc_ref.exit54 ]
   %101 = load ptr, ptr @xmlFree, align 8, !tbaa !60
   %102 = load ptr, ptr %5, align 8, !tbaa !97
   call void %101(ptr noundef %102) #10
@@ -3059,7 +3059,7 @@ php_dom_transfer_document_ref_single_aux.exit24.thread.i: ; preds = %php_dom_tra
   br i1 %.not17.i.i, label %.preheader.i, label %php_dom_next_in_tree_order.exit.i.backedge
 
 php_dom_next_in_tree_order.exit.i.backedge:       ; preds = %90, %php_dom_transfer_document_ref_single_aux.exit24.thread.i, %php_dom_transfer_document_ref_single_aux.exit24.thread32.i
-  %.026.i.be = phi ptr [ %83, %php_dom_transfer_document_ref_single_aux.exit24.thread.i ], [ %81, %php_dom_transfer_document_ref_single_aux.exit24.thread32.i ], [ %92, %90 ]
+  %.026.i.be = phi ptr [ %81, %php_dom_transfer_document_ref_single_aux.exit24.thread32.i ], [ %83, %php_dom_transfer_document_ref_single_aux.exit24.thread.i ], [ %92, %90 ]
   br label %php_dom_next_in_tree_order.exit.i
 
 .preheader.i:                                     ; preds = %php_dom_transfer_document_ref_single_aux.exit24.thread.i, %90
@@ -3413,7 +3413,7 @@ define hidden ptr @dom_get_valid_file_path(ptr noundef %0, ptr noundef %1, i32 %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %20, %16, %.thread
-  %.023.ph = phi ptr [ %spec.select32, %20 ], [ %spec.select, %16 ], [ %1, %.thread ]
+  %.023.ph = phi ptr [ %spec.select, %16 ], [ %1, %.thread ], [ %spec.select32, %20 ]
   tail call void @xmlFreeURI(ptr noundef nonnull %4) #10
   br label %22
 
@@ -5211,7 +5211,7 @@ zend_string_alloc.exit:                           ; preds = %73
   br label %87
 
 87:                                               ; preds = %73, %zend_string_alloc.exit, %86
-  %.sink = phi i32 [ 2, %86 ], [ 262, %zend_string_alloc.exit ], [ 2, %73 ]
+  %.sink = phi i32 [ 262, %zend_string_alloc.exit ], [ 2, %86 ], [ 2, %73 ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %88, align 8, !tbaa !19
   %89 = call i32 @xmlOutputBufferClose(ptr noundef nonnull %56) #10
@@ -5356,7 +5356,7 @@ instanceof_function.exit:                         ; preds = %23
   br label %58
 
 .critedge:                                        ; preds = %20, %26, %.thread10
-  %32 = phi ptr [ %27, %.thread10 ], [ null, %26 ], [ null, %20 ]
+  %32 = phi ptr [ null, %26 ], [ %27, %.thread10 ], [ null, %20 ]
   %33 = load ptr, ptr %9, align 8, !tbaa !19
   %34 = getelementptr inbounds i8, ptr %33, i64 -24
   %35 = load ptr, ptr %34, align 8, !tbaa !80
@@ -5508,7 +5508,7 @@ define internal fastcc void @libxml_fixup_name_and_content(ptr noundef readonly 
   br label %libxml_copy_dicted_string.exit
 
 libxml_copy_dicted_string.exit:                   ; preds = %7, %13, %18, %20
-  %.0.i = phi ptr [ null, %7 ], [ %19, %18 ], [ %21, %20 ], [ %11, %13 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %7 ], [ %11, %13 ]
   store ptr %.0.i, ptr %10, align 8, !tbaa !177
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %23 = load ptr, ptr %22, align 8, !tbaa !186
@@ -5526,7 +5526,7 @@ libxml_copy_dicted_string.exit:                   ; preds = %7, %13, %18, %20
   br label %libxml_copy_dicted_string.exit16
 
 libxml_copy_dicted_string.exit16:                 ; preds = %libxml_copy_dicted_string.exit, %25, %29
-  %.0.i15 = phi ptr [ null, %libxml_copy_dicted_string.exit ], [ %30, %29 ], [ %23, %25 ]
+  %.0.i15 = phi ptr [ %30, %29 ], [ null, %libxml_copy_dicted_string.exit ], [ %23, %25 ]
   store ptr %.0.i15, ptr %22, align 8, !tbaa !186
   br label %31
 

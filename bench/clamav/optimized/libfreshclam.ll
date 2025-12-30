@@ -453,13 +453,13 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly captures(address
   %144 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.32) #16
   br label %145
 
-145:                                              ; preds = %46, %116, %143, %60, %124
-  %.050.ph = phi i32 [ 3, %124 ], [ 13, %60 ], [ 2, %143 ], [ 3, %116 ], [ 13, %46 ]
+145:                                              ; preds = %46, %116, %143, %124, %60
+  %.050.ph = phi i32 [ 13, %60 ], [ 3, %124 ], [ 2, %143 ], [ 3, %116 ], [ 13, %46 ]
   tail call void @fc_cleanup()
   br label %146
 
 146:                                              ; preds = %140, %127, %145, %4
-  %.0 = phi i32 [ 16, %4 ], [ %.050.ph, %145 ], [ 0, %127 ], [ 0, %140 ]
+  %.0 = phi i32 [ 16, %4 ], [ %.050.ph, %145 ], [ 0, %140 ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -725,12 +725,12 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
   br label %.thread48
 
 .thread48:                                        ; preds = %.thread.us, %.thread, %.preheader, %.split.us
-  %.02552 = phi i32 [ 10, %.split.us ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %.thread.us ]
+  %.02552 = phi i32 [ 10, %.split.us ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %.thread.us ]
   %44 = tail call i32 @closedir(ptr noundef nonnull %11)
   br label %.thread43
 
 .thread43:                                        ; preds = %31, %6, %.thread48
-  %.02547 = phi i32 [ %.02552, %.thread48 ], [ 3, %6 ], [ 10, %31 ]
+  %.02547 = phi i32 [ %.02552, %.thread48 ], [ 10, %31 ], [ 3, %6 ]
   ret i32 %.02547
 }
 
@@ -886,8 +886,8 @@ define range(i32 0, 17) i32 @fc_test_database(ptr noundef %0, i32 noundef %1) lo
   %32 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.44, i32 noundef %31, ptr noundef nonnull %0) #16
   br label %33
 
-33:                                               ; preds = %30, %16, %27
-  %.018.ph = phi i32 [ 8, %27 ], [ 8, %16 ], [ 0, %30 ]
+33:                                               ; preds = %16, %27, %30
+  %.018.ph = phi i32 [ 0, %30 ], [ 8, %27 ], [ 8, %16 ]
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %35 = load ptr, ptr %34, align 8, !tbaa !67
   %.not27 = icmp eq ptr %35, null
@@ -1397,8 +1397,8 @@ fc_strerror.exit.loopexit451:                     ; preds = %.lr.ph.split
   br label %fc_strerror.exit
 
 fc_strerror.exit:                                 ; preds = %.lr.ph.split.us, %.lr.ph.split, %fc_strerror.exit.loopexit451, %fc_strerror.exit.loopexit443, %fc_strerror.exit.loopexit365, %fc_strerror.exit.loopexit358, %fc_strerror.exit.loopexit279, %fc_strerror.exit.loopexit272, %fc_strerror.exit.loopexit184, %fc_strerror.exit.loopexit177, %fc_strerror.exit.loopexit, %.split113.us, %.split116.us, %.split101.us, %.split107.us, %.split119.us, %.split88.us, %.split.us
-  %122 = phi i32 [ %.us-phi, %.split.us ], [ 13, %.split101.us ], [ 15, %.split119.us ], [ 1, %fc_strerror.exit.loopexit ], [ %57, %fc_strerror.exit.loopexit184 ], [ %57, %fc_strerror.exit.loopexit279 ], [ 16, %.split88.us ], [ %57, %fc_strerror.exit.loopexit365 ], [ 14, %.split107.us ], [ %57, %fc_strerror.exit.loopexit451 ], [ 9, %.split113.us ], [ 10, %.split116.us ], [ %36, %fc_strerror.exit.loopexit177 ], [ %36, %fc_strerror.exit.loopexit272 ], [ %36, %fc_strerror.exit.loopexit358 ], [ %36, %fc_strerror.exit.loopexit443 ], [ 8, %.lr.ph.split ], [ 8, %.lr.ph.split.us ]
-  %.0.i = phi ptr [ @.str.19, %.split.us ], [ @.str.13, %.split101.us ], [ @.str.15, %.split119.us ], [ @.str.1, %fc_strerror.exit.loopexit ], [ @.str.2, %fc_strerror.exit.loopexit184 ], [ @.str.3, %fc_strerror.exit.loopexit279 ], [ @.str.16, %.split88.us ], [ @.str.4, %fc_strerror.exit.loopexit365 ], [ @.str.14, %.split107.us ], [ @.str.6, %fc_strerror.exit.loopexit451 ], [ @.str.9, %.split113.us ], [ @.str.10, %.split116.us ], [ @.str.2, %fc_strerror.exit.loopexit177 ], [ @.str.3, %fc_strerror.exit.loopexit272 ], [ @.str.4, %fc_strerror.exit.loopexit358 ], [ @.str.6, %fc_strerror.exit.loopexit443 ], [ @.str.8, %.lr.ph.split ], [ @.str.8, %.lr.ph.split.us ]
+  %122 = phi i32 [ %.us-phi, %.split.us ], [ 9, %.split113.us ], [ 10, %.split116.us ], [ 13, %.split101.us ], [ 14, %.split107.us ], [ 15, %.split119.us ], [ 16, %.split88.us ], [ 1, %fc_strerror.exit.loopexit ], [ %36, %fc_strerror.exit.loopexit177 ], [ %57, %fc_strerror.exit.loopexit184 ], [ %36, %fc_strerror.exit.loopexit272 ], [ %57, %fc_strerror.exit.loopexit279 ], [ %36, %fc_strerror.exit.loopexit358 ], [ %57, %fc_strerror.exit.loopexit365 ], [ %36, %fc_strerror.exit.loopexit443 ], [ %57, %fc_strerror.exit.loopexit451 ], [ 8, %.lr.ph.split ], [ 8, %.lr.ph.split.us ]
+  %.0.i = phi ptr [ @.str.19, %.split.us ], [ @.str.9, %.split113.us ], [ @.str.10, %.split116.us ], [ @.str.13, %.split101.us ], [ @.str.14, %.split107.us ], [ @.str.15, %.split119.us ], [ @.str.16, %.split88.us ], [ @.str.1, %fc_strerror.exit.loopexit ], [ @.str.2, %fc_strerror.exit.loopexit177 ], [ @.str.2, %fc_strerror.exit.loopexit184 ], [ @.str.3, %fc_strerror.exit.loopexit272 ], [ @.str.3, %fc_strerror.exit.loopexit279 ], [ @.str.4, %fc_strerror.exit.loopexit358 ], [ @.str.4, %fc_strerror.exit.loopexit365 ], [ @.str.6, %fc_strerror.exit.loopexit443 ], [ @.str.6, %fc_strerror.exit.loopexit451 ], [ @.str.8, %.lr.ph.split ], [ @.str.8, %.lr.ph.split.us ]
   %123 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.96, ptr noundef %0, ptr noundef nonnull %.0.i) #16
   br label %.loopexit
 
@@ -1410,13 +1410,13 @@ fc_strerror.exit:                                 ; preds = %.lr.ph.split.us, %.
   br i1 %.not56.not, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %124, %49, %.preheader
-  %128 = phi i32 [ %51, %49 ], [ 0, %.preheader ], [ %126, %124 ]
+  %128 = phi i32 [ 0, %.preheader ], [ %51, %49 ], [ %126, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %62, %60, %.thread, %120, %103, %fc_strerror.exit, %.split122.us, %22, %16
-  %.043 = phi i32 [ 16, %16 ], [ 3, %22 ], [ %122, %fc_strerror.exit ], [ 19, %120 ], [ %36, %.split122.us ], [ %.144, %103 ], [ 0, %.thread ], [ 0, %62 ], [ 0, %60 ], [ 0, %24 ], [ 0, %._crit_edge ]
+  %.043 = phi i32 [ 16, %16 ], [ 3, %22 ], [ %122, %fc_strerror.exit ], [ %36, %.split122.us ], [ %.144, %103 ], [ 19, %120 ], [ 0, %.thread ], [ 0, %60 ], [ 0, %62 ], [ 0, %24 ], [ 0, %._crit_edge ]
   %129 = load ptr, ptr %9, align 8, !tbaa !16
   %.not59 = icmp eq ptr %129, null
   br i1 %.not59, label %131, label %130
@@ -1734,7 +1734,7 @@ define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not35.not, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %83, %18, %.thread42, %.thread49, %81, %.thread, %16, %10
-  %.025 = phi i32 [ 16, %10 ], [ 3, %16 ], [ %.227.ph, %.thread ], [ 19, %81 ], [ 0, %.thread49 ], [ 0, %.thread42 ], [ 0, %18 ], [ 0, %83 ]
+  %.025 = phi i32 [ 16, %10 ], [ 3, %16 ], [ 19, %81 ], [ %.227.ph, %.thread ], [ 0, %.thread49 ], [ 0, %.thread42 ], [ 0, %18 ], [ 0, %83 ]
   %89 = load ptr, ptr %4, align 8, !tbaa !16
   %.not38 = icmp eq ptr %89, null
   br i1 %.not38, label %91, label %90
@@ -1854,7 +1854,7 @@ fc_strerror.exit.loopexit128:                     ; preds = %12
   br label %fc_strerror.exit
 
 fc_strerror.exit:                                 ; preds = %12, %fc_strerror.exit.loopexit128, %fc_strerror.exit.loopexit108, %fc_strerror.exit.loopexit88, %fc_strerror.exit.loopexit65, %fc_strerror.exit.loopexit, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28
-  %.0.i = phi ptr [ @.str.19, %28 ], [ @.str.18, %27 ], [ @.str.17, %26 ], [ @.str.1, %fc_strerror.exit.loopexit ], [ @.str.2, %fc_strerror.exit.loopexit65 ], [ @.str.3, %fc_strerror.exit.loopexit88 ], [ @.str.4, %fc_strerror.exit.loopexit108 ], [ @.str.5, %fc_strerror.exit.loopexit128 ], [ @.str.7, %16 ], [ @.str.8, %17 ], [ @.str.9, %18 ], [ @.str.10, %19 ], [ @.str.11, %20 ], [ @.str.12, %21 ], [ @.str.13, %22 ], [ @.str.14, %23 ], [ @.str.15, %24 ], [ @.str.16, %25 ], [ @.str.6, %12 ]
+  %.0.i = phi ptr [ @.str.19, %28 ], [ @.str.7, %16 ], [ @.str.8, %17 ], [ @.str.9, %18 ], [ @.str.10, %19 ], [ @.str.11, %20 ], [ @.str.12, %21 ], [ @.str.13, %22 ], [ @.str.14, %23 ], [ @.str.15, %24 ], [ @.str.16, %25 ], [ @.str.17, %26 ], [ @.str.18, %27 ], [ @.str.1, %fc_strerror.exit.loopexit ], [ @.str.2, %fc_strerror.exit.loopexit65 ], [ @.str.3, %fc_strerror.exit.loopexit88 ], [ @.str.4, %fc_strerror.exit.loopexit108 ], [ @.str.5, %fc_strerror.exit.loopexit128 ], [ @.str.6, %12 ]
   %29 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.117, ptr noundef nonnull %.0.i, i32 noundef %15) #16
   br label %34
 

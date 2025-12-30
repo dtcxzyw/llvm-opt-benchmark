@@ -509,7 +509,7 @@ common.resume:                                    ; preds = %54, %41
   unreachable
 
 _ZN9toolchain14get_cargo_home17h7286c59bf5a819d8E.exit: ; preds = %23, %35
-  %.sroa.0.2 = phi i64 [ %.sroa.0.015, %23 ], [ %.sroa.0.1, %35 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %35 ], [ %.sroa.0.015, %23 ]
   %44 = icmp eq i64 %.sroa.0.2, -9223372036854775808
   br i1 %44, label %49, label %45
 
@@ -553,7 +553,7 @@ _ZN6camino11Utf8PathBuf4push17h55bc27f7e4e76addE.exit12: ; preds = %.noexc10
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
-54:                                               ; preds = %.noexc10, %.noexc, %45, %_ZN6camino11Utf8PathBuf4push17h55bc27f7e4e76addE.exit
+54:                                               ; preds = %45, %.noexc, %_ZN6camino11Utf8PathBuf4push17h55bc27f7e4e76addE.exit, %.noexc10
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h311dc1a10da3b73eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #8

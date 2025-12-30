@@ -343,7 +343,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.thread.i
 
 .split86.us.i:                                    ; preds = %.lr.ph123.i, %.lr.ph108.preheader.i, %.lr.ph123.i.preheader, %.lr.ph108.preheader.i.preheader
-  %.us-phi87.i = phi i64 [ %103, %.lr.ph108.preheader.i ], [ %83, %.lr.ph108.preheader.i.preheader ], [ %70, %.lr.ph123.i.preheader ], [ %80, %.lr.ph123.i ]
+  %.us-phi87.i = phi i64 [ %83, %.lr.ph108.preheader.i.preheader ], [ %70, %.lr.ph123.i.preheader ], [ %103, %.lr.ph108.preheader.i ], [ %80, %.lr.ph123.i ]
   %109 = and i64 %.us-phi87.i, 2147483647
   %110 = getelementptr inbounds nuw i8, ptr %.045.ph127.i, i64 %109
   %111 = sub i64 %.046.ph125.i, %109
@@ -496,7 +496,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.thread.i
 
 .split136.us.i:                                   ; preds = %.lr.ph174.i, %.lr.ph159.preheader.i, %.lr.ph174.i.preheader, %.lr.ph159.preheader.i.preheader
-  %.us-phi137.i = phi i64 [ %164, %.lr.ph159.preheader.i ], [ %144, %.lr.ph159.preheader.i.preheader ], [ %131, %.lr.ph174.i.preheader ], [ %141, %.lr.ph174.i ]
+  %.us-phi137.i = phi i64 [ %144, %.lr.ph159.preheader.i.preheader ], [ %131, %.lr.ph174.i.preheader ], [ %164, %.lr.ph159.preheader.i ], [ %141, %.lr.ph174.i ]
   %170 = and i64 %.us-phi137.i, 2147483647
   %171 = getelementptr inbounds nuw i8, ptr %.042.ph179.i, i64 %170
   %172 = sub i64 %.043.ph177.i, %170
@@ -567,7 +567,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %_fetch_parent.exit
 
 _fetch_parent.exit:                               ; preds = %118, %122, %186, %190, %.thread.i, %196
-  %.0.i = phi ptr [ null, %122 ], [ %191, %190 ], [ null, %118 ], [ null, %186 ], [ null, %196 ], [ null, %.thread.i ]
+  %.0.i = phi ptr [ null, %186 ], [ %191, %190 ], [ null, %122 ], [ null, %118 ], [ null, %196 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -879,9 +879,9 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
   unreachable
 
 .thread88.sink.split:                             ; preds = %.split125.us, %.split107.us, %.split145.us
-  %.sink185 = phi i32 [ 4, %.split107.us ], [ 4, %.split145.us ], [ %47, %.split125.us ]
-  %.052.ph134.lcssa.sink = phi i64 [ %.054.ph114, %.split107.us ], [ %.056.ph155, %.split145.us ], [ %.052.ph134, %.split125.us ]
-  %.sink184 = phi i32 [ 159, %.split107.us ], [ 152, %.split145.us ], [ 160, %.split125.us ]
+  %.sink185 = phi i32 [ 4, %.split145.us ], [ 4, %.split107.us ], [ %47, %.split125.us ]
+  %.052.ph134.lcssa.sink = phi i64 [ %.056.ph155, %.split145.us ], [ %.054.ph114, %.split107.us ], [ %.052.ph134, %.split125.us ]
+  %.sink184 = phi i32 [ 152, %.split145.us ], [ 159, %.split107.us ], [ 160, %.split125.us ]
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef %.sink184, ptr noundef nonnull @__func__._fetch_child, i64 noundef %.052.ph134.lcssa.sink, i32 noundef %.sink185) #12
   br label %.thread88
 
@@ -942,7 +942,7 @@ define dso_local ptr @fetch_config_from_controller(i32 noundef %0) local_unnamed
   br label %23
 
 23:                                               ; preds = %1, %13, %21, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %21 ], [ %15, %13 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %21 ], [ %15, %13 ], [ null, %16 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1039,7 +1039,7 @@ define dso_local range(i32 0, -2147483648) i32 @dump_to_memfd(ptr noundef %0, pt
 .lr.ph.split.backedge:                            ; preds = %31, %28
   br label %.lr.ph.split, !llvm.loop !18
 
-34:                                               ; preds = %.split41.us, %22
+34:                                               ; preds = %22, %.split41.us
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.dump_to_memfd) #15
   unreachable
 
@@ -1194,7 +1194,7 @@ define dso_local range(i32 -1, 1) i32 @write_one_config(ptr noundef readonly cap
   br i1 %.not40.i, label %59, label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit.i, %38, %.split46.us.i, %22
-  %.031.i = phi i32 [ %20, %22 ], [ -1, %.loopexit.i ], [ %20, %.split46.us.i ], [ %20, %38 ]
+  %.031.i = phi i32 [ %20, %22 ], [ -1, %.loopexit.i ], [ %20, %38 ], [ %20, %.split46.us.i ]
   %54 = load ptr, ptr %3, align 8
   %55 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__._write_conf, ptr noundef %54) #12
   call void @slurm_xfree(ptr noundef nonnull %3) #12

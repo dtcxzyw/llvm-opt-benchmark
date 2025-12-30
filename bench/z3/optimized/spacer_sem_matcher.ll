@@ -470,8 +470,8 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit77.thread.sink.split: ; preds = %162, 
   br label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit77.thread
 
 _ZNK11ast_manager6is_notEPK4exprRPS0_.exit77.thread: ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit77.thread.sink.split, %_ZNK11ast_manager6is_notEPK4expr.exit73.thread, %_ZNK11ast_manager6is_notEPK4expr.exit.i76, %151, %162, %155, %_ZNK11ast_manager6is_notEPK4expr.exit73, %100, %99
-  %.056 = phi ptr [ %80, %_ZNK11ast_manager6is_notEPK4expr.exit73 ], [ %80, %_ZNK11ast_manager6is_notEPK4expr.exit.i76 ], [ %80, %162 ], [ %80, %155 ], [ %80, %99 ], [ %80, %_ZNK11ast_manager6is_notEPK4expr.exit73.thread ], [ %80, %100 ], [ %80, %151 ], [ %.056.ph, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit77.thread.sink.split ]
-  %.053 = phi ptr [ %86, %_ZNK11ast_manager6is_notEPK4expr.exit73 ], [ %86, %_ZNK11ast_manager6is_notEPK4expr.exit.i76 ], [ %86, %162 ], [ %86, %155 ], [ %86, %99 ], [ %86, %_ZNK11ast_manager6is_notEPK4expr.exit73.thread ], [ %86, %100 ], [ %86, %151 ], [ %.053.ph, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit77.thread.sink.split ]
+  %.056 = phi ptr [ %80, %_ZNK11ast_manager6is_notEPK4expr.exit73 ], [ %80, %162 ], [ %80, %155 ], [ %80, %100 ], [ %80, %99 ], [ %80, %151 ], [ %80, %_ZNK11ast_manager6is_notEPK4expr.exit.i76 ], [ %80, %_ZNK11ast_manager6is_notEPK4expr.exit73.thread ], [ %.056.ph, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit77.thread.sink.split ]
+  %.053 = phi ptr [ %86, %_ZNK11ast_manager6is_notEPK4expr.exit73 ], [ %86, %162 ], [ %86, %155 ], [ %86, %100 ], [ %86, %99 ], [ %86, %151 ], [ %86, %_ZNK11ast_manager6is_notEPK4expr.exit.i76 ], [ %86, %_ZNK11ast_manager6is_notEPK4expr.exit73.thread ], [ %.053.ph, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit77.thread.sink.split ]
   %166 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   %167 = load ptr, ptr %166, align 8, !tbaa !73
   %168 = getelementptr inbounds nuw i8, ptr %.053, i64 16
@@ -660,10 +660,10 @@ _ZNK17arith_recognizers5is_gtEPK4expr.exit91:     ; preds = %266
   br label %_ZNK17arith_recognizers5is_leEPK4expr.exit85.thread
 
 _ZNK17arith_recognizers5is_leEPK4expr.exit85.thread: ; preds = %_ZNK17arith_recognizers5is_gtEPK4expr.exit91, %_ZNK17arith_recognizers5is_leEPK4expr.exit85, %266, %259, %245, %_ZNK11ast_manager6is_notEPK4expr.exit.i88, %255, %236, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread, %_ZNK17arith_recognizers5is_gtEPK4expr.exit
-  %277 = phi i32 [ %233, %_ZNK17arith_recognizers5is_leEPK4expr.exit85 ], [ %233, %259 ], [ %233, %_ZNK17arith_recognizers5is_gtEPK4expr.exit91 ], [ %233, %236 ], [ %216, %_ZNK17arith_recognizers5is_gtEPK4expr.exit ], [ %233, %245 ], [ %233, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread ], [ %233, %255 ], [ %233, %_ZNK11ast_manager6is_notEPK4expr.exit.i88 ], [ %233, %266 ]
-  %278 = phi i32 [ %180, %_ZNK17arith_recognizers5is_leEPK4expr.exit85 ], [ %180, %259 ], [ %.pre, %_ZNK17arith_recognizers5is_gtEPK4expr.exit91 ], [ %180, %236 ], [ %180, %_ZNK17arith_recognizers5is_gtEPK4expr.exit ], [ %180, %245 ], [ %180, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread ], [ %180, %255 ], [ %180, %_ZNK11ast_manager6is_notEPK4expr.exit.i88 ], [ %180, %266 ]
-  %.157 = phi ptr [ %.056, %_ZNK17arith_recognizers5is_leEPK4expr.exit85 ], [ %.056, %259 ], [ %spec.select, %_ZNK17arith_recognizers5is_gtEPK4expr.exit91 ], [ %.056, %236 ], [ %.056, %_ZNK17arith_recognizers5is_gtEPK4expr.exit ], [ %.056, %245 ], [ %.056, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread ], [ %.056, %255 ], [ %.056, %_ZNK11ast_manager6is_notEPK4expr.exit.i88 ], [ %.056, %266 ]
-  %.154 = phi ptr [ %.053, %_ZNK17arith_recognizers5is_leEPK4expr.exit85 ], [ %.053, %259 ], [ %.053, %_ZNK17arith_recognizers5is_gtEPK4expr.exit91 ], [ %.053, %236 ], [ %214, %_ZNK17arith_recognizers5is_gtEPK4expr.exit ], [ %.053, %245 ], [ %.053, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread ], [ %.053, %255 ], [ %.053, %_ZNK11ast_manager6is_notEPK4expr.exit.i88 ], [ %.053, %266 ]
+  %277 = phi i32 [ %233, %_ZNK17arith_recognizers5is_leEPK4expr.exit85 ], [ %216, %_ZNK17arith_recognizers5is_gtEPK4expr.exit ], [ %233, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread ], [ %233, %236 ], [ %233, %255 ], [ %233, %_ZNK11ast_manager6is_notEPK4expr.exit.i88 ], [ %233, %245 ], [ %233, %259 ], [ %233, %266 ], [ %233, %_ZNK17arith_recognizers5is_gtEPK4expr.exit91 ]
+  %278 = phi i32 [ %180, %_ZNK17arith_recognizers5is_leEPK4expr.exit85 ], [ %180, %_ZNK17arith_recognizers5is_gtEPK4expr.exit ], [ %180, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread ], [ %180, %236 ], [ %180, %255 ], [ %180, %_ZNK11ast_manager6is_notEPK4expr.exit.i88 ], [ %180, %245 ], [ %180, %259 ], [ %180, %266 ], [ %.pre, %_ZNK17arith_recognizers5is_gtEPK4expr.exit91 ]
+  %.157 = phi ptr [ %.056, %_ZNK17arith_recognizers5is_leEPK4expr.exit85 ], [ %.056, %_ZNK17arith_recognizers5is_gtEPK4expr.exit ], [ %.056, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread ], [ %.056, %236 ], [ %.056, %255 ], [ %.056, %_ZNK11ast_manager6is_notEPK4expr.exit.i88 ], [ %.056, %245 ], [ %.056, %259 ], [ %.056, %266 ], [ %spec.select, %_ZNK17arith_recognizers5is_gtEPK4expr.exit91 ]
+  %.154 = phi ptr [ %.053, %_ZNK17arith_recognizers5is_leEPK4expr.exit85 ], [ %214, %_ZNK17arith_recognizers5is_gtEPK4expr.exit ], [ %.053, %_ZNK17arith_recognizers5is_leEPK4expr.exit.thread ], [ %.053, %236 ], [ %.053, %255 ], [ %.053, %_ZNK11ast_manager6is_notEPK4expr.exit.i88 ], [ %.053, %245 ], [ %.053, %259 ], [ %.053, %266 ], [ %.053, %_ZNK17arith_recognizers5is_gtEPK4expr.exit91 ]
   %279 = and i32 %278, 65535
   %280 = icmp ne i32 %279, 0
   br i1 %280, label %_ZNK17arith_recognizers5is_geEPK4expr.exit.thread, label %281
@@ -811,8 +811,8 @@ _ZNK17arith_recognizers5is_ltEPK4expr.exit105:    ; preds = %361
   br label %_ZNK17arith_recognizers5is_geEPK4expr.exit99.thread
 
 _ZNK17arith_recognizers5is_geEPK4expr.exit99.thread: ; preds = %_ZNK17arith_recognizers5is_ltEPK4expr.exit105, %_ZNK17arith_recognizers5is_geEPK4expr.exit99, %361, %354, %339, %_ZNK11ast_manager6is_notEPK4expr.exit.i102, %350, %329, %_ZNK17arith_recognizers5is_geEPK4expr.exit.thread, %_ZNK17arith_recognizers5is_ltEPK4expr.exit
-  %.258 = phi ptr [ %.157, %_ZNK17arith_recognizers5is_geEPK4expr.exit99 ], [ %.157, %354 ], [ %spec.select174, %_ZNK17arith_recognizers5is_ltEPK4expr.exit105 ], [ %.157, %329 ], [ %.157, %_ZNK17arith_recognizers5is_ltEPK4expr.exit ], [ %.157, %339 ], [ %.157, %_ZNK17arith_recognizers5is_geEPK4expr.exit.thread ], [ %.157, %350 ], [ %.157, %_ZNK11ast_manager6is_notEPK4expr.exit.i102 ], [ %.157, %361 ]
-  %.255 = phi ptr [ %.154, %_ZNK17arith_recognizers5is_geEPK4expr.exit99 ], [ %.154, %354 ], [ %.154, %_ZNK17arith_recognizers5is_ltEPK4expr.exit105 ], [ %.154, %329 ], [ %311, %_ZNK17arith_recognizers5is_ltEPK4expr.exit ], [ %.154, %339 ], [ %.154, %_ZNK17arith_recognizers5is_geEPK4expr.exit.thread ], [ %.154, %350 ], [ %.154, %_ZNK11ast_manager6is_notEPK4expr.exit.i102 ], [ %.154, %361 ]
+  %.258 = phi ptr [ %.157, %_ZNK17arith_recognizers5is_geEPK4expr.exit99 ], [ %.157, %_ZNK17arith_recognizers5is_ltEPK4expr.exit ], [ %.157, %_ZNK17arith_recognizers5is_geEPK4expr.exit.thread ], [ %.157, %329 ], [ %.157, %350 ], [ %.157, %_ZNK11ast_manager6is_notEPK4expr.exit.i102 ], [ %.157, %339 ], [ %.157, %354 ], [ %.157, %361 ], [ %spec.select174, %_ZNK17arith_recognizers5is_ltEPK4expr.exit105 ]
+  %.255 = phi ptr [ %.154, %_ZNK17arith_recognizers5is_geEPK4expr.exit99 ], [ %311, %_ZNK17arith_recognizers5is_ltEPK4expr.exit ], [ %.154, %_ZNK17arith_recognizers5is_geEPK4expr.exit.thread ], [ %.154, %329 ], [ %.154, %350 ], [ %.154, %_ZNK11ast_manager6is_notEPK4expr.exit.i102 ], [ %.154, %339 ], [ %.154, %354 ], [ %.154, %361 ], [ %.154, %_ZNK17arith_recognizers5is_ltEPK4expr.exit105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %372 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %.255, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %373 unwind label %230
@@ -1172,8 +1172,8 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit124: ; preds = %510, %521
   %531 = icmp eq ptr %530, null
   br i1 %531, label %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit, !llvm.loop !72
 
-_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit.thread: ; preds = %.loopexit, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit, %.backedge, %94, %87, %500
-  %.ph = phi i1 [ false, %.loopexit ], [ false, %500 ], [ false, %87 ], [ true, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit ], [ true, %.backedge ], [ false, %94 ]
+_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit.thread: ; preds = %.loopexit, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit, %.backedge, %87, %94, %500
+  %.ph = phi i1 [ false, %.loopexit ], [ true, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit ], [ true, %.backedge ], [ false, %87 ], [ false, %94 ], [ false, %500 ]
   ret i1 %.ph
 }
 

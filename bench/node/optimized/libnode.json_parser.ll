@@ -362,8 +362,8 @@ if.end61:                                         ; preds = %lor.rhs
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %lor.rhs, %if.end40, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, %if.end61
-  %retval.sroa.0.0 = phi i16 [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ 0, %lor.rhs ], [ %6, %if.end61 ], [ 0, %if.end ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %if.end40 ]
-  %retval.sroa.3.0 = phi i16 [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ 0, %lor.rhs ], [ 1, %if.end61 ], [ %.mux22, %if.end ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %if.end40 ]
+  %retval.sroa.0.0 = phi i16 [ %6, %if.end61 ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ 0, %if.end ], [ 0, %if.end40 ], [ 0, %lor.rhs ]
+  %retval.sroa.3.0 = phi i16 [ 1, %if.end61 ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ %.mux22, %if.end ], [ 0, %if.end40 ], [ 0, %lor.rhs ]
   call void @_ZN4node6errors15PrinterTryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %bootstrapCatch) #8
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i171.sroa.0.0) #8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #8

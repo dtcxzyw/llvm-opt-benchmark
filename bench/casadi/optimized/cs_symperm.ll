@@ -328,7 +328,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   br i1 %168, label %.lr.ph110, label %.loopexit, !llvm.loop !20
 
 .sink.split:                                      ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us, %._crit_edge.thread, %8
-  %.sink = phi i32 [ 0, %8 ], [ 1, %.loopexit.us.us ], [ 1, %.loopexit.us ], [ 1, %._crit_edge.thread ], [ 1, %.loopexit ]
+  %.sink = phi i32 [ 0, %8 ], [ 1, %._crit_edge.thread ], [ 1, %.loopexit.us.us ], [ 1, %.loopexit.us ], [ 1, %.loopexit ]
   %169 = tail call ptr @cs_done(ptr noundef %24, ptr noundef %25, ptr noundef null, i32 noundef %.sink) #3
   br label %170
 

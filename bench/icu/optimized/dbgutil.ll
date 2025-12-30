@@ -158,7 +158,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -736,7 +736,7 @@ define i32 @udbg_stoi(ptr noundef nonnull align 8 dereferenceable(64) %0) local_
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %1, %8, %10
-  %.0.i = phi ptr [ %12, %10 ], [ %9, %8 ], [ null, %1 ]
+  %.0.i = phi ptr [ %9, %8 ], [ %12, %10 ], [ null, %1 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #15, !srcloc !27
   %13 = load i16, ptr %3, align 8, !tbaa !22
   %14 = icmp slt i16 %13, 0
@@ -782,7 +782,7 @@ define double @udbg_stod(ptr noundef nonnull align 8 dereferenceable(64) %0) loc
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %1, %8, %10
-  %.0.i = phi ptr [ %12, %10 ], [ %9, %8 ], [ null, %1 ]
+  %.0.i = phi ptr [ %9, %8 ], [ %12, %10 ], [ null, %1 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #15, !srcloc !27
   %13 = load i16, ptr %3, align 8, !tbaa !22
   %14 = icmp slt i16 %13, 0

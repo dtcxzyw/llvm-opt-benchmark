@@ -83,7 +83,7 @@ define range(i32 0, 65536) i32 @ff_tget_short(ptr noundef captures(none) %0, i32
   br label %bytestream2_get_le16.exit
 
 bytestream2_get_le16.exit:                        ; preds = %17, %16, %12, %11
-  %.shrunk = phi i16 [ %14, %12 ], [ 0, %11 ], [ 0, %16 ], [ %20, %17 ]
+  %.shrunk = phi i16 [ 0, %11 ], [ %14, %12 ], [ 0, %16 ], [ %20, %17 ]
   %21 = zext i16 %.shrunk to i32
   ret i32 %21
 }
@@ -128,7 +128,7 @@ define i32 @ff_tget_long(ptr noundef captures(none) %0, i32 noundef %1) local_un
   br label %bytestream2_get_le32.exit
 
 bytestream2_get_le32.exit:                        ; preds = %17, %16, %12, %11
-  %21 = phi i32 [ %14, %12 ], [ 0, %11 ], [ 0, %16 ], [ %20, %17 ]
+  %21 = phi i32 [ 0, %11 ], [ %14, %12 ], [ 0, %16 ], [ %20, %17 ]
   ret i32 %21
 }
 
@@ -172,7 +172,7 @@ define double @ff_tget_double(ptr noundef captures(none) %0, i32 noundef %1) loc
   br label %bytestream2_get_le64.exit
 
 bytestream2_get_le64.exit:                        ; preds = %17, %16, %12, %11
-  %21 = phi i64 [ %14, %12 ], [ 0, %11 ], [ 0, %16 ], [ %20, %17 ]
+  %21 = phi i64 [ 0, %11 ], [ %14, %12 ], [ 0, %16 ], [ %20, %17 ]
   %22 = bitcast i64 %21 to double
   ret double %22
 }
@@ -245,7 +245,7 @@ define i32 @ff_tget(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %
   br label %ff_tget_short.exit
 
 ff_tget_short.exit:                               ; preds = %26, %27, %31, %32
-  %.shrunk.i = phi i16 [ %29, %27 ], [ 0, %26 ], [ 0, %31 ], [ %35, %32 ]
+  %.shrunk.i = phi i16 [ 0, %26 ], [ %29, %27 ], [ 0, %31 ], [ %35, %32 ]
   %36 = zext i16 %.shrunk.i to i32
   br label %bytestream2_get_byte.exit
 
@@ -288,7 +288,7 @@ ff_tget_short.exit:                               ; preds = %26, %27, %31, %32
   br label %bytestream2_get_byte.exit
 
 bytestream2_get_byte.exit:                        ; preds = %52, %51, %47, %46, %13, %12, %3, %ff_tget_short.exit
-  %.0 = phi i32 [ %16, %13 ], [ -1, %3 ], [ %36, %ff_tget_short.exit ], [ 0, %12 ], [ %49, %47 ], [ 0, %46 ], [ 0, %51 ], [ %55, %52 ]
+  %.0 = phi i32 [ %36, %ff_tget_short.exit ], [ -1, %3 ], [ 0, %12 ], [ %16, %13 ], [ 0, %46 ], [ %49, %47 ], [ 0, %51 ], [ %55, %52 ]
   ret i32 %.0
 }
 
@@ -363,7 +363,7 @@ define i32 @ff_tadd_rational_metadata(i32 noundef %0, ptr noundef %1, ptr nounde
   br label %ff_tget_long.exit24.us.us
 
 ff_tget_long.exit24.us.us:                        ; preds = %41, %37
-  %42 = phi i32 [ %40, %37 ], [ 0, %41 ]
+  %42 = phi i32 [ 0, %41 ], [ %40, %37 ]
   %43 = and i32 %.029.us.us, 3
   %.not11.i.us.us = icmp eq i32 %43, 0
   %spec.select = select i1 %.not11.i.us.us, ptr %22, ptr @.str.8
@@ -410,7 +410,7 @@ ff_tget_long.exit24.us.us:                        ; preds = %41, %37
   br label %ff_tget_long.exit24.us
 
 ff_tget_long.exit24.us:                           ; preds = %63, %59
-  %64 = phi i32 [ %62, %59 ], [ 0, %63 ]
+  %64 = phi i32 [ 0, %63 ], [ %62, %59 ]
   %.not10.i.us = icmp eq i32 %.029.us, 0
   %65 = select i1 %.not10.i.us, ptr @.str.7, ptr %2
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str, ptr noundef nonnull %65, i32 noundef %.ph.us, i32 noundef %64) #8
@@ -457,7 +457,7 @@ ff_tget_long.exit24.us:                           ; preds = %63, %59
   br label %ff_tget_long.exit24.us31
 
 ff_tget_long.exit24.us31:                         ; preds = %84, %81
-  %85 = phi i32 [ %83, %81 ], [ 0, %84 ]
+  %85 = phi i32 [ 0, %84 ], [ %83, %81 ]
   %86 = and i32 %.029.us30, 3
   %.not11.i.us32 = icmp eq i32 %86, 0
   %spec.select35 = select i1 %.not11.i.us32, ptr %22, ptr @.str.8
@@ -502,7 +502,7 @@ ff_tget_long.exit24.us31:                         ; preds = %84, %81
   br label %ff_tget_long.exit24
 
 ff_tget_long.exit24:                              ; preds = %102, %103
-  %106 = phi i32 [ %105, %103 ], [ 0, %102 ]
+  %106 = phi i32 [ 0, %102 ], [ %105, %103 ]
   %.not10.i = icmp eq i32 %.029, 0
   %107 = select i1 %.not10.i, ptr @.str.7, ptr %2
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str, ptr noundef nonnull %107, i32 noundef %99, i32 noundef %106) #8
@@ -534,7 +534,7 @@ ff_tget_long.exit24:                              ; preds = %102, %103
   br label %bprint_to_avdict.exit
 
 bprint_to_avdict.exit:                            ; preds = %111, %113, %116
-  %.0.i27 = phi i32 [ -12, %111 ], [ %118, %116 ], [ %114, %113 ]
+  %.0.i27 = phi i32 [ %118, %116 ], [ -12, %111 ], [ %114, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %119
 
@@ -606,7 +606,7 @@ define i32 @ff_tadd_long_metadata(i32 noundef %0, ptr noundef %1, ptr noundef %2
   br label %ff_tget_long.exit.us.us
 
 ff_tget_long.exit.us.us:                          ; preds = %34, %30
-  %35 = phi i32 [ %33, %30 ], [ 0, %34 ]
+  %35 = phi i32 [ 0, %34 ], [ %33, %30 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %spec.select, i32 noundef %35) #8
   %36 = add nuw nsw i32 %.023.us.us, 1
   %exitcond35.not = icmp eq i32 %36, %0
@@ -636,7 +636,7 @@ auto_sep.exit.us:                                 ; preds = %.lr.ph.split.us, %f
   br label %ff_tget_long.exit.us
 
 ff_tget_long.exit.us:                             ; preds = %48, %44
-  %49 = phi i32 [ %47, %44 ], [ 0, %48 ]
+  %49 = phi i32 [ 0, %48 ], [ %47, %44 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %37, i32 noundef %49) #8
   %50 = add nuw nsw i32 %.023.us, 1
   %exitcond34.not = icmp eq i32 %50, %0
@@ -669,7 +669,7 @@ ff_tget_long.exit.us:                             ; preds = %48, %44
   br label %ff_tget_long.exit.us28
 
 ff_tget_long.exit.us28:                           ; preds = %61, %58
-  %62 = phi i32 [ %60, %58 ], [ 0, %61 ]
+  %62 = phi i32 [ 0, %61 ], [ %60, %58 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %spec.select29, i32 noundef %62) #8
   %63 = add nuw nsw i32 %.023.us24, 1
   %exitcond33.not = icmp eq i32 %63, %0
@@ -698,7 +698,7 @@ auto_sep.exit:                                    ; preds = %.lr.ph.split, %ff_t
   br label %ff_tget_long.exit
 
 ff_tget_long.exit:                                ; preds = %71, %72
-  %75 = phi i32 [ %74, %72 ], [ 0, %71 ]
+  %75 = phi i32 [ 0, %71 ], [ %74, %72 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %64, i32 noundef %75) #8
   %76 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %76, %0
@@ -728,7 +728,7 @@ ff_tget_long.exit:                                ; preds = %71, %72
   br label %bprint_to_avdict.exit
 
 bprint_to_avdict.exit:                            ; preds = %79, %81, %84
-  %.0.i21 = phi i32 [ -12, %79 ], [ %86, %84 ], [ %82, %81 ]
+  %.0.i21 = phi i32 [ %86, %84 ], [ -12, %79 ], [ %82, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %87
 
@@ -798,7 +798,7 @@ define i32 @ff_tadd_doubles_metadata(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %ff_tget_double.exit.us.us
 
 ff_tget_double.exit.us.us:                        ; preds = %36, %31
-  %37 = phi double [ %35, %31 ], [ 0.000000e+00, %36 ]
+  %37 = phi double [ 0.000000e+00, %36 ], [ %35, %31 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.select, double noundef %37) #8
   %38 = add nuw nsw i32 %.024.us.us, 1
   %exitcond36.not = icmp eq i32 %38, %0
@@ -829,7 +829,7 @@ auto_sep.exit.us:                                 ; preds = %.lr.ph.split.us, %f
   br label %ff_tget_double.exit.us
 
 ff_tget_double.exit.us:                           ; preds = %51, %46
-  %52 = phi double [ %50, %46 ], [ 0.000000e+00, %51 ]
+  %52 = phi double [ 0.000000e+00, %51 ], [ %50, %46 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %39, double noundef %52) #8
   %53 = add nuw nsw i32 %.024.us, 1
   %exitcond35.not = icmp eq i32 %53, %0
@@ -862,7 +862,7 @@ ff_tget_double.exit.us:                           ; preds = %51, %46
   br label %ff_tget_double.exit.us29
 
 ff_tget_double.exit.us29:                         ; preds = %64, %61
-  %65 = phi double [ %63, %61 ], [ 0.000000e+00, %64 ]
+  %65 = phi double [ 0.000000e+00, %64 ], [ %63, %61 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.select30, double noundef %65) #8
   %66 = add nuw nsw i32 %.024.us25, 1
   %exitcond34.not = icmp eq i32 %66, %0
@@ -891,7 +891,7 @@ auto_sep.exit:                                    ; preds = %.lr.ph.split, %ff_t
   br label %ff_tget_double.exit
 
 ff_tget_double.exit:                              ; preds = %74, %75
-  %78 = phi double [ %77, %75 ], [ 0.000000e+00, %74 ]
+  %78 = phi double [ 0.000000e+00, %74 ], [ %77, %75 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %67, double noundef %78) #8
   %79 = add nuw nsw i32 %.024, 1
   %exitcond.not = icmp eq i32 %79, %0
@@ -921,7 +921,7 @@ ff_tget_double.exit:                              ; preds = %74, %75
   br label %bprint_to_avdict.exit
 
 bprint_to_avdict.exit:                            ; preds = %82, %84, %87
-  %.0.i22 = phi i32 [ -12, %82 ], [ %89, %87 ], [ %85, %84 ]
+  %.0.i22 = phi i32 [ %89, %87 ], [ -12, %82 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %90
 
@@ -988,7 +988,7 @@ define i32 @ff_tadd_shorts_metadata(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %ff_tget_short.exit25.us.us
 
 ff_tget_short.exit25.us.us:                       ; preds = %35, %30
-  %.shrunk.i24.us.us = phi i32 [ %34, %30 ], [ 0, %35 ]
+  %.shrunk.i24.us.us = phi i32 [ 0, %35 ], [ %34, %30 ]
   br i1 %.not.i26, label %38, label %36
 
 36:                                               ; preds = %ff_tget_short.exit25.us.us
@@ -1031,7 +1031,7 @@ auto_sep.exit.us.us:                              ; preds = %38, %36
   br label %ff_tget_short.exit25.us
 
 ff_tget_short.exit25.us:                          ; preds = %51, %47
-  %.shrunk.i24.us = phi i32 [ %50, %47 ], [ 0, %51 ]
+  %.shrunk.i24.us = phi i32 [ 0, %51 ], [ %50, %47 ]
   br i1 %.not.i26, label %54, label %52
 
 52:                                               ; preds = %ff_tget_short.exit25.us
@@ -1081,7 +1081,7 @@ auto_sep.exit.us:                                 ; preds = %54, %52
   br label %ff_tget_short.exit.us.us
 
 ff_tget_short.exit.us.us:                         ; preds = %68, %63
-  %.shrunk.i.us.us = phi i32 [ %67, %63 ], [ 0, %68 ]
+  %.shrunk.i.us.us = phi i32 [ 0, %68 ], [ %67, %63 ]
   %69 = and i32 %.02030.us31.us, 7
   %.not11.i.us33.us = icmp eq i32 %69, 0
   %spec.select43 = select i1 %.not11.i.us33.us, ptr %23, ptr @.str.8
@@ -1113,7 +1113,7 @@ ff_tget_short.exit.us.us:                         ; preds = %68, %63
   br label %ff_tget_short.exit.us
 
 ff_tget_short.exit.us:                            ; preds = %82, %77
-  %.shrunk.i.us = phi i32 [ %81, %77 ], [ 0, %82 ]
+  %.shrunk.i.us = phi i32 [ 0, %82 ], [ %81, %77 ]
   %.not10.i.us32 = icmp eq i32 %.02030.us31, 0
   %83 = select i1 %.not10.i.us32, ptr @.str.7, ptr %2
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %83, i32 noundef %.shrunk.i.us) #8
@@ -1146,7 +1146,7 @@ ff_tget_short.exit.us:                            ; preds = %82, %77
   br label %ff_tget_short.exit.us37
 
 ff_tget_short.exit.us37:                          ; preds = %95, %91
-  %.shrunk.i.us38 = phi i32 [ %94, %91 ], [ 0, %95 ]
+  %.shrunk.i.us38 = phi i32 [ 0, %95 ], [ %94, %91 ]
   %96 = and i32 %.02030.us36, 7
   %.not11.i.us39 = icmp eq i32 %96, 0
   %spec.select44 = select i1 %.not11.i.us39, ptr %23, ptr @.str.8
@@ -1177,7 +1177,7 @@ ff_tget_short.exit.us37:                          ; preds = %95, %91
   br label %ff_tget_short.exit
 
 ff_tget_short.exit:                               ; preds = %104, %105
-  %.shrunk.i = phi i32 [ %108, %105 ], [ 0, %104 ]
+  %.shrunk.i = phi i32 [ 0, %104 ], [ %108, %105 ]
   %.not10.i = icmp eq i32 %.02030, 0
   %109 = select i1 %.not10.i, ptr @.str.7, ptr %2
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %109, i32 noundef %.shrunk.i) #8
@@ -1209,7 +1209,7 @@ ff_tget_short.exit:                               ; preds = %104, %105
   br label %bprint_to_avdict.exit
 
 bprint_to_avdict.exit:                            ; preds = %113, %115, %118
-  %.0.i28 = phi i32 [ -12, %113 ], [ %120, %118 ], [ %116, %115 ]
+  %.0.i28 = phi i32 [ %120, %118 ], [ -12, %113 ], [ %116, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %121
 
@@ -1276,7 +1276,7 @@ define i32 @ff_tadd_bytes_metadata(i32 noundef %0, ptr noundef %1, ptr noundef %
   br label %bytestream2_get_byte.exit.us.us
 
 bytestream2_get_byte.exit.us.us:                  ; preds = %34, %30
-  %35 = phi i32 [ %33, %30 ], [ 0, %34 ]
+  %35 = phi i32 [ 0, %34 ], [ %33, %30 ]
   %36 = and i32 %.01826.us.us, 15
   %.not11.i.us.us = icmp eq i32 %36, 0
   %spec.select = select i1 %.not11.i.us.us, ptr %23, ptr @.str.8
@@ -1307,7 +1307,7 @@ bytestream2_get_byte.exit.us.us:                  ; preds = %34, %30
   br label %bytestream2_get_byte.exit.us
 
 bytestream2_get_byte.exit.us:                     ; preds = %48, %44
-  %49 = phi i32 [ %47, %44 ], [ 0, %48 ]
+  %49 = phi i32 [ 0, %48 ], [ %47, %44 ]
   %.not10.i.us = icmp eq i32 %.01826.us, 0
   %50 = select i1 %.not10.i.us, ptr @.str.7, ptr %2
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef nonnull %50, i32 noundef %49) #8
@@ -1403,7 +1403,7 @@ bytestream2_get_byte.exit:                        ; preds = %73, %72
   br label %bprint_to_avdict.exit
 
 bprint_to_avdict.exit:                            ; preds = %82, %84, %87
-  %.0.i25 = phi i32 [ -12, %82 ], [ %89, %87 ], [ %85, %84 ]
+  %.0.i25 = phi i32 [ %89, %87 ], [ -12, %82 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %90
 
@@ -1446,7 +1446,7 @@ define range(i32 -1094995529, 1) i32 @ff_tadd_string_metadata(i32 noundef %0, pt
   br label %25
 
 25:                                               ; preds = %15, %5, %19
-  %.0 = phi i32 [ -1094995529, %5 ], [ 0, %19 ], [ -12, %15 ]
+  %.0 = phi i32 [ 0, %19 ], [ -1094995529, %5 ], [ -12, %15 ]
   ret i32 %.0
 }
 
@@ -1547,12 +1547,12 @@ ff_tget_short.exit.thread21:                      ; preds = %16
   br label %ff_tget_long.exit
 
 ff_tget_long.exit:                                ; preds = %34, %35, %42, %43
-  %47 = phi i32 [ %37, %35 ], [ 0, %34 ], [ 0, %42 ], [ %46, %43 ]
+  %47 = phi i32 [ 0, %34 ], [ %37, %35 ], [ 0, %42 ], [ %46, %43 ]
   store i32 %47, ptr %2, align 4, !tbaa !26
   br label %ff_tget_short.exit.thread
 
 ff_tget_short.exit.thread:                        ; preds = %12, %25, %20, %ff_tget_short.exit.thread21, %ff_tget_short.exit, %3, %ff_tget_long.exit
-  %.0 = phi i32 [ -1094995529, %3 ], [ -1094995529, %12 ], [ 0, %ff_tget_long.exit ], [ -1094995529, %ff_tget_short.exit ], [ -1094995529, %ff_tget_short.exit.thread21 ], [ -1094995529, %20 ], [ -1094995529, %25 ]
+  %.0 = phi i32 [ 0, %ff_tget_long.exit ], [ -1094995529, %3 ], [ -1094995529, %ff_tget_short.exit ], [ -1094995529, %ff_tget_short.exit.thread21 ], [ -1094995529, %20 ], [ -1094995529, %25 ], [ -1094995529, %12 ]
   ret i32 %.0
 }
 
@@ -1666,8 +1666,8 @@ define range(i32 -1094995529, 1) i32 @ff_tread_tag(ptr noundef captures(none) %0
   br label %ff_tget_long.exit
 
 ff_tget_long.exit:                                ; preds = %46, %47, %54, %55
-  %59 = phi ptr [ %48, %47 ], [ %8, %46 ], [ %8, %54 ], [ %56, %55 ]
-  %60 = phi i32 [ %49, %47 ], [ 0, %46 ], [ 0, %54 ], [ %58, %55 ]
+  %59 = phi ptr [ %8, %46 ], [ %48, %47 ], [ %8, %54 ], [ %56, %55 ]
+  %60 = phi i32 [ 0, %46 ], [ %49, %47 ], [ 0, %54 ], [ %58, %55 ]
   store i32 %60, ptr %4, align 4, !tbaa !26
   %61 = load i32, ptr %2, align 4, !tbaa !26
   br label %62

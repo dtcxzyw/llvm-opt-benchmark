@@ -251,8 +251,8 @@ define i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-.thread:                                          ; preds = %67, %57, %62, %129, %90, %90, %90, %._crit_edge, %38, %35, %28
-  %.079 = phi i32 [ %33, %28 ], [ %36, %35 ], [ %39, %38 ], [ %39, %90 ], [ -1094995529, %._crit_edge ], [ %110, %129 ], [ %39, %90 ], [ %39, %90 ], [ -1094995529, %62 ], [ -1094995529, %57 ], [ -1094995529, %67 ]
+.thread:                                          ; preds = %67, %62, %57, %129, %90, %90, %90, %._crit_edge, %38, %35, %28
+  %.079 = phi i32 [ %33, %28 ], [ %36, %35 ], [ %39, %38 ], [ %110, %129 ], [ %39, %90 ], [ -1094995529, %._crit_edge ], [ %39, %90 ], [ %39, %90 ], [ -1094995529, %57 ], [ -1094995529, %62 ], [ -1094995529, %67 ]
   call void @ffio_free_dyn_buf(ptr noundef nonnull %5) #6
   call void @ffio_free_dyn_buf(ptr noundef nonnull %6) #6
   call void @ffio_free_dyn_buf(ptr noundef nonnull %7) #6
@@ -260,7 +260,7 @@ define i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   br label %130
 
 130:                                              ; preds = %25, %3, %.thread, %24
-  %.0 = phi i32 [ %26, %25 ], [ 0, %24 ], [ -1094995529, %3 ], [ %.079, %.thread ]
+  %.0 = phi i32 [ 0, %24 ], [ %.079, %.thread ], [ -1094995529, %3 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -737,9 +737,9 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
   br label %.thread
 
 .thread:                                          ; preds = %259, %234
-  %.167447 = phi i32 [ %267, %259 ], [ 0, %234 ]
-  %.sroa.40.4445 = phi i32 [ %.sroa.40.14, %259 ], [ %.sroa.40.3511, %234 ]
-  %269 = phi i32 [ %spec.select, %259 ], [ %.068513, %234 ]
+  %.167447 = phi i32 [ 0, %234 ], [ %267, %259 ]
+  %.sroa.40.4445 = phi i32 [ %.sroa.40.3511, %234 ], [ %.sroa.40.14, %259 ]
+  %269 = phi i32 [ %.068513, %234 ], [ %spec.select, %259 ]
   %270 = add nuw nsw i32 %.069512, 1
   %exitcond.not = icmp eq i32 %270, %233
   br i1 %exitcond.not, label %.loopexit, label %234, !llvm.loop !25
@@ -1531,7 +1531,7 @@ define range(i32 -1094995529, 1) i32 @ff_avc_write_annexb_extradata(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %3, %37, %28, %21, %18, %6, %9, %43
-  %.0 = phi i32 [ -1094995529, %28 ], [ 0, %6 ], [ -1094995529, %18 ], [ -1094995529, %21 ], [ 0, %43 ], [ 0, %9 ], [ -1094995529, %3 ], [ -12, %37 ]
+  %.0 = phi i32 [ 0, %43 ], [ 0, %9 ], [ 0, %6 ], [ -1094995529, %18 ], [ -1094995529, %21 ], [ -1094995529, %28 ], [ -12, %37 ], [ -1094995529, %3 ]
   ret i32 %.0
 }
 

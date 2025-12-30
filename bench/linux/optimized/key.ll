@@ -1011,8 +1011,8 @@ define dso_local i32 @key_reject_and_link(ptr noundef %0, i32 noundef %1, i32 no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21, %56, %45, %43
-  %57 = phi i32 [ %22, %43 ], [ %22, %56 ], [ %22, %45 ], [ -16, %21 ]
-  %58 = phi i8 [ %38, %43 ], [ %38, %56 ], [ %38, %45 ], [ 0, %21 ]
+  %57 = phi i32 [ %22, %43 ], [ %22, %45 ], [ %22, %56 ], [ -16, %21 ]
+  %58 = phi i8 [ %38, %43 ], [ %38, %45 ], [ %38, %56 ], [ 0, %21 ]
   call void @mutex_unlock(ptr noundef nonnull @key_construction_mutex) #12
   %59 = icmp eq i32 %22, 0
   %60 = and i1 %7, %59

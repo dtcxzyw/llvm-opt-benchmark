@@ -766,7 +766,7 @@ _ZN5ciEnv12get_metadataEP8Metadata.exit.i:        ; preds = %28
   br label %_ZN5ciEnv9get_klassEP5Klass.exit
 
 _ZN5ciEnv9get_klassEP5Klass.exit:                 ; preds = %_ZN5ciEnv12get_metadataEP8Metadata.exit.i, %28, %26, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %.1 = phi ptr [ %0, %26 ], [ %1, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %34, %_ZN5ciEnv12get_metadataEP8Metadata.exit.i ], [ null, %28 ]
+  %.1 = phi ptr [ %1, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %0, %26 ], [ %34, %_ZN5ciEnv12get_metadataEP8Metadata.exit.i ], [ null, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -1000,7 +1000,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN5ciEnv12get_inst
   br label %_ZN5ciEnv12get_instanceEP7oopDesc.exit
 
 _ZN5ciEnv12get_instanceEP7oopDesc.exit:           ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i, %_ZNK5Klass11java_mirrorEv.exit, %_ZN17HandleMarkCleanerD2Ev.exit, %10
-  %.0 = phi ptr [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %17, %10 ], [ %31, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
+  %.0 = phi ptr [ %17, %10 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %31, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
   ret ptr %.0
 }
 
@@ -1632,7 +1632,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -1790,7 +1790,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -1968,7 +1968,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 

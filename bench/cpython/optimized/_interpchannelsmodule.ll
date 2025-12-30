@@ -531,7 +531,7 @@ _channelqueue_free.exit.i.i:                      ; preds = %_channelitem_free.e
   br label %90
 
 90:                                               ; preds = %68, %70, %89, %3, %10
-  %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ null, %68 ], [ %.3, %89 ], [ null, %70 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ null, %68 ], [ %.3, %89 ], [ null, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -720,7 +720,7 @@ Py_DECREF.exit40.thread:                          ; preds = %Py_DECREF.exit40.th
   br i1 %exitcond.not, label %Py_DECREF.exit, label %39, !llvm.loop !77
 
 Py_DECREF.exit:                                   ; preds = %65, %.preheader, %Py_DECREF.exit40.thread, %38, %35, %33, %.loopexit
-  %.032 = phi ptr [ null, %.loopexit ], [ null, %38 ], [ null, %Py_DECREF.exit40.thread ], [ null, %33 ], [ null, %35 ], [ %25, %.preheader ], [ %25, %65 ]
+  %.032 = phi ptr [ null, %.loopexit ], [ null, %33 ], [ null, %35 ], [ null, %38 ], [ null, %Py_DECREF.exit40.thread ], [ %25, %.preheader ], [ %25, %65 ]
   tail call void @PyMem_Free(ptr noundef nonnull %10) #7
   br label %69
 
@@ -789,7 +789,7 @@ _channelref_find.exit.i.i:                        ; preds = %.lr.ph.i.i.i
   br i1 %.not21.i.i, label %_channels_lookup.exit.thread.i, label %30
 
 _channels_lookup.exit.thread.i:                   ; preds = %26, %_channelref_find.exit.i.i, %.lr.ph, %20
-  %.013.i.ph.i = phi i32 [ -2, %20 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %26 ], [ -2, %.lr.ph ]
+  %.013.i.ph.i = phi i32 [ -2, %20 ], [ -3, %26 ], [ -3, %_channelref_find.exit.i.i ], [ -2, %.lr.ph ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %29) #7
   br label %channel_is_associated.exit
@@ -884,7 +884,7 @@ Py_DECREF.exit:                                   ; preds = %51, %54, %57
   br label %Py_DECREF.exit40
 
 Py_DECREF.exit40:                                 ; preds = %.thread, %11, %64, %61, %.thread50, %8, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %61 ], [ null, %8 ], [ null, %64 ], [ null, %.thread50 ], [ %10, %11 ], [ %10, %.thread ]
+  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %.thread50 ], [ null, %61 ], [ null, %64 ], [ %10, %11 ], [ %10, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -1140,7 +1140,7 @@ _channels_lookup.exit.thread26.i:                 ; preds = %_channelref_find.ex
   br label %_channels_lookup.exit.thread.i
 
 _channels_lookup.exit.i:                          ; preds = %21, %27, %_channelref_find.exit.i.i, %14
-  %.018.i.ph.i = phi i32 [ -2, %14 ], [ -3, %27 ], [ -3, %_channelref_find.exit.i.i ], [ -2, %21 ]
+  %.018.i.ph.i = phi i32 [ -2, %14 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %27 ], [ -2, %21 ]
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %32) #7
   br label %channel_recv.exit.thread
@@ -1426,10 +1426,10 @@ channel_recv.exit:                                ; preds = %_channel_next.exit.
   store i32 %144, ptr %138, align 8, !tbaa !68
   br label %_Py_NewRef.exit
 
-channel_recv.exit.thread:                         ; preds = %131, %_waiting_release.exit40.i, %_waiting_release.exit38.i, %101, %_waiting_release.exit.i, %_release_xid_data.exit.i, %Py_DECREF.exit.i, %_channels_lookup.exit.i, %12, %channel_recv.exit
-  %.0.i24 = phi i32 [ %.0.i32.i, %channel_recv.exit ], [ 0, %131 ], [ 0, %_waiting_release.exit40.i ], [ -1, %_waiting_release.exit38.i ], [ 0, %101 ], [ -1, %_waiting_release.exit.i ], [ -1, %_release_xid_data.exit.i ], [ -1, %Py_DECREF.exit.i ], [ %.018.i.ph.i, %_channels_lookup.exit.i ], [ %..i, %12 ]
-  %.11523 = phi i32 [ %.014, %channel_recv.exit ], [ %.014, %131 ], [ %.014, %_waiting_release.exit40.i ], [ %.014, %_waiting_release.exit38.i ], [ %.014, %101 ], [ %.014, %_waiting_release.exit.i ], [ %.014, %_release_xid_data.exit.i ], [ %.014, %Py_DECREF.exit.i ], [ 0, %_channels_lookup.exit.i ], [ 0, %12 ]
-  %.11722 = phi ptr [ null, %channel_recv.exit ], [ %104, %131 ], [ %104, %_waiting_release.exit40.i ], [ null, %_waiting_release.exit38.i ], [ null, %101 ], [ null, %_waiting_release.exit.i ], [ null, %_release_xid_data.exit.i ], [ null, %Py_DECREF.exit.i ], [ null, %_channels_lookup.exit.i ], [ null, %12 ]
+channel_recv.exit.thread:                         ; preds = %131, %_waiting_release.exit40.i, %101, %Py_DECREF.exit.i, %_waiting_release.exit38.i, %_release_xid_data.exit.i, %_waiting_release.exit.i, %_channels_lookup.exit.i, %12, %channel_recv.exit
+  %.0.i24 = phi i32 [ %.0.i32.i, %channel_recv.exit ], [ 0, %131 ], [ 0, %_waiting_release.exit40.i ], [ 0, %101 ], [ -1, %Py_DECREF.exit.i ], [ -1, %_waiting_release.exit38.i ], [ -1, %_release_xid_data.exit.i ], [ -1, %_waiting_release.exit.i ], [ %.018.i.ph.i, %_channels_lookup.exit.i ], [ %..i, %12 ]
+  %.11523 = phi i32 [ %.014, %channel_recv.exit ], [ %.014, %131 ], [ %.014, %_waiting_release.exit40.i ], [ %.014, %101 ], [ %.014, %Py_DECREF.exit.i ], [ %.014, %_waiting_release.exit38.i ], [ %.014, %_release_xid_data.exit.i ], [ %.014, %_waiting_release.exit.i ], [ 0, %_channels_lookup.exit.i ], [ 0, %12 ]
+  %.11722 = phi ptr [ null, %channel_recv.exit ], [ %104, %131 ], [ %104, %_waiting_release.exit40.i ], [ null, %101 ], [ null, %Py_DECREF.exit.i ], [ null, %_waiting_release.exit38.i ], [ null, %_release_xid_data.exit.i ], [ null, %_waiting_release.exit.i ], [ null, %_channels_lookup.exit.i ], [ null, %12 ]
   %145 = call fastcc i32 @handle_channel_error(i32 noundef %.0.i24, ptr noundef %0, i64 noundef %9)
   %.not11 = icmp eq i32 %145, 0
   br i1 %.not11, label %146, label %Py_DECREF.exit
@@ -1460,7 +1460,7 @@ _Py_NewRef.exit:                                  ; preds = %143, %140, %146
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %148, %channel_recv.exit.thread, %_Py_NewRef.exit, %152, %155, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %channel_recv.exit.thread ], [ %149, %148 ], [ %150, %_Py_NewRef.exit ], [ %150, %152 ], [ %150, %155 ]
+  %.0 = phi ptr [ null, %3 ], [ %149, %148 ], [ null, %channel_recv.exit.thread ], [ %150, %_Py_NewRef.exit ], [ %150, %152 ], [ %150, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -1692,7 +1692,7 @@ _channelref_find.exit.i.i:                        ; preds = %.lr.ph.i.i.i
   br label %_channel_set_closing.exit.i.i
 
 _channel_set_closing.exit.i.i:                    ; preds = %90, %87, %82
-  %.not49.i.i = phi i32 [ 0, %90 ], [ -1, %87 ], [ -3, %82 ]
+  %.not49.i.i = phi i32 [ -1, %87 ], [ 0, %90 ], [ -3, %82 ]
   %91 = load ptr, ptr %80, align 8, !tbaa !28
   call void @PyThread_release_lock(ptr noundef %91) #7
   br label %channel_close.exit
@@ -1706,7 +1706,7 @@ _channel_set_closing.exit.i.i:                    ; preds = %90, %87, %82
   br label %channel_close.exit
 
 channel_close.exit:                               ; preds = %21, %10, %_channelref_find.exit.i.i, %30, %.thread.i.i, %73, %75, %79, %_channel_set_closing.exit.i.i, %.thread7.i.i
-  %.038.i.i = phi i32 [ -3, %30 ], [ %.not49.i.i, %_channel_set_closing.exit.i.i ], [ -3, %_channelref_find.exit.i.i ], [ 0, %.thread7.i.i ], [ 0, %79 ], [ -2, %10 ], [ -3, %75 ], [ -6, %73 ], [ -3, %.thread.i.i ], [ -2, %21 ]
+  %.038.i.i = phi i32 [ -3, %_channelref_find.exit.i.i ], [ -3, %30 ], [ 0, %.thread7.i.i ], [ -2, %10 ], [ -6, %73 ], [ -3, %75 ], [ 0, %79 ], [ %.not49.i.i, %_channel_set_closing.exit.i.i ], [ -3, %.thread.i.i ], [ -2, %21 ]
   %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %94) #7
   %95 = call fastcc i32 @handle_channel_error(i32 noundef %.038.i.i, ptr noundef %0, i64 noundef %11)
@@ -1806,7 +1806,7 @@ _channels_lookup.exit.thread18.i:                 ; preds = %_channelref_find.ex
   br label %_channels_lookup.exit.thread.i
 
 _channels_lookup.exit.i:                          ; preds = %29, %35, %_channelref_find.exit.i.i, %22
-  %.018.i.ph.i = phi i32 [ -2, %22 ], [ -3, %35 ], [ -3, %_channelref_find.exit.i.i ], [ -2, %29 ]
+  %.018.i.ph.i = phi i32 [ -2, %22 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %35 ], [ -2, %29 ]
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   br label %.sink.split.i
 
@@ -1980,12 +1980,12 @@ _channelend_find.exit30.i.i.i:                    ; preds = %_channelend_find.ex
   br label %_channelends_is_open.exit.i.i
 
 _channelends_is_open.exit.i.i:                    ; preds = %107, %103, %96, %93
-  %.0.i9.i.i = phi i32 [ 0, %107 ], [ 1, %93 ], [ 1, %96 ], [ 1, %103 ]
+  %.0.i9.i.i = phi i32 [ 0, %107 ], [ 1, %96 ], [ 1, %93 ], [ 1, %103 ]
   store i32 %.0.i9.i.i, ptr %36, align 4, !tbaa !52
   br label %_channel_release_interpreter.exit.i
 
 _channel_release_interpreter.exit.i:              ; preds = %_channelends_is_open.exit.i.i, %_channelends_add.exit32.thread.i.i.i, %_channelends_add.exit.thread.i.i.i, %_channels_lookup.exit.thread.i
-  %.0.i13.i = phi i32 [ -3, %_channels_lookup.exit.thread.i ], [ 0, %_channelends_is_open.exit.i.i ], [ -1, %_channelends_add.exit.thread.i.i.i ], [ -1, %_channelends_add.exit32.thread.i.i.i ]
+  %.0.i13.i = phi i32 [ 0, %_channelends_is_open.exit.i.i ], [ -3, %_channels_lookup.exit.thread.i ], [ -1, %_channelends_add.exit.thread.i.i.i ], [ -1, %_channelends_add.exit32.thread.i.i.i ]
   %108 = load ptr, ptr %33, align 8, !tbaa !28
   call void @PyThread_release_lock(ptr noundef %108) #7
   br label %.sink.split.i
@@ -2065,7 +2065,7 @@ _channels_lookup.exit.thread18.i:                 ; preds = %_channelref_find.ex
   br label %_channels_lookup.exit.thread.i
 
 _channels_lookup.exit.i:                          ; preds = %14, %20, %_channelref_find.exit.i.i, %7
-  %.018.i.ph.i = phi i32 [ -2, %7 ], [ -3, %20 ], [ -3, %_channelref_find.exit.i.i ], [ -2, %14 ]
+  %.018.i.ph.i = phi i32 [ -2, %7 ], [ -3, %_channelref_find.exit.i.i ], [ -3, %20 ], [ -2, %14 ]
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   br label %_channel_get_count.exit
 
@@ -2292,19 +2292,19 @@ _channelref_find.exit.i:                          ; preds = %.lr.ph.i.i
   br i1 %.not65.i, label %_channelref_find.exit.thread.i, label %.lr.ph12.i, !llvm.loop !102
 
 _channelref_find.exit.thread.i:                   ; preds = %18, %84, %_channelref_find.exit.i, %24, %._crit_edge.i, %11
-  %.sroa.0.0 = phi i32 [ 0, %11 ], [ %..i, %84 ], [ %..i, %._crit_edge.i ], [ 1, %_channelref_find.exit.i ], [ 1, %24 ], [ 0, %18 ]
-  %.sroa.814.0 = phi i64 [ 0, %11 ], [ %.sroa.814.5, %84 ], [ %.sroa.814.3, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.15.0 = phi i64 [ 0, %11 ], [ %.sroa.15.5, %84 ], [ %.sroa.15.3, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.22.0 = phi i64 [ 0, %11 ], [ %.sroa.22.2, %84 ], [ 0, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.25.0 = phi i64 [ 0, %11 ], [ %.sroa.25.2, %84 ], [ 0, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.28.0 = phi i64 [ 0, %11 ], [ %.sroa.28.2, %84 ], [ 0, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.31.0 = phi i64 [ 0, %11 ], [ %.sroa.31.2, %84 ], [ 0, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.34.0 = phi i64 [ 0, %11 ], [ %.sroa.34.2, %84 ], [ 0, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.37.0 = phi i64 [ 0, %11 ], [ %.sroa.37.2, %84 ], [ 0, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.40.0 = phi i32 [ 0, %11 ], [ %.sroa.40.3, %84 ], [ %.sroa.40.3, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.43.0 = phi i32 [ 0, %11 ], [ %.sroa.43.2, %84 ], [ 0, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.sroa.46.0 = phi i64 [ 0, %11 ], [ %32, %84 ], [ %32, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ 0, %18 ]
-  %.059.i = phi i32 [ -2, %11 ], [ 0, %84 ], [ 0, %._crit_edge.i ], [ 0, %_channelref_find.exit.i ], [ 0, %24 ], [ -2, %18 ]
+  %.sroa.0.0 = phi i32 [ 0, %11 ], [ %..i, %._crit_edge.i ], [ 1, %24 ], [ 1, %_channelref_find.exit.i ], [ %..i, %84 ], [ 0, %18 ]
+  %.sroa.814.0 = phi i64 [ 0, %11 ], [ %.sroa.814.3, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.814.5, %84 ], [ 0, %18 ]
+  %.sroa.15.0 = phi i64 [ 0, %11 ], [ %.sroa.15.3, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.15.5, %84 ], [ 0, %18 ]
+  %.sroa.22.0 = phi i64 [ 0, %11 ], [ 0, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.22.2, %84 ], [ 0, %18 ]
+  %.sroa.25.0 = phi i64 [ 0, %11 ], [ 0, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.25.2, %84 ], [ 0, %18 ]
+  %.sroa.28.0 = phi i64 [ 0, %11 ], [ 0, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.28.2, %84 ], [ 0, %18 ]
+  %.sroa.31.0 = phi i64 [ 0, %11 ], [ 0, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.31.2, %84 ], [ 0, %18 ]
+  %.sroa.34.0 = phi i64 [ 0, %11 ], [ 0, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.34.2, %84 ], [ 0, %18 ]
+  %.sroa.37.0 = phi i64 [ 0, %11 ], [ 0, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.37.2, %84 ], [ 0, %18 ]
+  %.sroa.40.0 = phi i32 [ 0, %11 ], [ %.sroa.40.3, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.40.3, %84 ], [ 0, %18 ]
+  %.sroa.43.0 = phi i32 [ 0, %11 ], [ 0, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %.sroa.43.2, %84 ], [ 0, %18 ]
+  %.sroa.46.0 = phi i64 [ 0, %11 ], [ %32, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ %32, %84 ], [ 0, %18 ]
+  %.059.i = phi i32 [ -2, %11 ], [ 0, %._crit_edge.i ], [ 0, %24 ], [ 0, %_channelref_find.exit.i ], [ 0, %84 ], [ -2, %18 ]
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %85) #7
   br label %_channel_get_info.exit
@@ -2623,7 +2623,7 @@ _Py_NewRef.exit209.i:                             ; preds = %208, %_Py_NewRef.ex
   br label %new_channel_info.exit
 
 new_channel_info.exit:                            ; preds = %_channel_get_info.exit, %87, %90, %115, %117, %120, %123, %125, %128, %131, %133, %136, %139, %141, %144, %147, %149, %152, %155, %157, %160, %163, %165, %168, %171, %173, %176, %179, %181, %184, %_Py_NewRef.exit209.i, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %_channel_get_info.exit ], [ null, %87 ], [ null, %90 ], [ %93, %_Py_NewRef.exit209.i ], [ null, %171 ], [ null, %163 ], [ null, %155 ], [ null, %147 ], [ null, %139 ], [ null, %131 ], [ null, %123 ], [ null, %115 ], [ null, %120 ], [ null, %117 ], [ null, %128 ], [ null, %125 ], [ null, %136 ], [ null, %133 ], [ null, %144 ], [ null, %141 ], [ null, %152 ], [ null, %149 ], [ null, %160 ], [ null, %157 ], [ null, %168 ], [ null, %165 ], [ null, %176 ], [ null, %173 ], [ null, %184 ], [ null, %181 ], [ null, %179 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %_channel_get_info.exit ], [ null, %87 ], [ null, %90 ], [ %93, %_Py_NewRef.exit209.i ], [ null, %120 ], [ null, %117 ], [ null, %115 ], [ null, %128 ], [ null, %125 ], [ null, %123 ], [ null, %136 ], [ null, %133 ], [ null, %131 ], [ null, %144 ], [ null, %141 ], [ null, %139 ], [ null, %152 ], [ null, %149 ], [ null, %147 ], [ null, %160 ], [ null, %157 ], [ null, %155 ], [ null, %168 ], [ null, %165 ], [ null, %163 ], [ null, %176 ], [ null, %173 ], [ null, %171 ], [ null, %184 ], [ null, %181 ], [ null, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -3104,8 +3104,8 @@ Py_DECREF.exit62.sink.split.i:                    ; preds = %109, %83
   call void @_Py_Dealloc(ptr noundef nonnull %.sink.i) #7
   br label %set_channelend_types.exit
 
-set_channelend_types.exit:                        ; preds = %ensure_xid_class.exit79.i, %Py_DECREF.exit60.i, %26, %Py_DECREF.exit64.i, %109, %81, %83, %107, %Py_DECREF.exit62.sink.split.i, %3, %24, %17
-  %.0 = phi ptr [ null, %3 ], [ null, %24 ], [ null, %17 ], [ @_Py_NoneStruct, %ensure_xid_class.exit79.i ], [ null, %Py_DECREF.exit60.i ], [ null, %26 ], [ null, %Py_DECREF.exit64.i ], [ null, %109 ], [ null, %81 ], [ null, %83 ], [ null, %107 ], [ null, %Py_DECREF.exit62.sink.split.i ]
+set_channelend_types.exit:                        ; preds = %ensure_xid_class.exit79.i, %26, %Py_DECREF.exit64.i, %Py_DECREF.exit60.i, %81, %83, %107, %109, %Py_DECREF.exit62.sink.split.i, %3, %24, %17
+  %.0 = phi ptr [ null, %24 ], [ null, %17 ], [ null, %3 ], [ @_Py_NoneStruct, %ensure_xid_class.exit79.i ], [ null, %26 ], [ null, %Py_DECREF.exit64.i ], [ null, %Py_DECREF.exit60.i ], [ null, %81 ], [ null, %83 ], [ null, %107 ], [ null, %109 ], [ null, %Py_DECREF.exit62.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
@@ -3358,7 +3358,7 @@ _channels_remove.exit.thread:                     ; preds = %.lr.ph.i, %1
   br label %35
 
 35:                                               ; preds = %.critedge, %_channels_remove.exit.thread, %_channel_clear_closing.exit.i.i.i
-  %.0 = phi i32 [ -2, %_channels_remove.exit.thread ], [ 0, %_channel_clear_closing.exit.i.i.i ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %_channel_clear_closing.exit.i.i.i ], [ -2, %_channels_remove.exit.thread ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -3586,7 +3586,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
   br label %32
 
 32:                                               ; preds = %18, %29, %24, %.thread
-  %.0 = phi i32 [ 1, %29 ], [ 0, %24 ], [ 0, %.thread ], [ 0, %18 ]
+  %.0 = phi i32 [ 1, %29 ], [ 0, %.thread ], [ 0, %24 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -3949,7 +3949,7 @@ _channels_lookup.exit.thread22:                   ; preds = %_channelref_find.ex
   br label %_channels_lookup.exit.thread
 
 _channels_lookup.exit:                            ; preds = %18, %24, %_channelref_find.exit.i, %12
-  %.018.i.ph = phi i32 [ -2, %12 ], [ -3, %24 ], [ -3, %_channelref_find.exit.i ], [ -2, %18 ]
+  %.018.i.ph = phi i32 [ -2, %12 ], [ -3, %_channelref_find.exit.i ], [ -3, %24 ], [ -2, %18 ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !25
   call void @PyThread_release_lock(ptr noundef %29) #7
   br label %44
@@ -3995,7 +3995,7 @@ _channels_lookup.exit.thread:                     ; preds = %_channelref_find.ex
   br label %44
 
 44:                                               ; preds = %32, %42, %40, %39, %36, %_channels_lookup.exit, %8
-  %.1 = phi i32 [ -1, %8 ], [ %.018.i.ph, %_channels_lookup.exit ], [ -3, %32 ], [ -1, %36 ], [ -1, %39 ], [ %41, %42 ], [ 0, %40 ]
+  %.1 = phi i32 [ -1, %8 ], [ -3, %32 ], [ %.018.i.ph, %_channels_lookup.exit ], [ -1, %36 ], [ -1, %39 ], [ %41, %42 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
@@ -4156,7 +4156,7 @@ _channelqueue_put.exit:                           ; preds = %_channelends_associ
   br label %_channelends_associate.exit.thread15
 
 _channelends_associate.exit.thread15:             ; preds = %_channelend_find.exit.i, %_channelqueue_put.exit, %58, %56, %_channelends_associate.exit, %5
-  %.0 = phi i32 [ -3, %5 ], [ 0, %56 ], [ -4, %_channelends_associate.exit ], [ -1, %_channelqueue_put.exit ], [ 0, %58 ], [ -4, %_channelend_find.exit.i ]
+  %.0 = phi i32 [ -3, %5 ], [ -4, %_channelends_associate.exit ], [ -1, %_channelqueue_put.exit ], [ 0, %58 ], [ 0, %56 ], [ -4, %_channelend_find.exit.i ]
   %63 = load ptr, ptr %0, align 8, !tbaa !28
   tail call void @PyThread_release_lock(ptr noundef %63) #7
   ret i32 %.0
@@ -4312,7 +4312,7 @@ Py_DECREF.exit13.sink.split:                      ; preds = %17, %11
   br label %Py_DECREF.exit13
 
 Py_DECREF.exit13:                                 ; preds = %Py_DECREF.exit13.sink.split, %17, %14, %11, %9, %1
-  %.0 = phi ptr [ null, %1 ], [ %15, %17 ], [ null, %9 ], [ null, %11 ], [ %15, %14 ], [ %.0.ph, %Py_DECREF.exit13.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ null, %9 ], [ null, %11 ], [ %15, %14 ], [ %15, %17 ], [ %.0.ph, %Py_DECREF.exit13.sink.split ]
   ret ptr %.0
 }
 
@@ -4525,7 +4525,7 @@ Py_DECREF.exit:                                   ; preds = %30, %32, %35
   br label %.critedge
 
 .critedge:                                        ; preds = %_get_current_module_state.exit.thread, %Py_DECREF.exit, %21, %27, %_get_current_module_state.exit
-  %.015 = phi ptr [ null, %_get_current_module_state.exit ], [ %.013, %21 ], [ %.3, %Py_DECREF.exit ], [ null, %27 ], [ null, %_get_current_module_state.exit.thread ]
+  %.015 = phi ptr [ null, %_get_current_module_state.exit ], [ %.3, %Py_DECREF.exit ], [ %.013, %21 ], [ null, %27 ], [ null, %_get_current_module_state.exit.thread ]
   ret ptr %.015
 }
 
@@ -4580,7 +4580,7 @@ _PyMutex_Unlock.exit5.sink.split.i:               ; preds = %17, %12
   br label %_globals_init.exit
 
 _globals_init.exit:                               ; preds = %12, %17, %_PyMutex_Unlock.exit5.sink.split.i
-  %.1.i = phi i32 [ -8, %12 ], [ 0, %17 ], [ %.1.ph.i, %_PyMutex_Unlock.exit5.sink.split.i ]
+  %.1.i = phi i32 [ 0, %17 ], [ -8, %12 ], [ %.1.ph.i, %_PyMutex_Unlock.exit5.sink.split.i ]
   %20 = tail call fastcc i32 @handle_channel_error(i32 noundef %.1.i, ptr noundef %0, i64 noundef -1)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %_globals_fini.exit
@@ -4828,7 +4828,7 @@ ensure_xid_class.exit.i:                          ; preds = %119
   call void @_Py_Dealloc(ptr noundef nonnull %108) #7
   br label %add_channelid_type.exit.thread
 
-add_channelid_type.exit.thread:                   ; preds = %107, %118, %113, %115, %125, %127, %130
+add_channelid_type.exit.thread:                   ; preds = %107, %113, %115, %118, %125, %127, %130
   %131 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr null, ptr %131, align 8, !tbaa !12
   br label %.thread
@@ -4840,7 +4840,7 @@ add_channelid_type.exit.thread:                   ; preds = %107, %118, %113, %1
   %135 = call i32 @PyUnstable_AtExit(ptr noundef %134, ptr noundef nonnull @clear_interpreter, ptr noundef %134) #7
   br label %_globals_fini.exit
 
-.thread:                                          ; preds = %exceptions_init.exit.thread27, %add_new_exception.exit31.thread.i, %23, %add_new_exception.exit.thread.i, %add_new_exception.exit25.thread.i, %add_new_exception.exit28.thread.i, %99, %104, %add_channelid_type.exit.thread
+.thread:                                          ; preds = %exceptions_init.exit.thread27, %23, %add_new_exception.exit.thread.i, %add_new_exception.exit25.thread.i, %add_new_exception.exit28.thread.i, %add_new_exception.exit31.thread.i, %99, %104, %add_channelid_type.exit.thread
   call fastcc void @clear_xid_types(ptr noundef nonnull %22)
   br label %136
 
@@ -5085,7 +5085,7 @@ _channelends_clear_interpreter.exit.i.i:          ; preds = %68, %_channelend_fi
   br label %_channel_clear_interpreter.exit.i
 
 _channel_clear_interpreter.exit.i:                ; preds = %78, %75, %_channelends_clear_interpreter.exit.i.i
-  %.0.i.i.i = phi i32 [ %spec.select.i.i, %78 ], [ 1, %_channelends_clear_interpreter.exit.i.i ], [ 1, %75 ]
+  %.0.i.i.i = phi i32 [ 1, %75 ], [ 1, %_channelends_clear_interpreter.exit.i.i ], [ %spec.select.i.i, %78 ]
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %.0.i.i.i, ptr %79, align 4, !tbaa !52
   %80 = load ptr, ptr %9, align 8, !tbaa !28
@@ -5581,7 +5581,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   br label %_Py_NewRef.exit
 
 81:                                               ; preds = %.thread77, %PyObject_TypeCheck.exit69.thread, %39
-  %.048 = phi i1 [ %.149.ph, %.thread77 ], [ false, %PyObject_TypeCheck.exit69.thread ], [ %44, %39 ]
+  %.048 = phi i1 [ false, %PyObject_TypeCheck.exit69.thread ], [ %44, %39 ], [ %.149.ph, %.thread77 ]
   %82 = icmp eq i32 %2, 2
   %or.cond5 = select i1 %82, i1 %.048, i1 false
   %or.cond5.not = xor i1 %or.cond5, true
@@ -5610,7 +5610,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %91, %88, %86, %83, %79, %76, %75, %72, %69, %61, %29, %26, %64, %18
-  %.044 = phi ptr [ null, %18 ], [ @_Py_NotImplementedStruct, %79 ], [ @_Py_TrueStruct, %86 ], [ null, %61 ], [ null, %64 ], [ %70, %75 ], [ @_Py_NotImplementedStruct, %29 ], [ @_Py_NotImplementedStruct, %26 ], [ %70, %69 ], [ %70, %72 ], [ @_Py_NotImplementedStruct, %76 ], [ @_Py_TrueStruct, %83 ], [ @_Py_FalseStruct, %88 ], [ @_Py_FalseStruct, %91 ]
+  %.044 = phi ptr [ null, %18 ], [ null, %61 ], [ null, %64 ], [ @_Py_NotImplementedStruct, %26 ], [ @_Py_NotImplementedStruct, %29 ], [ %70, %69 ], [ %70, %72 ], [ %70, %75 ], [ @_Py_NotImplementedStruct, %76 ], [ @_Py_NotImplementedStruct, %79 ], [ @_Py_TrueStruct, %83 ], [ @_Py_TrueStruct, %86 ], [ @_Py_FalseStruct, %88 ], [ @_Py_FalseStruct, %91 ]
   %93 = load i32, ptr %11, align 8, !tbaa !68
   %.not.i = icmp sgt i32 %93, -1
   br i1 %.not.i, label %94, label %Py_DECREF.exit
@@ -5626,7 +5626,7 @@ _Py_NewRef.exit:                                  ; preds = %91, %88, %86, %83, 
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %7, %97, %94, %_Py_NewRef.exit, %get_module_from_type.exit, %3
-  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ %.044, %97 ], [ null, %get_module_from_type.exit ], [ %.044, %_Py_NewRef.exit ], [ %.044, %94 ], [ null, %7 ]
+  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ null, %get_module_from_type.exit ], [ %.044, %_Py_NewRef.exit ], [ %.044, %94 ], [ %.044, %97 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -5774,7 +5774,7 @@ get_module_from_type.exit:                        ; preds = %35, %38, %41
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %newchannelid.exit, %get_module_from_type.exit, %43, %47, %50, %.loopexit.i, %_channels_add_id_object.exit.i, %58, %56, %54
-  %.2 = phi ptr [ %59, %58 ], [ %55, %54 ], [ %57, %56 ], [ null, %50 ], [ null, %get_module_from_type.exit ], [ %12, %_channels_add_id_object.exit.i ], [ null, %43 ], [ null, %47 ], [ %12, %.loopexit.i ], [ null, %newchannelid.exit ]
+  %.2 = phi ptr [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ null, %get_module_from_type.exit ], [ null, %43 ], [ null, %47 ], [ null, %50 ], [ %12, %.loopexit.i ], [ %12, %_channels_add_id_object.exit.i ], [ null, %newchannelid.exit ]
   ret ptr %.2
 }
 

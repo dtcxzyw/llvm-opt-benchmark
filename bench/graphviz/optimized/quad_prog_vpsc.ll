@@ -1071,7 +1071,7 @@ gv_calloc.exit232:                                ; preds = %.thread.i231, %340
   br label %355
 
 355:                                              ; preds = %gv_calloc.exit232, %351, %.critedge
-  %.1 = phi ptr [ null, %.critedge ], [ %8, %gv_calloc.exit232 ], [ %8, %351 ]
+  %.1 = phi ptr [ null, %.critedge ], [ %8, %351 ], [ %8, %gv_calloc.exit232 ]
   ret ptr %.1
 }
 

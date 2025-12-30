@@ -861,7 +861,7 @@ get_cmd_header.exit64:                            ; preds = %67, %69
   br i1 %81, label %.lr.ph, label %is_ncq.exit.thread, !llvm.loop !15
 
 is_ncq.exit.thread:                               ; preds = %15, %66, %78, %29, %get_cmd_header.exit, %is_ncq.exit, %21, %2, %get_cmd_header.exit.thread, %14, %11
-  %.0 = phi i32 [ -1, %14 ], [ -1, %11 ], [ -1, %get_cmd_header.exit.thread ], [ -1, %29 ], [ 0, %2 ], [ -1, %21 ], [ -1, %is_ncq.exit ], [ -1, %get_cmd_header.exit ], [ -1, %15 ], [ 0, %78 ], [ -1, %66 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %11 ], [ -1, %get_cmd_header.exit.thread ], [ 0, %2 ], [ -1, %21 ], [ -1, %is_ncq.exit ], [ -1, %get_cmd_header.exit ], [ -1, %29 ], [ -1, %15 ], [ -1, %66 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -1555,7 +1555,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @ahci_mem_read_32(ptr nounde
   br label %trace_ahci_mem_read_32_host_default.exit
 
 trace_ahci_mem_read_32_host_default.exit:         ; preds = %46, %40, %34, %25, %22, %19, %16, %13
-  %.0.ph = phi i32 [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %27, %25 ]
+  %.0.ph = phi i32 [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
   %.pr = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i32 = icmp eq i32 %.pr, 0
   br i1 %.not.i.i32, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge, !prof !19
@@ -1752,7 +1752,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   br label %trace_ahci_port_read_default.exit.i
 
 trace_ahci_port_read_default.exit.i:              ; preds = %142, %136, %130, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82
-  %.0.ph.i = phi i32 [ 0, %142 ], [ 0, %136 ], [ 0, %130 ], [ %117, %115 ], [ %114, %112 ], [ %123, %121 ], [ %..i, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %120, %118 ]
+  %.0.ph.i = phi i32 [ 0, %142 ], [ 0, %136 ], [ 0, %130 ], [ %..i, %109 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ]
   %.pr.i = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i30.i = icmp eq i32 %.pr.i, 0
   br i1 %.not.i.i30.i, label %trace_ahci_mem_read_32.exit, label %trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i, !prof !20
@@ -1834,7 +1834,7 @@ trace_ahci_port_read_default.exit.thread34.i:     ; preds = %trace_ahci_port_rea
   br label %trace_ahci_mem_read_32_host.exit
 
 trace_ahci_mem_read_32_host.exit:                 ; preds = %174, %168, %162, %157, %151, %145, %trace_ahci_port_read_default.exit.thread34.i, %61, %55, %49, %trace_ahci_mem_read_32_host_default.exit.thread42
-  %.1.ph = phi i32 [ 0, %174 ], [ 0, %168 ], [ 0, %162 ], [ %.037.i, %151 ], [ %.037.i, %145 ], [ %.037.i, %trace_ahci_port_read_default.exit.thread34.i ], [ %.037.i, %157 ], [ %.045, %55 ], [ %.045, %49 ], [ %.045, %trace_ahci_mem_read_32_host_default.exit.thread42 ], [ %.045, %61 ]
+  %.1.ph = phi i32 [ 0, %174 ], [ 0, %168 ], [ 0, %162 ], [ %.037.i, %157 ], [ %.037.i, %151 ], [ %.037.i, %145 ], [ %.037.i, %trace_ahci_port_read_default.exit.thread34.i ], [ %.045, %61 ], [ %.045, %55 ], [ %.045, %49 ], [ %.045, %trace_ahci_mem_read_32_host_default.exit.thread42 ]
   %.pr46 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i36 = icmp eq i32 %.pr46, 0
   br i1 %.not.i.i36, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host.exit.thread51, !prof !21
@@ -1873,7 +1873,7 @@ trace_ahci_mem_read_32_host.exit.thread51:        ; preds = %160, %trace_ahci_me
   br label %trace_ahci_mem_read_32.exit
 
 trace_ahci_mem_read_32.exit:                      ; preds = %28, %trace_ahci_mem_read_32_host_default.exit, %124, %trace_ahci_port_read_default.exit.i, %158, %trace_ahci_mem_read_32_host.exit, %trace_ahci_mem_read_32_host.exit.thread51, %176, %182, %188
-  %.150 = phi i32 [ %.154, %188 ], [ %.1.ph, %trace_ahci_mem_read_32_host.exit ], [ %.154, %trace_ahci_mem_read_32_host.exit.thread51 ], [ %.154, %176 ], [ %.154, %182 ], [ %.0.ph.i, %trace_ahci_port_read_default.exit.i ], [ 0, %158 ], [ %.0.ph, %trace_ahci_mem_read_32_host_default.exit ], [ 0, %124 ], [ 0, %28 ]
+  %.150 = phi i32 [ %.1.ph, %trace_ahci_mem_read_32_host.exit ], [ %.154, %trace_ahci_mem_read_32_host.exit.thread51 ], [ %.154, %176 ], [ %.154, %182 ], [ %.154, %188 ], [ 0, %158 ], [ 0, %124 ], [ %.0.ph.i, %trace_ahci_port_read_default.exit.i ], [ %.0.ph, %trace_ahci_mem_read_32_host_default.exit ], [ 0, %28 ]
   %189 = zext i32 %.150 to i64
   ret i64 %189
 }
@@ -2066,7 +2066,7 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
   br label %trace_ahci_irq_raise.exit
 
 trace_ahci_irq_raise.exit:                        ; preds = %79, %73, %67, %65, %63, %62, %56, %50, %48, %47
-  %.sink29 = phi i32 [ 1, %62 ], [ 1, %47 ], [ 1, %48 ], [ 1, %50 ], [ 1, %56 ], [ 0, %63 ], [ 0, %65 ], [ 0, %67 ], [ 0, %73 ], [ 0, %79 ]
+  %.sink29 = phi i32 [ 1, %47 ], [ 1, %48 ], [ 1, %50 ], [ 1, %56 ], [ 1, %62 ], [ 0, %63 ], [ 0, %65 ], [ 0, %67 ], [ 0, %73 ], [ 0, %79 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %81 = load ptr, ptr %80, align 16
   tail call void @qemu_set_irq(ptr noundef %81, i32 noundef %.sink29) #14
@@ -2315,7 +2315,7 @@ ahci_map_fis_address.exit.thread:                 ; preds = %map_page.exit.i35
   br label %ahci_unmap_fis_address.exit
 
 ahci_unmap_fis_address.exit:                      ; preds = %ahci_unmap_clb_address.exit, %105, %104, %98, %92, %90, %84, %ahci_map_fis_address.exit.thread, %77, %26
-  %.0 = phi i32 [ -1, %26 ], [ -1, %77 ], [ 0, %ahci_unmap_clb_address.exit ], [ 0, %ahci_map_fis_address.exit.thread ], [ 0, %84 ], [ 0, %90 ], [ 0, %92 ], [ 0, %98 ], [ 0, %104 ], [ 0, %105 ]
+  %.0 = phi i32 [ -1, %77 ], [ -1, %26 ], [ 0, %ahci_map_fis_address.exit.thread ], [ 0, %84 ], [ 0, %90 ], [ 0, %92 ], [ 0, %98 ], [ 0, %104 ], [ 0, %105 ], [ 0, %ahci_unmap_clb_address.exit ]
   ret i32 %.0
 }
 
@@ -2424,7 +2424,7 @@ define internal fastcc void @ahci_init_d2h(ptr noundef captures(none) %0) unname
   store i32 %71, ptr %72, align 8
   br label %ahci_write_fis_d2h.exit.thread
 
-ahci_write_fis_d2h.exit.thread:                   ; preds = %8, %5, %12, %1
+ahci_write_fis_d2h.exit.thread:                   ; preds = %5, %8, %12, %1
   ret void
 }
 
@@ -4167,7 +4167,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %exitcond144.not, label %.critedge, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %162, %141, %140, %134, %128, %126, %.thread, %108, %102, %96, %94, %90
-  %.091 = phi i32 [ -1, %134 ], [ -1, %108 ], [ -1, %140 ], [ -1, %90 ], [ -1, %94 ], [ -1, %96 ], [ -1, %102 ], [ -1, %.thread ], [ -1, %126 ], [ -1, %128 ], [ 0, %141 ], [ 0, %162 ], [ 0, %.lr.ph ]
+  %.091 = phi i32 [ -1, %90 ], [ -1, %94 ], [ -1, %96 ], [ -1, %102 ], [ -1, %108 ], [ -1, %.thread ], [ -1, %126 ], [ -1, %128 ], [ -1, %134 ], [ -1, %140 ], [ 0, %141 ], [ 0, %162 ], [ 0, %.lr.ph ]
   %171 = load ptr, ptr %21, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 600
   %173 = load ptr, ptr %172, align 8
@@ -4175,7 +4175,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br label %trace_ahci_populate_sglist_no_prdtl.exit
 
 trace_ahci_populate_sglist_no_prdtl.exit:         ; preds = %87, %81, %75, %73, %69, %60, %53, %47, %45, %41, %.critedge
-  %.0 = phi i32 [ %.091, %.critedge ], [ -1, %60 ], [ -1, %41 ], [ -1, %45 ], [ -1, %47 ], [ -1, %53 ], [ -1, %69 ], [ -1, %73 ], [ -1, %75 ], [ -1, %81 ], [ -1, %87 ]
+  %.0 = phi i32 [ %.091, %.critedge ], [ -1, %41 ], [ -1, %45 ], [ -1, %47 ], [ -1, %53 ], [ -1, %60 ], [ -1, %69 ], [ -1, %73 ], [ -1, %75 ], [ -1, %81 ], [ -1, %87 ]
   ret i32 %.0
 }
 

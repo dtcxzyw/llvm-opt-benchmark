@@ -762,7 +762,7 @@ x_layout.exit:                                    ; preds = %.thread.i, %32
   %421 = call i32 @removeOverlapAs(ptr noundef %0, ptr noundef nonnull %.0) #13
   br label %x_layout.exit.thread
 
-x_layout.exit.thread:                             ; preds = %._crit_edge92.i.i, %._crit_edge.i40.i, %cntOverlaps.exit.i, %43, %x_layout.exit
+x_layout.exit.thread:                             ; preds = %._crit_edge.i40.i, %._crit_edge92.i.i, %43, %cntOverlaps.exit.i, %x_layout.exit
   ret void
 }
 

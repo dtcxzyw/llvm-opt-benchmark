@@ -194,7 +194,7 @@ define dso_local range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit32, %8, %13, %11
-  %.1 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %13 ], [ %.0, %.loopexit32 ], [ %.0, %._crit_edge ]
+  %.1 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %.0, %.loopexit32 ], [ %.0, %._crit_edge ]
   %78 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not30 = icmp eq i32 %78, 0
   br i1 %.not30, label %81, label %79

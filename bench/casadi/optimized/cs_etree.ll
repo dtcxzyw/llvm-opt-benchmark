@@ -191,7 +191,7 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
   br i1 %85, label %.lr.ph76, label %.loopexit, !llvm.loop !18
 
 .sink.split:                                      ; preds = %.loopexit.us, %.loopexit, %.loopexit70, %7
-  %.sink = phi i32 [ 0, %7 ], [ 1, %.loopexit ], [ 1, %.loopexit70 ], [ 1, %.loopexit.us ]
+  %.sink = phi i32 [ 0, %7 ], [ 1, %.loopexit70 ], [ 1, %.loopexit ], [ 1, %.loopexit.us ]
   %86 = tail call ptr @cs_idone(ptr noundef %16, ptr noundef null, ptr noundef %19, i32 noundef %.sink) #3
   br label %87
 

@@ -570,7 +570,7 @@ define internal fastcc i64 @negative_numeric(i64 noundef %0) unnamed_addr #0 {
   br label %rb_float_value_inline.exit
 
 rb_float_value_inline.exit:                       ; preds = %13, %14
-  %.0.i = phi double [ 0.000000e+00, %13 ], [ %19, %14 ]
+  %.0.i = phi double [ %19, %14 ], [ 0.000000e+00, %13 ]
   %20 = fneg double %.0.i
   %21 = bitcast double %20 to i64
   %cond.i = icmp eq i64 %21, 3458764513820540928
@@ -697,7 +697,7 @@ rb_float_value_inline.exit26:                     ; preds = %36
   unreachable
 
 rb_float_new_inline.exit:                         ; preds = %86, %84, %80, %69, %rb_obj_write.exit, %52, %44, %34, %32, %28, %41, %3
-  %.020 = phi i64 [ %5, %3 ], [ %0, %69 ], [ %43, %41 ], [ -9223372036854775806, %32 ], [ %0, %52 ], [ %31, %28 ], [ %35, %34 ], [ %0, %44 ], [ %0, %rb_obj_write.exit ], [ %83, %80 ], [ %87, %86 ], [ -9223372036854775806, %84 ]
+  %.020 = phi i64 [ %5, %3 ], [ %43, %41 ], [ %35, %34 ], [ %31, %28 ], [ -9223372036854775806, %32 ], [ %0, %44 ], [ %0, %52 ], [ %0, %rb_obj_write.exit ], [ %0, %69 ], [ %87, %86 ], [ %83, %80 ], [ -9223372036854775806, %84 ]
   ret i64 %.020
 }
 
@@ -738,7 +738,7 @@ define dso_local i64 @rb_node_float_literal_val(ptr noundef readonly captures(no
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %15, %19, %21
-  %.0.i = phi i64 [ %18, %15 ], [ %22, %21 ], [ -9223372036854775806, %19 ]
+  %.0.i = phi i64 [ %22, %21 ], [ %18, %15 ], [ -9223372036854775806, %19 ]
   ret i64 %.0.i
 }
 
@@ -864,7 +864,7 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr noundef readonly capture
   unreachable
 
 rb_float_new_inline.exit:                         ; preds = %27, %25, %21, %29, %4
-  %.0 = phi i64 [ %9, %4 ], [ %36, %29 ], [ %24, %21 ], [ %28, %27 ], [ -9223372036854775806, %25 ]
+  %.0 = phi i64 [ %9, %4 ], [ %36, %29 ], [ %28, %27 ], [ %24, %21 ], [ -9223372036854775806, %25 ]
   %38 = tail call i64 @rb_complex_raw(i64 noundef 1, i64 noundef %.0) #14
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load i32, ptr %39, align 8, !tbaa !85

@@ -130,7 +130,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br label %15
 
 15:                                               ; preds = %11, %8, %3
-  %.0 = phi i32 [ %9, %8 ], [ %6, %3 ], [ %., %11 ]
+  %.0 = phi i32 [ %6, %3 ], [ %9, %8 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -558,7 +558,7 @@ define internal range(i32 -2147483648, 1) i32 @spatial_activate(ptr noundef %0) 
   br label %274
 
 274:                                              ; preds = %258, %.thread75, %38, %15, %269, %251, %273, %268
-  %.155 = phi i32 [ 0, %268 ], [ 0, %273 ], [ 0, %15 ], [ 0, %258 ], [ %.0.i, %251 ], [ %23, %38 ], [ -1497649742, %269 ], [ %.4.ph, %.thread75 ]
+  %.155 = phi i32 [ 0, %268 ], [ 0, %273 ], [ 0, %258 ], [ %.0.i, %251 ], [ %23, %38 ], [ 0, %15 ], [ -1497649742, %269 ], [ %.4.ph, %.thread75 ]
   ret i32 %.155
 }
 
@@ -1364,7 +1364,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %436
 
 436:                                              ; preds = %429, %426, %418, %410, %402
-  %.sink561.i = phi float [ %414, %410 ], [ %435, %429 ], [ %406, %402 ], [ %425, %418 ], [ 0.000000e+00, %426 ]
+  %.sink561.i = phi float [ %414, %410 ], [ %435, %429 ], [ %425, %418 ], [ %406, %402 ], [ 0.000000e+00, %426 ]
   %437 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv463.i
   store float %.sink561.i, ptr %437, align 4, !tbaa !74
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1
@@ -1497,7 +1497,7 @@ generate_window_func.exit:                        ; preds = %480, %459, %457, %4
   br label %.thread
 
 .thread:                                          ; preds = %32, %.preheader, %43, %503, %48
-  %.3 = phi i32 [ -12, %48 ], [ %., %503 ], [ -12, %.preheader ], [ -12, %43 ], [ %36, %32 ]
+  %.3 = phi i32 [ -12, %48 ], [ %., %503 ], [ -12, %43 ], [ -12, %.preheader ], [ %36, %32 ]
   ret i32 %.3
 }
 

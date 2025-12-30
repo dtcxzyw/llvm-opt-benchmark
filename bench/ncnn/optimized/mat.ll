@@ -2618,9 +2618,9 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %42
   br label %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit.thread
 
 _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit.thread:     ; preds = %42, %_ZN4ncnn3Mat7releaseEv.exit.i, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit
-  %.not.i197371 = phi i1 [ true, %42 ], [ false, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit ], [ true, %_ZN4ncnn3Mat7releaseEv.exit.i ]
-  %.sroa.0336.0370 = phi ptr [ null, %42 ], [ %.pre.i, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i ]
-  %.sroa.14342.0369 = phi ptr [ null, %42 ], [ %45, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i ]
+  %.not.i197371 = phi i1 [ false, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit ], [ true, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ true, %42 ]
+  %.sroa.0336.0370 = phi ptr [ %.pre.i, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ null, %42 ]
+  %.sroa.14342.0369 = phi ptr [ %45, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ null, %42 ]
   %47 = load ptr, ptr %29, align 8, !tbaa !19
   %.not.i.i198 = icmp eq ptr %47, null
   br i1 %.not.i.i198, label %60, label %48
@@ -2795,7 +2795,7 @@ _ZN4ncnn3MatD2Ev.exit99:                          ; preds = %89, %86, %96, %100,
   br label %_ZN4ncnn3MatD2Ev.exit100
 
 _ZN4ncnn3MatD2Ev.exit100:                         ; preds = %72, %70, %75, %109
-  %.pn69.pn = phi { ptr, i32 } [ %.pn69, %109 ], [ %71, %75 ], [ %71, %72 ], [ %71, %70 ]
+  %.pn69.pn = phi { ptr, i32 } [ %.pn69, %109 ], [ %71, %75 ], [ %71, %70 ], [ %71, %72 ]
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !19
   %.not.i110 = icmp eq ptr %111, null
@@ -2905,9 +2905,9 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206:         ; preds = %152
   br label %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206.thread
 
 _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206.thread:  ; preds = %152, %_ZN4ncnn3Mat7releaseEv.exit.i220, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206
-  %.not.i190377 = phi i1 [ true, %152 ], [ false, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206 ], [ true, %_ZN4ncnn3Mat7releaseEv.exit.i220 ]
-  %.sroa.14312.0376 = phi ptr [ null, %152 ], [ %155, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206 ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i220 ]
-  %.sroa.0306.0375 = phi ptr [ null, %152 ], [ %.pre.i223, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206 ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i220 ]
+  %.not.i190377 = phi i1 [ false, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206 ], [ true, %_ZN4ncnn3Mat7releaseEv.exit.i220 ], [ true, %152 ]
+  %.sroa.14312.0376 = phi ptr [ %155, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206 ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i220 ], [ null, %152 ]
+  %.sroa.0306.0375 = phi ptr [ %.pre.i223, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit206 ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i220 ], [ null, %152 ]
   %157 = load ptr, ptr %139, align 8, !tbaa !19
   %.not.i.i191 = icmp eq ptr %157, null
   br i1 %.not.i.i191, label %170, label %158
@@ -3081,7 +3081,7 @@ _ZN4ncnn3MatD2Ev.exit95:                          ; preds = %198, %195, %205, %2
   br label %_ZN4ncnn3MatD2Ev.exit96
 
 _ZN4ncnn3MatD2Ev.exit96:                          ; preds = %182, %180, %185, %218
-  %.pn84.pn = phi { ptr, i32 } [ %.pn84, %218 ], [ %181, %185 ], [ %181, %182 ], [ %181, %180 ]
+  %.pn84.pn = phi { ptr, i32 } [ %.pn84, %218 ], [ %181, %185 ], [ %181, %180 ], [ %181, %182 ]
   %219 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %220 = load ptr, ptr %219, align 8, !tbaa !19
   %.not.i126 = icmp eq ptr %220, null
@@ -3199,9 +3199,9 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208:         ; preds = %259
   br label %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208.thread
 
 _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208.thread:  ; preds = %259, %_ZN4ncnn3Mat7releaseEv.exit.i234, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208
-  %.not.i183383 = phi i1 [ true, %259 ], [ false, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208 ], [ true, %_ZN4ncnn3Mat7releaseEv.exit.i234 ]
-  %.sroa.14282.0382 = phi ptr [ null, %259 ], [ %262, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208 ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i234 ]
-  %.sroa.0276.0381 = phi ptr [ null, %259 ], [ %.pre.i237, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208 ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i234 ]
+  %.not.i183383 = phi i1 [ false, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208 ], [ true, %_ZN4ncnn3Mat7releaseEv.exit.i234 ], [ true, %259 ]
+  %.sroa.14282.0382 = phi ptr [ %262, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208 ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i234 ], [ null, %259 ]
+  %.sroa.0276.0381 = phi ptr [ %.pre.i237, %_ZN4ncnn3MatC2EimPNS_9AllocatorE.exit208 ], [ null, %_ZN4ncnn3Mat7releaseEv.exit.i234 ], [ null, %259 ]
   %264 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %265 = load ptr, ptr %264, align 8, !tbaa !19
   %.not.i.i184 = icmp eq ptr %265, null
@@ -3524,7 +3524,7 @@ _ZN4ncnn3MatD2Ev.exit89:                          ; preds = %372, %367, %379, %3
   br label %_ZN4ncnn3MatD2Ev.exit91
 
 _ZN4ncnn3MatD2Ev.exit91:                          ; preds = %348, %346, %351, %342, %340, %345, %396
-  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %396 ], [ %341, %342 ], [ %341, %345 ], [ %347, %348 ], [ %341, %340 ], [ %347, %351 ], [ %347, %346 ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %396 ], [ %341, %345 ], [ %341, %340 ], [ %341, %342 ], [ %347, %351 ], [ %347, %346 ], [ %347, %348 ]
   br label %397
 
 397:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit91

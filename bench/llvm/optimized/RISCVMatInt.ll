@@ -1194,7 +1194,7 @@ _ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245: ; preds = %
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232.sink.split
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232.sink.split: ; preds = %497, %498, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245, %511, %423, %424, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227, %437
-  %.sink414 = phi i32 [ %419, %423 ], [ %419, %437 ], [ %419, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227 ], [ %419, %424 ], [ %493, %511 ], [ %493, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245 ], [ %493, %498 ], [ %493, %497 ]
+  %.sink414 = phi i32 [ %419, %437 ], [ %419, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i227 ], [ %419, %424 ], [ %419, %423 ], [ %493, %511 ], [ %493, %_ZSt4copyIPKN4llvm11RISCVMatInt4InstEPS2_ET0_T_S7_S6_.exit31.i.i245 ], [ %493, %498 ], [ %493, %497 ]
   store i32 %.sink414, ptr %16, align 8, !tbaa !9
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit232
 
@@ -1489,8 +1489,8 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   br label %102
 
 94:                                               ; preds = %86, %88, %75
-  %95 = phi i32 [ %77, %88 ], [ %87, %86 ], [ %77, %75 ]
-  %.137 = phi i64 [ %78, %88 ], [ %83, %86 ], [ %78, %75 ]
+  %95 = phi i32 [ %87, %86 ], [ %77, %88 ], [ %77, %75 ]
+  %.137 = phi i64 [ %83, %86 ], [ %78, %88 ], [ %78, %75 ]
   %96 = and i64 %.137, -2147483648
   %or.cond18.not = icmp eq i64 %96, 2147483648
   br i1 %or.cond18.not, label %97, label %101
@@ -1504,8 +1504,8 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   br label %101
 
 101:                                              ; preds = %97, %94
-  %.036 = phi i64 [ %spec.select, %97 ], [ %.137, %94 ]
-  %.0 = phi i32 [ %100, %97 ], [ 12904, %94 ]
+  %.036 = phi i64 [ %.137, %94 ], [ %spec.select, %97 ]
+  %.0 = phi i32 [ 12904, %94 ], [ %100, %97 ]
   tail call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %.036, i64 %.232.val, i64 %.240.val, ptr noundef nonnull align 8 dereferenceable(80) %1)
   %.not = icmp eq i32 %95, 0
   br i1 %.not, label %116, label %102
@@ -2190,7 +2190,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm11RISCVMatInt4Inst11getOp
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4
-  %.0 = phi i32 [ 0, %6 ], [ 3, %4 ], [ 2, %5 ], [ 1, %1 ]
+  %.0 = phi i32 [ 3, %4 ], [ 2, %5 ], [ 0, %6 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -2579,7 +2579,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %_ZNK4llvm5APInt12ge
   br label %_ZN4llvm5APIntD2Ev.exit20
 
 _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %54, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, %92, %95
-  %.138 = phi i32 [ %.1, %95 ], [ %.1, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %.1, %92 ], [ %.02528, %54 ]
+  %.138 = phi i32 [ %.1, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %.1, %92 ], [ %.1, %95 ], [ %.02528, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %96 = add i32 %.029, %21
   %97 = icmp ult i32 %96, %1

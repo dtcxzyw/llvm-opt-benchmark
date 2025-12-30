@@ -127,7 +127,7 @@ define internal range(i32 -2147483648, 1) i32 @rcwt_read_header(ptr noundef %0) 
   br label %.thread
 
 .thread:                                          ; preds = %36, %34, %13, %1, %._crit_edge, %12
-  %.0 = phi i32 [ %7, %1 ], [ -1094995529, %12 ], [ -12, %13 ], [ 0, %._crit_edge ], [ -12, %34 ], [ %39, %36 ]
+  %.0 = phi i32 [ -1094995529, %12 ], [ 0, %._crit_edge ], [ %7, %1 ], [ -12, %13 ], [ -12, %34 ], [ %39, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

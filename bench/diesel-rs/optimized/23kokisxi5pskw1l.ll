@@ -1049,7 +1049,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread236, %164, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5273170882542179869.exit.i.i1.i.i.i.i", %.thread276, %186, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5273170882542179869.exit.i.i1.i.i", %44
-  %common.resume.op = phi { ptr, i32 } [ %187, %186 ], [ %45, %44 ], [ %187, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5273170882542179869.exit.i.i1.i.i" ], [ %165, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5273170882542179869.exit.i.i1.i.i.i.i" ], [ %.pn77239, %.thread236 ], [ %.pn280, %.thread276 ], [ %165, %164 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %187, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5273170882542179869.exit.i.i1.i.i" ], [ %187, %186 ], [ %.pn77239, %.thread236 ], [ %165, %164 ], [ %165, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5273170882542179869.exit.i.i1.i.i.i.i" ], [ %.pn280, %.thread276 ]
   resume { ptr, i32 } %common.resume.op
 
 52:                                               ; preds = %13, %46
@@ -1095,7 +1095,7 @@ common.resume:                                    ; preds = %.thread236, %164, %
   store i64 1, ptr %0, align 8
   br label %"_ZN4core3ptr112drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..mysql..backend..Mysql$GT$$GT$17h9df89231f84f3404E.exit"
 
-.thread244:                                       ; preds = %52, %94, %69
+.thread244:                                       ; preds = %52, %69, %94
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread236
@@ -1315,7 +1315,7 @@ common.resume:                                    ; preds = %.thread236, %164, %
   store i64 0, ptr %0, align 8
   br label %"_ZN4core3ptr112drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..mysql..backend..Mysql$GT$$GT$17h9df89231f84f3404E.exit"
 
-.thread285:                                       ; preds = %137, %113
+.thread285:                                       ; preds = %113, %137
   %lpad.thr_comm283 = landingpad { ptr, i32 }
           cleanup
   br label %.thread276

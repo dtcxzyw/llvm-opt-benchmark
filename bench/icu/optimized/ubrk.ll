@@ -126,7 +126,7 @@ define noundef ptr @ubrk_open_77(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   br label %53
 
 40:                                               ; preds = %37, %32, %27, %22, %17
-  %.027 = phi ptr [ %36, %37 ], [ %16, %17 ], [ %21, %22 ], [ %26, %27 ], [ %31, %32 ]
+  %.027 = phi ptr [ %16, %17 ], [ %21, %22 ], [ %26, %27 ], [ %31, %32 ], [ %36, %37 ]
   %41 = load i32, ptr %4, align 4, !tbaa !3
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %43, label %54
@@ -167,7 +167,7 @@ define noundef ptr @ubrk_open_77(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   resume { ptr, i32 } %.pn
 
 54:                                               ; preds = %.thread, %.thread35, %40, %46, %45, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %40 ], [ null, %.thread35 ], [ %.027, %46 ], [ %.027, %45 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %5 ], [ null, %.thread35 ], [ null, %40 ], [ %.027, %46 ], [ %.027, %45 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -359,7 +359,7 @@ _ZN6icu_7712LocalPointerINS_22RuleBasedBreakIteratorEEC2EPS1_R10UErrorCode.exit:
   br label %_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIteratorEED2Ev.exit27
 
 _ZN6icu_7712LocalPointerINS_22RuleBasedBreakIteratorEED2Ev.exit27: ; preds = %16, %19, %.noexc, %23, %30, %5, %11
-  %.0 = phi ptr [ null, %5 ], [ null, %11 ], [ null, %30 ], [ %13, %.noexc ], [ %13, %23 ], [ null, %19 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %5 ], [ null, %30 ], [ %13, %23 ], [ %13, %.noexc ], [ null, %19 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -412,7 +412,7 @@ define noundef ptr @ubrk_safeClone_77(ptr noundef %0, ptr noundef readnone captu
   br label %20
 
 20:                                               ; preds = %14, %.sink.split, %12, %4, %6
-  %.0 = phi ptr [ null, %12 ], [ %18, %14 ], [ null, %4 ], [ null, %6 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %12 ], [ null, %6 ], [ null, %4 ], [ %.0.ph, %.sink.split ], [ %18, %14 ]
   ret ptr %.0
 }
 
@@ -444,7 +444,7 @@ define noundef ptr @ubrk_clone_77(ptr noundef %0, ptr noundef captures(address_i
   br label %ubrk_safeClone_77.exit
 
 ubrk_safeClone_77.exit:                           ; preds = %2, %4, %9, %.sink.split.i
-  %.0.i = phi ptr [ null, %.sink.split.i ], [ %13, %9 ], [ null, %2 ], [ null, %4 ]
+  %.0.i = phi ptr [ null, %4 ], [ null, %2 ], [ null, %.sink.split.i ], [ %13, %9 ]
   ret ptr %.0.i
 }
 
@@ -686,7 +686,7 @@ define range(i32 0, -2147483648) i32 @ubrk_getBinaryRules_77(ptr noundef %0, ptr
   br label %33
 
 33:                                               ; preds = %.thread, %32, %4, %12
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %.thread ], [ %.2, %32 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %.thread ], [ %.2, %32 ]
   ret i32 %.0
 }
 

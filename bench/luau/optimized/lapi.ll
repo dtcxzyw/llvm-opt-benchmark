@@ -125,7 +125,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z14lua_checkstackP9lua_Statei(ptr
   br label %35
 
 35:                                               ; preds = %2, %4, %16, %34, %26
-  %.0 = phi i32 [ 1, %16 ], [ 1, %34 ], [ 1, %26 ], [ 0, %4 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %34 ], [ 1, %26 ], [ 1, %16 ], [ 0, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -774,7 +774,7 @@ define dso_local noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef readonly captu
   br label %_ZL10index2addrP9lua_Statei.exit
 
 _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
-  %.1.i = phi ptr [ %20, %19 ], [ %18, %14 ], [ %9, %4 ]
+  %.1.i = phi ptr [ %18, %14 ], [ %20, %19 ], [ %9, %4 ]
   %21 = icmp eq ptr %.1.i, @luaO_nilobject_
   br i1 %21, label %_ZL10index2addrP9lua_Statei.exit.thread, label %22
 
@@ -995,7 +995,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z12lua_isstringP9lua_Statei(ptr n
   br label %_ZL10index2addrP9lua_Statei.exit.i
 
 _ZL10index2addrP9lua_Statei.exit.i:               ; preds = %19, %14, %4
-  %.1.i.i = phi ptr [ %20, %19 ], [ %18, %14 ], [ %9, %4 ]
+  %.1.i.i = phi ptr [ %18, %14 ], [ %20, %19 ], [ %9, %4 ]
   %21 = icmp eq ptr %.1.i.i, @luaO_nilobject_
   br i1 %21, label %_Z8lua_typeP9lua_Statei.exit, label %22
 
@@ -2064,7 +2064,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   br label %38
 
 38:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit, %35, %31, %27, %23
-  %.0 = phi i32 [ %37, %35 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ 0, %_ZL10index2addrP9lua_Statei.exit ]
+  %.0 = phi i32 [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %_ZL10index2addrP9lua_Statei.exit ]
   ret i32 %.0
 }
 
@@ -2604,7 +2604,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   br label %32
 
 32:                                               ; preds = %30, %28, %26, %23
-  %.0 = phi ptr [ %27, %26 ], [ %25, %23 ], [ %31, %30 ], [ null, %28 ]
+  %.0 = phi ptr [ %25, %23 ], [ %27, %26 ], [ %31, %30 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -4422,7 +4422,7 @@ define dso_local noundef range(i32 0, 5) i32 @_Z12lua_costatusP9lua_StateS0_(ptr
   br label %20
 
 20:                                               ; preds = %14, %9, %4, %2, %8, %7
-  %.0 = phi i32 [ 2, %9 ], [ 0, %2 ], [ 2, %7 ], [ 4, %8 ], [ 1, %4 ], [ %., %14 ]
+  %.0 = phi i32 [ 2, %7 ], [ 4, %8 ], [ 0, %2 ], [ 1, %4 ], [ 2, %9 ], [ %., %14 ]
   ret i32 %.0
 }
 
@@ -4575,7 +4575,7 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %3, %._crit_edge69, %54, %64, %61, %58, %23, %18, %13, %12, %8, %6
-  %.0 = phi i32 [ 0, %._crit_edge69 ], [ 0, %6 ], [ 0, %8 ], [ 0, %12 ], [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %67, %64 ], [ %60, %58 ], [ %63, %61 ], [ 0, %54 ], [ -1, %3 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %12 ], [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %60, %58 ], [ %63, %61 ], [ %67, %64 ], [ 0, %54 ], [ 0, %._crit_edge69 ], [ -1, %3 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -5185,8 +5185,8 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
 _ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %69, %65, %41
-  %.0 = phi ptr [ %44, %41 ], [ %66, %65 ], [ %66, %69 ]
-  %.0.i = phi ptr [ @.str.3, %41 ], [ @.str.3, %65 ], [ %74, %69 ]
+  %.0 = phi ptr [ %66, %65 ], [ %66, %69 ], [ %44, %41 ]
+  %.0.i = phi ptr [ @.str.3, %65 ], [ %74, %69 ], [ @.str.3, %41 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !20
@@ -5195,8 +5195,8 @@ _ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %69, %65, %41
   store ptr %78, ptr %75, align 8, !tbaa !19
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
-_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %49, %45, %37, %35, %_ZL10index2addrP9lua_Statei.exit, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
-  %.0.i17 = phi ptr [ %.0.i, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit ], [ null, %_ZL10index2addrP9lua_Statei.exit ], [ null, %35 ], [ null, %37 ], [ null, %45 ], [ null, %49 ]
+_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %45, %49, %35, %37, %_ZL10index2addrP9lua_Statei.exit, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
+  %.0.i17 = phi ptr [ %.0.i, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit ], [ null, %_ZL10index2addrP9lua_Statei.exit ], [ null, %37 ], [ null, %35 ], [ null, %49 ], [ null, %45 ]
   ret ptr %.0.i17
 }
 
@@ -5308,8 +5308,8 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
 _ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %63, %59, %35
-  %.0 = phi ptr [ %38, %35 ], [ %60, %59 ], [ %60, %63 ]
-  %.0.i = phi ptr [ @.str.3, %35 ], [ @.str.3, %59 ], [ %68, %63 ]
+  %.0 = phi ptr [ %60, %59 ], [ %60, %63 ], [ %38, %35 ]
+  %.0.i = phi ptr [ @.str.3, %59 ], [ %68, %63 ], [ @.str.3, %35 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !19
   %71 = getelementptr inbounds i8, ptr %70, i64 -16
@@ -5341,8 +5341,8 @@ _ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %63, %59, %35
   tail call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef nonnull %0, ptr noundef nonnull %77, ptr noundef nonnull %82)
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
-_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %43, %39, %31, %29, %_ZL10index2addrP9lua_Statei.exit, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, %76, %81, %86
-  %.0.i21 = phi ptr [ %.0.i, %86 ], [ %.0.i, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit ], [ %.0.i, %76 ], [ %.0.i, %81 ], [ null, %_ZL10index2addrP9lua_Statei.exit ], [ null, %29 ], [ null, %31 ], [ null, %39 ], [ null, %43 ]
+_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %39, %43, %29, %31, %_ZL10index2addrP9lua_Statei.exit, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, %76, %81, %86
+  %.0.i21 = phi ptr [ %.0.i, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit ], [ %.0.i, %76 ], [ %.0.i, %81 ], [ %.0.i, %86 ], [ null, %_ZL10index2addrP9lua_Statei.exit ], [ null, %31 ], [ null, %29 ], [ null, %43 ], [ null, %39 ]
   ret ptr %.0.i21
 }
 

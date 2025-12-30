@@ -809,12 +809,12 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   store i32 6, ptr %359, align 4
   br label %362
 
-.critedge372:                                     ; preds = %.thread396, %249, %257, %261
+.critedge372:                                     ; preds = %.thread396, %249, %261, %257
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %362
 
 362:                                              ; preds = %.thread392, %351, %354, %361, %360, %.critedge372, %156, %125, %20, %19, %16, %191, %182, %175, %168, %164, %154, %149, %142, %137, %133, %123, %119, %115, %42, %27
-  %.0 = phi i32 [ %., %16 ], [ -1, %27 ], [ -1, %42 ], [ -1, %115 ], [ -1, %119 ], [ -1, %123 ], [ -1, %20 ], [ -1, %133 ], [ -1, %137 ], [ -1, %142 ], [ -1, %149 ], [ -1, %154 ], [ -1, %125 ], [ -1, %164 ], [ -1, %175 ], [ -1, %182 ], [ -1, %191 ], [ -1, %.thread392 ], [ -1, %156 ], [ -1, %.critedge372 ], [ -1, %168 ], [ 0, %19 ], [ 1, %360 ], [ 1, %361 ], [ 1, %354 ], [ 1, %351 ]
+  %.0 = phi i32 [ -1, %27 ], [ -1, %42 ], [ -1, %115 ], [ -1, %119 ], [ -1, %123 ], [ -1, %133 ], [ -1, %137 ], [ -1, %142 ], [ -1, %149 ], [ -1, %154 ], [ -1, %164 ], [ -1, %175 ], [ -1, %182 ], [ -1, %191 ], [ -1, %168 ], [ %., %16 ], [ 0, %19 ], [ -1, %20 ], [ -1, %125 ], [ -1, %156 ], [ -1, %.critedge372 ], [ 1, %360 ], [ 1, %361 ], [ 1, %354 ], [ 1, %351 ], [ -1, %.thread392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -917,7 +917,7 @@ define internal noundef zeroext i1 @netmon_seek_read(ptr noundef readonly captur
   br label %16
 
 16:                                               ; preds = %10, %5, %15, %13
-  %.0 = phi i1 [ false, %15 ], [ false, %13 ], [ false, %5 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %15 ], [ false, %5 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -1513,7 +1513,7 @@ default.unreachable:                              ; preds = %108
   br label %.thread146
 
 142:                                              ; preds = %137, %108, %120, %138, %139, %129, %111, %112, %113, %114, %115, %116
-  %.0116 = phi i32 [ 189, %139 ], [ 190, %138 ], [ 191, %111 ], [ 192, %112 ], [ 193, %113 ], [ 194, %114 ], [ 195, %115 ], [ 196, %116 ], [ %123, %120 ], [ %132, %129 ], [ 20, %108 ], [ 187, %137 ]
+  %.0116 = phi i32 [ 191, %111 ], [ 192, %112 ], [ 193, %113 ], [ 194, %114 ], [ 195, %115 ], [ 196, %116 ], [ %123, %120 ], [ %132, %129 ], [ 190, %138 ], [ 189, %139 ], [ 20, %108 ], [ 187, %137 ]
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %.0116, ptr %143, align 8
   %144 = load i8, ptr %94, align 1
@@ -1671,7 +1671,7 @@ netmon_set_pseudo_header_info.exit:               ; preds = %.critedge, %154, %1
   br label %.thread146
 
 .thread146:                                       ; preds = %netmon_set_pseudo_header_info.exit, %netmon_read_atm_pseudoheader.exit, %150, %159, %215, %137, %137, %137, %98, %._crit_edge, %5, %140, %135, %125, %109, %35, %27
-  %.0 = phi i32 [ 1, %27 ], [ 1, %35 ], [ 2, %137 ], [ 1, %150 ], [ 1, %109 ], [ 1, %125 ], [ 1, %135 ], [ 1, %140 ], [ 1, %98 ], [ 2, %137 ], [ 2, %137 ], [ 1, %._crit_edge ], [ 1, %netmon_read_atm_pseudoheader.exit ], [ 1, %5 ], [ 0, %215 ], [ 0, %159 ], [ 0, %netmon_set_pseudo_header_info.exit ]
+  %.0 = phi i32 [ 1, %27 ], [ 1, %35 ], [ 1, %150 ], [ 1, %109 ], [ 1, %125 ], [ 1, %135 ], [ 1, %140 ], [ 1, %5 ], [ 1, %netmon_read_atm_pseudoheader.exit ], [ 1, %._crit_edge ], [ 1, %98 ], [ 2, %137 ], [ 2, %137 ], [ 2, %137 ], [ 0, %215 ], [ 0, %159 ], [ 0, %netmon_set_pseudo_header_info.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -2069,7 +2069,7 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
   br label %187
 
 187:                                              ; preds = %149, %139, %129, %124, %182, %56, %44, %31, %27, %21, %14
-  %.095 = phi i1 [ false, %14 ], [ false, %21 ], [ false, %44 ], [ false, %56 ], [ true, %182 ], [ false, %139 ], [ false, %129 ], [ false, %124 ], [ false, %31 ], [ false, %27 ], [ false, %149 ]
+  %.095 = phi i1 [ false, %14 ], [ false, %21 ], [ false, %44 ], [ false, %56 ], [ true, %182 ], [ false, %27 ], [ false, %31 ], [ false, %124 ], [ false, %129 ], [ false, %139 ], [ false, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2217,7 +2217,7 @@ define internal noundef zeroext i1 @netmon_dump_finish(ptr noundef %0, ptr nound
   br label %92
 
 92:                                               ; preds = %77, %28, %14, %3, %91
-  %.0 = phi i1 [ false, %3 ], [ true, %91 ], [ false, %28 ], [ false, %14 ], [ false, %77 ]
+  %.0 = phi i1 [ true, %91 ], [ false, %3 ], [ false, %14 ], [ false, %28 ], [ false, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -2249,7 +2249,7 @@ define internal range(i32 -8, 1) i32 @netmon_dump_can_write_encap_2_x(i32 nounde
   br label %9
 
 9:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ -8, %3 ], [ 0, %1 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ -8, %3 ], [ %spec.select, %5 ]
   ret i32 %.0
 }
 

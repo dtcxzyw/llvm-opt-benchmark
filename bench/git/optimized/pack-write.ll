@@ -199,7 +199,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
   %62 = icmp ugt i32 %61, 1
   br i1 %62, label %.thread, label %66
 
-.thread:                                          ; preds = %55, %35, %36, %.loopexit171
+.thread:                                          ; preds = %55, %36, %35, %.loopexit171
   %63 = phi i32 [ %61, %.loopexit171 ], [ 2, %35 ], [ 2, %36 ], [ 2, %55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 1666151679, ptr %13, align 4, !tbaa !26
@@ -389,7 +389,7 @@ hashwrite_be32.exit131:                           ; preds = %84
   %141 = icmp ult i64 %.1.i.i143, %.118.i.i142
   br i1 %141, label %.lr.ph.i.i138, label %need_large_offset.exit144, !llvm.loop !25
 
-.loopexit166:                                     ; preds = %137, %117, %122
+.loopexit166:                                     ; preds = %137, %122, %117
   %142 = add i32 %.097184, 1
   %143 = or i32 %.097184, -2147483648
   br label %need_large_offset.exit144
@@ -461,7 +461,7 @@ need_large_offset.exit144:                        ; preds = %140, %126, %.loopex
 need_large_offset.exit156:                        ; preds = %171, %156
   br label %175, !llvm.loop !41
 
-.loopexit:                                        ; preds = %168, %147, %152
+.loopexit:                                        ; preds = %168, %152, %147
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %173 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %151) #20, !srcloc !42
   store i64 %173, ptr %7, align 8, !tbaa !43
@@ -1032,7 +1032,7 @@ define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr no
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %22, %27, %30, %31
-  %.1 = phi ptr [ null, %30 ], [ null, %31 ], [ %29, %27 ], [ null, %22 ]
+  %.1 = phi ptr [ null, %31 ], [ null, %30 ], [ %29, %27 ], [ null, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 }

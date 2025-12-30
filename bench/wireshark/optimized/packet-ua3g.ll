@@ -2842,12 +2842,12 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %124, %119, %117, %115, %113, %111, %109, %107, %106, %106
-  %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.sink = phi ptr [ %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %124 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_enabler.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %111 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_srtp_encryption.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %119 ], [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %106 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_rfc2198.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %117 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_compressor.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %109 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_dtmf_sending.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %115 ], [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %107 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_send_qos.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %113 ], [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %106 ]
-  %.sink924 = phi i32 [ %93, %124 ], [ %93, %111 ], [ %93, %119 ], [ 4, %106 ], [ %93, %117 ], [ %93, %109 ], [ %93, %115 ], [ 4, %107 ], [ %93, %113 ], [ 4, %106 ]
-  %.ph = phi ptr [ %86, %124 ], [ %86, %111 ], [ %86, %119 ], [ %86, %106 ], [ %86, %117 ], [ %86, %109 ], [ %86, %115 ], [ %108, %107 ], [ %86, %113 ], [ %86, %106 ]
-  %.ph922 = phi i32 [ %87, %124 ], [ %87, %111 ], [ %87, %119 ], [ %87, %106 ], [ %87, %117 ], [ %87, %109 ], [ %87, %115 ], [ 4, %107 ], [ %87, %113 ], [ %87, %106 ]
-  %.ph923 = phi i32 [ %88, %124 ], [ %88, %111 ], [ %88, %119 ], [ %88, %106 ], [ %88, %117 ], [ %88, %109 ], [ %88, %115 ], [ 2, %107 ], [ %88, %113 ], [ %88, %106 ]
-  %.2730.ph = phi i32 [ %.3731, %124 ], [ %.0728851, %111 ], [ %.0728851, %119 ], [ %.0728851, %106 ], [ %.0728851, %117 ], [ %.0728851, %109 ], [ %.0728851, %115 ], [ %.0728851, %107 ], [ %.0728851, %113 ], [ %.0728851, %106 ]
+  %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %106 ], [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %106 ], [ @hf_ua3g_ip_device_routing_start_rtp_parameter_ip, %107 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_compressor.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %109 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_enabler.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %111 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_send_qos.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %113 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_dtmf_sending.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %115 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_rfc2198.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %117 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_srtp_encryption.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %119 ], [ %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.hf_ua3g_ip_device_routing_start_rtp_parameter_value, %124 ]
+  %.sink924 = phi i32 [ 4, %106 ], [ 4, %106 ], [ 4, %107 ], [ %93, %109 ], [ %93, %111 ], [ %93, %113 ], [ %93, %115 ], [ %93, %117 ], [ %93, %119 ], [ %93, %124 ]
+  %.ph = phi ptr [ %86, %106 ], [ %86, %106 ], [ %108, %107 ], [ %86, %109 ], [ %86, %111 ], [ %86, %113 ], [ %86, %115 ], [ %86, %117 ], [ %86, %119 ], [ %86, %124 ]
+  %.ph922 = phi i32 [ %87, %106 ], [ %87, %106 ], [ 4, %107 ], [ %87, %109 ], [ %87, %111 ], [ %87, %113 ], [ %87, %115 ], [ %87, %117 ], [ %87, %119 ], [ %87, %124 ]
+  %.ph923 = phi i32 [ %88, %106 ], [ %88, %106 ], [ 2, %107 ], [ %88, %109 ], [ %88, %111 ], [ %88, %113 ], [ %88, %115 ], [ %88, %117 ], [ %88, %119 ], [ %88, %124 ]
+  %.2730.ph = phi i32 [ %.0728851, %106 ], [ %.0728851, %106 ], [ %.0728851, %107 ], [ %.0728851, %109 ], [ %.0728851, %111 ], [ %.0728851, %113 ], [ %.0728851, %115 ], [ %.0728851, %117 ], [ %.0728851, %119 ], [ %.3731, %124 ]
   %126 = load i32, ptr %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.sink, align 4
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %126, ptr noundef %1, i32 noundef %104, i32 noundef %.sink924, i32 noundef 0)
   br label %128
@@ -2977,8 +2977,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br label %195
 
 195:                                              ; preds = %193, %192, %192
-  %hf_ua3g_ip_device_routing_redirect_parameter_uint.sink = phi ptr [ %hf_ua3g_ip_device_routing_redirect_parameter_uint.hf_ua3g_ip_device_routing_redirect_parameter_value, %193 ], [ @hf_ua3g_ip_device_routing_redirect_parameter_ip, %192 ], [ @hf_ua3g_ip_device_routing_redirect_parameter_ip, %192 ]
-  %.sink926 = phi i32 [ %179, %193 ], [ 4, %192 ], [ 4, %192 ]
+  %hf_ua3g_ip_device_routing_redirect_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_redirect_parameter_ip, %192 ], [ @hf_ua3g_ip_device_routing_redirect_parameter_ip, %192 ], [ %hf_ua3g_ip_device_routing_redirect_parameter_uint.hf_ua3g_ip_device_routing_redirect_parameter_value, %193 ]
+  %.sink926 = phi i32 [ 4, %192 ], [ 4, %192 ], [ %179, %193 ]
   %196 = load i32, ptr %hf_ua3g_ip_device_routing_redirect_parameter_uint.sink, align 4
   %197 = tail call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %196, ptr noundef %1, i32 noundef %190, i32 noundef %.sink926, i32 noundef 0)
   %198 = add i32 %190, %179
@@ -3123,8 +3123,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br label %283
 
 283:                                              ; preds = %281, %280, %280
-  %hf_ua3g_ip_device_routing_listen_rtp_parameter_port.sink = phi ptr [ %hf_ua3g_ip_device_routing_listen_rtp_parameter_port.hf_ua3g_ip_device_routing_listen_rtp_parameter_value, %281 ], [ @hf_ua3g_ip_device_routing_listen_rtp_parameter_ip, %280 ], [ @hf_ua3g_ip_device_routing_listen_rtp_parameter_ip, %280 ]
-  %.sink927 = phi i32 [ %267, %281 ], [ 1, %280 ], [ 1, %280 ]
+  %hf_ua3g_ip_device_routing_listen_rtp_parameter_port.sink = phi ptr [ @hf_ua3g_ip_device_routing_listen_rtp_parameter_ip, %280 ], [ @hf_ua3g_ip_device_routing_listen_rtp_parameter_ip, %280 ], [ %hf_ua3g_ip_device_routing_listen_rtp_parameter_port.hf_ua3g_ip_device_routing_listen_rtp_parameter_value, %281 ]
+  %.sink927 = phi i32 [ 1, %280 ], [ 1, %280 ], [ %267, %281 ]
   %284 = load i32, ptr %hf_ua3g_ip_device_routing_listen_rtp_parameter_port.sink, align 4
   %285 = tail call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %284, ptr noundef %1, i32 noundef %278, i32 noundef %.sink927, i32 noundef 0)
   %286 = add i32 %278, %267
@@ -3234,8 +3234,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br label %325
 
 325:                                              ; preds = %323, %310, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311
-  %hf_ua3g_ip_device_routing_set_param_req_parameter_uint.sink = phi ptr [ %hf_ua3g_ip_device_routing_set_param_req_parameter_uint.hf_ua3g_ip_device_routing_set_param_req_parameter_value, %323 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_compressor, %310 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_audio_env, %322 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_busy_light, %321 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_als_device, %320 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_usb_boost, %319 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_language_id, %318 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_skin_id, %317 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_stable_mode, %316 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_security_flag_filter, %315 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_record_rtp_auth, %314 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_set_pc_port_status, %313 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_tftp_backup_ip, %312 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_err_string, %311 ]
-  %.sink928 = phi i32 [ %297, %323 ], [ 1, %310 ], [ 1, %322 ], [ 1, %321 ], [ 1, %320 ], [ 1, %319 ], [ 2, %318 ], [ 1, %317 ], [ 1, %316 ], [ 1, %315 ], [ 1, %314 ], [ 1, %313 ], [ 4, %312 ], [ %297, %311 ]
+  %hf_ua3g_ip_device_routing_set_param_req_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_set_param_req_parameter_audio_env, %322 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_busy_light, %321 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_als_device, %320 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_usb_boost, %319 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_language_id, %318 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_skin_id, %317 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_stable_mode, %316 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_security_flag_filter, %315 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_record_rtp_auth, %314 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_set_pc_port_status, %313 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_tftp_backup_ip, %312 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_err_string, %311 ], [ @hf_ua3g_ip_device_routing_set_param_req_parameter_compressor, %310 ], [ %hf_ua3g_ip_device_routing_set_param_req_parameter_uint.hf_ua3g_ip_device_routing_set_param_req_parameter_value, %323 ]
+  %.sink928 = phi i32 [ 1, %322 ], [ 1, %321 ], [ 1, %320 ], [ 1, %319 ], [ 2, %318 ], [ 1, %317 ], [ 1, %316 ], [ 1, %315 ], [ 1, %314 ], [ 1, %313 ], [ 4, %312 ], [ %297, %311 ], [ 1, %310 ], [ %297, %323 ]
   %326 = load i32, ptr %hf_ua3g_ip_device_routing_set_param_req_parameter_uint.sink, align 4
   %327 = tail call ptr @proto_tree_add_item(ptr noundef %303, i32 noundef %326, ptr noundef %1, i32 noundef %308, i32 noundef %.sink928, i32 noundef 0)
   %328 = add i32 %308, %297
@@ -3366,13 +3366,13 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br label %395
 
 395:                                              ; preds = %387, %392, %.thread, %389, %385, %384
-  %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %385 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %392 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %384 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %389 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %.thread ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_value, %387 ]
-  %.sink929 = phi i32 [ 4, %385 ], [ %371, %392 ], [ 4, %384 ], [ %371, %389 ], [ %371, %.thread ], [ %371, %387 ]
-  %396 = phi ptr [ %386, %385 ], [ %364, %392 ], [ %364, %384 ], [ %364, %389 ], [ %364, %.thread ], [ %364, %387 ]
-  %397 = phi i32 [ 4, %385 ], [ %365, %392 ], [ %365, %384 ], [ %365, %389 ], [ %365, %.thread ], [ %365, %387 ]
-  %398 = phi i32 [ 2, %385 ], [ %366, %392 ], [ %366, %384 ], [ %366, %389 ], [ %366, %.thread ], [ %366, %387 ]
-  %.2698 = phi i32 [ %.0696801, %385 ], [ %.0696801, %392 ], [ %.0696801, %384 ], [ %.0696801, %389 ], [ %391, %.thread ], [ %.0696801, %387 ]
-  %.2 = phi i32 [ %.0695802, %385 ], [ %394, %392 ], [ %.0695802, %384 ], [ %.0695802, %389 ], [ %.0695802, %.thread ], [ %.0695802, %387 ]
+  %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %384 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %385 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %389 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %.thread ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %392 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_value, %387 ]
+  %.sink929 = phi i32 [ 4, %384 ], [ 4, %385 ], [ %371, %389 ], [ %371, %.thread ], [ %371, %392 ], [ %371, %387 ]
+  %396 = phi ptr [ %364, %384 ], [ %386, %385 ], [ %364, %389 ], [ %364, %.thread ], [ %364, %392 ], [ %364, %387 ]
+  %397 = phi i32 [ %365, %384 ], [ 4, %385 ], [ %365, %389 ], [ %365, %.thread ], [ %365, %392 ], [ %365, %387 ]
+  %398 = phi i32 [ %366, %384 ], [ 2, %385 ], [ %366, %389 ], [ %366, %.thread ], [ %366, %392 ], [ %366, %387 ]
+  %.2698 = phi i32 [ %.0696801, %384 ], [ %.0696801, %385 ], [ %.0696801, %389 ], [ %391, %.thread ], [ %.0696801, %392 ], [ %.0696801, %387 ]
+  %.2 = phi i32 [ %.0695802, %384 ], [ %.0695802, %385 ], [ %.0695802, %389 ], [ %.0695802, %.thread ], [ %394, %392 ], [ %.0695802, %387 ]
   %399 = load i32, ptr %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink, align 4
   %400 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %399, ptr noundef %1, i32 noundef %382, i32 noundef %.sink929, i32 noundef 0)
   %401 = add i32 %382, %371
@@ -4403,10 +4403,10 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
   br i1 %.not142, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit.sink.split:                             ; preds = %10, %46, %45, %28, %13
-  %hf_ua3g_audio_config_ignored.sink = phi ptr [ @hf_ua3g_audio_config_loudspeaker_aco_param_handsfree_med_recv_threshold, %46 ], [ @hf_ua3g_audio_config_dpi_chan_gci_tx2, %13 ], [ @hf_ua3g_audio_config_audio_circuit_atf, %28 ], [ @hf_ua3g_audio_config_handsfree_return, %45 ], [ @hf_ua3g_audio_config_ignored, %10 ]
-  %.sink161 = phi i32 [ 13, %46 ], [ 7, %13 ], [ 12, %28 ], [ 4, %45 ], [ 4, %10 ]
-  %hf_ua3g_audio_config_law.sink = phi ptr [ @hf_ua3g_audio_config_loudspeaker_aco_param_handsfree_high_recv_threshold, %46 ], [ @hf_ua3g_audio_config_dpi_chan_cod_tx, %13 ], [ @hf_ua3g_audio_config_audio_circuit_alm, %28 ], [ @hf_ua3g_audio_config_handsfree_handsfree, %45 ], [ @hf_ua3g_audio_config_law, %10 ]
-  %.sink160 = phi i32 [ 14, %46 ], [ 8, %13 ], [ 13, %28 ], [ 4, %45 ], [ 5, %10 ]
+  %hf_ua3g_audio_config_ignored.sink = phi ptr [ @hf_ua3g_audio_config_dpi_chan_gci_tx2, %13 ], [ @hf_ua3g_audio_config_audio_circuit_atf, %28 ], [ @hf_ua3g_audio_config_handsfree_return, %45 ], [ @hf_ua3g_audio_config_loudspeaker_aco_param_handsfree_med_recv_threshold, %46 ], [ @hf_ua3g_audio_config_ignored, %10 ]
+  %.sink161 = phi i32 [ 7, %13 ], [ 12, %28 ], [ 4, %45 ], [ 13, %46 ], [ 4, %10 ]
+  %hf_ua3g_audio_config_law.sink = phi ptr [ @hf_ua3g_audio_config_dpi_chan_cod_tx, %13 ], [ @hf_ua3g_audio_config_audio_circuit_alm, %28 ], [ @hf_ua3g_audio_config_handsfree_handsfree, %45 ], [ @hf_ua3g_audio_config_loudspeaker_aco_param_handsfree_high_recv_threshold, %46 ], [ @hf_ua3g_audio_config_law, %10 ]
+  %.sink160 = phi i32 [ 8, %13 ], [ 13, %28 ], [ 4, %45 ], [ 14, %46 ], [ 5, %10 ]
   %85 = load i32, ptr %hf_ua3g_audio_config_ignored.sink, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %85, ptr noundef %1, i32 noundef %.sink161, i32 noundef 1, i32 noundef 0)
   %87 = load i32, ptr %hf_ua3g_audio_config_law.sink, align 4

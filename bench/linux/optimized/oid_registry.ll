@@ -142,7 +142,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr noundef readonly capture
   br label %.loopexit9
 
 .loopexit9:                                       ; preds = %.loopexit8, %37, %.loopexit
-  %78 = phi i32 [ 98, %37 ], [ %77, %.loopexit ], [ 98, %.loopexit8 ]
+  %78 = phi i32 [ %77, %.loopexit ], [ 98, %37 ], [ 98, %.loopexit8 ]
   ret i32 %78
 }
 
@@ -277,7 +277,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly c
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %.loopexit9, %50, %.loopexit
-  %91 = phi i32 [ 98, %50 ], [ %90, %.loopexit ], [ 98, %.loopexit9 ]
+  %91 = phi i32 [ %90, %.loopexit ], [ 98, %50 ], [ 98, %.loopexit9 ]
   store i32 %91, ptr %2, align 4
   br label %92
 

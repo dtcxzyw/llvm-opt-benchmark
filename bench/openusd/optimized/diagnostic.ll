@@ -450,9 +450,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35: ; 
           to label %.invoke.sink.split unwind label %170
 
 50:                                               ; preds = %.invoke, %_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseException16MoveThrowStackToERSt6vectorImSaImEE.exit
-  %.sroa.665.0 = phi i64 [ 0, %.invoke ], [ %.sroa.665.0.copyload, %_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseException16MoveThrowStackToERSt6vectorImSaImEE.exit ]
-  %.sroa.463.0 = phi ptr [ null, %.invoke ], [ %.sroa.463.0.copyload, %_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseException16MoveThrowStackToERSt6vectorImSaImEE.exit ]
-  %.sroa.061.0 = phi ptr [ null, %.invoke ], [ %.sroa.061.0.copyload, %_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseException16MoveThrowStackToERSt6vectorImSaImEE.exit ]
+  %.sroa.665.0 = phi i64 [ %.sroa.665.0.copyload, %_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseException16MoveThrowStackToERSt6vectorImSaImEE.exit ], [ 0, %.invoke ]
+  %.sroa.463.0 = phi ptr [ %.sroa.463.0.copyload, %_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseException16MoveThrowStackToERSt6vectorImSaImEE.exit ], [ null, %.invoke ]
+  %.sroa.061.0 = phi ptr [ %.sroa.061.0.copyload, %_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseException16MoveThrowStackToERSt6vectorImSaImEE.exit ], [ null, %.invoke ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %51 = load ptr, ptr %5, align 8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8

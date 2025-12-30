@@ -129,8 +129,8 @@ next_num.exit68:                                  ; preds = %48
   br i1 %or.cond43, label %.critedge, label %next_token.exit55.thread
 
 next_token.exit55.thread:                         ; preds = %38, %39, %next_num.exit68, %41
-  %59 = phi ptr [ %37, %39 ], [ %56, %next_num.exit68 ], [ %37, %41 ], [ null, %38 ]
-  %.076 = phi i32 [ 1, %39 ], [ %55, %next_num.exit68 ], [ 1, %41 ], [ 1, %38 ]
+  %59 = phi ptr [ %56, %next_num.exit68 ], [ %37, %41 ], [ %37, %39 ], [ null, %38 ]
+  %.076 = phi i32 [ %55, %next_num.exit68 ], [ 1, %41 ], [ 1, %39 ], [ 1, %38 ]
   %60 = icmp slt i32 %36, %18
   br i1 %60, label %.critedge, label %.preheader.preheader
 
@@ -174,7 +174,7 @@ next_token.exit55.thread:                         ; preds = %38, %39, %next_num.
   %77 = call i32 @sched_setaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %3) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %48, %45, %29, %26, %10, %5, %next_token.exit55.thread, %next_num.exit, %next_num.exit59, %next_num.exit68, %74, %1, %76
+.critedge:                                        ; preds = %45, %48, %26, %29, %5, %10, %next_num.exit, %next_num.exit59, %next_num.exit68, %next_token.exit55.thread, %74, %1, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

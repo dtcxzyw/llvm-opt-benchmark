@@ -225,7 +225,7 @@ switch.edge.i:                                    ; preds = %.split18
   br i1 %50, label %SDL_CalculateRGBSize.exit26.thread, label %57
 
 SDL_CalculateRGBSize.exit26:                      ; preds = %switch.edge.i, %.critedge.i, %28, %36, %42
-  %.str.30.sink.i = phi ptr [ @.str.29, %36 ], [ @.str.29, %28 ], [ @.str.28, %.critedge.i ], [ @.str.28, %switch.edge.i ], [ @.str.30, %42 ]
+  %.str.30.sink.i = phi ptr [ @.str.28, %switch.edge.i ], [ @.str.28, %.critedge.i ], [ @.str.29, %28 ], [ @.str.29, %36 ], [ @.str.30, %42 ]
   %51 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.30.sink.i) #11
   br i1 %51, label %SDL_CalculateRGBSize.exit26.thread, label %57
 
@@ -246,7 +246,7 @@ SDL_CalculateRGBSize.exit26.thread:               ; preds = %42, %.split, %SDL_C
   br label %57
 
 57:                                               ; preds = %54, %55, %SDL_CalculateRGBSize.exit26, %49, %47
-  %.0 = phi i1 [ false, %49 ], [ false, %SDL_CalculateRGBSize.exit26 ], [ true, %47 ], [ true, %55 ], [ true, %54 ]
+  %.0 = phi i1 [ true, %47 ], [ false, %49 ], [ false, %SDL_CalculateRGBSize.exit26 ], [ true, %55 ], [ true, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
@@ -336,7 +336,7 @@ define hidden ptr @SDL_CreateSurface_REAL(i32 noundef %0, i32 noundef %1, i32 no
   br label %44
 
 44:                                               ; preds = %25, %28, %41, %21, %19, %17, %40, %15, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %15 ], [ null, %21 ], [ null, %40 ], [ null, %19 ], [ null, %17 ], [ %20, %41 ], [ %20, %28 ], [ %20, %25 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %15 ], [ null, %40 ], [ null, %17 ], [ null, %19 ], [ null, %21 ], [ %20, %41 ], [ %20, %28 ], [ %20, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -812,7 +812,7 @@ SDL_CalculateRGBSize.exit26.thread.i:             ; preds = %35, %SDL_CalculateR
   br label %.thread
 
 .thread:                                          ; preds = %SDL_CalculateSurfaceSize.exit, %47, %51, %49, %17, %13, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %13 ], [ null, %17 ], [ %spec.select, %51 ], [ null, %49 ], [ null, %47 ], [ null, %SDL_CalculateSurfaceSize.exit ]
+  %.0 = phi ptr [ null, %9 ], [ null, %13 ], [ null, %17 ], [ null, %49 ], [ %spec.select, %51 ], [ null, %47 ], [ null, %SDL_CalculateSurfaceSize.exit ]
   ret ptr %.0
 }
 
@@ -1138,7 +1138,7 @@ SDL_SetSurfacePalette_REAL.exit:                  ; preds = %SDL_SurfaceValid.ex
   br label %59
 
 59:                                               ; preds = %58, %SDL_SetSurfacePalette_REAL.exit, %45, %14, %12, %SDL_SurfaceValid.exit.thread
-  %.0 = phi ptr [ null, %12 ], [ null, %14 ], [ null, %SDL_SurfaceValid.exit.thread ], [ %18, %58 ], [ null, %SDL_SetSurfacePalette_REAL.exit ], [ null, %45 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %SDL_SurfaceValid.exit.thread ], [ null, %14 ], [ %18, %58 ], [ null, %SDL_SetSurfacePalette_REAL.exit ], [ null, %45 ]
   ret ptr %.0
 }
 
@@ -1297,7 +1297,7 @@ SDL_SurfaceValid.exit15.thread:                   ; preds = %7, %SDL_SurfaceVali
   br label %30
 
 30:                                               ; preds = %21, %12, %SDL_SurfaceValid.exit15.thread, %SDL_SurfaceValid.exit.thread
-  %.0 = phi i1 [ %6, %SDL_SurfaceValid.exit.thread ], [ %11, %SDL_SurfaceValid.exit15.thread ], [ false, %12 ], [ true, %21 ]
+  %.0 = phi i1 [ %11, %SDL_SurfaceValid.exit15.thread ], [ %6, %SDL_SurfaceValid.exit.thread ], [ false, %12 ], [ true, %21 ]
   ret i1 %.0
 }
 
@@ -1586,7 +1586,7 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
   br label %.critedge, !llvm.loop !8
 
 .loopexit:                                        ; preds = %96, %.thread, %._crit_edge108, %75, %SDL_SurfaceHasAlternateImages_REAL.exit.thread, %SDL_SurfaceValid.exit.thread
-  %.0 = phi ptr [ null, %SDL_SurfaceValid.exit.thread ], [ %0, %SDL_SurfaceHasAlternateImages_REAL.exit.thread ], [ %0, %._crit_edge108 ], [ %.072.lcssa, %75 ], [ %.072.lcssa, %.thread ], [ %87, %96 ]
+  %.0 = phi ptr [ %0, %SDL_SurfaceHasAlternateImages_REAL.exit.thread ], [ null, %SDL_SurfaceValid.exit.thread ], [ %0, %._crit_edge108 ], [ %.072.lcssa, %75 ], [ %.072.lcssa, %.thread ], [ %87, %96 ]
   ret ptr %.0
 }
 
@@ -1768,7 +1768,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   br label %.thread
 
 .thread:                                          ; preds = %SDL_SurfaceValid.exit.thread, %27, %85, %SDL_SetSurfaceColorspace_REAL.exit, %12, %18, %20
-  %.2 = phi ptr [ %28, %SDL_SetSurfaceColorspace_REAL.exit ], [ null, %18 ], [ null, %12 ], [ %26, %20 ], [ null, %85 ], [ null, %27 ], [ null, %SDL_SurfaceValid.exit.thread ]
+  %.2 = phi ptr [ null, %12 ], [ %26, %20 ], [ null, %18 ], [ %28, %SDL_SetSurfaceColorspace_REAL.exit ], [ null, %85 ], [ null, %27 ], [ null, %SDL_SurfaceValid.exit.thread ]
   ret ptr %.2
 }
 
@@ -2003,7 +2003,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
   br label %19
 
 19:                                               ; preds = %15, %16, %13, %SDL_SurfaceValid.exit.thread
-  %.0 = phi i1 [ %8, %SDL_SurfaceValid.exit.thread ], [ %14, %13 ], [ true, %16 ], [ true, %15 ]
+  %.0 = phi i1 [ %14, %13 ], [ %8, %SDL_SurfaceValid.exit.thread ], [ true, %16 ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -2367,7 +2367,7 @@ default.unreachable:                              ; preds = %.split
   br label %24
 
 24:                                               ; preds = %17, %18, %19, %20, %21, %22, %23, %9, %SDL_SurfaceValid.exit.thread
-  %.0 = phi i1 [ true, %9 ], [ %8, %SDL_SurfaceValid.exit.thread ], [ true, %23 ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ]
+  %.0 = phi i1 [ %8, %SDL_SurfaceValid.exit.thread ], [ true, %9 ], [ true, %23 ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ]
   ret i1 %.0
 }
 
@@ -2654,7 +2654,7 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %91, %89, %62, %.critedge33, %.critedge, %24, %SDL_SurfaceValid.exit35.thread, %SDL_SurfaceValid.exit.thread
-  %.024 = phi i1 [ %25, %24 ], [ true, %.critedge33 ], [ %12, %SDL_SurfaceValid.exit.thread ], [ true, %.critedge ], [ true, %62 ], [ %17, %SDL_SurfaceValid.exit35.thread ], [ %94, %91 ], [ false, %89 ]
+  %.024 = phi i1 [ %25, %24 ], [ %17, %SDL_SurfaceValid.exit35.thread ], [ %12, %SDL_SurfaceValid.exit.thread ], [ true, %.critedge ], [ true, %.critedge33 ], [ true, %62 ], [ %94, %91 ], [ false, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.024
@@ -2942,7 +2942,7 @@ switch.lookup:                                    ; preds = %32
   br label %166
 
 166:                                              ; preds = %86, %164, %39, %34, %30, %SDL_SurfaceValid.exit199.thread, %SDL_SurfaceValid.exit.thread
-  %.0140 = phi i1 [ %31, %30 ], [ %35, %34 ], [ %40, %39 ], [ %15, %SDL_SurfaceValid.exit.thread ], [ %165, %164 ], [ %23, %SDL_SurfaceValid.exit199.thread ], [ true, %86 ]
+  %.0140 = phi i1 [ %31, %30 ], [ %35, %34 ], [ %40, %39 ], [ %165, %164 ], [ %23, %SDL_SurfaceValid.exit199.thread ], [ %15, %SDL_SurfaceValid.exit.thread ], [ true, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0140
@@ -3057,7 +3057,7 @@ define hidden zeroext i1 @SDL_BlitSurfaceUncheckedScaled_REAL(ptr noundef %0, pt
   br i1 %.not188, label %common.ret267, label %56
 
 common.ret267:                                    ; preds = %SDL_ConvertSurface_REAL.exit.thread, %60, %58, %SDL_ConvertSurface_REAL.exit, %.critedge193, %164, %76, %.critedge, %25, %89, %56
-  %common.ret267.op = phi i1 [ %90, %89 ], [ %57, %56 ], [ %63, %60 ], [ false, %58 ], [ %26, %25 ], [ %77, %76 ], [ false, %SDL_ConvertSurface_REAL.exit ], [ %52, %.critedge ], [ false, %.critedge193 ], [ %.0139.in, %164 ], [ false, %SDL_ConvertSurface_REAL.exit.thread ]
+  %common.ret267.op = phi i1 [ %57, %56 ], [ %90, %89 ], [ %26, %25 ], [ %52, %.critedge ], [ %.0139.in, %164 ], [ %77, %76 ], [ false, %.critedge193 ], [ false, %SDL_ConvertSurface_REAL.exit ], [ %63, %60 ], [ false, %58 ], [ false, %SDL_ConvertSurface_REAL.exit.thread ]
   ret i1 %common.ret267.op
 
 56:                                               ; preds = %.critedge193
@@ -3620,13 +3620,13 @@ SDL_BlitSurfaceUnchecked_REAL.exit82:             ; preds = %115
   br label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 SDL_BlitSurfaceUnchecked_REAL.exit.thread:        ; preds = %SDL_BlitSurfaceUnchecked_REAL.exit78, %.critedge, %SDL_BlitSurfaceUnchecked_REAL.exit78.us, %70, %SDL_BlitSurfaceUnchecked_REAL.exit.us, %81, %106, %SDL_BlitSurfaceUnchecked_REAL.exit80, %115, %SDL_BlitSurfaceUnchecked_REAL.exit82, %121
-  %.4 = phi i1 [ true, %121 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit82 ], [ false, %115 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78.us ], [ false, %106 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit.us ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit80 ], [ false, %81 ], [ false, %70 ], [ false, %.critedge ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78 ]
+  %.4 = phi i1 [ true, %121 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit82 ], [ false, %115 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit80 ], [ false, %106 ], [ false, %81 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit.us ], [ false, %70 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78.us ], [ false, %.critedge ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %122
 
 122:                                              ; preds = %44, %42, %SDL_BlitSurfaceUnchecked_REAL.exit.thread, %24, %SDL_SurfaceValid.exit76.thread, %SDL_SurfaceValid.exit.thread
-  %.052 = phi i1 [ %25, %24 ], [ %12, %SDL_SurfaceValid.exit.thread ], [ true, %42 ], [ %.4, %SDL_BlitSurfaceUnchecked_REAL.exit.thread ], [ %17, %SDL_SurfaceValid.exit76.thread ], [ true, %44 ]
+  %.052 = phi i1 [ %25, %24 ], [ %.4, %SDL_BlitSurfaceUnchecked_REAL.exit.thread ], [ %17, %SDL_SurfaceValid.exit76.thread ], [ %12, %SDL_SurfaceValid.exit.thread ], [ true, %42 ], [ true, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.052
@@ -3910,13 +3910,13 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.us102, %88, %97, %.lr.ph, %124, %127
-  %.4 = phi i1 [ true, %127 ], [ false, %124 ], [ false, %.lr.ph ], [ false, %88 ], [ false, %97 ], [ false, %.critedge.us102 ]
+  %.4 = phi i1 [ true, %127 ], [ false, %124 ], [ false, %.lr.ph ], [ false, %97 ], [ false, %88 ], [ false, %.critedge.us102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %128
 
 128:                                              ; preds = %50, %48, %.loopexit, %30, %26, %SDL_SurfaceValid.exit94.thread, %SDL_SurfaceValid.exit.thread
-  %.072 = phi i1 [ %27, %26 ], [ %31, %30 ], [ %14, %SDL_SurfaceValid.exit.thread ], [ true, %48 ], [ %.4, %.loopexit ], [ %19, %SDL_SurfaceValid.exit94.thread ], [ true, %50 ]
+  %.072 = phi i1 [ %27, %26 ], [ %31, %30 ], [ %.4, %.loopexit ], [ %19, %SDL_SurfaceValid.exit94.thread ], [ %14, %SDL_SurfaceValid.exit.thread ], [ true, %48 ], [ true, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.072
@@ -4209,7 +4209,7 @@ SDL_SurfaceValid.exit267.thread:                  ; preds = %17, %SDL_SurfaceVal
   br label %154
 
 154:                                              ; preds = %136, %126, %112, %102, %90, %86, %76, %66, %54, %SDL_SurfaceValid.exit267.thread, %SDL_SurfaceValid.exit.thread
-  %.0140 = phi i1 [ false, %126 ], [ %153, %136 ], [ false, %112 ], [ false, %102 ], [ false, %90 ], [ false, %86 ], [ false, %76 ], [ false, %66 ], [ false, %54 ], [ %16, %SDL_SurfaceValid.exit.thread ], [ %21, %SDL_SurfaceValid.exit267.thread ]
+  %.0140 = phi i1 [ %21, %SDL_SurfaceValid.exit267.thread ], [ %16, %SDL_SurfaceValid.exit.thread ], [ false, %54 ], [ false, %66 ], [ false, %76 ], [ false, %86 ], [ false, %90 ], [ false, %102 ], [ false, %112 ], [ false, %126 ], [ %153, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0258)
@@ -4473,7 +4473,7 @@ switch.edge:                                      ; preds = %11
   br label %45
 
 45:                                               ; preds = %._crit_edge72.thread, %._crit_edge72, %23, %11, %7, %.critedge
-  %.0 = phi i1 [ %6, %.critedge ], [ true, %11 ], [ true, %7 ], [ false, %23 ], [ true, %._crit_edge72 ], [ true, %._crit_edge72.thread ]
+  %.0 = phi i1 [ %6, %.critedge ], [ true, %7 ], [ true, %11 ], [ false, %23 ], [ true, %._crit_edge72 ], [ true, %._crit_edge72.thread ]
   ret i1 %.0
 }
 
@@ -4663,8 +4663,8 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceVali
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %38, %37, %46, %41
-  %.1283 = phi ptr [ null, %38 ], [ null, %37 ], [ %45, %46 ], [ null, %41 ], [ null, %._crit_edge ]
-  %.0266 = phi ptr [ null, %38 ], [ null, %37 ], [ %45, %46 ], [ null, %41 ], [ %2, %._crit_edge ]
+  %.1283 = phi ptr [ null, %37 ], [ %45, %46 ], [ null, %41 ], [ null, %38 ], [ null, %._crit_edge ]
+  %.0266 = phi ptr [ null, %37 ], [ %45, %46 ], [ null, %41 ], [ null, %38 ], [ %2, %._crit_edge ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = load i32, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -4939,8 +4939,8 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   br label %.thread399
 
 .thread399:                                       ; preds = %152, %155, %156, %.loopexit426, %129
-  %.0277 = phi ptr [ null, %129 ], [ %.1278, %.loopexit426 ], [ null, %156 ], [ null, %155 ], [ null, %152 ]
-  %.0275 = phi i32 [ 0, %129 ], [ %.1276, %.loopexit426 ], [ 0, %156 ], [ 0, %155 ], [ 0, %152 ]
+  %.0277 = phi ptr [ %.1278, %.loopexit426 ], [ null, %129 ], [ null, %155 ], [ null, %156 ], [ null, %152 ]
+  %.0275 = phi i32 [ %.1276, %.loopexit426 ], [ 0, %129 ], [ 0, %155 ], [ 0, %156 ], [ 0, %152 ]
   %179 = and i32 %132, 1024
   %.not331 = icmp eq i32 %179, 0
   br i1 %.not331, label %193, label %180
@@ -5104,7 +5104,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %193, %195
   ]
 
 .thread402:                                       ; preds = %245, %227, %230, %249, %248, %224
-  %.0267 = phi i1 [ true, %224 ], [ false, %249 ], [ false, %248 ], [ true, %230 ], [ true, %227 ], [ false, %245 ]
+  %.0267 = phi i1 [ true, %224 ], [ false, %248 ], [ false, %249 ], [ true, %230 ], [ true, %227 ], [ false, %245 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %252 = load i32, ptr %95, align 4
@@ -5333,21 +5333,21 @@ SDL_SurfaceValid.exit.i391:                       ; preds = %SDL_SurfaceValid.ex
   %336 = load ptr, ptr %335, align 8
   %337 = load ptr, ptr %89, align 8
   %338 = icmp eq ptr %337, @SDL_surface_magic
-  br i1 %338, label %340, label %SDL_SurfaceValid.exit.thread.i392
+  br i1 %338, label %339, label %SDL_AddSurfaceAlternateImage_REAL.exit
 
-SDL_SurfaceValid.exit.thread.i392:                ; preds = %SDL_SurfaceValid.exit.i391
-  %339 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
-  br i1 %339, label %360, label %.thread415
-
-340:                                              ; preds = %SDL_SurfaceValid.exit.i391
+339:                                              ; preds = %SDL_SurfaceValid.exit.i391
   %.not.i14.i = icmp eq ptr %336, null
-  br i1 %.not.i14.i, label %SDL_AddSurfaceAlternateImage_REAL.exit, label %SDL_SurfaceValid.exit15.i
+  br i1 %.not.i14.i, label %SDL_SurfaceValid.exit15.thread.i, label %SDL_SurfaceValid.exit15.i
 
-SDL_SurfaceValid.exit15.i:                        ; preds = %340
-  %341 = getelementptr inbounds nuw i8, ptr %336, i64 40
-  %342 = load ptr, ptr %341, align 8
-  %343 = icmp eq ptr %342, @SDL_surface_magic
-  br i1 %343, label %344, label %SDL_AddSurfaceAlternateImage_REAL.exit
+SDL_SurfaceValid.exit15.i:                        ; preds = %339
+  %340 = getelementptr inbounds nuw i8, ptr %336, i64 40
+  %341 = load ptr, ptr %340, align 8
+  %342 = icmp eq ptr %341, @SDL_surface_magic
+  br i1 %342, label %344, label %SDL_SurfaceValid.exit15.thread.i
+
+SDL_SurfaceValid.exit15.thread.i:                 ; preds = %SDL_SurfaceValid.exit15.i, %339
+  %343 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #11
+  br i1 %343, label %360, label %.thread415
 
 344:                                              ; preds = %SDL_SurfaceValid.exit15.i
   %345 = load ptr, ptr %332, align 8
@@ -5374,18 +5374,18 @@ SDL_AddSurfaceAlternateImage_REAL.exit.thread:    ; preds = %344
   store i32 %358, ptr %356, align 8
   br label %360
 
-SDL_AddSurfaceAlternateImage_REAL.exit:           ; preds = %340, %SDL_SurfaceValid.exit15.i
-  %359 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #11
+SDL_AddSurfaceAlternateImage_REAL.exit:           ; preds = %SDL_SurfaceValid.exit.i391
+  %359 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br i1 %359, label %360, label %.thread415
 
-360:                                              ; preds = %SDL_SurfaceValid.exit.thread.i392, %SDL_AddSurfaceAlternateImage_REAL.exit.thread, %SDL_AddSurfaceAlternateImage_REAL.exit
+360:                                              ; preds = %SDL_SurfaceValid.exit15.thread.i, %SDL_AddSurfaceAlternateImage_REAL.exit.thread, %SDL_AddSurfaceAlternateImage_REAL.exit
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %361 = load i32, ptr %328, align 8
   %362 = sext i32 %361 to i64
   %363 = icmp slt i64 %indvars.iv.next456, %362
   br i1 %363, label %SDL_SurfaceValid.exit.i391, label %.thread423, !llvm.loop !23
 
-.thread415:                                       ; preds = %344, %SDL_SurfaceValid.exit.thread.i392, %SDL_AddSurfaceAlternateImage_REAL.exit, %.critedge354, %101, %.loopexit, %.thread395, %.thread
+.thread415:                                       ; preds = %344, %SDL_SurfaceValid.exit15.thread.i, %SDL_AddSurfaceAlternateImage_REAL.exit, %.critedge354, %101, %.loopexit, %.thread395, %.thread
   %.not347 = icmp eq ptr %.1283, null
   br i1 %.not347, label %365, label %364
 
@@ -5400,8 +5400,8 @@ SDL_AddSurfaceAlternateImage_REAL.exit:           ; preds = %340, %SDL_SurfaceVa
   call void @SDL_DestroySurface_REAL(ptr noundef nonnull %55)
   br label %.thread423
 
-.thread423:                                       ; preds = %360, %SDL_SetSurfaceRLE_REAL.exit, %17, %SDL_SurfaceValid.exit.thread, %._crit_edge.thread, %365, %366
-  %.0265 = phi ptr [ null, %365 ], [ null, %366 ], [ null, %17 ], [ null, %._crit_edge.thread ], [ null, %SDL_SurfaceValid.exit.thread ], [ %55, %SDL_SetSurfaceRLE_REAL.exit ], [ %55, %360 ]
+.thread423:                                       ; preds = %360, %SDL_SetSurfaceRLE_REAL.exit, %17, %._crit_edge.thread, %SDL_SurfaceValid.exit.thread, %365, %366
+  %.0265 = phi ptr [ null, %366 ], [ null, %365 ], [ null, %SDL_SurfaceValid.exit.thread ], [ null, %._crit_edge.thread ], [ null, %17 ], [ %55, %SDL_SetSurfaceRLE_REAL.exit ], [ %55, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0265
 }
@@ -5589,7 +5589,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %74, %79
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %switch.edge, %71, %69, %56, %SDL_BlitSurfaceUnchecked_REAL.exit, %49, %47, %44, %37, %25, %22, %19, %16
-  %.0 = phi i1 [ %38, %37 ], [ %45, %44 ], [ %48, %47 ], [ %50, %49 ], [ %17, %16 ], [ %.0.i, %SDL_BlitSurfaceUnchecked_REAL.exit ], [ false, %69 ], [ true, %56 ], [ %26, %25 ], [ %23, %22 ], [ %20, %19 ], [ false, %71 ], [ true, %switch.edge ], [ true, %65 ]
+  %.0 = phi i1 [ %38, %37 ], [ %45, %44 ], [ %48, %47 ], [ %50, %49 ], [ %.0.i, %SDL_BlitSurfaceUnchecked_REAL.exit ], [ %26, %25 ], [ %23, %22 ], [ %20, %19 ], [ %17, %16 ], [ true, %56 ], [ false, %69 ], [ false, %71 ], [ true, %switch.edge ], [ true, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -6126,7 +6126,7 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   br label %38
 
 38:                                               ; preds = %34, %.critedge158, %.critedge158, %.critedge158, %.critedge158, %37
-  %.0106 = phi i32 [ 372645892, %37 ], [ %switch.select163, %34 ], [ %2, %.critedge158 ], [ %2, %.critedge158 ], [ %2, %.critedge158 ], [ %2, %.critedge158 ]
+  %.0106 = phi i32 [ 372645892, %37 ], [ %2, %.critedge158 ], [ %2, %.critedge158 ], [ %2, %.critedge158 ], [ %2, %.critedge158 ], [ %switch.select163, %34 ]
   %. = select i1 %12, i32 301991168, i32 301991328
   %.not137 = icmp eq i32 %2, %.0106
   %.not138 = icmp eq i32 %3, %.
@@ -6374,13 +6374,13 @@ SDL_PremultiplyAlpha_AXYZ8888.exit:               ; preds = %._crit_edge.i189, %
   br i1 %.not144, label %.thread, label %.thread195
 
 .thread195:                                       ; preds = %142, %41, %148
-  %.0200 = phi i1 [ %.0, %148 ], [ %147, %142 ], [ false, %41 ]
-  %.0109199 = phi ptr [ %.1, %148 ], [ %.1, %142 ], [ %40, %41 ]
+  %.0200 = phi i1 [ %.0, %148 ], [ false, %41 ], [ %147, %142 ]
+  %.0109199 = phi ptr [ %.1, %148 ], [ %40, %41 ], [ %.1, %142 ]
   tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.0109199)
   br label %.thread
 
 .thread:                                          ; preds = %51, %39, %148, %.thread195, %23, %20, %17, %14
-  %.0107 = phi i1 [ %15, %14 ], [ %24, %23 ], [ %21, %20 ], [ %18, %17 ], [ %.0200, %.thread195 ], [ %.0, %148 ], [ false, %39 ], [ false, %51 ]
+  %.0107 = phi i1 [ %24, %23 ], [ %21, %20 ], [ %18, %17 ], [ %15, %14 ], [ %.0200, %.thread195 ], [ %.0, %148 ], [ false, %39 ], [ false, %51 ]
   ret i1 %.0107
 }
 
@@ -6641,7 +6641,7 @@ SDL_SetSurfaceBlendMode_REAL.exit:                ; preds = %SDL_SurfaceValid.ex
   br label %SDL_SurfaceValid.exit.i113
 
 SDL_SurfaceValid.exit.i113:                       ; preds = %SDL_MapSurfaceRGBA_REAL.exit, %68, %99, %100, %SDL_SetSurfaceBlendMode_REAL.exit
-  %.2 = phi i1 [ %67, %SDL_MapSurfaceRGBA_REAL.exit ], [ false, %68 ], [ %.1, %99 ], [ %122, %SDL_SetSurfaceBlendMode_REAL.exit ], [ false, %100 ]
+  %.2 = phi i1 [ %67, %SDL_MapSurfaceRGBA_REAL.exit ], [ %.1, %99 ], [ false, %68 ], [ %122, %SDL_SetSurfaceBlendMode_REAL.exit ], [ false, %100 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %123 = load ptr, ptr %8, align 8
   %124 = icmp eq ptr %123, @SDL_surface_magic
@@ -6668,7 +6668,7 @@ SDL_SetSurfaceClipRect_REAL.exit117:              ; preds = %SDL_SurfaceValid.ex
   br label %135
 
 135:                                              ; preds = %SDL_SetSurfaceClipRect_REAL.exit117, %SDL_SurfaceValid.exit.thread
-  %.0 = phi i1 [ %11, %SDL_SurfaceValid.exit.thread ], [ %.2, %SDL_SetSurfaceClipRect_REAL.exit117 ]
+  %.0 = phi i1 [ %.2, %SDL_SetSurfaceClipRect_REAL.exit117 ], [ %11, %SDL_SurfaceValid.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -6849,7 +6849,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %18, %25, %22, %SDL_
   br label %switch.edge
 
 switch.edge:                                      ; preds = %44, %45, %44, %44, %44, %46
-  %48 = phi i32 [ %47, %46 ], [ 2, %44 ], [ 2, %44 ], [ 2, %44 ], [ 1, %45 ], [ 2, %44 ]
+  %48 = phi i32 [ %47, %46 ], [ 2, %44 ], [ 1, %45 ], [ 2, %44 ], [ 2, %44 ], [ 2, %44 ]
   %49 = zext nneg i32 %48 to i64
   %50 = load i32, ptr %0, align 8
   %51 = and i32 %50, 2
@@ -6945,7 +6945,7 @@ switch.edge:                                      ; preds = %44, %45, %44, %44, 
   br label %92
 
 92:                                               ; preds = %73, %75, %91, %67
-  %.067 = phi i1 [ true, %67 ], [ %82, %91 ], [ %76, %75 ], [ false, %73 ]
+  %.067 = phi i1 [ %82, %91 ], [ true, %67 ], [ %76, %75 ], [ false, %73 ]
   %93 = load i32, ptr %0, align 8
   %94 = and i32 %93, 2
   %.not99 = icmp eq i32 %94, 0
@@ -6956,7 +6956,7 @@ switch.edge:                                      ; preds = %44, %45, %44, %44, 
   br label %96
 
 96:                                               ; preds = %92, %95, %52, %41, %34, %SDL_SurfaceValid.exit.thread
-  %.0 = phi i1 [ %35, %34 ], [ %42, %41 ], [ false, %52 ], [ %28, %SDL_SurfaceValid.exit.thread ], [ %.067, %95 ], [ %.067, %92 ]
+  %.0 = phi i1 [ %35, %34 ], [ %42, %41 ], [ %28, %SDL_SurfaceValid.exit.thread ], [ false, %52 ], [ %.067, %95 ], [ %.067, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
@@ -7161,7 +7161,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_
   br label %switch.edge.thread
 
 switch.edge.thread:                               ; preds = %86, %86, %86, %86, %87
-  %.ph = phi i32 [ 2, %86 ], [ 1, %87 ], [ 2, %86 ], [ 2, %86 ], [ 2, %86 ]
+  %.ph = phi i32 [ 2, %86 ], [ 2, %86 ], [ 2, %86 ], [ 1, %87 ], [ 2, %86 ]
   %88 = mul nuw i32 %.ph, %1
   %89 = zext i32 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 %89
@@ -7229,7 +7229,7 @@ switch.edge:                                      ; preds = %.thread138, %79
   br label %123
 
 123:                                              ; preds = %65, %67, %.critedge, %.thread122, %122, %44, %37, %SDL_SurfaceValid.exit.thread
-  %.0 = phi i1 [ %38, %37 ], [ %45, %44 ], [ %31, %SDL_SurfaceValid.exit.thread ], [ false, %122 ], [ %51, %65 ], [ %.4120, %.thread122 ], [ %68, %67 ], [ false, %.critedge ]
+  %.0 = phi i1 [ %38, %37 ], [ %45, %44 ], [ false, %122 ], [ %31, %SDL_SurfaceValid.exit.thread ], [ %51, %65 ], [ %68, %67 ], [ false, %.critedge ], [ %.4120, %.thread122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -7314,7 +7314,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_S
   br label %switch.edge
 
 switch.edge:                                      ; preds = %35, %36, %35, %35, %35, %37
-  %39 = phi i32 [ %38, %37 ], [ 2, %35 ], [ 2, %35 ], [ 2, %35 ], [ 1, %36 ], [ 2, %35 ]
+  %39 = phi i32 [ %38, %37 ], [ 2, %35 ], [ 1, %36 ], [ 2, %35 ], [ 2, %35 ], [ 2, %35 ]
   %40 = zext nneg i32 %39 to i64
   %41 = load i32, ptr %0, align 8
   %42 = and i32 %41, 2
@@ -7405,7 +7405,7 @@ switch.edge:                                      ; preds = %35, %36, %35, %35, 
   br label %80
 
 80:                                               ; preds = %76, %79, %43, %32, %25, %SDL_SurfaceValid.exit.thread
-  %.048 = phi i1 [ %26, %25 ], [ %33, %32 ], [ false, %43 ], [ %19, %SDL_SurfaceValid.exit.thread ], [ %.0.shrunk, %79 ], [ %.0.shrunk, %76 ]
+  %.048 = phi i1 [ %26, %25 ], [ %33, %32 ], [ %19, %SDL_SurfaceValid.exit.thread ], [ false, %43 ], [ %.0.shrunk, %79 ], [ %.0.shrunk, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.048
 }
@@ -7585,7 +7585,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
   br label %switch.edge.thread
 
 switch.edge.thread:                               ; preds = %97, %97, %97, %97, %98
-  %.ph = phi i32 [ 2, %97 ], [ 1, %98 ], [ 2, %97 ], [ 2, %97 ], [ 2, %97 ]
+  %.ph = phi i32 [ 2, %97 ], [ 2, %97 ], [ 2, %97 ], [ 1, %98 ], [ 2, %97 ]
   %99 = mul nuw i32 %.ph, %1
   %100 = zext i32 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 %100

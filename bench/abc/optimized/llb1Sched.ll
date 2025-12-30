@@ -185,7 +185,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %49, %52, %59, %65
-  %.284 = phi i32 [ %.082107, %49 ], [ %spec.select96, %65 ], [ %.082107, %52 ], [ %spec.select95, %59 ]
+  %.284 = phi i32 [ %spec.select96, %65 ], [ %spec.select95, %59 ], [ %.082107, %52 ], [ %.082107, %49 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %._crit_edge111, label %49, !llvm.loop !29

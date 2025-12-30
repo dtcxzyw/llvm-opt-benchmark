@@ -405,7 +405,7 @@ sub_0:                                            ; preds = %49
   br label %86
 
 79:                                               ; preds = %64, %52, %.tail.thread, %58, %76, %70, %48
-  %.058 = phi ptr [ %34, %48 ], [ %77, %76 ], [ null, %.tail.thread ], [ %.1.ph, %58 ], [ %.2.ph, %70 ], [ null, %52 ], [ null, %64 ]
+  %.058 = phi ptr [ %34, %48 ], [ %77, %76 ], [ %.2.ph, %70 ], [ %.1.ph, %58 ], [ null, %.tail.thread ], [ null, %52 ], [ null, %64 ]
   %80 = getelementptr i8, ptr %0, i64 528
   %.val.i = load ptr, ptr %80, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %.val.i, null

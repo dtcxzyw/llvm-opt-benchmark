@@ -618,7 +618,7 @@ _ZL14gmx_sfree_implI7t_pargsEvPKcS2_iPT_.exit:    ; preds = %45, %243
   br label %246
 
 .loopexit.split-lp:                               ; preds = %.loopexit123, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %137, %98, %75, %64
-  %.pn87.pn = phi { ptr, i32 } [ %.pn87, %75 ], [ %.pn, %64 ], [ %.pn85, %137 ], [ %.pn83, %98 ], [ %lpad.loopexit, %.loopexit123 ], [ %lpad.loopexit124, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp125, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn87.pn = phi { ptr, i32 } [ %.pn87, %75 ], [ %.pn85, %137 ], [ %.pn83, %98 ], [ %.pn, %64 ], [ %lpad.loopexit, %.loopexit123 ], [ %lpad.loopexit124, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp125, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %245 = getelementptr inbounds nuw i8, ptr %14, i64 224

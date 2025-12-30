@@ -825,7 +825,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !139
   br label %41
 
@@ -1574,12 +1574,12 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   br i1 %exitcond.not, label %.thread238, label %.split, !llvm.loop !187
 
 .thread238:                                       ; preds = %.split, %.split.us, %128, %126, %98
-  %.1189249 = phi float [ %.0188260, %128 ], [ %.0188260, %98 ], [ %.0188260, %126 ], [ %.1189, %.split.us ], [ %.1189, %.split ]
-  %.1194248 = phi float [ %.0193258, %128 ], [ %.0193258, %98 ], [ %.0193258, %126 ], [ %.1194, %.split.us ], [ %.1194, %.split ]
-  %.1197247 = phi float [ %.0196257, %128 ], [ %.0196257, %98 ], [ %.0196257, %126 ], [ %137, %.split.us ], [ %137, %.split ]
-  %.1200246 = phi float [ %.2201, %128 ], [ %.0199256, %98 ], [ %.2201, %126 ], [ %.2201, %.split.us ], [ %.2201, %.split ]
-  %.1212 = phi float [ %.0211252, %128 ], [ %.0211252, %98 ], [ %.0211252, %126 ], [ %.2213, %.split.us ], [ %.2213, %.split ]
-  %.1209 = phi float [ %.0208254, %128 ], [ %.0208254, %98 ], [ %.0208254, %126 ], [ %.2210, %.split.us ], [ %.2210, %.split ]
+  %.1189249 = phi float [ %.0188260, %98 ], [ %.0188260, %126 ], [ %.0188260, %128 ], [ %.1189, %.split.us ], [ %.1189, %.split ]
+  %.1194248 = phi float [ %.0193258, %98 ], [ %.0193258, %126 ], [ %.0193258, %128 ], [ %.1194, %.split.us ], [ %.1194, %.split ]
+  %.1197247 = phi float [ %.0196257, %98 ], [ %.0196257, %126 ], [ %.0196257, %128 ], [ %137, %.split.us ], [ %137, %.split ]
+  %.1200246 = phi float [ %.0199256, %98 ], [ %.2201, %126 ], [ %.2201, %128 ], [ %.2201, %.split.us ], [ %.2201, %.split ]
+  %.1212 = phi float [ %.0211252, %98 ], [ %.0211252, %126 ], [ %.0211252, %128 ], [ %.2213, %.split.us ], [ %.2213, %.split ]
+  %.1209 = phi float [ %.0208254, %98 ], [ %.0208254, %126 ], [ %.0208254, %128 ], [ %.2210, %.split.us ], [ %.2210, %.split ]
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 3
   %260 = trunc nuw i64 %indvars.iv.next269 to i32
   %261 = icmp sgt i32 %0, %260

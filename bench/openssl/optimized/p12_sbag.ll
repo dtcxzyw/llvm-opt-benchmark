@@ -349,8 +349,8 @@ define ptr @PKCS12_SAFEBAG_create_secret(i32 noundef %0, i32 noundef %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %19, %8, %10
-  %.sink32 = phi i32 [ 190, %8 ], [ 195, %19 ], [ 170, %10 ], [ %.sink32.ph, %.thread.sink.split ]
-  %.sink = phi i32 [ 112, %8 ], [ 524301, %19 ], [ 524301, %10 ], [ %.sink.ph, %.thread.sink.split ]
+  %.sink32 = phi i32 [ 170, %10 ], [ 190, %8 ], [ 195, %19 ], [ %.sink32.ph, %.thread.sink.split ]
+  %.sink = phi i32 [ 524301, %10 ], [ 112, %8 ], [ 524301, %19 ], [ %.sink.ph, %.thread.sink.split ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink32, ptr noundef nonnull @__func__.PKCS12_SAFEBAG_create_secret) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #4
@@ -358,7 +358,7 @@ define ptr @PKCS12_SAFEBAG_create_secret(i32 noundef %0, i32 noundef %1, ptr nou
   br label %25
 
 25:                                               ; preds = %.thread, %22, %7
-  %.0 = phi ptr [ null, %7 ], [ %20, %22 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %7 ], [ null, %.thread ], [ %20, %22 ]
   ret ptr %.0
 }
 

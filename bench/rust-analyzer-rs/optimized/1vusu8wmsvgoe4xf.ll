@@ -1027,7 +1027,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..flatt
   br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583.exit"
 
 .body2:                                           ; preds = %44, %39, %.body
-  %.pn = phi { ptr, i32 } [ %14, %.body ], [ %40, %39 ], [ %40, %44 ]
+  %.pn = phi { ptr, i32 } [ %14, %.body ], [ %40, %44 ], [ %40, %39 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(32) %52) #17
           to label %common.resume unwind label %78
@@ -1078,7 +1078,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..flatt
   br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583.exit5"
 
 common.resume:                                    ; preds = %.body2, %65, %70
-  %common.resume.op = phi { ptr, i32 } [ %66, %65 ], [ %66, %70 ], [ %.pn, %.body2 ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %70 ], [ %66, %65 ], [ %.pn, %.body2 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583.exit5": ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583.exit", %72, %76
@@ -1189,7 +1189,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..flatt
   br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583.exit"
 
 .body2:                                           ; preds = %44, %39, %.body
-  %.pn = phi { ptr, i32 } [ %14, %.body ], [ %40, %39 ], [ %40, %44 ]
+  %.pn = phi { ptr, i32 } [ %14, %.body ], [ %40, %44 ], [ %40, %39 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(32) %52) #17
           to label %common.resume unwind label %78
@@ -1240,7 +1240,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..flatt
   br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583.exit5"
 
 common.resume:                                    ; preds = %.body2, %65, %70
-  %common.resume.op = phi { ptr, i32 } [ %66, %65 ], [ %66, %70 ], [ %.pn, %.body2 ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %70 ], [ %66, %65 ], [ %.pn, %.body2 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583.exit5": ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$$GT$17hd5613ef7c739888dE.llvm.4042744832115172583.exit", %72, %76
@@ -1511,7 +1511,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17
           to label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$cfg..cfg_expr..CfgExpr$GT$$GT$17h87828e6339a06dc9E.llvm.4042744832115172583.exit" unwind label %8, !noalias !917
 
 common.resume:                                    ; preds = %31, %35, %16, %20, %8
-  %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %17, %16 ], [ %17, %20 ], [ %32, %35 ], [ %32, %31 ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %17, %20 ], [ %17, %16 ], [ %32, %35 ], [ %32, %31 ]
   resume { ptr, i32 } %common.resume.op
 
 8:                                                ; preds = %6
@@ -1941,7 +1941,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$cfg..cfg_expr..CfgExpr$
   br label %.body
 
 .body:                                            ; preds = %26, %22, %12, %48, %37, %41
-  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %38, %41 ], [ %23, %22 ], [ %23, %26 ], [ %49, %48 ], [ %13, %12 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %38, %41 ], [ %38, %37 ], [ %23, %26 ], [ %23, %22 ], [ %49, %48 ], [ %13, %12 ]
   br label %46
 
 50:                                               ; preds = %46

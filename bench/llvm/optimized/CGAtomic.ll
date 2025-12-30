@@ -883,7 +883,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit183:         ; preds = %_ZNSt7__cxx1112basi
   br i1 %or.cond7.i.i, label %_ZNKSt14default_deleteIN5clang16AtomicScopeModelEEclEPS1_.exit.i, label %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt14default_deleteIN5clang16AtomicScopeModelEEclEPS1_.exit.i: ; preds = %337, %344, %346
-  %.sink14.i.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang19AtomicScopeHIPModelE, i64 16), %344 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang22AtomicScopeOpenCLModelE, i64 16), %337 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang23AtomicScopeGenericModelE, i64 16), %346 ]
+  %.sink14.i.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang22AtomicScopeOpenCLModelE, i64 16), %337 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang19AtomicScopeHIPModelE, i64 16), %344 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang23AtomicScopeGenericModelE, i64 16), %346 ]
   %348 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !712
   store ptr %.sink14.i.i, ptr %348, align 8, !tbaa !715, !noalias !712
   %349 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -1255,9 +1255,9 @@ _ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE.exit: ; preds = %
   br label %459
 
 459:                                              ; preds = %383, %388, %_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE.exit, %403, %367, %364, %361, %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit
-  %.0147 = phi i1 [ true, %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit ], [ true, %361 ], [ true, %364 ], [ true, %367 ], [ true, %388 ], [ true, %383 ], [ true, %403 ], [ %.1, %_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE.exit ]
-  %.0146 = phi ptr [ null, %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit ], [ null, %361 ], [ null, %364 ], [ null, %367 ], [ %386, %388 ], [ %386, %383 ], [ null, %403 ], [ null, %_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE.exit ]
-  %.0 = phi ptr [ null, %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit ], [ null, %361 ], [ null, %364 ], [ null, %367 ], [ %391, %388 ], [ null, %383 ], [ null, %403 ], [ null, %_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE.exit ]
+  %.0147 = phi i1 [ true, %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit ], [ true, %361 ], [ true, %364 ], [ true, %367 ], [ true, %388 ], [ true, %403 ], [ %.1, %_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE.exit ], [ true, %383 ]
+  %.0146 = phi ptr [ null, %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit ], [ null, %361 ], [ null, %364 ], [ null, %367 ], [ %386, %388 ], [ null, %403 ], [ null, %_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE.exit ], [ %386, %383 ]
+  %.0 = phi ptr [ null, %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit ], [ null, %361 ], [ null, %364 ], [ null, %367 ], [ %391, %388 ], [ null, %403 ], [ null, %_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE.exit ], [ null, %383 ]
   %460 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i237 = load i64, ptr %460, align 8, !tbaa !8
   %461 = and i64 %.sroa.0.0.copyload.i237, -16
@@ -3165,13 +3165,13 @@ _ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   ]
 
 .thread979.thread:                                ; preds = %1296, %1294, %1294, %1294, %1294, %1294, %1294, %1294
-  %1298 = phi i1 [ %1297, %1296 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ]
+  %1298 = phi i1 [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ true, %1294 ], [ %1297, %1296 ]
   %1299 = icmp eq i32 %1295, 80
   br label %1300
 
 1300:                                             ; preds = %1296, %1296, %1296, %1296, %1296, %1296, %.thread979.thread
-  %1301 = phi i1 [ %1297, %1296 ], [ %1297, %1296 ], [ %1297, %1296 ], [ %1297, %1296 ], [ %1297, %1296 ], [ %1297, %1296 ], [ %1298, %.thread979.thread ]
-  %1302 = phi i1 [ true, %1296 ], [ true, %1296 ], [ true, %1296 ], [ true, %1296 ], [ true, %1296 ], [ true, %1296 ], [ %1299, %.thread979.thread ]
+  %1301 = phi i1 [ %1297, %1296 ], [ %1298, %.thread979.thread ], [ %1297, %1296 ], [ %1297, %1296 ], [ %1297, %1296 ], [ %1297, %1296 ], [ %1297, %1296 ]
+  %1302 = phi i1 [ true, %1296 ], [ %1299, %.thread979.thread ], [ true, %1296 ], [ true, %1296 ], [ true, %1296 ], [ true, %1296 ], [ true, %1296 ]
   %1303 = load i8, ptr %340, align 8, !tbaa !782
   %1304 = icmp eq i8 %1303, 17
   br i1 %1304, label %1305, label %1348
@@ -4586,7 +4586,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10AtomicExpr9isCmpXChgE
   br label %switch.edge
 
 switch.edge:                                      ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4
-  %5 = phi i1 [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ false, %4 ], [ true, %1 ]
+  %5 = phi i1 [ true, %1 ], [ false, %4 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %5
 }
 
@@ -4901,7 +4901,7 @@ _ZNK5clang10AtomicExpr13getScopeModelEv.exit:     ; preds = %26
   br label %196
 
 46:                                               ; preds = %10, %24, %26
-  %47 = phi ptr [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang19AtomicScopeHIPModelE, i64 16), %24 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang22AtomicScopeOpenCLModelE, i64 16), %10 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang23AtomicScopeGenericModelE, i64 16), %26 ]
+  %47 = phi ptr [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang22AtomicScopeOpenCLModelE, i64 16), %10 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang19AtomicScopeHIPModelE, i64 16), %24 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang23AtomicScopeGenericModelE, i64 16), %26 ]
   %48 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !1213
   store ptr %47, ptr %48, align 8, !tbaa !715, !noalias !1213
   %49 = load i8, ptr %9, align 8, !tbaa !782
@@ -5988,7 +5988,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   br label %_ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread
 
 _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE.exit.thread: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %209, %202, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
-  %.020 = phi ptr [ %203, %209 ], [ %233, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit ], [ %203, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ %203, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i ], [ %203, %202 ]
+  %.020 = phi ptr [ %233, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit ], [ %203, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i ], [ %203, %202 ], [ %203, %209 ], [ %203, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ]
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %235 = and i64 %206, -8
   %236 = inttoptr i64 %235 to ptr
@@ -6185,7 +6185,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit.i.i: ; p
   br i1 %.not.i.i.i17.i.i.i, label %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.i.i, label %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i.i
 
 _ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i.i: ; preds = %326, %325, %324
-  %.sroa.041.0.i.ph.i.i = phi i32 [ 1, %325 ], [ 2, %324 ], [ 3, %326 ]
+  %.sroa.041.0.i.ph.i.i = phi i32 [ 2, %324 ], [ 1, %325 ], [ 3, %326 ]
   %327 = and i64 %.0.copyload.i.i.i.i.i.i.i16.i.i.i, -16
   %328 = inttoptr i64 %327 to ptr
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 24
@@ -6193,8 +6193,8 @@ _ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110At
   br label %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.i.i
 
 _ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.i.i: ; preds = %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i.i, %326, %325, %324
-  %.sroa.0.0.i.i.i.i.sink.i.i = phi i64 [ 0, %325 ], [ 0, %324 ], [ 0, %326 ], [ %.sroa.0.0.copyload.i.i.i.i18.i.i.i, %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i.i ]
-  %.sroa.041.0.i.i.i = phi i32 [ 1, %325 ], [ 2, %324 ], [ 3, %326 ], [ %.sroa.041.0.i.ph.i.i, %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i.i ]
+  %.sroa.0.0.i.i.i.i.sink.i.i = phi i64 [ 0, %324 ], [ 0, %325 ], [ 0, %326 ], [ %.sroa.0.0.copyload.i.i.i.i18.i.i.i, %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i.i ]
+  %.sroa.041.0.i.i.i = phi i32 [ 2, %324 ], [ 1, %325 ], [ 3, %326 ], [ %.sroa.041.0.i.ph.i.i, %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i.i ]
   %330 = or i64 %.0.copyload.i.i.i.i.i.i.i16.i.i.i, %.sroa.861.0.copyload.i.i.i
   %331 = and i64 %330, 7
   %332 = or i64 %.sroa.0.0.i.i.i.i.sink.i.i, %331
@@ -6513,7 +6513,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i: ; preds = %
   br i1 %.not.i.i.i17.i.i21.i, label %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.i25.i, label %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i22.i
 
 _ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i22.i: ; preds = %472, %471, %470
-  %.sroa.041.0.i.ph.i23.i = phi i32 [ 1, %471 ], [ 2, %470 ], [ 3, %472 ]
+  %.sroa.041.0.i.ph.i23.i = phi i32 [ 2, %470 ], [ 1, %471 ], [ 3, %472 ]
   %473 = and i64 %.0.copyload.i.i.i.i.i.i.i16.i.i20.i, -16
   %474 = inttoptr i64 %473 to ptr
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 24
@@ -6521,8 +6521,8 @@ _ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110At
   br label %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.i25.i
 
 _ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.i25.i: ; preds = %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i22.i, %472, %471, %470
-  %.sroa.0.0.i.i.i.i.sink.i26.i = phi i64 [ 0, %471 ], [ 0, %470 ], [ 0, %472 ], [ %.sroa.0.0.copyload.i.i.i.i18.i.i24.i, %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i22.i ]
-  %.sroa.041.0.i.i27.i = phi i32 [ 1, %471 ], [ 2, %470 ], [ 3, %472 ], [ %.sroa.041.0.i.ph.i23.i, %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i22.i ]
+  %.sroa.0.0.i.i.i.i.sink.i26.i = phi i64 [ 0, %470 ], [ 0, %471 ], [ 0, %472 ], [ %.sroa.0.0.copyload.i.i.i.i18.i.i24.i, %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i22.i ]
+  %.sroa.041.0.i.i27.i = phi i32 [ 2, %470 ], [ 1, %471 ], [ 3, %472 ], [ %.sroa.041.0.i.ph.i23.i, %_ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110AtomicInfoENS0_6RValueENS0_7AddressE.exit.sink.split.i22.i ]
   %476 = or i64 %.0.copyload.i.i.i.i.i.i.i16.i.i20.i, %.sroa.861.0.copyload.i.i14.i
   %477 = and i64 %476, 7
   %478 = or i64 %.sroa.0.0.i.i.i.i.sink.i26.i, %477
@@ -7044,7 +7044,7 @@ define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_110AtomicInfo16getAtomicPoi
   br label %_ZNK5clang7CodeGen6LValue21getRawBitFieldPointerERNS0_15CodeGenFunctionE.exit
 
 _ZNK5clang7CodeGen6LValue21getRawBitFieldPointerERNS0_15CodeGenFunctionE.exit: ; preds = %37, %34, %26, %23, %15, %12, %4
-  %.0 = phi ptr [ %6, %4 ], [ %25, %23 ], [ %14, %12 ], [ %17, %15 ], [ %28, %26 ], [ %39, %37 ], [ %36, %34 ]
+  %.0 = phi ptr [ %6, %4 ], [ %17, %15 ], [ %14, %12 ], [ %28, %26 ], [ %25, %23 ], [ %39, %37 ], [ %36, %34 ]
   ret ptr %.0
 }
 
@@ -8759,7 +8759,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13get
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ false, %22 ], [ false, %20 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ]
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 
@@ -9380,9 +9380,9 @@ _ZNK5clang10AtomicExpr10isVolatileEv.exit151:     ; preds = %100, %129
   br label %328
 
 244:                                              ; preds = %190, %184, %176, %170, %203, %201, %199, %197, %204, %202, %200, %198, %162, %148, %140, %10
-  %.0127 = phi i32 [ 0, %10 ], [ 0, %140 ], [ %.1128, %148 ], [ %.2129, %162 ], [ 0, %204 ], [ 0, %176 ], [ 0, %202 ], [ 0, %198 ], [ 0, %200 ], [ 28, %197 ], [ 29, %199 ], [ 30, %201 ], [ 28, %203 ], [ 0, %170 ], [ 0, %184 ], [ 0, %190 ]
-  %.0125 = phi i1 [ false, %10 ], [ false, %140 ], [ false, %148 ], [ false, %162 ], [ false, %204 ], [ %.1126, %176 ], [ false, %202 ], [ false, %198 ], [ false, %200 ], [ false, %197 ], [ false, %199 ], [ false, %201 ], [ false, %203 ], [ %.1126, %170 ], [ %.2, %184 ], [ %.2, %190 ]
-  %.0124 = phi i32 [ 1, %10 ], [ 0, %140 ], [ %154, %148 ], [ %168, %162 ], [ 4, %204 ], [ %182, %176 ], [ 6, %202 ], [ 3, %198 ], [ 5, %200 ], [ 3, %197 ], [ 5, %199 ], [ 6, %201 ], [ 4, %203 ], [ 14, %170 ], [ 13, %184 ], [ %196, %190 ]
+  %.0127 = phi i32 [ 0, %10 ], [ 0, %140 ], [ %.1128, %148 ], [ %.2129, %162 ], [ 28, %197 ], [ 0, %198 ], [ 29, %199 ], [ 0, %200 ], [ 30, %201 ], [ 0, %202 ], [ 28, %203 ], [ 0, %204 ], [ 0, %170 ], [ 0, %176 ], [ 0, %184 ], [ 0, %190 ]
+  %.0125 = phi i1 [ false, %10 ], [ false, %140 ], [ false, %148 ], [ false, %162 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ %.1126, %170 ], [ %.1126, %176 ], [ %.2, %184 ], [ %.2, %190 ]
+  %.0124 = phi i32 [ 1, %10 ], [ 0, %140 ], [ %154, %148 ], [ %168, %162 ], [ 3, %197 ], [ 3, %198 ], [ 5, %199 ], [ 5, %200 ], [ 6, %201 ], [ 6, %202 ], [ 4, %203 ], [ 4, %204 ], [ 14, %170 ], [ %182, %176 ], [ 13, %184 ], [ %196, %190 ]
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %.sroa.0236.0.copyload = load i64, ptr %4, align 8, !tbaa !8
   %.sroa.2237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9727,7 +9727,7 @@ switch.lookup:                                    ; preds = %36
   br label %.thread
 
 .thread:                                          ; preds = %switch.lookup, %36, %25, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
-  %.0 = phi i32 [ 2, %36 ], [ 2, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ %switch.load, %switch.lookup ], [ 2, %25 ]
+  %.0 = phi i32 [ 2, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 2, %36 ], [ 2, %25 ], [ %switch.load, %switch.lookup ]
   tail call fastcc void @_ZL17emitAtomicCmpXchgRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_mN4llvm14AtomicOrderingES7_h(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i32 noundef %8, i32 noundef %.0, i8 noundef zeroext %9)
   br label %145
 
@@ -10680,8 +10680,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -11846,7 +11846,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   br label %18
 
 18:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit
-  %.sroa.624.0 = phi ptr [ %17, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit ], [ %.0.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ %.0.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i ]
+  %.sroa.624.0 = phi ptr [ %17, %_ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.exit ], [ %.0.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i ], [ %.0.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ]
   %19 = load ptr, ptr %0, align 8, !tbaa !747
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 280
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -12346,7 +12346,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_110AtomicInfo18requi
   unreachable
 
 38:                                               ; preds = %7, %2, %21, %9
-  %.0 = phi i1 [ true, %2 ], [ %20, %9 ], [ %36, %21 ], [ false, %7 ]
+  %.0 = phi i1 [ %20, %9 ], [ %36, %21 ], [ true, %2 ], [ false, %7 ]
   ret i1 %.0
 }
 

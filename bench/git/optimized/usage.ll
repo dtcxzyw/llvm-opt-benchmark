@@ -770,7 +770,7 @@ define internal range(i32 0, 2) i32 @die_is_recursing_builtin() #5 {
   br label %7
 
 7:                                                ; preds = %4, %0, %6
-  %.0 = phi i32 [ 1, %0 ], [ 0, %6 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %0 ], [ 0, %4 ]
   ret i32 %.0
 }
 

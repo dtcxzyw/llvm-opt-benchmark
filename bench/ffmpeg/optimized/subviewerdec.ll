@@ -75,7 +75,7 @@ define internal i32 @subviewer_decode_frame(ptr noundef readonly captures(none) 
   %.not.i = icmp eq i8 %26, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !31
 
-.thread:                                          ; preds = %4, %10
+.thread:                                          ; preds = %10, %4
   %27 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   br label %34
 

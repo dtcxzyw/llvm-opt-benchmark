@@ -391,7 +391,7 @@ define internal range(i32 0, 2) i32 @hwloc_x86_discover(ptr noundef captures(non
   br label %76
 
 76:                                               ; preds = %71, %75, %59, %61, %2, %23
-  %.032 = phi i32 [ 0, %23 ], [ 0, %59 ], [ 0, %2 ], [ 0, %61 ], [ 1, %75 ], [ 1, %71 ]
+  %.032 = phi i32 [ 0, %23 ], [ 0, %2 ], [ 0, %61 ], [ 0, %59 ], [ 1, %75 ], [ 1, %71 ]
   ret i32 %.032
 }
 
@@ -485,9 +485,9 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_look_x86(ptr noundef captures
   br i1 %35, label %.thread357, label %36
 
 36:                                               ; preds = %34, %28, %21, %19
-  %.0116 = phi ptr [ null, %19 ], [ %30, %28 ], [ %23, %21 ], [ @fake_get_cpubind, %34 ]
-  %.0115 = phi ptr [ null, %19 ], [ %32, %28 ], [ %26, %21 ], [ @fake_set_cpubind, %34 ]
-  %.1112 = phi ptr [ %20, %19 ], [ null, %28 ], [ null, %21 ], [ null, %34 ]
+  %.0116 = phi ptr [ null, %19 ], [ %23, %21 ], [ %30, %28 ], [ @fake_get_cpubind, %34 ]
+  %.0115 = phi ptr [ null, %19 ], [ %26, %21 ], [ %32, %28 ], [ @fake_set_cpubind, %34 ]
+  %.1112 = phi ptr [ %20, %19 ], [ null, %21 ], [ null, %28 ], [ null, %34 ]
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %38 = load i64, ptr %37, align 8, !tbaa !31
   %39 = and i64 %38, 16
@@ -678,12 +678,12 @@ cpuid_or_from_dump.exit:                          ; preds = %.critedge.i.i, %90
   br label %116
 
 116:                                              ; preds = %111, %103, %107, %99, %cpuid_or_from_dump.exit
-  %or.cond9.not291 = phi i1 [ true, %111 ], [ false, %cpuid_or_from_dump.exit ], [ true, %99 ], [ true, %103 ], [ true, %107 ]
-  %117 = phi i32 [ %112, %111 ], [ 1970169159, %cpuid_or_from_dump.exit ], [ 1752462657, %99 ], [ 1953391939, %103 ], [ 1750278176, %107 ]
-  %storemerge.i290 = phi i32 [ %storemerge.i289300312322, %111 ], [ 1231384169, %cpuid_or_from_dump.exit ], [ 1769238117, %99 ], [ 1215460705, %103 ], [ 1751608929, %107 ]
-  %.0274287 = phi i32 [ %.0274288301311323, %111 ], [ %.0274, %cpuid_or_from_dump.exit ], [ %.0274, %99 ], [ %.0274, %103 ], [ %.0274, %107 ]
-  %.1278286 = phi i32 [ %.1278285302310324, %111 ], [ 1818588270, %cpuid_or_from_dump.exit ], [ 1145913699, %99 ], [ 1936487777, %103 ], [ 538995041, %107 ]
-  %.0117 = phi i32 [ %spec.select, %111 ], [ 0, %cpuid_or_from_dump.exit ], [ 1, %99 ], [ 2, %103 ], [ 2, %107 ]
+  %or.cond9.not291 = phi i1 [ false, %cpuid_or_from_dump.exit ], [ true, %99 ], [ true, %107 ], [ true, %103 ], [ true, %111 ]
+  %117 = phi i32 [ 1970169159, %cpuid_or_from_dump.exit ], [ 1752462657, %99 ], [ 1750278176, %107 ], [ 1953391939, %103 ], [ %112, %111 ]
+  %storemerge.i290 = phi i32 [ 1231384169, %cpuid_or_from_dump.exit ], [ 1769238117, %99 ], [ 1751608929, %107 ], [ 1215460705, %103 ], [ %storemerge.i289300312322, %111 ]
+  %.0274287 = phi i32 [ %.0274, %cpuid_or_from_dump.exit ], [ %.0274, %99 ], [ %.0274, %107 ], [ %.0274, %103 ], [ %.0274288301311323, %111 ]
+  %.1278286 = phi i32 [ 1818588270, %cpuid_or_from_dump.exit ], [ 1145913699, %99 ], [ 538995041, %107 ], [ 1936487777, %103 ], [ %.1278285302310324, %111 ]
+  %.0117 = phi i32 [ 0, %cpuid_or_from_dump.exit ], [ 1, %99 ], [ 2, %107 ], [ 2, %103 ], [ %spec.select, %111 ]
   %118 = icmp eq i32 %.0274287, 0
   br i1 %118, label %look_procs.exit.thread, label %119
 
@@ -783,10 +783,10 @@ cpuid_or_from_dump.exit164.thread:                ; preds = %119
   br i1 %161, label %.thread334, label %.thread339
 
 cpuid_or_from_dump.exit164:                       ; preds = %.critedge.i.i163, %._crit_edge.i.i155
-  %162 = phi i32 [ %147, %.critedge.i.i163 ], [ 0, %._crit_edge.i.i155 ]
-  %163 = phi i32 [ %121, %.critedge.i.i163 ], [ %.pre398, %._crit_edge.i.i155 ]
-  %.2279 = phi i32 [ %149, %.critedge.i.i163 ], [ 0, %._crit_edge.i.i155 ]
-  %storemerge.i156 = phi i32 [ %151, %.critedge.i.i163 ], [ 0, %._crit_edge.i.i155 ]
+  %162 = phi i32 [ 0, %._crit_edge.i.i155 ], [ %147, %.critedge.i.i163 ]
+  %163 = phi i32 [ %.pre398, %._crit_edge.i.i155 ], [ %121, %.critedge.i.i163 ]
+  %.2279 = phi i32 [ 0, %._crit_edge.i.i155 ], [ %149, %.critedge.i.i163 ]
+  %storemerge.i156 = phi i32 [ 0, %._crit_edge.i.i155 ], [ %151, %.critedge.i.i163 ]
   store i32 %storemerge.i156, ptr %8, align 16, !tbaa !67
   %164 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %.2279, ptr %164, align 16, !tbaa !67
@@ -870,10 +870,10 @@ cpuid_or_from_dump.exit164:                       ; preds = %.critedge.i.i163, %
   br label %cpuid_or_from_dump.exit183
 
 cpuid_or_from_dump.exit183:                       ; preds = %.critedge.i.i182, %._crit_edge.i.i174
-  %200 = phi i32 [ %192, %.critedge.i.i182 ], [ 0, %._crit_edge.i.i174 ]
-  %.3 = phi i32 [ %194, %.critedge.i.i182 ], [ 0, %._crit_edge.i.i174 ]
-  %.1275 = phi i32 [ %190, %.critedge.i.i182 ], [ 0, %._crit_edge.i.i174 ]
-  %storemerge.i175 = phi i32 [ %196, %.critedge.i.i182 ], [ 0, %._crit_edge.i.i174 ]
+  %200 = phi i32 [ 0, %._crit_edge.i.i174 ], [ %192, %.critedge.i.i182 ]
+  %.3 = phi i32 [ 0, %._crit_edge.i.i174 ], [ %194, %.critedge.i.i182 ]
+  %.1275 = phi i32 [ 0, %._crit_edge.i.i174 ], [ %190, %.critedge.i.i182 ]
+  %storemerge.i175 = phi i32 [ 0, %._crit_edge.i.i174 ], [ %196, %.critedge.i.i182 ]
   %201 = icmp ugt i32 %.0274287, 6
   br i1 %201, label %202, label %244
 
@@ -1356,7 +1356,7 @@ look_procs.exit.thread.thread:                    ; preds = %look_procs.exit
   br label %.lr.ph377.preheader
 
 look_procs.exit.thread:                           ; preds = %345, %351, %348, %381, %376, %look_procs.exit, %116
-  %.1 = phi i32 [ -1, %116 ], [ 0, %345 ], [ -1, %look_procs.exit ], [ 0, %376 ], [ 0, %381 ], [ 0, %348 ], [ 0, %351 ]
+  %.1 = phi i32 [ -1, %116 ], [ -1, %look_procs.exit ], [ 0, %376 ], [ 0, %381 ], [ 0, %348 ], [ 0, %351 ], [ 0, %345 ]
   br i1 %.not379, label %._crit_edge378, label %.lr.ph377.preheader
 
 .lr.ph377.preheader:                              ; preds = %look_procs.exit.thread.thread, %look_procs.exit.thread
@@ -2026,7 +2026,7 @@ cpuid_or_from_dump.exit282:                       ; preds = %.critedge.i.i281, %
   br label %167
 
 167:                                              ; preds = %160, %cpuid_or_from_dump.exit282.thread, %162, %cpuid_or_from_dump.exit282, %116
-  %.0401 = phi i32 [ %storemerge.i274, %cpuid_or_from_dump.exit282 ], [ %storemerge.i274, %162 ], [ 0, %cpuid_or_from_dump.exit282.thread ], [ %storemerge.i408, %116 ], [ %storemerge.i274, %160 ]
+  %.0401 = phi i32 [ %storemerge.i274, %cpuid_or_from_dump.exit282 ], [ %storemerge.i274, %162 ], [ %storemerge.i408, %116 ], [ 0, %cpuid_or_from_dump.exit282.thread ], [ %storemerge.i274, %160 ]
   %168 = icmp ugt i32 %2, 25
   br i1 %168, label %169, label %215
 
@@ -3531,7 +3531,7 @@ hwloc_flsl_manual.exit371:                        ; preds = %795, %797
   br i1 %or.cond419, label %.thread416.sink.split, label %.thread416
 
 .thread416.sink.split:                            ; preds = %861, %852, %847, %818, %hwloc_flsl_manual.exit371
-  %.sink635 = phi i32 [ %809, %hwloc_flsl_manual.exit371 ], [ %788, %852 ], [ %822, %818 ], [ %849, %847 ], [ %782, %861 ]
+  %.sink635 = phi i32 [ %809, %hwloc_flsl_manual.exit371 ], [ %822, %818 ], [ %849, %847 ], [ %788, %852 ], [ %782, %861 ]
   store i32 %.sink635, ptr %794, align 4, !tbaa !127
   br label %.thread416
 
@@ -5013,8 +5013,8 @@ cpuid_or_from_dump.exit95:                        ; preds = %137, %139
   br i1 %exitcond195.not, label %.split159.us, label %.split157, !llvm.loop !161
 
 .split159.us:                                     ; preds = %176, %cpuid_or_from_dump.exit95, %cpuid_or_from_dump.exit95.us, %cpuid_or_from_dump.exit95.thread, %.split157.us, %..split159.us_crit_edge
-  %.us-phi160 = phi i32 [ %.069153, %cpuid_or_from_dump.exit95.thread ], [ 0, %.split157.us ], [ %97, %..split159.us_crit_edge ], [ %97, %cpuid_or_from_dump.exit95.us ], [ %153, %176 ], [ %.069153, %cpuid_or_from_dump.exit95 ]
-  %.us-phi161 = phi i32 [ %.068154, %cpuid_or_from_dump.exit95.thread ], [ 0, %.split157.us ], [ %98, %..split159.us_crit_edge ], [ %98, %cpuid_or_from_dump.exit95.us ], [ %154, %176 ], [ %.068154, %cpuid_or_from_dump.exit95 ]
+  %.us-phi160 = phi i32 [ %97, %..split159.us_crit_edge ], [ 0, %.split157.us ], [ %.069153, %cpuid_or_from_dump.exit95.thread ], [ %97, %cpuid_or_from_dump.exit95.us ], [ %.069153, %cpuid_or_from_dump.exit95 ], [ %153, %176 ]
+  %.us-phi161 = phi i32 [ %98, %..split159.us_crit_edge ], [ 0, %.split157.us ], [ %.068154, %cpuid_or_from_dump.exit95.thread ], [ %98, %cpuid_or_from_dump.exit95.us ], [ %.068154, %cpuid_or_from_dump.exit95 ], [ %154, %176 ]
   store i32 %.us-phi160, ptr %73, align 4, !tbaa !105
   %177 = lshr i32 %.us-phi160, %.us-phi161
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 8

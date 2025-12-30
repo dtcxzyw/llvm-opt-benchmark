@@ -406,7 +406,7 @@ _ZN3gmx17NelderMeadSimplexD2Ev.exit:              ; preds = %_ZNSt16allocator_tr
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %178, %176, %34, %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit42, %49, %32
-  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %50, %49 ], [ %35, %34 ], [ %.pn28, %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit42 ], [ %177, %176 ], [ %177, %178 ]
+  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ], [ %.pn28, %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit42 ], [ %50, %49 ], [ %177, %176 ], [ %177, %178 ]
   call void @_ZN3gmx17NelderMeadSimplexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn28.pn.pn.pn

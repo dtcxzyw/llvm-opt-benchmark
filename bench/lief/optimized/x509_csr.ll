@@ -303,7 +303,7 @@ x509_csr_get_version.exit.thread.thread:          ; preds = %63, %x509_csr_get_v
   br label %132
 
 132:                                              ; preds = %129, %12, %5, %131, %128, %124, %118, %108, %101, %98, %88, %80, %76, %75, %mbedtls_x509_csr_free.exit98, %mbedtls_x509_csr_free.exit96, %mbedtls_x509_csr_free.exit
-  %.0 = phi i32 [ -10368, %12 ], [ -10240, %5 ], [ -8576, %mbedtls_x509_csr_free.exit ], [ -8678, %mbedtls_x509_csr_free.exit96 ], [ %62, %mbedtls_x509_csr_free.exit98 ], [ %74, %75 ], [ -9600, %76 ], [ %81, %80 ], [ %87, %88 ], [ %97, %98 ], [ %102, %101 ], [ %107, %108 ], [ %117, %118 ], [ -9728, %124 ], [ %127, %128 ], [ -8678, %131 ], [ 0, %129 ]
+  %.0 = phi i32 [ -8576, %mbedtls_x509_csr_free.exit ], [ -8678, %mbedtls_x509_csr_free.exit96 ], [ %62, %mbedtls_x509_csr_free.exit98 ], [ %74, %75 ], [ -9600, %76 ], [ %81, %80 ], [ %87, %88 ], [ %97, %98 ], [ %102, %101 ], [ %107, %108 ], [ %117, %118 ], [ -9728, %124 ], [ %127, %128 ], [ -8678, %131 ], [ -10240, %5 ], [ -10368, %12 ], [ 0, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -646,7 +646,7 @@ thread-pre-split:                                 ; preds = %108
   br label %130
 
 130:                                              ; preds = %117, %121, %108, %101, %105, %91, %84, %88, %75, %69, %72, %56, %61, %50, %36, %48, %29, %34, %21, %27, %14, %19, %4, %12, %126
-  %.0 = phi i32 [ %129, %126 ], [ -10624, %4 ], [ -10624, %14 ], [ -10624, %21 ], [ -10624, %29 ], [ -10624, %36 ], [ %55, %50 ], [ -10624, %56 ], [ -10624, %69 ], [ %80, %75 ], [ -10624, %84 ], [ %97, %91 ], [ -10624, %101 ], [ %114, %108 ], [ -10624, %12 ], [ -10624, %19 ], [ -10624, %27 ], [ -10624, %34 ], [ -10624, %48 ], [ -10624, %61 ], [ -10624, %72 ], [ -10624, %88 ], [ -10624, %105 ], [ -10624, %121 ], [ -10624, %117 ]
+  %.0 = phi i32 [ %129, %126 ], [ -10624, %12 ], [ -10624, %4 ], [ -10624, %19 ], [ -10624, %14 ], [ -10624, %27 ], [ -10624, %21 ], [ -10624, %34 ], [ -10624, %29 ], [ -10624, %48 ], [ -10624, %36 ], [ %55, %50 ], [ -10624, %61 ], [ -10624, %56 ], [ -10624, %72 ], [ -10624, %69 ], [ %80, %75 ], [ -10624, %88 ], [ -10624, %84 ], [ %97, %91 ], [ -10624, %105 ], [ -10624, %101 ], [ %114, %108 ], [ -10624, %121 ], [ -10624, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -952,8 +952,8 @@ define internal fastcc i32 @x509_csr_parse_attributes(ptr noundef nonnull %0, pt
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i, label %x509_csr_parse_extensions.exit.thread, label %.thread
 
-x509_csr_parse_extensions.exit.thread53:          ; preds = %77, %91, %87, %70, %63, %89, %85, %79
-  %.1.ph.i.ph = phi i32 [ -9576, %79 ], [ %86, %85 ], [ %90, %89 ], [ -9574, %63 ], [ %73, %70 ], [ %88, %87 ], [ -8320, %91 ], [ -9570, %77 ]
+x509_csr_parse_extensions.exit.thread53:          ; preds = %77, %70, %85, %87, %89, %91, %63, %79
+  %.1.ph.i.ph = phi i32 [ -9576, %79 ], [ -9574, %63 ], [ -8320, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %73, %70 ], [ -9570, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -961,7 +961,7 @@ x509_csr_parse_extensions.exit.thread53:          ; preds = %77, %91, %87, %70, 
   br label %.thread
 
 x509_csr_parse_extensions.exit:                   ; preds = %61, %56, %51, %.lr.ph.i
-  %.1.ph.i.in = phi i32 [ %60, %56 ], [ %50, %.lr.ph.i ], [ %55, %51 ], [ %62, %61 ]
+  %.1.ph.i.in = phi i32 [ %50, %.lr.ph.i ], [ %55, %51 ], [ %60, %56 ], [ %62, %61 ]
   %.1.ph.i = add nsw i32 %.1.ph.i.in, -9472
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -980,7 +980,7 @@ x509_csr_parse_extensions.exit.thread:            ; preds = %._crit_edge.i, %x50
   br i1 %.not47, label %97, label %.thread
 
 .thread:                                          ; preds = %x509_csr_parse_extensions.exit, %x509_csr_parse_extensions.exit.thread, %._crit_edge.i, %24, %31, %40, %44, %x509_csr_parse_extensions.exit.thread53
-  %.1.ph = phi i32 [ %32, %31 ], [ %41, %40 ], [ %25, %24 ], [ %.1.ph.i.ph, %x509_csr_parse_extensions.exit.thread53 ], [ %45, %44 ], [ -9574, %._crit_edge.i ], [ %.1.ph.i, %x509_csr_parse_extensions.exit ], [ -9574, %x509_csr_parse_extensions.exit.thread ]
+  %.1.ph = phi i32 [ %.1.ph.i.ph, %x509_csr_parse_extensions.exit.thread53 ], [ %45, %44 ], [ %41, %40 ], [ %32, %31 ], [ %25, %24 ], [ -9574, %._crit_edge.i ], [ %.1.ph.i, %x509_csr_parse_extensions.exit ], [ -9574, %x509_csr_parse_extensions.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %99
 

@@ -184,7 +184,7 @@ define internal range(i32 -1, 2) i32 @des3_ctrl(ptr noundef %0, i32 noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %11, %4, %13, %16, %5, %8
-  %.0 = phi i32 [ 1, %13 ], [ 0, %5 ], [ 0, %8 ], [ 1, %16 ], [ -1, %4 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ 1, %16 ], [ 1, %13 ], [ -1, %4 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -567,7 +567,7 @@ define internal range(i32 -1, 1073741833) i32 @des_ede3_wrap_cipher(ptr noundef 
   br label %des_ede3_wrap.exit
 
 des_ede3_wrap.exit:                               ; preds = %18, %20, %23, %30
-  %.0.i = phi i32 [ %19, %18 ], [ -1, %20 ], [ %36, %30 ], [ -1, %23 ]
+  %.0.i = phi i32 [ %19, %18 ], [ %36, %30 ], [ -1, %20 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %85
 
@@ -689,14 +689,14 @@ select.unfold.i:                                  ; preds = %79, %des_ede_cbc_ci
   br label %des_ede3_unwrap.exit
 
 des_ede3_unwrap.exit:                             ; preds = %37, %41, %select.unfold.i, %84
-  %.035.i = phi i32 [ -1, %37 ], [ %42, %41 ], [ -1, %84 ], [ %.0.i18, %select.unfold.i ]
+  %.035.i = phi i32 [ %42, %41 ], [ -1, %37 ], [ -1, %84 ], [ %.0.i18, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 85:                                               ; preds = %4, %des_ede3_unwrap.exit, %des_ede3_wrap.exit, %13
-  %.0 = phi i32 [ %.035.i, %des_ede3_unwrap.exit ], [ 0, %13 ], [ %.0.i, %des_ede3_wrap.exit ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %13 ], [ %.0.i, %des_ede3_wrap.exit ], [ %.035.i, %des_ede3_unwrap.exit ], [ -1, %4 ]
   ret i32 %.0
 }
 

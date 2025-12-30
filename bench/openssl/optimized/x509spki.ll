@@ -89,7 +89,7 @@ define ptr @NETSCAPE_SPKI_b64_decode(ptr noundef %0, i32 noundef %1) local_unnam
   br label %20
 
 20:                                               ; preds = %8, %17, %16
-  %.0 = phi ptr [ %19, %17 ], [ null, %16 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %16 ], [ %19, %17 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -143,7 +143,7 @@ define ptr @NETSCAPE_SPKI_b64_encode(ptr noundef %0) local_unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %1, %14, %13
-  %.0 = phi ptr [ %10, %14 ], [ null, %13 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %13 ], [ %10, %14 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

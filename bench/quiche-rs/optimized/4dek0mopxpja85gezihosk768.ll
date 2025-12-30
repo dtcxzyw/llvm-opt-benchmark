@@ -616,7 +616,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hf3bb7e9c9b0df815E"
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h7bf5ca15f5acc015E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h7bf5ca15f5acc015E.exit": ; preds = %4, %._crit_edge.i
-  %storemerge = phi i64 [ %1, %4 ], [ %23, %._crit_edge.i ]
+  %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
   store i64 %storemerge, ptr %5, align 8
   ret void
 }
@@ -1471,7 +1471,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17he50afd3dabb80f20E.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17he50afd3dabb80f20E.exit": ; preds = %.noexc2, %.noexc1, %.noexc, %35, %34, %29
-  %.sroa.04.0 = phi i64 [ %.sroa.04.0.copyload7, %.noexc2 ], [ -9223372036854775804, %.noexc1 ], [ %32, %34 ], [ %32, %35 ], [ -9223372036854775805, %.noexc ], [ -9223372036854775808, %29 ]
+  %.sroa.04.0 = phi i64 [ %.sroa.04.0.copyload7, %.noexc2 ], [ %32, %34 ], [ %32, %35 ], [ -9223372036854775805, %.noexc ], [ -9223372036854775804, %.noexc1 ], [ -9223372036854775808, %29 ]
   %41 = getelementptr inbounds nuw { [9 x i64] }, ptr %20, i64 %.sroa.7.028
   store i64 %.sroa.04.0, ptr %41, align 8, !noalias !230
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8

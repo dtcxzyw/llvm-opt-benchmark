@@ -584,8 +584,8 @@ delete_function.exit.thread:                      ; preds = %plpgsql_HashTableDe
   call fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %117, ptr noundef nonnull %35, ptr noundef null, ptr noundef %119, i1 noundef zeroext %1, ptr noundef nonnull %37)
   br label %compute_function_hashkey.exit45
 
-compute_function_hashkey.exit45:                  ; preds = %compute_function_hashkey.exit, %plpgsql_HashTableLookup.exit, %delete_function.exit.thread, %113, %109, %93
-  %.2.ph76 = phi ptr [ %.13263, %113 ], [ %.13263, %93 ], [ %.13263, %109 ], [ null, %delete_function.exit.thread ], [ null, %plpgsql_HashTableLookup.exit ], [ null, %compute_function_hashkey.exit ]
+compute_function_hashkey.exit45:                  ; preds = %compute_function_hashkey.exit, %delete_function.exit.thread, %plpgsql_HashTableLookup.exit, %113, %109, %93
+  %.2.ph76 = phi ptr [ %.13263, %93 ], [ %.13263, %109 ], [ %.13263, %113 ], [ null, %plpgsql_HashTableLookup.exit ], [ null, %delete_function.exit.thread ], [ null, %compute_function_hashkey.exit ]
   %120 = zext i1 %1 to i8
   %.val309.i = load ptr, ptr %20, align 8
   %121 = getelementptr inbounds nuw i8, ptr %.val309.i, i64 22
@@ -1057,7 +1057,7 @@ plpgsql_adddatum.exit.i:                          ; preds = %317, %build_row_fro
   br label %346
 
 346:                                              ; preds = %.fold.split.i, %338, %337, %336, %335, %335, %.critedge.i
-  %.0281.i = phi i32 [ %333, %.critedge.i ], [ 1007, %335 ], [ 4451, %336 ], [ 23, %337 ], [ %340, %338 ], [ 1007, %335 ], [ 3904, %.fold.split.i ]
+  %.0281.i = phi i32 [ 4451, %336 ], [ 23, %337 ], [ %340, %338 ], [ %333, %.critedge.i ], [ 1007, %335 ], [ 1007, %335 ], [ 3904, %.fold.split.i ]
   %347 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 48
   store i32 %.0281.i, ptr %347, align 8
   %348 = getelementptr inbounds nuw i8, ptr %124, i64 100
@@ -2152,7 +2152,7 @@ plpgsql_adddatum.exit.i:                          ; preds = %47, %33
   unreachable
 
 plpgsql_build_record.exit:                        ; preds = %59, %plpgsql_adddatum.exit.i, %plpgsql_adddatum.exit, %31
-  %.0 = phi ptr [ %8, %plpgsql_adddatum.exit ], [ %8, %31 ], [ %36, %plpgsql_adddatum.exit.i ], [ %36, %59 ]
+  %.0 = phi ptr [ %8, %31 ], [ %8, %plpgsql_adddatum.exit ], [ %36, %plpgsql_adddatum.exit.i ], [ %36, %59 ]
   ret ptr %.0
 }
 
@@ -2336,7 +2336,7 @@ define internal noundef ptr @plpgsql_post_column_ref(ptr noundef %0, ptr noundef
   unreachable
 
 29:                                               ; preds = %14, %11, %3
-  %.0 = phi ptr [ null, %11 ], [ null, %3 ], [ %16, %14 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %11 ], [ %16, %14 ]
   ret ptr %.0
 }
 
@@ -3043,8 +3043,8 @@ define internal fastcc ptr @build_datatype(ptr %.16.val, i32 noundef %0, i32 nou
   br label %81
 
 81:                                               ; preds = %45, %70, %73, %76, %59, %62, %66
-  %.sink.shrunk = phi i1 [ %69, %66 ], [ %80, %76 ], [ false, %62 ], [ false, %59 ], [ false, %73 ], [ false, %70 ], [ false, %45 ]
-  %82 = phi i32 [ %46, %66 ], [ %.pre.pre, %76 ], [ %46, %62 ], [ %46, %59 ], [ %46, %73 ], [ %46, %70 ], [ %46, %45 ]
+  %.sink.shrunk = phi i1 [ false, %62 ], [ false, %59 ], [ %69, %66 ], [ false, %73 ], [ false, %70 ], [ %80, %76 ], [ false, %45 ]
+  %82 = phi i32 [ %46, %62 ], [ %46, %59 ], [ %46, %66 ], [ %46, %73 ], [ %46, %70 ], [ %.pre.pre, %76 ], [ %46, %45 ]
   %.sink = zext i1 %.sink.shrunk to i8
   %83 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i8 %.sink, ptr %83, align 8
@@ -3599,8 +3599,8 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %._crit_edge.thread, %16, %.thread, %._crit_edge
-  %41 = phi i32 [ %3, %._crit_edge ], [ %3, %.thread ], [ %21, %16 ], [ %3, %._crit_edge.thread ], [ %37, %36 ]
-  %.2 = phi i32 [ %.1, %._crit_edge ], [ %.0.lcssa3840, %.thread ], [ 0, %16 ], [ 0, %._crit_edge.thread ], [ %.4, %36 ]
+  %41 = phi i32 [ %3, %.thread ], [ %3, %._crit_edge ], [ %21, %16 ], [ %3, %._crit_edge.thread ], [ %37, %36 ]
+  %.2 = phi i32 [ %.0.lcssa3840, %.thread ], [ %.1, %._crit_edge ], [ 0, %16 ], [ 0, %._crit_edge.thread ], [ %.4, %36 ]
   store i32 %41, ptr @datums_last, align 4
   ret i32 %.2
 }
@@ -3759,7 +3759,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph50, %.lr.ph50, %.lr.ph50, %.lr.ph50, %.lr.ph50, %35, %34, %33
-  %.sink = phi i32 [ 4451, %35 ], [ 1007, %33 ], [ 3904, %34 ], [ 23, %.lr.ph50 ], [ 23, %.lr.ph50 ], [ 23, %.lr.ph50 ], [ 23, %.lr.ph50 ], [ 23, %.lr.ph50 ]
+  %.sink = phi i32 [ 1007, %33 ], [ 3904, %34 ], [ 4451, %35 ], [ 23, %.lr.ph50 ], [ 23, %.lr.ph50 ], [ 23, %.lr.ph50 ], [ 23, %.lr.ph50 ], [ 23, %.lr.ph50 ]
   store i32 %.sink, ptr %31, align 4
   br label %36
 
@@ -3894,14 +3894,14 @@ list_length.exit:                                 ; preds = %4
   br label %47
 
 47:                                               ; preds = %44, %31, %28, %19, %14
-  %48 = phi ptr [ null, %14 ], [ @.str.51, %19 ], [ %25, %28 ], [ %41, %44 ], [ %41, %31 ]
-  %.073 = phi i32 [ 0, %14 ], [ 0, %19 ], [ 1, %28 ], [ 2, %44 ], [ 0, %31 ]
-  %.070 = phi i32 [ 1, %14 ], [ 1, %19 ], [ 2, %28 ], [ 0, %44 ], [ 2, %31 ]
-  %.068 = phi i32 [ 1, %14 ], [ 0, %19 ], [ 2, %28 ], [ 0, %44 ], [ 0, %31 ]
-  %.063 = phi ptr [ null, %14 ], [ null, %19 ], [ %30, %28 ], [ %46, %44 ], [ null, %31 ]
-  %.061 = phi ptr [ null, %14 ], [ null, %19 ], [ null, %28 ], [ %46, %44 ], [ @.str.51, %31 ]
-  %.059 = phi ptr [ null, %14 ], [ @.str.51, %19 ], [ %30, %28 ], [ %41, %44 ], [ %41, %31 ]
-  %.058 = phi ptr [ %18, %14 ], [ %25, %19 ], [ %25, %28 ], [ %39, %44 ], [ %39, %31 ]
+  %48 = phi ptr [ null, %14 ], [ %25, %28 ], [ @.str.51, %19 ], [ %41, %44 ], [ %41, %31 ]
+  %.073 = phi i32 [ 0, %14 ], [ 1, %28 ], [ 0, %19 ], [ 2, %44 ], [ 0, %31 ]
+  %.070 = phi i32 [ 1, %14 ], [ 2, %28 ], [ 1, %19 ], [ 0, %44 ], [ 2, %31 ]
+  %.068 = phi i32 [ 1, %14 ], [ 2, %28 ], [ 0, %19 ], [ 0, %44 ], [ 0, %31 ]
+  %.063 = phi ptr [ null, %14 ], [ %30, %28 ], [ null, %19 ], [ %46, %44 ], [ null, %31 ]
+  %.061 = phi ptr [ null, %14 ], [ null, %28 ], [ null, %19 ], [ %46, %44 ], [ @.str.51, %31 ]
+  %.059 = phi ptr [ null, %14 ], [ %30, %28 ], [ @.str.51, %19 ], [ %41, %44 ], [ %41, %31 ]
+  %.058 = phi ptr [ %18, %14 ], [ %25, %28 ], [ %25, %19 ], [ %39, %44 ], [ %39, %31 ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr @plpgsql_ns_lookup(ptr noundef %50, i1 noundef zeroext false, ptr noundef %.058, ptr noundef %.059, ptr noundef %.061, ptr noundef nonnull %5) #8
@@ -4089,7 +4089,7 @@ list_length.exit.thread.sink.split:               ; preds = %58, %87, %141
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %list_length.exit.thread.sink.split, %._crit_edge, %4, %55, %113, %47, %list_length.exit
-  %.0 = phi ptr [ null, %4 ], [ null, %list_length.exit ], [ null, %113 ], [ null, %55 ], [ null, %._crit_edge ], [ null, %47 ], [ %.sink97, %list_length.exit.thread.sink.split ]
+  %.0 = phi ptr [ null, %list_length.exit ], [ null, %47 ], [ null, %113 ], [ null, %55 ], [ null, %4 ], [ null, %._crit_edge ], [ %.sink97, %list_length.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

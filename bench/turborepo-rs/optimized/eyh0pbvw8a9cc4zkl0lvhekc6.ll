@@ -495,7 +495,7 @@ define hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5multi15separated_list1INtCs4DJqE
   br label %.thread
 
 .loopexit.split-lp:                               ; preds = %3, %113, %123, %135
-  %.sroa.02.0.ph = phi i8 [ 1, %3 ], [ %.sroa.02.4, %113 ], [ %.sroa.02.4, %123 ], [ 0, %135 ]
+  %.sroa.02.0.ph = phi i8 [ 0, %135 ], [ %.sroa.02.4, %123 ], [ %.sroa.02.4, %113 ], [ 1, %3 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %28
@@ -597,7 +597,7 @@ define hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5multi15separated_list1INtCs4DJqE
   br label %.thread
 
 .loopexit.split-lp82:                             ; preds = %66, %70, %95
-  %.sroa.02.2.ph = phi i8 [ 1, %66 ], [ 0, %95 ], [ 1, %70 ]
+  %.sroa.02.2.ph = phi i8 [ 0, %95 ], [ 1, %70 ], [ 1, %66 ]
   %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
           cleanup
   br label %28
@@ -693,7 +693,7 @@ define hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5multi15separated_list1INtCs4DJqE
   br label %94
 
 94:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom8internal3ErrINtNtBL_5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1L_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEEB2A_.exit, %92
-  %.sroa.02.3 = phi i8 [ 1, %92 ], [ 0, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom8internal3ErrINtNtBL_5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1L_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEEB2A_.exit ]
+  %.sroa.02.3 = phi i8 [ 0, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCsaPKTPzkFU9s_3nom8internal3ErrINtNtBL_5error12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtB1L_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEEEB2A_.exit ], [ 1, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %107
 
@@ -907,7 +907,7 @@ _RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecIBw_NtNtCseG2FYMysgNb_3wax5token5Tok
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecIBH_NtNtCseG2FYMysgNb_3wax5token5TokenEEEB1l_.exit
 
 common.resume:                                    ; preds = %.thread, %28, %150, %154
-  %common.resume.op = phi { ptr, i32 } [ %151, %150 ], [ %151, %154 ], [ %.pn, %28 ], [ %.pn77, %.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %151, %154 ], [ %151, %150 ], [ %.pn, %28 ], [ %.pn77, %.thread ]
   resume { ptr, i32 } %common.resume.op
 
 .thread:                                          ; preds = %.loopexit81, %.loopexit, %81, %39, %28
@@ -2853,7 +2853,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNCNCINvNtCsaPKTPzkFU9s_3nom8sequenc
   unreachable
 
 .body:                                            ; preds = %51, %45, %.body.i
-  %eh.lpad-body48 = phi { ptr, i32 } [ %38, %45 ], [ %38, %.body.i ], [ %52, %51 ]
+  %eh.lpad-body48 = phi { ptr, i32 } [ %38, %.body.i ], [ %38, %45 ], [ %52, %51 ]
   resume { ptr, i32 } %eh.lpad-body48
 }
 
@@ -4816,7 +4816,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_.exit.i
 
 .thread89.i:                                      ; preds = %126, %79, %64, %.thread93.loopexit.split-lp.i, %.thread93.loopexit.i, %39
-  %.pn88.i = phi { ptr, i32 } [ %40, %39 ], [ %127, %126 ], [ %80, %79 ], [ %65, %64 ], [ %lpad.loopexit.i, %.thread93.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread93.loopexit.split-lp.i ]
+  %.pn88.i = phi { ptr, i32 } [ %40, %39 ], [ %80, %79 ], [ %65, %64 ], [ %127, %126 ], [ %lpad.loopexit.i, %.thread93.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread93.loopexit.split-lp.i ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #19
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i unwind label %128, !noalias !960
 
@@ -4830,7 +4830,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i unwind label %128, !noalias !960
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i: ; preds = %157, %144, %.thread89.i, %98, %.body.i.i, %45
-  %.pn17.i = phi { ptr, i32 } [ %145, %144 ], [ %90, %98 ], [ %158, %157 ], [ %90, %.body.i.i ], [ %.pn88.i, %.thread89.i ], [ %lpad.thr_comm.split-lp.i, %45 ]
+  %.pn17.i = phi { ptr, i32 } [ %90, %.body.i.i ], [ %90, %98 ], [ %145, %144 ], [ %158, %157 ], [ %lpad.thr_comm.split-lp.i, %45 ], [ %.pn88.i, %.thread89.i ]
   %146 = load i64, ptr %21, align 8, !range !959, !noalias !949, !noundef !5
   %147 = icmp ne i64 %146, 8
   %148 = load i64, ptr %19, align 8, !range !9, !noalias !949
@@ -5442,7 +5442,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_.exit.i
 
 .thread89.i:                                      ; preds = %126, %79, %64, %.thread93.loopexit.split-lp.i, %.thread93.loopexit.i, %39
-  %.pn88.i = phi { ptr, i32 } [ %40, %39 ], [ %127, %126 ], [ %80, %79 ], [ %65, %64 ], [ %lpad.loopexit.i, %.thread93.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread93.loopexit.split-lp.i ]
+  %.pn88.i = phi { ptr, i32 } [ %40, %39 ], [ %80, %79 ], [ %65, %64 ], [ %127, %126 ], [ %lpad.loopexit.i, %.thread93.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread93.loopexit.split-lp.i ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #19
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i unwind label %128, !noalias !1092
 
@@ -5456,7 +5456,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i unwind label %128, !noalias !1092
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i: ; preds = %157, %144, %.thread89.i, %98, %.body.i.i, %45
-  %.pn17.i = phi { ptr, i32 } [ %145, %144 ], [ %90, %98 ], [ %158, %157 ], [ %90, %.body.i.i ], [ %.pn88.i, %.thread89.i ], [ %lpad.thr_comm.split-lp.i, %45 ]
+  %.pn17.i = phi { ptr, i32 } [ %90, %.body.i.i ], [ %90, %98 ], [ %145, %144 ], [ %158, %157 ], [ %lpad.thr_comm.split-lp.i, %45 ], [ %.pn88.i, %.thread89.i ]
   %146 = load i64, ptr %21, align 8, !range !959, !noalias !1082, !noundef !5
   %147 = icmp ne i64 %146, 8
   %148 = load i64, ptr %19, align 8, !range !9, !noalias !1082
@@ -6068,7 +6068,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_.exit.i
 
 .thread89.i:                                      ; preds = %126, %79, %64, %.thread93.loopexit.split-lp.i, %.thread93.loopexit.i, %39
-  %.pn88.i = phi { ptr, i32 } [ %40, %39 ], [ %127, %126 ], [ %80, %79 ], [ %65, %64 ], [ %lpad.loopexit.i, %.thread93.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread93.loopexit.split-lp.i ]
+  %.pn88.i = phi { ptr, i32 } [ %40, %39 ], [ %80, %79 ], [ %65, %64 ], [ %127, %126 ], [ %lpad.loopexit.i, %.thread93.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread93.loopexit.split-lp.i ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #19
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i unwind label %128, !noalias !1224
 
@@ -6082,7 +6082,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i unwind label %128, !noalias !1224
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit50.i: ; preds = %157, %144, %.thread89.i, %98, %.body.i.i, %45
-  %.pn17.i = phi { ptr, i32 } [ %145, %144 ], [ %90, %98 ], [ %158, %157 ], [ %90, %.body.i.i ], [ %.pn88.i, %.thread89.i ], [ %lpad.thr_comm.split-lp.i, %45 ]
+  %.pn17.i = phi { ptr, i32 } [ %90, %.body.i.i ], [ %90, %98 ], [ %145, %144 ], [ %158, %157 ], [ %lpad.thr_comm.split-lp.i, %45 ], [ %.pn88.i, %.thread89.i ]
   %146 = load i64, ptr %21, align 8, !range !959, !noalias !1214, !noundef !5
   %147 = icmp ne i64 %146, 8
   %148 = load i64, ptr %19, align 8, !range !9, !noalias !1214
@@ -6603,7 +6603,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTI
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTINtCs4DJqE8qduBp_4pori8StatefulINtB1h_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEuEEEB26_.exit.i
 
 .thread61.i:                                      ; preds = %.thread.loopexit.split-lp.i, %.thread.loopexit.i, %.thread61.loopexit.split-lp.i, %.thread61.loopexit.i
-  %.pn60.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.thread61.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.thread61.loopexit.i ], [ %lpad.loopexit64.i, %.thread.loopexit.i ], [ %lpad.loopexit.split-lp65.i, %.thread.loopexit.split-lp.i ]
+  %.pn60.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.thread61.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread61.loopexit.split-lp.i ], [ %lpad.loopexit64.i, %.thread.loopexit.i ], [ %lpad.loopexit.split-lp65.i, %.thread.loopexit.split-lp.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1424)
   call void @llvm.experimental.noalias.scope.decl(metadata !1427)
   call void @llvm.experimental.noalias.scope.decl(metadata !1430)
@@ -6627,7 +6627,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTI
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTINtCs4DJqE8qduBp_4pori8StatefulINtB1h_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEuEEEB26_.exit43.i: ; preds = %136, %119, %.thread61.i, %44, %29
-  %.pn16.i = phi { ptr, i32 } [ %.pn60.i, %119 ], [ %30, %29 ], [ %lpad.thr_comm.split-lp.i, %44 ], [ %.pn60.i, %.thread61.i ], [ %137, %136 ]
+  %.pn16.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %44 ], [ %30, %29 ], [ %.pn60.i, %.thread61.i ], [ %.pn60.i, %119 ], [ %137, %136 ]
   %125 = load i8, ptr %21, align 8, !range !4, !noalias !1346, !noundef !5
   %126 = icmp ne i8 %125, 2
   %127 = load i64, ptr %17, align 8, !range !9, !noalias !1346
@@ -7149,7 +7149,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTI
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTINtCs4DJqE8qduBp_4pori8StatefulINtB1h_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEuEEEB26_.exit.i
 
 .thread61.i:                                      ; preds = %.thread.loopexit.split-lp.i, %.thread.loopexit.i, %.thread61.loopexit.split-lp.i, %.thread61.loopexit.i
-  %.pn60.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.thread61.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.thread61.loopexit.i ], [ %lpad.loopexit64.i, %.thread.loopexit.i ], [ %lpad.loopexit.split-lp65.i, %.thread.loopexit.split-lp.i ]
+  %.pn60.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.thread61.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread61.loopexit.split-lp.i ], [ %lpad.loopexit64.i, %.thread.loopexit.i ], [ %lpad.loopexit.split-lp65.i, %.thread.loopexit.split-lp.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1550)
   call void @llvm.experimental.noalias.scope.decl(metadata !1553)
   call void @llvm.experimental.noalias.scope.decl(metadata !1556)
@@ -7173,7 +7173,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTI
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTINtCs4DJqE8qduBp_4pori8StatefulINtB1h_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEuEEEB26_.exit43.i: ; preds = %136, %119, %.thread61.i, %44, %29
-  %.pn16.i = phi { ptr, i32 } [ %.pn60.i, %119 ], [ %30, %29 ], [ %lpad.thr_comm.split-lp.i, %44 ], [ %.pn60.i, %.thread61.i ], [ %137, %136 ]
+  %.pn16.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %44 ], [ %30, %29 ], [ %.pn60.i, %.thread61.i ], [ %.pn60.i, %119 ], [ %137, %136 ]
   %125 = load i8, ptr %21, align 8, !range !4, !noalias !1472, !noundef !5
   %126 = icmp ne i8 %125, 2
   %127 = load i64, ptr %17, align 8, !range !9, !noalias !1472

@@ -531,7 +531,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   br i1 %exitcond847.not, label %.loopexit771, label %345, !llvm.loop !9
 
 .loopexit771:                                     ; preds = %345, %337, %330
-  %349 = phi i32 [ %.pre865, %330 ], [ %321, %337 ], [ %321, %345 ]
+  %349 = phi i32 [ %321, %337 ], [ %.pre865, %330 ], [ %321, %345 ]
   %350 = sext i32 %349 to i64
   br label %.sink.split
 
@@ -1369,8 +1369,8 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   br i1 %exitcond854.not, label %.loopexit770, label %862, !llvm.loop !15
 
 .sink.split1011:                                  ; preds = %824, %808, %816, %555
-  %.sink = phi i32 [ %564, %555 ], [ %.pre875, %808 ], [ %798, %816 ], [ %798, %824 ]
-  %.7657.ph.ph = phi i32 [ %.66561033, %555 ], [ %.8742, %808 ], [ %.8742, %816 ], [ %.8742, %824 ]
+  %.sink = phi i32 [ %564, %555 ], [ %798, %816 ], [ %.pre875, %808 ], [ %798, %824 ]
+  %.7657.ph.ph = phi i32 [ %.66561033, %555 ], [ %.8742, %816 ], [ %.8742, %808 ], [ %.8742, %824 ]
   %875 = sext i32 %.sink to i64
   %876 = getelementptr inbounds double, ptr %27, i64 %875
   store double 0.000000e+00, ptr %876, align 8, !tbaa !7

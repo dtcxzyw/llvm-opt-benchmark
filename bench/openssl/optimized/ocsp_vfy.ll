@@ -201,10 +201,10 @@ ocsp_check_issuer.exit.thread53:                  ; preds = %54, %72, %ocsp_chec
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 112, ptr noundef null) #4
   br label %ocsp_check_issuer.exit.thread
 
-ocsp_check_issuer.exit.thread:                    ; preds = %.ocsp_check_issuer.exit.thread_crit_edge, %45, %69, %61, %41, %75, %35, %ocsp_check_issuer.exit.thread53, %ocsp_check_issuer.exit, %30, %25, %ocsp_find_signer.exit.thread, %80, %15
-  %81 = phi ptr [ null, %15 ], [ null, %ocsp_find_signer.exit.thread ], [ null, %25 ], [ %.pre, %.ocsp_check_issuer.exit.thread_crit_edge ], [ null, %30 ], [ %.pre58, %ocsp_check_issuer.exit ], [ %.pre58, %ocsp_check_issuer.exit.thread53 ], [ %.pre58, %80 ], [ %.pre58, %35 ], [ %.pre58, %75 ], [ %.pre58, %41 ], [ %.pre58, %61 ], [ %.pre58, %69 ], [ %.pre58, %45 ]
-  %.024 = phi ptr [ null, %15 ], [ null, %ocsp_find_signer.exit.thread ], [ null, %25 ], [ %.1, %.ocsp_check_issuer.exit.thread_crit_edge ], [ %28, %30 ], [ %.1, %ocsp_check_issuer.exit ], [ %.1, %ocsp_check_issuer.exit.thread53 ], [ %.1, %80 ], [ %.1, %35 ], [ %.1, %75 ], [ %.1, %41 ], [ %.1, %61 ], [ %.1, %69 ], [ %.1, %45 ]
-  %.0 = phi i32 [ 0, %15 ], [ %18, %ocsp_find_signer.exit.thread ], [ -1, %25 ], [ %33, %.ocsp_check_issuer.exit.thread_crit_edge ], [ -1, %30 ], [ %73, %ocsp_check_issuer.exit ], [ 0, %ocsp_check_issuer.exit.thread53 ], [ 0, %80 ], [ 1, %35 ], [ 1, %75 ], [ -1, %41 ], [ -1, %61 ], [ 1, %69 ], [ -1, %45 ]
+ocsp_check_issuer.exit.thread:                    ; preds = %.ocsp_check_issuer.exit.thread_crit_edge, %69, %45, %61, %41, %75, %35, %ocsp_check_issuer.exit.thread53, %ocsp_check_issuer.exit, %30, %25, %ocsp_find_signer.exit.thread, %80, %15
+  %81 = phi ptr [ null, %15 ], [ null, %ocsp_find_signer.exit.thread ], [ null, %25 ], [ %.pre, %.ocsp_check_issuer.exit.thread_crit_edge ], [ %.pre58, %ocsp_check_issuer.exit ], [ %.pre58, %ocsp_check_issuer.exit.thread53 ], [ %.pre58, %80 ], [ null, %30 ], [ %.pre58, %35 ], [ %.pre58, %75 ], [ %.pre58, %41 ], [ %.pre58, %61 ], [ %.pre58, %45 ], [ %.pre58, %69 ]
+  %.024 = phi ptr [ null, %15 ], [ null, %ocsp_find_signer.exit.thread ], [ null, %25 ], [ %.1, %.ocsp_check_issuer.exit.thread_crit_edge ], [ %.1, %ocsp_check_issuer.exit ], [ %.1, %ocsp_check_issuer.exit.thread53 ], [ %.1, %80 ], [ %28, %30 ], [ %.1, %35 ], [ %.1, %75 ], [ %.1, %41 ], [ %.1, %61 ], [ %.1, %45 ], [ %.1, %69 ]
+  %.0 = phi i32 [ 0, %15 ], [ %18, %ocsp_find_signer.exit.thread ], [ -1, %25 ], [ %33, %.ocsp_check_issuer.exit.thread_crit_edge ], [ %73, %ocsp_check_issuer.exit ], [ 0, %ocsp_check_issuer.exit.thread53 ], [ 0, %80 ], [ -1, %30 ], [ 1, %35 ], [ 1, %75 ], [ -1, %41 ], [ -1, %61 ], [ -1, %45 ], [ 1, %69 ]
   call void @OSSL_STACK_OF_X509_free(ptr noundef %81) #4
   call void @OPENSSL_sk_free(ptr noundef %.024) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -387,8 +387,8 @@ define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr noundef readonly captures(
   br label %ocsp_find_signer.exit
 
 ocsp_find_signer.exit:                            ; preds = %6, %3
-  %.sink.i = phi ptr [ %9, %6 ], [ %5, %3 ]
-  %.0.i = phi i32 [ %10, %6 ], [ 1, %3 ]
+  %.sink.i = phi ptr [ %5, %3 ], [ %9, %6 ]
+  %.0.i = phi i32 [ 1, %3 ], [ %10, %6 ]
   store ptr %.sink.i, ptr %1, align 8, !tbaa !61
   ret i32 %.0.i
 }
@@ -485,7 +485,7 @@ ocsp_req_find_signer.exit.thread:                 ; preds = %19, %ocsp_req_find_
   br label %43
 
 43:                                               ; preds = %30, %ocsp_req_find_signer.exit.thread, %38, %25, %13, %7
-  %.0 = phi i32 [ 0, %13 ], [ 0, %25 ], [ 0, %7 ], [ 0, %ocsp_req_find_signer.exit.thread ], [ %42, %38 ], [ 1, %30 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %25 ], [ %42, %38 ], [ 0, %7 ], [ 0, %ocsp_req_find_signer.exit.thread ], [ 1, %30 ]
   ret i32 %.0
 }
 
@@ -582,7 +582,7 @@ define internal fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef read
   br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %27, %25, %18, %29, %12, %10, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %10 ], [ null, %12 ], [ null, %18 ], [ null, %25 ], [ %17, %27 ], [ null, %29 ]
+  %.0 = phi ptr [ %9, %8 ], [ null, %10 ], [ null, %12 ], [ %17, %27 ], [ null, %25 ], [ null, %18 ], [ null, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -688,8 +688,8 @@ define internal fastcc range(i32 -1, 2) i32 @ocsp_match_issuerid(ptr noundef %0,
   br label %43
 
 43:                                               ; preds = %31, %28, %22, %25, %38, %37, %21, %16
-  %.03750 = phi ptr [ null, %16 ], [ %.03751, %21 ], [ %.03751, %22 ], [ %.03751, %28 ], [ %.03751, %38 ], [ %.03751, %37 ], [ %.03751, %25 ], [ %.03751, %31 ]
-  %.036 = phi i32 [ -1, %16 ], [ -1, %21 ], [ 0, %22 ], [ -1, %28 ], [ %42, %38 ], [ -1, %37 ], [ 0, %25 ], [ 0, %31 ]
+  %.03750 = phi ptr [ null, %16 ], [ %.03751, %21 ], [ %.03751, %38 ], [ %.03751, %37 ], [ %.03751, %25 ], [ %.03751, %22 ], [ %.03751, %28 ], [ %.03751, %31 ]
+  %.036 = phi i32 [ -1, %16 ], [ -1, %21 ], [ %42, %38 ], [ -1, %37 ], [ 0, %25 ], [ 0, %22 ], [ -1, %28 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @EVP_MD_free(ptr noundef %.03750) #4

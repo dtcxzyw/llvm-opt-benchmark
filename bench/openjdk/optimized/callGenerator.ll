@@ -1971,7 +1971,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133: ; p
   unreachable
 
 416:                                              ; preds = %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117, %380, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit122, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit121, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119, %69, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit
-  %.0 = phi ptr [ %70, %69 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit122 ], [ %384, %380 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit121 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132 ]
+  %.0 = phi ptr [ %70, %69 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit122 ], [ %384, %380 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit121 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132 ]
   ret ptr %.0
 }
 
@@ -2210,7 +2210,7 @@ define hidden noundef zeroext i1 @_ZN30LateInlineVirtualCallGenerator20do_late_i
   br label %143
 
 143:                                              ; preds = %104, %80, %84, %38, %42, %141
-  %.0 = phi i1 [ false, %38 ], [ true, %141 ], [ false, %80 ], [ false, %42 ], [ false, %84 ], [ false, %104 ]
+  %.0 = phi i1 [ true, %141 ], [ false, %42 ], [ false, %38 ], [ false, %84 ], [ false, %80 ], [ false, %104 ]
   ret i1 %.0
 }
 
@@ -4592,7 +4592,7 @@ _ZN7Compile21should_delay_inliningEv.exit.thread: ; preds = %4
   br label %_ZN13CallGenerator15for_late_inlineEP8ciMethodPS_.exit
 
 _ZN13CallGenerator15for_late_inlineEP8ciMethodPS_.exit: ; preds = %_ZN7Compile21should_delay_inliningEv.exit.thread, %96, %87, %78, %63, %29, %20, %19
-  %.0 = phi ptr [ %94, %96 ], [ %76, %78 ], [ %27, %29 ], [ %7, %19 ], [ null, %20 ], [ null, %63 ], [ null, %87 ], [ %7, %_ZN7Compile21should_delay_inliningEv.exit.thread ]
+  %.0 = phi ptr [ %7, %19 ], [ null, %20 ], [ %27, %29 ], [ null, %63 ], [ %76, %78 ], [ null, %87 ], [ %94, %96 ], [ %7, %_ZN7Compile21should_delay_inliningEv.exit.thread ]
   ret ptr %.0
 }
 
@@ -5151,7 +5151,7 @@ _ZN8GraphKit11set_controlEP4Node.exit141:         ; preds = %_ZN4Node7del_outEPS
   br label %753
 
 315:                                              ; preds = %.thread, %230
-  %.3 = phi i32 [ %.4.ph, %.thread ], [ %.0110.lcssa, %230 ]
+  %.3 = phi i32 [ %.0110.lcssa, %230 ], [ %.4.ph, %.thread ]
   switch i32 %.3, label %334 [
     i32 0, label %316
     i32 1, label %319
@@ -5746,7 +5746,7 @@ _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %_ZN14MergeMemStream
   br i1 %.not132, label %652, label %.thread304
 
 652:                                              ; preds = %647, %.lr.ph210
-  %.0109 = phi ptr [ null, %.lr.ph210 ], [ %651, %647 ]
+  %.0109 = phi ptr [ %651, %647 ], [ null, %.lr.ph210 ]
   %653 = getelementptr inbounds nuw ptr, ptr %604, i64 %indvars.iv233
   store ptr %.0109, ptr %653, align 8
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1

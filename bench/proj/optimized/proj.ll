@@ -1116,12 +1116,12 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %227, %_ZNSt6vectorI
   br label %407
 
 407:                                              ; preds = %357, %361, %359, %376, %374, %403, %405, %401, %355
-  %.pn259.pn.pn.pn = phi { ptr, i32 } [ %356, %355 ], [ %375, %374 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %377, %376 ], [ %402, %401 ], [ %406, %405 ], [ %404, %403 ]
+  %.pn259.pn.pn.pn = phi { ptr, i32 } [ %356, %355 ], [ %358, %357 ], [ %362, %361 ], [ %360, %359 ], [ %377, %376 ], [ %375, %374 ], [ %402, %401 ], [ %406, %405 ], [ %404, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %417
 
-.thread:                                          ; preds = %304, %287, %306
-  %.0211362 = phi ptr [ %.0211, %306 ], [ %278, %287 ], [ %278, %304 ]
+.thread:                                          ; preds = %287, %304, %306
+  %.0211362 = phi ptr [ %.0211, %306 ], [ %278, %304 ], [ %278, %287 ]
   invoke void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 3, ptr noundef nonnull @.str.27)
           to label %408 unwind label %349
 
@@ -1305,7 +1305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308: ; preds = %41
           to label %477 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 477:                                              ; preds = %472, %473, %476
-  %storemerge277 = phi ptr [ @_Z6pj_inv5PJ_XYP8PJconsts, %473 ], [ @_Z6pj_inv5PJ_XYP8PJconsts, %476 ], [ @_Z6pj_fwd5PJ_LPP8PJconsts, %472 ]
+  %storemerge277 = phi ptr [ @_Z6pj_inv5PJ_XYP8PJconsts, %476 ], [ @_Z6pj_inv5PJ_XYP8PJconsts, %473 ], [ @_Z6pj_fwd5PJ_LPP8PJconsts, %472 ]
   %.not279 = icmp eq i32 %.2185, 0
   br i1 %.not279, label %519, label %478
 
@@ -1538,7 +1538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308: ; preds = %41
   br i1 %.not50.i, label %.invoke, label %580
 
 .invoke:                                          ; preds = %.noexc324, %.noexc316, %580, %574
-  %579 = phi ptr [ @.str.50, %.noexc316 ], [ @.str.49, %574 ], [ @.str.50, %580 ], [ @.str.52, %.noexc324 ]
+  %579 = phi ptr [ @.str.49, %574 ], [ @.str.50, %580 ], [ @.str.50, %.noexc316 ], [ @.str.52, %.noexc324 ]
   invoke void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef -1, ptr noundef nonnull %579)
           to label %.backedge.i unwind label %.loopexit376
 
@@ -2095,8 +2095,8 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
           to label %.noexc355 unwind label %.loopexit.split-lp.loopexit
 
 .noexc355.sink.split:                             ; preds = %.noexc350.invoke, %.thread57.i
-  %.sink = phi ptr [ %802, %.noexc350.invoke ], [ %786, %.thread57.i ]
-  %.05659.i.ph = phi i1 [ %780, %.noexc350.invoke ], [ %.05660.i, %.thread57.i ]
+  %.sink = phi ptr [ %786, %.thread57.i ], [ %802, %.noexc350.invoke ]
+  %.05659.i.ph = phi i1 [ %.05660.i, %.thread57.i ], [ %780, %.noexc350.invoke ]
   %823 = load ptr, ptr @stdout, align 8, !tbaa !12
   %824 = call i32 @fputs(ptr noundef %.sink, ptr noundef %823)
   br label %.noexc355
@@ -2187,7 +2187,7 @@ thread-pre-split:                                 ; preds = %853
   unreachable
 
 .loopexit.split-lp:                               ; preds = %.loopexit387, %.loopexit.split-lp388, %.loopexit376, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %444, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308, %201, %149, %144, %126, %94
-  %.pn301 = phi { ptr, i32 } [ %.pn266.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308 ], [ %95, %94 ], [ %127, %126 ], [ %145, %144 ], [ %150, %149 ], [ %202, %201 ], [ %lpad.loopexit.split-lp392, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %445, %444 ], [ %lpad.loopexit, %.loopexit376 ], [ %lpad.loopexit377, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit380, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit383, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit391, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit389, %.loopexit387 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp388 ]
+  %.pn301 = phi { ptr, i32 } [ %95, %94 ], [ %127, %126 ], [ %145, %144 ], [ %150, %149 ], [ %202, %201 ], [ %445, %444 ], [ %.pn266.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308 ], [ %lpad.loopexit, %.loopexit376 ], [ %lpad.loopexit377, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit380, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit383, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit391, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp392, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit389, %.loopexit387 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp388 ]
   %860 = load ptr, ptr %14, align 8, !tbaa !41
   %.not.i.i.i = icmp eq ptr %860, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit, label %861

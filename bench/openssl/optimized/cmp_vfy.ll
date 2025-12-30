@@ -339,7 +339,7 @@ define i32 @OSSL_CMP_validate_msg(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %77
 
 77:                                               ; preds = %50, %52, %66, %75, %37, %42, %72, %68, %64, %48, %33, %26, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %26 ], [ 0, %64 ], [ 1, %68 ], [ 0, %37 ], [ %74, %72 ], [ 0, %33 ], [ 1, %48 ], [ 0, %42 ], [ 0, %75 ], [ 0, %66 ], [ 0, %52 ], [ 0, %50 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %26 ], [ 0, %64 ], [ 1, %68 ], [ %74, %72 ], [ 0, %33 ], [ 1, %48 ], [ 0, %42 ], [ 0, %37 ], [ 0, %75 ], [ 0, %66 ], [ 0, %52 ], [ 0, %50 ]
   ret i32 %.0
 }
 
@@ -580,7 +580,7 @@ check_msg_given_cert.exit68:                      ; preds = %38, %34, %check_msg
   br label %75
 
 75:                                               ; preds = %2, %13, %73, %check_msg_given_cert.exit.thread70, %19
-  %.0 = phi i32 [ %74, %73 ], [ 0, %19 ], [ 1, %check_msg_given_cert.exit.thread70 ], [ 0, %13 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %19 ], [ 1, %check_msg_given_cert.exit.thread70 ], [ %74, %73 ], [ 0, %13 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -805,7 +805,7 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
   br label %67
 
 67:                                               ; preds = %.sink.split, %64, %61, %63
-  %.081.shrunk = phi i1 [ false, %64 ], [ true, %61 ], [ false, %63 ], [ %66, %.sink.split ]
+  %.081.shrunk = phi i1 [ true, %61 ], [ false, %63 ], [ false, %64 ], [ %66, %.sink.split ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %69 = load i32, ptr %68, align 4, !tbaa !64
   %.not100 = icmp ne i32 %69, 0
@@ -962,7 +962,7 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
   br label %.critedge113
 
 .critedge113:                                     ; preds = %.lr.ph124, %.preheader, %4, %22, %27, %121, %118, %88, %77, %78, %7, %133, %140, %112, %87, %83
-  %.0 = phi i32 [ 0, %83 ], [ 0, %87 ], [ 1, %140 ], [ 0, %133 ], [ 0, %118 ], [ 0, %88 ], [ 0, %112 ], [ 0, %77 ], [ 0, %4 ], [ 0, %7 ], [ 0, %121 ], [ 0, %22 ], [ 0, %78 ], [ 0, %27 ], [ 0, %.preheader ], [ 0, %.lr.ph124 ]
+  %.0 = phi i32 [ 0, %83 ], [ 0, %87 ], [ 1, %140 ], [ 0, %133 ], [ 0, %112 ], [ 0, %7 ], [ 0, %78 ], [ 0, %77 ], [ 0, %88 ], [ 0, %118 ], [ 0, %121 ], [ 0, %27 ], [ 0, %22 ], [ 0, %4 ], [ 0, %.preheader ], [ 0, %.lr.ph124 ]
   ret i32 %.0
 }
 
@@ -1026,7 +1026,7 @@ define internal fastcc range(i32 0, 2) i32 @check_name(ptr noundef %0, i32 nound
   br label %30
 
 30:                                               ; preds = %6, %29, %21, %10
-  %.0 = phi i32 [ 0, %29 ], [ 0, %10 ], [ 1, %21 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %21 ], [ 0, %29 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -1454,8 +1454,8 @@ check_kid.exit:                                   ; preds = %93, %76
   %110 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %0, ptr noundef nonnull @__func__.cert_acceptable, ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.39) #3
   br label %verify_cb_cert.exit.thread
 
-verify_cb_cert.exit.thread:                       ; preds = %84, %101, %58, %60, %verify_cb_cert.exit.thread75, %.critedge, %verify_cb_cert.exit, %109, %107, %103, %already_checked.exit
-  %.0 = phi i32 [ 0, %already_checked.exit ], [ 1, %109 ], [ 0, %107 ], [ 0, %103 ], [ 0, %.critedge ], [ 0, %verify_cb_cert.exit ], [ 0, %58 ], [ 0, %verify_cb_cert.exit.thread75 ], [ 0, %60 ], [ 0, %101 ], [ 0, %84 ]
+verify_cb_cert.exit.thread:                       ; preds = %101, %84, %58, %60, %verify_cb_cert.exit.thread75, %.critedge, %verify_cb_cert.exit, %109, %107, %103, %already_checked.exit
+  %.0 = phi i32 [ 0, %already_checked.exit ], [ 1, %109 ], [ 0, %107 ], [ 0, %103 ], [ 0, %verify_cb_cert.exit ], [ 0, %.critedge ], [ 0, %verify_cb_cert.exit.thread75 ], [ 0, %60 ], [ 0, %58 ], [ 0, %84 ], [ 0, %101 ]
   ret i32 %.0
 }
 
@@ -1587,7 +1587,7 @@ check_cert_path.exit.thread.us:                   ; preds = %17
   br label %22
 
 22:                                               ; preds = %check_cert_path.exit.thread.us, %15
-  %.134.ph.us = phi i32 [ %.03350.us, %15 ], [ %20, %check_cert_path.exit.thread.us ]
+  %.134.ph.us = phi i32 [ %20, %check_cert_path.exit.thread.us ], [ %.03350.us, %15 ]
   %23 = add nuw nsw i32 %.03251.us, 1
   %24 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #3
   %25 = icmp slt i32 %23, %24
@@ -1638,7 +1638,7 @@ check_cert_path.exit:                             ; preds = %31, %17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %check_cert_path.exit, %._crit_edge, %40, %26
-  %.0 = phi i32 [ 0, %26 ], [ 0, %._crit_edge ], [ 0, %40 ], [ %34, %check_cert_path.exit ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %40 ], [ 0, %._crit_edge ], [ %34, %check_cert_path.exit ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
   ret i32 %.0
 }
 

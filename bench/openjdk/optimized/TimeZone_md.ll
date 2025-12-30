@@ -264,7 +264,7 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   br label %110
 
 99:                                               ; preds = %97, %64
-  %.0.i = phi ptr [ %98, %97 ], [ %66, %64 ]
+  %.0.i = phi ptr [ %66, %64 ], [ %98, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -272,8 +272,8 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   br i1 %.not, label %110, label %.thread
 
 .thread:                                          ; preds = %7, %.thread28, %99
-  %.024 = phi ptr [ %20, %.thread28 ], [ %.0.i, %99 ], [ null, %7 ]
-  %.01723 = phi ptr [ %20, %.thread28 ], [ %.0.i, %99 ], [ %5, %7 ]
+  %.024 = phi ptr [ %.0.i, %99 ], [ %20, %.thread28 ], [ null, %7 ]
+  %.01723 = phi ptr [ %.0.i, %99 ], [ %20, %.thread28 ], [ %5, %7 ]
   %100 = load i8, ptr %.01723, align 1
   %101 = icmp eq i8 %100, 58
   %spec.select.idx = zext i1 %101 to i64
@@ -373,7 +373,7 @@ define hidden noalias ptr @getGMTOffsetID() local_unnamed_addr #0 {
   br label %42
 
 42:                                               ; preds = %24, %18, %9, %0, %26
-  %.sink = phi ptr [ %1, %26 ], [ @.str.2, %18 ], [ @.str.2, %9 ], [ @.str.2, %0 ], [ @.str.2, %24 ]
+  %.sink = phi ptr [ %1, %26 ], [ @.str.2, %0 ], [ @.str.2, %9 ], [ @.str.2, %18 ], [ @.str.2, %24 ]
   %43 = call noalias ptr @strdup(ptr noundef nonnull %.sink) #14
   ret ptr %43
 }
@@ -626,13 +626,13 @@ define internal fastcc ptr @isFileIdentical(ptr noundef readonly captures(none) 
   br label %.critedge2
 
 .critedge2:                                       ; preds = %26, %38, %43, %40, %.critedge4
-  %.1 = phi ptr [ null, %38 ], [ null, %.critedge4 ], [ %45, %43 ], [ null, %40 ], [ null, %26 ]
+  %.1 = phi ptr [ null, %.critedge4 ], [ %45, %43 ], [ null, %40 ], [ null, %38 ], [ null, %26 ]
   tail call void @free(ptr noundef %22) #14
   %46 = tail call i32 @close(i32 noundef %24) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %15, %.critedge2, %17, %.critedge37, %21
-  %.031 = phi ptr [ null, %.critedge37 ], [ null, %21 ], [ %16, %15 ], [ %.1, %.critedge2 ], [ null, %17 ], [ null, %8 ]
+  %.031 = phi ptr [ null, %21 ], [ %16, %15 ], [ %.1, %.critedge2 ], [ null, %17 ], [ null, %.critedge37 ], [ null, %8 ]
   ret ptr %.031
 }
 

@@ -431,10 +431,10 @@ define dso_local void @AddWALInfoToBackupManifest(ptr noundef captures(none) %0,
   %.pre79 = load i32, ptr %8, align 4
   br label %47
 
-47:                                               ; preds = %.lr.ph75, %44
-  %48 = phi i32 [ %.pre79, %44 ], [ %12, %.lr.ph75 ]
-  %.143.ph = phi i1 [ false, %44 ], [ %.0426673, %.lr.ph75 ]
-  %.1.ph = phi i64 [ %46, %44 ], [ %.06772, %.lr.ph75 ]
+47:                                               ; preds = %44, %.lr.ph75
+  %48 = phi i32 [ %12, %.lr.ph75 ], [ %.pre79, %44 ]
+  %.143.ph = phi i1 [ %.0426673, %.lr.ph75 ], [ false, %44 ]
+  %.1.ph = phi i64 [ %.06772, %.lr.ph75 ], [ %46, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49

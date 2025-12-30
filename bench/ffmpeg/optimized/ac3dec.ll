@@ -243,10 +243,10 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %18, %20, %.loopexit, %24
-  %102 = phi ptr [ %16, %18 ], [ %100, %.loopexit ], [ %16, %24 ], [ %16, %20 ]
-  %.175 = phi i32 [ %.074104, %18 ], [ %99, %.loopexit ], [ %.074104, %24 ], [ %.074104, %20 ]
-  %.173 = phi i32 [ %.072105, %18 ], [ %spec.select81, %.loopexit ], [ %.072105, %24 ], [ %.072105, %20 ]
-  %.165 = phi i32 [ %.064109, %18 ], [ %.289, %.loopexit ], [ %.064109, %24 ], [ %.064109, %20 ]
+  %102 = phi ptr [ %16, %24 ], [ %100, %.loopexit ], [ %16, %20 ], [ %16, %18 ]
+  %.175 = phi i32 [ %.074104, %24 ], [ %99, %.loopexit ], [ %.074104, %20 ], [ %.074104, %18 ]
+  %.173 = phi i32 [ %.072105, %24 ], [ %spec.select81, %.loopexit ], [ %.072105, %20 ], [ %.072105, %18 ]
+  %.165 = phi i32 [ %.064109, %24 ], [ %.289, %.loopexit ], [ %.064109, %20 ], [ %.064109, %18 ]
   %103 = getelementptr inbounds nuw i8, ptr %.070106, i64 1
   %104 = icmp ult ptr %103, %11
   br i1 %104, label %15, label %._crit_edge112, !llvm.loop !19
@@ -277,7 +277,7 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   br label %111
 
 111:                                              ; preds = %._crit_edge112, %._crit_edge112.thread, %.thread142, %108, %106
-  %.066 = phi i32 [ 25, %108 ], [ %.mux, %._crit_edge112 ], [ 0, %._crit_edge112.thread ], [ 50, %106 ], [ %., %.thread142 ]
+  %.066 = phi i32 [ %.mux, %._crit_edge112 ], [ 50, %106 ], [ 25, %108 ], [ %., %.thread142 ], [ 0, %._crit_edge112.thread ]
   ret i32 %.066
 }
 

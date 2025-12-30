@@ -2982,38 +2982,38 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %51 = icmp ne i8 %50, 13
   %.not.not19.i.i = icmp eq ptr %48, null
   %.not.not.i.i = or i1 %.not.not19.i.i, %51
-  br i1 %.not.not.i.i, label %57, label %52
+  br i1 %.not.not.i.i, label %52, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i
 
 52:                                               ; preds = %30
-  %53 = load i32, ptr %49, align 16
-  %54 = lshr i32 %53, 19
-  %55 = and i32 %54, 511
-  %56 = add nsw i32 %55, -435
-  %spec.select.i.i = icmp ult i32 %56, 20
+  %53 = icmp ne i8 %50, 46
+  %.not12.not.i.i = or i1 %.not.not19.i.i, %53
+  br i1 %.not12.not.i.i, label %62, label %54
+
+54:                                               ; preds = %52
+  %55 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %48) #15
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 74
+  %57 = load i8, ptr %56, align 2
+  %58 = and i8 %57, 1
+  %59 = icmp ne i8 %58, 0
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %60, align 8
+  %.not.i.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 7
+  %61 = select i1 %59, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %61, label %68, label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
+
+62:                                               ; preds = %52
+  %63 = icmp eq i8 %50, 10
+  br i1 %63, label %68, label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
+
+_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i: ; preds = %30
+  %64 = load i32, ptr %49, align 16
+  %65 = lshr i32 %64, 19
+  %66 = and i32 %65, 511
+  %67 = add nsw i32 %66, -435
+  %spec.select.i.i = icmp ult i32 %67, 20
   br i1 %spec.select.i.i, label %68, label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
 
-57:                                               ; preds = %30
-  %58 = icmp ne i8 %50, 46
-  %.not12.not.i.i = or i1 %.not.not19.i.i, %58
-  br i1 %.not12.not.i.i, label %59, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i
-
-59:                                               ; preds = %57
-  %60 = icmp eq i8 %50, 10
-  br i1 %60, label %68, label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
-
-_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i: ; preds = %57
-  %61 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %48) #15
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 74
-  %63 = load i8, ptr %62, align 2
-  %64 = and i8 %63, 1
-  %65 = icmp ne i8 %64, 0
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %66, align 8
-  %.not.i.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 7
-  %67 = select i1 %65, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %67, label %68, label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
-
-68:                                               ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %59, %52
+68:                                               ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %62, %54
   %.fca.1.extract.i = extractvalue { ptr, i8 } %39, 1
   %.fca.0.extract.i = extractvalue { ptr, i8 } %39, 0
   %69 = call noundef i32 @_ZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindE(i32 noundef %15) #15
@@ -3023,7 +3023,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i: ; preds = %57
   call fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker22verifyRandomIncrOrDecrERN5clang4ento14CheckerContextENS1_22OverloadedOperatorKindENS2_4SValES6_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(81) %2, i32 noundef %69, ptr %.fca.0.extract7.i, i8 %.fca.1.extract8.i, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %6)
   br label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit: ; preds = %27, %28, %52, %59, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %68
+_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit: ; preds = %27, %28, %54, %62, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %68
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

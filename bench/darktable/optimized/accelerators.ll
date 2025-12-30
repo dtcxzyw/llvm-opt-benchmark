@@ -484,7 +484,7 @@ define internal float @_action_process_toggle(ptr noundef %0, i32 %1, i32 nounde
   br label %45
 
 45:                                               ; preds = %11, %44, %8, %4
-  %.0.in = phi i32 [ %6, %11 ], [ %40, %44 ], [ %6, %4 ], [ %6, %8 ]
+  %.0.in = phi i32 [ %6, %11 ], [ %40, %44 ], [ %6, %8 ], [ %6, %4 ]
   %.0 = sitofp i32 %.0.in to float
   ret float %.0
 }
@@ -808,7 +808,7 @@ _shortcut_is_speed.exit:                          ; preds = %25
   %.not14.i.not = icmp eq i32 %31, 0
   br i1 %.not14.i.not, label %38, label %_shortcut_is_speed.exit.thread
 
-_shortcut_is_speed.exit.thread:                   ; preds = %15, %18, %22, %25, %12, %_shortcut_is_speed.exit
+_shortcut_is_speed.exit.thread:                   ; preds = %12, %15, %18, %22, %25, %_shortcut_is_speed.exit
   %32 = tail call fastcc ptr @_shortcut_description(ptr noundef nonnull %8)
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !90
@@ -1499,7 +1499,7 @@ _action_find_definition.exit.thread:              ; preds = %67, %69, %68, %_act
   br label %_action_find_effect_combo.exit
 
 _action_find_effect_combo.exit:                   ; preds = %121, %129, %134
-  %.2.i = phi ptr [ %135, %134 ], [ %133, %129 ], [ %123, %121 ]
+  %.2.i = phi ptr [ %123, %121 ], [ %133, %129 ], [ %135, %134 ]
   %.not89 = icmp eq ptr %.2.i, null
   br i1 %.not89, label %_action_find_effect_combo.exit._action_find_effect_combo.exit.thread_crit_edge, label %.thread142
 
@@ -1663,7 +1663,7 @@ _action_find_definition.exit.thread101:           ; preds = %_action_find_defini
   br label %_shortcut_is_speed.exit
 
 _shortcut_is_speed.exit:                          ; preds = %197, %203, %206, %210, %213, %218
-  %.not91 = phi ptr [ @.str.201, %197 ], [ %222, %218 ], [ @.str.201, %213 ], [ @.str.201, %210 ], [ @.str.201, %206 ], [ @.str.201, %203 ]
+  %.not91 = phi ptr [ @.str.201, %213 ], [ @.str.201, %210 ], [ @.str.201, %206 ], [ @.str.201, %203 ], [ @.str.201, %197 ], [ %222, %218 ]
   %223 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef 5) #25
   %224 = load float, ptr %193, align 8, !tbaa !125
   %225 = fpext reassoc nsz arcp contract afn float %224 to double
@@ -1935,7 +1935,7 @@ DT_IS_BAUHAUS_WIDGET.exit.thread.i:               ; preds = %88, %.critedge2.i, 
   br label %125
 
 125:                                              ; preds = %123, %118, %110, %105, %92
-  %.ph.i = phi ptr [ null, %92 ], [ %122, %118 ], [ %112, %110 ], [ %109, %105 ], [ %124, %123 ]
+  %.ph.i = phi ptr [ null, %92 ], [ %124, %123 ], [ %122, %118 ], [ %109, %105 ], [ %112, %110 ]
   %126 = load ptr, ptr %94, align 8, !tbaa !106
   %127 = load i32, ptr %95, align 4, !tbaa !109
   %128 = icmp sgt i32 %127, -1
@@ -1997,7 +1997,7 @@ _shortcut_lua_command.exit:                       ; preds = %139, %.sink.split.i
   call void @g_free(ptr noundef nonnull %153) #25
   br label %_shortcut_lua_command.exit.thread
 
-_shortcut_lua_command.exit.thread:                ; preds = %3, %34, %40, %_shortcut_lua_command.exit, %154
+_shortcut_lua_command.exit.thread:                ; preds = %40, %3, %34, %_shortcut_lua_command.exit, %154
   ret void
 }
 
@@ -2307,7 +2307,7 @@ dt_action_insert_sorted.exit:                     ; preds = %61, %.critedge2.i, 
   br label %97
 
 97:                                               ; preds = %.thread69, %._crit_edge, %91, %94
-  %.2 = phi ptr [ null, %.thread69 ], [ null, %94 ], [ %.044.lcssa, %91 ], [ null, %._crit_edge ]
+  %.2 = phi ptr [ null, %94 ], [ %.044.lcssa, %91 ], [ null, %._crit_edge ], [ null, %.thread69 ]
   ret ptr %.2
 }
 
@@ -2428,7 +2428,7 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %57
-  %.str.65.sink = phi ptr [ %.str.67..str.66, %60 ], [ @.str.65, %57 ]
+  %.str.65.sink = phi ptr [ @.str.65, %57 ], [ %.str.67..str.66, %60 ]
   %62 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.65.sink, i32 noundef 5) #25
   br label %63
 
@@ -2724,11 +2724,11 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br label %.thread223
 
 .thread223:                                       ; preds = %186, %.preheader, %.thread187, %191, %195, %._crit_edge
-  %198 = phi ptr [ %178, %.thread187 ], [ %178, %.preheader ], [ %181, %191 ], [ %181, %195 ], [ %181, %._crit_edge ], [ %181, %186 ]
-  %199 = phi i1 [ false, %.thread187 ], [ %.ph, %.preheader ], [ %.ph286, %191 ], [ %.ph286, %195 ], [ %.ph286, %._crit_edge ], [ %.ph286, %186 ]
-  %.0106197214231 = phi ptr [ %.0106198, %.thread187 ], [ %.0106198, %.preheader ], [ %.0106197213236.ph279, %191 ], [ %.0106197213236.ph279, %195 ], [ %.0106197213236.ph279, %._crit_edge ], [ %.0106197213236.ph279, %186 ]
-  %.0115195216230 = phi i32 [ %.0115196, %.thread187 ], [ %.0115196, %.preheader ], [ 0, %191 ], [ 0, %195 ], [ %.0115195215235.ph281, %._crit_edge ], [ %.0115195215235.ph281, %186 ]
-  %.not163222229 = phi i1 [ true, %.thread187 ], [ false, %.preheader ], [ false, %191 ], [ false, %195 ], [ false, %._crit_edge ], [ false, %186 ]
+  %198 = phi ptr [ %181, %191 ], [ %181, %195 ], [ %181, %._crit_edge ], [ %178, %.thread187 ], [ %178, %.preheader ], [ %181, %186 ]
+  %199 = phi i1 [ %.ph286, %191 ], [ %.ph286, %195 ], [ %.ph286, %._crit_edge ], [ false, %.thread187 ], [ %.ph, %.preheader ], [ %.ph286, %186 ]
+  %.0106197214231 = phi ptr [ %.0106197213236.ph279, %191 ], [ %.0106197213236.ph279, %195 ], [ %.0106197213236.ph279, %._crit_edge ], [ %.0106198, %.thread187 ], [ %.0106198, %.preheader ], [ %.0106197213236.ph279, %186 ]
+  %.0115195216230 = phi i32 [ 0, %191 ], [ 0, %195 ], [ %.0115195215235.ph281, %._crit_edge ], [ %.0115196, %.thread187 ], [ %.0115196, %.preheader ], [ %.0115195215235.ph281, %186 ]
+  %.not163222229 = phi i1 [ false, %191 ], [ false, %195 ], [ false, %._crit_edge ], [ true, %.thread187 ], [ false, %.preheader ], [ false, %186 ]
   %200 = call i32 @dt_view_get_current() #25
   %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 560
@@ -2827,7 +2827,7 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br i1 %.not169.us, label %.lr.ph250.split.us.split, label %._crit_edge251
 
 ._crit_edge251:                                   ; preds = %288, %247, %222, %.thread223
-  %.0118.lcssa = phi i32 [ 0, %.thread223 ], [ %.1119.us, %247 ], [ %.1119.us.us, %222 ], [ %.1119, %288 ]
+  %.0118.lcssa = phi i32 [ 0, %.thread223 ], [ %.1119.us.us, %222 ], [ %.1119.us, %247 ], [ %.1119, %288 ]
   %250 = icmp eq i32 %.0118.lcssa, 0
   %251 = load ptr, ptr %12, align 8
   %252 = icmp ne ptr %251, null
@@ -2895,7 +2895,7 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
   br label %288
 
 288:                                              ; preds = %256, %283, %266, %.lr.ph250.split
-  %.1119 = phi i32 [ %.0118248, %.lr.ph250.split ], [ %272, %283 ], [ %.0118248, %266 ], [ %.0118248, %256 ]
+  %.1119 = phi i32 [ %.0118248, %.lr.ph250.split ], [ %272, %283 ], [ %.0118248, %256 ], [ %.0118248, %266 ]
   %289 = call ptr @g_sequence_iter_next(ptr noundef %.0117249) #25
   %290 = call i32 @g_sequence_iter_is_end(ptr noundef %289) #25
   %.not169 = icmp eq i32 %290, 0
@@ -3009,7 +3009,7 @@ thread-pre-split:                                 ; preds = %297, %._crit_edge25
   br label %335
 
 335:                                              ; preds = %104, %332, %331, %42
-  %.1 = phi i32 [ 0, %42 ], [ 0, %104 ], [ 1, %332 ], [ 0, %331 ]
+  %.1 = phi i32 [ 0, %104 ], [ 0, %42 ], [ 1, %332 ], [ 0, %331 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3017,7 +3017,7 @@ thread-pre-split:                                 ; preds = %297, %._crit_edge25
   br label %336
 
 336:                                              ; preds = %23, %26, %29, %21, %335
-  %.0 = phi i32 [ 0, %21 ], [ %.1, %335 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ]
+  %.0 = phi i32 [ %.1, %335 ], [ 0, %21 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -3112,7 +3112,7 @@ define internal fastcc ptr @_action_find_definition(ptr noundef readonly capture
   br label %29
 
 29:                                               ; preds = %20, %26, %27, %28, %25, %1
-  %.0 = phi ptr [ null, %1 ], [ %24, %20 ], [ null, %28 ], [ @dt_action_def_lib, %26 ], [ @dt_action_def_value, %27 ], [ @dt_action_def_iop, %25 ]
+  %.0 = phi ptr [ null, %1 ], [ %24, %20 ], [ @dt_action_def_lib, %26 ], [ @dt_action_def_value, %27 ], [ null, %28 ], [ @dt_action_def_iop, %25 ]
   ret ptr %.0
 }
 
@@ -3145,7 +3145,7 @@ define internal fastcc i32 @DT_IS_BAUHAUS_WIDGET(ptr noundef readonly %0) unname
   br label %10
 
 10:                                               ; preds = %5, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ %9, %8 ], [ 1, %5 ]
+  %.0 = phi i32 [ %9, %8 ], [ 0, %1 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -3572,7 +3572,7 @@ g_set_weak_pointer.exit188:                       ; preds = %112, %130, %131
   br label %.sink.split
 
 .sink.split:                                      ; preds = %135, %142, %146, %150, %156, %166, %185, %187, %173
-  %.sink = phi ptr [ %168, %166 ], [ %179, %173 ], [ %188, %187 ], [ %186, %185 ], [ %137, %156 ], [ %137, %150 ], [ %137, %146 ], [ %137, %142 ], [ %137, %135 ]
+  %.sink = phi ptr [ %179, %173 ], [ %188, %187 ], [ %186, %185 ], [ %168, %166 ], [ %137, %156 ], [ %137, %150 ], [ %137, %146 ], [ %137, %142 ], [ %137, %135 ]
   store ptr %.sink, ptr @_selected_action, align 8, !tbaa !147
   br label %189
 
@@ -3905,8 +3905,8 @@ _shortcut_is_speed.exit23:                        ; preds = %51
   call void @g_free(ptr noundef %64) #25
   br label %_shortcut_is_speed.exit.thread
 
-_shortcut_is_speed.exit.thread:                   ; preds = %41, %44, %48, %51, %38, %21, %24, %28, %31, %15, %58, %_shortcut_is_speed.exit23, %_shortcut_is_speed.exit, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %41 ], [ %65, %58 ], [ 0, %_shortcut_is_speed.exit23 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %21 ], [ 0, %15 ], [ 0, %31 ], [ 0, %28 ], [ 0, %24 ], [ 0, %38 ], [ 0, %51 ], [ 0, %48 ], [ 0, %44 ]
+_shortcut_is_speed.exit.thread:                   ; preds = %38, %41, %44, %48, %51, %15, %21, %24, %28, %31, %58, %_shortcut_is_speed.exit23, %_shortcut_is_speed.exit, %4
+  %.0 = phi i32 [ 0, %4 ], [ %65, %58 ], [ 0, %_shortcut_is_speed.exit23 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %31 ], [ 0, %28 ], [ 0, %24 ], [ 0, %21 ], [ 0, %15 ], [ 0, %51 ], [ 0, %48 ], [ 0, %44 ], [ 0, %41 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -4071,7 +4071,7 @@ define internal range(i32 0, 2) i32 @_visible_shortcuts(ptr noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph51, %67, %43, %40, %36, %33, %30, %25, %47, %54, %.critedge, %._crit_edge
-  %.2 = phi i32 [ %.not41.lcssa, %._crit_edge ], [ 1, %47 ], [ %72, %67 ], [ 1, %54 ], [ 0, %.critedge ], [ 0, %25 ], [ 0, %43 ], [ 0, %40 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 1, %.lr.ph51 ]
+  %.2 = phi i32 [ %.not41.lcssa, %._crit_edge ], [ %72, %67 ], [ 0, %43 ], [ 0, %40 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 1, %47 ], [ 1, %54 ], [ 0, %.critedge ], [ 1, %.lr.ph51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
@@ -4226,7 +4226,7 @@ define internal range(i32 0, 2) i32 @_shortcut_selection_function(ptr noundef %0
   br label %20
 
 20:                                               ; preds = %5, %16, %18
-  %.0 = phi i32 [ 0, %16 ], [ 0, %18 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %16 ], [ 1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -4389,11 +4389,11 @@ define internal i32 @_view_key_pressed(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
-.critedge:                                        ; preds = %53, %56
+.critedge:                                        ; preds = %56, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %61
 
-.critedge29:                                      ; preds = %44, %27
+.critedge29:                                      ; preds = %27, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
 
@@ -5185,7 +5185,7 @@ define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0,
   br label %43
 
 43:                                               ; preds = %11, %37, %42, %40
-  %.1 = phi i32 [ %.02633, %37 ], [ 1, %42 ], [ 1, %40 ], [ %.02633, %11 ]
+  %.1 = phi i32 [ 1, %42 ], [ 1, %40 ], [ %.02633, %37 ], [ %.02633, %11 ]
   %44 = getelementptr inbounds nuw i8, ptr %.035, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !148
   %.not = icmp eq ptr %45, null
@@ -5447,8 +5447,8 @@ _action_find_definition.exit:                     ; preds = %21
   %.not15 = icmp eq ptr %34, null
   br i1 %.not15, label %_action_find_definition.exit.thread21, label %_action_find_definition.exit.thread
 
-_action_find_definition.exit.thread:              ; preds = %30, %29, %28, %_action_find_definition.exit
-  %.0.i20 = phi ptr [ %34, %_action_find_definition.exit ], [ @dt_action_def_value, %30 ], [ @dt_action_def_lib, %29 ], [ @dt_action_def_iop, %28 ]
+_action_find_definition.exit.thread:              ; preds = %28, %30, %29, %_action_find_definition.exit
+  %.0.i20 = phi ptr [ %34, %_action_find_definition.exit ], [ @dt_action_def_iop, %28 ], [ @dt_action_def_value, %30 ], [ @dt_action_def_lib, %29 ]
   %35 = load ptr, ptr %.0.i20, align 8, !tbaa !199
   br label %.sink.split
 
@@ -6222,7 +6222,7 @@ define internal fastcc void @_shortcuts_save(ptr noundef readonly captures(none)
   br i1 %.not100, label %.lr.ph._crit_edge, label %211
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %19, %18, %15
-  %22 = phi i8 [ 0, %15 ], [ %13, %19 ], [ %1, %18 ], [ %13, %.lr.ph ]
+  %22 = phi i8 [ %13, %19 ], [ %1, %18 ], [ 0, %15 ], [ %13, %.lr.ph ]
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !86
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6529,7 +6529,7 @@ _shortcut_default_effect.exit:                    ; preds = %137, %140
   br label %_action_find_effect_combo.exit
 
 _action_find_effect_combo.exit:                   ; preds = %162, %170, %175
-  %.2.i = phi ptr [ %176, %175 ], [ %174, %170 ], [ %164, %162 ]
+  %.2.i = phi ptr [ %164, %162 ], [ %174, %170 ], [ %176, %175 ]
   %.not118 = icmp eq ptr %.2.i, null
   br i1 %.not118, label %_action_find_effect_combo.exit._action_find_effect_combo.exit.thread_crit_edge, label %.sink.split
 
@@ -7094,7 +7094,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.276, ptr noundef nonnull %83) #25
   br label %.critedge234
 
-.critedge234:                                     ; preds = %.thread265, %._crit_edge313, %90, %96, %123, %118, %113, %137, %132, %127, %107, %101, %146, %155, %149, %159, %.critedge237
+.critedge234:                                     ; preds = %.thread265, %._crit_edge313, %90, %123, %118, %113, %137, %132, %127, %107, %101, %96, %146, %155, %149, %159, %.critedge237
   %183 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.270) #25
   %184 = icmp ne ptr %183, null
   %185 = icmp ult ptr %183, %40
@@ -7550,7 +7550,7 @@ _shortcut_is_speed.exit.thread.i:                 ; preds = %_shortcut_is_speed.
   br label %_shortcut_category.exit
 
 _shortcut_category.exit:                          ; preds = %3, %6, %_shortcut_is_speed.exit.i, %_shortcut_is_speed.exit.thread.i, %29
-  %32 = phi i32 [ 4, %3 ], [ 4, %6 ], [ 3, %_shortcut_is_speed.exit.i ], [ %31, %29 ], [ 2, %_shortcut_is_speed.exit.thread.i ]
+  %32 = phi i32 [ 4, %6 ], [ 4, %3 ], [ 3, %_shortcut_is_speed.exit.i ], [ %31, %29 ], [ 2, %_shortcut_is_speed.exit.thread.i ]
   %.not.i94 = icmp eq ptr %1, null
   br i1 %.not.i94, label %_shortcut_category.exit107, label %33
 
@@ -7611,7 +7611,7 @@ _shortcut_is_speed.exit.thread.i97:               ; preds = %_shortcut_is_speed.
   br label %_shortcut_category.exit107
 
 _shortcut_category.exit107:                       ; preds = %_shortcut_category.exit, %33, %_shortcut_is_speed.exit.i105, %_shortcut_is_speed.exit.thread.i97, %56
-  %59 = phi i32 [ 4, %_shortcut_category.exit ], [ 4, %33 ], [ 3, %_shortcut_is_speed.exit.i105 ], [ %58, %56 ], [ 2, %_shortcut_is_speed.exit.thread.i97 ]
+  %59 = phi i32 [ 4, %33 ], [ 4, %_shortcut_category.exit ], [ 3, %_shortcut_is_speed.exit.i105 ], [ %58, %56 ], [ 2, %_shortcut_is_speed.exit.thread.i97 ]
   %.not = icmp eq i32 %32, %59
   br i1 %.not, label %62, label %60
 
@@ -8083,13 +8083,13 @@ _action_find_elements.exit:                       ; preds = %48, %49, %50, %_act
   br label %94
 
 .thread99:                                        ; preds = %48, %_action_find_definition.exit.i, %_action_find_elements.exit, %.critedge90, %78, %80, %.critedge3, %28, %27
-  %92 = phi i32 [ 0, %27 ], [ 0, %28 ], [ 0, %_action_find_elements.exit ], [ %90, %.critedge3 ], [ %.pre, %80 ], [ 0, %78 ], [ 0, %.critedge90 ], [ 0, %_action_find_definition.exit.i ], [ 0, %48 ]
-  %.059 = phi i32 [ 0, %27 ], [ 0, %28 ], [ 0, %_action_find_elements.exit ], [ %.362, %.critedge3 ], [ %.362, %80 ], [ %.362, %78 ], [ %.362, %.critedge90 ], [ 0, %_action_find_definition.exit.i ], [ 0, %48 ]
+  %92 = phi i32 [ 0, %28 ], [ 0, %27 ], [ %90, %.critedge3 ], [ %.pre, %80 ], [ 0, %78 ], [ 0, %.critedge90 ], [ 0, %_action_find_elements.exit ], [ 0, %_action_find_definition.exit.i ], [ 0, %48 ]
+  %.059 = phi i32 [ 0, %28 ], [ 0, %27 ], [ %.362, %.critedge3 ], [ %.362, %80 ], [ %.362, %78 ], [ %.362, %.critedge90 ], [ 0, %_action_find_elements.exit ], [ 0, %_action_find_definition.exit.i ], [ 0, %48 ]
   %93 = tail call reassoc nsz arcp contract afn fastcc float @_process_action(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %.059, i32 noundef %92, float noundef %4, ptr noundef null)
   br label %94
 
 94:                                               ; preds = %62, %.critedge.thread, %.critedge92, %.thread99
-  %.5 = phi nsz float [ %93, %.thread99 ], [ %63, %62 ], [ 0xC7EFFFFFE0000000, %.critedge92 ], [ 0xC7EFFFFFE0000000, %.critedge.thread ]
+  %.5 = phi nsz float [ %93, %.thread99 ], [ 0xC7EFFFFFE0000000, %.critedge.thread ], [ %63, %62 ], [ 0xC7EFFFFFE0000000, %.critedge92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %95
 
@@ -8188,7 +8188,7 @@ default.unreachable31:                            ; preds = %.critedge
   unreachable
 
 .critedge22:                                      ; preds = %4, %1, %.critedge, %.critedge, %19, %15, %7, %11, %36, %33, %29, %32
-  %.0 = phi i32 [ 0, %33 ], [ 2, %.critedge ], [ %10, %7 ], [ %14, %11 ], [ -536870913, %19 ], [ -536870913, %36 ], [ 536870912, %15 ], [ 46, %29 ], [ 47, %32 ], [ 2, %.critedge ], [ 0, %1 ], [ 0, %4 ]
+  %.0 = phi i32 [ %10, %7 ], [ %14, %11 ], [ 46, %29 ], [ 47, %32 ], [ 0, %33 ], [ -536870913, %36 ], [ 536870912, %15 ], [ -536870913, %19 ], [ 2, %.critedge ], [ 2, %.critedge ], [ 0, %1 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -8406,7 +8406,7 @@ dt_dev_gui_module.exit:                           ; preds = %27
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %58, %40, %56, %18, %20, %65, %64, %dt_dev_gui_module.exit, %.thread144
-  %.0103.ph = phi ptr [ %30, %dt_dev_gui_module.exit ], [ %63, %.thread144 ], [ %19, %18 ], [ %66, %65 ], [ %19, %64 ], [ null, %40 ], [ %19, %20 ], [ %19, %56 ], [ %19, %58 ]
+  %.0103.ph = phi ptr [ %63, %.thread144 ], [ %30, %dt_dev_gui_module.exit ], [ %19, %64 ], [ %66, %65 ], [ %19, %18 ], [ %19, %20 ], [ %19, %56 ], [ null, %40 ], [ %19, %58 ]
   %.pr = load i32, ptr %0, align 8, !tbaa !94
   br label %67
 
@@ -8515,8 +8515,8 @@ _action_find_definition.exit:                     ; preds = %102
   %.not130 = icmp eq ptr %115, null
   br i1 %.not130, label %155, label %_action_find_definition.exit.thread
 
-_action_find_definition.exit.thread:              ; preds = %110, %111, %109, %_action_find_definition.exit
-  %.0.i155 = phi ptr [ %115, %_action_find_definition.exit ], [ @dt_action_def_lib, %110 ], [ @dt_action_def_value, %111 ], [ @dt_action_def_iop, %109 ]
+_action_find_definition.exit.thread:              ; preds = %109, %111, %110, %_action_find_definition.exit
+  %.0.i155 = phi ptr [ %115, %_action_find_definition.exit ], [ @dt_action_def_iop, %109 ], [ @dt_action_def_value, %111 ], [ @dt_action_def_lib, %110 ]
   %116 = getelementptr inbounds nuw i8, ptr %.0.i155, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !241
   %.not131 = icmp eq ptr %117, null
@@ -8604,7 +8604,7 @@ _action_find_definition.exit.thread:              ; preds = %110, %111, %109, %_
   br label %.critedge138
 
 .critedge138:                                     ; preds = %.thread152, %27, %_action_find_definition.exit.thread157, %dt_dev_gui_module.exit, %75, %83, %91, %89, %155, %156, %152
-  %.1 = phi nsz float [ 0xC7EFFFFFE0000000, %155 ], [ 0xC7EFFFFFE0000000, %75 ], [ 0xC7EFFFFFE0000000, %83 ], [ 0xC7EFFFFFE0000000, %89 ], [ 0xC7EFFFFFE0000000, %91 ], [ %154, %152 ], [ 0xC7EFFFFFE0000000, %156 ], [ 0xC7EFFFFFE0000000, %dt_dev_gui_module.exit ], [ 0xC7EFFFFFE0000000, %_action_find_definition.exit.thread157 ], [ 0xC7EFFFFFE0000000, %27 ], [ 0xC7EFFFFFE0000000, %.thread152 ]
+  %.1 = phi nsz float [ 0xC7EFFFFFE0000000, %75 ], [ 0xC7EFFFFFE0000000, %83 ], [ 0xC7EFFFFFE0000000, %89 ], [ 0xC7EFFFFFE0000000, %91 ], [ %154, %152 ], [ 0xC7EFFFFFE0000000, %156 ], [ 0xC7EFFFFFE0000000, %155 ], [ 0xC7EFFFFFE0000000, %dt_dev_gui_module.exit ], [ 0xC7EFFFFFE0000000, %_action_find_definition.exit.thread157 ], [ 0xC7EFFFFFE0000000, %27 ], [ 0xC7EFFFFFE0000000, %.thread152 ]
   ret float %.1
 }
 
@@ -8691,7 +8691,7 @@ define internal fastcc range(i32 0, 2) i32 @_find_combo_effect(ptr noundef readn
   br label %.thread46
 
 .thread46:                                        ; preds = %18, %31, %25, %4, %6, %.loopexit
-  %.1 = phi i32 [ 1, %.loopexit ], [ 0, %4 ], [ 0, %6 ], [ 0, %25 ], [ 0, %31 ], [ 0, %18 ]
+  %.1 = phi i32 [ 1, %.loopexit ], [ 0, %6 ], [ 0, %4 ], [ 0, %25 ], [ 0, %31 ], [ 0, %18 ]
   ret i32 %.1
 }
 
@@ -9374,7 +9374,7 @@ _shortcut_match.exit:                             ; preds = %95, %163, %164
   %185 = call reassoc nsz arcp contract afn fastcc float @_process_action(ptr noundef nonnull %93, i32 noundef %183, i32 noundef %184, i32 noundef %181, float noundef %.1, ptr noundef nonnull %7)
   br label %.thread
 
-.loopexit:                                        ; preds = %61, %94, %56, %164, %50, %53, %47, %72
+.loopexit:                                        ; preds = %61, %94, %56, %164, %47, %50, %53, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -9684,7 +9684,7 @@ _shortcut_is_speed.exit:                          ; preds = %108
   tail call void (ptr, ...) @dt_control_log(ptr noundef %138, ptr noundef nonnull @_action_description.hint) #25
   br label %178
 
-_shortcut_is_speed.exit.thread:                   ; preds = %98, %101, %105, %108, %95, %_shortcut_is_speed.exit
+_shortcut_is_speed.exit.thread:                   ; preds = %95, %98, %101, %105, %108, %_shortcut_is_speed.exit
   %.not163 = icmp eq i32 %2, 0
   br i1 %.not163, label %143, label %139
 
@@ -9801,8 +9801,8 @@ _shortcut_is_speed.exit.thread:                   ; preds = %98, %101, %105, %10
   br label %195
 
 195:                                              ; preds = %184, %192, %179
-  %.3144 = phi ptr [ %.2143, %179 ], [ %.2143, %184 ], [ %194, %192 ]
-  %.4132 = phi i32 [ %.3131, %179 ], [ %190, %184 ], [ %.3131, %192 ]
+  %.3144 = phi ptr [ %.2143, %184 ], [ %194, %192 ], [ %.2143, %179 ]
+  %.4132 = phi i32 [ %190, %184 ], [ %.3131, %192 ], [ %.3131, %179 ]
   %196 = tail call i32 @g_sequence_iter_is_end(ptr noundef %49) #25
   %.not171 = icmp eq i32 %196, 0
   br i1 %.not171, label %197, label %.critedge6
@@ -9877,7 +9877,7 @@ switch.early.test:                                ; preds = %.critedge6
   br label %.thread200
 
 .thread200:                                       ; preds = %136, %178, %142, %90, %207, %209, %220, %7, %15
-  %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 0, %209 ], [ 1, %220 ], [ 0, %207 ], [ 1, %90 ], [ 1, %142 ], [ 0, %178 ], [ 1, %136 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %7 ], [ 0, %209 ], [ 1, %220 ], [ 0, %207 ], [ 1, %90 ], [ 1, %142 ], [ 0, %178 ], [ 1, %136 ]
   ret i32 %.0
 }
 
@@ -10587,9 +10587,9 @@ _action_find_definition.exit.thread:              ; preds = %108, %110, %109, %_
   %.pre76 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
   br label %.thread69
 
-.thread69:                                        ; preds = %_action_find_definition.exit.thread, %76, %68, %..thread69_crit_edge
-  %122 = phi i16 [ %.pre76, %..thread69_crit_edge ], [ %82, %_action_find_definition.exit.thread ], [ %73, %76 ], [ %70, %68 ]
-  %.1.lcssa = phi i32 [ %.3, %..thread69_crit_edge ], [ %.175, %68 ], [ %.175, %76 ], [ %.175, %_action_find_definition.exit.thread ]
+.thread69:                                        ; preds = %_action_find_definition.exit.thread, %68, %76, %..thread69_crit_edge
+  %122 = phi i16 [ %.pre76, %..thread69_crit_edge ], [ %82, %_action_find_definition.exit.thread ], [ %70, %68 ], [ %73, %76 ]
+  %.1.lcssa = phi i32 [ %.3, %..thread69_crit_edge ], [ %.175, %76 ], [ %.175, %68 ], [ %.175, %_action_find_definition.exit.thread ]
   %123 = sub i16 %122, %33
   %124 = and i16 %123, 7
   %125 = and i16 %122, -456
@@ -10714,7 +10714,7 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   br i1 %31, label %32, label %.thread191
 
 32:                                               ; preds = %25, %28
-  %33 = phi i1 [ false, %25 ], [ true, %28 ]
+  %33 = phi i1 [ true, %28 ], [ false, %25 ]
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %34, label %41
 
@@ -10865,7 +10865,7 @@ thread-pre-split:                                 ; preds = %.thread191
     i32 65056, label %.critedge179
   ]
 
-.critedge179.thread:                              ; preds = %64, %57, %.critedge181, %.critedge183, %86, %67
+.critedge179.thread:                              ; preds = %57, %.critedge181, %64, %.critedge183, %86, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %1, align 8, !tbaa !6
   br label %91
@@ -11298,7 +11298,7 @@ _interrupt_delayed_release.exit190:               ; preds = %296, %305
   br label %g_set_weak_pointer.exit
 
 g_set_weak_pointer.exit:                          ; preds = %165, %164, %159, %.critedge179, %113, %135, %209, %_interrupt_delayed_release.exit, %290, %293, %_interrupt_delayed_release.exit190, %190, %192, %171, %214, %216, %258, %254, %91, %166, %147, %151, %139, %142, %125, %127, %130, %109, %93, %97, %97, %97, %97, %20, %21
-  %.0124 = phi i32 [ %.1, %.critedge179 ], [ 1, %113 ], [ 1, %20 ], [ 0, %91 ], [ 0, %93 ], [ 1, %109 ], [ 0, %125 ], [ 0, %139 ], [ 0, %147 ], [ 1, %21 ], [ 0, %97 ], [ 0, %97 ], [ 0, %97 ], [ 0, %97 ], [ 0, %130 ], [ 0, %127 ], [ 0, %142 ], [ 0, %151 ], [ 0, %166 ], [ 1, %254 ], [ 1, %258 ], [ 1, %216 ], [ 1, %214 ], [ 1, %171 ], [ 1, %192 ], [ 1, %190 ], [ 1, %_interrupt_delayed_release.exit190 ], [ 1, %293 ], [ 1, %290 ], [ 1, %_interrupt_delayed_release.exit ], [ 1, %209 ], [ 1, %135 ], [ 0, %159 ], [ 0, %164 ], [ 0, %165 ]
+  %.0124 = phi i32 [ %.1, %.critedge179 ], [ 1, %21 ], [ 1, %20 ], [ 0, %97 ], [ 0, %97 ], [ 0, %97 ], [ 0, %97 ], [ 0, %93 ], [ 1, %109 ], [ 0, %130 ], [ 0, %127 ], [ 0, %125 ], [ 0, %142 ], [ 0, %139 ], [ 0, %151 ], [ 0, %147 ], [ 0, %166 ], [ 0, %91 ], [ 1, %254 ], [ 1, %258 ], [ 1, %216 ], [ 1, %214 ], [ 1, %171 ], [ 1, %192 ], [ 1, %190 ], [ 1, %_interrupt_delayed_release.exit190 ], [ 1, %293 ], [ 1, %290 ], [ 1, %_interrupt_delayed_release.exit ], [ 1, %209 ], [ 1, %135 ], [ 1, %113 ], [ 0, %159 ], [ 0, %164 ], [ 0, %165 ]
   ret i32 %.0124
 }
 
@@ -12287,8 +12287,8 @@ define void @dt_action_widget_toast(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread36
 
 .thread36:                                        ; preds = %23, %18, %28, %35, %.thread
-  %.025 = phi ptr [ @.str.5, %.thread ], [ %21, %28 ], [ %21, %35 ], [ %21, %18 ], [ %21, %23 ]
-  %.1 = phi ptr [ %.035, %.thread ], [ %29, %28 ], [ %20, %35 ], [ %20, %18 ], [ %20, %23 ]
+  %.025 = phi ptr [ @.str.5, %.thread ], [ %21, %35 ], [ %21, %28 ], [ %21, %18 ], [ %21, %23 ]
+  %.1 = phi ptr [ %.035, %.thread ], [ %20, %35 ], [ %29, %28 ], [ %20, %18 ], [ %20, %23 ]
   call fastcc void @_action_distinct_label(ptr noundef %5, ptr noundef %.1, ptr noundef nonnull %.025)
   %36 = load ptr, ptr %5, align 8, !tbaa !18
   call void (ptr, ...) @dt_toast_log(ptr noundef nonnull @.str.162, ptr noundef %36, ptr noundef %10) #25
@@ -13041,7 +13041,7 @@ define internal fastcc ptr @_action_find_effect_combo(ptr noundef %0, ptr readno
   br label %30
 
 30:                                               ; preds = %2, %15, %10, %28, %23
-  %.2 = phi ptr [ %29, %28 ], [ %14, %10 ], [ %17, %15 ], [ %27, %23 ], [ null, %2 ]
+  %.2 = phi ptr [ %17, %15 ], [ %14, %10 ], [ %27, %23 ], [ %29, %28 ], [ null, %2 ]
   ret ptr %.2
 }
 
@@ -13156,7 +13156,7 @@ define internal fastcc range(i32 0, 2) i32 @_find_relative_instance(ptr noundef 
   br label %.critedge47
 
 .critedge47:                                      ; preds = %5, %3, %21, %25, %50, %._crit_edge, %16, %17, %.critedge, %11
-  %.0 = phi i32 [ 1, %16 ], [ 0, %.critedge ], [ 1, %21 ], [ 0, %11 ], [ 1, %17 ], [ 1, %._crit_edge ], [ 1, %50 ], [ 1, %25 ], [ 0, %3 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ 1, %17 ], [ 1, %16 ], [ 1, %._crit_edge ], [ 1, %50 ], [ 1, %25 ], [ 1, %21 ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -13308,7 +13308,7 @@ _shortcut_is_speed.exit.thread.i.i:               ; preds = %_shortcut_is_speed.
   br label %_shortcuts_store_category.exit
 
 _shortcuts_store_category.exit:                   ; preds = %.lr.ph, %16, %_shortcut_is_speed.exit.i.i, %_shortcut_is_speed.exit.thread.i.i, %39
-  %42 = phi i32 [ 4, %.lr.ph ], [ 4, %16 ], [ 3, %_shortcut_is_speed.exit.i.i ], [ %41, %39 ], [ 2, %_shortcut_is_speed.exit.thread.i.i ]
+  %42 = phi i32 [ 4, %16 ], [ 4, %.lr.ph ], [ 3, %_shortcut_is_speed.exit.i.i ], [ %41, %39 ], [ 2, %_shortcut_is_speed.exit.thread.i.i ]
   %43 = call i32 @gtk_tree_model_iter_nth_child(ptr noundef %15, ptr noundef nonnull %1, ptr noundef null, i32 noundef %42) #25
   %44 = load ptr, ptr @_shortcuts_store, align 8, !tbaa !168
   call void (ptr, ptr, ptr, i32, ...) @gtk_tree_store_insert_with_values(ptr noundef %44, ptr noundef null, ptr noundef nonnull %1, i32 noundef -1, i32 noundef 0, ptr noundef %.0811, i32 noundef -1) #25
@@ -13409,7 +13409,7 @@ _action_find_definition.exit.thread:              ; preds = %_action_find_defini
   br i1 %.not30, label %35, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %35, %28, %.preheader, %10, %13, %33, %_action_find_definition.exit, %_action_find_definition.exit.thread, %8, %31, %3, %2
-  %.021 = phi i32 [ 0, %2 ], [ 0, %_action_find_definition.exit ], [ 0, %_action_find_definition.exit.thread ], [ 1, %3 ], [ 0, %8 ], [ 0, %31 ], [ 0, %33 ], [ 1, %.preheader ], [ 0, %10 ], [ 0, %13 ], [ 0, %28 ], [ 0, %35 ], [ 1, %.lr.ph ]
+  %.021 = phi i32 [ 0, %2 ], [ 1, %3 ], [ 0, %31 ], [ 0, %8 ], [ 0, %_action_find_definition.exit.thread ], [ 0, %_action_find_definition.exit ], [ 0, %33 ], [ 0, %13 ], [ 0, %10 ], [ 0, %28 ], [ 1, %.preheader ], [ 1, %.lr.ph ], [ 0, %35 ]
   ret i32 %.021
 }
 
@@ -13641,7 +13641,7 @@ _shortcut_is_speed.exit:                          ; preds = %52
   %.not14.i.not = icmp eq i32 %58, 0
   br i1 %.not14.i.not, label %.loopexit, label %_shortcut_is_speed.exit.thread
 
-_shortcut_is_speed.exit.thread:                   ; preds = %42, %45, %49, %52, %39, %_shortcut_is_speed.exit
+_shortcut_is_speed.exit.thread:                   ; preds = %39, %42, %45, %49, %52, %_shortcut_is_speed.exit
   %59 = call fastcc ptr @_action_find_elements(ptr noundef %.081139)
   %.not107 = icmp eq ptr %59, null
   br i1 %.not107, label %.loopexit, label %60
@@ -13719,7 +13719,7 @@ _shortcut_is_speed.exit126:                       ; preds = %92
   %.not14.i125.not = icmp eq i32 %98, 0
   br i1 %.not14.i125.not, label %.loopexit, label %_shortcut_is_speed.exit126.thread
 
-_shortcut_is_speed.exit126.thread:                ; preds = %82, %85, %89, %92, %79, %_shortcut_is_speed.exit126
+_shortcut_is_speed.exit126.thread:                ; preds = %79, %82, %85, %89, %92, %_shortcut_is_speed.exit126
   %99 = call fastcc ptr @_action_find_elements(ptr noundef %.081139)
   %.not103 = icmp eq ptr %99, null
   br i1 %.not103, label %.loopexit, label %100
@@ -13984,9 +13984,9 @@ _shortcut_is_speed.exit135:                       ; preds = %183, %186, %189, %1
   br i1 %.old2.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %235, %201, %112, %114, %.critedge114, %65, %67, %180, %207, %210, %231, %.critedge, %_shortcut_is_speed.exit135, %_shortcut_is_speed.exit126.thread, %75, %_shortcut_is_speed.exit126, %_shortcut_is_speed.exit.thread, %60, %35, %_shortcut_is_speed.exit, %32, %33, %29
-  %.184 = phi i32 [ 400, %.critedge ], [ 400, %29 ], [ 400, %33 ], [ 400, %32 ], [ 400, %35 ], [ 400, %_shortcut_is_speed.exit ], [ 400, %201 ], [ 400, %60 ], [ 400, %_shortcut_is_speed.exit.thread ], [ 400, %75 ], [ 400, %_shortcut_is_speed.exit126 ], [ 300, %65 ], [ 400, %_shortcut_is_speed.exit126.thread ], [ 400, %_shortcut_is_speed.exit135 ], [ 400, %207 ], [ %.487, %180 ], [ %spec.select117, %231 ], [ 400, %210 ], [ %74, %67 ], [ %130, %.critedge114 ], [ 300, %114 ], [ 400, %112 ], [ 400, %235 ]
-  %.178 = phi i32 [ 0, %.critedge ], [ 0, %29 ], [ 0, %33 ], [ 0, %32 ], [ 0, %35 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %201 ], [ 0, %60 ], [ 0, %_shortcut_is_speed.exit.thread ], [ 0, %75 ], [ 0, %_shortcut_is_speed.exit126 ], [ 1, %65 ], [ 0, %_shortcut_is_speed.exit126.thread ], [ 0, %_shortcut_is_speed.exit135 ], [ 0, %207 ], [ %spec.select116, %180 ], [ 1, %231 ], [ 0, %210 ], [ 1, %67 ], [ 1, %.critedge114 ], [ 1, %114 ], [ 1, %112 ], [ 0, %235 ]
-  %.1 = phi ptr [ null, %.critedge ], [ %31, %29 ], [ %34, %33 ], [ null, %32 ], [ null, %35 ], [ null, %_shortcut_is_speed.exit ], [ null, %201 ], [ null, %60 ], [ null, %_shortcut_is_speed.exit.thread ], [ null, %75 ], [ null, %_shortcut_is_speed.exit126 ], [ null, %65 ], [ null, %_shortcut_is_speed.exit126.thread ], [ null, %_shortcut_is_speed.exit135 ], [ null, %207 ], [ %.4, %180 ], [ %232, %231 ], [ null, %210 ], [ %72, %67 ], [ %128, %.critedge114 ], [ null, %114 ], [ null, %112 ], [ null, %235 ]
+  %.184 = phi i32 [ 400, %.critedge ], [ 400, %29 ], [ 400, %33 ], [ 400, %32 ], [ 400, %35 ], [ 400, %_shortcut_is_speed.exit ], [ 400, %60 ], [ 400, %_shortcut_is_speed.exit.thread ], [ 400, %75 ], [ 400, %_shortcut_is_speed.exit126 ], [ 400, %_shortcut_is_speed.exit126.thread ], [ 400, %_shortcut_is_speed.exit135 ], [ %.487, %180 ], [ 400, %210 ], [ %spec.select117, %231 ], [ 400, %207 ], [ %74, %67 ], [ 300, %65 ], [ %130, %.critedge114 ], [ 300, %114 ], [ 400, %112 ], [ 400, %201 ], [ 400, %235 ]
+  %.178 = phi i32 [ 0, %.critedge ], [ 0, %29 ], [ 0, %33 ], [ 0, %32 ], [ 0, %35 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %60 ], [ 0, %_shortcut_is_speed.exit.thread ], [ 0, %75 ], [ 0, %_shortcut_is_speed.exit126 ], [ 0, %_shortcut_is_speed.exit126.thread ], [ 0, %_shortcut_is_speed.exit135 ], [ %spec.select116, %180 ], [ 0, %210 ], [ 1, %231 ], [ 0, %207 ], [ 1, %67 ], [ 1, %65 ], [ 1, %.critedge114 ], [ 1, %114 ], [ 1, %112 ], [ 0, %201 ], [ 0, %235 ]
+  %.1 = phi ptr [ null, %.critedge ], [ %31, %29 ], [ %34, %33 ], [ null, %32 ], [ null, %35 ], [ null, %_shortcut_is_speed.exit ], [ null, %60 ], [ null, %_shortcut_is_speed.exit.thread ], [ null, %75 ], [ null, %_shortcut_is_speed.exit126 ], [ null, %_shortcut_is_speed.exit126.thread ], [ null, %_shortcut_is_speed.exit135 ], [ %.4, %180 ], [ null, %210 ], [ %232, %231 ], [ null, %207 ], [ %72, %67 ], [ null, %65 ], [ %128, %.critedge114 ], [ null, %114 ], [ null, %112 ], [ null, %201 ], [ null, %235 ]
   %238 = load i32, ptr %23, align 8, !tbaa !82
   %.not112 = icmp eq i32 %238, 0
   %spec.select118 = select i1 %.not112, i32 0, i32 %.178
@@ -14295,7 +14295,7 @@ define internal void @_export_id_changed(ptr noundef %0, ptr noundef %1) #0 {
   br label %35
 
 35:                                               ; preds = %30, %.lr.ph.split.split.us
-  %.1.us31 = phi i32 [ %spec.select, %30 ], [ %.028.us29, %.lr.ph.split.split.us ]
+  %.1.us31 = phi i32 [ %.028.us29, %.lr.ph.split.split.us ], [ %spec.select, %30 ]
   %36 = tail call ptr @g_sequence_iter_next(ptr noundef %.02227.us30) #25
   %37 = tail call i32 @g_sequence_iter_is_end(ptr noundef %36) #25
   %.not.us32 = icmp eq i32 %37, 0
@@ -14876,7 +14876,7 @@ thread-pre-split.thread:                          ; preds = %180, %thread-pre-sp
   br label %.thread
 
 .thread:                                          ; preds = %253, %251, %248, %244, %265, %261, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %248 ], [ 1, %261 ], [ 1, %265 ], [ 1, %253 ], [ 1, %244 ], [ 1, %251 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %248 ], [ 1, %261 ], [ 1, %265 ], [ 1, %244 ], [ 1, %251 ], [ 1, %253 ]
   ret i32 %.0
 }
 
@@ -15112,7 +15112,7 @@ _shortcut_is_speed.exit.thread.i.i:               ; preds = %_shortcut_is_speed.
   br label %_shortcuts_store_category.exit
 
 _shortcuts_store_category.exit:                   ; preds = %16, %20, %_shortcut_is_speed.exit.i.i, %_shortcut_is_speed.exit.thread.i.i, %43
-  %46 = phi i32 [ 4, %16 ], [ 4, %20 ], [ 3, %_shortcut_is_speed.exit.i.i ], [ %45, %43 ], [ 2, %_shortcut_is_speed.exit.thread.i.i ]
+  %46 = phi i32 [ 4, %20 ], [ 4, %16 ], [ 3, %_shortcut_is_speed.exit.i.i ], [ %45, %43 ], [ 2, %_shortcut_is_speed.exit.thread.i.i ]
   %47 = call i32 @gtk_tree_model_iter_nth_child(ptr noundef %19, ptr noundef nonnull %4, ptr noundef null, i32 noundef %46) #25
   %48 = call i32 @gtk_tree_model_iter_children(ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef nonnull %4) #25
   %.not23 = icmp eq i32 %48, 0

@@ -2724,7 +2724,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %1036, label %.lr.ph.split.i172.i, label %._crit_edge.i167.i, !llvm.loop !15
 
 ._crit_edge.i167.i:                               ; preds = %1021, %.lr.ph.split.us.split.i.i, %.lr.ph.split.us.split.us.i.i, %994
-  %.3.lcssa.i168.i = phi i32 [ %997, %994 ], [ %1013, %.lr.ph.split.us.split.i.i ], [ %1004, %.lr.ph.split.us.split.us.i.i ], [ %1033, %1021 ]
+  %.3.lcssa.i168.i = phi i32 [ %997, %994 ], [ %1004, %.lr.ph.split.us.split.us.i.i ], [ %1013, %.lr.ph.split.us.split.i.i ], [ %1033, %1021 ]
   %1037 = add nuw nsw i32 %.092100.i.i, 1
   %exitcond.not.i169.i = icmp eq i32 %.092100.i.i, %949
   br i1 %exitcond.not.i169.i, label %1038, label %956, !llvm.loop !16
@@ -5770,7 +5770,7 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
   br label %125
 
 125:                                              ; preds = %110, %106, %118, %111, %.loopexit
-  %.4 = phi i32 [ %109, %106 ], [ %117, %111 ], [ %124, %118 ], [ %.1131, %110 ], [ %.1131, %.loopexit ]
+  %.4 = phi i32 [ %109, %106 ], [ %117, %111 ], [ %124, %118 ], [ %.1131, %.loopexit ], [ %.1131, %110 ]
   %126 = srem i32 %.4, 4
   %.not137 = icmp eq i32 %126, 0
   br i1 %.not137, label %138, label %127

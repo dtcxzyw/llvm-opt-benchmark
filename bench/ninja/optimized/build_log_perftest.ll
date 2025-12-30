@@ -1162,9 +1162,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %134
 
 125:                                              ; preds = %102, %.thread, %._crit_edge, %12
-  %.sroa.22.0 = phi ptr [ null, %.thread ], [ %.sroa.22.4.ph, %._crit_edge ], [ %.sroa.22.2156, %102 ], [ null, %12 ]
-  %.sroa.085.0 = phi ptr [ null, %.thread ], [ %.sroa.085.4.ph, %._crit_edge ], [ %.sroa.085.2158, %102 ], [ null, %12 ]
-  %.027 = phi i32 [ 1, %.thread ], [ 0, %._crit_edge ], [ 1, %102 ], [ 1, %12 ]
+  %.sroa.22.0 = phi ptr [ %.sroa.22.4.ph, %._crit_edge ], [ %.sroa.22.2156, %102 ], [ null, %12 ], [ null, %.thread ]
+  %.sroa.085.0 = phi ptr [ %.sroa.085.4.ph, %._crit_edge ], [ %.sroa.085.2158, %102 ], [ null, %12 ], [ null, %.thread ]
+  %.027 = phi i32 [ 0, %._crit_edge ], [ 1, %102 ], [ 1, %12 ], [ 1, %.thread ]
   %126 = load ptr, ptr %3, align 8, !tbaa !14
   %127 = icmp eq ptr %126, %8
   br i1 %127, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74

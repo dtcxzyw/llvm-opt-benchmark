@@ -991,7 +991,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !5
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
-  %retval.0.i = phi i32 [ %add13.i, %if.then12.i ], [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ %add13.i, %if.then12.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
   %__val.lobit = lshr i32 %__val, 31
   %add2 = add i32 %retval.0.i, %__val.lobit
   %conv3 = zext i32 %add2 to i64
@@ -2236,7 +2236,7 @@ _ZN11conformance19ConformanceResponseD2Ev.exit:   ; preds = %_ZN9struct_pb13Unkn
   ret void
 
 ehcleanup90:                                      ; preds = %lpad, %lpad.i.i.i.i.i.i.i.i, %lpad80, %lpad50, %ehcleanup
-  %.pn9.pn = phi { ptr, i32 } [ %31, %lpad.i.i.i.i.i.i.i.i ], [ %39, %lpad80 ], [ %.pn, %ehcleanup ], [ %36, %lpad50 ], [ %20, %lpad ]
+  %.pn9.pn = phi { ptr, i32 } [ %39, %lpad80 ], [ %36, %lpad50 ], [ %.pn, %ehcleanup ], [ %20, %lpad ], [ %31, %lpad.i.i.i.i.i.i.i.i ]
   %43 = load ptr, ptr %unknown_fields, align 8
   %tobool.not.i.i.i.i225 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i.i225, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit227, label %if.then.i.i.i.i226
@@ -2764,7 +2764,7 @@ _ZN11conformance19ConformanceResponseD2Ev.exit:   ; preds = %_ZN9struct_pb13Unkn
   ret void
 
 ehcleanup87:                                      ; preds = %lpad, %lpad.i.i.i.i.i.i.i.i, %lpad77, %lpad47, %ehcleanup
-  %.pn9.pn = phi { ptr, i32 } [ %38, %lpad.i.i.i.i.i.i.i.i ], [ %47, %lpad77 ], [ %.pn, %ehcleanup ], [ %44, %lpad47 ], [ %40, %lpad ]
+  %.pn9.pn = phi { ptr, i32 } [ %47, %lpad77 ], [ %44, %lpad47 ], [ %.pn, %ehcleanup ], [ %40, %lpad ], [ %38, %lpad.i.i.i.i.i.i.i.i ]
   %51 = load ptr, ptr %unknown_fields, align 8
   %tobool.not.i.i.i.i182 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i.i.i182, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit184, label %if.then.i.i.i.i183
@@ -3113,7 +3113,7 @@ _ZN11conformance19ConformanceResponseD2Ev.exit:   ; preds = %_ZN11conformance10F
   ret void
 
 ehcleanup87:                                      ; preds = %lpad, %lpad.i.i.i.i.i.i.i.i, %lpad77, %lpad47, %ehcleanup
-  %.pn9.pn = phi { ptr, i32 } [ %11, %lpad.i.i.i.i.i.i.i.i ], [ %20, %lpad77 ], [ %.pn, %ehcleanup ], [ %17, %lpad47 ], [ %13, %lpad ]
+  %.pn9.pn = phi { ptr, i32 } [ %20, %lpad77 ], [ %17, %lpad47 ], [ %.pn, %ehcleanup ], [ %13, %lpad ], [ %11, %lpad.i.i.i.i.i.i.i.i ]
   %29 = load ptr, ptr %unknown_fields, align 8
   %tobool.not.i.i.i.i96 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i96, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit98, label %if.then.i.i.i.i97
@@ -5391,7 +5391,7 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return.sink.split.sink.split:                     ; preds = %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2
-  %.sink = phi ptr [ %15, %sw.bb9 ], [ %13, %sw.bb8 ], [ %11, %sw.bb7 ], [ %9, %sw.bb6 ], [ %7, %sw.bb5 ], [ %5, %sw.bb4 ], [ %3, %sw.bb3 ], [ %1, %sw.bb2 ], [ %17, %sw.bb10 ]
+  %.sink = phi ptr [ %1, %sw.bb2 ], [ %3, %sw.bb3 ], [ %5, %sw.bb4 ], [ %7, %sw.bb5 ], [ %9, %sw.bb6 ], [ %11, %sw.bb7 ], [ %13, %sw.bb8 ], [ %15, %sw.bb9 ], [ %17, %sw.bb10 ]
   tail call void @_ZdlPv(ptr noundef %.sink) #25
   br label %return.sink.split
 
@@ -5444,7 +5444,7 @@ sw.default.i:                                     ; preds = %if.end
   unreachable
 
 return.sink.split.i.sink.split:                   ; preds = %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i
-  %.sink = phi ptr [ %5, %sw.bb4.i ], [ %3, %sw.bb3.i ], [ %1, %sw.bb2.i ], [ %7, %sw.bb5.i ]
+  %.sink = phi ptr [ %1, %sw.bb2.i ], [ %3, %sw.bb3.i ], [ %5, %sw.bb4.i ], [ %7, %sw.bb5.i ]
   tail call void @_ZdlPv(ptr noundef %.sink) #25
   br label %return.sink.split.i
 

@@ -1038,8 +1038,8 @@ common.resume:                                    ; preds = %61, %44
   ret void
 
 85:                                               ; preds = %68, %49, %57, %63
-  %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %57 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, %63 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, %49 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %68 ]
-  %.sink = phi i64 [ 15, %57 ], [ 16, %63 ], [ 8, %49 ], [ 15, %68 ]
+  %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, %63 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %57 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, %49 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %68 ]
+  %.sink = phi i64 [ 16, %63 ], [ 15, %57 ], [ 8, %49 ], [ 15, %68 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1287,8 +1287,8 @@ common.resume:                                    ; preds = %61, %44
   ret void
 
 85:                                               ; preds = %68, %49, %57, %63
-  %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %57 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, %63 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, %49 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %68 ]
-  %.sink = phi i64 [ 15, %57 ], [ 16, %63 ], [ 8, %49 ], [ 15, %68 ]
+  %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, %63 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %57 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, %49 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %68 ]
+  %.sink = phi i64 [ 16, %63 ], [ 15, %57 ], [ 8, %49 ], [ 15, %68 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1536,8 +1536,8 @@ common.resume:                                    ; preds = %61, %44
   ret void
 
 85:                                               ; preds = %68, %49, %57, %63
-  %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %57 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, %63 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, %49 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %68 ]
-  %.sink = phi i64 [ 15, %57 ], [ 16, %63 ], [ 8, %49 ], [ 15, %68 ]
+  %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, %63 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %57 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, %49 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %68 ]
+  %.sink = phi i64 [ 16, %63 ], [ 15, %57 ], [ 8, %49 ], [ 15, %68 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1785,8 +1785,8 @@ common.resume:                                    ; preds = %61, %44
   ret void
 
 85:                                               ; preds = %68, %49, %57, %63
-  %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %57 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, %63 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, %49 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %68 ]
-  %.sink = phi i64 [ 15, %57 ], [ 16, %63 ], [ 8, %49 ], [ 15, %68 ]
+  %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.19.llvm.11656387384687170936, %63 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %57 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936, %49 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, %68 ]
+  %.sink = phi i64 [ 16, %63 ], [ 15, %57 ], [ 8, %49 ], [ 15, %68 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %anon.bb7da592cc2a4db35d4d49e42ec38fbb.23.llvm.11656387384687170936.sink, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16

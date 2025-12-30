@@ -15108,9 +15108,9 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i:       ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %19, %23, %16, %42, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i
-  %.sink16 = phi i32 [ %.pre, %42 ], [ %29, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre9, %23 ], [ %17, %19 ], [ %2, %16 ]
-  %.sink15 = phi i64 [ %.pre8, %42 ], [ %41, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre10, %23 ], [ %22, %19 ], [ 0, %16 ]
-  %.sink = phi i8 [ 0, %42 ], [ 0, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ 1, %23 ], [ 1, %19 ], [ 1, %16 ]
+  %.sink16 = phi i32 [ %29, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre, %42 ], [ %.pre9, %23 ], [ %17, %19 ], [ %2, %16 ]
+  %.sink15 = phi i64 [ %41, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre8, %42 ], [ %.pre10, %23 ], [ %22, %19 ], [ 0, %16 ]
+  %.sink = phi i8 [ 0, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ 0, %42 ], [ 1, %23 ], [ 1, %19 ], [ 1, %16 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink16, ptr %43, align 8, !tbaa !28
   store i64 %.sink15, ptr %0, align 8
@@ -15394,8 +15394,8 @@ define internal fastcc void @_ZL22DefineTypeSizeAndWidthRKN4llvm5TwineEN5clang23
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4, %11, %12
-  %.sink30 = phi i8 [ %.014.i.i, %12 ], [ 3, %11 ], [ %10, %4 ]
-  %.sink = phi i8 [ 3, %12 ], [ 1, %11 ], [ 1, %4 ]
+  %.sink30 = phi i8 [ 3, %11 ], [ %.014.i.i, %12 ], [ %10, %4 ]
+  %.sink = phi i8 [ 1, %11 ], [ 3, %12 ], [ 1, %4 ]
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 %.sink30, ptr %17, align 8, !tbaa !365
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 33
@@ -15433,8 +15433,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4, %11, %12
   br label %_ZN4llvmplERKNS_5TwineES2_.exit21
 
 _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %20, %21
-  %.sink34 = phi i8 [ %.014.i.i10, %21 ], [ 3, %20 ], [ %19, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %.sink32 = phi i8 [ 3, %21 ], [ 1, %20 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink34 = phi i8 [ 3, %20 ], [ %.014.i.i10, %21 ], [ %19, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink32 = phi i8 [ 1, %20 ], [ 3, %21 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %.sink34, ptr %26, align 8, !tbaa !365
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 33
@@ -15598,7 +15598,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %69
 
 69:                                               ; preds = %60, %63, %66
-  %.0.i.ph.ph = phi ptr [ @.str.461, %63 ], [ @.str.460, %60 ], [ %..i, %66 ]
+  %.0.i.ph.ph = phi ptr [ @.str.460, %60 ], [ @.str.461, %63 ], [ %..i, %66 ]
   %70 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %71 = icmp eq ptr %3, %70
   br i1 %71, label %78, label %72
@@ -15615,7 +15615,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %78
 
 78:                                               ; preds = %69, %72, %75
-  %.0.i41.ph.ph = phi ptr [ %..i40, %75 ], [ @.str.467, %72 ], [ @.str.466, %69 ]
+  %.0.i41.ph.ph = phi ptr [ @.str.466, %69 ], [ @.str.467, %72 ], [ %..i40, %75 ]
   %79 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %80 = icmp eq ptr %3, %79
   br i1 %80, label %87, label %81
@@ -15632,7 +15632,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %87
 
 87:                                               ; preds = %78, %81, %84
-  %.0.i44.ph.ph = phi i32 [ %..i43, %84 ], [ 18, %81 ], [ 15, %78 ]
+  %.0.i44.ph.ph = phi i32 [ 15, %78 ], [ 18, %81 ], [ %..i43, %84 ]
   %88 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %89 = icmp eq ptr %3, %88
   br i1 %89, label %96, label %90
@@ -15649,7 +15649,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %96
 
 96:                                               ; preds = %87, %90, %93
-  %.0.i46.ph.ph = phi i32 [ %..i45, %93 ], [ 21, %90 ], [ 17, %87 ]
+  %.0.i46.ph.ph = phi i32 [ 17, %87 ], [ 21, %90 ], [ %..i45, %93 ]
   %97 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %98 = icmp eq ptr %3, %97
   br i1 %98, label %105, label %99
@@ -15666,7 +15666,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %105
 
 105:                                              ; preds = %96, %99, %102
-  %.0.i49.ph.ph = phi ptr [ %..i48, %102 ], [ @.str.473, %99 ], [ @.str.472, %96 ]
+  %.0.i49.ph.ph = phi ptr [ @.str.472, %96 ], [ @.str.473, %99 ], [ %..i48, %102 ]
   %106 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %107 = icmp eq ptr %3, %106
   br i1 %107, label %114, label %108
@@ -15683,7 +15683,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %114
 
 114:                                              ; preds = %105, %108, %111
-  %.0.i52.ph.ph = phi i32 [ %..i51, %111 ], [ 64, %108 ], [ 53, %105 ]
+  %.0.i52.ph.ph = phi i32 [ 53, %105 ], [ 64, %108 ], [ %..i51, %111 ]
   %115 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %116 = icmp eq ptr %3, %115
   br i1 %116, label %123, label %117
@@ -15700,7 +15700,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %123
 
 123:                                              ; preds = %114, %117, %120
-  %.0.i55.ph.ph = phi i32 [ %..i54, %120 ], [ -4931, %117 ], [ -307, %114 ]
+  %.0.i55.ph.ph = phi i32 [ -307, %114 ], [ -4931, %117 ], [ %..i54, %120 ]
   %124 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %125 = icmp eq ptr %3, %124
   br i1 %125, label %132, label %126
@@ -15717,7 +15717,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %132
 
 132:                                              ; preds = %123, %126, %129
-  %.0.i58.ph.ph = phi i32 [ %..i57, %129 ], [ 4932, %126 ], [ 308, %123 ]
+  %.0.i58.ph.ph = phi i32 [ 308, %123 ], [ 4932, %126 ], [ %..i57, %129 ]
   %133 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %134 = icmp eq ptr %3, %133
   br i1 %134, label %141, label %135
@@ -15734,7 +15734,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %141
 
 141:                                              ; preds = %132, %135, %138
-  %.0.i61.ph.ph = phi i32 [ %..i60, %138 ], [ -16381, %135 ], [ -1021, %132 ]
+  %.0.i61.ph.ph = phi i32 [ -1021, %132 ], [ -16381, %135 ], [ %..i60, %138 ]
   %142 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %143 = icmp eq ptr %3, %142
   br i1 %143, label %150, label %144
@@ -15751,7 +15751,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %150
 
 150:                                              ; preds = %141, %144, %147
-  %.0.i64.ph.ph = phi i32 [ %..i63, %147 ], [ 16384, %144 ], [ 1024, %141 ]
+  %.0.i64.ph.ph = phi i32 [ 1024, %141 ], [ 16384, %144 ], [ %..i63, %147 ]
   %151 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %152 = icmp eq ptr %3, %151
   br i1 %152, label %159, label %153
@@ -15768,7 +15768,7 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %159
 
 159:                                              ; preds = %150, %153, %156
-  %.0.i67.ph.ph = phi ptr [ %..i66, %156 ], [ @.str.478, %153 ], [ @.str.477, %150 ]
+  %.0.i67.ph.ph = phi ptr [ @.str.477, %150 ], [ @.str.478, %153 ], [ %..i66, %156 ]
   %160 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #19
   %161 = icmp eq ptr %3, %160
   br i1 %161, label %_ZL6PickFPIPKcET_PKN4llvm12fltSemanticsES2_S2_S2_S2_S2_S2_.exit71, label %162
@@ -15785,18 +15785,18 @@ define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm
   br label %_ZL6PickFPIPKcET_PKN4llvm12fltSemanticsES2_S2_S2_S2_S2_S2_.exit71
 
 _ZL6PickFPIPKcET_PKN4llvm12fltSemanticsES2_S2_S2_S2_S2_S2_.exit71: ; preds = %57, %6, %159, %162, %165
-  %.0.i67497 = phi ptr [ %.0.i67.ph.ph, %162 ], [ %.0.i67.ph.ph, %165 ], [ @.str.475, %6 ], [ %.0.i67.ph.ph, %159 ], [ @.str.476, %57 ]
-  %.0.i61434446495 = phi i32 [ %.0.i61.ph.ph, %162 ], [ %.0.i61.ph.ph, %165 ], [ -13, %6 ], [ %.0.i61.ph.ph, %159 ], [ -125, %57 ]
-  %.0.i55383393432448493 = phi i32 [ %.0.i55.ph.ph, %162 ], [ %.0.i55.ph.ph, %165 ], [ -4, %6 ], [ %.0.i55.ph.ph, %159 ], [ -37, %57 ]
-  %.0.i49344352381395430450491 = phi ptr [ %.0.i49.ph.ph, %162 ], [ %.0.i49.ph.ph, %165 ], [ @.str.470, %6 ], [ %.0.i49.ph.ph, %159 ], [ @.str.471, %57 ]
-  %.0.i44317323342354379397428452489 = phi i32 [ %.0.i44.ph.ph, %162 ], [ %.0.i44.ph.ph, %165 ], [ 3, %6 ], [ %.0.i44.ph.ph, %159 ], [ 6, %57 ]
-  %.0.i302306315325340356377399426454487 = phi ptr [ %.0.i.ph.ph, %162 ], [ %.0.i.ph.ph, %165 ], [ @.str.458, %6 ], [ %.0.i.ph.ph, %159 ], [ @.str.459, %57 ]
-  %.0.i41308313327338358375401424456485 = phi ptr [ %.0.i41.ph.ph, %162 ], [ %.0.i41.ph.ph, %165 ], [ @.str.464, %6 ], [ %.0.i41.ph.ph, %159 ], [ @.str.465, %57 ]
-  %.0.i46329336360373403422458483 = phi i32 [ %.0.i46.ph.ph, %162 ], [ %.0.i46.ph.ph, %165 ], [ 5, %6 ], [ %.0.i46.ph.ph, %159 ], [ 9, %57 ]
-  %.0.i52362371405420460481 = phi i32 [ %.0.i52.ph.ph, %162 ], [ %.0.i52.ph.ph, %165 ], [ 11, %6 ], [ %.0.i52.ph.ph, %159 ], [ 24, %57 ]
-  %.0.i58407418462479 = phi i32 [ %.0.i58.ph.ph, %162 ], [ %.0.i58.ph.ph, %165 ], [ 4, %6 ], [ %.0.i58.ph.ph, %159 ], [ 38, %57 ]
-  %.0.i64464477 = phi i32 [ %.0.i64.ph.ph, %162 ], [ %.0.i64.ph.ph, %165 ], [ 16, %6 ], [ %.0.i64.ph.ph, %159 ], [ 128, %57 ]
-  %.0.i70 = phi ptr [ @.str.461, %162 ], [ %..i69, %165 ], [ @.str.458, %6 ], [ @.str.460, %159 ], [ @.str.459, %57 ]
+  %.0.i67497 = phi ptr [ %.0.i67.ph.ph, %159 ], [ %.0.i67.ph.ph, %162 ], [ %.0.i67.ph.ph, %165 ], [ @.str.475, %6 ], [ @.str.476, %57 ]
+  %.0.i61434446495 = phi i32 [ %.0.i61.ph.ph, %159 ], [ %.0.i61.ph.ph, %162 ], [ %.0.i61.ph.ph, %165 ], [ -13, %6 ], [ -125, %57 ]
+  %.0.i55383393432448493 = phi i32 [ %.0.i55.ph.ph, %159 ], [ %.0.i55.ph.ph, %162 ], [ %.0.i55.ph.ph, %165 ], [ -4, %6 ], [ -37, %57 ]
+  %.0.i49344352381395430450491 = phi ptr [ %.0.i49.ph.ph, %159 ], [ %.0.i49.ph.ph, %162 ], [ %.0.i49.ph.ph, %165 ], [ @.str.470, %6 ], [ @.str.471, %57 ]
+  %.0.i44317323342354379397428452489 = phi i32 [ %.0.i44.ph.ph, %159 ], [ %.0.i44.ph.ph, %162 ], [ %.0.i44.ph.ph, %165 ], [ 3, %6 ], [ 6, %57 ]
+  %.0.i302306315325340356377399426454487 = phi ptr [ %.0.i.ph.ph, %159 ], [ %.0.i.ph.ph, %162 ], [ %.0.i.ph.ph, %165 ], [ @.str.458, %6 ], [ @.str.459, %57 ]
+  %.0.i41308313327338358375401424456485 = phi ptr [ %.0.i41.ph.ph, %159 ], [ %.0.i41.ph.ph, %162 ], [ %.0.i41.ph.ph, %165 ], [ @.str.464, %6 ], [ @.str.465, %57 ]
+  %.0.i46329336360373403422458483 = phi i32 [ %.0.i46.ph.ph, %159 ], [ %.0.i46.ph.ph, %162 ], [ %.0.i46.ph.ph, %165 ], [ 5, %6 ], [ 9, %57 ]
+  %.0.i52362371405420460481 = phi i32 [ %.0.i52.ph.ph, %159 ], [ %.0.i52.ph.ph, %162 ], [ %.0.i52.ph.ph, %165 ], [ 11, %6 ], [ 24, %57 ]
+  %.0.i58407418462479 = phi i32 [ %.0.i58.ph.ph, %159 ], [ %.0.i58.ph.ph, %162 ], [ %.0.i58.ph.ph, %165 ], [ 4, %6 ], [ 38, %57 ]
+  %.0.i64464477 = phi i32 [ %.0.i64.ph.ph, %159 ], [ %.0.i64.ph.ph, %162 ], [ %.0.i64.ph.ph, %165 ], [ 16, %6 ], [ 128, %57 ]
+  %.0.i70 = phi ptr [ @.str.460, %159 ], [ @.str.461, %162 ], [ %..i69, %165 ], [ @.str.458, %6 ], [ @.str.459, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %168 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %168, ptr %7, align 8, !tbaa !31
@@ -16358,7 +16358,7 @@ switch.lookup:                                    ; preds = %20
   br label %.split
 
 .split:                                           ; preds = %switch.lookup, %20, %4
-  %.0164 = phi i32 [ %1, %4 ], [ %switch.load, %switch.lookup ], [ %22, %20 ]
+  %.0164 = phi i32 [ %1, %4 ], [ %22, %20 ], [ %switch.load, %switch.lookup ]
   %25 = select i1 %19, ptr @.str.500, ptr @.str.501
   br label %.split30
 
@@ -16375,8 +16375,8 @@ switch.lookup252:                                 ; preds = %26
   br label %.split30
 
 .split30:                                         ; preds = %switch.lookup252, %26, %.split
-  %.sink241 = phi ptr [ %25, %.split ], [ @.str.501, %switch.lookup252 ], [ @.str.500, %26 ]
-  %.1 = phi i32 [ %.0164, %.split ], [ %switch.load254, %switch.lookup252 ], [ %28, %26 ]
+  %.sink241 = phi ptr [ %25, %.split ], [ @.str.500, %26 ], [ @.str.501, %switch.lookup252 ]
+  %.1 = phi i32 [ %.0164, %.split ], [ %28, %26 ], [ %switch.load254, %switch.lookup252 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %31 = load i8, ptr %.sink241, align 1, !tbaa !17
@@ -16404,7 +16404,7 @@ switch.lookup252:                                 ; preds = %26
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %33, %34
-  %38 = phi i8 [ 3, %34 ], [ 10, %33 ]
+  %38 = phi i8 [ 10, %33 ], [ 3, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !740)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !743)
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 33
@@ -16623,8 +16623,8 @@ switch.lookup:                                    ; preds = %10
   br label %.split13
 
 .split13:                                         ; preds = %switch.lookup, %10, %.split
-  %.sink43 = phi ptr [ %9, %.split ], [ @.str.501, %switch.lookup ], [ @.str.500, %10 ]
-  %.0 = phi i32 [ %0, %.split ], [ %switch.load, %switch.lookup ], [ %12, %10 ]
+  %.sink43 = phi ptr [ %9, %.split ], [ @.str.500, %10 ], [ @.str.501, %switch.lookup ]
+  %.0 = phi i32 [ %0, %.split ], [ %12, %10 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load i8, ptr %.sink43, align 1, !tbaa !17
@@ -16652,7 +16652,7 @@ switch.lookup:                                    ; preds = %10
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %17, %18
-  %22 = phi i8 [ 3, %18 ], [ 10, %17 ]
+  %22 = phi i8 [ 10, %17 ], [ 3, %18 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !782)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !785)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 33
@@ -17097,8 +17097,8 @@ define internal fastcc void @"_ZZL26InitializePredefinedMacrosRKN5clang10TargetI
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %2, %39, %40
-  %.sink286 = phi i8 [ %.014.i.i, %40 ], [ 3, %39 ], [ %38, %2 ]
-  %.sink = phi i8 [ 3, %40 ], [ 1, %39 ], [ 1, %2 ]
+  %.sink286 = phi i8 [ 3, %39 ], [ %.014.i.i, %40 ], [ %38, %2 ]
+  %.sink = phi i8 [ 1, %39 ], [ 3, %40 ], [ 1, %2 ]
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %.sink286, ptr %45, align 8, !tbaa !365
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 33
@@ -17165,8 +17165,8 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit29
 
 _ZN4llvmplERKNS_5TwineES2_.exit29:                ; preds = %_ZN4llvm5TwineC2EPKc.exit, %63, %64
-  %.sink290 = phi i8 [ %.014.i.i18, %64 ], [ 3, %63 ], [ %62, %_ZN4llvm5TwineC2EPKc.exit ]
-  %.sink288 = phi i8 [ 3, %64 ], [ 1, %63 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit ]
+  %.sink290 = phi i8 [ 3, %63 ], [ %.014.i.i18, %64 ], [ %62, %_ZN4llvm5TwineC2EPKc.exit ]
+  %.sink288 = phi i8 [ 1, %63 ], [ 3, %64 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit ]
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 %.sink290, ptr %69, align 8, !tbaa !365
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 33
@@ -17237,8 +17237,8 @@ _ZN4llvm5TwineC2EPKc.exit33:                      ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit50
 
 _ZN4llvmplERKNS_5TwineES2_.exit50:                ; preds = %85, %88, %89
-  %.sink294 = phi i8 [ %.014.i.i39, %89 ], [ 3, %88 ], [ %87, %85 ]
-  %.sink292 = phi i8 [ 3, %89 ], [ 1, %88 ], [ 1, %85 ]
+  %.sink294 = phi i8 [ 3, %88 ], [ %.014.i.i39, %89 ], [ %87, %85 ]
+  %.sink292 = phi i8 [ 1, %88 ], [ 3, %89 ], [ 1, %85 ]
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 %.sink294, ptr %94, align 8, !tbaa !365
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 33
@@ -17304,8 +17304,8 @@ _ZN4llvm5TwineC2EPKc.exit54:                      ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit71
 
 _ZN4llvmplERKNS_5TwineES2_.exit71:                ; preds = %106, %109, %110
-  %.sink298 = phi i8 [ %.014.i.i60, %110 ], [ 3, %109 ], [ %108, %106 ]
-  %.sink296 = phi i8 [ 3, %110 ], [ 1, %109 ], [ 1, %106 ]
+  %.sink298 = phi i8 [ 3, %109 ], [ %.014.i.i60, %110 ], [ %108, %106 ]
+  %.sink296 = phi i8 [ 1, %109 ], [ 3, %110 ], [ 1, %106 ]
   %115 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 %.sink298, ptr %115, align 8, !tbaa !365
   %116 = getelementptr inbounds nuw i8, ptr %12, i64 33
@@ -17373,8 +17373,8 @@ _ZN4llvm5TwineC2EPKc.exit75:                      ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit92
 
 _ZN4llvmplERKNS_5TwineES2_.exit92:                ; preds = %_ZN4llvm5TwineC2EPKc.exit75, %134, %135
-  %.sink302 = phi i8 [ %.014.i.i81, %135 ], [ 3, %134 ], [ %133, %_ZN4llvm5TwineC2EPKc.exit75 ]
-  %.sink300 = phi i8 [ 3, %135 ], [ 1, %134 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit75 ]
+  %.sink302 = phi i8 [ 3, %134 ], [ %.014.i.i81, %135 ], [ %133, %_ZN4llvm5TwineC2EPKc.exit75 ]
+  %.sink300 = phi i8 [ 1, %134 ], [ 3, %135 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit75 ]
   %140 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 %.sink302, ptr %140, align 8, !tbaa !365
   %141 = getelementptr inbounds nuw i8, ptr %15, i64 33
@@ -17442,8 +17442,8 @@ _ZN4llvm5TwineC2EPKc.exit96:                      ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit113
 
 _ZN4llvmplERKNS_5TwineES2_.exit113:               ; preds = %_ZN4llvm5TwineC2EPKc.exit96, %159, %160
-  %.sink306 = phi i8 [ %.014.i.i102, %160 ], [ 3, %159 ], [ %158, %_ZN4llvm5TwineC2EPKc.exit96 ]
-  %.sink304 = phi i8 [ 3, %160 ], [ 1, %159 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit96 ]
+  %.sink306 = phi i8 [ 3, %159 ], [ %.014.i.i102, %160 ], [ %158, %_ZN4llvm5TwineC2EPKc.exit96 ]
+  %.sink304 = phi i8 [ 1, %159 ], [ 3, %160 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit96 ]
   %165 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 %.sink306, ptr %165, align 8, !tbaa !365
   %166 = getelementptr inbounds nuw i8, ptr %18, i64 33
@@ -17511,8 +17511,8 @@ _ZN4llvm5TwineC2EPKc.exit117:                     ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit134
 
 _ZN4llvmplERKNS_5TwineES2_.exit134:               ; preds = %_ZN4llvm5TwineC2EPKc.exit117, %184, %185
-  %.sink310 = phi i8 [ %.014.i.i123, %185 ], [ 3, %184 ], [ %183, %_ZN4llvm5TwineC2EPKc.exit117 ]
-  %.sink308 = phi i8 [ 3, %185 ], [ 1, %184 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit117 ]
+  %.sink310 = phi i8 [ 3, %184 ], [ %.014.i.i123, %185 ], [ %183, %_ZN4llvm5TwineC2EPKc.exit117 ]
+  %.sink308 = phi i8 [ 1, %184 ], [ 3, %185 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit117 ]
   %190 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 %.sink310, ptr %190, align 8, !tbaa !365
   %191 = getelementptr inbounds nuw i8, ptr %21, i64 33
@@ -17578,8 +17578,8 @@ _ZN4llvm5TwineC2EPKc.exit138:                     ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit155
 
 _ZN4llvmplERKNS_5TwineES2_.exit155:               ; preds = %_ZN4llvm5TwineC2EPKc.exit138, %207, %208
-  %.sink314 = phi i8 [ %.014.i.i144, %208 ], [ 3, %207 ], [ %206, %_ZN4llvm5TwineC2EPKc.exit138 ]
-  %.sink312 = phi i8 [ 3, %208 ], [ 1, %207 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit138 ]
+  %.sink314 = phi i8 [ 3, %207 ], [ %.014.i.i144, %208 ], [ %206, %_ZN4llvm5TwineC2EPKc.exit138 ]
+  %.sink312 = phi i8 [ 1, %207 ], [ 3, %208 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit138 ]
   %213 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 %.sink314, ptr %213, align 8, !tbaa !365
   %214 = getelementptr inbounds nuw i8, ptr %24, i64 33
@@ -17645,8 +17645,8 @@ _ZN4llvm5TwineC2EPKc.exit159:                     ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit176
 
 _ZN4llvmplERKNS_5TwineES2_.exit176:               ; preds = %_ZN4llvm5TwineC2EPKc.exit159, %230, %231
-  %.sink318 = phi i8 [ %.014.i.i165, %231 ], [ 3, %230 ], [ %229, %_ZN4llvm5TwineC2EPKc.exit159 ]
-  %.sink316 = phi i8 [ 3, %231 ], [ 1, %230 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit159 ]
+  %.sink318 = phi i8 [ 3, %230 ], [ %.014.i.i165, %231 ], [ %229, %_ZN4llvm5TwineC2EPKc.exit159 ]
+  %.sink316 = phi i8 [ 1, %230 ], [ 3, %231 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit159 ]
   %236 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i8 %.sink318, ptr %236, align 8, !tbaa !365
   %237 = getelementptr inbounds nuw i8, ptr %27, i64 33
@@ -17712,8 +17712,8 @@ _ZN4llvm5TwineC2EPKc.exit180:                     ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit197
 
 _ZN4llvmplERKNS_5TwineES2_.exit197:               ; preds = %_ZN4llvm5TwineC2EPKc.exit180, %253, %254
-  %.sink322 = phi i8 [ %.014.i.i186, %254 ], [ 3, %253 ], [ %252, %_ZN4llvm5TwineC2EPKc.exit180 ]
-  %.sink320 = phi i8 [ 3, %254 ], [ 1, %253 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit180 ]
+  %.sink322 = phi i8 [ 3, %253 ], [ %.014.i.i186, %254 ], [ %252, %_ZN4llvm5TwineC2EPKc.exit180 ]
+  %.sink320 = phi i8 [ 1, %253 ], [ 3, %254 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit180 ]
   %259 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i8 %.sink322, ptr %259, align 8, !tbaa !365
   %260 = getelementptr inbounds nuw i8, ptr %30, i64 33
@@ -17779,8 +17779,8 @@ _ZN4llvm5TwineC2EPKc.exit201:                     ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit218
 
 _ZN4llvmplERKNS_5TwineES2_.exit218:               ; preds = %_ZN4llvm5TwineC2EPKc.exit201, %276, %277
-  %.sink326 = phi i8 [ %.014.i.i207, %277 ], [ 3, %276 ], [ %275, %_ZN4llvm5TwineC2EPKc.exit201 ]
-  %.sink324 = phi i8 [ 3, %277 ], [ 1, %276 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit201 ]
+  %.sink326 = phi i8 [ 3, %276 ], [ %.014.i.i207, %277 ], [ %275, %_ZN4llvm5TwineC2EPKc.exit201 ]
+  %.sink324 = phi i8 [ 1, %276 ], [ 3, %277 ], [ 1, %_ZN4llvm5TwineC2EPKc.exit201 ]
   %282 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 %.sink326, ptr %282, align 8, !tbaa !365
   %283 = getelementptr inbounds nuw i8, ptr %33, i64 33

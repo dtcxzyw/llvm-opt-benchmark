@@ -322,7 +322,7 @@ pmix_obj_run_destructors.exit45:                  ; preds = %.lr.ph.i42, %104
   br label %127
 
 127:                                              ; preds = %31, %118, %120, %126, %pmix_obj_update.exit, %80, %78, %28, %22
-  %.0 = phi i32 [ -31, %22 ], [ 0, %28 ], [ %94, %118 ], [ %54, %pmix_obj_update.exit ], [ %54, %78 ], [ %54, %80 ], [ %94, %126 ], [ %94, %120 ], [ -25, %31 ]
+  %.0 = phi i32 [ -31, %22 ], [ 0, %28 ], [ %54, %78 ], [ %54, %80 ], [ %54, %pmix_obj_update.exit ], [ %94, %126 ], [ %94, %120 ], [ %94, %118 ], [ -25, %31 ]
   ret i32 %.0
 }
 
@@ -818,8 +818,8 @@ pack_fence.exit.thread:                           ; preds = %97, %130, %163, %19
   br label %244
 
 pack_fence.exit:                                  ; preds = %233, %235, %196, %198, %161, %163, %128, %130, %95, %97
-  %.083.i.sink = phi i32 [ -22, %196 ], [ -22, %95 ], [ -22, %128 ], [ -22, %161 ], [ %102, %97 ], [ %135, %130 ], [ %170, %163 ], [ %203, %198 ], [ %242, %235 ], [ -22, %233 ]
-  %.sink122 = phi i32 [ 252, %196 ], [ 233, %95 ], [ 240, %128 ], [ 246, %161 ], [ 233, %97 ], [ 240, %130 ], [ 246, %163 ], [ 252, %198 ], [ 259, %235 ], [ 259, %233 ]
+  %.083.i.sink = phi i32 [ %102, %97 ], [ -22, %95 ], [ %135, %130 ], [ -22, %128 ], [ %170, %163 ], [ -22, %161 ], [ %203, %198 ], [ -22, %196 ], [ %242, %235 ], [ -22, %233 ]
+  %.sink122 = phi i32 [ 233, %97 ], [ 233, %95 ], [ 240, %130 ], [ 240, %128 ], [ 246, %163 ], [ 246, %161 ], [ 252, %198 ], [ 252, %196 ], [ 259, %235 ], [ 259, %233 ]
   %243 = call ptr @PMIx_Error_string(i32 noundef %.083.i.sink) #11
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %243, ptr noundef nonnull @.str.2, i32 noundef %.sink122) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1096,7 +1096,7 @@ pmix_obj_run_destructors.exit88:                  ; preds = %.lr.ph.i85, %352
   br label %366
 
 366:                                              ; preds = %33, %306, %363, %365, %pmix_obj_update.exit68, %268, %269, %48, %38, %30
-  %.0 = phi i32 [ -31, %30 ], [ 0, %306 ], [ %49, %48 ], [ %.061.i92, %268 ], [ -27, %38 ], [ %.061.i92, %269 ], [ -25, %pmix_obj_update.exit68 ], [ -25, %365 ], [ -25, %363 ], [ -25, %33 ]
+  %.0 = phi i32 [ -31, %30 ], [ -27, %38 ], [ %49, %48 ], [ %.061.i92, %269 ], [ %.061.i92, %268 ], [ -25, %pmix_obj_update.exit68 ], [ -25, %365 ], [ -25, %363 ], [ 0, %306 ], [ -25, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1302,7 +1302,7 @@ define internal void @wait_cbfunc(ptr readnone captures(none) %0, ptr readnone c
   br label %unpack_return.exit
 
 unpack_return.exit:                               ; preds = %63, %.thread.i, %95, %99, %101
-  %.0.i = phi i32 [ %102, %101 ], [ %.02030.i, %.thread.i ], [ %68, %63 ], [ %98, %95 ], [ %98, %99 ]
+  %.0.i = phi i32 [ %102, %101 ], [ %68, %63 ], [ %.02030.i, %.thread.i ], [ %98, %95 ], [ %98, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %103

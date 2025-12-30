@@ -503,7 +503,7 @@ thread-pre-split:                                 ; preds = %38, %59, %71, %65
   br label %138
 
 138:                                              ; preds = %thread-pre-split, %ff_vvc_frame_thread_free.exit, %frame_thread_init_score.exit
-  %.0 = phi i32 [ -12, %ff_vvc_frame_thread_free.exit ], [ 0, %frame_thread_init_score.exit ], [ -12, %thread-pre-split ]
+  %.0 = phi i32 [ 0, %frame_thread_init_score.exit ], [ -12, %ff_vvc_frame_thread_free.exit ], [ -12, %thread-pre-split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

@@ -703,7 +703,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   br label %281
 
 281:                                              ; preds = %.loopexit, %.loopexit.split-lp, %118, %280, %189
-  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn64, %189 ], [ %.pn, %118 ], [ %.pn84.pn.pn.pn.pn.pn.pn, %280 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn, %118 ], [ %.pn84.pn.pn.pn.pn.pn.pn, %280 ], [ %.pn64, %189 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #20
   %282 = load ptr, ptr %36, align 8, !tbaa !42
@@ -1176,7 +1176,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit78:        ; preds = %.lr.ph.i.i.i.i71, %
   br label %182
 
 182:                                              ; preds = %139, %147, %152, %181, %100, %94
-  %.pn61.pn.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn54, %181 ], [ %.pn50, %100 ], [ %.pn61.pn, %152 ], [ %.pn58.pn, %147 ], [ %.pn56, %139 ]
+  %.pn61.pn.pn.pn = phi { ptr, i32 } [ %.pn54, %181 ], [ %.pn50, %100 ], [ %95, %94 ], [ %.pn61.pn, %152 ], [ %.pn58.pn, %147 ], [ %.pn56, %139 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %183

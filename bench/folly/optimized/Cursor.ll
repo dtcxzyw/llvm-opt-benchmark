@@ -231,7 +231,7 @@ _ZN5folly5IOBuf12prependChainEOSt10unique_ptrIS0_St14default_deleteIS0_EE.exit.i
   ret void
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit30": ; preds = %47, %74, %78, %98, %27, %25
-  %.pn23 = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ], [ %99, %98 ], [ %79, %78 ], [ %48, %47 ], [ %75, %74 ]
+  %.pn23 = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ], [ %79, %78 ], [ %99, %98 ], [ %48, %47 ], [ %75, %74 ]
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn23

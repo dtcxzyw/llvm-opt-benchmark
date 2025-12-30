@@ -2159,7 +2159,7 @@ _ZN4llvm9StringRefC2EPKc.exit75:                  ; preds = %150, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge52
 
-.critedge52:                                      ; preds = %115, %48, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZN4llvm9StringRefC2EPKc.exit, %138, %123, %135, %112, %109, %141, %_ZN4llvm9StringRefC2EPKc.exit75, %121, %2
+.critedge52:                                      ; preds = %115, %48, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZN4llvm9StringRefC2EPKc.exit, %135, %138, %123, %109, %112, %141, %_ZN4llvm9StringRefC2EPKc.exit75, %121, %2
   ret i1 true
 }
 

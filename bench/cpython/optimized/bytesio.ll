@@ -1293,7 +1293,7 @@ scan_eol.exit.thread11:                           ; preds = %12, %scan_eol.exit
   br label %read_bytes.exit
 
 read_bytes.exit:                                  ; preds = %10, %5, %._crit_edge.i, %33, %30, %check_closed.exit, %scan_eol.exit
-  %.0 = phi ptr [ %.val, %33 ], [ null, %check_closed.exit ], [ null, %scan_eol.exit ], [ %36, %._crit_edge.i ], [ %.val, %30 ], [ null, %5 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %check_closed.exit ], [ null, %scan_eol.exit ], [ %36, %._crit_edge.i ], [ %.val, %30 ], [ %.val, %33 ], [ null, %5 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -1430,7 +1430,7 @@ _io_BytesIO_write.exit.i:                         ; preds = %47
   br label %_io_BytesIO___init___impl.exit
 
 _io_BytesIO___init___impl.exit:                   ; preds = %58, %_io_BytesIO_write.exit.i, %47, %Py_XDECREF.exit.i, %28, %26, %11
-  %.024 = phi i32 [ -1, %11 ], [ -1, %26 ], [ 0, %28 ], [ 0, %58 ], [ 0, %Py_XDECREF.exit.i ], [ -1, %_io_BytesIO_write.exit.i ], [ -1, %47 ]
+  %.024 = phi i32 [ -1, %11 ], [ -1, %26 ], [ 0, %58 ], [ 0, %Py_XDECREF.exit.i ], [ 0, %28 ], [ -1, %_io_BytesIO_write.exit.i ], [ -1, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.024
 }
@@ -1470,7 +1470,7 @@ Py_DECREF.exit:                                   ; preds = %12, %14, %17
   br label %19
 
 19:                                               ; preds = %8, %3, %Py_DECREF.exit
-  %.0 = phi ptr [ null, %3 ], [ %18, %Py_DECREF.exit ], [ %6, %8 ]
+  %.0 = phi ptr [ %18, %Py_DECREF.exit ], [ null, %3 ], [ %6, %8 ]
   ret ptr %.0
 }
 
@@ -1728,7 +1728,7 @@ Py_DECREF.exit:                                   ; preds = %24, %26, %29
   br label %Py_DECREF.exit16
 
 Py_DECREF.exit16:                                 ; preds = %23, %20, %18, %check_closed.exit, %Py_DECREF.exit, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %check_closed.exit ], [ %_Py_NoneStruct., %Py_DECREF.exit ], [ null, %18 ], [ null, %20 ], [ null, %23 ]
+  %.0 = phi ptr [ null, %check_closed.exit ], [ null, %6 ], [ %_Py_NoneStruct., %Py_DECREF.exit ], [ null, %18 ], [ null, %20 ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -1807,7 +1807,7 @@ check_closed.exit.i.i:                            ; preds = %12
   br label %_io_BytesIO_read1_impl.exit
 
 ._crit_edge.i.i.i:                                ; preds = %30, %27, %16
-  %39 = phi i64 [ %21, %16 ], [ 0, %30 ], [ 0, %27 ]
+  %39 = phi i64 [ 0, %30 ], [ 0, %27 ], [ %21, %16 ]
   %40 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
   %41 = getelementptr i8, ptr %40, i64 %39
   %42 = add i64 %39, %.010.i.i
@@ -1816,7 +1816,7 @@ check_closed.exit.i.i:                            ; preds = %12
   br label %_io_BytesIO_read1_impl.exit
 
 _io_BytesIO_read1_impl.exit:                      ; preds = %._crit_edge.i.i.i, %37, %34, %check_closed.exit.i.i, %9, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ null, %check_closed.exit.i.i ], [ %43, %._crit_edge.i.i.i ], [ %.val.i.i, %34 ], [ %.val.i.i, %37 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %check_closed.exit.i.i ], [ %43, %._crit_edge.i.i.i ], [ %.val.i.i, %34 ], [ %.val.i.i, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1976,7 +1976,7 @@ scan_eol.exit.i:                                  ; preds = %22
   br label %_io_BytesIO_readline_impl.exit
 
 ._crit_edge.i.i:                                  ; preds = %37, %34, %scan_eol.exit.i, %22, %17
-  %.0.i511.i = phi i64 [ %.0.i5.i, %scan_eol.exit.i ], [ %.0.i5.i, %37 ], [ %.0.i5.i, %34 ], [ 0, %17 ], [ 0, %22 ]
+  %.0.i511.i = phi i64 [ %.0.i5.i, %37 ], [ %.0.i5.i, %34 ], [ %.0.i5.i, %scan_eol.exit.i ], [ 0, %17 ], [ 0, %22 ]
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %47 = getelementptr i8, ptr %46, i64 %19
   %48 = add i64 %.0.i511.i, %19
@@ -1985,7 +1985,7 @@ scan_eol.exit.i:                                  ; preds = %22
   br label %_io_BytesIO_readline_impl.exit
 
 _io_BytesIO_readline_impl.exit:                   ; preds = %._crit_edge.i.i, %44, %41, %check_closed.exit.i, %9, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ null, %check_closed.exit.i ], [ %49, %._crit_edge.i.i ], [ %.val.i, %41 ], [ %.val.i, %44 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %check_closed.exit.i ], [ %49, %._crit_edge.i.i ], [ %.val.i, %41 ], [ %.val.i, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -2228,7 +2228,7 @@ Py_DECREF.exit45.i:                               ; preds = %scan_eol.exit.threa
   br label %_io_BytesIO_readlines_impl.exit
 
 _io_BytesIO_readlines_impl.exit:                  ; preds = %96, %Py_DECREF.exit43.i, %scan_eol.exit.i, %.lr.ph.split.i, %Py_DECREF.exit43.us.i, %scan_eol.exit.us.i, %.lr.ph.split.us.i, %104, %101, %Py_DECREF.exit45.i, %32, %30, %25, %21, %check_closed.exit.i, %4
-  %.08 = phi ptr [ null, %4 ], [ null, %25 ], [ null, %check_closed.exit.i ], [ null, %104 ], [ null, %30 ], [ null, %21 ], [ null, %Py_DECREF.exit45.i ], [ null, %101 ], [ %31, %32 ], [ %31, %Py_DECREF.exit43.us.i ], [ %31, %.lr.ph.split.us.i ], [ %31, %scan_eol.exit.us.i ], [ %31, %.lr.ph.split.i ], [ %31, %scan_eol.exit.i ], [ %31, %Py_DECREF.exit43.i ], [ %31, %96 ]
+  %.08 = phi ptr [ null, %4 ], [ null, %25 ], [ null, %check_closed.exit.i ], [ null, %21 ], [ null, %30 ], [ null, %Py_DECREF.exit45.i ], [ null, %101 ], [ null, %104 ], [ %31, %32 ], [ %31, %.lr.ph.split.us.i ], [ %31, %scan_eol.exit.us.i ], [ %31, %Py_DECREF.exit43.us.i ], [ %31, %.lr.ph.split.i ], [ %31, %scan_eol.exit.i ], [ %31, %Py_DECREF.exit43.i ], [ %31, %96 ]
   ret ptr %.08
 }
 
@@ -2307,7 +2307,7 @@ check_closed.exit.i:                              ; preds = %12
   br label %_io_BytesIO_read_impl.exit
 
 ._crit_edge.i.i:                                  ; preds = %30, %27, %16
-  %39 = phi i64 [ %21, %16 ], [ 0, %30 ], [ 0, %27 ]
+  %39 = phi i64 [ 0, %30 ], [ 0, %27 ], [ %21, %16 ]
   %40 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %41 = getelementptr i8, ptr %40, i64 %39
   %42 = add i64 %39, %.010.i
@@ -2316,7 +2316,7 @@ check_closed.exit.i:                              ; preds = %12
   br label %_io_BytesIO_read_impl.exit
 
 _io_BytesIO_read_impl.exit:                       ; preds = %._crit_edge.i.i, %37, %34, %check_closed.exit.i, %9, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ null, %check_closed.exit.i ], [ %43, %._crit_edge.i.i ], [ %.val.i, %34 ], [ %.val.i, %37 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %check_closed.exit.i ], [ %43, %._crit_edge.i.i ], [ %.val.i, %34 ], [ %.val.i, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -2394,7 +2394,7 @@ _Py_NewRef.exit.i:                                ; preds = %26, %23
   br label %_io_BytesIO_getbuffer_impl.exit
 
 _io_BytesIO_getbuffer_impl.exit:                  ; preds = %34, %31, %_Py_NewRef.exit.i, %15, %check_closed.exit.i, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %15 ], [ null, %check_closed.exit.i ], [ %29, %_Py_NewRef.exit.i ], [ %29, %31 ], [ %29, %34 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %check_closed.exit.i ], [ null, %15 ], [ %29, %_Py_NewRef.exit.i ], [ %29, %31 ], [ %29, %34 ]
   ret ptr %.0
 }
 
@@ -2539,7 +2539,7 @@ check_closed.exit.i:                              ; preds = %28
   br label %_io_BytesIO_seek_impl.exit
 
 _io_BytesIO_seek_impl.exit:                       ; preds = %60, %57, %53, %44, %35, %check_closed.exit.i, %Py_DECREF.exit.thread, %5, %26
-  %.022 = phi ptr [ null, %Py_DECREF.exit.thread ], [ null, %26 ], [ null, %5 ], [ null, %57 ], [ null, %35 ], [ null, %44 ], [ %62, %60 ], [ null, %53 ], [ null, %check_closed.exit.i ]
+  %.022 = phi ptr [ null, %26 ], [ null, %5 ], [ null, %Py_DECREF.exit.thread ], [ null, %35 ], [ null, %44 ], [ %62, %60 ], [ null, %53 ], [ null, %57 ], [ null, %check_closed.exit.i ]
   ret ptr %.022
 }
 
@@ -2621,7 +2621,7 @@ check_exports.exit.i:                             ; preds = %19
   br label %_io_BytesIO_truncate_impl.exit
 
 _io_BytesIO_truncate_impl.exit:                   ; preds = %35, %32, %25, %check_exports.exit.i, %check_closed.exit.i, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ %36, %35 ], [ null, %check_closed.exit.i ], [ null, %25 ], [ null, %check_exports.exit.i ], [ null, %32 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %25 ], [ %36, %35 ], [ null, %check_closed.exit.i ], [ null, %check_exports.exit.i ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -2685,7 +2685,7 @@ Py_DECREF.exit17.sink.split:                      ; preds = %26, %19
   br label %Py_DECREF.exit17
 
 Py_DECREF.exit17:                                 ; preds = %Py_DECREF.exit17.sink.split, %26, %_Py_NewRef.exit, %19, %17, %2
-  %.0 = phi ptr [ null, %2 ], [ %24, %26 ], [ null, %17 ], [ null, %19 ], [ %24, %_Py_NewRef.exit ], [ %.0.ph, %Py_DECREF.exit17.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ null, %17 ], [ null, %19 ], [ %24, %_Py_NewRef.exit ], [ %24, %26 ], [ %.0.ph, %Py_DECREF.exit17.sink.split ]
   ret ptr %.0
 }
 
@@ -2845,7 +2845,7 @@ _Py_NewRef.exit:                                  ; preds = %71, %74
   br label %_io_BytesIO_write.exit.thread
 
 _io_BytesIO_write.exit.thread:                    ; preds = %21, %check_exports.exit, %68, %48, %_io_BytesIO_write.exit, %76, %60, %.thread, %40, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %40 ], [ null, %check_exports.exit ], [ null, %_io_BytesIO_write.exit ], [ null, %.thread ], [ null, %48 ], [ @_Py_NoneStruct, %76 ], [ null, %60 ], [ null, %68 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %.thread ], [ @_Py_NoneStruct, %76 ], [ null, %60 ], [ null, %40 ], [ null, %check_exports.exit ], [ null, %_io_BytesIO_write.exit ], [ null, %48 ], [ null, %68 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -2981,7 +2981,7 @@ check_exports.exit:                               ; preds = %7
   br label %53
 
 53:                                               ; preds = %30, %25, %44, %52, %14
-  %.032 = phi i64 [ 0, %14 ], [ -1, %25 ], [ %16, %52 ], [ %16, %44 ], [ -1, %30 ]
+  %.032 = phi i64 [ 0, %14 ], [ %16, %52 ], [ %16, %44 ], [ -1, %25 ], [ -1, %30 ]
   call void @PyBuffer_Release(ptr noundef nonnull %3) #10
   br label %54
 
@@ -3086,7 +3086,7 @@ unshare_buffer.exit.thread:                       ; preds = %43, %40, %32, %44
   br label %unshare_buffer.exit
 
 unshare_buffer.exit:                              ; preds = %29, %44, %12, %47, %unshare_buffer.exit.thread
-  %.018 = phi i32 [ -1, %47 ], [ 0, %12 ], [ 0, %unshare_buffer.exit.thread ], [ -1, %44 ], [ -1, %29 ]
+  %.018 = phi i32 [ -1, %47 ], [ 0, %unshare_buffer.exit.thread ], [ 0, %12 ], [ -1, %44 ], [ -1, %29 ]
   ret i32 %.018
 }
 
@@ -3219,7 +3219,7 @@ check_closed.exit:                                ; preds = %1
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %30, %26, %check_closed.exit, %23, %20, %13
-  %.0 = phi ptr [ null, %20 ], [ %15, %13 ], [ null, %check_closed.exit ], [ null, %23 ], [ %27, %26 ], [ %27, %30 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %check_closed.exit ], [ null, %20 ], [ null, %23 ], [ %27, %26 ], [ %27, %30 ]
   ret ptr %.0
 }
 

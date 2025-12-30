@@ -2644,7 +2644,7 @@ is_rdmnet_over_udp.exit:                          ; preds = %7
   br label %is_rdmnet_over_udp.exit.thread
 
 is_rdmnet_over_udp.exit.thread:                   ; preds = %7, %4, %is_rdmnet_over_udp.exit, %12
-  %.0.i.i6 = phi i1 [ true, %12 ], [ false, %is_rdmnet_over_udp.exit ], [ false, %4 ], [ false, %7 ]
+  %.0.i.i6 = phi i1 [ false, %is_rdmnet_over_udp.exit ], [ true, %12 ], [ false, %4 ], [ false, %7 ]
   ret i1 %.0.i.i6
 }
 
@@ -3309,7 +3309,7 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
   br label %406
 
 406:                                              ; preds = %401, %395
-  %.0115.i.i = phi i8 [ %396, %395 ], [ %405, %401 ]
+  %.0115.i.i = phi i8 [ %405, %401 ], [ %396, %395 ]
   %407 = load i8, ptr @global_acn_dmx_display_zeros, align 1, !range !9, !noundef !10
   %408 = trunc nuw i8 %407 to i1
   %409 = icmp ne i8 %.0115.i.i, 0
@@ -4467,8 +4467,8 @@ default.unreachable:                              ; preds = %819
   br label %get_field_type_parameters.exit.i.i.i.i.i
 
 get_field_type_parameters.exit.i.i.i.i.i:         ; preds = %912, %907, %906, %905, %904, %903, %903
-  %.022.i.i.i.i.i = phi i32 [ 0, %912 ], [ 1, %907 ], [ 1, %904 ], [ 1, %905 ], [ 1, %906 ], [ 1, %903 ], [ 1, %903 ]
-  %.sink.i.i.i.i.i.i = phi i32 [ 1, %912 ], [ %911, %907 ], [ 2, %904 ], [ 4, %905 ], [ 8, %906 ], [ 1, %903 ], [ 1, %903 ]
+  %.022.i.i.i.i.i = phi i32 [ 0, %912 ], [ 1, %904 ], [ 1, %905 ], [ 1, %906 ], [ 1, %907 ], [ 1, %903 ], [ 1, %903 ]
+  %.sink.i.i.i.i.i.i = phi i32 [ 1, %912 ], [ 2, %904 ], [ 4, %905 ], [ 8, %906 ], [ %911, %907 ], [ 1, %903 ], [ 1, %903 ]
   %913 = add nsw i32 %.022.i.i.i.i.i, %.01223.i.i.i.i.i
   %914 = add i32 %913, %.sink.i.i.i.i.i.i
   %915 = add nuw nsw i32 %899, 1
@@ -4476,7 +4476,7 @@ get_field_type_parameters.exit.i.i.i.i.i:         ; preds = %912, %907, %906, %9
   br i1 %916, label %.lr.ph.i.i.i.i.i, label %get_blob_type_from_fields.exit.i.i.i.i, !llvm.loop !34
 
 get_blob_type_from_fields.exit.i.i.i.i:           ; preds = %get_field_type_parameters.exit.i.i.i.i.i, %901, %896, %878
-  %.041.i.i.i.i = phi i8 [ %893, %878 ], [ 20, %896 ], [ %spec.select402, %901 ], [ 20, %get_field_type_parameters.exit.i.i.i.i.i ]
+  %.041.i.i.i.i = phi i8 [ 20, %896 ], [ %893, %878 ], [ %spec.select402, %901 ], [ 20, %get_field_type_parameters.exit.i.i.i.i.i ]
   %917 = load i32, ptr @hf_acn_blob_type, align 4
   %918 = zext i8 %.041.i.i.i.i to i32
   %919 = call ptr @proto_tree_add_uint(ptr noundef %881, i32 noundef %917, ptr noundef %0, i32 noundef %892, i32 noundef 1, i32 noundef %918)
@@ -4568,7 +4568,7 @@ dissect_acn_blob_metadata.exit.i.i.i.i:           ; preds = %.lr.ph.i43.i.i.i.i,
   br label %get_field_type_parameters.exit.i44.i.i.i.i
 
 get_field_type_parameters.exit.i44.i.i.i.i:       ; preds = %943, %938, %937, %936, %935, %933, %933
-  %.030.i.i.i.i.i = phi i32 [ 192, %943 ], [ %942, %938 ], [ 576, %935 ], [ 960, %936 ], [ 1728, %937 ], [ 384, %933 ], [ 384, %933 ]
+  %.030.i.i.i.i.i = phi i32 [ 192, %943 ], [ 576, %935 ], [ 960, %936 ], [ 1728, %937 ], [ %942, %938 ], [ 384, %933 ], [ 384, %933 ]
   %944 = call ptr @val_to_str_ext(i32 noundef 17, ptr noundef nonnull @acn_blob_preset_properties_field_name_ext, ptr noundef nonnull @.str.752)
   %945 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
   %946 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %945, ptr noundef %0, i32 noundef %.ph438, i32 noundef %.030.i.i.i.i.i, i32 noundef 0)
@@ -4682,7 +4682,7 @@ dissect_acn_blob_dimming_rack_properties_v2.exit.i.i.i.i: ; preds = %.lr.ph.i46.
   br label %get_field_type_parameters.exit.i52.i.i.i.i
 
 get_field_type_parameters.exit.i52.i.i.i.i:       ; preds = %979, %974, %973, %972, %971, %969, %969
-  %.030.i53.i.i.i.i = phi i32 [ 64, %979 ], [ %978, %974 ], [ 192, %971 ], [ 320, %972 ], [ 576, %973 ], [ 128, %969 ], [ 128, %969 ]
+  %.030.i53.i.i.i.i = phi i32 [ 64, %979 ], [ 192, %971 ], [ 320, %972 ], [ 576, %973 ], [ %978, %974 ], [ 128, %969 ], [ 128, %969 ]
   %980 = call ptr @val_to_str_ext(i32 noundef 22, ptr noundef nonnull @acn_blob_dimmer_rack_status_properties2_field_name_ext, ptr noundef nonnull @.str.752)
   %981 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
   %982 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %981, ptr noundef %0, i32 noundef %.ph440, i32 noundef %.030.i53.i.i.i.i, i32 noundef 0)
@@ -5259,7 +5259,7 @@ dissect_acn_common_base_pdu.exit.i22.i:           ; preds = %dissect_acn_common_
   br i1 %1279, label %.sink.split.i.i109, label %dissect_rpt_status.exit.i
 
 .sink.split.i.i109:                               ; preds = %1278, %1276, %1274, %1272, %1270, %1268, %1266
-  %hf_rdmnet_rpt_status_unknown_vector_string.sink.i.i = phi ptr [ @hf_rdmnet_rpt_status_broadcast_complete_string, %1276 ], [ @hf_rdmnet_rpt_status_unknown_endpoint_string, %1274 ], [ @hf_rdmnet_rpt_status_unknown_rdm_uid_string, %1272 ], [ @hf_rdmnet_rpt_status_rdm_invalid_response_string, %1270 ], [ @hf_rdmnet_rpt_status_rdm_timeout_string, %1268 ], [ @hf_rdmnet_rpt_status_unknown_rpt_uid_string, %1266 ], [ @hf_rdmnet_rpt_status_unknown_vector_string, %1278 ]
+  %hf_rdmnet_rpt_status_unknown_vector_string.sink.i.i = phi ptr [ @hf_rdmnet_rpt_status_unknown_rpt_uid_string, %1266 ], [ @hf_rdmnet_rpt_status_rdm_timeout_string, %1268 ], [ @hf_rdmnet_rpt_status_rdm_invalid_response_string, %1270 ], [ @hf_rdmnet_rpt_status_unknown_rdm_uid_string, %1272 ], [ @hf_rdmnet_rpt_status_unknown_endpoint_string, %1274 ], [ @hf_rdmnet_rpt_status_broadcast_complete_string, %1276 ], [ @hf_rdmnet_rpt_status_unknown_vector_string, %1278 ]
   %1280 = load i32, ptr %hf_rdmnet_rpt_status_unknown_vector_string.sink.i.i, align 4
   %1281 = sub nuw i32 %1265, %1264
   %1282 = call ptr @proto_tree_add_item(ptr noundef %1248, i32 noundef %1280, ptr noundef %0, i32 noundef %1264, i32 noundef %1281, i32 noundef 0)
@@ -6910,7 +6910,7 @@ default.unreachable1:                             ; preds = %120, %75, %30, %9, 
   unreachable
 
 165:                                              ; preds = %27, %24, %72, %69, %117, %114, %162, %159, %120, %75, %30, %9
-  %.0 = phi i32 [ %2, %120 ], [ %2, %75 ], [ %2, %9 ], [ %2, %30 ], [ %153, %162 ], [ %22, %24 ], [ %22, %27 ], [ %63, %69 ], [ %63, %72 ], [ %108, %114 ], [ %108, %117 ], [ %153, %159 ]
+  %.0 = phi i32 [ %2, %9 ], [ %2, %30 ], [ %2, %75 ], [ %2, %120 ], [ %22, %24 ], [ %22, %27 ], [ %63, %69 ], [ %63, %72 ], [ %108, %114 ], [ %108, %117 ], [ %153, %159 ], [ %153, %162 ]
   ret i32 %.0
 }
 
@@ -7243,7 +7243,7 @@ default.unreachable:                              ; preds = %123, %37, %5
   br i1 %164, label %123, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %123, %158, %.lr.ph263, %78, %._crit_edge264, %42, %.critedge
-  %.0234 = phi i32 [ %79, %78 ], [ %43, %42 ], [ %33, %.critedge ], [ %122, %._crit_edge264 ], [ %3, %.lr.ph263 ], [ %3, %123 ], [ %159, %158 ]
+  %.0234 = phi i32 [ %43, %42 ], [ %33, %.critedge ], [ %79, %78 ], [ %122, %._crit_edge264 ], [ %3, %.lr.ph263 ], [ %3, %123 ], [ %159, %158 ]
   ret i32 %.0234
 }
 
@@ -7384,7 +7384,7 @@ default.unreachable94:                            ; preds = %10, %5
   unreachable
 
 .loopexit:                                        ; preds = %53, %56, %46, %.lr.ph89, %15, %._crit_edge, %10
-  %.075 = phi i32 [ %24, %15 ], [ %45, %._crit_edge ], [ %3, %10 ], [ %3, %.lr.ph89 ], [ %3, %46 ], [ %3, %53 ], [ %66, %56 ]
+  %.075 = phi i32 [ %3, %10 ], [ %24, %15 ], [ %45, %._crit_edge ], [ %3, %.lr.ph89 ], [ %3, %46 ], [ %3, %53 ], [ %66, %56 ]
   ret i32 %.075
 }
 
@@ -7491,10 +7491,10 @@ define internal fastcc void @display_blob_field(ptr noundef %0, ptr noundef %1, 
   br label %get_field_type_parameters.exit
 
 get_field_type_parameters.exit:                   ; preds = %32, %32, %35, %36, %37, %38, %44
-  %.077 = phi i32 [ 0, %44 ], [ %43, %38 ], [ 2, %35 ], [ 4, %36 ], [ 8, %37 ], [ 1, %32 ], [ 1, %32 ]
-  %.076 = phi i32 [ 0, %44 ], [ 2, %38 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %32 ], [ 0, %32 ]
-  %.075 = phi i32 [ 0, %44 ], [ 1, %38 ], [ 1, %35 ], [ 1, %36 ], [ 1, %37 ], [ 1, %32 ], [ 1, %32 ]
-  %.sink.i = phi i8 [ 1, %44 ], [ %42, %38 ], [ 2, %35 ], [ 4, %36 ], [ 8, %37 ], [ 1, %32 ], [ 1, %32 ]
+  %.077 = phi i32 [ 0, %44 ], [ 2, %35 ], [ 4, %36 ], [ 8, %37 ], [ %43, %38 ], [ 1, %32 ], [ 1, %32 ]
+  %.076 = phi i32 [ 0, %44 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 2, %38 ], [ 0, %32 ], [ 0, %32 ]
+  %.075 = phi i32 [ 0, %44 ], [ 1, %35 ], [ 1, %36 ], [ 1, %37 ], [ 1, %38 ], [ 1, %32 ], [ 1, %32 ]
+  %.sink.i = phi i8 [ 1, %44 ], [ 2, %35 ], [ 4, %36 ], [ 8, %37 ], [ %42, %38 ], [ 1, %32 ], [ 1, %32 ]
   %45 = load i16, ptr %4, align 2
   %46 = tail call fastcc ptr @get_field_name(i8 noundef zeroext %2, i16 noundef zeroext %45)
   %47 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
@@ -7982,7 +7982,7 @@ define internal fastcc ptr @get_field_name(i8 noundef zeroext %0, i16 noundef ze
   br label %105
 
 105:                                              ; preds = %2, %102, %99, %96, %93, %90, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6, %3
-  %.0 = phi ptr [ %104, %102 ], [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %89, %84 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ @.str.786, %2 ]
+  %.0 = phi ptr [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %89, %84 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ @.str.786, %2 ]
   ret ptr %.0
 }
 

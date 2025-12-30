@@ -1985,7 +1985,7 @@ m3ua_heur_mtp3_standard.exit.i:                   ; preds = %777, %774, %758
   br label %788
 
 784:                                              ; preds = %777, %771, %768, %762
-  %.0.i.ph.i = phi i32 [ 3, %771 ], [ 2, %768 ], [ 1, %762 ], [ 4, %777 ]
+  %.0.i.ph.i = phi i32 [ 4, %777 ], [ 3, %771 ], [ 2, %768 ], [ 1, %762 ]
   %785 = load i32, ptr @hf_heuristic_standard, align 4
   %786 = call ptr @val_to_str_const(i32 noundef %.0.i.ph.i, ptr noundef nonnull @mtp3_standard_vals, ptr noundef nonnull @.str.351)
   %787 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %785, ptr noundef %30, i32 noundef 0, i32 noundef 0, i32 noundef %.0.i.ph.i, ptr noundef nonnull @.str.369, ptr noundef %786)

@@ -493,7 +493,7 @@ If_ManImproveNodeFaninCompact_int.exit.i:         ; preds = %If_ManImproveNodeFa
   br i1 %214, label %.lr.ph.i.i27.i, label %If_ManImproveCutCost.exit70.i.i, !llvm.loop !49
 
 If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFaninCompact_int.exit.i, %thread-pre-split.i.i, %213, %If_ManImproveNodePrepare.exit.i.i
-  %.val17.i.i.i = phi i32 [ %.val.i.i2644.i, %213 ], [ %.val17.i75.i.i, %If_ManImproveNodePrepare.exit.i.i ], [ %.val.i.i26.i, %If_ManImproveNodeFaninCompact_int.exit.i ], [ %.val.i.i2644.i, %thread-pre-split.i.i ]
+  %.val17.i.i.i = phi i32 [ %.val17.i75.i.i, %If_ManImproveNodePrepare.exit.i.i ], [ %.val.i.i2644.i, %213 ], [ %.val.i.i2644.i, %thread-pre-split.i.i ], [ %.val.i.i26.i, %If_ManImproveNodeFaninCompact_int.exit.i ]
   %215 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %48) #15
   %.val94.i.i = load i32, ptr %31, align 4, !tbaa !32
   %216 = icmp sgt i32 %.val94.i.i, 0
@@ -1723,7 +1723,7 @@ If_ManImproveNodeFaninCompact1.exit.thread.sink.split: ; preds = %If_ManImproveN
   br label %If_ManImproveNodeFaninCompact1.exit.thread
 
 If_ManImproveNodeFaninCompact1.exit.thread:       ; preds = %70, %If_ManImproveNodeFaninCompact1.exit.thread.sink.split, %5, %thread-pre-split
-  %.0 = phi i32 [ 0, %5 ], [ 1, %If_ManImproveNodeFaninCompact1.exit.thread.sink.split ], [ 0, %thread-pre-split ], [ 0, %70 ]
+  %.0 = phi i32 [ 0, %thread-pre-split ], [ 0, %5 ], [ 1, %If_ManImproveNodeFaninCompact1.exit.thread.sink.split ], [ 0, %70 ]
   ret i32 %.0
 }
 

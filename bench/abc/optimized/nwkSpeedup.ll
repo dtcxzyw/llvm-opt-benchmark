@@ -122,7 +122,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %53
 
 53:                                               ; preds = %15, %9, %6, %3, %Vec_PtrPush.exit
-  %.0 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 1, %Vec_PtrPush.exit ], [ 0, %9 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %Vec_PtrPush.exit ], [ 1, %3 ], [ 0, %6 ], [ 0, %9 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -650,7 +650,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond.not, label %.critedge, label %60, !llvm.loop !68
 
 .critedge:                                        ; preds = %60, %63, %43, %46, %23, %20, %55, %39, %.preheader
-  %.250 = phi i32 [ %.4, %46 ], [ 0, %55 ], [ 0, %.preheader ], [ %.04876, %20 ], [ 0, %39 ], [ %.149, %23 ], [ %.370, %43 ], [ %.566, %60 ], [ %.6, %63 ]
+  %.250 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ 0, %55 ], [ %.149, %23 ], [ %.04876, %20 ], [ %.370, %43 ], [ %.4, %46 ], [ %.566, %60 ], [ %.6, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.250
@@ -1156,9 +1156,9 @@ Vec_PtrPush.exit.i:                               ; preds = %245, %Vec_PtrGrow.e
   br label %Vec_PtrPushUnique.exit
 
 Vec_PtrPushUnique.exit:                           ; preds = %222, %Vec_PtrPush.exit.i, %210
-  %252 = phi i32 [ %204, %210 ], [ %.pre487, %Vec_PtrPush.exit.i ], [ %204, %222 ]
-  %253 = phi i32 [ %205, %210 ], [ %247, %Vec_PtrPush.exit.i ], [ %205, %222 ]
-  %254 = phi i32 [ %206, %210 ], [ %249, %Vec_PtrPush.exit.i ], [ %206, %222 ]
+  %252 = phi i32 [ %.pre487, %Vec_PtrPush.exit.i ], [ %204, %210 ], [ %204, %222 ]
+  %253 = phi i32 [ %247, %Vec_PtrPush.exit.i ], [ %205, %210 ], [ %205, %222 ]
+  %254 = phi i32 [ %249, %Vec_PtrPush.exit.i ], [ %206, %210 ], [ %206, %222 ]
   %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 1
   %255 = sext i32 %252 to i64
   %256 = icmp slt i64 %indvars.iv.next465, %255
@@ -1415,10 +1415,10 @@ Vec_PtrPushUnique.exit379:                        ; preds = %331, %Vec_PtrPush.e
   br i1 %368, label %.lr.ph431, label %.critedge17, !llvm.loop !81
 
 .critedge17:                                      ; preds = %.lr.ph431, %Vec_PtrPushUnique.exit379, %289, %.preheader, %Vec_PtrPush.exit.i354
-  %369 = phi i32 [ %271, %289 ], [ %314, %Vec_PtrPush.exit.i354 ], [ %271, %.preheader ], [ %362, %Vec_PtrPushUnique.exit379 ], [ %319, %.lr.ph431 ]
-  %370 = phi i32 [ %272, %289 ], [ %316, %Vec_PtrPush.exit.i354 ], [ %272, %.preheader ], [ %363, %Vec_PtrPushUnique.exit379 ], [ %320, %.lr.ph431 ]
-  %371 = phi i32 [ %273, %289 ], [ %314, %Vec_PtrPush.exit.i354 ], [ %273, %.preheader ], [ %365, %Vec_PtrPushUnique.exit379 ], [ %322, %.lr.ph431 ]
-  %372 = phi i32 [ %272, %289 ], [ %316, %Vec_PtrPush.exit.i354 ], [ %274, %.preheader ], [ %366, %Vec_PtrPushUnique.exit379 ], [ %323, %.lr.ph431 ]
+  %369 = phi i32 [ %271, %.preheader ], [ %314, %Vec_PtrPush.exit.i354 ], [ %271, %289 ], [ %319, %.lr.ph431 ], [ %362, %Vec_PtrPushUnique.exit379 ]
+  %370 = phi i32 [ %272, %.preheader ], [ %316, %Vec_PtrPush.exit.i354 ], [ %272, %289 ], [ %320, %.lr.ph431 ], [ %363, %Vec_PtrPushUnique.exit379 ]
+  %371 = phi i32 [ %273, %.preheader ], [ %314, %Vec_PtrPush.exit.i354 ], [ %273, %289 ], [ %322, %.lr.ph431 ], [ %365, %Vec_PtrPushUnique.exit379 ]
+  %372 = phi i32 [ %274, %.preheader ], [ %316, %Vec_PtrPush.exit.i354 ], [ %272, %289 ], [ %323, %.lr.ph431 ], [ %366, %Vec_PtrPushUnique.exit379 ]
   %indvars.iv.next474 = add nuw nsw i64 %indvars.iv473, 1
   %373 = load i32, ptr %154, align 4, !tbaa !57
   %374 = sext i32 %373 to i64
@@ -1533,11 +1533,11 @@ Vec_PtrPushUnique.exit379:                        ; preds = %331, %Vec_PtrPush.e
   br label %.critedge11.thread
 
 .critedge11.thread:                               ; preds = %.preheader398, %176, %.thread, %148, %139, %.critedge11, %.critedge8, %151
-  %429 = phi i32 [ %140, %139 ], [ %140, %151 ], [ %140, %.critedge8 ], [ %140, %.critedge11 ], [ %140, %176 ], [ %376, %.thread ], [ %140, %148 ], [ %140, %.preheader398 ]
-  %430 = phi i32 [ %141, %139 ], [ %141, %151 ], [ %141, %.critedge8 ], [ %141, %.critedge11 ], [ %141, %176 ], [ %377, %.thread ], [ %141, %148 ], [ %141, %.preheader398 ]
-  %431 = phi i32 [ %142, %139 ], [ %142, %151 ], [ %142, %.critedge8 ], [ %265, %.critedge11 ], [ %142, %176 ], [ %265, %.thread ], [ %142, %148 ], [ %142, %.preheader398 ]
-  %.5 = phi i32 [ %.4441, %139 ], [ %.4441, %151 ], [ %.4441, %.critedge8 ], [ %177, %.critedge11 ], [ %177, %176 ], [ %177, %.thread ], [ %.4441, %148 ], [ %177, %.preheader398 ]
-  %.3 = phi i32 [ %.2442, %139 ], [ %.2442, %151 ], [ %.2442, %.critedge8 ], [ %.2442, %.critedge11 ], [ %.2442, %176 ], [ %270, %.thread ], [ %.2442, %148 ], [ %.2442, %.preheader398 ]
+  %429 = phi i32 [ %140, %139 ], [ %140, %151 ], [ %140, %.critedge8 ], [ %140, %.critedge11 ], [ %376, %.thread ], [ %140, %148 ], [ %140, %176 ], [ %140, %.preheader398 ]
+  %430 = phi i32 [ %141, %139 ], [ %141, %151 ], [ %141, %.critedge8 ], [ %141, %.critedge11 ], [ %377, %.thread ], [ %141, %148 ], [ %141, %176 ], [ %141, %.preheader398 ]
+  %431 = phi i32 [ %142, %139 ], [ %142, %151 ], [ %142, %.critedge8 ], [ %265, %.critedge11 ], [ %265, %.thread ], [ %142, %148 ], [ %142, %176 ], [ %142, %.preheader398 ]
+  %.5 = phi i32 [ %.4441, %139 ], [ %.4441, %151 ], [ %.4441, %.critedge8 ], [ %177, %.critedge11 ], [ %177, %.thread ], [ %.4441, %148 ], [ %177, %176 ], [ %177, %.preheader398 ]
+  %.3 = phi i32 [ %.2442, %139 ], [ %.2442, %151 ], [ %.2442, %.critedge8 ], [ %.2442, %.critedge11 ], [ %270, %.thread ], [ %.2442, %148 ], [ %.2442, %176 ], [ %.2442, %.preheader398 ]
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %432 = load ptr, ptr %30, align 8, !tbaa !70
   %433 = getelementptr i8, ptr %432, i64 4

@@ -2099,7 +2099,7 @@ _lighttable_expose_empty.exit:                    ; preds = %26, %78
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %_lighttable_expose_empty.exit, %166, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %166 ], [ 1, %_lighttable_expose_empty.exit ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %_lighttable_expose_empty.exit ], [ 0, %166 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -2135,7 +2135,7 @@ define internal range(i32 0, 2) i32 @_event_leave_notify(ptr noundef %0, ptr nou
   br label %16
 
 16:                                               ; preds = %7, %11, %11, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %14 ], [ 0, %11 ], [ 0, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %14 ], [ 0, %5 ], [ 0, %11 ], [ 0, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2396,7 +2396,7 @@ _thumbtable_get_thumb.exit.thread:                ; preds = %121, %114, %119
   br label %.thread57
 
 .thread57:                                        ; preds = %63, %66, %_thumbtable_get_thumb.exit.thread, %108, %111, %126, %107, %80, %87, %93, %100, %106, %47, %42
-  %.0 = phi i32 [ 0, %42 ], [ 1, %80 ], [ 1, %107 ], [ 0, %47 ], [ 1, %106 ], [ 1, %100 ], [ 1, %93 ], [ 1, %87 ], [ 1, %_thumbtable_get_thumb.exit.thread ], [ 1, %126 ], [ 1, %111 ], [ 1, %108 ], [ 1, %66 ], [ 1, %63 ]
+  %.0 = phi i32 [ 0, %42 ], [ 0, %47 ], [ 1, %106 ], [ 1, %100 ], [ 1, %93 ], [ 1, %87 ], [ 1, %80 ], [ 1, %107 ], [ 1, %126 ], [ 1, %111 ], [ 1, %108 ], [ 1, %_thumbtable_get_thumb.exit.thread ], [ 1, %66 ], [ 1, %63 ]
   ret i32 %.0
 }
 
@@ -2467,7 +2467,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   br label %50
 
 50:                                               ; preds = %10, %36, %39, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %39 ], [ 1, %36 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 1, %39 ], [ 1, %36 ], [ 1, %10 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %52 = load double, ptr %51, align 8, !tbaa !204
   %53 = tail call reassoc nsz arcp contract afn double @llvm.ceil.f64(double %52)
@@ -2767,7 +2767,7 @@ define internal void @_dt_collection_changed_callback(ptr readnone captures(none
   br label %27
 
 27:                                               ; preds = %18, %24, %14, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %14 ], [ %23, %24 ], [ -1, %18 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %10 ], [ %23, %24 ], [ -1, %18 ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %29 = load i32, ptr %28, align 4, !tbaa !89
   %30 = icmp slt i32 %29, 1
@@ -3005,8 +3005,8 @@ define internal void @_dt_collection_changed_callback(ptr readnone captures(none
   br i1 %.not185, label %145, label %135
 
 135:                                              ; preds = %.thread208, %.thread203, %._crit_edge229.thread
-  %136 = phi i32 [ 1, %._crit_edge229.thread ], [ 1, %.thread208 ], [ %.3149.ph, %.thread203 ]
-  %137 = phi ptr [ %132, %._crit_edge229.thread ], [ %121, %.thread208 ], [ %130, %.thread203 ]
+  %136 = phi i32 [ 1, %._crit_edge229.thread ], [ %.3149.ph, %.thread203 ], [ 1, %.thread208 ]
+  %137 = phi ptr [ %132, %._crit_edge229.thread ], [ %130, %.thread203 ], [ %121, %.thread208 ]
   call void @dt_conf_set_int(ptr noundef nonnull @.str.12, i32 noundef %136) #16
   %138 = load i32, ptr %5, align 8, !tbaa !6
   %139 = icmp eq i32 %138, 3
@@ -3025,7 +3025,7 @@ define internal void @_dt_collection_changed_callback(ptr readnone captures(none
   br label %148
 
 145:                                              ; preds = %.thread208, %._crit_edge229.thread, %.thread203
-  %146 = phi ptr [ %132, %._crit_edge229.thread ], [ %121, %.thread208 ], [ %130, %.thread203 ]
+  %146 = phi ptr [ %132, %._crit_edge229.thread ], [ %130, %.thread203 ], [ %121, %.thread208 ]
   call void @dt_thumbtable_full_redraw(ptr noundef nonnull %5, i32 noundef 1)
   %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
   call void @dt_view_lighttable_culling_preview_refresh(ptr noundef %147) #16
@@ -3908,8 +3908,8 @@ define internal fastcc range(i32 0, 2) i32 @_move(ptr noundef captures(none) %0,
   br label %98
 
 98:                                               ; preds = %9, %51, %64, %33, %69, %8
-  %.0165 = phi i32 [ %48, %33 ], [ %2, %8 ], [ %86, %69 ], [ %2, %9 ], [ 0, %64 ], [ 0, %51 ]
-  %.0164 = phi i32 [ 0, %33 ], [ %1, %8 ], [ %97, %69 ], [ %1, %9 ], [ %., %64 ], [ %62, %51 ]
+  %.0165 = phi i32 [ %48, %33 ], [ %86, %69 ], [ %2, %8 ], [ 0, %64 ], [ 0, %51 ], [ %2, %9 ]
+  %.0164 = phi i32 [ 0, %33 ], [ %97, %69 ], [ %1, %8 ], [ %., %64 ], [ %62, %51 ], [ %1, %9 ]
   %99 = or i32 %.0164, %.0165
   %or.cond = icmp eq i32 %99, 0
   br i1 %or.cond, label %235, label %100
@@ -4166,7 +4166,7 @@ _pos_compute_area.exit:                           ; preds = %191, %172, %_thumbs
   br label %235
 
 235:                                              ; preds = %234, %11, %49, %98, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %49 ], [ 1, %234 ], [ 0, %98 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %234 ], [ 0, %11 ], [ 0, %49 ], [ 0, %98 ]
   ret i32 %.0
 }
 
@@ -4348,7 +4348,7 @@ _compute_sizes.exit.thread:                       ; preds = %10
   br label %89
 
 89:                                               ; preds = %76, %73, %57, %54, %37, %34, %21
-  %.not175 = phi i1 [ true, %21 ], [ false, %57 ], [ true, %54 ], [ true, %34 ], [ false, %37 ], [ false, %76 ], [ true, %73 ]
+  %.not175 = phi i1 [ false, %57 ], [ true, %54 ], [ false, %37 ], [ true, %34 ], [ true, %21 ], [ false, %76 ], [ true, %73 ]
   %90 = load i32, ptr %22, align 8, !tbaa !81
   %.not81.i = icmp eq i32 %90, %23
   br i1 %.not81.i, label %_compute_sizes.exit, label %91
@@ -4742,8 +4742,8 @@ dt_get_debug_wtime.exit:                          ; preds = %92
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %..sink.split.i_crit_edge, %299, %288
-  %.sink27.i = phi i32 [ %283, %288 ], [ %291, %299 ], [ %.sink27.i.pre, %..sink.split.i_crit_edge ]
-  %.sink.i = phi ptr [ %8, %288 ], [ %8, %299 ], [ %7, %..sink.split.i_crit_edge ]
+  %.sink27.i = phi i32 [ %291, %299 ], [ %283, %288 ], [ %.sink27.i.pre, %..sink.split.i_crit_edge ]
+  %.sink.i = phi ptr [ %8, %299 ], [ %8, %288 ], [ %7, %..sink.split.i_crit_edge ]
   %300 = load i32, ptr %.sink.i, align 4, !tbaa !35
   %301 = add nsw i32 %300, %.sink27.i
   store i32 %301, ptr %.sink.i, align 4, !tbaa !35
@@ -5526,7 +5526,7 @@ define range(i32 0, 2) i32 @dt_thumbtable_set_offset(ptr noundef %0, i32 noundef
   br label %11
 
 11:                                               ; preds = %9, %10, %3, %5
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %10 ], [ 1, %9 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 1, %10 ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -5555,7 +5555,7 @@ define range(i32 0, 2) i32 @dt_thumbtable_set_offset_image(ptr noundef initializ
   br label %dt_thumbtable_set_offset.exit
 
 dt_thumbtable_set_offset.exit:                    ; preds = %3, %7, %11, %12
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %12 ], [ 1, %11 ]
+  %.0.i = phi i32 [ 0, %7 ], [ 0, %3 ], [ 1, %12 ], [ 1, %11 ]
   ret i32 %.0.i
 }
 
@@ -5685,7 +5685,7 @@ tailrecurse.backedge:                             ; preds = %30, %42
   br i1 %.not43, label %._crit_edge, label %tailrecurse.backedge
 
 ._crit_edge:                                      ; preds = %tailrecurse.backedge, %38, %42, %30, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %38 ], [ 0, %30 ], [ 0, %42 ], [ 0, %tailrecurse.backedge ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %30 ], [ 0, %42 ], [ 1, %38 ], [ 0, %tailrecurse.backedge ]
   ret i32 %.0
 }
 
@@ -5806,7 +5806,7 @@ tailrecurse:
   br i1 %.not, label %.loopexit, label %.preheader.backedge
 
 .loopexit:                                        ; preds = %.backedge, %45, %47, %42, %.preheader119, %38, %30, %tailrecurse
-  %.0 = phi i32 [ 0, %tailrecurse ], [ 1, %30 ], [ %39, %38 ], [ 0, %.preheader119 ], [ 0, %42 ], [ 0, %47 ], [ 0, %45 ], [ 0, %.backedge ]
+  %.0 = phi i32 [ 0, %tailrecurse ], [ %39, %38 ], [ 1, %30 ], [ 0, %.preheader119 ], [ 0, %42 ], [ 0, %47 ], [ 0, %45 ], [ 0, %.backedge ]
   ret i32 %.0
 }
 
@@ -5938,7 +5938,7 @@ define range(i32 0, 2) i32 @dt_thumbtable_check_imgid_visibility(ptr noundef rea
   br label %_filemanager_check_rowid_visibility.exit
 
 _filemanager_check_rowid_visibility.exit:         ; preds = %.thread55.i, %62, %41, %38, %37, %34, %9, %6, %4, %2
-  %.0 = phi i32 [ 0, %4 ], [ 1, %34 ], [ 0, %2 ], [ 0, %6 ], [ 0, %9 ], [ 0, %37 ], [ 0, %38 ], [ 0, %41 ], [ 0, %.thread55.i ], [ 1, %62 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %6 ], [ 0, %9 ], [ 0, %37 ], [ 1, %34 ], [ 0, %38 ], [ 0, %41 ], [ 0, %.thread55.i ], [ 1, %62 ]
   ret i32 %.0
 }
 
@@ -6105,7 +6105,7 @@ define range(i32 0, 2) i32 @dt_thumbtable_key_move(ptr noundef captures(none) %0
   br label %88
 
 88:                                               ; preds = %87, %86, %84, %71, %56, %52, %49, %46, %43
-  %.2.i = phi i32 [ %22, %43 ], [ %48, %46 ], [ %51, %49 ], [ %spec.select.i, %52 ], [ %..070.i, %56 ], [ %spec.store.select.i, %71 ], [ %.070.i, %87 ], [ %spec.select78.i, %84 ], [ 1, %86 ]
+  %.2.i = phi i32 [ %22, %43 ], [ %48, %46 ], [ %51, %49 ], [ %spec.select.i, %52 ], [ %..070.i, %56 ], [ %spec.store.select.i, %71 ], [ 1, %86 ], [ %.070.i, %87 ], [ %spec.select78.i, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %89
 
@@ -6358,7 +6358,7 @@ _zoomable_key_move.exit:                          ; preds = %163, %_thumb_get_un
   br label %_filemanager_key_move.exit
 
 _filemanager_key_move.exit:                       ; preds = %95, %93, %3, %_zoomable_key_move.exit
-  %.0 = phi i32 [ 0, %3 ], [ %.0.i, %_zoomable_key_move.exit ], [ 1, %93 ], [ 1, %95 ]
+  %.0 = phi i32 [ %.0.i, %_zoomable_key_move.exit ], [ 0, %3 ], [ 1, %93 ], [ 1, %95 ]
   ret i32 %.0
 }
 
@@ -6559,8 +6559,8 @@ define internal fastcc i32 @_thumbs_load_needed(ptr noundef captures(none) %0, p
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %..sink.split.i_crit_edge, %82, %69
-  %.sink27.i = phi i32 [ %66, %69 ], [ %77, %82 ], [ %.sink27.i.pre, %..sink.split.i_crit_edge ]
-  %.sink.i = phi ptr [ %7, %69 ], [ %7, %82 ], [ %6, %..sink.split.i_crit_edge ]
+  %.sink27.i = phi i32 [ %77, %82 ], [ %66, %69 ], [ %.sink27.i.pre, %..sink.split.i_crit_edge ]
+  %.sink.i = phi ptr [ %7, %82 ], [ %7, %69 ], [ %6, %..sink.split.i_crit_edge ]
   %87 = load i32, ptr %.sink.i, align 4, !tbaa !35
   %88 = sub nsw i32 %87, %.sink27.i
   store i32 %88, ptr %.sink.i, align 4, !tbaa !35
@@ -6647,8 +6647,8 @@ _pos_get_previous.exit:                           ; preds = %61, %65, %76, %.sin
   br label %.sink.split.i96
 
 .sink.split.i96:                                  ; preds = %..sink.split.i96_crit_edge, %125, %114
-  %.sink27.i99 = phi i32 [ %111, %114 ], [ %121, %125 ], [ %.sink27.i99.pre, %..sink.split.i96_crit_edge ]
-  %.sink.i97 = phi ptr [ %7, %114 ], [ %7, %125 ], [ %6, %..sink.split.i96_crit_edge ]
+  %.sink27.i99 = phi i32 [ %121, %125 ], [ %111, %114 ], [ %.sink27.i99.pre, %..sink.split.i96_crit_edge ]
+  %.sink.i97 = phi ptr [ %7, %125 ], [ %7, %114 ], [ %6, %..sink.split.i96_crit_edge ]
   %130 = load i32, ptr %.sink.i97, align 4, !tbaa !35
   %131 = sub nsw i32 %130, %.sink27.i99
   store i32 %131, ptr %.sink.i97, align 4, !tbaa !35
@@ -6671,8 +6671,8 @@ _pos_get_previous.exit100:                        ; preds = %108, %110, %120, %.
   br label %137
 
 137:                                              ; preds = %22, %._crit_edge, %27, %12
-  %138 = phi i32 [ %.pre, %._crit_edge ], [ %.pre139, %22 ], [ %.pre139, %27 ], [ %.pre139, %12 ]
-  %.086 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %22 ], [ 0, %27 ], [ 0, %12 ]
+  %138 = phi i32 [ %.pre, %._crit_edge ], [ %.pre139, %27 ], [ %.pre139, %12 ], [ %.pre139, %22 ]
+  %.086 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %27 ], [ 0, %12 ], [ 0, %22 ]
   switch i32 %138, label %.thread124 [
     i32 1, label %139
     i32 2, label %.thread
@@ -6815,8 +6815,8 @@ _pos_get_previous.exit100:                        ; preds = %108, %110, %120, %.
   br label %.sink.split.i101
 
 .sink.split.i101:                                 ; preds = %..sink.split.i101_crit_edge, %217, %204
-  %.sink27.i104 = phi i32 [ %198, %204 ], [ %208, %217 ], [ %.sink27.i104.pre, %..sink.split.i101_crit_edge ]
-  %.sink.i102 = phi ptr [ %9, %204 ], [ %9, %217 ], [ %8, %..sink.split.i101_crit_edge ]
+  %.sink27.i104 = phi i32 [ %208, %217 ], [ %198, %204 ], [ %.sink27.i104.pre, %..sink.split.i101_crit_edge ]
+  %.sink.i102 = phi ptr [ %9, %217 ], [ %9, %204 ], [ %8, %..sink.split.i101_crit_edge ]
   %218 = load i32, ptr %.sink.i102, align 4, !tbaa !35
   %219 = add nsw i32 %218, %.sink27.i104
   store i32 %219, ptr %.sink.i102, align 4, !tbaa !35
@@ -6902,8 +6902,8 @@ _pos_get_next.exit:                               ; preds = %195, %197, %207, %.
   br label %.sink.split.i105
 
 .sink.split.i105:                                 ; preds = %..sink.split.i105_crit_edge, %259, %248
-  %.sink27.i108 = phi i32 [ %243, %248 ], [ %251, %259 ], [ %.sink27.i108.pre, %..sink.split.i105_crit_edge ]
-  %.sink.i106 = phi ptr [ %9, %248 ], [ %9, %259 ], [ %8, %..sink.split.i105_crit_edge ]
+  %.sink27.i108 = phi i32 [ %251, %259 ], [ %243, %248 ], [ %.sink27.i108.pre, %..sink.split.i105_crit_edge ]
+  %.sink.i106 = phi ptr [ %9, %259 ], [ %9, %248 ], [ %8, %..sink.split.i105_crit_edge ]
   %260 = load i32, ptr %.sink.i106, align 4, !tbaa !35
   %261 = add nsw i32 %260, %.sink27.i108
   store i32 %261, ptr %.sink.i106, align 4, !tbaa !35
@@ -6925,7 +6925,7 @@ _pos_get_next.exit109:                            ; preds = %240, %242, %250, %.
   br label %.thread124
 
 .thread124:                                       ; preds = %137, %139, %146, %.thread, %._crit_edge135, %157
-  %.3 = phi i32 [ %.4.lcssa, %._crit_edge135 ], [ %.086, %157 ], [ %.086, %137 ], [ %.086154, %.thread ], [ %.086, %146 ], [ %.086, %139 ]
+  %.3 = phi i32 [ %.4.lcssa, %._crit_edge135 ], [ %.086, %157 ], [ %.086154, %.thread ], [ %.086, %146 ], [ %.086, %139 ], [ %.086, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %267
 
@@ -7145,7 +7145,7 @@ define internal noundef i32 @_event_scroll_compressed(ptr noundef captures(addre
   br label %27
 
 27:                                               ; preds = %23, %25, %15
-  %.023 = phi i32 [ %18, %15 ], [ %26, %25 ], [ %22, %23 ]
+  %.023 = phi i32 [ %26, %25 ], [ %18, %15 ], [ %22, %23 ]
   %28 = sub nsw i32 0, %.023
   br label %29
 

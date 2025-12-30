@@ -175,7 +175,7 @@ define internal fastcc range(i32 -30, 1) i32 @xz_lzma_bidder_init(ptr noundef ca
   br label %30
 
 30:                                               ; preds = %9, %26, %28, %6
-  %.030 = phi i32 [ -30, %6 ], [ 0, %26 ], [ -30, %28 ], [ 0, %9 ]
+  %.030 = phi i32 [ -30, %6 ], [ -30, %28 ], [ 0, %26 ], [ 0, %9 ]
   ret i32 %.030
 }
 
@@ -363,7 +363,7 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   call fastcc void @set_error(ptr noundef nonnull readonly %0, i32 noundef %.sink.i)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %32, %.sink.split.i
+.loopexit:                                        ; preds = %32, %37, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -507,7 +507,7 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   br label %124
 
 124:                                              ; preds = %121, %111, %115, %112, %107, %86, %67, %.loopexit
-  %.0 = phi i64 [ -30, %67 ], [ -30, %86 ], [ -30, %.loopexit ], [ %108, %107 ], [ 0, %111 ], [ %93, %112 ], [ %spec.select, %121 ], [ %93, %115 ]
+  %.0 = phi i64 [ -30, %67 ], [ -30, %86 ], [ -30, %.loopexit ], [ %108, %107 ], [ %93, %112 ], [ %93, %115 ], [ 0, %111 ], [ %spec.select, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
@@ -635,7 +635,7 @@ define internal fastcc range(i32 -30, 1) i32 @lzip_tail(ptr noundef readonly cap
   %or.cond.i = icmp ult i8 %59, -18
   br i1 %or.cond.i, label %lzip_has_member.exit.thread, label %60
 
-lzip_has_member.exit.thread:                      ; preds = %52, %45, %51, %55
+lzip_has_member.exit.thread:                      ; preds = %45, %51, %52, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %63
 
@@ -649,7 +649,7 @@ lzip_has_member.exit.thread:                      ; preds = %52, %45, %51, %55
   br label %63
 
 63:                                               ; preds = %lzip_has_member.exit.thread, %60, %1, %42, %31, %24, %17
-  %.028 = phi i32 [ -30, %1 ], [ -25, %17 ], [ -25, %24 ], [ -25, %31 ], [ -25, %42 ], [ 0, %60 ], [ 0, %lzip_has_member.exit.thread ]
+  %.028 = phi i32 [ -25, %17 ], [ -25, %24 ], [ -25, %31 ], [ -25, %42 ], [ -30, %1 ], [ 0, %60 ], [ 0, %lzip_has_member.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.028
 }
@@ -718,7 +718,7 @@ define internal range(i32 0, 105) i32 @lzma_bidder_bid(ptr readnone captures(non
   br label %26
 
 26:                                               ; preds = %22, %18, %20, %6, %2
-  %.021 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 0, %20 ], [ %spec.select28, %22 ], [ %19, %18 ]
+  %.021 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %20 ], [ %19, %18 ], [ %spec.select28, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.021
 }
@@ -762,7 +762,7 @@ define internal range(i32 0, 49) i32 @lzip_bidder_bid(ptr readnone captures(none
   br label %lzip_has_member.exit
 
 lzip_has_member.exit:                             ; preds = %2, %6, %7, %10
-  %.0.i = phi i32 [ 0, %7 ], [ 0, %2 ], [ 0, %6 ], [ %..i, %10 ]
+  %.0.i = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %7 ], [ %..i, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }

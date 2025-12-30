@@ -445,7 +445,7 @@ if.end67:                                         ; preds = %if.then37, %if.else
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then45, %if.end5.i, %if.end67, %entry
-  %retval.0 = phi i1 [ true, %if.end5.i ], [ false, %entry ], [ true, %if.end67 ], [ false, %if.then45 ], [ false, %if.then.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end67 ], [ true, %if.end5.i ], [ false, %if.then45 ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -567,7 +567,7 @@ if.end67:                                         ; preds = %if.then37, %if.else
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then45, %if.end5.i, %if.end67, %entry
-  %retval.0 = phi i1 [ true, %if.end5.i ], [ false, %entry ], [ true, %if.end67 ], [ false, %if.then45 ], [ false, %if.then.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end67 ], [ true, %if.end5.i ], [ false, %if.then45 ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -689,7 +689,7 @@ if.end67:                                         ; preds = %if.then37, %if.else
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then45, %if.end5.i, %if.end67, %entry
-  %retval.0 = phi i1 [ true, %if.end5.i ], [ false, %entry ], [ true, %if.end67 ], [ false, %if.then45 ], [ false, %if.then.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end67 ], [ true, %if.end5.i ], [ false, %if.then45 ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -811,7 +811,7 @@ if.end67:                                         ; preds = %if.then37, %if.else
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then45, %if.end5.i, %if.end67, %entry
-  %retval.0 = phi i1 [ true, %if.end5.i ], [ false, %entry ], [ true, %if.end67 ], [ false, %if.then45 ], [ false, %if.then.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end67 ], [ true, %if.end5.i ], [ false, %if.then45 ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -933,7 +933,7 @@ if.end67:                                         ; preds = %if.then37, %if.else
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then45, %if.end5.i, %if.end67, %entry
-  %retval.0 = phi i1 [ true, %if.end5.i ], [ false, %entry ], [ true, %if.end67 ], [ false, %if.then45 ], [ false, %if.then.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end67 ], [ true, %if.end5.i ], [ false, %if.then45 ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -1055,7 +1055,7 @@ if.end67:                                         ; preds = %if.then37, %if.else
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then45, %if.end5.i, %if.end67, %entry
-  %retval.0 = phi i1 [ true, %if.end5.i ], [ false, %entry ], [ true, %if.end67 ], [ false, %if.then45 ], [ false, %if.then.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end67 ], [ true, %if.end5.i ], [ false, %if.then45 ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -1595,9 +1595,9 @@ _ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40: ; preds = %if.end1
   br label %cleanup
 
 cleanup:                                          ; preds = %do.end86, %if.then.i29, %if.end92, %if.then.i25, %if.end50, %if.then.i21, %if.end35, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40, %do.body, %if.then125, %sw.epilog, %if.end111, %if.then109, %if.then15, %if.then
-  %packet.sroa.0.1 = phi ptr [ %packet.sroa.0.0, %if.then ], [ %packet.sroa.0.2, %sw.epilog ], [ null, %if.then15 ], [ null, %if.then.i21 ], [ %packet.sroa.0.2, %do.body ], [ null, %if.then.i25 ], [ %packet.sroa.0.2, %if.end111 ], [ %packet.sroa.0.2, %if.then109 ], [ null, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ %packet.sroa.0.2, %if.then125 ], [ null, %if.end35 ], [ null, %if.end50 ], [ %packet.sroa.0.2, %if.then.i29 ], [ %packet.sroa.0.2, %if.end92 ], [ %packet.sroa.0.2, %do.end86 ]
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then ], [ 1, %sw.epilog ], [ 1, %if.then15 ], [ 1, %if.then.i21 ], [ 3, %do.body ], [ 1, %if.then.i25 ], [ 3, %if.end111 ], [ 1, %if.then109 ], [ %., %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ 1, %if.then125 ], [ 1, %if.end35 ], [ 1, %if.end50 ], [ 3, %if.then.i29 ], [ 3, %if.end92 ], [ 3, %do.end86 ]
-  %packetSendCount.1 = phi i64 [ %packetSendCount.0, %if.then ], [ %packetSendCount.0, %sw.epilog ], [ %packetSendCount.0, %if.then15 ], [ %packetSendCount.0, %if.then.i21 ], [ %packetSendCount.0, %do.body ], [ %packetSendCount.0, %if.then.i25 ], [ %packetSendCount.0, %if.end111 ], [ %packetSendCount.0, %if.then109 ], [ %inc, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ %packetSendCount.0, %if.then125 ], [ %packetSendCount.0, %if.end35 ], [ %packetSendCount.0, %if.end50 ], [ %packetSendCount.0, %if.then.i29 ], [ %packetSendCount.0, %if.end92 ], [ %packetSendCount.0, %do.end86 ]
+  %packet.sroa.0.1 = phi ptr [ %packet.sroa.0.0, %if.then ], [ %packet.sroa.0.2, %sw.epilog ], [ %packet.sroa.0.2, %do.body ], [ %packet.sroa.0.2, %if.end111 ], [ %packet.sroa.0.2, %if.then109 ], [ null, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ %packet.sroa.0.2, %if.then125 ], [ null, %if.then15 ], [ null, %if.end35 ], [ null, %if.then.i21 ], [ null, %if.end50 ], [ null, %if.then.i25 ], [ %packet.sroa.0.2, %if.end92 ], [ %packet.sroa.0.2, %if.then.i29 ], [ %packet.sroa.0.2, %do.end86 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then ], [ 1, %sw.epilog ], [ 3, %do.body ], [ 3, %if.end111 ], [ 1, %if.then109 ], [ %., %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ 1, %if.then125 ], [ 1, %if.then15 ], [ 1, %if.end35 ], [ 1, %if.then.i21 ], [ 1, %if.end50 ], [ 1, %if.then.i25 ], [ 3, %if.end92 ], [ 3, %if.then.i29 ], [ 3, %do.end86 ]
+  %packetSendCount.1 = phi i64 [ %packetSendCount.0, %if.then ], [ %packetSendCount.0, %sw.epilog ], [ %packetSendCount.0, %do.body ], [ %packetSendCount.0, %if.end111 ], [ %packetSendCount.0, %if.then109 ], [ %inc, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ %packetSendCount.0, %if.then125 ], [ %packetSendCount.0, %if.then15 ], [ %packetSendCount.0, %if.end35 ], [ %packetSendCount.0, %if.then.i21 ], [ %packetSendCount.0, %if.end50 ], [ %packetSendCount.0, %if.then.i25 ], [ %packetSendCount.0, %if.end92 ], [ %packetSendCount.0, %if.then.i29 ], [ %packetSendCount.0, %do.end86 ]
   %51 = load ptr, ptr %stream.i, align 8
   %cmp.not.i.i42 = icmp eq ptr %51, null
   br i1 %cmp.not.i.i42, label %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit, label %if.then.i.i43

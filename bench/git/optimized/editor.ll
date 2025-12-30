@@ -277,7 +277,7 @@ _.exit:                                           ; preds = %is_terminal_dumb.ex
   br label %.thread
 
 .thread:                                          ; preds = %.tail.thread, %_.exit, %14
-  %28 = phi i1 [ false, %14 ], [ true, %_.exit ], [ false, %.tail.thread ]
+  %28 = phi i1 [ true, %_.exit ], [ false, %14 ], [ false, %.tail.thread ]
   %29 = call ptr @strbuf_realpath(ptr noundef nonnull %5, ptr noundef %1, i32 noundef 1) #10
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !15
@@ -368,7 +368,7 @@ is_terminal_dumb.exit35.thread:                   ; preds = %53, %56, %is_termin
   br label %65
 
 65:                                               ; preds = %.thread37, %60, %59, %63, %7
-  %.022 = phi i32 [ -1, %63 ], [ 0, %59 ], [ -1, %7 ], [ -1, %.thread37 ], [ 0, %60 ]
+  %.022 = phi i32 [ -1, %63 ], [ -1, %7 ], [ 0, %59 ], [ 0, %60 ], [ -1, %.thread37 ]
   ret i32 %.022
 }
 

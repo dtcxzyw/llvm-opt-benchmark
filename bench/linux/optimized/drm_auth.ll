@@ -300,7 +300,7 @@ select.unfold:                                    ; preds = %18, %8
   br label %61
 
 61:                                               ; preds = %18, %60, %56, %45, %38, %34, %23
-  %62 = phi i32 [ -22, %38 ], [ 0, %23 ], [ -22, %56 ], [ 0, %60 ], [ %46, %45 ], [ -16, %34 ], [ -13, %18 ]
+  %62 = phi i32 [ 0, %23 ], [ -22, %56 ], [ 0, %60 ], [ %46, %45 ], [ -16, %34 ], [ -22, %38 ], [ -13, %18 ]
   tail call void @mutex_unlock(ptr noundef nonnull %4) #5
   ret i32 %62
 }
@@ -412,7 +412,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @drm_new_set_master(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %8, %53, %50
-  %54 = phi i32 [ 0, %50 ], [ 0, %53 ], [ -12, %8 ]
+  %54 = phi i32 [ 0, %53 ], [ 0, %50 ], [ -12, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %54
 }
@@ -546,7 +546,7 @@ select.unfold:                                    ; preds = %18, %8
   br label %60
 
 60:                                               ; preds = %18, %59, %48, %34, %23, %select.unfold
-  %61 = phi i32 [ -22, %select.unfold ], [ -22, %48 ], [ 0, %59 ], [ -22, %23 ], [ -22, %34 ], [ -13, %18 ]
+  %61 = phi i32 [ -22, %48 ], [ 0, %59 ], [ -22, %23 ], [ -22, %34 ], [ -22, %select.unfold ], [ -13, %18 ]
   tail call void @mutex_unlock(ptr noundef nonnull %4) #5
   ret i32 %61
 }

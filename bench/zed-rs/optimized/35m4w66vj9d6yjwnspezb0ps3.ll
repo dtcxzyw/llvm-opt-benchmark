@@ -634,7 +634,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
           to label %36 unwind label %34
 
 .loopexit.loopexit:                               ; preds = %14, %16, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57657ae1c2f47E.exit.i", %27
-  %.sroa.5.023.i.ph = phi i64 [ %.sroa.5.027.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57657ae1c2f47E.exit.i" ], [ %2, %27 ], [ %.sroa.5.027.i, %16 ], [ %.sroa.5.027.i, %14 ]
+  %.sroa.5.023.i.ph = phi i64 [ %.sroa.5.027.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57657ae1c2f47E.exit.i" ], [ %.sroa.5.027.i, %16 ], [ %.sroa.5.027.i, %14 ], [ %2, %27 ]
   %33 = trunc i64 %.sroa.5.023.i.ph to i32
   br label %.loopexit
 
@@ -1592,7 +1592,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
           to label %"_ZN4core3ptr127drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$C$12_usize$GT$$GT$17h04a78b015a086bf8E.exit" unwind label %37
 
 .loopexit.loopexit:                               ; preds = %14, %16, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84d499cd4bcb1c2fE.exit.i", %27
-  %.sroa.5.023.i.ph = phi i64 [ %.sroa.5.027.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84d499cd4bcb1c2fE.exit.i" ], [ %2, %27 ], [ %.sroa.5.027.i, %16 ], [ %.sroa.5.027.i, %14 ]
+  %.sroa.5.023.i.ph = phi i64 [ %.sroa.5.027.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84d499cd4bcb1c2fE.exit.i" ], [ %.sroa.5.027.i, %16 ], [ %.sroa.5.027.i, %14 ], [ %2, %27 ]
   %36 = trunc i64 %.sroa.5.023.i.ph to i32
   br label %.loopexit
 
@@ -2876,7 +2876,7 @@ define hidden noundef ptr @_ZN3rpc4peer4Peer4send17h037260e299037808E(ptr nounde
   unreachable
 
 .thread:                                          ; preds = %32, %46
-  %.pn20 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm.split-lp, %46 ]
+  %.pn20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %46 ], [ %33, %32 ]
   resume { ptr, i32 } %.pn20
 
 46:                                               ; preds = %4
@@ -3341,7 +3341,7 @@ define hidden noundef ptr @_ZN3rpc4peer4Peer4send17hf17bd8db620bebe8E(ptr nounde
   unreachable
 
 common.resume:                                    ; preds = %54, %40, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %lpad.thr_comm.split-lp, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %lpad.thr_comm.split-lp, %54 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr47drop_in_place$LT$proto..UpdateChannelBuffer$GT$17hb472548308fd9939E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h072cce5520914c24E.llvm.17231173475946515404.exit.i.i", %32, %36
@@ -3707,7 +3707,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$channel..channel_c
   unreachable
 
 common.resume:                                    ; preds = %.body, %12, %17
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %13, %17 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %17 ], [ %13, %12 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr96drop_in_place$LT$client..PendingEntitySubscription$LT$channel..channel_chat..ChannelChat$GT$$GT$17h78a694cce9c02b4eE.exit": ; preds = %18, %22
@@ -5950,7 +5950,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 common.resume:                                    ; preds = %17, %84, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %17 ], [ %.pn1318, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %.pn1318, %84 ], [ %.pn, %17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr95drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h0700f808c7fa8e23E.exit.i.i": ; preds = %30
@@ -6089,7 +6089,7 @@ common.resume:                                    ; preds = %17, %84, %31
   unreachable
 
 84:                                               ; preds = %.thread, %17
-  %.pn1318 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke fastcc void @"_ZN4core3ptr377drop_in_place$LT$channel..channel_store..ChannelStore..open_channel_resource$LT$channel..channel_buffer..ChannelBuffer$C$channel..channel_store..ChannelStore..open_channel_buffer..$u7b$$u7b$closure$u7d$$u7d$$C$channel..channel_buffer..ChannelBuffer..new..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8292fa22954bc6e9E"(ptr noalias noundef align 8 dereferenceable(48) %2) #17
           to label %common.resume unwind label %82
 }
@@ -6313,11 +6313,11 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   unreachable
 
 85:                                               ; preds = %86, %19
-  %.pn1217 = phi { ptr, i32 } [ %.pn, %19 ], [ %.pn1218, %86 ]
+  %.pn1217 = phi { ptr, i32 } [ %.pn1218, %86 ], [ %.pn, %19 ]
   resume { ptr, i32 } %.pn1217
 
 86:                                               ; preds = %.thread, %19
-  %.pn1218 = phi { ptr, i32 } [ %26, %.thread ], [ %.pn, %19 ]
+  %.pn1218 = phi { ptr, i32 } [ %.pn, %19 ], [ %26, %.thread ]
   invoke fastcc void @"_ZN4core3ptr166drop_in_place$LT$channel..channel_store..ChannelStore..fuzzy_search_members..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5491f847fef40f0bE"(ptr noalias noundef align 8 dereferenceable(48) %3) #17
           to label %85 unwind label %83
 }
@@ -7184,11 +7184,11 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 "_ZN4core3ptr161drop_in_place$LT$channel..channel_buffer..ChannelBuffer..handle_update_channel_buffer_collaborators..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5370c6cb6de4dff2E.exit20": ; preds = %75, %73, %17
-  %.pn1321 = phi { ptr, i32 } [ %.pn1322, %75 ], [ %.pn, %17 ], [ %.pn1322, %73 ]
+  %.pn1321 = phi { ptr, i32 } [ %.pn, %17 ], [ %.pn1322, %73 ], [ %.pn1322, %75 ]
   resume { ptr, i32 } %.pn1321
 
 73:                                               ; preds = %.thread, %17
-  %.pn1322 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1322 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   %.val = load i64, ptr %2, align 8, !alias.scope !1609, !noalias !1618, !noundef !4
   %74 = icmp eq i64 %.val, 0
   br i1 %74, label %"_ZN4core3ptr161drop_in_place$LT$channel..channel_buffer..ChannelBuffer..handle_update_channel_buffer_collaborators..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5370c6cb6de4dff2E.exit20", label %75
@@ -7592,11 +7592,11 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   unreachable
 
 "_ZN4core3ptr207drop_in_place$LT$channel..channel_store..ChannelStore..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6264d8fb7a0836d0E.exit": ; preds = %78, %19
-  %.pn1218 = phi { ptr, i32 } [ %.pn1219, %78 ], [ %.pn, %19 ]
+  %.pn1218 = phi { ptr, i32 } [ %.pn, %19 ], [ %.pn1219, %78 ]
   resume { ptr, i32 } %.pn1218
 
 78:                                               ; preds = %.thread, %19
-  %.pn1219 = phi { ptr, i32 } [ %26, %.thread ], [ %.pn, %19 ]
+  %.pn1219 = phi { ptr, i32 } [ %.pn, %19 ], [ %26, %.thread ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateChannels$GT$17h25c7fe4d053a6570E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %3)
           to label %"_ZN4core3ptr207drop_in_place$LT$channel..channel_store..ChannelStore..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6264d8fb7a0836d0E.exit" unwind label %76
 }
@@ -7811,11 +7811,11 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   unreachable
 
 "_ZN4core3ptr132drop_in_place$LT$channel..channel_chat..ChannelMessage..from_proto_vec..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcc1f21d9c341cba7E.exit20": ; preds = %83, %81, %19
-  %.pn1221 = phi { ptr, i32 } [ %.pn1222, %83 ], [ %.pn, %19 ], [ %.pn1222, %81 ]
+  %.pn1221 = phi { ptr, i32 } [ %.pn, %19 ], [ %.pn1222, %81 ], [ %.pn1222, %83 ]
   resume { ptr, i32 } %.pn1221
 
 81:                                               ; preds = %.thread, %19
-  %.pn1222 = phi { ptr, i32 } [ %26, %.thread ], [ %.pn, %19 ]
+  %.pn1222 = phi { ptr, i32 } [ %.pn, %19 ], [ %26, %.thread ]
   %.val = load i64, ptr %3, align 8, !alias.scope !1758, !noalias !1767, !noundef !4
   %82 = icmp eq i64 %.val, 0
   br i1 %82, label %"_ZN4core3ptr132drop_in_place$LT$channel..channel_chat..ChannelMessage..from_proto_vec..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcc1f21d9c341cba7E.exit20", label %83
@@ -7946,7 +7946,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br label %"_ZN4core3ptr137drop_in_place$LT$channel..channel_chat..ChannelChat..handle_message_updated..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49607011eed1a0e2E.exit"
 
 common.resume:                                    ; preds = %18, %96, %38, %43
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %39, %43 ], [ %.pn, %18 ], [ %.pn1318, %96 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %43 ], [ %39, %38 ], [ %.pn1318, %96 ], [ %.pn, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr137drop_in_place$LT$channel..channel_chat..ChannelChat..handle_message_updated..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49607011eed1a0e2E.exit": ; preds = %51, %47, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h646dba7ffe4cb921E.exit"
@@ -8066,7 +8066,7 @@ common.resume:                                    ; preds = %18, %96, %38, %43
   unreachable
 
 96:                                               ; preds = %.thread, %18
-  %.pn1318 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn, %18 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %18 ], [ %25, %.thread ]
   invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$channel..channel_chat..ChannelChat..handle_message_updated..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49607011eed1a0e2E"(ptr noalias noundef align 8 dereferenceable(64) %2) #17
           to label %common.resume unwind label %94
 }
@@ -8250,11 +8250,11 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 "_ZN4core3ptr150drop_in_place$LT$channel..channel_chat..ChannelChat..rejoin..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h626d2fdb14fd302dE.exit": ; preds = %70, %17
-  %.pn1318 = phi { ptr, i32 } [ %.pn1319, %70 ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %.pn1319, %70 ]
   resume { ptr, i32 } %.pn1318
 
 70:                                               ; preds = %.thread, %17
-  %.pn1319 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1319 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$channel..channel_chat..ChannelMessage$GT$17ha7cf3c66d542c173E"(ptr noalias noundef nonnull align 16 dereferenceable(144) %2)
           to label %"_ZN4core3ptr150drop_in_place$LT$channel..channel_chat..ChannelChat..rejoin..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h626d2fdb14fd302dE.exit" unwind label %68
 }
@@ -8684,7 +8684,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 common.resume:                                    ; preds = %17, %84, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %17 ], [ %.pn1318, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %.pn1318, %84 ], [ %.pn, %17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_chat..ChannelChat$GT$$GT$17h86df8776ffab7918E.exit.i.i": ; preds = %30
@@ -8823,7 +8823,7 @@ common.resume:                                    ; preds = %17, %84, %31
   unreachable
 
 84:                                               ; preds = %.thread, %17
-  %.pn1318 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke fastcc void @"_ZN4core3ptr367drop_in_place$LT$channel..channel_store..ChannelStore..open_channel_resource$LT$channel..channel_chat..ChannelChat$C$channel..channel_store..ChannelStore..open_channel_chat..$u7b$$u7b$closure$u7d$$u7d$$C$channel..channel_chat..ChannelChat..new..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7369e0bba23649acE"(ptr noalias noundef align 8 dereferenceable(48) %2) #17
           to label %common.resume unwind label %82
 }
@@ -9129,7 +9129,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br label %"_ZN4core3ptr160drop_in_place$LT$channel..channel_store..ChannelStore..create_channel..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1494202a0fa2dfcdE.exit"
 
 common.resume:                                    ; preds = %18, %96, %38, %43
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %39, %43 ], [ %.pn, %18 ], [ %.pn1318, %96 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %43 ], [ %39, %38 ], [ %.pn1318, %96 ], [ %.pn, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr160drop_in_place$LT$channel..channel_store..ChannelStore..create_channel..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1494202a0fa2dfcdE.exit": ; preds = %51, %47, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h646dba7ffe4cb921E.exit"
@@ -9249,7 +9249,7 @@ common.resume:                                    ; preds = %18, %96, %38, %43
   unreachable
 
 96:                                               ; preds = %.thread, %18
-  %.pn1318 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn, %18 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %18 ], [ %25, %.thread ]
   invoke fastcc void @"_ZN4core3ptr160drop_in_place$LT$channel..channel_store..ChannelStore..create_channel..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1494202a0fa2dfcdE"(ptr noalias noundef align 8 dereferenceable(72) %2) #17
           to label %common.resume unwind label %94
 }
@@ -9600,11 +9600,11 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 "_ZN4core3ptr134drop_in_place$LT$channel..channel_chat..ChannelChat..handle_message_sent..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18bb67dcd4be1b04E.exit": ; preds = %70, %17
-  %.pn1318 = phi { ptr, i32 } [ %.pn1319, %70 ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %.pn1319, %70 ]
   resume { ptr, i32 } %.pn1318
 
 70:                                               ; preds = %.thread, %17
-  %.pn1319 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1319 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$channel..channel_chat..ChannelMessage$GT$17ha7cf3c66d542c173E"(ptr noalias noundef nonnull align 16 dereferenceable(160) %2)
           to label %"_ZN4core3ptr134drop_in_place$LT$channel..channel_chat..ChannelChat..handle_message_sent..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18bb67dcd4be1b04E.exit" unwind label %68
 }
@@ -9726,7 +9726,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 common.resume:                                    ; preds = %17, %92, %33, %38, %41
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %34, %41 ], [ %34, %38 ], [ %.pn, %17 ], [ %.pn1318, %92 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %41 ], [ %34, %38 ], [ %34, %33 ], [ %.pn1318, %92 ], [ %.pn, %17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr137drop_in_place$LT$channel..channel_chat..ChannelChat..handle_loaded_messages..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h389c737bf1cdfe98E.exit": ; preds = %48, %45, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit.i", %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h646dba7ffe4cb921E.exit"
@@ -9846,7 +9846,7 @@ common.resume:                                    ; preds = %17, %92, %33, %38, 
   unreachable
 
 92:                                               ; preds = %.thread, %17
-  %.pn1318 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$channel..channel_chat..ChannelChat..handle_loaded_messages..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h389c737bf1cdfe98E"(ptr noalias noundef align 8 dereferenceable(32) %2) #17
           to label %common.resume unwind label %90
 }
@@ -9970,7 +9970,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br label %"_ZN4core3ptr152drop_in_place$LT$channel..channel_store..ChannelStore..rename..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd8ae4d3389768baE.exit"
 
 common.resume:                                    ; preds = %18, %96, %38, %43
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %39, %43 ], [ %.pn, %18 ], [ %.pn1318, %96 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %43 ], [ %39, %38 ], [ %.pn1318, %96 ], [ %.pn, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr152drop_in_place$LT$channel..channel_store..ChannelStore..rename..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd8ae4d3389768baE.exit": ; preds = %51, %47, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h646dba7ffe4cb921E.exit"
@@ -10090,7 +10090,7 @@ common.resume:                                    ; preds = %18, %96, %38, %43
   unreachable
 
 96:                                               ; preds = %.thread, %18
-  %.pn1318 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn, %18 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %18 ], [ %25, %.thread ]
   invoke fastcc void @"_ZN4core3ptr152drop_in_place$LT$channel..channel_store..ChannelStore..rename..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd8ae4d3389768baE"(ptr noalias noundef align 8 dereferenceable(72) %2) #17
           to label %common.resume unwind label %94
 }
@@ -10274,11 +10274,11 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 "_ZN4core3ptr147drop_in_place$LT$channel..channel_buffer..ChannelBuffer..handle_update_channel_buffer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6f52d206a47fa856E.exit": ; preds = %70, %17
-  %.pn1318 = phi { ptr, i32 } [ %.pn1319, %70 ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %.pn1319, %70 ]
   resume { ptr, i32 } %.pn1318
 
 70:                                               ; preds = %.thread, %17
-  %.pn1319 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1319 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$language..buffer..Operation$GT$$GT$17h2f7860eb7ed1fe0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr147drop_in_place$LT$channel..channel_buffer..ChannelBuffer..handle_update_channel_buffer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6f52d206a47fa856E.exit" unwind label %68
 }
@@ -10462,11 +10462,11 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 "_ZN4core3ptr122drop_in_place$LT$channel..channel_buffer..ChannelBuffer..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f82d9f03bad0d12E.exit": ; preds = %70, %17
-  %.pn1318 = phi { ptr, i32 } [ %.pn1319, %70 ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %.pn1319, %70 ]
   resume { ptr, i32 } %.pn1318
 
 70:                                               ; preds = %.thread, %17
-  %.pn1319 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1319 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$language..buffer..Operation$GT$$GT$17h2f7860eb7ed1fe0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr122drop_in_place$LT$channel..channel_buffer..ChannelBuffer..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f82d9f03bad0d12E.exit" unwind label %68
 }
@@ -10650,11 +10650,11 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 "_ZN4core3ptr156drop_in_place$LT$channel..channel_chat..ChannelChat..send_message..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h902f6f661813a20dE.exit": ; preds = %70, %17
-  %.pn1318 = phi { ptr, i32 } [ %.pn1319, %70 ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %.pn1319, %70 ]
   resume { ptr, i32 } %.pn1318
 
 70:                                               ; preds = %.thread, %17
-  %.pn1319 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1319 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$channel..channel_chat..ChannelMessage$GT$17ha7cf3c66d542c173E"(ptr noalias noundef nonnull align 16 dereferenceable(160) %2)
           to label %"_ZN4core3ptr156drop_in_place$LT$channel..channel_chat..ChannelChat..send_message..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h902f6f661813a20dE.exit" unwind label %68
 }
@@ -10838,11 +10838,11 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   unreachable
 
 "_ZN4core3ptr139drop_in_place$LT$channel..channel_store..ChannelStore..handle_update_channels..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06c19f3170c533f1E.exit": ; preds = %70, %17
-  %.pn1318 = phi { ptr, i32 } [ %.pn1319, %70 ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %.pn1319, %70 ]
   resume { ptr, i32 } %.pn1318
 
 70:                                               ; preds = %.thread, %17
-  %.pn1319 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1319 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$proto..UpdateChannels$GT$17h25c7fe4d053a6570E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %2)
           to label %"_ZN4core3ptr139drop_in_place$LT$channel..channel_store..ChannelStore..handle_update_channels..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06c19f3170c533f1E.exit" unwind label %68
 }
@@ -11144,7 +11144,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br label %"_ZN4core3ptr144drop_in_place$LT$channel..channel_store..ChannelStore..handle_update_user_channels..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h455fafa52eb75cf2E.exit"
 
 common.resume:                                    ; preds = %17, %93, %35, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %35 ], [ %40, %39 ], [ %.pn, %17 ], [ %.pn1318, %93 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %40, %35 ], [ %.pn1318, %93 ], [ %.pn, %17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr144drop_in_place$LT$channel..channel_store..ChannelStore..handle_update_user_channels..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h455fafa52eb75cf2E.exit": ; preds = %48, %44, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h646dba7ffe4cb921E.exit"
@@ -11264,7 +11264,7 @@ common.resume:                                    ; preds = %17, %93, %35, %39
   unreachable
 
 93:                                               ; preds = %.thread, %17
-  %.pn1318 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn, %17 ]
+  %.pn1318 = phi { ptr, i32 } [ %.pn, %17 ], [ %24, %.thread ]
   invoke fastcc void @"_ZN4core3ptr144drop_in_place$LT$channel..channel_store..ChannelStore..handle_update_user_channels..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h455fafa52eb75cf2E"(ptr noalias noundef align 8 dereferenceable(72) %2) #17
           to label %common.resume unwind label %91
 }
@@ -12825,11 +12825,11 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   unreachable
 
 76:                                               ; preds = %77, %18
-  %.pn1217 = phi { ptr, i32 } [ %.pn, %18 ], [ %.pn1218, %77 ]
+  %.pn1217 = phi { ptr, i32 } [ %.pn1218, %77 ], [ %.pn, %18 ]
   resume { ptr, i32 } %.pn1217
 
 77:                                               ; preds = %.thread, %18
-  %.pn1218 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn, %18 ]
+  %.pn1218 = phi { ptr, i32 } [ %.pn, %18 ], [ %25, %.thread ]
   invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$channel..channel_buffer..ChannelBuffer..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31c11b3e7ab55077E"(ptr noalias noundef align 8 dereferenceable(168) %2) #17
           to label %76 unwind label %74
 }
@@ -13054,11 +13054,11 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   unreachable
 
 86:                                               ; preds = %87, %19
-  %.pn1217 = phi { ptr, i32 } [ %.pn, %19 ], [ %.pn1218, %87 ]
+  %.pn1217 = phi { ptr, i32 } [ %.pn1218, %87 ], [ %.pn, %19 ]
   resume { ptr, i32 } %.pn1217
 
 87:                                               ; preds = %.thread, %19
-  %.pn1218 = phi { ptr, i32 } [ %26, %.thread ], [ %.pn, %19 ]
+  %.pn1218 = phi { ptr, i32 } [ %.pn, %19 ], [ %26, %.thread ]
   invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$channel..channel_buffer..ChannelBuffer..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6bddafcc88abe8f5E"(ptr noalias noundef align 8 dereferenceable(56) %2) #17
           to label %86 unwind label %84
 }
@@ -13263,11 +13263,11 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   unreachable
 
 76:                                               ; preds = %77, %18
-  %.pn1217 = phi { ptr, i32 } [ %.pn, %18 ], [ %.pn1218, %77 ]
+  %.pn1217 = phi { ptr, i32 } [ %.pn1218, %77 ], [ %.pn, %18 ]
   resume { ptr, i32 } %.pn1217
 
 77:                                               ; preds = %.thread, %18
-  %.pn1218 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn, %18 ]
+  %.pn1218 = phi { ptr, i32 } [ %.pn, %18 ], [ %25, %.thread ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$channel..channel_chat..ChannelChat..new..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2d4219d0c01b839fE"(ptr noalias noundef align 8 dereferenceable(80) %2) #17
           to label %76 unwind label %74
 }
@@ -16025,7 +16025,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   unreachable
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57657ae1c2f47E.exit.thread.loopexit": ; preds = %30, %17, %19, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57657ae1c2f47E.exit"
-  %.sroa.5.023.ph = phi i64 [ %.sroa.5.027, %17 ], [ %.sroa.5.027, %19 ], [ %12, %30 ], [ %.sroa.5.027, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57657ae1c2f47E.exit" ]
+  %.sroa.5.023.ph = phi i64 [ %12, %30 ], [ %.sroa.5.027, %17 ], [ %.sroa.5.027, %19 ], [ %.sroa.5.027, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57657ae1c2f47E.exit" ]
   %35 = trunc i64 %.sroa.5.023.ph to i32
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40f57657ae1c2f47E.exit.thread"
 
@@ -16310,7 +16310,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 34:                                               ; preds = %26, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %27, %26 ]
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ]
   %35 = trunc i64 %.sroa.5.028 to i32
   store i32 %35, ptr %0, align 8, !noalias !4250
   resume { ptr, i32 } %.pn
@@ -16506,7 +16506,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %25, %34, %30
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %31, %34 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %34 ], [ %31, %30 ]
   %42 = trunc i64 %.sroa.5.0 to i32
   store i32 %42, ptr %0, align 8, !noalias !4339
   resume { ptr, i32 } %.pn
@@ -16755,7 +16755,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 44:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
   %45 = trunc i64 %.sroa.5.028 to i32
   store i32 %45, ptr %0, align 8, !noalias !4446
   resume { ptr, i32 } %.pn
@@ -16916,7 +16916,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   unreachable
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7429978f7590b1abE.exit.thread": ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7429978f7590b1abE.exit", %28, %39, %21, %16, %4, %.split.us
-  %.sroa.5.023 = phi i64 [ %.sroa.5.027.us, %16 ], [ %7, %4 ], [ %.sroa.5.027.us, %.split.us ], [ %15, %21 ], [ %.sroa.5.027, %28 ], [ %.sroa.5.027, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7429978f7590b1abE.exit" ], [ %15, %39 ]
+  %.sroa.5.023 = phi i64 [ %.sroa.5.027.us, %.split.us ], [ %7, %4 ], [ %15, %21 ], [ %.sroa.5.027.us, %16 ], [ %.sroa.5.027, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7429978f7590b1abE.exit" ], [ %.sroa.5.027, %28 ], [ %15, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
   %44 = trunc i64 %.sroa.5.023 to i32
   store i32 %44, ptr %0, align 8, !noalias !4480
@@ -17230,7 +17230,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   unreachable
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84d499cd4bcb1c2fE.exit.thread.loopexit": ; preds = %30, %17, %19, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84d499cd4bcb1c2fE.exit"
-  %.sroa.5.023.ph = phi i64 [ %.sroa.5.027, %17 ], [ %.sroa.5.027, %19 ], [ %12, %30 ], [ %.sroa.5.027, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84d499cd4bcb1c2fE.exit" ]
+  %.sroa.5.023.ph = phi i64 [ %12, %30 ], [ %.sroa.5.027, %17 ], [ %.sroa.5.027, %19 ], [ %.sroa.5.027, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84d499cd4bcb1c2fE.exit" ]
   %35 = trunc i64 %.sroa.5.023.ph to i32
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h84d499cd4bcb1c2fE.exit.thread"
 
@@ -17401,7 +17401,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   unreachable
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20790d86cb7e63f4E.exit.thread": ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20790d86cb7e63f4E.exit", %28, %39, %21, %16, %4, %.split.us
-  %.sroa.5.022 = phi i64 [ %.sroa.5.026.us, %16 ], [ %7, %4 ], [ %.sroa.5.026.us, %.split.us ], [ %15, %21 ], [ %.sroa.5.026, %28 ], [ %.sroa.5.026, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20790d86cb7e63f4E.exit" ], [ %15, %39 ]
+  %.sroa.5.022 = phi i64 [ %.sroa.5.026.us, %.split.us ], [ %7, %4 ], [ %15, %21 ], [ %.sroa.5.026.us, %16 ], [ %.sroa.5.026, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20790d86cb7e63f4E.exit" ], [ %.sroa.5.026, %28 ], [ %15, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
   %44 = trunc i64 %.sroa.5.022 to i32
   store i32 %44, ptr %0, align 16, !noalias !4622
@@ -17519,7 +17519,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 44:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
   %45 = trunc i64 %.sroa.5.028 to i32
   store i32 %45, ptr %0, align 8, !noalias !4678
   resume { ptr, i32 } %.pn
@@ -17680,7 +17680,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   unreachable
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h76a60151bc524523E.exit.thread": ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h76a60151bc524523E.exit", %28, %39, %21, %16, %4, %.split.us
-  %.sroa.5.023 = phi i64 [ %.sroa.5.027.us, %16 ], [ %7, %4 ], [ %.sroa.5.027.us, %.split.us ], [ %15, %21 ], [ %.sroa.5.027, %28 ], [ %.sroa.5.027, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h76a60151bc524523E.exit" ], [ %15, %39 ]
+  %.sroa.5.023 = phi i64 [ %.sroa.5.027.us, %.split.us ], [ %7, %4 ], [ %15, %21 ], [ %.sroa.5.027.us, %16 ], [ %.sroa.5.027, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h76a60151bc524523E.exit" ], [ %.sroa.5.027, %28 ], [ %15, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
   %44 = trunc i64 %.sroa.5.023 to i32
   store i32 %44, ptr %0, align 8, !noalias !4712
@@ -17813,7 +17813,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 42:                                               ; preds = %35, %28
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %36, %35 ]
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %29, %28 ]
   %43 = trunc i64 %.sroa.5.0 to i32
   store i32 %43, ptr %0, align 8, !noalias !4764
   resume { ptr, i32 } %.pn
@@ -18076,7 +18076,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %25, %34, %30
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %31, %34 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %34 ], [ %31, %30 ]
   %42 = trunc i64 %.sroa.5.0 to i32
   store i32 %42, ptr %0, align 8, !noalias !4878
   resume { ptr, i32 } %.pn
@@ -18594,14 +18594,14 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96b6254bbb49e51E.exit", %39, %4, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96b6254bbb49e51E.exit.thread22"
-  %.sroa.5.029 = phi i64 [ %8, %4 ], [ %.sroa.5.031, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96b6254bbb49e51E.exit.thread22" ], [ %.sroa.5.031, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96b6254bbb49e51E.exit" ], [ %13, %39 ]
+  %.sroa.5.029 = phi i64 [ %.sroa.5.031, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96b6254bbb49e51E.exit.thread22" ], [ %8, %4 ], [ %.sroa.5.031, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb96b6254bbb49e51E.exit" ], [ %13, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %44 = trunc i64 %.sroa.5.029 to i32
   store i32 %44, ptr %0, align 8, !noalias !5060
   ret void
 
 45:                                               ; preds = %37, %31
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %32, %31 ]
   %46 = trunc i64 %.sroa.5.031 to i32
   store i32 %46, ptr %0, align 8, !noalias !5068
   resume { ptr, i32 } %.pn
@@ -18713,7 +18713,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 44:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
   %45 = trunc i64 %.sroa.5.028 to i32
   store i32 %45, ptr %0, align 8, !noalias !5116
   resume { ptr, i32 } %.pn
@@ -19476,7 +19476,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %25, %34, %30
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %31, %34 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %34 ], [ %31, %30 ]
   %42 = trunc i64 %.sroa.5.0 to i32
   store i32 %42, ptr %0, align 8, !noalias !5394
   resume { ptr, i32 } %.pn

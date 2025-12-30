@@ -2084,7 +2084,7 @@ skip_prefix.exit:                                 ; preds = %.preheader401, %799
   unreachable
 
 skip_prefix.exit262:                              ; preds = %807, %skip_prefix.exit, %787, %791, %812, %814, %816, %818, %820
-  %.2112 = phi i32 [ %.1111408, %skip_prefix.exit ], [ %.1111408, %820 ], [ %.1111408, %818 ], [ %.1111408, %816 ], [ %.1111408, %814 ], [ %.1111408, %812 ], [ 0, %787 ], [ 0, %791 ], [ %.1111408, %807 ]
+  %.2112 = phi i32 [ %.1111408, %820 ], [ %.1111408, %818 ], [ %.1111408, %816 ], [ %.1111408, %814 ], [ %.1111408, %812 ], [ 0, %791 ], [ 0, %787 ], [ %.1111408, %skip_prefix.exit ], [ %.1111408, %807 ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond423.not = icmp eq i64 %indvars.iv.next, %784
   br i1 %exitcond423.not, label %.preheader398, label %787, !llvm.loop !99
@@ -2565,7 +2565,7 @@ imply_merge.exit271.thread:                       ; preds = %imply_merge.exit271
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %1010, %imply_merge.exit271.thread
-  %1012 = phi i32 [ %.pr367.pre, %1010 ], [ %1004, %imply_merge.exit271.thread ]
+  %1012 = phi i32 [ %1004, %imply_merge.exit271.thread ], [ %.pr367.pre, %1010 ]
   switch i32 %1012, label %1016 [
     i32 1, label %thread-pre-split.thread
     i32 0, label %1014
@@ -2700,9 +2700,9 @@ sub_1395:                                         ; preds = %sub_0394
   br label %1061
 
 1061:                                             ; preds = %.tail393, %1048, %1051
-  %1062 = phi ptr [ %1045, %1048 ], [ %.not173, %.tail393 ], [ %1045, %1051 ]
-  %.098 = phi ptr [ %1, %1048 ], [ %1055, %.tail393 ], [ %1, %1051 ]
-  %.097 = phi i32 [ %569, %1048 ], [ %1054, %.tail393 ], [ %569, %1051 ]
+  %1062 = phi ptr [ %1045, %1051 ], [ %1045, %1048 ], [ %.not173, %.tail393 ]
+  %.098 = phi ptr [ %1, %1051 ], [ %1, %1048 ], [ %1055, %.tail393 ]
+  %.097 = phi i32 [ %569, %1051 ], [ %569, %1048 ], [ %1054, %.tail393 ]
   %1063 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %1064 = call ptr @lookup_commit_reference_by_name(ptr noundef %1062) #19
   %1065 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -3226,7 +3226,7 @@ _.exit295:                                        ; preds = %1252, %1255
   br i1 %.not.i26.not.i, label %can_fast_forward.exit, label %can_fast_forward.exit.thread
 
 .critedge.i:                                      ; preds = %1283, %1281, %1274, %1271, %1268, %1259
-  %1289 = phi ptr [ null, %1274 ], [ null, %1271 ], [ null, %1281 ], [ null, %1268 ], [ %1282, %1283 ], [ null, %1259 ]
+  %1289 = phi ptr [ null, %1268 ], [ null, %1274 ], [ null, %1271 ], [ null, %1281 ], [ %1282, %1283 ], [ null, %1259 ]
   call void @free_commit_list(ptr noundef %1289) #19
   br label %can_fast_forward.exit.thread
 
@@ -3599,7 +3599,7 @@ _.exit330:                                        ; preds = %1430, %1432
   br label %1448
 
 1448:                                             ; preds = %1442, %1445, %1440
-  %.sink529 = phi ptr [ %1441, %1440 ], [ %1447, %1445 ], [ %1444, %1442 ]
+  %.sink529 = phi ptr [ %1447, %1445 ], [ %1441, %1440 ], [ %1444, %1442 ]
   %1449 = getelementptr inbounds nuw i8, ptr %.sink529, i64 4
   %1450 = call ptr @oid_to_hex(ptr noundef nonnull %1449) #19
   %1451 = load ptr, ptr %1410, align 8, !tbaa !78
@@ -3936,7 +3936,7 @@ _.exit.i.i.i:                                     ; preds = %1594, %1592
   br label %do_interactive_rebase.exit.i.i
 
 do_interactive_rebase.exit.i.i:                   ; preds = %1606, %_.exit.i.i.i, %init_basic_state.exit.i.i.i, %_.exit16.i.i.i.i, %merge_dir.exit12.i.i.i.i
-  %.0.i.i.i = phi i32 [ %1614, %1606 ], [ -1, %init_basic_state.exit.i.i.i ], [ %1591, %_.exit.i.i.i ], [ -1, %_.exit16.i.i.i.i ], [ -1, %merge_dir.exit12.i.i.i.i ]
+  %.0.i.i.i = phi i32 [ -1, %init_basic_state.exit.i.i.i ], [ %1591, %_.exit.i.i.i ], [ %1614, %1606 ], [ -1, %_.exit16.i.i.i.i ], [ -1, %merge_dir.exit12.i.i.i.i ]
   call void @replay_opts_release(ptr noundef nonnull %13) #19
   call void @free(ptr noundef %1513) #19
   call void @free(ptr noundef %storemerge.i.i.i.i) #19
@@ -4289,7 +4289,7 @@ _.exit71.i.i:                                     ; preds = %1734, %1732
   br label %run_am.exit.i
 
 run_am.exit.i:                                    ; preds = %1759, %1755, %1753, %_.exit71.i.i, %_.exit68.i.i, %_.exit.i.i, %1673, %1671, %1666, %1664, %1662
-  %.0.i25.i = phi i32 [ %1754, %1753 ], [ %1665, %1664 ], [ %1663, %1662 ], [ %1672, %1671 ], [ %1675, %1673 ], [ -1, %_.exit.i.i ], [ %1709, %_.exit68.i.i ], [ -1, %_.exit71.i.i ], [ %1670, %1666 ], [ %1751, %1759 ], [ %1751, %1755 ]
+  %.0.i25.i = phi i32 [ %1665, %1664 ], [ %1672, %1671 ], [ %1675, %1673 ], [ -1, %_.exit.i.i ], [ %1709, %_.exit68.i.i ], [ -1, %_.exit71.i.i ], [ %1754, %1753 ], [ %1663, %1662 ], [ %1670, %1666 ], [ %1751, %1759 ], [ %1751, %1755 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %1761
@@ -4669,7 +4669,7 @@ _.exit.i:                                         ; preds = %15, %13
   unreachable
 
 parse_empty_value.exit:                           ; preds = %3, %7, %9, %_.exit.i
-  %.0.i = phi i32 [ 2, %_.exit.i ], [ 1, %7 ], [ 0, %3 ], [ 2, %9 ]
+  %.0.i = phi i32 [ 2, %_.exit.i ], [ 0, %3 ], [ 1, %7 ], [ 2, %9 ]
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %20, label %19
 
@@ -4940,7 +4940,7 @@ parse_rebase_merges_value.exit:                   ; preds = %40, %42
   br label %73
 
 73:                                               ; preds = %parse_rebase_merges_value.exit, %47, %10, %12, %71, %67, %61, %56, %51, %31, %27, %16
-  %.0 = phi i32 [ %72, %71 ], [ %70, %67 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %10 ], [ 0, %31 ], [ 0, %27 ], [ 0, %16 ], [ 0, %12 ], [ 0, %47 ], [ 0, %parse_rebase_merges_value.exit ]
+  %.0 = phi i32 [ %72, %71 ], [ %70, %67 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %31 ], [ 0, %27 ], [ 0, %16 ], [ 0, %12 ], [ 0, %10 ], [ 0, %47 ], [ 0, %parse_rebase_merges_value.exit ]
   ret i32 %.0
 }
 
@@ -5471,7 +5471,7 @@ strbuf_setlen.exit69:                             ; preds = %172, %174
   br label %183
 
 183:                                              ; preds = %strbuf_setlen.exit69, %strbuf_setlen.exit63, %state_dir_path.exit57, %state_dir_path.exit53, %state_dir_path.exit, %state_dir_path.exit45, %182, %_.exit60, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit60 ], [ 0, %182 ], [ -1, %strbuf_setlen.exit63 ], [ -1, %state_dir_path.exit57 ], [ -1, %state_dir_path.exit ], [ -1, %state_dir_path.exit53 ], [ -1, %state_dir_path.exit45 ], [ -1, %strbuf_setlen.exit69 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit60 ], [ 0, %182 ], [ -1, %state_dir_path.exit45 ], [ -1, %state_dir_path.exit ], [ -1, %state_dir_path.exit53 ], [ -1, %state_dir_path.exit57 ], [ -1, %strbuf_setlen.exit63 ], [ -1, %strbuf_setlen.exit69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -5724,7 +5724,7 @@ _.exit11.thread:                                  ; preds = %10, %9
   br label %27
 
 13:                                               ; preds = %6, %7
-  %14 = phi ptr [ @.str.231, %6 ], [ %8, %7 ]
+  %14 = phi ptr [ %8, %7 ], [ @.str.231, %6 ]
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.0.i, ptr noundef %14)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !154
@@ -6034,7 +6034,7 @@ define internal fastcc range(i32 0, 2) i32 @is_linear_history(ptr noundef readno
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10, %13, %2
-  %.07 = phi i32 [ 1, %2 ], [ 0, %10 ], [ 1, %13 ], [ 1, %.lr.ph ]
+  %.07 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %10 ], [ 1, %.lr.ph ]
   ret i32 %.07
 }
 

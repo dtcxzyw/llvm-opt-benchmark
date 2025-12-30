@@ -398,7 +398,7 @@ define noundef i32 @_Z14CalcAllBoardsNP6boardsP12solvedBoards(ptr noundef %0, pt
   br label %16
 
 16:                                               ; preds = %13, %11, %2
-  %.0 = phi i32 [ %12, %11 ], [ -101, %2 ], [ %., %13 ]
+  %.0 = phi i32 [ -101, %2 ], [ %12, %11 ], [ %., %13 ]
   ret i32 %.0
 }
 
@@ -751,8 +751,8 @@ _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %52
   %.not99 = icmp eq i32 %96, 1
   br i1 %.not99, label %90, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
 
-_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %.lr.ph, %90, %56, %.preheader105.lr.ph, %.preheader, %._crit_edge, %52, %._crit_edge125, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, %13, %12
-  %.079 = phi i32 [ -201, %12 ], [ -202, %13 ], [ %55, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ -101, %._crit_edge ], [ %53, %52 ], [ 1, %._crit_edge125 ], [ 1, %.preheader ], [ 1, %.preheader105.lr.ph ], [ 1, %56 ], [ 1, %90 ], [ %96, %.lr.ph ]
+_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %.lr.ph, %90, %56, %.preheader105.lr.ph, %.preheader, %52, %._crit_edge, %._crit_edge125, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit, %13, %12
+  %.079 = phi i32 [ -201, %12 ], [ -202, %13 ], [ %55, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ 1, %._crit_edge125 ], [ %53, %52 ], [ -101, %._crit_edge ], [ 1, %.preheader ], [ 1, %.preheader105.lr.ph ], [ 1, %56 ], [ %96, %.lr.ph ], [ 1, %90 ]
   ret i32 %.079
 }
 

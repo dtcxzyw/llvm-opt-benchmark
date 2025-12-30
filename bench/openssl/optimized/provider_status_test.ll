@@ -145,7 +145,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %19, %20, %7, %17
-  %.02 = phi i32 [ 0, %17 ], [ 1, %19 ], [ 0, %7 ], [ 1, %20 ], [ 0, %1 ]
+  %.02 = phi i32 [ 0, %17 ], [ 0, %7 ], [ 1, %20 ], [ 1, %19 ], [ 0, %1 ]
   ret i32 %.02
 }
 
@@ -299,8 +299,8 @@ define internal range(i32 0, 2) i32 @test_provider_status() #1 {
   br label %64
 
 64:                                               ; preds = %60, %52, %57, %46, %39, %26, %30, %33, %36, %22, %11, %17, %9, %0
-  %.012 = phi i32 [ 0, %0 ], [ %spec.select, %60 ], [ 0, %57 ], [ 0, %52 ], [ 0, %46 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ], [ 0, %17 ], [ 0, %11 ], [ 0, %9 ]
-  %.0 = phi ptr [ null, %0 ], [ %62, %60 ], [ null, %57 ], [ null, %52 ], [ null, %46 ], [ null, %39 ], [ null, %36 ], [ null, %33 ], [ null, %30 ], [ null, %26 ], [ %24, %22 ], [ null, %17 ], [ null, %11 ], [ null, %9 ]
+  %.012 = phi i32 [ 0, %57 ], [ 0, %52 ], [ 0, %46 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ], [ 0, %17 ], [ 0, %11 ], [ 0, %9 ], [ 0, %0 ], [ %spec.select, %60 ]
+  %.0 = phi ptr [ null, %57 ], [ null, %52 ], [ null, %46 ], [ null, %39 ], [ null, %36 ], [ null, %33 ], [ null, %30 ], [ null, %26 ], [ %24, %22 ], [ null, %17 ], [ null, %11 ], [ null, %9 ], [ null, %0 ], [ %62, %60 ]
   call void @EVP_MD_free(ptr noundef %.0) #6
   %65 = call i32 @OSSL_PROVIDER_unload(ptr noundef %7) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -558,7 +558,7 @@ define internal fastcc range(i32 0, 2) i32 @get_provider_params(ptr noundef %0) 
   br label %59
 
 59:                                               ; preds = %54, %34, %39, %44, %49, %25, %1, %13, %16, %19, %22
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %25 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %25 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %1 ], [ %spec.select, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

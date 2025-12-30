@@ -1009,7 +1009,7 @@ bytestream2_get_byte.exit215.us.i:                ; preds = %451, %448
   br i1 %466, label %.preheader265.us.i, label %kmvc_decode_intra_8x8.exit, !llvm.loop !66
 
 .loopexit266.sink.split.i:                        ; preds = %149, %bytestream2_get_byte.exit207.us.i, %bytestream2_get_byte.exit199.us.i
-  %.str.11.sink.i = phi ptr [ @.str.11, %bytestream2_get_byte.exit207.us.i ], [ @.str.11, %bytestream2_get_byte.exit199.us.i ], [ @.str.10, %149 ]
+  %.str.11.sink.i = phi ptr [ @.str.11, %bytestream2_get_byte.exit199.us.i ], [ @.str.11, %bytestream2_get_byte.exit207.us.i ], [ @.str.10, %149 ]
   %467 = load ptr, ptr %6, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %467, i32 noundef 16, ptr noundef nonnull %.str.11.sink.i) #7
   br label %kmvc_decode_intra_8x8.exit
@@ -1716,7 +1716,7 @@ bytestream2_get_byte.exit240.us.i:                ; preds = %834, %831
   br i1 %849, label %.preheader296.us.i, label %kmvc_decode_intra_8x8.exit, !llvm.loop !74
 
 .loopexit297.sink.split.i:                        ; preds = %822, %504, %bytestream2_get_byte.exit232.us.i, %bytestream2_get_byte.exit224.us.i
-  %.str.11.sink.i105 = phi ptr [ @.str.11, %bytestream2_get_byte.exit232.us.i ], [ @.str.11, %bytestream2_get_byte.exit224.us.i ], [ @.str.10, %504 ], [ @.str.10, %822 ]
+  %.str.11.sink.i105 = phi ptr [ @.str.11, %bytestream2_get_byte.exit224.us.i ], [ @.str.11, %bytestream2_get_byte.exit232.us.i ], [ @.str.10, %504 ], [ @.str.10, %822 ]
   %850 = load ptr, ptr %6, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %850, i32 noundef 16, ptr noundef nonnull %.str.11.sink.i105) #7
   br label %kmvc_decode_intra_8x8.exit
@@ -1765,7 +1765,7 @@ kmvc_decode_intra_8x8.exit:                       ; preds = %._crit_edge.us.i103
   br label %873
 
 873:                                              ; preds = %bytestream2_init.exit, %._crit_edge, %851, %122
-  %.0 = phi i32 [ %872, %._crit_edge ], [ -1094995529, %122 ], [ -1094995529, %851 ], [ %18, %bytestream2_init.exit ]
+  %.0 = phi i32 [ -1094995529, %122 ], [ -1094995529, %851 ], [ %872, %._crit_edge ], [ %18, %bytestream2_init.exit ]
   ret i32 %.0
 }
 

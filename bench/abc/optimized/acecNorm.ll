@@ -377,8 +377,8 @@ Vec_IntAlloc.exit:                                ; preds = %2, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %38, %40, %30, %32
-  %.sink126 = phi ptr [ %33, %32 ], [ %31, %30 ], [ %39, %38 ], [ %41, %40 ]
-  %.sink = phi i32 [ 16, %32 ], [ 16, %30 ], [ %35, %38 ], [ %35, %40 ]
+  %.sink126 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %39, %38 ], [ %41, %40 ]
+  %.sink = phi i32 [ 16, %30 ], [ 16, %32 ], [ %35, %38 ], [ %35, %40 ]
   store ptr %.sink126, ptr %13, align 8, !tbaa !38
   store i32 %.sink, ptr %5, align 8, !tbaa !37
   br label %Vec_IntPush.exit
@@ -825,9 +825,9 @@ Vec_IntGrow.exit.i77:                             ; preds = %236, %234
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %248, %Vec_IntGrow.exit.i77, %.Vec_IntGrow.exit10_crit_edge.i72, %23, %Vec_IntPush.exit.sink.split
-  %.sink133 = phi i32 [ %24, %23 ], [ %24, %Vec_IntPush.exit.sink.split ], [ %227, %.Vec_IntGrow.exit10_crit_edge.i72 ], [ %227, %Vec_IntGrow.exit.i77 ], [ %227, %248 ]
-  %.sink129 = phi ptr [ %17, %23 ], [ %.sink126, %Vec_IntPush.exit.sink.split ], [ %.pre.i74, %.Vec_IntGrow.exit10_crit_edge.i72 ], [ %238, %Vec_IntGrow.exit.i77 ], [ %249, %248 ]
-  %.sink127 = phi i32 [ 0, %23 ], [ 0, %Vec_IntPush.exit.sink.split ], [ %226, %.Vec_IntGrow.exit10_crit_edge.i72 ], [ %226, %Vec_IntGrow.exit.i77 ], [ %226, %248 ]
+  %.sink133 = phi i32 [ %24, %Vec_IntPush.exit.sink.split ], [ %24, %23 ], [ %227, %.Vec_IntGrow.exit10_crit_edge.i72 ], [ %227, %Vec_IntGrow.exit.i77 ], [ %227, %248 ]
+  %.sink129 = phi ptr [ %.sink126, %Vec_IntPush.exit.sink.split ], [ %17, %23 ], [ %.pre.i74, %.Vec_IntGrow.exit10_crit_edge.i72 ], [ %238, %Vec_IntGrow.exit.i77 ], [ %249, %248 ]
+  %.sink127 = phi i32 [ 0, %Vec_IntPush.exit.sink.split ], [ 0, %23 ], [ %226, %.Vec_IntGrow.exit10_crit_edge.i72 ], [ %226, %Vec_IntGrow.exit.i77 ], [ %226, %248 ]
   %250 = add nsw i32 %.sink133, 1
   store i32 %250, ptr %7, align 4, !tbaa !36
   %251 = sext i32 %.sink133 to i64
@@ -992,9 +992,9 @@ Vec_WecGrow.exit.i:                               ; preds = %33, %31
 
 Vec_WecPushLevel.exit.sink.split:                 ; preds = %45, %Vec_WecGrow.exit.i
   %.sink106 = phi i32 [ %36, %Vec_WecGrow.exit.i ], [ %.val47, %45 ]
-  %.pn = phi ptr [ %35, %Vec_WecGrow.exit.i ], [ %46, %45 ]
   %.sink = phi i32 [ 16, %Vec_WecGrow.exit.i ], [ %38, %45 ]
-  %.sink103 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.pn, i64 %21
+  %.val5080.ph = phi ptr [ %35, %Vec_WecGrow.exit.i ], [ %46, %45 ]
+  %.sink103 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val5080.ph, i64 %21
   %47 = zext nneg i32 %.sink106 to i64
   %48 = shl nuw nsw i64 %47, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %.sink103, i8 0, i64 %48, i1 false)
@@ -1002,8 +1002,8 @@ Vec_WecPushLevel.exit.sink.split:                 ; preds = %45, %Vec_WecGrow.ex
   br label %Vec_WecPushLevel.exit
 
 Vec_WecPushLevel.exit:                            ; preds = %Vec_WecPushLevel.exit.sink.split, %25
-  %.val5080 = phi ptr [ %.val50, %25 ], [ %.pn, %Vec_WecPushLevel.exit.sink.split ]
-  %.val8.pre.i75 = phi ptr [ %18, %25 ], [ %.pn, %Vec_WecPushLevel.exit.sink.split ]
+  %.val5080 = phi ptr [ %.val50, %25 ], [ %.val5080.ph, %Vec_WecPushLevel.exit.sink.split ]
+  %.val8.pre.i75 = phi ptr [ %18, %25 ], [ %.val5080.ph, %Vec_WecPushLevel.exit.sink.split ]
   %49 = add nsw i32 %.val47, 1
   store i32 %49, ptr %12, align 4, !tbaa !34
   %50 = sext i32 %49 to i64
@@ -1628,8 +1628,8 @@ Vec_IntFree.exit101:                              ; preds = %.critedge2, %137
   br label %.critedge6, !llvm.loop !65
 
 .critedge6:                                       ; preds = %.lr.ph119, %..critedge6_crit_edge, %.lr.ph119.preheader
-  %.val121.pre = phi i32 [ %.val81117, %.lr.ph119.preheader ], [ %.val81, %..critedge6_crit_edge ], [ %.val81, %.lr.ph119 ]
-  %157 = phi ptr [ %139, %.lr.ph119.preheader ], [ %153, %..critedge6_crit_edge ], [ %153, %.lr.ph119 ]
+  %.val121.pre = phi i32 [ %.val81, %..critedge6_crit_edge ], [ %.val81117, %.lr.ph119.preheader ], [ %.val81, %.lr.ph119 ]
+  %157 = phi ptr [ %153, %..critedge6_crit_edge ], [ %139, %.lr.ph119.preheader ], [ %153, %.lr.ph119 ]
   %158 = icmp sgt i32 %.val121.pre, 0
   br i1 %158, label %.lr.ph123, label %.critedge8
 

@@ -821,8 +821,8 @@ define void @Gia_ManCheckChoices(ptr noundef %0) local_unnamed_addr #0 {
   br label %35
 
 35:                                               ; preds = %26, %32
-  %36 = phi i32 [ %25, %26 ], [ %.pre, %32 ]
-  %.1 = phi i32 [ %.035, %26 ], [ 1, %32 ]
+  %36 = phi i32 [ %.pre, %32 ], [ %25, %26 ]
+  %.1 = phi i32 [ 1, %32 ], [ %.035, %26 ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next41, %37
@@ -1200,7 +1200,7 @@ Abc_UtilStrsav.exit46:                            ; preds = %Abc_UtilStrsav.exit
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %37, %59, %57
-  %.sink = phi i32 [ %58, %57 ], [ %56, %37 ], [ %69, %59 ], [ 1, %34 ]
+  %.sink = phi i32 [ %58, %57 ], [ %69, %59 ], [ %56, %37 ], [ 1, %34 ]
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 %.sink, ptr %70, align 8, !tbaa !3
   br label %71
@@ -2754,7 +2754,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.exit.i, %7
-  %10 = phi ptr [ %6, %7 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %1 ]
+  %10 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %6, %7 ], [ null, %1 ]
   %11 = icmp sgt i32 %.val52, 0
   br i1 %11, label %.lr.ph, label %.critedge
 
@@ -2880,7 +2880,7 @@ Gia_ObjSibl.exit.thread:                          ; preds = %19, %.lr.ph.split, 
   br i1 %.not.i65, label %Vec_IntFree.exit66, label %Vec_IntFree.exit66.sink.split
 
 Vec_IntFree.exit66.sink.split:                    ; preds = %52, %47, %40
-  %.0.ph = phi i32 [ 0, %47 ], [ 0, %40 ], [ 1, %52 ]
+  %.0.ph = phi i32 [ 0, %40 ], [ 0, %47 ], [ 1, %52 ]
   tail call void @free(ptr noundef nonnull %10) #17
   br label %Vec_IntFree.exit66
 

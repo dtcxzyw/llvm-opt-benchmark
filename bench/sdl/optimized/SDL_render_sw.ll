@@ -218,7 +218,7 @@ define hidden zeroext i1 @SW_CreateRendererForSurface(ptr noundef %0, ptr nounde
   br label %.thread40.thread.sink.split.i
 
 .thread40.thread.sink.split.i:                    ; preds = %.thread.i, %.thread40.thread45.thread.i, %.thread40.thread45.thread48.i, %60, %58, %50, %49, %48, %47, %46, %45, %44, %10
-  %.sink50.i = phi i32 [ 372645892, %.thread.i ], [ 373694468, %44 ], [ 376840196, %45 ], [ 377888772, %46 ], [ 370546692, %47 ], [ 371595268, %48 ], [ 374740996, %49 ], [ 375789572, %50 ], [ 372645892, %.thread40.thread45.thread.i ], [ 376840196, %.thread40.thread45.thread48.i ], [ 373694468, %60 ], [ 377888772, %58 ], [ 372645892, %10 ]
+  %.sink50.i = phi i32 [ 373694468, %44 ], [ 376840196, %45 ], [ 377888772, %46 ], [ 370546692, %47 ], [ 371595268, %48 ], [ 374740996, %49 ], [ 375789572, %50 ], [ 372645892, %.thread40.thread45.thread.i ], [ 376840196, %.thread40.thread45.thread48.i ], [ 373694468, %60 ], [ 377888772, %58 ], [ 372645892, %.thread.i ], [ 372645892, %10 ]
   %67 = tail call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef %.sink50.i) #8
   br label %SW_SelectBestFormats.exit
 
@@ -234,7 +234,7 @@ SW_SelectBestFormats.exit:                        ; preds = %.thread40.i, %.thre
   br label %72
 
 72:                                               ; preds = %SW_SelectBestFormats.exit, %7, %70, %5
-  %.0 = phi i1 [ %71, %70 ], [ false, %7 ], [ %6, %5 ], [ true, %SW_SelectBestFormats.exit ]
+  %.0 = phi i1 [ %71, %70 ], [ %6, %5 ], [ false, %7 ], [ true, %SW_SelectBestFormats.exit ]
   ret i1 %.0
 }
 
@@ -305,7 +305,7 @@ define internal zeroext i1 @SW_GetOutputSize(ptr noundef readonly captures(none)
   br label %23
 
 23:                                               ; preds = %11, %12, %21, %19
-  %.0 = phi i1 [ %22, %21 ], [ true, %19 ], [ true, %12 ], [ true, %11 ]
+  %.0 = phi i1 [ true, %19 ], [ %22, %21 ], [ true, %12 ], [ true, %11 ]
   ret i1 %.0
 }
 
@@ -453,7 +453,7 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %78, %73, %55, %.thread, %11
-  %.0 = phi i1 [ %12, %11 ], [ true, %73 ], [ true, %.thread ], [ true, %55 ], [ true, %78 ]
+  %.0 = phi i1 [ %12, %11 ], [ true, %.thread ], [ true, %55 ], [ true, %73 ], [ true, %78 ]
   ret i1 %.0
 }
 
@@ -2115,10 +2115,10 @@ switch.lookup:                                    ; preds = %497
   br label %.thread10.i
 
 .thread10.i:                                      ; preds = %575, %.thread43.i, %565, %551, %535
-  %577 = phi i1 [ true, %.thread43.i ], [ false, %575 ], [ false, %535 ], [ false, %551 ], [ true, %565 ]
-  %578 = phi i1 [ %.not215.i, %.thread43.i ], [ %.not215.i, %575 ], [ false, %535 ], [ %.not215.i, %551 ], [ %.not215.i, %565 ]
-  %579 = phi i1 [ %.ph1.i, %.thread43.i ], [ %.ph1.i, %575 ], [ true, %535 ], [ %.ph1.i, %551 ], [ %.ph1.i, %565 ]
-  %.0183.i = phi ptr [ null, %.thread43.i ], [ %572, %575 ], [ null, %535 ], [ null, %551 ], [ null, %565 ]
+  %577 = phi i1 [ false, %575 ], [ false, %551 ], [ false, %535 ], [ true, %565 ], [ true, %.thread43.i ]
+  %578 = phi i1 [ %.not215.i, %575 ], [ %.not215.i, %551 ], [ false, %535 ], [ %.not215.i, %565 ], [ %.not215.i, %.thread43.i ]
+  %579 = phi i1 [ %.ph1.i, %575 ], [ %.ph1.i, %551 ], [ true, %535 ], [ %.ph1.i, %565 ], [ %.ph1.i, %.thread43.i ]
+  %.0183.i = phi ptr [ %572, %575 ], [ null, %551 ], [ null, %535 ], [ null, %565 ], [ null, %.thread43.i ]
   %580 = icmp ne i32 %.2.i, 0
   %or.cond12.i = or i1 %580, %578
   br i1 %or.cond12.i, label %583, label %.thread18.i

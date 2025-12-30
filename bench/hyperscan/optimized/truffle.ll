@@ -318,7 +318,7 @@ lastMatch.exit:                                   ; preds = %89, %104
   br label %111
 
 111:                                              ; preds = %lastMatch.exit45.thread, %lastMatch.exit48, %lastMatch.exit, %truffleRevMini.exit
-  %.0 = phi ptr [ %.0.i50, %truffleRevMini.exit ], [ %62, %lastMatch.exit48 ], [ %88, %lastMatch.exit45.thread ], [ %spec.select, %lastMatch.exit ]
+  %.0 = phi ptr [ %.0.i50, %truffleRevMini.exit ], [ %62, %lastMatch.exit48 ], [ %spec.select, %lastMatch.exit ], [ %88, %lastMatch.exit45.thread ]
   ret ptr %.0
 }
 

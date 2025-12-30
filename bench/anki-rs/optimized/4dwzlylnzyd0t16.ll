@@ -92,7 +92,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
           cleanup
   br label %.thread83
 
-.thread87.loopexit.split-lp:                      ; preds = %55, %41, %42, %251, %258, %.noexc
+.thread87.loopexit.split-lp:                      ; preds = %.noexc, %55, %41, %42, %251, %258
   %lpad.loopexit.split-lp103 = landingpad { ptr, i32 }
           cleanup
   br label %.thread83
@@ -147,7 +147,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
           to label %60 unwind label %.loopexit.split-lp.i, !noalias !4
 
 59:                                               ; preds = %81, %.thread.i, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %81 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %81 ], [ %lpad.thr_comm.i, %.thread.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr169drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$std..collections..hash..map..HashMap$LT$alloc..vec..Vec$LT$i32$GT$$C$alloc..string..String$GT$$GT$$GT$17h744b7879225f0b9aE"(ptr nonnull align 8 %15) #9
           to label %.thread83 unwind label %82, !noalias !4
 
@@ -247,7 +247,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
           to label %91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .body42:                                          ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %212, %167, %132, %238, %198, %193
-  %.pn = phi { ptr, i32 } [ %194, %193 ], [ %239, %238 ], [ %199, %198 ], [ %168, %167 ], [ %133, %132 ], [ %213, %212 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit91, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit94, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit100, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %194, %193 ], [ %199, %198 ], [ %239, %238 ], [ %133, %132 ], [ %168, %167 ], [ %213, %212 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit91, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit94, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit100, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$anki_proto_gen..MethodComments$GT$17h9653b9082da42610E"(ptr nonnull align 8 %21) #9
           to label %.thread83 unwind label %241
 
@@ -415,7 +415,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   br i1 %151, label %.thread.i39, label %152
 
 .thread.i39:                                      ; preds = %148, %138, %142, %153
-  %.sroa.066.0 = phi ptr [ %.sroa.066.0.copyload68, %153 ], [ null, %138 ], [ null, %142 ], [ null, %148 ]
+  %.sroa.066.0 = phi ptr [ %.sroa.066.0.copyload68, %153 ], [ null, %142 ], [ null, %138 ], [ null, %148 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$prost_reflect..descriptor..FileDescriptor$GT$17h31816bc3978589d0E"(ptr nonnull align 8 %8)
           to label %196 unwind label %.loopexit.split-lp.loopexit
 
@@ -501,7 +501,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   br i1 %186, label %.thread.i47, label %187
 
 .thread.i47:                                      ; preds = %183, %173, %177, %188
-  %.sroa.072.0 = phi ptr [ %.sroa.072.0.copyload74, %188 ], [ null, %173 ], [ null, %177 ], [ null, %183 ]
+  %.sroa.072.0 = phi ptr [ %.sroa.072.0.copyload74, %188 ], [ null, %177 ], [ null, %173 ], [ null, %183 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$prost_reflect..descriptor..FileDescriptor$GT$17h31816bc3978589d0E"(ptr nonnull align 8 %6)
           to label %191 unwind label %.loopexit
 
@@ -629,7 +629,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   br i1 %231, label %.thread.i56, label %232
 
 .thread.i56:                                      ; preds = %228, %218, %222, %233
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload63, %233 ], [ null, %218 ], [ null, %222 ], [ null, %228 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload63, %233 ], [ null, %222 ], [ null, %218 ], [ null, %228 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$prost_reflect..descriptor..FileDescriptor$GT$17h31816bc3978589d0E"(ptr nonnull align 8 %4)
           to label %236 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -720,7 +720,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
           to label %44 unwind label %.thread87.loopexit.split-lp
 
 .thread83:                                        ; preds = %.thread87.loopexit, %.thread87.loopexit.split-lp, %255, %.body42, %59
-  %.pn3682 = phi { ptr, i32 } [ %.pn.i, %59 ], [ %.pn, %.body42 ], [ %256, %255 ], [ %lpad.loopexit102, %.thread87.loopexit ], [ %lpad.loopexit.split-lp103, %.thread87.loopexit.split-lp ]
+  %.pn3682 = phi { ptr, i32 } [ %.pn.i, %59 ], [ %256, %255 ], [ %.pn, %.body42 ], [ %lpad.loopexit102, %.thread87.loopexit ], [ %lpad.loopexit.split-lp103, %.thread87.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..BackendService$GT$$GT$17h543115546083c9e4E"(ptr nonnull align 8 %33) #9
           to label %259 unwind label %241
 
@@ -1148,7 +1148,7 @@ define zeroext i1 @_ZN14anki_proto_gen29determine_if_message_is_empty17h7f0f623c
   unreachable
 
 .thread:                                          ; preds = %38, %27
-  %.pn19.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %28, %27 ]
+  %.pn19.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %38 ]
   resume { ptr, i32 } %.pn19.pn
 }
 

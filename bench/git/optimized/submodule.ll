@@ -1147,7 +1147,7 @@ define dso_local range(i32 0, 6) i32 @parse_submodule_update_type(ptr noundef re
   br label %12
 
 12:                                               ; preds = %9, %7, %5, %3, %1
-  %.0 = phi i32 [ %., %9 ], [ 3, %7 ], [ 2, %5 ], [ 1, %3 ], [ 4, %1 ]
+  %.0 = phi i32 [ 4, %1 ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -1181,8 +1181,8 @@ define dso_local range(i32 -1, 1) i32 @parse_submodule_update_strategy(ptr nound
   %14 = icmp eq i8 %13, 33
   br i1 %14, label %15, label %parse_submodule_update_type.exit
 
-.thread:                                          ; preds = %2, %6, %8, %10
-  %.0.i.ph.ph = phi i32 [ 3, %10 ], [ 2, %8 ], [ 1, %6 ], [ 4, %2 ]
+.thread:                                          ; preds = %10, %8, %6, %2
+  %.0.i.ph.ph = phi i32 [ 4, %2 ], [ 1, %6 ], [ 2, %8 ], [ 3, %10 ]
   store i32 %.0.i.ph.ph, ptr %1, align 8, !tbaa !93
   br label %parse_submodule_update_type.exit
 
@@ -1194,7 +1194,7 @@ define dso_local range(i32 -1, 1) i32 @parse_submodule_update_strategy(ptr nound
   br label %parse_submodule_update_type.exit
 
 parse_submodule_update_type.exit:                 ; preds = %.thread, %12, %15
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %15 ], [ -1, %12 ]
+  %.0 = phi i32 [ 0, %15 ], [ -1, %12 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -1237,7 +1237,7 @@ define dso_local noundef nonnull ptr @submodule_update_type_to_string(i32 nounde
   unreachable
 
 7:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.22, %4 ], [ @.str.25, %2 ], [ @.str.24, %3 ], [ @.str.23, %1 ]
+  %.0 = phi ptr [ @.str.25, %2 ], [ @.str.24, %3 ], [ @.str.22, %4 ], [ @.str.23, %1 ]
   ret ptr %.0
 }
 
@@ -1513,8 +1513,8 @@ define internal fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %
   br label %18
 
 18:                                               ; preds = %17, %16
-  %.not51 = phi ptr [ %spec.select, %17 ], [ @.str.113, %16 ]
-  %.042 = phi ptr [ %spec.select61, %17 ], [ @.str.113, %16 ]
+  %.not51 = phi ptr [ @.str.113, %16 ], [ %spec.select, %17 ]
+  %.042 = phi ptr [ @.str.113, %16 ], [ %spec.select61, %17 ]
   %.not50 = icmp eq ptr %5, null
   br i1 %.not50, label %40, label %19
 
@@ -1575,9 +1575,9 @@ define internal fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %
   br i1 %.not.i70.not, label %52, label %40
 
 40:                                               ; preds = %26, %18, %39
-  %.143 = phi ptr [ %.not51, %18 ], [ %.2, %39 ], [ @.str.116, %26 ]
-  %.040 = phi i32 [ 0, %18 ], [ %.141, %39 ], [ 0, %26 ]
-  %.0 = phi i32 [ 0, %18 ], [ %.1, %39 ], [ 0, %26 ]
+  %.143 = phi ptr [ %.2, %39 ], [ %.not51, %18 ], [ @.str.116, %26 ]
+  %.040 = phi i32 [ %.141, %39 ], [ 0, %18 ], [ 0, %26 ]
+  %.0 = phi i32 [ %.1, %39 ], [ 0, %18 ], [ 0, %26 ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.117, ptr noundef %1) #18
   %41 = load i32, ptr @default_abbrev, align 4, !tbaa !28
   call void @strbuf_add_unique_abbrev(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef %41) #18
@@ -2714,7 +2714,7 @@ _.exit:                                           ; preds = %89, %92
   br i1 %113, label %.lr.ph22, label %free_submodules_data.exit
 
 free_submodules_data.exit:                        ; preds = %.lr.ph22, %.thread, %.lr.ph.i16, %97
-  %114 = phi ptr [ %28, %.thread ], [ %98, %97 ], [ %98, %.lr.ph.i16 ], [ %98, %.lr.ph22 ]
+  %114 = phi ptr [ %28, %.thread ], [ %98, %.lr.ph.i16 ], [ %98, %97 ], [ %98, %.lr.ph22 ]
   call void @string_list_clear(ptr noundef nonnull %114, i32 noundef 1) #18
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 104
   call void @string_list_clear(ptr noundef nonnull %115, i32 noundef 0) #18
@@ -3732,7 +3732,7 @@ define dso_local range(i32 -1, 2) i32 @bad_to_remove_submodule(ptr noundef %0, i
   br label %45
 
 45:                                               ; preds = %13, %9, %11, %44
-  %.013 = phi i32 [ 0, %9 ], [ %.0, %44 ], [ 0, %11 ], [ 1, %13 ]
+  %.013 = phi i32 [ %.0, %44 ], [ 0, %11 ], [ 0, %9 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
@@ -4135,7 +4135,7 @@ _.exit76:                                         ; preds = %139, %141
   br label %158
 
 158:                                              ; preds = %146, %_.exit76, %157, %144, %18, %5, %_.exit
-  %.0 = phi i32 [ 0, %18 ], [ -1, %_.exit ], [ 0, %5 ], [ -1, %_.exit76 ], [ 0, %144 ], [ 0, %157 ], [ %spec.select, %146 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ 0, %5 ], [ 0, %18 ], [ -1, %_.exit76 ], [ 0, %144 ], [ 0, %157 ], [ %spec.select, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -4575,7 +4575,7 @@ strbuf_setlen.exit:                               ; preds = %9, %17
   unreachable
 
 59:                                               ; preds = %54, %51, %7, %1
-  %.0 = phi i32 [ 0, %7 ], [ 0, %51 ], [ %.mux, %54 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %51 ], [ %.mux, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -5125,7 +5125,7 @@ get_non_gitmodules_submodule.exit.thread:         ; preds = %16
   br label %get_fetch_recurse_config.exit
 
 get_fetch_recurse_config.exit:                    ; preds = %31, %47, %48
-  %.014.i = phi i32 [ %.013.i, %47 ], [ %50, %48 ], [ %34, %31 ]
+  %.014.i = phi i32 [ %50, %48 ], [ %.013.i, %47 ], [ %34, %31 ]
   switch i32 %.014.i, label %51 [
     i32 0, label %64
     i32 2, label %58

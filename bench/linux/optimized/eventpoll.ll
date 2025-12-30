@@ -303,7 +303,7 @@ define internal fastcc noundef zeroext i1 @__ep_remove(ptr noundef %0, ptr nound
   br label %.thread11
 
 .thread11:                                        ; preds = %88, %90, %94, %91, %25
-  %95 = phi i1 [ false, %25 ], [ true, %94 ], [ true, %91 ], [ false, %90 ], [ false, %88 ]
+  %95 = phi i1 [ false, %25 ], [ true, %91 ], [ true, %94 ], [ false, %90 ], [ false, %88 ]
   ret i1 %95
 }
 
@@ -574,8 +574,8 @@ define dso_local range(i32 -40, 1) i32 @do_epoll_ctl(i32 noundef %0, i32 noundef
   br i1 %90, label %.thread28, label %.thread20
 
 .thread20:                                        ; preds = %88, %87, %68, %57
-  %91 = phi i1 [ true, %57 ], [ true, %68 ], [ false, %87 ], [ false, %88 ]
-  %92 = phi i32 [ 0, %57 ], [ 0, %68 ], [ 1, %87 ], [ 1, %88 ]
+  %91 = phi i1 [ true, %68 ], [ true, %57 ], [ false, %87 ], [ false, %88 ]
+  %92 = phi i32 [ 0, %68 ], [ 0, %57 ], [ 1, %87 ], [ 1, %88 ]
   %93 = getelementptr inbounds nuw i8, ptr %52, i64 104
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
@@ -660,8 +660,8 @@ define dso_local range(i32 -40, 1) i32 @do_epoll_ctl(i32 noundef %0, i32 noundef
   tail call void @mutex_unlock(ptr noundef %52) #11
   br i1 %91, label %.thread25, label %.thread28
 
-.thread28:                                        ; preds = %81, %88, %133
-  %135 = phi i32 [ %134, %133 ], [ -40, %81 ], [ -11, %88 ]
+.thread28:                                        ; preds = %88, %81, %133
+  %135 = phi i32 [ %134, %133 ], [ -11, %88 ], [ -40, %81 ]
   tail call void @__rcu_read_lock() #11
   %136 = load ptr, ptr @tfile_check_list, align 8
   %137 = icmp eq ptr %136, inttoptr (i64 -1 to ptr)
@@ -717,8 +717,8 @@ select.unfold29:                                  ; preds = %.preheader
   tail call void @mutex_unlock(ptr noundef nonnull @epnested_mutex) #11
   br label %.thread25
 
-.thread25:                                        ; preds = %34, %73, %54, %15, %44, %43, %32, %.loopexit, %133
-  %158 = phi i32 [ %134, %133 ], [ %135, %.loopexit ], [ -22, %34 ], [ -11, %73 ], [ -11, %54 ], [ -1, %15 ], [ -22, %44 ], [ -22, %43 ], [ -22, %32 ]
+.thread25:                                        ; preds = %73, %54, %15, %34, %44, %43, %32, %.loopexit, %133
+  %158 = phi i32 [ %135, %.loopexit ], [ %134, %133 ], [ -11, %73 ], [ -11, %54 ], [ -1, %15 ], [ -22, %34 ], [ -22, %44 ], [ -22, %43 ], [ -22, %32 ]
   %159 = and i64 %11, 1
   %160 = icmp eq i64 %159, 0
   br i1 %160, label %162, label %161
@@ -960,8 +960,8 @@ define internal fastcc noundef range(i32 -28, 1) i32 @ep_insert(ptr noundef %0, 
   br label %.thread29
 
 .thread29:                                        ; preds = %115, %107, %113
-  %121 = phi i8 [ %109, %113 ], [ %spec.select, %115 ], [ 0, %107 ]
-  %122 = phi i64 [ 16, %113 ], [ %spec.select37, %115 ], [ 8, %107 ]
+  %121 = phi i8 [ %109, %113 ], [ 0, %107 ], [ %spec.select, %115 ]
+  %122 = phi i64 [ 16, %113 ], [ 8, %107 ], [ %spec.select37, %115 ]
   %123 = getelementptr inbounds nuw i8, ptr %108, i64 %122
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, null
@@ -2940,7 +2940,7 @@ define internal fastcc range(i32 -1, 1) i32 @ep_loop_check_proc(ptr noundef %0, 
   br i1 %61, label %.thread3, label %.split, !llvm.loop !45
 
 .thread3:                                         ; preds = %50, %.thread, %47, %.thread.us, %25, %2
-  %62 = phi i32 [ 0, %2 ], [ 0, %.thread.us ], [ -1, %25 ], [ -1, %47 ], [ -1, %50 ], [ 0, %.thread ]
+  %62 = phi i32 [ 0, %2 ], [ -1, %25 ], [ 0, %.thread.us ], [ -1, %47 ], [ -1, %50 ], [ 0, %.thread ]
   tail call void @mutex_unlock(ptr noundef %0) #11
   ret i32 %62
 }
@@ -3088,7 +3088,7 @@ define internal fastcc range(i32 -1, 1) i32 @reverse_path_check_proc(ptr noundef
   br i1 %53, label %.loopexit, label %.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %45, %.thread, %.thread.us, %22, %4, %2
-  %54 = phi i32 [ -1, %2 ], [ 0, %4 ], [ -1, %22 ], [ 0, %.thread.us ], [ 0, %.thread ], [ -1, %45 ]
+  %54 = phi i32 [ -1, %2 ], [ 0, %4 ], [ 0, %.thread.us ], [ -1, %22 ], [ 0, %.thread ], [ -1, %45 ]
   ret i32 %54
 }
 
@@ -3655,15 +3655,15 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
   br label %184
 
 184:                                              ; preds = %183, %179, %177, %175, %137
-  %185 = phi i32 [ %171, %179 ], [ %171, %183 ], [ %104, %137 ], [ %171, %177 ], [ %171, %175 ]
-  %186 = phi ptr [ %161, %179 ], [ %161, %183 ], [ %102, %137 ], [ %161, %177 ], [ %161, %175 ]
+  %185 = phi i32 [ %104, %137 ], [ %171, %177 ], [ %171, %175 ], [ %171, %179 ], [ %171, %183 ]
+  %186 = phi ptr [ %102, %137 ], [ %161, %177 ], [ %161, %175 ], [ %161, %179 ], [ %161, %183 ]
   %187 = icmp ne ptr %105, %5
   %188 = icmp slt i32 %185, %2
   %or.cond = select i1 %187, i1 %188, i1 false
   br i1 %or.cond, label %.lr.ph, label %.thread26, !llvm.loop !55
 
 .thread26:                                        ; preds = %184, %168, %100
-  %189 = phi i32 [ %spec.select, %168 ], [ 0, %100 ], [ %185, %184 ]
+  %189 = phi i32 [ 0, %100 ], [ %spec.select, %168 ], [ %185, %184 ]
   call fastcc void @ep_done_scan(ptr noundef %30, ptr noundef nonnull %5)
   call void @mutex_unlock(ptr noundef %30) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3698,8 +3698,8 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %204, label %205, label %.thread29.backedge
 
 .thread29.backedge:                               ; preds = %202, %199, %205, %256, %249
-  %.be = phi i32 [ %258, %256 ], [ 1, %249 ], [ 1, %205 ], [ 1, %199 ], [ 1, %202 ]
-  %.be90 = phi i32 [ %246, %256 ], [ %246, %249 ], [ 0, %205 ], [ 0, %199 ], [ 0, %202 ]
+  %.be = phi i32 [ 1, %249 ], [ %258, %256 ], [ 1, %205 ], [ 1, %199 ], [ 1, %202 ]
+  %.be90 = phi i32 [ %246, %249 ], [ %246, %256 ], [ 0, %205 ], [ 0, %199 ], [ 0, %202 ]
   br label %.thread29, !llvm.loop !56
 
 205:                                              ; preds = %202

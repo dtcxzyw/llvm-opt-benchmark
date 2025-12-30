@@ -1197,8 +1197,8 @@ default.unreachable430:                           ; preds = %155
   br label %.critedge131
 
 .thread326:                                       ; preds = %.body163, %89, %147, %153
-  %.sroa.40.1330 = phi i32 [ %.sroa.40.3283, %147 ], [ %151, %.body163 ], [ %.sroa.40.4, %89 ], [ %.sroa.40.0265, %153 ]
-  %.sroa.089.1329 = phi ptr [ %.sroa.089.3282, %147 ], [ %150, %.body163 ], [ %.sroa.089.4, %89 ], [ %.sroa.089.0264, %153 ]
+  %.sroa.40.1330 = phi i32 [ %151, %.body163 ], [ %.sroa.40.0265, %153 ], [ %.sroa.40.4, %89 ], [ %.sroa.40.3283, %147 ]
+  %.sroa.089.1329 = phi ptr [ %150, %.body163 ], [ %.sroa.089.0264, %153 ], [ %.sroa.089.4, %89 ], [ %.sroa.089.3282, %147 ]
   %174 = insertvalue { ptr, i32 } poison, ptr %.sroa.089.1329, 0
   %175 = insertvalue { ptr, i32 } %174, i32 %.sroa.40.1330, 1
   resume { ptr, i32 } %175

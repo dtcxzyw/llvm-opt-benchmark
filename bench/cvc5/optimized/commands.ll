@@ -1200,7 +1200,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %201
 
 .body:                                            ; preds = %148, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %121, %110, %105
-  %.pn15 = phi { ptr, i32 } [ %.pn.pn, %105 ], [ %.pn12.pn, %121 ], [ %.pn10, %110 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %149, %148 ]
+  %.pn15 = phi { ptr, i32 } [ %.pn12.pn, %121 ], [ %.pn10, %110 ], [ %.pn.pn, %105 ], [ %149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %149, %148 ]
   call void @_ZN4cvc54Term14const_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %7) #34
   br label %200
 
@@ -3405,7 +3405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %85,
           to label %93 unwind label %94
 
 93:                                               ; preds = %92, %58
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %92 ], [ %59, %58 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn, %92 ]
   resume { ptr, i32 } %.merged
 
 94:                                               ; preds = %92
@@ -4927,7 +4927,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %134
 
 134:                                              ; preds = %.body19, %126, %124
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body19 ], [ %125, %124 ], [ %127, %126 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body19 ], [ %127, %126 ], [ %125, %124 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %136
@@ -5974,7 +5974,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   br label %.body.thread
 
 .body.thread:                                     ; preds = %129, %127, %67, %125
-  %.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %126, %125 ], [ %68, %67 ], [ %128, %127 ]
+  %.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %68, %67 ], [ %128, %127 ], [ %130, %129 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #34
   br label %131
 
@@ -8475,7 +8475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %52
   br label %533
 
 533:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %393
-  %.pn52 = phi { ptr, i32 } [ %394, %393 ], [ %.pn47.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn52 = phi { ptr, i32 } [ %.pn47.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %394, %393 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4cvc54SortD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #34
   br label %534
 
@@ -9683,7 +9683,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %50, %54, %60
   br label %.body.thread
 
 .body.thread:                                     ; preds = %64, %45
-  %.pn16 = phi { ptr, i32 } [ %65, %64 ], [ %46, %45 ]
+  %.pn16 = phi { ptr, i32 } [ %46, %45 ], [ %65, %64 ]
   resume { ptr, i32 } %.pn16
 }
 
@@ -15848,7 +15848,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
   br label %149
 
 149:                                              ; preds = %.body46, %141, %139
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body46 ], [ %140, %139 ], [ %142, %141 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body46 ], [ %142, %141 ], [ %140, %139 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #34
   br label %150
 
@@ -17679,7 +17679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %96,
           to label %104 unwind label %105
 
 104:                                              ; preds = %103, %91, %61
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %91 ], [ %39, %61 ], [ %.pn18.pn, %103 ]
+  %.merged = phi { ptr, i32 } [ %39, %61 ], [ %.pn.pn, %91 ], [ %.pn18.pn, %103 ]
   resume { ptr, i32 } %.merged
 
 105:                                              ; preds = %103, %91
@@ -19025,7 +19025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %40
           to label %408 unwind label %409
 
 408:                                              ; preds = %407, %395, %365
-  %.merged = phi { ptr, i32 } [ %.pn53.pn, %395 ], [ %.pn49.pn.pn, %365 ], [ %.pn56.pn, %407 ]
+  %.merged = phi { ptr, i32 } [ %.pn49.pn.pn, %365 ], [ %.pn53.pn, %395 ], [ %.pn56.pn, %407 ]
   resume { ptr, i32 } %.merged
 
 409:                                              ; preds = %407, %395
@@ -19612,7 +19612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %137
           to label %145 unwind label %146
 
 145:                                              ; preds = %144, %132, %102
-  %.merged = phi { ptr, i32 } [ %.pn21.pn, %132 ], [ %.pn.pn, %102 ], [ %.pn24.pn, %144 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn, %102 ], [ %.pn21.pn, %132 ], [ %.pn24.pn, %144 ]
   resume { ptr, i32 } %.merged
 
 146:                                              ; preds = %144, %132
@@ -19855,7 +19855,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %71,
           to label %79 unwind label %80
 
 79:                                               ; preds = %78, %66, %36
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %66 ], [ %14, %36 ], [ %.pn18.pn, %78 ]
+  %.merged = phi { ptr, i32 } [ %14, %36 ], [ %.pn.pn, %66 ], [ %.pn18.pn, %78 ]
   resume { ptr, i32 } %.merged
 
 80:                                               ; preds = %78, %66
@@ -20191,7 +20191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %70,
           to label %78 unwind label %79
 
 78:                                               ; preds = %77, %65, %35
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %65 ], [ %13, %35 ], [ %.pn18.pn, %77 ]
+  %.merged = phi { ptr, i32 } [ %13, %35 ], [ %.pn.pn, %65 ], [ %.pn18.pn, %77 ]
   resume { ptr, i32 } %.merged
 
 79:                                               ; preds = %77, %65
@@ -21237,7 +21237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %329
           to label %337 unwind label %338
 
 337:                                              ; preds = %336, %324, %294
-  %.merged = phi { ptr, i32 } [ %.pn42.pn, %324 ], [ %.pn34.pn.pn.pn.pn.pn.pn, %294 ], [ %.pn45.pn, %336 ]
+  %.merged = phi { ptr, i32 } [ %.pn34.pn.pn.pn.pn.pn.pn, %294 ], [ %.pn42.pn, %324 ], [ %.pn45.pn, %336 ]
   resume { ptr, i32 } %.merged
 
 338:                                              ; preds = %336, %324
@@ -25166,7 +25166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %95,
           to label %103 unwind label %104
 
 103:                                              ; preds = %102, %90, %60
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %90 ], [ %38, %60 ], [ %.pn18.pn, %102 ]
+  %.merged = phi { ptr, i32 } [ %38, %60 ], [ %.pn.pn, %90 ], [ %.pn18.pn, %102 ]
   resume { ptr, i32 } %.merged
 
 104:                                              ; preds = %102, %90
@@ -25650,7 +25650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %97,
           to label %105 unwind label %106
 
 105:                                              ; preds = %104, %92, %62
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %92 ], [ %40, %62 ], [ %.pn20.pn, %104 ]
+  %.merged = phi { ptr, i32 } [ %40, %62 ], [ %.pn.pn, %92 ], [ %.pn20.pn, %104 ]
   resume { ptr, i32 } %.merged
 
 106:                                              ; preds = %104, %92
@@ -26358,7 +26358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %96,
           to label %104 unwind label %105
 
 104:                                              ; preds = %103, %91, %61
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %91 ], [ %39, %61 ], [ %.pn19.pn, %103 ]
+  %.merged = phi { ptr, i32 } [ %39, %61 ], [ %.pn.pn, %91 ], [ %.pn19.pn, %103 ]
   resume { ptr, i32 } %.merged
 
 105:                                              ; preds = %103, %91
@@ -26770,7 +26770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %96,
           to label %104 unwind label %105
 
 104:                                              ; preds = %103, %91, %61
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %91 ], [ %39, %61 ], [ %.pn19.pn, %103 ]
+  %.merged = phi { ptr, i32 } [ %39, %61 ], [ %.pn.pn, %91 ], [ %.pn19.pn, %103 ]
   resume { ptr, i32 } %.merged
 
 105:                                              ; preds = %103, %91
@@ -27636,7 +27636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %157
           to label %165 unwind label %166
 
 165:                                              ; preds = %164, %152, %122
-  %.merged = phi { ptr, i32 } [ %.pn20.pn, %152 ], [ %.pn, %122 ], [ %.pn23.pn, %164 ]
+  %.merged = phi { ptr, i32 } [ %.pn, %122 ], [ %.pn20.pn, %152 ], [ %.pn23.pn, %164 ]
   resume { ptr, i32 } %.merged
 
 166:                                              ; preds = %164, %152
@@ -28641,7 +28641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %97,
           to label %105 unwind label %106
 
 105:                                              ; preds = %104, %92, %62
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %92 ], [ %40, %62 ], [ %.pn18.pn, %104 ]
+  %.merged = phi { ptr, i32 } [ %40, %62 ], [ %.pn.pn, %92 ], [ %.pn18.pn, %104 ]
   resume { ptr, i32 } %.merged
 
 106:                                              ; preds = %104, %92
@@ -29938,7 +29938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %74,
           to label %82 unwind label %83
 
 82:                                               ; preds = %81, %69, %39
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %69 ], [ %13, %39 ], [ %.pn19.pn, %81 ]
+  %.merged = phi { ptr, i32 } [ %13, %39 ], [ %.pn.pn, %69 ], [ %.pn19.pn, %81 ]
   resume { ptr, i32 } %.merged
 
 83:                                               ; preds = %81, %69
@@ -30880,7 +30880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %276
           to label %286 unwind label %287
 
 286:                                              ; preds = %284, %283, %271, %241
-  %.merged = phi { ptr, i32 } [ %.pn42.pn, %283 ], [ %.pn39.pn, %271 ], [ %.pn34.pn.pn.pn, %241 ], [ %285, %284 ]
+  %.merged = phi { ptr, i32 } [ %.pn34.pn.pn.pn, %241 ], [ %.pn39.pn, %271 ], [ %.pn42.pn, %283 ], [ %285, %284 ]
   resume { ptr, i32 } %.merged
 
 287:                                              ; preds = %284, %283, %271
@@ -31432,7 +31432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %75,
           to label %85 unwind label %86
 
 85:                                               ; preds = %83, %82, %70, %40
-  %.merged = phi { ptr, i32 } [ %.pn19.pn, %82 ], [ %.pn.pn, %70 ], [ %13, %40 ], [ %84, %83 ]
+  %.merged = phi { ptr, i32 } [ %13, %40 ], [ %.pn.pn, %70 ], [ %.pn19.pn, %82 ], [ %84, %83 ]
   resume { ptr, i32 } %.merged
 
 86:                                               ; preds = %83, %82, %70
@@ -31826,7 +31826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %83,
           to label %93 unwind label %94
 
 93:                                               ; preds = %91, %90, %60
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %90 ], [ %49, %60 ], [ %92, %91 ]
+  %.merged = phi { ptr, i32 } [ %49, %60 ], [ %.pn.pn, %90 ], [ %92, %91 ]
   resume { ptr, i32 } %.merged
 
 94:                                               ; preds = %91, %90
@@ -38566,7 +38566,7 @@ _ZNSt12_Vector_baseIN4cvc54TermESaIS1_EE13_M_deallocateEPS1_m.exit152: ; preds =
           to label %487 unwind label %488
 
 487:                                              ; preds = %485, %206, %366, %201
-  %.pn59.pn.pn = phi { ptr, i32 } [ %.pn, %201 ], [ %.pn56.pn, %366 ], [ %.pn59, %206 ], [ %486, %485 ]
+  %.pn59.pn.pn = phi { ptr, i32 } [ %.pn, %201 ], [ %.pn59, %206 ], [ %.pn56.pn, %366 ], [ %486, %485 ]
   resume { ptr, i32 } %.pn59.pn.pn
 
 _ZN4cvc54Term14const_iteratorD2Ev.exit79:         ; preds = %196, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i77, %181, %_ZN4cvc54Term14const_iteratorD2Ev.exit74, %_ZNSt12_Vector_baseIN4cvc54TermESaIS1_EE13_M_deallocateEPS1_m.exit, %_ZN4cvc54Term14const_iteratorD2Ev.exit114, %4

@@ -274,7 +274,7 @@ Vec_IntAlloc.exit.thread:                         ; preds = %1
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %51, %Vec_IntAlloc.exit
-  %54 = phi ptr [ %35, %Vec_IntAlloc.exit ], [ %53, %51 ]
+  %54 = phi ptr [ %53, %51 ], [ %35, %Vec_IntAlloc.exit ]
   %55 = icmp sgt i32 %.val, 0
   br i1 %55, label %.lr.ph.i, label %Vec_IntFill.exit
 
@@ -650,11 +650,11 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %128
   br label %CbsP_ManPropagateOne.exit.thread
 
 CbsP_ManPropagateOne.exit:                        ; preds = %57, %61, %63, %88
-  %.0.i = phi i32 [ %89, %88 ], [ %58, %57 ], [ %62, %61 ], [ %64, %63 ]
+  %.0.i = phi i32 [ %58, %57 ], [ %62, %61 ], [ %64, %63 ], [ %89, %88 ]
   %.not46 = icmp eq i32 %.0.i, 0
   br i1 %.not46, label %CbsP_ManPropagateOne.exit.thread, label %.loopexit
 
-CbsP_ManPropagateOne.exit.thread:                 ; preds = %99, %100, %73, %84, %72, %.lr.ph117, %CbsP_QuePush.exit, %CbsP_ManPropagateOne.exit
+CbsP_ManPropagateOne.exit.thread:                 ; preds = %99, %100, %84, %72, %73, %.lr.ph117, %CbsP_QuePush.exit, %CbsP_ManPropagateOne.exit
   %.val = load i32, ptr %8, align 8, !tbaa !90
   %.val48 = load i32, ptr %9, align 8, !tbaa !91
   %.not63 = icmp sgt i32 %.val, %.val48
@@ -664,7 +664,7 @@ CbsP_ManPropagateOne.exit.thread:                 ; preds = %99, %100, %73, %84,
   br label %.critedge, !llvm.loop !85
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %11
-  %.lcssa = phi i32 [ %13, %11 ], [ %13, %.lr.ph.preheader ], [ %20, %..critedge.loopexit_crit_edge ], [ %20, %.lr.ph ]
+  %.lcssa = phi i32 [ %13, %11 ], [ %20, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   store i32 %.lcssa, ptr %3, align 8, !tbaa !82
   %135 = load i32, ptr %10, align 8, !tbaa !92
   %136 = load i32, ptr %6, align 4, !tbaa !93
@@ -817,8 +817,8 @@ CbsP_ManPropagateTwo.exit.thread:                 ; preds = %199, %200, %CbsP_Va
   br label %.critedge2, !llvm.loop !94
 
 .critedge2:                                       ; preds = %.lr.ph79, %.lr.ph79.preheader, %..critedge2.loopexit_crit_edge, %.critedge
-  %.0.lcssa = phi i32 [ %135, %.critedge ], [ %135, %.lr.ph79.preheader ], [ %.1, %..critedge2.loopexit_crit_edge ], [ %.1, %.lr.ph79 ]
-  %.lcssa69 = phi i32 [ %136, %.critedge ], [ %136, %.lr.ph79.preheader ], [ %143, %..critedge2.loopexit_crit_edge ], [ %143, %.lr.ph79 ]
+  %.0.lcssa = phi i32 [ %135, %.critedge ], [ %.1, %..critedge2.loopexit_crit_edge ], [ %135, %.lr.ph79.preheader ], [ %.1, %.lr.ph79 ]
+  %.lcssa69 = phi i32 [ %136, %.critedge ], [ %143, %..critedge2.loopexit_crit_edge ], [ %136, %.lr.ph79.preheader ], [ %143, %.lr.ph79 ]
   %216 = icmp eq i32 %.0.lcssa, %.lcssa69
   br i1 %216, label %.loopexit, label %217
 
@@ -827,7 +827,7 @@ CbsP_ManPropagateTwo.exit.thread:                 ; preds = %199, %200, %CbsP_Va
   br label %11
 
 .loopexit:                                        ; preds = %.critedge2, %CbsP_ManPropagateOne.exit.thread, %CbsP_ManPropagateOne.exit, %CbsP_ManPropagateTwo.exit.thread, %CbsP_ManPropagateTwo.exit
-  %.037 = phi i32 [ 0, %CbsP_ManPropagateTwo.exit.thread ], [ 0, %CbsP_ManPropagateOne.exit.thread ], [ %215, %CbsP_ManPropagateTwo.exit ], [ %.0.i, %CbsP_ManPropagateOne.exit ], [ 0, %.critedge2 ]
+  %.037 = phi i32 [ 0, %CbsP_ManPropagateTwo.exit.thread ], [ %215, %CbsP_ManPropagateTwo.exit ], [ 0, %CbsP_ManPropagateOne.exit.thread ], [ %.0.i, %CbsP_ManPropagateOne.exit ], [ 0, %.critedge2 ]
   ret i32 %.037
 }
 
@@ -1050,7 +1050,7 @@ CbsP_ManCheckLimits.exit80:                       ; preds = %68
   br label %CbsP_ManDecideHighest.exit
 
 CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %98, %95, %90, %77, %101, %104
-  %.055 = phi ptr [ null, %101 ], [ null, %90 ], [ %105, %104 ], [ null, %77 ], [ %.1.i91, %98 ], [ %.01012.i89, %95 ], [ %.1.i, %85 ], [ %.01012.i, %82 ]
+  %.055 = phi ptr [ %105, %104 ], [ null, %101 ], [ null, %77 ], [ null, %90 ], [ %.01012.i89, %95 ], [ %.1.i91, %98 ], [ %.01012.i, %82 ], [ %.1.i, %85 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %107 = load ptr, ptr %106, align 8, !tbaa !64
   %108 = load i64, ptr %.055, align 4
@@ -1141,7 +1141,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %98, %95, 
   br label %CbsP_ManCheckLimits.exit.thread
 
 CbsP_ManCheckLimits.exit.thread:                  ; preds = %CbsP_QueStore.exit, %61, %64, %68, %4, %7, %13, %19, %152, %150, %147, %139, %137, %CbsP_ManDecideHighest.exit, %CbsP_ManCheckLimits.exit80, %28, %CbsP_ManCheckLimits.exit, %2, %157
-  %.0 = phi i32 [ 0, %CbsP_ManCheckLimits.exit80 ], [ %3, %2 ], [ 0, %CbsP_ManCheckLimits.exit ], [ 0, %28 ], [ 0, %CbsP_ManDecideHighest.exit ], [ 0, %137 ], [ 0, %147 ], [ 0, %150 ], [ %158, %157 ], [ %136, %139 ], [ %149, %152 ], [ 0, %4 ], [ 0, %19 ], [ 0, %13 ], [ 0, %7 ], [ 0, %68 ], [ 0, %64 ], [ 0, %61 ], [ 0, %CbsP_QueStore.exit ]
+  %.0 = phi i32 [ %158, %157 ], [ %3, %2 ], [ 0, %CbsP_ManCheckLimits.exit ], [ 0, %28 ], [ 0, %CbsP_ManCheckLimits.exit80 ], [ 0, %CbsP_ManDecideHighest.exit ], [ 0, %137 ], [ %136, %139 ], [ 0, %147 ], [ 0, %150 ], [ %149, %152 ], [ 0, %19 ], [ 0, %13 ], [ 0, %7 ], [ 0, %4 ], [ 0, %68 ], [ 0, %64 ], [ 0, %61 ], [ 0, %CbsP_QueStore.exit ]
   ret i32 %.0
 }
 
@@ -2133,7 +2133,7 @@ CbsP_ManCheckLimits.exit26:                       ; preds = %89
   br label %CbsP_ManCheckLimits.exit26.thread
 
 CbsP_ManCheckLimits.exit26.thread:                ; preds = %CbsP_ManCheckLimits.exit26, %CbsP_ManCancelUntil.exit, %77, %83, %89
-  %94 = phi i32 [ -1, %CbsP_ManCancelUntil.exit ], [ %spec.select, %CbsP_ManCheckLimits.exit26 ], [ -1, %89 ], [ -1, %83 ], [ -1, %77 ]
+  %94 = phi i32 [ -1, %89 ], [ -1, %83 ], [ -1, %77 ], [ -1, %CbsP_ManCancelUntil.exit ], [ %spec.select, %CbsP_ManCheckLimits.exit26 ]
   ret i32 %94
 }
 
@@ -2592,7 +2592,7 @@ Abc_Clock.exit57:                                 ; preds = %127, %133
   br label %CbsP_UpdateRecord.exit
 
 .thread64:                                        ; preds = %Abc_Clock.exit55, %Abc_Clock.exit57
-  %189 = phi i32 [ 0, %Abc_Clock.exit55 ], [ 1, %Abc_Clock.exit57 ]
+  %189 = phi i32 [ 1, %Abc_Clock.exit57 ], [ 0, %Abc_Clock.exit55 ]
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %191 = load i32, ptr %190, align 8, !tbaa !28
   %192 = load i32, ptr %19, align 8, !tbaa !132
@@ -2643,13 +2643,13 @@ Abc_Clock.exit57:                                 ; preds = %127, %133
   br label %CbsP_UpdateRecord.exit
 
 CbsP_UpdateRecord.exit:                           ; preds = %183, %188, %208, %212
-  %.sink86 = phi i64 [ 104, %212 ], [ 96, %208 ], [ 112, %188 ], [ 112, %183 ]
-  %.sink85.in = phi i32 [ %192, %212 ], [ %192, %208 ], [ %174, %188 ], [ %174, %183 ]
-  %.sink82 = phi i64 [ 128, %212 ], [ 120, %208 ], [ 136, %188 ], [ 136, %183 ]
-  %.sink81.in = phi i32 [ %198, %212 ], [ %198, %208 ], [ %180, %188 ], [ %180, %183 ]
-  %216 = phi i32 [ %189, %212 ], [ 0, %208 ], [ -1, %188 ], [ -1, %183 ]
-  %.sink62.i = phi i64 [ 152, %212 ], [ 144, %208 ], [ 160, %188 ], [ 160, %183 ]
-  %.sink61.in.i = phi i32 [ %204, %212 ], [ %204, %208 ], [ %186, %188 ], [ %186, %183 ]
+  %.sink86 = phi i64 [ 96, %208 ], [ 104, %212 ], [ 112, %188 ], [ 112, %183 ]
+  %.sink85.in = phi i32 [ %192, %208 ], [ %192, %212 ], [ %174, %188 ], [ %174, %183 ]
+  %.sink82 = phi i64 [ 120, %208 ], [ 128, %212 ], [ 136, %188 ], [ 136, %183 ]
+  %.sink81.in = phi i32 [ %198, %208 ], [ %198, %212 ], [ %180, %188 ], [ %180, %183 ]
+  %216 = phi i32 [ 0, %208 ], [ %189, %212 ], [ -1, %188 ], [ -1, %183 ]
+  %.sink62.i = phi i64 [ 144, %208 ], [ 152, %212 ], [ 160, %188 ], [ 160, %183 ]
+  %.sink61.in.i = phi i32 [ %204, %208 ], [ %204, %212 ], [ %186, %188 ], [ %186, %183 ]
   %.sink85 = sext i32 %.sink85.in to i64
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink86
   %218 = load i64, ptr %217, align 8, !tbaa !134
@@ -3833,8 +3833,8 @@ CbsP_QuePush.exit62:                              ; preds = %126, %129
   br label %139
 
 139:                                              ; preds = %.sink.split, %CbsP_QuePush.exit, %19
-  %140 = phi ptr [ %20, %19 ], [ %108, %CbsP_QuePush.exit ], [ %.sink101, %.sink.split ]
-  %.1 = phi i32 [ %.065, %19 ], [ %.065, %CbsP_QuePush.exit ], [ %.1.ph, %.sink.split ]
+  %140 = phi ptr [ %108, %CbsP_QuePush.exit ], [ %20, %19 ], [ %.sink101, %.sink.split ]
+  %.1 = phi i32 [ %.065, %CbsP_QuePush.exit ], [ %.065, %19 ], [ %.1.ph, %.sink.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %141 = load i32, ptr %9, align 4, !tbaa !87
   %142 = sext i32 %141 to i64

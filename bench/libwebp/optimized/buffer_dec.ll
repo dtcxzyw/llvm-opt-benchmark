@@ -355,7 +355,7 @@ AllocateBuffer.exit:                              ; preds = %44, %48, %100, %103
   br label %WebPFlipBuffer.exit
 
 WebPFlipBuffer.exit:                              ; preds = %77, %52, %37, %153, %125, %116, %AllocateBuffer.exit, %107, %4, %14, %29
-  %.0 = phi i32 [ 2, %14 ], [ 2, %4 ], [ %106, %AllocateBuffer.exit ], [ 2, %29 ], [ 0, %153 ], [ 0, %107 ], [ 0, %116 ], [ 0, %125 ], [ 1, %77 ], [ 2, %52 ], [ 2, %37 ]
+  %.0 = phi i32 [ 2, %29 ], [ 2, %14 ], [ 2, %4 ], [ %106, %AllocateBuffer.exit ], [ 0, %107 ], [ 0, %116 ], [ 0, %125 ], [ 0, %153 ], [ 1, %77 ], [ 2, %52 ], [ 2, %37 ]
   ret i32 %.0
 }
 
@@ -714,7 +714,7 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
   br label %.thread
 
 .thread:                                          ; preds = %1, %69, %86, %111, %112
-  %113 = phi i32 [ 0, %112 ], [ 2, %111 ], [ 2, %69 ], [ 2, %86 ], [ 2, %1 ]
+  %113 = phi i32 [ 0, %112 ], [ 2, %111 ], [ 2, %86 ], [ 2, %69 ], [ 2, %1 ]
   ret i32 %113
 }
 

@@ -145,7 +145,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail12segment_iter7measureERm(ptr no
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !27
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %17
-  %.2.i = phi i64 [ %38, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %17 ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ 0, %.preheader.i ], [ 0, %17 ], [ %38, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
   %40 = load i64, ptr %1, align 8, !tbaa !7
   %41 = add i64 %40, %.2.i
   store i64 %41, ptr %1, align 8, !tbaa !7
@@ -230,7 +230,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.backedge65
 
 .backedge65:                                      ; preds = %26, %34
-  %.059.be = phi ptr [ %46, %34 ], [ %27, %26 ]
+  %.059.be = phi ptr [ %27, %26 ], [ %46, %34 ]
   %.031.be = getelementptr inbounds nuw i8, ptr %.03173, i64 1
   %.not = icmp eq ptr %.031.be, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
@@ -303,7 +303,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.backedge
 
 .backedge:                                        ; preds = %64, %70, %78
-  %.160.be = phi ptr [ %90, %78 ], [ %65, %64 ], [ %71, %70 ]
+  %.160.be = phi ptr [ %65, %64 ], [ %71, %70 ], [ %90, %78 ]
   %.1.be = getelementptr inbounds nuw i8, ptr %.176, i64 1
   %.not40 = icmp eq ptr %.1.be, %12
   br i1 %.not40, label %.loopexit, label %.lr.ph77, !llvm.loop !29
@@ -357,7 +357,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %24, %68, %62, %.loopexit, %74, %._crit_edge, %30
-  %.0 = phi i64 [ %93, %.loopexit ], [ %1, %68 ], [ %33, %30 ], [ %77, %74 ], [ %49, %._crit_edge ], [ %1, %62 ], [ %1, %24 ]
+  %.0 = phi i64 [ %93, %.loopexit ], [ %77, %74 ], [ %33, %30 ], [ %49, %._crit_edge ], [ %1, %62 ], [ %1, %68 ], [ %1, %24 ]
   ret i64 %.0
 }
 
@@ -428,7 +428,7 @@ define void @_ZN5boost4urls6detail18segments_iter_base12measure_implERmNS_4core1
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !27
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %11
-  %.2.i = phi i64 [ %32, %.lr.ph32.i ], [ 0, %.preheader.i ], [ 0, %11 ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ 0, %.preheader.i ], [ 0, %11 ], [ %32, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
   %34 = load i64, ptr %0, align 8, !tbaa !7
   %35 = add i64 %34, %.2.i
   store i64 %35, ptr %0, align 8, !tbaa !7

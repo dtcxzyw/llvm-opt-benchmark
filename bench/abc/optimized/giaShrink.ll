@@ -794,7 +794,7 @@ Vec_IntPush.exit184:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %386, label %379, label %.critedge4, !llvm.loop !48
 
 .critedge4:                                       ; preds = %379, %.lr.ph221, %.critedge2._crit_edge
-  %.val133.lcssa = phi i32 [ %.val133218, %.lr.ph221 ], [ %.val133218, %.critedge2._crit_edge ], [ %.val133, %379 ]
+  %.val133.lcssa = phi i32 [ %.val133218, %.critedge2._crit_edge ], [ %.val133218, %.lr.ph221 ], [ %.val133, %379 ]
   %387 = icmp slt i32 %.val133.lcssa, 6
   %388 = add nsw i32 %.val133.lcssa, -5
   %389 = shl nuw i32 1, %388

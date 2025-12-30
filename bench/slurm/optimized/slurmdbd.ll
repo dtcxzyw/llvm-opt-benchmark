@@ -1482,7 +1482,7 @@ define internal fastcc void @_update_logging(i1 noundef zeroext %0) unnamed_addr
   br label %22
 
 22:                                               ; preds = %18, %12, %21, %15
-  %.sink = phi i32 [ %17, %15 ], [ 1, %21 ], [ 0, %12 ], [ %10, %18 ]
+  %.sink = phi i32 [ 1, %21 ], [ %17, %15 ], [ 0, %12 ], [ %10, %18 ]
   store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 4), align 4
   %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %24 = load ptr, ptr %23, align 8

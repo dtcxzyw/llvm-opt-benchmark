@@ -53,9 +53,9 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
 17:                                               ; preds = %.lr.ph, %12
-  %.str.3.sink = phi ptr [ @.str.2, %12 ], [ @.str.3, %.lr.ph ]
+  %.str.2.sink = phi ptr [ @.str.2, %12 ], [ @.str.3, %.lr.ph ]
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull %.str.3.sink, ptr noundef %7) #8
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull %.str.2.sink, ptr noundef %7) #8
   tail call void @g_strfreev(ptr noundef nonnull %8) #7
   br label %21
 

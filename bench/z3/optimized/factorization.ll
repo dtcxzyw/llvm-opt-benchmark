@@ -175,7 +175,7 @@ _ZNK6vectorIbLb0EjE4sizeEv.exit:                  ; preds = %_ZN6vectorIjLb0EjE9
   br i1 %65, label %_ZN6vectorIjLb0EjE9push_backERKj.exit11.sink.split, label %_ZN6vectorIjLb0EjE9push_backERKj.exit11
 
 _ZN6vectorIjLb0EjE9push_backERKj.exit11.sink.split: ; preds = %57, %60, %48, %51
-  %.sink32 = phi ptr [ %1, %48 ], [ %1, %51 ], [ %2, %60 ], [ %2, %57 ]
+  %.sink32 = phi ptr [ %1, %51 ], [ %1, %48 ], [ %2, %60 ], [ %2, %57 ]
   tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink32)
   %.pre.i12 = load ptr, ptr %.sink32, align 8, !tbaa !18
   %.phi.trans.insert.i13 = getelementptr inbounds i8, ptr %.pre.i12, i64 -4
@@ -618,7 +618,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit67.thread:         ; preds = %140, %_ZNK6vectorIj
   br label %162
 
 162:                                              ; preds = %146, %.thread73, %159, %137, %._crit_edge
-  %.017 = phi i1 [ false, %._crit_edge ], [ false, %137 ], [ false, %159 ], [ true, %.thread73 ], [ true, %146 ]
+  %.017 = phi i1 [ false, %._crit_edge ], [ false, %159 ], [ false, %137 ], [ true, %.thread73 ], [ true, %146 ]
   %163 = load ptr, ptr %6, align 8, !tbaa !18
   %.not.i.i68 = icmp eq ptr %163, null
   br i1 %.not.i.i68, label %_ZN6vectorIjLb0EjED2Ev.exit, label %164
@@ -1414,7 +1414,7 @@ _ZNK6vectorIbLb0EjE4sizeEv.exit17.i.i:            ; preds = %22, %.preheader.spl
   br i1 %.not13.i.i, label %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i.i, label %_ZNK6vectorIbLb0EjEneERKS0_.exit, !llvm.loop !57
 
 _ZNK6vectorIbLb0EjEneERKS0_.exit:                 ; preds = %22, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit15.i.i, %7, %2
-  %27 = phi i1 [ true, %2 ], [ %.not.i.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit15.i.i ], [ false, %7 ], [ %exitcond.not.i.not.i.not.not, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i.i ], [ %exitcond.not.i.not.i.not.not, %22 ]
+  %27 = phi i1 [ true, %2 ], [ false, %7 ], [ %.not.i.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit15.i.i ], [ %exitcond.not.i.not.i.not.not, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i.i ], [ %exitcond.not.i.not.i.not.not, %22 ]
   ret i1 %27
 }
 
@@ -1725,7 +1725,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_le
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !59
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %40 ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
   %43 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %21, ptr %43, align 4, !tbaa !21
   %.not.us = icmp eq i64 %.013.us, 0

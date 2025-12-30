@@ -681,7 +681,7 @@ define dso_local noundef zeroext i1 @_ZN22DefaultRndNumGenerator12rnd_flipcoinEj
   br label %26
 
 26:                                               ; preds = %18, %13, %8
-  %.0 = phi i1 [ false, %13 ], [ true, %8 ], [ %25, %18 ]
+  %.0 = phi i1 [ true, %8 ], [ false, %13 ], [ %25, %18 ]
   ret i1 %.0
 }
 

@@ -412,7 +412,7 @@ define range(i32 0, 2) i32 @ossl_statem_skip_early_data(ptr noundef readonly cap
   br label %14
 
 14:                                               ; preds = %10, %4, %7, %1
-  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %spec.select, %10 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %4 ], [ %spec.select, %10 ]
   ret i32 %.0
 }
 
@@ -1236,7 +1236,7 @@ grow_init_buf.exit.i:                             ; preds = %213
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null)
   br label %read_state_machine.exit.thread
 
-read_state_machine.exit.thread:                   ; preds = %192, %196, %242, %266, %266, %266, %283, %272, %203, %.critedge83.i, %254, %247, %229, %.critedge.i
+read_state_machine.exit.thread:                   ; preds = %192, %196, %242, %266, %266, %266, %283, %203, %247, %229, %.critedge.i, %254, %272, %.critedge83.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1526,25 +1526,25 @@ statem_do_write.exit.i:                           ; preds = %374, %372, %370
   br label %293
 
 write_state_machine.exit.thread.sink.split.sink.split: ; preds = %.thread93.i, %351, %322, %325
-  %.sink220.ph = phi i32 [ 891, %322 ], [ 891, %325 ], [ 916, %351 ], [ 916, %.thread93.i ]
+  %.sink220.ph = phi i32 [ 891, %325 ], [ 891, %322 ], [ 916, %351 ], [ 916, %.thread93.i ]
   call void @WPACKET_cleanup(ptr noundef nonnull %5) #7
   br label %write_state_machine.exit.thread.sink.split
 
 write_state_machine.exit.thread.sink.split:       ; preds = %293, %write_state_machine.exit.thread.sink.split.sink.split, %383, %386, %337, %340, %309, %312, %300, %303
-  %.sink220 = phi i32 [ 937, %383 ], [ 856, %300 ], [ 864, %309 ], [ 937, %386 ], [ %.sink220.ph, %write_state_machine.exit.thread.sink.split.sink.split ], [ 900, %337 ], [ 856, %303 ], [ 864, %312 ], [ 900, %340 ], [ 954, %293 ]
-  %.sink = phi i32 [ 256, %383 ], [ 256, %300 ], [ 256, %309 ], [ 256, %386 ], [ 786691, %write_state_machine.exit.thread.sink.split.sink.split ], [ 256, %337 ], [ 256, %303 ], [ 256, %312 ], [ 256, %340 ], [ 786691, %293 ]
+  %.sink220 = phi i32 [ 856, %303 ], [ 856, %300 ], [ 864, %312 ], [ 864, %309 ], [ 900, %340 ], [ 900, %337 ], [ 937, %386 ], [ 937, %383 ], [ %.sink220.ph, %write_state_machine.exit.thread.sink.split.sink.split ], [ 954, %293 ]
+  %.sink = phi i32 [ 256, %303 ], [ 256, %300 ], [ 256, %312 ], [ 256, %309 ], [ 256, %340 ], [ 256, %337 ], [ 256, %386 ], [ 256, %383 ], [ 786691, %write_state_machine.exit.thread.sink.split.sink.split ], [ 786691, %293 ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink220, ptr noundef nonnull @__func__.write_state_machine) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null)
   br label %write_state_machine.exit.thread
 
-write_state_machine.exit.thread:                  ; preds = %write_state_machine.exit.thread.sink.split, %340, %386, %312, %303
+write_state_machine.exit.thread:                  ; preds = %write_state_machine.exit.thread.sink.split, %303, %312, %386, %340
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-write_state_machine.exit.thread153:               ; preds = %380, %380, %380, %316, %statem_do_write.exit.i, %306, %306, %306
+write_state_machine.exit.thread153:               ; preds = %306, %306, %306, %316, %statem_do_write.exit.i, %380, %380, %380
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1558,7 +1558,7 @@ write_state_machine.exit.thread153:               ; preds = %380, %380, %380, %3
   store i32 0, ptr %158, align 4, !tbaa !125
   br label %.backedge239
 
-391:                                              ; preds = %380, %306
+391:                                              ; preds = %306, %380
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1590,8 +1590,8 @@ write_state_machine.exit.thread153:               ; preds = %380, %380, %380, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %166, %write_state_machine.exit.thread153, %write_state_machine.exit.thread, %read_state_machine.exit.thread, %134, %397, %117, %111, %108, %100, %97, %95
-  %.081 = phi i32 [ -1, %95 ], [ -1, %108 ], [ -1, %read_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread153 ], [ -1, %397 ], [ -1, %97 ], [ -1, %134 ], [ -1, %117 ], [ -1, %111 ], [ -1, %100 ], [ -1, %write_state_machine.exit.thread ], [ 1, %166 ]
-  %.1 = phi ptr [ null, %95 ], [ null, %108 ], [ null, %read_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread153 ], [ null, %397 ], [ null, %97 ], [ null, %134 ], [ null, %117 ], [ %106, %111 ], [ null, %100 ], [ null, %write_state_machine.exit.thread ], [ null, %166 ]
+  %.081 = phi i32 [ -1, %95 ], [ -1, %108 ], [ -1, %397 ], [ -1, %134 ], [ -1, %117 ], [ -1, %111 ], [ -1, %100 ], [ -1, %97 ], [ -1, %read_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread153 ], [ 1, %166 ]
+  %.1 = phi ptr [ null, %95 ], [ null, %108 ], [ null, %397 ], [ null, %134 ], [ null, %117 ], [ %106, %111 ], [ null, %100 ], [ null, %97 ], [ null, %read_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread153 ], [ null, %166 ]
   %398 = load i32, ptr %23, align 4, !tbaa !103
   %399 = add nsw i32 %398, -1
   store i32 %399, ptr %23, align 4, !tbaa !103
@@ -1700,7 +1700,7 @@ define range(i32 0, 2) i32 @ossl_statem_app_data_allowed(ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %18, %17, %5, %8, %1
-  %.0.shrunk = phi i1 [ %19, %18 ], [ false, %1 ], [ false, %5 ], [ %switch.selectcmp, %17 ], [ false, %8 ]
+  %.0.shrunk = phi i1 [ false, %1 ], [ false, %8 ], [ false, %5 ], [ %switch.selectcmp, %17 ], [ %19, %18 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

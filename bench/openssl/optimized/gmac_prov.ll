@@ -48,7 +48,7 @@ gmac_free.exit:                                   ; preds = %6
   br label %.split
 
 .split:                                           ; preds = %3, %gmac_free.exit, %1, %11
-  %.0 = phi ptr [ null, %1 ], [ %4, %11 ], [ null, %gmac_free.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %11 ], [ null, %1 ], [ null, %gmac_free.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -104,7 +104,7 @@ gmac_new.exit.thread.sink.split:                  ; preds = %9, %gmac_free.exit
   br label %gmac_new.exit.thread
 
 gmac_new.exit.thread:                             ; preds = %gmac_new.exit.thread.sink.split, %6, %3, %17, %1
-  %.0 = phi ptr [ null, %1 ], [ %7, %17 ], [ null, %6 ], [ null, %3 ], [ null, %gmac_new.exit.thread.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ %7, %17 ], [ null, %3 ], [ null, %6 ], [ null, %gmac_new.exit.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -166,7 +166,7 @@ define internal i32 @gmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   br label %gmac_setkey.exit
 
 gmac_setkey.exit:                                 ; preds = %15, %14, %4, %6, %17
-  %.0 = phi i32 [ 0, %4 ], [ %18, %17 ], [ 0, %6 ], [ 0, %14 ], [ %..i, %15 ]
+  %.0 = phi i32 [ %18, %17 ], [ 0, %6 ], [ 0, %4 ], [ 0, %14 ], [ %..i, %15 ]
   ret i32 %.0
 }
 
@@ -243,7 +243,7 @@ define internal range(i32 0, 2) i32 @gmac_final(ptr noundef readonly captures(no
   br label %18
 
 18:                                               ; preds = %12, %8, %4, %15
-  %.0 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 0, %4 ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -385,7 +385,7 @@ gmac_setkey.exit:                                 ; preds = %29
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %gmac_setkey.exit.thread, %42, %48, %39, %26, %gmac_setkey.exit, %20, %13, %9, %ossl_param_is_empty.exit, %52, %19
-  %.0 = phi i32 [ 0, %9 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %19 ], [ 0, %20 ], [ 0, %26 ], [ 0, %39 ], [ 1, %52 ], [ 0, %13 ], [ 0, %gmac_setkey.exit ], [ 0, %48 ], [ 0, %42 ], [ 0, %gmac_setkey.exit.thread ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %19 ], [ 1, %52 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %9 ], [ 0, %13 ], [ 0, %20 ], [ 0, %gmac_setkey.exit ], [ 0, %26 ], [ 0, %39 ], [ 0, %48 ], [ 0, %42 ], [ 0, %gmac_setkey.exit.thread ], [ 1, %2 ]
   ret i32 %.0
 }
 

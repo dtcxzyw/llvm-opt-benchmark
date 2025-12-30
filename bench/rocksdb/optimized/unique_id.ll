@@ -1072,7 +1072,7 @@ define void @_ZN7rocksdb29InternalUniqueIdToHumanStringB5cxx11ENS_11UniqueIdPtrE
   br i1 %25, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !66
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %22, %20, %16, %12, %._crit_edge.i.i
-  %.0.i.i = phi i32 [ %21, %20 ], [ %13, %12 ], [ %17, %16 ], [ 1, %._crit_edge.i.i ], [ %24, %22 ]
+  %.0.i.i = phi i32 [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ 1, %._crit_edge.i.i ], [ %24, %22 ]
   %26 = zext i32 %.0.i.i to i64
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %27, ptr %3, align 8, !tbaa !4, !alias.scope !63
@@ -1216,7 +1216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   br i1 %92, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i26, label %.lr.ph.i.i23, !llvm.loop !66
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i26:  ; preds = %89, %87, %83, %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
-  %.0.i.i27 = phi i32 [ %88, %87 ], [ %80, %79 ], [ %84, %83 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %91, %89 ]
+  %.0.i.i27 = phi i32 [ %80, %79 ], [ %84, %83 ], [ %88, %87 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %91, %89 ]
   %93 = zext i32 %.0.i.i27 to i64
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %94, ptr %4, align 8, !tbaa !4, !alias.scope !68
@@ -1364,7 +1364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit47: ; preds = %_
   br i1 %161, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i51, label %.lr.ph.i.i48, !llvm.loop !66
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i51:  ; preds = %158, %156, %152, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit47
-  %.0.i.i52 = phi i32 [ %157, %156 ], [ %149, %148 ], [ %153, %152 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit47 ], [ %160, %158 ]
+  %.0.i.i52 = phi i32 [ %149, %148 ], [ %153, %152 ], [ %157, %156 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit47 ], [ %160, %158 ]
   %162 = zext i32 %.0.i.i52 to i64
   %163 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %163, ptr %5, align 8, !tbaa !4, !alias.scope !71

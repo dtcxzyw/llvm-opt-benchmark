@@ -56,7 +56,7 @@ define internal noalias ptr @x942kdf_new(ptr noundef %0) #0 {
   br label %8
 
 8:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -695,7 +695,7 @@ x942kdf_set_buffer.exit99.thread:                 ; preds = %95, %101, %x942kdf_
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %x942kdf_set_buffer.exit99.thread, %115, %111, %108, %x942kdf_set_buffer.exit99, %x942kdf_set_buffer.exit97, %75, %x942kdf_set_buffer.exit95, %x942kdf_set_buffer.exit93, %x942kdf_set_buffer.exit91, %x942kdf_set_buffer.exit, %10, %ossl_param_is_empty.exit, %16
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %16 ], [ 0, %x942kdf_set_buffer.exit99 ], [ 0, %108 ], [ 0, %111 ], [ 0, %x942kdf_set_buffer.exit97 ], [ 0, %75 ], [ 0, %x942kdf_set_buffer.exit95 ], [ 0, %x942kdf_set_buffer.exit93 ], [ 0, %x942kdf_set_buffer.exit91 ], [ 0, %x942kdf_set_buffer.exit ], [ 0, %10 ], [ 1, %115 ], [ 1, %x942kdf_set_buffer.exit99.thread ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %16 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %10 ], [ 0, %x942kdf_set_buffer.exit ], [ 0, %x942kdf_set_buffer.exit91 ], [ 0, %x942kdf_set_buffer.exit93 ], [ 0, %x942kdf_set_buffer.exit95 ], [ 0, %75 ], [ 0, %x942kdf_set_buffer.exit97 ], [ 0, %x942kdf_set_buffer.exit99 ], [ 0, %108 ], [ 0, %111 ], [ 1, %115 ], [ 1, %x942kdf_set_buffer.exit99.thread ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -950,7 +950,7 @@ define internal fastcc range(i32 0, 2) i32 @x942kdf_hash_kdm(ptr noundef nonnull
   br i1 %.not64, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %31, %.lr.ph, %42, %34, %36, %.preheader, %41, %39, %24, %18
-  %.055 = phi i32 [ 0, %18 ], [ 0, %24 ], [ 1, %41 ], [ 0, %39 ], [ 0, %.preheader ], [ 0, %34 ], [ 0, %.lr.ph ], [ 0, %31 ], [ 0, %42 ], [ 1, %36 ]
+  %.055 = phi i32 [ 0, %18 ], [ 0, %39 ], [ 0, %24 ], [ 1, %41 ], [ 0, %.preheader ], [ 0, %31 ], [ 0, %.lr.ph ], [ 0, %42 ], [ 0, %34 ], [ 1, %36 ]
   call void @EVP_MD_CTX_free(ptr noundef %20) #7
   call void @EVP_MD_CTX_free(ptr noundef %21) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %9, i64 noundef 64) #7

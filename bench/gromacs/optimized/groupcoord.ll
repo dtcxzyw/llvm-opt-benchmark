@@ -107,8 +107,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %24, %22
   br i1 %48, label %38, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread, !llvm.loop !35
 
 _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %43, %27
-  %49 = phi i32 [ %32, %27 ], [ %.pre.i, %43 ]
-  %.0.i.i = phi ptr [ %30, %27 ], [ %44, %43 ]
+  %49 = phi i32 [ %.pre.i, %43 ], [ %32, %27 ]
+  %.0.i.i = phi ptr [ %44, %43 ], [ %30, %27 ]
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK11gmx_ga2la_t8findHomeEi.exit, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread
 
@@ -623,7 +623,7 @@ define noundef double @_Z20get_sum_of_positionsPA3_KfPfiPd(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader30, %..loopexit31_crit_edge, %.preheader, %..loopexit_crit_edge
-  %.1 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %..loopexit_crit_edge ], [ %17, %..loopexit31_crit_edge ], [ 0.000000e+00, %.preheader30 ]
+  %.1 = phi double [ 0.000000e+00, %..loopexit_crit_edge ], [ 0.000000e+00, %.preheader ], [ %17, %..loopexit31_crit_edge ], [ 0.000000e+00, %.preheader30 ]
   ret double %.1
 }
 
@@ -698,10 +698,10 @@ define void @_Z10get_centerPA3_KfPfiS2_(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond57.not.i, label %_Z20get_sum_of_positionsPA3_KfPfiPd.exit, label %29, !llvm.loop !69
 
 _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %6, %29, %.preheader30.i, %.preheader.i
-  %.sroa.0.0 = phi double [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %.preheader.i ], [ %36, %29 ], [ %24, %6 ]
-  %.sroa.8.0 = phi double [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %.preheader.i ], [ %40, %29 ], [ %26, %6 ]
-  %.sroa.13.0 = phi double [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %.preheader.i ], [ %44, %29 ], [ %28, %6 ]
-  %.1.i = phi double [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %29 ], [ %13, %6 ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %36, %29 ], [ %24, %6 ]
+  %.sroa.8.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %40, %29 ], [ %26, %6 ]
+  %.sroa.13.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %44, %29 ], [ %28, %6 ]
+  %.1.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %29 ], [ %13, %6 ]
   %45 = sitofp i32 %2 to double
   %.0 = select i1 %.not.i, double %45, double %.1.i
   %46 = fdiv double 1.000000e+00, %.0
@@ -792,10 +792,10 @@ define void @_Z15get_center_commPK9t_commrecPA3_fPfiiS4_(ptr noundef %0, ptr nou
   br i1 %exitcond57.not.i, label %_Z20get_sum_of_positionsPA3_KfPfiPd.exit, label %32, !llvm.loop !69
 
 _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %32, %.preheader30.i, %.preheader.i
-  %.sroa.0.1 = phi double [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %.preheader.i ], [ %39, %32 ], [ %27, %9 ]
-  %.sroa.8.1 = phi double [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %.preheader.i ], [ %43, %32 ], [ %29, %9 ]
-  %.sroa.13.1 = phi double [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %.preheader.i ], [ %47, %32 ], [ %31, %9 ]
-  %.1.i = phi double [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %32 ], [ %16, %9 ]
+  %.sroa.0.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %39, %32 ], [ %27, %9 ]
+  %.sroa.8.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %43, %32 ], [ %29, %9 ]
+  %.sroa.13.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %47, %32 ], [ %31, %9 ]
+  %.1.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %32 ], [ %16, %9 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load i32, ptr %48, align 8, !tbaa !40
   %50 = icmp sgt i32 %49, 1

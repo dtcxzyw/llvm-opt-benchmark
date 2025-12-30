@@ -196,7 +196,7 @@ _ZN2cv4util3getINS_4gapi3wip4draw4RectEJNS4_4TextENS4_5FTextES5_NS4_6CircleENS4_
   br label %229
 
 common.resume:                                    ; preds = %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93, %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %192, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107, %227
-  %common.resume.op = phi { ptr, i32 } [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %.pn75, %192 ], [ %228, %227 ], [ %222, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107 ], [ %100, %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93 ], [ %.pn81.pn.pn, %141 ]
+  %common.resume.op = phi { ptr, i32 } [ %228, %227 ], [ %100, %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93 ], [ %.pn81.pn.pn, %141 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %.pn75, %192 ], [ %222, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4util3getINS_4gapi3wip4draw4TextEJS5_NS4_5FTextENS4_4RectENS4_6CircleENS4_4LineENS4_6MosaicENS4_5ImageENS4_4PolyEEEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %59
@@ -845,7 +845,7 @@ _ZN2cv4util3getINS_4gapi3wip4draw4RectEJNS4_4TextENS4_5FTextES5_NS4_6CircleENS4_
   br label %345
 
 common.resume:                                    ; preds = %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93, %212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %294, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107, %343
-  %common.resume.op = phi { ptr, i32 } [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %.pn75, %294 ], [ %344, %343 ], [ %338, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107 ], [ %155, %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93 ], [ %.pn81.pn.pn, %212 ]
+  %common.resume.op = phi { ptr, i32 } [ %344, %343 ], [ %155, %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93 ], [ %.pn81.pn.pn, %212 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %.pn75, %294 ], [ %338, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4util3getINS_4gapi3wip4draw4TextEJS5_NS4_5FTextENS4_4RectENS4_6CircleENS4_4LineENS4_6MosaicENS4_5ImageENS4_4PolyEEEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %84
@@ -1748,10 +1748,10 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip4draw6mosaicERNS_3MatERKNS_5Rect
   br label %_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit
 
 _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %38, %3, %30, %51, %._crit_edge.i.i, %60
-  %.sroa.0.sroa.0.0.i = phi i32 [ %42, %._crit_edge.i.i ], [ 0, %3 ], [ 0, %60 ], [ 0, %30 ], [ 0, %51 ], [ 0, %38 ]
-  %.sroa.0.sroa.9.0.i = phi i32 [ %54, %._crit_edge.i.i ], [ 0, %3 ], [ 0, %60 ], [ 0, %30 ], [ 0, %51 ], [ 0, %38 ]
-  %.sroa.14.sroa.0.0.i = phi i32 [ %.sroa.speculated53.i.i, %._crit_edge.i.i ], [ 0, %3 ], [ 0, %60 ], [ 0, %30 ], [ 0, %51 ], [ 0, %38 ]
-  %.sroa.14.sroa.12.0.i = phi i32 [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ 0, %3 ], [ 0, %60 ], [ 0, %30 ], [ 0, %51 ], [ 0, %38 ]
+  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %60 ], [ %42, %._crit_edge.i.i ], [ 0, %30 ], [ 0, %3 ], [ 0, %51 ], [ 0, %38 ]
+  %.sroa.0.sroa.9.0.i = phi i32 [ 0, %60 ], [ %54, %._crit_edge.i.i ], [ 0, %30 ], [ 0, %3 ], [ 0, %51 ], [ 0, %38 ]
+  %.sroa.14.sroa.0.0.i = phi i32 [ 0, %60 ], [ %.sroa.speculated53.i.i, %._crit_edge.i.i ], [ 0, %30 ], [ 0, %3 ], [ 0, %51 ], [ 0, %38 ]
+  %.sroa.14.sroa.12.0.i = phi i32 [ 0, %60 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ 0, %30 ], [ 0, %3 ], [ 0, %51 ], [ 0, %38 ]
   %.sroa.0.sroa.9.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.9.0.i to i64
   %.sroa.0.sroa.9.0.insert.shift.i = shl nuw nsw i64 %.sroa.0.sroa.9.0.insert.ext.i, 32
   %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.0.0.i to i64
@@ -2183,7 +2183,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit85:             ; preds = %157
   ret void
 
 183:                                              ; preds = %154, %155, %135, %137, %.split104.us, %122, %180, %179
-  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %.pn, %179 ], [ %.pn76, %122 ], [ %181, %180 ], [ %.pn72, %135 ], [ %.us-phi96, %137 ], [ %112, %.split104.us ], [ %156, %155 ], [ %.pn67, %154 ]
+  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %181, %180 ], [ %.pn, %179 ], [ %.us-phi96, %137 ], [ %.pn72, %135 ], [ %112, %.split104.us ], [ %.pn76, %122 ], [ %156, %155 ], [ %.pn67, %154 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #22

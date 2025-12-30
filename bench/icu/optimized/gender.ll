@@ -176,7 +176,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -796,7 +796,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %21
   br label %52
 
 52:                                               ; preds = %48, %37
-  %cond = phi ptr [ %51, %48 ], [ %36, %37 ]
+  %cond = phi ptr [ %36, %37 ], [ %51, %48 ]
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZZN6icu_7710GenderInfo11getInstanceERKNS_6LocaleER10UErrorCodeE15gGenderMetaLock)
           to label %_ZN6icu_775MutexD2Ev.exit35 unwind label %53
 
@@ -812,7 +812,7 @@ _ZN6icu_775MutexD2Ev.exit33:                      ; preds = %38, %25
   resume { ptr, i32 } %.pn
 
 _ZN6icu_775MutexD2Ev.exit35:                      ; preds = %14, %2, %52, %_ZN6icu_775MutexD2Ev.exit, %30, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
-  %.0 = phi ptr [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %30 ], [ %20, %_ZN6icu_775MutexD2Ev.exit ], [ %cond, %52 ], [ null, %2 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %20, %_ZN6icu_775MutexD2Ev.exit ], [ null, %30 ], [ %cond, %52 ], [ null, %2 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -1202,7 +1202,7 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
   br i1 %.not30, label %20, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %16, %.lr.ph45, %20, %.preheader, %.preheader36, %.critedge.loopexit, %10, %7, %4, %8
-  %.027 = phi i32 [ 2, %7 ], [ 2, %4 ], [ %9, %8 ], [ 2, %10 ], [ %19, %.critedge.loopexit ], [ 0, %.lr.ph45 ], [ 1, %.preheader36 ], [ 1, %.preheader ], [ 1, %20 ], [ 2, %16 ], [ %14, %.lr.ph ], [ 2, %15 ]
+  %.027 = phi i32 [ %9, %8 ], [ 2, %4 ], [ 2, %7 ], [ 2, %10 ], [ 1, %.preheader36 ], [ %19, %.critedge.loopexit ], [ 1, %.preheader ], [ 0, %.lr.ph45 ], [ 1, %20 ], [ %14, %.lr.ph ], [ 2, %15 ], [ 2, %16 ]
   ret i32 %.027
 }
 
@@ -1337,7 +1337,7 @@ define i32 @ugender_getListGender_77(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not30.i, label %20, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit
 
 _ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit: ; preds = %.lr.ph.i, %15, %16, %20, %.lr.ph45.i, %4, %7, %8, %10, %.preheader36.i, %.preheader.i, %.critedge.loopexit.i
-  %.027.i = phi i32 [ 2, %7 ], [ 2, %4 ], [ %9, %8 ], [ 2, %10 ], [ %19, %.critedge.loopexit.i ], [ 0, %.lr.ph45.i ], [ 1, %.preheader36.i ], [ 1, %.preheader.i ], [ 1, %20 ], [ 2, %16 ], [ %14, %.lr.ph.i ], [ 2, %15 ]
+  %.027.i = phi i32 [ %9, %8 ], [ 2, %4 ], [ 2, %7 ], [ 2, %10 ], [ 1, %.preheader36.i ], [ %19, %.critedge.loopexit.i ], [ 1, %.preheader.i ], [ 1, %20 ], [ 0, %.lr.ph45.i ], [ %14, %.lr.ph.i ], [ 2, %15 ], [ 2, %16 ]
   ret i32 %.027.i
 }
 

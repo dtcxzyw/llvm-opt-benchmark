@@ -294,13 +294,13 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   br i1 %exitcond152.not.i, label %.lr.ph145.split.preheader.i, label %.lr.ph143.i, !llvm.loop !25
 
 .preheader.i:                                     ; preds = %.lr.ph145.split.i, %initHeap.exit.i, %._crit_edge.i.thread.i
-  %126 = phi ptr [ %49, %._crit_edge.i.thread.i ], [ %54, %initHeap.exit.i ], [ %54, %.lr.ph145.split.i ]
-  %127 = phi i64 [ -1, %._crit_edge.i.thread.i ], [ %64, %initHeap.exit.i ], [ %64, %.lr.ph145.split.i ]
-  %128 = phi ptr [ %45, %._crit_edge.i.thread.i ], [ %28, %initHeap.exit.i ], [ %28, %.lr.ph145.split.i ]
-  %129 = phi ptr [ %43, %._crit_edge.i.thread.i ], [ %15, %initHeap.exit.i ], [ %15, %.lr.ph145.split.i ]
-  %130 = phi ptr [ %44, %._crit_edge.i.thread.i ], [ %21, %initHeap.exit.i ], [ %21, %.lr.ph145.split.i ]
-  %131 = phi ptr [ %46, %._crit_edge.i.thread.i ], [ %34, %initHeap.exit.i ], [ %34, %.lr.ph145.split.i ]
-  %.val156190199.i = phi ptr [ %50, %._crit_edge.i.thread.i ], [ %65, %initHeap.exit.i ], [ %65, %.lr.ph145.split.i ]
+  %126 = phi ptr [ %54, %initHeap.exit.i ], [ %49, %._crit_edge.i.thread.i ], [ %54, %.lr.ph145.split.i ]
+  %127 = phi i64 [ %64, %initHeap.exit.i ], [ -1, %._crit_edge.i.thread.i ], [ %64, %.lr.ph145.split.i ]
+  %128 = phi ptr [ %28, %initHeap.exit.i ], [ %45, %._crit_edge.i.thread.i ], [ %28, %.lr.ph145.split.i ]
+  %129 = phi ptr [ %15, %initHeap.exit.i ], [ %43, %._crit_edge.i.thread.i ], [ %15, %.lr.ph145.split.i ]
+  %130 = phi ptr [ %21, %initHeap.exit.i ], [ %44, %._crit_edge.i.thread.i ], [ %21, %.lr.ph145.split.i ]
+  %131 = phi ptr [ %34, %initHeap.exit.i ], [ %46, %._crit_edge.i.thread.i ], [ %34, %.lr.ph145.split.i ]
+  %.val156190199.i = phi ptr [ %65, %initHeap.exit.i ], [ %50, %._crit_edge.i.thread.i ], [ %65, %.lr.ph145.split.i ]
   %132 = icmp sgt i32 %2, 0
   br i1 %132, label %.lr.ph147.i, label %find_closest_pairs.exit
 
@@ -557,11 +557,11 @@ push.exit.i:                                      ; preds = %198, %204, %gv_allo
   br label %find_closest_pairs.exit, !llvm.loop !29
 
 find_closest_pairs.exit:                          ; preds = %140, %.preheader.i, %.extractMax.exit.thread.loopexit_crit_edge.i
-  %.sroa.0.2 = phi ptr [ null, %.preheader.i ], [ %.sroa.0.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ %.sroa.0.0, %140 ]
-  %.sroa.10.3 = phi i64 [ 0, %.preheader.i ], [ %.sroa.10.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ %.sroa.10.0, %140 ]
-  %.sroa.16.1 = phi i64 [ 0, %.preheader.i ], [ %wide.trip.count, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ %.sroa.16.0, %140 ]
-  %.sroa.22.2 = phi i64 [ 0, %.preheader.i ], [ %.sroa.22.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ %.sroa.22.0, %140 ]
-  %.val.i = phi ptr [ %.val156190199.i, %.preheader.i ], [ %.val.pre.pre.i, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ %.val.pre.pre157.i, %140 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ null, %.preheader.i ], [ %.sroa.0.0, %140 ]
+  %.sroa.10.3 = phi i64 [ %.sroa.10.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ 0, %.preheader.i ], [ %.sroa.10.0, %140 ]
+  %.sroa.16.1 = phi i64 [ %wide.trip.count, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ 0, %.preheader.i ], [ %.sroa.16.0, %140 ]
+  %.sroa.22.2 = phi i64 [ %.sroa.22.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ 0, %.preheader.i ], [ %.sroa.22.0, %140 ]
+  %.val.i = phi ptr [ %.val.pre.pre.i, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ %.val156190199.i, %.preheader.i ], [ %.val.pre.pre157.i, %140 ]
   tail call void @free(ptr noundef %129) #18
   tail call void @free(ptr noundef %130) #18
   tail call void @free(ptr noundef %128) #18

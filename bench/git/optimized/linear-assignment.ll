@@ -297,10 +297,10 @@ st_mult.exit:                                     ; preds = %46
   br label %125
 
 125:                                              ; preds = %122, %116
-  %.1286.us.us = phi i32 [ %..0276.us.us, %122 ], [ %.0285412.us.us, %116 ]
-  %.1283.us.us = phi i32 [ %.0282..2333.us.us, %122 ], [ %.0282413.us.us, %116 ]
-  %.1280.us.us = phi i32 [ %.2333..0282.us.us, %122 ], [ %.0279414.us.us, %116 ]
-  %.1277.us.us = phi i32 [ %.0276..us.us, %122 ], [ %.0276415.us.us, %116 ]
+  %.1286.us.us = phi i32 [ %.0285412.us.us, %116 ], [ %..0276.us.us, %122 ]
+  %.1283.us.us = phi i32 [ %.0282413.us.us, %116 ], [ %.0282..2333.us.us, %122 ]
+  %.1280.us.us = phi i32 [ %.0279414.us.us, %116 ], [ %.2333..0282.us.us, %122 ]
+  %.1277.us.us = phi i32 [ %.0276415.us.us, %116 ], [ %.0276..us.us, %122 ]
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next486, %wide.trip.count488
   br i1 %exitcond489.not, label %._crit_edge418.us.us, label %116, !llvm.loop !15

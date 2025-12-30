@@ -252,7 +252,7 @@ virtual_getcwd_ex.exit:                           ; preds = %8, %5, %10
   br label %21
 
 21:                                               ; preds = %18, %virtual_getcwd_ex.exit, %19, %16
-  %.0 = phi ptr [ %.0.i, %virtual_getcwd_ex.exit ], [ null, %16 ], [ %0, %19 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %16 ], [ %0, %19 ], [ %.0.i, %virtual_getcwd_ex.exit ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -629,7 +629,7 @@ define dso_local range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nound
   br label %49
 
 49:                                               ; preds = %44, %.thread
-  %50 = phi i1 [ %48, %44 ], [ false, %.thread ]
+  %50 = phi i1 [ false, %.thread ], [ %48, %44 ]
   %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 32), align 8, !tbaa !16
   %.not = icmp eq i64 %51, 0
   %52 = sext i1 %.not to i64
@@ -724,7 +724,7 @@ define dso_local range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nound
   br label %95
 
 95:                                               ; preds = %37, %89, %88, %86, %67, %55, %10
-  %.0 = phi i32 [ 1, %10 ], [ 1, %55 ], [ -1, %67 ], [ 1, %37 ], [ 0, %89 ], [ 1, %86 ], [ 0, %88 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %55 ], [ 1, %37 ], [ -1, %67 ], [ 0, %89 ], [ 1, %86 ], [ 0, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -998,7 +998,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %131, label %263, label %132
 
 132:                                              ; preds = %130, %.thread, %127
-  %.0246.shrunk = phi i1 [ false, %127 ], [ true, %.thread ], [ false, %130 ]
+  %.0246.shrunk = phi i1 [ true, %.thread ], [ false, %127 ], [ false, %130 ]
   %133 = add i64 %.0244295, 1
   %134 = icmp ugt i64 %133, 32768
   br i1 %134, label %135, label %137, !prof !35
@@ -1146,7 +1146,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br label %199
 
 199:                                              ; preds = %190, %196
-  %.4 = phi i64 [ %193, %190 ], [ %197, %196 ]
+  %.4 = phi i64 [ %197, %196 ], [ %193, %190 ]
   %200 = icmp eq i64 %.4, -1
   br i1 %200, label %203, label %.thread285
 
@@ -1286,7 +1286,7 @@ realpath_cache_add.exit:                          ; preds = %246, %225, %222, %2
   br label %263
 
 263:                                              ; preds = %57, %60, %64, %realpath_cache_add.exit, %262, %203, %204, %187, %188, %176, %177, %167, %168, %162, %163, %153, %154, %130, %108, %68, %84, %80, %76, %72, %.critedge3, %91, %89, %._crit_edge, %12, %118, %45
-  %.0 = phi i64 [ -1, %176 ], [ %46, %45 ], [ %1, %._crit_edge ], [ %126, %118 ], [ 2, %91 ], [ -1, %108 ], [ -1, %130 ], [ -1, %153 ], [ -1, %203 ], [ -1, %162 ], [ -1, %167 ], [ -1, %187 ], [ %1, %12 ], [ %.0247.lcssa, %.critedge3 ], [ 5, %68 ], [ %86, %84 ], [ %.0247.lcssa, %80 ], [ %.0247.lcssa, %76 ], [ %.0247.lcssa, %72 ], [ %.3, %realpath_cache_add.exit ], [ %49, %89 ], [ -1, %154 ], [ -1, %163 ], [ -1, %168 ], [ -1, %177 ], [ -1, %188 ], [ -1, %204 ], [ %.3, %262 ], [ 0, %64 ], [ 0, %60 ], [ 0, %57 ]
+  %.0 = phi i64 [ %46, %45 ], [ %126, %118 ], [ %1, %12 ], [ %1, %._crit_edge ], [ %.0247.lcssa, %.critedge3 ], [ 5, %68 ], [ %86, %84 ], [ %.0247.lcssa, %80 ], [ %.0247.lcssa, %76 ], [ %.0247.lcssa, %72 ], [ %49, %89 ], [ 2, %91 ], [ -1, %108 ], [ -1, %130 ], [ -1, %154 ], [ -1, %153 ], [ -1, %163 ], [ -1, %162 ], [ -1, %168 ], [ -1, %167 ], [ -1, %177 ], [ -1, %176 ], [ -1, %188 ], [ -1, %187 ], [ -1, %204 ], [ -1, %203 ], [ %.3, %262 ], [ %.3, %realpath_cache_add.exit ], [ 0, %64 ], [ 0, %60 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0
@@ -1392,7 +1392,7 @@ define dso_local i32 @virtual_chdir_file(ptr noundef readonly captures(none) %0,
   br label %28
 
 28:                                               ; preds = %22, %27, %2, %9
-  %.0 = phi i32 [ 1, %2 ], [ -1, %9 ], [ %26, %27 ], [ %26, %22 ]
+  %.0 = phi i32 [ -1, %9 ], [ 1, %2 ], [ %26, %27 ], [ %26, %22 ]
   ret i32 %.0
 }
 

@@ -341,7 +341,7 @@ make_rels_by_clauseless_joins.exit119:            ; preds = %make_rels_by_clause
   %174 = icmp eq ptr %.pre154, null
   br i1 %174, label %.critedge109.thread, label %185
 
-.critedge109.thread:                              ; preds = %.lr.ph139, %.lr.ph136, %139, %.critedge109
+.critedge109.thread:                              ; preds = %.lr.ph139, %139, %.lr.ph136, %.critedge109
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, null
@@ -473,7 +473,7 @@ define internal fastcc noundef zeroext i1 @has_join_restriction(ptr noundef read
   br i1 %65, label %.lr.ph79, label %.thread60
 
 .thread60:                                        ; preds = %23, %62, %53, %57, %.critedge50, %.lr.ph68, %2, %5
-  %.0 = phi i1 [ true, %57 ], [ true, %2 ], [ true, %5 ], [ false, %.critedge50 ], [ false, %.lr.ph68 ], [ true, %53 ], [ false, %62 ], [ true, %23 ]
+  %.0 = phi i1 [ true, %5 ], [ true, %2 ], [ false, %.critedge50 ], [ false, %.lr.ph68 ], [ false, %62 ], [ true, %53 ], [ true, %57 ], [ true, %23 ]
   ret i1 %.0
 }
 
@@ -629,7 +629,7 @@ define dso_local noundef zeroext i1 @have_join_order_restriction(ptr noundef %0,
   br label %.critedge67
 
 .critedge67:                                      ; preds = %29, %84, %.lr.ph79, %.critedge65, %91, %89, %3, %9
-  %.0 = phi i1 [ true, %3 ], [ false, %.critedge65 ], [ true, %9 ], [ false, %91 ], [ true, %89 ], [ false, %.lr.ph79 ], [ false, %84 ], [ true, %29 ]
+  %.0 = phi i1 [ true, %9 ], [ true, %3 ], [ false, %91 ], [ true, %89 ], [ false, %.critedge65 ], [ false, %.lr.ph79 ], [ false, %84 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -787,11 +787,11 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load i32, ptr %9, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph282, label %._crit_edge
+  br i1 %16, label %.lr.ph279, label %._crit_edge
 
-.lr.ph282:                                        ; preds = %.lr.ph, %116
-  %.0156215280 = phi i1 [ %.2158.ph, %116 ], [ false, %.lr.ph ]
-  %.0152216278 = phi i8 [ %.2154.ph, %116 ], [ 0, %.lr.ph ]
+.lr.ph279:                                        ; preds = %.lr.ph, %116
+  %.0156215278 = phi i1 [ %.2158.ph, %116 ], [ false, %.lr.ph ]
+  %.0152216277 = phi i8 [ %.2154.ph, %116 ], [ 0, %.lr.ph ]
   %.0141217276 = phi i8 [ %.2143.ph, %116 ], [ 0, %.lr.ph ]
   %.0137218275 = phi ptr [ %.2139.ph, %116 ], [ null, %.lr.ph ]
   %indvars.iv274 = phi i64 [ %indvars.iv.next, %116 ], [ 0, %.lr.ph ]
@@ -803,7 +803,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %22 = tail call zeroext i1 @bms_overlap(ptr noundef %21, ptr noundef %3) #8
   br i1 %22, label %23, label %116
 
-23:                                               ; preds = %.lr.ph282
+23:                                               ; preds = %.lr.ph279
   %24 = load ptr, ptr %20, align 8
   %25 = tail call zeroext i1 @bms_is_subset(ptr noundef %3, ptr noundef %24) #8
   br i1 %25, label %116, label %26
@@ -878,7 +878,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 
 72:                                               ; preds = %68
   %.not177 = icmp eq ptr %.0137218275, null
-  br i1 %.not177, label %116, label %.critedge185
+  br i1 %.not177, label %116, label %.thread202
 
 73:                                               ; preds = %68, %64
   %74 = load ptr, ptr %27, align 8
@@ -894,7 +894,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 
 81:                                               ; preds = %77
   %.not176 = icmp eq ptr %.0137218275, null
-  br i1 %.not176, label %116, label %.critedge185
+  br i1 %.not176, label %116, label %.thread202
 
 82:                                               ; preds = %77, %73
   %83 = load i32, ptr %44, align 8
@@ -916,7 +916,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 
 93:                                               ; preds = %90
   %.not175 = icmp eq ptr %.0137218275, null
-  br i1 %.not175, label %116, label %.critedge185
+  br i1 %.not175, label %116, label %.thread202
 
 94:                                               ; preds = %90, %85
   %.pr = load i32, ptr %44, align 8
@@ -937,7 +937,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 
 103:                                              ; preds = %100
   %.not174 = icmp eq ptr %.0137218275, null
-  br i1 %.not174, label %116, label %.critedge185
+  br i1 %.not174, label %116, label %.thread202
 
 .thread189:                                       ; preds = %82, %100, %96, %94
   %104 = load ptr, ptr %11, align 8
@@ -954,23 +954,23 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 111:                                              ; preds = %107, %.thread189
   %112 = load i32, ptr %44, align 8
   %.not173 = icmp eq i32 %112, 1
-  br i1 %.not173, label %113, label %.critedge185
+  br i1 %.not173, label %113, label %.thread202
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %27, align 8
   %115 = tail call zeroext i1 @bms_overlap(ptr noundef %3, ptr noundef %114) #8
-  br i1 %115, label %.critedge185, label %116
+  br i1 %115, label %.thread202, label %116
 
-116:                                              ; preds = %72, %81, %93, %103, %113, %.lr.ph282, %23, %31, %60, %107, %52, %39
-  %.2158.ph = phi i1 [ %.0156215280, %39 ], [ %.0156215280, %52 ], [ %.0156215280, %107 ], [ %.0156215280, %.lr.ph282 ], [ %.0156215280, %60 ], [ %.0156215280, %31 ], [ %.0156215280, %23 ], [ %.0156215280, %103 ], [ %.0156215280, %72 ], [ %.0156215280, %81 ], [ %.0156215280, %93 ], [ true, %113 ]
-  %.2154.ph = phi i8 [ %.0152216278, %39 ], [ %.0152216278, %52 ], [ %.0152216278, %107 ], [ %.0152216278, %.lr.ph282 ], [ %.0152216278, %60 ], [ %.0152216278, %31 ], [ %.0152216278, %23 ], [ 1, %103 ], [ %.0152216278, %72 ], [ %.0152216278, %81 ], [ 1, %93 ], [ %.0152216278, %113 ]
-  %.2143.ph = phi i8 [ %.0141217276, %39 ], [ %.0141217276, %52 ], [ %.0141217276, %107 ], [ %.0141217276, %.lr.ph282 ], [ %.0141217276, %60 ], [ %.0141217276, %31 ], [ %.0141217276, %23 ], [ 1, %103 ], [ 0, %72 ], [ 1, %81 ], [ 0, %93 ], [ %.0141217276, %113 ]
-  %.2139.ph = phi ptr [ %.0137218275, %39 ], [ %.0137218275, %52 ], [ %.0137218275, %107 ], [ %.0137218275, %.lr.ph282 ], [ %.0137218275, %60 ], [ %.0137218275, %31 ], [ %.0137218275, %23 ], [ %19, %103 ], [ %19, %72 ], [ %19, %81 ], [ %19, %93 ], [ %.0137218275, %113 ]
+116:                                              ; preds = %72, %81, %93, %103, %113, %.lr.ph279, %23, %31, %39, %52, %60, %107
+  %.2158.ph = phi i1 [ %.0156215278, %107 ], [ %.0156215278, %60 ], [ %.0156215278, %52 ], [ %.0156215278, %39 ], [ %.0156215278, %31 ], [ %.0156215278, %23 ], [ %.0156215278, %.lr.ph279 ], [ %.0156215278, %72 ], [ %.0156215278, %81 ], [ %.0156215278, %93 ], [ %.0156215278, %103 ], [ true, %113 ]
+  %.2154.ph = phi i8 [ %.0152216277, %107 ], [ %.0152216277, %60 ], [ %.0152216277, %52 ], [ %.0152216277, %39 ], [ %.0152216277, %31 ], [ %.0152216277, %23 ], [ %.0152216277, %.lr.ph279 ], [ %.0152216277, %72 ], [ %.0152216277, %81 ], [ 1, %93 ], [ 1, %103 ], [ %.0152216277, %113 ]
+  %.2143.ph = phi i8 [ %.0141217276, %107 ], [ %.0141217276, %60 ], [ %.0141217276, %52 ], [ %.0141217276, %39 ], [ %.0141217276, %31 ], [ %.0141217276, %23 ], [ %.0141217276, %.lr.ph279 ], [ 0, %72 ], [ 1, %81 ], [ 0, %93 ], [ 1, %103 ], [ %.0141217276, %113 ]
+  %.2139.ph = phi ptr [ %.0137218275, %107 ], [ %.0137218275, %60 ], [ %.0137218275, %52 ], [ %.0137218275, %39 ], [ %.0137218275, %31 ], [ %.0137218275, %23 ], [ %.0137218275, %.lr.ph279 ], [ %19, %72 ], [ %19, %81 ], [ %19, %93 ], [ %19, %103 ], [ %.0137218275, %113 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv274, 1
   %117 = load i32, ptr %9, align 4
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %.lr.ph282, label %.._crit_edge_crit_edge
+  br i1 %119, label %.lr.ph279, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %116
   %120 = trunc nuw i8 %.2154.ph to i1
@@ -985,28 +985,28 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 
 121:                                              ; preds = %._crit_edge
   %122 = icmp eq ptr %.0137218.lcssa, null
-  br i1 %122, label %.critedge185, label %123
+  br i1 %122, label %.thread202, label %123
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %.0137218.lcssa, i64 40
   %125 = load i32, ptr %124, align 8
   %.not178 = icmp eq i32 %125, 1
-  br i1 %.not178, label %126, label %.critedge185
+  br i1 %.not178, label %126, label %.thread202
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %.0137218.lcssa, i64 80
   %128 = load i8, ptr %127, align 8, !range !4, !noundef !5
   %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %._crit_edge.thread, label %.critedge185
+  br i1 %129, label %._crit_edge.thread, label %.thread202
 
 ._crit_edge.thread:                               ; preds = %6, %126, %._crit_edge
-  %.0137.lcssa261 = phi ptr [ %.0137218.lcssa, %._crit_edge ], [ %.0137218.lcssa, %126 ], [ null, %6 ]
-  %.0141.lcssa258 = phi i8 [ %.0141217.lcssa, %._crit_edge ], [ %.0141217.lcssa, %126 ], [ 0, %6 ]
-  %.0152.lcssa257 = phi i1 [ %.0152216.lcssa, %._crit_edge ], [ %.0152216.lcssa, %126 ], [ false, %6 ]
+  %.0137.lcssa261 = phi ptr [ %.0137218.lcssa, %126 ], [ %.0137218.lcssa, %._crit_edge ], [ null, %6 ]
+  %.0141.lcssa258 = phi i8 [ %.0141217.lcssa, %126 ], [ %.0141217.lcssa, %._crit_edge ], [ 0, %6 ]
+  %.0152.lcssa257 = phi i1 [ %.0152216.lcssa, %126 ], [ %.0152216.lcssa, %._crit_edge ], [ false, %6 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 597
   %131 = load i8, ptr %130, align 1, !range !4, !noundef !5
   %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %133, label %211
+  br i1 %132, label %133, label %.critedge185
 
 133:                                              ; preds = %._crit_edge.thread
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1020,7 +1020,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %142 = load ptr, ptr %141, align 8
   %143 = tail call zeroext i1 @bms_overlap(ptr noundef %140, ptr noundef %142) #8
   %or.cond = select i1 %138, i1 %143, i1 false
-  br i1 %or.cond, label %.critedge185, label %144
+  br i1 %or.cond, label %.thread202, label %144
 
 144:                                              ; preds = %133
   br i1 %138, label %145, label %161
@@ -1032,26 +1032,26 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 146:                                              ; preds = %145
   %147 = trunc nuw i8 %.0141.lcssa258 to i1
   %or.cond5 = select i1 %147, i1 true, i1 %.0152.lcssa257
-  br i1 %or.cond5, label %.critedge185, label %148
+  br i1 %or.cond5, label %.thread202, label %148
 
 148:                                              ; preds = %146
   %149 = getelementptr inbounds nuw i8, ptr %.0137.lcssa261, i64 40
   %150 = load i32, ptr %149, align 8
   %151 = icmp eq i32 %150, 2
-  br i1 %151, label %.critedge185, label %152
+  br i1 %151, label %.thread202, label %152
 
 152:                                              ; preds = %148, %145
   %153 = load ptr, ptr %134, align 8
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %155 = load ptr, ptr %154, align 8
   %156 = tail call zeroext i1 @bms_overlap(ptr noundef %153, ptr noundef %155) #8
-  br i1 %156, label %157, label %.critedge185
+  br i1 %156, label %157, label %.thread202
 
 157:                                              ; preds = %152
   %158 = load ptr, ptr %134, align 8
   %159 = load ptr, ptr %136, align 8
   %160 = tail call zeroext i1 @have_dangerous_phv(ptr noundef nonnull %0, ptr noundef %158, ptr noundef %159)
-  br i1 %160, label %.critedge185, label %178
+  br i1 %160, label %.thread202, label %178
 
 161:                                              ; preds = %144
   br i1 %143, label %162, label %178
@@ -1064,31 +1064,31 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %164 = trunc nuw i8 %.0141.lcssa258 to i1
   %.not = xor i1 %164, true
   %or.cond7 = select i1 %.not, i1 true, i1 %.0152.lcssa257
-  br i1 %or.cond7, label %.critedge185, label %165
+  br i1 %or.cond7, label %.thread202, label %165
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %.0137.lcssa261, i64 40
   %167 = load i32, ptr %166, align 8
   %168 = icmp eq i32 %167, 2
-  br i1 %168, label %.critedge185, label %169
+  br i1 %168, label %.thread202, label %169
 
 169:                                              ; preds = %165, %162
   %170 = load ptr, ptr %139, align 8
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %172 = load ptr, ptr %171, align 8
   %173 = tail call zeroext i1 @bms_overlap(ptr noundef %170, ptr noundef %172) #8
-  br i1 %173, label %174, label %.critedge185
+  br i1 %173, label %174, label %.thread202
 
 174:                                              ; preds = %169
   %175 = load ptr, ptr %139, align 8
   %176 = load ptr, ptr %141, align 8
   %177 = tail call zeroext i1 @have_dangerous_phv(ptr noundef nonnull %0, ptr noundef %175, ptr noundef %176)
-  br i1 %177, label %.critedge185, label %178
+  br i1 %177, label %.thread202, label %178
 
 178:                                              ; preds = %161, %174, %157
   %179 = tail call ptr @min_join_parameterization(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2) #8
   %.not181 = icmp eq ptr %179, null
-  br i1 %.not181, label %211, label %180
+  br i1 %.not181, label %.critedge185, label %180
 
 180:                                              ; preds = %178
   %181 = tail call ptr @bms_copy(ptr noundef %3) #8
@@ -1102,7 +1102,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   br i1 %.not182, label %.split247.us, label %.lr.ph231
 
 .lr.ph231:                                        ; preds = %180, %.splitthread-pre-split
-  %.0148286 = phi ptr [ %.2150, %.splitthread-pre-split ], [ %181, %180 ]
+  %.0148283 = phi ptr [ %.2150, %.splitthread-pre-split ], [ %181, %180 ]
   %184 = phi ptr [ %.pr262, %.splitthread-pre-split ], [ %182, %180 ]
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 16
@@ -1112,7 +1112,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 
 .lr.ph243:                                        ; preds = %.lr.ph231, %206
   %indvars.iv249 = phi i64 [ %indvars.iv.next250, %206 ], [ 0, %.lr.ph231 ]
-  %.1149227242 = phi ptr [ %.2150, %206 ], [ %.0148286, %.lr.ph231 ]
+  %.1149227242 = phi ptr [ %.2150, %206 ], [ %.0148283, %.lr.ph231 ]
   %.0145228241 = phi i1 [ %.1146, %206 ], [ false, %.lr.ph231 ]
   %189 = load ptr, ptr %186, align 8
   %190 = getelementptr inbounds nuw %union.ListCell, ptr %189, i64 %indvars.iv249
@@ -1152,17 +1152,17 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   br i1 %209, label %.lr.ph243, label %.critedge
 
 .split247.us:                                     ; preds = %.lr.ph231, %.splitthread-pre-split, %.critedge, %180
-  %.us-phi248 = phi ptr [ %181, %180 ], [ %.0148286, %.lr.ph231 ], [ %.2150, %.splitthread-pre-split ], [ %.2150, %.critedge ]
+  %.us-phi248 = phi ptr [ %181, %180 ], [ %.0148283, %.lr.ph231 ], [ %.2150, %.splitthread-pre-split ], [ %.2150, %.critedge ]
   %210 = tail call zeroext i1 @bms_overlap(ptr noundef %.us-phi248, ptr noundef nonnull %179) #8
-  br i1 %210, label %.critedge185, label %211
+  br i1 %210, label %.thread202, label %.critedge185
 
-211:                                              ; preds = %178, %.split247.us, %._crit_edge.thread
+.critedge185:                                     ; preds = %178, %.split247.us, %._crit_edge.thread
   store ptr %.0137.lcssa261, ptr %4, align 8
   store i8 %.0141.lcssa258, ptr %5, align 1
-  br label %.critedge185
+  br label %.thread202
 
-.critedge185:                                     ; preds = %72, %81, %93, %103, %113, %111, %163, %133, %152, %.split247.us, %146, %157, %169, %148, %165, %174, %121, %123, %126, %211
-  %.3 = phi i1 [ false, %163 ], [ true, %211 ], [ false, %121 ], [ false, %126 ], [ false, %123 ], [ false, %174 ], [ false, %165 ], [ false, %148 ], [ false, %169 ], [ false, %157 ], [ false, %146 ], [ false, %.split247.us ], [ false, %152 ], [ false, %133 ], [ false, %111 ], [ false, %113 ], [ false, %103 ], [ false, %93 ], [ false, %81 ], [ false, %72 ]
+.thread202:                                       ; preds = %72, %81, %93, %103, %113, %111, %.split247.us, %133, %148, %146, %152, %157, %165, %163, %169, %174, %121, %123, %126, %.critedge185
+  %.3 = phi i1 [ true, %.critedge185 ], [ false, %126 ], [ false, %123 ], [ false, %121 ], [ false, %174 ], [ false, %169 ], [ false, %163 ], [ false, %165 ], [ false, %157 ], [ false, %152 ], [ false, %146 ], [ false, %148 ], [ false, %133 ], [ false, %.split247.us ], [ false, %111 ], [ false, %113 ], [ false, %103 ], [ false, %93 ], [ false, %81 ], [ false, %72 ]
   ret i1 %.3
 }
 
@@ -1282,8 +1282,8 @@ define dso_local ptr @add_outer_joins_to_relids(ptr noundef readonly captures(no
   br label %66
 
 66:                                               ; preds = %60, %56, %52, %48, %45, %43, %40, %36, %.lr.ph71
-  %.145.us = phi ptr [ %.04460.us70, %.lr.ph71 ], [ %.04460.us70, %43 ], [ %.04460.us70, %40 ], [ %.04460.us70, %36 ], [ %.04460.us70, %45 ], [ %65, %60 ], [ %.04460.us70, %56 ], [ %.04460.us70, %52 ], [ %.04460.us70, %48 ]
-  %.2.us = phi ptr [ %.162.us68, %.lr.ph71 ], [ %.162.us68, %43 ], [ %.162.us68, %40 ], [ %.162.us68, %36 ], [ %.162.us68, %45 ], [ %62, %60 ], [ %.162.us68, %56 ], [ %.162.us68, %52 ], [ %.162.us68, %48 ]
+  %.145.us = phi ptr [ %.04460.us70, %40 ], [ %.04460.us70, %36 ], [ %.04460.us70, %.lr.ph71 ], [ %.04460.us70, %43 ], [ %.04460.us70, %45 ], [ %65, %60 ], [ %.04460.us70, %56 ], [ %.04460.us70, %52 ], [ %.04460.us70, %48 ]
+  %.2.us = phi ptr [ %.162.us68, %40 ], [ %.162.us68, %36 ], [ %.162.us68, %.lr.ph71 ], [ %.162.us68, %43 ], [ %.162.us68, %45 ], [ %62, %60 ], [ %.162.us68, %56 ], [ %.162.us68, %52 ], [ %.162.us68, %48 ]
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %67 = load i32, ptr %28, align 4
   %68 = sext i32 %67 to i64
@@ -1351,8 +1351,8 @@ define dso_local ptr @add_outer_joins_to_relids(ptr noundef readonly captures(no
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %83, %86, %90, %94, %98, %81, %.lr.ph92, %74, %78
-  %.145 = phi ptr [ %.0446091, %.lr.ph92 ], [ %.0446091, %81 ], [ %.0446091, %78 ], [ %.0446091, %74 ], [ %.0446091, %83 ], [ %105, %98 ], [ %.0446091, %94 ], [ %.0446091, %90 ], [ %.0446091, %86 ]
-  %.2 = phi ptr [ %.16290, %.lr.ph92 ], [ %.16290, %81 ], [ %.16290, %78 ], [ %.16290, %74 ], [ %.16290, %83 ], [ %100, %98 ], [ %.16290, %94 ], [ %.16290, %90 ], [ %.16290, %86 ]
+  %.145 = phi ptr [ %.0446091, %78 ], [ %.0446091, %74 ], [ %.0446091, %.lr.ph92 ], [ %.0446091, %81 ], [ %.0446091, %83 ], [ %105, %98 ], [ %.0446091, %94 ], [ %.0446091, %90 ], [ %.0446091, %86 ]
+  %.2 = phi ptr [ %.16290, %78 ], [ %.16290, %74 ], [ %.16290, %.lr.ph92 ], [ %.16290, %81 ], [ %.16290, %83 ], [ %100, %98 ], [ %.16290, %94 ], [ %.16290, %90 ], [ %.16290, %86 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv89, 1
   %106 = load i32, ptr %28, align 4
   %107 = sext i32 %106 to i64
@@ -1360,7 +1360,7 @@ define dso_local ptr @add_outer_joins_to_relids(ptr noundef readonly captures(no
   br i1 %108, label %.lr.ph92, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split, %66, %.lr.ph.split.preheader, %24, %.lr.ph.split.us.split, %19, %15, %4, %6, %13
-  %.0 = phi ptr [ %1, %4 ], [ %14, %13 ], [ %1, %15 ], [ %1, %6 ], [ %21, %19 ], [ %21, %24 ], [ %21, %.lr.ph.split.us.split ], [ %.2.us, %66 ], [ %21, %.lr.ph.split.preheader ], [ %.2, %.lr.ph.split ]
+  %.0 = phi ptr [ %14, %13 ], [ %1, %6 ], [ %1, %4 ], [ %1, %15 ], [ %21, %19 ], [ %21, %24 ], [ %21, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.preheader ], [ %.2.us, %66 ], [ %.2, %.lr.ph.split ]
   ret ptr %.0
 }
 
@@ -1534,7 +1534,7 @@ is_dummy_rel.exit:                                ; preds = %54, %50, %33, %21
   tail call void @mark_dummy_rel(ptr noundef %3)
   br label %373
 
-.loopexit:                                        ; preds = %.critedge.i, %.lr.ph.i, %.loopexit.i132
+.loopexit:                                        ; preds = %.critedge.i, %.loopexit.i132, %.lr.ph.i
   tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %5) #8
   tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef %5) #8
   br label %373
@@ -1815,7 +1815,7 @@ is_dummy_rel.exit172:                             ; preds = %176, %172, %146
   tail call void @mark_dummy_rel(ptr noundef %3)
   br label %373
 
-.loopexit290:                                     ; preds = %.critedge.us.i179, %.lr.ph.i174, %is_dummy_rel.exit165.thread
+.loopexit290:                                     ; preds = %.critedge.us.i179, %is_dummy_rel.exit165.thread, %.lr.ph.i174
   tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 2, ptr noundef %4, ptr noundef %5) #8
   tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 2, ptr noundef %4, ptr noundef %5) #8
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1959,7 +1959,7 @@ is_dummy_rel.exit189:                             ; preds = %243, %239, %222, %2
   tail call void @mark_dummy_rel(ptr noundef %3)
   br label %373
 
-.loopexit393:                                     ; preds = %.critedge.i373, %.lr.ph.i368, %.loopexit.i193
+.loopexit393:                                     ; preds = %.critedge.i373, %.loopexit.i193, %.lr.ph.i368
   tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %4, ptr noundef %5) #8
   tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 6, ptr noundef %4, ptr noundef %5) #8
   br label %246
@@ -2092,7 +2092,7 @@ is_dummy_rel.exit203:                             ; preds = %298, %294, %277, %2
   tail call void @mark_dummy_rel(ptr noundef %3)
   br label %373
 
-.loopexit392:                                     ; preds = %.critedge.i384, %.lr.ph.i378, %.loopexit.i207
+.loopexit392:                                     ; preds = %.critedge.i384, %.loopexit.i207, %.lr.ph.i378
   tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 9, ptr noundef nonnull %4, ptr noundef %5) #8
   tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 8, ptr noundef nonnull %4, ptr noundef %5) #8
   br label %373
@@ -2629,8 +2629,8 @@ is_dummy_rel.exit249:                             ; preds = %.loopexit.i246, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %try_partitionwise_join.exit
 
-547:                                              ; preds = %501, %545, %500, %502
-  %548 = phi i32 [ %445, %501 ], [ %.pre, %545 ], [ %445, %500 ], [ %445, %502 ]
+547:                                              ; preds = %545, %500, %501, %502
+  %548 = phi i32 [ %.pre, %545 ], [ %445, %500 ], [ %445, %501 ], [ %445, %502 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %549 = sext i32 %548 to i64
@@ -2707,7 +2707,7 @@ define internal fastcc noundef zeroext i1 @has_legal_joinclause(ptr noundef %0, 
   br i1 %29, label %.lr.ph43, label %.critedge
 
 .critedge:                                        ; preds = %21, %26, %.lr.ph, %2
-  %.5 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ false, %26 ], [ true, %21 ]
+  %.5 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ false, %26 ], [ true, %21 ]
   ret i1 %.5
 }
 
@@ -2745,7 +2745,7 @@ define dso_local noundef zeroext i1 @have_dangerous_phv(ptr noundef readonly cap
   %21 = tail call zeroext i1 @bms_is_subset(ptr noundef %20, ptr noundef %1) #8
   br i1 %21, label %.critedge, label %.critedge21
 
-.critedge:                                        ; preds = %16, %.lr.ph33, %19
+.critedge:                                        ; preds = %.lr.ph33, %16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %6, align 4
   %23 = sext i32 %22 to i64
@@ -2753,7 +2753,7 @@ define dso_local noundef zeroext i1 @have_dangerous_phv(ptr noundef readonly cap
   br i1 %24, label %.lr.ph33, label %.critedge21
 
 .critedge21:                                      ; preds = %19, %.critedge, %.lr.ph, %3
-  %.3 = phi i1 [ false, %.lr.ph ], [ false, %3 ], [ false, %.critedge ], [ true, %19 ]
+  %.3 = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ false, %.critedge ], [ true, %19 ]
   ret i1 %.3
 }
 

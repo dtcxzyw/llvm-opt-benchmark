@@ -41,7 +41,7 @@ define hidden i32 @SDL_GetKeyCodeFromKeySym(i32 noundef %0, i32 noundef %1, i16 
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %14, %12, %3
-  %.1 = phi i32 [ %11, %.thread ], [ %4, %3 ], [ 0, %12 ], [ %15, %14 ]
+  %.1 = phi i32 [ %15, %14 ], [ 0, %12 ], [ %4, %3 ], [ %11, %.thread ]
   ret i32 %.1
 }
 

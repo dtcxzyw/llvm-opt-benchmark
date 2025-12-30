@@ -157,7 +157,7 @@ define void @_ZN5arrow6EscapeB5cxx11EPKcm(ptr dead_on_unwind noalias nonnull wri
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.invoke: ; preds = %11, %25, %22, %19, %16
-  %14 = phi ptr [ @.str.5, %25 ], [ @.str.4, %22 ], [ @.str.2, %16 ], [ @.str.3, %19 ], [ @.str.1, %11 ]
+  %14 = phi ptr [ @.str.2, %16 ], [ @.str.3, %19 ], [ @.str.4, %22 ], [ @.str.5, %25 ], [ @.str.1, %11 ]
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, i64 noundef 2)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %.loopexit
 
@@ -892,7 +892,7 @@ define void @_ZN5arrow8internal10TrimStringENSt7__cxx1112basic_stringIcSt11char_
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !71
 
 .critedge:                                        ; preds = %9, %6
-  %.011.lcssa = phi i64 [ %.01116, %6 ], [ %4, %9 ]
+  %.011.lcssa = phi i64 [ %4, %9 ], [ %.01116, %6 ]
   switch i64 %.011.lcssa, label %13 [
     i64 -1, label %11
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
@@ -944,8 +944,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; preds = %20, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, %.critedge2
-  %25 = phi i64 [ %22, %.critedge2 ], [ 0, %2 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %20 ]
-  %.0.lcssa38 = phi i64 [ %.021, %.critedge2 ], [ 0, %2 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.pr, %20 ]
+  %25 = phi i64 [ %22, %.critedge2 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %2 ], [ 0, %20 ]
+  %.0.lcssa38 = phi i64 [ %.021, %.critedge2 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %2 ], [ %.pr, %20 ]
   switch i64 %.0.lcssa38, label %29 [
     i64 -1, label %26
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit13
@@ -1224,7 +1224,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt1
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread91
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread: ; preds = %24, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %16, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %24, %16, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %32, align 8, !tbaa !77
   br label %247

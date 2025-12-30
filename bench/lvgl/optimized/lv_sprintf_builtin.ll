@@ -56,8 +56,8 @@ define internal fastcc i32 @lv_vsnprintf_inner(ptr noundef readonly captures(non
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph408, %.lr.ph424, %470, %490, %562, %564, %296, %_ntoa_long.exit316, %_ntoa_long.exit323, %_ntoa_long_long.exit309, %_ntoa_long_long.exit, %_ntoa_long.exit302, %_ntoa_long.exit, %511, %.critedge, %18
-  %.0352.pn427 = phi ptr [ %.0352, %18 ], [ %.5357, %564 ], [ %.5357, %562 ], [ %.5357, %470 ], [ %.5357, %490 ], [ %.6358373381, %_ntoa_long.exit ], [ %.5357, %511 ], [ %.6358373381, %296 ], [ %.6358373381, %_ntoa_long.exit316 ], [ %.6358373381, %_ntoa_long.exit323 ], [ %.6358373381, %_ntoa_long_long.exit309 ], [ %.6358373381, %_ntoa_long_long.exit ], [ %.6358373381, %_ntoa_long.exit302 ], [ %.5357, %.lr.ph424 ], [ %.5357, %.critedge ], [ %.5357, %.lr.ph408 ]
-  %.0224.be = phi i64 [ %19, %18 ], [ %565, %564 ], [ %563, %562 ], [ %473, %470 ], [ %493, %490 ], [ %210, %_ntoa_long.exit ], [ %515, %511 ], [ %306, %296 ], [ %384, %_ntoa_long.exit316 ], [ %456, %_ntoa_long.exit323 ], [ %345, %_ntoa_long_long.exit309 ], [ %169, %_ntoa_long_long.exit ], [ %284, %_ntoa_long.exit302 ], [ %561, %.lr.ph424 ], [ %.9233.lcssa, %.critedge ], [ %518, %.lr.ph408 ]
+  %.0352.pn427 = phi ptr [ %.0352, %18 ], [ %.5357, %564 ], [ %.5357, %470 ], [ %.5357, %490 ], [ %.5357, %562 ], [ %.6358373381, %296 ], [ %.6358373381, %_ntoa_long.exit316 ], [ %.6358373381, %_ntoa_long.exit323 ], [ %.6358373381, %_ntoa_long_long.exit309 ], [ %.6358373381, %_ntoa_long_long.exit ], [ %.6358373381, %_ntoa_long.exit302 ], [ %.6358373381, %_ntoa_long.exit ], [ %.5357, %511 ], [ %.5357, %.critedge ], [ %.5357, %.lr.ph424 ], [ %.5357, %.lr.ph408 ]
+  %.0224.be = phi i64 [ %19, %18 ], [ %565, %564 ], [ %473, %470 ], [ %493, %490 ], [ %563, %562 ], [ %306, %296 ], [ %384, %_ntoa_long.exit316 ], [ %456, %_ntoa_long.exit323 ], [ %345, %_ntoa_long_long.exit309 ], [ %169, %_ntoa_long_long.exit ], [ %284, %_ntoa_long.exit302 ], [ %210, %_ntoa_long.exit ], [ %515, %511 ], [ %.9233.lcssa, %.critedge ], [ %561, %.lr.ph424 ], [ %518, %.lr.ph408 ]
   %.0352.be = getelementptr inbounds nuw i8, ptr %.0352.pn427, i64 1
   br label %16, !llvm.loop !7
 
@@ -87,7 +87,7 @@ define internal fastcc i32 @lv_vsnprintf_inner(ptr noundef readonly captures(non
   br label %25
 
 25:                                               ; preds = %.preheader390, %21, %22, %23, %24
-  %.sink = phi i32 [ 16, %24 ], [ 2, %21 ], [ 4, %22 ], [ 8, %23 ], [ 1, %.preheader390 ]
+  %.sink = phi i32 [ 2, %21 ], [ 4, %22 ], [ 8, %23 ], [ 16, %24 ], [ 1, %.preheader390 ]
   %26 = or i32 %.0213, %.sink
   br label %.preheader390, !llvm.loop !9
 
@@ -145,10 +145,10 @@ define internal fastcc i32 @lv_vsnprintf_inner(ptr noundef readonly captures(non
   br label %_atoi.exit
 
 _atoi.exit:                                       ; preds = %.lr.ph.i, %40, %53
-  %59 = phi i8 [ %.pr, %53 ], [ %20, %40 ], [ %37, %.lr.ph.i ]
-  %.3355 = phi ptr [ %58, %53 ], [ %.1353, %40 ], [ %33, %.lr.ph.i ]
-  %.0217 = phi i32 [ %.1218, %53 ], [ 0, %40 ], [ %36, %.lr.ph.i ]
-  %.2215 = phi i32 [ %.3216, %53 ], [ %.0213, %40 ], [ %.0213, %.lr.ph.i ]
+  %59 = phi i8 [ %20, %40 ], [ %.pr, %53 ], [ %37, %.lr.ph.i ]
+  %.3355 = phi ptr [ %.1353, %40 ], [ %58, %53 ], [ %33, %.lr.ph.i ]
+  %.0217 = phi i32 [ 0, %40 ], [ %.1218, %53 ], [ %36, %.lr.ph.i ]
+  %.2215 = phi i32 [ %.0213, %40 ], [ %.3216, %53 ], [ %.0213, %.lr.ph.i ]
   %60 = icmp eq i8 %59, 46
   br i1 %60, label %61, label %_atoi.exit289
 
@@ -206,10 +206,10 @@ _atoi.exit:                                       ; preds = %.lr.ph.i, %40, %53
   br label %_atoi.exit289
 
 _atoi.exit289:                                    ; preds = %.lr.ph.i287, %90, %77, %_atoi.exit
-  %95 = phi i8 [ %59, %_atoi.exit ], [ %.pre, %90 ], [ %64, %77 ], [ %74, %.lr.ph.i287 ]
-  %.4356 = phi ptr [ %.3355, %_atoi.exit ], [ %94, %90 ], [ %63, %77 ], [ %70, %.lr.ph.i287 ]
-  %.0219 = phi i32 [ 0, %_atoi.exit ], [ %93, %90 ], [ 0, %77 ], [ %73, %.lr.ph.i287 ]
-  %.4 = phi i32 [ %.2215, %_atoi.exit ], [ %62, %90 ], [ %62, %77 ], [ %62, %.lr.ph.i287 ]
+  %95 = phi i8 [ %.pre, %90 ], [ %64, %77 ], [ %59, %_atoi.exit ], [ %74, %.lr.ph.i287 ]
+  %.4356 = phi ptr [ %94, %90 ], [ %63, %77 ], [ %.3355, %_atoi.exit ], [ %70, %.lr.ph.i287 ]
+  %.0219 = phi i32 [ %93, %90 ], [ 0, %77 ], [ 0, %_atoi.exit ], [ %73, %.lr.ph.i287 ]
+  %.4 = phi i32 [ %62, %90 ], [ %62, %77 ], [ %.2215, %_atoi.exit ], [ %62, %.lr.ph.i287 ]
   %96 = sext i8 %95 to i32
   %97 = add nsw i32 %96, -104
   %98 = call i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 31)
@@ -236,8 +236,8 @@ _atoi.exit289:                                    ; preds = %.lr.ph.i287, %90, %
   br i1 %108, label %thread-pre-split, label %111
 
 thread-pre-split:                                 ; preds = %_atoi.exit289, %_atoi.exit289, %_atoi.exit289, %104, %99
-  %.sink501 = phi i32 [ 192, %104 ], [ 256, %_atoi.exit289 ], [ 256, %_atoi.exit289 ], [ 768, %99 ], [ 256, %_atoi.exit289 ]
-  %.sink500 = phi i64 [ 2, %104 ], [ 1, %_atoi.exit289 ], [ 1, %_atoi.exit289 ], [ 2, %99 ], [ 1, %_atoi.exit289 ]
+  %.sink501 = phi i32 [ 768, %99 ], [ 192, %104 ], [ 256, %_atoi.exit289 ], [ 256, %_atoi.exit289 ], [ 256, %_atoi.exit289 ]
+  %.sink500 = phi i64 [ 2, %99 ], [ 2, %104 ], [ 1, %_atoi.exit289 ], [ 1, %_atoi.exit289 ], [ 1, %_atoi.exit289 ]
   %109 = or i32 %.4, %.sink501
   %110 = getelementptr inbounds nuw i8, ptr %.4356, i64 %.sink500
   %.pr366 = load i8, ptr %110, align 1, !tbaa !3
@@ -283,8 +283,8 @@ thread-pre-split:                                 ; preds = %_atoi.exit289, %_at
   br label %120
 
 120:                                              ; preds = %111, %111, %112, %118
-  %.0223.ph = phi i64 [ 16, %111 ], [ 16, %111 ], [ 16, %112 ], [ 10, %118 ]
-  %.6.ph = phi i32 [ %.5, %111 ], [ %.5, %111 ], [ %113, %112 ], [ %119, %118 ]
+  %.0223.ph = phi i64 [ 10, %118 ], [ 16, %112 ], [ 16, %111 ], [ 16, %111 ]
+  %.6.ph = phi i32 [ %119, %118 ], [ %113, %112 ], [ %.5, %111 ], [ %.5, %111 ]
   switch i8 %.pr368, label %.thread [
     i8 88, label %121
     i8 80, label %121
@@ -1231,7 +1231,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond.not.i, label %.lr.ph37.i.preheader, label %.lr.ph.i, !llvm.loop !35
 
 .lr.ph37.i.preheader:                             ; preds = %.lr.ph.i, %.preheader30.i, %15
-  %.236.i.ph = phi i64 [ %2, %15 ], [ %2, %.preheader30.i ], [ %20, %.lr.ph.i ]
+  %.236.i.ph = phi i64 [ %2, %.preheader30.i ], [ %2, %15 ], [ %20, %.lr.ph.i ]
   br label %.lr.ph37.i
 
 .lr.ph37.i:                                       ; preds = %.lr.ph37.i.preheader, %.lr.ph37.i
@@ -1292,7 +1292,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond.not.i169, label %.lr.ph37.i156.preheader, label %.lr.ph.i166, !llvm.loop !35
 
 .lr.ph37.i156.preheader:                          ; preds = %.lr.ph.i166, %.preheader30.i165, %34
-  %.236.i157.ph = phi i64 [ %2, %34 ], [ %2, %.preheader30.i165 ], [ %42, %.lr.ph.i166 ]
+  %.236.i157.ph = phi i64 [ %2, %.preheader30.i165 ], [ %2, %34 ], [ %42, %.lr.ph.i166 ]
   br label %.lr.ph37.i156
 
 .lr.ph37.i156:                                    ; preds = %.lr.ph37.i156.preheader, %.lr.ph37.i156
@@ -1499,7 +1499,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   br i1 %or.cond8, label %.preheader, label %.thread, !llvm.loop !41
 
 .thread:                                          ; preds = %.preheader, %100, %.critedge, %121
-  %.7 = phi i64 [ 32, %.critedge ], [ 32, %121 ], [ 32, %100 ], [ %125, %.preheader ]
+  %.7 = phi i64 [ 32, %121 ], [ 32, %.critedge ], [ 32, %100 ], [ %125, %.preheader ]
   %131 = and i32 %7, 2
   %132 = and i32 %7, 3
   %or.cond147.not = icmp eq i32 %132, 1
@@ -1557,7 +1557,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   br label %149
 
 149:                                              ; preds = %.sink.split, %145, %.loopexit
-  %.10 = phi i64 [ 32, %.loopexit ], [ %.8, %145 ], [ %147, %.sink.split ]
+  %.10 = phi i64 [ %.8, %145 ], [ 32, %.loopexit ], [ %147, %.sink.split ]
   %.not.i171 = icmp eq i32 %131, 0
   %or.cond.i172 = icmp eq i32 %132, 0
   br i1 %or.cond.i172, label %.preheader30.i184, label %.lr.ph37.i175.preheader
@@ -1577,7 +1577,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond.not.i188, label %.lr.ph37.i175.preheader, label %.lr.ph.i185, !llvm.loop !35
 
 .lr.ph37.i175.preheader:                          ; preds = %.lr.ph.i185, %.preheader30.i184, %149
-  %.236.i176.ph = phi i64 [ %2, %149 ], [ %2, %.preheader30.i184 ], [ %152, %.lr.ph.i185 ]
+  %.236.i176.ph = phi i64 [ %2, %.preheader30.i184 ], [ %2, %149 ], [ %152, %.lr.ph.i185 ]
   br label %.lr.ph37.i175
 
 .lr.ph37.i175:                                    ; preds = %.lr.ph37.i175.preheader, %.lr.ph37.i175
@@ -1609,7 +1609,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   br i1 %163, label %.lr.ph40.i182, label %_out_rev.exit, !llvm.loop !37
 
 _out_rev.exit:                                    ; preds = %.lr.ph40.i182, %.lr.ph40.i163, %.lr.ph40.i, %.preheader.i180, %._crit_edge.i179, %.preheader.i161, %._crit_edge.i160, %.preheader.i, %._crit_edge.i, %56, %11
-  %.0115 = phi i64 [ %12, %11 ], [ %51, %.lr.ph40.i163 ], [ %29, %.lr.ph40.i ], [ %57, %56 ], [ %25, %._crit_edge.i ], [ %25, %.preheader.i ], [ %47, %._crit_edge.i160 ], [ %47, %.preheader.i161 ], [ %157, %._crit_edge.i179 ], [ %157, %.preheader.i180 ], [ %161, %.lr.ph40.i182 ]
+  %.0115 = phi i64 [ %12, %11 ], [ %57, %56 ], [ %25, %._crit_edge.i ], [ %25, %.preheader.i ], [ %47, %._crit_edge.i160 ], [ %47, %.preheader.i161 ], [ %157, %._crit_edge.i179 ], [ %157, %.preheader.i180 ], [ %29, %.lr.ph40.i ], [ %51, %.lr.ph40.i163 ], [ %161, %.lr.ph40.i182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0115
 }
@@ -1705,10 +1705,10 @@ define internal fastcc i64 @_etoa(ptr noundef readonly captures(none) %0, ptr no
   br label %72
 
 72:                                               ; preds = %70, %64, %69, %15
-  %.0110 = phi i32 [ %68, %64 ], [ %7, %15 ], [ %7, %70 ], [ %7, %69 ]
-  %.1109 = phi i32 [ %.2, %64 ], [ %.0108, %15 ], [ %spec.select, %70 ], [ 0, %69 ]
-  %.1107 = phi i32 [ 0, %64 ], [ %.0106, %15 ], [ %.0106, %70 ], [ %.0106, %69 ]
-  %.0101 = phi i32 [ 0, %64 ], [ %59, %15 ], [ %59, %70 ], [ %59, %69 ]
+  %.0110 = phi i32 [ %68, %64 ], [ %7, %69 ], [ %7, %15 ], [ %7, %70 ]
+  %.1109 = phi i32 [ %.2, %64 ], [ 0, %69 ], [ %.0108, %15 ], [ %spec.select, %70 ]
+  %.1107 = phi i32 [ 0, %64 ], [ %.0106, %69 ], [ %.0106, %15 ], [ %.0106, %70 ]
+  %.0101 = phi i32 [ 0, %64 ], [ %59, %69 ], [ %59, %15 ], [ %59, %70 ]
   %.1107.fr = freeze i32 %.1107
   %.0100 = tail call i32 @llvm.usub.sat.i32(i32 %6, i32 %.0101)
   %73 = and i32 %.0110, 2
@@ -1809,7 +1809,7 @@ _ntoa_format.exit:                                ; preds = %.lr.ph37.i.i
   br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %72, %_ntoa_format.exit, %13
-  %.0 = phi i64 [ %14, %13 ], [ %81, %72 ], [ %106, %_ntoa_format.exit ], [ %106, %.preheader ], [ %110, %.lr.ph ]
+  %.0 = phi i64 [ %14, %13 ], [ %106, %_ntoa_format.exit ], [ %81, %72 ], [ %106, %.preheader ], [ %110, %.lr.ph ]
   ret i64 %.0
 }
 
@@ -1837,7 +1837,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   br label %19
 
 19:                                               ; preds = %16, %14, %13
-  %.174 = phi i32 [ 0, %13 ], [ %spec.select91, %16 ], [ %9, %14 ]
+  %.174 = phi i32 [ %9, %14 ], [ 0, %13 ], [ %spec.select91, %16 ]
   %20 = tail call i32 @llvm.umin.i32(i32 %8, i32 32)
   %invariant.umin = zext nneg i32 %20 to i64
   %21 = icmp ult i64 %5, %invariant.umin
@@ -1868,8 +1868,8 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph106.preheader, %.preheader, %.lr.ph98, %11
-  %.073 = phi i32 [ %9, %11 ], [ %.174, %.preheader ], [ %.174, %.lr.ph98 ], [ %.174, %.lr.ph106.preheader ]
-  %.0 = phi i64 [ %5, %11 ], [ %.1.lcssa, %.preheader ], [ %.1.lcssa, %.lr.ph98 ], [ %invariant.umin102, %.lr.ph106.preheader ]
+  %.073 = phi i32 [ %9, %11 ], [ %.174, %.lr.ph98 ], [ %.174, %.preheader ], [ %.174, %.lr.ph106.preheader ]
+  %.0 = phi i64 [ %5, %11 ], [ %.1.lcssa, %.lr.ph98 ], [ %.1.lcssa, %.preheader ], [ %invariant.umin102, %.lr.ph106.preheader ]
   %26 = and i32 %10, 16
   %.not82 = icmp eq i32 %26, 0
   br i1 %.not82, label %57, label %27
@@ -1899,7 +1899,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   br label %41
 
 41:                                               ; preds = %36, %31, %27
-  %.4 = phi i64 [ %.0, %27 ], [ %spec.select, %36 ], [ %.0, %31 ]
+  %.4 = phi i64 [ %.0, %27 ], [ %.0, %31 ], [ %spec.select, %36 ]
   %42 = icmp eq i32 %7, 16
   br i1 %42, label %43, label %.critedge90
 
@@ -1929,7 +1929,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   br label %.critedge90.thread
 
 .critedge90.thread:                               ; preds = %.critedge90.thread.sink.split, %47, %.critedge90
-  %.5 = phi i64 [ %.4, %47 ], [ %.4, %.critedge90 ], [ %51, %.critedge90.thread.sink.split ]
+  %.5 = phi i64 [ %.4, %.critedge90 ], [ %.4, %47 ], [ %51, %.critedge90.thread.sink.split ]
   %53 = icmp ult i64 %.5, 32
   br i1 %53, label %54, label %.thread
 

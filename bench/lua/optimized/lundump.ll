@@ -51,7 +51,7 @@ define hidden ptr @luaU_undump(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %14
 
 14:                                               ; preds = %4, %13, %11
-  %.str.1.sink = phi ptr [ %12, %11 ], [ %2, %13 ], [ @.str.1, %4 ]
+  %.str.1.sink = phi ptr [ %2, %13 ], [ %12, %11 ], [ @.str.1, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %.str.1.sink, ptr %15, align 8, !tbaa !7
   store ptr %0, ptr %9, align 8, !tbaa !16

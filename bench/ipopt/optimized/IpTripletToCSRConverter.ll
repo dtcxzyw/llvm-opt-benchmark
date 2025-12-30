@@ -856,8 +856,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   br label %.critedge
 
 .critedge:                                        ; preds = %300, %292, %.critedge.loopexit466.split.loop.exit470, %.critedge.loopexit.split.loop.exit473, %265
-  %.2186.lcssa = phi i32 [ %.0209.lcssa, %292 ], [ %.1185332, %265 ], [ %310, %.critedge.loopexit.split.loop.exit473 ], [ %312, %.critedge.loopexit466.split.loop.exit470 ], [ %.0209.lcssa, %300 ]
-  %.2.lcssa = phi i32 [ %287, %292 ], [ %.1333, %265 ], [ %309, %.critedge.loopexit.split.loop.exit473 ], [ %311, %.critedge.loopexit466.split.loop.exit470 ], [ %284, %300 ]
+  %.2186.lcssa = phi i32 [ %.1185332, %265 ], [ %310, %.critedge.loopexit.split.loop.exit473 ], [ %312, %.critedge.loopexit466.split.loop.exit470 ], [ %.0209.lcssa, %292 ], [ %.0209.lcssa, %300 ]
+  %.2.lcssa = phi i32 [ %.1333, %265 ], [ %309, %.critedge.loopexit.split.loop.exit473 ], [ %311, %.critedge.loopexit466.split.loop.exit470 ], [ %287, %292 ], [ %284, %300 ]
   %313 = add nsw i32 %270, 1
   store i32 %313, ptr %261, align 4, !tbaa !28
   %.not233 = icmp eq i64 %indvars.iv411, %277

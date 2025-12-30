@@ -199,7 +199,7 @@ define noundef ptr @_ZN4base24DeserializeHistogramInfoEPNS_14PickleIteratorE(ptr
   br label %16
 
 16:                                               ; preds = %4, %1, %14, %12, %10, %8, %6
-  %.0 = phi ptr [ null, %1 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ null, %4 ]
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ null, %1 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -597,14 +597,14 @@ _ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29: ; preds = %.th
   br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30
 
 _ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30: ; preds = %76, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29
-  %.sroa.052.1 = phi ptr [ %.sroa.052.361, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29 ], [ %.sroa.052.6, %76 ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn63, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29 ], [ %.pn, %76 ]
+  %.sroa.052.1 = phi ptr [ %.sroa.052.6, %76 ], [ %.sroa.052.361, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %76 ], [ %.pn.pn.pn.pn63, %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i29 ]
   %.not.i31 = icmp eq ptr %.sroa.052.1, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit33, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i32
 
-_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i32: ; preds = %57, %55, %53, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30
-  %.pn.pn.pn.pn.pn.pn79 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ]
-  %.sroa.052.178 = phi ptr [ %.sroa.052.1, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30 ], [ %9, %57 ], [ %9, %55 ], [ %9, %53 ]
+_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i32: ; preds = %55, %57, %53, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30
+  %.pn.pn.pn.pn.pn.pn79 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30 ], [ %56, %55 ], [ %58, %57 ], [ %54, %53 ]
+  %.sroa.052.178 = phi ptr [ %.sroa.052.1, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit30 ], [ %9, %55 ], [ %9, %57 ], [ %9, %53 ]
   %80 = load ptr, ptr %.sroa.052.178, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8

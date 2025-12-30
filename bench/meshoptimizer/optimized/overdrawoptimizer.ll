@@ -780,7 +780,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %415, %7
   ret void
 
 420:                                              ; preds = %376, %382, %386, %384, %380, %378, %22
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %377, %376 ], [ %379, %378 ], [ %385, %384 ], [ %381, %380 ], [ %383, %382 ], [ %387, %386 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %377, %376 ], [ %379, %378 ], [ %381, %380 ], [ %383, %382 ], [ %387, %386 ], [ %385, %384 ]
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %9) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn

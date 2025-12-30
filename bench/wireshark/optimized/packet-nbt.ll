@@ -648,7 +648,7 @@ add_name_and_type.exit.i.i:                       ; preds = %104, %101
   br i1 %111, label %.lr.ph.split.i, label %dissect_query_records.exit, !llvm.loop !6
 
 dissect_query_records.exit:                       ; preds = %add_name_and_type.exit.i.i, %dissect_nbns_query.exit.us.i, %dissect_nbns_query.exit.us.us.i, %53
-  %.0.lcssa.i = phi i32 [ 12, %53 ], [ %80, %dissect_nbns_query.exit.us.i ], [ %68, %dissect_nbns_query.exit.us.us.i ], [ %110, %add_name_and_type.exit.i.i ]
+  %.0.lcssa.i = phi i32 [ 12, %53 ], [ %68, %dissect_nbns_query.exit.us.us.i ], [ %80, %dissect_nbns_query.exit.us.i ], [ %110, %add_name_and_type.exit.i.i ]
   %112 = load ptr, ptr %6, align 8
   %113 = add i32 %.0.lcssa.i, -12
   call void @proto_item_set_len(ptr noundef %112, i32 noundef %113)
@@ -1187,7 +1187,7 @@ dissect_continuation_packet.exit161:              ; preds = %66, %67
   br label %176
 
 176:                                              ; preds = %4, %._crit_edge, %166, %117, %96, %94, %91, %88, %85, %82, %78, %dissect_continuation_packet.exit161, %dissect_continuation_packet.exit, %29
-  %.0 = phi i32 [ %95, %94 ], [ %120, %117 ], [ %170, %166 ], [ %175, %._crit_edge ], [ %32, %29 ], [ %41, %dissect_continuation_packet.exit ], [ %74, %dissect_continuation_packet.exit161 ], [ %97, %96 ], [ %79, %78 ], [ %83, %82 ], [ %86, %85 ], [ %89, %88 ], [ %92, %91 ], [ 0, %4 ]
+  %.0 = phi i32 [ %120, %117 ], [ %170, %166 ], [ %175, %._crit_edge ], [ %32, %29 ], [ %41, %dissect_continuation_packet.exit ], [ %74, %dissect_continuation_packet.exit161 ], [ %97, %96 ], [ %79, %78 ], [ %83, %82 ], [ %86, %85 ], [ %89, %88 ], [ %92, %91 ], [ %95, %94 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1844,7 +1844,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph473.split.us.
   br label %dissect_nbns_answer.exit
 
 dissect_nbns_answer.exit:                         ; preds = %103, %nbns_add_nbns_flags.exit.us.i, %nbns_add_nbns_flags.exit.us.us.i, %72, %.split476.us.i, %86, %100, %133, %.split.us.i, %.split.loop.exit.i, %179, %187, %194, %202, %211, %220, %229, %238, %247, %256, %265, %274, %283, %292, %301, %310, %319, %328, %331, %360
-  %.2.i = phi i32 [ %361, %360 ], [ %.us-phi479.i, %.split476.us.i ], [ %.0471.i, %86 ], [ %97, %100 ], [ %334, %331 ], [ %39, %133 ], [ %.us-phi464.i, %.split.us.i ], [ %168, %.split.loop.exit.i ], [ %.3.lcssa.i, %179 ], [ %185, %187 ], [ %192, %194 ], [ %199, %202 ], [ %208, %211 ], [ %217, %220 ], [ %226, %229 ], [ %235, %238 ], [ %244, %247 ], [ %253, %256 ], [ %262, %265 ], [ %271, %274 ], [ %280, %283 ], [ %289, %292 ], [ %298, %301 ], [ %307, %310 ], [ %316, %319 ], [ %325, %328 ], [ %39, %72 ], [ %82, %nbns_add_nbns_flags.exit.us.i ], [ %75, %nbns_add_nbns_flags.exit.us.us.i ], [ %106, %103 ]
+  %.2.i = phi i32 [ %361, %360 ], [ %.us-phi479.i, %.split476.us.i ], [ %.0471.i, %86 ], [ %97, %100 ], [ %39, %133 ], [ %.us-phi464.i, %.split.us.i ], [ %168, %.split.loop.exit.i ], [ %.3.lcssa.i, %179 ], [ %185, %187 ], [ %192, %194 ], [ %199, %202 ], [ %208, %211 ], [ %217, %220 ], [ %226, %229 ], [ %235, %238 ], [ %244, %247 ], [ %253, %256 ], [ %262, %265 ], [ %271, %274 ], [ %280, %283 ], [ %289, %292 ], [ %298, %301 ], [ %307, %310 ], [ %316, %319 ], [ %325, %328 ], [ %334, %331 ], [ %39, %72 ], [ %75, %nbns_add_nbns_flags.exit.us.us.i ], [ %82, %nbns_add_nbns_flags.exit.us.i ], [ %106, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %362 = icmp sgt i32 %.01849, 1
   br i1 %362, label %18, label %._crit_edge, !llvm.loop !13
@@ -1987,7 +1987,7 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
   br label %58
 
 .loopexit:                                        ; preds = %21, %18, %18, %16, %31
-  %.078 = phi ptr [ %10, %31 ], [ @.str.266, %21 ], [ @.str.265, %18 ], [ @.str.264, %16 ], [ @.str.265, %18 ]
+  %.078 = phi ptr [ %10, %31 ], [ @.str.266, %21 ], [ @.str.265, %18 ], [ @.str.265, %18 ], [ @.str.264, %16 ]
   %.not90 = icmp eq ptr %5, null
   br i1 %.not90, label %55, label %54
 

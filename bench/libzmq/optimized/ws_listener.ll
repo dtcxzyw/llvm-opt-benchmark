@@ -476,7 +476,7 @@ define noundef i32 @_ZN3zmq13ws_listener_t6acceptEv(ptr noundef nonnull readonly
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %40, %43, %26, %28, %18, %15, %15, %15, %15, %15, %15, %15
-  %.0 = phi i32 [ -1, %26 ], [ -1, %18 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ %13, %40 ], [ -1, %28 ], [ %13, %43 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ], [ -1, %18 ], [ -1, %28 ], [ -1, %26 ], [ %13, %43 ], [ %13, %40 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -778,7 +778,7 @@ _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 103:                                              ; preds = %71, %88, %86, %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %58
-  %.pn40.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %59, %58 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ %72, %71 ], [ %87, %86 ], [ %89, %88 ]
+  %.pn40.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ %53, %52 ], [ %72, %71 ], [ %87, %86 ], [ %89, %88 ]
   call void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %3) #21
   br label %104
 
@@ -1109,7 +1109,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZS
   br label %.body
 
 .body:                                            ; preds = %104, %110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %78, %45
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %46, %45 ], [ %111, %110 ], [ %105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %105, %104 ]
+  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %79, %78 ], [ %111, %110 ], [ %105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %105, %104 ]
   %112 = load ptr, ptr %6, align 8, !tbaa !71
   %113 = icmp eq ptr %112, %9
   br i1 %113, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22

@@ -462,8 +462,8 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
   br i1 %exitcond.not, label %.loopexit.thread, label %44, !llvm.loop !11
 
 .loopexit:                                        ; preds = %33, %48
-  %.pre-phi = phi i32 [ %.pre74, %48 ], [ %39, %33 ]
-  %.062 = phi i32 [ %49, %48 ], [ 0, %33 ]
+  %.pre-phi = phi i32 [ %39, %33 ], [ %.pre74, %48 ]
+  %.062 = phi i32 [ 0, %33 ], [ %49, %48 ]
   %54 = icmp eq i32 %.062, %.pre-phi
   br i1 %54, label %.loopexit.thread, label %32
 
@@ -862,8 +862,8 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
   br i1 %exitcond.not, label %.loopexit.thread, label %56, !llvm.loop !14
 
 .loopexit:                                        ; preds = %45, %60
-  %.pre-phi = phi i32 [ %.pre63, %60 ], [ %51, %45 ]
-  %.051 = phi i32 [ %61, %60 ], [ 0, %45 ]
+  %.pre-phi = phi i32 [ %51, %45 ], [ %.pre63, %60 ]
+  %.051 = phi i32 [ 0, %45 ], [ %61, %60 ]
   %66 = icmp eq i32 %.051, %.pre-phi
   br i1 %66, label %.loopexit.thread, label %44
 
@@ -926,7 +926,7 @@ define dso_local ptr @systable_getnext_ordered(ptr noundef readonly captures(non
   unreachable
 
 .thread:                                          ; preds = %2, %11, %8
-  %.08 = phi ptr [ null, %8 ], [ %10, %11 ], [ null, %2 ]
+  %.08 = phi ptr [ %10, %11 ], [ null, %8 ], [ null, %2 ]
   %19 = load i32, ptr @CheckXidAlive, align 4
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %HandleConcurrentAbort.exit, label %20

@@ -103,7 +103,7 @@ define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %28, %35
-  %.183 = phi i32 [ %.082118, %28 ], [ %38, %35 ]
+  %.183 = phi i32 [ %38, %35 ], [ %.082118, %28 ]
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %41 = load float, ptr %40, align 4, !tbaa !21
   %42 = fptosi float %41 to i32
@@ -122,7 +122,7 @@ define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef 
   br label %50
 
 50:                                               ; preds = %39, %46
-  %.186 = phi i32 [ %.085117, %39 ], [ %49, %46 ]
+  %.186 = phi i32 [ %49, %46 ], [ %.085117, %39 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %28, !llvm.loop !22

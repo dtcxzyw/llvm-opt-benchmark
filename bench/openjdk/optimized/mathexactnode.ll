@@ -116,7 +116,7 @@ define hidden noundef zeroext i1 @_ZN16OverflowMulLNode11is_overflowEll(i64 noun
   br label %9
 
 9:                                                ; preds = %8, %5, %2
-  %.0 = phi i1 [ true, %5 ], [ false, %2 ], [ %mul.ov, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ %mul.ov, %8 ]
   ret i1 %.0
 }
 
@@ -160,7 +160,7 @@ define hidden noundef zeroext i1 @_ZNK16OverflowMulINode12can_overflowEPK4TypeS2
   br label %_ZN9MulHelperI16OverflowMulINodeE12can_overflowEPK4TypeS4_.exit
 
 _ZN9MulHelperI16OverflowMulINodeE12can_overflowEPK4TypeS4_.exit: ; preds = %3, %7
-  %.0.i = phi i1 [ %or.cond9.not.i, %7 ], [ false, %3 ]
+  %.0.i = phi i1 [ false, %3 ], [ %or.cond9.not.i, %7 ]
   ret i1 %.0.i
 }
 
@@ -204,7 +204,7 @@ define hidden noundef zeroext i1 @_ZNK16OverflowMulLNode12can_overflowEPK4TypeS2
   br label %_ZN9MulHelperI16OverflowMulLNodeE12can_overflowEPK4TypeS4_.exit
 
 _ZN9MulHelperI16OverflowMulLNodeE12can_overflowEPK4TypeS4_.exit: ; preds = %3, %7
-  %.0.i = phi i1 [ %or.cond9.not.i, %7 ], [ false, %3 ]
+  %.0.i = phi i1 [ false, %3 ], [ %or.cond9.not.i, %7 ]
   ret i1 %.0.i
 }
 
@@ -288,7 +288,7 @@ define hidden noundef ptr @_ZN13OverflowINode5IdealEP8PhaseGVNb(ptr noundef nonn
   br label %_ZN11IdealHelperI13OverflowINodeE5IdealEPKS0_P8PhaseGVNb.exit
 
 _ZN11IdealHelperI13OverflowINodeE5IdealEPKS0_P8PhaseGVNb.exit: ; preds = %3, %27, %33, %38, %47
-  %.0.i = phi ptr [ null, %38 ], [ %48, %47 ], [ null, %3 ], [ null, %33 ], [ null, %27 ]
+  %.0.i = phi ptr [ %48, %47 ], [ null, %3 ], [ null, %38 ], [ null, %33 ], [ null, %27 ]
   ret ptr %.0.i
 }
 
@@ -355,7 +355,7 @@ define hidden noundef ptr @_ZN13OverflowLNode5IdealEP8PhaseGVNb(ptr noundef nonn
   br label %_ZN11IdealHelperI13OverflowLNodeE5IdealEPKS0_P8PhaseGVNb.exit
 
 _ZN11IdealHelperI13OverflowLNodeE5IdealEPKS0_P8PhaseGVNb.exit: ; preds = %3, %27, %33, %38, %47
-  %.0.i = phi ptr [ null, %38 ], [ %48, %47 ], [ null, %3 ], [ null, %33 ], [ null, %27 ]
+  %.0.i = phi ptr [ %48, %47 ], [ null, %3 ], [ null, %38 ], [ null, %33 ], [ null, %27 ]
   ret ptr %.0.i
 }
 
@@ -519,7 +519,7 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueE
   br label %107
 
 107:                                              ; preds = %2, %105, %103, %96, %94, %85, %75, %65, %52, %50, %29
-  %.0 = phi ptr [ %104, %103 ], [ %23, %2 ], [ %30, %29 ], [ %51, %50 ], [ %53, %52 ], [ %66, %65 ], [ %76, %75 ], [ %86, %85 ], [ %95, %94 ], [ %97, %96 ], [ %106, %105 ]
+  %.0 = phi ptr [ %30, %29 ], [ %51, %50 ], [ %53, %52 ], [ %66, %65 ], [ %76, %75 ], [ %86, %85 ], [ %95, %94 ], [ %97, %96 ], [ %106, %105 ], [ %104, %103 ], [ %23, %2 ]
   ret ptr %.0
 }
 
@@ -683,7 +683,7 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueE
   br label %107
 
 107:                                              ; preds = %2, %105, %103, %96, %94, %85, %75, %65, %52, %50, %29
-  %.0 = phi ptr [ %104, %103 ], [ %23, %2 ], [ %30, %29 ], [ %51, %50 ], [ %53, %52 ], [ %66, %65 ], [ %76, %75 ], [ %86, %85 ], [ %95, %94 ], [ %97, %96 ], [ %106, %105 ]
+  %.0 = phi ptr [ %30, %29 ], [ %51, %50 ], [ %53, %52 ], [ %66, %65 ], [ %76, %75 ], [ %86, %85 ], [ %95, %94 ], [ %97, %96 ], [ %106, %105 ], [ %104, %103 ], [ %23, %2 ]
   ret ptr %.0
 }
 

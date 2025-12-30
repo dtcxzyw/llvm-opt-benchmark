@@ -417,7 +417,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq16tipc_connecter_t4openEv(ptr nounde
   br label %37
 
 37:                                               ; preds = %35, %36, %20, %17, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %17 ], [ -1, %36 ], [ -1, %35 ], [ %30, %20 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %17 ], [ -1, %35 ], [ -1, %36 ], [ %30, %20 ]
   ret i32 %.0
 }
 

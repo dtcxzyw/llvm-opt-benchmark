@@ -296,7 +296,7 @@ define internal range(i32 -22, 1) i32 @mpa_encode_init(ptr noundef initializes((
   br label %138
 
 138:                                              ; preds = %136, %134, %132, %130
-  %.0106 = phi i8 [ 2, %134 ], [ 0, %130 ], [ 1, %132 ], [ %., %136 ]
+  %.0106 = phi i8 [ 0, %130 ], [ 1, %132 ], [ 2, %134 ], [ %., %136 ]
   %139 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv158
   store i8 %.0106, ptr %139, align 1, !tbaa !50
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
@@ -979,7 +979,7 @@ psycho_acoustic_model.exit.loopexit.us:           ; preds = %.lr.ph.i.us
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %375, %373
-  %.164.i = phi i8 [ 62, %373 ], [ 0, %375 ], [ %392, %.loopexit.loopexit.i ]
+  %.164.i = phi i8 [ 0, %375 ], [ 62, %373 ], [ %392, %.loopexit.loopexit.i ]
   %393 = getelementptr inbounds nuw i8, ptr %.077.i, i64 %indvars.iv79.i
   store i8 %.164.i, ptr %393, align 1, !tbaa !50
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
@@ -1074,7 +1074,7 @@ psycho_acoustic_model.exit.loopexit.us:           ; preds = %.lr.ph.i.us
   br label %428
 
 428:                                              ; preds = %426, %422, %421, %420, %419, %418, %417, %394
-  %.065.i = phi i8 [ 2, %422 ], [ 2, %426 ], [ 3, %417 ], [ 3, %418 ], [ 1, %419 ], [ 2, %420 ], [ 2, %421 ], [ 0, %394 ]
+  %.065.i = phi i8 [ 3, %417 ], [ 3, %418 ], [ 1, %419 ], [ 2, %420 ], [ 2, %421 ], [ 2, %422 ], [ 2, %426 ], [ 0, %394 ]
   %429 = getelementptr inbounds nuw i8, ptr %361, i64 %indvars.iv83.i
   store i8 %.065.i, ptr %429, align 1, !tbaa !50
   %430 = getelementptr inbounds nuw i8, ptr %.077.i, i64 3
@@ -1094,7 +1094,7 @@ compute_scale_factors.exit:                       ; preds = %compute_scale_facto
   br i1 %432, label %.lr.ph106.splitthread-pre-split, label %.preheader, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %psycho_acoustic_model.exit.loopexit.us, %4, %.preheader83, %.lr.ph109, %.preheader
-  %.lcssa100200 = phi i32 [ %16, %4 ], [ %.pr, %.preheader ], [ %.lcssa100203, %.lr.ph109 ], [ %346, %.preheader83 ], [ %.lcssa100203, %psycho_acoustic_model.exit.loopexit.us ]
+  %.lcssa100200 = phi i32 [ %.pr, %.preheader ], [ %.lcssa100203, %.lr.ph109 ], [ %346, %.preheader83 ], [ %16, %4 ], [ %.lcssa100203, %psycho_acoustic_model.exit.loopexit.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %433 = sext i32 %.lcssa100200 to i64
@@ -1761,9 +1761,9 @@ put_bits.exit154.i:                               ; preds = %670, %654, %647
   br label %put_bits.exit158.i
 
 put_bits.exit158.i:                               ; preds = %765, %749, %743, %727, %716, %700, %684, %682
-  %.sroa.121.7.i = phi ptr [ %.sroa.121.6391.i, %682 ], [ %.sroa.121.6391.i, %684 ], [ %.sroa.121.53.i, %743 ], [ %.sroa.121.51.i, %716 ], [ %.sroa.121.6391.i, %700 ], [ %.sroa.121.6391.i, %727 ], [ %.sroa.121.6391.i, %749 ], [ %.sroa.121.55.i, %765 ]
-  %.sroa.61.7.i = phi i32 [ %.sroa.61.6392.i, %682 ], [ %.sroa.61.6392.i, %684 ], [ %744, %743 ], [ %717, %716 ], [ %703, %700 ], [ %730, %727 ], [ %752, %749 ], [ %766, %765 ]
-  %.sroa.0.7.i = phi i32 [ %.sroa.0.6393.i, %682 ], [ %.sroa.0.6393.i, %684 ], [ %725, %743 ], [ %698, %716 ], [ %702, %700 ], [ %729, %727 ], [ %751, %749 ], [ %747, %765 ]
+  %.sroa.121.7.i = phi ptr [ %.sroa.121.6391.i, %682 ], [ %.sroa.121.6391.i, %684 ], [ %.sroa.121.6391.i, %700 ], [ %.sroa.121.51.i, %716 ], [ %.sroa.121.6391.i, %727 ], [ %.sroa.121.53.i, %743 ], [ %.sroa.121.6391.i, %749 ], [ %.sroa.121.55.i, %765 ]
+  %.sroa.61.7.i = phi i32 [ %.sroa.61.6392.i, %682 ], [ %.sroa.61.6392.i, %684 ], [ %703, %700 ], [ %717, %716 ], [ %730, %727 ], [ %744, %743 ], [ %752, %749 ], [ %766, %765 ]
+  %.sroa.0.7.i = phi i32 [ %.sroa.0.6393.i, %682 ], [ %.sroa.0.6393.i, %684 ], [ %702, %700 ], [ %698, %716 ], [ %729, %727 ], [ %725, %743 ], [ %751, %749 ], [ %747, %765 ]
   %indvars.iv.next552.i = add nuw nsw i64 %indvars.iv551.i, 1
   %767 = load i32, ptr %14, align 8, !tbaa !30
   %768 = sext i32 %767 to i64
@@ -1786,10 +1786,10 @@ put_bits.exit158.i:                               ; preds = %765, %749, %743, %7
   br i1 %773, label %.preheader346.i, label %._crit_edge410.i, !llvm.loop !90
 
 ._crit_edge410.i:                                 ; preds = %._crit_edge396.i, %.lr.ph362.i, %.preheader346.lr.ph.i, %.preheader347.i, %.preheader349.i, %put_bits.exit146.i
-  %774 = phi i32 [ %675, %.preheader347.i ], [ %675, %.preheader346.lr.ph.i ], [ %590, %put_bits.exit146.i ], [ %633, %.preheader349.i ], [ %590, %.lr.ph362.i ], [ %770, %._crit_edge396.i ]
-  %.sroa.121.5.lcssa.i = phi ptr [ %.sroa.121.3.lcssa.i, %.preheader347.i ], [ %.sroa.121.3.lcssa.i, %.preheader346.lr.ph.i ], [ %.sroa.121.45.i, %put_bits.exit146.i ], [ %.sroa.121.1.lcssa.i, %.preheader349.i ], [ %.sroa.121.45.i, %.lr.ph362.i ], [ %.sroa.121.6.lcssa.i, %._crit_edge396.i ]
-  %.sroa.61.5.lcssa.i = phi i32 [ %.sroa.61.3.lcssa.i, %.preheader347.i ], [ %.sroa.61.3.lcssa.i, %.preheader346.lr.ph.i ], [ 32, %put_bits.exit146.i ], [ %.sroa.61.1.lcssa.i, %.preheader349.i ], [ 32, %.lr.ph362.i ], [ %.sroa.61.6.lcssa.i, %._crit_edge396.i ]
-  %.sroa.0.5.lcssa.i = phi i32 [ %.sroa.0.3.lcssa.i, %.preheader347.i ], [ %.sroa.0.3.lcssa.i, %.preheader346.lr.ph.i ], [ 0, %put_bits.exit146.i ], [ %.sroa.0.1.lcssa.i, %.preheader349.i ], [ 0, %.lr.ph362.i ], [ %.sroa.0.6.lcssa.i, %._crit_edge396.i ]
+  %774 = phi i32 [ %675, %.preheader347.i ], [ %675, %.preheader346.lr.ph.i ], [ %633, %.preheader349.i ], [ %590, %put_bits.exit146.i ], [ %590, %.lr.ph362.i ], [ %770, %._crit_edge396.i ]
+  %.sroa.121.5.lcssa.i = phi ptr [ %.sroa.121.3.lcssa.i, %.preheader347.i ], [ %.sroa.121.3.lcssa.i, %.preheader346.lr.ph.i ], [ %.sroa.121.1.lcssa.i, %.preheader349.i ], [ %.sroa.121.45.i, %put_bits.exit146.i ], [ %.sroa.121.45.i, %.lr.ph362.i ], [ %.sroa.121.6.lcssa.i, %._crit_edge396.i ]
+  %.sroa.61.5.lcssa.i = phi i32 [ %.sroa.61.3.lcssa.i, %.preheader347.i ], [ %.sroa.61.3.lcssa.i, %.preheader346.lr.ph.i ], [ %.sroa.61.1.lcssa.i, %.preheader349.i ], [ 32, %put_bits.exit146.i ], [ 32, %.lr.ph362.i ], [ %.sroa.61.6.lcssa.i, %._crit_edge396.i ]
+  %.sroa.0.5.lcssa.i = phi i32 [ %.sroa.0.3.lcssa.i, %.preheader347.i ], [ %.sroa.0.3.lcssa.i, %.preheader346.lr.ph.i ], [ %.sroa.0.1.lcssa.i, %.preheader349.i ], [ 0, %put_bits.exit146.i ], [ 0, %.lr.ph362.i ], [ %.sroa.0.6.lcssa.i, %._crit_edge396.i ]
   %775 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %776 = load i32, ptr %775, align 4, !tbaa !48
   %.not.i60 = icmp eq i32 %776, 0
@@ -2148,9 +2148,9 @@ put_bits.exit178.i:                               ; preds = %928, %912
   br label %put_bits.exit170.i
 
 put_bits.exit170.i:                               ; preds = %948, %932, %890, %874
-  %.sroa.121.13.i = phi ptr [ %.sroa.121.57.i, %890 ], [ %.sroa.121.12422.i, %874 ], [ %.sroa.121.62.i, %932 ], [ %.sroa.121.63.i, %948 ]
-  %.sroa.61.13.i = phi i32 [ %891, %890 ], [ %877, %874 ], [ %935, %932 ], [ %949, %948 ]
-  %.sroa.0.13.i = phi i32 [ %872, %890 ], [ %876, %874 ], [ %934, %932 ], [ %930, %948 ]
+  %.sroa.121.13.i = phi ptr [ %.sroa.121.12422.i, %874 ], [ %.sroa.121.57.i, %890 ], [ %.sroa.121.62.i, %932 ], [ %.sroa.121.63.i, %948 ]
+  %.sroa.61.13.i = phi i32 [ %877, %874 ], [ %891, %890 ], [ %935, %932 ], [ %949, %948 ]
+  %.sroa.0.13.i = phi i32 [ %876, %874 ], [ %872, %890 ], [ %934, %932 ], [ %930, %948 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre598.i = load i32, ptr %14, align 8, !tbaa !30
   br label %950
@@ -2475,9 +2475,9 @@ put_bits.exit194.i:                               ; preds = %1082, %1066
   br label %put_bits.exit186.i
 
 put_bits.exit186.i:                               ; preds = %1102, %1086, %1044, %1028
-  %.sroa.121.19.i = phi ptr [ %.sroa.121.65.i, %1044 ], [ %.sroa.121.18477.i, %1028 ], [ %.sroa.121.70.i, %1086 ], [ %.sroa.121.71.i, %1102 ]
-  %.sroa.61.19.i = phi i32 [ %1045, %1044 ], [ %1031, %1028 ], [ %1089, %1086 ], [ %1103, %1102 ]
-  %.sroa.0.19.i = phi i32 [ %1026, %1044 ], [ %1030, %1028 ], [ %1088, %1086 ], [ %1084, %1102 ]
+  %.sroa.121.19.i = phi ptr [ %.sroa.121.18477.i, %1028 ], [ %.sroa.121.65.i, %1044 ], [ %.sroa.121.70.i, %1086 ], [ %.sroa.121.71.i, %1102 ]
+  %.sroa.61.19.i = phi i32 [ %1031, %1028 ], [ %1045, %1044 ], [ %1089, %1086 ], [ %1103, %1102 ]
+  %.sroa.0.19.i = phi i32 [ %1030, %1028 ], [ %1026, %1044 ], [ %1088, %1086 ], [ %1084, %1102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre600.i = load i32, ptr %14, align 8, !tbaa !30
   br label %1104

@@ -242,7 +242,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   br i1 %.not64.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
 116:                                              ; preds = %11, %._crit_edge97, %18
-  %.0 = phi i8 [ %33, %._crit_edge97 ], [ %19, %18 ], [ %8, %11 ]
+  %.0 = phi i8 [ %19, %18 ], [ %33, %._crit_edge97 ], [ %8, %11 ]
   ret i8 %.0
 }
 

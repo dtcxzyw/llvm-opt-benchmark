@@ -130,7 +130,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$quinn..recv_stream
   br i1 %14, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$GT$17ha0c37efe3024eb2aE.exit", label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$GT$17ha0c37efe3024eb2aE.exit.sink.split"
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$GT$17ha0c37efe3024eb2aE.exit.sink.split": ; preds = %11, %5, %9
-  %.sink = phi ptr [ %6, %5 ], [ %10, %9 ], [ %12, %11 ]
+  %.sink = phi ptr [ %10, %9 ], [ %6, %5 ], [ %12, %11 ]
   tail call void @"_ZN4core3ptr62drop_in_place$LT$quinn_proto..connection..assembler..Chunk$GT$17ha0929071a2da20caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.sink)
   br label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$GT$17ha0c37efe3024eb2aE.exit"
 
@@ -1214,9 +1214,9 @@ common.resume:                                    ; preds = %57, %37
   br label %.thread
 
 .loopexit87:                                      ; preds = %.noexc75, %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$C$quinn_proto..connection..streams..recv..ReadError$GT$$GT$17hcf66bd804b82ed4cE.exit.i", %125, %77
-  %.sroa.6.0 = phi i64 [ %.sroa.6.8.insert.ext, %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$C$quinn_proto..connection..streams..recv..ReadError$GT$$GT$17hcf66bd804b82ed4cE.exit.i" ], [ %128, %125 ], [ undef, %77 ], [ undef, %.noexc75 ]
-  %.sroa.078.0 = phi i64 [ 3, %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$C$quinn_proto..connection..streams..recv..ReadError$GT$$GT$17hcf66bd804b82ed4cE.exit.i" ], [ %126, %125 ], [ 2, %77 ], [ 2, %.noexc75 ]
-  %.sroa.9.0 = phi i1 [ undef, %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$C$quinn_proto..connection..streams..recv..ReadError$GT$$GT$17hcf66bd804b82ed4cE.exit.i" ], [ %129, %125 ], [ undef, %77 ], [ undef, %.noexc75 ]
+  %.sroa.6.0 = phi i64 [ %128, %125 ], [ %.sroa.6.8.insert.ext, %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$C$quinn_proto..connection..streams..recv..ReadError$GT$$GT$17hcf66bd804b82ed4cE.exit.i" ], [ undef, %77 ], [ undef, %.noexc75 ]
+  %.sroa.078.0 = phi i64 [ %126, %125 ], [ 3, %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$C$quinn_proto..connection..streams..recv..ReadError$GT$$GT$17hcf66bd804b82ed4cE.exit.i" ], [ 2, %77 ], [ 2, %.noexc75 ]
+  %.sroa.9.0 = phi i1 [ %129, %125 ], [ undef, %"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$quinn_proto..connection..assembler..Chunk$GT$$C$quinn_proto..connection..streams..recv..ReadError$GT$$GT$17hcf66bd804b82ed4cE.exit.i" ], [ undef, %77 ], [ undef, %.noexc75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false)
@@ -1966,11 +1966,11 @@ default.unreachable:                              ; preds = %64, %51, %36, %27, 
   br label %.thread.i.i.i.i
 
 "_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i": ; preds = %116, %113, %.body.i.i.i, %.body.thread.i.i.i
-  %45 = phi ptr [ %.phi.trans.insert.i, %116 ], [ %103, %.body.thread.i.i.i ], [ %.phi.trans.insert.i, %.body.i.i.i ], [ %.phi.trans.insert.i, %113 ]
-  %46 = phi ptr [ %28, %116 ], [ %104, %.body.thread.i.i.i ], [ %28, %.body.i.i.i ], [ %28, %113 ]
-  %47 = phi ptr [ %.phi.trans.insert.i.i, %116 ], [ %105, %.body.thread.i.i.i ], [ %.phi.trans.insert.i.i, %.body.i.i.i ], [ %.phi.trans.insert.i.i, %113 ]
-  %48 = phi ptr [ %37, %116 ], [ %106, %.body.thread.i.i.i ], [ %37, %.body.i.i.i ], [ %37, %113 ]
-  %.pn9.i.i.i = phi { ptr, i32 } [ %112, %116 ], [ %.pn14.i.i.i.i, %.body.thread.i.i.i ], [ %112, %.body.i.i.i ], [ %112, %113 ]
+  %45 = phi ptr [ %103, %.body.thread.i.i.i ], [ %.phi.trans.insert.i, %.body.i.i.i ], [ %.phi.trans.insert.i, %113 ], [ %.phi.trans.insert.i, %116 ]
+  %46 = phi ptr [ %104, %.body.thread.i.i.i ], [ %28, %.body.i.i.i ], [ %28, %113 ], [ %28, %116 ]
+  %47 = phi ptr [ %105, %.body.thread.i.i.i ], [ %.phi.trans.insert.i.i, %.body.i.i.i ], [ %.phi.trans.insert.i.i, %113 ], [ %.phi.trans.insert.i.i, %116 ]
+  %48 = phi ptr [ %106, %.body.thread.i.i.i ], [ %37, %.body.i.i.i ], [ %37, %113 ], [ %37, %116 ]
+  %.pn9.i.i.i = phi { ptr, i32 } [ %.pn14.i.i.i.i, %.body.thread.i.i.i ], [ %112, %.body.i.i.i ], [ %112, %113 ], [ %112, %116 ]
   store i8 2, ptr %47, align 8, !noalias !116
   br label %.body.i.i
 
@@ -2162,12 +2162,12 @@ default.unreachable:                              ; preds = %64, %51, %36, %27, 
   br label %.body.thread.i.i.i
 
 .body.thread.i.i.i:                               ; preds = %108, %101, %.body.i.i.i.i, %.body.thread.i.i.i.i
-  %103 = phi ptr [ %78, %101 ], [ %.phi.trans.insert.i, %108 ], [ %78, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i, %.body.i.i.i.i ]
-  %104 = phi ptr [ %79, %101 ], [ %28, %108 ], [ %79, %.body.thread.i.i.i.i ], [ %28, %.body.i.i.i.i ]
-  %105 = phi ptr [ %80, %101 ], [ %.phi.trans.insert.i.i, %108 ], [ %80, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i.i, %.body.i.i.i.i ]
-  %106 = phi ptr [ %81, %101 ], [ %37, %108 ], [ %81, %.body.thread.i.i.i.i ], [ %37, %.body.i.i.i.i ]
-  %107 = phi ptr [ %82, %101 ], [ %.phi.trans.insert.i.i.i, %108 ], [ %82, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i.i.i, %.body.i.i.i.i ]
-  %.pn14.i.i.i.i = phi { ptr, i32 } [ %102, %101 ], [ %96, %108 ], [ %.pn2.i.i.i.i.i, %.body.thread.i.i.i.i ], [ %96, %.body.i.i.i.i ]
+  %103 = phi ptr [ %78, %101 ], [ %78, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i, %.body.i.i.i.i ], [ %.phi.trans.insert.i, %108 ]
+  %104 = phi ptr [ %79, %101 ], [ %79, %.body.thread.i.i.i.i ], [ %28, %.body.i.i.i.i ], [ %28, %108 ]
+  %105 = phi ptr [ %80, %101 ], [ %80, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i.i, %.body.i.i.i.i ], [ %.phi.trans.insert.i.i, %108 ]
+  %106 = phi ptr [ %81, %101 ], [ %81, %.body.thread.i.i.i.i ], [ %37, %.body.i.i.i.i ], [ %37, %108 ]
+  %107 = phi ptr [ %82, %101 ], [ %82, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i.i.i, %.body.i.i.i.i ], [ %.phi.trans.insert.i.i.i, %108 ]
+  %.pn14.i.i.i.i = phi { ptr, i32 } [ %102, %101 ], [ %.pn2.i.i.i.i.i, %.body.thread.i.i.i.i ], [ %96, %.body.i.i.i.i ], [ %96, %108 ]
   store i8 2, ptr %107, align 8, !noalias !119
   br label %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i"
 
@@ -2212,10 +2212,10 @@ default.unreachable:                              ; preds = %64, %51, %36, %27, 
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %120, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i"
-  %122 = phi ptr [ %45, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i" ], [ %.phi.trans.insert.i, %120 ]
-  %123 = phi ptr [ %46, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i" ], [ %28, %120 ]
-  %124 = phi ptr [ %48, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i" ], [ %37, %120 ]
-  %.pn.i.i = phi { ptr, i32 } [ %.pn9.i.i.i, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i" ], [ %121, %120 ]
+  %122 = phi ptr [ %.phi.trans.insert.i, %120 ], [ %45, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i" ]
+  %123 = phi ptr [ %28, %120 ], [ %46, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i" ]
+  %124 = phi ptr [ %37, %120 ], [ %48, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i" ]
+  %.pn.i.i = phi { ptr, i32 } [ %121, %120 ], [ %.pn9.i.i.i, %"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2591f2de72f123d1E.exit16.i.i.i" ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$tokio..net..udp..UdpSocket..ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9baba7db957ada25E"(ptr noundef nonnull align 8 %124) #18
           to label %33 unwind label %125
 
@@ -2268,8 +2268,8 @@ default.unreachable:                              ; preds = %64, %51, %36, %27, 
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$quinn..runtime..tokio..UdpSocket$GT$$GT$17h218e7b8cdbcdfe1eE.exit.i"
 
 .body.i:                                          ; preds = %127, %33
-  %136 = phi ptr [ %123, %33 ], [ %28, %127 ]
-  %.pn6.i = phi { ptr, i32 } [ %.pn.i.i, %33 ], [ %128, %127 ]
+  %136 = phi ptr [ %28, %127 ], [ %123, %33 ]
+  %.pn6.i = phi { ptr, i32 } [ %128, %127 ], [ %.pn.i.i, %33 ]
   invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$tokio..net..udp..UdpSocket..writable..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc64d3201fb1f4311E"(ptr noundef nonnull align 8 %136) #18
           to label %20 unwind label %137
 
@@ -2280,8 +2280,8 @@ default.unreachable:                              ; preds = %64, %51, %36, %27, 
   unreachable
 
 "_ZN83_$LT$quinn..runtime..tokio..UdpSocket$u20$as$u20$quinn..runtime..AsyncUdpSocket$GT$16create_io_poller28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2c94c1df87526746E.exit": ; preds = %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.i", %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.thread.i", %133
-  %storemerge.i = phi i8 [ 1, %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.thread.i" ], [ 1, %133 ], [ 3, %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.i" ]
-  %common.ret.op.i = phi { i64, ptr } [ %129, %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.thread.i" ], [ %129, %133 ], [ { i64 1, ptr undef }, %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.i" ]
+  %storemerge.i = phi i8 [ 1, %133 ], [ 1, %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.thread.i" ], [ 3, %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.i" ]
+  %common.ret.op.i = phi { i64, ptr } [ %129, %133 ], [ %129, %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.thread.i" ], [ { i64 1, ptr undef }, %"_ZN5tokio3net3udp9UdpSocket8writable28_$u7b$$u7b$closure$u7d$$u7d$17hce831e059e695c8dE.exit.i" ]
   store i8 %storemerge.i, ptr %16, align 8, !noalias !103
   %139 = extractvalue { i64, ptr } %common.ret.op.i, 0
   %140 = extractvalue { i64, ptr } %common.ret.op.i, 1

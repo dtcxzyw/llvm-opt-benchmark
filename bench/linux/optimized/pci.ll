@@ -692,7 +692,7 @@ define dso_local zeroext i8 @pci_find_capability(ptr noundef readonly captures(n
   br label %18
 
 18:                                               ; preds = %17, %16, %16
-  %19 = phi i8 [ 52, %16 ], [ 20, %17 ], [ 52, %16 ]
+  %19 = phi i8 [ 20, %17 ], [ 52, %16 ], [ 52, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %8, align 8
@@ -782,7 +782,7 @@ define dso_local zeroext i8 @pci_bus_find_capability(ptr noundef %0, i32 noundef
   br label %17
 
 17:                                               ; preds = %16, %14, %14
-  %18 = phi i8 [ 52, %14 ], [ 20, %16 ], [ 52, %14 ]
+  %18 = phi i8 [ 20, %16 ], [ 52, %14 ], [ 52, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %18, ptr %4, align 1
@@ -1171,7 +1171,7 @@ define internal fastcc zeroext i8 @__pci_find_next_ht_cap(ptr noundef %0, i8 nou
   br i1 %73, label %.loopexit, label %.preheader8, !llvm.loop !11
 
 .loopexit:                                        ; preds = %71, %43, %.preheader8, %.thread7, %.thread, %34
-  %74 = phi i8 [ 0, %34 ], [ 0, %.thread7 ], [ 0, %.thread ], [ 0, %71 ], [ %37, %43 ], [ 0, %.preheader8 ]
+  %74 = phi i8 [ 0, %34 ], [ 0, %.thread ], [ 0, %.thread7 ], [ 0, %71 ], [ %37, %43 ], [ 0, %.preheader8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i8 %74
 }
@@ -1204,7 +1204,7 @@ define dso_local zeroext i8 @pci_find_ht_capability(ptr noundef %0, i32 noundef 
   br label %16
 
 16:                                               ; preds = %15, %14, %14
-  %17 = phi i8 [ 52, %14 ], [ 20, %15 ], [ 52, %14 ]
+  %17 = phi i8 [ 20, %15 ], [ 52, %14 ], [ 52, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call fastcc zeroext i8 @__pci_find_next_ht_cap(ptr noundef %0, i8 noundef zeroext %17, i32 noundef %1)
   br label %19
@@ -2226,7 +2226,7 @@ __pci_bus_set_current_state.exit:                 ; preds = %.thread12, %125, %1
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread8.thread, %.thread22, %133, %138, %147, %112, %__pci_bus_set_current_state.exit, %148, %152, %107, %111, %.thread, %.thread8, %82, %32, %25
-  %153 = phi i32 [ %83, %82 ], [ %127, %148 ], [ 0, %25 ], [ 0, %32 ], [ 0, %.thread8 ], [ 0, %.thread ], [ %97, %107 ], [ %97, %111 ], [ %127, %152 ], [ 0, %112 ], [ 0, %__pci_bus_set_current_state.exit ], [ 0, %147 ], [ 0, %138 ], [ 0, %133 ], [ 0, %.thread22 ], [ 0, %.thread8.thread ]
+  %153 = phi i32 [ %83, %82 ], [ 0, %25 ], [ 0, %32 ], [ 0, %.thread8 ], [ 0, %.thread ], [ %97, %111 ], [ %97, %107 ], [ %127, %152 ], [ %127, %148 ], [ 0, %__pci_bus_set_current_state.exit ], [ 0, %112 ], [ 0, %147 ], [ 0, %138 ], [ 0, %133 ], [ 0, %.thread22 ], [ 0, %.thread8.thread ]
   ret i32 %153
 }
 
@@ -4298,7 +4298,7 @@ define internal fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %1, i1
   %27 = tail call i32 @acpi_pci_wakeup(ptr noundef %0, i1 noundef zeroext true) #27
   br label %31
 
-28:                                               ; preds = %18, %14
+28:                                               ; preds = %14, %18
   %29 = tail call i32 @acpi_pci_wakeup(ptr noundef %0, i1 noundef zeroext true) #27
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %40
@@ -4321,7 +4321,7 @@ define internal fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %1, i1
   br label %40
 
 40:                                               ; preds = %3, %38, %28, %._crit_edge
-  %41 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ %29, %28 ], [ 0, %38 ]
+  %41 = phi i32 [ 0, %._crit_edge ], [ %29, %28 ], [ 0, %38 ], [ 0, %3 ]
   ret i32 %41
 }
 
@@ -4417,8 +4417,8 @@ define dso_local range(i32 -22, 1) i32 @pci_prepare_to_sleep(ptr noundef %0) #4 
   br i1 %21, label %25, label %.thread2
 
 .thread2:                                         ; preds = %.thread, %19, %14
-  %22 = phi i1 [ false, %14 ], [ true, %19 ], [ false, %.thread ]
-  %23 = phi i32 [ %10, %14 ], [ %10, %19 ], [ %12, %.thread ]
+  %22 = phi i1 [ true, %19 ], [ false, %14 ], [ false, %.thread ]
+  %23 = phi i32 [ %10, %19 ], [ %10, %14 ], [ %12, %.thread ]
   %24 = tail call fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %23, i1 noundef zeroext %22)
   br label %25
 
@@ -4452,7 +4452,7 @@ define dso_local range(i32 -22, 1) i32 @pci_prepare_to_sleep(ptr noundef %0) #4 
   br label %42
 
 42:                                               ; preds = %29, %.thread, %37, %25, %6
-  %43 = phi i32 [ -5, %6 ], [ 0, %25 ], [ %27, %29 ], [ -5, %.thread ], [ %27, %37 ]
+  %43 = phi i32 [ -5, %6 ], [ 0, %25 ], [ %27, %37 ], [ -5, %.thread ], [ %27, %29 ]
   ret i32 %43
 }
 
@@ -4683,7 +4683,7 @@ define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %
   br label %68
 
 68:                                               ; preds = %56, %64, %.loopexit, %1
-  %69 = phi i32 [ -5, %1 ], [ 0, %.loopexit ], [ %54, %56 ], [ %54, %64 ]
+  %69 = phi i32 [ -5, %1 ], [ 0, %.loopexit ], [ %54, %64 ], [ %54, %56 ]
   ret i32 %69
 }
 
@@ -5275,7 +5275,7 @@ define dso_local void @pci_bridge_d3_update(ptr noundef readonly captures(none) 
   br label %60
 
 60:                                               ; preds = %.thread2, %57, %52
-  %61 = phi i8 [ 1, %52 ], [ 0, %.thread2 ], [ %.pre, %57 ]
+  %61 = phi i8 [ 0, %.thread2 ], [ %.pre, %57 ], [ 1, %52 ]
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 157
   %63 = load i24, ptr %62, align 1
   %64 = lshr i24 %63, 11
@@ -5692,7 +5692,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
   br label %145
 
 77:                                               ; preds = %74, %74, %75, %76
-  %78 = phi i64 [ 560, %76 ], [ 304, %75 ], [ 8752, %74 ], [ 8752, %74 ]
+  %78 = phi i64 [ 304, %75 ], [ 560, %76 ], [ 8752, %74 ], [ 8752, %74 ]
   %79 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %35, ptr noundef nonnull %3) #27
   %80 = load i32, ptr %3, align 4
   %81 = and i32 %80, -4
@@ -6492,7 +6492,7 @@ define internal fastcc range(i32 8, 0) i32 @pci_rebar_find_pos(ptr noundef %0, i
   br i1 %47, label %.loopexit, label %38
 
 .loopexit:                                        ; preds = %.preheader, %38, %.thread, %30
-  %48 = phi i32 [ -524, %.thread ], [ -2, %30 ], [ %41, %.preheader ], [ -2, %38 ]
+  %48 = phi i32 [ -2, %30 ], [ -524, %.thread ], [ %41, %.preheader ], [ -2, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %48
 }
@@ -8449,7 +8449,7 @@ define dso_local noundef zeroext i1 @pcie_wait_for_link(ptr noundef %0, i1 nound
   br i1 %25, label %pcie_wait_for_link_delay.exit, label %26
 
 26:                                               ; preds = %2, %24, %23
-  %27 = phi i32 [ 100, %23 ], [ 100, %24 ], [ 1100, %2 ]
+  %27 = phi i32 [ 100, %24 ], [ 100, %23 ], [ 1100, %2 ]
   call void @msleep(i32 noundef %27) #27
   br label %pcie_wait_for_link_delay.exit
 
@@ -9774,7 +9774,7 @@ define dso_local i32 @pci_reset_bus(ptr noundef readonly captures(none) %0) #4 a
   br label %.thread27
 
 .thread27:                                        ; preds = %57, %169, %174, %180, %185, %182, %.loopexit, %.loopexit34, %6
-  %189 = phi i32 [ %8, %6 ], [ %117, %.loopexit ], [ -11, %.loopexit34 ], [ %117, %169 ], [ %188, %185 ], [ -11, %182 ], [ -25, %174 ], [ -25, %180 ], [ -11, %57 ]
+  %189 = phi i32 [ %8, %6 ], [ %117, %.loopexit ], [ -11, %.loopexit34 ], [ %188, %185 ], [ -11, %182 ], [ -25, %180 ], [ -25, %174 ], [ %117, %169 ], [ -11, %57 ]
   ret i32 %189
 }
 
@@ -10399,7 +10399,7 @@ switch.edge.us10:                                 ; preds = %.split.split.split.
   br label %112
 
 112:                                              ; preds = %111, %105
-  %113 = phi i32 [ %89, %105 ], [ %107, %111 ]
+  %113 = phi i32 [ %107, %111 ], [ %89, %105 ]
   %114 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
@@ -10483,7 +10483,7 @@ switch.edge:                                      ; preds = %.split.split.split
   br i1 %157, label %.thread, label %.split.split.split, !llvm.loop !90
 
 .thread:                                          ; preds = %154, %147, %119, %112, %77, %84, %49, %42, %11
-  %158 = phi i32 [ 0, %11 ], [ %113, %119 ], [ %43, %49 ], [ %78, %77 ], [ %43, %42 ], [ %78, %84 ], [ %113, %112 ], [ %148, %147 ], [ %148, %154 ]
+  %158 = phi i32 [ 0, %11 ], [ %43, %42 ], [ %43, %49 ], [ %78, %84 ], [ %78, %77 ], [ %113, %112 ], [ %113, %119 ], [ %148, %147 ], [ %148, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %158
 }
@@ -11768,7 +11768,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   br i1 %24, label %98, label %.thread
 
 .thread:                                          ; preds = %14, %15, %20
-  %25 = phi i1 [ false, %14 ], [ true, %20 ], [ false, %15 ]
+  %25 = phi i1 [ true, %20 ], [ false, %15 ], [ false, %14 ]
   store i16 0, ptr %4, align 2, !annotation !8
   %26 = zext i8 %6 to i32
   %27 = add nuw nsw i32 %26, 4

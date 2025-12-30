@@ -208,7 +208,7 @@ switch.early.test:                                ; preds = %53
   ]
 
 59:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %53, %51, %49, %._crit_edge
-  %.041 = phi ptr [ %levels_out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ @levels_out_rgb8_pix_fmts, %._crit_edge ], [ @levels_out_rgb9_pix_fmts, %49 ], [ @levels_out_rgb10_pix_fmts, %51 ], [ @levels_out_rgb12_pix_fmts, %53 ], [ %levels_out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %levels_out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %levels_out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ]
+  %.041 = phi ptr [ @levels_out_rgb8_pix_fmts, %._crit_edge ], [ @levels_out_rgb9_pix_fmts, %49 ], [ @levels_out_rgb10_pix_fmts, %51 ], [ %levels_out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ @levels_out_rgb12_pix_fmts, %53 ], [ %levels_out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %levels_out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %levels_out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ]
   %60 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.041) #8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = load ptr, ptr %61, align 8, !tbaa !46
@@ -219,7 +219,7 @@ switch.early.test:                                ; preds = %53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %switch.early.test, %59, %12, %1, %7
-  %.0 = phi i32 [ %17, %12 ], [ %., %59 ], [ -11, %switch.early.test ], [ -11, %7 ], [ -11, %1 ], [ -11, %43 ], [ -11, %.lr.ph ]
+  %.0 = phi i32 [ -11, %7 ], [ -11, %1 ], [ %17, %12 ], [ %., %59 ], [ -11, %switch.early.test ], [ -11, %43 ], [ -11, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1490,7 +1490,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %779
 
 779:                                              ; preds = %776, %.thread564, %771, %.thread562, %23
-  %.0 = phi i32 [ %778, %.thread562 ], [ 0, %771 ], [ -12, %23 ], [ %777, %776 ], [ -12, %.thread564 ]
+  %.0 = phi i32 [ %778, %.thread562 ], [ -12, %23 ], [ 0, %771 ], [ %777, %776 ], [ -12, %.thread564 ]
   ret i32 %.0
 }
 

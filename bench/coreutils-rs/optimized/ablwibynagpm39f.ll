@@ -255,8 +255,8 @@ define hidden void @_ZN7memmap211MmapOptions3map17hbdeef46ea633fd2cE(ptr noalias
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7be3172de1893867E.llvm.18350385425388418910.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h7be3172de1893867E.llvm.18350385425388418910.exit": ; preds = %16, %20, %33, %25
-  %.sink = phi ptr [ %32, %33 ], [ %32, %25 ], [ %21, %20 ], [ %17, %16 ]
-  %storemerge.i.sink = phi i64 [ 0, %33 ], [ 1, %25 ], [ 1, %20 ], [ 1, %16 ]
+  %.sink = phi ptr [ %32, %25 ], [ %32, %33 ], [ %17, %16 ], [ %21, %20 ]
+  %storemerge.i.sink = phi i64 [ 1, %25 ], [ 0, %33 ], [ 1, %16 ], [ 1, %20 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %37, align 8
   store i64 %storemerge.i.sink, ptr %0, align 8
@@ -332,8 +332,8 @@ define hidden void @_ZN7memmap211MmapOptions3map17hc6ccfd0311576e46E(ptr noalias
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h365ad126e415addaE.llvm.18350385425388418910.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h365ad126e415addaE.llvm.18350385425388418910.exit": ; preds = %15, %19, %32, %24
-  %.sink = phi ptr [ %31, %32 ], [ %31, %24 ], [ %20, %19 ], [ %16, %15 ]
-  %storemerge.i.sink = phi i64 [ 0, %32 ], [ 1, %24 ], [ 1, %19 ], [ 1, %15 ]
+  %.sink = phi ptr [ %31, %24 ], [ %31, %32 ], [ %16, %15 ], [ %20, %19 ]
+  %storemerge.i.sink = phi i64 [ 1, %24 ], [ 0, %32 ], [ 1, %15 ], [ 1, %19 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %36, align 8
   store i64 %storemerge.i.sink, ptr %0, align 8

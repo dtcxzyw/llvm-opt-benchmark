@@ -213,7 +213,7 @@ define internal i64 @smbios_label_show(ptr noundef readonly captures(none) %0, p
   br i1 %38, label %find_smbios_instance_string.exit, label %.preheader.i, !llvm.loop !5
 
 find_smbios_instance_string.exit:                 ; preds = %36, %3, %31, %34
-  %39 = phi i64 [ 0, %3 ], [ %33, %31 ], [ %35, %34 ], [ 0, %36 ]
+  %39 = phi i64 [ %33, %31 ], [ %35, %34 ], [ 0, %3 ], [ 0, %36 ]
   ret i64 %39
 }
 
@@ -281,7 +281,7 @@ define internal i64 @index_show(ptr noundef readonly captures(none) %0, ptr read
   br i1 %40, label %find_smbios_instance_string.exit, label %.preheader.i, !llvm.loop !5
 
 find_smbios_instance_string.exit:                 ; preds = %38, %3, %29, %34
-  %41 = phi i64 [ %33, %29 ], [ 0, %3 ], [ %37, %34 ], [ 0, %38 ]
+  %41 = phi i64 [ %33, %29 ], [ %37, %34 ], [ 0, %3 ], [ 0, %38 ]
   ret i64 %41
 }
 
@@ -381,7 +381,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dsm_get_label(ptr %.632.v
   br label %.thread
 
 .thread:                                          ; preds = %49, %2, %.thread1, %11, %7
-  %52 = phi i32 [ -1, %.thread1 ], [ -1, %7 ], [ -1, %11 ], [ -1, %2 ], [ %spec.select, %49 ]
+  %52 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %.thread1 ], [ -1, %2 ], [ %spec.select, %49 ]
   ret i32 %52
 }
 

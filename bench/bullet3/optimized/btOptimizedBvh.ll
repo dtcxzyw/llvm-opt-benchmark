@@ -450,7 +450,7 @@ _ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6expandERKS0_.exit: ; preds = %._ZN
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %111, %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6expandERKS0_.exit
-  %161 = phi i32 [ %116, %111 ], [ %136, %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6expandERKS0_.exit ]
+  %161 = phi i32 [ %136, %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6expandERKS0_.exit ], [ %116, %111 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %161, ptr %162, align 8, !tbaa !67
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 152

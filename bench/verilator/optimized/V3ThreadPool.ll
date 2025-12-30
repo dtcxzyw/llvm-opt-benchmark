@@ -1308,7 +1308,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %124, %126
   br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
 _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %.loopexit22, %.loopexit.split-lp23, %40, %42, %45
-  %.pn9 = phi { ptr, i32 } [ %lpad.phi, %45 ], [ %41, %40 ], [ %lpad.phi, %42 ], [ %lpad.loopexit24, %.loopexit22 ], [ %lpad.loopexit.split-lp25, %.loopexit.split-lp23 ]
+  %.pn9 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.phi, %42 ], [ %lpad.phi, %45 ], [ %lpad.loopexit24, %.loopexit22 ], [ %lpad.loopexit.split-lp25, %.loopexit.split-lp23 ]
   %132 = load ptr, ptr %10, align 8, !tbaa !64
   %.not.i18 = icmp eq ptr %132, null
   br i1 %.not.i18, label %_ZNSt14_Function_baseD2Ev.exit19, label %133
@@ -2120,7 +2120,7 @@ _ZNSt14_Function_baseD2Ev.exit105:                ; preds = %278, %275, %273
   br label %283
 
 283:                                              ; preds = %.loopexit204, %.loopexit.split-lp205, %_ZNSt14_Function_baseD2Ev.exit105, %_ZNSt14_Function_baseD2Ev.exit103, %_ZNSt14_Function_baseD2Ev.exit90, %_ZNSt14_Function_baseD2Ev.exit88, %_ZNSt14_Function_baseD2Ev.exit86, %_ZNSt14_Function_baseD2Ev.exit84, %_ZNSt14_Function_baseD2Ev.exit82, %_ZNSt14_Function_baseD2Ev.exit80, %_ZNSt14_Function_baseD2Ev.exit78
-  %.pn40 = phi { ptr, i32 } [ %.pn, %_ZNSt14_Function_baseD2Ev.exit78 ], [ %.pn32, %_ZNSt14_Function_baseD2Ev.exit105 ], [ %.pn30, %_ZNSt14_Function_baseD2Ev.exit103 ], [ %.pn26, %_ZNSt14_Function_baseD2Ev.exit90 ], [ %.pn24, %_ZNSt14_Function_baseD2Ev.exit88 ], [ %.pn22, %_ZNSt14_Function_baseD2Ev.exit86 ], [ %.pn20, %_ZNSt14_Function_baseD2Ev.exit84 ], [ %.pn18, %_ZNSt14_Function_baseD2Ev.exit82 ], [ %.pn16, %_ZNSt14_Function_baseD2Ev.exit80 ], [ %lpad.loopexit206, %.loopexit204 ], [ %lpad.loopexit.split-lp207, %.loopexit.split-lp205 ]
+  %.pn40 = phi { ptr, i32 } [ %.pn32, %_ZNSt14_Function_baseD2Ev.exit105 ], [ %.pn30, %_ZNSt14_Function_baseD2Ev.exit103 ], [ %.pn26, %_ZNSt14_Function_baseD2Ev.exit90 ], [ %.pn24, %_ZNSt14_Function_baseD2Ev.exit88 ], [ %.pn22, %_ZNSt14_Function_baseD2Ev.exit86 ], [ %.pn20, %_ZNSt14_Function_baseD2Ev.exit84 ], [ %.pn18, %_ZNSt14_Function_baseD2Ev.exit82 ], [ %.pn16, %_ZNSt14_Function_baseD2Ev.exit80 ], [ %.pn, %_ZNSt14_Function_baseD2Ev.exit78 ], [ %lpad.loopexit206, %.loopexit204 ], [ %lpad.loopexit.split-lp207, %.loopexit.split-lp205 ]
   call void @_ZN13V3ThreadScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %406
@@ -3689,7 +3689,7 @@ _ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Deque_ba
   br label %_ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt8functionIFvvEES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !86
   %58 = load ptr, ptr %.0, align 8, !tbaa !87
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4338,7 +4338,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i: ; preds = %.prehea
   br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i.i
 
 _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i.i: ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i, %24, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i.i
-  %25 = phi ptr [ %.pre5.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %24 ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i ]
+  %25 = phi ptr [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE6unlockEv.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %24 ], [ %.pre5.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i ]
   %26 = icmp slt i32 %.val.i.i.i.i, 1
   br i1 %26, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i.i.i.i.i.i.i, label %27
 

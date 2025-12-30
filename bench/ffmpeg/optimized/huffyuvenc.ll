@@ -618,7 +618,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_init(ptr noundef %0) #0 {
   br i1 %.not219, label %.loopexit, label %249
 
 .loopexit:                                        ; preds = %249, %250, %202, %.thread, %19, %1, %115, %106, %86, %66, %56
-  %.0175 = phi i32 [ -22, %66 ], [ -22, %56 ], [ -22, %86 ], [ -22, %106 ], [ -22, %115 ], [ -12, %19 ], [ %215, %.thread ], [ -12, %1 ], [ -1, %202 ], [ -12, %250 ], [ 0, %249 ]
+  %.0175 = phi i32 [ -22, %66 ], [ -22, %56 ], [ -22, %86 ], [ -22, %106 ], [ -22, %115 ], [ -1, %202 ], [ -12, %1 ], [ -12, %19 ], [ %215, %.thread ], [ -12, %250 ], [ 0, %249 ]
   ret i32 %.0175
 }
 
@@ -897,7 +897,7 @@ sub_left_prediction.exit.thread:                  ; preds = %.preheader.i
   br label %sub_left_prediction.exit
 
 sub_left_prediction.exit:                         ; preds = %._crit_edge56.i, %122, %._crit_edge.i, %141
-  %.0.i.ph = phi i32 [ %139, %._crit_edge.i ], [ %155, %141 ], [ %134, %122 ], [ %120, %._crit_edge56.i ]
+  %.0.i.ph = phi i32 [ %139, %._crit_edge.i ], [ %155, %141 ], [ %120, %._crit_edge56.i ], [ %134, %122 ]
   %.pr = load i32, ptr %102, align 4, !tbaa !42
   %156 = icmp slt i32 %.pr, 9
   store i32 %.0.i.ph, ptr %5, align 4, !tbaa !87
@@ -999,10 +999,10 @@ sub_left_prediction.exit:                         ; preds = %._crit_edge56.i, %1
   br label %sub_left_prediction.exit556
 
 sub_left_prediction.exit556:                      ; preds = %sub_left_prediction.exit.thread, %sub_left_prediction.exit.thread1292, %.preheader50.i537, %.preheader.i547, %._crit_edge56.i555, %176, %._crit_edge.i546, %195
-  %210 = phi i1 [ true, %._crit_edge56.i555 ], [ true, %176 ], [ true, %195 ], [ true, %._crit_edge.i546 ], [ false, %.preheader50.i537 ], [ false, %.preheader.i547 ], [ false, %sub_left_prediction.exit.thread1292 ], [ false, %sub_left_prediction.exit.thread ]
-  %211 = phi i32 [ %169, %._crit_edge56.i555 ], [ %169, %176 ], [ %165, %195 ], [ %165, %._crit_edge.i546 ], [ %160, %.preheader50.i537 ], [ %160, %.preheader.i547 ], [ %109, %sub_left_prediction.exit.thread1292 ], [ %114, %sub_left_prediction.exit.thread ]
-  %212 = phi ptr [ %166, %._crit_edge56.i555 ], [ %166, %176 ], [ %162, %195 ], [ %162, %._crit_edge.i546 ], [ %157, %.preheader50.i537 ], [ %157, %.preheader.i547 ], [ %106, %sub_left_prediction.exit.thread1292 ], [ %111, %sub_left_prediction.exit.thread ]
-  %.0.i538 = phi i32 [ %174, %._crit_edge56.i555 ], [ %188, %176 ], [ %209, %195 ], [ %193, %._crit_edge.i546 ], [ 0, %.preheader50.i537 ], [ 0, %.preheader.i547 ], [ 0, %sub_left_prediction.exit.thread1292 ], [ 0, %sub_left_prediction.exit.thread ]
+  %210 = phi i1 [ true, %176 ], [ true, %._crit_edge56.i555 ], [ true, %195 ], [ true, %._crit_edge.i546 ], [ false, %.preheader50.i537 ], [ false, %.preheader.i547 ], [ false, %sub_left_prediction.exit.thread1292 ], [ false, %sub_left_prediction.exit.thread ]
+  %211 = phi i32 [ %169, %176 ], [ %169, %._crit_edge56.i555 ], [ %165, %195 ], [ %165, %._crit_edge.i546 ], [ %160, %.preheader50.i537 ], [ %160, %.preheader.i547 ], [ %109, %sub_left_prediction.exit.thread1292 ], [ %114, %sub_left_prediction.exit.thread ]
+  %212 = phi ptr [ %166, %176 ], [ %166, %._crit_edge56.i555 ], [ %162, %195 ], [ %162, %._crit_edge.i546 ], [ %157, %.preheader50.i537 ], [ %157, %.preheader.i547 ], [ %106, %sub_left_prediction.exit.thread1292 ], [ %111, %sub_left_prediction.exit.thread ]
+  %.0.i538 = phi i32 [ %188, %176 ], [ %174, %._crit_edge56.i555 ], [ %209, %195 ], [ %193, %._crit_edge.i546 ], [ 0, %.preheader50.i537 ], [ 0, %.preheader.i547 ], [ 0, %sub_left_prediction.exit.thread1292 ], [ 0, %sub_left_prediction.exit.thread ]
   store i32 %.0.i538, ptr %6, align 4, !tbaa !87
   %213 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %214 = load ptr, ptr %213, align 8, !tbaa !70
@@ -1094,7 +1094,7 @@ sub_left_prediction.exit556:                      ; preds = %sub_left_prediction
   br label %sub_left_prediction.exit576
 
 sub_left_prediction.exit576:                      ; preds = %.preheader50.i557, %.preheader.i567, %._crit_edge56.i575, %224, %._crit_edge.i566, %243
-  %.0.i558 = phi i32 [ %222, %._crit_edge56.i575 ], [ %236, %224 ], [ %257, %243 ], [ %241, %._crit_edge.i566 ], [ 0, %.preheader50.i557 ], [ 0, %.preheader.i567 ]
+  %.0.i558 = phi i32 [ %236, %224 ], [ %222, %._crit_edge56.i575 ], [ %257, %243 ], [ %241, %._crit_edge.i566 ], [ 0, %.preheader50.i557 ], [ 0, %.preheader.i567 ]
   store i32 %.0.i558, ptr %7, align 4, !tbaa !87
   %258 = add nsw i32 %16, -2
   tail call fastcc void @encode_422_bitstream(ptr noundef nonnull %14, i32 noundef 2, i32 noundef %258)
@@ -1236,7 +1236,7 @@ sub_left_prediction.exit576:                      ; preds = %.preheader50.i557, 
   br label %sub_left_prediction.exit596
 
 sub_left_prediction.exit596:                      ; preds = %.preheader50.i577, %.preheader.i587, %._crit_edge56.i595, %301, %._crit_edge.i586, %320
-  %.0.i578 = phi i32 [ %299, %._crit_edge56.i595 ], [ %313, %301 ], [ %334, %320 ], [ %318, %._crit_edge.i586 ], [ %.pre1256, %.preheader50.i577 ], [ %.pre1256, %.preheader.i587 ]
+  %.0.i578 = phi i32 [ %313, %301 ], [ %299, %._crit_edge56.i595 ], [ %334, %320 ], [ %318, %._crit_edge.i586 ], [ %.pre1256, %.preheader50.i577 ], [ %.pre1256, %.preheader.i587 ]
   store i32 %.0.i578, ptr %5, align 4, !tbaa !87
   %335 = load ptr, ptr %212, align 8, !tbaa !70
   %336 = load ptr, ptr %82, align 8, !tbaa !78
@@ -1333,7 +1333,7 @@ sub_left_prediction.exit596:                      ; preds = %.preheader50.i577, 
   br label %sub_left_prediction.exit616
 
 sub_left_prediction.exit616:                      ; preds = %.preheader50.i597, %.preheader.i607, %._crit_edge56.i615, %351, %._crit_edge.i606, %370
-  %.0.i598 = phi i32 [ %349, %._crit_edge56.i615 ], [ %363, %351 ], [ %384, %370 ], [ %368, %._crit_edge.i606 ], [ %340, %.preheader50.i597 ], [ %340, %.preheader.i607 ]
+  %.0.i598 = phi i32 [ %363, %351 ], [ %349, %._crit_edge56.i615 ], [ %384, %370 ], [ %368, %._crit_edge.i606 ], [ %340, %.preheader50.i597 ], [ %340, %.preheader.i607 ]
   store i32 %.0.i598, ptr %6, align 4, !tbaa !87
   %385 = load ptr, ptr %213, align 8, !tbaa !70
   %386 = load ptr, ptr %72, align 8, !tbaa !78
@@ -1430,7 +1430,7 @@ sub_left_prediction.exit616:                      ; preds = %.preheader50.i597, 
   br label %sub_left_prediction.exit636
 
 sub_left_prediction.exit636:                      ; preds = %.preheader50.i617, %.preheader.i627, %._crit_edge56.i635, %401, %._crit_edge.i626, %420
-  %.0.i618 = phi i32 [ %399, %._crit_edge56.i635 ], [ %413, %401 ], [ %434, %420 ], [ %418, %._crit_edge.i626 ], [ %390, %.preheader50.i617 ], [ %390, %.preheader.i627 ]
+  %.0.i618 = phi i32 [ %413, %401 ], [ %399, %._crit_edge56.i635 ], [ %434, %420 ], [ %418, %._crit_edge.i626 ], [ %390, %.preheader50.i617 ], [ %390, %.preheader.i627 ]
   store i32 %.0.i618, ptr %7, align 4, !tbaa !87
   tail call fastcc void @encode_422_bitstream(ptr noundef nonnull %14, i32 noundef 0, i32 noundef %16)
   %.pre1255 = load i32, ptr %5, align 4, !tbaa !87
@@ -1923,7 +1923,7 @@ sub_left_prediction.exit690:                      ; preds = %._crit_edge56.i689,
   br label %sub_left_prediction.exit710
 
 sub_left_prediction.exit710:                      ; preds = %676, %._crit_edge.i720, %662, %._crit_edge56.i729, %.preheader.i721, %.preheader50.i711, %639, %._crit_edge.i700, %625, %._crit_edge56.i709, %.preheader.i701, %.preheader50.i691
-  %storemerge512 = phi i32 [ %615, %.preheader.i701 ], [ %624, %._crit_edge56.i709 ], [ %633, %625 ], [ %649, %639 ], [ %638, %._crit_edge.i700 ], [ %615, %.preheader50.i691 ], [ %661, %._crit_edge56.i729 ], [ %670, %662 ], [ %686, %676 ], [ %675, %._crit_edge.i720 ], [ %652, %.preheader50.i711 ], [ %652, %.preheader.i721 ]
+  %storemerge512 = phi i32 [ %633, %625 ], [ %624, %._crit_edge56.i709 ], [ %649, %639 ], [ %638, %._crit_edge.i700 ], [ %615, %.preheader50.i691 ], [ %615, %.preheader.i701 ], [ %670, %662 ], [ %661, %._crit_edge56.i729 ], [ %686, %676 ], [ %675, %._crit_edge.i720 ], [ %652, %.preheader50.i711 ], [ %652, %.preheader.i721 ]
   store i32 %storemerge512, ptr %5, align 4, !tbaa !87
   tail call fastcc void @encode_gray_bitstream(ptr noundef nonnull %14, i32 noundef %16)
   %687 = add nsw i32 %.51153, 1
@@ -2064,7 +2064,7 @@ sub_left_prediction.exit750.thread:               ; preds = %.preheader.i741
   br label %sub_left_prediction.exit750
 
 sub_left_prediction.exit750:                      ; preds = %._crit_edge56.i749, %736, %._crit_edge.i740, %750
-  %.0.i732.ph = phi i32 [ %749, %._crit_edge.i740 ], [ %760, %750 ], [ %744, %736 ], [ %735, %._crit_edge56.i749 ]
+  %.0.i732.ph = phi i32 [ %749, %._crit_edge.i740 ], [ %760, %750 ], [ %735, %._crit_edge56.i749 ], [ %744, %736 ]
   %.pr1070 = load i32, ptr %102, align 4, !tbaa !42
   store i32 %.0.i732.ph, ptr %5, align 4, !tbaa !87
   %761 = load ptr, ptr %212, align 8, !tbaa !70
@@ -2152,7 +2152,7 @@ sub_left_prediction.exit750:                      ; preds = %._crit_edge56.i749,
   br label %sub_left_prediction.exit770
 
 sub_left_prediction.exit770:                      ; preds = %.preheader50.i751, %.preheader.i761, %._crit_edge56.i769, %778, %._crit_edge.i760, %792
-  %.0.i752 = phi i32 [ %777, %._crit_edge56.i769 ], [ %786, %778 ], [ %802, %792 ], [ %791, %._crit_edge.i760 ], [ %765, %.preheader50.i751 ], [ %769, %.preheader.i761 ]
+  %.0.i752 = phi i32 [ %786, %778 ], [ %777, %._crit_edge56.i769 ], [ %802, %792 ], [ %791, %._crit_edge.i760 ], [ %765, %.preheader50.i751 ], [ %769, %.preheader.i761 ]
   store i32 %.0.i752, ptr %6, align 4, !tbaa !87
   %803 = load ptr, ptr %213, align 8, !tbaa !70
   %804 = getelementptr inbounds i8, ptr %803, i64 %280
@@ -2323,7 +2323,7 @@ sub_left_prediction.exit810.thread:               ; preds = %.preheader.i801
   br label %sub_left_prediction.exit810
 
 sub_left_prediction.exit810:                      ; preds = %._crit_edge56.i809, %856, %._crit_edge.i800, %870
-  %.0.i792.ph = phi i32 [ %869, %._crit_edge.i800 ], [ %880, %870 ], [ %864, %856 ], [ %855, %._crit_edge56.i809 ]
+  %.0.i792.ph = phi i32 [ %869, %._crit_edge.i800 ], [ %880, %870 ], [ %855, %._crit_edge56.i809 ], [ %864, %856 ]
   %.pr1074 = load i32, ptr %102, align 4, !tbaa !42
   store i32 %.0.i792.ph, ptr %5, align 4, !tbaa !87
   %881 = load ptr, ptr %212, align 8, !tbaa !70
@@ -2408,7 +2408,7 @@ sub_left_prediction.exit810:                      ; preds = %._crit_edge56.i809,
   br label %sub_left_prediction.exit830
 
 sub_left_prediction.exit830:                      ; preds = %.preheader50.i811, %.preheader.i821, %._crit_edge56.i829, %895, %._crit_edge.i820, %909
-  %.0.i812 = phi i32 [ %894, %._crit_edge56.i829 ], [ %903, %895 ], [ %919, %909 ], [ %908, %._crit_edge.i820 ], [ %884, %.preheader50.i811 ], [ %887, %.preheader.i821 ]
+  %.0.i812 = phi i32 [ %903, %895 ], [ %894, %._crit_edge56.i829 ], [ %919, %909 ], [ %908, %._crit_edge.i820 ], [ %884, %.preheader50.i811 ], [ %887, %.preheader.i821 ]
   store i32 %.0.i812, ptr %6, align 4, !tbaa !87
   %920 = load ptr, ptr %213, align 8, !tbaa !70
   %921 = load i32, ptr %7, align 4, !tbaa !87
@@ -2489,7 +2489,7 @@ sub_left_prediction.exit830:                      ; preds = %.preheader50.i811, 
   br label %956
 
 956:                                              ; preds = %.preheader50.i771, %.preheader.i781, %._crit_edge56.i789, %815, %._crit_edge.i780, %829, %.preheader50.i831, %.preheader.i841, %._crit_edge56.i849, %931, %._crit_edge.i840, %945
-  %storemerge514 = phi i32 [ %805, %.preheader.i781 ], [ %814, %._crit_edge56.i789 ], [ %823, %815 ], [ %839, %829 ], [ %828, %._crit_edge.i780 ], [ %805, %.preheader50.i771 ], [ %930, %._crit_edge56.i849 ], [ %939, %931 ], [ %955, %945 ], [ %944, %._crit_edge.i840 ], [ %921, %.preheader50.i831 ], [ %921, %.preheader.i841 ]
+  %storemerge514 = phi i32 [ %823, %815 ], [ %814, %._crit_edge56.i789 ], [ %839, %829 ], [ %828, %._crit_edge.i780 ], [ %805, %.preheader50.i771 ], [ %805, %.preheader.i781 ], [ %939, %931 ], [ %930, %._crit_edge56.i849 ], [ %955, %945 ], [ %944, %._crit_edge.i840 ], [ %921, %.preheader50.i831 ], [ %921, %.preheader.i841 ]
   store i32 %storemerge514, ptr %7, align 4, !tbaa !87
   tail call fastcc void @encode_422_bitstream(ptr noundef nonnull %14, i32 noundef 0, i32 noundef %16)
   %957 = add nsw i32 %.6, 1
@@ -3151,7 +3151,7 @@ sub_left_prediction_rgb24.exit931:                ; preds = %.lr.ph.i935, %.lr.p
   br label %sub_left_prediction.exit962
 
 sub_left_prediction.exit962:                      ; preds = %.preheader50.i943, %.preheader.i953, %._crit_edge56.i961, %1305, %._crit_edge.i952, %1323
-  %.0.i944 = phi i32 [ %1303, %._crit_edge56.i961 ], [ %1316, %1305 ], [ %1335, %1323 ], [ %1321, %._crit_edge.i952 ], [ 0, %.preheader50.i943 ], [ 0, %.preheader.i953 ]
+  %.0.i944 = phi i32 [ %1316, %1305 ], [ %1303, %._crit_edge56.i961 ], [ %1335, %1323 ], [ %1321, %._crit_edge.i952 ], [ 0, %.preheader50.i943 ], [ 0, %.preheader.i953 ]
   store i32 %.0.i944, ptr %11, align 4, !tbaa !87
   %1336 = trunc nuw nsw i64 %indvars.iv1244 to i32
   call fastcc void @encode_plane_bitstream(ptr noundef nonnull %14, i32 noundef %.0485, i32 noundef %1336)
@@ -3275,7 +3275,7 @@ sub_left_prediction.exit962:                      ; preds = %.preheader50.i943, 
   br label %sub_left_prediction.exit982
 
 sub_left_prediction.exit982:                      ; preds = %.preheader50.i963, %.preheader.i973, %._crit_edge56.i981, %1368, %._crit_edge.i972, %1386
-  %.0.i964 = phi i32 [ %1366, %._crit_edge56.i981 ], [ %1379, %1368 ], [ %1398, %1386 ], [ %1384, %._crit_edge.i972 ], [ %1357, %.preheader50.i963 ], [ %1357, %.preheader.i973 ]
+  %.0.i964 = phi i32 [ %1379, %1368 ], [ %1366, %._crit_edge56.i981 ], [ %1398, %1386 ], [ %1384, %._crit_edge.i972 ], [ %1357, %.preheader50.i963 ], [ %1357, %.preheader.i973 ]
   store i32 %.0.i964, ptr %11, align 4, !tbaa !87
   call fastcc void @encode_plane_bitstream(ptr noundef nonnull %14, i32 noundef %.0485, i32 noundef %1336)
   br label %1399
@@ -3526,7 +3526,7 @@ diff_bytes.exit:                                  ; preds = %1441, %1443
   br label %sub_left_prediction.exit1002
 
 sub_left_prediction.exit1002:                     ; preds = %1510, %._crit_edge.i1012, %1496, %._crit_edge56.i1021, %.preheader.i1013, %.preheader50.i1003, %1473, %._crit_edge.i992, %1459, %._crit_edge56.i1001, %.preheader.i993, %.preheader50.i983
-  %storemerge = phi i32 [ %1449, %.preheader.i993 ], [ %1458, %._crit_edge56.i1001 ], [ %1467, %1459 ], [ %1483, %1473 ], [ %1472, %._crit_edge.i992 ], [ %1449, %.preheader50.i983 ], [ %1495, %._crit_edge56.i1021 ], [ %1504, %1496 ], [ %1520, %1510 ], [ %1509, %._crit_edge.i1012 ], [ %1486, %.preheader50.i1003 ], [ %1486, %.preheader.i1013 ]
+  %storemerge = phi i32 [ %1467, %1459 ], [ %1458, %._crit_edge56.i1001 ], [ %1483, %1473 ], [ %1472, %._crit_edge.i992 ], [ %1449, %.preheader50.i983 ], [ %1449, %.preheader.i993 ], [ %1504, %1496 ], [ %1495, %._crit_edge56.i1021 ], [ %1520, %1510 ], [ %1509, %._crit_edge.i1012 ], [ %1486, %.preheader50.i1003 ], [ %1486, %.preheader.i1013 ]
   store i32 %storemerge, ptr %11, align 4, !tbaa !87
   call fastcc void @encode_plane_bitstream(ptr noundef nonnull %14, i32 noundef %.0485, i32 noundef %1336)
   %1521 = add nuw nsw i32 %.21164, 1
@@ -3773,7 +3773,7 @@ flush_put_bits.exit:                              ; preds = %1620, %1609
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge1179, %41, %4, %1632
-  %.0 = phi i32 [ %44, %41 ], [ %36, %4 ], [ 0, %1632 ], [ -12, %._crit_edge1179 ]
+  %.0 = phi i32 [ 0, %1632 ], [ %36, %4 ], [ %44, %41 ], [ -12, %._crit_edge1179 ]
   ret i32 %.0
 }
 

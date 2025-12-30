@@ -41,8 +41,8 @@ define hidden i64 @internal_rle_compress(ptr noundef writeonly captures(none) %0
   br i1 %16, label %10, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %14, %10
-  %.056.lcssa = phi i8 [ %.05675, %10 ], [ %15, %14 ]
-  %.160.lcssa = phi ptr [ %.16076, %10 ], [ %.160, %14 ]
+  %.056.lcssa = phi i8 [ %15, %14 ], [ %.05675, %10 ]
+  %.160.lcssa = phi ptr [ %.160, %14 ], [ %.16076, %10 ]
   %17 = icmp samesign ugt i8 %.056.lcssa, 1
   br i1 %17, label %19, label %.preheader
 
@@ -250,8 +250,8 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
   br i1 %47, label %41, label %.critedge.i, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %45, %41
-  %.056.lcssa.i = phi i8 [ %.05675.i, %41 ], [ %46, %45 ]
-  %.160.lcssa.i = phi ptr [ %.16076.i, %41 ], [ %.160.i, %45 ]
+  %.056.lcssa.i = phi i8 [ %46, %45 ], [ %.05675.i, %41 ]
+  %.160.lcssa.i = phi ptr [ %.160.i, %45 ], [ %.16076.i, %41 ]
   %48 = icmp samesign ugt i8 %.056.lcssa.i, 1
   br i1 %48, label %51, label %.preheader.i
 
@@ -444,7 +444,7 @@ define hidden i64 @internal_rle_decompress(ptr noundef writeonly captures(none) 
   br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %30, %14, %7, %23, %19, %4
-  %.2 = phi i64 [ 0, %4 ], [ 0, %14 ], [ 0, %23 ], [ 0, %7 ], [ 0, %19 ], [ %.248, %30 ]
+  %.2 = phi i64 [ 0, %4 ], [ 0, %19 ], [ 0, %23 ], [ 0, %7 ], [ 0, %14 ], [ %.248, %30 ]
   ret i64 %.2
 }
 
@@ -588,8 +588,8 @@ internal_rle_decompress.exit.thread.sink.split:   ; preds = %62, %5
   store i64 %.248.i.lcssa.sink, ptr %64, align 8, !tbaa !30
   br label %internal_rle_decompress.exit.thread
 
-internal_rle_decompress.exit.thread:              ; preds = %28, %16, %32, %23, %internal_rle_decompress.exit.thread.sink.split, %internal_rle_decompress.exit, %8
-  %.0 = phi i32 [ 23, %internal_rle_decompress.exit ], [ 0, %internal_rle_decompress.exit.thread.sink.split ], [ %11, %8 ], [ 23, %23 ], [ 23, %32 ], [ 23, %16 ], [ 23, %28 ]
+internal_rle_decompress.exit.thread:              ; preds = %23, %16, %32, %28, %internal_rle_decompress.exit.thread.sink.split, %internal_rle_decompress.exit, %8
+  %.0 = phi i32 [ %11, %8 ], [ 23, %internal_rle_decompress.exit ], [ 0, %internal_rle_decompress.exit.thread.sink.split ], [ 23, %28 ], [ 23, %32 ], [ 23, %16 ], [ 23, %23 ]
   ret i32 %.0
 }
 

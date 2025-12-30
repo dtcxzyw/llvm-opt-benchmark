@@ -454,9 +454,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %.critedge
 
 .critedge:                                        ; preds = %192, %190, %170, %178, %187, %155
-  %.5132 = phi i32 [ %.3130313, %155 ], [ %.3130313, %187 ], [ %193, %192 ], [ %.3130313, %190 ], [ %.3130313, %170 ], [ %.3130313, %178 ]
-  %.5126 = phi i32 [ %.3124314, %155 ], [ %.3124314, %187 ], [ %.3124314, %192 ], [ %191, %190 ], [ %.3124314, %170 ], [ %.3124314, %178 ]
-  %.6 = phi i1 [ %.3315, %155 ], [ true, %187 ], [ %.3315, %192 ], [ %.3315, %190 ], [ true, %170 ], [ %.3315, %178 ]
+  %.5132 = phi i32 [ %.3130313, %155 ], [ %.3130313, %190 ], [ %193, %192 ], [ %.3130313, %170 ], [ %.3130313, %178 ], [ %.3130313, %187 ]
+  %.5126 = phi i32 [ %.3124314, %155 ], [ %191, %190 ], [ %.3124314, %192 ], [ %.3124314, %170 ], [ %.3124314, %178 ], [ %.3124314, %187 ]
+  %.6 = phi i1 [ %.3315, %155 ], [ %.3315, %190 ], [ %.3315, %192 ], [ true, %170 ], [ %.3315, %178 ], [ true, %187 ]
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %exitcond373.not = icmp eq i64 %indvars.iv.next371, %wide.trip.count372
   br i1 %exitcond373.not, label %.loopexit252, label %155, !llvm.loop !42
@@ -499,7 +499,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit180
 
 _ZNSt6vectorIfSaIfEED2Ev.exit180:                 ; preds = %.loopexit253, %.loopexit.split-lp, %199, %71
-  %.pn163.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn241, %199 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit253 ]
+  %.pn163.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn241, %199 ], [ %lpad.loopexit, %.loopexit253 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i181 = icmp eq ptr %.sroa.0220.1, null
   br i1 %.not.i.i.i181, label %_ZNSt6vectorIiSaIiEED2Ev.exit182, label %200
 
@@ -614,7 +614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193: ; preds = %23
   ret void
 
 _ZNSt6vectorIiSaIiEED2Ev.exit182:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit180, %200, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185
-  %.pn163.pn.pn.pn = phi { ptr, i32 } [ %217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185 ], [ %235, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %.pn163.pn, %200 ], [ %.pn163.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ]
+  %.pn163.pn.pn.pn = phi { ptr, i32 } [ %235, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185 ], [ %.pn163.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit180 ], [ %.pn163.pn, %200 ]
   resume { ptr, i32 } %.pn163.pn.pn.pn
 }
 

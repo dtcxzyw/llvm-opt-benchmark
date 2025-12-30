@@ -429,7 +429,7 @@ define hidden noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 n
   br label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
 
 _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %9, %6, %49, %27, %3, %45, %38, %22, %15, %4
-  %.0 = phi i32 [ -1, %45 ], [ -1, %38 ], [ %spec.select, %27 ], [ -1, %4 ], [ 0, %3 ], [ -1, %15 ], [ -1, %22 ], [ %spec.select41, %49 ], [ %14, %9 ], [ -1, %6 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %15 ], [ -1, %22 ], [ -1, %38 ], [ -1, %45 ], [ 0, %3 ], [ %spec.select, %27 ], [ %spec.select41, %49 ], [ %14, %9 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -506,8 +506,8 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
   br label %.outer.preheader
 
 .outer.preheader:                                 ; preds = %17, %8, %6, %4
-  %.146.ph.ph = phi i16 [ %9, %8 ], [ %7, %6 ], [ %1, %4 ], [ %18, %17 ]
-  %.144.ph.ph = phi ptr [ %10, %8 ], [ %0, %6 ], [ %0, %4 ], [ %19, %17 ]
+  %.146.ph.ph = phi i16 [ %18, %17 ], [ %9, %8 ], [ %7, %6 ], [ %1, %4 ]
+  %.144.ph.ph = phi ptr [ %19, %17 ], [ %10, %8 ], [ %0, %6 ], [ %0, %4 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.preheader
@@ -571,9 +571,9 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
   br label %29
 
 29:                                               ; preds = %20, %.loopexit171, %.loopexit142, %.loopexit112, %.loopexit80, %.loopexit52, %26, %25, %24, %23
-  %.142 = phi i32 [ 1, %26 ], [ %.041.ph, %.loopexit52 ], [ %.041.ph, %.loopexit80 ], [ %.041.ph, %.loopexit112 ], [ %.041.ph, %.loopexit142 ], [ %.041.ph, %.loopexit171 ], [ 1, %23 ], [ 1, %24 ], [ 1, %25 ], [ 1, %20 ]
-  %.140 = phi i32 [ %.039.ph, %26 ], [ 1, %.loopexit52 ], [ 1, %.loopexit80 ], [ 1, %.loopexit112 ], [ 1, %.loopexit142 ], [ 1, %.loopexit171 ], [ %.039.ph, %23 ], [ %.039.ph, %24 ], [ %.039.ph, %25 ], [ %.039.ph, %20 ]
-  %.037 = phi i16 [ 64, %26 ], [ 8, %.loopexit52 ], [ 16, %.loopexit80 ], [ 32, %.loopexit112 ], [ 4, %.loopexit142 ], [ 64, %.loopexit171 ], [ 16, %23 ], [ 32, %24 ], [ 4, %25 ], [ 8, %20 ]
+  %.142 = phi i32 [ 1, %23 ], [ 1, %24 ], [ 1, %25 ], [ 1, %26 ], [ %.041.ph, %.loopexit52 ], [ %.041.ph, %.loopexit80 ], [ %.041.ph, %.loopexit112 ], [ %.041.ph, %.loopexit142 ], [ %.041.ph, %.loopexit171 ], [ 1, %20 ]
+  %.140 = phi i32 [ %.039.ph, %23 ], [ %.039.ph, %24 ], [ %.039.ph, %25 ], [ %.039.ph, %26 ], [ 1, %.loopexit52 ], [ 1, %.loopexit80 ], [ 1, %.loopexit112 ], [ 1, %.loopexit142 ], [ 1, %.loopexit171 ], [ %.039.ph, %20 ]
+  %.037 = phi i16 [ 16, %23 ], [ 32, %24 ], [ 4, %25 ], [ 64, %26 ], [ 8, %.loopexit52 ], [ 16, %.loopexit80 ], [ 32, %.loopexit112 ], [ 4, %.loopexit142 ], [ 64, %.loopexit171 ], [ 8, %20 ]
   %30 = icmp ne i32 %.140, 0
   %31 = icmp ne i32 %.142, 0
   %or.cond = select i1 %30, i1 %31, i1 false

@@ -1701,7 +1701,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZTWN9grpc_core9Tim
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %221, %218, %215, %210, %.thread.i, %206, %205
-  %.sroa.04.0.i = phi i64 [ %spec.select.i, %206 ], [ 9223372036854775807, %205 ], [ -9223372036854775808, %210 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %218 ], [ %222, %221 ], [ 9223372036854775807, %215 ]
+  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %205 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %210 ], [ %222, %221 ], [ 9223372036854775807, %215 ], [ -9223372036854775808, %218 ], [ %spec.select.i, %206 ]
   store i64 %.sroa.04.0.i, ptr %14, align 8
   %223 = invoke i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %224 unwind label %243
@@ -1841,7 +1841,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN9grpc_core13RefC
   ret void
 
 273:                                              ; preds = %145, %151, %.body71, %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEN4absl12lts_202407228StatusOrIPNS_14HandshakerArgsEEEEN3$_0D2Ev.exit65", %241, %143, %.body, %76, %70
-  %.pn27 = phi { ptr, i32 } [ %71, %70 ], [ %117, %.body ], [ %.pn23, %76 ], [ %258, %.body71 ], [ %.pn17.pn.pn, %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEN4absl12lts_202407228StatusOrIPNS_14HandshakerArgsEEEEN3$_0D2Ev.exit65" ], [ %146, %145 ], [ %242, %241 ], [ %144, %143 ], [ %152, %151 ]
+  %.pn27 = phi { ptr, i32 } [ %71, %70 ], [ %117, %.body ], [ %.pn23, %76 ], [ %.pn17.pn.pn, %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEN4absl12lts_202407228StatusOrIPNS_14HandshakerArgsEEEEN3$_0D2Ev.exit65" ], [ %242, %241 ], [ %144, %143 ], [ %258, %.body71 ], [ %152, %151 ], [ %146, %145 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit77 unwind label %274
 
@@ -2911,7 +2911,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit67
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit67: ; preds = %172, %76, %.body56
-  %.pn35.pn.pn = phi { ptr, i32 } [ %77, %76 ], [ %.pn35, %.body56 ], [ %173, %172 ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %.pn35, %.body56 ], [ %173, %172 ], [ %77, %76 ]
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #34
   br label %178
 
@@ -3105,7 +3105,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i73:       ; preds = %.thread107, %212
   br i1 %242, label %.thread, label %268
 
 .thread:                                          ; preds = %241, %.thread111
-  %243 = phi i64 [ %.pre93, %241 ], [ %.pre93113, %.thread111 ]
+  %243 = phi i64 [ %.pre93113, %.thread111 ], [ %.pre93, %241 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 %243, ptr %25, align 8, !tbaa !54
   %244 = and i64 %243, 1
@@ -3782,7 +3782,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit: ; preds = %96
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit77
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit77: ; preds = %105, %130
-  %.pn45 = phi { ptr, i32 } [ %106, %105 ], [ %131, %130 ]
+  %.pn45 = phi { ptr, i32 } [ %131, %130 ], [ %106, %105 ]
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #34
   br label %132
 
@@ -4193,7 +4193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %213
   br label %271
 
 271:                                              ; preds = %136, %142, %270, %134
-  %.pn59.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn55.pn.pn, %270 ], [ %143, %142 ], [ %137, %136 ]
+  %.pn59.pn = phi { ptr, i32 } [ %.pn55.pn.pn, %270 ], [ %135, %134 ], [ %143, %142 ], [ %137, %136 ]
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #34
   br label %272
 
@@ -5279,7 +5279,7 @@ _ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit.i: ; pr
   br label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit46.i
 
 _ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit46.i: ; preds = %147, %136
-  %.pn13.i = phi { ptr, i32 } [ %137, %136 ], [ %148, %147 ]
+  %.pn13.i = phi { ptr, i32 } [ %148, %147 ], [ %137, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !209
   br label %159
 
@@ -5606,7 +5606,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core11ChannelArgs
   ret void
 
 .body28:                                          ; preds = %_ZNSt10unique_ptrIN9grpc_core15Chttp2ConnectorENS0_16OrphanableDeleteEED2Ev.exit35, %224, %244, %218
-  %.pn14.pn = phi { ptr, i32 } [ %225, %224 ], [ %.pn.pn.pn, %218 ], [ %247, %_ZNSt10unique_ptrIN9grpc_core15Chttp2ConnectorENS0_16OrphanableDeleteEED2Ev.exit35 ], [ %245, %244 ]
+  %.pn14.pn = phi { ptr, i32 } [ %.pn.pn.pn, %218 ], [ %247, %_ZNSt10unique_ptrIN9grpc_core15Chttp2ConnectorENS0_16OrphanableDeleteEED2Ev.exit35 ], [ %245, %244 ], [ %225, %224 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core11ChannelArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #34
   br label %265
 

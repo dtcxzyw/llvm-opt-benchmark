@@ -124,7 +124,7 @@ define internal range(i32 0, 2) i32 @dlfcn_unload(ptr noundef readonly captures(
   br label %18
 
 18:                                               ; preds = %4, %16, %13, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %16 ], [ 0, %13 ], [ 1, %4 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %16 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -321,7 +321,7 @@ define internal ptr @dlfcn_merger(ptr readnone captures(none) %0, ptr noundef %1
   br label %.critedge44
 
 .critedge44:                                      ; preds = %31, %.critedge, %12, %41, %6
-  %.033 = phi ptr [ null, %6 ], [ %.032, %41 ], [ null, %31 ], [ null, %12 ], [ null, %.critedge ]
+  %.033 = phi ptr [ %.032, %41 ], [ null, %6 ], [ null, %12 ], [ null, %.critedge ], [ null, %31 ]
   ret ptr %.033
 }
 

@@ -515,7 +515,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
   br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader86, %.preheader84, %.lr.ph, %.preheader, %70
-  %89 = phi i32 [ 0, %70 ], [ 1, %.preheader84 ], [ 1, %.preheader ], [ 1, %.lr.ph ], [ 1, %.preheader86 ]
+  %89 = phi i32 [ 0, %70 ], [ 1, %.preheader ], [ 1, %.lr.ph ], [ 1, %.preheader84 ], [ 1, %.preheader86 ]
   ret i32 %89
 }
 

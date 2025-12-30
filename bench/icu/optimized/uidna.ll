@@ -47,7 +47,7 @@ define noundef i32 @uidna_toASCII_77(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %26
 
 26:                                               ; preds = %24, %20, %7, %9, %19
-  %.0 = phi i32 [ 0, %7 ], [ 0, %19 ], [ 0, %9 ], [ %25, %24 ], [ -1, %20 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %7 ], [ %25, %24 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -135,8 +135,8 @@ define internal fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPr
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %23, %._crit_edge, %42
-  %.1141.ph = phi i32 [ %43, %42 ], [ %.0125, %._crit_edge ], [ 0, %23 ]
-  %.2134.ph = phi ptr [ %40, %42 ], [ %.0132208, %._crit_edge ], [ %9, %23 ]
+  %.1141.ph = phi i32 [ %.0125, %._crit_edge ], [ %43, %42 ], [ 0, %23 ]
+  %.2134.ph = phi ptr [ %.0132208, %._crit_edge ], [ %40, %42 ], [ %9, %23 ]
   %.pr = load i32, ptr %7, align 4, !tbaa !3
   br label %44
 
@@ -248,7 +248,7 @@ _ZL9isLDHCharDs.exit:                             ; preds = %54
   br label %116
 
 79:                                               ; preds = %68, %._crit_edge188
-  %.2.lcssa226 = phi i1 [ %63, %._crit_edge188 ], [ %.2.lcssa225233, %68 ]
+  %.2.lcssa226 = phi i1 [ %.2.lcssa225233, %68 ], [ %63, %._crit_edge188 ]
   br i1 %.2.lcssa226, label %82, label %.thread234
 
 .thread234:                                       ; preds = %._crit_edge188.thread, %79
@@ -342,8 +342,8 @@ _ZL16startsWithPrefixPKDsi.exit:                  ; preds = %84
   br label %116
 
 116:                                              ; preds = %.thread234, %113, %115, %102, %74, %76, %75, %44, %_ZL16startsWithPrefixPKDsi.exit, %108, %99, %50
-  %.0138 = phi i32 [ 0, %102 ], [ %.1141, %.thread234 ], [ 0, %44 ], [ 0, %50 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ %.1139, %115 ], [ %.1139, %113 ], [ %106, %108 ], [ 0, %_ZL16startsWithPrefixPKDsi.exit ], [ 0, %99 ]
-  %.0135 = phi ptr [ %.2137, %102 ], [ %10, %.thread234 ], [ %10, %44 ], [ %10, %50 ], [ %10, %74 ], [ %10, %75 ], [ %10, %76 ], [ %.1136, %115 ], [ %.1136, %113 ], [ %.2137, %108 ], [ %10, %_ZL16startsWithPrefixPKDsi.exit ], [ null, %99 ]
+  %.0138 = phi i32 [ 0, %44 ], [ 0, %50 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ %.1139, %115 ], [ %.1139, %113 ], [ 0, %_ZL16startsWithPrefixPKDsi.exit ], [ 0, %99 ], [ 0, %102 ], [ %106, %108 ], [ %.1141, %.thread234 ]
+  %.0135 = phi ptr [ %10, %44 ], [ %10, %50 ], [ %10, %74 ], [ %10, %75 ], [ %10, %76 ], [ %.1136, %115 ], [ %.1136, %113 ], [ %10, %_ZL16startsWithPrefixPKDsi.exit ], [ null, %99 ], [ %.2137, %102 ], [ %.2137, %108 ], [ %10, %.thread234 ]
   %.not159 = icmp eq ptr %.2134, %9
   br i1 %.not159, label %117, label %.thread165
 
@@ -418,7 +418,7 @@ define noundef i32 @uidna_toUnicode_77(ptr noundef %0, i32 noundef %1, ptr nound
   br label %26
 
 26:                                               ; preds = %24, %20, %7, %9, %19
-  %.0 = phi i32 [ 0, %7 ], [ 0, %19 ], [ 0, %9 ], [ %25, %24 ], [ -1, %20 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %7 ], [ %25, %24 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -625,9 +625,9 @@ uidna_toASCII_77.exit:                            ; preds = %62, %71, %67
   br label %uidna_toASCII_77.exit159
 
 uidna_toASCII_77.exit159:                         ; preds = %89, %uidna_toASCII_77.exit
-  %91 = phi i32 [ %.pre186, %89 ], [ %73, %uidna_toASCII_77.exit ]
-  %.1134 = phi ptr [ %78, %89 ], [ %11, %uidna_toASCII_77.exit ]
-  %.0129 = phi i32 [ %90, %89 ], [ %.0.i, %uidna_toASCII_77.exit ]
+  %91 = phi i32 [ %73, %uidna_toASCII_77.exit ], [ %.pre186, %89 ]
+  %.1134 = phi ptr [ %11, %uidna_toASCII_77.exit ], [ %78, %89 ]
+  %.0129 = phi i32 [ %.0.i, %uidna_toASCII_77.exit ], [ %90, %89 ]
   %92 = icmp slt i32 %91, 1
   br i1 %92, label %93, label %uidna_toASCII_77.exit159.thread
 
@@ -683,8 +683,8 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit:   ; preds = %104, %93
   br label %uidna_toASCII_77.exit159.thread
 
 .loopexit:                                        ; preds = %.preheader.i, %.preheader, %.thread169
-  %.2126206 = phi ptr [ %0, %.preheader ], [ %.2126, %.thread169 ], [ %.2126, %.preheader.i ]
-  %.1123168205 = phi i32 [ 0, %.preheader ], [ %.1123168, %.thread169 ], [ %.1123168, %.preheader.i ]
+  %.2126206 = phi ptr [ %.2126, %.thread169 ], [ %0, %.preheader ], [ %.2126, %.preheader.i ]
+  %.1123168205 = phi i32 [ %.1123168, %.thread169 ], [ 0, %.preheader ], [ %.1123168, %.preheader.i ]
   %.not146 = icmp sgt i32 %.1123168205, %3
   br i1 %.not146, label %uidna_toASCII_77.exit159.thread, label %108
 
@@ -951,7 +951,7 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit.thread:       ; preds = %_ZL16isLabelSeparat
   br label %77
 
 77:                                               ; preds = %75, %20, %7, %9, %19
-  %.065 = phi i32 [ 0, %7 ], [ 0, %19 ], [ 0, %9 ], [ %76, %75 ], [ 0, %20 ]
+  %.065 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %7 ], [ %76, %75 ], [ 0, %20 ]
   ret i32 %.065
 }
 
@@ -1136,7 +1136,7 @@ _ZL16getNextSeparatorPDsiPS_Pa.exit:              ; preds = %30, %_ZL16isLabelSe
   br label %74
 
 74:                                               ; preds = %72, %20, %7, %9, %19
-  %.063 = phi i32 [ 0, %7 ], [ 0, %19 ], [ 0, %9 ], [ %73, %72 ], [ 0, %20 ]
+  %.063 = phi i32 [ 0, %19 ], [ 0, %9 ], [ 0, %7 ], [ %73, %72 ], [ 0, %20 ]
   ret i32 %.063
 }
 
@@ -1244,8 +1244,8 @@ _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit.thread: ; preds = %18
   br i1 %.not33.i, label %_ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit, label %.lr.ph.i, !llvm.loop !15
 
 _ZL27compareCaseInsensitiveASCIIPKDsiS0_i.exit:   ; preds = %51, %43, %37, %34
-  %.049 = phi ptr [ %.150, %37 ], [ null, %34 ], [ %.150, %43 ], [ %.150, %51 ]
-  %.0 = phi i32 [ %.026.i, %37 ], [ -1, %34 ], [ %.026.i, %51 ], [ %50, %43 ]
+  %.049 = phi ptr [ null, %34 ], [ %.150, %37 ], [ %.150, %43 ], [ %.150, %51 ]
+  %.0 = phi i32 [ -1, %34 ], [ %.026.i, %37 ], [ %.026.i, %51 ], [ %50, %43 ]
   %.not56 = icmp eq ptr %.046, %7
   br i1 %.not56, label %53, label %52
 

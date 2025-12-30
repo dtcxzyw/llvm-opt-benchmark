@@ -4366,8 +4366,8 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
   br label %137
 
 137:                                              ; preds = %135, %132, %123, %119
-  %138 = phi i32 [ %.pre131, %135 ], [ %121, %119 ], [ %121, %132 ], [ %121, %123 ]
-  %.1 = phi i32 [ %136, %135 ], [ %.056108, %119 ], [ %.056108, %132 ], [ %.056108, %123 ]
+  %138 = phi i32 [ %.pre131, %135 ], [ %121, %132 ], [ %121, %123 ], [ %121, %119 ]
+  %.1 = phi i32 [ %136, %135 ], [ %.056108, %132 ], [ %.056108, %123 ], [ %.056108, %119 ]
   %139 = and i32 %138, -65
   store i32 %139, ptr %120, align 4
   %.pre132 = load ptr, ptr %110, align 8, !tbaa !15
@@ -4428,8 +4428,8 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
   br label %168
 
 168:                                              ; preds = %166, %163, %154, %150
-  %169 = phi i32 [ %.pre133, %166 ], [ %152, %150 ], [ %152, %163 ], [ %152, %154 ]
-  %.5 = phi i32 [ %167, %166 ], [ %.4112, %150 ], [ %.4112, %163 ], [ %.4112, %154 ]
+  %169 = phi i32 [ %.pre133, %166 ], [ %152, %163 ], [ %152, %154 ], [ %152, %150 ]
+  %.5 = phi i32 [ %167, %166 ], [ %.4112, %163 ], [ %.4112, %154 ], [ %.4112, %150 ]
   %170 = and i32 %169, -65
   store i32 %170, ptr %151, align 4
   %.pre134 = load ptr, ptr %110, align 8, !tbaa !15
@@ -4446,7 +4446,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
   br i1 %175, label %.lr.ph113, label %.critedge4, !llvm.loop !115
 
 .critedge4:                                       ; preds = %140, %171, %.preheader96, %.preheader
-  %.3 = phi i32 [ %.6, %171 ], [ 0, %.preheader ], [ 0, %.preheader96 ], [ %.2, %140 ]
+  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader96 ], [ %.6, %171 ], [ %.2, %140 ]
   %176 = load ptr, ptr @pManMR, align 8, !tbaa !35
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 40
   %178 = load i32, ptr %177, align 8, !tbaa !106

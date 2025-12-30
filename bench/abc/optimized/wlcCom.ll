@@ -885,8 +885,8 @@ Wlc_AbcUpdateNtk.exit:                            ; preds = %Abc_UtilStrsav.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.151 = phi i32 [ %.050.ph, %.loopexit.sink.split ], [ %.050.ph, %5 ], [ %.050.ph, %19 ], [ %14, %9 ]
-  %.149 = phi i32 [ %.048.ph149, %.loopexit.sink.split ], [ %24, %19 ], [ %.048.ph149, %5 ], [ %.048.ph149, %9 ]
+  %.151 = phi i32 [ %.050.ph, %.loopexit.sink.split ], [ %.050.ph, %19 ], [ %.050.ph, %5 ], [ %14, %9 ]
+  %.149 = phi i32 [ %.048.ph149, %.loopexit.sink.split ], [ %.048.ph149, %5 ], [ %24, %19 ], [ %.048.ph149, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.77)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.78)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.79, i32 noundef %.151)
@@ -1091,7 +1091,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr noundef readonly capture
   br label %114
 
 .loopexit.sink.split:                             ; preds = %72, %61, %50, %39, %28, %17
-  %.str.89.sink = phi ptr [ @.str.88, %61 ], [ @.str.87, %50 ], [ @.str.86, %39 ], [ @.str.85, %28 ], [ @.str.84, %17 ], [ @.str.89, %72 ]
+  %.str.89.sink = phi ptr [ @.str.84, %17 ], [ @.str.85, %28 ], [ @.str.86, %39 ], [ @.str.87, %50 ], [ @.str.88, %61 ], [ @.str.89, %72 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.89.sink)
   br label %.loopexit
 
@@ -1414,7 +1414,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr noundef readonly capt
   br label %186
 
 .loopexit.sink.split:                             ; preds = %84, %73, %62, %51, %40, %29
-  %.str.89.sink = phi ptr [ @.str.88, %73 ], [ @.str.87, %62 ], [ @.str.86, %51 ], [ @.str.85, %40 ], [ @.str.84, %29 ], [ @.str.89, %84 ]
+  %.str.89.sink = phi ptr [ @.str.84, %29 ], [ @.str.85, %40 ], [ @.str.86, %51 ], [ @.str.87, %62 ], [ @.str.88, %73 ], [ @.str.89, %84 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.89.sink)
   br label %.loopexit
 
@@ -1661,7 +1661,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs2(ptr noundef readonly captur
   br label %95
 
 .loopexit.sink.split:                             ; preds = %59, %48, %37, %26, %15
-  %.str.88.sink = phi ptr [ @.str.87, %48 ], [ @.str.86, %37 ], [ @.str.85, %26 ], [ @.str.84, %15 ], [ @.str.88, %59 ]
+  %.str.88.sink = phi ptr [ @.str.84, %15 ], [ @.str.85, %26 ], [ @.str.86, %37 ], [ @.str.87, %48 ], [ @.str.88, %59 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.88.sink)
   br label %.loopexit
 
@@ -2438,10 +2438,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %91, %79, %67, %55
-  %220 = phi i32 [ %37, %55 ], [ %37, %91 ], [ %37, %79 ], [ %37, %67 ], [ %.ph, %.loopexit.loopexit ]
-  %221 = phi i32 [ %38, %55 ], [ %38, %91 ], [ %38, %79 ], [ %38, %67 ], [ %.ph266, %.loopexit.loopexit ]
-  %222 = phi i32 [ %35, %55 ], [ %35, %91 ], [ %35, %79 ], [ %35, %67 ], [ %.ph267, %.loopexit.loopexit ]
-  %223 = phi i32 [ %36, %55 ], [ %36, %91 ], [ %36, %79 ], [ %36, %67 ], [ %.ph268, %.loopexit.loopexit ]
+  %220 = phi i32 [ %37, %91 ], [ %37, %79 ], [ %37, %67 ], [ %37, %55 ], [ %.ph, %.loopexit.loopexit ]
+  %221 = phi i32 [ %38, %91 ], [ %38, %79 ], [ %38, %67 ], [ %38, %55 ], [ %.ph266, %.loopexit.loopexit ]
+  %222 = phi i32 [ %35, %91 ], [ %35, %79 ], [ %35, %67 ], [ %35, %55 ], [ %.ph267, %.loopexit.loopexit ]
+  %223 = phi i32 [ %36, %91 ], [ %36, %79 ], [ %36, %67 ], [ %36, %55 ], [ %.ph268, %.loopexit.loopexit ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.140)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.141)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.142, i32 noundef %223)
@@ -2728,7 +2728,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr noundef captures(none
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %26, %20, %37, %54, %52, %51, %41
-  %.1 = phi i32 [ 1, %54 ], [ 0, %52 ], [ 0, %41 ], [ 0, %51 ], [ 0, %37 ], [ 0, %20 ], [ 0, %26 ]
+  %.1 = phi i32 [ 1, %54 ], [ 0, %41 ], [ 0, %51 ], [ 0, %52 ], [ 0, %37 ], [ 0, %20 ], [ 0, %26 ]
   ret i32 %.1
 }
 
@@ -3325,8 +3325,8 @@ Vec_PtrStart.exit:                                ; preds = %21, %25
   br label %Vec_PtrGrow.exit.sink.split.i.i
 
 Vec_PtrGrow.exit.sink.split.i.i:                  ; preds = %66, %68, %59, %61
-  %storemerge = phi ptr [ %62, %61 ], [ %60, %59 ], [ %67, %66 ], [ %69, %68 ]
-  %.sink.i.i = phi i32 [ %58, %61 ], [ %58, %59 ], [ %52, %66 ], [ %52, %68 ]
+  %storemerge = phi ptr [ %60, %59 ], [ %62, %61 ], [ %67, %66 ], [ %69, %68 ]
+  %.sink.i.i = phi i32 [ %58, %59 ], [ %58, %61 ], [ %52, %66 ], [ %52, %68 ]
   store ptr %storemerge, ptr %31, align 8, !tbaa !92
   store i32 %.sink.i.i, ptr %23, align 8, !tbaa !116
   %.pre.i = load i32, ptr %30, align 4, !tbaa !90

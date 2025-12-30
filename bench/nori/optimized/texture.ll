@@ -245,7 +245,7 @@ _ZNSt10unique_ptrIA_hPFvPvEED2Ev.exit:            ; preds = %56
   unreachable
 
 _ZNSt10unique_ptrIA_hPFvPvEED2Ev.exit22:          ; preds = %60, %34, %36, %30
-  %.pn18.pn = phi { ptr, i32 } [ %31, %30 ], [ %.pn18.ph, %60 ], [ %35, %34 ], [ %.pn.pn29, %36 ]
+  %.pn18.pn = phi { ptr, i32 } [ %31, %30 ], [ %.pn18.ph, %60 ], [ %.pn.pn29, %36 ], [ %35, %34 ]
   call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #7
   resume { ptr, i32 } %.pn18.pn
 

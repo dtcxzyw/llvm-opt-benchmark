@@ -663,7 +663,7 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i
   br i1 %236, label %.loopexit96, label %235
 
 .loopexit96:                                      ; preds = %.preheader97, %235, %126
-  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %235 ], [ %127, %126 ], [ %127, %.preheader97 ]
+  %.pn80.pn.pn = phi { ptr, i32 } [ %127, %126 ], [ %.pn80.pn, %235 ], [ %127, %.preheader97 ]
   br label %237
 
 237:                                              ; preds = %237, %.loopexit96
@@ -675,7 +675,7 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i
   br i1 %238, label %.loopexit, label %237
 
 .loopexit:                                        ; preds = %.preheader99, %237, %122
-  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn, %237 ], [ %123, %122 ], [ %123, %.preheader99 ]
+  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %.pn80.pn.pn, %237 ], [ %123, %.preheader99 ]
   resume { ptr, i32 } %.pn80.pn.pn.pn
 }
 

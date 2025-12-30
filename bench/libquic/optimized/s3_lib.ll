@@ -571,7 +571,7 @@ define hidden range(i32 0, 49) i32 @SSL_CTX_get_tlsext_ticket_keys(ptr noundef r
   br label %13
 
 13:                                               ; preds = %3, %7, %6
-  %.0 = phi i32 [ 1, %7 ], [ 0, %6 ], [ 48, %3 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %7 ], [ 48, %3 ]
   ret i32 %.0
 }
 
@@ -600,7 +600,7 @@ define hidden range(i32 0, 49) i32 @SSL_CTX_set_tlsext_ticket_keys(ptr noundef w
   br label %13
 
 13:                                               ; preds = %3, %7, %6
-  %.0 = phi i32 [ 1, %7 ], [ 0, %6 ], [ 48, %3 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %7 ], [ 48, %3 ]
   ret i32 %.0
 }
 
@@ -651,7 +651,7 @@ define hidden ptr @ssl_get_cipher_preferences(ptr noundef readonly captures(none
   br label %20
 
 20:                                               ; preds = %._crit_edge, %.thread, %7, %1
-  %.0 = phi ptr [ %16, %.thread ], [ %3, %1 ], [ %11, %7 ], [ %19, %._crit_edge ]
+  %.0 = phi ptr [ %3, %1 ], [ %11, %7 ], [ %16, %.thread ], [ %19, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -787,7 +787,7 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit.sink.split
 
 .critedge.thread:                                 ; preds = %57, %47, %50, %.lr.ph.split.split, %42
-  %.154 = phi i32 [ %.062, %47 ], [ %spec.select, %57 ], [ %.062, %42 ], [ %.062, %.lr.ph.split.split ], [ %.062, %50 ]
+  %.154 = phi i32 [ %.062, %42 ], [ %.062, %.lr.ph.split.split ], [ %.062, %50 ], [ %.062, %47 ], [ %spec.select, %57 ]
   %65 = getelementptr inbounds nuw i8, ptr %.039, i64 %.04359
   %66 = load i8, ptr %65, align 1, !tbaa !37
   %67 = icmp eq i8 %66, 0
@@ -811,7 +811,7 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %.critedge.us.us, %.loopexit.sink.split, %15
-  %.040 = phi ptr [ null, %15 ], [ null, %.critedge.us.us ], [ %74, %.loopexit.sink.split ], [ null, %70 ]
+  %.040 = phi ptr [ null, %15 ], [ %74, %.loopexit.sink.split ], [ null, %.critedge.us.us ], [ null, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

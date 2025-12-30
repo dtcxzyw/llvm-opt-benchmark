@@ -715,7 +715,7 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
   br label %118
 
 118:                                              ; preds = %112, %95, %94, %88, %87, %83, %82, %72, %58, %54, %.critedge, %113, %62, %22
-  %.077 = phi i32 [ 14, %22 ], [ 0, %113 ], [ %53, %.critedge ], [ 20, %62 ], [ %.pre101, %58 ], [ %.pre100, %82 ], [ %.pre99, %87 ], [ %.pre98, %94 ], [ %57, %54 ], [ %81, %72 ], [ %86, %83 ], [ %93, %88 ], [ %111, %95 ], [ %.pre, %112 ]
+  %.077 = phi i32 [ 14, %22 ], [ 20, %62 ], [ 0, %113 ], [ %53, %.critedge ], [ %57, %54 ], [ %.pre101, %58 ], [ %81, %72 ], [ %.pre100, %82 ], [ %86, %83 ], [ %.pre99, %87 ], [ %93, %88 ], [ %.pre98, %94 ], [ %111, %95 ], [ %.pre, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.077

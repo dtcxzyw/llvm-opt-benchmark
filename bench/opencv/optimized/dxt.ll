@@ -458,9 +458,9 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %55, %51
-  %.462.i = phi i32 [ %.15974.i, %55 ], [ %52, %51 ]
-  %.257.i = phi i32 [ %56, %55 ], [ %.05575.i, %51 ]
-  %.4.i = phi i32 [ %.176.i, %55 ], [ %48, %51 ]
+  %.462.i = phi i32 [ %52, %51 ], [ %.15974.i, %55 ]
+  %.257.i = phi i32 [ %.05575.i, %51 ], [ %56, %55 ]
+  %.4.i = phi i32 [ %48, %51 ], [ %.176.i, %55 ]
   %60 = icmp sgt i32 %.4.i, 1
   br i1 %60, label %.lr.ph.i, label %.loopexit71.i
 
@@ -892,9 +892,9 @@ define linkonce_odr hidden void @_ZN2cv10OcvDftImpl4initEiiiiiii(ptr noundef non
   br label %_ZN2cv13determineModeEbii.exit
 
 _ZN2cv13determineModeEbii.exit:                   ; preds = %27, %28, %30, %32, %33, %35, %37
-  %.not = phi i1 [ true, %30 ], [ false, %32 ], [ false, %33 ], [ false, %37 ], [ false, %28 ], [ false, %27 ], [ false, %35 ]
-  %38 = phi i8 [ 1, %30 ], [ 1, %32 ], [ 1, %33 ], [ 1, %37 ], [ 1, %28 ], [ 1, %27 ], [ 0, %35 ]
-  %.0.i = phi i32 [ 3, %30 ], [ 4, %32 ], [ 5, %33 ], [ 0, %37 ], [ 2, %28 ], [ 1, %27 ], [ 6, %35 ]
+  %.not = phi i1 [ false, %37 ], [ false, %27 ], [ false, %28 ], [ true, %30 ], [ false, %32 ], [ false, %33 ], [ false, %35 ]
+  %38 = phi i8 [ 1, %37 ], [ 1, %27 ], [ 1, %28 ], [ 1, %30 ], [ 1, %32 ], [ 1, %33 ], [ 0, %35 ]
+  %.0.i = phi i32 [ 0, %37 ], [ 1, %27 ], [ 2, %28 ], [ 3, %30 ], [ 4, %32 ], [ 5, %33 ], [ 6, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.0.i, ptr %39, align 4, !tbaa !87
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 42
@@ -1005,8 +1005,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %80, %82, %83, %85
   store i32 1, ptr %89, align 4, !tbaa !46
   br label %112
 
-92:                                               ; preds = %66, %69, %63
-  %.0.i62.ph = phi i1 [ %.not99, %66 ], [ false, %63 ], [ false, %69 ]
+92:                                               ; preds = %66, %63, %69
+  %.0.i62.ph = phi i1 [ false, %69 ], [ false, %63 ], [ %.not99, %66 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = load ptr, ptr %94, align 8, !tbaa !91
@@ -6478,7 +6478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37, %
   br i1 %.not238, label %.loopexit273, label %.lr.ph281, !llvm.loop !200
 
 .loopexit270:                                     ; preds = %.loopexit273, %._crit_edge292, %140, %.loopexit271
-  %.2 = phi i32 [ %.1, %140 ], [ %.1, %.loopexit271 ], [ %.1, %._crit_edge292 ], [ 0, %.loopexit273 ]
+  %.2 = phi i32 [ %.1, %.loopexit271 ], [ %.1, %140 ], [ %.1, %._crit_edge292 ], [ 0, %.loopexit273 ]
   %.not242 = icmp eq ptr %.0, %3
   br i1 %.not242, label %.loopexit, label %.lr.ph304.preheader
 
@@ -12571,7 +12571,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit144:            ; preds = %_ZN2cvL10CopyColumn
   br label %_ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread396
 
 _ZN2cvL10CopyColumnEPKhmPhmim.exit144._ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread_crit_edge: ; preds = %.lr.ph.i203, %.lr.ph64.i209, %.lr.ph68.i215, %224, %.preheader56.i202, %.preheader54.i208, %.preheader.i214, %_ZN2cvL10CopyColumnEPKhmPhmim.exit182
-  %.pn.in.in.ph = phi ptr [ %193, %.lr.ph68.i215 ], [ %193, %224 ], [ %193, %.preheader56.i202 ], [ %193, %.preheader54.i208 ], [ %193, %.preheader.i214 ], [ %193, %.lr.ph64.i209 ], [ %123, %_ZN2cvL10CopyColumnEPKhmPhmim.exit182 ], [ %193, %.lr.ph.i203 ]
+  %.pn.in.in.ph = phi ptr [ %193, %224 ], [ %193, %.preheader56.i202 ], [ %193, %.preheader54.i208 ], [ %193, %.preheader.i214 ], [ %123, %_ZN2cvL10CopyColumnEPKhmPhmim.exit182 ], [ %193, %.lr.ph68.i215 ], [ %193, %.lr.ph64.i209 ], [ %193, %.lr.ph.i203 ]
   %.pn.in477 = load i32, ptr %.pn.in.in.ph, align 4, !tbaa !46
   %.pn478 = sext i32 %.pn.in477 to i64
   %.1118479 = getelementptr inbounds i8, ptr %1, i64 %.pn478
@@ -12579,8 +12579,8 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit144._ZN2cvL10CopyColumnEPKhmPhmim.exit144.thre
   br label %_ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread
 
 _ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread:     ; preds = %.lr.ph.i127, %.lr.ph64.i133, %.lr.ph68.i139, %_ZN2cvL10CopyColumnEPKhmPhmim.exit144._ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread_crit_edge, %78, %.preheader56.i126, %.preheader54.i132, %.preheader.i138
-  %258 = phi ptr [ %.pre, %_ZN2cvL10CopyColumnEPKhmPhmim.exit144._ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread_crit_edge ], [ %88, %.lr.ph68.i139 ], [ %88, %.lr.ph64.i133 ], [ %88, %78 ], [ %88, %.preheader.i138 ], [ %88, %.preheader54.i132 ], [ %88, %.preheader56.i126 ], [ %88, %.lr.ph.i127 ]
-  %.1118395 = phi ptr [ %.1118479, %_ZN2cvL10CopyColumnEPKhmPhmim.exit144._ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread_crit_edge ], [ %77, %.lr.ph68.i139 ], [ %77, %.lr.ph64.i133 ], [ %77, %78 ], [ %77, %.preheader.i138 ], [ %77, %.preheader54.i132 ], [ %77, %.preheader56.i126 ], [ %77, %.lr.ph.i127 ]
+  %258 = phi ptr [ %.pre, %_ZN2cvL10CopyColumnEPKhmPhmim.exit144._ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread_crit_edge ], [ %88, %.preheader.i138 ], [ %88, %.preheader54.i132 ], [ %88, %.preheader56.i126 ], [ %88, %78 ], [ %88, %.lr.ph68.i139 ], [ %88, %.lr.ph64.i133 ], [ %88, %.lr.ph.i127 ]
+  %.1118395 = phi ptr [ %.1118479, %_ZN2cvL10CopyColumnEPKhmPhmim.exit144._ZN2cvL10CopyColumnEPKhmPhmim.exit144.thread_crit_edge ], [ %77, %.preheader.i138 ], [ %77, %.preheader54.i132 ], [ %77, %.preheader56.i126 ], [ %77, %78 ], [ %77, %.lr.ph68.i139 ], [ %77, %.lr.ph64.i133 ], [ %77, %.lr.ph.i127 ]
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %260 = load ptr, ptr %259, align 8, !tbaa !28
   %261 = load ptr, ptr %260, align 8, !tbaa !3
@@ -13351,7 +13351,7 @@ _ZN2cvL16CopyFrom2ColumnsEPKhmPhS2_im.exit:       ; preds = %.lr.ph.i335, %.lr.p
   br i1 %exitcond.not.i343, label %_ZN2cvL10CopyColumnEPKhmPhmim.exit356, label %.lr.ph.i339, !llvm.loop !299
 
 _ZN2cvL10CopyColumnEPKhmPhmim.exit356:            ; preds = %.lr.ph.i339, %.lr.ph64.i345, %.lr.ph68.i351, %.preheader.i350, %.preheader54.i344, %.preheader56.i338, %575, %_ZN2cvL16CopyFrom2ColumnsEPKhmPhS2_im.exit
-  %603 = phi ptr [ %520, %.lr.ph64.i345 ], [ %520, %.lr.ph68.i351 ], [ %.pre470, %_ZN2cvL16CopyFrom2ColumnsEPKhmPhS2_im.exit ], [ %520, %.preheader.i350 ], [ %520, %.preheader54.i344 ], [ %520, %.preheader56.i338 ], [ %520, %575 ], [ %520, %.lr.ph.i339 ]
+  %603 = phi ptr [ %520, %.preheader.i350 ], [ %520, %.preheader54.i344 ], [ %520, %.preheader56.i338 ], [ %520, %575 ], [ %.pre470, %_ZN2cvL16CopyFrom2ColumnsEPKhmPhS2_im.exit ], [ %520, %.lr.ph68.i351 ], [ %520, %.lr.ph64.i345 ], [ %520, %.lr.ph.i339 ]
   %604 = load ptr, ptr %512, align 8, !tbaa !28
   %605 = load ptr, ptr %604, align 8, !tbaa !3
   %606 = load ptr, ptr %605, align 8
@@ -13834,7 +13834,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !91
   br label %40
 
@@ -14143,9 +14143,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %76, %
   br i1 %105, label %108, label %106
 
 106:                                              ; preds = %102, %98
-  %.462.i = phi i32 [ %.15974.i, %102 ], [ %99, %98 ]
-  %.257.i = phi i32 [ %103, %102 ], [ %.05575.i, %98 ]
-  %.4.i = phi i32 [ %.176.i, %102 ], [ %95, %98 ]
+  %.462.i = phi i32 [ %99, %98 ], [ %.15974.i, %102 ]
+  %.257.i = phi i32 [ %.05575.i, %98 ], [ %103, %102 ]
+  %.4.i = phi i32 [ %95, %98 ], [ %.176.i, %102 ]
   %107 = icmp sgt i32 %.4.i, 1
   br i1 %107, label %.lr.ph.i, label %.loopexit71.i
 
@@ -14586,9 +14586,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %229
   br i1 %exitcond.not.i106, label %_ZN2cvL7DCTInitEiiPvi.exit, label %279, !llvm.loop !318
 
 _ZN2cvL7DCTInitEiiPvi.exit:                       ; preds = %268, %279, %274, %.preheader.i, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100, %67
-  %.171 = phi ptr [ %.070121, %67 ], [ %.2, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %.2, %.preheader.i ], [ %.2, %279 ], [ %.2, %274 ], [ %.2, %268 ]
-  %.169 = phi i32 [ %.068122, %67 ], [ 1, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %.155, %.preheader.i ], [ %.155, %279 ], [ %.155, %274 ], [ %.155, %268 ]
-  %.167 = phi ptr [ %.066123, %67 ], [ %204, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %204, %.preheader.i ], [ %204, %279 ], [ %204, %274 ], [ %204, %268 ]
+  %.171 = phi ptr [ %.070121, %67 ], [ %.2, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %.2, %.preheader.i ], [ %.2, %274 ], [ %.2, %279 ], [ %.2, %268 ]
+  %.169 = phi i32 [ %.068122, %67 ], [ 1, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %.155, %.preheader.i ], [ %.155, %274 ], [ %.155, %279 ], [ %.155, %268 ]
+  %.167 = phi ptr [ %.066123, %67 ], [ %204, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit100 ], [ %204, %.preheader.i ], [ %204, %274 ], [ %204, %279 ], [ %204, %268 ]
   %.not130 = icmp eq i32 %.1, 0
   br i1 %.not130, label %._crit_edge, label %.lr.ph.preheader
 

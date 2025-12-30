@@ -1074,7 +1074,7 @@ pcie_clkpm_cap_init.exit:                         ; preds = %pcie_clkpm_cap_init
   %584 = icmp eq ptr %581, %583
   br i1 %584, label %pcie_aspm_update_sysfs_visibility.exit, label %.preheader.i8, !llvm.loop !18
 
-pcie_aspm_update_sysfs_visibility.exit:           ; preds = %.preheader.i8, %71, %.thread, %573
+pcie_aspm_update_sysfs_visibility.exit:           ; preds = %.preheader.i8, %.thread, %71, %573
   call void @mutex_unlock(ptr noundef nonnull @aspm_lock) #14
   br label %585
 

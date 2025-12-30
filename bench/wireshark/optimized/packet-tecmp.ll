@@ -1534,7 +1534,7 @@ add_interface_id_text_and_name.exit113.i:         ; preds = %149, %ht_interface_
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %add_interface_id_text_and_name.exit113.i, %add_interface_id_text_and_name.exit.i, %._crit_edge.loopexit.i, %106, %105
-  %.2.i = phi i32 [ 32, %105 ], [ 40, %add_interface_id_text_and_name.exit113.i ], [ 37, %add_interface_id_text_and_name.exit.i ], [ 36, %106 ], [ %121, %._crit_edge.loopexit.i ]
+  %.2.i = phi i32 [ 32, %105 ], [ 37, %add_interface_id_text_and_name.exit.i ], [ 40, %add_interface_id_text_and_name.exit113.i ], [ 36, %106 ], [ %121, %._crit_edge.loopexit.i ]
   %162 = add i32 %.2.i, -12
   %.not.i = icmp eq i32 %87, %162
   br i1 %.not.i, label %dissect_tecmp_control_msg.exit, label %163
@@ -2007,7 +2007,7 @@ dissect_tecmp_status_config_vendor_data.exit.i:   ; preds = %.sink.split.i.i, %4
   br label %dissect_tecmp_status_device.exit
 
 dissect_tecmp_status_device.exit:                 ; preds = %403, %198, %dissect_tecmp_status_device_vendor_data.exit.i, %305, %407, %dissect_tecmp_status_config_vendor_data.exit.i, %441, %442
-  %.0.i = phi i32 [ %444, %442 ], [ 40, %441 ], [ %304, %dissect_tecmp_status_device_vendor_data.exit.i ], [ 40, %198 ], [ 40, %407 ], [ %440, %dissect_tecmp_status_config_vendor_data.exit.i ], [ 40, %305 ], [ %.1.i, %403 ]
+  %.0.i = phi i32 [ %444, %442 ], [ 40, %441 ], [ %304, %dissect_tecmp_status_device_vendor_data.exit.i ], [ 40, %198 ], [ %440, %dissect_tecmp_status_config_vendor_data.exit.i ], [ 40, %407 ], [ 40, %305 ], [ %.1.i, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)

@@ -158,7 +158,7 @@ define hidden void @CandumpParser(ptr noundef captures(address) initializes((16,
   br label %yy_find_shift_action.exit
 
 yy_find_shift_action.exit:                        ; preds = %24, %34, %37
-  %.0.i = phi i8 [ %39, %37 ], [ %36, %34 ], [ %.037, %24 ]
+  %.0.i = phi i8 [ %36, %34 ], [ %39, %37 ], [ %.037, %24 ]
   %40 = icmp ugt i8 %.0.i, 121
   br i1 %40, label %41, label %157
 

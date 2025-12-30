@@ -722,7 +722,7 @@ define dso_local i32 @rw_verify_area(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %24, %18, %13, %29, %4
-  %31 = phi i32 [ %30, %29 ], [ -22, %4 ], [ -22, %24 ], [ -75, %18 ], [ -22, %13 ]
+  %31 = phi i32 [ -22, %4 ], [ %30, %29 ], [ -22, %24 ], [ -75, %18 ], [ -22, %13 ]
   ret i32 %31
 }
 
@@ -1253,7 +1253,7 @@ define dso_local i64 @vfs_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   br label %.thread15
 
 .thread15:                                        ; preds = %53, %147, %111
-  %153 = phi i64 [ %112, %111 ], [ %112, %147 ], [ -22, %53 ]
+  %153 = phi i64 [ %112, %147 ], [ %112, %111 ], [ -22, %53 ]
   %154 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %155 = inttoptr i64 %154 to ptr
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 2184
@@ -1913,7 +1913,7 @@ define dso_local i64 @vfs_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %.thread15
 
 .thread15:                                        ; preds = %77, %176, %140
-  %182 = phi i64 [ %141, %140 ], [ %141, %176 ], [ -22, %77 ]
+  %182 = phi i64 [ %141, %176 ], [ %141, %140 ], [ -22, %77 ]
   %183 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %184 = inttoptr i64 %183 to ptr
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 2192
@@ -3616,7 +3616,7 @@ define dso_local i64 @__x64_sys_preadv(ptr noundef readonly captures(none) %0) l
   br label %.thread
 
 .thread:                                          ; preds = %13, %33, %31
-  %39 = phi i64 [ %27, %31 ], [ %27, %33 ], [ -9, %13 ]
+  %39 = phi i64 [ %27, %33 ], [ %27, %31 ], [ -9, %13 ]
   %40 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2184
@@ -3690,7 +3690,7 @@ define dso_local i64 @__ia32_sys_preadv(ptr noundef readonly captures(none) %0) 
   br label %.thread
 
 .thread:                                          ; preds = %1, %34, %32
-  %40 = phi i64 [ %28, %32 ], [ %28, %34 ], [ -9, %1 ]
+  %40 = phi i64 [ %28, %34 ], [ %28, %32 ], [ -9, %1 ]
   %41 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2184
@@ -3778,7 +3778,7 @@ define internal fastcc i64 @__se_sys_preadv2(i64 noundef %0, i64 noundef %1, i64
   br label %.thread
 
 .thread:                                          ; preds = %14, %34, %32
-  %40 = phi i64 [ %28, %32 ], [ %28, %34 ], [ -9, %14 ]
+  %40 = phi i64 [ %28, %34 ], [ %28, %32 ], [ -9, %14 ]
   %41 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2184
@@ -3878,7 +3878,7 @@ define dso_local i64 @__x64_sys_pwritev(ptr noundef readonly captures(none) %0) 
   br label %.thread
 
 .thread:                                          ; preds = %13, %33, %31
-  %39 = phi i64 [ %27, %31 ], [ %27, %33 ], [ -9, %13 ]
+  %39 = phi i64 [ %27, %33 ], [ %27, %31 ], [ -9, %13 ]
   %40 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2192
@@ -3952,7 +3952,7 @@ define dso_local i64 @__ia32_sys_pwritev(ptr noundef readonly captures(none) %0)
   br label %.thread
 
 .thread:                                          ; preds = %1, %34, %32
-  %40 = phi i64 [ %28, %32 ], [ %28, %34 ], [ -9, %1 ]
+  %40 = phi i64 [ %28, %34 ], [ %28, %32 ], [ -9, %1 ]
   %41 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2192
@@ -4040,7 +4040,7 @@ define internal fastcc i64 @__se_sys_pwritev2(i64 noundef %0, i64 noundef %1, i6
   br label %.thread
 
 .thread:                                          ; preds = %14, %34, %32
-  %40 = phi i64 [ %28, %32 ], [ %28, %34 ], [ -9, %14 ]
+  %40 = phi i64 [ %28, %34 ], [ %28, %32 ], [ -9, %14 ]
   %41 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2192
@@ -4139,7 +4139,7 @@ define dso_local i64 @__ia32_compat_sys_preadv64(ptr noundef readonly captures(n
   br label %.thread
 
 .thread:                                          ; preds = %1, %34, %32
-  %40 = phi i64 [ %28, %32 ], [ %28, %34 ], [ -9, %1 ]
+  %40 = phi i64 [ %28, %34 ], [ %28, %32 ], [ -9, %1 ]
   %41 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2184
@@ -4217,7 +4217,7 @@ define dso_local i64 @__ia32_compat_sys_preadv(ptr noundef readonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %20, %40, %38
-  %46 = phi i64 [ %34, %38 ], [ %34, %40 ], [ -9, %20 ]
+  %46 = phi i64 [ %34, %40 ], [ %34, %38 ], [ -9, %20 ]
   %47 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %48 = inttoptr i64 %47 to ptr
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2184
@@ -4294,7 +4294,7 @@ define dso_local i64 @__ia32_compat_sys_preadv64v2(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %1, %37, %35
-  %43 = phi i64 [ %31, %35 ], [ %31, %37 ], [ -9, %1 ]
+  %43 = phi i64 [ %31, %37 ], [ %31, %35 ], [ -9, %1 ]
   %44 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2184
@@ -4384,7 +4384,7 @@ define dso_local i64 @__ia32_compat_sys_preadv2(ptr noundef readonly captures(no
   br label %.thread
 
 .thread:                                          ; preds = %29, %48, %46
-  %54 = phi i64 [ %42, %46 ], [ %42, %48 ], [ -9, %29 ]
+  %54 = phi i64 [ %42, %48 ], [ %42, %46 ], [ -9, %29 ]
   %55 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 2184
@@ -4462,7 +4462,7 @@ define dso_local i64 @__ia32_compat_sys_pwritev64(ptr noundef readonly captures(
   br label %.thread
 
 .thread:                                          ; preds = %1, %34, %32
-  %40 = phi i64 [ %28, %32 ], [ %28, %34 ], [ -9, %1 ]
+  %40 = phi i64 [ %28, %34 ], [ %28, %32 ], [ -9, %1 ]
   %41 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2192
@@ -4540,7 +4540,7 @@ define dso_local i64 @__ia32_compat_sys_pwritev(ptr noundef readonly captures(no
   br label %.thread
 
 .thread:                                          ; preds = %20, %40, %38
-  %46 = phi i64 [ %34, %38 ], [ %34, %40 ], [ -9, %20 ]
+  %46 = phi i64 [ %34, %40 ], [ %34, %38 ], [ -9, %20 ]
   %47 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %48 = inttoptr i64 %47 to ptr
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2192
@@ -4617,7 +4617,7 @@ define dso_local i64 @__ia32_compat_sys_pwritev64v2(ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %1, %37, %35
-  %43 = phi i64 [ %31, %35 ], [ %31, %37 ], [ -9, %1 ]
+  %43 = phi i64 [ %31, %37 ], [ %31, %35 ], [ -9, %1 ]
   %44 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2192
@@ -4707,7 +4707,7 @@ define dso_local i64 @__ia32_compat_sys_pwritev2(ptr noundef readonly captures(n
   br label %.thread
 
 .thread:                                          ; preds = %29, %48, %46
-  %54 = phi i64 [ %42, %46 ], [ %42, %48 ], [ -9, %29 ]
+  %54 = phi i64 [ %42, %48 ], [ %42, %46 ], [ -9, %29 ]
   %55 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 2192
@@ -5540,7 +5540,7 @@ define dso_local i64 @vfs_copy_file_range(ptr noundef %0, i64 noundef %1, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %56, %62, %63, %68, %118, %74, %26, %22, %30, %39, %34, %44, %108, %103, %322, %166, %.thread38, %.thread34, %6
-  %329 = phi i64 [ 0, %166 ], [ %144, %.thread34 ], [ %165, %.thread38 ], [ %247, %322 ], [ -22, %6 ], [ -75, %74 ], [ -18, %56 ], [ -18, %62 ], [ -1, %63 ], [ -26, %68 ], [ -21, %26 ], [ -22, %118 ], [ -9, %44 ], [ -9, %34 ], [ -9, %39 ], [ -22, %30 ], [ -21, %22 ], [ -27, %108 ], [ -27, %103 ]
+  %329 = phi i64 [ %144, %.thread34 ], [ %165, %.thread38 ], [ %247, %322 ], [ -22, %6 ], [ 0, %166 ], [ -18, %56 ], [ -18, %62 ], [ -1, %63 ], [ -26, %68 ], [ -22, %118 ], [ -75, %74 ], [ -9, %44 ], [ -9, %34 ], [ -9, %39 ], [ -22, %30 ], [ -21, %22 ], [ -21, %26 ], [ -27, %108 ], [ -27, %103 ]
   ret i64 %329
 }
 
@@ -5968,7 +5968,7 @@ generic_write_checks_count.exit:                  ; preds = %54
   br label %generic_write_checks_count.exit.thread
 
 generic_write_checks_count.exit.thread:           ; preds = %13, %generic_write_checks_count.exit, %64, %54, %49, %27, %2
-  %65 = phi i64 [ -26, %2 ], [ -27, %54 ], [ -27, %49 ], [ -22, %27 ], [ %62, %64 ], [ %.pre, %generic_write_checks_count.exit ], [ 0, %13 ]
+  %65 = phi i64 [ -27, %54 ], [ -27, %49 ], [ -22, %27 ], [ -26, %2 ], [ %62, %64 ], [ %.pre, %generic_write_checks_count.exit ], [ 0, %13 ]
   ret i64 %65
 }
 
@@ -6151,7 +6151,7 @@ define internal fastcc i64 @do_readv(i64 noundef %0, ptr noundef %1, i64 noundef
   br label %.thread
 
 .thread:                                          ; preds = %4, %37, %35
-  %43 = phi i64 [ %21, %35 ], [ %21, %37 ], [ -9, %4 ]
+  %43 = phi i64 [ %21, %37 ], [ %21, %35 ], [ -9, %4 ]
   %44 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2184
@@ -6303,7 +6303,7 @@ define internal fastcc i64 @vfs_readv(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %96, label %.thread13, label %.lr.ph
 
 .thread13:                                        ; preds = %94, %83, %81, %55
-  %97 = phi i64 [ %64, %81 ], [ %56, %55 ], [ %84, %83 ], [ %84, %94 ]
+  %97 = phi i64 [ %56, %55 ], [ %64, %81 ], [ %84, %83 ], [ %84, %94 ]
   %98 = icmp sgt i64 %97, -1
   br i1 %98, label %.thread17, label %.thread16
 
@@ -6356,7 +6356,7 @@ define internal fastcc i64 @vfs_readv(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %.thread16
 
 .thread16:                                        ; preds = %41, %35, %31, %24, %81, %57, %45, %129, %127, %103, %.thread17, %.thread13
-  %132 = phi i64 [ %97, %.thread13 ], [ %99, %129 ], [ %99, %127 ], [ %99, %103 ], [ %99, %.thread17 ], [ %79, %81 ], [ -95, %57 ], [ %47, %45 ], [ -22, %24 ], [ -22, %41 ], [ -75, %35 ], [ -22, %31 ]
+  %132 = phi i64 [ %99, %129 ], [ %99, %127 ], [ %99, %103 ], [ %99, %.thread17 ], [ %97, %.thread13 ], [ -95, %57 ], [ %47, %45 ], [ %79, %81 ], [ -22, %24 ], [ -22, %41 ], [ -75, %35 ], [ -22, %31 ]
   %133 = load ptr, ptr %7, align 8
   call void @kfree(ptr noundef %133) #12
   br label %134
@@ -6450,7 +6450,7 @@ define internal fastcc i64 @do_writev(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %.thread
 
 .thread:                                          ; preds = %4, %37, %35
-  %43 = phi i64 [ %21, %35 ], [ %21, %37 ], [ -9, %4 ]
+  %43 = phi i64 [ %21, %37 ], [ %21, %35 ], [ -9, %4 ]
   %44 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !13
   %45 = inttoptr i64 %44 to ptr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2192
@@ -6696,7 +6696,7 @@ define internal fastcc i64 @vfs_writev(ptr noundef %0, ptr noundef %1, i64 nound
   br label %.thread14
 
 .thread14:                                        ; preds = %83, %105, %81, %153, %151, %127, %123, %.thread13
-  %156 = phi i64 [ %121, %.thread13 ], [ %121, %153 ], [ %121, %151 ], [ %121, %127 ], [ %121, %123 ], [ -95, %81 ], [ %103, %105 ], [ 0, %83 ]
+  %156 = phi i64 [ %121, %153 ], [ %121, %151 ], [ %121, %127 ], [ %121, %123 ], [ %121, %.thread13 ], [ -95, %81 ], [ %103, %105 ], [ 0, %83 ]
   %157 = load ptr, ptr %50, align 8
   %158 = load i16, ptr %157, align 8
   %159 = icmp slt i16 %158, -28672

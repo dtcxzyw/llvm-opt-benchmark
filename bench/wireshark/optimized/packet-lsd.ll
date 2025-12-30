@@ -130,7 +130,7 @@ define internal zeroext i1 @dissect_lsd_heur(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %4, %7, %28, %32
-  %.0 = phi i1 [ false, %28 ], [ false, %7 ], [ false, %32 ], [ false, %4 ], [ %37, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %32 ], [ false, %28 ], [ false, %7 ], [ false, %4 ], [ %37, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -255,7 +255,7 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
   br label %79
 
 79:                                               ; preds = %3, %77, %74, %66, %59, %29, %22
-  %.0 = phi i32 [ %24, %22 ], [ %30, %29 ], [ %67, %66 ], [ %78, %77 ], [ %76, %74 ], [ %61, %59 ], [ 0, %3 ]
+  %.0 = phi i32 [ %30, %29 ], [ %67, %66 ], [ %78, %77 ], [ %76, %74 ], [ %61, %59 ], [ %24, %22 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

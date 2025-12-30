@@ -146,7 +146,7 @@ define internal i32 @process_command(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %23
 
 23:                                               ; preds = %18, %17, %12, %6
-  %.019 = phi i32 [ %10, %6 ], [ %15, %18 ], [ %15, %17 ], [ -22, %12 ]
+  %.019 = phi i32 [ %10, %6 ], [ %15, %17 ], [ %15, %18 ], [ -22, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.019
 }
@@ -648,7 +648,7 @@ double2int64str.exit38:                           ; preds = %258, %259
   br label %278
 
 278:                                              ; preds = %18, %275, %.critedge, %277, %270, %filter_frame.exit
-  %.1 = phi i32 [ 0, %18 ], [ %191, %filter_frame.exit ], [ 0, %270 ], [ 0, %277 ], [ %19, %.critedge ], [ -1497649742, %275 ]
+  %.1 = phi i32 [ %191, %filter_frame.exit ], [ 0, %270 ], [ 0, %277 ], [ 0, %18 ], [ %19, %.critedge ], [ -1497649742, %275 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

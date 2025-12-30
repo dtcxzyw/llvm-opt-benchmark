@@ -379,7 +379,7 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
   br label %86
 
 86:                                               ; preds = %76, %82, %72
-  %.3 = phi i32 [ %85, %82 ], [ %79, %76 ], [ %.1167192, %72 ]
+  %.3 = phi i32 [ %85, %82 ], [ %.1167192, %72 ], [ %79, %76 ]
   br i1 %or.cond211, label %.thread212, label %91
 
 .thread212:                                       ; preds = %86
@@ -390,8 +390,8 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
   br i1 %73, label %124, label %switch.early.test
 
 91:                                               ; preds = %.thread203, %71, %86
-  %92 = phi i1 [ %57, %.thread203 ], [ %73, %86 ], [ %64, %71 ]
-  %.2 = phi i32 [ %37, %.thread203 ], [ %.3, %86 ], [ %37, %71 ]
+  %92 = phi i1 [ %73, %86 ], [ %64, %71 ], [ %57, %.thread203 ]
+  %.2 = phi i32 [ %.3, %86 ], [ %37, %71 ], [ %37, %.thread203 ]
   %93 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2)
   %94 = icmp slt i32 %93, 1
   br i1 %94, label %116, label %95
@@ -432,7 +432,7 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
   br i1 %92, label %124, label %switch.early.test
 
 116:                                              ; preds = %95, %109, %91
-  %.4 = phi i32 [ %.2, %91 ], [ %100, %95 ], [ %107, %109 ]
+  %.4 = phi i32 [ %.2, %91 ], [ %107, %109 ], [ %100, %95 ]
   br i1 %92, label %124, label %switch.early.test
 
 switch.early.test:                                ; preds = %.thread212, %112, %116
@@ -455,8 +455,8 @@ switch.early.test:                                ; preds = %.thread212, %112, %
   br label %124
 
 124:                                              ; preds = %.thread212, %112, %switch.early.test, %switch.early.test, %switch.early.test, %116, %5, %117, %120, %27
-  %.0174 = phi i32 [ -1, %27 ], [ %34, %120 ], [ %34, %117 ], [ -1, %5 ], [ %34, %switch.early.test ], [ %34, %116 ], [ %34, %switch.early.test ], [ %34, %switch.early.test ], [ %34, %112 ], [ %34, %.thread212 ]
-  %.0166 = phi i32 [ %30, %27 ], [ %123, %120 ], [ %.4216, %117 ], [ %26, %5 ], [ %.4216, %switch.early.test ], [ %.4, %116 ], [ %.4216, %switch.early.test ], [ %.4216, %switch.early.test ], [ %115, %112 ], [ %89, %.thread212 ]
+  %.0174 = phi i32 [ -1, %27 ], [ %34, %120 ], [ %34, %117 ], [ %34, %switch.early.test ], [ -1, %5 ], [ %34, %116 ], [ %34, %switch.early.test ], [ %34, %switch.early.test ], [ %34, %112 ], [ %34, %.thread212 ]
+  %.0166 = phi i32 [ %30, %27 ], [ %123, %120 ], [ %.4216, %117 ], [ %.4216, %switch.early.test ], [ %26, %5 ], [ %.4, %116 ], [ %.4216, %switch.early.test ], [ %.4216, %switch.early.test ], [ %115, %112 ], [ %89, %.thread212 ]
   %125 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0166)
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %177, label %127

@@ -203,7 +203,7 @@ define internal noundef i32 @evaluate(ptr readnone captures(none) %0, ptr nounde
   store i8 1, ptr %29, align 8, !tbaa !36
   br label %.thread
 
-.thread:                                          ; preds = %21, %19, %19, %11, %6, %24, %28
+.thread:                                          ; preds = %21, %19, %19, %6, %11, %24, %28
   ret i32 0
 }
 

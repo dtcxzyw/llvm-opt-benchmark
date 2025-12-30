@@ -188,7 +188,7 @@ define dso_local noundef zeroext i1 @_ZNK19cmIfFunctionBlocker14ArgumentsMatchER
   br label %_ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i
 
 _ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i:   ; preds = %29, %27
-  %33 = phi i1 [ true, %27 ], [ %32, %29 ]
+  %33 = phi i1 [ %32, %29 ], [ true, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 32
@@ -204,7 +204,7 @@ _ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i:   ; preds = %29, %27
   br i1 %.not.i.i.i.i.i, label %_ZSteqI18cmListFileArgumentSaIS0_EEbRKSt6vectorIT_T0_ES7_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
 
 _ZSteqI18cmListFileArgumentSaIS0_EEbRKSt6vectorIT_T0_ES7_.exit: ; preds = %40, %_ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %10, %3
-  %43 = phi i1 [ true, %3 ], [ false, %10 ], [ true, %40 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %_ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i ]
+  %43 = phi i1 [ true, %3 ], [ false, %10 ], [ false, %_ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i ], [ true, %40 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %43
 }
 
@@ -1907,7 +1907,7 @@ _ZN17cmExecutionStatusD2Ev.exit:                  ; preds = %_ZNSt6vectorINSt7__
   br label %.critedge124
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit254: ; preds = %637, %642, %614, %612, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i252, %633
-  %.pn = phi { ptr, i32 } [ %634, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i252 ], [ %634, %633 ], [ %613, %612 ], [ %643, %642 ], [ %613, %614 ], [ %634, %637 ]
+  %.pn = phi { ptr, i32 } [ %634, %633 ], [ %634, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i252 ], [ %643, %642 ], [ %613, %614 ], [ %613, %612 ], [ %634, %637 ]
   call void @_ZN17cmExecutionStatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %30) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %697
@@ -2950,7 +2950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   ret i1 true
 
 _ZNSt10unique_ptrI19cmIfFunctionBlockerSt14default_deleteIS0_EED2Ev.exit49: ; preds = %112, %.thread, %_ZNKSt14default_deleteI19cmIfFunctionBlockerEclEPS0_.exit.i48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39, %70
-  %.pn28.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ], [ %113, %112 ], [ %123, %.thread ], [ %128, %_ZNKSt14default_deleteI19cmIfFunctionBlockerEclEPS0_.exit.i48 ]
+  %.pn28.pn.pn = phi { ptr, i32 } [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ], [ %71, %70 ], [ %113, %112 ], [ %123, %.thread ], [ %128, %_ZNKSt14default_deleteI19cmIfFunctionBlockerEclEPS0_.exit.i48 ]
   call void @_ZN20cmConditionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %7) #23
   br label %176
 

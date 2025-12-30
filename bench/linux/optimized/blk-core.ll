@@ -3508,7 +3508,7 @@ define dso_local noundef range(i32 -19, 1) i32 @blk_queue_enter(ptr noundef %0, 
   br i1 %97, label %.loopexit, label %.preheader.split, !llvm.loop !63
 
 .loopexit:                                        ; preds = %92, %96, %38, %34, %7, %2
-  %98 = phi i32 [ 0, %2 ], [ -11, %7 ], [ -19, %34 ], [ 0, %38 ], [ 0, %96 ], [ -19, %92 ]
+  %98 = phi i32 [ 0, %2 ], [ -11, %7 ], [ 0, %38 ], [ -19, %34 ], [ 0, %96 ], [ -19, %92 ]
   ret i32 %98
 }
 
@@ -3821,7 +3821,7 @@ blk_try_enter_queue.exit:                         ; preds = %.loopexit.i
   br label %108
 
 108:                                              ; preds = %.thread, %blk_try_enter_queue.exit, %.thread2
-  %109 = phi i32 [ -19, %.thread2 ], [ -11, %.thread ], [ 0, %blk_try_enter_queue.exit ]
+  %109 = phi i32 [ -19, %.thread2 ], [ 0, %blk_try_enter_queue.exit ], [ -11, %.thread ]
   ret i32 %109
 }
 
@@ -4914,12 +4914,12 @@ __blk_flush_plug.exit:                            ; preds = %62, %58, %19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %80, %105, %107, %113, %69
-  %.ph = phi i32 [ 0, %69 ], [ %101, %105 ], [ %101, %113 ], [ %101, %107 ], [ 0, %80 ]
+  %.ph = phi i32 [ 0, %69 ], [ %101, %113 ], [ %101, %107 ], [ %101, %105 ], [ 0, %80 ]
   tail call void @__rcu_read_unlock() #19
   br label %117
 
 117:                                              ; preds = %.sink.split, %14, %10, %3
-  %118 = phi i32 [ 0, %10 ], [ 0, %3 ], [ 0, %14 ], [ %.ph, %.sink.split ]
+  %118 = phi i32 [ 0, %3 ], [ 0, %14 ], [ 0, %10 ], [ %.ph, %.sink.split ]
   ret i32 %118
 }
 

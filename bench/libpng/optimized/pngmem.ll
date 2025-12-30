@@ -103,7 +103,7 @@ define noalias ptr @png_calloc(ptr noalias noundef %0, i64 noundef %1) local_unn
   br label %png_malloc_base.exit.i
 
 png_malloc_base.exit.i:                           ; preds = %9, %7
-  %.0.i.i = phi ptr [ %10, %9 ], [ %8, %7 ]
+  %.0.i.i = phi ptr [ %8, %7 ], [ %10, %9 ]
   %11 = icmp eq ptr %.0.i.i, null
   br i1 %11, label %12, label %png_malloc.exit
 
@@ -140,7 +140,7 @@ define noalias ptr @png_malloc(ptr noalias noundef %0, i64 noundef %1) local_unn
   br label %png_malloc_base.exit
 
 png_malloc_base.exit:                             ; preds = %7, %9
-  %.0.i = phi ptr [ %10, %9 ], [ %8, %7 ]
+  %.0.i = phi ptr [ %8, %7 ], [ %10, %9 ]
   %11 = icmp eq ptr %.0.i, null
   br i1 %11, label %12, label %13
 
@@ -173,7 +173,7 @@ define noalias ptr @png_malloc_base(ptr noalias noundef %0, i64 noundef %1) loca
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ]
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -217,7 +217,7 @@ define noalias ptr @png_malloc_array(ptr noalias noundef %0, i32 noundef %1, i64
   br label %png_malloc_array_checked.exit
 
 png_malloc_array_checked.exit:                    ; preds = %7, %14, %16
-  %.0.i = phi ptr [ null, %7 ], [ %17, %16 ], [ %15, %14 ]
+  %.0.i = phi ptr [ null, %7 ], [ %15, %14 ], [ %17, %16 ]
   ret ptr %.0.i
 }
 
@@ -340,7 +340,7 @@ define noalias ptr @png_malloc_warn(ptr noalias noundef %0, i64 noundef %1) loca
   br label %png_malloc_base.exit
 
 png_malloc_base.exit:                             ; preds = %6, %8
-  %.0.i = phi ptr [ %9, %8 ], [ %7, %6 ]
+  %.0.i = phi ptr [ %7, %6 ], [ %9, %8 ]
   %.not9.not = icmp eq ptr %.0.i, null
   br i1 %.not9.not, label %.thread, label %10
 

@@ -460,8 +460,8 @@ if.end:                                           ; preds = %if.end.i, %entry
   br label %return
 
 return:                                           ; preds = %if.end.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %cond.true.i.i, %sw.bb2.i, %if.end
-  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %6, %sw.bb7.i ], [ null, %if.end.i ], [ %call.i18.i, %sw.bb3.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ]
-  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %conv.i.i, %sw.bb7.i ], [ 0, %if.end.i ], [ %call2.i.i, %sw.bb3.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ]
+  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %call.i18.i, %sw.bb3.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %6, %sw.bb7.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ], [ null, %if.end.i ]
+  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %call2.i.i, %sw.bb3.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %conv.i.i, %sw.bb7.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ], [ 0, %if.end.i ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.7.0.i.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged
@@ -1392,7 +1392,7 @@ if.end17.i:                                       ; preds = %if.end14.i
   call void @llvm.lifetime.end.p0(ptr nonnull %Status.i)
   br i1 %cmp19.i.not, label %if.end26, label %if.then18
 
-_ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %if.end14, %if.end14.i, %if.then9.i
+_ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %if.end14, %if.then9.i, %if.end14.i
   call void @llvm.lifetime.end.p0(ptr nonnull %Status.i)
   br label %if.end26
 

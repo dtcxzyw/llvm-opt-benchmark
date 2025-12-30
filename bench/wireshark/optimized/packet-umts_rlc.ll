@@ -1291,7 +1291,7 @@ define internal noundef zeroext i1 @dissect_rlc_heur(ptr noundef %0, ptr noundef
   br label %126
 
 126:                                              ; preds = %114, %116, %118, %120, %122, %124, %112, %113, %111, %95, %7, %4, %78, %64
-  %.0 = phi i1 [ false, %95 ], [ false, %4 ], [ true, %64 ], [ true, %78 ], [ false, %7 ], [ true, %111 ], [ true, %113 ], [ true, %112 ], [ true, %124 ], [ true, %122 ], [ true, %120 ], [ true, %118 ], [ true, %116 ], [ true, %114 ]
+  %.0 = phi i1 [ true, %64 ], [ true, %78 ], [ false, %4 ], [ false, %7 ], [ false, %95 ], [ true, %111 ], [ true, %113 ], [ true, %112 ], [ true, %124 ], [ true, %122 ], [ true, %120 ], [ true, %118 ], [ true, %116 ], [ true, %114 ]
   ret i1 %.0
 }
 
@@ -1599,7 +1599,7 @@ define internal fastcc void @rlc_call_subdissector(i32 noundef range(i32 0, 9) %
   br label %.critedge
 
 13:                                               ; preds = %4, %4, %4, %10, %11, %4
-  %.039 = phi i32 [ 6, %11 ], [ 1, %10 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ]
+  %.039 = phi i32 [ 1, %10 ], [ 6, %11 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ]
   %14 = call ptr @wmem_file_scope()
   %15 = load i32, ptr @proto_fp, align 4
   %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0)
@@ -1627,8 +1627,8 @@ define internal fastcc void @rlc_call_subdissector(i32 noundef range(i32 0, 9) %
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %12, %25
-  %ip_handle.sink = phi ptr [ @ip_handle, %12 ], [ @rrc_handle, %25 ], [ @bmc_handle, %4 ]
-  %30 = load ptr, ptr %ip_handle.sink, align 8
+  %bmc_handle.sink = phi ptr [ @ip_handle, %12 ], [ @rrc_handle, %25 ], [ @bmc_handle, %4 ]
+  %30 = load ptr, ptr %bmc_handle.sink, align 8
   store volatile ptr %30, ptr %5, align 8
   %.0..0..0..0.23 = load volatile ptr, ptr %5, align 8
   %.not41 = icmp eq ptr %.0..0..0..0.23, null
@@ -1902,7 +1902,7 @@ define internal fastcc void @dissect_rlc_um(i32 noundef range(i32 3, 9) %0, ptr 
   br label %is_ciphered_according_to_rrc.exit
 
 is_ciphered_according_to_rrc.exit:                ; preds = %31, %38, %45, %52, %65
-  %.0.i = phi i1 [ %68, %65 ], [ false, %38 ], [ false, %45 ], [ false, %52 ], [ false, %31 ]
+  %.0.i = phi i1 [ false, %38 ], [ false, %45 ], [ false, %52 ], [ %68, %65 ], [ false, %31 ]
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 640
   %70 = getelementptr i8, ptr %69, i64 %.pre115
   %71 = load i8, ptr %70, align 1, !range !6, !noundef !7
@@ -2328,7 +2328,7 @@ rlc_channel_assign.exit.thread.i:                 ; preds = %204, %198, %182
   br i1 %287, label %.sink.split.i, label %rlc_um_reassemble.exit
 
 .sink.split.i:                                    ; preds = %286, %285, %.thread148.i
-  %.str.212.sink.i = phi ptr [ @.str.211, %285 ], [ @.str.211, %.thread148.i ], [ @.str.212, %286 ]
+  %.str.212.sink.i = phi ptr [ @.str.211, %.thread148.i ], [ @.str.211, %285 ], [ @.str.212, %286 ]
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %289 = load ptr, ptr %288, align 8
   %290 = zext nneg i8 %11 to i32
@@ -2535,7 +2535,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br label %85
 
 79:                                               ; preds = %64, %56, %58
-  %.1 = phi i16 [ %48, %64 ], [ %.0139, %56 ], [ %.0139, %58 ]
+  %.1 = phi i16 [ %.0139, %56 ], [ %.0139, %58 ], [ %48, %64 ]
   %80 = trunc nuw nsw i64 %indvars.iv to i8
   %81 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %45, i8 noundef zeroext %80, i32 noundef %8, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
   %82 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -2556,7 +2556,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br label %85
 
 85:                                               ; preds = %.split178.us, %.split189.us, %72, %60, %.split185.us, %.split181.us
-  %.0 = phi i16 [ %84, %.split178.us ], [ -1, %.split185.us ], [ -1, %.split189.us ], [ -1, %.split181.us ], [ -1, %72 ], [ -1, %60 ]
+  %.0 = phi i16 [ -1, %.split185.us ], [ -1, %.split189.us ], [ -1, %.split181.us ], [ -1, %72 ], [ -1, %60 ], [ %84, %.split178.us ]
   ret i16 %.0
 }
 
@@ -2778,8 +2778,8 @@ define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) 
   br label %118
 
 118:                                              ; preds = %116, %114, %110
-  %.155 = phi i1 [ %.05474, %116 ], [ %.05474, %110 ], [ true, %114 ]
-  %.1 = phi i1 [ %spec.select, %116 ], [ %.075, %110 ], [ %.075, %114 ]
+  %.155 = phi i1 [ %.05474, %110 ], [ true, %114 ], [ %.05474, %116 ]
+  %.1 = phi i1 [ %.075, %110 ], [ %.075, %114 ], [ %spec.select, %116 ]
   %119 = getelementptr inbounds nuw i8, ptr %.05873, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = call ptr @g_list_find_custom(ptr noundef %120, ptr noundef nonnull %7, ptr noundef nonnull @rlc_cmp_seq)
@@ -2805,7 +2805,7 @@ define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) 
   br label %rlc_channel_assign.exit.thread
 
 rlc_channel_assign.exit.thread:                   ; preds = %._crit_edge, %._crit_edge.thread, %28, %5
-  %.056 = phi i1 [ false, %28 ], [ false, %5 ], [ %.054.lcssa97, %._crit_edge.thread ], [ %.054.lcssa, %._crit_edge ]
+  %.056 = phi i1 [ false, %5 ], [ false, %28 ], [ %.054.lcssa97, %._crit_edge.thread ], [ %.054.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3753,7 +3753,7 @@ thread-pre-split:                                 ; preds = %284, %286
   store i32 %378, ptr %243, align 8
   br label %.critedge271
 
-.critedge271:                                     ; preds = %348, %327, %323, %357, %306, %thread-pre-split, %35, %10, %369, %._crit_edge, %377, %242, %160, %240, %224, %212, %216, %.critedge, %238, %235, %120, %135, %130, %267
+.critedge271:                                     ; preds = %348, %323, %327, %357, %306, %thread-pre-split, %35, %10, %369, %._crit_edge, %377, %242, %160, %240, %224, %212, %216, %.critedge, %238, %235, %120, %135, %130, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -4072,7 +4072,7 @@ tree_add_fragment_list.exit:                      ; preds = %182, %179, %._crit_
   br label %tree_add_fragment_list_incomplete.exit
 
 tree_add_fragment_list_incomplete.exit:           ; preds = %.lr.ph.i, %proto_item_set_generated.exit.i, %67, %69, %rlc_channel_assign.exit, %tree_add_fragment_list.exit
-  %.032 = phi ptr [ null, %67 ], [ %186, %tree_add_fragment_list.exit ], [ null, %rlc_channel_assign.exit ], [ null, %69 ], [ null, %proto_item_set_generated.exit.i ], [ null, %.lr.ph.i ]
+  %.032 = phi ptr [ %186, %tree_add_fragment_list.exit ], [ null, %rlc_channel_assign.exit ], [ null, %69 ], [ null, %67 ], [ null, %proto_item_set_generated.exit.i ], [ null, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4593,7 +4593,7 @@ dissect_rlc_control.exit:                         ; preds = %38, %48, %50, %59
   br label %is_ciphered_according_to_rrc.exit
 
 is_ciphered_according_to_rrc.exit:                ; preds = %86, %92, %99, %106, %118
-  %.0.i = phi i1 [ %121, %118 ], [ false, %92 ], [ false, %99 ], [ false, %106 ], [ false, %86 ]
+  %.0.i = phi i1 [ false, %92 ], [ false, %99 ], [ false, %106 ], [ %121, %118 ], [ false, %86 ]
   %122 = getelementptr inbounds nuw i8, ptr %18, i64 640
   %123 = getelementptr i8, ptr %122, i64 %.pre149
   %124 = load i8, ptr %123, align 1, !range !6, !noundef !7
@@ -4970,10 +4970,10 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   call fastcc void @rlc_call_subdissector(i32 noundef %5, ptr noundef nonnull %109, ptr noundef %2, ptr noundef %4)
   br label %.thread
 
-.thread:                                          ; preds = %68, %._crit_edge151, %89, %101, %110, %104
-  %.1111133 = phi i1 [ true, %68 ], [ true, %._crit_edge151 ], [ %.0110144, %89 ], [ %.0110144, %101 ], [ %.0110144, %110 ], [ %.0110144, %104 ]
-  %.1114132 = phi i16 [ %.0113141, %68 ], [ %.0113141, %._crit_edge151 ], [ %92, %89 ], [ %.0113141, %101 ], [ %.0113141, %110 ], [ %.0113141, %104 ]
-  %.1108 = phi i8 [ %.0107145, %68 ], [ %.0107145, %._crit_edge151 ], [ %.0107145, %89 ], [ %.0107145, %101 ], [ 1, %110 ], [ %.0107145, %104 ]
+.thread:                                          ; preds = %68, %._crit_edge151, %101, %89, %110, %104
+  %.1111133 = phi i1 [ true, %._crit_edge151 ], [ %.0110144, %101 ], [ %.0110144, %89 ], [ %.0110144, %110 ], [ %.0110144, %104 ], [ true, %68 ]
+  %.1114132 = phi i16 [ %.0113141, %._crit_edge151 ], [ %.0113141, %101 ], [ %92, %89 ], [ %.0113141, %110 ], [ %.0113141, %104 ], [ %.0113141, %68 ]
+  %.1108 = phi i8 [ %.0107145, %._crit_edge151 ], [ %.0107145, %101 ], [ %.0107145, %89 ], [ 1, %110 ], [ %.0107145, %104 ], [ %.0107145, %68 ]
   %111 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %113 = load i16, ptr %112, align 2
@@ -5037,7 +5037,7 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   br i1 %136, label %.sink.split, label %140
 
 .sink.split:                                      ; preds = %135, %.thread135, %119
-  %.str.262.sink = phi ptr [ @.str.261, %.thread135 ], [ @.str.261, %119 ], [ @.str.262, %135 ]
+  %.str.262.sink = phi ptr [ @.str.261, %119 ], [ @.str.261, %.thread135 ], [ @.str.262, %135 ]
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %138 = load ptr, ptr %137, align 8
   %139 = select i1 %7, ptr @.str.228, ptr @.str.229
@@ -5367,7 +5367,7 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %161, %187, %._crit_edge
-  %.4201.lcssa284 = phi i32 [ %180, %._crit_edge ], [ %180, %187 ], [ %167, %161 ]
+  %.4201.lcssa284 = phi i32 [ %180, %187 ], [ %180, %._crit_edge ], [ %167, %161 ]
   %196 = sdiv i32 %31, 8
   %197 = sub i32 %.4201.lcssa284, %31
   %198 = sdiv i32 %197, 8
@@ -5534,8 +5534,8 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   br label %.critedge
 
 .loopexit:                                        ; preds = %84, %194, %._crit_edge236, %88, %287, %.loopexit224, %253, %._crit_edge245, %43
-  %.1198 = phi i32 [ %290, %287 ], [ %286, %.loopexit224 ], [ %50, %43 ], [ %260, %253 ], [ %58, %88 ], [ %.3200.lcssa, %._crit_edge245 ], [ %180, %194 ], [ %.4201.lcssa284, %._crit_edge236 ], [ %85, %84 ]
-  %.1 = phi i16 [ %.0251323, %287 ], [ %.0251323, %.loopexit224 ], [ %.0251323, %43 ], [ %.0251323, %253 ], [ %.0251323, %88 ], [ %.2.lcssa, %._crit_edge245 ], [ %.0251323, %194 ], [ %.0251323, %._crit_edge236 ], [ %.0251323, %84 ]
+  %.1198 = phi i32 [ %50, %43 ], [ %58, %88 ], [ %.3200.lcssa, %._crit_edge245 ], [ %180, %194 ], [ %.4201.lcssa284, %._crit_edge236 ], [ %260, %253 ], [ %286, %.loopexit224 ], [ %290, %287 ], [ %85, %84 ]
+  %.1 = phi i16 [ %.0251323, %43 ], [ %.0251323, %88 ], [ %.2.lcssa, %._crit_edge245 ], [ %.0251323, %194 ], [ %.0251323, %._crit_edge236 ], [ %.0251323, %253 ], [ %.0251323, %.loopexit224 ], [ %.0251323, %287 ], [ %.0251323, %84 ]
   %293 = add i32 %.1198, 7
   %294 = sdiv i32 %293, 8
   %295 = sub nsw i32 %294, %23
@@ -5715,7 +5715,7 @@ define internal range(i32 0, 2) i32 @rlc_channel_equal(ptr noundef readonly capt
   br label %66
 
 66:                                               ; preds = %24, %30, %36, %42, %48, %54, %60, %4, %6, %12, %18
-  %.0.shrunk = phi i1 [ %23, %18 ], [ false, %12 ], [ false, %6 ], [ false, %4 ], [ false, %54 ], [ false, %48 ], [ false, %42 ], [ false, %36 ], [ false, %30 ], [ false, %24 ], [ %65, %60 ]
+  %.0.shrunk = phi i1 [ false, %12 ], [ false, %6 ], [ false, %4 ], [ %23, %18 ], [ false, %54 ], [ false, %48 ], [ false, %42 ], [ false, %36 ], [ false, %30 ], [ false, %24 ], [ %65, %60 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

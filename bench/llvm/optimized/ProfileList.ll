@@ -465,7 +465,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7Sec
   br label %.preheader.i21, !llvm.loop !160
 
 _ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit: ; preds = %.lr.ph.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26, %.lr.ph.i18, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i13, %17, %13, %switch.lookup
-  %.0 = phi i32 [ 2, %.lr.ph.i18 ], [ 0, %switch.lookup ], [ 1, %13 ], [ 2, %17 ], [ 0, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i13 ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ 2, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %switch.lookup ], [ 1, %13 ], [ 2, %17 ], [ 0, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i13 ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ 2, %.lr.ph.i18 ], [ 2, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -514,7 +514,7 @@ define dso_local range(i64 0, 4294967299) i64 @_ZNK5clang11ProfileList9inSection
   br label %26
 
 26:                                               ; preds = %22, %18, %14, %6
-  %.sroa.5.0 = phi i64 [ %25, %22 ], [ 4294967296, %6 ], [ 4294967297, %14 ], [ 4294967298, %18 ]
+  %.sroa.5.0 = phi i64 [ 4294967296, %6 ], [ 4294967297, %14 ], [ 4294967298, %18 ], [ %25, %22 ]
   ret i64 %.sroa.5.0
 }
 
@@ -560,8 +560,8 @@ switch.lookup:
   br label %19
 
 19:                                               ; preds = %15, %12, %switch.lookup
-  %.sroa.020.0 = phi i64 [ %11, %switch.lookup ], [ %spec.select, %15 ], [ 2, %12 ]
-  %.sroa.4.0 = phi i64 [ 4294967296, %switch.lookup ], [ %18, %15 ], [ 4294967296, %12 ]
+  %.sroa.020.0 = phi i64 [ %11, %switch.lookup ], [ 2, %12 ], [ %spec.select, %15 ]
+  %.sroa.4.0 = phi i64 [ 4294967296, %switch.lookup ], [ 4294967296, %12 ], [ %18, %15 ]
   %.sroa.020.0.insert.ext = and i64 %.sroa.020.0, 4294967295
   %.sroa.020.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.020.0.insert.ext
   ret i64 %.sroa.020.0.insert.insert
@@ -629,8 +629,8 @@ switch.lookup:
   br label %19
 
 19:                                               ; preds = %15, %12, %switch.lookup
-  %.sroa.020.0 = phi i64 [ %11, %switch.lookup ], [ %spec.select, %15 ], [ 2, %12 ]
-  %.sroa.4.0 = phi i64 [ 4294967296, %switch.lookup ], [ %18, %15 ], [ 4294967296, %12 ]
+  %.sroa.020.0 = phi i64 [ %11, %switch.lookup ], [ 2, %12 ], [ %spec.select, %15 ]
+  %.sroa.4.0 = phi i64 [ 4294967296, %switch.lookup ], [ 4294967296, %12 ], [ %18, %15 ]
   %.sroa.020.0.insert.ext = and i64 %.sroa.020.0, 4294967295
   %.sroa.020.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.020.0.insert.ext
   ret i64 %.sroa.020.0.insert.insert

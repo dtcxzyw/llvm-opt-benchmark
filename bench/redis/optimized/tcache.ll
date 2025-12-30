@@ -477,7 +477,7 @@ define hidden void @je_tcache_bin_flush_small(ptr noundef %0, ptr noundef readon
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %41, %47
-  %.0.i17 = phi ptr [ %.0.i.i, %41 ], [ null, %47 ]
+  %.0.i17 = phi ptr [ null, %47 ], [ %.0.i.i, %41 ]
   %.val10 = load i64, ptr %42, align 8, !tbaa !54
   %48 = lshr i64 %.val10, 38
   %49 = ptrtoint ptr %.0.i17 to i64
@@ -843,7 +843,7 @@ define hidden void @je_tcache_bin_flush_large(ptr noundef %0, ptr noundef readon
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %39, %47
-  %.0.i15 = phi ptr [ %.0.i.i, %39 ], [ null, %47 ]
+  %.0.i15 = phi ptr [ null, %47 ], [ %.0.i.i, %39 ]
   %48 = getelementptr i8, ptr %.0.i15, i64 78928
   %.val11 = load i32, ptr %48, align 8, !tbaa !89
   %49 = load i32, ptr @je_manual_arena_base, align 4, !tbaa !46
@@ -1143,7 +1143,7 @@ define hidden void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef read
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %52, %60
-  %.0.i47 = phi ptr [ %.0.i.i, %52 ], [ null, %60 ]
+  %.0.i47 = phi ptr [ null, %60 ], [ %.0.i.i, %52 ]
   br i1 %4, label %61, label %.critedge.i
 
 61:                                               ; preds = %arena_get.exit
@@ -1226,8 +1226,8 @@ arena_get.exit:                                   ; preds = %52, %60
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %101, %95, %82, %76, %.critedge.i
-  %.0134.i64 = phi ptr [ %71, %82 ], [ null, %.critedge.i ], [ %71, %76 ], [ null, %95 ], [ null, %101 ]
-  %.0135.i62 = phi i32 [ %64, %82 ], [ 0, %.critedge.i ], [ %64, %76 ], [ 0, %95 ], [ 0, %101 ]
+  %.0134.i64 = phi ptr [ null, %.critedge.i ], [ %71, %76 ], [ %71, %82 ], [ null, %95 ], [ null, %101 ]
+  %.0135.i62 = phi i32 [ 0, %.critedge.i ], [ %64, %76 ], [ %64, %82 ], [ 0, %95 ], [ 0, %101 ]
   %105 = icmp ne ptr %34, %.0.i47
   %106 = trunc nuw i8 %.0128.i83 to i1
   %or.cond.i = select i1 %105, i1 true, i1 %106
@@ -1398,9 +1398,9 @@ tcache_bin_flush_match.exit.thread.us:            ; preds = %tcache_bin_flush_ma
   br label %arena_dalloc_bin_locked_step.exit.thread.us
 
 arena_dalloc_bin_locked_step.exit.thread.us:      ; preds = %178, %177, %175, %173, %tcache_bin_flush_match.exit.thread.us
-  %.sroa.8.3.us = phi i64 [ %167, %178 ], [ %.sroa.8.277.us, %tcache_bin_flush_match.exit.thread.us ], [ %167, %177 ], [ %167, %173 ], [ %167, %175 ]
-  %.1132.i.us = phi i32 [ %.0131.i78.us, %178 ], [ %151, %tcache_bin_flush_match.exit.thread.us ], [ %.0131.i78.us, %177 ], [ %.0131.i78.us, %173 ], [ %.0131.i78.us, %175 ]
-  %.2.i.us = phi i32 [ %181, %178 ], [ %.1.i80.us, %tcache_bin_flush_match.exit.thread.us ], [ %.1.i80.us, %177 ], [ %.1.i80.us, %173 ], [ %.1.i80.us, %175 ]
+  %.sroa.8.3.us = phi i64 [ %167, %178 ], [ %.sroa.8.277.us, %tcache_bin_flush_match.exit.thread.us ], [ %167, %173 ], [ %167, %175 ], [ %167, %177 ]
+  %.1132.i.us = phi i32 [ %.0131.i78.us, %178 ], [ %151, %tcache_bin_flush_match.exit.thread.us ], [ %.0131.i78.us, %173 ], [ %.0131.i78.us, %175 ], [ %.0131.i78.us, %177 ]
+  %.2.i.us = phi i32 [ %181, %178 ], [ %.1.i80.us, %tcache_bin_flush_match.exit.thread.us ], [ %.1.i80.us, %173 ], [ %.1.i80.us, %175 ], [ %.1.i80.us, %177 ]
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count99
   br i1 %exitcond100.not, label %.split.us, label %.critedge139.i.split.us, !llvm.loop !87
@@ -1913,7 +1913,7 @@ sz_s2u.exit27:                                    ; preds = %41, %39
   br label %sz_sa2u.exit
 
 sz_sa2u.exit:                                     ; preds = %24, %sz_s2u.exit, %35, %sz_s2u.exit27, %.thread49
-  %.018.i = phi i64 [ 0, %35 ], [ %.0.i25, %sz_s2u.exit ], [ %..0.i, %.thread49 ], [ 0, %sz_s2u.exit27 ], [ 0, %24 ]
+  %.018.i = phi i64 [ %.0.i25, %sz_s2u.exit ], [ 0, %35 ], [ 0, %sz_s2u.exit27 ], [ %..0.i, %.thread49 ], [ 0, %24 ]
   %57 = load atomic i64, ptr @je_arenas acquire, align 8
   %.0.i.i34 = inttoptr i64 %57 to ptr
   %58 = icmp eq i64 %57, 0
@@ -2156,7 +2156,7 @@ ipallocztm.exit.thread.sink.split:                ; preds = %174, %173, %170
   br label %ipallocztm.exit.thread
 
 ipallocztm.exit.thread:                           ; preds = %ipallocztm.exit.thread.sink.split, %tsdn_witness_tsdp_get.exit, %tsdn_witness_tsdp_get.exit.thread, %174
-  %.not.i5258 = phi i1 [ true, %tsdn_witness_tsdp_get.exit.thread ], [ false, %174 ], [ true, %tsdn_witness_tsdp_get.exit ], [ false, %ipallocztm.exit.thread.sink.split ]
+  %.not.i5258 = phi i1 [ false, %174 ], [ true, %tsdn_witness_tsdp_get.exit ], [ true, %tsdn_witness_tsdp_get.exit.thread ], [ false, %ipallocztm.exit.thread.sink.split ]
   ret i1 %.not.i5258
 }
 
@@ -2344,7 +2344,7 @@ sz_s2u.exit20:                                    ; preds = %37
   br label %sz_sa2u.exit
 
 sz_sa2u.exit:                                     ; preds = %24, %sz_s2u.exit, %35, %sz_s2u.exit20, %.thread39
-  %.018.i = phi i64 [ 0, %35 ], [ %.0.i18, %sz_s2u.exit ], [ %..0.i, %.thread39 ], [ 0, %sz_s2u.exit20 ], [ 0, %24 ]
+  %.018.i = phi i64 [ %.0.i18, %sz_s2u.exit ], [ 0, %35 ], [ 0, %sz_s2u.exit20 ], [ %..0.i, %.thread39 ], [ 0, %24 ]
   %54 = load atomic i64, ptr @je_arenas acquire, align 8
   %.0.i.i26 = inttoptr i64 %54 to ptr
   %55 = icmp eq i64 %54, 0
@@ -2613,12 +2613,12 @@ ipallocztm.exit:                                  ; preds = %156, %144, %132, %1
   br label %arena_ichoose.exit
 
 arena_ichoose.exit:                               ; preds = %172, %175, %177, %180, %189, %.sink.split.i.i
-  %.0.i.i34 = phi ptr [ %.0.i.i.i.i, %172 ], [ %176, %175 ], [ %178, %177 ], [ %181, %180 ], [ %181, %189 ], [ %181, %.sink.split.i.i ]
+  %.0.i.i34 = phi ptr [ %176, %175 ], [ %.0.i.i.i.i, %172 ], [ %181, %180 ], [ %178, %177 ], [ %181, %189 ], [ %181, %.sink.split.i.i ]
   call void @je_tcache_arena_associate(ptr noundef nonnull %0, ptr noundef %168, ptr noundef %166, ptr noundef %.0.i.i34)
   br label %ipallocztm.exit.thread
 
 ipallocztm.exit.thread:                           ; preds = %tsdn_witness_tsdp_get.exit, %tsdn_witness_tsdp_get.exit.thread, %arena_ichoose.exit
-  %.0 = phi ptr [ %166, %arena_ichoose.exit ], [ null, %tsdn_witness_tsdp_get.exit ], [ null, %tsdn_witness_tsdp_get.exit.thread ]
+  %.0 = phi ptr [ %166, %arena_ichoose.exit ], [ null, %tsdn_witness_tsdp_get.exit.thread ], [ null, %tsdn_witness_tsdp_get.exit ]
   ret ptr %.0
 }
 
@@ -3014,7 +3014,7 @@ arena_dalloc_no_tcache.exit:                      ; preds = %170, %171
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %arena_dalloc_no_tcache.exit, %174
-  %.0.i = phi ptr [ %.0.i.i27, %arena_dalloc_no_tcache.exit ], [ null, %174 ]
+  %.0.i = phi ptr [ null, %174 ], [ %.0.i.i27, %arena_dalloc_no_tcache.exit ]
   call void @je_arena_decay(ptr noundef %0, ptr noundef %.0.i, i1 noundef zeroext false, i1 noundef zeroext false) #14
   %175 = call i32 @je_arena_nthreads_get(ptr noundef %20, i1 noundef zeroext false) #14
   %176 = icmp eq i32 %175, 0
@@ -3203,7 +3203,7 @@ tcaches_create_prep.exit:                         ; preds = %malloc_mutex_lock.e
   br label %tcaches_create_prep.exit.thread
 
 tcaches_create_prep.exit.thread:                  ; preds = %14, %26, %34, %21, %tcaches_create_prep.exit
-  %.0 = phi i1 [ true, %21 ], [ true, %tcaches_create_prep.exit ], [ false, %34 ], [ false, %26 ], [ true, %14 ]
+  %.0 = phi i1 [ true, %tcaches_create_prep.exit ], [ true, %21 ], [ false, %34 ], [ false, %26 ], [ true, %14 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @tcaches_mtx, i64 104) monotonic, align 8
   %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tcaches_mtx, i64 64)) #14
   ret i1 %.0
@@ -3745,7 +3745,7 @@ define internal fastcc ptr @arena_choose_impl(ptr noundef %0, i1 noundef zeroext
   br label %25
 
 25:                                               ; preds = %.sink.split, %23, %14, %11
-  %.037 = phi ptr [ %12, %11 ], [ %15, %14 ], [ %15, %23 ], [ %15, %.sink.split ]
+  %.037 = phi ptr [ %15, %14 ], [ %12, %11 ], [ %15, %23 ], [ %15, %.sink.split ]
   %26 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !46
   %27 = icmp ult i32 %26, 3
   %or.cond = or i1 %1, %27
@@ -3836,7 +3836,7 @@ percpu_arena_update.exit:                         ; preds = %47, %arena_get.exit
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %9, %6, %25, %percpu_arena_ind_limit.exit, %35, %64
-  %.0 = phi ptr [ %.037, %percpu_arena_ind_limit.exit ], [ %.037, %25 ], [ %.2, %64 ], [ %.037, %35 ], [ %10, %9 ], [ %.0.i.i, %6 ]
+  %.0 = phi ptr [ %.037, %25 ], [ %.2, %64 ], [ %.037, %35 ], [ %.037, %percpu_arena_ind_limit.exit ], [ %10, %9 ], [ %.0.i.i, %6 ]
   ret ptr %.0
 }
 

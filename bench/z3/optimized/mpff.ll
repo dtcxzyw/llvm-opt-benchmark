@@ -540,7 +540,7 @@ _ZN12mpff_manager3setER4mpffi.exit:               ; preds = %.lr.ph.i44, %.noexc
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %100, %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
-  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %101, %100 ], [ %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %101, %100 ], [ %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %88, %87 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #26
   br label %144
 
@@ -1544,7 +1544,7 @@ define hidden noundef zeroext i1 @_ZNK12mpff_manager8is_int64ERK4mpff(ptr nounde
   br label %45
 
 45:                                               ; preds = %17, %12, %43, %37, %29, %27, %2
-  %.0 = phi i1 [ true, %2 ], [ %44, %43 ], [ %26, %17 ], [ false, %12 ], [ false, %37 ], [ false, %29 ], [ false, %27 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %12 ], [ %26, %17 ], [ false, %37 ], [ false, %29 ], [ %44, %43 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -1768,7 +1768,7 @@ define hidden noundef zeroext i1 @_ZNK12mpff_manager6is_twoERK4mpff(ptr noundef 
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11, %5, %2
-  %.011 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %11 ], [ true, %.preheader ], [ %.not13, %.lr.ph ]
+  %.011 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %11 ], [ true, %.preheader ], [ %.not13, %.lr.ph ]
   ret i1 %.011
 }
 
@@ -2592,7 +2592,7 @@ _ZNK12mpff_manager6is_twoERK4mpff.exit:           ; preds = %67, %.preheader.i
   store i32 %76, ptr %77, align 4, !tbaa !35
   br label %_ZN12mpff_manager12set_exponentER4mpffl.exit
 
-.loopexit:                                        ; preds = %.lr.ph.i, %49, %47, %55
+.loopexit:                                        ; preds = %.lr.ph.i, %47, %49, %55
   %78 = load i32, ptr %3, align 4
   %79 = icmp ult i32 %78, 2
   br i1 %79, label %80, label %_ZN12mpff_manager18allocate_if_neededER4mpff.exit
@@ -2762,34 +2762,34 @@ _ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit: ; preds = %.lr.ph.i63, %_Z
   %184 = xor i1 %183, true
   %.pre79 = load i32, ptr %111, align 4, !tbaa !18
   %185 = icmp ult i32 %149, %.pre79
-  br i1 %185, label %190, label %188
+  br i1 %185, label %188, label %195
 
 .thread93:                                        ; preds = %177
   %186 = icmp ult i32 %149, %157
-  br i1 %186, label %190, label %.thread94
+  br i1 %186, label %188, label %.thread94
 
 .thread94:                                        ; preds = %.thread93
   %187 = load i32, ptr %0, align 8, !tbaa !13
   tail call void @_Z4copyjPKjjPj(i32 noundef %136, ptr noundef %135, i32 noundef %187, ptr noundef %156)
   br label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
-188:                                              ; preds = %182
-  %189 = load i32, ptr %0, align 8, !tbaa !13
-  tail call void @_Z4copyjPKjjPj(i32 noundef %136, ptr noundef %135, i32 noundef %189, ptr noundef %156)
+188:                                              ; preds = %.thread93, %182
+  %189 = phi i1 [ false, %.thread93 ], [ %184, %182 ]
+  %190 = phi i32 [ %157, %.thread93 ], [ %.pre79, %182 ]
+  %191 = sub nuw i32 %190, %149
+  %192 = zext i32 %191 to i64
+  %193 = sub nsw i64 %115, %192
+  %194 = load i32, ptr %0, align 8, !tbaa !13
+  tail call void @_Z3shljPKjjjPj(i32 noundef %136, ptr noundef %135, i32 noundef %191, i32 noundef %194, ptr noundef %156)
+  br i1 %189, label %197, label %_ZN12mpff_manager15inc_significandEPjRl.exit
+
+195:                                              ; preds = %182
+  %196 = load i32, ptr %0, align 8, !tbaa !13
+  tail call void @_Z4copyjPKjjPj(i32 noundef %136, ptr noundef %135, i32 noundef %196, ptr noundef %156)
   br i1 %183, label %_ZN12mpff_manager15inc_significandEPjRl.exit, label %197
 
-190:                                              ; preds = %.thread93, %182
-  %191 = phi i1 [ false, %.thread93 ], [ %184, %182 ]
-  %192 = phi i32 [ %157, %.thread93 ], [ %.pre79, %182 ]
-  %193 = sub nuw i32 %192, %149
-  %194 = zext i32 %193 to i64
-  %195 = sub nsw i64 %115, %194
-  %196 = load i32, ptr %0, align 8, !tbaa !13
-  tail call void @_Z3shljPKjjjPj(i32 noundef %136, ptr noundef %135, i32 noundef %193, i32 noundef %196, ptr noundef %156)
-  br i1 %191, label %197, label %_ZN12mpff_manager15inc_significandEPjRl.exit
-
-197:                                              ; preds = %.thread, %188, %172, %190
-  %.07173 = phi i64 [ %175, %172 ], [ %195, %190 ], [ %115, %188 ], [ %170, %.thread ]
+197:                                              ; preds = %.thread, %188, %172, %195
+  %.07173 = phi i64 [ %175, %172 ], [ %115, %195 ], [ %193, %188 ], [ %170, %.thread ]
   %198 = load i32, ptr %0, align 8, !tbaa !13
   %199 = tail call noundef zeroext i1 @_Z3incjPj(i32 noundef %198, ptr noundef %156)
   br i1 %199, label %_ZN12mpff_manager15inc_significandEPjRl.exit, label %200
@@ -2803,8 +2803,8 @@ _ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit: ; preds = %.lr.ph.i63, %_Z
   %205 = add nsw i64 %.07173, 1
   br label %_ZN12mpff_manager15inc_significandEPjRl.exit
 
-_ZN12mpff_manager15inc_significandEPjRl.exit:     ; preds = %.thread94, %.thread74, %200, %197, %188, %172, %190
-  %.1 = phi i64 [ %115, %188 ], [ %195, %190 ], [ %175, %172 ], [ %.07173, %197 ], [ %205, %200 ], [ %166, %.thread74 ], [ %115, %.thread94 ]
+_ZN12mpff_manager15inc_significandEPjRl.exit:     ; preds = %.thread94, %.thread74, %200, %197, %188, %172, %195
+  %.1 = phi i64 [ %115, %195 ], [ %175, %172 ], [ %193, %188 ], [ %.07173, %197 ], [ %205, %200 ], [ %166, %.thread74 ], [ %115, %.thread94 ]
   %206 = add nsw i64 %.1, -2147483648
   %or.cond.i66 = icmp ult i64 %206, -4294967296
   br i1 %or.cond.i66, label %207, label %208
@@ -4214,7 +4214,7 @@ define hidden noundef zeroext i1 @_ZNK12mpff_manager2eqERK4mpffS2_(ptr noundef n
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %.lr.ph, %3, %16, %8, %11
-  %.019 = phi i1 [ false, %8 ], [ true, %16 ], [ false, %11 ], [ %.mux, %3 ], [ %.not21, %.lr.ph ]
+  %.019 = phi i1 [ false, %11 ], [ false, %8 ], [ true, %16 ], [ %.mux, %3 ], [ %.not21, %.lr.ph ]
   ret i1 %.019
 }
 
@@ -4309,7 +4309,7 @@ define hidden noundef zeroext i1 @_ZNK12mpff_manager2ltERK4mpffS2_(ptr noundef n
   br label %61
 
 61:                                               ; preds = %9, %40, %48, %46, %39, %18, %26, %24, %17, %13, %8
-  %.0 = phi i1 [ false, %39 ], [ %60, %48 ], [ %14, %13 ], [ false, %8 ], [ %.not28, %9 ], [ true, %17 ], [ %38, %26 ], [ true, %18 ], [ false, %24 ], [ true, %40 ], [ false, %46 ]
+  %.0 = phi i1 [ false, %8 ], [ %14, %13 ], [ true, %17 ], [ true, %18 ], [ false, %24 ], [ %38, %26 ], [ false, %39 ], [ true, %40 ], [ false, %46 ], [ %60, %48 ], [ %.not28, %9 ]
   ret i1 %.0
 }
 
@@ -6013,7 +6013,7 @@ _ZN12mpff_manager18allocate_if_neededER4mpff.exit: ; preds = %20, %_ZN12mpff_man
   br label %75
 
 75:                                               ; preds = %60, %62, %68, %74, %71
-  %.0108 = phi ptr [ %65, %62 ], [ %65, %71 ], [ %65, %74 ], [ %65, %68 ], [ %.0107, %60 ]
+  %.0108 = phi ptr [ %65, %71 ], [ %65, %74 ], [ %65, %68 ], [ %65, %62 ], [ %.0107, %60 ]
   %76 = and i32 %.0, 1
   %77 = zext nneg i8 %.0102 to i32
   %78 = icmp eq i32 %76, %77
@@ -7565,7 +7565,7 @@ _ZNK12mpff_manager15is_power_of_twoERK4mpff.exit: ; preds = %23
   br label %_ZNK12mpff_manager15is_power_of_twoERK4mpff.exit.thread
 
 _ZNK12mpff_manager15is_power_of_twoERK4mpff.exit.thread: ; preds = %3, %16, %23, %_ZNK12mpff_manager15is_power_of_twoERK4mpff.exit, %30
-  %35 = phi i1 [ true, %30 ], [ false, %_ZNK12mpff_manager15is_power_of_twoERK4mpff.exit ], [ false, %23 ], [ false, %16 ], [ false, %3 ]
+  %35 = phi i1 [ false, %_ZNK12mpff_manager15is_power_of_twoERK4mpff.exit ], [ true, %30 ], [ false, %23 ], [ false, %16 ], [ false, %3 ]
   ret i1 %35
 }
 
@@ -9686,14 +9686,14 @@ _ZN6bufferIjLb0ELj1024EED2Ev.exit322:             ; preds = %_ZN6bufferIjLb0ELj1
   br label %389
 
 363:                                              ; preds = %.loopexit, %.loopexit.split-lp, %316, %284, %217, %215
-  %.pn119.pn = phi { ptr, i32 } [ %216, %215 ], [ %218, %217 ], [ %.pn, %284 ], [ %317, %316 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn119.pn = phi { ptr, i32 } [ %218, %217 ], [ %.pn, %284 ], [ %216, %215 ], [ %317, %316 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6bufferIjLb0ELj1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(4112) %10) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %364
 
 364:                                              ; preds = %206, %208, %132, %134, %136, %363
-  %.pn124.pn = phi { ptr, i32 } [ %207, %206 ], [ %133, %132 ], [ %.pn119.pn, %363 ], [ %137, %136 ], [ %135, %134 ], [ %209, %208 ]
+  %.pn124.pn = phi { ptr, i32 } [ %.pn119.pn, %363 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %209, %208 ], [ %207, %206 ]
   call void @_ZN6bufferIjLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6bufferIjLb0ELj1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(4112) %7) #26
@@ -10280,7 +10280,7 @@ define hidden noundef i32 @_ZN12mpff_manager17prev_power_of_twoERK4mpff(ptr noun
   br label %17
 
 17:                                               ; preds = %8, %2, %14
-  %.0 = phi i32 [ 0, %2 ], [ %16, %14 ], [ 0, %8 ]
+  %.0 = phi i32 [ %16, %14 ], [ 0, %2 ], [ 0, %8 ]
   ret i32 %.0
 }
 

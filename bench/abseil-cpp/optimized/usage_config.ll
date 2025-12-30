@@ -246,7 +246,7 @@ define linkonce_odr dso_local void @_ZN4absl16FlagsUsageConfigC2ERKS0_(ptr nound
   unreachable
 
 common.resume:                                    ; preds = %120, %.body, %13, %16
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %16 ], [ %.pn.pn.pn, %.body ], [ %.pn.pn.pn, %120 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %16 ], [ %14, %13 ], [ %.pn.pn.pn, %.body ], [ %.pn.pn.pn, %120 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit: ; preds = %2, %9
@@ -433,7 +433,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   unreachable
 
 .body26:                                          ; preds = %102, %.body31, %76, %73
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %94, %102 ], [ %74, %76 ], [ %94, %.body31 ]
+  %.pn = phi { ptr, i32 } [ %74, %76 ], [ %74, %73 ], [ %94, %.body31 ], [ %94, %102 ]
   %107 = load ptr, ptr %42, align 8, !tbaa !14
   %.not.i33 = icmp eq ptr %107, null
   br i1 %.not.i33, label %.body20, label %108
@@ -450,7 +450,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   unreachable
 
 .body20:                                          ; preds = %108, %.body26, %56, %53
-  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %108 ], [ %54, %56 ], [ %.pn, %.body26 ]
+  %.pn.pn = phi { ptr, i32 } [ %54, %56 ], [ %54, %53 ], [ %.pn, %.body26 ], [ %.pn, %108 ]
   %113 = load ptr, ptr %22, align 8, !tbaa !14
   %.not.i35 = icmp eq ptr %113, null
   br i1 %.not.i35, label %.body, label %114
@@ -467,7 +467,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   unreachable
 
 .body:                                            ; preds = %114, %.body20, %36, %33
-  %.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn.pn, %114 ], [ %34, %36 ], [ %.pn.pn, %.body20 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %.pn.pn, %.body20 ], [ %.pn.pn, %114 ]
   %119 = load ptr, ptr %3, align 8, !tbaa !14
   %.not.i37 = icmp eq ptr %119, null
   br i1 %.not.i37, label %common.resume, label %120
@@ -565,7 +565,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i16: ; preds = %_ZN4absl10StartsW
   br label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit19
 
 _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit19: ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread32, %18, %15, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i16, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15
-  %.0 = phi i1 [ %25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i16 ], [ true, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15 ], [ true, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ false, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ false, %15 ], [ false, %18 ], [ false, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread32 ]
+  %.0 = phi i1 [ true, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15 ], [ true, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i16 ], [ false, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ false, %15 ], [ false, %18 ], [ false, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread32 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = icmp eq ptr %11, %26
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -972,7 +972,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(160) ptr @
   unreachable
 
 common.resume:                                    ; preds = %142, %145, %111, %114, %80, %83, %49, %52, %18, %21
-  %common.resume.op = phi { ptr, i32 } [ %112, %111 ], [ %19, %18 ], [ %50, %49 ], [ %81, %80 ], [ %19, %21 ], [ %50, %52 ], [ %81, %83 ], [ %112, %114 ], [ %143, %145 ], [ %143, %142 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %21 ], [ %19, %18 ], [ %50, %52 ], [ %50, %49 ], [ %81, %83 ], [ %81, %80 ], [ %112, %114 ], [ %112, %111 ], [ %143, %145 ], [ %143, %142 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit.i: ; preds = %14, %2

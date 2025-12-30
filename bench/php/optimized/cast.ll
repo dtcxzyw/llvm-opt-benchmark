@@ -55,8 +55,8 @@ define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr noundef read
   br label %11
 
 11:                                               ; preds = %7, %.fold.split, %10
-  %.128 = phi i32 [ %.02733, %7 ], [ 1, %10 ], [ %.02733, %.fold.split ]
-  %.126 = phi i32 [ 1, %7 ], [ %.02534, %10 ], [ %.02534, %.fold.split ]
+  %.128 = phi i32 [ 1, %10 ], [ %.02733, %7 ], [ %.02733, %.fold.split ]
+  %.126 = phi i32 [ %.02534, %10 ], [ 1, %7 ], [ %.02534, %.fold.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.critedge, label %7
@@ -214,8 +214,8 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noun
   br label %57
 
 57:                                               ; preds = %.fold.split.i, %56, %53
-  %.128.i = phi i32 [ %.02733.i, %53 ], [ 1, %56 ], [ %.02733.i, %.fold.split.i ]
-  %.126.i = phi i32 [ 1, %53 ], [ %.02534.i, %56 ], [ %.02534.i, %.fold.split.i ]
+  %.128.i = phi i32 [ 1, %56 ], [ %.02733.i, %53 ], [ %.02733.i, %.fold.split.i ]
+  %.126.i = phi i32 [ %.02534.i, %56 ], [ 1, %53 ], [ %.02534.i, %.fold.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %.critedge.i, label %53
@@ -362,7 +362,7 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
   br label %124
 
 124:                                              ; preds = %120, %122, %94, %95, %85, %86, %78
-  %.0 = phi i32 [ -1, %94 ], [ -1, %85 ], [ -1, %78 ], [ -1, %86 ], [ -1, %95 ], [ 0, %122 ], [ 0, %120 ]
+  %.0 = phi i32 [ -1, %78 ], [ -1, %86 ], [ -1, %85 ], [ -1, %95 ], [ -1, %94 ], [ 0, %122 ], [ 0, %120 ]
   ret i32 %.0
 }
 
@@ -430,7 +430,7 @@ define dso_local ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr nound
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %25, %20, %16, %12, %14, %4, %26
-  %.0 = phi ptr [ %27, %26 ], [ null, %4 ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ null, %20 ], [ null, %25 ]
+  %.0 = phi ptr [ %27, %26 ], [ null, %4 ], [ null, %14 ], [ null, %12 ], [ null, %16 ], [ null, %20 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -496,7 +496,7 @@ define dso_local range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, 
   br label %30
 
 30:                                               ; preds = %19, %3, %26, %23, %12
-  %.0 = phi i32 [ 1, %26 ], [ 0, %12 ], [ 2, %3 ], [ 3, %23 ], [ 2, %19 ]
+  %.0 = phi i32 [ 0, %12 ], [ 3, %23 ], [ 1, %26 ], [ 2, %3 ], [ 2, %19 ]
   ret i32 %.0
 }
 

@@ -256,7 +256,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %119, %116
   br label %ZSTD_litLengthPrice.exit
 
 ZSTD_litLengthPrice.exit:                         ; preds = %98, %105, %ZSTD_LLcode.exit.i
-  %.0.i13 = phi i32 [ %136, %ZSTD_LLcode.exit.i ], [ %113, %105 ], [ %102, %98 ]
+  %.0.i13 = phi i32 [ %113, %105 ], [ %136, %ZSTD_LLcode.exit.i ], [ %102, %98 ]
   store i32 %.0.i13, ptr %39, align 4, !tbaa !41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %63, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %137 = add i32 %93, -1
@@ -584,9 +584,9 @@ ZSTD_LLcode.exit.i24:                             ; preds = %316, %312
   br label %ZSTD_litLengthPrice.exit28
 
 ZSTD_litLengthPrice.exit28:                       ; preds = %279, %303, %ZSTD_LLcode.exit.i24
-  %332 = phi i32 [ %259, %ZSTD_LLcode.exit.i24 ], [ %259, %303 ], [ %280, %279 ]
-  %.0.i2185 = phi i32 [ %.0.i21.ph8992, %ZSTD_LLcode.exit.i24 ], [ %301, %303 ], [ %284, %279 ]
-  %.0.i26 = phi i32 [ %331, %ZSTD_LLcode.exit.i24 ], [ %309, %303 ], [ %287, %279 ]
+  %332 = phi i32 [ %259, %303 ], [ %259, %ZSTD_LLcode.exit.i24 ], [ %280, %279 ]
+  %.0.i2185 = phi i32 [ %301, %303 ], [ %.0.i21.ph8992, %ZSTD_LLcode.exit.i24 ], [ %284, %279 ]
+  %.0.i26 = phi i32 [ %309, %303 ], [ %331, %ZSTD_LLcode.exit.i24 ], [ %287, %279 ]
   %333 = sub nsw i32 %.0.i2185, %.0.i26
   %334 = add nsw i32 %332, %333
   %335 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %229
@@ -1388,8 +1388,8 @@ ZSTD_updateStats.exit:                            ; preds = %643, %646
   br i1 %690, label %686, label %ZSTD_wildcopy.exit.i, !llvm.loop !72
 
 ZSTD_wildcopy.exit.i:                             ; preds = %686, %679, %678
-  %.014.i = phi ptr [ %.2441.i230, %678 ], [ %76, %679 ], [ %76, %686 ]
-  %.0.i55 = phi ptr [ %662, %678 ], [ %682, %679 ], [ %682, %686 ]
+  %.014.i = phi ptr [ %76, %679 ], [ %.2441.i230, %678 ], [ %76, %686 ]
+  %.0.i55 = phi ptr [ %682, %679 ], [ %662, %678 ], [ %682, %686 ]
   %691 = icmp ult ptr %.014.i, %661
   br i1 %691, label %.lr.ph.i57, label %ZSTD_storeSeq.exit
 
@@ -1505,9 +1505,9 @@ ZSTD_setBasePrices.exit:                          ; preds = %._crit_edge234, %72
   br label %748
 
 748:                                              ; preds = %.thread67, %ZSTD_setBasePrices.exit, %524
-  %.sroa.0214.1.i = phi i32 [ %.sroa.0214.0.i237, %.thread67 ], [ %.sroa.0214.2.i146153171, %ZSTD_setBasePrices.exit ], [ %.sroa.0214.2.i354, %524 ]
-  %.1440.i = phi ptr [ %.0439.i238, %.thread67 ], [ %.2441.i.lcssa, %ZSTD_setBasePrices.exit ], [ %.0439.i238, %524 ]
-  %.2.i = phi ptr [ %94, %.thread67 ], [ %.3.i.lcssa, %ZSTD_setBasePrices.exit ], [ %526, %524 ]
+  %.sroa.0214.1.i = phi i32 [ %.sroa.0214.2.i354, %524 ], [ %.sroa.0214.2.i146153171, %ZSTD_setBasePrices.exit ], [ %.sroa.0214.0.i237, %.thread67 ]
+  %.1440.i = phi ptr [ %.0439.i238, %524 ], [ %.2441.i.lcssa, %ZSTD_setBasePrices.exit ], [ %.0439.i238, %.thread67 ]
+  %.2.i = phi ptr [ %526, %524 ], [ %.3.i.lcssa, %ZSTD_setBasePrices.exit ], [ %94, %.thread67 ]
   %749 = icmp ult ptr %.2.i, %15
   br i1 %749, label %82, label %ZSTD_compressBlock_opt_generic.exit.loopexit
 
@@ -1745,7 +1745,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %128, %125
   br label %ZSTD_litLengthPrice.exit
 
 ZSTD_litLengthPrice.exit:                         ; preds = %100, %110, %ZSTD_LLcode.exit.i
-  %.0.i12 = phi i32 [ %148, %ZSTD_LLcode.exit.i ], [ %122, %110 ], [ %107, %100 ]
+  %.0.i12 = phi i32 [ %122, %110 ], [ %148, %ZSTD_LLcode.exit.i ], [ %107, %100 ]
   store i32 %.0.i12, ptr %40, align 4, !tbaa !41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %149 = add i32 %95, -1
@@ -2104,9 +2104,9 @@ ZSTD_LLcode.exit.i25:                             ; preds = %356, %351
   br label %ZSTD_litLengthPrice.exit31
 
 ZSTD_litLengthPrice.exit31:                       ; preds = %304, %338, %ZSTD_LLcode.exit.i25
-  %377 = phi i32 [ %280, %ZSTD_LLcode.exit.i25 ], [ %280, %338 ], [ %305, %304 ]
-  %.0.i21148 = phi i32 [ %.0.i21.ph152155, %ZSTD_LLcode.exit.i25 ], [ %336, %338 ], [ %312, %304 ]
-  %.0.i28 = phi i32 [ %376, %ZSTD_LLcode.exit.i25 ], [ %348, %338 ], [ %318, %304 ]
+  %377 = phi i32 [ %280, %338 ], [ %280, %ZSTD_LLcode.exit.i25 ], [ %305, %304 ]
+  %.0.i21148 = phi i32 [ %336, %338 ], [ %.0.i21.ph152155, %ZSTD_LLcode.exit.i25 ], [ %312, %304 ]
+  %.0.i28 = phi i32 [ %348, %338 ], [ %376, %ZSTD_LLcode.exit.i25 ], [ %318, %304 ]
   %378 = sub nsw i32 %.0.i21148, %.0.i28
   %379 = add nsw i32 %377, %378
   %380 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %247
@@ -2290,7 +2290,7 @@ ZSTD_litLengthPrice.exit68:                       ; preds = %466, %469
   %.neg22.i74 = add i32 %387, 4352
   %498 = shl nuw nsw i32 %495, 8
   %499 = add i32 %497, %498
-  %.neg359 = sub i32 %499, %.neg22.i74
+  %.neg = sub i32 %499, %.neg22.i74
   br label %ZSTD_litLengthPrice.exit75
 
 500:                                              ; preds = %ZSTD_litLengthPrice.exit68
@@ -2326,13 +2326,13 @@ ZSTD_LLcode.exit.i69:                             ; preds = %505, %502
   %521 = lshr i32 %520, %519
   %reass.add269.neg = sub nsw i32 %519, %514
   %reass.mul270.neg = shl nsw i32 %reass.add269.neg, 8
-  %.neg = sub i32 %521, %387
-  %.neg358 = add i32 %.neg, %reass.mul270.neg
+  %.neg358 = sub i32 %521, %387
+  %.neg359 = add i32 %.neg358, %reass.mul270.neg
   br label %ZSTD_litLengthPrice.exit75
 
 ZSTD_litLengthPrice.exit75:                       ; preds = %490, %ZSTD_LLcode.exit.i69
-  %.0.i65164 = phi i32 [ %.0.i65165168, %ZSTD_LLcode.exit.i69 ], [ %488, %490 ]
-  %.0.i72.neg360 = phi i32 [ %.neg358, %ZSTD_LLcode.exit.i69 ], [ %.neg359, %490 ]
+  %.0.i65164 = phi i32 [ %488, %490 ], [ %.0.i65165168, %ZSTD_LLcode.exit.i69 ]
+  %.0.i72.neg360 = phi i32 [ %.neg, %490 ], [ %.neg359, %ZSTD_LLcode.exit.i69 ]
   %522 = add i32 %.025.i60, %379
   %523 = add i32 %522, %.0.i65164
   %524 = add i32 %523, %.0.i72.neg360
@@ -2796,8 +2796,8 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   store i32 1073741824, ptr %741, align 4, !tbaa !41
   br label %.thread185
 
-.thread185:                                       ; preds = %738, %596, %.thread201
-  %.9.i191 = phi i32 [ %.8.i, %.thread201 ], [ %.13.i.lcssa, %738 ], [ %.8.i, %596 ]
+.thread185:                                       ; preds = %596, %738, %.thread201
+  %.9.i191 = phi i32 [ %.8.i, %.thread201 ], [ %.8.i, %596 ], [ %.13.i.lcssa, %738 ]
   %742 = add i32 %.5.i335, 1
   %.not493.i = icmp ugt i32 %742, %.9.i191
   br i1 %.not493.i, label %743, label %.lr.ph337, !llvm.loop !61
@@ -3208,8 +3208,8 @@ ZSTD_updateStats.exit:                            ; preds = %869, %872
   br i1 %916, label %912, label %ZSTD_wildcopy.exit.i, !llvm.loop !72
 
 ZSTD_wildcopy.exit.i:                             ; preds = %912, %905, %904
-  %.014.i = phi ptr [ %.2441.i343, %904 ], [ %78, %905 ], [ %78, %912 ]
-  %.0.i118 = phi ptr [ %888, %904 ], [ %908, %905 ], [ %908, %912 ]
+  %.014.i = phi ptr [ %78, %905 ], [ %.2441.i343, %904 ], [ %78, %912 ]
+  %.0.i118 = phi ptr [ %908, %905 ], [ %888, %904 ], [ %908, %912 ]
   %917 = icmp ult ptr %.014.i, %887
   br i1 %917, label %.lr.ph.i120, label %ZSTD_storeSeq.exit
 
@@ -3337,9 +3337,9 @@ ZSTD_setBasePrices.exit:                          ; preds = %._crit_edge347, %95
   br label %986
 
 986:                                              ; preds = %.thread130, %ZSTD_setBasePrices.exit, %750
-  %.sroa.0214.1.i = phi i32 [ %.sroa.0214.0.i350, %.thread130 ], [ %.sroa.0214.2.i218225243, %ZSTD_setBasePrices.exit ], [ %.sroa.0214.2.i476, %750 ]
-  %.1440.i = phi ptr [ %.0439.i351, %.thread130 ], [ %.2441.i.lcssa, %ZSTD_setBasePrices.exit ], [ %.0439.i351, %750 ]
-  %.2.i = phi ptr [ %96, %.thread130 ], [ %.3.i.lcssa, %ZSTD_setBasePrices.exit ], [ %752, %750 ]
+  %.sroa.0214.1.i = phi i32 [ %.sroa.0214.2.i476, %750 ], [ %.sroa.0214.2.i218225243, %ZSTD_setBasePrices.exit ], [ %.sroa.0214.0.i350, %.thread130 ]
+  %.1440.i = phi ptr [ %.0439.i351, %750 ], [ %.2441.i.lcssa, %ZSTD_setBasePrices.exit ], [ %.0439.i351, %.thread130 ]
+  %.2.i = phi ptr [ %752, %750 ], [ %.3.i.lcssa, %ZSTD_setBasePrices.exit ], [ %96, %.thread130 ]
   %987 = icmp ult ptr %.2.i, %16
   br i1 %987, label %84, label %ZSTD_compressBlock_opt_generic.exit.loopexit
 
@@ -3671,7 +3671,7 @@ ZSTD_hashPtr.exit:                                ; preds = %13, %18, %23, %28, 
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %93, %.thread63.i, %125
-  %.1.i = phi i64 [ %105, %.thread63.i ], [ %128, %125 ], [ %96, %93 ]
+  %.1.i = phi i64 [ %128, %125 ], [ %96, %93 ], [ %105, %.thread63.i ]
   %129 = add i64 %.1.i, %86
   br label %137
 
@@ -3744,11 +3744,11 @@ ZSTD_count.exit:                                  ; preds = %93, %.thread63.i, %
   %163 = select i1 %161, i1 %162, i1 false
   br i1 %163, label %81, label %.thread, !llvm.loop !98
 
-.thread:                                          ; preds = %159, %155, %146, %158, %ZSTD_hashPtr.exit
-  %.1131 = phi ptr [ %63, %ZSTD_hashPtr.exit ], [ %7, %155 ], [ %.0130162, %158 ], [ %.0130162, %146 ], [ %.3133, %159 ]
-  %.1128 = phi ptr [ %64, %ZSTD_hashPtr.exit ], [ %.0127163, %155 ], [ %7, %158 ], [ %.0127163, %146 ], [ %.3, %159 ]
-  %.1122 = phi i32 [ %74, %ZSTD_hashPtr.exit ], [ %.2123, %158 ], [ %.2123, %146 ], [ %.2123, %155 ], [ %.2123, %159 ]
-  %.1119 = phi i64 [ 8, %ZSTD_hashPtr.exit ], [ %147, %158 ], [ %147, %146 ], [ %147, %155 ], [ %147, %159 ]
+.thread:                                          ; preds = %159, %146, %155, %158, %ZSTD_hashPtr.exit
+  %.1131 = phi ptr [ %63, %ZSTD_hashPtr.exit ], [ %.0130162, %158 ], [ %7, %155 ], [ %.0130162, %146 ], [ %.3133, %159 ]
+  %.1128 = phi ptr [ %64, %ZSTD_hashPtr.exit ], [ %7, %158 ], [ %.0127163, %155 ], [ %.0127163, %146 ], [ %.3, %159 ]
+  %.1122 = phi i32 [ %74, %ZSTD_hashPtr.exit ], [ %.2123, %158 ], [ %.2123, %155 ], [ %.2123, %146 ], [ %.2123, %159 ]
+  %.1119 = phi i64 [ 8, %ZSTD_hashPtr.exit ], [ %147, %158 ], [ %147, %155 ], [ %147, %146 ], [ %147, %159 ]
   store i32 0, ptr %.1128, align 4, !tbaa !23
   store i32 0, ptr %.1131, align 4, !tbaa !23
   %164 = icmp ugt i64 %.1119, 384
@@ -3869,7 +3869,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %14, %.thread63.i, %48
-  %.1.i = phi i64 [ %26, %.thread63.i ], [ %51, %48 ], [ %17, %14 ]
+  %.1.i = phi i64 [ %51, %48 ], [ %17, %14 ], [ %26, %.thread63.i ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.i
   %.not = icmp eq ptr %52, %3
   br i1 %.not, label %53, label %97
@@ -3974,7 +3974,7 @@ ZSTD_count.exit:                                  ; preds = %14, %.thread63.i, %
   br label %ZSTD_count.exit49
 
 ZSTD_count.exit49:                                ; preds = %58, %.thread63.i48, %92
-  %.1.i30 = phi i64 [ %70, %.thread63.i48 ], [ %95, %92 ], [ %61, %58 ]
+  %.1.i30 = phi i64 [ %95, %92 ], [ %61, %58 ], [ %70, %.thread63.i48 ]
   %96 = add i64 %.1.i30, %.1.i
   br label %97
 
@@ -5032,7 +5032,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, %135
-  %.1.i15 = phi i64 [ %115, %.thread63.i ], [ %137, %135 ], [ %107, %104 ]
+  %.1.i15 = phi i64 [ %137, %135 ], [ %107, %104 ], [ %115, %.thread63.i ]
   %138 = trunc i64 %.1.i15 to i32
   %139 = add i32 %138, 3
   br label %140
@@ -5214,7 +5214,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %155
   br label %ZSTD_count.exit47
 
 ZSTD_count.exit47:                                ; preds = %186, %.thread63.i46, %219
-  %.1.i28 = phi i64 [ %197, %.thread63.i46 ], [ %221, %219 ], [ %189, %186 ]
+  %.1.i28 = phi i64 [ %221, %219 ], [ %189, %186 ], [ %197, %.thread63.i46 ]
   %222 = icmp ugt i64 %.1.i28, 2
   br i1 %222, label %223, label %.thread90
 
@@ -5363,7 +5363,7 @@ ZSTD_count.exit47:                                ; preds = %186, %.thread63.i46
   br label %ZSTD_count.exit75
 
 ZSTD_count.exit75:                                ; preds = %250, %.thread63.i74, %282
-  %.1.i56 = phi i64 [ %262, %.thread63.i74 ], [ %285, %282 ], [ %253, %250 ]
+  %.1.i56 = phi i64 [ %285, %282 ], [ %253, %250 ], [ %262, %.thread63.i74 ]
   %286 = add i64 %.1.i56, %243
   %287 = icmp ugt i64 %286, %.9441.i124
   br i1 %287, label %288, label %303
@@ -5425,11 +5425,11 @@ ZSTD_count.exit75:                                ; preds = %250, %.thread63.i74
   %317 = select i1 %315, i1 %316, i1 false
   br i1 %317, label %238, label %.thread96, !llvm.loop !122
 
-.thread96:                                        ; preds = %313, %312, %309, %288, %.thread90
-  %.10423.i = phi i32 [ %.4417.i, %.thread90 ], [ %.11.i, %312 ], [ %298, %288 ], [ %.11.i, %309 ], [ %.11.i, %313 ]
-  %.1401.i = phi i32 [ %66, %.thread90 ], [ %.2402.i, %312 ], [ %.3403.i, %288 ], [ %.2402.i, %309 ], [ %.2402.i, %313 ]
-  %.1396.i = phi ptr [ %65, %.thread90 ], [ %9, %312 ], [ %.0395.i128, %288 ], [ %.0395.i128, %309 ], [ %.3398.i, %313 ]
-  %.1392.i = phi ptr [ %64, %.thread90 ], [ %.0391.i129, %312 ], [ %.0391.i129, %288 ], [ %9, %309 ], [ %.3394.i, %313 ]
+.thread96:                                        ; preds = %313, %309, %312, %288, %.thread90
+  %.10423.i = phi i32 [ %.4417.i, %.thread90 ], [ %298, %288 ], [ %.11.i, %312 ], [ %.11.i, %309 ], [ %.11.i, %313 ]
+  %.1401.i = phi i32 [ %66, %.thread90 ], [ %.3403.i, %288 ], [ %.2402.i, %312 ], [ %.2402.i, %309 ], [ %.2402.i, %313 ]
+  %.1396.i = phi ptr [ %65, %.thread90 ], [ %.0395.i128, %288 ], [ %9, %312 ], [ %.0395.i128, %309 ], [ %.3398.i, %313 ]
+  %.1392.i = phi ptr [ %64, %.thread90 ], [ %.0391.i129, %288 ], [ %.0391.i129, %312 ], [ %9, %309 ], [ %.3394.i, %313 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %318 = add i32 %.1401.i, -8
@@ -5686,7 +5686,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, %135
-  %.1.i14 = phi i64 [ %115, %.thread63.i ], [ %137, %135 ], [ %107, %104 ]
+  %.1.i14 = phi i64 [ %137, %135 ], [ %107, %104 ], [ %115, %.thread63.i ]
   %138 = trunc i64 %.1.i14 to i32
   %139 = add i32 %138, 4
   br label %140
@@ -5848,7 +5848,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
   br label %ZSTD_count.exit45
 
 ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44, %202
-  %.1.i26 = phi i64 [ %182, %.thread63.i44 ], [ %205, %202 ], [ %173, %170 ]
+  %.1.i26 = phi i64 [ %205, %202 ], [ %173, %170 ], [ %182, %.thread63.i44 ]
   %206 = add i64 %.1.i26, %163
   %207 = icmp ugt i64 %206, %.9441.i85
   br i1 %207, label %208, label %223
@@ -5910,11 +5910,11 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
   %237 = select i1 %235, i1 %236, i1 false
   br i1 %237, label %158, label %.thread59, !llvm.loop !122
 
-.thread59:                                        ; preds = %233, %232, %229, %208, %.thread53
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread53 ], [ %.11.i, %232 ], [ %218, %208 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
-  %.1401.i = phi i32 [ %66, %.thread53 ], [ %.2402.i, %232 ], [ %.3403.i, %208 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
-  %.1396.i = phi ptr [ %65, %.thread53 ], [ %9, %232 ], [ %.0395.i89, %208 ], [ %.0395.i89, %229 ], [ %.3398.i, %233 ]
-  %.1392.i = phi ptr [ %64, %.thread53 ], [ %.0391.i90, %232 ], [ %.0391.i90, %208 ], [ %9, %229 ], [ %.3394.i, %233 ]
+.thread59:                                        ; preds = %233, %229, %232, %208, %.thread53
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread53 ], [ %218, %208 ], [ %.11.i, %232 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
+  %.1401.i = phi i32 [ %66, %.thread53 ], [ %.3403.i, %208 ], [ %.2402.i, %232 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
+  %.1396.i = phi ptr [ %65, %.thread53 ], [ %.0395.i89, %208 ], [ %9, %232 ], [ %.0395.i89, %229 ], [ %.3398.i, %233 ]
+  %.1392.i = phi ptr [ %64, %.thread53 ], [ %.0391.i90, %208 ], [ %.0391.i90, %232 ], [ %9, %229 ], [ %.3394.i, %233 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %238 = add i32 %.1401.i, -8
@@ -6166,7 +6166,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, %135
-  %.1.i14 = phi i64 [ %115, %.thread63.i ], [ %137, %135 ], [ %107, %104 ]
+  %.1.i14 = phi i64 [ %137, %135 ], [ %107, %104 ], [ %115, %.thread63.i ]
   %138 = trunc i64 %.1.i14 to i32
   %139 = add i32 %138, 4
   br label %140
@@ -6328,7 +6328,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
   br label %ZSTD_count.exit45
 
 ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44, %202
-  %.1.i26 = phi i64 [ %182, %.thread63.i44 ], [ %205, %202 ], [ %173, %170 ]
+  %.1.i26 = phi i64 [ %205, %202 ], [ %173, %170 ], [ %182, %.thread63.i44 ]
   %206 = add i64 %.1.i26, %163
   %207 = icmp ugt i64 %206, %.9441.i85
   br i1 %207, label %208, label %223
@@ -6390,11 +6390,11 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
   %237 = select i1 %235, i1 %236, i1 false
   br i1 %237, label %158, label %.thread59, !llvm.loop !122
 
-.thread59:                                        ; preds = %233, %232, %229, %208, %.thread53
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread53 ], [ %.11.i, %232 ], [ %218, %208 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
-  %.1401.i = phi i32 [ %66, %.thread53 ], [ %.2402.i, %232 ], [ %.3403.i, %208 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
-  %.1396.i = phi ptr [ %65, %.thread53 ], [ %9, %232 ], [ %.0395.i89, %208 ], [ %.0395.i89, %229 ], [ %.3398.i, %233 ]
-  %.1392.i = phi ptr [ %64, %.thread53 ], [ %.0391.i90, %232 ], [ %.0391.i90, %208 ], [ %9, %229 ], [ %.3394.i, %233 ]
+.thread59:                                        ; preds = %233, %229, %232, %208, %.thread53
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread53 ], [ %218, %208 ], [ %.11.i, %232 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
+  %.1401.i = phi i32 [ %66, %.thread53 ], [ %.3403.i, %208 ], [ %.2402.i, %232 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
+  %.1396.i = phi ptr [ %65, %.thread53 ], [ %.0395.i89, %208 ], [ %9, %232 ], [ %.0395.i89, %229 ], [ %.3398.i, %233 ]
+  %.1392.i = phi ptr [ %64, %.thread53 ], [ %.0391.i90, %208 ], [ %.0391.i90, %232 ], [ %9, %229 ], [ %.3394.i, %233 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %238 = add i32 %.1401.i, -8
@@ -6646,7 +6646,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, %135
-  %.1.i14 = phi i64 [ %115, %.thread63.i ], [ %137, %135 ], [ %107, %104 ]
+  %.1.i14 = phi i64 [ %137, %135 ], [ %107, %104 ], [ %115, %.thread63.i ]
   %138 = trunc i64 %.1.i14 to i32
   %139 = add i32 %138, 4
   br label %140
@@ -6808,7 +6808,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
   br label %ZSTD_count.exit45
 
 ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44, %202
-  %.1.i26 = phi i64 [ %182, %.thread63.i44 ], [ %205, %202 ], [ %173, %170 ]
+  %.1.i26 = phi i64 [ %205, %202 ], [ %173, %170 ], [ %182, %.thread63.i44 ]
   %206 = add i64 %.1.i26, %163
   %207 = icmp ugt i64 %206, %.9441.i85
   br i1 %207, label %208, label %223
@@ -6870,11 +6870,11 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
   %237 = select i1 %235, i1 %236, i1 false
   br i1 %237, label %158, label %.thread59, !llvm.loop !122
 
-.thread59:                                        ; preds = %233, %232, %229, %208, %.thread53
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread53 ], [ %.11.i, %232 ], [ %218, %208 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
-  %.1401.i = phi i32 [ %66, %.thread53 ], [ %.2402.i, %232 ], [ %.3403.i, %208 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
-  %.1396.i = phi ptr [ %65, %.thread53 ], [ %9, %232 ], [ %.0395.i89, %208 ], [ %.0395.i89, %229 ], [ %.3398.i, %233 ]
-  %.1392.i = phi ptr [ %64, %.thread53 ], [ %.0391.i90, %232 ], [ %.0391.i90, %208 ], [ %9, %229 ], [ %.3394.i, %233 ]
+.thread59:                                        ; preds = %233, %229, %232, %208, %.thread53
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread53 ], [ %218, %208 ], [ %.11.i, %232 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
+  %.1401.i = phi i32 [ %66, %.thread53 ], [ %.3403.i, %208 ], [ %.2402.i, %232 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
+  %.1396.i = phi ptr [ %65, %.thread53 ], [ %.0395.i89, %208 ], [ %9, %232 ], [ %.0395.i89, %229 ], [ %.3398.i, %233 ]
+  %.1392.i = phi ptr [ %64, %.thread53 ], [ %.0391.i90, %208 ], [ %.0391.i90, %232 ], [ %9, %229 ], [ %.3394.i, %233 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %238 = add i32 %.1401.i, -8
@@ -7135,7 +7135,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, %141
-  %.1.i16 = phi i64 [ %121, %.thread63.i ], [ %143, %141 ], [ %113, %110 ]
+  %.1.i16 = phi i64 [ %143, %141 ], [ %113, %110 ], [ %121, %.thread63.i ]
   %144 = trunc i64 %.1.i16 to i32
   %145 = add i32 %144, 3
   br label %159
@@ -7350,7 +7350,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %174
   br label %ZSTD_count.exit52
 
 ZSTD_count.exit52:                                ; preds = %239, %.thread63.i51, %206, %242
-  %.0399.i = phi i64 [ %244, %242 ], [ %217, %.thread63.i51 ], [ %241, %239 ], [ %209, %206 ]
+  %.0399.i = phi i64 [ %244, %242 ], [ %241, %239 ], [ %209, %206 ], [ %217, %.thread63.i51 ]
   %245 = icmp ugt i64 %.0399.i, 2
   br i1 %245, label %246, label %.thread95
 
@@ -7504,7 +7504,7 @@ ZSTD_count.exit52:                                ; preds = %239, %.thread63.i51
   br label %ZSTD_count.exit80
 
 ZSTD_count.exit80:                                ; preds = %275, %.thread63.i79, %307
-  %.1.i61 = phi i64 [ %287, %.thread63.i79 ], [ %310, %307 ], [ %278, %275 ]
+  %.1.i61 = phi i64 [ %310, %307 ], [ %278, %275 ], [ %287, %.thread63.i79 ]
   %311 = add i64 %.1.i61, %266
   br label %319
 
@@ -7582,11 +7582,11 @@ ZSTD_count.exit80:                                ; preds = %275, %.thread63.i79
   %350 = select i1 %348, i1 %349, i1 false
   br i1 %350, label %261, label %.thread101, !llvm.loop !122
 
-.thread101:                                       ; preds = %346, %345, %342, %321, %.thread95
-  %.10423.i = phi i32 [ %.4417.i, %.thread95 ], [ %.11.i, %345 ], [ %331, %321 ], [ %.11.i, %342 ], [ %.11.i, %346 ]
-  %.1401.i = phi i32 [ %71, %.thread95 ], [ %.2402.i, %345 ], [ %.3403.i, %321 ], [ %.2402.i, %342 ], [ %.2402.i, %346 ]
-  %.1396.i = phi ptr [ %70, %.thread95 ], [ %9, %345 ], [ %.0395.i135, %321 ], [ %.0395.i135, %342 ], [ %.3398.i, %346 ]
-  %.1392.i = phi ptr [ %69, %.thread95 ], [ %.0391.i136, %345 ], [ %.0391.i136, %321 ], [ %9, %342 ], [ %.3394.i, %346 ]
+.thread101:                                       ; preds = %346, %342, %345, %321, %.thread95
+  %.10423.i = phi i32 [ %.4417.i, %.thread95 ], [ %331, %321 ], [ %.11.i, %345 ], [ %.11.i, %342 ], [ %.11.i, %346 ]
+  %.1401.i = phi i32 [ %71, %.thread95 ], [ %.3403.i, %321 ], [ %.2402.i, %345 ], [ %.2402.i, %342 ], [ %.2402.i, %346 ]
+  %.1396.i = phi ptr [ %70, %.thread95 ], [ %.0395.i135, %321 ], [ %9, %345 ], [ %.0395.i135, %342 ], [ %.3398.i, %346 ]
+  %.1392.i = phi ptr [ %69, %.thread95 ], [ %.0391.i136, %321 ], [ %.0391.i136, %345 ], [ %9, %342 ], [ %.3394.i, %346 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %351 = add i32 %.1401.i, -8
@@ -7849,7 +7849,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, %141
-  %.1.i15 = phi i64 [ %121, %.thread63.i ], [ %143, %141 ], [ %113, %110 ]
+  %.1.i15 = phi i64 [ %143, %141 ], [ %113, %110 ], [ %121, %.thread63.i ]
   %144 = trunc i64 %.1.i15 to i32
   %145 = add i32 %144, 4
   br label %159
@@ -8038,7 +8038,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
   br label %ZSTD_count.exit50
 
 ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49, %223
-  %.1.i31 = phi i64 [ %203, %.thread63.i49 ], [ %226, %223 ], [ %194, %191 ]
+  %.1.i31 = phi i64 [ %226, %223 ], [ %194, %191 ], [ %203, %.thread63.i49 ]
   %227 = add i64 %.1.i31, %182
   br label %235
 
@@ -8116,11 +8116,11 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
   %266 = select i1 %264, i1 %265, i1 false
   br i1 %266, label %177, label %.thread64, !llvm.loop !122
 
-.thread64:                                        ; preds = %262, %261, %258, %237, %.thread58
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %.11.i, %261 ], [ %247, %237 ], [ %.11.i, %258 ], [ %.11.i, %262 ]
-  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.2402.i, %261 ], [ %.3403.i, %237 ], [ %.2402.i, %258 ], [ %.2402.i, %262 ]
-  %.1396.i = phi ptr [ %70, %.thread58 ], [ %9, %261 ], [ %.0395.i94, %237 ], [ %.0395.i94, %258 ], [ %.3398.i, %262 ]
-  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %261 ], [ %.0391.i95, %237 ], [ %9, %258 ], [ %.3394.i, %262 ]
+.thread64:                                        ; preds = %262, %258, %261, %237, %.thread58
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %247, %237 ], [ %.11.i, %261 ], [ %.11.i, %258 ], [ %.11.i, %262 ]
+  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.3403.i, %237 ], [ %.2402.i, %261 ], [ %.2402.i, %258 ], [ %.2402.i, %262 ]
+  %.1396.i = phi ptr [ %70, %.thread58 ], [ %.0395.i94, %237 ], [ %9, %261 ], [ %.0395.i94, %258 ], [ %.3398.i, %262 ]
+  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %237 ], [ %.0391.i95, %261 ], [ %9, %258 ], [ %.3394.i, %262 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %267 = add i32 %.1401.i, -8
@@ -8378,7 +8378,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, %141
-  %.1.i15 = phi i64 [ %121, %.thread63.i ], [ %143, %141 ], [ %113, %110 ]
+  %.1.i15 = phi i64 [ %143, %141 ], [ %113, %110 ], [ %121, %.thread63.i ]
   %144 = trunc i64 %.1.i15 to i32
   %145 = add i32 %144, 4
   br label %159
@@ -8567,7 +8567,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
   br label %ZSTD_count.exit50
 
 ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49, %223
-  %.1.i31 = phi i64 [ %203, %.thread63.i49 ], [ %226, %223 ], [ %194, %191 ]
+  %.1.i31 = phi i64 [ %226, %223 ], [ %194, %191 ], [ %203, %.thread63.i49 ]
   %227 = add i64 %.1.i31, %182
   br label %235
 
@@ -8645,11 +8645,11 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
   %266 = select i1 %264, i1 %265, i1 false
   br i1 %266, label %177, label %.thread64, !llvm.loop !122
 
-.thread64:                                        ; preds = %262, %261, %258, %237, %.thread58
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %.11.i, %261 ], [ %247, %237 ], [ %.11.i, %258 ], [ %.11.i, %262 ]
-  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.2402.i, %261 ], [ %.3403.i, %237 ], [ %.2402.i, %258 ], [ %.2402.i, %262 ]
-  %.1396.i = phi ptr [ %70, %.thread58 ], [ %9, %261 ], [ %.0395.i94, %237 ], [ %.0395.i94, %258 ], [ %.3398.i, %262 ]
-  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %261 ], [ %.0391.i95, %237 ], [ %9, %258 ], [ %.3394.i, %262 ]
+.thread64:                                        ; preds = %262, %258, %261, %237, %.thread58
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %247, %237 ], [ %.11.i, %261 ], [ %.11.i, %258 ], [ %.11.i, %262 ]
+  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.3403.i, %237 ], [ %.2402.i, %261 ], [ %.2402.i, %258 ], [ %.2402.i, %262 ]
+  %.1396.i = phi ptr [ %70, %.thread58 ], [ %.0395.i94, %237 ], [ %9, %261 ], [ %.0395.i94, %258 ], [ %.3398.i, %262 ]
+  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %237 ], [ %.0391.i95, %261 ], [ %9, %258 ], [ %.3394.i, %262 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %267 = add i32 %.1401.i, -8
@@ -8907,7 +8907,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, %141
-  %.1.i15 = phi i64 [ %121, %.thread63.i ], [ %143, %141 ], [ %113, %110 ]
+  %.1.i15 = phi i64 [ %143, %141 ], [ %113, %110 ], [ %121, %.thread63.i ]
   %144 = trunc i64 %.1.i15 to i32
   %145 = add i32 %144, 4
   br label %159
@@ -9096,7 +9096,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
   br label %ZSTD_count.exit50
 
 ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49, %223
-  %.1.i31 = phi i64 [ %203, %.thread63.i49 ], [ %226, %223 ], [ %194, %191 ]
+  %.1.i31 = phi i64 [ %226, %223 ], [ %194, %191 ], [ %203, %.thread63.i49 ]
   %227 = add i64 %.1.i31, %182
   br label %235
 
@@ -9174,11 +9174,11 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
   %266 = select i1 %264, i1 %265, i1 false
   br i1 %266, label %177, label %.thread64, !llvm.loop !122
 
-.thread64:                                        ; preds = %262, %261, %258, %237, %.thread58
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %.11.i, %261 ], [ %247, %237 ], [ %.11.i, %258 ], [ %.11.i, %262 ]
-  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.2402.i, %261 ], [ %.3403.i, %237 ], [ %.2402.i, %258 ], [ %.2402.i, %262 ]
-  %.1396.i = phi ptr [ %70, %.thread58 ], [ %9, %261 ], [ %.0395.i94, %237 ], [ %.0395.i94, %258 ], [ %.3398.i, %262 ]
-  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %261 ], [ %.0391.i95, %237 ], [ %9, %258 ], [ %.3394.i, %262 ]
+.thread64:                                        ; preds = %262, %258, %261, %237, %.thread58
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %247, %237 ], [ %.11.i, %261 ], [ %.11.i, %258 ], [ %.11.i, %262 ]
+  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.3403.i, %237 ], [ %.2402.i, %261 ], [ %.2402.i, %258 ], [ %.2402.i, %262 ]
+  %.1396.i = phi ptr [ %70, %.thread58 ], [ %.0395.i94, %237 ], [ %9, %261 ], [ %.0395.i94, %258 ], [ %.3398.i, %262 ]
+  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %237 ], [ %.0391.i95, %261 ], [ %9, %258 ], [ %.3394.i, %262 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %267 = add i32 %.1401.i, -8
@@ -9463,7 +9463,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, %163
-  %.1.i16 = phi i64 [ %143, %.thread63.i ], [ %165, %163 ], [ %135, %132 ]
+  %.1.i16 = phi i64 [ %165, %163 ], [ %135, %132 ], [ %143, %.thread63.i ]
   %166 = trunc i64 %.1.i16 to i32
   %167 = add i32 %166, 3
   br label %180
@@ -9669,7 +9669,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %195
   br label %ZSTD_count.exit52
 
 ZSTD_count.exit52:                                ; preds = %226, %.thread63.i51, %259
-  %.1.i33 = phi i64 [ %237, %.thread63.i51 ], [ %261, %259 ], [ %229, %226 ]
+  %.1.i33 = phi i64 [ %261, %259 ], [ %229, %226 ], [ %237, %.thread63.i51 ]
   %262 = icmp ugt i64 %.1.i33, 2
   br i1 %262, label %263, label %.thread95
 
@@ -9823,7 +9823,7 @@ ZSTD_count.exit52:                                ; preds = %226, %.thread63.i51
   br label %ZSTD_count.exit80
 
 ZSTD_count.exit80:                                ; preds = %290, %.thread63.i79, %322
-  %.1.i61 = phi i64 [ %302, %.thread63.i79 ], [ %325, %322 ], [ %293, %290 ]
+  %.1.i61 = phi i64 [ %325, %322 ], [ %293, %290 ], [ %302, %.thread63.i79 ]
   %326 = add i64 %.1.i61, %283
   %327 = icmp ugt i64 %326, %.9441.i154
   br i1 %327, label %328, label %343
@@ -9890,10 +9890,10 @@ ZSTD_count.exit80:                                ; preds = %290, %.thread63.i79
   %357 = select i1 %355, i1 %356, i1 false
   br i1 %357, label %278, label %.thread101, !llvm.loop !122
 
-.thread101:                                       ; preds = %353, %352, %349
-  %.0427.i.lcssa = phi i32 [ %.0427.i155, %349 ], [ %354, %353 ], [ %.0427.i155, %352 ]
-  %.1396.i = phi ptr [ %.0395.i158, %349 ], [ %.3398.i, %353 ], [ %9, %352 ]
-  %.1392.i = phi ptr [ %9, %349 ], [ %.3394.i, %353 ], [ %.0391.i159, %352 ]
+.thread101:                                       ; preds = %353, %349, %352
+  %.0427.i.lcssa = phi i32 [ %354, %353 ], [ %.0427.i155, %349 ], [ %.0427.i155, %352 ]
+  %.1396.i = phi ptr [ %.3398.i, %353 ], [ %.0395.i158, %349 ], [ %9, %352 ]
+  %.1392.i = phi ptr [ %.3394.i, %353 ], [ %9, %349 ], [ %.0391.i159, %352 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %.not = icmp eq i32 %.0427.i.lcssa, 0
@@ -10283,7 +10283,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, %163
-  %.1.i15 = phi i64 [ %143, %.thread63.i ], [ %165, %163 ], [ %135, %132 ]
+  %.1.i15 = phi i64 [ %165, %163 ], [ %135, %132 ], [ %143, %.thread63.i ]
   %166 = trunc i64 %.1.i15 to i32
   %167 = add i32 %166, 4
   br label %180
@@ -10472,7 +10472,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
   br label %ZSTD_count.exit50
 
 ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49, %242
-  %.1.i31 = phi i64 [ %222, %.thread63.i49 ], [ %245, %242 ], [ %213, %210 ]
+  %.1.i31 = phi i64 [ %245, %242 ], [ %213, %210 ], [ %222, %.thread63.i49 ]
   %246 = add i64 %.1.i31, %203
   %247 = icmp ugt i64 %246, %.9441.i113
   br i1 %247, label %248, label %263
@@ -10539,10 +10539,10 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %277 = select i1 %275, i1 %276, i1 false
   br i1 %277, label %198, label %.thread64, !llvm.loop !122
 
-.thread64:                                        ; preds = %273, %272, %269
-  %.0427.i.lcssa = phi i32 [ %.0427.i114, %269 ], [ %274, %273 ], [ %.0427.i114, %272 ]
-  %.1396.i = phi ptr [ %.0395.i117, %269 ], [ %.3398.i, %273 ], [ %9, %272 ]
-  %.1392.i = phi ptr [ %9, %269 ], [ %.3394.i, %273 ], [ %.0391.i118, %272 ]
+.thread64:                                        ; preds = %273, %269, %272
+  %.0427.i.lcssa = phi i32 [ %274, %273 ], [ %.0427.i114, %269 ], [ %.0427.i114, %272 ]
+  %.1396.i = phi ptr [ %.3398.i, %273 ], [ %.0395.i117, %269 ], [ %9, %272 ]
+  %.1392.i = phi ptr [ %.3394.i, %273 ], [ %9, %269 ], [ %.0391.i118, %272 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %.not = icmp eq i32 %.0427.i.lcssa, 0
@@ -10927,7 +10927,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, %163
-  %.1.i15 = phi i64 [ %143, %.thread63.i ], [ %165, %163 ], [ %135, %132 ]
+  %.1.i15 = phi i64 [ %165, %163 ], [ %135, %132 ], [ %143, %.thread63.i ]
   %166 = trunc i64 %.1.i15 to i32
   %167 = add i32 %166, 4
   br label %180
@@ -11116,7 +11116,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
   br label %ZSTD_count.exit50
 
 ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49, %242
-  %.1.i31 = phi i64 [ %222, %.thread63.i49 ], [ %245, %242 ], [ %213, %210 ]
+  %.1.i31 = phi i64 [ %245, %242 ], [ %213, %210 ], [ %222, %.thread63.i49 ]
   %246 = add i64 %.1.i31, %203
   %247 = icmp ugt i64 %246, %.9441.i113
   br i1 %247, label %248, label %263
@@ -11183,10 +11183,10 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %277 = select i1 %275, i1 %276, i1 false
   br i1 %277, label %198, label %.thread64, !llvm.loop !122
 
-.thread64:                                        ; preds = %273, %272, %269
-  %.0427.i.lcssa = phi i32 [ %.0427.i114, %269 ], [ %274, %273 ], [ %.0427.i114, %272 ]
-  %.1396.i = phi ptr [ %.0395.i117, %269 ], [ %.3398.i, %273 ], [ %9, %272 ]
-  %.1392.i = phi ptr [ %9, %269 ], [ %.3394.i, %273 ], [ %.0391.i118, %272 ]
+.thread64:                                        ; preds = %273, %269, %272
+  %.0427.i.lcssa = phi i32 [ %274, %273 ], [ %.0427.i114, %269 ], [ %.0427.i114, %272 ]
+  %.1396.i = phi ptr [ %.3398.i, %273 ], [ %.0395.i117, %269 ], [ %9, %272 ]
+  %.1392.i = phi ptr [ %.3394.i, %273 ], [ %9, %269 ], [ %.0391.i118, %272 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %.not = icmp eq i32 %.0427.i.lcssa, 0
@@ -11569,7 +11569,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %ZSTD_count.exit
 
 ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, %163
-  %.1.i15 = phi i64 [ %143, %.thread63.i ], [ %165, %163 ], [ %135, %132 ]
+  %.1.i15 = phi i64 [ %165, %163 ], [ %135, %132 ], [ %143, %.thread63.i ]
   %166 = trunc i64 %.1.i15 to i32
   %167 = add i32 %166, 4
   br label %180
@@ -11758,7 +11758,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
   br label %ZSTD_count.exit50
 
 ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49, %242
-  %.1.i31 = phi i64 [ %222, %.thread63.i49 ], [ %245, %242 ], [ %213, %210 ]
+  %.1.i31 = phi i64 [ %245, %242 ], [ %213, %210 ], [ %222, %.thread63.i49 ]
   %246 = add i64 %.1.i31, %203
   %247 = icmp ugt i64 %246, %.9441.i113
   br i1 %247, label %248, label %263
@@ -11825,10 +11825,10 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %277 = select i1 %275, i1 %276, i1 false
   br i1 %277, label %198, label %.thread64, !llvm.loop !122
 
-.thread64:                                        ; preds = %273, %272, %269
-  %.0427.i.lcssa = phi i32 [ %.0427.i114, %269 ], [ %274, %273 ], [ %.0427.i114, %272 ]
-  %.1396.i = phi ptr [ %.0395.i117, %269 ], [ %.3398.i, %273 ], [ %9, %272 ]
-  %.1392.i = phi ptr [ %9, %269 ], [ %.3394.i, %273 ], [ %.0391.i118, %272 ]
+.thread64:                                        ; preds = %273, %269, %272
+  %.0427.i.lcssa = phi i32 [ %274, %273 ], [ %.0427.i114, %269 ], [ %.0427.i114, %272 ]
+  %.1396.i = phi ptr [ %.3398.i, %273 ], [ %.0395.i117, %269 ], [ %9, %272 ]
+  %.1392.i = phi ptr [ %.3394.i, %273 ], [ %9, %269 ], [ %.0391.i118, %272 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !23
   store i32 0, ptr %.1392.i, align 4, !tbaa !23
   %.not = icmp eq i32 %.0427.i.lcssa, 0

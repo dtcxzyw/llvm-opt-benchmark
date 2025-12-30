@@ -772,10 +772,10 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br label %.loopexit179.i
 
 .loopexit179.i:                                   ; preds = %328, %..loopexit179_crit_edge.i, %277, %.preheader180.i
-  %.promoted192211.i = phi i32 [ %271, %277 ], [ %271, %..loopexit179_crit_edge.i ], [ %271, %.preheader180.i ], [ %spec.select.i177194.i, %328 ]
-  %.2155.i = phi nsz float [ %.0153202.i, %277 ], [ %332, %..loopexit179_crit_edge.i ], [ %.0153202.i, %.preheader180.i ], [ %.4157.i, %328 ]
-  %.2150.i = phi i32 [ %.0148203.i, %277 ], [ %330, %..loopexit179_crit_edge.i ], [ %.0148203.i, %.preheader180.i ], [ %.4152.i, %328 ]
-  %.2.i = phi i32 [ %..0146.i, %277 ], [ %..0146.i, %..loopexit179_crit_edge.i ], [ %.1145204.i, %.preheader180.i ], [ %..0146.i, %328 ]
+  %.promoted192211.i = phi i32 [ %271, %..loopexit179_crit_edge.i ], [ %271, %277 ], [ %271, %.preheader180.i ], [ %spec.select.i177194.i, %328 ]
+  %.2155.i = phi nsz float [ %332, %..loopexit179_crit_edge.i ], [ %.0153202.i, %277 ], [ %.0153202.i, %.preheader180.i ], [ %.4157.i, %328 ]
+  %.2150.i = phi i32 [ %330, %..loopexit179_crit_edge.i ], [ %.0148203.i, %277 ], [ %.0148203.i, %.preheader180.i ], [ %.4152.i, %328 ]
+  %.2.i = phi i32 [ %..0146.i, %..loopexit179_crit_edge.i ], [ %..0146.i, %277 ], [ %.1145204.i, %.preheader180.i ], [ %..0146.i, %328 ]
   %333 = icmp slt i32 %.2.i, %229
   br i1 %333, label %232, label %._crit_edge207.i, !llvm.loop !86
 

@@ -723,7 +723,7 @@ rx_state_teardown.exit65.i:                       ; preds = %195, %193
   unreachable
 
 .loopexit.i:                                      ; preds = %46, %199, %rx_state_teardown.exit65.i, %176, %169, %160, %151, %144, %97, %86, %75, %58, %52, %rx_state_teardown.exit.i
-  %.1.i = phi i64 [ %.0.i, %rx_state_teardown.exit.i ], [ %.0.i, %199 ], [ %.0.i, %52 ], [ %.0.i, %58 ], [ %.0.i, %75 ], [ %.0.i, %86 ], [ %.0.i, %97 ], [ %147, %144 ], [ %.0.i, %151 ], [ %.0.i, %160 ], [ %.0.i, %169 ], [ %.0.i, %176 ], [ %.0.i, %rx_state_teardown.exit65.i ], [ %.0.i, %46 ]
+  %.1.i = phi i64 [ %.0.i, %rx_state_teardown.exit.i ], [ %.0.i, %52 ], [ %.0.i, %58 ], [ %.0.i, %75 ], [ %.0.i, %86 ], [ %.0.i, %97 ], [ %147, %144 ], [ %.0.i, %151 ], [ %.0.i, %160 ], [ %.0.i, %169 ], [ %.0.i, %176 ], [ %.0.i, %rx_state_teardown.exit65.i ], [ %.0.i, %199 ], [ %.0.i, %46 ]
   %203 = getelementptr inbounds nuw i8, ptr %.028.i, i64 64
   br label %15, !llvm.loop !53
 
@@ -845,7 +845,7 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr(i32 noundef %0) #0 {
   br i1 %.not13.i, label %test_hdr_prot_stats.exit, label %30
 
 test_hdr_prot_stats.exit:                         ; preds = %.lr.ph.i, %30, %15, %11, %7, %.preheader.i11, %17
-  %.0 = phi i32 [ 1, %15 ], [ 1, %.preheader.i11 ], [ 0, %11 ], [ 0, %17 ], [ 0, %7 ], [ 1, %30 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %17 ], [ 1, %.preheader.i11 ], [ 0, %7 ], [ 0, %11 ], [ 1, %15 ], [ 1, %30 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -1020,7 +1020,7 @@ ossl_quic_pkt_type_to_enc_level.exit.i:           ; preds = %42, %.ossl_quic_pkt
   br label %11, !llvm.loop !82
 
 .thread.i:                                        ; preds = %82, %77, %69, %64, %61, %ossl_quic_pkt_type_to_enc_level.exit.i, %51, %switch.lookup, %35, %26, %13, %11, %1
-  %.039.i = phi i32 [ 0, %1 ], [ 0, %13 ], [ 0, %26 ], [ 0, %35 ], [ 1, %11 ], [ 0, %69 ], [ 0, %64 ], [ 0, %77 ], [ 0, %82 ], [ 0, %ossl_quic_pkt_type_to_enc_level.exit.i ], [ 0, %51 ], [ 0, %switch.lookup ], [ 0, %61 ]
+  %.039.i = phi i32 [ 0, %1 ], [ 0, %13 ], [ 0, %26 ], [ 0, %35 ], [ 0, %69 ], [ 0, %64 ], [ 0, %77 ], [ 0, %82 ], [ 1, %11 ], [ 0, %switch.lookup ], [ 0, %51 ], [ 0, %ossl_quic_pkt_type_to_enc_level.exit.i ], [ 0, %61 ]
   %.not57.i = icmp eq ptr %8, null
   br i1 %.not57.i, label %tx_run_script.exit, label %90
 
@@ -1095,7 +1095,7 @@ define internal fastcc range(i32 0, 2) i32 @rx_state_ensure(ptr noundef nonnull 
   br label %26
 
 26:                                               ; preds = %20, %24, %16, %4
-  %.0 = phi i32 [ 0, %16 ], [ 0, %4 ], [ 1, %24 ], [ 1, %20 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %16 ], [ 1, %24 ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -1500,7 +1500,7 @@ define internal fastcc range(i32 0, 2) i32 @test_wire_pkt_hdr_actual(i32 noundef
   br label %34
 
 34:                                               ; preds = %31, %27, %4
-  %.096.shrunk = phi i1 [ %21, %4 ], [ %.not, %31 ], [ false, %27 ]
+  %.096.shrunk = phi i1 [ false, %27 ], [ %21, %4 ], [ %.not, %31 ]
   %35 = icmp ult i32 %2, 3
   br i1 %35, label %switch.lookup, label %.thread146
 
@@ -1790,7 +1790,7 @@ PACKET_buf_init.exit:                             ; preds = %44, %47
   br i1 %exitcond.not, label %.thread, label %185, !llvm.loop !105
 
 .thread:                                          ; preds = %197, %170, %172
-  %.094144 = phi i32 [ 255, %170 ], [ 255, %172 ], [ %.094, %197 ]
+  %.094144 = phi i32 [ 255, %172 ], [ 255, %170 ], [ %.094, %197 ]
   %199 = zext i8 %163 to i32
   %200 = and i32 %.094144, %199
   %201 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 2907, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.86, i32 noundef %200, i32 noundef 0) #10
@@ -1814,14 +1814,14 @@ PACKET_buf_init.exit:                             ; preds = %44, %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %128, %132, %._crit_edge, %206
-  %.097 = phi i32 [ 0, %132 ], [ 0, %128 ], [ 0, %._crit_edge ], [ %spec.select140, %206 ], [ 0, %.thread ]
+  %.097 = phi i32 [ 0, %._crit_edge ], [ 0, %132 ], [ 0, %128 ], [ %spec.select140, %206 ], [ 0, %.thread ]
   call void @ossl_quic_hdr_protector_cleanup(ptr noundef nonnull %11) #10
   br label %.thread146
 
-.thread146:                                       ; preds = %34, %121, %58, %39, %PACKET_buf_init.exit, %51, %59, %66, %78, %76, %85, %91, %98, %104, %111, %116, %123, %switch.lookup, %.loopexit
-  %.097153 = phi i32 [ %.097, %.loopexit ], [ 1, %58 ], [ 1, %121 ], [ 0, %39 ], [ 0, %PACKET_buf_init.exit ], [ 0, %51 ], [ 0, %59 ], [ 0, %66 ], [ 0, %78 ], [ 0, %76 ], [ 0, %85 ], [ 0, %91 ], [ 0, %98 ], [ 0, %104 ], [ 0, %111 ], [ 0, %116 ], [ 0, %123 ], [ 0, %switch.lookup ], [ 0, %34 ]
-  %.098152 = phi ptr [ %130, %.loopexit ], [ null, %58 ], [ null, %121 ], [ null, %39 ], [ null, %PACKET_buf_init.exit ], [ null, %51 ], [ null, %59 ], [ null, %66 ], [ null, %78 ], [ null, %76 ], [ null, %85 ], [ null, %91 ], [ null, %98 ], [ null, %104 ], [ null, %111 ], [ null, %116 ], [ null, %123 ], [ null, %switch.lookup ], [ null, %34 ]
-  %.0105151 = phi ptr [ %37, %.loopexit ], [ %37, %58 ], [ %37, %121 ], [ %37, %39 ], [ %37, %PACKET_buf_init.exit ], [ %37, %51 ], [ %37, %59 ], [ %37, %66 ], [ %37, %78 ], [ %37, %76 ], [ %37, %85 ], [ %37, %91 ], [ %37, %98 ], [ %37, %104 ], [ %37, %111 ], [ %37, %116 ], [ %37, %123 ], [ %37, %switch.lookup ], [ null, %34 ]
+.thread146:                                       ; preds = %34, %121, %58, %switch.lookup, %39, %PACKET_buf_init.exit, %51, %59, %66, %78, %76, %85, %91, %98, %104, %111, %116, %123, %.loopexit
+  %.097153 = phi i32 [ %.097, %.loopexit ], [ 1, %58 ], [ 1, %121 ], [ 0, %switch.lookup ], [ 0, %39 ], [ 0, %PACKET_buf_init.exit ], [ 0, %51 ], [ 0, %59 ], [ 0, %66 ], [ 0, %78 ], [ 0, %76 ], [ 0, %85 ], [ 0, %91 ], [ 0, %98 ], [ 0, %104 ], [ 0, %111 ], [ 0, %116 ], [ 0, %123 ], [ 0, %34 ]
+  %.098152 = phi ptr [ %130, %.loopexit ], [ null, %58 ], [ null, %121 ], [ null, %switch.lookup ], [ null, %39 ], [ null, %PACKET_buf_init.exit ], [ null, %51 ], [ null, %59 ], [ null, %66 ], [ null, %78 ], [ null, %76 ], [ null, %85 ], [ null, %91 ], [ null, %98 ], [ null, %104 ], [ null, %111 ], [ null, %116 ], [ null, %123 ], [ null, %34 ]
+  %.0105151 = phi ptr [ %37, %.loopexit ], [ %37, %58 ], [ %37, %121 ], [ %37, %switch.lookup ], [ %37, %39 ], [ %37, %PACKET_buf_init.exit ], [ %37, %51 ], [ %37, %59 ], [ %37, %66 ], [ %37, %78 ], [ %37, %76 ], [ %37, %85 ], [ %37, %91 ], [ %37, %98 ], [ %37, %104 ], [ %37, %111 ], [ %37, %116 ], [ %37, %123 ], [ null, %34 ]
   %210 = call i32 @WPACKET_finish(ptr noundef nonnull %9) #10
   call void @CRYPTO_free(ptr noundef %.0105151, ptr noundef nonnull @.str.3, i32 noundef 2925) #10
   call void @CRYPTO_free(ptr noundef %.098152, ptr noundef nonnull @.str.3, i32 noundef 2926) #10

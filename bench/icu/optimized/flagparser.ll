@@ -179,7 +179,7 @@ _ZL13getFlagOffsetPKci.exit.i.us:                 ; preds = %48, %49, %43
   br label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us
 
 _ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loopexit.split.loop.exit70.i.us, %69
-  %.034.i.us.ph = phi i32 [ -1, %69 ], [ %79, %.loopexit.loopexit.split.loop.exit70.i.us ], [ -1, %78 ]
+  %.034.i.us.ph = phi i32 [ %79, %.loopexit.loopexit.split.loop.exit70.i.us ], [ -1, %69 ], [ -1, %78 ]
   %.pr = load i32, ptr %5, align 4, !tbaa !8
   %.pr.fr = freeze i32 %.pr
   %80 = icmp slt i32 %.pr.fr, 1
@@ -237,9 +237,9 @@ _ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loop
   br label %.critedge
 
 .critedge:                                        ; preds = %39, %.outer.us, %.lr.ph.us, %.backedge.us, %.split99.us, %.critedge.sink.split, %.preheader
-  %.057 = phi ptr [ %14, %.preheader ], [ %.057.ph, %.critedge.sink.split ], [ %14, %.split99.us ], [ %14, %.backedge.us ], [ %14, %.outer.us ], [ %14, %.lr.ph.us ], [ %14, %39 ]
-  %.051 = phi ptr [ %12, %.preheader ], [ %.051.ph, %.critedge.sink.split ], [ %.253.us, %.split99.us ], [ %.253.us, %.backedge.us ], [ %.253.us, %.outer.us ], [ %.253.us, %.lr.ph.us ], [ %.253.us, %39 ]
-  %.048 = phi i32 [ 0, %.preheader ], [ %.048.ph, %.critedge.sink.split ], [ %spec.select, %.split99.us ], [ 0, %.backedge.us ], [ 0, %.outer.us ], [ 0, %.lr.ph.us ], [ 0, %39 ]
+  %.057 = phi ptr [ %14, %.preheader ], [ %14, %.split99.us ], [ %.057.ph, %.critedge.sink.split ], [ %14, %.backedge.us ], [ %14, %.lr.ph.us ], [ %14, %.outer.us ], [ %14, %39 ]
+  %.051 = phi ptr [ %12, %.preheader ], [ %.253.us, %.split99.us ], [ %.051.ph, %.critedge.sink.split ], [ %.253.us, %.backedge.us ], [ %.253.us, %.lr.ph.us ], [ %.253.us, %.outer.us ], [ %.253.us, %39 ]
+  %.048 = phi i32 [ 0, %.preheader ], [ %spec.select, %.split99.us ], [ %.048.ph, %.critedge.sink.split ], [ 0, %.backedge.us ], [ 0, %.lr.ph.us ], [ 0, %.outer.us ], [ 0, %39 ]
   tail call void @uprv_free_77(ptr noundef %.057)
   tail call void @uprv_free_77(ptr noundef %.051)
   tail call void @T_FileStream_close(ptr noundef %7)
@@ -261,7 +261,7 @@ _ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loop
   br label %.thread73
 
 .thread73:                                        ; preds = %102, %103, %105
-  %.0 = phi i32 [ %spec.select75, %102 ], [ 0, %105 ], [ %.048, %103 ]
+  %.0 = phi i32 [ 0, %105 ], [ %.048, %103 ], [ %spec.select75, %102 ]
   ret i32 %.0
 }
 

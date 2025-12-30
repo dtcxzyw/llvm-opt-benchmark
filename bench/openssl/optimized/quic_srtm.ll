@@ -399,7 +399,7 @@ srtm_check_lh.exit67.thread:                      ; preds = %88
   br label %srtm_check_lh.exit60
 
 srtm_check_lh.exit60:                             ; preds = %sorted_insert_srt.exit, %70, %88, %srtm_check_lh.exit67.thread, %srtm_check_lh.exit60.thread, %srtm_find.exit, %.loopexit, %4, %63, %40, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %4 ], [ 0, %srtm_find.exit ], [ 0, %srtm_check_lh.exit67.thread ], [ 0, %.loopexit ], [ 0, %srtm_check_lh.exit60.thread ], [ 0, %40 ], [ 0, %63 ], [ 1, %88 ], [ 1, %70 ], [ 1, %sorted_insert_srt.exit ]
+  %.0 = phi i32 [ 0, %40 ], [ 0, %63 ], [ 0, %33 ], [ 0, %4 ], [ 0, %srtm_find.exit ], [ 0, %.loopexit ], [ 0, %srtm_check_lh.exit60.thread ], [ 0, %srtm_check_lh.exit67.thread ], [ 1, %88 ], [ 1, %70 ], [ 1, %sorted_insert_srt.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -534,7 +534,7 @@ srtm_remove_from_rev.exit:                        ; preds = %46
   br label %58
 
 58:                                               ; preds = %srtm_remove_from_rev.exit, %srtm_check_lh.exit.thread, %srtm_find.exit.thread, %3, %57
-  %.0 = phi i32 [ 0, %srtm_find.exit.thread ], [ 0, %3 ], [ 1, %57 ], [ 0, %srtm_check_lh.exit.thread ], [ 0, %srtm_remove_from_rev.exit ]
+  %.0 = phi i32 [ 1, %57 ], [ 0, %3 ], [ 0, %srtm_remove_from_rev.exit ], [ 0, %srtm_find.exit.thread ], [ 0, %srtm_check_lh.exit.thread ]
   ret i32 %.0
 }
 

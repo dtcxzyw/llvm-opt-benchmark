@@ -858,7 +858,7 @@ _ZN21intrusive_collections6rbtree11rotate_left17h60f0af7487b93ebaE.exit90: ; pre
   br label %123
 
 123:                                              ; preds = %._crit_edge, %_ZN21intrusive_collections6rbtree11rotate_left17h60f0af7487b93ebaE.exit90
-  %.sroa.0.3.val = phi i64 [ %93, %._crit_edge ], [ %121, %_ZN21intrusive_collections6rbtree11rotate_left17h60f0af7487b93ebaE.exit90 ]
+  %.sroa.0.3.val = phi i64 [ %121, %_ZN21intrusive_collections6rbtree11rotate_left17h60f0af7487b93ebaE.exit90 ], [ %93, %._crit_edge ]
   %124 = inttoptr i64 %.sroa.0.3.val to ptr
   %125 = icmp ne i64 %.sroa.0.3.val, 0
   tail call void @llvm.assume(i1 %125)
@@ -1740,7 +1740,7 @@ _ZN21intrusive_collections6rbtree12rotate_right17h19699dfbbbbdef8bE.exit319: ; p
   br label %.backedge
 
 .backedge:                                        ; preds = %.critedge196, %313, %.critedge194, %199
-  %.sroa.0101.0.be = phi ptr [ %.val229, %.critedge194 ], [ %.val255, %199 ], [ %.val251, %313 ], [ %.val224, %.critedge196 ]
+  %.sroa.0101.0.be = phi ptr [ %.val255, %199 ], [ %.val229, %.critedge194 ], [ %.val251, %313 ], [ %.val224, %.critedge196 ]
   br label %64
 
 313:                                              ; preds = %307
@@ -3409,7 +3409,7 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHook
   br label %45
 
 .body.thread:                                     ; preds = %42, %49
-  %eh.lpad-body8 = phi { ptr, i32 } [ %.pn.ph.i, %42 ], [ %lpad.thr_comm.split-lp, %49 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %49 ], [ %.pn.ph.i, %42 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 49:                                               ; preds = %3
@@ -3521,8 +3521,8 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHook
           to label %53 unwind label %.thread78.i, !noalias !99
 
 .thread78.i:                                      ; preds = %142, %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$$GT$$GT$17hbb0e7b2fddd344e8E.exit.i", %141, %134, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit65.i", %113, %57, %48
-  %.sroa.030.1.ph.i = phi i8 [ 1, %48 ], [ 1, %57 ], [ 1, %113 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit65.i" ], [ 0, %141 ], [ 0, %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$$GT$$GT$17hbb0e7b2fddd344e8E.exit.i" ], [ 0, %142 ], [ %.sroa.030.4.i, %134 ]
-  %.sroa.036.0.ph.i = phi i1 [ true, %48 ], [ true, %57 ], [ true, %113 ], [ true, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit65.i" ], [ true, %141 ], [ true, %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$$GT$$GT$17hbb0e7b2fddd344e8E.exit.i" ], [ true, %142 ], [ false, %134 ]
+  %.sroa.030.1.ph.i = phi i8 [ 0, %141 ], [ 1, %113 ], [ 1, %48 ], [ 1, %57 ], [ 1, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit65.i" ], [ 0, %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$$GT$$GT$17hbb0e7b2fddd344e8E.exit.i" ], [ 0, %142 ], [ %.sroa.030.4.i, %134 ]
+  %.sroa.036.0.ph.i = phi i1 [ true, %141 ], [ true, %113 ], [ true, %48 ], [ true, %57 ], [ true, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit65.i" ], [ true, %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$$GT$$GT$17hbb0e7b2fddd344e8E.exit.i" ], [ true, %142 ], [ false, %134 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
@@ -3881,9 +3881,9 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
           to label %175 unwind label %129
 
 .thread.i:                                        ; preds = %145, %135, %70, %"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$17h464cbd2a9c5c1d6dE.exit.i", %.thread78.i
-  %.pn4876.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread78.i ], [ %146, %145 ], [ %136, %135 ], [ %.pn.i, %70 ], [ %.pn.i, %"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$17h464cbd2a9c5c1d6dE.exit.i" ]
-  %.sroa.036.175.i = phi i1 [ %.sroa.036.0.ph.i, %.thread78.i ], [ true, %145 ], [ true, %135 ], [ true, %70 ], [ true, %"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$17h464cbd2a9c5c1d6dE.exit.i" ]
-  %.sroa.030.273.i = phi i8 [ %.sroa.030.1.ph.i, %.thread78.i ], [ 0, %145 ], [ 0, %135 ], [ 1, %70 ], [ 1, %"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$17h464cbd2a9c5c1d6dE.exit.i" ]
+  %.pn4876.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread78.i ], [ %136, %135 ], [ %146, %145 ], [ %.pn.i, %70 ], [ %.pn.i, %"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$17h464cbd2a9c5c1d6dE.exit.i" ]
+  %.sroa.036.175.i = phi i1 [ %.sroa.036.0.ph.i, %.thread78.i ], [ true, %135 ], [ true, %145 ], [ true, %70 ], [ true, %"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$17h464cbd2a9c5c1d6dE.exit.i" ]
+  %.sroa.030.273.i = phi i8 [ %.sroa.030.1.ph.i, %.thread78.i ], [ 0, %135 ], [ 0, %145 ], [ 1, %70 ], [ 1, %"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$17h464cbd2a9c5c1d6dE.exit.i" ]
   invoke void @"_ZN4core3ptr106drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h91e78dd709f75476E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19) #26
           to label %178 unwind label %129, !noalias !99
 

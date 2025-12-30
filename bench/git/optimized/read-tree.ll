@@ -732,7 +732,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %315, %308, %304
-  %.sink = phi i32 [ %spec.select, %315 ], [ 1, %304 ], [ 1, %308 ]
+  %.sink = phi i32 [ 1, %304 ], [ 1, %308 ], [ %spec.select, %315 ]
   store i32 %.sink, ptr %195, align 8, !tbaa !20
   br label %318
 
@@ -834,7 +834,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph91, %366, %351, %._crit_edge92
-  %.2 = phi i32 [ 0, %351 ], [ 0, %366 ], [ 128, %._crit_edge92 ], [ 128, %.lr.ph91 ]
+  %.2 = phi i32 [ 128, %._crit_edge92 ], [ 0, %351 ], [ 0, %366 ], [ 128, %.lr.ph91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

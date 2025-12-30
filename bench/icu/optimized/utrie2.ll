@@ -421,7 +421,7 @@ define i32 @utrie2_internalU8NextIndex_77(ptr noundef readonly captures(none) %0
   br label %_ZL7u8IndexPK6UTrie2ii.exit
 
 _ZL7u8IndexPK6UTrie2ii.exit:                      ; preds = %14, %26, %41, %45, %52, %55
-  %73 = phi i32 [ %23, %14 ], [ %38, %26 ], [ %72, %55 ], [ %54, %52 ], [ %48, %45 ], [ 128, %41 ]
+  %73 = phi i32 [ %23, %14 ], [ %38, %26 ], [ %54, %52 ], [ %72, %55 ], [ %48, %45 ], [ 128, %41 ]
   %74 = shl i32 %73, 3
   %75 = or i32 %74, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -527,7 +527,7 @@ define i32 @utrie2_internalU8PrevIndex_77(ptr noundef readonly captures(none) %0
   br label %_ZL7u8IndexPK6UTrie2ii.exit
 
 _ZL7u8IndexPK6UTrie2ii.exit:                      ; preds = %15, %27, %42, %46, %53, %56
-  %74 = phi i32 [ %24, %15 ], [ %39, %27 ], [ %73, %56 ], [ %55, %53 ], [ %49, %46 ], [ 128, %42 ]
+  %74 = phi i32 [ %24, %15 ], [ %39, %27 ], [ %55, %53 ], [ %73, %56 ], [ %49, %46 ], [ 128, %42 ]
   %75 = sub nsw i32 %.sink, %13
   %76 = shl i32 %74, 3
   %77 = or i32 %76, %75
@@ -693,7 +693,7 @@ define noalias noundef ptr @utrie2_openFromSerialized_77(i32 noundef %0, ptr nou
   br label %79
 
 79:                                               ; preds = %74, %78, %5, %54, %50, %27, %21, %18, %15
-  %.0 = phi ptr [ null, %5 ], [ null, %15 ], [ null, %18 ], [ null, %21 ], [ null, %27 ], [ null, %50 ], [ null, %54 ], [ %52, %78 ], [ %52, %74 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %18 ], [ null, %21 ], [ null, %27 ], [ null, %50 ], [ null, %54 ], [ null, %5 ], [ %52, %78 ], [ %52, %74 ]
   ret ptr %.0
 }
 
@@ -890,7 +890,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader115, %.preheader, %.loopexit.sink.split, %4
-  %.0101 = phi ptr [ null, %4 ], [ %10, %.preheader ], [ null, %.loopexit.sink.split ], [ %10, %.preheader115 ]
+  %.0101 = phi ptr [ null, %4 ], [ null, %.loopexit.sink.split ], [ %10, %.preheader ], [ %10, %.preheader115 ]
   ret ptr %.0101
 }
 
@@ -1001,7 +1001,7 @@ define i32 @utrie2_serialize_77(ptr noundef readonly captures(address_is_null) %
   br label %30
 
 30:                                               ; preds = %27, %29, %4, %23
-  %.0 = phi i32 [ 0, %4 ], [ 0, %23 ], [ %26, %29 ], [ %.pre, %27 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %4 ], [ %26, %29 ], [ %.pre, %27 ]
   ret i32 %.0
 }
 
@@ -1122,8 +1122,8 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   br i1 %or.cond, label %.thread229, label %66, !llvm.loop !56
 
 66:                                               ; preds = %45, %62, %43
-  %.0164 = phi i32 [ %., %45 ], [ %.1165, %62 ], [ %44, %43 ]
-  %.1 = phi i32 [ %.301, %45 ], [ %spec.select, %62 ], [ %spec.select, %43 ]
+  %.0164 = phi i32 [ %44, %43 ], [ %.1165, %62 ], [ %., %45 ]
+  %.1 = phi i32 [ %spec.select, %43 ], [ %spec.select, %62 ], [ %.301, %45 ]
   %67 = icmp eq i32 %.0164, %.0161
   br i1 %67, label %68, label %74
 
@@ -1364,11 +1364,11 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   br i1 %exitcond314.not, label %.thread229, label %.lr.ph.split, !llvm.loop !57
 
 .thread229:                                       ; preds = %.loopexit.split, %.loopexit.split.us.us, %74, %69, %71, %68, %62
-  %.1185 = phi i32 [ %.0184291, %62 ], [ %33, %69 ], [ %33, %68 ], [ %33, %71 ], [ %.0184291, %74 ], [ %.5189.us, %.loopexit.split.us.us ], [ %.5189, %.loopexit.split ]
-  %.1175 = phi i32 [ %38, %62 ], [ %38, %69 ], [ %38, %68 ], [ %38, %71 ], [ %.0174292, %74 ], [ %.4178.us, %.loopexit.split.us.us ], [ %.4178, %.loopexit.split ]
-  %.1168 = phi i32 [ %.0167293, %62 ], [ %.0174292, %69 ], [ %.0167293, %68 ], [ %.0174292, %71 ], [ %.0167293, %74 ], [ %.5172.us, %.loopexit.split.us.us ], [ %.5172, %.loopexit.split ]
-  %.1163 = phi i32 [ %.0162294, %62 ], [ %.0161, %69 ], [ %.0161, %68 ], [ %.0161, %71 ], [ %.0164, %74 ], [ %.0164, %.loopexit.split.us.us ], [ %.0164, %.loopexit.split ]
-  %.1158 = phi i32 [ %.0157295, %62 ], [ %.0156, %69 ], [ %.0157295, %68 ], [ %.0156, %71 ], [ %.0157295, %74 ], [ %.5.us, %.loopexit.split.us.us ], [ %.5, %.loopexit.split ]
+  %.1185 = phi i32 [ %.0184291, %62 ], [ %33, %68 ], [ %33, %71 ], [ %33, %69 ], [ %.0184291, %74 ], [ %.5189.us, %.loopexit.split.us.us ], [ %.5189, %.loopexit.split ]
+  %.1175 = phi i32 [ %38, %62 ], [ %38, %68 ], [ %38, %71 ], [ %38, %69 ], [ %.0174292, %74 ], [ %.4178.us, %.loopexit.split.us.us ], [ %.4178, %.loopexit.split ]
+  %.1168 = phi i32 [ %.0167293, %62 ], [ %.0167293, %68 ], [ %.0174292, %71 ], [ %.0174292, %69 ], [ %.0167293, %74 ], [ %.5172.us, %.loopexit.split.us.us ], [ %.5172, %.loopexit.split ]
+  %.1163 = phi i32 [ %.0162294, %62 ], [ %.0161, %68 ], [ %.0161, %71 ], [ %.0161, %69 ], [ %.0164, %74 ], [ %.0164, %.loopexit.split.us.us ], [ %.0164, %.loopexit.split ]
+  %.1158 = phi i32 [ %.0157295, %62 ], [ %.0157295, %68 ], [ %.0156, %71 ], [ %.0156, %69 ], [ %.0157295, %74 ], [ %.5.us, %.loopexit.split.us.us ], [ %.5, %.loopexit.split ]
   %156 = icmp slt i32 %.1175, %2
   %157 = icmp slt i32 %.1175, %30
   %158 = select i1 %156, i1 %157, i1 false
@@ -1433,9 +1433,9 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   br i1 %.not210, label %.thread234, label %.thread242
 
 .thread242:                                       ; preds = %185, %181, %183, %._crit_edge
-  %.10194 = phi i32 [ %.0184.lcssa, %._crit_edge ], [ %.0184.lcssa, %181 ], [ %182, %183 ], [ %182, %185 ]
-  %.7181 = phi i32 [ %.mux, %._crit_edge ], [ %2, %181 ], [ %2, %183 ], [ %2, %185 ]
-  %.10 = phi i32 [ %.0167.lcssa, %._crit_edge ], [ %.0167.lcssa, %181 ], [ %.0174.lcssa, %183 ], [ %.0174.lcssa, %185 ]
+  %.10194 = phi i32 [ %.0184.lcssa, %._crit_edge ], [ %182, %183 ], [ %.0184.lcssa, %181 ], [ %182, %185 ]
+  %.7181 = phi i32 [ %.mux, %._crit_edge ], [ %2, %183 ], [ %2, %181 ], [ %2, %185 ]
+  %.10 = phi i32 [ %.0167.lcssa, %._crit_edge ], [ %.0174.lcssa, %183 ], [ %.0167.lcssa, %181 ], [ %.0174.lcssa, %185 ]
   %188 = add nsw i32 %.7181, -1
   %189 = tail call noundef signext i8 %4(ptr noundef %5, i32 noundef %.10, i32 noundef %188, i32 noundef %.10194)
   br label %.thread234

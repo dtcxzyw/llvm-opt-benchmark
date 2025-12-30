@@ -76,9 +76,9 @@ define hidden void @b2AABB_RayCast(ptr dead_on_unwind noalias writable writeonly
   br i1 %24, label %25, label %55
 
 25:                                               ; preds = %11, %14
-  %.sroa.025.0 = phi float [ 0.000000e+00, %11 ], [ %.sroa.025.1, %14 ]
-  %.062 = phi float [ 0x47EFFFFFE0000000, %11 ], [ %23, %14 ]
-  %.0 = phi float [ 0xC7EFFFFFE0000000, %11 ], [ %.1, %14 ]
+  %.sroa.025.0 = phi float [ %.sroa.025.1, %14 ], [ 0.000000e+00, %11 ]
+  %.062 = phi float [ %23, %14 ], [ 0x47EFFFFFE0000000, %11 ]
+  %.0 = phi float [ %.1, %14 ], [ 0xC7EFFFFFE0000000, %11 ]
   %26 = fcmp olt float %9, 0x3E80000000000000
   br i1 %26, label %27, label %30
 
@@ -112,9 +112,9 @@ define hidden void @b2AABB_RayCast(ptr dead_on_unwind noalias writable writeonly
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %27, %30
-  %.sroa.6.2 = phi float [ 0.000000e+00, %27 ], [ %.sroa.6.3, %30 ]
-  %.sroa.025.2 = phi float [ %.sroa.025.0, %27 ], [ %.sroa.025.3, %30 ]
-  %.2 = phi float [ %.0, %27 ], [ %.3, %30 ]
+  %.sroa.6.2 = phi float [ %.sroa.6.3, %30 ], [ 0.000000e+00, %27 ]
+  %.sroa.025.2 = phi float [ %.sroa.025.3, %30 ], [ %.sroa.025.0, %27 ]
+  %.2 = phi float [ %.3, %30 ], [ %.0, %27 ]
   %42 = fcmp olt float %.2, 0.000000e+00
   %43 = fcmp ogt float %.2, 1.000000e+00
   %or.cond = or i1 %42, %43

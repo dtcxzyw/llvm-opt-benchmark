@@ -631,7 +631,7 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
   br label %289
 
 289:                                              ; preds = %279, %272, %.lr.ph.i130
-  %.1.i = phi ptr [ %285, %279 ], [ %.0105132.i, %.lr.ph.i130 ], [ %.0105132.i, %272 ]
+  %.1.i = phi ptr [ %285, %279 ], [ %.0105132.i, %272 ], [ %.0105132.i, %.lr.ph.i130 ]
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i.i
   br i1 %exitcond.not.i133, label %290, label %.lr.ph.i130, !llvm.loop !67
@@ -676,10 +676,10 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
   br label %308
 
 308:                                              ; preds = %306, %.lr.ph.i117.i
-  %.125.i.i = phi i32 [ %.02430.i.i, %306 ], [ %297, %.lr.ph.i117.i ]
-  %.123.i.i = phi i32 [ %spec.select.i.i, %306 ], [ %.02430.i.i, %.lr.ph.i117.i ]
-  %.121.i.i = phi i32 [ %.02032.i.i, %306 ], [ %304, %.lr.ph.i117.i ]
-  %.1.i.i = phi i32 [ %spec.select28.i.i, %306 ], [ %.02032.i.i, %.lr.ph.i117.i ]
+  %.125.i.i = phi i32 [ %297, %.lr.ph.i117.i ], [ %.02430.i.i, %306 ]
+  %.123.i.i = phi i32 [ %.02430.i.i, %.lr.ph.i117.i ], [ %spec.select.i.i, %306 ]
+  %.121.i.i = phi i32 [ %304, %.lr.ph.i117.i ], [ %.02032.i.i, %306 ]
+  %.1.i.i = phi i32 [ %.02032.i.i, %.lr.ph.i117.i ], [ %spec.select28.i.i, %306 ]
   %309 = getelementptr inbounds nuw i8, ptr %.034.i.i, i64 16
   %310 = load ptr, ptr %309, align 8, !tbaa !49
   %.not.i118.i = icmp eq ptr %310, %296
@@ -924,7 +924,7 @@ Bbr_MergeTopNodes.exit:                           ; preds = %._crit_edge.i136, %
   br label %396
 
 396:                                              ; preds = %.sink.split, %393, %368
-  %.085 = phi ptr [ %calloc, %393 ], [ null, %368 ], [ %.085.ph, %.sink.split ]
+  %.085 = phi ptr [ null, %368 ], [ %calloc, %393 ], [ %.085.ph, %.sink.split ]
   ret ptr %.085
 }
 
@@ -1223,7 +1223,7 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
   br label %.split, !llvm.loop !90
 
 .loopexit.sink.split:                             ; preds = %15, %8, %2
-  %.str.9.sink = phi ptr [ @.str.8, %8 ], [ @.str.7, %2 ], [ @.str.9, %15 ]
+  %.str.9.sink = phi ptr [ @.str.7, %2 ], [ @.str.8, %8 ], [ @.str.9, %15 ]
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.9.sink)
   br label %.loopexit
 
@@ -1339,7 +1339,7 @@ define internal fastcc range(i32 0, 2) i32 @Bbr_bddImageCompute_rec(ptr noundef 
   br label %57
 
 57:                                               ; preds = %48, %19, %14, %7, %10
-  %.0 = phi i32 [ 1, %7 ], [ %., %48 ], [ 0, %19 ], [ 0, %14 ], [ 1, %10 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %7 ], [ 0, %14 ], [ 0, %19 ], [ %., %48 ]
   ret i32 %.0
 }
 

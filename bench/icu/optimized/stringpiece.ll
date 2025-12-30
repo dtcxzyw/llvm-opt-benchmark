@@ -153,7 +153,7 @@ define noundef i32 @_ZN6icu_7711StringPiece4findES0_i(ptr noundef nonnull readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.preheader29, %4, %.preheader._crit_edge
-  %.018 = phi i32 [ 0, %4 ], [ %29, %.preheader._crit_edge ], [ -1, %.preheader29 ], [ -1, %21 ]
+  %.018 = phi i32 [ %29, %.preheader._crit_edge ], [ 0, %4 ], [ -1, %.preheader29 ], [ -1, %21 ]
   ret i32 %.018
 }
 
@@ -199,7 +199,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_7711StringPiece7compareES0_(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %11, %9, %17, %._crit_edge
-  %.1 = phi i32 [ %.16, %._crit_edge ], [ -1, %11 ], [ 1, %17 ], [ 1, %9 ]
+  %.1 = phi i32 [ %.16, %._crit_edge ], [ -1, %11 ], [ 1, %9 ], [ 1, %17 ]
   ret i32 %.1
 }
 
@@ -235,7 +235,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_77eqERKNS_11StringPieceES2_(pt
   br label %21
 
 21:                                               ; preds = %18, %9, %7, %2
-  %.0 = phi i8 [ 1, %7 ], [ 0, %2 ], [ %20, %18 ], [ 0, %9 ]
+  %.0 = phi i8 [ 0, %2 ], [ 1, %7 ], [ %20, %18 ], [ 0, %9 ]
   ret i8 %.0
 }
 

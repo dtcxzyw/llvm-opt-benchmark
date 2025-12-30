@@ -369,7 +369,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
   br label %66
 
 66:                                               ; preds = %59, %51, %64
-  %.0140 = phi i16 [ %53, %51 ], [ %53, %64 ], [ 3, %59 ]
+  %.0140 = phi i16 [ %53, %64 ], [ %53, %51 ], [ 3, %59 ]
   %67 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %5, i32 noundef %6)
   %68 = load ptr, ptr @dissect_net_dm_attrs.dissector_table, align 8
   %69 = zext i16 %.0140 to i32
@@ -494,7 +494,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
   br label %148
 
 148:                                              ; preds = %7, %66, %72, %143, %140, %135, %130, %124, %120, %116, %111, %106, %101, %97, %93, %87, %81, %75, %43, %33, %29, %24, %18, %13
-  %.0 = phi i32 [ 1, %66 ], [ 1, %13 ], [ 1, %18 ], [ 1, %24 ], [ %32, %29 ], [ 1, %33 ], [ 1, %43 ], [ 1, %143 ], [ 1, %75 ], [ 1, %81 ], [ 1, %87 ], [ %96, %93 ], [ %100, %97 ], [ 1, %101 ], [ 1, %106 ], [ 1, %111 ], [ %119, %116 ], [ %123, %120 ], [ 1, %124 ], [ 1, %130 ], [ 1, %135 ], [ 1, %140 ], [ 1, %72 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %18 ], [ 1, %24 ], [ %32, %29 ], [ 1, %33 ], [ 1, %43 ], [ 1, %75 ], [ 1, %81 ], [ 1, %87 ], [ %96, %93 ], [ %100, %97 ], [ 1, %101 ], [ 1, %106 ], [ 1, %111 ], [ %119, %116 ], [ %123, %120 ], [ 1, %124 ], [ 1, %130 ], [ 1, %135 ], [ 1, %140 ], [ 1, %143 ], [ 1, %72 ], [ 1, %66 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -547,7 +547,7 @@ define internal range(i32 0, 2) i32 @dissect_net_dm_attrs_port(ptr noundef %0, p
   br label %22
 
 22:                                               ; preds = %7, %17, %11
-  %.0 = phi i32 [ 1, %17 ], [ 1, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %17 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

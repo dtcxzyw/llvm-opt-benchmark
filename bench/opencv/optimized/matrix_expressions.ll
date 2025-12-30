@@ -2321,7 +2321,7 @@ _ZN2cvL12isReciprocalERKNS_7MatExprE.exit.thread: ; preds = %16
           cleanup
   br label %141
 
-_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %29, %_ZN2cvL12isReciprocalERKNS_7MatExprE.exit.thread, %23
+_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %29, %23, %_ZN2cvL12isReciprocalERKNS_7MatExprE.exit.thread
   %50 = load ptr, ptr %.val.i46, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
@@ -2385,7 +2385,7 @@ _ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %29, %_ZN2cvL12isRec
           cleanup
   br label %141
 
-_ZN2cvL8isScaledERKNS_7MatExprE.exit53.thread:    ; preds = %16, %66, %58, %60
+_ZN2cvL8isScaledERKNS_7MatExprE.exit53.thread:    ; preds = %16, %66, %60, %58
   %88 = load ptr, ptr %.val.i, align 8, !tbaa !3
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8
@@ -2840,7 +2840,7 @@ _ZN2cvL12isReciprocalERKNS_7MatExprE.exit.thread56: ; preds = %26, %16, %_ZN2cvL
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %134
 
-_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %48, %_ZN2cvL12isReciprocalERKNS_7MatExprE.exit.thread56, %42
+_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %48, %42, %_ZN2cvL12isReciprocalERKNS_7MatExprE.exit.thread56
   %70 = load ptr, ptr %.val.i43, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
@@ -3346,7 +3346,7 @@ define void @_ZNK2cv5MatOp6matmulERKNS_7MatExprES3_RS1_(ptr noundef nonnull read
   %44 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %43)
           to label %48 unwind label %17
 
-_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %27, %19, %21
+_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %27, %21, %19
   %45 = load ptr, ptr %.val35, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
@@ -3409,7 +3409,7 @@ _ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %27, %19, %21
   %83 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %82)
           to label %87 unwind label %17
 
-_ZN2cvL8isScaledERKNS_7MatExprE.exit41.thread:    ; preds = %65, %57, %59
+_ZN2cvL8isScaledERKNS_7MatExprE.exit41.thread:    ; preds = %65, %59, %57
   %84 = load ptr, ptr %.val, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load ptr, ptr %85, align 8
@@ -3706,7 +3706,7 @@ define i64 @_ZNK2cv5MatOp4sizeERKNS_7MatExprE(ptr nonnull readnone align 8 captu
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.sink = phi i64 [ %., %5 ], [ 80, %2 ]
+  %.sink = phi i64 [ 80, %2 ], [ %., %5 ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %10 = load ptr, ptr %9, align 8, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -3744,7 +3744,7 @@ define noundef range(i32 0, 4096) i32 @_ZNK2cv5MatOp4typeERKNS_7MatExprE(ptr non
   br label %12
 
 12:                                               ; preds = %10, %6
-  %.in.in = phi ptr [ %spec.select, %10 ], [ %4, %6 ]
+  %.in.in = phi ptr [ %4, %6 ], [ %spec.select, %10 ]
   %.in = load i32, ptr %.in.in, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !49
@@ -10506,7 +10506,7 @@ _ZNK2cv7Scalar_IdE6isRealEv.exit215.thread:       ; preds = %._ZNK2cv7Scalar_IdE
   ret void
 
 449:                                              ; preds = %307, %374, %195, %262, %446, %435, %433, %414, %398, %382, %278, %186, %167, %154, %141, %123, %110, %93
-  %.pn206.pn = phi { ptr, i32 } [ %447, %446 ], [ %187, %186 ], [ %94, %93 ], [ %111, %110 ], [ %124, %123 ], [ %142, %141 ], [ %155, %154 ], [ %168, %167 ], [ %279, %278 ], [ %434, %433 ], [ %308, %307 ], [ %383, %382 ], [ %196, %195 ], [ %399, %398 ], [ %415, %414 ], [ %436, %435 ], [ %.pn168.pn.pn, %262 ], [ %.pn160.pn.pn, %374 ]
+  %.pn206.pn = phi { ptr, i32 } [ %447, %446 ], [ %187, %186 ], [ %94, %93 ], [ %111, %110 ], [ %124, %123 ], [ %142, %141 ], [ %155, %154 ], [ %168, %167 ], [ %279, %278 ], [ %383, %382 ], [ %399, %398 ], [ %415, %414 ], [ %436, %435 ], [ %434, %433 ], [ %.pn168.pn.pn, %262 ], [ %196, %195 ], [ %.pn160.pn.pn, %374 ], [ %308, %307 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn206.pn
@@ -10864,7 +10864,7 @@ define hidden void @_ZNK2cv11MatOp_AddEx6divideEdRKNS_7MatExprERS1_(ptr nonnull 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %44
 
-_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %14, %4, %8
+_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %14, %8, %4
   invoke void @_ZNK2cv5MatOp6divideEdRKNS_7MatExprERS1_(ptr nonnull align 8 poison, double noundef %1, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(352) %3)
           to label %37 unwind label %33
 
@@ -10947,7 +10947,7 @@ define hidden void @_ZNK2cv11MatOp_AddEx9transposeERKNS_7MatExprERS1_(ptr nonnul
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %30
 
-_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %12, %3, %6
+_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %12, %6, %3
   invoke void @_ZNK2cv5MatOp9transposeERKNS_7MatExprERS1_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2)
           to label %31 unwind label %29
 
@@ -12843,11 +12843,11 @@ _ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60: ; preds = %47
   br i1 %75, label %.invoke, label %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread
 
 .invoke:                                          ; preds = %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60, %74, %61, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread, %42, %29
-  %.sink82 = phi ptr [ %1, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %1, %29 ], [ %1, %42 ], [ %2, %61 ], [ %2, %74 ], [ %2, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
-  %.val44.sink = phi ptr [ %.val44, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %.val44, %29 ], [ %.val44, %42 ], [ %.val45, %61 ], [ %.val45, %74 ], [ %.val45, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
-  %.sink = phi ptr [ %2, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %2, %29 ], [ %2, %42 ], [ %1, %61 ], [ %1, %74 ], [ %1, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
-  %76 = phi double [ %9, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %9, %29 ], [ %9, %42 ], [ %12, %61 ], [ %12, %74 ], [ %12, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
-  %77 = phi double [ %13, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %13, %29 ], [ %13, %42 ], [ %10, %61 ], [ %10, %74 ], [ %10, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
+  %.sink82 = phi ptr [ %1, %29 ], [ %1, %42 ], [ %1, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %2, %61 ], [ %2, %74 ], [ %2, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
+  %.val44.sink = phi ptr [ %.val44, %29 ], [ %.val44, %42 ], [ %.val44, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %.val45, %61 ], [ %.val45, %74 ], [ %.val45, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
+  %.sink = phi ptr [ %2, %29 ], [ %2, %42 ], [ %2, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %1, %61 ], [ %1, %74 ], [ %1, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
+  %76 = phi double [ %9, %29 ], [ %9, %42 ], [ %9, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %12, %61 ], [ %12, %74 ], [ %12, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
+  %77 = phi double [ %13, %29 ], [ %13, %42 ], [ %13, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread ], [ %10, %61 ], [ %10, %74 ], [ %10, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60 ]
   %78 = getelementptr inbounds nuw i8, ptr %.sink82, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !24
   %80 = and i32 %79, -5

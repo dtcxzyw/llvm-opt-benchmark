@@ -579,7 +579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_10second_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_10second_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %56, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %56 ], [ inttoptr (i64 16 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ inttoptr (i64 88 to ptr), %55 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %55 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -759,7 +759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_10minute_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_10minute_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %56, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %56 ], [ inttoptr (i64 16 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ inttoptr (i64 88 to ptr), %55 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %55 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -939,7 +939,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_8hour_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_8hour_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %56, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %56 ], [ inttoptr (i64 16 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ inttoptr (i64 88 to ptr), %55 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %55 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1119,7 +1119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_7day_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_7day_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %56, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %56 ], [ inttoptr (i64 16 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ inttoptr (i64 88 to ptr), %55 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_7day_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_7day_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %55 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1299,7 +1299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_9month_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_9month_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %56, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %56 ], [ inttoptr (i64 16 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ inttoptr (i64 88 to ptr), %55 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %55 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1479,7 +1479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_8year_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_8year_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %56, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %56 ], [ inttoptr (i64 16 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ inttoptr (i64 88 to ptr), %55 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_8year_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_8year_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %55 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1659,7 +1659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_8DurationEEEPvNS1_6FlagOpEPKvS4_S4_E12AlignedSpaceEE8allocateERS9_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_8DurationEEEPvNS1_6FlagOpEPKvS4_S4_E12AlignedSpaceEE8allocateERS9_m.exit: ; preds = %7, %4, %56, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %56 ], [ inttoptr (i64 12 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ inttoptr (i64 88 to ptr), %55 ], [ @_ZN4absl13base_internal11FastTypeTagINS_8DurationEE9dummy_varE, %12 ], [ @_ZTIN4absl8DurationE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_8DurationEE9dummy_varE, %12 ], [ @_ZTIN4absl8DurationE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %55 ], [ inttoptr (i64 12 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1839,7 +1839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_4TimeEEEPvNS1_6FlagOpEPKvS4_S4_E12AlignedSpaceEE8allocateERS9_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_4TimeEEEPvNS1_6FlagOpEPKvS4_S4_E12AlignedSpaceEE8allocateERS9_m.exit: ; preds = %7, %4, %56, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %56 ], [ inttoptr (i64 12 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ inttoptr (i64 88 to ptr), %55 ], [ @_ZN4absl13base_internal11FastTypeTagINS_4TimeEE9dummy_varE, %12 ], [ @_ZTIN4absl4TimeE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %56 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_4TimeEE9dummy_varE, %12 ], [ @_ZTIN4absl4TimeE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %55 ], [ inttoptr (i64 12 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -4470,7 +4470,7 @@ _ZN7testing15AssertionResultD2Ev.exit467:         ; preds = %911, %_ZNKSt14defau
   ret void
 
 920:                                              ; preds = %_ZN7testing7MessageD2Ev.exit280, %_ZN7testing7MessageD2Ev.exit317, %_ZN7testing7MessageD2Ev.exit354, %_ZN7testing7MessageD2Ev.exit391, %_ZN7testing7MessageD2Ev.exit429, %_ZN7testing7MessageD2Ev.exit462, %_ZN7testing7MessageD2Ev.exit218, %_ZN7testing7MessageD2Ev.exit191, %_ZN7testing7MessageD2Ev.exit160, %_ZN7testing7MessageD2Ev.exit129, %_ZN7testing7MessageD2Ev.exit98, %_ZN7testing7MessageD2Ev.exit75
-  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn49.pn, %_ZN7testing7MessageD2Ev.exit218 ], [ %.pn46.pn, %_ZN7testing7MessageD2Ev.exit191 ], [ %.pn43.pn, %_ZN7testing7MessageD2Ev.exit160 ], [ %.pn40.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn37.pn, %_ZN7testing7MessageD2Ev.exit98 ], [ %.pn67.pn, %_ZN7testing7MessageD2Ev.exit462 ], [ %.pn64.pn, %_ZN7testing7MessageD2Ev.exit429 ], [ %.pn61.pn, %_ZN7testing7MessageD2Ev.exit391 ], [ %.pn58.pn, %_ZN7testing7MessageD2Ev.exit354 ], [ %.pn55.pn, %_ZN7testing7MessageD2Ev.exit317 ], [ %.pn52.pn, %_ZN7testing7MessageD2Ev.exit280 ]
+  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %_ZN7testing7MessageD2Ev.exit218 ], [ %.pn46.pn, %_ZN7testing7MessageD2Ev.exit191 ], [ %.pn43.pn, %_ZN7testing7MessageD2Ev.exit160 ], [ %.pn40.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn37.pn, %_ZN7testing7MessageD2Ev.exit98 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn67.pn, %_ZN7testing7MessageD2Ev.exit462 ], [ %.pn64.pn, %_ZN7testing7MessageD2Ev.exit429 ], [ %.pn61.pn, %_ZN7testing7MessageD2Ev.exit391 ], [ %.pn58.pn, %_ZN7testing7MessageD2Ev.exit354 ], [ %.pn55.pn, %_ZN7testing7MessageD2Ev.exit317 ], [ %.pn52.pn, %_ZN7testing7MessageD2Ev.exit280 ]
   resume { ptr, i32 } %.pn67.pn.pn.pn
 }
 
@@ -6323,7 +6323,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit115
 
 _ZN7testing15AssertionResultD2Ev.exit115:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %179, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i113
-  %186 = phi ptr [ %146, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i113 ], [ %146, %179 ], [ %144, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
+  %186 = phi ptr [ %146, %179 ], [ %146, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i113 ], [ %144, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
   store ptr null, ptr %186, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -8283,7 +8283,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit384
 
 _ZN7testing15AssertionResultD2Ev.exit384:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %299, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i382
-  %306 = phi ptr [ %266, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i382 ], [ %266, %299 ], [ %264, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
+  %306 = phi ptr [ %266, %299 ], [ %266, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i382 ], [ %264, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
   store ptr null, ptr %306, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -8642,7 +8642,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit443
 
 _ZN7testing15AssertionResultD2Ev.exit443:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit426, %407, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i441
-  %414 = phi ptr [ %374, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i441 ], [ %374, %407 ], [ %372, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit426 ]
+  %414 = phi ptr [ %374, %407 ], [ %374, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i441 ], [ %372, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit426 ]
   store ptr null, ptr %414, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
@@ -9001,7 +9001,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit505
 
 _ZN7testing15AssertionResultD2Ev.exit505:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit488, %515, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i503
-  %522 = phi ptr [ %482, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i503 ], [ %482, %515 ], [ %480, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit488 ]
+  %522 = phi ptr [ %482, %515 ], [ %482, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i503 ], [ %480, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit488 ]
   store ptr null, ptr %522, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
@@ -9360,7 +9360,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit567
 
 _ZN7testing15AssertionResultD2Ev.exit567:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit550, %623, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i565
-  %630 = phi ptr [ %590, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i565 ], [ %590, %623 ], [ %588, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit550 ]
+  %630 = phi ptr [ %590, %623 ], [ %590, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i565 ], [ %588, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit550 ]
   store ptr null, ptr %630, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
@@ -9719,7 +9719,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit629
 
 _ZN7testing15AssertionResultD2Ev.exit629:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit612, %731, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i627
-  %738 = phi ptr [ %698, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i627 ], [ %698, %731 ], [ %696, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit612 ]
+  %738 = phi ptr [ %698, %731 ], [ %698, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i627 ], [ %696, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit612 ]
   store ptr null, ptr %738, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
@@ -10078,7 +10078,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit691
 
 _ZN7testing15AssertionResultD2Ev.exit691:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit674, %839, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i689
-  %846 = phi ptr [ %806, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i689 ], [ %806, %839 ], [ %804, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit674 ]
+  %846 = phi ptr [ %806, %839 ], [ %806, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i689 ], [ %804, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit674 ]
   store ptr null, ptr %846, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
@@ -10445,7 +10445,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit758
 
 _ZN7testing15AssertionResultD2Ev.exit758:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit741, %948, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i756
-  %955 = phi ptr [ %915, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i756 ], [ %915, %948 ], [ %913, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit741 ]
+  %955 = phi ptr [ %915, %948 ], [ %915, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i756 ], [ %913, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit741 ]
   store ptr null, ptr %955, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
@@ -10794,7 +10794,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit815
 
 _ZN7testing15AssertionResultD2Ev.exit815:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit798, %1055, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i813
-  %1062 = phi ptr [ %1022, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i813 ], [ %1022, %1055 ], [ %1020, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit798 ]
+  %1062 = phi ptr [ %1022, %1055 ], [ %1022, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i813 ], [ %1020, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit798 ]
   store ptr null, ptr %1062, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
@@ -11141,7 +11141,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit872
 
 _ZN7testing15AssertionResultD2Ev.exit872:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit855, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit855.thread, %1162, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i870
-  %1169 = phi ptr [ %1128, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i870 ], [ %1128, %1162 ], [ %1128, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit855 ], [ %1110, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit855.thread ]
+  %1169 = phi ptr [ %1128, %1162 ], [ %1128, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i870 ], [ %1128, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit855 ], [ %1110, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit855.thread ]
   store ptr null, ptr %1169, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -11326,7 +11326,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit898
 
 _ZN7testing15AssertionResultD2Ev.exit898:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit881, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit881.thread, %1223, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i896
-  %1230 = phi ptr [ %1189, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i896 ], [ %1189, %1223 ], [ %1189, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit881 ], [ %1171, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit881.thread ]
+  %1230 = phi ptr [ %1189, %1223 ], [ %1189, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i896 ], [ %1189, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit881 ], [ %1171, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit881.thread ]
   store ptr null, ptr %1230, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
@@ -11511,7 +11511,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit924
 
 _ZN7testing15AssertionResultD2Ev.exit924:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit907, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit907.thread, %1284, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i922
-  %1291 = phi ptr [ %1250, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i922 ], [ %1250, %1284 ], [ %1250, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit907 ], [ %1232, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit907.thread ]
+  %1291 = phi ptr [ %1250, %1284 ], [ %1250, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i922 ], [ %1250, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit907 ], [ %1232, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit907.thread ]
   store ptr null, ptr %1291, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
@@ -11696,7 +11696,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit950
 
 _ZN7testing15AssertionResultD2Ev.exit950:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit933, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit933.thread, %1345, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i948
-  %1352 = phi ptr [ %1311, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i948 ], [ %1311, %1345 ], [ %1311, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit933 ], [ %1293, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit933.thread ]
+  %1352 = phi ptr [ %1311, %1345 ], [ %1311, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i948 ], [ %1311, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit933 ], [ %1293, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit933.thread ]
   store ptr null, ptr %1352, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %129)
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
@@ -11881,7 +11881,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit976
 
 _ZN7testing15AssertionResultD2Ev.exit976:         ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit959, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit959.thread, %1406, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i974
-  %1413 = phi ptr [ %1372, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i974 ], [ %1372, %1406 ], [ %1372, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit959 ], [ %1354, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit959.thread ]
+  %1413 = phi ptr [ %1372, %1406 ], [ %1372, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i974 ], [ %1372, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit959 ], [ %1354, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit959.thread ]
   store ptr null, ptr %1413, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %133)
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
@@ -12068,7 +12068,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit1002
 
 _ZN7testing15AssertionResultD2Ev.exit1002:        ; preds = %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit985, %1467, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1000
-  %1474 = phi ptr [ %1434, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1000 ], [ %1434, %1467 ], [ %1432, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit985 ]
+  %1474 = phi ptr [ %1434, %1467 ], [ %1434, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1000 ], [ %1432, %_ZN12_GLOBAL__N_112SetFlagValueESt17basic_string_viewIcSt11char_traitsIcEES3_.exit985 ]
   store ptr null, ptr %1474, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
   call void @llvm.lifetime.start.p0(ptr nonnull %141)

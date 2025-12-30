@@ -887,7 +887,7 @@ vector_count_ones.exit.i:                         ; preds = %403, %vector_max.ex
   br label %168
 
 shake_xof_2.exit.thread.i:                        ; preds = %210, %shake_xof_2.exit199.i, %207, %205, %vector_high_bits.exit.i, %418, %shake_xof_3.exit.i, %141, %139, %136, %132, %shake_xof_2.exit.i, %129, %126, %122, %121, %89, %86
-  %.0133.i = phi i32 [ 0, %86 ], [ 0, %121 ], [ 0, %132 ], [ 0, %shake_xof_3.exit.i ], [ 0, %shake_xof_2.exit.i ], [ 0, %89 ], [ 0, %122 ], [ 0, %129 ], [ 0, %126 ], [ 0, %141 ], [ 0, %139 ], [ 0, %136 ], [ %419, %418 ], [ 0, %vector_high_bits.exit.i ], [ 0, %205 ], [ 0, %207 ], [ 0, %shake_xof_2.exit199.i ], [ 0, %210 ]
+  %.0133.i = phi i32 [ 0, %86 ], [ 0, %121 ], [ 0, %shake_xof_3.exit.i ], [ 0, %shake_xof_2.exit.i ], [ 0, %89 ], [ 0, %129 ], [ 0, %126 ], [ 0, %122 ], [ 0, %141 ], [ 0, %139 ], [ 0, %136 ], [ 0, %132 ], [ %419, %418 ], [ 0, %vector_high_bits.exit.i ], [ 0, %205 ], [ 0, %207 ], [ 0, %shake_xof_2.exit199.i ], [ 0, %210 ]
   call void @EVP_MD_CTX_free(ptr noundef %87) #5
   call void @CRYPTO_clear_free(ptr noundef nonnull %84, i64 noundef %83, ptr noundef nonnull @.str, i32 noundef 199) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %20, i64 noundef 64) #5
@@ -919,8 +919,8 @@ ml_dsa_sign_internal.exit:                        ; preds = %52, %shake_xof_2.ex
   store i64 %429, ptr %10, align 8, !tbaa !62
   br label %msg_encode.exit.thread
 
-msg_encode.exit.thread:                           ; preds = %35, %41, %424, %425, %msg_encode.exit, %26, %12
-  %.032 = phi i32 [ 0, %26 ], [ 0, %12 ], [ 0, %msg_encode.exit ], [ %.031, %425 ], [ %.031, %424 ], [ 0, %41 ], [ 0, %35 ]
+msg_encode.exit.thread:                           ; preds = %41, %35, %424, %425, %msg_encode.exit, %26, %12
+  %.032 = phi i32 [ 0, %12 ], [ 0, %26 ], [ 0, %msg_encode.exit ], [ %.031, %425 ], [ %.031, %424 ], [ 0, %35 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %.032
 }
@@ -1357,7 +1357,7 @@ shake_xof_3.exit.i:                               ; preds = %207
   br label %shake_xof_2.exit.thread.i
 
 shake_xof_2.exit.thread.i:                        ; preds = %217, %210, %shake_xof_3.exit.i, %207, %205, %203, %vector_use_hint.exit.i, %109, %shake_xof_2.exit.i, %106, %103, %99, %98, %92, %74, %71
-  %.089.i = phi i32 [ 0, %71 ], [ 0, %98 ], [ 0, %74 ], [ 0, %shake_xof_3.exit.i ], [ 0, %99 ], [ 0, %shake_xof_2.exit.i ], [ 0, %92 ], [ 0, %210 ], [ %220, %217 ], [ 0, %109 ], [ 0, %106 ], [ 0, %103 ], [ 0, %207 ], [ 0, %205 ], [ 0, %203 ], [ 0, %vector_use_hint.exit.i ]
+  %.089.i = phi i32 [ 0, %71 ], [ 0, %98 ], [ 0, %shake_xof_3.exit.i ], [ 0, %shake_xof_2.exit.i ], [ 0, %92 ], [ 0, %74 ], [ 0, %210 ], [ %220, %217 ], [ 0, %106 ], [ 0, %103 ], [ 0, %99 ], [ 0, %109 ], [ 0, %207 ], [ 0, %205 ], [ 0, %203 ], [ 0, %vector_use_hint.exit.i ]
   call void @CRYPTO_free(ptr noundef nonnull %69, ptr noundef nonnull @.str, i32 noundef 302) #5
   call void @EVP_MD_CTX_free(ptr noundef %72) #5
   br label %ml_dsa_verify_internal.exit
@@ -1373,8 +1373,8 @@ ml_dsa_verify_internal.exit:                      ; preds = %39, %shake_xof_2.ex
   call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str, i32 noundef 431) #5
   br label %msg_encode.exit.thread
 
-msg_encode.exit.thread:                           ; preds = %22, %28, %msg_encode.exit, %9, %ml_dsa_verify_internal.exit
-  %.024 = phi i32 [ 0, %9 ], [ %.0.i26, %ml_dsa_verify_internal.exit ], [ 0, %msg_encode.exit ], [ 0, %28 ], [ 0, %22 ]
+msg_encode.exit.thread:                           ; preds = %28, %22, %msg_encode.exit, %9, %ml_dsa_verify_internal.exit
+  %.024 = phi i32 [ %.0.i26, %ml_dsa_verify_internal.exit ], [ 0, %9 ], [ 0, %msg_encode.exit ], [ 0, %22 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.024
 }

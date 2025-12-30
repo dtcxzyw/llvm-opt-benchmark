@@ -188,7 +188,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef %0, ptr noundef readonly c
   br label %._crit_edge84.thread
 
 ._crit_edge84.thread:                             ; preds = %._crit_edge84, %._crit_edge
-  %51 = phi i32 [ %spec.select, %._crit_edge84 ], [ 0, %._crit_edge ]
+  %51 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %._crit_edge84 ]
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 2120
   %.06586 = load ptr, ptr %52, align 8, !tbaa !29
   %.not7287 = icmp eq ptr %.06586, null
@@ -397,7 +397,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   %.not17.i = icmp sgt i32 %73, %61
   br i1 %.not17.i, label %masks_form_is_in_roi.exit, label %masks_form_is_in_roi.exit.thread
 
-masks_form_is_in_roi.exit.thread:                 ; preds = %46, %48, %70
+masks_form_is_in_roi.exit.thread:                 ; preds = %46, %70, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -472,20 +472,20 @@ masks_form_is_in_roi.exit:                        ; preds = %70
   br label %114
 
 114:                                              ; preds = %masks_form_is_in_roi.exit.thread, %113, %39, %masks_form_is_in_roi.exit
-  %.388 = phi i32 [ %.186112, %masks_form_is_in_roi.exit ], [ %.186112, %39 ], [ %.489, %113 ], [ %.186112, %masks_form_is_in_roi.exit.thread ]
-  %.383 = phi i32 [ %.181113, %masks_form_is_in_roi.exit ], [ %.181113, %39 ], [ %.484, %113 ], [ %.181113, %masks_form_is_in_roi.exit.thread ]
-  %.378 = phi i32 [ %.176114, %masks_form_is_in_roi.exit ], [ %.176114, %39 ], [ %.479, %113 ], [ %.176114, %masks_form_is_in_roi.exit.thread ]
-  %.3 = phi i32 [ %.1115, %masks_form_is_in_roi.exit ], [ %.1115, %39 ], [ %.4, %113 ], [ %.1115, %masks_form_is_in_roi.exit.thread ]
+  %.388 = phi i32 [ %.186112, %masks_form_is_in_roi.exit ], [ %.489, %113 ], [ %.186112, %39 ], [ %.186112, %masks_form_is_in_roi.exit.thread ]
+  %.383 = phi i32 [ %.181113, %masks_form_is_in_roi.exit ], [ %.484, %113 ], [ %.181113, %39 ], [ %.181113, %masks_form_is_in_roi.exit.thread ]
+  %.378 = phi i32 [ %.176114, %masks_form_is_in_roi.exit ], [ %.479, %113 ], [ %.176114, %39 ], [ %.176114, %masks_form_is_in_roi.exit.thread ]
+  %.3 = phi i32 [ %.1115, %masks_form_is_in_roi.exit ], [ %.4, %113 ], [ %.1115, %39 ], [ %.1115, %masks_form_is_in_roi.exit.thread ]
   %115 = getelementptr inbounds nuw i8, ptr %.091116, i64 8
   %.091 = load ptr, ptr %115, align 8, !tbaa !29
   %.not101 = icmp eq ptr %.091, null
   br i1 %.not101, label %.loopexit, label %39
 
 .loopexit:                                        ; preds = %114, %.preheader, %31, %4
-  %.085 = phi i32 [ %20, %4 ], [ %20, %31 ], [ %20, %.preheader ], [ %.388, %114 ]
-  %.080 = phi i32 [ %15, %4 ], [ %15, %31 ], [ %15, %.preheader ], [ %.383, %114 ]
-  %.075 = phi i32 [ %21, %4 ], [ %21, %31 ], [ %21, %.preheader ], [ %.378, %114 ]
-  %.0 = phi i32 [ %16, %4 ], [ %16, %31 ], [ %16, %.preheader ], [ %.3, %114 ]
+  %.085 = phi i32 [ %20, %31 ], [ %20, %4 ], [ %20, %.preheader ], [ %.388, %114 ]
+  %.080 = phi i32 [ %15, %31 ], [ %15, %4 ], [ %15, %.preheader ], [ %.383, %114 ]
+  %.075 = phi i32 [ %21, %31 ], [ %21, %4 ], [ %21, %.preheader ], [ %.378, %114 ]
+  %.0 = phi i32 [ %16, %31 ], [ %16, %4 ], [ %16, %.preheader ], [ %.3, %114 ]
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %117 = load i32, ptr %116, align 8, !tbaa !108
   %118 = sitofp i32 %117 to float
@@ -674,7 +674,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %.not17.i = icmp sgt i32 %94, %82
   br i1 %.not17.i, label %masks_form_is_in_roi.exit, label %masks_form_is_in_roi.exit.thread
 
-masks_form_is_in_roi.exit.thread:                 ; preds = %67, %69, %91
+masks_form_is_in_roi.exit.thread:                 ; preds = %67, %91, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1147,9 +1147,9 @@ masks_point_calc_delta.exit59.i:                  ; preds = %352, %334
   br label %masks_get_delta.exit
 
 masks_get_delta.exit:                             ; preds = %masks_point_calc_delta.exit.i, %masks_point_calc_delta.exit55.i, %masks_point_calc_delta.exit59.i
-  %.3284 = phi i32 [ %.0281, %masks_point_calc_delta.exit.i ], [ %.2283, %masks_point_calc_delta.exit59.i ], [ %.1282, %masks_point_calc_delta.exit55.i ]
-  %.3 = phi i32 [ %.0280, %masks_point_calc_delta.exit.i ], [ %.2, %masks_point_calc_delta.exit59.i ], [ %.1, %masks_point_calc_delta.exit55.i ]
-  %.0.i272 = phi i32 [ %293, %masks_point_calc_delta.exit.i ], [ %351, %masks_point_calc_delta.exit59.i ], [ %322, %masks_point_calc_delta.exit55.i ]
+  %.3284 = phi i32 [ %.2283, %masks_point_calc_delta.exit59.i ], [ %.1282, %masks_point_calc_delta.exit55.i ], [ %.0281, %masks_point_calc_delta.exit.i ]
+  %.3 = phi i32 [ %.2, %masks_point_calc_delta.exit59.i ], [ %.1, %masks_point_calc_delta.exit55.i ], [ %.0280, %masks_point_calc_delta.exit.i ]
+  %.0.i272 = phi i32 [ %351, %masks_point_calc_delta.exit59.i ], [ %322, %masks_point_calc_delta.exit55.i ], [ %293, %masks_point_calc_delta.exit.i ]
   %.not250.not = icmp eq i32 %.0.i272, 0
   br i1 %.not250.not, label %masks_get_delta.exit.thread, label %362
 
@@ -1733,7 +1733,7 @@ define void @gui_update(ptr noundef readonly captures(address) %0) local_unnamed
   br label %_shape_is_being_added.exit
 
 _shape_is_being_added.exit:                       ; preds = %47, %57, %67, %70, %78, %80, %82, %86, %90
-  %.0.i = phi i32 [ 0, %47 ], [ %91, %90 ], [ 0, %70 ], [ 0, %67 ], [ 0, %57 ], [ 0, %78 ], [ 0, %80 ], [ %89, %86 ], [ 0, %82 ]
+  %.0.i = phi i32 [ %91, %90 ], [ 0, %70 ], [ 0, %67 ], [ 0, %57 ], [ 0, %47 ], [ 0, %78 ], [ 0, %80 ], [ %89, %86 ], [ 0, %82 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %53, i32 noundef %.0.i) #19
   %92 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !175
@@ -1809,7 +1809,7 @@ _shape_is_being_added.exit:                       ; preds = %47, %57, %67, %70, 
   br label %_shape_is_being_added.exit42
 
 _shape_is_being_added.exit42:                     ; preds = %_shape_is_being_added.exit, %98, %108, %111, %119, %121, %123, %127, %131
-  %.0.i37 = phi i32 [ 0, %_shape_is_being_added.exit ], [ %132, %131 ], [ 0, %111 ], [ 0, %108 ], [ 0, %98 ], [ 0, %119 ], [ 0, %121 ], [ %130, %127 ], [ 0, %123 ]
+  %.0.i37 = phi i32 [ %132, %131 ], [ 0, %111 ], [ 0, %108 ], [ 0, %98 ], [ 0, %_shape_is_being_added.exit ], [ 0, %119 ], [ 0, %121 ], [ %130, %127 ], [ 0, %123 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %94, i32 noundef %.0.i37) #19
   %133 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %134 = load ptr, ptr %133, align 8, !tbaa !177
@@ -1885,7 +1885,7 @@ _shape_is_being_added.exit42:                     ; preds = %_shape_is_being_add
   br label %_shape_is_being_added.exit52
 
 _shape_is_being_added.exit52:                     ; preds = %_shape_is_being_added.exit42, %139, %149, %152, %160, %162, %164, %168, %172
-  %.0.i47 = phi i32 [ 0, %_shape_is_being_added.exit42 ], [ %173, %172 ], [ 0, %152 ], [ 0, %149 ], [ 0, %139 ], [ 0, %160 ], [ 0, %162 ], [ %171, %168 ], [ 0, %164 ]
+  %.0.i47 = phi i32 [ %173, %172 ], [ 0, %152 ], [ 0, %149 ], [ 0, %139 ], [ 0, %_shape_is_being_added.exit42 ], [ 0, %160 ], [ 0, %162 ], [ %171, %168 ], [ 0, %164 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %135, i32 noundef %.0.i47) #19
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %175 = load ptr, ptr %174, align 8, !tbaa !160
@@ -2172,7 +2172,7 @@ define internal range(i32 0, 2) i32 @_edit_masks(ptr readnone captures(none) %0,
   br label %91
 
 91:                                               ; preds = %3, %86, %11
-  %.0 = phi i32 [ 1, %86 ], [ 0, %11 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %86 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -2344,7 +2344,7 @@ _reset_form_creation.exit.i:                      ; preds = %78, %74
   br label %99
 
 99:                                               ; preds = %95, %91, %86
-  %.020.i = phi i32 [ %spec.select.i, %95 ], [ 10, %86 ], [ 9, %91 ]
+  %.020.i = phi i32 [ 10, %86 ], [ 9, %91 ], [ %spec.select.i, %95 ]
   %100 = tail call ptr @dt_masks_create(i32 noundef %.020.i) #19
   tail call void @dt_masks_change_form_gui(ptr noundef %100) #19
   %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !127
@@ -2435,7 +2435,7 @@ _add_shape.exit:                                  ; preds = %_reset_form_creatio
   br label %_shape_is_being_added.exit
 
 _shape_is_being_added.exit:                       ; preds = %_add_shape.exit, %113, %123, %126, %134, %136, %138, %142, %146
-  %.0.i13 = phi i32 [ 0, %_add_shape.exit ], [ %147, %146 ], [ 0, %126 ], [ 0, %123 ], [ 0, %113 ], [ 0, %134 ], [ 0, %136 ], [ %145, %142 ], [ 0, %138 ]
+  %.0.i13 = phi i32 [ %147, %146 ], [ 0, %126 ], [ 0, %123 ], [ 0, %113 ], [ 0, %_add_shape.exit ], [ 0, %134 ], [ 0, %136 ], [ %145, %142 ], [ 0, %138 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %109, i32 noundef %.0.i13) #19
   %148 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %149 = load ptr, ptr %148, align 8, !tbaa !177
@@ -2511,7 +2511,7 @@ _shape_is_being_added.exit:                       ; preds = %_add_shape.exit, %1
   br label %_shape_is_being_added.exit23
 
 _shape_is_being_added.exit23:                     ; preds = %_shape_is_being_added.exit, %154, %164, %167, %175, %177, %179, %183, %187
-  %.0.i18 = phi i32 [ 0, %_shape_is_being_added.exit ], [ %188, %187 ], [ 0, %167 ], [ 0, %164 ], [ 0, %154 ], [ 0, %175 ], [ 0, %177 ], [ %186, %183 ], [ 0, %179 ]
+  %.0.i18 = phi i32 [ %188, %187 ], [ 0, %167 ], [ 0, %164 ], [ 0, %154 ], [ 0, %_shape_is_being_added.exit ], [ 0, %175 ], [ 0, %177 ], [ %186, %183 ], [ 0, %179 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %150, i32 noundef %.0.i18) #19
   %189 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %190 = load ptr, ptr %189, align 8, !tbaa !175
@@ -2587,7 +2587,7 @@ _shape_is_being_added.exit23:                     ; preds = %_shape_is_being_add
   br label %_shape_is_being_added.exit33
 
 _shape_is_being_added.exit33:                     ; preds = %_shape_is_being_added.exit23, %195, %205, %208, %216, %218, %220, %224, %228
-  %.0.i28 = phi i32 [ 0, %_shape_is_being_added.exit23 ], [ %229, %228 ], [ 0, %208 ], [ 0, %205 ], [ 0, %195 ], [ 0, %216 ], [ 0, %218 ], [ %227, %224 ], [ 0, %220 ]
+  %.0.i28 = phi i32 [ %229, %228 ], [ 0, %208 ], [ 0, %205 ], [ 0, %195 ], [ 0, %_shape_is_being_added.exit23 ], [ 0, %216 ], [ 0, %218 ], [ %227, %224 ], [ 0, %220 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %191, i32 noundef %.0.i28) #19
   br label %230
 
@@ -2677,7 +2677,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %13
 
 13:                                               ; preds = %10, %4, %2, %8
-  %.0 = phi ptr [ %0, %4 ], [ %spec.select, %10 ], [ %9, %8 ], [ %0, %2 ]
+  %.0 = phi ptr [ %9, %8 ], [ %0, %2 ], [ %0, %4 ], [ %spec.select, %10 ]
   ret ptr %.0
 }
 
@@ -2704,7 +2704,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ]
   ret ptr %.0
 }
 

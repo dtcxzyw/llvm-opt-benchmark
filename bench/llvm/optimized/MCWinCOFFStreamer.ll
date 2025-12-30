@@ -2771,7 +2771,7 @@ define linkonce_odr hidden noundef ptr @_ZNK29MCCOFFSectionNumberTargetExpr22fin
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %1, %5, %9
-  %.0.i = phi ptr [ %13, %9 ], [ %4, %1 ], [ null, %5 ]
+  %.0.i = phi ptr [ %13, %9 ], [ null, %5 ], [ %4, %1 ]
   ret ptr %.0.i
 }
 
@@ -2884,7 +2884,7 @@ define linkonce_odr hidden noundef ptr @_ZNK29MCCOFFSectionOffsetTargetExpr22fin
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %1, %5, %9
-  %.0.i = phi ptr [ %13, %9 ], [ %4, %1 ], [ null, %5 ]
+  %.0.i = phi ptr [ %13, %9 ], [ null, %5 ], [ %4, %1 ]
   ret ptr %.0.i
 }
 

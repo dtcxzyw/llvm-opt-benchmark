@@ -648,7 +648,7 @@ switch.early.test:                                ; preds = %77
   br label %102
 
 102:                                              ; preds = %98, %.thread163
-  %103 = phi i1 [ %101, %98 ], [ true, %.thread163 ]
+  %103 = phi i1 [ true, %.thread163 ], [ %101, %98 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %34, i8 1, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %35, i8 0, i64 256, i1 false)
@@ -873,7 +873,7 @@ switch.early.test:                                ; preds = %77
   br label %223
 
 223:                                              ; preds = %210, %220, %221
-  %.1 = phi i32 [ %222, %221 ], [ %215, %220 ], [ %0, %210 ]
+  %.1 = phi i32 [ %215, %220 ], [ %222, %221 ], [ %0, %210 ]
   %224 = zext i32 %.1 to i64
   store i64 %224, ptr %35, align 16
   %225 = getelementptr inbounds nuw i8, ptr %180, i64 64
@@ -1054,7 +1054,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 3
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %66, %65, %56, %54, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ %67, %66 ], [ 0, %65 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
+  %.0 = phi i64 [ %13, %12 ], [ 0, %65 ], [ %67, %66 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
   ret i64 %.0
 }
 
@@ -1145,7 +1145,7 @@ moveArrayTypeName.exit:                           ; preds = %27, %25, %21
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 805, ptr noundef nonnull @__func__.RenameTypeInternal) #9
   unreachable
 
-moveArrayTypeName.exit.thread:                    ; preds = %29, %23, %10
+moveArrayTypeName.exit.thread:                    ; preds = %23, %29, %10
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 4
   tail call void @namestrcpy(ptr noundef nonnull %34, ptr noundef %1) #9
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1203,7 +1203,7 @@ define dso_local noundef zeroext i1 @moveArrayTypeName(i32 noundef %0, ptr nound
   br label %11
 
 11:                                               ; preds = %5, %7, %3, %9
-  %.0 = phi i1 [ true, %3 ], [ true, %9 ], [ false, %7 ], [ false, %5 ]
+  %.0 = phi i1 [ true, %9 ], [ true, %3 ], [ false, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 

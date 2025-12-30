@@ -650,8 +650,8 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   br label %127
 
 105:                                              ; preds = %.thread10, %86
-  %106 = phi i32 [ %101, %.thread10 ], [ %93, %86 ]
-  %107 = phi ptr [ %97, %.thread10 ], [ %9, %86 ]
+  %106 = phi i32 [ %93, %86 ], [ %101, %.thread10 ]
+  %107 = phi ptr [ %9, %86 ], [ %97, %.thread10 ]
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 10
   store i8 0, ptr %108, align 2
   br label %109
@@ -1158,7 +1158,7 @@ define internal fastcc i32 @smp_read_mpc(ptr noundef %0, i32 noundef %1) unnamed
   br label %56
 
 56:                                               ; preds = %.loopexit, %54, %15, %2
-  %57 = phi i32 [ 1, %15 ], [ 0, %2 ], [ %.pre, %54 ], [ %52, %.loopexit ]
+  %57 = phi i32 [ 0, %2 ], [ 1, %15 ], [ %.pre, %54 ], [ %52, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %57
@@ -1334,9 +1334,9 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
   br label %.loopexit6
 
 24:                                               ; preds = %22, %21, %.preheader7
-  %25 = phi i16 [ %17, %21 ], [ %.pre, %22 ], [ %17, %.preheader7 ]
-  %26 = phi i64 [ 8, %21 ], [ 8, %22 ], [ 20, %.preheader7 ]
-  %27 = phi i32 [ 8, %21 ], [ 8, %22 ], [ 20, %.preheader7 ]
+  %25 = phi i16 [ %.pre, %22 ], [ %17, %21 ], [ %17, %.preheader7 ]
+  %26 = phi i64 [ 8, %22 ], [ 8, %21 ], [ 20, %.preheader7 ]
+  %27 = phi i32 [ 8, %22 ], [ 8, %21 ], [ 20, %.preheader7 ]
   %28 = getelementptr i8, ptr %18, i64 %26
   %29 = add nuw nsw i32 %27, %19
   %30 = zext i16 %25 to i32

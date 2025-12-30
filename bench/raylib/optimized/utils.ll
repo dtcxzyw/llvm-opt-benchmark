@@ -296,7 +296,7 @@ define ptr @LoadFileData(ptr noundef %0, ptr noundef initializes((0, 4)) %1) loc
   br label %28
 
 28:                                               ; preds = %21, %25, %24, %26, %27
-  %.1 = phi ptr [ null, %27 ], [ null, %26 ], [ null, %21 ], [ %17, %24 ], [ %17, %25 ]
+  %.1 = phi ptr [ null, %26 ], [ null, %27 ], [ null, %21 ], [ %17, %24 ], [ %17, %25 ]
   %29 = tail call i32 @fclose(ptr noundef nonnull %8)
   br label %32
 

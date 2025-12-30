@@ -1398,12 +1398,12 @@ bsearch.exit.i:                                   ; preds = %72
   br label %look_for_dissector.exit
 
 look_for_dissector.exit:                          ; preds = %83, %91
-  %.0.i = phi ptr [ %94, %91 ], [ %86, %83 ]
+  %.0.i = phi ptr [ %86, %83 ], [ %94, %91 ]
   %.not129 = icmp eq ptr %.0.i, null
   br i1 %.not129, label %.thread144, label %look_for_dissector.exit.thread140
 
-look_for_dissector.exit.thread140:                ; preds = %79, %87, %look_for_dissector.exit
-  %.0.i143 = phi ptr [ %.0.i, %look_for_dissector.exit ], [ %81, %79 ], [ %89, %87 ]
+look_for_dissector.exit.thread140:                ; preds = %87, %79, %look_for_dissector.exit
+  %.0.i143 = phi ptr [ %.0.i, %look_for_dissector.exit ], [ %89, %87 ], [ %81, %79 ]
   %95 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %96 = sub i32 %95, %41
   %97 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef %96)
@@ -1520,7 +1520,7 @@ define internal noundef zeroext i1 @lte_mac_pseudo_hdr(ptr noundef %0, ptr nound
   br i1 %44, label %45, label %68
 
 45:                                               ; preds = %42, %39, %36, %33, %30
-  %.sink = phi i8 [ 0, %30 ], [ 2, %36 ], [ 3, %39 ], [ 1, %33 ], [ 4, %42 ]
+  %.sink = phi i8 [ 0, %30 ], [ 1, %33 ], [ 2, %36 ], [ 3, %39 ], [ 4, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i8 %.sink, ptr %46, align 2
   %47 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.172) #8
@@ -1563,7 +1563,7 @@ define internal noundef zeroext i1 @lte_mac_pseudo_hdr(ptr noundef %0, ptr nound
   br label %68
 
 68:                                               ; preds = %48, %45, %42, %27, %24, %15, %10, %61
-  %.0 = phi i1 [ false, %15 ], [ true, %10 ], [ false, %24 ], [ false, %45 ], [ true, %61 ], [ false, %42 ], [ false, %27 ], [ false, %48 ]
+  %.0 = phi i1 [ true, %61 ], [ true, %10 ], [ false, %15 ], [ false, %24 ], [ false, %27 ], [ false, %42 ], [ false, %45 ], [ false, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -1642,7 +1642,7 @@ define internal noundef zeroext i1 @lte_pdcp_pseudo_hdr(ptr noundef %0, ptr noun
   br label %45
 
 45:                                               ; preds = %34, %27, %24, %15, %10, %37
-  %.0 = phi i1 [ false, %15 ], [ true, %10 ], [ false, %24 ], [ true, %37 ], [ false, %27 ], [ false, %34 ]
+  %.0 = phi i1 [ true, %37 ], [ true, %10 ], [ false, %15 ], [ false, %24 ], [ false, %27 ], [ false, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -1759,7 +1759,7 @@ sub_151:                                          ; preds = %sub_0
   br i1 %56, label %57, label %.tail49.thread
 
 57:                                               ; preds = %.tail49, %.tail44, %.tail39, %.tail
-  %.sink76 = phi i8 [ 1, %.tail ], [ 4, %.tail44 ], [ 2, %.tail39 ], [ 8, %.tail49 ]
+  %.sink76 = phi i8 [ 1, %.tail ], [ 2, %.tail39 ], [ 4, %.tail44 ], [ 8, %.tail49 ]
   store i8 %.sink76, ptr %18, align 4
   %58 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.172) #8
   %.not38 = icmp eq ptr %58, null
@@ -1798,7 +1798,7 @@ sub_151:                                          ; preds = %sub_0
   br label %.tail49.thread
 
 .tail49.thread:                                   ; preds = %sub_0, %.tail, %sub_1, %sub_141, %.tail39, %sub_146, %.tail44, %sub_151, %.tail49, %31, %27, %24, %15, %10, %66
-  %.0 = phi i1 [ false, %15 ], [ true, %10 ], [ false, %24 ], [ false, %27 ], [ true, %66 ], [ false, %31 ], [ false, %.tail49 ], [ false, %sub_0 ], [ false, %sub_151 ], [ false, %.tail44 ], [ false, %sub_146 ], [ false, %.tail39 ], [ false, %sub_141 ], [ false, %sub_1 ], [ false, %.tail ]
+  %.0 = phi i1 [ true, %66 ], [ true, %10 ], [ false, %15 ], [ false, %24 ], [ false, %27 ], [ false, %31 ], [ false, %.tail49 ], [ false, %sub_151 ], [ false, %.tail44 ], [ false, %sub_146 ], [ false, %.tail39 ], [ false, %sub_141 ], [ false, %sub_1 ], [ false, %.tail ], [ false, %sub_0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

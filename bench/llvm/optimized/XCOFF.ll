@@ -296,12 +296,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11:      ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %24, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread.sink.split, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread
 
 _ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread.sink.split: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i14, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i163, %_ZN4llvmeqENS_9StringRefES0_.exit.i20.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i31.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
-  %.sink = phi i16 [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i163 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i ], [ 262, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i31.i ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i20.i ], [ 264, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11 ], [ 264, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i14 ]
+  %.sink = phi i16 [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i ], [ 262, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i31.i ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i20.i ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i163 ], [ 264, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11 ], [ 264, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i14 ]
   store i16 %.sink, ptr %15, align 8
   br label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread
 
 _ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread: ; preds = %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread.sink.split, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11
-  %.ph = phi i1 [ false, %2 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11 ], [ true, %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread.sink.split ]
+  %.ph = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i11 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ false, %2 ], [ true, %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit16.thread.sink.split ]
   %.not.i.i.i20295 = icmp ne i64 %13, 3
   %25 = or i1 %.not.i.i.i20295, %.ph
   br i1 %25, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E4CaseENS_13StringLiteralES2_.exit32, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29
@@ -501,7 +501,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i126:     ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %51, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit131.sink.split, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit131
 
 _ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit131.sink.split: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i129, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i126, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i118, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i115, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i107, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i104, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i96, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i93, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i85, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i82, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i74, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i71, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i63, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i60, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i52, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i49, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i41, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i38
-  %.sink303 = phi i16 [ 282, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i118 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i41 ], [ 274, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i52 ], [ 278, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i63 ], [ 276, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i74 ], [ 279, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i85 ], [ 280, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i96 ], [ 281, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i107 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i38 ], [ 274, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i49 ], [ 278, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i60 ], [ 276, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i71 ], [ 279, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i82 ], [ 280, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i93 ], [ 281, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i104 ], [ 282, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i115 ], [ 283, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i126 ], [ 283, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i129 ]
+  %.sink303 = phi i16 [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i38 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i41 ], [ 274, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i49 ], [ 274, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i52 ], [ 278, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i60 ], [ 278, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i63 ], [ 276, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i71 ], [ 276, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i74 ], [ 279, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i82 ], [ 279, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i85 ], [ 280, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i93 ], [ 280, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i96 ], [ 281, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i104 ], [ 281, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i107 ], [ 282, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i115 ], [ 282, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i118 ], [ 283, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i126 ], [ 283, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i129 ]
   store i16 %.sink303, ptr %29, align 8
   br label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit131
 
@@ -568,7 +568,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i153:     ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %61, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E4CaseENS_13StringLiteralES2_.exit147.thread.sink.split, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E5CasesENS_13StringLiteralES4_S2_.exit158
 
 _ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E4CaseENS_13StringLiteralES2_.exit147.thread.sink.split: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i156, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i153, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i144, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i136
-  %.sink304 = phi i16 [ 283, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i144 ], [ 281, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i136 ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i153 ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i156 ]
+  %.sink304 = phi i16 [ 281, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i136 ], [ 283, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i144 ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i153 ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i156 ]
   store i16 %.sink304, ptr %53, align 8
   br label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E4CaseENS_13StringLiteralES2_.exit147.thread
 
@@ -673,8 +673,8 @@ define dso_local { ptr, i64 } @_ZN4llvm5XCOFF13getTCPUStringENS0_10CFileCpuIdE(i
   br label %22
 
 22:                                               ; preds = %1, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.23.0 = phi i64 [ 7, %21 ], [ 4, %20 ], [ 5, %19 ], [ 5, %2 ], [ 3, %3 ], [ 3, %4 ], [ 3, %5 ], [ 3, %6 ], [ 3, %7 ], [ 3, %8 ], [ 3, %9 ], [ 3, %10 ], [ 4, %11 ], [ 3, %12 ], [ 4, %13 ], [ 5, %14 ], [ 5, %15 ], [ 4, %16 ], [ 4, %17 ], [ 4, %18 ], [ 3, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.102, %21 ], [ @.str.106, %20 ], [ @.str.93, %19 ], [ @.str.103, %2 ], [ @.str.61, %3 ], [ @.str.104, %4 ], [ @.str.101, %5 ], [ @.str.62, %6 ], [ @.str.64, %7 ], [ @.str.67, %8 ], [ @.str.69, %9 ], [ @.str.105, %10 ], [ @.str.79, %11 ], [ @.str.70, %12 ], [ @.str.83, %13 ], [ @.str.81, %14 ], [ @.str.85, %15 ], [ @.str.87, %16 ], [ @.str.89, %17 ], [ @.str.91, %18 ], [ @.str.95, %1 ]
+  %.sroa.23.0 = phi i64 [ 7, %21 ], [ 5, %2 ], [ 3, %3 ], [ 3, %4 ], [ 3, %5 ], [ 3, %6 ], [ 3, %7 ], [ 3, %8 ], [ 3, %9 ], [ 3, %10 ], [ 4, %11 ], [ 3, %12 ], [ 4, %13 ], [ 5, %14 ], [ 5, %15 ], [ 4, %16 ], [ 4, %17 ], [ 4, %18 ], [ 5, %19 ], [ 4, %20 ], [ 3, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.102, %21 ], [ @.str.103, %2 ], [ @.str.61, %3 ], [ @.str.104, %4 ], [ @.str.101, %5 ], [ @.str.62, %6 ], [ @.str.64, %7 ], [ @.str.67, %8 ], [ @.str.69, %9 ], [ @.str.105, %10 ], [ @.str.79, %11 ], [ @.str.70, %12 ], [ @.str.83, %13 ], [ @.str.81, %14 ], [ @.str.85, %15 ], [ @.str.87, %16 ], [ @.str.89, %17 ], [ @.str.91, %18 ], [ @.str.93, %19 ], [ @.str.106, %20 ], [ @.str.95, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.23.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1494,14 +1494,14 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i12.sink.split: ; preds = %33, %32, %31, %30
-  %.sink.ph = phi i16 [ 26998, %32 ], [ 29558, %31 ], [ 25462, %30 ], [ 26230, %33 ]
+  %.sink.ph = phi i16 [ 25462, %30 ], [ 29558, %31 ], [ 26998, %32 ], [ 26230, %33 ]
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %8, i64 noundef %27, i64 noundef 1) #12
   %.pre8.pre.i.i34 = load i64, ptr %9, align 8, !tbaa !19
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i12
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i12: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i12.sink.split, %33, %32, %31, %30
-  %.pre8.i.i31.sink = phi i64 [ %24, %31 ], [ %24, %32 ], [ %24, %33 ], [ %24, %30 ], [ %.pre8.pre.i.i34, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i12.sink.split ]
-  %.sink = phi i16 [ 29558, %31 ], [ 26998, %32 ], [ 26230, %33 ], [ 25462, %30 ], [ %.sink.ph, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i12.sink.split ]
+  %.pre8.i.i31.sink = phi i64 [ %24, %30 ], [ %24, %31 ], [ %24, %32 ], [ %24, %33 ], [ %.pre8.pre.i.i34, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i12.sink.split ]
+  %.sink = phi i16 [ 25462, %30 ], [ 29558, %31 ], [ 26998, %32 ], [ 26230, %33 ], [ %.sink.ph, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i12.sink.split ]
   %34 = load ptr, ptr %6, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.pre8.i.i31.sink
   store i16 %.sink, ptr %35, align 1

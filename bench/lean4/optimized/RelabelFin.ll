@@ -1030,7 +1030,7 @@ lean_dec.exit11:                                  ; preds = %40, %39, %37, %lean
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %45, %49, %55, %57, %58, %lean_obj_tag.exit
-  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ %52, %58 ], [ %52, %55 ], [ %52, %57 ], [ %50, %49 ], [ %48, %45 ]
+  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ %52, %55 ], [ %52, %57 ], [ %52, %58 ], [ %50, %49 ], [ %48, %45 ]
   ret ptr %.0
 }
 
@@ -1263,7 +1263,7 @@ lean_nat_lt.exit.thread:                          ; preds = %5
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %lean_nat_lt.exit.thread7, %12, %14, %15
-  %.0 = phi ptr [ %spec.select9, %lean_nat_lt.exit.thread ], [ %spec.select, %lean_nat_lt.exit ], [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ inttoptr (i64 1 to ptr), %lean_nat_lt.exit.thread7 ]
+  %.0 = phi ptr [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ inttoptr (i64 1 to ptr), %lean_nat_lt.exit.thread7 ], [ %spec.select9, %lean_nat_lt.exit.thread ], [ %spec.select, %lean_nat_lt.exit ]
   ret ptr %.0
 }
 
@@ -1456,7 +1456,7 @@ thread-pre-split:                                 ; preds = %15, %lean_nat_lt.ex
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %14, %22, %21, %19, %lean_nat_lt.exit.thread.i, %lean_nat_lt.exit.i
-  %.0.i11 = phi ptr [ %spec.select.i, %lean_nat_lt.exit.i ], [ %spec.select9.i, %lean_nat_lt.exit.thread.i ], [ %.0.i.ph, %19 ], [ %.0.i.ph, %21 ], [ %.0.i.ph, %22 ], [ %1, %14 ]
+  %.0.i11 = phi ptr [ %spec.select9.i, %lean_nat_lt.exit.thread.i ], [ %spec.select.i, %lean_nat_lt.exit.i ], [ %.0.i.ph, %19 ], [ %.0.i.ph, %21 ], [ %.0.i.ph, %22 ], [ %1, %14 ]
   %23 = ptrtoint ptr %0 to i64
   %24 = and i64 %23, 1
   %.not = icmp eq i64 %24, 0

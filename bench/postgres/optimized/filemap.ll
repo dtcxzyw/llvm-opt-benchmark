@@ -1195,7 +1195,7 @@ keepwal_entry_exists.exit.i:                      ; preds = %.lr.ph.i.i.i.i
   unreachable
 
 decide_file_action.exit:                          ; preds = %94, %filehash_iterate.exit, %35, %64, %75, %76, %76, %79, %83, %keepwal_entry_exists.exit.i, %107, %114, %116, %116, %118, %122, %128
-  %.0.i = phi i32 [ 2, %79 ], [ 4, %filehash_iterate.exit ], [ %..i, %64 ], [ 4, %35 ], [ 4, %75 ], [ 4, %114 ], [ 4, %116 ], [ 2, %118 ], [ %.30.i, %128 ], [ 3, %122 ], [ 4, %116 ], [ 4, %107 ], [ 1, %76 ], [ 4, %keepwal_entry_exists.exit.i ], [ 1, %76 ], [ 6, %83 ], [ 6, %94 ]
+  %.0.i = phi i32 [ 2, %79 ], [ 4, %filehash_iterate.exit ], [ 4, %35 ], [ %..i, %64 ], [ 1, %76 ], [ 1, %76 ], [ 4, %107 ], [ 4, %keepwal_entry_exists.exit.i ], [ 4, %114 ], [ 4, %116 ], [ 4, %116 ], [ 2, %118 ], [ 3, %122 ], [ %.30.i, %128 ], [ 6, %83 ], [ 4, %75 ], [ 6, %94 ]
   %132 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store i32 %.0.i, ptr %132, align 8
   %.pre = load ptr, ptr @filehash, align 8
@@ -1315,7 +1315,7 @@ define internal i32 @final_filemap_cmp(ptr noundef readonly captures(none) %0, p
   br label %18
 
 18:                                               ; preds = %.sink.split, %10, %2
-  %.0 = phi i32 [ -1, %10 ], [ 1, %2 ], [ %17, %.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ -1, %10 ], [ %17, %.sink.split ]
   ret i32 %.0
 }
 

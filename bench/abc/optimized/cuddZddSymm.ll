@@ -452,7 +452,7 @@ cuddZddSymmSummary.exit.loopexit:                 ; preds = %.loopexit.i
   br label %cuddZddSymmSummary.exit
 
 cuddZddSymmSummary.exit:                          ; preds = %.thread120, %69, %cuddZddSymmSummary.exit.loopexit, %.thread79, %.thread
-  %.0 = phi i32 [ 0, %.thread79 ], [ 0, %.thread ], [ 0, %.thread120 ], [ 1, %69 ], [ %83, %cuddZddSymmSummary.exit.loopexit ]
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %.thread79 ], [ 1, %69 ], [ %83, %cuddZddSymmSummary.exit.loopexit ], [ 0, %.thread120 ]
   ret i32 %.0
 }
 
@@ -1036,8 +1036,8 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
   br i1 %.not394, label %..loopexit407_crit_edge, label %259, !llvm.loop !79
 
 265:                                              ; preds = %156, %249, %191, %128, %84
-  %.0330 = phi ptr [ inttoptr (i64 1 to ptr), %156 ], [ %.1331, %84 ], [ %158, %191 ], [ %102, %128 ], [ %.4334, %249 ]
-  %.0324 = phi ptr [ %141, %156 ], [ %52, %84 ], [ %.4328, %191 ], [ %.2326, %128 ], [ %210, %249 ]
+  %.0330 = phi ptr [ %.1331, %84 ], [ %102, %128 ], [ inttoptr (i64 1 to ptr), %156 ], [ %158, %191 ], [ %.4334, %249 ]
+  %.0324 = phi ptr [ %52, %84 ], [ %.2326, %128 ], [ %141, %156 ], [ %.4328, %191 ], [ %210, %249 ]
   %266 = icmp ult ptr %.0324, inttoptr (i64 2 to ptr)
   br i1 %266, label %.thread, label %.preheader404
 
@@ -1063,7 +1063,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit419, %.loopexit405, %265
-  %.0330504 = phi ptr [ %.0330, %265 ], [ %.0330, %.loopexit405 ], [ %198, %.loopexit419 ]
+  %.0330504 = phi ptr [ %.0330, %.loopexit405 ], [ %.0330, %265 ], [ %198, %.loopexit419 ]
   %274 = icmp ult ptr %.0330504, inttoptr (i64 2 to ptr)
   br i1 %274, label %.loopexit407, label %.preheader
 
@@ -1093,7 +1093,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
   br label %.loopexit407
 
 .loopexit407:                                     ; preds = %50, %100, %140, %197, %.preheader406, %..loopexit407_crit_edge, %.loopexit, %.thread
-  %.0337 = phi i32 [ 0, %.loopexit ], [ 0, %.thread ], [ 1, %..loopexit407_crit_edge ], [ 1, %.preheader406 ], [ 0, %197 ], [ 0, %140 ], [ 0, %100 ], [ 0, %50 ]
+  %.0337 = phi i32 [ 0, %.thread ], [ 0, %.loopexit ], [ 1, %..loopexit407_crit_edge ], [ 1, %.preheader406 ], [ 0, %197 ], [ 0, %140 ], [ 0, %100 ], [ 0, %50 ]
   ret i32 %.0337
 }
 
@@ -1803,8 +1803,8 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   br i1 %.not353.i, label %..loopexit366_crit_edge.i, label %314, !llvm.loop !99
 
 320:                                              ; preds = %306, %252, %218, %194, %153
-  %.0290.i = phi ptr [ inttoptr (i64 1 to ptr), %218 ], [ %.1291.i, %153 ], [ %220, %252 ], [ %168, %194 ], [ %.4294.i, %306 ]
-  %.0286.i = phi ptr [ %200, %218 ], [ %119, %153 ], [ %.4.i, %252 ], [ %.2288.i, %194 ], [ %266, %306 ]
+  %.0290.i = phi ptr [ %.1291.i, %153 ], [ %168, %194 ], [ inttoptr (i64 1 to ptr), %218 ], [ %220, %252 ], [ %.4294.i, %306 ]
+  %.0286.i = phi ptr [ %119, %153 ], [ %.2288.i, %194 ], [ %200, %218 ], [ %.4.i, %252 ], [ %266, %306 ]
   %321 = icmp ult ptr %.0286.i, inttoptr (i64 2 to ptr)
   br i1 %321, label %.thread.i, label %.preheader363.i
 
@@ -1829,7 +1829,7 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit382.i, %.loopexit364.i, %320
-  %.0290444.i = phi ptr [ %.0290.i, %320 ], [ %.0290.i, %.loopexit364.i ], [ %254, %.loopexit382.i ]
+  %.0290444.i = phi ptr [ %.0290.i, %.loopexit364.i ], [ %.0290.i, %320 ], [ %254, %.loopexit382.i ]
   %328 = icmp ult ptr %.0290444.i, inttoptr (i64 2 to ptr)
   br i1 %328, label %cuddZddSymmSiftingConvAux.exit.thread, label %.preheader.i
 
@@ -1919,7 +1919,7 @@ cuddZddSymmSummary.exit:                          ; preds = %cuddZddSymmSummary.
   store ptr null, ptr @zdd_entry, align 8, !tbaa !43
   br label %356
 
-cuddZddSymmSiftingConvAux.exit.thread:            ; preds = %67, %117, %166, %199, %253, %.thread.i, %.loopexit.i, %21
+cuddZddSymmSiftingConvAux.exit.thread:            ; preds = %67, %117, %166, %199, %253, %.loopexit.i, %.thread.i, %21
   %.pr = load ptr, ptr @zdd_entry, align 8, !tbaa !43
   %.not130 = icmp eq ptr %.pr, null
   br i1 %.not130, label %354, label %353
@@ -1937,7 +1937,7 @@ cuddZddSymmSiftingConvAux.exit.thread:            ; preds = %67, %117, %166, %19
   br label %356
 
 356:                                              ; preds = %352, %cuddZddSymmSummary.exit, %.thread143, %354, %355
-  %.0105 = phi i32 [ 0, %.thread143 ], [ 0, %355 ], [ 0, %354 ], [ %.019.lcssa.i, %cuddZddSymmSummary.exit ], [ %.019.lcssa.i, %352 ]
+  %.0105 = phi i32 [ 0, %355 ], [ 0, %354 ], [ 0, %.thread143 ], [ %.019.lcssa.i, %cuddZddSymmSummary.exit ], [ %.019.lcssa.i, %352 ]
   ret i32 %.0105
 }
 
@@ -2107,7 +2107,7 @@ split:                                            ; preds = %48, %._crit_edge106
   br label %.loopexit90
 
 .loopexit90:                                      ; preds = %51, %split, %..loopexit_crit_edge, %4, %._crit_edge.loopexit, %69
-  %.074 = phi ptr [ inttoptr (i64 1 to ptr), %split ], [ null, %4 ], [ %70, %69 ], [ %.pre, %._crit_edge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %49, %51 ]
+  %.074 = phi ptr [ %70, %69 ], [ %.pre, %._crit_edge.loopexit ], [ null, %4 ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ inttoptr (i64 1 to ptr), %split ], [ %49, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.074
 }
@@ -2285,7 +2285,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingBackward(ptr nound
   br i1 %.not85.not.i, label %.preheader.i, label %zdd_group_move_backward.exit, !llvm.loop !112
 
 zdd_group_move_backward.exit:                     ; preds = %._crit_edge.i, %73, %.preheader89.i, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %73 ], [ -1, %.preheader89.i ], [ %.171.lcssa.i, %._crit_edge.i ]
+  %.0 = phi i32 [ %30, %29 ], [ -1, %.preheader89.i ], [ 0, %73 ], [ %.171.lcssa.i, %._crit_edge.i ]
   %80 = icmp eq i32 %.0, %spec.select
   %or.cond45 = select i1 %6, i1 %80, i1 false
   br i1 %or.cond45, label %._crit_edge, label %81
@@ -2300,7 +2300,7 @@ zdd_group_move_backward.exit:                     ; preds = %._crit_edge.i, %73,
   br i1 %or.cond, label %._crit_edge, label %13, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %29, %zdd_group_move_backward.exit, %81, %3, %.preheader
-  %.037 = phi i32 [ 1, %.preheader ], [ 1, %3 ], [ 1, %81 ], [ 0, %29 ], [ 1, %zdd_group_move_backward.exit ]
+  %.037 = phi i32 [ 1, %.preheader ], [ 1, %3 ], [ 1, %81 ], [ 1, %zdd_group_move_backward.exit ], [ 0, %29 ]
   ret i32 %.037
 }
 
@@ -2460,7 +2460,7 @@ split:                                            ; preds = %45, %._crit_edge93
   br label %.loopexit77
 
 .loopexit77:                                      ; preds = %48, %split, %..loopexit_crit_edge, %4, %._crit_edge.loopexit, %65
-  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %split ], [ null, %4 ], [ %66, %65 ], [ %.pre, %._crit_edge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %46, %48 ]
+  %.0 = phi ptr [ %66, %65 ], [ %.pre, %._crit_edge.loopexit ], [ null, %4 ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ inttoptr (i64 1 to ptr), %split ], [ %46, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

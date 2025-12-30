@@ -864,14 +864,14 @@ define { i32, ptr } @_ZN5folly10symbolizer7ElfFile4initEv(ptr noundef nonnull al
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %55, %38, %25, %29, %35, %32, %42, %46, %49, %52, %.thread, %22, %21
-  %.sroa.0.2 = phi i32 [ -2, %22 ], [ -2, %21 ], [ -2, %.thread ], [ -2, %25 ], [ -2, %29 ], [ -2, %32 ], [ -2, %38 ], [ -2, %42 ], [ -2, %46 ], [ -2, %52 ], [ -2, %35 ], [ -2, %49 ], [ 0, %55 ], [ 0, %53 ]
-  %.sroa.15.2 = phi ptr [ @.str.17, %22 ], [ @.str.16, %21 ], [ @.str.25, %.thread ], [ @.str.18, %25 ], [ @.str.19, %29 ], [ @.str.20, %32 ], [ @.str.21, %38 ], [ @.str.22, %42 ], [ @.str.23, %46 ], [ @.str.24, %52 ], [ @.str.20, %35 ], [ @.str.24, %49 ], [ null, %55 ], [ null, %53 ]
+  %.sroa.0.2 = phi i32 [ -2, %21 ], [ -2, %22 ], [ -2, %25 ], [ -2, %29 ], [ -2, %35 ], [ -2, %32 ], [ -2, %38 ], [ -2, %42 ], [ -2, %46 ], [ -2, %49 ], [ -2, %52 ], [ -2, %.thread ], [ 0, %55 ], [ 0, %53 ]
+  %.sroa.15.2 = phi ptr [ @.str.16, %21 ], [ @.str.17, %22 ], [ @.str.18, %25 ], [ @.str.19, %29 ], [ @.str.20, %35 ], [ @.str.20, %32 ], [ @.str.21, %38 ], [ @.str.22, %42 ], [ @.str.23, %46 ], [ @.str.24, %49 ], [ @.str.24, %52 ], [ @.str.25, %.thread ], [ null, %55 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
 59:                                               ; preds = %15, %7, %14, %.critedge
-  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %.critedge ], [ -2, %7 ], [ -2, %14 ], [ -2, %15 ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.2, %.critedge ], [ @.str.13, %7 ], [ @.str.13, %14 ], [ @.str.15, %15 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %.critedge ], [ -2, %14 ], [ -2, %7 ], [ -2, %15 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.2, %.critedge ], [ @.str.13, %14 ], [ @.str.13, %7 ], [ @.str.15, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %60
 
@@ -1027,8 +1027,8 @@ _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %33, %38
   br label %50
 
 50:                                               ; preds = %49, %17, %9, %3
-  %.sroa.019.0 = phi i32 [ %6, %3 ], [ 0, %9 ], [ 0, %17 ], [ %.sroa.019.3, %49 ]
-  %.pn47 = phi { i32, ptr } [ %5, %3 ], [ %5, %9 ], [ %5, %17 ], [ %.pn, %49 ]
+  %.sroa.019.0 = phi i32 [ %6, %3 ], [ 0, %9 ], [ %.sroa.019.3, %49 ], [ 0, %17 ]
+  %.pn47 = phi { i32, ptr } [ %5, %3 ], [ %5, %9 ], [ %.pn, %49 ], [ %5, %17 ]
   %.sroa.629.0 = extractvalue { i32, ptr } %.pn47, 1
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.629.0, 1
@@ -1114,7 +1114,7 @@ _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i11: ; preds = %_ZNK5folly10symb
   br i1 %exitcond.not.i, label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_16getSectionByNameEPKcE3$_0EEPK10Elf64_ShdrT_.exit", label %31, !llvm.loop !82
 
 "_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_16getSectionByNameEPKcE3$_0EEPK10Elf64_ShdrT_.exit": ; preds = %"_ZZNK5folly10symbolizer7ElfFile16getSectionByNameEPKcENK3$_0clERK10Elf64_Shdr.exit.i", %"_ZZNK5folly10symbolizer7ElfFile16getSectionByNameEPKcENK3$_0clERK10Elf64_Shdr.exit.thread.i", %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i11, %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit
-  %.0 = phi ptr [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit ], [ null, %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit ], [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i11 ], [ %.0818.i, %"_ZZNK5folly10symbolizer7ElfFile16getSectionByNameEPKcENK3$_0clERK10Elf64_Shdr.exit.i" ], [ null, %"_ZZNK5folly10symbolizer7ElfFile16getSectionByNameEPKcENK3$_0clERK10Elf64_Shdr.exit.thread.i" ]
+  %.0 = phi ptr [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit ], [ null, %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit ], [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i11 ], [ null, %"_ZZNK5folly10symbolizer7ElfFile16getSectionByNameEPKcENK3$_0clERK10Elf64_Shdr.exit.thread.i" ], [ %.0818.i, %"_ZZNK5folly10symbolizer7ElfFile16getSectionByNameEPKcENK3$_0clERK10Elf64_Shdr.exit.i" ]
   ret ptr %.0
 }
 
@@ -1952,7 +1952,7 @@ _ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i: ; preds = 
   br i1 %69, label %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.us.i.i.i, label %76
 
 _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.us.i.i.i: ; preds = %._crit_edge._crit_edge52.i.i.i.i.i.i.i.us.us.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.us.us.i.i.i, %61
-  %.028.i.i.i.i.i.i.i.us.us.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.us.us.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.us.us.i.i.i ], [ %.sroa.0.0.copyload.i.i.i, %61 ], [ %.2.i.i.i.i.i.i.i.us.us.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.us.us.i.i.i ]
+  %.028.i.i.i.i.i.i.i.us.us.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %61 ], [ %.1.i.i.i.i.i.i.i.us.us.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.us.us.i.i.i ], [ %.2.i.i.i.i.i.i.i.us.us.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.us.us.i.i.i ]
   %.not.i16.i.i.i.us.us.i.i.i = icmp eq ptr %.028.i.i.i.i.i.i.i.us.us.i.i.i, %48
   br i1 %.not.i16.i.i.i.us.us.i.i.i, label %76, label %70
 
@@ -2047,7 +2047,7 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit162: 
   br label %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i
 
 _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.us.i.i.i, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit160, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit162, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.us.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.us.i.i.i, %102
-  %.028.i.i.i.i.i.i.i.us.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.us.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.us.i.i.i ], [ %scevgep.i.i.i.i.i.i.i.i.i.i, %102 ], [ %.2.i.i.i.i.i.i.i.us.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.us.i.i.i ], [ %113, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit162 ], [ %112, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit160 ], [ %111, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i.i.i.us.i.i.i, %.lr.ph.i.i.i.i.i.i.i.us.i.i.i ]
+  %.028.i.i.i.i.i.i.i.us.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i, %102 ], [ %.1.i.i.i.i.i.i.i.us.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.us.i.i.i ], [ %.2.i.i.i.i.i.i.i.us.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.us.i.i.i ], [ %111, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit ], [ %112, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit160 ], [ %113, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i.loopexit.split.loop.exit162 ], [ %.02946.i.i.i.i.i.i.i.us.i.i.i, %.lr.ph.i.i.i.i.i.i.i.us.i.i.i ]
   %.not.i16.i.i.i.us.i.i.i = icmp eq ptr %.028.i.i.i.i.i.i.i.us.i.i.i, %48
   br i1 %.not.i16.i.i.i.us.i.i.i, label %120, label %114
 
@@ -2162,7 +2162,7 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit154: ; p
   br label %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i
 
 _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit152, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit154, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i, %145
-  %.028.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i, %145 ], [ %.2.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i.i.i ], [ %158, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit154 ], [ %156, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit ], [ %157, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit152 ], [ %.02946.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i, %145 ], [ %.1.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i.i.i ], [ %156, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit ], [ %157, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit152 ], [ %158, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i.loopexit.split.loop.exit154 ], [ %.02946.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %.not.i16.i.i.i.i.i.i = icmp eq ptr %.028.i.i.i.i.i.i.i.i.i.i, %48
   br i1 %.not.i16.i.i.i.i.i.i, label %201, label %159
 
@@ -2433,7 +2433,7 @@ _ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm.exit: ; preds = %_ZNK5f
   br label %57
 
 57:                                               ; preds = %_ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm.exit, %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit, %10, %7, %2, %4
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %10 ], [ null, %4 ], [ %56, %_ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm.exit ], [ null, %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %7 ], [ null, %10 ], [ %56, %_ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm.exit ], [ null, %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit ]
   ret ptr %.0
 }
 

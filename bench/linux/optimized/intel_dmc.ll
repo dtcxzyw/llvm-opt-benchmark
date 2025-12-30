@@ -613,7 +613,7 @@ thread-pre-split:                                 ; preds = %27, %13
   br label %.thread16.us
 
 .thread16.us:                                     ; preds = %.thread14.us, %213, %208, %.split31.us
-  %215 = phi i32 [ 196864, %.thread14.us ], [ %195, %213 ], [ %195, %.split31.us ], [ %195, %208 ]
+  %215 = phi i32 [ 196864, %.thread14.us ], [ %195, %208 ], [ %195, %213 ], [ %195, %.split31.us ]
   %216 = load i32, ptr %191, align 4
   %217 = load ptr, ptr %176, align 8
   tail call void %217(ptr noundef nonnull %111, i32 %216, i32 noundef %215, i1 noundef zeroext true) #12
@@ -2014,12 +2014,12 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
   br i1 %465, label %.thread44, label %.thread46
 
 .thread44:                                        ; preds = %464, %459, %450, %.thread42
-  %466 = phi ptr [ %439, %.thread42 ], [ @.str.53, %464 ], [ @.str.53, %450 ], [ @.str.53, %459 ]
+  %466 = phi ptr [ %439, %.thread42 ], [ @.str.53, %450 ], [ @.str.53, %459 ], [ @.str.53, %464 ]
   br label %.thread46
 
 .thread46:                                        ; preds = %446, %464, %459, %.thread42, %.thread44
-  %467 = phi ptr [ %466, %.thread44 ], [ @.str.53, %464 ], [ %439, %.thread42 ], [ @.str.53, %459 ], [ %449, %446 ]
-  %468 = phi ptr [ @.str.56, %.thread44 ], [ @.str.55, %464 ], [ @.str.55, %.thread42 ], [ @.str.55, %459 ], [ @.str.55, %446 ]
+  %467 = phi ptr [ %466, %.thread44 ], [ %439, %.thread42 ], [ @.str.53, %459 ], [ @.str.53, %464 ], [ %449, %446 ]
+  %468 = phi ptr [ @.str.56, %.thread44 ], [ @.str.55, %.thread42 ], [ @.str.55, %459 ], [ @.str.55, %464 ], [ @.str.55, %446 ]
   %469 = trunc i64 %410 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %420, i32 noundef 2, ptr noundef nonnull @.str.52, i32 noundef %469, i32 noundef %421, i32 noundef %415, ptr noundef nonnull %467, ptr noundef nonnull %468) #12
   %470 = add nuw nsw i64 %410, 1

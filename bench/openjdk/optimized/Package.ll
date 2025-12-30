@@ -969,8 +969,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122AppLauncherInitializer6ac
   ret i1 %38
 
 39:                                               ; preds = %28, %30, %15, %17
-  %.sink = phi ptr [ %4, %15 ], [ %4, %17 ], [ %6, %30 ], [ %6, %28 ]
-  %.pn10.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ], [ %31, %30 ], [ %29, %28 ]
+  %.sink = phi ptr [ %4, %17 ], [ %4, %15 ], [ %6, %30 ], [ %6, %28 ]
+  %.pn10.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %31, %30 ], [ %29, %28 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #12
   resume { ptr, i32 } %.pn10.pn
 }

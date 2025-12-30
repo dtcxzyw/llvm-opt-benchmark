@@ -2731,9 +2731,9 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit180: ; preds = %.lr.ph.i157, %_ZN20
   br label %380
 
 380:                                              ; preds = %353, %373, %.critedge
-  %381 = phi ptr [ %247, %.critedge ], [ %354, %353 ], [ %354, %373 ]
-  %382 = phi ptr [ %248, %.critedge ], [ %354, %353 ], [ %354, %373 ]
-  %.1112 = phi i1 [ %.0111248, %.critedge ], [ %.0111248, %353 ], [ true, %373 ]
+  %381 = phi ptr [ %247, %.critedge ], [ %354, %373 ], [ %354, %353 ]
+  %382 = phi ptr [ %248, %.critedge ], [ %354, %373 ], [ %354, %353 ]
+  %.1112 = phi i1 [ %.0111248, %.critedge ], [ true, %373 ], [ %.0111248, %353 ]
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %383 = load i32, ptr %10, align 4, !tbaa !46
   %384 = sext i32 %383 to i64

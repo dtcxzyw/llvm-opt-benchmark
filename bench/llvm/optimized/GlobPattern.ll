@@ -590,9 +590,9 @@ _ZN4llvm5ErrorD2Ev.exit110.i:                     ; preds = %203
   br label %_ZN4llvm8ExpectedINS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj1EEEEC2IS8_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vISB_S8_EEvE4typeE.exit114.i
 
 208:                                              ; preds = %203, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit109.i, %176, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i, %155, %_ZN4llvm15SmallVectorImplIZL20parseBraceExpansionsB5cxx11NS_9StringRefESt8optionalImEE14BraceExpansionE12emplace_backIJEEERS4_DpOT_.exit.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %116
-  %.173.i = phi i64 [ %126, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ %.072183.i, %_ZN4llvm15SmallVectorImplIZL20parseBraceExpansionsB5cxx11NS_9StringRefESt8optionalImEE14BraceExpansionE12emplace_backIJEEERS4_DpOT_.exit.i ], [ %.072183.i, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i ], [ %.072183.i, %155 ], [ %.072183.i, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit109.i ], [ %.072183.i, %176 ], [ %204, %203 ], [ %.072183.i, %116 ]
-  %.170.i = phi i64 [ %.069184.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ %154, %_ZN4llvm15SmallVectorImplIZL20parseBraceExpansionsB5cxx11NS_9StringRefESt8optionalImEE14BraceExpansionE12emplace_backIJEEERS4_DpOT_.exit.i ], [ %175, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i ], [ %.069184.i, %155 ], [ %.069184.i, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit109.i ], [ %.069184.i, %176 ], [ %.069184.i, %203 ], [ %.069184.i, %116 ]
-  %.168.i = phi ptr [ %.067185.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ %.0.i.i, %_ZN4llvm15SmallVectorImplIZL20parseBraceExpansionsB5cxx11NS_9StringRefESt8optionalImEE14BraceExpansionE12emplace_backIJEEERS4_DpOT_.exit.i ], [ %.067185.i, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i ], [ null, %155 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit109.i ], [ null, %176 ], [ %.067185.i, %203 ], [ %.067185.i, %116 ]
+  %.173.i = phi i64 [ %.072183.i, %_ZN4llvm15SmallVectorImplIZL20parseBraceExpansionsB5cxx11NS_9StringRefESt8optionalImEE14BraceExpansionE12emplace_backIJEEERS4_DpOT_.exit.i ], [ %.072183.i, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i ], [ %.072183.i, %155 ], [ %.072183.i, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit109.i ], [ %.072183.i, %176 ], [ %204, %203 ], [ %126, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ %.072183.i, %116 ]
+  %.170.i = phi i64 [ %154, %_ZN4llvm15SmallVectorImplIZL20parseBraceExpansionsB5cxx11NS_9StringRefESt8optionalImEE14BraceExpansionE12emplace_backIJEEERS4_DpOT_.exit.i ], [ %175, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i ], [ %.069184.i, %155 ], [ %.069184.i, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit109.i ], [ %.069184.i, %176 ], [ %.069184.i, %203 ], [ %.069184.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ %.069184.i, %116 ]
+  %.168.i = phi ptr [ %.0.i.i, %_ZN4llvm15SmallVectorImplIZL20parseBraceExpansionsB5cxx11NS_9StringRefESt8optionalImEE14BraceExpansionE12emplace_backIJEEERS4_DpOT_.exit.i ], [ %.067185.i, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i ], [ null, %155 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit109.i ], [ null, %176 ], [ %.067185.i, %203 ], [ %.067185.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ %.067185.i, %116 ]
   %209 = add i64 %.173.i, 1
   %.not.i = icmp eq i64 %209, %50
   br i1 %.not.i, label %.critedge.i, label %116, !llvm.loop !75
@@ -643,7 +643,7 @@ _ZN4llvm5ErrorD2Ev.exit111.i:                     ; preds = %.critedge.i
   br i1 %.not84.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %221, %.lr.ph.i
-  %.175.i = phi i64 [ -1, %.lr.ph.i ], [ %222, %221 ]
+  %.175.i = phi i64 [ %222, %221 ], [ -1, %.lr.ph.i ]
   %224 = icmp ugt i64 %.175.i, %3
   br i1 %224, label %_ZN4llvm5ErrorD2Ev.exit112.i, label %.preheader.i
 
@@ -1687,12 +1687,12 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %144
   store ptr %147, ptr %0, align 8, !tbaa !41, !alias.scope !149
   br label %_ZN4llvm8ExpectedINS_11GlobPattern14SubGlobPatternEEC2IS2_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS5_S2_EEvE4typeE.exit
 
-.sink.split:                                      ; preds = %137, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %140, %139
+.sink.split:                                      ; preds = %137, %140, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %153
 
 153:                                              ; preds = %.sink.split, %31, %144
-  %.3 = phi i64 [ %.084, %31 ], [ %145, %144 ], [ %42, %.sink.split ]
+  %.3 = phi i64 [ %145, %144 ], [ %.084, %31 ], [ %42, %.sink.split ]
   %154 = add i64 %.3, 1
   %.not = icmp eq i64 %154, %2
   br i1 %.not, label %.critedge35, label %31, !llvm.loop !152
@@ -2134,7 +2134,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
   br i1 %or.cond26, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %.lr.ph
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %.lr.ph, %13, %7, %3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %.0 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ true, %7 ], [ false, %3 ], [ false, %13 ], [ %18, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ false, %3 ], [ true, %7 ], [ false, %13 ], [ %18, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -2314,7 +2314,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GlobPattern14SubGlobPattern5matc
   br i1 %.not6367, label %.outer47._crit_edge, label %.lr.ph.lr.ph, !llvm.loop !170
 
 .outer47._crit_edge:                              ; preds = %.outer, %.outer41, %.outer47.us, %.outer47, %.backedge.us, %.backedge, %3
-  %.034.lcssa = phi ptr [ %.037.ph89.fr, %.outer41 ], [ %43, %.backedge.us ], [ %65, %.outer47 ], [ %6, %3 ], [ %72, %.backedge ], [ %37, %.outer47.us ], [ %48, %.outer ]
+  %.034.lcssa = phi ptr [ %6, %3 ], [ %72, %.backedge ], [ %43, %.backedge.us ], [ %65, %.outer47 ], [ %37, %.outer47.us ], [ %.037.ph89.fr, %.outer41 ], [ %48, %.outer ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2328,7 +2328,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GlobPattern14SubGlobPattern5matc
   br label %.loopexit52.us
 
 .loopexit52.us:                                   ; preds = %21, %39, %16, %12, %.outer47._crit_edge
-  %.033 = phi i1 [ %83, %.outer47._crit_edge ], [ false, %39 ], [ false, %12 ], [ false, %16 ], [ false, %21 ]
+  %.033 = phi i1 [ %83, %.outer47._crit_edge ], [ false, %12 ], [ false, %16 ], [ false, %39 ], [ false, %21 ]
   ret i1 %.033
 }
 

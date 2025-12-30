@@ -400,8 +400,8 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit: ; preds = %if.else.thread, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %_M_refcount.i.i69 = phi ptr [ %_M_refcount.i.i68, %if.else.thread ], [ %_M_refcount.i.i, %if.else.i.i.i.i.i ], [ %_M_refcount.i.i, %if.then.i.i.i.i.i ]
-  %12 = phi i32 [ %1, %if.else.thread ], [ %8, %if.else.i.i.i.i.i ], [ %8, %if.then.i.i.i.i.i ]
+  %_M_refcount.i.i69 = phi ptr [ %_M_refcount.i.i68, %if.else.thread ], [ %_M_refcount.i.i, %if.then.i.i.i.i.i ], [ %_M_refcount.i.i, %if.else.i.i.i.i.i ]
+  %12 = phi i32 [ %1, %if.else.thread ], [ %8, %if.then.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i ]
   invoke void @_ZN8facebook5velox10BaseVector14wrapInConstantEiiSt10shared_ptrIS1_Eb(ptr nonnull sret(%"class.std::shared_ptr.29") align 8 %ref.tmp, i32 noundef %12, i32 noundef 0, ptr noundef nonnull %agg.tmp, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
@@ -2565,8 +2565,8 @@ sw.epilog:                                        ; preds = %invoke.cont47, %inv
   ret void
 
 eh.resume:                                        ; preds = %eh.resume.i, %lpad114.loopexit.split-lp, %lpad114.loopexit, %lpad88, %lpad99, %lpad60, %lpad71, %lpad35, %lpad46, %lpad
-  %ref.tmp105.sink = phi ptr [ %ref.tmp79, %lpad88 ], [ %ref.tmp51, %lpad60 ], [ %ref.tmp26, %lpad35 ], [ %ref.tmp, %lpad ], [ %ref.tmp26, %lpad46 ], [ %ref.tmp51, %lpad71 ], [ %ref.tmp79, %lpad99 ], [ %ref.tmp105, %lpad114.loopexit ], [ %ref.tmp105, %lpad114.loopexit.split-lp ], [ %ref.tmp105, %eh.resume.i ]
-  %.pn67 = phi { ptr, i32 } [ %29, %lpad88 ], [ %22, %lpad60 ], [ %15, %lpad35 ], [ %2, %lpad ], [ %16, %lpad46 ], [ %23, %lpad71 ], [ %30, %lpad99 ], [ %lpad.loopexit, %lpad114.loopexit ], [ %lpad.loopexit.split-lp, %lpad114.loopexit.split-lp ], [ %.pn.i, %eh.resume.i ]
+  %ref.tmp105.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp26, %lpad46 ], [ %ref.tmp26, %lpad35 ], [ %ref.tmp51, %lpad71 ], [ %ref.tmp51, %lpad60 ], [ %ref.tmp79, %lpad99 ], [ %ref.tmp79, %lpad88 ], [ %ref.tmp105, %lpad114.loopexit ], [ %ref.tmp105, %lpad114.loopexit.split-lp ], [ %ref.tmp105, %eh.resume.i ]
+  %.pn67 = phi { ptr, i32 } [ %2, %lpad ], [ %16, %lpad46 ], [ %15, %lpad35 ], [ %23, %lpad71 ], [ %22, %lpad60 ], [ %30, %lpad99 ], [ %29, %lpad88 ], [ %lpad.loopexit, %lpad114.loopexit ], [ %lpad.loopexit.split-lp, %lpad114.loopexit.split-lp ], [ %.pn.i, %eh.resume.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105.sink) #26
   resume { ptr, i32 } %.pn67
 }
@@ -3510,7 +3510,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -3718,7 +3718,7 @@ if.then26:                                        ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %for.body, %for.end, %if.then11, %entry, %if.then26, %if.then3
-  %retval.0 = phi i1 [ true, %entry ], [ %cmp.i, %if.then3 ], [ false, %if.then11 ], [ %cmp.i44, %if.then26 ], [ true, %for.end ], [ false, %for.body ]
+  %retval.0 = phi i1 [ %cmp.i, %if.then3 ], [ %cmp.i44, %if.then26 ], [ true, %entry ], [ false, %if.then11 ], [ true, %for.end ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -5785,7 +5785,7 @@ return.sink.split.i.i:                            ; preds = %if.then26.i.i, %if.
   br label %return
 
 return:                                           ; preds = %for.body.i.i, %return.sink.split.i.i, %for.end.i.i, %if.then11.i.i, %if.then, %entry, %land.lhs.true
-  %retval.0 = phi i1 [ false, %entry ], [ false, %land.lhs.true ], [ true, %if.then ], [ true, %for.end.i.i ], [ false, %if.then11.i.i ], [ %cmp.i50.i.i, %return.sink.split.i.i ], [ false, %for.body.i.i ]
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ true, %if.then ], [ false, %if.then11.i.i ], [ true, %for.end.i.i ], [ %cmp.i50.i.i, %return.sink.split.i.i ], [ false, %for.body.i.i ]
   ret i1 %retval.0
 }
 
@@ -5982,7 +5982,7 @@ if.then26.i.i.i:                                  ; preds = %for.end.i.i.i
   br label %land.end.i
 
 land.end.i:                                       ; preds = %for.body.i.i.i, %if.then26.i.i.i, %for.end.i.i.i, %land.rhs.i, %land.lhs.true.i, %if.end.i
-  %frombool.i = phi i16 [ 256, %land.lhs.true.i ], [ 256, %if.end.i ], [ 257, %land.rhs.i ], [ 257, %for.end.i.i.i ], [ %11, %if.then26.i.i.i ], [ 256, %for.body.i.i.i ]
+  %frombool.i = phi i16 [ 256, %land.lhs.true.i ], [ 256, %if.end.i ], [ 257, %land.rhs.i ], [ %11, %if.then26.i.i.i ], [ 257, %for.end.i.i.i ], [ 256, %for.body.i.i.i ]
   store i16 %frombool.i, ptr %allSelected_.i, align 4
   %12 = trunc i16 %frombool.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit

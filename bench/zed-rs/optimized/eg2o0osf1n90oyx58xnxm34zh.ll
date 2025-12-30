@@ -245,7 +245,7 @@ define hidden { i64, ptr } @_ZN8async_io6driver8block_on17h2fdc2333357ce770E(ptr
   unreachable
 
 .body:                                            ; preds = %.thread167, %82, %73
-  %.pn56.pn = phi { ptr, i32 } [ %74, %73 ], [ %83, %82 ], [ %.pn56, %.thread167 ]
+  %.pn56.pn = phi { ptr, i32 } [ %83, %82 ], [ %74, %73 ], [ %.pn56, %.thread167 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %78 = load ptr, ptr %28, align 8, !alias.scope !25, !nonnull !15, !noundef !15
@@ -489,8 +489,8 @@ define hidden { i64, ptr } @_ZN8async_io6driver8block_on17h2fdc2333357ce770E(ptr
           to label %199 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %210
-  %.sroa.017.1 = phi i8 [ %.sroa.017.2, %210 ], [ %.sroa.017.0.ph.ph178, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.017.0.ph.ph, %.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.phi177, %210 ], [ %lpad.loopexit.split-lp180, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit179, %.loopexit.split-lp.loopexit ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.2, %210 ], [ %.sroa.017.0.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.017.0.ph.ph178, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi177, %210 ], [ %lpad.loopexit179, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp180, %.loopexit.split-lp.loopexit.split-lp ]
   %198 = trunc nuw i8 %.sroa.017.1 to i1
   br i1 %198, label %306, label %.thread167
 
@@ -500,7 +500,7 @@ define hidden { i64, ptr } @_ZN8async_io6driver8block_on17h2fdc2333357ce770E(ptr
   br label %306
 
 .loopexit.split-lp.loopexit:                      ; preds = %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h11a0fa7ab8877796E.llvm.9190978326575674131.exit.i101", %267, %196
-  %.sroa.017.0.ph.ph = phi i8 [ %.sroa.017.3, %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h11a0fa7ab8877796E.llvm.9190978326575674131.exit.i101" ], [ 1, %196 ], [ %.sroa.017.3, %267 ]
+  %.sroa.017.0.ph.ph = phi i8 [ 1, %196 ], [ %.sroa.017.3, %267 ], [ %.sroa.017.3, %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h11a0fa7ab8877796E.llvm.9190978326575674131.exit.i101" ]
   %lpad.loopexit179 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -548,7 +548,7 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i: ; preds = %20
   br label %210
 
 .loopexit.split-lp174:                            ; preds = %246, %248, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h1b250865eeafbd08E.exit", %264, %266, %276, %278, %281, %283, %253, %257, %259, %262
-  %.sroa.017.2.ph = phi i8 [ 0, %253 ], [ 1, %246 ], [ 1, %248 ], [ 0, %262 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h1b250865eeafbd08E.exit" ], [ 0, %264 ], [ 0, %266 ], [ 0, %259 ], [ 1, %276 ], [ 1, %278 ], [ 0, %257 ], [ 1, %281 ], [ 1, %283 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %262 ], [ 0, %259 ], [ 0, %257 ], [ 0, %253 ], [ 1, %246 ], [ 1, %248 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h1b250865eeafbd08E.exit" ], [ 0, %264 ], [ 0, %266 ], [ 1, %276 ], [ 1, %278 ], [ 1, %281 ], [ 1, %283 ]
   %lpad.loopexit.split-lp176 = landingpad { ptr, i32 }
           cleanup
   br label %210
@@ -1124,7 +1124,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.
           to label %.body unwind label %186
 
 .thread:                                          ; preds = %369, %373, %81, %.body, %60
-  %.pn56.pn.pn164 = phi { ptr, i32 } [ %61, %60 ], [ %.pn56.pn, %81 ], [ %.pn56.pn, %.body ], [ %370, %373 ], [ %370, %369 ]
+  %.pn56.pn.pn164 = phi { ptr, i32 } [ %61, %60 ], [ %.pn56.pn, %.body ], [ %.pn56.pn, %81 ], [ %370, %373 ], [ %370, %369 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !147)
   call void @llvm.experimental.noalias.scope.decl(metadata !150)
   call void @llvm.experimental.noalias.scope.decl(metadata !153)

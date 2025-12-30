@@ -1132,7 +1132,7 @@ define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree7addBo
   br label %63
 
 63:                                               ; preds = %38, %57, %52, %43, %59, %40
-  %.2 = phi i32 [ -1, %40 ], [ %62, %59 ], [ -1, %52 ], [ -1, %43 ], [ -1, %38 ], [ -1, %57 ]
+  %.2 = phi i32 [ -1, %40 ], [ %62, %59 ], [ -1, %38 ], [ -1, %43 ], [ -1, %52 ], [ -1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %64
 
@@ -1469,7 +1469,7 @@ _ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpldlEPv.exit: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %142
 
-.critedge75:                                      ; preds = %84, %88, %131
+.critedge75:                                      ; preds = %88, %84, %131
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1496,7 +1496,7 @@ _ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpldlEPv.exit: ; preds =
   br label %142
 
 142:                                              ; preds = %.critedge, %.critedge73, %.critedge75, %16, %139, %138
-  %.0 = phi i32 [ -1, %16 ], [ -1, %138 ], [ 0, %139 ], [ -1, %.critedge75 ], [ -1, %.critedge73 ], [ -1, %.critedge ]
+  %.0 = phi i32 [ -1, %138 ], [ 0, %139 ], [ -1, %16 ], [ -1, %.critedge75 ], [ -1, %.critedge73 ], [ -1, %.critedge ]
   ret i32 %.0
 }
 

@@ -1536,7 +1536,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__do_semtimedop(i32 nou
   br label %153
 
 153:                                              ; preds = %151, %109, %100
-  %154 = phi ptr [ %92, %100 ], [ %107, %109 ], [ %152, %151 ]
+  %154 = phi ptr [ %107, %109 ], [ %92, %100 ], [ %152, %151 ]
   %155 = icmp ugt ptr %154, inttoptr (i64 -4096 to ptr)
   br i1 %155, label %.thread24, label %162
 
@@ -2101,7 +2101,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr noundef c
   %100 = icmp ult ptr %99, %14
   br i1 %100, label %63, label %.critedge, !llvm.loop !42
 
-101:                                              ; preds = %42, %24
+101:                                              ; preds = %24, %42
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %25, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -2279,7 +2279,7 @@ do_smart_wakeup_zero.exit.thread:                 ; preds = %7
   br i1 %106, label %.thread5, label %91, !llvm.loop !47
 
 .thread5:                                         ; preds = %103, %.preheader, %do_smart_wakeup_zero.exit.thread3, %do_smart_wakeup_zero.exit.thread, %.thread4, %78, %73
-  %107 = phi i32 [ %76, %73 ], [ %63, %.thread4 ], [ %63, %78 ], [ %3, %do_smart_wakeup_zero.exit.thread ], [ %87, %.preheader ], [ %3, %do_smart_wakeup_zero.exit.thread3 ], [ %104, %103 ]
+  %107 = phi i32 [ %76, %73 ], [ %63, %.thread4 ], [ %63, %78 ], [ %3, %do_smart_wakeup_zero.exit.thread ], [ %3, %do_smart_wakeup_zero.exit.thread3 ], [ %87, %.preheader ], [ %104, %103 ]
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %120, label %109
 
@@ -3995,8 +3995,8 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit39, %.loopexit36, %52, %45, %.loopexit35, %186, %183, %179, %177, %168, %163
-  %189 = phi ptr [ %6, %168 ], [ %6, %186 ], [ %6, %183 ], [ %6, %179 ], [ %6, %177 ], [ %6, %.loopexit35 ], [ %6, %163 ], [ %50, %52 ], [ %6, %45 ], [ %89, %.loopexit36 ], [ %89, %.loopexit39 ]
-  %190 = phi i32 [ -22, %168 ], [ %188, %186 ], [ %185, %183 ], [ %182, %179 ], [ %178, %177 ], [ -43, %.loopexit35 ], [ -43, %163 ], [ -43, %52 ], [ -43, %45 ], [ 0, %.loopexit36 ], [ -43, %.loopexit39 ]
+  %189 = phi ptr [ %6, %168 ], [ %6, %186 ], [ %6, %183 ], [ %6, %179 ], [ %6, %177 ], [ %6, %163 ], [ %50, %52 ], [ %6, %45 ], [ %6, %.loopexit35 ], [ %89, %.loopexit36 ], [ %89, %.loopexit39 ]
+  %190 = phi i32 [ -22, %168 ], [ %188, %186 ], [ %185, %183 ], [ %182, %179 ], [ %178, %177 ], [ -43, %163 ], [ -43, %52 ], [ -43, %45 ], [ -43, %.loopexit35 ], [ 0, %.loopexit36 ], [ -43, %.loopexit39 ]
   %191 = getelementptr inbounds nuw i8, ptr %9, i64 188
   %192 = load i32, ptr %191, align 4
   %193 = icmp eq i32 %192, 0
@@ -4069,7 +4069,7 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
   call void @wake_up_q(ptr noundef nonnull %7) #12
   br label %.thread24
 
-.thread24:                                        ; preds = %105, %99, %73, %74, %222
+.thread24:                                        ; preds = %105, %99, %74, %73, %222
   %225 = phi ptr [ %223, %222 ], [ %56, %73 ], [ %56, %74 ], [ %89, %99 ], [ %89, %105 ]
   %226 = phi i32 [ %224, %222 ], [ -14, %73 ], [ %77, %74 ], [ -14, %99 ], [ -34, %105 ]
   %227 = icmp eq ptr %225, %6
@@ -4080,7 +4080,7 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
   br label %229
 
 229:                                              ; preds = %.thread31, %78, %228, %.thread24, %11
-  %230 = phi i32 [ %13, %11 ], [ -12, %.thread31 ], [ -12, %78 ], [ %226, %228 ], [ %226, %.thread24 ]
+  %230 = phi i32 [ %13, %11 ], [ -12, %78 ], [ %226, %228 ], [ %226, %.thread24 ], [ -12, %.thread31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %230
@@ -4511,7 +4511,7 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly captures(address) 
   br label %38
 
 38:                                               ; preds = %34, %30
-  %39 = phi i32 [ %spec.select, %34 ], [ 0, %30 ]
+  %39 = phi i32 [ 0, %30 ], [ %spec.select, %34 ]
   %40 = add i32 %39, %20
   %41 = load ptr, ptr %19, align 8
   %42 = icmp eq ptr %41, %15
@@ -4550,7 +4550,7 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly captures(address) 
   br label %62
 
 62:                                               ; preds = %59, %55
-  %63 = phi i32 [ %spec.select10, %59 ], [ 0, %55 ]
+  %63 = phi i32 [ 0, %55 ], [ %spec.select10, %59 ]
   %64 = add i32 %63, %45
   %65 = load ptr, ptr %44, align 8
   %66 = icmp eq ptr %65, %15
@@ -4694,7 +4694,7 @@ define internal fastcc ptr @lookup_undo(ptr noundef %0, i32 noundef range(i32 0,
   br label %.thread
 
 .thread:                                          ; preds = %9, %19, %17
-  %26 = phi ptr [ null, %17 ], [ %11, %19 ], [ null, %9 ]
+  %26 = phi ptr [ %11, %19 ], [ null, %17 ], [ null, %9 ]
   ret ptr %26
 }
 
@@ -4854,7 +4854,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
   %93 = icmp ult ptr %92, %4
   br i1 %93, label %.loopexit, label %.split, !llvm.loop !66
 
-94:                                               ; preds = %34, %16
+94:                                               ; preds = %16, %34
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %17, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -4903,7 +4903,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
   br i1 %126, label %.loopexit, label %.preheader, !llvm.loop !67
 
 .loopexit:                                        ; preds = %91, %72, %124, %.thread12, %.loopexit16
-  %127 = phi i32 [ %101, %.thread12 ], [ 0, %.loopexit16 ], [ 0, %72 ], [ %101, %124 ], [ 0, %91 ]
+  %127 = phi i32 [ %101, %.thread12 ], [ 0, %.loopexit16 ], [ %101, %124 ], [ 0, %72 ], [ 0, %91 ]
   ret i32 %127
 }
 
@@ -5085,7 +5085,7 @@ do_smart_wakeup_zero.exit:                        ; preds = %48, %52, %.loopexit
   br i1 %97, label %.thread, label %17
 
 .thread:                                          ; preds = %109, %27
-  %111 = phi i32 [ %22, %27 ], [ %96, %109 ]
+  %111 = phi i32 [ %96, %109 ], [ %22, %27 ]
   %112 = icmp eq ptr %23, %10
   br i1 %112, label %.thread6, label %.backedge
 
@@ -5095,7 +5095,7 @@ do_smart_wakeup_zero.exit:                        ; preds = %48, %52, %.loopexit
   br label %20, !llvm.loop !68
 
 .thread6:                                         ; preds = %24, %.thread, %17, %3
-  %113 = phi i32 [ 0, %3 ], [ %96, %17 ], [ %111, %.thread ], [ %22, %24 ]
+  %113 = phi i32 [ 0, %3 ], [ %22, %24 ], [ %96, %17 ], [ %111, %.thread ]
   ret i32 %113
 }
 

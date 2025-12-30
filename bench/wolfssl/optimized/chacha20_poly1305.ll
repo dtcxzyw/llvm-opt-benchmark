@@ -78,8 +78,8 @@ define i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef %0, ptr noundef %1, ptr noun
   %44 = call i32 @wc_ChaCha20Poly1305_Final(ptr noundef nonnull %9, ptr noundef nonnull %7)
   br label %.thread
 
-.thread:                                          ; preds = %17, %26, %23, %20, %33, %40, %43, %8, %12
-  %.025 = phi i32 [ -173, %8 ], [ -173, %12 ], [ %44, %43 ], [ %41, %40 ], [ %35, %33 ], [ -173, %20 ], [ -192, %23 ], [ -274, %26 ], [ %18, %17 ]
+.thread:                                          ; preds = %17, %20, %23, %26, %33, %40, %43, %8, %12
+  %.025 = phi i32 [ -173, %12 ], [ -173, %8 ], [ %44, %43 ], [ %41, %40 ], [ %35, %33 ], [ -274, %26 ], [ -192, %23 ], [ -173, %20 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.025
 }
@@ -182,7 +182,7 @@ define i32 @wc_ChaCha20Poly1305_UpdateAad(ptr noundef %0, ptr noundef %1, i32 no
   br label %25
 
 25:                                               ; preds = %8, %16, %22, %18, %11, %3, %5
-  %.020 = phi i32 [ -274, %11 ], [ -173, %3 ], [ -192, %8 ], [ -173, %5 ], [ 0, %22 ], [ %20, %18 ], [ 0, %16 ]
+  %.020 = phi i32 [ -173, %5 ], [ -173, %3 ], [ -192, %8 ], [ -274, %11 ], [ 0, %22 ], [ %20, %18 ], [ 0, %16 ]
   ret i32 %.020
 }
 
@@ -265,7 +265,7 @@ define i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread49
 
 .thread49:                                        ; preds = %18, %34, %28, %8, %40, %42, %11, %4
-  %.037 = phi i32 [ -274, %11 ], [ -173, %4 ], [ -192, %8 ], [ 0, %42 ], [ %.1, %40 ], [ %22, %18 ], [ %36, %34 ], [ %29, %28 ]
+  %.037 = phi i32 [ -173, %4 ], [ -192, %8 ], [ -274, %11 ], [ 0, %42 ], [ %.1, %40 ], [ %22, %18 ], [ %36, %34 ], [ %29, %28 ]
   ret i32 %.037
 }
 
@@ -361,7 +361,7 @@ define i32 @wc_ChaCha20Poly1305_Final(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !18
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %5, %2
-  %.020 = phi i32 [ -192, %5 ], [ -173, %2 ], [ %.3, %.preheader.i ], [ %.3, %.lr.ph35.i ]
+  %.020 = phi i32 [ -173, %2 ], [ -192, %5 ], [ %.3, %.preheader.i ], [ %.3, %.lr.ph35.i ]
   ret i32 %.020
 }
 
@@ -459,8 +459,8 @@ wc_ChaCha20Poly1305_CheckTag.exit:                ; preds = %.preheader.i
   %spec.select.i = select i1 %.not.i, i32 0, i32 -213
   br label %.thread37
 
-.thread37:                                        ; preds = %18, %27, %24, %21, %34, %41, %44, %wc_ChaCha20Poly1305_CheckTag.exit, %8, %13
-  %.026 = phi i32 [ -173, %8 ], [ -173, %13 ], [ %spec.select.i, %wc_ChaCha20Poly1305_CheckTag.exit ], [ %45, %44 ], [ %42, %41 ], [ %36, %34 ], [ -173, %21 ], [ -192, %24 ], [ -274, %27 ], [ %19, %18 ]
+.thread37:                                        ; preds = %18, %21, %24, %27, %34, %41, %44, %wc_ChaCha20Poly1305_CheckTag.exit, %8, %13
+  %.026 = phi i32 [ -173, %13 ], [ -173, %8 ], [ %spec.select.i, %wc_ChaCha20Poly1305_CheckTag.exit ], [ %45, %44 ], [ %42, %41 ], [ %36, %34 ], [ -274, %27 ], [ -192, %24 ], [ -173, %21 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.026

@@ -127,8 +127,8 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %30, %.lr.ph56, %.preheader47, %.preheader
-  %.339 = phi i32 [ %.238, %.lr.ph56 ], [ %.036, %.preheader ], [ %.036, %.preheader47 ], [ %.541, %30 ]
-  %.3 = phi float [ %.2, %.lr.ph56 ], [ %.035, %.preheader ], [ %.035, %.preheader47 ], [ %.5, %30 ]
+  %.339 = phi i32 [ %.036, %.preheader ], [ %.036, %.preheader47 ], [ %.238, %.lr.ph56 ], [ %.541, %30 ]
+  %.3 = phi float [ %.035, %.preheader ], [ %.035, %.preheader47 ], [ %.2, %.lr.ph56 ], [ %.5, %30 ]
   %31 = icmp eq i32 %.339, 0
   br i1 %31, label %37, label %32
 
@@ -218,7 +218,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease30SubdivideEdgeSharpness
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %15, %13, %11, %10, %18, %17, %35
-  %.0 = phi float [ 1.000000e+01, %18 ], [ %38, %35 ], [ 0.000000e+00, %17 ], [ 1.000000e+01, %11 ], [ 0.000000e+00, %10 ], [ %16, %15 ], [ 0.000000e+00, %13 ]
+  %.0 = phi float [ %38, %35 ], [ 0.000000e+00, %17 ], [ 1.000000e+01, %18 ], [ %16, %15 ], [ 0.000000e+00, %10 ], [ 1.000000e+01, %11 ], [ 0.000000e+00, %13 ]
   ret float %.0
 }
 
@@ -262,7 +262,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease36SubdivideEdgeSharpnessesAroundV
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %.lr.ph71, %13, %15, %17
-  %.0.i = phi float [ 1.000000e+01, %13 ], [ 0.000000e+00, %.lr.ph71 ], [ %18, %17 ], [ 0.000000e+00, %15 ]
+  %.0.i = phi float [ %18, %17 ], [ 0.000000e+00, %.lr.ph71 ], [ 1.000000e+01, %13 ], [ 0.000000e+00, %15 ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv91
   store float %.0.i, ptr %19, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1

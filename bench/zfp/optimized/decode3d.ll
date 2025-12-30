@@ -212,7 +212,7 @@ stream_skip.exit.i:                               ; preds = %101, %85
   br label %rev_decode_block_double_3.exit
 
 rev_decode_block_double_3.exit:                   ; preds = %78, %.preheader.preheader.i, %rev_inv_reinterpret_double.exit.i, %.preheader.preheader.i.i, %stream_skip.exit.i
-  %.037.i = phi i32 [ %48, %rev_inv_reinterpret_double.exit.i ], [ 1, %.preheader.preheader.i ], [ %23, %stream_skip.exit.i ], [ %74, %.preheader.preheader.i.i ], [ %74, %78 ]
+  %.037.i = phi i32 [ %48, %rev_inv_reinterpret_double.exit.i ], [ %23, %stream_skip.exit.i ], [ 1, %.preheader.preheader.i ], [ %74, %.preheader.preheader.i.i ], [ %74, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %decode_block_double_3.exit
 
@@ -831,10 +831,10 @@ define internal fastcc i32 @decode_ints_uint64(ptr noalias noundef captures(none
   br label %stream_read_bits.exit.i
 
 stream_read_bits.exit.i:                          ; preds = %30, %22, %16
-  %.sroa.11.5.i = phi i64 [ %32, %30 ], [ %25, %22 ], [ 0, %16 ]
-  %.sroa.19.5.i = phi ptr [ %.sroa.19.0119.i, %30 ], [ %17, %22 ], [ %17, %16 ]
-  %.sroa.0.5.i = phi i64 [ %31, %30 ], [ %23, %22 ], [ 0, %16 ]
-  %.0.i.i = phi i64 [ %34, %30 ], [ %29, %22 ], [ %20, %16 ]
+  %.sroa.11.5.i = phi i64 [ %25, %22 ], [ %32, %30 ], [ 0, %16 ]
+  %.sroa.19.5.i = phi ptr [ %17, %22 ], [ %.sroa.19.0119.i, %30 ], [ %17, %16 ]
+  %.sroa.0.5.i = phi i64 [ %23, %22 ], [ %31, %30 ], [ 0, %16 ]
+  %.0.i.i = phi i64 [ %29, %22 ], [ %34, %30 ], [ %20, %16 ]
   %35 = icmp ne i32 %13, 0
   %36 = icmp ult i32 %.045123.i, 64
   %37 = select i1 %35, i1 %36, i1 false
@@ -1018,10 +1018,10 @@ decode_few_ints_uint64.exit:                      ; preds = %.loopexit.i, %.lr.p
   br label %stream_read_bits.exit.i27
 
 stream_read_bits.exit.i27:                        ; preds = %95, %87, %81
-  %.sroa.13.5.i = phi i64 [ %97, %95 ], [ %90, %87 ], [ 0, %81 ]
-  %.sroa.21.5.i = phi ptr [ %.sroa.21.0103.i, %95 ], [ %82, %87 ], [ %82, %81 ]
-  %.sroa.0.5.i28 = phi i64 [ %96, %95 ], [ %88, %87 ], [ 0, %81 ]
-  %.0.i.i29 = phi i64 [ %99, %95 ], [ %94, %87 ], [ %85, %81 ]
+  %.sroa.13.5.i = phi i64 [ %90, %87 ], [ %97, %95 ], [ 0, %81 ]
+  %.sroa.21.5.i = phi ptr [ %82, %87 ], [ %.sroa.21.0103.i, %95 ], [ %82, %81 ]
+  %.sroa.0.5.i28 = phi i64 [ %88, %87 ], [ %96, %95 ], [ 0, %81 ]
+  %.0.i.i29 = phi i64 [ %94, %87 ], [ %99, %95 ], [ %85, %81 ]
   %100 = icmp ult i32 %.032105.i, 64
   br i1 %100, label %.lr.ph87.i, label %.critedge.i
 

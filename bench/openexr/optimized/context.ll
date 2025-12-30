@@ -293,7 +293,7 @@ define internal i32 @dispatch_read(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %39
 
 39:                                               ; preds = %36, %34, %8, %24, %10
-  %.029 = phi i32 [ 2, %8 ], [ %27, %24 ], [ %13, %10 ], [ 0, %34 ], [ %spec.select, %36 ]
+  %.029 = phi i32 [ %27, %24 ], [ %13, %10 ], [ 2, %8 ], [ 0, %34 ], [ %spec.select, %36 ]
   ret i32 %.029
 }
 
@@ -390,7 +390,7 @@ define i32 @exr_finish(ptr noundef captures(address_is_null) %0) local_unnamed_a
   br label %finalize_write.exit
 
 finalize_write.exit:                              ; preds = %29, %24, %.critedge.i, %18, %16, %9, %4, %4
-  %.1 = phi i32 [ 0, %4 ], [ 0, %4 ], [ %33, %29 ], [ 0, %.critedge.i ], [ 0, %9 ], [ 0, %18 ], [ 0, %16 ], [ 0, %24 ]
+  %.1 = phi i32 [ 0, %4 ], [ 0, %4 ], [ %33, %29 ], [ 0, %9 ], [ 0, %18 ], [ 0, %16 ], [ 0, %.critedge.i ], [ 0, %24 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %35 = load ptr, ptr %34, align 8, !tbaa !47
   %.not27 = icmp eq ptr %35, null
@@ -1126,7 +1126,7 @@ define i32 @exr_get_file_name(ptr noundef %0, ptr noundef writeonly captures(add
   br label %16
 
 16:                                               ; preds = %4, %9, %2, %12
-  %.0 = phi i32 [ 2, %2 ], [ %15, %12 ], [ 0, %9 ], [ 0, %4 ]
+  %.0 = phi i32 [ %15, %12 ], [ 2, %2 ], [ 0, %9 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1191,7 +1191,7 @@ define i32 @exr_get_file_version_and_flags(ptr noundef %0, ptr noundef %1) local
   br label %32
 
 32:                                               ; preds = %16, %19, %2, %28
-  %.016 = phi i32 [ 2, %2 ], [ %31, %28 ], [ %.0, %19 ], [ %.0, %16 ]
+  %.016 = phi i32 [ %31, %28 ], [ 2, %2 ], [ %.0, %19 ], [ %.0, %16 ]
   ret i32 %.016
 }
 
@@ -1246,7 +1246,7 @@ define i32 @exr_get_user_data(ptr noundef %0, ptr noundef writeonly captures(add
   br label %28
 
 28:                                               ; preds = %10, %15, %2, %24
-  %.0 = phi i32 [ 2, %2 ], [ %27, %24 ], [ 0, %15 ], [ 0, %10 ]
+  %.0 = phi i32 [ %27, %24 ], [ 2, %2 ], [ 0, %15 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1784,12 +1784,12 @@ define i32 @exr_write_header(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge5
 
 .critedge5:                                       ; preds = %86, %..critedge5.loopexit_crit_edge, %.thread125, %80, %82
-  %.385131 = phi i32 [ %84, %82 ], [ %77, %80 ], [ %.284.ph.ph, %.thread125 ], [ 0, %..critedge5.loopexit_crit_edge ], [ 0, %86 ]
+  %.385131 = phi i32 [ %84, %82 ], [ %.284.ph.ph, %.thread125 ], [ %77, %80 ], [ 0, %..critedge5.loopexit_crit_edge ], [ 0, %86 ]
   %103 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
   br label %.critedge
 
-.critedge:                                        ; preds = %61, %50, %.thread107, %1, %.critedge5, %15, %6
-  %.0 = phi i32 [ %10, %6 ], [ %19, %15 ], [ %.385131, %.critedge5 ], [ 2, %1 ], [ %38, %.thread107 ], [ %65, %61 ], [ %55, %50 ]
+.critedge:                                        ; preds = %50, %61, %.thread107, %1, %.critedge5, %15, %6
+  %.0 = phi i32 [ %10, %6 ], [ %19, %15 ], [ %.385131, %.critedge5 ], [ 2, %1 ], [ %38, %.thread107 ], [ %55, %50 ], [ %65, %61 ]
   ret i32 %.0
 }
 
@@ -1884,10 +1884,10 @@ define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr n
   br label %28
 
 28:                                               ; preds = %18, %18, %23
-  %.143 = phi i64 [ %.042, %18 ], [ %.042, %18 ], [ %27, %23 ]
-  %.141 = phi i64 [ %.040, %18 ], [ %.040, %18 ], [ %24, %23 ]
-  %.138 = phi ptr [ %.037, %18 ], [ %.037, %18 ], [ %25, %23 ]
-  %.1 = phi i64 [ %.0, %18 ], [ %.0, %18 ], [ %26, %23 ]
+  %.143 = phi i64 [ %.042, %18 ], [ %27, %23 ], [ %.042, %18 ]
+  %.141 = phi i64 [ %.040, %18 ], [ %24, %23 ], [ %.040, %18 ]
+  %.138 = phi ptr [ %.037, %18 ], [ %25, %23 ], [ %.037, %18 ]
+  %.1 = phi i64 [ %.0, %18 ], [ %26, %23 ], [ %.0, %18 ]
   %29 = icmp slt i64 %.141, %3
   br i1 %29, label %.preheader, label %30, !llvm.loop !123
 
@@ -1906,7 +1906,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr n
   br label %38
 
 38:                                               ; preds = %30, %33, %13, %14, %7, %8
-  %.039 = phi i64 [ -1, %7 ], [ -1, %13 ], [ -1, %8 ], [ -1, %14 ], [ -1, %33 ], [ %.2, %30 ]
+  %.039 = phi i64 [ -1, %8 ], [ -1, %7 ], [ -1, %14 ], [ -1, %13 ], [ -1, %33 ], [ %.2, %30 ]
   ret i64 %.039
 }
 
@@ -1993,10 +1993,10 @@ define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr 
   br label %26
 
 26:                                               ; preds = %18, %18, %21
-  %.144 = phi i64 [ %.043, %18 ], [ %.043, %18 ], [ %25, %21 ]
-  %.142 = phi i64 [ %.041, %18 ], [ %.041, %18 ], [ %22, %21 ]
-  %.139 = phi ptr [ %.038, %18 ], [ %.038, %18 ], [ %23, %21 ]
-  %.1 = phi i64 [ %.0, %18 ], [ %.0, %18 ], [ %24, %21 ]
+  %.144 = phi i64 [ %.043, %18 ], [ %25, %21 ], [ %.043, %18 ]
+  %.142 = phi i64 [ %.041, %18 ], [ %22, %21 ], [ %.041, %18 ]
+  %.139 = phi ptr [ %.038, %18 ], [ %23, %21 ], [ %.038, %18 ]
+  %.1 = phi i64 [ %.0, %18 ], [ %24, %21 ], [ %.0, %18 ]
   %27 = icmp slt i64 %.142, %3
   br i1 %27, label %.preheader, label %28, !llvm.loop !124
 
@@ -2015,7 +2015,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr 
   br label %36
 
 36:                                               ; preds = %28, %31, %13, %14, %7, %8
-  %.040 = phi i64 [ -1, %7 ], [ -1, %13 ], [ -1, %8 ], [ -1, %14 ], [ %.2, %31 ], [ %.2, %28 ]
+  %.040 = phi i64 [ -1, %8 ], [ -1, %7 ], [ -1, %14 ], [ -1, %13 ], [ %.2, %31 ], [ %.2, %28 ]
   ret i64 %.040
 }
 

@@ -3213,7 +3213,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork1
   br label %"_ZZN21grpc_chttp2_transport18WriteSecurityFrameEPN9grpc_core11SliceBufferEEN3$_0D2Ev.exit14"
 
 "_ZZN21grpc_chttp2_transport18WriteSecurityFrameEPN9grpc_core11SliceBufferEEN3$_0D2Ev.exit14": ; preds = %66, %62, %.thread
-  %.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %.thread ], [ %63, %66 ]
+  %.pn.pn = phi { ptr, i32 } [ %61, %.thread ], [ %63, %62 ], [ %63, %66 ]
   call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #48
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
@@ -3688,7 +3688,7 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit163:     ; preds = %._ZN4absl12lts_2024
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit160:        ; preds = %72, %_ZN4absl12lts_202407226StatusaSEOS1_.exit163, %81
-  %86 = phi i64 [ %78, %81 ], [ %78, %_ZN4absl12lts_202407226StatusaSEOS1_.exit163 ], [ %71, %72 ]
+  %86 = phi i64 [ %78, %_ZN4absl12lts_202407226StatusaSEOS1_.exit163 ], [ %78, %81 ], [ %71, %72 ]
   %87 = load i64, ptr %7, align 8, !tbaa !19
   %88 = and i64 %87, 1
   %.not.i.i157 = icmp eq i64 %88, 0
@@ -3779,6 +3779,11 @@ _ZN4absl12lts_202407226StatusD2Ev.exit153:        ; preds = %106, %107
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 600
   br i1 %118, label %.lr.ph.preheader, label %120
 
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i151, %120, %114
+  %.sroa.9.0223.ph = phi ptr [ %119, %114 ], [ %.sroa.0.0.copyload.i.i.i, %120 ], [ %135, %.lr.ph.i.i151 ]
+  %.sroa.0191.0222.ph = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %114 ], [ %121, %120 ], [ %134, %.lr.ph.i.i151 ]
+  br label %.lr.ph
+
 120:                                              ; preds = %114
   %121 = load ptr, ptr %119, align 8, !tbaa !32, !nonnull !90, !noundef !90
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -3786,11 +3791,6 @@ _ZN4absl12lts_202407226StatusD2Ev.exit153:        ; preds = %106, %107
   %123 = load i8, ptr %121, align 1, !tbaa !371
   %124 = icmp slt i8 %123, -1
   br i1 %124, label %.lr.ph.i.i151, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i151, %114, %120
-  %.sroa.9.0223.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %120 ], [ %119, %114 ], [ %135, %.lr.ph.i.i151 ]
-  %.sroa.0191.0222.ph = phi ptr [ %121, %120 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %114 ], [ %134, %.lr.ph.i.i151 ]
-  br label %.lr.ph
 
 .lr.ph.i.i151:                                    ; preds = %120, %.lr.ph.i.i151
   %125 = phi ptr [ %135, %.lr.ph.i.i151 ], [ %.sroa.0.0.copyload.i.i.i, %120 ]
@@ -3988,7 +3988,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit139:        ; preds = %184, %185
   br label %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EED2Ev.exit: ; preds = %193, %192, %141, %99, %98
-  %.pn25.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %98 ], [ %142, %141 ], [ %100, %99 ], [ %.pn25.pn.pn.i, %192 ], [ %.pn25.pn.pn.i, %193 ]
+  %.pn25.pn.pn.pn.i = phi { ptr, i32 } [ %142, %141 ], [ %100, %99 ], [ %.pn.i, %98 ], [ %.pn25.pn.pn.i, %192 ], [ %.pn25.pn.pn.i, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #48
   br label %525
@@ -6411,7 +6411,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit200.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit200.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i198.i, %586
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i198.i ], [ %587, %586 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197.i ]
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %587, %586 ], [ %.pn.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i198.i ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %612 = load ptr, ptr %9, align 8, !tbaa !86
   %613 = icmp eq ptr %612, %489
@@ -6879,7 +6879,7 @@ _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit: ; preds = %751, 
           to label %_ZN9grpc_core38IsScheduleCancellationOverWriteEnabledEv.exit unwind label %762
 
 _ZN9grpc_core38IsScheduleCancellationOverWriteEnabledEv.exit: ; preds = %779, %776, %780, %775
-  %782 = phi i1 [ false, %775 ], [ false, %779 ], [ true, %776 ], [ %781, %780 ]
+  %782 = phi i1 [ false, %775 ], [ true, %776 ], [ false, %779 ], [ %781, %780 ]
   %not. = xor i1 %782, true
   %783 = zext i1 %not. to i8
   store i8 %783, ptr %277, align 2, !tbaa !553
@@ -6953,12 +6953,12 @@ _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit165: ; preds = %76
   br label %.body159
 
 .body159:                                         ; preds = %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i, %732, %_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit165
-  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit165 ], [ %733, %732 ], [ %733, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i ]
+  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit165 ], [ %733, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i ], [ %733, %732 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.body156
 
 .body156:                                         ; preds = %420, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i, %661, %393, %364, %366, %362, %.body159, %391, %368
-  %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %.body159 ], [ %662, %661 ], [ %.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i ], [ %365, %364 ], [ %392, %391 ], [ %369, %368 ], [ %363, %362 ], [ %367, %366 ], [ %394, %393 ], [ %421, %420 ]
+  %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %.body159 ], [ %392, %391 ], [ %369, %368 ], [ %363, %362 ], [ %367, %366 ], [ %365, %364 ], [ %394, %393 ], [ %421, %420 ], [ %662, %661 ], [ %.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i ]
   %807 = load ptr, ptr %266, align 8, !tbaa !99
   %.not.i174 = icmp eq ptr %807, null
   br i1 %.not.i174, label %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit, label %808
@@ -6981,7 +6981,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit: ; preds = %.bo
   br label %816
 
 816:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit, %358, %360
-  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %359, %358 ], [ %.pn67.pn.pn, %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit ], [ %361, %360 ]
+  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %361, %360 ], [ %359, %358 ], [ %.pn67.pn.pn, %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit ]
   invoke void @grpc_slice_buffer_destroy(ptr noundef nonnull align 8 dereferenceable(232) %231)
           to label %_ZN33grpc_chttp2_security_frame_parserD2Ev.exit unwind label %817
 
@@ -7579,7 +7579,7 @@ _ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i: ; p
   br label %"_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit7.i.i.i"
 
 "_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit7.i.i.i": ; preds = %86, %82, %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i, %"_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8.i.i.i.i.i"
-  %eh.lpad-body12.i.i.i = phi { ptr, i32 } [ %83, %86 ], [ %38, %"_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8.i.i.i.i.i" ], [ %83, %82 ], [ %64, %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i ]
+  %eh.lpad-body12.i.i.i = phi { ptr, i32 } [ %83, %82 ], [ %83, %86 ], [ %64, %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i ], [ %38, %"_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit12.i.i"
 
@@ -7633,7 +7633,7 @@ _ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i: ; p
   br label %"_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8"
 
 "_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8": ; preds = %101, %97, %.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i, %.body.i ], [ %eh.lpad-body.i13, %101 ], [ %eh.lpad-body.i13, %97 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i13, %101 ], [ %eh.lpad-body.i13, %97 ], [ %.pn.i.i, %.body.i ]
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit": ; preds = %"_ZZL21post_benign_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit.i.i", %1
@@ -7922,7 +7922,7 @@ _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit: ; preds = %79, %
   br label %.body.thread
 
 .body.thread:                                     ; preds = %94, %56
-  %.pn724 = phi { ptr, i32 } [ %.pn.pn, %94 ], [ %57, %56 ]
+  %.pn724 = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn, %94 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = atomicrmw sub ptr %95, i64 1 acq_rel, align 8
   %97 = icmp eq i64 %96, 1
@@ -8323,7 +8323,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.thread: ; preds =
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE7emplaceIJRjS5_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSK_.exit
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE7emplaceIJRjS5_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSK_.exit: ; preds = %.lr.ph.i, %169, %107
-  %172 = phi ptr [ %95, %107 ], [ %.pre, %169 ], [ %95, %.lr.ph.i ]
+  %172 = phi ptr [ %.pre, %169 ], [ %95, %107 ], [ %95, %.lr.ph.i ]
   invoke fastcc void @_ZL26post_destructive_reclaimerP21grpc_chttp2_transport(ptr noundef %172)
           to label %175 unwind label %83
 
@@ -8663,7 +8663,7 @@ _ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i: ; p
   br label %"_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit7.i.i.i"
 
 "_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit7.i.i.i": ; preds = %86, %82, %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i, %"_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8.i.i.i.i.i"
-  %eh.lpad-body12.i.i.i = phi { ptr, i32 } [ %83, %86 ], [ %38, %"_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8.i.i.i.i.i" ], [ %83, %82 ], [ %64, %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i ]
+  %eh.lpad-body12.i.i.i = phi { ptr, i32 } [ %83, %82 ], [ %83, %86 ], [ %64, %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i ], [ %38, %"_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit12.i.i"
 
@@ -8717,7 +8717,7 @@ _ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit7.i.i.i.i: ; p
   br label %"_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8"
 
 "_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit8": ; preds = %101, %97, %.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i, %.body.i ], [ %eh.lpad-body.i13, %101 ], [ %eh.lpad-body.i13, %97 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i13, %101 ], [ %eh.lpad-body.i13, %97 ], [ %.pn.i.i, %.body.i ]
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit": ; preds = %"_ZZL26post_destructive_reclaimerP21grpc_chttp2_transportEN3$_0D2Ev.exit.i.i", %1
@@ -10205,6 +10205,11 @@ _ZN4absl12lts_202407226StatusD2Ev.exit86:         ; preds = %165, %166
   %179 = getelementptr inbounds nuw i8, ptr %171, i64 600
   br i1 %178, label %.lr.ph.preheader, label %180
 
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i, %180, %174
+  %.sroa.9.0174.ph = phi ptr [ %179, %174 ], [ %.sroa.0.0.copyload.i.i.i, %180 ], [ %195, %.lr.ph.i.i ]
+  %.sroa.0135.0173.ph = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %174 ], [ %181, %180 ], [ %194, %.lr.ph.i.i ]
+  br label %.lr.ph
+
 180:                                              ; preds = %174
   %181 = load ptr, ptr %179, align 8, !tbaa !32, !nonnull !90, !noundef !90
   %182 = getelementptr inbounds nuw i8, ptr %171, i64 608
@@ -10212,11 +10217,6 @@ _ZN4absl12lts_202407226StatusD2Ev.exit86:         ; preds = %165, %166
   %183 = load i8, ptr %181, align 1, !tbaa !371
   %184 = icmp slt i8 %183, -1
   br i1 %184, label %.lr.ph.i.i, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i, %174, %180
-  %.sroa.9.0174.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %180 ], [ %179, %174 ], [ %195, %.lr.ph.i.i ]
-  %.sroa.0135.0173.ph = phi ptr [ %181, %180 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %174 ], [ %194, %.lr.ph.i.i ]
-  br label %.lr.ph
 
 .lr.ph.i.i:                                       ; preds = %180, %.lr.ph.i.i
   %185 = phi ptr [ %195, %.lr.ph.i.i ], [ %.sroa.0.0.copyload.i.i.i, %180 ]
@@ -10705,7 +10705,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit122:        ; preds = %365, %368
   br label %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EED2Ev.exit100
 
 _ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EED2Ev.exit100: ; preds = %267, %266, %373, %198, %152, %139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80
-  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80 ], [ %.pn53.pn, %373 ], [ %199, %198 ], [ %.pn43.pn, %152 ], [ %140, %139 ], [ %.pn58.pn.pn, %266 ], [ %.pn58.pn.pn, %267 ]
+  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn, %373 ], [ %199, %198 ], [ %.pn43.pn, %152 ], [ %140, %139 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80 ], [ %.pn58.pn.pn, %266 ], [ %.pn58.pn.pn, %267 ]
   resume { ptr, i32 } %.pn58.pn.pn.pn
 }
 
@@ -11355,12 +11355,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   br label %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit60
 
 _ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit60: ; preds = %.body74, %251
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body75, %.body74 ], [ %252, %251 ]
+  %.pn.i = phi { ptr, i32 } [ %252, %251 ], [ %eh.lpad-body75, %.body74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %255
 
 255:                                              ; preds = %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit60, %117, %111, %105, %99, %97
-  %.pn25.pn.i = phi { ptr, i32 } [ %112, %111 ], [ %100, %99 ], [ %.pn.i, %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit60 ], [ %98, %97 ], [ %106, %105 ], [ %118, %117 ]
+  %.pn25.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit60 ], [ %98, %97 ], [ %106, %105 ], [ %100, %99 ], [ %118, %117 ], [ %112, %111 ]
   %256 = load ptr, ptr %18, align 8, !tbaa !86
   %257 = icmp eq ptr %256, %78
   br i1 %257, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -11492,7 +11492,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #48
   br label %462
 
-_ZN4absl12lts_202407226StatusD2Ev.exit.thread:    ; preds = %4, %36, %_ZN4absl12lts_202407226StatusD2Ev.exit
+_ZN4absl12lts_202407226StatusD2Ev.exit.thread:    ; preds = %36, %4, %_ZN4absl12lts_202407226StatusD2Ev.exit
   %308 = load i64, ptr %2, align 8, !tbaa !19
   %309 = icmp eq i64 %308, 1
   br i1 %309, label %315, label %310
@@ -11958,7 +11958,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind noalias w
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !809
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
   %.lobit = lshr i64 %1, 63
   %20 = trunc nuw nsw i64 %.lobit to i32
   %21 = add i32 %.0.i, %20
@@ -12692,7 +12692,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %203, %199, %201, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
-  %.pn36.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %204, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ]
+  %.pn36.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %200, %199 ], [ %202, %201 ], [ %204, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76 ], [ %204, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %279
@@ -12885,7 +12885,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit96:         ; preds = %_ZN4absl12lts_20240
   br label %279
 
 279:                                              ; preds = %277, %275, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78
-  %.pn46 = phi { ptr, i32 } [ %278, %277 ], [ %.pn36.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ %276, %275 ]
+  %.pn46 = phi { ptr, i32 } [ %278, %277 ], [ %276, %275 ], [ %.pn36.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #48
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %326
@@ -14072,7 +14072,7 @@ _ZN9grpc_core14HttpAnnotation3AddERKNS_6chttp217StreamFlowControl5StatsE.exit25.
   br label %common.resume
 
 common.resume:                                    ; preds = %778, %779, %295, %369, %468, %494, %532, %900, %682
-  %common.resume.op = phi { ptr, i32 } [ %.pn37.pn, %900 ], [ %.pn.i53, %682 ], [ %.pn.i, %494 ], [ %.pn.i.i, %295 ], [ %.pn20.i.i, %369 ], [ %533, %532 ], [ %.pn68.i, %468 ], [ %.pn.ph.i, %778 ], [ %776, %779 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i53, %682 ], [ %.pn37.pn, %900 ], [ %.pn20.i.i, %369 ], [ %.pn.i.i, %295 ], [ %533, %532 ], [ %.pn68.i, %468 ], [ %.pn.i, %494 ], [ %.pn.ph.i, %778 ], [ %776, %779 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL17trace_annotationsP18grpc_chttp2_stream.exit.i: ; preds = %364, %307, %_ZN9grpc_core31IsCallTracerTransportFixEnabledEv.exit.thread.i.i, %290, %_ZN9grpc_core31IsCallTracerTransportFixEnabledEv.exit.thread49.i.i
@@ -16659,7 +16659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %286
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %.body, %263, %279, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %200, %198
-  %.pn38 = phi { ptr, i32 } [ %199, %198 ], [ %281, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47 ], [ %201, %200 ], [ %264, %263 ], [ %.pn.pn.pn, %279 ], [ %eh.lpad-body, %.body ]
+  %.pn38 = phi { ptr, i32 } [ %199, %198 ], [ %281, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %201, %200 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47 ], [ %.pn.pn.pn, %279 ], [ %264, %263 ], [ %eh.lpad-body, %.body ]
   %291 = load ptr, ptr %15, align 8, !tbaa !86
   %292 = icmp eq ptr %291, %22
   br i1 %292, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
@@ -17767,8 +17767,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64.i: ; preds = %1
           to label %_ZNSt8optionalIN9grpc_core11SliceBufferEE5resetEv.exit65.i unwind label %133
 
 _ZNSt8optionalIN9grpc_core11SliceBufferEE5resetEv.exit65.i: ; preds = %149, %146, %142, %135, %129, %122
-  %150 = phi i64 [ 1, %146 ], [ 1, %135 ], [ %141, %142 ], [ 1, %149 ], [ 1, %122 ], [ 1, %129 ]
-  %151 = phi i1 [ true, %146 ], [ false, %135 ], [ true, %142 ], [ true, %149 ], [ true, %122 ], [ true, %129 ]
+  %150 = phi i64 [ 1, %135 ], [ %141, %142 ], [ 1, %149 ], [ 1, %146 ], [ 1, %122 ], [ 1, %129 ]
+  %151 = phi i1 [ false, %135 ], [ true, %142 ], [ true, %149 ], [ true, %146 ], [ true, %122 ], [ true, %129 ]
   %152 = load i8, ptr %14, align 8, !tbaa !1023, !range !89, !noundef !90
   %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %154, label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit.i
@@ -18730,8 +18730,8 @@ _ZN4absl12lts_202407226StatusaSERKS1_.exit:       ; preds = %_ZN4absl12lts_20240
   br label %345
 
 148:                                              ; preds = %82, %.thread156, %_ZN4absl12lts_202407226StatusaSERKS1_.exit
-  %149 = phi ptr [ %78, %.thread156 ], [ %144, %_ZN4absl12lts_202407226StatusaSERKS1_.exit ], [ %78, %82 ]
-  %.044 = phi i1 [ false, %.thread156 ], [ true, %_ZN4absl12lts_202407226StatusaSERKS1_.exit ], [ false, %82 ]
+  %149 = phi ptr [ %144, %_ZN4absl12lts_202407226StatusaSERKS1_.exit ], [ %78, %.thread156 ], [ %78, %82 ]
+  %.044 = phi i1 [ true, %_ZN4absl12lts_202407226StatusaSERKS1_.exit ], [ false, %.thread156 ], [ false, %82 ]
   %.not51 = icmp eq i32 %4, 0
   br i1 %.not51, label %_ZN4absl12lts_202407226StatusD2Ev.exit100, label %150
 
@@ -19226,7 +19226,7 @@ _Z24grpc_chttp2_stream_unrefP18grpc_chttp2_stream.exit: ; preds = %336, %342, %_
   ret void
 
 345:                                              ; preds = %58, %77, %146, %183, %305, %343, %130
-  %.pn60.pn.pn = phi { ptr, i32 } [ %.pn60.pn, %130 ], [ %184, %183 ], [ %147, %146 ], [ %344, %343 ], [ %.pn55.pn, %305 ], [ %.pn.pn.pn.pn, %77 ], [ %59, %58 ]
+  %.pn60.pn.pn = phi { ptr, i32 } [ %.pn60.pn, %130 ], [ %147, %146 ], [ %344, %343 ], [ %.pn55.pn, %305 ], [ %184, %183 ], [ %.pn.pn.pn.pn, %77 ], [ %59, %58 ]
   %346 = load ptr, ptr %0, align 8, !tbaa !353
   %.not.i132 = icmp eq ptr %346, null
   br i1 %.not.i132, label %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit133, label %347
@@ -19994,7 +19994,7 @@ _ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit: ; preds = %28, %_ZN4absl12
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit, %30
-  %.0108 = phi i64 [ 1, %30 ], [ 1, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit ], [ 0, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit ]
+  %.0108 = phi i64 [ 1, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit ], [ 1, %30 ], [ 0, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %36 = load i64, ptr %35, align 8, !tbaa !19
   store i64 %36, ptr %7, align 8, !tbaa !19
@@ -20065,7 +20065,7 @@ _ZN4absl12lts_202407226StatusaSERKS1_.exit.i31:   ; preds = %58, %_ZN4absl12lts_
   br label %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit38
 
 _ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit38: ; preds = %.noexc36, %.lr.ph.i20, %_ZN4absl12lts_202407226StatusaSERKS1_.exit.i31
-  %.1 = phi i64 [ %.0108, %.noexc36 ], [ %60, %_ZN4absl12lts_202407226StatusaSERKS1_.exit.i31 ], [ %.0108, %.lr.ph.i20 ]
+  %.1 = phi i64 [ %60, %_ZN4absl12lts_202407226StatusaSERKS1_.exit.i31 ], [ %.0108, %.lr.ph.i20 ], [ %.0108, %.noexc36 ]
   br i1 %.not.i.i16, label %61, label %_ZN4absl12lts_202407226StatusD2Ev.exit40
 
 61:                                               ; preds = %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit38
@@ -20081,7 +20081,7 @@ _ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit38: ; preds = %.noexc36, %.l
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit40:         ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit17, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit38, %61
-  %.1110 = phi i64 [ %.1, %61 ], [ %.1, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit38 ], [ %.0108, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit17 ]
+  %.1110 = phi i64 [ %.1, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit38 ], [ %.1, %61 ], [ %.0108, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit17 ]
   %66 = load i64, ptr %1, align 8, !tbaa !19
   store i64 %66, ptr %8, align 8, !tbaa !19
   %67 = and i64 %66, 1
@@ -20179,7 +20179,7 @@ _ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit63: ; preds = %.noexc61, %.l
   unreachable
 
 _ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit63.thread: ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit42, %94, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit63
-  %.2112 = phi i64 [ %.2, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit63 ], [ %.2, %94 ], [ %.1110, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit42 ]
+  %.2112 = phi i64 [ %.2, %94 ], [ %.2, %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit63 ], [ %.1110, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit42 ]
   store i64 1, ptr %0, align 8, !tbaa !19
   %.not = icmp eq i64 %.2112, 0
   br i1 %.not, label %.preheader, label %99
@@ -20241,8 +20241,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit69:         ; preds = %101, %103
   br label %108
 
 108:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit84, %.loopexit.split-lp85, %106, %104
-  %.sink = phi ptr [ %0, %106 ], [ %7, %.loopexit84 ], [ %6, %104 ], [ %7, %.loopexit.split-lp85 ], [ %8, %.loopexit.split-lp ], [ %8, %.loopexit ]
-  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %lpad.loopexit86, %.loopexit84 ], [ %105, %104 ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp85 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.sink = phi ptr [ %0, %106 ], [ %6, %104 ], [ %7, %.loopexit.split-lp85 ], [ %7, %.loopexit84 ], [ %8, %.loopexit.split-lp ], [ %8, %.loopexit ]
+  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp85 ], [ %lpad.loopexit86, %.loopexit84 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #48
   br label %121
 
@@ -20921,7 +20921,7 @@ _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit: ; preds = %21, %
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit18
 
 _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit18: ; preds = %34, %30, %.thread, %38, %42
-  %.pn.pn31 = phi { ptr, i32 } [ %39, %38 ], [ %39, %42 ], [ %31, %30 ], [ %31, %34 ], [ %29, %.thread ]
+  %.pn.pn31 = phi { ptr, i32 } [ %39, %38 ], [ %39, %42 ], [ %31, %34 ], [ %31, %30 ], [ %29, %.thread ]
   resume { ptr, i32 } %.pn.pn31
 }
 
@@ -24066,7 +24066,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail13LogKeyValueToINS_8Dura
   br i1 %25, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !809
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %22, %20, %16, %12, %6
-  %.0.i.i.i = phi i32 [ %21, %20 ], [ %13, %12 ], [ %17, %16 ], [ 1, %6 ], [ %24, %22 ]
+  %.0.i.i.i = phi i32 [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ 1, %6 ], [ %24, %22 ]
   %.lobit.i.i = lshr i64 %8, 63
   %26 = trunc nuw nsw i64 %.lobit.i.i to i32
   %27 = add i32 %.0.i.i.i, %26
@@ -24730,7 +24730,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail22AdaptDisplayValueToLog
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !1146
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %16, %14, %10, %6, %2
-  %.0.i.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
   %20 = zext i32 %.0.i.i to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %0, align 8, !tbaa !83, !alias.scope !1143
@@ -26694,7 +26694,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit22:         ; preds = %77, %80
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE7emplaceIJRjRS5_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSL_.exit
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE7emplaceIJRjRS5_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSL_.exit: ; preds = %.lr.ph.i, %100, %162
-  %166 = phi ptr [ %.pre52, %162 ], [ %89, %100 ], [ %89, %.lr.ph.i ]
+  %166 = phi ptr [ %89, %100 ], [ %.pre52, %162 ], [ %89, %.lr.ph.i ]
   call fastcc void @_ZL26post_destructive_reclaimerP21grpc_chttp2_transport(ptr noundef %166)
   %167 = load ptr, ptr %3, align 8, !tbaa !325
   %168 = load ptr, ptr %4, align 8, !tbaa !306
@@ -27008,7 +27008,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i, !llvm.loop !1225
 
 .thread55:                                        ; preds = %.thread.i.i, %34
-  %.sroa.011.0.i.i = phi i64 [ %59, %.thread.i.i ], [ %49, %34 ]
+  %.sroa.011.0.i.i = phi i64 [ %49, %34 ], [ %59, %.thread.i.i ]
   %67 = trunc i128 %41 to i8
   %68 = and i8 %67, 127
   %69 = getelementptr inbounds nuw i8, ptr %43, i64 %.sroa.011.0.i.i
@@ -27090,7 +27090,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i44, label %.lr.ph.i.i41, label %.thread.i.i35, !llvm.loop !1225
 
 _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS5_EEE_clESM_.exit45: ; preds = %83, %.thread.i.i35
-  %.sroa.011.0.i.i39 = phi i64 [ %109, %.thread.i.i35 ], [ %99, %83 ]
+  %.sroa.011.0.i.i39 = phi i64 [ %99, %83 ], [ %109, %.thread.i.i35 ]
   %117 = trunc i128 %91 to i8
   %118 = and i8 %117, 127
   %119 = getelementptr inbounds nuw i8, ptr %93, i64 %.sroa.011.0.i.i39
@@ -29560,11 +29560,11 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17L
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit: ; preds = %20, %23
-  %.sroa.7.0 = phi i64 [ %25, %23 ], [ 0, %20 ]
-  %.sroa.045.0 = phi ptr [ %24, %23 ], [ null, %20 ]
-  %.sroa.747.0 = phi i64 [ 0, %23 ], [ %22, %20 ]
-  %.sroa.046.0 = phi ptr [ null, %23 ], [ %21, %20 ]
-  %.sroa.749.0 = phi i64 [ %2, %23 ], [ %.sink1.i, %20 ]
+  %.sroa.7.0 = phi i64 [ 0, %20 ], [ %25, %23 ]
+  %.sroa.045.0 = phi ptr [ null, %20 ], [ %24, %23 ]
+  %.sroa.747.0 = phi i64 [ %22, %20 ], [ 0, %23 ]
+  %.sroa.046.0 = phi ptr [ %21, %20 ], [ null, %23 ]
+  %.sroa.749.0 = phi i64 [ %.sink1.i, %20 ], [ %2, %23 ]
   %.not.i22 = icmp eq i64 %.sroa.749.0, 0
   br i1 %.not.i22, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSE_9size_typeE.exit, label %.lr.ph.i
 
@@ -30020,11 +30020,11 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112b
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit: ; preds = %20, %23
-  %.sroa.7.0 = phi i64 [ %25, %23 ], [ 0, %20 ]
-  %.sroa.045.0 = phi ptr [ %24, %23 ], [ null, %20 ]
-  %.sroa.747.0 = phi i64 [ 0, %23 ], [ %22, %20 ]
-  %.sroa.046.0 = phi ptr [ null, %23 ], [ %21, %20 ]
-  %.sroa.749.0 = phi i64 [ %2, %23 ], [ %.sink1.i, %20 ]
+  %.sroa.7.0 = phi i64 [ 0, %20 ], [ %25, %23 ]
+  %.sroa.045.0 = phi ptr [ null, %20 ], [ %24, %23 ]
+  %.sroa.747.0 = phi i64 [ %22, %20 ], [ 0, %23 ]
+  %.sroa.046.0 = phi ptr [ %21, %20 ], [ null, %23 ]
+  %.sroa.749.0 = phi i64 [ %.sink1.i, %20 ], [ %2, %23 ]
   %.not.i22 = icmp eq i64 %.sroa.749.0, 0
   br i1 %.not.i22, label %_ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i
 
@@ -33199,7 +33199,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %121, %108, %.thread
   br label %135
 
 135:                                              ; preds = %133, %104, %81, %72
-  %eh.lpad-body.i = phi { ptr, i32 } [ %134, %133 ], [ %105, %104 ], [ %.pn.pn.i.i, %81 ], [ %73, %72 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %134, %133 ], [ %.pn.pn.i.i, %81 ], [ %73, %72 ], [ %105, %104 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #48
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %137 = atomicrmw sub ptr %136, i64 1 acq_rel, align 8
@@ -33811,7 +33811,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %123, %_ZN4absl12lts
   br label %137
 
 137:                                              ; preds = %135, %110, %101
-  %eh.lpad-body.i = phi { ptr, i32 } [ %136, %135 ], [ %102, %101 ], [ %.pn.pn.i.i, %110 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %136, %135 ], [ %.pn.pn.i.i, %110 ], [ %102, %101 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #48
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %139 = atomicrmw sub ptr %138, i64 1 acq_rel, align 8
@@ -34566,7 +34566,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i.i: ; preds = %82, %.thread.i.i.i
   br label %_ZN9grpc_coreplENS_8DurationES0_.exit.i.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.i.i:       ; preds = %88, %85, %77, %73, %41
-  %.sroa.07.0.i.i = phi i64 [ 0, %41 ], [ %spec.select.i.i.i, %73 ], [ -9223372036854775808, %85 ], [ -9223372036854775808, %77 ], [ %89, %88 ]
+  %.sroa.07.0.i.i = phi i64 [ 0, %41 ], [ -9223372036854775808, %77 ], [ %89, %88 ], [ -9223372036854775808, %85 ], [ %spec.select.i.i.i, %73 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %93 = load ptr, ptr %92, align 8, !tbaa !327
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -34602,8 +34602,8 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit.i.i:       ; preds = %88, %85, %77, %73, 
   br label %_ZN9grpc_coreplENS_8DurationES0_.exit.i.i
 
 _ZN9grpc_coreplENS_8DurationES0_.exit.i.i:        ; preds = %108, %105, %102, %97, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i.i
-  %110 = phi ptr [ %93, %97 ], [ %93, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i ], [ %93, %105 ], [ %93, %108 ], [ %93, %102 ], [ %91, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i.i ]
-  %.0.i.i.i.i = phi i64 [ -9223372036854775808, %97 ], [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i ], [ -9223372036854775808, %105 ], [ %109, %108 ], [ 9223372036854775807, %102 ], [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i.i ]
+  %110 = phi ptr [ %93, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i ], [ %93, %97 ], [ %93, %108 ], [ %93, %102 ], [ %93, %105 ], [ %91, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i.i ]
+  %.0.i.i.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i ], [ -9223372036854775808, %97 ], [ %109, %108 ], [ 9223372036854775807, %102 ], [ -9223372036854775808, %105 ], [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i.i ]
   store i64 %.0.i.i.i.i, ptr %6, align 8
   %111 = invoke i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %112 unwind label %141
@@ -34679,7 +34679,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %129, %126
   br label %143
 
 143:                                              ; preds = %141, %"_ZZL26init_keepalive_ping_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202407226StatusEEN3$_0D2Ev.exit41.i.i", %67, %.body.thread.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %142, %141 ], [ %124, %"_ZZL26init_keepalive_ping_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202407226StatusEEN3$_0D2Ev.exit41.i.i" ], [ %63, %67 ], [ %63, %.body.thread.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %142, %141 ], [ %124, %"_ZZL26init_keepalive_ping_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202407226StatusEEN3$_0D2Ev.exit41.i.i" ], [ %63, %.body.thread.i.i ], [ %63, %67 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #48
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %145 = atomicrmw sub ptr %144, i64 1 acq_rel, align 8
@@ -35646,7 +35646,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit.i.i: 
           to label %_ZL25write_action_begin_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202407226StatusE.exit.i unwind label %.body.thread13.i
 
 _ZL25write_action_begin_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202407226StatusE.exit.i: ; preds = %.critedge24.i.i, %.noexc11.i, %.noexc7.i
-  %.sroa.0.0.i = phi ptr [ null, %.noexc11.i ], [ %0, %.noexc7.i ], [ %0, %.critedge24.i.i ]
+  %.sroa.0.0.i = phi ptr [ %0, %.noexc7.i ], [ null, %.noexc11.i ], [ %0, %.critedge24.i.i ]
   %102 = load i64, ptr %10, align 8, !tbaa !19
   %103 = and i64 %102, 1
   %.not.i.i.i = icmp eq i64 %103, 0
@@ -36226,7 +36226,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %111, %110
   br label %125
 
 125:                                              ; preds = %123, %108, %94, %68, %28
-  %eh.lpad-body.i = phi { ptr, i32 } [ %124, %123 ], [ %109, %108 ], [ %29, %28 ], [ %.pn.i.i, %68 ], [ %95, %94 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %124, %123 ], [ %109, %108 ], [ %.pn.i.i, %68 ], [ %29, %28 ], [ %95, %94 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #48
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %127 = atomicrmw sub ptr %126, i64 1 acq_rel, align 8
@@ -37100,7 +37100,7 @@ _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit82: ; preds = %.lo
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit.i
 
 _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %155, %153
-  %.pr67.i = phi i64 [ %154, %155 ], [ %.pr68.i, %153 ]
+  %.pr67.i = phi i64 [ %.pr68.i, %153 ], [ %154, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1398
   %156 = add nuw i64 %.066.i, 1
   %157 = load i64, ptr %144, align 8, !tbaa !1387, !noalias !1398
@@ -37338,8 +37338,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i: ; preds = %2
   br label %247
 
 .critedge43.thread.i:                             ; preds = %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.critedge43.i, %.critedge.i
-  %235 = phi i64 [ 1, %.critedge43.i ], [ 1, %.critedge.i ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 1, %147 ]
-  %236 = phi i64 [ %165, %.critedge43.i ], [ %.pr67.i, %.critedge.i ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pr68.i, %147 ]
+  %235 = phi i64 [ 1, %.critedge.i ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 1, %.critedge43.i ], [ 1, %147 ]
+  %236 = phi i64 [ %.pr67.i, %.critedge.i ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %165, %.critedge43.i ], [ %.pr68.i, %147 ]
   invoke void @_Z24grpc_http_parser_destroyP16grpc_http_parser(ptr noundef nonnull %3)
           to label %237 unwind label %245, !noalias !1398
 
@@ -37562,7 +37562,7 @@ _Z32grpc_chttp2_mark_stream_writableP21grpc_chttp2_transportP18grpc_chttp2_strea
   br label %.loopexit151
 
 .loopexit151:                                     ; preds = %_ZNSt8__detail9__variant16_Variant_storageILb0EJmN4absl12lts_202407226StatusEEED2Ev.exit, %.thread.thread, %308
-  %311 = phi i1 [ true, %.thread.thread ], [ true, %308 ], [ false, %_ZNSt8__detail9__variant16_Variant_storageILb0EJmN4absl12lts_202407226StatusEEED2Ev.exit ]
+  %311 = phi i1 [ true, %308 ], [ true, %.thread.thread ], [ false, %_ZNSt8__detail9__variant16_Variant_storageILb0EJmN4absl12lts_202407226StatusEEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %312 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %313
@@ -37601,7 +37601,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit104:        ; preds = %313, %318
   br label %332
 
 325:                                              ; preds = %138, %305, %280, %.body
-  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn, %138 ], [ %306, %305 ], [ %281, %280 ], [ %.pn36.pn.pn.i, %.body ]
+  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %306, %305 ], [ %281, %280 ], [ %.pn36.pn.pn.i, %.body ], [ %.pn63.pn, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %326 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %327
@@ -37976,7 +37976,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit: ; pr
   ret void
 
 464:                                              ; preds = %403, %420, %452, %331
-  %.pn63.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn, %331 ], [ %.pn60, %452 ], [ %404, %403 ], [ %421, %420 ]
+  %.pn63.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn, %331 ], [ %.pn60, %452 ], [ %421, %420 ], [ %404, %403 ]
   resume { ptr, i32 } %.pn63.pn.pn.pn.pn.pn
 }
 
@@ -38114,7 +38114,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %18, %_ZN9grpc_core3
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %37, %34, %31, %26, %.noexc15
-  %.0.i.i.i = phi i64 [ -9223372036854775808, %26 ], [ 9223372036854775807, %.noexc15 ], [ -9223372036854775808, %34 ], [ %38, %37 ], [ 9223372036854775807, %31 ]
+  %.0.i.i.i = phi i64 [ 9223372036854775807, %.noexc15 ], [ -9223372036854775808, %26 ], [ %38, %37 ], [ 9223372036854775807, %31 ], [ -9223372036854775808, %34 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 3280
   store i64 %.0.i.i.i, ptr %39, align 8, !tbaa !79
   br label %66
@@ -40970,7 +40970,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i.i:           ; preds = %82, %.critedge35.i.
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.i.i:       ; preds = %104, %101, %98, %93, %.thread.i.i.i, %89, %88
-  %.sroa.04.0.i.i.i = phi i64 [ %spec.select.i.i.i, %89 ], [ 9223372036854775807, %88 ], [ -9223372036854775808, %93 ], [ 9223372036854775807, %.thread.i.i.i ], [ -9223372036854775808, %101 ], [ %105, %104 ], [ 9223372036854775807, %98 ]
+  %.sroa.04.0.i.i.i = phi i64 [ 9223372036854775807, %88 ], [ 9223372036854775807, %.thread.i.i.i ], [ -9223372036854775808, %93 ], [ %105, %104 ], [ 9223372036854775807, %98 ], [ -9223372036854775808, %101 ], [ %spec.select.i.i.i, %89 ]
   store i64 %.sroa.04.0.i.i.i, ptr %9, align 8
   %106 = invoke i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %107 unwind label %.body.thread21.i
@@ -41673,7 +41673,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %109, %106
   br label %.body
 
 .body:                                            ; preds = %45, %66, %95, %98, %102, %123
-  %eh.lpad-body = phi { ptr, i32 } [ %124, %123 ], [ %46, %45 ], [ %67, %66 ], [ %96, %95 ], [ %96, %98 ], [ %96, %102 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %124, %123 ], [ %67, %66 ], [ %46, %45 ], [ %96, %95 ], [ %96, %98 ], [ %96, %102 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #48
   resume { ptr, i32 } %eh.lpad-body
 }

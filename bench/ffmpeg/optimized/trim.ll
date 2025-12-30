@@ -102,8 +102,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %27 = call i32 %25(ptr noundef %9, ptr noundef %26) #7
   br label %.thread
 
-.thread:                                          ; preds = %19, %23
-  %.2.ph = phi i32 [ %27, %23 ], [ %20, %19 ]
+.thread:                                          ; preds = %23, %19
+  %.2.ph = phi i32 [ %20, %19 ], [ %27, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %37
 
@@ -138,7 +138,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %37
 
 37:                                               ; preds = %31, %.thread, %14, %34, %36
-  %.1 = phi i32 [ 0, %36 ], [ 0, %14 ], [ 0, %31 ], [ %.2.ph, %.thread ], [ -1497649742, %34 ]
+  %.1 = phi i32 [ 0, %36 ], [ 0, %31 ], [ 0, %14 ], [ -1497649742, %34 ], [ %.2.ph, %.thread ]
   ret i32 %.1
 }
 
@@ -347,7 +347,7 @@ select.unfold:                                    ; preds = %18
   br label %.thread68.thread
 
 .thread68.thread:                                 ; preds = %38, %.thread68.thread92, %.thread68
-  %.3 = phi i32 [ %spec.select64, %.thread68.thread92 ], [ %spec.select60, %.thread68 ], [ 1, %38 ]
+  %.3 = phi i32 [ %spec.select60, %.thread68 ], [ %spec.select64, %.thread68.thread92 ], [ 1, %38 ]
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %49 = load i64, ptr %48, align 8, !tbaa !48
   %.not56 = icmp eq i64 %49, 0

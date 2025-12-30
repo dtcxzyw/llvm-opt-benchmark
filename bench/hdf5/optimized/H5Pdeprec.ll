@@ -765,7 +765,7 @@ define range(i32 -1, 1) i32 @H5Pset_file_space(i64 noundef %0, i32 noundef %1, i
   br label %83
 
 H5P__get_file_space.exit.thread:                  ; preds = %59, %78, %75, %73
-  %.136.ph = phi i32 [ 3, %73 ], [ 4, %78 ], [ %..i, %75 ], [ 0, %59 ]
+  %.136.ph = phi i32 [ 3, %73 ], [ %..i, %75 ], [ 4, %78 ], [ 0, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -781,7 +781,7 @@ H5P__get_file_space.exit.thread:                  ; preds = %59, %78, %75, %73
   br label %.thread55
 
 87:                                               ; preds = %H5P__get_file_space.exit.thread, %58
-  %.035 = phi i32 [ %.136.ph, %H5P__get_file_space.exit.thread ], [ %1, %58 ]
+  %.035 = phi i32 [ %1, %58 ], [ %.136.ph, %H5P__get_file_space.exit.thread ]
   %.not26 = icmp eq i64 %2, 0
   br i1 %.not26, label %88, label %107
 
@@ -806,7 +806,7 @@ H5P__get_file_space.exit.thread:                  ; preds = %59, %78, %75, %73
   %99 = load i64, ptr %6, align 8, !tbaa !11
   br label %H5P__get_file_space.exit28.thread
 
-H5P__get_file_space.exit28.thread:                ; preds = %88, %98
+H5P__get_file_space.exit28.thread:                ; preds = %98, %88
   %.1.ph = phi i64 [ 0, %88 ], [ %99, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -826,7 +826,7 @@ H5P__get_file_space.exit28.thread:                ; preds = %88, %98
   br label %.thread55
 
 107:                                              ; preds = %H5P__get_file_space.exit28.thread, %87
-  %.034 = phi i64 [ %.1.ph, %H5P__get_file_space.exit28.thread ], [ %2, %87 ]
+  %.034 = phi i64 [ %2, %87 ], [ %.1.ph, %H5P__get_file_space.exit28.thread ]
   switch i32 %.035, label %111 [
     i32 1, label %108
     i32 2, label %109
@@ -1009,7 +1009,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_space(i64 noundef %0, ptr noundef write
   br label %77
 
 .sink.split.i:                                    ; preds = %69, %66, %64
-  %.sink.i = phi i32 [ %..i, %66 ], [ 4, %69 ], [ 3, %64 ]
+  %.sink.i = phi i32 [ 4, %69 ], [ %..i, %66 ], [ 3, %64 ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !19
   br label %74
 

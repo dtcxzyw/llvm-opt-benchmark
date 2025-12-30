@@ -345,7 +345,7 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
   br label %148
 
 148:                                              ; preds = %145, %25, %.critedge.thread, %3, %147, %144, %140, %118, %112, %109, %102, %98, %94, %84, %76, %71, %64, %61, %44, %40, %33, %21
-  %.095 = phi i32 [ -10368, %25 ], [ -10368, %21 ], [ -10240, %3 ], [ -8576, %.critedge.thread ], [ -8576, %33 ], [ -8678, %40 ], [ %45, %44 ], [ %.094, %61 ], [ -9600, %64 ], [ -9728, %71 ], [ %77, %76 ], [ %83, %84 ], [ %93, %94 ], [ %97, %98 ], [ %101, %102 ], [ %108, %109 ], [ -8678, %112 ], [ %117, %118 ], [ -9856, %140 ], [ %143, %144 ], [ -8678, %147 ], [ 0, %145 ]
+  %.095 = phi i32 [ -10368, %21 ], [ -8576, %33 ], [ -8678, %40 ], [ %45, %44 ], [ %.094, %61 ], [ -9600, %64 ], [ -9728, %71 ], [ %77, %76 ], [ %83, %84 ], [ %93, %94 ], [ %97, %98 ], [ %101, %102 ], [ %108, %109 ], [ -8678, %112 ], [ %117, %118 ], [ -9856, %140 ], [ %143, %144 ], [ -8678, %147 ], [ -10240, %3 ], [ -8576, %.critedge.thread ], [ -10368, %25 ], [ 0, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -569,8 +569,8 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %31
   %55 = icmp eq ptr %53, null
   br i1 %55, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %x509_get_crl_entry_ext.exit, %26, %.lr.ph85, %.lr.ph, %52, %.lr.ph.preheader, %x509_get_crl_entry_ext.exit.thread55
-  %.2.ph = phi i32 [ -9574, %x509_get_crl_entry_ext.exit.thread55 ], [ %18, %.lr.ph.preheader ], [ -10368, %52 ], [ %58, %.lr.ph ], [ %25, %.lr.ph85 ], [ %28, %26 ], [ %.0.i, %x509_get_crl_entry_ext.exit ]
+.thread:                                          ; preds = %52, %x509_get_crl_entry_ext.exit, %26, %.lr.ph85, %.lr.ph, %.lr.ph.preheader, %x509_get_crl_entry_ext.exit.thread55
+  %.2.ph = phi i32 [ -9574, %x509_get_crl_entry_ext.exit.thread55 ], [ %18, %.lr.ph.preheader ], [ %58, %.lr.ph ], [ %25, %.lr.ph85 ], [ %28, %26 ], [ %.0.i, %x509_get_crl_entry_ext.exit ], [ -10368, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -589,7 +589,7 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %12, %.thread, %9, %3, %11
-  %.0 = phi i32 [ 0, %9 ], [ 0, %3 ], [ %10, %11 ], [ %.2.ph, %.thread ], [ 0, %12 ], [ 0, %.loopexit.loopexit ]
+  %.0 = phi i32 [ %10, %11 ], [ 0, %3 ], [ 0, %9 ], [ %.2.ph, %.thread ], [ 0, %12 ], [ 0, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -679,7 +679,7 @@ define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef
   br i1 %.not47, label %45, label %.thread
 
 .thread:                                          ; preds = %39, %43, %19, %26, %33, %37
-  %.2.ph = phi i32 [ %27, %26 ], [ %20, %19 ], [ %38, %37 ], [ %34, %33 ], [ -9570, %43 ], [ -9574, %39 ]
+  %.2.ph = phi i32 [ %38, %37 ], [ %34, %33 ], [ %27, %26 ], [ %20, %19 ], [ -9570, %43 ], [ -9574, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %47
@@ -697,7 +697,7 @@ define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef
   br label %47
 
 47:                                               ; preds = %._crit_edge, %.thread, %8, %3
-  %.0 = phi i32 [ %9, %8 ], [ 0, %3 ], [ %.2.ph, %.thread ], [ %spec.select, %._crit_edge ]
+  %.0 = phi i32 [ 0, %3 ], [ %9, %8 ], [ %.2.ph, %.thread ], [ %spec.select, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -782,7 +782,7 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   br label %.thread37
 
 .thread37:                                        ; preds = %27, %3, %.thread.thread, %26, %25
-  %.025 = phi i32 [ %.02031, %26 ], [ %24, %25 ], [ -10240, %3 ], [ %30, %.thread.thread ], [ 0, %27 ]
+  %.025 = phi i32 [ %24, %25 ], [ %30, %.thread.thread ], [ %.02031, %26 ], [ -10240, %3 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.025
@@ -1040,7 +1040,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %91, %108, %83, %89, %78, %81, %133, %119, %131, %.critedge, %117, %64, %70, %45, %62, %26, %43, %18, %24, %11, %16, %4, %9, %139
-  %.0150 = phi i32 [ %141, %139 ], [ -10624, %4 ], [ -10624, %11 ], [ -10624, %18 ], [ -10624, %26 ], [ -10624, %45 ], [ -10624, %64 ], [ -10624, %131 ], [ -10624, %133 ], [ -10624, %117 ], [ -10624, %.critedge ], [ -10624, %119 ], [ -10624, %9 ], [ -10624, %16 ], [ -10624, %24 ], [ -10624, %43 ], [ -10624, %62 ], [ -10624, %70 ], [ -10624, %81 ], [ -10624, %78 ], [ -10624, %89 ], [ -10624, %83 ], [ -10624, %108 ], [ -10624, %91 ]
+  %.0150 = phi i32 [ %141, %139 ], [ -10624, %9 ], [ -10624, %4 ], [ -10624, %16 ], [ -10624, %11 ], [ -10624, %24 ], [ -10624, %18 ], [ -10624, %43 ], [ -10624, %26 ], [ -10624, %62 ], [ -10624, %45 ], [ -10624, %70 ], [ -10624, %64 ], [ -10624, %117 ], [ -10624, %.critedge ], [ -10624, %131 ], [ -10624, %119 ], [ -10624, %133 ], [ -10624, %81 ], [ -10624, %78 ], [ -10624, %89 ], [ -10624, %83 ], [ -10624, %108 ], [ -10624, %91 ]
   ret i32 %.0150
 }
 

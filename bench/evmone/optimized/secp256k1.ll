@@ -3347,7 +3347,7 @@ _ZN4intx8internal9normalizeILj576ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   br label %_ZN4intx8internal9normalizeILj576ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit
 
 _ZN4intx8internal9normalizeILj576ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
-  %74 = phi i32 [ %73, %72 ], [ %storemerge.i.lcssa32, %66 ]
+  %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -3919,7 +3919,7 @@ _ZN4intx15reciprocal_2by1Em.exit:                 ; preds = %45
   br label %78
 
 78:                                               ; preds = %75, %73, %64
-  %.2 = phi i64 [ %.016, %64 ], [ %spec.select, %75 ], [ %74, %73 ]
+  %.2 = phi i64 [ %74, %73 ], [ %.016, %64 ], [ %spec.select, %75 ]
   ret i64 %.2
 }
 

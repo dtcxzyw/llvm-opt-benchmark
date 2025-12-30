@@ -190,7 +190,7 @@ switch.lookup:                                    ; preds = %15
   br label %29
 
 29:                                               ; preds = %15, %25, %switch.lookup, %28, %14
-  %.0 = phi i32 [ -22, %14 ], [ -558323010, %15 ], [ %20, %switch.lookup ], [ 0, %28 ], [ %26, %25 ]
+  %.0 = phi i32 [ 0, %28 ], [ -22, %14 ], [ -558323010, %15 ], [ %20, %switch.lookup ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -2487,7 +2487,7 @@ draw_response.exit:                               ; preds = %1012, %299, %._crit
   %wide.trip.count133.i = zext nneg i32 %1026 to i64
   br label %1030
 
-.critedge372:                                     ; preds = %1164, %.preheader1.i.i, %._crit_edge103.i, %._crit_edge.i87.i
+.critedge372:                                     ; preds = %1164, %._crit_edge.i87.i, %.preheader1.i.i, %._crit_edge103.i
   call void @av_free(ptr noundef nonnull %1038) #16
   call void @av_free(ptr noundef nonnull %1043) #16
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
@@ -3140,7 +3140,7 @@ normalize_coeffs.exit:                            ; preds = %1252, %._crit_edge3
   br label %convert_zp2tf.exit
 
 convert_zp2tf.exit:                               ; preds = %normalize_coeffs.exit.i, %read_gains.exit.thread274, %read_gains.exit.thread, %.split.us, %1287, %1295, %1293, %1291, %1289, %1288, %1192, %1188, %1179, %289, %39, %.loopexit, %1, %1178, %1177, %1175
-  %.0 = phi i32 [ -12, %1 ], [ -22, %read_gains.exit.thread274 ], [ %37, %.loopexit ], [ -12, %289 ], [ -22, %.split.us ], [ %1194, %1192 ], [ -1163346256, %1175 ], [ -1163346256, %1177 ], [ -1163346256, %1178 ], [ -12, %read_gains.exit.thread ], [ %1181, %1179 ], [ %1190, %1188 ], [ %43, %39 ], [ 0, %1288 ], [ 0, %1289 ], [ 0, %1291 ], [ 0, %1293 ], [ 0, %1295 ], [ 0, %1287 ], [ %.2.i, %normalize_coeffs.exit.i ]
+  %.0 = phi i32 [ -22, %.split.us ], [ -1163346256, %1175 ], [ -1163346256, %1177 ], [ -1163346256, %1178 ], [ -12, %1 ], [ %37, %.loopexit ], [ %43, %39 ], [ -12, %289 ], [ %1181, %1179 ], [ %1190, %1188 ], [ %1194, %1192 ], [ 0, %1288 ], [ 0, %1289 ], [ 0, %1291 ], [ 0, %1293 ], [ 0, %1295 ], [ 0, %1287 ], [ -12, %read_gains.exit.thread ], [ -22, %read_gains.exit.thread274 ], [ %.2.i, %normalize_coeffs.exit.i ]
   ret i32 %.0
 }
 
@@ -3391,7 +3391,7 @@ read_tf_coefficients.exit:                        ; preds = %65, %.sink.split.i6
   br i1 %75, label %.thread.sink.split, label %18
 
 .thread.sink.split:                               ; preds = %18, %74, %count_coefficients.exit, %46, %19, %.preheader
-  %.0.ph = phi i32 [ 0, %.preheader ], [ -12, %count_coefficients.exit ], [ %.046, %74 ], [ -22, %19 ], [ -12, %46 ], [ 0, %18 ]
+  %.0.ph = phi i32 [ 0, %.preheader ], [ -22, %19 ], [ -12, %46 ], [ -12, %count_coefficients.exit ], [ %.046, %74 ], [ 0, %18 ]
   call void @av_freep(ptr noundef nonnull %9) #16
   br label %.thread
 
@@ -3557,8 +3557,8 @@ define internal fastcc range(i32 -22, 1) i32 @decompose_zp2biquads(ptr noundef %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %76, %._crit_edge.loopexit.split.loop.exit, %38
-  %.sroa.057.0.lcssa355 = phi i32 [ %.sroa.057.1, %._crit_edge.loopexit.split.loop.exit ], [ -1, %38 ], [ %.sroa.057.1, %76 ]
-  %.sroa.15.0 = phi i32 [ %77, %._crit_edge.loopexit.split.loop.exit ], [ -1, %38 ], [ -1, %76 ]
+  %.sroa.057.0.lcssa355 = phi i32 [ -1, %38 ], [ %.sroa.057.1, %._crit_edge.loopexit.split.loop.exit ], [ %.sroa.057.1, %76 ]
+  %.sroa.15.0 = phi i32 [ -1, %38 ], [ %77, %._crit_edge.loopexit.split.loop.exit ], [ -1, %76 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.99, i32 noundef %.sroa.057.0.lcssa355, i32 noundef %.sroa.15.0) #16
   %78 = or i32 %.sroa.15.0, %.sroa.057.0.lcssa355
   %or.cond.not = icmp sgt i32 %78, -1
@@ -3658,8 +3658,8 @@ define internal fastcc range(i32 -22, 1) i32 @decompose_zp2biquads(ptr noundef %
   br label %._crit_edge287
 
 ._crit_edge287:                                   ; preds = %124, %._crit_edge287.loopexit.split.loop.exit, %.preheader260
-  %.sroa.0.0.lcssa357 = phi i32 [ %.sroa.0.1, %._crit_edge287.loopexit.split.loop.exit ], [ -1, %.preheader260 ], [ %.sroa.0.1, %124 ]
-  %.sroa.13.0 = phi i32 [ %125, %._crit_edge287.loopexit.split.loop.exit ], [ -1, %.preheader260 ], [ -1, %124 ]
+  %.sroa.0.0.lcssa357 = phi i32 [ -1, %.preheader260 ], [ %.sroa.0.1, %._crit_edge287.loopexit.split.loop.exit ], [ %.sroa.0.1, %124 ]
+  %.sroa.13.0 = phi i32 [ -1, %.preheader260 ], [ %125, %._crit_edge287.loopexit.split.loop.exit ], [ -1, %124 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.100, i32 noundef %.sroa.0.0.lcssa357, i32 noundef %.sroa.13.0) #16
   %126 = or i32 %.sroa.13.0, %.sroa.0.0.lcssa357
   %or.cond6.not = icmp sgt i32 %126, -1
@@ -4113,7 +4113,7 @@ biquad_process.exit:                              ; preds = %.lr.ph.i
   br label %.preheader113.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.us120.i, %.preheader111.i, %.split.us.i
-  %indvars.iv.next144189.i = phi i64 [ 1, %.preheader111.i ], [ %indvars.iv.next144.i, %.split.us.i ], [ %indvars.iv.next144.i, %._crit_edge.us120.i ]
+  %indvars.iv.next144189.i = phi i64 [ %indvars.iv.next144.i, %.split.us.i ], [ 1, %.preheader111.i ], [ %indvars.iv.next144.i, %._crit_edge.us120.i ]
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next144189.i, %62
   br i1 %exitcond170.not.i, label %.preheader109.i, label %.preheader113.i, !llvm.loop !138

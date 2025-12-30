@@ -1857,7 +1857,7 @@ define dso_local i32 @intel_guc_submission_init(ptr noundef %0) local_unnamed_ad
   br label %117
 
 110:                                              ; preds = %31, %44, %81, %52
-  %111 = phi i32 [ -12, %81 ], [ -12, %52 ], [ %42, %44 ], [ -12, %31 ]
+  %111 = phi i32 [ -12, %52 ], [ -12, %81 ], [ %42, %44 ], [ -12, %31 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
@@ -2180,7 +2180,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_submission_setup(ptr n
   br i1 %113, label %119, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %110, %78, %73
-  %114 = phi ptr [ %59, %73 ], [ %59, %78 ], [ %.pre16.pre, %110 ]
+  %114 = phi ptr [ %59, %78 ], [ %59, %73 ], [ %.pre16.pre, %110 ]
   %115 = getelementptr i8, ptr %114, i64 7188
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 2048
@@ -2853,8 +2853,8 @@ define internal void @guc_submission_tasklet(ptr noundef %0) #0 align 16 {
   br i1 %102, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %100, %36, %18
-  %103 = phi i8 [ %31, %36 ], [ %19, %18 ], [ %95, %100 ]
-  %104 = phi ptr [ %30, %36 ], [ %10, %18 ], [ %94, %100 ]
+  %103 = phi i8 [ %19, %18 ], [ %31, %36 ], [ %95, %100 ]
+  %104 = phi ptr [ %10, %18 ], [ %30, %36 ], [ %94, %100 ]
   %105 = icmp eq i8 %103, 0
   br i1 %105, label %.critedge8, label %.thread10
 
@@ -3345,7 +3345,7 @@ define dso_local i32 @intel_guc_submission_enable(ptr noundef %0) local_unnamed_
   br label %.thread21
 
 .thread21:                                        ; preds = %38, %70, %74, %93, %115, %180
-  %184 = phi i32 [ %69, %70 ], [ %105, %115 ], [ %.ph28, %180 ], [ %69, %93 ], [ %69, %74 ], [ %39, %38 ]
+  %184 = phi i32 [ %105, %115 ], [ %.ph28, %180 ], [ %69, %93 ], [ %69, %74 ], [ %69, %70 ], [ %39, %38 ]
   %185 = load ptr, ptr %4, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 7176
   %187 = load i8, ptr %186, align 8
@@ -4298,7 +4298,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_deregister_done_proces
   br label %.thread
 
 .thread:                                          ; preds = %57, %42, %26, %126, %.thread12, %12
-  %129 = phi i32 [ -71, %12 ], [ 0, %126 ], [ 0, %.thread12 ], [ -71, %26 ], [ -71, %42 ], [ -71, %57 ]
+  %129 = phi i32 [ -71, %12 ], [ 0, %.thread12 ], [ 0, %126 ], [ -71, %26 ], [ -71, %42 ], [ -71, %57 ]
   ret i32 %129
 }
 
@@ -5108,7 +5108,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_sched_done_process_msg
   br label %.thread
 
 .thread:                                          ; preds = %135, %137, %57, %42, %26, %138, %79, %12
-  %139 = phi i32 [ -71, %12 ], [ -71, %79 ], [ 0, %138 ], [ -71, %57 ], [ -71, %26 ], [ -71, %42 ], [ 0, %137 ], [ 0, %135 ]
+  %139 = phi i32 [ -71, %12 ], [ -71, %79 ], [ 0, %138 ], [ -71, %26 ], [ -71, %42 ], [ -71, %57 ], [ 0, %137 ], [ 0, %135 ]
   ret i32 %139
 }
 
@@ -6370,7 +6370,7 @@ define internal fastcc void @guc_update_engine_gt_clks(ptr noundef %0) unnamed_a
   br i1 %29, label %.split.us.backedge, label %.split11.us
 
 .split.us.backedge:                               ; preds = %24, %21
-  %.be = phi i32 [ %27, %24 ], [ %22, %21 ]
+  %.be = phi i32 [ %22, %21 ], [ %27, %24 ]
   br label %.split.us, !llvm.loop !94
 
 .thread6:                                         ; preds = %1, %.thread6.backedge
@@ -6401,13 +6401,13 @@ define internal fastcc void @guc_update_engine_gt_clks(ptr noundef %0) unnamed_a
   br i1 %45, label %.thread6.backedge, label %.split11.us
 
 .thread6.backedge:                                ; preds = %43, %.thread9
-  %.be39 = phi i32 [ %40, %.thread9 ], [ %44, %43 ]
+  %.be39 = phi i32 [ %44, %43 ], [ %40, %.thread9 ]
   br label %.thread6, !llvm.loop !94
 
 .split11.us:                                      ; preds = %.thread9, %43, %21, %24
-  %.us-phi = phi i32 [ %13, %21 ], [ %13, %24 ], [ %31, %43 ], [ %31, %.thread9 ]
-  %.us-phi12 = phi i32 [ %15, %21 ], [ %15, %24 ], [ %33, %43 ], [ %33, %.thread9 ]
-  %.us-phi13 = phi i32 [ %14, %21 ], [ %14, %24 ], [ %32, %43 ], [ %32, %.thread9 ]
+  %.us-phi = phi i32 [ %13, %24 ], [ %13, %21 ], [ %31, %43 ], [ %31, %.thread9 ]
+  %.us-phi12 = phi i32 [ %15, %24 ], [ %15, %21 ], [ %33, %43 ], [ %33, %.thread9 ]
+  %.us-phi13 = phi i32 [ %14, %24 ], [ %14, %21 ], [ %32, %43 ], [ %32, %.thread9 ]
   %46 = icmp ne i32 %.us-phi13, -1
   %47 = icmp ne i32 %.us-phi, 0
   %48 = select i1 %46, i1 %47, i1 false
@@ -6660,7 +6660,7 @@ define internal fastcc i32 @guc_submission_send_busy_loop(ptr noundef %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %10, %19, %14
-  %21 = phi i1 [ %17, %14 ], [ true, %19 ], [ false, %10 ]
+  %21 = phi i1 [ true, %19 ], [ %17, %14 ], [ false, %10 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %23 = or disjoint i32 %3, -2147483648
   %24 = call i32 @intel_guc_ct_send(ptr noundef nonnull %22, ptr noundef %1, i32 noundef %2, ptr noundef null, i32 noundef 0, i32 noundef %23) #22
@@ -6690,7 +6690,7 @@ define internal fastcc i32 @guc_submission_send_busy_loop(ptr noundef %0, ptr no
   br i1 %35, label %.preheader.split.split, label %.loopexit, !prof !68
 
 .loopexit:                                        ; preds = %.preheader.split.split, %.preheader.split.us.split, %30, %.thread
-  %36 = phi i32 [ %24, %.thread ], [ -4, %.preheader.split.us.split ], [ %32, %30 ], [ %34, %.preheader.split.split ]
+  %36 = phi i32 [ %24, %.thread ], [ %32, %30 ], [ -4, %.preheader.split.us.split ], [ %34, %.preheader.split.split ]
   ret i32 %36
 }
 
@@ -7221,12 +7221,12 @@ define internal fastcc i32 @guc_add_request(ptr noundef %0, ptr noundef %1) unna
   br label %.thread8
 
 .thread8:                                         ; preds = %94, %96, %.thread6, %97, %83, %76, %49
-  %98 = phi i32 [ 0, %49 ], [ %72, %.thread6 ], [ %84, %83 ], [ 0, %76 ], [ %75, %97 ], [ %75, %96 ], [ %75, %94 ]
+  %98 = phi i32 [ 0, %49 ], [ %84, %83 ], [ 0, %76 ], [ %75, %97 ], [ %72, %.thread6 ], [ %75, %96 ], [ %75, %94 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %44) #22
   br label %99
 
 99:                                               ; preds = %.thread8, %40
-  %100 = phi i32 [ %41, %40 ], [ %98, %.thread8 ]
+  %100 = phi i32 [ %98, %.thread8 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %101 = icmp eq i32 %100, -16
   br i1 %101, label %102, label %105, !prof !99
@@ -9468,7 +9468,7 @@ define internal noundef nonnull ptr @guc_create_virtual(ptr noundef readonly cap
   br label %.thread12
 
 .thread12:                                        ; preds = %142, %155, %154, %152, %32, %3
-  %156 = phi ptr [ inttoptr (i64 -22 to ptr), %155 ], [ inttoptr (i64 -12 to ptr), %3 ], [ %40, %32 ], [ inttoptr (i64 -22 to ptr), %152 ], [ inttoptr (i64 -22 to ptr), %154 ], [ %40, %142 ]
+  %156 = phi ptr [ inttoptr (i64 -12 to ptr), %3 ], [ %40, %32 ], [ inttoptr (i64 -22 to ptr), %152 ], [ inttoptr (i64 -22 to ptr), %154 ], [ inttoptr (i64 -22 to ptr), %155 ], [ %40, %142 ]
   ret ptr %156
 }
 
@@ -9629,7 +9629,7 @@ define internal ptr @guc_create_parallel(ptr noundef readonly captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %85, %87, %88, %.loopexit8, %.split14.us
-  %89 = phi ptr [ %50, %.loopexit8 ], [ %.us-phi, %88 ], [ %.us-phi, %85 ], [ %.us-phi, %.split14.us ], [ %.us-phi, %87 ], [ %50, %.preheader ]
+  %89 = phi ptr [ %50, %.loopexit8 ], [ %.us-phi, %88 ], [ %.us-phi, %.split14.us ], [ %.us-phi, %87 ], [ %.us-phi, %85 ], [ %50, %.preheader ]
   tail call void @kfree(ptr noundef nonnull %6) #22
   br label %90
 

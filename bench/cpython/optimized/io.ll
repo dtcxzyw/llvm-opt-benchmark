@@ -375,10 +375,10 @@ _mpd_strneq.exit129:                              ; preds = %102, %_mpd_strneq.e
   br label %143
 
 143:                                              ; preds = %107, %142, %135, %126, %124, %122, %120, %112, %109
-  %.2 = phi ptr [ %.1150, %142 ], [ %.1150, %135 ], [ %.1150, %126 ], [ %.1150, %124 ], [ %.1150, %122 ], [ %.1150, %120 ], [ %.1150, %112 ], [ %.1150, %109 ], [ %.029.i, %107 ]
-  %.1148 = phi ptr [ null, %142 ], [ null, %135 ], [ null, %126 ], [ null, %124 ], [ %.0147, %122 ], [ %.0147, %120 ], [ %.029.i, %112 ], [ %.029.i, %109 ], [ null, %107 ]
-  %.130.i = phi ptr [ %.029.i, %142 ], [ %.029.i, %135 ], [ %.029.i, %126 ], [ %.029.i, %124 ], [ %.029.i, %122 ], [ %.029.i, %120 ], [ %110, %112 ], [ %.029.i, %109 ], [ %.029.i, %107 ]
-  %.1.i131 = phi ptr [ %.029.i, %142 ], [ null, %135 ], [ null, %126 ], [ %.029.i, %124 ], [ null, %122 ], [ %.0.i130, %120 ], [ %.0.i130, %112 ], [ %.0.i130, %109 ], [ %.0.i130, %107 ]
+  %.2 = phi ptr [ %.1150, %142 ], [ %.1150, %135 ], [ %.1150, %126 ], [ %.1150, %124 ], [ %.1150, %122 ], [ %.1150, %120 ], [ %.1150, %109 ], [ %.1150, %112 ], [ %.029.i, %107 ]
+  %.1148 = phi ptr [ null, %142 ], [ null, %135 ], [ null, %126 ], [ null, %124 ], [ %.0147, %122 ], [ %.0147, %120 ], [ %.029.i, %109 ], [ %.029.i, %112 ], [ null, %107 ]
+  %.130.i = phi ptr [ %.029.i, %142 ], [ %.029.i, %135 ], [ %.029.i, %126 ], [ %.029.i, %124 ], [ %.029.i, %122 ], [ %.029.i, %120 ], [ %.029.i, %109 ], [ %110, %112 ], [ %.029.i, %107 ]
+  %.1.i131 = phi ptr [ %.029.i, %142 ], [ null, %135 ], [ null, %126 ], [ %.029.i, %124 ], [ null, %122 ], [ %.0.i130, %120 ], [ %.0.i130, %109 ], [ %.0.i130, %112 ], [ %.0.i130, %107 ]
   %144 = getelementptr i8, ptr %.130.i, i64 1
   br label %.preheader170, !llvm.loop !24
 
@@ -459,7 +459,7 @@ strtoexp.exit:                                    ; preds = %147
   br label %174
 
 174:                                              ; preds = %.thread, %159
-  %.1 = phi i64 [ %spec.select, %.thread ], [ %162, %159 ]
+  %.1 = phi i64 [ %162, %159 ], [ %spec.select, %.thread ]
   %175 = icmp ugt i64 %.1, 999999999999999999
   br i1 %175, label %_mpd_strneq.exit129.thread, label %176
 
@@ -478,9 +478,9 @@ strtoexp.exit:                                    ; preds = %147
   br label %181
 
 181:                                              ; preds = %.sink.split, %75, %179, %40
-  %.0149 = phi ptr [ null, %40 ], [ %.1150, %179 ], [ null, %75 ], [ %.1150, %.sink.split ]
-  %.075 = phi ptr [ %.0.i.lcssa, %40 ], [ %.0.i130, %179 ], [ %.0.i107.lcssa, %75 ], [ %.0.i130, %.sink.split ]
-  %.074 = phi i64 [ %43, %40 ], [ %.1, %179 ], [ %78, %75 ], [ %.1, %.sink.split ]
+  %.0149 = phi ptr [ %.1150, %179 ], [ null, %75 ], [ null, %40 ], [ %.1150, %.sink.split ]
+  %.075 = phi ptr [ %.0.i130, %179 ], [ %.0.i107.lcssa, %75 ], [ %.0.i.lcssa, %40 ], [ %.0.i130, %.sink.split ]
+  %.074 = phi i64 [ %.1, %179 ], [ %78, %75 ], [ %43, %40 ], [ %.1, %.sink.split ]
   %182 = sdiv i64 %.074, 19
   %.neg.i = mul nsw i64 %182, -19
   %183 = add i64 %.neg.i, %.074
@@ -575,7 +575,7 @@ string_to_coeff.exit:                             ; preds = %.loopexit.i, %.loop
   tail call void @mpd_qfinalize(ptr noundef %0, ptr noundef %2, ptr noundef %3) #19
   br label %221
 
-_mpd_strneq.exit129.thread:                       ; preds = %108, %107, %113, %100, %strtoexp.exit, %163, %strtoexp.exit.thread, %181, %174, %scan_dpoint_exp.exit, %75, %scan_payload.exit111, %40, %scan_payload.exit
+_mpd_strneq.exit129.thread:                       ; preds = %113, %108, %107, %100, %strtoexp.exit, %163, %strtoexp.exit.thread, %181, %174, %scan_dpoint_exp.exit, %75, %scan_payload.exit111, %40, %scan_payload.exit
   tail call void @mpd_seterror(ptr noundef %0, i32 noundef 2, ptr noundef %3) #19
   br label %221
 
@@ -808,7 +808,7 @@ define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) 
   br label %87
 
 87:                                               ; preds = %63, %65, %72, %80, %68, %56
-  %.099 = phi i64 [ %3, %56 ], [ %3, %68 ], [ %79, %72 ], [ %86, %80 ], [ %61, %65 ], [ %61, %63 ]
+  %.099 = phi i64 [ %3, %56 ], [ %79, %72 ], [ %86, %80 ], [ %3, %68 ], [ %61, %65 ], [ %61, %63 ]
   %88 = sub i64 0, %.099
   %89 = icmp slt i64 %.099, 1
   %90 = load i64, ptr %57, align 8, !tbaa !33
@@ -973,7 +973,7 @@ coeff_to_string.exit133:                          ; preds = %136, %127
   br i1 %.not.i135, label %coeff_to_string.exit127, label %160, !llvm.loop !36
 
 coeff_to_string.exit127:                          ; preds = %.lr.ph, %160, %119, %coeff_to_string.exit133, %150, %._crit_edge
-  %.5 = phi ptr [ %164, %160 ], [ %123, %119 ], [ %113, %._crit_edge ], [ %154, %150 ], [ %.011.lcssa.i128, %coeff_to_string.exit133 ], [ %145, %.lr.ph ]
+  %.5 = phi ptr [ %113, %._crit_edge ], [ %154, %150 ], [ %.011.lcssa.i128, %coeff_to_string.exit133 ], [ %123, %119 ], [ %164, %160 ], [ %145, %.lr.ph ]
   %.not112 = icmp ne i64 %61, %.099
   %brmerge = or i1 %.not103, %.not112
   br i1 %brmerge, label %166, label %coeff_to_string.exit
@@ -995,8 +995,8 @@ coeff_to_string.exit127:                          ; preds = %.lr.ph, %160, %119,
   br label %coeff_to_string.exit
 
 coeff_to_string.exit:                             ; preds = %45, %37, %coeff_to_string.exit127, %166, %53, %32
-  %.098 = phi ptr [ %96, %coeff_to_string.exit127 ], [ %17, %32 ], [ %17, %53 ], [ %96, %166 ], [ %17, %37 ], [ %17, %45 ]
-  %.2 = phi ptr [ %.5, %coeff_to_string.exit127 ], [ %33, %32 ], [ %54, %53 ], [ %174, %166 ], [ %40, %37 ], [ %49, %45 ]
+  %.098 = phi ptr [ %17, %32 ], [ %17, %53 ], [ %96, %166 ], [ %96, %coeff_to_string.exit127 ], [ %17, %37 ], [ %17, %45 ]
+  %.2 = phi ptr [ %33, %32 ], [ %54, %53 ], [ %174, %166 ], [ %.5, %coeff_to_string.exit127 ], [ %40, %37 ], [ %49, %45 ]
   %175 = and i32 %2, 32
   %.not121 = icmp eq i32 %175, 0
   br i1 %.not121, label %178, label %176
@@ -1167,9 +1167,9 @@ define hidden range(i32 0, 2) i32 @mpd_parse_fmt_str(ptr noundef captures(none) 
   br i1 %36, label %37, label %_mpd_copy_utf8.exit
 
 37:                                               ; preds = %35, %33, %31, %29, %27, %25, %23
-  %.038.i = phi i32 [ 128, %33 ], [ 128, %35 ], [ 160, %23 ], [ 128, %25 ], [ 128, %27 ], [ 128, %29 ], [ 144, %31 ]
-  %.037.i = phi i32 [ 191, %33 ], [ 143, %35 ], [ 191, %23 ], [ 191, %25 ], [ 159, %27 ], [ 191, %29 ], [ 191, %31 ]
-  %.036.i = phi i64 [ 4, %33 ], [ 4, %35 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %29 ], [ 4, %31 ]
+  %.038.i = phi i32 [ 160, %23 ], [ 128, %25 ], [ 128, %27 ], [ 128, %29 ], [ 144, %31 ], [ 128, %33 ], [ 128, %35 ]
+  %.037.i = phi i32 [ 191, %23 ], [ 191, %25 ], [ 159, %27 ], [ 191, %29 ], [ 191, %31 ], [ 191, %33 ], [ 143, %35 ]
+  %.036.i = phi i64 [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %29 ], [ 4, %31 ], [ 4, %33 ], [ 4, %35 ]
   %38 = getelementptr i8, ptr %1, i64 1
   store i8 %14, ptr %13, align 1, !tbaa !11
   %39 = load i8, ptr %38, align 1, !tbaa !11
@@ -1431,7 +1431,7 @@ thread-pre-split:                                 ; preds = %59, %59, %59, %59, 
   br label %.critedge
 
 .critedge:                                        ; preds = %_mpd_copy_utf8.exit, %119, %134, %110, %110, %102, %88, %88, %86, %72, %122
-  %.0 = phi i32 [ 0, %88 ], [ 0, %_mpd_copy_utf8.exit ], [ 0, %72 ], [ 0, %86 ], [ 0, %102 ], [ %.58, %134 ], [ 0, %110 ], [ 0, %122 ], [ 0, %88 ], [ 0, %110 ], [ 0, %119 ]
+  %.0 = phi i32 [ 0, %122 ], [ 0, %_mpd_copy_utf8.exit ], [ 0, %72 ], [ 0, %86 ], [ 0, %88 ], [ 0, %88 ], [ 0, %102 ], [ 0, %110 ], [ 0, %110 ], [ %.58, %134 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1660,9 +1660,9 @@ default.unreachable135:                           ; preds = %77
   unreachable
 
 .thread:                                          ; preds = %64, %86, %88, %78, %82, %.thread147, %92, %96
-  %.471141 = phi i32 [ %.471142, %96 ], [ %.471142, %92 ], [ %.471142, %.thread147 ], [ %.471144, %82 ], [ %.471144, %88 ], [ %.471144, %86 ], [ %.471144, %78 ], [ %65, %64 ]
-  %.27899 = phi i64 [ 1, %96 ], [ 1, %92 ], [ 1, %.thread147 ], [ 1, %82 ], [ 1, %88 ], [ %87, %86 ], [ 1, %78 ], [ 1, %64 ]
-  %.5 = phi ptr [ %7, %96 ], [ %.4104, %92 ], [ %.4104, %.thread147 ], [ %7, %82 ], [ %7, %88 ], [ %.2145, %86 ], [ %.2145, %78 ], [ %0, %64 ]
+  %.471141 = phi i32 [ %.471142, %96 ], [ %.471142, %92 ], [ %.471142, %.thread147 ], [ %.471144, %88 ], [ %.471144, %86 ], [ %.471144, %78 ], [ %.471144, %82 ], [ %65, %64 ]
+  %.27899 = phi i64 [ 1, %96 ], [ 1, %92 ], [ 1, %.thread147 ], [ 1, %88 ], [ %87, %86 ], [ 1, %78 ], [ 1, %82 ], [ 1, %64 ]
+  %.5 = phi ptr [ %7, %96 ], [ %.4104, %92 ], [ %.4104, %.thread147 ], [ %7, %88 ], [ %.2145, %86 ], [ %.2145, %78 ], [ %7, %82 ], [ %0, %64 ]
   %97 = load i32, ptr %10, align 4, !tbaa !25
   %98 = and i32 %97, 958
   %.not87 = icmp eq i32 %98, 0

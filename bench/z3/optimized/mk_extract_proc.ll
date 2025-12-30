@@ -286,7 +286,7 @@ _ZN7bv_util10mk_extractEjjP4expr.exit:            ; preds = %82
   br label %_ZN11ast_manager7inc_refEP3ast.exit
 
 _ZN11ast_manager7inc_refEP3ast.exit:              ; preds = %93, %_ZN7bv_util10mk_extractEjjP4expr.exit, %40, %58
-  %.0 = phi ptr [ %41, %40 ], [ %60, %58 ], [ %76, %_ZN7bv_util10mk_extractEjjP4expr.exit ], [ %76, %93 ]
+  %.0 = phi ptr [ %60, %58 ], [ %41, %40 ], [ %76, %_ZN7bv_util10mk_extractEjjP4expr.exit ], [ %76, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0

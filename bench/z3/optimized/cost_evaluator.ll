@@ -113,8 +113,8 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
 common.ret.loopexit225:                           ; preds = %_ZNK3app13get_decl_kindEv.exit
   br label %common.ret262
 
-common.ret262:                                    ; preds = %_ZNK8rational9get_int64Ev.exit93, %175, %68, %187, %.thread97, %23, %34, %common.ret.loopexit225, %_ZNK3app13get_decl_kindEv.exit, %.lr.ph141, %29, %.lr.ph, %40, %176, %162, %157, %149, %141, %132, %123, %114, %105, %73, %59, %50, %17
-  %common.ret262.op = phi float [ %180, %176 ], [ %22, %17 ], [ %58, %50 ], [ %67, %59 ], [ %78, %73 ], [ %113, %105 ], [ %122, %114 ], [ %131, %123 ], [ %140, %132 ], [ %148, %141 ], [ %156, %149 ], [ %161, %157 ], [ %169, %162 ], [ 1.000000e+00, %common.ret.loopexit225 ], [ 1.000000e+00, %23 ], [ 0.000000e+00, %.lr.ph141 ], [ 0.000000e+00, %_ZNK3app13get_decl_kindEv.exit ], [ %93, %_ZNK8rational9get_int64Ev.exit93 ], [ 0.000000e+00, %34 ], [ 1.000000e+00, %.thread97 ], [ 1.000000e+00, %175 ], [ 1.000000e+00, %68 ], [ %194, %187 ], [ 1.000000e+00, %29 ], [ 1.000000e+00, %.lr.ph ], [ 0.000000e+00, %40 ]
+common.ret262:                                    ; preds = %175, %68, %_ZNK8rational9get_int64Ev.exit93, %187, %.thread97, %23, %34, %common.ret.loopexit225, %_ZNK3app13get_decl_kindEv.exit, %.lr.ph141, %29, %.lr.ph, %40, %176, %162, %157, %149, %141, %132, %123, %114, %105, %73, %59, %50, %17
+  %common.ret262.op = phi float [ %22, %17 ], [ %58, %50 ], [ %67, %59 ], [ %78, %73 ], [ %113, %105 ], [ %122, %114 ], [ %131, %123 ], [ %140, %132 ], [ %148, %141 ], [ %156, %149 ], [ %161, %157 ], [ %169, %162 ], [ %180, %176 ], [ 1.000000e+00, %.thread97 ], [ %194, %187 ], [ 1.000000e+00, %175 ], [ 1.000000e+00, %68 ], [ %93, %_ZNK8rational9get_int64Ev.exit93 ], [ 1.000000e+00, %23 ], [ 0.000000e+00, %34 ], [ 1.000000e+00, %common.ret.loopexit225 ], [ 0.000000e+00, %_ZNK3app13get_decl_kindEv.exit ], [ 1.000000e+00, %29 ], [ 0.000000e+00, %.lr.ph141 ], [ 0.000000e+00, %40 ], [ 1.000000e+00, %.lr.ph ]
   ret float %common.ret262.op
 
 17:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit

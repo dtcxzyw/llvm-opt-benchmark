@@ -347,7 +347,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_fma15create_pipelineERKNS
   br label %_ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit
 
 common.resume:                                    ; preds = %362, %_ZN4ncnn3MatD2Ev.exit151, %29, %41, %57, %66, %75, %91
-  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %30, %29 ], [ %42, %41 ], [ %58, %57 ], [ %67, %66 ], [ %76, %75 ], [ %.pn134.pn.pn.pn, %362 ], [ %.pn.pn.pn, %_ZN4ncnn3MatD2Ev.exit151 ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %42, %41 ], [ %58, %57 ], [ %67, %66 ], [ %76, %75 ], [ %92, %91 ], [ %.pn134.pn.pn.pn, %362 ], [ %.pn.pn.pn, %_ZN4ncnn3MatD2Ev.exit151 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %93
@@ -2669,8 +2669,8 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %193, %208, %209, %2
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %191, %_ZN4ncnn3Mat7releaseEv.exit.i, %._crit_edge, %182
-  %.sink244 = phi i64 [ 16, %._crit_edge ], [ 16, %182 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %191 ]
-  %230 = phi i32 [ %159, %._crit_edge ], [ %159, %182 ], [ %.pre193, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %159, %191 ]
+  %.sink244 = phi i64 [ 16, %182 ], [ 16, %._crit_edge ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %191 ]
+  %230 = phi i32 [ %159, %182 ], [ %159, %._crit_edge ], [ %.pre193, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %159, %191 ]
   %231 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink244
   %232 = load ptr, ptr %231, align 8, !tbaa !93
   invoke void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %98, i32 noundef %134, i32 noundef %142, i32 noundef %230, i64 noundef %158, i32 noundef %.0103, ptr noundef %232)
@@ -4959,7 +4959,7 @@ _ZN4ncnn3MatD2Ev.exit86.us.us.us:                 ; preds = %74, %73
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %121, %115, %114, %107, %100, %94, %90, %86, %78, %._crit_edge.us.us.us
-  %.1148.us.us.us = phi nsz float [ %.1.lcssa.us.us.us, %._crit_edge.us.us.us ], [ %122, %121 ], [ %120, %115 ], [ %111, %114 ], [ %.0147.us.us.us, %107 ], [ %106, %100 ], [ %99, %94 ], [ %93, %90 ], [ %.1.lcssa.us.us.us, %86 ], [ 0.000000e+00, %78 ]
+  %.1148.us.us.us = phi nsz float [ %.1.lcssa.us.us.us, %._crit_edge.us.us.us ], [ %122, %121 ], [ %120, %115 ], [ %111, %114 ], [ %.0147.us.us.us, %107 ], [ %106, %100 ], [ %99, %94 ], [ %.1.lcssa.us.us.us, %86 ], [ %93, %90 ], [ 0.000000e+00, %78 ]
   %123 = getelementptr inbounds nuw float, ptr %.067168.us.us.us, i64 %indvars.iv194
   store float %.1148.us.us.us, ptr %123, align 4, !tbaa !35
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
@@ -5043,13 +5043,13 @@ _ZNK4ncnn3Mat7channelEi.exit102.us.us.us.us:      ; preds = %._ZN4ncnn3MatD2Ev.e
   br label %160
 
 160:                                              ; preds = %153, %149, %145
-  %.6.us.us.us.us = phi nsz float [ %.5152.us.us.us.us, %145 ], [ %.5152.us.us.us.us, %149 ], [ %159, %153 ]
+  %.6.us.us.us.us = phi nsz float [ %.5152.us.us.us.us, %149 ], [ %.5152.us.us.us.us, %145 ], [ %159, %153 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.us.us.us.us, label %145, !llvm.loop !136
 
 .loopexit.us.us.us.us:                            ; preds = %160, %139, %135, %132
-  %.3.us.us.us.us = phi nsz float [ %.2155.us.us.us.us, %132 ], [ %.2155.us.us.us.us, %135 ], [ %.2155.us.us.us.us, %139 ], [ %.6.us.us.us.us, %160 ]
+  %.3.us.us.us.us = phi nsz float [ %.2155.us.us.us.us, %135 ], [ %.2155.us.us.us.us, %132 ], [ %.2155.us.us.us.us, %139 ], [ %.6.us.us.us.us, %160 ]
   %161 = add nuw nsw i32 %.074154.us.us.us.us, 1
   %exitcond188.not = icmp eq i32 %161, %124
   br i1 %exitcond188.not, label %._ZN4ncnn3MatD2Ev.exit_crit_edge.us.us.us.us, label %132, !llvm.loop !137
@@ -5379,7 +5379,7 @@ _ZN4ncnn3MatD2Ev.exit113.us:                      ; preds = %64, %62
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.us
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.us:   ; preds = %214, %.noexc130.us, %.noexc132.us, %.noexc133.us, %.noexc134.us, %.noexc137.us, %._crit_edge.us
-  %.0.i.us = phi nsz <8 x float> [ %85, %.noexc137.us ], [ %215, %214 ], [ %213, %.noexc130.us ], [ %205, %.noexc132.us ], [ %195, %.noexc133.us ], [ %169, %.noexc134.us ], [ %.1332.lcssa.us, %._crit_edge.us ]
+  %.0.i.us = phi nsz <8 x float> [ %215, %214 ], [ %213, %.noexc130.us ], [ %205, %.noexc132.us ], [ %195, %.noexc133.us ], [ %169, %.noexc134.us ], [ %85, %.noexc137.us ], [ %.1332.lcssa.us, %._crit_edge.us ]
   store <8 x float> %.0.i.us, ptr %.1363.us, align 1, !tbaa !104
   %216 = getelementptr inbounds nuw i8, ptr %.1363.us, i64 32
   %217 = add nuw nsw i32 %.099362.us, 1
@@ -5870,7 +5870,7 @@ _ZN4ncnn3MatD2Ev.exit101.us:                      ; preds = %64, %62
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.us
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.us:   ; preds = %214, %.noexc118.us, %.noexc120.us, %.noexc121.us, %.noexc122.us, %.noexc125.us, %._crit_edge.us
-  %.0.i.us = phi nsz <8 x float> [ %85, %.noexc125.us ], [ %215, %214 ], [ %213, %.noexc118.us ], [ %205, %.noexc120.us ], [ %195, %.noexc121.us ], [ %169, %.noexc122.us ], [ %.1308.lcssa.us, %._crit_edge.us ]
+  %.0.i.us = phi nsz <8 x float> [ %215, %214 ], [ %213, %.noexc118.us ], [ %205, %.noexc120.us ], [ %195, %.noexc121.us ], [ %169, %.noexc122.us ], [ %85, %.noexc125.us ], [ %.1308.lcssa.us, %._crit_edge.us ]
   store <8 x float> %.0.i.us, ptr %.1339.us, align 1, !tbaa !104
   %216 = getelementptr inbounds nuw i8, ptr %.1339.us, i64 32
   %217 = add nuw nsw i32 %.087338.us, 1
@@ -6324,7 +6324,7 @@ _ZN4ncnn3MatD2Ev.exit113.us:                      ; preds = %64, %62
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.us
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.us:   ; preds = %222, %.noexc130.us, %203, %.noexc131.us, %.noexc132.us, %74, %._crit_edge.us
-  %.0.i.us = phi nsz <4 x float> [ %87, %74 ], [ %223, %222 ], [ %221, %.noexc130.us ], [ %213, %203 ], [ %202, %.noexc131.us ], [ %174, %.noexc132.us ], [ %.1298.lcssa.us, %._crit_edge.us ]
+  %.0.i.us = phi nsz <4 x float> [ %223, %222 ], [ %221, %.noexc130.us ], [ %213, %203 ], [ %202, %.noexc131.us ], [ %174, %.noexc132.us ], [ %87, %74 ], [ %.1298.lcssa.us, %._crit_edge.us ]
   store <4 x float> %.0.i.us, ptr %.1329.us, align 1, !tbaa !104
   %224 = getelementptr inbounds nuw i8, ptr %.1329.us, i64 16
   %225 = add nuw nsw i32 %.099328.us, 1
@@ -6812,7 +6812,7 @@ _ZN4ncnn3MatD2Ev.exit94.us:                       ; preds = %64, %62
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.us
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.us:   ; preds = %214, %.noexc111.us, %.noexc113.us, %.noexc114.us, %.noexc115.us, %.noexc118.us, %._crit_edge.us
-  %.0.i.us = phi nsz <8 x float> [ %85, %.noexc118.us ], [ %215, %214 ], [ %213, %.noexc111.us ], [ %205, %.noexc113.us ], [ %195, %.noexc114.us ], [ %169, %.noexc115.us ], [ %.1292.lcssa.us, %._crit_edge.us ]
+  %.0.i.us = phi nsz <8 x float> [ %215, %214 ], [ %213, %.noexc111.us ], [ %205, %.noexc113.us ], [ %195, %.noexc114.us ], [ %169, %.noexc115.us ], [ %85, %.noexc118.us ], [ %.1292.lcssa.us, %._crit_edge.us ]
   store <8 x float> %.0.i.us, ptr %.1321.us, align 1, !tbaa !104
   %216 = getelementptr inbounds nuw i8, ptr %.1321.us, i64 32
   %217 = add nuw nsw i32 %.079320.us, 1
@@ -7148,7 +7148,7 @@ _ZN4ncnn3MatD2Ev.exit96.us.us.us:                 ; preds = %78, %77
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %127, %122, %121, %116, %109, %103, %99, %95, %89, %._crit_edge.us.us.us
-  %.1161.us.us.us = phi nsz float [ %88, %._crit_edge.us.us.us ], [ %128, %127 ], [ %126, %122 ], [ %118, %121 ], [ %.0160.us.us.us, %116 ], [ %115, %109 ], [ %108, %103 ], [ %102, %99 ], [ %88, %95 ], [ 0.000000e+00, %89 ]
+  %.1161.us.us.us = phi nsz float [ %88, %._crit_edge.us.us.us ], [ %128, %127 ], [ %126, %122 ], [ %118, %121 ], [ %.0160.us.us.us, %116 ], [ %115, %109 ], [ %108, %103 ], [ %88, %95 ], [ %102, %99 ], [ 0.000000e+00, %89 ]
   store float %.1161.us.us.us, ptr %.1193.us.us.us, align 4, !tbaa !35
   %129 = getelementptr inbounds nuw i8, ptr %.1193.us.us.us, i64 4
   %130 = add nuw nsw i32 %.081192.us.us.us, 1
@@ -7569,7 +7569,7 @@ _ZN4ncnn3MatD2Ev.exit101.us:                      ; preds = %64, %62
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.us
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.us:   ; preds = %222, %.noexc118.us, %203, %.noexc119.us, %.noexc120.us, %74, %._crit_edge.us
-  %.0.i.us = phi nsz <4 x float> [ %87, %74 ], [ %223, %222 ], [ %221, %.noexc118.us ], [ %213, %203 ], [ %202, %.noexc119.us ], [ %174, %.noexc120.us ], [ %.1274.lcssa.us, %._crit_edge.us ]
+  %.0.i.us = phi nsz <4 x float> [ %223, %222 ], [ %221, %.noexc118.us ], [ %213, %203 ], [ %202, %.noexc119.us ], [ %174, %.noexc120.us ], [ %87, %74 ], [ %.1274.lcssa.us, %._crit_edge.us ]
   store <4 x float> %.0.i.us, ptr %.1305.us, align 1, !tbaa !104
   %224 = getelementptr inbounds nuw i8, ptr %.1305.us, i64 16
   %225 = add nuw nsw i32 %.087304.us, 1
@@ -8023,7 +8023,7 @@ _ZN4ncnn3MatD2Ev.exit94.us:                       ; preds = %64, %62
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.us
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.us:   ; preds = %222, %.noexc111.us, %203, %.noexc112.us, %.noexc113.us, %74, %._crit_edge.us
-  %.0.i.us = phi nsz <4 x float> [ %87, %74 ], [ %223, %222 ], [ %221, %.noexc111.us ], [ %213, %203 ], [ %202, %.noexc112.us ], [ %174, %.noexc113.us ], [ %.1258.lcssa.us, %._crit_edge.us ]
+  %.0.i.us = phi nsz <4 x float> [ %223, %222 ], [ %221, %.noexc111.us ], [ %213, %203 ], [ %202, %.noexc112.us ], [ %174, %.noexc113.us ], [ %87, %74 ], [ %.1258.lcssa.us, %._crit_edge.us ]
   store <4 x float> %.0.i.us, ptr %.1287.us, align 1, !tbaa !104
   %224 = getelementptr inbounds nuw i8, ptr %.1287.us, i64 16
   %225 = add nuw nsw i32 %.079286.us, 1
@@ -8356,7 +8356,7 @@ _ZN4ncnn3MatD2Ev.exit96.us.us.us:                 ; preds = %78, %77
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %124, %119, %118, %113, %106, %100, %96, %92, %86, %._crit_edge.us.us.us
-  %.1161.us.us.us = phi nsz float [ %85, %._crit_edge.us.us.us ], [ %125, %124 ], [ %123, %119 ], [ %115, %118 ], [ %.0160.us.us.us, %113 ], [ %112, %106 ], [ %105, %100 ], [ %99, %96 ], [ %85, %92 ], [ 0.000000e+00, %86 ]
+  %.1161.us.us.us = phi nsz float [ %85, %._crit_edge.us.us.us ], [ %125, %124 ], [ %123, %119 ], [ %115, %118 ], [ %.0160.us.us.us, %113 ], [ %112, %106 ], [ %105, %100 ], [ %85, %92 ], [ %99, %96 ], [ 0.000000e+00, %86 ]
   store float %.1161.us.us.us, ptr %.1193.us.us.us, align 4, !tbaa !35
   %126 = getelementptr inbounds nuw i8, ptr %.1193.us.us.us, i64 4
   %127 = add nuw nsw i32 %.081192.us.us.us, 1

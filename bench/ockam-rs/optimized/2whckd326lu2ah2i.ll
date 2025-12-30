@@ -1698,7 +1698,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2c55ee4b98ed348bE.exit.thre
   br i1 %70, label %.loopexit42, label %76
 
 .body:                                            ; preds = %.loopexit41, %.loopexit.split-lp, %61, %52, %41, %92
-  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %62, %61 ], [ %42, %41 ], [ %53, %52 ], [ %lpad.loopexit, %.loopexit41 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %42, %41 ], [ %53, %52 ], [ %62, %61 ], [ %lpad.loopexit, %.loopexit41 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr181drop_in_place$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..skip..Skip$LT$ockam_multiaddr..ProtoIter$GT$$C$core..slice..iter..Iter$LT$ockam_multiaddr..Match$GT$$GT$$GT$17h73033e9c8a081abcE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %11) #17
           to label %110 unwind label %108
 

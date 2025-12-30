@@ -1211,7 +1211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit201.i: ; pr
   br i1 %423, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !74
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %420, %418, %414, %410, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit201.i
-  %.0.i.i.i = phi i32 [ %419, %418 ], [ %411, %410 ], [ %415, %414 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit201.i ], [ %422, %420 ]
+  %.0.i.i.i = phi i32 [ %411, %410 ], [ %415, %414 ], [ %419, %418 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit201.i ], [ %422, %420 ]
   %.lobit.i.i = lshr i32 %406, 31
   %424 = add i32 %.0.i.i.i, %.lobit.i.i
   %425 = zext i32 %424 to i64
@@ -1560,12 +1560,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %518
 
 518:                                              ; preds = %517, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185.i, %341, %.body159.i
-  %.pn77.pn.pn.i = phi { ptr, i32 } [ %eh.lpad-body160.i, %.body159.i ], [ %.pn68.pn.pn.pn.pn.pn.pn.pn.i, %517 ], [ %.pn77.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185.i ], [ %342, %341 ]
+  %.pn77.pn.pn.i = phi { ptr, i32 } [ %.pn68.pn.pn.pn.pn.pn.pn.pn.i, %517 ], [ %eh.lpad-body160.i, %.body159.i ], [ %.pn77.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185.i ], [ %342, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !46
   br label %519
 
 519:                                              ; preds = %518, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i, %315, %.body.i
-  %.pn81.pn.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %.pn77.pn.pn.i, %518 ], [ %.pn81.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i ], [ %316, %315 ]
+  %.pn81.pn.pn.i = phi { ptr, i32 } [ %.pn77.pn.pn.i, %518 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn81.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i ], [ %316, %315 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !46
   br label %520
 

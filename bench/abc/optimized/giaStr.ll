@@ -586,7 +586,7 @@ define ptr @Gia_ManDupMuxesNoHash(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %7
-  %.lcssa = phi i32 [ %10, %7 ], [ %10, %.lr.ph.preheader ], [ %45, %..critedge.loopexit_crit_edge ], [ %45, %.lr.ph ]
+  %.lcssa = phi i32 [ %10, %7 ], [ %45, %..critedge.loopexit_crit_edge ], [ %10, %.lr.ph.preheader ], [ %45, %.lr.ph ]
   %48 = tail call ptr @Gia_ManStart(i32 noundef %.lcssa) #29
   %49 = load ptr, ptr %0, align 8, !tbaa !28
   %.not.i154 = icmp eq ptr %49, null
@@ -3591,7 +3591,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i2
   br label %.critedge, !llvm.loop !90
 
 .critedge:                                        ; preds = %144, %.critedge2..critedge_crit_edge, %.lr.ph262
-  %.val170275 = phi i32 [ %.val173260, %.lr.ph262 ], [ %.val173, %.critedge2..critedge_crit_edge ], [ %.val173, %144 ]
+  %.val170275 = phi i32 [ %.val173, %.critedge2..critedge_crit_edge ], [ %.val173260, %.lr.ph262 ], [ %.val173, %144 ]
   %206 = getelementptr i8, ptr %138, i64 8
   %207 = icmp sgt i32 %.val170275, 0
   br i1 %207, label %.lr.ph278, label %.critedge10
@@ -3887,7 +3887,7 @@ Str_ObjCreate.exit232..critedge6_crit_edge:       ; preds = %Str_ObjCreate.exit2
   br label %.critedge4, !llvm.loop !95
 
 .critedge4:                                       ; preds = %219, %.critedge8..critedge4_crit_edge, %.lr.ph278
-  %.val170.lcssa = phi i32 [ %.val170275, %.lr.ph278 ], [ %.val170, %.critedge8..critedge4_crit_edge ], [ %.val170, %219 ]
+  %.val170.lcssa = phi i32 [ %.val170, %.critedge8..critedge4_crit_edge ], [ %.val170275, %.lr.ph278 ], [ %.val170, %219 ]
   %.val200 = load ptr, ptr %206, align 8, !tbaa !36
   %.val176 = load ptr, ptr %10, align 8, !tbaa !46
   %.val176.fr = freeze ptr %.val176
@@ -4286,8 +4286,8 @@ Vec_IntAppend.exit250:                            ; preds = %Vec_IntPush.exit.i2
   br i1 %exitcond311.not, label %.critedge12, label %.lr.ph286, !llvm.loop !102
 
 .critedge12:                                      ; preds = %.lr.ph286, %Gia_ManSuperCollect.exit, %Vec_IntAppend.exit250
-  %.val354 = phi i32 [ %.val166, %Gia_ManSuperCollect.exit ], [ %.val.pre, %Vec_IntAppend.exit250 ], [ %.val.pre, %.lr.ph286 ]
-  %534 = phi ptr [ %481, %Gia_ManSuperCollect.exit ], [ %.pre317, %Vec_IntAppend.exit250 ], [ %527, %.lr.ph286 ]
+  %.val354 = phi i32 [ %.val.pre, %Vec_IntAppend.exit250 ], [ %.val166, %Gia_ManSuperCollect.exit ], [ %.val.pre, %.lr.ph286 ]
+  %534 = phi ptr [ %.pre317, %Vec_IntAppend.exit250 ], [ %481, %Gia_ManSuperCollect.exit ], [ %527, %.lr.ph286 ]
   %.val201 = load i64, ptr %2, align 4
   %.val201.fr = freeze i64 %.val201
   %535 = and i64 %.val201.fr, 2147483648
@@ -5019,8 +5019,8 @@ define i32 @Str_ManVectorAffinity(ptr noundef %0, ptr noundef captures(none) %1,
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %85, %87, %77, %79
-  %.sink326 = phi ptr [ %80, %79 ], [ %78, %77 ], [ %86, %85 ], [ %88, %87 ]
-  %.sink = phi i32 [ 16, %79 ], [ 16, %77 ], [ %82, %85 ], [ %82, %87 ]
+  %.sink326 = phi ptr [ %78, %77 ], [ %80, %79 ], [ %86, %85 ], [ %88, %87 ]
+  %.sink = phi i32 [ 16, %77 ], [ 16, %79 ], [ %82, %85 ], [ %82, %87 ]
   store ptr %.sink326, ptr %19, align 8, !tbaa !36
   store i32 %.sink, ptr %1, align 8, !tbaa !47
   br label %Vec_IntPush.exit
@@ -5139,8 +5139,8 @@ Gia_ObjFaninId2p.exit:                            ; preds = %Gia_ObjIsMux.exit
   br label %Vec_IntPush.exit223.sink.split
 
 Vec_IntPush.exit223.sink.split:                   ; preds = %134, %136, %126, %128
-  %.sink328 = phi ptr [ %129, %128 ], [ %127, %126 ], [ %135, %134 ], [ %137, %136 ]
-  %.sink327 = phi i32 [ 16, %128 ], [ 16, %126 ], [ %131, %134 ], [ %131, %136 ]
+  %.sink328 = phi ptr [ %127, %126 ], [ %129, %128 ], [ %135, %134 ], [ %137, %136 ]
+  %.sink327 = phi i32 [ 16, %126 ], [ 16, %128 ], [ %131, %134 ], [ %131, %136 ]
   store ptr %.sink328, ptr %19, align 8, !tbaa !36
   store i32 %.sink327, ptr %1, align 8, !tbaa !47
   br label %Vec_IntPush.exit223
@@ -5186,7 +5186,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.loopexit233, %142,
   br i1 %155, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %.critedge, %113, %153
-  %.val = phi i32 [ %4, %113 ], [ %.val.pre.pre.pre, %.critedge ], [ %.val.pre.pre.pre, %153 ]
+  %.val = phi i32 [ %.val.pre.pre.pre, %153 ], [ %4, %113 ], [ %.val.pre.pre.pre, %.critedge ]
   %156 = sub nsw i32 64, %.val190
   %157 = zext nneg i32 %156 to i64
   %158 = shl nsw i64 -1, %157
@@ -5306,7 +5306,7 @@ transpose64.exit:                                 ; preds = %203
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %183, %182, %209
-  %.0 = phi i32 [ %.2158315320, %209 ], [ 0, %183 ], [ 0, %182 ], [ 0, %.preheader.preheader ]
+  %.0 = phi i32 [ %.2158315320, %209 ], [ 0, %182 ], [ 0, %183 ], [ 0, %.preheader.preheader ]
   ret i32 %.0
 }
 
@@ -5769,8 +5769,8 @@ define void @Str_NtkBalanceMulti(ptr noundef %0, ptr noundef readonly captures(n
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %50, %52, %42, %44
-  %.sink475 = phi ptr [ %45, %44 ], [ %43, %42 ], [ %51, %50 ], [ %53, %52 ]
-  %.sink = phi i32 [ 16, %44 ], [ 16, %42 ], [ %47, %50 ], [ %47, %52 ]
+  %.sink475 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
+  %.sink = phi i32 [ 16, %42 ], [ 16, %44 ], [ %47, %50 ], [ %47, %52 ]
   store ptr %.sink475, ptr %16, align 8, !tbaa !36
   store i32 %.sink, ptr %13, align 8, !tbaa !47
   br label %Vec_IntPush.exit
@@ -6448,12 +6448,12 @@ Str_CountBits.exit320:                            ; preds = %286, %295, %299, %3
   br label %322
 
 322:                                              ; preds = %311, %308, %319, %316
-  %.6252 = phi i32 [ %313, %311 ], [ %.5251346, %316 ], [ %.5251346, %308 ], [ %.5251346, %319 ]
-  %.2245 = phi i32 [ %.1244347, %311 ], [ %.1244347, %316 ], [ %.1244347, %308 ], [ %321, %319 ]
-  %.4242 = phi i32 [ %290, %311 ], [ %.3241348, %316 ], [ %.3241348, %308 ], [ %.3241348, %319 ]
-  %.2237 = phi i32 [ %.1236349, %311 ], [ %.1236349, %316 ], [ %.1236349, %308 ], [ %290, %319 ]
-  %.6 = phi i32 [ %.0.i319, %311 ], [ %.5350, %316 ], [ %.5350, %308 ], [ %.5350, %319 ]
-  %.2 = phi i32 [ %.1351, %311 ], [ %.1351, %316 ], [ %.1351, %308 ], [ %.0.i319, %319 ]
+  %.6252 = phi i32 [ %313, %311 ], [ %.5251346, %308 ], [ %.5251346, %319 ], [ %.5251346, %316 ]
+  %.2245 = phi i32 [ %.1244347, %311 ], [ %.1244347, %308 ], [ %321, %319 ], [ %.1244347, %316 ]
+  %.4242 = phi i32 [ %290, %311 ], [ %.3241348, %308 ], [ %.3241348, %319 ], [ %.3241348, %316 ]
+  %.2237 = phi i32 [ %.1236349, %311 ], [ %.1236349, %308 ], [ %290, %319 ], [ %.1236349, %316 ]
+  %.6 = phi i32 [ %.0.i319, %311 ], [ %.5350, %308 ], [ %.5350, %319 ], [ %.5350, %316 ]
+  %.2 = phi i32 [ %.1351, %311 ], [ %.1351, %308 ], [ %.0.i319, %319 ], [ %.1351, %316 ]
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next401, %275
   br i1 %exitcond404.not, label %.loopexit, label %286, !llvm.loop !125
@@ -6583,9 +6583,9 @@ Vec_IntGrow.exit.i30:                             ; preds = %22, %20
   br label %45
 
 25:                                               ; preds = %5, %15, %19
-  %.val26 = phi i32 [ %.val2650, %5 ], [ %.val26.pre, %15 ], [ %.val2650, %19 ]
-  %.123 = phi i32 [ %.02246, %5 ], [ %16, %15 ], [ %.02246, %19 ]
-  %.1 = phi i32 [ %.02147, %5 ], [ %7, %15 ], [ %.02147, %19 ]
+  %.val26 = phi i32 [ %.val26.pre, %15 ], [ %.val2650, %19 ], [ %.val2650, %5 ]
+  %.123 = phi i32 [ %16, %15 ], [ %.02246, %19 ], [ %.02246, %5 ]
+  %.1 = phi i32 [ %7, %15 ], [ %.02147, %19 ], [ %.02147, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = sext i32 %.val26 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
@@ -7357,8 +7357,8 @@ Gia_ObjIsMuxId.exit.thread.i:                     ; preds = %Gia_ObjIsMuxId.exit
   br label %Str_ObjDelay.exit
 
 Str_ObjDelay.exit:                                ; preds = %93, %247, %.thread, %110, %Str_ObjReadGroup.exit, %276, %248, %284, %115
-  %.1103 = phi ptr [ %.0102150, %110 ], [ %.0102150, %115 ], [ %144, %Str_ObjReadGroup.exit ], [ %.0102150, %93 ], [ %.0102150, %276 ], [ %.0102150, %248 ], [ %.0102150, %284 ], [ %.0102150, %.thread ], [ %.0102150, %247 ]
-  %.1 = phi i32 [ %.0151, %110 ], [ %.0151, %115 ], [ %.0151, %Str_ObjReadGroup.exit ], [ %.0151, %93 ], [ %274, %276 ], [ %274, %248 ], [ %.0151, %284 ], [ %.0151, %.thread ], [ %.0151, %247 ]
+  %.1103 = phi ptr [ %.0102150, %110 ], [ %.0102150, %115 ], [ %144, %Str_ObjReadGroup.exit ], [ %.0102150, %276 ], [ %.0102150, %248 ], [ %.0102150, %284 ], [ %.0102150, %.thread ], [ %.0102150, %247 ], [ %.0102150, %93 ]
+  %.1 = phi i32 [ %.0151, %110 ], [ %.0151, %115 ], [ %.0151, %Str_ObjReadGroup.exit ], [ %274, %276 ], [ %274, %248 ], [ %.0151, %284 ], [ %.0151, %.thread ], [ %.0151, %247 ], [ %.0151, %93 ]
   %286 = getelementptr inbounds nuw i8, ptr %.1103, i64 16
   %.val114 = load ptr, ptr %84, align 8, !tbaa !33
   %287 = ptrtoint ptr %286 to i64
@@ -8678,7 +8678,7 @@ Str_MuxChangeOnce.exit:                           ; preds = %75, %._crit_edge.i
   br label %.critedge
 
 .critedge:                                        ; preds = %116, %113, %._crit_edge71.thread, %112, %7
-  %.0 = phi i32 [ 0, %._crit_edge71.thread ], [ 0, %7 ], [ 0, %112 ], [ 1, %113 ], [ 1, %116 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %112 ], [ 0, %._crit_edge71.thread ], [ 1, %113 ], [ 1, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -8875,7 +8875,7 @@ Str_MuxCreate.exit:                               ; preds = %54, %10
   br label %66
 
 66:                                               ; preds = %58, %7, %59
-  %.017 = phi i32 [ -1, %7 ], [ %65, %59 ], [ -1, %58 ]
+  %.017 = phi i32 [ %65, %59 ], [ -1, %7 ], [ -1, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.017
 }
@@ -9003,7 +9003,7 @@ Str_MuxCreate.exit:                               ; preds = %54, %10
   br label %66
 
 66:                                               ; preds = %58, %7, %59
-  %.017 = phi i32 [ -1, %7 ], [ %65, %59 ], [ -1, %58 ]
+  %.017 = phi i32 [ %65, %59 ], [ -1, %7 ], [ -1, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.017
 }
@@ -9361,7 +9361,7 @@ Str_MuxHasFanin.exit:                             ; preds = %31, %54
   br label %78
 
 78:                                               ; preds = %6, %76, %67, %24
-  %.0 = phi i32 [ 0, %76 ], [ %25, %24 ], [ 0, %67 ], [ 0, %6 ]
+  %.0 = phi i32 [ %25, %24 ], [ 0, %67 ], [ 0, %76 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

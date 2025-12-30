@@ -422,8 +422,8 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   br label %67
 
 67:                                               ; preds = %64, %53
-  %.129.i = phi i32 [ %.02847.i, %64 ], [ %57, %53 ]
-  %.1.i = phi i32 [ %spec.select.i, %64 ], [ 1, %53 ]
+  %.129.i = phi i32 [ %57, %53 ], [ %.02847.i, %64 ]
+  %.1.i = phi i32 [ 1, %53 ], [ %spec.select.i, %64 ]
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i37
   br i1 %exitcond.not.i41, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !10
@@ -614,8 +614,8 @@ gimme_gene.exit:                                  ; preds = %77, %51
   unreachable
 
 edge_failure.exit:                                ; preds = %107, %122, %.lr.ph96.i, %gimme_gene.exit
-  %.053.i.sink = phi i32 [ %.0.i, %gimme_gene.exit ], [ %.25689.i, %122 ], [ %.35795.i, %.lr.ph96.i ], [ %.15583.i, %107 ]
-  %.1 = phi i32 [ %.073, %gimme_gene.exit ], [ %83, %122 ], [ %83, %.lr.ph96.i ], [ %83, %107 ]
+  %.053.i.sink = phi i32 [ %.0.i, %gimme_gene.exit ], [ %.35795.i, %.lr.ph96.i ], [ %.25689.i, %122 ], [ %.15583.i, %107 ]
+  %.1 = phi i32 [ %.073, %gimme_gene.exit ], [ %83, %.lr.ph96.i ], [ %83, %122 ], [ %83, %107 ]
   %140 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %.053.i.sink, ptr %140, align 4
   %141 = load i32, ptr %14, align 4

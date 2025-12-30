@@ -152,7 +152,7 @@ define double @sdsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, 
   br i1 %exitcond.not, label %.loopexit77, label %.lr.ph89, !llvm.loop !12
 
 .loopexit77:                                      ; preds = %.lr.ph89, %.preheader76, %5, %._crit_edge
-  %.0 = phi double [ 0.000000e+00, %5 ], [ %54, %._crit_edge ], [ %.166.lcssa, %.preheader76 ], [ %89, %.lr.ph89 ]
+  %.0 = phi double [ %54, %._crit_edge ], [ 0.000000e+00, %5 ], [ %.166.lcssa, %.preheader76 ], [ %89, %.lr.ph89 ]
   ret double %.0
 }
 

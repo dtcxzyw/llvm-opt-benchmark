@@ -189,7 +189,7 @@ define hidden i32 @mdssvc_dissect_struct_blob(ptr noundef %0, i32 noundef %1, pt
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -224,7 +224,7 @@ define hidden i32 @mdssvc_dissect_struct_blob(ptr noundef %0, i32 noundef %1, pt
   br label %mdssvc_dissect_element_blob_spotlight_blob.exit
 
 mdssvc_dissect_element_blob_spotlight_blob.exit:  ; preds = %32, %39, %41
-  %.0.i = phi i32 [ %36, %32 ], [ %45, %41 ], [ %36, %39 ]
+  %.0.i = phi i32 [ %45, %41 ], [ %36, %32 ], [ %36, %39 ]
   %46 = sub i32 %.0.i, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %46)
   %47 = load ptr, ptr %9, align 8

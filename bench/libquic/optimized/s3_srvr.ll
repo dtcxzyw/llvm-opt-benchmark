@@ -37,7 +37,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_accept(ptr noundef %0) local_u
   br label %9
 
 9:                                                ; preds = %4, %1
-  %.0175 = phi ptr [ %8, %4 ], [ %3, %1 ]
+  %.0175 = phi ptr [ %3, %1 ], [ %8, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = icmp eq ptr %11, null
@@ -624,8 +624,8 @@ ssl3_send_server_done.exit:                       ; preds = %117, %124
   br label %25
 
 ssl3_send_server_certificate.exit.thread:         ; preds = %119, %76, %213, %165, %37, %32, %34, %215, %210, %206, %202, %190, %186, %177, %159, %155, %151, %147, %ssl3_send_server_done.exit, %113, %105, %90, %ssl3_send_server_certificate.exit, %59, %55, %51, %48, %243, %137, %41
-  %.0174 = phi i32 [ -1, %243 ], [ -1, %41 ], [ -1, %137 ], [ -1, %119 ], [ 0, %76 ], [ -1, %34 ], [ %216, %215 ], [ -1, %165 ], [ %211, %210 ], [ %207, %206 ], [ %203, %202 ], [ %191, %190 ], [ %187, %186 ], [ %178, %177 ], [ -1, %37 ], [ %163, %159 ], [ %156, %155 ], [ %152, %151 ], [ %148, %147 ], [ %128, %ssl3_send_server_done.exit ], [ %114, %113 ], [ %106, %105 ], [ %91, %90 ], [ %82, %ssl3_send_server_certificate.exit ], [ %60, %59 ], [ %56, %55 ], [ %52, %51 ], [ %49, %48 ], [ -1, %213 ], [ -1, %32 ]
-  %.2172 = phi ptr [ null, %243 ], [ null, %41 ], [ null, %137 ], [ null, %119 ], [ null, %76 ], [ %33, %34 ], [ null, %215 ], [ null, %165 ], [ null, %210 ], [ null, %206 ], [ null, %202 ], [ null, %190 ], [ null, %186 ], [ null, %177 ], [ null, %37 ], [ null, %159 ], [ null, %155 ], [ null, %151 ], [ null, %147 ], [ null, %ssl3_send_server_done.exit ], [ null, %113 ], [ null, %105 ], [ null, %90 ], [ null, %ssl3_send_server_certificate.exit ], [ null, %59 ], [ null, %55 ], [ null, %51 ], [ null, %48 ], [ null, %213 ], [ null, %32 ]
+  %.0174 = phi i32 [ -1, %243 ], [ -1, %41 ], [ -1, %137 ], [ -1, %119 ], [ 0, %76 ], [ -1, %213 ], [ -1, %165 ], [ -1, %37 ], [ -1, %32 ], [ -1, %34 ], [ %216, %215 ], [ %211, %210 ], [ %207, %206 ], [ %203, %202 ], [ %191, %190 ], [ %187, %186 ], [ %178, %177 ], [ %163, %159 ], [ %156, %155 ], [ %152, %151 ], [ %148, %147 ], [ %128, %ssl3_send_server_done.exit ], [ %114, %113 ], [ %106, %105 ], [ %91, %90 ], [ %82, %ssl3_send_server_certificate.exit ], [ %60, %59 ], [ %56, %55 ], [ %52, %51 ], [ %49, %48 ]
+  %.2172 = phi ptr [ null, %243 ], [ null, %41 ], [ null, %137 ], [ null, %119 ], [ null, %76 ], [ null, %213 ], [ null, %165 ], [ null, %37 ], [ null, %32 ], [ %33, %34 ], [ null, %215 ], [ null, %210 ], [ null, %206 ], [ null, %202 ], [ null, %190 ], [ null, %186 ], [ null, %177 ], [ null, %159 ], [ null, %155 ], [ null, %151 ], [ null, %147 ], [ null, %ssl3_send_server_done.exit ], [ null, %113 ], [ null, %105 ], [ null, %90 ], [ null, %ssl3_send_server_certificate.exit ], [ null, %59 ], [ null, %55 ], [ null, %51 ], [ null, %48 ]
   tail call void @BUF_MEM_free(ptr noundef %.2172) #10
   br i1 %.not222, label %253, label %252
 
@@ -951,7 +951,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_get_v2_client_hello(ptr nounde
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 727) #10
   br label %.thread
 
-.thread:                                          ; preds = %102, %109
+.thread:                                          ; preds = %109, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %126
 
@@ -997,7 +997,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_get_v2_client_hello(ptr nounde
   br label %126
 
 126:                                              ; preds = %.thread, %35, %31, %118, %117, %100, %73, %30, %27
-  %.028 = phi i32 [ -1, %27 ], [ -1, %30 ], [ %33, %31 ], [ -1, %73 ], [ -1, %.thread ], [ 1, %118 ], [ -1, %117 ], [ -1, %100 ], [ -1, %35 ]
+  %.028 = phi i32 [ -1, %27 ], [ -1, %30 ], [ -1, %73 ], [ 1, %118 ], [ -1, %117 ], [ -1, %100 ], [ %33, %31 ], [ -1, %35 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1599,14 +1599,14 @@ define hidden i32 @ssl3_get_client_hello(ptr noundef %0) local_unnamed_addr #0 {
   br label %289
 
 287:                                              ; preds = %.thread177, %._crit_edge, %93, %79, %277, %248, %227, %221, %212, %186, %172, %130, %104, %62, %50, %37
-  %.0118 = phi ptr [ null, %62 ], [ null, %104 ], [ null, %172 ], [ null, %186 ], [ %188, %212 ], [ %188, %221 ], [ %188, %227 ], [ %188, %277 ], [ null, %37 ], [ %188, %248 ], [ %188, %.thread177 ], [ %188, %._crit_edge ], [ null, %130 ], [ null, %93 ], [ null, %79 ], [ null, %50 ]
-  %.0110 = phi i32 [ 50, %62 ], [ 70, %104 ], [ 49, %172 ], [ 50, %186 ], [ 47, %212 ], [ 50, %221 ], [ 80, %227 ], [ 80, %277 ], [ 50, %37 ], [ 40, %248 ], [ 80, %.thread177 ], [ 47, %._crit_edge ], [ 40, %130 ], [ 70, %93 ], [ 50, %79 ], [ 49, %50 ]
+  %.0118 = phi ptr [ null, %62 ], [ null, %104 ], [ null, %172 ], [ null, %186 ], [ %188, %212 ], [ %188, %221 ], [ %188, %227 ], [ %188, %277 ], [ %188, %248 ], [ %188, %._crit_edge ], [ null, %130 ], [ null, %93 ], [ null, %79 ], [ null, %50 ], [ null, %37 ], [ %188, %.thread177 ]
+  %.0110 = phi i32 [ 50, %62 ], [ 70, %104 ], [ 49, %172 ], [ 50, %186 ], [ 47, %212 ], [ 50, %221 ], [ 80, %227 ], [ 80, %277 ], [ 40, %248 ], [ 47, %._crit_edge ], [ 40, %130 ], [ 70, %93 ], [ 50, %79 ], [ 49, %50 ], [ 50, %37 ], [ 80, %.thread177 ]
   %288 = call i32 @ssl3_send_alert(ptr noundef %0, i32 noundef 2, i32 noundef %.0110) #10
   br label %289
 
 289:                                              ; preds = %243, %283, %286, %287, %187, %153, %105, %218, %110, %48
-  %.1119 = phi ptr [ %.0118, %287 ], [ null, %187 ], [ null, %48 ], [ %188, %243 ], [ %188, %218 ], [ null, %153 ], [ null, %110 ], [ null, %105 ], [ %188, %286 ], [ %188, %283 ]
-  %.0113 = phi i32 [ -1, %287 ], [ -1, %187 ], [ -1, %48 ], [ -1, %243 ], [ -1, %218 ], [ -1, %153 ], [ -1, %110 ], [ -1, %105 ], [ 1, %286 ], [ 1, %283 ]
+  %.1119 = phi ptr [ %.0118, %287 ], [ null, %187 ], [ %188, %243 ], [ %188, %218 ], [ null, %153 ], [ null, %110 ], [ null, %105 ], [ null, %48 ], [ %188, %286 ], [ %188, %283 ]
+  %.0113 = phi i32 [ -1, %287 ], [ -1, %187 ], [ -1, %243 ], [ -1, %218 ], [ -1, %153 ], [ -1, %110 ], [ -1, %105 ], [ -1, %48 ], [ 1, %286 ], [ 1, %283 ]
   call void @sk_free(ptr noundef %.1119) #10
   %290 = load ptr, ptr %10, align 8, !tbaa !99
   call void @SSL_SESSION_free(ptr noundef %290) #10
@@ -2147,7 +2147,7 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   %.not109 = icmp eq i32 %129, 0
   br i1 %.not109, label %.thread151, label %130
 
-.thread151:                                       ; preds = %114, %112, %128, %125, %123
+.thread151:                                       ; preds = %112, %128, %125, %123, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread155
 
@@ -2352,7 +2352,7 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   store i32 8529, ptr %12, align 4, !tbaa !43
   br label %.thread174
 
-.thread174:                                       ; preds = %156, %207, %210, %.thread164, %.thread169, %206, %.thread159
+.thread174:                                       ; preds = %210, %156, %207, %206, %.thread159, %.thread164, %.thread169
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread155
 
@@ -2382,12 +2382,12 @@ define hidden i32 @ssl3_send_server_key_exchange(ptr noundef %0) local_unnamed_a
   %232 = call i32 %231(ptr noundef nonnull %0) #10
   br label %233
 
-.thread155:                                       ; preds = %130, %58, %104, %87, %93, %95, %102, %83, %.thread144, %.thread142, %55, %.thread151, %.thread174, %220, %222, %134, %21, %150
+.thread155:                                       ; preds = %130, %58, %104, %83, %87, %93, %95, %102, %.thread144, %.thread142, %55, %.thread151, %.thread174, %220, %222, %134, %21, %150
   call void @CBB_cleanup(ptr noundef nonnull %2) #10
   br label %233
 
 233:                                              ; preds = %.thread155, %228
-  %.1 = phi i32 [ -1, %.thread155 ], [ %232, %228 ]
+  %.1 = phi i32 [ %232, %228 ], [ -1, %.thread155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %234
@@ -2848,16 +2848,16 @@ define hidden i32 @ssl3_get_client_certificate(ptr noundef %0) local_unnamed_add
   br label %121
 
 119:                                              ; preds = %.thread, %100, %96, %91, %49, %35, %32
-  %.049 = phi i32 [ 40, %32 ], [ 10, %35 ], [ 50, %49 ], [ %.251.ph, %.thread ], [ 40, %91 ], [ 40, %96 ], [ %103, %100 ]
-  %.046 = phi ptr [ null, %32 ], [ null, %35 ], [ null, %49 ], [ %.3.ph, %.thread ], [ null, %91 ], [ null, %96 ], [ null, %100 ]
-  %.043 = phi ptr [ null, %32 ], [ null, %35 ], [ %39, %49 ], [ %39, %.thread ], [ %39, %91 ], [ %39, %96 ], [ %39, %100 ]
+  %.049 = phi i32 [ 40, %32 ], [ 10, %35 ], [ 50, %49 ], [ 40, %91 ], [ 40, %96 ], [ %103, %100 ], [ %.251.ph, %.thread ]
+  %.046 = phi ptr [ null, %32 ], [ null, %35 ], [ null, %49 ], [ null, %91 ], [ null, %96 ], [ null, %100 ], [ %.3.ph, %.thread ]
+  %.043 = phi ptr [ null, %32 ], [ null, %35 ], [ %39, %49 ], [ %39, %91 ], [ %39, %96 ], [ %39, %100 ], [ %39, %.thread ]
   %120 = call i32 @ssl3_send_alert(ptr noundef %0, i32 noundef 2, i32 noundef %.049) #10
   br label %121
 
 121:                                              ; preds = %.thread76, %119, %104, %41
-  %.048 = phi i32 [ -1, %119 ], [ -1, %41 ], [ -1, %.thread76 ], [ 1, %104 ]
-  %.147 = phi ptr [ %.046, %119 ], [ null, %41 ], [ %73, %.thread76 ], [ null, %104 ]
-  %.144 = phi ptr [ %.043, %119 ], [ null, %41 ], [ %39, %.thread76 ], [ null, %104 ]
+  %.048 = phi i32 [ -1, %119 ], [ -1, %41 ], [ 1, %104 ], [ -1, %.thread76 ]
+  %.147 = phi ptr [ %.046, %119 ], [ null, %41 ], [ null, %104 ], [ %73, %.thread76 ]
+  %.144 = phi ptr [ %.043, %119 ], [ null, %41 ], [ null, %104 ], [ %39, %.thread76 ]
   call void @X509_free(ptr noundef %.147) #10
   call void @sk_pop_free(ptr noundef %.144, ptr noundef nonnull @X509_free) #10
   br label %122
@@ -3091,7 +3091,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br label %107
 
 107:                                              ; preds = %.thread158, %105
-  %.195 = phi i32 [ %103, %.thread158 ], [ %106, %105 ]
+  %.195 = phi i32 [ %106, %105 ], [ %103, %.thread158 ]
   switch i32 %.195, label %110 [
     i32 1, label %108
     i32 2, label %.thread173
@@ -3200,7 +3200,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %241
 
-.thread173:                                       ; preds = %107, %108, %116, %117
+.thread173:                                       ; preds = %116, %108, %107, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %243
 
@@ -3394,13 +3394,13 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br label %.sink.split
 
 241:                                              ; preds = %183, %.thread177, %.thread168, %.thread, %192
-  %.0107 = phi ptr [ %83, %.thread168 ], [ null, %183 ], [ null, %192 ], [ null, %.thread ], [ null, %.thread177 ]
-  %.298 = phi i32 [ %.4.ph, %.thread168 ], [ %185, %183 ], [ 40, %192 ], [ %.197.ph, %.thread ], [ 50, %.thread177 ]
+  %.0107 = phi ptr [ null, %183 ], [ null, %192 ], [ null, %.thread ], [ %83, %.thread168 ], [ null, %.thread177 ]
+  %.298 = phi i32 [ %185, %183 ], [ 40, %192 ], [ %.197.ph, %.thread ], [ %.4.ph, %.thread168 ], [ 50, %.thread177 ]
   %242 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.298) #10
   br label %243
 
 243:                                              ; preds = %218, %.thread173, %.thread163, %219, %241, %191
-  %.3110 = phi ptr [ null, %219 ], [ null, %218 ], [ %.0107, %241 ], [ %83, %.thread173 ], [ null, %191 ], [ null, %.thread163 ]
+  %.3110 = phi ptr [ null, %219 ], [ null, %218 ], [ %.0107, %241 ], [ null, %191 ], [ null, %.thread163 ], [ %83, %.thread173 ]
   %244 = load ptr, ptr %3, align 8, !tbaa !143
   %.not148 = icmp eq ptr %244, null
   br i1 %.not148, label %.sink.split, label %245
@@ -3600,8 +3600,8 @@ define hidden i32 @ssl3_get_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
   br label %77
 
 77:                                               ; preds = %69, %74, %61, %54, %51, %26
-  %.034 = phi i32 [ 0, %26 ], [ 0, %74 ], [ 0, %61 ], [ 0, %51 ], [ 0, %54 ], [ 1, %69 ]
-  %.033 = phi ptr [ null, %26 ], [ %.1, %74 ], [ null, %61 ], [ null, %51 ], [ null, %54 ], [ %62, %69 ]
+  %.034 = phi i32 [ 0, %26 ], [ 0, %74 ], [ 0, %61 ], [ 0, %54 ], [ 0, %51 ], [ 1, %69 ]
+  %.033 = phi ptr [ null, %26 ], [ %.1, %74 ], [ null, %61 ], [ null, %54 ], [ null, %51 ], [ %62, %69 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.033) #10
   call void @EVP_PKEY_free(ptr noundef %27) #10
   br label %78
@@ -3683,7 +3683,7 @@ define hidden i32 @ssl3_get_next_proto(ptr noundef %0) local_unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %28, %20, %24, %26, %18, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %20 ], [ %19, %18 ], [ %spec.select, %28 ], [ 0, %26 ], [ 0, %24 ]
+  %.0 = phi i32 [ %19, %18 ], [ -1, %10 ], [ 0, %26 ], [ 0, %24 ], [ 0, %20 ], [ %spec.select, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3872,7 +3872,7 @@ define hidden i32 @ssl3_get_channel_id(ptr noundef %0) local_unnamed_addr #0 {
   br label %86
 
 86:                                               ; preds = %21, %19, %83, %39, %36, %17
-  %.035 = phi i32 [ -1, %36 ], [ %.036, %83 ], [ -1, %39 ], [ -1, %19 ], [ %18, %17 ], [ -1, %21 ]
+  %.035 = phi i32 [ -1, %36 ], [ %.036, %83 ], [ -1, %39 ], [ %18, %17 ], [ -1, %19 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4182,7 +4182,7 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   %.not92 = icmp eq i32 %193, 0
   br i1 %.not92, label %.thread, label %194
 
-.thread:                                          ; preds = %13, %56, %154, %149, %136, %82, %79, %22, %88, %84, %162, %164
+.thread:                                          ; preds = %13, %22, %56, %79, %88, %84, %82, %136, %149, %162, %154, %164
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4214,7 +4214,7 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   br label %204
 
 204:                                              ; preds = %.thread96, %201
-  %.2 = phi i32 [ %55, %.thread96 ], [ %.076, %201 ]
+  %.2 = phi i32 [ %.076, %201 ], [ %55, %.thread96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

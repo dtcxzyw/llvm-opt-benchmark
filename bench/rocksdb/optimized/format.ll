@@ -364,8 +364,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb9cassandra6Column
   br label %common.resume
 
 _ZNSt12__shared_ptrIN7rocksdb9cassandra9TombstoneELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit.i25, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit23.i, %_ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit.i
-  %.sink56 = phi ptr [ %73, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit23.i ], [ %33, %_ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit.i ], [ %97, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit.i25 ]
-  %.sink = phi ptr [ %70, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit23.i ], [ %30, %_ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit.i ], [ %94, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit.i25 ]
+  %.sink56 = phi ptr [ %33, %_ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit.i ], [ %73, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit23.i ], [ %97, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit.i25 ]
+  %.sink = phi ptr [ %30, %_ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit.i ], [ %70, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit23.i ], [ %94, %_ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit.i25 ]
   store ptr %.sink56, ptr %0, align 8, !tbaa !44
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %99, align 8, !tbaa !49
@@ -6194,7 +6194,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cass
   br label %.thread
 
 .thread:                                          ; preds = %18, %21
-  %26 = phi i1 [ %25, %21 ], [ true, %18 ]
+  %26 = phi i1 [ true, %18 ], [ %25, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !133
@@ -6474,8 +6474,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7roc
   br label %_ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIaSt4pairIKaSt10shared_ptrIN7rocksdb9cassandra10ColumnBaseEEESt10_Select1stIS7_ESt4lessIaESaIS7_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

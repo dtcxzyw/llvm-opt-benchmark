@@ -164,7 +164,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
   br label %47
 
 47:                                               ; preds = %48, %55, %26, %45, %43, %33, %22
-  %.sroa.0.0 = phi i1 [ true, %33 ], [ false, %43 ], [ %46, %45 ], [ true, %22 ], [ true, %26 ], [ %61, %55 ], [ %54, %48 ]
+  %.sroa.0.0 = phi i1 [ true, %22 ], [ true, %33 ], [ false, %43 ], [ %46, %45 ], [ true, %26 ], [ %61, %55 ], [ %54, %48 ]
   ret i1 %.sroa.0.0
 
 48:                                               ; preds = %44

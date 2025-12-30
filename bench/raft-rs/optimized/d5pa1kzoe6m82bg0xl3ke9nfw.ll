@@ -525,7 +525,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %11
 
 11:                                               ; preds = %9, %7, %2
-  %.sroa.0.0.i = phi i64 [ 2, %7 ], [ %..i, %9 ], [ 1, %2 ]
+  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %..i, %9 ], [ 2, %7 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h96f3878057c94587E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sroa.0.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.405696f00169ec64be3b53d97337bf05.27)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !57, !nonnull !3, !noundef !3
@@ -770,8 +770,8 @@ _ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit: ; pr
   br i1 %41, label %44, label %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread
 
 _ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread: ; preds = %11, %37, %22, %30, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit, %44
-  %.sroa.7.1 = phi i64 [ %46, %44 ], [ undef, %22 ], [ undef, %37 ], [ undef, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit ], [ %35, %30 ], [ undef, %11 ]
-  %.sroa.0.1 = phi i64 [ 1, %44 ], [ 0, %22 ], [ 0, %37 ], [ 0, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit ], [ 1, %30 ], [ 0, %11 ]
+  %.sroa.7.1 = phi i64 [ %46, %44 ], [ %35, %30 ], [ undef, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit ], [ undef, %22 ], [ undef, %37 ], [ undef, %11 ]
+  %.sroa.0.1 = phi i64 [ 1, %44 ], [ 1, %30 ], [ 0, %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit ], [ 0, %22 ], [ 0, %37 ], [ 0, %11 ]
   %42 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
   %43 = insertvalue { i64, i64 } %42, i64 %.sroa.7.1, 1
   ret { i64, i64 } %43
@@ -882,7 +882,7 @@ define void @_ZN4raft12log_unstable8Unstable14stable_entries17hf3d13a9ac63835d8E
           to label %51 unwind label %58
 
 common.resume:                                    ; preds = %51, %71, %110
-  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %72, %71 ], [ %54, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %111, %110 ], [ %54, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 58:                                               ; preds = %55

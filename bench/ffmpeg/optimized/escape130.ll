@@ -277,9 +277,9 @@ decode_skip_count.exit.thread:                    ; preds = %87, %53
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #6
   br label %387
 
-decode_skip_count.exit.thread328:                 ; preds = %52, %85, %87, %65
-  %.1178333 = phi i32 [ %.0177268, %52 ], [ %86, %85 ], [ %97, %87 ], [ %72, %65 ]
-  %.sroa.18.1332 = phi i32 [ %.sroa.18.0262, %52 ], [ %84, %85 ], [ %96, %87 ], [ %74, %65 ]
+decode_skip_count.exit.thread328:                 ; preds = %52, %65, %85, %87
+  %.1178333 = phi i32 [ %72, %65 ], [ %86, %85 ], [ %97, %87 ], [ %.0177268, %52 ]
+  %.sroa.18.1332 = phi i32 [ %74, %65 ], [ %84, %85 ], [ %96, %87 ], [ %.sroa.18.0262, %52 ]
   %98 = load i8, ptr %.0157278, align 1, !tbaa !44
   %99 = zext i8 %98 to i32
   store i32 %99, ptr %5, align 16, !tbaa !34
@@ -305,7 +305,7 @@ decode_skip_count.exit.thread328:                 ; preds = %52, %85, %87, %65
   br label %265
 
 decode_skip_count.exit.thread251:                 ; preds = %52, %56
-  %.sroa.18.1254 = phi i32 [ %.sroa.18.0262, %52 ], [ %spec.select.i.i, %56 ]
+  %.sroa.18.1254 = phi i32 [ %spec.select.i.i, %56 ], [ %.sroa.18.0262, %52 ]
   %116 = lshr i32 %.sroa.18.1254, 3
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %21, i64 %117
@@ -726,7 +726,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   br label %387
 
 387:                                              ; preds = %._crit_edge, %19, %._crit_edge294, %decode_skip_count.exit.thread, %18
-  %.0 = phi i32 [ -1094995529, %18 ], [ %7, %._crit_edge294 ], [ -1094995529, %decode_skip_count.exit.thread ], [ -1094995529, %19 ], [ %308, %._crit_edge ]
+  %.0 = phi i32 [ -1094995529, %18 ], [ -1094995529, %decode_skip_count.exit.thread ], [ %7, %._crit_edge294 ], [ -1094995529, %19 ], [ %308, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

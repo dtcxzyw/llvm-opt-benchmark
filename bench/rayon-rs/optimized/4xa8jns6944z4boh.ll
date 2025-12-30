@@ -133,10 +133,10 @@ define hidden void @"_ZN102_$LT$$LP$ExtendA$C$ExtendB$RP$$u20$as$u20$core..iter.
   ret void
 
 .body:                                            ; preds = %55, %59, %40, %44
-  %eh.lpad-body7 = phi { ptr, i32 } [ %41, %40 ], [ %18, %55 ], [ %41, %44 ], [ %18, %59 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %41, %44 ], [ %41, %40 ], [ %18, %59 ], [ %18, %55 ]
   resume { ptr, i32 } %eh.lpad-body7
 
-55:                                               ; preds = %17, %22
+55:                                               ; preds = %22, %17
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)

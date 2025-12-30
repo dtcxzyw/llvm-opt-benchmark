@@ -490,13 +490,13 @@ _ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %13
   br label %_ZNK2lp10lar_solver17external_to_localEj.exit, !llvm.loop !59
 
 .loopexit.i:                                      ; preds = %56, %37, %50
-  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %37 ], [ %51, %50 ], [ %58, %56 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %51, %50 ], [ %.sroa.06.0.i.i.i.i, %37 ], [ %58, %56 ]
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 12
   %65 = load i32, ptr %64, align 4, !tbaa !60
   br label %_ZNK2lp10lar_solver17external_to_localEj.exit
 
 _ZNK2lp10lar_solver17external_to_localEj.exit:    ; preds = %.lr.ph.i.i.i.i.i.i, %35, %42, %..loopexit_crit_edge21.i.i.i.i.i.i, %.loopexit.i
-  %66 = phi i32 [ %65, %.loopexit.i ], [ -1, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ -1, %35 ], [ -1, %42 ], [ -1, %.lr.ph.i.i.i.i.i.i ]
+  %66 = phi i32 [ %65, %.loopexit.i ], [ -1, %42 ], [ -1, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ -1, %35 ], [ -1, %.lr.ph.i.i.i.i.i.i ]
   %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %indvars.iv)
   %69 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @.str.3, i64 noundef 1)
@@ -824,7 +824,7 @@ _ZNK5arith6solver6is_intEi.exit.thread:           ; preds = %203, %_ZNK4decl13ge
   %225 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i64 noundef 8)
   br label %_ZNK9table2mapI17default_map_entryIjPN6lp_api5boundIN3sat7literalEEEE6u_hash4u_eqE4findERKjRS6_.exit.thread
 
-_ZNK9table2mapI17default_map_entryIjPN6lp_api5boundIN3sat7literalEEEE6u_hash4u_eqE4findERKjRS6_.exit.thread: ; preds = %.lr.ph.i.i.i, %.lr.ph34.i.i.i, %110, %.preheader.i.i.i, %_ZN3satlsERSoNS_7literalE.exit, %_ZNK5arith6solver6is_intEi.exit.thread, %224
+_ZNK9table2mapI17default_map_entryIjPN6lp_api5boundIN3sat7literalEEEE6u_hash4u_eqE4findERKjRS6_.exit.thread: ; preds = %.lr.ph.i.i.i, %110, %.lr.ph34.i.i.i, %.preheader.i.i.i, %_ZN3satlsERSoNS_7literalE.exit, %_ZNK5arith6solver6is_intEi.exit.thread, %224
   %226 = load ptr, ptr %14, align 8, !tbaa !42
   %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv
   %228 = load ptr, ptr %227, align 8, !tbaa !62
@@ -1355,7 +1355,7 @@ _ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i: ; preds 
   unreachable
 
 96:                                               ; preds = %55, %88, %40
-  %.pn23 = phi { ptr, i32 } [ %41, %40 ], [ %89, %88 ], [ %56, %55 ]
+  %.pn23 = phi { ptr, i32 } [ %41, %40 ], [ %56, %55 ], [ %89, %88 ]
   call void @_ZN2lp11explanation8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #21
   br label %97
 
@@ -3713,7 +3713,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %336
 
 336:                                              ; preds = %282, %277, %334, %289, %161, %.body
-  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %.body ], [ %162, %161 ], [ %335, %334 ], [ %290, %289 ], [ %.pn58.pn, %277 ], [ %.pn61, %282 ]
+  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %.body ], [ %162, %161 ], [ %290, %289 ], [ %335, %334 ], [ %.pn61, %282 ], [ %.pn58.pn, %277 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   br label %337
 

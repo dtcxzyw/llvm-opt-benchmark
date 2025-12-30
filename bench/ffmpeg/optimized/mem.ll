@@ -55,7 +55,7 @@ av_malloc.exit:                                   ; preds = %12, %9
   br label %.thread
 
 .thread:                                          ; preds = %7, %av_malloc.exit, %1
-  %.0 = phi ptr [ null, %1 ], [ %spec.select, %7 ], [ %.0.i, %av_malloc.exit ]
+  %.0 = phi ptr [ null, %1 ], [ %.0.i, %av_malloc.exit ], [ %spec.select, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -213,7 +213,7 @@ av_malloc.exit.i:                                 ; preds = %17, %14
   br label %av_malloc.exit
 
 av_malloc.exit:                                   ; preds = %7, %12, %av_malloc.exit.i
-  %.0.i2 = phi ptr [ null, %7 ], [ %spec.select.i, %12 ], [ %.0.i.i, %av_malloc.exit.i ]
+  %.0.i2 = phi ptr [ null, %7 ], [ %.0.i.i, %av_malloc.exit.i ], [ %spec.select.i, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %size_mult.exit.thread
 
@@ -240,7 +240,7 @@ define noalias noundef ptr @av_realloc_array(ptr noundef captures(none) %0, i64 
   br label %av_realloc.exit
 
 av_realloc.exit:                                  ; preds = %3, %10, %6
-  %.0 = phi ptr [ null, %6 ], [ %12, %10 ], [ null, %3 ]
+  %.0 = phi ptr [ %12, %10 ], [ null, %6 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -403,7 +403,7 @@ av_malloc.exit.i:                                 ; preds = %av_malloc.exit.i.i,
   br label %av_mallocz.exit
 
 av_mallocz.exit:                                  ; preds = %2, %19, %av_malloc.exit.i, %av_malloc.exit.thread.i
-  %.0 = phi ptr [ null, %av_malloc.exit.i ], [ null, %av_malloc.exit.thread.i ], [ %.0.i.i, %19 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %av_malloc.exit.thread.i ], [ %.0.i.i, %19 ], [ null, %av_malloc.exit.i ], [ null, %2 ]
   ret ptr %.0
 }
 

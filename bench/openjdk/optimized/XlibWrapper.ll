@@ -170,7 +170,7 @@ freeNativeStringArray.exit:                       ; preds = %.lr.ph.i, %.prehead
   br label %39
 
 39:                                               ; preds = %3, %.loopexit, %13
-  %.0 = phi ptr [ %.038, %.loopexit ], [ null, %13 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %13 ], [ %.038, %.loopexit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1140,7 +1140,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XGetDefault(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %5, %15, %7, %18, %.thread29
-  %.024 = phi ptr [ null, %7 ], [ null, %.thread29 ], [ %19, %18 ], [ null, %15 ], [ null, %5 ]
+  %.024 = phi ptr [ null, %.thread29 ], [ %19, %18 ], [ null, %7 ], [ null, %15 ], [ null, %5 ]
   ret ptr %.024
 }
 
@@ -1249,7 +1249,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsXsunKPBehavior(
   br label %9
 
 9:                                                ; preds = %6, %3
-  %.0 = phi i8 [ %., %6 ], [ 0, %3 ]
+  %.0 = phi i8 [ 0, %3 ], [ %., %6 ]
   ret i8 %.0
 }
 
@@ -2086,7 +2086,7 @@ define internal range(i32 0, 2) i32 @secondary_loop_event(ptr readnone captures(
   br label %11
 
 11:                                               ; preds = %3, %3, %3, %.fold.split, %5
-  %12 = phi i32 [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ %10, %5 ], [ 0, %.fold.split ]
+  %12 = phi i32 [ 1, %3 ], [ %10, %5 ], [ 1, %3 ], [ 1, %3 ], [ 0, %.fold.split ]
   ret i32 %12
 }
 
@@ -2294,7 +2294,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
   br label %122
 
 122:                                              ; preds = %57, %52, %27, %.loopexit, %74, %47, %39
-  %.0 = phi ptr [ %77, %.loopexit ], [ null, %39 ], [ %51, %47 ], [ null, %27 ], [ null, %52 ], [ %75, %74 ], [ null, %57 ]
+  %.0 = phi ptr [ null, %39 ], [ %51, %47 ], [ %75, %74 ], [ %77, %.loopexit ], [ null, %27 ], [ null, %52 ], [ null, %57 ]
   ret ptr %.0
 }
 

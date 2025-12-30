@@ -78,7 +78,7 @@ define ptr @ossl_prop_defn_get(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %14
 
 14:                                               ; preds = %11, %7, %2, %5
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %5 ], [ %13, %11 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %7 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -162,7 +162,7 @@ define range(i32 0, 2) i32 @ossl_prop_defn_set(ptr noundef %0, ptr noundef %1, p
   br label %37
 
 37:                                               ; preds = %9, %7, %3, %35
-  %.028 = phi i32 [ 1, %7 ], [ 0, %3 ], [ %.0, %35 ], [ 0, %9 ]
+  %.028 = phi i32 [ %.0, %35 ], [ 0, %3 ], [ 1, %7 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.028
 }

@@ -272,7 +272,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %104, label %.lr.ph103.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %99, %81, %57
-  %105 = phi i32 [ %75, %81 ], [ 0, %57 ], [ %93, %99 ]
+  %105 = phi i32 [ 0, %57 ], [ %75, %81 ], [ %93, %99 ]
   %106 = load i32, ptr %5, align 8
   %107 = sext i32 %105 to i64
   %108 = mul nsw i64 %107, 24
@@ -384,7 +384,7 @@ define internal fastcc i32 @indexOfColumn(ptr noundef nonnull %0, ptr noundef %1
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %._crit_edge.thread, %13, %._crit_edge, %15
-  %.025 = phi i32 [ -1, %15 ], [ %.2, %._crit_edge ], [ %11, %13 ], [ -1, %._crit_edge.thread ], [ -1, %26 ]
+  %.025 = phi i32 [ -1, %15 ], [ %11, %13 ], [ %.2, %._crit_edge ], [ -1, %._crit_edge.thread ], [ -1, %26 ]
   ret i32 %.025
 }
 
@@ -712,7 +712,7 @@ pivotFieldCompare.exit:                           ; preds = %.lr.ph.i, %88
   br label %.lr.ph.i
 
 bsearch.exit.loopexit.split.loop.exit155:         ; preds = %91, %.thread.us.us164, %.lr.ph.i.us.us160.preheader
-  %.us-phi = phi i64 [ %80, %.thread.us.us164 ], [ %65, %.lr.ph.i.us.us160.preheader ], [ %85, %91 ]
+  %.us-phi = phi i64 [ %65, %.lr.ph.i.us.us160.preheader ], [ %80, %.thread.us.us164 ], [ %85, %91 ]
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 %.us-phi
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i32, ptr %96, align 8

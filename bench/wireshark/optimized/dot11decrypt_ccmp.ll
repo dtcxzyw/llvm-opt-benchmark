@@ -60,7 +60,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptCcmpDecrypt(ptr noundef %0, i32 n
   br label %ccmp_construct_nonce.exit
 
 ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
-  %.sink.i = phi i8 [ 0, %20 ], [ %47, %.sink.split.i ]
+  %.sink.i = phi i8 [ %47, %.sink.split.i ], [ 0, %20 ]
   %48 = or disjoint i8 %.sink.i, 16
   %spec.select = select i1 %38, i8 %48, i8 %.sink.i
   store i8 %spec.select, ptr %8, align 1
@@ -142,7 +142,7 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
   br label %87
 
 87:                                               ; preds = %.sink.split, %ccmp_construct_nonce.exit, %6
-  %.0 = phi i32 [ 1, %ccmp_construct_nonce.exit ], [ 0, %6 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %ccmp_construct_nonce.exit ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

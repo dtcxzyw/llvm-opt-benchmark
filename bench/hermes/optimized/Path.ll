@@ -235,8 +235,8 @@ return.sink.split.i:                              ; preds = %land.lhs.true17.i, 
   br label %_ZN12_GLOBAL__N_120find_first_componentEN4llvh9StringRefENS0_3sys4path5StyleE.exit
 
 _ZN12_GLOBAL__N_120find_first_componentEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %entry, %land.lhs.true7.i, %if.end33.i, %return.sink.split.i
-  %retval.sroa.0.0.i = phi ptr [ %path.coerce0, %if.end33.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %land.lhs.true7.i ], [ %5, %return.sink.split.i ]
-  %retval.sroa.6.0.i = phi i64 [ 1, %if.end33.i ], [ 0, %entry ], [ 2, %land.lhs.true7.i ], [ %.sroa.speculated.i, %return.sink.split.i ]
+  %retval.sroa.0.0.i = phi ptr [ %path.coerce0, %entry ], [ %path.coerce0, %land.lhs.true7.i ], [ %path.coerce0, %if.end33.i ], [ %5, %return.sink.split.i ]
+  %retval.sroa.6.0.i = phi i64 [ 0, %entry ], [ 2, %land.lhs.true7.i ], [ 1, %if.end33.i ], [ %.sroa.speculated.i, %return.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i)
   %Component = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %retval.sroa.0.0.i, ptr %Component, align 8
@@ -421,7 +421,7 @@ if.then62:                                        ; preds = %land.lhs.true57, %i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit127:                 ; preds = %land.rhs45.us, %land.rhs45, %if.end.i.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37
-  %18 = phi i64 [ %16, %land.rhs45 ], [ %add, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37 ], [ %2, %if.end.i.i ], [ %14, %land.rhs45.us ]
+  %18 = phi i64 [ %2, %if.end.i.i ], [ %add, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37 ], [ %16, %land.rhs45 ], [ %14, %land.rhs45.us ]
   %cmp.i.not.i51 = icmp eq i32 %.fr, 0
   %.str.11..str.1.i = select i1 %cmp.i.not.i51, ptr @.str.11, ptr @.str.1
   %call.i126 = select i1 %cmp.i.not.i51, i64 2, i64 1
@@ -599,8 +599,8 @@ if.end34.i:                                       ; preds = %_ZN4llvh3sys4path12
   br label %_ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit
 
 _ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %land.lhs.true5.i, %land.lhs.true5.i, %_ZN4llvh9StringRefC2EPKc.exit.i, %land.lhs.true30.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37.i, %if.end34.i
-  %.pre.pre = phi ptr [ %.pre.pre.pre, %_ZN4llvh9StringRefC2EPKc.exit.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true30.i ], [ %agg.tmp.sroa.0.0.copyload, %if.end34.i ], [ %agg.tmp.sroa.0.0.copyload, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true5.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true5.i ]
-  %retval.0.i = phi i64 [ %call26.i, %_ZN4llvh9StringRefC2EPKc.exit.i ], [ 0, %land.lhs.true30.i ], [ -1, %if.end34.i ], [ 0, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37.i ], [ 2, %land.lhs.true5.i ], [ 2, %land.lhs.true5.i ]
+  %.pre.pre = phi ptr [ %agg.tmp.sroa.0.0.copyload, %if.end34.i ], [ %.pre.pre.pre, %_ZN4llvh9StringRefC2EPKc.exit.i ], [ %agg.tmp.sroa.0.0.copyload, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true5.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true30.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true5.i ]
+  %retval.0.i = phi i64 [ -1, %if.end34.i ], [ %call26.i, %_ZN4llvh9StringRefC2EPKc.exit.i ], [ 0, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37.i ], [ 2, %land.lhs.true5.i ], [ 0, %land.lhs.true30.i ], [ 2, %land.lhs.true5.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i)
   %Position = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load i64, ptr %Position, align 8
@@ -649,7 +649,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
   br i1 %cmp.not, label %while.end, label %land.lhs.true, !llvm.loop !6
 
 while.end:                                        ; preds = %land.rhs.us, %while.body.us, %land.lhs.true.us, %land.rhs, %while.body, %land.lhs.true, %_ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit
-  %end_pos.0.lcssa = phi i64 [ 0, %_ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit ], [ %11, %land.lhs.true ], [ 0, %while.body ], [ %end_pos.058, %land.rhs ], [ 0, %while.body.us ], [ %end_pos.058.us, %land.rhs.us ], [ %11, %land.lhs.true.us ]
+  %end_pos.0.lcssa = phi i64 [ 0, %_ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit ], [ %11, %land.lhs.true ], [ 0, %while.body ], [ %end_pos.058, %land.rhs ], [ %11, %land.lhs.true.us ], [ 0, %while.body.us ], [ %end_pos.058.us, %land.rhs.us ]
   %14 = load i64, ptr %agg.tmp.sroa.2.0.Path.sroa_idx, align 8
   %cmp11 = icmp ne i64 %9, %14
   %cmp.i = icmp eq i64 %14, 0
@@ -759,7 +759,7 @@ if.end26.i:                                       ; preds = %land.lhs.true22.i, 
   br label %_ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit
 
 _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %while.cond.i.i.i, %land.lhs.true.i35, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i, %if.end19.i, %land.lhs.true22.i, %if.end26.i
-  %retval.0.i42 = phi i64 [ 0, %land.lhs.true22.i ], [ %add.i, %if.end26.i ], [ 0, %if.end19.i ], [ %sub.i36, %land.lhs.true.i35 ], [ %sub.i36, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ 0, %while.cond.i.i.i ]
+  %retval.0.i42 = phi i64 [ %add.i, %if.end26.i ], [ 0, %if.end19.i ], [ %sub.i36, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %sub.i36, %land.lhs.true.i35 ], [ 0, %land.lhs.true22.i ], [ 0, %while.cond.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i34)
   %26 = load i64, ptr %agg.tmp.sroa.2.0.Path.sroa_idx, align 8
   %27 = call i64 @llvm.umin.i64(i64 %26, i64 %retval.0.i42)
@@ -925,8 +925,8 @@ _ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit: ; preds = %entry
   br label %if.end42
 
 if.then:                                          ; preds = %land.lhs.true7.i.i, %if.end33.i.i, %return.sink.split.i.i
-  %retval.sroa.0.0.i.i.ph = phi ptr [ %5, %return.sink.split.i.i ], [ %path.coerce0, %land.lhs.true7.i.i ], [ %path.coerce0, %if.end33.i.i ]
-  %retval.sroa.6.0.i.i.ph = phi i64 [ %.sroa.speculated.i.i, %return.sink.split.i.i ], [ 2, %land.lhs.true7.i.i ], [ 1, %if.end33.i.i ]
+  %retval.sroa.0.0.i.i.ph = phi ptr [ %5, %return.sink.split.i.i ], [ %path.coerce0, %if.end33.i.i ], [ %path.coerce0, %land.lhs.true7.i.i ]
+  %retval.sroa.6.0.i.i.ph = phi i64 [ %.sroa.speculated.i.i, %return.sink.split.i.i ], [ 1, %if.end33.i.i ], [ 2, %land.lhs.true7.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i.i), !noalias !8
   store ptr %path.coerce0, ptr %pos, align 8
   %b.sroa.3.0.pos.sroa_idx86 = getelementptr inbounds nuw i8, ptr %pos, i64 8
@@ -1020,8 +1020,8 @@ if.end42:                                         ; preds = %_ZN4llvh3sys4path5b
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit53, %if.then22, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit38, %if.end42, %if.then29
-  %retval.sroa.6.0 = phi i64 [ %.sroa.speculated74, %if.then29 ], [ 0, %if.end42 ], [ %retval.sroa.6.0.i.i.ph, %if.then22 ], [ %retval.sroa.6.0.i.i.ph, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit38 ], [ %retval.sroa.6.0.i.i.ph, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit53 ], [ %retval.sroa.6.0.i.i.ph, %if.end ]
-  %retval.sroa.0.0 = phi ptr [ %path.coerce0, %if.then29 ], [ null, %if.end42 ], [ %retval.sroa.0.0.i.i.ph, %if.then22 ], [ %retval.sroa.0.0.i.i.ph, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit38 ], [ %retval.sroa.0.0.i.i.ph, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit53 ], [ %retval.sroa.0.0.i.i.ph, %if.end ]
+  %retval.sroa.6.0 = phi i64 [ %.sroa.speculated74, %if.then29 ], [ 0, %if.end42 ], [ %retval.sroa.6.0.i.i.ph, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit38 ], [ %retval.sroa.6.0.i.i.ph, %if.then22 ], [ %retval.sroa.6.0.i.i.ph, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit53 ], [ %retval.sroa.6.0.i.i.ph, %if.end ]
+  %retval.sroa.0.0 = phi ptr [ %path.coerce0, %if.then29 ], [ null, %if.end42 ], [ %retval.sroa.0.0.i.i.ph, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit38 ], [ %retval.sroa.0.0.i.i.ph, %if.then22 ], [ %retval.sroa.0.0.i.i.ph, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit53 ], [ %retval.sroa.0.0.i.i.ph, %if.end ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1094,8 +1094,8 @@ _ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i.i), !noalias !11
   br label %if.end24
 
-if.then.thread:                                   ; preds = %land.lhs.true7.i.i, %if.end33.i.i
-  %retval.sroa.6.0.i.i.ph.ph = phi i64 [ 1, %if.end33.i.i ], [ 2, %land.lhs.true7.i.i ]
+if.then.thread:                                   ; preds = %if.end33.i.i, %land.lhs.true7.i.i
+  %retval.sroa.6.0.i.i.ph.ph = phi i64 [ 2, %land.lhs.true7.i.i ], [ 1, %if.end33.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i.i), !noalias !11
   br label %land.end
 
@@ -1239,8 +1239,8 @@ _ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit: ; preds = %entry
   br label %if.end39
 
 if.then:                                          ; preds = %land.lhs.true7.i.i, %if.end33.i.i, %return.sink.split.i.i
-  %retval.sroa.0.0.i.i.ph = phi ptr [ %5, %return.sink.split.i.i ], [ %path.coerce0, %land.lhs.true7.i.i ], [ %path.coerce0, %if.end33.i.i ]
-  %retval.sroa.6.0.i.i.ph = phi i64 [ %.sroa.speculated.i.i, %return.sink.split.i.i ], [ 2, %land.lhs.true7.i.i ], [ 1, %if.end33.i.i ]
+  %retval.sroa.0.0.i.i.ph = phi ptr [ %5, %return.sink.split.i.i ], [ %path.coerce0, %if.end33.i.i ], [ %path.coerce0, %land.lhs.true7.i.i ]
+  %retval.sroa.6.0.i.i.ph = phi i64 [ %.sroa.speculated.i.i, %return.sink.split.i.i ], [ 1, %if.end33.i.i ], [ 2, %land.lhs.true7.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i.i), !noalias !14
   store ptr %path.coerce0, ptr %pos, align 8
   %b.sroa.3.0.pos.sroa_idx64 = getelementptr inbounds nuw i8, ptr %pos, i64 8
@@ -1682,8 +1682,8 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.then4
   br label %if.end46thread-pre-split
 
 if.end46thread-pre-split:                         ; preds = %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %land.rhs32, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit97
-  %Length.i55178.ph = phi ptr [ %Length.i55177, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %Length.i55177, %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit ], [ %Length.i55179, %land.rhs32 ], [ %Length.i55179, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit97 ]
-  %.ph = phi i32 [ %add.i111, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %.pre161, %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit ], [ %37, %land.rhs32 ], [ %37, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit97 ]
+  %Length.i55178.ph = phi ptr [ %Length.i55177, %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit ], [ %Length.i55177, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %Length.i55179, %land.rhs32 ], [ %Length.i55179, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit97 ]
+  %.ph = phi i32 [ %.pre161, %_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE.exit ], [ %add.i111, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %37, %land.rhs32 ], [ %37, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit97 ]
   %.pr = load i64, ptr %Length.i55178.ph, align 8
   br label %if.end46
 
@@ -1718,8 +1718,8 @@ if.then.i.i126:                                   ; preds = %if.end.i123.thread,
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i.i126, %if.end.i123, %if.then.i.i, %if.end.i84
-  %.sink186 = phi i64 [ %gepdiff, %if.then.i.i ], [ %gepdiff, %if.end.i84 ], [ %58, %if.end.i123 ], [ %58, %if.then.i.i126 ]
-  %.sink = phi i32 [ %.pre.i86, %if.then.i.i ], [ %.pre13.i, %if.end.i84 ], [ %59, %if.end.i123 ], [ %.pre.i129, %if.then.i.i126 ]
+  %.sink186 = phi i64 [ %gepdiff, %if.end.i84 ], [ %gepdiff, %if.then.i.i ], [ %58, %if.end.i123 ], [ %58, %if.then.i.i126 ]
+  %.sink = phi i32 [ %.pre13.i, %if.end.i84 ], [ %.pre.i86, %if.then.i.i ], [ %59, %if.end.i123 ], [ %.pre.i129, %if.then.i.i126 ]
   %63 = trunc i64 %.sink186 to i32
   %conv.i12.i130 = add i32 %.sink, %63
   store i32 %conv.i12.i130, ptr %Size.i71, align 8
@@ -1838,8 +1838,8 @@ if.end:                                           ; preds = %if.end.i, %entry
   br label %return
 
 return:                                           ; preds = %if.end.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %cond.true.i.i, %sw.bb2.i, %if.end
-  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %6, %sw.bb7.i ], [ null, %if.end.i ], [ %call.i18.i, %sw.bb3.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ]
-  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %conv.i.i, %sw.bb7.i ], [ 0, %if.end.i ], [ %call2.i.i, %sw.bb3.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ]
+  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %call.i18.i, %sw.bb3.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %6, %sw.bb7.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ], [ null, %if.end.i ]
+  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %call2.i.i, %sw.bb3.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %conv.i.i, %sw.bb7.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ], [ 0, %if.end.i ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.7.0.i.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged
@@ -2021,7 +2021,7 @@ _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit.threa
   br label %land.rhs
 
 _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %while.cond.i.i.i, %if.end19.i, %land.lhs.true22.i, %if.end26.i
-  %retval.0.i = phi i64 [ 0, %land.lhs.true22.i ], [ %add.i, %if.end26.i ], [ 0, %if.end19.i ], [ 0, %while.cond.i.i.i ]
+  %retval.0.i = phi i64 [ %add.i, %if.end26.i ], [ 0, %if.end19.i ], [ 0, %land.lhs.true22.i ], [ 0, %while.cond.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i)
   br i1 %cmp.not.i, label %while.cond.us.preheader, label %_ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit.land.rhs_crit_edge
 
@@ -2043,7 +2043,7 @@ if.end.i:                                         ; preds = %land.rhs
   br label %land.end
 
 land.end:                                         ; preds = %if.end.i, %land.rhs
-  %8 = phi i1 [ %spec.select.i, %if.end.i ], [ true, %land.rhs ]
+  %8 = phi i1 [ true, %land.rhs ], [ %spec.select.i, %if.end.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %str.i15)
   store ptr %path.coerce0, ptr %str.i15, align 8
   %9 = getelementptr inbounds nuw i8, ptr %str.i15, i64 8
@@ -2112,9 +2112,9 @@ _ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit37.i: ; preds = %land.lhs.true3
   %spec.select = sext i1 %not.spec.select.i35.i to i64
   br label %_ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit
 
-_ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit.thread: ; preds = %land.lhs.true30.i, %land.lhs.true5.i, %land.lhs.true5.i
-  %cmp.i.not.i1645.ph = phi i1 [ true, %land.lhs.true5.i ], [ true, %land.lhs.true5.i ], [ %cmp.i.not.i16, %land.lhs.true30.i ]
-  %retval.0.i18.ph = phi i64 [ 2, %land.lhs.true5.i ], [ 2, %land.lhs.true5.i ], [ 0, %land.lhs.true30.i ]
+_ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit.thread: ; preds = %land.lhs.true5.i, %land.lhs.true5.i, %land.lhs.true30.i
+  %cmp.i.not.i1645.ph = phi i1 [ true, %land.lhs.true5.i ], [ %cmp.i.not.i16, %land.lhs.true30.i ], [ true, %land.lhs.true5.i ]
+  %retval.0.i18.ph = phi i64 [ 2, %land.lhs.true5.i ], [ 0, %land.lhs.true30.i ], [ 2, %land.lhs.true5.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i15)
   br label %while.cond.preheader
 
@@ -2167,8 +2167,8 @@ land.rhs9:                                        ; preds = %while.cond
   br i1 %or.cond60, label %while.cond, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %while.cond, %land.rhs9, %while.cond.us, %land.lhs.true.us
-  %retval.0.i1872 = phi i64 [ -1, %while.cond.us ], [ -1, %land.lhs.true.us ], [ %retval.0.i1873, %land.rhs9 ], [ %retval.0.i1873, %while.cond ]
-  %18 = phi i1 [ %15, %while.cond.us ], [ %15, %land.lhs.true.us ], [ %8, %land.rhs9 ], [ %8, %while.cond ]
+  %retval.0.i1872 = phi i64 [ -1, %land.lhs.true.us ], [ -1, %while.cond.us ], [ %retval.0.i1873, %land.rhs9 ], [ %retval.0.i1873, %while.cond ]
+  %18 = phi i1 [ %15, %land.lhs.true.us ], [ %15, %while.cond.us ], [ %8, %land.rhs9 ], [ %8, %while.cond ]
   %.us-phi = phi i64 [ 0, %while.cond.us ], [ %end_pos.0.us, %land.lhs.true.us ], [ %umin, %while.cond ], [ %end_pos.0, %land.rhs9 ]
   %cmp13 = icmp ne i64 %.us-phi, %retval.0.i1872
   %or.cond = or i1 %18, %cmp13
@@ -2293,12 +2293,12 @@ if.end26.i:                                       ; preds = %land.lhs.true22.i, 
   %add.i = add nuw i64 %pos.0.i, 1
   br label %_ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit
 
-_ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit.thread: ; preds = %while.cond.i.i.i, %land.lhs.true22.i, %if.end19.i
+_ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit.thread: ; preds = %while.cond.i.i.i, %if.end19.i, %land.lhs.true22.i
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i)
   br label %if.then
 
 _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %land.lhs.true, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i, %if.end26.i
-  %retval.0.i = phi i64 [ %sub.i, %land.lhs.true ], [ %add.i, %if.end26.i ], [ %sub.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ]
+  %retval.0.i = phi i64 [ %add.i, %if.end26.i ], [ %sub.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %sub.i, %land.lhs.true ]
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i)
   %cmp5.not = icmp ult i64 %dec.i.i, %retval.0.i
   br i1 %cmp5.not, label %if.end, label %if.then
@@ -2342,7 +2342,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.then1
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %land.lhs.true8
-  %17 = phi i32 [ %.pre26, %land.lhs.true8 ], [ %add.i10, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ]
+  %17 = phi i32 [ %add.i10, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %.pre26, %land.lhs.true8 ]
   %Capacity.i.i11 = getelementptr inbounds nuw i8, ptr %path, i64 12
   %18 = load i32, ptr %Capacity.i.i11, align 4
   %conv.i.i = zext i32 %18 to i64
@@ -2887,7 +2887,7 @@ if.else30:                                        ; preds = %land.lhs.true26, %i
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true26, %for.body, %if.else30
-  %PI.1 = phi ptr [ %PI.051, %for.body ], [ %PI.051, %if.else30 ], [ %add.ptr24, %land.lhs.true26 ]
+  %PI.1 = phi ptr [ %PI.051, %if.else30 ], [ %PI.051, %for.body ], [ %add.ptr24, %land.lhs.true26 ]
   %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %PI.1, i64 1
   %cmp20 = icmp ult ptr %incdec.ptr33, %add.ptr.i63
   br i1 %cmp20, label %for.body, label %if.end34, !llvm.loop !21
@@ -3110,7 +3110,7 @@ if.else14:                                        ; preds = %if.else, %land.lhs.
   br label %return
 
 return:                                           ; preds = %while.cond.i.i, %land.lhs.true, %land.lhs.true9, %if.else14
-  %retval.sroa.4.0 = phi i64 [ %dec.i.i, %if.else14 ], [ 1, %land.lhs.true ], [ 2, %land.lhs.true9 ], [ %ref.tmp.sroa.2.0.copyload.i, %while.cond.i.i ]
+  %retval.sroa.4.0 = phi i64 [ %dec.i.i, %if.else14 ], [ 2, %land.lhs.true9 ], [ 1, %land.lhs.true ], [ %ref.tmp.sroa.2.0.copyload.i, %while.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %ref.tmp.sroa.1.0.copyload.i, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3171,8 +3171,8 @@ if.else14:                                        ; preds = %if.else, %land.lhs.
   br label %return
 
 return:                                           ; preds = %while.cond.i.i, %land.lhs.true, %land.lhs.true9, %if.else14
-  %retval.sroa.6.0 = phi i64 [ %sub.i, %if.else14 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true9 ], [ 0, %while.cond.i.i ]
-  %retval.sroa.0.0 = phi ptr [ %arrayidx.i.i.le, %if.else14 ], [ null, %land.lhs.true ], [ null, %land.lhs.true9 ], [ null, %while.cond.i.i ]
+  %retval.sroa.6.0 = phi i64 [ %sub.i, %if.else14 ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true ], [ 0, %while.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %arrayidx.i.i.le, %if.else14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %while.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3406,7 +3406,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   br label %_ZN4llvh3sys4path4stemENS_9StringRefENS1_5StyleE.exit
 
 _ZN4llvh3sys4path4stemENS_9StringRefENS1_5StyleE.exit: ; preds = %while.cond.i.i.i, %land.lhs.true.i, %land.lhs.true9.i, %if.else14.i
-  %retval.sroa.4.0.i = phi i64 [ %dec.i.i.i, %if.else14.i ], [ 1, %land.lhs.true.i ], [ 1, %land.lhs.true9.i ], [ %ref.tmp.sroa.2.0.copyload.i.i, %while.cond.i.i.i ]
+  %retval.sroa.4.0.i = phi i64 [ %dec.i.i.i, %if.else14.i ], [ 2, %land.lhs.true9.i ], [ 2, %land.lhs.true.i ], [ %ref.tmp.sroa.2.0.copyload.i.i, %while.cond.i.i.i ]
   %4 = load ptr, ptr %path_storage, align 8
   %cmp.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i
@@ -3483,7 +3483,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   br label %_ZN4llvh3sys4path9extensionENS_9StringRefENS1_5StyleE.exit
 
 _ZN4llvh3sys4path9extensionENS_9StringRefENS1_5StyleE.exit: ; preds = %while.cond.i.i.i, %land.lhs.true.i, %land.lhs.true9.i, %if.else14.i
-  %retval.sroa.6.0.i = phi i1 [ true, %if.else14.i ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true9.i ], [ false, %while.cond.i.i.i ]
+  %retval.sroa.6.0.i = phi i1 [ true, %if.else14.i ], [ false, %land.lhs.true9.i ], [ false, %land.lhs.true.i ], [ false, %while.cond.i.i.i ]
   %4 = load ptr, ptr %path_storage, align 8
   %cmp.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i
@@ -3695,8 +3695,8 @@ while.end16.loopexit146:                          ; preds = %while.body13.us.us
   br label %while.end16
 
 while.end16:                                      ; preds = %land.rhs.us92, %while.end.us105, %land.lhs.true.us88, %land.rhs.us, %while.end.us, %land.lhs.true.us, %while.end16.loopexit146, %while.end16.loopexit, %entry
-  %Path.sroa.8.0.lcssa = phi i64 [ %Path.coerce1, %entry ], [ %storemerge51.us70, %while.end.us ], [ 0, %while.end16.loopexit ], [ 0, %while.end16.loopexit146 ], [ %Path.sroa.8.061.us, %land.rhs.us ], [ %Path.sroa.8.061.us, %land.lhs.true.us ], [ %Path.sroa.8.061.us90, %land.lhs.true.us88 ], [ %storemerge51.us.us, %while.end.us105 ], [ %Path.sroa.8.061.us90, %land.rhs.us92 ]
-  %Path.sroa.0.0.lcssa = phi ptr [ %Path.coerce0, %entry ], [ %storemerge1050.us71, %while.end.us ], [ %scevgep138.le, %while.end16.loopexit ], [ %scevgep.le, %while.end16.loopexit146 ], [ %Path.sroa.0.062.us, %land.rhs.us ], [ %Path.sroa.0.062.us, %land.lhs.true.us ], [ %Path.sroa.0.062.us89, %land.lhs.true.us88 ], [ %storemerge1050.us.us, %while.end.us105 ], [ %Path.sroa.0.062.us89, %land.rhs.us92 ]
+  %Path.sroa.8.0.lcssa = phi i64 [ %Path.coerce1, %entry ], [ 0, %while.end16.loopexit ], [ 0, %while.end16.loopexit146 ], [ %Path.sroa.8.061.us, %land.lhs.true.us ], [ %storemerge51.us70, %while.end.us ], [ %Path.sroa.8.061.us, %land.rhs.us ], [ %Path.sroa.8.061.us90, %land.lhs.true.us88 ], [ %storemerge51.us.us, %while.end.us105 ], [ %Path.sroa.8.061.us90, %land.rhs.us92 ]
+  %Path.sroa.0.0.lcssa = phi ptr [ %Path.coerce0, %entry ], [ %scevgep138.le, %while.end16.loopexit ], [ %scevgep.le, %while.end16.loopexit146 ], [ %Path.sroa.0.062.us, %land.lhs.true.us ], [ %storemerge1050.us71, %while.end.us ], [ %Path.sroa.0.062.us, %land.rhs.us ], [ %Path.sroa.0.062.us89, %land.lhs.true.us88 ], [ %storemerge1050.us.us, %while.end.us105 ], [ %Path.sroa.0.062.us89, %land.rhs.us92 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %Path.sroa.0.0.lcssa, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %Path.sroa.8.0.lcssa, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3827,8 +3827,8 @@ _ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit.i: ; preds = %entry
   br label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %return.sink.split.i.i.i, %if.end33.i.i.i, %land.lhs.true7.i.i.i
-  %retval.sroa.0.0.i.i.ph.i = phi ptr [ %9, %return.sink.split.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true7.i.i.i ], [ %add.ptr.i.i.i, %if.end33.i.i.i ]
-  %retval.sroa.6.0.i.i.ph.i = phi i64 [ %.sroa.speculated.i.i.i, %return.sink.split.i.i.i ], [ 2, %land.lhs.true7.i.i.i ], [ 1, %if.end33.i.i.i ]
+  %retval.sroa.0.0.i.i.ph.i = phi ptr [ %9, %return.sink.split.i.i.i ], [ %add.ptr.i.i.i, %if.end33.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true7.i.i.i ]
+  %retval.sroa.6.0.i.i.ph.i = phi i64 [ %.sroa.speculated.i.i.i, %return.sink.split.i.i.i ], [ 1, %if.end33.i.i.i ], [ 2, %land.lhs.true7.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %path.i.i.i), !noalias !55
   store ptr %add.ptr.i.i.i, ptr %__begin2.i, align 8, !noalias !52
   %ref.tmp.sroa.0.sroa.2.0.__begin2.sroa_idx66.i = getelementptr inbounds nuw i8, ptr %__begin2.i, i64 8
@@ -3982,8 +3982,8 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.inc.us.i, %for.end.loopexit.i, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit.i
-  %agg.tmp29.sroa.2.0.copyload.i = phi i64 [ %conv.i, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit.i ], [ %agg.tmp29.sroa.2.0.copyload.pre.i, %for.end.loopexit.i ], [ %conv.i, %for.inc.us.i ]
-  %agg.tmp29.sroa.0.0.copyload.i = phi ptr [ %0, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit.i ], [ %agg.tmp29.sroa.0.0.copyload.pre.i, %for.end.loopexit.i ], [ %0, %for.inc.us.i ]
+  %agg.tmp29.sroa.2.0.copyload.i = phi i64 [ %agg.tmp29.sroa.2.0.copyload.pre.i, %for.end.loopexit.i ], [ %conv.i, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit.i ], [ %conv.i, %for.inc.us.i ]
+  %agg.tmp29.sroa.0.0.copyload.i = phi ptr [ %agg.tmp29.sroa.0.0.copyload.pre.i, %for.end.loopexit.i ], [ %0, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit.i ], [ %0, %for.inc.us.i ]
   %call30.i = call { ptr, i64 } @_ZN4llvh3sys4path9root_pathENS_9StringRefENS1_5StyleE(ptr %agg.tmp29.sroa.0.0.copyload.i, i64 %agg.tmp29.sroa.2.0.copyload.i, i32 noundef %style), !noalias !52
   %29 = extractvalue { ptr, i64 } %call30.i, 0
   %30 = extractvalue { ptr, i64 } %call30.i, 1
@@ -4096,8 +4096,8 @@ if.end:                                           ; preds = %_ZN4llvh3sys4pathL1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit, %if.end
-  %41 = phi ptr [ %.pre, %if.end ], [ %.pre13, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ %.pre13, %if.end.i ]
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ false, %if.end.i ]
+  %41 = phi ptr [ %.pre13, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ %.pre, %if.end ], [ %.pre13, %if.end.i ]
+  %retval.0 = phi i1 [ false, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ true, %if.end ], [ false, %if.end.i ]
   %cmp.i.i.i.i = icmp eq ptr %41, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj256EED2Ev.exit, label %if.then.i.i.i7
 
@@ -4579,8 +4579,8 @@ for.inc60:                                        ; preds = %if.then27, %if.then
   br i1 %cmp, label %for.body, label %cleanup, !llvm.loop !60
 
 cleanup:                                          ; preds = %for.inc60, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit, %if.then54, %if.end43, %_ZN4llvh3sys2fs6accessERKNS_5TwineENS1_10AccessModeE.exit, %_ZN4llvh5TwineC2EPKc.exit, %lor.rhs
-  %retval.sroa.0.0 = phi i32 [ 0, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit ], [ %23, %lor.rhs ], [ 0, %_ZN4llvh5TwineC2EPKc.exit ], [ 0, %_ZN4llvh3sys2fs6accessERKNS_5TwineENS1_10AccessModeE.exit ], [ %retval.sroa.0.0.i, %if.end43 ], [ %retval.sroa.0.0.i79, %if.then54 ], [ %EC.sroa.0.1, %for.inc60 ]
-  %retval.sroa.12.0 = phi ptr [ %call.i, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit ], [ %24, %lor.rhs ], [ %call.i, %_ZN4llvh5TwineC2EPKc.exit ], [ %call.i, %_ZN4llvh3sys2fs6accessERKNS_5TwineENS1_10AccessModeE.exit ], [ %retval.sroa.5.0.i, %if.end43 ], [ %retval.sroa.3.0.i, %if.then54 ], [ %EC.sroa.15114.1, %for.inc60 ]
+  %retval.sroa.0.0 = phi i32 [ %23, %lor.rhs ], [ 0, %_ZN4llvh5TwineC2EPKc.exit ], [ 0, %_ZN4llvh3sys2fs6accessERKNS_5TwineENS1_10AccessModeE.exit ], [ %retval.sroa.0.0.i, %if.end43 ], [ %retval.sroa.0.0.i79, %if.then54 ], [ 0, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit ], [ %EC.sroa.0.1, %for.inc60 ]
+  %retval.sroa.12.0 = phi ptr [ %24, %lor.rhs ], [ %call.i, %_ZN4llvh5TwineC2EPKc.exit ], [ %call.i, %_ZN4llvh3sys2fs6accessERKNS_5TwineENS1_10AccessModeE.exit ], [ %retval.sroa.5.0.i, %if.end43 ], [ %retval.sroa.3.0.i, %if.then54 ], [ %call.i, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit ], [ %EC.sroa.15114.1, %for.inc60 ]
   %37 = load ptr, ptr %ModelStorage, align 8
   %cmp.i.i.i.i96 = icmp eq ptr %37, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i96, label %_ZN4llvh11SmallStringILj128EED2Ev.exit98, label %if.then.i.i.i97
@@ -4688,7 +4688,7 @@ if.end8.i.i:                                      ; preds = %if.end5.i.i
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %if.then4.i.i, %if.then7.i.i, %if.end8.i.i
-  %4 = phi i8 [ %spec.select.i.i, %if.end8.i.i ], [ %spec.select, %if.then4.i.i ], [ %.pre, %if.then7.i.i ]
+  %4 = phi i8 [ %spec.select, %if.then4.i.i ], [ %.pre, %if.then7.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   switch i8 %4, label %if.end8.i.i12 [
@@ -4713,8 +4713,8 @@ if.end8.i.i12:                                    ; preds = %_ZN4llvhplERKNS_5Tw
   br label %_ZN4llvhplERKNS_5TwineES2_.exit31
 
 _ZN4llvhplERKNS_5TwineES2_.exit31:                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit, %_ZN4llvhplERKNS_5TwineES2_.exit.thread, %if.then4.i.i27, %if.end8.i.i12
-  %.sink35 = phi i8 [ %spec.select.i.i16, %if.end8.i.i12 ], [ 5, %if.then4.i.i27 ], [ 0, %_ZN4llvhplERKNS_5TwineES2_.exit.thread ], [ %4, %_ZN4llvhplERKNS_5TwineES2_.exit ]
-  %.sink = phi i8 [ 5, %if.end8.i.i12 ], [ 1, %if.then4.i.i27 ], [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit.thread ], [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit ]
+  %.sink35 = phi i8 [ 5, %if.then4.i.i27 ], [ %spec.select.i.i16, %if.end8.i.i12 ], [ 0, %_ZN4llvhplERKNS_5TwineES2_.exit.thread ], [ %4, %_ZN4llvhplERKNS_5TwineES2_.exit ]
+  %.sink = phi i8 [ 1, %if.then4.i.i27 ], [ 5, %if.end8.i.i12 ], [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit.thread ], [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit ]
   %LHSKind.i.i.i29 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i8 %.sink35, ptr %LHSKind.i.i.i29, align 8
   %RHSKind.i.i.i30 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 17
@@ -4807,8 +4807,8 @@ if.end8.i.i:                                      ; preds = %entry
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %if.then4.i.i, %if.end8.i.i
-  %.sink2 = phi i8 [ %spec.select.i.i, %if.end8.i.i ], [ 3, %if.then4.i.i ], [ %0, %entry ]
-  %.sink = phi i8 [ 3, %if.end8.i.i ], [ 1, %if.then4.i.i ], [ 1, %entry ]
+  %.sink2 = phi i8 [ 3, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ], [ %0, %entry ]
+  %.sink = phi i8 [ 1, %if.then4.i.i ], [ 3, %if.end8.i.i ], [ 1, %entry ]
   %LHSKind.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i8 %.sink2, ptr %LHSKind.i.i.i, align 8
   %RHSKind.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 17
@@ -5321,13 +5321,13 @@ if.end6:                                          ; preds = %if.end
 
 return.sink.split:                                ; preds = %if.end, %if.end6
   %.sink = phi i32 [ %3, %if.end6 ], [ %2, %if.end ]
-  %call.i1.pn = phi { i32, ptr } [ %call7, %if.end6 ], [ %call.i1, %if.end ]
+  %call7.pn = phi { i32, ptr } [ %call7, %if.end6 ], [ %call.i1, %if.end ]
   %retval.sroa.0.0.ph = phi i32 [ %4, %if.end6 ], [ %1, %if.end ]
   %call9 = tail call i32 @close(i32 noundef %.sink) #29
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
-  %call.i.pn = phi { i32, ptr } [ %call.i, %entry ], [ %call.i1.pn, %return.sink.split ]
+  %call.i.pn = phi { i32, ptr } [ %call.i, %entry ], [ %call7.pn, %return.sink.split ]
   %retval.sroa.0.0 = phi i32 [ %0, %entry ], [ %retval.sroa.0.0.ph, %return.sink.split ]
   %retval.sroa.6.0 = extractvalue { i32, ptr } %call.i.pn, 1
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
@@ -6395,12 +6395,12 @@ while.end.i:                                      ; preds = %while.cond.backedge
   call void @free(ptr noundef %call20.i) #29
   br label %_ZN4llvh3sys2fsL11getprogpathEPcPKc.exit.thread
 
-_ZN4llvh3sys2fsL11getprogpathEPcPKc.exit.thread:  ; preds = %if.end19.i, %if.end15.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit.thread.i, %if.then5.i, %while.end.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit24.thread.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit24.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit.i
+_ZN4llvh3sys2fsL11getprogpathEPcPKc.exit.thread:  ; preds = %while.end.i, %if.then5.i, %if.end15.i, %if.end19.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit.thread.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit24.thread.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit24.i
   call void @llvm.lifetime.end.p0(ptr nonnull %s.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %cwd.i)
   br label %if.end13
 
-if.then9:                                         ; preds = %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit24.i, %if.then28.i
+if.then9:                                         ; preds = %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit24.i, %_ZN4llvh3sys2fsL8test_dirEPcPKcS4_.exit.i, %if.then28.i
   call void @llvm.lifetime.end.p0(ptr nonnull %s.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %cwd.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #29
@@ -7274,7 +7274,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN4llvh3sys2fsL17convertAccessModeENS1_10AccessModeE.exit: ; preds = %entry, %sw.bb1.i
-  %retval.0.i = phi i32 [ %Mode, %entry ], [ 2, %sw.bb1.i ]
+  %retval.0.i = phi i32 [ 2, %sw.bb1.i ], [ %Mode, %entry ]
   %call3 = call i32 @access(ptr noundef %0, i32 noundef %retval.0.i) #29
   %cmp = icmp eq i32 %call3, -1
   br i1 %cmp, label %if.then, label %if.end16
@@ -8061,8 +8061,8 @@ _ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit: ;
   br label %return
 
 return:                                           ; preds = %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit, %if.then
-  %.pn = phi { i32, ptr } [ { i32 0, ptr poison }, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %3, %if.then ], [ { i32 0, ptr poison }, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ]
-  %call.i4.i.pn = phi ptr [ %call.i4.i, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %call5, %if.then ], [ %call.i10, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ]
+  %.pn = phi { i32, ptr } [ { i32 0, ptr poison }, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ { i32 0, ptr poison }, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ], [ %3, %if.then ]
+  %call.i4.i.pn = phi ptr [ %call.i4.i, %_ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit ], [ %call.i10, %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit ], [ %call5, %if.then ]
   %.fca.1.insert.merged = insertvalue { i32, ptr } %.pn, ptr %call.i4.i.pn, 1
   ret { i32, ptr } %.fca.1.insert.merged
 }
@@ -8535,8 +8535,8 @@ if.end23.i:                                       ; preds = %if.end14.i
   br i1 %cmp.i19.not.i, label %while.cond.i, label %cleanup30.i, !llvm.loop !106
 
 cleanup30.i:                                      ; preds = %if.end23.i, %if.end14.i, %if.then6.i, %while.cond.i, %if.end14.us.i, %if.then.i, %entry.split.us.i
-  %retval.sroa.660.0.i = phi ptr [ %retval.sroa.31.0.copyload.i.i, %if.then.i ], [ %call.i.i, %if.end14.us.i ], [ %call.i.i, %entry.split.us.i ], [ %14, %if.end14.i ], [ %12, %if.then6.i ], [ %17, %if.end23.i ], [ %call.i.i, %while.cond.i ]
-  %retval.sroa.0.0.i = phi i32 [ %retval.sroa.0.0.copyload.i.i, %if.then.i ], [ 0, %if.end14.us.i ], [ 0, %entry.split.us.i ], [ %13, %if.end14.i ], [ %11, %if.then6.i ], [ %16, %if.end23.i ], [ 0, %while.cond.i ]
+  %retval.sroa.660.0.i = phi ptr [ %retval.sroa.31.0.copyload.i.i, %if.then.i ], [ %call.i.i, %entry.split.us.i ], [ %call.i.i, %if.end14.us.i ], [ %call.i.i, %while.cond.i ], [ %12, %if.then6.i ], [ %14, %if.end14.i ], [ %17, %if.end23.i ]
+  %retval.sroa.0.0.i = phi i32 [ %retval.sroa.0.0.copyload.i.i, %if.then.i ], [ 0, %entry.split.us.i ], [ 0, %if.end14.us.i ], [ 0, %while.cond.i ], [ %11, %if.then6.i ], [ %13, %if.end14.i ], [ %16, %if.end23.i ]
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %End.i, i64 8
   %18 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %18, null
@@ -8705,8 +8705,8 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fsL23r
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit
-  %retval.sroa.6.0 = phi ptr [ %spec.select, %if.end ], [ %retval.sroa.660.0.i, %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit ]
-  %retval.sroa.0.0 = phi i32 [ %spec.select14, %if.end ], [ %retval.sroa.0.0.i, %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit ]
+  %retval.sroa.6.0 = phi ptr [ %retval.sroa.660.0.i, %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit ], [ %spec.select, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.i, %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit ], [ %spec.select14, %if.end ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.6.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -9064,8 +9064,8 @@ if.then.i.i.i25:                                  ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i25, %cleanup, %if.then.i.i.i8, %_ZN4llvh3sys2fsL15expandTildeExprERNS_15SmallVectorImplIcEE.exit, %if.then
-  %retval.sroa.0.0 = phi i32 [ 0, %if.then ], [ %30, %if.then.i.i.i8 ], [ %30, %_ZN4llvh3sys2fsL15expandTildeExprERNS_15SmallVectorImplIcEE.exit ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i.i25 ]
-  %retval.sroa.5.0 = phi ptr [ %call.i, %if.then ], [ %31, %if.then.i.i.i8 ], [ %31, %_ZN4llvh3sys2fsL15expandTildeExprERNS_15SmallVectorImplIcEE.exit ], [ %retval.sroa.5.1, %cleanup ], [ %retval.sroa.5.1, %if.then.i.i.i25 ]
+  %retval.sroa.0.0 = phi i32 [ 0, %if.then ], [ %30, %_ZN4llvh3sys2fsL15expandTildeExprERNS_15SmallVectorImplIcEE.exit ], [ %30, %if.then.i.i.i8 ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i.i25 ]
+  %retval.sroa.5.0 = phi ptr [ %call.i, %if.then ], [ %31, %_ZN4llvh3sys2fsL15expandTildeExprERNS_15SmallVectorImplIcEE.exit ], [ %31, %if.then.i.i.i8 ], [ %retval.sroa.5.1, %cleanup ], [ %retval.sroa.5.1, %if.then.i.i.i25 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.5.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -9821,7 +9821,7 @@ if.then.i74:                                      ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.then.i74, %for.end, %if.then.i.i.i.i.i60, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit
-  %retval.0 = phi ptr [ %add.ptr, %_ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit ], [ %add.ptr7, %if.then.i.i.i.i.i60 ], [ %add.ptr7, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %add.ptr7, %for.end ], [ %add.ptr7, %if.then.i74 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit ], [ %add.ptr7, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %add.ptr7, %if.then.i.i.i.i.i60 ], [ %add.ptr7, %for.end ], [ %add.ptr7, %if.then.i74 ]
   ret ptr %retval.0
 }
 
@@ -10800,8 +10800,8 @@ if.end23:                                         ; preds = %if.end14
   br i1 %cmp.i19.not, label %while.cond, label %cleanup30, !llvm.loop !199
 
 cleanup30:                                        ; preds = %while.cond, %if.then6, %if.end14, %if.end23, %if.end14.us, %entry.split.us, %if.then
-  %retval.sroa.660.0 = phi ptr [ %retval.sroa.31.0.copyload.i, %if.then ], [ %call.i, %if.end14.us ], [ %call.i, %entry.split.us ], [ %17, %if.end23 ], [ %12, %if.then6 ], [ %14, %if.end14 ], [ %call.i, %while.cond ]
-  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i, %if.then ], [ 0, %if.end14.us ], [ 0, %entry.split.us ], [ %16, %if.end23 ], [ %11, %if.then6 ], [ %13, %if.end14 ], [ 0, %while.cond ]
+  %retval.sroa.660.0 = phi ptr [ %retval.sroa.31.0.copyload.i, %if.then ], [ %call.i, %entry.split.us ], [ %call.i, %if.end14.us ], [ %17, %if.end23 ], [ %14, %if.end14 ], [ %12, %if.then6 ], [ %call.i, %while.cond ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i, %if.then ], [ 0, %entry.split.us ], [ 0, %if.end14.us ], [ %16, %if.end23 ], [ %13, %if.end14 ], [ %11, %if.then6 ], [ 0, %while.cond ]
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %End, i64 8
   %18 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %18, null
@@ -11128,7 +11128,7 @@ if.end.i.i.i27:                                   ; preds = %land.rhs.i.i22
   br label %return
 
 return:                                           ; preds = %if.end.i.i.i27, %land.rhs.i.i22, %if.end18, %entry, %_ZNK4llvh3sys2fs15directory_entryeqERKS2_.exit18, %_ZNK4llvh3sys2fs15directory_entryeqERKS2_.exit
-  %retval.0 = phi i1 [ %3, %_ZNK4llvh3sys2fs15directory_entryeqERKS2_.exit ], [ true, %entry ], [ %5, %_ZNK4llvh3sys2fs15directory_entryeqERKS2_.exit18 ], [ false, %if.end18 ], [ %6, %if.end.i.i.i27 ], [ true, %land.rhs.i.i22 ]
+  %retval.0 = phi i1 [ %5, %_ZNK4llvh3sys2fs15directory_entryeqERKS2_.exit18 ], [ %3, %_ZNK4llvh3sys2fs15directory_entryeqERKS2_.exit ], [ true, %entry ], [ false, %if.end18 ], [ %6, %if.end.i.i.i27 ], [ true, %land.rhs.i.i22 ]
   ret i1 %retval.0
 }
 

@@ -391,25 +391,25 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRange19Creat
   %11 = alloca double, align 8
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %13 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %.sink47.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink47.sroa.gep48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink47.sroa.gep49 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink47.sroa.gep50 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink47.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink47.sroa.gep48 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink47.sroa.gep49 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink47.sroa.gep50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sink47.sroa.gep51 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink47.sroa.gep53 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink47.sroa.gep54 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink47.sroa.gep55 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink47.sroa.gep56 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink47.sroa.gep53 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink47.sroa.gep54 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink47.sroa.gep55 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink47.sroa.gep56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink47.sroa.gep57 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink47.sroa.gep59 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink47.sroa.gep60 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink47.sroa.gep61 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink47.sroa.gep62 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink47.sroa.gep59 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink47.sroa.gep60 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink47.sroa.gep61 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink47.sroa.gep62 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sink47.sroa.gep63 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink47.sroa.gep65 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink47.sroa.gep66 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink47.sroa.gep67 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink47.sroa.gep68 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink47.sroa.gep65 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink47.sroa.gep66 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink47.sroa.gep67 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink47.sroa.gep68 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.sink47.sroa.gep69 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %13, label %14, label %17
 
@@ -688,12 +688,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.invoke
 
 .invoke40:                                        ; preds = %134, %123, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %52, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
-  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep, %123 ], [ %.sink47.sroa.gep48, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %.sink47.sroa.gep49, %52 ], [ %.sink47.sroa.gep50, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sink47.sroa.gep51, %134 ]
-  %.sink47.sroa.phi52 = phi ptr [ %.sink47.sroa.gep53, %123 ], [ %.sink47.sroa.gep54, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %.sink47.sroa.gep55, %52 ], [ %.sink47.sroa.gep56, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sink47.sroa.gep57, %134 ]
-  %.sink47.sroa.phi58 = phi ptr [ %.sink47.sroa.gep59, %123 ], [ %.sink47.sroa.gep60, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %.sink47.sroa.gep61, %52 ], [ %.sink47.sroa.gep62, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sink47.sroa.gep63, %134 ]
-  %.sink47.sroa.phi64 = phi ptr [ %.sink47.sroa.gep65, %123 ], [ %.sink47.sroa.gep66, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %.sink47.sroa.gep67, %52 ], [ %.sink47.sroa.gep68, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sink47.sroa.gep69, %134 ]
-  %.sink47 = phi ptr [ %10, %123 ], [ %4, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %6, %52 ], [ %8, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %12, %134 ]
-  %.sink = phi i64 [ 98, %123 ], [ 69, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ 75, %52 ], [ 92, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 105, %134 ]
+  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %.sink47.sroa.gep48, %52 ], [ %.sink47.sroa.gep49, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sink47.sroa.gep50, %123 ], [ %.sink47.sroa.gep51, %134 ]
+  %.sink47.sroa.phi52 = phi ptr [ %.sink47.sroa.gep53, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %.sink47.sroa.gep54, %52 ], [ %.sink47.sroa.gep55, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sink47.sroa.gep56, %123 ], [ %.sink47.sroa.gep57, %134 ]
+  %.sink47.sroa.phi58 = phi ptr [ %.sink47.sroa.gep59, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %.sink47.sroa.gep60, %52 ], [ %.sink47.sroa.gep61, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sink47.sroa.gep62, %123 ], [ %.sink47.sroa.gep63, %134 ]
+  %.sink47.sroa.phi64 = phi ptr [ %.sink47.sroa.gep65, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %.sink47.sroa.gep66, %52 ], [ %.sink47.sroa.gep67, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.sink47.sroa.gep68, %123 ], [ %.sink47.sroa.gep69, %134 ]
+  %.sink47 = phi ptr [ %4, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %6, %52 ], [ %8, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %10, %123 ], [ %12, %134 ]
+  %.sink = phi i64 [ 69, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ 75, %52 ], [ 92, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 98, %123 ], [ 105, %134 ]
   store ptr @.str.3, ptr %.sink47, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRange19CreateFromFrameSpecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %.sink47.sroa.phi, align 8
   store i64 %.sink, ptr %.sink47.sroa.phi52, align 8
@@ -842,7 +842,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   br label %36
 
 36:                                               ; preds = %27, %35, %32
-  %.0 = phi i1 [ false, %32 ], [ true, %35 ], [ false, %27 ]
+  %.0 = phi i1 [ true, %35 ], [ false, %32 ], [ false, %27 ]
   ret i1 %.0
 
 37:                                               ; preds = %.body

@@ -325,7 +325,7 @@ define hidden void @_ZN11VtableStubs24check_and_set_size_limitEbii(i1 noundef ze
   br label %._crit_edge39
 
 ._crit_edge39:                                    ; preds = %16, %19, %21
-  %22 = phi i32 [ %.pre38, %21 ], [ %_ZN11VtableStubs15_vtab_stub_sizeE.val.i, %16 ], [ %_ZN11VtableStubs15_vtab_stub_sizeE.val.i, %19 ]
+  %22 = phi i32 [ %_ZN11VtableStubs15_vtab_stub_sizeE.val.i, %19 ], [ %.pre38, %21 ], [ %_ZN11VtableStubs15_vtab_stub_sizeE.val.i, %16 ]
   %23 = icmp sgt i32 %15, %22
   br i1 %23, label %.sink.split, label %32
 
@@ -347,7 +347,7 @@ define hidden void @_ZN11VtableStubs24check_and_set_size_limitEbii(i1 noundef ze
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %27, %29
-  %30 = phi i32 [ %.pre, %29 ], [ %_ZN11VtableStubs15_itab_stub_sizeE.val.i, %24 ], [ %_ZN11VtableStubs15_itab_stub_sizeE.val.i, %27 ]
+  %30 = phi i32 [ %_ZN11VtableStubs15_itab_stub_sizeE.val.i, %27 ], [ %.pre, %29 ], [ %_ZN11VtableStubs15_itab_stub_sizeE.val.i, %24 ]
   %31 = icmp sgt i32 %15, %30
   br i1 %31, label %.sink.split, label %32
 

@@ -138,7 +138,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !6
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -182,7 +182,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !6
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -248,7 +248,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !6
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -341,7 +341,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !6
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -384,7 +384,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !6
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -583,9 +583,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !6
 
@@ -593,11 +593,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$17hb1579ebb176f7d48E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !8
 
@@ -695,7 +695,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !42
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -739,7 +739,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !42
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -805,7 +805,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !42
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -898,7 +898,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !42
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -941,7 +941,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !42
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -1140,9 +1140,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !42
 
@@ -1150,11 +1150,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$17h210229ecfd16bad8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !44
 
@@ -1252,7 +1252,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !72
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -1296,7 +1296,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !72
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -1362,7 +1362,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !72
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -1455,7 +1455,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !72
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -1498,7 +1498,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !72
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -1697,9 +1697,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !72
 
@@ -1707,11 +1707,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$GT$17h7268250ccfc4a67cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !74
 
@@ -1809,7 +1809,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !102
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -1853,7 +1853,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !102
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -1919,7 +1919,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !102
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -2012,7 +2012,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !102
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -2055,7 +2055,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !102
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -2254,9 +2254,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !102
 
@@ -2264,11 +2264,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$17hff9884cf23f4dbb9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !104
 
@@ -2366,7 +2366,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !132
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -2410,7 +2410,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !132
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -2476,7 +2476,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !132
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -2569,7 +2569,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !132
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -2612,7 +2612,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !132
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -2811,9 +2811,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !132
 
@@ -2821,11 +2821,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$GT$17h2dd51c964c8b6192E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !134
 
@@ -2923,7 +2923,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !162
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -2967,7 +2967,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !162
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -3033,7 +3033,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !162
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -3126,7 +3126,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !162
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -3169,7 +3169,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !162
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -3368,9 +3368,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !162
 
@@ -3378,11 +3378,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$GT$17h244864cb95ae8bc1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !164
 
@@ -3480,7 +3480,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !192
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -3524,7 +3524,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !192
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -3590,7 +3590,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !192
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -3683,7 +3683,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !192
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -3726,7 +3726,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !192
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -3925,9 +3925,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !192
 
@@ -3935,11 +3935,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$GT$17hde7044bd3d01024dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !194
 
@@ -4037,7 +4037,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !222
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -4081,7 +4081,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !222
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -4147,7 +4147,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !222
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -4240,7 +4240,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !222
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -4283,7 +4283,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !222
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -4482,9 +4482,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !222
 
@@ -4492,11 +4492,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$17hcef92e026c0bf538E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !224
 
@@ -4594,7 +4594,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %29 unwind label %158, !noalias !252
 
 45:                                               ; preds = %157, %42, %30
-  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %42 ], [ true, %30 ]
+  %.sroa.023.2.i = phi i1 [ false, %157 ], [ true, %30 ], [ true, %42 ]
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -4638,7 +4638,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %44 unwind label %158, !noalias !252
 
 61:                                               ; preds = %156, %58, %47
-  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %58 ], [ true, %47 ]
+  %.sroa.023.4.i = phi i1 [ false, %156 ], [ true, %47 ], [ true, %58 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %60
@@ -4704,7 +4704,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %60 unwind label %158, !noalias !252
 
 87:                                               ; preds = %.invoke.i, %155, %98, %89
-  %.sroa.023.6.i = phi i1 [ true, %.invoke.i ], [ true, %89 ], [ false, %155 ], [ true, %98 ]
+  %.sroa.023.6.i = phi i1 [ false, %155 ], [ true, %89 ], [ true, %98 ], [ true, %.invoke.i ]
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -4797,7 +4797,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %86 unwind label %158, !noalias !252
 
 120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ true, %.invoke228.i ], [ true, %._crit_edge126.i ], [ true, %117 ], [ false, %154 ]
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -4840,7 +4840,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
           to label %119 unwind label %158, !noalias !252
 
 135:                                              ; preds = %153, %132, %122
-  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %132 ], [ true, %122 ]
+  %.sroa.023.10.i = phi i1 [ false, %153 ], [ true, %122 ], [ true, %132 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -5039,9 +5039,9 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   br i1 %exitcond.not.i, label %.loopexit69.i, label %.lr.ph.i
 
 .invoke.i:                                        ; preds = %72, %200, %195, %.lr.ph.i, %80, %._crit_edge.i
-  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.026.0109.i, %195 ], [ %.sroa.024.0111.i, %200 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
-  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %198, %195 ], [ %204, %200 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
-  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
+  %213 = phi i64 [ %83, %80 ], [ %77, %._crit_edge.i ], [ %.sroa.024.0111.i, %200 ], [ %.sroa.026.0109.i, %195 ], [ %192, %.lr.ph.i ], [ %.sroa.024.0111.i, %72 ]
+  %214 = phi i64 [ %84, %80 ], [ %78, %._crit_edge.i ], [ %204, %200 ], [ %198, %195 ], [ %193, %.lr.ph.i ], [ %73, %72 ]
+  %215 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.8, %80 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.7, %._crit_edge.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.18, %200 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.17, %195 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.16, %.lr.ph.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.15, %72 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %213, i64 noundef %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215) #19
           to label %.cont.i unwind label %87, !noalias !252
 
@@ -5049,11 +5049,11 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   unreachable
 
 216:                                              ; preds = %217, %29
-  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %.pn49.pn.pn.pn67.i, %217 ]
+  %.pn49.pn.pn.pn66.i = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i, %217 ], [ %.pn49.pn.pn.i, %29 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn66.i
 
 217:                                              ; preds = %29, %.thread.i
-  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %28, %.thread.i ], [ %.pn49.pn.pn.i, %29 ]
+  %.pn49.pn.pn.pn67.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %29 ], [ %28, %.thread.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$GT$17hf15240b3221efaf6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #20
           to label %216 unwind label %158, !noalias !254
 
@@ -44524,7 +44524,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -44813,7 +44813,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -46203,7 +46203,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -46983,7 +46983,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f32$C$$RF$$u5b$f32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfe00915b202bfabeE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -47339,7 +47339,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f32$C$$RF$$u5b$f32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfe00915b202bfabeE.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -49836,7 +49836,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -52328,7 +52328,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -52985,7 +52985,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -53764,7 +53764,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f64$C$$RF$$u5b$f64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8850967ba545f1faE.exit"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -54124,7 +54124,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f64$C$$RF$$u5b$f64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8850967ba545f1faE.exit": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -54528,7 +54528,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b6ef3b10137f5f2E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -54885,7 +54885,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b6ef3b10137f5f2E.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -55179,7 +55179,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -55837,7 +55837,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -55884,7 +55884,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -56161,7 +56161,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr489drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1d6b34c4aadbb6bE.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -56936,7 +56936,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h005a494bc1fe94a2E.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -57292,7 +57292,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h005a494bc1fe94a2E.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -57588,7 +57588,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -57879,7 +57879,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -58168,7 +58168,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -58459,7 +58459,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -59241,7 +59241,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -59518,7 +59518,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr489drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf2ecd2deecb6637aE.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -59812,7 +59812,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -60470,7 +60470,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -60511,7 +60511,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u64$C$$RF$$u5b$u64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90fd1d1db756e938E.exit"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -60871,7 +60871,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u64$C$$RF$$u5b$u64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90fd1d1db756e938E.exit": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -61247,7 +61247,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -61524,7 +61524,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr765drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$core..option..Option$LT$$RF$f64$GT$$C$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21260f8fc01f73dfE.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -61940,7 +61940,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr592drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$polars_utils..hashing..BytesHash$C$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2af58a057a5ee7adE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -62296,7 +62296,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr592drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$polars_utils..hashing..BytesHash$C$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2af58a057a5ee7adE.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -62592,7 +62592,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -62631,7 +62631,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd6079f2b7996e7e1E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -62988,7 +62988,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd6079f2b7996e7e1E.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -63401,7 +63401,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr530drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h44b670028bcbfc58E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -63758,7 +63758,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr530drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h44b670028bcbfc58E.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -64054,7 +64054,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -64093,7 +64093,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h162d92f98026459bE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -64450,7 +64450,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h162d92f98026459bE.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -64744,7 +64744,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -65035,7 +65035,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -66063,7 +66063,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -66352,7 +66352,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -66391,7 +66391,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h172374235a8c68dfE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -66748,7 +66748,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h172374235a8c68dfE.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -66800,7 +66800,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -67077,7 +67077,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr765drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$core..option..Option$LT$$RF$u64$GT$$C$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c43e77f0032a80bE.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -67119,7 +67119,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %113, label %"_ZN4core3ptr456drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h78a9be43833e1564E.exit"
 
 .thread:                                          ; preds = %3, %21, %50, %22, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %50 ], [ true, %.sink.split.i ], [ true, %21 ], [ true, %3 ], [ true, %22 ]
+  %.sroa.019.0 = phi i1 [ false, %50 ], [ true, %21 ], [ true, %3 ], [ true, %22 ], [ true, %.sink.split.i ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %113
@@ -67472,7 +67472,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %112 unwind label %109
 
 "_ZN4core3ptr456drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h78a9be43833e1564E.exit": ; preds = %.body, %19, %114, %112
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %114 ], [ %.pn.pn71, %112 ], [ %eh.lpad-body49, %19 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %112 ], [ %.pn.pn71, %114 ], [ %eh.lpad-body49, %19 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 114:                                              ; preds = %112
@@ -67516,7 +67516,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb5a04922b6348634E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -67873,7 +67873,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb5a04922b6348634E.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -68169,7 +68169,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -68784,7 +68784,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -69818,7 +69818,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -70477,7 +70477,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -70516,7 +70516,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c7238aa8b14623bE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -70872,7 +70872,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c7238aa8b14623bE.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -70918,7 +70918,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h765c300879"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -71278,7 +71278,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h765c300879": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -72062,7 +72062,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -72339,7 +72339,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr489drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h27d349ba6bfb1b37E.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -72385,7 +72385,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr887drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$polars_utils..hashing..BytesHash$C$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a42778405f71924E.exit"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -72745,7 +72745,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr887drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$polars_utils..hashing..BytesHash$C$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a42778405f71924E.exit": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -73039,7 +73039,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -73816,7 +73816,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he9d376ae69721f47E.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -74172,7 +74172,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he9d376ae69721f47E.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -74468,7 +74468,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -74878,7 +74878,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he0da405ce9"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -75238,7 +75238,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he0da405ce9": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -75282,7 +75282,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hab3b60bf86c8fd9fE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -75639,7 +75639,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hab3b60bf86c8fd9fE.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -75683,7 +75683,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18149cf6e98b12ccE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -76040,7 +76040,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18149cf6e98b12ccE.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -76092,7 +76092,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -76369,7 +76369,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr489drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0860412ea9484f5dE.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -76665,7 +76665,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -77096,7 +77096,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u32$C$$RF$$u5b$u32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h42b96d6f60d93894E.exit"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -77456,7 +77456,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u32$C$$RF$$u5b$u32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h42b96d6f60d93894E.exit": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -79974,7 +79974,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -80265,7 +80265,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -80702,7 +80702,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -80979,7 +80979,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr765drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$core..option..Option$LT$$RF$u32$GT$$C$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf8792abf4c538af1E.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -82007,7 +82007,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -82298,7 +82298,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -82587,7 +82587,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -82626,7 +82626,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09b8cdc2223d8deeE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -82982,7 +82982,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09b8cdc2223d8deeE.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -83024,7 +83024,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %113, label %"_ZN4core3ptr462drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryOffsetType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha7cd71fa5cda422aE.exit"
 
 .thread:                                          ; preds = %3, %21, %50, %22, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %50 ], [ true, %.sink.split.i ], [ true, %21 ], [ true, %3 ], [ true, %22 ]
+  %.sroa.019.0 = phi i1 [ false, %50 ], [ true, %21 ], [ true, %3 ], [ true, %22 ], [ true, %.sink.split.i ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %113
@@ -83377,7 +83377,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %112 unwind label %109
 
 "_ZN4core3ptr462drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryOffsetType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha7cd71fa5cda422aE.exit": ; preds = %.body, %19, %114, %112
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %114 ], [ %.pn.pn71, %112 ], [ %eh.lpad-body49, %19 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %112 ], [ %.pn.pn71, %114 ], [ %eh.lpad-body49, %19 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 114:                                              ; preds = %112
@@ -84157,7 +84157,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha9a5d4d37a680798E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -84514,7 +84514,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha9a5d4d37a680798E.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -84810,7 +84810,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -85101,7 +85101,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -85390,7 +85390,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -86044,7 +86044,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -86449,7 +86449,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68e51a78d7"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -86809,7 +86809,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68e51a78d7": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -87154,7 +87154,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %.noexc55 unwind label %102
 
 .noexc55:                                         ; preds = %95, %99, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57", %108
-  %.pn.pn72 = phi { ptr, i32 } [ %lpad.phi, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57" ], [ %.pn.pn73, %108 ], [ %96, %95 ], [ %96, %99 ]
+  %.pn.pn72 = phi { ptr, i32 } [ %.pn.pn73, %108 ], [ %lpad.phi, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57" ], [ %96, %95 ], [ %96, %99 ]
   resume { ptr, i32 } %.pn.pn72
 }
 
@@ -87443,7 +87443,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -89001,7 +89001,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -89278,7 +89278,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr576drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$$RF$polars_utils..hashing..BytesHash$C$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8d2fe58ef870adc9E.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -90420,7 +90420,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -90697,7 +90697,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr765drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_ops..frame..join..hash_join..single_keys..build_tables$LT$core..option..Option$LT$$RF$f32$GT$$C$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h278720a9c6635380E.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -90743,7 +90743,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcb405389d2"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -91103,7 +91103,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcb405389d2": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -91523,7 +91523,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u32$C$$RF$$u5b$u32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbf5a6eafaec4f6eeE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -91879,7 +91879,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u32$C$$RF$$u5b$u32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbf5a6eafaec4f6eeE.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -91925,7 +91925,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %120, label %"_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f32$C$$RF$$u5b$f32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hba45f7e2809da70aE.exit"
 
 .thread:                                          ; preds = %3, %25, %54, %26, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %.sink.split.i ], [ true, %25 ], [ true, %3 ], [ true, %26 ]
+  %.sroa.019.0 = phi i1 [ false, %54 ], [ true, %25 ], [ true, %3 ], [ true, %26 ], [ true, %.sink.split.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -92285,7 +92285,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %119 unwind label %116
 
 "_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f32$C$$RF$$u5b$f32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hba45f7e2809da70aE.exit": ; preds = %.body, %23, %121, %119
-  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %121 ], [ %.pn.pn71, %119 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7088 = phi { ptr, i32 } [ %.pn.pn71, %119 ], [ %.pn.pn71, %121 ], [ %eh.lpad-body49, %23 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7088
 
 121:                                              ; preds = %119
@@ -93684,7 +93684,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -94086,7 +94086,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cb6db0f8774de65E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -94443,7 +94443,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cb6db0f8774de65E.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -94487,7 +94487,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr536drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryOffsetType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf1a05eb154e4aeedE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -94844,7 +94844,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr536drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryOffsetType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf1a05eb154e4aeedE.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -95138,7 +95138,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -95924,7 +95924,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u64$C$$RF$$u5b$u64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c81f9049e5bbe19E.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -96280,7 +96280,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u64$C$$RF$$u5b$u64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c81f9049e5bbe19E.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -96688,7 +96688,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %116, label %"_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f64$C$$RF$$u5b$f64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h157565cdf90e7936E.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %116
@@ -97044,7 +97044,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %115 unwind label %112
 
 "_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f64$C$$RF$$u5b$f64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h157565cdf90e7936E.exit": ; preds = %.body, %21, %117, %115
-  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %117 ], [ %.pn.pn72, %115 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn7189 = phi { ptr, i32 } [ %.pn.pn72, %115 ], [ %.pn.pn72, %117 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn7189
 
 117:                                              ; preds = %115
@@ -97340,7 +97340,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -97631,7 +97631,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -98030,7 +98030,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1.lpad-body, label %117, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9fd13a9dba013a3aE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %117
@@ -98387,7 +98387,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %116 unwind label %113
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9fd13a9dba013a3aE.exit": ; preds = %.body, %21, %118, %116
-  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %118 ], [ %.pn.pn70, %116 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6987 = phi { ptr, i32 } [ %.pn.pn70, %116 ], [ %.pn.pn70, %118 ], [ %eh.lpad-body49, %21 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6987
 
 118:                                              ; preds = %116
@@ -100538,7 +100538,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -100827,7 +100827,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -101845,7 +101845,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread52:                                        ; preds = %72, %.thread55
-  %.pn47 = phi { ptr, i32 } [ %73, %72 ], [ %.pn48, %.thread55 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn48, %.thread55 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn47
 }
 
@@ -102790,9 +102790,9 @@ common.resume.i.i:                                ; preds = %297, %294, %48
           to label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i.i unwind label %.loopexit64.i.i, !noalias !7973
 
 .body.i.i:                                        ; preds = %273, %238, %227, %208, %200, %184, %181, %171, %155, %.loopexit.split-lp.i.i, %.loopexit64.i.i, %58
-  %.sroa.011.3.i.i = phi i8 [ 0, %273 ], [ 1, %238 ], [ 1, %58 ], [ 1, %155 ], [ 1, %227 ], [ 1, %208 ], [ 1, %200 ], [ 1, %184 ], [ 1, %181 ], [ 1, %171 ], [ 1, %.loopexit64.i.i ], [ %.sroa.011.2.ph.i.i, %.loopexit.split-lp.i.i ]
-  %.sroa.012.3.i.i = phi i8 [ 0, %273 ], [ 1, %238 ], [ 1, %58 ], [ 1, %155 ], [ 1, %227 ], [ 1, %208 ], [ 1, %200 ], [ 1, %184 ], [ 1, %181 ], [ 1, %171 ], [ 1, %.loopexit64.i.i ], [ %.sroa.012.2.ph.i.i, %.loopexit.split-lp.i.i ]
-  %.pn.i.i = phi { ptr, i32 } [ %274, %273 ], [ %239, %238 ], [ %59, %58 ], [ %156, %155 ], [ %lpad.thr_comm.i.i.i, %227 ], [ %209, %208 ], [ %201, %200 ], [ %185, %184 ], [ %182, %181 ], [ %172, %171 ], [ %lpad.loopexit.i.i, %.loopexit64.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.sroa.011.3.i.i = phi i8 [ 0, %273 ], [ 1, %238 ], [ 1, %58 ], [ 1, %227 ], [ 1, %208 ], [ 1, %200 ], [ 1, %184 ], [ 1, %181 ], [ 1, %171 ], [ 1, %155 ], [ 1, %.loopexit64.i.i ], [ %.sroa.011.2.ph.i.i, %.loopexit.split-lp.i.i ]
+  %.sroa.012.3.i.i = phi i8 [ 0, %273 ], [ 1, %238 ], [ 1, %58 ], [ 1, %227 ], [ 1, %208 ], [ 1, %200 ], [ 1, %184 ], [ 1, %181 ], [ 1, %171 ], [ 1, %155 ], [ 1, %.loopexit64.i.i ], [ %.sroa.012.2.ph.i.i, %.loopexit.split-lp.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %274, %273 ], [ %239, %238 ], [ %59, %58 ], [ %lpad.thr_comm.i.i.i, %227 ], [ %209, %208 ], [ %201, %200 ], [ %185, %184 ], [ %182, %181 ], [ %172, %171 ], [ %156, %155 ], [ %lpad.loopexit.i.i, %.loopexit64.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$17ha93f3ab800e119abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #20
           to label %40 unwind label %292, !noalias !7973
 
@@ -102809,7 +102809,7 @@ common.resume.i.i:                                ; preds = %297, %294, %48
   br label %.body.i.i
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i.i: ; preds = %81, %78, %.noexc29.i.i
-  %.sroa.0.0.i.i.i = phi i64 [ %80, %78 ], [ %77, %.noexc29.i.i ], [ %82, %81 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %77, %.noexc29.i.i ], [ %80, %78 ], [ %82, %81 ]
   %83 = load i64, ptr %26, align 8, !noalias !7973, !noundef !9
   %.not25.i.i = icmp eq i64 %.sroa.0.0.i.i.i, %83
   br i1 %.not25.i.i, label %228, label %84
@@ -102843,7 +102843,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i.i: ; preds =
           to label %_ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i.i.i unwind label %.loopexit64.i.i, !noalias !7973
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i.i.i: ; preds = %93, %90, %.noexc33.i.i
-  %.sroa.0.0.i.i.i.i = phi i64 [ %92, %90 ], [ %89, %.noexc33.i.i ], [ %94, %93 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %89, %.noexc33.i.i ], [ %92, %90 ], [ %94, %93 ]
   %95 = icmp eq i64 %.sroa.0.0.i.i.i.i, 0
   br i1 %95, label %98, label %96
 
@@ -102889,7 +102889,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit.i.i.i: ; preds
           to label %_ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i.i.i unwind label %.loopexit64.i.i, !noalias !7973
 
 _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i.i.i: ; preds = %112, %109, %.noexc38.i.i
-  %.sroa.0.0.i34.i.i.i = phi ptr [ %111, %109 ], [ %108, %.noexc38.i.i ], [ %113, %112 ]
+  %.sroa.0.0.i34.i.i.i = phi ptr [ %108, %.noexc38.i.i ], [ %111, %109 ], [ %113, %112 ]
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i34.i.i.i, i64 23
   %115 = load i8, ptr %114, align 1, !range !8001, !noalias !8000, !noundef !9
   %116 = icmp eq i8 %115, -40
@@ -102990,7 +102990,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i.i.i: ; pred
           to label %230 unwind label %.loopexit64.i.i, !noalias !7973
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit.i.i.i: ; preds = %136, %134, %.noexc36.i.i.i
-  %.sroa.0.0.i35.i.i.i = phi ptr [ %135, %134 ], [ %133, %.noexc36.i.i.i ], [ %137, %136 ]
+  %.sroa.0.0.i35.i.i.i = phi ptr [ %133, %.noexc36.i.i.i ], [ %135, %134 ], [ %137, %136 ]
   invoke fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..clone..Clone$GT$5clone17h523586209c0f94b3E"(ptr noalias noundef align 16 captures(none) dereferenceable(48) %11, ptr noalias noundef readonly align 16 dereferenceable(48) %.sroa.0.0.i35.i.i.i)
           to label %154 unwind label %181, !noalias !8000
 
@@ -103047,7 +103047,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit.i.i.i: ; pre
           to label %.body.i.i unwind label %179, !noalias !8000
 
 _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit53.i.i.i: ; preds = %169, %167, %.noexc49.i.i.i
-  %.sroa.0.0.i47.i.i.i = phi ptr [ %168, %167 ], [ %166, %.noexc49.i.i.i ], [ %170, %169 ]
+  %.sroa.0.0.i47.i.i.i = phi ptr [ %166, %.noexc49.i.i.i ], [ %168, %167 ], [ %170, %169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8000
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i47.i.i.i, i64 23
   %174 = load i8, ptr %173, align 1, !range !8001, !noalias !8000, !noundef !9
@@ -103088,7 +103088,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit53.i.i.i: ; pr
           to label %.body.i.i unwind label %179, !noalias !8000
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit46.i.i.i: ; preds = %151, %149, %.noexc42.i.i.i
-  %.sroa.0.0.i40.i.i.i = phi ptr [ %150, %149 ], [ %148, %.noexc42.i.i.i ], [ %152, %151 ]
+  %.sroa.0.0.i40.i.i.i = phi ptr [ %148, %.noexc42.i.i.i ], [ %150, %149 ], [ %152, %151 ]
   invoke fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..clone..Clone$GT$5clone17h523586209c0f94b3E"(ptr noalias noundef align 16 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 16 dereferenceable(48) %.sroa.0.0.i40.i.i.i)
           to label %183 unwind label %208, !noalias !8000
 
@@ -103145,7 +103145,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit46.i.i.i: ; p
           to label %.body.i.i unwind label %179, !noalias !8000
 
 _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit60.i.i.i: ; preds = %198, %196, %.noexc56.i.i.i
-  %.sroa.0.0.i54.i.i.i = phi ptr [ %197, %196 ], [ %195, %.noexc56.i.i.i ], [ %199, %198 ]
+  %.sroa.0.0.i54.i.i.i = phi ptr [ %195, %.noexc56.i.i.i ], [ %197, %196 ], [ %199, %198 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !8000
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i54.i.i.i, i64 23
   %203 = load i8, ptr %202, align 1, !range !8001, !noalias !8000, !noundef !9
@@ -103222,7 +103222,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit60.i.i.i: ; pr
           to label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit67.i.i.i unwind label %227, !noalias !8000
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit67.i.i.i: ; preds = %225, %222, %.noexc63.i.i.i
-  %.sroa.0.0.i61.i.i.i = phi ptr [ %224, %222 ], [ %221, %.noexc63.i.i.i ], [ %226, %225 ]
+  %.sroa.0.0.i61.i.i.i = phi ptr [ %221, %.noexc63.i.i.i ], [ %224, %222 ], [ %226, %225 ]
   invoke void @_ZN11polars_core5frame6column6Column9full_null17h31d19ff3afd8f87cE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14, i64 noundef %83, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.0.i61.i.i.i)
           to label %.noexc52.i.i unwind label %.loopexit64.i.i, !noalias !7973
 
@@ -103358,7 +103358,7 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit67.i.i.i: ; p
   unreachable
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i.i: ; preds = %270, %267, %264
-  %.sroa.0.0.i56.i.i = phi ptr [ %269, %267 ], [ %266, %264 ], [ %271, %270 ]
+  %.sroa.0.0.i56.i.i = phi ptr [ %266, %264 ], [ %269, %267 ], [ %271, %270 ]
   %276 = invoke { ptr, ptr } @"_ZN71_$LT$polars_core..series..Series$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9bacfe61a8c64c88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i56.i.i)
           to label %277 unwind label %273, !noalias !7973
 
@@ -103675,9 +103675,9 @@ _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.thread.i: ; preds = %_ZN
   br label %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i
 
 _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i: ; preds = %43, %40
-  %.sroa.02.0.i = phi ptr [ %.sroa.02.0.i.i.i, %43 ], [ %.0..0..0..0..0..sroa.02.0.copyload3.i, %40 ]
-  %.sroa.6.0.i = phi i64 [ %28, %43 ], [ %.8..8..8..8..8..sroa.6.0.copyload6.i, %40 ]
-  %.sroa.7.0.i = phi i64 [ %33, %43 ], [ %.16..16..16..16..16..sroa.7.0.copyload9.i, %40 ]
+  %.sroa.02.0.i = phi ptr [ %.0..0..0..0..0..sroa.02.0.copyload3.i, %40 ], [ %.sroa.02.0.i.i.i, %43 ]
+  %.sroa.6.0.i = phi i64 [ %.8..8..8..8..8..sroa.6.0.copyload6.i, %40 ], [ %28, %43 ]
+  %.sroa.7.0.i = phi i64 [ %.16..16..16..16..16..sroa.7.0.copyload9.i, %40 ], [ %33, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %44 = and i64 %.sroa.7.0.i, -72057594037927936
   %or.cond = icmp eq i64 %44, -2738188573441261568
@@ -103812,7 +103812,7 @@ _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i: ; preds = %43, %40
   unreachable
 
 common.resume:                                    ; preds = %.body, %244, %141, %125, %100, %84
-  %common.resume.op = phi { ptr, i32 } [ %245, %244 ], [ %85, %84 ], [ %101, %100 ], [ %126, %125 ], [ %142, %141 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %85, %84 ], [ %101, %100 ], [ %126, %125 ], [ %142, %141 ], [ %245, %244 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN107_$LT$polars_core..chunked_array..logical..categorical..revmap..RevMapping$u20$as$u20$core..clone..Clone$GT$5clone17h0d041a76ac21feedE.exit": ; preds = %77, %86
@@ -104177,7 +104177,7 @@ common.resume:                                    ; preds = %.body, %244, %141, 
 228:                                              ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h566864c0481335b0E.exit", %233, %229, %227, %226, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h1855fde0fc2e2ed7E.exit", %210, %209, %163, %151, %150, %149, %148, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he0605bcf2ee86ed3E.exit8", %107, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he0605bcf2ee86ed3E.exit", %66, %65, %64, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %23, %22
   ret void
 
-_ZN11compact_str13CompactString7try_new17h9ffaa94f4ceea8f6E.exit.thread: ; preds = %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.thread.i
+_ZN11compact_str13CompactString7try_new17h9ffaa94f4ceea8f6E.exit.thread: ; preds = %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.thread.i, %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i
   tail call void @_ZN11compact_str20unwrap_with_msg_fail17h8d13b9230131aef9E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a170a8b7ecd99b8c4e1a3db419f55da5.31) #19
   unreachable
 
@@ -104613,7 +104613,7 @@ define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr86drop_in_place$LT$$LP$polars_core..series..Series$C$polars_core..series..Series$RP$$GT$17hf919ffe96854b3f4E.exit", %1
@@ -106237,7 +106237,7 @@ define internal fastcc void @"_ZN4core3ptr216drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr182drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$RP$$GT$17hf1216b35a311b6a4E.exit", %1
@@ -106350,7 +106350,7 @@ define internal fastcc void @"_ZN4core3ptr228drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr194drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$alloc..vec..Vec$LT$usize$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$alloc..vec..Vec$LT$usize$GT$$GT$$RP$$GT$17ha1b5933bfdb20042E.exit", %1
@@ -106603,7 +106603,7 @@ define internal fastcc void @"_ZN4core3ptr236drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %34, %22, %30
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %30 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %22 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %46, %44, %43, %21, %13, %1
@@ -106712,7 +106712,7 @@ define internal fastcc void @"_ZN4core3ptr237drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr203drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$u32$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$RP$$GT$17h03ee64ba8ccb55acE.exit", %1
@@ -106798,7 +106798,7 @@ define internal fastcc void @"_ZN4core3ptr237drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr203drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$GT$$RP$$GT$17h2bc577666155db3aE.exit", %1
@@ -106884,7 +106884,7 @@ define internal fastcc void @"_ZN4core3ptr240drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr206drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$polars_core..frame..column..Column$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_core..frame..column..Column$GT$$RP$$GT$17h4f67f3ba6c87dd41E.exit", %1
@@ -106975,7 +106975,7 @@ define internal fastcc void @"_ZN4core3ptr246drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %40, %21, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %22, %29 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %21 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %52, %50, %48, %47, %20, %12, %1
@@ -107143,7 +107143,7 @@ define internal fastcc void @"_ZN4core3ptr258drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr224drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$u32$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$GT$$RP$$GT$17h13c541f6d7528ea2E.exit", %1
@@ -107229,7 +107229,7 @@ define internal fastcc void @"_ZN4core3ptr260drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr226drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$polars_expr..expressions..AggregationContext$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_expr..expressions..AggregationContext$GT$$RP$$GT$17h372429554ef4b645E.exit", %1
@@ -107321,7 +107321,7 @@ define internal fastcc void @"_ZN4core3ptr266drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %36, %23, %31
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %31 ], [ %37, %36 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %31 ], [ %24, %23 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %42, %41, %22, %14, %1
@@ -107537,7 +107537,7 @@ define internal fastcc void @"_ZN4core3ptr270drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr236drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$$RP$$GT$17h025b8564b7437a34E.exit", %1
@@ -107623,7 +107623,7 @@ define internal fastcc void @"_ZN4core3ptr282drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr248drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$RP$$GT$17h0e9bcfc27564246eE.exit", %1
@@ -107709,7 +107709,7 @@ define internal fastcc void @"_ZN4core3ptr282drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr248drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$RP$$GT$17h2d01c774c7ddb027E.exit", %1
@@ -107800,7 +107800,7 @@ define internal fastcc void @"_ZN4core3ptr294drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %42, %22, %30
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %30 ], [ %43, %42 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %22 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %48, %46, %21, %13, %1
@@ -107921,7 +107921,7 @@ define internal fastcc void @"_ZN4core3ptr302drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr268drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_expr..expressions..AggregationContext$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_expr..expressions..AggregationContext$GT$$GT$$RP$$GT$17h60ca2dd479e48870E.exit", %1
@@ -108007,7 +108007,7 @@ define internal fastcc void @"_ZN4core3ptr324drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr290drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$GT$$RP$$GT$17hfc799925e96c4baaE.exit", %1
@@ -108093,7 +108093,7 @@ define internal fastcc void @"_ZN4core3ptr324drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr290drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$$GT$$RP$$GT$17hdedfadaeb4a15744E.exit", %1
@@ -108185,7 +108185,7 @@ define internal fastcc void @"_ZN4core3ptr377drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %36, %44, %23, %31
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %31 ], [ %45, %44 ], [ %37, %36 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %31 ], [ %24, %23 ], [ %45, %44 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %50, %49, %22, %14, %1
@@ -108317,7 +108317,7 @@ define internal fastcc void @"_ZN4core3ptr388drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i, %40, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %41, %40 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %41, %40 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr354drop_in_place$LT$$LP$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$RP$$C$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$RP$$RP$$GT$17ha6f29c65f2eb2c5eE.exit", %1
@@ -108443,7 +108443,7 @@ define internal fastcc void @"_ZN4core3ptr394drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr360drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$u32$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$u32$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17he4e6c3308e4f1d8eE.exit", %1
@@ -108529,7 +108529,7 @@ define internal fastcc void @"_ZN4core3ptr394drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr360drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$u64$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$u64$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17h5191c4a24235fbcbE.exit", %1
@@ -108615,7 +108615,7 @@ define internal fastcc void @"_ZN4core3ptr430drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i, %40, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %41, %40 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %41, %40 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr396drop_in_place$LT$$LP$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$u32$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$RP$$C$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$u32$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$RP$$RP$$GT$17hdd906c75eed5e67bE.exit", %1
@@ -108741,7 +108741,7 @@ define internal fastcc void @"_ZN4core3ptr430drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i, %40, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %41, %40 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %41, %40 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr396drop_in_place$LT$$LP$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$GT$$RP$$C$$LP$rayon..iter..collect..consumer..CollectResult$LT$u32$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$GT$$RP$$RP$$GT$17hec2a45053818f376E.exit", %1
@@ -108867,7 +108867,7 @@ define internal fastcc void @"_ZN4core3ptr436drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr402drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$u32$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$u32$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17h8c810a1363281261E.exit", %1
@@ -108953,7 +108953,7 @@ define internal fastcc void @"_ZN4core3ptr436drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr402drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$u64$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$u64$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17hacb4936cf19bc483E.exit", %1
@@ -109039,7 +109039,7 @@ define internal fastcc void @"_ZN4core3ptr452drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr418drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..hashing..BytesHash$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..hashing..BytesHash$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17h50e3fddf0e433e18E.exit", %1
@@ -109277,7 +109277,7 @@ define internal fastcc void @"_ZN4core3ptr472drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i, %40, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %41, %40 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %41, %40 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr438drop_in_place$LT$$LP$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$u32$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$GT$$RP$$C$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$u32$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_utils..idx_vec..UnitVec$LT$u32$GT$$GT$$GT$$RP$$RP$$GT$17hada7aeb464f212dcE.exit", %1
@@ -109403,7 +109403,7 @@ define internal fastcc void @"_ZN4core3ptr484drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr450drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$f32$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$f32$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17hb4c393fbd9420734E.exit", %1
@@ -109489,7 +109489,7 @@ define internal fastcc void @"_ZN4core3ptr484drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr450drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$f64$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$f64$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17h9fd9c49aa723f5d1E.exit", %1
@@ -109602,7 +109602,7 @@ define internal fastcc void @"_ZN4core3ptr494drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr460drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..hashing..BytesHash$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..hashing..BytesHash$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17hbcf9c2c47403759bE.exit", %1
@@ -109688,7 +109688,7 @@ define internal fastcc void @"_ZN4core3ptr526drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr492drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$f32$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$f32$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17h06b29e282f621ba8E.exit", %1
@@ -109774,7 +109774,7 @@ define internal fastcc void @"_ZN4core3ptr526drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr492drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$f64$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$f64$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17h2ab593a39aaa3732E.exit", %1
@@ -110032,7 +110032,7 @@ define internal fastcc void @"_ZN4core3ptr548drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr514drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$f32$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$f32$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17hf69c74ae8c14ae93E.exit", %1
@@ -110118,7 +110118,7 @@ define internal fastcc void @"_ZN4core3ptr548drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr514drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$f64$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$f64$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17h5c272e16a88aff79E.exit", %1
@@ -110204,7 +110204,7 @@ define internal fastcc void @"_ZN4core3ptr548drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr514drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$u32$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$u32$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17h5f9c512a3f3464eaE.exit", %1
@@ -110290,7 +110290,7 @@ define internal fastcc void @"_ZN4core3ptr548drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr514drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$u64$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$u64$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$RP$$GT$17hf7cfbc47d2ff1b5aE.exit", %1
@@ -110404,7 +110404,7 @@ define internal fastcc void @"_ZN4core3ptr590drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr556drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$f32$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$f32$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17hca920970f0e0cc9bE.exit", %1
@@ -110490,7 +110490,7 @@ define internal fastcc void @"_ZN4core3ptr590drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr556drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$f64$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$f64$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17h602aaac4b3bb52d7E.exit", %1
@@ -110576,7 +110576,7 @@ define internal fastcc void @"_ZN4core3ptr590drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr556drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$u32$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$u32$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17h994c9af0ceffa9bfE.exit", %1
@@ -110662,7 +110662,7 @@ define internal fastcc void @"_ZN4core3ptr590drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr556drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$u64$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$hashbrown..map..HashMap$LT$polars_utils..total_ord..TotalOrdWrap$LT$core..option..Option$LT$$RF$u64$GT$$GT$$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$$RP$$GT$17h2b5926012b8962ecE.exit", %1
@@ -111229,7 +111229,7 @@ define internal fastcc void @"_ZN4core3ptr724drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr690drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$RP$$GT$17h2f97baa8affde3d2E.exit", %1
@@ -111315,7 +111315,7 @@ define internal fastcc void @"_ZN4core3ptr766drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h8dbcd5dbbdf41020E.exit": ; preds = %17, %9, %"_ZN4core3ptr732drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$GT$$RP$$GT$17hb1f987422341ac66E.exit", %1
@@ -122043,7 +122043,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !9307
@@ -143376,7 +143376,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !11641
@@ -151279,7 +151279,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !12445
@@ -152324,7 +152324,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !12541
@@ -156492,7 +156492,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !12972
@@ -160454,7 +160454,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !13372
@@ -167595,7 +167595,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !14120
@@ -170981,7 +170981,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %34, %29, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %35, %34 ], [ %lpad.thr_comm.i.i.i.i.i, %29 ], [ %lpad.thr_comm.i.i.i.i.i.i.i, %25 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %35, %34 ], [ %lpad.thr_comm.i.i.i.i.i.i.i, %25 ], [ %lpad.thr_comm.i.i.i.i.i, %29 ]
   %36 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %37 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %36)
           to label %41 unwind label %38, !noalias !14433
@@ -174207,7 +174207,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !14765
@@ -178545,7 +178545,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !15228
@@ -179362,7 +179362,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !15326
@@ -201282,7 +201282,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !17569
@@ -205610,7 +205610,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !18026
@@ -206815,7 +206815,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !18164
@@ -217031,7 +217031,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !19170
@@ -223164,7 +223164,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !19740
@@ -225752,7 +225752,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !20052
@@ -226982,7 +226982,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %37, %23, %17
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.i.i.i.i.i, %23 ], [ %18, %17 ]
   %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %39)
           to label %44 unwind label %41, !noalias !20179
@@ -243511,7 +243511,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %35, %30, %26
-  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %lpad.thr_comm.i.i.i.i.i, %30 ], [ %lpad.thr_comm.i.i.i.i.i.i.i, %26 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %lpad.thr_comm.i.i.i.i.i.i.i, %26 ], [ %lpad.thr_comm.i.i.i.i.i, %30 ]
   %37 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %38 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %37)
           to label %42 unwind label %39, !noalias !21860
@@ -251675,7 +251675,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %36, %22, %16
-  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.i.i.i.i.i, %22 ], [ %17, %16 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %38)
           to label %43 unwind label %40, !noalias !22746

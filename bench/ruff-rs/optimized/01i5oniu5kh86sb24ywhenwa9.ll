@@ -1306,7 +1306,7 @@ _ZN5salsa4loom4sync7Condvar4wait17h0a20c85ea7a199feE.exit: ; preds = %28, %22
   unreachable
 
 "_ZN4core3ptr96drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$usize$GT$$GT$17h5b75568c511a2387E.exit4": ; preds = %36, %32, %49, %53
-  %eh.lpad-body6 = phi { ptr, i32 } [ %50, %49 ], [ %50, %53 ], [ %33, %32 ], [ %33, %36 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %50, %53 ], [ %50, %49 ], [ %33, %32 ], [ %33, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 49:                                               ; preds = %40, %26
@@ -1385,7 +1385,7 @@ define hidden { ptr, ptr } @"_ZN5salsa7storage23StorageHandle$LT$Db$GT$3new17hdd
   unreachable
 
 common.resume:                                    ; preds = %42, %38, %30, %8
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %.pn.i, %8 ], [ %39, %38 ], [ %39, %42 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %8 ], [ %31, %30 ], [ %39, %38 ], [ %39, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5zalsa5Zalsa3new17h88168cef4fe3b35bE.exit: ; preds = %16

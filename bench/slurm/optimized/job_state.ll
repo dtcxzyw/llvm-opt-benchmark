@@ -2493,7 +2493,7 @@ _job_state_array_bitmap.exit:                     ; preds = %15, %26, %29, %31
   br label %_append_job_state.exit.thread
 
 _append_job_state.exit.thread:                    ; preds = %3, %10, %_job_state_array_bitmap.exit
-  %.0 = phi i32 [ 3, %10 ], [ 1, %_job_state_array_bitmap.exit ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %_job_state_array_bitmap.exit ], [ 3, %10 ], [ 1, %3 ]
   ret i32 %.0
 }
 

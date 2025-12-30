@@ -473,7 +473,7 @@ aptx_decode_samples.exit:                         ; preds = %aptx_decode_channel
   br label %251
 
 251:                                              ; preds = %.thread, %18, %._crit_edge, %17
-  %.035 = phi i32 [ -1094995529, %17 ], [ %250, %._crit_edge ], [ -1094995529, %.thread ], [ %24, %18 ]
+  %.035 = phi i32 [ -1094995529, %17 ], [ %250, %._crit_edge ], [ %24, %18 ], [ -1094995529, %.thread ]
   ret i32 %.035
 }
 

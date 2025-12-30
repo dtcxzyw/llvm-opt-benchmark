@@ -220,7 +220,7 @@ define internal noundef i32 @dissect_mrdisc(ptr noundef %0, ptr noundef %1, ptr 
   br label %dissect_mrdisc_mra.exit
 
 dissect_mrdisc_mra.exit:                          ; preds = %58, %25, %11, %62, %4, %8
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %11 ], [ 4, %62 ], [ 8, %25 ], [ %.1.i, %58 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %11 ], [ 4, %62 ], [ 8, %25 ], [ %.1.i, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

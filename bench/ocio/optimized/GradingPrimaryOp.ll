@@ -676,8 +676,8 @@ _ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKN
           cleanup
   br label %190
 
-25:                                               ; preds = %14, %10, %17
-  %26 = phi ptr [ %.val, %14 ], [ %.val, %10 ], [ %.pre, %17 ]
+25:                                               ; preds = %10, %17, %14
+  %26 = phi ptr [ %.val, %10 ], [ %.pre, %17 ], [ %.val, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !25, !noalias !38
@@ -1976,7 +1976,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %5, %7, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
-  %36 = phi i1 [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ true, %35 ], [ true, %20 ], [ false, %2 ], [ false, %5 ], [ true, %7 ]
+  %36 = phi i1 [ true, %20 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ true, %35 ], [ false, %2 ], [ false, %5 ], [ true, %7 ]
   ret i1 %36
 }
 
@@ -2015,7 +2015,7 @@ define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116Gra
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4, !noalias !106
   br label %18
 
-18:                                               ; preds = %13, %9, %16
+18:                                               ; preds = %9, %16, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr i8, ptr %8, i64 8
   %.val = load ptr, ptr %19, align 8, !tbaa !25, !noalias !89
@@ -2191,8 +2191,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20: ; preds = %91, %89
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val8) #17
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %7, %2, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20, %94
-  %.032 = phi i1 [ %24, %94 ], [ %24, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit ], [ %24, %79 ], [ %24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20 ], [ false, %2 ], [ false, %7 ]
+_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingPrimaryOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %7, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20, %94
+  %.032 = phi i1 [ %24, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_116GradingPrimaryOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit ], [ %24, %79 ], [ %24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20 ], [ %24, %94 ], [ false, %7 ], [ false, %2 ]
   ret i1 %.032
 }
 
@@ -3100,9 +3100,9 @@ _ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimary
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.exit
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingPrimaryOp11primaryDataEv.exit: ; preds = %54, %51, %47, %45, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread
-  %56 = phi ptr [ %.pr29, %51 ], [ %.pr29, %47 ], [ %.pre, %54 ], [ %.pr29, %45 ], [ %.pr29, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
-  %.sroa.0.0 = phi ptr [ %46, %51 ], [ %46, %47 ], [ %46, %54 ], [ null, %45 ], [ null, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
-  %.sroa.6.0 = phi ptr [ %.val9, %51 ], [ null, %47 ], [ %.val9, %54 ], [ null, %45 ], [ null, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
+  %56 = phi ptr [ %.pr29, %47 ], [ %.pre, %54 ], [ %.pr29, %51 ], [ %.pr29, %45 ], [ %.pr29, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
+  %.sroa.0.0 = phi ptr [ %46, %47 ], [ %46, %54 ], [ %46, %51 ], [ null, %45 ], [ null, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
+  %.sroa.6.0 = phi ptr [ null, %47 ], [ %.val9, %54 ], [ %.val9, %51 ], [ null, %45 ], [ null, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
   store ptr %56, ptr %5, align 8, !tbaa !129
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %58 = load ptr, ptr %24, align 8, !tbaa !11
@@ -3278,7 +3278,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN
   ret void
 
 132:                                              ; preds = %40, %38
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %41, %40 ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %133

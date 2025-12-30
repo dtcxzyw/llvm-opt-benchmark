@@ -449,7 +449,7 @@ define internal i32 @activate(ptr noundef %0) #2 {
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %67, %122, %145, %148, %152, %156
-  %.0.i = phi i32 [ %143, %122 ], [ -12, %67 ], [ %.052.i, %156 ], [ %143, %152 ], [ %143, %148 ], [ %143, %145 ]
+  %.0.i = phi i32 [ -12, %67 ], [ %143, %122 ], [ %.052.i, %156 ], [ %143, %152 ], [ %143, %148 ], [ %143, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %185
@@ -516,7 +516,7 @@ filter_frame.exit:                                ; preds = %67, %122, %145, %14
   br label %185
 
 185:                                              ; preds = %.thread, %16, %182, %.critedge, %._crit_edge, %184, %179, %170, %161, %filter_frame.exit
-  %.1 = phi i32 [ 0, %16 ], [ %.0.i, %filter_frame.exit ], [ 0, %161 ], [ 0, %179 ], [ %19, %.critedge ], [ 0, %184 ], [ 0, %170 ], [ %41, %._crit_edge ], [ -1497649742, %182 ], [ -1497649742, %.thread ]
+  %.1 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %161 ], [ 0, %179 ], [ 0, %184 ], [ 0, %170 ], [ %41, %._crit_edge ], [ 0, %16 ], [ %19, %.critedge ], [ -1497649742, %182 ], [ -1497649742, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -738,8 +738,8 @@ ff_clz_c.exit:                                    ; preds = %1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
   br i1 %exitcond250.not, label %._crit_edge216, label %114, !llvm.loop !100
 
-.thread:                                          ; preds = %56, %ff_clz_c.exit, %61
-  %.1.ph = phi i32 [ -12, %61 ], [ %54, %ff_clz_c.exit ], [ %59, %56 ]
+.thread:                                          ; preds = %ff_clz_c.exit, %56, %61
+  %.1.ph = phi i32 [ -12, %61 ], [ %59, %56 ], [ %54, %ff_clz_c.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -963,8 +963,8 @@ ff_clz_c.exit:                                    ; preds = %1
   %.not186.not = icmp eq ptr %232, null
   br i1 %.not186.not, label %.thread194, label %180
 
-.thread194:                                       ; preds = %231, %180, %.lr.ph219, %229, %227, %225, %223, %221, %.preheader, %.thread, %172, %149, %143, %._crit_edge216, %137, %139, %141, %1
-  %.0 = phi i32 [ -12, %137 ], [ -12, %172 ], [ -12, %149 ], [ -12, %143 ], [ -12, %._crit_edge216 ], [ -12, %1 ], [ %.1.ph, %.thread ], [ -12, %141 ], [ -12, %139 ], [ 0, %.preheader ], [ -12, %223 ], [ -12, %225 ], [ -12, %227 ], [ -12, %229 ], [ -12, %.lr.ph219 ], [ 0, %180 ], [ -12, %231 ], [ -12, %221 ]
+.thread194:                                       ; preds = %231, %180, %229, %227, %225, %223, %221, %.lr.ph219, %.preheader, %.thread, %172, %149, %143, %._crit_edge216, %137, %139, %141, %1
+  %.0 = phi i32 [ -12, %1 ], [ -12, %141 ], [ -12, %139 ], [ -12, %137 ], [ -12, %._crit_edge216 ], [ -12, %143 ], [ -12, %149 ], [ -12, %172 ], [ %.1.ph, %.thread ], [ 0, %.preheader ], [ -12, %231 ], [ 0, %180 ], [ -12, %229 ], [ -12, %227 ], [ -12, %225 ], [ -12, %223 ], [ -12, %221 ], [ -12, %.lr.ph219 ]
   ret i32 %.0
 }
 
@@ -1281,8 +1281,8 @@ define internal i32 @detect_clicks(ptr noundef readonly captures(none) %0, ptr r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph82.preheader, %52, %58, %48
-  %68 = phi i32 [ %49, %48 ], [ %49, %52 ], [ %49, %58 ], [ %.pre, %.lr.ph82.preheader ]
-  %.1 = phi i32 [ %.084, %48 ], [ %54, %52 ], [ %54, %58 ], [ %54, %.lr.ph82.preheader ]
+  %68 = phi i32 [ %49, %48 ], [ %49, %58 ], [ %49, %52 ], [ %.pre, %.lr.ph82.preheader ]
+  %.1 = phi i32 [ %.084, %48 ], [ %54, %58 ], [ %54, %52 ], [ %54, %.lr.ph82.preheader ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next107, %69
@@ -2155,8 +2155,8 @@ isfinite_array.exit:                              ; preds = %.lr.ph.i126
   tail call void @llvm.memset.p0.i64(ptr align 8 %371, i8 0, i64 %372, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge.i.i.i, %factorization.exit.i.i, %135, %150, %._crit_edge
-  %.3 = phi i32 [ 0, %._crit_edge ], [ -12, %150 ], [ -12, %factorization.exit.i.i ], [ -12, %135 ], [ -1, %._crit_edge.i.i.i ]
+.critedge:                                        ; preds = %._crit_edge.i.i.i, %factorization.exit.i.i, %150, %135, %._crit_edge
+  %.3 = phi i32 [ 0, %._crit_edge ], [ -12, %factorization.exit.i.i ], [ -12, %150 ], [ -12, %135 ], [ -1, %._crit_edge.i.i.i ]
   ret i32 %.3
 }
 

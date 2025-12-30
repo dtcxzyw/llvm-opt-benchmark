@@ -270,7 +270,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef %0, ptr noundef readonly 
   br label %82
 
 82:                                               ; preds = %9, %16, %71, %78, %74, %67, %61, %56, %52, %45, %37, %31, %21
-  %.056 = phi i32 [ -1, %78 ], [ 0, %9 ], [ 0, %71 ], [ 0, %16 ], [ -1, %61 ], [ -1, %67 ], [ -1, %74 ], [ -1, %21 ], [ -1, %31 ], [ -1, %37 ], [ -1, %45 ], [ -1, %52 ], [ 0, %56 ]
+  %.056 = phi i32 [ -1, %78 ], [ 0, %16 ], [ -1, %61 ], [ -1, %67 ], [ -1, %74 ], [ 0, %71 ], [ 0, %9 ], [ -1, %21 ], [ -1, %31 ], [ -1, %37 ], [ -1, %45 ], [ -1, %52 ], [ 0, %56 ]
   ret i32 %.056
 }
 
@@ -734,8 +734,8 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f_loop(ptr noundef %0, ptr noundef read
   br label %.thread667
 
 238:                                              ; preds = %222, %228, %226, %232
-  %.0508 = phi i64 [ 0, %232 ], [ 0, %228 ], [ %224, %226 ], [ %224, %222 ]
-  %.0503 = phi i64 [ %233, %232 ], [ 1, %228 ], [ 0, %226 ], [ %224, %222 ]
+  %.0508 = phi i64 [ 0, %228 ], [ %224, %226 ], [ 0, %232 ], [ %224, %222 ]
+  %.0503 = phi i64 [ 1, %228 ], [ 0, %226 ], [ %233, %232 ], [ %224, %222 ]
   %239 = load i64, ptr %89, align 8, !tbaa !32
   call void @H5T__bit_copy(ptr noundef %.0521, i64 noundef %.sroa.16.0, ptr noundef %.1519699, i64 noundef %239, i64 noundef 1) #9
   %240 = load i32, ptr %96, align 8
@@ -838,10 +838,10 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f_loop(ptr noundef %0, ptr noundef read
   br label %.thread667
 
 287:                                              ; preds = %282, %262, %264
-  %.2511 = phi i32 [ %276, %282 ], [ 0, %262 ], [ 0, %264 ]
-  %.1507 = phi i64 [ %257, %282 ], [ 0, %262 ], [ %257, %264 ]
-  %.1502 = phi i64 [ %spec.select, %282 ], [ %263, %262 ], [ %spec.select, %264 ]
-  %.1 = phi i1 [ %218, %282 ], [ true, %262 ], [ %218, %264 ]
+  %.2511 = phi i32 [ 0, %262 ], [ 0, %264 ], [ %276, %282 ]
+  %.1507 = phi i64 [ 0, %262 ], [ %257, %264 ], [ %257, %282 ]
+  %.1502 = phi i64 [ %263, %262 ], [ %spec.select, %264 ], [ %spec.select, %282 ]
+  %.1 = phi i1 [ true, %262 ], [ %218, %264 ], [ %218, %282 ]
   %.not581 = icmp eq i64 %.0503, 0
   %.not582 = icmp ugt i64 %.1502, %.sroa.44.0
   %or.cond591 = select i1 %.not581, i1 true, i1 %.not582
@@ -889,12 +889,12 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f_loop(ptr noundef %0, ptr noundef read
   br label %.thread645
 
 .thread645:                                       ; preds = %.thread640, %259, %302, %287, %288, %297, %309, %306
-  %.1502659 = phi i64 [ %.1502, %309 ], [ %.1502, %306 ], [ %.1502, %287 ], [ %.1502, %302 ], [ %.1502, %297 ], [ %.1502, %288 ], [ %spec.select, %259 ], [ %spec.select, %.thread640 ]
-  %.1504658 = phi i64 [ %.0503, %309 ], [ %.0503, %306 ], [ %.0503, %287 ], [ %.0503, %302 ], [ %.0503, %297 ], [ %.0503, %288 ], [ 0, %259 ], [ 0, %.thread640 ]
-  %.1507657 = phi i64 [ %.1507, %309 ], [ %.1507, %306 ], [ %.1507, %287 ], [ %.1507, %302 ], [ %.1507, %297 ], [ %.1507, %288 ], [ 0, %259 ], [ %43, %.thread640 ]
-  %.2511656 = phi i32 [ %.2511, %309 ], [ %.2511, %306 ], [ %.2511, %287 ], [ %.2511, %302 ], [ %.2511, %297 ], [ %.2511, %288 ], [ 0, %259 ], [ 0, %.thread640 ]
-  %.0505 = phi i64 [ 1, %309 ], [ 1, %306 ], [ 1, %287 ], [ %spec.select594, %302 ], [ 1, %297 ], [ 1, %288 ], [ 1, %259 ], [ 1, %.thread640 ]
-  %.0499.shrunk = phi i1 [ false, %309 ], [ false, %306 ], [ false, %287 ], [ %305, %302 ], [ false, %297 ], [ false, %288 ], [ false, %259 ], [ false, %.thread640 ]
+  %.1502659 = phi i64 [ %.1502, %309 ], [ %.1502, %306 ], [ %.1502, %297 ], [ %.1502, %302 ], [ %.1502, %288 ], [ %.1502, %287 ], [ %spec.select, %259 ], [ %spec.select, %.thread640 ]
+  %.1504658 = phi i64 [ %.0503, %309 ], [ %.0503, %306 ], [ %.0503, %297 ], [ %.0503, %302 ], [ %.0503, %288 ], [ %.0503, %287 ], [ 0, %259 ], [ 0, %.thread640 ]
+  %.1507657 = phi i64 [ %.1507, %309 ], [ %.1507, %306 ], [ %.1507, %297 ], [ %.1507, %302 ], [ %.1507, %288 ], [ %.1507, %287 ], [ 0, %259 ], [ %43, %.thread640 ]
+  %.2511656 = phi i32 [ %.2511, %309 ], [ %.2511, %306 ], [ %.2511, %297 ], [ %.2511, %302 ], [ %.2511, %288 ], [ %.2511, %287 ], [ 0, %259 ], [ 0, %.thread640 ]
+  %.0505 = phi i64 [ 1, %309 ], [ 1, %306 ], [ 1, %297 ], [ %spec.select594, %302 ], [ 1, %288 ], [ 1, %287 ], [ 1, %259 ], [ 1, %.thread640 ]
+  %.0499.shrunk = phi i1 [ false, %309 ], [ false, %306 ], [ false, %297 ], [ %305, %302 ], [ false, %288 ], [ false, %287 ], [ false, %259 ], [ false, %.thread640 ]
   %313 = icmp ugt i64 %.1502659, %100
   br i1 %313, label %314, label %315
 
@@ -1012,7 +1012,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f_loop(ptr noundef %0, ptr noundef read
   br label %.thread667
 
 361:                                              ; preds = %355, %335, %356, %334
-  %.2 = phi i64 [ %43, %356 ], [ %336, %355 ], [ %336, %335 ], [ %.1507657, %334 ]
+  %.2 = phi i64 [ %43, %356 ], [ %336, %335 ], [ %.1507657, %334 ], [ %336, %355 ]
   call void @H5T__bit_set_d(ptr noundef %.0521, i64 noundef %.sroa.19.0, i64 noundef %.sroa.22.0, i64 noundef %.2) #9
   br label %362
 
@@ -1191,14 +1191,14 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f_loop(ptr noundef %0, ptr noundef read
   %exitcond720.not = icmp eq i64 %456, %3
   br i1 %exitcond720.not, label %.thread667, label %107, !llvm.loop !43
 
-.thread667:                                       ; preds = %453, %85, %432, %210, %.thread625, %357, %.thread661, %283, %.thread635, %252, %234, %178, %81
-  %.1532 = phi ptr [ null, %81 ], [ %.0531, %178 ], [ %.0531, %234 ], [ %.0531, %252 ], [ %.0531, %.thread635 ], [ %.0531, %283 ], [ %.0531, %.thread661 ], [ %.0531, %357 ], [ %.0531, %.thread625 ], [ %.0531, %210 ], [ %.0531, %432 ], [ %.0531, %85 ], [ %.0531, %453 ]
-  %.1523 = phi i32 [ -1, %81 ], [ -1, %178 ], [ -1, %234 ], [ -1, %252 ], [ -1, %.thread635 ], [ -1, %283 ], [ -1, %.thread661 ], [ -1, %357 ], [ -1, %.thread625 ], [ -1, %210 ], [ -1, %432 ], [ 0, %85 ], [ 0, %453 ]
+.thread667:                                       ; preds = %453, %85, %432, %210, %357, %283, %252, %234, %178, %.thread625, %.thread635, %.thread661, %81
+  %.1532 = phi ptr [ null, %81 ], [ %.0531, %.thread661 ], [ %.0531, %.thread635 ], [ %.0531, %.thread625 ], [ %.0531, %178 ], [ %.0531, %234 ], [ %.0531, %252 ], [ %.0531, %283 ], [ %.0531, %357 ], [ %.0531, %210 ], [ %.0531, %432 ], [ %.0531, %85 ], [ %.0531, %453 ]
+  %.1523 = phi i32 [ -1, %81 ], [ -1, %.thread661 ], [ -1, %.thread635 ], [ -1, %.thread625 ], [ -1, %178 ], [ -1, %234 ], [ -1, %252 ], [ -1, %283 ], [ -1, %357 ], [ -1, %210 ], [ -1, %432 ], [ 0, %85 ], [ 0, %453 ]
   call void @free(ptr noundef %.1532) #9
   br label %457
 
 457:                                              ; preds = %6, %.thread667
-  %.0490 = phi i32 [ 0, %6 ], [ %.1523, %.thread667 ]
+  %.0490 = phi i32 [ %.1523, %.thread667 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0490
@@ -1449,7 +1449,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_i(ptr noundef %0, ptr noundef readonly 
   br label %81
 
 81:                                               ; preds = %9, %16, %70, %77, %73, %66, %60, %55, %51, %45, %37, %29, %21
-  %.050 = phi i32 [ -1, %77 ], [ 0, %9 ], [ 0, %70 ], [ 0, %16 ], [ -1, %60 ], [ -1, %66 ], [ -1, %73 ], [ -1, %21 ], [ -1, %29 ], [ -1, %37 ], [ -1, %45 ], [ -1, %51 ], [ 0, %55 ]
+  %.050 = phi i32 [ -1, %77 ], [ 0, %16 ], [ -1, %60 ], [ -1, %66 ], [ -1, %73 ], [ 0, %70 ], [ 0, %9 ], [ -1, %21 ], [ -1, %29 ], [ -1, %37 ], [ -1, %45 ], [ -1, %51 ], [ 0, %55 ]
   ret i32 %.050
 }
 
@@ -2396,7 +2396,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_i_loop(ptr noundef %0, ptr noundef read
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1426640, ptr align 1 %.0424, i64 %473, i1 false)
   br label %474
 
-.thread617:                                       ; preds = %221, %.thread538, %287, %.thread548, %310, %.thread554, %336, %.thread564, %365, %.thread575, %387, %.thread586, %410, %.thread596, %436, %.thread606, %239, %190
+.thread617:                                       ; preds = %221, %287, %310, %336, %365, %387, %410, %436, %239, %190, %.thread538, %.thread548, %.thread554, %.thread564, %.thread575, %.thread586, %.thread596, %.thread606
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit628
 
@@ -2417,7 +2417,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_i_loop(ptr noundef %0, ptr noundef read
   br label %478
 
 478:                                              ; preds = %6, %.loopexit628
-  %.0 = phi i32 [ 0, %6 ], [ %.1438, %.loopexit628 ]
+  %.0 = phi i32 [ %.1438, %.loopexit628 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -2597,7 +2597,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_complex(ptr noundef %0, ptr noundef %1,
   br label %107
 
 107:                                              ; preds = %9, %16, %96, %89, %103, %99, %92, %78, %72, %67, %63, %56, %48, %42, %34, %21
-  %.069 = phi i32 [ -1, %103 ], [ 0, %9 ], [ -1, %72 ], [ 0, %16 ], [ -1, %78 ], [ -1, %99 ], [ 0, %96 ], [ -1, %92 ], [ 0, %89 ], [ -1, %34 ], [ -1, %42 ], [ -1, %48 ], [ -1, %56 ], [ -1, %63 ], [ 0, %67 ], [ -1, %21 ]
+  %.069 = phi i32 [ -1, %103 ], [ 0, %16 ], [ -1, %78 ], [ -1, %99 ], [ 0, %96 ], [ -1, %92 ], [ 0, %89 ], [ -1, %72 ], [ 0, %9 ], [ -1, %34 ], [ -1, %42 ], [ -1, %48 ], [ -1, %56 ], [ -1, %63 ], [ 0, %67 ], [ -1, %21 ]
   ret i32 %.069
 }
 
@@ -2722,7 +2722,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_SCHAR_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -2739,7 +2739,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -2956,7 +2956,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i8 [ -128, %192 ], [ %163, %162 ], [ %180, %178 ], [ 127, %204 ]
+  %.sink = phi i8 [ %180, %178 ], [ %163, %162 ], [ -128, %192 ], [ 127, %204 ]
   store i8 %.sink, ptr %11, align 1, !tbaa !32
   br label %205
 
@@ -2992,7 +2992,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i8 [ -128, %213 ], [ %216, %215 ], [ 127, %.preheader.us ]
+  %.sink816 = phi i8 [ %216, %215 ], [ -128, %213 ], [ 127, %.preheader.us ]
   store i8 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -3149,7 +3149,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i8 [ -128, %279 ], [ %250, %249 ], [ %267, %265 ], [ 127, %291 ]
+  %.sink818 = phi i8 [ %267, %265 ], [ %250, %249 ], [ -128, %279 ], [ 127, %291 ]
   store i8 %.sink818, ptr %.3446677.us, align 1, !tbaa !32
   br label %292
 
@@ -3178,7 +3178,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i8 [ -128, %298 ], [ %301, %300 ], [ 127, %.preheader650.us ]
+  %.sink819 = phi i8 [ %301, %300 ], [ -128, %298 ], [ 127, %.preheader650.us ]
   store i8 %.sink819, ptr %.4447680.us, align 1, !tbaa !32
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -3337,7 +3337,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i8 [ -128, %365 ], [ %336, %335 ], [ %353, %351 ], [ 127, %377 ]
+  %.sink821 = phi i8 [ %353, %351 ], [ %336, %335 ], [ -128, %365 ], [ 127, %377 ]
   store i8 %.sink821, ptr %11, align 1, !tbaa !32
   br label %378
 
@@ -3367,7 +3367,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i8 [ -128, %385 ], [ %388, %387 ], [ 127, %.preheader654.us ]
+  %.sink822 = phi i8 [ %388, %387 ], [ -128, %385 ], [ 127, %.preheader654.us ]
   store i8 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -3691,7 +3691,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i8 [ 127, %488 ], [ %535, %533 ], [ -128, %509 ], [ %515, %514 ]
+  %.sink859 = phi i8 [ %535, %533 ], [ 127, %488 ], [ -128, %509 ], [ %515, %514 ]
   store i8 %.sink859, ptr %.7450665, align 1, !tbaa !32
   br label %540
 
@@ -3719,7 +3719,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i8 [ 127, %.preheader658 ], [ %549, %548 ], [ -128, %546 ]
+  %.sink860 = phi i8 [ %549, %548 ], [ 127, %.preheader658 ], [ -128, %546 ]
   store i8 %.sink860, ptr %.8451668, align 1, !tbaa !32
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -3739,13 +3739,13 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_schar(ptr noundef readonly captu
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -3866,7 +3866,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_UCHAR_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -3883,7 +3883,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -4100,7 +4100,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i8 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i8 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i8 %.sink, ptr %11, align 1, !tbaa !32
   br label %205
 
@@ -4136,7 +4136,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i8 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink816 = phi i8 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i8 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -4293,7 +4293,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i8 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink818 = phi i8 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i8 %.sink818, ptr %.3446677.us, align 1, !tbaa !32
   br label %292
 
@@ -4322,7 +4322,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i8 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader650.us ]
+  %.sink819 = phi i8 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader650.us ]
   store i8 %.sink819, ptr %.4447680.us, align 1, !tbaa !32
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -4481,7 +4481,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i8 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink821 = phi i8 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i8 %.sink821, ptr %11, align 1, !tbaa !32
   br label %378
 
@@ -4511,7 +4511,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i8 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader654.us ]
+  %.sink822 = phi i8 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader654.us ]
   store i8 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -4835,7 +4835,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i8 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink859 = phi i8 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i8 %.sink859, ptr %.7450665, align 1, !tbaa !32
   br label %540
 
@@ -4863,7 +4863,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i8 [ -1, %.preheader658 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink860 = phi i8 [ %549, %548 ], [ -1, %.preheader658 ], [ 0, %546 ]
   store i8 %.sink860, ptr %.8451668, align 1, !tbaa !32
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -4883,13 +4883,13 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uchar(ptr noundef readonly captu
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -5009,7 +5009,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_SHORT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -5026,7 +5026,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -5205,7 +5205,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   ]
 
 .sink.split:                                      ; preds = %182, %170, %140, %156
-  %.sink = phi i16 [ -32768, %170 ], [ %141, %140 ], [ %158, %156 ], [ 32767, %182 ]
+  %.sink = phi i16 [ %158, %156 ], [ %141, %140 ], [ -32768, %170 ], [ 32767, %182 ]
   store i16 %.sink, ptr %11, align 2, !tbaa !72
   br label %183
 
@@ -5235,7 +5235,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   br label %194
 
 194:                                              ; preds = %.preheader.us, %190, %192
-  %195 = phi i16 [ -32768, %190 ], [ %193, %192 ], [ 32767, %.preheader.us ]
+  %195 = phi i16 [ %193, %192 ], [ -32768, %190 ], [ 32767, %.preheader.us ]
   store i16 %195, ptr %.2445686.us, align 1
   %196 = getelementptr inbounds i8, ptr %.2454685.us, i64 %.
   %197 = getelementptr inbounds i8, ptr %.2445686.us, i64 %.
@@ -5347,7 +5347,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   ]
 
 .sink.split806:                                   ; preds = %246, %234, %204, %220
-  %.sink807 = phi i16 [ -32768, %234 ], [ %205, %204 ], [ %222, %220 ], [ 32767, %246 ]
+  %.sink807 = phi i16 [ %222, %220 ], [ %205, %204 ], [ -32768, %234 ], [ 32767, %246 ]
   store i16 %.sink807, ptr %.3446676.us, align 2, !tbaa !72
   br label %247
 
@@ -5375,7 +5375,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   br label %257
 
 257:                                              ; preds = %.preheader649.us, %253, %255
-  %.sink808 = phi i16 [ -32768, %253 ], [ %256, %255 ], [ 32767, %.preheader649.us ]
+  %.sink808 = phi i16 [ %256, %255 ], [ -32768, %253 ], [ 32767, %.preheader649.us ]
   store i16 %.sink808, ptr %.4447679.us, align 2, !tbaa !72
   %258 = getelementptr inbounds i8, ptr %.4456678.us, i64 %.
   %259 = getelementptr inbounds i8, ptr %.4447679.us, i64 %.
@@ -5485,7 +5485,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   ]
 
 .sink.split809:                                   ; preds = %308, %296, %266, %282
-  %.sink810 = phi i16 [ -32768, %296 ], [ %267, %266 ], [ %284, %282 ], [ 32767, %308 ]
+  %.sink810 = phi i16 [ %284, %282 ], [ %267, %266 ], [ -32768, %296 ], [ 32767, %308 ]
   store i16 %.sink810, ptr %11, align 2, !tbaa !72
   br label %309
 
@@ -5515,7 +5515,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   br label %320
 
 320:                                              ; preds = %.preheader653.us, %316, %318
-  %321 = phi i16 [ -32768, %316 ], [ %319, %318 ], [ 32767, %.preheader653.us ]
+  %321 = phi i16 [ %319, %318 ], [ -32768, %316 ], [ 32767, %.preheader653.us ]
   store i16 %321, ptr %.6449673.us, align 1
   %322 = getelementptr inbounds i8, ptr %.6458672.us, i64 %.
   %323 = getelementptr inbounds i8, ptr %.6449673.us, i64 %.
@@ -5790,7 +5790,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   br label %.loopexit661
 
 .sink.split846:                                   ; preds = %422, %417, %396, %441
-  %.sink847 = phi i16 [ 32767, %396 ], [ %443, %441 ], [ -32768, %417 ], [ %423, %422 ]
+  %.sink847 = phi i16 [ %443, %441 ], [ 32767, %396 ], [ -32768, %417 ], [ %423, %422 ]
   store i16 %.sink847, ptr %.7450664, align 2, !tbaa !72
   br label %448
 
@@ -5818,7 +5818,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   br label %458
 
 458:                                              ; preds = %454, %.preheader657, %456
-  %.sink848 = phi i16 [ 32767, %.preheader657 ], [ %457, %456 ], [ -32768, %454 ]
+  %.sink848 = phi i16 [ %457, %456 ], [ 32767, %.preheader657 ], [ -32768, %454 ]
   store i16 %.sink848, ptr %.8451667, align 2, !tbaa !72
   %459 = getelementptr inbounds i8, ptr %.8460666, i64 %.
   %460 = getelementptr inbounds i8, ptr %.8451667, i64 %.
@@ -5833,13 +5833,13 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_short(ptr noundef readonly captu
   br label %.loopexit661
 
 .loopexit661:                                     ; preds = %448, %458, %309, %320, %247, %257, %183, %194, %129, %397, %418, %444, %.thread622, %.thread628, %.thread634, %.split758.us, %.split752.us, %.split746.us, %.thread596, %.thread602, %.thread608, %.split732.us, %.split726.us, %.split720.us, %.thread570, %.thread576, %.thread582, %.split706.us, %.split700.us, %.split694.us, %.thread, %.thread550, %.thread556, %54, %30, %462, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split746.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %444 ], [ -1, %.split694.us ], [ -1, %.split720.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread556 ], [ -1, %.split706.us ], [ -1, %.thread ], [ -1, %.split700.us ], [ -1, %.thread550 ], [ -1, %.thread582 ], [ -1, %.split732.us ], [ -1, %.thread570 ], [ -1, %.split726.us ], [ -1, %.thread576 ], [ -1, %.thread608 ], [ -1, %.split758.us ], [ -1, %.thread596 ], [ -1, %.split752.us ], [ -1, %.thread602 ], [ -1, %.thread634 ], [ -1, %397 ], [ -1, %.thread622 ], [ -1, %418 ], [ -1, %.thread628 ], [ 0, %129 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %194 ], [ 0, %309 ], [ 0, %458 ], [ 0, %183 ], [ 0, %448 ]
+  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split706.us ], [ -1, %.split700.us ], [ -1, %.split694.us ], [ -1, %.thread ], [ -1, %.thread550 ], [ -1, %.thread556 ], [ -1, %.split732.us ], [ -1, %.split726.us ], [ -1, %.split720.us ], [ -1, %.thread570 ], [ -1, %.thread576 ], [ -1, %.thread582 ], [ -1, %.split758.us ], [ -1, %.split752.us ], [ -1, %.split746.us ], [ -1, %.thread596 ], [ -1, %.thread602 ], [ -1, %.thread608 ], [ -1, %397 ], [ -1, %418 ], [ -1, %444 ], [ -1, %.thread622 ], [ -1, %.thread628 ], [ -1, %.thread634 ], [ 0, %129 ], [ 0, %194 ], [ 0, %183 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %309 ], [ 0, %458 ], [ 0, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %466
 
 466:                                              ; preds = %9, %.loopexit661
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit661 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit661 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -5943,7 +5943,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ushort(ptr noundef readonly capt
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_USHORT_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -5960,7 +5960,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ushort(ptr noundef readonly capt
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233279 = icmp eq i64 %4, 0
   br i1 %.not233279, label %.loopexit254, label %.lr.ph
 
@@ -6099,7 +6099,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ushort(ptr noundef readonly capt
   br label %.loopexit254
 
 .loopexit254:                                     ; preds = %.preheader252, %.preheader250, %.preheader248.us, %.preheader246.us, %.preheader244.us, %.preheader242.us, %.preheader240.us, %.preheader.us, %74, %9, %40, %16, %113, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %113 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.preheader.us ], [ 0, %.preheader244.us ], [ 0, %.preheader248.us ], [ 0, %.preheader242.us ], [ 0, %.preheader246.us ], [ 0, %.preheader250 ], [ 0, %.preheader240.us ], [ 0, %.preheader252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %113 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.preheader.us ], [ 0, %.preheader240.us ], [ 0, %.preheader242.us ], [ 0, %.preheader244.us ], [ 0, %.preheader246.us ], [ 0, %.preheader248.us ], [ 0, %.preheader250 ], [ 0, %.preheader252 ]
   ret i32 %.0212
 }
 
@@ -6204,7 +6204,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_int(ptr noundef readonly capture
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_INT_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -6221,7 +6221,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_int(ptr noundef readonly capture
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -6538,7 +6538,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_int(ptr noundef readonly capture
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -6643,7 +6643,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uint(ptr noundef readonly captur
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_UINT_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -6660,7 +6660,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uint(ptr noundef readonly captur
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -6977,7 +6977,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_uint(ptr noundef readonly captur
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -7082,7 +7082,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_long(ptr noundef readonly captur
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LONG_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -7099,7 +7099,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_long(ptr noundef readonly captur
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -7416,7 +7416,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_long(ptr noundef readonly captur
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -7521,7 +7521,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ulong(ptr noundef readonly captu
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_ULONG_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -7538,7 +7538,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ulong(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -7855,7 +7855,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ulong(ptr noundef readonly captu
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -7960,7 +7960,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_llong(ptr noundef readonly captu
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LLONG_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -7977,7 +7977,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_llong(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -8294,7 +8294,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_llong(ptr noundef readonly captu
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -8399,7 +8399,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ullong(ptr noundef readonly capt
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_ULLONG_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -8416,7 +8416,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ullong(ptr noundef readonly capt
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -8733,7 +8733,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ullong(ptr noundef readonly capt
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -8838,7 +8838,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_float(ptr noundef readonly captu
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_FLOAT_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -8855,7 +8855,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_float(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -9172,7 +9172,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_float(ptr noundef readonly captu
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -9277,7 +9277,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_double(ptr noundef readonly capt
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_DOUBLE_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -9294,7 +9294,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_double(ptr noundef readonly capt
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -9611,7 +9611,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_double(ptr noundef readonly capt
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -9716,7 +9716,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ldouble(ptr noundef readonly cap
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LDOUBLE_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -9733,7 +9733,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ldouble(ptr noundef readonly cap
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -10050,7 +10050,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_ldouble(ptr noundef readonly cap
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -10155,7 +10155,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_fcomplex(ptr noundef readonly ca
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_FLOAT_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -10172,7 +10172,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_fcomplex(ptr noundef readonly ca
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not235282 = icmp eq i64 %4, 0
   br i1 %.not235282, label %.loopexit257, label %.lr.ph
 
@@ -10505,7 +10505,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_fcomplex(ptr noundef readonly ca
   br label %.loopexit257
 
 .loopexit257:                                     ; preds = %.loopexit254, %.loopexit250.us, %.loopexit246.us, %.loopexit.us, %74, %9, %40, %16, %212, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
   ret i32 %.0212
 }
 
@@ -10610,7 +10610,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_dcomplex(ptr noundef readonly ca
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_DOUBLE_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -10627,7 +10627,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_dcomplex(ptr noundef readonly ca
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not235282 = icmp eq i64 %4, 0
   br i1 %.not235282, label %.loopexit257, label %.lr.ph
 
@@ -10960,7 +10960,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_dcomplex(ptr noundef readonly ca
   br label %.loopexit257
 
 .loopexit257:                                     ; preds = %.loopexit254, %.loopexit250.us, %.loopexit246.us, %.loopexit.us, %74, %9, %40, %16, %212, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
   ret i32 %.0212
 }
 
@@ -11065,7 +11065,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_lcomplex(ptr noundef readonly ca
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LDOUBLE_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -11082,7 +11082,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_lcomplex(ptr noundef readonly ca
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not236283 = icmp eq i64 %4, 0
   br i1 %.not236283, label %.loopexit258, label %.lr.ph
 
@@ -11415,7 +11415,7 @@ define range(i32 -1, 1) i32 @H5T__conv__Float16_lcomplex(ptr noundef readonly ca
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %.loopexit255, %.loopexit251.us, %.loopexit247.us, %.loopexit.us, %74, %9, %40, %16, %212, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit247.us ], [ 0, %.loopexit251.us ], [ 0, %.loopexit255 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit247.us ], [ 0, %.loopexit251.us ], [ 0, %.loopexit255 ]
   ret i32 %.0212
 }
 
@@ -11536,7 +11536,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_SCHAR_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -11553,7 +11553,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -11770,7 +11770,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i8 [ -128, %192 ], [ %163, %162 ], [ %180, %178 ], [ 127, %204 ]
+  %.sink = phi i8 [ %180, %178 ], [ %163, %162 ], [ -128, %192 ], [ 127, %204 ]
   store i8 %.sink, ptr %11, align 1, !tbaa !32
   br label %205
 
@@ -11806,7 +11806,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i8 [ -128, %213 ], [ %216, %215 ], [ 127, %.preheader.us ]
+  %.sink816 = phi i8 [ %216, %215 ], [ -128, %213 ], [ 127, %.preheader.us ]
   store i8 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -11963,7 +11963,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i8 [ -128, %279 ], [ %250, %249 ], [ %267, %265 ], [ 127, %291 ]
+  %.sink818 = phi i8 [ %267, %265 ], [ %250, %249 ], [ -128, %279 ], [ 127, %291 ]
   store i8 %.sink818, ptr %.3446677.us, align 1, !tbaa !32
   br label %292
 
@@ -11992,7 +11992,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i8 [ -128, %298 ], [ %301, %300 ], [ 127, %.preheader650.us ]
+  %.sink819 = phi i8 [ %301, %300 ], [ -128, %298 ], [ 127, %.preheader650.us ]
   store i8 %.sink819, ptr %.4447680.us, align 1, !tbaa !32
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -12151,7 +12151,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i8 [ -128, %365 ], [ %336, %335 ], [ %353, %351 ], [ 127, %377 ]
+  %.sink821 = phi i8 [ %353, %351 ], [ %336, %335 ], [ -128, %365 ], [ 127, %377 ]
   store i8 %.sink821, ptr %11, align 1, !tbaa !32
   br label %378
 
@@ -12181,7 +12181,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i8 [ -128, %385 ], [ %388, %387 ], [ 127, %.preheader654.us ]
+  %.sink822 = phi i8 [ %388, %387 ], [ -128, %385 ], [ 127, %.preheader654.us ]
   store i8 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -12505,7 +12505,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i8 [ 127, %488 ], [ %535, %533 ], [ -128, %509 ], [ %515, %514 ]
+  %.sink859 = phi i8 [ %535, %533 ], [ 127, %488 ], [ -128, %509 ], [ %515, %514 ]
   store i8 %.sink859, ptr %.7450665, align 1, !tbaa !32
   br label %540
 
@@ -12533,7 +12533,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i8 [ 127, %.preheader658 ], [ %549, %548 ], [ -128, %546 ]
+  %.sink860 = phi i8 [ %549, %548 ], [ 127, %.preheader658 ], [ -128, %546 ]
   store i8 %.sink860, ptr %.8451668, align 1, !tbaa !32
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -12553,13 +12553,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_schar(ptr noundef readonly captures
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -12680,7 +12680,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_UCHAR_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -12697,7 +12697,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -12914,7 +12914,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i8 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i8 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i8 %.sink, ptr %11, align 1, !tbaa !32
   br label %205
 
@@ -12950,7 +12950,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i8 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink816 = phi i8 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i8 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -13107,7 +13107,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i8 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink818 = phi i8 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i8 %.sink818, ptr %.3446677.us, align 1, !tbaa !32
   br label %292
 
@@ -13136,7 +13136,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i8 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader650.us ]
+  %.sink819 = phi i8 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader650.us ]
   store i8 %.sink819, ptr %.4447680.us, align 1, !tbaa !32
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -13295,7 +13295,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i8 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink821 = phi i8 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i8 %.sink821, ptr %11, align 1, !tbaa !32
   br label %378
 
@@ -13325,7 +13325,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i8 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader654.us ]
+  %.sink822 = phi i8 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader654.us ]
   store i8 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -13649,7 +13649,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i8 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink859 = phi i8 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i8 %.sink859, ptr %.7450665, align 1, !tbaa !32
   br label %540
 
@@ -13677,7 +13677,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i8 [ -1, %.preheader658 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink860 = phi i8 [ %549, %548 ], [ -1, %.preheader658 ], [ 0, %546 ]
   store i8 %.sink860, ptr %.8451668, align 1, !tbaa !32
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -13697,13 +13697,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uchar(ptr noundef readonly captures
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -13824,7 +13824,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_SHORT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -13841,7 +13841,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -14058,7 +14058,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i16 [ -32768, %192 ], [ %163, %162 ], [ %180, %178 ], [ 32767, %204 ]
+  %.sink = phi i16 [ %180, %178 ], [ %163, %162 ], [ -32768, %192 ], [ 32767, %204 ]
   store i16 %.sink, ptr %11, align 2, !tbaa !72
   br label %205
 
@@ -14094,7 +14094,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i16 [ -32768, %213 ], [ %216, %215 ], [ 32767, %.preheader.us ]
+  %.sink816 = phi i16 [ %216, %215 ], [ -32768, %213 ], [ 32767, %.preheader.us ]
   store i16 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -14251,7 +14251,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i16 [ -32768, %279 ], [ %250, %249 ], [ %267, %265 ], [ 32767, %291 ]
+  %.sink818 = phi i16 [ %267, %265 ], [ %250, %249 ], [ -32768, %279 ], [ 32767, %291 ]
   store i16 %.sink818, ptr %.3446677.us, align 2, !tbaa !72
   br label %292
 
@@ -14280,7 +14280,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i16 [ -32768, %298 ], [ %301, %300 ], [ 32767, %.preheader650.us ]
+  %.sink819 = phi i16 [ %301, %300 ], [ -32768, %298 ], [ 32767, %.preheader650.us ]
   store i16 %.sink819, ptr %.4447680.us, align 2, !tbaa !72
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -14439,7 +14439,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i16 [ -32768, %365 ], [ %336, %335 ], [ %353, %351 ], [ 32767, %377 ]
+  %.sink821 = phi i16 [ %353, %351 ], [ %336, %335 ], [ -32768, %365 ], [ 32767, %377 ]
   store i16 %.sink821, ptr %11, align 2, !tbaa !72
   br label %378
 
@@ -14469,7 +14469,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i16 [ -32768, %385 ], [ %388, %387 ], [ 32767, %.preheader654.us ]
+  %.sink822 = phi i16 [ %388, %387 ], [ -32768, %385 ], [ 32767, %.preheader654.us ]
   store i16 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -14793,7 +14793,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i16 [ 32767, %488 ], [ %535, %533 ], [ -32768, %509 ], [ %515, %514 ]
+  %.sink859 = phi i16 [ %535, %533 ], [ 32767, %488 ], [ -32768, %509 ], [ %515, %514 ]
   store i16 %.sink859, ptr %.7450665, align 2, !tbaa !72
   br label %540
 
@@ -14821,7 +14821,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i16 [ 32767, %.preheader658 ], [ %549, %548 ], [ -32768, %546 ]
+  %.sink860 = phi i16 [ %549, %548 ], [ 32767, %.preheader658 ], [ -32768, %546 ]
   store i16 %.sink860, ptr %.8451668, align 2, !tbaa !72
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -14841,13 +14841,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_short(ptr noundef readonly captures
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -14968,7 +14968,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_USHORT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -14985,7 +14985,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -15202,7 +15202,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i16 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i16 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i16 %.sink, ptr %11, align 2, !tbaa !72
   br label %205
 
@@ -15238,7 +15238,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i16 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink816 = phi i16 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i16 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -15395,7 +15395,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i16 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink818 = phi i16 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i16 %.sink818, ptr %.3446677.us, align 2, !tbaa !72
   br label %292
 
@@ -15424,7 +15424,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i16 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader650.us ]
+  %.sink819 = phi i16 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader650.us ]
   store i16 %.sink819, ptr %.4447680.us, align 2, !tbaa !72
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -15583,7 +15583,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i16 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink821 = phi i16 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i16 %.sink821, ptr %11, align 2, !tbaa !72
   br label %378
 
@@ -15613,7 +15613,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i16 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader654.us ]
+  %.sink822 = phi i16 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader654.us ]
   store i16 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -15937,7 +15937,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i16 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink859 = phi i16 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i16 %.sink859, ptr %.7450665, align 2, !tbaa !72
   br label %540
 
@@ -15965,7 +15965,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i16 [ -1, %.preheader658 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink860 = phi i16 [ %549, %548 ], [ -1, %.preheader658 ], [ 0, %546 ]
   store i16 %.sink860, ptr %.8451668, align 2, !tbaa !72
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -15985,13 +15985,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ushort(ptr noundef readonly capture
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -16111,7 +16111,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_INT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -16128,7 +16128,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -16307,7 +16307,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   ]
 
 .sink.split:                                      ; preds = %182, %170, %140, %156
-  %.sink = phi i32 [ -2147483648, %170 ], [ %141, %140 ], [ %158, %156 ], [ 2147483647, %182 ]
+  %.sink = phi i32 [ %158, %156 ], [ %141, %140 ], [ -2147483648, %170 ], [ 2147483647, %182 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !25
   br label %183
 
@@ -16337,7 +16337,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   br label %194
 
 194:                                              ; preds = %.preheader.us, %190, %192
-  %195 = phi i32 [ -2147483648, %190 ], [ %193, %192 ], [ 2147483647, %.preheader.us ]
+  %195 = phi i32 [ %193, %192 ], [ -2147483648, %190 ], [ 2147483647, %.preheader.us ]
   store i32 %195, ptr %.2445686.us, align 1
   %196 = getelementptr inbounds i8, ptr %.2454685.us, i64 %.
   %197 = getelementptr inbounds i8, ptr %.2445686.us, i64 %.
@@ -16449,7 +16449,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   ]
 
 .sink.split806:                                   ; preds = %246, %234, %204, %220
-  %.sink807 = phi i32 [ -2147483648, %234 ], [ %205, %204 ], [ %222, %220 ], [ 2147483647, %246 ]
+  %.sink807 = phi i32 [ %222, %220 ], [ %205, %204 ], [ -2147483648, %234 ], [ 2147483647, %246 ]
   store i32 %.sink807, ptr %.3446676.us, align 4, !tbaa !25
   br label %247
 
@@ -16477,7 +16477,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   br label %257
 
 257:                                              ; preds = %.preheader649.us, %253, %255
-  %.sink808 = phi i32 [ -2147483648, %253 ], [ %256, %255 ], [ 2147483647, %.preheader649.us ]
+  %.sink808 = phi i32 [ %256, %255 ], [ -2147483648, %253 ], [ 2147483647, %.preheader649.us ]
   store i32 %.sink808, ptr %.4447679.us, align 4, !tbaa !25
   %258 = getelementptr inbounds i8, ptr %.4456678.us, i64 %.
   %259 = getelementptr inbounds i8, ptr %.4447679.us, i64 %.
@@ -16587,7 +16587,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   ]
 
 .sink.split809:                                   ; preds = %308, %296, %266, %282
-  %.sink810 = phi i32 [ -2147483648, %296 ], [ %267, %266 ], [ %284, %282 ], [ 2147483647, %308 ]
+  %.sink810 = phi i32 [ %284, %282 ], [ %267, %266 ], [ -2147483648, %296 ], [ 2147483647, %308 ]
   store i32 %.sink810, ptr %11, align 4, !tbaa !25
   br label %309
 
@@ -16617,7 +16617,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   br label %320
 
 320:                                              ; preds = %.preheader653.us, %316, %318
-  %321 = phi i32 [ -2147483648, %316 ], [ %319, %318 ], [ 2147483647, %.preheader653.us ]
+  %321 = phi i32 [ %319, %318 ], [ -2147483648, %316 ], [ 2147483647, %.preheader653.us ]
   store i32 %321, ptr %.6449673.us, align 1
   %322 = getelementptr inbounds i8, ptr %.6458672.us, i64 %.
   %323 = getelementptr inbounds i8, ptr %.6449673.us, i64 %.
@@ -16892,7 +16892,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   br label %.loopexit661
 
 .sink.split846:                                   ; preds = %422, %417, %396, %441
-  %.sink847 = phi i32 [ 2147483647, %396 ], [ %443, %441 ], [ -2147483648, %417 ], [ %423, %422 ]
+  %.sink847 = phi i32 [ %443, %441 ], [ 2147483647, %396 ], [ -2147483648, %417 ], [ %423, %422 ]
   store i32 %.sink847, ptr %.7450664, align 4, !tbaa !25
   br label %448
 
@@ -16920,7 +16920,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   br label %458
 
 458:                                              ; preds = %454, %.preheader657, %456
-  %.sink848 = phi i32 [ 2147483647, %.preheader657 ], [ %457, %456 ], [ -2147483648, %454 ]
+  %.sink848 = phi i32 [ %457, %456 ], [ 2147483647, %.preheader657 ], [ -2147483648, %454 ]
   store i32 %.sink848, ptr %.8451667, align 4, !tbaa !25
   %459 = getelementptr inbounds i8, ptr %.8460666, i64 %.
   %460 = getelementptr inbounds i8, ptr %.8451667, i64 %.
@@ -16935,13 +16935,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_int(ptr noundef readonly captures(a
   br label %.loopexit661
 
 .loopexit661:                                     ; preds = %448, %458, %309, %320, %247, %257, %183, %194, %129, %397, %418, %444, %.thread622, %.thread628, %.thread634, %.split758.us, %.split752.us, %.split746.us, %.thread596, %.thread602, %.thread608, %.split732.us, %.split726.us, %.split720.us, %.thread570, %.thread576, %.thread582, %.split706.us, %.split700.us, %.split694.us, %.thread, %.thread550, %.thread556, %54, %30, %462, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split746.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %444 ], [ -1, %.split694.us ], [ -1, %.split720.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread556 ], [ -1, %.split706.us ], [ -1, %.thread ], [ -1, %.split700.us ], [ -1, %.thread550 ], [ -1, %.thread582 ], [ -1, %.split732.us ], [ -1, %.thread570 ], [ -1, %.split726.us ], [ -1, %.thread576 ], [ -1, %.thread608 ], [ -1, %.split758.us ], [ -1, %.thread596 ], [ -1, %.split752.us ], [ -1, %.thread602 ], [ -1, %.thread634 ], [ -1, %397 ], [ -1, %.thread622 ], [ -1, %418 ], [ -1, %.thread628 ], [ 0, %129 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %194 ], [ 0, %309 ], [ 0, %458 ], [ 0, %183 ], [ 0, %448 ]
+  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split706.us ], [ -1, %.split700.us ], [ -1, %.split694.us ], [ -1, %.thread ], [ -1, %.thread550 ], [ -1, %.thread556 ], [ -1, %.split732.us ], [ -1, %.split726.us ], [ -1, %.split720.us ], [ -1, %.thread570 ], [ -1, %.thread576 ], [ -1, %.thread582 ], [ -1, %.split758.us ], [ -1, %.split752.us ], [ -1, %.split746.us ], [ -1, %.thread596 ], [ -1, %.thread602 ], [ -1, %.thread608 ], [ -1, %397 ], [ -1, %418 ], [ -1, %444 ], [ -1, %.thread622 ], [ -1, %.thread628 ], [ -1, %.thread634 ], [ 0, %129 ], [ 0, %194 ], [ 0, %183 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %309 ], [ 0, %458 ], [ 0, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %466
 
 466:                                              ; preds = %9, %.loopexit661
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit661 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit661 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -17061,7 +17061,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_UINT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -17078,7 +17078,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -17257,7 +17257,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   ]
 
 .sink.split:                                      ; preds = %182, %170, %140, %156
-  %.sink = phi i32 [ %167, %170 ], [ %141, %140 ], [ %158, %156 ], [ -1, %182 ]
+  %.sink = phi i32 [ %158, %156 ], [ %141, %140 ], [ %167, %170 ], [ -1, %182 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !25
   br label %183
 
@@ -17287,7 +17287,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   br label %194
 
 194:                                              ; preds = %.preheader.us, %190, %192
-  %195 = phi i32 [ 0, %190 ], [ %193, %192 ], [ -1, %.preheader.us ]
+  %195 = phi i32 [ %193, %192 ], [ 0, %190 ], [ -1, %.preheader.us ]
   store i32 %195, ptr %.2445686.us, align 1
   %196 = getelementptr inbounds i8, ptr %.2454685.us, i64 %.
   %197 = getelementptr inbounds i8, ptr %.2445686.us, i64 %.
@@ -17399,7 +17399,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   ]
 
 .sink.split806:                                   ; preds = %246, %234, %204, %220
-  %.sink807 = phi i32 [ %231, %234 ], [ %205, %204 ], [ %222, %220 ], [ -1, %246 ]
+  %.sink807 = phi i32 [ %222, %220 ], [ %205, %204 ], [ %231, %234 ], [ -1, %246 ]
   store i32 %.sink807, ptr %.3446676.us, align 4, !tbaa !25
   br label %247
 
@@ -17427,7 +17427,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   br label %257
 
 257:                                              ; preds = %.preheader649.us, %253, %255
-  %.sink808 = phi i32 [ 0, %253 ], [ %256, %255 ], [ -1, %.preheader649.us ]
+  %.sink808 = phi i32 [ %256, %255 ], [ 0, %253 ], [ -1, %.preheader649.us ]
   store i32 %.sink808, ptr %.4447679.us, align 4, !tbaa !25
   %258 = getelementptr inbounds i8, ptr %.4456678.us, i64 %.
   %259 = getelementptr inbounds i8, ptr %.4447679.us, i64 %.
@@ -17537,7 +17537,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   ]
 
 .sink.split809:                                   ; preds = %308, %296, %266, %282
-  %.sink810 = phi i32 [ %293, %296 ], [ %267, %266 ], [ %284, %282 ], [ -1, %308 ]
+  %.sink810 = phi i32 [ %284, %282 ], [ %267, %266 ], [ %293, %296 ], [ -1, %308 ]
   store i32 %.sink810, ptr %11, align 4, !tbaa !25
   br label %309
 
@@ -17567,7 +17567,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   br label %320
 
 320:                                              ; preds = %.preheader653.us, %316, %318
-  %321 = phi i32 [ 0, %316 ], [ %319, %318 ], [ -1, %.preheader653.us ]
+  %321 = phi i32 [ %319, %318 ], [ 0, %316 ], [ -1, %.preheader653.us ]
   store i32 %321, ptr %.6449673.us, align 1
   %322 = getelementptr inbounds i8, ptr %.6458672.us, i64 %.
   %323 = getelementptr inbounds i8, ptr %.6449673.us, i64 %.
@@ -17842,7 +17842,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   br label %.loopexit661
 
 .sink.split846:                                   ; preds = %422, %417, %396, %441
-  %.sink847 = phi i32 [ -1, %396 ], [ %443, %441 ], [ %411, %417 ], [ %423, %422 ]
+  %.sink847 = phi i32 [ %443, %441 ], [ -1, %396 ], [ %411, %417 ], [ %423, %422 ]
   store i32 %.sink847, ptr %.7450664, align 4, !tbaa !25
   br label %448
 
@@ -17870,7 +17870,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   br label %458
 
 458:                                              ; preds = %454, %.preheader657, %456
-  %.sink848 = phi i32 [ -1, %.preheader657 ], [ %457, %456 ], [ 0, %454 ]
+  %.sink848 = phi i32 [ %457, %456 ], [ -1, %.preheader657 ], [ 0, %454 ]
   store i32 %.sink848, ptr %.8451667, align 4, !tbaa !25
   %459 = getelementptr inbounds i8, ptr %.8460666, i64 %.
   %460 = getelementptr inbounds i8, ptr %.8451667, i64 %.
@@ -17885,13 +17885,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_uint(ptr noundef readonly captures(
   br label %.loopexit661
 
 .loopexit661:                                     ; preds = %448, %458, %309, %320, %247, %257, %183, %194, %129, %397, %418, %444, %.thread622, %.thread628, %.thread634, %.split758.us, %.split752.us, %.split746.us, %.thread596, %.thread602, %.thread608, %.split732.us, %.split726.us, %.split720.us, %.thread570, %.thread576, %.thread582, %.split706.us, %.split700.us, %.split694.us, %.thread, %.thread550, %.thread556, %54, %30, %462, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split746.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %444 ], [ -1, %.split694.us ], [ -1, %.split720.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread556 ], [ -1, %.split706.us ], [ -1, %.thread ], [ -1, %.split700.us ], [ -1, %.thread550 ], [ -1, %.thread582 ], [ -1, %.split732.us ], [ -1, %.thread570 ], [ -1, %.split726.us ], [ -1, %.thread576 ], [ -1, %.thread608 ], [ -1, %.split758.us ], [ -1, %.thread596 ], [ -1, %.split752.us ], [ -1, %.thread602 ], [ -1, %.thread634 ], [ -1, %397 ], [ -1, %.thread622 ], [ -1, %418 ], [ -1, %.thread628 ], [ 0, %129 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %194 ], [ 0, %309 ], [ 0, %458 ], [ 0, %183 ], [ 0, %448 ]
+  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split706.us ], [ -1, %.split700.us ], [ -1, %.split694.us ], [ -1, %.thread ], [ -1, %.thread550 ], [ -1, %.thread556 ], [ -1, %.split732.us ], [ -1, %.split726.us ], [ -1, %.split720.us ], [ -1, %.thread570 ], [ -1, %.thread576 ], [ -1, %.thread582 ], [ -1, %.split758.us ], [ -1, %.split752.us ], [ -1, %.split746.us ], [ -1, %.thread596 ], [ -1, %.thread602 ], [ -1, %.thread608 ], [ -1, %397 ], [ -1, %418 ], [ -1, %444 ], [ -1, %.thread622 ], [ -1, %.thread628 ], [ -1, %.thread634 ], [ 0, %129 ], [ 0, %194 ], [ 0, %183 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %309 ], [ 0, %458 ], [ 0, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %466
 
 466:                                              ; preds = %9, %.loopexit661
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit661 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit661 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -18012,7 +18012,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_LONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -18029,7 +18029,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -18246,7 +18246,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i64 [ -9223372036854775808, %192 ], [ %163, %162 ], [ %180, %178 ], [ 9223372036854775807, %204 ]
+  %.sink = phi i64 [ %180, %178 ], [ %163, %162 ], [ -9223372036854775808, %192 ], [ 9223372036854775807, %204 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !14
   br label %205
 
@@ -18282,7 +18282,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i64 [ -9223372036854775808, %213 ], [ %216, %215 ], [ 9223372036854775807, %.preheader.us ]
+  %.sink816 = phi i64 [ %216, %215 ], [ -9223372036854775808, %213 ], [ 9223372036854775807, %.preheader.us ]
   store i64 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -18439,7 +18439,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i64 [ -9223372036854775808, %279 ], [ %250, %249 ], [ %267, %265 ], [ 9223372036854775807, %291 ]
+  %.sink818 = phi i64 [ %267, %265 ], [ %250, %249 ], [ -9223372036854775808, %279 ], [ 9223372036854775807, %291 ]
   store i64 %.sink818, ptr %.3446677.us, align 8, !tbaa !14
   br label %292
 
@@ -18468,7 +18468,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i64 [ -9223372036854775808, %298 ], [ %301, %300 ], [ 9223372036854775807, %.preheader650.us ]
+  %.sink819 = phi i64 [ %301, %300 ], [ -9223372036854775808, %298 ], [ 9223372036854775807, %.preheader650.us ]
   store i64 %.sink819, ptr %.4447680.us, align 8, !tbaa !14
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -18627,7 +18627,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i64 [ -9223372036854775808, %365 ], [ %336, %335 ], [ %353, %351 ], [ 9223372036854775807, %377 ]
+  %.sink821 = phi i64 [ %353, %351 ], [ %336, %335 ], [ -9223372036854775808, %365 ], [ 9223372036854775807, %377 ]
   store i64 %.sink821, ptr %11, align 8, !tbaa !14
   br label %378
 
@@ -18657,7 +18657,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i64 [ -9223372036854775808, %385 ], [ %388, %387 ], [ 9223372036854775807, %.preheader654.us ]
+  %.sink822 = phi i64 [ %388, %387 ], [ -9223372036854775808, %385 ], [ 9223372036854775807, %.preheader654.us ]
   store i64 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -18981,7 +18981,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i64 [ 9223372036854775807, %488 ], [ %535, %533 ], [ -9223372036854775808, %509 ], [ %515, %514 ]
+  %.sink859 = phi i64 [ %535, %533 ], [ 9223372036854775807, %488 ], [ -9223372036854775808, %509 ], [ %515, %514 ]
   store i64 %.sink859, ptr %.7450665, align 8, !tbaa !14
   br label %540
 
@@ -19009,7 +19009,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i64 [ 9223372036854775807, %.preheader658 ], [ %549, %548 ], [ -9223372036854775808, %546 ]
+  %.sink860 = phi i64 [ %549, %548 ], [ 9223372036854775807, %.preheader658 ], [ -9223372036854775808, %546 ]
   store i64 %.sink860, ptr %.8451668, align 8, !tbaa !14
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -19029,13 +19029,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_long(ptr noundef readonly captures(
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -19156,7 +19156,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_ULONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -19173,7 +19173,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -19390,7 +19390,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i64 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i64 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !14
   br label %205
 
@@ -19426,7 +19426,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i64 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink816 = phi i64 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i64 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -19583,7 +19583,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i64 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink818 = phi i64 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i64 %.sink818, ptr %.3446677.us, align 8, !tbaa !14
   br label %292
 
@@ -19612,7 +19612,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i64 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader650.us ]
+  %.sink819 = phi i64 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader650.us ]
   store i64 %.sink819, ptr %.4447680.us, align 8, !tbaa !14
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -19771,7 +19771,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i64 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink821 = phi i64 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i64 %.sink821, ptr %11, align 8, !tbaa !14
   br label %378
 
@@ -19801,7 +19801,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i64 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader654.us ]
+  %.sink822 = phi i64 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader654.us ]
   store i64 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -20125,7 +20125,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i64 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink859 = phi i64 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i64 %.sink859, ptr %.7450665, align 8, !tbaa !14
   br label %540
 
@@ -20153,7 +20153,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i64 [ -1, %.preheader658 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink860 = phi i64 [ %549, %548 ], [ -1, %.preheader658 ], [ 0, %546 ]
   store i64 %.sink860, ptr %.8451668, align 8, !tbaa !14
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -20173,13 +20173,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ulong(ptr noundef readonly captures
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -20300,7 +20300,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_LLONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -20317,7 +20317,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -20534,7 +20534,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i64 [ -9223372036854775808, %192 ], [ %163, %162 ], [ %180, %178 ], [ 9223372036854775807, %204 ]
+  %.sink = phi i64 [ %180, %178 ], [ %163, %162 ], [ -9223372036854775808, %192 ], [ 9223372036854775807, %204 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !129
   br label %205
 
@@ -20570,7 +20570,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i64 [ -9223372036854775808, %213 ], [ %216, %215 ], [ 9223372036854775807, %.preheader.us ]
+  %.sink816 = phi i64 [ %216, %215 ], [ -9223372036854775808, %213 ], [ 9223372036854775807, %.preheader.us ]
   store i64 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -20727,7 +20727,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i64 [ -9223372036854775808, %279 ], [ %250, %249 ], [ %267, %265 ], [ 9223372036854775807, %291 ]
+  %.sink818 = phi i64 [ %267, %265 ], [ %250, %249 ], [ -9223372036854775808, %279 ], [ 9223372036854775807, %291 ]
   store i64 %.sink818, ptr %.3446677.us, align 8, !tbaa !129
   br label %292
 
@@ -20756,7 +20756,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i64 [ -9223372036854775808, %298 ], [ %301, %300 ], [ 9223372036854775807, %.preheader650.us ]
+  %.sink819 = phi i64 [ %301, %300 ], [ -9223372036854775808, %298 ], [ 9223372036854775807, %.preheader650.us ]
   store i64 %.sink819, ptr %.4447680.us, align 8, !tbaa !129
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -20915,7 +20915,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i64 [ -9223372036854775808, %365 ], [ %336, %335 ], [ %353, %351 ], [ 9223372036854775807, %377 ]
+  %.sink821 = phi i64 [ %353, %351 ], [ %336, %335 ], [ -9223372036854775808, %365 ], [ 9223372036854775807, %377 ]
   store i64 %.sink821, ptr %11, align 8, !tbaa !129
   br label %378
 
@@ -20945,7 +20945,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i64 [ -9223372036854775808, %385 ], [ %388, %387 ], [ 9223372036854775807, %.preheader654.us ]
+  %.sink822 = phi i64 [ %388, %387 ], [ -9223372036854775808, %385 ], [ 9223372036854775807, %.preheader654.us ]
   store i64 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -21269,7 +21269,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i64 [ 9223372036854775807, %488 ], [ %535, %533 ], [ -9223372036854775808, %509 ], [ %515, %514 ]
+  %.sink859 = phi i64 [ %535, %533 ], [ 9223372036854775807, %488 ], [ -9223372036854775808, %509 ], [ %515, %514 ]
   store i64 %.sink859, ptr %.7450665, align 8, !tbaa !129
   br label %540
 
@@ -21297,7 +21297,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i64 [ 9223372036854775807, %.preheader658 ], [ %549, %548 ], [ -9223372036854775808, %546 ]
+  %.sink860 = phi i64 [ %549, %548 ], [ 9223372036854775807, %.preheader658 ], [ -9223372036854775808, %546 ]
   store i64 %.sink860, ptr %.8451668, align 8, !tbaa !129
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -21317,13 +21317,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_llong(ptr noundef readonly captures
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -21444,7 +21444,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_ULLONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -21461,7 +21461,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -21678,7 +21678,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i64 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i64 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !129
   br label %205
 
@@ -21714,7 +21714,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i64 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink816 = phi i64 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i64 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -21871,7 +21871,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i64 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink818 = phi i64 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i64 %.sink818, ptr %.3446677.us, align 8, !tbaa !129
   br label %292
 
@@ -21900,7 +21900,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i64 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader650.us ]
+  %.sink819 = phi i64 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader650.us ]
   store i64 %.sink819, ptr %.4447680.us, align 8, !tbaa !129
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -22059,7 +22059,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i64 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink821 = phi i64 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i64 %.sink821, ptr %11, align 8, !tbaa !129
   br label %378
 
@@ -22089,7 +22089,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i64 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader654.us ]
+  %.sink822 = phi i64 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader654.us ]
   store i64 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -22413,7 +22413,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i64 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink859 = phi i64 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i64 %.sink859, ptr %.7450665, align 8, !tbaa !129
   br label %540
 
@@ -22441,7 +22441,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i64 [ -1, %.preheader658 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink860 = phi i64 [ %549, %548 ], [ -1, %.preheader658 ], [ 0, %546 ]
   store i64 %.sink860, ptr %.8451668, align 8, !tbaa !129
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -22461,13 +22461,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ullong(ptr noundef readonly capture
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -22584,7 +22584,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float__Float16(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_FLOAT16_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -22601,7 +22601,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float__Float16(ptr noundef readonly captu
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not421550 = icmp eq i64 %4, 0
   br i1 %.not421550, label %.loopexit524, label %.lr.ph
 
@@ -23412,13 +23412,13 @@ define range(i32 -1, 1) i32 @H5T__conv_float__Float16(ptr noundef readonly captu
   br label %.loopexit524
 
 .loopexit524:                                     ; preds = %.loopexit521, %.loopexit517.us, %.loopexit515.us, %.loopexit511.us, %84, %397, %420, %.thread491, %.thread497, %.split603.us, %.split597.us, %.thread471, %.thread477, %.split583.us, %.split577.us, %.thread451, %.thread457, %.split563.us, %.split557.us, %.thread, %.thread437, %50, %26, %445, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split597.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %420 ], [ -1, %.split557.us ], [ -1, %.split577.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread437 ], [ -1, %.split563.us ], [ -1, %.thread ], [ -1, %.thread457 ], [ -1, %.split583.us ], [ -1, %.thread451 ], [ -1, %.thread477 ], [ -1, %.split603.us ], [ -1, %.thread471 ], [ -1, %.thread497 ], [ -1, %397 ], [ -1, %.thread491 ], [ 0, %84 ], [ 0, %.loopexit511.us ], [ 0, %.loopexit515.us ], [ 0, %.loopexit517.us ], [ 0, %.loopexit521 ]
+  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split563.us ], [ -1, %.split557.us ], [ -1, %.thread ], [ -1, %.thread437 ], [ -1, %.split583.us ], [ -1, %.split577.us ], [ -1, %.thread451 ], [ -1, %.thread457 ], [ -1, %.split603.us ], [ -1, %.split597.us ], [ -1, %.thread471 ], [ -1, %.thread477 ], [ -1, %397 ], [ -1, %420 ], [ -1, %.thread491 ], [ -1, %.thread497 ], [ 0, %84 ], [ 0, %.loopexit511.us ], [ 0, %.loopexit515.us ], [ 0, %.loopexit517.us ], [ 0, %.loopexit521 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %449
 
 449:                                              ; preds = %9, %.loopexit524
-  %.0391 = phi i32 [ 0, %9 ], [ %.1392, %.loopexit524 ]
+  %.0391 = phi i32 [ %.1392, %.loopexit524 ], [ 0, %9 ]
   ret i32 %.0391
 }
 
@@ -23523,7 +23523,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_double(ptr noundef readonly capture
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_DOUBLE_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -23540,7 +23540,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_double(ptr noundef readonly capture
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -23857,7 +23857,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_double(ptr noundef readonly capture
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -23962,7 +23962,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ldouble(ptr noundef readonly captur
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LDOUBLE_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -23979,7 +23979,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ldouble(ptr noundef readonly captur
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -24296,7 +24296,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_ldouble(ptr noundef readonly captur
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -24401,7 +24401,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_fcomplex(ptr noundef readonly captu
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_FLOAT_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -24418,7 +24418,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_fcomplex(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not235282 = icmp eq i64 %4, 0
   br i1 %.not235282, label %.loopexit257, label %.lr.ph
 
@@ -24743,7 +24743,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_fcomplex(ptr noundef readonly captu
   br label %.loopexit257
 
 .loopexit257:                                     ; preds = %.loopexit254, %.loopexit250.us, %.loopexit246.us, %.loopexit.us, %74, %9, %40, %16, %204, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %204 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %204 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
   ret i32 %.0212
 }
 
@@ -24848,7 +24848,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_dcomplex(ptr noundef readonly captu
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_DOUBLE_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -24865,7 +24865,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_dcomplex(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not235282 = icmp eq i64 %4, 0
   br i1 %.not235282, label %.loopexit257, label %.lr.ph
 
@@ -25198,7 +25198,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_dcomplex(ptr noundef readonly captu
   br label %.loopexit257
 
 .loopexit257:                                     ; preds = %.loopexit254, %.loopexit250.us, %.loopexit246.us, %.loopexit.us, %74, %9, %40, %16, %212, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
   ret i32 %.0212
 }
 
@@ -25303,7 +25303,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_lcomplex(ptr noundef readonly captu
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LDOUBLE_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -25320,7 +25320,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_lcomplex(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not236283 = icmp eq i64 %4, 0
   br i1 %.not236283, label %.loopexit258, label %.lr.ph
 
@@ -25653,7 +25653,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float_lcomplex(ptr noundef readonly captu
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %.loopexit255, %.loopexit251.us, %.loopexit247.us, %.loopexit.us, %74, %9, %40, %16, %212, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit247.us ], [ 0, %.loopexit251.us ], [ 0, %.loopexit255 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit247.us ], [ 0, %.loopexit251.us ], [ 0, %.loopexit255 ]
   ret i32 %.0212
 }
 
@@ -25774,7 +25774,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_SCHAR_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -25791,7 +25791,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -26008,7 +26008,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i8 [ -128, %192 ], [ %163, %162 ], [ %180, %178 ], [ 127, %204 ]
+  %.sink = phi i8 [ %180, %178 ], [ %163, %162 ], [ -128, %192 ], [ 127, %204 ]
   store i8 %.sink, ptr %11, align 1, !tbaa !32
   br label %205
 
@@ -26044,7 +26044,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i8 [ -128, %213 ], [ %216, %215 ], [ 127, %.preheader.us ]
+  %.sink816 = phi i8 [ %216, %215 ], [ -128, %213 ], [ 127, %.preheader.us ]
   store i8 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -26201,7 +26201,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i8 [ -128, %279 ], [ %250, %249 ], [ %267, %265 ], [ 127, %291 ]
+  %.sink818 = phi i8 [ %267, %265 ], [ %250, %249 ], [ -128, %279 ], [ 127, %291 ]
   store i8 %.sink818, ptr %.3446677.us, align 1, !tbaa !32
   br label %292
 
@@ -26230,7 +26230,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i8 [ -128, %298 ], [ %301, %300 ], [ 127, %.preheader650.us ]
+  %.sink819 = phi i8 [ %301, %300 ], [ -128, %298 ], [ 127, %.preheader650.us ]
   store i8 %.sink819, ptr %.4447680.us, align 1, !tbaa !32
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -26389,7 +26389,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i8 [ -128, %365 ], [ %336, %335 ], [ %353, %351 ], [ 127, %377 ]
+  %.sink821 = phi i8 [ %353, %351 ], [ %336, %335 ], [ -128, %365 ], [ 127, %377 ]
   store i8 %.sink821, ptr %11, align 1, !tbaa !32
   br label %378
 
@@ -26419,7 +26419,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i8 [ -128, %385 ], [ %388, %387 ], [ 127, %.preheader654.us ]
+  %.sink822 = phi i8 [ %388, %387 ], [ -128, %385 ], [ 127, %.preheader654.us ]
   store i8 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -26743,7 +26743,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i8 [ 127, %488 ], [ %535, %533 ], [ -128, %509 ], [ %515, %514 ]
+  %.sink859 = phi i8 [ %535, %533 ], [ 127, %488 ], [ -128, %509 ], [ %515, %514 ]
   store i8 %.sink859, ptr %.7450665, align 1, !tbaa !32
   br label %540
 
@@ -26771,7 +26771,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i8 [ 127, %.preheader658 ], [ %549, %548 ], [ -128, %546 ]
+  %.sink860 = phi i8 [ %549, %548 ], [ 127, %.preheader658 ], [ -128, %546 ]
   store i8 %.sink860, ptr %.8451668, align 1, !tbaa !32
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -26791,13 +26791,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_schar(ptr noundef readonly capture
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -26918,7 +26918,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_UCHAR_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -26935,7 +26935,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -27152,7 +27152,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i8 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i8 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i8 %.sink, ptr %11, align 1, !tbaa !32
   br label %205
 
@@ -27188,7 +27188,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i8 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink816 = phi i8 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i8 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -27345,7 +27345,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i8 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink818 = phi i8 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i8 %.sink818, ptr %.3446677.us, align 1, !tbaa !32
   br label %292
 
@@ -27374,7 +27374,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i8 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader650.us ]
+  %.sink819 = phi i8 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader650.us ]
   store i8 %.sink819, ptr %.4447680.us, align 1, !tbaa !32
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -27533,7 +27533,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i8 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink821 = phi i8 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i8 %.sink821, ptr %11, align 1, !tbaa !32
   br label %378
 
@@ -27563,7 +27563,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i8 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader654.us ]
+  %.sink822 = phi i8 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader654.us ]
   store i8 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -27887,7 +27887,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i8 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink859 = phi i8 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i8 %.sink859, ptr %.7450665, align 1, !tbaa !32
   br label %540
 
@@ -27915,7 +27915,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i8 [ -1, %.preheader658 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink860 = phi i8 [ %549, %548 ], [ -1, %.preheader658 ], [ 0, %546 ]
   store i8 %.sink860, ptr %.8451668, align 1, !tbaa !32
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -27935,13 +27935,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uchar(ptr noundef readonly capture
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -28062,7 +28062,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_SHORT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -28079,7 +28079,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -28296,7 +28296,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i16 [ -32768, %192 ], [ %163, %162 ], [ %180, %178 ], [ 32767, %204 ]
+  %.sink = phi i16 [ %180, %178 ], [ %163, %162 ], [ -32768, %192 ], [ 32767, %204 ]
   store i16 %.sink, ptr %11, align 2, !tbaa !72
   br label %205
 
@@ -28332,7 +28332,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i16 [ -32768, %213 ], [ %216, %215 ], [ 32767, %.preheader.us ]
+  %.sink816 = phi i16 [ %216, %215 ], [ -32768, %213 ], [ 32767, %.preheader.us ]
   store i16 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -28489,7 +28489,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i16 [ -32768, %279 ], [ %250, %249 ], [ %267, %265 ], [ 32767, %291 ]
+  %.sink818 = phi i16 [ %267, %265 ], [ %250, %249 ], [ -32768, %279 ], [ 32767, %291 ]
   store i16 %.sink818, ptr %.3446677.us, align 2, !tbaa !72
   br label %292
 
@@ -28518,7 +28518,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i16 [ -32768, %298 ], [ %301, %300 ], [ 32767, %.preheader650.us ]
+  %.sink819 = phi i16 [ %301, %300 ], [ -32768, %298 ], [ 32767, %.preheader650.us ]
   store i16 %.sink819, ptr %.4447680.us, align 2, !tbaa !72
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -28677,7 +28677,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i16 [ -32768, %365 ], [ %336, %335 ], [ %353, %351 ], [ 32767, %377 ]
+  %.sink821 = phi i16 [ %353, %351 ], [ %336, %335 ], [ -32768, %365 ], [ 32767, %377 ]
   store i16 %.sink821, ptr %11, align 2, !tbaa !72
   br label %378
 
@@ -28707,7 +28707,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i16 [ -32768, %385 ], [ %388, %387 ], [ 32767, %.preheader654.us ]
+  %.sink822 = phi i16 [ %388, %387 ], [ -32768, %385 ], [ 32767, %.preheader654.us ]
   store i16 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -29031,7 +29031,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i16 [ 32767, %488 ], [ %535, %533 ], [ -32768, %509 ], [ %515, %514 ]
+  %.sink859 = phi i16 [ %535, %533 ], [ 32767, %488 ], [ -32768, %509 ], [ %515, %514 ]
   store i16 %.sink859, ptr %.7450665, align 2, !tbaa !72
   br label %540
 
@@ -29059,7 +29059,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i16 [ 32767, %.preheader658 ], [ %549, %548 ], [ -32768, %546 ]
+  %.sink860 = phi i16 [ %549, %548 ], [ 32767, %.preheader658 ], [ -32768, %546 ]
   store i16 %.sink860, ptr %.8451668, align 2, !tbaa !72
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -29079,13 +29079,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_short(ptr noundef readonly capture
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -29206,7 +29206,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_USHORT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -29223,7 +29223,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -29440,7 +29440,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i16 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i16 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i16 %.sink, ptr %11, align 2, !tbaa !72
   br label %205
 
@@ -29476,7 +29476,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i16 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink816 = phi i16 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i16 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -29633,7 +29633,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i16 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink818 = phi i16 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i16 %.sink818, ptr %.3446677.us, align 2, !tbaa !72
   br label %292
 
@@ -29662,7 +29662,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i16 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader650.us ]
+  %.sink819 = phi i16 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader650.us ]
   store i16 %.sink819, ptr %.4447680.us, align 2, !tbaa !72
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -29821,7 +29821,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i16 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink821 = phi i16 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i16 %.sink821, ptr %11, align 2, !tbaa !72
   br label %378
 
@@ -29851,7 +29851,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i16 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader654.us ]
+  %.sink822 = phi i16 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader654.us ]
   store i16 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -30175,7 +30175,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i16 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink859 = phi i16 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i16 %.sink859, ptr %.7450665, align 2, !tbaa !72
   br label %540
 
@@ -30203,7 +30203,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i16 [ -1, %.preheader658 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink860 = phi i16 [ %549, %548 ], [ -1, %.preheader658 ], [ 0, %546 ]
   store i16 %.sink860, ptr %.8451668, align 2, !tbaa !72
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -30223,13 +30223,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ushort(ptr noundef readonly captur
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -30350,7 +30350,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_INT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -30367,7 +30367,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -30584,7 +30584,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i32 [ -2147483648, %192 ], [ %163, %162 ], [ %180, %178 ], [ 2147483647, %204 ]
+  %.sink = phi i32 [ %180, %178 ], [ %163, %162 ], [ -2147483648, %192 ], [ 2147483647, %204 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !25
   br label %205
 
@@ -30620,7 +30620,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i32 [ -2147483648, %213 ], [ %216, %215 ], [ 2147483647, %.preheader.us ]
+  %.sink816 = phi i32 [ %216, %215 ], [ -2147483648, %213 ], [ 2147483647, %.preheader.us ]
   store i32 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -30777,7 +30777,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i32 [ -2147483648, %279 ], [ %250, %249 ], [ %267, %265 ], [ 2147483647, %291 ]
+  %.sink818 = phi i32 [ %267, %265 ], [ %250, %249 ], [ -2147483648, %279 ], [ 2147483647, %291 ]
   store i32 %.sink818, ptr %.3446677.us, align 4, !tbaa !25
   br label %292
 
@@ -30806,7 +30806,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i32 [ -2147483648, %298 ], [ %301, %300 ], [ 2147483647, %.preheader650.us ]
+  %.sink819 = phi i32 [ %301, %300 ], [ -2147483648, %298 ], [ 2147483647, %.preheader650.us ]
   store i32 %.sink819, ptr %.4447680.us, align 4, !tbaa !25
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -30965,7 +30965,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i32 [ -2147483648, %365 ], [ %336, %335 ], [ %353, %351 ], [ 2147483647, %377 ]
+  %.sink821 = phi i32 [ %353, %351 ], [ %336, %335 ], [ -2147483648, %365 ], [ 2147483647, %377 ]
   store i32 %.sink821, ptr %11, align 4, !tbaa !25
   br label %378
 
@@ -30995,7 +30995,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i32 [ -2147483648, %385 ], [ %388, %387 ], [ 2147483647, %.preheader654.us ]
+  %.sink822 = phi i32 [ %388, %387 ], [ -2147483648, %385 ], [ 2147483647, %.preheader654.us ]
   store i32 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -31319,7 +31319,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i32 [ 2147483647, %488 ], [ %535, %533 ], [ -2147483648, %509 ], [ %515, %514 ]
+  %.sink859 = phi i32 [ %535, %533 ], [ 2147483647, %488 ], [ -2147483648, %509 ], [ %515, %514 ]
   store i32 %.sink859, ptr %.7450665, align 4, !tbaa !25
   br label %540
 
@@ -31347,7 +31347,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i32 [ 2147483647, %.preheader658 ], [ %549, %548 ], [ -2147483648, %546 ]
+  %.sink860 = phi i32 [ %549, %548 ], [ 2147483647, %.preheader658 ], [ -2147483648, %546 ]
   store i32 %.sink860, ptr %.8451668, align 4, !tbaa !25
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -31367,13 +31367,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_int(ptr noundef readonly captures(
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -31494,7 +31494,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_UINT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -31511,7 +31511,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -31728,7 +31728,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i32 [ %189, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i32 [ %180, %178 ], [ %163, %162 ], [ %189, %192 ], [ -1, %204 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !25
   br label %205
 
@@ -31764,7 +31764,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink816 = phi i32 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink816 = phi i32 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i32 %.sink816, ptr %.2445687.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454686.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445687.us, i64 %.2437.us
@@ -31921,7 +31921,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   ]
 
 .sink.split817:                                   ; preds = %291, %279, %249, %265
-  %.sink818 = phi i32 [ %276, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink818 = phi i32 [ %267, %265 ], [ %250, %249 ], [ %276, %279 ], [ -1, %291 ]
   store i32 %.sink818, ptr %.3446677.us, align 4, !tbaa !25
   br label %292
 
@@ -31950,7 +31950,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   br label %302
 
 302:                                              ; preds = %.preheader650.us, %298, %300
-  %.sink819 = phi i32 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader650.us ]
+  %.sink819 = phi i32 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader650.us ]
   store i32 %.sink819, ptr %.4447680.us, align 4, !tbaa !25
   %303 = getelementptr inbounds i8, ptr %.4456679.us, i64 %.2440.us713
   %304 = getelementptr inbounds i8, ptr %.4447680.us, i64 %.2437.us714
@@ -32109,7 +32109,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   ]
 
 .sink.split820:                                   ; preds = %377, %365, %335, %351
-  %.sink821 = phi i32 [ %362, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink821 = phi i32 [ %353, %351 ], [ %336, %335 ], [ %362, %365 ], [ -1, %377 ]
   store i32 %.sink821, ptr %11, align 4, !tbaa !25
   br label %378
 
@@ -32139,7 +32139,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   br label %389
 
 389:                                              ; preds = %.preheader654.us, %385, %387
-  %.sink822 = phi i32 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader654.us ]
+  %.sink822 = phi i32 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader654.us ]
   store i32 %.sink822, ptr %.6449674.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458673.us, i64 %.2440.us739
   %391 = getelementptr inbounds i8, ptr %.6449674.us, i64 %.2437.us740
@@ -32463,7 +32463,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   br label %.loopexit662
 
 .sink.split858:                                   ; preds = %514, %509, %488, %533
-  %.sink859 = phi i32 [ -1, %488 ], [ %535, %533 ], [ %503, %509 ], [ %515, %514 ]
+  %.sink859 = phi i32 [ %535, %533 ], [ -1, %488 ], [ %503, %509 ], [ %515, %514 ]
   store i32 %.sink859, ptr %.7450665, align 4, !tbaa !25
   br label %540
 
@@ -32491,7 +32491,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   br label %550
 
 550:                                              ; preds = %546, %.preheader658, %548
-  %.sink860 = phi i32 [ -1, %.preheader658 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink860 = phi i32 [ %549, %548 ], [ -1, %.preheader658 ], [ 0, %546 ]
   store i32 %.sink860, ptr %.8451668, align 4, !tbaa !25
   %551 = getelementptr inbounds i8, ptr %.8460667, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451668, i64 %.2437
@@ -32511,13 +32511,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_uint(ptr noundef readonly captures
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.loopexit659, %.loopexit655.us, %.loopexit653.us, %.loopexit649.us, %129, %489, %510, %536, %.thread623, %.thread629, %.thread635, %.split759.us, %.split753.us, %.split747.us, %.thread597, %.thread603, %.thread609, %.split733.us, %.split727.us, %.split721.us, %.thread571, %.thread577, %.thread583, %.split707.us, %.split701.us, %.split695.us, %.thread, %.thread551, %.thread557, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split747.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split695.us ], [ -1, %.split721.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread557 ], [ -1, %.split707.us ], [ -1, %.thread ], [ -1, %.split701.us ], [ -1, %.thread551 ], [ -1, %.thread583 ], [ -1, %.split733.us ], [ -1, %.thread571 ], [ -1, %.split727.us ], [ -1, %.thread577 ], [ -1, %.thread609 ], [ -1, %.split759.us ], [ -1, %.thread597 ], [ -1, %.split753.us ], [ -1, %.thread603 ], [ -1, %.thread635 ], [ -1, %489 ], [ -1, %.thread623 ], [ -1, %510 ], [ -1, %.thread629 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split707.us ], [ -1, %.split701.us ], [ -1, %.split695.us ], [ -1, %.thread ], [ -1, %.thread551 ], [ -1, %.thread557 ], [ -1, %.split733.us ], [ -1, %.split727.us ], [ -1, %.split721.us ], [ -1, %.thread571 ], [ -1, %.thread577 ], [ -1, %.thread583 ], [ -1, %.split759.us ], [ -1, %.split753.us ], [ -1, %.split747.us ], [ -1, %.thread597 ], [ -1, %.thread603 ], [ -1, %.thread609 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread623 ], [ -1, %.thread629 ], [ -1, %.thread635 ], [ 0, %129 ], [ 0, %.loopexit649.us ], [ 0, %.loopexit653.us ], [ 0, %.loopexit655.us ], [ 0, %.loopexit659 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit662
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit662 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit662 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -32637,7 +32637,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_LONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -32654,7 +32654,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -32833,7 +32833,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   ]
 
 .sink.split:                                      ; preds = %182, %170, %140, %156
-  %.sink = phi i64 [ -9223372036854775808, %170 ], [ %141, %140 ], [ %158, %156 ], [ 9223372036854775807, %182 ]
+  %.sink = phi i64 [ %158, %156 ], [ %141, %140 ], [ -9223372036854775808, %170 ], [ 9223372036854775807, %182 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !14
   br label %183
 
@@ -32863,7 +32863,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   br label %194
 
 194:                                              ; preds = %.preheader.us, %190, %192
-  %195 = phi i64 [ -9223372036854775808, %190 ], [ %193, %192 ], [ 9223372036854775807, %.preheader.us ]
+  %195 = phi i64 [ %193, %192 ], [ -9223372036854775808, %190 ], [ 9223372036854775807, %.preheader.us ]
   store i64 %195, ptr %.2445686.us, align 1
   %196 = getelementptr inbounds i8, ptr %.2454685.us, i64 %.
   %197 = getelementptr inbounds i8, ptr %.2445686.us, i64 %.
@@ -32975,7 +32975,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   ]
 
 .sink.split806:                                   ; preds = %246, %234, %204, %220
-  %.sink807 = phi i64 [ -9223372036854775808, %234 ], [ %205, %204 ], [ %222, %220 ], [ 9223372036854775807, %246 ]
+  %.sink807 = phi i64 [ %222, %220 ], [ %205, %204 ], [ -9223372036854775808, %234 ], [ 9223372036854775807, %246 ]
   store i64 %.sink807, ptr %.3446676.us, align 8, !tbaa !14
   br label %247
 
@@ -33003,7 +33003,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   br label %257
 
 257:                                              ; preds = %.preheader649.us, %253, %255
-  %.sink808 = phi i64 [ -9223372036854775808, %253 ], [ %256, %255 ], [ 9223372036854775807, %.preheader649.us ]
+  %.sink808 = phi i64 [ %256, %255 ], [ -9223372036854775808, %253 ], [ 9223372036854775807, %.preheader649.us ]
   store i64 %.sink808, ptr %.4447679.us, align 8, !tbaa !14
   %258 = getelementptr inbounds i8, ptr %.4456678.us, i64 %.
   %259 = getelementptr inbounds i8, ptr %.4447679.us, i64 %.
@@ -33113,7 +33113,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   ]
 
 .sink.split809:                                   ; preds = %308, %296, %266, %282
-  %.sink810 = phi i64 [ -9223372036854775808, %296 ], [ %267, %266 ], [ %284, %282 ], [ 9223372036854775807, %308 ]
+  %.sink810 = phi i64 [ %284, %282 ], [ %267, %266 ], [ -9223372036854775808, %296 ], [ 9223372036854775807, %308 ]
   store i64 %.sink810, ptr %11, align 8, !tbaa !14
   br label %309
 
@@ -33143,7 +33143,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   br label %320
 
 320:                                              ; preds = %.preheader653.us, %316, %318
-  %321 = phi i64 [ -9223372036854775808, %316 ], [ %319, %318 ], [ 9223372036854775807, %.preheader653.us ]
+  %321 = phi i64 [ %319, %318 ], [ -9223372036854775808, %316 ], [ 9223372036854775807, %.preheader653.us ]
   store i64 %321, ptr %.6449673.us, align 1
   %322 = getelementptr inbounds i8, ptr %.6458672.us, i64 %.
   %323 = getelementptr inbounds i8, ptr %.6449673.us, i64 %.
@@ -33418,7 +33418,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   br label %.loopexit661
 
 .sink.split846:                                   ; preds = %422, %417, %396, %441
-  %.sink847 = phi i64 [ 9223372036854775807, %396 ], [ %443, %441 ], [ -9223372036854775808, %417 ], [ %423, %422 ]
+  %.sink847 = phi i64 [ %443, %441 ], [ 9223372036854775807, %396 ], [ -9223372036854775808, %417 ], [ %423, %422 ]
   store i64 %.sink847, ptr %.7450664, align 8, !tbaa !14
   br label %448
 
@@ -33446,7 +33446,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   br label %458
 
 458:                                              ; preds = %454, %.preheader657, %456
-  %.sink848 = phi i64 [ 9223372036854775807, %.preheader657 ], [ %457, %456 ], [ -9223372036854775808, %454 ]
+  %.sink848 = phi i64 [ %457, %456 ], [ 9223372036854775807, %.preheader657 ], [ -9223372036854775808, %454 ]
   store i64 %.sink848, ptr %.8451667, align 8, !tbaa !14
   %459 = getelementptr inbounds i8, ptr %.8460666, i64 %.
   %460 = getelementptr inbounds i8, ptr %.8451667, i64 %.
@@ -33461,13 +33461,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_long(ptr noundef readonly captures
   br label %.loopexit661
 
 .loopexit661:                                     ; preds = %448, %458, %309, %320, %247, %257, %183, %194, %129, %397, %418, %444, %.thread622, %.thread628, %.thread634, %.split758.us, %.split752.us, %.split746.us, %.thread596, %.thread602, %.thread608, %.split732.us, %.split726.us, %.split720.us, %.thread570, %.thread576, %.thread582, %.split706.us, %.split700.us, %.split694.us, %.thread, %.thread550, %.thread556, %54, %30, %462, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split746.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %444 ], [ -1, %.split694.us ], [ -1, %.split720.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread556 ], [ -1, %.split706.us ], [ -1, %.thread ], [ -1, %.split700.us ], [ -1, %.thread550 ], [ -1, %.thread582 ], [ -1, %.split732.us ], [ -1, %.thread570 ], [ -1, %.split726.us ], [ -1, %.thread576 ], [ -1, %.thread608 ], [ -1, %.split758.us ], [ -1, %.thread596 ], [ -1, %.split752.us ], [ -1, %.thread602 ], [ -1, %.thread634 ], [ -1, %397 ], [ -1, %.thread622 ], [ -1, %418 ], [ -1, %.thread628 ], [ 0, %129 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %194 ], [ 0, %309 ], [ 0, %458 ], [ 0, %183 ], [ 0, %448 ]
+  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split706.us ], [ -1, %.split700.us ], [ -1, %.split694.us ], [ -1, %.thread ], [ -1, %.thread550 ], [ -1, %.thread556 ], [ -1, %.split732.us ], [ -1, %.split726.us ], [ -1, %.split720.us ], [ -1, %.thread570 ], [ -1, %.thread576 ], [ -1, %.thread582 ], [ -1, %.split758.us ], [ -1, %.split752.us ], [ -1, %.split746.us ], [ -1, %.thread596 ], [ -1, %.thread602 ], [ -1, %.thread608 ], [ -1, %397 ], [ -1, %418 ], [ -1, %444 ], [ -1, %.thread622 ], [ -1, %.thread628 ], [ -1, %.thread634 ], [ 0, %129 ], [ 0, %194 ], [ 0, %183 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %309 ], [ 0, %458 ], [ 0, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %466
 
 466:                                              ; preds = %9, %.loopexit661
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit661 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit661 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -33587,7 +33587,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_ULONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -33604,7 +33604,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -33783,7 +33783,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %182, %170, %140, %156
-  %.sink = phi i64 [ 0, %170 ], [ %141, %140 ], [ %158, %156 ], [ -1, %182 ]
+  %.sink = phi i64 [ %158, %156 ], [ %141, %140 ], [ 0, %170 ], [ -1, %182 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !14
   br label %183
 
@@ -33813,7 +33813,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   br label %194
 
 194:                                              ; preds = %.preheader.us, %190, %192
-  %195 = phi i64 [ 0, %190 ], [ %193, %192 ], [ -1, %.preheader.us ]
+  %195 = phi i64 [ %193, %192 ], [ 0, %190 ], [ -1, %.preheader.us ]
   store i64 %195, ptr %.2445686.us, align 1
   %196 = getelementptr inbounds i8, ptr %.2454685.us, i64 %.
   %197 = getelementptr inbounds i8, ptr %.2445686.us, i64 %.
@@ -33925,7 +33925,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   ]
 
 .sink.split806:                                   ; preds = %246, %234, %204, %220
-  %.sink807 = phi i64 [ 0, %234 ], [ %205, %204 ], [ %222, %220 ], [ -1, %246 ]
+  %.sink807 = phi i64 [ %222, %220 ], [ %205, %204 ], [ 0, %234 ], [ -1, %246 ]
   store i64 %.sink807, ptr %.3446676.us, align 8, !tbaa !14
   br label %247
 
@@ -33953,7 +33953,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   br label %257
 
 257:                                              ; preds = %.preheader649.us, %253, %255
-  %.sink808 = phi i64 [ 0, %253 ], [ %256, %255 ], [ -1, %.preheader649.us ]
+  %.sink808 = phi i64 [ %256, %255 ], [ 0, %253 ], [ -1, %.preheader649.us ]
   store i64 %.sink808, ptr %.4447679.us, align 8, !tbaa !14
   %258 = getelementptr inbounds i8, ptr %.4456678.us, i64 %.
   %259 = getelementptr inbounds i8, ptr %.4447679.us, i64 %.
@@ -34063,7 +34063,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   ]
 
 .sink.split809:                                   ; preds = %308, %296, %266, %282
-  %.sink810 = phi i64 [ 0, %296 ], [ %267, %266 ], [ %284, %282 ], [ -1, %308 ]
+  %.sink810 = phi i64 [ %284, %282 ], [ %267, %266 ], [ 0, %296 ], [ -1, %308 ]
   store i64 %.sink810, ptr %11, align 8, !tbaa !14
   br label %309
 
@@ -34093,7 +34093,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   br label %320
 
 320:                                              ; preds = %.preheader653.us, %316, %318
-  %321 = phi i64 [ 0, %316 ], [ %319, %318 ], [ -1, %.preheader653.us ]
+  %321 = phi i64 [ %319, %318 ], [ 0, %316 ], [ -1, %.preheader653.us ]
   store i64 %321, ptr %.6449673.us, align 1
   %322 = getelementptr inbounds i8, ptr %.6458672.us, i64 %.
   %323 = getelementptr inbounds i8, ptr %.6449673.us, i64 %.
@@ -34368,7 +34368,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   br label %.loopexit661
 
 .sink.split846:                                   ; preds = %422, %417, %396, %441
-  %.sink847 = phi i64 [ -1, %396 ], [ %443, %441 ], [ 0, %417 ], [ %423, %422 ]
+  %.sink847 = phi i64 [ %443, %441 ], [ -1, %396 ], [ 0, %417 ], [ %423, %422 ]
   store i64 %.sink847, ptr %.7450664, align 8, !tbaa !14
   br label %448
 
@@ -34396,7 +34396,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   br label %458
 
 458:                                              ; preds = %454, %.preheader657, %456
-  %.sink848 = phi i64 [ -1, %.preheader657 ], [ %457, %456 ], [ 0, %454 ]
+  %.sink848 = phi i64 [ %457, %456 ], [ -1, %.preheader657 ], [ 0, %454 ]
   store i64 %.sink848, ptr %.8451667, align 8, !tbaa !14
   %459 = getelementptr inbounds i8, ptr %.8460666, i64 %.
   %460 = getelementptr inbounds i8, ptr %.8451667, i64 %.
@@ -34411,13 +34411,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ulong(ptr noundef readonly capture
   br label %.loopexit661
 
 .loopexit661:                                     ; preds = %448, %458, %309, %320, %247, %257, %183, %194, %129, %397, %418, %444, %.thread622, %.thread628, %.thread634, %.split758.us, %.split752.us, %.split746.us, %.thread596, %.thread602, %.thread608, %.split732.us, %.split726.us, %.split720.us, %.thread570, %.thread576, %.thread582, %.split706.us, %.split700.us, %.split694.us, %.thread, %.thread550, %.thread556, %54, %30, %462, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split746.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %444 ], [ -1, %.split694.us ], [ -1, %.split720.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread556 ], [ -1, %.split706.us ], [ -1, %.thread ], [ -1, %.split700.us ], [ -1, %.thread550 ], [ -1, %.thread582 ], [ -1, %.split732.us ], [ -1, %.thread570 ], [ -1, %.split726.us ], [ -1, %.thread576 ], [ -1, %.thread608 ], [ -1, %.split758.us ], [ -1, %.thread596 ], [ -1, %.split752.us ], [ -1, %.thread602 ], [ -1, %.thread634 ], [ -1, %397 ], [ -1, %.thread622 ], [ -1, %418 ], [ -1, %.thread628 ], [ 0, %129 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %194 ], [ 0, %309 ], [ 0, %458 ], [ 0, %183 ], [ 0, %448 ]
+  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split706.us ], [ -1, %.split700.us ], [ -1, %.split694.us ], [ -1, %.thread ], [ -1, %.thread550 ], [ -1, %.thread556 ], [ -1, %.split732.us ], [ -1, %.split726.us ], [ -1, %.split720.us ], [ -1, %.thread570 ], [ -1, %.thread576 ], [ -1, %.thread582 ], [ -1, %.split758.us ], [ -1, %.split752.us ], [ -1, %.split746.us ], [ -1, %.thread596 ], [ -1, %.thread602 ], [ -1, %.thread608 ], [ -1, %397 ], [ -1, %418 ], [ -1, %444 ], [ -1, %.thread622 ], [ -1, %.thread628 ], [ -1, %.thread634 ], [ 0, %129 ], [ 0, %194 ], [ 0, %183 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %309 ], [ 0, %458 ], [ 0, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %466
 
 466:                                              ; preds = %9, %.loopexit661
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit661 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit661 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -34537,7 +34537,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_LLONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -34554,7 +34554,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -34733,7 +34733,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %182, %170, %140, %156
-  %.sink = phi i64 [ -9223372036854775808, %170 ], [ %141, %140 ], [ %158, %156 ], [ 9223372036854775807, %182 ]
+  %.sink = phi i64 [ %158, %156 ], [ %141, %140 ], [ -9223372036854775808, %170 ], [ 9223372036854775807, %182 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !129
   br label %183
 
@@ -34763,7 +34763,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   br label %194
 
 194:                                              ; preds = %.preheader.us, %190, %192
-  %195 = phi i64 [ -9223372036854775808, %190 ], [ %193, %192 ], [ 9223372036854775807, %.preheader.us ]
+  %195 = phi i64 [ %193, %192 ], [ -9223372036854775808, %190 ], [ 9223372036854775807, %.preheader.us ]
   store i64 %195, ptr %.2445686.us, align 1
   %196 = getelementptr inbounds i8, ptr %.2454685.us, i64 %.
   %197 = getelementptr inbounds i8, ptr %.2445686.us, i64 %.
@@ -34875,7 +34875,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   ]
 
 .sink.split806:                                   ; preds = %246, %234, %204, %220
-  %.sink807 = phi i64 [ -9223372036854775808, %234 ], [ %205, %204 ], [ %222, %220 ], [ 9223372036854775807, %246 ]
+  %.sink807 = phi i64 [ %222, %220 ], [ %205, %204 ], [ -9223372036854775808, %234 ], [ 9223372036854775807, %246 ]
   store i64 %.sink807, ptr %.3446676.us, align 8, !tbaa !129
   br label %247
 
@@ -34903,7 +34903,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   br label %257
 
 257:                                              ; preds = %.preheader649.us, %253, %255
-  %.sink808 = phi i64 [ -9223372036854775808, %253 ], [ %256, %255 ], [ 9223372036854775807, %.preheader649.us ]
+  %.sink808 = phi i64 [ %256, %255 ], [ -9223372036854775808, %253 ], [ 9223372036854775807, %.preheader649.us ]
   store i64 %.sink808, ptr %.4447679.us, align 8, !tbaa !129
   %258 = getelementptr inbounds i8, ptr %.4456678.us, i64 %.
   %259 = getelementptr inbounds i8, ptr %.4447679.us, i64 %.
@@ -35013,7 +35013,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   ]
 
 .sink.split809:                                   ; preds = %308, %296, %266, %282
-  %.sink810 = phi i64 [ -9223372036854775808, %296 ], [ %267, %266 ], [ %284, %282 ], [ 9223372036854775807, %308 ]
+  %.sink810 = phi i64 [ %284, %282 ], [ %267, %266 ], [ -9223372036854775808, %296 ], [ 9223372036854775807, %308 ]
   store i64 %.sink810, ptr %11, align 8, !tbaa !129
   br label %309
 
@@ -35043,7 +35043,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   br label %320
 
 320:                                              ; preds = %.preheader653.us, %316, %318
-  %321 = phi i64 [ -9223372036854775808, %316 ], [ %319, %318 ], [ 9223372036854775807, %.preheader653.us ]
+  %321 = phi i64 [ %319, %318 ], [ -9223372036854775808, %316 ], [ 9223372036854775807, %.preheader653.us ]
   store i64 %321, ptr %.6449673.us, align 1
   %322 = getelementptr inbounds i8, ptr %.6458672.us, i64 %.
   %323 = getelementptr inbounds i8, ptr %.6449673.us, i64 %.
@@ -35318,7 +35318,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   br label %.loopexit661
 
 .sink.split846:                                   ; preds = %422, %417, %396, %441
-  %.sink847 = phi i64 [ 9223372036854775807, %396 ], [ %443, %441 ], [ -9223372036854775808, %417 ], [ %423, %422 ]
+  %.sink847 = phi i64 [ %443, %441 ], [ 9223372036854775807, %396 ], [ -9223372036854775808, %417 ], [ %423, %422 ]
   store i64 %.sink847, ptr %.7450664, align 8, !tbaa !129
   br label %448
 
@@ -35346,7 +35346,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   br label %458
 
 458:                                              ; preds = %454, %.preheader657, %456
-  %.sink848 = phi i64 [ 9223372036854775807, %.preheader657 ], [ %457, %456 ], [ -9223372036854775808, %454 ]
+  %.sink848 = phi i64 [ %457, %456 ], [ 9223372036854775807, %.preheader657 ], [ -9223372036854775808, %454 ]
   store i64 %.sink848, ptr %.8451667, align 8, !tbaa !129
   %459 = getelementptr inbounds i8, ptr %.8460666, i64 %.
   %460 = getelementptr inbounds i8, ptr %.8451667, i64 %.
@@ -35361,13 +35361,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_llong(ptr noundef readonly capture
   br label %.loopexit661
 
 .loopexit661:                                     ; preds = %448, %458, %309, %320, %247, %257, %183, %194, %129, %397, %418, %444, %.thread622, %.thread628, %.thread634, %.split758.us, %.split752.us, %.split746.us, %.thread596, %.thread602, %.thread608, %.split732.us, %.split726.us, %.split720.us, %.thread570, %.thread576, %.thread582, %.split706.us, %.split700.us, %.split694.us, %.thread, %.thread550, %.thread556, %54, %30, %462, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split746.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %444 ], [ -1, %.split694.us ], [ -1, %.split720.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread556 ], [ -1, %.split706.us ], [ -1, %.thread ], [ -1, %.split700.us ], [ -1, %.thread550 ], [ -1, %.thread582 ], [ -1, %.split732.us ], [ -1, %.thread570 ], [ -1, %.split726.us ], [ -1, %.thread576 ], [ -1, %.thread608 ], [ -1, %.split758.us ], [ -1, %.thread596 ], [ -1, %.split752.us ], [ -1, %.thread602 ], [ -1, %.thread634 ], [ -1, %397 ], [ -1, %.thread622 ], [ -1, %418 ], [ -1, %.thread628 ], [ 0, %129 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %194 ], [ 0, %309 ], [ 0, %458 ], [ 0, %183 ], [ 0, %448 ]
+  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split706.us ], [ -1, %.split700.us ], [ -1, %.split694.us ], [ -1, %.thread ], [ -1, %.thread550 ], [ -1, %.thread556 ], [ -1, %.split732.us ], [ -1, %.split726.us ], [ -1, %.split720.us ], [ -1, %.thread570 ], [ -1, %.thread576 ], [ -1, %.thread582 ], [ -1, %.split758.us ], [ -1, %.split752.us ], [ -1, %.split746.us ], [ -1, %.thread596 ], [ -1, %.thread602 ], [ -1, %.thread608 ], [ -1, %397 ], [ -1, %418 ], [ -1, %444 ], [ -1, %.thread622 ], [ -1, %.thread628 ], [ -1, %.thread634 ], [ 0, %129 ], [ 0, %194 ], [ 0, %183 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %309 ], [ 0, %458 ], [ 0, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %466
 
 466:                                              ; preds = %9, %.loopexit661
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit661 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit661 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -35487,7 +35487,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_ULLONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -35504,7 +35504,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -35683,7 +35683,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   ]
 
 .sink.split:                                      ; preds = %182, %170, %140, %156
-  %.sink = phi i64 [ 0, %170 ], [ %141, %140 ], [ %158, %156 ], [ -1, %182 ]
+  %.sink = phi i64 [ %158, %156 ], [ %141, %140 ], [ 0, %170 ], [ -1, %182 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !129
   br label %183
 
@@ -35713,7 +35713,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   br label %194
 
 194:                                              ; preds = %.preheader.us, %190, %192
-  %195 = phi i64 [ 0, %190 ], [ %193, %192 ], [ -1, %.preheader.us ]
+  %195 = phi i64 [ %193, %192 ], [ 0, %190 ], [ -1, %.preheader.us ]
   store i64 %195, ptr %.2445686.us, align 1
   %196 = getelementptr inbounds i8, ptr %.2454685.us, i64 %.
   %197 = getelementptr inbounds i8, ptr %.2445686.us, i64 %.
@@ -35825,7 +35825,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   ]
 
 .sink.split806:                                   ; preds = %246, %234, %204, %220
-  %.sink807 = phi i64 [ 0, %234 ], [ %205, %204 ], [ %222, %220 ], [ -1, %246 ]
+  %.sink807 = phi i64 [ %222, %220 ], [ %205, %204 ], [ 0, %234 ], [ -1, %246 ]
   store i64 %.sink807, ptr %.3446676.us, align 8, !tbaa !129
   br label %247
 
@@ -35853,7 +35853,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   br label %257
 
 257:                                              ; preds = %.preheader649.us, %253, %255
-  %.sink808 = phi i64 [ 0, %253 ], [ %256, %255 ], [ -1, %.preheader649.us ]
+  %.sink808 = phi i64 [ %256, %255 ], [ 0, %253 ], [ -1, %.preheader649.us ]
   store i64 %.sink808, ptr %.4447679.us, align 8, !tbaa !129
   %258 = getelementptr inbounds i8, ptr %.4456678.us, i64 %.
   %259 = getelementptr inbounds i8, ptr %.4447679.us, i64 %.
@@ -35963,7 +35963,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   ]
 
 .sink.split809:                                   ; preds = %308, %296, %266, %282
-  %.sink810 = phi i64 [ 0, %296 ], [ %267, %266 ], [ %284, %282 ], [ -1, %308 ]
+  %.sink810 = phi i64 [ %284, %282 ], [ %267, %266 ], [ 0, %296 ], [ -1, %308 ]
   store i64 %.sink810, ptr %11, align 8, !tbaa !129
   br label %309
 
@@ -35993,7 +35993,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   br label %320
 
 320:                                              ; preds = %.preheader653.us, %316, %318
-  %321 = phi i64 [ 0, %316 ], [ %319, %318 ], [ -1, %.preheader653.us ]
+  %321 = phi i64 [ %319, %318 ], [ 0, %316 ], [ -1, %.preheader653.us ]
   store i64 %321, ptr %.6449673.us, align 1
   %322 = getelementptr inbounds i8, ptr %.6458672.us, i64 %.
   %323 = getelementptr inbounds i8, ptr %.6449673.us, i64 %.
@@ -36268,7 +36268,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   br label %.loopexit661
 
 .sink.split846:                                   ; preds = %422, %417, %396, %441
-  %.sink847 = phi i64 [ -1, %396 ], [ %443, %441 ], [ 0, %417 ], [ %423, %422 ]
+  %.sink847 = phi i64 [ %443, %441 ], [ -1, %396 ], [ 0, %417 ], [ %423, %422 ]
   store i64 %.sink847, ptr %.7450664, align 8, !tbaa !129
   br label %448
 
@@ -36296,7 +36296,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   br label %458
 
 458:                                              ; preds = %454, %.preheader657, %456
-  %.sink848 = phi i64 [ -1, %.preheader657 ], [ %457, %456 ], [ 0, %454 ]
+  %.sink848 = phi i64 [ %457, %456 ], [ -1, %.preheader657 ], [ 0, %454 ]
   store i64 %.sink848, ptr %.8451667, align 8, !tbaa !129
   %459 = getelementptr inbounds i8, ptr %.8460666, i64 %.
   %460 = getelementptr inbounds i8, ptr %.8451667, i64 %.
@@ -36311,13 +36311,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ullong(ptr noundef readonly captur
   br label %.loopexit661
 
 .loopexit661:                                     ; preds = %448, %458, %309, %320, %247, %257, %183, %194, %129, %397, %418, %444, %.thread622, %.thread628, %.thread634, %.split758.us, %.split752.us, %.split746.us, %.thread596, %.thread602, %.thread608, %.split732.us, %.split726.us, %.split720.us, %.thread570, %.thread576, %.thread582, %.split706.us, %.split700.us, %.split694.us, %.thread, %.thread550, %.thread556, %54, %30, %462, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split746.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %444 ], [ -1, %.split694.us ], [ -1, %.split720.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread556 ], [ -1, %.split706.us ], [ -1, %.thread ], [ -1, %.split700.us ], [ -1, %.thread550 ], [ -1, %.thread582 ], [ -1, %.split732.us ], [ -1, %.thread570 ], [ -1, %.split726.us ], [ -1, %.thread576 ], [ -1, %.thread608 ], [ -1, %.split758.us ], [ -1, %.thread596 ], [ -1, %.split752.us ], [ -1, %.thread602 ], [ -1, %.thread634 ], [ -1, %397 ], [ -1, %.thread622 ], [ -1, %418 ], [ -1, %.thread628 ], [ 0, %129 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %194 ], [ 0, %309 ], [ 0, %458 ], [ 0, %183 ], [ 0, %448 ]
+  %.1490 = phi i32 [ -1, %462 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split706.us ], [ -1, %.split700.us ], [ -1, %.split694.us ], [ -1, %.thread ], [ -1, %.thread550 ], [ -1, %.thread556 ], [ -1, %.split732.us ], [ -1, %.split726.us ], [ -1, %.split720.us ], [ -1, %.thread570 ], [ -1, %.thread576 ], [ -1, %.thread582 ], [ -1, %.split758.us ], [ -1, %.split752.us ], [ -1, %.split746.us ], [ -1, %.thread596 ], [ -1, %.thread602 ], [ -1, %.thread608 ], [ -1, %397 ], [ -1, %418 ], [ -1, %444 ], [ -1, %.thread622 ], [ -1, %.thread628 ], [ -1, %.thread634 ], [ 0, %129 ], [ 0, %194 ], [ 0, %183 ], [ 0, %257 ], [ 0, %247 ], [ 0, %320 ], [ 0, %309 ], [ 0, %458 ], [ 0, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %466
 
 466:                                              ; preds = %9, %.loopexit661
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit661 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit661 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -36434,7 +36434,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double__Float16(ptr noundef readonly capt
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_FLOAT16_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -36451,7 +36451,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double__Float16(ptr noundef readonly capt
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not421550 = icmp eq i64 %4, 0
   br i1 %.not421550, label %.loopexit524, label %.lr.ph
 
@@ -37262,13 +37262,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double__Float16(ptr noundef readonly capt
   br label %.loopexit524
 
 .loopexit524:                                     ; preds = %.loopexit521, %.loopexit517.us, %.loopexit515.us, %.loopexit511.us, %84, %397, %420, %.thread491, %.thread497, %.split603.us, %.split597.us, %.thread471, %.thread477, %.split583.us, %.split577.us, %.thread451, %.thread457, %.split563.us, %.split557.us, %.thread, %.thread437, %50, %26, %445, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split597.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %420 ], [ -1, %.split557.us ], [ -1, %.split577.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread437 ], [ -1, %.split563.us ], [ -1, %.thread ], [ -1, %.thread457 ], [ -1, %.split583.us ], [ -1, %.thread451 ], [ -1, %.thread477 ], [ -1, %.split603.us ], [ -1, %.thread471 ], [ -1, %.thread497 ], [ -1, %397 ], [ -1, %.thread491 ], [ 0, %84 ], [ 0, %.loopexit511.us ], [ 0, %.loopexit515.us ], [ 0, %.loopexit517.us ], [ 0, %.loopexit521 ]
+  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split563.us ], [ -1, %.split557.us ], [ -1, %.thread ], [ -1, %.thread437 ], [ -1, %.split583.us ], [ -1, %.split577.us ], [ -1, %.thread451 ], [ -1, %.thread457 ], [ -1, %.split603.us ], [ -1, %.split597.us ], [ -1, %.thread471 ], [ -1, %.thread477 ], [ -1, %397 ], [ -1, %420 ], [ -1, %.thread491 ], [ -1, %.thread497 ], [ 0, %84 ], [ 0, %.loopexit511.us ], [ 0, %.loopexit515.us ], [ 0, %.loopexit517.us ], [ 0, %.loopexit521 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %449
 
 449:                                              ; preds = %9, %.loopexit524
-  %.0391 = phi i32 [ 0, %9 ], [ %.1392, %.loopexit524 ]
+  %.0391 = phi i32 [ %.1392, %.loopexit524 ], [ 0, %9 ]
   ret i32 %.0391
 }
 
@@ -37385,7 +37385,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_float(ptr noundef readonly capture
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_FLOAT_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -37402,7 +37402,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_float(ptr noundef readonly capture
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not421550 = icmp eq i64 %4, 0
   br i1 %.not421550, label %.loopexit524, label %.lr.ph
 
@@ -38213,13 +38213,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_float(ptr noundef readonly capture
   br label %.loopexit524
 
 .loopexit524:                                     ; preds = %.loopexit521, %.loopexit517.us, %.loopexit515.us, %.loopexit511.us, %84, %397, %420, %.thread491, %.thread497, %.split603.us, %.split597.us, %.thread471, %.thread477, %.split583.us, %.split577.us, %.thread451, %.thread457, %.split563.us, %.split557.us, %.thread, %.thread437, %50, %26, %445, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split597.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %420 ], [ -1, %.split557.us ], [ -1, %.split577.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread437 ], [ -1, %.split563.us ], [ -1, %.thread ], [ -1, %.thread457 ], [ -1, %.split583.us ], [ -1, %.thread451 ], [ -1, %.thread477 ], [ -1, %.split603.us ], [ -1, %.thread471 ], [ -1, %.thread497 ], [ -1, %397 ], [ -1, %.thread491 ], [ 0, %84 ], [ 0, %.loopexit511.us ], [ 0, %.loopexit515.us ], [ 0, %.loopexit517.us ], [ 0, %.loopexit521 ]
+  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split563.us ], [ -1, %.split557.us ], [ -1, %.thread ], [ -1, %.thread437 ], [ -1, %.split583.us ], [ -1, %.split577.us ], [ -1, %.thread451 ], [ -1, %.thread457 ], [ -1, %.split603.us ], [ -1, %.split597.us ], [ -1, %.thread471 ], [ -1, %.thread477 ], [ -1, %397 ], [ -1, %420 ], [ -1, %.thread491 ], [ -1, %.thread497 ], [ 0, %84 ], [ 0, %.loopexit511.us ], [ 0, %.loopexit515.us ], [ 0, %.loopexit517.us ], [ 0, %.loopexit521 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %449
 
 449:                                              ; preds = %9, %.loopexit524
-  %.0391 = phi i32 [ 0, %9 ], [ %.1392, %.loopexit524 ]
+  %.0391 = phi i32 [ %.1392, %.loopexit524 ], [ 0, %9 ]
   ret i32 %.0391
 }
 
@@ -38324,7 +38324,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ldouble(ptr noundef readonly captu
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LDOUBLE_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -38341,7 +38341,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ldouble(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not233280 = icmp eq i64 %4, 0
   br i1 %.not233280, label %.loopexit255, label %.lr.ph
 
@@ -38658,7 +38658,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_ldouble(ptr noundef readonly captu
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit252, %.loopexit248.us, %.loopexit244.us, %.loopexit.us, %74, %9, %40, %16, %208, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %208 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit244.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252 ]
   ret i32 %.0212
 }
 
@@ -38774,7 +38774,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_fcomplex(ptr noundef readonly capt
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_FLOAT_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -38791,7 +38791,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_fcomplex(ptr noundef readonly capt
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not445597 = icmp eq i64 %4, 0
   br i1 %.not445597, label %.loopexit571, label %.lr.ph
 
@@ -39450,13 +39450,13 @@ define range(i32 -1, 1) i32 @H5T__conv_double_fcomplex(ptr noundef readonly capt
   br label %.loopexit571
 
 .loopexit571:                                     ; preds = %.thread539, %364, %.thread513.us, %257, %.thread487.us, %200, %.thread461.us, %143, %84, %342, %.thread545, %318, %.thread532, %.split644.us, %.thread519, %.split650.us, %.thread506, %.split624.us, %.thread493, %.split630.us, %.thread480, %.split604.us, %.thread467, %.split610.us, %.thread, %50, %26, %369, %61, %55, %46, %32
-  %.1412 = phi i32 [ -1, %369 ], [ -1, %32 ], [ -1, %46 ], [ -1, %318 ], [ -1, %55 ], [ -1, %61 ], [ -1, %342 ], [ -1, %.split610.us ], [ -1, %.split604.us ], [ -1, %.split630.us ], [ -1, %.split624.us ], [ -1, %.split650.us ], [ -1, %.split644.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread ], [ -1, %.thread467 ], [ -1, %.thread480 ], [ -1, %.thread493 ], [ -1, %.thread506 ], [ -1, %.thread519 ], [ -1, %.thread532 ], [ -1, %.thread545 ], [ 0, %84 ], [ 0, %200 ], [ 0, %.thread487.us ], [ 0, %257 ], [ 0, %143 ], [ 0, %.thread513.us ], [ 0, %364 ], [ 0, %.thread461.us ], [ 0, %.thread539 ]
+  %.1412 = phi i32 [ -1, %369 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split610.us ], [ -1, %.thread ], [ -1, %.split604.us ], [ -1, %.thread467 ], [ -1, %.split630.us ], [ -1, %.thread480 ], [ -1, %.split624.us ], [ -1, %.thread493 ], [ -1, %.split650.us ], [ -1, %.thread506 ], [ -1, %.split644.us ], [ -1, %.thread519 ], [ -1, %318 ], [ -1, %.thread532 ], [ -1, %342 ], [ -1, %.thread545 ], [ 0, %84 ], [ 0, %143 ], [ 0, %.thread461.us ], [ 0, %200 ], [ 0, %.thread487.us ], [ 0, %257 ], [ 0, %.thread513.us ], [ 0, %364 ], [ 0, %.thread539 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %373
 
 373:                                              ; preds = %9, %.loopexit571
-  %.0411 = phi i32 [ 0, %9 ], [ %.1412, %.loopexit571 ]
+  %.0411 = phi i32 [ %.1412, %.loopexit571 ], [ 0, %9 ]
   ret i32 %.0411
 }
 
@@ -39561,7 +39561,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_dcomplex(ptr noundef readonly capt
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_DOUBLE_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -39578,7 +39578,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_dcomplex(ptr noundef readonly capt
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not235282 = icmp eq i64 %4, 0
   br i1 %.not235282, label %.loopexit257, label %.lr.ph
 
@@ -39903,7 +39903,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_dcomplex(ptr noundef readonly capt
   br label %.loopexit257
 
 .loopexit257:                                     ; preds = %.loopexit254, %.loopexit250.us, %.loopexit246.us, %.loopexit.us, %74, %9, %40, %16, %204, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %204 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %204 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit246.us ], [ 0, %.loopexit250.us ], [ 0, %.loopexit254 ]
   ret i32 %.0212
 }
 
@@ -40008,7 +40008,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_lcomplex(ptr noundef readonly capt
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LDOUBLE_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -40025,7 +40025,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_lcomplex(ptr noundef readonly capt
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not236283 = icmp eq i64 %4, 0
   br i1 %.not236283, label %.loopexit258, label %.lr.ph
 
@@ -40358,7 +40358,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double_lcomplex(ptr noundef readonly capt
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %.loopexit255, %.loopexit251.us, %.loopexit247.us, %.loopexit.us, %74, %9, %40, %16, %212, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit247.us ], [ 0, %.loopexit251.us ], [ 0, %.loopexit255 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %212 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit247.us ], [ 0, %.loopexit251.us ], [ 0, %.loopexit255 ]
   ret i32 %.0212
 }
 
@@ -40479,7 +40479,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_SCHAR_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -40496,7 +40496,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -40712,7 +40712,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i8 [ -128, %192 ], [ %163, %162 ], [ %180, %178 ], [ 127, %204 ]
+  %.sink = phi i8 [ %180, %178 ], [ %163, %162 ], [ -128, %192 ], [ 127, %204 ]
   store i8 %.sink, ptr %11, align 1, !tbaa !32
   br label %205
 
@@ -40752,7 +40752,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i8 [ -128, %213 ], [ %216, %215 ], [ 127, %.preheader.us ]
+  %.sink818 = phi i8 [ %216, %215 ], [ -128, %213 ], [ 127, %.preheader.us ]
   store i8 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -40903,7 +40903,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i8 [ -128, %279 ], [ %250, %249 ], [ %267, %265 ], [ 127, %291 ]
+  %.sink820 = phi i8 [ %267, %265 ], [ %250, %249 ], [ -128, %279 ], [ 127, %291 ]
   store i8 %.sink820, ptr %.3446674.us, align 1, !tbaa !32
   br label %292
 
@@ -40932,7 +40932,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i8 [ -128, %298 ], [ %301, %300 ], [ 127, %.preheader647.us ]
+  %.sink821 = phi i8 [ %301, %300 ], [ -128, %298 ], [ 127, %.preheader647.us ]
   store i8 %.sink821, ptr %.4447677.us, align 1, !tbaa !32
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -41087,7 +41087,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i8 [ -128, %365 ], [ %336, %335 ], [ %353, %351 ], [ 127, %377 ]
+  %.sink823 = phi i8 [ %353, %351 ], [ %336, %335 ], [ -128, %365 ], [ 127, %377 ]
   store i8 %.sink823, ptr %11, align 1, !tbaa !32
   br label %378
 
@@ -41117,7 +41117,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i8 [ -128, %385 ], [ %388, %387 ], [ 127, %.preheader651.us ]
+  %.sink824 = phi i8 [ %388, %387 ], [ -128, %385 ], [ 127, %.preheader651.us ]
   store i8 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -41441,7 +41441,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i8 [ 127, %488 ], [ %535, %533 ], [ -128, %509 ], [ %515, %514 ]
+  %.sink861 = phi i8 [ %535, %533 ], [ 127, %488 ], [ -128, %509 ], [ %515, %514 ]
   store i8 %.sink861, ptr %.7450662, align 1, !tbaa !32
   br label %540
 
@@ -41469,7 +41469,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i8 [ 127, %.preheader655 ], [ %549, %548 ], [ -128, %546 ]
+  %.sink862 = phi i8 [ %549, %548 ], [ 127, %.preheader655 ], [ -128, %546 ]
   store i8 %.sink862, ptr %.8451665, align 1, !tbaa !32
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -41489,13 +41489,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_schar(ptr noundef readonly captur
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -41616,7 +41616,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_UCHAR_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -41633,7 +41633,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -41849,7 +41849,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i8 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i8 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i8 %.sink, ptr %11, align 1, !tbaa !32
   br label %205
 
@@ -41889,7 +41889,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i8 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink818 = phi i8 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i8 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -42040,7 +42040,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i8 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink820 = phi i8 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i8 %.sink820, ptr %.3446674.us, align 1, !tbaa !32
   br label %292
 
@@ -42069,7 +42069,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i8 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader647.us ]
+  %.sink821 = phi i8 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader647.us ]
   store i8 %.sink821, ptr %.4447677.us, align 1, !tbaa !32
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -42224,7 +42224,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i8 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink823 = phi i8 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i8 %.sink823, ptr %11, align 1, !tbaa !32
   br label %378
 
@@ -42254,7 +42254,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i8 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader651.us ]
+  %.sink824 = phi i8 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader651.us ]
   store i8 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -42578,7 +42578,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i8 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink861 = phi i8 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i8 %.sink861, ptr %.7450662, align 1, !tbaa !32
   br label %540
 
@@ -42606,7 +42606,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i8 [ -1, %.preheader655 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink862 = phi i8 [ %549, %548 ], [ -1, %.preheader655 ], [ 0, %546 ]
   store i8 %.sink862, ptr %.8451665, align 1, !tbaa !32
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -42626,13 +42626,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uchar(ptr noundef readonly captur
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -42753,7 +42753,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_SHORT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -42770,7 +42770,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -42986,7 +42986,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i16 [ -32768, %192 ], [ %163, %162 ], [ %180, %178 ], [ 32767, %204 ]
+  %.sink = phi i16 [ %180, %178 ], [ %163, %162 ], [ -32768, %192 ], [ 32767, %204 ]
   store i16 %.sink, ptr %11, align 2, !tbaa !72
   br label %205
 
@@ -43026,7 +43026,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i16 [ -32768, %213 ], [ %216, %215 ], [ 32767, %.preheader.us ]
+  %.sink818 = phi i16 [ %216, %215 ], [ -32768, %213 ], [ 32767, %.preheader.us ]
   store i16 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -43177,7 +43177,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i16 [ -32768, %279 ], [ %250, %249 ], [ %267, %265 ], [ 32767, %291 ]
+  %.sink820 = phi i16 [ %267, %265 ], [ %250, %249 ], [ -32768, %279 ], [ 32767, %291 ]
   store i16 %.sink820, ptr %.3446674.us, align 2, !tbaa !72
   br label %292
 
@@ -43206,7 +43206,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i16 [ -32768, %298 ], [ %301, %300 ], [ 32767, %.preheader647.us ]
+  %.sink821 = phi i16 [ %301, %300 ], [ -32768, %298 ], [ 32767, %.preheader647.us ]
   store i16 %.sink821, ptr %.4447677.us, align 2, !tbaa !72
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -43361,7 +43361,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i16 [ -32768, %365 ], [ %336, %335 ], [ %353, %351 ], [ 32767, %377 ]
+  %.sink823 = phi i16 [ %353, %351 ], [ %336, %335 ], [ -32768, %365 ], [ 32767, %377 ]
   store i16 %.sink823, ptr %11, align 2, !tbaa !72
   br label %378
 
@@ -43391,7 +43391,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i16 [ -32768, %385 ], [ %388, %387 ], [ 32767, %.preheader651.us ]
+  %.sink824 = phi i16 [ %388, %387 ], [ -32768, %385 ], [ 32767, %.preheader651.us ]
   store i16 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -43715,7 +43715,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i16 [ 32767, %488 ], [ %535, %533 ], [ -32768, %509 ], [ %515, %514 ]
+  %.sink861 = phi i16 [ %535, %533 ], [ 32767, %488 ], [ -32768, %509 ], [ %515, %514 ]
   store i16 %.sink861, ptr %.7450662, align 2, !tbaa !72
   br label %540
 
@@ -43743,7 +43743,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i16 [ 32767, %.preheader655 ], [ %549, %548 ], [ -32768, %546 ]
+  %.sink862 = phi i16 [ %549, %548 ], [ 32767, %.preheader655 ], [ -32768, %546 ]
   store i16 %.sink862, ptr %.8451665, align 2, !tbaa !72
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -43763,13 +43763,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_short(ptr noundef readonly captur
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -43890,7 +43890,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_USHORT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -43907,7 +43907,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -44123,7 +44123,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i16 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i16 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i16 %.sink, ptr %11, align 2, !tbaa !72
   br label %205
 
@@ -44163,7 +44163,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i16 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink818 = phi i16 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i16 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -44314,7 +44314,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i16 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink820 = phi i16 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i16 %.sink820, ptr %.3446674.us, align 2, !tbaa !72
   br label %292
 
@@ -44343,7 +44343,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i16 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader647.us ]
+  %.sink821 = phi i16 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader647.us ]
   store i16 %.sink821, ptr %.4447677.us, align 2, !tbaa !72
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -44498,7 +44498,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i16 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink823 = phi i16 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i16 %.sink823, ptr %11, align 2, !tbaa !72
   br label %378
 
@@ -44528,7 +44528,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i16 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader651.us ]
+  %.sink824 = phi i16 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader651.us ]
   store i16 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -44852,7 +44852,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i16 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink861 = phi i16 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i16 %.sink861, ptr %.7450662, align 2, !tbaa !72
   br label %540
 
@@ -44880,7 +44880,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i16 [ -1, %.preheader655 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink862 = phi i16 [ %549, %548 ], [ -1, %.preheader655 ], [ 0, %546 ]
   store i16 %.sink862, ptr %.8451665, align 2, !tbaa !72
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -44900,13 +44900,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ushort(ptr noundef readonly captu
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -45027,7 +45027,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_INT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -45044,7 +45044,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -45260,7 +45260,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i32 [ -2147483648, %192 ], [ %163, %162 ], [ %180, %178 ], [ 2147483647, %204 ]
+  %.sink = phi i32 [ %180, %178 ], [ %163, %162 ], [ -2147483648, %192 ], [ 2147483647, %204 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !25
   br label %205
 
@@ -45300,7 +45300,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i32 [ -2147483648, %213 ], [ %216, %215 ], [ 2147483647, %.preheader.us ]
+  %.sink818 = phi i32 [ %216, %215 ], [ -2147483648, %213 ], [ 2147483647, %.preheader.us ]
   store i32 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -45451,7 +45451,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i32 [ -2147483648, %279 ], [ %250, %249 ], [ %267, %265 ], [ 2147483647, %291 ]
+  %.sink820 = phi i32 [ %267, %265 ], [ %250, %249 ], [ -2147483648, %279 ], [ 2147483647, %291 ]
   store i32 %.sink820, ptr %.3446674.us, align 4, !tbaa !25
   br label %292
 
@@ -45480,7 +45480,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i32 [ -2147483648, %298 ], [ %301, %300 ], [ 2147483647, %.preheader647.us ]
+  %.sink821 = phi i32 [ %301, %300 ], [ -2147483648, %298 ], [ 2147483647, %.preheader647.us ]
   store i32 %.sink821, ptr %.4447677.us, align 4, !tbaa !25
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -45635,7 +45635,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i32 [ -2147483648, %365 ], [ %336, %335 ], [ %353, %351 ], [ 2147483647, %377 ]
+  %.sink823 = phi i32 [ %353, %351 ], [ %336, %335 ], [ -2147483648, %365 ], [ 2147483647, %377 ]
   store i32 %.sink823, ptr %11, align 4, !tbaa !25
   br label %378
 
@@ -45665,7 +45665,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i32 [ -2147483648, %385 ], [ %388, %387 ], [ 2147483647, %.preheader651.us ]
+  %.sink824 = phi i32 [ %388, %387 ], [ -2147483648, %385 ], [ 2147483647, %.preheader651.us ]
   store i32 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -45989,7 +45989,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i32 [ 2147483647, %488 ], [ %535, %533 ], [ -2147483648, %509 ], [ %515, %514 ]
+  %.sink861 = phi i32 [ %535, %533 ], [ 2147483647, %488 ], [ -2147483648, %509 ], [ %515, %514 ]
   store i32 %.sink861, ptr %.7450662, align 4, !tbaa !25
   br label %540
 
@@ -46017,7 +46017,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i32 [ 2147483647, %.preheader655 ], [ %549, %548 ], [ -2147483648, %546 ]
+  %.sink862 = phi i32 [ %549, %548 ], [ 2147483647, %.preheader655 ], [ -2147483648, %546 ]
   store i32 %.sink862, ptr %.8451665, align 4, !tbaa !25
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -46037,13 +46037,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_int(ptr noundef readonly captures
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -46164,7 +46164,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_UINT_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -46181,7 +46181,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -46397,7 +46397,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i32 [ %189, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i32 [ %180, %178 ], [ %163, %162 ], [ %189, %192 ], [ -1, %204 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !25
   br label %205
 
@@ -46437,7 +46437,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i32 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink818 = phi i32 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i32 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -46588,7 +46588,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i32 [ %276, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink820 = phi i32 [ %267, %265 ], [ %250, %249 ], [ %276, %279 ], [ -1, %291 ]
   store i32 %.sink820, ptr %.3446674.us, align 4, !tbaa !25
   br label %292
 
@@ -46617,7 +46617,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i32 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader647.us ]
+  %.sink821 = phi i32 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader647.us ]
   store i32 %.sink821, ptr %.4447677.us, align 4, !tbaa !25
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -46772,7 +46772,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i32 [ %362, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink823 = phi i32 [ %353, %351 ], [ %336, %335 ], [ %362, %365 ], [ -1, %377 ]
   store i32 %.sink823, ptr %11, align 4, !tbaa !25
   br label %378
 
@@ -46802,7 +46802,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i32 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader651.us ]
+  %.sink824 = phi i32 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader651.us ]
   store i32 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -47126,7 +47126,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i32 [ -1, %488 ], [ %535, %533 ], [ %503, %509 ], [ %515, %514 ]
+  %.sink861 = phi i32 [ %535, %533 ], [ -1, %488 ], [ %503, %509 ], [ %515, %514 ]
   store i32 %.sink861, ptr %.7450662, align 4, !tbaa !25
   br label %540
 
@@ -47154,7 +47154,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i32 [ -1, %.preheader655 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink862 = phi i32 [ %549, %548 ], [ -1, %.preheader655 ], [ 0, %546 ]
   store i32 %.sink862, ptr %.8451665, align 4, !tbaa !25
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -47174,13 +47174,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_uint(ptr noundef readonly capture
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -47301,7 +47301,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_LONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -47318,7 +47318,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -47534,7 +47534,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i64 [ -9223372036854775808, %192 ], [ %163, %162 ], [ %180, %178 ], [ 9223372036854775807, %204 ]
+  %.sink = phi i64 [ %180, %178 ], [ %163, %162 ], [ -9223372036854775808, %192 ], [ 9223372036854775807, %204 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !14
   br label %205
 
@@ -47574,7 +47574,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i64 [ -9223372036854775808, %213 ], [ %216, %215 ], [ 9223372036854775807, %.preheader.us ]
+  %.sink818 = phi i64 [ %216, %215 ], [ -9223372036854775808, %213 ], [ 9223372036854775807, %.preheader.us ]
   store i64 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -47725,7 +47725,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i64 [ -9223372036854775808, %279 ], [ %250, %249 ], [ %267, %265 ], [ 9223372036854775807, %291 ]
+  %.sink820 = phi i64 [ %267, %265 ], [ %250, %249 ], [ -9223372036854775808, %279 ], [ 9223372036854775807, %291 ]
   store i64 %.sink820, ptr %.3446674.us, align 8, !tbaa !14
   br label %292
 
@@ -47754,7 +47754,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i64 [ -9223372036854775808, %298 ], [ %301, %300 ], [ 9223372036854775807, %.preheader647.us ]
+  %.sink821 = phi i64 [ %301, %300 ], [ -9223372036854775808, %298 ], [ 9223372036854775807, %.preheader647.us ]
   store i64 %.sink821, ptr %.4447677.us, align 8, !tbaa !14
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -47909,7 +47909,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i64 [ -9223372036854775808, %365 ], [ %336, %335 ], [ %353, %351 ], [ 9223372036854775807, %377 ]
+  %.sink823 = phi i64 [ %353, %351 ], [ %336, %335 ], [ -9223372036854775808, %365 ], [ 9223372036854775807, %377 ]
   store i64 %.sink823, ptr %11, align 8, !tbaa !14
   br label %378
 
@@ -47939,7 +47939,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i64 [ -9223372036854775808, %385 ], [ %388, %387 ], [ 9223372036854775807, %.preheader651.us ]
+  %.sink824 = phi i64 [ %388, %387 ], [ -9223372036854775808, %385 ], [ 9223372036854775807, %.preheader651.us ]
   store i64 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -48263,7 +48263,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i64 [ 9223372036854775807, %488 ], [ %535, %533 ], [ -9223372036854775808, %509 ], [ %515, %514 ]
+  %.sink861 = phi i64 [ %535, %533 ], [ 9223372036854775807, %488 ], [ -9223372036854775808, %509 ], [ %515, %514 ]
   store i64 %.sink861, ptr %.7450662, align 8, !tbaa !14
   br label %540
 
@@ -48291,7 +48291,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i64 [ 9223372036854775807, %.preheader655 ], [ %549, %548 ], [ -9223372036854775808, %546 ]
+  %.sink862 = phi i64 [ %549, %548 ], [ 9223372036854775807, %.preheader655 ], [ -9223372036854775808, %546 ]
   store i64 %.sink862, ptr %.8451665, align 8, !tbaa !14
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -48311,13 +48311,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_long(ptr noundef readonly capture
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -48438,7 +48438,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_ULONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -48455,7 +48455,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -48671,7 +48671,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i64 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i64 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !14
   br label %205
 
@@ -48711,7 +48711,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i64 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink818 = phi i64 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i64 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -48862,7 +48862,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i64 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink820 = phi i64 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i64 %.sink820, ptr %.3446674.us, align 8, !tbaa !14
   br label %292
 
@@ -48891,7 +48891,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i64 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader647.us ]
+  %.sink821 = phi i64 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader647.us ]
   store i64 %.sink821, ptr %.4447677.us, align 8, !tbaa !14
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -49046,7 +49046,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i64 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink823 = phi i64 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i64 %.sink823, ptr %11, align 8, !tbaa !14
   br label %378
 
@@ -49076,7 +49076,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i64 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader651.us ]
+  %.sink824 = phi i64 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader651.us ]
   store i64 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -49400,7 +49400,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i64 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink861 = phi i64 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i64 %.sink861, ptr %.7450662, align 8, !tbaa !14
   br label %540
 
@@ -49428,7 +49428,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i64 [ -1, %.preheader655 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink862 = phi i64 [ %549, %548 ], [ -1, %.preheader655 ], [ 0, %546 ]
   store i64 %.sink862, ptr %.8451665, align 8, !tbaa !14
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -49448,13 +49448,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ulong(ptr noundef readonly captur
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -49575,7 +49575,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_LLONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -49592,7 +49592,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -49808,7 +49808,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i64 [ -9223372036854775808, %192 ], [ %163, %162 ], [ %180, %178 ], [ 9223372036854775807, %204 ]
+  %.sink = phi i64 [ %180, %178 ], [ %163, %162 ], [ -9223372036854775808, %192 ], [ 9223372036854775807, %204 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !129
   br label %205
 
@@ -49848,7 +49848,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i64 [ -9223372036854775808, %213 ], [ %216, %215 ], [ 9223372036854775807, %.preheader.us ]
+  %.sink818 = phi i64 [ %216, %215 ], [ -9223372036854775808, %213 ], [ 9223372036854775807, %.preheader.us ]
   store i64 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -49999,7 +49999,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i64 [ -9223372036854775808, %279 ], [ %250, %249 ], [ %267, %265 ], [ 9223372036854775807, %291 ]
+  %.sink820 = phi i64 [ %267, %265 ], [ %250, %249 ], [ -9223372036854775808, %279 ], [ 9223372036854775807, %291 ]
   store i64 %.sink820, ptr %.3446674.us, align 8, !tbaa !129
   br label %292
 
@@ -50028,7 +50028,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i64 [ -9223372036854775808, %298 ], [ %301, %300 ], [ 9223372036854775807, %.preheader647.us ]
+  %.sink821 = phi i64 [ %301, %300 ], [ -9223372036854775808, %298 ], [ 9223372036854775807, %.preheader647.us ]
   store i64 %.sink821, ptr %.4447677.us, align 8, !tbaa !129
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -50183,7 +50183,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i64 [ -9223372036854775808, %365 ], [ %336, %335 ], [ %353, %351 ], [ 9223372036854775807, %377 ]
+  %.sink823 = phi i64 [ %353, %351 ], [ %336, %335 ], [ -9223372036854775808, %365 ], [ 9223372036854775807, %377 ]
   store i64 %.sink823, ptr %11, align 8, !tbaa !129
   br label %378
 
@@ -50213,7 +50213,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i64 [ -9223372036854775808, %385 ], [ %388, %387 ], [ 9223372036854775807, %.preheader651.us ]
+  %.sink824 = phi i64 [ %388, %387 ], [ -9223372036854775808, %385 ], [ 9223372036854775807, %.preheader651.us ]
   store i64 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -50537,7 +50537,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i64 [ 9223372036854775807, %488 ], [ %535, %533 ], [ -9223372036854775808, %509 ], [ %515, %514 ]
+  %.sink861 = phi i64 [ %535, %533 ], [ 9223372036854775807, %488 ], [ -9223372036854775808, %509 ], [ %515, %514 ]
   store i64 %.sink861, ptr %.7450662, align 8, !tbaa !129
   br label %540
 
@@ -50565,7 +50565,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i64 [ 9223372036854775807, %.preheader655 ], [ %549, %548 ], [ -9223372036854775808, %546 ]
+  %.sink862 = phi i64 [ %549, %548 ], [ 9223372036854775807, %.preheader655 ], [ -9223372036854775808, %546 ]
   store i64 %.sink862, ptr %.8451665, align 8, !tbaa !129
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -50585,13 +50585,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_llong(ptr noundef readonly captur
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -50712,7 +50712,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   br label %78
 
 78:                                               ; preds = %72, %75, %69
-  %79 = phi i1 [ false, %69 ], [ %77, %75 ], [ true, %72 ]
+  %79 = phi i1 [ false, %69 ], [ true, %72 ], [ %77, %75 ]
   %80 = load i64, ptr @H5T_NATIVE_ULLONG_ALIGN_g, align 8, !tbaa !14
   %81 = icmp ugt i64 %80, 1
   br i1 %81, label %82, label %88
@@ -50729,7 +50729,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   br label %88
 
 88:                                               ; preds = %82, %85, %78
-  %89 = phi i1 [ false, %78 ], [ %87, %85 ], [ true, %82 ]
+  %89 = phi i1 [ false, %78 ], [ true, %82 ], [ %87, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -50945,7 +50945,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   ]
 
 .sink.split:                                      ; preds = %204, %192, %162, %178
-  %.sink = phi i64 [ 0, %192 ], [ %163, %162 ], [ %180, %178 ], [ -1, %204 ]
+  %.sink = phi i64 [ %180, %178 ], [ %163, %162 ], [ 0, %192 ], [ -1, %204 ]
   store i64 %.sink, ptr %11, align 8, !tbaa !129
   br label %205
 
@@ -50985,7 +50985,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   br label %217
 
 217:                                              ; preds = %.preheader.us, %213, %215
-  %.sink818 = phi i64 [ 0, %213 ], [ %216, %215 ], [ -1, %.preheader.us ]
+  %.sink818 = phi i64 [ %216, %215 ], [ 0, %213 ], [ -1, %.preheader.us ]
   store i64 %.sink818, ptr %.2445683.us, align 1
   %218 = getelementptr inbounds i8, ptr %.2454682.us, i64 %.2440.us
   %219 = getelementptr inbounds i8, ptr %.2445683.us, i64 %.2437.us
@@ -51136,7 +51136,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   ]
 
 .sink.split819:                                   ; preds = %291, %279, %249, %265
-  %.sink820 = phi i64 [ 0, %279 ], [ %250, %249 ], [ %267, %265 ], [ -1, %291 ]
+  %.sink820 = phi i64 [ %267, %265 ], [ %250, %249 ], [ 0, %279 ], [ -1, %291 ]
   store i64 %.sink820, ptr %.3446674.us, align 8, !tbaa !129
   br label %292
 
@@ -51165,7 +51165,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   br label %302
 
 302:                                              ; preds = %.preheader647.us, %298, %300
-  %.sink821 = phi i64 [ 0, %298 ], [ %301, %300 ], [ -1, %.preheader647.us ]
+  %.sink821 = phi i64 [ %301, %300 ], [ 0, %298 ], [ -1, %.preheader647.us ]
   store i64 %.sink821, ptr %.4447677.us, align 8, !tbaa !129
   %303 = getelementptr inbounds i8, ptr %.4456676.us, i64 %.2440.us709
   %304 = getelementptr inbounds i8, ptr %.4447677.us, i64 %.2437.us710
@@ -51320,7 +51320,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   ]
 
 .sink.split822:                                   ; preds = %377, %365, %335, %351
-  %.sink823 = phi i64 [ 0, %365 ], [ %336, %335 ], [ %353, %351 ], [ -1, %377 ]
+  %.sink823 = phi i64 [ %353, %351 ], [ %336, %335 ], [ 0, %365 ], [ -1, %377 ]
   store i64 %.sink823, ptr %11, align 8, !tbaa !129
   br label %378
 
@@ -51350,7 +51350,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   br label %389
 
 389:                                              ; preds = %.preheader651.us, %385, %387
-  %.sink824 = phi i64 [ 0, %385 ], [ %388, %387 ], [ -1, %.preheader651.us ]
+  %.sink824 = phi i64 [ %388, %387 ], [ 0, %385 ], [ -1, %.preheader651.us ]
   store i64 %.sink824, ptr %.6449671.us, align 1
   %390 = getelementptr inbounds i8, ptr %.6458670.us, i64 %.2440.us735
   %391 = getelementptr inbounds i8, ptr %.6449671.us, i64 %.2437.us736
@@ -51674,7 +51674,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   br label %.loopexit659
 
 .sink.split860:                                   ; preds = %514, %509, %488, %533
-  %.sink861 = phi i64 [ -1, %488 ], [ %535, %533 ], [ 0, %509 ], [ %515, %514 ]
+  %.sink861 = phi i64 [ %535, %533 ], [ -1, %488 ], [ 0, %509 ], [ %515, %514 ]
   store i64 %.sink861, ptr %.7450662, align 8, !tbaa !129
   br label %540
 
@@ -51702,7 +51702,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   br label %550
 
 550:                                              ; preds = %546, %.preheader655, %548
-  %.sink862 = phi i64 [ -1, %.preheader655 ], [ %549, %548 ], [ 0, %546 ]
+  %.sink862 = phi i64 [ %549, %548 ], [ -1, %.preheader655 ], [ 0, %546 ]
   store i64 %.sink862, ptr %.8451665, align 8, !tbaa !129
   %551 = getelementptr inbounds i8, ptr %.8460664, i64 %.2440
   %552 = getelementptr inbounds i8, ptr %.8451665, i64 %.2437
@@ -51722,13 +51722,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_ullong(ptr noundef readonly captu
   br label %.loopexit659
 
 .loopexit659:                                     ; preds = %.loopexit656, %.loopexit652.us, %.loopexit648.us, %.loopexit.us, %129, %489, %510, %536, %.thread620, %.thread626, %.thread632, %.split755.us, %.split749.us, %.split743.us, %.thread594, %.thread600, %.thread606, %.split729.us, %.split723.us, %.split717.us, %.thread568, %.thread574, %.thread580, %.split703.us, %.split697.us, %.split691.us, %.thread, %.thread548, %.thread554, %54, %30, %555, %65, %59, %50, %36
-  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %.split743.us ], [ -1, %59 ], [ -1, %65 ], [ -1, %536 ], [ -1, %.split691.us ], [ -1, %.split717.us ], [ 0, %54 ], [ 0, %30 ], [ -1, %.thread554 ], [ -1, %.split703.us ], [ -1, %.thread ], [ -1, %.split697.us ], [ -1, %.thread548 ], [ -1, %.thread580 ], [ -1, %.split729.us ], [ -1, %.thread568 ], [ -1, %.split723.us ], [ -1, %.thread574 ], [ -1, %.thread606 ], [ -1, %.split755.us ], [ -1, %.thread594 ], [ -1, %.split749.us ], [ -1, %.thread600 ], [ -1, %.thread632 ], [ -1, %489 ], [ -1, %.thread620 ], [ -1, %510 ], [ -1, %.thread626 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
+  %.1490 = phi i32 [ -1, %555 ], [ -1, %36 ], [ -1, %50 ], [ -1, %59 ], [ -1, %65 ], [ 0, %54 ], [ 0, %30 ], [ -1, %.split703.us ], [ -1, %.split697.us ], [ -1, %.split691.us ], [ -1, %.thread ], [ -1, %.thread548 ], [ -1, %.thread554 ], [ -1, %.split729.us ], [ -1, %.split723.us ], [ -1, %.split717.us ], [ -1, %.thread568 ], [ -1, %.thread574 ], [ -1, %.thread580 ], [ -1, %.split755.us ], [ -1, %.split749.us ], [ -1, %.split743.us ], [ -1, %.thread594 ], [ -1, %.thread600 ], [ -1, %.thread606 ], [ -1, %489 ], [ -1, %510 ], [ -1, %536 ], [ -1, %.thread620 ], [ -1, %.thread626 ], [ -1, %.thread632 ], [ 0, %129 ], [ 0, %.loopexit.us ], [ 0, %.loopexit648.us ], [ 0, %.loopexit652.us ], [ 0, %.loopexit656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %559
 
 559:                                              ; preds = %9, %.loopexit659
-  %.0489 = phi i32 [ 0, %9 ], [ %.1490, %.loopexit659 ]
+  %.0489 = phi i32 [ %.1490, %.loopexit659 ], [ 0, %9 ]
   ret i32 %.0489
 }
 
@@ -51845,7 +51845,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble__Float16(ptr noundef readonly cap
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_FLOAT16_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -51862,7 +51862,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble__Float16(ptr noundef readonly cap
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not421546 = icmp eq i64 %4, 0
   br i1 %.not421546, label %.loopexit521, label %.lr.ph
 
@@ -52666,13 +52666,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble__Float16(ptr noundef readonly cap
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit510.us, %.loopexit.us, %84, %397, %420, %.thread488, %.thread494, %.split599.us, %.split593.us, %.thread468, %.thread474, %.split579.us, %.split573.us, %.thread448, %.thread454, %.split559.us, %.split553.us, %.thread, %.thread434, %50, %26, %445, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split593.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %420 ], [ -1, %.split553.us ], [ -1, %.split573.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split559.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split579.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split599.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %397 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit.us ], [ 0, %.loopexit510.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split559.us ], [ -1, %.split553.us ], [ -1, %.thread ], [ -1, %.thread434 ], [ -1, %.split579.us ], [ -1, %.split573.us ], [ -1, %.thread448 ], [ -1, %.thread454 ], [ -1, %.split599.us ], [ -1, %.split593.us ], [ -1, %.thread468 ], [ -1, %.thread474 ], [ -1, %397 ], [ -1, %420 ], [ -1, %.thread488 ], [ -1, %.thread494 ], [ 0, %84 ], [ 0, %.loopexit.us ], [ 0, %.loopexit510.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %449
 
 449:                                              ; preds = %9, %.loopexit521
-  %.0391 = phi i32 [ 0, %9 ], [ %.1392, %.loopexit521 ]
+  %.0391 = phi i32 [ %.1392, %.loopexit521 ], [ 0, %9 ]
   ret i32 %.0391
 }
 
@@ -52789,7 +52789,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_float(ptr noundef readonly captur
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_FLOAT_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -52806,7 +52806,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_float(ptr noundef readonly captur
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not421546 = icmp eq i64 %4, 0
   br i1 %.not421546, label %.loopexit521, label %.lr.ph
 
@@ -53610,13 +53610,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_float(ptr noundef readonly captur
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit510.us, %.loopexit.us, %84, %397, %420, %.thread488, %.thread494, %.split599.us, %.split593.us, %.thread468, %.thread474, %.split579.us, %.split573.us, %.thread448, %.thread454, %.split559.us, %.split553.us, %.thread, %.thread434, %50, %26, %445, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split593.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %420 ], [ -1, %.split553.us ], [ -1, %.split573.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split559.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split579.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split599.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %397 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit.us ], [ 0, %.loopexit510.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split559.us ], [ -1, %.split553.us ], [ -1, %.thread ], [ -1, %.thread434 ], [ -1, %.split579.us ], [ -1, %.split573.us ], [ -1, %.thread448 ], [ -1, %.thread454 ], [ -1, %.split599.us ], [ -1, %.split593.us ], [ -1, %.thread468 ], [ -1, %.thread474 ], [ -1, %397 ], [ -1, %420 ], [ -1, %.thread488 ], [ -1, %.thread494 ], [ 0, %84 ], [ 0, %.loopexit.us ], [ 0, %.loopexit510.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %449
 
 449:                                              ; preds = %9, %.loopexit521
-  %.0391 = phi i32 [ 0, %9 ], [ %.1392, %.loopexit521 ]
+  %.0391 = phi i32 [ %.1392, %.loopexit521 ], [ 0, %9 ]
   ret i32 %.0391
 }
 
@@ -53733,7 +53733,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_double(ptr noundef readonly captu
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_DOUBLE_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -53750,7 +53750,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_double(ptr noundef readonly captu
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not421546 = icmp eq i64 %4, 0
   br i1 %.not421546, label %.loopexit521, label %.lr.ph
 
@@ -54554,13 +54554,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_double(ptr noundef readonly captu
   br label %.loopexit521
 
 .loopexit521:                                     ; preds = %.loopexit518, %.loopexit514.us, %.loopexit510.us, %.loopexit.us, %84, %397, %420, %.thread488, %.thread494, %.split599.us, %.split593.us, %.thread468, %.thread474, %.split579.us, %.split573.us, %.thread448, %.thread454, %.split559.us, %.split553.us, %.thread, %.thread434, %50, %26, %445, %61, %55, %46, %32
-  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %.split593.us ], [ -1, %55 ], [ -1, %61 ], [ -1, %420 ], [ -1, %.split553.us ], [ -1, %.split573.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread434 ], [ -1, %.split559.us ], [ -1, %.thread ], [ -1, %.thread454 ], [ -1, %.split579.us ], [ -1, %.thread448 ], [ -1, %.thread474 ], [ -1, %.split599.us ], [ -1, %.thread468 ], [ -1, %.thread494 ], [ -1, %397 ], [ -1, %.thread488 ], [ 0, %84 ], [ 0, %.loopexit.us ], [ 0, %.loopexit510.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
+  %.1392 = phi i32 [ -1, %445 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split559.us ], [ -1, %.split553.us ], [ -1, %.thread ], [ -1, %.thread434 ], [ -1, %.split579.us ], [ -1, %.split573.us ], [ -1, %.thread448 ], [ -1, %.thread454 ], [ -1, %.split599.us ], [ -1, %.split593.us ], [ -1, %.thread468 ], [ -1, %.thread474 ], [ -1, %397 ], [ -1, %420 ], [ -1, %.thread488 ], [ -1, %.thread494 ], [ 0, %84 ], [ 0, %.loopexit.us ], [ 0, %.loopexit510.us ], [ 0, %.loopexit514.us ], [ 0, %.loopexit518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %449
 
 449:                                              ; preds = %9, %.loopexit521
-  %.0391 = phi i32 [ 0, %9 ], [ %.1392, %.loopexit521 ]
+  %.0391 = phi i32 [ %.1392, %.loopexit521 ], [ 0, %9 ]
   ret i32 %.0391
 }
 
@@ -54677,7 +54677,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_fcomplex(ptr noundef readonly cap
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_FLOAT_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -54694,7 +54694,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_fcomplex(ptr noundef readonly cap
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not445594 = icmp eq i64 %4, 0
   br i1 %.not445594, label %.loopexit569, label %.lr.ph
 
@@ -55531,13 +55531,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_fcomplex(ptr noundef readonly cap
   br label %.loopexit569
 
 .loopexit569:                                     ; preds = %.loopexit566, %.loopexit562.us, %.loopexit558.us, %.loopexit.us, %84, %436, %.thread543, %412, %.thread530, %.split641.us, %.thread517, %.split647.us, %.thread504, %.split621.us, %.thread491, %.split627.us, %.thread478, %.split601.us, %.thread465, %.split607.us, %.thread, %50, %26, %464, %61, %55, %46, %32
-  %.1412 = phi i32 [ -1, %464 ], [ -1, %32 ], [ -1, %46 ], [ -1, %412 ], [ -1, %55 ], [ -1, %61 ], [ -1, %436 ], [ -1, %.split607.us ], [ -1, %.split601.us ], [ -1, %.split627.us ], [ -1, %.split621.us ], [ -1, %.split647.us ], [ -1, %.split641.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread ], [ -1, %.thread465 ], [ -1, %.thread478 ], [ -1, %.thread491 ], [ -1, %.thread504 ], [ -1, %.thread517 ], [ -1, %.thread530 ], [ -1, %.thread543 ], [ 0, %84 ], [ 0, %.loopexit.us ], [ 0, %.loopexit558.us ], [ 0, %.loopexit562.us ], [ 0, %.loopexit566 ]
+  %.1412 = phi i32 [ -1, %464 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split607.us ], [ -1, %.thread ], [ -1, %.split601.us ], [ -1, %.thread465 ], [ -1, %.split627.us ], [ -1, %.thread478 ], [ -1, %.split621.us ], [ -1, %.thread491 ], [ -1, %.split647.us ], [ -1, %.thread504 ], [ -1, %.split641.us ], [ -1, %.thread517 ], [ -1, %412 ], [ -1, %.thread530 ], [ -1, %436 ], [ -1, %.thread543 ], [ 0, %84 ], [ 0, %.loopexit.us ], [ 0, %.loopexit558.us ], [ 0, %.loopexit562.us ], [ 0, %.loopexit566 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %468
 
 468:                                              ; preds = %9, %.loopexit569
-  %.0411 = phi i32 [ 0, %9 ], [ %.1412, %.loopexit569 ]
+  %.0411 = phi i32 [ %.1412, %.loopexit569 ], [ 0, %9 ]
   ret i32 %.0411
 }
 
@@ -55653,7 +55653,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_dcomplex(ptr noundef readonly cap
   br label %74
 
 74:                                               ; preds = %68, %71, %65
-  %75 = phi i1 [ false, %65 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %65 ], [ true, %68 ], [ %73, %71 ]
   %76 = load i64, ptr @H5T_NATIVE_DOUBLE_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %77 = icmp ugt i64 %76, 1
   br i1 %77, label %78, label %84
@@ -55670,7 +55670,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_dcomplex(ptr noundef readonly cap
   br label %84
 
 84:                                               ; preds = %78, %81, %74
-  %85 = phi i1 [ false, %74 ], [ %83, %81 ], [ true, %78 ]
+  %85 = phi i1 [ false, %74 ], [ true, %78 ], [ %83, %81 ]
   %.not445593 = icmp eq i64 %4, 0
   br i1 %.not445593, label %.loopexit568, label %.lr.ph
 
@@ -56325,13 +56325,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_dcomplex(ptr noundef readonly cap
   br label %.loopexit568
 
 .loopexit568:                                     ; preds = %.thread536, %360, %.thread510.us, %254, %.thread484.us, %198, %.thread458.us, %142, %84, %338, %.thread542, %314, %.thread529, %.split640.us, %.thread516, %.split646.us, %.thread503, %.split620.us, %.thread490, %.split626.us, %.thread477, %.split600.us, %.thread464, %.split606.us, %.thread, %50, %26, %365, %61, %55, %46, %32
-  %.1412 = phi i32 [ -1, %365 ], [ -1, %32 ], [ -1, %46 ], [ -1, %314 ], [ -1, %55 ], [ -1, %61 ], [ -1, %338 ], [ -1, %.split606.us ], [ -1, %.split600.us ], [ -1, %.split626.us ], [ -1, %.split620.us ], [ -1, %.split646.us ], [ -1, %.split640.us ], [ 0, %50 ], [ 0, %26 ], [ -1, %.thread ], [ -1, %.thread464 ], [ -1, %.thread477 ], [ -1, %.thread490 ], [ -1, %.thread503 ], [ -1, %.thread516 ], [ -1, %.thread529 ], [ -1, %.thread542 ], [ 0, %84 ], [ 0, %142 ], [ 0, %.thread484.us ], [ 0, %.thread510.us ], [ 0, %198 ], [ 0, %254 ], [ 0, %360 ], [ 0, %.thread458.us ], [ 0, %.thread536 ]
+  %.1412 = phi i32 [ -1, %365 ], [ -1, %32 ], [ -1, %46 ], [ -1, %55 ], [ -1, %61 ], [ 0, %50 ], [ 0, %26 ], [ -1, %.split606.us ], [ -1, %.thread ], [ -1, %.split600.us ], [ -1, %.thread464 ], [ -1, %.split626.us ], [ -1, %.thread477 ], [ -1, %.split620.us ], [ -1, %.thread490 ], [ -1, %.split646.us ], [ -1, %.thread503 ], [ -1, %.split640.us ], [ -1, %.thread516 ], [ -1, %314 ], [ -1, %.thread529 ], [ -1, %338 ], [ -1, %.thread542 ], [ 0, %84 ], [ 0, %142 ], [ 0, %.thread458.us ], [ 0, %198 ], [ 0, %.thread484.us ], [ 0, %254 ], [ 0, %.thread510.us ], [ 0, %360 ], [ 0, %.thread536 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %369
 
 369:                                              ; preds = %9, %.loopexit568
-  %.0411 = phi i32 [ 0, %9 ], [ %.1412, %.loopexit568 ]
+  %.0411 = phi i32 [ %.1412, %.loopexit568 ], [ 0, %9 ]
   ret i32 %.0411
 }
 
@@ -56436,7 +56436,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_lcomplex(ptr noundef readonly cap
   br label %64
 
 64:                                               ; preds = %58, %61, %55
-  %65 = phi i1 [ false, %55 ], [ %63, %61 ], [ true, %58 ]
+  %65 = phi i1 [ false, %55 ], [ true, %58 ], [ %63, %61 ]
   %66 = load i64, ptr @H5T_NATIVE_LDOUBLE_COMPLEX_ALIGN_g, align 8, !tbaa !14
   %67 = icmp ugt i64 %66, 1
   br i1 %67, label %68, label %74
@@ -56453,7 +56453,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_lcomplex(ptr noundef readonly cap
   br label %74
 
 74:                                               ; preds = %68, %71, %64
-  %75 = phi i1 [ false, %64 ], [ %73, %71 ], [ true, %68 ]
+  %75 = phi i1 [ false, %64 ], [ true, %68 ], [ %73, %71 ]
   %.not237284 = icmp eq i64 %4, 0
   br i1 %.not237284, label %.loopexit259, label %.lr.ph
 
@@ -56778,7 +56778,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble_lcomplex(ptr noundef readonly cap
   br label %.loopexit259
 
 .loopexit259:                                     ; preds = %.loopexit256, %.loopexit252.us, %.loopexit248.us, %.loopexit.us, %74, %9, %40, %16, %204, %51, %45, %36, %22
-  %.0212 = phi i32 [ 0, %9 ], [ -1, %204 ], [ -1, %22 ], [ -1, %36 ], [ -1, %51 ], [ -1, %45 ], [ 0, %40 ], [ 0, %16 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252.us ], [ 0, %.loopexit256 ]
+  %.0212 = phi i32 [ 0, %9 ], [ -1, %204 ], [ -1, %22 ], [ -1, %36 ], [ -1, %45 ], [ -1, %51 ], [ 0, %16 ], [ 0, %40 ], [ 0, %74 ], [ 0, %.loopexit.us ], [ 0, %.loopexit248.us ], [ 0, %.loopexit252.us ], [ 0, %.loopexit256 ]
   ret i32 %.0212
 }
 

@@ -460,7 +460,7 @@ lean_dec_ref.exit16:                              ; preds = %45, %44, %42, %lean
   br label %53
 
 53:                                               ; preds = %.sink.split, %33, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %35, %33 ], [ %8, %7 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %35, %33 ], [ %.sink33, %.sink.split ]
   ret ptr %.0
 }
 

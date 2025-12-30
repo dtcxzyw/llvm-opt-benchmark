@@ -139,7 +139,7 @@ define void @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter10from_globs17he2
   br label %28
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %66, %31, %178, %65
-  %.pn81.pn = phi { ptr, i32 } [ %.pn8197, %178 ], [ %.pn, %65 ], [ %67, %66 ], [ %.pn.i, %31 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn81.pn = phi { ptr, i32 } [ %.pn8197, %178 ], [ %.pn, %65 ], [ %.pn.i, %31 ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17hb7d02eaabd93a5a5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #13
           to label %common.resume unwind label %176
 
@@ -277,7 +277,7 @@ define void @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter10from_globs17he2
   unreachable
 
 common.resume:                                    ; preds = %.body, %164, %54
-  %common.resume.op = phi { ptr, i32 } [ %165, %164 ], [ %55, %54 ], [ %.pn81.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %165, %164 ], [ %.pn81.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17hb7d02eaabd93a5a5E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0bc303ada7b0b3ffE.llvm.12926843489176249439.exit.i.i", %59
@@ -305,7 +305,7 @@ common.resume:                                    ; preds = %.body, %164, %54
           to label %65 unwind label %176
 
 69:                                               ; preds = %128, %160, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0288c4234958038eE.exit"
-  %.sroa.039.2 = phi i1 [ false, %160 ], [ false, %128 ], [ true, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0288c4234958038eE.exit" ]
+  %.sroa.039.2 = phi i1 [ false, %160 ], [ true, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0288c4234958038eE.exit" ], [ false, %128 ]
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %68
@@ -631,7 +631,7 @@ common.resume:                                    ; preds = %.body, %164, %54
   unreachable
 
 178:                                              ; preds = %.thread98, %65
-  %.pn8197 = phi { ptr, i32 } [ %49, %.thread98 ], [ %.pn, %65 ]
+  %.pn8197 = phi { ptr, i32 } [ %.pn, %65 ], [ %49, %.thread98 ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$globset..GlobSet$GT$17h2662169b6b927c11E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #13
           to label %.body unwind label %176
 
@@ -997,7 +997,7 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
   br label %145
 
 145:                                              ; preds = %"_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$10next_state17h8bf5faa513dcd15dE.exit14", %141, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit.thread", %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit", %3
-  %.sroa.0.0 = phi i1 [ true, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit.thread" ], [ false, %3 ], [ true, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit" ], [ %144, %141 ], [ true, %"_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$10next_state17h8bf5faa513dcd15dE.exit14" ]
+  %.sroa.0.0 = phi i1 [ false, %3 ], [ true, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit" ], [ true, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit.thread" ], [ %144, %141 ], [ true, %"_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$10next_state17h8bf5faa513dcd15dE.exit14" ]
   ret i1 %.sroa.0.0
 }
 

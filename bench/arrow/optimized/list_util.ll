@@ -453,8 +453,8 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br i1 %95, label %.loopexit.i, label %96
 
 96:                                               ; preds = %94, %90, %88, %84, %82
-  %.sroa.078.1.i.i = phi i32 [ %.sroa.078.0141.i.i, %90 ], [ %.sroa.078.0141.i.i, %84 ], [ %.sroa.078.0141.i.i, %82 ], [ %80, %88 ], [ %80, %94 ]
-  %.sroa.9.1.i.i = phi i8 [ 0, %90 ], [ 1, %84 ], [ 1, %82 ], [ 1, %88 ], [ 1, %94 ]
+  %.sroa.078.1.i.i = phi i32 [ %.sroa.078.0141.i.i, %84 ], [ %.sroa.078.0141.i.i, %82 ], [ %.sroa.078.0141.i.i, %90 ], [ %80, %88 ], [ %80, %94 ]
+  %.sroa.9.1.i.i = phi i8 [ 1, %84 ], [ 1, %82 ], [ 0, %90 ], [ 1, %88 ], [ 1, %94 ]
   %97 = add nuw nsw i64 %.035143.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %97, %62
   br i1 %exitcond.not.i.i, label %.critedge41.i.i, label %.lr.ph144.i.i, !llvm.loop !69
@@ -525,8 +525,8 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br i1 %124, label %127, label %125
 
 125:                                              ; preds = %123, %119, %117, %113, %111
-  %.sroa.078.6.i.i = phi i32 [ %.sroa.078.5132.i.i, %119 ], [ %.sroa.078.5132.i.i, %113 ], [ %.sroa.078.5132.i.i, %111 ], [ %109, %117 ], [ %109, %123 ]
-  %.sroa.9.6.i.i = phi i8 [ 0, %119 ], [ 1, %113 ], [ 1, %111 ], [ 1, %117 ], [ 1, %123 ]
+  %.sroa.078.6.i.i = phi i32 [ %.sroa.078.5132.i.i, %113 ], [ %.sroa.078.5132.i.i, %111 ], [ %.sroa.078.5132.i.i, %119 ], [ %109, %117 ], [ %109, %123 ]
+  %.sroa.9.6.i.i = phi i8 [ 1, %113 ], [ 1, %111 ], [ 0, %119 ], [ 1, %117 ], [ 1, %123 ]
   %126 = add nsw i64 %.0134.i.i, 1
   %.not.i.i = icmp slt i64 %126, %107
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.critedge43.loopexit.i.i, !llvm.loop !71
@@ -648,7 +648,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br i1 %.not.not.not.i.i, label %.lr.ph.i8.i, label %.loopexit.i.i, !llvm.loop !74
 
 .thread91.sink.split.i.i:                         ; preds = %.loopexit.i.i, %180, %159
-  %.5.ph.i.i = phi i64 [ %134, %180 ], [ 0, %159 ], [ %.965.lcssa.i.i, %.loopexit.i.i ]
+  %.5.ph.i.i = phi i64 [ 0, %159 ], [ %134, %180 ], [ %.965.lcssa.i.i, %.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i
 
@@ -729,8 +729,8 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   br i1 %220, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.thread.i, label %221
 
 221:                                              ; preds = %219, %215, %213, %209, %207
-  %.sroa.066.1.i.i = phi i64 [ %.sroa.066.0110.i.i, %215 ], [ %.sroa.066.0110.i.i, %209 ], [ %.sroa.066.0110.i.i, %207 ], [ %205, %213 ], [ %205, %219 ]
-  %.sroa.9.1.i.i50 = phi i8 [ 0, %215 ], [ 1, %209 ], [ 1, %207 ], [ 1, %213 ], [ 1, %219 ]
+  %.sroa.066.1.i.i = phi i64 [ %.sroa.066.0110.i.i, %209 ], [ %.sroa.066.0110.i.i, %207 ], [ %.sroa.066.0110.i.i, %215 ], [ %205, %213 ], [ %205, %219 ]
+  %.sroa.9.1.i.i50 = phi i8 [ 1, %209 ], [ 1, %207 ], [ 0, %215 ], [ 1, %213 ], [ 1, %219 ]
   %222 = add nuw nsw i64 %.035112.i.i, 1
   %exitcond.not.i.i51 = icmp eq i64 %222, %187
   br i1 %exitcond.not.i.i51, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i, label %.lr.ph113.i.i, !llvm.loop !75
@@ -795,15 +795,15 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIiEESt4pa
   br i1 %249, label %.critedge.sink.split.i.i, label %250
 
 250:                                              ; preds = %248, %244, %242, %238, %236
-  %.sroa.066.6.i.i = phi i64 [ %.sroa.066.5101.i.i, %244 ], [ %.sroa.066.5101.i.i, %238 ], [ %.sroa.066.5101.i.i, %236 ], [ %234, %242 ], [ %234, %248 ]
-  %.sroa.9.6.i.i47 = phi i8 [ 0, %244 ], [ 1, %238 ], [ 1, %236 ], [ 1, %242 ], [ 1, %248 ]
+  %.sroa.066.6.i.i = phi i64 [ %.sroa.066.5101.i.i, %238 ], [ %.sroa.066.5101.i.i, %236 ], [ %.sroa.066.5101.i.i, %244 ], [ %234, %242 ], [ %234, %248 ]
+  %.sroa.9.6.i.i47 = phi i8 [ 1, %238 ], [ 1, %236 ], [ 0, %244 ], [ 1, %242 ], [ 1, %248 ]
   %251 = add nsw i64 %.0103.i.i, 1
   %.not.i.i48 = icmp slt i64 %251, %232
   br i1 %.not.i.i48, label %.lr.ph.i.i46, label %.critedge43.loopexit.i.i19, !llvm.loop !76
 
 .critedge.sink.split.i.i:                         ; preds = %.critedge43.loopexit.i.i19, %248, %242, %223
-  %.sroa.069.0.ph.i.i = phi i64 [ 0, %248 ], [ undef, %223 ], [ 0, %242 ], [ %.sroa.066.5.lcssa.i.i, %.critedge43.loopexit.i.i19 ]
-  %.sroa.6.0.ph.i.i = phi i8 [ 1, %248 ], [ 0, %223 ], [ 1, %242 ], [ %.sroa.9.5.lcssa.i.i20, %.critedge43.loopexit.i.i19 ]
+  %.sroa.069.0.ph.i.i = phi i64 [ undef, %223 ], [ 0, %242 ], [ 0, %248 ], [ %.sroa.066.5.lcssa.i.i, %.critedge43.loopexit.i.i19 ]
+  %.sroa.6.0.ph.i.i = phi i8 [ 0, %223 ], [ 1, %242 ], [ 1, %248 ], [ %.sroa.9.5.lcssa.i.i20, %.critedge43.loopexit.i.i19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i
 
@@ -922,7 +922,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
   br i1 %.not.not.not.i.i40, label %.lr.ph.i8.i35, label %.loopexit.i.i29, !llvm.loop !78
 
 .thread91.sink.split.i.i31:                       ; preds = %.loopexit.i.i29, %300, %282
-  %.5.ph.i.i32 = phi i64 [ %260, %300 ], [ 0, %282 ], [ %.965.lcssa.i.i30, %.loopexit.i.i29 ]
+  %.5.ph.i.i32 = phi i64 [ 0, %282 ], [ %260, %300 ], [ %.965.lcssa.i.i30, %.loopexit.i.i29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i
 
@@ -1323,7 +1323,7 @@ _ZZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArrayS
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArraySpanE.exit
 
 _ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIiEElRKNS_9ArraySpanE.exit: ; preds = %.lr.ph.i.i.i, %132, %._crit_edge.i.i20
-  %.3.i = phi i64 [ %.2.i21, %._crit_edge.i.i20 ], [ 0, %132 ], [ %138, %.lr.ph.i.i.i ]
+  %.3.i = phi i64 [ 0, %132 ], [ %.2.i21, %._crit_edge.i.i20 ], [ %138, %.lr.ph.i.i.i ]
   store ptr null, ptr %0, align 8, !tbaa !65
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.3.i, ptr %159, align 8, !tbaa !68
@@ -1396,7 +1396,7 @@ _ZZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArrayS
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArraySpanE.exit
 
 _ZN5arrow9list_util8internal12_GLOBAL__N_118SumOfListViewSizesIlEElRKNS_9ArraySpanE.exit: ; preds = %.lr.ph.i.i.i30, %171, %._crit_edge.i.i25
-  %.3.i27 = phi i64 [ %.2.i26, %._crit_edge.i.i25 ], [ 0, %171 ], [ %176, %.lr.ph.i.i.i30 ]
+  %.3.i27 = phi i64 [ 0, %171 ], [ %.2.i26, %._crit_edge.i.i25 ], [ %176, %.lr.ph.i.i.i30 ]
   store ptr null, ptr %0, align 8, !tbaa !65
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.3.i27, ptr %196, align 8, !tbaa !68
@@ -1898,8 +1898,8 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit: ; preds = %
   br label %86
 
 86:                                               ; preds = %80, %70, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit, %83
-  %.sroa.019.1 = phi i64 [ %.2, %83 ], [ %19, %70 ], [ %19, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %19, %80 ]
-  %.sroa.6.1 = phi i64 [ %85, %83 ], [ %21, %70 ], [ %21, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %21, %80 ]
+  %.sroa.019.1 = phi i64 [ %.2, %83 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %19, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %19, %70 ], [ %19, %80 ]
+  %.sroa.6.1 = phi i64 [ %85, %83 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %21, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %21, %70 ], [ %21, %80 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.019.1, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { i64, i64 } %.fca.1.insert
@@ -2007,7 +2007,7 @@ define linkonce_odr noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13
   br label %55
 
 55:                                               ; preds = %.thread, %38, %40, %5
-  %.1 = phi i64 [ %31, %.thread ], [ %7, %5 ], [ %54, %40 ], [ %.224, %38 ]
+  %.1 = phi i64 [ %7, %5 ], [ %54, %40 ], [ %.224, %38 ], [ %31, %.thread ]
   ret i64 %.1
 }
 
@@ -2262,8 +2262,8 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit: ; preds = %
   br label %86
 
 86:                                               ; preds = %80, %66, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit, %82
-  %.sroa.019.1 = phi i64 [ %85, %82 ], [ %23, %66 ], [ %23, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %23, %80 ]
-  %.sroa.6.1 = phi i64 [ %84, %82 ], [ %18, %66 ], [ %18, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %18, %80 ]
+  %.sroa.019.1 = phi i64 [ %85, %82 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %23, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ %23, %66 ], [ %23, %80 ]
+  %.sroa.6.1 = phi i64 [ %84, %82 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %18, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ %18, %66 ], [ %18, %80 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.019.1, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { i64, i64 } %.fca.1.insert
@@ -2374,7 +2374,7 @@ define linkonce_odr noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13
   br label %59
 
 59:                                               ; preds = %.thread, %38, %40, %5
-  %.1 = phi i64 [ %31, %.thread ], [ %7, %5 ], [ %58, %40 ], [ %.224, %38 ]
+  %.1 = phi i64 [ %7, %5 ], [ %58, %40 ], [ %.224, %38 ], [ %31, %.thread ]
   ret i64 %.1
 }
 

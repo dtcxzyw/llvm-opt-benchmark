@@ -231,8 +231,8 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   br i1 %117, label %.preheader197, label %.loopexit198, !llvm.loop !13
 
 .loopexit198:                                     ; preds = %.preheader197, %.loopexit200, %.loopexit206
-  %.6179 = phi ptr [ %.0173, %.loopexit206 ], [ %.7180, %.loopexit200 ], [ %115, %.preheader197 ]
-  %.2154 = phi ptr [ %.0152, %.loopexit206 ], [ %80, %.loopexit200 ], [ %80, %.preheader197 ]
+  %.6179 = phi ptr [ %.7180, %.loopexit200 ], [ %.0173, %.loopexit206 ], [ %115, %.preheader197 ]
+  %.2154 = phi ptr [ %80, %.loopexit200 ], [ %.0152, %.loopexit206 ], [ %80, %.preheader197 ]
   %118 = and i64 %1, 1
   %.not193 = icmp eq i64 %118, 0
   br i1 %.not193, label %.loopexit, label %119

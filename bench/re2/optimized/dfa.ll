@@ -1013,7 +1013,7 @@ lpad49:                                           ; preds = %invoke.cont48
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15.loopexit, %lpad15.loopexit.split-lp, %lpad49, %lpad40, %lpad18
-  %.pn = phi { ptr, i32 } [ %11, %lpad18 ], [ %13, %lpad40 ], [ %17, %lpad49 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %13, %lpad40 ], [ %17, %lpad49 ], [ %11, %lpad18 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #25
   br label %eh.resume
 
@@ -1206,17 +1206,17 @@ land.lhs.true69:                                  ; preds = %if.end58
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end58, %if.end65.thread, %land.lhs.true69, %if.then10, %invoke.cont13, %invoke.cont17
-  %sawmark.1 = phi i1 [ true, %invoke.cont17 ], [ %sawmark.0119, %invoke.cont13 ], [ %sawmark.0119, %if.then10 ], [ %sawmark.0119, %land.lhs.true69 ], [ %sawmark.0119, %if.end58 ], [ %sawmark.0119, %if.end65.thread ]
-  %sawmatch.1 = phi i1 [ %sawmatch.0120, %invoke.cont17 ], [ %sawmatch.0120, %invoke.cont13 ], [ %sawmatch.0120, %if.then10 ], [ %spec.select, %land.lhs.true69 ], [ %sawmatch.0120, %if.end58 ], [ %sawmatch.0120, %if.end65.thread ]
-  %needflags.1 = phi i32 [ %needflags.0121, %invoke.cont17 ], [ %needflags.0121, %invoke.cont13 ], [ %needflags.0121, %if.then10 ], [ %needflags.0121, %land.lhs.true69 ], [ %needflags.0121, %if.end58 ], [ %or, %if.end65.thread ]
-  %n.1 = phi i32 [ %inc, %invoke.cont17 ], [ %n.0122, %invoke.cont13 ], [ %n.0122, %if.then10 ], [ %n.2, %land.lhs.true69 ], [ %n.2, %if.end58 ], [ %n.2, %if.end65.thread ]
+  %sawmark.1 = phi i1 [ true, %invoke.cont17 ], [ %sawmark.0119, %invoke.cont13 ], [ %sawmark.0119, %if.then10 ], [ %sawmark.0119, %land.lhs.true69 ], [ %sawmark.0119, %if.end65.thread ], [ %sawmark.0119, %if.end58 ]
+  %sawmatch.1 = phi i1 [ %sawmatch.0120, %invoke.cont17 ], [ %sawmatch.0120, %invoke.cont13 ], [ %sawmatch.0120, %if.then10 ], [ %spec.select, %land.lhs.true69 ], [ %sawmatch.0120, %if.end65.thread ], [ %sawmatch.0120, %if.end58 ]
+  %needflags.1 = phi i32 [ %needflags.0121, %invoke.cont17 ], [ %needflags.0121, %invoke.cont13 ], [ %needflags.0121, %if.then10 ], [ %needflags.0121, %land.lhs.true69 ], [ %or, %if.end65.thread ], [ %needflags.0121, %if.end58 ]
+  %n.1 = phi i32 [ %inc, %invoke.cont17 ], [ %n.0122, %invoke.cont13 ], [ %n.0122, %if.then10 ], [ %n.2, %land.lhs.true69 ], [ %n.2, %if.end65.thread ], [ %n.2, %if.end58 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %it.0118, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc, %for.body
-  %needflags.0.lcssa = phi i32 [ %needflags.0121, %for.body ], [ %needflags.1, %for.inc ]
-  %n.0.lcssa = phi i32 [ %n.0122, %for.body ], [ %n.1, %for.inc ]
+  %needflags.0.lcssa = phi i32 [ %needflags.1, %for.inc ], [ %needflags.0121, %for.body ]
+  %n.0.lcssa = phi i32 [ %n.1, %for.inc ], [ %n.0122, %for.body ]
   %needflags.0.lcssa.fr = freeze i32 %needflags.0.lcssa
   %cmp75 = icmp sgt i32 %n.0.lcssa, 0
   br i1 %cmp75, label %invoke.cont78, label %if.end82
@@ -1239,9 +1239,9 @@ if.end82:                                         ; preds = %invoke.cont78, %for
   br label %22
 
 22:                                               ; preds = %if.end82, %if.end82.thread
-  %n.3149 = phi i32 [ %n.3, %if.end82 ], [ 0, %if.end82.thread ]
-  %needflags.0.lcssa141147 = phi i32 [ %21, %if.end82 ], [ 0, %if.end82.thread ]
-  %23 = phi i32 [ %spec.select153, %if.end82 ], [ %and85145, %if.end82.thread ]
+  %n.3149 = phi i32 [ 0, %if.end82.thread ], [ %n.3, %if.end82 ]
+  %needflags.0.lcssa141147 = phi i32 [ 0, %if.end82.thread ], [ %21, %if.end82 ]
+  %23 = phi i32 [ %and85145, %if.end82.thread ], [ %spec.select153, %if.end82 ]
   %24 = or i32 %n.3149, %23
   %or.cond1 = icmp eq i32 %24, 0
   br i1 %or.cond1, label %_ZN3re28PODArrayIiED2Ev.exit100, label %if.end91
@@ -1357,7 +1357,7 @@ if.end152:                                        ; preds = %for.inc149, %invoke
           to label %_ZN3re28PODArrayIiED2Ev.exit100 unwind label %_ZN3re28PODArrayIiED2Ev.exit.loopexit.split-lp
 
 _ZN3re28PODArrayIiED2Ev.exit100:                  ; preds = %land.lhs.true38, %invoke.cont36, %if.end152, %22
-  %retval.0 = phi ptr [ %call157, %if.end152 ], [ inttoptr (i64 1 to ptr), %22 ], [ inttoptr (i64 2 to ptr), %invoke.cont36 ], [ inttoptr (i64 2 to ptr), %land.lhs.true38 ]
+  %retval.0 = phi ptr [ inttoptr (i64 1 to ptr), %22 ], [ %call157, %if.end152 ], [ inttoptr (i64 2 to ptr), %invoke.cont36 ], [ inttoptr (i64 2 to ptr), %land.lhs.true38 ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i3.i) #24
   ret ptr %retval.0
 }
@@ -1618,7 +1618,7 @@ land.rhs.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %lor.rhs.i.i.i.i.i.i
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.us, %for.body.i.us
-  %.us-phi = phi i64 [ %and.i.i.us, %lor.rhs.i.i.i.i.i.i.i.us ], [ %and.i.i.us, %for.body.i.us ], [ %and.i.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i ], [ %and.i.i, %for.body.i ]
+  %.us-phi = phi i64 [ %and.i.i.us, %for.body.i.us ], [ %and.i.i.us, %lor.rhs.i.i.i.i.i.i.i.us ], [ %and.i.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i ], [ %and.i.i, %for.body.i ]
   %add.ptr14.i.le = getelementptr inbounds ptr, ptr %7, i64 %.us-phi
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %.us-phi
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i, 0
@@ -1805,7 +1805,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end60, %sw.bb, %Loop, %_ZNK3re210SparseSetTIvE8containsEi.exit, %invoke.cont18, %if.end.i.i.i, %if.end.i, %if.then
-  %nstk.0.be = phi i32 [ %nstk.1.ph, %invoke.cont18 ], [ %nstk.1.ph, %if.end.i.i.i ], [ %nstk.1.ph, %sw.bb ], [ %nstk.1.ph, %if.then ], [ %nstk.1.ph, %if.end.i ], [ %nstk.1.ph, %_ZNK3re210SparseSetTIvE8containsEi.exit ], [ %nstk.1.ph, %Loop ], [ %nstk.5, %if.end60 ]
+  %nstk.0.be = phi i32 [ %nstk.1.ph, %if.then ], [ %nstk.1.ph, %if.end.i ], [ %nstk.1.ph, %if.end.i.i.i ], [ %nstk.1.ph, %invoke.cont18 ], [ %nstk.1.ph, %_ZNK3re210SparseSetTIvE8containsEi.exit ], [ %nstk.1.ph, %Loop ], [ %nstk.1.ph, %sw.bb ], [ %nstk.5, %if.end60 ]
   %cmp = icmp sgt i32 %nstk.0.be, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !42
 
@@ -1970,8 +1970,8 @@ if.then44:                                        ; preds = %land.lhs.true40
   br label %Loop.outer.backedge
 
 Loop.outer.backedge:                              ; preds = %if.end60, %if.end31, %land.lhs.true, %land.lhs.true36, %land.lhs.true40, %if.then44
-  %arrayidx.i.i.i48111 = phi ptr [ %arrayidx.i.i.i48.le120, %if.end31 ], [ %arrayidx.i.i.i48.le120, %if.then44 ], [ %arrayidx.i.i.i48.le120, %land.lhs.true40 ], [ %arrayidx.i.i.i48.le120, %land.lhs.true36 ], [ %arrayidx.i.i.i48.le120, %land.lhs.true ], [ %arrayidx.i.i.i48.le, %if.end60 ]
-  %nstk.1.ph.be = phi i32 [ %nstk.3, %if.end31 ], [ %inc45, %if.then44 ], [ %nstk.3, %land.lhs.true40 ], [ %nstk.3, %land.lhs.true36 ], [ %nstk.3, %land.lhs.true ], [ %nstk.5, %if.end60 ]
+  %arrayidx.i.i.i48111 = phi ptr [ %arrayidx.i.i.i48.le120, %if.then44 ], [ %arrayidx.i.i.i48.le120, %land.lhs.true40 ], [ %arrayidx.i.i.i48.le120, %land.lhs.true36 ], [ %arrayidx.i.i.i48.le120, %land.lhs.true ], [ %arrayidx.i.i.i48.le120, %if.end31 ], [ %arrayidx.i.i.i48.le, %if.end60 ]
+  %nstk.1.ph.be = phi i32 [ %inc45, %if.then44 ], [ %nstk.3, %land.lhs.true40 ], [ %nstk.3, %land.lhs.true36 ], [ %nstk.3, %land.lhs.true ], [ %nstk.3, %if.end31 ], [ %nstk.5, %if.end60 ]
   %id.addr.0.ph.be.in = load i32, ptr %arrayidx.i.i.i48111, align 4
   %id.addr.0.ph.be = lshr i32 %id.addr.0.ph.be.in, 4
   br label %Loop.outer
@@ -2323,7 +2323,7 @@ if.end35:                                         ; preds = %sw.bb28
   br i1 %cmp37, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %if.end5, %if.end5, %if.end5, %if.end5, %if.end5, %if.end.i.i.i, %if.end.i, %if.end, %sw.bb28, %invoke.cont13, %sw.bb15, %while.end, %if.then22, %if.end35
-  %i.1 = phi ptr [ %i.038, %if.end35 ], [ %i.038, %invoke.cont13 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %add.ptr, %if.then22 ], [ %add.ptr26, %while.end ], [ %i.038, %sw.bb15 ], [ %i.038, %sw.bb28 ], [ %i.038, %if.end ], [ %i.038, %if.end.i ], [ %i.038, %if.end.i.i.i ]
+  %i.1 = phi ptr [ %i.038, %invoke.cont13 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %add.ptr, %if.then22 ], [ %add.ptr26, %while.end ], [ %i.038, %sw.bb15 ], [ %i.038, %if.end35 ], [ %i.038, %sw.bb28 ], [ %i.038, %if.end ], [ %i.038, %if.end.i ], [ %i.038, %if.end.i.i.i ]
   %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %i.1, i64 4
   %38 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %39 = load i32, ptr %oldq, align 8
@@ -2744,7 +2744,7 @@ _ZN3re23DFA7ByteMapEi.exit74:                     ; preds = %if.then.i72, %if.en
   br label %return
 
 return:                                           ; preds = %_ZN3re23DFA7ByteMapEi.exit, %if.then, %_ZN3re23DFA7ByteMapEi.exit74, %invoke.cont22, %invoke.cont15, %invoke.cont6
-  %retval.0 = phi ptr [ %call81, %_ZN3re23DFA7ByteMapEi.exit74 ], [ null, %invoke.cont6 ], [ null, %invoke.cont15 ], [ null, %invoke.cont22 ], [ inttoptr (i64 2 to ptr), %if.then ], [ %atomic-temp.i.0.i, %_ZN3re23DFA7ByteMapEi.exit ]
+  %retval.0 = phi ptr [ null, %invoke.cont6 ], [ null, %invoke.cont15 ], [ null, %invoke.cont22 ], [ %call81, %_ZN3re23DFA7ByteMapEi.exit74 ], [ inttoptr (i64 2 to ptr), %if.then ], [ %atomic-temp.i.0.i, %_ZN3re23DFA7ByteMapEi.exit ]
   ret ptr %retval.0
 }
 
@@ -3210,13 +3210,13 @@ terminate.lpad.i1.i:                              ; preds = %lpad.i
   unreachable
 
 common.resume.sink.split:                         ; preds = %lpad139, %lpad124, %lpad.i163, %lpad, %ehcleanup
-  %save_start.sink = phi ptr [ %save_start, %lpad ], [ %save_start, %ehcleanup ], [ %save_s122, %lpad.i163 ], [ %save_s122, %lpad124 ], [ %save_s122, %lpad139 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %37, %lpad ], [ %.pn75, %ehcleanup ], [ %83, %lpad.i163 ], [ %80, %lpad124 ], [ %86, %lpad139 ]
+  %save_start.sink = phi ptr [ %save_start, %ehcleanup ], [ %save_start, %lpad ], [ %save_s122, %lpad.i163 ], [ %save_s122, %lpad124 ], [ %save_s122, %lpad139 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn75, %ehcleanup ], [ %37, %lpad ], [ %83, %lpad.i163 ], [ %80, %lpad124 ], [ %86, %lpad139 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start.sink) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i134, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %70, %lpad.i134 ], [ %24, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i ], [ %70, %lpad.i134 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit: ; preds = %invoke.cont.i
@@ -3412,7 +3412,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %46, label %if.end63, label %return
 
 ehcleanup:                                        ; preds = %lpad.i86, %lpad.i93, %lpad38, %lpad55
-  %.pn75 = phi { ptr, i32 } [ %45, %lpad55 ], [ %44, %lpad.i93 ], [ %38, %lpad38 ], [ %41, %lpad.i86 ]
+  %.pn75 = phi { ptr, i32 } [ %45, %lpad55 ], [ %38, %lpad38 ], [ %44, %lpad.i93 ], [ %41, %lpad.i86 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #25
   br label %common.resume.sink.split
 
@@ -3828,7 +3828,7 @@ if.end184:                                        ; preds = %_ZN3re210SparseSetT
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup145.thread, %if.end184, %if.end157, %if.then154, %if.end70, %if.then67, %if.then36
-  %retval.2 = phi i1 [ false, %if.then36 ], [ %tobool69, %if.then67 ], [ true, %if.end70 ], [ false, %cleanup145.thread ], [ %tobool156, %if.then154 ], [ true, %if.end157 ], [ %tobool186, %if.end184 ], [ false, %cleanup ]
+  %retval.2 = phi i1 [ false, %if.then36 ], [ %tobool69, %if.then67 ], [ true, %if.end70 ], [ %tobool156, %if.then154 ], [ true, %if.end157 ], [ %tobool186, %if.end184 ], [ false, %cleanup145.thread ], [ false, %cleanup ]
   ret i1 %retval.2
 }
 
@@ -4002,13 +4002,13 @@ terminate.lpad.i1.i:                              ; preds = %lpad.i
   unreachable
 
 common.resume.sink.split:                         ; preds = %lpad139, %lpad124, %lpad.i172, %lpad, %ehcleanup
-  %save_start.sink = phi ptr [ %save_start, %lpad ], [ %save_start, %ehcleanup ], [ %save_s122, %lpad.i172 ], [ %save_s122, %lpad124 ], [ %save_s122, %lpad139 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %37, %lpad ], [ %.pn82, %ehcleanup ], [ %83, %lpad.i172 ], [ %80, %lpad124 ], [ %86, %lpad139 ]
+  %save_start.sink = phi ptr [ %save_start, %ehcleanup ], [ %save_start, %lpad ], [ %save_s122, %lpad.i172 ], [ %save_s122, %lpad124 ], [ %save_s122, %lpad139 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn82, %ehcleanup ], [ %37, %lpad ], [ %83, %lpad.i172 ], [ %80, %lpad124 ], [ %86, %lpad139 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start.sink) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i143, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %70, %lpad.i143 ], [ %24, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i ], [ %70, %lpad.i143 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit: ; preds = %invoke.cont.i
@@ -4204,7 +4204,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %46, label %if.end63, label %return
 
 ehcleanup:                                        ; preds = %lpad.i93, %lpad.i100, %lpad38, %lpad55
-  %.pn82 = phi { ptr, i32 } [ %45, %lpad55 ], [ %44, %lpad.i100 ], [ %38, %lpad38 ], [ %41, %lpad.i93 ]
+  %.pn82 = phi { ptr, i32 } [ %45, %lpad55 ], [ %38, %lpad38 ], [ %44, %lpad.i100 ], [ %41, %lpad.i93 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #25
   br label %common.resume.sink.split
 
@@ -4624,7 +4624,7 @@ if.end184:                                        ; preds = %_ZN3re210SparseSetT
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup145.thread, %if.end184, %if.end157, %if.then154, %if.end70, %if.then67, %if.then36
-  %retval.2 = phi i1 [ false, %if.then36 ], [ %tobool69, %if.then67 ], [ true, %if.end70 ], [ false, %cleanup145.thread ], [ %tobool156, %if.then154 ], [ true, %if.end157 ], [ %tobool186, %if.end184 ], [ false, %cleanup ]
+  %retval.2 = phi i1 [ false, %if.then36 ], [ %tobool69, %if.then67 ], [ true, %if.end70 ], [ %tobool156, %if.then154 ], [ true, %if.end157 ], [ %tobool186, %if.end184 ], [ false, %cleanup145.thread ], [ false, %cleanup ]
   ret i1 %retval.2
 }
 
@@ -4796,13 +4796,13 @@ terminate.lpad.i1.i:                              ; preds = %lpad.i
   unreachable
 
 common.resume.sink.split:                         ; preds = %lpad126, %lpad141, %lpad, %ehcleanup
-  %save_start.sink = phi ptr [ %save_start, %lpad ], [ %save_start, %ehcleanup ], [ %save_s124, %lpad141 ], [ %save_s124, %lpad126 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %37, %lpad ], [ %.pn79, %ehcleanup ], [ %79, %lpad141 ], [ %78, %lpad126 ]
+  %save_start.sink = phi ptr [ %save_start, %ehcleanup ], [ %save_start, %lpad ], [ %save_s124, %lpad141 ], [ %save_s124, %lpad126 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn79, %ehcleanup ], [ %37, %lpad ], [ %79, %lpad141 ], [ %78, %lpad126 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start.sink) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i138, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %68, %lpad.i138 ], [ %24, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i ], [ %68, %lpad.i138 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit: ; preds = %invoke.cont.i
@@ -5377,7 +5377,7 @@ return.critedge:                                  ; preds = %invoke.cont41, %inv
   br label %return
 
 return:                                           ; preds = %return.critedge, %cleanup147.thread, %if.end186, %if.end159, %if.then156, %if.end98, %if.end71, %if.then68, %if.then37, %if.end17
-  %retval.0 = phi i1 [ true, %if.end17 ], [ false, %if.then37 ], [ false, %if.then68 ], [ true, %if.end71 ], [ true, %if.end98 ], [ false, %return.critedge ], [ false, %if.then156 ], [ true, %if.end159 ], [ %cmp.i168, %if.end186 ], [ false, %cleanup147.thread ]
+  %retval.0 = phi i1 [ true, %if.end17 ], [ false, %if.then37 ], [ false, %if.then68 ], [ true, %if.end71 ], [ true, %if.end98 ], [ false, %if.then156 ], [ true, %if.end159 ], [ %cmp.i168, %if.end186 ], [ false, %cleanup147.thread ], [ false, %return.critedge ]
   ret i1 %retval.0
 }
 
@@ -5549,13 +5549,13 @@ terminate.lpad.i1.i:                              ; preds = %lpad.i
   unreachable
 
 common.resume.sink.split:                         ; preds = %lpad126, %lpad141, %lpad, %ehcleanup
-  %save_start.sink = phi ptr [ %save_start, %lpad ], [ %save_start, %ehcleanup ], [ %save_s124, %lpad141 ], [ %save_s124, %lpad126 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %37, %lpad ], [ %.pn86, %ehcleanup ], [ %79, %lpad141 ], [ %78, %lpad126 ]
+  %save_start.sink = phi ptr [ %save_start, %ehcleanup ], [ %save_start, %lpad ], [ %save_s124, %lpad141 ], [ %save_s124, %lpad126 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn86, %ehcleanup ], [ %37, %lpad ], [ %79, %lpad141 ], [ %78, %lpad126 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start.sink) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i147, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %68, %lpad.i147 ], [ %24, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i ], [ %68, %lpad.i147 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit: ; preds = %invoke.cont.i
@@ -6134,7 +6134,7 @@ return.critedge:                                  ; preds = %invoke.cont41, %inv
   br label %return
 
 return:                                           ; preds = %return.critedge, %cleanup147.thread, %if.end186, %if.end159, %if.then156, %if.end98, %if.end71, %if.then68, %if.then37, %if.end17
-  %retval.0 = phi i1 [ true, %if.end17 ], [ false, %if.then37 ], [ false, %if.then68 ], [ true, %if.end71 ], [ true, %if.end98 ], [ false, %return.critedge ], [ false, %if.then156 ], [ true, %if.end159 ], [ %cmp.i177, %if.end186 ], [ false, %cleanup147.thread ]
+  %retval.0 = phi i1 [ true, %if.end17 ], [ false, %if.then37 ], [ false, %if.then68 ], [ true, %if.end71 ], [ true, %if.end98 ], [ false, %if.then156 ], [ true, %if.end159 ], [ %cmp.i177, %if.end186 ], [ false, %cleanup147.thread ], [ false, %return.critedge ]
   ret i1 %retval.0
 }
 
@@ -6348,13 +6348,13 @@ terminate.lpad.i1.i:                              ; preds = %lpad.i
   unreachable
 
 common.resume.sink.split:                         ; preds = %lpad151, %lpad136, %lpad.i171, %lpad, %ehcleanup
-  %save_start.sink = phi ptr [ %save_start, %lpad ], [ %save_start, %ehcleanup ], [ %save_s134, %lpad.i171 ], [ %save_s134, %lpad136 ], [ %save_s134, %lpad151 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %42, %lpad ], [ %.pn, %ehcleanup ], [ %88, %lpad.i171 ], [ %85, %lpad136 ], [ %91, %lpad151 ]
+  %save_start.sink = phi ptr [ %save_start, %ehcleanup ], [ %save_start, %lpad ], [ %save_s134, %lpad.i171 ], [ %save_s134, %lpad136 ], [ %save_s134, %lpad151 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %42, %lpad ], [ %88, %lpad.i171 ], [ %85, %lpad136 ], [ %91, %lpad151 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start.sink) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i142, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %75, %lpad.i142 ], [ %29, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad.i ], [ %75, %lpad.i142 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit: ; preds = %invoke.cont.i
@@ -6550,7 +6550,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %51, label %if.end75, label %return
 
 ehcleanup:                                        ; preds = %lpad.i90, %lpad.i98, %lpad50, %lpad67
-  %.pn = phi { ptr, i32 } [ %50, %lpad67 ], [ %49, %lpad.i98 ], [ %43, %lpad50 ], [ %46, %lpad.i90 ]
+  %.pn = phi { ptr, i32 } [ %50, %lpad67 ], [ %43, %lpad50 ], [ %49, %lpad.i98 ], [ %46, %lpad.i90 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #25
   br label %common.resume.sink.split
 
@@ -6966,7 +6966,7 @@ if.end196:                                        ; preds = %_ZN3re210SparseSetT
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup157.thread, %if.end196, %if.end169, %if.then166, %if.end82, %if.then79, %if.then48
-  %retval.2 = phi i1 [ %tobool168, %if.then166 ], [ true, %if.end169 ], [ %tobool198, %if.end196 ], [ false, %cleanup157.thread ], [ false, %if.then48 ], [ %tobool81, %if.then79 ], [ true, %if.end82 ], [ false, %cleanup ]
+  %retval.2 = phi i1 [ %tobool168, %if.then166 ], [ true, %if.end169 ], [ %tobool198, %if.end196 ], [ false, %if.then48 ], [ %tobool81, %if.then79 ], [ true, %if.end82 ], [ false, %cleanup157.thread ], [ false, %cleanup ]
   ret i1 %retval.2
 }
 
@@ -7180,13 +7180,13 @@ terminate.lpad.i1.i:                              ; preds = %lpad.i
   unreachable
 
 common.resume.sink.split:                         ; preds = %lpad151, %lpad136, %lpad.i184, %lpad, %ehcleanup
-  %save_start.sink = phi ptr [ %save_start, %lpad ], [ %save_start, %ehcleanup ], [ %save_s134, %lpad.i184 ], [ %save_s134, %lpad136 ], [ %save_s134, %lpad151 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %42, %lpad ], [ %.pn, %ehcleanup ], [ %88, %lpad.i184 ], [ %85, %lpad136 ], [ %91, %lpad151 ]
+  %save_start.sink = phi ptr [ %save_start, %ehcleanup ], [ %save_start, %lpad ], [ %save_s134, %lpad.i184 ], [ %save_s134, %lpad136 ], [ %save_s134, %lpad151 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %42, %lpad ], [ %88, %lpad.i184 ], [ %85, %lpad136 ], [ %91, %lpad151 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start.sink) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i155, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %75, %lpad.i155 ], [ %29, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad.i ], [ %75, %lpad.i155 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit: ; preds = %invoke.cont.i
@@ -7382,7 +7382,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %51, label %if.end75, label %return
 
 ehcleanup:                                        ; preds = %lpad.i101, %lpad.i109, %lpad50, %lpad67
-  %.pn = phi { ptr, i32 } [ %50, %lpad67 ], [ %49, %lpad.i109 ], [ %43, %lpad50 ], [ %46, %lpad.i101 ]
+  %.pn = phi { ptr, i32 } [ %50, %lpad67 ], [ %43, %lpad50 ], [ %49, %lpad.i109 ], [ %46, %lpad.i101 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #25
   br label %common.resume.sink.split
 
@@ -7802,7 +7802,7 @@ if.end196:                                        ; preds = %_ZN3re210SparseSetT
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup157.thread, %if.end196, %if.end169, %if.then166, %if.end82, %if.then79, %if.then48
-  %retval.2 = phi i1 [ %tobool168, %if.then166 ], [ true, %if.end169 ], [ %tobool198, %if.end196 ], [ false, %cleanup157.thread ], [ false, %if.then48 ], [ %tobool81, %if.then79 ], [ true, %if.end82 ], [ false, %cleanup ]
+  %retval.2 = phi i1 [ %tobool168, %if.then166 ], [ true, %if.end169 ], [ %tobool198, %if.end196 ], [ false, %if.then48 ], [ %tobool81, %if.then79 ], [ true, %if.end82 ], [ false, %cleanup157.thread ], [ false, %cleanup ]
   ret i1 %retval.2
 }
 
@@ -8014,13 +8014,13 @@ terminate.lpad.i1.i:                              ; preds = %lpad.i
   unreachable
 
 common.resume.sink.split:                         ; preds = %lpad138, %lpad153, %lpad, %ehcleanup
-  %save_start.sink = phi ptr [ %save_start, %lpad ], [ %save_start, %ehcleanup ], [ %save_s136, %lpad153 ], [ %save_s136, %lpad138 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %42, %lpad ], [ %.pn, %ehcleanup ], [ %84, %lpad153 ], [ %83, %lpad138 ]
+  %save_start.sink = phi ptr [ %save_start, %ehcleanup ], [ %save_start, %lpad ], [ %save_s136, %lpad153 ], [ %save_s136, %lpad138 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %42, %lpad ], [ %84, %lpad153 ], [ %83, %lpad138 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start.sink) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i146, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %73, %lpad.i146 ], [ %29, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad.i ], [ %73, %lpad.i146 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit: ; preds = %invoke.cont.i
@@ -8596,7 +8596,7 @@ return.critedge:                                  ; preds = %invoke.cont53, %inv
   br label %return
 
 return:                                           ; preds = %return.critedge, %cleanup159.thread, %if.end198, %if.end171, %if.then168, %if.end110, %if.end83, %if.then80, %if.then49, %if.end17
-  %retval.0 = phi i1 [ true, %if.end17 ], [ false, %if.then168 ], [ true, %if.end171 ], [ %cmp.i176, %if.end198 ], [ false, %cleanup159.thread ], [ false, %if.then49 ], [ false, %if.then80 ], [ true, %if.end83 ], [ true, %if.end110 ], [ false, %return.critedge ]
+  %retval.0 = phi i1 [ true, %if.end17 ], [ false, %if.then168 ], [ true, %if.end171 ], [ %cmp.i176, %if.end198 ], [ false, %if.then49 ], [ false, %if.then80 ], [ true, %if.end83 ], [ true, %if.end110 ], [ false, %cleanup159.thread ], [ false, %return.critedge ]
   ret i1 %retval.0
 }
 
@@ -8808,13 +8808,13 @@ terminate.lpad.i1.i:                              ; preds = %lpad.i
   unreachable
 
 common.resume.sink.split:                         ; preds = %lpad138, %lpad153, %lpad, %ehcleanup
-  %save_start.sink = phi ptr [ %save_start, %lpad ], [ %save_start, %ehcleanup ], [ %save_s136, %lpad153 ], [ %save_s136, %lpad138 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %42, %lpad ], [ %.pn, %ehcleanup ], [ %84, %lpad153 ], [ %83, %lpad138 ]
+  %save_start.sink = phi ptr [ %save_start, %ehcleanup ], [ %save_start, %lpad ], [ %save_s136, %lpad153 ], [ %save_s136, %lpad138 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %42, %lpad ], [ %84, %lpad153 ], [ %83, %lpad138 ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start.sink) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i159, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %73, %lpad.i159 ], [ %29, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad.i ], [ %73, %lpad.i159 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi.exit: ; preds = %invoke.cont.i
@@ -9394,7 +9394,7 @@ return.critedge:                                  ; preds = %invoke.cont53, %inv
   br label %return
 
 return:                                           ; preds = %return.critedge, %cleanup159.thread, %if.end198, %if.end171, %if.then168, %if.end110, %if.end83, %if.then80, %if.then49, %if.end17
-  %retval.0 = phi i1 [ true, %if.end17 ], [ false, %if.then168 ], [ true, %if.end171 ], [ %cmp.i189, %if.end198 ], [ false, %cleanup159.thread ], [ false, %if.then49 ], [ false, %if.then80 ], [ true, %if.end83 ], [ true, %if.end110 ], [ false, %return.critedge ]
+  %retval.0 = phi i1 [ true, %if.end17 ], [ false, %if.then168 ], [ true, %if.end171 ], [ %cmp.i189, %if.end198 ], [ false, %if.then49 ], [ false, %if.then80 ], [ true, %if.end83 ], [ true, %if.end110 ], [ false, %cleanup159.thread ], [ false, %return.critedge ]
   ret i1 %retval.0
 }
 
@@ -9541,8 +9541,8 @@ if.else52:                                        ; preds = %if.else45
   br label %if.end65
 
 if.end65:                                         ; preds = %if.else52, %if.else45, %if.else38, %if.else26, %if.else, %if.then15
-  %flags.0 = phi i32 [ 1, %if.else45 ], [ 5, %if.then15 ], [ %., %if.else26 ], [ 1, %if.else ], [ %.30, %if.else52 ], [ 5, %if.else38 ]
-  %start14.0 = phi i64 [ 2, %if.else45 ], [ 0, %if.then15 ], [ %.29, %if.else26 ], [ 2, %if.else ], [ %.31, %if.else52 ], [ 0, %if.else38 ]
+  %flags.0 = phi i32 [ 5, %if.then15 ], [ 1, %if.else ], [ %., %if.else26 ], [ 5, %if.else38 ], [ 1, %if.else45 ], [ %.30, %if.else52 ]
+  %start14.0 = phi i64 [ 0, %if.then15 ], [ 2, %if.else ], [ %.29, %if.else26 ], [ 0, %if.else38 ], [ 2, %if.else45 ], [ %.31, %if.else52 ]
   %anchored = getelementptr inbounds nuw i8, ptr %params, i64 32
   %11 = load i8, ptr %anchored, align 8
   %12 = and i8 %11, 1
@@ -9670,7 +9670,7 @@ if.then94:                                        ; preds = %land.lhs.true91
   br label %return
 
 return:                                           ; preds = %if.end81, %land.lhs.true, %land.lhs.true91, %if.then94, %invoke.cont78, %invoke.cont12
-  %retval.0 = phi i1 [ true, %invoke.cont12 ], [ false, %invoke.cont78 ], [ true, %if.then94 ], [ true, %land.lhs.true91 ], [ true, %if.end81 ], [ true, %land.lhs.true ]
+  %retval.0 = phi i1 [ true, %invoke.cont12 ], [ false, %invoke.cont78 ], [ true, %if.then94 ], [ true, %land.lhs.true91 ], [ true, %land.lhs.true ], [ true, %if.end81 ]
   ret i1 %retval.0
 }
 
@@ -9865,7 +9865,7 @@ if.end39:                                         ; preds = %invoke.cont33
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end17, %if.end39, %if.then38, %if.then22, %if.then16
-  %retval.1 = phi i1 [ false, %if.then16 ], [ true, %if.then22 ], [ false, %if.then38 ], [ %call.i9, %if.end39 ], [ false, %if.end17 ]
+  %retval.1 = phi i1 [ true, %if.then22 ], [ false, %if.then38 ], [ %call.i9, %if.end39 ], [ false, %if.then16 ], [ false, %if.end17 ]
   call void @_ZN3re23DFA8RWLockerD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %l) #25
   br label %return
 
@@ -9907,8 +9907,8 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
           to label %release.i.i.i unwind label %lpad.i.i.i.i.i
 
 common.resume:                                    ; preds = %lpad.i.i.i.i.i24, %lpad4.i.i.i.i.i, %lpad.i.i.i.i.i11, %lpad.i.i.i.i.i
-  %call2.i.i.i39.i.i.sink = phi ptr [ %call.i.i.i39.i.i, %lpad.i.i.i.i.i ], [ %call.i.i.i39.i.i9, %lpad.i.i.i.i.i11 ], [ %call2.i.i.i39.i.i, %lpad4.i.i.i.i.i ], [ %call2.i.i.i39.i.i, %lpad.i.i.i.i.i24 ]
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i.i.i.i.i ], [ %10, %lpad.i.i.i.i.i11 ], [ %18, %lpad4.i.i.i.i.i ], [ %17, %lpad.i.i.i.i.i24 ]
+  %call2.i.i.i39.i.i.sink = phi ptr [ %call.i.i.i39.i.i9, %lpad.i.i.i.i.i11 ], [ %call.i.i.i39.i.i, %lpad.i.i.i.i.i ], [ %call2.i.i.i39.i.i, %lpad4.i.i.i.i.i ], [ %call2.i.i.i39.i.i, %lpad.i.i.i.i.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i11 ], [ %4, %lpad.i.i.i.i.i ], [ %18, %lpad4.i.i.i.i.i ], [ %17, %lpad.i.i.i.i.i24 ]
   tail call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i39.i.i.sink) #24
   resume { ptr, i32 } %common.resume.op
 
@@ -10011,13 +10011,13 @@ release.i.i.i25:                                  ; preds = %if.else.i.i.i.i.i, 
   br i1 %cmp4.i.i26, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %release.i.i.i25, %release.i.i.i12, %release.i.i.i
-  %dfa_longest_once_.sink = phi ptr [ %dfa_first_once_5, %release.i.i.i12 ], [ %dfa_first_once_, %release.i.i.i ], [ %dfa_longest_once_, %release.i.i.i25 ]
-  %.sink.ph = phi i64 [ 152, %release.i.i.i12 ], [ 152, %release.i.i.i ], [ 160, %release.i.i.i25 ]
+  %dfa_longest_once_.sink = phi ptr [ %dfa_first_once_, %release.i.i.i ], [ %dfa_first_once_5, %release.i.i.i12 ], [ %dfa_longest_once_, %release.i.i.i25 ]
+  %.sink.ph = phi i64 [ 152, %release.i.i.i ], [ 152, %release.i.i.i12 ], [ 160, %release.i.i.i25 ]
   tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull align 4 dereferenceable(4) %dfa_longest_once_.sink, i1 noundef zeroext true)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %release.i.i.i25, %lor.lhs.false.i.i18, %if.else9, %release.i.i.i12, %lor.lhs.false.i.i4, %if.then4, %release.i.i.i, %lor.lhs.false.i.i, %if.then
-  %.sink = phi i64 [ 160, %lor.lhs.false.i.i18 ], [ 160, %release.i.i.i25 ], [ 152, %if.then ], [ 152, %lor.lhs.false.i.i ], [ 152, %release.i.i.i ], [ 152, %if.then4 ], [ 152, %lor.lhs.false.i.i4 ], [ 152, %release.i.i.i12 ], [ 160, %if.else9 ], [ %.sink.ph, %return.sink.split ]
+  %.sink = phi i64 [ 152, %if.then ], [ 152, %lor.lhs.false.i.i ], [ 152, %release.i.i.i ], [ 152, %if.then4 ], [ 152, %lor.lhs.false.i.i4 ], [ 152, %release.i.i.i12 ], [ 160, %if.else9 ], [ 160, %lor.lhs.false.i.i18 ], [ 160, %release.i.i.i25 ], [ %.sink.ph, %return.sink.split ]
   %dfa_longest_ = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   %retval.0 = load ptr, ptr %dfa_longest_, align 8
   ret ptr %retval.0
@@ -10080,7 +10080,7 @@ lor.lhs.false:                                    ; preds = %if.end22
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.lhs.false, %if.end22
-  %3 = phi i1 [ %spec.select, %lor.lhs.false ], [ true, %if.end22 ]
+  %3 = phi i1 [ true, %if.end22 ], [ %spec.select, %lor.lhs.false ]
   switch i32 %kind, label %lor.lhs.false30 [
     i32 3, label %if.then36
     i32 2, label %if.then32
@@ -10106,9 +10106,9 @@ if.else40:                                        ; preds = %if.then32, %lor.lhs
   br label %if.end46
 
 if.end46:                                         ; preds = %if.else40, %if.then36
-  %endmatch.042 = phi i1 [ %endmatch.0.ph, %if.else40 ], [ false, %if.then36 ]
-  %want_earliest_match.0 = phi i1 [ %not.or.cond, %if.else40 ], [ %cmp37, %if.then36 ]
-  %kind.addr.1 = phi i32 [ %spec.select14, %if.else40 ], [ 3, %if.then36 ]
+  %endmatch.042 = phi i1 [ false, %if.then36 ], [ %endmatch.0.ph, %if.else40 ]
+  %want_earliest_match.0 = phi i1 [ %cmp37, %if.then36 ], [ %not.or.cond, %if.else40 ]
+  %kind.addr.1 = phi i32 [ 3, %if.then36 ], [ %spec.select14, %if.else40 ]
   %call47 = tail call noundef ptr @_ZN3re24Prog6GetDFAENS0_9MatchKindE(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %kind.addr.1)
   %4 = load i8, ptr %reversed_, align 2
   %tobool53 = trunc i8 %4 to i1
@@ -10183,7 +10183,7 @@ _ZN4absl7debian211string_viewC2EPKcm.exit25:      ; preds = %if.else82
   br label %return
 
 return:                                           ; preds = %if.end13, %entry, %if.end72, %_ZN4absl7debian211string_viewC2EPKcm.exit25, %_ZN4absl7debian211string_viewC2EPKcm.exit, %land.lhs.true64, %if.end59, %if.then57
-  %retval.0 = phi i1 [ false, %if.end13 ], [ false, %entry ], [ false, %if.then57 ], [ false, %if.end59 ], [ false, %land.lhs.true64 ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit25 ], [ true, %if.end72 ]
+  %retval.0 = phi i1 [ false, %if.then57 ], [ false, %if.end59 ], [ false, %land.lhs.true64 ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit25 ], [ true, %if.end72 ], [ false, %entry ], [ false, %if.end13 ]
   ret i1 %retval.0
 }
 
@@ -10386,8 +10386,8 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %input.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i25, %if.end.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i25, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %input.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i25, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i25, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %bytemap_.i = getelementptr inbounds nuw i8, ptr %24, i64 168
   br label %for.body
 
@@ -10462,7 +10462,7 @@ if.end.i.i.i.i.i.i.i40:                           ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %if.end.i.i.i.i.i.i.i40, %call5.i.i.i.i2.i.i.noexc48, %while.end.thread
-  %output.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i49, %if.end.i.i.i.i.i.i.i40 ], [ %call5.i.i.i.i2.i.i49, %call5.i.i.i.i2.i.i.noexc48 ], [ null, %while.end.thread ]
+  %output.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i49, %call5.i.i.i.i2.i.i.noexc48 ], [ %call5.i.i.i.i2.i.i49, %if.end.i.i.i.i.i.i.i40 ], [ null, %while.end.thread ]
   %_M_start.i = getelementptr inbounds nuw i8, ptr %q, i64 16
   %_M_last.i54 = getelementptr inbounds nuw i8, ptr %q, i64 32
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %q, i64 24
@@ -10778,8 +10778,8 @@ if.end.i89:                                       ; preds = %invoke.cont95
   br label %for.inc101
 
 for.inc101:                                       ; preds = %if.then.i95, %if.end.i89, %if.then.i65, %if.end.i
-  %retval.0.i94.sink = phi i32 [ %conv.i, %if.end.i ], [ %48, %if.then.i65 ], [ %77, %if.then.i95 ], [ %conv.i93, %if.end.i89 ]
-  %.sink = phi i32 [ -1, %if.end.i ], [ -1, %if.then.i65 ], [ %75, %if.then.i95 ], [ %75, %if.end.i89 ]
+  %retval.0.i94.sink = phi i32 [ %48, %if.then.i65 ], [ %conv.i, %if.end.i ], [ %77, %if.then.i95 ], [ %conv.i93, %if.end.i89 ]
+  %.sink = phi i32 [ -1, %if.then.i65 ], [ -1, %if.end.i ], [ %75, %if.then.i95 ], [ %75, %if.end.i89 ]
   %conv99 = sext i32 %retval.0.i94.sink to i64
   %add.ptr.i98 = getelementptr inbounds i32, ptr %output.sroa.0.0, i64 %conv99
   store i32 %.sink, ptr %add.ptr.i98, align 4
@@ -10894,7 +10894,7 @@ if.then.i.i.i122:                                 ; preds = %ehcleanup.thread, %
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %if.then.i.i.i122, %ehcleanup, %lpad24, %lpad14
-  %.pn.pn = phi { ptr, i32 } [ %30, %lpad14 ], [ %31, %lpad24 ], [ %eh.lpad-body, %ehcleanup ], [ %.pn246, %if.then.i.i.i122 ]
+  %.pn.pn = phi { ptr, i32 } [ %31, %lpad24 ], [ %30, %lpad14 ], [ %eh.lpad-body, %ehcleanup ], [ %.pn246, %if.then.i.i.i122 ]
   call void @_ZNSt5dequeIPN3re23DFA5StateESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %q) #25
   br label %ehcleanup120
 
@@ -11383,7 +11383,7 @@ invoke.cont107:                                   ; preds = %for.end106
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont30, %invoke.cont44, %for.inc99, %invoke.cont83, %invoke.cont107
-  %retval.2 = phi i1 [ %not.call108, %invoke.cont107 ], [ true, %for.inc99 ], [ false, %invoke.cont44 ], [ false, %invoke.cont83 ], [ false, %invoke.cont30 ]
+  %retval.2 = phi i1 [ %not.call108, %invoke.cont107 ], [ true, %for.inc99 ], [ false, %invoke.cont83 ], [ false, %invoke.cont44 ], [ false, %invoke.cont30 ]
   invoke void @_ZN4absl7debian25Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %cleanup111 unwind label %terminate.lpad.i35
 
@@ -12200,7 +12200,7 @@ while.body.i.i30.us:                              ; preds = %land.rhs.i.i24.us
   br i1 %cmp.i23.i32.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %land.rhs.i.i24.us, !llvm.loop !103
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us: ; preds = %land.rhs.i.i24.us, %while.body.i.i30.us, %if.end7.split.us, %while.end.i15.us
-  %__holeIndex.addr.0.lcssa.i.i22.us = phi i64 [ %spec.select.i50.us, %while.end.i15.us ], [ %dec.us, %if.end7.split.us ], [ %__holeIndex.addr.014.i.i25.us, %land.rhs.i.i24.us ], [ %__parent.015.i.i27.us64, %while.body.i.i30.us ]
+  %__holeIndex.addr.0.lcssa.i.i22.us = phi i64 [ %spec.select.i50.us, %while.end.i15.us ], [ %dec.us, %if.end7.split.us ], [ %__parent.015.i.i27.us64, %while.body.i.i30.us ], [ %__holeIndex.addr.014.i.i25.us, %land.rhs.i.i24.us ]
   %add.ptr5.i.i23.us = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i22.us
   store i32 %8, ptr %add.ptr5.i.i23.us, align 4
   %cmp5.us = icmp eq i64 %dec.us, 0
@@ -13580,7 +13580,7 @@ _ZSt4copyIPPPN3re23DFA5StateES5_ET0_T_S7_S6_.exit30: ; preds = %_ZNSt11_Deque_ba
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPPN3re23DFA5StateES5_ET0_T_S7_S6_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN3re23DFA5StateES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN3re23DFA5StateES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

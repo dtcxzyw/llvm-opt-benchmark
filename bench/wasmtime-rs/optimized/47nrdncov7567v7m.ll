@@ -123,7 +123,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..regis
   ]
 
 6:                                                ; preds = %2, %15, %16
-  %.010 = phi i64 [ %18, %16 ], [ %.1, %15 ], [ %5, %2 ]
+  %.010 = phi i64 [ %.1, %15 ], [ %18, %16 ], [ %5, %2 ]
   %7 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h33d4bc69cb262de8E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.010)
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 0
@@ -252,7 +252,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !14
   br label %43
 
-43:                                               ; preds = %38, %42, %5, %40
+43:                                               ; preds = %42, %40, %38, %5
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.4a4bd4989e30d3dac8d1d363d269d02a.3, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4a4bd4989e30d3dac8d1d363d269d02a.5) #16
   unreachable
 
@@ -270,7 +270,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   %44 = invoke { ptr, i1 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h66a94b3d664ecf5fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %46 unwind label %.thread
 
-.thread147:                                       ; preds = %155, %160, %163, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i
+.thread147:                                       ; preds = %163, %160, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i, %155
   %lpad.thr_comm145 = landingpad { ptr, i32 }
           cleanup
   br label %.thread140
@@ -323,7 +323,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   %67 = icmp eq i128 %66, 44560359678799612439427765009674515160
   br i1 %67, label %68, label %69
 
-.thread114:                                       ; preds = %.noexc55, %_ZN18tracing_subscriber8registry10extensions13ExtensionsMut7replace17h2ee432e0ebea9d6bE.llvm.1804880793895523134.exit.i, %134, %123, %113, %98, %59, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h02889e5d236db721E.exit.i.i", %.noexc, %95, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h02889e5d236db721E.exit.i.i49", %.noexc52, %124
+.thread114:                                       ; preds = %123, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h02889e5d236db721E.exit.i.i", %.noexc, %59, %95, %98, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h02889e5d236db721E.exit.i.i49", %.noexc52, %113, %124, %.noexc55, %_ZN18tracing_subscriber8registry10extensions13ExtensionsMut7replace17h2ee432e0ebea9d6bE.llvm.1804880793895523134.exit.i, %134
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread107
@@ -771,8 +771,8 @@ define hidden { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Laye
   br label %8
 
 8:                                                ; preds = %2, %2, %6, %5, %3
-  %.sroa.0.0 = phi i64 [ 0, %5 ], [ 1, %2 ], [ 1, %3 ], [ 1, %6 ], [ 1, %2 ]
-  %.sroa.6.0 = phi ptr [ undef, %5 ], [ %0, %2 ], [ %4, %3 ], [ %7, %6 ], [ %0, %2 ]
+  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 1, %6 ], [ 0, %5 ], [ 1, %2 ], [ 1, %2 ]
+  %.sroa.6.0 = phi ptr [ %4, %3 ], [ %7, %6 ], [ undef, %5 ], [ %0, %2 ], [ %0, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.6.0, 1
   ret { i64, ptr } %10
@@ -849,7 +849,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !154
   br label %43
 
-43:                                               ; preds = %38, %42, %28, %40
+43:                                               ; preds = %42, %40, %38, %28
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.4a4bd4989e30d3dac8d1d363d269d02a.3, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4a4bd4989e30d3dac8d1d363d269d02a.17) #16
   unreachable
 
@@ -867,7 +867,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   %44 = invoke { ptr, i1 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h66a94b3d664ecf5fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %46 unwind label %.thread
 
-.thread103:                                       ; preds = %109, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i, %104, %112
+.thread103:                                       ; preds = %112, %109, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i, %104
   %lpad.thr_comm101 = landingpad { ptr, i32 }
           cleanup
   br label %.thread96
@@ -1230,7 +1230,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
 48:                                               ; preds = %4, %122
   ret void
 
-49:                                               ; preds = %43, %47, %33, %45
+49:                                               ; preds = %47, %45, %43, %33
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.4a4bd4989e30d3dac8d1d363d269d02a.3, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4a4bd4989e30d3dac8d1d363d269d02a.21) #16
   unreachable
 
@@ -1671,7 +1671,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !293
   br label %43
 
-43:                                               ; preds = %38, %42, %28, %40
+43:                                               ; preds = %42, %40, %38, %28
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.4a4bd4989e30d3dac8d1d363d269d02a.3, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4a4bd4989e30d3dac8d1d363d269d02a.30) #16
   unreachable
 
@@ -1689,7 +1689,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   %44 = invoke { ptr, i1 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h66a94b3d664ecf5fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %46 unwind label %.thread
 
-.thread103:                                       ; preds = %108, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i, %103, %111
+.thread103:                                       ; preds = %111, %108, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i, %103
   %lpad.thr_comm101 = landingpad { ptr, i32 }
           cleanup
   br label %.thread96
@@ -2067,7 +2067,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !367
   br label %29
 
-29:                                               ; preds = %24, %28, %5, %26
+29:                                               ; preds = %28, %26, %24, %5
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.4a4bd4989e30d3dac8d1d363d269d02a.3, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4a4bd4989e30d3dac8d1d363d269d02a.47) #16
   unreachable
 
@@ -3276,7 +3276,7 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
           to label %51 unwind label %49, !noalias !607
 
 48:                                               ; preds = %119, %70
-  %.pn50.i = phi { ptr, i32 } [ %.pn.i, %119 ], [ %71, %70 ]
+  %.pn50.i = phi { ptr, i32 } [ %71, %70 ], [ %.pn.i, %119 ]
   br i1 %.not.i, label %164, label %163
 
 49:                                               ; preds = %147, %144, %95, %34
@@ -3617,7 +3617,7 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
   br label %167
 
 167:                                              ; preds = %164, %163
-  %.pn54.i = phi { ptr, i32 } [ %.pn50104.i, %163 ], [ %.pn52.ph.i, %164 ]
+  %.pn54.i = phi { ptr, i32 } [ %.pn52.ph.i, %164 ], [ %.pn50104.i, %163 ]
   resume { ptr, i32 } %.pn54.i
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_event28_$u7b$$u7b$closure$u7d$$u7d$17hb164ea9d4448573fE.exit": ; preds = %159, %.noexc74.i, %2

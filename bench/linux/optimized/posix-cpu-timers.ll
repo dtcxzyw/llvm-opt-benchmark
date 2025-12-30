@@ -2352,7 +2352,7 @@ define internal void @posix_cpu_timer_rearm(ptr noundef %0) #1 align 16 {
   br i1 %77, label %60, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %72, %48, %35
-  %78 = phi i64 [ %38, %35 ], [ %38, %48 ], [ %73, %72 ]
+  %78 = phi i64 [ %38, %48 ], [ %38, %35 ], [ %73, %72 ]
   %79 = load i32, ptr %3, align 8
   %80 = and i32 %79, 3
   %81 = and i32 %79, 4

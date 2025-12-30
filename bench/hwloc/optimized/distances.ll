@@ -607,13 +607,13 @@ define range(i32 -1, 1) i32 @hwloc_distances_remove_by_depth(ptr noundef %0, i32
   br i1 %.not26, label %.loopexit, label %16, !llvm.loop !65
 
 .loopexit.sink.split:                             ; preds = %9, %6, %2
-  %.sink = phi i32 [ 1, %6 ], [ 22, %2 ], [ 22, %9 ]
+  %.sink = phi i32 [ 22, %2 ], [ 1, %6 ], [ 22, %9 ]
   %43 = tail call ptr @__errno_location() #32
   store i32 %.sink, ptr %43, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.loopexit.sink.split, %12
-  %.0 = phi i32 [ -1, %.loopexit.sink.split ], [ 0, %12 ], [ 0, %42 ]
+  %.0 = phi i32 [ 0, %12 ], [ -1, %.loopexit.sink.split ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -1778,8 +1778,8 @@ hwloc__check_grouping_matrix.exit:                ; preds = %.loopexit.i, %.loop
   br label %107
 
 107:                                              ; preds = %105, %102, %100, %.preheader110.split.us.i
-  %.190.us.i = phi i32 [ %.089130.us.i, %.preheader110.split.us.i ], [ %.089130.us.i, %105 ], [ %101, %102 ], [ %101, %100 ]
-  %.183.us.i = phi i32 [ %.082135.us.i, %.preheader110.split.us.i ], [ %106, %105 ], [ %.082135.us.i, %102 ], [ %.082135.us.i, %100 ]
+  %.190.us.i = phi i32 [ %.089130.us.i, %105 ], [ %.089130.us.i, %.preheader110.split.us.i ], [ %101, %102 ], [ %101, %100 ]
+  %.183.us.i = phi i32 [ %106, %105 ], [ %.082135.us.i, %.preheader110.split.us.i ], [ %.082135.us.i, %102 ], [ %.082135.us.i, %100 ]
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next171.i, %14
   br i1 %exitcond174.not.i, label %.split.us.i146, label %.preheader110.split.us.i, !llvm.loop !97
@@ -1851,8 +1851,8 @@ hwloc_compare_values.exit.thread.us.us.us.us.i:   ; preds = %118
   br label %131
 
 131:                                              ; preds = %hwloc_compare_values.exit.thread.us.us.us.us.i, %118, %115
-  %.380.us.us.us.us.i = phi i32 [ %.279117.us.us.us.us.i, %115 ], [ %.279117.us.us.us.us.i, %118 ], [ %129, %hwloc_compare_values.exit.thread.us.us.us.us.i ]
-  %.3.us.us.us.us.i = phi i32 [ %.1118.us.us.us.us.i, %115 ], [ %.1118.us.us.us.us.i, %118 ], [ %spec.select103.us.us.us.us.i, %hwloc_compare_values.exit.thread.us.us.us.us.i ]
+  %.380.us.us.us.us.i = phi i32 [ %.279117.us.us.us.us.i, %115 ], [ %129, %hwloc_compare_values.exit.thread.us.us.us.us.i ], [ %.279117.us.us.us.us.i, %118 ]
+  %.3.us.us.us.us.i = phi i32 [ %.1118.us.us.us.us.i, %115 ], [ %spec.select103.us.us.us.us.i, %hwloc_compare_values.exit.thread.us.us.us.us.i ], [ %.1118.us.us.us.us.i, %118 ]
   %indvars.iv.next161.i = add nuw nsw i64 %indvars.iv160.i, 1
   %exitcond164.not.i = icmp eq i64 %indvars.iv.next161.i, %14
   br i1 %exitcond164.not.i, label %.loopexit.split.us.us.us.us.i, label %115, !llvm.loop !100
@@ -1958,8 +1958,8 @@ hwloc_compare_values.exit.thread.i:               ; preds = %hwloc_compare_value
   br label %161
 
 161:                                              ; preds = %158, %156, %154, %.preheader110.split.i
-  %.190.i = phi i32 [ %.089130.i, %.preheader110.split.i ], [ %.089130.i, %154 ], [ %157, %158 ], [ %157, %156 ]
-  %.183.i = phi i32 [ %.082135.i, %.preheader110.split.i ], [ %155, %154 ], [ %.082135.i, %158 ], [ %.082135.i, %156 ]
+  %.190.i = phi i32 [ %.089130.i, %154 ], [ %.089130.i, %.preheader110.split.i ], [ %157, %158 ], [ %157, %156 ]
+  %.183.i = phi i32 [ %155, %154 ], [ %.082135.i, %.preheader110.split.i ], [ %.082135.i, %158 ], [ %.082135.i, %156 ]
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond159.not.i = icmp eq i64 %indvars.iv.next156.i, %14
   br i1 %exitcond159.not.i, label %.split.us.i146, label %.preheader110.split.i, !llvm.loop !97
@@ -1975,7 +1975,7 @@ hwloc_compare_values.exit.thread.i:               ; preds = %hwloc_compare_value
   %or.cond154 = or i1 %.not135, %or.cond.i147.not157
   br i1 %or.cond154, label %hwloc__check_grouping_matrix.exit.thread, label %165
 
-hwloc__check_grouping_matrix.exit.thread:         ; preds = %.split.us.i146, %91, %76, %73, %.split.us.i, %hwloc_compare_values.exit57.thread.i
+hwloc__check_grouping_matrix.exit.thread:         ; preds = %.split.us.i146, %91, %hwloc_compare_values.exit57.thread.i, %76, %.split.us.i, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond245.not, label %.thread, label %17, !llvm.loop !101
@@ -2251,9 +2251,9 @@ hwloc_backend_distances_add_create.exit.thread.sink.split: ; preds = %12, %hwloc
   br label %hwloc_backend_distances_add_create.exit.thread
 
 hwloc_backend_distances_add_create.exit.thread:   ; preds = %hwloc_backend_distances_add_create.exit.thread.sink.split, %9, %42
-  %.021 = phi ptr [ %6, %9 ], [ null, %42 ], [ %6, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
-  %.020 = phi ptr [ %5, %9 ], [ null, %42 ], [ %5, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
-  %.019 = phi ptr [ %3, %9 ], [ null, %42 ], [ %3, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
+  %.021 = phi ptr [ null, %42 ], [ %6, %9 ], [ %6, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
+  %.020 = phi ptr [ null, %42 ], [ %5, %9 ], [ %5, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
+  %.019 = phi ptr [ null, %42 ], [ %3, %9 ], [ %3, %hwloc_backend_distances_add_create.exit.thread.sink.split ]
   tail call void @free(ptr noundef %.020) #29
   tail call void @free(ptr noundef %.019) #29
   tail call void @free(ptr noundef %.021) #29
@@ -2705,7 +2705,7 @@ hwloc_get_next_obj_by_type.exit.i.us.i:           ; preds = %33, %30
   br i1 %38, label %hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i, label %24, !llvm.loop !114
 
 hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i:  ; preds = %35, %hwloc_get_next_obj_by_type.exit.i.us.i, %27, %24
-  %.0.ph.us.i = phi ptr [ null, %24 ], [ null, %hwloc_get_next_obj_by_type.exit.i.us.i ], [ %.0.i.i.us.i, %35 ], [ null, %27 ]
+  %.0.ph.us.i = phi ptr [ null, %27 ], [ null, %24 ], [ null, %hwloc_get_next_obj_by_type.exit.i.us.i ], [ %.0.i.i.us.i, %35 ]
   %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv86.i
   store ptr %.0.ph.us.i, ptr %39, align 8, !tbaa !72
   %.not52.us.i = icmp eq ptr %.0.ph.us.i, null
@@ -2808,7 +2808,7 @@ hwloc_get_pu_obj_by_os_index.exit.i:              ; preds = %.lr.ph.split.i, %hw
   br i1 %exitcond95.not.i, label %._crit_edge.i, label %hwloc_get_pu_obj_by_os_index.exit.i, !llvm.loop !115
 
 ._crit_edge.i:                                    ; preds = %hwloc_get_pu_obj_by_os_index.exit.loopexit61.us.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i, %hwloc_get_pu_obj_by_os_index.exit.i, %hwloc_get_pu_obj_by_os_index.exit.us76.i
-  %.045.lcssa.i = phi i32 [ %spec.select.us78.i, %hwloc_get_pu_obj_by_os_index.exit.us76.i ], [ %spec.select.us.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i ], [ %spec.select.i, %hwloc_get_pu_obj_by_os_index.exit.i ], [ %spec.select.us71.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit61.us.i ]
+  %.045.lcssa.i = phi i32 [ %spec.select.us78.i, %hwloc_get_pu_obj_by_os_index.exit.us76.i ], [ %spec.select.i, %hwloc_get_pu_obj_by_os_index.exit.i ], [ %spec.select.us.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit.us.i ], [ %spec.select.us71.i, %hwloc_get_pu_obj_by_os_index.exit.loopexit61.us.i ]
   %73 = sub i32 %13, %.045.lcssa.i
   %74 = icmp ult i32 %73, 2
   br i1 %74, label %86, label %75
@@ -3118,8 +3118,8 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_get(ptr noundef %0
   %wide.trip.count = zext i32 %.04690 to i64
   br label %.lr.ph94
 
-72:                                               ; preds = %25, %20, %70, %29, %22, %34
-  %.1.ph = phi i32 [ %.04690, %34 ], [ %.04690, %22 ], [ %.04690, %29 ], [ %71, %70 ], [ %.04690, %20 ], [ %.04690, %25 ]
+72:                                               ; preds = %70, %22, %20, %25, %29, %34
+  %.1.ph = phi i32 [ %.04690, %34 ], [ %.04690, %29 ], [ %.04690, %25 ], [ %.04690, %20 ], [ %.04690, %22 ], [ %71, %70 ]
   %73 = getelementptr inbounds nuw i8, ptr %.04591, i64 80
   %.045 = load ptr, ptr %73, align 8, !tbaa !51
   %.not = icmp eq ptr %.045, null
@@ -3647,7 +3647,7 @@ is_nvswitch.exit63.thread.i:                      ; preds = %144, %is_nvswitch.e
   br label %hwloc__distances_transform_links.exit
 
 hwloc__distances_transform_links.exit:            ; preds = %.loopexit.i, %.lr.ph61.i, %100, %hwloc__distances_transform_merge_switch_ports.exit, %.loopexit.sink.split.i, %._crit_edge.i, %.preheader51.i, %.loopexit, %160, %11, %8
-  %.011 = phi i32 [ -1, %8 ], [ -1, %160 ], [ %12, %11 ], [ %99, %.loopexit ], [ -1, %.loopexit.sink.split.i ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ 0, %.preheader51.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph61.i ], [ 0, %100 ], [ 0, %.loopexit.i ]
+  %.011 = phi i32 [ -1, %8 ], [ -1, %160 ], [ %12, %11 ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ %99, %.loopexit ], [ 0, %._crit_edge.i ], [ 0, %.preheader51.i ], [ -1, %.loopexit.sink.split.i ], [ 0, %100 ], [ 0, %.lr.ph61.i ], [ 0, %.loopexit.i ]
   ret i32 %.011
 }
 

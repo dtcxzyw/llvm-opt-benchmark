@@ -114,7 +114,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z7cleanupRKNSt7__cxx1112basic_str
   br label %17
 
 17:                                               ; preds = %1, %3, %8, %16, %12
-  %.1 = phi i32 [ 0, %12 ], [ 0, %8 ], [ 1, %16 ], [ 0, %3 ], [ 0, %1 ]
+  %.1 = phi i32 [ 0, %8 ], [ 1, %16 ], [ 0, %12 ], [ 0, %3 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -525,7 +525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   ret i1 false
 
 83:                                               ; preds = %.loopexit35, %.loopexit.split-lp36, %.loopexit, %.loopexit.split-lp, %22
-  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit37, %.loopexit35 ], [ %lpad.loopexit.split-lp38, %.loopexit.split-lp36 ]
+  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit37, %.loopexit35 ], [ %lpad.loopexit.split-lp38, %.loopexit.split-lp36 ]
   %84 = load ptr, ptr %6, align 8, !tbaa !9
   %85 = icmp eq ptr %84, %8
   br i1 %85, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
@@ -805,14 +805,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
   br label %.loopexit
 
 .thread109:                                       ; preds = %44, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit
-  %154 = phi i64 [ %33, %44 ], [ %.pre128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit ], [ %33, %53 ]
-  %155 = phi i64 [ %45, %44 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit ], [ %storemerge121, %53 ]
+  %154 = phi i64 [ %33, %53 ], [ %.pre128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit ], [ %33, %44 ]
+  %155 = phi i64 [ %storemerge121, %53 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit ], [ %45, %44 ]
   %storemerge = add i64 %155, 1
   %156 = icmp ult i64 %storemerge, %154
   br i1 %156, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.thread109, %.preheader, %148, %21, %30, %40, %39, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %21 ], [ true, %30 ], [ false, %40 ], [ false, %39 ], [ true, %148 ], [ false, %.preheader ], [ false, %.thread109 ]
+  %.0 = phi i1 [ true, %8 ], [ true, %21 ], [ true, %30 ], [ false, %40 ], [ true, %148 ], [ false, %39 ], [ false, %.preheader ], [ false, %.thread109 ]
   ret i1 %.0
 }
 
@@ -902,7 +902,7 @@ define dso_local noundef zeroext i1 @_Z7fixLineiRNSt7__cxx1112basic_stringIcSt11
   br i1 %or.cond84, label %.critedge4, label %.lr.ph61, !llvm.loop !31
 
 .critedge4:                                       ; preds = %14, %19, %.lr.ph61, %26, %24, %.preheader, %.critedge, %.critedge2, %10, %8
-  %.034 = phi i1 [ false, %8 ], [ true, %24 ], [ true, %10 ], [ false, %.critedge ], [ false, %.critedge2 ], [ true, %19 ], [ false, %.preheader ], [ false, %.lr.ph61 ], [ false, %26 ], [ true, %14 ]
+  %.034 = phi i1 [ false, %8 ], [ true, %10 ], [ false, %.critedge2 ], [ false, %.critedge ], [ false, %.preheader ], [ false, %.lr.ph61 ], [ false, %26 ], [ true, %24 ], [ true, %19 ], [ true, %14 ]
   ret i1 %.034
 }
 

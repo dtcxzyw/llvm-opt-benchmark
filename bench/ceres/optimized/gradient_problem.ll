@@ -318,7 +318,7 @@ _ZN4absl12lts_2024011612log_internal12Check_EQImplB5cxx11EiiPKc.exit: ; preds = 
   br label %60
 
 60:                                               ; preds = %52, %58, %33, %28
-  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %59, %58 ], [ %53, %52 ]
+  %.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %29, %28 ], [ %59, %58 ], [ %53, %52 ]
   %61 = load ptr, ptr %10, align 8, !tbaa !16
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i

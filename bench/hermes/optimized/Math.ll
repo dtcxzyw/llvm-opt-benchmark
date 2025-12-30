@@ -153,7 +153,7 @@ if.else3:                                         ; preds = %if.else
   br label %return
 
 return:                                           ; preds = %entry, %if.else3, %if.then2
-  %retval.0 = phi double [ %3, %if.else3 ], [ %1, %if.then2 ], [ %x, %entry ]
+  %retval.0 = phi double [ %1, %if.then2 ], [ %3, %if.else3 ], [ %x, %entry ]
   ret double %retval.0
 }
 
@@ -290,7 +290,7 @@ if.then20:                                        ; preds = %lor.lhs.false, %if.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %lor.lhs.false, %if.then20, %if.end
-  %result.1 = phi double [ %result.022, %if.end ], [ %result.022, %lor.lhs.false ], [ %10, %if.then20 ], [ 0x7FF8000000000000, %if.else ]
+  %result.1 = phi double [ %result.022, %if.end ], [ %10, %if.then20 ], [ %result.022, %lor.lhs.false ], [ 0x7FF8000000000000, %if.else ]
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
@@ -389,7 +389,7 @@ if.then20:                                        ; preds = %lor.lhs.false, %if.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %lor.lhs.false, %if.then20, %if.end
-  %result.1 = phi double [ %result.022, %if.end ], [ %result.022, %lor.lhs.false ], [ %10, %if.then20 ], [ 0x7FF8000000000000, %if.else ]
+  %result.1 = phi double [ %result.022, %if.end ], [ %10, %if.then20 ], [ %result.022, %lor.lhs.false ], [ 0x7FF8000000000000, %if.else ]
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
@@ -769,8 +769,8 @@ for.end56:                                        ; preds = %for.body50, %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %for.body, %for.end, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit, %if.end36, %for.end56
-  %retval.sroa.0.0 = phi i32 [ 1, %for.end56 ], [ 1, %if.end36 ], [ 1, %for.end ], [ 1, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit ], [ 0, %for.body ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.i, %for.end56 ], [ 0, %if.end36 ], [ %., %for.end ], [ 0, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit ], [ undef, %for.body ]
+  %retval.sroa.0.0 = phi i32 [ 1, %for.end56 ], [ 1, %if.end36 ], [ 1, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit ], [ 1, %for.end ], [ 0, %for.body ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.i, %for.end56 ], [ 0, %if.end36 ], [ 0, %_ZN4llvh15SmallVectorImplIdE7reserveEm.exit ], [ %., %for.end ], [ undef, %for.body ]
   %27 = load ptr, ptr %coerced, align 8
   %cmp.i.i.i32 = icmp eq ptr %27, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i32, label %_ZN4llvh11SmallVectorIdLj4EED2Ev.exit, label %if.then.i.i

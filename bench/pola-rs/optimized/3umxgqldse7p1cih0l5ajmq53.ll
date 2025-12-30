@@ -530,7 +530,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %76, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %77, %76 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn46
 }
 

@@ -1268,7 +1268,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   br label %102
 
 102:                                              ; preds = %3, %100, %84
-  %.0 = phi i32 [ %86, %84 ], [ %101, %100 ], [ 0, %3 ]
+  %.0 = phi i32 [ %101, %100 ], [ %86, %84 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1413,7 +1413,7 @@ switch.lookup:                                    ; preds = %3
   br label %79
 
 79:                                               ; preds = %switch.lookup, %77, %65
-  %.0 = phi i32 [ %67, %65 ], [ %78, %77 ], [ 0, %switch.lookup ]
+  %.0 = phi i32 [ %78, %77 ], [ %67, %65 ], [ 0, %switch.lookup ]
   ret i32 %.0
 }
 

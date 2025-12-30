@@ -185,7 +185,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std10sys_common4once5futex4Once5sta
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
+  %.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
   ret i8 %.0
 }
 
@@ -6611,7 +6611,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$wasi_common..ctx..WasiCtxInn
   br label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasi_common..sched..WasiSched$GT$$GT$17h15e8bb2c9ddc20d6E.exit"
 
 .body21:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1938814379164664089.exit.i.i", %65, %56
-  %.pn6 = phi { ptr, i32 } [ %.pn4, %56 ], [ %66, %65 ], [ %66, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1938814379164664089.exit.i.i" ]
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %56 ], [ %66, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1938814379164664089.exit.i.i" ], [ %66, %65 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
   invoke void @"_ZN4core3ptr46drop_in_place$LT$wasi_common..table..Table$GT$17h0510149aeb11b236E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %80) #24
           to label %101 unwind label %99
@@ -6886,7 +6886,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$wasi_common..clocks..WasiClo
   br label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$wasi_common..clocks..WasiMonotonicOffsetClock$GT$$GT$17h798c91aad7eb799bE.llvm.1938814379164664089.exit"
 
 common.resume:                                    ; preds = %.body, %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1938814379164664089.exit.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1938814379164664089.exit.i.i.i.i" ], [ %9, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1938814379164664089.exit.i.i.i.i" ], [ %34, %33 ], [ %9, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$wasi_common..clocks..WasiMonotonicOffsetClock$GT$$GT$17h798c91aad7eb799bE.llvm.1938814379164664089.exit": ; preds = %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$wasi_common..clocks..WasiSystemClock$GT$$GT$$GT$17h2e149c1a20b2e8e2E.llvm.1938814379164664089.exit", %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1938814379164664089.exit.i1.i.i.i"
@@ -14201,12 +14201,12 @@ define hidden noundef ptr @_ZN11wasi_common9snapshots9preview_15error17from_raw_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.sink = phi i8 [ 73, %56 ], [ 64, %5 ], [ 63, %6 ], [ 44, %7 ], [ 48, %8 ], [ 1, %9 ], [ 29, %10 ], [ 8, %11 ], [ 10, %12 ], [ 2, %13 ], [ 21, %14 ], [ 54, %15 ], [ 31, %16 ], [ 28, %17 ], [ 20, %18 ], [ 22, %19 ], [ 51, %20 ], [ 70, %21 ], [ 33, %22 ], [ 34, %23 ], [ 37, %24 ], [ 41, %25 ], [ 55, %26 ], [ 32, %27 ], [ 61, %28 ], [ 25, %29 ], [ 58, %30 ], [ 3, %31 ], [ 11, %32 ], [ 4, %33 ], [ 5, %34 ], [ 7, %35 ], [ 13, %36 ], [ 14, %37 ], [ 15, %38 ], [ 17, %39 ], [ 19, %40 ], [ 23, %41 ], [ 26, %42 ], [ 27, %43 ], [ 30, %44 ], [ 35, %45 ], [ 38, %46 ], [ 39, %47 ], [ 40, %48 ], [ 42, %49 ], [ 50, %50 ], [ 53, %51 ], [ 57, %52 ], [ 66, %53 ], [ 67, %54 ], [ 72, %55 ], [ 6, %3 ]
+  %.sink = phi i8 [ 64, %5 ], [ 63, %6 ], [ 44, %7 ], [ 48, %8 ], [ 1, %9 ], [ 29, %10 ], [ 8, %11 ], [ 10, %12 ], [ 2, %13 ], [ 21, %14 ], [ 54, %15 ], [ 31, %16 ], [ 28, %17 ], [ 20, %18 ], [ 22, %19 ], [ 51, %20 ], [ 70, %21 ], [ 33, %22 ], [ 34, %23 ], [ 37, %24 ], [ 41, %25 ], [ 55, %26 ], [ 32, %27 ], [ 61, %28 ], [ 25, %29 ], [ 58, %30 ], [ 3, %31 ], [ 11, %32 ], [ 4, %33 ], [ 5, %34 ], [ 7, %35 ], [ 13, %36 ], [ 14, %37 ], [ 15, %38 ], [ 17, %39 ], [ 19, %40 ], [ 23, %41 ], [ 26, %42 ], [ 27, %43 ], [ 30, %44 ], [ 35, %45 ], [ 38, %46 ], [ 39, %47 ], [ 40, %48 ], [ 42, %49 ], [ 50, %50 ], [ 53, %51 ], [ 57, %52 ], [ 66, %53 ], [ 67, %54 ], [ 72, %55 ], [ 73, %56 ], [ 6, %3 ]
   %57 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hef1ee2547ce057e8E"(i8 noundef %.sink)
   br label %58
 
 58:                                               ; preds = %.sink.split, %3, %2
-  %.04 = phi ptr [ null, %3 ], [ null, %2 ], [ %57, %.sink.split ]
+  %.04 = phi ptr [ null, %2 ], [ null, %3 ], [ %57, %.sink.split ]
   ret ptr %.04
 }
 

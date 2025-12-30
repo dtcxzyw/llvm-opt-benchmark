@@ -1008,8 +1008,8 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   br label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h730e0d30ab3fbfb1E.exit"
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h730e0d30ab3fbfb1E.exit": ; preds = %2, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.i.i", %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.thread.i.i"
-  %.sroa.3.0.i = phi ptr [ undef, %2 ], [ %29, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.i.i" ], [ null, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.thread.i.i" ]
-  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ 1, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.i.i" ], [ %spec.select.i.i, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.thread.i.i" ]
+  %.sroa.3.0.i = phi ptr [ undef, %2 ], [ null, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.thread.i.i" ], [ %29, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.i.i" ]
+  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %spec.select.i.i, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.thread.i.i" ], [ 1, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5aef095b9e223c39E.exit.i.i" ]
   %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %33 = insertvalue { i64, ptr } %32, ptr %.sroa.3.0.i, 1
   ret { i64, ptr } %33
@@ -1870,7 +1870,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hf321cacb1ef03aebE"
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hc53c6c24fe569112E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hc53c6c24fe569112E.exit": ; preds = %4, %._crit_edge.i
-  %storemerge = phi i64 [ %1, %4 ], [ %23, %._crit_edge.i ]
+  %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
   store i64 %storemerge, ptr %5, align 8
   ret void
 }

@@ -227,7 +227,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit77
 lean_dec.exit78:                                  ; preds = %88
   br i1 %83, label %139, label %90
 
-90:                                               ; preds = %86, %89, %lean_nat_eq.exit.thread, %lean_dec.exit78
+90:                                               ; preds = %89, %86, %lean_nat_eq.exit.thread, %lean_dec.exit78
   tail call void @lean_inc_heartbeat() #3
   %91 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %92 = icmp eq ptr %91, null
@@ -359,7 +359,7 @@ lean_inc.exit82:                                  ; preds = %129, %128, %126, %l
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %109) #3
   br label %lean_dec.exit79.backedge
 
-139:                                              ; preds = %86, %89, %lean_nat_eq.exit.thread, %lean_dec.exit78
+139:                                              ; preds = %89, %86, %lean_nat_eq.exit.thread, %lean_dec.exit78
   tail call void @lean_inc_heartbeat() #3
   %140 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %141 = icmp eq ptr %140, null

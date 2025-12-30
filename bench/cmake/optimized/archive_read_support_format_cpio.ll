@@ -120,8 +120,8 @@ define internal range(i32 -20, 49) i32 @archive_read_format_cpio_bid(ptr noundef
   br i1 %28, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %25, %16, %14, %12, %10, %8
-  %header_odc.sink = phi ptr [ @header_odc, %8 ], [ @header_odc, %10 ], [ @header_newc, %14 ], [ @header_bin_be, %16 ], [ @header_newc, %12 ], [ @header_bin_le, %25 ]
-  %.023.ph = phi i32 [ 48, %8 ], [ 48, %10 ], [ 48, %14 ], [ 16, %16 ], [ 48, %12 ], [ 16, %25 ]
+  %header_odc.sink = phi ptr [ @header_odc, %8 ], [ @header_odc, %10 ], [ @header_newc, %12 ], [ @header_newc, %14 ], [ @header_bin_be, %16 ], [ @header_bin_le, %25 ]
+  %.023.ph = phi i32 [ 48, %8 ], [ 48, %10 ], [ 48, %12 ], [ 48, %14 ], [ 16, %16 ], [ 16, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %header_odc.sink, ptr %29, align 8, !tbaa !31
   br label %30
@@ -193,7 +193,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_cpio_options(ptr noun
   br label %32
 
 32:                                               ; preds = %24, %27, %28, %30, %20, %21, %9
-  %.017 = phi i32 [ 0, %9 ], [ 0, %27 ], [ %., %21 ], [ -25, %20 ], [ 0, %30 ], [ 0, %28 ], [ -20, %24 ]
+  %.017 = phi i32 [ 0, %9 ], [ -25, %20 ], [ %., %21 ], [ 0, %30 ], [ 0, %28 ], [ 0, %27 ], [ -20, %24 ]
   ret i32 %.017
 }
 
@@ -433,7 +433,7 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br label %.thread.i
 
 .thread.i:                                        ; preds = %114, %._crit_edge.thread.i
-  %116 = phi ptr [ %111, %._crit_edge.thread.i ], [ %109, %114 ]
+  %116 = phi ptr [ %109, %114 ], [ %111, %._crit_edge.thread.i ]
   store ptr %.04554.i, ptr %116, align 8, !tbaa !47
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr null, ptr %117, align 8, !tbaa !46
@@ -457,8 +457,8 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.29) #13
   br label %record_hardlink.exit
 
-record_hardlink.exit:                             ; preds = %113, %127, %88, %74, %106, %.thread.i, %51, %22, %17, %73, %61, %50, %35
-  %.047 = phi i32 [ -30, %51 ], [ %20, %17 ], [ -30, %35 ], [ -30, %50 ], [ -30, %22 ], [ -30, %61 ], [ 1, %73 ], [ -30, %127 ], [ -30, %113 ], [ %.1, %88 ], [ %.1, %74 ], [ %.1, %106 ], [ %.1, %.thread.i ]
+record_hardlink.exit:                             ; preds = %113, %127, %74, %106, %88, %.thread.i, %51, %22, %17, %73, %61, %50, %35
+  %.047 = phi i32 [ -30, %35 ], [ -30, %50 ], [ -30, %61 ], [ 1, %73 ], [ %20, %17 ], [ -30, %22 ], [ -30, %51 ], [ -30, %113 ], [ -30, %127 ], [ %.1, %74 ], [ %.1, %106 ], [ %.1, %88 ], [ %.1, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.047
@@ -526,7 +526,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_cpio_read_data(ptr no
   br label %35
 
 35:                                               ; preds = %28, %17, %32, %21
-  %.0 = phi i32 [ 1, %32 ], [ 0, %21 ], [ -30, %17 ], [ -30, %28 ]
+  %.0 = phi i32 [ 0, %21 ], [ 1, %32 ], [ -30, %17 ], [ -30, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1043,7 +1043,7 @@ is_octal.exit56.i:                                ; preds = %119, %is_octal.exit
   br label %is_afio_large.exit89.thread.i
 
 is_afio_large.exit89.thread.i:                    ; preds = %switch.early.test.i.i66.i, %switch.early.test.i20.i73.i, %switch.early.test.i28.i80.i, %switch.early.test.i36.i87.i, %132, %89, %86, %83, %80, %is_octal.exit56.thread.i, %65
-  %.sink.i = phi i64 [ 6, %132 ], [ 2, %is_octal.exit56.thread.i ], [ 2, %switch.early.test.i20.i73.i ], [ 2, %switch.early.test.i28.i80.i ], [ 2, %switch.early.test.i36.i87.i ], [ 1, %65 ], [ 2, %86 ], [ 2, %89 ], [ 2, %83 ], [ 2, %80 ], [ 2, %switch.early.test.i.i66.i ]
+  %.sink.i = phi i64 [ 6, %132 ], [ 2, %80 ], [ 2, %83 ], [ 2, %86 ], [ 2, %89 ], [ 2, %is_octal.exit56.thread.i ], [ 1, %65 ], [ 2, %switch.early.test.i36.i87.i ], [ 2, %switch.early.test.i28.i80.i ], [ 2, %switch.early.test.i20.i73.i ], [ 2, %switch.early.test.i.i66.i ]
   %133 = getelementptr inbounds nuw i8, ptr %.039124.i, i64 %.sink.i
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 76
   %.not45.i = icmp ugt ptr %134, %13
@@ -1064,8 +1064,8 @@ find_odc_header.exit:                             ; preds = %._crit_edge.i, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %header_afiol.exit.thread
 
-.loopexit:                                        ; preds = %15, %129, %130
-  %.038.i.ph.ph = phi i32 [ 0, %129 ], [ -20, %130 ], [ 0, %15 ]
+.loopexit:                                        ; preds = %15, %130, %129
+  %.038.i.ph.ph = phi i32 [ -20, %130 ], [ 0, %129 ], [ 0, %15 ]
   %.pr = load i32, ptr %7, align 8, !tbaa !55
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %142 = icmp eq i32 %.pr, 65542
@@ -1834,7 +1834,7 @@ atol8.exit122:                                    ; preds = %458, %461
   br label %header_afiol.exit.thread
 
 header_afiol.exit.thread:                         ; preds = %143, %358, %192, %359, %find_odc_header.exit, %363, %atol8.exit122
-  %.0 = phi i32 [ %.038.i.ph.ph, %atol8.exit122 ], [ -30, %363 ], [ -30, %find_odc_header.exit ], [ %.038.i.ph126, %359 ], [ -30, %192 ], [ -30, %358 ], [ -30, %143 ]
+  %.0 = phi i32 [ %.038.i.ph.ph, %atol8.exit122 ], [ -30, %find_odc_header.exit ], [ -30, %363 ], [ %.038.i.ph126, %359 ], [ -30, %192 ], [ -30, %358 ], [ -30, %143 ]
   ret i32 %.0
 }
 
@@ -1982,7 +1982,7 @@ find_newc_header.exit:                            ; preds = %._crit_edge.i, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %331
 
-.loopexit:                                        ; preds = %19, %is_hex.exit47.i, %35
+.loopexit:                                        ; preds = %19, %35, %is_hex.exit47.i
   %.031.i.ph = phi i32 [ 0, %is_hex.exit47.i ], [ -20, %35 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %47 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef null) #13
@@ -2619,7 +2619,7 @@ atol16.exit159:                                   ; preds = %316, %320
   br label %331
 
 331:                                              ; preds = %find_newc_header.exit, %.loopexit, %atol16.exit159, %301
-  %.0 = phi i32 [ %.031.i.ph, %atol16.exit159 ], [ -30, %find_newc_header.exit ], [ -30, %301 ], [ -30, %.loopexit ]
+  %.0 = phi i32 [ -30, %301 ], [ %.031.i.ph, %atol16.exit159 ], [ -30, %find_newc_header.exit ], [ -30, %.loopexit ]
   ret i32 %.0
 }
 

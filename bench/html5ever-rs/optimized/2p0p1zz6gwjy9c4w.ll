@@ -1201,7 +1201,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$1
   br label %"_ZN4core3ptr115drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h516e4a1b7bbe5eabE.exit4"
 
 "_ZN4core3ptr115drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h516e4a1b7bbe5eabE.exit": ; preds = %45, %.body8, %2
-  %.pn2 = phi { ptr, i32 } [ %3, %2 ], [ %38, %.body8 ], [ %38, %45 ]
+  %.pn2 = phi { ptr, i32 } [ %3, %2 ], [ %38, %45 ], [ %38, %.body8 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$markup5ever_rcdom..NodeData$GT$17h12e711c87a1efc13E.llvm.10022686776672290337"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) #26
           to label %52 unwind label %50
 
@@ -1551,7 +1551,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$markup5ever_rcdom..NodeData$
   br label %"_ZN4core3ptr104drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$$GT$17h9d8464b49a8cf757E.exit"
 
 .body:                                            ; preds = %132, %128, %119
-  %.pn = phi { ptr, i32 } [ %120, %119 ], [ %129, %128 ], [ %129, %132 ]
+  %.pn = phi { ptr, i32 } [ %120, %119 ], [ %129, %132 ], [ %129, %128 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %139 = load ptr, ptr %138, align 8, !alias.scope !541, !noundef !4
   %140 = icmp eq ptr %139, null
@@ -3180,7 +3180,7 @@ define hidden void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h38e
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit": ; preds = %13, %17, %20
-  %.0.i = phi i32 [ %19, %17 ], [ %21, %20 ], [ 0, %13 ]
+  %.0.i = phi i32 [ %21, %20 ], [ %19, %17 ], [ 0, %13 ]
   %22 = add i32 %.0.i, %.0
   store ptr %5, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

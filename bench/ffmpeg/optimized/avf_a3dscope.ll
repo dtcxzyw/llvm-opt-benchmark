@@ -661,7 +661,7 @@ filter_frame.exit:                                ; preds = %45, %._crit_edge137
   br label %423
 
 423:                                              ; preds = %418, %15, %.critedge34, %.critedge, %422, %415, %filter_frame.exit
-  %.125 = phi i32 [ 0, %15 ], [ %.0.i, %filter_frame.exit ], [ 0, %415 ], [ 0, %422 ], [ %18, %.critedge ], [ 0, %418 ], [ -1497649742, %.critedge34 ]
+  %.125 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %415 ], [ 0, %422 ], [ 0, %418 ], [ 0, %15 ], [ %18, %.critedge ], [ -1497649742, %.critedge34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.125
 }

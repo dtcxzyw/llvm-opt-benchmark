@@ -923,8 +923,8 @@ _ZN2cv4Mat_IhEC2Eii.exit._crit_edge:              ; preds = %.thread, %_ZN2cv4Ma
   br label %175
 
 175:                                              ; preds = %128, %173
-  %.278 = phi i32 [ %.076115, %128 ], [ %174, %173 ]
-  %.275 = phi i32 [ %170, %128 ], [ %119, %173 ]
+  %.278 = phi i32 [ %174, %173 ], [ %.076115, %128 ]
+  %.275 = phi i32 [ %119, %173 ], [ %170, %128 ]
   %.not = icmp sgt i32 %.275, %125
   br i1 %.not, label %.thread.loopexit, label %128
 

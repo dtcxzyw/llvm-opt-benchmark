@@ -446,7 +446,7 @@ define internal range(i32 0, 2) i32 @test_dhkem_encapsulate(i32 noundef %0) #0 {
   br label %do_encap.exit
 
 do_encap.exit:                                    ; preds = %32, %43, %46, %49, %52, %55, %62
-  %.0.i = phi i32 [ 0, %32 ], [ 0, %43 ], [ 0, %46 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ %70, %62 ]
+  %.0.i = phi i32 [ 0, %43 ], [ 0, %46 ], [ 0, %32 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ %70, %62 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %40) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -555,7 +555,7 @@ define internal range(i32 0, 2) i32 @test_dhkem_decapsulate(i32 noundef %0) #0 {
   br label %do_decap.exit
 
 do_decap.exit:                                    ; preds = %27, %32, %35, %38, %45, %48
-  %.0.i = phi i32 [ 0, %27 ], [ 0, %32 ], [ 0, %35 ], [ 0, %45 ], [ 0, %38 ], [ %56, %48 ]
+  %.0.i = phi i32 [ 0, %32 ], [ 0, %35 ], [ 0, %27 ], [ 0, %45 ], [ 0, %38 ], [ %56, %48 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %29) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1400,10 +1400,10 @@ define internal range(i32 0, 2) i32 @test_ec_noikme(i32 noundef %0) #0 {
   br label %70
 
 70:                                               ; preds = %32, %38, %41, %44, %47, %51, %54, %57, %60, %64, %24, %28, %16, %20
-  %.039 = phi ptr [ null, %24 ], [ null, %20 ], [ null, %16 ], [ null, %28 ], [ %34, %64 ], [ %34, %60 ], [ %34, %57 ], [ %34, %54 ], [ %34, %51 ], [ %34, %47 ], [ %34, %44 ], [ %34, %41 ], [ %34, %38 ], [ %34, %32 ]
-  %.037 = phi ptr [ %25, %24 ], [ %17, %20 ], [ %17, %16 ], [ %25, %28 ], [ %.138, %64 ], [ %.138, %60 ], [ %.138, %57 ], [ %.138, %54 ], [ %.138, %51 ], [ %.138, %47 ], [ %.138, %44 ], [ %.138, %41 ], [ %.138, %38 ], [ %.138, %32 ]
-  %.036 = phi ptr [ null, %24 ], [ %22, %20 ], [ null, %16 ], [ %30, %28 ], [ %.1, %64 ], [ %.1, %60 ], [ %.1, %57 ], [ null, %54 ], [ %.1, %51 ], [ %.1, %47 ], [ %.1, %44 ], [ null, %41 ], [ %.1, %38 ], [ %.1, %32 ]
-  %.034 = phi i32 [ 0, %24 ], [ 0, %20 ], [ 0, %16 ], [ 0, %28 ], [ %69, %64 ], [ 0, %60 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %47 ], [ 0, %44 ], [ 0, %41 ], [ 0, %38 ], [ 0, %32 ]
+  %.039 = phi ptr [ null, %20 ], [ null, %16 ], [ null, %28 ], [ null, %24 ], [ %34, %64 ], [ %34, %60 ], [ %34, %57 ], [ %34, %54 ], [ %34, %51 ], [ %34, %47 ], [ %34, %44 ], [ %34, %41 ], [ %34, %38 ], [ %34, %32 ]
+  %.037 = phi ptr [ %17, %20 ], [ %17, %16 ], [ %25, %28 ], [ %25, %24 ], [ %.138, %64 ], [ %.138, %60 ], [ %.138, %57 ], [ %.138, %54 ], [ %.138, %51 ], [ %.138, %47 ], [ %.138, %44 ], [ %.138, %41 ], [ %.138, %38 ], [ %.138, %32 ]
+  %.036 = phi ptr [ %22, %20 ], [ null, %16 ], [ %30, %28 ], [ null, %24 ], [ %.1, %64 ], [ %.1, %60 ], [ %.1, %57 ], [ null, %54 ], [ %.1, %51 ], [ %.1, %47 ], [ %.1, %44 ], [ null, %41 ], [ %.1, %38 ], [ %.1, %32 ]
+  %.034 = phi i32 [ 0, %20 ], [ 0, %16 ], [ 0, %28 ], [ 0, %24 ], [ %69, %64 ], [ 0, %60 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %47 ], [ 0, %44 ], [ 0, %41 ], [ 0, %38 ], [ 0, %32 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.039) #5
   call void @EVP_PKEY_free(ptr noundef %.036) #5
   call void @EVP_PKEY_free(ptr noundef %.037) #5
@@ -1573,7 +1573,7 @@ define internal range(i32 0, 2) i32 @test_ec_dhkem_derivekey_fail() #0 {
   br label %40
 
 40:                                               ; preds = %37, %34, %25, %28, %31, %0, %16, %19, %22
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %37 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %0 ], [ %spec.select, %37 ]
   call void @BN_free(ptr noundef null) #5
   %41 = load ptr, ptr %1, align 8, !tbaa !17
   call void @EVP_PKEY_free(ptr noundef %41) #5
@@ -1786,8 +1786,8 @@ define internal range(i32 0, 2) i32 @test_ec_badpublic(i32 noundef %0) #0 {
   br label %35
 
 35:                                               ; preds = %.thread, %30, %27, %24, %12, %1
-  %.020 = phi ptr [ null, %1 ], [ %14, %30 ], [ %14, %.thread ], [ %14, %27 ], [ %14, %24 ], [ %14, %12 ]
-  %.019 = phi i32 [ 0, %1 ], [ %spec.select, %30 ], [ 0, %.thread ], [ 0, %27 ], [ 0, %24 ], [ 0, %12 ]
+  %.020 = phi ptr [ %14, %27 ], [ %14, %24 ], [ %14, %12 ], [ null, %1 ], [ %14, %30 ], [ %14, %.thread ]
+  %.019 = phi i32 [ 0, %27 ], [ 0, %24 ], [ 0, %12 ], [ 0, %1 ], [ %spec.select, %30 ], [ 0, %.thread ]
   call void @EVP_PKEY_free(ptr noundef %10) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %.020) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1861,7 +1861,7 @@ define internal range(i32 0, 2) i32 @test_ec_badauth(i32 noundef %0) #0 {
   br label %31
 
 31:                                               ; preds = %26, %20, %23, %14, %17, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %26 ], [ 0, %17 ], [ 0, %14 ], [ 0, %23 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %14 ], [ 0, %23 ], [ 0, %20 ], [ 0, %1 ], [ %spec.select, %26 ]
   call void @EVP_PKEY_free(ptr noundef %11) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2232,10 +2232,10 @@ define internal fastcc ptr @new_raw_private_key(ptr noundef %0, ptr noundef %1, 
   %.pre = load ptr, ptr %6, align 8, !tbaa !17
   br label %.thread
 
-.thread:                                          ; preds = %..thread_crit_edge, %24, %18, %16, %27, %22, %32, %29, %12
-  %38 = phi ptr [ %.pre, %..thread_crit_edge ], [ null, %24 ], [ null, %18 ], [ null, %16 ], [ null, %27 ], [ null, %22 ], [ null, %32 ], [ null, %29 ], [ null, %12 ]
-  %.03051 = phi ptr [ %.1, %..thread_crit_edge ], [ %20, %24 ], [ null, %18 ], [ null, %16 ], [ %.1, %27 ], [ %20, %22 ], [ %.1, %32 ], [ %.1, %29 ], [ null, %12 ]
-  %.03149 = phi ptr [ %30, %..thread_crit_edge ], [ null, %24 ], [ null, %18 ], [ null, %16 ], [ null, %27 ], [ null, %22 ], [ %30, %32 ], [ null, %29 ], [ null, %12 ]
+.thread:                                          ; preds = %..thread_crit_edge, %22, %24, %18, %16, %27, %32, %29, %12
+  %38 = phi ptr [ %.pre, %..thread_crit_edge ], [ null, %22 ], [ null, %24 ], [ null, %18 ], [ null, %16 ], [ null, %27 ], [ null, %32 ], [ null, %29 ], [ null, %12 ]
+  %.03051 = phi ptr [ %.1, %..thread_crit_edge ], [ %20, %22 ], [ %20, %24 ], [ null, %18 ], [ null, %16 ], [ %.1, %27 ], [ %.1, %32 ], [ %.1, %29 ], [ null, %12 ]
+  %.03149 = phi ptr [ %30, %..thread_crit_edge ], [ null, %22 ], [ null, %24 ], [ null, %18 ], [ null, %16 ], [ null, %27 ], [ %30, %32 ], [ null, %29 ], [ null, %12 ]
   call void @EVP_PKEY_free(ptr noundef %38) #5
   store ptr null, ptr %6, align 8, !tbaa !17
   br label %39

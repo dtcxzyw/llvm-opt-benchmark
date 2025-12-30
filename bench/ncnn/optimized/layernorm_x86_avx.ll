@@ -342,11 +342,11 @@ define internal fastcc void @_ZN4ncnnL9layernormEPfPKfS2_fii(ptr noundef capture
   br label %.thread311
 
 .thread311:                                       ; preds = %34, %35, %.thread, %45
-  %60 = phi i1 [ true, %45 ], [ false, %34 ], [ false, %.thread ], [ false, %35 ]
-  %61 = phi i1 [ false, %45 ], [ false, %34 ], [ false, %.thread ], [ true, %35 ]
-  %.2300 = phi nsz <4 x float> [ %58, %45 ], [ %.0298.lcssa, %34 ], [ %.0298.lcssa, %.thread ], [ %43, %35 ]
-  %.3294 = phi nsz <8 x float> [ %59, %45 ], [ %.0291.lcssa, %34 ], [ %33, %.thread ], [ %44, %35 ]
-  %.1192 = phi nsz float [ %56, %45 ], [ %.0191.lcssa, %34 ], [ %.0191.lcssa, %.thread ], [ %.0191.lcssa, %35 ]
+  %60 = phi i1 [ true, %45 ], [ false, %.thread ], [ false, %35 ], [ false, %34 ]
+  %61 = phi i1 [ false, %45 ], [ false, %.thread ], [ true, %35 ], [ false, %34 ]
+  %.2300 = phi nsz <4 x float> [ %58, %45 ], [ %.0298.lcssa, %.thread ], [ %43, %35 ], [ %.0298.lcssa, %34 ]
+  %.3294 = phi nsz <8 x float> [ %59, %45 ], [ %33, %.thread ], [ %44, %35 ], [ %.0291.lcssa, %34 ]
+  %.1192 = phi nsz float [ %56, %45 ], [ %.0191.lcssa, %.thread ], [ %.0191.lcssa, %35 ], [ %.0191.lcssa, %34 ]
   br i1 %8, label %.lr.ph349, label %.preheader326
 
 .preheader326.loopexit:                           ; preds = %.lr.ph349

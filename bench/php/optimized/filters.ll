@@ -297,7 +297,7 @@ define internal range(i32 0, 3) i32 @strfilter_convert_filter(ptr noundef %0, pt
   br label %34
 
 34:                                               ; preds = %33, %.thread, %30, %31
-  %.0 = phi i32 [ 2, %30 ], [ 2, %31 ], [ 0, %.thread ], [ 0, %33 ]
+  %.0 = phi i32 [ 2, %31 ], [ 2, %30 ], [ 0, %.thread ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -705,8 +705,8 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %34, %85, %26, %.loopexit.sink.split.loopexit136, %.loopexit.sink.split.loopexit123, %.loopexit.sink.split.loopexit99, %87, %89
-  %.str.7.sink = phi ptr [ @.str.7, %.loopexit.sink.split.loopexit123 ], [ @.str.5, %89 ], [ @.str.8, %87 ], [ @.str.7, %26 ], [ @.str.4, %85 ], [ @.str.4, %.loopexit.sink.split.loopexit99 ], [ @.str.5, %34 ], [ @.str.6, %.loopexit.sink.split.loopexit136 ]
-  %.2.ph = phi ptr [ %.639, %.loopexit.sink.split.loopexit123 ], [ %.639, %89 ], [ %.639, %87 ], [ %.120636, %26 ], [ %.639, %85 ], [ %.120636, %.loopexit.sink.split.loopexit99 ], [ %.120636, %34 ], [ %.120636, %.loopexit.sink.split.loopexit136 ]
+  %.str.7.sink = phi ptr [ @.str.5, %89 ], [ @.str.8, %87 ], [ @.str.4, %.loopexit.sink.split.loopexit99 ], [ @.str.7, %.loopexit.sink.split.loopexit123 ], [ @.str.7, %26 ], [ @.str.4, %85 ], [ @.str.5, %34 ], [ @.str.6, %.loopexit.sink.split.loopexit136 ]
+  %.2.ph = phi ptr [ %.639, %89 ], [ %.639, %87 ], [ %.120636, %.loopexit.sink.split.loopexit99 ], [ %.639, %.loopexit.sink.split.loopexit123 ], [ %.120636, %26 ], [ %.639, %85 ], [ %.120636, %34 ], [ %.120636, %.loopexit.sink.split.loopexit136 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load ptr, ptr %141, align 8, !tbaa !35
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.7.sink, ptr noundef %142) #18
@@ -827,7 +827,7 @@ define internal ptr @strfilter_convert_create(ptr noundef %0, ptr noundef readon
   br label %30
 
 30:                                               ; preds = %27, %24, %21, %17
-  %.0 = phi i32 [ %spec.select, %27 ], [ 1, %17 ], [ 2, %21 ], [ 3, %24 ]
+  %.0 = phi i32 [ 1, %17 ], [ 2, %21 ], [ 3, %24 ], [ %spec.select, %27 ]
   br i1 %.not, label %33, label %31
 
 31:                                               ; preds = %30
@@ -966,9 +966,9 @@ php_conv_get_uint_prop_ex.exit.thread.i.i:        ; preds = %php_conv_get_uint_p
   br label %91
 
 91:                                               ; preds = %89, %87, %86, %php_conv_get_uint_prop_ex.exit.thread.i.i, %46
-  %.0127.i.i = phi i32 [ 0, %46 ], [ %84, %87 ], [ %84, %89 ], [ %.1128130.i.i, %86 ], [ %.1128130.i.i, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
-  %.0125.i.i = phi ptr [ null, %46 ], [ %.1126.i.i, %87 ], [ %90, %89 ], [ null, %86 ], [ null, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
-  %.0123.i.i = phi i64 [ undef, %46 ], [ %.1124.i.i, %87 ], [ 2, %89 ], [ %.1124.i.i, %86 ], [ %.1124.i.i, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
+  %.0127.i.i = phi i32 [ 0, %46 ], [ %84, %89 ], [ %84, %87 ], [ %.1128130.i.i, %86 ], [ %.1128130.i.i, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
+  %.0125.i.i = phi ptr [ null, %46 ], [ %90, %89 ], [ %.1126.i.i, %87 ], [ null, %86 ], [ null, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
+  %.0123.i.i = phi i64 [ undef, %46 ], [ 2, %89 ], [ %.1124.i.i, %87 ], [ %.1124.i.i, %86 ], [ %.1124.i.i, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
   %.not61.i.i = icmp eq ptr %.0125.i.i, null
   br i1 %35, label %92, label %.thread.i.i
 
@@ -1007,8 +1007,8 @@ php_conv_get_uint_prop_ex.exit.thread.i.i:        ; preds = %php_conv_get_uint_p
   br label %php_conv_base64_encode_ctor.exit.i.i
 
 php_conv_base64_encode_ctor.exit.i.i:             ; preds = %101, %95
-  %107 = phi ptr [ %94, %101 ], [ %93, %95 ]
-  %108 = phi ptr [ %106, %101 ], [ %100, %95 ]
+  %107 = phi ptr [ %93, %95 ], [ %94, %101 ]
+  %108 = phi ptr [ %100, %95 ], [ %106, %101 ]
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store ptr %108, ptr %109, align 8, !tbaa !50
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 24
@@ -1223,7 +1223,7 @@ php_conv_get_bool_prop_ex.exit82.i.i:             ; preds = %173, %php_conv_get_
   br label %200
 
 200:                                              ; preds = %198, %196
-  %201 = phi ptr [ %199, %198 ], [ %197, %196 ]
+  %201 = phi ptr [ %197, %196 ], [ %199, %198 ]
   %202 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store ptr %201, ptr %202, align 8, !tbaa !62
   %203 = getelementptr inbounds nuw i8, ptr %189, i64 24
@@ -1361,7 +1361,7 @@ php_conv_get_string_prop_ex.exit92.i.i:           ; preds = %246, %241, %237, %z
   br label %php_conv_qprint_decode_ctor.exit.i.i
 
 php_conv_qprint_decode_ctor.exit.i.i:             ; preds = %261, %259
-  %263 = phi ptr [ %262, %261 ], [ %260, %259 ]
+  %263 = phi ptr [ %260, %259 ], [ %262, %261 ]
   %264 = getelementptr inbounds nuw i8, ptr %252, i64 16
   store ptr %263, ptr %264, align 8, !tbaa !76
   %265 = getelementptr inbounds nuw i8, ptr %252, i64 24
@@ -1422,7 +1422,7 @@ thread-pre-split.i:                               ; preds = %276, %275, %273
   br label %284
 
 280:                                              ; preds = %php_conv_base64_encode_ctor.exit.i.i, %113, %124, %200, %209, %php_conv_qprint_decode_ctor.exit.i.i, %268
-  %.043.i.ph.i = phi ptr [ %189, %200 ], [ %189, %209 ], [ %252, %php_conv_qprint_decode_ctor.exit.i.i ], [ %107, %php_conv_base64_encode_ctor.exit.i.i ], [ %252, %268 ], [ %125, %124 ], [ %114, %113 ]
+  %.043.i.ph.i = phi ptr [ %189, %200 ], [ %189, %209 ], [ %252, %268 ], [ %252, %php_conv_qprint_decode_ctor.exit.i.i ], [ %114, %113 ], [ %107, %php_conv_base64_encode_ctor.exit.i.i ], [ %125, %124 ]
   store ptr %.043.i.ph.i, ptr %18, align 8, !tbaa !26
   %281 = tail call ptr @_php_stream_filter_alloc(ptr noundef nonnull @strfilter_convert_ops, ptr noundef nonnull %18, i8 noundef zeroext %2) #18
   %282 = icmp eq ptr %281, null
@@ -1918,20 +1918,20 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   br i1 %.not151, label %.loopexit, label %253
 
 .loopexit.sink.split:                             ; preds = %218, %210, %167, %122
-  %.2126.ph = phi i64 [ %.3127, %167 ], [ %.1125, %122 ], [ %.4128163, %210 ], [ %.5129, %218 ]
-  %.1121.ph = phi i64 [ %102, %167 ], [ %102, %122 ], [ %.2122164, %210 ], [ %.2122164, %218 ]
-  %.1117.ph = phi ptr [ %101, %167 ], [ %101, %122 ], [ %.2118165, %210 ], [ %.2118165, %218 ]
-  %.2112.ph = phi ptr [ %.3113, %167 ], [ %.1111, %122 ], [ %.4114166, %210 ], [ %.5115, %218 ]
-  %.2.ph = phi i32 [ %.3, %167 ], [ %.1, %122 ], [ %.4167, %210 ], [ %.5, %218 ]
+  %.2126.ph = phi i64 [ %.1125, %122 ], [ %.3127, %167 ], [ %.4128163, %210 ], [ %.5129, %218 ]
+  %.1121.ph = phi i64 [ %102, %122 ], [ %102, %167 ], [ %.2122164, %210 ], [ %.2122164, %218 ]
+  %.1117.ph = phi ptr [ %101, %122 ], [ %101, %167 ], [ %.2118165, %210 ], [ %.2118165, %218 ]
+  %.2112.ph = phi ptr [ %.1111, %122 ], [ %.3113, %167 ], [ %.4114166, %210 ], [ %.5115, %218 ]
+  %.2.ph = phi i32 [ %.1, %122 ], [ %.3, %167 ], [ %.4167, %210 ], [ %.5, %218 ]
   store volatile i32 2, ptr %7, align 4, !tbaa !80
   br label %.loopexit
 
 .loopexit:                                        ; preds = %253, %.loopexit.sink.split, %151, %.preheader
-  %.2126 = phi i64 [ %.2126.ph, %.loopexit.sink.split ], [ %.4128.lcssa, %.preheader ], [ %100, %151 ], [ %.4128.lcssa, %253 ]
-  %.1121 = phi i64 [ %.1121.ph, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %151 ], [ 0, %253 ]
-  %.1117 = phi ptr [ %.1117.ph, %.loopexit.sink.split ], [ %.2118.lcssa, %.preheader ], [ %101, %151 ], [ %255, %253 ]
-  %.2112 = phi ptr [ %.2112.ph, %.loopexit.sink.split ], [ %.4114.lcssa, %.preheader ], [ %99, %151 ], [ %.4114.lcssa, %253 ]
-  %.2 = phi i32 [ %.2.ph, %.loopexit.sink.split ], [ %.4.lcssa, %.preheader ], [ %103, %151 ], [ %.4.lcssa, %253 ]
+  %.2126 = phi i64 [ %.4128.lcssa, %.preheader ], [ %100, %151 ], [ %.2126.ph, %.loopexit.sink.split ], [ %.4128.lcssa, %253 ]
+  %.1121 = phi i64 [ 0, %.preheader ], [ 0, %151 ], [ %.1121.ph, %.loopexit.sink.split ], [ 0, %253 ]
+  %.1117 = phi ptr [ %.2118.lcssa, %.preheader ], [ %101, %151 ], [ %.1117.ph, %.loopexit.sink.split ], [ %255, %253 ]
+  %.2112 = phi ptr [ %.4114.lcssa, %.preheader ], [ %99, %151 ], [ %.2112.ph, %.loopexit.sink.split ], [ %.4114.lcssa, %253 ]
+  %.2 = phi i32 [ %.4.lcssa, %.preheader ], [ %103, %151 ], [ %.2.ph, %.loopexit.sink.split ], [ %.4.lcssa, %253 ]
   store ptr %.1117, ptr %1, align 8, !tbaa !36
   store i64 %.1121, ptr %2, align 8, !tbaa !24
   store ptr %.2112, ptr %3, align 8, !tbaa !36
@@ -2101,13 +2101,13 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr noundef 
   br label %.thread148
 
 .thread148:                                       ; preds = %55, %51, %63, %61, %.thread, %33
-  %.2121 = phi i32 [ %32, %.thread ], [ %.0119, %33 ], [ %60, %55 ], [ 0, %51 ], [ %.0119, %61 ], [ %.0119, %63 ]
-  %.2114 = phi i32 [ %28, %.thread ], [ 0, %33 ], [ %56, %55 ], [ 0, %51 ], [ 0, %61 ], [ 0, %63 ]
-  %.2107 = phi i32 [ %.1106146, %.thread ], [ %.1106, %33 ], [ %58, %55 ], [ %54, %51 ], [ %.1106, %61 ], [ %.1106, %63 ]
-  %.2103 = phi i32 [ 0, %.thread ], [ 0, %33 ], [ 0, %55 ], [ %52, %51 ], [ %34, %61 ], [ %34, %63 ]
-  %.198 = phi ptr [ %.097, %.thread ], [ %.097, %33 ], [ %39, %55 ], [ %39, %51 ], [ %39, %61 ], [ %39, %63 ]
-  %.192 = phi i64 [ %.091, %.thread ], [ %.091, %33 ], [ %44, %55 ], [ %44, %51 ], [ %44, %61 ], [ %44, %63 ]
-  %.1 = phi i32 [ %.088, %.thread ], [ %.088, %33 ], [ 0, %55 ], [ 0, %51 ], [ 0, %61 ], [ %46, %63 ]
+  %.2121 = phi i32 [ %.0119, %33 ], [ %32, %.thread ], [ %60, %55 ], [ 0, %51 ], [ %.0119, %61 ], [ %.0119, %63 ]
+  %.2114 = phi i32 [ 0, %33 ], [ %28, %.thread ], [ %56, %55 ], [ 0, %51 ], [ 0, %61 ], [ 0, %63 ]
+  %.2107 = phi i32 [ %.1106, %33 ], [ %.1106146, %.thread ], [ %58, %55 ], [ %54, %51 ], [ %.1106, %61 ], [ %.1106, %63 ]
+  %.2103 = phi i32 [ 0, %33 ], [ 0, %.thread ], [ 0, %55 ], [ %52, %51 ], [ %34, %61 ], [ %34, %63 ]
+  %.198 = phi ptr [ %.097, %33 ], [ %.097, %.thread ], [ %39, %55 ], [ %39, %51 ], [ %39, %61 ], [ %39, %63 ]
+  %.192 = phi i64 [ %.091, %33 ], [ %.091, %.thread ], [ %44, %55 ], [ %44, %51 ], [ %44, %61 ], [ %44, %63 ]
+  %.1 = phi i32 [ %.088, %33 ], [ %.088, %.thread ], [ 0, %55 ], [ 0, %51 ], [ 0, %61 ], [ %46, %63 ]
   %64 = or i32 %.1, %.2103
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %27
@@ -2124,15 +2124,15 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr noundef 
   br label %.outer
 
 .loopexit:                                        ; preds = %66, %36, %48, %62, %62
-  %.089.lcssa = phi i64 [ %.089.ph, %36 ], [ %.089.ph, %62 ], [ %.089.ph, %62 ], [ %.089.ph, %48 ], [ 0, %66 ]
-  %.3129 = phi i32 [ 0, %36 ], [ 3, %62 ], [ 3, %62 ], [ 3, %48 ], [ 2, %66 ]
-  %.5124 = phi i32 [ %.0119, %36 ], [ %.0119, %62 ], [ %.0119, %62 ], [ %.0119, %48 ], [ %.2121, %66 ]
-  %.5117 = phi i32 [ 0, %36 ], [ 0, %62 ], [ 0, %62 ], [ 0, %48 ], [ %.2114, %66 ]
-  %.5110 = phi i32 [ %.1106, %36 ], [ %.1106, %62 ], [ %.1106, %62 ], [ %.1106, %48 ], [ %.2107, %66 ]
-  %.5 = phi i32 [ %34, %36 ], [ %34, %62 ], [ %34, %62 ], [ %34, %48 ], [ %.2103, %66 ]
-  %.3100 = phi ptr [ %.097, %36 ], [ %39, %62 ], [ %39, %62 ], [ %39, %48 ], [ %.198, %66 ]
-  %.394 = phi i64 [ 0, %36 ], [ %44, %62 ], [ %44, %62 ], [ %44, %48 ], [ %.192, %66 ]
-  %.3 = phi i32 [ %.088, %36 ], [ %46, %62 ], [ %46, %62 ], [ %46, %48 ], [ %.1, %66 ]
+  %.089.lcssa = phi i64 [ %.089.ph, %62 ], [ %.089.ph, %62 ], [ %.089.ph, %48 ], [ %.089.ph, %36 ], [ 0, %66 ]
+  %.3129 = phi i32 [ 3, %62 ], [ 3, %62 ], [ 3, %48 ], [ 0, %36 ], [ 2, %66 ]
+  %.5124 = phi i32 [ %.0119, %62 ], [ %.0119, %62 ], [ %.0119, %48 ], [ %.0119, %36 ], [ %.2121, %66 ]
+  %.5117 = phi i32 [ 0, %62 ], [ 0, %62 ], [ 0, %48 ], [ 0, %36 ], [ %.2114, %66 ]
+  %.5110 = phi i32 [ %.1106, %62 ], [ %.1106, %62 ], [ %.1106, %48 ], [ %.1106, %36 ], [ %.2107, %66 ]
+  %.5 = phi i32 [ %34, %62 ], [ %34, %62 ], [ %34, %48 ], [ %34, %36 ], [ %.2103, %66 ]
+  %.3100 = phi ptr [ %39, %62 ], [ %39, %62 ], [ %39, %48 ], [ %.097, %36 ], [ %.198, %66 ]
+  %.394 = phi i64 [ %44, %62 ], [ %44, %62 ], [ %44, %48 ], [ 0, %36 ], [ %.192, %66 ]
+  %.3 = phi i32 [ %46, %62 ], [ %46, %62 ], [ %46, %48 ], [ %.088, %36 ], [ %.1, %66 ]
   %.not138 = icmp ult i32 %.5117, %.5
   %72 = sub i32 %.5117, %.5
   %73 = shl i32 %.5110, %72
@@ -2269,13 +2269,13 @@ define internal range(i32 0, 3) i32 @php_conv_qprint_encode_convert(ptr noundef 
   br i1 %exitcond.not, label %.thread.us.loopexit, label %.lr.ph.us
 
 51:                                               ; preds = %.thread.us, %39
-  %.pre405 = phi ptr [ %.pre, %.thread.us ], [ %.pre404, %39 ]
-  %52 = phi ptr [ %.pre, %.thread.us ], [ %27, %39 ]
-  %.1210.us = phi ptr [ %.3212.lcssa.us, %.thread.us ], [ %.0209295.us364, %39 ]
-  %.1201.us = phi i64 [ %.3203.lcssa.us, %.thread.us ], [ %.0200297.us362, %39 ]
-  %.1190.us = phi i32 [ %46, %.thread.us ], [ %.0189298.us361, %39 ]
-  %.1185.us = phi i32 [ 0, %.thread.us ], [ %.0184299.us360, %39 ]
-  %.1180.us = phi i32 [ 0, %.thread.us ], [ %40, %39 ]
+  %.pre405 = phi ptr [ %.pre404, %39 ], [ %.pre, %.thread.us ]
+  %52 = phi ptr [ %27, %39 ], [ %.pre, %.thread.us ]
+  %.1210.us = phi ptr [ %.0209295.us364, %39 ], [ %.3212.lcssa.us, %.thread.us ]
+  %.1201.us = phi i64 [ %.0200297.us362, %39 ], [ %.3203.lcssa.us, %.thread.us ]
+  %.1190.us = phi i32 [ %.0189298.us361, %39 ], [ %46, %.thread.us ]
+  %.1185.us = phi i32 [ %.0184299.us360, %39 ], [ 0, %.thread.us ]
+  %.1180.us = phi i32 [ %40, %39 ], [ 0, %.thread.us ]
   %53 = getelementptr inbounds nuw i8, ptr %.0217294.us365, i64 1
   %54 = add i64 %.0207296.us363, -1
   %.not225.us = icmp eq ptr %52, null
@@ -2432,7 +2432,7 @@ define internal range(i32 0, 3) i32 @php_conv_qprint_encode_convert(ptr noundef 
   br i1 %.not233, label %._crit_edge382, label %.lr.ph381
 
 ._crit_edge382:                                   ; preds = %99, %107
-  %.2.lcssa = phi i32 [ %.4, %107 ], [ %.2377, %99 ]
+  %.2.lcssa = phi i32 [ %.2377, %99 ], [ %.4, %107 ]
   %109 = icmp eq i32 %.2.lcssa, 0
   br i1 %109, label %.thread248, label %.outer.backedge
 
@@ -2586,14 +2586,14 @@ define internal range(i32 0, 3) i32 @php_conv_qprint_encode_convert(ptr noundef 
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %172, %159, %143, %130, %88, %75, %._crit_edge, %42
-  %.0217287 = phi ptr [ %.0217294.us365, %42 ], [ %.0217285, %159 ], [ %.0217285, %143 ], [ %.0217285, %130 ], [ %.0217285, %88 ], [ %.0217285, %75 ], [ %.0217285, %172 ], [ %.0217.lcssa, %._crit_edge ]
-  %.0207277 = phi i64 [ %.0207296.us363, %42 ], [ %.0207275, %159 ], [ %.0207275, %143 ], [ %.0207275, %130 ], [ %.0207275, %88 ], [ %.0207275, %75 ], [ %.0207275, %172 ], [ 0, %._crit_edge ]
-  %.0184262 = phi i32 [ %.0184299.us360, %42 ], [ %.0184263, %159 ], [ %.0184263, %143 ], [ %.0184263, %130 ], [ %.0184263, %88 ], [ %.0184263, %75 ], [ %.0184263, %172 ], [ %.0184.lcssa, %._crit_edge ]
-  %.0179257 = phi i32 [ %.0179300.us359, %42 ], [ %.0179258, %159 ], [ %.0179258, %143 ], [ %.0179258, %130 ], [ %.0179258, %88 ], [ %.0179258, %75 ], [ %.0179258, %172 ], [ %.0179.lcssa, %._crit_edge ]
-  %.4213 = phi ptr [ %.0209295.us364, %42 ], [ %.0209281, %159 ], [ %.6215, %143 ], [ %.0209281, %130 ], [ %.0209281, %88 ], [ %.0209281, %75 ], [ %.7216, %172 ], [ %.0209.lcssa, %._crit_edge ]
-  %.4204 = phi i64 [ %.0200297.us362, %42 ], [ %.0200271, %159 ], [ 0, %143 ], [ %.0200271, %130 ], [ 0, %88 ], [ %.0200271, %75 ], [ %.7, %172 ], [ %.0200.lcssa, %._crit_edge ]
-  %.3199 = phi i32 [ 2, %42 ], [ 2, %159 ], [ 2, %143 ], [ 2, %130 ], [ 2, %88 ], [ 2, %75 ], [ 2, %172 ], [ 0, %._crit_edge ]
-  %.3192 = phi i32 [ %.0189298.us361, %42 ], [ %.0189267, %159 ], [ %.5194, %143 ], [ %.0189267, %130 ], [ %.0189267, %88 ], [ %.0189267, %75 ], [ %.6195, %172 ], [ %.0189.lcssa, %._crit_edge ]
+  %.0217287 = phi ptr [ %.0217294.us365, %42 ], [ %.0217285, %172 ], [ %.0217285, %159 ], [ %.0217285, %143 ], [ %.0217285, %130 ], [ %.0217285, %88 ], [ %.0217285, %75 ], [ %.0217.lcssa, %._crit_edge ]
+  %.0207277 = phi i64 [ %.0207296.us363, %42 ], [ %.0207275, %172 ], [ %.0207275, %159 ], [ %.0207275, %143 ], [ %.0207275, %130 ], [ %.0207275, %88 ], [ %.0207275, %75 ], [ 0, %._crit_edge ]
+  %.0184262 = phi i32 [ %.0184299.us360, %42 ], [ %.0184263, %172 ], [ %.0184263, %159 ], [ %.0184263, %143 ], [ %.0184263, %130 ], [ %.0184263, %88 ], [ %.0184263, %75 ], [ %.0184.lcssa, %._crit_edge ]
+  %.0179257 = phi i32 [ %.0179300.us359, %42 ], [ %.0179258, %172 ], [ %.0179258, %159 ], [ %.0179258, %143 ], [ %.0179258, %130 ], [ %.0179258, %88 ], [ %.0179258, %75 ], [ %.0179.lcssa, %._crit_edge ]
+  %.4213 = phi ptr [ %.0209295.us364, %42 ], [ %.7216, %172 ], [ %.0209281, %159 ], [ %.6215, %143 ], [ %.0209281, %130 ], [ %.0209281, %88 ], [ %.0209281, %75 ], [ %.0209.lcssa, %._crit_edge ]
+  %.4204 = phi i64 [ %.0200297.us362, %42 ], [ %.7, %172 ], [ %.0200271, %159 ], [ 0, %143 ], [ %.0200271, %130 ], [ 0, %88 ], [ %.0200271, %75 ], [ %.0200.lcssa, %._crit_edge ]
+  %.3199 = phi i32 [ 2, %42 ], [ 2, %172 ], [ 2, %159 ], [ 2, %143 ], [ 2, %130 ], [ 2, %88 ], [ 2, %75 ], [ 0, %._crit_edge ]
+  %.3192 = phi i32 [ %.0189298.us361, %42 ], [ %.6195, %172 ], [ %.0189267, %159 ], [ %.5194, %143 ], [ %.0189267, %130 ], [ %.0189267, %88 ], [ %.0189267, %75 ], [ %.0189.lcssa, %._crit_edge ]
   store ptr %.0217287, ptr %1, align 8, !tbaa !36
   store i64 %.0207277, ptr %2, align 8, !tbaa !24
   store ptr %.4213, ptr %3, align 8, !tbaa !36
@@ -2904,14 +2904,14 @@ define internal range(i32 0, 5) i32 @php_conv_qprint_decode_convert(ptr noundef 
   br i1 %139, label %140, label %.backedge
 
 .backedge:                                        ; preds = %138, %129, %126, %124, %142, %121, %134, %81, %109, %91, %68, %57, %52, %44, %37, %26
-  %.0137.be = phi i64 [ %.0137, %26 ], [ %39, %37 ], [ %46, %44 ], [ %54, %52 ], [ %59, %57 ], [ %71, %68 ], [ %88, %81 ], [ %.2139, %91 ], [ %111, %109 ], [ %123, %121 ], [ %.0137, %129 ], [ %.0137, %124 ], [ %137, %134 ], [ %.0137, %126 ], [ %.0137, %142 ], [ %.0137, %138 ]
-  %.0134.be = phi i64 [ %.0134, %26 ], [ %.2136, %37 ], [ %.0134, %44 ], [ %.0134, %52 ], [ %.0134, %57 ], [ %.0134, %68 ], [ %.0134, %81 ], [ %94, %91 ], [ %.0134, %109 ], [ %.0134, %121 ], [ %.0134, %129 ], [ %.0134, %124 ], [ %.0134, %134 ], [ %.0134, %126 ], [ %149, %142 ], [ %.0134, %138 ]
-  %.0130.be = phi ptr [ %.0130, %26 ], [ %38, %37 ], [ %45, %44 ], [ %53, %52 ], [ %58, %57 ], [ %70, %68 ], [ %87, %81 ], [ %.2132, %91 ], [ %110, %109 ], [ %122, %121 ], [ %.0130, %129 ], [ %.0130, %124 ], [ %136, %134 ], [ %.0130, %126 ], [ %.0130, %142 ], [ %.0130, %138 ]
-  %.0127.be = phi ptr [ %.0127, %26 ], [ %.2129, %37 ], [ %.0127, %44 ], [ %.0127, %52 ], [ %.0127, %57 ], [ %.0127, %68 ], [ %.0127, %81 ], [ %93, %91 ], [ %.0127, %109 ], [ %.0127, %121 ], [ %.0127, %129 ], [ %.0127, %124 ], [ %.0127, %134 ], [ %.0127, %126 ], [ %148, %142 ], [ %.0127, %138 ]
-  %.0123.be = phi i32 [ %.0123, %26 ], [ %.4, %37 ], [ 4, %44 ], [ 5, %52 ], [ 0, %57 ], [ 5, %68 ], [ 2, %81 ], [ 0, %91 ], [ %.5, %109 ], [ 0, %121 ], [ 6, %129 ], [ 0, %124 ], [ 5, %134 ], [ 0, %126 ], [ 6, %142 ], [ 0, %138 ]
-  %.0120.be = phi i32 [ %.0120, %26 ], [ %.0120, %37 ], [ %.0120, %44 ], [ %.0120, %52 ], [ %.0120, %57 ], [ %.0120, %68 ], [ %86, %81 ], [ %.2122, %91 ], [ %.0120, %109 ], [ %.0120, %121 ], [ %.0120, %129 ], [ %.0120, %124 ], [ %.0120, %134 ], [ %.0120, %126 ], [ %.0120, %142 ], [ %.0120, %138 ]
-  %.0118.be = phi i32 [ %.0118, %26 ], [ %.0118, %37 ], [ %.0118, %44 ], [ %.0118, %52 ], [ 0, %57 ], [ %.0118, %68 ], [ %.0118, %81 ], [ %.0118, %91 ], [ %.0118, %109 ], [ 0, %121 ], [ %.0118, %129 ], [ 0, %124 ], [ %.0118, %134 ], [ 0, %126 ], [ %144, %142 ], [ 0, %138 ]
-  %.0.be = phi i32 [ %.0, %26 ], [ %.0, %37 ], [ %.0, %44 ], [ 1, %52 ], [ 0, %57 ], [ %69, %68 ], [ %.0, %81 ], [ %.0, %91 ], [ %.2, %109 ], [ 0, %121 ], [ %.0, %129 ], [ 0, %124 ], [ %135, %134 ], [ 0, %126 ], [ %.0, %142 ], [ 0, %138 ]
+  %.0137.be = phi i64 [ %.0137, %26 ], [ %39, %37 ], [ %46, %44 ], [ %54, %52 ], [ %59, %57 ], [ %71, %68 ], [ %88, %81 ], [ %.2139, %91 ], [ %111, %109 ], [ %123, %121 ], [ %137, %134 ], [ %.0137, %142 ], [ %.0137, %124 ], [ %.0137, %126 ], [ %.0137, %129 ], [ %.0137, %138 ]
+  %.0134.be = phi i64 [ %.0134, %26 ], [ %.2136, %37 ], [ %.0134, %44 ], [ %.0134, %52 ], [ %.0134, %57 ], [ %.0134, %68 ], [ %.0134, %81 ], [ %94, %91 ], [ %.0134, %109 ], [ %.0134, %121 ], [ %.0134, %134 ], [ %149, %142 ], [ %.0134, %124 ], [ %.0134, %126 ], [ %.0134, %129 ], [ %.0134, %138 ]
+  %.0130.be = phi ptr [ %.0130, %26 ], [ %38, %37 ], [ %45, %44 ], [ %53, %52 ], [ %58, %57 ], [ %70, %68 ], [ %87, %81 ], [ %.2132, %91 ], [ %110, %109 ], [ %122, %121 ], [ %136, %134 ], [ %.0130, %142 ], [ %.0130, %124 ], [ %.0130, %126 ], [ %.0130, %129 ], [ %.0130, %138 ]
+  %.0127.be = phi ptr [ %.0127, %26 ], [ %.2129, %37 ], [ %.0127, %44 ], [ %.0127, %52 ], [ %.0127, %57 ], [ %.0127, %68 ], [ %.0127, %81 ], [ %93, %91 ], [ %.0127, %109 ], [ %.0127, %121 ], [ %.0127, %134 ], [ %148, %142 ], [ %.0127, %124 ], [ %.0127, %126 ], [ %.0127, %129 ], [ %.0127, %138 ]
+  %.0123.be = phi i32 [ %.0123, %26 ], [ %.4, %37 ], [ 4, %44 ], [ 5, %52 ], [ 0, %57 ], [ 5, %68 ], [ 2, %81 ], [ 0, %91 ], [ %.5, %109 ], [ 0, %121 ], [ 5, %134 ], [ 6, %142 ], [ 0, %124 ], [ 0, %126 ], [ 6, %129 ], [ 0, %138 ]
+  %.0120.be = phi i32 [ %.0120, %26 ], [ %.0120, %37 ], [ %.0120, %44 ], [ %.0120, %52 ], [ %.0120, %57 ], [ %.0120, %68 ], [ %86, %81 ], [ %.2122, %91 ], [ %.0120, %109 ], [ %.0120, %121 ], [ %.0120, %134 ], [ %.0120, %142 ], [ %.0120, %124 ], [ %.0120, %126 ], [ %.0120, %129 ], [ %.0120, %138 ]
+  %.0118.be = phi i32 [ %.0118, %26 ], [ %.0118, %37 ], [ %.0118, %44 ], [ %.0118, %52 ], [ 0, %57 ], [ %.0118, %68 ], [ %.0118, %81 ], [ %.0118, %91 ], [ %.0118, %109 ], [ 0, %121 ], [ %.0118, %134 ], [ %144, %142 ], [ 0, %124 ], [ 0, %126 ], [ %.0118, %129 ], [ 0, %138 ]
+  %.0.be = phi i32 [ %.0, %26 ], [ %.0, %37 ], [ %.0, %44 ], [ 1, %52 ], [ 0, %57 ], [ %69, %68 ], [ %.0, %81 ], [ %.0, %91 ], [ %.2, %109 ], [ 0, %121 ], [ %135, %134 ], [ %.0, %142 ], [ 0, %124 ], [ 0, %126 ], [ %.0, %129 ], [ 0, %138 ]
   br label %26
 
 140:                                              ; preds = %138
@@ -2947,7 +2947,7 @@ define internal range(i32 0, 5) i32 @php_conv_qprint_decode_convert(ptr noundef 
   br label %151
 
 151:                                              ; preds = %10, %150
-  %.0142 = phi i32 [ %., %10 ], [ %.0141, %150 ]
+  %.0142 = phi i32 [ %.0141, %150 ], [ %., %10 ]
   ret i32 %.0142
 }
 
@@ -3123,8 +3123,8 @@ define internal noundef i32 @php_chunked_filter(ptr readnone captures(none) %0, 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not44 = icmp eq ptr %9, null
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not43 = icmp eq ptr %9, null
+  br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3132,11 +3132,11 @@ define internal noundef i32 @php_chunked_filter(ptr readnone captures(none) %0, 
 
 11:                                               ; preds = %.lr.ph, %php_dechunk.exit
   %12 = phi ptr [ %9, %.lr.ph ], [ %117, %php_dechunk.exit ]
-  %.045 = phi i64 [ 0, %.lr.ph ], [ %16, %php_dechunk.exit ]
+  %.044 = phi i64 [ 0, %.lr.ph ], [ %16, %php_dechunk.exit ]
   %13 = tail call ptr @php_stream_bucket_make_writeable(ptr noundef nonnull %12) #18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !23
-  %16 = add i64 %15, %.045
+  %16 = add i64 %15, %.044
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %15
@@ -3307,10 +3307,10 @@ thread-pre-split139.i:                            ; preds = %68, %21
   br i1 %78, label %.backedge.sink.split.i, label %82
 
 .backedge.sink.split.i:                           ; preds = %111, %75, %72, %52
-  %.sink277.i = phi i32 [ 9, %52 ], [ %spec.select, %111 ], [ 8, %75 ], [ 9, %72 ]
-  %.0115.be.ph.i = phi ptr [ %.7174.i, %52 ], [ %spec.select16, %111 ], [ %76, %75 ], [ %.3.i, %72 ]
-  %.0111.be.ph.i = phi ptr [ %.0111183.i, %52 ], [ %.2113.i, %111 ], [ %.0111183.i, %75 ], [ %.0111183.i, %72 ]
-  %.0.be.ph.i = phi i64 [ %.0184.i, %52 ], [ %.2.i, %111 ], [ %.0184.i, %75 ], [ %.0184.i, %72 ]
+  %.sink277.i = phi i32 [ 9, %72 ], [ 9, %52 ], [ 8, %75 ], [ %spec.select.i, %111 ]
+  %.0115.be.ph.i = phi ptr [ %.3.i, %72 ], [ %.7174.i, %52 ], [ %76, %75 ], [ %spec.select278.i, %111 ]
+  %.0111.be.ph.i = phi ptr [ %.0111183.i, %72 ], [ %.0111183.i, %52 ], [ %.0111183.i, %75 ], [ %.2113.i, %111 ]
+  %.0.be.ph.i = phi i64 [ %.0184.i, %72 ], [ %.0184.i, %52 ], [ %.0184.i, %75 ], [ %.2.i, %111 ]
   store i32 %.sink277.i, ptr %10, align 8, !tbaa !93
   br label %.backedge.i
 
@@ -3407,9 +3407,9 @@ thread-pre-split141.i:                            ; preds = %107, %21
   %.2113.i = phi ptr [ %.2113.ph.i, %thread-pre-split141.i ], [ %.1112.i, %104 ]
   %.2.i = phi i64 [ %.2.ph.i, %thread-pre-split141.i ], [ %.1.i, %104 ]
   %113 = icmp eq i8 %112, 10
-  %spec.select = select i1 %113, i32 0, i32 9
-  %spec.select16.idx = zext i1 %113 to i64
-  %spec.select16 = getelementptr inbounds nuw i8, ptr %.6.i, i64 %spec.select16.idx
+  %spec.select.i = select i1 %113, i32 0, i32 9
+  %spec.select278.idx.i = zext i1 %113 to i64
+  %spec.select278.i = getelementptr inbounds nuw i8, ptr %.6.i, i64 %spec.select278.idx.i
   br label %.backedge.sink.split.i
 
 114:                                              ; preds = %21
@@ -3427,7 +3427,7 @@ thread-pre-split141.i:                            ; preds = %107, %21
   br label %php_dechunk.exit
 
 php_dechunk.exit:                                 ; preds = %21, %thread-pre-split.thread.i, %.critedge.i, %.backedge.i, %11, %71, %84, %97, %100, %110, %._crit_edge223.i
-  %.0114.i = phi i64 [ %103, %100 ], [ %116, %._crit_edge223.i ], [ %.0184.i, %71 ], [ %.0184.i, %84 ], [ %94, %97 ], [ %.1.i, %110 ], [ 0, %11 ], [ %.0.be.i, %.backedge.i ], [ %.0184.i, %.critedge.i ], [ %.0184.i, %thread-pre-split.thread.i ], [ %.0184.i, %21 ]
+  %.0114.i = phi i64 [ %.0184.i, %71 ], [ %.0184.i, %84 ], [ %94, %97 ], [ %.1.i, %110 ], [ %103, %100 ], [ %116, %._crit_edge223.i ], [ 0, %11 ], [ %.0.be.i, %.backedge.i ], [ %.0184.i, %.critedge.i ], [ %.0184.i, %thread-pre-split.thread.i ], [ %.0184.i, %21 ]
   store i64 %.0114.i, ptr %14, align 8, !tbaa !23
   tail call void @php_stream_bucket_append(ptr noundef %3, ptr noundef %13) #18
   %117 = load ptr, ptr %2, align 8, !tbaa !15

@@ -391,7 +391,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
   br label %_ZN3tbb6detail2r1L36initialize_hardware_concurrency_infoEv.exit
 
 _ZN3tbb6detail2r1L36initialize_hardware_concurrency_infoEv.exit: ; preds = %._crit_edge.i, %86
-  %.3.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %88, %86 ]
+  %.3.i = phi i32 [ %88, %86 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %89 = call i32 @llvm.smax.i32(i32 %.3.i, i32 1)
   store i32 %89, ptr @_ZN3tbb6detail2r1L11theNumProcsE, align 4, !tbaa !11
   store atomic i32 2, ptr @_ZN3tbb6detail2r1L25hardware_concurrency_infoE release, align 4

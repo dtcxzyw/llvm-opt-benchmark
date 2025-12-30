@@ -293,7 +293,7 @@ define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address
   br label %.thread
 
 .thread:                                          ; preds = %10, %.preheader, %28, %33, %34, %1, %4, %36
-  %.018 = phi ptr [ %43, %36 ], [ null, %1 ], [ null, %4 ], [ null, %34 ], [ null, %33 ], [ null, %28 ], [ null, %.preheader ], [ null, %10 ]
+  %.018 = phi ptr [ %43, %36 ], [ null, %4 ], [ null, %1 ], [ null, %34 ], [ null, %33 ], [ null, %28 ], [ null, %.preheader ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.018
 }

@@ -183,8 +183,8 @@ define internal range(i32 -2147483648, 1) i32 @wmavoice_decode_init(ptr noundef 
   %exitcond.not = icmp eq i64 %indvars.iv.next, 255
   br i1 %exitcond.not, label %67, label %58, !llvm.loop !38
 
-.thread:                                          ; preds = %49, %34, %39, %44
-  %.1.ph = phi i32 [ %47, %44 ], [ %42, %39 ], [ %37, %34 ], [ %52, %49 ]
+.thread:                                          ; preds = %34, %39, %44, %49
+  %.1.ph = phi i32 [ %52, %49 ], [ %47, %44 ], [ %42, %39 ], [ %37, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %199
 
@@ -417,7 +417,7 @@ define internal range(i32 -2147483648, 1) i32 @wmavoice_decode_init(ptr noundef 
   br label %199
 
 199:                                              ; preds = %.thread, %111, %165, %164, %145, %128, %110, %73, %13, %8
-  %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %13 ], [ -1094995529, %73 ], [ -1094995529, %110 ], [ %.1.ph, %.thread ], [ -1094995529, %128 ], [ -38, %145 ], [ -1094995529, %164 ], [ 0, %165 ], [ -1094995529, %111 ]
+  %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %13 ], [ -1094995529, %73 ], [ -1094995529, %110 ], [ -1094995529, %128 ], [ -38, %145 ], [ -1094995529, %164 ], [ 0, %165 ], [ -1094995529, %111 ], [ %.1.ph, %.thread ]
   ret i32 %.0
 }
 
@@ -739,7 +739,7 @@ flush_put_bits.exit:                              ; preds = %108, %92
   br label %parse_packet_header.exit.thread
 
 parse_packet_header.exit.thread:                  ; preds = %42, %59, %132, %167, %169, %162, %159, %parse_packet_header.exit, %17, %164, %156
-  %.0 = phi i32 [ %137, %132 ], [ %.089, %156 ], [ %57, %parse_packet_header.exit ], [ %166, %164 ], [ %160, %159 ], [ -1094995529, %17 ], [ %.089, %162 ], [ %.089, %169 ], [ %.089, %167 ], [ -1094995529, %59 ], [ -1094995529, %42 ]
+  %.0 = phi i32 [ %.089, %156 ], [ %166, %164 ], [ %137, %132 ], [ -1094995529, %17 ], [ %57, %parse_packet_header.exit ], [ %160, %159 ], [ %.089, %162 ], [ %.089, %169 ], [ %.089, %167 ], [ -1094995529, %59 ], [ -1094995529, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1799,7 +1799,7 @@ stabilize_lsps.exit:                              ; preds = %350, %365, %._crit_
   br i1 %exitcond78.not.i162, label %stabilize_lsps.exit163, label %.lr.ph63.i155, !llvm.loop !98
 
 stabilize_lsps.exit163:                           ; preds = %431, %446, %._crit_edge.i141, %390
-  %449 = phi i32 [ %399, %446 ], [ %.pre237, %390 ], [ %399, %._crit_edge.i141 ], [ %399, %431 ]
+  %449 = phi i32 [ %399, %._crit_edge.i141 ], [ %.pre237, %390 ], [ %399, %446 ], [ %399, %431 ]
   %450 = mul nuw nsw i64 %indvars.iv229, 160
   %451 = getelementptr inbounds nuw float, ptr %374, i64 %450
   %452 = getelementptr [16 x double], ptr %14, i64 %indvars.iv229
@@ -2388,8 +2388,8 @@ aw_parse_coords.exit.i:                           ; preds = %..loopexit_crit_edg
   br i1 %exitcond.not.i.i.i, label %synth_block_hardcoded.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !120
 
 854:                                              ; preds = %790, %787
-  %.1155.ph.i = phi i32 [ %.0.i172.i, %787 ], [ %.0154197.i, %790 ]
-  %.1153.ph.i = phi i32 [ %.0152.i, %787 ], [ %793, %790 ]
+  %.1155.ph.i = phi i32 [ %.0154197.i, %790 ], [ %.0.i172.i, %787 ]
+  %.1153.ph.i = phi i32 [ %793, %790 ], [ %.0152.i, %787 ]
   %855 = mul nuw nsw i64 %indvars.iv213.i, %wide.trip.count.i39.i.i
   %856 = getelementptr inbounds nuw float, ptr %460, i64 %855
   %857 = getelementptr inbounds nuw float, ptr %463, i64 %855
@@ -2710,7 +2710,7 @@ aw_pulse_set1.exit.i.i.i:                         ; preds = %921
   br i1 %.not99.i.i.i.i, label %.lr.ph.i35.i.i, label %1019
 
 1019:                                             ; preds = %1017, %1015, %1013, %1011, %1009
-  %.3.i.i.i.i = phi i32 [ 63, %1015 ], [ 15, %1009 ], [ 31, %1011 ], [ 47, %1013 ], [ 79, %1017 ]
+  %.3.i.i.i.i = phi i32 [ 15, %1009 ], [ 31, %1011 ], [ 47, %1013 ], [ 63, %1015 ], [ 79, %1017 ]
   %1020 = lshr i32 %.3.i.i.i.i, 4
   %1021 = zext nneg i32 %1020 to i64
   %1022 = getelementptr inbounds nuw i16, ptr %384, i64 %1021
@@ -3305,7 +3305,7 @@ synth_block.exit.i:                               ; preds = %1249, %synth_block_
   br label %1360
 
 1360:                                             ; preds = %1344, %1357, %369, %1343, %1309, %93, %69
-  %.0112 = phi i32 [ -1094995529, %93 ], [ -1163346256, %69 ], [ -1094995529, %1309 ], [ -1094995529, %1343 ], [ %371, %369 ], [ 0, %1357 ], [ 0, %1344 ]
+  %.0112 = phi i32 [ -1094995529, %93 ], [ -1094995529, %1309 ], [ -1094995529, %1343 ], [ -1163346256, %69 ], [ %371, %369 ], [ 0, %1357 ], [ 0, %1344 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -3721,7 +3721,7 @@ define internal fastcc void @postfilter(ptr noundef %0, ptr noundef nonnull %1, 
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 80
   br i1 %exitcond.not.i, label %kalman_smoothen.exit, label %52, !llvm.loop !144
 
-kalman_smoothen.exit:                             ; preds = %52, %38, %40, %7
+kalman_smoothen.exit:                             ; preds = %52, %40, %38, %7
   %.0 = phi ptr [ %4, %7 ], [ %4, %38 ], [ %4, %40 ], [ %15, %52 ]
   %60 = load i32, ptr %19, align 4, !tbaa !45
   call void @ff_celp_lp_synthesis_filterf(ptr noundef nonnull %18, ptr noundef nonnull %3, ptr noundef %.0, i32 noundef 80, i32 noundef %60) #13

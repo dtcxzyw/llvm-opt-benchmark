@@ -591,7 +591,7 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
   br label %345
 
 345:                                              ; preds = %.preheader105, %322, %333, %343, %295, %307, %337, %274
-  %.088 = phi double [ %., %274 ], [ %303, %337 ], [ %344, %343 ], [ 0.000000e+00, %295 ], [ %323, %322 ], [ %334, %333 ], [ %303, %307 ], [ -2.000000e+00, %.preheader105 ]
+  %.088 = phi double [ %., %274 ], [ %323, %322 ], [ %334, %333 ], [ %344, %343 ], [ 0.000000e+00, %295 ], [ %303, %307 ], [ %303, %337 ], [ -2.000000e+00, %.preheader105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0260)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0264)

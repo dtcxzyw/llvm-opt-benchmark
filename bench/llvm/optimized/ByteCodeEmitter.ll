@@ -361,8 +361,8 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %33, %41
   br label %53
 
 53:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %45, %31, %25
-  %.084 = phi i1 [ false, %25 ], [ false, %31 ], [ true, %45 ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
-  %.081 = phi ptr [ %1, %25 ], [ %1, %31 ], [ %52, %45 ], [ %1, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
+  %.084 = phi i1 [ false, %31 ], [ false, %25 ], [ true, %45 ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
+  %.081 = phi ptr [ %1, %31 ], [ %1, %25 ], [ %52, %45 ], [ %1, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %54, ptr %7, align 8, !tbaa !58
@@ -477,8 +477,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZN4llvm23
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %_ZNK5clang4Type10isVoidTypeEv.exit.thread
-  %.0198 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ]
-  %.0197 = phi i32 [ %113, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ 0, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ 0, %_ZNK5clang4Type10isVoidTypeEv.exit ]
+  %.0198 = phi i1 [ false, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ]
+  %.0197 = phi i32 [ 0, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ %113, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ 0, %_ZNK5clang4Type10isVoidTypeEv.exit ]
   %114 = getelementptr inbounds nuw i8, ptr %.081, i64 28
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 127
@@ -683,7 +683,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit130:    ; preds = %_ZNK5clang13CXXMeth
   br i1 %.not.i9.i15.i7.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !123
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %214, %216
-  %.pn14.i = phi ptr [ %215, %214 ], [ %210, %216 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %217, %.critedge2.i8.i14.i6.i ]
+  %.pn14.i = phi ptr [ %215, %214 ], [ %210, %216 ], [ %217, %.critedge2.i8.i14.i6.i ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
   %.pn12.i = phi ptr [ %215, %214 ], [ %217, %216 ], [ %217, %.critedge2.i8.i14.i6.i ], [ %217, %.lr.ph.i6.i12.i3.i ]
   %220 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %210, i64 %213
   %.not213220 = icmp eq ptr %.pn14.i, %220
@@ -1246,7 +1246,7 @@ _ZN4llvm15SmallVectorImplIN5clang6interp5ScopeEE12emplace_backIJNS_11SmallVector
   br i1 %.not103, label %._crit_edge231, label %.lr.ph230
 
 486:                                              ; preds = %369, %_ZN4llvm11SmallVectorIN5clang6interp5ScopeELj2EED2Ev.exit, %.thread208, %_ZNK5clang13CXXMethodDecl9getParentEv.exit124, %.critedge109
-  %.6 = phi ptr [ %.091, %369 ], [ null, %.critedge109 ], [ null, %_ZNK5clang13CXXMethodDecl9getParentEv.exit124 ], [ %.091, %.thread208 ], [ %.091, %_ZN4llvm11SmallVectorIN5clang6interp5ScopeELj2EED2Ev.exit ]
+  %.6 = phi ptr [ null, %.critedge109 ], [ null, %_ZNK5clang13CXXMethodDecl9getParentEv.exit124 ], [ %.091, %.thread208 ], [ %.091, %_ZN4llvm11SmallVectorIN5clang6interp5ScopeELj2EED2Ev.exit ], [ %.091, %369 ]
   %487 = load ptr, ptr %9, align 8, !tbaa !209
   %488 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %489 = load i32, ptr %488, align 8, !tbaa !210
@@ -29522,7 +29522,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4byteSaIS0_EE6resizeEm(ptr nound
   br label %_ZSt27__uninitialized_default_n_aIPSt4bytemS0_ET_S2_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt4bytemS0_ET_S2_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !202
   br label %_ZNSt6vectorISt4byteSaIS0_EE17_M_default_appendEm.exit
 

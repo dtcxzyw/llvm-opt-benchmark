@@ -187,7 +187,7 @@ define internal range(i32 -22, 1) i32 @scale_vaapi_init(ptr noundef %0) #0 {
   br label %45
 
 45:                                               ; preds = %43, %.thread64, %42, %34, %27, %20, %11
-  %.0 = phi i32 [ -22, %11 ], [ -22, %20 ], [ -22, %42 ], [ -22, %34 ], [ -22, %27 ], [ 0, %.thread64 ], [ 0, %43 ]
+  %.0 = phi i32 [ -22, %11 ], [ -22, %42 ], [ -22, %34 ], [ -22, %27 ], [ -22, %20 ], [ 0, %.thread64 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -375,7 +375,7 @@ scale_vaapi_mode_name.exit:                       ; preds = %86, %switch.lookup
   br label %101
 
 101:                                              ; preds = %26, %100, %scale_vaapi_mode_name.exit, %24
-  %.031 = phi i32 [ %25, %24 ], [ %99, %scale_vaapi_mode_name.exit ], [ %.0, %100 ], [ -22, %26 ]
+  %.031 = phi i32 [ %25, %24 ], [ %.0, %100 ], [ %99, %scale_vaapi_mode_name.exit ], [ -22, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.031
@@ -555,7 +555,7 @@ define internal range(i32 -2147483648, 1) i32 @scale_vaapi_config_output(ptr nou
   br label %99
 
 99:                                               ; preds = %79, %97, %85, %74, %1
-  %.0 = phi i32 [ %75, %74 ], [ %14, %1 ], [ 0, %85 ], [ 0, %97 ], [ 0, %79 ]
+  %.0 = phi i32 [ %14, %1 ], [ %75, %74 ], [ 0, %85 ], [ 0, %97 ], [ 0, %79 ]
   ret i32 %.0
 }
 

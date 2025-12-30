@@ -79,7 +79,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br label %33
 
 33:                                               ; preds = %28, %10, %16, %22, %3
-  %.08 = phi i32 [ %spec.select, %28 ], [ %8, %3 ], [ %14, %10 ], [ %20, %16 ], [ %26, %22 ]
+  %.08 = phi i32 [ %8, %3 ], [ %14, %10 ], [ %20, %16 ], [ %26, %22 ], [ %spec.select, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.08

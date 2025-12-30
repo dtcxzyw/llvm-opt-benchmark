@@ -1084,7 +1084,7 @@ MJEvalInnerValues.exit299:                        ; preds = %260
   br i1 %313, label %.thread419, label %ApplySortComparator.exit.i
 
 ApplySortComparator.exit.i:                       ; preds = %312, %300
-  %.0.i.i = phi i32 [ %308, %300 ], [ %314, %312 ]
+  %.0.i.i = phi i32 [ %314, %312 ], [ %308, %300 ]
   %.0.i.fr.i = freeze i32 %.0.i.i
   %.not.i302 = icmp eq i32 %.0.i.fr.i, 0
   br i1 %.not.i302, label %ApplySortComparator.exit.thread33.i, label %322
@@ -1412,7 +1412,7 @@ MJEvalInnerValues.exit327:                        ; preds = %387, %391, %._crit_
   br i1 %463, label %.thread437, label %ApplySortComparator.exit.i333
 
 ApplySortComparator.exit.i333:                    ; preds = %462, %450
-  %.0.i.i334 = phi i32 [ %458, %450 ], [ %464, %462 ]
+  %.0.i.i334 = phi i32 [ %464, %462 ], [ %458, %450 ]
   %.0.i.fr.i335 = freeze i32 %.0.i.i334
   %.not.i336 = icmp eq i32 %.0.i.fr.i335, 0
   br i1 %.not.i336, label %ApplySortComparator.exit.thread33.i339, label %476
@@ -1653,7 +1653,7 @@ MJEvalInnerValues.exit355.thread:                 ; preds = %478, %482, %MJEvalI
   br i1 %573, label %.thread455, label %ApplySortComparator.exit.i361
 
 ApplySortComparator.exit.i361:                    ; preds = %572, %560
-  %.0.i.i362 = phi i32 [ %568, %560 ], [ %574, %572 ]
+  %.0.i.i362 = phi i32 [ %574, %572 ], [ %568, %560 ]
   %.0.i.fr.i363 = freeze i32 %.0.i.i362
   %.not.i364 = icmp eq i32 %.0.i.fr.i363, 0
   br i1 %.not.i364, label %ApplySortComparator.exit.thread33.i367, label %592
@@ -2088,7 +2088,7 @@ default.unreachable654:                           ; preds = %MJEvalInnerValues.e
   unreachable
 
 .loopexit:                                        ; preds = %ExecProcNode.exit402, %748, %ExecProcNode.exit400, %733, %MJEvalInnerValues.exit398.thread, %713, %MJEvalOuterValues.exit385.thread, %650, %MJEvalInnerValues.exit355.thread, %MJEvalOuterValues.exit316.thread, %382, %MJEvalInnerValues.exit.thread, %MJEvalOuterValues.exit.thread, %100, %153, %218, %332, %600, %659, %721, %740, %.critedge264
-  %.2 = phi ptr [ %183, %.critedge264 ], [ null, %ExecProcNode.exit402 ], [ null, %748 ], [ null, %733 ], [ null, %713 ], [ null, %650 ], [ null, %382 ], [ null, %ExecProcNode.exit400 ], [ %722, %721 ], [ null, %MJEvalInnerValues.exit398.thread ], [ %660, %659 ], [ null, %MJEvalOuterValues.exit385.thread ], [ %601, %600 ], [ null, %MJEvalInnerValues.exit355.thread ], [ null, %MJEvalOuterValues.exit316.thread ], [ %333, %332 ], [ null, %MJEvalInnerValues.exit.thread ], [ %219, %218 ], [ null, %MJEvalOuterValues.exit.thread ], [ %154, %153 ], [ %741, %740 ], [ %101, %100 ]
+  %.2 = phi ptr [ %183, %.critedge264 ], [ null, %ExecProcNode.exit402 ], [ null, %748 ], [ null, %ExecProcNode.exit400 ], [ null, %733 ], [ null, %MJEvalInnerValues.exit398.thread ], [ null, %713 ], [ null, %MJEvalOuterValues.exit385.thread ], [ null, %650 ], [ null, %MJEvalInnerValues.exit355.thread ], [ null, %MJEvalOuterValues.exit316.thread ], [ null, %382 ], [ null, %MJEvalInnerValues.exit.thread ], [ null, %MJEvalOuterValues.exit.thread ], [ %741, %740 ], [ %722, %721 ], [ %660, %659 ], [ %601, %600 ], [ %333, %332 ], [ %219, %218 ], [ %154, %153 ], [ %101, %100 ]
   ret ptr %.2
 }
 

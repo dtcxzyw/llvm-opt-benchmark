@@ -284,7 +284,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %90, %92
   unreachable
 
 99:                                               ; preds = %.loopexit, %.loopexit.split-lp, %87, %46, %44, %42, %40, %38
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %88, %87 ], [ %45, %44 ], [ %47, %46 ], [ %43, %42 ], [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %45, %44 ], [ %47, %46 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %100 = load ptr, ptr %9, align 8, !tbaa !16
   %.not.i.i.i17 = icmp eq ptr %100, null
   br i1 %.not.i.i.i17, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit18, label %101

@@ -713,7 +713,7 @@ define internal i32 @intel_dvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 ali
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %28, %25, %13, %2
-  %35 = phi i32 [ %34, %28 ], [ %21, %20 ], [ %11, %2 ], [ 8, %13 ], [ 15, %25 ]
+  %35 = phi i32 [ %34, %28 ], [ %11, %2 ], [ 8, %13 ], [ 15, %25 ], [ %21, %20 ]
   ret i32 %35
 }
 

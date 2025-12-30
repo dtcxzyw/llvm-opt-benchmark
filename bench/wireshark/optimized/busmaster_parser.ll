@@ -156,7 +156,7 @@ define hidden void @BusmasterParser(ptr noundef captures(address) initializes((1
   br label %yy_find_shift_action.exit
 
 yy_find_shift_action.exit:                        ; preds = %19, %29, %32
-  %.0.i = phi i8 [ %34, %32 ], [ %31, %29 ], [ %.033, %19 ]
+  %.0.i = phi i8 [ %31, %29 ], [ %34, %32 ], [ %.033, %19 ]
   %35 = icmp ugt i8 %.0.i, -73
   br i1 %35, label %36, label %239
 

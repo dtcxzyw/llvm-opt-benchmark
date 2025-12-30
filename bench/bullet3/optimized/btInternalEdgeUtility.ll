@@ -741,7 +741,7 @@ define dso_local void @_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_(ptr 
   br label %40
 
 40:                                               ; preds = %23, %37, %39
-  %.0 = phi float [ %35, %37 ], [ 1.000000e+00, %39 ], [ 0.000000e+00, %23 ]
+  %.0 = phi float [ 1.000000e+00, %39 ], [ %35, %37 ], [ 0.000000e+00, %23 ]
   %41 = fmul float %7, %.0
   %42 = fmul float %12, %.0
   %43 = fmul float %17, %.0
@@ -1161,7 +1161,7 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit: ; preds = %73
   br label %171
 
 171:                                              ; preds = %170, %168, %156
-  %.0.i237 = phi float [ %166, %168 ], [ 1.000000e+00, %170 ], [ 0.000000e+00, %156 ]
+  %.0.i237 = phi float [ 1.000000e+00, %170 ], [ %166, %168 ], [ 0.000000e+00, %156 ]
   %172 = fmul float %140, %.0.i237
   %173 = fmul float %145, %.0.i237
   %174 = fmul float %150, %.0.i237
@@ -1264,7 +1264,7 @@ _Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit: ; preds = %155, %171
   br label %241
 
 241:                                              ; preds = %240, %238, %229
-  %.0.i239 = phi float [ %236, %238 ], [ 1.000000e+00, %240 ], [ 0.000000e+00, %229 ]
+  %.0.i239 = phi float [ 1.000000e+00, %240 ], [ %236, %238 ], [ 0.000000e+00, %229 ]
   %242 = fmul float %140, %.0.i239
   %243 = fmul float %145, %.0.i239
   %244 = fmul float %150, %.0.i239
@@ -1345,7 +1345,7 @@ _Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit244: ; preds = %228, %2
   br label %289
 
 289:                                              ; preds = %288, %286, %277
-  %.0.i250 = phi float [ %284, %286 ], [ 1.000000e+00, %288 ], [ 0.000000e+00, %277 ]
+  %.0.i250 = phi float [ 1.000000e+00, %288 ], [ %284, %286 ], [ 0.000000e+00, %277 ]
   %290 = fmul float %262, %.0.i250
   %291 = fmul float %265, %.0.i250
   %292 = fmul float %268, %.0.i250
@@ -1429,7 +1429,7 @@ _Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit255: ; preds = %273, %2
   br label %334
 
 334:                                              ; preds = %333, %331, %322
-  %.0.i262 = phi float [ %329, %331 ], [ 1.000000e+00, %333 ], [ 0.000000e+00, %322 ]
+  %.0.i262 = phi float [ 1.000000e+00, %333 ], [ %329, %331 ], [ 0.000000e+00, %322 ]
   %335 = fmul float %310, %.0.i262
   %336 = fmul float %313, %.0.i262
   %337 = fmul float %316, %.0.i262
@@ -1704,7 +1704,7 @@ _Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit267: ; preds = %321, %3
   br label %493
 
 493:                                              ; preds = %492, %490, %481
-  %.0.i311 = phi float [ %488, %490 ], [ 1.000000e+00, %492 ], [ 0.000000e+00, %481 ]
+  %.0.i311 = phi float [ 1.000000e+00, %492 ], [ %488, %490 ], [ 0.000000e+00, %481 ]
   %494 = fmul float %469, %.0.i311
   %495 = fmul float %472, %.0.i311
   %496 = fmul float %475, %.0.i311
@@ -2013,7 +2013,7 @@ _Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit316: ; preds = %480, %4
   br label %683
 
 683:                                              ; preds = %682, %680, %671
-  %.0.i364 = phi float [ %678, %680 ], [ 1.000000e+00, %682 ], [ 0.000000e+00, %671 ]
+  %.0.i364 = phi float [ 1.000000e+00, %682 ], [ %678, %680 ], [ 0.000000e+00, %671 ]
   %684 = fmul float %661, %.0.i364
   %685 = fmul float %663, %.0.i364
   %686 = fmul float %665, %.0.i364
@@ -3449,7 +3449,7 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157: ; preds = %212, %_
   br label %.thread418
 
 622:                                              ; preds = %516, %564, %613
-  %.pn104.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %517, %516 ], [ %614, %613 ], [ %565, %564 ]
+  %.pn104.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %517, %516 ], [ %565, %564 ], [ %614, %613 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %10) #19
   br label %623

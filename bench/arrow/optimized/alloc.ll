@@ -2103,7 +2103,7 @@ mi_malloc.exit:                                   ; preds = %.split, %25
   br i1 %31, label %25, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %mi_malloc.exit, %mi_malloc.exit.us, %mi_malloc.exit.us.thread, %.split7.us
-  %.04 = phi ptr [ null, %.split7.us ], [ %23, %mi_malloc.exit.us ], [ %16, %mi_malloc.exit.us.thread ], [ %30, %mi_malloc.exit ]
+  %.04 = phi ptr [ null, %.split7.us ], [ %16, %mi_malloc.exit.us.thread ], [ %23, %mi_malloc.exit.us ], [ %30, %mi_malloc.exit ]
   ret ptr %.04
 }
 

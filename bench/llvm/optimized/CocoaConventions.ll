@@ -212,7 +212,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang8QualType
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit21, %_ZNK4llvm9StringRef11starts_withES0_.exit21.us, %_ZNK4llvm9StringRef9ends_withES0_.exit.us, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, %91, %89, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit, %_ZNK5clang4Type10isVoidTypeEv.exit, %._crit_edge
-  %.3 = phi i1 [ true, %89 ], [ false, %._crit_edge ], [ false, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ %92, %91 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ false, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit ], [ %25, %_ZNK4llvm9StringRef11starts_withES0_.exit21.us ], [ %25, %_ZNK4llvm9StringRef9ends_withES0_.exit.us ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit21 ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit ]
+  %.3 = phi i1 [ false, %._crit_edge ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ false, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ %92, %91 ], [ true, %89 ], [ false, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit ], [ %25, %_ZNK4llvm9StringRef9ends_withES0_.exit.us ], [ %25, %_ZNK4llvm9StringRef11starts_withES0_.exit21.us ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit21 ]
   ret i1 %.3
 }
 
@@ -490,7 +490,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread48:       ; preds = %.preheader, %_ZN4ll
   br i1 %.not13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.preheader, !llvm.loop !27
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread48, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.0 = phi i1 [ false, %1 ], [ true, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit ], [ true, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   ret i1 %.0
 }
 
@@ -683,7 +683,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCrea
   br i1 %.not36, label %.thread58, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %23, %30, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55, %_ZNK4llvm9StringRef11starts_withES0_.exit42
-  %.131.idx74.be = phi i64 [ %.131.add, %23 ], [ %.232.add, %30 ], [ %.131.add62, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ], [ %.131.add62, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55 ]
+  %.131.idx74.be = phi i64 [ %.131.add, %23 ], [ %.131.add62, %_ZNK4llvm9StringRef11starts_withES0_.exit42 ], [ %.131.add62, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55 ], [ %.232.add, %30 ]
   br label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %15
@@ -730,7 +730,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   br i1 %.not70, label %.thread58, label %.lr.ph.backedge
 
 .thread58:                                        ; preds = %.loopexit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %30, %23, %7, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %7 ], [ true, %30 ], [ false, %.loopexit ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ false, %23 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %7 ], [ true, %30 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ false, %.loopexit ], [ false, %23 ]
   ret i1 %.0
 }
 

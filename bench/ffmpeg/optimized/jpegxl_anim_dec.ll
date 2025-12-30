@@ -67,7 +67,7 @@ define internal range(i32 0, 101) i32 @jpegxl_anim_probe(ptr noundef readonly ca
   br label %32
 
 32:                                               ; preds = %26, %19, %17, %9
-  %.0 = phi i32 [ %., %9 ], [ 0, %19 ], [ %.16, %26 ], [ 0, %17 ]
+  %.0 = phi i32 [ %., %9 ], [ 0, %17 ], [ 0, %19 ], [ %.16, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -190,7 +190,7 @@ define internal range(i32 -2147483648, 1) i32 @jpegxl_anim_read_header(ptr nound
   br i1 %or.cond, label %.loopexit, label %69
 
 .thread:                                          ; preds = %46, %35, %69, %29
-  %.3.ph = phi i32 [ %31, %29 ], [ -12, %35 ], [ %70, %69 ], [ -12, %46 ]
+  %.3.ph = phi i32 [ %31, %29 ], [ %70, %69 ], [ -12, %35 ], [ -12, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread88
@@ -236,8 +236,8 @@ define internal range(i32 -2147483648, 1) i32 @jpegxl_anim_read_header(ptr nound
   store i32 1, ptr %89, align 8, !tbaa !50
   br label %.thread88
 
-.thread88:                                        ; preds = %24, %.thread, %79, %.loopexit, %17, %12, %81
-  %.0 = phi i32 [ -12, %79 ], [ -12, %17 ], [ 0, %81 ], [ -1094995529, %.loopexit ], [ %15, %12 ], [ -1094995529, %24 ], [ %.3.ph, %.thread ]
+.thread88:                                        ; preds = %.thread, %24, %79, %.loopexit, %17, %12, %81
+  %.0 = phi i32 [ 0, %81 ], [ %15, %12 ], [ -12, %17 ], [ -1094995529, %.loopexit ], [ -12, %79 ], [ %.3.ph, %.thread ], [ -1094995529, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -325,7 +325,7 @@ define internal i32 @jpegxl_anim_read_packet(ptr noundef readonly captures(none)
   br label %50
 
 50:                                               ; preds = %43, %46, %32, %19, %11, %9
-  %.038 = phi i32 [ %10, %9 ], [ %41, %32 ], [ -33, %11 ], [ %21, %19 ], [ 0, %46 ], [ 0, %43 ]
+  %.038 = phi i32 [ %10, %9 ], [ -33, %11 ], [ %21, %19 ], [ %41, %32 ], [ 0, %46 ], [ 0, %43 ]
   ret i32 %.038
 }
 

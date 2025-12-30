@@ -1214,7 +1214,7 @@ _ZN13VerticalStack14DestroyBulletsEv.exit:        ; preds = %47
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %64, %68, %.preheader.i
-  %70 = phi i32 [ %.pre.i, %68 ], [ %60, %.preheader.i ], [ %60, %64 ]
+  %70 = phi i32 [ %60, %.preheader.i ], [ %.pre.i, %68 ], [ %60, %64 ]
   %71 = add nuw nsw i32 %.016.i, 1
   %72 = icmp slt i32 %71, %70
   br i1 %72, label %.preheaderthread-pre-split.i, label %_ZN13VerticalStack11DestroyBodyEv.exit, !llvm.loop !67
@@ -2562,7 +2562,7 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
   br label %169
 
 169:                                              ; preds = %148, %154, %113, %119, %77, %83, %168, %60
-  %.pn82.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %78, %77 ], [ %.pn77, %168 ], [ %114, %113 ], [ %.pn82, %83 ], [ %.pn79, %119 ], [ %.pn74, %154 ], [ %149, %148 ]
+  %.pn82.pn.pn = phi { ptr, i32 } [ %.pn77, %168 ], [ %61, %60 ], [ %.pn82, %83 ], [ %78, %77 ], [ %.pn79, %119 ], [ %114, %113 ], [ %.pn74, %154 ], [ %149, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %170
 
@@ -3209,7 +3209,7 @@ _Z9b2MakeRotf.exit79:                             ; preds = %55
   ret void
 
 73:                                               ; preds = %46, %48, %64, %70, %68, %66, %37
-  %.pn.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %47, %46 ], [ %65, %64 ], [ %49, %48 ], [ %67, %66 ], [ %71, %70 ], [ %69, %68 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %65, %64 ], [ %49, %48 ], [ %47, %46 ], [ %67, %66 ], [ %71, %70 ], [ %69, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 

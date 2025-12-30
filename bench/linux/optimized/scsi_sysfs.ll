@@ -1502,7 +1502,7 @@ select.unfold:                                    ; preds = %9, %4
   br label %.thread4
 
 .thread4:                                         ; preds = %14, %9, %select.unfold
-  %19 = phi i64 [ -95, %select.unfold ], [ %18, %14 ], [ -22, %9 ]
+  %19 = phi i64 [ -22, %9 ], [ -95, %select.unfold ], [ %18, %14 ]
   ret i64 %19
 }
 

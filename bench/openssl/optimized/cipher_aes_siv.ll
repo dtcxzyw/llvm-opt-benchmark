@@ -231,7 +231,7 @@ define internal range(i32 0, 2) i32 @siv_cipher(ptr noundef %0, ptr noundef %1, 
   br label %25
 
 25:                                               ; preds = %23, %24, %16, %11, %12, %6, %15
-  %.0 = phi i32 [ 0, %6 ], [ 0, %15 ], [ 1, %11 ], [ 0, %16 ], [ 1, %12 ], [ 1, %24 ], [ 1, %23 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %6 ], [ 1, %12 ], [ 1, %11 ], [ 0, %16 ], [ 1, %24 ], [ 1, %23 ]
   ret i32 %.0
 }
 
@@ -259,7 +259,7 @@ define internal range(i32 0, 2) i32 @siv_stream_final(ptr noundef %0, ptr nounde
   br label %14
 
 14:                                               ; preds = %12, %13, %6, %4
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 1, %13 ], [ 1, %12 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 1, %13 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -329,14 +329,14 @@ define internal range(i32 0, 2) i32 @aes_siv_get_ctx_params(ptr noundef %0, ptr 
   br i1 %.not29, label %.sink.split, label %32
 
 .sink.split:                                      ; preds = %28, %22, %8, %12, %17
-  %.sink = phi i32 [ 176, %22 ], [ 170, %8 ], [ 170, %17 ], [ 170, %12 ], [ 181, %28 ]
+  %.sink = phi i32 [ 170, %17 ], [ 170, %12 ], [ 170, %8 ], [ 176, %22 ], [ 181, %28 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.aes_siv_get_ctx_params) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 104, ptr noundef null) #4
   br label %32
 
 32:                                               ; preds = %.sink.split, %26, %28
-  %.0 = phi i32 [ 1, %26 ], [ 1, %28 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %28 ], [ 1, %26 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -451,7 +451,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %.critedge, %9, %ossl_param_is_empty.exit, %42, %46, %31, %26
-  %.020 = phi i32 [ 0, %31 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %26 ], [ 1, %46 ], [ 0, %42 ], [ 1, %9 ], [ 0, %.critedge ], [ 1, %2 ]
+  %.020 = phi i32 [ 0, %26 ], [ 1, %46 ], [ 0, %42 ], [ 0, %31 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %9 ], [ 0, %.critedge ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.020
 }

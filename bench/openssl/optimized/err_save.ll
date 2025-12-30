@@ -184,8 +184,8 @@ err_clear.exit:                                   ; preds = %14, %19
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph, %44
-  %.085.lcssa = phi i64 [ %48, %44 ], [ %.08595, %.lr.ph ]
-  %.084.lcssa = phi i32 [ %39, %44 ], [ %.08496, %.lr.ph ]
+  %.085.lcssa = phi i64 [ %.08595, %.lr.ph ], [ %48, %44 ]
+  %.084.lcssa = phi i32 [ %.08496, %.lr.ph ], [ %39, %44 ]
   %.not109 = icmp eq i64 %.085.lcssa, 0
   br i1 %.not109, label %.thread, label %.lr.ph103
 
@@ -455,7 +455,7 @@ err_get_slot.exit:                                ; preds = %39, %45
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %56, %55
-  %.sink.i.i = phi i32 [ 0, %56 ], [ 1, %55 ]
+  %.sink.i.i = phi i32 [ 1, %55 ], [ 0, %56 ]
   store i32 %.sink.i.i, ptr %49, align 4, !tbaa !3
   br label %err_clear.exit
 
@@ -605,7 +605,7 @@ err_set_data.exit:                                ; preds = %107, %114
   br label %err_clear_data.exit.sink.split
 
 err_clear_data.exit.sink.split:                   ; preds = %125, %126, %err_set_data.exit
-  %.sink.i.sink = phi i32 [ %111, %err_set_data.exit ], [ 0, %126 ], [ 1, %125 ]
+  %.sink.i.sink = phi i32 [ %111, %err_set_data.exit ], [ 1, %125 ], [ 0, %126 ]
   store i32 %.sink.i.sink, ptr %49, align 4, !tbaa !3
   br label %err_clear_data.exit
 

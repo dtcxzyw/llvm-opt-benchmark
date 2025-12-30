@@ -2353,7 +2353,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   br i1 %116, label %117, label %196
 
 117:                                              ; preds = %114, %111, %97
-  %.sink = phi i32 [ 536871273, %111 ], [ 268435809, %97 ], [ 1073742193, %114 ]
+  %.sink = phi i32 [ 268435809, %97 ], [ 536871273, %111 ], [ 1073742193, %114 ]
   store i32 %.sink, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
   br label %118
@@ -5130,7 +5130,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   br i1 %818, label %.loopexit56, label %821, !prof !209
 
 _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit: ; preds = %601, %573, %560, %556, %551, %541, %525, %379, %269, %197, %189, %182, %501, %459, %411
-  %819 = phi i32 [ %460, %459 ], [ %412, %411 ], [ %504, %501 ], [ 1, %269 ], [ %528, %525 ], [ 3, %379 ], [ %611, %601 ], [ %198, %197 ], [ %190, %189 ], [ %183, %182 ], [ %575, %573 ], [ %566, %560 ], [ 3, %541 ], [ 1, %551 ], [ 1, %556 ]
+  %819 = phi i32 [ %460, %459 ], [ %412, %411 ], [ %504, %501 ], [ %528, %525 ], [ 1, %269 ], [ 3, %379 ], [ %611, %601 ], [ %198, %197 ], [ %190, %189 ], [ %183, %182 ], [ %575, %573 ], [ %566, %560 ], [ 3, %541 ], [ 1, %551 ], [ 1, %556 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit56
 
@@ -5529,7 +5529,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   br i1 %194, label %.loopexit14, label %16, !llvm.loop !286
 
 .loopexit14:                                      ; preds = %.loopexit15, %135, %166, %3
-  %195 = phi i32 [ 0, %3 ], [ 30, %166 ], [ 0, %.loopexit15 ], [ %147, %135 ]
+  %195 = phi i32 [ 0, %3 ], [ 30, %166 ], [ %147, %135 ], [ 0, %.loopexit15 ]
   ret i32 %195
 }
 

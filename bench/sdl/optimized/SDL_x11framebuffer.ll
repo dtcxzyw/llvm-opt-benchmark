@@ -150,7 +150,7 @@ X11_DestroyWindowFramebuffer.exit:                ; preds = %5, %40, %43
   br label %switch.edge
 
 switch.edge:                                      ; preds = %67, %68, %67, %67, %67, %69
-  %71 = phi i32 [ %70, %69 ], [ 2, %67 ], [ 2, %67 ], [ 2, %67 ], [ 1, %68 ], [ 2, %67 ]
+  %71 = phi i32 [ %70, %69 ], [ 2, %67 ], [ 1, %68 ], [ 2, %67 ], [ 2, %67 ], [ 2, %67 ]
   %72 = mul i32 %71, %66
   %73 = add i32 %72, 3
   %74 = and i32 %73, -4
@@ -287,7 +287,7 @@ switch.edge:                                      ; preds = %67, %68, %67, %67, 
   br label %152
 
 152:                                              ; preds = %131, %.critedge, %150, %147, %63, %58, %52
-  %.0 = phi i1 [ %64, %63 ], [ true, %150 ], [ %149, %147 ], [ %53, %52 ], [ true, %.critedge ], [ %59, %58 ], [ false, %131 ]
+  %.0 = phi i1 [ %64, %63 ], [ true, %150 ], [ %149, %147 ], [ %59, %58 ], [ %53, %52 ], [ true, %.critedge ], [ false, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -2160,8 +2160,8 @@ _ZN4llvm5APIntaSERKS0_.exit.i30:                  ; preds = %60, %58
   br label %_ZN4llvm13ConstantRangeaSERKS0_.exit.preheader
 
 _ZN4llvm13ConstantRangeaSERKS0_.exit.preheader:   ; preds = %72, %70, %52, %50
-  %.122.ph = phi i64 [ 0, %72 ], [ 0, %70 ], [ 1, %50 ], [ 1, %52 ]
-  %.1.ph = phi i64 [ 1, %72 ], [ 1, %70 ], [ 0, %50 ], [ 0, %52 ]
+  %.122.ph = phi i64 [ 0, %72 ], [ 0, %70 ], [ 1, %52 ], [ 1, %50 ]
+  %.1.ph = phi i64 [ 1, %72 ], [ 1, %70 ], [ 0, %52 ], [ 0, %50 ]
   br label %_ZN4llvm13ConstantRangeaSERKS0_.exit
 
 _ZN4llvm13ConstantRangeaSERKS0_.exit:             ; preds = %_ZN4llvm13ConstantRangeaSERKS0_.exit.preheader, %93

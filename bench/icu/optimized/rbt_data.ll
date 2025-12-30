@@ -360,7 +360,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %_ZN6icu_779Hashtabl
   ret void
 
 .body:                                            ; preds = %.loopexit49, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %51, %49, %38
-  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %39, %38 ], [ %52, %51 ], [ %lpad.loopexit, %.loopexit49 ], [ %lpad.loopexit50, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %52, %51 ], [ %50, %49 ], [ %lpad.loopexit, %.loopexit49 ], [ %lpad.loopexit50, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %100
 

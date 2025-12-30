@@ -531,7 +531,7 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_encode_init(ptr noundef %0) local
   br label %188
 
 188:                                              ; preds = %.thread, %83, %105, %146, %1, %8, %24, %44, %47, %50, %53, %56, %63, %69, %85, %114, %107, %129, %136, %180, %187
-  %.0113 = phi i32 [ -12, %180 ], [ 0, %187 ], [ %6, %1 ], [ %17, %8 ], [ -12, %107 ], [ %25, %24 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ], [ %54, %53 ], [ %57, %56 ], [ %64, %63 ], [ %70, %69 ], [ -5, %83 ], [ %86, %85 ], [ -5, %105 ], [ %115, %114 ], [ %144, %146 ], [ %.1.ph, %.thread ], [ -12, %129 ], [ -12, %136 ]
+  %.0113 = phi i32 [ 0, %187 ], [ -12, %180 ], [ %6, %1 ], [ %17, %8 ], [ %25, %24 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ], [ %54, %53 ], [ %57, %56 ], [ %64, %63 ], [ %70, %69 ], [ -5, %83 ], [ %86, %85 ], [ -5, %105 ], [ %115, %114 ], [ %144, %146 ], [ -12, %107 ], [ -12, %129 ], [ -12, %136 ], [ %.1.ph, %.thread ]
   ret i32 %.0113
 }
 
@@ -731,8 +731,8 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   br label %.loopexit
 
 91:                                               ; preds = %76, %66, %71, %53, %59, %._crit_edge195
-  %92 = phi ptr [ %54, %53 ], [ %54, %59 ], [ %54, %66 ], [ %54, %71 ], [ %54, %76 ], [ %.pre234, %._crit_edge195 ]
-  %.2144 = phi ptr [ %.0142197, %53 ], [ %.0142197, %59 ], [ %.0142197, %66 ], [ %.0142197, %71 ], [ %.0142197, %76 ], [ %81, %._crit_edge195 ]
+  %92 = phi ptr [ %54, %53 ], [ %54, %59 ], [ %54, %66 ], [ %54, %71 ], [ %.pre234, %._crit_edge195 ], [ %54, %76 ]
+  %.2144 = phi ptr [ %.0142197, %53 ], [ %.0142197, %59 ], [ %.0142197, %66 ], [ %.0142197, %71 ], [ %81, %._crit_edge195 ], [ %.0142197, %76 ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %93 = getelementptr inbounds nuw %struct.VAAPIEncodeProfile, ptr %92, i64 %indvars.iv.next219
   %94 = load i32, ptr %93, align 4, !tbaa !111
@@ -937,7 +937,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
   br label %191
 
 191:                                              ; preds = %174, %184, %98, %._crit_edge, %181, %169, %160, %.thread178, %117, %97, %42
-  %.0135 = phi i32 [ -542398533, %42 ], [ -542398533, %117 ], [ -38, %.thread178 ], [ -38, %160 ], [ -542398533, %169 ], [ -12, %98 ], [ -38, %181 ], [ -12, %._crit_edge ], [ -38, %97 ], [ 0, %184 ], [ 0, %174 ]
+  %.0135 = phi i32 [ -542398533, %42 ], [ -542398533, %117 ], [ -38, %.thread178 ], [ -38, %160 ], [ -542398533, %169 ], [ -38, %181 ], [ -38, %97 ], [ -12, %._crit_edge ], [ -12, %98 ], [ 0, %184 ], [ 0, %174 ]
   call void @av_freep(ptr noundef nonnull %2) #9
   call void @av_freep(ptr noundef nonnull %3) #9
   br label %192
@@ -1334,7 +1334,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_rate_cont
   br label %179
 
 179:                                              ; preds = %158, %168, %161, %172, %174
-  %.0244 = phi i32 [ %166, %168 ], [ %173, %172 ], [ %163, %161 ], [ %178, %174 ], [ 0, %158 ]
+  %.0244 = phi i32 [ %173, %172 ], [ %178, %174 ], [ %163, %161 ], [ %166, %168 ], [ 0, %158 ]
   %180 = getelementptr inbounds nuw i8, ptr %.0240, i64 36
   %181 = load i32, ptr %180, align 4, !tbaa !153
   %.not302 = icmp eq i32 %181, 0
@@ -1753,7 +1753,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vaapi_encode_init_gop_stru
   br label %61
 
 61:                                               ; preds = %.thread.thread, %50, %37, %13
-  %.0 = phi i32 [ -542398533, %13 ], [ %., %.thread.thread ], [ -542398533, %50 ], [ -542398533, %37 ]
+  %.0 = phi i32 [ -542398533, %13 ], [ -542398533, %37 ], [ -542398533, %50 ], [ %., %.thread.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1933,7 +1933,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_init_slice_str
   br label %93
 
 93:                                               ; preds = %76, %80, %10, %14, %92, %91, %67, %58, %46
-  %.0 = phi i32 [ -542398533, %58 ], [ -22, %67 ], [ 0, %10 ], [ -22, %91 ], [ 0, %92 ], [ -22, %76 ], [ 0, %46 ], [ 0, %14 ], [ %.058, %80 ]
+  %.0 = phi i32 [ -542398533, %58 ], [ -22, %67 ], [ -22, %91 ], [ 0, %92 ], [ -22, %76 ], [ 0, %46 ], [ 0, %14 ], [ 0, %10 ], [ %.058, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2324,7 +2324,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vaapi_encode_create_recon_
   br label %34
 
 34:                                               ; preds = %18, %14, %1, %9, %33
-  %.0 = phi i32 [ %12, %9 ], [ %31, %33 ], [ -12, %14 ], [ -12, %1 ], [ 0, %18 ]
+  %.0 = phi i32 [ %12, %9 ], [ %31, %33 ], [ -12, %1 ], [ -12, %14 ], [ 0, %18 ]
   call void @av_freep(ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3539,7 +3539,7 @@ vaapi_encode_make_misc_param_buffer.exit:         ; preds = %150
   br label %.loopexit446
 
 .loopexit446:                                     ; preds = %vaapi_encode_make_misc_param_buffer.exit, %302, %334, %323, %._crit_edge491, %372, %.thread432, %.thread424, %280, %._crit_edge476, %218, %200, %180, %169, %130, %109, %462, %445, %322, %312, %217, %199, %168
-  %.0322 = phi i32 [ %135, %130 ], [ %416, %._crit_edge491 ], [ %166, %168 ], [ %175, %169 ], [ %183, %180 ], [ %197, %199 ], [ %205, %200 ], [ %215, %217 ], [ %223, %218 ], [ %310, %312 ], [ %320, %322 ], [ %.1.ph, %.thread424 ], [ 0, %109 ], [ -12, %280 ], [ -5, %462 ], [ -5, %445 ], [ %328, %323 ], [ -12, %._crit_edge476 ], [ %.2.ph, %.thread432 ], [ -12, %372 ], [ -12, %302 ], [ %339, %334 ], [ %160, %vaapi_encode_make_misc_param_buffer.exit ]
+  %.0322 = phi i32 [ %135, %130 ], [ %166, %168 ], [ %175, %169 ], [ %183, %180 ], [ %197, %199 ], [ %205, %200 ], [ %215, %217 ], [ %223, %218 ], [ %310, %312 ], [ %320, %322 ], [ -5, %462 ], [ -5, %445 ], [ 0, %109 ], [ -12, %._crit_edge476 ], [ -12, %280 ], [ %.1.ph, %.thread424 ], [ %.2.ph, %.thread432 ], [ -12, %372 ], [ %416, %._crit_edge491 ], [ -12, %302 ], [ %339, %334 ], [ %328, %323 ], [ %160, %vaapi_encode_make_misc_param_buffer.exit ]
   %467 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %468 = load i32, ptr %467, align 8, !tbaa !220
   %469 = icmp sgt i32 %468, 0
@@ -3743,7 +3743,7 @@ vaapi_encode_get_coded_data.exit:                 ; preds = %42, %46, %51, %60, 
   br label %80
 
 80:                                               ; preds = %23, %vaapi_encode_get_coded_data.exit, %28, %69
-  %.0 = phi i32 [ %.0.i, %vaapi_encode_get_coded_data.exit ], [ %29, %28 ], [ %.1, %69 ], [ -558323010, %23 ]
+  %.0 = phi i32 [ %29, %28 ], [ %.1, %69 ], [ %.0.i, %vaapi_encode_get_coded_data.exit ], [ -558323010, %23 ]
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @av_refstruct_unref(ptr noundef nonnull %81) #9
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -4264,7 +4264,7 @@ define internal fastcc range(i32 -5, 1) i32 @vaapi_encode_wait(ptr noundef %0, p
   br label %37
 
 37:                                               ; preds = %9, %35, %33, %28
-  %.0 = phi i32 [ -5, %33 ], [ -5, %28 ], [ 0, %35 ], [ 0, %9 ]
+  %.0 = phi i32 [ -5, %28 ], [ 0, %35 ], [ -5, %33 ], [ 0, %9 ]
   ret i32 %.0
 }
 

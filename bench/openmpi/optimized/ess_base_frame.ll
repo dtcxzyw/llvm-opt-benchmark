@@ -584,7 +584,7 @@ pmix_obj_new_tma.exit95:                          ; preds = %.lr.ph.i.i92, %124,
   br i1 %.not72, label %.sink.split, label %sub_0, !llvm.loop !48
 
 .sink.split:                                      ; preds = %.loopexit, %44, %62, %116, %.critedge79
-  %.0.ph = phi i32 [ -43, %62 ], [ -43, %.critedge79 ], [ -43, %116 ], [ 0, %44 ], [ 0, %.loopexit ]
+  %.0.ph = phi i32 [ -43, %.critedge79 ], [ -43, %116 ], [ -43, %62 ], [ 0, %44 ], [ 0, %.loopexit ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %45) #16
   br label %148
 

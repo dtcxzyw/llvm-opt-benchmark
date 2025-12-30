@@ -324,7 +324,7 @@ define i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   br label %.thread
 
 .thread:                                          ; preds = %79, %83, %.lr.ph, %.lr.ph165, %51, %50, %19, %112, %._crit_edge, %69, %59, %34, %10, %114, %64, %53, %44, %32, %29, %28, %25, %23
-  %.0 = phi i32 [ 0, %59 ], [ 0, %112 ], [ %24, %23 ], [ %26, %25 ], [ -1, %28 ], [ %30, %29 ], [ -1, %32 ], [ %49, %44 ], [ 0, %19 ], [ 0, %34 ], [ 0, %10 ], [ %56, %53 ], [ 0, %51 ], [ %65, %64 ], [ 0, %50 ], [ 0, %69 ], [ 0, %.lr.ph165 ], [ %93, %114 ], [ %93, %._crit_edge ], [ -1, %83 ], [ -1, %79 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %24, %23 ], [ %26, %25 ], [ -1, %28 ], [ %30, %29 ], [ -1, %32 ], [ %49, %44 ], [ %56, %53 ], [ %65, %64 ], [ %93, %114 ], [ 0, %10 ], [ 0, %34 ], [ 0, %59 ], [ 0, %69 ], [ %93, %._crit_edge ], [ 0, %112 ], [ 0, %19 ], [ 0, %50 ], [ 0, %51 ], [ 0, %.lr.ph165 ], [ 0, %.lr.ph ], [ -1, %83 ], [ -1, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -609,7 +609,7 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph169, %.prehea
   br label %.loopexit150
 
 .loopexit150:                                     ; preds = %39, %.thread, %asn1_set_seq_out.exit, %135, %133, %62, %._crit_edge, %29, %53
-  %.1 = phi i32 [ %59, %62 ], [ 0, %29 ], [ -1, %53 ], [ %64, %.thread ], [ -1, %._crit_edge ], [ %.0114144148, %133 ], [ %.0114144148, %135 ], [ %.0114144148, %asn1_set_seq_out.exit ], [ -1, %39 ]
+  %.1 = phi i32 [ -1, %53 ], [ 0, %29 ], [ -1, %._crit_edge ], [ %59, %62 ], [ %.0114144148, %133 ], [ %.0114144148, %135 ], [ %.0114144148, %asn1_set_seq_out.exit ], [ %64, %.thread ], [ -1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %169
 
@@ -675,7 +675,7 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph169, %.prehea
   br label %169
 
 169:                                              ; preds = %160, %164, %150, %158, %154, %145, %16, %168, %149, %.loopexit150
-  %.0 = phi i32 [ %151, %150 ], [ %.1, %.loopexit150 ], [ -1, %149 ], [ -1, %16 ], [ 0, %145 ], [ -1, %168 ], [ %151, %154 ], [ %151, %158 ], [ 0, %164 ], [ %162, %160 ]
+  %.0 = phi i32 [ %.1, %.loopexit150 ], [ -1, %149 ], [ -1, %168 ], [ -1, %16 ], [ 0, %145 ], [ %151, %154 ], [ %151, %158 ], [ %151, %150 ], [ 0, %164 ], [ %162, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -741,7 +741,7 @@ define internal fastcc i32 @asn1_i2d_ex_primitive(ptr noundef %0, ptr noundef %1
   br label %29
 
 29:                                               ; preds = %26, %26, %26, %5, %27
-  %.030 = phi i32 [ 0, %5 ], [ %28, %27 ], [ %spec.select, %26 ], [ %spec.select, %26 ], [ %spec.select, %26 ]
+  %.030 = phi i32 [ %28, %27 ], [ 0, %5 ], [ %spec.select, %26 ], [ %spec.select, %26 ], [ %spec.select, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.030
 }
@@ -986,7 +986,7 @@ define internal fastcc i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread78
 
 .thread78:                                        ; preds = %36, %.thread75, %81, %84, %74, %75, %56, %54, %45, %37, %19, %62, %59, %12
-  %.0 = phi i32 [ %13, %12 ], [ %64, %62 ], [ -1, %56 ], [ -2, %74 ], [ -1, %19 ], [ -1, %37 ], [ -1, %45 ], [ -1, %54 ], [ %61, %59 ], [ -2, %75 ], [ %.054, %84 ], [ %.054, %81 ], [ -1, %.thread75 ], [ 0, %36 ]
+  %.0 = phi i32 [ %13, %12 ], [ %61, %59 ], [ %64, %62 ], [ -1, %19 ], [ -1, %37 ], [ -1, %45 ], [ -1, %54 ], [ -1, %56 ], [ -2, %75 ], [ -2, %74 ], [ %.054, %84 ], [ %.054, %81 ], [ -1, %.thread75 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

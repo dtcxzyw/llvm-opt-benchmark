@@ -874,7 +874,7 @@ if.then.i.i225:                                   ; preds = %lpad21
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %lpad21, %if.then.i.i225, %lpad19.loopexit.split-lp, %lpad19.loopexit
-  %.pn178 = phi { ptr, i32 } [ %lpad.loopexit.split-lp669, %lpad19.loopexit.split-lp ], [ %50, %if.then.i.i225 ], [ %lpad.loopexit668, %lpad19.loopexit ], [ %50, %lpad21 ]
+  %.pn178 = phi { ptr, i32 } [ %50, %if.then.i.i225 ], [ %lpad.loopexit668, %lpad19.loopexit ], [ %lpad.loopexit.split-lp669, %lpad19.loopexit.split-lp ], [ %50, %lpad21 ]
   %52 = load ptr, ptr %ref.tmp16, align 8, !tbaa !7
   %cmp.i.i.i231 = icmp eq ptr %52, %14
   br i1 %cmp.i.i.i231, label %ehcleanup25, label %if.then.i.i232
@@ -1814,7 +1814,7 @@ if.then.i.i542:                                   ; preds = %lpad57
   br label %ehcleanup61
 
 ehcleanup61:                                      ; preds = %lpad57, %if.then.i.i542, %lpad55.loopexit.split-lp, %lpad55.loopexit
-  %.pn162 = phi { ptr, i32 } [ %lpad.loopexit.split-lp648, %lpad55.loopexit.split-lp ], [ %lpad.phi652, %if.then.i.i542 ], [ %lpad.loopexit647, %lpad55.loopexit ], [ %lpad.phi652, %lpad57 ]
+  %.pn162 = phi { ptr, i32 } [ %lpad.phi652, %if.then.i.i542 ], [ %lpad.loopexit647, %lpad55.loopexit ], [ %lpad.loopexit.split-lp648, %lpad55.loopexit.split-lp ], [ %lpad.phi652, %lpad57 ]
   %173 = load ptr, ptr %ref.tmp49, align 8, !tbaa !7
   %cmp.i.i.i548 = icmp eq ptr %173, %5
   br i1 %cmp.i.i.i548, label %ehcleanup62, label %if.then.i.i549
@@ -1824,7 +1824,7 @@ if.then.i.i549:                                   ; preds = %ehcleanup61
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %ehcleanup61, %if.then.i.i549, %lpad53.loopexit.split-lp, %lpad53.loopexit
-  %.pn162.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp645, %lpad53.loopexit.split-lp ], [ %.pn162, %if.then.i.i549 ], [ %lpad.loopexit644, %lpad53.loopexit ], [ %.pn162, %ehcleanup61 ]
+  %.pn162.pn = phi { ptr, i32 } [ %.pn162, %if.then.i.i549 ], [ %lpad.loopexit644, %lpad53.loopexit ], [ %lpad.loopexit.split-lp645, %lpad53.loopexit.split-lp ], [ %.pn162, %ehcleanup61 ]
   %174 = load ptr, ptr %ref.tmp50, align 8, !tbaa !7
   %cmp.i.i.i555 = icmp eq ptr %174, %4
   br i1 %cmp.i.i.i555, label %ehcleanup63, label %if.then.i.i556
@@ -1887,7 +1887,7 @@ if.then.i.i563:                                   ; preds = %lpad77
   br label %ehcleanup83
 
 ehcleanup83:                                      ; preds = %lpad77, %if.then.i.i563, %lpad75.loopexit.split-lp, %lpad75.loopexit
-  %.pn166 = phi { ptr, i32 } [ %lpad.loopexit.split-lp660, %lpad75.loopexit.split-lp ], [ %lpad.phi664, %if.then.i.i563 ], [ %lpad.loopexit659, %lpad75.loopexit ], [ %lpad.phi664, %lpad77 ]
+  %.pn166 = phi { ptr, i32 } [ %lpad.phi664, %if.then.i.i563 ], [ %lpad.loopexit659, %lpad75.loopexit ], [ %lpad.loopexit.split-lp660, %lpad75.loopexit.split-lp ], [ %lpad.phi664, %lpad77 ]
   %177 = load ptr, ptr %ref.tmp69, align 8, !tbaa !7
   %cmp.i.i.i569 = icmp eq ptr %177, %9
   br i1 %cmp.i.i.i569, label %ehcleanup84, label %if.then.i.i570
@@ -1897,7 +1897,7 @@ if.then.i.i570:                                   ; preds = %ehcleanup83
   br label %ehcleanup84
 
 ehcleanup84:                                      ; preds = %ehcleanup83, %if.then.i.i570, %lpad73.loopexit.split-lp, %lpad73.loopexit
-  %.pn166.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp657, %lpad73.loopexit.split-lp ], [ %.pn166, %if.then.i.i570 ], [ %lpad.loopexit656, %lpad73.loopexit ], [ %.pn166, %ehcleanup83 ]
+  %.pn166.pn = phi { ptr, i32 } [ %.pn166, %if.then.i.i570 ], [ %lpad.loopexit656, %lpad73.loopexit ], [ %lpad.loopexit.split-lp657, %lpad73.loopexit.split-lp ], [ %.pn166, %ehcleanup83 ]
   %178 = load ptr, ptr %ref.tmp70, align 8, !tbaa !7
   %cmp.i.i.i576 = icmp eq ptr %178, %8
   br i1 %cmp.i.i.i576, label %ehcleanup85, label %if.then.i.i577

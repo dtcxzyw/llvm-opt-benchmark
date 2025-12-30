@@ -55,7 +55,7 @@ define noundef zeroext i1 @lv_demos_create(ptr noundef readonly captures(address
   br label %.thread
 
 .thread:                                          ; preds = %4, %.thread19, %12, %16
-  %.013 = phi i1 [ false, %12 ], [ true, %16 ], [ false, %.thread19 ], [ false, %4 ]
+  %.013 = phi i1 [ true, %16 ], [ false, %12 ], [ false, %.thread19 ], [ false, %4 ]
   ret i1 %.013
 }
 

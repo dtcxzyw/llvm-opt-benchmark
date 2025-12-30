@@ -182,7 +182,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2026,7 +2026,7 @@ _ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEE12a
   %163 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_119_getStringOrCopyKeyEPKcS1_S1_S1_S1_S1_PDsiR10UErrorCode(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef nonnull @_ZN12_GLOBAL__N_16_kKeysE, ptr noundef null, ptr noundef nonnull %152, ptr noundef nonnull %152, ptr noundef %.4239, i32 noundef %.0203, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %uloc_getDisplayKeyword_77.exit unwind label %154
 
-uloc_getDisplayKeyword_77.exit.thread:            ; preds = %156, %161
+uloc_getDisplayKeyword_77.exit.thread:            ; preds = %161, %156
   store i32 0, ptr %14, align 4, !tbaa !12
   br label %176
 
@@ -2058,8 +2058,8 @@ uloc_getDisplayKeyword_77.exit:                   ; preds = %162
   br label %176
 
 176:                                              ; preds = %uloc_getDisplayKeyword_77.exit.thread, %169, %173, %uloc_getDisplayKeyword_77.exit
-  %.8 = phi ptr [ %.4239, %uloc_getDisplayKeyword_77.exit ], [ %175, %173 ], [ %.4239, %169 ], [ %.4239, %uloc_getDisplayKeyword_77.exit.thread ]
-  %.3206 = phi i32 [ %.0203, %uloc_getDisplayKeyword_77.exit ], [ %171, %173 ], [ 0, %169 ], [ %.0203, %uloc_getDisplayKeyword_77.exit.thread ]
+  %.8 = phi ptr [ %175, %173 ], [ %.4239, %uloc_getDisplayKeyword_77.exit ], [ %.4239, %169 ], [ %.4239, %uloc_getDisplayKeyword_77.exit.thread ]
+  %.3206 = phi i32 [ %171, %173 ], [ %.0203, %uloc_getDisplayKeyword_77.exit ], [ 0, %169 ], [ %.0203, %uloc_getDisplayKeyword_77.exit.thread ]
   %177 = load i32, ptr %4, align 4, !tbaa !13
   %178 = icmp eq i32 %177, 15
   br i1 %178, label %179, label %180
@@ -2104,11 +2104,11 @@ uloc_getDisplayKeyword_77.exit:                   ; preds = %162
   br label %_ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit
 
 _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192, %153, %143, %141, %116, %138
-  %195 = phi i32 [ %144, %143 ], [ %142, %141 ], [ 0, %116 ], [ %.1.i.i, %138 ], [ %194, %192 ], [ 0, %153 ]
-  %.6241 = phi ptr [ %.4239, %143 ], [ %.4239, %141 ], [ %.4239, %116 ], [ %.4239, %138 ], [ %.9, %192 ], [ %.4239, %153 ]
-  %.2217 = phi i32 [ %.0215412, %143 ], [ %.0215412, %141 ], [ %.1198415, %116 ], [ %.1198415, %138 ], [ %.0215412, %192 ], [ %.0215412, %153 ]
-  %.1209 = phi i1 [ true, %143 ], [ true, %141 ], [ true, %116 ], [ true, %138 ], [ true, %192 ], [ false, %153 ]
-  %.1204 = phi i32 [ %.0203, %143 ], [ %.0203, %141 ], [ %.0203, %116 ], [ %.0203, %138 ], [ %.4207, %192 ], [ %.0203, %153 ]
+  %195 = phi i32 [ %.1.i.i, %138 ], [ 0, %116 ], [ %142, %141 ], [ %144, %143 ], [ %194, %192 ], [ 0, %153 ]
+  %.6241 = phi ptr [ %.4239, %138 ], [ %.4239, %116 ], [ %.4239, %141 ], [ %.4239, %143 ], [ %.9, %192 ], [ %.4239, %153 ]
+  %.2217 = phi i32 [ %.1198415, %138 ], [ %.1198415, %116 ], [ %.0215412, %141 ], [ %.0215412, %143 ], [ %.0215412, %192 ], [ %.0215412, %153 ]
+  %.1209 = phi i1 [ true, %138 ], [ true, %116 ], [ true, %141 ], [ true, %143 ], [ true, %192 ], [ false, %153 ]
+  %.1204 = phi i32 [ %.0203, %138 ], [ %.0203, %116 ], [ %.0203, %141 ], [ %.0203, %143 ], [ %.4207, %192 ], [ %.0203, %153 ]
   %196 = icmp sgt i32 %195, 0
   br i1 %196, label %197, label %214
 
@@ -2190,21 +2190,21 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
   br label %222
 
 .body:                                            ; preds = %139, %133, %154, %188
-  %.pn321.pn = phi { ptr, i32 } [ %155, %154 ], [ %189, %188 ], [ %140, %139 ], [ %134, %133 ]
+  %.pn321.pn = phi { ptr, i32 } [ %189, %188 ], [ %155, %154 ], [ %140, %139 ], [ %134, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %264
 
 222:                                              ; preds = %113, %104, %107, %221
-  %.3288 = phi i8 [ 0, %104 ], [ %.1286403, %221 ], [ %110, %107 ], [ %.1286403, %113 ]
-  %.2283 = phi i8 [ %.1282404, %104 ], [ %.3284, %221 ], [ %.1282404, %107 ], [ 0, %113 ]
-  %.5240 = phi ptr [ %.4239, %104 ], [ %.13, %221 ], [ %.4239, %107 ], [ %.4239, %113 ]
-  %.2226 = phi i32 [ %.0224409, %104 ], [ %.0224409, %221 ], [ %106, %107 ], [ %.0224409, %113 ]
-  %.2223 = phi i32 [ %.0221410, %104 ], [ %.0221410, %221 ], [ %.1198415, %107 ], [ %.0221410, %113 ]
-  %.1219 = phi i32 [ %.0218411, %104 ], [ %.2220, %221 ], [ %.0218411, %107 ], [ %.0218411, %113 ]
-  %.1216 = phi i32 [ %.0215412, %104 ], [ %.2217, %221 ], [ %.0215412, %107 ], [ %.0215412, %113 ]
-  %.1212 = phi i32 [ %.0211414, %104 ], [ %115, %221 ], [ %.0211414, %107 ], [ %.0211414, %113 ]
-  %.0208 = phi i1 [ false, %104 ], [ %.1209, %221 ], [ false, %107 ], [ false, %113 ]
-  %.3 = phi i32 [ %.1198415, %104 ], [ %.4, %221 ], [ %108, %107 ], [ %.1198415, %113 ]
+  %.3288 = phi i8 [ %.1286403, %221 ], [ %110, %107 ], [ 0, %104 ], [ %.1286403, %113 ]
+  %.2283 = phi i8 [ %.3284, %221 ], [ %.1282404, %107 ], [ %.1282404, %104 ], [ 0, %113 ]
+  %.5240 = phi ptr [ %.13, %221 ], [ %.4239, %107 ], [ %.4239, %104 ], [ %.4239, %113 ]
+  %.2226 = phi i32 [ %.0224409, %221 ], [ %106, %107 ], [ %.0224409, %104 ], [ %.0224409, %113 ]
+  %.2223 = phi i32 [ %.0221410, %221 ], [ %.1198415, %107 ], [ %.0221410, %104 ], [ %.0221410, %113 ]
+  %.1219 = phi i32 [ %.2220, %221 ], [ %.0218411, %107 ], [ %.0218411, %104 ], [ %.0218411, %113 ]
+  %.1216 = phi i32 [ %.2217, %221 ], [ %.0215412, %107 ], [ %.0215412, %104 ], [ %.0215412, %113 ]
+  %.1212 = phi i32 [ %115, %221 ], [ %.0211414, %107 ], [ %.0211414, %104 ], [ %.0211414, %113 ]
+  %.0208 = phi i1 [ %.1209, %221 ], [ false, %107 ], [ false, %104 ], [ false, %113 ]
+  %.3 = phi i32 [ %.4, %221 ], [ %108, %107 ], [ %.1198415, %104 ], [ %.1198415, %113 ]
   %223 = load i32, ptr %4, align 4, !tbaa !13
   %224 = icmp eq i32 %223, 15
   br i1 %224, label %225, label %226
@@ -2286,11 +2286,11 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %237, %253, %246, %230, %250, %255, %248
-  %.3280 = phi i8 [ %.1278405, %248 ], [ 1, %253 ], [ %.1278405, %255 ], [ %.1278405, %246 ], [ %.1278405, %250 ], [ %.1278405, %230 ], [ %.1278405, %237 ], [ %.1278405, %.loopexit.loopexit ]
-  %.6249 = phi i32 [ %.4247406, %248 ], [ 0, %253 ], [ %.4247406, %255 ], [ 0, %246 ], [ %.4247406, %250 ], [ %.4247406, %230 ], [ %.4247406, %237 ], [ %.4247406, %.loopexit.loopexit ]
-  %.17 = phi ptr [ %.5240, %248 ], [ %.5240, %253 ], [ %.5240, %255 ], [ %.5240, %246 ], [ %.5240, %250 ], [ %.5240, %230 ], [ %239, %237 ], [ %244, %.loopexit.loopexit ]
-  %.7234 = phi i32 [ %.3230408, %248 ], [ %.3230408, %253 ], [ %.3230408, %255 ], [ %.3230408, %246 ], [ %.3230408, %250 ], [ %234, %230 ], [ %231, %237 ], [ %260, %.loopexit.loopexit ]
-  %.7 = phi i32 [ %.3, %248 ], [ %251, %253 ], [ %251, %255 ], [ 0, %246 ], [ %251, %250 ], [ %236, %230 ], [ %236, %237 ], [ %236, %.loopexit.loopexit ]
+  %.3280 = phi i8 [ %.1278405, %255 ], [ %.1278405, %250 ], [ %.1278405, %248 ], [ %.1278405, %230 ], [ %.1278405, %246 ], [ 1, %253 ], [ %.1278405, %237 ], [ %.1278405, %.loopexit.loopexit ]
+  %.6249 = phi i32 [ %.4247406, %255 ], [ %.4247406, %250 ], [ %.4247406, %248 ], [ %.4247406, %230 ], [ 0, %246 ], [ 0, %253 ], [ %.4247406, %237 ], [ %.4247406, %.loopexit.loopexit ]
+  %.17 = phi ptr [ %.5240, %255 ], [ %.5240, %250 ], [ %.5240, %248 ], [ %.5240, %230 ], [ %.5240, %246 ], [ %.5240, %253 ], [ %239, %237 ], [ %244, %.loopexit.loopexit ]
+  %.7234 = phi i32 [ %.3230408, %255 ], [ %.3230408, %250 ], [ %.3230408, %248 ], [ %234, %230 ], [ %.3230408, %246 ], [ %.3230408, %253 ], [ %231, %237 ], [ %260, %.loopexit.loopexit ]
+  %.7 = phi i32 [ %251, %255 ], [ %251, %250 ], [ %.3, %248 ], [ %236, %230 ], [ 0, %246 ], [ %251, %253 ], [ %236, %237 ], [ %236, %.loopexit.loopexit ]
   %261 = add nuw nsw i32 %.0213413, 1
   br label %262
 
@@ -2315,7 +2315,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
   br label %267
 
 267:                                              ; preds = %83, %53, %5, %16, %265, %24
-  %.0195 = phi i32 [ 0, %53 ], [ 0, %24 ], [ %266, %265 ], [ 0, %83 ], [ 0, %16 ], [ 0, %5 ]
+  %.0195 = phi i32 [ 0, %24 ], [ %266, %265 ], [ 0, %83 ], [ 0, %53 ], [ 0, %16 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0195
@@ -2414,7 +2414,7 @@ define noundef i32 @uloc_getDisplayKeyword_77(ptr noundef %0, ptr noundef %1, pt
   br label %18
 
 18:                                               ; preds = %5, %7, %16, %15
-  %.0 = phi i32 [ %17, %16 ], [ 0, %15 ], [ 0, %7 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %15 ], [ %17, %16 ], [ 0, %7 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2683,7 +2683,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 99:                                               ; preds = %6, %14, %97, %22
-  %.046 = phi i32 [ %.248, %97 ], [ 0, %22 ], [ 0, %14 ], [ 0, %6 ]
+  %.046 = phi i32 [ 0, %22 ], [ %.248, %97 ], [ 0, %14 ], [ 0, %6 ]
   ret i32 %.046
 }
 

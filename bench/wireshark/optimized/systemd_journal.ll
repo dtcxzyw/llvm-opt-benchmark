@@ -56,9 +56,9 @@ define hidden range(i32 -1, 2) i32 @systemd_journal_open(ptr noundef %0, ptr nou
   br label %21
 
 21:                                               ; preds = %18, %15, %12
-  %.128 = phi i1 [ %.02731, %18 ], [ true, %12 ], [ %.02731, %15 ]
-  %.126 = phi i1 [ %.02532, %18 ], [ %.02532, %12 ], [ true, %15 ]
-  %.1 = phi i1 [ %spec.select, %18 ], [ %.02433, %12 ], [ %.02433, %15 ]
+  %.128 = phi i1 [ true, %12 ], [ %.02731, %15 ], [ %.02731, %18 ]
+  %.126 = phi i1 [ %.02532, %12 ], [ true, %15 ], [ %.02532, %18 ]
+  %.1 = phi i1 [ %.02433, %12 ], [ %.02433, %15 ], [ %spec.select, %18 ]
   %22 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %22, 100
   br i1 %exitcond.not, label %23, label %6, !llvm.loop !6
@@ -94,7 +94,7 @@ define hidden range(i32 -1, 2) i32 @systemd_journal_open(ptr noundef %0, ptr nou
   br label %35
 
 35:                                               ; preds = %27, %23, %28
-  %.029 = phi i32 [ -1, %23 ], [ 1, %28 ], [ 0, %27 ]
+  %.029 = phi i32 [ 1, %28 ], [ -1, %23 ], [ 0, %27 ]
   ret i32 %.029
 }
 
@@ -149,7 +149,7 @@ define internal noundef zeroext i1 @systemd_journal_seek_read(ptr noundef readon
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -295,10 +295,10 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   br label %66
 
 66:                                               ; preds = %63, %38, %28, %33, %22, %41
-  %.277 = phi i8 [ %.075114, %63 ], [ 1, %22 ], [ %.075114, %28 ], [ %.075114, %41 ], [ %.075114, %33 ], [ %.075114, %38 ]
-  %.374 = phi i8 [ %.071115, %63 ], [ %.071115, %22 ], [ %.071115, %28 ], [ %.071115, %41 ], [ 1, %33 ], [ %.071115, %38 ]
-  %.270 = phi i8 [ %.068116, %63 ], [ %.068116, %22 ], [ %.068116, %28 ], [ %.068116, %41 ], [ %.068116, %33 ], [ 1, %38 ]
-  %.365 = phi i64 [ %65, %63 ], [ %19, %22 ], [ %19, %28 ], [ %19, %41 ], [ %19, %33 ], [ %19, %38 ]
+  %.277 = phi i8 [ %.075114, %41 ], [ %.075114, %63 ], [ 1, %22 ], [ %.075114, %33 ], [ %.075114, %28 ], [ %.075114, %38 ]
+  %.374 = phi i8 [ %.071115, %41 ], [ %.071115, %63 ], [ %.071115, %22 ], [ 1, %33 ], [ %.071115, %28 ], [ %.071115, %38 ]
+  %.270 = phi i8 [ %.068116, %41 ], [ %.068116, %63 ], [ %.068116, %22 ], [ %.068116, %33 ], [ %.068116, %28 ], [ 1, %38 ]
+  %.365 = phi i64 [ %19, %41 ], [ %65, %63 ], [ %19, %22 ], [ %19, %33 ], [ %19, %28 ], [ %19, %38 ]
   %67 = add i64 %.365, -262143
   %68 = icmp ult i64 %67, -262145
   %69 = add nuw nsw i32 %.066117, 1
@@ -307,10 +307,10 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   br i1 %or.cond152, label %70, label %12, !llvm.loop !8
 
 70:                                               ; preds = %66, %12
-  %.176 = phi i8 [ %.075114, %12 ], [ %.277, %66 ]
-  %.172 = phi i8 [ %.071115, %12 ], [ %.374, %66 ]
-  %.169 = phi i8 [ %.068116, %12 ], [ %.270, %66 ]
-  %.163 = phi i64 [ %.062118, %12 ], [ %.365, %66 ]
+  %.176 = phi i8 [ %.277, %66 ], [ %.075114, %12 ]
+  %.172 = phi i8 [ %.374, %66 ], [ %.071115, %12 ]
+  %.169 = phi i8 [ %.270, %66 ], [ %.068116, %12 ]
+  %.163 = phi i64 [ %.365, %66 ], [ %.062118, %12 ]
   %71 = trunc nuw i8 %.176 to i1
   %72 = trunc nuw i8 %.172 to i1
   %or.cond = select i1 %71, i1 %72, i1 false
@@ -349,7 +349,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   br label %84
 
 84:                                               ; preds = %.thread, %77, %70, %.critedge, %.thread95, %44
-  %.1 = phi i1 [ true, %.thread95 ], [ false, %70 ], [ false, %.critedge ], [ false, %44 ], [ false, %77 ], [ false, %.thread ]
+  %.1 = phi i1 [ true, %.thread95 ], [ false, %44 ], [ false, %.critedge ], [ false, %70 ], [ false, %77 ], [ false, %.thread ]
   ret i1 %.1
 }
 

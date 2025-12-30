@@ -1636,7 +1636,7 @@ ehcleanup137:                                     ; preds = %ehcleanup135, %lpad
   br label %ehcleanup140
 
 ehcleanup140:                                     ; preds = %lpad49, %lpad55, %ehcleanup137, %ehcleanup45, %lpad29, %ehcleanup28
-  %.merged29 = phi { ptr, i32 } [ %.pn167.pn.pn.pn, %ehcleanup137 ], [ %.pn154.pn.pn, %ehcleanup28 ], [ %.pn158.pn, %ehcleanup45 ], [ %35, %lpad29 ], [ %46, %lpad55 ], [ %45, %lpad49 ]
+  %.merged29 = phi { ptr, i32 } [ %.pn167.pn.pn.pn, %ehcleanup137 ], [ %.pn158.pn, %ehcleanup45 ], [ %35, %lpad29 ], [ %.pn154.pn.pn, %ehcleanup28 ], [ %46, %lpad55 ], [ %45, %lpad49 ]
   %113 = load ptr, ptr %helper_lua, align 8, !tbaa !11
   %114 = getelementptr inbounds nuw i8, ptr %helper_lua, i64 16
   %cmp.i.i.i368 = icmp eq ptr %113, %114

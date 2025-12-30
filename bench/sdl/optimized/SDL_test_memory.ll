@@ -102,7 +102,7 @@ define dso_local void @SDLTest_TrackAllocations() local_unnamed_addr #0 {
   br i1 %28, label %.sink.split, label %29
 
 .sink.split:                                      ; preds = %20, %23, %26, %11, %14, %17
-  %.sink = phi i1 [ false, %11 ], [ false, %17 ], [ false, %14 ], [ true, %26 ], [ true, %23 ], [ true, %20 ]
+  %.sink = phi i1 [ false, %17 ], [ false, %14 ], [ false, %11 ], [ true, %26 ], [ true, %23 ], [ true, %20 ]
   store i1 %.sink, ptr @s_unwind_symbol_names, align 1
   br label %29
 
@@ -231,7 +231,7 @@ SDL_GetTrackedAllocation.exit.thread.i:           ; preds = %17, %._crit_edge.i.
   br label %SDL_GetTrackedAllocationSize.exit
 
 SDL_GetTrackedAllocationSize.exit:                ; preds = %20, %SDL_GetTrackedAllocation.exit.thread.i
-  %.0 = phi i64 [ -1, %SDL_GetTrackedAllocation.exit.thread.i ], [ %23, %20 ]
+  %.0 = phi i64 [ %23, %20 ], [ -1, %SDL_GetTrackedAllocation.exit.thread.i ]
   %24 = load ptr, ptr @SDL_realloc_orig, align 8
   %25 = call ptr %24(ptr noundef nonnull %0, i64 noundef %1) #4
   call fastcc void @SDL_UntrackAllocation(ptr noundef %0)

@@ -341,7 +341,7 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %65, %81, %20, %84, %68, %48, %23
-  %86 = phi i32 [ %24, %23 ], [ %49, %48 ], [ %69, %68 ], [ %85, %84 ], [ -1, %65 ], [ -1, %20 ], [ -1, %81 ], [ -1, %45 ]
+  %86 = phi i32 [ %24, %23 ], [ %49, %48 ], [ %69, %68 ], [ %85, %84 ], [ -1, %20 ], [ -1, %81 ], [ -1, %65 ], [ -1, %45 ]
   ret i32 %86
 }
 
@@ -2332,8 +2332,8 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br label %.thread119
 
 .thread120:                                       ; preds = %.preheader153, %998, %976
-  %1007 = phi i1 [ true, %976 ], [ false, %998 ], [ true, %.preheader153 ]
-  %1008 = phi ptr [ null, %976 ], [ %977, %998 ], [ null, %.preheader153 ]
+  %1007 = phi i1 [ false, %998 ], [ true, %976 ], [ true, %.preheader153 ]
+  %1008 = phi ptr [ %977, %998 ], [ null, %976 ], [ null, %.preheader153 ]
   %1009 = load ptr, ptr %6, align 8
   %1010 = icmp eq ptr %1009, %6
   br i1 %1010, label %.thread119, label %1011
@@ -2513,7 +2513,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br label %.thread119
 
 .thread119:                                       ; preds = %1040, %956, %1097, %1054, %.thread120, %1005, %985, %.thread117
-  %1098 = phi ptr [ null, %1097 ], [ null, %1054 ], [ %180, %956 ], [ %180, %.thread120 ], [ %180, %1005 ], [ %180, %985 ], [ %180, %.thread117 ], [ %180, %1040 ]
+  %1098 = phi ptr [ null, %1097 ], [ null, %1054 ], [ %180, %.thread120 ], [ %180, %1005 ], [ %180, %985 ], [ %180, %.thread117 ], [ %180, %956 ], [ %180, %1040 ]
   %1099 = load i16, ptr %28, align 8
   %1100 = add i16 %1099, -3
   %1101 = icmp ult i16 %1100, 5
@@ -2875,7 +2875,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br label %.thread130
 
 .thread130:                                       ; preds = %1298, %.thread130.fold.split, %.preheader
-  %1299 = phi i32 [ 0, %1298 ], [ %1292, %.preheader ], [ 1, %.thread130.fold.split ]
+  %1299 = phi i32 [ %1292, %.preheader ], [ 0, %1298 ], [ 1, %.thread130.fold.split ]
   %1300 = getelementptr i8, ptr %1287, i64 -46
   %1301 = load i16, ptr %1300, align 2
   %1302 = and i16 %1301, 1
@@ -3024,7 +3024,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br label %.thread136
 
 .thread136:                                       ; preds = %1370, %1383
-  %1385 = phi i16 [ %.pre222, %1383 ], [ %1368, %1370 ]
+  %1385 = phi i16 [ %1368, %1370 ], [ %.pre222, %1383 ]
   %1386 = icmp ult i16 %1385, 204
   br i1 %1386, label %.critedge, label %1387
 
@@ -3241,7 +3241,7 @@ default.unreachable316:                           ; preds = %1475
   unreachable
 
 1486:                                             ; preds = %1475, %1476, %1477, %1478, %1479, %1480, %1481, %1482, %1483, %1484, %1485
-  %1487 = phi i32 [ 540000, %1483 ], [ 162000, %1485 ], [ 270000, %1480 ], [ 540000, %1479 ], [ 810000, %1478 ], [ 1000000, %1477 ], [ 1350000, %1476 ], [ 270000, %1484 ], [ 162000, %1481 ], [ 810000, %1482 ], [ 2000000, %1475 ]
+  %1487 = phi i32 [ 270000, %1480 ], [ 540000, %1479 ], [ 810000, %1478 ], [ 1000000, %1477 ], [ 1350000, %1476 ], [ 162000, %1481 ], [ 270000, %1484 ], [ 540000, %1483 ], [ 162000, %1485 ], [ 810000, %1482 ], [ 2000000, %1475 ]
   br i1 %1320, label %1491, label %1488
 
 1488:                                             ; preds = %1486
@@ -5090,7 +5090,7 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
   br i1 %.not72, label %.critedge, label %.preheader111, !llvm.loop !63
 
 1061:                                             ; preds = %1052, %1053, %1058
-  %1062 = phi i64 [ %1057, %1053 ], [ 4294967295, %1058 ], [ 0, %1052 ]
+  %1062 = phi i64 [ 4294967295, %1058 ], [ 0, %1052 ], [ %1057, %1053 ]
   %1063 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store i16 0, ptr %1063, align 8
   br label %1064
@@ -5366,10 +5366,10 @@ default.unreachable279:                           ; preds = %1148, %1016, %802
   br label %1210
 
 1210:                                             ; preds = %1209, %.thread285, %1204, %.thread287
-  %1211 = phi i32 [ 3, %.thread287 ], [ 3, %1209 ], [ 5, %.thread285 ], [ 5, %1204 ]
-  %1212 = phi i1 [ false, %.thread287 ], [ false, %1209 ], [ true, %.thread285 ], [ true, %1204 ]
-  %1213 = phi i32 [ %1201, %.thread287 ], [ %1207, %1209 ], [ %1203, %.thread285 ], [ %1207, %1204 ]
-  %1214 = phi i64 [ 1, %.thread287 ], [ 1, %1209 ], [ 5, %.thread285 ], [ 5, %1204 ]
+  %1211 = phi i32 [ 3, %.thread287 ], [ 5, %.thread285 ], [ 5, %1204 ], [ 3, %1209 ]
+  %1212 = phi i1 [ false, %.thread287 ], [ true, %.thread285 ], [ true, %1204 ], [ false, %1209 ]
+  %1213 = phi i32 [ %1201, %.thread287 ], [ %1203, %.thread285 ], [ %1207, %1204 ], [ %1207, %1209 ]
+  %1214 = phi i64 [ 1, %.thread287 ], [ 5, %.thread285 ], [ 5, %1204 ], [ 1, %1209 ]
   %1215 = getelementptr i8, ptr %1172, i64 %1214
   %1216 = icmp eq i32 %1213, 0
   br i1 %1216, label %.loopexit, label %.preheader109
@@ -5863,7 +5863,7 @@ define dso_local noundef zeroext i1 @intel_bios_is_tv_present(ptr noundef %0) lo
   br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !70
 
 .loopexit:                                        ; preds = %13, %.thread, %6, %1
-  %18 = phi i1 [ false, %1 ], [ true, %6 ], [ false, %.thread ], [ true, %13 ]
+  %18 = phi i1 [ false, %1 ], [ true, %6 ], [ true, %13 ], [ false, %.thread ]
   ret i1 %18
 }
 
@@ -5916,7 +5916,7 @@ define dso_local noundef zeroext i1 @intel_bios_is_lvds_present(ptr noundef %0, 
   br i1 %26, label %.thread, label %8, !llvm.loop !71
 
 .thread:                                          ; preds = %23, %19, %.thread3, %2
-  %27 = phi i1 [ true, %2 ], [ true, %19 ], [ false, %.thread3 ], [ true, %23 ]
+  %27 = phi i1 [ true, %2 ], [ true, %19 ], [ true, %23 ], [ false, %.thread3 ]
   ret i1 %27
 }
 
@@ -6249,7 +6249,7 @@ define dso_local noundef zeroext i1 @intel_bios_get_dsc_params(ptr noundef reado
   br label %89
 
 89:                                               ; preds = %85, %88, %82, %67
-  %.sink = phi i8 [ 2, %82 ], [ 4, %67 ], [ 1, %88 ], [ 1, %85 ]
+  %.sink = phi i8 [ 4, %67 ], [ 2, %82 ], [ 1, %88 ], [ 1, %85 ]
   store i8 %.sink, ptr %18, align 4
   %90 = load i16, ptr %19, align 8
   %.rhs.trunc = zext nneg i8 %.sink to i16
@@ -6296,7 +6296,7 @@ define dso_local noundef zeroext i1 @intel_bios_get_dsc_params(ptr noundef reado
   br i1 %119, label %.thread, label %24, !llvm.loop !77
 
 .thread:                                          ; preds = %117, %42, %97, %3
-  %120 = phi i1 [ false, %3 ], [ true, %97 ], [ false, %42 ], [ false, %117 ]
+  %120 = phi i1 [ false, %3 ], [ false, %42 ], [ true, %97 ], [ false, %117 ]
   ret i1 %120
 }
 
@@ -6586,8 +6586,8 @@ define dso_local range(i32 0, 256) i32 @intel_bios_hdmi_ddc_pin(ptr noundef read
   br i1 %43, label %.thread, label %64
 
 .thread:                                          ; preds = %36, %42, %40, %30, %27, %21, %15
-  %44 = phi ptr [ @adlp_ddc_pin_map, %21 ], [ @adlp_ddc_pin_map, %15 ], [ @adls_ddc_pin_map, %27 ], [ %spec.select, %36 ], [ @icp_ddc_pin_map, %40 ], [ @cnp_ddc_pin_map, %42 ], [ @rkl_pch_tgp_ddc_pin_map, %30 ]
-  %45 = phi i64 [ 13, %21 ], [ 13, %15 ], [ 13, %27 ], [ %spec.select5, %36 ], [ 15, %40 ], [ 5, %42 ], [ 11, %30 ]
+  %44 = phi ptr [ @adlp_ddc_pin_map, %21 ], [ @adlp_ddc_pin_map, %15 ], [ @adls_ddc_pin_map, %27 ], [ @icp_ddc_pin_map, %40 ], [ @cnp_ddc_pin_map, %42 ], [ @rkl_pch_tgp_ddc_pin_map, %30 ], [ %spec.select, %36 ]
+  %45 = phi i64 [ 13, %21 ], [ 13, %15 ], [ 13, %27 ], [ 15, %40 ], [ 5, %42 ], [ 11, %30 ], [ %spec.select5, %36 ]
   br label %46
 
 46:                                               ; preds = %53, %.thread
@@ -7042,7 +7042,7 @@ define internal i32 @pnpid_get_panel_type(ptr noundef readonly captures(address)
   br label %72
 
 .thread:                                          ; preds = %50, %.preheader10, %75, %72, %68, %58, %4
-  %91 = phi i32 [ -1, %4 ], [ -1, %58 ], [ -1, %68 ], [ %.ph, %72 ], [ -1, %.preheader10 ], [ %84, %75 ], [ -1, %50 ]
+  %91 = phi i32 [ -1, %4 ], [ -1, %58 ], [ -1, %68 ], [ %84, %75 ], [ %.ph, %72 ], [ -1, %.preheader10 ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %91
 }

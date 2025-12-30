@@ -90,7 +90,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i40:          ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit43
 
 _ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit43: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i9, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit35.thread.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24
-  %.sroa.18.6 = phi i32 [ 452, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 43620, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ %18, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 0, %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit35.thread.thread ], [ 42561, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 42574, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 332, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i9 ], [ 332, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i6 ], [ 34404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 34404, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i ]
+  %.sroa.18.6 = phi i32 [ 42561, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 42574, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 0, %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit35.thread.thread ], [ 452, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 43620, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ %18, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 332, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i6 ], [ 332, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i9 ], [ 34404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 34404, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = icmp eq ptr %6, %19
   br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -143,8 +143,8 @@ define dso_local { ptr, i64 } @_ZN4llvm12machineToStrENS_4COFF12MachineTypesE(i3
   unreachable
 
 8:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.sroa.7.0 = phi i64 [ 3, %6 ], [ 5, %2 ], [ 7, %3 ], [ 6, %4 ], [ 3, %5 ], [ 3, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.2, %6 ], [ @.str.5, %2 ], [ @.str.6, %3 ], [ @.str.7, %4 ], [ @.str, %5 ], [ @.str.4, %1 ]
+  %.sroa.7.0 = phi i64 [ 5, %2 ], [ 7, %3 ], [ 6, %4 ], [ 3, %5 ], [ 3, %6 ], [ 3, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.5, %2 ], [ @.str.6, %3 ], [ @.str.7, %4 ], [ @.str, %5 ], [ @.str.2, %6 ], [ @.str.4, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %.fca.1.insert

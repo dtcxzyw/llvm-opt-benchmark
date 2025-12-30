@@ -248,7 +248,7 @@ define dso_local void @ExecInitGenerated(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.lr.ph.split.us.split._crit_edge
 
 .lr.ph.split.us.split._crit_edge:                 ; preds = %.lr.ph.split.us.split, %74, %76
-  %.4.us = phi i32 [ %79, %76 ], [ %.05266.us, %74 ], [ %.05266.us, %.lr.ph.split.us.split ]
+  %.4.us = phi i32 [ %.05266.us, %74 ], [ %79, %76 ], [ %.05266.us, %.lr.ph.split.us.split ]
   %exitcond98.not = icmp eq i64 %.pre104, %wide.trip.count102
   br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !6
 
@@ -305,12 +305,12 @@ define dso_local void @ExecInitGenerated(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.lr.ph.split.split.us._crit_edge
 
 .lr.ph.split.split.us._crit_edge:                 ; preds = %.lr.ph.split.split.us, %100, %91
-  %.4.us72 = phi i32 [ %.05266.us68, %91 ], [ %.3.us71, %100 ], [ %.05266.us68, %.lr.ph.split.split.us ]
+  %.4.us72 = phi i32 [ %.3.us71, %100 ], [ %.05266.us68, %91 ], [ %.05266.us68, %.lr.ph.split.split.us ]
   %exitcond93.not = icmp eq i64 %.pre105, %wide.trip.count102
   br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split._crit_edge, %.lr.ph.split.split.us._crit_edge, %.lr.ph.split.us.split._crit_edge, %.lr.ph.split.us.split.us._crit_edge
-  %.052.lcssa = phi i32 [ %.4.us.us, %.lr.ph.split.us.split.us._crit_edge ], [ %.4.us72, %.lr.ph.split.split.us._crit_edge ], [ %.4.us, %.lr.ph.split.us.split._crit_edge ], [ %.4, %.lr.ph.split.split._crit_edge ]
+  %.052.lcssa = phi i32 [ %.4.us.us, %.lr.ph.split.us.split.us._crit_edge ], [ %.4.us, %.lr.ph.split.us.split._crit_edge ], [ %.4.us72, %.lr.ph.split.split.us._crit_edge ], [ %.4, %.lr.ph.split.split._crit_edge ]
   %105 = icmp eq i32 %.052.lcssa, 0
   br i1 %105, label %._crit_edge.thread, label %130
 
@@ -335,7 +335,7 @@ define dso_local void @ExecInitGenerated(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %116, label %.split.us, label %122
 
 .split.us:                                        ; preds = %113, %87, %70, %48
-  %.us-phi = phi i32 [ %88, %87 ], [ %71, %70 ], [ %49, %48 ], [ %114, %113 ]
+  %.us-phi = phi i32 [ %49, %48 ], [ %71, %70 ], [ %88, %87 ], [ %114, %113 ]
   %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %119 = load ptr, ptr %118, align 8
@@ -363,7 +363,7 @@ define dso_local void @ExecInitGenerated(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.lr.ph.split.split._crit_edge
 
 .lr.ph.split.split._crit_edge:                    ; preds = %.lr.ph.split.split, %126, %122
-  %.4 = phi i32 [ %.05266, %122 ], [ %129, %126 ], [ %.05266, %.lr.ph.split.split ]
+  %.4 = phi i32 [ %129, %126 ], [ %.05266, %122 ], [ %.05266, %.lr.ph.split.split ]
   %exitcond.not = icmp eq i64 %.pre106, %wide.trip.count102
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !6
 
@@ -787,7 +787,7 @@ define dso_local ptr @ExecLookupResultRelByOid(ptr noundef captures(none) %0, i3
   br label %.thread43
 
 .thread43:                                        ; preds = %.lr.ph.split.us, %.thread43.loopexit, %.thread, %35, %._crit_edge
-  %.1 = phi ptr [ null, %._crit_edge ], [ null, %35 ], [ %34, %.thread ], [ %37, %.thread43.loopexit ], [ %15, %.lr.ph.split.us ]
+  %.1 = phi ptr [ null, %35 ], [ null, %._crit_edge ], [ %34, %.thread ], [ %37, %.thread43.loopexit ], [ %15, %.lr.ph.split.us ]
   ret ptr %.1
 }
 
@@ -1636,8 +1636,8 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %126, %122, %106, %1
   br label %451
 
 451:                                              ; preds = %447, %444, %433
-  %.075.in.i = phi ptr [ %385, %444 ], [ %385, %447 ], [ %408, %433 ]
-  %.pn.in.i = phi ptr [ %383, %444 ], [ %383, %447 ], [ %394, %433 ]
+  %.075.in.i = phi ptr [ %385, %447 ], [ %385, %444 ], [ %408, %433 ]
+  %.pn.in.i = phi ptr [ %383, %447 ], [ %383, %444 ], [ %394, %433 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 64
   %.0.i = load ptr, ptr %.0.in.i, align 8
@@ -2108,7 +2108,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %136, %slot_getsomea
   br label %.thread
 
 .thread:                                          ; preds = %134, %160, %167
-  %.1132 = phi ptr [ %168, %167 ], [ %.0131.ph, %160 ], [ %.0131.ph, %134 ]
+  %.1132 = phi ptr [ %.0131.ph, %160 ], [ %168, %167 ], [ %.0131.ph, %134 ]
   %169 = getelementptr inbounds nuw i8, ptr %.1132, i64 176
   %170 = load i8, ptr %169, align 8, !range !4, !noundef !5
   %171 = trunc nuw i8 %170 to i1
@@ -2599,8 +2599,8 @@ ExecQual.exit.i.i:                                ; preds = %429
   br label %441
 
 441:                                              ; preds = %ExecQual.exit.i.i, %ExecQual.exit.thread.i.i
-  %442 = phi ptr [ %440, %ExecQual.exit.i.i ], [ %433, %ExecQual.exit.thread.i.i ]
-  %443 = phi ptr [ %spec.select.i.i, %ExecQual.exit.i.i ], [ %383, %ExecQual.exit.thread.i.i ]
+  %442 = phi ptr [ %433, %ExecQual.exit.thread.i.i ], [ %440, %ExecQual.exit.i.i ]
+  %443 = phi ptr [ %383, %ExecQual.exit.thread.i.i ], [ %spec.select.i.i, %ExecQual.exit.i.i ]
   %.0156.i.i = load ptr, ptr %443, align 8
   %.not176314.i.i = icmp eq ptr %.0156.i.i, null
   br i1 %.not176314.i.i, label %.critedge.thread.i.i, label %.lr.ph.lr.ph.i.i
@@ -3216,8 +3216,8 @@ table_tuple_fetch_row_version.exit196.i.i:        ; preds = %676
   br label %753
 
 753:                                              ; preds = %751, %.thread4.i.i.i, %.thread.i.i.i
-  %.sink.i.i.i = phi ptr [ %752, %751 ], [ null, %.thread.i.i.i ], [ %741, %.thread4.i.i.i ]
-  %.not382.i.i.i = phi i8 [ 24, %751 ], [ 24, %.thread.i.i.i ], [ 16, %.thread4.i.i.i ]
+  %.sink.i.i.i = phi ptr [ %752, %751 ], [ %741, %.thread4.i.i.i ], [ null, %.thread.i.i.i ]
+  %.not382.i.i.i = phi i8 [ 24, %751 ], [ 16, %.thread4.i.i.i ], [ 24, %.thread.i.i.i ]
   %754 = getelementptr inbounds nuw i8, ptr %744, i64 112
   store ptr %.sink.i.i.i, ptr %754, align 8
   %755 = getelementptr inbounds nuw i8, ptr %734, i64 12
@@ -3285,7 +3285,7 @@ ExecProcessReturning.exit.i.i:                    ; preds = %758, %753
   br i1 %791, label %.lr.ph313.i.i, label %.critedge.thread.i.i
 
 .critedge.thread225.i.i:                          ; preds = %652, %648, %629, %550, %541, %523, %514, %ExecProcessReturning.exit.i.i, %736, %735, %.loopexit234.i.i, %610, %529
-  %.3.i = phi i8 [ %.115.i, %529 ], [ %.115.i, %.loopexit234.i.i ], [ %.115.i, %736 ], [ %.115.i, %ExecProcessReturning.exit.i.i ], [ %.115.i, %735 ], [ 0, %610 ], [ %.115.i, %541 ], [ %.115.i, %648 ], [ %.115.i, %652 ], [ %.115.i, %523 ], [ %.115.i, %514 ], [ %.115.i, %550 ], [ 0, %629 ]
+  %.3.i = phi i8 [ %.115.i, %529 ], [ %.115.i, %.loopexit234.i.i ], [ %.115.i, %736 ], [ %.115.i, %ExecProcessReturning.exit.i.i ], [ %.115.i, %735 ], [ 0, %610 ], [ %.115.i, %648 ], [ %.115.i, %652 ], [ %.115.i, %523 ], [ %.115.i, %514 ], [ %.115.i, %550 ], [ %.115.i, %541 ], [ 0, %629 ]
   %.3165.ph.ph.i.i = phi ptr [ %532, %529 ], [ null, %.loopexit234.i.i ], [ %739, %736 ], [ %766, %ExecProcessReturning.exit.i.i ], [ null, %735 ], [ null, %610 ], [ null, %514 ], [ null, %523 ], [ null, %541 ], [ null, %550 ], [ null, %629 ], [ null, %648 ], [ null, %652 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3300,7 +3300,7 @@ ExecProcessReturning.exit.i.i:                    ; preds = %758, %753
   br i1 %.not176.i.i, label %.critedge.thread.i.i, label %.lr.ph.split.i.i
 
 .critedge.thread.i.i:                             ; preds = %.critedge.i.i, %.lr.ph.split.i.i, %788, %.critedge.thread225.i.i, %441
-  %.2.i = phi i8 [ 1, %441 ], [ %.3.i, %.critedge.thread225.i.i ], [ %.115.i, %788 ], [ %.115.i, %.lr.ph.split.i.i ], [ %.4.i, %.critedge.i.i ]
+  %.2.i = phi i8 [ 1, %441 ], [ %.3.i, %.critedge.thread225.i.i ], [ %.115.i, %788 ], [ %.4.i, %.critedge.i.i ], [ %.115.i, %.lr.ph.split.i.i ]
   %.2164223.i.i = phi ptr [ null, %441 ], [ %.3165.ph.ph.i.i, %.critedge.thread225.i.i ], [ null, %788 ], [ null, %.lr.ph.split.i.i ], [ null, %.critedge.i.i ]
   %.val191.i.i = load i16, ptr %101, align 2
   %.not233.i.i = icmp eq i16 %.val191.i.i, 0
@@ -3516,7 +3516,7 @@ fireASTriggers.exit:                              ; preds = %862, %866, %870, %8
   br label %.thread196
 
 .thread196:                                       ; preds = %228, %198, %ExecMerge.exit, %150, %118, %ExecMerge.exit.thread, %27, %fireASTriggers.exit, %173
-  %.0 = phi ptr [ %174, %173 ], [ null, %27 ], [ null, %fireASTriggers.exit ], [ %.2164223.i.i, %ExecMerge.exit.thread ], [ %156, %150 ], [ %123, %118 ], [ %.0135, %ExecMerge.exit ], [ %234, %228 ], [ %204, %198 ]
+  %.0 = phi ptr [ null, %fireASTriggers.exit ], [ %174, %173 ], [ null, %27 ], [ %.2164223.i.i, %ExecMerge.exit.thread ], [ %123, %118 ], [ %156, %150 ], [ %.0135, %ExecMerge.exit ], [ %234, %228 ], [ %204, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3798,7 +3798,7 @@ ExecQual.exit:                                    ; preds = %.lr.ph16
   unreachable
 
 .critedge:                                        ; preds = %18, %2, %.lr.ph, %.loopexit, %37
-  %.1 = phi ptr [ null, %.loopexit ], [ %66, %37 ], [ null, %2 ], [ null, %.lr.ph ], [ null, %18 ]
+  %.1 = phi ptr [ null, %.loopexit ], [ %66, %37 ], [ null, %.lr.ph ], [ null, %2 ], [ null, %18 ]
   ret ptr %.1
 }
 
@@ -3864,8 +3864,8 @@ define internal fastcc noundef ptr @ExecProcessReturning(ptr %.16.val, ptr nound
   br label %29
 
 29:                                               ; preds = %23, %21, %.thread4, %27
-  %.sink = phi ptr [ %28, %27 ], [ %2, %21 ], [ %2, %.thread4 ], [ null, %23 ]
-  %.not382 = phi i8 [ 8, %27 ], [ 0, %21 ], [ 0, %.thread4 ], [ 8, %23 ]
+  %.sink = phi ptr [ %28, %27 ], [ %2, %.thread4 ], [ %2, %21 ], [ null, %23 ]
+  %.not382 = phi i8 [ 8, %27 ], [ 0, %.thread4 ], [ 0, %21 ], [ 8, %23 ]
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store ptr %.sink, ptr %30, align 8
   %.not40 = icmp eq ptr %3, null
@@ -4444,7 +4444,7 @@ ExecPendingInserts.exit:                          ; preds = %77, %.thread.loopex
   br label %265
 
 265:                                              ; preds = %252, %255, %264
-  %.0220 = phi i32 [ 1, %264 ], [ %263, %255 ], [ %254, %252 ]
+  %.0220 = phi i32 [ %263, %255 ], [ 1, %264 ], [ %254, %252 ]
   %266 = getelementptr inbounds nuw i8, ptr %.0217, i64 208
   %267 = load ptr, ptr %266, align 8
   %.not257 = icmp eq ptr %267, null
@@ -4949,7 +4949,7 @@ ExecCheckTIDVisible.exit:                         ; preds = %473, %ExecCheckTupl
   br label %.thread297
 
 .thread297:                                       ; preds = %.thread297.sink.split, %ExecCheckTIDVisible.exit, %465
-  %.3.ph = phi ptr [ %.0280.ph, %465 ], [ null, %ExecCheckTIDVisible.exit ], [ %.3.ph.ph, %.thread297.sink.split ]
+  %.3.ph = phi ptr [ null, %ExecCheckTIDVisible.exit ], [ %.0280.ph, %465 ], [ %.3.ph.ph, %.thread297.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -5094,7 +5094,7 @@ ExecCheckTIDVisible.exit:                         ; preds = %473, %ExecCheckTupl
   br label %619
 
 619:                                              ; preds = %.thread297, %617, %618, %228, %121, %115, %225
-  %.0 = phi ptr [ null, %228 ], [ null, %115 ], [ null, %225 ], [ null, %121 ], [ %.3.ph, %.thread297 ], [ %.0226, %618 ], [ %.0226, %617 ]
+  %.0 = phi ptr [ null, %225 ], [ null, %115 ], [ null, %121 ], [ null, %228 ], [ %.0226, %618 ], [ %.0226, %617 ], [ %.3.ph, %.thread297 ]
   ret ptr %.0
 }
 
@@ -5509,8 +5509,8 @@ table_tuple_fetch_row_version.exit:               ; preds = %123
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2659, ptr noundef nonnull @__func__.ExecUpdate) #8
   unreachable
 
-.thread109:                                       ; preds = %94, %105, %110, %._crit_edge, %78, %182, %139
-  %.2.ph = phi ptr [ %75, %._crit_edge ], [ null, %182 ], [ null, %78 ], [ null, %139 ], [ null, %110 ], [ null, %105 ], [ null, %94 ]
+.thread109:                                       ; preds = %110, %105, %94, %._crit_edge, %78, %182, %139
+  %.2.ph = phi ptr [ null, %182 ], [ null, %78 ], [ %75, %._crit_edge ], [ null, %139 ], [ null, %94 ], [ null, %105 ], [ null, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %206
 
@@ -5547,7 +5547,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %123
   br label %206
 
 206:                                              ; preds = %.thread109, %198, %ExecUpdatePrepareSlot.exit, %29, %20, %202
-  %.0 = phi ptr [ %205, %202 ], [ null, %ExecUpdatePrepareSlot.exit ], [ null, %20 ], [ null, %29 ], [ %.2.ph, %.thread109 ], [ null, %198 ]
+  %.0 = phi ptr [ %205, %202 ], [ null, %20 ], [ null, %29 ], [ null, %ExecUpdatePrepareSlot.exit ], [ null, %198 ], [ %.2.ph, %.thread109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -5832,8 +5832,8 @@ ExecDeleteEpilogue.exit._crit_edge:               ; preds = %ExecDeleteEpilogue.
   br label %156
 
 156:                                              ; preds = %ExecDeleteEpilogue.exit._crit_edge, %151
-  %.not136 = phi i1 [ true, %151 ], [ %149, %ExecDeleteEpilogue.exit._crit_edge ]
-  %157 = phi i1 [ %155, %151 ], [ false, %ExecDeleteEpilogue.exit._crit_edge ]
+  %.not136 = phi i1 [ %149, %ExecDeleteEpilogue.exit._crit_edge ], [ true, %151 ]
+  %157 = phi i1 [ false, %ExecDeleteEpilogue.exit._crit_edge ], [ %155, %151 ]
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %or.cond = select i1 %4, i1 true, i1 %157
   %or.cond140 = select i1 %.not136, i1 %or.cond, i1 false
@@ -5927,8 +5927,8 @@ ExecDeleteEpilogue.exit._crit_edge:               ; preds = %ExecDeleteEpilogue.
   br label %202
 
 202:                                              ; preds = %200, %.thread.i, %.thread4.i
-  %.sink.i = phi ptr [ %201, %200 ], [ null, %.thread.i ], [ %.1114, %.thread4.i ]
-  %.not382.i = phi i8 [ 24, %200 ], [ 24, %.thread.i ], [ 16, %.thread4.i ]
+  %.sink.i = phi ptr [ %201, %200 ], [ %.1114, %.thread4.i ], [ null, %.thread.i ]
+  %.not382.i = phi i8 [ 24, %200 ], [ 16, %.thread4.i ], [ 24, %.thread.i ]
   %203 = getelementptr inbounds nuw i8, ptr %193, i64 112
   store ptr %.sink.i, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %191, i64 12
@@ -5989,8 +5989,8 @@ ExecProcessReturning.exit:                        ; preds = %202, %207
   call void %240(ptr noundef %.1114) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %98, %103, %87, %150, %109, %108, %156, %186, %ExecProcessReturning.exit, %121, %71, %37, %17, %26
-  %.0 = phi ptr [ null, %121 ], [ %215, %ExecProcessReturning.exit ], [ null, %26 ], [ null, %17 ], [ null, %37 ], [ null, %156 ], [ null, %71 ], [ null, %186 ], [ null, %109 ], [ null, %108 ], [ null, %150 ], [ null, %87 ], [ null, %103 ], [ null, %98 ]
+.critedge:                                        ; preds = %103, %98, %87, %150, %108, %109, %156, %186, %ExecProcessReturning.exit, %121, %71, %37, %17, %26
+  %.0 = phi ptr [ null, %26 ], [ null, %17 ], [ null, %37 ], [ null, %71 ], [ null, %121 ], [ null, %186 ], [ %215, %ExecProcessReturning.exit ], [ null, %156 ], [ null, %109 ], [ null, %108 ], [ null, %150 ], [ null, %87 ], [ null, %98 ], [ null, %103 ]
   ret ptr %.0
 }
 
@@ -6402,7 +6402,7 @@ ExecCrossPartitionUpdate.exit.thread58:           ; preds = %table_tuple_fetch_r
   store ptr null, ptr %162, align 8
   br label %ExecCrossPartitionUpdate.exit.thread
 
-ExecCrossPartitionUpdate.exit.thread:             ; preds = %91, %94, %161, %156
+ExecCrossPartitionUpdate.exit.thread:             ; preds = %94, %91, %161, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
@@ -6552,8 +6552,8 @@ ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge41.i, %173
   %241 = load i32, ptr %11, align 4
   br label %.thread62
 
-.thread62:                                        ; preds = %.loopexit, %240, %ExecCrossPartitionUpdateForeignKey.exit, %169, %166
-  %.1.ph = phi i32 [ 0, %166 ], [ 0, %169 ], [ 0, %ExecCrossPartitionUpdateForeignKey.exit ], [ %241, %240 ], [ 0, %.loopexit ]
+.thread62:                                        ; preds = %240, %ExecCrossPartitionUpdateForeignKey.exit, %169, %166, %.loopexit
+  %.1.ph = phi i32 [ 0, %.loopexit ], [ 0, %166 ], [ 0, %169 ], [ 0, %ExecCrossPartitionUpdateForeignKey.exit ], [ %241, %240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %264
@@ -6593,7 +6593,7 @@ ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge41.i, %173
   br label %264
 
 264:                                              ; preds = %.thread62, %249
-  %.2 = phi i32 [ %.1.ph, %.thread62 ], [ %263, %249 ]
+  %.2 = phi i32 [ %263, %249 ], [ %.1.ph, %.thread62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.2
 }

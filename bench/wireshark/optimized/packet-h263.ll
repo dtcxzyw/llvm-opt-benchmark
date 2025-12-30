@@ -350,7 +350,7 @@ define hidden noundef range(i32 0, 536870912) i32 @dissect_h263_picture_layer(pt
   br i1 %129, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread, %85, %97
-  %.0150.in = phi i32 [ %94, %85 ], [ %100, %97 ], [ %.6152, %.thread ], [ %.6, %.lr.ph ]
+  %.0150.in = phi i32 [ %100, %97 ], [ %94, %85 ], [ %.6152, %.thread ], [ %.6, %.lr.ph ]
   %.0150 = lshr i32 %.0150.in, 3
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

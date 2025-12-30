@@ -7191,7 +7191,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread56
 
 .thread:                                          ; preds = %2, %17, %45, %18, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %.sink.split.i ], [ true, %17 ], [ true, %2 ], [ true, %18 ]
+  %.sroa.011.0 = phi i1 [ false, %45 ], [ true, %17 ], [ true, %2 ], [ true, %18 ], [ true, %.sink.split.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -7468,7 +7468,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 "_ZN4core3ptr384drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..for_each..ForEachConsumer$LT$polars_core..utils..flatten..flatten_par_impl$LT$$u5b$u32$u3b$$u20$2$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd247fdc8799995ecE.exit": ; preds = %64, %84, %99, %.thread53
-  %.pn4764 = phi { ptr, i32 } [ %.pn48, %99 ], [ %.pn48, %.thread53 ], [ %65, %64 ], [ %85, %84 ]
+  %.pn4764 = phi { ptr, i32 } [ %.pn48, %.thread53 ], [ %.pn48, %99 ], [ %65, %64 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn4764
 
 99:                                               ; preds = %.thread53
@@ -10041,7 +10041,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %.noexc55 unwind label %112
 
 .noexc55:                                         ; preds = %105, %109, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17hde696f9c72ceca45E.exit57", %118
-  %.pn.pn80 = phi { ptr, i32 } [ %eh.lpad-body, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17hde696f9c72ceca45E.exit57" ], [ %.pn.pn81, %118 ], [ %106, %105 ], [ %106, %109 ]
+  %.pn.pn80 = phi { ptr, i32 } [ %.pn.pn81, %118 ], [ %eh.lpad-body, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17hde696f9c72ceca45E.exit57" ], [ %106, %105 ], [ %106, %109 ]
   resume { ptr, i32 } %.pn.pn80
 }
 
@@ -11180,7 +11180,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.012.1.lpad-body, label %119, label %"_ZN4core3ptr1181drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$GT$$C$rayon..iter..fold..FoldConsumer$LT$rayon..iter..reduce..ReduceConsumer$LT$rayon..iter..ParallelIterator..reduce_with..opt_reduce$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$C$$RF$polars_pipe..pipeline..dispatcher..PipeLine..run_pipeline_no_finalize..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$GT$$u20$as$u20$core..default..Default$GT$..default$GT$$C$$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$GT$$u20$as$u20$core..default..Default$GT$..default$C$rayon..iter..ParallelIterator..reduce_with..opt_fold$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$C$$RF$polars_pipe..pipeline..dispa"
 
 .thread:                                          ; preds = %3, %19, %50, %20, %.sink.split.i
-  %.sroa.013.0 = phi i1 [ false, %50 ], [ true, %.sink.split.i ], [ true, %19 ], [ true, %3 ], [ true, %20 ]
+  %.sroa.013.0 = phi i1 [ false, %50 ], [ true, %19 ], [ true, %3 ], [ true, %20 ], [ true, %.sink.split.i ]
   %18 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -11519,7 +11519,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %118 unwind label %115
 
 "_ZN4core3ptr1181drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$GT$$C$rayon..iter..fold..FoldConsumer$LT$rayon..iter..reduce..ReduceConsumer$LT$rayon..iter..ParallelIterator..reduce_with..opt_reduce$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$C$$RF$polars_pipe..pipeline..dispatcher..PipeLine..run_pipeline_no_finalize..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$GT$$u20$as$u20$core..default..Default$GT$..default$GT$$C$$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$GT$$u20$as$u20$core..default..Default$GT$..default$C$rayon..iter..ParallelIterator..reduce_with..opt_fold$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$C$$RF$polars_pipe..pipeline..dispa": ; preds = %.body, %17, %120, %118
-  %.pn.pn6084 = phi { ptr, i32 } [ %.pn.pn61, %120 ], [ %.pn.pn61, %118 ], [ %eh.lpad-body40, %17 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn6084 = phi { ptr, i32 } [ %.pn.pn61, %118 ], [ %.pn.pn61, %120 ], [ %eh.lpad-body40, %17 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn6084
 
 120:                                              ; preds = %118
@@ -14729,7 +14729,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   unreachable
 
 .thread51:                                        ; preds = %79, %.thread54
-  %.pn46 = phi { ptr, i32 } [ %80, %79 ], [ %.pn47, %.thread54 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn47, %.thread54 ], [ %80, %79 ]
   resume { ptr, i32 } %.pn46
 }
 
@@ -21524,7 +21524,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %13
   unreachable
 
 .body.thread.i:                                   ; preds = %25, %22, %17
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ], [ %18, %17 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %22 ], [ %18, %17 ], [ %26, %25 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 25:                                               ; preds = %2
@@ -22695,7 +22695,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h4c81e694e2d0
   unreachable
 
 common.resume.i:                                  ; preds = %35, %32, %27, %11
-  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %lpad.thr_comm.i.i, %32 ], [ %36, %35 ], [ %28, %27 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %36, %35 ], [ %lpad.thr_comm.i.i, %32 ], [ %28, %27 ]
   resume { ptr, i32 } %common.resume.op.i
 
 16:                                               ; preds = %7
@@ -23870,7 +23870,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %13
   unreachable
 
 .body.thread.i:                                   ; preds = %24, %21, %17
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %25, %24 ], [ %lpad.thr_comm.i.i, %21 ], [ %18, %17 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %21 ], [ %18, %17 ], [ %25, %24 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 24:                                               ; preds = %2
@@ -24350,7 +24350,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %13
   unreachable
 
 .body.thread.i:                                   ; preds = %27, %24, %19
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %28, %27 ], [ %lpad.thr_comm.i.i, %24 ], [ %20, %19 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %24 ], [ %20, %19 ], [ %28, %27 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 27:                                               ; preds = %2
@@ -26279,7 +26279,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %13
   unreachable
 
 .body.thread.i:                                   ; preds = %25, %22, %17
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ], [ %18, %17 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %22 ], [ %18, %17 ], [ %26, %25 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 25:                                               ; preds = %2
@@ -26695,7 +26695,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hf2e8af4e8477
   unreachable
 
 common.resume.i:                                  ; preds = %32, %29, %24, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %lpad.thr_comm.i.i, %29 ], [ %33, %32 ], [ %25, %24 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %33, %32 ], [ %lpad.thr_comm.i.i, %29 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op.i
 
 15:                                               ; preds = %6
@@ -27349,7 +27349,7 @@ define internal fastcc void @"_ZN4core3ptr150drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %43, %51, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %44, %51 ], [ %44, %43 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %44, %51 ], [ %44, %43 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %42, %35, %27, %17, %9, %1
@@ -27546,7 +27546,7 @@ define internal fastcc void @"_ZN4core3ptr194drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %34, %39, %22, %30
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %30 ], [ %35, %39 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %30 ], [ %23, %22 ], [ %35, %39 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %43, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17hde696f9c72ceca45E.exit.i", %21, %13, %1
@@ -27645,7 +27645,7 @@ define internal fastcc void @"_ZN4core3ptr230drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %17, %9, %"_ZN4core3ptr196drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$polars_core..frame..DataFrame$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_core..frame..DataFrame$GT$$RP$$GT$17h23d428f227502811E.exit", %1
@@ -27731,7 +27731,7 @@ define internal fastcc void @"_ZN4core3ptr256drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i, %69, %77, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %70, %69 ], [ %70, %77 ], [ %44, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %70, %77 ], [ %70, %69 ], [ %44, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %68, %61, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$GT$$GT$17hde41fde3222c1917E.exit.i", %17, %9, %1
@@ -27935,7 +27935,7 @@ define internal fastcc void @"_ZN4core3ptr266drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %17, %9, %"_ZN4core3ptr232drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$alloc..vec..Vec$LT$$u5b$u32$u3b$$u20$2$u5d$$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$alloc..vec..Vec$LT$$u5b$u32$u3b$$u20$2$u5d$$GT$$GT$$RP$$GT$17h56026d3f10422efaE.exit", %1
@@ -28021,7 +28021,7 @@ define internal fastcc void @"_ZN4core3ptr272drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %17, %9, %"_ZN4core3ptr238drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_core..frame..DataFrame$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_core..frame..DataFrame$GT$$GT$$RP$$GT$17h91b0dc151d0a7fa5E.exit", %1
@@ -28135,7 +28135,7 @@ define internal fastcc void @"_ZN4core3ptr308drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %17, %9, %"_ZN4core3ptr274drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$$u5b$u32$u3b$$u20$2$u5d$$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$$u5b$u32$u3b$$u20$2$u5d$$GT$$GT$$GT$$RP$$GT$17h001ab74e26ecafaeE.exit", %1
@@ -28221,7 +28221,7 @@ define internal fastcc void @"_ZN4core3ptr328drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %17, %9, %"_ZN4core3ptr294drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$alloc..vec..Vec$LT$$LP$u32$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$RP$$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$alloc..vec..Vec$LT$$LP$u32$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$RP$$GT$$GT$$RP$$GT$17h80fa371466dafb62E.exit", %1
@@ -28307,7 +28307,7 @@ define internal fastcc void @"_ZN4core3ptr370drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17haaf3155c70237ca3E.exit": ; preds = %17, %9, %"_ZN4core3ptr336drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$$LP$u32$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$RP$$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$$LP$u32$C$polars_utils..idx_vec..UnitVec$LT$u32$GT$$RP$$GT$$GT$$GT$$RP$$GT$17h285a84802eb8a0cbE.exit", %1
@@ -37130,7 +37130,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br label %.body.i
 
 .body.i:                                          ; preds = %26, %22, %19, %15
-  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ], [ %16, %15 ], [ %20, %19 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %16, %15 ], [ %20, %19 ], [ %23, %22 ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %28)
           to label %33 unwind label %30, !noalias !3627
@@ -53540,7 +53540,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %26, %22, %19, %15
-  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ], [ %16, %15 ], [ %20, %19 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %16, %15 ], [ %20, %19 ], [ %23, %22 ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %28)
           to label %33 unwind label %30, !noalias !5789

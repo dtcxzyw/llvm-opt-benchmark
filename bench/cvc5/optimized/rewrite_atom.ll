@@ -383,14 +383,14 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33: ; preds = %_ZNK4cvc58internal1
   br label %136
 
 .thread:                                          ; preds = %32, %29, %27, %24, %21, %18, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit29, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit, %75, %42, %112
-  %.sroa.0.1.shrunk = phi i1 [ %100, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit29 ], [ false, %112 ], [ false, %75 ], [ false, %42 ], [ %63, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ %133, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %.not.i.i.i, %27 ], [ %31, %29 ], [ %34, %32 ]
-  %.sroa.5.1 = phi i16 [ 256, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit29 ], [ 0, %112 ], [ 0, %75 ], [ 0, %42 ], [ 256, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ 256, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33 ], [ 256, %18 ], [ 256, %21 ], [ 256, %24 ], [ 256, %27 ], [ 256, %29 ], [ 256, %32 ]
+  %.sroa.0.1.shrunk = phi i1 [ false, %75 ], [ false, %42 ], [ false, %112 ], [ %63, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ %133, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33 ], [ %100, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit29 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %.not.i.i.i, %27 ], [ %31, %29 ], [ %34, %32 ]
+  %.sroa.5.1 = phi i16 [ 0, %75 ], [ 0, %42 ], [ 0, %112 ], [ 256, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ 256, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33 ], [ 256, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit29 ], [ 256, %18 ], [ 256, %21 ], [ 256, %24 ], [ 256, %27 ], [ 256, %29 ], [ 256, %32 ]
   %.sroa.0.1 = zext i1 %.sroa.0.1.shrunk to i16
   %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.5.1, %.sroa.0.1
   ret i16 %.sroa.0.0.insert.insert
 
 136:                                              ; preds = %105, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit30, %134, %68, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit25
-  %.pn21.pn = phi { ptr, i32 } [ %69, %68 ], [ %71, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit25 ], [ %108, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit30 ], [ %135, %134 ], [ %106, %105 ]
+  %.pn21.pn = phi { ptr, i32 } [ %71, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit25 ], [ %69, %68 ], [ %108, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit30 ], [ %135, %134 ], [ %106, %105 ]
   resume { ptr, i32 } %.pn21.pn
 }
 
@@ -606,7 +606,7 @@ define hidden range(i16 0, 258) i16 @_ZN4cvc58internal6theory5arith8rewriter28tr
   br label %10
 
 10:                                               ; preds = %7, %7, %7, %9, %8
-  %.sroa.7.0 = phi i16 [ 0, %9 ], [ 256, %7 ], [ 257, %8 ], [ 256, %7 ], [ 256, %7 ]
+  %.sroa.7.0 = phi i16 [ 0, %9 ], [ 257, %8 ], [ 256, %7 ], [ 256, %7 ], [ 256, %7 ]
   ret i16 %.sroa.7.0
 }
 
@@ -2490,7 +2490,7 @@ _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit95: ; preds = %226, %224
   unreachable
 
 .body:                                            ; preds = %231, %200, %180
-  %.pn43.pn.pn = phi { ptr, i32 } [ %181, %180 ], [ %201, %200 ], [ %.pn43.pn, %231 ]
+  %.pn43.pn.pn = phi { ptr, i32 } [ %201, %200 ], [ %181, %180 ], [ %.pn43.pn, %231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %242
 
@@ -2523,7 +2523,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit99:             ; preds = %_ZN4cvc58internal7I
   br label %249
 
 242:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body, %_ZN4cvc58internal8RationalD2Ev.exit85, %_ZN4cvc58internal8RationalD2Ev.exit66
-  %.pn54.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn54.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit85 ], [ %.pn36.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit66 ], [ %.pn43.pn.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn54.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn54.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit85 ], [ %.pn43.pn.pn, %.body ], [ %.pn36.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit100 unwind label %243
 
@@ -4045,7 +4045,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %_ZN4cvc58internal8R
   unreachable
 
 .body45:                                          ; preds = %85, %83, %72
-  %.pn22 = phi { ptr, i32 } [ %73, %72 ], [ %84, %83 ], [ %86, %85 ]
+  %.pn22 = phi { ptr, i32 } [ %84, %83 ], [ %73, %72 ], [ %86, %85 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %.body unwind label %90
 
@@ -4181,7 +4181,7 @@ _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit:  ; preds = %_ZN4cvc58internal8R
   br label %138
 
 138:                                              ; preds = %131, %137, %.body, %_ZN4cvc58internal8RationalD2Ev.exit43
-  %.pn27.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %.pn25, %_ZN4cvc58internal8RationalD2Ev.exit43 ], [ %.pn22.pn, %.body ], [ %.pn27, %137 ]
+  %.pn27.pn.pn = phi { ptr, i32 } [ %.pn25, %_ZN4cvc58internal8RationalD2Ev.exit43 ], [ %.pn22.pn, %.body ], [ %.pn27, %137 ], [ %132, %131 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN4cvc58internal8RationalD2Ev.exit58 unwind label %139
 
@@ -4516,7 +4516,7 @@ _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12Nod
   unreachable
 
 common.resume:                                    ; preds = %111, %_ZN4cvc58internal7IntegerD2Ev.exit25.i, %49, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit35.i, %198
-  %common.resume.op = phi { ptr, i32 } [ %.pn12.pn.pn, %198 ], [ %.pn18.pn.i, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit35.i ], [ %50, %49 ], [ %.pn21.i, %_ZN4cvc58internal7IntegerD2Ev.exit25.i ], [ %112, %111 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn12.pn.pn, %198 ], [ %50, %49 ], [ %.pn21.i, %_ZN4cvc58internal7IntegerD2Ev.exit25.i ], [ %.pn18.pn.i, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit35.i ], [ %112, %111 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal19RealAlgebraicNumberC2ERKS1_.exit.i: ; preds = %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
@@ -5393,7 +5393,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit24.sink.split: ; preds = %80, %.n
   br label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit24
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit24: ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit24.sink.split, %86, %88, %76, %78
-  %95 = phi ptr [ %59, %86 ], [ %70, %78 ], [ %59, %88 ], [ %70, %76 ], [ %.sink53, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit24.sink.split ]
+  %95 = phi ptr [ %59, %86 ], [ %59, %88 ], [ %70, %76 ], [ %70, %78 ], [ %.sink53, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit24.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %96, align 8, !tbaa !84
@@ -5811,7 +5811,7 @@ _ZN4cvc58internal8RationalD2Ev.exit39:            ; preds = %_ZN4cvc58internal8R
   unreachable
 
 .body:                                            ; preds = %250, %231, %116
-  %.pn17.pn.pn = phi { ptr, i32 } [ %117, %116 ], [ %232, %231 ], [ %.pn17.pn, %250 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %232, %231 ], [ %117, %116 ], [ %.pn17.pn, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %254
 

@@ -2865,8 +2865,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit133: ; preds = %524, %521,
   ret void
 
 .body:                                            ; preds = %469, %482, %525, %370, %383, %425, %266, %279, %322, %165, %178, %220, %57, %70, %113
-  %.sink154 = phi ptr [ %9, %370 ], [ %8, %266 ], [ %7, %165 ], [ %6, %57 ], [ %6, %113 ], [ %6, %70 ], [ %7, %220 ], [ %7, %178 ], [ %8, %322 ], [ %8, %279 ], [ %9, %425 ], [ %9, %383 ], [ %10, %525 ], [ %10, %482 ], [ %10, %469 ]
-  %.pn = phi { ptr, i32 } [ %371, %370 ], [ %267, %266 ], [ %166, %165 ], [ %58, %57 ], [ %114, %113 ], [ %71, %70 ], [ %221, %220 ], [ %179, %178 ], [ %323, %322 ], [ %280, %279 ], [ %426, %425 ], [ %384, %383 ], [ %526, %525 ], [ %483, %482 ], [ %470, %469 ]
+  %.sink154 = phi ptr [ %6, %113 ], [ %6, %70 ], [ %6, %57 ], [ %7, %220 ], [ %7, %178 ], [ %7, %165 ], [ %8, %322 ], [ %8, %279 ], [ %8, %266 ], [ %9, %425 ], [ %9, %383 ], [ %9, %370 ], [ %10, %525 ], [ %10, %482 ], [ %10, %469 ]
+  %.pn = phi { ptr, i32 } [ %114, %113 ], [ %71, %70 ], [ %58, %57 ], [ %221, %220 ], [ %179, %178 ], [ %166, %165 ], [ %323, %322 ], [ %280, %279 ], [ %267, %266 ], [ %426, %425 ], [ %384, %383 ], [ %371, %370 ], [ %526, %525 ], [ %483, %482 ], [ %470, %469 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink154) #24
   resume { ptr, i32 } %.pn
 }
@@ -4015,7 +4015,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit35.i: ; preds = %434, %421
   br label %442
 
 .body.i:                                          ; preds = %440, %438, %320, %318, %204, %202, %200
-  %.pn.i = phi { ptr, i32 } [ %441, %440 ], [ %203, %202 ], [ %439, %438 ], [ %205, %204 ], [ %201, %200 ], [ %321, %320 ], [ %319, %318 ]
+  %.pn.i = phi { ptr, i32 } [ %441, %440 ], [ %439, %438 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %321, %320 ], [ %319, %318 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomCapsuleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #24
   br label %.body20
 
@@ -4963,7 +4963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37.i: ; preds = %908, %895
   br label %916
 
 .body.i22:                                        ; preds = %914, %912, %796, %794, %680, %678, %564, %562, %560
-  %.pn.i23 = phi { ptr, i32 } [ %915, %914 ], [ %563, %562 ], [ %913, %912 ], [ %565, %564 ], [ %561, %560 ], [ %797, %796 ], [ %795, %794 ], [ %681, %680 ], [ %679, %678 ]
+  %.pn.i23 = phi { ptr, i32 } [ %915, %914 ], [ %913, %912 ], [ %565, %564 ], [ %563, %562 ], [ %561, %560 ], [ %797, %796 ], [ %795, %794 ], [ %681, %680 ], [ %679, %678 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomCapsule_1D1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #24
   br label %.body20
 
@@ -5123,7 +5123,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   br label %.body
 
 .body:                                            ; preds = %967, %.body20, %958, %61
-  %.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %959, %958 ], [ %.pn, %.body20 ], [ %.pn, %967 ]
+  %.pn.pn = phi { ptr, i32 } [ %959, %958 ], [ %62, %61 ], [ %.pn, %.body20 ], [ %.pn, %967 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %32) #24
   br label %971
 
@@ -9720,7 +9720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMapp
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %81, %20, %90
-  %.pn = phi { ptr, i32 } [ %91, %90 ], [ %21, %20 ], [ %82, %86 ], [ %82, %81 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %91, %90 ], [ %21, %20 ], [ %82, %81 ], [ %82, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   resume { ptr, i32 } %.pn
 }
@@ -11492,7 +11492,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMapp
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %81, %20, %90
-  %.pn = phi { ptr, i32 } [ %91, %90 ], [ %21, %20 ], [ %82, %86 ], [ %82, %81 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %91, %90 ], [ %21, %20 ], [ %82, %81 ], [ %82, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   resume { ptr, i32 } %.pn
 }

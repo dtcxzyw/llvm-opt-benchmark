@@ -465,7 +465,7 @@ _ZN7QStringD2Ev.exit28:                           ; preds = %151, %_ZN17QArrayDa
   ret void
 
 156:                                              ; preds = %.loopexit, %.loopexit.split-lp, %149, %140, %132, %118, %105, %93, %88, %82
-  %.pn12 = phi { ptr, i32 } [ %83, %82 ], [ %150, %149 ], [ %141, %140 ], [ %133, %132 ], [ %119, %118 ], [ %106, %105 ], [ %.pn10, %93 ], [ %.pn, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn12 = phi { ptr, i32 } [ %150, %149 ], [ %141, %140 ], [ %133, %132 ], [ %119, %118 ], [ %106, %105 ], [ %.pn10, %93 ], [ %.pn, %88 ], [ %83, %82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %157 = load ptr, ptr %10, align 8
   %.not.i.i.i29 = icmp eq ptr %157, null
   br i1 %.not.i.i.i29, label %_ZN7QStringD2Ev.exit32, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30

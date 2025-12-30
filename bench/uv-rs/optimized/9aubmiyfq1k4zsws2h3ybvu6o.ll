@@ -398,7 +398,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %10, %67, %58
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %59, %58 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %68, %67 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %60
@@ -646,7 +646,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %10, %70, %61
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %62, %61 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %71, %70 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %63
@@ -879,7 +879,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %10, %67, %58
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %59, %58 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %68, %67 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %60
@@ -1081,7 +1081,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %.body8
 
 .body8:                                           ; preds = %97, %52
-  %eh.lpad-body9 = phi { ptr, i32 } [ %98, %97 ], [ %53, %52 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %53, %52 ], [ %98, %97 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$uv_pypi_types..conflicts..SchemaConflictItem$GT$$GT$17hb20669b674928134E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #27
           to label %.body unwind label %125
 
@@ -1271,7 +1271,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %.body, %120, %111
-  %common.resume.op = phi { ptr, i32 } [ %121, %120 ], [ %112, %111 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %112, %111 ], [ %121, %120 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %113
@@ -1520,7 +1520,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %10, %70, %61
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %62, %61 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %71, %70 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %63
@@ -1726,7 +1726,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %.body8
 
 .body8:                                           ; preds = %70, %47
-  %eh.lpad-body9 = phi { ptr, i32 } [ %71, %70 ], [ %48, %47 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %48, %47 ], [ %71, %70 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h1e46f00475d6c477E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #27
           to label %.body unwind label %98
 
@@ -1861,7 +1861,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %.body, %93, %84
-  %common.resume.op = phi { ptr, i32 } [ %94, %93 ], [ %85, %84 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %85, %84 ], [ %94, %93 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %86
@@ -2110,7 +2110,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %10, %70, %61
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %62, %61 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %71, %70 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %63
@@ -2334,7 +2334,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %10, %72, %63
-  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %64, %63 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %73, %72 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %65
@@ -2568,7 +2568,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 common.resume:                                    ; preds = %10, %67, %58
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %59, %58 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %68, %67 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %60
@@ -3338,9 +3338,9 @@ define hidden void @"_ZN186_$LT$uv_pypi_types..conflicts.._..$LT$impl$u20$serde.
   br label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit"
 
 48:                                               ; preds = %40, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i94"
-  %49 = phi ptr [ %.pre140, %40 ], [ %33, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i94" ]
-  %50 = phi ptr [ %.pre139, %40 ], [ %31, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i94" ]
-  %51 = phi ptr [ %41, %40 ], [ null, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i94" ]
+  %49 = phi ptr [ %33, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i94" ], [ %.pre140, %40 ]
+  %50 = phi ptr [ %31, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i94" ], [ %.pre139, %40 ]
+  %51 = phi ptr [ null, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i94" ], [ %41, %40 ]
   store ptr %51, ptr %11, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !686)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !687)
@@ -3444,7 +3444,7 @@ define hidden void @"_ZN186_$LT$uv_pypi_types..conflicts.._..$LT$impl$u20$serde.
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$uv_normalize..package_name..PackageName$GT$$GT$17h81021bec5df0c7b2E.exit", %88, %72
-  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %73, %72 ], [ %.pn87, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$uv_normalize..package_name..PackageName$GT$$GT$17h81021bec5df0c7b2E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %89, %88 ], [ %.pn87, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$uv_normalize..package_name..PackageName$GT$$GT$17h81021bec5df0c7b2E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %74
@@ -3630,10 +3630,10 @@ define hidden void @"_ZN191_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
   br i1 %47, label %314, label %312
 
 48:                                               ; preds = %220, %216, %40
-  %.sroa.098.0 = phi i8 [ %.sroa.098.5, %220 ], [ 1, %40 ], [ %.sroa.098.5, %216 ]
-  %.sroa.0103.0 = phi i8 [ %.sroa.0103.5, %220 ], [ 1, %40 ], [ %.sroa.0103.5, %216 ]
-  %.sroa.0108.0 = phi i8 [ %.sroa.0108.5, %220 ], [ 1, %40 ], [ %.sroa.0108.5, %216 ]
-  %.sroa.0113.0 = phi i8 [ %.sroa.0113.2, %220 ], [ 1, %40 ], [ %.sroa.0113.2, %216 ]
+  %.sroa.098.0 = phi i8 [ 1, %40 ], [ %.sroa.098.5, %216 ], [ %.sroa.098.5, %220 ]
+  %.sroa.0103.0 = phi i8 [ 1, %40 ], [ %.sroa.0103.5, %216 ], [ %.sroa.0103.5, %220 ]
+  %.sroa.0108.0 = phi i8 [ 1, %40 ], [ %.sroa.0108.5, %216 ], [ %.sroa.0108.5, %220 ]
+  %.sroa.0113.0 = phi i8 [ 1, %40 ], [ %.sroa.0113.2, %216 ], [ %.sroa.0113.2, %220 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %46
@@ -3726,9 +3726,9 @@ define hidden void @"_ZN191_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
           to label %46 unwind label %187
 
 69:                                               ; preds = %209, %205, %62
-  %.sroa.098.3 = phi i8 [ %.sroa.098.8, %209 ], [ 1, %62 ], [ %.sroa.098.8, %205 ]
-  %.sroa.0103.3 = phi i8 [ %.sroa.0103.8, %209 ], [ 1, %62 ], [ %.sroa.0103.8, %205 ]
-  %.sroa.0108.3 = phi i8 [ %.sroa.0108.6, %209 ], [ 1, %62 ], [ %.sroa.0108.6, %205 ]
+  %.sroa.098.3 = phi i8 [ 1, %62 ], [ %.sroa.098.8, %205 ], [ %.sroa.098.8, %209 ]
+  %.sroa.0103.3 = phi i8 [ 1, %62 ], [ %.sroa.0103.8, %205 ], [ %.sroa.0103.8, %209 ]
+  %.sroa.0108.3 = phi i8 [ 1, %62 ], [ %.sroa.0108.6, %205 ], [ %.sroa.0108.6, %209 ]
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %68
@@ -3819,8 +3819,8 @@ define hidden void @"_ZN191_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
           to label %68 unwind label %187
 
 90:                                               ; preds = %198, %194, %83
-  %.sroa.098.6 = phi i8 [ %.sroa.098.11, %198 ], [ 1, %83 ], [ %.sroa.098.11, %194 ]
-  %.sroa.0103.6 = phi i8 [ %.sroa.0103.9, %198 ], [ 1, %83 ], [ %.sroa.0103.9, %194 ]
+  %.sroa.098.6 = phi i8 [ 1, %83 ], [ %.sroa.098.11, %194 ], [ %.sroa.098.11, %198 ]
+  %.sroa.0103.6 = phi i8 [ 1, %83 ], [ %.sroa.0103.9, %194 ], [ %.sroa.0103.9, %198 ]
   %91 = landingpad { ptr, i32 }
           cleanup
   br label %89
@@ -3910,7 +3910,7 @@ define hidden void @"_ZN191_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
           to label %89 unwind label %187
 
 111:                                              ; preds = %143, %139, %104
-  %.sroa.098.9 = phi i8 [ %.sroa.098.12, %143 ], [ 1, %104 ], [ %.sroa.098.12, %139 ]
+  %.sroa.098.9 = phi i8 [ 1, %104 ], [ %.sroa.098.12, %139 ], [ %.sroa.098.12, %143 ]
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %110
@@ -4164,7 +4164,7 @@ define hidden void @"_ZN191_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
   unreachable
 
 common.resume:                                    ; preds = %182, %304, %176
-  %common.resume.op = phi { ptr, i32 } [ %305, %304 ], [ %177, %176 ], [ %.pn219, %182 ]
+  %common.resume.op = phi { ptr, i32 } [ %177, %176 ], [ %305, %304 ], [ %.pn219, %182 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %178
@@ -4632,7 +4632,7 @@ define hidden void @"_ZN194_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
           to label %27 unwind label %25
 
 24:                                               ; preds = %332, %290, %231, %211, %25
-  %.pn256 = phi { ptr, i32 } [ %26, %25 ], [ %.pn254, %290 ], [ %.pn246, %332 ], [ %.pn236, %211 ], [ %.pn236, %231 ]
+  %.pn256 = phi { ptr, i32 } [ %26, %25 ], [ %.pn254, %290 ], [ %.pn246, %332 ], [ %.pn236, %231 ], [ %.pn236, %211 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #27
           to label %common.resume unwind label %223
 
@@ -4698,11 +4698,11 @@ define hidden void @"_ZN194_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
   br i1 %42, label %315, label %313
 
 43:                                               ; preds = %242, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309", %35
-  %.sroa.0115.0 = phi i8 [ %.sroa.0115.5, %242 ], [ 1, %35 ], [ %.sroa.0115.5, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ]
-  %.sroa.0120.0 = phi i8 [ %.sroa.0120.5, %242 ], [ 1, %35 ], [ %.sroa.0120.5, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ]
-  %.sroa.0125.0 = phi i8 [ %.sroa.0125.5, %242 ], [ 1, %35 ], [ %.sroa.0125.5, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ]
-  %.sroa.0130.0 = phi i8 [ %.sroa.0130.5, %242 ], [ 1, %35 ], [ %.sroa.0130.5, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ]
-  %.sroa.0135.0 = phi i8 [ %.sroa.0135.2, %242 ], [ 1, %35 ], [ %.sroa.0135.2, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ]
+  %.sroa.0115.0 = phi i8 [ 1, %35 ], [ %.sroa.0115.5, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ], [ %.sroa.0115.5, %242 ]
+  %.sroa.0120.0 = phi i8 [ 1, %35 ], [ %.sroa.0120.5, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ], [ %.sroa.0120.5, %242 ]
+  %.sroa.0125.0 = phi i8 [ 1, %35 ], [ %.sroa.0125.5, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ], [ %.sroa.0125.5, %242 ]
+  %.sroa.0130.0 = phi i8 [ 1, %35 ], [ %.sroa.0130.5, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ], [ %.sroa.0130.5, %242 ]
+  %.sroa.0135.0 = phi i8 [ 1, %35 ], [ %.sroa.0135.2, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$uv_pypi_types..identifier..Identifier$GT$$GT$17h0cbbc8e5b7cd2badE.exit309" ], [ %.sroa.0135.2, %242 ]
   %44 = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -4976,8 +4976,8 @@ define hidden void @"_ZN194_$LT$uv_build_backend..settings.._..$LT$impl$u20$serd
           to label %88 unwind label %223
 
 113:                                              ; preds = %127, %106, %233
-  %.sroa.0115.9 = phi i8 [ %.sroa.0115.15, %233 ], [ 1, %127 ], [ 1, %106 ]
-  %.sroa.0120.9 = phi i8 [ %.sroa.0120.13, %233 ], [ 1, %127 ], [ 1, %106 ]
+  %.sroa.0115.9 = phi i8 [ %.sroa.0115.15, %233 ], [ 1, %106 ], [ 1, %127 ]
+  %.sroa.0120.9 = phi i8 [ %.sroa.0120.13, %233 ], [ 1, %106 ], [ 1, %127 ]
   %114 = landingpad { ptr, i32 }
           cleanup
   br label %112
@@ -6401,7 +6401,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$uv_workspace..pyproject..Sou
   br i1 %116, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..group_name..GroupName$GT$$GT$17h3e68fbec68b96b11E.exit45", label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..group_name..GroupName$GT$$GT$17h3e68fbec68b96b11E.exit45.sink.split"
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..group_name..GroupName$GT$$GT$17h3e68fbec68b96b11E.exit45.sink.split": ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit43", %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit", %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit67", %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit60", %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit53"
-  %.sink = phi ptr [ %184, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit67" ], [ %165, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit60" ], [ %146, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit53" ], [ %193, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit" ], [ %114, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit43" ]
+  %.sink = phi ptr [ %146, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit53" ], [ %165, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit60" ], [ %184, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit67" ], [ %193, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit" ], [ %114, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit43" ]
   tail call void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink)
   br label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..group_name..GroupName$GT$$GT$17h3e68fbec68b96b11E.exit45"
 
@@ -6415,7 +6415,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$uv_workspace..pyproject..Sou
   unreachable
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..group_name..GroupName$GT$$GT$17h3e68fbec68b96b11E.exit": ; preds = %187, %192, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit65", %181, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit58", %162, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit51", %143, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit41", %111
-  %.pn18 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit65" ], [ %.pn2, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit58" ], [ %.pn16, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit41" ], [ %.pn6, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit51" ], [ %.pn16, %111 ], [ %.pn6, %143 ], [ %.pn2, %162 ], [ %.pn, %181 ], [ %188, %192 ], [ %188, %187 ]
+  %.pn18 = phi { ptr, i32 } [ %.pn16, %111 ], [ %.pn16, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit41" ], [ %.pn6, %143 ], [ %.pn6, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit51" ], [ %.pn2, %162 ], [ %.pn2, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit58" ], [ %.pn, %181 ], [ %.pn, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17he5c7be49fe8d9629E.exit65" ], [ %188, %192 ], [ %188, %187 ]
   resume { ptr, i32 } %.pn18
 
 119:                                              ; preds = %30, %25
@@ -8078,7 +8078,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
           to label %57 unwind label %53
 
 .critedge11:                                      ; preds = %57, %30
-  %.pn18 = phi { ptr, i32 } [ %56, %57 ], [ %26, %30 ]
+  %.pn18 = phi { ptr, i32 } [ %26, %30 ], [ %56, %57 ]
   resume { ptr, i32 } %.pn18
 
 57:                                               ; preds = %55
@@ -8362,7 +8362,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
           to label %56 unwind label %52
 
 .critedge11:                                      ; preds = %56, %"_ZN4core3ptr53drop_in_place$LT$uv_workspace..pyproject..Sources$GT$17h1016ce4d085aeeeeE.exit.i"
-  %.pn21 = phi { ptr, i32 } [ %55, %56 ], [ %26, %"_ZN4core3ptr53drop_in_place$LT$uv_workspace..pyproject..Sources$GT$17h1016ce4d085aeeeeE.exit.i" ]
+  %.pn21 = phi { ptr, i32 } [ %26, %"_ZN4core3ptr53drop_in_place$LT$uv_workspace..pyproject..Sources$GT$17h1016ce4d085aeeeeE.exit.i" ], [ %55, %56 ]
   resume { ptr, i32 } %.pn21
 
 56:                                               ; preds = %54
@@ -8503,7 +8503,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
           to label %57 unwind label %53
 
 .critedge11:                                      ; preds = %57, %30
-  %.pn18 = phi { ptr, i32 } [ %56, %57 ], [ %26, %30 ]
+  %.pn18 = phi { ptr, i32 } [ %26, %30 ], [ %56, %57 ]
   resume { ptr, i32 } %.pn18
 
 57:                                               ; preds = %55
@@ -8606,7 +8606,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #29
   unreachable
 
-42:                                               ; preds = %19, %14
+42:                                               ; preds = %14, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf74e980fe42276e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #27
@@ -8839,7 +8839,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #29
   unreachable
 
-42:                                               ; preds = %19, %14
+42:                                               ; preds = %14, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %43 = load i64, ptr %2, align 8, !range !1175, !alias.scope !1667, !noundef !3
@@ -8991,7 +8991,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
           to label %57 unwind label %53
 
 .critedge11:                                      ; preds = %57, %30
-  %.pn18 = phi { ptr, i32 } [ %56, %57 ], [ %26, %30 ]
+  %.pn18 = phi { ptr, i32 } [ %26, %30 ], [ %56, %57 ]
   resume { ptr, i32 } %.pn18
 
 57:                                               ; preds = %55
@@ -14042,7 +14042,7 @@ define hidden void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$ser
   unreachable
 
 common.resume:                                    ; preds = %19, %36, %24
-  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %25, %24 ], [ %20, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %37, %36 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %26
@@ -17691,7 +17691,7 @@ define hidden void @"_ZN172_$LT$uv_workspace..pyproject.._..$LT$impl$u20$serde..
   unreachable
 
 common.resume:                                    ; preds = %21, %41, %31
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %32, %31 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %42, %41 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %33
@@ -19193,7 +19193,7 @@ define hidden void @"_ZN183_$LT$uv_workspace..pyproject.._..$LT$impl$u20$serde..
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_workspace..pyproject..SerdePattern$GT$$GT$$GT$17hf33b330bbb53088bE.exit", %70, %57
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %58, %57 ], [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_workspace..pyproject..SerdePattern$GT$$GT$$GT$17hf33b330bbb53088bE.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %71, %70 ], [ %.pn, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_workspace..pyproject..SerdePattern$GT$$GT$$GT$17hf33b330bbb53088bE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h6e6ea6452ad98cb4E.exit": ; preds = %59

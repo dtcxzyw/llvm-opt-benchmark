@@ -1277,8 +1277,8 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   br label %25
 
 25:                                               ; preds = %22, %13
-  %.0120 = phi ptr [ %19, %13 ], [ null, %22 ]
-  %.0119 = phi i32 [ %17, %13 ], [ 16, %22 ]
+  %.0120 = phi ptr [ null, %22 ], [ %19, %13 ]
+  %.0119 = phi i32 [ 16, %22 ], [ %17, %13 ]
   %26 = zext nneg i8 %9 to i32
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1352,7 +1352,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   br label %65
 
 65:                                               ; preds = %56, %51
-  %.0121.us138.us = phi i16 [ %55, %51 ], [ %64, %56 ]
+  %.0121.us138.us = phi i16 [ %64, %56 ], [ %55, %51 ]
   %indvars.iv.next156 = add nuw nsw i32 %indvars.iv155, %.0119
   %66 = zext i16 %.0121.us138.us to i32
   %.not124.us139.us.not = icmp eq i32 %indvars.iv.next156, %66
@@ -1444,7 +1444,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit146, %._crit_edge.loopexit145, %._crit_edge.loopexit144, %._crit_edge.loopexit, %25
-  %.1.lcssa = phi i16 [ 16, %25 ], [ %115, %._crit_edge.loopexit145 ], [ %114, %._crit_edge.loopexit144 ], [ %113, %._crit_edge.loopexit ], [ %116, %._crit_edge.loopexit146 ], [ 16, %.thread ]
+  %.1.lcssa = phi i16 [ 16, %25 ], [ %113, %._crit_edge.loopexit ], [ %114, %._crit_edge.loopexit144 ], [ %115, %._crit_edge.loopexit145 ], [ %116, %._crit_edge.loopexit146 ], [ 16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i16 %.1.lcssa

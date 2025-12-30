@@ -451,7 +451,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc38, %98
           to label %_ZNSolsEPFRSoS_E.exit37 unwind label %111
 
 _ZNSolsEPFRSoS_E.exit37:                          ; preds = %.noexc40, %110, %120, %113, %_ZNSolsEPFRSoS_E.exit
-  %.0 = phi i32 [ 1, %_ZNSolsEPFRSoS_E.exit ], [ 0, %113 ], [ -1, %110 ], [ 0, %120 ], [ 2, %.noexc40 ]
+  %.0 = phi i32 [ 1, %_ZNSolsEPFRSoS_E.exit ], [ -1, %110 ], [ 0, %120 ], [ 0, %113 ], [ 2, %.noexc40 ]
   call void @_ZN8tetgenio12clean_memoryEv(ptr noundef nonnull align 8 dereferenceable(448) %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN8tetgenio12clean_memoryEv(ptr noundef nonnull align 8 dereferenceable(448) %17)

@@ -1784,7 +1784,7 @@ define void @_ZN14regex_automata4meta8strategy3new17h42779e947a72af4fE(ptr noali
           to label %common.resume unwind label %205
 
 151:                                              ; preds = %147, %145, %143, %141, %139, %137, %135
-  %.pn.i = phi { ptr, ptr } [ %144, %143 ], [ %146, %145 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %148, %147 ]
+  %.pn.i = phi { ptr, ptr } [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ]
   %.sroa.030.0.i = extractvalue { ptr, ptr } %.pn.i, 0
   %.sroa.831.0.i = extractvalue { ptr, ptr } %.pn.i, 1
   %152 = icmp ne ptr %.sroa.030.0.i, null
@@ -1859,7 +1859,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$regex_automata..util..prefilter..Prefilter$GT$$GT$17h27d74ec3f545d326E.exit106"
 
-.thread:                                          ; preds = %109, %116, %123, %"_ZN4core6option15Option$LT$T$GT$6map_or17h2f3bc042456760a0E.exit.i", %92, %.thread606
+.thread:                                          ; preds = %109, %92, %123, %116, %"_ZN4core6option15Option$LT$T$GT$6map_or17h2f3bc042456760a0E.exit.i", %.thread606
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
@@ -1931,7 +1931,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
 
-.thread612:                                       ; preds = %187, %178
+.thread612:                                       ; preds = %178, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !309
   br label %194
 
@@ -1982,7 +1982,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
   unreachable
 
 .body94:                                          ; preds = %428, %421, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$regex_automata..util..prefilter..Prefilter$GT$$GT$17h27d74ec3f545d326E.exit.i", %720, %709, %605, %696, %599, %466, %555, %580, %458, %214
-  %.pn = phi { ptr, i32 } [ %.pn12.i, %696 ], [ %721, %720 ], [ %710, %709 ], [ %459, %458 ], [ %537, %466 ], [ %600, %599 ], [ %.pn12.i, %605 ], [ %215, %214 ], [ %556, %555 ], [ %.pn18.i, %580 ], [ %429, %428 ], [ %.pn91.pn.pn.pn.pn.pn.i, %421 ], [ %.pn91.pn.pn.pn.pn.pn.i, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$regex_automata..util..prefilter..Prefilter$GT$$GT$17h27d74ec3f545d326E.exit.i" ]
+  %.pn = phi { ptr, i32 } [ %215, %214 ], [ %459, %458 ], [ %.pn18.i, %580 ], [ %537, %466 ], [ %556, %555 ], [ %600, %599 ], [ %.pn12.i, %696 ], [ %.pn12.i, %605 ], [ %710, %709 ], [ %721, %720 ], [ %429, %428 ], [ %.pn91.pn.pn.pn.pn.pn.i, %421 ], [ %.pn91.pn.pn.pn.pn.pn.i, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$regex_automata..util..prefilter..Prefilter$GT$$GT$17h27d74ec3f545d326E.exit.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !316)
   %207 = load i8, ptr %216, align 8, !range !91, !alias.scope !316, !noundef !4
   %208 = icmp eq i8 %207, 2
@@ -2064,7 +2064,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
           to label %252 unwind label %248, !noalias !334
 
 "_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i": ; preds = %272, %.body138.i, %250, %248
-  %.pn91.pn.pn.pn.pn.i = phi { ptr, i32 } [ %251, %250 ], [ %249, %248 ], [ %.pn91.pn.pn.pn.i, %272 ], [ %.pn91.pn.pn.pn.i, %.body138.i ]
+  %.pn91.pn.pn.pn.pn.i = phi { ptr, i32 } [ %249, %248 ], [ %251, %250 ], [ %.pn91.pn.pn.pn.i, %272 ], [ %.pn91.pn.pn.pn.i, %.body138.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !348)
   %240 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %241 = load i8, ptr %240, align 8, !range !91, !alias.scope !351, !noalias !352, !noundef !4
@@ -2335,7 +2335,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
   br label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..wrappers..OnePass$GT$17hf6de123ea48f2fc9E.exit.i"
 
 "_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit128.i": ; preds = %336, %331, %319, %310
-  %.pn91.i = phi { ptr, i32 } [ %332, %331 ], [ %311, %310 ], [ %320, %319 ], [ %332, %336 ]
+  %.pn91.i = phi { ptr, i32 } [ %311, %310 ], [ %320, %319 ], [ %332, %336 ], [ %332, %331 ]
   %307 = load i64, ptr %38, align 8, !range !427, !alias.scope !428, !noalias !334, !noundef !4
   %308 = icmp eq i64 %307, 3
   br i1 %308, label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..wrappers..OnePass$GT$17hf6de123ea48f2fc9E.exit.i", label %309
@@ -3130,7 +3130,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
   unreachable
 
 536:                                              ; preds = %576, %546, %541, %.invoke.i
-  %.2.i = phi i1 [ false, %576 ], [ true, %546 ], [ true, %.invoke.i ], [ true, %541 ]
+  %.2.i = phi i1 [ true, %541 ], [ true, %546 ], [ false, %576 ], [ true, %.invoke.i ]
   %537 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..literal..Seq$GT$17h99862d48f5978b9bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #30
@@ -3540,8 +3540,8 @@ common.resume:                                    ; preds = %.body, %213, %.body
   br label %.thread675
 
 "_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit27.i": ; preds = %.thread91.i, %695, %690, %688, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i118", %654, %636
-  %.2.i116 = phi i8 [ 1, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i118" ], [ 1, %636 ], [ %.4.i, %690 ], [ 0, %688 ], [ 1, %654 ], [ %.4.i, %695 ], [ 1, %.thread91.i ]
-  %.pn.pn.i = phi { ptr, i32 } [ %668, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i118" ], [ %637, %636 ], [ %660, %690 ], [ %660, %688 ], [ %655, %654 ], [ %660, %695 ], [ %.pn8594.i, %.thread91.i ]
+  %.2.i116 = phi i8 [ 0, %688 ], [ 1, %654 ], [ 1, %636 ], [ 1, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i118" ], [ %.4.i, %695 ], [ %.4.i, %690 ], [ 1, %.thread91.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %660, %688 ], [ %655, %654 ], [ %637, %636 ], [ %668, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i118" ], [ %660, %695 ], [ %660, %690 ], [ %.pn8594.i, %.thread91.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !756)
   call void @llvm.experimental.noalias.scope.decl(metadata !759)
   call void @llvm.experimental.noalias.scope.decl(metadata !762)
@@ -3634,7 +3634,7 @@ common.resume:                                    ; preds = %.body, %213, %.body
   br i1 %659, label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit27.i", label %.thread91.i
 
 "_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.thread.i": ; preds = %666, %657
-  %.4.i = phi i8 [ 0, %666 ], [ 1, %657 ]
+  %.4.i = phi i8 [ 1, %657 ], [ 0, %666 ]
   %660 = landingpad { ptr, i32 }
           cleanup
   %661 = load i64, ptr %13, align 8, !range !375, !noalias !747, !noundef !4
@@ -4226,7 +4226,7 @@ _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit.i: ; preds = 
   br label %_ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit
 
 _ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit: ; preds = %83, %91, %95, %101, %106, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit.i
-  %.sink.i = phi i64 [ 1, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit.i ], [ 0, %83 ], [ 0, %106 ], [ 0, %91 ], [ 0, %101 ], [ 0, %95 ]
+  %.sink.i = phi i64 [ 1, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit.i ], [ 0, %83 ], [ 0, %91 ], [ 0, %106 ], [ 0, %95 ], [ 0, %101 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !893, !noalias !896
   ret void
 
@@ -4288,7 +4288,7 @@ _ZN14regex_automata4meta8wrappers24BoundedBacktrackerEngine12search_slots17hec84
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !914
   br label %83
 
-select.unfold:                                    ; preds = %_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len17h2bf972c063953e27E.exit, %51, %_ZN14regex_automata4meta8wrappers7OnePass3get17he5d61ca509c84da4E.exit.thread
+select.unfold:                                    ; preds = %_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len17h2bf972c063953e27E.exit, %_ZN14regex_automata4meta8wrappers7OnePass3get17he5d61ca509c84da4E.exit.thread, %51
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 1064
   %146 = load ptr, ptr %145, align 8, !nonnull !4, !noundef !4
@@ -4534,7 +4534,7 @@ _ZN14regex_automata4meta8wrappers24BoundedBacktrackerEngine12search_slots17hec84
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !982
   br label %78
 
-select.unfold:                                    ; preds = %_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len17h2bf972c063953e27E.exit, %46, %_ZN14regex_automata4meta8wrappers7OnePass3get17he5d61ca509c84da4E.exit.thread
+select.unfold:                                    ; preds = %_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len17h2bf972c063953e27E.exit, %_ZN14regex_automata4meta8wrappers7OnePass3get17he5d61ca509c84da4E.exit.thread, %46
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   %101 = load i64, ptr %100, align 8, !range !197, !alias.scope !1000, !noalias !1003, !noundef !4
@@ -4767,7 +4767,7 @@ _ZN14regex_automata4meta8wrappers24BoundedBacktrackerEngine8is_match17h84e77cd40
   %98 = trunc nuw i32 %97 to i1
   br label %75
 
-select.unfold:                                    ; preds = %_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len17h2bf972c063953e27E.exit, %43, %_ZN14regex_automata4meta8wrappers7OnePass3get17he5d61ca509c84da4E.exit.thread
+select.unfold:                                    ; preds = %_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len17h2bf972c063953e27E.exit, %_ZN14regex_automata4meta8wrappers7OnePass3get17he5d61ca509c84da4E.exit.thread, %43
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1082)
@@ -7727,7 +7727,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   br label %"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$8is_match17heb8c92480ea26a30E.exit"
 
 "_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$8is_match17heb8c92480ea26a30E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit.thread", %132, %136, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread
-  %.0 = phi i1 [ %135, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread ], [ %133, %132 ], [ %138, %136 ], [ %82, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit.thread" ], [ %84, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit" ]
+  %.0 = phi i1 [ %133, %132 ], [ %138, %136 ], [ %135, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread ], [ %82, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit.thread" ], [ %84, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit" ]
   ret i1 %.0
 }
 
@@ -7937,7 +7937,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit.thre
   unreachable
 
 common.resume:                                    ; preds = %184, %128, %85
-  %common.resume.op = phi { ptr, i32 } [ %129, %128 ], [ %86, %85 ], [ %185, %184 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %129, %128 ], [ %185, %184 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda24fc9335dad753E.exit.thread": ; preds = %_ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf3d6394454a074d6E.exit.thread114
@@ -8444,7 +8444,7 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit75: ; pre
   br label %234
 
 "_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$12search_slots17h678c2afe6fe8cf31E.exit": ; preds = %223, %201, %165, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit33, %234
-  %.merged = phi { i32, i32 } [ %253, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit33 ], [ %236, %234 ], [ %166, %165 ], [ %203, %201 ], [ %224, %223 ], [ %164, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit ]
+  %.merged = phi { i32, i32 } [ %236, %234 ], [ %253, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit33 ], [ %166, %165 ], [ %203, %201 ], [ %224, %223 ], [ %164, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit ]
   ret { i32, i32 } %.merged
 }
 
@@ -9187,7 +9187,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   unreachable
 
 common.resume:                                    ; preds = %214, %176, %121
-  %common.resume.op = phi { ptr, i32 } [ %177, %176 ], [ %122, %121 ], [ %215, %214 ]
+  %common.resume.op = phi { ptr, i32 } [ %122, %121 ], [ %177, %176 ], [ %215, %214 ]
   resume { ptr, i32 } %common.resume.op
 
 134:                                              ; preds = %107
@@ -9946,7 +9946,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   unreachable
 
 common.resume:                                    ; preds = %256, %206, %144
-  %common.resume.op = phi { ptr, i32 } [ %207, %206 ], [ %145, %144 ], [ %257, %256 ]
+  %common.resume.op = phi { ptr, i32 } [ %145, %144 ], [ %207, %206 ], [ %257, %256 ]
   resume { ptr, i32 } %common.resume.op
 
 157:                                              ; preds = %113
@@ -10808,7 +10808,7 @@ _ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thre
   br label %"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$8is_match17heb8c92480ea26a30E.exit"
 
 "_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$8is_match17heb8c92480ea26a30E.exit": ; preds = %78, %._crit_edge, %139, %137, %130, %134, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread
-  %.0.in = phi i1 [ %133, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread ], [ %131, %130 ], [ %136, %134 ], [ %138, %137 ], [ true, %139 ], [ false, %._crit_edge ], [ false, %78 ]
+  %.0.in = phi i1 [ %131, %130 ], [ %136, %134 ], [ %133, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread ], [ true, %139 ], [ %138, %137 ], [ false, %._crit_edge ], [ false, %78 ]
   ret i1 %.0.in
 }
 
@@ -10985,7 +10985,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   unreachable
 
 common.resume:                                    ; preds = %304, %158, %102
-  %common.resume.op = phi { ptr, i32 } [ %159, %158 ], [ %103, %102 ], [ %305, %304 ]
+  %common.resume.op = phi { ptr, i32 } [ %103, %102 ], [ %159, %158 ], [ %305, %304 ]
   resume { ptr, i32 } %common.resume.op
 
 115:                                              ; preds = %88
@@ -12013,7 +12013,7 @@ _ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit1
   br label %"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$12search_slots17h678c2afe6fe8cf31E.exit84"
 
 "_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$12search_slots17h678c2afe6fe8cf31E.exit84": ; preds = %197, %175, %139, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit, %_ZN14regex_automata4meta8strategy13ReverseSuffix21try_search_half_start17h6ff4664a1f677552E.exit.thread, %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit234, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit109
-  %.merged = phi { i32, i32 } [ %425, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit109 ], [ %439, %_ZN14regex_automata4meta8strategy13ReverseSuffix21try_search_half_start17h6ff4664a1f677552E.exit.thread ], [ %437, %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit234 ], [ %140, %139 ], [ %177, %175 ], [ %198, %197 ], [ %138, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit ]
+  %.merged = phi { i32, i32 } [ %439, %_ZN14regex_automata4meta8strategy13ReverseSuffix21try_search_half_start17h6ff4664a1f677552E.exit.thread ], [ %437, %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit234 ], [ %425, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit109 ], [ %140, %139 ], [ %177, %175 ], [ %198, %197 ], [ %138, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit ]
   ret { i32, i32 } %.merged
 
 426:                                              ; preds = %_ZN14regex_automata4meta8wrappers12HybridEngine27try_search_half_rev_limited17he3535b071e14dd4bE.exit159
@@ -12573,7 +12573,7 @@ common.resume:                                    ; preds = %58, %"_ZN4core3ptr6
   br label %58
 
 "_ZN4core3ptr71drop_in_place$LT$regex_automata..meta..wrappers..ReverseHybridCache$GT$17hfbc4f374a5bc87aaE.exit": ; preds = %"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$12create_cache17h46eb1187e8558646E.exit", %61, %63
-  %.sroa.0.0.i.i1827 = phi i64 [ %.sroa.0.0.copyload.i.i16, %63 ], [ %.sroa.0.0.copyload.i.i16, %61 ], [ 2, %"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$12create_cache17h46eb1187e8558646E.exit" ]
+  %.sroa.0.0.i.i1827 = phi i64 [ %.sroa.0.0.copyload.i.i16, %61 ], [ %.sroa.0.0.copyload.i.i16, %63 ], [ 2, %"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$12create_cache17h46eb1187e8558646E.exit" ]
   store i64 %.sroa.0.0.i.i1827, ptr %53, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5, i64 344, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
@@ -14859,7 +14859,7 @@ _ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e6
   br label %"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$8is_match17heb8c92480ea26a30E.exit"
 
 "_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$8is_match17heb8c92480ea26a30E.exit": ; preds = %124, %._crit_edge, %194, %_ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e685fE.exit.thread54, %186, %190, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread
-  %.0.in = phi i1 [ %189, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread ], [ %187, %186 ], [ %192, %190 ], [ %193, %_ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e685fE.exit.thread54 ], [ true, %194 ], [ false, %._crit_edge ], [ false, %124 ]
+  %.0.in = phi i1 [ %187, %186 ], [ %192, %190 ], [ %189, %_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17hb656b0905cd8140dE.exit.thread ], [ true, %194 ], [ %193, %_ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e685fE.exit.thread54 ], [ false, %._crit_edge ], [ false, %124 ]
   ret i1 %.0.in
 }
 
@@ -16169,7 +16169,7 @@ _ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit1
   br label %"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$12search_slots17h678c2afe6fe8cf31E.exit89"
 
 "_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$12search_slots17h678c2afe6fe8cf31E.exit89": ; preds = %201, %179, %143, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit, %_ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e685fE.exit.thread, %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit248, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit112
-  %.merged = phi { i32, i32 } [ %457, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit112 ], [ %470, %_ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e685fE.exit.thread ], [ %468, %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit248 ], [ %144, %143 ], [ %181, %179 ], [ %202, %201 ], [ %142, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit ]
+  %.merged = phi { i32, i32 } [ %470, %_ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e685fE.exit.thread ], [ %468, %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit248 ], [ %457, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit112 ], [ %144, %143 ], [ %181, %179 ], [ %202, %201 ], [ %142, %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit ]
   ret { i32, i32 } %.merged
 
 458:                                              ; preds = %432
@@ -16677,7 +16677,7 @@ _ZN14regex_automata6hybrid3dfa3DFA29try_which_overlapping_matches17hab5db6d2737a
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h939d87afceb8f08aE.exit"
 
 .loopexit:                                        ; preds = %_ZN14regex_automata6hybrid3dfa3DFA26try_search_overlapping_fwd17hd9782bcb6982fa29E.exit.i, %53, %_ZN14regex_automata6hybrid3dfa3DFA26try_search_overlapping_fwd17hd9782bcb6982fa29E.exit.us.i, %33
-  %.0.i = phi ptr [ %37, %_ZN14regex_automata6hybrid3dfa3DFA26try_search_overlapping_fwd17hd9782bcb6982fa29E.exit.us.i ], [ %34, %33 ], [ %57, %_ZN14regex_automata6hybrid3dfa3DFA26try_search_overlapping_fwd17hd9782bcb6982fa29E.exit.i ], [ %54, %53 ]
+  %.0.i = phi ptr [ %37, %_ZN14regex_automata6hybrid3dfa3DFA26try_search_overlapping_fwd17hd9782bcb6982fa29E.exit.us.i ], [ %34, %33 ], [ %54, %53 ], [ %57, %_ZN14regex_automata6hybrid3dfa3DFA26try_search_overlapping_fwd17hd9782bcb6982fa29E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !4527
   call void @llvm.experimental.noalias.scope.decl(metadata !4555)
   call void @llvm.experimental.noalias.scope.decl(metadata !4558)
@@ -17197,8 +17197,8 @@ define internal fastcc { i32, i32 } @_ZN14regex_automata3nfa8thompson6pikevm6Pik
   br i1 %.not, label %34, label %38
 
 31:                                               ; preds = %38, %.critedge, %"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h4180c3a3ae479f2aE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit"
-  %.sroa.9.1 = phi i32 [ %.sroa.88.0, %38 ], [ %.sroa.9.2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit" ], [ %.sroa.9.3, %"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h4180c3a3ae479f2aE.exit" ], [ %.sroa.8.0, %.critedge ]
-  %.sroa.0.1.in = phi i64 [ %39, %38 ], [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit" ], [ %70, %"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h4180c3a3ae479f2aE.exit" ], [ %22, %.critedge ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit" ], [ %.sroa.9.3, %"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h4180c3a3ae479f2aE.exit" ], [ %.sroa.8.0, %.critedge ], [ %.sroa.88.0, %38 ]
+  %.sroa.0.1.in = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit" ], [ %70, %"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h4180c3a3ae479f2aE.exit" ], [ %22, %.critedge ], [ %39, %38 ]
   %.sroa.0.1 = trunc nuw nsw i64 %.sroa.0.1.in to i32
   %32 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
   %33 = insertvalue { i32, i32 } %32, i32 %.sroa.9.1, 1

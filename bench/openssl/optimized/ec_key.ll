@@ -417,7 +417,7 @@ define noundef ptr @EC_KEY_copy(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %120
 
 120:                                              ; preds = %113, %102, %80, %77, %68, %65, %55, %49, %43, %33, %21, %116, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %33 ], [ null, %21 ], [ null, %43 ], [ null, %55 ], [ null, %68 ], [ null, %80 ], [ null, %102 ], [ %0, %116 ], [ null, %77 ], [ null, %65 ], [ null, %49 ], [ null, %113 ]
+  %.0 = phi ptr [ null, %5 ], [ %0, %116 ], [ null, %21 ], [ null, %33 ], [ null, %43 ], [ null, %49 ], [ null, %55 ], [ null, %65 ], [ null, %68 ], [ null, %77 ], [ null, %80 ], [ null, %102 ], [ null, %113 ]
   ret ptr %.0
 }
 
@@ -611,7 +611,7 @@ define range(i32 0, 2) i32 @ossl_ec_generate_key_dhkem(ptr noundef %0, ptr nound
   br label %44
 
 44:                                               ; preds = %28, %.thread30, %.thread26, %40
-  %.024 = phi i32 [ 0, %.thread26 ], [ 0, %40 ], [ 1, %28 ], [ 1, %.thread30 ]
+  %.024 = phi i32 [ 0, %.thread26 ], [ 0, %40 ], [ 1, %.thread30 ], [ 1, %28 ]
   ret i32 %.024
 }
 
@@ -744,9 +744,9 @@ define range(i32 0, 2) i32 @ossl_ec_key_simple_generate_key(ptr noundef captures
   br label %ec_generate_key.exit
 
 .loopexit.i:                                      ; preds = %32, %43, %40, %28, %25, %22, %18, %15, %1
-  %.049.ph.i = phi ptr [ %23, %25 ], [ null, %1 ], [ %.150.i, %43 ], [ null, %28 ], [ %.150.i, %40 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ %.150.i, %32 ]
-  %.047.ph.i = phi ptr [ null, %25 ], [ null, %1 ], [ %.148.i, %43 ], [ null, %28 ], [ null, %40 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ null, %32 ]
-  %.046.ph.i = phi ptr [ %.1.i, %25 ], [ null, %1 ], [ %.1.i, %43 ], [ %.1.i, %28 ], [ %.1.i, %40 ], [ %.1.i, %22 ], [ %.1.i, %18 ], [ null, %15 ], [ %.1.i, %32 ]
+  %.049.ph.i = phi ptr [ null, %28 ], [ %23, %25 ], [ %.150.i, %43 ], [ %.150.i, %40 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ null, %1 ], [ %.150.i, %32 ]
+  %.047.ph.i = phi ptr [ null, %28 ], [ null, %25 ], [ %.148.i, %43 ], [ null, %40 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ null, %1 ], [ null, %32 ]
+  %.046.ph.i = phi ptr [ %.1.i, %28 ], [ %.1.i, %25 ], [ %.1.i, %43 ], [ %.1.i, %40 ], [ %.1.i, %22 ], [ %.1.i, %18 ], [ null, %15 ], [ null, %1 ], [ %.1.i, %32 ]
   tail call void @ossl_set_error_state(ptr noundef nonnull @.str.1) #7
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !32
@@ -916,8 +916,8 @@ define range(i32 0, 2) i32 @ossl_ec_key_public_check_quick(ptr noundef readonly 
   br i1 %55, label %.sink.split, label %56
 
 .sink.split:                                      ; preds = %51, %12, %2, %4, %8, %50
-  %.sink21 = phi i32 [ 539, %12 ], [ 545, %50 ], [ 533, %2 ], [ 533, %8 ], [ 533, %4 ], [ 551, %51 ]
-  %.sink = phi i32 [ 106, %12 ], [ 146, %50 ], [ 786690, %2 ], [ 786690, %8 ], [ 786690, %4 ], [ 107, %51 ]
+  %.sink21 = phi i32 [ 545, %50 ], [ 533, %8 ], [ 533, %4 ], [ 533, %2 ], [ 539, %12 ], [ 551, %51 ]
+  %.sink = phi i32 [ 146, %50 ], [ 786690, %8 ], [ 786690, %4 ], [ 786690, %2 ], [ 106, %12 ], [ 107, %51 ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.ossl_ec_key_public_check_quick) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #7
@@ -979,8 +979,8 @@ define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef readonly captur
   br i1 %.not25, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %24, %19, %14
-  %.sink28 = phi i32 [ 587, %19 ], [ 582, %14 ], [ 591, %24 ]
-  %.sink = phi i32 [ 524304, %19 ], [ 122, %14 ], [ 130, %24 ]
+  %.sink28 = phi i32 [ 582, %14 ], [ 587, %19 ], [ 591, %24 ]
+  %.sink = phi i32 [ 122, %14 ], [ 524304, %19 ], [ 130, %24 ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink28, ptr noundef nonnull @__func__.ossl_ec_key_public_check) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #7
@@ -992,7 +992,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef readonly captur
   br label %28
 
 28:                                               ; preds = %10, %8, %2, %27
-  %.0 = phi i32 [ 0, %2 ], [ 1, %8 ], [ %.018, %27 ], [ 0, %10 ]
+  %.0 = phi i32 [ %.018, %27 ], [ 0, %2 ], [ 1, %8 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1035,8 +1035,8 @@ define range(i32 0, 2) i32 @ossl_ec_key_private_check(ptr noundef readonly captu
   br i1 %21, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %11, %15, %1, %3, %7
-  %.sink10 = phi i32 [ 608, %1 ], [ 608, %7 ], [ 608, %3 ], [ 613, %15 ], [ 613, %11 ]
-  %.sink = phi i32 [ 786690, %1 ], [ 786690, %7 ], [ 786690, %3 ], [ 123, %15 ], [ 123, %11 ]
+  %.sink10 = phi i32 [ 608, %7 ], [ 608, %3 ], [ 608, %1 ], [ 613, %15 ], [ 613, %11 ]
+  %.sink = phi i32 [ 786690, %7 ], [ 786690, %3 ], [ 786690, %1 ], [ 123, %15 ], [ 123, %11 ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.ossl_ec_key_private_check) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #7
@@ -1252,7 +1252,7 @@ define range(i32 0, 2) i32 @EC_KEY_set_public_key_affine_coordinates(ptr noundef
   br label %41
 
 41:                                               ; preds = %38, %36, %28, %25, %21, %17, %35
-  %.0 = phi i32 [ 0, %17 ], [ 0, %21 ], [ 0, %35 ], [ %spec.select, %38 ], [ 0, %25 ], [ 0, %36 ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %21 ], [ 0, %35 ], [ 0, %36 ], [ 0, %28 ], [ 0, %25 ], [ %spec.select, %38 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %15) #7
   tail call void @BN_CTX_free(ptr noundef nonnull %15) #7
   tail call void @EC_POINT_free(ptr noundef %19) #7
@@ -1499,7 +1499,7 @@ define range(i32 0, 2) i32 @EC_KEY_set_private_key(ptr noundef %0, ptr noundef %
   br label %49
 
 49:                                               ; preds = %34, %26, %19, %9, %12, %2, %6, %43, %42, %31
-  %.0 = phi i32 [ 1, %43 ], [ 0, %2 ], [ 0, %9 ], [ 0, %19 ], [ 0, %31 ], [ 0, %26 ], [ 0, %42 ], [ 0, %6 ], [ 0, %12 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %42 ], [ 1, %43 ], [ 0, %6 ], [ 0, %2 ], [ 0, %12 ], [ 0, %9 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -1722,7 +1722,7 @@ define range(i32 0, 2) i32 @EC_KEY_oct2key(ptr noundef captures(address_is_null)
   br label %35
 
 35:                                               ; preds = %21, %30, %.thread, %14, %4, %6
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 1, %30 ], [ 1, %21 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %14 ], [ 0, %.thread ], [ 1, %30 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -1757,7 +1757,7 @@ define i64 @EC_KEY_priv2oct(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   br label %17
 
 17:                                               ; preds = %3, %7, %15, %14
-  %.0 = phi i64 [ %16, %15 ], [ 0, %14 ], [ 0, %7 ], [ 0, %3 ]
+  %.0 = phi i64 [ 0, %14 ], [ %16, %15 ], [ 0, %7 ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -1794,7 +1794,7 @@ define range(i64 -268435455, 268435456) i64 @ossl_ec_key_simple_priv2oct(ptr nou
   br label %21
 
 21:                                               ; preds = %17, %15, %13, %3, %20
-  %.0 = phi i64 [ 0, %15 ], [ 0, %3 ], [ %9, %13 ], [ 0, %20 ], [ %9, %17 ]
+  %.0 = phi i64 [ 0, %20 ], [ 0, %3 ], [ %9, %13 ], [ 0, %15 ], [ %9, %17 ]
   ret i64 %.0
 }
 
@@ -1839,7 +1839,7 @@ define i32 @EC_KEY_oct2priv(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   br label %22
 
 22:                                               ; preds = %15, %18, %3, %7, %14
-  %.0 = phi i32 [ 0, %3 ], [ 0, %14 ], [ 0, %7 ], [ 1, %18 ], [ %16, %15 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %7 ], [ 0, %3 ], [ 1, %18 ], [ %16, %15 ]
   ret i32 %.0
 }
 
@@ -1959,7 +1959,7 @@ EC_KEY_priv2oct.exit15.thread:                    ; preds = %19, %22, %29, %EC_K
   br label %EC_KEY_priv2oct.exit.thread
 
 EC_KEY_priv2oct.exit.thread:                      ; preds = %2, %6, %13, %16, %EC_KEY_priv2oct.exit, %32, %EC_KEY_priv2oct.exit15.thread
-  %.0 = phi i64 [ %30, %32 ], [ 0, %EC_KEY_priv2oct.exit ], [ 0, %EC_KEY_priv2oct.exit15.thread ], [ 0, %16 ], [ 0, %13 ], [ 0, %6 ], [ 0, %2 ]
+  %.0 = phi i64 [ 0, %EC_KEY_priv2oct.exit15.thread ], [ %30, %32 ], [ 0, %EC_KEY_priv2oct.exit ], [ 0, %16 ], [ 0, %13 ], [ 0, %6 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -1985,7 +1985,7 @@ define range(i32 0, 2) i32 @EC_KEY_can_sign(ptr noundef readonly captures(none) 
   br label %11
 
 11:                                               ; preds = %8, %1, %5
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 

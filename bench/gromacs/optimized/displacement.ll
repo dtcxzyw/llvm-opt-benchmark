@@ -499,13 +499,13 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23Analys
   ret void
 
 .sink.split48:                                    ; preds = %57, %.sink.split47, %40, %.sink.split
-  %.sink = phi ptr [ %33, %40 ], [ %33, %.sink.split ], [ %50, %.sink.split47 ], [ %50, %57 ]
-  %.pn21.pn.pn.ph = phi { ptr, i32 } [ %41, %40 ], [ %.pn21.pn32.ph, %.sink.split ], [ %.pn.pn39.ph, %.sink.split47 ], [ %58, %57 ]
+  %.sink = phi ptr [ %33, %.sink.split ], [ %33, %40 ], [ %50, %.sink.split47 ], [ %50, %57 ]
+  %.pn21.pn.pn.ph = phi { ptr, i32 } [ %.pn21.pn32.ph, %.sink.split ], [ %41, %40 ], [ %.pn.pn39.ph, %.sink.split47 ], [ %58, %57 ]
   call void @__cxa_free_exception(ptr %.sink) #29
   br label %96
 
 96:                                               ; preds = %.sink.split48, %57, %40
-  %.pn21.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %41, %40 ], [ %.pn21.pn.pn.ph, %.sink.split48 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %58, %57 ], [ %.pn21.pn.pn.ph, %.sink.split48 ]
   resume { ptr, i32 } %.pn21.pn.pn
 
 97:                                               ; preds = %54, %37

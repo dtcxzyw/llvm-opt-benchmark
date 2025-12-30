@@ -587,7 +587,7 @@ is_member.exit180.i:                              ; preds = %.lr.ph.i175.i
   br label %.thread215.i
 
 .thread215.i:                                     ; preds = %194, %191, %183, %180, %177, %.loopexit.i, %167, %164, %161, %.loopexit225.i, %152, %.loopexit226.i, %143, %.loopexit227.i, %131, %128, %119, %116, %109, %107, %102, %99, %88, %85, %78, %76, %71, %68, %59, %56, %53, %50, %47, %44, %40, %37
-  %.not11 = phi i1 [ true, %37 ], [ true, %56 ], [ false, %194 ], [ false, %191 ], [ true, %47 ], [ true, %50 ], [ true, %44 ], [ true, %53 ], [ true, %59 ], [ true, %40 ], [ true, %85 ], [ true, %76 ], [ true, %68 ], [ true, %71 ], [ true, %78 ], [ true, %88 ], [ true, %116 ], [ true, %107 ], [ true, %99 ], [ true, %102 ], [ true, %109 ], [ true, %119 ], [ true, %131 ], [ true, %128 ], [ true, %.loopexit225.i ], [ true, %.loopexit.i ], [ true, %164 ], [ true, %.loopexit226.i ], [ true, %.loopexit227.i ], [ true, %143 ], [ true, %152 ], [ true, %161 ], [ true, %167 ], [ true, %177 ], [ true, %183 ], [ true, %180 ]
+  %.not11 = phi i1 [ false, %194 ], [ false, %191 ], [ true, %40 ], [ true, %37 ], [ true, %47 ], [ true, %44 ], [ true, %53 ], [ true, %50 ], [ true, %59 ], [ true, %56 ], [ true, %71 ], [ true, %68 ], [ true, %78 ], [ true, %76 ], [ true, %88 ], [ true, %85 ], [ true, %102 ], [ true, %99 ], [ true, %109 ], [ true, %107 ], [ true, %119 ], [ true, %116 ], [ true, %131 ], [ true, %128 ], [ true, %143 ], [ true, %.loopexit227.i ], [ true, %152 ], [ true, %.loopexit226.i ], [ true, %161 ], [ true, %.loopexit225.i ], [ true, %167 ], [ true, %164 ], [ true, %177 ], [ true, %.loopexit.i ], [ true, %183 ], [ true, %180 ]
   %.not152.i = icmp eq ptr %35, null
   br i1 %.not152.i, label %_noiseprofile_verify.exit, label %195
 
@@ -598,7 +598,7 @@ is_member.exit180.i:                              ; preds = %.lr.ph.i175.i
 _noiseprofile_verify.exit:                        ; preds = %.thread215.i, %195
   br i1 %.not11, label %_noiseprofile_verify.exit.thread, label %197
 
-_noiseprofile_verify.exit.thread:                 ; preds = %33, %30, %_noiseprofile_verify.exit
+_noiseprofile_verify.exit.thread:                 ; preds = %30, %33, %_noiseprofile_verify.exit
   %196 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #11
   call void (ptr, ...) @dt_control_log(ptr noundef %196, ptr noundef nonnull %3) #11
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #11
@@ -606,7 +606,7 @@ _noiseprofile_verify.exit.thread:                 ; preds = %33, %30, %_noisepro
   br label %197
 
 197:                                              ; preds = %19, %_noiseprofile_verify.exit.thread, %_noiseprofile_verify.exit, %12, %15
-  %.0 = phi ptr [ null, %12 ], [ null, %15 ], [ null, %19 ], [ null, %_noiseprofile_verify.exit.thread ], [ %17, %_noiseprofile_verify.exit ]
+  %.0 = phi ptr [ null, %15 ], [ null, %12 ], [ null, %_noiseprofile_verify.exit.thread ], [ null, %19 ], [ %17, %_noiseprofile_verify.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -925,7 +925,7 @@ is_member.exit:                                   ; preds = %.lr.ph.i
   br label %.thread143
 
 .thread143:                                       ; preds = %1, %105, %106
-  %.0 = phi ptr [ null, %105 ], [ %107, %106 ], [ null, %1 ]
+  %.0 = phi ptr [ %107, %106 ], [ null, %105 ], [ null, %1 ]
   ret ptr %.0
 }
 

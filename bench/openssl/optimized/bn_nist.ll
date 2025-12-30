@@ -256,7 +256,7 @@ nist_cp_bn.exit122:                               ; preds = %118
   br label %123
 
 123:                                              ; preds = %29, %24, %23, %nist_cp_bn.exit122, %19, %14
-  %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %23 ], [ 1, %nist_cp_bn.exit122 ], [ %27, %24 ], [ 0, %29 ]
+  %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %nist_cp_bn.exit122 ], [ %27, %24 ], [ 1, %23 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -485,7 +485,7 @@ nist_cp_bn.exit98:                                ; preds = %103
   br label %108
 
 108:                                              ; preds = %29, %24, %23, %nist_cp_bn.exit98, %19, %14
-  %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %23 ], [ 1, %nist_cp_bn.exit98 ], [ %27, %24 ], [ 0, %29 ]
+  %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %nist_cp_bn.exit98 ], [ %27, %24 ], [ 1, %23 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -758,7 +758,7 @@ nist_cp_bn.exit228:                               ; preds = %167
   br label %172
 
 172:                                              ; preds = %29, %24, %23, %nist_cp_bn.exit228, %19, %14
-  %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %23 ], [ 1, %nist_cp_bn.exit228 ], [ %27, %24 ], [ 0, %29 ]
+  %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %nist_cp_bn.exit228 ], [ %27, %24 ], [ 1, %23 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1089,7 +1089,7 @@ nist_cp_bn.exit273:                               ; preds = %218
   br label %223
 
 223:                                              ; preds = %29, %24, %23, %nist_cp_bn.exit273, %19, %14
-  %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %23 ], [ 1, %nist_cp_bn.exit273 ], [ %27, %24 ], [ 0, %29 ]
+  %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %nist_cp_bn.exit273 ], [ %27, %24 ], [ 1, %23 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1243,7 +1243,7 @@ nist_cp_bn.exit66:                                ; preds = %62
   br label %67
 
 67:                                               ; preds = %28, %23, %22, %nist_cp_bn.exit66, %18, %13
-  %.0 = phi i32 [ %14, %13 ], [ 1, %18 ], [ 1, %22 ], [ 1, %nist_cp_bn.exit66 ], [ %26, %23 ], [ 0, %28 ]
+  %.0 = phi i32 [ %14, %13 ], [ 1, %18 ], [ 1, %nist_cp_bn.exit66 ], [ %26, %23 ], [ 1, %22 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1276,7 +1276,7 @@ define ptr @BN_nist_mod_func(ptr noundef %0) local_unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %13, %10, %7, %4, %1
-  %.0 = phi ptr [ @BN_nist_mod_384, %10 ], [ @BN_nist_mod_192, %1 ], [ @BN_nist_mod_224, %4 ], [ @BN_nist_mod_256, %7 ], [ %BN_nist_mod_521., %13 ]
+  %.0 = phi ptr [ @BN_nist_mod_192, %1 ], [ @BN_nist_mod_224, %4 ], [ @BN_nist_mod_256, %7 ], [ @BN_nist_mod_384, %10 ], [ %BN_nist_mod_521., %13 ]
   ret ptr %.0
 }
 

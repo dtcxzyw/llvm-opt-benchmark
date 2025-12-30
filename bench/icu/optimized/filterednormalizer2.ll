@@ -205,7 +205,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %50
   br label %74
 
 _ZN6icu_7713UnicodeString6appendERKS0_ii.exit:    ; preds = %37, %_ZN6icu_7713UnicodeString6appendERKS0_.exit, %36, %43
-  %.2 = phi i32 [ 0, %43 ], [ 2, %36 ], [ 0, %_ZN6icu_7713UnicodeString6appendERKS0_.exit ], [ 2, %37 ]
+  %.2 = phi i32 [ 2, %36 ], [ 0, %43 ], [ 0, %_ZN6icu_7713UnicodeString6appendERKS0_.exit ], [ 2, %37 ]
   %67 = load i16, ptr %9, align 8, !tbaa !7
   %68 = icmp slt i16 %67, 0
   %69 = ashr i16 %67, 5
@@ -221,7 +221,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit:    ; preds = %37, %_ZN6icu_7713Un
   ret ptr %2
 
 74:                                               ; preds = %39, %66, %41
-  %.pn39.pn.pn = phi { ptr, i32 } [ %.pn, %66 ], [ %40, %39 ], [ %42, %41 ]
+  %.pn39.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %42, %41 ], [ %.pn, %66 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn39.pn.pn
@@ -311,7 +311,7 @@ define void @_ZNK6icu_7719FilteredNormalizer213normalizeUTF8EjPKciRNS_8ByteSinkE
   br label %30
 
 30:                                               ; preds = %26, %25, %18, %17
-  %.130.us.us = phi i32 [ 2, %25 ], [ 0, %17 ], [ 2, %26 ], [ 0, %18 ]
+  %.130.us.us = phi i32 [ 2, %26 ], [ 2, %25 ], [ 0, %18 ], [ 0, %17 ]
   %31 = sext i32 %15 to i64
   %32 = getelementptr inbounds i8, ptr %.02643.us.us, i64 %31
   %33 = sub nsw i32 %.02742.us.us, %15
@@ -353,7 +353,7 @@ define void @_ZNK6icu_7719FilteredNormalizer213normalizeUTF8EjPKciRNS_8ByteSinkE
   br label %51
 
 51:                                               ; preds = %47, %46, %39, %38
-  %.130.us = phi i32 [ 2, %46 ], [ 0, %38 ], [ 2, %47 ], [ 0, %39 ]
+  %.130.us = phi i32 [ 2, %47 ], [ 2, %46 ], [ 0, %39 ], [ 0, %38 ]
   %52 = sext i32 %36 to i64
   %53 = getelementptr inbounds i8, ptr %.02643.us, i64 %52
   %54 = sub nsw i32 %.02742.us, %36
@@ -387,7 +387,7 @@ define void @_ZNK6icu_7719FilteredNormalizer213normalizeUTF8EjPKciRNS_8ByteSinkE
   br i1 %66, label %67, label %.thread
 
 67:                                               ; preds = %.lr.ph.split.split.us, %60, %59
-  %.130.us50 = phi i32 [ 0, %59 ], [ 0, %60 ], [ 2, %.lr.ph.split.split.us ]
+  %.130.us50 = phi i32 [ 0, %60 ], [ 0, %59 ], [ 2, %.lr.ph.split.split.us ]
   %68 = sext i32 %57 to i64
   %69 = getelementptr inbounds i8, ptr %.02643.us45, i64 %68
   %70 = sub nsw i32 %.02742.us46, %57
@@ -425,7 +425,7 @@ define void @_ZNK6icu_7719FilteredNormalizer213normalizeUTF8EjPKciRNS_8ByteSinkE
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %76, %75, %78, %77
-  %.130 = phi i32 [ 2, %75 ], [ 2, %76 ], [ 0, %77 ], [ 0, %78 ]
+  %.130 = phi i32 [ 2, %76 ], [ 2, %75 ], [ 0, %78 ], [ 0, %77 ]
   %86 = sext i32 %73 to i64
   %87 = getelementptr inbounds i8, ptr %.02643, i64 %86
   %88 = sub nsw i32 %.02742, %73
@@ -532,7 +532,7 @@ _Z22uprv_checkCanGetBufferRKN6icu_7713UnicodeStringER10UErrorCode.exit69: ; pred
   br label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit
 
 _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; preds = %34, %44, %46
-  %.0.i.i = phi ptr [ %48, %46 ], [ %45, %44 ], [ null, %34 ]
+  %.0.i.i = phi ptr [ %45, %44 ], [ %48, %46 ], [ null, %34 ]
   %49 = icmp slt i16 %38, 0
   %50 = ashr i16 %38, 5
   %51 = sext i16 %50 to i32
@@ -572,7 +572,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %68, %66, %58
-  %.0.i.i71 = phi ptr [ %70, %68 ], [ %67, %66 ], [ null, %58 ]
+  %.0.i.i71 = phi ptr [ %67, %66 ], [ %70, %68 ], [ null, %58 ]
   %71 = icmp slt i16 %60, 0
   %72 = ashr i16 %60, 5
   %73 = sext i16 %72 to i32
@@ -708,8 +708,8 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %122, %118
   %.pn65 = phi { ptr, i32 } [ %121, %120 ], [ %.pn62, %108 ]
   resume { ptr, i32 } %.pn65
 
-_Z22uprv_checkCanGetBufferRKN6icu_7713UnicodeStringER10UErrorCode.exit69.thread: ; preds = %5, %15, %19, %109, %_ZN6icu_7713UnicodeString6appendERKS0_.exit, %32, %27, %21
-  %.050 = phi ptr [ %1, %109 ], [ %1, %21 ], [ %31, %27 ], [ %33, %32 ], [ %1, %_ZN6icu_7713UnicodeString6appendERKS0_.exit ], [ %1, %19 ], [ %1, %15 ], [ %1, %5 ]
+_Z22uprv_checkCanGetBufferRKN6icu_7713UnicodeStringER10UErrorCode.exit69.thread: ; preds = %19, %5, %15, %109, %_ZN6icu_7713UnicodeString6appendERKS0_.exit, %32, %27, %21
+  %.050 = phi ptr [ %1, %21 ], [ %31, %27 ], [ %33, %32 ], [ %1, %_ZN6icu_7713UnicodeString6appendERKS0_.exit ], [ %1, %109 ], [ %1, %15 ], [ %1, %5 ], [ %1, %19 ]
   ret ptr %.050
 }
 
@@ -930,7 +930,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   br i1 %.not30.not, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.critedge32, !llvm.loop !20
 
 .critedge32:                                      ; preds = %44, %49, %11, %3, %.critedge, %.preheader
-  %.0 = phi i8 [ 0, %3 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 0, %11 ], [ 0, %44 ], [ 1, %49 ]
+  %.0 = phi i8 [ 0, %.critedge ], [ 1, %.preheader ], [ 0, %3 ], [ 0, %11 ], [ 1, %49 ], [ 0, %44 ]
   ret i8 %.0
 }
 
@@ -1077,7 +1077,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   resume { ptr, i32 } %48
 
 .loopexit:                                        ; preds = %42, %18, %11, %3
-  %.0 = phi i32 [ %.029.ph, %18 ], [ 2, %11 ], [ 2, %3 ], [ %41, %42 ]
+  %.0 = phi i32 [ 2, %3 ], [ 2, %11 ], [ %.029.ph, %18 ], [ %41, %42 ]
   ret i32 %.0
 }
 
@@ -1180,7 +1180,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   br i1 %.not38, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.thread54, !llvm.loop !23
 
 .thread54:                                        ; preds = %43, %50, %11, %3, %.preheader
-  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %19, %.preheader ], [ %56, %50 ], [ %44, %43 ]
+  %.0 = phi i32 [ %19, %.preheader ], [ 0, %3 ], [ 0, %11 ], [ %44, %43 ], [ %56, %50 ]
   ret i32 %.0
 }
 
@@ -1288,7 +1288,7 @@ define noundef ptr @unorm2_openFiltered_77(ptr noundef %0, ptr noundef %1, ptr n
   br label %16
 
 16:                                               ; preds = %12, %15, %3, %8
-  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %15 ], [ %10, %12 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ null, %15 ], [ %10, %12 ]
   ret ptr %.0
 }
 

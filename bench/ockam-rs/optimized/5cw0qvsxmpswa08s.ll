@@ -82,7 +82,7 @@ common.resume:                                    ; preds = %.thread55, %14
   %27 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h81fb9d2ae168c5a5E(i8 noundef 3, i8 noundef 6, i8 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3056842630e9c7e7e79440dd32b675cf.6)
           to label %"_ZN20ockam_transport_core5error125_$LT$impl$u20$core..convert..From$LT$ockam_transport_core..error..TransportError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hfd4ad921d9a0b1d7E.exit29" unwind label %.thread60
 
-.thread60:                                        ; preds = %26, %24
+.thread60:                                        ; preds = %24, %26
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread55

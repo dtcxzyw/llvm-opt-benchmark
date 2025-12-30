@@ -101,7 +101,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
-.thread.loopexit:                                 ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.10559302552934589985.exit.i.i.i.i.i.i23, %33, %"_ZN4core3ptr145drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$$GT$17h782b2a8f8581b1d2E.llvm.10559302552934589985.exit.sink.split.i25"
+.thread.loopexit:                                 ; preds = %"_ZN4core3ptr145drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$$GT$17h782b2a8f8581b1d2E.llvm.10559302552934589985.exit.sink.split.i25", %_ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.10559302552934589985.exit.i.i.i.i.i.i23, %33
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -340,7 +340,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
-.thread.loopexit:                                 ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.10559302552934589985.exit.i.i.i.i.i.i23, %31, %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hebcaa6eda31a47d1E.llvm.10559302552934589985.exit.sink.split.i25"
+.thread.loopexit:                                 ; preds = %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hebcaa6eda31a47d1E.llvm.10559302552934589985.exit.sink.split.i25", %_ZN3std9panicking11panic_count13count_is_zero17h12df8c6e72edce3bE.llvm.10559302552934589985.exit.i.i.i.i.i.i23, %31
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -4922,7 +4922,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$globset..RegexSetStrategy$GT
   unreachable
 
 .body:                                            ; preds = %7, %12
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %13, %12 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %12 ], [ %8, %7 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1858)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1861)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1864)
@@ -5077,8 +5077,8 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$G
   br i1 %6, label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17hfb0df47999227a7bE.llvm.10559302552934589985.exit", label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17hfb0df47999227a7bE.llvm.10559302552934589985.exit.sink.split"
 
 "_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17hfb0df47999227a7bE.llvm.10559302552934589985.exit.sink.split": ; preds = %1, %3
-  %.sink = phi i64 [ 8, %1 ], [ 16, %3 ]
-  %.sink3 = phi i64 [ %2, %1 ], [ %5, %3 ]
+  %.sink = phi i64 [ 16, %3 ], [ 8, %1 ]
+  %.sink3 = phi i64 [ %5, %3 ], [ %2, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3, i64 noundef 1) #21, !noalias !4
@@ -5512,7 +5512,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$
   unreachable
 
 common.resume:                                    ; preds = %21, %22, %.body, %18
-  %common.resume.op = phi { ptr, i32 } [ %12, %.body ], [ %19, %18 ], [ %3, %22 ], [ %3, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %12, %.body ], [ %3, %22 ], [ %3, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE.exit": ; preds = %10
@@ -7742,7 +7742,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
   unreachable
 
 common.resume:                                    ; preds = %.body, %39, %40
-  %common.resume.op = phi { ptr, i32 } [ %31, %39 ], [ %31, %40 ], [ %14, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %40 ], [ %31, %39 ], [ %14, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBracketed$GT$17h7a205f9b4d77d7edE.llvm.10559302552934589985.exit": ; preds = %38, %37, %26
@@ -7857,7 +7857,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %.body2, %40
-  %common.resume.op = phi { ptr, i32 } [ %30, %.body2 ], [ %30, %40 ], [ %5, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %40 ], [ %30, %.body2 ], [ %5, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb063203dd821d6c0E.llvm.10559302552934589985.exit.i.i"
@@ -8472,8 +8472,8 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..error.
   br i1 %7, label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h9704240ef7e11c5fE.llvm.10559302552934589985.exit", label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17hfb0df47999227a7bE.llvm.10559302552934589985.exit.sink.split.i.i"
 
 "_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17hfb0df47999227a7bE.llvm.10559302552934589985.exit.sink.split.i.i": ; preds = %4, %3
-  %.sink.i.i = phi i64 [ 8, %3 ], [ 16, %4 ]
-  %.sink3.i.i = phi i64 [ %2, %3 ], [ %6, %4 ]
+  %.sink.i.i = phi i64 [ 16, %4 ], [ 8, %3 ]
+  %.sink3.i.i = phi i64 [ %6, %4 ], [ %2, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
   %9 = load ptr, ptr %8, align 8, !alias.scope !3460, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink3.i.i, i64 noundef 1) #21, !noalias !3460
@@ -8923,8 +8923,8 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error.
   br i1 %7, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h98f76b54685da687E.llvm.10559302552934589985.exit", label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17hfb0df47999227a7bE.llvm.10559302552934589985.exit.sink.split.i"
 
 "_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17hfb0df47999227a7bE.llvm.10559302552934589985.exit.sink.split.i": ; preds = %3, %4
-  %.sink.i = phi i64 [ 8, %3 ], [ 16, %4 ]
-  %.sink3.i = phi i64 [ %2, %3 ], [ %6, %4 ]
+  %.sink.i = phi i64 [ 16, %4 ], [ 8, %3 ]
+  %.sink3.i = phi i64 [ %6, %4 ], [ %2, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %9 = load ptr, ptr %8, align 8, !alias.scope !3704, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink3.i, i64 noundef 1) #21, !noalias !3704
@@ -11100,7 +11100,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$$u5b$$LP$usize$C$regex_autom
   br i1 %22, label %26, label %23
 
 .body:                                            ; preds = %11, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %17, %16 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %12, %11 ]
   br label %21
 
 23:                                               ; preds = %21

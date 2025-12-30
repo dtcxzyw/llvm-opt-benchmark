@@ -102,8 +102,8 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
 
 19:                                               ; preds = %17, %18
   %.070.ph = phi i32 [ 16, %18 ], [ 32, %17 ]
-  %cond = icmp eq i32 %11, 653
-  %.83 = select i1 %cond, i32 6, i32 4
+  %cond1 = icmp eq i32 %11, 653
+  %. = select i1 %cond1, i32 6, i32 4
   switch i32 %8, label %.lr.ph29.preheader.i89 [
     i32 6, label %20
     i32 5, label %22
@@ -111,11 +111,11 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
   ]
 
 20:                                               ; preds = %19
-  %21 = call i32 @wc_PBKDF2(ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %.83) #3
+  %21 = call i32 @wc_PBKDF2(ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %.) #3
   br label %43
 
 22:                                               ; preds = %19
-  %23 = call i32 @wc_PBKDF1(ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %.83) #3
+  %23 = call i32 @wc_PBKDF1(ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %.) #3
   br label %43
 
 24:                                               ; preds = %19
@@ -157,24 +157,24 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
   %34 = add nuw nsw i32 %.067.lcssa, 2
   %35 = getelementptr i8, ptr %33, i64 1
   store i8 0, ptr %35, align 1, !tbaa !3
-  %36 = call i32 @wc_PKCS12_PBKDF(ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %34, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %.83, i32 noundef 1) #3
+  %36 = call i32 @wc_PKCS12_PBKDF(ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %34, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %., i32 noundef 1) #3
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = call i32 @wc_PKCS12_PBKDF(ptr noundef %9, ptr noundef nonnull %14, i32 noundef %34, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef %.83, i32 noundef 2) #3
+  %39 = call i32 @wc_PKCS12_PBKDF(ptr noundef %9, ptr noundef nonnull %14, i32 noundef %34, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef %., i32 noundef 2) #3
   %40 = icmp slt i32 %39, 0
   %41 = select i1 %40, i32 0, i32 %36
   %spec.select = add nuw nsw i32 %41, %39
   br label %42
 
 42:                                               ; preds = %38, %._crit_edge, %24
-  %.2 = phi i32 [ %spec.select, %38 ], [ -175, %24 ], [ %36, %._crit_edge ]
+  %.2 = phi i32 [ -175, %24 ], [ %36, %._crit_edge ], [ %spec.select, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %43
 
 43:                                               ; preds = %20, %22, %42
-  %.1 = phi i32 [ %.2, %42 ], [ %21, %20 ], [ %23, %22 ]
+  %.1 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %.2, %42 ]
   %44 = icmp eq i32 %.1, 0
   br i1 %44, label %45, label %.lr.ph29.preheader.i89
 
@@ -229,7 +229,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph29.i
   br label %.lr.ph29.preheader.i89
 
 .lr.ph29.preheader.i89:                           ; preds = %43, %ForceZero.exit, %19, %17
-  %.4 = phi i32 [ %.1, %43 ], [ %.6120, %ForceZero.exit ], [ -133, %17 ], [ -133, %19 ]
+  %.4 = phi i32 [ %.6120, %ForceZero.exit ], [ %.1, %43 ], [ -133, %19 ], [ -133, %17 ]
   br label %.lr.ph29.i91
 
 .lr.ph29.i91:                                     ; preds = %.lr.ph29.i91, %.lr.ph29.preheader.i89

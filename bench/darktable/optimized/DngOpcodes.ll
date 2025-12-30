@@ -936,7 +936,7 @@ _ZNSt10unique_ptrIN8rawspeed10DngOpcodes9DngOpcodeESt14default_deleteIS2_EED2Ev.
   br label %207
 
 191:                                              ; preds = %127, %137, %132, %.sink.split.i83
-  %.sroa.0101.1.ph = phi ptr [ @.str.3, %.sink.split.i83 ], [ @.str.11, %137 ], [ @.str.5, %132 ], [ @.str.4, %127 ]
+  %.sroa.0101.1.ph = phi ptr [ @.str.3, %.sink.split.i83 ], [ @.str.5, %132 ], [ @.str.11, %137 ], [ @.str.4, %127 ]
   %192 = and i32 %.0.copyload.i.i.i.i.i.i72, 16777216
   %.not31 = icmp eq i32 %192, 0
   br i1 %.not31, label %193, label %197
@@ -984,12 +984,12 @@ _ZNSt10unique_ptrIN8rawspeed10DngOpcodes9DngOpcodeESt14default_deleteIS2_EED2Ev.
   br label %208
 
 208:                                              ; preds = %142, %146, %207, %144
-  %.pn34.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %143, %142 ], [ %145, %144 ], [ %.pn34.pn, %207 ]
+  %.pn34.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %143, %142 ], [ %145, %144 ], [ %.pn34.pn, %207 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %209
 
 209:                                              ; preds = %28, %208, %57, %55, %26
-  %.pn41.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ], [ %.pn34.pn.pn.pn.pn.pn, %208 ], [ %58, %57 ], [ %56, %55 ]
+  %.pn41.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn34.pn.pn.pn.pn.pn, %208 ], [ %29, %28 ], [ %58, %57 ], [ %56, %55 ]
   call void @_ZNSt6vectorISt10unique_ptrIN8rawspeed10DngOpcodes9DngOpcodeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #31
   resume { ptr, i32 } %.pn41.pn.pn
 }
@@ -2380,8 +2380,8 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   br i1 %.not.i.i.i71, label %.invoke, label %59
 
 .invoke:                                          ; preds = %52, %48, %43, %38
-  %57 = phi ptr [ @.str.27, %48 ], [ @.str.18, %43 ], [ @.str.27, %38 ], [ @.str.18, %52 ]
-  %58 = phi ptr [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEjj, %48 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %43 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEjj, %38 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %52 ]
+  %57 = phi ptr [ @.str.27, %38 ], [ @.str.18, %43 ], [ @.str.27, %48 ], [ @.str.18, %52 ]
+  %58 = phi ptr [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEjj, %38 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %43 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEjj, %48 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %52 ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %57, ptr noundef nonnull %58) #12
           to label %.cont unwind label %76
 
@@ -2828,13 +2828,13 @@ _ZNSt6vectorIjSaIjEE12emplace_backIJiEEERjDpOT_.exit.us: ; preds = %_ZNSt6vector
   br label %216
 
 216:                                              ; preds = %.loopexit.split-lp122, %.loopexit121, %.loopexit.split-lp, %.loopexit.split.us, %214
-  %.pn.pn = phi { ptr, i32 } [ %215, %214 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %215, %214 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %217
 
 217:                                              ; preds = %.loopexit126, %.loopexit.split-lp127, %72, %76, %216, %114, %116, %112, %74, %70
-  %.pn50.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %.pn.pn, %216 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ]
+  %.pn50.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %.pn.pn, %216 ], [ %77, %76 ], [ %113, %112 ], [ %117, %116 ], [ %115, %114 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ]
   %218 = load ptr, ptr %7, align 8, !tbaa !201
   %.not.i.i.i108 = icmp eq ptr %218, null
   br i1 %.not.i.i.i108, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %219
@@ -3049,7 +3049,7 @@ _ZNK8rawspeed12iRectangle2D22isPointInsideInclusiveERKNS_8iPoint2DE.exit.thread:
   ret void
 
 78:                                               ; preds = %64, %68, %70, %66, %72
-  %.pn25.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ]
+  %.pn25.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ]
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !119
   resume { ptr, i32 } %.pn25.pn.pn.pn.pn.pn
 }
@@ -3818,7 +3818,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !227
   br label %41
 
@@ -3925,8 +3925,8 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   br i1 %.not.i.i, label %.invoke, label %34
 
 .invoke:                                          ; preds = %27, %16, %5
-  %32 = phi ptr [ @.str.27, %16 ], [ @.str.16, %5 ], [ @.str.18, %27 ]
-  %33 = phi ptr [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEjj, %16 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj, %5 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %27 ]
+  %32 = phi ptr [ @.str.16, %5 ], [ @.str.27, %16 ], [ @.str.18, %27 ]
+  %33 = phi ptr [ @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj, %5 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEjj, %16 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %27 ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %32, ptr noundef nonnull %33) #12
           to label %.cont unwind label %48
 
@@ -4761,8 +4761,8 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   br i1 %.not.i.i, label %.invoke, label %34
 
 .invoke:                                          ; preds = %27, %16, %5
-  %32 = phi ptr [ @.str.27, %16 ], [ @.str.16, %5 ], [ @.str.18, %27 ]
-  %33 = phi ptr [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEjj, %16 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj, %5 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %27 ]
+  %32 = phi ptr [ @.str.16, %5 ], [ @.str.27, %16 ], [ @.str.18, %27 ]
+  %33 = phi ptr [ @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj, %5 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEjj, %16 ], [ @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj, %27 ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %32, ptr noundef nonnull %33) #12
           to label %.cont unwind label %48
 

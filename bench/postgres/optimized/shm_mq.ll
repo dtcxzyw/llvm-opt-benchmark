@@ -520,7 +520,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %39, %86, %85, %.thread172, %113, %124, %.thread165, %32
-  %.0116 = phi i32 [ 2, %32 ], [ 2, %.thread165 ], [ %.3119.ph, %.thread172 ], [ 1, %86 ], [ 0, %124 ], [ 0, %113 ], [ 2, %85 ], [ 1, %39 ]
+  %.0116 = phi i32 [ 2, %32 ], [ 2, %.thread165 ], [ 0, %124 ], [ 0, %113 ], [ %.3119.ph, %.thread172 ], [ 2, %85 ], [ 1, %86 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0116
@@ -599,7 +599,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_send_bytes(ptr noundef captur
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
-39:                                               ; preds = %35, %36
+39:                                               ; preds = %36, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %40 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #10, !srcloc !5
   %.not.i74 = icmp eq i8 %40, 0
@@ -673,14 +673,14 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
   br label %74
 
 74:                                               ; preds = %48, %55, %60, %.critedge
-  %.167 = phi i64 [ %.06689, %48 ], [ %.06689, %60 ], [ %.06689, %55 ], [ %69, %.critedge ]
+  %.167 = phi i64 [ %.06689, %60 ], [ %.06689, %55 ], [ %69, %.critedge ], [ %.06689, %48 ]
   %75 = icmp ult i64 %.167, %1
   br i1 %75, label %19, label %.thread, !llvm.loop !22
 
-.thread:                                          ; preds = %74, %49, %shm_mq_get_receiver.exit, %19, %5, %38, %47
-  %.06689.lcssa99.sink = phi i64 [ 0, %5 ], [ %.06689, %38 ], [ %.06689, %47 ], [ %.06689, %19 ], [ %.06689, %shm_mq_get_receiver.exit ], [ %.06689, %49 ], [ %.167, %74 ]
-  %.2 = phi i32 [ 0, %5 ], [ 2, %38 ], [ 2, %47 ], [ 2, %19 ], [ 1, %shm_mq_get_receiver.exit ], [ 1, %49 ], [ 0, %74 ]
-  store i64 %.06689.lcssa99.sink, ptr %4, align 8
+.thread:                                          ; preds = %74, %49, %shm_mq_get_receiver.exit, %19, %5, %47, %38
+  %.06689.lcssa97.sink = phi i64 [ %.06689, %47 ], [ %.06689, %38 ], [ 0, %5 ], [ %.06689, %19 ], [ %.06689, %shm_mq_get_receiver.exit ], [ %.06689, %49 ], [ %.167, %74 ]
+  %.2 = phi i32 [ 2, %47 ], [ 2, %38 ], [ 0, %5 ], [ 2, %19 ], [ 1, %shm_mq_get_receiver.exit ], [ 1, %49 ], [ 0, %74 ]
+  store i64 %.06689.lcssa97.sink, ptr %4, align 8
   ret i32 %.2
 }
 
@@ -904,7 +904,7 @@ shm_mq_get_sender.exit137:                        ; preds = %33, %35
   br i1 %113, label %._crit_edge, label %65, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %112, %109, %.thread, %56
-  %114 = phi i64 [ 0, %56 ], [ %82, %.thread ], [ %107, %109 ], [ %107, %112 ]
+  %114 = phi i64 [ 0, %56 ], [ %107, %109 ], [ %82, %.thread ], [ %107, %112 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %116 = load i64, ptr %115, align 8
   %117 = icmp ugt i64 %116, 1073741823
@@ -1029,7 +1029,7 @@ shm_mq_get_sender.exit137:                        ; preds = %33, %35
   br label %.thread140
 
 .thread140:                                       ; preds = %65, %171, %83, %126, %shm_mq_get_sender.exit, %176, %130, %39
-  %.2 = phi i32 [ 2, %39 ], [ 0, %83 ], [ %173, %171 ], [ 0, %130 ], [ %127, %126 ], [ 0, %176 ], [ %.0.i, %shm_mq_get_sender.exit ], [ %68, %65 ]
+  %.2 = phi i32 [ 0, %83 ], [ 0, %130 ], [ 0, %176 ], [ %.0.i, %shm_mq_get_sender.exit ], [ 2, %39 ], [ %127, %126 ], [ %173, %171 ], [ %68, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
@@ -1060,7 +1060,7 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noun
   %12 = load i8, ptr %5, align 8, !range !13, !noundef !14
   %13 = trunc nuw i8 %12 to i1
   %brmerge.us = select i1 %13, i1 true, i1 %11
-  br i1 %brmerge.us, label %.split.loop.exit19, label %14
+  br i1 %brmerge.us, label %.split.loop.exit, label %14
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr @MyLatch, align 8
@@ -1097,12 +1097,12 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noun
   %27 = load i8, ptr %5, align 8, !range !13, !noundef !14
   %28 = trunc nuw i8 %27 to i1
   %brmerge = select i1 %28, i1 true, i1 %26
-  br i1 %brmerge, label %.split.loop.exit19, label %29
+  br i1 %brmerge, label %.split.loop.exit, label %29
 
 29:                                               ; preds = %24
   %30 = call i32 @GetBackgroundWorkerPid(ptr noundef nonnull %2, ptr noundef nonnull %4) #10
   %or.cond = icmp ugt i32 %30, 1
-  br i1 %or.cond, label %.split.loop.exit, label %31
+  br i1 %or.cond, label %.split.loop.exit19, label %31
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr @MyLatch, align 8
@@ -1121,15 +1121,15 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.split
 
-.split.loop.exit19:                               ; preds = %24, %9
+.split.loop.exit:                                 ; preds = %24, %9
   %.us-phi = phi i1 [ %13, %9 ], [ %28, %24 ]
   %.us-phi22 = phi i1 [ %11, %9 ], [ %26, %24 ]
   %not..le = xor i1 %.us-phi, true
   %.mux.le = select i1 %not..le, i1 %.us-phi22, i1 false
-  br label %.split.loop.exit
+  br label %.split.loop.exit19
 
-.split.loop.exit:                                 ; preds = %29, %.split.loop.exit19
-  %.012.shrunk.ph = phi i1 [ %.mux.le, %.split.loop.exit19 ], [ false, %29 ]
+.split.loop.exit19:                               ; preds = %29, %.split.loop.exit
+  %.012.shrunk.ph = phi i1 [ %.mux.le, %.split.loop.exit ], [ false, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.012.shrunk.ph
 }
@@ -1276,7 +1276,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr noundef cap
   br i1 %or.cond, label %.lr.ph.split, label %._crit_edge
 
 select.unfold:                                    ; preds = %53, %.lr.ph56, %._crit_edge57, %26, %._crit_edge
-  %.1.ph = phi i32 [ 0, %._crit_edge ], [ 2, %.lr.ph56 ], [ 1, %._crit_edge57 ], [ 1, %26 ], [ 2, %53 ]
+  %.1.ph = phi i32 [ 0, %._crit_edge ], [ 1, %26 ], [ 1, %._crit_edge57 ], [ 2, %.lr.ph56 ], [ 2, %53 ]
   ret i32 %.1.ph
 }
 

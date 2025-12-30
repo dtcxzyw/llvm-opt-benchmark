@@ -297,8 +297,8 @@ define internal fastcc ptr @generate_v3(ptr noundef %0, ptr noundef %1, i32 noun
   br label %asn1_multi.exit
 
 asn1_multi.exit:                                  ; preds = %49, %44, %30, %35, %56, %58, %61, %65
-  %.037.i = phi ptr [ null, %30 ], [ null, %56 ], [ null, %58 ], [ %59, %61 ], [ %59, %65 ], [ null, %35 ], [ null, %44 ], [ null, %49 ]
-  %.036.i = phi ptr [ null, %30 ], [ %.1.i, %56 ], [ %.1.i, %58 ], [ %.1.i, %61 ], [ %.1.i, %65 ], [ null, %35 ], [ %36, %44 ], [ %36, %49 ]
+  %.037.i = phi ptr [ null, %56 ], [ null, %58 ], [ %59, %61 ], [ %59, %65 ], [ null, %35 ], [ null, %30 ], [ null, %44 ], [ null, %49 ]
+  %.036.i = phi ptr [ %.1.i, %56 ], [ %.1.i, %58 ], [ %.1.i, %61 ], [ %.1.i, %65 ], [ null, %35 ], [ null, %30 ], [ %36, %44 ], [ %36, %49 ]
   %69 = load ptr, ptr %7, align 8, !tbaa !7
   call void @CRYPTO_free(ptr noundef %69, ptr noundef nonnull @.str, i32 noundef 455) #7
   call void @OPENSSL_sk_pop_free(ptr noundef %33, ptr noundef nonnull @ASN1_TYPE_free) #7
@@ -537,8 +537,8 @@ asn1_multi.exit:                                  ; preds = %49, %44, %30, %35, 
   br label %asn1_str2type.exit
 
 149:                                              ; preds = %77, %142, %137, %126, %115, %107, %105, %101, %95, %89, %83
-  %.sink106 = phi i32 [ 712, %142 ], [ 705, %137 ], [ 697, %126 ], [ 682, %115 ], [ 656, %107 ], [ 651, %105 ], [ 647, %101 ], [ 635, %95 ], [ 624, %89 ], [ 611, %83 ], [ 728, %77 ]
-  %.sink = phi i32 [ 188, %142 ], [ 524301, %137 ], [ 178, %126 ], [ 524301, %115 ], [ 184, %107 ], [ 524301, %105 ], [ 524301, %101 ], [ 183, %95 ], [ 180, %89 ], [ 176, %83 ], [ 196, %77 ]
+  %.sink106 = phi i32 [ 611, %83 ], [ 624, %89 ], [ 635, %95 ], [ 647, %101 ], [ 651, %105 ], [ 656, %107 ], [ 682, %115 ], [ 697, %126 ], [ 705, %137 ], [ 712, %142 ], [ 728, %77 ]
+  %.sink = phi i32 [ 176, %83 ], [ 180, %89 ], [ 183, %95 ], [ 524301, %101 ], [ 524301, %105 ], [ 184, %107 ], [ 524301, %115 ], [ 178, %126 ], [ 524301, %137 ], [ 188, %142 ], [ 196, %77 ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink106, ptr noundef nonnull @__func__.asn1_str2type) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #7
@@ -724,7 +724,7 @@ asn1_str2type.exit:                               ; preds = %76, %.thread.i, %15
   br label %235
 
 235:                                              ; preds = %152, %151, %233, %29, %26, %20
-  %.0 = phi ptr [ null, %20 ], [ null, %29 ], [ null, %151 ], [ %.163, %233 ], [ null, %26 ], [ %.062, %152 ]
+  %.0 = phi ptr [ null, %20 ], [ null, %29 ], [ %.163, %233 ], [ null, %26 ], [ null, %151 ], [ %.062, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -833,8 +833,8 @@ sub_1:                                            ; preds = %sub_0
   br i1 %exitcond.not.i22, label %asn1_str2tag.exit.thread, label %.split13, !llvm.loop !41
 
 asn1_str2tag.exit:                                ; preds = %31, %15
-  %.017.i20.pn = phi ptr [ %.017.i, %15 ], [ %.017.i20, %31 ]
-  %phi.call.in = getelementptr inbounds nuw i8, ptr %.017.i20.pn, i64 12
+  %.017.i.pn = phi ptr [ %.017.i, %15 ], [ %.017.i20, %31 ]
+  %phi.call.in = getelementptr inbounds nuw i8, ptr %.017.i.pn, i64 12
   %phi.call = load i32, ptr %phi.call.in, align 4, !tbaa !42
   %.not = icmp ne i32 %phi.call, 0
   %38 = and i32 %phi.call, 65536
@@ -855,7 +855,7 @@ asn1_str2tag.exit.thread.sink.split:              ; preds = %39, %.tail
   br label %asn1_str2tag.exit.thread
 
 asn1_str2tag.exit.thread:                         ; preds = %35, %19, %asn1_str2tag.exit.thread.sink.split, %39, %asn1_str2tag.exit, %3
-  %.0 = phi i32 [ 0, %asn1_str2tag.exit ], [ 1, %asn1_str2tag.exit.thread.sink.split ], [ 0, %3 ], [ 0, %19 ], [ 0, %39 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %asn1_str2tag.exit ], [ 0, %39 ], [ 1, %asn1_str2tag.exit.thread.sink.split ], [ 0, %19 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -1221,7 +1221,7 @@ sub_1:                                            ; preds = %sub_0
   br label %141
 
 141:                                              ; preds = %append_exp.exit78.thread, %append_exp.exit74.thread, %append_exp.exit70.thread, %append_exp.exit.thread, %60, %58, %55, %43, %46, %3, %140, %136, %121, %54, %50, %asn1_str2tag.exit.thread
-  %.050 = phi i32 [ -1, %50 ], [ -1, %asn1_str2tag.exit.thread ], [ 1, %140 ], [ -1, %54 ], [ 0, %43 ], [ -1, %58 ], [ -1, %55 ], [ -1, %60 ], [ -1, %append_exp.exit.thread ], [ -1, %append_exp.exit70.thread ], [ -1, %append_exp.exit74.thread ], [ -1, %136 ], [ -1, %121 ], [ -1, %3 ], [ 0, %46 ], [ -1, %append_exp.exit78.thread ]
+  %.050 = phi i32 [ -1, %asn1_str2tag.exit.thread ], [ 1, %140 ], [ -1, %54 ], [ -1, %136 ], [ -1, %121 ], [ -1, %50 ], [ -1, %3 ], [ 0, %46 ], [ 0, %43 ], [ -1, %55 ], [ -1, %58 ], [ -1, %60 ], [ -1, %append_exp.exit.thread ], [ -1, %append_exp.exit70.thread ], [ -1, %append_exp.exit74.thread ], [ -1, %append_exp.exit78.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.050
@@ -1327,7 +1327,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_tagging(ptr noundef %0, i32 no
   br label %32
 
 32:                                               ; preds = %31, %27, %26, %25, %24, %9, %4, %28, %16
-  %.0 = phi i32 [ 0, %4 ], [ 0, %16 ], [ 0, %28 ], [ 0, %9 ], [ 1, %24 ], [ 1, %25 ], [ 1, %26 ], [ 1, %27 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %28 ], [ 0, %4 ], [ 0, %9 ], [ 1, %24 ], [ 1, %25 ], [ 1, %26 ], [ 1, %27 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1482,7 +1482,7 @@ define internal range(i32 0, 2) i32 @bitstr_cb(ptr noundef %0, i32 noundef %1, p
   br label %17
 
 17:                                               ; preds = %.sink.split, %14, %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %14 ], [ 0, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 1, %14 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

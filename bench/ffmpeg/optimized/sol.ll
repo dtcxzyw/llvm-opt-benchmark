@@ -93,9 +93,9 @@ define internal range(i32 -1, 1) i32 @sol_read_header(ptr noundef %0) #1 {
   br label %sol_codec_type.exit
 
 sol_codec_type.exit:                              ; preds = %.split, %.thread, %17, %.thread.thread
-  %phi.call51 = phi i32 [ %..i, %.thread ], [ %spec.select, %.split ], [ 81923, %.thread.thread ], [ 81923, %17 ]
-  %phi.call3249 = phi i32 [ %.0.i43, %.thread ], [ 1, %.split ], [ %.0.i4364, %.thread.thread ], [ %.0.i4364, %17 ]
-  %.029 = phi i32 [ 0, %.thread ], [ %10, %.split ], [ 3, %.thread.thread ], [ %..i46, %17 ]
+  %phi.call51 = phi i32 [ %..i, %.thread ], [ 81923, %.thread.thread ], [ 81923, %17 ], [ %spec.select, %.split ]
+  %phi.call3249 = phi i32 [ %.0.i43, %.thread ], [ %.0.i4364, %.thread.thread ], [ %.0.i4364, %17 ], [ 1, %.split ]
+  %.029 = phi i32 [ 0, %.thread ], [ 3, %.thread.thread ], [ %..i46, %17 ], [ %10, %.split ]
   %19 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #3
   %.not36 = icmp eq ptr %19, null
   br i1 %.not36, label %28, label %20
@@ -117,7 +117,7 @@ sol_codec_type.exit:                              ; preds = %.split, %.thread, %
   br label %28
 
 28:                                               ; preds = %sol_codec_type.exit, %1, %20
-  %.0 = phi i32 [ -1, %1 ], [ 0, %20 ], [ -1, %sol_codec_type.exit ]
+  %.0 = phi i32 [ 0, %20 ], [ -1, %1 ], [ -1, %sol_codec_type.exit ]
   ret i32 %.0
 }
 

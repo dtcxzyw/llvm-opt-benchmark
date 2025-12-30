@@ -1085,7 +1085,7 @@ move_array.exit.i:                                ; preds = %438, %._crit_edge.i
   br label %prune_index.exit
 
 prune_index.exit:                                 ; preds = %get_common_prefix_len.exit.thread, %406, %move_array.exit.i
-  %.074103108 = phi ptr [ null, %get_common_prefix_len.exit.thread ], [ %405, %move_array.exit.i ], [ %405, %406 ]
+  %.074103108 = phi ptr [ null, %get_common_prefix_len.exit.thread ], [ %405, %406 ], [ %405, %move_array.exit.i ]
   %444 = load i32, ptr @pathspec, align 8, !tbaa !77
   %445 = icmp ne i32 %444, 0
   %446 = load i32, ptr @error_unmatch, align 4
@@ -1853,7 +1853,7 @@ ce_excluded.exit:                                 ; preds = %git_bswap32.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %216, %.loopexit.loopexit.split.loop.exit, %.thread86, %200, %.thread88, %205, %182, %177, %153, %ce_excluded.exit
-  %.1 = phi i32 [ %.0100, %ce_excluded.exit ], [ %.0100, %200 ], [ %.0100, %177 ], [ %.0100, %182 ], [ %.0100, %153 ], [ %.0100, %205 ], [ %.0100, %.thread88 ], [ %.0100, %.thread86 ], [ %224, %.loopexit.loopexit.split.loop.exit ], [ %215, %216 ]
+  %.1 = phi i32 [ %.0100, %ce_excluded.exit ], [ %.0100, %153 ], [ %.0100, %177 ], [ %.0100, %182 ], [ %.0100, %205 ], [ %.0100, %.thread88 ], [ %.0100, %200 ], [ %.0100, %.thread86 ], [ %224, %.loopexit.loopexit.split.loop.exit ], [ %215, %216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %225 = add nuw nsw i32 %.1, 1
   %226 = load ptr, ptr %121, align 8, !tbaa !64
@@ -2515,7 +2515,7 @@ show_ce_fmt.exit:                                 ; preds = %strbuf_avail.exit.i
   br label %get_tag.exit
 
 get_tag.exit:                                     ; preds = %221, %222, %230, %232, %242, %245, %246
-  %.0.i = phi ptr [ null, %221 ], [ %4, %232 ], [ %4, %230 ], [ %4, %222 ], [ @get_tag.alttag, %245 ], [ @get_tag.alttag, %246 ], [ @get_tag.alttag, %242 ]
+  %.0.i = phi ptr [ %4, %232 ], [ %4, %230 ], [ %4, %222 ], [ null, %221 ], [ @get_tag.alttag, %245 ], [ @get_tag.alttag, %246 ], [ @get_tag.alttag, %242 ]
   %248 = load i32, ptr @show_stage, align 4, !tbaa !4
   %.not33 = icmp eq i32 %248, 0
   br i1 %.not33, label %249, label %252

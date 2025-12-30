@@ -847,7 +847,7 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i:     ; preds = %201
   br label %_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i
 
 _ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i, %201, %200, %199, %198
-  %.sroa.0.0.i.i = phi i16 [ %.sroa.050.0.insert.insert61.i, %198 ], [ %spec.select.i.i40, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i ], [ 512, %199 ], [ %.sroa.0.0.copyload5.i.i, %200 ], [ 512, %201 ]
+  %.sroa.0.0.i.i = phi i16 [ %.sroa.0.0.copyload5.i.i, %200 ], [ %.sroa.050.0.insert.insert61.i, %198 ], [ 512, %201 ], [ 512, %199 ], [ %spec.select.i.i40, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i ]
   %.sroa.050.0.extract.trunc.i = trunc i16 %.sroa.0.0.i.i to i8
   %.sroa.12.0.extract.shift.i = lshr i16 %.sroa.0.0.i.i, 8
   %.sroa.12.0.extract.trunc.i = trunc nuw i16 %.sroa.12.0.extract.shift.i to i8
@@ -1156,7 +1156,7 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.us.i:  ; preds = %311
   br label %_ZNK12_GLOBAL__N_18VXRMInfo20intersectAnticipatedERKS0_.exit.us.i
 
 _ZNK12_GLOBAL__N_18VXRMInfo20intersectAnticipatedERKS0_.exit.us.i: ; preds = %315, %314, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.us.i, %311, %308, %307
-  %storemerge.us.i = phi i16 [ %spec.select.i.us.i, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.us.i ], [ %.sroa.0.0.copyload7.i.us.i, %307 ], [ %.sroa.03.0.insert.insert14.us.i, %314 ], [ 512, %311 ], [ %.sroa.03.0.insert.insert17.us.i, %315 ], [ %.sroa.0.0.copyload6.i.us.i, %308 ]
+  %storemerge.us.i = phi i16 [ %.sroa.0.0.copyload7.i.us.i, %307 ], [ %.sroa.03.0.insert.insert14.us.i, %314 ], [ %.sroa.0.0.copyload6.i.us.i, %308 ], [ %.sroa.03.0.insert.insert17.us.i, %315 ], [ 512, %311 ], [ %spec.select.i.us.i, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.us.i ]
   %.sroa.03.0.extract.trunc.us.i = trunc i16 %storemerge.us.i to i8
   %.sroa.16.0.extract.shift.us.i = lshr i16 %storemerge.us.i, 8
   %.sroa.16.0.extract.trunc.us.i = trunc nuw i16 %.sroa.16.0.extract.shift.us.i to i8
@@ -1215,7 +1215,7 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i50.i:   ; preds = %327
   br label %_ZNK12_GLOBAL__N_18VXRMInfo20intersectAnticipatedERKS0_.exit.i
 
 _ZNK12_GLOBAL__N_18VXRMInfo20intersectAnticipatedERKS0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i50.i, %327, %326, %325, %324
-  %storemerge.i = phi i16 [ 512, %325 ], [ %.sroa.03.0.insert.insert23.i, %324 ], [ %.sroa.0.0.copyload5.i.i63, %326 ], [ %spec.select.i54.i, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i50.i ], [ 512, %327 ]
+  %storemerge.i = phi i16 [ %.sroa.0.0.copyload5.i.i63, %326 ], [ %.sroa.03.0.insert.insert23.i, %324 ], [ 512, %327 ], [ 512, %325 ], [ %spec.select.i54.i, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i50.i ]
   %.sroa.03.0.extract.trunc.i = trunc i16 %storemerge.i to i8
   %.sroa.16.0.extract.shift.i = lshr i16 %storemerge.i, 8
   %.sroa.16.0.extract.trunc.i = trunc nuw i16 %.sroa.16.0.extract.shift.i to i8
@@ -1701,7 +1701,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE5clearEv.exit.sink.split: ; preds
   br label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE5clearEv.exit.sink.split, %._crit_edge140, %.critedge, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge140 ], [ false, %.critedge ], [ %.0.ph, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE5clearEv.exit.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.critedge ], [ true, %._crit_edge140 ], [ %.0.ph, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE5clearEv.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -1918,7 +1918,7 @@ _ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit26: ; preds = %_ZNSt
   br label %_ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %53, %_ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !35
   %60 = load ptr, ptr %.0, align 8, !tbaa !34
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24

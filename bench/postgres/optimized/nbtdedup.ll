@@ -375,7 +375,7 @@ _bt_dedup_save_htid.exit.thread:                  ; preds = %183, %181, %152, %1
   br label %213
 
 213:                                              ; preds = %201, %203, %212, %_bt_dedup_save_htid.exit.thread
-  %.3 = phi i1 [ true, %203 ], [ false, %212 ], [ true, %201 ], [ false, %_bt_dedup_save_htid.exit.thread ]
+  %.3 = phi i1 [ true, %203 ], [ false, %212 ], [ false, %_bt_dedup_save_htid.exit.thread ], [ true, %201 ]
   %214 = getelementptr inbounds nuw i8, ptr %115, i64 6
   %215 = load i16, ptr %214, align 2
   %216 = and i16 %215, 8192
@@ -1526,7 +1526,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   br i1 %exitcond119.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %48, %BTreeTupleIsPosting.exit.thread
-  %150 = phi i32 [ %114, %.lr.ph.split.us.split.us ], [ %45, %BTreeTupleIsPosting.exit.thread ], [ %131, %.lr.ph.split.us.split ], [ %.ph, %48 ], [ %149, %.lr.ph.split ]
+  %150 = phi i32 [ %.ph, %48 ], [ %45, %BTreeTupleIsPosting.exit.thread ], [ %131, %.lr.ph.split.us.split ], [ %114, %.lr.ph.split.us.split.us ], [ %149, %.lr.ph.split ]
   %151 = add nuw nsw i32 %.0102, 1
   %152 = load i32, ptr %4, align 4
   %153 = icmp slt i32 %151, %152

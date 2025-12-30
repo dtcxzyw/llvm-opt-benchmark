@@ -2589,7 +2589,7 @@ select.unfold19:                                  ; preds = %126, %124
   br label %150
 
 .thread23:                                        ; preds = %126, %124, %115, %128, %101
-  %133 = phi i32 [ %131, %128 ], [ %102, %101 ], [ %102, %126 ], [ %122, %124 ], [ %102, %115 ]
+  %133 = phi i32 [ %102, %101 ], [ %131, %128 ], [ %102, %126 ], [ %122, %124 ], [ %102, %115 ]
   %134 = and i32 %38, 469762048
   switch i32 %134, label %.thread [
     i32 335544320, label %135
@@ -2609,7 +2609,7 @@ select.unfold19:                                  ; preds = %126, %124
   br label %150
 
 .thread:                                          ; preds = %84, %82, %73, %135, %.thread23, %86, %59
-  %141 = phi i32 [ %133, %.thread23 ], [ %60, %59 ], [ %133, %135 ], [ %89, %86 ], [ %60, %84 ], [ %80, %82 ], [ %60, %73 ]
+  %141 = phi i32 [ %60, %59 ], [ %133, %135 ], [ %89, %86 ], [ %133, %.thread23 ], [ %60, %84 ], [ %80, %82 ], [ %60, %73 ]
   %142 = tail call ptr @skb_put(ptr noundef %53, i32 noundef %141) #18
   %143 = tail call zeroext i16 @eth_type_trans(ptr noundef %53, ptr noundef %5) #18
   %144 = getelementptr inbounds nuw i8, ptr %53, i64 176
@@ -2705,7 +2705,7 @@ select.unfold19:                                  ; preds = %126, %124
   br label %.thread24
 
 .thread24:                                        ; preds = %183, %197, %186
-  %198 = phi i32 [ %23, %186 ], [ %23, %197 ], [ %184, %183 ]
+  %198 = phi i32 [ %23, %197 ], [ %23, %186 ], [ %184, %183 ]
   %199 = load i32, ptr @optimization_mode, align 4
   %200 = icmp eq i32 %199, 2
   br i1 %200, label %201, label %220
@@ -7735,7 +7735,7 @@ select.unfold:                                    ; preds = %65, %63
   br label %105
 
 .thread:                                          ; preds = %65, %63, %54, %67, %40
-  %72 = phi i32 [ %70, %67 ], [ %41, %40 ], [ %41, %65 ], [ %61, %63 ], [ %41, %54 ]
+  %72 = phi i32 [ %41, %40 ], [ %70, %67 ], [ %41, %65 ], [ %61, %63 ], [ %41, %54 ]
   %73 = and i32 %22, 469762048
   switch i32 %73, label %79 [
     i32 335544320, label %74
@@ -8062,7 +8062,7 @@ define internal fastcc i32 @nv_tx_done_optimized(ptr noundef %0, i32 noundef %1)
   br label %.thread
 
 .thread:                                          ; preds = %2, %141, %136, %129, %121
-  %142 = phi i32 [ %123, %121 ], [ %123, %141 ], [ %123, %136 ], [ %123, %129 ], [ 0, %2 ]
+  %142 = phi i32 [ %123, %141 ], [ %123, %136 ], [ %123, %129 ], [ %123, %121 ], [ 0, %2 ]
   %143 = getelementptr i8, ptr %0, i64 3448
   %144 = load i32, ptr %143, align 8
   %145 = icmp eq i32 %144, 1
@@ -9382,7 +9382,7 @@ default.unreachable:                              ; preds = %466
   unreachable
 
 ._crit_edge:                                      ; preds = %460, %466, %480, %477, %473, %470, %457, %442
-  %490 = phi i32 [ %469, %466 ], [ 0, %470 ], [ %489, %480 ], [ 0, %457 ], [ 0, %442 ], [ %476, %473 ], [ %479, %477 ], [ %.pre, %460 ]
+  %490 = phi i32 [ %469, %466 ], [ 0, %470 ], [ 0, %457 ], [ 0, %442 ], [ %476, %473 ], [ %479, %477 ], [ %489, %480 ], [ %.pre, %460 ]
   tail call fastcc void @nv_update_pause(ptr noundef %0, i32 noundef %490)
   %491 = and i32 %340, 1
   %492 = icmp eq i32 %491, 0
@@ -11531,10 +11531,10 @@ define internal void @nv_set_multicast(ptr noundef %0) #2 align 16 {
   br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.preheader, %22, %14
-  %44 = phi i32 [ -1, %22 ], [ 0, %14 ], [ %38, %.preheader ]
-  %45 = phi i32 [ -1, %22 ], [ 0, %14 ], [ %41, %.preheader ]
-  %46 = phi i32 [ -1, %22 ], [ 0, %14 ], [ %36, %.preheader ]
-  %47 = phi i32 [ -1, %22 ], [ 0, %14 ], [ %39, %.preheader ]
+  %44 = phi i32 [ 0, %14 ], [ -1, %22 ], [ %38, %.preheader ]
+  %45 = phi i32 [ 0, %14 ], [ -1, %22 ], [ %41, %.preheader ]
+  %46 = phi i32 [ 0, %14 ], [ -1, %22 ], [ %36, %.preheader ]
+  %47 = phi i32 [ 0, %14 ], [ -1, %22 ], [ %39, %.preheader ]
   %48 = or i32 %46, %44
   %49 = or i32 %47, %45
   %50 = or i32 %46, 1
@@ -13505,8 +13505,8 @@ define internal fastcc i32 @nv_tx_done(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %106, label %107, label %17, !llvm.loop !92
 
 107:                                              ; preds = %104, %17
-  %108 = phi i32 [ %20, %17 ], [ %88, %104 ]
-  %109 = phi i32 [ %19, %17 ], [ %89, %104 ]
+  %108 = phi i32 [ %88, %104 ], [ %20, %17 ]
+  %109 = phi i32 [ %89, %104 ], [ %19, %17 ]
   %110 = getelementptr i8, ptr %0, i64 2312
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
@@ -13538,7 +13538,7 @@ define internal fastcc i32 @nv_tx_done(ptr noundef %0, i32 noundef %1) unnamed_a
   br label %.thread
 
 .thread:                                          ; preds = %2, %127, %122, %115, %107
-  %128 = phi i32 [ %109, %107 ], [ %109, %127 ], [ %109, %122 ], [ %109, %115 ], [ 0, %2 ]
+  %128 = phi i32 [ %109, %127 ], [ %109, %122 ], [ %109, %115 ], [ %109, %107 ], [ 0, %2 ]
   %129 = getelementptr i8, ptr %0, i64 3448
   %130 = load i32, ptr %129, align 8
   %131 = icmp eq i32 %130, 1
@@ -18050,7 +18050,7 @@ mii_rw.exit.thread2:                              ; preds = %32, %mii_rw.exit
   br i1 %76, label %mii_rw.exit.thread, label %40, !llvm.loop !104
 
 mii_rw.exit.thread:                               ; preds = %24, %.thread, %40, %33, %mii_rw.exit
-  %77 = phi i32 [ -1, %mii_rw.exit ], [ -1, %33 ], [ -1, %.thread ], [ 0, %40 ], [ -1, %24 ]
+  %77 = phi i32 [ -1, %mii_rw.exit ], [ -1, %33 ], [ 0, %40 ], [ -1, %.thread ], [ -1, %24 ]
   ret i32 %77
 }
 

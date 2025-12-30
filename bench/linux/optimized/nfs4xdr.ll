@@ -246,8 +246,8 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs4_decode_dirent(ptr noundef 
   %spec.select = select i1 %64, i64 3, i64 -5
   br label %.thread
 
-.thread:                                          ; preds = %48, %63, %31, %37, %.critedge
-  %65 = phi i64 [ %.fr19, %.critedge ], [ -5, %31 ], [ %spec.select, %63 ], [ -5, %37 ], [ 0, %48 ]
+.thread:                                          ; preds = %48, %63, %37, %31, %.critedge
+  %65 = phi i64 [ %.fr19, %.critedge ], [ -5, %31 ], [ -5, %37 ], [ %spec.select, %63 ], [ 0, %48 ]
   %66 = tail call i64 @llvm.smin.i64(i64 %65, i64 0)
   %67 = and i64 %66, 2147483648
   %68 = icmp eq i64 %67, 0
@@ -837,7 +837,7 @@ decode_pathname.exit:                             ; preds = %207, %decode_pathna
   br label %300
 
 300:                                              ; preds = %187, %decode_pathname.exit
-  %301 = phi i32 [ %299, %decode_pathname.exit ], [ %182, %187 ]
+  %301 = phi i32 [ %182, %187 ], [ %299, %decode_pathname.exit ]
   store i32 %301, ptr %2, align 8
   %302 = load i32, ptr %1, align 4
   %303 = icmp eq i32 %302, 0
@@ -987,8 +987,8 @@ decode_pathname.exit:                             ; preds = %207, %decode_pathna
   store i32 %399, ptr %2, align 8
   br label %.thread
 
-.thread:                                          ; preds = %267, %.thread70, %210, %251, %241, %234, %.preheader, %282, %271, %304, %313, %197, %193, %190, %179, %171, %162, %148, %144, %131, %130, %151, %122, %114, %104, %95, %83, %72, %63, %51, %43, %33, %6, %18, %15, %397, %392, %387, %382, %376, %370, %364, %358, %352, %346, %338, %330, %.thread81, %300
-  %400 = phi i32 [ %395, %397 ], [ -5, %6 ], [ -5, %43 ], [ -5, %63 ], [ -5, %83 ], [ -5, %104 ], [ -5, %114 ], [ -5, %171 ], [ -5, %300 ], [ -5, %313 ], [ %328, %.thread81 ], [ %336, %330 ], [ %344, %338 ], [ %350, %346 ], [ %356, %352 ], [ %362, %358 ], [ %368, %364 ], [ %374, %370 ], [ %380, %376 ], [ -5, %382 ], [ %390, %387 ], [ %395, %392 ], [ -5, %15 ], [ -5, %18 ], [ -5, %33 ], [ -5, %51 ], [ -5, %72 ], [ -5, %95 ], [ -121, %148 ], [ -121, %144 ], [ -121, %131 ], [ -121, %130 ], [ -5, %151 ], [ -5, %122 ], [ -5, %162 ], [ -5, %179 ], [ -5, %197 ], [ %195, %193 ], [ -5, %190 ], [ -5, %234 ], [ -5, %304 ], [ -5, %282 ], [ -5, %251 ], [ -5, %271 ], [ -5, %.preheader ], [ -5, %241 ], [ -5, %210 ], [ -5, %.thread70 ], [ -5, %267 ]
+.thread:                                          ; preds = %267, %.thread70, %210, %241, %251, %.preheader, %234, %282, %271, %304, %313, %197, %193, %190, %179, %171, %162, %148, %144, %131, %130, %151, %122, %114, %104, %95, %83, %72, %63, %51, %43, %33, %6, %18, %15, %397, %392, %387, %382, %376, %370, %364, %358, %352, %346, %338, %330, %.thread81, %300
+  %400 = phi i32 [ -5, %300 ], [ %328, %.thread81 ], [ %336, %330 ], [ %344, %338 ], [ %350, %346 ], [ %356, %352 ], [ %362, %358 ], [ %368, %364 ], [ %374, %370 ], [ %380, %376 ], [ -5, %382 ], [ %390, %387 ], [ %395, %392 ], [ %395, %397 ], [ -5, %15 ], [ -5, %18 ], [ -5, %6 ], [ -5, %33 ], [ -5, %43 ], [ -5, %51 ], [ -5, %63 ], [ -5, %72 ], [ -5, %83 ], [ -5, %95 ], [ -5, %104 ], [ -121, %148 ], [ -121, %144 ], [ -121, %131 ], [ -121, %130 ], [ -5, %151 ], [ -5, %122 ], [ -5, %114 ], [ -5, %162 ], [ -5, %171 ], [ -5, %197 ], [ %195, %193 ], [ -5, %190 ], [ -5, %179 ], [ -5, %313 ], [ -5, %304 ], [ -5, %271 ], [ -5, %282 ], [ -5, %234 ], [ -5, %.preheader ], [ -5, %251 ], [ -5, %241 ], [ -5, %210 ], [ -5, %.thread70 ], [ -5, %267 ]
   ret i32 %400
 }
 
@@ -1185,7 +1185,7 @@ define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 39:                                               ; preds = %34, %31
-  %40 = phi i32 [ %37, %34 ], [ %33, %31 ]
+  %40 = phi i32 [ %33, %31 ], [ %37, %34 ]
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.thread14, label %.thread
 
@@ -1241,7 +1241,7 @@ define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 71:                                               ; preds = %66, %63
-  %72 = phi i32 [ %69, %66 ], [ %65, %63 ]
+  %72 = phi i32 [ %65, %63 ], [ %69, %66 ]
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread19, label %.thread
 
@@ -1268,7 +1268,7 @@ define internal i32 @nfs4_xdr_dec_read(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %66, %.thread14, %70, %.thread19, %71, %34, %9, %38, %76, %39, %3
-  %89 = phi i32 [ %5, %3 ], [ %40, %39 ], [ -121, %34 ], [ %84, %76 ], [ -121, %38 ], [ -5, %9 ], [ %72, %71 ], [ -5, %.thread19 ], [ -121, %70 ], [ -5, %.thread14 ], [ -121, %66 ]
+  %89 = phi i32 [ %5, %3 ], [ %40, %39 ], [ %84, %76 ], [ -5, %9 ], [ -121, %38 ], [ -121, %34 ], [ -5, %.thread19 ], [ %72, %71 ], [ -5, %.thread14 ], [ -121, %70 ], [ -121, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %89
 }
@@ -1485,7 +1485,7 @@ define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 39:                                               ; preds = %34, %31
-  %40 = phi i32 [ %37, %34 ], [ %33, %31 ]
+  %40 = phi i32 [ %33, %31 ], [ %37, %34 ]
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.thread16, label %.thread
 
@@ -1541,7 +1541,7 @@ define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 71:                                               ; preds = %66, %63
-  %72 = phi i32 [ %69, %66 ], [ %65, %63 ]
+  %72 = phi i32 [ %65, %63 ], [ %69, %66 ]
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread21, label %.thread
 
@@ -1588,7 +1588,7 @@ define internal i32 @nfs4_xdr_dec_write(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %66, %.thread16, %70, %76, %.thread21, %71, %34, %9, %38, %99, %39, %3
-  %102 = phi i32 [ %5, %3 ], [ %40, %39 ], [ -121, %34 ], [ %101, %99 ], [ -121, %38 ], [ -5, %9 ], [ %72, %71 ], [ -5, %76 ], [ -5, %.thread21 ], [ -121, %70 ], [ -5, %.thread16 ], [ -121, %66 ]
+  %102 = phi i32 [ %5, %3 ], [ %40, %39 ], [ %101, %99 ], [ -5, %9 ], [ -121, %38 ], [ -121, %34 ], [ -5, %76 ], [ -5, %.thread21 ], [ %72, %71 ], [ -5, %.thread16 ], [ -121, %70 ], [ -121, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %102
 }
@@ -1757,7 +1757,7 @@ define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 39:                                               ; preds = %34, %31
-  %40 = phi i32 [ %37, %34 ], [ %33, %31 ]
+  %40 = phi i32 [ %33, %31 ], [ %37, %34 ]
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.thread14, label %.thread
 
@@ -1815,7 +1815,7 @@ define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 73:                                               ; preds = %68, %65
-  %74 = phi i32 [ %71, %68 ], [ %67, %65 ]
+  %74 = phi i32 [ %67, %65 ], [ %71, %68 ]
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %.thread19, label %.thread
 
@@ -1832,7 +1832,7 @@ define internal i32 @nfs4_xdr_dec_commit(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %68, %.thread14, %72, %.thread19, %73, %34, %9, %38, %78, %39, %3
-  %81 = phi i32 [ %5, %3 ], [ %40, %39 ], [ -121, %34 ], [ 0, %78 ], [ -121, %38 ], [ -5, %9 ], [ %74, %73 ], [ -5, %.thread19 ], [ -121, %72 ], [ -5, %.thread14 ], [ -121, %68 ]
+  %81 = phi i32 [ %5, %3 ], [ %40, %39 ], [ 0, %78 ], [ -5, %9 ], [ -121, %38 ], [ -121, %34 ], [ -5, %.thread19 ], [ %74, %73 ], [ -5, %.thread14 ], [ -121, %72 ], [ -121, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %81
 }
@@ -2054,7 +2054,7 @@ define internal i32 @nfs4_xdr_dec_open(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread8, label %.thread
 
@@ -2090,7 +2090,7 @@ define internal i32 @nfs4_xdr_dec_open(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %54, %42, %.thread8, %37, %3
-  %60 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread8 ], [ %44, %42 ], [ 0, %54 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %60 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread8 ], [ %44, %42 ], [ 0, %54 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %60
 }
@@ -2294,7 +2294,7 @@ define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, p
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread13, label %.thread
 
@@ -2356,7 +2356,7 @@ define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, p
   br label %.thread17.thread
 
 71:                                               ; preds = %66, %63
-  %72 = phi i32 [ %69, %66 ], [ %65, %63 ]
+  %72 = phi i32 [ %65, %63 ], [ %69, %66 ]
   %73 = icmp eq i32 %72, -5
   br i1 %73, label %.thread, label %.thread17
 
@@ -2386,7 +2386,7 @@ define internal i32 @nfs4_xdr_dec_open_confirm(ptr readnone captures(none) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %.thread17.thread, %.thread13, %32, %7, %36, %83, %79, %.thread17, %71, %37, %3
-  %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %72, %.thread17 ], [ -5, %71 ], [ 0, %83 ], [ -5, %79 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -5, %.thread13 ], [ -121, %.thread17.thread ]
+  %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %72, %.thread17 ], [ -5, %71 ], [ 0, %83 ], [ -5, %79 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread13 ], [ -121, %.thread17.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %85
 }
@@ -2589,7 +2589,7 @@ define internal i32 @nfs4_xdr_dec_open_noattr(ptr readnone captures(none) %0, pt
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread7, label %.thread
 
@@ -2619,7 +2619,7 @@ define internal i32 @nfs4_xdr_dec_open_noattr(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %50, %.thread7, %37, %3
-  %56 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread7 ], [ 0, %50 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %56 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread7 ], [ 0, %50 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %56
 }
@@ -2838,7 +2838,7 @@ define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0,
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread13, label %.thread
 
@@ -2911,7 +2911,7 @@ define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0,
   br label %.thread17.thread
 
 77:                                               ; preds = %72, %69
-  %78 = phi i32 [ %75, %72 ], [ %71, %69 ]
+  %78 = phi i32 [ %71, %69 ], [ %75, %72 ]
   %79 = icmp eq i32 %78, -5
   br i1 %79, label %.thread, label %.thread17
 
@@ -2941,7 +2941,7 @@ define internal i32 @nfs4_xdr_dec_open_downgrade(ptr readnone captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %.thread17.thread, %45, %32, %7, %36, %89, %85, %.thread17, %77, %37, %3
-  %91 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %78, %.thread17 ], [ -5, %77 ], [ 0, %89 ], [ -5, %85 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -5, %45 ], [ -121, %.thread17.thread ]
+  %91 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %78, %.thread17 ], [ -5, %77 ], [ 0, %89 ], [ -5, %85 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %45 ], [ -121, %.thread17.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %91
 }
@@ -3161,7 +3161,7 @@ define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread14, label %.thread
 
@@ -3247,7 +3247,7 @@ define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noun
   br label %.thread18.thread
 
 86:                                               ; preds = %81, %78
-  %87 = phi i32 [ %84, %81 ], [ %80, %78 ]
+  %87 = phi i32 [ %80, %78 ], [ %84, %81 ]
   %88 = icmp eq i32 %87, -5
   br i1 %88, label %.thread, label %.thread18
 
@@ -3276,7 +3276,7 @@ define internal i32 @nfs4_xdr_dec_close(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %.thread18.thread, %54, %32, %7, %36, %94, %.thread18, %86, %49, %37, %3
-  %101 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %52, %49 ], [ %87, %.thread18 ], [ %100, %94 ], [ -5, %86 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -5, %54 ], [ -121, %.thread18.thread ]
+  %101 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %52, %49 ], [ %87, %.thread18 ], [ %100, %94 ], [ -5, %86 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %54 ], [ -121, %.thread18.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %101
 }
@@ -3456,7 +3456,7 @@ define internal i32 @nfs4_xdr_dec_setattr(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread7, label %.thread
 
@@ -3474,7 +3474,7 @@ define internal i32 @nfs4_xdr_dec_setattr(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %42, %.thread7, %37, %3
-  %48 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread7 ], [ 0, %42 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %48 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread7 ], [ 0, %42 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %48
 }
@@ -3626,7 +3626,7 @@ define internal i32 @nfs4_xdr_dec_fsinfo(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %3, %.thread6, %37
-  %43 = phi i32 [ %38, %37 ], [ %42, %.thread6 ], [ %5, %3 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
+  %43 = phi i32 [ %38, %37 ], [ %42, %.thread6 ], [ -5, %7 ], [ -121, %36 ], [ %5, %3 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %43
 }
@@ -4549,7 +4549,7 @@ define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread15, label %.thread
 
@@ -4605,7 +4605,7 @@ define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr nound
   br label %.thread18
 
 69:                                               ; preds = %64, %61
-  %70 = phi i32 [ %67, %64 ], [ %63, %61 ]
+  %70 = phi i32 [ %63, %61 ], [ %67, %64 ]
   switch i32 %70, label %.thread18 [
     i32 -5, label %.thread
     i32 0, label %.thread20
@@ -4657,7 +4657,7 @@ define internal i32 @nfs4_xdr_dec_lock(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %.thread20, %.thread15, %32, %7, %36, %92, %69, %37, %3
-  %95 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ -5, %.thread15 ], [ %87, %92 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -5, %.thread20 ]
+  %95 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %87, %92 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread15 ], [ -5, %.thread20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %95
 }
@@ -4872,7 +4872,7 @@ define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread14, label %.thread
 
@@ -4979,7 +4979,7 @@ define internal i32 @nfs4_xdr_dec_lockt(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %64, %.thread14, %46, %68, %32, %7, %36, %98, %72, %69, %37, %3
-  %106 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ -5, %72 ], [ %105, %98 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -121, %68 ], [ -5, %.thread14 ], [ 0, %46 ], [ -121, %64 ]
+  %106 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ -5, %72 ], [ %105, %98 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread14 ], [ 0, %46 ], [ -121, %68 ], [ -121, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %106
 }
@@ -5236,7 +5236,7 @@ define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread13, label %.thread
 
@@ -5298,7 +5298,7 @@ define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noun
   br label %.thread17.thread
 
 71:                                               ; preds = %66, %63
-  %72 = phi i32 [ %69, %66 ], [ %65, %63 ]
+  %72 = phi i32 [ %65, %63 ], [ %69, %66 ]
   %73 = icmp eq i32 %72, -5
   br i1 %73, label %.thread, label %.thread17
 
@@ -5328,7 +5328,7 @@ define internal i32 @nfs4_xdr_dec_locku(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %.thread17.thread, %.thread13, %32, %7, %36, %83, %79, %.thread17, %71, %37, %3
-  %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %72, %.thread17 ], [ -5, %71 ], [ 0, %83 ], [ -5, %79 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -5, %.thread13 ], [ -121, %.thread17.thread ]
+  %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %72, %.thread17 ], [ -5, %71 ], [ 0, %83 ], [ -5, %79 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread13 ], [ -121, %.thread17.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %85
 }
@@ -5510,7 +5510,7 @@ define internal i32 @nfs4_xdr_dec_access(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread8, label %.thread
 
@@ -5534,7 +5534,7 @@ define internal i32 @nfs4_xdr_dec_access(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %48, %44, %.thread8, %37, %3
-  %52 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %42, %.thread8 ], [ 0, %48 ], [ 0, %44 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %52 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %42, %.thread8 ], [ 0, %48 ], [ 0, %44 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %52
 }
@@ -5675,7 +5675,7 @@ define internal i32 @nfs4_xdr_dec_getattr(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread6, label %.thread
 
@@ -5688,7 +5688,7 @@ define internal i32 @nfs4_xdr_dec_getattr(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %.thread6, %37, %3
-  %45 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %44, %.thread6 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %45 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %44, %.thread6 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %45
 }
@@ -5888,7 +5888,7 @@ define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread13, label %.thread
 
@@ -5944,7 +5944,7 @@ define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 69:                                               ; preds = %64, %61
-  %70 = phi i32 [ %67, %64 ], [ %63, %61 ]
+  %70 = phi i32 [ %63, %61 ], [ %67, %64 ]
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.thread18, label %.thread
 
@@ -5964,7 +5964,7 @@ define internal i32 @nfs4_xdr_dec_lookup(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %64, %.thread13, %68, %32, %7, %36, %76, %.thread18, %69, %37, %3
-  %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %74, %.thread18 ], [ %81, %76 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -121, %68 ], [ -5, %.thread13 ], [ -121, %64 ]
+  %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %74, %.thread18 ], [ %81, %76 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread13 ], [ -121, %68 ], [ -121, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %82
 }
@@ -6096,7 +6096,7 @@ define internal i32 @nfs4_xdr_dec_lookup_root(ptr readnone captures(none) %0, pt
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread7, label %.thread
 
@@ -6116,7 +6116,7 @@ define internal i32 @nfs4_xdr_dec_lookup_root(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %44, %.thread7, %37, %3
-  %50 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %49, %44 ], [ %42, %.thread7 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %50 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %49, %44 ], [ %42, %.thread7 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %50
 }
@@ -6286,7 +6286,7 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread13, label %.thread
 
@@ -6343,7 +6343,7 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 70:                                               ; preds = %65, %62
-  %71 = phi i32 [ %68, %65 ], [ %64, %62 ]
+  %71 = phi i32 [ %64, %62 ], [ %68, %65 ]
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.thread18, label %.thread
 
@@ -6369,7 +6369,7 @@ define internal i32 @nfs4_xdr_dec_remove(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %65, %.thread13, %69, %32, %7, %36, %75, %.thread18, %70, %37, %3
-  %86 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %71, %70 ], [ 0, %75 ], [ -5, %.thread18 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -121, %69 ], [ -5, %.thread13 ], [ -121, %65 ]
+  %86 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %71, %70 ], [ 0, %75 ], [ -5, %.thread18 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread13 ], [ -121, %69 ], [ -121, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %86
 }
@@ -6620,7 +6620,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread18, label %.thread
 
@@ -6676,7 +6676,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 69:                                               ; preds = %64, %61
-  %70 = phi i32 [ %67, %64 ], [ %63, %61 ]
+  %70 = phi i32 [ %63, %61 ], [ %67, %64 ]
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.thread23, label %.thread
 
@@ -6732,7 +6732,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 101:                                              ; preds = %96, %93
-  %102 = phi i32 [ %99, %96 ], [ %95, %93 ]
+  %102 = phi i32 [ %95, %93 ], [ %99, %96 ]
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %.thread28, label %.thread
 
@@ -6743,7 +6743,7 @@ define internal i32 @nfs4_xdr_dec_rename(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %96, %.thread23, %100, %64, %.thread18, %68, %32, %7, %36, %.thread28, %101, %69, %37, %3
-  %107 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %102, %101 ], [ %106, %.thread28 ], [ -121, %64 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -121, %68 ], [ -5, %.thread18 ], [ -121, %100 ], [ -5, %.thread23 ], [ -121, %96 ]
+  %107 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %102, %101 ], [ %106, %.thread28 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread18 ], [ -121, %68 ], [ -121, %64 ], [ -5, %.thread23 ], [ -121, %100 ], [ -121, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %107
 }
@@ -7001,7 +7001,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread20, label %.thread
 
@@ -7057,7 +7057,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 69:                                               ; preds = %64, %61
-  %70 = phi i32 [ %67, %64 ], [ %63, %61 ]
+  %70 = phi i32 [ %63, %61 ], [ %67, %64 ]
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.thread25, label %.thread
 
@@ -7113,7 +7113,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 101:                                              ; preds = %96, %93
-  %102 = phi i32 [ %99, %96 ], [ %95, %93 ]
+  %102 = phi i32 [ %95, %93 ], [ %99, %96 ]
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %.thread30, label %.thread
 
@@ -7137,7 +7137,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %96, %.thread25, %100, %64, %.thread20, %68, %32, %7, %36, %110, %107, %.thread30, %101, %69, %37, %3
-  %116 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %102, %101 ], [ %105, %.thread30 ], [ %108, %107 ], [ 0, %110 ], [ -121, %64 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -121, %68 ], [ -5, %.thread20 ], [ -121, %100 ], [ -5, %.thread25 ], [ -121, %96 ]
+  %116 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %102, %101 ], [ %105, %.thread30 ], [ %108, %107 ], [ 0, %110 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread20 ], [ -121, %68 ], [ -121, %64 ], [ -5, %.thread25 ], [ -121, %100 ], [ -121, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %116
 }
@@ -7433,7 +7433,7 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread16, label %.thread
 
@@ -7490,7 +7490,7 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 70:                                               ; preds = %65, %62
-  %71 = phi i32 [ %68, %65 ], [ %64, %62 ]
+  %71 = phi i32 [ %64, %62 ], [ %68, %65 ]
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.thread21, label %.thread
 
@@ -7542,7 +7542,7 @@ define internal i32 @nfs4_xdr_dec_create(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %88, %.thread21, %65, %.thread16, %69, %75, %70, %32, %7, %36, %100, %95, %37, %3
-  %106 = phi i32 [ %5, %3 ], [ %38, %37 ], [ -121, %32 ], [ %98, %95 ], [ 0, %100 ], [ -121, %36 ], [ -5, %7 ], [ -5, %.thread21 ], [ %71, %70 ], [ -5, %75 ], [ -121, %65 ], [ -121, %69 ], [ -5, %.thread16 ], [ -5, %88 ]
+  %106 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %98, %95 ], [ 0, %100 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %75 ], [ %71, %70 ], [ -5, %.thread16 ], [ -121, %69 ], [ -121, %65 ], [ -5, %.thread21 ], [ -5, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %106
 }
@@ -7744,7 +7744,7 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
   br label %decode_attr_maxname.exit
 
 72:                                               ; preds = %67, %64
-  %73 = phi i32 [ %70, %67 ], [ %66, %64 ]
+  %73 = phi i32 [ %66, %64 ], [ %70, %67 ]
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.thread26, label %decode_attr_maxname.exit
 
@@ -7872,13 +7872,13 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
   %145 = select i1 %144, i32 0, i32 -5, !prof !11
   br label %decode_attr_maxname.exit
 
-decode_attr_maxname.exit:                         ; preds = %103, %77, %.thread26, %.critedge.thread, %67, %.thread21, %71, %134, %127, %107, %120, %140, %72
-  %146 = phi i32 [ %73, %72 ], [ -5, %.critedge.thread ], [ -121, %67 ], [ -5, %134 ], [ -5, %120 ], [ %145, %140 ], [ -5, %107 ], [ -5, %127 ], [ -121, %71 ], [ -5, %.thread21 ], [ -5, %.thread26 ], [ -5, %77 ], [ -5, %103 ]
+decode_attr_maxname.exit:                         ; preds = %103, %.thread26, %77, %.critedge.thread, %67, %.thread21, %71, %134, %127, %107, %120, %140, %72
+  %146 = phi i32 [ %73, %72 ], [ %145, %140 ], [ -5, %107 ], [ -5, %120 ], [ -5, %127 ], [ -5, %134 ], [ -5, %.thread21 ], [ -121, %71 ], [ -121, %67 ], [ -5, %.critedge.thread ], [ -5, %77 ], [ -5, %.thread26 ], [ -5, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %33, %8, %37, %3, %decode_attr_maxname.exit, %38
-  %147 = phi i32 [ %39, %38 ], [ %146, %decode_attr_maxname.exit ], [ %6, %3 ], [ -5, %8 ], [ -121, %37 ], [ -121, %33 ]
+  %147 = phi i32 [ %39, %38 ], [ %146, %decode_attr_maxname.exit ], [ -5, %8 ], [ -121, %37 ], [ %6, %3 ], [ -121, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %147
 }
@@ -8080,7 +8080,7 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
   br label %decode_attr_files_free.exit
 
 72:                                               ; preds = %67, %64
-  %73 = phi i32 [ %70, %67 ], [ %66, %64 ]
+  %73 = phi i32 [ %66, %64 ], [ %70, %67 ]
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.thread30, label %decode_attr_files_free.exit
 
@@ -8241,13 +8241,13 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
   %166 = select i1 %165, i32 0, i32 -5, !prof !11
   br label %decode_attr_files_free.exit
 
-decode_attr_files_free.exit:                      ; preds = %103, %77, %.thread30, %.critedge.thread, %67, %.thread25, %71, %135, %127, %107, %120, %161, %157, %153, %149, %146, %142, %72
-  %167 = phi i32 [ %73, %72 ], [ -5, %.critedge.thread ], [ -121, %67 ], [ -5, %135 ], [ -5, %120 ], [ %144, %142 ], [ -5, %146 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %166, %161 ], [ -5, %107 ], [ -5, %127 ], [ -121, %71 ], [ -5, %.thread25 ], [ -5, %.thread30 ], [ -5, %77 ], [ -5, %103 ]
+decode_attr_files_free.exit:                      ; preds = %103, %.thread30, %77, %.critedge.thread, %67, %.thread25, %71, %135, %127, %107, %120, %161, %157, %153, %149, %146, %142, %72
+  %167 = phi i32 [ %73, %72 ], [ %144, %142 ], [ -5, %146 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %166, %161 ], [ -5, %107 ], [ -5, %120 ], [ -5, %127 ], [ -5, %135 ], [ -5, %.thread25 ], [ -121, %71 ], [ -121, %67 ], [ -5, %.critedge.thread ], [ -5, %77 ], [ -5, %.thread30 ], [ -5, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %33, %8, %37, %3, %decode_attr_files_free.exit, %38
-  %168 = phi i32 [ %39, %38 ], [ %167, %decode_attr_files_free.exit ], [ %6, %3 ], [ -5, %8 ], [ -121, %37 ], [ -121, %33 ]
+  %168 = phi i32 [ %39, %38 ], [ %167, %decode_attr_files_free.exit ], [ -5, %8 ], [ -121, %37 ], [ %6, %3 ], [ -121, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %168
 }
@@ -8404,7 +8404,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread14, label %.thread
 
@@ -8461,7 +8461,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
   br label %.thread
 
 70:                                               ; preds = %65, %62
-  %71 = phi i32 [ %68, %65 ], [ %64, %62 ]
+  %71 = phi i32 [ %64, %62 ], [ %68, %65 ]
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.thread19, label %.thread
 
@@ -8490,7 +8490,7 @@ define internal i32 @nfs4_xdr_dec_readlink(ptr noundef %0, ptr noundef %1, ptr r
   br label %.thread
 
 .thread:                                          ; preds = %65, %.thread14, %69, %32, %7, %36, %86, %83, %75, %.thread19, %70, %37, %3
-  %87 = phi i32 [ %5, %3 ], [ %38, %37 ], [ 0, %86 ], [ %71, %70 ], [ -5, %.thread19 ], [ -36, %75 ], [ -5, %83 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -121, %69 ], [ -5, %.thread14 ], [ -121, %65 ]
+  %87 = phi i32 [ %5, %3 ], [ %38, %37 ], [ 0, %86 ], [ %71, %70 ], [ -5, %.thread19 ], [ -36, %75 ], [ -5, %83 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread14 ], [ -121, %69 ], [ -121, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %87
 }
@@ -8776,7 +8776,7 @@ define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread14, label %.thread
 
@@ -8832,7 +8832,7 @@ define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 69:                                               ; preds = %64, %61
-  %70 = phi i32 [ %67, %64 ], [ %63, %61 ]
+  %70 = phi i32 [ %63, %61 ], [ %67, %64 ]
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.thread19, label %.thread
 
@@ -8853,7 +8853,7 @@ define internal i32 @nfs4_xdr_dec_readdir(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %64, %.thread14, %68, %.thread19, %69, %32, %7, %36, %74, %37, %3
-  %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %81, %74 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ %70, %69 ], [ -5, %.thread19 ], [ -121, %68 ], [ -5, %.thread14 ], [ -121, %64 ]
+  %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %81, %74 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread19 ], [ %70, %69 ], [ -5, %.thread14 ], [ -121, %68 ], [ -121, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %82
 }
@@ -8995,7 +8995,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br label %.thread
 
 38:                                               ; preds = %33, %30
-  %39 = phi i32 [ %36, %33 ], [ %32, %30 ]
+  %39 = phi i32 [ %32, %30 ], [ %36, %33 ]
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.thread37, label %.thread
 
@@ -9053,7 +9053,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br label %.thread41
 
 70:                                               ; preds = %65, %62
-  %71 = phi i32 [ %68, %65 ], [ %64, %62 ]
+  %71 = phi i32 [ %64, %62 ], [ %68, %65 ]
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.thread42, label %.thread41
 
@@ -9248,13 +9248,13 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   %182 = select i1 %181, i32 0, i32 -5, !prof !11
   br label %.thread41
 
-.thread41:                                        ; preds = %143, %117, %114, %101, %75, %.thread42, %.critedge.thread, %65, %.thread37, %69, %177, %173, %169, %165, %161, %157, %153, %149, %70
-  %183 = phi i32 [ %71, %70 ], [ -5, %.critedge.thread ], [ -121, %65 ], [ -5, %101 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %163, %161 ], [ %167, %165 ], [ %171, %169 ], [ %175, %173 ], [ %182, %177 ], [ -121, %69 ], [ -5, %.thread37 ], [ -5, %.thread42 ], [ -5, %75 ], [ -5, %114 ], [ -5, %117 ], [ -5, %143 ]
+.thread41:                                        ; preds = %143, %114, %117, %101, %.thread42, %75, %.critedge.thread, %65, %.thread37, %69, %177, %173, %169, %165, %161, %157, %153, %149, %70
+  %183 = phi i32 [ %71, %70 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %163, %161 ], [ %167, %165 ], [ %171, %169 ], [ %175, %173 ], [ %182, %177 ], [ -5, %.thread37 ], [ -121, %69 ], [ -121, %65 ], [ -5, %.critedge.thread ], [ -5, %75 ], [ -5, %.thread42 ], [ -5, %101 ], [ -5, %117 ], [ -5, %114 ], [ -5, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %33, %8, %37, %.thread41, %38, %3
-  %184 = phi i32 [ %6, %3 ], [ %39, %38 ], [ %183, %.thread41 ], [ -121, %37 ], [ -5, %8 ], [ -121, %33 ]
+  %184 = phi i32 [ %6, %3 ], [ %39, %38 ], [ %183, %.thread41 ], [ -5, %8 ], [ -121, %37 ], [ -121, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %184
 }
@@ -9435,7 +9435,7 @@ define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, pt
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread13, label %.thread
 
@@ -9516,7 +9516,7 @@ define internal i32 @nfs4_xdr_dec_delegreturn(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %84, %79, %76, %61, %54, %49, %37, %3
-  %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %52, %49 ], [ -121, %84 ], [ 0, %61 ], [ %78, %76 ], [ %83, %79 ], [ -5, %54 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %85 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %52, %49 ], [ -121, %84 ], [ 0, %61 ], [ %78, %76 ], [ %83, %79 ], [ -5, %54 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %85
 }
@@ -9706,7 +9706,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 52:                                               ; preds = %47, %44
-  %53 = phi i32 [ %50, %47 ], [ %46, %44 ]
+  %53 = phi i32 [ %46, %44 ], [ %50, %47 ]
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.thread21, label %.thread
 
@@ -9768,7 +9768,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
   br label %.thread25
 
 87:                                               ; preds = %82, %79
-  %88 = phi i32 [ %85, %82 ], [ %81, %79 ]
+  %88 = phi i32 [ %81, %79 ], [ %85, %82 ]
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %.thread26, label %.thread25
 
@@ -9918,13 +9918,13 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
   store i32 %179, ptr %177, align 8
   br label %.thread25
 
-.thread25:                                        ; preds = %122, %96, %.thread26, %.critedge.thread, %82, %.thread21, %86, %176, %169, %158, %150, %147, %139, %136, %132, %87
-  %180 = phi i32 [ -5, %132 ], [ -95, %136 ], [ -5, %139 ], [ -95, %147 ], [ -5, %150 ], [ -95, %158 ], [ %88, %87 ], [ -5, %.critedge.thread ], [ -121, %82 ], [ 0, %176 ], [ 0, %169 ], [ -121, %86 ], [ -5, %.thread21 ], [ -5, %.thread26 ], [ -5, %96 ], [ -5, %122 ]
+.thread25:                                        ; preds = %122, %.thread26, %96, %.critedge.thread, %82, %.thread21, %86, %176, %169, %158, %150, %147, %139, %136, %132, %87
+  %180 = phi i32 [ -5, %132 ], [ -95, %136 ], [ -5, %139 ], [ -95, %147 ], [ -5, %150 ], [ -95, %158 ], [ %88, %87 ], [ 0, %176 ], [ 0, %169 ], [ -5, %.thread21 ], [ -121, %86 ], [ -121, %82 ], [ -5, %.critedge.thread ], [ -5, %96 ], [ -5, %.thread26 ], [ -5, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .thread:                                          ; preds = %47, %22, %51, %.thread25, %52, %19
-  %181 = phi i32 [ %20, %19 ], [ %53, %52 ], [ %180, %.thread25 ], [ -121, %51 ], [ -5, %22 ], [ -121, %47 ]
+  %181 = phi i32 [ %20, %19 ], [ %53, %52 ], [ %180, %.thread25 ], [ -5, %22 ], [ -121, %51 ], [ -121, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %181
 }
@@ -10166,7 +10166,7 @@ define internal i32 @nfs4_xdr_dec_setacl(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread6, label %.thread
 
@@ -10175,7 +10175,7 @@ define internal i32 @nfs4_xdr_dec_setacl(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %.thread6, %37, %3
-  %41 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread6 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %41 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %40, %.thread6 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %41
 }
@@ -10462,7 +10462,7 @@ define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, p
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread13, label %.thread
 
@@ -10546,7 +10546,7 @@ define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, p
   br label %.thread
 
 88:                                               ; preds = %83, %80
-  %89 = phi i32 [ %86, %83 ], [ %82, %80 ]
+  %89 = phi i32 [ %82, %80 ], [ %86, %83 ]
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %.thread18, label %.thread
 
@@ -10561,7 +10561,7 @@ define internal i32 @nfs4_xdr_dec_fs_locations(ptr readnone captures(none) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %83, %58, %87, %32, %7, %36, %.thread18, %88, %56, %52, %44, %37, %3
-  %97 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %50, %44 ], [ %57, %56 ], [ 0, %52 ], [ %89, %88 ], [ %96, %.thread18 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -121, %87 ], [ -5, %58 ], [ -121, %83 ]
+  %97 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %50, %44 ], [ %57, %56 ], [ 0, %52 ], [ %89, %88 ], [ %96, %.thread18 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %58 ], [ -121, %87 ], [ -121, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %97
 }
@@ -10869,7 +10869,7 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread21, label %.thread
 
@@ -10925,7 +10925,7 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 69:                                               ; preds = %64, %61
-  %70 = phi i32 [ %67, %64 ], [ %63, %61 ]
+  %70 = phi i32 [ %63, %61 ], [ %67, %64 ]
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.thread26, label %.thread
 
@@ -11015,7 +11015,7 @@ define internal i32 @nfs4_xdr_dec_secinfo(ptr readnone captures(none) %0, ptr no
   br i1 %124, label %.thread, label %82, !llvm.loop !64
 
 .thread:                                          ; preds = %106, %102, %98, %95, %119, %88, %82, %64, %.thread21, %68, %32, %7, %36, %74, %.thread26, %69, %37, %3
-  %125 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ -5, %.thread26 ], [ 0, %74 ], [ -121, %64 ], [ -5, %7 ], [ -121, %68 ], [ -5, %.thread21 ], [ -121, %32 ], [ -121, %36 ], [ -5, %95 ], [ -22, %98 ], [ -5, %102 ], [ -5, %106 ], [ -5, %88 ], [ 0, %119 ], [ 0, %82 ]
+  %125 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ -5, %.thread26 ], [ 0, %74 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread21 ], [ -121, %68 ], [ -121, %64 ], [ -5, %95 ], [ -22, %98 ], [ -5, %102 ], [ -5, %106 ], [ -5, %88 ], [ 0, %119 ], [ 0, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %125
 }
@@ -11204,7 +11204,7 @@ define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, p
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread12, label %.thread
 
@@ -11275,7 +11275,7 @@ define internal i32 @nfs4_xdr_dec_fsid_present(ptr readnone captures(none) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %79, %74, %71, %56, %49, %44, %.thread12, %37, %3
-  %80 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %42, %.thread12 ], [ 0, %44 ], [ -121, %79 ], [ 0, %56 ], [ %73, %71 ], [ %78, %74 ], [ -5, %49 ], [ -121, %36 ], [ -5, %7 ], [ -121, %32 ]
+  %80 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %42, %.thread12 ], [ 0, %44 ], [ -121, %79 ], [ 0, %56 ], [ %73, %71 ], [ %78, %74 ], [ -5, %49 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %80
 }
@@ -11409,7 +11409,7 @@ define internal i32 @nfs4_xdr_dec_get_lease_time(ptr readnone captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %32, %7, %36, %3, %.thread6, %37
-  %43 = phi i32 [ %38, %37 ], [ %42, %.thread6 ], [ %5, %3 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ]
+  %43 = phi i32 [ %38, %37 ], [ %42, %.thread6 ], [ -5, %7 ], [ -121, %36 ], [ %5, %3 ], [ -121, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %43
 }
@@ -11584,7 +11584,7 @@ define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 37:                                               ; preds = %32, %29
-  %38 = phi i32 [ %35, %32 ], [ %31, %29 ]
+  %38 = phi i32 [ %31, %29 ], [ %35, %32 ]
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.thread13, label %.thread
 
@@ -11640,7 +11640,7 @@ define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 69:                                               ; preds = %64, %61
-  %70 = phi i32 [ %67, %64 ], [ %63, %61 ]
+  %70 = phi i32 [ %63, %61 ], [ %67, %64 ]
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.thread18, label %.thread
 
@@ -11660,7 +11660,7 @@ define internal i32 @nfs4_xdr_dec_lookupp(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %64, %.thread13, %68, %32, %7, %36, %76, %.thread18, %69, %37, %3
-  %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %74, %.thread18 ], [ %81, %76 ], [ -121, %32 ], [ -121, %36 ], [ -5, %7 ], [ -121, %68 ], [ -5, %.thread13 ], [ -121, %64 ]
+  %82 = phi i32 [ %5, %3 ], [ %38, %37 ], [ %70, %69 ], [ %74, %.thread18 ], [ %81, %76 ], [ -5, %7 ], [ -121, %36 ], [ -121, %32 ], [ -5, %.thread13 ], [ -121, %68 ], [ -121, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %82
 }
@@ -12297,8 +12297,8 @@ define internal fastcc range(i32 -121, 1) i32 @decode_attr_mdsthreshold(ptr noun
   store i32 %68, ptr %2, align 8
   br label %.thread16
 
-.thread16:                                        ; preds = %.critedge.thread, %26, %32, %58, %101, %91, %81, %71, %107, %23
-  %113 = phi i32 [ -5, %23 ], [ -5, %101 ], [ -5, %26 ], [ %112, %107 ], [ -5, %71 ], [ -5, %81 ], [ -5, %91 ], [ -5, %58 ], [ -5, %32 ], [ -5, %.critedge.thread ]
+.thread16:                                        ; preds = %.critedge.thread, %32, %26, %58, %101, %91, %81, %71, %107, %23
+  %113 = phi i32 [ -5, %23 ], [ %112, %107 ], [ -5, %71 ], [ -5, %81 ], [ -5, %91 ], [ -5, %101 ], [ -5, %58 ], [ -5, %26 ], [ -5, %32 ], [ -5, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %114 = load i32, ptr %5, align 4
   %115 = and i32 %114, -17
@@ -12471,7 +12471,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_pathname(ptr noundef
   store ptr null, ptr %35, align 8
   br label %.thread
 
-.thread:                                          ; preds = %24, %13, %.critedge, %33, %9, %2
+.thread:                                          ; preds = %13, %24, %.critedge, %33, %9, %2
   %36 = phi i32 [ -5, %2 ], [ 0, %33 ], [ -5, %9 ], [ -5, %13 ], [ -5, %24 ], [ 0, %.critedge ]
   ret i32 %36
 }
@@ -12640,8 +12640,8 @@ define internal fastcc i32 @decode_compound_hdr(ptr noundef %0, ptr noundef capt
   %47 = select i1 %45, i32 -121, i32 %46
   br label %.critedge
 
-.critedge:                                        ; preds = %14, %5, %.critedge2, %2, %43, %40, %24
-  %48 = phi i32 [ -5, %.critedge2 ], [ -5, %14 ], [ -5, %2 ], [ 0, %24 ], [ %42, %40 ], [ %47, %43 ], [ -5, %5 ]
+.critedge:                                        ; preds = %5, %14, %.critedge2, %2, %43, %40, %24
+  %48 = phi i32 [ 0, %24 ], [ %42, %40 ], [ %47, %43 ], [ -5, %2 ], [ -5, %.critedge2 ], [ -5, %14 ], [ -5, %5 ]
   ret i32 %48
 }
 
@@ -12833,9 +12833,9 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   br i1 %48, label %.loopexit19, label %42, !llvm.loop !78
 
 .loopexit19:                                      ; preds = %28, %.preheader18, %42, %.loopexit23
-  %49 = phi ptr [ %.ph14, %.preheader18 ], [ %.ph14, %.loopexit23 ], [ %.ph14, %42 ], [ %6, %28 ]
-  %50 = phi i64 [ 0, %.preheader18 ], [ %.ph, %.loopexit23 ], [ %47, %42 ], [ 0, %28 ]
-  %51 = phi i1 [ %48, %.preheader18 ], [ false, %.loopexit23 ], [ %48, %42 ], [ true, %28 ]
+  %49 = phi ptr [ %.ph14, %.loopexit23 ], [ %.ph14, %42 ], [ %.ph14, %.preheader18 ], [ %6, %28 ]
+  %50 = phi i64 [ %.ph, %.loopexit23 ], [ 0, %.preheader18 ], [ %47, %42 ], [ 0, %28 ]
+  %51 = phi i1 [ false, %.loopexit23 ], [ %48, %42 ], [ %48, %.preheader18 ], [ true, %28 ]
   %52 = shl nuw nsw i64 %50, 2
   %53 = add nuw nsw i64 %52, 4
   %54 = tail call ptr @xdr_reserve_space(ptr noundef %0, i64 noundef %53) #12
@@ -12928,7 +12928,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(pt
   br label %.thread
 
 35:                                               ; preds = %30, %27
-  %36 = phi i32 [ %33, %30 ], [ %29, %27 ]
+  %36 = phi i32 [ %29, %27 ], [ %33, %30 ]
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.thread, label %.thread13
 
@@ -13010,8 +13010,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(pt
   %82 = select i1 %81, i32 0, i32 -5, !prof !11
   br label %.thread
 
-.thread:                                          ; preds = %.critedge.thread, %.thread13, %40, %66, %30, %4, %34, %75, %70, %35
-  %83 = phi i32 [ %36, %35 ], [ -121, %30 ], [ -5, %.thread13 ], [ %73, %70 ], [ %82, %75 ], [ -121, %34 ], [ -5, %4 ], [ -5, %66 ], [ -5, %40 ], [ -5, %.critedge.thread ]
+.thread:                                          ; preds = %.critedge.thread, %40, %.thread13, %66, %30, %4, %34, %75, %70, %35
+  %83 = phi i32 [ %36, %35 ], [ %73, %70 ], [ %82, %75 ], [ -5, %4 ], [ -121, %34 ], [ -121, %30 ], [ -5, %66 ], [ -5, %.thread13 ], [ -5, %40 ], [ -5, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %83
 }
@@ -14203,7 +14203,7 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
   br label %.critedge
 
 .critedge:                                        ; preds = %106, %40, %.thread22, %2, %33, %146, %170, %168, %163, %160, %159, %152, %143, %120, %110, %102, %99, %71, %63, %60, %36
-  %171 = phi i32 [ %.ph, %36 ], [ -121, %.thread22 ], [ -5, %60 ], [ -5, %71 ], [ -5, %63 ], [ 0, %168 ], [ -5, %170 ], [ -5, %99 ], [ %104, %102 ], [ -5, %40 ], [ -5, %110 ], [ -5, %143 ], [ 0, %159 ], [ -5, %146 ], [ -5, %152 ], [ -5, %120 ], [ -5, %160 ], [ 0, %163 ], [ -121, %33 ], [ -5, %2 ], [ -5, %106 ]
+  %171 = phi i32 [ %.ph, %36 ], [ -5, %60 ], [ -5, %71 ], [ -5, %63 ], [ -5, %170 ], [ -5, %99 ], [ %104, %102 ], [ -5, %110 ], [ -5, %143 ], [ 0, %159 ], [ -5, %152 ], [ -5, %120 ], [ -5, %160 ], [ 0, %163 ], [ 0, %168 ], [ -5, %146 ], [ -121, %33 ], [ -5, %2 ], [ -121, %.thread22 ], [ -5, %40 ], [ -5, %106 ]
   ret i32 %171
 }
 
@@ -14261,7 +14261,7 @@ define internal fastcc i32 @decode_getfh(ptr noundef %0, ptr noundef writeonly c
   br label %.thread
 
 32:                                               ; preds = %27, %24
-  %33 = phi i32 [ %30, %27 ], [ %26, %24 ]
+  %33 = phi i32 [ %26, %24 ], [ %30, %27 ]
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.thread8, label %.thread
 
@@ -14331,7 +14331,7 @@ define internal fastcc i32 @decode_getfh(ptr noundef %0, ptr noundef writeonly c
   br label %.thread
 
 .thread:                                          ; preds = %27, %2, %31, %68, %63, %60, %56, %43, %42, %.thread8, %32
-  %70 = phi i32 [ 0, %68 ], [ %33, %32 ], [ -5, %.thread8 ], [ -5, %63 ], [ -121, %42 ], [ -121, %43 ], [ -121, %56 ], [ -121, %60 ], [ -121, %31 ], [ -5, %2 ], [ -121, %27 ]
+  %70 = phi i32 [ 0, %68 ], [ %33, %32 ], [ -5, %.thread8 ], [ -5, %63 ], [ -121, %42 ], [ -121, %43 ], [ -121, %56 ], [ -121, %60 ], [ -5, %2 ], [ -121, %31 ], [ -121, %27 ]
   ret i32 %70
 }
 
@@ -14388,7 +14388,7 @@ define internal fastcc i32 @decode_access(ptr noundef %0, ptr noundef writeonly 
   br label %.thread
 
 33:                                               ; preds = %28, %25
-  %34 = phi i32 [ %31, %28 ], [ %27, %25 ]
+  %34 = phi i32 [ %27, %25 ], [ %31, %28 ]
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread6, label %.thread
 
@@ -14408,7 +14408,7 @@ define internal fastcc i32 @decode_access(ptr noundef %0, ptr noundef writeonly 
   br label %.thread
 
 .thread:                                          ; preds = %28, %3, %32, %38, %.thread6, %33
-  %44 = phi i32 [ 0, %38 ], [ %34, %33 ], [ -5, %.thread6 ], [ -121, %32 ], [ -5, %3 ], [ -121, %28 ]
+  %44 = phi i32 [ 0, %38 ], [ %34, %33 ], [ -5, %.thread6 ], [ -5, %3 ], [ -121, %32 ], [ -121, %28 ]
   ret i32 %44
 }
 
@@ -14468,7 +14468,7 @@ define internal fastcc i32 @decode_setattr(ptr noundef %0) unnamed_addr #0 align
   br label %.thread
 
 31:                                               ; preds = %26, %23
-  %32 = phi i32 [ %29, %26 ], [ %25, %23 ]
+  %32 = phi i32 [ %25, %23 ], [ %29, %26 ]
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.thread6, label %.thread
 
@@ -14490,7 +14490,7 @@ define internal fastcc i32 @decode_setattr(ptr noundef %0) unnamed_addr #0 align
   br label %.thread
 
 .thread:                                          ; preds = %26, %1, %30, %.critedge, %36, %31
-  %43 = phi i32 [ %32, %31 ], [ 0, %36 ], [ -5, %.critedge ], [ -121, %30 ], [ -5, %1 ], [ -121, %26 ]
+  %43 = phi i32 [ %32, %31 ], [ 0, %36 ], [ -5, %.critedge ], [ -5, %1 ], [ -121, %30 ], [ -121, %26 ]
   ret i32 %43
 }
 
@@ -14549,7 +14549,7 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
   br label %decode_attr_maxfilesize.exit
 
 33:                                               ; preds = %28, %25
-  %34 = phi i32 [ %31, %28 ], [ %27, %25 ]
+  %34 = phi i32 [ %27, %25 ], [ %31, %28 ]
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread22, label %decode_attr_maxfilesize.exit
 
@@ -14776,8 +14776,8 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
   %166 = select i1 %165, i32 0, i32 -5, !prof !11
   br label %decode_attr_maxfilesize.exit
 
-decode_attr_maxfilesize.exit:                     ; preds = %64, %38, %.thread22, %.critedge.thread, %28, %2, %32, %113, %105, %98, %90, %68, %83, %161, %157, %153, %149, %145, %141, %138, %134, %129, %122, %33
-  %167 = phi i32 [ %34, %33 ], [ -5, %.critedge.thread ], [ -121, %28 ], [ -5, %113 ], [ -5, %83 ], [ -5, %98 ], [ %127, %122 ], [ -5, %129 ], [ %136, %134 ], [ %139, %138 ], [ -5, %141 ], [ %147, %145 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %166, %161 ], [ -5, %68 ], [ -5, %90 ], [ -5, %105 ], [ -121, %32 ], [ -5, %2 ], [ -5, %.thread22 ], [ -5, %38 ], [ -5, %64 ]
+decode_attr_maxfilesize.exit:                     ; preds = %64, %.thread22, %38, %.critedge.thread, %28, %2, %32, %113, %105, %98, %90, %68, %83, %161, %157, %153, %149, %145, %141, %138, %134, %129, %122, %33
+  %167 = phi i32 [ %34, %33 ], [ %127, %122 ], [ -5, %129 ], [ %136, %134 ], [ %139, %138 ], [ -5, %141 ], [ %147, %145 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %166, %161 ], [ -5, %68 ], [ -5, %83 ], [ -5, %90 ], [ -5, %98 ], [ -5, %105 ], [ -5, %113 ], [ -5, %2 ], [ -121, %32 ], [ -121, %28 ], [ -5, %.critedge.thread ], [ -5, %38 ], [ -5, %.thread22 ], [ -5, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %167
 }
@@ -15176,7 +15176,7 @@ define internal fastcc i32 @decode_rename(ptr noundef %0, ptr noundef writeonly 
   br label %.thread
 
 33:                                               ; preds = %28, %25
-  %34 = phi i32 [ %31, %28 ], [ %27, %25 ]
+  %34 = phi i32 [ %27, %25 ], [ %31, %28 ]
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread7, label %.thread
 
@@ -15220,7 +15220,7 @@ define internal fastcc i32 @decode_rename(ptr noundef %0, ptr noundef writeonly 
   br label %.thread
 
 .thread:                                          ; preds = %.thread7, %28, %3, %32, %51, %38, %33
-  %62 = phi i32 [ %34, %33 ], [ -121, %28 ], [ 0, %51 ], [ -5, %38 ], [ -121, %32 ], [ -5, %3 ], [ -5, %.thread7 ]
+  %62 = phi i32 [ %34, %33 ], [ 0, %51 ], [ -5, %38 ], [ -5, %3 ], [ -121, %32 ], [ -121, %28 ], [ -5, %.thread7 ]
   ret i32 %62
 }
 
@@ -15277,7 +15277,7 @@ define internal fastcc i32 @decode_link(ptr noundef %0, ptr noundef writeonly ca
   br label %.thread
 
 32:                                               ; preds = %27, %24
-  %33 = phi i32 [ %30, %27 ], [ %26, %24 ]
+  %33 = phi i32 [ %26, %24 ], [ %30, %27 ]
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.thread6, label %.thread
 
@@ -15303,7 +15303,7 @@ define internal fastcc i32 @decode_link(ptr noundef %0, ptr noundef writeonly ca
   br label %.thread
 
 .thread:                                          ; preds = %27, %2, %31, %37, %.thread6, %32
-  %48 = phi i32 [ %33, %32 ], [ 0, %37 ], [ -5, %.thread6 ], [ -121, %31 ], [ -5, %2 ], [ -121, %27 ]
+  %48 = phi i32 [ %33, %32 ], [ 0, %37 ], [ -5, %.thread6 ], [ -5, %2 ], [ -121, %31 ], [ -121, %27 ]
   ret i32 %48
 }
 
@@ -15784,7 +15784,7 @@ define internal fastcc range(i32 -5, 1) i32 @decode_attr_exclcreat_supported(ptr
   br label %.thread9
 
 .thread9:                                         ; preds = %39, %8, %11, %43, %.thread8
-  %46 = phi i32 [ 0, %43 ], [ 0, %.thread8 ], [ -5, %11 ], [ -5, %8 ], [ -5, %39 ]
+  %46 = phi i32 [ 0, %.thread8 ], [ 0, %43 ], [ -5, %11 ], [ -5, %8 ], [ -5, %39 ]
   ret i32 %46
 }
 

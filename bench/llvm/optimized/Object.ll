@@ -258,7 +258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit
 
 _ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit: ; preds = %23, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object15MachOObjectFileESt14default_deleteIS3_EEED2Ev.exit
-  %.013 = phi ptr [ %.sink.i.i, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object15MachOObjectFileESt14default_deleteIS3_EEED2Ev.exit ], [ null, %23 ]
+  %.013 = phi ptr [ null, %23 ], [ %.sink.i.i, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object15MachOObjectFileESt14default_deleteIS3_EEED2Ev.exit ]
   ret ptr %.013
 }
 
@@ -1151,8 +1151,8 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %1
   br label %_ZN4llvm4copyIRNS_11SmallVectorIcLj0EEEPcEET0_OT_S5_.exit
 
 _ZN4llvm4copyIRNS_11SmallVectorIcLj0EEEPcEET0_OT_S5_.exit: ; preds = %._ZN4llvm4copyIRNS_11SmallVectorIcLj0EEEPcEET0_OT_S5_.exit_crit_edge, %_ZN4llvm11safe_mallocEm.exit, %20
-  %21 = phi ptr [ %.pre6, %20 ], [ %.pre6, %_ZN4llvm11safe_mallocEm.exit ], [ %.pre, %._ZN4llvm4copyIRNS_11SmallVectorIcLj0EEEPcEET0_OT_S5_.exit_crit_edge ]
-  %.0.i5 = phi ptr [ %11, %20 ], [ %11, %_ZN4llvm11safe_mallocEm.exit ], [ %16, %._ZN4llvm4copyIRNS_11SmallVectorIcLj0EEEPcEET0_OT_S5_.exit_crit_edge ]
+  %21 = phi ptr [ %.pre6, %_ZN4llvm11safe_mallocEm.exit ], [ %.pre6, %20 ], [ %.pre, %._ZN4llvm4copyIRNS_11SmallVectorIcLj0EEEPcEET0_OT_S5_.exit_crit_edge ]
+  %.0.i5 = phi ptr [ %11, %_ZN4llvm11safe_mallocEm.exit ], [ %11, %20 ], [ %16, %._ZN4llvm4copyIRNS_11SmallVectorIcLj0EEEPcEET0_OT_S5_.exit_crit_edge ]
   %22 = icmp eq ptr %21, %3
   br i1 %22, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit, label %23
 

@@ -77,7 +77,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   br label %31
 
 31:                                               ; preds = %23, %BufferGetPage.exit, %30
-  %.0 = phi i32 [ 1, %BufferGetPage.exit ], [ 1, %30 ], [ 2, %23 ]
+  %.0 = phi i32 [ 1, %30 ], [ 1, %BufferGetPage.exit ], [ 2, %23 ]
   ret i32 %.0
 }
 
@@ -1137,8 +1137,8 @@ BufferGetPage.exit165:                            ; preds = %307, %313
   br label %328
 
 328:                                              ; preds = %.sink.split, %BufferGetPage.exit165, %BufferGetPage.exit161
-  %.0146 = phi i32 [ 0, %BufferGetPage.exit165 ], [ %214, %BufferGetPage.exit161 ], [ %.0146.ph, %.sink.split ]
-  %.0145 = phi ptr [ null, %BufferGetPage.exit165 ], [ %242, %BufferGetPage.exit161 ], [ %.0145.ph, %.sink.split ]
+  %.0146 = phi i32 [ %214, %BufferGetPage.exit161 ], [ 0, %BufferGetPage.exit165 ], [ %.0146.ph, %.sink.split ]
+  %.0145 = phi ptr [ %242, %BufferGetPage.exit161 ], [ null, %BufferGetPage.exit165 ], [ %.0145.ph, %.sink.split ]
   %329 = load volatile i32, ptr @CritSectionCount, align 4
   %330 = add i32 %329, 1
   store volatile i32 %330, ptr @CritSectionCount, align 4
@@ -1217,7 +1217,7 @@ BufferGetPage.exit167:                            ; preds = %336, %342
   br label %BufferGetPage.exit169
 
 BufferGetPage.exit169:                            ; preds = %371, %365, %356, %350
-  %.0.i.i170.sink = phi ptr [ %361, %356 ], [ %355, %350 ], [ %370, %365 ], [ %376, %371 ]
+  %.0.i.i170.sink = phi ptr [ %355, %350 ], [ %361, %356 ], [ %370, %365 ], [ %376, %371 ]
   %377 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i170.sink, ptr noundef nonnull align 1 dereferenceable(8192) %377, i64 8192, i1 false)
   br i1 %.not, label %386, label %378
@@ -1392,7 +1392,7 @@ BufferGetPage.exit175:                            ; preds = %441, %447
   unreachable
 
 469:                                              ; preds = %BufferGetPage.exit157, %171, %464
-  %.0 = phi i1 [ %465, %464 ], [ true, %171 ], [ true, %BufferGetPage.exit157 ]
+  %.0 = phi i1 [ true, %171 ], [ %465, %464 ], [ true, %BufferGetPage.exit157 ]
   store ptr %30, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %29) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

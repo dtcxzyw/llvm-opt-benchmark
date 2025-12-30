@@ -269,7 +269,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   br label %49
 
 49:                                               ; preds = %48, %47, %46, %45, %22
-  %.0.i20.ph.i = phi i32 [ 4, %22 ], [ 1, %47 ], [ 2, %46 ], [ 3, %45 ], [ 0, %48 ]
+  %.0.i20.ph.i = phi i32 [ 0, %48 ], [ 1, %47 ], [ 2, %46 ], [ 3, %45 ], [ 4, %22 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.10) #9
   br label %54
 
@@ -282,9 +282,9 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   br label %decode_lspf.exit.thread
 
 54:                                               ; preds = %49, %42
-  %.0237 = phi ptr [ %14, %49 ], [ %43, %42 ]
-  %.0236 = phi i32 [ %18, %49 ], [ %44, %42 ]
-  %.0.i = phi i32 [ %.0.i20.ph.i, %49 ], [ %.016.i, %42 ]
+  %.0237 = phi ptr [ %43, %42 ], [ %14, %49 ]
+  %.0236 = phi i32 [ %44, %42 ], [ %18, %49 ]
+  %.0.i = phi i32 [ %.016.i, %42 ], [ %.0.i20.ph.i, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i32 %.0.i, ptr %55, align 8, !tbaa !56
   switch i32 %.0.i, label %63 [
@@ -1132,9 +1132,9 @@ decode_lspf.exit:                                 ; preds = %578, %.preheader.i
   br label %.thread246
 
 .thread246:                                       ; preds = %.thread246.loopexit, %596, %609, %607
-  %659 = phi float [ %597, %596 ], [ %597, %609 ], [ %597, %607 ], [ %.pre, %.thread246.loopexit ]
-  %660 = phi float [ undef, %596 ], [ undef, %609 ], [ undef, %607 ], [ %647, %.thread246.loopexit ]
-  %661 = phi float [ undef, %596 ], [ undef, %609 ], [ undef, %607 ], [ %639, %.thread246.loopexit ]
+  %659 = phi float [ %597, %609 ], [ %597, %607 ], [ %597, %596 ], [ %.pre, %.thread246.loopexit ]
+  %660 = phi float [ undef, %609 ], [ undef, %607 ], [ undef, %596 ], [ %647, %.thread246.loopexit ]
+  %661 = phi float [ undef, %609 ], [ undef, %607 ], [ undef, %596 ], [ %639, %.thread246.loopexit ]
   %662 = getelementptr inbounds nuw i8, ptr %16, i64 1036
   %663 = load float, ptr %662, align 4, !tbaa !39
   %664 = fsub nsz float %659, %663
@@ -1574,7 +1574,7 @@ synthesis_filter.exit:                            ; preds = %913
   br i1 %exitcond296.not, label %.loopexit, label %708, !llvm.loop !95
 
 decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %54, %54, %601, %592, %535, %60, %50
-  %921 = phi ptr [ %55, %601 ], [ %55, %572 ], [ %55, %592 ], [ %51, %50 ], [ %55, %535 ], [ %55, %60 ], [ %55, %54 ], [ %55, %54 ], [ %55, %579 ], [ %55, %526 ]
+  %921 = phi ptr [ %55, %601 ], [ %55, %592 ], [ %55, %535 ], [ %55, %60 ], [ %55, %54 ], [ %51, %50 ], [ %55, %54 ], [ %55, %579 ], [ %55, %572 ], [ %55, %526 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.7) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1895,8 +1895,8 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
   br i1 %exitcond177.not.i, label %.thread.i227, label %1081, !llvm.loop !102
 
 .thread.i227:                                     ; preds = %.lr.ph131.i, %1081, %1069
-  %1084 = phi i64 [ %1067, %1081 ], [ %1065, %1069 ], [ %1065, %.lr.ph131.i ]
-  %1085 = phi i32 [ 1, %1081 ], [ %.pre185.i, %1069 ], [ %.pre185.i, %.lr.ph131.i ]
+  %1084 = phi i64 [ %1065, %1069 ], [ %1067, %1081 ], [ %1065, %.lr.ph131.i ]
+  %1085 = phi i32 [ %.pre185.i, %1069 ], [ 1, %1081 ], [ %.pre185.i, %.lr.ph131.i ]
   %1086 = load float, ptr %6, align 16, !tbaa !31
   %1087 = fneg nsz float %1086
   br label %.lr.ph.i.i
@@ -1990,7 +1990,7 @@ frame_erasure.exit:                               ; preds = %synthesis_filter.ex
   br label %1126
 
 1126:                                             ; preds = %63, %4, %1124
-  %.0 = phi i32 [ -1094995529, %63 ], [ %1125, %1124 ], [ %20, %4 ]
+  %.0 = phi i32 [ %1125, %1124 ], [ %20, %4 ], [ -1094995529, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2720,7 +2720,7 @@ synthesis_filter.exit:                            ; preds = %149
   br i1 %exitcond.not.i155, label %synthesis_filter.exit156, label %.lr.ph.i150, !llvm.loop !94
 
 synthesis_filter.exit156:                         ; preds = %182, %synthesis_filter.exit, %.loopexit.thread, %.loopexit
-  %186 = phi i64 [ %110, %.loopexit.thread ], [ %134, %synthesis_filter.exit ], [ %130, %.loopexit ], [ %134, %182 ]
+  %186 = phi i64 [ %134, %synthesis_filter.exit ], [ %130, %.loopexit ], [ %110, %.loopexit.thread ], [ %134, %182 ]
   %187 = getelementptr inbounds nuw float, ptr %71, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %71, ptr noundef nonnull align 4 dereferenceable(512) %187, i64 512, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

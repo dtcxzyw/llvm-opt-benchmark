@@ -424,7 +424,7 @@ _ZN3net16HpackInputStream15DecodeNextOctetEPh.exit: ; preds = %2
   br label %.critedge25
 
 .critedge25:                                      ; preds = %28, %9, %._crit_edge.loopexit, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit, %.critedge
-  %.0 = phi i1 [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit ], [ false, %.critedge ], [ %46, %._crit_edge.loopexit ], [ true, %9 ], [ false, %28 ]
+  %.0 = phi i1 [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit ], [ false, %.critedge ], [ true, %9 ], [ %46, %._crit_edge.loopexit ], [ false, %28 ]
   ret i1 %.0
 }
 

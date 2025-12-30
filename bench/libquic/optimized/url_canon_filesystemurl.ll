@@ -324,7 +324,7 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit61:      ; preds = %select.unfold.i.i57
           to label %_ZN3url6Parsed16set_inner_parsedERKS0_.exit unwind label %83
 
 _ZN3url6Parsed16set_inner_parsedERKS0_.exit:      ; preds = %122, %125, %87, %116, %_ZN3url12CanonOutputTIcE6AppendEPKci.exit, %46
-  %.049 = phi i1 [ false, %_ZN3url12CanonOutputTIcE6AppendEPKci.exit ], [ false, %46 ], [ false, %87 ], [ false, %116 ], [ true, %125 ], [ true, %122 ]
+  %.049 = phi i1 [ false, %46 ], [ false, %_ZN3url12CanonOutputTIcE6AppendEPKci.exit ], [ false, %87 ], [ false, %116 ], [ true, %125 ], [ true, %122 ]
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.049
@@ -588,7 +588,7 @@ _ZN3url12CanonOutputTIcE6AppendEPKci.exit61.i:    ; preds = %select.unfold.i.i57
   resume { ptr, i32 } %.pn.i
 
 _ZN3url12_GLOBAL__N_127DoCanonicalizeFileSystemURLIttEEbPKT_RKNS_18URLComponentSourceIS2_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS9_.exit: ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i, %46, %87, %110, %116, %119
-  %.049.i = phi i1 [ false, %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i ], [ false, %46 ], [ false, %87 ], [ false, %110 ], [ true, %119 ], [ true, %116 ]
+  %.049.i = phi i1 [ false, %46 ], [ false, %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i ], [ false, %87 ], [ false, %110 ], [ true, %119 ], [ true, %116 ]
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.049.i

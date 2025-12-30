@@ -266,7 +266,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit: ; preds = %8
   br label %15
 
 15:                                               ; preds = %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit.thread, %5
-  %.0 = phi ptr [ null, %5 ], [ %14, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit.thread ], [ %9, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit ]
+  %.0 = phi ptr [ null, %5 ], [ %9, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit ], [ %14, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit.thread ]
   ret ptr %.0
 }
 
@@ -609,7 +609,7 @@ _ZN11ZMarkStripe11steal_stackEv.exit:             ; preds = %40
   br label %76
 
 64:                                               ; preds = %_ZN11ZMarkStripe11steal_stackEv.exit.thread, %10
-  %.1 = phi ptr [ %.0.i.ph, %_ZN11ZMarkStripe11steal_stackEv.exit.thread ], [ %.0, %10 ]
+  %.1 = phi ptr [ %.0, %10 ], [ %.0.i.ph, %_ZN11ZMarkStripe11steal_stackEv.exit.thread ]
   %65 = load i64, ptr %.1, align 8
   %.not = icmp eq i64 %65, 0
   br i1 %.not, label %_ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit, label %_ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit.thread
@@ -771,7 +771,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i:       ; preds = %60, %54
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 
 _ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit: ; preds = %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i, %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i, %22
-  %.2 = phi i1 [ %.018, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i ], [ %.018, %22 ], [ true, %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i ], [ true, %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i ]
+  %.2 = phi i1 [ %.018, %22 ], [ %.018, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i ], [ true, %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i ], [ true, %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i ]
   store ptr null, ptr %13, align 8
   br label %65
 

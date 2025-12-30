@@ -900,7 +900,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   br label %269
 
 .loopexit:                                        ; preds = %212, %175, %138, %..loopexit_crit_edge, %178, %141, %104, %98
-  %237 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %85, %175 ], [ %85, %138 ], [ %85, %98 ], [ %85, %178 ], [ %85, %141 ], [ %85, %104 ], [ %85, %212 ]
+  %237 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %85, %178 ], [ %85, %141 ], [ %85, %104 ], [ %85, %98 ], [ %85, %138 ], [ %85, %175 ], [ %85, %212 ]
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 48
   invoke void @_Z19gmx_ana_index_mergeP15gmx_ana_index_tS0_S0_(ptr noundef nonnull %238, ptr noundef nonnull %238, ptr noundef nonnull %4)
           to label %239 unwind label %96

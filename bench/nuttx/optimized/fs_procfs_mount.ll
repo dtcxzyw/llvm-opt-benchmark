@@ -42,7 +42,7 @@ define internal range(i32 -13, 1) i32 @mount_open(ptr noundef writeonly captures
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %12, %9, %6
-  %.0 = phi i8 [ 1, %9 ], [ 0, %6 ], [ 2, %12 ]
+  %.0 = phi i8 [ 0, %6 ], [ 1, %9 ], [ 2, %12 ]
   %16 = tail call noalias dereferenceable_or_null(80) ptr @zalloc(i64 noundef 80) #14
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %20, label %17
@@ -55,7 +55,7 @@ define internal range(i32 -13, 1) i32 @mount_open(ptr noundef writeonly captures
   br label %20
 
 20:                                               ; preds = %15, %12, %4, %17
-  %.010 = phi i32 [ -13, %4 ], [ 0, %17 ], [ -2, %12 ], [ -12, %15 ]
+  %.010 = phi i32 [ 0, %17 ], [ -13, %4 ], [ -2, %12 ], [ -12, %15 ]
   ret i32 %.010
 }
 

@@ -358,7 +358,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
   br i1 %146, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !55
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %143, %141, %137, %133, %127
-  %.0.i.i = phi i32 [ %142, %141 ], [ %134, %133 ], [ %138, %137 ], [ 1, %127 ], [ %145, %143 ]
+  %.0.i.i = phi i32 [ %134, %133 ], [ %138, %137 ], [ %142, %141 ], [ 1, %127 ], [ %145, %143 ]
   %147 = zext i32 %.0.i.i to i64
   %148 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %148, ptr %24, align 8, !tbaa !39, !alias.scope !52
@@ -643,7 +643,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
   br i1 %272, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i93, label %.lr.ph.i.i90, !llvm.loop !55
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i93:  ; preds = %269, %267, %263, %259, %253
-  %.0.i.i94 = phi i32 [ %268, %267 ], [ %260, %259 ], [ %264, %263 ], [ 1, %253 ], [ %271, %269 ]
+  %.0.i.i94 = phi i32 [ %260, %259 ], [ %264, %263 ], [ %268, %267 ], [ 1, %253 ], [ %271, %269 ]
   %273 = zext i32 %.0.i.i94 to i64
   %274 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %274, ptr %25, align 8, !tbaa !39, !alias.scope !64
@@ -1277,7 +1277,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br i1 %548, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i171, !llvm.loop !91
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %545, %543, %539, %535, %529
-  %.0.i.i172 = phi i32 [ %544, %543 ], [ %536, %535 ], [ %540, %539 ], [ 1, %529 ], [ %547, %545 ]
+  %.0.i.i172 = phi i32 [ %536, %535 ], [ %540, %539 ], [ %544, %543 ], [ 1, %529 ], [ %547, %545 ]
   %549 = zext i32 %.0.i.i172 to i64
   %550 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %550, ptr %27, align 8, !tbaa !39, !alias.scope !88
@@ -1553,7 +1553,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br i1 %669, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i204, label %.lr.ph.i.i201, !llvm.loop !91
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i204: ; preds = %666, %664, %660, %656, %650
-  %.0.i.i205 = phi i32 [ %665, %664 ], [ %657, %656 ], [ %661, %660 ], [ 1, %650 ], [ %668, %666 ]
+  %.0.i.i205 = phi i32 [ %657, %656 ], [ %661, %660 ], [ %665, %664 ], [ 1, %650 ], [ %668, %666 ]
   %670 = zext i32 %.0.i.i205 to i64
   %671 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %671, ptr %28, align 8, !tbaa !39, !alias.scope !99

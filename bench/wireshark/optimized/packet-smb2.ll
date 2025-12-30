@@ -4414,13 +4414,13 @@ define internal noundef zeroext i1 @seskey_list_update_cb(ptr noundef readonly c
   ]
 
 .sink.split:                                      ; preds = %22, %19, %15, %13, %2
-  %.str.2113.sink = phi ptr [ @.str.2112, %19 ], [ @.str.2111, %15 ], [ @.str.2110, %13 ], [ @.str.2109, %2 ], [ @.str.2113, %22 ]
+  %.str.2113.sink = phi ptr [ @.str.2109, %2 ], [ @.str.2110, %13 ], [ @.str.2111, %15 ], [ @.str.2112, %19 ], [ @.str.2113, %22 ]
   %24 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.2113.sink)
   store ptr %24, ptr %1, align 8
   br label %25
 
 25:                                               ; preds = %.sink.split, %21, %22, %22
-  %.0 = phi i1 [ true, %22 ], [ true, %21 ], [ true, %22 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %22 ], [ true, %22 ], [ true, %21 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -4494,7 +4494,7 @@ define internal range(i32 0, 2) i32 @smb2stat_packet(ptr noundef readonly captur
   br label %25
 
 25:                                               ; preds = %15, %12, %9, %9, %5, %20
-  %.0 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 1, %20 ], [ 0, %9 ], [ 0, %9 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %20 ], [ 0, %5 ], [ 0, %9 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -4677,7 +4677,7 @@ define internal fastcc noundef i32 @dissect_file_data_smb2_pipe(ptr noundef %0, 
   br label %smb2_pipe_get_fid_info.exit
 
 smb2_pipe_get_fid_info.exit:                      ; preds = %7, %11, %14, %17
-  %.08.i = phi ptr [ null, %7 ], [ null, %14 ], [ %19, %17 ], [ %13, %11 ]
+  %.08.i = phi ptr [ null, %7 ], [ %19, %17 ], [ null, %14 ], [ %13, %11 ]
   %20 = ptrtoint ptr %.08.i to i64
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3)
@@ -4703,181 +4703,181 @@ smb2_pipe_get_fid_info.exit:                      ; preds = %7, %11, %14, %17
   store i16 2, ptr %25, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %34 = load i8, ptr %33, align 8, !range !13, !noundef !14
-  br label %41
+  br label %38
 
 35:                                               ; preds = %31, %smb2_pipe_get_fid_info.exit
   %.pr = load i16, ptr %25, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %37 = load i8, ptr %36, align 8, !range !13, !noundef !14
   %.not121 = icmp eq i16 %.pr, 0
-  br i1 %.not121, label %38, label %41
+  br i1 %.not121, label %proto_item_set_generated.exit, label %38
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
-  %40 = call zeroext i1 @dissector_try_heuristic(ptr noundef %39, ptr noundef %24, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
-  store i16 0, ptr %25, align 8
-  store i32 0, ptr %26, align 4
-  store i32 0, ptr %27, align 8
-  br i1 %40, label %115, label %111
+38:                                               ; preds = %.thread, %35
+  %39 = phi i8 [ %34, %.thread ], [ %37, %35 ]
+  %40 = phi ptr [ %33, %.thread ], [ %36, %35 ]
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 57
+  %44 = load i16, ptr %43, align 1
+  %45 = and i16 %44, 8
+  %.not122 = icmp eq i16 %45, 0
+  br i1 %.not122, label %46, label %75
 
-41:                                               ; preds = %.thread, %35
-  %42 = phi i8 [ %34, %.thread ], [ %37, %35 ]
-  %43 = phi ptr [ %33, %.thread ], [ %36, %35 ]
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 57
-  %47 = load i16, ptr %46, align 1
-  %48 = and i16 %47, 8
-  %.not122 = icmp eq i16 %48, 0
-  br i1 %.not122, label %49, label %78
+46:                                               ; preds = %38
+  %47 = tail call ptr @fragment_get(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %1, i32 noundef %21, ptr noundef null)
+  %.not123 = icmp eq ptr %47, null
+  br i1 %.not123, label %48, label %57
 
-49:                                               ; preds = %41
-  %50 = tail call ptr @fragment_get(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %1, i32 noundef %21, ptr noundef null)
-  %.not123 = icmp eq ptr %50, null
-  br i1 %.not123, label %51, label %60
+48:                                               ; preds = %46
+  %49 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
+  %50 = call zeroext i1 @dissector_try_heuristic(ptr noundef %49, ptr noundef %24, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
+  br i1 %50, label %51, label %proto_item_set_generated.exit.thread
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
-  %53 = call zeroext i1 @dissector_try_heuristic(ptr noundef %52, ptr noundef %24, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
-  br i1 %53, label %54, label %proto_item_set_generated.exit.thread
+51:                                               ; preds = %48
+  %52 = load i32, ptr %27, align 8
+  %.not124 = icmp eq i32 %52, 0
+  br i1 %.not124, label %proto_item_set_generated.exit.thread136, label %53
 
-54:                                               ; preds = %51
+53:                                               ; preds = %51
+  %54 = call ptr @fragment_add_check(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %24, i32 noundef 0, ptr noundef %1, i32 noundef %21, ptr noundef null, i32 noundef 0, i32 noundef %28, i1 noundef zeroext true)
   %55 = load i32, ptr %27, align 8
-  %.not124 = icmp eq i32 %55, 0
-  br i1 %.not124, label %proto_item_set_generated.exit.thread136, label %56
-
-56:                                               ; preds = %54
-  %57 = call ptr @fragment_add_check(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %24, i32 noundef 0, ptr noundef %1, i32 noundef %21, ptr noundef null, i32 noundef 0, i32 noundef %28, i1 noundef zeroext true)
-  %58 = load i32, ptr %27, align 8
-  %59 = add i32 %58, %28
-  call void @fragment_set_tot_len(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %1, i32 noundef %21, ptr noundef null, i32 noundef %59)
+  %56 = add i32 %55, %28
+  call void @fragment_set_tot_len(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %1, i32 noundef %21, ptr noundef null, i32 noundef %56)
   br label %proto_item_set_generated.exit.thread136
 
-60:                                               ; preds = %49
-  %61 = load ptr, ptr %50, align 8
-  br label %62
+57:                                               ; preds = %46
+  %58 = load ptr, ptr %47, align 8
+  br label %59
 
-62:                                               ; preds = %62, %60
-  %.0114 = phi ptr [ %61, %60 ], [ %63, %62 ]
-  %63 = load ptr, ptr %.0114, align 8
-  %.not125 = icmp eq ptr %63, null
-  br i1 %.not125, label %64, label %62, !llvm.loop !15
+59:                                               ; preds = %59, %57
+  %.0114 = phi ptr [ %58, %57 ], [ %60, %59 ]
+  %60 = load ptr, ptr %.0114, align 8
+  %.not125 = icmp eq ptr %60, null
+  br i1 %.not125, label %61, label %59, !llvm.loop !15
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %.0114, i64 12
-  %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %.0114, i64 16
-  %68 = load i32, ptr %67, align 8
-  %69 = add i32 %68, %66
-  %70 = tail call ptr @fragment_add_check(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %24, i32 noundef 0, ptr noundef %1, i32 noundef %21, ptr noundef null, i32 noundef %69, i32 noundef %28, i1 noundef zeroext true)
-  %.not126 = icmp eq ptr %70, null
-  br i1 %.not126, label %proto_item_set_generated.exit.thread, label %71
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %.0114, i64 12
+  %63 = load i32, ptr %62, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %.0114, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, %63
+  %67 = tail call ptr @fragment_add_check(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %24, i32 noundef 0, ptr noundef %1, i32 noundef %21, ptr noundef null, i32 noundef %66, i32 noundef %28, i1 noundef zeroext true)
+  %.not126 = icmp eq ptr %67, null
+  br i1 %.not126, label %proto_item_set_generated.exit.thread, label %68
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 56
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call ptr @tvb_new_chain(ptr noundef %24, ptr noundef %73)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %74, ptr noundef nonnull @.str.1533)
-  store i8 0, ptr %43, align 8
-  %75 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %70, ptr noundef nonnull @smb2_pipe_frag_items, ptr noundef %2, ptr noundef %1, ptr noundef %74, ptr noundef nonnull %8)
-  %76 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
-  %77 = call zeroext i1 @dissector_try_heuristic(ptr noundef %76, ptr noundef %74, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 56
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call ptr @tvb_new_chain(ptr noundef %24, ptr noundef %70)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %71, ptr noundef nonnull @.str.1533)
+  store i8 0, ptr %40, align 8
+  %72 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %67, ptr noundef nonnull @smb2_pipe_frag_items, ptr noundef %2, ptr noundef %1, ptr noundef %71, ptr noundef nonnull %8)
+  %73 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
+  %74 = call zeroext i1 @dissector_try_heuristic(ptr noundef %73, ptr noundef %71, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
   store i16 0, ptr %25, align 8
   store i32 0, ptr %26, align 4
   store i32 0, ptr %27, align 8
-  br i1 %77, label %115, label %111
+  br i1 %74, label %115, label %111
 
-78:                                               ; preds = %41
-  %79 = tail call ptr @fragment_add_check(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %24, i32 noundef 0, ptr noundef %1, i32 noundef %21, ptr noundef null, i32 noundef 0, i32 noundef 0, i1 noundef zeroext true)
-  %.not127 = icmp eq ptr %79, null
-  br i1 %.not127, label %80, label %83
+75:                                               ; preds = %38
+  %76 = tail call ptr @fragment_add_check(ptr noundef nonnull @smb2_pipe_reassembly_table, ptr noundef %24, i32 noundef 0, ptr noundef %1, i32 noundef %21, ptr noundef null, i32 noundef 0, i32 noundef 0, i1 noundef zeroext true)
+  %.not127 = icmp eq ptr %76, null
+  br i1 %.not127, label %77, label %80
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
-  %82 = call zeroext i1 @dissector_try_heuristic(ptr noundef %81, ptr noundef %24, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
+77:                                               ; preds = %75
+  %78 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
+  %79 = call zeroext i1 @dissector_try_heuristic(ptr noundef %78, ptr noundef %24, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
   store i16 0, ptr %25, align 8
   store i32 0, ptr %26, align 4
   store i32 0, ptr %27, align 8
-  br i1 %82, label %115, label %111
+  br i1 %79, label %115, label %111
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, 1
-  %.not128 = icmp eq i32 %86, 0
-  br i1 %.not128, label %87, label %90
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 48
+  %82 = load i32, ptr %81, align 8
+  %83 = and i32 %82, 1
+  %.not128 = icmp eq i32 %83, 0
+  br i1 %.not128, label %84, label %87
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
-  %89 = call zeroext i1 @dissector_try_heuristic(ptr noundef %88, ptr noundef %24, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
+84:                                               ; preds = %80
+  %85 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
+  %86 = call zeroext i1 @dissector_try_heuristic(ptr noundef %85, ptr noundef %24, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
   store i16 0, ptr %25, align 8
   store i32 0, ptr %26, align 4
   store i32 0, ptr %27, align 8
-  br i1 %89, label %115, label %111
+  br i1 %86, label %115, label %111
 
-90:                                               ; preds = %83
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  %94 = load i32, ptr %93, align 8
-  %.not129 = icmp eq i32 %92, %94
-  br i1 %.not129, label %proto_item_set_generated.exit, label %95
+87:                                               ; preds = %80
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  %91 = load i32, ptr %90, align 8
+  %.not129 = icmp eq i32 %89, %91
+  br i1 %.not129, label %102, label %92
 
-95:                                               ; preds = %90
-  %96 = load i32, ptr @hf_smb2_pipe_reassembled_in, align 4
-  %97 = tail call ptr @proto_tree_add_uint(ptr noundef %5, i32 noundef %96, ptr noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef %94)
-  %.not.i130 = icmp eq ptr %97, null
-  br i1 %.not.i130, label %proto_item_set_generated.exit.thread, label %98
+92:                                               ; preds = %87
+  %93 = load i32, ptr @hf_smb2_pipe_reassembled_in, align 4
+  %94 = tail call ptr @proto_tree_add_uint(ptr noundef %5, i32 noundef %93, ptr noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef %91)
+  %.not.i130 = icmp eq ptr %94, null
+  br i1 %.not.i130, label %proto_item_set_generated.exit.thread, label %95
+
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  %97 = load ptr, ptr %96, align 8
+  %.not5.i = icmp eq ptr %97, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit.thread, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %.not5.i = icmp eq ptr %100, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit.thread, label %101
-
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 28
-  %103 = load i32, ptr %102, align 4
-  %104 = or i32 %103, 2
-  store i32 %104, ptr %102, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 28
+  %100 = load i32, ptr %99, align 4
+  %101 = or i32 %100, 2
+  store i32 %101, ptr %99, align 4
   br label %proto_item_set_generated.exit.thread
 
-proto_item_set_generated.exit.thread:             ; preds = %64, %51, %95, %98, %101
+102:                                              ; preds = %87
+  %103 = getelementptr inbounds nuw i8, ptr %76, i64 56
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call ptr @tvb_new_chain(ptr noundef %24, ptr noundef %104)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %105, ptr noundef nonnull @.str.1533)
+  store i8 0, ptr %40, align 8
+  %106 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %76, ptr noundef nonnull @smb2_pipe_frag_items, ptr noundef %5, ptr noundef %1, ptr noundef %105, ptr noundef nonnull %8)
+  %107 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
+  %108 = call zeroext i1 @dissector_try_heuristic(ptr noundef %107, ptr noundef %105, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
+  store i16 0, ptr %25, align 8
+  store i32 0, ptr %26, align 4
+  store i32 0, ptr %27, align 8
+  br i1 %108, label %115, label %111
+
+proto_item_set_generated.exit.thread:             ; preds = %61, %48, %92, %95, %98
   store i16 0, ptr %25, align 8
   store i32 0, ptr %26, align 4
   store i32 0, ptr %27, align 8
   br label %111
 
-proto_item_set_generated.exit.thread136:          ; preds = %54, %56
+proto_item_set_generated.exit.thread136:          ; preds = %53, %51
   store i16 0, ptr %25, align 8
   store i32 0, ptr %26, align 4
   store i32 0, ptr %27, align 8
   br label %115
 
-proto_item_set_generated.exit:                    ; preds = %90
-  %105 = getelementptr inbounds nuw i8, ptr %79, i64 56
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call ptr @tvb_new_chain(ptr noundef %24, ptr noundef %106)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %107, ptr noundef nonnull @.str.1533)
-  store i8 0, ptr %43, align 8
-  %108 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %79, ptr noundef nonnull @smb2_pipe_frag_items, ptr noundef %5, ptr noundef %1, ptr noundef %107, ptr noundef nonnull %8)
+proto_item_set_generated.exit:                    ; preds = %35
   %109 = load ptr, ptr @smb2_pipe_subdissector_list, align 8
-  %110 = call zeroext i1 @dissector_try_heuristic(ptr noundef %109, ptr noundef %107, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
+  %110 = call zeroext i1 @dissector_try_heuristic(ptr noundef %109, ptr noundef %24, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6)
   store i16 0, ptr %25, align 8
   store i32 0, ptr %26, align 4
   store i32 0, ptr %27, align 8
   br i1 %110, label %115, label %111
 
-111:                                              ; preds = %87, %80, %71, %38, %proto_item_set_generated.exit.thread, %proto_item_set_generated.exit
-  %.0113134 = phi ptr [ %24, %proto_item_set_generated.exit.thread ], [ %107, %proto_item_set_generated.exit ], [ %24, %38 ], [ %74, %71 ], [ %24, %80 ], [ %24, %87 ]
-  %112 = phi ptr [ %43, %proto_item_set_generated.exit.thread ], [ %43, %proto_item_set_generated.exit ], [ %36, %38 ], [ %43, %71 ], [ %43, %80 ], [ %43, %87 ]
-  %113 = phi i8 [ %42, %proto_item_set_generated.exit.thread ], [ %42, %proto_item_set_generated.exit ], [ %37, %38 ], [ %42, %71 ], [ %42, %80 ], [ %42, %87 ]
+111:                                              ; preds = %68, %77, %84, %102, %proto_item_set_generated.exit.thread, %proto_item_set_generated.exit
+  %.0113134 = phi ptr [ %24, %proto_item_set_generated.exit.thread ], [ %24, %proto_item_set_generated.exit ], [ %105, %102 ], [ %24, %84 ], [ %24, %77 ], [ %71, %68 ]
+  %112 = phi ptr [ %40, %proto_item_set_generated.exit.thread ], [ %36, %proto_item_set_generated.exit ], [ %40, %102 ], [ %40, %84 ], [ %40, %77 ], [ %40, %68 ]
+  %113 = phi i8 [ %39, %proto_item_set_generated.exit.thread ], [ %37, %proto_item_set_generated.exit ], [ %39, %102 ], [ %39, %84 ], [ %39, %77 ], [ %39, %68 ]
   %114 = call i32 @call_data_dissector(ptr noundef %.0113134, ptr noundef %1, ptr noundef %5)
   br label %115
 
-115:                                              ; preds = %87, %80, %71, %38, %proto_item_set_generated.exit.thread136, %111, %proto_item_set_generated.exit
-  %116 = phi ptr [ %112, %111 ], [ %43, %proto_item_set_generated.exit ], [ %43, %proto_item_set_generated.exit.thread136 ], [ %36, %38 ], [ %43, %71 ], [ %43, %80 ], [ %43, %87 ]
-  %117 = phi i8 [ %113, %111 ], [ %42, %proto_item_set_generated.exit ], [ %42, %proto_item_set_generated.exit.thread136 ], [ %37, %38 ], [ %42, %71 ], [ %42, %80 ], [ %42, %87 ]
+115:                                              ; preds = %68, %77, %84, %102, %proto_item_set_generated.exit.thread136, %111, %proto_item_set_generated.exit
+  %116 = phi ptr [ %112, %111 ], [ %36, %proto_item_set_generated.exit ], [ %40, %proto_item_set_generated.exit.thread136 ], [ %40, %102 ], [ %40, %84 ], [ %40, %77 ], [ %40, %68 ]
+  %117 = phi i8 [ %113, %111 ], [ %37, %proto_item_set_generated.exit ], [ %39, %proto_item_set_generated.exit.thread136 ], [ %39, %102 ], [ %39, %84 ], [ %39, %77 ], [ %39, %68 ]
   store i8 %117, ptr %116, align 8
   %118 = add i32 %4, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5803,7 +5803,7 @@ dissect_smb2_tid_sesid.exit:                      ; preds = %144, %146, %147, %p
   %225 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 64)
   %226 = getelementptr inbounds nuw i8, ptr %211, i64 18
   %227 = load i16, ptr %226, align 2
-  switch i16 %227, label %.critedge.i [
+  switch i16 %227, label %249 [
     i16 0, label %228
     i16 1, label %230
   ]
@@ -5811,35 +5811,35 @@ dissect_smb2_tid_sesid.exit:                      ; preds = %144, %146, %147, %p
 228:                                              ; preds = %224
   %229 = call i32 @gcry_mac_open(ptr noundef nonnull %16, i32 noundef 101, i32 noundef 0, ptr noundef null)
   %.not47.i = icmp eq i32 %229, 0
-  br i1 %.not47.i, label %232, label %dissect_smb2_signature.exit
+  br i1 %.not47.i, label %.critedge.i, label %dissect_smb2_signature.exit
 
 230:                                              ; preds = %224
   %231 = call i32 @gcry_mac_open(ptr noundef nonnull %16, i32 noundef 201, i32 noundef 0, ptr noundef null)
   %.not46.i = icmp eq i32 %231, 0
-  br i1 %.not46.i, label %232, label %dissect_smb2_signature.exit
+  br i1 %.not46.i, label %.critedge.i, label %dissect_smb2_signature.exit
 
-232:                                              ; preds = %230, %228
-  %233 = load ptr, ptr %16, align 8
-  %234 = load ptr, ptr %143, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 84
-  %236 = load i64, ptr %18, align 8
-  %237 = call i32 @gcry_mac_setkey(ptr noundef %233, ptr noundef nonnull %235, i64 noundef %236)
-  %238 = load ptr, ptr %16, align 8
-  %239 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 48)
-  %240 = call i32 @gcry_mac_write(ptr noundef %238, ptr noundef %239, i64 noundef 48)
-  %241 = load ptr, ptr %16, align 8
-  %242 = call i32 @gcry_mac_write(ptr noundef %241, ptr noundef nonnull @zeros, i64 noundef 16)
-  %243 = load ptr, ptr %16, align 8
-  %244 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 64, i32 noundef %225)
-  %245 = sext i32 %225 to i64
-  %246 = call i32 @gcry_mac_write(ptr noundef %243, ptr noundef %244, i64 noundef %245)
-  %247 = load ptr, ptr %16, align 8
-  %248 = call i32 @gcry_mac_read(ptr noundef %247, ptr noundef nonnull %17, ptr noundef nonnull %18)
-  %249 = load ptr, ptr %16, align 8
-  call void @gcry_mac_close(ptr noundef %249)
-  br label %.critedge.i
+.critedge.i:                                      ; preds = %230, %228
+  %232 = load ptr, ptr %16, align 8
+  %233 = load ptr, ptr %143, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 84
+  %235 = load i64, ptr %18, align 8
+  %236 = call i32 @gcry_mac_setkey(ptr noundef %232, ptr noundef nonnull %234, i64 noundef %235)
+  %237 = load ptr, ptr %16, align 8
+  %238 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 48)
+  %239 = call i32 @gcry_mac_write(ptr noundef %237, ptr noundef %238, i64 noundef 48)
+  %240 = load ptr, ptr %16, align 8
+  %241 = call i32 @gcry_mac_write(ptr noundef %240, ptr noundef nonnull @zeros, i64 noundef 16)
+  %242 = load ptr, ptr %16, align 8
+  %243 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 64, i32 noundef %225)
+  %244 = sext i32 %225 to i64
+  %245 = call i32 @gcry_mac_write(ptr noundef %242, ptr noundef %243, i64 noundef %244)
+  %246 = load ptr, ptr %16, align 8
+  %247 = call i32 @gcry_mac_read(ptr noundef %246, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %248 = load ptr, ptr %16, align 8
+  call void @gcry_mac_close(ptr noundef %248)
+  br label %249
 
-.critedge.i:                                      ; preds = %232, %224
+249:                                              ; preds = %.critedge.i, %224
   %250 = load i32, ptr @ett_smb2_signature, align 4
   %251 = call ptr @proto_item_add_subtree(ptr noundef %207, i32 noundef %250)
   %252 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 48, i32 noundef 16)
@@ -5847,12 +5847,12 @@ dissect_smb2_tid_sesid.exit:                      ; preds = %144, %146, %147, %p
   %253 = icmp eq i32 %bcmp48.i, 0
   br i1 %253, label %254, label %257
 
-254:                                              ; preds = %.critedge.i
+254:                                              ; preds = %249
   %255 = load i32, ptr @hf_smb2_good_signature, align 4
   %256 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %255, ptr noundef %0, i32 noundef 48, i32 noundef 16, i32 noundef 0)
   br label %dissect_smb2_signature.exit
 
-257:                                              ; preds = %.critedge.i
+257:                                              ; preds = %249
   %258 = load i32, ptr @hf_smb2_bad_signature, align 4
   %259 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %258, ptr noundef %0, i32 noundef 48, i32 noundef 16, i32 noundef 0)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %259, ptr noundef nonnull @.str.2133)
@@ -5931,8 +5931,8 @@ dissect_smb2_signature.exit:                      ; preds = %dissect_smb2_tid_se
 get_special_packet_title.exit.thread.fold.split:  ; preds = %284
   br label %get_special_packet_title.exit.thread
 
-get_special_packet_title.exit.thread:             ; preds = %284, %get_special_packet_title.exit.thread.fold.split, %283, %281, %280
-  %.0.i317346 = phi ptr [ @.str.2139, %284 ], [ @.str.2137, %280 ], [ @.str.2138, %283 ], [ %.str.2135..str.2136.i, %281 ], [ @.str.2140, %get_special_packet_title.exit.thread.fold.split ]
+get_special_packet_title.exit.thread:             ; preds = %284, %get_special_packet_title.exit.thread.fold.split, %280, %281, %283
+  %.0.i317346 = phi ptr [ @.str.2137, %280 ], [ %.str.2135..str.2136.i, %281 ], [ @.str.2138, %283 ], [ @.str.2139, %284 ], [ @.str.2140, %get_special_packet_title.exit.thread.fold.split ]
   %285 = load ptr, ptr %60, align 8
   call void @col_append_str(ptr noundef %285, i32 noundef 25, ptr noundef nonnull %.0.i317346)
   br label %299
@@ -6064,7 +6064,7 @@ decode_smb2_name.exit319:                         ; preds = %get_special_packet_
   br label %357
 
 357:                                              ; preds = %354, %321, %337
-  %.1274 = phi ptr [ %315, %337 ], [ %356, %354 ], [ %323, %321 ]
+  %.1274 = phi ptr [ %356, %354 ], [ %315, %337 ], [ %323, %321 ]
   %.not304 = icmp eq ptr %.1274, null
   br i1 %.not304, label %.thread355, label %.thread
 
@@ -6260,7 +6260,7 @@ get_special_packet_title.exit.thread.fold.split.i: ; preds = %441
   br label %get_special_packet_title.exit.thread.i
 
 get_special_packet_title.exit.thread.i:           ; preds = %get_special_packet_title.exit.thread.fold.split.i, %441, %440, %438, %437
-  %.0.i43.i = phi ptr [ @.str.2139, %441 ], [ @.str.2137, %437 ], [ @.str.2138, %440 ], [ %.str.2135..str.2136.i.i, %438 ], [ @.str.2140, %get_special_packet_title.exit.thread.fold.split.i ]
+  %.0.i43.i = phi ptr [ @.str.2137, %437 ], [ %.str.2135..str.2136.i.i, %438 ], [ @.str.2138, %440 ], [ @.str.2139, %441 ], [ @.str.2140, %get_special_packet_title.exit.thread.fold.split.i ]
   %442 = load i32, ptr @ett_smb2_command, align 4
   %443 = load i16, ptr %35, align 8
   %444 = zext i16 %443 to i32
@@ -6466,13 +6466,13 @@ dissect_smb2_command.exit:                        ; preds = %468, %470
   %561 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %529, i32 noundef 52, i64 noundef %560)
   br i1 %531, label %530, label %decrypt_smb_payload.exit.i.thread, !llvm.loop !17
 
-decrypt_smb_payload.exit.i.thread:                ; preds = %.thread134.i.i, %476, %510, %506
+decrypt_smb_payload.exit.i.thread:                ; preds = %.thread134.i.i, %476, %506, %510
   %562 = load i32, ptr %487, align 8
   %563 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 52, i32 noundef %562)
   br label %dissect_smb2_transform_header.exit
 
 decrypt_smb_payload.exit.i:                       ; preds = %536, %.thread.i.i, %.thread.thread164.i.i, %.thread.thread.thread.i.i, %.thread.thread.thread154.i.i
-  %.1108145.i.i = phi i16 [ 3, %.thread.thread.thread154.i.i ], [ 2, %536 ], [ 1, %.thread.i.i ], [ 4, %.thread.thread.thread.i.i ], [ 1, %.thread.thread164.i.i ]
+  %.1108145.i.i = phi i16 [ 2, %536 ], [ 1, %.thread.i.i ], [ 4, %.thread.thread.thread.i.i ], [ 3, %.thread.thread.thread154.i.i ], [ 1, %.thread.thread164.i.i ]
   %564 = load ptr, ptr %58, align 8
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 20
   store i16 %.1108145.i.i, ptr %565, align 4
@@ -6688,7 +6688,7 @@ dissect_smb2_compression_pattern_v1.exit.i.i:     ; preds = %._crit_edge.i.i.i, 
   br label %append_uncompress_data.exit.i.i
 
 append_uncompress_data.exit.i.i:                  ; preds = %670, %dissect_smb2_compression_pattern_v1.exit.i.i, %643, %641, %639, %637, %635
-  %.1.i.i = phi ptr [ null, %670 ], [ null, %dissect_smb2_compression_pattern_v1.exit.i.i ], [ %640, %639 ], [ %642, %641 ], [ %644, %643 ], [ null, %635 ], [ null, %637 ]
+  %.1.i.i = phi ptr [ null, %670 ], [ %640, %639 ], [ %642, %641 ], [ %644, %643 ], [ null, %dissect_smb2_compression_pattern_v1.exit.i.i ], [ null, %635 ], [ null, %637 ]
   br i1 %622, label %append_uncompress_data.exit57.i.i, label %672
 
 672:                                              ; preds = %append_uncompress_data.exit.i.i
@@ -7438,7 +7438,7 @@ define internal range(i32 0, 2) i32 @smb2_fid_info_equal(ptr noundef readonly ca
   br label %30
 
 30:                                               ; preds = %27, %22, %17, %12, %7, %2
-  %.018 = phi i32 [ 0, %17 ], [ 0, %2 ], [ 0, %7 ], [ 0, %12 ], [ 0, %22 ], [ %spec.select27, %27 ]
+  %.018 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %12 ], [ 0, %17 ], [ 0, %22 ], [ %spec.select27, %27 ]
   ret i32 %.018
 }
 
@@ -9341,7 +9341,7 @@ proto_item_set_generated.exit153.sink.split:      ; preds = %137, %126
   br label %proto_item_set_generated.exit153
 
 proto_item_set_generated.exit153:                 ; preds = %proto_item_set_generated.exit153.sink.split, %137, %134, %126, %123, %131, %129, %72
-  %.0 = phi ptr [ %.1, %129 ], [ %.1, %137 ], [ null, %72 ], [ %.1, %131 ], [ %.1, %123 ], [ %.1, %126 ], [ %.1, %134 ], [ %.1, %proto_item_set_generated.exit153.sink.split ]
+  %.0 = phi ptr [ %.1, %129 ], [ null, %72 ], [ %.1, %131 ], [ %.1, %123 ], [ %.1, %126 ], [ %.1, %134 ], [ %.1, %137 ], [ %.1, %proto_item_set_generated.exit153.sink.split ]
   %143 = load i32, ptr @hf_smb2_filename, align 4
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %143, ptr %144, align 4
@@ -9694,7 +9694,7 @@ define internal i32 @dissect_smb2_create_response(ptr noundef %0, ptr noundef %1
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %129, %125, %112, %108
-  %.0.ph = phi ptr [ %2, %129 ], [ %98, %108 ], [ %98, %112 ], [ %2, %125 ], [ %.0.ph.ph, %.thread.sink.split.sink.split ]
+  %.0.ph = phi ptr [ %98, %108 ], [ %98, %112 ], [ %2, %125 ], [ %2, %129 ], [ %.0.ph.ph, %.thread.sink.split.sink.split ]
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %78, align 8
@@ -9704,7 +9704,7 @@ define internal i32 @dissect_smb2_create_response(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %92, %115, %.thread188
-  %.0 = phi ptr [ %2, %115 ], [ %2, %92 ], [ %2, %.thread188 ], [ %.0.ph, %.thread.sink.split ]
+  %.0 = phi ptr [ %2, %.thread188 ], [ %2, %115 ], [ %2, %92 ], [ %.0.ph, %.thread.sink.split ]
   %140 = load ptr, ptr %73, align 8
   %.not150 = icmp eq ptr %140, null
   br i1 %.not150, label %proto_item_set_generated.exit161.thread, label %141
@@ -10172,7 +10172,7 @@ proto_item_set_generated.exit:                    ; preds = %110, %107, %103
   br label %proto_item_set_generated.exit157
 
 proto_item_set_generated.exit157:                 ; preds = %100, %123, %120, %117, %114, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %119, %123 ], [ %106, %114 ], [ %106, %proto_item_set_generated.exit ], [ null, %117 ], [ %119, %120 ], [ null, %100 ]
+  %.1 = phi ptr [ %106, %114 ], [ %106, %proto_item_set_generated.exit ], [ null, %117 ], [ %119, %120 ], [ %119, %123 ], [ null, %100 ]
   %127 = load ptr, ptr %62, align 8
   %.not137 = icmp eq ptr %127, null
   br i1 %.not137, label %137, label %128
@@ -10234,7 +10234,7 @@ proto_item_set_generated.exit160.sink.split:      ; preds = %146, %134
   br label %proto_item_set_generated.exit160
 
 proto_item_set_generated.exit160:                 ; preds = %proto_item_set_generated.exit160.sink.split, %146, %145, %134, %131
-  %.2 = phi ptr [ %.3, %146 ], [ null, %131 ], [ %133, %134 ], [ null, %145 ], [ %.2.ph, %proto_item_set_generated.exit160.sink.split ]
+  %.2 = phi ptr [ null, %131 ], [ %133, %134 ], [ null, %145 ], [ %.3, %146 ], [ %.2.ph, %proto_item_set_generated.exit160.sink.split ]
   %152 = load ptr, ptr %62, align 8
   %.not143 = icmp eq ptr %152, null
   br i1 %.not143, label %162, label %153
@@ -10295,7 +10295,7 @@ proto_item_set_generated.exit166.sink.split:      ; preds = %171, %159
   br label %proto_item_set_generated.exit166
 
 proto_item_set_generated.exit166:                 ; preds = %proto_item_set_generated.exit166.sink.split, %171, %170, %159, %156, %71, %21
-  %.0111 = phi i32 [ %22, %21 ], [ %61, %71 ], [ %61, %171 ], [ %61, %156 ], [ %61, %159 ], [ %61, %170 ], [ %61, %proto_item_set_generated.exit166.sink.split ]
+  %.0111 = phi i32 [ %22, %21 ], [ %61, %71 ], [ %61, %156 ], [ %61, %159 ], [ %61, %170 ], [ %61, %171 ], [ %61, %proto_item_set_generated.exit166.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0111
 }
@@ -10569,7 +10569,7 @@ proto_item_set_generated.exit:                    ; preds = %68, %65, %61
   br label %proto_item_set_generated.exit109
 
 proto_item_set_generated.exit109:                 ; preds = %58, %81, %78, %75, %72, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %77, %81 ], [ %64, %72 ], [ %64, %proto_item_set_generated.exit ], [ null, %75 ], [ %77, %78 ], [ null, %58 ]
+  %.1 = phi ptr [ %64, %72 ], [ %64, %proto_item_set_generated.exit ], [ null, %75 ], [ %77, %78 ], [ %77, %81 ], [ null, %58 ]
   %85 = load ptr, ptr %35, align 8
   %.not89 = icmp eq ptr %85, null
   br i1 %.not89, label %95, label %86
@@ -10631,7 +10631,7 @@ proto_item_set_generated.exit112.sink.split:      ; preds = %104, %92
   br label %proto_item_set_generated.exit112
 
 proto_item_set_generated.exit112:                 ; preds = %proto_item_set_generated.exit112.sink.split, %104, %103, %92, %89
-  %.2 = phi ptr [ %.3, %104 ], [ null, %89 ], [ %91, %92 ], [ null, %103 ], [ %.2.ph, %proto_item_set_generated.exit112.sink.split ]
+  %.2 = phi ptr [ null, %89 ], [ %91, %92 ], [ null, %103 ], [ %.3, %104 ], [ %.2.ph, %proto_item_set_generated.exit112.sink.split ]
   %110 = load ptr, ptr %35, align 8
   %.not95 = icmp eq ptr %110, null
   br i1 %.not95, label %120, label %111
@@ -10692,7 +10692,7 @@ proto_item_set_generated.exit118.sink.split:      ; preds = %129, %117
   br label %proto_item_set_generated.exit118
 
 proto_item_set_generated.exit118:                 ; preds = %proto_item_set_generated.exit118.sink.split, %129, %128, %117, %114, %25, %21
-  %.069 = phi i32 [ %22, %21 ], [ %28, %25 ], [ %28, %129 ], [ %28, %114 ], [ %28, %117 ], [ %28, %128 ], [ %28, %proto_item_set_generated.exit118.sink.split ]
+  %.069 = phi i32 [ %22, %21 ], [ %28, %25 ], [ %28, %114 ], [ %28, %117 ], [ %28, %128 ], [ %28, %129 ], [ %28, %proto_item_set_generated.exit118.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.069
 }
@@ -11046,7 +11046,7 @@ proto_item_set_generated.exit:                    ; preds = %80, %77, %73
   br label %proto_item_set_generated.exit135
 
 proto_item_set_generated.exit135:                 ; preds = %70, %93, %90, %87, %84, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %89, %93 ], [ %76, %84 ], [ %76, %proto_item_set_generated.exit ], [ null, %87 ], [ %89, %90 ], [ null, %70 ]
+  %.1 = phi ptr [ %76, %84 ], [ %76, %proto_item_set_generated.exit ], [ null, %87 ], [ %89, %90 ], [ %89, %93 ], [ null, %70 ]
   %97 = load ptr, ptr %47, align 8
   %.not113 = icmp eq ptr %97, null
   br i1 %.not113, label %107, label %98
@@ -11108,7 +11108,7 @@ proto_item_set_generated.exit138.sink.split:      ; preds = %116, %104
   br label %proto_item_set_generated.exit138
 
 proto_item_set_generated.exit138:                 ; preds = %proto_item_set_generated.exit138.sink.split, %116, %115, %104, %101
-  %.2 = phi ptr [ %.3, %116 ], [ null, %101 ], [ %103, %104 ], [ null, %115 ], [ %.2.ph, %proto_item_set_generated.exit138.sink.split ]
+  %.2 = phi ptr [ null, %101 ], [ %103, %104 ], [ null, %115 ], [ %.3, %116 ], [ %.2.ph, %proto_item_set_generated.exit138.sink.split ]
   %122 = load ptr, ptr %47, align 8
   %.not119 = icmp eq ptr %122, null
   br i1 %.not119, label %132, label %123
@@ -11616,7 +11616,7 @@ proto_item_set_generated.exit:                    ; preds = %80, %77, %73
   br label %proto_item_set_generated.exit125
 
 proto_item_set_generated.exit125:                 ; preds = %70, %93, %90, %87, %84, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %89, %93 ], [ %76, %84 ], [ %76, %proto_item_set_generated.exit ], [ null, %87 ], [ %89, %90 ], [ null, %70 ]
+  %.1 = phi ptr [ %76, %84 ], [ %76, %proto_item_set_generated.exit ], [ null, %87 ], [ %89, %90 ], [ %89, %93 ], [ null, %70 ]
   %97 = load ptr, ptr %47, align 8
   %.not105 = icmp eq ptr %97, null
   br i1 %.not105, label %107, label %98
@@ -11678,7 +11678,7 @@ proto_item_set_generated.exit128.sink.split:      ; preds = %116, %104
   br label %proto_item_set_generated.exit128
 
 proto_item_set_generated.exit128:                 ; preds = %proto_item_set_generated.exit128.sink.split, %116, %115, %104, %101
-  %.2 = phi ptr [ %.3, %116 ], [ null, %101 ], [ %103, %104 ], [ null, %115 ], [ %.2.ph, %proto_item_set_generated.exit128.sink.split ]
+  %.2 = phi ptr [ null, %101 ], [ %103, %104 ], [ null, %115 ], [ %.3, %116 ], [ %.2.ph, %proto_item_set_generated.exit128.sink.split ]
   %122 = load ptr, ptr %47, align 8
   %.not111 = icmp eq ptr %122, null
   br i1 %.not111, label %132, label %123
@@ -11739,7 +11739,7 @@ proto_item_set_generated.exit134.sink.split:      ; preds = %141, %129
   br label %proto_item_set_generated.exit134
 
 proto_item_set_generated.exit134:                 ; preds = %proto_item_set_generated.exit134.sink.split, %141, %140, %129, %126, %25, %21
-  %.085 = phi i32 [ %22, %21 ], [ %40, %25 ], [ %40, %141 ], [ %40, %126 ], [ %40, %129 ], [ %40, %140 ], [ %40, %proto_item_set_generated.exit134.sink.split ]
+  %.085 = phi i32 [ %22, %21 ], [ %40, %25 ], [ %40, %126 ], [ %40, %129 ], [ %40, %140 ], [ %40, %141 ], [ %40, %proto_item_set_generated.exit134.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.085
 }
@@ -12100,7 +12100,7 @@ proto_item_set_generated.exit:                    ; preds = %68, %65, %61
   br label %proto_item_set_generated.exit109
 
 proto_item_set_generated.exit109:                 ; preds = %58, %81, %78, %75, %72, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %77, %81 ], [ %64, %72 ], [ %64, %proto_item_set_generated.exit ], [ null, %75 ], [ %77, %78 ], [ null, %58 ]
+  %.1 = phi ptr [ %64, %72 ], [ %64, %proto_item_set_generated.exit ], [ null, %75 ], [ %77, %78 ], [ %77, %81 ], [ null, %58 ]
   %85 = load ptr, ptr %35, align 8
   %.not89 = icmp eq ptr %85, null
   br i1 %.not89, label %95, label %86
@@ -12162,7 +12162,7 @@ proto_item_set_generated.exit112.sink.split:      ; preds = %104, %92
   br label %proto_item_set_generated.exit112
 
 proto_item_set_generated.exit112:                 ; preds = %proto_item_set_generated.exit112.sink.split, %104, %103, %92, %89
-  %.2 = phi ptr [ %.3, %104 ], [ null, %89 ], [ %91, %92 ], [ null, %103 ], [ %.2.ph, %proto_item_set_generated.exit112.sink.split ]
+  %.2 = phi ptr [ null, %89 ], [ %91, %92 ], [ null, %103 ], [ %.3, %104 ], [ %.2.ph, %proto_item_set_generated.exit112.sink.split ]
   %110 = load ptr, ptr %35, align 8
   %.not95 = icmp eq ptr %110, null
   br i1 %.not95, label %120, label %111
@@ -12223,7 +12223,7 @@ proto_item_set_generated.exit118.sink.split:      ; preds = %129, %117
   br label %proto_item_set_generated.exit118
 
 proto_item_set_generated.exit118:                 ; preds = %proto_item_set_generated.exit118.sink.split, %129, %128, %117, %114, %25, %21
-  %.069 = phi i32 [ %22, %21 ], [ %28, %25 ], [ %28, %129 ], [ %28, %114 ], [ %28, %117 ], [ %28, %128 ], [ %28, %proto_item_set_generated.exit118.sink.split ]
+  %.069 = phi i32 [ %22, %21 ], [ %28, %25 ], [ %28, %114 ], [ %28, %117 ], [ %28, %128 ], [ %28, %129 ], [ %28, %proto_item_set_generated.exit118.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.069
 }
@@ -12925,7 +12925,7 @@ proto_item_set_generated.exit141:                 ; preds = %61, %58, %54
   br label %proto_item_set_generated.exit144
 
 proto_item_set_generated.exit144:                 ; preds = %52, %74, %71, %68, %65, %proto_item_set_generated.exit141
-  %.2 = phi ptr [ %70, %74 ], [ %57, %65 ], [ %57, %proto_item_set_generated.exit141 ], [ null, %68 ], [ %70, %71 ], [ %.092, %52 ]
+  %.2 = phi ptr [ %57, %65 ], [ %57, %proto_item_set_generated.exit141 ], [ null, %68 ], [ %70, %71 ], [ %70, %74 ], [ %.092, %52 ]
   %78 = load ptr, ptr %29, align 8
   %.not117 = icmp eq ptr %78, null
   br i1 %.not117, label %88, label %79
@@ -13448,7 +13448,7 @@ proto_item_set_generated.exit:                    ; preds = %66, %63, %59
   br label %proto_item_set_generated.exit113
 
 proto_item_set_generated.exit113:                 ; preds = %56, %79, %76, %73, %70, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %75, %79 ], [ %62, %70 ], [ %62, %proto_item_set_generated.exit ], [ null, %73 ], [ %75, %76 ], [ null, %56 ]
+  %.1 = phi ptr [ %62, %70 ], [ %62, %proto_item_set_generated.exit ], [ null, %73 ], [ %75, %76 ], [ %75, %79 ], [ null, %56 ]
   %83 = load ptr, ptr %33, align 8
   %.not92 = icmp eq ptr %83, null
   br i1 %.not92, label %93, label %84
@@ -13510,7 +13510,7 @@ proto_item_set_generated.exit116.sink.split:      ; preds = %102, %90
   br label %proto_item_set_generated.exit116
 
 proto_item_set_generated.exit116:                 ; preds = %proto_item_set_generated.exit116.sink.split, %102, %101, %90, %87
-  %.2 = phi ptr [ %.3, %102 ], [ null, %87 ], [ %89, %90 ], [ null, %101 ], [ %.2.ph, %proto_item_set_generated.exit116.sink.split ]
+  %.2 = phi ptr [ null, %87 ], [ %89, %90 ], [ null, %101 ], [ %.3, %102 ], [ %.2.ph, %proto_item_set_generated.exit116.sink.split ]
   %108 = load ptr, ptr %33, align 8
   %.not98 = icmp eq ptr %108, null
   br i1 %.not98, label %118, label %109
@@ -13864,7 +13864,7 @@ proto_item_set_generated.exit105:                 ; preds = %proto_item_set_gene
   br label %153
 
 153:                                              ; preds = %proto_item_set_generated.exit105, %149, %151, %117, %145, %116, %132, %124
-  %.085 = phi i32 [ %62, %124 ], [ %62, %132 ], [ %148, %145 ], [ %62, %117 ], [ %62, %116 ], [ %62, %151 ], [ %62, %149 ], [ %62, %proto_item_set_generated.exit105 ]
+  %.085 = phi i32 [ %62, %124 ], [ %62, %132 ], [ %148, %145 ], [ %62, %117 ], [ %62, %151 ], [ %62, %149 ], [ %62, %proto_item_set_generated.exit105 ], [ %62, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -14054,7 +14054,7 @@ proto_item_set_generated.exit:                    ; preds = %96, %93, %89
   br label %proto_item_set_generated.exit126
 
 proto_item_set_generated.exit126:                 ; preds = %86, %109, %106, %103, %100, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %105, %109 ], [ %92, %100 ], [ %92, %proto_item_set_generated.exit ], [ null, %103 ], [ %105, %106 ], [ null, %86 ]
+  %.1 = phi ptr [ %92, %100 ], [ %92, %proto_item_set_generated.exit ], [ null, %103 ], [ %105, %106 ], [ %105, %109 ], [ null, %86 ]
   %113 = load ptr, ptr %63, align 8
   %.not106 = icmp eq ptr %113, null
   br i1 %.not106, label %123, label %114
@@ -14116,7 +14116,7 @@ proto_item_set_generated.exit129.sink.split:      ; preds = %132, %120
   br label %proto_item_set_generated.exit129
 
 proto_item_set_generated.exit129:                 ; preds = %proto_item_set_generated.exit129.sink.split, %132, %131, %120, %117
-  %.2 = phi ptr [ %.3, %132 ], [ null, %117 ], [ %119, %120 ], [ null, %131 ], [ %.2.ph, %proto_item_set_generated.exit129.sink.split ]
+  %.2 = phi ptr [ null, %117 ], [ %119, %120 ], [ null, %131 ], [ %.3, %132 ], [ %.2.ph, %proto_item_set_generated.exit129.sink.split ]
   %138 = load ptr, ptr %63, align 8
   %.not112 = icmp eq ptr %138, null
   br i1 %.not112, label %152, label %139
@@ -14183,7 +14183,7 @@ proto_item_set_generated.exit129:                 ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit135
 
 proto_item_set_generated.exit135:                 ; preds = %164, %161, %160, %148, %145, %142, %46, %42, %23
-  %.086 = phi i32 [ %43, %42 ], [ %41, %23 ], [ %56, %46 ], [ %56, %148 ], [ %56, %142 ], [ %56, %145 ], [ %56, %160 ], [ %56, %161 ], [ %56, %164 ]
+  %.086 = phi i32 [ %41, %23 ], [ %43, %42 ], [ %56, %46 ], [ %56, %142 ], [ %56, %145 ], [ %56, %148 ], [ %56, %160 ], [ %56, %161 ], [ %56, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.086
@@ -14466,7 +14466,7 @@ proto_item_set_generated.exit:                    ; preds = %47, %44, %40
   br label %proto_item_set_generated.exit110
 
 proto_item_set_generated.exit110:                 ; preds = %37, %60, %57, %54, %51, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %56, %60 ], [ %43, %51 ], [ %43, %proto_item_set_generated.exit ], [ null, %54 ], [ %56, %57 ], [ null, %37 ]
+  %.1 = phi ptr [ %43, %51 ], [ %43, %proto_item_set_generated.exit ], [ null, %54 ], [ %56, %57 ], [ %56, %60 ], [ null, %37 ]
   %64 = load ptr, ptr %14, align 8
   %.not90 = icmp eq ptr %64, null
   br i1 %.not90, label %74, label %65
@@ -14528,7 +14528,7 @@ proto_item_set_generated.exit113.sink.split:      ; preds = %83, %71
   br label %proto_item_set_generated.exit113
 
 proto_item_set_generated.exit113:                 ; preds = %proto_item_set_generated.exit113.sink.split, %83, %82, %71, %68
-  %.2 = phi ptr [ %.3, %83 ], [ null, %68 ], [ %70, %71 ], [ null, %82 ], [ %.2.ph, %proto_item_set_generated.exit113.sink.split ]
+  %.2 = phi ptr [ null, %68 ], [ %70, %71 ], [ null, %82 ], [ %.3, %83 ], [ %.2.ph, %proto_item_set_generated.exit113.sink.split ]
   %89 = load ptr, ptr %14, align 8
   %.not96 = icmp eq ptr %89, null
   br i1 %.not96, label %99, label %90
@@ -14613,7 +14613,7 @@ proto_item_set_generated.exit119:                 ; preds = %proto_item_set_gene
   br label %130
 
 130:                                              ; preds = %128, %116
-  %.070 = phi i32 [ %129, %128 ], [ %127, %116 ]
+  %.070 = phi i32 [ %127, %116 ], [ %129, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.070
 }
@@ -15145,7 +15145,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %146, %.lr.ph.split.us, %.lr.ph8, %.lr.ph12, %74, %.lr.ph16.split.us, %123, %106, %81, %51, %._crit_edge, %46, %159, %153, %102, %96
-  %.1 = phi i32 [ %164, %159 ], [ %50, %46 ], [ %.0.lcssa, %._crit_edge ], [ %158, %153 ], [ %60, %.lr.ph16.split.us ], [ %101, %96 ], [ %105, %102 ], [ %119, %.lr.ph8 ], [ %132, %.lr.ph.split.us ], [ %54, %51 ], [ %92, %.lr.ph12 ], [ %88, %81 ], [ %115, %106 ], [ %126, %123 ], [ %77, %74 ], [ %149, %146 ]
+  %.1 = phi i32 [ %164, %159 ], [ %50, %46 ], [ %.0.lcssa, %._crit_edge ], [ %101, %96 ], [ %105, %102 ], [ %158, %153 ], [ %54, %51 ], [ %88, %81 ], [ %115, %106 ], [ %126, %123 ], [ %60, %.lr.ph16.split.us ], [ %77, %74 ], [ %92, %.lr.ph12 ], [ %119, %.lr.ph8 ], [ %132, %.lr.ph.split.us ], [ %149, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -15336,8 +15336,8 @@ define internal fastcc void @dissect_smb2_olb_buffer(ptr noundef %0, ptr noundef
   br label %65
 
 65:                                               ; preds = %56, %60, %61
-  %.081 = phi ptr [ null, %60 ], [ %64, %61 ], [ %1, %56 ]
-  %.0 = phi ptr [ null, %60 ], [ %62, %61 ], [ %1, %56 ]
+  %.081 = phi ptr [ %64, %61 ], [ null, %60 ], [ %1, %56 ]
+  %.0 = phi ptr [ %62, %61 ], [ null, %60 ], [ %1, %56 ]
   %66 = icmp eq i32 %7, 0
   %67 = icmp eq i32 %9, 0
   %or.cond = or i1 %66, %67
@@ -16765,7 +16765,7 @@ default.unreachable155:                           ; preds = %6
   unreachable
 
 154:                                              ; preds = %146, %151, %138, %143, %39, %113, %95
-  %.0106 = phi i32 [ %148, %146 ], [ %.1, %39 ], [ %.1, %113 ], [ %.1, %95 ], [ %140, %143 ], [ %140, %138 ], [ %148, %151 ]
+  %.0106 = phi i32 [ %.1, %39 ], [ %.1, %113 ], [ %.1, %95 ], [ %140, %143 ], [ %140, %138 ], [ %148, %151 ], [ %148, %146 ]
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 208
@@ -19753,11 +19753,11 @@ default.unreachable31:                            ; preds = %6
   unreachable
 
 12:                                               ; preds = %6, %11, %10, %9
-  %.024 = phi i32 [ 9, %11 ], [ 7, %9 ], [ 9, %10 ], [ 7, %6 ]
-  %.023 = phi i64 [ 32, %11 ], [ 16, %9 ], [ 32, %10 ], [ 16, %6 ]
-  %13 = phi i1 [ false, %11 ], [ false, %9 ], [ true, %10 ], [ true, %6 ]
-  %.022 = phi i32 [ 9, %11 ], [ 9, %9 ], [ 8, %10 ], [ 8, %6 ]
-  %.0 = phi i64 [ 12, %11 ], [ 12, %9 ], [ 11, %10 ], [ 11, %6 ]
+  %.024 = phi i32 [ 7, %9 ], [ 9, %10 ], [ 9, %11 ], [ 7, %6 ]
+  %.023 = phi i64 [ 16, %9 ], [ 32, %10 ], [ 32, %11 ], [ 16, %6 ]
+  %13 = phi i1 [ false, %9 ], [ true, %10 ], [ false, %11 ], [ true, %6 ]
+  %.022 = phi i32 [ 9, %9 ], [ 8, %10 ], [ 9, %11 ], [ 8, %6 ]
+  %.0 = phi i64 [ 12, %9 ], [ 11, %10 ], [ 12, %11 ], [ 11, %6 ]
   %14 = call i32 @gcry_cipher_open(ptr noundef nonnull %7, i32 noundef %.024, i32 noundef %.022, i32 noundef 0)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %42
@@ -19825,7 +19825,7 @@ default.unreachable31:                            ; preds = %6
   br label %42
 
 42:                                               ; preds = %37, %12, %40, %36, %30, %22, %19
-  %.025 = phi i1 [ %41, %40 ], [ false, %12 ], [ false, %19 ], [ false, %22 ], [ false, %30 ], [ false, %36 ], [ false, %37 ]
+  %.025 = phi i1 [ false, %19 ], [ false, %22 ], [ false, %30 ], [ false, %36 ], [ %41, %40 ], [ false, %12 ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.025

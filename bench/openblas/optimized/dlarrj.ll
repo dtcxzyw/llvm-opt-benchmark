@@ -225,9 +225,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge293, %.split.us.loopexit, %.preheader270.split295.us
-  %.us-phi377 = phi double [ %.us-phi378, %.split.us.loopexit ], [ %.us-phi378, %.preheader270.split295.us ], [ %.1255, %._crit_edge293 ]
-  %.us-phi296 = phi double [ %102, %.split.us.loopexit ], [ %48, %.preheader270.split295.us ], [ %.1235, %._crit_edge293 ]
-  %.us-phi297 = phi i32 [ %.3.us, %.split.us.loopexit ], [ %.3.us298, %.preheader270.split295.us ], [ %.5, %._crit_edge293 ]
+  %.us-phi377 = phi double [ %.us-phi378, %.preheader270.split295.us ], [ %.us-phi378, %.split.us.loopexit ], [ %.1255, %._crit_edge293 ]
+  %.us-phi296 = phi double [ %48, %.preheader270.split295.us ], [ %102, %.split.us.loopexit ], [ %.1235, %._crit_edge293 ]
+  %.us-phi297 = phi i32 [ %.3.us298, %.preheader270.split295.us ], [ %.3.us, %.split.us.loopexit ], [ %.5, %._crit_edge293 ]
   %128 = add nsw i32 %.0248305, 1
   %129 = add nuw nsw i64 %indvars.iv352, 1
   %130 = sext i32 %39 to i64
@@ -295,7 +295,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %153
 
 153:                                              ; preds = %152, %151, %144
-  %.6230.us = phi i32 [ %.4228328.us, %152 ], [ %149, %144 ], [ %.4228328.us, %151 ]
+  %.6230.us = phi i32 [ %149, %144 ], [ %.4228328.us, %151 ], [ %.4228328.us, %152 ]
   %154 = add nuw i32 %.0236327.us, 1
   %exitcond362.not = icmp eq i32 %.0236327.us, %.2250
   br i1 %exitcond362.not, label %._crit_edge331.thread, label %144, !llvm.loop !13
@@ -397,9 +397,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %206
 
 206:                                              ; preds = %204, %205, %183, %182, %179
-  %.4252 = phi i32 [ %180, %183 ], [ %180, %179 ], [ %180, %182 ], [ %.3251324, %205 ], [ %.3251324, %204 ]
-  %.3247 = phi i32 [ %.2246325, %183 ], [ %.2246325, %179 ], [ %.2246325, %182 ], [ %.1241326, %205 ], [ %.1241326, %204 ]
-  %.6230 = phi i32 [ %.4228328, %183 ], [ %159, %179 ], [ %.4228328, %182 ], [ %.4228328, %205 ], [ %.4228328, %204 ]
+  %.4252 = phi i32 [ %180, %179 ], [ %180, %182 ], [ %180, %183 ], [ %.3251324, %205 ], [ %.3251324, %204 ]
+  %.3247 = phi i32 [ %.2246325, %179 ], [ %.2246325, %182 ], [ %.2246325, %183 ], [ %.1241326, %205 ], [ %.1241326, %204 ]
+  %.6230 = phi i32 [ %159, %179 ], [ %.4228328, %182 ], [ %.4228328, %183 ], [ %.4228328, %205 ], [ %.4228328, %204 ]
   %207 = add nuw i32 %.0236327, 1
   %exitcond361.not = icmp eq i32 %.0236327, %.2250
   br i1 %exitcond361.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !13

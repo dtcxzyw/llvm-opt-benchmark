@@ -273,7 +273,7 @@ get_scene_score.exit:                             ; preds = %24, %27, %33, %._cr
   br label %141
 
 141:                                              ; preds = %135, %.thread, %19, %138, %.critedge, %140
-  %.138 = phi i32 [ 0, %19 ], [ 0, %140 ], [ %20, %.critedge ], [ 0, %135 ], [ %131, %.thread ], [ -1497649742, %138 ]
+  %.138 = phi i32 [ 0, %140 ], [ 0, %135 ], [ 0, %19 ], [ %20, %.critedge ], [ -1497649742, %138 ], [ %131, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.138
 }

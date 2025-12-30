@@ -584,7 +584,7 @@ _ZL14is_file_secureiPKc.exit.i.i.i:               ; preds = %159
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
 _ZL21create_sharedmem_filePKcS0_m.exit.i.i:       ; preds = %205, %.thread.i.i.i, %.critedge6.i.i.i, %.preheader.i37.i.i, %.critedge4.i.i.i, %182, %169, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i, %_ZL17make_user_tmp_dirPKc.exit.i.i.i, %_ZL19is_directory_securePKc.exit.i.i.i.i, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i, %126
-  %.044.i.i.i = phi i32 [ -1, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i ], [ -1, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i ], [ -1, %182 ], [ -1, %.critedge4.i.i.i ], [ -1, %.critedge6.i.i.i ], [ -1, %_ZL17make_user_tmp_dirPKc.exit.i.i.i ], [ -1, %.thread.i.i.i ], [ -1, %169 ], [ -1, %_ZL19is_directory_securePKc.exit.i.i.i.i ], [ -1, %126 ], [ %143, %.preheader.i37.i.i ], [ %143, %205 ]
+  %.044.i.i.i = phi i32 [ -1, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i ], [ -1, %182 ], [ -1, %.critedge4.i.i.i ], [ -1, %.critedge6.i.i.i ], [ -1, %.thread.i.i.i ], [ -1, %169 ], [ -1, %_ZL17make_user_tmp_dirPKc.exit.i.i.i ], [ -1, %_ZL19is_directory_securePKc.exit.i.i.i.i ], [ -1, %126 ], [ -1, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i ], [ %143, %.preheader.i37.i.i ], [ %143, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z8FreeHeapPv(ptr noundef nonnull %41) #13
@@ -654,7 +654,7 @@ _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.10)
   br label %_ZL20create_shared_memorym.exit
 
-_ZL20create_shared_memorym.exit.thread:           ; preds = %_ZL13get_user_namej.exit.thread.i.i, %211, %_ZL11remove_filePKc.exit.i.i
+_ZL20create_shared_memorym.exit.thread:           ; preds = %211, %_ZL11remove_filePKc.exit.i.i, %_ZL13get_user_namej.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr null, ptr @_ZN10PerfMemory6_startE, align 8
   br label %236
@@ -684,18 +684,18 @@ _ZL20create_shared_memorym.exit:                  ; preds = %_ZN10MemTracker40re
 
 _ZL22create_standard_memorym.exit.thread:         ; preds = %20, %15, %242, %236
   store ptr null, ptr @_ZN10PerfMemory6_startE, align 8
-  br label %244
+  br label %245
 
 _ZL22create_standard_memorym.exit:                ; preds = %240, %18
-  %storemerge = phi ptr [ %16, %18 ], [ %238, %240 ]
-  store ptr %storemerge, ptr @_ZN10PerfMemory6_startE, align 8
+  %244 = phi ptr [ %16, %18 ], [ %238, %240 ]
+  store ptr %244, ptr @_ZN10PerfMemory6_startE, align 8
   br label %.thread
 
 .thread:                                          ; preds = %_ZL22create_standard_memorym.exit, %_ZL20create_shared_memorym.exit
   store i64 %0, ptr @_ZN10PerfMemory9_capacityE, align 8
-  br label %244
+  br label %245
 
-244:                                              ; preds = %_ZL22create_standard_memorym.exit.thread, %.thread
+245:                                              ; preds = %_ZL22create_standard_memorym.exit.thread, %.thread
   ret void
 }
 
@@ -1385,7 +1385,7 @@ define internal fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noun
   br label %22
 
 22:                                               ; preds = %.critedge, %2, %20
-  %.0 = phi ptr [ null, %2 ], [ null, %20 ], [ %3, %.critedge ]
+  %.0 = phi ptr [ null, %20 ], [ null, %2 ], [ %3, %.critedge ]
   ret ptr %.0
 }
 
@@ -1537,7 +1537,7 @@ _ZL15is_dirfd_securei.exit:                       ; preds = %.critedge3.i
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %56, %.loopexit, %28, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %28 ], [ %26, %56 ], [ null, %.loopexit ], [ null, %8 ]
+  %.0 = phi ptr [ null, %28 ], [ %26, %56 ], [ null, %.loopexit ], [ null, %23 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1791,7 +1791,7 @@ _ZL19is_directory_securePKc.exit:                 ; preds = %.critedge3.i
   br label %_ZL15filename_to_pidPKc.exit
 
 _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
-  %.0.i69 = phi i32 [ 0, %67 ], [ 0, %72 ], [ %74, %80 ], [ 0, %78 ]
+  %.0.i69 = phi i32 [ %74, %80 ], [ 0, %67 ], [ 0, %72 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %81 = icmp eq i32 %.0.i69, %.057
   br i1 %81, label %82, label %.outer
@@ -1864,8 +1864,8 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
   br i1 %.not6578, label %.outer71, label %.lr.ph79, !llvm.loop !27
 
 .outer71:                                         ; preds = %.outer, %.backedge, %64
-  %.154.ph.lcssa = phi i64 [ %.154.ph86, %.backedge ], [ %.053.ph91, %64 ], [ %.255, %.outer ]
-  %.1.ph.lcssa = phi ptr [ %.1.ph87, %.backedge ], [ %.052.ph92, %64 ], [ %.2, %.outer ]
+  %.154.ph.lcssa = phi i64 [ %.053.ph91, %64 ], [ %.154.ph86, %.backedge ], [ %.255, %.outer ]
+  %.1.ph.lcssa = phi ptr [ %.052.ph92, %64 ], [ %.1.ph87, %.backedge ], [ %.2, %.outer ]
   %115 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %49) #13
   call void @_Z8FreeHeapPv(ptr noundef nonnull %46) #13
   %116 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %25) #13
@@ -1873,7 +1873,7 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
   br i1 %.not76, label %.outer71._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .outer71._crit_edge:                              ; preds = %.outer71, %.backedge72, %27
-  %.052.ph.lcssa = phi ptr [ %.052.ph92, %.backedge72 ], [ null, %27 ], [ %.1.ph.lcssa, %.outer71 ]
+  %.052.ph.lcssa = phi ptr [ null, %27 ], [ %.052.ph92, %.backedge72 ], [ %.1.ph.lcssa, %.outer71 ]
   %117 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %25) #13
   br label %118
 

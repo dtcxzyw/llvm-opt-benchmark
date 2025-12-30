@@ -777,7 +777,7 @@ RemoveHead.exit.i172:                             ; preds = %220, %218
   br i1 %223, label %208, label %moveToWaste.exit, !llvm.loop !16
 
 moveToWaste.exit:                                 ; preds = %RemoveHead.exit.i, %RemoveHead.exit.i172, %204, %.critedge
-  %.0121 = phi ptr [ %184, %RemoveHead.exit.i172 ], [ %167, %.critedge ], [ %184, %204 ], [ %167, %RemoveHead.exit.i ]
+  %.0121 = phi ptr [ %167, %.critedge ], [ %184, %204 ], [ %184, %RemoveHead.exit.i172 ], [ %167, %RemoveHead.exit.i ]
   store i32 0, ptr %3, align 8
   store i32 0, ptr %11, align 4
   %.not.i176 = icmp eq ptr %1, null
@@ -824,13 +824,13 @@ moveToWaste.exit:                                 ; preds = %RemoveHead.exit.i, 
   br i1 %.not11.i186, label %.thread, label %.lr.ph.i184, !llvm.loop !12
 
 .thread.sink.split:                               ; preds = %.loopexit, %moveToWaste.exit, %RemoveHead.exit147
-  %.sink = phi ptr [ %224, %moveToWaste.exit ], [ %103, %RemoveHead.exit147 ], [ %230, %.loopexit ]
-  %.2.ph = phi ptr [ %.0121, %moveToWaste.exit ], [ %62, %RemoveHead.exit147 ], [ null, %.loopexit ]
+  %.sink = phi ptr [ %103, %RemoveHead.exit147 ], [ %224, %moveToWaste.exit ], [ %230, %.loopexit ]
+  %.2.ph = phi ptr [ %62, %RemoveHead.exit147 ], [ %.0121, %moveToWaste.exit ], [ null, %.loopexit ]
   store ptr %.sink, ptr %1, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.i178, %.lr.ph.i149, %.lr.ph.i184, %.thread.sink.split, %231, %225, %104
-  %.2 = phi ptr [ %62, %104 ], [ %.0121, %225 ], [ %62, %.lr.ph.i149 ], [ %.2.ph, %.thread.sink.split ], [ null, %.lr.ph.i184 ], [ null, %231 ], [ %.0121, %.lr.ph.i178 ]
+  %.2 = phi ptr [ %62, %104 ], [ %.0121, %225 ], [ null, %231 ], [ %.2.ph, %.thread.sink.split ], [ null, %.lr.ph.i184 ], [ %62, %.lr.ph.i149 ], [ %.0121, %.lr.ph.i178 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   ret ptr %.2
 }

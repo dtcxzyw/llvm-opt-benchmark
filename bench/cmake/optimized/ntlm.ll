@@ -181,7 +181,7 @@ ntlm_decode_type2_target.exit:                    ; preds = %30, %34, %61
   br label %.thread49
 
 .thread49:                                        ; preds = %48, %ntlm_decode_type2_target.exit, %23, %70, %.thread, %77, %81, %10, %11, %18, %22
-  %.0 = phi i32 [ 27, %70 ], [ 61, %10 ], [ 61, %22 ], [ 61, %18 ], [ 61, %11 ], [ %.0.i.ph48, %81 ], [ %.0.i.ph48, %77 ], [ %.0.i.ph48, %.thread ], [ 0, %23 ], [ 0, %ntlm_decode_type2_target.exit ], [ 61, %48 ]
+  %.0 = phi i32 [ 61, %22 ], [ 61, %18 ], [ 61, %11 ], [ 61, %10 ], [ %.0.i.ph48, %81 ], [ %.0.i.ph48, %77 ], [ %.0.i.ph48, %.thread ], [ 27, %70 ], [ 0, %23 ], [ 0, %ntlm_decode_type2_target.exit ], [ 61, %48 ]
   ret i32 %.0
 }
 

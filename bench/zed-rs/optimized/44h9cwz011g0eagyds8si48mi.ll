@@ -910,7 +910,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %trunc.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h95b434bd8e1216b9E.exit.i"
 
 "_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17ha3aad2a35d7d0bdfE.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i.i", %57, %.loopexit.split-lp.i.i, %.loopexit.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %58, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i.i" ], [ %58, %57 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %58, %57 ], [ %58, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i.i" ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   invoke void @"_ZN64_$LT$git2..branch..Branches$u20$as$u20$core..ops..drop..Drop$GT$4drop17h71bb67e52c414b98E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
           to label %.body unwind label %62
 
@@ -1014,7 +1014,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   resume { ptr, i32 } %.pn20
 
 72:                                               ; preds = %.loopexit, %.loopexit.split-lp, %25, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i"
-  %.pn.ph = phi { ptr, i32 } [ %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i" ], [ %26, %25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.ph = phi { ptr, i32 } [ %26, %25 ], [ %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i" ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN64_$LT$git2..branch..Branches$u20$as$u20$core..ops..drop..Drop$GT$4drop17h71bb67e52c414b98E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %"_ZN4core3ptr220drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$git2..branch..Branches$C$$LT$git..repository..RealGitRepository$u20$as$u20$git..repository..GitRepository$GT$..branches..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfe82dba751f3bcf7E.exit" unwind label %69
 }
@@ -1338,7 +1338,7 @@ select.unfold.i.i:                                ; preds = %"_ZN81_$LT$core..st
   br label %_ZN4core4iter6traits8iterator8Iterator8find_map17h20f8b0da56abac1eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8find_map17h20f8b0da56abac1eE.exit: ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i", %90, %2, %._crit_edge.split.us.split.us.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us.i.i", %._crit_edge.split.split.us.split.us.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us33.i.i", %.loopexit.i
-  %.us-phi.i.sink.i = phi i64 [ %.us-phi.i.i, %.loopexit.i ], [ -9223372036854775808, %._crit_edge.split.us.split.us.i.i ], [ -9223372036854775808, %2 ], [ -9223372036854775808, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us33.i.i" ], [ -9223372036854775808, %._crit_edge.split.split.us.split.us.i.i ], [ -9223372036854775808, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us.i.i" ], [ -9223372036854775808, %90 ], [ -9223372036854775808, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
+  %.us-phi.i.sink.i = phi i64 [ %.us-phi.i.i, %.loopexit.i ], [ -9223372036854775808, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us33.i.i" ], [ -9223372036854775808, %._crit_edge.split.split.us.split.us.i.i ], [ -9223372036854775808, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us.i.i" ], [ -9223372036854775808, %._crit_edge.split.us.split.us.i.i ], [ -9223372036854775808, %2 ], [ -9223372036854775808, %90 ], [ -9223372036854775808, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
   store i64 %.us-phi.i.sink.i, ptr %0, align 8, !alias.scope !275, !noalias !326
   ret void
 }
@@ -2162,7 +2162,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #26
   unreachable
 
-44:                                               ; preds = %20, %15
+44:                                               ; preds = %15, %20
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %45 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !454
@@ -2900,7 +2900,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %104, %100
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %101, %100 ], [ %101, %104 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %101, %104 ], [ %101, %100 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   invoke void @"_ZN4core3ptr163drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17hb1cda8bc63342010E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #25
           to label %.body unwind label %112, !noalias !532
 
@@ -3002,7 +3002,7 @@ define void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hos
           to label %32 unwind label %27
 
 27:                                               ; preds = %56, %38, %16
-  %.sroa.0.2 = phi i1 [ false, %56 ], [ false, %38 ], [ true, %16 ]
+  %.sroa.0.2 = phi i1 [ true, %16 ], [ false, %38 ], [ false, %56 ]
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3112,11 +3112,11 @@ define void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hos
   unreachable
 
 "_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$git..hosting_provider..GitHostingProvider$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hb628eb87a61bc958E.llvm.5337210721387809739.exit": ; preds = %62, %66, %.noexc
-  %.pn10 = phi { ptr, i32 } [ %.pn11, %62 ], [ %eh.lpad-body, %.noexc ], [ %.pn11, %66 ]
+  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body, %.noexc ], [ %.pn11, %66 ], [ %.pn11, %62 ]
   resume { ptr, i32 } %.pn10
 
 62:                                               ; preds = %.thread, %.noexc
-  %.pn11 = phi { ptr, i32 } [ %15, %.thread ], [ %eh.lpad-body, %.noexc ]
+  %.pn11 = phi { ptr, i32 } [ %eh.lpad-body, %.noexc ], [ %15, %.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !612)
   call void @llvm.experimental.noalias.scope.decl(metadata !615)
   %63 = load ptr, ptr %9, align 8, !alias.scope !618, !nonnull !5, !noundef !5

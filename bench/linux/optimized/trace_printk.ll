@@ -511,7 +511,7 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr readnone cap
   br label %46
 
 46:                                               ; preds = %28, %45, %39, %.thread
-  %47 = phi ptr [ null, %.thread ], [ %37, %39 ], [ null, %45 ], [ %23, %28 ]
+  %47 = phi ptr [ %37, %39 ], [ null, %45 ], [ null, %.thread ], [ %23, %28 ]
   store ptr %47, ptr %15, align 8
   br label %.thread8
 

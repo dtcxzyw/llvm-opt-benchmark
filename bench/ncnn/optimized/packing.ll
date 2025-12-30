@@ -785,7 +785,7 @@ _ZNK4ncnn3Mat5emptyEv.exit71.thread:              ; preds = %362, %_ZNK4ncnn3Mat
   br label %_ZN4ncnn3MataSERKS0_.exit62
 
 _ZN4ncnn3MataSERKS0_.exit62:                      ; preds = %292, %_ZN4ncnn3Mat7releaseEv.exit75, %194, %_ZN4ncnn3Mat7releaseEv.exit78, %144, %_ZN4ncnn3Mat7releaseEv.exit81, %96, %.thread, %312, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZNK4ncnn3Mat5emptyEv.exit71.thread, %_ZNK4ncnn3Mat5emptyEv.exit70.thread, %_ZNK4ncnn3Mat5emptyEv.exit69.thread, %_ZN4ncnn3MataSERKS0_.exit68
-  %.1 = phi i32 [ 0, %_ZN4ncnn3MataSERKS0_.exit68 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit78 ], [ %.3, %_ZNK4ncnn3Mat5emptyEv.exit69.thread ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit70.thread ], [ %.5, %_ZNK4ncnn3Mat5emptyEv.exit71.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %.thread ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit81 ], [ 0, %312 ], [ 0, %96 ], [ 0, %144 ], [ 0, %194 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit75 ], [ -100, %292 ]
+  %.1 = phi i32 [ 0, %_ZN4ncnn3MataSERKS0_.exit68 ], [ %.3, %_ZNK4ncnn3Mat5emptyEv.exit69.thread ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit70.thread ], [ %.5, %_ZNK4ncnn3Mat5emptyEv.exit71.thread ], [ 0, %312 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %.thread ], [ 0, %96 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit81 ], [ 0, %144 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit78 ], [ 0, %194 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit75 ], [ -100, %292 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -892,9 +892,9 @@ define internal void @_ZNK4ncnn7Packing7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph50, %._crit_edge.loopexit, %.lr.ph55.split
-  %42 = phi i32 [ %29, %.lr.ph55.split ], [ %.pre66, %._crit_edge.loopexit ], [ %29, %.lr.ph50 ]
-  %43 = phi i32 [ %30, %.lr.ph55.split ], [ %79, %._crit_edge.loopexit ], [ %30, %.lr.ph50 ]
-  %44 = phi i32 [ %31, %.lr.ph55.split ], [ %79, %._crit_edge.loopexit ], [ %31, %.lr.ph50 ]
+  %42 = phi i32 [ %.pre66, %._crit_edge.loopexit ], [ %29, %.lr.ph55.split ], [ %29, %.lr.ph50 ]
+  %43 = phi i32 [ %79, %._crit_edge.loopexit ], [ %30, %.lr.ph55.split ], [ %30, %.lr.ph50 ]
+  %44 = phi i32 [ %79, %._crit_edge.loopexit ], [ %31, %.lr.ph55.split ], [ %31, %.lr.ph50 ]
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
   %45 = sext i32 %42 to i64
   %.not.not = icmp slt i64 %indvars.iv63, %45
@@ -1061,9 +1061,9 @@ _ZN4ncnn3MatD2Ev.exit54.loopexit:                 ; preds = %._crit_edge
   br label %_ZN4ncnn3MatD2Ev.exit54
 
 _ZN4ncnn3MatD2Ev.exit54:                          ; preds = %.lr.ph89, %_ZN4ncnn3MatD2Ev.exit54.loopexit, %.noexc
-  %47 = phi i32 [ %34, %.noexc ], [ %.pre108, %_ZN4ncnn3MatD2Ev.exit54.loopexit ], [ %34, %.lr.ph89 ]
-  %48 = phi i32 [ %35, %.noexc ], [ %62, %_ZN4ncnn3MatD2Ev.exit54.loopexit ], [ %35, %.lr.ph89 ]
-  %49 = phi i32 [ %36, %.noexc ], [ %62, %_ZN4ncnn3MatD2Ev.exit54.loopexit ], [ %36, %.lr.ph89 ]
+  %47 = phi i32 [ %.pre108, %_ZN4ncnn3MatD2Ev.exit54.loopexit ], [ %34, %.noexc ], [ %34, %.lr.ph89 ]
+  %48 = phi i32 [ %62, %_ZN4ncnn3MatD2Ev.exit54.loopexit ], [ %35, %.noexc ], [ %35, %.lr.ph89 ]
+  %49 = phi i32 [ %62, %_ZN4ncnn3MatD2Ev.exit54.loopexit ], [ %36, %.noexc ], [ %36, %.lr.ph89 ]
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
   %50 = sext i32 %47 to i64
   %.not.not = icmp slt i64 %indvars.iv104, %50
@@ -1092,9 +1092,9 @@ _ZN4ncnn3MatD2Ev.exit54:                          ; preds = %.lr.ph89, %_ZN4ncnn
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph87, %._crit_edge.loopexit, %.lr.ph89.split
-  %62 = phi i32 [ %51, %.lr.ph89.split ], [ %.pre107, %._crit_edge.loopexit ], [ %51, %.lr.ph87 ]
-  %63 = phi i32 [ %52, %.lr.ph89.split ], [ %104, %._crit_edge.loopexit ], [ %52, %.lr.ph87 ]
-  %64 = phi i32 [ %53, %.lr.ph89.split ], [ %104, %._crit_edge.loopexit ], [ %53, %.lr.ph87 ]
+  %62 = phi i32 [ %.pre107, %._crit_edge.loopexit ], [ %51, %.lr.ph89.split ], [ %51, %.lr.ph87 ]
+  %63 = phi i32 [ %104, %._crit_edge.loopexit ], [ %52, %.lr.ph89.split ], [ %52, %.lr.ph87 ]
+  %64 = phi i32 [ %104, %._crit_edge.loopexit ], [ %53, %.lr.ph89.split ], [ %53, %.lr.ph87 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %65 = sext i32 %62 to i64
   %66 = icmp slt i64 %indvars.iv.next102, %65
@@ -1260,9 +1260,9 @@ _ZN4ncnn3MatD2Ev.exit.loopexit:                   ; preds = %._crit_edge97
   br label %_ZN4ncnn3MatD2Ev.exit
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %_ZN4ncnn3MatD2Ev.exit.loopexit, %.noexc
-  %54 = phi i32 [ %35, %.noexc ], [ %.pre117, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %35, %.preheader.lr.ph ]
-  %55 = phi i32 [ %36, %.noexc ], [ %58, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %36, %.preheader.lr.ph ]
-  %56 = phi i32 [ %37, %.noexc ], [ %58, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %37, %.preheader.lr.ph ]
+  %54 = phi i32 [ %.pre117, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %35, %.noexc ], [ %35, %.preheader.lr.ph ]
+  %55 = phi i32 [ %58, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %36, %.noexc ], [ %36, %.preheader.lr.ph ]
+  %56 = phi i32 [ %58, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %37, %.noexc ], [ %37, %.preheader.lr.ph ]
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %57 = sext i32 %54 to i64
   %.not.not = icmp slt i64 %indvars.iv112, %57
@@ -1273,9 +1273,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %
   br label %._crit_edge97
 
 ._crit_edge97:                                    ; preds = %._crit_edge97.loopexit, %.preheader
-  %58 = phi i32 [ %48, %.preheader ], [ %.pre116, %._crit_edge97.loopexit ]
-  %59 = phi i32 [ %49, %.preheader ], [ %78, %._crit_edge97.loopexit ]
-  %60 = phi i32 [ %50, %.preheader ], [ %78, %._crit_edge97.loopexit ]
+  %58 = phi i32 [ %.pre116, %._crit_edge97.loopexit ], [ %48, %.preheader ]
+  %59 = phi i32 [ %78, %._crit_edge97.loopexit ], [ %49, %.preheader ]
+  %60 = phi i32 [ %78, %._crit_edge97.loopexit ], [ %50, %.preheader ]
   %61 = add nuw nsw i32 %.05198, 1
   %62 = icmp slt i32 %61, %58
   br i1 %62, label %.preheader, label %_ZN4ncnn3MatD2Ev.exit.loopexit, !llvm.loop !74
@@ -1307,9 +1307,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %._crit_edge.loopexit, %.lr.ph96.split
-  %78 = phi i32 [ %63, %.lr.ph96.split ], [ %.pre115, %._crit_edge.loopexit ], [ %63, %.lr.ph93 ]
-  %79 = phi i32 [ %64, %.lr.ph96.split ], [ %124, %._crit_edge.loopexit ], [ %64, %.lr.ph93 ]
-  %80 = phi i32 [ %65, %.lr.ph96.split ], [ %124, %._crit_edge.loopexit ], [ %65, %.lr.ph93 ]
+  %78 = phi i32 [ %.pre115, %._crit_edge.loopexit ], [ %63, %.lr.ph96.split ], [ %63, %.lr.ph93 ]
+  %79 = phi i32 [ %124, %._crit_edge.loopexit ], [ %64, %.lr.ph96.split ], [ %64, %.lr.ph93 ]
+  %80 = phi i32 [ %124, %._crit_edge.loopexit ], [ %65, %.lr.ph96.split ], [ %65, %.lr.ph93 ]
   %81 = add nuw nsw i32 %.05394, 1
   %82 = icmp slt i32 %81, %78
   br i1 %82, label %.lr.ph96.split, label %._crit_edge97.loopexit, !llvm.loop !75

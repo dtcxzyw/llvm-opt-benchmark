@@ -317,7 +317,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
   br label %common.resume
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i, %lpad2.i
-  %common.resume.op = phi { ptr, i32 } [ %6, %lpad.i ], [ %7, %lpad2.i ], [ %.pn, %ehcleanup ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad2.i ], [ %6, %lpad.i ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i: ; preds = %invoke.cont.i
@@ -814,7 +814,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i17: ; preds = %_ZNSt11char_tra
   br label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit28
 
 _ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit28: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i17, %if.else
-  %.sroa.speculated.i.pn.i22 = phi i64 [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i17 ], [ %1, %if.else ]
+  %.sroa.speculated.i.pn.i22 = phi i64 [ %1, %if.else ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i17 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %0, i64 noundef %.sroa.speculated.i.pn.i22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
           to label %return unwind label %lpad14

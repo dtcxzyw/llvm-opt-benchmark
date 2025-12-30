@@ -131,7 +131,7 @@ define range(i32 0, 2) i32 @ossl_ec_GF2m_simple_set_compressed_coordinates(ptr n
   br label %66
 
 66:                                               ; preds = %64, %49, %51, %62, %53, %41, %37, %30, %25, %21, %16, %10
-  %.062 = phi i32 [ 0, %10 ], [ 0, %49 ], [ %spec.select, %64 ], [ 0, %21 ], [ 0, %62 ], [ 0, %53 ], [ 0, %16 ], [ 0, %41 ], [ 0, %37 ], [ 0, %30 ], [ 0, %25 ], [ 0, %51 ]
+  %.062 = phi i32 [ 0, %10 ], [ 0, %21 ], [ 0, %62 ], [ 0, %53 ], [ 0, %41 ], [ 0, %37 ], [ 0, %30 ], [ 0, %25 ], [ 0, %16 ], [ 0, %51 ], [ 0, %49 ], [ %spec.select, %64 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.063) #3
   tail call void @BN_CTX_free(ptr noundef %.061) #3
   br label %67
@@ -371,7 +371,7 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GF2m_simple_point2oct(ptr n
   br label %82
 
 .sink.split:                                      ; preds = %78, %66, %._crit_edge, %54
-  %.sink = phi i32 [ 219, %66 ], [ 201, %54 ], [ 211, %._crit_edge ], [ 231, %78 ]
+  %.sink = phi i32 [ 201, %54 ], [ 211, %._crit_edge ], [ 219, %66 ], [ 231, %78 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.ossl_ec_GF2m_simple_point2oct) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #3
@@ -387,7 +387,7 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GF2m_simple_point2oct(ptr n
   br label %82
 
 82:                                               ; preds = %30, %10, %14, %81, %.thread, %13
-  %.088 = phi i64 [ 0, %81 ], [ 0, %13 ], [ %24, %.thread ], [ 1, %10 ], [ 1, %14 ], [ 0, %30 ]
+  %.088 = phi i64 [ 0, %81 ], [ 0, %13 ], [ %24, %.thread ], [ 1, %14 ], [ 1, %10 ], [ 0, %30 ]
   ret i64 %.088
 }
 

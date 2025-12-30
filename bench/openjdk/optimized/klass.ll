@@ -474,7 +474,7 @@ define hidden noundef zeroext i1 @_ZNK5Klass12is_cloneableEv(ptr noundef nonnull
   br label %_ZNK5Klass13is_subtype_ofEPS_.exit
 
 _ZNK5Klass13is_subtype_ofEPS_.exit:               ; preds = %22, %27, %16, %14, %13, %5, %1
-  %29 = phi i1 [ true, %1 ], [ false, %13 ], [ true, %5 ], [ true, %14 ], [ true, %27 ], [ false, %16 ], [ false, %22 ]
+  %29 = phi i1 [ true, %1 ], [ true, %5 ], [ false, %13 ], [ true, %27 ], [ true, %14 ], [ false, %16 ], [ false, %22 ]
   ret i1 %29
 }
 
@@ -526,7 +526,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5Klass13is_subtype_ofEPS_(ptr
   br label %_ZNK5Klass23search_secondary_supersEPS_.exit
 
 _ZNK5Klass23search_secondary_supersEPS_.exit:     ; preds = %18, %23, %12, %10, %9, %2
-  %.0 = phi i1 [ false, %9 ], [ true, %2 ], [ true, %10 ], [ true, %23 ], [ false, %12 ], [ false, %18 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %9 ], [ true, %23 ], [ true, %10 ], [ false, %12 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -615,7 +615,7 @@ _ZN16java_lang_String9hash_codeEPKai.exit:        ; preds = %_ZN16java_lang_Stri
   br label %26
 
 26:                                               ; preds = %4, %1, %23, %_ZN16java_lang_String9hash_codeEPKai.exit
-  %.0 = phi i32 [ %.0.lcssa.i, %_ZN16java_lang_String9hash_codeEPKai.exit ], [ 0, %1 ], [ %25, %23 ], [ 32, %4 ]
+  %.0 = phi i32 [ %25, %23 ], [ %.0.lcssa.i, %_ZN16java_lang_String9hash_codeEPKai.exit ], [ 0, %1 ], [ 32, %4 ]
   %27 = trunc nuw nsw i32 %.0 to i8
   ret i8 %27
 }
@@ -694,7 +694,7 @@ _ZN16java_lang_String9hash_codeEPKai.exit.i:      ; preds = %_ZN16java_lang_Stri
   br label %_ZN5Klass17compute_hash_slotEP6Symbol.exit
 
 _ZN5Klass17compute_hash_slotEP6Symbol.exit:       ; preds = %9, %13, %_ZN16java_lang_String9hash_codeEPKai.exit.i, %32
-  %.0.i = phi i32 [ %.0.lcssa.i.i, %_ZN16java_lang_String9hash_codeEPKai.exit.i ], [ 0, %9 ], [ %34, %32 ], [ 32, %13 ]
+  %.0.i = phi i32 [ %34, %32 ], [ %.0.lcssa.i.i, %_ZN16java_lang_String9hash_codeEPKai.exit.i ], [ 0, %9 ], [ 32, %13 ]
   %35 = trunc nuw nsw i32 %.0.i to i8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 %35, ptr %36, align 8
@@ -812,7 +812,7 @@ define hidden noundef zeroext i1 @_ZNK5Klass23search_secondary_supersEPS_(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %4, %2, %15
-  %.08 = phi i1 [ true, %2 ], [ true, %15 ], [ false, %4 ], [ false, %10 ]
+  %.08 = phi i1 [ true, %15 ], [ true, %2 ], [ false, %4 ], [ false, %10 ]
   ret i1 %.08
 }
 
@@ -869,7 +869,7 @@ _ZNK5Klass12next_siblingEb.exit:                  ; preds = %_ZN12ResourceMarkD2
   br i1 %.not, label %_ZNK5Klass8subklassEb.exit.thread, label %.lr.ph, !llvm.loop !13
 
 _ZNK5Klass8subklassEb.exit.thread:                ; preds = %_ZNK5Klass12next_siblingEb.exit, %.lr.ph, %_ZN12ResourceMarkD2Ev.exit.i, %.lr.ph.split.i12, %1
-  %.0 = phi ptr [ %0, %1 ], [ %0, %_ZN12ResourceMarkD2Ev.exit.i ], [ %0, %.lr.ph.split.i12 ], [ %.014.i, %_ZNK5Klass12next_siblingEb.exit ], [ %0, %.lr.ph ]
+  %.0 = phi ptr [ %0, %1 ], [ %0, %.lr.ph.split.i12 ], [ %0, %_ZN12ResourceMarkD2Ev.exit.i ], [ %.014.i, %_ZNK5Klass12next_siblingEb.exit ], [ %0, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1159,7 +1159,7 @@ _ZNK5Klass13is_subtype_ofEPS_.exit.thread.sink.split: ; preds = %19, %39
   br label %_ZNK5Klass13is_subtype_ofEPS_.exit.thread
 
 _ZNK5Klass13is_subtype_ofEPS_.exit.thread:        ; preds = %_ZNK5Klass13is_subtype_ofEPS_.exit19, %10, %_ZNK5Klass13is_subtype_ofEPS_.exit, %30, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread.sink.split, %2
-  %.011 = phi ptr [ %1, %2 ], [ %.027.lcssa44.sink, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread.sink.split ], [ %46, %_ZNK5Klass13is_subtype_ofEPS_.exit19 ], [ %.027, %30 ], [ %.027, %_ZNK5Klass13is_subtype_ofEPS_.exit ], [ %.01026, %10 ]
+  %.011 = phi ptr [ %1, %2 ], [ %.027.lcssa44.sink, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread.sink.split ], [ %46, %_ZNK5Klass13is_subtype_ofEPS_.exit19 ], [ %.01026, %10 ], [ %.027, %_ZNK5Klass13is_subtype_ofEPS_.exit ], [ %.027, %30 ]
   ret ptr %.011
 }
 
@@ -1307,7 +1307,7 @@ define hidden noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull reado
   br label %_ZL27convert_hidden_name_to_javaP6Symbol.exit
 
 _ZL27convert_hidden_name_to_javaP6Symbol.exit:    ; preds = %46, %19, %53, %35, %26, %8, %55, %59
-  %.0 = phi ptr [ @.str.18, %55 ], [ %16, %26 ], [ %60, %59 ], [ %16, %8 ], [ %43, %53 ], [ %43, %35 ], [ %16, %19 ], [ %43, %46 ]
+  %.0 = phi ptr [ %60, %59 ], [ @.str.18, %55 ], [ %16, %8 ], [ %16, %26 ], [ %43, %35 ], [ %43, %53 ], [ %16, %19 ], [ %43, %46 ]
   ret ptr %.0
 }
 
@@ -2039,7 +2039,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %101, %103
   br label %_ZN13PerfTraceTimeD2Ev.exit
 
 _ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %108, %_ZN12ResourceMarkD2Ev.exit, %12, %2, %5
-  %.0 = phi i64 [ -1, %12 ], [ %11, %5 ], [ 0, %2 ], [ %.us-phi, %_ZN12ResourceMarkD2Ev.exit ], [ %.us-phi, %108 ]
+  %.0 = phi i64 [ %11, %5 ], [ 0, %2 ], [ -1, %12 ], [ %.us-phi, %_ZN12ResourceMarkD2Ev.exit ], [ %.us-phi, %108 ]
   ret i64 %.0
 }
 
@@ -4282,7 +4282,7 @@ define hidden noundef zeroext i1 @_ZN5Klass8is_validEPS_(ptr noundef %0) local_u
   br label %19
 
 19:                                               ; preds = %11, %9, %6, %1, %15
-  %.0 = phi i1 [ false, %1 ], [ %18, %15 ], [ false, %9 ], [ false, %6 ], [ false, %11 ]
+  %.0 = phi i1 [ %18, %15 ], [ false, %1 ], [ false, %6 ], [ false, %9 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -4936,7 +4936,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -5091,7 +5091,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -5269,7 +5269,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 

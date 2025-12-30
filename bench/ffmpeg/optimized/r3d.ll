@@ -169,7 +169,7 @@ read_atom.exit.thread:                            ; preds = %1, %read_atom.exit
   br label %select.unfold
 
 select.unfold:                                    ; preds = %67, %21
-  %.0.i38.ph = phi i32 [ %spec.select, %67 ], [ -12, %21 ]
+  %.0.i38.ph = phi i32 [ -12, %21 ], [ %spec.select, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
   br label %178
@@ -345,7 +345,7 @@ read_atom.exit42.thread:                          ; preds = %131, %read_atom.exi
   br i1 %162, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !62
 
 .loopexit.i:                                      ; preds = %159, %158, %149
-  %163 = phi i32 [ %.03.i, %158 ], [ 0, %149 ], [ %161, %159 ]
+  %163 = phi i32 [ 0, %149 ], [ %.03.i, %158 ], [ %161, %159 ]
   %164 = getelementptr inbounds nuw i8, ptr %153, i64 88
   %165 = load i32, ptr %164, align 8, !tbaa !64
   %.not23.i = icmp eq i32 %165, 0
@@ -682,8 +682,8 @@ r3d_read_redv.exit.thread:                        ; preds = %25, %92, %23
   %183 = icmp ult i32 %182, 8
   br i1 %183, label %read_atom.exit.thread, label %read_atom.exit, !llvm.loop !74
 
-read_atom.exit.thread:                            ; preds = %87, %read_atom.exit, %r3d_read_redv.exit.thread, %2, %131, %105, %156, %132, %68, %56, %r3d_read_reda.exit, %r3d_read_redv.exit
-  %.013 = phi i32 [ 0, %r3d_read_reda.exit ], [ 0, %r3d_read_redv.exit ], [ -1, %132 ], [ -1, %68 ], [ -1, %56 ], [ -1094995529, %131 ], [ -12, %105 ], [ %154, %156 ], [ -1, %2 ], [ -1, %r3d_read_redv.exit.thread ], [ -1, %read_atom.exit ], [ -1, %87 ]
+read_atom.exit.thread:                            ; preds = %87, %read_atom.exit, %r3d_read_redv.exit.thread, %2, %131, %156, %105, %132, %56, %68, %r3d_read_reda.exit, %r3d_read_redv.exit
+  %.013 = phi i32 [ 0, %r3d_read_redv.exit ], [ 0, %r3d_read_reda.exit ], [ -1094995529, %131 ], [ %154, %156 ], [ -12, %105 ], [ -1, %132 ], [ -1, %56 ], [ -1, %68 ], [ -1, %2 ], [ -1, %r3d_read_redv.exit.thread ], [ -1, %read_atom.exit ], [ -1, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
 }
@@ -726,7 +726,7 @@ define internal range(i32 -1, 1) i32 @r3d_seek(ptr noundef %0, i32 %1, i64 nound
   br label %26
 
 26:                                               ; preds = %20, %4, %25
-  %.0 = phi i32 [ %., %20 ], [ -1, %4 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %4 ], [ %., %20 ]
   ret i32 %.0
 }
 

@@ -314,7 +314,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %127
 
 127:                                              ; preds = %125, %123, %121
-  %.pn48.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %124, %123 ], [ %122, %121 ], [ %126, %125 ]
+  %.pn48.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %122, %121 ], [ %126, %125 ], [ %124, %123 ]
   %128 = load ptr, ptr %13, align 8, !tbaa !17
   call void @free(ptr noundef %128) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

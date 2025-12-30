@@ -409,7 +409,7 @@ define internal fastcc ptr @do_ext_nconf(ptr noundef %0, ptr noundef %1, i32 nou
   br label %68
 
 68:                                               ; preds = %63, %65, %54, %41, %37, %28, %31, %57, %53, %11, %7
-  %.044 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %57 ], [ null, %54 ], [ null, %28 ], [ null, %37 ], [ null, %41 ], [ null, %53 ], [ null, %31 ], [ %60, %65 ], [ %60, %63 ]
+  %.044 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %53 ], [ null, %57 ], [ null, %31 ], [ null, %28 ], [ null, %37 ], [ null, %41 ], [ null, %54 ], [ %60, %65 ], [ %60, %63 ]
   ret ptr %.044
 }
 
@@ -638,8 +638,8 @@ define range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef 
   br label %50
 
 50:                                               ; preds = %47, %.lr.ph
-  %.142 = phi i32 [ %.04152, %47 ], [ %.04351, %.lr.ph ]
-  %.1 = phi i32 [ %spec.select, %47 ], [ %.053, %.lr.ph ]
+  %.142 = phi i32 [ %.04351, %.lr.ph ], [ %.04152, %47 ]
+  %.1 = phi i32 [ %.053, %.lr.ph ], [ %spec.select, %47 ]
   %51 = add nuw nsw i32 %.04351, 1
   %52 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
   %53 = icmp slt i32 %51, %52
@@ -707,7 +707,7 @@ delete_ext.exit:                                  ; preds = %.lr.ph.i, %71, %68
   br i1 %85, label %.lr.ph56.split, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %60, %82, %delete_ext.exit, %.lr.ph56.split.us.split, %38, %18, %26, %.preheader, %4
-  %.046 = phi i32 [ 0, %.lr.ph56.split.us.split ], [ 0, %4 ], [ 0, %18 ], [ 1, %.preheader ], [ 1, %26 ], [ 1, %38 ], [ 0, %60 ], [ 0, %delete_ext.exit ], [ 1, %82 ]
+  %.046 = phi i32 [ 0, %4 ], [ 1, %.preheader ], [ 0, %18 ], [ 1, %26 ], [ 0, %.lr.ph56.split.us.split ], [ 1, %38 ], [ 0, %60 ], [ 1, %82 ], [ 0, %delete_ext.exit ]
   ret i32 %.046
 }
 

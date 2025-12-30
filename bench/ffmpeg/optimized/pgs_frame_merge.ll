@@ -164,9 +164,9 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   tail call void @av_packet_move_ref(ptr noundef %1, ptr noundef %6) #5
   br label %.thread
 
-.critedge111:                                     ; preds = %.critedge.thread, %49, %37
-  %.088.lcssa.ph.ph = phi i32 [ %.088129, %37 ], [ %.088129, %49 ], [ %.290, %.critedge.thread ]
-  %.186.ph.ph = phi i32 [ %.085130, %37 ], [ %.085130, %49 ], [ %45, %.critedge.thread ]
+.critedge111:                                     ; preds = %.critedge.thread, %37, %49
+  %.088.lcssa.ph.ph = phi i32 [ %.088129, %49 ], [ %.088129, %37 ], [ %.290, %.critedge.thread ]
+  %.186.ph.ph = phi i32 [ %.085130, %49 ], [ %.085130, %37 ], [ %45, %.critedge.thread ]
   %73 = icmp eq i32 %.186.ph.ph, %28
   %74 = icmp eq i32 %.088.lcssa.ph.ph, 0
   br i1 %73, label %79, label %.critedge111.thread
@@ -253,7 +253,7 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   br label %.thread
 
 .thread:                                          ; preds = %13, %102, %24, %113, %103, %65, %29, %16
-  %.0 = phi i32 [ 0, %65 ], [ %.081, %113 ], [ 0, %103 ], [ %11, %24 ], [ -11, %29 ], [ 0, %16 ], [ -11, %102 ], [ -541478725, %13 ]
+  %.0 = phi i32 [ 0, %65 ], [ %.081, %113 ], [ 0, %103 ], [ -11, %29 ], [ 0, %16 ], [ %11, %24 ], [ -11, %102 ], [ -541478725, %13 ]
   ret i32 %.0
 }
 

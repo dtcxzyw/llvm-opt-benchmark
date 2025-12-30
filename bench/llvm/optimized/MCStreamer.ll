@@ -404,8 +404,8 @@ define dso_local void @_ZN4llvm10MCStreamer11emitRawTextERKNS_5TwineE(ptr nounde
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ 0, %9 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ null, %9 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
@@ -2204,7 +2204,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10MCStreamer17checkCVLocSectionEjjN
   br label %29
 
 29:                                               ; preds = %23, %24, %25, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %25 ], [ true, %24 ], [ true, %23 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %11 ], [ true, %24 ], [ true, %23 ]
   ret i1 %.0
 }
 
@@ -9296,8 +9296,8 @@ _ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit: ; preds = %3, %11
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit, %26, %27
-  %.sink31 = phi i8 [ %.014.i.i, %27 ], [ 3, %26 ], [ %25, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
-  %.sink = phi i8 [ 3, %27 ], [ 1, %26 ], [ 1, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
+  %.sink31 = phi i8 [ 3, %26 ], [ %.014.i.i, %27 ], [ %25, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
+  %.sink = phi i8 [ 1, %26 ], [ 3, %27 ], [ 1, %_ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 %.sink31, ptr %32, align 8, !tbaa !609
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 33
@@ -9336,8 +9336,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm10MCStreame
   br label %_ZN4llvmplERKNS_5TwineES2_.exit22
 
 _ZN4llvmplERKNS_5TwineES2_.exit22:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %37, %38
-  %.sink35 = phi i8 [ %.014.i.i11, %38 ], [ 3, %37 ], [ %36, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %.sink33 = phi i8 [ 3, %38 ], [ 1, %37 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink35 = phi i8 [ 3, %37 ], [ %.014.i.i11, %38 ], [ %36, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink33 = phi i8 [ 1, %37 ], [ 3, %38 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 %.sink35, ptr %43, align 8, !tbaa !609
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 33
@@ -10280,8 +10280,8 @@ _ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.
 87:                                               ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit
   unreachable
 
-_ZNK4llvm12VersionTuple5emptyEv.exit:             ; preds = %86, %85, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit
-  %.sroa.0.0.i.ph = phi i64 [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ 5, %86 ], [ 12, %85 ], [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ]
+_ZNK4llvm12VersionTuple5emptyEv.exit:             ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %86, %85
+  %.sroa.0.0.i.ph = phi i64 [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ 5, %86 ], [ 12, %85 ]
   %88 = trunc i64 %.pre-phi to i32
   %89 = trunc i64 %.sroa.0.0.i.ph to i32
   %90 = icmp ult i32 %88, %89
@@ -10360,7 +10360,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %_ZL40targetVersionO
   unreachable
 
 _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106, %107, %109, %112, %115, %118, %119
-  %.0.i = phi i32 [ %121, %119 ], [ 1, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ 10, %118 ], [ 1, %106 ], [ 6, %107 ]
+  %.0.i = phi i32 [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ 10, %118 ], [ %121, %119 ], [ 1, %106 ], [ 1, %106 ], [ 6, %107 ]
   %123 = trunc i64 %.pre-phi to i32
   %124 = lshr i64 %.pre-phi, 32
   %125 = trunc nuw i64 %124 to i32
@@ -10420,7 +10420,7 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106
   unreachable
 
 _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58: ; preds = %133, %133, %134, %135, %138, %141, %144, %145
-  %.0.i57 = phi i32 [ %147, %145 ], [ 1, %133 ], [ %137, %135 ], [ %140, %138 ], [ %143, %141 ], [ 10, %144 ], [ 1, %133 ], [ 6, %134 ]
+  %.0.i57 = phi i32 [ %137, %135 ], [ %140, %138 ], [ %143, %141 ], [ 10, %144 ], [ %147, %145 ], [ 1, %133 ], [ 1, %133 ], [ 6, %134 ]
   %149 = trunc i64 %.pre-phi to i32
   %150 = lshr i64 %.pre-phi, 32
   %151 = trunc nuw i64 %150 to i32
@@ -10511,7 +10511,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12Ver
   unreachable
 
 _ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit: ; preds = %186, %186, %187, %188, %189
-  %.0.i86 = phi i32 [ 3, %189 ], [ 0, %187 ], [ 2, %188 ], [ 1, %186 ], [ 1, %186 ]
+  %.0.i86 = phi i32 [ 0, %187 ], [ 2, %188 ], [ 3, %189 ], [ 1, %186 ], [ 1, %186 ]
   %191 = trunc i64 %.pre-phi to i32
   %192 = lshr i64 %.pre-phi, 32
   %193 = trunc nuw i64 %192 to i32
@@ -10604,7 +10604,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %35
   %spec.select.i.i = select i1 %37, i1 %38, i1 false
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12: ; preds = %3, %29, %33, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12: ; preds = %3, %33, %29, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
   %39 = insertvalue { i64, i64 } poison, i64 %1, 0
   %40 = insertvalue { i64, i64 } %39, i64 %2, 1
   br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread
@@ -10657,7 +10657,7 @@ define internal fastcc noundef range(i32 1, 13) i32 @_ZL32getMachoBuildVersionPl
   unreachable
 
 17:                                               ; preds = %1, %0, %0, %13, %12, %9, %6, %3
-  %.0 = phi i32 [ %15, %13 ], [ 1, %0 ], [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ 10, %12 ], [ 1, %0 ], [ 6, %1 ]
+  %.0 = phi i32 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ 10, %12 ], [ %15, %13 ], [ 1, %0 ], [ 1, %0 ], [ 6, %1 ]
   ret i32 %.0
 }
 
@@ -11213,7 +11213,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt1
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_node9_M_insertES0_IPSt18_Rb_tree_node_baseSD_E.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_node9_M_insertES0_IPSt18_Rb_tree_node_baseSD_E.exit: ; preds = %35, %38
-  %43 = phi i1 [ %42, %38 ], [ true, %35 ]
+  %43 = phi i1 [ true, %35 ], [ %42, %38 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef nonnull %8, ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !674
@@ -11434,8 +11434,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineT
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

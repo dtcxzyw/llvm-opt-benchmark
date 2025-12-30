@@ -2434,7 +2434,7 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   br label %264
 
 .thread24:                                        ; preds = %.loopexit28, %.thread25, %220
-  %248 = phi i32 [ -12, %.thread25 ], [ %221, %220 ], [ -12, %.loopexit28 ]
+  %248 = phi i32 [ %221, %220 ], [ -12, %.thread25 ], [ -12, %.loopexit28 ]
   %249 = load i16, ptr %13, align 4
   %250 = icmp eq i16 %249, 0
   br i1 %250, label %virtnet_free_queues.exit, label %.preheader
@@ -5689,7 +5689,7 @@ define internal fastcc zeroext i1 @try_fill_recv(ptr noundef readonly captures(n
   br label %.thread20
 
 445:                                              ; preds = %367, %303, %87
-  %446 = phi i32 [ %369, %367 ], [ %94, %87 ], [ %314, %303 ]
+  %446 = phi i32 [ %94, %87 ], [ %314, %303 ], [ %369, %367 ]
   %447 = icmp eq i32 %446, 0
   br i1 %447, label %448, label %.thread20
 
@@ -5701,7 +5701,7 @@ define internal fastcc zeroext i1 @try_fill_recv(ptr noundef readonly captures(n
   br i1 %452, label %.thread20, label %23, !llvm.loop !84
 
 .thread20:                                        ; preds = %329, %52, %448, %445, %444, %438, %.loopexit24, %192, %.loopexit, %.loopexit22, %169, %163
-  %453 = phi i32 [ -12, %.loopexit22 ], [ %94, %169 ], [ %369, %444 ], [ %369, %438 ], [ %94, %163 ], [ %314, %.loopexit24 ], [ -12, %192 ], [ -12, %.loopexit ], [ -12, %52 ], [ -12, %329 ], [ 0, %448 ], [ %446, %445 ]
+  %453 = phi i32 [ %369, %444 ], [ %369, %438 ], [ %314, %.loopexit24 ], [ -12, %192 ], [ -12, %.loopexit ], [ -12, %.loopexit22 ], [ %94, %169 ], [ %94, %163 ], [ -12, %52 ], [ -12, %329 ], [ %446, %445 ], [ 0, %448 ]
   %454 = load ptr, ptr %1, align 64
   %455 = tail call zeroext i1 @virtqueue_kick_prepare(ptr noundef %454) #26
   br i1 %455, label %456, label %461
@@ -6743,8 +6743,8 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   br i1 %41, label %.loopexit18, label %.split25.split, !llvm.loop !88
 
 .loopexit18:                                      ; preds = %39, %.lr.ph.split, %..split27.us_crit_edge, %.split25.us, %4
-  %42 = phi i32 [ 0, %4 ], [ %14, %.lr.ph.split ], [ 0, %.split25.us ], [ %34, %..split27.us_crit_edge ], [ %14, %39 ]
-  %43 = phi i1 [ false, %4 ], [ false, %.lr.ph.split ], [ true, %.split25.us ], [ %33, %..split27.us_crit_edge ], [ false, %39 ]
+  %42 = phi i32 [ 0, %4 ], [ %34, %..split27.us_crit_edge ], [ 0, %.split25.us ], [ %14, %.lr.ph.split ], [ %14, %39 ]
+  %43 = phi i1 [ false, %4 ], [ %33, %..split27.us_crit_edge ], [ true, %.split25.us ], [ false, %.lr.ph.split ], [ false, %39 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 784
   %46 = load i64, ptr %45, align 8
@@ -6977,7 +6977,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   br label %184
 
 184:                                              ; preds = %179, %.loopexit
-  %185 = phi i32 [ %183, %179 ], [ %168, %.loopexit ]
+  %185 = phi i32 [ %168, %.loopexit ], [ %183, %179 ]
   %186 = icmp eq i32 %185, 0
   %187 = and i1 %43, %186
   br i1 %187, label %188, label %.thread13
@@ -7006,7 +7006,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   br i1 %202, label %195, label %.thread13, !llvm.loop !93
 
 .thread13:                                        ; preds = %.split25.split, %195, %177, %169, %173, %82, %188, %184
-  %203 = phi i32 [ %185, %184 ], [ 0, %188 ], [ -22, %82 ], [ 0, %195 ], [ -22, %177 ], [ -95, %169 ], [ -95, %173 ], [ -16, %.split25.split ]
+  %203 = phi i32 [ %185, %184 ], [ 0, %188 ], [ -22, %177 ], [ -95, %169 ], [ -95, %173 ], [ -22, %82 ], [ 0, %195 ], [ -16, %.split25.split ]
   ret i32 %203
 }
 
@@ -7366,7 +7366,7 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr noundef readonly 
   br i1 %195, label %58, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %173, %115, %191, %172, %114, %45, %37, %31, %27, %11, %4
-  %196 = phi i32 [ -22, %11 ], [ -22, %4 ], [ 0, %27 ], [ -22, %31 ], [ -22, %37 ], [ 0, %45 ], [ -22, %173 ], [ %92, %114 ], [ %155, %172 ], [ -22, %115 ], [ 0, %191 ]
+  %196 = phi i32 [ -22, %11 ], [ -22, %4 ], [ 0, %27 ], [ -22, %31 ], [ -22, %37 ], [ 0, %45 ], [ -22, %173 ], [ -22, %115 ], [ %92, %114 ], [ %155, %172 ], [ 0, %191 ]
   ret i32 %196
 }
 
@@ -8273,7 +8273,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread, %60, %46, %52, %110, %108, %100, %104, %116, %.thread16, %11, %3
-  %119 = phi i32 [ -22, %3 ], [ -16, %11 ], [ -22, %46 ], [ 0, %116 ], [ 0, %.thread16 ], [ -95, %104 ], [ -22, %110 ], [ -22, %108 ], [ -95, %100 ], [ -22, %52 ], [ -22, %.thread ], [ -22, %60 ]
+  %119 = phi i32 [ -22, %3 ], [ -16, %11 ], [ 0, %116 ], [ 0, %.thread16 ], [ -22, %110 ], [ -22, %108 ], [ -95, %100 ], [ -95, %104 ], [ -22, %52 ], [ -22, %46 ], [ -22, %.thread ], [ -22, %60 ]
   ret i32 %119
 }
 
@@ -10218,14 +10218,14 @@ define internal fastcc void @receive_buf(ptr noundef readonly captures(none) %0,
   %601 = load i8, ptr %496, align 1
   %602 = and i8 %601, 127
   switch i8 %602, label %.thread53 [
-    i8 1, label %603
-    i8 4, label %606
+    i8 1, label %606
+    i8 4, label %603
     i8 3, label %605
     i8 5, label %605
   ]
 
 603:                                              ; preds = %600
-  %604 = icmp eq i16 %598, 8
+  %604 = icmp eq i16 %598, -8826
   br i1 %604, label %608, label %.thread53
 
 605:                                              ; preds = %600, %600
@@ -10235,7 +10235,7 @@ define internal fastcc void @receive_buf(ptr noundef readonly captures(none) %0,
   ]
 
 606:                                              ; preds = %600
-  %607 = icmp eq i16 %598, -8826
+  %607 = icmp eq i16 %598, 8
   br i1 %607, label %608, label %.thread53
 
 608:                                              ; preds = %605, %605, %603, %606
@@ -10628,9 +10628,9 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   br label %126
 
 126:                                              ; preds = %117, %86
-  %127 = phi ptr [ %55, %86 ], [ %118, %117 ]
-  %128 = phi i32 [ %71, %86 ], [ 4096, %117 ]
-  %129 = phi ptr [ %89, %86 ], [ %125, %117 ]
+  %127 = phi ptr [ %118, %117 ], [ %55, %86 ]
+  %128 = phi i32 [ 4096, %117 ], [ %71, %86 ]
+  %129 = phi ptr [ %125, %117 ], [ %89, %86 ]
   %130 = icmp eq ptr %129, null
   br i1 %130, label %.thread, label %131, !prof !117
 
@@ -11133,7 +11133,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %448, %54, %97, %94, %.thread30, %.critedge, %403, %.thread12, %126
-  %453 = phi ptr [ %127, %126 ], [ %127, %.critedge ], [ %55, %54 ], [ %127, %403 ], [ %127, %.thread12 ], [ %55, %.thread30 ], [ %55, %94 ], [ %55, %97 ], [ %127, %448 ]
+  %453 = phi ptr [ %127, %.critedge ], [ %127, %403 ], [ %127, %.thread12 ], [ %127, %126 ], [ %55, %.thread30 ], [ %55, %94 ], [ %55, %97 ], [ %55, %54 ], [ %127, %448 ]
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   %455 = load volatile i64, ptr %454, align 8
   %456 = and i64 %455, 1
@@ -11470,7 +11470,7 @@ define internal fastcc ptr @page_to_skb(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %37, %.thread11, %177, %171, %143, %98, %69
-  %178 = phi ptr [ null, %98 ], [ %.ph, %.thread11 ], [ null, %69 ], [ %71, %143 ], [ %71, %171 ], [ %71, %177 ], [ null, %37 ]
+  %178 = phi ptr [ null, %98 ], [ null, %69 ], [ %71, %143 ], [ %71, %171 ], [ %71, %177 ], [ %.ph, %.thread11 ], [ null, %37 ]
   ret ptr %178
 }
 
@@ -12491,7 +12491,7 @@ define internal fastcc ptr @receive_small_xdp(ptr noundef %0, ptr noundef readon
   br label %189
 
 153:                                              ; preds = %.thread, %95, %54
-  %154 = phi ptr [ %55, %54 ], [ %55, %.thread ], [ %99, %95 ]
+  %154 = phi ptr [ %55, %54 ], [ %99, %95 ], [ %55, %.thread ]
   %155 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %155, ptr nonnull elementtype(i64) %155) #26, !srcloc !63
   br label %.thread5

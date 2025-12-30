@@ -117,7 +117,7 @@ define void @dt_color_picker_backtransform_box(ptr noundef %0, i32 noundef %1, p
   br label %50
 
 50:                                               ; preds = %42, %49, %47
-  %51 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %47 ], [ %45, %49 ], [ 0.000000e+00, %42 ]
+  %51 = phi reassoc nsz arcp contract afn float [ %45, %49 ], [ 1.000000e+00, %47 ], [ 0.000000e+00, %42 ]
   store float %51, ptr %43, align 4, !tbaa !58
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %53 = load float, ptr %52, align 4, !tbaa !58
@@ -133,7 +133,7 @@ define void @dt_color_picker_backtransform_box(ptr noundef %0, i32 noundef %1, p
   br label %59
 
 59:                                               ; preds = %50, %58, %56
-  %60 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %56 ], [ %54, %58 ], [ 0.000000e+00, %50 ]
+  %60 = phi reassoc nsz arcp contract afn float [ %54, %58 ], [ 1.000000e+00, %56 ], [ 0.000000e+00, %50 ]
   store float %60, ptr %52, align 4, !tbaa !58
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
@@ -504,7 +504,7 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
   br label %149
 
 149:                                              ; preds = %141, %146, %.split106.us, %138
-  %.1 = phi i32 [ 1, %.split106.us ], [ 1, %138 ], [ %148, %146 ], [ 1, %141 ]
+  %.1 = phi i32 [ 1, %138 ], [ 1, %.split106.us ], [ 1, %141 ], [ %148, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %150
 
@@ -1289,7 +1289,7 @@ _color_picker_work_4ch.exit112:                   ; preds = %352
   br label %457
 
 457:                                              ; preds = %447, %429, %420
-  %458 = phi reassoc nsz arcp contract afn float [ %456, %447 ], [ %446, %429 ], [ %426, %420 ]
+  %458 = phi reassoc nsz arcp contract afn float [ %446, %429 ], [ %456, %447 ], [ %426, %420 ]
   %459 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.i.i.i
   store float %458, ptr %459, align 4, !tbaa !58
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1

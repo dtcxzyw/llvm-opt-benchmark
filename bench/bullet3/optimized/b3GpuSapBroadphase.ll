@@ -3969,7 +3969,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i470: ; preds = %531, %_
   br i1 %305, label %304, label %303, !llvm.loop !140
 
 543:                                              ; preds = %506, %539, %388, %421
-  %.pn316.pn = phi { ptr, i32 } [ %422, %421 ], [ %389, %388 ], [ %507, %506 ], [ %540, %539 ]
+  %.pn316.pn = phi { ptr, i32 } [ %389, %388 ], [ %422, %421 ], [ %507, %506 ], [ %540, %539 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit368 unwind label %544
 
@@ -4205,8 +4205,8 @@ _ZltRK6b3Int4S1_.exit.thread.i:                   ; preds = %621
   br label %625
 
 625:                                              ; preds = %_ZltRK6b3Int4S1_.exit.thread.i, %_ZgtRK6b3Int4S1_.exit.thread.i
-  %.219.i = phi i32 [ %.01733.i, %_ZltRK6b3Int4S1_.exit.thread.i ], [ %620, %_ZgtRK6b3Int4S1_.exit.thread.i ]
-  %.216.i = phi i32 [ %624, %_ZltRK6b3Int4S1_.exit.thread.i ], [ %.01434.i, %_ZgtRK6b3Int4S1_.exit.thread.i ]
+  %.219.i = phi i32 [ %620, %_ZgtRK6b3Int4S1_.exit.thread.i ], [ %.01733.i, %_ZltRK6b3Int4S1_.exit.thread.i ]
+  %.216.i = phi i32 [ %.01434.i, %_ZgtRK6b3Int4S1_.exit.thread.i ], [ %624, %_ZltRK6b3Int4S1_.exit.thread.i ]
   %.not.i = icmp sgt i32 %.219.i, %.216.i
   br i1 %.not.i, label %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit.thread, label %611, !llvm.loop !141
 
@@ -4582,8 +4582,8 @@ _ZltRK6b3Int4S1_.exit.thread.i569:                ; preds = %743
   br label %747
 
 747:                                              ; preds = %_ZltRK6b3Int4S1_.exit.thread.i569, %_ZgtRK6b3Int4S1_.exit.thread.i573
-  %.219.i570 = phi i32 [ %.01733.i561, %_ZltRK6b3Int4S1_.exit.thread.i569 ], [ %742, %_ZgtRK6b3Int4S1_.exit.thread.i573 ]
-  %.216.i571 = phi i32 [ %746, %_ZltRK6b3Int4S1_.exit.thread.i569 ], [ %.01434.i560, %_ZgtRK6b3Int4S1_.exit.thread.i573 ]
+  %.219.i570 = phi i32 [ %742, %_ZgtRK6b3Int4S1_.exit.thread.i573 ], [ %.01733.i561, %_ZltRK6b3Int4S1_.exit.thread.i569 ]
+  %.216.i571 = phi i32 [ %.01434.i560, %_ZgtRK6b3Int4S1_.exit.thread.i573 ], [ %746, %_ZltRK6b3Int4S1_.exit.thread.i569 ]
   %.not.i572 = icmp sgt i32 %.219.i570, %.216.i571
   br i1 %.not.i572, label %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit586.thread.thread, label %733, !llvm.loop !141
 
@@ -4710,7 +4710,7 @@ _ZN13b3ProfileZoneC2EPKc.exit554:                 ; preds = %_ZN20b3AlignedObjec
   br i1 %778, label %.lr.ph757, label %.preheader, !llvm.loop !145
 
 ._crit_edge760:                                   ; preds = %808, %_ZN13b3ProfileZoneC2EPKc.exit554.preheader, %.preheader
-  %779 = phi ptr [ null, %_ZN13b3ProfileZoneC2EPKc.exit554.preheader ], [ %772, %.preheader ], [ %772, %808 ]
+  %779 = phi ptr [ %772, %.preheader ], [ null, %_ZN13b3ProfileZoneC2EPKc.exit554.preheader ], [ %772, %808 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit609 unwind label %780
 
@@ -4943,7 +4943,7 @@ _ZN13b3ProfileZoneD2Ev.exit642:                   ; preds = %838
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit643:                   ; preds = %846, %848, %720, %842
-  %.pn289.pn.pn.pn = phi { ptr, i32 } [ %.pn289.pn, %842 ], [ %721, %720 ], [ %847, %846 ], [ %849, %848 ]
+  %.pn289.pn.pn.pn = phi { ptr, i32 } [ %721, %720 ], [ %.pn289.pn, %842 ], [ %847, %846 ], [ %849, %848 ]
   call void @_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN13b3ProfileZoneD2Ev.exit555
@@ -4955,7 +4955,7 @@ _ZN13b3ProfileZoneD2Ev.exit555:                   ; preds = %598, %716, %_ZN13b3
   br label %_ZN13b3ProfileZoneD2Ev.exit368
 
 _ZN13b3ProfileZoneD2Ev.exit368:                   ; preds = %591, %593, %584, %586, %577, %579, %272, %543, %195, %239, %172, %180, %117, %119, %124, %_ZN13b3ProfileZoneD2Ev.exit555
-  %.pn324.pn.pn = phi { ptr, i32 } [ %.pn316.pn, %543 ], [ %120, %119 ], [ %181, %180 ], [ %125, %124 ], [ %240, %239 ], [ %.pn297.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit555 ], [ %587, %586 ], [ %580, %579 ], [ %118, %117 ], [ %173, %172 ], [ %196, %195 ], [ %273, %272 ], [ %578, %577 ], [ %585, %584 ], [ %592, %591 ], [ %594, %593 ]
+  %.pn324.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %.pn297.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit555 ], [ %118, %117 ], [ %120, %119 ], [ %173, %172 ], [ %181, %180 ], [ %196, %195 ], [ %240, %239 ], [ %273, %272 ], [ %.pn316.pn, %543 ], [ %578, %577 ], [ %580, %579 ], [ %585, %584 ], [ %587, %586 ], [ %592, %591 ], [ %594, %593 ]
   %853 = load ptr, ptr %87, align 8, !tbaa !116
   %.not.i.i.i645 = icmp ne ptr %853, null
   %854 = load i8, ptr %86, align 8, !range !92
@@ -4979,7 +4979,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit647:   ; preds = %_ZN13b3ProfileZoneD
   br label %_ZN13b3ProfileZoneD2Ev.exit367
 
 _ZN13b3ProfileZoneD2Ev.exit367:                   ; preds = %110, %112, %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit647, %69, %67, %65
-  %.pn324.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn324.pn.pn, %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit647 ], [ %66, %65 ], [ %70, %69 ], [ %68, %67 ], [ %111, %110 ], [ %113, %112 ]
+  %.pn324.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn324.pn.pn, %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit647 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %111, %110 ], [ %113, %112 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit648 unwind label %860
 
@@ -5506,7 +5506,7 @@ _ZL20TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread: ; preds = %.lr.ph302
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph302, !llvm.loop !151
 
 ._crit_edge313:                                   ; preds = %._crit_edge309, %_ZN13b3ProfileZoneD2Ev.exit, %.lr.ph312, %._crit_edge305
-  %79 = phi i32 [ 0, %_ZN13b3ProfileZoneD2Ev.exit ], [ %18, %.lr.ph312 ], [ %18, %._crit_edge305 ], [ %90, %._crit_edge309 ]
+  %79 = phi i32 [ %18, %._crit_edge305 ], [ %18, %.lr.ph312 ], [ 0, %_ZN13b3ProfileZoneD2Ev.exit ], [ %90, %._crit_edge309 ]
   %80 = icmp sgt i32 %79, %1
   br i1 %80, label %135, label %138
 
@@ -5738,7 +5738,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %144, %148
   ret void
 
 152:                                              ; preds = %132, %76, %136
-  %.pn74.pn = phi { ptr, i32 } [ %77, %76 ], [ %133, %132 ], [ %137, %136 ]
+  %.pn74.pn = phi { ptr, i32 } [ %137, %136 ], [ %77, %76 ], [ %133, %132 ]
   call void @_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn74.pn
@@ -6737,7 +6737,7 @@ _ZN12b3LauncherCL8setConstIiEEvRKT_.exit:         ; preds = %180
   br label %259
 
 259:                                              ; preds = %114, %112, %258, %110
-  %.pn54.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn54.pn.pn.pn.pn, %258 ], [ %115, %114 ], [ %111, %110 ], [ %113, %112 ]
+  %.pn54.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn54.pn.pn.pn.pn, %258 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit111 unwind label %260
 
@@ -8785,7 +8785,7 @@ _ZN13b3ProfileZoneD2Ev.exit191:                   ; preds = %1091, %37
   ret void
 
 _ZN13b3ProfileZoneD2Ev.exit111:                   ; preds = %1072, %1085, %550, %559, %439, %441, %412, %421, %108, %259, %_ZN13b3ProfileZoneD2Ev.exit164, %1070, %844, %106
-  %.pn83.pn = phi { ptr, i32 } [ %.pn75.pn, %_ZN13b3ProfileZoneD2Ev.exit164 ], [ %845, %844 ], [ %107, %106 ], [ %442, %441 ], [ %.pn63.pn, %421 ], [ %.pn54.pn.pn.pn.pn.pn, %259 ], [ %1071, %1070 ], [ %.pn71.pn, %559 ], [ %109, %108 ], [ %413, %412 ], [ %440, %439 ], [ %551, %550 ], [ %1073, %1072 ], [ %.pn79.pn, %1085 ]
+  %.pn83.pn = phi { ptr, i32 } [ %845, %844 ], [ %107, %106 ], [ %1071, %1070 ], [ %.pn75.pn, %_ZN13b3ProfileZoneD2Ev.exit164 ], [ %109, %108 ], [ %.pn54.pn.pn.pn.pn.pn, %259 ], [ %413, %412 ], [ %.pn63.pn, %421 ], [ %440, %439 ], [ %442, %441 ], [ %551, %550 ], [ %.pn71.pn, %559 ], [ %1073, %1072 ], [ %.pn79.pn, %1085 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   invoke void @b3LeaveProfileZone()
@@ -9080,7 +9080,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIiE9push_bac
   br label %_ZNK13b3OpenCLArrayIiE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayIiE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %28, %25, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %12, %28 ], [ %12, %25 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %12, %25 ], [ %12, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !97
   %.not.i.i = icmp ne ptr %37, null

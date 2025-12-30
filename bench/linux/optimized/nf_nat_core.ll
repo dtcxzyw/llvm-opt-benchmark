@@ -857,7 +857,7 @@ hash_by_src.exit:                                 ; preds = %52, %63
   br label %.thread
 
 .thread:                                          ; preds = %455, %457, %458, %449, %411
-  %459 = phi i32 [ %412, %411 ], [ %450, %458 ], [ %450, %449 ], [ %450, %457 ], [ %450, %455 ]
+  %459 = phi i32 [ %412, %411 ], [ %450, %449 ], [ %450, %458 ], [ %450, %457 ], [ %450, %455 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %460 = icmp eq i32 %459, 0
   br i1 %460, label %.thread24, label %461

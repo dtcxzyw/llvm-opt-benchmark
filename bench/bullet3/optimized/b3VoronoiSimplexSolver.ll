@@ -316,8 +316,8 @@ _ZN25b3SubSimplexClosestResult7isValidEv.exit:    ; preds = %7
   br label %.thread.i
 
 .thread.i:                                        ; preds = %39, %62, %67
-  %.sink390 = phi i8 [ 2, %62 ], [ 3, %67 ], [ 1, %39 ]
-  %69 = phi float [ 1.000000e+00, %62 ], [ %68, %67 ], [ 0.000000e+00, %39 ]
+  %.sink390 = phi i8 [ 3, %67 ], [ 2, %62 ], [ 1, %39 ]
+  %69 = phi float [ %68, %67 ], [ 1.000000e+00, %62 ], [ 0.000000e+00, %39 ]
   %70 = or disjoint i8 %12, %.sink390
   store i8 %70, ptr %10, align 16
   %71 = fsub float 1.000000e+00, %69
@@ -401,7 +401,7 @@ _ZN25b3SubSimplexClosestResult7isValidEv.exit:    ; preds = %7
   br label %thread-pre-split8.thread.i
 
 thread-pre-split8.thread.i:                       ; preds = %123, %.thread.i
-  %124 = phi i32 [ 1, %.thread.i ], [ 0, %123 ]
+  %124 = phi i32 [ 0, %123 ], [ 1, %.thread.i ]
   %125 = load i8, ptr %10, align 16
   %126 = and i8 %125, 1
   %.not7.i = icmp eq i8 %126, 0
@@ -1707,7 +1707,7 @@ _ZNK9b3Vector3eqERKS_.exit:                       ; preds = %22
   br label %_ZNK9b3Vector3eqERKS_.exit.thread
 
 _ZNK9b3Vector3eqERKS_.exit.thread:                ; preds = %_ZNK9b3Vector3eqERKS_.exit, %13, %18, %22
-  %28 = phi i1 [ %.0913, %13 ], [ %spec.select, %_ZNK9b3Vector3eqERKS_.exit ], [ %.0913, %22 ], [ %.0913, %18 ]
+  %28 = phi i1 [ %.0913, %22 ], [ %.0913, %18 ], [ %.0913, %13 ], [ %spec.select, %_ZNK9b3Vector3eqERKS_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !27

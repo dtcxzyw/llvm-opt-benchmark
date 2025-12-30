@@ -66,9 +66,9 @@ define { i64, i64 } @f128_rem(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   br label %30
 
 30:                                               ; preds = %21, %29
-  %.sroa.091.0 = phi i64 [ %2, %21 ], [ %.sroa.689.sroa.0.0.copyload, %29 ]
-  %.sroa.18.0 = phi i64 [ %14, %21 ], [ %.sroa.689.sroa.6.0.copyload, %29 ]
-  %.0166 = phi i64 [ %13, %21 ], [ %.sroa.086.0.copyload, %29 ]
+  %.sroa.091.0 = phi i64 [ %.sroa.689.sroa.0.0.copyload, %29 ], [ %2, %21 ]
+  %.sroa.18.0 = phi i64 [ %.sroa.689.sroa.6.0.copyload, %29 ], [ %14, %21 ]
+  %.0166 = phi i64 [ %.sroa.086.0.copyload, %29 ], [ %13, %21 ]
   %.not177 = icmp eq i64 %10, 0
   br i1 %.not177, label %31, label %37
 

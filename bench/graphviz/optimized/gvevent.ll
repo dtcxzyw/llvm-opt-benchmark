@@ -345,7 +345,7 @@ define internal void @gvevent_button_press(ptr noundef captures(none) %0, i32 no
   br i1 %.not13.i.i, label %gvevent_select_current_obj.exit, label %gv_graph_state.exit.sink.split.i
 
 gv_graph_state.exit.sink.split.i:                 ; preds = %73, %58, %55, %47, %45, %38
-  %.016.i.sink.i = phi ptr [ %54, %47 ], [ %44, %38 ], [ %46, %45 ], [ %57, %55 ], [ %81, %73 ], [ %72, %58 ]
+  %.016.i.sink.i = phi ptr [ %46, %45 ], [ %44, %38 ], [ %57, %55 ], [ %54, %47 ], [ %81, %73 ], [ %72, %58 ]
   %82 = tail call ptr @agxget(ptr noundef nonnull %35, ptr noundef nonnull %.016.i.sink.i) #11
   %83 = tail call ptr @strdup_and_subst_obj(ptr noundef %82, ptr noundef nonnull %35) #11
   store ptr %83, ptr %32, align 8, !tbaa !72
@@ -959,7 +959,7 @@ gvevent_leave_obj.exit:                           ; preds = %53, %54, %56, %62, 
   br i1 %.not34.i, label %gvevent_enter_obj.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %92, %84, %77
-  %.sink.i21 = phi ptr [ %91, %84 ], [ %83, %77 ], [ %105, %92 ]
+  %.sink.i21 = phi ptr [ %83, %77 ], [ %91, %84 ], [ %105, %92 ]
   %106 = tail call ptr @agxget(ptr noundef nonnull %.023.i, ptr noundef nonnull %.sink.i21) #11
   %107 = tail call ptr @strdup_and_subst_obj(ptr noundef %106, ptr noundef nonnull %.023.i) #11
   store ptr %107, ptr %74, align 8, !tbaa !114

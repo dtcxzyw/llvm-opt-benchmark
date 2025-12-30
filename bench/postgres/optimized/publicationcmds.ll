@@ -127,7 +127,7 @@ define dso_local zeroext i1 @pub_rf_contains_invalid_column(i32 noundef %0, ptr 
   br label %22
 
 22:                                               ; preds = %20, %16, %15
-  %23 = phi i32 [ %spec.select, %20 ], [ %9, %15 ], [ %9, %16 ]
+  %23 = phi i32 [ %9, %16 ], [ %9, %15 ], [ %spec.select, %20 ]
   %24 = zext i32 %23 to i64
   %25 = zext i32 %0 to i64
   %26 = tail call ptr @SearchSysCache2(i32 noundef 53, i64 noundef %24, i64 noundef %25) #7
@@ -185,7 +185,7 @@ define dso_local zeroext i1 @pub_rf_contains_invalid_column(i32 noundef %0, ptr 
   br label %contain_invalid_rfcolumn_walker.exit
 
 contain_invalid_rfcolumn_walker.exit:             ; preds = %31, %50, %54
-  %.014.i = phi i1 [ true, %50 ], [ %55, %54 ], [ false, %31 ]
+  %.014.i = phi i1 [ %55, %54 ], [ true, %50 ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %56
 
@@ -195,7 +195,7 @@ contain_invalid_rfcolumn_walker.exit:             ; preds = %31, %50, %54
   br label %57
 
 57:                                               ; preds = %22, %4, %56
-  %.0 = phi i1 [ false, %4 ], [ %.023, %56 ], [ false, %22 ]
+  %.0 = phi i1 [ %.023, %56 ], [ false, %4 ], [ false, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -255,7 +255,7 @@ define internal zeroext i1 @contain_invalid_rfcolumn_walker(ptr noundef %0, ptr 
   br label %27
 
 27:                                               ; preds = %20, %2, %25
-  %.014 = phi i1 [ true, %20 ], [ %26, %25 ], [ false, %2 ]
+  %.014 = phi i1 [ %26, %25 ], [ true, %20 ], [ false, %2 ]
   ret i1 %.014
 }
 
@@ -289,7 +289,7 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   br label %21
 
 21:                                               ; preds = %19, %13, %7
-  %.051 = phi i32 [ %spec.select, %19 ], [ %10, %7 ], [ %10, %13 ]
+  %.051 = phi i32 [ %10, %13 ], [ %10, %7 ], [ %spec.select, %19 ]
   %22 = tail call ptr @GetPublication(i32 noundef %0) #7
   %23 = call zeroext i1 @check_and_fetch_column_list(ptr noundef %22, i32 noundef %.051, ptr noundef null, ptr noundef nonnull %8) #7
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1463,11 +1463,11 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   br label %.critedge124
 
 .critedge124:                                     ; preds = %118, %120, %97, %83
-  %.1101 = phi ptr [ %107, %118 ], [ %.0100150243, %83 ], [ %.0100150243, %97 ], [ %107, %120 ]
-  %.598 = phi ptr [ %.497151242, %118 ], [ %.497151242, %83 ], [ %.497151242, %97 ], [ %121, %120 ]
-  %.5 = phi ptr [ %.6, %118 ], [ %.492152241, %83 ], [ %.492152241, %97 ], [ %.6, %120 ]
-  %.485 = phi ptr [ %113, %118 ], [ %.384154240, %83 ], [ %.384154240, %97 ], [ %113, %120 ]
-  %.4 = phi ptr [ %114, %118 ], [ %.3155239, %83 ], [ %.3155239, %97 ], [ %114, %120 ]
+  %.1101 = phi ptr [ %.0100150243, %83 ], [ %.0100150243, %97 ], [ %107, %120 ], [ %107, %118 ]
+  %.598 = phi ptr [ %.497151242, %83 ], [ %.497151242, %97 ], [ %121, %120 ], [ %.497151242, %118 ]
+  %.5 = phi ptr [ %.492152241, %83 ], [ %.492152241, %97 ], [ %.6, %120 ], [ %.6, %118 ]
+  %.485 = phi ptr [ %.384154240, %83 ], [ %.384154240, %97 ], [ %113, %120 ], [ %113, %118 ]
+  %.4 = phi ptr [ %.3155239, %83 ], [ %.3155239, %97 ], [ %114, %120 ], [ %114, %118 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv238, 1
   %122 = load i32, ptr %72, align 4
   %123 = sext i32 %122 to i64
@@ -1475,10 +1475,10 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   br i1 %124, label %.lr.ph244, label %.critedge122
 
 .critedge122:                                     ; preds = %.critedge124, %.lr.ph, %70, %64, %65, %46
-  %.194 = phi ptr [ %.093165252, %46 ], [ %.295, %64 ], [ %.295, %65 ], [ %.295, %70 ], [ %.295, %.lr.ph ], [ %.598, %.critedge124 ]
-  %.189 = phi ptr [ %.088166251, %46 ], [ %.290, %64 ], [ %.290, %65 ], [ %.290, %70 ], [ %.290, %.lr.ph ], [ %.5, %.critedge124 ]
-  %.182 = phi ptr [ %.081167250, %46 ], [ %55, %64 ], [ %55, %65 ], [ %55, %70 ], [ %55, %.lr.ph ], [ %.485, %.critedge124 ]
-  %.1 = phi ptr [ %.0168249, %46 ], [ %56, %64 ], [ %56, %65 ], [ %56, %70 ], [ %56, %.lr.ph ], [ %.4, %.critedge124 ]
+  %.194 = phi ptr [ %.093165252, %46 ], [ %.295, %65 ], [ %.295, %64 ], [ %.295, %70 ], [ %.295, %.lr.ph ], [ %.598, %.critedge124 ]
+  %.189 = phi ptr [ %.088166251, %46 ], [ %.290, %65 ], [ %.290, %64 ], [ %.290, %70 ], [ %.290, %.lr.ph ], [ %.5, %.critedge124 ]
+  %.182 = phi ptr [ %.081167250, %46 ], [ %55, %65 ], [ %55, %64 ], [ %55, %70 ], [ %55, %.lr.ph ], [ %.485, %.critedge124 ]
+  %.1 = phi ptr [ %.0168249, %46 ], [ %56, %65 ], [ %56, %64 ], [ %56, %70 ], [ %56, %.lr.ph ], [ %.4, %.critedge124 ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183248, 1
   %125 = load i32, ptr %2, align 4
   %126 = sext i32 %125 to i64
@@ -3254,8 +3254,8 @@ define internal zeroext i1 @check_simple_rowfilter_expr_walker(ptr noundef %0, p
   %40 = icmp ugt i32 %39, 16383
   br i1 %40, label %select.unfold, label %.critedge
 
-select.unfold:                                    ; preds = %27, %4, %35, %38, %14, %10, %6, %33, %.thread
-  %.2.ph = phi ptr [ @.str.31, %4 ], [ @.str.30, %10 ], [ @.str.34, %35 ], [ @.str.29, %6 ], [ @.str.33, %33 ], [ @.str.30, %14 ], [ @.str.32, %.thread ], [ @.str.34, %38 ], [ @.str.30, %27 ]
+select.unfold:                                    ; preds = %27, %4, %35, %38, %14, %10, %6, %.thread, %33
+  %.2.ph = phi ptr [ @.str.33, %33 ], [ @.str.32, %.thread ], [ @.str.31, %4 ], [ @.str.29, %6 ], [ @.str.30, %10 ], [ @.str.30, %14 ], [ @.str.34, %38 ], [ @.str.34, %35 ], [ @.str.30, %27 ]
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %42 = tail call i32 @errcode(i32 noundef 1088) #7
   %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35) #7

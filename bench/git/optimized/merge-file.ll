@@ -441,7 +441,7 @@ select.unfold:                                    ; preds = %175, %176, %178
   br i1 %.not77, label %188, label %.thread85.sink.split
 
 .thread85.sink.split:                             ; preds = %select.unfold, %183, %167, %165
-  %.str.28.sink = phi ptr [ @.str.27, %165 ], [ %168, %167 ], [ @.str.28, %183 ], [ @.str.28, %select.unfold ]
+  %.str.28.sink = phi ptr [ %168, %167 ], [ @.str.27, %165 ], [ @.str.28, %183 ], [ @.str.28, %select.unfold ]
   %186 = load ptr, ptr %158, align 8, !tbaa !36
   %187 = call i32 (ptr, ...) @error(ptr noundef %.str.28.sink, ptr noundef %186) #12
   br label %.thread85
@@ -593,7 +593,7 @@ select.unfold:                                    ; preds = %175, %176, %178
   br label %255
 
 255:                                              ; preds = %.thread85, %254
-  %.3 = phi i32 [ -1, %.thread85 ], [ %spec.store.select, %254 ]
+  %.3 = phi i32 [ %spec.store.select, %254 ], [ -1, %.thread85 ]
   br label %256
 
 256:                                              ; preds = %255, %256

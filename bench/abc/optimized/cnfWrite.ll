@@ -818,7 +818,7 @@ Cnf_IsopCountLiterals.exit385:                    ; preds = %._crit_edge.us.i382
   br i1 %164, label %155, label %.critedge2, !llvm.loop !68
 
 .critedge2:                                       ; preds = %155, %137, %147, %.preheader, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ %140, %137 ], [ 1, %.preheader ], [ 1, %147 ], [ %158, %155 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %.preheader ], [ 1, %147 ], [ %140, %137 ], [ %158, %155 ]
   br i1 %12, label %.lr.ph429, label %.critedge6.preheader
 
 .lr.ph429:                                        ; preds = %.critedge2

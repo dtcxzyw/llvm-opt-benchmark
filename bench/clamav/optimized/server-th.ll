@@ -2376,8 +2376,8 @@ thread-pre-split489.thread:                       ; preds = %1076, %1074, %1084
   store i32 -1, ptr %854, align 8, !tbaa !45
   br label %.critedge.thread649
 
-.critedge.thread649:                              ; preds = %902, %904, %906, %910, %.critedge, %1118, %858, %861, %.lr.ph538, %869
-  %.3310 = phi i64 [ %.2309534, %.lr.ph538 ], [ %.2309534, %869 ], [ %.2309534, %858 ], [ %.2309534, %861 ], [ %.4299536, %1118 ], [ %.4299536, %.critedge ], [ %.4299536, %910 ], [ %.4299536, %906 ], [ %.4299536, %904 ], [ %.4299536, %902 ]
+.critedge.thread649:                              ; preds = %910, %902, %904, %906, %.critedge, %1118, %858, %861, %.lr.ph538, %869
+  %.3310 = phi i64 [ %.2309534, %869 ], [ %.2309534, %.lr.ph538 ], [ %.2309534, %861 ], [ %.2309534, %858 ], [ %.4299536, %1118 ], [ %.4299536, %.critedge ], [ %.4299536, %906 ], [ %.4299536, %904 ], [ %.4299536, %902 ], [ %.4299536, %910 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1119 = add nuw i64 %.0304535, 1
@@ -2388,7 +2388,7 @@ thread-pre-split489.thread:                       ; preds = %1076, %1074, %1084
   br i1 %1123, label %.lr.ph538, label %._crit_edge539
 
 ._crit_edge539:                                   ; preds = %.critedge.thread649, %841, %838, %845
-  %.2309.lcssa = phi i64 [ %.0307, %845 ], [ %.0307, %838 ], [ %.0307, %841 ], [ %.3310, %.critedge.thread649 ]
+  %.2309.lcssa = phi i64 [ %.0307, %845 ], [ %.0307, %841 ], [ %.0307, %838 ], [ %.3310, %.critedge.thread649 ]
   %1124 = load ptr, ptr %24, align 8, !tbaa !16
   %1125 = call i32 @pthread_mutex_unlock(ptr noundef %1124) #15
   %1126 = call i32 @pthread_mutex_lock(ptr noundef nonnull @exit_mutex) #15
@@ -3009,7 +3009,7 @@ define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
   %112 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.204, ptr noundef %111) #15
   br label %.loopexit94
 
-.thread:                                          ; preds = %105, %98, %.lr.ph101, %50, %43, %46, %101
+.thread:                                          ; preds = %105, %98, %50, %.lr.ph101, %46, %43, %101
   %113 = add nuw i64 %.0100, 1
   %114 = load i64, ptr %10, align 8, !tbaa !38
   %115 = icmp ult i64 %113, %114
@@ -3300,7 +3300,7 @@ define internal fastcc range(i32 -1, 1) i32 @handle_stream(ptr noundef nonnull %
   br label %.thread
 
 .thread:                                          ; preds = %60, %75, %107, %106, %81
-  %.3 = phi i32 [ -1, %106 ], [ 0, %107 ], [ -1, %81 ], [ 0, %60 ], [ -1, %75 ]
+  %.3 = phi i32 [ -1, %106 ], [ -1, %81 ], [ 0, %107 ], [ 0, %60 ], [ -1, %75 ]
   ret i32 %.3
 }
 
@@ -3532,7 +3532,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr noundef nonnull captu
   br label %.thread66
 
 .thread66:                                        ; preds = %11, %8, %64, %79, %88
-  %.04170 = phi i32 [ 4, %88 ], [ 3, %8 ], [ 0, %64 ], [ 0, %79 ], [ 20, %11 ]
+  %.04170 = phi i32 [ 4, %88 ], [ 0, %64 ], [ 0, %79 ], [ 20, %11 ], [ 3, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.04170

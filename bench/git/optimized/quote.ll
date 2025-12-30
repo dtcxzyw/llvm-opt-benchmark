@@ -537,7 +537,7 @@ define dso_local noundef ptr @sq_dequote_step(ptr noundef %0, ptr noundef writeo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %17, %9, %2
-  %.0 = phi ptr [ null, %2 ], [ %0, %.loopexit.sink.split ], [ %0, %9 ], [ null, %17 ], [ null, %.preheader ]
+  %.0 = phi ptr [ null, %2 ], [ %0, %9 ], [ null, %17 ], [ %0, %.loopexit.sink.split ], [ null, %.preheader ]
   ret ptr %.0
 }
 
@@ -604,8 +604,8 @@ define dso_local range(i32 -1, 1) i32 @sq_dequote_to_argv(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @sq_dequote_to_argv_internal(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i8, ptr %0, align 1, !tbaa !13
-  switch i8 %6, label %.critedge.loopexit60 [
-    i8 0, label %.critedge
+  switch i8 %6, label %.critedge43.loopexit60 [
+    i8 0, label %.critedge43
     i8 39, label %.preheader.i.preheader.lr.ph
   ]
 
@@ -623,7 +623,7 @@ define internal fastcc range(i32 -1, 1) i32 @sq_dequote_to_argv_internal(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %.023.i.us.us, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !13
   switch i8 %8, label %.backedge.i.us.us [
-    i8 0, label %.critedge
+    i8 0, label %.critedge43
     i8 39, label %9
   ]
 
@@ -631,7 +631,7 @@ define internal fastcc range(i32 -1, 1) i32 @sq_dequote_to_argv_internal(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %.023.i.us.us, i64 2
   %11 = load i8, ptr %10, align 1, !tbaa !13
   switch i8 %11, label %sq_dequote_step.exit.us.us [
-    i8 0, label %.critedge43..critedge.loopexit60_crit_edge.loopexit
+    i8 0, label %.critedge..critedge43.loopexit60_crit_edge.loopexit
     i8 92, label %12
   ]
 
@@ -658,7 +658,7 @@ sq_dequote_step.exit.us.us:                       ; preds = %15, %12, %9
   %23 = load i8, ptr %22, align 1, !tbaa !13
   %24 = and i8 %23, 1
   %.not36.not.us.us = icmp eq i8 %24, 0
-  br i1 %.not36.not.us.us, label %.critedge, label %.preheader.us.us
+  br i1 %.not36.not.us.us, label %.critedge43, label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %sq_dequote_step.exit.us.us, %.preheader.us.us
   %.2.us.us = phi ptr [ %25, %.preheader.us.us ], [ %19, %sq_dequote_step.exit.us.us ]
@@ -674,7 +674,7 @@ sq_dequote_step.exit.us.us:                       ; preds = %15, %12, %9
 thread-pre-split.us.us:                           ; preds = %.preheader.us.us
   %.pr.us.us = load i8, ptr %25, align 1, !tbaa !13
   %.not.i.us.us = icmp eq i8 %.pr.us.us, 39
-  br i1 %.not.i.us.us, label %.preheader.i.us.us.backedge, label %.critedge
+  br i1 %.not.i.us.us, label %.preheader.i.us.us.backedge, label %.critedge43
 
 .backedge.i.us.us:                                ; preds = %15, %.preheader.i.us.us
   %storemerge.i.us.us = phi i8 [ %8, %.preheader.i.us.us ], [ %14, %15 ]
@@ -698,7 +698,7 @@ thread-pre-split.us.us:                           ; preds = %.preheader.us.us
   %31 = getelementptr inbounds nuw i8, ptr %.023.i.us, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !13
   switch i8 %32, label %.backedge.i.us [
-    i8 0, label %.critedge
+    i8 0, label %.critedge43
     i8 39, label %33
   ]
 
@@ -706,7 +706,7 @@ thread-pre-split.us.us:                           ; preds = %.preheader.us.us
   %34 = getelementptr inbounds nuw i8, ptr %.023.i.us, i64 2
   %35 = load i8, ptr %34, align 1, !tbaa !13
   switch i8 %35, label %sq_dequote_step.exit.us [
-    i8 0, label %.critedge43..critedge.loopexit60_crit_edge.loopexit78
+    i8 0, label %.critedge..critedge43.loopexit60_crit_edge.loopexit78
     i8 92, label %36
   ]
 
@@ -733,7 +733,7 @@ sq_dequote_step.exit.us:                          ; preds = %39, %36, %33
   %47 = load i8, ptr %46, align 1, !tbaa !13
   %48 = and i8 %47, 1
   %.not36.not.us = icmp eq i8 %48, 0
-  br i1 %.not36.not.us, label %.critedge, label %.preheader.us
+  br i1 %.not36.not.us, label %.critedge43, label %.preheader.us
 
 .preheader.us:                                    ; preds = %sq_dequote_step.exit.us, %.preheader.us
   %.2.us = phi ptr [ %49, %.preheader.us ], [ %43, %sq_dequote_step.exit.us ]
@@ -750,7 +750,7 @@ thread-pre-split.us:                              ; preds = %.preheader.us
   %55 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767.us) #12
   %.pr.us = load i8, ptr %49, align 1, !tbaa !13
   %.not.i.us = icmp eq i8 %.pr.us, 39
-  br i1 %.not.i.us, label %.preheader.i.preheader.us, label %.critedge
+  br i1 %.not.i.us, label %.preheader.i.preheader.us, label %.critedge43
 
 .backedge.i.us:                                   ; preds = %39, %.preheader.i.us
   %storemerge.i.us = phi i8 [ %32, %.preheader.i.us ], [ %38, %39 ]
@@ -759,10 +759,10 @@ thread-pre-split.us:                              ; preds = %.preheader.us
   store i8 %storemerge.i.us, ptr %.024.i.us, align 1, !tbaa !13
   br label %.preheader.i.us
 
-thread-pre-split:                                 ; preds = %.critedge43
+thread-pre-split:                                 ; preds = %.critedge
   %.pr = load i8, ptr %.1, align 1, !tbaa !13
   %.not.i = icmp eq i8 %.pr, 39
-  br i1 %.not.i, label %.preheader.i.preheader, label %.critedge
+  br i1 %.not.i, label %.preheader.i.preheader, label %.critedge43
 
 .preheader.i.preheader:                           ; preds = %.preheader.i.preheader.lr.ph, %thread-pre-split
   %.04767 = phi ptr [ %.1, %thread-pre-split ], [ %0, %.preheader.i.preheader.lr.ph ]
@@ -774,7 +774,7 @@ thread-pre-split:                                 ; preds = %.critedge43
   %56 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   %57 = load i8, ptr %56, align 1, !tbaa !13
   switch i8 %57, label %.backedge.i [
-    i8 0, label %.critedge
+    i8 0, label %.critedge43
     i8 39, label %58
   ]
 
@@ -816,7 +816,7 @@ sq_dequote_step.exit:                             ; preds = %58, %61, %64
   %72 = load i8, ptr %71, align 1, !tbaa !13
   %73 = and i8 %72, 1
   %.not36.not = icmp eq i8 %73, 0
-  br i1 %.not36.not, label %.critedge, label %.preheader
+  br i1 %.not36.not, label %.critedge43, label %.preheader
 
 sq_dequote_step.exit.thread51:                    ; preds = %58
   store i8 0, ptr %.024.i, align 1, !tbaa !13
@@ -875,33 +875,33 @@ st_mult.exit:                                     ; preds = %82
   %97 = sext i32 %94 to i64
   %98 = getelementptr inbounds ptr, ptr %95, i64 %97
   store ptr %.04767, ptr %98, align 8, !tbaa !17
-  br i1 %.not41, label %.critedge43, label %99
+  br i1 %.not41, label %.critedge, label %99
 
 99:                                               ; preds = %93
   %100 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767) #12
-  br label %.critedge43
-
-.critedge43:                                      ; preds = %99, %93
-  %.not42 = icmp eq ptr %.1, null
-  br i1 %.not42, label %.critedge43..critedge.loopexit60_crit_edge, label %thread-pre-split, !llvm.loop !25
-
-.critedge43..critedge.loopexit60_crit_edge.loopexit: ; preds = %9
-  store i8 0, ptr %.024.i.us.us, align 1, !tbaa !13
-  br label %.critedge43..critedge.loopexit60_crit_edge
-
-.critedge43..critedge.loopexit60_crit_edge.loopexit78: ; preds = %33
-  store i8 0, ptr %.024.i.us, align 1, !tbaa !13
-  %101 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767.us) #12
-  br label %.critedge43..critedge.loopexit60_crit_edge
-
-.critedge43..critedge.loopexit60_crit_edge:       ; preds = %.critedge43, %.critedge43..critedge.loopexit60_crit_edge.loopexit78, %.critedge43..critedge.loopexit60_crit_edge.loopexit
-  br label %.critedge, !llvm.loop !25
-
-.critedge.loopexit60:                             ; preds = %5
   br label %.critedge
 
-.critedge:                                        ; preds = %sq_dequote_step.exit, %thread-pre-split, %.preheader.i, %sq_dequote_step.exit.us, %thread-pre-split.us, %.preheader.i.us, %sq_dequote_step.exit.us.us, %thread-pre-split.us.us, %.preheader.i.us.us, %.critedge43..critedge.loopexit60_crit_edge, %5, %.critedge.loopexit60
-  %.0 = phi i32 [ -1, %.preheader.i ], [ 0, %5 ], [ -1, %.preheader.i.us ], [ -1, %.critedge.loopexit60 ], [ -1, %sq_dequote_step.exit.us.us ], [ 0, %.critedge43..critedge.loopexit60_crit_edge ], [ -1, %sq_dequote_step.exit.us ], [ -1, %.preheader.i.us.us ], [ -1, %thread-pre-split.us.us ], [ -1, %thread-pre-split.us ], [ -1, %thread-pre-split ], [ -1, %sq_dequote_step.exit ]
+.critedge:                                        ; preds = %99, %93
+  %.not42 = icmp eq ptr %.1, null
+  br i1 %.not42, label %.critedge..critedge43.loopexit60_crit_edge, label %thread-pre-split, !llvm.loop !25
+
+.critedge..critedge43.loopexit60_crit_edge.loopexit: ; preds = %9
+  store i8 0, ptr %.024.i.us.us, align 1, !tbaa !13
+  br label %.critedge..critedge43.loopexit60_crit_edge
+
+.critedge..critedge43.loopexit60_crit_edge.loopexit78: ; preds = %33
+  store i8 0, ptr %.024.i.us, align 1, !tbaa !13
+  %101 = tail call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull %.04767.us) #12
+  br label %.critedge..critedge43.loopexit60_crit_edge
+
+.critedge..critedge43.loopexit60_crit_edge:       ; preds = %.critedge, %.critedge..critedge43.loopexit60_crit_edge.loopexit78, %.critedge..critedge43.loopexit60_crit_edge.loopexit
+  br label %.critedge43, !llvm.loop !25
+
+.critedge43.loopexit60:                           ; preds = %5
+  br label %.critedge43
+
+.critedge43:                                      ; preds = %sq_dequote_step.exit, %thread-pre-split, %.preheader.i, %sq_dequote_step.exit.us, %thread-pre-split.us, %.preheader.i.us, %sq_dequote_step.exit.us.us, %thread-pre-split.us.us, %.preheader.i.us.us, %.critedge..critedge43.loopexit60_crit_edge, %5, %.critedge43.loopexit60
+  %.0 = phi i32 [ 0, %5 ], [ 0, %.critedge..critedge43.loopexit60_crit_edge ], [ -1, %.critedge43.loopexit60 ], [ -1, %.preheader.i.us.us ], [ -1, %thread-pre-split.us.us ], [ -1, %sq_dequote_step.exit.us.us ], [ -1, %.preheader.i.us ], [ -1, %thread-pre-split.us ], [ -1, %sq_dequote_step.exit.us ], [ -1, %.preheader.i ], [ -1, %thread-pre-split ], [ -1, %sq_dequote_step.exit ]
   ret i32 %.0
 }
 
@@ -1289,7 +1289,7 @@ strbuf_addch.exit167:                             ; preds = %strbuf_avail.exit.i
   br label %9
 
 next_quote_pos.exit.thread:                       ; preds = %.preheader11.i, %.thread187, %next_quote_pos.exit.thread185, %32
-  %.1.i179.ph = phi i64 [ %.091, %32 ], [ %.0.i, %.thread187 ], [ %.091, %next_quote_pos.exit.thread185 ], [ 0, %.preheader11.i ]
+  %.1.i179.ph = phi i64 [ %.091, %32 ], [ %.091, %next_quote_pos.exit.thread185 ], [ %.0.i, %.thread187 ], [ 0, %.preheader11.i ]
   br i1 %.not111, label %149, label %148
 
 148:                                              ; preds = %next_quote_pos.exit.thread
@@ -1848,7 +1848,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %56, %54, %14, %15, %3
-  %.030 = phi i32 [ -1, %3 ], [ 0, %14 ], [ 0, %15 ], [ -1, %54 ], [ -1, %56 ]
+  %.030 = phi i32 [ -1, %3 ], [ 0, %15 ], [ 0, %14 ], [ -1, %54 ], [ -1, %56 ]
   ret i32 %.030
 }
 
@@ -2209,7 +2209,7 @@ strbuf_avail.exit.i25:                            ; preds = %strbuf_addch.exit23
   br i1 %.not.i27, label %.backedge.sink.split, label %.backedge
 
 .backedge.sink.split:                             ; preds = %strbuf_addch.exit23, %strbuf_avail.exit.i25, %39, %strbuf_avail.exit.i45
-  %.sink.ph = phi i8 [ %16, %39 ], [ %16, %strbuf_avail.exit.i45 ], [ 110, %strbuf_avail.exit.i25 ], [ 110, %strbuf_addch.exit23 ]
+  %.sink.ph = phi i8 [ %16, %strbuf_avail.exit.i45 ], [ %16, %39 ], [ 110, %strbuf_avail.exit.i25 ], [ 110, %strbuf_addch.exit23 ]
   tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #12
   %.pre.i31 = load i64, ptr %9, align 8, !tbaa !12
   %.pre7.i32 = add i64 %.pre.i31, 1
@@ -2692,16 +2692,16 @@ strbuf_avail.exit.i81:                            ; preds = %75
   br i1 %.not.i83, label %strbuf_addch.exit59.sink.split, label %strbuf_addch.exit59
 
 strbuf_addch.exit59.sink.split:                   ; preds = %75, %strbuf_avail.exit.i81, %72, %strbuf_avail.exit.i71, %strbuf_addch.exit49, %strbuf_avail.exit.i51
-  %.sink.ph = phi i8 [ 36, %72 ], [ %48, %strbuf_addch.exit49 ], [ %48, %strbuf_avail.exit.i51 ], [ 36, %strbuf_avail.exit.i71 ], [ %48, %strbuf_avail.exit.i81 ], [ %48, %75 ]
+  %.sink.ph = phi i8 [ %48, %strbuf_avail.exit.i51 ], [ %48, %strbuf_addch.exit49 ], [ 36, %strbuf_avail.exit.i71 ], [ 36, %72 ], [ %48, %strbuf_avail.exit.i81 ], [ %48, %75 ]
   tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #12
   %.pre.i87 = load i64, ptr %44, align 8, !tbaa !12
   %.pre7.i88 = add i64 %.pre.i87, 1
   br label %strbuf_addch.exit59
 
 strbuf_addch.exit59:                              ; preds = %strbuf_addch.exit59.sink.split, %strbuf_avail.exit.i81, %strbuf_avail.exit.i71, %strbuf_avail.exit.i51
-  %.pre-phi.i84.sink = phi i64 [ %.neg.i72, %strbuf_avail.exit.i71 ], [ %.neg.i52, %strbuf_avail.exit.i51 ], [ %.neg.i82, %strbuf_avail.exit.i81 ], [ %.pre7.i88, %strbuf_addch.exit59.sink.split ]
-  %.sink103 = phi i64 [ %74, %strbuf_avail.exit.i71 ], [ %59, %strbuf_avail.exit.i51 ], [ %77, %strbuf_avail.exit.i81 ], [ %.pre.i87, %strbuf_addch.exit59.sink.split ]
-  %.sink = phi i8 [ 36, %strbuf_avail.exit.i71 ], [ %48, %strbuf_avail.exit.i51 ], [ %48, %strbuf_avail.exit.i81 ], [ %.sink.ph, %strbuf_addch.exit59.sink.split ]
+  %.pre-phi.i84.sink = phi i64 [ %.neg.i52, %strbuf_avail.exit.i51 ], [ %.neg.i72, %strbuf_avail.exit.i71 ], [ %.neg.i82, %strbuf_avail.exit.i81 ], [ %.pre7.i88, %strbuf_addch.exit59.sink.split ]
+  %.sink103 = phi i64 [ %59, %strbuf_avail.exit.i51 ], [ %74, %strbuf_avail.exit.i71 ], [ %77, %strbuf_avail.exit.i81 ], [ %.pre.i87, %strbuf_addch.exit59.sink.split ]
+  %.sink = phi i8 [ %48, %strbuf_avail.exit.i51 ], [ 36, %strbuf_avail.exit.i71 ], [ %48, %strbuf_avail.exit.i81 ], [ %.sink.ph, %strbuf_addch.exit59.sink.split ]
   %78 = load ptr, ptr %45, align 8, !tbaa !4
   store i64 %.pre-phi.i84.sink, ptr %44, align 8, !tbaa !12
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.sink103

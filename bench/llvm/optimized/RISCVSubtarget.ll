@@ -3984,7 +3984,7 @@ define dso_local noundef range(i32 5670, 5766) i32 @_ZNK4llvm21RISCVGenSubtarget
   unreachable
 
 486:                                              ; preds = %479, %469, %459, %449, %439, %429, %419, %409, %399, %389, %379, %369, %359, %349, %339, %329, %319, %309, %299, %289, %279, %269, %259, %249, %239, %229, %219, %209, %199, %189, %179, %169, %159, %149, %139, %129, %119, %109, %99, %89, %79, %69, %59, %49, %39, %29, %19, %9
-  %.0 = phi i32 [ %., %9 ], [ %.120, %249 ], [ %.97, %19 ], [ %.143, %479 ], [ %.98, %29 ], [ %.126, %309 ], [ %.99, %39 ], [ %.142, %469 ], [ %.100, %49 ], [ %.121, %259 ], [ %.101, %59 ], [ %.141, %459 ], [ %.102, %69 ], [ %.131, %359 ], [ %.103, %79 ], [ %.140, %449 ], [ %.104, %89 ], [ %.122, %269 ], [ %.105, %99 ], [ %.139, %439 ], [ %.106, %109 ], [ %.128, %329 ], [ %.107, %119 ], [ %.138, %429 ], [ %.108, %129 ], [ %.123, %279 ], [ %.109, %139 ], [ %.137, %419 ], [ %.110, %149 ], [ %.130, %349 ], [ %.111, %159 ], [ %.136, %409 ], [ %.112, %169 ], [ %.124, %289 ], [ %.113, %179 ], [ %.135, %399 ], [ %.114, %189 ], [ %.127, %319 ], [ %.115, %199 ], [ %.134, %389 ], [ %.116, %209 ], [ %.125, %299 ], [ %.117, %219 ], [ %.133, %379 ], [ %.118, %229 ], [ %.129, %339 ], [ %.119, %239 ], [ %.132, %369 ]
+  %.0 = phi i32 [ %., %9 ], [ %.97, %19 ], [ %.98, %29 ], [ %.99, %39 ], [ %.100, %49 ], [ %.101, %59 ], [ %.102, %69 ], [ %.103, %79 ], [ %.104, %89 ], [ %.105, %99 ], [ %.106, %109 ], [ %.107, %119 ], [ %.108, %129 ], [ %.109, %139 ], [ %.110, %149 ], [ %.111, %159 ], [ %.112, %169 ], [ %.113, %179 ], [ %.114, %189 ], [ %.115, %199 ], [ %.116, %209 ], [ %.117, %219 ], [ %.118, %229 ], [ %.119, %239 ], [ %.120, %249 ], [ %.121, %259 ], [ %.122, %269 ], [ %.123, %279 ], [ %.124, %289 ], [ %.125, %299 ], [ %.126, %309 ], [ %.127, %319 ], [ %.128, %329 ], [ %.129, %339 ], [ %.130, %349 ], [ %.131, %359 ], [ %.132, %369 ], [ %.133, %379 ], [ %.134, %389 ], [ %.135, %399 ], [ %.136, %409 ], [ %.137, %419 ], [ %.138, %429 ], [ %.139, %439 ], [ %.140, %449 ], [ %.141, %459 ], [ %.142, %469 ], [ %.143, %479 ]
   ret i32 %.0
 }
 
@@ -4042,7 +4042,7 @@ define dso_local noundef range(i32 0, 33) i32 @_ZNK4llvm21RISCVGenSubtargetInfo9
   unreachable
 
 16:                                               ; preds = %13, %11, %7, %2, %8
-  %.0 = phi i32 [ %10, %8 ], [ 0, %7 ], [ 0, %2 ], [ %14, %13 ], [ %12, %11 ]
+  %.0 = phi i32 [ %10, %8 ], [ 0, %2 ], [ 0, %7 ], [ %12, %11 ], [ %14, %13 ]
   ret i32 %.0
 }
 
@@ -4484,7 +4484,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21isTuneAUIPCADDIFusionERKNS_15Targ
   br label %46
 
 46:                                               ; preds = %.thread, %41, %29, %20, %10, %11, %4
-  %.1 = phi i1 [ true, %10 ], [ false, %29 ], [ false, %20 ], [ false, %4 ], [ false, %11 ], [ false, %.thread ], [ true, %41 ]
+  %.1 = phi i1 [ false, %11 ], [ false, %4 ], [ true, %10 ], [ false, %20 ], [ false, %29 ], [ false, %.thread ], [ true, %41 ]
   ret i1 %.1
 }
 
@@ -4580,7 +4580,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneLDADDFusionERKNS_15TargetIn
   br label %55
 
 55:                                               ; preds = %.thread, %50, %38, %29, %.critedge, %18, %11, %4, %22
-  %.1 = phi i1 [ true, %.critedge ], [ false, %38 ], [ false, %29 ], [ false, %11 ], [ false, %22 ], [ false, %18 ], [ false, %4 ], [ false, %.thread ], [ true, %50 ]
+  %.1 = phi i1 [ false, %22 ], [ false, %4 ], [ false, %11 ], [ false, %18 ], [ true, %.critedge ], [ false, %29 ], [ false, %38 ], [ false, %.thread ], [ true, %50 ]
   ret i1 %.1
 }
 
@@ -4664,7 +4664,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19isTuneLUIADDIFusionERKNS_15Target
   br label %46
 
 46:                                               ; preds = %4, %.thread, %41, %29, %20, %.critedge, %11
-  %.1 = phi i1 [ true, %.critedge ], [ false, %29 ], [ false, %20 ], [ false, %4 ], [ false, %11 ], [ false, %.thread ], [ true, %41 ]
+  %.1 = phi i1 [ false, %11 ], [ true, %.critedge ], [ false, %20 ], [ false, %29 ], [ false, %.thread ], [ true, %41 ], [ false, %4 ]
   ret i1 %.1
 }
 
@@ -4773,7 +4773,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24isTuneShiftedZExtWFusionERKNS_15T
   br label %63
 
 63:                                               ; preds = %.thread, %58, %46, %39, %32, %25, %21, %.critedge, %18, %11, %4
-  %.1 = phi i1 [ false, %32 ], [ false, %46 ], [ false, %39 ], [ false, %25 ], [ true, %.critedge ], [ true, %58 ], [ false, %4 ], [ false, %11 ], [ false, %18 ], [ false, %21 ], [ false, %.thread ]
+  %.1 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %18 ], [ true, %.critedge ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ false, %39 ], [ false, %46 ], [ false, %.thread ], [ true, %58 ]
   ret i1 %.1
 }
 
@@ -4882,7 +4882,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtHFusionERKNS_15TargetIn
   br label %64
 
 64:                                               ; preds = %.thread, %59, %47, %40, %33, %26, %22, %.critedge, %18, %11, %4
-  %.1 = phi i1 [ false, %33 ], [ false, %47 ], [ false, %40 ], [ false, %26 ], [ true, %.critedge ], [ false, %18 ], [ false, %4 ], [ false, %11 ], [ false, %22 ], [ false, %.thread ], [ true, %59 ]
+  %.1 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %18 ], [ true, %.critedge ], [ false, %22 ], [ false, %26 ], [ false, %33 ], [ false, %40 ], [ false, %47 ], [ false, %.thread ], [ true, %59 ]
   ret i1 %.1
 }
 
@@ -4991,7 +4991,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtWFusionERKNS_15TargetIn
   br label %64
 
 64:                                               ; preds = %.thread, %59, %47, %40, %33, %26, %22, %.critedge, %18, %11, %4
-  %.1 = phi i1 [ false, %33 ], [ false, %47 ], [ false, %40 ], [ false, %26 ], [ true, %.critedge ], [ false, %18 ], [ false, %4 ], [ false, %11 ], [ false, %22 ], [ false, %.thread ], [ true, %59 ]
+  %.1 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %18 ], [ true, %.critedge ], [ false, %22 ], [ false, %26 ], [ false, %33 ], [ false, %40 ], [ false, %47 ], [ false, %.thread ], [ true, %59 ]
   ret i1 %.1
 }
 
@@ -5050,7 +5050,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -6499,7 +6499,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llv
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i: ; preds = %17, %.thread.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %19, %17 ], [ 0, %.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %19, %17 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i ]
   %20 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %22 = xor i64 %8, -1

@@ -234,7 +234,7 @@ define internal zeroext i8 @interpolate_nearest(float noundef %0, float noundef 
   br label %24
 
 24:                                               ; preds = %17, %7, %12, %18
-  %.in = phi i8 [ %23, %18 ], [ %6, %7 ], [ %6, %12 ], [ %6, %17 ]
+  %.in = phi i8 [ %23, %18 ], [ %6, %12 ], [ %6, %7 ], [ %6, %17 ]
   ret i8 %.in
 }
 

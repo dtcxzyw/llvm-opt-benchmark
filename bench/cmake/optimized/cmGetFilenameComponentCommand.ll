@@ -672,9 +672,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
   br label %596
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit148: ; preds = %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit148_crit_edge, %.lr.ph273, %247
-  %259 = phi ptr [ %.pre282, %.lr.ph273 ], [ %.pre282, %247 ], [ %.pre281, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit148_crit_edge ]
-  %260 = phi ptr [ %.pre280, %.lr.ph273 ], [ %.pre280, %247 ], [ %.pre279, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit148_crit_edge ]
-  %.186 = phi i32 [ %.085272, %.lr.ph273 ], [ %248, %247 ], [ %248, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit148_crit_edge ]
+  %259 = phi ptr [ %.pre282, %247 ], [ %.pre282, %.lr.ph273 ], [ %.pre281, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit148_crit_edge ]
+  %260 = phi ptr [ %.pre280, %247 ], [ %.pre280, %.lr.ph273 ], [ %.pre279, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit148_crit_edge ]
+  %.186 = phi i32 [ %248, %247 ], [ %.085272, %.lr.ph273 ], [ %248, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit148_crit_edge ]
   %261 = add i32 %.186, 1
   %262 = zext i32 %261 to i64
   %263 = ptrtoint ptr %260 to i64
@@ -1080,9 +1080,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177: ; preds = %37
   br label %489
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit179: ; preds = %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit179_crit_edge, %.lr.ph, %418
-  %430 = phi ptr [ %.pre278, %.lr.ph ], [ %.pre278, %418 ], [ %.pre277, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit179_crit_edge ]
-  %431 = phi ptr [ %.pre276, %.lr.ph ], [ %.pre276, %418 ], [ %.pre, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit179_crit_edge ]
-  %.182 = phi i32 [ %.081271, %.lr.ph ], [ %419, %418 ], [ %419, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit179_crit_edge ]
+  %430 = phi ptr [ %.pre278, %418 ], [ %.pre278, %.lr.ph ], [ %.pre277, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit179_crit_edge ]
+  %431 = phi ptr [ %.pre276, %418 ], [ %.pre276, %.lr.ph ], [ %.pre, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit179_crit_edge ]
+  %.182 = phi i32 [ %419, %418 ], [ %.081271, %.lr.ph ], [ %419, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit179_crit_edge ]
   %432 = add i32 %.182, 1
   %433 = zext i32 %432 to i64
   %434 = ptrtoint ptr %431 to i64

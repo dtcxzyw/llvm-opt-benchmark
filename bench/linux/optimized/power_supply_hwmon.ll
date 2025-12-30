@@ -122,7 +122,7 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   br label %53
 
 .thread:                                          ; preds = %37, %42, %9, %6
-  %51 = phi i32 [ -12, %9 ], [ %47, %42 ], [ -12, %6 ], [ -12, %37 ]
+  %51 = phi i32 [ %47, %42 ], [ -12, %6 ], [ -12, %9 ], [ -12, %37 ]
   %52 = tail call i32 @devres_release_group(ptr noundef nonnull %3, ptr noundef null) #8
   br label %53
 
@@ -250,7 +250,7 @@ power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
   br i1 %40, label %.split9.us, label %.split, !llvm.loop !10
 
 .split9.us:                                       ; preds = %33, %power_supply_hwmon_to_property.exit, %19, %power_supply_hwmon_to_property.exit.us
-  %.us-phi = phi i1 [ %11, %19 ], [ %25, %power_supply_hwmon_to_property.exit.us ], [ %39, %power_supply_hwmon_to_property.exit ], [ %27, %33 ]
+  %.us-phi = phi i1 [ %11, %19 ], [ %25, %power_supply_hwmon_to_property.exit.us ], [ %27, %33 ], [ %39, %power_supply_hwmon_to_property.exit ]
   %41 = select i1 %.us-phi, i16 292, i16 0
   br label %power_supply_hwmon_to_property.exit6
 
@@ -377,7 +377,7 @@ default.unreachable:                              ; preds = %71
   br label %power_supply_hwmon_to_property.exit6
 
 power_supply_hwmon_to_property.exit6:             ; preds = %52, %55, %47, %43, %72, %42, %78, %75, %74, %74, %74, %74, %60, %.split9.us
-  %79 = phi i16 [ 292, %78 ], [ %41, %.split9.us ], [ 0, %60 ], [ 420, %74 ], [ 420, %75 ], [ 420, %74 ], [ 420, %74 ], [ 420, %74 ], [ 0, %42 ], [ 420, %72 ], [ 0, %43 ], [ 0, %47 ], [ 0, %55 ], [ 0, %52 ]
+  %79 = phi i16 [ 292, %78 ], [ %41, %.split9.us ], [ 0, %60 ], [ 420, %75 ], [ 420, %74 ], [ 420, %74 ], [ 420, %74 ], [ 420, %74 ], [ 0, %42 ], [ 420, %72 ], [ 0, %43 ], [ 0, %47 ], [ 0, %55 ], [ 0, %52 ]
   ret i16 %79
 }
 
@@ -494,7 +494,7 @@ define internal i32 @power_supply_hwmon_read(ptr noundef readonly captures(none)
   br label %power_supply_hwmon_to_property.exit
 
 power_supply_hwmon_to_property.exit:              ; preds = %19, %22, %14, %10, %5, %42, %38, %27
-  %45 = phi i32 [ 0, %42 ], [ -22, %19 ], [ %28, %27 ], [ -75, %38 ], [ -22, %5 ], [ -22, %14 ], [ -22, %10 ], [ -22, %22 ]
+  %45 = phi i32 [ 0, %42 ], [ %28, %27 ], [ -75, %38 ], [ -22, %5 ], [ -22, %10 ], [ -22, %14 ], [ -22, %22 ], [ -22, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %45
 }
@@ -598,7 +598,7 @@ define internal i32 @power_supply_hwmon_write(ptr noundef readonly captures(none
   br label %32
 
 27:                                               ; preds = %14, %15, %16, %10, %11, %12, %13
-  %.ph = phi i32 [ 12, %13 ], [ 18, %14 ], [ 16, %15 ], [ 17, %16 ], [ 13, %10 ], [ 9, %11 ], [ 8, %12 ]
+  %.ph = phi i32 [ 18, %14 ], [ 16, %15 ], [ 17, %16 ], [ 13, %10 ], [ 9, %11 ], [ 8, %12 ], [ 12, %13 ]
   %28 = trunc i64 %4 to i32
   %29 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %28, i32 1000)
   %30 = extractvalue { i32, i1 } %29, 1
@@ -622,7 +622,7 @@ define internal i32 @power_supply_hwmon_write(ptr noundef readonly captures(none
   br label %power_supply_hwmon_to_property.exit
 
 power_supply_hwmon_to_property.exit:              ; preds = %19, %22, %14, %10, %5, %38, %27
-  %40 = phi i32 [ %39, %38 ], [ -22, %14 ], [ -75, %27 ], [ -22, %5 ], [ -22, %10 ], [ -22, %22 ], [ -22, %19 ]
+  %40 = phi i32 [ %39, %38 ], [ -75, %27 ], [ -22, %5 ], [ -22, %10 ], [ -22, %14 ], [ -22, %22 ], [ -22, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %40
 }

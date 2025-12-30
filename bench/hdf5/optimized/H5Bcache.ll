@@ -453,7 +453,7 @@ define internal ptr @H5B__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %173, %17, %._crit_edge, %237, %251, %248, %4
-  %.0 = phi ptr [ null, %251 ], [ null, %248 ], [ null, %17 ], [ null, %4 ], [ %15, %._crit_edge ], [ %15, %237 ], [ %15, %173 ]
+  %.0 = phi ptr [ null, %251 ], [ null, %248 ], [ null, %4 ], [ %15, %._crit_edge ], [ %15, %237 ], [ null, %17 ], [ %15, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

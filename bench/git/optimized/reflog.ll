@@ -1264,7 +1264,7 @@ find_cfg_ent.exit.thread:                         ; preds = %37, %find_cfg_ent.e
   br label %54
 
 54:                                               ; preds = %50, %52, %find_cfg_ent.exit, %27, %29, %20, %16, %22, %11
-  %.0 = phi i32 [ %12, %11 ], [ %23, %22 ], [ -1, %16 ], [ -1, %find_cfg_ent.exit ], [ 0, %27 ], [ -1, %20 ], [ 0, %29 ], [ 0, %52 ], [ 0, %50 ]
+  %.0 = phi i32 [ %12, %11 ], [ %23, %22 ], [ -1, %16 ], [ -1, %20 ], [ 0, %29 ], [ 0, %27 ], [ -1, %find_cfg_ent.exit ], [ 0, %52 ], [ 0, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

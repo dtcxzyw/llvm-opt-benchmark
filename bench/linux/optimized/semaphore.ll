@@ -356,7 +356,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   br i1 %76, label %.split.split, label %.loopexit, !llvm.loop !21
 
 .split6.us:                                       ; preds = %51, %.split.split.us, %.critedge.us7, %68, %.critedge, %.critedge.us
-  %77 = phi i32 [ -4, %68 ], [ -62, %.critedge.us ], [ -62, %.critedge ], [ -4, %.split.split.us ], [ -4, %51 ], [ -62, %.critedge.us7 ]
+  %77 = phi i32 [ -62, %.critedge.us ], [ -62, %.critedge ], [ -4, %68 ], [ -62, %.critedge.us7 ], [ -4, %.split.split.us ], [ -4, %51 ]
   %78 = load ptr, ptr %30, align 8
   %79 = load ptr, ptr %4, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8

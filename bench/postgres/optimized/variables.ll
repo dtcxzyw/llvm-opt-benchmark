@@ -57,7 +57,7 @@ define dso_local ptr @GetVariable(ptr noundef readonly captures(address_is_null)
   br i1 %10, label %.thread17, label %.preheader
 
 .thread17:                                        ; preds = %9, %.preheader, %.thread, %2
-  %.0 = phi ptr [ %8, %.thread ], [ null, %2 ], [ null, %.preheader ], [ null, %9 ]
+  %.0 = phi ptr [ null, %2 ], [ %8, %.thread ], [ null, %.preheader ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -387,8 +387,8 @@ valid_variable_name.exit:                         ; preds = %12, %47
   store ptr %50, ptr %.052.in.le89, align 8
   br label %.thread68
 
-.thread68:                                        ; preds = %42, %39, %36, %.thread, %46, %.thread71, %49, %.loopexit, %3, %14
-  %.049 = phi i1 [ true, %.thread71 ], [ true, %.loopexit ], [ false, %14 ], [ false, %3 ], [ true, %49 ], [ true, %42 ], [ true, %39 ], [ true, %36 ], [ true, %.thread ], [ false, %46 ]
+.thread68:                                        ; preds = %46, %42, %39, %36, %.thread, %.thread71, %49, %.loopexit, %3, %14
+  %.049 = phi i1 [ false, %14 ], [ false, %3 ], [ true, %.loopexit ], [ true, %49 ], [ true, %.thread71 ], [ false, %46 ], [ true, %42 ], [ true, %39 ], [ true, %36 ], [ true, %.thread ]
   ret i1 %.049
 }
 
@@ -540,8 +540,8 @@ define dso_local zeroext i1 @VariableHasHook(ptr noundef readonly captures(none)
   %16 = icmp sgt i32 %6, 0
   br i1 %16, label %.thread16, label %3
 
-.thread16:                                        ; preds = %15, %3, %11, %8
-  %.2 = phi i1 [ true, %8 ], [ %14, %11 ], [ false, %3 ], [ false, %15 ]
+.thread16:                                        ; preds = %15, %3, %8, %11
+  %.2 = phi i1 [ %14, %11 ], [ true, %8 ], [ false, %3 ], [ false, %15 ]
   ret i1 %.2
 }
 

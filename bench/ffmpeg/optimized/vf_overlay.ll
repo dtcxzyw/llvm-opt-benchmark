@@ -179,8 +179,8 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   unreachable
 
 18:                                               ; preds = %3, %14, %13, %12, %11, %10, %9, %8
-  %.015 = phi ptr [ @query_formats.main_pix_fmts_gbrp, %14 ], [ @query_formats.main_pix_fmts_yuv420p10, %8 ], [ @query_formats.main_pix_fmts_yuv422, %9 ], [ @query_formats.main_pix_fmts_yuv422p10, %10 ], [ @query_formats.main_pix_fmts_yuv444, %11 ], [ @query_formats.main_pix_fmts_yuv444p10, %12 ], [ @query_formats.main_pix_fmts_rgb, %13 ], [ @query_formats.main_pix_fmts_yuv420, %3 ]
-  %.014 = phi ptr [ @query_formats.overlay_pix_fmts_gbrp, %14 ], [ @query_formats.overlay_pix_fmts_yuv420p10, %8 ], [ @query_formats.overlay_pix_fmts_yuv422, %9 ], [ @query_formats.overlay_pix_fmts_yuv422p10, %10 ], [ @query_formats.overlay_pix_fmts_yuv444, %11 ], [ @query_formats.overlay_pix_fmts_yuv444p10, %12 ], [ @query_formats.overlay_pix_fmts_rgb, %13 ], [ @query_formats.overlay_pix_fmts_yuv420, %3 ]
+  %.015 = phi ptr [ @query_formats.main_pix_fmts_yuv420p10, %8 ], [ @query_formats.main_pix_fmts_yuv422, %9 ], [ @query_formats.main_pix_fmts_yuv422p10, %10 ], [ @query_formats.main_pix_fmts_yuv444, %11 ], [ @query_formats.main_pix_fmts_yuv444p10, %12 ], [ @query_formats.main_pix_fmts_rgb, %13 ], [ @query_formats.main_pix_fmts_gbrp, %14 ], [ @query_formats.main_pix_fmts_yuv420, %3 ]
+  %.014 = phi ptr [ @query_formats.overlay_pix_fmts_yuv420p10, %8 ], [ @query_formats.overlay_pix_fmts_yuv422, %9 ], [ @query_formats.overlay_pix_fmts_yuv422p10, %10 ], [ @query_formats.overlay_pix_fmts_yuv444, %11 ], [ @query_formats.overlay_pix_fmts_yuv444p10, %12 ], [ @query_formats.overlay_pix_fmts_rgb, %13 ], [ @query_formats.overlay_pix_fmts_gbrp, %14 ], [ @query_formats.overlay_pix_fmts_yuv420, %3 ]
   %19 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.015) #10
   %20 = load ptr, ptr %1, align 8, !tbaa !32
   %21 = tail call i32 @ff_formats_ref(ptr noundef %19, ptr noundef %20) #10
@@ -201,7 +201,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %32
 
 32:                                               ; preds = %18, %23, %27, %15
-  %.013 = phi i32 [ %16, %15 ], [ %31, %27 ], [ %21, %18 ], [ %25, %23 ]
+  %.013 = phi i32 [ %31, %27 ], [ %16, %15 ], [ %21, %18 ], [ %25, %23 ]
   ret i32 %.013
 }
 
@@ -307,7 +307,7 @@ set_expr.exit:                                    ; preds = %21, %12
   br label %set_expr.exit.thread
 
 set_expr.exit.thread:                             ; preds = %sub_0, %.tail, %26, %17, %.tail27, %set_expr.exit, %30
-  %.026 = phi i32 [ 0, %30 ], [ 0, %set_expr.exit ], [ %24, %26 ], [ %15, %17 ], [ -38, %.tail27 ], [ -38, %sub_0 ], [ -38, %.tail ]
+  %.026 = phi i32 [ 0, %set_expr.exit ], [ 0, %30 ], [ %24, %26 ], [ %15, %17 ], [ -38, %.tail27 ], [ -38, %.tail ], [ -38, %sub_0 ]
   ret i32 %.026
 }
 
@@ -460,7 +460,7 @@ define internal noundef i32 @config_input_main(ptr noundef readonly captures(non
   unreachable
 
 .sink.split:                                      ; preds = %55, %31, %34, %37, %40, %43, %46, %49, %52, %63, %62, %61, %60, %59, %58, %57
-  %blend_slice_yuva420.sink = phi ptr [ %33, %31 ], [ @blend_slice_yuva420p10, %57 ], [ @blend_slice_yuva422, %58 ], [ @blend_slice_yuva422p10, %59 ], [ @blend_slice_yuva444, %60 ], [ @blend_slice_yuva444p10, %61 ], [ @blend_slice_rgba, %62 ], [ @blend_slice_gbrap, %63 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ @blend_slice_yuva420, %55 ]
+  %blend_slice_yuva420.sink = phi ptr [ @blend_slice_yuva420p10, %57 ], [ @blend_slice_yuva422, %58 ], [ @blend_slice_yuva422p10, %59 ], [ @blend_slice_yuva444, %60 ], [ @blend_slice_yuva444p10, %61 ], [ @blend_slice_rgba, %62 ], [ @blend_slice_gbrap, %63 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ @blend_slice_yuva420, %55 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store ptr %blend_slice_yuva420.sink, ptr %65, align 8, !tbaa !56
   br label %66
@@ -860,11 +860,11 @@ define internal noundef i32 @blend_slice_yuva420(ptr noundef readonly captures(n
   br label %106
 
 106:                                              ; preds = %95, %87
-  %.0292.i43 = phi ptr [ %92, %87 ], [ %103, %95 ]
-  %.0289.i44 = phi i32 [ %77, %87 ], [ %105, %95 ]
-  %.0287.i45 = phi ptr [ %91, %87 ], [ %104, %95 ]
-  %.0283.i46 = phi ptr [ %89, %87 ], [ %102, %95 ]
-  %.0280.i47 = phi ptr [ %90, %87 ], [ %99, %95 ]
+  %.0292.i43 = phi ptr [ %103, %95 ], [ %92, %87 ]
+  %.0289.i44 = phi i32 [ %105, %95 ], [ %77, %87 ]
+  %.0287.i45 = phi ptr [ %104, %95 ], [ %91, %87 ]
+  %.0283.i46 = phi ptr [ %102, %95 ], [ %89, %87 ]
+  %.0280.i47 = phi ptr [ %99, %95 ], [ %90, %87 ]
   %107 = icmp slt i32 %.0289.i44, %.306.i41
   br i1 %107, label %.lr.ph, label %._crit_edge
 
@@ -1053,11 +1053,11 @@ blend_plane_8_8bits.exit59:                       ; preds = %blend_plane_8_8bits
   br label %247
 
 247:                                              ; preds = %234, %232, %225
-  %.0292.i17 = phi ptr [ %230, %225 ], [ %244, %234 ], [ %230, %232 ]
-  %.0289.i18 = phi i32 [ %212, %225 ], [ %246, %234 ], [ %212, %232 ]
-  %.0287.i19 = phi ptr [ %229, %225 ], [ %245, %234 ], [ %229, %232 ]
-  %.0283.i20 = phi ptr [ %227, %225 ], [ %241, %234 ], [ %227, %232 ]
-  %.0280.i21 = phi ptr [ %228, %225 ], [ %238, %234 ], [ %228, %232 ]
+  %.0292.i17 = phi ptr [ %244, %234 ], [ %230, %232 ], [ %230, %225 ]
+  %.0289.i18 = phi i32 [ %246, %234 ], [ %212, %232 ], [ %212, %225 ]
+  %.0287.i19 = phi ptr [ %245, %234 ], [ %229, %232 ], [ %229, %225 ]
+  %.0283.i20 = phi ptr [ %241, %234 ], [ %227, %232 ], [ %227, %225 ]
+  %.0280.i21 = phi ptr [ %238, %234 ], [ %228, %232 ], [ %228, %225 ]
   %248 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %248, label %.lr.ph82, label %._crit_edge83
 
@@ -1326,11 +1326,11 @@ blend_plane_8_8bits.exit33:                       ; preds = %._crit_edge83
   br label %443
 
 443:                                              ; preds = %430, %428, %421
-  %.0292.i = phi ptr [ %426, %421 ], [ %440, %430 ], [ %426, %428 ]
-  %.0289.i = phi i32 [ %408, %421 ], [ %442, %430 ], [ %408, %428 ]
-  %.0287.i = phi ptr [ %425, %421 ], [ %441, %430 ], [ %425, %428 ]
-  %.0283.i = phi ptr [ %423, %421 ], [ %437, %430 ], [ %423, %428 ]
-  %.0280.i = phi ptr [ %424, %421 ], [ %434, %430 ], [ %424, %428 ]
+  %.0292.i = phi ptr [ %440, %430 ], [ %426, %428 ], [ %426, %421 ]
+  %.0289.i = phi i32 [ %442, %430 ], [ %408, %428 ], [ %408, %421 ]
+  %.0287.i = phi ptr [ %441, %430 ], [ %425, %428 ], [ %425, %421 ]
+  %.0283.i = phi ptr [ %437, %430 ], [ %423, %428 ], [ %423, %421 ]
+  %.0280.i = phi ptr [ %434, %430 ], [ %424, %428 ], [ %424, %421 ]
   %444 = icmp slt i32 %.0289.i, %.306.i
   br i1 %444, label %.lr.ph99, label %._crit_edge100
 
@@ -1736,10 +1736,10 @@ define internal noundef i32 @blend_slice_yuv420(ptr noundef readonly captures(no
   br label %105
 
 105:                                              ; preds = %94, %87
-  %.0289.i41 = phi i32 [ %77, %87 ], [ %104, %94 ]
-  %.0287.i42 = phi ptr [ %91, %87 ], [ %103, %94 ]
-  %.0283.i43 = phi ptr [ %89, %87 ], [ %102, %94 ]
-  %.0280.i44 = phi ptr [ %90, %87 ], [ %99, %94 ]
+  %.0289.i41 = phi i32 [ %104, %94 ], [ %77, %87 ]
+  %.0287.i42 = phi ptr [ %103, %94 ], [ %91, %87 ]
+  %.0283.i43 = phi ptr [ %102, %94 ], [ %89, %87 ]
+  %.0280.i44 = phi ptr [ %99, %94 ], [ %90, %87 ]
   %106 = icmp slt i32 %.0289.i41, %.306.i38
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -1909,10 +1909,10 @@ blend_plane_8_8bits.exit53:                       ; preds = %blend_plane_8_8bits
   br label %235
 
 235:                                              ; preds = %223, %221
-  %.0289.i18 = phi i32 [ %200, %221 ], [ %234, %223 ]
-  %.0287.i19 = phi ptr [ %218, %221 ], [ %233, %223 ]
-  %.0283.i20 = phi ptr [ %216, %221 ], [ %230, %223 ]
-  %.0280.i21 = phi ptr [ %217, %221 ], [ %227, %223 ]
+  %.0289.i18 = phi i32 [ %234, %223 ], [ %200, %221 ]
+  %.0287.i19 = phi ptr [ %233, %223 ], [ %218, %221 ]
+  %.0283.i20 = phi ptr [ %230, %223 ], [ %216, %221 ]
+  %.0280.i21 = phi ptr [ %227, %223 ], [ %217, %221 ]
   %236 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %236, label %.lr.ph71.split, label %._crit_edge72
 
@@ -2124,10 +2124,10 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge72
   br label %391
 
 391:                                              ; preds = %379, %377
-  %.0289.i = phi i32 [ %356, %377 ], [ %390, %379 ]
-  %.0287.i = phi ptr [ %374, %377 ], [ %389, %379 ]
-  %.0283.i = phi ptr [ %372, %377 ], [ %386, %379 ]
-  %.0280.i = phi ptr [ %373, %377 ], [ %383, %379 ]
+  %.0289.i = phi i32 [ %390, %379 ], [ %356, %377 ]
+  %.0287.i = phi ptr [ %389, %379 ], [ %374, %377 ]
+  %.0283.i = phi ptr [ %386, %379 ], [ %372, %377 ]
+  %.0280.i = phi ptr [ %383, %379 ], [ %373, %377 ]
   %392 = icmp slt i32 %.0289.i, %.306.i
   br i1 %392, label %.lr.ph85.split, label %._crit_edge86
 
@@ -3614,11 +3614,11 @@ define internal noundef i32 @blend_slice_yuva422(ptr noundef readonly captures(n
   br label %106
 
 106:                                              ; preds = %95, %87
-  %.0292.i39 = phi ptr [ %92, %87 ], [ %103, %95 ]
-  %.0289.i40 = phi i32 [ %77, %87 ], [ %105, %95 ]
-  %.0287.i41 = phi ptr [ %91, %87 ], [ %104, %95 ]
-  %.0283.i42 = phi ptr [ %89, %87 ], [ %102, %95 ]
-  %.0280.i43 = phi ptr [ %90, %87 ], [ %99, %95 ]
+  %.0292.i39 = phi ptr [ %103, %95 ], [ %92, %87 ]
+  %.0289.i40 = phi i32 [ %105, %95 ], [ %77, %87 ]
+  %.0287.i41 = phi ptr [ %104, %95 ], [ %91, %87 ]
+  %.0283.i42 = phi ptr [ %102, %95 ], [ %89, %87 ]
+  %.0280.i43 = phi ptr [ %99, %95 ], [ %90, %87 ]
   %107 = icmp slt i32 %.0289.i40, %.306.i37
   br i1 %107, label %.lr.ph, label %._crit_edge
 
@@ -3781,11 +3781,11 @@ blend_plane_8_8bits.exit51:                       ; preds = %blend_plane_8_8bits
   br label %225
 
 225:                                              ; preds = %212, %204
-  %.0292.i17 = phi ptr [ %209, %204 ], [ %222, %212 ]
-  %.0289.i18 = phi i32 [ %191, %204 ], [ %224, %212 ]
-  %.0287.i19 = phi ptr [ %208, %204 ], [ %223, %212 ]
-  %.0283.i20 = phi ptr [ %206, %204 ], [ %219, %212 ]
-  %.0280.i21 = phi ptr [ %207, %204 ], [ %216, %212 ]
+  %.0292.i17 = phi ptr [ %222, %212 ], [ %209, %204 ]
+  %.0289.i18 = phi i32 [ %224, %212 ], [ %191, %204 ]
+  %.0287.i19 = phi ptr [ %223, %212 ], [ %208, %204 ]
+  %.0283.i20 = phi ptr [ %219, %212 ], [ %206, %204 ]
+  %.0280.i21 = phi ptr [ %216, %212 ], [ %207, %204 ]
   %226 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %226, label %.lr.ph71, label %._crit_edge72
 
@@ -3967,11 +3967,11 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge72
   br label %360
 
 360:                                              ; preds = %347, %339
-  %.0292.i = phi ptr [ %344, %339 ], [ %357, %347 ]
-  %.0289.i = phi i32 [ %326, %339 ], [ %359, %347 ]
-  %.0287.i = phi ptr [ %343, %339 ], [ %358, %347 ]
-  %.0283.i = phi ptr [ %341, %339 ], [ %354, %347 ]
-  %.0280.i = phi ptr [ %342, %339 ], [ %351, %347 ]
+  %.0292.i = phi ptr [ %357, %347 ], [ %344, %339 ]
+  %.0289.i = phi i32 [ %359, %347 ], [ %326, %339 ]
+  %.0287.i = phi ptr [ %358, %347 ], [ %343, %339 ]
+  %.0283.i = phi ptr [ %354, %347 ], [ %341, %339 ]
+  %.0280.i = phi ptr [ %351, %347 ], [ %342, %339 ]
   %361 = icmp slt i32 %.0289.i, %.306.i
   br i1 %361, label %.lr.ph85, label %._crit_edge86
 
@@ -4289,10 +4289,10 @@ define internal noundef i32 @blend_slice_yuv422(ptr noundef readonly captures(no
   br label %105
 
 105:                                              ; preds = %94, %87
-  %.0289.i39 = phi i32 [ %77, %87 ], [ %104, %94 ]
-  %.0287.i40 = phi ptr [ %91, %87 ], [ %103, %94 ]
-  %.0283.i41 = phi ptr [ %89, %87 ], [ %102, %94 ]
-  %.0280.i42 = phi ptr [ %90, %87 ], [ %99, %94 ]
+  %.0289.i39 = phi i32 [ %104, %94 ], [ %77, %87 ]
+  %.0287.i40 = phi ptr [ %103, %94 ], [ %91, %87 ]
+  %.0283.i41 = phi ptr [ %102, %94 ], [ %89, %87 ]
+  %.0280.i42 = phi ptr [ %99, %94 ], [ %90, %87 ]
   %106 = icmp slt i32 %.0289.i39, %.306.i36
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -4435,10 +4435,10 @@ blend_plane_8_8bits.exit49:                       ; preds = %blend_plane_8_8bits
   br label %212
 
 212:                                              ; preds = %199, %192
-  %.0289.i18 = phi i32 [ %179, %192 ], [ %211, %199 ]
-  %.0287.i19 = phi ptr [ %196, %192 ], [ %210, %199 ]
-  %.0283.i20 = phi ptr [ %194, %192 ], [ %207, %199 ]
-  %.0280.i21 = phi ptr [ %195, %192 ], [ %204, %199 ]
+  %.0289.i18 = phi i32 [ %211, %199 ], [ %179, %192 ]
+  %.0287.i19 = phi ptr [ %210, %199 ], [ %196, %192 ]
+  %.0283.i20 = phi ptr [ %207, %199 ], [ %194, %192 ]
+  %.0280.i21 = phi ptr [ %204, %199 ], [ %195, %192 ]
   %213 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %213, label %.lr.ph66, label %._crit_edge67
 
@@ -4584,10 +4584,10 @@ blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge67
   br label %324
 
 324:                                              ; preds = %311, %304
-  %.0289.i = phi i32 [ %291, %304 ], [ %323, %311 ]
-  %.0287.i = phi ptr [ %308, %304 ], [ %322, %311 ]
-  %.0283.i = phi ptr [ %306, %304 ], [ %319, %311 ]
-  %.0280.i = phi ptr [ %307, %304 ], [ %316, %311 ]
+  %.0289.i = phi i32 [ %323, %311 ], [ %291, %304 ]
+  %.0287.i = phi ptr [ %322, %311 ], [ %308, %304 ]
+  %.0283.i = phi ptr [ %319, %311 ], [ %306, %304 ]
+  %.0280.i = phi ptr [ %316, %311 ], [ %307, %304 ]
   %325 = icmp slt i32 %.0289.i, %.306.i
   br i1 %325, label %.lr.ph79, label %._crit_edge80
 
@@ -5688,11 +5688,11 @@ define internal noundef i32 @blend_slice_yuva444(ptr noundef readonly captures(n
   br label %106
 
 106:                                              ; preds = %95, %87
-  %.0292.i39 = phi ptr [ %92, %87 ], [ %103, %95 ]
-  %.0289.i40 = phi i32 [ %77, %87 ], [ %105, %95 ]
-  %.0287.i41 = phi ptr [ %91, %87 ], [ %104, %95 ]
-  %.0283.i42 = phi ptr [ %89, %87 ], [ %102, %95 ]
-  %.0280.i43 = phi ptr [ %90, %87 ], [ %99, %95 ]
+  %.0292.i39 = phi ptr [ %103, %95 ], [ %92, %87 ]
+  %.0289.i40 = phi i32 [ %105, %95 ], [ %77, %87 ]
+  %.0287.i41 = phi ptr [ %104, %95 ], [ %91, %87 ]
+  %.0283.i42 = phi ptr [ %102, %95 ], [ %89, %87 ]
+  %.0280.i43 = phi ptr [ %99, %95 ], [ %90, %87 ]
   %107 = icmp slt i32 %.0289.i40, %.306.i37
   br i1 %107, label %.lr.ph, label %._crit_edge
 
@@ -5838,11 +5838,11 @@ blend_plane_8_8bits.exit51:                       ; preds = %._crit_edge
   br label %214
 
 214:                                              ; preds = %203, %195
-  %.0292.i17 = phi ptr [ %200, %195 ], [ %211, %203 ]
-  %.0289.i18 = phi i32 [ %185, %195 ], [ %213, %203 ]
-  %.0287.i19 = phi ptr [ %199, %195 ], [ %212, %203 ]
-  %.0283.i20 = phi ptr [ %197, %195 ], [ %210, %203 ]
-  %.0280.i21 = phi ptr [ %198, %195 ], [ %207, %203 ]
+  %.0292.i17 = phi ptr [ %211, %203 ], [ %200, %195 ]
+  %.0289.i18 = phi i32 [ %213, %203 ], [ %185, %195 ]
+  %.0287.i19 = phi ptr [ %212, %203 ], [ %199, %195 ]
+  %.0283.i20 = phi ptr [ %210, %203 ], [ %197, %195 ]
+  %.0280.i21 = phi ptr [ %207, %203 ], [ %198, %195 ]
   %215 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %215, label %.lr.ph75, label %._crit_edge76
 
@@ -5988,11 +5988,11 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge76
   br label %322
 
 322:                                              ; preds = %311, %303
-  %.0292.i = phi ptr [ %308, %303 ], [ %319, %311 ]
-  %.0289.i = phi i32 [ %293, %303 ], [ %321, %311 ]
-  %.0287.i = phi ptr [ %307, %303 ], [ %320, %311 ]
-  %.0283.i = phi ptr [ %305, %303 ], [ %318, %311 ]
-  %.0280.i = phi ptr [ %306, %303 ], [ %315, %311 ]
+  %.0292.i = phi ptr [ %319, %311 ], [ %308, %303 ]
+  %.0289.i = phi i32 [ %321, %311 ], [ %293, %303 ]
+  %.0287.i = phi ptr [ %320, %311 ], [ %307, %303 ]
+  %.0283.i = phi ptr [ %318, %311 ], [ %305, %303 ]
+  %.0280.i = phi ptr [ %315, %311 ], [ %306, %303 ]
   %323 = icmp slt i32 %.0289.i, %.306.i
   br i1 %323, label %.lr.ph89, label %._crit_edge90
 
@@ -6279,10 +6279,10 @@ define internal noundef i32 @blend_slice_yuv444(ptr noundef readonly captures(no
   br label %105
 
 105:                                              ; preds = %94, %87
-  %.0289.i39 = phi i32 [ %77, %87 ], [ %104, %94 ]
-  %.0287.i40 = phi ptr [ %91, %87 ], [ %103, %94 ]
-  %.0283.i41 = phi ptr [ %89, %87 ], [ %102, %94 ]
-  %.0280.i42 = phi ptr [ %90, %87 ], [ %99, %94 ]
+  %.0289.i39 = phi i32 [ %104, %94 ], [ %77, %87 ]
+  %.0287.i40 = phi ptr [ %103, %94 ], [ %91, %87 ]
+  %.0283.i41 = phi ptr [ %102, %94 ], [ %89, %87 ]
+  %.0280.i42 = phi ptr [ %99, %94 ], [ %90, %87 ]
   %106 = icmp slt i32 %.0289.i39, %.306.i36
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -6408,10 +6408,10 @@ blend_plane_8_8bits.exit49:                       ; preds = %._crit_edge
   br label %201
 
 201:                                              ; preds = %190, %183
-  %.0289.i18 = phi i32 [ %173, %183 ], [ %200, %190 ]
-  %.0287.i19 = phi ptr [ %187, %183 ], [ %199, %190 ]
-  %.0283.i20 = phi ptr [ %185, %183 ], [ %198, %190 ]
-  %.0280.i21 = phi ptr [ %186, %183 ], [ %195, %190 ]
+  %.0289.i18 = phi i32 [ %200, %190 ], [ %173, %183 ]
+  %.0287.i19 = phi ptr [ %199, %190 ], [ %187, %183 ]
+  %.0283.i20 = phi ptr [ %198, %190 ], [ %185, %183 ]
+  %.0280.i21 = phi ptr [ %195, %190 ], [ %186, %183 ]
   %202 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %202, label %.lr.ph66, label %._crit_edge67
 
@@ -6537,10 +6537,10 @@ blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge67
   br label %297
 
 297:                                              ; preds = %286, %279
-  %.0289.i = phi i32 [ %269, %279 ], [ %296, %286 ]
-  %.0287.i = phi ptr [ %283, %279 ], [ %295, %286 ]
-  %.0283.i = phi ptr [ %281, %279 ], [ %294, %286 ]
-  %.0280.i = phi ptr [ %282, %279 ], [ %291, %286 ]
+  %.0289.i = phi i32 [ %296, %286 ], [ %269, %279 ]
+  %.0287.i = phi ptr [ %295, %286 ], [ %283, %279 ]
+  %.0283.i = phi ptr [ %294, %286 ], [ %281, %279 ]
+  %.0280.i = phi ptr [ %291, %286 ], [ %282, %279 ]
   %298 = icmp slt i32 %.0289.i, %.306.i
   br i1 %298, label %.lr.ph79, label %._crit_edge80
 
@@ -7947,11 +7947,11 @@ define internal noundef i32 @blend_slice_gbrap(ptr noundef readonly captures(non
   br label %106
 
 106:                                              ; preds = %95, %87
-  %.0292.i100.i = phi ptr [ %92, %87 ], [ %103, %95 ]
-  %.0289.i101.i = phi i32 [ %77, %87 ], [ %105, %95 ]
-  %.0287.i102.i = phi ptr [ %91, %87 ], [ %104, %95 ]
-  %.0283.i103.i = phi ptr [ %89, %87 ], [ %102, %95 ]
-  %.0280.i104.i = phi ptr [ %90, %87 ], [ %99, %95 ]
+  %.0292.i100.i = phi ptr [ %103, %95 ], [ %92, %87 ]
+  %.0289.i101.i = phi i32 [ %105, %95 ], [ %77, %87 ]
+  %.0287.i102.i = phi ptr [ %104, %95 ], [ %91, %87 ]
+  %.0283.i103.i = phi ptr [ %102, %95 ], [ %89, %87 ]
+  %.0280.i104.i = phi ptr [ %99, %95 ], [ %90, %87 ]
   %107 = icmp slt i32 %.0289.i101.i, %.306.i98.i
   br i1 %107, label %.lr.ph, label %._crit_edge
 
@@ -8097,11 +8097,11 @@ blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   br label %214
 
 214:                                              ; preds = %203, %195
-  %.0292.i76.i = phi ptr [ %200, %195 ], [ %211, %203 ]
-  %.0289.i77.i = phi i32 [ %185, %195 ], [ %213, %203 ]
-  %.0287.i78.i = phi ptr [ %199, %195 ], [ %212, %203 ]
-  %.0283.i79.i = phi ptr [ %197, %195 ], [ %210, %203 ]
-  %.0280.i80.i = phi ptr [ %198, %195 ], [ %207, %203 ]
+  %.0292.i76.i = phi ptr [ %211, %203 ], [ %200, %195 ]
+  %.0289.i77.i = phi i32 [ %213, %203 ], [ %185, %195 ]
+  %.0287.i78.i = phi ptr [ %212, %203 ], [ %199, %195 ]
+  %.0283.i79.i = phi ptr [ %210, %203 ], [ %197, %195 ]
+  %.0280.i80.i = phi ptr [ %207, %203 ], [ %198, %195 ]
   %215 = icmp slt i32 %.0289.i77.i, %.306.i74.i
   br i1 %215, label %.lr.ph30, label %._crit_edge31
 
@@ -8247,11 +8247,11 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge31
   br label %322
 
 322:                                              ; preds = %311, %303
-  %.0292.i.i = phi ptr [ %308, %303 ], [ %319, %311 ]
-  %.0289.i.i = phi i32 [ %293, %303 ], [ %321, %311 ]
-  %.0287.i.i = phi ptr [ %307, %303 ], [ %320, %311 ]
-  %.0283.i.i = phi ptr [ %305, %303 ], [ %318, %311 ]
-  %.0280.i.i = phi ptr [ %306, %303 ], [ %315, %311 ]
+  %.0292.i.i = phi ptr [ %319, %311 ], [ %308, %303 ]
+  %.0289.i.i = phi i32 [ %321, %311 ], [ %293, %303 ]
+  %.0287.i.i = phi ptr [ %320, %311 ], [ %307, %303 ]
+  %.0283.i.i = phi ptr [ %318, %311 ], [ %305, %303 ]
+  %.0280.i.i = phi ptr [ %315, %311 ], [ %306, %303 ]
   %323 = icmp slt i32 %.0289.i.i, %.306.i.i
   br i1 %323, label %.lr.ph44, label %._crit_edge45
 
@@ -8538,10 +8538,10 @@ define internal noundef i32 @blend_slice_gbrp(ptr noundef readonly captures(none
   br label %105
 
 105:                                              ; preds = %94, %87
-  %.0289.i101.i = phi i32 [ %77, %87 ], [ %104, %94 ]
-  %.0287.i102.i = phi ptr [ %91, %87 ], [ %103, %94 ]
-  %.0283.i103.i = phi ptr [ %89, %87 ], [ %102, %94 ]
-  %.0280.i104.i = phi ptr [ %90, %87 ], [ %99, %94 ]
+  %.0289.i101.i = phi i32 [ %104, %94 ], [ %77, %87 ]
+  %.0287.i102.i = phi ptr [ %103, %94 ], [ %91, %87 ]
+  %.0283.i103.i = phi ptr [ %102, %94 ], [ %89, %87 ]
+  %.0280.i104.i = phi ptr [ %99, %94 ], [ %90, %87 ]
   %106 = icmp slt i32 %.0289.i101.i, %.306.i98.i
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -8667,10 +8667,10 @@ blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   br label %201
 
 201:                                              ; preds = %190, %183
-  %.0289.i77.i = phi i32 [ %173, %183 ], [ %200, %190 ]
-  %.0287.i78.i = phi ptr [ %187, %183 ], [ %199, %190 ]
-  %.0283.i79.i = phi ptr [ %185, %183 ], [ %198, %190 ]
-  %.0280.i80.i = phi ptr [ %186, %183 ], [ %195, %190 ]
+  %.0289.i77.i = phi i32 [ %200, %190 ], [ %173, %183 ]
+  %.0287.i78.i = phi ptr [ %199, %190 ], [ %187, %183 ]
+  %.0283.i79.i = phi ptr [ %198, %190 ], [ %185, %183 ]
+  %.0280.i80.i = phi ptr [ %195, %190 ], [ %186, %183 ]
   %202 = icmp slt i32 %.0289.i77.i, %.306.i74.i
   br i1 %202, label %.lr.ph24, label %._crit_edge25
 
@@ -8796,10 +8796,10 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge25
   br label %297
 
 297:                                              ; preds = %286, %279
-  %.0289.i.i = phi i32 [ %269, %279 ], [ %296, %286 ]
-  %.0287.i.i = phi ptr [ %283, %279 ], [ %295, %286 ]
-  %.0283.i.i = phi ptr [ %281, %279 ], [ %294, %286 ]
-  %.0280.i.i = phi ptr [ %282, %279 ], [ %291, %286 ]
+  %.0289.i.i = phi i32 [ %296, %286 ], [ %269, %279 ]
+  %.0287.i.i = phi ptr [ %295, %286 ], [ %283, %279 ]
+  %.0283.i.i = phi ptr [ %294, %286 ], [ %281, %279 ]
+  %.0280.i.i = phi ptr [ %291, %286 ], [ %282, %279 ]
   %298 = icmp slt i32 %.0289.i.i, %.306.i.i
   br i1 %298, label %.lr.ph37, label %._crit_edge38
 
@@ -8976,11 +8976,11 @@ define internal noundef i32 @blend_slice_yuva420_pm(ptr noundef readonly capture
   br label %106
 
 106:                                              ; preds = %95, %87
-  %.0292.i43 = phi ptr [ %92, %87 ], [ %103, %95 ]
-  %.0289.i44 = phi i32 [ %77, %87 ], [ %105, %95 ]
-  %.0287.i45 = phi ptr [ %91, %87 ], [ %104, %95 ]
-  %.0283.i46 = phi ptr [ %89, %87 ], [ %102, %95 ]
-  %.0280.i47 = phi ptr [ %90, %87 ], [ %99, %95 ]
+  %.0292.i43 = phi ptr [ %103, %95 ], [ %92, %87 ]
+  %.0289.i44 = phi i32 [ %105, %95 ], [ %77, %87 ]
+  %.0287.i45 = phi ptr [ %104, %95 ], [ %91, %87 ]
+  %.0283.i46 = phi ptr [ %102, %95 ], [ %89, %87 ]
+  %.0280.i47 = phi ptr [ %99, %95 ], [ %90, %87 ]
   %107 = icmp slt i32 %.0289.i44, %.306.i41
   br i1 %107, label %.lr.ph, label %._crit_edge
 
@@ -9173,11 +9173,11 @@ blend_plane_8_8bits.exit59:                       ; preds = %blend_plane_8_8bits
   br label %249
 
 249:                                              ; preds = %236, %234, %227
-  %.0292.i17 = phi ptr [ %232, %227 ], [ %246, %236 ], [ %232, %234 ]
-  %.0289.i18 = phi i32 [ %214, %227 ], [ %248, %236 ], [ %214, %234 ]
-  %.0287.i19 = phi ptr [ %231, %227 ], [ %247, %236 ], [ %231, %234 ]
-  %.0283.i20 = phi ptr [ %229, %227 ], [ %243, %236 ], [ %229, %234 ]
-  %.0280.i21 = phi ptr [ %230, %227 ], [ %240, %236 ], [ %230, %234 ]
+  %.0292.i17 = phi ptr [ %246, %236 ], [ %232, %234 ], [ %232, %227 ]
+  %.0289.i18 = phi i32 [ %248, %236 ], [ %214, %234 ], [ %214, %227 ]
+  %.0287.i19 = phi ptr [ %247, %236 ], [ %231, %234 ], [ %231, %227 ]
+  %.0283.i20 = phi ptr [ %243, %236 ], [ %229, %234 ], [ %229, %227 ]
+  %.0280.i21 = phi ptr [ %240, %236 ], [ %230, %234 ], [ %230, %227 ]
   %250 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %250, label %.lr.ph87, label %._crit_edge88
 
@@ -9448,11 +9448,11 @@ blend_plane_8_8bits.exit33:                       ; preds = %._crit_edge88
   br label %447
 
 447:                                              ; preds = %434, %432, %425
-  %.0292.i = phi ptr [ %430, %425 ], [ %444, %434 ], [ %430, %432 ]
-  %.0289.i = phi i32 [ %412, %425 ], [ %446, %434 ], [ %412, %432 ]
-  %.0287.i = phi ptr [ %429, %425 ], [ %445, %434 ], [ %429, %432 ]
-  %.0283.i = phi ptr [ %427, %425 ], [ %441, %434 ], [ %427, %432 ]
-  %.0280.i = phi ptr [ %428, %425 ], [ %438, %434 ], [ %428, %432 ]
+  %.0292.i = phi ptr [ %444, %434 ], [ %430, %432 ], [ %430, %425 ]
+  %.0289.i = phi i32 [ %446, %434 ], [ %412, %432 ], [ %412, %425 ]
+  %.0287.i = phi ptr [ %445, %434 ], [ %429, %432 ], [ %429, %425 ]
+  %.0283.i = phi ptr [ %441, %434 ], [ %427, %432 ], [ %427, %425 ]
+  %.0280.i = phi ptr [ %438, %434 ], [ %428, %432 ], [ %428, %425 ]
   %448 = icmp slt i32 %.0289.i, %.306.i
   br i1 %448, label %.lr.ph104, label %._crit_edge105
 
@@ -9860,10 +9860,10 @@ define internal noundef i32 @blend_slice_yuv420_pm(ptr noundef readonly captures
   br label %105
 
 105:                                              ; preds = %94, %87
-  %.0289.i41 = phi i32 [ %77, %87 ], [ %104, %94 ]
-  %.0287.i42 = phi ptr [ %91, %87 ], [ %103, %94 ]
-  %.0283.i43 = phi ptr [ %89, %87 ], [ %102, %94 ]
-  %.0280.i44 = phi ptr [ %90, %87 ], [ %99, %94 ]
+  %.0289.i41 = phi i32 [ %104, %94 ], [ %77, %87 ]
+  %.0287.i42 = phi ptr [ %103, %94 ], [ %91, %87 ]
+  %.0283.i43 = phi ptr [ %102, %94 ], [ %89, %87 ]
+  %.0280.i44 = phi ptr [ %99, %94 ], [ %90, %87 ]
   %106 = icmp slt i32 %.0289.i41, %.306.i38
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -10037,10 +10037,10 @@ blend_plane_8_8bits.exit53:                       ; preds = %blend_plane_8_8bits
   br label %237
 
 237:                                              ; preds = %225, %223
-  %.0289.i18 = phi i32 [ %202, %223 ], [ %236, %225 ]
-  %.0287.i19 = phi ptr [ %220, %223 ], [ %235, %225 ]
-  %.0283.i20 = phi ptr [ %218, %223 ], [ %232, %225 ]
-  %.0280.i21 = phi ptr [ %219, %223 ], [ %229, %225 ]
+  %.0289.i18 = phi i32 [ %236, %225 ], [ %202, %223 ]
+  %.0287.i19 = phi ptr [ %235, %225 ], [ %220, %223 ]
+  %.0283.i20 = phi ptr [ %232, %225 ], [ %218, %223 ]
+  %.0280.i21 = phi ptr [ %229, %225 ], [ %219, %223 ]
   %238 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %238, label %.lr.ph75.split, label %._crit_edge76
 
@@ -10256,10 +10256,10 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge76
   br label %397
 
 397:                                              ; preds = %385, %383
-  %.0289.i = phi i32 [ %362, %383 ], [ %396, %385 ]
-  %.0287.i = phi ptr [ %380, %383 ], [ %395, %385 ]
-  %.0283.i = phi ptr [ %378, %383 ], [ %392, %385 ]
-  %.0280.i = phi ptr [ %379, %383 ], [ %389, %385 ]
+  %.0289.i = phi i32 [ %396, %385 ], [ %362, %383 ]
+  %.0287.i = phi ptr [ %395, %385 ], [ %380, %383 ]
+  %.0283.i = phi ptr [ %392, %385 ], [ %378, %383 ]
+  %.0280.i = phi ptr [ %389, %385 ], [ %379, %383 ]
   %398 = icmp slt i32 %.0289.i, %.306.i
   br i1 %398, label %.lr.ph89.split, label %._crit_edge90
 
@@ -10511,11 +10511,11 @@ define internal noundef i32 @blend_slice_yuva422_pm(ptr noundef readonly capture
   br label %106
 
 106:                                              ; preds = %95, %87
-  %.0292.i39 = phi ptr [ %92, %87 ], [ %103, %95 ]
-  %.0289.i40 = phi i32 [ %77, %87 ], [ %105, %95 ]
-  %.0287.i41 = phi ptr [ %91, %87 ], [ %104, %95 ]
-  %.0283.i42 = phi ptr [ %89, %87 ], [ %102, %95 ]
-  %.0280.i43 = phi ptr [ %90, %87 ], [ %99, %95 ]
+  %.0292.i39 = phi ptr [ %103, %95 ], [ %92, %87 ]
+  %.0289.i40 = phi i32 [ %105, %95 ], [ %77, %87 ]
+  %.0287.i41 = phi ptr [ %104, %95 ], [ %91, %87 ]
+  %.0283.i42 = phi ptr [ %102, %95 ], [ %89, %87 ]
+  %.0280.i43 = phi ptr [ %99, %95 ], [ %90, %87 ]
   %107 = icmp slt i32 %.0289.i40, %.306.i37
   br i1 %107, label %.lr.ph, label %._crit_edge
 
@@ -10682,11 +10682,11 @@ blend_plane_8_8bits.exit51:                       ; preds = %blend_plane_8_8bits
   br label %227
 
 227:                                              ; preds = %214, %206
-  %.0292.i17 = phi ptr [ %211, %206 ], [ %224, %214 ]
-  %.0289.i18 = phi i32 [ %193, %206 ], [ %226, %214 ]
-  %.0287.i19 = phi ptr [ %210, %206 ], [ %225, %214 ]
-  %.0283.i20 = phi ptr [ %208, %206 ], [ %221, %214 ]
-  %.0280.i21 = phi ptr [ %209, %206 ], [ %218, %214 ]
+  %.0292.i17 = phi ptr [ %224, %214 ], [ %211, %206 ]
+  %.0289.i18 = phi i32 [ %226, %214 ], [ %193, %206 ]
+  %.0287.i19 = phi ptr [ %225, %214 ], [ %210, %206 ]
+  %.0283.i20 = phi ptr [ %221, %214 ], [ %208, %206 ]
+  %.0280.i21 = phi ptr [ %218, %214 ], [ %209, %206 ]
   %228 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %228, label %.lr.ph75, label %._crit_edge76
 
@@ -10870,11 +10870,11 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge76
   br label %364
 
 364:                                              ; preds = %351, %343
-  %.0292.i = phi ptr [ %348, %343 ], [ %361, %351 ]
-  %.0289.i = phi i32 [ %330, %343 ], [ %363, %351 ]
-  %.0287.i = phi ptr [ %347, %343 ], [ %362, %351 ]
-  %.0283.i = phi ptr [ %345, %343 ], [ %358, %351 ]
-  %.0280.i = phi ptr [ %346, %343 ], [ %355, %351 ]
+  %.0292.i = phi ptr [ %361, %351 ], [ %348, %343 ]
+  %.0289.i = phi i32 [ %363, %351 ], [ %330, %343 ]
+  %.0287.i = phi ptr [ %362, %351 ], [ %347, %343 ]
+  %.0283.i = phi ptr [ %358, %351 ], [ %345, %343 ]
+  %.0280.i = phi ptr [ %355, %351 ], [ %346, %343 ]
   %365 = icmp slt i32 %.0289.i, %.306.i
   br i1 %365, label %.lr.ph89, label %._crit_edge90
 
@@ -11194,10 +11194,10 @@ define internal noundef i32 @blend_slice_yuv422_pm(ptr noundef readonly captures
   br label %105
 
 105:                                              ; preds = %94, %87
-  %.0289.i39 = phi i32 [ %77, %87 ], [ %104, %94 ]
-  %.0287.i40 = phi ptr [ %91, %87 ], [ %103, %94 ]
-  %.0283.i41 = phi ptr [ %89, %87 ], [ %102, %94 ]
-  %.0280.i42 = phi ptr [ %90, %87 ], [ %99, %94 ]
+  %.0289.i39 = phi i32 [ %104, %94 ], [ %77, %87 ]
+  %.0287.i40 = phi ptr [ %103, %94 ], [ %91, %87 ]
+  %.0283.i41 = phi ptr [ %102, %94 ], [ %89, %87 ]
+  %.0280.i42 = phi ptr [ %99, %94 ], [ %90, %87 ]
   %106 = icmp slt i32 %.0289.i39, %.306.i36
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -11344,10 +11344,10 @@ blend_plane_8_8bits.exit49:                       ; preds = %blend_plane_8_8bits
   br label %214
 
 214:                                              ; preds = %201, %194
-  %.0289.i18 = phi i32 [ %181, %194 ], [ %213, %201 ]
-  %.0287.i19 = phi ptr [ %198, %194 ], [ %212, %201 ]
-  %.0283.i20 = phi ptr [ %196, %194 ], [ %209, %201 ]
-  %.0280.i21 = phi ptr [ %197, %194 ], [ %206, %201 ]
+  %.0289.i18 = phi i32 [ %213, %201 ], [ %181, %194 ]
+  %.0287.i19 = phi ptr [ %212, %201 ], [ %198, %194 ]
+  %.0283.i20 = phi ptr [ %209, %201 ], [ %196, %194 ]
+  %.0280.i21 = phi ptr [ %206, %201 ], [ %197, %194 ]
   %215 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %215, label %.lr.ph70, label %._crit_edge71
 
@@ -11495,10 +11495,10 @@ blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge71
   br label %328
 
 328:                                              ; preds = %315, %308
-  %.0289.i = phi i32 [ %295, %308 ], [ %327, %315 ]
-  %.0287.i = phi ptr [ %312, %308 ], [ %326, %315 ]
-  %.0283.i = phi ptr [ %310, %308 ], [ %323, %315 ]
-  %.0280.i = phi ptr [ %311, %308 ], [ %320, %315 ]
+  %.0289.i = phi i32 [ %327, %315 ], [ %295, %308 ]
+  %.0287.i = phi ptr [ %326, %315 ], [ %312, %308 ]
+  %.0283.i = phi ptr [ %323, %315 ], [ %310, %308 ]
+  %.0280.i = phi ptr [ %320, %315 ], [ %311, %308 ]
   %329 = icmp slt i32 %.0289.i, %.306.i
   br i1 %329, label %.lr.ph83, label %._crit_edge84
 
@@ -11687,11 +11687,11 @@ define internal noundef i32 @blend_slice_yuva444_pm(ptr noundef readonly capture
   br label %106
 
 106:                                              ; preds = %95, %87
-  %.0292.i39 = phi ptr [ %92, %87 ], [ %103, %95 ]
-  %.0289.i40 = phi i32 [ %77, %87 ], [ %105, %95 ]
-  %.0287.i41 = phi ptr [ %91, %87 ], [ %104, %95 ]
-  %.0283.i42 = phi ptr [ %89, %87 ], [ %102, %95 ]
-  %.0280.i43 = phi ptr [ %90, %87 ], [ %99, %95 ]
+  %.0292.i39 = phi ptr [ %103, %95 ], [ %92, %87 ]
+  %.0289.i40 = phi i32 [ %105, %95 ], [ %77, %87 ]
+  %.0287.i41 = phi ptr [ %104, %95 ], [ %91, %87 ]
+  %.0283.i42 = phi ptr [ %102, %95 ], [ %89, %87 ]
+  %.0280.i43 = phi ptr [ %99, %95 ], [ %90, %87 ]
   %107 = icmp slt i32 %.0289.i40, %.306.i37
   br i1 %107, label %.lr.ph, label %._crit_edge
 
@@ -11841,11 +11841,11 @@ blend_plane_8_8bits.exit51:                       ; preds = %._crit_edge
   br label %216
 
 216:                                              ; preds = %205, %197
-  %.0292.i17 = phi ptr [ %202, %197 ], [ %213, %205 ]
-  %.0289.i18 = phi i32 [ %187, %197 ], [ %215, %205 ]
-  %.0287.i19 = phi ptr [ %201, %197 ], [ %214, %205 ]
-  %.0283.i20 = phi ptr [ %199, %197 ], [ %212, %205 ]
-  %.0280.i21 = phi ptr [ %200, %197 ], [ %209, %205 ]
+  %.0292.i17 = phi ptr [ %213, %205 ], [ %202, %197 ]
+  %.0289.i18 = phi i32 [ %215, %205 ], [ %187, %197 ]
+  %.0287.i19 = phi ptr [ %214, %205 ], [ %201, %197 ]
+  %.0283.i20 = phi ptr [ %212, %205 ], [ %199, %197 ]
+  %.0280.i21 = phi ptr [ %209, %205 ], [ %200, %197 ]
   %217 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %217, label %.lr.ph79, label %._crit_edge80
 
@@ -11993,11 +11993,11 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge80
   br label %326
 
 326:                                              ; preds = %315, %307
-  %.0292.i = phi ptr [ %312, %307 ], [ %323, %315 ]
-  %.0289.i = phi i32 [ %297, %307 ], [ %325, %315 ]
-  %.0287.i = phi ptr [ %311, %307 ], [ %324, %315 ]
-  %.0283.i = phi ptr [ %309, %307 ], [ %322, %315 ]
-  %.0280.i = phi ptr [ %310, %307 ], [ %319, %315 ]
+  %.0292.i = phi ptr [ %323, %315 ], [ %312, %307 ]
+  %.0289.i = phi i32 [ %325, %315 ], [ %297, %307 ]
+  %.0287.i = phi ptr [ %324, %315 ], [ %311, %307 ]
+  %.0283.i = phi ptr [ %322, %315 ], [ %309, %307 ]
+  %.0280.i = phi ptr [ %319, %315 ], [ %310, %307 ]
   %327 = icmp slt i32 %.0289.i, %.306.i
   br i1 %327, label %.lr.ph93, label %._crit_edge94
 
@@ -12286,10 +12286,10 @@ define internal noundef i32 @blend_slice_yuv444_pm(ptr noundef readonly captures
   br label %105
 
 105:                                              ; preds = %94, %87
-  %.0289.i39 = phi i32 [ %77, %87 ], [ %104, %94 ]
-  %.0287.i40 = phi ptr [ %91, %87 ], [ %103, %94 ]
-  %.0283.i41 = phi ptr [ %89, %87 ], [ %102, %94 ]
-  %.0280.i42 = phi ptr [ %90, %87 ], [ %99, %94 ]
+  %.0289.i39 = phi i32 [ %104, %94 ], [ %77, %87 ]
+  %.0287.i40 = phi ptr [ %103, %94 ], [ %91, %87 ]
+  %.0283.i41 = phi ptr [ %102, %94 ], [ %89, %87 ]
+  %.0280.i42 = phi ptr [ %99, %94 ], [ %90, %87 ]
   %106 = icmp slt i32 %.0289.i39, %.306.i36
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -12419,10 +12419,10 @@ blend_plane_8_8bits.exit49:                       ; preds = %._crit_edge
   br label %203
 
 203:                                              ; preds = %192, %185
-  %.0289.i18 = phi i32 [ %175, %185 ], [ %202, %192 ]
-  %.0287.i19 = phi ptr [ %189, %185 ], [ %201, %192 ]
-  %.0283.i20 = phi ptr [ %187, %185 ], [ %200, %192 ]
-  %.0280.i21 = phi ptr [ %188, %185 ], [ %197, %192 ]
+  %.0289.i18 = phi i32 [ %202, %192 ], [ %175, %185 ]
+  %.0287.i19 = phi ptr [ %201, %192 ], [ %189, %185 ]
+  %.0283.i20 = phi ptr [ %200, %192 ], [ %187, %185 ]
+  %.0280.i21 = phi ptr [ %197, %192 ], [ %188, %185 ]
   %204 = icmp slt i32 %.0289.i18, %.306.i15
   br i1 %204, label %.lr.ph70, label %._crit_edge71
 
@@ -12550,10 +12550,10 @@ blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge71
   br label %301
 
 301:                                              ; preds = %290, %283
-  %.0289.i = phi i32 [ %273, %283 ], [ %300, %290 ]
-  %.0287.i = phi ptr [ %287, %283 ], [ %299, %290 ]
-  %.0283.i = phi ptr [ %285, %283 ], [ %298, %290 ]
-  %.0280.i = phi ptr [ %286, %283 ], [ %295, %290 ]
+  %.0289.i = phi i32 [ %300, %290 ], [ %273, %283 ]
+  %.0287.i = phi ptr [ %299, %290 ], [ %287, %283 ]
+  %.0283.i = phi ptr [ %298, %290 ], [ %285, %283 ]
+  %.0280.i = phi ptr [ %295, %290 ], [ %286, %283 ]
   %302 = icmp slt i32 %.0289.i, %.306.i
   br i1 %302, label %.lr.ph83, label %._crit_edge84
 
@@ -13152,11 +13152,11 @@ define internal noundef i32 @blend_slice_gbrap_pm(ptr noundef readonly captures(
   br label %106
 
 106:                                              ; preds = %95, %87
-  %.0292.i100.i = phi ptr [ %92, %87 ], [ %103, %95 ]
-  %.0289.i101.i = phi i32 [ %77, %87 ], [ %105, %95 ]
-  %.0287.i102.i = phi ptr [ %91, %87 ], [ %104, %95 ]
-  %.0283.i103.i = phi ptr [ %89, %87 ], [ %102, %95 ]
-  %.0280.i104.i = phi ptr [ %90, %87 ], [ %99, %95 ]
+  %.0292.i100.i = phi ptr [ %103, %95 ], [ %92, %87 ]
+  %.0289.i101.i = phi i32 [ %105, %95 ], [ %77, %87 ]
+  %.0287.i102.i = phi ptr [ %104, %95 ], [ %91, %87 ]
+  %.0283.i103.i = phi ptr [ %102, %95 ], [ %89, %87 ]
+  %.0280.i104.i = phi ptr [ %99, %95 ], [ %90, %87 ]
   %107 = icmp slt i32 %.0289.i101.i, %.306.i98.i
   br i1 %107, label %.lr.ph, label %._crit_edge
 
@@ -13306,11 +13306,11 @@ blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   br label %216
 
 216:                                              ; preds = %205, %197
-  %.0292.i76.i = phi ptr [ %202, %197 ], [ %213, %205 ]
-  %.0289.i77.i = phi i32 [ %187, %197 ], [ %215, %205 ]
-  %.0287.i78.i = phi ptr [ %201, %197 ], [ %214, %205 ]
-  %.0283.i79.i = phi ptr [ %199, %197 ], [ %212, %205 ]
-  %.0280.i80.i = phi ptr [ %200, %197 ], [ %209, %205 ]
+  %.0292.i76.i = phi ptr [ %213, %205 ], [ %202, %197 ]
+  %.0289.i77.i = phi i32 [ %215, %205 ], [ %187, %197 ]
+  %.0287.i78.i = phi ptr [ %214, %205 ], [ %201, %197 ]
+  %.0283.i79.i = phi ptr [ %212, %205 ], [ %199, %197 ]
+  %.0280.i80.i = phi ptr [ %209, %205 ], [ %200, %197 ]
   %217 = icmp slt i32 %.0289.i77.i, %.306.i74.i
   br i1 %217, label %.lr.ph30, label %._crit_edge31
 
@@ -13460,11 +13460,11 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge31
   br label %326
 
 326:                                              ; preds = %315, %307
-  %.0292.i.i = phi ptr [ %312, %307 ], [ %323, %315 ]
-  %.0289.i.i = phi i32 [ %297, %307 ], [ %325, %315 ]
-  %.0287.i.i = phi ptr [ %311, %307 ], [ %324, %315 ]
-  %.0283.i.i = phi ptr [ %309, %307 ], [ %322, %315 ]
-  %.0280.i.i = phi ptr [ %310, %307 ], [ %319, %315 ]
+  %.0292.i.i = phi ptr [ %323, %315 ], [ %312, %307 ]
+  %.0289.i.i = phi i32 [ %325, %315 ], [ %297, %307 ]
+  %.0287.i.i = phi ptr [ %324, %315 ], [ %311, %307 ]
+  %.0283.i.i = phi ptr [ %322, %315 ], [ %309, %307 ]
+  %.0280.i.i = phi ptr [ %319, %315 ], [ %310, %307 ]
   %327 = icmp slt i32 %.0289.i.i, %.306.i.i
   br i1 %327, label %.lr.ph44, label %._crit_edge45
 
@@ -13755,10 +13755,10 @@ define internal noundef i32 @blend_slice_gbrp_pm(ptr noundef readonly captures(n
   br label %105
 
 105:                                              ; preds = %94, %87
-  %.0289.i101.i = phi i32 [ %77, %87 ], [ %104, %94 ]
-  %.0287.i102.i = phi ptr [ %91, %87 ], [ %103, %94 ]
-  %.0283.i103.i = phi ptr [ %89, %87 ], [ %102, %94 ]
-  %.0280.i104.i = phi ptr [ %90, %87 ], [ %99, %94 ]
+  %.0289.i101.i = phi i32 [ %104, %94 ], [ %77, %87 ]
+  %.0287.i102.i = phi ptr [ %103, %94 ], [ %91, %87 ]
+  %.0283.i103.i = phi ptr [ %102, %94 ], [ %89, %87 ]
+  %.0280.i104.i = phi ptr [ %99, %94 ], [ %90, %87 ]
   %106 = icmp slt i32 %.0289.i101.i, %.306.i98.i
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -13888,10 +13888,10 @@ blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   br label %203
 
 203:                                              ; preds = %192, %185
-  %.0289.i77.i = phi i32 [ %175, %185 ], [ %202, %192 ]
-  %.0287.i78.i = phi ptr [ %189, %185 ], [ %201, %192 ]
-  %.0283.i79.i = phi ptr [ %187, %185 ], [ %200, %192 ]
-  %.0280.i80.i = phi ptr [ %188, %185 ], [ %197, %192 ]
+  %.0289.i77.i = phi i32 [ %202, %192 ], [ %175, %185 ]
+  %.0287.i78.i = phi ptr [ %201, %192 ], [ %189, %185 ]
+  %.0283.i79.i = phi ptr [ %200, %192 ], [ %187, %185 ]
+  %.0280.i80.i = phi ptr [ %197, %192 ], [ %188, %185 ]
   %204 = icmp slt i32 %.0289.i77.i, %.306.i74.i
   br i1 %204, label %.lr.ph24, label %._crit_edge25
 
@@ -14021,10 +14021,10 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge25
   br label %301
 
 301:                                              ; preds = %290, %283
-  %.0289.i.i = phi i32 [ %273, %283 ], [ %300, %290 ]
-  %.0287.i.i = phi ptr [ %287, %283 ], [ %299, %290 ]
-  %.0283.i.i = phi ptr [ %285, %283 ], [ %298, %290 ]
-  %.0280.i.i = phi ptr [ %286, %283 ], [ %295, %290 ]
+  %.0289.i.i = phi i32 [ %300, %290 ], [ %273, %283 ]
+  %.0287.i.i = phi ptr [ %299, %290 ], [ %287, %283 ]
+  %.0283.i.i = phi ptr [ %298, %290 ], [ %285, %283 ]
+  %.0280.i.i = phi ptr [ %295, %290 ], [ %286, %283 ]
   %302 = icmp slt i32 %.0289.i.i, %.306.i.i
   br i1 %302, label %.lr.ph37, label %._crit_edge38
 
@@ -14342,7 +14342,7 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   br label %134
 
 134:                                              ; preds = %.thread140, %.thread119, %133, %130
-  %135 = phi i32 [ 1, %130 ], [ %spec.select127, %.thread119 ], [ %spec.select126, %133 ], [ 1, %.thread140 ]
+  %135 = phi i32 [ 1, %130 ], [ %spec.select126, %133 ], [ %spec.select127, %.thread119 ], [ 1, %.thread140 ]
   %136 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #12
   %137 = icmp sgt i32 %135, %136
   br i1 %137, label %143, label %138
@@ -14365,7 +14365,7 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   br label %143
 
 143:                                              ; preds = %.thread123, %142, %134, %138
-  %144 = phi i32 [ %spec.select131, %.thread123 ], [ 1, %138 ], [ %136, %134 ], [ %spec.select130, %142 ]
+  %144 = phi i32 [ 1, %138 ], [ %136, %134 ], [ %spec.select130, %142 ], [ %spec.select131, %.thread123 ]
   %145 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %127, ptr noundef nonnull %4, ptr noundef null, i32 noundef %144) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %2, align 8, !tbaa !100
@@ -14380,7 +14380,7 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   br label %152
 
 152:                                              ; preds = %1, %146, %16
-  %.0 = phi i32 [ %21, %16 ], [ %151, %146 ], [ %12, %1 ]
+  %.0 = phi i32 [ %151, %146 ], [ %21, %16 ], [ %12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

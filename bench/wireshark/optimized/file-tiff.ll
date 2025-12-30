@@ -1249,7 +1249,7 @@ dissect_tiff_ifd.exit:                            ; preds = %dissect_tiff_entry.
   br label %463
 
 463:                                              ; preds = %25, %22, %._crit_edge
-  %.1 = phi i32 [ 0, %22 ], [ %462, %._crit_edge ], [ 0, %25 ]
+  %.1 = phi i32 [ %462, %._crit_edge ], [ 0, %22 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %464
 

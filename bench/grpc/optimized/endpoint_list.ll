@@ -1162,7 +1162,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exper
   br label %.body83
 
 .body83:                                          ; preds = %216, %213, %289
-  %.pn47 = phi { ptr, i32 } [ %290, %289 ], [ %214, %213 ], [ %214, %216 ]
+  %.pn47 = phi { ptr, i32 } [ %290, %289 ], [ %214, %216 ], [ %214, %213 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #30
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #30
   br label %.loopexit.loopexit
@@ -1602,7 +1602,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit120: ; preds = %_ZNSt10unique_pt
   br label %.body123
 
 .body123:                                         ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core22SingleEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i, %453, %457, %455
-  %.pn53 = phi { ptr, i32 } [ %458, %457 ], [ %456, %455 ], [ %326, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core22SingleEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i ], [ %454, %453 ]
+  %.pn53 = phi { ptr, i32 } [ %458, %457 ], [ %456, %455 ], [ %454, %453 ], [ %326, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core22SingleEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i ]
   call void @_ZN9grpc_core19LoadBalancingPolicy10UpdateArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #30
   br label %.body102
 
@@ -1622,7 +1622,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit120: ; preds = %_ZNSt10unique_pt
   br label %_ZN9grpc_core13RefCountedPtrINS_12EndpointList8EndpointEED2Ev.exit77
 
 _ZN9grpc_core13RefCountedPtrINS_12EndpointList8EndpointEED2Ev.exit77: ; preds = %156, %160, %460, %182, %168, %154
-  %.pn53.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn, %460 ], [ %155, %154 ], [ %.pn42.pn.pn.pn, %182 ], [ %.pn40, %168 ], [ %157, %160 ], [ %157, %156 ]
+  %.pn53.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn, %460 ], [ %155, %154 ], [ %.pn42.pn.pn.pn, %182 ], [ %.pn40, %168 ], [ %157, %156 ], [ %157, %160 ]
   call void @_ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #30
   br label %.body
 
@@ -2604,8 +2604,8 @@ _ZNK4absl12lts_202407226Status4codeEv.exit:       ; preds = %19, %22
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit
 
 _ZNK4absl12lts_202407226Status7messageEv.exit:    ; preds = %29, %35
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %35 ], [ %34, %29 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %35 ], [ %32, %29 ]
+  %.sroa.0.0.i = phi i64 [ %34, %29 ], [ %spec.select.i, %35 ]
+  %.sroa.4.0.i = phi ptr [ %32, %29 ], [ %spec.select2.i, %35 ]
   store i64 %.sroa.0.0.i, ptr %6, align 8, !tbaa !119
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.sroa.4.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !118
@@ -4439,7 +4439,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %20
 
 20:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %5
-  %21 = phi i1 [ %19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ true, %5 ]
+  %21 = phi i1 [ true, %5 ], [ %19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
   %22 = load ptr, ptr %4, align 8, !tbaa !182
   %23 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -4576,8 +4576,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
-  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
+  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -189,7 +189,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z12getAMXRegNumPN4llvm19MachineRe
   br label %.thread
 
 .thread:                                          ; preds = %4, %19, %17, %21
-  %.1 = phi i32 [ 0, %21 ], [ 2, %19 ], [ 1, %17 ], [ %switch.select15, %4 ]
+  %.1 = phi i32 [ 0, %21 ], [ 1, %17 ], [ 2, %19 ], [ %switch.select15, %4 ]
   ret i32 %.1
 }
 
@@ -1381,7 +1381,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %471, %473
   br label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit
 
 ._crit_edge444:                                   ; preds = %1025, %1022, %491, %488, %474
-  %.6.lcssa = phi ptr [ %.5448, %491 ], [ %.5448, %474 ], [ %.5448, %488 ], [ %.7, %1022 ], [ %.7, %1025 ]
+  %.6.lcssa = phi ptr [ %.5448, %474 ], [ %.5448, %488 ], [ %.5448, %491 ], [ %.7, %1022 ], [ %.7, %1025 ]
   %.0141.add = add nuw nsw i64 %.0141.idx446, 4
   %.not152 = icmp eq i64 %.0141.add, 8
   br i1 %.not152, label %471, label %474
@@ -2427,8 +2427,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_9SlotIndexENS_12Dense
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_9SlotIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS4_S5_S7_SA_Lb0EEEbEOS4_DpOT_.exit295
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_9SlotIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS4_S5_S7_SA_Lb0EEEbEOS4_DpOT_.exit295: ; preds = %933, %917, %992
-  %.pre-phi = phi i32 [ %.pre483, %992 ], [ %738, %917 ], [ %738, %933 ]
-  %.sroa.07.0.copyload = phi i32 [ %.sroa.07.0.copyload.pre, %992 ], [ %.sroa.015.0.copyload, %917 ], [ %.sroa.015.0.copyload, %933 ]
+  %.pre-phi = phi i32 [ %738, %917 ], [ %.pre483, %992 ], [ %738, %933 ]
+  %.sroa.07.0.copyload = phi i32 [ %.sroa.015.0.copyload, %917 ], [ %.sroa.07.0.copyload.pre, %992 ], [ %.sroa.015.0.copyload, %933 ]
   %994 = load i32, ptr %224, align 8, !tbaa !256
   %995 = icmp ugt i32 %994, %.pre-phi
   br i1 %995, label %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i, label %1000
@@ -3272,7 +3272,7 @@ define linkonce_odr hidden void @_ZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegiste
   br i1 %.not.i.i.i13.i, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, label %.lr.ph.i
 
 _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit: ; preds = %46, %49, %5, %23, %26, %36, %43
-  %.1.i = phi i64 [ 0, %36 ], [ %45, %43 ], [ -1, %26 ], [ -1, %23 ], [ -1, %5 ], [ -1, %49 ], [ -1, %46 ]
+  %.1.i = phi i64 [ 0, %36 ], [ %45, %43 ], [ -1, %5 ], [ -1, %23 ], [ -1, %26 ], [ -1, %49 ], [ -1, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.1.i, ptr %52, align 8, !tbaa !463
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3353,7 +3353,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   %.not.i.i.i13.i21 = icmp eq i32 %95, 0
   br i1 %.not.i.i.i13.i21, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread, label %.lr.ph.i16
 
-_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread: ; preds = %90, %93, %72, %69, %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit
+_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread: ; preds = %90, %93, %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, %69, %72
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -1, ptr %96, align 8, !tbaa !464
   br label %.loopexit
@@ -3464,7 +3464,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i13.i36, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39, label %.lr.ph.i31
 
 _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39: ; preds = %151, %154, %112, %128, %131, %141, %148
-  %.1.i34 = phi i64 [ 0, %141 ], [ %150, %148 ], [ -1, %131 ], [ -1, %128 ], [ -1, %112 ], [ -1, %154 ], [ -1, %151 ]
+  %.1.i34 = phi i64 [ 0, %141 ], [ %150, %148 ], [ -1, %112 ], [ -1, %128 ], [ -1, %131 ], [ -1, %154 ], [ -1, %151 ]
   %157 = load i32, ptr %109, align 8, !tbaa !256
   %158 = load i32, ptr %110, align 4, !tbaa !257
   %.not.i.i.not.i = icmp ult i32 %157, %158

@@ -598,7 +598,7 @@ _Z11dtVisfinitePKf.exit.i:                        ; preds = %156
   br label %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
 
 _ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit: ; preds = %151, %156, %_Z11dtVisfinitePKf.exit.i, %165
-  %167 = phi float [ %.pre140, %151 ], [ %.pre, %165 ], [ %.pre140, %156 ], [ %.pre140, %_Z11dtVisfinitePKf.exit.i ]
+  %167 = phi float [ %.pre140, %151 ], [ %.pre140, %156 ], [ %.pre140, %_Z11dtVisfinitePKf.exit.i ], [ %.pre, %165 ]
   store float %167, ptr %4, align 4
   %168 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %169 = load float, ptr %168, align 4
@@ -612,7 +612,7 @@ _ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit: ; preds = %151, %156, %_
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %37, %.preheader111, %._crit_edge126, %._crit_edge, %13, %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
-  %.0 = phi i32 [ 1073741824, %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit ], [ -2147483648, %._crit_edge ], [ -2147483640, %13 ], [ -2147483648, %._crit_edge126 ], [ -2147483648, %.preheader111 ], [ -2147483648, %37 ]
+  %.0 = phi i32 [ 1073741824, %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit ], [ -2147483640, %13 ], [ -2147483648, %._crit_edge ], [ -2147483648, %._crit_edge126 ], [ -2147483648, %.preheader111 ], [ -2147483648, %37 ]
   ret i32 %.0
 }
 
@@ -975,7 +975,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %47
   br label %.thread
 
 .thread:                                          ; preds = %176, %186, %179
-  %.0137181 = phi i32 [ 0, %179 ], [ %185, %186 ], [ 0, %176 ]
+  %.0137181 = phi i32 [ %185, %186 ], [ 0, %179 ], [ 0, %176 ]
   %188 = load ptr, ptr %12, align 8
   %.0136185 = load i32, ptr %188, align 4
   %.not157186 = icmp eq i32 %.0136185, -1
@@ -1166,7 +1166,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %260, %244
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
 _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %288, %286, %276, %289, %260, %222, %210, %199, %193, %220
-  %.2 = phi i32 [ %.1187, %199 ], [ %.1187, %210 ], [ %.1187, %222 ], [ %.1187, %260 ], [ %.1187, %193 ], [ %.1187, %289 ], [ %221, %220 ], [ %.1187, %276 ], [ %.1187, %286 ], [ %.1187, %288 ]
+  %.2 = phi i32 [ %.1187, %210 ], [ %.1187, %222 ], [ %.1187, %260 ], [ %.1187, %289 ], [ %221, %220 ], [ %.1187, %199 ], [ %.1187, %193 ], [ %.1187, %276 ], [ %.1187, %286 ], [ %.1187, %288 ]
   %296 = load ptr, ptr %11, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 32
   %298 = load ptr, ptr %297, align 8
@@ -1277,7 +1277,7 @@ _Z11dtVisfinitePKf.exit.i:                        ; preds = %347
   br label %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
 
 _ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit: ; preds = %342, %347, %_Z11dtVisfinitePKf.exit.i, %356
-  %358 = phi float [ %.pre220, %342 ], [ %.pre219, %356 ], [ %.pre220, %347 ], [ %.pre220, %_Z11dtVisfinitePKf.exit.i ]
+  %358 = phi float [ %.pre220, %342 ], [ %.pre220, %347 ], [ %.pre220, %_Z11dtVisfinitePKf.exit.i ], [ %.pre219, %356 ]
   store float %358, ptr %7, align 4
   %359 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %360 = load float, ptr %359, align 4
@@ -1291,7 +1291,7 @@ _ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit: ; preds = %342, %347, %_
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %77, %43, %47, %._crit_edge198, %64, %39, %_Z11dtVisfinitePKf.exit, %57, %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
-  %.0 = phi i32 [ -2147483640, %39 ], [ %.1.lcssa, %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit ], [ -2147483640, %64 ], [ -2147483640, %57 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483648, %._crit_edge198 ], [ -2147483640, %47 ], [ -2147483640, %43 ], [ -2147483648, %77 ]
+  %.0 = phi i32 [ %.1.lcssa, %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit ], [ -2147483640, %57 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %39 ], [ -2147483640, %64 ], [ -2147483648, %._crit_edge198 ], [ -2147483640, %47 ], [ -2147483640, %43 ], [ -2147483648, %77 ]
   ret i32 %.0
 }
 
@@ -1568,7 +1568,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15get
   br label %.thread
 
 .thread:                                          ; preds = %17, %98, %56, %139, %9, %.preheader90, %100, %._crit_edge, %69, %27
-  %.0 = phi i32 [ 1073741824, %27 ], [ 1073741824, %100 ], [ 1073741824, %69 ], [ -2147483640, %98 ], [ -2147483640, %.preheader90 ], [ 1073741824, %139 ], [ 1073741824, %._crit_edge ], [ -2147483640, %9 ], [ -2147483640, %56 ], [ -2147483640, %17 ]
+  %.0 = phi i32 [ 1073741824, %27 ], [ 1073741824, %69 ], [ 1073741824, %._crit_edge ], [ 1073741824, %100 ], [ -2147483640, %.preheader90 ], [ -2147483640, %9 ], [ 1073741824, %139 ], [ -2147483640, %56 ], [ -2147483640, %98 ], [ -2147483640, %17 ]
   ret i32 %.0
 }
 
@@ -1748,7 +1748,7 @@ _Z11dtVisfinitePKf.exit.thread.sink.split:        ; preds = %._crit_edge53, %56
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %_Z11dtVisfinitePKf.exit.thread.sink.split, %18, %22, %_Z11dtVisfinitePKf.exit, %14
-  %.0 = phi i32 [ -2147483640, %14 ], [ -2147483640, %22 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %18 ], [ 1073741824, %_Z11dtVisfinitePKf.exit.thread.sink.split ]
+  %.0 = phi i32 [ -2147483640, %14 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %22 ], [ -2147483640, %18 ], [ 1073741824, %_Z11dtVisfinitePKf.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -1841,7 +1841,7 @@ _Z13dtVisfinite2DPKf.exit:                        ; preds = %16
   br label %_Z13dtVisfinite2DPKf.exit.thread
 
 _Z13dtVisfinite2DPKf.exit.thread:                 ; preds = %16, %29, %42, %_Z13dtVisfinite2DPKf.exit, %12, %50
-  %.0 = phi i32 [ -2147483640, %12 ], [ 1073741824, %29 ], [ %54, %50 ], [ -2147483640, %_Z13dtVisfinite2DPKf.exit ], [ 1073741824, %42 ], [ -2147483640, %16 ]
+  %.0 = phi i32 [ %54, %50 ], [ -2147483640, %12 ], [ -2147483640, %_Z13dtVisfinite2DPKf.exit ], [ 1073741824, %42 ], [ 1073741824, %29 ], [ -2147483640, %16 ]
   ret i32 %.0
 }
 
@@ -2169,7 +2169,7 @@ _Z11dtVisfinitePKf.exit42:                        ; preds = %36
   br i1 %.not39.not, label %.lr.ph55.split, label %_Z11dtVisfinitePKf.exit.thread, !llvm.loop !22
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %._crit_edge51, %.lr.ph55, %47, %32, %36, %18, %22, %17, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit42
-  %.030 = phi i32 [ -2147483640, %17 ], [ -2147483640, %_Z11dtVisfinitePKf.exit42 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %32 ], [ -2147483640, %18 ], [ -2147483640, %22 ], [ -2147483640, %36 ], [ 1073741824, %47 ], [ 1073741824, %.lr.ph55 ], [ 1073741824, %._crit_edge51 ]
+  %.030 = phi i32 [ -2147483640, %_Z11dtVisfinitePKf.exit42 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %17 ], [ -2147483640, %22 ], [ -2147483640, %18 ], [ -2147483640, %36 ], [ -2147483640, %32 ], [ 1073741824, %47 ], [ 1073741824, %.lr.ph55 ], [ 1073741824, %._crit_edge51 ]
   ret i32 %.030
 }
 
@@ -2376,9 +2376,9 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   br label %.thread
 
 158:                                              ; preds = %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit
-  %159 = phi i1 [ %124, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %130, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
-  %160 = phi ptr [ %122, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %128, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
-  %161 = phi i1 [ false, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %spec.select16.i, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
+  %159 = phi i1 [ %130, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ %124, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
+  %160 = phi ptr [ %128, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ %122, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
+  %161 = phi i1 [ %spec.select16.i, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ false, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
   %or.cond3 = or i1 %159, %161
   br i1 %or.cond3, label %.thread, label %163
 
@@ -2569,8 +2569,8 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   br label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
 
 _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %256, %253, %268, %264, %193, %186
-  %270 = phi ptr [ %187, %186 ], [ %.pre, %264 ], [ %187, %268 ], [ %187, %253 ], [ %187, %193 ], [ %187, %256 ]
-  %.4 = phi i32 [ %.3162, %186 ], [ 0, %264 ], [ %269, %268 ], [ %.3162, %253 ], [ %.3162, %193 ], [ %.3162, %256 ]
+  %270 = phi ptr [ %187, %186 ], [ %.pre, %264 ], [ %187, %268 ], [ %187, %193 ], [ %187, %256 ], [ %187, %253 ]
+  %.4 = phi i32 [ %.3162, %186 ], [ 0, %264 ], [ %269, %268 ], [ %.3162, %193 ], [ %.3162, %256 ], [ %.3162, %253 ]
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %272 = load i32, ptr %271, align 4
@@ -2910,7 +2910,7 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   br label %.thread
 
 .thread:                                          ; preds = %143, %154, %147
-  %.0148201 = phi i32 [ 0, %147 ], [ %153, %154 ], [ 0, %143 ]
+  %.0148201 = phi i32 [ %153, %154 ], [ 0, %147 ], [ 0, %143 ]
   %156 = load ptr, ptr %13, align 8
   %.0150203 = load i32, ptr %156, align 4
   %.not172204 = icmp eq i32 %.0150203, -1
@@ -3175,9 +3175,9 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %311, %309, %299, %3
   br label %320
 
 320:                                              ; preds = %178, %_ZN11dtNodeQueue6modifyEP6dtNode.exit, %319, %282, %276, %167, %161
-  %.2145 = phi i8 [ %.1144205, %161 ], [ %.1144205, %276 ], [ %.1144205, %282 ], [ %.1144205, %319 ], [ %.1144205, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1144205, %167 ], [ 1, %178 ]
-  %.2142 = phi float [ %.1141206, %161 ], [ %.1141206, %276 ], [ %.1141206, %282 ], [ %.0146, %319 ], [ %.1141206, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1141206, %167 ], [ %.1141206, %178 ]
-  %.3 = phi ptr [ %.2207, %161 ], [ %.2207, %276 ], [ %.2207, %282 ], [ %187, %319 ], [ %.2207, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.2207, %167 ], [ %.2207, %178 ]
+  %.2145 = phi i8 [ %.1144205, %276 ], [ %.1144205, %282 ], [ %.1144205, %319 ], [ %.1144205, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1144205, %167 ], [ %.1144205, %161 ], [ 1, %178 ]
+  %.2142 = phi float [ %.1141206, %276 ], [ %.1141206, %282 ], [ %.0146, %319 ], [ %.1141206, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1141206, %167 ], [ %.1141206, %161 ], [ %.1141206, %178 ]
+  %.3 = phi ptr [ %.2207, %276 ], [ %.2207, %282 ], [ %187, %319 ], [ %.2207, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.2207, %167 ], [ %.2207, %161 ], [ %.2207, %178 ]
   %321 = load ptr, ptr %12, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 32
   %323 = load ptr, ptr %322, align 8
@@ -3207,7 +3207,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %311, %309, %299, %3
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %56, %60, %42, %46, %35, %38, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit187, %34, %._crit_edge, %74
-  %.0137 = phi i32 [ -2147483640, %34 ], [ 1073741824, %74 ], [ %.1, %._crit_edge ], [ -2147483640, %_Z11dtVisfinitePKf.exit187 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %38 ], [ -2147483640, %35 ], [ -2147483640, %42 ], [ -2147483640, %46 ], [ -2147483640, %60 ], [ -2147483640, %56 ]
+  %.0137 = phi i32 [ 1073741824, %74 ], [ %.1, %._crit_edge ], [ -2147483640, %34 ], [ -2147483640, %_Z11dtVisfinitePKf.exit187 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %38 ], [ -2147483640, %35 ], [ -2147483640, %46 ], [ -2147483640, %42 ], [ -2147483640, %60 ], [ -2147483640, %56 ]
   ret i32 %.0137
 }
 
@@ -3591,7 +3591,7 @@ _Z11dtVisfinitePKf.exit62:                        ; preds = %75
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %71, %75, %58, %62, %49, %55, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit62, %99, %98
-  %.0 = phi i32 [ 1073741824, %98 ], [ 536870912, %99 ], [ -2147483640, %_Z11dtVisfinitePKf.exit62 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %55 ], [ -2147483640, %49 ], [ -2147483640, %58 ], [ -2147483640, %62 ], [ -2147483640, %75 ], [ -2147483640, %71 ]
+  %.0 = phi i32 [ 1073741824, %98 ], [ 536870912, %99 ], [ -2147483640, %_Z11dtVisfinitePKf.exit62 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %55 ], [ -2147483640, %49 ], [ -2147483640, %62 ], [ -2147483640, %58 ], [ -2147483640, %75 ], [ -2147483640, %71 ]
   ret i32 %.0
 }
 
@@ -4187,7 +4187,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %323, %321, %311, %3
   br label %352
 
 352:                                              ; preds = %105, %106, %75, %76, %66, %70, %3, %350, %26
-  %.0 = phi i32 [ %14, %3 ], [ %69, %66 ], [ -2147483648, %75 ], [ %351, %350 ], [ -2147483648, %26 ], [ %.pre190, %70 ], [ %.pre189, %76 ], [ %.pre, %106 ], [ -2147483648, %105 ]
+  %.0 = phi i32 [ %351, %350 ], [ -2147483648, %26 ], [ %14, %3 ], [ %.pre190, %70 ], [ %69, %66 ], [ %.pre189, %76 ], [ -2147483648, %75 ], [ %.pre, %106 ], [ -2147483648, %105 ]
   ret i32 %.0
 }
 
@@ -4738,7 +4738,7 @@ _Z11dtVisfinitePKf.exit179:                       ; preds = %49
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %45, %49, %31, %35, %131, %132, %25, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit179, %60, %24, %338, %313, %111
-  %.0 = phi i32 [ -2147483640, %25 ], [ %.1147, %313 ], [ %.0146249, %111 ], [ 1073741824, %338 ], [ -2147483640, %24 ], [ -2147483640, %60 ], [ -2147483640, %_Z11dtVisfinitePKf.exit179 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ %.1147, %132 ], [ %.1147, %131 ], [ -2147483640, %31 ], [ -2147483640, %35 ], [ -2147483640, %49 ], [ -2147483640, %45 ]
+  %.0 = phi i32 [ %.1147, %313 ], [ %.0146249, %111 ], [ 1073741824, %338 ], [ -2147483640, %24 ], [ -2147483640, %60 ], [ -2147483640, %_Z11dtVisfinitePKf.exit179 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %25 ], [ %.1147, %132 ], [ %.1147, %131 ], [ -2147483640, %35 ], [ -2147483640, %31 ], [ -2147483640, %49 ], [ -2147483640, %45 ]
   ret i32 %.0
 }
 
@@ -4930,7 +4930,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
   br label %102
 
 102:                                              ; preds = %6, %4, %.loopexit, %13
-  %.0 = phi i32 [ -2147483640, %4 ], [ -2147483648, %13 ], [ %101, %.loopexit ], [ -2147483640, %6 ]
+  %.0 = phi i32 [ -2147483648, %13 ], [ %101, %.loopexit ], [ -2147483640, %4 ], [ -2147483640, %6 ]
   ret i32 %.0
 }
 
@@ -5186,7 +5186,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   br label %113
 
 113:                                              ; preds = %9, %6, %.loopexit, %18
-  %.0 = phi i32 [ -2147483640, %6 ], [ -2147483648, %18 ], [ %112, %.loopexit ], [ -2147483640, %9 ]
+  %.0 = phi i32 [ -2147483648, %18 ], [ %112, %.loopexit ], [ -2147483640, %6 ], [ -2147483640, %9 ]
   ret i32 %.0
 }
 
@@ -5525,7 +5525,7 @@ _ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread: ; preds = %129, %
   br i1 %exitcond.not, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit, label %32, !llvm.loop !42
 
 _ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit: ; preds = %32, %38, %44, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread, %129, %11
-  %.0 = phi i32 [ 536870912, %11 ], [ 536870912, %44 ], [ -2147483640, %38 ], [ 1073741840, %129 ], [ 536870912, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread ], [ -2147483640, %32 ]
+  %.0 = phi i32 [ 536870912, %11 ], [ 1073741840, %129 ], [ 536870912, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread ], [ 536870912, %44 ], [ -2147483640, %38 ], [ -2147483640, %32 ]
   ret i32 %.0
 }
 
@@ -6016,7 +6016,7 @@ _Z8dtVequalPKfS0_.exit209:                        ; preds = %213, %216, %218
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %256, %254, %188, %186, %42, %46, %28, %32, %270, %108, %71, %64, %61, %27, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit207, %57, %26, %272, %116
-  %.0 = phi i32 [ -2147483640, %26 ], [ -2147483640, %27 ], [ -2147483640, %61 ], [ -2147483640, %64 ], [ %73, %71 ], [ %120, %116 ], [ -2147483640, %28 ], [ -2147483640, %32 ], [ -2147483640, %108 ], [ -2147483640, %46 ], [ -2147483640, %42 ], [ %275, %272 ], [ -2147483640, %57 ], [ -2147483640, %_Z11dtVisfinitePKf.exit207 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ %271, %270 ], [ %261, %256 ], [ %187, %186 ], [ %255, %254 ], [ %193, %188 ]
+  %.0 = phi i32 [ %120, %116 ], [ %275, %272 ], [ -2147483640, %26 ], [ -2147483640, %57 ], [ -2147483640, %_Z11dtVisfinitePKf.exit207 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %27 ], [ -2147483640, %61 ], [ -2147483640, %64 ], [ %73, %71 ], [ -2147483640, %108 ], [ %271, %270 ], [ -2147483640, %32 ], [ -2147483640, %28 ], [ -2147483640, %46 ], [ -2147483640, %42 ], [ %261, %256 ], [ %255, %254 ], [ %193, %188 ], [ %187, %186 ]
   ret i32 %.0
 }
 
@@ -6646,7 +6646,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %276
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %35, %39, %31, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit190, %30, %.loopexit
-  %.0 = phi i32 [ -2147483640, %30 ], [ %.0141, %.loopexit ], [ -2147483640, %_Z11dtVisfinitePKf.exit190 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %31 ], [ -2147483640, %39 ], [ -2147483640, %35 ]
+  %.0 = phi i32 [ %.0141, %.loopexit ], [ -2147483640, %30 ], [ -2147483640, %_Z11dtVisfinitePKf.exit190 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %31 ], [ -2147483640, %39 ], [ -2147483640, %35 ]
   ret i32 %.0
 }
 
@@ -6915,7 +6915,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   br label %.thread
 
 .thread:                                          ; preds = %97, %123, %116
-  %.0106148 = phi i32 [ 0, %116 ], [ %122, %123 ], [ 0, %97 ]
+  %.0106148 = phi i32 [ %122, %123 ], [ 0, %116 ], [ 0, %97 ]
   %125 = icmp slt i32 %.0104155, %9
   br i1 %125, label %126, label %142
 
@@ -7156,7 +7156,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %225, %201
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
 _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %253, %251, %241, %254, %225, %179, %167, %156, %150, %177
-  %.3 = phi i32 [ %.2153, %156 ], [ %.2153, %167 ], [ %.2153, %179 ], [ %.2153, %225 ], [ %.2153, %150 ], [ %.2153, %254 ], [ %178, %177 ], [ %.2153, %241 ], [ %.2153, %251 ], [ %.2153, %253 ]
+  %.3 = phi i32 [ %.2153, %167 ], [ %.2153, %179 ], [ %.2153, %225 ], [ %.2153, %254 ], [ %178, %177 ], [ %.2153, %156 ], [ %.2153, %150 ], [ %.2153, %241 ], [ %.2153, %251 ], [ %.2153, %253 ]
   %261 = load ptr, ptr %11, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 32
   %263 = load ptr, ptr %262, align 8
@@ -7173,7 +7173,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %253, %251, %241, %2
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %41, %45, %37, %_Z11dtVisfinitePKf.exit, %55, %36, %._crit_edge
-  %.0 = phi i32 [ -2147483640, %36 ], [ %.0103.lcssa, %._crit_edge ], [ -2147483640, %55 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %37 ], [ -2147483640, %45 ], [ -2147483640, %41 ]
+  %.0 = phi i32 [ %.0103.lcssa, %._crit_edge ], [ -2147483640, %36 ], [ -2147483640, %55 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %37 ], [ -2147483640, %45 ], [ -2147483640, %41 ]
   ret i32 %.0
 }
 
@@ -7385,7 +7385,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryF
   br label %.thread
 
 .thread:                                          ; preds = %96, %122, %115
-  %.0112163 = phi i32 [ 0, %115 ], [ %121, %122 ], [ 0, %96 ]
+  %.0112163 = phi i32 [ %121, %122 ], [ 0, %115 ], [ 0, %96 ]
   %124 = icmp slt i32 %.0110179, %9
   br i1 %124, label %125, label %141
 
@@ -7633,7 +7633,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %228, %204
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
 _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %256, %254, %244, %257, %228, %182, %172, %166, %155, %149, %180
-  %.3 = phi i32 [ %.2174, %155 ], [ %.2174, %172 ], [ %.2174, %182 ], [ %.2174, %228 ], [ %.2174, %149 ], [ %.2174, %257 ], [ %181, %180 ], [ %.2174, %166 ], [ %.2174, %244 ], [ %.2174, %254 ], [ %.2174, %256 ]
+  %.3 = phi i32 [ %.2174, %172 ], [ %.2174, %182 ], [ %.2174, %228 ], [ %.2174, %257 ], [ %181, %180 ], [ %.2174, %166 ], [ %.2174, %155 ], [ %.2174, %149 ], [ %.2174, %244 ], [ %.2174, %254 ], [ %.2174, %256 ]
   %264 = load ptr, ptr %11, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 32
   %266 = load ptr, ptr %265, align 8
@@ -7650,7 +7650,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %256, %254, %244, %2
   br label %269
 
 269:                                              ; preds = %47, %40, %39, %._crit_edge183
-  %.0 = phi i32 [ -2147483640, %39 ], [ %.0109.lcssa, %._crit_edge183 ], [ -2147483640, %40 ], [ -2147483640, %47 ]
+  %.0 = phi i32 [ %.0109.lcssa, %._crit_edge183 ], [ -2147483640, %39 ], [ -2147483640, %40 ], [ -2147483640, %47 ]
   ret i32 %.0
 }
 
@@ -7800,8 +7800,8 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %41
   br label %68
 
 68:                                               ; preds = %56, %66, %67
-  %.0118 = phi i32 [ 1, %66 ], [ 1, %67 ], [ 0, %56 ]
-  %.0115 = phi i32 [ 1073741824, %66 ], [ 1073741824, %67 ], [ 1073741840, %56 ]
+  %.0118 = phi i32 [ 1, %67 ], [ 1, %66 ], [ 0, %56 ]
+  %.0115 = phi i32 [ 1073741824, %67 ], [ 1073741824, %66 ], [ 1073741840, %56 ]
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 258
   %.not147 = icmp eq ptr %6, null
@@ -8086,9 +8086,9 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   br label %.loopexit157
 
 .loopexit157:                                     ; preds = %._crit_edge169, %196, %198, %109, %100, %94, %90, %87, %82
-  %.3121 = phi i32 [ %.2120174, %90 ], [ %.2120174, %94 ], [ %.2120174, %109 ], [ %.2120174, %87 ], [ %.4122, %198 ], [ %.4122, %196 ], [ %.2120174, %82 ], [ %.2120174, %100 ], [ %.2120174, %._crit_edge169 ]
-  %.3 = phi i32 [ %.2117175, %90 ], [ %.2117175, %94 ], [ %.2117175, %109 ], [ %.2117175, %87 ], [ %.4, %198 ], [ %.4, %196 ], [ %.2117175, %82 ], [ %.2117175, %100 ], [ %.2117175, %._crit_edge169 ]
-  %.2 = phi i32 [ %.1176, %90 ], [ %.1176, %94 ], [ %.1176, %109 ], [ %.1176, %87 ], [ %199, %198 ], [ %.1176, %196 ], [ %.1176, %82 ], [ %.1176, %100 ], [ %.1176, %._crit_edge169 ]
+  %.3121 = phi i32 [ %.2120174, %90 ], [ %.2120174, %94 ], [ %.2120174, %109 ], [ %.4122, %198 ], [ %.4122, %196 ], [ %.2120174, %100 ], [ %.2120174, %87 ], [ %.2120174, %82 ], [ %.2120174, %._crit_edge169 ]
+  %.3 = phi i32 [ %.2117175, %90 ], [ %.2117175, %94 ], [ %.2117175, %109 ], [ %.4, %198 ], [ %.4, %196 ], [ %.2117175, %100 ], [ %.2117175, %87 ], [ %.2117175, %82 ], [ %.2117175, %._crit_edge169 ]
+  %.2 = phi i32 [ %.1176, %90 ], [ %.1176, %94 ], [ %.1176, %109 ], [ %199, %198 ], [ %.1176, %196 ], [ %.1176, %100 ], [ %.1176, %87 ], [ %.1176, %82 ], [ %.1176, %._crit_edge169 ]
   %202 = load ptr, ptr %13, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8
@@ -8103,7 +8103,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %37, %41, %33, %_Z11dtVisfinitePKf.exit, %51, %32, %207
-  %.0108 = phi i32 [ -2147483640, %32 ], [ %.2117.lcssa, %207 ], [ -2147483640, %51 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %33 ], [ -2147483640, %41 ], [ -2147483640, %37 ]
+  %.0108 = phi i32 [ %.2117.lcssa, %207 ], [ -2147483640, %32 ], [ -2147483640, %51 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %33 ], [ -2147483640, %41 ], [ -2147483640, %37 ]
   ret i32 %.0108
 }
 
@@ -8290,7 +8290,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery19get
   br label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit
 
 _ZL14insertIntervalP13dtSegIntervalRiissj.exit:   ; preds = %._crit_edge._crit_edge.i, %63, %.lr.ph, %51, %49
-  %.1181 = phi i32 [ %.0180195, %49 ], [ %.0180195, %.lr.ph ], [ %.0180195, %51 ], [ %.0180195, %63 ], [ %88, %._crit_edge._crit_edge.i ]
+  %.1181 = phi i32 [ %.0180195, %49 ], [ %.0180195, %51 ], [ %.0180195, %.lr.ph ], [ %.0180195, %63 ], [ %88, %._crit_edge._crit_edge.i ]
   %89 = load ptr, ptr %8, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load ptr, ptr %90, align 8
@@ -8690,8 +8690,8 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL1
   br i1 %exitcond.not, label %.loopexit, label %209, !llvm.loop !64
 
 .loopexit:                                        ; preds = %313, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173, %151, %153, %95
-  %.1108 = phi i32 [ %.0107207, %95 ], [ %.0107207, %151 ], [ %154, %153 ], [ %.0107207, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4111, %313 ]
-  %.1 = phi i32 [ %.0106208, %95 ], [ %152, %151 ], [ %.0106208, %153 ], [ %.0106208, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4, %313 ]
+  %.1108 = phi i32 [ %.0107207, %151 ], [ %154, %153 ], [ %.0107207, %95 ], [ %.0107207, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4111, %313 ]
+  %.1 = phi i32 [ %152, %151 ], [ %.0106208, %153 ], [ %.0106208, %95 ], [ %.0106208, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4, %313 ]
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %314 = load ptr, ptr %9, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 30
@@ -8708,7 +8708,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL1
   br label %320
 
 320:                                              ; preds = %22, %18, %17, %._crit_edge211
-  %.0 = phi i32 [ -2147483640, %17 ], [ -2147483640, %18 ], [ %.0107.lcssa, %._crit_edge211 ], [ -2147483640, %22 ]
+  %.0 = phi i32 [ %.0107.lcssa, %._crit_edge211 ], [ -2147483640, %17 ], [ -2147483640, %18 ], [ -2147483640, %22 ]
   ret i32 %.0
 }
 
@@ -8912,7 +8912,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   br label %.thread
 
 .thread:                                          ; preds = %101, %127, %120
-  %.0139191 = phi i32 [ 0, %120 ], [ %126, %127 ], [ 0, %101 ]
+  %.0139191 = phi i32 [ %126, %127 ], [ 0, %120 ], [ 0, %101 ]
   %129 = load ptr, ptr %12, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 30
   %131 = load i8, ptr %130, align 2
@@ -9034,7 +9034,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   br i1 %185, label %219, label %.critedge
 
 .critedge:                                        ; preds = %166, %..critedge_crit_edge, %.preheader, %153, %168, %169
-  %186 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %173, %169 ], [ %.pre221, %.preheader ], [ %.pre221, %153 ], [ %.pre222, %168 ], [ %.pre221, %166 ]
+  %186 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre221, %.preheader ], [ %.pre221, %153 ], [ %.pre222, %168 ], [ %173, %169 ], [ %.pre221, %166 ]
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load ptr, ptr %187, align 8
   %189 = load ptr, ptr %12, align 8
@@ -9303,7 +9303,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %324, %306
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
 _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %352, %350, %340, %353, %324, %277, %262, %238, %232, %226, %275
-  %.2138 = phi i32 [ %.1137207, %226 ], [ %.1137207, %232 ], [ %.1137207, %238 ], [ %.1137207, %277 ], [ %.1137207, %324 ], [ %.1137207, %262 ], [ %.1137207, %353 ], [ %276, %275 ], [ %.1137207, %340 ], [ %.1137207, %350 ], [ %.1137207, %352 ]
+  %.2138 = phi i32 [ %.1137207, %232 ], [ %.1137207, %238 ], [ %.1137207, %277 ], [ %.1137207, %324 ], [ %.1137207, %353 ], [ %276, %275 ], [ %.1137207, %262 ], [ %.1137207, %226 ], [ %.1137207, %340 ], [ %.1137207, %350 ], [ %.1137207, %352 ]
   %362 = load ptr, ptr %11, align 8
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 32
   %364 = load ptr, ptr %363, align 8
@@ -9380,7 +9380,7 @@ define noundef zeroext i1 @_ZNK14dtNavMeshQuery14isValidPolyRefEjPK13dtQueryFilt
   br label %21
 
 21:                                               ; preds = %9, %3
-  %.0 = phi i1 [ %20, %9 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %3 ], [ %20, %9 ]
   ret i1 %.0
 }
 

@@ -115,7 +115,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %5
   br i1 %exitcond.not.i, label %.critedge2.i, label %33, !llvm.loop !14
 
 .critedge2.i:                                     ; preds = %40, %33
-  %.024.lcssa.i = phi i64 [ %20, %40 ], [ %.02431.i, %33 ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %33 ], [ %20, %40 ]
   %.not30.i = icmp ugt i64 %.024.lcssa.i, %.0.i17
   br i1 %.not30.i, label %_ZL4trimPKc.exit, label %.critedge2.thread.i
 
@@ -136,7 +136,7 @@ _ZL4trimPKc.exit:                                 ; preds = %14, %.critedge2.i, 
   br label %.critedge15
 
 .critedge15:                                      ; preds = %5, %.critedge, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, %_ZL4trimPKc.exit
-  %.0 = phi ptr [ %.026.i, %_ZL4trimPKc.exit ], [ null, %.critedge ], [ null, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ null, %5 ]
+  %.0 = phi ptr [ %.026.i, %_ZL4trimPKc.exit ], [ null, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ null, %.critedge ], [ null, %5 ]
   ret ptr %.0
 }
 

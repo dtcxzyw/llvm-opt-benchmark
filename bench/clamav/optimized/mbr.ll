@@ -92,12 +92,12 @@ define range(i32 0, 575) i32 @cli_mbr_check(ptr noundef readonly captures(none) 
   br i1 %28, label %.sink.split.i, label %mbr_check_mbr.exit
 
 .sink.split.i:                                    ; preds = %16, %.preheader, %27, %26
-  %.str.27.sink.i = phi ptr [ @.str.25, %26 ], [ @.str.27, %27 ], [ @.str.24, %.preheader ], [ @.str.26, %16 ]
+  %.str.27.sink.i = phi ptr [ @.str.25, %26 ], [ @.str.27, %27 ], [ @.str.26, %16 ], [ @.str.24, %.preheader ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.27.sink.i) #6
   br label %mbr_check_mbr.exit
 
 mbr_check_mbr.exit:                               ; preds = %.sink.split.i, %27, %6, %3
-  %.0 = phi i32 [ 574, %6 ], [ 26, %3 ], [ 0, %27 ], [ 26, %.sink.split.i ]
+  %.0 = phi i32 [ 26, %3 ], [ 574, %6 ], [ 0, %27 ], [ 26, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -212,7 +212,7 @@ fmap_readn.exit.thread:                           ; preds = %17, %15, %fmap_read
   br i1 %43, label %.sink.split.i, label %mbr_check_mbr.exit
 
 .sink.split.i:                                    ; preds = %31, %.preheader, %42, %41
-  %.str.27.sink.i = phi ptr [ @.str.25, %41 ], [ @.str.27, %42 ], [ @.str.24, %.preheader ], [ @.str.26, %31 ]
+  %.str.27.sink.i = phi ptr [ @.str.25, %41 ], [ @.str.27, %42 ], [ @.str.26, %31 ], [ @.str.24, %.preheader ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.27.sink.i) #6
   br label %mbr_check_mbr.exit
 
@@ -323,7 +323,7 @@ fmap_readn.exit.thread:                           ; preds = %18, %16, %fmap_read
   br i1 %42, label %mbr_check_mbr.exit, label %43
 
 mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
-  %.str.27.sink.i = phi ptr [ @.str.25, %40 ], [ @.str.27, %41 ], [ @.str.24, %27 ], [ @.str.26, %30 ]
+  %.str.27.sink.i = phi ptr [ @.str.25, %40 ], [ @.str.27, %41 ], [ @.str.26, %30 ], [ @.str.24, %27 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.27.sink.i) #6
   br label %.loopexit
 
@@ -618,8 +618,8 @@ default.unreachable:                              ; preds = %138, %134, %131
   br label %.backedge.i.outer.backedge
 
 .backedge.i.outer.backedge:                       ; preds = %131, %133, %134, %135, %136, %148, %.thread.i
-  %.05999.i.ph.be = phi i32 [ 1, %.thread.i ], [ 2, %135 ], [ 3, %136 ], [ %.261.i, %148 ], [ 3, %131 ], [ %.05999.i.ph, %133 ], [ %.05999.i.ph, %134 ]
-  %.16398.i.ph.be = phi i64 [ 0, %.thread.i ], [ %127, %135 ], [ %127, %136 ], [ %.365.i, %148 ], [ %.16398.i.ph, %131 ], [ %.264.i, %133 ], [ %127, %134 ]
+  %.05999.i.ph.be = phi i32 [ 1, %.thread.i ], [ %.05999.i.ph, %134 ], [ 2, %135 ], [ 3, %136 ], [ 3, %131 ], [ %.261.i, %148 ], [ %.05999.i.ph, %133 ]
+  %.16398.i.ph.be = phi i64 [ 0, %.thread.i ], [ %127, %134 ], [ %127, %135 ], [ %127, %136 ], [ %.16398.i.ph, %131 ], [ %.365.i, %148 ], [ %.264.i, %133 ]
   %indvars.iv.i83.ph.be = add nuw nsw i64 %indvars.iv.i83, 1
   br label %.backedge.i.outer
 
@@ -634,8 +634,8 @@ default.unreachable:                              ; preds = %138, %134, %131
   %163 = icmp ult i32 %111, %162
   br i1 %163, label %93, label %mbr_scanextprtn.exit
 
-mbr_scanextprtn.exit.thread:                      ; preds = %148, %fmap_readn.exit.thread.i, %147, %155, %137, %mbr_check_ebr.exit.i
-  %.058.i.ph = phi i32 [ 26, %fmap_readn.exit.thread.i ], [ 26, %mbr_check_ebr.exit.i ], [ 26, %137 ], [ 26, %155 ], [ 26, %147 ], [ %150, %148 ]
+mbr_scanextprtn.exit.thread:                      ; preds = %148, %fmap_readn.exit.thread.i, %137, %147, %155, %mbr_check_ebr.exit.i
+  %.058.i.ph = phi i32 [ 26, %mbr_check_ebr.exit.i ], [ 26, %155 ], [ 26, %147 ], [ 26, %137 ], [ 26, %fmap_readn.exit.thread.i ], [ %150, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
@@ -670,7 +670,7 @@ mbr_scanextprtn.exit:                             ; preds = %158, %159
   br label %.loopexit
 
 .loopexit:                                        ; preds = %164, %mbr_scanextprtn.exit.thread, %mbr_check_mbr.exit, %.critedge, %.critedge.thread, %58, %43, %fmap_readn.exit.thread, %15, %8
-  %.0 = phi i32 [ 26, %15 ], [ 26, %fmap_readn.exit.thread ], [ 26, %mbr_check_mbr.exit ], [ %45, %43 ], [ %59, %58 ], [ %.058.i.ph, %mbr_scanextprtn.exit.thread ], [ 2, %8 ], [ 0, %.critedge.thread ], [ 0, %.critedge ], [ %167, %164 ]
+  %.0 = phi i32 [ 26, %15 ], [ 26, %fmap_readn.exit.thread ], [ 26, %mbr_check_mbr.exit ], [ %45, %43 ], [ %59, %58 ], [ 0, %.critedge.thread ], [ 0, %.critedge ], [ 2, %8 ], [ %.058.i.ph, %mbr_scanextprtn.exit.thread ], [ %167, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -856,7 +856,7 @@ mbr_extended_partition_intersection.exit:         ; preds = %63, %64, %62
   br i1 %exitcond.not, label %.critedge, label %14
 
 .critedge:                                        ; preds = %mbr_extended_partition_intersection.exit, %26, %14, %75, %34, %mbr_extended_partition_intersection.exit.thread
-  %.2 = phi i32 [ %.1.i.ph, %mbr_extended_partition_intersection.exit.thread ], [ %.2.i, %mbr_extended_partition_intersection.exit ], [ 0, %14 ], [ 0, %75 ], [ %33, %26 ], [ %37, %34 ]
+  %.2 = phi i32 [ %.1.i.ph, %mbr_extended_partition_intersection.exit.thread ], [ %.2.i, %mbr_extended_partition_intersection.exit ], [ %33, %26 ], [ 0, %75 ], [ 0, %14 ], [ %37, %34 ]
   %76 = call i32 @partition_intersection_list_free(ptr noundef nonnull %7) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -1187,10 +1187,10 @@ default.unreachable:                              ; preds = %58
   br label %"_ZN79_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..clone..Clone$GT$5clone17h179f869d249745c3E.exit.i"
 
 "_ZN79_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..clone..Clone$GT$5clone17h179f869d249745c3E.exit.i": ; preds = %70, %63, %61, %58, %58, %58
-  %.sroa.43.1.i = phi i8 [ %.sroa.43.023.i, %58 ], [ %.val4.i.i, %70 ], [ %.sroa.43.023.i, %58 ], [ %.val.i.i, %61 ], [ %.val6.i.i, %63 ], [ %.sroa.43.023.i, %58 ]
-  %.sroa.74.1.i = phi i8 [ %.sroa.74.024.i, %58 ], [ %.val5.i.i, %70 ], [ %.sroa.74.024.i, %58 ], [ %.sroa.74.024.i, %61 ], [ %.val7.i.i, %63 ], [ %.sroa.74.024.i, %58 ]
-  %.sroa.95.1.i = phi ptr [ %.sroa.95.027.i, %58 ], [ %74, %70 ], [ %.sroa.95.027.i, %58 ], [ %.sroa.95.027.i, %61 ], [ %67, %63 ], [ %.sroa.95.027.i, %58 ]
-  %.sroa.11.1.i = phi i64 [ %.sroa.11.029.i, %58 ], [ %.sroa.52.0.i.i, %70 ], [ %.sroa.11.029.i, %58 ], [ %.sroa.11.029.i, %61 ], [ %.sroa.5.0.i.i, %63 ], [ %.sroa.11.029.i, %58 ]
+  %.sroa.43.1.i = phi i8 [ %.sroa.43.023.i, %58 ], [ %.val.i.i, %61 ], [ %.val6.i.i, %63 ], [ %.val4.i.i, %70 ], [ %.sroa.43.023.i, %58 ], [ %.sroa.43.023.i, %58 ]
+  %.sroa.74.1.i = phi i8 [ %.sroa.74.024.i, %58 ], [ %.sroa.74.024.i, %61 ], [ %.val7.i.i, %63 ], [ %.val5.i.i, %70 ], [ %.sroa.74.024.i, %58 ], [ %.sroa.74.024.i, %58 ]
+  %.sroa.95.1.i = phi ptr [ %.sroa.95.027.i, %58 ], [ %.sroa.95.027.i, %61 ], [ %67, %63 ], [ %74, %70 ], [ %.sroa.95.027.i, %58 ], [ %.sroa.95.027.i, %58 ]
+  %.sroa.11.1.i = phi i64 [ %.sroa.11.029.i, %58 ], [ %.sroa.11.029.i, %61 ], [ %.sroa.5.0.i.i, %63 ], [ %.sroa.52.0.i.i, %70 ], [ %.sroa.11.029.i, %58 ], [ %.sroa.11.029.i, %58 ]
   %77 = getelementptr inbounds nuw { [3 x i64] }, ptr %53, i64 %.sroa.7.026.i
   store i8 %60, ptr %77, align 8, !noalias !76
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %77, i64 1
@@ -1936,7 +1936,7 @@ default.unreachable:                              ; preds = %58
           to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..FormatOptions$GT$$GT$17hfae89aa7f0d9dfe0E.exit155" unwind label %226
 
 "_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..FormatOptions$GT$$GT$17hfae89aa7f0d9dfe0E.exit153": ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..LintOptions$GT$$GT$17h72f5908fd2b4d1f7E.exit183", %295, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..LintOptions$GT$$GT$17h72f5908fd2b4d1f7E.exit", %220, %226
-  %.pn122 = phi { ptr, i32 } [ %227, %226 ], [ %.pn118, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..LintOptions$GT$$GT$17h72f5908fd2b4d1f7E.exit183" ], [ %.pn120, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..LintOptions$GT$$GT$17h72f5908fd2b4d1f7E.exit" ], [ %.pn120, %220 ], [ %.pn118, %295 ]
+  %.pn122 = phi { ptr, i32 } [ %227, %226 ], [ %.pn120, %220 ], [ %.pn120, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..LintOptions$GT$$GT$17h72f5908fd2b4d1f7E.exit" ], [ %.pn118, %295 ], [ %.pn118, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..LintOptions$GT$$GT$17h72f5908fd2b4d1f7E.exit183" ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$ruff_workspace..options..LintCommonOptions$GT$17h26a5ff6c92977b2cE"(ptr noalias noundef nonnull align 8 dereferenceable(2120) %7) #19
           to label %228 unwind label %288
 
@@ -2129,7 +2129,7 @@ default.unreachable:                              ; preds = %58
   unreachable
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h29a15867495e7fbeE.exit": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17he304d3c0638ce0a3E.exit201", %313, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17he304d3c0638ce0a3E.exit176", %280, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$char$GT$$GT$$GT$17h82a7302b5cb697d2E.exit", %17
-  %.pn134.pn = phi { ptr, i32 } [ %.pn.pn, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$char$GT$$GT$$GT$17h82a7302b5cb697d2E.exit" ], [ %.pn134, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17he304d3c0638ce0a3E.exit176" ], [ %.pn.pn, %17 ], [ %.pn134, %280 ], [ %.pn124, %313 ], [ %.pn124, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17he304d3c0638ce0a3E.exit201" ]
+  %.pn134.pn = phi { ptr, i32 } [ %.pn.pn, %17 ], [ %.pn.pn, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$char$GT$$GT$$GT$17h82a7302b5cb697d2E.exit" ], [ %.pn134, %280 ], [ %.pn134, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17he304d3c0638ce0a3E.exit176" ], [ %.pn124, %313 ], [ %.pn124, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17he304d3c0638ce0a3E.exit201" ]
   resume { ptr, i32 } %.pn134.pn
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h29a15867495e7fbeE.exit146": ; preds = %200, %203
@@ -2397,7 +2397,7 @@ define { i32, i32 } @_ZN9ruff_wasm9Workspace5check17hb1b11622ddc7e7f8E(ptr noali
           to label %79 unwind label %77
 
 .thread:                                          ; preds = %86, %.thread43, %110, %77
-  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %110 ], [ %lpad.thr_comm, %.thread43 ], [ %78, %77 ], [ %87, %86 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %110 ], [ %78, %77 ], [ %lpad.thr_comm, %.thread43 ], [ %87, %86 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ruff_linter..directives..Directives$GT$17hb821ee3a4f5bf915E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %11) #19
           to label %73 unwind label %108
 

@@ -171,8 +171,8 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph145, %.thread.sink.split, %._crit_edge
-  %.191140 = phi ptr [ %.191.lcssa, %.thread.sink.split ], [ %.191.lcssa, %._crit_edge ], [ %.191143, %.lr.ph145 ]
-  %.092 = phi ptr [ %.092.ph, %.thread.sink.split ], [ null, %._crit_edge ], [ null, %.lr.ph145 ]
+  %.191140 = phi ptr [ %.191.lcssa, %._crit_edge ], [ %.191.lcssa, %.thread.sink.split ], [ %.191143, %.lr.ph145 ]
+  %.092 = phi ptr [ null, %._crit_edge ], [ %.092.ph, %.thread.sink.split ], [ null, %.lr.ph145 ]
   %.not105 = icmp eq ptr %.191140, null
   br i1 %.not105, label %.thread112, label %94
 
@@ -181,10 +181,10 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %.thread112
 
 .thread112:                                       ; preds = %.loopexit.thread, %94, %.thread
-  %.086165 = phi ptr [ %.086164, %.thread ], [ %.086164, %94 ], [ %.086163, %.loopexit.thread ]
-  %.082124 = phi i32 [ %.183, %.thread ], [ %.183, %94 ], [ 0, %.loopexit.thread ]
-  %.088121 = phi ptr [ %.189, %.thread ], [ %.189, %94 ], [ null, %.loopexit.thread ]
-  %.092120 = phi ptr [ %.092, %.thread ], [ %.092, %94 ], [ null, %.loopexit.thread ]
+  %.086165 = phi ptr [ %.086164, %94 ], [ %.086164, %.thread ], [ %.086163, %.loopexit.thread ]
+  %.082124 = phi i32 [ %.183, %94 ], [ %.183, %.thread ], [ 0, %.loopexit.thread ]
+  %.088121 = phi ptr [ %.189, %94 ], [ %.189, %.thread ], [ null, %.loopexit.thread ]
+  %.092120 = phi ptr [ %.092, %94 ], [ %.092, %.thread ], [ null, %.loopexit.thread ]
   br i1 %.not138, label %.thread112.thread, label %95
 
 .thread112.thread:                                ; preds = %21, %24, %.thread112
@@ -221,7 +221,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %105
 
 105:                                              ; preds = %97, %98, %9, %18
-  %.0 = phi ptr [ null, %9 ], [ null, %18 ], [ %.092120137, %98 ], [ null, %97 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %9 ], [ %.092120137, %98 ], [ null, %97 ]
   ret ptr %.0
 }
 
@@ -355,7 +355,7 @@ define ptr @Cudd_Xgty(ptr noundef %0, i32 noundef %1, ptr noundef readnone captu
   br label %74
 
 74:                                               ; preds = %5, %._crit_edge, %62, %48, %34
-  %.047 = phi ptr [ %.048.lcssa, %._crit_edge ], [ null, %34 ], [ null, %48 ], [ null, %62 ], [ null, %5 ]
+  %.047 = phi ptr [ null, %34 ], [ null, %48 ], [ null, %62 ], [ %.048.lcssa, %._crit_edge ], [ null, %5 ]
   ret ptr %.047
 }
 
@@ -470,7 +470,7 @@ define ptr @Cudd_Xeqy(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   br label %68
 
 68:                                               ; preds = %4, %._crit_edge, %56, %44, %30
-  %.049 = phi ptr [ %.050.lcssa, %._crit_edge ], [ null, %30 ], [ null, %44 ], [ null, %56 ], [ null, %4 ]
+  %.049 = phi ptr [ null, %30 ], [ null, %44 ], [ null, %56 ], [ %.050.lcssa, %._crit_edge ], [ null, %4 ]
   ret ptr %.049
 }
 
@@ -608,7 +608,7 @@ define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   br label %84
 
 84:                                               ; preds = %4, %._crit_edge, %63, %52, %37, %25
-  %.076 = phi ptr [ %.075.lcssa, %._crit_edge ], [ null, %25 ], [ null, %37 ], [ null, %52 ], [ null, %63 ], [ null, %4 ]
+  %.076 = phi ptr [ null, %25 ], [ null, %37 ], [ null, %52 ], [ null, %63 ], [ %.075.lcssa, %._crit_edge ], [ null, %4 ]
   ret ptr %.076
 }
 
@@ -856,7 +856,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr noundef readonly c
   br label %147
 
 147:                                              ; preds = %5, %._crit_edge, %133, %121, %110, %96, %85, %74, %63, %45, %33
-  %.0146 = phi ptr [ %146, %._crit_edge ], [ null, %33 ], [ null, %45 ], [ null, %63 ], [ null, %74 ], [ null, %85 ], [ null, %96 ], [ null, %110 ], [ null, %121 ], [ null, %133 ], [ null, %5 ]
+  %.0146 = phi ptr [ null, %33 ], [ null, %45 ], [ null, %63 ], [ null, %74 ], [ null, %85 ], [ null, %96 ], [ null, %110 ], [ null, %121 ], [ null, %133 ], [ %146, %._crit_edge ], [ null, %5 ]
   ret ptr %.0146
 }
 
@@ -1103,7 +1103,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr noundef readonly c
   br label %148
 
 148:                                              ; preds = %5, %._crit_edge, %134, %120, %107, %95, %81, %70, %59, %44, %30
-  %.0146 = phi ptr [ %147, %._crit_edge ], [ null, %30 ], [ null, %44 ], [ null, %59 ], [ null, %70 ], [ null, %81 ], [ null, %95 ], [ null, %107 ], [ null, %120 ], [ null, %134 ], [ null, %5 ]
+  %.0146 = phi ptr [ null, %30 ], [ null, %44 ], [ null, %59 ], [ null, %70 ], [ null, %81 ], [ null, %95 ], [ null, %107 ], [ null, %120 ], [ null, %134 ], [ %147, %._crit_edge ], [ null, %5 ]
   ret ptr %.0146
 }
 
@@ -1206,7 +1206,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br label %49
 
 49:                                               ; preds = %47, %46, %43
-  %.0174 = phi ptr [ %11, %46 ], [ %8, %43 ], [ %.sroa.082.0..sroa.1189.0, %47 ]
+  %.0174 = phi ptr [ %8, %43 ], [ %11, %46 ], [ %.sroa.082.0..sroa.1189.0, %47 ]
   %.not205 = icmp slt i32 %44, %.0178282
   br i1 %.not205, label %50, label %53
 
@@ -1220,7 +1220,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br label %53
 
 53:                                               ; preds = %51, %50, %49
-  %.0175 = phi ptr [ %11, %50 ], [ %8, %49 ], [ %.sroa.082.0..sroa.1189.0221, %51 ]
+  %.0175 = phi ptr [ %8, %49 ], [ %11, %50 ], [ %.sroa.082.0..sroa.1189.0221, %51 ]
   %54 = or disjoint i32 %44, 1
   %.not207 = icmp slt i32 %54, %.0178282
   br i1 %.not207, label %55, label %58
@@ -1235,7 +1235,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br label %58
 
 58:                                               ; preds = %56, %55, %53
-  %.0176 = phi ptr [ %11, %55 ], [ %8, %53 ], [ %.sroa.082.0..sroa.1189.0222, %56 ]
+  %.0176 = phi ptr [ %8, %53 ], [ %11, %55 ], [ %.sroa.082.0..sroa.1189.0222, %56 ]
   %59 = load ptr, ptr %40, align 8, !tbaa !28
   %60 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %59, ptr noundef %.0175, ptr noundef %.0176) #7
   %61 = icmp eq ptr %60, null
@@ -1430,7 +1430,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %69, %68, %87, %86, %105, %104, %21, %19, %17, %5, %._crit_edge284
-  %.0177 = phi ptr [ %.1183.lcssa, %._crit_edge284 ], [ %., %17 ], [ null, %5 ], [ %8, %21 ], [ %11, %19 ], [ null, %104 ], [ null, %105 ], [ null, %86 ], [ null, %87 ], [ null, %68 ], [ null, %69 ]
+  %.0177 = phi ptr [ %.1183.lcssa, %._crit_edge284 ], [ null, %5 ], [ %., %17 ], [ %11, %19 ], [ %8, %21 ], [ null, %104 ], [ null, %105 ], [ null, %86 ], [ null, %87 ], [ null, %68 ], [ null, %69 ]
   ret ptr %.0177
 }
 
@@ -1540,7 +1540,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %54
 
 54:                                               ; preds = %52, %50, %47
-  %.0183 = phi ptr [ %12, %50 ], [ %9, %47 ], [ %.sroa.085.0..sroa.1192.0, %52 ]
+  %.0183 = phi ptr [ %9, %47 ], [ %12, %50 ], [ %.sroa.085.0..sroa.1192.0, %52 ]
   %.not212 = icmp slt i32 %48, %.0187299
   %.not213 = icmp sgt i32 %48, %.0188298
   %or.cond234 = select i1 %.not212, i1 %.not213, i1 false
@@ -1557,7 +1557,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %59
 
 59:                                               ; preds = %57, %55, %54
-  %.0184 = phi ptr [ %12, %55 ], [ %9, %54 ], [ %.sroa.085.0..sroa.1192.0236, %57 ]
+  %.0184 = phi ptr [ %9, %54 ], [ %12, %55 ], [ %.sroa.085.0..sroa.1192.0236, %57 ]
   %60 = or disjoint i32 %48, 1
   %.not214 = icmp sge i32 %60, %.0187299
   %.not215.not = icmp slt i32 %48, %.0188298
@@ -1575,7 +1575,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %65
 
 65:                                               ; preds = %63, %61, %59
-  %.0185 = phi ptr [ %12, %61 ], [ %9, %59 ], [ %.sroa.085.0..sroa.1192.0239, %63 ]
+  %.0185 = phi ptr [ %9, %59 ], [ %12, %61 ], [ %.sroa.085.0..sroa.1192.0239, %63 ]
   %66 = load ptr, ptr %44, align 8, !tbaa !28
   %67 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %66, ptr noundef %.0184, ptr noundef %.0185) #7
   %68 = icmp eq ptr %67, null
@@ -1770,7 +1770,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %.thread
 
 .thread:                                          ; preds = %76, %75, %94, %93, %112, %111, %19, %18, %5, %._crit_edge301
-  %.0186 = phi ptr [ %.1192.lcssa, %._crit_edge301 ], [ %., %18 ], [ null, %5 ], [ %9, %19 ], [ null, %111 ], [ null, %112 ], [ null, %93 ], [ null, %94 ], [ null, %75 ], [ null, %76 ]
+  %.0186 = phi ptr [ %.1192.lcssa, %._crit_edge301 ], [ null, %5 ], [ %., %18 ], [ %9, %19 ], [ null, %111 ], [ null, %112 ], [ null, %93 ], [ null, %94 ], [ null, %75 ], [ null, %76 ]
   ret ptr %.0186
 }
 
@@ -1881,7 +1881,7 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %39, %53, %52
-  %.2 = phi ptr [ %50, %53 ], [ null, %52 ], [ null, %39 ], [ null, %25 ]
+  %.2 = phi ptr [ null, %52 ], [ %50, %53 ], [ null, %39 ], [ null, %25 ]
   ret ptr %.2
 }
 
@@ -1945,7 +1945,7 @@ define ptr @Cudd_CProjection(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br label %38
 
 38:                                               ; preds = %11, %29, %28, %6
-  %.0 = phi ptr [ null, %6 ], [ %23, %29 ], [ null, %28 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %28 ], [ %23, %29 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -2287,7 +2287,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %212
 
 212:                                              ; preds = %142, %123, %116, %56, %13, %8, %4, %211, %205, %195, %184, %172, %158, %136, %83, %68
-  %.0 = phi ptr [ null, %205 ], [ %1, %4 ], [ %1, %8 ], [ %14, %13 ], [ null, %68 ], [ null, %83 ], [ %.0164, %211 ], [ null, %56 ], [ null, %116 ], [ null, %136 ], [ null, %123 ], [ null, %158 ], [ null, %172 ], [ null, %184 ], [ null, %195 ], [ null, %142 ]
+  %.0 = phi ptr [ null, %68 ], [ null, %83 ], [ %.0164, %211 ], [ null, %136 ], [ null, %158 ], [ null, %172 ], [ null, %184 ], [ null, %195 ], [ null, %205 ], [ %1, %4 ], [ %1, %8 ], [ %14, %13 ], [ null, %56 ], [ null, %116 ], [ null, %123 ], [ null, %142 ]
   ret ptr %.0
 }
 
@@ -2550,7 +2550,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   br label %84
 
 84:                                               ; preds = %18, %76, %61, %42, %14, %4, %.critedge, %40
-  %.0 = phi i32 [ %59, %42 ], [ 0, %4 ], [ -1, %61 ], [ %41, %40 ], [ %3, %14 ], [ %83, %.critedge ], [ -1, %76 ], [ %spec.select, %18 ]
+  %.0 = phi i32 [ %41, %40 ], [ %83, %.critedge ], [ -1, %76 ], [ 0, %4 ], [ %3, %14 ], [ %59, %42 ], [ -1, %61 ], [ %spec.select, %18 ]
   ret i32 %.0
 }
 
@@ -2704,7 +2704,7 @@ separateCube.exit:                                ; preds = %30, %45, %51
   br label %87
 
 87:                                               ; preds = %10, %77, %76, %62
-  %.0 = phi ptr [ %71, %77 ], [ null, %62 ], [ null, %76 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %62 ], [ null, %76 ], [ %71, %77 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -2902,8 +2902,8 @@ separateCube.exit.thread:                         ; preds = %91
   br label %separateCube.exit
 
 separateCube.exit:                                ; preds = %115, %122
-  %.0269 = phi double [ %116, %115 ], [ %127, %122 ]
-  %.0.i = phi ptr [ %121, %115 ], [ %130, %122 ]
+  %.0269 = phi double [ %127, %122 ], [ %116, %115 ]
+  %.0.i = phi ptr [ %130, %122 ], [ %121, %115 ]
   %131 = icmp eq ptr %.0.i, null
   br i1 %131, label %132, label %separateCube.exit._crit_edge
 
@@ -3202,7 +3202,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   br label %.thread
 
 .thread:                                          ; preds = %226, %216, %184, %174, %88, %38, %24, %18, %4, %281, %267, %151, %141, %132
-  %.0 = phi ptr [ null, %88 ], [ %11, %4 ], [ %11, %18 ], [ %9, %24 ], [ %39, %38 ], [ null, %132 ], [ null, %141 ], [ null, %151 ], [ null, %267 ], [ %.0215, %281 ], [ null, %184 ], [ null, %174 ], [ null, %216 ], [ null, %226 ]
+  %.0 = phi ptr [ null, %132 ], [ null, %141 ], [ null, %151 ], [ null, %267 ], [ %.0215, %281 ], [ %11, %4 ], [ %11, %18 ], [ %9, %24 ], [ %39, %38 ], [ null, %88 ], [ null, %174 ], [ null, %184 ], [ null, %216 ], [ null, %226 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3359,7 +3359,7 @@ define internal fastcc ptr @createResult(ptr noundef %0, i32 noundef %1, i32 nou
   br label %48
 
 48:                                               ; preds = %13, %7, %45, %44
-  %.0 = phi ptr [ %.032, %45 ], [ %3, %7 ], [ null, %44 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %44 ], [ %.032, %45 ], [ %3, %7 ], [ null, %13 ]
   ret ptr %.0
 }
 

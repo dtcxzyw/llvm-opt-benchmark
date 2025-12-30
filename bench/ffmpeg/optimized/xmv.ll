@@ -40,7 +40,7 @@ define internal range(i32 0, 101) i32 @xmv_probe(ptr noundef readonly captures(n
   br label %13
 
 13:                                               ; preds = %11, %5, %1
-  %.0 = phi i32 [ %., %11 ], [ 0, %1 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -200,7 +200,7 @@ define internal range(i32 -1094995529, 1) i32 @xmv_read_header(ptr noundef %0) #
   br label %93
 
 93:                                               ; preds = %._crit_edge, %.critedge, %15, %86
-  %.0 = phi i32 [ -1094995529, %.critedge ], [ -12, %15 ], [ 0, %86 ], [ -1094995529, %._crit_edge ]
+  %.0 = phi i32 [ 0, %86 ], [ -12, %15 ], [ -1094995529, %.critedge ], [ -1094995529, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -750,7 +750,7 @@ xmv_fetch_video_packet.exit.thread39:             ; preds = %291, %._crit_edge.i
   br label %xmv_fetch_new_packet.exit.thread
 
 xmv_fetch_new_packet.exit.thread:                 ; preds = %xmv_process_packet_header.exit.thread.i, %22, %17, %11, %xmv_fetch_video_packet.exit.thread39, %316, %xmv_fetch_video_packet.exit.thread
-  %.021 = phi i32 [ 0, %xmv_fetch_video_packet.exit.thread39 ], [ %.037, %xmv_fetch_video_packet.exit.thread ], [ 0, %316 ], [ %.0.i.ph.i, %xmv_process_packet_header.exit.thread.i ], [ -5, %22 ], [ -5, %17 ], [ -541478725, %11 ]
+  %.021 = phi i32 [ %.037, %xmv_fetch_video_packet.exit.thread ], [ 0, %316 ], [ 0, %xmv_fetch_video_packet.exit.thread39 ], [ %.0.i.ph.i, %xmv_process_packet_header.exit.thread.i ], [ -5, %22 ], [ -5, %17 ], [ -541478725, %11 ]
   ret i32 %.021
 }
 

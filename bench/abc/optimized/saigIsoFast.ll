@@ -246,8 +246,8 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr noundef readonly capture
   br label %67
 
 67:                                               ; preds = %51, %._crit_edge, %._crit_edge96
-  %.pre-phi102.sink = phi ptr [ %spec.select, %51 ], [ %.pre97, %._crit_edge96 ], [ %.pre101, %._crit_edge ]
-  %.val77.sink.in = phi ptr [ %spec.select144, %51 ], [ %31, %._crit_edge96 ], [ %27, %._crit_edge ]
+  %.pre-phi102.sink = phi ptr [ %.pre97, %._crit_edge96 ], [ %.pre101, %._crit_edge ], [ %spec.select, %51 ]
+  %.val77.sink.in = phi ptr [ %31, %._crit_edge96 ], [ %27, %._crit_edge ], [ %spec.select144, %51 ]
   %68 = lshr i64 %.val74, 32
   %69 = trunc nuw i64 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %.pre-phi102.sink, i64 24
@@ -881,8 +881,8 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge4, %172
   br label %Vec_IntPush.exit159.sink.split
 
 Vec_IntPush.exit159.sink.split:                   ; preds = %208, %210, %200, %202
-  %.sink201 = phi ptr [ %203, %202 ], [ %201, %200 ], [ %209, %208 ], [ %211, %210 ]
-  %.sink = phi i32 [ 16, %202 ], [ 16, %200 ], [ %205, %208 ], [ %205, %210 ]
+  %.sink201 = phi ptr [ %201, %200 ], [ %203, %202 ], [ %209, %208 ], [ %211, %210 ]
+  %.sink = phi i32 [ 16, %200 ], [ 16, %202 ], [ %205, %208 ], [ %205, %210 ]
   store ptr %.sink201, ptr %177, align 8, !tbaa !30
   store i32 %.sink, ptr %169, align 8, !tbaa !28
   br label %Vec_IntPush.exit159

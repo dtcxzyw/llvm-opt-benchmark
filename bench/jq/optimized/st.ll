@@ -56,7 +56,7 @@ new_size.exit:                                    ; preds = %3
   br label %new_size.exit.thread
 
 new_size.exit.thread:                             ; preds = %5, %16, %13, %new_size.exit, %23
-  %.0 = phi ptr [ null, %13 ], [ null, %new_size.exit ], [ null, %23 ], [ %14, %16 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %new_size.exit ], [ null, %13 ], [ %14, %16 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -92,7 +92,7 @@ define dso_local noalias noundef ptr @onig_st_init_table(ptr noundef %0) local_u
   br label %onig_st_init_table_with_size.exit
 
 onig_st_init_table_with_size.exit:                ; preds = %1, %4, %10
-  %.0.i = phi ptr [ null, %1 ], [ %2, %4 ], [ null, %10 ]
+  %.0.i = phi ptr [ null, %10 ], [ null, %1 ], [ %2, %4 ]
   ret ptr %.0.i
 }
 
@@ -119,7 +119,7 @@ define dso_local noalias noundef ptr @onig_st_init_numtable() local_unnamed_addr
   br label %onig_st_init_table.exit
 
 onig_st_init_table.exit:                          ; preds = %0, %3, %9
-  %.0.i.i = phi ptr [ null, %0 ], [ %1, %3 ], [ null, %9 ]
+  %.0.i.i = phi ptr [ null, %9 ], [ null, %0 ], [ %1, %3 ]
   ret ptr %.0.i.i
 }
 
@@ -170,7 +170,7 @@ new_size.exit.i:                                  ; preds = %2
   br label %onig_st_init_table_with_size.exit
 
 onig_st_init_table_with_size.exit:                ; preds = %4, %new_size.exit.i, %12, %15, %22
-  %.0.i = phi ptr [ null, %12 ], [ null, %new_size.exit.i ], [ null, %22 ], [ %13, %15 ], [ null, %4 ]
+  %.0.i = phi ptr [ null, %22 ], [ null, %new_size.exit.i ], [ null, %12 ], [ %13, %15 ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -197,7 +197,7 @@ define dso_local noalias noundef ptr @onig_st_init_strtable() local_unnamed_addr
   br label %onig_st_init_table.exit
 
 onig_st_init_table.exit:                          ; preds = %0, %3, %9
-  %.0.i.i = phi ptr [ null, %0 ], [ %1, %3 ], [ null, %9 ]
+  %.0.i.i = phi ptr [ null, %9 ], [ null, %0 ], [ %1, %3 ]
   ret ptr %.0.i.i
 }
 
@@ -248,7 +248,7 @@ new_size.exit.i:                                  ; preds = %2
   br label %onig_st_init_table_with_size.exit
 
 onig_st_init_table_with_size.exit:                ; preds = %4, %new_size.exit.i, %12, %15, %22
-  %.0.i = phi ptr [ null, %12 ], [ null, %new_size.exit.i ], [ null, %22 ], [ %13, %15 ], [ null, %4 ]
+  %.0.i = phi ptr [ null, %22 ], [ null, %new_size.exit.i ], [ null, %12 ], [ %13, %15 ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -541,7 +541,7 @@ new_size.exit.i:                                  ; preds = %53
   br label %rehash.exit
 
 rehash.exit:                                      ; preds = %55, %new_size.exit.i, %63, %._crit_edge34.i
-  %79 = phi i32 [ %61, %._crit_edge34.i ], [ %48, %new_size.exit.i ], [ %48, %63 ], [ %48, %55 ]
+  %79 = phi i32 [ %48, %new_size.exit.i ], [ %48, %63 ], [ %61, %._crit_edge34.i ], [ %48, %55 ]
   %80 = urem i32 %7, %79
   br label %81
 
@@ -667,7 +667,7 @@ new_size.exit.i:                                  ; preds = %16
   br label %rehash.exit
 
 rehash.exit:                                      ; preds = %18, %._crit_edge34.i, %26, %new_size.exit.i, %3
-  %.pn = phi i32 [ %9, %3 ], [ %24, %._crit_edge34.i ], [ %9, %new_size.exit.i ], [ %9, %26 ], [ %9, %18 ]
+  %.pn = phi i32 [ %9, %3 ], [ %9, %new_size.exit.i ], [ %9, %26 ], [ %24, %._crit_edge34.i ], [ %9, %18 ]
   %43 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
   %44 = icmp eq ptr %43, null
   br i1 %44, label %56, label %45
@@ -893,7 +893,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_delete(ptr noundef captures(none) 
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .loopexit:                                        ; preds = %69, %.preheader, %18, %19, %66, %43
-  %.040 = phi i32 [ 0, %18 ], [ 1, %43 ], [ 1, %66 ], [ 0, %19 ], [ 0, %.preheader ], [ 0, %69 ]
+  %.040 = phi i32 [ 1, %43 ], [ 1, %66 ], [ 0, %19 ], [ 0, %18 ], [ 0, %.preheader ], [ 0, %69 ]
   ret i32 %.040
 }
 
@@ -981,7 +981,7 @@ split:                                            ; preds = %split.loopexit, %._
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %43, %19, %20, %41
-  %.026 = phi i32 [ 0, %19 ], [ 1, %41 ], [ 0, %20 ], [ 0, %43 ]
+  %.026 = phi i32 [ 1, %41 ], [ 0, %20 ], [ 0, %19 ], [ 0, %43 ]
   ret i32 %.026
 }
 
@@ -1045,8 +1045,8 @@ define dso_local void @onig_st_cleanup_safe(ptr noundef captures(none) %0, i64 n
   br label %31
 
 31:                                               ; preds = %28, %.critedge.i
-  %.137.i = phi ptr [ %22, %28 ], [ %18, %.critedge.i ]
-  %.135.i = phi ptr [ %.03448.i, %28 ], [ %.03647.i, %.critedge.i ]
+  %.137.i = phi ptr [ %18, %.critedge.i ], [ %22, %28 ]
+  %.135.i = phi ptr [ %.03647.i, %.critedge.i ], [ %.03448.i, %28 ]
   %.not.i = icmp eq ptr %.137.i, null
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph49.i, !llvm.loop !44
 
@@ -1173,7 +1173,7 @@ define dso_local range(i32 0, 2) i32 @onig_st_foreach(ptr noundef captures(none)
   br i1 %46, label %9, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph49, %19, %23, %26, %3
-  %.032 = phi i32 [ 0, %.lr.ph49 ], [ 1, %26 ], [ 0, %3 ], [ 1, %23 ], [ 1, %19 ], [ 0, %._crit_edge ]
+  %.032 = phi i32 [ 0, %3 ], [ 1, %26 ], [ 1, %23 ], [ 0, %.lr.ph49 ], [ 1, %19 ], [ 0, %._crit_edge ]
   ret i32 %.032
 }
 

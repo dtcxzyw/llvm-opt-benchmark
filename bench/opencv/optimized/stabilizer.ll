@@ -461,7 +461,7 @@ define void @_ZN2cv9videostab14StabilizerBaseC2Ev(ptr noundef nonnull align 8 de
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i: ; preds = %30, %29
-  %32 = phi ptr [ %.pr.pre.i.i.i.i.i, %30 ], [ %26, %29 ]
+  %32 = phi ptr [ %26, %29 ], [ %.pr.pre.i.i.i.i.i, %30 ]
   %.not8.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not8.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i, label %33
 
@@ -588,7 +588,7 @@ _ZNSt12__shared_ptrIN2cv9videostab11LogToStdoutELN9__gnu_cxx12_Lock_policyE2EED2
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i27
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i27: ; preds = %82, %81
-  %84 = phi ptr [ %.pr.pre.i.i.i.i.i33, %82 ], [ %78, %81 ]
+  %84 = phi ptr [ %78, %81 ], [ %.pr.pre.i.i.i.i.i33, %82 ]
   %.not8.i.i.i.i.i28 = icmp eq ptr %84, null
   br i1 %.not8.i.i.i.i.i28, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i32, label %85
 
@@ -753,7 +753,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBa
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i48
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i48: ; preds = %144, %141
-  %146 = phi ptr [ %.pr.pre.i.i.i.i.i54, %144 ], [ %138, %141 ]
+  %146 = phi ptr [ %138, %141 ], [ %.pr.pre.i.i.i.i.i54, %144 ]
   %.not8.i.i.i.i.i49 = icmp eq ptr %146, null
   br i1 %.not8.i.i.i.i.i49, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i53, label %147
 
@@ -932,7 +932,7 @@ _ZNSt12__shared_ptrIN2cv9videostab23MotionEstimatorRansacL2ELN9__gnu_cxx12_Lock_
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i71
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i71: ; preds = %218, %217
-  %220 = phi ptr [ %.pr.pre.i.i.i.i.i77, %218 ], [ %214, %217 ]
+  %220 = phi ptr [ %214, %217 ], [ %.pr.pre.i.i.i.i.i77, %218 ]
   %.not8.i.i.i.i.i72 = icmp eq ptr %220, null
   br i1 %.not8.i.i.i.i.i72, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i76, label %221
 
@@ -1063,7 +1063,7 @@ _ZNSt12__shared_ptrIN2cv9videostab12NullDeblurerELN9__gnu_cxx12_Lock_policyE2EED
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i90
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i90: ; preds = %272, %271
-  %274 = phi ptr [ %.pr.pre.i.i.i.i.i96, %272 ], [ %268, %271 ]
+  %274 = phi ptr [ %268, %271 ], [ %.pr.pre.i.i.i.i.i96, %272 ]
   %.not8.i.i.i.i.i91 = icmp eq ptr %274, null
   br i1 %.not8.i.i.i.i.i91, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i95, label %275
 
@@ -1199,7 +1199,7 @@ _ZNSt12__shared_ptrIN2cv9videostab13NullInpainterELN9__gnu_cxx12_Lock_policyE2EE
   br label %.body43
 
 .body43:                                          ; preds = %329, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i
-  %.pn12 = phi { ptr, i32 } [ %135, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %330, %329 ]
+  %.pn12 = phi { ptr, i32 } [ %330, %329 ], [ %135, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ]
   call void @_ZNSt12__shared_ptrIN2cv9videostab23MotionEstimatorRansacL2ELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   br label %.body
 
@@ -3118,7 +3118,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMo
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i: ; preds = %21, %18
-  %23 = phi ptr [ %.pr.pre.i.i.i.i.i, %21 ], [ %15, %18 ]
+  %23 = phi ptr [ %15, %18 ], [ %.pr.pre.i.i.i.i.i, %21 ]
   %.not8.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not8.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i, label %24
 
@@ -3233,7 +3233,7 @@ _ZNSt12__shared_ptrIN2cv9videostab20GaussianMotionFilterELN9__gnu_cxx12_Lock_pol
   br label %.body
 
 .body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, %64, %66
-  %.pn5 = phi { ptr, i32 } [ %67, %66 ], [ %10, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i ], [ %65, %64 ]
+  %.pn5 = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ], [ %10, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i ]
   tail call void @_ZNSt12__shared_ptrIN2cv9videostab16MotionFilterBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   tail call void @_ZN2cv9videostab14StabilizerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0) #23
   resume { ptr, i32 } %.pn5
@@ -3776,7 +3776,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMo
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i: ; preds = %24, %21
-  %26 = phi ptr [ %.pr.pre.i.i.i.i.i, %24 ], [ %18, %21 ]
+  %26 = phi ptr [ %18, %21 ], [ %.pr.pre.i.i.i.i.i, %24 ]
   %.not8.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not8.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i, label %27
 
@@ -3916,7 +3916,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20NullWobble
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i20
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i20: ; preds = %79, %76
-  %81 = phi ptr [ %.pr.pre.i.i.i.i.i26, %79 ], [ %73, %76 ]
+  %81 = phi ptr [ %73, %76 ], [ %.pr.pre.i.i.i.i.i26, %79 ]
   %.not8.i.i.i.i.i21 = icmp eq ptr %81, null
   br i1 %.not8.i.i.i.i.i21, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i25, label %82
 
@@ -4038,7 +4038,7 @@ _ZNSt12__shared_ptrIN2cv9videostab20NullWobbleSuppressorELN9__gnu_cxx12_Lock_pol
   br label %.body
 
 .body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20NullWobbleSuppressorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, %127, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, %125, %129
-  %.pn8 = phi { ptr, i32 } [ %130, %129 ], [ %126, %125 ], [ %13, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i ], [ %70, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20NullWobbleSuppressorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i ], [ %128, %127 ]
+  %.pn8 = phi { ptr, i32 } [ %130, %129 ], [ %126, %125 ], [ %13, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i ], [ %128, %127 ], [ %70, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20NullWobbleSuppressorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i ]
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #23
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   tail call void @_ZNSt12__shared_ptrIN2cv9videostab20WobbleSuppressorBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
@@ -4958,7 +4958,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
   br label %313
 
 312:                                              ; preds = %233, %256, %289, %305, %192, %180, %172, %156, %91, %86
-  %.pn44 = phi { ptr, i32 } [ %181, %180 ], [ %.pn42, %172 ], [ %.pn40, %156 ], [ %.pn37.pn, %91 ], [ %193, %192 ], [ %290, %289 ], [ %.pn, %86 ], [ %.pn31.pn, %256 ], [ %.pn29, %305 ], [ %234, %233 ]
+  %.pn44 = phi { ptr, i32 } [ %181, %180 ], [ %.pn42, %172 ], [ %.pn40, %156 ], [ %.pn37.pn, %91 ], [ %193, %192 ], [ %.pn, %86 ], [ %.pn31.pn, %256 ], [ %.pn29, %305 ], [ %234, %233 ], [ %290, %289 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #23
@@ -6959,7 +6959,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !116
   br label %40
 

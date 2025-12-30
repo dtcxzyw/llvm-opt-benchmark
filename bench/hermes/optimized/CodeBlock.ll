@@ -318,7 +318,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.sroa.0.0.insert.insert = phi i64 [ %7, %if.end ], [ 0, %entry ]
+  %retval.sroa.0.0.insert.insert = phi i64 [ 0, %entry ], [ %7, %if.end ]
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
@@ -461,7 +461,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.sroa.0.0.insert.insert = phi i64 [ %7, %if.end ], [ 0, %entry ]
+  %retval.sroa.0.0.insert.insert = phi i64 [ 0, %entry ], [ %7, %if.end ]
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
@@ -493,7 +493,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.sroa.0.0.insert.insert = phi i64 [ %7, %if.end ], [ 0, %entry ]
+  %retval.sroa.0.0.insert.insert = phi i64 [ 0, %entry ], [ %7, %if.end ]
   ret i64 %retval.sroa.0.0.insert.insert
 }
 

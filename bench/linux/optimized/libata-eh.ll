@@ -2227,7 +2227,7 @@ define dso_local i32 @ata_link_abort(ptr noundef readonly captures(address) %0) 
   br label %.thread.us
 
 .thread.us:                                       ; preds = %21, %16, %.split.us
-  %24 = phi i32 [ %23, %21 ], [ %13, %16 ], [ %13, %.split.us ]
+  %24 = phi i32 [ %23, %21 ], [ %13, %.split.us ], [ %13, %16 ]
   %25 = add nuw nsw i64 %12, 1
   %26 = icmp eq i64 %25, 33
   br i1 %26, label %.split5.us, label %.split.us, !llvm.loop !65
@@ -4948,7 +4948,7 @@ define dso_local void @ata_eh_report(ptr noundef %0) local_unnamed_addr #0 align
   br label %313
 
 313:                                              ; preds = %312, %311, %310, %309, %308, %307, %304
-  %314 = phi ptr [ null, %304 ], [ @.str.170, %309 ], [ @.str.169, %308 ], [ @.str.103, %307 ], [ @.str.173, %312 ], [ @.str.172, %311 ], [ @.str.171, %310 ]
+  %314 = phi ptr [ null, %304 ], [ @.str.173, %312 ], [ @.str.172, %311 ], [ @.str.171, %310 ], [ @.str.170, %309 ], [ @.str.169, %308 ], [ @.str.103, %307 ]
   %315 = getelementptr inbounds nuw i8, ptr %286, i64 112
   %316 = load i32, ptr %315, align 8
   %317 = sext i32 %302 to i64
@@ -5421,7 +5421,7 @@ define dso_local i32 @ata_eh_reset(ptr noundef %0, i32 noundef %1, ptr noundef r
   br label %select.unfold
 
 select.unfold:                                    ; preds = %93, %.thread, %86
-  %99 = phi i32 [ %spec.select, %93 ], [ %92, %86 ], [ %85, %.thread ]
+  %99 = phi i32 [ %92, %86 ], [ %85, %.thread ], [ %spec.select, %93 ]
   switch i32 %99, label %112 [
     i32 0, label %131
     i32 -2, label %100
@@ -6579,7 +6579,7 @@ select.unfold:                                    ; preds = %93, %.thread, %86
   br label %.thread46
 
 .thread46:                                        ; preds = %.preheader61, %100, %.loopexit60, %154, %158, %127, %121, %895, %891, %822, %815, %.loopexit
-  %765 = phi i32 [ 0, %.loopexit ], [ %795, %815 ], [ %795, %822 ], [ -85, %895 ], [ -85, %891 ], [ %99, %121 ], [ 0, %100 ], [ 0, %.loopexit60 ], [ 0, %154 ], [ 0, %158 ], [ %99, %127 ], [ 0, %.preheader61 ]
+  %765 = phi i32 [ %795, %815 ], [ %795, %822 ], [ -85, %895 ], [ -85, %891 ], [ 0, %.loopexit ], [ 0, %100 ], [ 0, %.loopexit60 ], [ 0, %154 ], [ 0, %158 ], [ %99, %127 ], [ %99, %121 ], [ 0, %.preheader61 ]
   %766 = load i32, ptr %14, align 4
   %767 = and i32 %766, -2
   store i32 %767, ptr %14, align 4
@@ -6604,10 +6604,10 @@ select.unfold:                                    ; preds = %93, %.thread, %86
   ret i32 %765
 
 778:                                              ; preds = %390, %667, %662, %485, %429, %424, %325
-  %779 = phi i32 [ -11, %662 ], [ %280, %325 ], [ -22, %429 ], [ -22, %424 ], [ %464, %485 ], [ -11, %667 ], [ %369, %390 ]
-  %780 = phi ptr [ %513, %662 ], [ %179, %325 ], [ null, %429 ], [ null, %424 ], [ %3, %485 ], [ %513, %667 ], [ %179, %390 ]
-  %781 = phi ptr [ %0, %662 ], [ %0, %325 ], [ %0, %429 ], [ %0, %424 ], [ %0, %485 ], [ %0, %667 ], [ %10, %390 ]
-  %782 = phi i32 [ %514, %662 ], [ %180, %325 ], [ %180, %429 ], [ %180, %424 ], [ %180, %485 ], [ %514, %667 ], [ %180, %390 ]
+  %779 = phi i32 [ %280, %325 ], [ -22, %429 ], [ -22, %424 ], [ %464, %485 ], [ -11, %667 ], [ -11, %662 ], [ %369, %390 ]
+  %780 = phi ptr [ %179, %325 ], [ null, %429 ], [ null, %424 ], [ %3, %485 ], [ %513, %667 ], [ %513, %662 ], [ %179, %390 ]
+  %781 = phi ptr [ %0, %325 ], [ %0, %429 ], [ %0, %424 ], [ %0, %485 ], [ %0, %667 ], [ %0, %662 ], [ %10, %390 ]
+  %782 = phi i32 [ %180, %325 ], [ %180, %429 ], [ %180, %424 ], [ %180, %485 ], [ %514, %667 ], [ %514, %662 ], [ %180, %390 ]
   %783 = load ptr, ptr %0, align 64
   %784 = getelementptr inbounds nuw i8, ptr %783, i64 8256
   %785 = icmp eq ptr %784, %0
@@ -8329,8 +8329,8 @@ ata_eh_clear_action.exit:                         ; preds = %.preheader196, %._c
   call void @ata_eh_thaw_port(ptr noundef %.pre231)
   br label %839
 
-839:                                              ; preds = %786, %838, %834, %._crit_edge, %798, %802
-  %.ph = phi i32 [ %708, %802 ], [ %708, %798 ], [ %708, %._crit_edge ], [ %837, %834 ], [ %708, %838 ], [ %708, %786 ]
+839:                                              ; preds = %786, %838, %834, %798, %._crit_edge, %802
+  %.ph = phi i32 [ %708, %802 ], [ %708, %._crit_edge ], [ %708, %798 ], [ %837, %834 ], [ %708, %838 ], [ %708, %786 ]
   %840 = call ptr @ata_dev_next(ptr noundef nonnull %709, ptr noundef nonnull %684, i32 noundef 3) #18
   %841 = icmp eq ptr %840, null
   br i1 %841, label %.loopexit140, label %707, !llvm.loop !166
@@ -8443,7 +8443,7 @@ ata_eh_clear_action.exit:                         ; preds = %.preheader196, %._c
   br label %.thread117
 
 905:                                              ; preds = %811, %731
-  %906 = phi i32 [ %812, %811 ], [ %732, %731 ]
+  %906 = phi i32 [ %732, %731 ], [ %812, %811 ]
   store ptr %709, ptr %14, align 8
   %907 = icmp eq i32 %906, 0
   br i1 %907, label %.thread99, label %.thread117
@@ -8873,7 +8873,7 @@ ata_eh_clear_action.exit:                         ; preds = %.preheader196, %._c
   br label %1147
 
 .thread109:                                       ; preds = %953, %988, %1128, %1138, %917
-  %.ph113 = phi i32 [ %1139, %1138 ], [ -5, %1128 ], [ %918, %917 ], [ -5, %988 ], [ -5, %953 ]
+  %.ph113 = phi i32 [ -5, %1128 ], [ %918, %917 ], [ %1139, %1138 ], [ -5, %988 ], [ -5, %953 ]
   %.pr = load ptr, ptr %14, align 8
   %1145 = add i32 %686, 1
   %1146 = icmp eq ptr %.pr, null
@@ -9068,8 +9068,8 @@ ata_dev_disable.exit:                             ; preds = %1214, %1221, %1198
   br i1 %1260, label %.thread, label %300
 
 .thread:                                          ; preds = %1251, %.thread125, %407, %413
-  %1261 = phi i32 [ %396, %413 ], [ %396, %407 ], [ %1259, %.thread125 ], [ %1247, %1251 ]
-  %1262 = phi ptr [ %378, %413 ], [ %378, %407 ], [ %1257, %.thread125 ], [ %684, %1251 ]
+  %1261 = phi i32 [ %396, %413 ], [ %396, %407 ], [ %1247, %1251 ], [ %1259, %.thread125 ]
+  %1262 = phi ptr [ %378, %413 ], [ %378, %407 ], [ %684, %1251 ], [ %1257, %.thread125 ]
   %1263 = icmp ne i32 %1261, 0
   %1264 = icmp ne ptr %5, null
   %1265 = and i1 %1264, %1263
@@ -9299,7 +9299,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   br label %54
 
 54:                                               ; preds = %48, %.split.us
-  %55 = phi i1 [ %53, %48 ], [ false, %.split.us ]
+  %55 = phi i1 [ false, %.split.us ], [ %53, %48 ]
   %56 = icmp eq ptr %40, null
   %57 = select i1 %56, ptr %37, ptr %40
   %58 = icmp eq ptr %39, null
@@ -9335,7 +9335,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   br label %83
 
 83:                                               ; preds = %.split, %77
-  %84 = phi i1 [ %82, %77 ], [ false, %.split ]
+  %84 = phi i1 [ false, %.split ], [ %82, %77 ]
   %85 = icmp eq ptr %69, null
   %86 = select i1 %85, ptr %66, ptr %69
   %87 = icmp eq ptr %68, null

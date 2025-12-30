@@ -162,7 +162,7 @@ define i32 @RSA_padding_check_X931(ptr noundef writeonly captures(none) %0, i32 
   br label %32
 
 32:                                               ; preds = %.thread, %30, %29, %._crit_edge.thread, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %.thread ], [ -1, %._crit_edge.thread ], [ -1, %29 ], [ %.028, %30 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %._crit_edge.thread ], [ -1, %29 ], [ %.028, %30 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -188,7 +188,7 @@ define range(i32 -1, 55) i32 @RSA_X931_hash_id(i32 noundef %0) local_unnamed_add
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %5 ], [ 53, %4 ], [ 52, %2 ], [ 54, %3 ], [ 51, %1 ]
+  %.0 = phi i32 [ -1, %5 ], [ 52, %2 ], [ 54, %3 ], [ 53, %4 ], [ 51, %1 ]
   ret i32 %.0
 }
 

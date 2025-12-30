@@ -85,7 +85,7 @@ define noalias noundef ptr @dt_gaussian_init(i32 noundef %0, i32 noundef %1, i32
   br label %30
 
 30:                                               ; preds = %._crit_edge, %7, %29
-  %.039 = phi ptr [ null, %7 ], [ null, %29 ], [ %8, %._crit_edge ]
+  %.039 = phi ptr [ null, %29 ], [ null, %7 ], [ %8, %._crit_edge ]
   ret ptr %.039
 }
 

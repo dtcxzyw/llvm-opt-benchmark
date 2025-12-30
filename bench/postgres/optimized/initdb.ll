@@ -884,7 +884,7 @@ sub_0.i:                                          ; preds = %50
   unreachable
 
 setlocales.exit.thread:                           ; preds = %.tail.i, %.tail.thread.i, %57, %60
-  %64 = phi ptr [ @.str.115, %.tail.i ], [ @.str.21, %.tail.thread.i ], [ @.str.21, %57 ], [ @.str.22, %60 ]
+  %64 = phi ptr [ @.str.115, %.tail.i ], [ @.str.21, %57 ], [ @.str.21, %.tail.thread.i ], [ @.str.22, %60 ]
   store ptr %64, ptr @datlocale, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %135
@@ -1071,7 +1071,7 @@ setlocales.exit:                                  ; preds = %50, %icu_validate_l
   br label %collprovider_name.exit
 
 collprovider_name.exit:                           ; preds = %135, %138, %139, %140
-  %.0.i = phi ptr [ @.str.163, %140 ], [ @.str.121, %139 ], [ @.str.120, %138 ], [ @.str.119, %135 ]
+  %.0.i = phi ptr [ @.str.163, %140 ], [ @.str.120, %138 ], [ @.str.121, %139 ], [ @.str.119, %135 ]
   %141 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull %.0.i) #19
   %142 = load i8, ptr @locale_provider, align 1
   %.not10 = icmp eq i8 %142, 99
@@ -1248,7 +1248,7 @@ define internal fastcc noundef nonnull ptr @collprovider_name(i8 noundef signext
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.163, %4 ], [ @.str.121, %3 ], [ @.str.120, %2 ], [ @.str.119, %1 ]
+  %.0 = phi ptr [ @.str.163, %4 ], [ @.str.120, %2 ], [ @.str.121, %3 ], [ @.str.119, %1 ]
   ret ptr %.0
 }
 
@@ -1977,7 +1977,7 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
   br i1 %or.cond.i, label %88, label %79, !llvm.loop !10
 
 88:                                               ; preds = %84, %79
-  %.3.i = phi i32 [ %.0.i, %79 ], [ %83, %84 ]
+  %.3.i = phi i32 [ %83, %84 ], [ %.0.i, %79 ]
   store i32 %.3.i, ptr @n_buffers, align 4
   %89 = shl i32 %.3.i, 3
   %90 = and i32 %.3.i, 127

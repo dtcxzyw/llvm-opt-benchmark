@@ -160,7 +160,7 @@ define range(i32 -1, 2) i32 @portcmp(ptr noundef readonly byval(%struct.port) al
   br label %26
 
 26:                                               ; preds = %24, %18, %16, %12, %10, %8
-  %.0 = phi i32 [ -1, %10 ], [ -1, %12 ], [ 1, %16 ], [ %., %24 ], [ -1, %18 ], [ %9, %8 ]
+  %.0 = phi i32 [ %9, %8 ], [ -1, %10 ], [ -1, %12 ], [ 1, %16 ], [ -1, %18 ], [ %., %24 ]
   ret i32 %.0
 }
 
@@ -671,8 +671,8 @@ gv_calloc.exit:                                   ; preds = %163
   br label %gv_recalloc.exit
 
 gv_recalloc.exit:                                 ; preds = %288, %286, %279, %.lr.ph, %.lr.ph, %265
-  %.4338 = phi i32 [ %.3337774, %.lr.ph ], [ %.3337774, %.lr.ph ], [ %267, %265 ], [ -128, %279 ], [ %267, %286 ], [ %267, %288 ]
-  %.5 = phi ptr [ %.4775, %.lr.ph ], [ %.4775, %.lr.ph ], [ %.4775, %265 ], [ null, %279 ], [ %281, %286 ], [ %281, %288 ]
+  %.4338 = phi i32 [ %.3337774, %.lr.ph ], [ %267, %265 ], [ %.3337774, %.lr.ph ], [ -128, %279 ], [ %267, %286 ], [ %267, %288 ]
+  %.5 = phi ptr [ %.4775, %.lr.ph ], [ %.4775, %265 ], [ %.4775, %.lr.ph ], [ null, %279 ], [ %281, %286 ], [ %281, %288 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %291 = load ptr, ptr %233, align 8, !tbaa !16
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 272
@@ -875,8 +875,8 @@ gv_recalloc.exit429:                              ; preds = %345, %343, %336, %.
   br label %setflags.exit
 
 setflags.exit:                                    ; preds = %385, %379, %400, %403
-  %.035.i615 = phi i32 [ 130, %403 ], [ 129, %400 ], [ 132, %379 ], [ %389, %385 ]
-  %.0.i432 = phi i32 [ %409, %403 ], [ %402, %400 ], [ 16, %379 ], [ 16, %385 ]
+  %.035.i615 = phi i32 [ 129, %400 ], [ 130, %403 ], [ 132, %379 ], [ %389, %385 ]
+  %.0.i432 = phi i32 [ %402, %400 ], [ %409, %403 ], [ 16, %379 ], [ 16, %385 ]
   %410 = or disjoint i32 %.035.i615, %.0.i432
   %411 = getelementptr inbounds nuw i8, ptr %367, i64 16
   %412 = load ptr, ptr %411, align 8, !tbaa !16
@@ -936,8 +936,8 @@ gv_recalloc.exit436:                              ; preds = %435, %433, %426, %s
   br i1 %.not402, label %.loopexit649, label %.lr.ph791, !llvm.loop !113
 
 .loopexit649:                                     ; preds = %gv_recalloc.exit436, %364, %.loopexit651, %252
-  %.2336 = phi i32 [ %.1335794, %252 ], [ %.5339, %.loopexit651 ], [ %.5339, %364 ], [ %414, %gv_recalloc.exit436 ]
-  %.3 = phi ptr [ %.2331795, %252 ], [ %.6, %.loopexit651 ], [ %.6, %364 ], [ %.10, %gv_recalloc.exit436 ]
+  %.2336 = phi i32 [ %.5339, %.loopexit651 ], [ %.1335794, %252 ], [ %.5339, %364 ], [ %414, %gv_recalloc.exit436 ]
+  %.3 = phi ptr [ %.6, %.loopexit651 ], [ %.2331795, %252 ], [ %.6, %364 ], [ %.10, %gv_recalloc.exit436 ]
   %indvars.iv.next1034 = add nuw nsw i64 %indvars.iv1033, 1
   %443 = load ptr, ptr %48, align 8, !tbaa !16
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 264
@@ -1589,8 +1589,8 @@ portcmp.exit.thread.split.loop.exit1393:          ; preds = %757
   br label %portcmp.exit.thread
 
 portcmp.exit.thread:                              ; preds = %784, %portcmp.exit.thread.split.loop.exit1393, %portcmp.exit.thread.split.loop.exit1390, %portcmp.exit.thread.split.loop.exit1387, %portcmp.exit.thread.split.loop.exit1384, %portcmp.exit.thread.split.loop.exit1381, %portcmp.exit.thread.split.loop.exit1378, %portcmp.exit.thread.split.loop.exit1375
-  %.0324.lcssa = phi i32 [ %.0324821, %portcmp.exit.thread.split.loop.exit1390 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1381 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1393 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1387 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1384 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1375 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1378 ], [ %690, %784 ]
-  %.1333.lcssa = phi i32 [ %792, %portcmp.exit.thread.split.loop.exit1390 ], [ %789, %portcmp.exit.thread.split.loop.exit1381 ], [ %793, %portcmp.exit.thread.split.loop.exit1393 ], [ %791, %portcmp.exit.thread.split.loop.exit1387 ], [ %790, %portcmp.exit.thread.split.loop.exit1384 ], [ %787, %portcmp.exit.thread.split.loop.exit1375 ], [ %788, %portcmp.exit.thread.split.loop.exit1378 ], [ %.0334.lcssa, %784 ]
+  %.0324.lcssa = phi i32 [ %.0324821, %portcmp.exit.thread.split.loop.exit1375 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1378 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1381 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1384 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1387 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1390 ], [ %.0324821, %portcmp.exit.thread.split.loop.exit1393 ], [ %690, %784 ]
+  %.1333.lcssa = phi i32 [ %787, %portcmp.exit.thread.split.loop.exit1375 ], [ %788, %portcmp.exit.thread.split.loop.exit1378 ], [ %789, %portcmp.exit.thread.split.loop.exit1381 ], [ %790, %portcmp.exit.thread.split.loop.exit1384 ], [ %791, %portcmp.exit.thread.split.loop.exit1387 ], [ %792, %portcmp.exit.thread.split.loop.exit1390 ], [ %793, %portcmp.exit.thread.split.loop.exit1393 ], [ %.0334.lcssa, %784 ]
   br i1 %57, label %794, label %820
 
 portcmp.exit.thread.thread:                       ; preds = %685
@@ -5120,14 +5120,14 @@ points_append.exit.i:                             ; preds = %2620, %2614, %.lr.p
   br label %.critedge.i480
 
 .critedge.i480:                                   ; preds = %.outer.i, %.critedge.loopexit.i, %2178
-  %.pre-phi.i = phi i64 [ %2169, %2178 ], [ %.pre1226.i, %.critedge.loopexit.i ], [ %2595, %.outer.i ]
-  %.sroa.130.2.ph.lcssa.i = phi i64 [ 0, %2178 ], [ %.sroa.130.2.ph1067.i, %.critedge.loopexit.i ], [ %.sroa.130.20.i, %.outer.i ]
-  %.sroa.90.2.ph.lcssa.i = phi i64 [ 0, %2178 ], [ %.sroa.90.2.ph1068.i, %.critedge.loopexit.i ], [ %2491, %.outer.i ]
-  %.sroa.42.2.ph.lcssa.i = phi i64 [ 0, %2178 ], [ %.sroa.42.2.ph1069.i, %.critedge.loopexit.i ], [ %.sroa.42.33.i, %.outer.i ]
-  %.sroa.0618.2.ph.lcssa.i = phi ptr [ null, %2178 ], [ %.sroa.0618.2.ph1070.i, %.critedge.loopexit.i ], [ %.sroa.0618.20.i, %.outer.i ]
-  %.0291.ph.lcssa.i = phi ptr [ %.0286.i, %2178 ], [ %.1287.ph1075.i, %.critedge.loopexit.i ], [ %.013.lcssa.i.i, %.outer.i ]
-  %.1287.lcssa.i = phi ptr [ %.0286.i, %2178 ], [ %.1287.lcssa.ph.i, %.critedge.loopexit.i ], [ %.013.lcssa.i.i, %.outer.i ]
-  %.lcssa.i = phi ptr [ %2179, %2178 ], [ %.lcssa.ph.i, %.critedge.loopexit.i ], [ %2639, %.outer.i ]
+  %.pre-phi.i = phi i64 [ %.pre1226.i, %.critedge.loopexit.i ], [ %2169, %2178 ], [ %2595, %.outer.i ]
+  %.sroa.130.2.ph.lcssa.i = phi i64 [ %.sroa.130.2.ph1067.i, %.critedge.loopexit.i ], [ 0, %2178 ], [ %.sroa.130.20.i, %.outer.i ]
+  %.sroa.90.2.ph.lcssa.i = phi i64 [ %.sroa.90.2.ph1068.i, %.critedge.loopexit.i ], [ 0, %2178 ], [ %2491, %.outer.i ]
+  %.sroa.42.2.ph.lcssa.i = phi i64 [ %.sroa.42.2.ph1069.i, %.critedge.loopexit.i ], [ 0, %2178 ], [ %.sroa.42.33.i, %.outer.i ]
+  %.sroa.0618.2.ph.lcssa.i = phi ptr [ %.sroa.0618.2.ph1070.i, %.critedge.loopexit.i ], [ null, %2178 ], [ %.sroa.0618.20.i, %.outer.i ]
+  %.0291.ph.lcssa.i = phi ptr [ %.1287.ph1075.i, %.critedge.loopexit.i ], [ %.0286.i, %2178 ], [ %.013.lcssa.i.i, %.outer.i ]
+  %.1287.lcssa.i = phi ptr [ %.1287.lcssa.ph.i, %.critedge.loopexit.i ], [ %.0286.i, %2178 ], [ %.013.lcssa.i.i, %.outer.i ]
+  %.lcssa.i = phi ptr [ %.lcssa.ph.i, %.critedge.loopexit.i ], [ %2179, %2178 ], [ %2639, %.outer.i ]
   %2644 = getelementptr inbounds %struct.boxf, ptr %487, i64 %.pre-phi.i
   %.sroa.0502.0.copyload.i = load double, ptr %2644, align 8, !tbaa !70
   %.sroa.5505.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2644, i64 8
@@ -5956,7 +5956,7 @@ make_regular_edge.exit:                           ; preds = %.thread904.i, %.thr
   br label %.loopexit645
 
 .loopexit645:                                     ; preds = %918, %905, %make_regular_edge.exit, %make_flat_edge.exit, %._crit_edge893
-  %.1333.lcssa1252 = phi i32 [ %.1333.lcssa12541259, %._crit_edge893 ], [ %.1333.lcssa1253, %905 ], [ %.1333.lcssa1253, %make_regular_edge.exit ], [ %.1333.lcssa1253, %make_flat_edge.exit ], [ %.1333.lcssa1253, %918 ]
+  %.1333.lcssa1252 = phi i32 [ %.1333.lcssa1253, %905 ], [ %.1333.lcssa1253, %make_regular_edge.exit ], [ %.1333.lcssa1253, %make_flat_edge.exit ], [ %.1333.lcssa12541259, %._crit_edge893 ], [ %.1333.lcssa1253, %918 ]
   %3003 = icmp ult i32 %.1333.lcssa1252, %.0334.lcssa
   br i1 %3003, label %631, label %._crit_edge897, !llvm.loop !237
 
@@ -6165,8 +6165,8 @@ edge_normalize.exit.sink.split:                   ; preds = %place_vnlabel.exit.
   br label %edge_normalize.exit
 
 edge_normalize.exit:                              ; preds = %._crit_edge.i504, %edge_normalize.exit.sink.split, %3054, %._crit_edge903
-  %3097 = phi ptr [ %487, %3054 ], [ undef, %edge_normalize.exit.sink.split ], [ %487, %._crit_edge903 ], [ %487, %._crit_edge.i504 ]
-  %.0329 = phi ptr [ %.1330.lcssa, %3054 ], [ null, %edge_normalize.exit.sink.split ], [ %.1330.lcssa, %._crit_edge903 ], [ %.1330.lcssa, %._crit_edge.i504 ]
+  %3097 = phi ptr [ %487, %._crit_edge903 ], [ %487, %3054 ], [ undef, %edge_normalize.exit.sink.split ], [ %487, %._crit_edge.i504 ]
+  %.0329 = phi ptr [ %.1330.lcssa, %._crit_edge903 ], [ %.1330.lcssa, %3054 ], [ null, %edge_normalize.exit.sink.split ], [ %.1330.lcssa, %._crit_edge.i504 ]
   %3098 = load ptr, ptr @E_headlabel, align 8, !tbaa !164
   %3099 = icmp ne ptr %3098, null
   %3100 = load ptr, ptr @E_taillabel, align 8
@@ -6730,7 +6730,7 @@ portcmp.exit183:                                  ; preds = %205, %214
   br label %portcmp.exit.thread
 
 portcmp.exit.thread:                              ; preds = %212, %210, %207, %197, %195, %192, %234, %228, %226, %216, %portcmp.exit183, %portcmp.exit, %103, %99, %97, %81, %79, %getmainedge.exit179, %20, %2
-  %.0 = phi i32 [ 1, %226 ], [ 1, %2 ], [ -1, %20 ], [ -1, %getmainedge.exit179 ], [ 1, %79 ], [ -1, %81 ], [ 1, %97 ], [ -1, %99 ], [ 1, %103 ], [ %.0.i180, %portcmp.exit ], [ %.0.i181, %portcmp.exit183 ], [ -1, %216 ], [ -1, %228 ], [ %., %234 ], [ -1, %192 ], [ -1, %197 ], [ 1, %195 ], [ -1, %212 ], [ 1, %210 ], [ -1, %207 ]
+  %.0 = phi i32 [ 1, %2 ], [ -1, %20 ], [ -1, %getmainedge.exit179 ], [ 1, %79 ], [ -1, %81 ], [ 1, %97 ], [ -1, %99 ], [ 1, %103 ], [ %.0.i180, %portcmp.exit ], [ %.0.i181, %portcmp.exit183 ], [ -1, %216 ], [ 1, %226 ], [ -1, %228 ], [ %., %234 ], [ -1, %197 ], [ 1, %195 ], [ -1, %192 ], [ -1, %212 ], [ 1, %210 ], [ -1, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6231)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8232)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6829,7 +6829,7 @@ define internal zeroext i1 @swap_ends_p(ptr noundef readonly captures(none) %0) 
   br label %34
 
 34:                                               ; preds = %29, %27, %7
-  %.021 = phi i1 [ true, %27 ], [ false, %7 ], [ %.not26, %29 ]
+  %.021 = phi i1 [ false, %7 ], [ true, %27 ], [ %.not26, %29 ]
   ret i1 %.021
 }
 
@@ -7594,7 +7594,7 @@ define internal range(i32 -1, 2) i32 @edgelblcmpfn(ptr noundef readonly captures
   br label %25
 
 25:                                               ; preds = %24, %13, %22, %20, %18, %14
-  %.0 = phi i32 [ -1, %13 ], [ -1, %14 ], [ 1, %18 ], [ %., %22 ], [ -1, %20 ], [ %.19, %24 ]
+  %.0 = phi i32 [ -1, %14 ], [ 1, %18 ], [ -1, %20 ], [ %., %22 ], [ -1, %13 ], [ %.19, %24 ]
   ret i32 %.0
 }
 
@@ -8269,7 +8269,7 @@ pathscross.exit:                                  ; preds = %56, %109
   br i1 %140, label %15, label %.critedge, !llvm.loop !265
 
 .critedge:                                        ; preds = %15, %pathscross.exit, %26, %34, %.thread.i, %17, %137, %94, %123, %119, %133, %127, %3
-  %.021 = phi ptr [ %21, %137 ], [ null, %3 ], [ %21, %127 ], [ %21, %133 ], [ %21, %119 ], [ %21, %123 ], [ %21, %94 ], [ %21, %26 ], [ %21, %.thread.i ], [ null, %pathscross.exit ], [ null, %15 ], [ %21, %17 ], [ %21, %34 ]
+  %.021 = phi ptr [ null, %3 ], [ %21, %127 ], [ %21, %133 ], [ %21, %119 ], [ %21, %123 ], [ %21, %94 ], [ %21, %137 ], [ null, %15 ], [ null, %pathscross.exit ], [ %21, %26 ], [ %21, %34 ], [ %21, %.thread.i ], [ %21, %17 ]
   ret ptr %.021
 }
 
@@ -8449,7 +8449,7 @@ cl_vninside.exit80:                               ; preds = %104
   br label %cl_vninside.exit80.thread
 
 cl_vninside.exit80.thread:                        ; preds = %cl_vninside.exit80, %104, %93, %100, %41, %cl_vninside.exit, %cl_vninside.exit.thread
-  %.052 = phi ptr [ %spec.select78, %41 ], [ %62, %cl_vninside.exit ], [ null, %cl_vninside.exit.thread ], [ null, %104 ], [ %spec.select2, %cl_vninside.exit80 ], [ null, %100 ], [ null, %93 ]
+  %.052 = phi ptr [ null, %cl_vninside.exit.thread ], [ %62, %cl_vninside.exit ], [ %spec.select78, %41 ], [ null, %100 ], [ null, %93 ], [ null, %104 ], [ %spec.select2, %cl_vninside.exit80 ]
   ret ptr %.052
 }
 

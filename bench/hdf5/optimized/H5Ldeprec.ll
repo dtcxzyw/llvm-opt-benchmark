@@ -721,7 +721,7 @@ define range(i32 -1, 1) i32 @H5Lget_info1(i64 noundef %0, ptr noundef %1, ptr no
 77:                                               ; preds = %70
   %78 = load i8, ptr %9, align 1, !tbaa !3, !range !7, !noundef !8
   %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %84, label %80, !prof !14
+  br i1 %79, label %84, label %80
 
 80:                                               ; preds = %77
   %81 = load i64, ptr @H5E_LINK_g, align 8, !tbaa !11
@@ -801,7 +801,7 @@ define range(i32 -1, 1) i32 @H5Lget_info1(i64 noundef %0, ptr noundef %1, ptr no
   store i64 %128, ptr %129, align 8, !tbaa !26
   br label %131
 
-.thread57:                                        ; preds = %122, %109, %80, %47, %89, %73, %66, %54
+.thread57:                                        ; preds = %122, %109, %47, %80, %89, %73, %66, %54
   %130 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %.thread51
 
@@ -985,7 +985,7 @@ define range(i32 -1, 1) i32 @H5Lget_info_by_idx1(i64 noundef %0, ptr noundef %1,
 93:                                               ; preds = %86
   %94 = load i8, ptr %12, align 1, !tbaa !3, !range !7, !noundef !8
   %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %100, label %96, !prof !14
+  br i1 %95, label %100, label %96
 
 96:                                               ; preds = %93
   %97 = load i64, ptr @H5E_LINK_g, align 8, !tbaa !11
@@ -1065,7 +1065,7 @@ define range(i32 -1, 1) i32 @H5Lget_info_by_idx1(i64 noundef %0, ptr noundef %1,
   store i64 %144, ptr %145, align 8, !tbaa !26
   br label %147
 
-.thread71:                                        ; preds = %138, %125, %96, %50, %105, %89, %82, %67, %60, %55
+.thread71:                                        ; preds = %138, %125, %50, %96, %105, %89, %82, %67, %60, %55
   %146 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %.thread65
 

@@ -274,7 +274,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpu_nod
   br label %33
 
 33:                                               ; preds = %29, %.thread, %27
-  %.0 = phi i64 [ %23, %.thread ], [ %28, %27 ], [ %spec.select, %29 ]
+  %.0 = phi i64 [ %28, %27 ], [ %23, %.thread ], [ %spec.select, %29 ]
   %34 = zext i16 %.02540 to i64
   %35 = mul i64 %.0, %34
   %36 = trunc i64 %35 to i32
@@ -384,14 +384,14 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i
   br label %42
 
 42:                                               ; preds = %40, %35, %30, %.lr.ph.split.us
-  %.0.us = phi i64 [ 0, %40 ], [ %31, %30 ], [ %36, %35 ], [ %26, %.lr.ph.split.us ]
+  %.0.us = phi i64 [ %31, %30 ], [ %36, %35 ], [ 0, %40 ], [ %26, %.lr.ph.split.us ]
   %43 = mul i64 %.0.us, %21
   %44 = trunc i64 %43 to i32
   %45 = tail call i32 @llvm.smax.i32(i32 %.03453.us, i32 %44)
   br label %46
 
 46:                                               ; preds = %42, %37
-  %.1.us = phi i32 [ %.03453.us, %37 ], [ %45, %42 ]
+  %.1.us = phi i32 [ %45, %42 ], [ %.03453.us, %37 ]
   %47 = tail call ptr @slurm_list_next(ptr noundef %16) #4
   %.not45.us = icmp eq ptr %47, null
   br i1 %.not45.us, label %._crit_edge, label %.lr.ph.split.us
@@ -443,14 +443,14 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i
   br label %71
 
 71:                                               ; preds = %51, %59, %69, %64
-  %.0 = phi i64 [ 0, %69 ], [ %60, %59 ], [ %65, %64 ], [ %55, %51 ]
+  %.0 = phi i64 [ %60, %59 ], [ %65, %64 ], [ 0, %69 ], [ %55, %51 ]
   %72 = mul i64 %.0, %21
   %73 = trunc i64 %72 to i32
   %74 = tail call i32 @llvm.smax.i32(i32 %.03453, i32 %73)
   br label %75
 
 75:                                               ; preds = %66, %.lr.ph.split, %71
-  %.1 = phi i32 [ %.03453, %.lr.ph.split ], [ %74, %71 ], [ %.03453, %66 ]
+  %.1 = phi i32 [ %74, %71 ], [ %.03453, %.lr.ph.split ], [ %.03453, %66 ]
   %76 = tail call ptr @slurm_list_next(ptr noundef %16) #4
   %.not45 = icmp eq ptr %76, null
   br i1 %.not45, label %._crit_edge, label %.lr.ph.split
@@ -573,7 +573,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   br label %50
 
 50:                                               ; preds = %.thread51, %45
-  %.4.in = phi ptr [ %44, %.thread51 ], [ %49, %45 ]
+  %.4.in = phi ptr [ %49, %45 ], [ %44, %.thread51 ]
   %.4 = load i64, ptr %.4.in, align 8
   %51 = mul i64 %.4, %.03550
   %52 = load ptr, ptr %12, align 8
@@ -600,7 +600,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   br i1 %.not46, label %.outer, label %34, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.outer, %26, %8
-  %.031.ph.lcssa = phi i1 [ %.031.ph65, %26 ], [ false, %8 ], [ true, %.outer ]
+  %.031.ph.lcssa = phi i1 [ false, %8 ], [ %.031.ph65, %26 ], [ true, %.outer ]
   call void @slurm_list_iterator_destroy(ptr noundef %9) #4
   br label %62
 
@@ -694,7 +694,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i3
   br label %42
 
 42:                                               ; preds = %.thread, %30, %40, %35
-  %.0 = phi i64 [ %41, %40 ], [ %31, %30 ], [ %36, %35 ], [ %26, %.thread ]
+  %.0 = phi i64 [ %31, %30 ], [ %36, %35 ], [ %41, %40 ], [ %26, %.thread ]
   %43 = zext i16 %.02946 to i64
   %44 = mul i64 %.0, %43
   %45 = trunc i64 %44 to i32
@@ -702,7 +702,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i3
   br label %47
 
 47:                                               ; preds = %37, %21, %42
-  %.1 = phi i32 [ %.03048, %21 ], [ %46, %42 ], [ %.03048, %37 ]
+  %.1 = phi i32 [ %46, %42 ], [ %.03048, %21 ], [ %.03048, %37 ]
   %48 = tail call ptr @slurm_list_next(ptr noundef %9) #4
   %.not39 = icmp eq ptr %48, null
   br i1 %.not39, label %._crit_edge, label %15

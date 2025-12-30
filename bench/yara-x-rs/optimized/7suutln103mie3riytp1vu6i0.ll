@@ -366,7 +366,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h2973292bf4ebd
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9956f000559797eE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9956f000559797eE.exit": ; preds = %3, %10, %5
-  %storemerge = phi i64 [ 13, %5 ], [ 2, %10 ], [ 13, %3 ]
+  %storemerge = phi i64 [ 2, %10 ], [ 13, %5 ], [ 13, %3 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -400,7 +400,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h52db55875f6e3
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habfdd121634033e7E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17habfdd121634033e7E.exit": ; preds = %3, %10, %5
-  %storemerge = phi i64 [ 13, %5 ], [ 10, %10 ], [ 13, %3 ]
+  %storemerge = phi i64 [ 10, %10 ], [ 13, %5 ], [ 13, %3 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -430,7 +430,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17hb0cf8de3ac7f5
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d9c4150e0b13e05E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d9c4150e0b13e05E.exit": ; preds = %3, %10, %5
-  %storemerge = phi i64 [ 13, %5 ], [ 2, %10 ], [ 13, %3 ]
+  %storemerge = phi i64 [ 2, %10 ], [ 13, %5 ], [ 13, %3 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -853,7 +853,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   unreachable
 
 74:                                               ; preds = %47, %44, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %44 ], [ %.pn.i.i, %47 ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %47 ], [ %.pn.i.i, %44 ], [ %lpad.loopexit.i, %.loopexit.i ]
   store i64 %.sroa.7.044.i, ptr %25, align 8, !noalias !71
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$yara_x_proto_yaml..test..SubMessage$GT$$GT$17h9b7c171becd2e9fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #18
           to label %75 unwind label %72, !noalias !71
@@ -1269,7 +1269,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   unreachable
 
 86:                                               ; preds = %47, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1a0cc1415600a879E.exit6.i.i", %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1a0cc1415600a879E.exit6.i.i" ], [ %.pn.pn.pn.i.i, %47 ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %47 ], [ %.pn.pn.pn.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1a0cc1415600a879E.exit6.i.i" ], [ %lpad.loopexit.i, %.loopexit.i ]
   store i64 %.sroa.7.039.i, ptr %27, align 8, !noalias !116
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$yara_x_proto_yaml..yara..AclEntry$GT$$GT$17he9c3c65804badb77E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #18
           to label %87 unwind label %84, !noalias !116

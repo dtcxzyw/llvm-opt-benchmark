@@ -61,7 +61,7 @@ default.unreachable:                              ; preds = %9
   unreachable
 
 14:                                               ; preds = %9, %9, %15, %1, %17, %5
-  %.sroa.0.0.shrunk = phi i1 [ %.sroa.0.0.i, %17 ], [ %8, %5 ], [ false, %1 ], [ false, %9 ], [ false, %15 ], [ false, %9 ]
+  %.sroa.0.0.shrunk = phi i1 [ %8, %5 ], [ %.sroa.0.0.i, %17 ], [ false, %1 ], [ false, %15 ], [ false, %9 ], [ false, %9 ]
   ret i1 %.sroa.0.0.shrunk
 
 15:                                               ; preds = %9

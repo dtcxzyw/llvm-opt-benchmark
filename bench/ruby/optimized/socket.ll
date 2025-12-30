@@ -443,7 +443,7 @@ define range(i32 0, 268) i32 @rsock_sockaddr_len(ptr noundef readonly captures(a
   br label %sockaddr_len.exit
 
 sockaddr_len.exit:                                ; preds = %1, %3, %5, %6, %7, %12
-  %.0.i = phi i32 [ %11, %7 ], [ 2, %12 ], [ 0, %1 ], [ 28, %5 ], [ 110, %6 ], [ 16, %3 ]
+  %.0.i = phi i32 [ 2, %12 ], [ 28, %5 ], [ 110, %6 ], [ %11, %7 ], [ 0, %1 ], [ 16, %3 ]
   ret i32 %.0.i
 }
 
@@ -478,7 +478,7 @@ define i64 @rsock_sockaddr_obj(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %sockaddr_len.exit.i
 
 sockaddr_len.exit.i:                              ; preds = %13, %8, %7, %6, %4
-  %.0.i.i = phi i32 [ %12, %8 ], [ 2, %13 ], [ 16, %4 ], [ 28, %6 ], [ 110, %7 ]
+  %.0.i.i = phi i32 [ 2, %13 ], [ 28, %6 ], [ 110, %7 ], [ %12, %8 ], [ 16, %4 ]
   %14 = zext i16 %5 to i32
   %15 = tail call i64 @rsock_addrinfo_new(ptr noundef nonnull %0, i32 noundef %.0.i.i, i32 noundef %14, i32 noundef 0, i32 noundef 0, i64 noundef 4, i64 noundef 4) #16
   br label %sockaddr_obj.exit

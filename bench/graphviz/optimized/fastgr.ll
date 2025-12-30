@@ -82,7 +82,7 @@ define noundef ptr @find_fast_edge(ptr noundef readonly captures(address) %0, pt
   br i1 %42, label %ffe.exit, label %32
 
 ffe.exit:                                         ; preds = %32, %.lr.ph.i, %21, %.lr.ph36.i, %2, %.preheader27.i, %.preheader.i
-  %.0.i = phi ptr [ null, %.preheader27.i ], [ null, %2 ], [ null, %.preheader.i ], [ %24, %.lr.ph36.i ], [ null, %21 ], [ null, %32 ], [ %35, %.lr.ph.i ]
+  %.0.i = phi ptr [ null, %2 ], [ null, %.preheader.i ], [ null, %.preheader27.i ], [ %24, %.lr.ph36.i ], [ null, %21 ], [ %35, %.lr.ph.i ], [ null, %32 ]
   ret ptr %.0.i
 }
 
@@ -160,7 +160,7 @@ define noundef ptr @find_flat_edge(ptr noundef readonly captures(address) %0, pt
   br i1 %42, label %ffe.exit, label %32
 
 ffe.exit:                                         ; preds = %32, %.lr.ph.i, %21, %.lr.ph36.i, %2, %.preheader27.i, %.preheader.i
-  %.0.i = phi ptr [ null, %.preheader27.i ], [ null, %2 ], [ null, %.preheader.i ], [ %24, %.lr.ph36.i ], [ null, %21 ], [ null, %32 ], [ %35, %.lr.ph.i ]
+  %.0.i = phi ptr [ null, %2 ], [ null, %.preheader.i ], [ null, %.preheader27.i ], [ %24, %.lr.ph36.i ], [ null, %21 ], [ %35, %.lr.ph.i ], [ null, %32 ]
   ret ptr %.0.i
 }
 
@@ -446,7 +446,7 @@ define void @delete_fast_edge(ptr noundef readonly captures(address) %0) local_u
   br i1 %exitcond.not.i, label %zapinlist.exit, label %14, !llvm.loop !43
 
 zapinlist.exit:                                   ; preds = %23, %1, %18
-  %.pre-phi = phi i32 [ %.pre19, %18 ], [ %3, %1 ], [ %3, %23 ]
+  %.pre-phi = phi i32 [ %3, %1 ], [ %.pre19, %18 ], [ %3, %23 ]
   %25 = icmp eq i32 %.pre-phi, 2
   %.idx8 = select i1 %25, i64 0, i64 -64
   %26 = getelementptr inbounds i8, ptr %0, i64 %.idx8
@@ -669,7 +669,7 @@ define void @safe_other_edge(ptr noundef %0) local_unnamed_addr #1 {
   br label %gv_recalloc.exit.i
 
 gv_recalloc.exit.i:                               ; preds = %.thread, %33
-  %.0.i.i.i = phi ptr [ %25, %33 ], [ %39, %.thread ]
+  %.0.i.i.i = phi ptr [ %39, %.thread ], [ %25, %33 ]
   store ptr %.0.i.i.i, ptr %10, align 8, !tbaa !42
   %42 = load i64, ptr %11, align 8, !tbaa !41
   %43 = add i64 %42, 1
@@ -1259,7 +1259,7 @@ define void @delete_flat_edge(ptr noundef readonly captures(address) %0) local_u
   br i1 %exitcond.not.i, label %zapinlist.exit, label %26, !llvm.loop !43
 
 zapinlist.exit:                                   ; preds = %35, %13, %30
-  %.pre-phi = phi i32 [ %.pre23, %30 ], [ %15, %13 ], [ %15, %35 ]
+  %.pre-phi = phi i32 [ %15, %13 ], [ %.pre23, %30 ], [ %15, %35 ]
   %37 = icmp eq i32 %.pre-phi, 2
   %.idx12 = select i1 %37, i64 0, i64 -64
   %38 = getelementptr inbounds i8, ptr %0, i64 %.idx12

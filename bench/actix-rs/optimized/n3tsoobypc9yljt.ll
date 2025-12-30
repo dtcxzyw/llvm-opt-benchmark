@@ -312,8 +312,8 @@ _ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474
   br label %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$actix_web..http..header..if_unmodified_since..IfUnmodifiedSince$C$actix_http..error..ParseError$GT$$GT$17h60c8f63899f53144E.llvm.14208474514002621483.exit"
 
 "_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$actix_web..http..header..if_unmodified_since..IfUnmodifiedSince$C$actix_http..error..ParseError$GT$$GT$17h60c8f63899f53144E.llvm.14208474514002621483.exit": ; preds = %1, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i, %16, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i, %"_ZN110_$LT$actix_web..http..header..if_unmodified_since..IfUnmodifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17he10681e853c182b9E.llvm.14208474514002621483.exit"
-  %.sroa.2.0 = phi i32 [ 1000000000, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i ], [ %36, %"_ZN110_$LT$actix_web..http..header..if_unmodified_since..IfUnmodifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17he10681e853c182b9E.llvm.14208474514002621483.exit" ], [ 1000000000, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i ], [ 1000000000, %16 ], [ 1000000000, %1 ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i ], [ %34, %"_ZN110_$LT$actix_web..http..header..if_unmodified_since..IfUnmodifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17he10681e853c182b9E.llvm.14208474514002621483.exit" ], [ 0, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i ], [ 0, %16 ], [ undef, %1 ]
+  %.sroa.2.0 = phi i32 [ %36, %"_ZN110_$LT$actix_web..http..header..if_unmodified_since..IfUnmodifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17he10681e853c182b9E.llvm.14208474514002621483.exit" ], [ 1000000000, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i ], [ 1000000000, %16 ], [ 1000000000, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i ], [ 1000000000, %1 ]
+  %.sroa.0.0 = phi i64 [ %34, %"_ZN110_$LT$actix_web..http..header..if_unmodified_since..IfUnmodifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17he10681e853c182b9E.llvm.14208474514002621483.exit" ], [ 0, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i ], [ 0, %16 ], [ 0, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i ], [ undef, %1 ]
   %37 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %38 = insertvalue { i64, i32 } %37, i32 %.sroa.2.0, 1
   ret { i64, i32 } %38
@@ -469,8 +469,8 @@ _ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474
   br label %"_ZN4core3ptr140drop_in_place$LT$core..result..Result$LT$actix_web..http..header..if_modified_since..IfModifiedSince$C$actix_http..error..ParseError$GT$$GT$17h37b117c90d7684e1E.llvm.14208474514002621483.exit"
 
 "_ZN4core3ptr140drop_in_place$LT$core..result..Result$LT$actix_web..http..header..if_modified_since..IfModifiedSince$C$actix_http..error..ParseError$GT$$GT$17h37b117c90d7684e1E.llvm.14208474514002621483.exit": ; preds = %1, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i, %16, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i, %"_ZN106_$LT$actix_web..http..header..if_modified_since..IfModifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17hd54a01f80d907ea2E.llvm.14208474514002621483.exit"
-  %.sroa.2.0 = phi i32 [ 1000000000, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i ], [ %36, %"_ZN106_$LT$actix_web..http..header..if_modified_since..IfModifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17hd54a01f80d907ea2E.llvm.14208474514002621483.exit" ], [ 1000000000, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i ], [ 1000000000, %16 ], [ 1000000000, %1 ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i ], [ %34, %"_ZN106_$LT$actix_web..http..header..if_modified_since..IfModifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17hd54a01f80d907ea2E.llvm.14208474514002621483.exit" ], [ 0, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i ], [ 0, %16 ], [ undef, %1 ]
+  %.sroa.2.0 = phi i32 [ %36, %"_ZN106_$LT$actix_web..http..header..if_modified_since..IfModifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17hd54a01f80d907ea2E.llvm.14208474514002621483.exit" ], [ 1000000000, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i ], [ 1000000000, %16 ], [ 1000000000, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i ], [ 1000000000, %1 ]
+  %.sroa.0.0 = phi i64 [ %34, %"_ZN106_$LT$actix_web..http..header..if_modified_since..IfModifiedSince$u20$as$u20$actix_http..header..Header$GT$5parse17hd54a01f80d907ea2E.llvm.14208474514002621483.exit" ], [ 0, %_ZN10actix_http6header5utils16from_one_raw_str17hd08cfd6e20af885eE.llvm.14208474514002621483.exit.thread16.i ], [ 0, %16 ], [ 0, %_ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i ], [ undef, %1 ]
   %37 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %38 = insertvalue { i64, i32 } %37, i32 %.sroa.2.0, 1
   ret { i64, i32 } %38
@@ -2274,7 +2274,7 @@ select.unfold:                                    ; preds = %56
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22, !noalias !524
   unreachable
 
-.thread57:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i", %58
+.thread57:                                        ; preds = %58, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !520
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf53867f0acd9a6a7E.exit"
@@ -2341,7 +2341,7 @@ select.unfold:                                    ; preds = %56
   %80 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.744.0..sroa_idx)
           to label %81 unwind label %154
 
-.thread65:                                        ; preds = %82, %81
+.thread65:                                        ; preds = %81, %82
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread52
@@ -2582,7 +2582,7 @@ select.unfold:                                    ; preds = %56
           to label %.thread52 unwind label %152
 
 .thread52:                                        ; preds = %154, %.thread65, %70, %54, %32
-  %.pn.pn55 = phi { ptr, i32 } [ %71, %70 ], [ %55, %54 ], [ %33, %32 ], [ %lpad.thr_comm.split-lp, %154 ], [ %lpad.thr_comm, %.thread65 ]
+  %.pn.pn55 = phi { ptr, i32 } [ %33, %32 ], [ %55, %54 ], [ %71, %70 ], [ %lpad.thr_comm.split-lp, %154 ], [ %lpad.thr_comm, %.thread65 ]
   invoke void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha467eeae9528831cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
           to label %163 unwind label %152
 
@@ -2670,7 +2670,7 @@ common.resume:                                    ; preds = %.body, %.body13.i
   resume { ptr, i32 } %common.resume.op
 
 .body13.i:                                        ; preds = %.body.i, %85, %70, %27
-  %.pn4.i = phi { ptr, i32 } [ %28, %27 ], [ %.pn2.i, %.body.i ], [ %71, %70 ], [ %86, %85 ]
+  %.pn4.i = phi { ptr, i32 } [ %.pn2.i, %.body.i ], [ %28, %27 ], [ %71, %70 ], [ %86, %85 ]
   store i8 2, ptr %12, align 4, !noalias !628
   br label %common.resume
 
@@ -2707,7 +2707,7 @@ common.resume:                                    ; preds = %.body, %.body13.i
   br label %42
 
 .body.i.i:                                        ; preds = %62, %55, %46
-  %.pn2.i.i = phi { ptr, i32 } [ %63, %62 ], [ %47, %46 ], [ %56, %55 ]
+  %.pn2.i.i = phi { ptr, i32 } [ %47, %46 ], [ %56, %55 ], [ %63, %62 ]
   store i8 2, ptr %43, align 8, !noalias !633
   br label %.body.i
 
@@ -2892,8 +2892,8 @@ common.resume:                                    ; preds = %.body, %.body13.i
   br label %100
 
 .body.i:                                          ; preds = %68, %.body.i.i
-  %89 = phi ptr [ %44, %.body.i.i ], [ %33, %68 ]
-  %.pn2.i = phi { ptr, i32 } [ %.pn2.i.i, %.body.i.i ], [ %69, %68 ]
+  %89 = phi ptr [ %33, %68 ], [ %44, %.body.i.i ]
+  %.pn2.i = phi { ptr, i32 } [ %69, %68 ], [ %.pn2.i.i, %.body.i.i ]
   invoke fastcc void @"_ZN4core3ptr283drop_in_place$LT$actix_web..web..block$LT$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$std..fs..File$C$bytes..bytes..Bytes$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc231a3af63700d31E"(ptr noundef nonnull align 8 %89) #24
           to label %.body13.i unwind label %90, !noalias !632
 

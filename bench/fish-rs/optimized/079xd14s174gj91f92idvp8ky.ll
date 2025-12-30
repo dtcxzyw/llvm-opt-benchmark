@@ -519,8 +519,8 @@ define internal fastcc void @_ZN10widestring9utfstring11Utf32String8from_str17he
   br i1 %.not.i.i.i, label %"_ZN102_$LT$widestring..utfstring..Utf32String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h671862831c57aa76E.exit", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.thread.i.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.thread.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i", %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i"
-  %spec.select.i9.i.i.i = phi i32 [ %42, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i" ], [ %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i" ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i" ], [ %22, %21 ]
-  %.sroa.0.18.i.i.i = phi ptr [ %34, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i" ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i" ], [ %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i" ], [ %8, %21 ]
+  %spec.select.i9.i.i.i = phi i32 [ %42, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i" ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i" ], [ %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i" ], [ %22, %21 ]
+  %.sroa.0.18.i.i.i = phi ptr [ %34, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i" ], [ %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i" ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i" ], [ %8, %21 ]
   %43 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !18, !noundef !17
   %44 = load i64, ptr %4, align 8, !range !21, !alias.scope !18, !noundef !17
   %45 = icmp eq i64 %43, %44
@@ -1921,7 +1921,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %11
 
 11:                                               ; preds = %9, %7, %2
-  %.sroa.0.0.i = phi i64 [ 2, %7 ], [ %..i, %9 ], [ 1, %2 ]
+  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %..i, %9 ], [ 2, %7 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca0cedd7554ca3baE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sroa.0.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.28)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !163, !nonnull !17, !noundef !17
@@ -4466,8 +4466,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h17a9e3bb7ebfd00aE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4528,8 +4528,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h196e22d428d3d22fE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4590,8 +4590,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h1d2fa9d1b4fc9936E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4652,8 +4652,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h1d4c775b3bc38b15E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4714,8 +4714,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h1eb45fb353276935E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4776,8 +4776,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h217d5bc98e54476eE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4838,8 +4838,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h22b123c77f60a9c3E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4900,8 +4900,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h23b596f0a338a1e9E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4962,8 +4962,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h28d0d5ae6e4500cbE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5024,8 +5024,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h2de9a36b755953d1E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5086,8 +5086,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h2fa0a5471c2d5f9cE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5148,8 +5148,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h30b963e2e8e354e6E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5210,8 +5210,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h320a09f4b122ebe2E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5272,8 +5272,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h32a2bd4c7616fc8cE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5334,8 +5334,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h37c7875f0e847678E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5396,8 +5396,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h3e614968b4ba3b20E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5458,8 +5458,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h470e7906cb055890E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5520,8 +5520,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4753ba63bfc81397E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5582,8 +5582,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h495106b38c47bfc9E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5644,8 +5644,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4997f16bc7170345E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5706,8 +5706,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4af8781fc3e629c7E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5768,8 +5768,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4b4faa90ff267a5eE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5830,8 +5830,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4bea24bb7ccd1b5aE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5892,8 +5892,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4ddfa639aabfda16E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5954,8 +5954,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h5752f491d9bf9839E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6016,8 +6016,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h5b2f6ae5470771d2E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6078,8 +6078,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h5e29b4e6a1971e1dE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6140,8 +6140,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h5f9470049f030980E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6202,8 +6202,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h67aa57ca49892851E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6264,8 +6264,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h6907d213a2f9320cE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6326,8 +6326,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h6e2dffb2fd7e0569E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6388,8 +6388,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h744d83e0c2b74317E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6450,8 +6450,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h75a4921607836cd6E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6512,8 +6512,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h76b4668e97710708E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6574,8 +6574,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h77e08ef87abeb59eE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6636,8 +6636,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h866da9104c347bffE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6698,8 +6698,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h87f90fe42783d95dE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6760,8 +6760,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h8de7b3d4a83831b3E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6822,8 +6822,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h8ed39b7ef9eba555E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6884,8 +6884,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h93e2ab127e8c819aE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6946,8 +6946,8 @@ define internal { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h972b59d5ffd61b2cE(ptr 
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7008,8 +7008,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h9e6547ecc9cd9a7bE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7070,8 +7070,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17ha046b5256e629bd7E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7132,8 +7132,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hadd2523b77ff0700E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7194,8 +7194,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17haf263f1e781b7bb8E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7256,8 +7256,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17haf306604776d886dE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7318,8 +7318,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hba5af8daa43ef9bbE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7380,8 +7380,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hbde0b941b84b4694E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7442,8 +7442,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hc5ca99fe886d34cfE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7504,8 +7504,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hc5fae835a4f20a6fE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7566,8 +7566,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hcc60b8f0d4eeb211E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7628,8 +7628,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hdbf26082cf04c184E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7690,8 +7690,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hdd53f45cc78b5239E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7752,8 +7752,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hefeaebfbf821c380E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7814,8 +7814,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hf1bfce4fd1a0f1e9E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7876,8 +7876,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hf44548b04ecc5336E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7938,8 +7938,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hf99f7d37a296539bE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -8000,8 +8000,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hfa28c16f836218c2E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -32718,7 +32718,7 @@ define hidden void @"_ZN4fish3ast12Ast$LT$N$GT$4dump17h9664a167570728ceE"(ptr de
           to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %273, %267, %246, %222, %188, %149, %111
-  %.pn28 = phi { ptr, i32 } [ %lpad.phi115, %111 ], [ %lpad.phi138, %149 ], [ %lpad.phi123, %188 ], [ %268, %267 ], [ %.pn25, %222 ], [ %.pn, %246 ], [ %274, %273 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit109, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp117, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn28 = phi { ptr, i32 } [ %lpad.phi138, %149 ], [ %lpad.phi123, %188 ], [ %268, %267 ], [ %.pn25, %222 ], [ %.pn, %246 ], [ %274, %273 ], [ %lpad.phi115, %111 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit109, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp117, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$fish..ast..Traversal$GT$17h2e255453ba32050cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #15
           to label %.thread unwind label %160
 
@@ -32862,8 +32862,8 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17he63567c6fdfab5b6
   br i1 %.not.i.i.i, label %"_ZN102_$LT$widestring..utfstring..Utf32String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h671862831c57aa76E.exit", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.thread.i.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.thread.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i", %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i"
-  %spec.select.i9.i.i.i = phi i32 [ %103, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i" ], [ %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i" ], [ %80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i" ], [ %83, %82 ]
-  %.sroa.0.18.i.i.i = phi ptr [ %95, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i" ], [ %85, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i" ], [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i" ], [ %69, %82 ]
+  %spec.select.i9.i.i.i = phi i32 [ %103, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i" ], [ %80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i" ], [ %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i" ], [ %83, %82 ]
+  %.sroa.0.18.i.i.i = phi ptr [ %95, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i.i.i" ], [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit12.i.i.i.i.i" ], [ %85, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ca3b7d6de048dfbE.exit14.i.i.i.i.i" ], [ %69, %82 ]
   %104 = load i64, ptr %.sroa.518.0..sroa_idx, align 8, !alias.scope !3497, !noundef !17
   %105 = load i64, ptr %30, align 8, !range !21, !alias.scope !3497, !noundef !17
   %106 = icmp eq i64 %104, %105
@@ -41949,7 +41949,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -42387,7 +42387,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -42825,7 +42825,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -43263,7 +43263,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -43701,7 +43701,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -44139,7 +44139,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -44577,7 +44577,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -45015,7 +45015,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -45453,7 +45453,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body:                                            ; preds = %76, %147, %58
-  %.pn10 = phi { ptr, i32 } [ %54, %147 ], [ %59, %58 ], [ %79, %76 ]
+  %.pn10 = phi { ptr, i32 } [ %59, %58 ], [ %54, %147 ], [ %79, %76 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
           to label %41 unwind label %145
 
@@ -45897,7 +45897,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -45974,7 +45974,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -46564,13 +46564,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -46783,7 +46783,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -47386,7 +47386,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -47488,7 +47488,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -48187,7 +48187,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -48264,7 +48264,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -48854,13 +48854,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -49073,7 +49073,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -49676,7 +49676,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -49778,7 +49778,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -50477,7 +50477,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -50554,7 +50554,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -51144,13 +51144,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -51363,7 +51363,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -51966,7 +51966,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -52068,7 +52068,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -52767,7 +52767,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -52844,7 +52844,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -53434,13 +53434,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -53653,7 +53653,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -54256,7 +54256,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -54358,7 +54358,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -55057,7 +55057,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -55134,7 +55134,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -55724,13 +55724,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -55943,7 +55943,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -56546,7 +56546,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -56648,7 +56648,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -57347,7 +57347,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -57424,7 +57424,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -58014,13 +58014,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -58233,7 +58233,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -58836,7 +58836,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -58938,7 +58938,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -59637,7 +59637,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -59714,7 +59714,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -60304,13 +60304,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -60523,7 +60523,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -61126,7 +61126,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -61228,7 +61228,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -61927,7 +61927,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -62004,7 +62004,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -62594,13 +62594,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -62813,7 +62813,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -63416,7 +63416,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -63518,7 +63518,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -64217,7 +64217,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -64294,7 +64294,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -64884,13 +64884,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -65103,7 +65103,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -65706,7 +65706,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -65808,7 +65808,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -66507,7 +66507,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -66584,7 +66584,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -67174,13 +67174,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -67393,7 +67393,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -67996,7 +67996,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -68098,7 +68098,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -68797,7 +68797,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -68874,7 +68874,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -69464,13 +69464,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -69683,7 +69683,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -70286,7 +70286,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -70388,7 +70388,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -71087,7 +71087,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -71164,7 +71164,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -71754,13 +71754,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -71973,7 +71973,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -72576,7 +72576,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -72678,7 +72678,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -73377,7 +73377,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -73454,7 +73454,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -74044,13 +74044,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -74263,7 +74263,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -74866,7 +74866,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -74968,7 +74968,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -75667,7 +75667,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -75744,7 +75744,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -76334,13 +76334,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -76553,7 +76553,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -77156,7 +77156,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -77258,7 +77258,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -77957,7 +77957,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -78034,7 +78034,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -78624,13 +78624,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -78843,7 +78843,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -79446,7 +79446,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -79548,7 +79548,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -80247,7 +80247,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -80324,7 +80324,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -80914,13 +80914,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -81133,7 +81133,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -81736,7 +81736,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -81838,7 +81838,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -82537,7 +82537,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -82614,7 +82614,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -83204,13 +83204,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -83423,7 +83423,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -84026,7 +84026,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -84128,7 +84128,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -84827,7 +84827,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit": ; preds = %788, %791, %778, %787, %574, %577, %564, %573, %317, %320, %307, %316, %584, %392, %112
-  %.pn203.pn.pn = phi { ptr, i32 } [ %565, %564 ], [ %.pn171.pn.ph, %317 ], [ %.pn192, %392 ], [ %779, %778 ], [ %.pn203.pn.ph, %574 ], [ %.pn178, %584 ], [ %308, %307 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %.pn171.pn.ph, %320 ], [ %.pn203392, %573 ], [ %.pn203.pn.ph, %577 ], [ %.pn189404, %787 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
+  %.pn203.pn.pn = phi { ptr, i32 } [ %.pn192, %392 ], [ %.pn178, %584 ], [ %.pn, %112 ], [ %.pn171368, %316 ], [ %308, %307 ], [ %.pn171.pn.ph, %320 ], [ %.pn171.pn.ph, %317 ], [ %.pn203392, %573 ], [ %565, %564 ], [ %.pn203.pn.ph, %577 ], [ %.pn203.pn.ph, %574 ], [ %.pn189404, %787 ], [ %779, %778 ], [ %.pn189.pn.ph, %791 ], [ %.pn189.pn.ph, %788 ]
   resume { ptr, i32 } %.pn203.pn.pn
 
 143:                                              ; preds = %267, %255, %250, %248, %154, %148
@@ -84904,7 +84904,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %164 unwind label %162
 
 .body:                                            ; preds = %187, %185, %162, %169, %166
-  %.pn164 = phi { ptr, i32 } [ %167, %166 ], [ %170, %169 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
+  %.pn164 = phi { ptr, i32 } [ %170, %169 ], [ %167, %166 ], [ %163, %162 ], [ %186, %185 ], [ %186, %187 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %227 unwind label %141
 
@@ -85494,13 +85494,13 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 365:                                              ; preds = %355, %352, %346, %343, %340, %337
-  %.sink463 = phi ptr [ %353, %352 ], [ %347, %346 ], [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %356, %355 ]
-  %.sroa.13.0.ph = phi i64 [ 12, %352 ], [ 5, %346 ], [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 16, %355 ]
-  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sink463 = phi ptr [ %338, %337 ], [ %341, %340 ], [ %344, %343 ], [ %347, %346 ], [ %353, %352 ], [ %356, %355 ]
+  %.sroa.13.0.ph = phi i64 [ 8, %337 ], [ 10, %340 ], [ 19, %343 ], [ 5, %346 ], [ 12, %352 ], [ 16, %355 ]
+  %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %340 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %343 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %346 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %352 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %355 ]
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink463, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %366 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
@@ -85713,7 +85713,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %438 unwind label %436
 
 .body255:                                         ; preds = %461, %459, %436, %443, %440
-  %.pn194 = phi { ptr, i32 } [ %441, %440 ], [ %444, %443 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
+  %.pn194 = phi { ptr, i32 } [ %444, %443 ], [ %441, %440 ], [ %437, %436 ], [ %460, %459 ], [ %460, %461 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %501 unwind label %141
 
@@ -86316,7 +86316,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   unreachable
 
 .body296:                                         ; preds = %620, %622, %604, %601
-  %.pn174 = phi { ptr, i32 } [ %602, %601 ], [ %605, %604 ], [ %621, %622 ], [ %621, %620 ]
+  %.pn174 = phi { ptr, i32 } [ %605, %604 ], [ %602, %601 ], [ %621, %622 ], [ %621, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #15
           to label %594 unwind label %141
 
@@ -86418,7 +86418,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
           to label %652 unwind label %650
 
 .body304:                                         ; preds = %675, %673, %650, %657, %654
-  %.pn180 = phi { ptr, i32 } [ %655, %654 ], [ %658, %657 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
+  %.pn180 = phi { ptr, i32 } [ %658, %657 ], [ %655, %654 ], [ %651, %650 ], [ %674, %673 ], [ %674, %675 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #15
           to label %715 unwind label %141
 
@@ -87140,8 +87140,8 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f92
           to label %157 unwind label %.loopexit.split-lp.loopexit
 
 .body201:                                         ; preds = %.loopexit.split-lp.loopexit.split-lp, %407, %504
-  %.pn67 = phi { ptr, i32 } [ %408, %407 ], [ %.pn58, %504 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %407 ], [ %.sroa.05.2, %504 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn67 = phi { ptr, i32 } [ %.pn58, %504 ], [ %408, %407 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %504 ], [ %.sroa.05.2, %407 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %156 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %156, label %.thread, label %.thread268
 
@@ -87156,7 +87156,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f92
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke459, %.invoke, %525, %405, %366, %359
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke459 ], [ %.sroa.05.2, %405 ], [ %.sroa.05.2, %525 ], [ 1, %359 ], [ 1, %.invoke ], [ 0, %366 ]
+  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %405 ], [ %.sroa.05.2, %525 ], [ 0, %366 ], [ 1, %359 ], [ 1, %.invoke ], [ 1, %.invoke459 ]
   %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
           cleanup
   br label %.body201
@@ -87247,7 +87247,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f92
           to label %181 unwind label %179
 
 .body:                                            ; preds = %203, %201, %179, %186, %183
-  %.pn = phi { ptr, i32 } [ %184, %183 ], [ %lpad.phi293, %186 ], [ %180, %179 ], [ %202, %201 ], [ %202, %203 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi293, %186 ], [ %184, %183 ], [ %180, %179 ], [ %202, %201 ], [ %202, %203 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %63) #15
           to label %239 unwind label %354
 
@@ -88204,7 +88204,7 @@ _ZN4fish3ast9Populator9try_parse17h1f458d6ad03b32c0E.exit: ; preds = %305, %324,
           to label %415 unwind label %413
 
 .body115:                                         ; preds = %458, %413, %440, %417
-  %.pn56 = phi { ptr, i32 } [ %.pn53.pn, %417 ], [ %441, %440 ], [ %414, %413 ], [ %461, %458 ]
+  %.pn56 = phi { ptr, i32 } [ %441, %440 ], [ %.pn53.pn, %417 ], [ %414, %413 ], [ %461, %458 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46) #15
           to label %504 unwind label %354
 
@@ -88657,7 +88657,7 @@ _ZN4fish3ast9Populator9try_parse17h1f458d6ad03b32c0E.exit: ; preds = %305, %324,
           to label %561 unwind label %559
 
 .body145:                                         ; preds = %595, %559, %578, %563
-  %.pn63 = phi { ptr, i32 } [ %.pn60.pn, %563 ], [ %lpad.phi286, %578 ], [ %560, %559 ], [ %598, %595 ]
+  %.pn63 = phi { ptr, i32 } [ %lpad.phi286, %578 ], [ %.pn60.pn, %563 ], [ %560, %559 ], [ %598, %595 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #15
           to label %637 unwind label %354
 
@@ -88996,8 +88996,8 @@ _ZN4fish3ast9Populator9try_parse17h1f458d6ad03b32c0E.exit: ; preds = %305, %324,
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %760 ], [ %673, %672 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %384, %.body.i ], [ %531, %530 ]
   resume { ptr, i32 } %.pn73.pn
 
-.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %330, %266, %344, %352, %239, %175, %555, %637, %.body201
-  %.pn67266 = phi { ptr, i32 } [ %.pn67, %.body201 ], [ %.pn65, %637 ], [ %353, %352 ], [ %.pn49, %239 ], [ %176, %175 ], [ %556, %555 ], [ %345, %344 ], [ %331, %330 ], [ %267, %266 ], [ %lpad.loopexit287, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %330, %266, %344, %352, %175, %239, %555, %637, %.body201
+  %.pn67266 = phi { ptr, i32 } [ %.pn67, %.body201 ], [ %353, %352 ], [ %176, %175 ], [ %.pn49, %239 ], [ %556, %555 ], [ %.pn65, %637 ], [ %345, %344 ], [ %331, %330 ], [ %267, %266 ], [ %lpad.loopexit287, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$fish..ast..CaseItem$GT$$GT$17h2e3f2fdc63800d1dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %84) #15
           to label %.thread268 unwind label %354
 
@@ -89072,7 +89072,7 @@ _ZN4fish3ast9Populator9try_parse17h1f458d6ad03b32c0E.exit: ; preds = %305, %324,
           to label %680 unwind label %678
 
 .body175:                                         ; preds = %714, %678, %696, %682
-  %.pn71 = phi { ptr, i32 } [ %.pn69, %682 ], [ %697, %696 ], [ %679, %678 ], [ %717, %714 ]
+  %.pn71 = phi { ptr, i32 } [ %697, %696 ], [ %.pn69, %682 ], [ %679, %678 ], [ %717, %714 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #15
           to label %760 unwind label %354
 
@@ -89636,8 +89636,8 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c7
           to label %153 unwind label %.loopexit.split-lp.loopexit
 
 .body200:                                         ; preds = %.loopexit.split-lp.loopexit.split-lp, %401, %498
-  %.pn67 = phi { ptr, i32 } [ %402, %401 ], [ %.pn58, %498 ], [ %lpad.loopexit.split-lp287, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %401 ], [ %.sroa.05.2, %498 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn67 = phi { ptr, i32 } [ %.pn58, %498 ], [ %402, %401 ], [ %lpad.loopexit.split-lp287, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %498 ], [ %.sroa.05.2, %401 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %152 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %152, label %.thread, label %.thread267
 
@@ -89652,7 +89652,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c7
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke458, %.invoke, %519, %399, %360, %353
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke458 ], [ 1, %.invoke ], [ %.sroa.05.2, %399 ], [ %.sroa.05.2, %519 ], [ 0, %360 ], [ 1, %353 ]
+  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %399 ], [ %.sroa.05.2, %519 ], [ 0, %360 ], [ 1, %353 ], [ 1, %.invoke ], [ 1, %.invoke458 ]
   %lpad.loopexit.split-lp287 = landingpad { ptr, i32 }
           cleanup
   br label %.body200
@@ -89743,7 +89743,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c7
           to label %177 unwind label %175
 
 .body:                                            ; preds = %199, %197, %175, %182, %179
-  %.pn = phi { ptr, i32 } [ %180, %179 ], [ %lpad.phi292, %182 ], [ %176, %175 ], [ %198, %197 ], [ %198, %199 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi292, %182 ], [ %180, %179 ], [ %176, %175 ], [ %198, %197 ], [ %198, %199 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #15
           to label %235 unwind label %348
 
@@ -90704,7 +90704,7 @@ _ZN4fish3ast9Populator9try_parse17hc8728b0bb181696bE.exit: ; preds = %299, %318,
           to label %409 unwind label %407
 
 .body115:                                         ; preds = %452, %407, %434, %411
-  %.pn56 = phi { ptr, i32 } [ %.pn53.pn, %411 ], [ %435, %434 ], [ %408, %407 ], [ %455, %452 ]
+  %.pn56 = phi { ptr, i32 } [ %435, %434 ], [ %.pn53.pn, %411 ], [ %408, %407 ], [ %455, %452 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47) #15
           to label %498 unwind label %348
 
@@ -91157,7 +91157,7 @@ _ZN4fish3ast9Populator9try_parse17hc8728b0bb181696bE.exit: ; preds = %299, %318,
           to label %555 unwind label %553
 
 .body145:                                         ; preds = %589, %553, %572, %557
-  %.pn63 = phi { ptr, i32 } [ %.pn60.pn, %557 ], [ %lpad.phi285, %572 ], [ %554, %553 ], [ %592, %589 ]
+  %.pn63 = phi { ptr, i32 } [ %lpad.phi285, %572 ], [ %.pn60.pn, %557 ], [ %554, %553 ], [ %592, %589 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77) #15
           to label %631 unwind label %348
 
@@ -91496,8 +91496,8 @@ _ZN4fish3ast9Populator9try_parse17hc8728b0bb181696bE.exit: ; preds = %299, %318,
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %754 ], [ %667, %666 ], [ %.pn67265, %.thread ], [ %.pn67, %.body200 ], [ %378, %.body.i ], [ %525, %524 ]
   resume { ptr, i32 } %.pn73.pn
 
-.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %324, %260, %338, %346, %235, %171, %549, %631, %.body200
-  %.pn67265 = phi { ptr, i32 } [ %.pn67, %.body200 ], [ %.pn65, %631 ], [ %347, %346 ], [ %.pn49, %235 ], [ %172, %171 ], [ %550, %549 ], [ %339, %338 ], [ %325, %324 ], [ %261, %260 ], [ %lpad.loopexit286, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %324, %260, %338, %346, %171, %235, %549, %631, %.body200
+  %.pn67265 = phi { ptr, i32 } [ %.pn67, %.body200 ], [ %347, %346 ], [ %172, %171 ], [ %.pn49, %235 ], [ %550, %549 ], [ %.pn65, %631 ], [ %339, %338 ], [ %325, %324 ], [ %261, %260 ], [ %lpad.loopexit286, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$fish..ast..AndorJob$GT$$GT$17h949dabb7da71c1c0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85) #15
           to label %.thread267 unwind label %348
 
@@ -91572,7 +91572,7 @@ _ZN4fish3ast9Populator9try_parse17hc8728b0bb181696bE.exit: ; preds = %299, %318,
           to label %674 unwind label %672
 
 .body175:                                         ; preds = %708, %672, %690, %676
-  %.pn71 = phi { ptr, i32 } [ %.pn69, %676 ], [ %691, %690 ], [ %673, %672 ], [ %711, %708 ]
+  %.pn71 = phi { ptr, i32 } [ %691, %690 ], [ %.pn69, %676 ], [ %673, %672 ], [ %711, %708 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %94) #15
           to label %754 unwind label %348
 
@@ -92129,8 +92129,8 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b749583
           to label %157 unwind label %.loopexit.split-lp.loopexit
 
 .body201:                                         ; preds = %.loopexit.split-lp.loopexit.split-lp, %406, %503
-  %.pn67 = phi { ptr, i32 } [ %407, %406 ], [ %.pn58, %503 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %406 ], [ %.sroa.05.2, %503 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn67 = phi { ptr, i32 } [ %.pn58, %503 ], [ %407, %406 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %503 ], [ %.sroa.05.2, %406 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %156 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %156, label %.thread, label %.thread268
 
@@ -92145,7 +92145,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b749583
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke459, %.invoke, %524, %404, %365, %358
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke459 ], [ %.sroa.05.2, %404 ], [ %.sroa.05.2, %524 ], [ 1, %358 ], [ 1, %.invoke ], [ 0, %365 ]
+  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %404 ], [ %.sroa.05.2, %524 ], [ 0, %365 ], [ 1, %358 ], [ 1, %.invoke ], [ 1, %.invoke459 ]
   %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
           cleanup
   br label %.body201
@@ -92236,7 +92236,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b749583
           to label %181 unwind label %179
 
 .body:                                            ; preds = %203, %201, %179, %186, %183
-  %.pn = phi { ptr, i32 } [ %184, %183 ], [ %lpad.phi293, %186 ], [ %180, %179 ], [ %202, %201 ], [ %202, %203 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi293, %186 ], [ %184, %183 ], [ %180, %179 ], [ %202, %201 ], [ %202, %203 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #15
           to label %239 unwind label %353
 
@@ -93193,7 +93193,7 @@ _ZN4fish3ast9Populator9try_parse17he9545ee473775df1E.exit: ; preds = %304, %323,
           to label %414 unwind label %412
 
 .body115:                                         ; preds = %457, %412, %439, %416
-  %.pn56 = phi { ptr, i32 } [ %.pn53.pn, %416 ], [ %440, %439 ], [ %413, %412 ], [ %460, %457 ]
+  %.pn56 = phi { ptr, i32 } [ %440, %439 ], [ %.pn53.pn, %416 ], [ %413, %412 ], [ %460, %457 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47) #15
           to label %503 unwind label %353
 
@@ -93646,7 +93646,7 @@ _ZN4fish3ast9Populator9try_parse17he9545ee473775df1E.exit: ; preds = %304, %323,
           to label %560 unwind label %558
 
 .body145:                                         ; preds = %594, %558, %577, %562
-  %.pn63 = phi { ptr, i32 } [ %.pn60.pn, %562 ], [ %lpad.phi286, %577 ], [ %559, %558 ], [ %597, %594 ]
+  %.pn63 = phi { ptr, i32 } [ %lpad.phi286, %577 ], [ %.pn60.pn, %562 ], [ %559, %558 ], [ %597, %594 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77) #15
           to label %636 unwind label %353
 
@@ -93985,8 +93985,8 @@ _ZN4fish3ast9Populator9try_parse17he9545ee473775df1E.exit: ; preds = %304, %323,
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %759 ], [ %672, %671 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %383, %.body.i ], [ %530, %529 ]
   resume { ptr, i32 } %.pn73.pn
 
-.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %329, %265, %343, %351, %239, %175, %554, %636, %.body201
-  %.pn67266 = phi { ptr, i32 } [ %.pn67, %.body201 ], [ %.pn65, %636 ], [ %352, %351 ], [ %.pn49, %239 ], [ %176, %175 ], [ %555, %554 ], [ %344, %343 ], [ %330, %329 ], [ %266, %265 ], [ %lpad.loopexit287, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %329, %265, %343, %351, %175, %239, %554, %636, %.body201
+  %.pn67266 = phi { ptr, i32 } [ %.pn67, %.body201 ], [ %352, %351 ], [ %176, %175 ], [ %.pn49, %239 ], [ %555, %554 ], [ %.pn65, %636 ], [ %344, %343 ], [ %330, %329 ], [ %266, %265 ], [ %lpad.loopexit287, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$fish..ast..JobContinuation$GT$$GT$17h153e836492601afeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85) #15
           to label %.thread268 unwind label %353
 
@@ -94061,7 +94061,7 @@ _ZN4fish3ast9Populator9try_parse17he9545ee473775df1E.exit: ; preds = %304, %323,
           to label %679 unwind label %677
 
 .body175:                                         ; preds = %713, %677, %695, %681
-  %.pn71 = phi { ptr, i32 } [ %.pn69, %681 ], [ %696, %695 ], [ %678, %677 ], [ %716, %713 ]
+  %.pn71 = phi { ptr, i32 } [ %696, %695 ], [ %.pn69, %681 ], [ %678, %677 ], [ %716, %713 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %94) #15
           to label %759 unwind label %353
 
@@ -94607,8 +94607,8 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74d
           to label %148 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp, %366, %463
-  %.pn66 = phi { ptr, i32 } [ %367, %366 ], [ %.pn57, %463 ], [ %lpad.loopexit.split-lp327, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.04.1 = phi i8 [ %.sroa.04.2, %366 ], [ %.sroa.04.2, %463 ], [ %.sroa.04.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn66 = phi { ptr, i32 } [ %.pn57, %463 ], [ %367, %366 ], [ %lpad.loopexit.split-lp327, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.04.1 = phi i8 [ %.sroa.04.2, %463 ], [ %.sroa.04.2, %366 ], [ %.sroa.04.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %147 = trunc nuw i8 %.sroa.04.1 to i1
   br i1 %147, label %.thread, label %.thread310
 
@@ -94623,7 +94623,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74d
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke490, %.invoke, %484, %364, %341, %334
-  %.sroa.04.0.ph.ph = phi i8 [ %.sroa.04.2, %484 ], [ 1, %.invoke ], [ %.sroa.04.2, %364 ], [ 0, %341 ], [ 1, %334 ], [ 1, %.invoke490 ]
+  %.sroa.04.0.ph.ph = phi i8 [ %.sroa.04.2, %364 ], [ %.sroa.04.2, %484 ], [ 0, %341 ], [ 1, %334 ], [ 1, %.invoke ], [ 1, %.invoke490 ]
   %lpad.loopexit.split-lp327 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -94714,7 +94714,7 @@ _ZN4fish3ast9Populator9try_parse17h55bb29c8dd3aca91E.exit.thread: ; preds = %.no
           to label %172 unwind label %170
 
 .body:                                            ; preds = %194, %192, %170, %177, %174
-  %.pn = phi { ptr, i32 } [ %175, %174 ], [ %lpad.phi332, %177 ], [ %171, %170 ], [ %193, %192 ], [ %193, %194 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi332, %177 ], [ %175, %174 ], [ %171, %170 ], [ %193, %192 ], [ %193, %194 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60) #15
           to label %230 unwind label %489
 
@@ -95551,7 +95551,7 @@ _ZN4fish3ast9Populator9try_parse17h55bb29c8dd3aca91E.exit: ; preds = %290, %309,
           to label %374 unwind label %372
 
 .body110:                                         ; preds = %417, %372, %399, %376
-  %.pn55 = phi { ptr, i32 } [ %.pn52.pn, %376 ], [ %400, %399 ], [ %373, %372 ], [ %420, %417 ]
+  %.pn55 = phi { ptr, i32 } [ %400, %399 ], [ %.pn52.pn, %376 ], [ %373, %372 ], [ %420, %417 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45) #15
           to label %463 unwind label %489
 
@@ -96015,7 +96015,7 @@ _ZN4fish3ast9Populator9try_parse17h55bb29c8dd3aca91E.exit: ; preds = %290, %309,
           to label %525 unwind label %523
 
 .body141:                                         ; preds = %559, %523, %542, %527
-  %.pn62 = phi { ptr, i32 } [ %.pn59.pn, %527 ], [ %lpad.phi325, %542 ], [ %524, %523 ], [ %562, %559 ]
+  %.pn62 = phi { ptr, i32 } [ %lpad.phi325, %542 ], [ %.pn59.pn, %527 ], [ %524, %523 ], [ %562, %559 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %73) #15
           to label %601 unwind label %489
 
@@ -96351,11 +96351,11 @@ _ZN4fish3ast9Populator9try_parse17h55bb29c8dd3aca91E.exit: ; preds = %290, %309,
   br label %513
 
 .thread310:                                       ; preds = %494, %491, %636, %724, %.thread, %.loopexit.split-lp
-  %.pn72.pn = phi { ptr, i32 } [ %.pn72, %724 ], [ %637, %636 ], [ %.pn66308, %.thread ], [ %.pn66, %.loopexit.split-lp ], [ %492, %494 ], [ %492, %491 ]
+  %.pn72.pn = phi { ptr, i32 } [ %.pn72, %724 ], [ %637, %636 ], [ %.pn66308, %.thread ], [ %.pn66, %.loopexit.split-lp ], [ %492, %491 ], [ %492, %494 ]
   resume { ptr, i32 } %.pn72.pn
 
-.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %230, %166, %320, %519, %601, %.loopexit.split-lp
-  %.pn66308 = phi { ptr, i32 } [ %.pn66, %.loopexit.split-lp ], [ %.pn48, %230 ], [ %167, %166 ], [ %321, %320 ], [ %520, %519 ], [ %.pn64, %601 ], [ %lpad.loopexit326, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %166, %230, %320, %519, %601, %.loopexit.split-lp
+  %.pn66308 = phi { ptr, i32 } [ %.pn66, %.loopexit.split-lp ], [ %167, %166 ], [ %.pn48, %230 ], [ %321, %320 ], [ %520, %519 ], [ %.pn64, %601 ], [ %lpad.loopexit326, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$fish..ast..VariableAssignment$GT$$GT$17ha749e26bef2e8f34E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %81) #15
           to label %.thread310 unwind label %489
 
@@ -96430,7 +96430,7 @@ _ZN4fish3ast9Populator9try_parse17h55bb29c8dd3aca91E.exit: ; preds = %290, %309,
           to label %644 unwind label %642
 
 .body171:                                         ; preds = %678, %642, %660, %646
-  %.pn70 = phi { ptr, i32 } [ %.pn68, %646 ], [ %661, %660 ], [ %643, %642 ], [ %681, %678 ]
+  %.pn70 = phi { ptr, i32 } [ %661, %660 ], [ %.pn68, %646 ], [ %643, %642 ], [ %681, %678 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %90) #15
           to label %724 unwind label %489
 
@@ -96983,8 +96983,8 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(pt
           to label %148 unwind label %.loopexit.split-lp.loopexit
 
 .body202:                                         ; preds = %.loopexit.split-lp.loopexit.split-lp, %346, %443
-  %.pn70 = phi { ptr, i32 } [ %347, %346 ], [ %.pn59, %443 ], [ %lpad.loopexit.split-lp268, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %346 ], [ %.sroa.05.2, %443 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn70 = phi { ptr, i32 } [ %.pn59, %443 ], [ %347, %346 ], [ %lpad.loopexit.split-lp268, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %443 ], [ %.sroa.05.2, %346 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %147 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %147, label %.thread, label %.thread236
 
@@ -96999,7 +96999,7 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(pt
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke435, %.invoke, %290, %464, %344, %305, %298
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %298 ], [ %.sroa.05.2, %344 ], [ %.sroa.05.2, %464 ], [ 1, %.invoke ], [ 1, %290 ], [ 0, %305 ], [ 1, %.invoke435 ]
+  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %344 ], [ %.sroa.05.2, %464 ], [ 0, %305 ], [ 1, %298 ], [ 1, %290 ], [ 1, %.invoke ], [ 1, %.invoke435 ]
   %lpad.loopexit.split-lp268 = landingpad { ptr, i32 }
           cleanup
   br label %.body202
@@ -97090,7 +97090,7 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(pt
           to label %172 unwind label %170
 
 .body:                                            ; preds = %194, %192, %170, %177, %174
-  %.pn = phi { ptr, i32 } [ %175, %174 ], [ %lpad.phi273, %177 ], [ %171, %170 ], [ %193, %192 ], [ %193, %194 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi273, %177 ], [ %175, %174 ], [ %171, %170 ], [ %193, %192 ], [ %193, %194 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59) #15
           to label %230 unwind label %287
 
@@ -97747,7 +97747,7 @@ split:                                            ; preds = %293
           to label %354 unwind label %352
 
 .body118:                                         ; preds = %397, %352, %379, %356
-  %.pn57 = phi { ptr, i32 } [ %.pn54.pn, %356 ], [ %380, %379 ], [ %353, %352 ], [ %400, %397 ]
+  %.pn57 = phi { ptr, i32 } [ %380, %379 ], [ %.pn54.pn, %356 ], [ %353, %352 ], [ %400, %397 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #15
           to label %443 unwind label %287
 
@@ -98213,7 +98213,7 @@ split:                                            ; preds = %293
           to label %503 unwind label %501
 
 .body148:                                         ; preds = %537, %501, %520, %505
-  %.pn66 = phi { ptr, i32 } [ %.pn63.pn, %505 ], [ %lpad.phi266, %520 ], [ %502, %501 ], [ %540, %537 ]
+  %.pn66 = phi { ptr, i32 } [ %lpad.phi266, %520 ], [ %.pn63.pn, %505 ], [ %502, %501 ], [ %540, %537 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #15
           to label %579 unwind label %287
 
@@ -98553,7 +98553,7 @@ split:                                            ; preds = %293
   resume { ptr, i32 } %.pn76.pn
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %259, %255, %274, %285, %166, %230, %.body108, %474, %497, %579, %.body202
-  %.pn70234 = phi { ptr, i32 } [ %.pn70, %.body202 ], [ %167, %166 ], [ %.pn49, %230 ], [ %283, %.body108 ], [ %283, %474 ], [ %498, %497 ], [ %.pn68, %579 ], [ %286, %285 ], [ %275, %274 ], [ %260, %259 ], [ %256, %255 ], [ %lpad.loopexit267, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+  %.pn70234 = phi { ptr, i32 } [ %.pn70, %.body202 ], [ %167, %166 ], [ %.pn49, %230 ], [ %283, %.body108 ], [ %283, %474 ], [ %498, %497 ], [ %.pn68, %579 ], [ %275, %274 ], [ %286, %285 ], [ %260, %259 ], [ %256, %255 ], [ %lpad.loopexit267, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$fish..ast..JobConjunction$GT$$GT$17h5c47693f1bd4ccebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %80) #15
           to label %.thread236 unwind label %287
 
@@ -98642,7 +98642,7 @@ split:                                            ; preds = %293
           to label %627 unwind label %625
 
 .body178:                                         ; preds = %661, %625, %643, %629
-  %.pn74 = phi { ptr, i32 } [ %.pn72, %629 ], [ %644, %643 ], [ %626, %625 ], [ %664, %661 ]
+  %.pn74 = phi { ptr, i32 } [ %644, %643 ], [ %.pn72, %629 ], [ %626, %625 ], [ %664, %661 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %89) #15
           to label %707 unwind label %287
 
@@ -99189,8 +99189,8 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029
           to label %148 unwind label %.loopexit.split-lp.loopexit
 
 .body203:                                         ; preds = %.loopexit.split-lp.loopexit.split-lp, %387, %484
-  %.pn67 = phi { ptr, i32 } [ %388, %387 ], [ %.pn58, %484 ], [ %lpad.loopexit.split-lp315, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %387 ], [ %.sroa.05.2, %484 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn67 = phi { ptr, i32 } [ %.pn58, %484 ], [ %388, %387 ], [ %lpad.loopexit.split-lp315, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %484 ], [ %.sroa.05.2, %387 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %147 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %147, label %.thread, label %.thread287
 
@@ -99205,7 +99205,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke484, %.invoke, %505, %385, %356, %349
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke484 ], [ %.sroa.05.2, %385 ], [ %.sroa.05.2, %505 ], [ 1, %.invoke ], [ 1, %349 ], [ 0, %356 ]
+  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %385 ], [ %.sroa.05.2, %505 ], [ 0, %356 ], [ 1, %349 ], [ 1, %.invoke ], [ 1, %.invoke484 ]
   %lpad.loopexit.split-lp315 = landingpad { ptr, i32 }
           cleanup
   br label %.body203
@@ -99296,7 +99296,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029
           to label %172 unwind label %170
 
 .body:                                            ; preds = %194, %192, %170, %177, %174
-  %.pn = phi { ptr, i32 } [ %175, %174 ], [ %lpad.phi320, %177 ], [ %171, %170 ], [ %193, %192 ], [ %193, %194 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi320, %177 ], [ %175, %174 ], [ %171, %170 ], [ %193, %192 ], [ %193, %194 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60) #15
           to label %230 unwind label %344
 
@@ -100197,7 +100197,7 @@ _ZN4fish3ast9Populator9try_parse17h4cb461a37fbc09d0E.exit: ; preds = %290, %309,
           to label %395 unwind label %393
 
 .body115:                                         ; preds = %438, %393, %420, %397
-  %.pn56 = phi { ptr, i32 } [ %.pn53.pn, %397 ], [ %421, %420 ], [ %394, %393 ], [ %441, %438 ]
+  %.pn56 = phi { ptr, i32 } [ %421, %420 ], [ %.pn53.pn, %397 ], [ %394, %393 ], [ %441, %438 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45) #15
           to label %484 unwind label %344
 
@@ -100650,7 +100650,7 @@ _ZN4fish3ast9Populator9try_parse17h4cb461a37fbc09d0E.exit: ; preds = %290, %309,
           to label %541 unwind label %539
 
 .body145:                                         ; preds = %575, %539, %558, %543
-  %.pn63 = phi { ptr, i32 } [ %.pn60.pn, %543 ], [ %lpad.phi313, %558 ], [ %540, %539 ], [ %578, %575 ]
+  %.pn63 = phi { ptr, i32 } [ %lpad.phi313, %558 ], [ %.pn60.pn, %543 ], [ %540, %539 ], [ %578, %575 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %73) #15
           to label %617 unwind label %344
 
@@ -100989,8 +100989,8 @@ _ZN4fish3ast9Populator9try_parse17h4cb461a37fbc09d0E.exit: ; preds = %290, %309,
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %740 ], [ %653, %652 ], [ %.pn67285, %.thread ], [ %.pn67, %.body203 ], [ %511, %510 ]
   resume { ptr, i32 } %.pn73.pn
 
-.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %315, %319, %342, %339, %333, %330, %230, %166, %535, %617, %.body203
-  %.pn67285 = phi { ptr, i32 } [ %.pn67, %.body203 ], [ %.pn65, %617 ], [ %331, %333 ], [ %.pn49, %230 ], [ %167, %166 ], [ %536, %535 ], [ %331, %330 ], [ %340, %339 ], [ %340, %342 ], [ %316, %319 ], [ %316, %315 ], [ %lpad.loopexit314, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %315, %319, %342, %339, %333, %330, %166, %230, %535, %617, %.body203
+  %.pn67285 = phi { ptr, i32 } [ %.pn67, %.body203 ], [ %167, %166 ], [ %.pn49, %230 ], [ %536, %535 ], [ %.pn65, %617 ], [ %331, %330 ], [ %331, %333 ], [ %340, %339 ], [ %340, %342 ], [ %316, %319 ], [ %316, %315 ], [ %lpad.loopexit314, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$fish..ast..ArgumentOrRedirection$GT$$GT$17h4e884704ecdd0b21E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %81) #15
           to label %.thread287 unwind label %344
 
@@ -101065,7 +101065,7 @@ _ZN4fish3ast9Populator9try_parse17h4cb461a37fbc09d0E.exit: ; preds = %290, %309,
           to label %660 unwind label %658
 
 .body175:                                         ; preds = %694, %658, %676, %662
-  %.pn71 = phi { ptr, i32 } [ %.pn69, %662 ], [ %677, %676 ], [ %659, %658 ], [ %697, %694 ]
+  %.pn71 = phi { ptr, i32 } [ %677, %676 ], [ %.pn69, %662 ], [ %659, %658 ], [ %697, %694 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %90) #15
           to label %740 unwind label %344
 
@@ -101601,8 +101601,8 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(pt
           to label %138 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp, %302, %399
-  %.pn67 = phi { ptr, i32 } [ %303, %302 ], [ %.pn58, %399 ], [ %lpad.loopexit.split-lp259, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.04.1 = phi i8 [ %.sroa.04.2, %302 ], [ %.sroa.04.2, %399 ], [ %.sroa.04.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn67 = phi { ptr, i32 } [ %.pn58, %399 ], [ %303, %302 ], [ %lpad.loopexit.split-lp259, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.04.1 = phi i8 [ %.sroa.04.2, %399 ], [ %.sroa.04.2, %302 ], [ %.sroa.04.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %137 = trunc nuw i8 %.sroa.04.1 to i1
   br i1 %137, label %.thread, label %.thread240
 
@@ -101617,7 +101617,7 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(pt
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke423, %.invoke, %420, %300, %277, %270
-  %.sroa.04.0.ph.ph = phi i8 [ %.sroa.04.2, %300 ], [ %.sroa.04.2, %420 ], [ 1, %.invoke ], [ 1, %270 ], [ 0, %277 ], [ 1, %.invoke423 ]
+  %.sroa.04.0.ph.ph = phi i8 [ %.sroa.04.2, %300 ], [ %.sroa.04.2, %420 ], [ 0, %277 ], [ 1, %270 ], [ 1, %.invoke ], [ 1, %.invoke423 ]
   %lpad.loopexit.split-lp259 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -101708,7 +101708,7 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(pt
           to label %162 unwind label %160
 
 .body:                                            ; preds = %184, %182, %160, %167, %164
-  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %lpad.phi264, %167 ], [ %161, %160 ], [ %183, %182 ], [ %183, %184 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi264, %167 ], [ %165, %164 ], [ %161, %160 ], [ %183, %182 ], [ %183, %184 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54) #15
           to label %220 unwind label %425
 
@@ -102224,7 +102224,7 @@ _ZN4fish3ast9Populator9try_parse17h7efec618d7aa3089E.exit.thread: ; preds = %.no
           to label %310 unwind label %308
 
 .body111:                                         ; preds = %353, %308, %335, %312
-  %.pn56 = phi { ptr, i32 } [ %.pn53.pn, %312 ], [ %336, %335 ], [ %309, %308 ], [ %356, %353 ]
+  %.pn56 = phi { ptr, i32 } [ %336, %335 ], [ %.pn53.pn, %312 ], [ %309, %308 ], [ %356, %353 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #15
           to label %399 unwind label %425
 
@@ -102692,7 +102692,7 @@ _ZN4fish3ast9Populator9try_parse17h7efec618d7aa3089E.exit.thread: ; preds = %.no
           to label %462 unwind label %460
 
 .body142:                                         ; preds = %496, %460, %479, %464
-  %.pn63 = phi { ptr, i32 } [ %.pn60.pn, %464 ], [ %lpad.phi257, %479 ], [ %461, %460 ], [ %499, %496 ]
+  %.pn63 = phi { ptr, i32 } [ %lpad.phi257, %479 ], [ %.pn60.pn, %464 ], [ %461, %460 ], [ %499, %496 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67) #15
           to label %538 unwind label %425
 
@@ -103028,7 +103028,7 @@ _ZN4fish3ast9Populator9try_parse17h7efec618d7aa3089E.exit.thread: ; preds = %.no
   br label %450
 
 .thread240:                                       ; preds = %430, %427, %578, %666, %.thread, %.loopexit.split-lp
-  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %666 ], [ %579, %578 ], [ %.pn67238, %.thread ], [ %.pn67, %.loopexit.split-lp ], [ %428, %430 ], [ %428, %427 ]
+  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %666 ], [ %579, %578 ], [ %.pn67238, %.thread ], [ %.pn67, %.loopexit.split-lp ], [ %428, %427 ], [ %428, %430 ]
   resume { ptr, i32 } %.pn73.pn
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %156, %220, %263, %250, %456, %538, %.loopexit.split-lp
@@ -103121,7 +103121,7 @@ _ZN4fish3ast9Populator9try_parse17h7efec618d7aa3089E.exit.thread: ; preds = %.no
           to label %586 unwind label %584
 
 .body172:                                         ; preds = %620, %584, %602, %588
-  %.pn71 = phi { ptr, i32 } [ %.pn69, %588 ], [ %603, %602 ], [ %585, %584 ], [ %623, %620 ]
+  %.pn71 = phi { ptr, i32 } [ %603, %602 ], [ %.pn69, %588 ], [ %585, %584 ], [ %623, %620 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %84) #15
           to label %666 unwind label %425
 
@@ -103684,8 +103684,8 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
           to label %155 unwind label %.loopexit.split-lp.loopexit
 
 .body201:                                         ; preds = %.loopexit.split-lp.loopexit.split-lp, %404, %501
-  %.pn67 = phi { ptr, i32 } [ %405, %404 ], [ %.pn58, %501 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %404 ], [ %.sroa.05.2, %501 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn67 = phi { ptr, i32 } [ %.pn58, %501 ], [ %405, %404 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %501 ], [ %.sroa.05.2, %404 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %154 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %154, label %.thread, label %.thread268
 
@@ -103700,7 +103700,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke459, %.invoke, %522, %402, %363, %356
-  %.sroa.05.0.ph.ph = phi i8 [ 1, %.invoke459 ], [ %.sroa.05.2, %402 ], [ %.sroa.05.2, %522 ], [ 1, %356 ], [ 1, %.invoke ], [ 0, %363 ]
+  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %402 ], [ %.sroa.05.2, %522 ], [ 0, %363 ], [ 1, %356 ], [ 1, %.invoke ], [ 1, %.invoke459 ]
   %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
           cleanup
   br label %.body201
@@ -103791,7 +103791,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
           to label %179 unwind label %177
 
 .body:                                            ; preds = %201, %199, %177, %184, %181
-  %.pn = phi { ptr, i32 } [ %182, %181 ], [ %lpad.phi293, %184 ], [ %178, %177 ], [ %200, %199 ], [ %200, %201 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi293, %184 ], [ %182, %181 ], [ %178, %177 ], [ %200, %199 ], [ %200, %201 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #15
           to label %237 unwind label %351
 
@@ -104755,7 +104755,7 @@ _ZN4fish3ast9Populator9try_parse17hc42c18fba864ff9aE.exit: ; preds = %302, %321,
           to label %412 unwind label %410
 
 .body115:                                         ; preds = %455, %410, %437, %414
-  %.pn56 = phi { ptr, i32 } [ %.pn53.pn, %414 ], [ %438, %437 ], [ %411, %410 ], [ %458, %455 ]
+  %.pn56 = phi { ptr, i32 } [ %438, %437 ], [ %.pn53.pn, %414 ], [ %411, %410 ], [ %458, %455 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47) #15
           to label %501 unwind label %351
 
@@ -105208,7 +105208,7 @@ _ZN4fish3ast9Populator9try_parse17hc42c18fba864ff9aE.exit: ; preds = %302, %321,
           to label %558 unwind label %556
 
 .body145:                                         ; preds = %592, %556, %575, %560
-  %.pn63 = phi { ptr, i32 } [ %.pn60.pn, %560 ], [ %lpad.phi286, %575 ], [ %557, %556 ], [ %595, %592 ]
+  %.pn63 = phi { ptr, i32 } [ %lpad.phi286, %575 ], [ %.pn60.pn, %560 ], [ %557, %556 ], [ %595, %592 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77) #15
           to label %634 unwind label %351
 
@@ -105547,8 +105547,8 @@ _ZN4fish3ast9Populator9try_parse17hc42c18fba864ff9aE.exit: ; preds = %302, %321,
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %757 ], [ %670, %669 ], [ %.pn67266, %.thread ], [ %.pn67, %.body201 ], [ %381, %.body.i ], [ %528, %527 ]
   resume { ptr, i32 } %.pn73.pn
 
-.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %327, %263, %341, %349, %237, %173, %552, %634, %.body201
-  %.pn67266 = phi { ptr, i32 } [ %.pn67, %.body201 ], [ %.pn65, %634 ], [ %350, %349 ], [ %.pn49, %237 ], [ %174, %173 ], [ %553, %552 ], [ %342, %341 ], [ %328, %327 ], [ %264, %263 ], [ %lpad.loopexit287, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %327, %263, %341, %349, %173, %237, %552, %634, %.body201
+  %.pn67266 = phi { ptr, i32 } [ %.pn67, %.body201 ], [ %350, %349 ], [ %174, %173 ], [ %.pn49, %237 ], [ %553, %552 ], [ %.pn65, %634 ], [ %342, %341 ], [ %328, %327 ], [ %264, %263 ], [ %lpad.loopexit287, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$fish..ast..JobConjunctionContinuation$GT$$GT$17h0022d3108d5f410aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85) #15
           to label %.thread268 unwind label %351
 
@@ -105623,7 +105623,7 @@ _ZN4fish3ast9Populator9try_parse17hc42c18fba864ff9aE.exit: ; preds = %302, %321,
           to label %677 unwind label %675
 
 .body175:                                         ; preds = %711, %675, %693, %679
-  %.pn71 = phi { ptr, i32 } [ %.pn69, %679 ], [ %694, %693 ], [ %676, %675 ], [ %714, %711 ]
+  %.pn71 = phi { ptr, i32 } [ %694, %693 ], [ %.pn69, %679 ], [ %676, %675 ], [ %714, %711 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %94) #15
           to label %757 unwind label %351
 
@@ -106195,8 +106195,8 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
           to label %154 unwind label %.loopexit.split-lp.loopexit
 
 .body202:                                         ; preds = %.loopexit.split-lp.loopexit.split-lp, %404, %501
-  %.pn67 = phi { ptr, i32 } [ %405, %404 ], [ %.pn58, %501 ], [ %lpad.loopexit.split-lp289, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %404 ], [ %.sroa.05.2, %501 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn67 = phi { ptr, i32 } [ %.pn58, %501 ], [ %405, %404 ], [ %lpad.loopexit.split-lp289, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.05.1 = phi i8 [ %.sroa.05.2, %501 ], [ %.sroa.05.2, %404 ], [ %.sroa.05.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %153 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %153, label %.thread, label %.thread269
 
@@ -106211,7 +106211,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke460, %.invoke, %522, %402, %363, %356
-  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %402 ], [ %.sroa.05.2, %522 ], [ 1, %356 ], [ 1, %.invoke ], [ 0, %363 ], [ 1, %.invoke460 ]
+  %.sroa.05.0.ph.ph = phi i8 [ %.sroa.05.2, %402 ], [ %.sroa.05.2, %522 ], [ 0, %363 ], [ 1, %356 ], [ 1, %.invoke ], [ 1, %.invoke460 ]
   %lpad.loopexit.split-lp289 = landingpad { ptr, i32 }
           cleanup
   br label %.body202
@@ -106302,7 +106302,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
           to label %178 unwind label %176
 
 .body:                                            ; preds = %200, %198, %176, %183, %180
-  %.pn = phi { ptr, i32 } [ %181, %180 ], [ %lpad.phi294, %183 ], [ %177, %176 ], [ %199, %198 ], [ %199, %200 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi294, %183 ], [ %181, %180 ], [ %177, %176 ], [ %199, %198 ], [ %199, %200 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #15
           to label %236 unwind label %351
 
@@ -107279,7 +107279,7 @@ _ZN4fish3ast9Populator9try_parse17h4baddb568e5cff9fE.exit: ; preds = %302, %321,
           to label %412 unwind label %410
 
 .body115:                                         ; preds = %455, %410, %437, %414
-  %.pn56 = phi { ptr, i32 } [ %.pn53.pn, %414 ], [ %438, %437 ], [ %411, %410 ], [ %458, %455 ]
+  %.pn56 = phi { ptr, i32 } [ %438, %437 ], [ %.pn53.pn, %414 ], [ %411, %410 ], [ %458, %455 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47) #15
           to label %501 unwind label %351
 
@@ -107732,7 +107732,7 @@ _ZN4fish3ast9Populator9try_parse17h4baddb568e5cff9fE.exit: ; preds = %302, %321,
           to label %558 unwind label %556
 
 .body145:                                         ; preds = %592, %556, %575, %560
-  %.pn63 = phi { ptr, i32 } [ %.pn60.pn, %560 ], [ %lpad.phi287, %575 ], [ %557, %556 ], [ %595, %592 ]
+  %.pn63 = phi { ptr, i32 } [ %lpad.phi287, %575 ], [ %.pn60.pn, %560 ], [ %557, %556 ], [ %595, %592 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77) #15
           to label %634 unwind label %351
 
@@ -108071,8 +108071,8 @@ _ZN4fish3ast9Populator9try_parse17h4baddb568e5cff9fE.exit: ; preds = %302, %321,
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %757 ], [ %670, %669 ], [ %.pn67267, %.thread ], [ %.pn67, %.body202 ], [ %381, %.body.i ], [ %528, %527 ]
   resume { ptr, i32 } %.pn73.pn
 
-.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %327, %263, %341, %349, %236, %172, %552, %634, %.body202
-  %.pn67267 = phi { ptr, i32 } [ %.pn67, %.body202 ], [ %.pn65, %634 ], [ %350, %349 ], [ %.pn49, %236 ], [ %173, %172 ], [ %553, %552 ], [ %342, %341 ], [ %328, %327 ], [ %264, %263 ], [ %lpad.loopexit288, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+.thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %327, %263, %341, %349, %172, %236, %552, %634, %.body202
+  %.pn67267 = phi { ptr, i32 } [ %.pn67, %.body202 ], [ %350, %349 ], [ %173, %172 ], [ %.pn49, %236 ], [ %553, %552 ], [ %.pn65, %634 ], [ %342, %341 ], [ %328, %327 ], [ %264, %263 ], [ %lpad.loopexit288, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$fish..ast..ElseifClause$GT$$GT$17hbc313291ba9323fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85) #15
           to label %.thread269 unwind label %351
 
@@ -108147,7 +108147,7 @@ _ZN4fish3ast9Populator9try_parse17h4baddb568e5cff9fE.exit: ; preds = %302, %321,
           to label %677 unwind label %675
 
 .body175:                                         ; preds = %711, %675, %693, %679
-  %.pn71 = phi { ptr, i32 } [ %.pn69, %679 ], [ %694, %693 ], [ %676, %675 ], [ %714, %711 ]
+  %.pn71 = phi { ptr, i32 } [ %694, %693 ], [ %.pn69, %679 ], [ %676, %675 ], [ %714, %711 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %94) #15
           to label %757 unwind label %351
 
@@ -113674,7 +113674,7 @@ define internal fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..
   unreachable
 
 .body.i:                                          ; preds = %172, %243, %154
-  %.pn10.i = phi { ptr, i32 } [ %150, %243 ], [ %155, %154 ], [ %175, %172 ]
+  %.pn10.i = phi { ptr, i32 } [ %155, %154 ], [ %150, %243 ], [ %175, %172 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %110) #15
           to label %137 unwind label %241
 
@@ -113880,7 +113880,7 @@ define internal fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..
           to label %.body.i unwind label %241
 
 common.resume:                                    ; preds = %281, %476, %485, %486, %489, %561, %733, %742, %743, %746, %753, %947, %956, %957, %960, %131, %219
-  %common.resume.op = phi { ptr, i32 } [ %132, %131 ], [ %.pn14.i, %219 ], [ %734, %733 ], [ %.pn171.pn.ph.i, %486 ], [ %.pn192.i, %561 ], [ %948, %947 ], [ %.pn203.pn.ph.i, %743 ], [ %.pn178.i, %753 ], [ %477, %476 ], [ %.pn.i6, %281 ], [ %.pn171368.i, %485 ], [ %.pn171.pn.ph.i, %489 ], [ %.pn203392.i, %742 ], [ %.pn203.pn.ph.i, %746 ], [ %.pn189404.i, %956 ], [ %.pn189.pn.ph.i, %960 ], [ %.pn189.pn.ph.i, %957 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn14.i, %219 ], [ %132, %131 ], [ %.pn192.i, %561 ], [ %.pn178.i, %753 ], [ %.pn.i6, %281 ], [ %.pn171368.i, %485 ], [ %477, %476 ], [ %.pn171.pn.ph.i, %489 ], [ %.pn171.pn.ph.i, %486 ], [ %.pn203392.i, %742 ], [ %734, %733 ], [ %.pn203.pn.ph.i, %746 ], [ %.pn203.pn.ph.i, %743 ], [ %.pn189404.i, %956 ], [ %948, %947 ], [ %.pn189.pn.ph.i, %960 ], [ %.pn189.pn.ph.i, %957 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hbcf9d3a3b42ae5bcE.exit": ; preds = %2, %240
@@ -114161,7 +114161,7 @@ common.resume:                                    ; preds = %281, %476, %485, %4
           to label %333 unwind label %331, !noalias !11301
 
 .body.i10:                                        ; preds = %356, %354, %338, %335, %331
-  %.pn164.i = phi { ptr, i32 } [ %336, %335 ], [ %339, %338 ], [ %332, %331 ], [ %355, %354 ], [ %355, %356 ]
+  %.pn164.i = phi { ptr, i32 } [ %339, %338 ], [ %336, %335 ], [ %332, %331 ], [ %355, %354 ], [ %355, %356 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91) #15
           to label %396 unwind label %310, !noalias !11301
 
@@ -114751,13 +114751,13 @@ common.resume:                                    ; preds = %281, %476, %485, %4
   unreachable
 
 534:                                              ; preds = %524, %521, %515, %512, %509, %506
-  %.sink463.i = phi ptr [ %522, %521 ], [ %516, %515 ], [ %507, %506 ], [ %510, %509 ], [ %513, %512 ], [ %525, %524 ]
-  %.sroa.13.0.ph.i = phi i64 [ 12, %521 ], [ 5, %515 ], [ 8, %506 ], [ 10, %509 ], [ 19, %512 ], [ 16, %524 ]
-  %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %521 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %515 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %506 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %509 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %512 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %524 ]
-  %.sroa.597.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 8
-  %.sroa.496.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 4
-  %.sroa.020.0.ph.i = load i32, ptr %.sroa.496.0..sroa_idx.i, align 4, !noalias !11301
-  %.sroa.9.0.ph.i = load i32, ptr %.sroa.597.0..sroa_idx.i, align 4, !noalias !11301
+  %.sink463.i = phi ptr [ %507, %506 ], [ %510, %509 ], [ %513, %512 ], [ %516, %515 ], [ %522, %521 ], [ %525, %524 ]
+  %.sroa.13.0.ph.i = phi i64 [ 8, %506 ], [ 10, %509 ], [ 19, %512 ], [ 5, %515 ], [ 12, %521 ], [ 16, %524 ]
+  %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %506 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %509 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %512 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %515 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %521 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %524 ]
+  %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 8
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 4
+  %.sroa.020.0.ph.i = load i32, ptr %.sroa.461.0..sroa_idx.i, align 4, !noalias !11301
+  %.sroa.9.0.ph.i = load i32, ptr %.sroa.562.0..sroa_idx.i, align 4, !noalias !11301
   call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !11299
   %535 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, i64 noundef 0), !noalias !11301
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 9
@@ -114970,7 +114970,7 @@ common.resume:                                    ; preds = %281, %476, %485, %4
           to label %607 unwind label %605, !noalias !11301
 
 .body255.i:                                       ; preds = %630, %628, %612, %609, %605
-  %.pn194.i = phi { ptr, i32 } [ %610, %609 ], [ %613, %612 ], [ %606, %605 ], [ %629, %628 ], [ %629, %630 ]
+  %.pn194.i = phi { ptr, i32 } [ %613, %612 ], [ %610, %609 ], [ %606, %605 ], [ %629, %628 ], [ %629, %630 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #15
           to label %670 unwind label %310, !noalias !11301
 
@@ -115573,7 +115573,7 @@ common.resume:                                    ; preds = %281, %476, %485, %4
   unreachable
 
 .body296.i:                                       ; preds = %789, %791, %773, %770
-  %.pn174.i = phi { ptr, i32 } [ %771, %770 ], [ %774, %773 ], [ %790, %791 ], [ %790, %789 ]
+  %.pn174.i = phi { ptr, i32 } [ %774, %773 ], [ %771, %770 ], [ %790, %791 ], [ %790, %789 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %763 unwind label %310, !noalias !11301
 
@@ -115675,7 +115675,7 @@ common.resume:                                    ; preds = %281, %476, %485, %4
           to label %821 unwind label %819, !noalias !11301
 
 .body304.i:                                       ; preds = %844, %842, %826, %823, %819
-  %.pn180.i = phi { ptr, i32 } [ %824, %823 ], [ %827, %826 ], [ %820, %819 ], [ %843, %842 ], [ %843, %844 ]
+  %.pn180.i = phi { ptr, i32 } [ %827, %826 ], [ %824, %823 ], [ %820, %819 ], [ %843, %842 ], [ %843, %844 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #15
           to label %884 unwind label %310, !noalias !11301
 
@@ -117089,7 +117089,7 @@ define internal fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fis
   unreachable
 
 .body.i:                                          ; preds = %172, %243, %154
-  %.pn10.i = phi { ptr, i32 } [ %150, %243 ], [ %155, %154 ], [ %175, %172 ]
+  %.pn10.i = phi { ptr, i32 } [ %155, %154 ], [ %150, %243 ], [ %175, %172 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %110) #15
           to label %137 unwind label %241
 
@@ -117295,7 +117295,7 @@ define internal fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fis
           to label %.body.i unwind label %241
 
 common.resume:                                    ; preds = %367, %562, %571, %572, %575, %647, %819, %828, %829, %832, %839, %1033, %1042, %1043, %1046, %131, %219
-  %common.resume.op = phi { ptr, i32 } [ %132, %131 ], [ %.pn14.i, %219 ], [ %820, %819 ], [ %.pn171.pn.ph.i, %572 ], [ %.pn192.i, %647 ], [ %1034, %1033 ], [ %.pn203.pn.ph.i, %829 ], [ %.pn178.i, %839 ], [ %563, %562 ], [ %.pn.i5, %367 ], [ %.pn171368.i, %571 ], [ %.pn171.pn.ph.i, %575 ], [ %.pn203392.i, %828 ], [ %.pn203.pn.ph.i, %832 ], [ %.pn189404.i, %1042 ], [ %.pn189.pn.ph.i, %1046 ], [ %.pn189.pn.ph.i, %1043 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn14.i, %219 ], [ %132, %131 ], [ %.pn192.i, %647 ], [ %.pn178.i, %839 ], [ %.pn.i5, %367 ], [ %.pn171368.i, %571 ], [ %563, %562 ], [ %.pn171.pn.ph.i, %575 ], [ %.pn171.pn.ph.i, %572 ], [ %.pn203392.i, %828 ], [ %820, %819 ], [ %.pn203.pn.ph.i, %832 ], [ %.pn203.pn.ph.i, %829 ], [ %.pn189404.i, %1042 ], [ %1034, %1033 ], [ %.pn189.pn.ph.i, %1046 ], [ %.pn189.pn.ph.i, %1043 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h9a78fdae48f0f6daE.exit": ; preds = %2, %240
@@ -117938,7 +117938,7 @@ default.unreachable:                              ; preds = %1050, %248
           to label %419 unwind label %417, !noalias !11736
 
 .body.i9:                                         ; preds = %442, %440, %424, %421, %417
-  %.pn164.i = phi { ptr, i32 } [ %422, %421 ], [ %425, %424 ], [ %418, %417 ], [ %441, %440 ], [ %441, %442 ]
+  %.pn164.i = phi { ptr, i32 } [ %425, %424 ], [ %422, %421 ], [ %418, %417 ], [ %441, %440 ], [ %441, %442 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91) #15
           to label %482 unwind label %396, !noalias !11736
 
@@ -118528,13 +118528,13 @@ default.unreachable:                              ; preds = %1050, %248
   unreachable
 
 620:                                              ; preds = %610, %607, %601, %598, %595, %592
-  %.sink463.i = phi ptr [ %608, %607 ], [ %602, %601 ], [ %593, %592 ], [ %596, %595 ], [ %599, %598 ], [ %611, %610 ]
-  %.sroa.13.0.ph.i = phi i64 [ 12, %607 ], [ 5, %601 ], [ 8, %592 ], [ 10, %595 ], [ 19, %598 ], [ 16, %610 ]
-  %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %607 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %601 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %592 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %595 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %598 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %610 ]
-  %.sroa.597.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 8
-  %.sroa.496.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 4
-  %.sroa.020.0.ph.i = load i32, ptr %.sroa.496.0..sroa_idx.i, align 4, !noalias !11736
-  %.sroa.9.0.ph.i = load i32, ptr %.sroa.597.0..sroa_idx.i, align 4, !noalias !11736
+  %.sink463.i = phi ptr [ %593, %592 ], [ %596, %595 ], [ %599, %598 ], [ %602, %601 ], [ %608, %607 ], [ %611, %610 ]
+  %.sroa.13.0.ph.i = phi i64 [ 8, %592 ], [ 10, %595 ], [ 19, %598 ], [ 5, %601 ], [ 12, %607 ], [ 16, %610 ]
+  %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %592 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %595 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %598 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %601 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %607 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %610 ]
+  %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 8
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 4
+  %.sroa.020.0.ph.i = load i32, ptr %.sroa.461.0..sroa_idx.i, align 4, !noalias !11736
+  %.sroa.9.0.ph.i = load i32, ptr %.sroa.562.0..sroa_idx.i, align 4, !noalias !11736
   call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !11734
   %621 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, i64 noundef 0), !noalias !11736
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 9
@@ -118747,7 +118747,7 @@ default.unreachable:                              ; preds = %1050, %248
           to label %693 unwind label %691, !noalias !11736
 
 .body255.i:                                       ; preds = %716, %714, %698, %695, %691
-  %.pn194.i = phi { ptr, i32 } [ %696, %695 ], [ %699, %698 ], [ %692, %691 ], [ %715, %714 ], [ %715, %716 ]
+  %.pn194.i = phi { ptr, i32 } [ %699, %698 ], [ %696, %695 ], [ %692, %691 ], [ %715, %714 ], [ %715, %716 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #15
           to label %756 unwind label %396, !noalias !11736
 
@@ -119350,7 +119350,7 @@ default.unreachable:                              ; preds = %1050, %248
   unreachable
 
 .body296.i:                                       ; preds = %875, %877, %859, %856
-  %.pn174.i = phi { ptr, i32 } [ %857, %856 ], [ %860, %859 ], [ %876, %877 ], [ %876, %875 ]
+  %.pn174.i = phi { ptr, i32 } [ %860, %859 ], [ %857, %856 ], [ %876, %877 ], [ %876, %875 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
           to label %849 unwind label %396, !noalias !11736
 
@@ -119452,7 +119452,7 @@ default.unreachable:                              ; preds = %1050, %248
           to label %907 unwind label %905, !noalias !11736
 
 .body304.i:                                       ; preds = %930, %928, %912, %909, %905
-  %.pn180.i = phi { ptr, i32 } [ %910, %909 ], [ %913, %912 ], [ %906, %905 ], [ %929, %928 ], [ %929, %930 ]
+  %.pn180.i = phi { ptr, i32 } [ %913, %912 ], [ %910, %909 ], [ %906, %905 ], [ %929, %928 ], [ %929, %930 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #15
           to label %970 unwind label %396, !noalias !11736
 
@@ -120407,7 +120407,7 @@ define internal fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..as
   unreachable
 
 .body.i:                                          ; preds = %88, %159, %70
-  %.pn10.i = phi { ptr, i32 } [ %66, %159 ], [ %71, %70 ], [ %91, %88 ]
+  %.pn10.i = phi { ptr, i32 } [ %71, %70 ], [ %66, %159 ], [ %91, %88 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #15
           to label %53 unwind label %157
 
@@ -121533,7 +121533,7 @@ define internal fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fis
   unreachable
 
 .body.i:                                          ; preds = %87, %158, %69
-  %.pn10.i = phi { ptr, i32 } [ %65, %158 ], [ %70, %69 ], [ %90, %87 ]
+  %.pn10.i = phi { ptr, i32 } [ %70, %69 ], [ %65, %158 ], [ %90, %87 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #15
           to label %52 unwind label %156
 
@@ -122465,7 +122465,7 @@ define internal fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fis
   unreachable
 
 .body.i:                                          ; preds = %85, %156, %67
-  %.pn10.i = phi { ptr, i32 } [ %63, %156 ], [ %68, %67 ], [ %88, %85 ]
+  %.pn10.i = phi { ptr, i32 } [ %68, %67 ], [ %63, %156 ], [ %88, %85 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #15
           to label %50 unwind label %154
 
@@ -123320,7 +123320,7 @@ define internal fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fis
   unreachable
 
 .body.i:                                          ; preds = %86, %157, %68
-  %.pn10.i = phi { ptr, i32 } [ %64, %157 ], [ %69, %68 ], [ %89, %86 ]
+  %.pn10.i = phi { ptr, i32 } [ %69, %68 ], [ %64, %157 ], [ %89, %86 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #15
           to label %51 unwind label %155
 
@@ -124380,7 +124380,7 @@ define internal fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast
   unreachable
 
 .body.i:                                          ; preds = %85, %156, %67
-  %.pn10.i = phi { ptr, i32 } [ %63, %156 ], [ %68, %67 ], [ %88, %85 ]
+  %.pn10.i = phi { ptr, i32 } [ %68, %67 ], [ %63, %156 ], [ %88, %85 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #15
           to label %50 unwind label %154
 
@@ -125345,7 +125345,7 @@ define internal fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..
   unreachable
 
 .body.i:                                          ; preds = %89, %160, %71
-  %.pn10.i = phi { ptr, i32 } [ %67, %160 ], [ %72, %71 ], [ %92, %89 ]
+  %.pn10.i = phi { ptr, i32 } [ %72, %71 ], [ %67, %160 ], [ %92, %89 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #15
           to label %54 unwind label %158
 
@@ -125551,7 +125551,7 @@ define internal fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..
           to label %.body.i unwind label %158
 
 common.resume:                                    ; preds = %306, %48, %136, %313
-  %common.resume.op = phi { ptr, i32 } [ %314, %313 ], [ %49, %48 ], [ %.pn14.i, %136 ], [ %307, %306 ]
+  %common.resume.op = phi { ptr, i32 } [ %314, %313 ], [ %.pn14.i, %136 ], [ %49, %48 ], [ %307, %306 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h328cafc065b30ff6E.exit": ; preds = %2, %157
@@ -126576,7 +126576,7 @@ define internal fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast
   unreachable
 
 .body.i:                                          ; preds = %83, %154, %65
-  %.pn10.i = phi { ptr, i32 } [ %61, %154 ], [ %66, %65 ], [ %86, %83 ]
+  %.pn10.i = phi { ptr, i32 } [ %66, %65 ], [ %61, %154 ], [ %86, %83 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #15
           to label %48 unwind label %152
 
@@ -127437,7 +127437,7 @@ define internal fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fi
   unreachable
 
 .body.i:                                          ; preds = %84, %155, %66
-  %.pn10.i = phi { ptr, i32 } [ %62, %155 ], [ %67, %66 ], [ %87, %84 ]
+  %.pn10.i = phi { ptr, i32 } [ %67, %66 ], [ %62, %155 ], [ %87, %84 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #15
           to label %49 unwind label %153
 
@@ -128552,7 +128552,7 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish.
   unreachable
 
 .body.i:                                          ; preds = %82, %153, %64
-  %.pn10.i = phi { ptr, i32 } [ %60, %153 ], [ %65, %64 ], [ %85, %82 ]
+  %.pn10.i = phi { ptr, i32 } [ %65, %64 ], [ %60, %153 ], [ %85, %82 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #15
           to label %47 unwind label %151
 
@@ -129444,7 +129444,7 @@ define hidden void @"_ZN69_$LT$fish..ast..JobContinuation$u20$as$u20$fish..ast..
   unreachable
 
 .body.i:                                          ; preds = %163, %234, %145
-  %.pn10.i = phi { ptr, i32 } [ %141, %234 ], [ %146, %145 ], [ %166, %163 ]
+  %.pn10.i = phi { ptr, i32 } [ %146, %145 ], [ %141, %234 ], [ %166, %163 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %101) #15
           to label %128 unwind label %232
 
@@ -129650,7 +129650,7 @@ define hidden void @"_ZN69_$LT$fish..ast..JobContinuation$u20$as$u20$fish..ast..
           to label %.body.i unwind label %232
 
 common.resume:                                    ; preds = %336, %531, %540, %541, %544, %616, %788, %797, %798, %801, %808, %1002, %1011, %1012, %1015, %122, %210
-  %common.resume.op = phi { ptr, i32 } [ %123, %122 ], [ %.pn14.i, %210 ], [ %789, %788 ], [ %.pn171.pn.ph.i, %541 ], [ %.pn192.i, %616 ], [ %1003, %1002 ], [ %.pn203.pn.ph.i, %798 ], [ %.pn178.i, %808 ], [ %532, %531 ], [ %.pn.i5, %336 ], [ %.pn171368.i, %540 ], [ %.pn171.pn.ph.i, %544 ], [ %.pn203392.i, %797 ], [ %.pn203.pn.ph.i, %801 ], [ %.pn189404.i, %1011 ], [ %.pn189.pn.ph.i, %1015 ], [ %.pn189.pn.ph.i, %1012 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn14.i, %210 ], [ %123, %122 ], [ %.pn192.i, %616 ], [ %.pn178.i, %808 ], [ %.pn.i5, %336 ], [ %.pn171368.i, %540 ], [ %532, %531 ], [ %.pn171.pn.ph.i, %544 ], [ %.pn171.pn.ph.i, %541 ], [ %.pn203392.i, %797 ], [ %789, %788 ], [ %.pn203.pn.ph.i, %801 ], [ %.pn203.pn.ph.i, %798 ], [ %.pn189404.i, %1011 ], [ %1003, %1002 ], [ %.pn189.pn.ph.i, %1015 ], [ %.pn189.pn.ph.i, %1012 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17had2e72ce47fef75aE.exit": ; preds = %2, %231
@@ -130190,7 +130190,7 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$fish..as
           to label %388 unwind label %386, !noalias !13159
 
 .body.i9:                                         ; preds = %411, %409, %393, %390, %386
-  %.pn164.i = phi { ptr, i32 } [ %391, %390 ], [ %394, %393 ], [ %387, %386 ], [ %410, %409 ], [ %410, %411 ]
+  %.pn164.i = phi { ptr, i32 } [ %394, %393 ], [ %391, %390 ], [ %387, %386 ], [ %410, %409 ], [ %410, %411 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %75) #15
           to label %451 unwind label %365, !noalias !13159
 
@@ -130780,13 +130780,13 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$fish..as
   unreachable
 
 589:                                              ; preds = %579, %576, %570, %567, %564, %561
-  %.sink463.i = phi ptr [ %577, %576 ], [ %571, %570 ], [ %562, %561 ], [ %565, %564 ], [ %568, %567 ], [ %580, %579 ]
-  %.sroa.13.0.ph.i = phi i64 [ 12, %576 ], [ 5, %570 ], [ 8, %561 ], [ 10, %564 ], [ 19, %567 ], [ 16, %579 ]
-  %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %576 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %570 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %561 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %564 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %567 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %579 ]
-  %.sroa.597.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 8
-  %.sroa.496.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 4
-  %.sroa.020.0.ph.i = load i32, ptr %.sroa.496.0..sroa_idx.i, align 4, !noalias !13159
-  %.sroa.9.0.ph.i = load i32, ptr %.sroa.597.0..sroa_idx.i, align 4, !noalias !13159
+  %.sink463.i = phi ptr [ %562, %561 ], [ %565, %564 ], [ %568, %567 ], [ %571, %570 ], [ %577, %576 ], [ %580, %579 ]
+  %.sroa.13.0.ph.i = phi i64 [ 8, %561 ], [ 10, %564 ], [ 19, %567 ], [ 5, %570 ], [ 12, %576 ], [ 16, %579 ]
+  %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %561 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %564 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %567 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %570 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %576 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %579 ]
+  %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 8
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 4
+  %.sroa.020.0.ph.i = load i32, ptr %.sroa.461.0..sroa_idx.i, align 4, !noalias !13159
+  %.sroa.9.0.ph.i = load i32, ptr %.sroa.562.0..sroa_idx.i, align 4, !noalias !13159
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !13163
   %590 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, i64 noundef 0), !noalias !13159
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 9
@@ -130999,7 +130999,7 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$fish..as
           to label %662 unwind label %660, !noalias !13159
 
 .body255.i:                                       ; preds = %685, %683, %667, %664, %660
-  %.pn194.i = phi { ptr, i32 } [ %665, %664 ], [ %668, %667 ], [ %661, %660 ], [ %684, %683 ], [ %684, %685 ]
+  %.pn194.i = phi { ptr, i32 } [ %668, %667 ], [ %665, %664 ], [ %661, %660 ], [ %684, %683 ], [ %684, %685 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56) #15
           to label %725 unwind label %365, !noalias !13159
 
@@ -131602,7 +131602,7 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$fish..as
   unreachable
 
 .body296.i:                                       ; preds = %844, %846, %828, %825
-  %.pn174.i = phi { ptr, i32 } [ %826, %825 ], [ %829, %828 ], [ %845, %846 ], [ %845, %844 ]
+  %.pn174.i = phi { ptr, i32 } [ %829, %828 ], [ %826, %825 ], [ %845, %846 ], [ %845, %844 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #15
           to label %818 unwind label %365, !noalias !13159
 
@@ -131704,7 +131704,7 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$fish..as
           to label %876 unwind label %874, !noalias !13159
 
 .body304.i:                                       ; preds = %899, %897, %881, %878, %874
-  %.pn180.i = phi { ptr, i32 } [ %879, %878 ], [ %882, %881 ], [ %875, %874 ], [ %898, %897 ], [ %898, %899 ]
+  %.pn180.i = phi { ptr, i32 } [ %882, %881 ], [ %879, %878 ], [ %875, %874 ], [ %898, %897 ], [ %898, %899 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #15
           to label %939 unwind label %365, !noalias !13159
 

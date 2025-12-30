@@ -1593,7 +1593,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   br label %269
 
 269:                                              ; preds = %263, %259
-  %.1 = phi i8 [ %spec.select, %263 ], [ 0, %259 ]
+  %.1 = phi i8 [ 0, %259 ], [ %spec.select, %263 ]
   %270 = zext i8 %261 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.337, i32 noundef %270)
   %271 = add nuw i32 %.0243265, 1
@@ -1845,7 +1845,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %54, 
   br label %71
 
 71:                                               ; preds = %.thread67, %34, %70, %19, %15
-  %.055 = phi i32 [ %17, %15 ], [ %21, %19 ], [ %45, %70 ], [ %35, %34 ], [ %27, %.thread67 ]
+  %.055 = phi i32 [ %21, %19 ], [ %17, %15 ], [ %45, %70 ], [ %35, %34 ], [ %27, %.thread67 ]
   %72 = add i32 %.055, %2
   br label %73
 
@@ -2056,9 +2056,9 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %36, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader57, %50, %12
-  %.041 = phi i32 [ %13, %12 ], [ %51, %50 ], [ %22, %.preheader57 ]
-  %.040 = phi i8 [ 0, %12 ], [ 1, %50 ], [ 0, %.preheader57 ]
-  %.0 = phi i32 [ %11, %12 ], [ %11, %50 ], [ %19, %.preheader57 ]
+  %.041 = phi i32 [ %51, %50 ], [ %13, %12 ], [ %22, %.preheader57 ]
+  %.040 = phi i8 [ 1, %50 ], [ 0, %12 ], [ 0, %.preheader57 ]
+  %.0 = phi i32 [ %11, %50 ], [ %11, %12 ], [ %19, %.preheader57 ]
   %.not55 = icmp eq ptr %2, null
   br i1 %.not55, label %53, label %52
 
@@ -2262,8 +2262,8 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   br label %104
 
 104:                                              ; preds = %99, %96
-  %.2.i.us = phi i32 [ %spec.select.i.us, %99 ], [ %93, %96 ]
-  %.1.i.us = phi i1 [ %spec.select74.i.us, %99 ], [ %.060.i115.us, %96 ]
+  %.2.i.us = phi i32 [ %93, %96 ], [ %spec.select.i.us, %99 ]
+  %.1.i.us = phi i1 [ %.060.i115.us, %96 ], [ %spec.select74.i.us, %99 ]
   %or.cond.not.i.us = or i1 %.059.not.i116.us, %.1.i.us
   br i1 %or.cond.not.i.us, label %105, label %.split120.us
 
@@ -2436,7 +2436,7 @@ reassemble_octet_string.exit:                     ; preds = %85, %157
   br label %171
 
 171:                                              ; preds = %165, %167, %168, %169, %170, %163
-  %.083 = phi i32 [ 0, %170 ], [ %10, %163 ], [ 2, %165 ], [ 54, %167 ], [ 6, %169 ], [ 8, %168 ]
+  %.083 = phi i32 [ 0, %170 ], [ 54, %167 ], [ 8, %168 ], [ 6, %169 ], [ %10, %163 ], [ 2, %165 ]
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %173 = load ptr, ptr %172, align 8
   %174 = call fastcc ptr @ber_proto_tree_add_item(ptr noundef %173, ptr noundef %2, i32 noundef %7, ptr noundef %3, i32 noundef %.082, i32 noundef %spec.select, i32 noundef %.083)
@@ -2472,7 +2472,7 @@ ber_check_length.exit:                            ; preds = %.sink.split.i, %176
   br label %187
 
 187:                                              ; preds = %reassemble_octet_string.exit, %183, %ber_check_length.exit, %35, %45, %68
-  %.081 = phi i32 [ %27, %35 ], [ %59, %68 ], [ %27, %45 ], [ %.0.i, %reassemble_octet_string.exit ], [ %.084, %183 ], [ %.084, %ber_check_length.exit ]
+  %.081 = phi i32 [ %59, %68 ], [ %27, %45 ], [ %27, %35 ], [ %.0.i, %reassemble_octet_string.exit ], [ %.084, %183 ], [ %.084, %ber_check_length.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -3367,8 +3367,8 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   unreachable
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.0263.ph.lcssa340 = phi i32 [ %.0263.ph355, %.backedge ], [ %.2257360, %.preheader ], [ %.1264, %.outer ]
-  %.2260.lcssa = phi ptr [ %.2260.be, %.backedge ], [ %.0258359, %.preheader ], [ %277, %.outer ]
+  %.0263.ph.lcssa340 = phi i32 [ %.2257360, %.preheader ], [ %.0263.ph355, %.backedge ], [ %.1264, %.outer ]
+  %.2260.lcssa = phi ptr [ %.0258359, %.preheader ], [ %.2260.be, %.backedge ], [ %277, %.outer ]
   %116 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0272, ptr noundef %3, i32 noundef %.0263.ph.lcssa340, ptr noundef null, ptr noundef null, ptr noundef null)
   %117 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0272, ptr noundef %3, i32 noundef %116, ptr noundef nonnull %18, ptr noundef null)
   %118 = load ptr, ptr %85, align 8
@@ -3667,7 +3667,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   br label %297
 
 297:                                              ; preds = %.outer._crit_edge, %125, %295, %233, %184
-  %.1259 = phi ptr [ %.2260.lcssa, %.outer._crit_edge ], [ %296, %295 ], [ %234, %233 ], [ %185, %184 ], [ %.2260.lcssa, %125 ]
+  %.1259 = phi ptr [ %296, %295 ], [ %234, %233 ], [ %185, %184 ], [ %.2260.lcssa, %125 ], [ %.2260.lcssa, %.outer._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -3706,7 +3706,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   br label %315
 
 315:                                              ; preds = %.thread, %305, %312, %308, %67, %75
-  %.0 = phi i32 [ %.1266, %.thread ], [ %.2267, %67 ], [ %.2267, %75 ], [ %309, %312 ], [ %309, %308 ], [ %.1266, %305 ]
+  %.0 = phi i32 [ %.2267, %75 ], [ %.2267, %67 ], [ %309, %312 ], [ %309, %308 ], [ %.1266, %305 ], [ %.1266, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -4060,10 +4060,10 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   br label %.loopexit
 
 189:                                              ; preds = %123, %127, %.critedge245, %134, %169, %165
-  %.2203261 = phi ptr [ %.2203259, %169 ], [ %.2203259, %165 ], [ %.2203260, %.critedge245 ], [ %.2203260, %134 ], [ %.0201302, %127 ], [ %.0201302, %123 ]
-  %.1205256 = phi i8 [ %.1205257, %169 ], [ %.1205257, %165 ], [ 0, %.critedge245 ], [ 0, %134 ], [ 1, %127 ], [ 1, %123 ]
-  %.2208255 = phi i8 [ %.2208253, %169 ], [ %.2208253, %165 ], [ %.2208254, %.critedge245 ], [ %.2208254, %134 ], [ %.1207300, %127 ], [ %.1207300, %123 ]
-  %.3219 = phi i32 [ %.0216299.sink358, %169 ], [ %.0216299.sink358, %165 ], [ %.0216299, %.critedge245 ], [ %.0216299, %134 ], [ %.0216299, %127 ], [ %.0216299, %123 ]
+  %.2203261 = phi ptr [ %.2203259, %169 ], [ %.2203259, %165 ], [ %.2203260, %134 ], [ %.2203260, %.critedge245 ], [ %.0201302, %127 ], [ %.0201302, %123 ]
+  %.1205256 = phi i8 [ %.1205257, %169 ], [ %.1205257, %165 ], [ 0, %134 ], [ 0, %.critedge245 ], [ 1, %127 ], [ 1, %123 ]
+  %.2208255 = phi i8 [ %.2208253, %169 ], [ %.2208253, %165 ], [ %.2208254, %134 ], [ %.2208254, %.critedge245 ], [ %.1207300, %127 ], [ %.1207300, %123 ]
+  %.3219 = phi i32 [ %.0216299.sink358, %169 ], [ %.0216299.sink358, %165 ], [ %.0216299, %134 ], [ %.0216299, %.critedge245 ], [ %.0216299, %127 ], [ %.0216299, %123 ]
   %190 = getelementptr i8, ptr %.2203261, i64 32
   %191 = add i8 %.2208255, 1
   %192 = getelementptr i8, ptr %.2203261, i64 56
@@ -4099,7 +4099,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   %210 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %209, ptr noundef %3, i32 noundef %.1217, ptr noundef %208, i32 noundef 1)
   br label %211
 
-.thread262:                                       ; preds = %79, %112, %82
+.thread262:                                       ; preds = %112, %82, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %251
 
@@ -4185,7 +4185,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   br label %251
 
 251:                                              ; preds = %.thread262, %241, %248, %244, %33, %41
-  %.0 = phi i32 [ %.1222, %.thread262 ], [ %.0221, %33 ], [ %.0221, %41 ], [ %245, %248 ], [ %245, %244 ], [ %.1222, %241 ]
+  %.0 = phi i32 [ %.0221, %41 ], [ %.0221, %33 ], [ %245, %248 ], [ %245, %244 ], [ %.1222, %241 ], [ %.1222, %.thread262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -4449,9 +4449,9 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   br i1 %123, label %.split151.us, label %187
 
 .split151.us:                                     ; preds = %120, %106, %100, %67, %85, %79
-  %.us-phi = phi i1 [ false, %67 ], [ true, %106 ], [ true, %85 ], [ true, %79 ], [ true, %100 ], [ false, %120 ]
-  %.us-phi152 = phi ptr [ %.0148.us165.us, %67 ], [ %.0148.us178, %106 ], [ %.0148.us.us181.us, %85 ], [ %.0148.us.us181.us, %79 ], [ %.0148.us178, %100 ], [ %.0148, %120 ]
-  %.us-phi153 = phi ptr [ %63, %67 ], [ %96, %106 ], [ %75, %85 ], [ %75, %79 ], [ %96, %100 ], [ %114, %120 ]
+  %.us-phi = phi i1 [ true, %79 ], [ true, %85 ], [ false, %67 ], [ true, %100 ], [ true, %106 ], [ false, %120 ]
+  %.us-phi152 = phi ptr [ %.0148.us.us181.us, %79 ], [ %.0148.us.us181.us, %85 ], [ %.0148.us165.us, %67 ], [ %.0148.us178, %100 ], [ %.0148.us178, %106 ], [ %.0148, %120 ]
+  %.us-phi153 = phi ptr [ %75, %79 ], [ %75, %85 ], [ %63, %67 ], [ %96, %100 ], [ %96, %106 ], [ %114, %120 ]
   %124 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 24
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %125, 4
@@ -4565,7 +4565,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   br i1 %.not217, label %.outer134._crit_edge, label %.thread, !llvm.loop !23
 
 .outer134._crit_edge:                             ; preds = %.outer, %.split.us, %.loopexit.us, %187, %71
-  %.0114.ph.lcssa147 = phi i32 [ %.0114.ph210, %.split.us ], [ %.0114.ph210, %71 ], [ %.0114.ph210, %.loopexit.us ], [ %.0114.ph210, %187 ], [ %.1115, %.outer ]
+  %.0114.ph.lcssa147 = phi i32 [ %.0114.ph210, %71 ], [ %.0114.ph210, %187 ], [ %.0114.ph210, %.loopexit.us ], [ %.0114.ph210, %.split.us ], [ %.1115, %.outer ]
   br i1 %.not, label %192, label %191
 
 191:                                              ; preds = %.outer134._crit_edge
@@ -4573,7 +4573,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   br label %192
 
 192:                                              ; preds = %.outer134._crit_edge, %191, %175, %183, %46, %15
-  %.0110 = phi i32 [ %3, %15 ], [ %39, %46 ], [ %39, %175 ], [ %39, %183 ], [ %.0114.ph.lcssa147, %191 ], [ %.0114.ph.lcssa147, %.outer134._crit_edge ]
+  %.0110 = phi i32 [ %3, %15 ], [ %39, %46 ], [ %39, %183 ], [ %39, %175 ], [ %.0114.ph.lcssa147, %191 ], [ %.0114.ph.lcssa147, %.outer134._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0110
@@ -4836,7 +4836,7 @@ define internal fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext %0, ptr nound
   br label %70
 
 70:                                               ; preds = %65, %66, %20, %31
-  %.0 = phi i32 [ %18, %20 ], [ %18, %31 ], [ %.074, %66 ], [ %.074, %65 ]
+  %.0 = phi i32 [ %18, %31 ], [ %18, %20 ], [ %.074, %66 ], [ %.074, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5003,9 +5003,9 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   br label %53
 
 53:                                               ; preds = %29, %20, %50
-  %54 = phi i32 [ %51, %50 ], [ %25, %29 ], [ %25, %20 ]
-  %.0216 = phi i32 [ %52, %50 ], [ %26, %29 ], [ %26, %20 ]
-  %.0198 = phi i32 [ %5, %50 ], [ %24, %29 ], [ %24, %20 ]
+  %54 = phi i32 [ %51, %50 ], [ %25, %20 ], [ %25, %29 ]
+  %.0216 = phi i32 [ %52, %50 ], [ %26, %20 ], [ %26, %29 ]
+  %.0198 = phi i32 [ %5, %50 ], [ %24, %20 ], [ %24, %29 ]
   %55 = call i32 @tvb_captured_length_remaining(ptr noundef %4, i32 noundef %.0198)
   %56 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.0198)
   %57 = icmp eq i32 %55, %56
@@ -5081,8 +5081,8 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %73, 
   br i1 %85, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %83, %.preheader, %.thread, %53
-  %.0213 = phi i1 [ %.2215.ph, %.thread ], [ false, %53 ], [ true, %.preheader ], [ true, %83 ]
-  %.0208 = phi i32 [ %.2210.ph, %.thread ], [ 0, %53 ], [ 0, %.preheader ], [ %84, %83 ]
+  %.0213 = phi i1 [ false, %53 ], [ %.2215.ph, %.thread ], [ true, %.preheader ], [ true, %83 ]
+  %.0208 = phi i32 [ 0, %53 ], [ %.2210.ph, %.thread ], [ 0, %.preheader ], [ %84, %83 ]
   %86 = icmp sgt i32 %9, 0
   br i1 %86, label %87, label %ber_check_items.exit
 
@@ -5138,7 +5138,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %73, 
   br label %ber_check_items.exit
 
 ber_check_items.exit:                             ; preds = %.sink.split.i, %105, %87, %.loopexit
-  %.0206 = phi ptr [ %3, %.loopexit ], [ null, %87 ], [ %103, %105 ], [ %103, %.sink.split.i ]
+  %.0206 = phi ptr [ null, %87 ], [ %3, %.loopexit ], [ %103, %105 ], [ %103, %.sink.split.i ]
   %110 = icmp slt i32 %.0198, %.0216
   br i1 %110, label %.lr.ph274, label %._crit_edge
 
@@ -5362,7 +5362,7 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   br label %231
 
 231:                                              ; preds = %.thread260, %._crit_edge, %223, %34, %45
-  %.0 = phi i32 [ %.2.ph, %.thread260 ], [ %26, %34 ], [ %26, %45 ], [ %.0216, %223 ], [ %.0216, %._crit_edge ]
+  %.0 = phi i32 [ %26, %45 ], [ %26, %34 ], [ %.0216, %223 ], [ %.0216, %._crit_edge ], [ %.2.ph, %.thread260 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5504,7 +5504,7 @@ define i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext %0, ptr noundef reado
   br label %77
 
 77:                                               ; preds = %61, %66, %47, %51, %23, %34, %75
-  %.0 = phi i32 [ %18, %23 ], [ %76, %75 ], [ %.072, %47 ], [ %18, %34 ], [ %.072, %51 ], [ %.072, %66 ], [ %.072, %61 ]
+  %.0 = phi i32 [ %76, %75 ], [ %18, %34 ], [ %18, %23 ], [ %.072, %51 ], [ %.072, %47 ], [ %.072, %66 ], [ %.072, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5665,9 +5665,9 @@ thread-pre-split:                                 ; preds = %22
   br label %89
 
 89:                                               ; preds = %78, %86, %70
-  %.neg = phi i64 [ 12, %86 ], [ 15, %70 ], [ 15, %78 ]
-  %.0133 = phi ptr [ %88, %86 ], [ %76, %70 ], [ %76, %78 ]
-  %.1 = phi i32 [ 12, %86 ], [ 10, %70 ], [ 10, %78 ]
+  %.neg = phi i64 [ 12, %86 ], [ 15, %78 ], [ 15, %70 ]
+  %.0133 = phi ptr [ %88, %86 ], [ %76, %78 ], [ %76, %70 ]
+  %.1 = phi i32 [ 12, %86 ], [ 10, %78 ], [ 10, %70 ]
   %90 = zext nneg i32 %.1 to i64
   %91 = getelementptr i8, ptr %64, i64 %90
   %92 = load i8, ptr %91, align 1
@@ -5750,8 +5750,8 @@ thread-pre-split:                                 ; preds = %22
   br label %135
 
 .loopexit:                                        ; preds = %65, %100, %97, %93, %82, %108, %56
-  %.0134 = phi ptr [ %62, %56 ], [ %64, %97 ], [ %64, %108 ], [ %64, %82 ], [ %64, %100 ], [ %64, %93 ], [ %64, %65 ]
-  %.0128 = phi ptr [ %57, %56 ], [ @.str.38, %97 ], [ %113, %108 ], [ @.str.35, %82 ], [ @.str.38, %100 ], [ @.str.36, %93 ], [ @.str.32, %65 ]
+  %.0134 = phi ptr [ %62, %56 ], [ %64, %108 ], [ %64, %82 ], [ %64, %93 ], [ %64, %97 ], [ %64, %100 ], [ %64, %65 ]
+  %.0128 = phi ptr [ %57, %56 ], [ %113, %108 ], [ @.str.35, %82 ], [ @.str.36, %93 ], [ @.str.38, %97 ], [ @.str.38, %100 ], [ @.str.32, %65 ]
   %124 = icmp sgt i32 %5, 0
   br i1 %124, label %125, label %129
 
@@ -5857,9 +5857,9 @@ define hidden i32 @dissect_ber_constrained_bitstring(i1 noundef zeroext %0, ptr 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %27, %19, %46
-  %49 = phi i32 [ %47, %46 ], [ %24, %19 ], [ %24, %27 ]
-  %.0157 = phi i32 [ %48, %46 ], [ %25, %19 ], [ %25, %27 ]
-  %.0154 = phi i32 [ %4, %46 ], [ %23, %19 ], [ %23, %27 ]
+  %49 = phi i32 [ %24, %19 ], [ %47, %46 ], [ %24, %27 ]
+  %.0157 = phi i32 [ %25, %19 ], [ %48, %46 ], [ %25, %27 ]
+  %.0154 = phi i32 [ %23, %19 ], [ %4, %46 ], [ %23, %27 ]
   %50 = icmp slt i32 %49, 1
   br i1 %50, label %51, label %57
 
@@ -6062,8 +6062,8 @@ thread-pre-split:                                 ; preds = %27, %19, %46
   br label %.loopexit
 
 .loopexit:                                        ; preds = %142, %.preheader, %145, %93, %89
-  %151 = phi i32 [ %91, %89 ], [ %91, %93 ], [ %117, %145 ], [ %117, %.preheader ], [ %117, %142 ]
-  %.1159 = phi ptr [ null, %89 ], [ %94, %93 ], [ %94, %145 ], [ %94, %.preheader ], [ %94, %142 ]
+  %151 = phi i32 [ %91, %93 ], [ %91, %89 ], [ %117, %145 ], [ %117, %.preheader ], [ %117, %142 ]
+  %.1159 = phi ptr [ %94, %93 ], [ null, %89 ], [ %94, %145 ], [ %94, %.preheader ], [ %94, %142 ]
   %.not179 = icmp eq ptr %11, null
   br i1 %.not179, label %156, label %152
 
@@ -6100,9 +6100,9 @@ thread-pre-split:                                 ; preds = %27, %19, %46
   br label %.thread
 
 .thread:                                          ; preds = %57, %159, %166, %156
-  %171 = phi i32 [ %151, %156 ], [ %151, %159 ], [ %.pre206, %166 ], [ %49, %57 ]
-  %172 = phi i32 [ %63, %156 ], [ %63, %159 ], [ %63, %166 ], [ 0, %57 ]
-  %.0158192 = phi ptr [ %.1159, %156 ], [ %.1159, %159 ], [ %.1159, %166 ], [ null, %57 ]
+  %171 = phi i32 [ %151, %159 ], [ %.pre206, %166 ], [ %151, %156 ], [ %49, %57 ]
+  %172 = phi i32 [ %63, %159 ], [ %63, %166 ], [ %63, %156 ], [ 0, %57 ]
+  %.0158192 = phi ptr [ %.1159, %159 ], [ %.1159, %166 ], [ %.1159, %156 ], [ null, %57 ]
   %173 = shl i32 %171, 3
   %174 = sub i32 %173, %172
   %.not.i182 = icmp ne i32 %5, -1
@@ -6122,7 +6122,7 @@ thread-pre-split:                                 ; preds = %27, %19, %46
   br label %ber_check_length.exit
 
 ber_check_length.exit:                            ; preds = %.sink.split.i184, %176, %.sink.split.i, %76, %31, %41, %51
-  %.0 = phi i32 [ %.0154, %51 ], [ %.0157, %.sink.split.i ], [ %25, %31 ], [ %25, %41 ], [ %.0157, %76 ], [ %.0157, %176 ], [ %.0157, %.sink.split.i184 ]
+  %.0 = phi i32 [ %.0154, %51 ], [ %25, %41 ], [ %25, %31 ], [ %.0157, %76 ], [ %.0157, %.sink.split.i ], [ %.0157, %176 ], [ %.0157, %.sink.split.i184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

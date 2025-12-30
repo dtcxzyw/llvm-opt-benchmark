@@ -826,7 +826,7 @@ define ptr @PyInit_test_callbacks_ext() local_unnamed_addr #0 personality ptr @_
   br label %.body
 
 .body:                                            ; preds = %103, %27
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %104, %103 ]
+  %.pn = phi { ptr, i32 } [ %104, %103 ], [ %28, %27 ]
   %.05 = extractvalue { ptr, i32 } %.pn, 1
   %105 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
   %106 = icmp eq i32 %.05, %105
@@ -1949,7 +1949,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIN8nanobind6objectES1_SaIS1_ENS
   br label %_ZNKSt10_HashtableIN8nanobind6objectES1_SaIS1_ENSt8__detail9_IdentityEN13callback_data5py_eqENS5_7py_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit
 
 _ZNKSt10_HashtableIN8nanobind6objectES1_SaIS1_ENSt8__detail9_IdentityEN13callback_data5py_eqENS5_7py_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit: ; preds = %7, %8, %19, %13
-  %.sroa.06.1 = phi ptr [ %20, %19 ], [ null, %13 ], [ %.sroa.06.0, %8 ], [ null, %7 ]
+  %.sroa.06.1 = phi ptr [ %20, %19 ], [ null, %13 ], [ null, %7 ], [ %.sroa.06.0, %8 ]
   ret ptr %.sroa.06.1
 }
 
@@ -2728,7 +2728,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt10_HashtableIN8nanobind6objectES1_S
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %5, %22
-  %.0 = phi i64 [ 1, %22 ], [ 0, %14 ], [ 0, %5 ]
+  %.0 = phi i64 [ 1, %22 ], [ 0, %5 ], [ 0, %14 ]
   ret i64 %.0
 }
 
@@ -2763,7 +2763,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt10_HashtableIN8nanobind6objectES1_S
   br label %.loopexit, !llvm.loop !133
 
 .loopexit:                                        ; preds = %.preheader, %.preheader.preheader, %..loopexit.loopexit_crit_edge, %2
-  %.012 = phi ptr [ null, %2 ], [ %3, %.preheader.preheader ], [ null, %..loopexit.loopexit_crit_edge ], [ %.01618, %.preheader ]
+  %.012 = phi ptr [ null, %2 ], [ null, %..loopexit.loopexit_crit_edge ], [ %3, %.preheader.preheader ], [ %.01618, %.preheader ]
   ret ptr %.012
 }
 
@@ -3031,7 +3031,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIP8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit65, %.loopexit.loopexit.split.loop.exit67, %72, %._crit_edge, %61, %49
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.032.1, %61 ], [ %spec.select, %72 ], [ %1, %._crit_edge ], [ %.sroa.032.0.lcssa, %49 ], [ %83, %.loopexit.loopexit.split.loop.exit67 ], [ %81, %.loopexit.loopexit.split.loop.exit ], [ %82, %.loopexit.loopexit.split.loop.exit65 ], [ %.sroa.032.051, %13 ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.032.0.lcssa, %49 ], [ %.sroa.032.1, %61 ], [ %1, %._crit_edge ], [ %spec.select, %72 ], [ %81, %.loopexit.loopexit.split.loop.exit ], [ %82, %.loopexit.loopexit.split.loop.exit65 ], [ %83, %.loopexit.loopexit.split.loop.exit67 ], [ %.sroa.032.051, %13 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 

@@ -252,7 +252,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   br i1 %exitcond360.not, label %.loopexit299, label %.lr.ph310, !llvm.loop !32
 
 .loopexit299:                                     ; preds = %105, %84, %.preheader300, %60
-  %.2215 = phi i64 [ 0, %.preheader300 ], [ 0, %60 ], [ %.1214, %84 ], [ %.4, %105 ]
+  %.2215 = phi i64 [ 0, %60 ], [ 0, %.preheader300 ], [ %.1214, %84 ], [ %.4, %105 ]
   %107 = tail call fastcc i32 @triangulate(ptr noundef %19, i64 noundef %.2215)
   %.not241 = icmp eq i32 %107, 0
   br i1 %.not241, label %.preheader298, label %112
@@ -713,8 +713,8 @@ add2dq.exit:                                      ; preds = %249, %254
   br label %329
 
 329:                                              ; preds = %278, %323, %326
-  %.0229 = phi ptr [ %., %278 ], [ %327, %326 ], [ %324, %323 ]
-  %.0228 = phi ptr [ %.289, %278 ], [ %328, %326 ], [ %325, %323 ]
+  %.0229 = phi ptr [ %324, %323 ], [ %327, %326 ], [ %., %278 ]
+  %.0228 = phi ptr [ %325, %323 ], [ %328, %326 ], [ %.289, %278 ]
   %330 = icmp eq i64 %.3224343, %.1222.lcssa.ph
   br i1 %330, label %331, label %344
 
@@ -897,7 +897,7 @@ add2dq.exit278:                                   ; preds = %358, %360
   br label %406
 
 406:                                              ; preds = %growops.exit, %394, %405, %225, %244, %229, %pointintri.exit265._crit_edge.thread, %pointintri.exit._crit_edge.thread, %112, %31
-  %.2 = phi i32 [ -2, %31 ], [ -2, %112 ], [ -1, %pointintri.exit._crit_edge.thread ], [ -1, %pointintri.exit265._crit_edge.thread ], [ -2, %225 ], [ 0, %244 ], [ -2, %growops.exit ], [ 0, %229 ], [ -2, %394 ], [ 0, %405 ]
+  %.2 = phi i32 [ -2, %31 ], [ -2, %112 ], [ -1, %pointintri.exit._crit_edge.thread ], [ -1, %pointintri.exit265._crit_edge.thread ], [ 0, %244 ], [ 0, %229 ], [ -2, %225 ], [ -2, %growops.exit ], [ -2, %394 ], [ 0, %405 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %407
 

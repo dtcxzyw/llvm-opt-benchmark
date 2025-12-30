@@ -71,7 +71,7 @@ define range(i32 0, 2) i32 @OCSP_request_set1_name(ptr noundef captures(none) %0
   br label %12
 
 12:                                               ; preds = %2, %9, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %8 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -417,7 +417,7 @@ define range(i32 0, 2) i32 @OCSP_resp_get1_id(ptr noundef readonly captures(none
   br label %.thread12
 
 .thread12:                                        ; preds = %6, %11, %3, %16
-  %.0 = phi i32 [ 0, %3 ], [ 1, %16 ], [ 0, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %3 ], [ 0, %11 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -678,7 +678,7 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %0, ptr noundef %1, 
   br label %22
 
 22:                                               ; preds = %.sink.split, %15, %17
-  %.0 = phi i32 [ %.1, %15 ], [ %.1, %17 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ %.1, %17 ], [ %.1, %15 ], [ 0, %.sink.split ]
   %23 = icmp eq ptr %1, null
   br i1 %23, label %35, label %24
 

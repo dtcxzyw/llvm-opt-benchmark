@@ -135,7 +135,7 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not62, label %.loopexit, label %.lr.ph82, !llvm.loop !24
 
 .loopexit:                                        ; preds = %25, %45, %10, %.preheader68, %28
-  %.348 = phi ptr [ %30, %.preheader68 ], [ null, %28 ], [ %.049.lcssa94, %45 ], [ null, %10 ], [ %.247, %25 ]
+  %.348 = phi ptr [ null, %28 ], [ %30, %.preheader68 ], [ null, %10 ], [ %.049.lcssa94, %45 ], [ %.247, %25 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.348, ptr %46, align 8, !tbaa !13
   %47 = load i32, ptr %2, align 8, !tbaa !3

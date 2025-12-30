@@ -136,7 +136,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_add(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %46, %11, %27, %55, %31, %15
-  %.024 = phi i32 [ -1, %11 ], [ -1, %27 ], [ 0, %31 ], [ 0, %15 ], [ 0, %55 ], [ 0, %46 ], [ 0, %37 ]
+  %.024 = phi i32 [ -1, %11 ], [ -1, %27 ], [ 0, %31 ], [ 0, %55 ], [ 0, %15 ], [ 0, %46 ], [ 0, %37 ]
   ret i32 %.024
 }
 
@@ -340,7 +340,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   br label %.thread84.thread
 
 .thread84.thread:                                 ; preds = %.thread79, %.preheader89, %.preheader, %97, %82, %16, %.thread84, %112, %12
-  %.0 = phi i32 [ 0, %16 ], [ -1, %12 ], [ 0, %112 ], [ 0, %.thread84 ], [ -1, %82 ], [ -1, %97 ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ 0, %.thread79 ]
+  %.0 = phi i32 [ -1, %12 ], [ 0, %112 ], [ 0, %.thread84 ], [ 0, %16 ], [ -1, %82 ], [ -1, %97 ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ 0, %.thread79 ]
   ret i32 %.0
 }
 
@@ -444,7 +444,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_advance_heap(ptr noundef readonly captures
   br label %45
 
 45:                                               ; preds = %31, %30, %.thread, %12, %.thread29, %16
-  %.0 = phi i32 [ -1, %12 ], [ 0, %.thread29 ], [ 0, %.thread ], [ 0, %16 ], [ 0, %30 ], [ 0, %31 ]
+  %.0 = phi i32 [ -1, %12 ], [ 0, %.thread29 ], [ 0, %16 ], [ 0, %.thread ], [ 0, %30 ], [ 0, %31 ]
   ret i32 %.0
 }
 

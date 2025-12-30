@@ -815,7 +815,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   br label %88
 
 88:                                               ; preds = %86, %83
-  %89 = phi i64 [ %69, %86 ], [ %85, %83 ]
+  %89 = phi i64 [ %85, %83 ], [ %69, %86 ]
   %90 = add nuw nsw i64 %68, 1
   %91 = load i8, ptr %5, align 8
   %92 = zext i8 %91 to i64
@@ -840,7 +840,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   br i1 %101, label %.split, label %.loopexit14, !llvm.loop !17
 
 .loopexit14:                                      ; preds = %.split, %98, %38, %.split.us, %23
-  %102 = phi i64 [ 0, %23 ], [ 0, %38 ], [ 0, %.split.us ], [ %94, %98 ], [ %62, %.split ]
+  %102 = phi i64 [ 0, %23 ], [ 0, %.split.us ], [ 0, %38 ], [ %94, %98 ], [ %62, %.split ]
   br i1 %3, label %.thread, label %103
 
 103:                                              ; preds = %.loopexit14
@@ -1102,7 +1102,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %.loopexit.sink.split, %._crit_edge
-  %248 = phi i64 [ %191, %.loopexit.sink.split ], [ %179, %._crit_edge ], [ %243, %242 ]
+  %248 = phi i64 [ %179, %._crit_edge ], [ %191, %.loopexit.sink.split ], [ %243, %242 ]
   call void @folio_batch_remove_exceptionals(ptr noundef nonnull %5) #18
   %249 = load i8, ptr %5, align 8
   %250 = icmp eq i8 %249, 0
@@ -1871,7 +1871,7 @@ define internal fastcc range(i32 -16, -17) i32 @shmem_get_folio_gfp(ptr noundef 
   br label %.loopexit13
 
 .loopexit13:                                      ; preds = %25, %72, %.loopexit13.loopexit, %.thread8, %.thread, %200, %195, %.thread6, %37, %6
-  %201 = phi i32 [ %35, %37 ], [ 0, %.thread6 ], [ -27, %6 ], [ -2, %72 ], [ -22, %195 ], [ -22, %200 ], [ 0, %.thread ], [ %153, %.thread8 ], [ -22, %25 ], [ %3, %.loopexit13.loopexit ]
+  %201 = phi i32 [ %35, %37 ], [ 0, %.thread6 ], [ -27, %6 ], [ -22, %195 ], [ -22, %200 ], [ 0, %.thread ], [ %153, %.thread8 ], [ -2, %72 ], [ -22, %25 ], [ %3, %.loopexit13.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %201
 }
@@ -6467,8 +6467,8 @@ define internal i32 @shmem_setattr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread15
 
 .thread15:                                        ; preds = %70, %86, %85, %26, %23
-  %89 = phi i8 [ 1, %23 ], [ 1, %26 ], [ %71, %85 ], [ %71, %86 ], [ %71, %70 ]
-  %90 = phi i8 [ 0, %23 ], [ 0, %26 ], [ %71, %85 ], [ %71, %86 ], [ %71, %70 ]
+  %89 = phi i8 [ 1, %26 ], [ 1, %23 ], [ %71, %85 ], [ %71, %86 ], [ %71, %70 ]
+  %90 = phi i8 [ 0, %26 ], [ 0, %23 ], [ %71, %85 ], [ %71, %86 ], [ %71, %70 ]
   %91 = load i32, ptr %2, align 8
   %92 = and i32 %91, 8
   %93 = icmp eq i32 %92, 0
@@ -6615,7 +6615,7 @@ define internal i32 @shmem_setattr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %191
 
 191:                                              ; preds = %30, %39, %62, %189, %174, %164, %127, %17, %3
-  %192 = phi i32 [ %175, %174 ], [ %6, %3 ], [ -1, %17 ], [ %128, %127 ], [ %165, %164 ], [ 0, %189 ], [ %68, %62 ], [ -1, %39 ], [ -1, %30 ]
+  %192 = phi i32 [ %6, %3 ], [ -1, %17 ], [ %128, %127 ], [ %165, %164 ], [ 0, %189 ], [ %175, %174 ], [ %68, %62 ], [ -1, %30 ], [ -1, %39 ]
   ret i32 %192
 }
 
@@ -7053,10 +7053,10 @@ define internal i64 @shmem_file_read_iter(ptr noundef captures(none) %0, ptr nou
   br i1 %116, label %.loopexit, label %20
 
 .loopexit:                                        ; preds = %110, %101, %20, %112, %2, %36, %64, %65, %70
-  %.ph = phi i64 [ %25, %70 ], [ %25, %65 ], [ %25, %64 ], [ %25, %36 ], [ %11, %2 ], [ %21, %20 ], [ %106, %101 ], [ %106, %110 ], [ %106, %112 ]
-  %.ph8 = phi i64 [ %24, %70 ], [ %24, %65 ], [ %24, %64 ], [ %24, %36 ], [ %12, %2 ], [ %24, %20 ], [ %107, %101 ], [ %107, %110 ], [ %107, %112 ]
-  %.ph9 = phi i64 [ 0, %70 ], [ 0, %65 ], [ 0, %64 ], [ %39, %36 ], [ 0, %2 ], [ 0, %20 ], [ 0, %101 ], [ -14, %110 ], [ 0, %112 ]
-  %.ph10 = phi i64 [ %23, %70 ], [ %23, %65 ], [ %23, %64 ], [ %23, %36 ], [ 0, %2 ], [ %23, %20 ], [ %103, %101 ], [ %103, %110 ], [ %103, %112 ]
+  %.ph = phi i64 [ %25, %70 ], [ %25, %65 ], [ %25, %64 ], [ %25, %36 ], [ %11, %2 ], [ %106, %110 ], [ %106, %101 ], [ %21, %20 ], [ %106, %112 ]
+  %.ph8 = phi i64 [ %24, %70 ], [ %24, %65 ], [ %24, %64 ], [ %24, %36 ], [ %12, %2 ], [ %107, %110 ], [ %107, %101 ], [ %24, %20 ], [ %107, %112 ]
+  %.ph9 = phi i64 [ 0, %70 ], [ 0, %65 ], [ 0, %64 ], [ %39, %36 ], [ 0, %2 ], [ -14, %110 ], [ 0, %101 ], [ 0, %20 ], [ 0, %112 ]
+  %.ph10 = phi i64 [ %23, %70 ], [ %23, %65 ], [ %23, %64 ], [ %23, %36 ], [ 0, %2 ], [ %103, %110 ], [ %103, %101 ], [ %23, %20 ], [ %103, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %117 = shl i64 %.ph, 12
   %118 = add nuw nsw i64 %117, %.ph8
@@ -7404,8 +7404,8 @@ define internal i64 @shmem_file_splice_read(ptr noundef %0, ptr noundef captures
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %30, %46, %102, %105, %114, %128, %.loopexit.thread22, %.loopexit
-  %129 = phi i64 [ %31, %.loopexit ], [ %31, %128 ], [ %31, %.loopexit.thread22 ], [ %106, %114 ], [ %106, %105 ], [ %31, %102 ], [ %31, %46 ], [ %31, %30 ]
-  %130 = phi i64 [ %120, %.loopexit ], [ %122, %128 ], [ %122, %.loopexit.thread22 ], [ 0, %114 ], [ 0, %105 ], [ 0, %102 ], [ 0, %46 ], [ 0, %30 ]
+  %129 = phi i64 [ %31, %128 ], [ %31, %.loopexit.thread22 ], [ %31, %.loopexit ], [ %106, %114 ], [ %106, %105 ], [ %31, %102 ], [ %31, %46 ], [ %31, %30 ]
+  %130 = phi i64 [ %122, %128 ], [ %122, %.loopexit.thread22 ], [ %120, %.loopexit ], [ 0, %114 ], [ 0, %105 ], [ 0, %102 ], [ 0, %46 ], [ 0, %30 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %132 = load i32, ptr %131, align 8
   %133 = and i32 %132, 262144
@@ -7719,7 +7719,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @shmem_fallocate(ptr noun
   br label %.thread12
 
 .thread12:                                        ; preds = %71, %67, %58, %167, %164
-  %169 = phi i32 [ %165, %164 ], [ 0, %167 ], [ -28, %71 ], [ -1, %67 ], [ %60, %58 ]
+  %169 = phi i32 [ 0, %167 ], [ %165, %164 ], [ -28, %71 ], [ -1, %67 ], [ %60, %58 ]
   call void @up_write(ptr noundef nonnull %16) #18
   %170 = sext i32 %169 to i64
   br label %171
@@ -8503,7 +8503,7 @@ define internal noundef range(i32 -28, 1) i32 @shmem_initxattrs(ptr noundef %0, 
   br label %.thread14
 
 .thread14:                                        ; preds = %54, %11, %34, %.thread7, %70, %.loopexit
-  %71 = phi i32 [ -12, %70 ], [ -28, %.thread7 ], [ 0, %.loopexit ], [ 0, %11 ], [ 0, %34 ], [ 0, %54 ]
+  %71 = phi i32 [ -12, %70 ], [ 0, %.loopexit ], [ -28, %.thread7 ], [ 0, %34 ], [ 0, %11 ], [ 0, %54 ]
   ret i32 %71
 }
 

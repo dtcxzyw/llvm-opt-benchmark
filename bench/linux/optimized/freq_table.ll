@@ -172,7 +172,7 @@ define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr noundef capture
   br label %28
 
 28:                                               ; preds = %25, %16
-  %29 = phi i32 [ %spec.select, %25 ], [ %17, %16 ]
+  %29 = phi i32 [ %17, %16 ], [ %spec.select, %25 ]
   %30 = getelementptr i8, ptr %18, i64 12
   br label %16, !llvm.loop !9
 
@@ -339,10 +339,10 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   br label %43
 
 43:                                               ; preds = %39, %35, %28, %25, %.split12.us
-  %44 = phi i32 [ %19, %25 ], [ %19, %28 ], [ %19, %39 ], [ %37, %35 ], [ %19, %.split12.us ]
-  %45 = phi i32 [ %20, %25 ], [ %20, %28 ], [ %20, %39 ], [ %38, %35 ], [ %20, %.split12.us ]
-  %46 = phi i32 [ %21, %25 ], [ %21, %28 ], [ %41, %39 ], [ %21, %35 ], [ %21, %.split12.us ]
-  %47 = phi i32 [ %22, %25 ], [ %22, %28 ], [ %42, %39 ], [ %22, %35 ], [ %22, %.split12.us ]
+  %44 = phi i32 [ %19, %25 ], [ %19, %28 ], [ %19, %.split12.us ], [ %19, %39 ], [ %37, %35 ]
+  %45 = phi i32 [ %20, %25 ], [ %20, %28 ], [ %20, %.split12.us ], [ %20, %39 ], [ %38, %35 ]
+  %46 = phi i32 [ %21, %25 ], [ %21, %28 ], [ %21, %.split12.us ], [ %41, %39 ], [ %21, %35 ]
+  %47 = phi i32 [ %22, %25 ], [ %22, %28 ], [ %22, %.split12.us ], [ %42, %39 ], [ %22, %35 ]
   %48 = getelementptr i8, ptr %18, i64 12
   %49 = add i32 %17, 1
   br label %.split12.us, !llvm.loop !10
@@ -392,10 +392,10 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   br label %76
 
 76:                                               ; preds = %72, %68, %61, %58, %.split12.us18
-  %77 = phi i32 [ %52, %58 ], [ %52, %61 ], [ %70, %68 ], [ %52, %.split12.us18 ], [ %52, %72 ]
-  %78 = phi i32 [ %53, %58 ], [ %53, %61 ], [ %71, %68 ], [ %53, %.split12.us18 ], [ %53, %72 ]
-  %79 = phi i32 [ %54, %58 ], [ %54, %61 ], [ %54, %68 ], [ %54, %.split12.us18 ], [ %74, %72 ]
-  %80 = phi i32 [ %55, %58 ], [ %55, %61 ], [ %55, %68 ], [ %55, %.split12.us18 ], [ %75, %72 ]
+  %77 = phi i32 [ %52, %58 ], [ %52, %61 ], [ %52, %.split12.us18 ], [ %52, %72 ], [ %70, %68 ]
+  %78 = phi i32 [ %53, %58 ], [ %53, %61 ], [ %53, %.split12.us18 ], [ %53, %72 ], [ %71, %68 ]
+  %79 = phi i32 [ %54, %58 ], [ %54, %61 ], [ %54, %.split12.us18 ], [ %74, %72 ], [ %54, %68 ]
+  %80 = phi i32 [ %55, %58 ], [ %55, %61 ], [ %55, %.split12.us18 ], [ %75, %72 ], [ %55, %68 ]
   %81 = getelementptr i8, ptr %51, i64 12
   %82 = add i32 %50, 1
   br label %.split12.us18, !llvm.loop !10
@@ -448,8 +448,8 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   br label %109
 
 109:                                              ; preds = %108, %103, %101, %92, %89, %.split12.us27
-  %110 = phi i32 [ %85, %89 ], [ %85, %92 ], [ %85, %.split12.us27 ], [ %83, %108 ], [ %85, %103 ], [ %85, %101 ]
-  %111 = phi i32 [ %86, %89 ], [ %86, %92 ], [ %86, %.split12.us27 ], [ %99, %108 ], [ %86, %103 ], [ %86, %101 ]
+  %110 = phi i32 [ %85, %89 ], [ %85, %92 ], [ %83, %108 ], [ %85, %103 ], [ %85, %101 ], [ %85, %.split12.us27 ]
+  %111 = phi i32 [ %86, %89 ], [ %86, %92 ], [ %99, %108 ], [ %86, %103 ], [ %86, %101 ], [ %86, %.split12.us27 ]
   %112 = getelementptr i8, ptr %84, i64 12
   %113 = add i32 %83, 1
   br label %.split12.us27, !llvm.loop !10
@@ -482,9 +482,9 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   br label %.split12, !llvm.loop !10
 
 .split14.us:                                      ; preds = %.split12.us27, %.split12.us18, %.split12.us, %.split12
-  %.us-phi = phi i32 [ %50, %.split12.us18 ], [ %114, %.split12 ], [ %17, %.split12.us ], [ %83, %.split12.us27 ]
-  %.us-phi15 = phi i32 [ %52, %.split12.us18 ], [ -1, %.split12 ], [ %19, %.split12.us ], [ -1, %.split12.us27 ]
-  %.us-phi16 = phi i32 [ %54, %.split12.us18 ], [ -1, %.split12 ], [ %21, %.split12.us ], [ %85, %.split12.us27 ]
+  %.us-phi = phi i32 [ %114, %.split12 ], [ %17, %.split12.us ], [ %50, %.split12.us18 ], [ %83, %.split12.us27 ]
+  %.us-phi15 = phi i32 [ -1, %.split12 ], [ %19, %.split12.us ], [ %52, %.split12.us18 ], [ -1, %.split12.us27 ]
+  %.us-phi16 = phi i32 [ -1, %.split12 ], [ %21, %.split12.us ], [ %54, %.split12.us18 ], [ %85, %.split12.us27 ]
   %128 = icmp ugt i32 %.us-phi16, %.us-phi
   br i1 %128, label %129, label %.thread
 
@@ -504,7 +504,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %95, %64, %31, %121, %131, %129, %.split14.us
-  %134 = phi i32 [ 0, %131 ], [ %.us-phi15, %129 ], [ %.us-phi16, %.split14.us ], [ %50, %64 ], [ %114, %121 ], [ %17, %31 ], [ %83, %95 ]
+  %134 = phi i32 [ 0, %131 ], [ %.us-phi15, %129 ], [ %.us-phi16, %.split14.us ], [ %114, %121 ], [ %17, %31 ], [ %50, %64 ], [ %83, %95 ]
   ret i32 %134
 }
 

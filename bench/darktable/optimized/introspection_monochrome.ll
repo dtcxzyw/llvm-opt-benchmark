@@ -229,7 +229,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br label %_color_filter.exit
 
 _color_filter.exit:                               ; preds = %.lr.ph, %53, %55
-  %62 = phi float [ 0x404482C1C0000000, %53 ], [ %61, %55 ], [ 1.000000e+02, %.lr.ph ]
+  %62 = phi float [ %61, %55 ], [ 0x404482C1C0000000, %53 ], [ 1.000000e+02, %.lr.ph ]
   %63 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float %62, ptr %63, align 4, !tbaa !50
   %64 = getelementptr inbounds nuw float, ptr %3, i64 %42
@@ -775,7 +775,7 @@ define internal range(i32 0, 2) i32 @_monochrome_draw(ptr noundef %0, ptr nounde
   br label %_color_filter.exit
 
 _color_filter.exit:                               ; preds = %81, %98, %100
-  %109 = phi double [ 0x4021F7F52A55F099, %98 ], [ %108, %100 ], [ 0x404AB1EBE1650A46, %81 ]
+  %109 = phi double [ %108, %100 ], [ 0x4021F7F52A55F099, %98 ], [ 0x404AB1EBE1650A46, %81 ]
   store double %109, ptr %6, align 8, !tbaa !134
   %110 = load ptr, ptr %47, align 8, !tbaa !124
   call void @cmsDoTransform(ptr noundef %110, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 1) #21
@@ -869,7 +869,7 @@ define internal range(i32 0, 2) i32 @_monochrome_button_press(ptr noundef %0, pt
   br label %47
 
 47:                                               ; preds = %25, %46, %44
-  %48 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %44 ], [ %41, %46 ], [ %42, %25 ]
+  %48 = phi reassoc nsz arcp contract afn double [ %41, %46 ], [ 0.000000e+00, %44 ], [ %42, %25 ]
   %49 = fptrunc reassoc nsz arcp contract afn double %48 to float
   %50 = add nsw i32 %37, -1
   %51 = sitofp i32 %50 to double
@@ -889,7 +889,7 @@ define internal range(i32 0, 2) i32 @_monochrome_button_press(ptr noundef %0, pt
   br label %61
 
 61:                                               ; preds = %47, %60, %58
-  %62 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %58 ], [ %55, %60 ], [ %56, %47 ]
+  %62 = phi reassoc nsz arcp contract afn double [ %55, %60 ], [ 0.000000e+00, %58 ], [ %56, %47 ]
   %63 = fptrunc reassoc nsz arcp contract afn double %62 to float
   %64 = sitofp i32 %34 to float
   %65 = fmul reassoc nsz arcp contract afn float %64, 5.000000e-01
@@ -993,7 +993,7 @@ define internal noundef i32 @_monochrome_motion_notify(ptr noundef %0, ptr nound
   br label %36
 
 36:                                               ; preds = %11, %35, %33
-  %37 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %33 ], [ %30, %35 ], [ %31, %11 ]
+  %37 = phi reassoc nsz arcp contract afn double [ %30, %35 ], [ 0.000000e+00, %33 ], [ %31, %11 ]
   %38 = fptrunc reassoc nsz arcp contract afn double %37 to float
   %39 = add nsw i32 %26, -1
   %40 = sitofp i32 %39 to double
@@ -1013,7 +1013,7 @@ define internal noundef i32 @_monochrome_motion_notify(ptr noundef %0, ptr nound
   br label %50
 
 50:                                               ; preds = %36, %49, %47
-  %51 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %47 ], [ %44, %49 ], [ %45, %36 ]
+  %51 = phi reassoc nsz arcp contract afn double [ %44, %49 ], [ 0.000000e+00, %47 ], [ %45, %36 ]
   %52 = fptrunc reassoc nsz arcp contract afn double %51 to float
   %53 = sitofp i32 %23 to float
   %54 = fmul reassoc nsz arcp contract afn float %53, 5.000000e-01
@@ -1219,7 +1219,7 @@ sub_0:
   br label %17
 
 17:                                               ; preds = %14, %.tail, %12, %9
-  %.0 = phi ptr [ %0, %.tail ], [ %spec.select, %14 ], [ %13, %12 ], [ %10, %9 ]
+  %.0 = phi ptr [ %13, %12 ], [ %10, %9 ], [ %0, %.tail ], [ %spec.select, %14 ]
   ret ptr %.0
 }
 
@@ -1249,7 +1249,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ]
   ret ptr %.0
 }
 

@@ -522,8 +522,8 @@ define void @_ZN5draco11MeshCleanup20RemoveDuplicateFacesEPNS_4MeshE(ptr noundef
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %39
-  %.011.i.i.i.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %40, %39 ]
-  %.0810.i.i.i.i.idx.i.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %39 ]
+  %.011.i.i.i.i.i.i.i.i.i = phi ptr [ %40, %39 ], [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i.i = phi i64 [ 0, %39 ], [ %.0810.i.i.i.i.add.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.0810.i.i.i.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.0810.i.i.i.i.idx.i.i.i.i.i
   %41 = load i32, ptr %.0810.i.i.i.i.ptr.i.i.i.i.i, align 4, !tbaa !68
   %42 = load i32, ptr %.011.i.i.i.i.i.i.i.i.i, align 4, !tbaa !68
@@ -969,9 +969,9 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
   br i1 %exitcond328.not, label %.loopexit252, label %.lr.ph267, !llvm.loop !123
 
 .loopexit252:                                     ; preds = %.lr.ph267, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge, %._crit_edge
-  %68 = phi i1 [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ true, %._crit_edge ], [ false, %.lr.ph267 ]
-  %.sink.i.i398 = phi i64 [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %44, %._crit_edge ], [ %44, %.lr.ph267 ]
-  %.sroa.0214.0396 = phi ptr [ null, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %24, %._crit_edge ], [ %24, %.lr.ph267 ]
+  %68 = phi i1 [ true, %._crit_edge ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ false, %.lr.ph267 ]
+  %.sink.i.i398 = phi i64 [ %44, %._crit_edge ], [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %44, %.lr.ph267 ]
+  %.sroa.0214.0396 = phi ptr [ %24, %._crit_edge ], [ null, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %24, %.lr.ph267 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !124
@@ -1111,9 +1111,9 @@ _ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i:            ; preds = %125, %123
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit: ; preds = %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i, %121, %.noexc142, %112
-  %.sroa.12.1 = phi ptr [ %111, %.noexc142 ], [ %111, %112 ], [ %122, %121 ], [ %spec.select, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ], [ %.sroa.12.0288, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ]
-  %.sroa.18.2 = phi ptr [ %111, %.noexc142 ], [ %111, %112 ], [ %.sroa.18.0289, %121 ], [ %.sroa.18.0289, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ], [ %.sroa.18.0289, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ]
-  %.sroa.0190.2 = phi ptr [ %110, %.noexc142 ], [ %110, %112 ], [ %.sroa.0190.0293, %121 ], [ %.sroa.0190.0293, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ], [ %.sroa.0190.0293, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ]
+  %.sroa.12.1 = phi ptr [ %111, %.noexc142 ], [ %111, %112 ], [ %.sroa.12.0288, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %122, %121 ], [ %spec.select, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ]
+  %.sroa.18.2 = phi ptr [ %111, %.noexc142 ], [ %111, %112 ], [ %.sroa.18.0289, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %.sroa.18.0289, %121 ], [ %.sroa.18.0289, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ]
+  %.sroa.0190.2 = phi ptr [ %110, %.noexc142 ], [ %110, %112 ], [ %.sroa.0190.0293, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %.sroa.0190.0293, %121 ], [ %.sroa.0190.0293, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ]
   %.not.i.i.i = icmp eq ptr %.sroa.11.0291, %.sroa.0181.0290
   %spec.select244 = select i1 %.not.i.i.i, ptr %.sroa.11.0291, ptr %.sroa.0181.0290
   br i1 %.not.i.i.i.i.i, label %._crit_edge276, label %.lr.ph275
@@ -1235,11 +1235,11 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
   %.not308 = icmp eq i32 %.pre, 0
   br i1 %.not308, label %._crit_edge281, label %.lr.ph280
 
-.lr.ph280:                                        ; preds = %172, %174, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit
-  %.sroa.17.4423 = phi ptr [ %177, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %.sroa.17.0292, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ], [ %.sroa.17.0292, %174 ], [ %.sroa.17.0292, %172 ]
-  %.sroa.11.3421 = phi ptr [ %176, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %scevgep.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ], [ %spec.select245, %174 ], [ %spec.select244, %172 ]
-  %.sroa.0181.4419 = phi ptr [ %167, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %.sroa.0181.0290, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ], [ %.sroa.0181.0290, %174 ], [ %.sroa.0181.0290, %172 ]
-  %178 = phi i32 [ %.pre, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %129, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ], [ %129, %174 ], [ %129, %172 ]
+.lr.ph280:                                        ; preds = %174, %172, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit
+  %.sroa.17.4423 = phi ptr [ %177, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %.sroa.17.0292, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ], [ %.sroa.17.0292, %172 ], [ %.sroa.17.0292, %174 ]
+  %.sroa.11.3421 = phi ptr [ %176, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %scevgep.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ], [ %spec.select244, %172 ], [ %spec.select245, %174 ]
+  %.sroa.0181.4419 = phi ptr [ %167, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %.sroa.0181.0290, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ], [ %.sroa.0181.0290, %172 ], [ %.sroa.0181.0290, %174 ]
+  %178 = phi i32 [ %.pre, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %129, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ], [ %129, %172 ], [ %129, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %180 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %181 = getelementptr inbounds nuw i8, ptr %101, i64 64
@@ -1255,8 +1255,8 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
           to label %212 unwind label %183
 
 183:                                              ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %258, %229, %._crit_edge281
-  %.sroa.0181.2 = phi ptr [ %.sroa.0181.0290, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0181.3, %258 ], [ %.sroa.0181.3, %229 ], [ %.sroa.0181.4420, %._crit_edge281 ]
-  %.sroa.17.2 = phi ptr [ %.sroa.17.0292, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.17.3, %258 ], [ %.sroa.17.3, %229 ], [ %.sroa.17.4424, %._crit_edge281 ]
+  %.sroa.0181.2 = phi ptr [ %.sroa.0181.3, %258 ], [ %.sroa.0181.3, %229 ], [ %.sroa.0181.4420, %._crit_edge281 ], [ %.sroa.0181.0290, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.3, %258 ], [ %.sroa.17.3, %229 ], [ %.sroa.17.4424, %._crit_edge281 ], [ %.sroa.17.0292, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %184 = landingpad { ptr, i32 }
           cleanup
   br label %287
@@ -1511,7 +1511,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEh
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit133
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit133: ; preds = %47, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit131, %296, %25
-  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn, %296 ], [ %26, %25 ], [ %48, %47 ], [ %.pn91.pn, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit131 ]
+  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %48, %47 ], [ %.pn91.pn, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit131 ], [ %.pn91.pn, %296 ]
   %299 = load ptr, ptr %2, align 8, !tbaa !97
   %.not.i.i134 = icmp eq ptr %299, null
   br i1 %.not.i.i134, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit138, label %300
@@ -2195,8 +2195,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIN5draco9IndexTypeIjN
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %10
-  %.011.i.i.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i.i.i ], [ %11, %10 ]
-  %.0810.i.i.i.i.idx.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %10 ]
+  %.011.i.i.i.i.i.i.i = phi ptr [ %11, %10 ], [ %15, %.lr.ph.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i = phi i64 [ 0, %10 ], [ %.0810.i.i.i.i.add.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.0810.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.0810.i.i.i.i.idx.i.i.i
   %12 = load i32, ptr %.0810.i.i.i.i.ptr.i.i.i, align 4, !tbaa !68
   %13 = load i32, ptr %.011.i.i.i.i.i.i.i, align 4, !tbaa !68

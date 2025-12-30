@@ -395,7 +395,7 @@ skip_space.exit159:                               ; preds = %127
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %72, %96, %96, %.preheader, %.preheader, %127, %127, %skip_space.exit154, %117, %skip_space.exit150, %141, %134, %skip_space.exit159, %get_quoted_string.exit, %106, %get_unquoted_string.exit, %146
-  %.0 = phi i32 [ %.08.i152, %skip_space.exit154 ], [ %.08.i148, %skip_space.exit150 ], [ %.07.lcssa.i145167, %96 ], [ %139, %134 ], [ %151, %146 ], [ %.08.i157, %skip_space.exit159 ], [ %.08.i152, %get_quoted_string.exit ], [ %102, %106 ], [ %.08.i148, %get_unquoted_string.exit ], [ %122, %127 ], [ %142, %141 ], [ %102, %.preheader ], [ %.08.i152, %117 ], [ %122, %127 ], [ %102, %.preheader ], [ %.07.lcssa.i145167, %96 ], [ %.07.lcssa.i163, %72 ], [ %.07.lcssa.i163, %72 ]
+  %.0 = phi i32 [ %151, %146 ], [ %.08.i148, %get_unquoted_string.exit ], [ %102, %106 ], [ %.08.i152, %get_quoted_string.exit ], [ %.08.i157, %skip_space.exit159 ], [ %139, %134 ], [ %142, %141 ], [ %.08.i148, %skip_space.exit150 ], [ %.08.i152, %117 ], [ %.08.i152, %skip_space.exit154 ], [ %122, %127 ], [ %122, %127 ], [ %102, %.preheader ], [ %102, %.preheader ], [ %.07.lcssa.i145167, %96 ], [ %.07.lcssa.i145167, %96 ], [ %.07.lcssa.i163, %72 ], [ %.07.lcssa.i163, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

@@ -526,7 +526,7 @@ jpeg_core_output_dimensions.exit:                 ; preds = %303, %296, %307
   br i1 %343, label %347, label %.critedge.us
 
 .critedge.us:                                     ; preds = %336, %347, %333
-  %.0.lcssa.us = phi i32 [ %340, %347 ], [ %.068.us, %333 ], [ %.068.us, %336 ]
+  %.0.lcssa.us = phi i32 [ %.068.us, %333 ], [ %340, %347 ], [ %.068.us, %336 ]
   %344 = getelementptr inbounds nuw i8, ptr %.05974.us, i64 36
   store i32 %.0.lcssa.us, ptr %344, align 4, !tbaa !48
   %345 = add nuw nsw i32 %.06073.us, 1
@@ -744,8 +744,8 @@ use_merged_upsample.exit:                         ; preds = %453
   %460 = load i32, ptr %459, align 4, !tbaa !54
   br label %use_merged_upsample.exit.thread
 
-use_merged_upsample.exit.thread:                  ; preds = %use_merged_upsample.exit, %448, %.loopexit, %410, %416, %423, %.thread.i, %413, %422, %419, %424, %445, %442, %438, %435, %432, %453, %458
-  %.sink89 = phi i32 [ %460, %458 ], [ 1, %453 ], [ 1, %432 ], [ 1, %435 ], [ 1, %438 ], [ 1, %442 ], [ 1, %445 ], [ 1, %424 ], [ 1, %419 ], [ 1, %422 ], [ 1, %413 ], [ 1, %.thread.i ], [ 1, %423 ], [ 1, %416 ], [ 1, %410 ], [ 1, %.loopexit ], [ 1, %448 ], [ 1, %use_merged_upsample.exit ]
+use_merged_upsample.exit.thread:                  ; preds = %use_merged_upsample.exit, %.loopexit, %413, %410, %422, %419, %416, %424, %423, %445, %442, %438, %435, %432, %.thread.i, %453, %448, %458
+  %.sink89 = phi i32 [ %460, %458 ], [ 1, %448 ], [ 1, %453 ], [ 1, %.thread.i ], [ 1, %432 ], [ 1, %435 ], [ 1, %438 ], [ 1, %442 ], [ 1, %445 ], [ 1, %423 ], [ 1, %424 ], [ 1, %416 ], [ 1, %419 ], [ 1, %422 ], [ 1, %410 ], [ 1, %413 ], [ 1, %.loopexit ], [ 1, %use_merged_upsample.exit ]
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %.sink89, ptr %461, align 8, !tbaa !69
   ret void
@@ -1090,7 +1090,7 @@ prepare_range_limit_table.exit.i:                 ; preds = %57, %47, %27
   br label %use_merged_upsample.exit.i
 
 use_merged_upsample.exit.i:                       ; preds = %127, %124, %119, %116, %113, %109, %106, %103, %.thread.i.i, %94, %92, %89, %86, %83, %80, %77, %72
-  %.0.i.i = phi i32 [ 0, %119 ], [ 0, %72 ], [ 0, %77 ], [ 0, %83 ], [ 0, %92 ], [ 0, %.thread.i.i ], [ 0, %80 ], [ 0, %89 ], [ 0, %86 ], [ 0, %94 ], [ 0, %116 ], [ 0, %113 ], [ 0, %109 ], [ 0, %106 ], [ 0, %103 ], [ %spec.select.i.i, %127 ], [ 0, %124 ]
+  %.0.i.i = phi i32 [ 0, %72 ], [ 0, %80 ], [ 0, %77 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ 0, %94 ], [ 0, %92 ], [ 0, %116 ], [ 0, %113 ], [ 0, %109 ], [ 0, %106 ], [ 0, %103 ], [ 0, %.thread.i.i ], [ 0, %124 ], [ 0, %119 ], [ %spec.select.i.i, %127 ]
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 132
   store i32 %.0.i.i, ptr %130, align 4, !tbaa !93
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 136

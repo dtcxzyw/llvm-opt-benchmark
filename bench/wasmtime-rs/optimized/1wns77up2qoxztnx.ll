@@ -149,7 +149,7 @@ define hidden zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alp
   br label %8
 
 8:                                                ; preds = %4, %1, %6
-  %.0 = phi i1 [ true, %1 ], [ %7, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %7, %6 ], [ true, %1 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -178,7 +178,7 @@ define hidden zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alp
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread"
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread7", %1, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit", %8
-  %.0 = phi i1 [ %or.cond9, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread7" ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit" ], [ %9, %8 ], [ true, %1 ]
+  %.0 = phi i1 [ %9, %8 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit" ], [ true, %1 ], [ %or.cond9, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread7" ]
   ret i1 %.0
 }
 

@@ -273,7 +273,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i32 64, ptr %93, align 8, !tbaa !43
   br label %98
 
-98:                                               ; preds = %94, %85
+98:                                               ; preds = %85, %94
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %100 = load ptr, ptr %99, align 8, !tbaa !34
   call void %100(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5) #7
@@ -282,7 +282,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %bits_init8_be.exit
 
 bits_init8_be.exit:                               ; preds = %79, %76, %12, %4, %98, %75, %63, %49
-  %.090 = phi i32 [ %101, %98 ], [ -1094995529, %4 ], [ -1163346256, %49 ], [ %.0, %63 ], [ -1094995529, %75 ], [ -1094995529, %12 ], [ %77, %76 ], [ -1094995529, %79 ]
+  %.090 = phi i32 [ -1163346256, %49 ], [ %.0, %63 ], [ -1094995529, %75 ], [ %101, %98 ], [ -1094995529, %4 ], [ -1094995529, %12 ], [ %77, %76 ], [ -1094995529, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.090
 }
@@ -574,8 +574,8 @@ bits_peek_be.exit.i:                              ; preds = %105, %102, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %133, %130, %125
-  %143 = phi i32 [ %127, %130 ], [ %142, %133 ], [ %127, %125 ]
-  %.val.i.i.i.i = phi i64 [ %126, %130 ], [ %140, %133 ], [ %126, %125 ]
+  %143 = phi i32 [ %142, %133 ], [ %127, %130 ], [ %127, %125 ]
+  %.val.i.i.i.i = phi i64 [ %140, %133 ], [ %126, %130 ], [ %126, %125 ]
   %144 = add nsw i32 %123, 64
   %145 = zext nneg i32 %144 to i64
   %146 = lshr i64 %.val.i.i.i.i, %145
@@ -626,8 +626,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i120
 
 bits_peek_be.exit.i120:                           ; preds = %bits_read_vlc_be.exit, %166, %163
-  %176 = phi i32 [ %160, %163 ], [ %175, %166 ], [ %160, %bits_read_vlc_be.exit ]
-  %177 = phi i64 [ %159, %163 ], [ %173, %166 ], [ %159, %bits_read_vlc_be.exit ]
+  %176 = phi i32 [ %175, %166 ], [ %160, %163 ], [ %160, %bits_read_vlc_be.exit ]
+  %177 = phi i64 [ %173, %166 ], [ %159, %163 ], [ %159, %bits_read_vlc_be.exit ]
   %178 = lshr i64 %177, 52
   %179 = getelementptr inbounds nuw %struct.VLCElem, ptr %161, i64 %178
   %180 = load i16, ptr %179, align 2, !tbaa !30
@@ -669,8 +669,8 @@ bits_peek_be.exit.i120:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i123
 
 bits_priv_set_idx_be.exit.i123:                   ; preds = %194, %191, %186
-  %204 = phi i32 [ %188, %191 ], [ %203, %194 ], [ %188, %186 ]
-  %.val.i.i.i.i124 = phi i64 [ %187, %191 ], [ %201, %194 ], [ %187, %186 ]
+  %204 = phi i32 [ %203, %194 ], [ %188, %191 ], [ %188, %186 ]
+  %.val.i.i.i.i124 = phi i64 [ %201, %194 ], [ %187, %191 ], [ %187, %186 ]
   %205 = add nsw i32 %184, 64
   %206 = zext nneg i32 %205 to i64
   %207 = lshr i64 %.val.i.i.i.i124, %206
@@ -720,8 +720,8 @@ bits_read_vlc_be.exit128:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i131
 
 bits_peek_be.exit.i131:                           ; preds = %bits_read_vlc_be.exit128, %226, %223
-  %236 = phi i32 [ %221, %223 ], [ %235, %226 ], [ %221, %bits_read_vlc_be.exit128 ]
-  %237 = phi i64 [ %220, %223 ], [ %233, %226 ], [ %220, %bits_read_vlc_be.exit128 ]
+  %236 = phi i32 [ %235, %226 ], [ %221, %223 ], [ %221, %bits_read_vlc_be.exit128 ]
+  %237 = phi i64 [ %233, %226 ], [ %220, %223 ], [ %220, %bits_read_vlc_be.exit128 ]
   %238 = lshr i64 %237, 52
   %239 = getelementptr inbounds nuw %struct.VLCElem, ptr %161, i64 %238
   %240 = load i16, ptr %239, align 2, !tbaa !30
@@ -763,8 +763,8 @@ bits_peek_be.exit.i131:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i134
 
 bits_priv_set_idx_be.exit.i134:                   ; preds = %254, %251, %246
-  %264 = phi i32 [ %248, %251 ], [ %263, %254 ], [ %248, %246 ]
-  %.val.i.i.i.i135 = phi i64 [ %247, %251 ], [ %261, %254 ], [ %247, %246 ]
+  %264 = phi i32 [ %263, %254 ], [ %248, %251 ], [ %248, %246 ]
+  %.val.i.i.i.i135 = phi i64 [ %261, %254 ], [ %247, %251 ], [ %247, %246 ]
   %265 = add nsw i32 %244, 64
   %266 = zext nneg i32 %265 to i64
   %267 = lshr i64 %.val.i.i.i.i135, %266
@@ -811,7 +811,7 @@ bits_read_vlc_be.exit139:                         ; preds = %bits_peek_be.exit.i
   br i1 %296, label %98, label %.loopexit196, !llvm.loop !52
 
 .loopexit196:                                     ; preds = %bits_read_nz_be.exit116, %bits_read_vlc_be.exit139, %.preheader197, %.critedge.preheader
-  %297 = phi i32 [ %294, %bits_read_vlc_be.exit139 ], [ %16, %.critedge.preheader ], [ %29, %.preheader197 ], [ %95, %bits_read_nz_be.exit116 ]
+  %297 = phi i32 [ %29, %.preheader197 ], [ %16, %.critedge.preheader ], [ %294, %bits_read_vlc_be.exit139 ], [ %95, %bits_read_nz_be.exit116 ]
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %300 = load i32, ptr %299, align 4, !tbaa !37
@@ -1123,8 +1123,8 @@ bits_peek_be.exit.i162:                           ; preds = %425, %422, %.bits_p
   br label %bits_priv_set_idx_be.exit.i165
 
 bits_priv_set_idx_be.exit.i165:                   ; preds = %453, %450, %445
-  %463 = phi i32 [ %447, %450 ], [ %462, %453 ], [ %447, %445 ]
-  %.val.i.i.i.i166 = phi i64 [ %446, %450 ], [ %460, %453 ], [ %446, %445 ]
+  %463 = phi i32 [ %462, %453 ], [ %447, %450 ], [ %447, %445 ]
+  %.val.i.i.i.i166 = phi i64 [ %460, %453 ], [ %446, %450 ], [ %446, %445 ]
   %464 = add nsw i32 %443, 64
   %465 = zext nneg i32 %464 to i64
   %466 = lshr i64 %.val.i.i.i.i166, %465
@@ -1175,8 +1175,8 @@ bits_read_vlc_be.exit170:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i173
 
 bits_peek_be.exit.i173:                           ; preds = %bits_read_vlc_be.exit170, %486, %483
-  %496 = phi i32 [ %480, %483 ], [ %495, %486 ], [ %480, %bits_read_vlc_be.exit170 ]
-  %497 = phi i64 [ %479, %483 ], [ %493, %486 ], [ %479, %bits_read_vlc_be.exit170 ]
+  %496 = phi i32 [ %495, %486 ], [ %480, %483 ], [ %480, %bits_read_vlc_be.exit170 ]
+  %497 = phi i64 [ %493, %486 ], [ %479, %483 ], [ %479, %bits_read_vlc_be.exit170 ]
   %498 = lshr i64 %497, 52
   %499 = getelementptr inbounds nuw %struct.VLCElem, ptr %481, i64 %498
   %500 = load i16, ptr %499, align 2, !tbaa !30
@@ -1218,8 +1218,8 @@ bits_peek_be.exit.i173:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i176
 
 bits_priv_set_idx_be.exit.i176:                   ; preds = %514, %511, %506
-  %524 = phi i32 [ %508, %511 ], [ %523, %514 ], [ %508, %506 ]
-  %.val.i.i.i.i177 = phi i64 [ %507, %511 ], [ %521, %514 ], [ %507, %506 ]
+  %524 = phi i32 [ %523, %514 ], [ %508, %511 ], [ %508, %506 ]
+  %.val.i.i.i.i177 = phi i64 [ %521, %514 ], [ %507, %511 ], [ %507, %506 ]
   %525 = add nsw i32 %504, 64
   %526 = zext nneg i32 %525 to i64
   %527 = lshr i64 %.val.i.i.i.i177, %526
@@ -1269,8 +1269,8 @@ bits_read_vlc_be.exit181:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i184
 
 bits_peek_be.exit.i184:                           ; preds = %bits_read_vlc_be.exit181, %546, %543
-  %556 = phi i32 [ %541, %543 ], [ %555, %546 ], [ %541, %bits_read_vlc_be.exit181 ]
-  %557 = phi i64 [ %540, %543 ], [ %553, %546 ], [ %540, %bits_read_vlc_be.exit181 ]
+  %556 = phi i32 [ %555, %546 ], [ %541, %543 ], [ %541, %bits_read_vlc_be.exit181 ]
+  %557 = phi i64 [ %553, %546 ], [ %540, %543 ], [ %540, %bits_read_vlc_be.exit181 ]
   %558 = lshr i64 %557, 52
   %559 = getelementptr inbounds nuw %struct.VLCElem, ptr %481, i64 %558
   %560 = load i16, ptr %559, align 2, !tbaa !30
@@ -1312,8 +1312,8 @@ bits_peek_be.exit.i184:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i187
 
 bits_priv_set_idx_be.exit.i187:                   ; preds = %574, %571, %566
-  %584 = phi i32 [ %568, %571 ], [ %583, %574 ], [ %568, %566 ]
-  %.val.i.i.i.i188 = phi i64 [ %567, %571 ], [ %581, %574 ], [ %567, %566 ]
+  %584 = phi i32 [ %583, %574 ], [ %568, %571 ], [ %568, %566 ]
+  %.val.i.i.i.i188 = phi i64 [ %581, %574 ], [ %567, %571 ], [ %567, %566 ]
   %585 = add nsw i32 %564, 64
   %586 = zext nneg i32 %585 to i64
   %587 = lshr i64 %.val.i.i.i.i188, %586
@@ -1377,8 +1377,8 @@ bits_read_vlc_be.exit192:                         ; preds = %bits_peek_be.exit.i
   br i1 %633, label %.lr.ph214, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit159, %bits_read_vlc_be.exit192, %.preheader, %bits_read_bit_be.exit147.thread
-  %634 = phi i32 [ %631, %bits_read_vlc_be.exit192 ], [ %311, %bits_read_bit_be.exit147.thread ], [ %311, %.preheader ], [ %386, %bits_read_nz_be.exit159 ]
-  %635 = phi i32 [ %631, %bits_read_vlc_be.exit192 ], [ %311, %bits_read_bit_be.exit147.thread ], [ %313, %.preheader ], [ %386, %bits_read_nz_be.exit159 ]
+  %634 = phi i32 [ %311, %.preheader ], [ %311, %bits_read_bit_be.exit147.thread ], [ %631, %bits_read_vlc_be.exit192 ], [ %386, %bits_read_nz_be.exit159 ]
+  %635 = phi i32 [ %313, %.preheader ], [ %311, %bits_read_bit_be.exit147.thread ], [ %631, %bits_read_vlc_be.exit192 ], [ %386, %bits_read_nz_be.exit159 ]
   %636 = load i32, ptr %298, align 8, !tbaa !45
   %637 = sext i32 %636 to i64
   %638 = getelementptr inbounds i8, ptr %.0216, i64 %637
@@ -1660,8 +1660,8 @@ bits_peek_be.exit.i:                              ; preds = %105, %102, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %133, %130, %125
-  %143 = phi i32 [ %127, %130 ], [ %142, %133 ], [ %127, %125 ]
-  %.val.i.i.i.i = phi i64 [ %126, %130 ], [ %140, %133 ], [ %126, %125 ]
+  %143 = phi i32 [ %142, %133 ], [ %127, %130 ], [ %127, %125 ]
+  %.val.i.i.i.i = phi i64 [ %140, %133 ], [ %126, %130 ], [ %126, %125 ]
   %144 = add nsw i32 %123, 64
   %145 = zext nneg i32 %144 to i64
   %146 = lshr i64 %.val.i.i.i.i, %145
@@ -1712,8 +1712,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i100
 
 bits_peek_be.exit.i100:                           ; preds = %bits_read_vlc_be.exit, %166, %163
-  %176 = phi i32 [ %160, %163 ], [ %175, %166 ], [ %160, %bits_read_vlc_be.exit ]
-  %177 = phi i64 [ %159, %163 ], [ %173, %166 ], [ %159, %bits_read_vlc_be.exit ]
+  %176 = phi i32 [ %175, %166 ], [ %160, %163 ], [ %160, %bits_read_vlc_be.exit ]
+  %177 = phi i64 [ %173, %166 ], [ %159, %163 ], [ %159, %bits_read_vlc_be.exit ]
   %178 = lshr i64 %177, 52
   %179 = getelementptr inbounds nuw %struct.VLCElem, ptr %161, i64 %178
   %180 = load i16, ptr %179, align 2, !tbaa !30
@@ -1755,8 +1755,8 @@ bits_peek_be.exit.i100:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i103
 
 bits_priv_set_idx_be.exit.i103:                   ; preds = %194, %191, %186
-  %204 = phi i32 [ %188, %191 ], [ %203, %194 ], [ %188, %186 ]
-  %.val.i.i.i.i104 = phi i64 [ %187, %191 ], [ %201, %194 ], [ %187, %186 ]
+  %204 = phi i32 [ %203, %194 ], [ %188, %191 ], [ %188, %186 ]
+  %.val.i.i.i.i104 = phi i64 [ %201, %194 ], [ %187, %191 ], [ %187, %186 ]
   %205 = add nsw i32 %184, 64
   %206 = zext nneg i32 %205 to i64
   %207 = lshr i64 %.val.i.i.i.i104, %206
@@ -1806,8 +1806,8 @@ bits_read_vlc_be.exit108:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i111
 
 bits_peek_be.exit.i111:                           ; preds = %bits_read_vlc_be.exit108, %226, %223
-  %236 = phi i32 [ %221, %223 ], [ %235, %226 ], [ %221, %bits_read_vlc_be.exit108 ]
-  %237 = phi i64 [ %220, %223 ], [ %233, %226 ], [ %220, %bits_read_vlc_be.exit108 ]
+  %236 = phi i32 [ %235, %226 ], [ %221, %223 ], [ %221, %bits_read_vlc_be.exit108 ]
+  %237 = phi i64 [ %233, %226 ], [ %220, %223 ], [ %220, %bits_read_vlc_be.exit108 ]
   %238 = lshr i64 %237, 52
   %239 = getelementptr inbounds nuw %struct.VLCElem, ptr %161, i64 %238
   %240 = load i16, ptr %239, align 2, !tbaa !30
@@ -1849,8 +1849,8 @@ bits_peek_be.exit.i111:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i114
 
 bits_priv_set_idx_be.exit.i114:                   ; preds = %254, %251, %246
-  %264 = phi i32 [ %248, %251 ], [ %263, %254 ], [ %248, %246 ]
-  %.val.i.i.i.i115 = phi i64 [ %247, %251 ], [ %261, %254 ], [ %247, %246 ]
+  %264 = phi i32 [ %263, %254 ], [ %248, %251 ], [ %248, %246 ]
+  %.val.i.i.i.i115 = phi i64 [ %261, %254 ], [ %247, %251 ], [ %247, %246 ]
   %265 = add nsw i32 %244, 64
   %266 = zext nneg i32 %265 to i64
   %267 = lshr i64 %.val.i.i.i.i115, %266
@@ -1897,7 +1897,7 @@ bits_read_vlc_be.exit119:                         ; preds = %bits_peek_be.exit.i
   br i1 %296, label %98, label %.loopexit176, !llvm.loop !57
 
 .loopexit176:                                     ; preds = %bits_read_nz_be.exit96, %bits_read_vlc_be.exit119, %.preheader177, %.critedge.preheader
-  %297 = phi i32 [ %294, %bits_read_vlc_be.exit119 ], [ %16, %.critedge.preheader ], [ %29, %.preheader177 ], [ %95, %bits_read_nz_be.exit96 ]
+  %297 = phi i32 [ %29, %.preheader177 ], [ %16, %.critedge.preheader ], [ %294, %bits_read_vlc_be.exit119 ], [ %95, %bits_read_nz_be.exit96 ]
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %300 = load i32, ptr %299, align 4, !tbaa !37
@@ -2193,8 +2193,8 @@ bits_peek_be.exit.i142:                           ; preds = %412, %409, %.bits_p
   br label %bits_priv_set_idx_be.exit.i145
 
 bits_priv_set_idx_be.exit.i145:                   ; preds = %440, %437, %432
-  %450 = phi i32 [ %434, %437 ], [ %449, %440 ], [ %434, %432 ]
-  %.val.i.i.i.i146 = phi i64 [ %433, %437 ], [ %447, %440 ], [ %433, %432 ]
+  %450 = phi i32 [ %449, %440 ], [ %434, %437 ], [ %434, %432 ]
+  %.val.i.i.i.i146 = phi i64 [ %447, %440 ], [ %433, %437 ], [ %433, %432 ]
   %451 = add nsw i32 %430, 64
   %452 = zext nneg i32 %451 to i64
   %453 = lshr i64 %.val.i.i.i.i146, %452
@@ -2245,8 +2245,8 @@ bits_read_vlc_be.exit150:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i153
 
 bits_peek_be.exit.i153:                           ; preds = %bits_read_vlc_be.exit150, %473, %470
-  %483 = phi i32 [ %467, %470 ], [ %482, %473 ], [ %467, %bits_read_vlc_be.exit150 ]
-  %484 = phi i64 [ %466, %470 ], [ %480, %473 ], [ %466, %bits_read_vlc_be.exit150 ]
+  %483 = phi i32 [ %482, %473 ], [ %467, %470 ], [ %467, %bits_read_vlc_be.exit150 ]
+  %484 = phi i64 [ %480, %473 ], [ %466, %470 ], [ %466, %bits_read_vlc_be.exit150 ]
   %485 = lshr i64 %484, 52
   %486 = getelementptr inbounds nuw %struct.VLCElem, ptr %468, i64 %485
   %487 = load i16, ptr %486, align 2, !tbaa !30
@@ -2288,8 +2288,8 @@ bits_peek_be.exit.i153:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i156
 
 bits_priv_set_idx_be.exit.i156:                   ; preds = %501, %498, %493
-  %511 = phi i32 [ %495, %498 ], [ %510, %501 ], [ %495, %493 ]
-  %.val.i.i.i.i157 = phi i64 [ %494, %498 ], [ %508, %501 ], [ %494, %493 ]
+  %511 = phi i32 [ %510, %501 ], [ %495, %498 ], [ %495, %493 ]
+  %.val.i.i.i.i157 = phi i64 [ %508, %501 ], [ %494, %498 ], [ %494, %493 ]
   %512 = add nsw i32 %491, 64
   %513 = zext nneg i32 %512 to i64
   %514 = lshr i64 %.val.i.i.i.i157, %513
@@ -2339,8 +2339,8 @@ bits_read_vlc_be.exit161:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i164
 
 bits_peek_be.exit.i164:                           ; preds = %bits_read_vlc_be.exit161, %533, %530
-  %543 = phi i32 [ %528, %530 ], [ %542, %533 ], [ %528, %bits_read_vlc_be.exit161 ]
-  %544 = phi i64 [ %527, %530 ], [ %540, %533 ], [ %527, %bits_read_vlc_be.exit161 ]
+  %543 = phi i32 [ %542, %533 ], [ %528, %530 ], [ %528, %bits_read_vlc_be.exit161 ]
+  %544 = phi i64 [ %540, %533 ], [ %527, %530 ], [ %527, %bits_read_vlc_be.exit161 ]
   %545 = lshr i64 %544, 52
   %546 = getelementptr inbounds nuw %struct.VLCElem, ptr %468, i64 %545
   %547 = load i16, ptr %546, align 2, !tbaa !30
@@ -2382,8 +2382,8 @@ bits_peek_be.exit.i164:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i167
 
 bits_priv_set_idx_be.exit.i167:                   ; preds = %561, %558, %553
-  %571 = phi i32 [ %555, %558 ], [ %570, %561 ], [ %555, %553 ]
-  %.val.i.i.i.i168 = phi i64 [ %554, %558 ], [ %568, %561 ], [ %554, %553 ]
+  %571 = phi i32 [ %570, %561 ], [ %555, %558 ], [ %555, %553 ]
+  %.val.i.i.i.i168 = phi i64 [ %568, %561 ], [ %554, %558 ], [ %554, %553 ]
   %572 = add nsw i32 %551, 64
   %573 = zext nneg i32 %572 to i64
   %574 = lshr i64 %.val.i.i.i.i168, %573
@@ -2430,8 +2430,8 @@ bits_read_vlc_be.exit172:                         ; preds = %bits_peek_be.exit.i
   br i1 %603, label %.lr.ph191, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit139, %bits_read_vlc_be.exit172, %.preheader, %bits_read_bit_be.exit127.thread
-  %604 = phi i32 [ %601, %bits_read_vlc_be.exit172 ], [ %311, %bits_read_bit_be.exit127.thread ], [ %311, %.preheader ], [ %386, %bits_read_nz_be.exit139 ]
-  %605 = phi i32 [ %601, %bits_read_vlc_be.exit172 ], [ %311, %bits_read_bit_be.exit127.thread ], [ %313, %.preheader ], [ %386, %bits_read_nz_be.exit139 ]
+  %604 = phi i32 [ %311, %.preheader ], [ %311, %bits_read_bit_be.exit127.thread ], [ %601, %bits_read_vlc_be.exit172 ], [ %386, %bits_read_nz_be.exit139 ]
+  %605 = phi i32 [ %313, %.preheader ], [ %311, %bits_read_bit_be.exit127.thread ], [ %601, %bits_read_vlc_be.exit172 ], [ %386, %bits_read_nz_be.exit139 ]
   %606 = load i32, ptr %298, align 8, !tbaa !45
   %607 = sext i32 %606 to i64
   %608 = getelementptr inbounds i8, ptr %.0193, i64 %607
@@ -2692,8 +2692,8 @@ bits_read_nz_be.exit160:                          ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %123, %130, %127
-  %140 = phi i32 [ %125, %127 ], [ %139, %130 ], [ %125, %123 ]
-  %141 = phi i64 [ %124, %127 ], [ %137, %130 ], [ %124, %123 ]
+  %140 = phi i32 [ %139, %130 ], [ %125, %127 ], [ %125, %123 ]
+  %141 = phi i64 [ %137, %130 ], [ %124, %127 ], [ %124, %123 ]
   %142 = lshr i64 %141, 52
   %143 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !30
@@ -2735,8 +2735,8 @@ bits_peek_be.exit.i:                              ; preds = %123, %130, %127
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %158, %155, %150
-  %168 = phi i32 [ %152, %155 ], [ %167, %158 ], [ %152, %150 ]
-  %.val.i.i.i.i = phi i64 [ %151, %155 ], [ %165, %158 ], [ %151, %150 ]
+  %168 = phi i32 [ %167, %158 ], [ %152, %155 ], [ %152, %150 ]
+  %.val.i.i.i.i = phi i64 [ %165, %158 ], [ %151, %155 ], [ %151, %150 ]
   %169 = add nsw i32 %148, 64
   %170 = zext nneg i32 %169 to i64
   %171 = lshr i64 %.val.i.i.i.i, %170
@@ -2784,8 +2784,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i164
 
 bits_peek_be.exit.i164:                           ; preds = %bits_read_vlc_be.exit, %188, %185
-  %198 = phi i32 [ %183, %185 ], [ %197, %188 ], [ %183, %bits_read_vlc_be.exit ]
-  %199 = phi i64 [ %182, %185 ], [ %195, %188 ], [ %182, %bits_read_vlc_be.exit ]
+  %198 = phi i32 [ %197, %188 ], [ %183, %185 ], [ %183, %bits_read_vlc_be.exit ]
+  %199 = phi i64 [ %195, %188 ], [ %182, %185 ], [ %182, %bits_read_vlc_be.exit ]
   %200 = lshr i64 %199, 52
   %201 = getelementptr inbounds nuw %struct.VLCElem, ptr %29, i64 %200
   %202 = load i16, ptr %201, align 2, !tbaa !30
@@ -2827,8 +2827,8 @@ bits_peek_be.exit.i164:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i167
 
 bits_priv_set_idx_be.exit.i167:                   ; preds = %216, %213, %208
-  %226 = phi i32 [ %210, %213 ], [ %225, %216 ], [ %210, %208 ]
-  %.val.i.i.i.i168 = phi i64 [ %209, %213 ], [ %223, %216 ], [ %209, %208 ]
+  %226 = phi i32 [ %225, %216 ], [ %210, %213 ], [ %210, %208 ]
+  %.val.i.i.i.i168 = phi i64 [ %223, %216 ], [ %209, %213 ], [ %209, %208 ]
   %227 = add nsw i32 %206, 64
   %228 = zext nneg i32 %227 to i64
   %229 = lshr i64 %.val.i.i.i.i168, %228
@@ -2878,8 +2878,8 @@ bits_read_vlc_be.exit172:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i175
 
 bits_peek_be.exit.i175:                           ; preds = %bits_read_vlc_be.exit172, %248, %245
-  %258 = phi i32 [ %243, %245 ], [ %257, %248 ], [ %243, %bits_read_vlc_be.exit172 ]
-  %259 = phi i64 [ %242, %245 ], [ %255, %248 ], [ %242, %bits_read_vlc_be.exit172 ]
+  %258 = phi i32 [ %257, %248 ], [ %243, %245 ], [ %243, %bits_read_vlc_be.exit172 ]
+  %259 = phi i64 [ %255, %248 ], [ %242, %245 ], [ %242, %bits_read_vlc_be.exit172 ]
   %260 = lshr i64 %259, 52
   %261 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !30
@@ -2921,8 +2921,8 @@ bits_peek_be.exit.i175:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i178
 
 bits_priv_set_idx_be.exit.i178:                   ; preds = %276, %273, %268
-  %286 = phi i32 [ %270, %273 ], [ %285, %276 ], [ %270, %268 ]
-  %.val.i.i.i.i179 = phi i64 [ %269, %273 ], [ %283, %276 ], [ %269, %268 ]
+  %286 = phi i32 [ %285, %276 ], [ %270, %273 ], [ %270, %268 ]
+  %.val.i.i.i.i179 = phi i64 [ %283, %276 ], [ %269, %273 ], [ %269, %268 ]
   %287 = add nsw i32 %266, 64
   %288 = zext nneg i32 %287 to i64
   %289 = lshr i64 %.val.i.i.i.i179, %288
@@ -2972,8 +2972,8 @@ bits_read_vlc_be.exit183:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i186
 
 bits_peek_be.exit.i186:                           ; preds = %bits_read_vlc_be.exit183, %308, %305
-  %318 = phi i32 [ %303, %305 ], [ %317, %308 ], [ %303, %bits_read_vlc_be.exit183 ]
-  %319 = phi i64 [ %302, %305 ], [ %315, %308 ], [ %302, %bits_read_vlc_be.exit183 ]
+  %318 = phi i32 [ %317, %308 ], [ %303, %305 ], [ %303, %bits_read_vlc_be.exit183 ]
+  %319 = phi i64 [ %315, %308 ], [ %302, %305 ], [ %302, %bits_read_vlc_be.exit183 ]
   %320 = lshr i64 %319, 52
   %321 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %320
   %322 = load i16, ptr %321, align 2, !tbaa !30
@@ -3015,8 +3015,8 @@ bits_peek_be.exit.i186:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i189
 
 bits_priv_set_idx_be.exit.i189:                   ; preds = %336, %333, %328
-  %346 = phi i32 [ %330, %333 ], [ %345, %336 ], [ %330, %328 ]
-  %.val.i.i.i.i190 = phi i64 [ %329, %333 ], [ %343, %336 ], [ %329, %328 ]
+  %346 = phi i32 [ %345, %336 ], [ %330, %333 ], [ %330, %328 ]
+  %.val.i.i.i.i190 = phi i64 [ %343, %336 ], [ %329, %333 ], [ %329, %328 ]
   %347 = add nsw i32 %326, 64
   %348 = zext nneg i32 %347 to i64
   %349 = lshr i64 %.val.i.i.i.i190, %348
@@ -3067,8 +3067,8 @@ bits_read_vlc_be.exit194:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond310.not, label %.loopexit266, label %123, !llvm.loop !64
 
 .loopexit266:                                     ; preds = %bits_read_nz_be.exit160, %bits_read_vlc_be.exit194, %.preheader267, %.critedge.preheader
-  %381 = phi i32 [ %22, %bits_read_vlc_be.exit194 ], [ %22, %.critedge.preheader ], [ %36, %.preheader267 ], [ %36, %bits_read_nz_be.exit160 ]
-  %382 = phi i32 [ %363, %bits_read_vlc_be.exit194 ], [ %.promoted277, %.critedge.preheader ], [ %.promoted, %.preheader267 ], [ %120, %bits_read_nz_be.exit160 ]
+  %381 = phi i32 [ %36, %.preheader267 ], [ %22, %.critedge.preheader ], [ %22, %bits_read_vlc_be.exit194 ], [ %36, %bits_read_nz_be.exit160 ]
+  %382 = phi i32 [ %.promoted, %.preheader267 ], [ %.promoted277, %.critedge.preheader ], [ %363, %bits_read_vlc_be.exit194 ], [ %120, %bits_read_nz_be.exit160 ]
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -3387,8 +3387,8 @@ bits_read_bit_be.exit202.thread:                  ; preds = %416, %bits_read_bit
   br label %bits_peek_be.exit.i221
 
 bits_peek_be.exit.i221:                           ; preds = %533, %569, %566
-  %579 = phi i32 [ %534, %566 ], [ %578, %569 ], [ %534, %533 ]
-  %580 = phi i64 [ %535, %566 ], [ %576, %569 ], [ %535, %533 ]
+  %579 = phi i32 [ %578, %569 ], [ %534, %566 ], [ %534, %533 ]
+  %580 = phi i64 [ %576, %569 ], [ %535, %566 ], [ %535, %533 ]
   %581 = lshr i64 %580, 52
   %582 = getelementptr inbounds nuw %struct.VLCElem, ptr %531, i64 %581
   %583 = load i16, ptr %582, align 2, !tbaa !30
@@ -3430,8 +3430,8 @@ bits_peek_be.exit.i221:                           ; preds = %533, %569, %566
   br label %bits_priv_set_idx_be.exit.i224
 
 bits_priv_set_idx_be.exit.i224:                   ; preds = %597, %594, %589
-  %607 = phi i32 [ %591, %594 ], [ %606, %597 ], [ %591, %589 ]
-  %.val.i.i.i.i225 = phi i64 [ %590, %594 ], [ %604, %597 ], [ %590, %589 ]
+  %607 = phi i32 [ %606, %597 ], [ %591, %594 ], [ %591, %589 ]
+  %.val.i.i.i.i225 = phi i64 [ %604, %597 ], [ %590, %594 ], [ %590, %589 ]
   %608 = add nsw i32 %587, 64
   %609 = zext nneg i32 %608 to i64
   %610 = lshr i64 %.val.i.i.i.i225, %609
@@ -3481,8 +3481,8 @@ bits_read_vlc_be.exit229:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i232
 
 bits_peek_be.exit.i232:                           ; preds = %bits_read_vlc_be.exit229, %629, %626
-  %639 = phi i32 [ %624, %626 ], [ %638, %629 ], [ %624, %bits_read_vlc_be.exit229 ]
-  %640 = phi i64 [ %623, %626 ], [ %636, %629 ], [ %623, %bits_read_vlc_be.exit229 ]
+  %639 = phi i32 [ %638, %629 ], [ %624, %626 ], [ %624, %bits_read_vlc_be.exit229 ]
+  %640 = phi i64 [ %636, %629 ], [ %623, %626 ], [ %623, %bits_read_vlc_be.exit229 ]
   %641 = lshr i64 %640, 52
   %642 = getelementptr inbounds nuw %struct.VLCElem, ptr %532, i64 %641
   %643 = load i16, ptr %642, align 2, !tbaa !30
@@ -3524,8 +3524,8 @@ bits_peek_be.exit.i232:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i235
 
 bits_priv_set_idx_be.exit.i235:                   ; preds = %657, %654, %649
-  %667 = phi i32 [ %651, %654 ], [ %666, %657 ], [ %651, %649 ]
-  %.val.i.i.i.i236 = phi i64 [ %650, %654 ], [ %664, %657 ], [ %650, %649 ]
+  %667 = phi i32 [ %666, %657 ], [ %651, %654 ], [ %651, %649 ]
+  %.val.i.i.i.i236 = phi i64 [ %664, %657 ], [ %650, %654 ], [ %650, %649 ]
   %668 = add nsw i32 %647, 64
   %669 = zext nneg i32 %668 to i64
   %670 = lshr i64 %.val.i.i.i.i236, %669
@@ -3575,8 +3575,8 @@ bits_read_vlc_be.exit240:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i243
 
 bits_peek_be.exit.i243:                           ; preds = %bits_read_vlc_be.exit240, %689, %686
-  %699 = phi i32 [ %684, %686 ], [ %698, %689 ], [ %684, %bits_read_vlc_be.exit240 ]
-  %700 = phi i64 [ %683, %686 ], [ %696, %689 ], [ %683, %bits_read_vlc_be.exit240 ]
+  %699 = phi i32 [ %698, %689 ], [ %684, %686 ], [ %684, %bits_read_vlc_be.exit240 ]
+  %700 = phi i64 [ %696, %689 ], [ %683, %686 ], [ %683, %bits_read_vlc_be.exit240 ]
   %701 = lshr i64 %700, 52
   %702 = getelementptr inbounds nuw %struct.VLCElem, ptr %531, i64 %701
   %703 = load i16, ptr %702, align 2, !tbaa !30
@@ -3618,8 +3618,8 @@ bits_peek_be.exit.i243:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i246
 
 bits_priv_set_idx_be.exit.i246:                   ; preds = %717, %714, %709
-  %727 = phi i32 [ %711, %714 ], [ %726, %717 ], [ %711, %709 ]
-  %.val.i.i.i.i247 = phi i64 [ %710, %714 ], [ %724, %717 ], [ %710, %709 ]
+  %727 = phi i32 [ %726, %717 ], [ %711, %714 ], [ %711, %709 ]
+  %.val.i.i.i.i247 = phi i64 [ %724, %717 ], [ %710, %714 ], [ %710, %709 ]
   %728 = add nsw i32 %707, 64
   %729 = zext nneg i32 %728 to i64
   %730 = lshr i64 %.val.i.i.i.i247, %729
@@ -3669,8 +3669,8 @@ bits_read_vlc_be.exit251:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i254
 
 bits_peek_be.exit.i254:                           ; preds = %bits_read_vlc_be.exit251, %749, %746
-  %759 = phi i32 [ %744, %746 ], [ %758, %749 ], [ %744, %bits_read_vlc_be.exit251 ]
-  %760 = phi i64 [ %743, %746 ], [ %756, %749 ], [ %743, %bits_read_vlc_be.exit251 ]
+  %759 = phi i32 [ %758, %749 ], [ %744, %746 ], [ %744, %bits_read_vlc_be.exit251 ]
+  %760 = phi i64 [ %756, %749 ], [ %743, %746 ], [ %743, %bits_read_vlc_be.exit251 ]
   %761 = lshr i64 %760, 52
   %762 = getelementptr inbounds nuw %struct.VLCElem, ptr %531, i64 %761
   %763 = load i16, ptr %762, align 2, !tbaa !30
@@ -3712,8 +3712,8 @@ bits_peek_be.exit.i254:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i257
 
 bits_priv_set_idx_be.exit.i257:                   ; preds = %777, %774, %769
-  %787 = phi i32 [ %771, %774 ], [ %786, %777 ], [ %771, %769 ]
-  %.val.i.i.i.i258 = phi i64 [ %770, %774 ], [ %784, %777 ], [ %770, %769 ]
+  %787 = phi i32 [ %786, %777 ], [ %771, %774 ], [ %771, %769 ]
+  %.val.i.i.i.i258 = phi i64 [ %784, %777 ], [ %770, %774 ], [ %770, %769 ]
   %788 = add nsw i32 %767, 64
   %789 = zext nneg i32 %788 to i64
   %790 = lshr i64 %.val.i.i.i.i258, %789
@@ -3785,8 +3785,8 @@ bits_read_vlc_be.exit262:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond320.not, label %.loopexit, label %533, !llvm.loop !66
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit218, %bits_read_vlc_be.exit262, %.preheader, %bits_read_bit_be.exit202.thread
-  %843 = phi i32 [ %804, %bits_read_vlc_be.exit262 ], [ %505, %bits_read_bit_be.exit202.thread ], [ %.promoted281, %.preheader ], [ %502, %bits_read_nz_be.exit218 ]
-  %844 = phi i32 [ %804, %bits_read_vlc_be.exit262 ], [ %506, %bits_read_bit_be.exit202.thread ], [ %.promoted281, %.preheader ], [ %502, %bits_read_nz_be.exit218 ]
+  %843 = phi i32 [ %.promoted281, %.preheader ], [ %505, %bits_read_bit_be.exit202.thread ], [ %804, %bits_read_vlc_be.exit262 ], [ %502, %bits_read_nz_be.exit218 ]
+  %844 = phi i32 [ %.promoted281, %.preheader ], [ %506, %bits_read_bit_be.exit202.thread ], [ %804, %bits_read_vlc_be.exit262 ], [ %502, %bits_read_nz_be.exit218 ]
   %845 = load i32, ptr %384, align 8, !tbaa !45
   %846 = sdiv i32 %845, 2
   %847 = sext i32 %846 to i64
@@ -4079,8 +4079,8 @@ bits_read_nz_be.exit75:                           ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %126, %133, %130
-  %143 = phi i32 [ %128, %130 ], [ %142, %133 ], [ %128, %126 ]
-  %144 = phi i64 [ %127, %130 ], [ %140, %133 ], [ %127, %126 ]
+  %143 = phi i32 [ %142, %133 ], [ %128, %130 ], [ %128, %126 ]
+  %144 = phi i64 [ %140, %133 ], [ %127, %130 ], [ %127, %126 ]
   %145 = lshr i64 %144, 52
   %146 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !30
@@ -4122,8 +4122,8 @@ bits_peek_be.exit.i:                              ; preds = %126, %133, %130
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %161, %158, %153
-  %171 = phi i32 [ %155, %158 ], [ %170, %161 ], [ %155, %153 ]
-  %.val.i.i.i.i = phi i64 [ %154, %158 ], [ %168, %161 ], [ %154, %153 ]
+  %171 = phi i32 [ %170, %161 ], [ %155, %158 ], [ %155, %153 ]
+  %.val.i.i.i.i = phi i64 [ %168, %161 ], [ %154, %158 ], [ %154, %153 ]
   %172 = add nsw i32 %151, 64
   %173 = zext nneg i32 %172 to i64
   %174 = lshr i64 %.val.i.i.i.i, %173
@@ -4171,8 +4171,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i79
 
 bits_peek_be.exit.i79:                            ; preds = %bits_read_vlc_be.exit, %191, %188
-  %201 = phi i32 [ %186, %188 ], [ %200, %191 ], [ %186, %bits_read_vlc_be.exit ]
-  %202 = phi i64 [ %185, %188 ], [ %198, %191 ], [ %185, %bits_read_vlc_be.exit ]
+  %201 = phi i32 [ %200, %191 ], [ %186, %188 ], [ %186, %bits_read_vlc_be.exit ]
+  %202 = phi i64 [ %198, %191 ], [ %185, %188 ], [ %185, %bits_read_vlc_be.exit ]
   %203 = lshr i64 %202, 52
   %204 = getelementptr inbounds nuw %struct.VLCElem, ptr %36, i64 %203
   %205 = load i16, ptr %204, align 2, !tbaa !30
@@ -4214,8 +4214,8 @@ bits_peek_be.exit.i79:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i82
 
 bits_priv_set_idx_be.exit.i82:                    ; preds = %219, %216, %211
-  %229 = phi i32 [ %213, %216 ], [ %228, %219 ], [ %213, %211 ]
-  %.val.i.i.i.i83 = phi i64 [ %212, %216 ], [ %226, %219 ], [ %212, %211 ]
+  %229 = phi i32 [ %228, %219 ], [ %213, %216 ], [ %213, %211 ]
+  %.val.i.i.i.i83 = phi i64 [ %226, %219 ], [ %212, %216 ], [ %212, %211 ]
   %230 = add nsw i32 %209, 64
   %231 = zext nneg i32 %230 to i64
   %232 = lshr i64 %.val.i.i.i.i83, %231
@@ -4265,8 +4265,8 @@ bits_read_vlc_be.exit87:                          ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i90
 
 bits_peek_be.exit.i90:                            ; preds = %bits_read_vlc_be.exit87, %251, %248
-  %261 = phi i32 [ %246, %248 ], [ %260, %251 ], [ %246, %bits_read_vlc_be.exit87 ]
-  %262 = phi i64 [ %245, %248 ], [ %258, %251 ], [ %245, %bits_read_vlc_be.exit87 ]
+  %261 = phi i32 [ %260, %251 ], [ %246, %248 ], [ %246, %bits_read_vlc_be.exit87 ]
+  %262 = phi i64 [ %258, %251 ], [ %245, %248 ], [ %245, %bits_read_vlc_be.exit87 ]
   %263 = lshr i64 %262, 52
   %264 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %263
   %265 = load i16, ptr %264, align 2, !tbaa !30
@@ -4308,8 +4308,8 @@ bits_peek_be.exit.i90:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i93
 
 bits_priv_set_idx_be.exit.i93:                    ; preds = %279, %276, %271
-  %289 = phi i32 [ %273, %276 ], [ %288, %279 ], [ %273, %271 ]
-  %.val.i.i.i.i94 = phi i64 [ %272, %276 ], [ %286, %279 ], [ %272, %271 ]
+  %289 = phi i32 [ %288, %279 ], [ %273, %276 ], [ %273, %271 ]
+  %.val.i.i.i.i94 = phi i64 [ %286, %279 ], [ %272, %276 ], [ %272, %271 ]
   %290 = add nsw i32 %269, 64
   %291 = zext nneg i32 %290 to i64
   %292 = lshr i64 %.val.i.i.i.i94, %291
@@ -4359,8 +4359,8 @@ bits_read_vlc_be.exit98:                          ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i101
 
 bits_peek_be.exit.i101:                           ; preds = %bits_read_vlc_be.exit98, %311, %308
-  %321 = phi i32 [ %306, %308 ], [ %320, %311 ], [ %306, %bits_read_vlc_be.exit98 ]
-  %322 = phi i64 [ %305, %308 ], [ %318, %311 ], [ %305, %bits_read_vlc_be.exit98 ]
+  %321 = phi i32 [ %320, %311 ], [ %306, %308 ], [ %306, %bits_read_vlc_be.exit98 ]
+  %322 = phi i64 [ %318, %311 ], [ %305, %308 ], [ %305, %bits_read_vlc_be.exit98 ]
   %323 = lshr i64 %322, 52
   %324 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %323
   %325 = load i16, ptr %324, align 2, !tbaa !30
@@ -4402,8 +4402,8 @@ bits_peek_be.exit.i101:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i104
 
 bits_priv_set_idx_be.exit.i104:                   ; preds = %339, %336, %331
-  %349 = phi i32 [ %333, %336 ], [ %348, %339 ], [ %333, %331 ]
-  %.val.i.i.i.i105 = phi i64 [ %332, %336 ], [ %346, %339 ], [ %332, %331 ]
+  %349 = phi i32 [ %348, %339 ], [ %333, %336 ], [ %333, %331 ]
+  %.val.i.i.i.i105 = phi i64 [ %346, %339 ], [ %332, %336 ], [ %332, %331 ]
   %350 = add nsw i32 %329, 64
   %351 = zext nneg i32 %350 to i64
   %352 = lshr i64 %.val.i.i.i.i105, %351
@@ -4454,8 +4454,8 @@ bits_read_vlc_be.exit109:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond136.not, label %.loopexit, label %126, !llvm.loop !69
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit75, %bits_read_vlc_be.exit109, %.preheader, %.critedge.preheader
-  %.promoted119141 = phi i32 [ %366, %bits_read_vlc_be.exit109 ], [ %.promoted119, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %123, %bits_read_nz_be.exit75 ]
-  %384 = phi i32 [ %366, %bits_read_vlc_be.exit109 ], [ %33, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %123, %bits_read_nz_be.exit75 ]
+  %.promoted119141 = phi i32 [ %.promoted, %.preheader ], [ %.promoted119, %.critedge.preheader ], [ %366, %bits_read_vlc_be.exit109 ], [ %123, %bits_read_nz_be.exit75 ]
+  %384 = phi i32 [ %.promoted, %.preheader ], [ %33, %.critedge.preheader ], [ %366, %bits_read_vlc_be.exit109 ], [ %123, %bits_read_nz_be.exit75 ]
   %385 = load i32, ptr %23, align 8, !tbaa !45
   %386 = sdiv i32 %385, 2
   %387 = sext i32 %386 to i64
@@ -4692,8 +4692,8 @@ bits_read_nz_be.exit128:                          ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %101, %108, %105
-  %118 = phi i32 [ %103, %105 ], [ %117, %108 ], [ %103, %101 ]
-  %119 = phi i64 [ %102, %105 ], [ %115, %108 ], [ %102, %101 ]
+  %118 = phi i32 [ %117, %108 ], [ %103, %105 ], [ %103, %101 ]
+  %119 = phi i64 [ %115, %108 ], [ %102, %105 ], [ %102, %101 ]
   %120 = lshr i64 %119, 52
   %121 = getelementptr inbounds nuw %struct.VLCElem, ptr %23, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !30
@@ -4735,8 +4735,8 @@ bits_peek_be.exit.i:                              ; preds = %101, %108, %105
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %136, %133, %128
-  %146 = phi i32 [ %130, %133 ], [ %145, %136 ], [ %130, %128 ]
-  %.val.i.i.i.i = phi i64 [ %129, %133 ], [ %143, %136 ], [ %129, %128 ]
+  %146 = phi i32 [ %145, %136 ], [ %130, %133 ], [ %130, %128 ]
+  %.val.i.i.i.i = phi i64 [ %143, %136 ], [ %129, %133 ], [ %129, %128 ]
   %147 = add nsw i32 %126, 64
   %148 = zext nneg i32 %147 to i64
   %149 = lshr i64 %.val.i.i.i.i, %148
@@ -4786,8 +4786,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i132
 
 bits_peek_be.exit.i132:                           ; preds = %bits_read_vlc_be.exit, %168, %165
-  %178 = phi i32 [ %163, %165 ], [ %177, %168 ], [ %163, %bits_read_vlc_be.exit ]
-  %179 = phi i64 [ %162, %165 ], [ %175, %168 ], [ %162, %bits_read_vlc_be.exit ]
+  %178 = phi i32 [ %177, %168 ], [ %163, %165 ], [ %163, %bits_read_vlc_be.exit ]
+  %179 = phi i64 [ %175, %168 ], [ %162, %165 ], [ %162, %bits_read_vlc_be.exit ]
   %180 = lshr i64 %179, 52
   %181 = getelementptr inbounds nuw %struct.VLCElem, ptr %27, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !30
@@ -4829,8 +4829,8 @@ bits_peek_be.exit.i132:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i135
 
 bits_priv_set_idx_be.exit.i135:                   ; preds = %196, %193, %188
-  %206 = phi i32 [ %190, %193 ], [ %205, %196 ], [ %190, %188 ]
-  %.val.i.i.i.i136 = phi i64 [ %189, %193 ], [ %203, %196 ], [ %189, %188 ]
+  %206 = phi i32 [ %205, %196 ], [ %190, %193 ], [ %190, %188 ]
+  %.val.i.i.i.i136 = phi i64 [ %203, %196 ], [ %189, %193 ], [ %189, %188 ]
   %207 = add nsw i32 %186, 64
   %208 = zext nneg i32 %207 to i64
   %209 = lshr i64 %.val.i.i.i.i136, %208
@@ -4880,8 +4880,8 @@ bits_read_vlc_be.exit140:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i143
 
 bits_peek_be.exit.i143:                           ; preds = %bits_read_vlc_be.exit140, %228, %225
-  %238 = phi i32 [ %223, %225 ], [ %237, %228 ], [ %223, %bits_read_vlc_be.exit140 ]
-  %239 = phi i64 [ %222, %225 ], [ %235, %228 ], [ %222, %bits_read_vlc_be.exit140 ]
+  %238 = phi i32 [ %237, %228 ], [ %223, %225 ], [ %223, %bits_read_vlc_be.exit140 ]
+  %239 = phi i64 [ %235, %228 ], [ %222, %225 ], [ %222, %bits_read_vlc_be.exit140 ]
   %240 = lshr i64 %239, 52
   %241 = getelementptr inbounds nuw %struct.VLCElem, ptr %27, i64 %240
   %242 = load i16, ptr %241, align 2, !tbaa !30
@@ -4923,8 +4923,8 @@ bits_peek_be.exit.i143:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i146
 
 bits_priv_set_idx_be.exit.i146:                   ; preds = %256, %253, %248
-  %266 = phi i32 [ %250, %253 ], [ %265, %256 ], [ %250, %248 ]
-  %.val.i.i.i.i147 = phi i64 [ %249, %253 ], [ %263, %256 ], [ %249, %248 ]
+  %266 = phi i32 [ %265, %256 ], [ %250, %253 ], [ %250, %248 ]
+  %.val.i.i.i.i147 = phi i64 [ %263, %256 ], [ %249, %253 ], [ %249, %248 ]
   %267 = add nsw i32 %246, 64
   %268 = zext nneg i32 %267 to i64
   %269 = lshr i64 %.val.i.i.i.i147, %268
@@ -4971,8 +4971,8 @@ bits_read_vlc_be.exit151:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond248.not, label %.loopexit208, label %101, !llvm.loop !72
 
 .loopexit208:                                     ; preds = %bits_read_nz_be.exit128, %bits_read_vlc_be.exit151, %.preheader209, %.critedge.preheader
-  %298 = phi i32 [ %20, %bits_read_vlc_be.exit151 ], [ %20, %.critedge.preheader ], [ %34, %.preheader209 ], [ %34, %bits_read_nz_be.exit128 ]
-  %299 = phi i32 [ %283, %bits_read_vlc_be.exit151 ], [ %.promoted218, %.critedge.preheader ], [ %.promoted, %.preheader209 ], [ %98, %bits_read_nz_be.exit128 ]
+  %298 = phi i32 [ %34, %.preheader209 ], [ %20, %.critedge.preheader ], [ %20, %bits_read_vlc_be.exit151 ], [ %34, %bits_read_nz_be.exit128 ]
+  %299 = phi i32 [ %.promoted, %.preheader209 ], [ %.promoted218, %.critedge.preheader ], [ %283, %bits_read_vlc_be.exit151 ], [ %98, %bits_read_nz_be.exit128 ]
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -5237,8 +5237,8 @@ bits_read_bit_be.exit159.thread:                  ; preds = %328, %bits_read_bit
   br label %bits_peek_be.exit.i174
 
 bits_peek_be.exit.i174:                           ; preds = %419, %448, %445
-  %458 = phi i32 [ %420, %445 ], [ %457, %448 ], [ %420, %419 ]
-  %459 = phi i64 [ %421, %445 ], [ %455, %448 ], [ %421, %419 ]
+  %458 = phi i32 [ %457, %448 ], [ %420, %445 ], [ %420, %419 ]
+  %459 = phi i64 [ %455, %448 ], [ %421, %445 ], [ %421, %419 ]
   %460 = lshr i64 %459, 52
   %461 = getelementptr inbounds nuw %struct.VLCElem, ptr %417, i64 %460
   %462 = load i16, ptr %461, align 2, !tbaa !30
@@ -5280,8 +5280,8 @@ bits_peek_be.exit.i174:                           ; preds = %419, %448, %445
   br label %bits_priv_set_idx_be.exit.i177
 
 bits_priv_set_idx_be.exit.i177:                   ; preds = %476, %473, %468
-  %486 = phi i32 [ %470, %473 ], [ %485, %476 ], [ %470, %468 ]
-  %.val.i.i.i.i178 = phi i64 [ %469, %473 ], [ %483, %476 ], [ %469, %468 ]
+  %486 = phi i32 [ %485, %476 ], [ %470, %473 ], [ %470, %468 ]
+  %.val.i.i.i.i178 = phi i64 [ %483, %476 ], [ %469, %473 ], [ %469, %468 ]
   %487 = add nsw i32 %466, 64
   %488 = zext nneg i32 %487 to i64
   %489 = lshr i64 %.val.i.i.i.i178, %488
@@ -5331,8 +5331,8 @@ bits_read_vlc_be.exit182:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i185
 
 bits_peek_be.exit.i185:                           ; preds = %bits_read_vlc_be.exit182, %508, %505
-  %518 = phi i32 [ %503, %505 ], [ %517, %508 ], [ %503, %bits_read_vlc_be.exit182 ]
-  %519 = phi i64 [ %502, %505 ], [ %515, %508 ], [ %502, %bits_read_vlc_be.exit182 ]
+  %518 = phi i32 [ %517, %508 ], [ %503, %505 ], [ %503, %bits_read_vlc_be.exit182 ]
+  %519 = phi i64 [ %515, %508 ], [ %502, %505 ], [ %502, %bits_read_vlc_be.exit182 ]
   %520 = lshr i64 %519, 52
   %521 = getelementptr inbounds nuw %struct.VLCElem, ptr %418, i64 %520
   %522 = load i16, ptr %521, align 2, !tbaa !30
@@ -5374,8 +5374,8 @@ bits_peek_be.exit.i185:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i188
 
 bits_priv_set_idx_be.exit.i188:                   ; preds = %536, %533, %528
-  %546 = phi i32 [ %530, %533 ], [ %545, %536 ], [ %530, %528 ]
-  %.val.i.i.i.i189 = phi i64 [ %529, %533 ], [ %543, %536 ], [ %529, %528 ]
+  %546 = phi i32 [ %545, %536 ], [ %530, %533 ], [ %530, %528 ]
+  %.val.i.i.i.i189 = phi i64 [ %543, %536 ], [ %529, %533 ], [ %529, %528 ]
   %547 = add nsw i32 %526, 64
   %548 = zext nneg i32 %547 to i64
   %549 = lshr i64 %.val.i.i.i.i189, %548
@@ -5425,8 +5425,8 @@ bits_read_vlc_be.exit193:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i196
 
 bits_peek_be.exit.i196:                           ; preds = %bits_read_vlc_be.exit193, %568, %565
-  %578 = phi i32 [ %563, %565 ], [ %577, %568 ], [ %563, %bits_read_vlc_be.exit193 ]
-  %579 = phi i64 [ %562, %565 ], [ %575, %568 ], [ %562, %bits_read_vlc_be.exit193 ]
+  %578 = phi i32 [ %577, %568 ], [ %563, %565 ], [ %563, %bits_read_vlc_be.exit193 ]
+  %579 = phi i64 [ %575, %568 ], [ %562, %565 ], [ %562, %bits_read_vlc_be.exit193 ]
   %580 = lshr i64 %579, 52
   %581 = getelementptr inbounds nuw %struct.VLCElem, ptr %418, i64 %580
   %582 = load i16, ptr %581, align 2, !tbaa !30
@@ -5468,8 +5468,8 @@ bits_peek_be.exit.i196:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i199
 
 bits_priv_set_idx_be.exit.i199:                   ; preds = %596, %593, %588
-  %606 = phi i32 [ %590, %593 ], [ %605, %596 ], [ %590, %588 ]
-  %.val.i.i.i.i200 = phi i64 [ %589, %593 ], [ %603, %596 ], [ %589, %588 ]
+  %606 = phi i32 [ %605, %596 ], [ %590, %593 ], [ %590, %588 ]
+  %.val.i.i.i.i200 = phi i64 [ %603, %596 ], [ %589, %593 ], [ %589, %588 ]
   %607 = add nsw i32 %586, 64
   %608 = zext nneg i32 %607 to i64
   %609 = lshr i64 %.val.i.i.i.i200, %608
@@ -5531,8 +5531,8 @@ bits_read_vlc_be.exit204:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond258.not, label %.loopexit, label %419, !llvm.loop !74
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit171, %bits_read_vlc_be.exit204, %.preheader, %bits_read_bit_be.exit159.thread
-  %653 = phi i32 [ %623, %bits_read_vlc_be.exit204 ], [ %397, %bits_read_bit_be.exit159.thread ], [ %.promoted222, %.preheader ], [ %394, %bits_read_nz_be.exit171 ]
-  %654 = phi i32 [ %623, %bits_read_vlc_be.exit204 ], [ %398, %bits_read_bit_be.exit159.thread ], [ %.promoted222, %.preheader ], [ %394, %bits_read_nz_be.exit171 ]
+  %653 = phi i32 [ %.promoted222, %.preheader ], [ %397, %bits_read_bit_be.exit159.thread ], [ %623, %bits_read_vlc_be.exit204 ], [ %394, %bits_read_nz_be.exit171 ]
+  %654 = phi i32 [ %.promoted222, %.preheader ], [ %398, %bits_read_bit_be.exit159.thread ], [ %623, %bits_read_vlc_be.exit204 ], [ %394, %bits_read_nz_be.exit171 ]
   %655 = load i32, ptr %301, align 8, !tbaa !45
   %656 = sdiv i32 %655, 2
   %657 = sext i32 %656 to i64
@@ -5783,8 +5783,8 @@ bits_read_nz_be.exit59:                           ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %103, %110, %107
-  %120 = phi i32 [ %105, %107 ], [ %119, %110 ], [ %105, %103 ]
-  %121 = phi i64 [ %104, %107 ], [ %117, %110 ], [ %104, %103 ]
+  %120 = phi i32 [ %119, %110 ], [ %105, %107 ], [ %105, %103 ]
+  %121 = phi i64 [ %117, %110 ], [ %104, %107 ], [ %104, %103 ]
   %122 = lshr i64 %121, 52
   %123 = getelementptr inbounds nuw %struct.VLCElem, ptr %32, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !30
@@ -5826,8 +5826,8 @@ bits_peek_be.exit.i:                              ; preds = %103, %110, %107
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %138, %135, %130
-  %148 = phi i32 [ %132, %135 ], [ %147, %138 ], [ %132, %130 ]
-  %.val.i.i.i.i = phi i64 [ %131, %135 ], [ %145, %138 ], [ %131, %130 ]
+  %148 = phi i32 [ %147, %138 ], [ %132, %135 ], [ %132, %130 ]
+  %.val.i.i.i.i = phi i64 [ %145, %138 ], [ %131, %135 ], [ %131, %130 ]
   %149 = add nsw i32 %128, 64
   %150 = zext nneg i32 %149 to i64
   %151 = lshr i64 %.val.i.i.i.i, %150
@@ -5877,8 +5877,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i63
 
 bits_peek_be.exit.i63:                            ; preds = %bits_read_vlc_be.exit, %170, %167
-  %180 = phi i32 [ %165, %167 ], [ %179, %170 ], [ %165, %bits_read_vlc_be.exit ]
-  %181 = phi i64 [ %164, %167 ], [ %177, %170 ], [ %164, %bits_read_vlc_be.exit ]
+  %180 = phi i32 [ %179, %170 ], [ %165, %167 ], [ %165, %bits_read_vlc_be.exit ]
+  %181 = phi i64 [ %177, %170 ], [ %164, %167 ], [ %164, %bits_read_vlc_be.exit ]
   %182 = lshr i64 %181, 52
   %183 = getelementptr inbounds nuw %struct.VLCElem, ptr %33, i64 %182
   %184 = load i16, ptr %183, align 2, !tbaa !30
@@ -5920,8 +5920,8 @@ bits_peek_be.exit.i63:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i66
 
 bits_priv_set_idx_be.exit.i66:                    ; preds = %198, %195, %190
-  %208 = phi i32 [ %192, %195 ], [ %207, %198 ], [ %192, %190 ]
-  %.val.i.i.i.i67 = phi i64 [ %191, %195 ], [ %205, %198 ], [ %191, %190 ]
+  %208 = phi i32 [ %207, %198 ], [ %192, %195 ], [ %192, %190 ]
+  %.val.i.i.i.i67 = phi i64 [ %205, %198 ], [ %191, %195 ], [ %191, %190 ]
   %209 = add nsw i32 %188, 64
   %210 = zext nneg i32 %209 to i64
   %211 = lshr i64 %.val.i.i.i.i67, %210
@@ -5971,8 +5971,8 @@ bits_read_vlc_be.exit71:                          ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i74
 
 bits_peek_be.exit.i74:                            ; preds = %bits_read_vlc_be.exit71, %230, %227
-  %240 = phi i32 [ %225, %227 ], [ %239, %230 ], [ %225, %bits_read_vlc_be.exit71 ]
-  %241 = phi i64 [ %224, %227 ], [ %237, %230 ], [ %224, %bits_read_vlc_be.exit71 ]
+  %240 = phi i32 [ %239, %230 ], [ %225, %227 ], [ %225, %bits_read_vlc_be.exit71 ]
+  %241 = phi i64 [ %237, %230 ], [ %224, %227 ], [ %224, %bits_read_vlc_be.exit71 ]
   %242 = lshr i64 %241, 52
   %243 = getelementptr inbounds nuw %struct.VLCElem, ptr %33, i64 %242
   %244 = load i16, ptr %243, align 2, !tbaa !30
@@ -6014,8 +6014,8 @@ bits_peek_be.exit.i74:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i77
 
 bits_priv_set_idx_be.exit.i77:                    ; preds = %258, %255, %250
-  %268 = phi i32 [ %252, %255 ], [ %267, %258 ], [ %252, %250 ]
-  %.val.i.i.i.i78 = phi i64 [ %251, %255 ], [ %265, %258 ], [ %251, %250 ]
+  %268 = phi i32 [ %267, %258 ], [ %252, %255 ], [ %252, %250 ]
+  %.val.i.i.i.i78 = phi i64 [ %265, %258 ], [ %251, %255 ], [ %251, %250 ]
   %269 = add nsw i32 %248, 64
   %270 = zext nneg i32 %269 to i64
   %271 = lshr i64 %.val.i.i.i.i78, %270
@@ -6062,8 +6062,8 @@ bits_read_vlc_be.exit82:                          ; preds = %bits_peek_be.exit.i
   br i1 %exitcond107.not, label %.loopexit, label %103, !llvm.loop !77
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit59, %bits_read_vlc_be.exit82, %.preheader, %.critedge.preheader
-  %.promoted91112 = phi i32 [ %285, %bits_read_vlc_be.exit82 ], [ %.promoted91, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %100, %bits_read_nz_be.exit59 ]
-  %300 = phi i32 [ %285, %bits_read_vlc_be.exit82 ], [ %30, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %100, %bits_read_nz_be.exit59 ]
+  %.promoted91112 = phi i32 [ %.promoted, %.preheader ], [ %.promoted91, %.critedge.preheader ], [ %285, %bits_read_vlc_be.exit82 ], [ %100, %bits_read_nz_be.exit59 ]
+  %300 = phi i32 [ %.promoted, %.preheader ], [ %30, %.critedge.preheader ], [ %285, %bits_read_vlc_be.exit82 ], [ %100, %bits_read_nz_be.exit59 ]
   %301 = load i32, ptr %21, align 8, !tbaa !45
   %302 = sdiv i32 %301, 2
   %303 = sext i32 %302 to i64
@@ -6393,8 +6393,8 @@ bits_peek_be.exit.i:                              ; preds = %125, %122, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %153, %150, %145
-  %163 = phi i32 [ %147, %150 ], [ %162, %153 ], [ %147, %145 ]
-  %.val.i.i.i.i = phi i64 [ %146, %150 ], [ %160, %153 ], [ %146, %145 ]
+  %163 = phi i32 [ %162, %153 ], [ %147, %150 ], [ %147, %145 ]
+  %.val.i.i.i.i = phi i64 [ %160, %153 ], [ %146, %150 ], [ %146, %145 ]
   %164 = add nsw i32 %143, 64
   %165 = zext nneg i32 %164 to i64
   %166 = lshr i64 %.val.i.i.i.i, %165
@@ -6445,8 +6445,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i146
 
 bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.exit, %186, %183
-  %196 = phi i32 [ %180, %183 ], [ %195, %186 ], [ %180, %bits_read_vlc_be.exit ]
-  %197 = phi i64 [ %179, %183 ], [ %193, %186 ], [ %179, %bits_read_vlc_be.exit ]
+  %196 = phi i32 [ %195, %186 ], [ %180, %183 ], [ %180, %bits_read_vlc_be.exit ]
+  %197 = phi i64 [ %193, %186 ], [ %179, %183 ], [ %179, %bits_read_vlc_be.exit ]
   %198 = lshr i64 %197, 52
   %199 = getelementptr inbounds nuw %struct.VLCElem, ptr %181, i64 %198
   %200 = load i16, ptr %199, align 2, !tbaa !30
@@ -6488,8 +6488,8 @@ bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i149
 
 bits_priv_set_idx_be.exit.i149:                   ; preds = %214, %211, %206
-  %224 = phi i32 [ %208, %211 ], [ %223, %214 ], [ %208, %206 ]
-  %.val.i.i.i.i150 = phi i64 [ %207, %211 ], [ %221, %214 ], [ %207, %206 ]
+  %224 = phi i32 [ %223, %214 ], [ %208, %211 ], [ %208, %206 ]
+  %.val.i.i.i.i150 = phi i64 [ %221, %214 ], [ %207, %211 ], [ %207, %206 ]
   %225 = add nsw i32 %204, 64
   %226 = zext nneg i32 %225 to i64
   %227 = lshr i64 %.val.i.i.i.i150, %226
@@ -6539,8 +6539,8 @@ bits_read_vlc_be.exit154:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i157
 
 bits_peek_be.exit.i157:                           ; preds = %bits_read_vlc_be.exit154, %246, %243
-  %256 = phi i32 [ %241, %243 ], [ %255, %246 ], [ %241, %bits_read_vlc_be.exit154 ]
-  %257 = phi i64 [ %240, %243 ], [ %253, %246 ], [ %240, %bits_read_vlc_be.exit154 ]
+  %256 = phi i32 [ %255, %246 ], [ %241, %243 ], [ %241, %bits_read_vlc_be.exit154 ]
+  %257 = phi i64 [ %253, %246 ], [ %240, %243 ], [ %240, %bits_read_vlc_be.exit154 ]
   %258 = lshr i64 %257, 52
   %259 = getelementptr inbounds nuw %struct.VLCElem, ptr %119, i64 %258
   %260 = load i16, ptr %259, align 2, !tbaa !30
@@ -6582,8 +6582,8 @@ bits_peek_be.exit.i157:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i160
 
 bits_priv_set_idx_be.exit.i160:                   ; preds = %274, %271, %266
-  %284 = phi i32 [ %268, %271 ], [ %283, %274 ], [ %268, %266 ]
-  %.val.i.i.i.i161 = phi i64 [ %267, %271 ], [ %281, %274 ], [ %267, %266 ]
+  %284 = phi i32 [ %283, %274 ], [ %268, %271 ], [ %268, %266 ]
+  %.val.i.i.i.i161 = phi i64 [ %281, %274 ], [ %267, %271 ], [ %267, %266 ]
   %285 = add nsw i32 %264, 64
   %286 = zext nneg i32 %285 to i64
   %287 = lshr i64 %.val.i.i.i.i161, %286
@@ -6633,8 +6633,8 @@ bits_read_vlc_be.exit165:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i168
 
 bits_peek_be.exit.i168:                           ; preds = %bits_read_vlc_be.exit165, %306, %303
-  %316 = phi i32 [ %301, %303 ], [ %315, %306 ], [ %301, %bits_read_vlc_be.exit165 ]
-  %317 = phi i64 [ %300, %303 ], [ %313, %306 ], [ %300, %bits_read_vlc_be.exit165 ]
+  %316 = phi i32 [ %315, %306 ], [ %301, %303 ], [ %301, %bits_read_vlc_be.exit165 ]
+  %317 = phi i64 [ %313, %306 ], [ %300, %303 ], [ %300, %bits_read_vlc_be.exit165 ]
   %318 = lshr i64 %317, 52
   %319 = getelementptr inbounds nuw %struct.VLCElem, ptr %119, i64 %318
   %320 = load i16, ptr %319, align 2, !tbaa !30
@@ -6676,8 +6676,8 @@ bits_peek_be.exit.i168:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i171
 
 bits_priv_set_idx_be.exit.i171:                   ; preds = %334, %331, %326
-  %344 = phi i32 [ %328, %331 ], [ %343, %334 ], [ %328, %326 ]
-  %.val.i.i.i.i172 = phi i64 [ %327, %331 ], [ %341, %334 ], [ %327, %326 ]
+  %344 = phi i32 [ %343, %334 ], [ %328, %331 ], [ %328, %326 ]
+  %.val.i.i.i.i172 = phi i64 [ %341, %334 ], [ %327, %331 ], [ %327, %326 ]
   %345 = add nsw i32 %324, 64
   %346 = zext nneg i32 %345 to i64
   %347 = lshr i64 %.val.i.i.i.i172, %346
@@ -6728,7 +6728,7 @@ bits_read_vlc_be.exit176:                         ; preds = %bits_peek_be.exit.i
   br i1 %379, label %118, label %.loopexit248, !llvm.loop !80
 
 .loopexit248:                                     ; preds = %bits_read_nz_be.exit142, %bits_read_vlc_be.exit176, %.preheader249, %.critedge.preheader
-  %380 = phi i32 [ %377, %bits_read_vlc_be.exit176 ], [ %16, %.critedge.preheader ], [ %29, %.preheader249 ], [ %115, %bits_read_nz_be.exit142 ]
+  %380 = phi i32 [ %29, %.preheader249 ], [ %16, %.critedge.preheader ], [ %377, %bits_read_vlc_be.exit176 ], [ %115, %bits_read_nz_be.exit142 ]
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %383 = load i32, ptr %382, align 4, !tbaa !37
@@ -7089,8 +7089,8 @@ bits_peek_be.exit.i203:                           ; preds = %536, %533, %.bits_p
   br label %bits_priv_set_idx_be.exit.i206
 
 bits_priv_set_idx_be.exit.i206:                   ; preds = %564, %561, %556
-  %574 = phi i32 [ %558, %561 ], [ %573, %564 ], [ %558, %556 ]
-  %.val.i.i.i.i207 = phi i64 [ %557, %561 ], [ %571, %564 ], [ %557, %556 ]
+  %574 = phi i32 [ %573, %564 ], [ %558, %561 ], [ %558, %556 ]
+  %.val.i.i.i.i207 = phi i64 [ %571, %564 ], [ %557, %561 ], [ %557, %556 ]
   %575 = add nsw i32 %554, 64
   %576 = zext nneg i32 %575 to i64
   %577 = lshr i64 %.val.i.i.i.i207, %576
@@ -7141,8 +7141,8 @@ bits_read_vlc_be.exit211:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i214
 
 bits_peek_be.exit.i214:                           ; preds = %bits_read_vlc_be.exit211, %597, %594
-  %607 = phi i32 [ %591, %594 ], [ %606, %597 ], [ %591, %bits_read_vlc_be.exit211 ]
-  %608 = phi i64 [ %590, %594 ], [ %604, %597 ], [ %590, %bits_read_vlc_be.exit211 ]
+  %607 = phi i32 [ %606, %597 ], [ %591, %594 ], [ %591, %bits_read_vlc_be.exit211 ]
+  %608 = phi i64 [ %604, %597 ], [ %590, %594 ], [ %590, %bits_read_vlc_be.exit211 ]
   %609 = lshr i64 %608, 52
   %610 = getelementptr inbounds nuw %struct.VLCElem, ptr %592, i64 %609
   %611 = load i16, ptr %610, align 2, !tbaa !30
@@ -7184,8 +7184,8 @@ bits_peek_be.exit.i214:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i217
 
 bits_priv_set_idx_be.exit.i217:                   ; preds = %625, %622, %617
-  %635 = phi i32 [ %619, %622 ], [ %634, %625 ], [ %619, %617 ]
-  %.val.i.i.i.i218 = phi i64 [ %618, %622 ], [ %632, %625 ], [ %618, %617 ]
+  %635 = phi i32 [ %634, %625 ], [ %619, %622 ], [ %619, %617 ]
+  %.val.i.i.i.i218 = phi i64 [ %632, %625 ], [ %618, %622 ], [ %618, %617 ]
   %636 = add nsw i32 %615, 64
   %637 = zext nneg i32 %636 to i64
   %638 = lshr i64 %.val.i.i.i.i218, %637
@@ -7235,8 +7235,8 @@ bits_read_vlc_be.exit222:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i225
 
 bits_peek_be.exit.i225:                           ; preds = %bits_read_vlc_be.exit222, %657, %654
-  %667 = phi i32 [ %652, %654 ], [ %666, %657 ], [ %652, %bits_read_vlc_be.exit222 ]
-  %668 = phi i64 [ %651, %654 ], [ %664, %657 ], [ %651, %bits_read_vlc_be.exit222 ]
+  %667 = phi i32 [ %666, %657 ], [ %652, %654 ], [ %652, %bits_read_vlc_be.exit222 ]
+  %668 = phi i64 [ %664, %657 ], [ %651, %654 ], [ %651, %bits_read_vlc_be.exit222 ]
   %669 = lshr i64 %668, 52
   %670 = getelementptr inbounds nuw %struct.VLCElem, ptr %530, i64 %669
   %671 = load i16, ptr %670, align 2, !tbaa !30
@@ -7278,8 +7278,8 @@ bits_peek_be.exit.i225:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i228
 
 bits_priv_set_idx_be.exit.i228:                   ; preds = %685, %682, %677
-  %695 = phi i32 [ %679, %682 ], [ %694, %685 ], [ %679, %677 ]
-  %.val.i.i.i.i229 = phi i64 [ %678, %682 ], [ %692, %685 ], [ %678, %677 ]
+  %695 = phi i32 [ %694, %685 ], [ %679, %682 ], [ %679, %677 ]
+  %.val.i.i.i.i229 = phi i64 [ %692, %685 ], [ %678, %682 ], [ %678, %677 ]
   %696 = add nsw i32 %675, 64
   %697 = zext nneg i32 %696 to i64
   %698 = lshr i64 %.val.i.i.i.i229, %697
@@ -7329,8 +7329,8 @@ bits_read_vlc_be.exit233:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i236
 
 bits_peek_be.exit.i236:                           ; preds = %bits_read_vlc_be.exit233, %717, %714
-  %727 = phi i32 [ %712, %714 ], [ %726, %717 ], [ %712, %bits_read_vlc_be.exit233 ]
-  %728 = phi i64 [ %711, %714 ], [ %724, %717 ], [ %711, %bits_read_vlc_be.exit233 ]
+  %727 = phi i32 [ %726, %717 ], [ %712, %714 ], [ %712, %bits_read_vlc_be.exit233 ]
+  %728 = phi i64 [ %724, %717 ], [ %711, %714 ], [ %711, %bits_read_vlc_be.exit233 ]
   %729 = lshr i64 %728, 52
   %730 = getelementptr inbounds nuw %struct.VLCElem, ptr %530, i64 %729
   %731 = load i16, ptr %730, align 2, !tbaa !30
@@ -7372,8 +7372,8 @@ bits_peek_be.exit.i236:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i239
 
 bits_priv_set_idx_be.exit.i239:                   ; preds = %745, %742, %737
-  %755 = phi i32 [ %739, %742 ], [ %754, %745 ], [ %739, %737 ]
-  %.val.i.i.i.i240 = phi i64 [ %738, %742 ], [ %752, %745 ], [ %738, %737 ]
+  %755 = phi i32 [ %754, %745 ], [ %739, %742 ], [ %739, %737 ]
+  %.val.i.i.i.i240 = phi i64 [ %752, %745 ], [ %738, %742 ], [ %738, %737 ]
   %756 = add nsw i32 %735, 64
   %757 = zext nneg i32 %756 to i64
   %758 = lshr i64 %.val.i.i.i.i240, %757
@@ -7447,8 +7447,8 @@ bits_read_vlc_be.exit244:                         ; preds = %bits_peek_be.exit.i
   br i1 %813, label %.lr.ph269, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit200, %bits_read_vlc_be.exit244, %.preheader, %bits_read_bit_be.exit184.thread
-  %814 = phi i32 [ %811, %bits_read_vlc_be.exit244 ], [ %394, %bits_read_bit_be.exit184.thread ], [ %394, %.preheader ], [ %489, %bits_read_nz_be.exit200 ]
-  %815 = phi i32 [ %811, %bits_read_vlc_be.exit244 ], [ %394, %bits_read_bit_be.exit184.thread ], [ %396, %.preheader ], [ %489, %bits_read_nz_be.exit200 ]
+  %814 = phi i32 [ %394, %.preheader ], [ %394, %bits_read_bit_be.exit184.thread ], [ %811, %bits_read_vlc_be.exit244 ], [ %489, %bits_read_nz_be.exit200 ]
+  %815 = phi i32 [ %396, %.preheader ], [ %394, %bits_read_bit_be.exit184.thread ], [ %811, %bits_read_vlc_be.exit244 ], [ %489, %bits_read_nz_be.exit200 ]
   %816 = load i32, ptr %381, align 8, !tbaa !45
   %817 = sext i32 %816 to i64
   %818 = getelementptr inbounds i8, ptr %.0271, i64 %817
@@ -7770,8 +7770,8 @@ bits_peek_be.exit.i:                              ; preds = %125, %122, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %153, %150, %145
-  %163 = phi i32 [ %147, %150 ], [ %162, %153 ], [ %147, %145 ]
-  %.val.i.i.i.i = phi i64 [ %146, %150 ], [ %160, %153 ], [ %146, %145 ]
+  %163 = phi i32 [ %162, %153 ], [ %147, %150 ], [ %147, %145 ]
+  %.val.i.i.i.i = phi i64 [ %160, %153 ], [ %146, %150 ], [ %146, %145 ]
   %164 = add nsw i32 %143, 64
   %165 = zext nneg i32 %164 to i64
   %166 = lshr i64 %.val.i.i.i.i, %165
@@ -7822,8 +7822,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i122
 
 bits_peek_be.exit.i122:                           ; preds = %bits_read_vlc_be.exit, %186, %183
-  %196 = phi i32 [ %180, %183 ], [ %195, %186 ], [ %180, %bits_read_vlc_be.exit ]
-  %197 = phi i64 [ %179, %183 ], [ %193, %186 ], [ %179, %bits_read_vlc_be.exit ]
+  %196 = phi i32 [ %195, %186 ], [ %180, %183 ], [ %180, %bits_read_vlc_be.exit ]
+  %197 = phi i64 [ %193, %186 ], [ %179, %183 ], [ %179, %bits_read_vlc_be.exit ]
   %198 = lshr i64 %197, 52
   %199 = getelementptr inbounds nuw %struct.VLCElem, ptr %181, i64 %198
   %200 = load i16, ptr %199, align 2, !tbaa !30
@@ -7865,8 +7865,8 @@ bits_peek_be.exit.i122:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i125
 
 bits_priv_set_idx_be.exit.i125:                   ; preds = %214, %211, %206
-  %224 = phi i32 [ %208, %211 ], [ %223, %214 ], [ %208, %206 ]
-  %.val.i.i.i.i126 = phi i64 [ %207, %211 ], [ %221, %214 ], [ %207, %206 ]
+  %224 = phi i32 [ %223, %214 ], [ %208, %211 ], [ %208, %206 ]
+  %.val.i.i.i.i126 = phi i64 [ %221, %214 ], [ %207, %211 ], [ %207, %206 ]
   %225 = add nsw i32 %204, 64
   %226 = zext nneg i32 %225 to i64
   %227 = lshr i64 %.val.i.i.i.i126, %226
@@ -7916,8 +7916,8 @@ bits_read_vlc_be.exit130:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i133
 
 bits_peek_be.exit.i133:                           ; preds = %bits_read_vlc_be.exit130, %246, %243
-  %256 = phi i32 [ %241, %243 ], [ %255, %246 ], [ %241, %bits_read_vlc_be.exit130 ]
-  %257 = phi i64 [ %240, %243 ], [ %253, %246 ], [ %240, %bits_read_vlc_be.exit130 ]
+  %256 = phi i32 [ %255, %246 ], [ %241, %243 ], [ %241, %bits_read_vlc_be.exit130 ]
+  %257 = phi i64 [ %253, %246 ], [ %240, %243 ], [ %240, %bits_read_vlc_be.exit130 ]
   %258 = lshr i64 %257, 52
   %259 = getelementptr inbounds nuw %struct.VLCElem, ptr %119, i64 %258
   %260 = load i16, ptr %259, align 2, !tbaa !30
@@ -7959,8 +7959,8 @@ bits_peek_be.exit.i133:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i136
 
 bits_priv_set_idx_be.exit.i136:                   ; preds = %274, %271, %266
-  %284 = phi i32 [ %268, %271 ], [ %283, %274 ], [ %268, %266 ]
-  %.val.i.i.i.i137 = phi i64 [ %267, %271 ], [ %281, %274 ], [ %267, %266 ]
+  %284 = phi i32 [ %283, %274 ], [ %268, %271 ], [ %268, %266 ]
+  %.val.i.i.i.i137 = phi i64 [ %281, %274 ], [ %267, %271 ], [ %267, %266 ]
   %285 = add nsw i32 %264, 64
   %286 = zext nneg i32 %285 to i64
   %287 = lshr i64 %.val.i.i.i.i137, %286
@@ -8010,8 +8010,8 @@ bits_read_vlc_be.exit141:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i144
 
 bits_peek_be.exit.i144:                           ; preds = %bits_read_vlc_be.exit141, %306, %303
-  %316 = phi i32 [ %301, %303 ], [ %315, %306 ], [ %301, %bits_read_vlc_be.exit141 ]
-  %317 = phi i64 [ %300, %303 ], [ %313, %306 ], [ %300, %bits_read_vlc_be.exit141 ]
+  %316 = phi i32 [ %315, %306 ], [ %301, %303 ], [ %301, %bits_read_vlc_be.exit141 ]
+  %317 = phi i64 [ %313, %306 ], [ %300, %303 ], [ %300, %bits_read_vlc_be.exit141 ]
   %318 = lshr i64 %317, 52
   %319 = getelementptr inbounds nuw %struct.VLCElem, ptr %119, i64 %318
   %320 = load i16, ptr %319, align 2, !tbaa !30
@@ -8053,8 +8053,8 @@ bits_peek_be.exit.i144:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i147
 
 bits_priv_set_idx_be.exit.i147:                   ; preds = %334, %331, %326
-  %344 = phi i32 [ %328, %331 ], [ %343, %334 ], [ %328, %326 ]
-  %.val.i.i.i.i148 = phi i64 [ %327, %331 ], [ %341, %334 ], [ %327, %326 ]
+  %344 = phi i32 [ %343, %334 ], [ %328, %331 ], [ %328, %326 ]
+  %.val.i.i.i.i148 = phi i64 [ %341, %334 ], [ %327, %331 ], [ %327, %326 ]
   %345 = add nsw i32 %324, 64
   %346 = zext nneg i32 %345 to i64
   %347 = lshr i64 %.val.i.i.i.i148, %346
@@ -8105,7 +8105,7 @@ bits_read_vlc_be.exit152:                         ; preds = %bits_peek_be.exit.i
   br i1 %379, label %118, label %.loopexit224, !llvm.loop !85
 
 .loopexit224:                                     ; preds = %bits_read_nz_be.exit118, %bits_read_vlc_be.exit152, %.preheader225, %.critedge.preheader
-  %380 = phi i32 [ %377, %bits_read_vlc_be.exit152 ], [ %16, %.critedge.preheader ], [ %29, %.preheader225 ], [ %115, %bits_read_nz_be.exit118 ]
+  %380 = phi i32 [ %29, %.preheader225 ], [ %16, %.critedge.preheader ], [ %377, %bits_read_vlc_be.exit152 ], [ %115, %bits_read_nz_be.exit118 ]
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %383 = load i32, ptr %382, align 4, !tbaa !37
@@ -8446,8 +8446,8 @@ bits_peek_be.exit.i179:                           ; preds = %520, %517, %.bits_p
   br label %bits_priv_set_idx_be.exit.i182
 
 bits_priv_set_idx_be.exit.i182:                   ; preds = %548, %545, %540
-  %558 = phi i32 [ %542, %545 ], [ %557, %548 ], [ %542, %540 ]
-  %.val.i.i.i.i183 = phi i64 [ %541, %545 ], [ %555, %548 ], [ %541, %540 ]
+  %558 = phi i32 [ %557, %548 ], [ %542, %545 ], [ %542, %540 ]
+  %.val.i.i.i.i183 = phi i64 [ %555, %548 ], [ %541, %545 ], [ %541, %540 ]
   %559 = add nsw i32 %538, 64
   %560 = zext nneg i32 %559 to i64
   %561 = lshr i64 %.val.i.i.i.i183, %560
@@ -8498,8 +8498,8 @@ bits_read_vlc_be.exit187:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i190
 
 bits_peek_be.exit.i190:                           ; preds = %bits_read_vlc_be.exit187, %581, %578
-  %591 = phi i32 [ %575, %578 ], [ %590, %581 ], [ %575, %bits_read_vlc_be.exit187 ]
-  %592 = phi i64 [ %574, %578 ], [ %588, %581 ], [ %574, %bits_read_vlc_be.exit187 ]
+  %591 = phi i32 [ %590, %581 ], [ %575, %578 ], [ %575, %bits_read_vlc_be.exit187 ]
+  %592 = phi i64 [ %588, %581 ], [ %574, %578 ], [ %574, %bits_read_vlc_be.exit187 ]
   %593 = lshr i64 %592, 52
   %594 = getelementptr inbounds nuw %struct.VLCElem, ptr %576, i64 %593
   %595 = load i16, ptr %594, align 2, !tbaa !30
@@ -8541,8 +8541,8 @@ bits_peek_be.exit.i190:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i193
 
 bits_priv_set_idx_be.exit.i193:                   ; preds = %609, %606, %601
-  %619 = phi i32 [ %603, %606 ], [ %618, %609 ], [ %603, %601 ]
-  %.val.i.i.i.i194 = phi i64 [ %602, %606 ], [ %616, %609 ], [ %602, %601 ]
+  %619 = phi i32 [ %618, %609 ], [ %603, %606 ], [ %603, %601 ]
+  %.val.i.i.i.i194 = phi i64 [ %616, %609 ], [ %602, %606 ], [ %602, %601 ]
   %620 = add nsw i32 %599, 64
   %621 = zext nneg i32 %620 to i64
   %622 = lshr i64 %.val.i.i.i.i194, %621
@@ -8592,8 +8592,8 @@ bits_read_vlc_be.exit198:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i201
 
 bits_peek_be.exit.i201:                           ; preds = %bits_read_vlc_be.exit198, %641, %638
-  %651 = phi i32 [ %636, %638 ], [ %650, %641 ], [ %636, %bits_read_vlc_be.exit198 ]
-  %652 = phi i64 [ %635, %638 ], [ %648, %641 ], [ %635, %bits_read_vlc_be.exit198 ]
+  %651 = phi i32 [ %650, %641 ], [ %636, %638 ], [ %636, %bits_read_vlc_be.exit198 ]
+  %652 = phi i64 [ %648, %641 ], [ %635, %638 ], [ %635, %bits_read_vlc_be.exit198 ]
   %653 = lshr i64 %652, 52
   %654 = getelementptr inbounds nuw %struct.VLCElem, ptr %514, i64 %653
   %655 = load i16, ptr %654, align 2, !tbaa !30
@@ -8635,8 +8635,8 @@ bits_peek_be.exit.i201:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i204
 
 bits_priv_set_idx_be.exit.i204:                   ; preds = %669, %666, %661
-  %679 = phi i32 [ %663, %666 ], [ %678, %669 ], [ %663, %661 ]
-  %.val.i.i.i.i205 = phi i64 [ %662, %666 ], [ %676, %669 ], [ %662, %661 ]
+  %679 = phi i32 [ %678, %669 ], [ %663, %666 ], [ %663, %661 ]
+  %.val.i.i.i.i205 = phi i64 [ %676, %669 ], [ %662, %666 ], [ %662, %661 ]
   %680 = add nsw i32 %659, 64
   %681 = zext nneg i32 %680 to i64
   %682 = lshr i64 %.val.i.i.i.i205, %681
@@ -8686,8 +8686,8 @@ bits_read_vlc_be.exit209:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i212
 
 bits_peek_be.exit.i212:                           ; preds = %bits_read_vlc_be.exit209, %701, %698
-  %711 = phi i32 [ %696, %698 ], [ %710, %701 ], [ %696, %bits_read_vlc_be.exit209 ]
-  %712 = phi i64 [ %695, %698 ], [ %708, %701 ], [ %695, %bits_read_vlc_be.exit209 ]
+  %711 = phi i32 [ %710, %701 ], [ %696, %698 ], [ %696, %bits_read_vlc_be.exit209 ]
+  %712 = phi i64 [ %708, %701 ], [ %695, %698 ], [ %695, %bits_read_vlc_be.exit209 ]
   %713 = lshr i64 %712, 52
   %714 = getelementptr inbounds nuw %struct.VLCElem, ptr %514, i64 %713
   %715 = load i16, ptr %714, align 2, !tbaa !30
@@ -8729,8 +8729,8 @@ bits_peek_be.exit.i212:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i215
 
 bits_priv_set_idx_be.exit.i215:                   ; preds = %729, %726, %721
-  %739 = phi i32 [ %723, %726 ], [ %738, %729 ], [ %723, %721 ]
-  %.val.i.i.i.i216 = phi i64 [ %722, %726 ], [ %736, %729 ], [ %722, %721 ]
+  %739 = phi i32 [ %738, %729 ], [ %723, %726 ], [ %723, %721 ]
+  %.val.i.i.i.i216 = phi i64 [ %736, %729 ], [ %722, %726 ], [ %722, %721 ]
   %740 = add nsw i32 %719, 64
   %741 = zext nneg i32 %740 to i64
   %742 = lshr i64 %.val.i.i.i.i216, %741
@@ -8781,8 +8781,8 @@ bits_read_vlc_be.exit220:                         ; preds = %bits_peek_be.exit.i
   br i1 %774, label %.lr.ph241, label %.loopexit, !llvm.loop !87
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit176, %bits_read_vlc_be.exit220, %.preheader, %bits_read_bit_be.exit160.thread
-  %775 = phi i32 [ %772, %bits_read_vlc_be.exit220 ], [ %394, %bits_read_bit_be.exit160.thread ], [ %394, %.preheader ], [ %489, %bits_read_nz_be.exit176 ]
-  %776 = phi i32 [ %772, %bits_read_vlc_be.exit220 ], [ %394, %bits_read_bit_be.exit160.thread ], [ %396, %.preheader ], [ %489, %bits_read_nz_be.exit176 ]
+  %775 = phi i32 [ %394, %.preheader ], [ %394, %bits_read_bit_be.exit160.thread ], [ %772, %bits_read_vlc_be.exit220 ], [ %489, %bits_read_nz_be.exit176 ]
+  %776 = phi i32 [ %396, %.preheader ], [ %394, %bits_read_bit_be.exit160.thread ], [ %772, %bits_read_vlc_be.exit220 ], [ %489, %bits_read_nz_be.exit176 ]
   %777 = load i32, ptr %381, align 8, !tbaa !45
   %778 = sext i32 %777 to i64
   %779 = getelementptr inbounds i8, ptr %.0243, i64 %778
@@ -9113,8 +9113,8 @@ bits_peek_be.exit.i:                              ; preds = %132, %129, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %160, %157, %152
-  %170 = phi i32 [ %154, %157 ], [ %169, %160 ], [ %154, %152 ]
-  %.val.i.i.i.i = phi i64 [ %153, %157 ], [ %167, %160 ], [ %153, %152 ]
+  %170 = phi i32 [ %169, %160 ], [ %154, %157 ], [ %154, %152 ]
+  %.val.i.i.i.i = phi i64 [ %167, %160 ], [ %153, %157 ], [ %153, %152 ]
   %171 = add nsw i32 %150, 64
   %172 = zext nneg i32 %171 to i64
   %173 = lshr i64 %.val.i.i.i.i, %172
@@ -9165,8 +9165,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i162
 
 bits_peek_be.exit.i162:                           ; preds = %bits_read_vlc_be.exit, %193, %190
-  %203 = phi i32 [ %187, %190 ], [ %202, %193 ], [ %187, %bits_read_vlc_be.exit ]
-  %204 = phi i64 [ %186, %190 ], [ %200, %193 ], [ %186, %bits_read_vlc_be.exit ]
+  %203 = phi i32 [ %202, %193 ], [ %187, %190 ], [ %187, %bits_read_vlc_be.exit ]
+  %204 = phi i64 [ %200, %193 ], [ %186, %190 ], [ %186, %bits_read_vlc_be.exit ]
   %205 = lshr i64 %204, 52
   %206 = getelementptr inbounds nuw %struct.VLCElem, ptr %188, i64 %205
   %207 = load i16, ptr %206, align 2, !tbaa !30
@@ -9208,8 +9208,8 @@ bits_peek_be.exit.i162:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i165
 
 bits_priv_set_idx_be.exit.i165:                   ; preds = %221, %218, %213
-  %231 = phi i32 [ %215, %218 ], [ %230, %221 ], [ %215, %213 ]
-  %.val.i.i.i.i166 = phi i64 [ %214, %218 ], [ %228, %221 ], [ %214, %213 ]
+  %231 = phi i32 [ %230, %221 ], [ %215, %218 ], [ %215, %213 ]
+  %.val.i.i.i.i166 = phi i64 [ %228, %221 ], [ %214, %218 ], [ %214, %213 ]
   %232 = add nsw i32 %211, 64
   %233 = zext nneg i32 %232 to i64
   %234 = lshr i64 %.val.i.i.i.i166, %233
@@ -9259,8 +9259,8 @@ bits_read_vlc_be.exit170:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i173
 
 bits_peek_be.exit.i173:                           ; preds = %bits_read_vlc_be.exit170, %253, %250
-  %263 = phi i32 [ %248, %250 ], [ %262, %253 ], [ %248, %bits_read_vlc_be.exit170 ]
-  %264 = phi i64 [ %247, %250 ], [ %260, %253 ], [ %247, %bits_read_vlc_be.exit170 ]
+  %263 = phi i32 [ %262, %253 ], [ %248, %250 ], [ %248, %bits_read_vlc_be.exit170 ]
+  %264 = phi i64 [ %260, %253 ], [ %247, %250 ], [ %247, %bits_read_vlc_be.exit170 ]
   %265 = lshr i64 %264, 52
   %266 = getelementptr inbounds nuw %struct.VLCElem, ptr %126, i64 %265
   %267 = load i16, ptr %266, align 2, !tbaa !30
@@ -9302,8 +9302,8 @@ bits_peek_be.exit.i173:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i176
 
 bits_priv_set_idx_be.exit.i176:                   ; preds = %281, %278, %273
-  %291 = phi i32 [ %275, %278 ], [ %290, %281 ], [ %275, %273 ]
-  %.val.i.i.i.i177 = phi i64 [ %274, %278 ], [ %288, %281 ], [ %274, %273 ]
+  %291 = phi i32 [ %290, %281 ], [ %275, %278 ], [ %275, %273 ]
+  %.val.i.i.i.i177 = phi i64 [ %288, %281 ], [ %274, %278 ], [ %274, %273 ]
   %292 = add nsw i32 %271, 64
   %293 = zext nneg i32 %292 to i64
   %294 = lshr i64 %.val.i.i.i.i177, %293
@@ -9353,8 +9353,8 @@ bits_read_vlc_be.exit181:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i184
 
 bits_peek_be.exit.i184:                           ; preds = %bits_read_vlc_be.exit181, %313, %310
-  %323 = phi i32 [ %308, %310 ], [ %322, %313 ], [ %308, %bits_read_vlc_be.exit181 ]
-  %324 = phi i64 [ %307, %310 ], [ %320, %313 ], [ %307, %bits_read_vlc_be.exit181 ]
+  %323 = phi i32 [ %322, %313 ], [ %308, %310 ], [ %308, %bits_read_vlc_be.exit181 ]
+  %324 = phi i64 [ %320, %313 ], [ %307, %310 ], [ %307, %bits_read_vlc_be.exit181 ]
   %325 = lshr i64 %324, 52
   %326 = getelementptr inbounds nuw %struct.VLCElem, ptr %126, i64 %325
   %327 = load i16, ptr %326, align 2, !tbaa !30
@@ -9396,8 +9396,8 @@ bits_peek_be.exit.i184:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i187
 
 bits_priv_set_idx_be.exit.i187:                   ; preds = %341, %338, %333
-  %351 = phi i32 [ %335, %338 ], [ %350, %341 ], [ %335, %333 ]
-  %.val.i.i.i.i188 = phi i64 [ %334, %338 ], [ %348, %341 ], [ %334, %333 ]
+  %351 = phi i32 [ %350, %341 ], [ %335, %338 ], [ %335, %333 ]
+  %.val.i.i.i.i188 = phi i64 [ %348, %341 ], [ %334, %338 ], [ %334, %333 ]
   %352 = add nsw i32 %331, 64
   %353 = zext nneg i32 %352 to i64
   %354 = lshr i64 %.val.i.i.i.i188, %353
@@ -9445,7 +9445,7 @@ bits_read_vlc_be.exit192:                         ; preds = %bits_peek_be.exit.i
   br i1 %383, label %125, label %.loopexit266, !llvm.loop !90
 
 .loopexit266:                                     ; preds = %bits_read_nz_be.exit158, %bits_read_vlc_be.exit192, %.preheader267, %bits_read_bit_be.exit.thread
-  %384 = phi i32 [ %381, %bits_read_vlc_be.exit192 ], [ %116, %bits_read_bit_be.exit.thread ], [ %27, %.preheader267 ], [ %112, %bits_read_nz_be.exit158 ]
+  %384 = phi i32 [ %27, %.preheader267 ], [ %116, %bits_read_bit_be.exit.thread ], [ %381, %bits_read_vlc_be.exit192 ], [ %112, %bits_read_nz_be.exit158 ]
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -9838,8 +9838,8 @@ bits_peek_be.exit.i219:                           ; preds = %566, %563, %.bits_p
   br label %bits_priv_set_idx_be.exit.i222
 
 bits_priv_set_idx_be.exit.i222:                   ; preds = %594, %591, %586
-  %604 = phi i32 [ %588, %591 ], [ %603, %594 ], [ %588, %586 ]
-  %.val.i.i.i.i223 = phi i64 [ %587, %591 ], [ %601, %594 ], [ %587, %586 ]
+  %604 = phi i32 [ %603, %594 ], [ %588, %591 ], [ %588, %586 ]
+  %.val.i.i.i.i223 = phi i64 [ %601, %594 ], [ %587, %591 ], [ %587, %586 ]
   %605 = add nsw i32 %584, 64
   %606 = zext nneg i32 %605 to i64
   %607 = lshr i64 %.val.i.i.i.i223, %606
@@ -9890,8 +9890,8 @@ bits_read_vlc_be.exit227:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i230
 
 bits_peek_be.exit.i230:                           ; preds = %bits_read_vlc_be.exit227, %627, %624
-  %637 = phi i32 [ %621, %624 ], [ %636, %627 ], [ %621, %bits_read_vlc_be.exit227 ]
-  %638 = phi i64 [ %620, %624 ], [ %634, %627 ], [ %620, %bits_read_vlc_be.exit227 ]
+  %637 = phi i32 [ %636, %627 ], [ %621, %624 ], [ %621, %bits_read_vlc_be.exit227 ]
+  %638 = phi i64 [ %634, %627 ], [ %620, %624 ], [ %620, %bits_read_vlc_be.exit227 ]
   %639 = lshr i64 %638, 52
   %640 = getelementptr inbounds nuw %struct.VLCElem, ptr %622, i64 %639
   %641 = load i16, ptr %640, align 2, !tbaa !30
@@ -9933,8 +9933,8 @@ bits_peek_be.exit.i230:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i233
 
 bits_priv_set_idx_be.exit.i233:                   ; preds = %655, %652, %647
-  %665 = phi i32 [ %649, %652 ], [ %664, %655 ], [ %649, %647 ]
-  %.val.i.i.i.i234 = phi i64 [ %648, %652 ], [ %662, %655 ], [ %648, %647 ]
+  %665 = phi i32 [ %664, %655 ], [ %649, %652 ], [ %649, %647 ]
+  %.val.i.i.i.i234 = phi i64 [ %662, %655 ], [ %648, %652 ], [ %648, %647 ]
   %666 = add nsw i32 %645, 64
   %667 = zext nneg i32 %666 to i64
   %668 = lshr i64 %.val.i.i.i.i234, %667
@@ -9984,8 +9984,8 @@ bits_read_vlc_be.exit238:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i241
 
 bits_peek_be.exit.i241:                           ; preds = %bits_read_vlc_be.exit238, %687, %684
-  %697 = phi i32 [ %682, %684 ], [ %696, %687 ], [ %682, %bits_read_vlc_be.exit238 ]
-  %698 = phi i64 [ %681, %684 ], [ %694, %687 ], [ %681, %bits_read_vlc_be.exit238 ]
+  %697 = phi i32 [ %696, %687 ], [ %682, %684 ], [ %682, %bits_read_vlc_be.exit238 ]
+  %698 = phi i64 [ %694, %687 ], [ %681, %684 ], [ %681, %bits_read_vlc_be.exit238 ]
   %699 = lshr i64 %698, 52
   %700 = getelementptr inbounds nuw %struct.VLCElem, ptr %560, i64 %699
   %701 = load i16, ptr %700, align 2, !tbaa !30
@@ -10027,8 +10027,8 @@ bits_peek_be.exit.i241:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i244
 
 bits_priv_set_idx_be.exit.i244:                   ; preds = %715, %712, %707
-  %725 = phi i32 [ %709, %712 ], [ %724, %715 ], [ %709, %707 ]
-  %.val.i.i.i.i245 = phi i64 [ %708, %712 ], [ %722, %715 ], [ %708, %707 ]
+  %725 = phi i32 [ %724, %715 ], [ %709, %712 ], [ %709, %707 ]
+  %.val.i.i.i.i245 = phi i64 [ %722, %715 ], [ %708, %712 ], [ %708, %707 ]
   %726 = add nsw i32 %705, 64
   %727 = zext nneg i32 %726 to i64
   %728 = lshr i64 %.val.i.i.i.i245, %727
@@ -10078,8 +10078,8 @@ bits_read_vlc_be.exit249:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i252
 
 bits_peek_be.exit.i252:                           ; preds = %bits_read_vlc_be.exit249, %747, %744
-  %757 = phi i32 [ %742, %744 ], [ %756, %747 ], [ %742, %bits_read_vlc_be.exit249 ]
-  %758 = phi i64 [ %741, %744 ], [ %754, %747 ], [ %741, %bits_read_vlc_be.exit249 ]
+  %757 = phi i32 [ %756, %747 ], [ %742, %744 ], [ %742, %bits_read_vlc_be.exit249 ]
+  %758 = phi i64 [ %754, %747 ], [ %741, %744 ], [ %741, %bits_read_vlc_be.exit249 ]
   %759 = lshr i64 %758, 52
   %760 = getelementptr inbounds nuw %struct.VLCElem, ptr %560, i64 %759
   %761 = load i16, ptr %760, align 2, !tbaa !30
@@ -10121,8 +10121,8 @@ bits_peek_be.exit.i252:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i255
 
 bits_priv_set_idx_be.exit.i255:                   ; preds = %775, %772, %767
-  %785 = phi i32 [ %769, %772 ], [ %784, %775 ], [ %769, %767 ]
-  %.val.i.i.i.i256 = phi i64 [ %768, %772 ], [ %782, %775 ], [ %768, %767 ]
+  %785 = phi i32 [ %784, %775 ], [ %769, %772 ], [ %769, %767 ]
+  %.val.i.i.i.i256 = phi i64 [ %782, %775 ], [ %768, %772 ], [ %768, %767 ]
   %786 = add nsw i32 %765, 64
   %787 = zext nneg i32 %786 to i64
   %788 = lshr i64 %.val.i.i.i.i256, %787
@@ -10194,8 +10194,8 @@ bits_read_vlc_be.exit260:                         ; preds = %bits_peek_be.exit.i
   br i1 %841, label %.lr.ph287, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit216, %bits_read_vlc_be.exit260, %.preheader, %bits_read_bit_be.exit200.thread
-  %842 = phi i32 [ %839, %bits_read_vlc_be.exit260 ], [ %410, %bits_read_bit_be.exit200.thread ], [ %410, %.preheader ], [ %507, %bits_read_nz_be.exit216 ]
-  %843 = phi i32 [ %839, %bits_read_vlc_be.exit260 ], [ %410, %bits_read_bit_be.exit200.thread ], [ %415, %.preheader ], [ %507, %bits_read_nz_be.exit216 ]
+  %842 = phi i32 [ %410, %.preheader ], [ %410, %bits_read_bit_be.exit200.thread ], [ %839, %bits_read_vlc_be.exit260 ], [ %507, %bits_read_nz_be.exit216 ]
+  %843 = phi i32 [ %415, %.preheader ], [ %410, %bits_read_bit_be.exit200.thread ], [ %839, %bits_read_vlc_be.exit260 ], [ %507, %bits_read_nz_be.exit216 ]
   %844 = load i32, ptr %386, align 4, !tbaa !45
   %845 = sext i32 %844 to i64
   %846 = getelementptr inbounds i8, ptr %.0295, i64 %845
@@ -10535,8 +10535,8 @@ bits_peek_be.exit.i:                              ; preds = %132, %129, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %160, %157, %152
-  %170 = phi i32 [ %154, %157 ], [ %169, %160 ], [ %154, %152 ]
-  %.val.i.i.i.i = phi i64 [ %153, %157 ], [ %167, %160 ], [ %153, %152 ]
+  %170 = phi i32 [ %169, %160 ], [ %154, %157 ], [ %154, %152 ]
+  %.val.i.i.i.i = phi i64 [ %167, %160 ], [ %153, %157 ], [ %153, %152 ]
   %171 = add nsw i32 %150, 64
   %172 = zext nneg i32 %171 to i64
   %173 = lshr i64 %.val.i.i.i.i, %172
@@ -10587,8 +10587,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i138
 
 bits_peek_be.exit.i138:                           ; preds = %bits_read_vlc_be.exit, %193, %190
-  %203 = phi i32 [ %187, %190 ], [ %202, %193 ], [ %187, %bits_read_vlc_be.exit ]
-  %204 = phi i64 [ %186, %190 ], [ %200, %193 ], [ %186, %bits_read_vlc_be.exit ]
+  %203 = phi i32 [ %202, %193 ], [ %187, %190 ], [ %187, %bits_read_vlc_be.exit ]
+  %204 = phi i64 [ %200, %193 ], [ %186, %190 ], [ %186, %bits_read_vlc_be.exit ]
   %205 = lshr i64 %204, 52
   %206 = getelementptr inbounds nuw %struct.VLCElem, ptr %188, i64 %205
   %207 = load i16, ptr %206, align 2, !tbaa !30
@@ -10630,8 +10630,8 @@ bits_peek_be.exit.i138:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i141
 
 bits_priv_set_idx_be.exit.i141:                   ; preds = %221, %218, %213
-  %231 = phi i32 [ %215, %218 ], [ %230, %221 ], [ %215, %213 ]
-  %.val.i.i.i.i142 = phi i64 [ %214, %218 ], [ %228, %221 ], [ %214, %213 ]
+  %231 = phi i32 [ %230, %221 ], [ %215, %218 ], [ %215, %213 ]
+  %.val.i.i.i.i142 = phi i64 [ %228, %221 ], [ %214, %218 ], [ %214, %213 ]
   %232 = add nsw i32 %211, 64
   %233 = zext nneg i32 %232 to i64
   %234 = lshr i64 %.val.i.i.i.i142, %233
@@ -10681,8 +10681,8 @@ bits_read_vlc_be.exit146:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i149
 
 bits_peek_be.exit.i149:                           ; preds = %bits_read_vlc_be.exit146, %253, %250
-  %263 = phi i32 [ %248, %250 ], [ %262, %253 ], [ %248, %bits_read_vlc_be.exit146 ]
-  %264 = phi i64 [ %247, %250 ], [ %260, %253 ], [ %247, %bits_read_vlc_be.exit146 ]
+  %263 = phi i32 [ %262, %253 ], [ %248, %250 ], [ %248, %bits_read_vlc_be.exit146 ]
+  %264 = phi i64 [ %260, %253 ], [ %247, %250 ], [ %247, %bits_read_vlc_be.exit146 ]
   %265 = lshr i64 %264, 52
   %266 = getelementptr inbounds nuw %struct.VLCElem, ptr %126, i64 %265
   %267 = load i16, ptr %266, align 2, !tbaa !30
@@ -10724,8 +10724,8 @@ bits_peek_be.exit.i149:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i152
 
 bits_priv_set_idx_be.exit.i152:                   ; preds = %281, %278, %273
-  %291 = phi i32 [ %275, %278 ], [ %290, %281 ], [ %275, %273 ]
-  %.val.i.i.i.i153 = phi i64 [ %274, %278 ], [ %288, %281 ], [ %274, %273 ]
+  %291 = phi i32 [ %290, %281 ], [ %275, %278 ], [ %275, %273 ]
+  %.val.i.i.i.i153 = phi i64 [ %288, %281 ], [ %274, %278 ], [ %274, %273 ]
   %292 = add nsw i32 %271, 64
   %293 = zext nneg i32 %292 to i64
   %294 = lshr i64 %.val.i.i.i.i153, %293
@@ -10775,8 +10775,8 @@ bits_read_vlc_be.exit157:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i160
 
 bits_peek_be.exit.i160:                           ; preds = %bits_read_vlc_be.exit157, %313, %310
-  %323 = phi i32 [ %308, %310 ], [ %322, %313 ], [ %308, %bits_read_vlc_be.exit157 ]
-  %324 = phi i64 [ %307, %310 ], [ %320, %313 ], [ %307, %bits_read_vlc_be.exit157 ]
+  %323 = phi i32 [ %322, %313 ], [ %308, %310 ], [ %308, %bits_read_vlc_be.exit157 ]
+  %324 = phi i64 [ %320, %313 ], [ %307, %310 ], [ %307, %bits_read_vlc_be.exit157 ]
   %325 = lshr i64 %324, 52
   %326 = getelementptr inbounds nuw %struct.VLCElem, ptr %126, i64 %325
   %327 = load i16, ptr %326, align 2, !tbaa !30
@@ -10818,8 +10818,8 @@ bits_peek_be.exit.i160:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i163
 
 bits_priv_set_idx_be.exit.i163:                   ; preds = %341, %338, %333
-  %351 = phi i32 [ %335, %338 ], [ %350, %341 ], [ %335, %333 ]
-  %.val.i.i.i.i164 = phi i64 [ %334, %338 ], [ %348, %341 ], [ %334, %333 ]
+  %351 = phi i32 [ %350, %341 ], [ %335, %338 ], [ %335, %333 ]
+  %.val.i.i.i.i164 = phi i64 [ %348, %341 ], [ %334, %338 ], [ %334, %333 ]
   %352 = add nsw i32 %331, 64
   %353 = zext nneg i32 %352 to i64
   %354 = lshr i64 %.val.i.i.i.i164, %353
@@ -10867,7 +10867,7 @@ bits_read_vlc_be.exit168:                         ; preds = %bits_peek_be.exit.i
   br i1 %383, label %125, label %.loopexit242, !llvm.loop !95
 
 .loopexit242:                                     ; preds = %bits_read_nz_be.exit134, %bits_read_vlc_be.exit168, %.preheader243, %bits_read_bit_be.exit.thread
-  %384 = phi i32 [ %381, %bits_read_vlc_be.exit168 ], [ %116, %bits_read_bit_be.exit.thread ], [ %27, %.preheader243 ], [ %112, %bits_read_nz_be.exit134 ]
+  %384 = phi i32 [ %27, %.preheader243 ], [ %116, %bits_read_bit_be.exit.thread ], [ %381, %bits_read_vlc_be.exit168 ], [ %112, %bits_read_nz_be.exit134 ]
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -11231,8 +11231,8 @@ bits_peek_be.exit.i195:                           ; preds = %541, %538, %.bits_p
   br label %bits_priv_set_idx_be.exit.i198
 
 bits_priv_set_idx_be.exit.i198:                   ; preds = %569, %566, %561
-  %579 = phi i32 [ %563, %566 ], [ %578, %569 ], [ %563, %561 ]
-  %.val.i.i.i.i199 = phi i64 [ %562, %566 ], [ %576, %569 ], [ %562, %561 ]
+  %579 = phi i32 [ %578, %569 ], [ %563, %566 ], [ %563, %561 ]
+  %.val.i.i.i.i199 = phi i64 [ %576, %569 ], [ %562, %566 ], [ %562, %561 ]
   %580 = add nsw i32 %559, 64
   %581 = zext nneg i32 %580 to i64
   %582 = lshr i64 %.val.i.i.i.i199, %581
@@ -11283,8 +11283,8 @@ bits_read_vlc_be.exit203:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i206
 
 bits_peek_be.exit.i206:                           ; preds = %bits_read_vlc_be.exit203, %602, %599
-  %612 = phi i32 [ %596, %599 ], [ %611, %602 ], [ %596, %bits_read_vlc_be.exit203 ]
-  %613 = phi i64 [ %595, %599 ], [ %609, %602 ], [ %595, %bits_read_vlc_be.exit203 ]
+  %612 = phi i32 [ %611, %602 ], [ %596, %599 ], [ %596, %bits_read_vlc_be.exit203 ]
+  %613 = phi i64 [ %609, %602 ], [ %595, %599 ], [ %595, %bits_read_vlc_be.exit203 ]
   %614 = lshr i64 %613, 52
   %615 = getelementptr inbounds nuw %struct.VLCElem, ptr %597, i64 %614
   %616 = load i16, ptr %615, align 2, !tbaa !30
@@ -11326,8 +11326,8 @@ bits_peek_be.exit.i206:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i209
 
 bits_priv_set_idx_be.exit.i209:                   ; preds = %630, %627, %622
-  %640 = phi i32 [ %624, %627 ], [ %639, %630 ], [ %624, %622 ]
-  %.val.i.i.i.i210 = phi i64 [ %623, %627 ], [ %637, %630 ], [ %623, %622 ]
+  %640 = phi i32 [ %639, %630 ], [ %624, %627 ], [ %624, %622 ]
+  %.val.i.i.i.i210 = phi i64 [ %637, %630 ], [ %623, %627 ], [ %623, %622 ]
   %641 = add nsw i32 %620, 64
   %642 = zext nneg i32 %641 to i64
   %643 = lshr i64 %.val.i.i.i.i210, %642
@@ -11377,8 +11377,8 @@ bits_read_vlc_be.exit214:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i217
 
 bits_peek_be.exit.i217:                           ; preds = %bits_read_vlc_be.exit214, %662, %659
-  %672 = phi i32 [ %657, %659 ], [ %671, %662 ], [ %657, %bits_read_vlc_be.exit214 ]
-  %673 = phi i64 [ %656, %659 ], [ %669, %662 ], [ %656, %bits_read_vlc_be.exit214 ]
+  %672 = phi i32 [ %671, %662 ], [ %657, %659 ], [ %657, %bits_read_vlc_be.exit214 ]
+  %673 = phi i64 [ %669, %662 ], [ %656, %659 ], [ %656, %bits_read_vlc_be.exit214 ]
   %674 = lshr i64 %673, 52
   %675 = getelementptr inbounds nuw %struct.VLCElem, ptr %535, i64 %674
   %676 = load i16, ptr %675, align 2, !tbaa !30
@@ -11420,8 +11420,8 @@ bits_peek_be.exit.i217:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i220
 
 bits_priv_set_idx_be.exit.i220:                   ; preds = %690, %687, %682
-  %700 = phi i32 [ %684, %687 ], [ %699, %690 ], [ %684, %682 ]
-  %.val.i.i.i.i221 = phi i64 [ %683, %687 ], [ %697, %690 ], [ %683, %682 ]
+  %700 = phi i32 [ %699, %690 ], [ %684, %687 ], [ %684, %682 ]
+  %.val.i.i.i.i221 = phi i64 [ %697, %690 ], [ %683, %687 ], [ %683, %682 ]
   %701 = add nsw i32 %680, 64
   %702 = zext nneg i32 %701 to i64
   %703 = lshr i64 %.val.i.i.i.i221, %702
@@ -11471,8 +11471,8 @@ bits_read_vlc_be.exit225:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i228
 
 bits_peek_be.exit.i228:                           ; preds = %bits_read_vlc_be.exit225, %722, %719
-  %732 = phi i32 [ %717, %719 ], [ %731, %722 ], [ %717, %bits_read_vlc_be.exit225 ]
-  %733 = phi i64 [ %716, %719 ], [ %729, %722 ], [ %716, %bits_read_vlc_be.exit225 ]
+  %732 = phi i32 [ %731, %722 ], [ %717, %719 ], [ %717, %bits_read_vlc_be.exit225 ]
+  %733 = phi i64 [ %729, %722 ], [ %716, %719 ], [ %716, %bits_read_vlc_be.exit225 ]
   %734 = lshr i64 %733, 52
   %735 = getelementptr inbounds nuw %struct.VLCElem, ptr %535, i64 %734
   %736 = load i16, ptr %735, align 2, !tbaa !30
@@ -11514,8 +11514,8 @@ bits_peek_be.exit.i228:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i231
 
 bits_priv_set_idx_be.exit.i231:                   ; preds = %750, %747, %742
-  %760 = phi i32 [ %744, %747 ], [ %759, %750 ], [ %744, %742 ]
-  %.val.i.i.i.i232 = phi i64 [ %743, %747 ], [ %757, %750 ], [ %743, %742 ]
+  %760 = phi i32 [ %759, %750 ], [ %744, %747 ], [ %744, %742 ]
+  %.val.i.i.i.i232 = phi i64 [ %757, %750 ], [ %743, %747 ], [ %743, %742 ]
   %761 = add nsw i32 %740, 64
   %762 = zext nneg i32 %761 to i64
   %763 = lshr i64 %.val.i.i.i.i232, %762
@@ -11563,8 +11563,8 @@ bits_read_vlc_be.exit236:                         ; preds = %bits_peek_be.exit.i
   br i1 %792, label %.lr.ph259, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit192, %bits_read_vlc_be.exit236, %.preheader, %bits_read_bit_be.exit176.thread
-  %793 = phi i32 [ %790, %bits_read_vlc_be.exit236 ], [ %410, %bits_read_bit_be.exit176.thread ], [ %410, %.preheader ], [ %507, %bits_read_nz_be.exit192 ]
-  %794 = phi i32 [ %790, %bits_read_vlc_be.exit236 ], [ %410, %bits_read_bit_be.exit176.thread ], [ %415, %.preheader ], [ %507, %bits_read_nz_be.exit192 ]
+  %793 = phi i32 [ %410, %.preheader ], [ %410, %bits_read_bit_be.exit176.thread ], [ %790, %bits_read_vlc_be.exit236 ], [ %507, %bits_read_nz_be.exit192 ]
+  %794 = phi i32 [ %415, %.preheader ], [ %410, %bits_read_bit_be.exit176.thread ], [ %790, %bits_read_vlc_be.exit236 ], [ %507, %bits_read_nz_be.exit192 ]
   %795 = load i32, ptr %386, align 4, !tbaa !45
   %796 = sext i32 %795 to i64
   %797 = getelementptr inbounds i8, ptr %.0267, i64 %796
@@ -11862,8 +11862,8 @@ bits_peek_be.exit.i:                              ; preds = %110, %107, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %138, %135, %130
-  %148 = phi i32 [ %132, %135 ], [ %147, %138 ], [ %132, %130 ]
-  %.val.i.i.i.i = phi i64 [ %131, %135 ], [ %145, %138 ], [ %131, %130 ]
+  %148 = phi i32 [ %147, %138 ], [ %132, %135 ], [ %132, %130 ]
+  %.val.i.i.i.i = phi i64 [ %145, %138 ], [ %131, %135 ], [ %131, %130 ]
   %149 = add nsw i32 %128, 64
   %150 = zext nneg i32 %149 to i64
   %151 = lshr i64 %.val.i.i.i.i, %150
@@ -11914,8 +11914,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i130
 
 bits_peek_be.exit.i130:                           ; preds = %bits_read_vlc_be.exit, %171, %168
-  %181 = phi i32 [ %165, %168 ], [ %180, %171 ], [ %165, %bits_read_vlc_be.exit ]
-  %182 = phi i64 [ %164, %168 ], [ %178, %171 ], [ %164, %bits_read_vlc_be.exit ]
+  %181 = phi i32 [ %180, %171 ], [ %165, %168 ], [ %165, %bits_read_vlc_be.exit ]
+  %182 = phi i64 [ %178, %171 ], [ %164, %168 ], [ %164, %bits_read_vlc_be.exit ]
   %183 = lshr i64 %182, 52
   %184 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %183
   %185 = load i16, ptr %184, align 2, !tbaa !30
@@ -11957,8 +11957,8 @@ bits_peek_be.exit.i130:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i133
 
 bits_priv_set_idx_be.exit.i133:                   ; preds = %199, %196, %191
-  %209 = phi i32 [ %193, %196 ], [ %208, %199 ], [ %193, %191 ]
-  %.val.i.i.i.i134 = phi i64 [ %192, %196 ], [ %206, %199 ], [ %192, %191 ]
+  %209 = phi i32 [ %208, %199 ], [ %193, %196 ], [ %193, %191 ]
+  %.val.i.i.i.i134 = phi i64 [ %206, %199 ], [ %192, %196 ], [ %192, %191 ]
   %210 = add nsw i32 %189, 64
   %211 = zext nneg i32 %210 to i64
   %212 = lshr i64 %.val.i.i.i.i134, %211
@@ -12008,8 +12008,8 @@ bits_read_vlc_be.exit138:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i141
 
 bits_peek_be.exit.i141:                           ; preds = %bits_read_vlc_be.exit138, %231, %228
-  %241 = phi i32 [ %226, %228 ], [ %240, %231 ], [ %226, %bits_read_vlc_be.exit138 ]
-  %242 = phi i64 [ %225, %228 ], [ %238, %231 ], [ %225, %bits_read_vlc_be.exit138 ]
+  %241 = phi i32 [ %240, %231 ], [ %226, %228 ], [ %226, %bits_read_vlc_be.exit138 ]
+  %242 = phi i64 [ %238, %231 ], [ %225, %228 ], [ %225, %bits_read_vlc_be.exit138 ]
   %243 = lshr i64 %242, 52
   %244 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %243
   %245 = load i16, ptr %244, align 2, !tbaa !30
@@ -12051,8 +12051,8 @@ bits_peek_be.exit.i141:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i144
 
 bits_priv_set_idx_be.exit.i144:                   ; preds = %259, %256, %251
-  %269 = phi i32 [ %253, %256 ], [ %268, %259 ], [ %253, %251 ]
-  %.val.i.i.i.i145 = phi i64 [ %252, %256 ], [ %266, %259 ], [ %252, %251 ]
+  %269 = phi i32 [ %268, %259 ], [ %253, %256 ], [ %253, %251 ]
+  %.val.i.i.i.i145 = phi i64 [ %266, %259 ], [ %252, %256 ], [ %252, %251 ]
   %270 = add nsw i32 %249, 64
   %271 = zext nneg i32 %270 to i64
   %272 = lshr i64 %.val.i.i.i.i145, %271
@@ -12096,7 +12096,7 @@ bits_read_vlc_be.exit149:                         ; preds = %bits_peek_be.exit.i
   br i1 %298, label %103, label %.loopexit208, !llvm.loop !100
 
 .loopexit208:                                     ; preds = %bits_read_nz_be.exit126, %bits_read_vlc_be.exit149, %.preheader209, %bits_read_bit_be.exit.thread
-  %299 = phi i32 [ %296, %bits_read_vlc_be.exit149 ], [ %94, %bits_read_bit_be.exit.thread ], [ %25, %.preheader209 ], [ %90, %bits_read_nz_be.exit126 ]
+  %299 = phi i32 [ %25, %.preheader209 ], [ %94, %bits_read_bit_be.exit.thread ], [ %296, %bits_read_vlc_be.exit149 ], [ %90, %bits_read_nz_be.exit126 ]
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -12429,8 +12429,8 @@ bits_peek_be.exit.i172:                           ; preds = %444, %441, %.bits_p
   br label %bits_priv_set_idx_be.exit.i175
 
 bits_priv_set_idx_be.exit.i175:                   ; preds = %472, %469, %464
-  %482 = phi i32 [ %466, %469 ], [ %481, %472 ], [ %466, %464 ]
-  %.val.i.i.i.i176 = phi i64 [ %465, %469 ], [ %479, %472 ], [ %465, %464 ]
+  %482 = phi i32 [ %481, %472 ], [ %466, %469 ], [ %466, %464 ]
+  %.val.i.i.i.i176 = phi i64 [ %479, %472 ], [ %465, %469 ], [ %465, %464 ]
   %483 = add nsw i32 %462, 64
   %484 = zext nneg i32 %483 to i64
   %485 = lshr i64 %.val.i.i.i.i176, %484
@@ -12481,8 +12481,8 @@ bits_read_vlc_be.exit180:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i183
 
 bits_peek_be.exit.i183:                           ; preds = %bits_read_vlc_be.exit180, %505, %502
-  %515 = phi i32 [ %499, %502 ], [ %514, %505 ], [ %499, %bits_read_vlc_be.exit180 ]
-  %516 = phi i64 [ %498, %502 ], [ %512, %505 ], [ %498, %bits_read_vlc_be.exit180 ]
+  %515 = phi i32 [ %514, %505 ], [ %499, %502 ], [ %499, %bits_read_vlc_be.exit180 ]
+  %516 = phi i64 [ %512, %505 ], [ %498, %502 ], [ %498, %bits_read_vlc_be.exit180 ]
   %517 = lshr i64 %516, 52
   %518 = getelementptr inbounds nuw %struct.VLCElem, ptr %500, i64 %517
   %519 = load i16, ptr %518, align 2, !tbaa !30
@@ -12524,8 +12524,8 @@ bits_peek_be.exit.i183:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i186
 
 bits_priv_set_idx_be.exit.i186:                   ; preds = %533, %530, %525
-  %543 = phi i32 [ %527, %530 ], [ %542, %533 ], [ %527, %525 ]
-  %.val.i.i.i.i187 = phi i64 [ %526, %530 ], [ %540, %533 ], [ %526, %525 ]
+  %543 = phi i32 [ %542, %533 ], [ %527, %530 ], [ %527, %525 ]
+  %.val.i.i.i.i187 = phi i64 [ %540, %533 ], [ %526, %530 ], [ %526, %525 ]
   %544 = add nsw i32 %523, 64
   %545 = zext nneg i32 %544 to i64
   %546 = lshr i64 %.val.i.i.i.i187, %545
@@ -12575,8 +12575,8 @@ bits_read_vlc_be.exit191:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i194
 
 bits_peek_be.exit.i194:                           ; preds = %bits_read_vlc_be.exit191, %565, %562
-  %575 = phi i32 [ %560, %562 ], [ %574, %565 ], [ %560, %bits_read_vlc_be.exit191 ]
-  %576 = phi i64 [ %559, %562 ], [ %572, %565 ], [ %559, %bits_read_vlc_be.exit191 ]
+  %575 = phi i32 [ %574, %565 ], [ %560, %562 ], [ %560, %bits_read_vlc_be.exit191 ]
+  %576 = phi i64 [ %572, %565 ], [ %559, %562 ], [ %559, %bits_read_vlc_be.exit191 ]
   %577 = lshr i64 %576, 52
   %578 = getelementptr inbounds nuw %struct.VLCElem, ptr %500, i64 %577
   %579 = load i16, ptr %578, align 2, !tbaa !30
@@ -12618,8 +12618,8 @@ bits_peek_be.exit.i194:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i197
 
 bits_priv_set_idx_be.exit.i197:                   ; preds = %593, %590, %585
-  %603 = phi i32 [ %587, %590 ], [ %602, %593 ], [ %587, %585 ]
-  %.val.i.i.i.i198 = phi i64 [ %586, %590 ], [ %600, %593 ], [ %586, %585 ]
+  %603 = phi i32 [ %602, %593 ], [ %587, %590 ], [ %587, %585 ]
+  %.val.i.i.i.i198 = phi i64 [ %600, %593 ], [ %586, %590 ], [ %586, %585 ]
   %604 = add nsw i32 %583, 64
   %605 = zext nneg i32 %604 to i64
   %606 = lshr i64 %.val.i.i.i.i198, %605
@@ -12681,8 +12681,8 @@ bits_read_vlc_be.exit202:                         ; preds = %bits_peek_be.exit.i
   br i1 %650, label %.lr.ph226, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit169, %bits_read_vlc_be.exit202, %.preheader, %bits_read_bit_be.exit157.thread
-  %651 = phi i32 [ %648, %bits_read_vlc_be.exit202 ], [ %321, %bits_read_bit_be.exit157.thread ], [ %321, %.preheader ], [ %397, %bits_read_nz_be.exit169 ]
-  %652 = phi i32 [ %648, %bits_read_vlc_be.exit202 ], [ %321, %bits_read_bit_be.exit157.thread ], [ %325, %.preheader ], [ %397, %bits_read_nz_be.exit169 ]
+  %651 = phi i32 [ %321, %.preheader ], [ %321, %bits_read_bit_be.exit157.thread ], [ %648, %bits_read_vlc_be.exit202 ], [ %397, %bits_read_nz_be.exit169 ]
+  %652 = phi i32 [ %325, %.preheader ], [ %321, %bits_read_bit_be.exit157.thread ], [ %648, %bits_read_vlc_be.exit202 ], [ %397, %bits_read_nz_be.exit169 ]
   %653 = load i32, ptr %300, align 8, !tbaa !45
   %654 = sext i32 %653 to i64
   %655 = getelementptr inbounds i8, ptr %.0232, i64 %654
@@ -12977,8 +12977,8 @@ bits_peek_be.exit.i:                              ; preds = %110, %107, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %138, %135, %130
-  %148 = phi i32 [ %132, %135 ], [ %147, %138 ], [ %132, %130 ]
-  %.val.i.i.i.i = phi i64 [ %131, %135 ], [ %145, %138 ], [ %131, %130 ]
+  %148 = phi i32 [ %147, %138 ], [ %132, %135 ], [ %132, %130 ]
+  %.val.i.i.i.i = phi i64 [ %145, %138 ], [ %131, %135 ], [ %131, %130 ]
   %149 = add nsw i32 %128, 64
   %150 = zext nneg i32 %149 to i64
   %151 = lshr i64 %.val.i.i.i.i, %150
@@ -13029,8 +13029,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i110
 
 bits_peek_be.exit.i110:                           ; preds = %bits_read_vlc_be.exit, %171, %168
-  %181 = phi i32 [ %165, %168 ], [ %180, %171 ], [ %165, %bits_read_vlc_be.exit ]
-  %182 = phi i64 [ %164, %168 ], [ %178, %171 ], [ %164, %bits_read_vlc_be.exit ]
+  %181 = phi i32 [ %180, %171 ], [ %165, %168 ], [ %165, %bits_read_vlc_be.exit ]
+  %182 = phi i64 [ %178, %171 ], [ %164, %168 ], [ %164, %bits_read_vlc_be.exit ]
   %183 = lshr i64 %182, 52
   %184 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %183
   %185 = load i16, ptr %184, align 2, !tbaa !30
@@ -13072,8 +13072,8 @@ bits_peek_be.exit.i110:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i113
 
 bits_priv_set_idx_be.exit.i113:                   ; preds = %199, %196, %191
-  %209 = phi i32 [ %193, %196 ], [ %208, %199 ], [ %193, %191 ]
-  %.val.i.i.i.i114 = phi i64 [ %192, %196 ], [ %206, %199 ], [ %192, %191 ]
+  %209 = phi i32 [ %208, %199 ], [ %193, %196 ], [ %193, %191 ]
+  %.val.i.i.i.i114 = phi i64 [ %206, %199 ], [ %192, %196 ], [ %192, %191 ]
   %210 = add nsw i32 %189, 64
   %211 = zext nneg i32 %210 to i64
   %212 = lshr i64 %.val.i.i.i.i114, %211
@@ -13123,8 +13123,8 @@ bits_read_vlc_be.exit118:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i121
 
 bits_peek_be.exit.i121:                           ; preds = %bits_read_vlc_be.exit118, %231, %228
-  %241 = phi i32 [ %226, %228 ], [ %240, %231 ], [ %226, %bits_read_vlc_be.exit118 ]
-  %242 = phi i64 [ %225, %228 ], [ %238, %231 ], [ %225, %bits_read_vlc_be.exit118 ]
+  %241 = phi i32 [ %240, %231 ], [ %226, %228 ], [ %226, %bits_read_vlc_be.exit118 ]
+  %242 = phi i64 [ %238, %231 ], [ %225, %228 ], [ %225, %bits_read_vlc_be.exit118 ]
   %243 = lshr i64 %242, 52
   %244 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %243
   %245 = load i16, ptr %244, align 2, !tbaa !30
@@ -13166,8 +13166,8 @@ bits_peek_be.exit.i121:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i124
 
 bits_priv_set_idx_be.exit.i124:                   ; preds = %259, %256, %251
-  %269 = phi i32 [ %253, %256 ], [ %268, %259 ], [ %253, %251 ]
-  %.val.i.i.i.i125 = phi i64 [ %252, %256 ], [ %266, %259 ], [ %252, %251 ]
+  %269 = phi i32 [ %268, %259 ], [ %253, %256 ], [ %253, %251 ]
+  %.val.i.i.i.i125 = phi i64 [ %266, %259 ], [ %252, %256 ], [ %252, %251 ]
   %270 = add nsw i32 %249, 64
   %271 = zext nneg i32 %270 to i64
   %272 = lshr i64 %.val.i.i.i.i125, %271
@@ -13211,7 +13211,7 @@ bits_read_vlc_be.exit129:                         ; preds = %bits_peek_be.exit.i
   br i1 %298, label %103, label %.loopexit188, !llvm.loop !105
 
 .loopexit188:                                     ; preds = %bits_read_nz_be.exit106, %bits_read_vlc_be.exit129, %.preheader189, %bits_read_bit_be.exit.thread
-  %299 = phi i32 [ %296, %bits_read_vlc_be.exit129 ], [ %94, %bits_read_bit_be.exit.thread ], [ %25, %.preheader189 ], [ %90, %bits_read_nz_be.exit106 ]
+  %299 = phi i32 [ %25, %.preheader189 ], [ %94, %bits_read_bit_be.exit.thread ], [ %296, %bits_read_vlc_be.exit129 ], [ %90, %bits_read_nz_be.exit106 ]
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -13522,8 +13522,8 @@ bits_peek_be.exit.i152:                           ; preds = %425, %422, %.bits_p
   br label %bits_priv_set_idx_be.exit.i155
 
 bits_priv_set_idx_be.exit.i155:                   ; preds = %453, %450, %445
-  %463 = phi i32 [ %447, %450 ], [ %462, %453 ], [ %447, %445 ]
-  %.val.i.i.i.i156 = phi i64 [ %446, %450 ], [ %460, %453 ], [ %446, %445 ]
+  %463 = phi i32 [ %462, %453 ], [ %447, %450 ], [ %447, %445 ]
+  %.val.i.i.i.i156 = phi i64 [ %460, %453 ], [ %446, %450 ], [ %446, %445 ]
   %464 = add nsw i32 %443, 64
   %465 = zext nneg i32 %464 to i64
   %466 = lshr i64 %.val.i.i.i.i156, %465
@@ -13574,8 +13574,8 @@ bits_read_vlc_be.exit160:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i163
 
 bits_peek_be.exit.i163:                           ; preds = %bits_read_vlc_be.exit160, %486, %483
-  %496 = phi i32 [ %480, %483 ], [ %495, %486 ], [ %480, %bits_read_vlc_be.exit160 ]
-  %497 = phi i64 [ %479, %483 ], [ %493, %486 ], [ %479, %bits_read_vlc_be.exit160 ]
+  %496 = phi i32 [ %495, %486 ], [ %480, %483 ], [ %480, %bits_read_vlc_be.exit160 ]
+  %497 = phi i64 [ %493, %486 ], [ %479, %483 ], [ %479, %bits_read_vlc_be.exit160 ]
   %498 = lshr i64 %497, 52
   %499 = getelementptr inbounds nuw %struct.VLCElem, ptr %481, i64 %498
   %500 = load i16, ptr %499, align 2, !tbaa !30
@@ -13617,8 +13617,8 @@ bits_peek_be.exit.i163:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i166
 
 bits_priv_set_idx_be.exit.i166:                   ; preds = %514, %511, %506
-  %524 = phi i32 [ %508, %511 ], [ %523, %514 ], [ %508, %506 ]
-  %.val.i.i.i.i167 = phi i64 [ %507, %511 ], [ %521, %514 ], [ %507, %506 ]
+  %524 = phi i32 [ %523, %514 ], [ %508, %511 ], [ %508, %506 ]
+  %.val.i.i.i.i167 = phi i64 [ %521, %514 ], [ %507, %511 ], [ %507, %506 ]
   %525 = add nsw i32 %504, 64
   %526 = zext nneg i32 %525 to i64
   %527 = lshr i64 %.val.i.i.i.i167, %526
@@ -13668,8 +13668,8 @@ bits_read_vlc_be.exit171:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i174
 
 bits_peek_be.exit.i174:                           ; preds = %bits_read_vlc_be.exit171, %546, %543
-  %556 = phi i32 [ %541, %543 ], [ %555, %546 ], [ %541, %bits_read_vlc_be.exit171 ]
-  %557 = phi i64 [ %540, %543 ], [ %553, %546 ], [ %540, %bits_read_vlc_be.exit171 ]
+  %556 = phi i32 [ %555, %546 ], [ %541, %543 ], [ %541, %bits_read_vlc_be.exit171 ]
+  %557 = phi i64 [ %553, %546 ], [ %540, %543 ], [ %540, %bits_read_vlc_be.exit171 ]
   %558 = lshr i64 %557, 52
   %559 = getelementptr inbounds nuw %struct.VLCElem, ptr %481, i64 %558
   %560 = load i16, ptr %559, align 2, !tbaa !30
@@ -13711,8 +13711,8 @@ bits_peek_be.exit.i174:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i177
 
 bits_priv_set_idx_be.exit.i177:                   ; preds = %574, %571, %566
-  %584 = phi i32 [ %568, %571 ], [ %583, %574 ], [ %568, %566 ]
-  %.val.i.i.i.i178 = phi i64 [ %567, %571 ], [ %581, %574 ], [ %567, %566 ]
+  %584 = phi i32 [ %583, %574 ], [ %568, %571 ], [ %568, %566 ]
+  %.val.i.i.i.i178 = phi i64 [ %581, %574 ], [ %567, %571 ], [ %567, %566 ]
   %585 = add nsw i32 %564, 64
   %586 = zext nneg i32 %585 to i64
   %587 = lshr i64 %.val.i.i.i.i178, %586
@@ -13756,8 +13756,8 @@ bits_read_vlc_be.exit182:                         ; preds = %bits_peek_be.exit.i
   br i1 %613, label %.lr.ph203, label %.loopexit, !llvm.loop !107
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit149, %bits_read_vlc_be.exit182, %.preheader, %bits_read_bit_be.exit137.thread
-  %614 = phi i32 [ %611, %bits_read_vlc_be.exit182 ], [ %321, %bits_read_bit_be.exit137.thread ], [ %321, %.preheader ], [ %397, %bits_read_nz_be.exit149 ]
-  %615 = phi i32 [ %611, %bits_read_vlc_be.exit182 ], [ %321, %bits_read_bit_be.exit137.thread ], [ %325, %.preheader ], [ %397, %bits_read_nz_be.exit149 ]
+  %614 = phi i32 [ %321, %.preheader ], [ %321, %bits_read_bit_be.exit137.thread ], [ %611, %bits_read_vlc_be.exit182 ], [ %397, %bits_read_nz_be.exit149 ]
+  %615 = phi i32 [ %325, %.preheader ], [ %321, %bits_read_bit_be.exit137.thread ], [ %611, %bits_read_vlc_be.exit182 ], [ %397, %bits_read_nz_be.exit149 ]
   %616 = load i32, ptr %300, align 8, !tbaa !45
   %617 = sext i32 %616 to i64
   %618 = getelementptr inbounds i8, ptr %.0209, i64 %617
@@ -13988,8 +13988,8 @@ bits_read_nz_be.exit122:                          ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %101, %108, %105
-  %118 = phi i32 [ %103, %105 ], [ %117, %108 ], [ %103, %101 ]
-  %119 = phi i64 [ %102, %105 ], [ %115, %108 ], [ %102, %101 ]
+  %118 = phi i32 [ %117, %108 ], [ %103, %105 ], [ %103, %101 ]
+  %119 = phi i64 [ %115, %108 ], [ %102, %105 ], [ %102, %101 ]
   %120 = lshr i64 %119, 52
   %121 = getelementptr inbounds nuw %struct.VLCElem, ptr %23, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !30
@@ -14031,8 +14031,8 @@ bits_peek_be.exit.i:                              ; preds = %101, %108, %105
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %136, %133, %128
-  %146 = phi i32 [ %130, %133 ], [ %145, %136 ], [ %130, %128 ]
-  %.val.i.i.i.i = phi i64 [ %129, %133 ], [ %143, %136 ], [ %129, %128 ]
+  %146 = phi i32 [ %145, %136 ], [ %130, %133 ], [ %130, %128 ]
+  %.val.i.i.i.i = phi i64 [ %143, %136 ], [ %129, %133 ], [ %129, %128 ]
   %147 = add nsw i32 %126, 64
   %148 = zext nneg i32 %147 to i64
   %149 = lshr i64 %.val.i.i.i.i, %148
@@ -14080,8 +14080,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i126
 
 bits_peek_be.exit.i126:                           ; preds = %bits_read_vlc_be.exit, %166, %163
-  %176 = phi i32 [ %161, %163 ], [ %175, %166 ], [ %161, %bits_read_vlc_be.exit ]
-  %177 = phi i64 [ %160, %163 ], [ %173, %166 ], [ %160, %bits_read_vlc_be.exit ]
+  %176 = phi i32 [ %175, %166 ], [ %161, %163 ], [ %161, %bits_read_vlc_be.exit ]
+  %177 = phi i64 [ %173, %166 ], [ %160, %163 ], [ %160, %bits_read_vlc_be.exit ]
   %178 = lshr i64 %177, 52
   %179 = getelementptr inbounds nuw %struct.VLCElem, ptr %27, i64 %178
   %180 = load i16, ptr %179, align 2, !tbaa !30
@@ -14123,8 +14123,8 @@ bits_peek_be.exit.i126:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i129
 
 bits_priv_set_idx_be.exit.i129:                   ; preds = %194, %191, %186
-  %204 = phi i32 [ %188, %191 ], [ %203, %194 ], [ %188, %186 ]
-  %.val.i.i.i.i130 = phi i64 [ %187, %191 ], [ %201, %194 ], [ %187, %186 ]
+  %204 = phi i32 [ %203, %194 ], [ %188, %191 ], [ %188, %186 ]
+  %.val.i.i.i.i130 = phi i64 [ %201, %194 ], [ %187, %191 ], [ %187, %186 ]
   %205 = add nsw i32 %184, 64
   %206 = zext nneg i32 %205 to i64
   %207 = lshr i64 %.val.i.i.i.i130, %206
@@ -14172,8 +14172,8 @@ bits_read_vlc_be.exit134:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i137
 
 bits_peek_be.exit.i137:                           ; preds = %bits_read_vlc_be.exit134, %224, %221
-  %234 = phi i32 [ %219, %221 ], [ %233, %224 ], [ %219, %bits_read_vlc_be.exit134 ]
-  %235 = phi i64 [ %218, %221 ], [ %231, %224 ], [ %218, %bits_read_vlc_be.exit134 ]
+  %234 = phi i32 [ %233, %224 ], [ %219, %221 ], [ %219, %bits_read_vlc_be.exit134 ]
+  %235 = phi i64 [ %231, %224 ], [ %218, %221 ], [ %218, %bits_read_vlc_be.exit134 ]
   %236 = lshr i64 %235, 52
   %237 = getelementptr inbounds nuw %struct.VLCElem, ptr %27, i64 %236
   %238 = load i16, ptr %237, align 2, !tbaa !30
@@ -14215,8 +14215,8 @@ bits_peek_be.exit.i137:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i140
 
 bits_priv_set_idx_be.exit.i140:                   ; preds = %252, %249, %244
-  %262 = phi i32 [ %246, %249 ], [ %261, %252 ], [ %246, %244 ]
-  %.val.i.i.i.i141 = phi i64 [ %245, %249 ], [ %259, %252 ], [ %245, %244 ]
+  %262 = phi i32 [ %261, %252 ], [ %246, %249 ], [ %246, %244 ]
+  %.val.i.i.i.i141 = phi i64 [ %259, %252 ], [ %245, %249 ], [ %245, %244 ]
   %263 = add nsw i32 %242, 64
   %264 = zext nneg i32 %263 to i64
   %265 = lshr i64 %.val.i.i.i.i141, %264
@@ -14256,8 +14256,8 @@ bits_read_vlc_be.exit145:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond241.not, label %.loopexit202, label %101, !llvm.loop !110
 
 .loopexit202:                                     ; preds = %bits_read_nz_be.exit122, %bits_read_vlc_be.exit145, %.preheader203, %.critedge.preheader
-  %287 = phi i32 [ %20, %bits_read_vlc_be.exit145 ], [ %20, %.critedge.preheader ], [ %34, %.preheader203 ], [ %34, %bits_read_nz_be.exit122 ]
-  %288 = phi i32 [ %277, %bits_read_vlc_be.exit145 ], [ %.promoted212, %.critedge.preheader ], [ %.promoted, %.preheader203 ], [ %98, %bits_read_nz_be.exit122 ]
+  %287 = phi i32 [ %34, %.preheader203 ], [ %20, %.critedge.preheader ], [ %20, %bits_read_vlc_be.exit145 ], [ %34, %bits_read_nz_be.exit122 ]
+  %288 = phi i32 [ %.promoted, %.preheader203 ], [ %.promoted212, %.critedge.preheader ], [ %277, %bits_read_vlc_be.exit145 ], [ %98, %bits_read_nz_be.exit122 ]
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -14522,8 +14522,8 @@ bits_read_bit_be.exit153.thread:                  ; preds = %317, %bits_read_bit
   br label %bits_peek_be.exit.i168
 
 bits_peek_be.exit.i168:                           ; preds = %408, %437, %434
-  %447 = phi i32 [ %409, %434 ], [ %446, %437 ], [ %409, %408 ]
-  %448 = phi i64 [ %410, %434 ], [ %444, %437 ], [ %410, %408 ]
+  %447 = phi i32 [ %446, %437 ], [ %409, %434 ], [ %409, %408 ]
+  %448 = phi i64 [ %444, %437 ], [ %410, %434 ], [ %410, %408 ]
   %449 = lshr i64 %448, 52
   %450 = getelementptr inbounds nuw %struct.VLCElem, ptr %406, i64 %449
   %451 = load i16, ptr %450, align 2, !tbaa !30
@@ -14565,8 +14565,8 @@ bits_peek_be.exit.i168:                           ; preds = %408, %437, %434
   br label %bits_priv_set_idx_be.exit.i171
 
 bits_priv_set_idx_be.exit.i171:                   ; preds = %465, %462, %457
-  %475 = phi i32 [ %459, %462 ], [ %474, %465 ], [ %459, %457 ]
-  %.val.i.i.i.i172 = phi i64 [ %458, %462 ], [ %472, %465 ], [ %458, %457 ]
+  %475 = phi i32 [ %474, %465 ], [ %459, %462 ], [ %459, %457 ]
+  %.val.i.i.i.i172 = phi i64 [ %472, %465 ], [ %458, %462 ], [ %458, %457 ]
   %476 = add nsw i32 %455, 64
   %477 = zext nneg i32 %476 to i64
   %478 = lshr i64 %.val.i.i.i.i172, %477
@@ -14616,8 +14616,8 @@ bits_read_vlc_be.exit176:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i179
 
 bits_peek_be.exit.i179:                           ; preds = %bits_read_vlc_be.exit176, %497, %494
-  %507 = phi i32 [ %492, %494 ], [ %506, %497 ], [ %492, %bits_read_vlc_be.exit176 ]
-  %508 = phi i64 [ %491, %494 ], [ %504, %497 ], [ %491, %bits_read_vlc_be.exit176 ]
+  %507 = phi i32 [ %506, %497 ], [ %492, %494 ], [ %492, %bits_read_vlc_be.exit176 ]
+  %508 = phi i64 [ %504, %497 ], [ %491, %494 ], [ %491, %bits_read_vlc_be.exit176 ]
   %509 = lshr i64 %508, 52
   %510 = getelementptr inbounds nuw %struct.VLCElem, ptr %407, i64 %509
   %511 = load i16, ptr %510, align 2, !tbaa !30
@@ -14659,8 +14659,8 @@ bits_peek_be.exit.i179:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i182
 
 bits_priv_set_idx_be.exit.i182:                   ; preds = %525, %522, %517
-  %535 = phi i32 [ %519, %522 ], [ %534, %525 ], [ %519, %517 ]
-  %.val.i.i.i.i183 = phi i64 [ %518, %522 ], [ %532, %525 ], [ %518, %517 ]
+  %535 = phi i32 [ %534, %525 ], [ %519, %522 ], [ %519, %517 ]
+  %.val.i.i.i.i183 = phi i64 [ %532, %525 ], [ %518, %522 ], [ %518, %517 ]
   %536 = add nsw i32 %515, 64
   %537 = zext nneg i32 %536 to i64
   %538 = lshr i64 %.val.i.i.i.i183, %537
@@ -14710,8 +14710,8 @@ bits_read_vlc_be.exit187:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i190
 
 bits_peek_be.exit.i190:                           ; preds = %bits_read_vlc_be.exit187, %557, %554
-  %567 = phi i32 [ %552, %554 ], [ %566, %557 ], [ %552, %bits_read_vlc_be.exit187 ]
-  %568 = phi i64 [ %551, %554 ], [ %564, %557 ], [ %551, %bits_read_vlc_be.exit187 ]
+  %567 = phi i32 [ %566, %557 ], [ %552, %554 ], [ %552, %bits_read_vlc_be.exit187 ]
+  %568 = phi i64 [ %564, %557 ], [ %551, %554 ], [ %551, %bits_read_vlc_be.exit187 ]
   %569 = lshr i64 %568, 52
   %570 = getelementptr inbounds nuw %struct.VLCElem, ptr %407, i64 %569
   %571 = load i16, ptr %570, align 2, !tbaa !30
@@ -14753,8 +14753,8 @@ bits_peek_be.exit.i190:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i193
 
 bits_priv_set_idx_be.exit.i193:                   ; preds = %585, %582, %577
-  %595 = phi i32 [ %579, %582 ], [ %594, %585 ], [ %579, %577 ]
-  %.val.i.i.i.i194 = phi i64 [ %578, %582 ], [ %592, %585 ], [ %578, %577 ]
+  %595 = phi i32 [ %594, %585 ], [ %579, %582 ], [ %579, %577 ]
+  %.val.i.i.i.i194 = phi i64 [ %592, %585 ], [ %578, %582 ], [ %578, %577 ]
   %596 = add nsw i32 %575, 64
   %597 = zext nneg i32 %596 to i64
   %598 = lshr i64 %.val.i.i.i.i194, %597
@@ -14814,8 +14814,8 @@ bits_read_vlc_be.exit198:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond251.not, label %.loopexit, label %408, !llvm.loop !112
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit165, %bits_read_vlc_be.exit198, %.preheader, %bits_read_bit_be.exit153.thread
-  %640 = phi i32 [ %612, %bits_read_vlc_be.exit198 ], [ %386, %bits_read_bit_be.exit153.thread ], [ %.promoted216, %.preheader ], [ %383, %bits_read_nz_be.exit165 ]
-  %641 = phi i32 [ %612, %bits_read_vlc_be.exit198 ], [ %387, %bits_read_bit_be.exit153.thread ], [ %.promoted216, %.preheader ], [ %383, %bits_read_nz_be.exit165 ]
+  %640 = phi i32 [ %.promoted216, %.preheader ], [ %386, %bits_read_bit_be.exit153.thread ], [ %612, %bits_read_vlc_be.exit198 ], [ %383, %bits_read_nz_be.exit165 ]
+  %641 = phi i32 [ %.promoted216, %.preheader ], [ %387, %bits_read_bit_be.exit153.thread ], [ %612, %bits_read_vlc_be.exit198 ], [ %383, %bits_read_nz_be.exit165 ]
   %642 = load i32, ptr %289, align 8, !tbaa !45
   %643 = sdiv i32 %642, 2
   %644 = sext i32 %643 to i64
@@ -15066,8 +15066,8 @@ bits_read_nz_be.exit56:                           ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %103, %110, %107
-  %120 = phi i32 [ %105, %107 ], [ %119, %110 ], [ %105, %103 ]
-  %121 = phi i64 [ %104, %107 ], [ %117, %110 ], [ %104, %103 ]
+  %120 = phi i32 [ %119, %110 ], [ %105, %107 ], [ %105, %103 ]
+  %121 = phi i64 [ %117, %110 ], [ %104, %107 ], [ %104, %103 ]
   %122 = lshr i64 %121, 52
   %123 = getelementptr inbounds nuw %struct.VLCElem, ptr %32, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !30
@@ -15109,8 +15109,8 @@ bits_peek_be.exit.i:                              ; preds = %103, %110, %107
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %138, %135, %130
-  %148 = phi i32 [ %132, %135 ], [ %147, %138 ], [ %132, %130 ]
-  %.val.i.i.i.i = phi i64 [ %131, %135 ], [ %145, %138 ], [ %131, %130 ]
+  %148 = phi i32 [ %147, %138 ], [ %132, %135 ], [ %132, %130 ]
+  %.val.i.i.i.i = phi i64 [ %145, %138 ], [ %131, %135 ], [ %131, %130 ]
   %149 = add nsw i32 %128, 64
   %150 = zext nneg i32 %149 to i64
   %151 = lshr i64 %.val.i.i.i.i, %150
@@ -15158,8 +15158,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i60
 
 bits_peek_be.exit.i60:                            ; preds = %bits_read_vlc_be.exit, %168, %165
-  %178 = phi i32 [ %163, %165 ], [ %177, %168 ], [ %163, %bits_read_vlc_be.exit ]
-  %179 = phi i64 [ %162, %165 ], [ %175, %168 ], [ %162, %bits_read_vlc_be.exit ]
+  %178 = phi i32 [ %177, %168 ], [ %163, %165 ], [ %163, %bits_read_vlc_be.exit ]
+  %179 = phi i64 [ %175, %168 ], [ %162, %165 ], [ %162, %bits_read_vlc_be.exit ]
   %180 = lshr i64 %179, 52
   %181 = getelementptr inbounds nuw %struct.VLCElem, ptr %33, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !30
@@ -15201,8 +15201,8 @@ bits_peek_be.exit.i60:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i63
 
 bits_priv_set_idx_be.exit.i63:                    ; preds = %196, %193, %188
-  %206 = phi i32 [ %190, %193 ], [ %205, %196 ], [ %190, %188 ]
-  %.val.i.i.i.i64 = phi i64 [ %189, %193 ], [ %203, %196 ], [ %189, %188 ]
+  %206 = phi i32 [ %205, %196 ], [ %190, %193 ], [ %190, %188 ]
+  %.val.i.i.i.i64 = phi i64 [ %203, %196 ], [ %189, %193 ], [ %189, %188 ]
   %207 = add nsw i32 %186, 64
   %208 = zext nneg i32 %207 to i64
   %209 = lshr i64 %.val.i.i.i.i64, %208
@@ -15250,8 +15250,8 @@ bits_read_vlc_be.exit68:                          ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i71
 
 bits_peek_be.exit.i71:                            ; preds = %bits_read_vlc_be.exit68, %226, %223
-  %236 = phi i32 [ %221, %223 ], [ %235, %226 ], [ %221, %bits_read_vlc_be.exit68 ]
-  %237 = phi i64 [ %220, %223 ], [ %233, %226 ], [ %220, %bits_read_vlc_be.exit68 ]
+  %236 = phi i32 [ %235, %226 ], [ %221, %223 ], [ %221, %bits_read_vlc_be.exit68 ]
+  %237 = phi i64 [ %233, %226 ], [ %220, %223 ], [ %220, %bits_read_vlc_be.exit68 ]
   %238 = lshr i64 %237, 52
   %239 = getelementptr inbounds nuw %struct.VLCElem, ptr %33, i64 %238
   %240 = load i16, ptr %239, align 2, !tbaa !30
@@ -15293,8 +15293,8 @@ bits_peek_be.exit.i71:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i74
 
 bits_priv_set_idx_be.exit.i74:                    ; preds = %254, %251, %246
-  %264 = phi i32 [ %248, %251 ], [ %263, %254 ], [ %248, %246 ]
-  %.val.i.i.i.i75 = phi i64 [ %247, %251 ], [ %261, %254 ], [ %247, %246 ]
+  %264 = phi i32 [ %263, %254 ], [ %248, %251 ], [ %248, %246 ]
+  %.val.i.i.i.i75 = phi i64 [ %261, %254 ], [ %247, %251 ], [ %247, %246 ]
   %265 = add nsw i32 %244, 64
   %266 = zext nneg i32 %265 to i64
   %267 = lshr i64 %.val.i.i.i.i75, %266
@@ -15334,8 +15334,8 @@ bits_read_vlc_be.exit79:                          ; preds = %bits_peek_be.exit.i
   br i1 %exitcond103.not, label %.loopexit, label %103, !llvm.loop !115
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit56, %bits_read_vlc_be.exit79, %.preheader, %.critedge.preheader
-  %.promoted88108 = phi i32 [ %279, %bits_read_vlc_be.exit79 ], [ %.promoted88, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %100, %bits_read_nz_be.exit56 ]
-  %289 = phi i32 [ %279, %bits_read_vlc_be.exit79 ], [ %30, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %100, %bits_read_nz_be.exit56 ]
+  %.promoted88108 = phi i32 [ %.promoted, %.preheader ], [ %.promoted88, %.critedge.preheader ], [ %279, %bits_read_vlc_be.exit79 ], [ %100, %bits_read_nz_be.exit56 ]
+  %289 = phi i32 [ %.promoted, %.preheader ], [ %30, %.critedge.preheader ], [ %279, %bits_read_vlc_be.exit79 ], [ %100, %bits_read_nz_be.exit56 ]
   %290 = load i32, ptr %20, align 8, !tbaa !45
   %291 = sdiv i32 %290, 2
   %292 = sext i32 %291 to i64
@@ -15604,8 +15604,8 @@ bits_read_nz_be.exit154:                          ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %123, %130, %127
-  %140 = phi i32 [ %125, %127 ], [ %139, %130 ], [ %125, %123 ]
-  %141 = phi i64 [ %124, %127 ], [ %137, %130 ], [ %124, %123 ]
+  %140 = phi i32 [ %139, %130 ], [ %125, %127 ], [ %125, %123 ]
+  %141 = phi i64 [ %137, %130 ], [ %124, %127 ], [ %124, %123 ]
   %142 = lshr i64 %141, 52
   %143 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !30
@@ -15647,8 +15647,8 @@ bits_peek_be.exit.i:                              ; preds = %123, %130, %127
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %158, %155, %150
-  %168 = phi i32 [ %152, %155 ], [ %167, %158 ], [ %152, %150 ]
-  %.val.i.i.i.i = phi i64 [ %151, %155 ], [ %165, %158 ], [ %151, %150 ]
+  %168 = phi i32 [ %167, %158 ], [ %152, %155 ], [ %152, %150 ]
+  %.val.i.i.i.i = phi i64 [ %165, %158 ], [ %151, %155 ], [ %151, %150 ]
   %169 = add nsw i32 %148, 64
   %170 = zext nneg i32 %169 to i64
   %171 = lshr i64 %.val.i.i.i.i, %170
@@ -15696,8 +15696,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i158
 
 bits_peek_be.exit.i158:                           ; preds = %bits_read_vlc_be.exit, %188, %185
-  %198 = phi i32 [ %183, %185 ], [ %197, %188 ], [ %183, %bits_read_vlc_be.exit ]
-  %199 = phi i64 [ %182, %185 ], [ %195, %188 ], [ %182, %bits_read_vlc_be.exit ]
+  %198 = phi i32 [ %197, %188 ], [ %183, %185 ], [ %183, %bits_read_vlc_be.exit ]
+  %199 = phi i64 [ %195, %188 ], [ %182, %185 ], [ %182, %bits_read_vlc_be.exit ]
   %200 = lshr i64 %199, 52
   %201 = getelementptr inbounds nuw %struct.VLCElem, ptr %29, i64 %200
   %202 = load i16, ptr %201, align 2, !tbaa !30
@@ -15739,8 +15739,8 @@ bits_peek_be.exit.i158:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i161
 
 bits_priv_set_idx_be.exit.i161:                   ; preds = %216, %213, %208
-  %226 = phi i32 [ %210, %213 ], [ %225, %216 ], [ %210, %208 ]
-  %.val.i.i.i.i162 = phi i64 [ %209, %213 ], [ %223, %216 ], [ %209, %208 ]
+  %226 = phi i32 [ %225, %216 ], [ %210, %213 ], [ %210, %208 ]
+  %.val.i.i.i.i162 = phi i64 [ %223, %216 ], [ %209, %213 ], [ %209, %208 ]
   %227 = add nsw i32 %206, 64
   %228 = zext nneg i32 %227 to i64
   %229 = lshr i64 %.val.i.i.i.i162, %228
@@ -15788,8 +15788,8 @@ bits_read_vlc_be.exit166:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i169
 
 bits_peek_be.exit.i169:                           ; preds = %bits_read_vlc_be.exit166, %246, %243
-  %256 = phi i32 [ %241, %243 ], [ %255, %246 ], [ %241, %bits_read_vlc_be.exit166 ]
-  %257 = phi i64 [ %240, %243 ], [ %253, %246 ], [ %240, %bits_read_vlc_be.exit166 ]
+  %256 = phi i32 [ %255, %246 ], [ %241, %243 ], [ %241, %bits_read_vlc_be.exit166 ]
+  %257 = phi i64 [ %253, %246 ], [ %240, %243 ], [ %240, %bits_read_vlc_be.exit166 ]
   %258 = lshr i64 %257, 52
   %259 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %258
   %260 = load i16, ptr %259, align 2, !tbaa !30
@@ -15831,8 +15831,8 @@ bits_peek_be.exit.i169:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i172
 
 bits_priv_set_idx_be.exit.i172:                   ; preds = %274, %271, %266
-  %284 = phi i32 [ %268, %271 ], [ %283, %274 ], [ %268, %266 ]
-  %.val.i.i.i.i173 = phi i64 [ %267, %271 ], [ %281, %274 ], [ %267, %266 ]
+  %284 = phi i32 [ %283, %274 ], [ %268, %271 ], [ %268, %266 ]
+  %.val.i.i.i.i173 = phi i64 [ %281, %274 ], [ %267, %271 ], [ %267, %266 ]
   %285 = add nsw i32 %264, 64
   %286 = zext nneg i32 %285 to i64
   %287 = lshr i64 %.val.i.i.i.i173, %286
@@ -15880,8 +15880,8 @@ bits_read_vlc_be.exit177:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i180
 
 bits_peek_be.exit.i180:                           ; preds = %bits_read_vlc_be.exit177, %304, %301
-  %314 = phi i32 [ %299, %301 ], [ %313, %304 ], [ %299, %bits_read_vlc_be.exit177 ]
-  %315 = phi i64 [ %298, %301 ], [ %311, %304 ], [ %298, %bits_read_vlc_be.exit177 ]
+  %314 = phi i32 [ %313, %304 ], [ %299, %301 ], [ %299, %bits_read_vlc_be.exit177 ]
+  %315 = phi i64 [ %311, %304 ], [ %298, %301 ], [ %298, %bits_read_vlc_be.exit177 ]
   %316 = lshr i64 %315, 52
   %317 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %316
   %318 = load i16, ptr %317, align 2, !tbaa !30
@@ -15923,8 +15923,8 @@ bits_peek_be.exit.i180:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i183
 
 bits_priv_set_idx_be.exit.i183:                   ; preds = %332, %329, %324
-  %342 = phi i32 [ %326, %329 ], [ %341, %332 ], [ %326, %324 ]
-  %.val.i.i.i.i184 = phi i64 [ %325, %329 ], [ %339, %332 ], [ %325, %324 ]
+  %342 = phi i32 [ %341, %332 ], [ %326, %329 ], [ %326, %324 ]
+  %.val.i.i.i.i184 = phi i64 [ %339, %332 ], [ %325, %329 ], [ %325, %324 ]
   %343 = add nsw i32 %322, 64
   %344 = zext nneg i32 %343 to i64
   %345 = lshr i64 %.val.i.i.i.i184, %344
@@ -15968,8 +15968,8 @@ bits_read_vlc_be.exit188:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond304.not, label %.loopexit260, label %123, !llvm.loop !118
 
 .loopexit260:                                     ; preds = %bits_read_nz_be.exit154, %bits_read_vlc_be.exit188, %.preheader261, %.critedge.preheader
-  %370 = phi i32 [ %22, %bits_read_vlc_be.exit188 ], [ %22, %.critedge.preheader ], [ %36, %.preheader261 ], [ %36, %bits_read_nz_be.exit154 ]
-  %371 = phi i32 [ %357, %bits_read_vlc_be.exit188 ], [ %.promoted271, %.critedge.preheader ], [ %.promoted, %.preheader261 ], [ %120, %bits_read_nz_be.exit154 ]
+  %370 = phi i32 [ %36, %.preheader261 ], [ %22, %.critedge.preheader ], [ %22, %bits_read_vlc_be.exit188 ], [ %36, %bits_read_nz_be.exit154 ]
+  %371 = phi i32 [ %.promoted, %.preheader261 ], [ %.promoted271, %.critedge.preheader ], [ %357, %bits_read_vlc_be.exit188 ], [ %120, %bits_read_nz_be.exit154 ]
   %372 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -16288,8 +16288,8 @@ bits_read_bit_be.exit196.thread:                  ; preds = %405, %bits_read_bit
   br label %bits_peek_be.exit.i215
 
 bits_peek_be.exit.i215:                           ; preds = %522, %558, %555
-  %568 = phi i32 [ %523, %555 ], [ %567, %558 ], [ %523, %522 ]
-  %569 = phi i64 [ %524, %555 ], [ %565, %558 ], [ %524, %522 ]
+  %568 = phi i32 [ %567, %558 ], [ %523, %555 ], [ %523, %522 ]
+  %569 = phi i64 [ %565, %558 ], [ %524, %555 ], [ %524, %522 ]
   %570 = lshr i64 %569, 52
   %571 = getelementptr inbounds nuw %struct.VLCElem, ptr %520, i64 %570
   %572 = load i16, ptr %571, align 2, !tbaa !30
@@ -16331,8 +16331,8 @@ bits_peek_be.exit.i215:                           ; preds = %522, %558, %555
   br label %bits_priv_set_idx_be.exit.i218
 
 bits_priv_set_idx_be.exit.i218:                   ; preds = %586, %583, %578
-  %596 = phi i32 [ %580, %583 ], [ %595, %586 ], [ %580, %578 ]
-  %.val.i.i.i.i219 = phi i64 [ %579, %583 ], [ %593, %586 ], [ %579, %578 ]
+  %596 = phi i32 [ %595, %586 ], [ %580, %583 ], [ %580, %578 ]
+  %.val.i.i.i.i219 = phi i64 [ %593, %586 ], [ %579, %583 ], [ %579, %578 ]
   %597 = add nsw i32 %576, 64
   %598 = zext nneg i32 %597 to i64
   %599 = lshr i64 %.val.i.i.i.i219, %598
@@ -16382,8 +16382,8 @@ bits_read_vlc_be.exit223:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i226
 
 bits_peek_be.exit.i226:                           ; preds = %bits_read_vlc_be.exit223, %618, %615
-  %628 = phi i32 [ %613, %615 ], [ %627, %618 ], [ %613, %bits_read_vlc_be.exit223 ]
-  %629 = phi i64 [ %612, %615 ], [ %625, %618 ], [ %612, %bits_read_vlc_be.exit223 ]
+  %628 = phi i32 [ %627, %618 ], [ %613, %615 ], [ %613, %bits_read_vlc_be.exit223 ]
+  %629 = phi i64 [ %625, %618 ], [ %612, %615 ], [ %612, %bits_read_vlc_be.exit223 ]
   %630 = lshr i64 %629, 52
   %631 = getelementptr inbounds nuw %struct.VLCElem, ptr %521, i64 %630
   %632 = load i16, ptr %631, align 2, !tbaa !30
@@ -16425,8 +16425,8 @@ bits_peek_be.exit.i226:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i229
 
 bits_priv_set_idx_be.exit.i229:                   ; preds = %646, %643, %638
-  %656 = phi i32 [ %640, %643 ], [ %655, %646 ], [ %640, %638 ]
-  %.val.i.i.i.i230 = phi i64 [ %639, %643 ], [ %653, %646 ], [ %639, %638 ]
+  %656 = phi i32 [ %655, %646 ], [ %640, %643 ], [ %640, %638 ]
+  %.val.i.i.i.i230 = phi i64 [ %653, %646 ], [ %639, %643 ], [ %639, %638 ]
   %657 = add nsw i32 %636, 64
   %658 = zext nneg i32 %657 to i64
   %659 = lshr i64 %.val.i.i.i.i230, %658
@@ -16476,8 +16476,8 @@ bits_read_vlc_be.exit234:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i237
 
 bits_peek_be.exit.i237:                           ; preds = %bits_read_vlc_be.exit234, %678, %675
-  %688 = phi i32 [ %673, %675 ], [ %687, %678 ], [ %673, %bits_read_vlc_be.exit234 ]
-  %689 = phi i64 [ %672, %675 ], [ %685, %678 ], [ %672, %bits_read_vlc_be.exit234 ]
+  %688 = phi i32 [ %687, %678 ], [ %673, %675 ], [ %673, %bits_read_vlc_be.exit234 ]
+  %689 = phi i64 [ %685, %678 ], [ %672, %675 ], [ %672, %bits_read_vlc_be.exit234 ]
   %690 = lshr i64 %689, 52
   %691 = getelementptr inbounds nuw %struct.VLCElem, ptr %520, i64 %690
   %692 = load i16, ptr %691, align 2, !tbaa !30
@@ -16519,8 +16519,8 @@ bits_peek_be.exit.i237:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i240
 
 bits_priv_set_idx_be.exit.i240:                   ; preds = %706, %703, %698
-  %716 = phi i32 [ %700, %703 ], [ %715, %706 ], [ %700, %698 ]
-  %.val.i.i.i.i241 = phi i64 [ %699, %703 ], [ %713, %706 ], [ %699, %698 ]
+  %716 = phi i32 [ %715, %706 ], [ %700, %703 ], [ %700, %698 ]
+  %.val.i.i.i.i241 = phi i64 [ %713, %706 ], [ %699, %703 ], [ %699, %698 ]
   %717 = add nsw i32 %696, 64
   %718 = zext nneg i32 %717 to i64
   %719 = lshr i64 %.val.i.i.i.i241, %718
@@ -16570,8 +16570,8 @@ bits_read_vlc_be.exit245:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i248
 
 bits_peek_be.exit.i248:                           ; preds = %bits_read_vlc_be.exit245, %738, %735
-  %748 = phi i32 [ %733, %735 ], [ %747, %738 ], [ %733, %bits_read_vlc_be.exit245 ]
-  %749 = phi i64 [ %732, %735 ], [ %745, %738 ], [ %732, %bits_read_vlc_be.exit245 ]
+  %748 = phi i32 [ %747, %738 ], [ %733, %735 ], [ %733, %bits_read_vlc_be.exit245 ]
+  %749 = phi i64 [ %745, %738 ], [ %732, %735 ], [ %732, %bits_read_vlc_be.exit245 ]
   %750 = lshr i64 %749, 52
   %751 = getelementptr inbounds nuw %struct.VLCElem, ptr %520, i64 %750
   %752 = load i16, ptr %751, align 2, !tbaa !30
@@ -16613,8 +16613,8 @@ bits_peek_be.exit.i248:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i251
 
 bits_priv_set_idx_be.exit.i251:                   ; preds = %766, %763, %758
-  %776 = phi i32 [ %760, %763 ], [ %775, %766 ], [ %760, %758 ]
-  %.val.i.i.i.i252 = phi i64 [ %759, %763 ], [ %773, %766 ], [ %759, %758 ]
+  %776 = phi i32 [ %775, %766 ], [ %760, %763 ], [ %760, %758 ]
+  %.val.i.i.i.i252 = phi i64 [ %773, %766 ], [ %759, %763 ], [ %759, %758 ]
   %777 = add nsw i32 %756, 64
   %778 = zext nneg i32 %777 to i64
   %779 = lshr i64 %.val.i.i.i.i252, %778
@@ -16684,8 +16684,8 @@ bits_read_vlc_be.exit256:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond314.not, label %.loopexit, label %522, !llvm.loop !120
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit212, %bits_read_vlc_be.exit256, %.preheader, %bits_read_bit_be.exit196.thread
-  %830 = phi i32 [ %793, %bits_read_vlc_be.exit256 ], [ %494, %bits_read_bit_be.exit196.thread ], [ %.promoted275, %.preheader ], [ %491, %bits_read_nz_be.exit212 ]
-  %831 = phi i32 [ %793, %bits_read_vlc_be.exit256 ], [ %495, %bits_read_bit_be.exit196.thread ], [ %.promoted275, %.preheader ], [ %491, %bits_read_nz_be.exit212 ]
+  %830 = phi i32 [ %.promoted275, %.preheader ], [ %494, %bits_read_bit_be.exit196.thread ], [ %793, %bits_read_vlc_be.exit256 ], [ %491, %bits_read_nz_be.exit212 ]
+  %831 = phi i32 [ %.promoted275, %.preheader ], [ %495, %bits_read_bit_be.exit196.thread ], [ %793, %bits_read_vlc_be.exit256 ], [ %491, %bits_read_nz_be.exit212 ]
   %832 = load i32, ptr %372, align 8, !tbaa !45
   %833 = sdiv i32 %832, 2
   %834 = sext i32 %833 to i64
@@ -16978,8 +16978,8 @@ bits_read_nz_be.exit72:                           ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %126, %133, %130
-  %143 = phi i32 [ %128, %130 ], [ %142, %133 ], [ %128, %126 ]
-  %144 = phi i64 [ %127, %130 ], [ %140, %133 ], [ %127, %126 ]
+  %143 = phi i32 [ %142, %133 ], [ %128, %130 ], [ %128, %126 ]
+  %144 = phi i64 [ %140, %133 ], [ %127, %130 ], [ %127, %126 ]
   %145 = lshr i64 %144, 52
   %146 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !30
@@ -17021,8 +17021,8 @@ bits_peek_be.exit.i:                              ; preds = %126, %133, %130
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %161, %158, %153
-  %171 = phi i32 [ %155, %158 ], [ %170, %161 ], [ %155, %153 ]
-  %.val.i.i.i.i = phi i64 [ %154, %158 ], [ %168, %161 ], [ %154, %153 ]
+  %171 = phi i32 [ %170, %161 ], [ %155, %158 ], [ %155, %153 ]
+  %.val.i.i.i.i = phi i64 [ %168, %161 ], [ %154, %158 ], [ %154, %153 ]
   %172 = add nsw i32 %151, 64
   %173 = zext nneg i32 %172 to i64
   %174 = lshr i64 %.val.i.i.i.i, %173
@@ -17070,8 +17070,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i76
 
 bits_peek_be.exit.i76:                            ; preds = %bits_read_vlc_be.exit, %191, %188
-  %201 = phi i32 [ %186, %188 ], [ %200, %191 ], [ %186, %bits_read_vlc_be.exit ]
-  %202 = phi i64 [ %185, %188 ], [ %198, %191 ], [ %185, %bits_read_vlc_be.exit ]
+  %201 = phi i32 [ %200, %191 ], [ %186, %188 ], [ %186, %bits_read_vlc_be.exit ]
+  %202 = phi i64 [ %198, %191 ], [ %185, %188 ], [ %185, %bits_read_vlc_be.exit ]
   %203 = lshr i64 %202, 52
   %204 = getelementptr inbounds nuw %struct.VLCElem, ptr %36, i64 %203
   %205 = load i16, ptr %204, align 2, !tbaa !30
@@ -17113,8 +17113,8 @@ bits_peek_be.exit.i76:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i79
 
 bits_priv_set_idx_be.exit.i79:                    ; preds = %219, %216, %211
-  %229 = phi i32 [ %213, %216 ], [ %228, %219 ], [ %213, %211 ]
-  %.val.i.i.i.i80 = phi i64 [ %212, %216 ], [ %226, %219 ], [ %212, %211 ]
+  %229 = phi i32 [ %228, %219 ], [ %213, %216 ], [ %213, %211 ]
+  %.val.i.i.i.i80 = phi i64 [ %226, %219 ], [ %212, %216 ], [ %212, %211 ]
   %230 = add nsw i32 %209, 64
   %231 = zext nneg i32 %230 to i64
   %232 = lshr i64 %.val.i.i.i.i80, %231
@@ -17162,8 +17162,8 @@ bits_read_vlc_be.exit84:                          ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i87
 
 bits_peek_be.exit.i87:                            ; preds = %bits_read_vlc_be.exit84, %249, %246
-  %259 = phi i32 [ %244, %246 ], [ %258, %249 ], [ %244, %bits_read_vlc_be.exit84 ]
-  %260 = phi i64 [ %243, %246 ], [ %256, %249 ], [ %243, %bits_read_vlc_be.exit84 ]
+  %259 = phi i32 [ %258, %249 ], [ %244, %246 ], [ %244, %bits_read_vlc_be.exit84 ]
+  %260 = phi i64 [ %256, %249 ], [ %243, %246 ], [ %243, %bits_read_vlc_be.exit84 ]
   %261 = lshr i64 %260, 52
   %262 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %261
   %263 = load i16, ptr %262, align 2, !tbaa !30
@@ -17205,8 +17205,8 @@ bits_peek_be.exit.i87:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i90
 
 bits_priv_set_idx_be.exit.i90:                    ; preds = %277, %274, %269
-  %287 = phi i32 [ %271, %274 ], [ %286, %277 ], [ %271, %269 ]
-  %.val.i.i.i.i91 = phi i64 [ %270, %274 ], [ %284, %277 ], [ %270, %269 ]
+  %287 = phi i32 [ %286, %277 ], [ %271, %274 ], [ %271, %269 ]
+  %.val.i.i.i.i91 = phi i64 [ %284, %277 ], [ %270, %274 ], [ %270, %269 ]
   %288 = add nsw i32 %267, 64
   %289 = zext nneg i32 %288 to i64
   %290 = lshr i64 %.val.i.i.i.i91, %289
@@ -17254,8 +17254,8 @@ bits_read_vlc_be.exit95:                          ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i98
 
 bits_peek_be.exit.i98:                            ; preds = %bits_read_vlc_be.exit95, %307, %304
-  %317 = phi i32 [ %302, %304 ], [ %316, %307 ], [ %302, %bits_read_vlc_be.exit95 ]
-  %318 = phi i64 [ %301, %304 ], [ %314, %307 ], [ %301, %bits_read_vlc_be.exit95 ]
+  %317 = phi i32 [ %316, %307 ], [ %302, %304 ], [ %302, %bits_read_vlc_be.exit95 ]
+  %318 = phi i64 [ %314, %307 ], [ %301, %304 ], [ %301, %bits_read_vlc_be.exit95 ]
   %319 = lshr i64 %318, 52
   %320 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %319
   %321 = load i16, ptr %320, align 2, !tbaa !30
@@ -17297,8 +17297,8 @@ bits_peek_be.exit.i98:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i101
 
 bits_priv_set_idx_be.exit.i101:                   ; preds = %335, %332, %327
-  %345 = phi i32 [ %329, %332 ], [ %344, %335 ], [ %329, %327 ]
-  %.val.i.i.i.i102 = phi i64 [ %328, %332 ], [ %342, %335 ], [ %328, %327 ]
+  %345 = phi i32 [ %344, %335 ], [ %329, %332 ], [ %329, %327 ]
+  %.val.i.i.i.i102 = phi i64 [ %342, %335 ], [ %328, %332 ], [ %328, %327 ]
   %346 = add nsw i32 %325, 64
   %347 = zext nneg i32 %346 to i64
   %348 = lshr i64 %.val.i.i.i.i102, %347
@@ -17342,8 +17342,8 @@ bits_read_vlc_be.exit106:                         ; preds = %bits_peek_be.exit.i
   br i1 %exitcond133.not, label %.loopexit, label %126, !llvm.loop !123
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit72, %bits_read_vlc_be.exit106, %.preheader, %.critedge.preheader
-  %.promoted116138 = phi i32 [ %360, %bits_read_vlc_be.exit106 ], [ %.promoted116, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %123, %bits_read_nz_be.exit72 ]
-  %373 = phi i32 [ %360, %bits_read_vlc_be.exit106 ], [ %33, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %123, %bits_read_nz_be.exit72 ]
+  %.promoted116138 = phi i32 [ %.promoted, %.preheader ], [ %.promoted116, %.critedge.preheader ], [ %360, %bits_read_vlc_be.exit106 ], [ %123, %bits_read_nz_be.exit72 ]
+  %373 = phi i32 [ %.promoted, %.preheader ], [ %33, %.critedge.preheader ], [ %360, %bits_read_vlc_be.exit106 ], [ %123, %bits_read_nz_be.exit72 ]
   %374 = load i32, ptr %22, align 8, !tbaa !45
   %375 = sdiv i32 %374, 2
   %376 = sext i32 %375 to i64
@@ -17680,8 +17680,8 @@ bits_peek_be.exit.i:                              ; preds = %129, %126, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %157, %154, %149
-  %167 = phi i32 [ %151, %154 ], [ %166, %157 ], [ %151, %149 ]
-  %.val.i.i.i.i = phi i64 [ %150, %154 ], [ %164, %157 ], [ %150, %149 ]
+  %167 = phi i32 [ %166, %157 ], [ %151, %154 ], [ %151, %149 ]
+  %.val.i.i.i.i = phi i64 [ %164, %157 ], [ %150, %154 ], [ %150, %149 ]
   %168 = add nsw i32 %147, 64
   %169 = zext nneg i32 %168 to i64
   %170 = lshr i64 %.val.i.i.i.i, %169
@@ -17732,8 +17732,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i150
 
 bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.exit, %190, %187
-  %200 = phi i32 [ %184, %187 ], [ %199, %190 ], [ %184, %bits_read_vlc_be.exit ]
-  %201 = phi i64 [ %183, %187 ], [ %197, %190 ], [ %183, %bits_read_vlc_be.exit ]
+  %200 = phi i32 [ %199, %190 ], [ %184, %187 ], [ %184, %bits_read_vlc_be.exit ]
+  %201 = phi i64 [ %197, %190 ], [ %183, %187 ], [ %183, %bits_read_vlc_be.exit ]
   %202 = lshr i64 %201, 52
   %203 = getelementptr inbounds nuw %struct.VLCElem, ptr %185, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !30
@@ -17775,8 +17775,8 @@ bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i153
 
 bits_priv_set_idx_be.exit.i153:                   ; preds = %218, %215, %210
-  %228 = phi i32 [ %212, %215 ], [ %227, %218 ], [ %212, %210 ]
-  %.val.i.i.i.i154 = phi i64 [ %211, %215 ], [ %225, %218 ], [ %211, %210 ]
+  %228 = phi i32 [ %227, %218 ], [ %212, %215 ], [ %212, %210 ]
+  %.val.i.i.i.i154 = phi i64 [ %225, %218 ], [ %211, %215 ], [ %211, %210 ]
   %229 = add nsw i32 %208, 64
   %230 = zext nneg i32 %229 to i64
   %231 = lshr i64 %.val.i.i.i.i154, %230
@@ -17826,8 +17826,8 @@ bits_read_vlc_be.exit158:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i161
 
 bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.exit158, %250, %247
-  %260 = phi i32 [ %245, %247 ], [ %259, %250 ], [ %245, %bits_read_vlc_be.exit158 ]
-  %261 = phi i64 [ %244, %247 ], [ %257, %250 ], [ %244, %bits_read_vlc_be.exit158 ]
+  %260 = phi i32 [ %259, %250 ], [ %245, %247 ], [ %245, %bits_read_vlc_be.exit158 ]
+  %261 = phi i64 [ %257, %250 ], [ %244, %247 ], [ %244, %bits_read_vlc_be.exit158 ]
   %262 = lshr i64 %261, 52
   %263 = getelementptr inbounds nuw %struct.VLCElem, ptr %123, i64 %262
   %264 = load i16, ptr %263, align 2, !tbaa !30
@@ -17869,8 +17869,8 @@ bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i164
 
 bits_priv_set_idx_be.exit.i164:                   ; preds = %278, %275, %270
-  %288 = phi i32 [ %272, %275 ], [ %287, %278 ], [ %272, %270 ]
-  %.val.i.i.i.i165 = phi i64 [ %271, %275 ], [ %285, %278 ], [ %271, %270 ]
+  %288 = phi i32 [ %287, %278 ], [ %272, %275 ], [ %272, %270 ]
+  %.val.i.i.i.i165 = phi i64 [ %285, %278 ], [ %271, %275 ], [ %271, %270 ]
   %289 = add nsw i32 %268, 64
   %290 = zext nneg i32 %289 to i64
   %291 = lshr i64 %.val.i.i.i.i165, %290
@@ -17920,8 +17920,8 @@ bits_read_vlc_be.exit169:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i172
 
 bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.exit169, %310, %307
-  %320 = phi i32 [ %305, %307 ], [ %319, %310 ], [ %305, %bits_read_vlc_be.exit169 ]
-  %321 = phi i64 [ %304, %307 ], [ %317, %310 ], [ %304, %bits_read_vlc_be.exit169 ]
+  %320 = phi i32 [ %319, %310 ], [ %305, %307 ], [ %305, %bits_read_vlc_be.exit169 ]
+  %321 = phi i64 [ %317, %310 ], [ %304, %307 ], [ %304, %bits_read_vlc_be.exit169 ]
   %322 = lshr i64 %321, 52
   %323 = getelementptr inbounds nuw %struct.VLCElem, ptr %185, i64 %322
   %324 = load i16, ptr %323, align 2, !tbaa !30
@@ -17963,8 +17963,8 @@ bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i175
 
 bits_priv_set_idx_be.exit.i175:                   ; preds = %338, %335, %330
-  %348 = phi i32 [ %332, %335 ], [ %347, %338 ], [ %332, %330 ]
-  %.val.i.i.i.i176 = phi i64 [ %331, %335 ], [ %345, %338 ], [ %331, %330 ]
+  %348 = phi i32 [ %347, %338 ], [ %332, %335 ], [ %332, %330 ]
+  %.val.i.i.i.i176 = phi i64 [ %345, %338 ], [ %331, %335 ], [ %331, %330 ]
   %349 = add nsw i32 %328, 64
   %350 = zext nneg i32 %349 to i64
   %351 = lshr i64 %.val.i.i.i.i176, %350
@@ -18013,7 +18013,7 @@ bits_read_vlc_be.exit180:                         ; preds = %bits_peek_be.exit.i
   br i1 %381, label %122, label %.loopexit252, !llvm.loop !126
 
 .loopexit252:                                     ; preds = %bits_read_nz_be.exit146, %bits_read_vlc_be.exit180, %.preheader253, %.critedge.preheader
-  %382 = phi i32 [ %379, %bits_read_vlc_be.exit180 ], [ %20, %.critedge.preheader ], [ %33, %.preheader253 ], [ %119, %bits_read_nz_be.exit146 ]
+  %382 = phi i32 [ %33, %.preheader253 ], [ %20, %.critedge.preheader ], [ %379, %bits_read_vlc_be.exit180 ], [ %119, %bits_read_nz_be.exit146 ]
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -18390,8 +18390,8 @@ bits_peek_be.exit.i207:                           ; preds = %552, %549, %.bits_p
   br label %bits_priv_set_idx_be.exit.i210
 
 bits_priv_set_idx_be.exit.i210:                   ; preds = %580, %577, %572
-  %590 = phi i32 [ %574, %577 ], [ %589, %580 ], [ %574, %572 ]
-  %.val.i.i.i.i211 = phi i64 [ %573, %577 ], [ %587, %580 ], [ %573, %572 ]
+  %590 = phi i32 [ %589, %580 ], [ %574, %577 ], [ %574, %572 ]
+  %.val.i.i.i.i211 = phi i64 [ %587, %580 ], [ %573, %577 ], [ %573, %572 ]
   %591 = add nsw i32 %570, 64
   %592 = zext nneg i32 %591 to i64
   %593 = lshr i64 %.val.i.i.i.i211, %592
@@ -18442,8 +18442,8 @@ bits_read_vlc_be.exit215:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i218
 
 bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.exit215, %613, %610
-  %623 = phi i32 [ %607, %610 ], [ %622, %613 ], [ %607, %bits_read_vlc_be.exit215 ]
-  %624 = phi i64 [ %606, %610 ], [ %620, %613 ], [ %606, %bits_read_vlc_be.exit215 ]
+  %623 = phi i32 [ %622, %613 ], [ %607, %610 ], [ %607, %bits_read_vlc_be.exit215 ]
+  %624 = phi i64 [ %620, %613 ], [ %606, %610 ], [ %606, %bits_read_vlc_be.exit215 ]
   %625 = lshr i64 %624, 52
   %626 = getelementptr inbounds nuw %struct.VLCElem, ptr %608, i64 %625
   %627 = load i16, ptr %626, align 2, !tbaa !30
@@ -18485,8 +18485,8 @@ bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i221
 
 bits_priv_set_idx_be.exit.i221:                   ; preds = %641, %638, %633
-  %651 = phi i32 [ %635, %638 ], [ %650, %641 ], [ %635, %633 ]
-  %.val.i.i.i.i222 = phi i64 [ %634, %638 ], [ %648, %641 ], [ %634, %633 ]
+  %651 = phi i32 [ %650, %641 ], [ %635, %638 ], [ %635, %633 ]
+  %.val.i.i.i.i222 = phi i64 [ %648, %641 ], [ %634, %638 ], [ %634, %633 ]
   %652 = add nsw i32 %631, 64
   %653 = zext nneg i32 %652 to i64
   %654 = lshr i64 %.val.i.i.i.i222, %653
@@ -18536,8 +18536,8 @@ bits_read_vlc_be.exit226:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i229
 
 bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.exit226, %673, %670
-  %683 = phi i32 [ %668, %670 ], [ %682, %673 ], [ %668, %bits_read_vlc_be.exit226 ]
-  %684 = phi i64 [ %667, %670 ], [ %680, %673 ], [ %667, %bits_read_vlc_be.exit226 ]
+  %683 = phi i32 [ %682, %673 ], [ %668, %670 ], [ %668, %bits_read_vlc_be.exit226 ]
+  %684 = phi i64 [ %680, %673 ], [ %667, %670 ], [ %667, %bits_read_vlc_be.exit226 ]
   %685 = lshr i64 %684, 52
   %686 = getelementptr inbounds nuw %struct.VLCElem, ptr %546, i64 %685
   %687 = load i16, ptr %686, align 2, !tbaa !30
@@ -18579,8 +18579,8 @@ bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i232
 
 bits_priv_set_idx_be.exit.i232:                   ; preds = %701, %698, %693
-  %711 = phi i32 [ %695, %698 ], [ %710, %701 ], [ %695, %693 ]
-  %.val.i.i.i.i233 = phi i64 [ %694, %698 ], [ %708, %701 ], [ %694, %693 ]
+  %711 = phi i32 [ %710, %701 ], [ %695, %698 ], [ %695, %693 ]
+  %.val.i.i.i.i233 = phi i64 [ %708, %701 ], [ %694, %698 ], [ %694, %693 ]
   %712 = add nsw i32 %691, 64
   %713 = zext nneg i32 %712 to i64
   %714 = lshr i64 %.val.i.i.i.i233, %713
@@ -18630,8 +18630,8 @@ bits_read_vlc_be.exit237:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i240
 
 bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.exit237, %733, %730
-  %743 = phi i32 [ %728, %730 ], [ %742, %733 ], [ %728, %bits_read_vlc_be.exit237 ]
-  %744 = phi i64 [ %727, %730 ], [ %740, %733 ], [ %727, %bits_read_vlc_be.exit237 ]
+  %743 = phi i32 [ %742, %733 ], [ %728, %730 ], [ %728, %bits_read_vlc_be.exit237 ]
+  %744 = phi i64 [ %740, %733 ], [ %727, %730 ], [ %727, %bits_read_vlc_be.exit237 ]
   %745 = lshr i64 %744, 52
   %746 = getelementptr inbounds nuw %struct.VLCElem, ptr %608, i64 %745
   %747 = load i16, ptr %746, align 2, !tbaa !30
@@ -18673,8 +18673,8 @@ bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i243
 
 bits_priv_set_idx_be.exit.i243:                   ; preds = %761, %758, %753
-  %771 = phi i32 [ %755, %758 ], [ %770, %761 ], [ %755, %753 ]
-  %.val.i.i.i.i244 = phi i64 [ %754, %758 ], [ %768, %761 ], [ %754, %753 ]
+  %771 = phi i32 [ %770, %761 ], [ %755, %758 ], [ %755, %753 ]
+  %.val.i.i.i.i244 = phi i64 [ %768, %761 ], [ %754, %758 ], [ %754, %753 ]
   %772 = add nsw i32 %751, 64
   %773 = zext nneg i32 %772 to i64
   %774 = lshr i64 %.val.i.i.i.i244, %773
@@ -18742,8 +18742,8 @@ bits_read_vlc_be.exit248:                         ; preds = %bits_peek_be.exit.i
   br i1 %823, label %.lr.ph270, label %.loopexit, !llvm.loop !128
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit204, %bits_read_vlc_be.exit248, %.preheader, %bits_read_bit_be.exit188.thread
-  %824 = phi i32 [ %821, %bits_read_vlc_be.exit248 ], [ %404, %bits_read_bit_be.exit188.thread ], [ %404, %.preheader ], [ %501, %bits_read_nz_be.exit204 ]
-  %825 = phi i32 [ %821, %bits_read_vlc_be.exit248 ], [ %404, %bits_read_bit_be.exit188.thread ], [ %408, %.preheader ], [ %501, %bits_read_nz_be.exit204 ]
+  %824 = phi i32 [ %404, %.preheader ], [ %404, %bits_read_bit_be.exit188.thread ], [ %821, %bits_read_vlc_be.exit248 ], [ %501, %bits_read_nz_be.exit204 ]
+  %825 = phi i32 [ %408, %.preheader ], [ %404, %bits_read_bit_be.exit188.thread ], [ %821, %bits_read_vlc_be.exit248 ], [ %501, %bits_read_nz_be.exit204 ]
   %826 = load i32, ptr %383, align 8, !tbaa !45
   %827 = sext i32 %826 to i64
   %828 = getelementptr inbounds i8, ptr %.0276, i64 %827
@@ -19074,8 +19074,8 @@ bits_peek_be.exit.i:                              ; preds = %129, %126, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %157, %154, %149
-  %167 = phi i32 [ %151, %154 ], [ %166, %157 ], [ %151, %149 ]
-  %.val.i.i.i.i = phi i64 [ %150, %154 ], [ %164, %157 ], [ %150, %149 ]
+  %167 = phi i32 [ %166, %157 ], [ %151, %154 ], [ %151, %149 ]
+  %.val.i.i.i.i = phi i64 [ %164, %157 ], [ %150, %154 ], [ %150, %149 ]
   %168 = add nsw i32 %147, 64
   %169 = zext nneg i32 %168 to i64
   %170 = lshr i64 %.val.i.i.i.i, %169
@@ -19126,8 +19126,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i128
 
 bits_peek_be.exit.i128:                           ; preds = %bits_read_vlc_be.exit, %190, %187
-  %200 = phi i32 [ %184, %187 ], [ %199, %190 ], [ %184, %bits_read_vlc_be.exit ]
-  %201 = phi i64 [ %183, %187 ], [ %197, %190 ], [ %183, %bits_read_vlc_be.exit ]
+  %200 = phi i32 [ %199, %190 ], [ %184, %187 ], [ %184, %bits_read_vlc_be.exit ]
+  %201 = phi i64 [ %197, %190 ], [ %183, %187 ], [ %183, %bits_read_vlc_be.exit ]
   %202 = lshr i64 %201, 52
   %203 = getelementptr inbounds nuw %struct.VLCElem, ptr %185, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !30
@@ -19169,8 +19169,8 @@ bits_peek_be.exit.i128:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i131
 
 bits_priv_set_idx_be.exit.i131:                   ; preds = %218, %215, %210
-  %228 = phi i32 [ %212, %215 ], [ %227, %218 ], [ %212, %210 ]
-  %.val.i.i.i.i132 = phi i64 [ %211, %215 ], [ %225, %218 ], [ %211, %210 ]
+  %228 = phi i32 [ %227, %218 ], [ %212, %215 ], [ %212, %210 ]
+  %.val.i.i.i.i132 = phi i64 [ %225, %218 ], [ %211, %215 ], [ %211, %210 ]
   %229 = add nsw i32 %208, 64
   %230 = zext nneg i32 %229 to i64
   %231 = lshr i64 %.val.i.i.i.i132, %230
@@ -19220,8 +19220,8 @@ bits_read_vlc_be.exit136:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i139
 
 bits_peek_be.exit.i139:                           ; preds = %bits_read_vlc_be.exit136, %250, %247
-  %260 = phi i32 [ %245, %247 ], [ %259, %250 ], [ %245, %bits_read_vlc_be.exit136 ]
-  %261 = phi i64 [ %244, %247 ], [ %257, %250 ], [ %244, %bits_read_vlc_be.exit136 ]
+  %260 = phi i32 [ %259, %250 ], [ %245, %247 ], [ %245, %bits_read_vlc_be.exit136 ]
+  %261 = phi i64 [ %257, %250 ], [ %244, %247 ], [ %244, %bits_read_vlc_be.exit136 ]
   %262 = lshr i64 %261, 52
   %263 = getelementptr inbounds nuw %struct.VLCElem, ptr %123, i64 %262
   %264 = load i16, ptr %263, align 2, !tbaa !30
@@ -19263,8 +19263,8 @@ bits_peek_be.exit.i139:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i142
 
 bits_priv_set_idx_be.exit.i142:                   ; preds = %278, %275, %270
-  %288 = phi i32 [ %272, %275 ], [ %287, %278 ], [ %272, %270 ]
-  %.val.i.i.i.i143 = phi i64 [ %271, %275 ], [ %285, %278 ], [ %271, %270 ]
+  %288 = phi i32 [ %287, %278 ], [ %272, %275 ], [ %272, %270 ]
+  %.val.i.i.i.i143 = phi i64 [ %285, %278 ], [ %271, %275 ], [ %271, %270 ]
   %289 = add nsw i32 %268, 64
   %290 = zext nneg i32 %289 to i64
   %291 = lshr i64 %.val.i.i.i.i143, %290
@@ -19314,8 +19314,8 @@ bits_read_vlc_be.exit147:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i150
 
 bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.exit147, %310, %307
-  %320 = phi i32 [ %305, %307 ], [ %319, %310 ], [ %305, %bits_read_vlc_be.exit147 ]
-  %321 = phi i64 [ %304, %307 ], [ %317, %310 ], [ %304, %bits_read_vlc_be.exit147 ]
+  %320 = phi i32 [ %319, %310 ], [ %305, %307 ], [ %305, %bits_read_vlc_be.exit147 ]
+  %321 = phi i64 [ %317, %310 ], [ %304, %307 ], [ %304, %bits_read_vlc_be.exit147 ]
   %322 = lshr i64 %321, 52
   %323 = getelementptr inbounds nuw %struct.VLCElem, ptr %185, i64 %322
   %324 = load i16, ptr %323, align 2, !tbaa !30
@@ -19357,8 +19357,8 @@ bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i153
 
 bits_priv_set_idx_be.exit.i153:                   ; preds = %338, %335, %330
-  %348 = phi i32 [ %332, %335 ], [ %347, %338 ], [ %332, %330 ]
-  %.val.i.i.i.i154 = phi i64 [ %331, %335 ], [ %345, %338 ], [ %331, %330 ]
+  %348 = phi i32 [ %347, %338 ], [ %332, %335 ], [ %332, %330 ]
+  %.val.i.i.i.i154 = phi i64 [ %345, %338 ], [ %331, %335 ], [ %331, %330 ]
   %349 = add nsw i32 %328, 64
   %350 = zext nneg i32 %349 to i64
   %351 = lshr i64 %.val.i.i.i.i154, %350
@@ -19407,7 +19407,7 @@ bits_read_vlc_be.exit158:                         ; preds = %bits_peek_be.exit.i
   br i1 %381, label %122, label %.loopexit230, !llvm.loop !131
 
 .loopexit230:                                     ; preds = %bits_read_nz_be.exit124, %bits_read_vlc_be.exit158, %.preheader231, %.critedge.preheader
-  %382 = phi i32 [ %379, %bits_read_vlc_be.exit158 ], [ %20, %.critedge.preheader ], [ %33, %.preheader231 ], [ %119, %bits_read_nz_be.exit124 ]
+  %382 = phi i32 [ %33, %.preheader231 ], [ %20, %.critedge.preheader ], [ %379, %bits_read_vlc_be.exit158 ], [ %119, %bits_read_nz_be.exit124 ]
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -19758,8 +19758,8 @@ bits_peek_be.exit.i185:                           ; preds = %529, %526, %.bits_p
   br label %bits_priv_set_idx_be.exit.i188
 
 bits_priv_set_idx_be.exit.i188:                   ; preds = %557, %554, %549
-  %567 = phi i32 [ %551, %554 ], [ %566, %557 ], [ %551, %549 ]
-  %.val.i.i.i.i189 = phi i64 [ %550, %554 ], [ %564, %557 ], [ %550, %549 ]
+  %567 = phi i32 [ %566, %557 ], [ %551, %554 ], [ %551, %549 ]
+  %.val.i.i.i.i189 = phi i64 [ %564, %557 ], [ %550, %554 ], [ %550, %549 ]
   %568 = add nsw i32 %547, 64
   %569 = zext nneg i32 %568 to i64
   %570 = lshr i64 %.val.i.i.i.i189, %569
@@ -19810,8 +19810,8 @@ bits_read_vlc_be.exit193:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i196
 
 bits_peek_be.exit.i196:                           ; preds = %bits_read_vlc_be.exit193, %590, %587
-  %600 = phi i32 [ %584, %587 ], [ %599, %590 ], [ %584, %bits_read_vlc_be.exit193 ]
-  %601 = phi i64 [ %583, %587 ], [ %597, %590 ], [ %583, %bits_read_vlc_be.exit193 ]
+  %600 = phi i32 [ %599, %590 ], [ %584, %587 ], [ %584, %bits_read_vlc_be.exit193 ]
+  %601 = phi i64 [ %597, %590 ], [ %583, %587 ], [ %583, %bits_read_vlc_be.exit193 ]
   %602 = lshr i64 %601, 52
   %603 = getelementptr inbounds nuw %struct.VLCElem, ptr %585, i64 %602
   %604 = load i16, ptr %603, align 2, !tbaa !30
@@ -19853,8 +19853,8 @@ bits_peek_be.exit.i196:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i199
 
 bits_priv_set_idx_be.exit.i199:                   ; preds = %618, %615, %610
-  %628 = phi i32 [ %612, %615 ], [ %627, %618 ], [ %612, %610 ]
-  %.val.i.i.i.i200 = phi i64 [ %611, %615 ], [ %625, %618 ], [ %611, %610 ]
+  %628 = phi i32 [ %627, %618 ], [ %612, %615 ], [ %612, %610 ]
+  %.val.i.i.i.i200 = phi i64 [ %625, %618 ], [ %611, %615 ], [ %611, %610 ]
   %629 = add nsw i32 %608, 64
   %630 = zext nneg i32 %629 to i64
   %631 = lshr i64 %.val.i.i.i.i200, %630
@@ -19904,8 +19904,8 @@ bits_read_vlc_be.exit204:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i207
 
 bits_peek_be.exit.i207:                           ; preds = %bits_read_vlc_be.exit204, %650, %647
-  %660 = phi i32 [ %645, %647 ], [ %659, %650 ], [ %645, %bits_read_vlc_be.exit204 ]
-  %661 = phi i64 [ %644, %647 ], [ %657, %650 ], [ %644, %bits_read_vlc_be.exit204 ]
+  %660 = phi i32 [ %659, %650 ], [ %645, %647 ], [ %645, %bits_read_vlc_be.exit204 ]
+  %661 = phi i64 [ %657, %650 ], [ %644, %647 ], [ %644, %bits_read_vlc_be.exit204 ]
   %662 = lshr i64 %661, 52
   %663 = getelementptr inbounds nuw %struct.VLCElem, ptr %523, i64 %662
   %664 = load i16, ptr %663, align 2, !tbaa !30
@@ -19947,8 +19947,8 @@ bits_peek_be.exit.i207:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i210
 
 bits_priv_set_idx_be.exit.i210:                   ; preds = %678, %675, %670
-  %688 = phi i32 [ %672, %675 ], [ %687, %678 ], [ %672, %670 ]
-  %.val.i.i.i.i211 = phi i64 [ %671, %675 ], [ %685, %678 ], [ %671, %670 ]
+  %688 = phi i32 [ %687, %678 ], [ %672, %675 ], [ %672, %670 ]
+  %.val.i.i.i.i211 = phi i64 [ %685, %678 ], [ %671, %675 ], [ %671, %670 ]
   %689 = add nsw i32 %668, 64
   %690 = zext nneg i32 %689 to i64
   %691 = lshr i64 %.val.i.i.i.i211, %690
@@ -19998,8 +19998,8 @@ bits_read_vlc_be.exit215:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i218
 
 bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.exit215, %710, %707
-  %720 = phi i32 [ %705, %707 ], [ %719, %710 ], [ %705, %bits_read_vlc_be.exit215 ]
-  %721 = phi i64 [ %704, %707 ], [ %717, %710 ], [ %704, %bits_read_vlc_be.exit215 ]
+  %720 = phi i32 [ %719, %710 ], [ %705, %707 ], [ %705, %bits_read_vlc_be.exit215 ]
+  %721 = phi i64 [ %717, %710 ], [ %704, %707 ], [ %704, %bits_read_vlc_be.exit215 ]
   %722 = lshr i64 %721, 52
   %723 = getelementptr inbounds nuw %struct.VLCElem, ptr %585, i64 %722
   %724 = load i16, ptr %723, align 2, !tbaa !30
@@ -20041,8 +20041,8 @@ bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i221
 
 bits_priv_set_idx_be.exit.i221:                   ; preds = %738, %735, %730
-  %748 = phi i32 [ %732, %735 ], [ %747, %738 ], [ %732, %730 ]
-  %.val.i.i.i.i222 = phi i64 [ %731, %735 ], [ %745, %738 ], [ %731, %730 ]
+  %748 = phi i32 [ %747, %738 ], [ %732, %735 ], [ %732, %730 ]
+  %.val.i.i.i.i222 = phi i64 [ %745, %738 ], [ %731, %735 ], [ %731, %730 ]
   %749 = add nsw i32 %728, 64
   %750 = zext nneg i32 %749 to i64
   %751 = lshr i64 %.val.i.i.i.i222, %750
@@ -20091,8 +20091,8 @@ bits_read_vlc_be.exit226:                         ; preds = %bits_peek_be.exit.i
   br i1 %781, label %.lr.ph245, label %.loopexit, !llvm.loop !133
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit182, %bits_read_vlc_be.exit226, %.preheader, %bits_read_bit_be.exit166.thread
-  %782 = phi i32 [ %779, %bits_read_vlc_be.exit226 ], [ %404, %bits_read_bit_be.exit166.thread ], [ %404, %.preheader ], [ %501, %bits_read_nz_be.exit182 ]
-  %783 = phi i32 [ %779, %bits_read_vlc_be.exit226 ], [ %404, %bits_read_bit_be.exit166.thread ], [ %408, %.preheader ], [ %501, %bits_read_nz_be.exit182 ]
+  %782 = phi i32 [ %404, %.preheader ], [ %404, %bits_read_bit_be.exit166.thread ], [ %779, %bits_read_vlc_be.exit226 ], [ %501, %bits_read_nz_be.exit182 ]
+  %783 = phi i32 [ %408, %.preheader ], [ %404, %bits_read_bit_be.exit166.thread ], [ %779, %bits_read_vlc_be.exit226 ], [ %501, %bits_read_nz_be.exit182 ]
   %784 = load i32, ptr %383, align 8, !tbaa !45
   %785 = sext i32 %784 to i64
   %786 = getelementptr inbounds i8, ptr %.0251, i64 %785
@@ -20425,8 +20425,8 @@ bits_peek_be.exit.i:                              ; preds = %131, %128, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %159, %156, %151
-  %169 = phi i32 [ %153, %156 ], [ %168, %159 ], [ %153, %151 ]
-  %.val.i.i.i.i = phi i64 [ %152, %156 ], [ %166, %159 ], [ %152, %151 ]
+  %169 = phi i32 [ %168, %159 ], [ %153, %156 ], [ %153, %151 ]
+  %.val.i.i.i.i = phi i64 [ %166, %159 ], [ %152, %156 ], [ %152, %151 ]
   %170 = add nsw i32 %149, 64
   %171 = zext nneg i32 %170 to i64
   %172 = lshr i64 %.val.i.i.i.i, %171
@@ -20477,8 +20477,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i150
 
 bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.exit, %192, %189
-  %202 = phi i32 [ %186, %189 ], [ %201, %192 ], [ %186, %bits_read_vlc_be.exit ]
-  %203 = phi i64 [ %185, %189 ], [ %199, %192 ], [ %185, %bits_read_vlc_be.exit ]
+  %202 = phi i32 [ %201, %192 ], [ %186, %189 ], [ %186, %bits_read_vlc_be.exit ]
+  %203 = phi i64 [ %199, %192 ], [ %185, %189 ], [ %185, %bits_read_vlc_be.exit ]
   %204 = lshr i64 %203, 52
   %205 = getelementptr inbounds nuw %struct.VLCElem, ptr %187, i64 %204
   %206 = load i16, ptr %205, align 2, !tbaa !30
@@ -20520,8 +20520,8 @@ bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i153
 
 bits_priv_set_idx_be.exit.i153:                   ; preds = %220, %217, %212
-  %230 = phi i32 [ %214, %217 ], [ %229, %220 ], [ %214, %212 ]
-  %.val.i.i.i.i154 = phi i64 [ %213, %217 ], [ %227, %220 ], [ %213, %212 ]
+  %230 = phi i32 [ %229, %220 ], [ %214, %217 ], [ %214, %212 ]
+  %.val.i.i.i.i154 = phi i64 [ %227, %220 ], [ %213, %217 ], [ %213, %212 ]
   %231 = add nsw i32 %210, 64
   %232 = zext nneg i32 %231 to i64
   %233 = lshr i64 %.val.i.i.i.i154, %232
@@ -20571,8 +20571,8 @@ bits_read_vlc_be.exit158:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i161
 
 bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.exit158, %252, %249
-  %262 = phi i32 [ %247, %249 ], [ %261, %252 ], [ %247, %bits_read_vlc_be.exit158 ]
-  %263 = phi i64 [ %246, %249 ], [ %259, %252 ], [ %246, %bits_read_vlc_be.exit158 ]
+  %262 = phi i32 [ %261, %252 ], [ %247, %249 ], [ %247, %bits_read_vlc_be.exit158 ]
+  %263 = phi i64 [ %259, %252 ], [ %246, %249 ], [ %246, %bits_read_vlc_be.exit158 ]
   %264 = lshr i64 %263, 52
   %265 = getelementptr inbounds nuw %struct.VLCElem, ptr %125, i64 %264
   %266 = load i16, ptr %265, align 2, !tbaa !30
@@ -20614,8 +20614,8 @@ bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i164
 
 bits_priv_set_idx_be.exit.i164:                   ; preds = %280, %277, %272
-  %290 = phi i32 [ %274, %277 ], [ %289, %280 ], [ %274, %272 ]
-  %.val.i.i.i.i165 = phi i64 [ %273, %277 ], [ %287, %280 ], [ %273, %272 ]
+  %290 = phi i32 [ %289, %280 ], [ %274, %277 ], [ %274, %272 ]
+  %.val.i.i.i.i165 = phi i64 [ %287, %280 ], [ %273, %277 ], [ %273, %272 ]
   %291 = add nsw i32 %270, 64
   %292 = zext nneg i32 %291 to i64
   %293 = lshr i64 %.val.i.i.i.i165, %292
@@ -20665,8 +20665,8 @@ bits_read_vlc_be.exit169:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i172
 
 bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.exit169, %312, %309
-  %322 = phi i32 [ %307, %309 ], [ %321, %312 ], [ %307, %bits_read_vlc_be.exit169 ]
-  %323 = phi i64 [ %306, %309 ], [ %319, %312 ], [ %306, %bits_read_vlc_be.exit169 ]
+  %322 = phi i32 [ %321, %312 ], [ %307, %309 ], [ %307, %bits_read_vlc_be.exit169 ]
+  %323 = phi i64 [ %319, %312 ], [ %306, %309 ], [ %306, %bits_read_vlc_be.exit169 ]
   %324 = lshr i64 %323, 52
   %325 = getelementptr inbounds nuw %struct.VLCElem, ptr %187, i64 %324
   %326 = load i16, ptr %325, align 2, !tbaa !30
@@ -20708,8 +20708,8 @@ bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i175
 
 bits_priv_set_idx_be.exit.i175:                   ; preds = %340, %337, %332
-  %350 = phi i32 [ %334, %337 ], [ %349, %340 ], [ %334, %332 ]
-  %.val.i.i.i.i176 = phi i64 [ %333, %337 ], [ %347, %340 ], [ %333, %332 ]
+  %350 = phi i32 [ %349, %340 ], [ %334, %337 ], [ %334, %332 ]
+  %.val.i.i.i.i176 = phi i64 [ %347, %340 ], [ %333, %337 ], [ %333, %332 ]
   %351 = add nsw i32 %330, 64
   %352 = zext nneg i32 %351 to i64
   %353 = lshr i64 %.val.i.i.i.i176, %352
@@ -20758,7 +20758,7 @@ bits_read_vlc_be.exit180:                         ; preds = %bits_peek_be.exit.i
   br i1 %383, label %124, label %.loopexit252, !llvm.loop !136
 
 .loopexit252:                                     ; preds = %bits_read_nz_be.exit146, %bits_read_vlc_be.exit180, %.preheader253, %.critedge.preheader
-  %384 = phi i32 [ %381, %bits_read_vlc_be.exit180 ], [ %20, %.critedge.preheader ], [ %33, %.preheader253 ], [ %121, %bits_read_nz_be.exit146 ]
+  %384 = phi i32 [ %33, %.preheader253 ], [ %20, %.critedge.preheader ], [ %381, %bits_read_vlc_be.exit180 ], [ %121, %bits_read_nz_be.exit146 ]
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -21137,8 +21137,8 @@ bits_peek_be.exit.i207:                           ; preds = %556, %553, %.bits_p
   br label %bits_priv_set_idx_be.exit.i210
 
 bits_priv_set_idx_be.exit.i210:                   ; preds = %584, %581, %576
-  %594 = phi i32 [ %578, %581 ], [ %593, %584 ], [ %578, %576 ]
-  %.val.i.i.i.i211 = phi i64 [ %577, %581 ], [ %591, %584 ], [ %577, %576 ]
+  %594 = phi i32 [ %593, %584 ], [ %578, %581 ], [ %578, %576 ]
+  %.val.i.i.i.i211 = phi i64 [ %591, %584 ], [ %577, %581 ], [ %577, %576 ]
   %595 = add nsw i32 %574, 64
   %596 = zext nneg i32 %595 to i64
   %597 = lshr i64 %.val.i.i.i.i211, %596
@@ -21189,8 +21189,8 @@ bits_read_vlc_be.exit215:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i218
 
 bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.exit215, %617, %614
-  %627 = phi i32 [ %611, %614 ], [ %626, %617 ], [ %611, %bits_read_vlc_be.exit215 ]
-  %628 = phi i64 [ %610, %614 ], [ %624, %617 ], [ %610, %bits_read_vlc_be.exit215 ]
+  %627 = phi i32 [ %626, %617 ], [ %611, %614 ], [ %611, %bits_read_vlc_be.exit215 ]
+  %628 = phi i64 [ %624, %617 ], [ %610, %614 ], [ %610, %bits_read_vlc_be.exit215 ]
   %629 = lshr i64 %628, 52
   %630 = getelementptr inbounds nuw %struct.VLCElem, ptr %612, i64 %629
   %631 = load i16, ptr %630, align 2, !tbaa !30
@@ -21232,8 +21232,8 @@ bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i221
 
 bits_priv_set_idx_be.exit.i221:                   ; preds = %645, %642, %637
-  %655 = phi i32 [ %639, %642 ], [ %654, %645 ], [ %639, %637 ]
-  %.val.i.i.i.i222 = phi i64 [ %638, %642 ], [ %652, %645 ], [ %638, %637 ]
+  %655 = phi i32 [ %654, %645 ], [ %639, %642 ], [ %639, %637 ]
+  %.val.i.i.i.i222 = phi i64 [ %652, %645 ], [ %638, %642 ], [ %638, %637 ]
   %656 = add nsw i32 %635, 64
   %657 = zext nneg i32 %656 to i64
   %658 = lshr i64 %.val.i.i.i.i222, %657
@@ -21283,8 +21283,8 @@ bits_read_vlc_be.exit226:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i229
 
 bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.exit226, %677, %674
-  %687 = phi i32 [ %672, %674 ], [ %686, %677 ], [ %672, %bits_read_vlc_be.exit226 ]
-  %688 = phi i64 [ %671, %674 ], [ %684, %677 ], [ %671, %bits_read_vlc_be.exit226 ]
+  %687 = phi i32 [ %686, %677 ], [ %672, %674 ], [ %672, %bits_read_vlc_be.exit226 ]
+  %688 = phi i64 [ %684, %677 ], [ %671, %674 ], [ %671, %bits_read_vlc_be.exit226 ]
   %689 = lshr i64 %688, 52
   %690 = getelementptr inbounds nuw %struct.VLCElem, ptr %550, i64 %689
   %691 = load i16, ptr %690, align 2, !tbaa !30
@@ -21326,8 +21326,8 @@ bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i232
 
 bits_priv_set_idx_be.exit.i232:                   ; preds = %705, %702, %697
-  %715 = phi i32 [ %699, %702 ], [ %714, %705 ], [ %699, %697 ]
-  %.val.i.i.i.i233 = phi i64 [ %698, %702 ], [ %712, %705 ], [ %698, %697 ]
+  %715 = phi i32 [ %714, %705 ], [ %699, %702 ], [ %699, %697 ]
+  %.val.i.i.i.i233 = phi i64 [ %712, %705 ], [ %698, %702 ], [ %698, %697 ]
   %716 = add nsw i32 %695, 64
   %717 = zext nneg i32 %716 to i64
   %718 = lshr i64 %.val.i.i.i.i233, %717
@@ -21377,8 +21377,8 @@ bits_read_vlc_be.exit237:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i240
 
 bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.exit237, %737, %734
-  %747 = phi i32 [ %732, %734 ], [ %746, %737 ], [ %732, %bits_read_vlc_be.exit237 ]
-  %748 = phi i64 [ %731, %734 ], [ %744, %737 ], [ %731, %bits_read_vlc_be.exit237 ]
+  %747 = phi i32 [ %746, %737 ], [ %732, %734 ], [ %732, %bits_read_vlc_be.exit237 ]
+  %748 = phi i64 [ %744, %737 ], [ %731, %734 ], [ %731, %bits_read_vlc_be.exit237 ]
   %749 = lshr i64 %748, 52
   %750 = getelementptr inbounds nuw %struct.VLCElem, ptr %612, i64 %749
   %751 = load i16, ptr %750, align 2, !tbaa !30
@@ -21420,8 +21420,8 @@ bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i243
 
 bits_priv_set_idx_be.exit.i243:                   ; preds = %765, %762, %757
-  %775 = phi i32 [ %759, %762 ], [ %774, %765 ], [ %759, %757 ]
-  %.val.i.i.i.i244 = phi i64 [ %758, %762 ], [ %772, %765 ], [ %758, %757 ]
+  %775 = phi i32 [ %774, %765 ], [ %759, %762 ], [ %759, %757 ]
+  %.val.i.i.i.i244 = phi i64 [ %772, %765 ], [ %758, %762 ], [ %758, %757 ]
   %776 = add nsw i32 %755, 64
   %777 = zext nneg i32 %776 to i64
   %778 = lshr i64 %.val.i.i.i.i244, %777
@@ -21489,8 +21489,8 @@ bits_read_vlc_be.exit248:                         ; preds = %bits_peek_be.exit.i
   br i1 %827, label %.lr.ph270, label %.loopexit, !llvm.loop !138
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit204, %bits_read_vlc_be.exit248, %.preheader, %bits_read_bit_be.exit188.thread
-  %828 = phi i32 [ %825, %bits_read_vlc_be.exit248 ], [ %406, %bits_read_bit_be.exit188.thread ], [ %406, %.preheader ], [ %505, %bits_read_nz_be.exit204 ]
-  %829 = phi i32 [ %825, %bits_read_vlc_be.exit248 ], [ %406, %bits_read_bit_be.exit188.thread ], [ %410, %.preheader ], [ %505, %bits_read_nz_be.exit204 ]
+  %828 = phi i32 [ %406, %.preheader ], [ %406, %bits_read_bit_be.exit188.thread ], [ %825, %bits_read_vlc_be.exit248 ], [ %505, %bits_read_nz_be.exit204 ]
+  %829 = phi i32 [ %410, %.preheader ], [ %406, %bits_read_bit_be.exit188.thread ], [ %825, %bits_read_vlc_be.exit248 ], [ %505, %bits_read_nz_be.exit204 ]
   %830 = load i32, ptr %385, align 8, !tbaa !45
   %831 = sext i32 %830 to i64
   %832 = getelementptr inbounds i8, ptr %.0276, i64 %831
@@ -21903,8 +21903,8 @@ bits_peek_be.exit.i:                              ; preds = %172, %169, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %200, %197, %192
-  %210 = phi i32 [ %194, %197 ], [ %209, %200 ], [ %194, %192 ]
-  %.val.i.i.i.i = phi i64 [ %193, %197 ], [ %207, %200 ], [ %193, %192 ]
+  %210 = phi i32 [ %209, %200 ], [ %194, %197 ], [ %194, %192 ]
+  %.val.i.i.i.i = phi i64 [ %207, %200 ], [ %193, %197 ], [ %193, %192 ]
   %211 = add nsw i32 %190, 64
   %212 = zext nneg i32 %211 to i64
   %213 = lshr i64 %.val.i.i.i.i, %212
@@ -21955,8 +21955,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i211
 
 bits_peek_be.exit.i211:                           ; preds = %bits_read_vlc_be.exit, %233, %230
-  %243 = phi i32 [ %227, %230 ], [ %242, %233 ], [ %227, %bits_read_vlc_be.exit ]
-  %244 = phi i64 [ %226, %230 ], [ %240, %233 ], [ %226, %bits_read_vlc_be.exit ]
+  %243 = phi i32 [ %242, %233 ], [ %227, %230 ], [ %227, %bits_read_vlc_be.exit ]
+  %244 = phi i64 [ %240, %233 ], [ %226, %230 ], [ %226, %bits_read_vlc_be.exit ]
   %245 = lshr i64 %244, 52
   %246 = getelementptr inbounds nuw %struct.VLCElem, ptr %228, i64 %245
   %247 = load i16, ptr %246, align 2, !tbaa !30
@@ -21998,8 +21998,8 @@ bits_peek_be.exit.i211:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i214
 
 bits_priv_set_idx_be.exit.i214:                   ; preds = %261, %258, %253
-  %271 = phi i32 [ %255, %258 ], [ %270, %261 ], [ %255, %253 ]
-  %.val.i.i.i.i215 = phi i64 [ %254, %258 ], [ %268, %261 ], [ %254, %253 ]
+  %271 = phi i32 [ %270, %261 ], [ %255, %258 ], [ %255, %253 ]
+  %.val.i.i.i.i215 = phi i64 [ %268, %261 ], [ %254, %258 ], [ %254, %253 ]
   %272 = add nsw i32 %251, 64
   %273 = zext nneg i32 %272 to i64
   %274 = lshr i64 %.val.i.i.i.i215, %273
@@ -22049,8 +22049,8 @@ bits_read_vlc_be.exit219:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i222
 
 bits_peek_be.exit.i222:                           ; preds = %bits_read_vlc_be.exit219, %293, %290
-  %303 = phi i32 [ %288, %290 ], [ %302, %293 ], [ %288, %bits_read_vlc_be.exit219 ]
-  %304 = phi i64 [ %287, %290 ], [ %300, %293 ], [ %287, %bits_read_vlc_be.exit219 ]
+  %303 = phi i32 [ %302, %293 ], [ %288, %290 ], [ %288, %bits_read_vlc_be.exit219 ]
+  %304 = phi i64 [ %300, %293 ], [ %287, %290 ], [ %287, %bits_read_vlc_be.exit219 ]
   %305 = lshr i64 %304, 52
   %306 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %305
   %307 = load i16, ptr %306, align 2, !tbaa !30
@@ -22092,8 +22092,8 @@ bits_peek_be.exit.i222:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i225
 
 bits_priv_set_idx_be.exit.i225:                   ; preds = %321, %318, %313
-  %331 = phi i32 [ %315, %318 ], [ %330, %321 ], [ %315, %313 ]
-  %.val.i.i.i.i226 = phi i64 [ %314, %318 ], [ %328, %321 ], [ %314, %313 ]
+  %331 = phi i32 [ %330, %321 ], [ %315, %318 ], [ %315, %313 ]
+  %.val.i.i.i.i226 = phi i64 [ %328, %321 ], [ %314, %318 ], [ %314, %313 ]
   %332 = add nsw i32 %311, 64
   %333 = zext nneg i32 %332 to i64
   %334 = lshr i64 %.val.i.i.i.i226, %333
@@ -22143,8 +22143,8 @@ bits_read_vlc_be.exit230:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i233
 
 bits_peek_be.exit.i233:                           ; preds = %bits_read_vlc_be.exit230, %353, %350
-  %363 = phi i32 [ %348, %350 ], [ %362, %353 ], [ %348, %bits_read_vlc_be.exit230 ]
-  %364 = phi i64 [ %347, %350 ], [ %360, %353 ], [ %347, %bits_read_vlc_be.exit230 ]
+  %363 = phi i32 [ %362, %353 ], [ %348, %350 ], [ %348, %bits_read_vlc_be.exit230 ]
+  %364 = phi i64 [ %360, %353 ], [ %347, %350 ], [ %347, %bits_read_vlc_be.exit230 ]
   %365 = lshr i64 %364, 52
   %366 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %365
   %367 = load i16, ptr %366, align 2, !tbaa !30
@@ -22186,8 +22186,8 @@ bits_peek_be.exit.i233:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i236
 
 bits_priv_set_idx_be.exit.i236:                   ; preds = %381, %378, %373
-  %391 = phi i32 [ %375, %378 ], [ %390, %381 ], [ %375, %373 ]
-  %.val.i.i.i.i237 = phi i64 [ %374, %378 ], [ %388, %381 ], [ %374, %373 ]
+  %391 = phi i32 [ %390, %381 ], [ %375, %378 ], [ %375, %373 ]
+  %.val.i.i.i.i237 = phi i64 [ %388, %381 ], [ %374, %378 ], [ %374, %373 ]
   %392 = add nsw i32 %371, 64
   %393 = zext nneg i32 %392 to i64
   %394 = lshr i64 %.val.i.i.i.i237, %393
@@ -22237,8 +22237,8 @@ bits_read_vlc_be.exit241:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i244
 
 bits_peek_be.exit.i244:                           ; preds = %bits_read_vlc_be.exit241, %413, %410
-  %423 = phi i32 [ %408, %410 ], [ %422, %413 ], [ %408, %bits_read_vlc_be.exit241 ]
-  %424 = phi i64 [ %407, %410 ], [ %420, %413 ], [ %407, %bits_read_vlc_be.exit241 ]
+  %423 = phi i32 [ %422, %413 ], [ %408, %410 ], [ %408, %bits_read_vlc_be.exit241 ]
+  %424 = phi i64 [ %420, %413 ], [ %407, %410 ], [ %407, %bits_read_vlc_be.exit241 ]
   %425 = lshr i64 %424, 52
   %426 = getelementptr inbounds nuw %struct.VLCElem, ptr %228, i64 %425
   %427 = load i16, ptr %426, align 2, !tbaa !30
@@ -22280,8 +22280,8 @@ bits_peek_be.exit.i244:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i247
 
 bits_priv_set_idx_be.exit.i247:                   ; preds = %441, %438, %433
-  %451 = phi i32 [ %435, %438 ], [ %450, %441 ], [ %435, %433 ]
-  %.val.i.i.i.i248 = phi i64 [ %434, %438 ], [ %448, %441 ], [ %434, %433 ]
+  %451 = phi i32 [ %450, %441 ], [ %435, %438 ], [ %435, %433 ]
+  %.val.i.i.i.i248 = phi i64 [ %448, %441 ], [ %434, %438 ], [ %434, %433 ]
   %452 = add nsw i32 %431, 64
   %453 = zext nneg i32 %452 to i64
   %454 = lshr i64 %.val.i.i.i.i248, %453
@@ -22331,8 +22331,8 @@ bits_read_vlc_be.exit252:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i255
 
 bits_peek_be.exit.i255:                           ; preds = %bits_read_vlc_be.exit252, %473, %470
-  %483 = phi i32 [ %468, %470 ], [ %482, %473 ], [ %468, %bits_read_vlc_be.exit252 ]
-  %484 = phi i64 [ %467, %470 ], [ %480, %473 ], [ %467, %bits_read_vlc_be.exit252 ]
+  %483 = phi i32 [ %482, %473 ], [ %468, %470 ], [ %468, %bits_read_vlc_be.exit252 ]
+  %484 = phi i64 [ %480, %473 ], [ %467, %470 ], [ %467, %bits_read_vlc_be.exit252 ]
   %485 = lshr i64 %484, 52
   %486 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %485
   %487 = load i16, ptr %486, align 2, !tbaa !30
@@ -22374,8 +22374,8 @@ bits_peek_be.exit.i255:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i258
 
 bits_priv_set_idx_be.exit.i258:                   ; preds = %501, %498, %493
-  %511 = phi i32 [ %495, %498 ], [ %510, %501 ], [ %495, %493 ]
-  %.val.i.i.i.i259 = phi i64 [ %494, %498 ], [ %508, %501 ], [ %494, %493 ]
+  %511 = phi i32 [ %510, %501 ], [ %495, %498 ], [ %495, %493 ]
+  %.val.i.i.i.i259 = phi i64 [ %508, %501 ], [ %494, %498 ], [ %494, %493 ]
   %512 = add nsw i32 %491, 64
   %513 = zext nneg i32 %512 to i64
   %514 = lshr i64 %.val.i.i.i.i259, %513
@@ -22433,7 +22433,7 @@ bits_read_vlc_be.exit263:                         ; preds = %bits_peek_be.exit.i
   br i1 %551, label %165, label %.loopexit365, !llvm.loop !141
 
 .loopexit365:                                     ; preds = %bits_read_nz_be.exit207, %bits_read_vlc_be.exit263, %.preheader366, %.critedge.preheader
-  %552 = phi i32 [ %549, %bits_read_vlc_be.exit263 ], [ %22, %.critedge.preheader ], [ %35, %.preheader366 ], [ %162, %bits_read_nz_be.exit207 ]
+  %552 = phi i32 [ %35, %.preheader366 ], [ %22, %.critedge.preheader ], [ %549, %bits_read_vlc_be.exit263 ], [ %162, %bits_read_nz_be.exit207 ]
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %554 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %555 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -22913,8 +22913,8 @@ bits_peek_be.exit.i298:                           ; preds = %783, %780, %.bits_p
   br label %bits_priv_set_idx_be.exit.i301
 
 bits_priv_set_idx_be.exit.i301:                   ; preds = %811, %808, %803
-  %821 = phi i32 [ %805, %808 ], [ %820, %811 ], [ %805, %803 ]
-  %.val.i.i.i.i302 = phi i64 [ %804, %808 ], [ %818, %811 ], [ %804, %803 ]
+  %821 = phi i32 [ %820, %811 ], [ %805, %808 ], [ %805, %803 ]
+  %.val.i.i.i.i302 = phi i64 [ %818, %811 ], [ %804, %808 ], [ %804, %803 ]
   %822 = add nsw i32 %801, 64
   %823 = zext nneg i32 %822 to i64
   %824 = lshr i64 %.val.i.i.i.i302, %823
@@ -22965,8 +22965,8 @@ bits_read_vlc_be.exit306:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i309
 
 bits_peek_be.exit.i309:                           ; preds = %bits_read_vlc_be.exit306, %844, %841
-  %854 = phi i32 [ %838, %841 ], [ %853, %844 ], [ %838, %bits_read_vlc_be.exit306 ]
-  %855 = phi i64 [ %837, %841 ], [ %851, %844 ], [ %837, %bits_read_vlc_be.exit306 ]
+  %854 = phi i32 [ %853, %844 ], [ %838, %841 ], [ %838, %bits_read_vlc_be.exit306 ]
+  %855 = phi i64 [ %851, %844 ], [ %837, %841 ], [ %837, %bits_read_vlc_be.exit306 ]
   %856 = lshr i64 %855, 52
   %857 = getelementptr inbounds nuw %struct.VLCElem, ptr %839, i64 %856
   %858 = load i16, ptr %857, align 2, !tbaa !30
@@ -23008,8 +23008,8 @@ bits_peek_be.exit.i309:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i312
 
 bits_priv_set_idx_be.exit.i312:                   ; preds = %872, %869, %864
-  %882 = phi i32 [ %866, %869 ], [ %881, %872 ], [ %866, %864 ]
-  %.val.i.i.i.i313 = phi i64 [ %865, %869 ], [ %879, %872 ], [ %865, %864 ]
+  %882 = phi i32 [ %881, %872 ], [ %866, %869 ], [ %866, %864 ]
+  %.val.i.i.i.i313 = phi i64 [ %879, %872 ], [ %865, %869 ], [ %865, %864 ]
   %883 = add nsw i32 %862, 64
   %884 = zext nneg i32 %883 to i64
   %885 = lshr i64 %.val.i.i.i.i313, %884
@@ -23059,8 +23059,8 @@ bits_read_vlc_be.exit317:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i320
 
 bits_peek_be.exit.i320:                           ; preds = %bits_read_vlc_be.exit317, %904, %901
-  %914 = phi i32 [ %899, %901 ], [ %913, %904 ], [ %899, %bits_read_vlc_be.exit317 ]
-  %915 = phi i64 [ %898, %901 ], [ %911, %904 ], [ %898, %bits_read_vlc_be.exit317 ]
+  %914 = phi i32 [ %913, %904 ], [ %899, %901 ], [ %899, %bits_read_vlc_be.exit317 ]
+  %915 = phi i64 [ %911, %904 ], [ %898, %901 ], [ %898, %bits_read_vlc_be.exit317 ]
   %916 = lshr i64 %915, 52
   %917 = getelementptr inbounds nuw %struct.VLCElem, ptr %777, i64 %916
   %918 = load i16, ptr %917, align 2, !tbaa !30
@@ -23102,8 +23102,8 @@ bits_peek_be.exit.i320:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i323
 
 bits_priv_set_idx_be.exit.i323:                   ; preds = %932, %929, %924
-  %942 = phi i32 [ %926, %929 ], [ %941, %932 ], [ %926, %924 ]
-  %.val.i.i.i.i324 = phi i64 [ %925, %929 ], [ %939, %932 ], [ %925, %924 ]
+  %942 = phi i32 [ %941, %932 ], [ %926, %929 ], [ %926, %924 ]
+  %.val.i.i.i.i324 = phi i64 [ %939, %932 ], [ %925, %929 ], [ %925, %924 ]
   %943 = add nsw i32 %922, 64
   %944 = zext nneg i32 %943 to i64
   %945 = lshr i64 %.val.i.i.i.i324, %944
@@ -23153,8 +23153,8 @@ bits_read_vlc_be.exit328:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i331
 
 bits_peek_be.exit.i331:                           ; preds = %bits_read_vlc_be.exit328, %964, %961
-  %974 = phi i32 [ %959, %961 ], [ %973, %964 ], [ %959, %bits_read_vlc_be.exit328 ]
-  %975 = phi i64 [ %958, %961 ], [ %971, %964 ], [ %958, %bits_read_vlc_be.exit328 ]
+  %974 = phi i32 [ %973, %964 ], [ %959, %961 ], [ %959, %bits_read_vlc_be.exit328 ]
+  %975 = phi i64 [ %971, %964 ], [ %958, %961 ], [ %958, %bits_read_vlc_be.exit328 ]
   %976 = lshr i64 %975, 52
   %977 = getelementptr inbounds nuw %struct.VLCElem, ptr %777, i64 %976
   %978 = load i16, ptr %977, align 2, !tbaa !30
@@ -23196,8 +23196,8 @@ bits_peek_be.exit.i331:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i334
 
 bits_priv_set_idx_be.exit.i334:                   ; preds = %992, %989, %984
-  %1002 = phi i32 [ %986, %989 ], [ %1001, %992 ], [ %986, %984 ]
-  %.val.i.i.i.i335 = phi i64 [ %985, %989 ], [ %999, %992 ], [ %985, %984 ]
+  %1002 = phi i32 [ %1001, %992 ], [ %986, %989 ], [ %986, %984 ]
+  %.val.i.i.i.i335 = phi i64 [ %999, %992 ], [ %985, %989 ], [ %985, %984 ]
   %1003 = add nsw i32 %982, 64
   %1004 = zext nneg i32 %1003 to i64
   %1005 = lshr i64 %.val.i.i.i.i335, %1004
@@ -23247,8 +23247,8 @@ bits_read_vlc_be.exit339:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i342
 
 bits_peek_be.exit.i342:                           ; preds = %bits_read_vlc_be.exit339, %1024, %1021
-  %1034 = phi i32 [ %1019, %1021 ], [ %1033, %1024 ], [ %1019, %bits_read_vlc_be.exit339 ]
-  %1035 = phi i64 [ %1018, %1021 ], [ %1031, %1024 ], [ %1018, %bits_read_vlc_be.exit339 ]
+  %1034 = phi i32 [ %1033, %1024 ], [ %1019, %1021 ], [ %1019, %bits_read_vlc_be.exit339 ]
+  %1035 = phi i64 [ %1031, %1024 ], [ %1018, %1021 ], [ %1018, %bits_read_vlc_be.exit339 ]
   %1036 = lshr i64 %1035, 52
   %1037 = getelementptr inbounds nuw %struct.VLCElem, ptr %839, i64 %1036
   %1038 = load i16, ptr %1037, align 2, !tbaa !30
@@ -23290,8 +23290,8 @@ bits_peek_be.exit.i342:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i345
 
 bits_priv_set_idx_be.exit.i345:                   ; preds = %1052, %1049, %1044
-  %1062 = phi i32 [ %1046, %1049 ], [ %1061, %1052 ], [ %1046, %1044 ]
-  %.val.i.i.i.i346 = phi i64 [ %1045, %1049 ], [ %1059, %1052 ], [ %1045, %1044 ]
+  %1062 = phi i32 [ %1061, %1052 ], [ %1046, %1049 ], [ %1046, %1044 ]
+  %.val.i.i.i.i346 = phi i64 [ %1059, %1052 ], [ %1045, %1049 ], [ %1045, %1044 ]
   %1063 = add nsw i32 %1042, 64
   %1064 = zext nneg i32 %1063 to i64
   %1065 = lshr i64 %.val.i.i.i.i346, %1064
@@ -23341,8 +23341,8 @@ bits_read_vlc_be.exit350:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i353
 
 bits_peek_be.exit.i353:                           ; preds = %bits_read_vlc_be.exit350, %1084, %1081
-  %1094 = phi i32 [ %1079, %1081 ], [ %1093, %1084 ], [ %1079, %bits_read_vlc_be.exit350 ]
-  %1095 = phi i64 [ %1078, %1081 ], [ %1091, %1084 ], [ %1078, %bits_read_vlc_be.exit350 ]
+  %1094 = phi i32 [ %1093, %1084 ], [ %1079, %1081 ], [ %1079, %bits_read_vlc_be.exit350 ]
+  %1095 = phi i64 [ %1091, %1084 ], [ %1078, %1081 ], [ %1078, %bits_read_vlc_be.exit350 ]
   %1096 = lshr i64 %1095, 52
   %1097 = getelementptr inbounds nuw %struct.VLCElem, ptr %777, i64 %1096
   %1098 = load i16, ptr %1097, align 2, !tbaa !30
@@ -23384,8 +23384,8 @@ bits_peek_be.exit.i353:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i356
 
 bits_priv_set_idx_be.exit.i356:                   ; preds = %1112, %1109, %1104
-  %1122 = phi i32 [ %1106, %1109 ], [ %1121, %1112 ], [ %1106, %1104 ]
-  %.val.i.i.i.i357 = phi i64 [ %1105, %1109 ], [ %1119, %1112 ], [ %1105, %1104 ]
+  %1122 = phi i32 [ %1121, %1112 ], [ %1106, %1109 ], [ %1106, %1104 ]
+  %.val.i.i.i.i357 = phi i64 [ %1119, %1112 ], [ %1105, %1109 ], [ %1105, %1104 ]
   %1123 = add nsw i32 %1102, 64
   %1124 = zext nneg i32 %1123 to i64
   %1125 = lshr i64 %.val.i.i.i.i357, %1124
@@ -23474,8 +23474,8 @@ bits_read_vlc_be.exit361:                         ; preds = %bits_peek_be.exit.i
   br i1 %1193, label %.lr.ph386, label %.loopexit, !llvm.loop !143
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit295, %bits_read_vlc_be.exit361, %.preheader, %bits_read_bit_be.exit271.thread
-  %1194 = phi i32 [ %1191, %bits_read_vlc_be.exit361 ], [ %578, %bits_read_bit_be.exit271.thread ], [ %578, %.preheader ], [ %717, %bits_read_nz_be.exit295 ]
-  %1195 = phi i32 [ %1191, %bits_read_vlc_be.exit361 ], [ %578, %bits_read_bit_be.exit271.thread ], [ %583, %.preheader ], [ %717, %bits_read_nz_be.exit295 ]
+  %1194 = phi i32 [ %578, %.preheader ], [ %578, %bits_read_bit_be.exit271.thread ], [ %1191, %bits_read_vlc_be.exit361 ], [ %717, %bits_read_nz_be.exit295 ]
+  %1195 = phi i32 [ %583, %.preheader ], [ %578, %bits_read_bit_be.exit271.thread ], [ %1191, %bits_read_vlc_be.exit361 ], [ %717, %bits_read_nz_be.exit295 ]
   %1196 = load i32, ptr %553, align 8, !tbaa !45
   %1197 = sext i32 %1196 to i64
   %1198 = getelementptr inbounds i8, ptr %.0394, i64 %1197
@@ -23902,8 +23902,8 @@ bits_peek_be.exit.i:                              ; preds = %172, %169, %.bits_p
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %200, %197, %192
-  %210 = phi i32 [ %194, %197 ], [ %209, %200 ], [ %194, %192 ]
-  %.val.i.i.i.i = phi i64 [ %193, %197 ], [ %207, %200 ], [ %193, %192 ]
+  %210 = phi i32 [ %209, %200 ], [ %194, %197 ], [ %194, %192 ]
+  %.val.i.i.i.i = phi i64 [ %207, %200 ], [ %193, %197 ], [ %193, %192 ]
   %211 = add nsw i32 %190, 64
   %212 = zext nneg i32 %211 to i64
   %213 = lshr i64 %.val.i.i.i.i, %212
@@ -23954,8 +23954,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i102
 
 bits_peek_be.exit.i102:                           ; preds = %bits_read_vlc_be.exit, %233, %230
-  %243 = phi i32 [ %227, %230 ], [ %242, %233 ], [ %227, %bits_read_vlc_be.exit ]
-  %244 = phi i64 [ %226, %230 ], [ %240, %233 ], [ %226, %bits_read_vlc_be.exit ]
+  %243 = phi i32 [ %242, %233 ], [ %227, %230 ], [ %227, %bits_read_vlc_be.exit ]
+  %244 = phi i64 [ %240, %233 ], [ %226, %230 ], [ %226, %bits_read_vlc_be.exit ]
   %245 = lshr i64 %244, 52
   %246 = getelementptr inbounds nuw %struct.VLCElem, ptr %228, i64 %245
   %247 = load i16, ptr %246, align 2, !tbaa !30
@@ -23997,8 +23997,8 @@ bits_peek_be.exit.i102:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i105
 
 bits_priv_set_idx_be.exit.i105:                   ; preds = %261, %258, %253
-  %271 = phi i32 [ %255, %258 ], [ %270, %261 ], [ %255, %253 ]
-  %.val.i.i.i.i106 = phi i64 [ %254, %258 ], [ %268, %261 ], [ %254, %253 ]
+  %271 = phi i32 [ %270, %261 ], [ %255, %258 ], [ %255, %253 ]
+  %.val.i.i.i.i106 = phi i64 [ %268, %261 ], [ %254, %258 ], [ %254, %253 ]
   %272 = add nsw i32 %251, 64
   %273 = zext nneg i32 %272 to i64
   %274 = lshr i64 %.val.i.i.i.i106, %273
@@ -24048,8 +24048,8 @@ bits_read_vlc_be.exit110:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i113
 
 bits_peek_be.exit.i113:                           ; preds = %bits_read_vlc_be.exit110, %293, %290
-  %303 = phi i32 [ %288, %290 ], [ %302, %293 ], [ %288, %bits_read_vlc_be.exit110 ]
-  %304 = phi i64 [ %287, %290 ], [ %300, %293 ], [ %287, %bits_read_vlc_be.exit110 ]
+  %303 = phi i32 [ %302, %293 ], [ %288, %290 ], [ %288, %bits_read_vlc_be.exit110 ]
+  %304 = phi i64 [ %300, %293 ], [ %287, %290 ], [ %287, %bits_read_vlc_be.exit110 ]
   %305 = lshr i64 %304, 52
   %306 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %305
   %307 = load i16, ptr %306, align 2, !tbaa !30
@@ -24091,8 +24091,8 @@ bits_peek_be.exit.i113:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i116
 
 bits_priv_set_idx_be.exit.i116:                   ; preds = %321, %318, %313
-  %331 = phi i32 [ %315, %318 ], [ %330, %321 ], [ %315, %313 ]
-  %.val.i.i.i.i117 = phi i64 [ %314, %318 ], [ %328, %321 ], [ %314, %313 ]
+  %331 = phi i32 [ %330, %321 ], [ %315, %318 ], [ %315, %313 ]
+  %.val.i.i.i.i117 = phi i64 [ %328, %321 ], [ %314, %318 ], [ %314, %313 ]
   %332 = add nsw i32 %311, 64
   %333 = zext nneg i32 %332 to i64
   %334 = lshr i64 %.val.i.i.i.i117, %333
@@ -24142,8 +24142,8 @@ bits_read_vlc_be.exit121:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i124
 
 bits_peek_be.exit.i124:                           ; preds = %bits_read_vlc_be.exit121, %353, %350
-  %363 = phi i32 [ %348, %350 ], [ %362, %353 ], [ %348, %bits_read_vlc_be.exit121 ]
-  %364 = phi i64 [ %347, %350 ], [ %360, %353 ], [ %347, %bits_read_vlc_be.exit121 ]
+  %363 = phi i32 [ %362, %353 ], [ %348, %350 ], [ %348, %bits_read_vlc_be.exit121 ]
+  %364 = phi i64 [ %360, %353 ], [ %347, %350 ], [ %347, %bits_read_vlc_be.exit121 ]
   %365 = lshr i64 %364, 52
   %366 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %365
   %367 = load i16, ptr %366, align 2, !tbaa !30
@@ -24185,8 +24185,8 @@ bits_peek_be.exit.i124:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i127
 
 bits_priv_set_idx_be.exit.i127:                   ; preds = %381, %378, %373
-  %391 = phi i32 [ %375, %378 ], [ %390, %381 ], [ %375, %373 ]
-  %.val.i.i.i.i128 = phi i64 [ %374, %378 ], [ %388, %381 ], [ %374, %373 ]
+  %391 = phi i32 [ %390, %381 ], [ %375, %378 ], [ %375, %373 ]
+  %.val.i.i.i.i128 = phi i64 [ %388, %381 ], [ %374, %378 ], [ %374, %373 ]
   %392 = add nsw i32 %371, 64
   %393 = zext nneg i32 %392 to i64
   %394 = lshr i64 %.val.i.i.i.i128, %393
@@ -24236,8 +24236,8 @@ bits_read_vlc_be.exit132:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i135
 
 bits_peek_be.exit.i135:                           ; preds = %bits_read_vlc_be.exit132, %413, %410
-  %423 = phi i32 [ %408, %410 ], [ %422, %413 ], [ %408, %bits_read_vlc_be.exit132 ]
-  %424 = phi i64 [ %407, %410 ], [ %420, %413 ], [ %407, %bits_read_vlc_be.exit132 ]
+  %423 = phi i32 [ %422, %413 ], [ %408, %410 ], [ %408, %bits_read_vlc_be.exit132 ]
+  %424 = phi i64 [ %420, %413 ], [ %407, %410 ], [ %407, %bits_read_vlc_be.exit132 ]
   %425 = lshr i64 %424, 52
   %426 = getelementptr inbounds nuw %struct.VLCElem, ptr %228, i64 %425
   %427 = load i16, ptr %426, align 2, !tbaa !30
@@ -24279,8 +24279,8 @@ bits_peek_be.exit.i135:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i138
 
 bits_priv_set_idx_be.exit.i138:                   ; preds = %441, %438, %433
-  %451 = phi i32 [ %435, %438 ], [ %450, %441 ], [ %435, %433 ]
-  %.val.i.i.i.i139 = phi i64 [ %434, %438 ], [ %448, %441 ], [ %434, %433 ]
+  %451 = phi i32 [ %450, %441 ], [ %435, %438 ], [ %435, %433 ]
+  %.val.i.i.i.i139 = phi i64 [ %448, %441 ], [ %434, %438 ], [ %434, %433 ]
   %452 = add nsw i32 %431, 64
   %453 = zext nneg i32 %452 to i64
   %454 = lshr i64 %.val.i.i.i.i139, %453
@@ -24330,8 +24330,8 @@ bits_read_vlc_be.exit143:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i146
 
 bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.exit143, %473, %470
-  %483 = phi i32 [ %468, %470 ], [ %482, %473 ], [ %468, %bits_read_vlc_be.exit143 ]
-  %484 = phi i64 [ %467, %470 ], [ %480, %473 ], [ %467, %bits_read_vlc_be.exit143 ]
+  %483 = phi i32 [ %482, %473 ], [ %468, %470 ], [ %468, %bits_read_vlc_be.exit143 ]
+  %484 = phi i64 [ %480, %473 ], [ %467, %470 ], [ %467, %bits_read_vlc_be.exit143 ]
   %485 = lshr i64 %484, 52
   %486 = getelementptr inbounds nuw %struct.VLCElem, ptr %166, i64 %485
   %487 = load i16, ptr %486, align 2, !tbaa !30
@@ -24373,8 +24373,8 @@ bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i149
 
 bits_priv_set_idx_be.exit.i149:                   ; preds = %501, %498, %493
-  %511 = phi i32 [ %495, %498 ], [ %510, %501 ], [ %495, %493 ]
-  %.val.i.i.i.i150 = phi i64 [ %494, %498 ], [ %508, %501 ], [ %494, %493 ]
+  %511 = phi i32 [ %510, %501 ], [ %495, %498 ], [ %495, %493 ]
+  %.val.i.i.i.i150 = phi i64 [ %508, %501 ], [ %494, %498 ], [ %494, %493 ]
   %512 = add nsw i32 %491, 64
   %513 = zext nneg i32 %512 to i64
   %514 = lshr i64 %.val.i.i.i.i150, %513
@@ -24698,8 +24698,8 @@ bits_read_nz_be.exit146:                          ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %124, %131, %128
-  %141 = phi i32 [ %126, %128 ], [ %140, %131 ], [ %126, %124 ]
-  %142 = phi i64 [ %125, %128 ], [ %138, %131 ], [ %125, %124 ]
+  %141 = phi i32 [ %140, %131 ], [ %126, %128 ], [ %126, %124 ]
+  %142 = phi i64 [ %138, %131 ], [ %125, %128 ], [ %125, %124 ]
   %143 = lshr i64 %142, 52
   %144 = getelementptr inbounds nuw %struct.VLCElem, ptr %23, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !30
@@ -24741,8 +24741,8 @@ bits_peek_be.exit.i:                              ; preds = %124, %131, %128
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %159, %156, %151
-  %169 = phi i32 [ %153, %156 ], [ %168, %159 ], [ %153, %151 ]
-  %.val.i.i.i.i = phi i64 [ %152, %156 ], [ %166, %159 ], [ %152, %151 ]
+  %169 = phi i32 [ %168, %159 ], [ %153, %156 ], [ %153, %151 ]
+  %.val.i.i.i.i = phi i64 [ %166, %159 ], [ %152, %156 ], [ %152, %151 ]
   %170 = add nsw i32 %149, 64
   %171 = zext nneg i32 %170 to i64
   %172 = lshr i64 %.val.i.i.i.i, %171
@@ -24792,8 +24792,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i150
 
 bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.exit, %191, %188
-  %201 = phi i32 [ %186, %188 ], [ %200, %191 ], [ %186, %bits_read_vlc_be.exit ]
-  %202 = phi i64 [ %185, %188 ], [ %198, %191 ], [ %185, %bits_read_vlc_be.exit ]
+  %201 = phi i32 [ %200, %191 ], [ %186, %188 ], [ %186, %bits_read_vlc_be.exit ]
+  %202 = phi i64 [ %198, %191 ], [ %185, %188 ], [ %185, %bits_read_vlc_be.exit ]
   %203 = lshr i64 %202, 52
   %204 = getelementptr inbounds nuw %struct.VLCElem, ptr %27, i64 %203
   %205 = load i16, ptr %204, align 2, !tbaa !30
@@ -24835,8 +24835,8 @@ bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i153
 
 bits_priv_set_idx_be.exit.i153:                   ; preds = %219, %216, %211
-  %229 = phi i32 [ %213, %216 ], [ %228, %219 ], [ %213, %211 ]
-  %.val.i.i.i.i154 = phi i64 [ %212, %216 ], [ %226, %219 ], [ %212, %211 ]
+  %229 = phi i32 [ %228, %219 ], [ %213, %216 ], [ %213, %211 ]
+  %.val.i.i.i.i154 = phi i64 [ %226, %219 ], [ %212, %216 ], [ %212, %211 ]
   %230 = add nsw i32 %209, 64
   %231 = zext nneg i32 %230 to i64
   %232 = lshr i64 %.val.i.i.i.i154, %231
@@ -24884,8 +24884,8 @@ bits_read_vlc_be.exit158:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i161
 
 bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.exit158, %249, %246
-  %259 = phi i32 [ %244, %246 ], [ %258, %249 ], [ %244, %bits_read_vlc_be.exit158 ]
-  %260 = phi i64 [ %243, %246 ], [ %256, %249 ], [ %243, %bits_read_vlc_be.exit158 ]
+  %259 = phi i32 [ %258, %249 ], [ %244, %246 ], [ %244, %bits_read_vlc_be.exit158 ]
+  %260 = phi i64 [ %256, %249 ], [ %243, %246 ], [ %243, %bits_read_vlc_be.exit158 ]
   %261 = lshr i64 %260, 52
   %262 = getelementptr inbounds nuw %struct.VLCElem, ptr %23, i64 %261
   %263 = load i16, ptr %262, align 2, !tbaa !30
@@ -24927,8 +24927,8 @@ bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i164
 
 bits_priv_set_idx_be.exit.i164:                   ; preds = %277, %274, %269
-  %287 = phi i32 [ %271, %274 ], [ %286, %277 ], [ %271, %269 ]
-  %.val.i.i.i.i165 = phi i64 [ %270, %274 ], [ %284, %277 ], [ %270, %269 ]
+  %287 = phi i32 [ %286, %277 ], [ %271, %274 ], [ %271, %269 ]
+  %.val.i.i.i.i165 = phi i64 [ %284, %277 ], [ %270, %274 ], [ %270, %269 ]
   %288 = add nsw i32 %267, 64
   %289 = zext nneg i32 %288 to i64
   %290 = lshr i64 %.val.i.i.i.i165, %289
@@ -24978,8 +24978,8 @@ bits_read_vlc_be.exit169:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i172
 
 bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.exit169, %309, %306
-  %319 = phi i32 [ %304, %306 ], [ %318, %309 ], [ %304, %bits_read_vlc_be.exit169 ]
-  %320 = phi i64 [ %303, %306 ], [ %316, %309 ], [ %303, %bits_read_vlc_be.exit169 ]
+  %319 = phi i32 [ %318, %309 ], [ %304, %306 ], [ %304, %bits_read_vlc_be.exit169 ]
+  %320 = phi i64 [ %316, %309 ], [ %303, %306 ], [ %303, %bits_read_vlc_be.exit169 ]
   %321 = lshr i64 %320, 52
   %322 = getelementptr inbounds nuw %struct.VLCElem, ptr %27, i64 %321
   %323 = load i16, ptr %322, align 2, !tbaa !30
@@ -25021,8 +25021,8 @@ bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i175
 
 bits_priv_set_idx_be.exit.i175:                   ; preds = %337, %334, %329
-  %347 = phi i32 [ %331, %334 ], [ %346, %337 ], [ %331, %329 ]
-  %.val.i.i.i.i176 = phi i64 [ %330, %334 ], [ %344, %337 ], [ %330, %329 ]
+  %347 = phi i32 [ %346, %337 ], [ %331, %334 ], [ %331, %329 ]
+  %.val.i.i.i.i176 = phi i64 [ %344, %337 ], [ %330, %334 ], [ %330, %329 ]
   %348 = add nsw i32 %327, 64
   %349 = zext nneg i32 %348 to i64
   %350 = lshr i64 %.val.i.i.i.i176, %349
@@ -25068,8 +25068,8 @@ bits_read_vlc_be.exit180:                         ; preds = %bits_peek_be.exit.i
   br i1 %377, label %124, label %.loopexit252, !llvm.loop !149
 
 .loopexit252:                                     ; preds = %bits_read_nz_be.exit146, %bits_read_vlc_be.exit180, %.preheader253, %.critedge.preheader
-  %378 = phi i32 [ %20, %bits_read_vlc_be.exit180 ], [ %20, %.critedge.preheader ], [ %35, %.preheader253 ], [ %35, %bits_read_nz_be.exit146 ]
-  %379 = phi i32 [ %362, %bits_read_vlc_be.exit180 ], [ %.promoted262, %.critedge.preheader ], [ %.promoted, %.preheader253 ], [ %120, %bits_read_nz_be.exit146 ]
+  %378 = phi i32 [ %35, %.preheader253 ], [ %20, %.critedge.preheader ], [ %20, %bits_read_vlc_be.exit180 ], [ %35, %bits_read_nz_be.exit146 ]
+  %379 = phi i32 [ %.promoted, %.preheader253 ], [ %.promoted262, %.critedge.preheader ], [ %362, %bits_read_vlc_be.exit180 ], [ %120, %bits_read_nz_be.exit146 ]
   %380 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -25370,8 +25370,8 @@ bits_read_bit_be.exit188.thread:                  ; preds = %410, %bits_read_bit
   br label %bits_peek_be.exit.i207
 
 bits_peek_be.exit.i207:                           ; preds = %522, %554, %551
-  %564 = phi i32 [ %523, %551 ], [ %563, %554 ], [ %523, %522 ]
-  %565 = phi i64 [ %524, %551 ], [ %561, %554 ], [ %524, %522 ]
+  %564 = phi i32 [ %563, %554 ], [ %523, %551 ], [ %523, %522 ]
+  %565 = phi i64 [ %561, %554 ], [ %524, %551 ], [ %524, %522 ]
   %566 = lshr i64 %565, 52
   %567 = getelementptr inbounds nuw %struct.VLCElem, ptr %520, i64 %566
   %568 = load i16, ptr %567, align 2, !tbaa !30
@@ -25413,8 +25413,8 @@ bits_peek_be.exit.i207:                           ; preds = %522, %554, %551
   br label %bits_priv_set_idx_be.exit.i210
 
 bits_priv_set_idx_be.exit.i210:                   ; preds = %582, %579, %574
-  %592 = phi i32 [ %576, %579 ], [ %591, %582 ], [ %576, %574 ]
-  %.val.i.i.i.i211 = phi i64 [ %575, %579 ], [ %589, %582 ], [ %575, %574 ]
+  %592 = phi i32 [ %591, %582 ], [ %576, %579 ], [ %576, %574 ]
+  %.val.i.i.i.i211 = phi i64 [ %589, %582 ], [ %575, %579 ], [ %575, %574 ]
   %593 = add nsw i32 %572, 64
   %594 = zext nneg i32 %593 to i64
   %595 = lshr i64 %.val.i.i.i.i211, %594
@@ -25464,8 +25464,8 @@ bits_read_vlc_be.exit215:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i218
 
 bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.exit215, %614, %611
-  %624 = phi i32 [ %609, %611 ], [ %623, %614 ], [ %609, %bits_read_vlc_be.exit215 ]
-  %625 = phi i64 [ %608, %611 ], [ %621, %614 ], [ %608, %bits_read_vlc_be.exit215 ]
+  %624 = phi i32 [ %623, %614 ], [ %609, %611 ], [ %609, %bits_read_vlc_be.exit215 ]
+  %625 = phi i64 [ %621, %614 ], [ %608, %611 ], [ %608, %bits_read_vlc_be.exit215 ]
   %626 = lshr i64 %625, 52
   %627 = getelementptr inbounds nuw %struct.VLCElem, ptr %521, i64 %626
   %628 = load i16, ptr %627, align 2, !tbaa !30
@@ -25507,8 +25507,8 @@ bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i221
 
 bits_priv_set_idx_be.exit.i221:                   ; preds = %642, %639, %634
-  %652 = phi i32 [ %636, %639 ], [ %651, %642 ], [ %636, %634 ]
-  %.val.i.i.i.i222 = phi i64 [ %635, %639 ], [ %649, %642 ], [ %635, %634 ]
+  %652 = phi i32 [ %651, %642 ], [ %636, %639 ], [ %636, %634 ]
+  %.val.i.i.i.i222 = phi i64 [ %649, %642 ], [ %635, %639 ], [ %635, %634 ]
   %653 = add nsw i32 %632, 64
   %654 = zext nneg i32 %653 to i64
   %655 = lshr i64 %.val.i.i.i.i222, %654
@@ -25558,8 +25558,8 @@ bits_read_vlc_be.exit226:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i229
 
 bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.exit226, %674, %671
-  %684 = phi i32 [ %669, %671 ], [ %683, %674 ], [ %669, %bits_read_vlc_be.exit226 ]
-  %685 = phi i64 [ %668, %671 ], [ %681, %674 ], [ %668, %bits_read_vlc_be.exit226 ]
+  %684 = phi i32 [ %683, %674 ], [ %669, %671 ], [ %669, %bits_read_vlc_be.exit226 ]
+  %685 = phi i64 [ %681, %674 ], [ %668, %671 ], [ %668, %bits_read_vlc_be.exit226 ]
   %686 = lshr i64 %685, 52
   %687 = getelementptr inbounds nuw %struct.VLCElem, ptr %520, i64 %686
   %688 = load i16, ptr %687, align 2, !tbaa !30
@@ -25601,8 +25601,8 @@ bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i232
 
 bits_priv_set_idx_be.exit.i232:                   ; preds = %702, %699, %694
-  %712 = phi i32 [ %696, %699 ], [ %711, %702 ], [ %696, %694 ]
-  %.val.i.i.i.i233 = phi i64 [ %695, %699 ], [ %709, %702 ], [ %695, %694 ]
+  %712 = phi i32 [ %711, %702 ], [ %696, %699 ], [ %696, %694 ]
+  %.val.i.i.i.i233 = phi i64 [ %709, %702 ], [ %695, %699 ], [ %695, %694 ]
   %713 = add nsw i32 %692, 64
   %714 = zext nneg i32 %713 to i64
   %715 = lshr i64 %.val.i.i.i.i233, %714
@@ -25652,8 +25652,8 @@ bits_read_vlc_be.exit237:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i240
 
 bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.exit237, %734, %731
-  %744 = phi i32 [ %729, %731 ], [ %743, %734 ], [ %729, %bits_read_vlc_be.exit237 ]
-  %745 = phi i64 [ %728, %731 ], [ %741, %734 ], [ %728, %bits_read_vlc_be.exit237 ]
+  %744 = phi i32 [ %743, %734 ], [ %729, %731 ], [ %729, %bits_read_vlc_be.exit237 ]
+  %745 = phi i64 [ %741, %734 ], [ %728, %731 ], [ %728, %bits_read_vlc_be.exit237 ]
   %746 = lshr i64 %745, 52
   %747 = getelementptr inbounds nuw %struct.VLCElem, ptr %521, i64 %746
   %748 = load i16, ptr %747, align 2, !tbaa !30
@@ -25695,8 +25695,8 @@ bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i243
 
 bits_priv_set_idx_be.exit.i243:                   ; preds = %762, %759, %754
-  %772 = phi i32 [ %756, %759 ], [ %771, %762 ], [ %756, %754 ]
-  %.val.i.i.i.i244 = phi i64 [ %755, %759 ], [ %769, %762 ], [ %755, %754 ]
+  %772 = phi i32 [ %771, %762 ], [ %756, %759 ], [ %756, %754 ]
+  %.val.i.i.i.i244 = phi i64 [ %769, %762 ], [ %755, %759 ], [ %755, %754 ]
   %773 = add nsw i32 %752, 64
   %774 = zext nneg i32 %773 to i64
   %775 = lshr i64 %.val.i.i.i.i244, %774
@@ -25762,8 +25762,8 @@ bits_read_vlc_be.exit248:                         ; preds = %bits_peek_be.exit.i
   br i1 %822, label %522, label %.loopexit, !llvm.loop !151
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit204, %bits_read_vlc_be.exit248, %.preheader, %bits_read_bit_be.exit188.thread
-  %823 = phi i32 [ %789, %bits_read_vlc_be.exit248 ], [ %500, %bits_read_bit_be.exit188.thread ], [ %.promoted266, %.preheader ], [ %496, %bits_read_nz_be.exit204 ]
-  %824 = phi i32 [ %789, %bits_read_vlc_be.exit248 ], [ %501, %bits_read_bit_be.exit188.thread ], [ %.promoted266, %.preheader ], [ %496, %bits_read_nz_be.exit204 ]
+  %823 = phi i32 [ %.promoted266, %.preheader ], [ %500, %bits_read_bit_be.exit188.thread ], [ %789, %bits_read_vlc_be.exit248 ], [ %496, %bits_read_nz_be.exit204 ]
+  %824 = phi i32 [ %.promoted266, %.preheader ], [ %501, %bits_read_bit_be.exit188.thread ], [ %789, %bits_read_vlc_be.exit248 ], [ %496, %bits_read_nz_be.exit204 ]
   %825 = load i32, ptr %380, align 8, !tbaa !45
   %826 = sdiv i32 %825, 2
   %827 = sext i32 %826 to i64
@@ -26047,8 +26047,8 @@ bits_read_nz_be.exit69:                           ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %126, %133, %130
-  %143 = phi i32 [ %128, %130 ], [ %142, %133 ], [ %128, %126 ]
-  %144 = phi i64 [ %127, %130 ], [ %140, %133 ], [ %127, %126 ]
+  %143 = phi i32 [ %142, %133 ], [ %128, %130 ], [ %128, %126 ]
+  %144 = phi i64 [ %140, %133 ], [ %127, %130 ], [ %127, %126 ]
   %145 = lshr i64 %144, 52
   %146 = getelementptr inbounds nuw %struct.VLCElem, ptr %32, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !30
@@ -26090,8 +26090,8 @@ bits_peek_be.exit.i:                              ; preds = %126, %133, %130
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %161, %158, %153
-  %171 = phi i32 [ %155, %158 ], [ %170, %161 ], [ %155, %153 ]
-  %.val.i.i.i.i = phi i64 [ %154, %158 ], [ %168, %161 ], [ %154, %153 ]
+  %171 = phi i32 [ %170, %161 ], [ %155, %158 ], [ %155, %153 ]
+  %.val.i.i.i.i = phi i64 [ %168, %161 ], [ %154, %158 ], [ %154, %153 ]
   %172 = add nsw i32 %151, 64
   %173 = zext nneg i32 %172 to i64
   %174 = lshr i64 %.val.i.i.i.i, %173
@@ -26141,8 +26141,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i73
 
 bits_peek_be.exit.i73:                            ; preds = %bits_read_vlc_be.exit, %193, %190
-  %203 = phi i32 [ %188, %190 ], [ %202, %193 ], [ %188, %bits_read_vlc_be.exit ]
-  %204 = phi i64 [ %187, %190 ], [ %200, %193 ], [ %187, %bits_read_vlc_be.exit ]
+  %203 = phi i32 [ %202, %193 ], [ %188, %190 ], [ %188, %bits_read_vlc_be.exit ]
+  %204 = phi i64 [ %200, %193 ], [ %187, %190 ], [ %187, %bits_read_vlc_be.exit ]
   %205 = lshr i64 %204, 52
   %206 = getelementptr inbounds nuw %struct.VLCElem, ptr %33, i64 %205
   %207 = load i16, ptr %206, align 2, !tbaa !30
@@ -26184,8 +26184,8 @@ bits_peek_be.exit.i73:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i76
 
 bits_priv_set_idx_be.exit.i76:                    ; preds = %221, %218, %213
-  %231 = phi i32 [ %215, %218 ], [ %230, %221 ], [ %215, %213 ]
-  %.val.i.i.i.i77 = phi i64 [ %214, %218 ], [ %228, %221 ], [ %214, %213 ]
+  %231 = phi i32 [ %230, %221 ], [ %215, %218 ], [ %215, %213 ]
+  %.val.i.i.i.i77 = phi i64 [ %228, %221 ], [ %214, %218 ], [ %214, %213 ]
   %232 = add nsw i32 %211, 64
   %233 = zext nneg i32 %232 to i64
   %234 = lshr i64 %.val.i.i.i.i77, %233
@@ -26233,8 +26233,8 @@ bits_read_vlc_be.exit81:                          ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i84
 
 bits_peek_be.exit.i84:                            ; preds = %bits_read_vlc_be.exit81, %251, %248
-  %261 = phi i32 [ %246, %248 ], [ %260, %251 ], [ %246, %bits_read_vlc_be.exit81 ]
-  %262 = phi i64 [ %245, %248 ], [ %258, %251 ], [ %245, %bits_read_vlc_be.exit81 ]
+  %261 = phi i32 [ %260, %251 ], [ %246, %248 ], [ %246, %bits_read_vlc_be.exit81 ]
+  %262 = phi i64 [ %258, %251 ], [ %245, %248 ], [ %245, %bits_read_vlc_be.exit81 ]
   %263 = lshr i64 %262, 52
   %264 = getelementptr inbounds nuw %struct.VLCElem, ptr %32, i64 %263
   %265 = load i16, ptr %264, align 2, !tbaa !30
@@ -26276,8 +26276,8 @@ bits_peek_be.exit.i84:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i87
 
 bits_priv_set_idx_be.exit.i87:                    ; preds = %279, %276, %271
-  %289 = phi i32 [ %273, %276 ], [ %288, %279 ], [ %273, %271 ]
-  %.val.i.i.i.i88 = phi i64 [ %272, %276 ], [ %286, %279 ], [ %272, %271 ]
+  %289 = phi i32 [ %288, %279 ], [ %273, %276 ], [ %273, %271 ]
+  %.val.i.i.i.i88 = phi i64 [ %286, %279 ], [ %272, %276 ], [ %272, %271 ]
   %290 = add nsw i32 %269, 64
   %291 = zext nneg i32 %290 to i64
   %292 = lshr i64 %.val.i.i.i.i88, %291
@@ -26327,8 +26327,8 @@ bits_read_vlc_be.exit92:                          ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i95
 
 bits_peek_be.exit.i95:                            ; preds = %bits_read_vlc_be.exit92, %311, %308
-  %321 = phi i32 [ %306, %308 ], [ %320, %311 ], [ %306, %bits_read_vlc_be.exit92 ]
-  %322 = phi i64 [ %305, %308 ], [ %318, %311 ], [ %305, %bits_read_vlc_be.exit92 ]
+  %321 = phi i32 [ %320, %311 ], [ %306, %308 ], [ %306, %bits_read_vlc_be.exit92 ]
+  %322 = phi i64 [ %318, %311 ], [ %305, %308 ], [ %305, %bits_read_vlc_be.exit92 ]
   %323 = lshr i64 %322, 52
   %324 = getelementptr inbounds nuw %struct.VLCElem, ptr %33, i64 %323
   %325 = load i16, ptr %324, align 2, !tbaa !30
@@ -26370,8 +26370,8 @@ bits_peek_be.exit.i95:                            ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i98
 
 bits_priv_set_idx_be.exit.i98:                    ; preds = %339, %336, %331
-  %349 = phi i32 [ %333, %336 ], [ %348, %339 ], [ %333, %331 ]
-  %.val.i.i.i.i99 = phi i64 [ %332, %336 ], [ %346, %339 ], [ %332, %331 ]
+  %349 = phi i32 [ %348, %339 ], [ %333, %336 ], [ %333, %331 ]
+  %.val.i.i.i.i99 = phi i64 [ %346, %339 ], [ %332, %336 ], [ %332, %331 ]
   %350 = add nsw i32 %329, 64
   %351 = zext nneg i32 %350 to i64
   %352 = lshr i64 %.val.i.i.i.i99, %351
@@ -26417,8 +26417,8 @@ bits_read_vlc_be.exit103:                         ; preds = %bits_peek_be.exit.i
   br i1 %379, label %126, label %.loopexit, !llvm.loop !154
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit69, %bits_read_vlc_be.exit103, %.preheader, %.critedge.preheader
-  %.promoted112129 = phi i32 [ %364, %bits_read_vlc_be.exit103 ], [ %.promoted112, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %122, %bits_read_nz_be.exit69 ]
-  %380 = phi i32 [ %364, %bits_read_vlc_be.exit103 ], [ %30, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %122, %bits_read_nz_be.exit69 ]
+  %.promoted112129 = phi i32 [ %.promoted, %.preheader ], [ %.promoted112, %.critedge.preheader ], [ %364, %bits_read_vlc_be.exit103 ], [ %122, %bits_read_nz_be.exit69 ]
+  %380 = phi i32 [ %.promoted, %.preheader ], [ %30, %.critedge.preheader ], [ %364, %bits_read_vlc_be.exit103 ], [ %122, %bits_read_nz_be.exit69 ]
   %381 = load i32, ptr %20, align 8, !tbaa !45
   %382 = sdiv i32 %381, 2
   %383 = sext i32 %382 to i64
@@ -26754,8 +26754,8 @@ bits_read_nz_be.exit207:                          ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %167, %174, %171
-  %184 = phi i32 [ %169, %171 ], [ %183, %174 ], [ %169, %167 ]
-  %185 = phi i64 [ %168, %171 ], [ %181, %174 ], [ %168, %167 ]
+  %184 = phi i32 [ %183, %174 ], [ %169, %171 ], [ %169, %167 ]
+  %185 = phi i64 [ %181, %174 ], [ %168, %171 ], [ %168, %167 ]
   %186 = lshr i64 %185, 52
   %187 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !30
@@ -26797,8 +26797,8 @@ bits_peek_be.exit.i:                              ; preds = %167, %174, %171
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %202, %199, %194
-  %212 = phi i32 [ %196, %199 ], [ %211, %202 ], [ %196, %194 ]
-  %.val.i.i.i.i = phi i64 [ %195, %199 ], [ %209, %202 ], [ %195, %194 ]
+  %212 = phi i32 [ %211, %202 ], [ %196, %199 ], [ %196, %194 ]
+  %.val.i.i.i.i = phi i64 [ %209, %202 ], [ %195, %199 ], [ %195, %194 ]
   %213 = add nsw i32 %192, 64
   %214 = zext nneg i32 %213 to i64
   %215 = lshr i64 %.val.i.i.i.i, %214
@@ -26848,8 +26848,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i211
 
 bits_peek_be.exit.i211:                           ; preds = %bits_read_vlc_be.exit, %234, %231
-  %244 = phi i32 [ %229, %231 ], [ %243, %234 ], [ %229, %bits_read_vlc_be.exit ]
-  %245 = phi i64 [ %228, %231 ], [ %241, %234 ], [ %228, %bits_read_vlc_be.exit ]
+  %244 = phi i32 [ %243, %234 ], [ %229, %231 ], [ %229, %bits_read_vlc_be.exit ]
+  %245 = phi i64 [ %241, %234 ], [ %228, %231 ], [ %228, %bits_read_vlc_be.exit ]
   %246 = lshr i64 %245, 52
   %247 = getelementptr inbounds nuw %struct.VLCElem, ptr %29, i64 %246
   %248 = load i16, ptr %247, align 2, !tbaa !30
@@ -26891,8 +26891,8 @@ bits_peek_be.exit.i211:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i214
 
 bits_priv_set_idx_be.exit.i214:                   ; preds = %262, %259, %254
-  %272 = phi i32 [ %256, %259 ], [ %271, %262 ], [ %256, %254 ]
-  %.val.i.i.i.i215 = phi i64 [ %255, %259 ], [ %269, %262 ], [ %255, %254 ]
+  %272 = phi i32 [ %271, %262 ], [ %256, %259 ], [ %256, %254 ]
+  %.val.i.i.i.i215 = phi i64 [ %269, %262 ], [ %255, %259 ], [ %255, %254 ]
   %273 = add nsw i32 %252, 64
   %274 = zext nneg i32 %273 to i64
   %275 = lshr i64 %.val.i.i.i.i215, %274
@@ -26942,8 +26942,8 @@ bits_read_vlc_be.exit219:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i222
 
 bits_peek_be.exit.i222:                           ; preds = %bits_read_vlc_be.exit219, %294, %291
-  %304 = phi i32 [ %289, %291 ], [ %303, %294 ], [ %289, %bits_read_vlc_be.exit219 ]
-  %305 = phi i64 [ %288, %291 ], [ %301, %294 ], [ %288, %bits_read_vlc_be.exit219 ]
+  %304 = phi i32 [ %303, %294 ], [ %289, %291 ], [ %289, %bits_read_vlc_be.exit219 ]
+  %305 = phi i64 [ %301, %294 ], [ %288, %291 ], [ %288, %bits_read_vlc_be.exit219 ]
   %306 = lshr i64 %305, 52
   %307 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %306
   %308 = load i16, ptr %307, align 2, !tbaa !30
@@ -26985,8 +26985,8 @@ bits_peek_be.exit.i222:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i225
 
 bits_priv_set_idx_be.exit.i225:                   ; preds = %322, %319, %314
-  %332 = phi i32 [ %316, %319 ], [ %331, %322 ], [ %316, %314 ]
-  %.val.i.i.i.i226 = phi i64 [ %315, %319 ], [ %329, %322 ], [ %315, %314 ]
+  %332 = phi i32 [ %331, %322 ], [ %316, %319 ], [ %316, %314 ]
+  %.val.i.i.i.i226 = phi i64 [ %329, %322 ], [ %315, %319 ], [ %315, %314 ]
   %333 = add nsw i32 %312, 64
   %334 = zext nneg i32 %333 to i64
   %335 = lshr i64 %.val.i.i.i.i226, %334
@@ -27034,8 +27034,8 @@ bits_read_vlc_be.exit230:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i233
 
 bits_peek_be.exit.i233:                           ; preds = %bits_read_vlc_be.exit230, %352, %349
-  %362 = phi i32 [ %347, %349 ], [ %361, %352 ], [ %347, %bits_read_vlc_be.exit230 ]
-  %363 = phi i64 [ %346, %349 ], [ %359, %352 ], [ %346, %bits_read_vlc_be.exit230 ]
+  %362 = phi i32 [ %361, %352 ], [ %347, %349 ], [ %347, %bits_read_vlc_be.exit230 ]
+  %363 = phi i64 [ %359, %352 ], [ %346, %349 ], [ %346, %bits_read_vlc_be.exit230 ]
   %364 = lshr i64 %363, 52
   %365 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %364
   %366 = load i16, ptr %365, align 2, !tbaa !30
@@ -27077,8 +27077,8 @@ bits_peek_be.exit.i233:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i236
 
 bits_priv_set_idx_be.exit.i236:                   ; preds = %380, %377, %372
-  %390 = phi i32 [ %374, %377 ], [ %389, %380 ], [ %374, %372 ]
-  %.val.i.i.i.i237 = phi i64 [ %373, %377 ], [ %387, %380 ], [ %373, %372 ]
+  %390 = phi i32 [ %389, %380 ], [ %374, %377 ], [ %374, %372 ]
+  %.val.i.i.i.i237 = phi i64 [ %387, %380 ], [ %373, %377 ], [ %373, %372 ]
   %391 = add nsw i32 %370, 64
   %392 = zext nneg i32 %391 to i64
   %393 = lshr i64 %.val.i.i.i.i237, %392
@@ -27128,8 +27128,8 @@ bits_read_vlc_be.exit241:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i244
 
 bits_peek_be.exit.i244:                           ; preds = %bits_read_vlc_be.exit241, %412, %409
-  %422 = phi i32 [ %407, %409 ], [ %421, %412 ], [ %407, %bits_read_vlc_be.exit241 ]
-  %423 = phi i64 [ %406, %409 ], [ %419, %412 ], [ %406, %bits_read_vlc_be.exit241 ]
+  %422 = phi i32 [ %421, %412 ], [ %407, %409 ], [ %407, %bits_read_vlc_be.exit241 ]
+  %423 = phi i64 [ %419, %412 ], [ %406, %409 ], [ %406, %bits_read_vlc_be.exit241 ]
   %424 = lshr i64 %423, 52
   %425 = getelementptr inbounds nuw %struct.VLCElem, ptr %29, i64 %424
   %426 = load i16, ptr %425, align 2, !tbaa !30
@@ -27171,8 +27171,8 @@ bits_peek_be.exit.i244:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i247
 
 bits_priv_set_idx_be.exit.i247:                   ; preds = %440, %437, %432
-  %450 = phi i32 [ %434, %437 ], [ %449, %440 ], [ %434, %432 ]
-  %.val.i.i.i.i248 = phi i64 [ %433, %437 ], [ %447, %440 ], [ %433, %432 ]
+  %450 = phi i32 [ %449, %440 ], [ %434, %437 ], [ %434, %432 ]
+  %.val.i.i.i.i248 = phi i64 [ %447, %440 ], [ %433, %437 ], [ %433, %432 ]
   %451 = add nsw i32 %430, 64
   %452 = zext nneg i32 %451 to i64
   %453 = lshr i64 %.val.i.i.i.i248, %452
@@ -27222,8 +27222,8 @@ bits_read_vlc_be.exit252:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i255
 
 bits_peek_be.exit.i255:                           ; preds = %bits_read_vlc_be.exit252, %472, %469
-  %482 = phi i32 [ %467, %469 ], [ %481, %472 ], [ %467, %bits_read_vlc_be.exit252 ]
-  %483 = phi i64 [ %466, %469 ], [ %479, %472 ], [ %466, %bits_read_vlc_be.exit252 ]
+  %482 = phi i32 [ %481, %472 ], [ %467, %469 ], [ %467, %bits_read_vlc_be.exit252 ]
+  %483 = phi i64 [ %479, %472 ], [ %466, %469 ], [ %466, %bits_read_vlc_be.exit252 ]
   %484 = lshr i64 %483, 52
   %485 = getelementptr inbounds nuw %struct.VLCElem, ptr %25, i64 %484
   %486 = load i16, ptr %485, align 2, !tbaa !30
@@ -27265,8 +27265,8 @@ bits_peek_be.exit.i255:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i258
 
 bits_priv_set_idx_be.exit.i258:                   ; preds = %500, %497, %492
-  %510 = phi i32 [ %494, %497 ], [ %509, %500 ], [ %494, %492 ]
-  %.val.i.i.i.i259 = phi i64 [ %493, %497 ], [ %507, %500 ], [ %493, %492 ]
+  %510 = phi i32 [ %509, %500 ], [ %494, %497 ], [ %494, %492 ]
+  %.val.i.i.i.i259 = phi i64 [ %507, %500 ], [ %493, %497 ], [ %493, %492 ]
   %511 = add nsw i32 %490, 64
   %512 = zext nneg i32 %511 to i64
   %513 = lshr i64 %.val.i.i.i.i259, %512
@@ -27323,8 +27323,8 @@ bits_read_vlc_be.exit263:                         ; preds = %bits_peek_be.exit.i
   br i1 %549, label %167, label %.loopexit365, !llvm.loop !157
 
 .loopexit365:                                     ; preds = %bits_read_nz_be.exit207, %bits_read_vlc_be.exit263, %.preheader366, %.critedge.preheader
-  %550 = phi i32 [ %22, %bits_read_vlc_be.exit263 ], [ %22, %.critedge.preheader ], [ %37, %.preheader366 ], [ %37, %bits_read_nz_be.exit207 ]
-  %551 = phi i32 [ %525, %bits_read_vlc_be.exit263 ], [ %.promoted376, %.critedge.preheader ], [ %.promoted, %.preheader366 ], [ %163, %bits_read_nz_be.exit207 ]
+  %550 = phi i32 [ %37, %.preheader366 ], [ %22, %.critedge.preheader ], [ %22, %bits_read_vlc_be.exit263 ], [ %37, %bits_read_nz_be.exit207 ]
+  %551 = phi i32 [ %.promoted, %.preheader366 ], [ %.promoted376, %.critedge.preheader ], [ %525, %bits_read_vlc_be.exit263 ], [ %163, %bits_read_nz_be.exit207 ]
   %552 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %554 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -27716,8 +27716,8 @@ bits_read_bit_be.exit271.thread:                  ; preds = %587, %bits_read_bit
   br label %bits_peek_be.exit.i298
 
 bits_peek_be.exit.i298:                           ; preds = %746, %788, %785
-  %798 = phi i32 [ %747, %785 ], [ %797, %788 ], [ %747, %746 ]
-  %799 = phi i64 [ %748, %785 ], [ %795, %788 ], [ %748, %746 ]
+  %798 = phi i32 [ %797, %788 ], [ %747, %785 ], [ %747, %746 ]
+  %799 = phi i64 [ %795, %788 ], [ %748, %785 ], [ %748, %746 ]
   %800 = lshr i64 %799, 52
   %801 = getelementptr inbounds nuw %struct.VLCElem, ptr %744, i64 %800
   %802 = load i16, ptr %801, align 2, !tbaa !30
@@ -27759,8 +27759,8 @@ bits_peek_be.exit.i298:                           ; preds = %746, %788, %785
   br label %bits_priv_set_idx_be.exit.i301
 
 bits_priv_set_idx_be.exit.i301:                   ; preds = %816, %813, %808
-  %826 = phi i32 [ %810, %813 ], [ %825, %816 ], [ %810, %808 ]
-  %.val.i.i.i.i302 = phi i64 [ %809, %813 ], [ %823, %816 ], [ %809, %808 ]
+  %826 = phi i32 [ %825, %816 ], [ %810, %813 ], [ %810, %808 ]
+  %.val.i.i.i.i302 = phi i64 [ %823, %816 ], [ %809, %813 ], [ %809, %808 ]
   %827 = add nsw i32 %806, 64
   %828 = zext nneg i32 %827 to i64
   %829 = lshr i64 %.val.i.i.i.i302, %828
@@ -27810,8 +27810,8 @@ bits_read_vlc_be.exit306:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i309
 
 bits_peek_be.exit.i309:                           ; preds = %bits_read_vlc_be.exit306, %848, %845
-  %858 = phi i32 [ %843, %845 ], [ %857, %848 ], [ %843, %bits_read_vlc_be.exit306 ]
-  %859 = phi i64 [ %842, %845 ], [ %855, %848 ], [ %842, %bits_read_vlc_be.exit306 ]
+  %858 = phi i32 [ %857, %848 ], [ %843, %845 ], [ %843, %bits_read_vlc_be.exit306 ]
+  %859 = phi i64 [ %855, %848 ], [ %842, %845 ], [ %842, %bits_read_vlc_be.exit306 ]
   %860 = lshr i64 %859, 52
   %861 = getelementptr inbounds nuw %struct.VLCElem, ptr %745, i64 %860
   %862 = load i16, ptr %861, align 2, !tbaa !30
@@ -27853,8 +27853,8 @@ bits_peek_be.exit.i309:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i312
 
 bits_priv_set_idx_be.exit.i312:                   ; preds = %876, %873, %868
-  %886 = phi i32 [ %870, %873 ], [ %885, %876 ], [ %870, %868 ]
-  %.val.i.i.i.i313 = phi i64 [ %869, %873 ], [ %883, %876 ], [ %869, %868 ]
+  %886 = phi i32 [ %885, %876 ], [ %870, %873 ], [ %870, %868 ]
+  %.val.i.i.i.i313 = phi i64 [ %883, %876 ], [ %869, %873 ], [ %869, %868 ]
   %887 = add nsw i32 %866, 64
   %888 = zext nneg i32 %887 to i64
   %889 = lshr i64 %.val.i.i.i.i313, %888
@@ -27904,8 +27904,8 @@ bits_read_vlc_be.exit317:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i320
 
 bits_peek_be.exit.i320:                           ; preds = %bits_read_vlc_be.exit317, %908, %905
-  %918 = phi i32 [ %903, %905 ], [ %917, %908 ], [ %903, %bits_read_vlc_be.exit317 ]
-  %919 = phi i64 [ %902, %905 ], [ %915, %908 ], [ %902, %bits_read_vlc_be.exit317 ]
+  %918 = phi i32 [ %917, %908 ], [ %903, %905 ], [ %903, %bits_read_vlc_be.exit317 ]
+  %919 = phi i64 [ %915, %908 ], [ %902, %905 ], [ %902, %bits_read_vlc_be.exit317 ]
   %920 = lshr i64 %919, 52
   %921 = getelementptr inbounds nuw %struct.VLCElem, ptr %744, i64 %920
   %922 = load i16, ptr %921, align 2, !tbaa !30
@@ -27947,8 +27947,8 @@ bits_peek_be.exit.i320:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i323
 
 bits_priv_set_idx_be.exit.i323:                   ; preds = %936, %933, %928
-  %946 = phi i32 [ %930, %933 ], [ %945, %936 ], [ %930, %928 ]
-  %.val.i.i.i.i324 = phi i64 [ %929, %933 ], [ %943, %936 ], [ %929, %928 ]
+  %946 = phi i32 [ %945, %936 ], [ %930, %933 ], [ %930, %928 ]
+  %.val.i.i.i.i324 = phi i64 [ %943, %936 ], [ %929, %933 ], [ %929, %928 ]
   %947 = add nsw i32 %926, 64
   %948 = zext nneg i32 %947 to i64
   %949 = lshr i64 %.val.i.i.i.i324, %948
@@ -27998,8 +27998,8 @@ bits_read_vlc_be.exit328:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i331
 
 bits_peek_be.exit.i331:                           ; preds = %bits_read_vlc_be.exit328, %968, %965
-  %978 = phi i32 [ %963, %965 ], [ %977, %968 ], [ %963, %bits_read_vlc_be.exit328 ]
-  %979 = phi i64 [ %962, %965 ], [ %975, %968 ], [ %962, %bits_read_vlc_be.exit328 ]
+  %978 = phi i32 [ %977, %968 ], [ %963, %965 ], [ %963, %bits_read_vlc_be.exit328 ]
+  %979 = phi i64 [ %975, %968 ], [ %962, %965 ], [ %962, %bits_read_vlc_be.exit328 ]
   %980 = lshr i64 %979, 52
   %981 = getelementptr inbounds nuw %struct.VLCElem, ptr %744, i64 %980
   %982 = load i16, ptr %981, align 2, !tbaa !30
@@ -28041,8 +28041,8 @@ bits_peek_be.exit.i331:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i334
 
 bits_priv_set_idx_be.exit.i334:                   ; preds = %996, %993, %988
-  %1006 = phi i32 [ %990, %993 ], [ %1005, %996 ], [ %990, %988 ]
-  %.val.i.i.i.i335 = phi i64 [ %989, %993 ], [ %1003, %996 ], [ %989, %988 ]
+  %1006 = phi i32 [ %1005, %996 ], [ %990, %993 ], [ %990, %988 ]
+  %.val.i.i.i.i335 = phi i64 [ %1003, %996 ], [ %989, %993 ], [ %989, %988 ]
   %1007 = add nsw i32 %986, 64
   %1008 = zext nneg i32 %1007 to i64
   %1009 = lshr i64 %.val.i.i.i.i335, %1008
@@ -28092,8 +28092,8 @@ bits_read_vlc_be.exit339:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i342
 
 bits_peek_be.exit.i342:                           ; preds = %bits_read_vlc_be.exit339, %1028, %1025
-  %1038 = phi i32 [ %1023, %1025 ], [ %1037, %1028 ], [ %1023, %bits_read_vlc_be.exit339 ]
-  %1039 = phi i64 [ %1022, %1025 ], [ %1035, %1028 ], [ %1022, %bits_read_vlc_be.exit339 ]
+  %1038 = phi i32 [ %1037, %1028 ], [ %1023, %1025 ], [ %1023, %bits_read_vlc_be.exit339 ]
+  %1039 = phi i64 [ %1035, %1028 ], [ %1022, %1025 ], [ %1022, %bits_read_vlc_be.exit339 ]
   %1040 = lshr i64 %1039, 52
   %1041 = getelementptr inbounds nuw %struct.VLCElem, ptr %745, i64 %1040
   %1042 = load i16, ptr %1041, align 2, !tbaa !30
@@ -28135,8 +28135,8 @@ bits_peek_be.exit.i342:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i345
 
 bits_priv_set_idx_be.exit.i345:                   ; preds = %1056, %1053, %1048
-  %1066 = phi i32 [ %1050, %1053 ], [ %1065, %1056 ], [ %1050, %1048 ]
-  %.val.i.i.i.i346 = phi i64 [ %1049, %1053 ], [ %1063, %1056 ], [ %1049, %1048 ]
+  %1066 = phi i32 [ %1065, %1056 ], [ %1050, %1053 ], [ %1050, %1048 ]
+  %.val.i.i.i.i346 = phi i64 [ %1063, %1056 ], [ %1049, %1053 ], [ %1049, %1048 ]
   %1067 = add nsw i32 %1046, 64
   %1068 = zext nneg i32 %1067 to i64
   %1069 = lshr i64 %.val.i.i.i.i346, %1068
@@ -28186,8 +28186,8 @@ bits_read_vlc_be.exit350:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i353
 
 bits_peek_be.exit.i353:                           ; preds = %bits_read_vlc_be.exit350, %1088, %1085
-  %1098 = phi i32 [ %1083, %1085 ], [ %1097, %1088 ], [ %1083, %bits_read_vlc_be.exit350 ]
-  %1099 = phi i64 [ %1082, %1085 ], [ %1095, %1088 ], [ %1082, %bits_read_vlc_be.exit350 ]
+  %1098 = phi i32 [ %1097, %1088 ], [ %1083, %1085 ], [ %1083, %bits_read_vlc_be.exit350 ]
+  %1099 = phi i64 [ %1095, %1088 ], [ %1082, %1085 ], [ %1082, %bits_read_vlc_be.exit350 ]
   %1100 = lshr i64 %1099, 52
   %1101 = getelementptr inbounds nuw %struct.VLCElem, ptr %744, i64 %1100
   %1102 = load i16, ptr %1101, align 2, !tbaa !30
@@ -28229,8 +28229,8 @@ bits_peek_be.exit.i353:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i356
 
 bits_priv_set_idx_be.exit.i356:                   ; preds = %1116, %1113, %1108
-  %1126 = phi i32 [ %1110, %1113 ], [ %1125, %1116 ], [ %1110, %1108 ]
-  %.val.i.i.i.i357 = phi i64 [ %1109, %1113 ], [ %1123, %1116 ], [ %1109, %1108 ]
+  %1126 = phi i32 [ %1125, %1116 ], [ %1110, %1113 ], [ %1110, %1108 ]
+  %.val.i.i.i.i357 = phi i64 [ %1123, %1116 ], [ %1109, %1113 ], [ %1109, %1108 ]
   %1127 = add nsw i32 %1106, 64
   %1128 = zext nneg i32 %1127 to i64
   %1129 = lshr i64 %.val.i.i.i.i357, %1128
@@ -28317,8 +28317,8 @@ bits_read_vlc_be.exit361:                         ; preds = %bits_peek_be.exit.i
   br i1 %1195, label %746, label %.loopexit, !llvm.loop !159
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit295, %bits_read_vlc_be.exit361, %.preheader, %bits_read_bit_be.exit271.thread
-  %1196 = phi i32 [ %1143, %bits_read_vlc_be.exit361 ], [ %718, %bits_read_bit_be.exit271.thread ], [ %.promoted380, %.preheader ], [ %714, %bits_read_nz_be.exit295 ]
-  %1197 = phi i32 [ %1143, %bits_read_vlc_be.exit361 ], [ %719, %bits_read_bit_be.exit271.thread ], [ %.promoted380, %.preheader ], [ %714, %bits_read_nz_be.exit295 ]
+  %1196 = phi i32 [ %.promoted380, %.preheader ], [ %718, %bits_read_bit_be.exit271.thread ], [ %1143, %bits_read_vlc_be.exit361 ], [ %714, %bits_read_nz_be.exit295 ]
+  %1197 = phi i32 [ %.promoted380, %.preheader ], [ %719, %bits_read_bit_be.exit271.thread ], [ %1143, %bits_read_vlc_be.exit361 ], [ %714, %bits_read_nz_be.exit295 ]
   %1198 = load i32, ptr %552, align 8, !tbaa !45
   %1199 = sdiv i32 %1198, 2
   %1200 = sext i32 %1199 to i64
@@ -28678,8 +28678,8 @@ bits_read_nz_be.exit98:                           ; preds = %bits_read_nz_be.exi
   br label %bits_peek_be.exit.i
 
 bits_peek_be.exit.i:                              ; preds = %170, %177, %174
-  %187 = phi i32 [ %172, %174 ], [ %186, %177 ], [ %172, %170 ]
-  %188 = phi i64 [ %171, %174 ], [ %184, %177 ], [ %171, %170 ]
+  %187 = phi i32 [ %186, %177 ], [ %172, %174 ], [ %172, %170 ]
+  %188 = phi i64 [ %184, %177 ], [ %171, %174 ], [ %171, %170 ]
   %189 = lshr i64 %188, 52
   %190 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %189
   %191 = load i16, ptr %190, align 2, !tbaa !30
@@ -28721,8 +28721,8 @@ bits_peek_be.exit.i:                              ; preds = %170, %177, %174
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %205, %202, %197
-  %215 = phi i32 [ %199, %202 ], [ %214, %205 ], [ %199, %197 ]
-  %.val.i.i.i.i = phi i64 [ %198, %202 ], [ %212, %205 ], [ %198, %197 ]
+  %215 = phi i32 [ %214, %205 ], [ %199, %202 ], [ %199, %197 ]
+  %.val.i.i.i.i = phi i64 [ %212, %205 ], [ %198, %202 ], [ %198, %197 ]
   %216 = add nsw i32 %195, 64
   %217 = zext nneg i32 %216 to i64
   %218 = lshr i64 %.val.i.i.i.i, %217
@@ -28772,8 +28772,8 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i102
 
 bits_peek_be.exit.i102:                           ; preds = %bits_read_vlc_be.exit, %237, %234
-  %247 = phi i32 [ %232, %234 ], [ %246, %237 ], [ %232, %bits_read_vlc_be.exit ]
-  %248 = phi i64 [ %231, %234 ], [ %244, %237 ], [ %231, %bits_read_vlc_be.exit ]
+  %247 = phi i32 [ %246, %237 ], [ %232, %234 ], [ %232, %bits_read_vlc_be.exit ]
+  %248 = phi i64 [ %244, %237 ], [ %231, %234 ], [ %231, %bits_read_vlc_be.exit ]
   %249 = lshr i64 %248, 52
   %250 = getelementptr inbounds nuw %struct.VLCElem, ptr %36, i64 %249
   %251 = load i16, ptr %250, align 2, !tbaa !30
@@ -28815,8 +28815,8 @@ bits_peek_be.exit.i102:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i105
 
 bits_priv_set_idx_be.exit.i105:                   ; preds = %265, %262, %257
-  %275 = phi i32 [ %259, %262 ], [ %274, %265 ], [ %259, %257 ]
-  %.val.i.i.i.i106 = phi i64 [ %258, %262 ], [ %272, %265 ], [ %258, %257 ]
+  %275 = phi i32 [ %274, %265 ], [ %259, %262 ], [ %259, %257 ]
+  %.val.i.i.i.i106 = phi i64 [ %272, %265 ], [ %258, %262 ], [ %258, %257 ]
   %276 = add nsw i32 %255, 64
   %277 = zext nneg i32 %276 to i64
   %278 = lshr i64 %.val.i.i.i.i106, %277
@@ -28866,8 +28866,8 @@ bits_read_vlc_be.exit110:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i113
 
 bits_peek_be.exit.i113:                           ; preds = %bits_read_vlc_be.exit110, %297, %294
-  %307 = phi i32 [ %292, %294 ], [ %306, %297 ], [ %292, %bits_read_vlc_be.exit110 ]
-  %308 = phi i64 [ %291, %294 ], [ %304, %297 ], [ %291, %bits_read_vlc_be.exit110 ]
+  %307 = phi i32 [ %306, %297 ], [ %292, %294 ], [ %292, %bits_read_vlc_be.exit110 ]
+  %308 = phi i64 [ %304, %297 ], [ %291, %294 ], [ %291, %bits_read_vlc_be.exit110 ]
   %309 = lshr i64 %308, 52
   %310 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %309
   %311 = load i16, ptr %310, align 2, !tbaa !30
@@ -28909,8 +28909,8 @@ bits_peek_be.exit.i113:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i116
 
 bits_priv_set_idx_be.exit.i116:                   ; preds = %325, %322, %317
-  %335 = phi i32 [ %319, %322 ], [ %334, %325 ], [ %319, %317 ]
-  %.val.i.i.i.i117 = phi i64 [ %318, %322 ], [ %332, %325 ], [ %318, %317 ]
+  %335 = phi i32 [ %334, %325 ], [ %319, %322 ], [ %319, %317 ]
+  %.val.i.i.i.i117 = phi i64 [ %332, %325 ], [ %318, %322 ], [ %318, %317 ]
   %336 = add nsw i32 %315, 64
   %337 = zext nneg i32 %336 to i64
   %338 = lshr i64 %.val.i.i.i.i117, %337
@@ -28958,8 +28958,8 @@ bits_read_vlc_be.exit121:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i124
 
 bits_peek_be.exit.i124:                           ; preds = %bits_read_vlc_be.exit121, %355, %352
-  %365 = phi i32 [ %350, %352 ], [ %364, %355 ], [ %350, %bits_read_vlc_be.exit121 ]
-  %366 = phi i64 [ %349, %352 ], [ %362, %355 ], [ %349, %bits_read_vlc_be.exit121 ]
+  %365 = phi i32 [ %364, %355 ], [ %350, %352 ], [ %350, %bits_read_vlc_be.exit121 ]
+  %366 = phi i64 [ %362, %355 ], [ %349, %352 ], [ %349, %bits_read_vlc_be.exit121 ]
   %367 = lshr i64 %366, 52
   %368 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %367
   %369 = load i16, ptr %368, align 2, !tbaa !30
@@ -29001,8 +29001,8 @@ bits_peek_be.exit.i124:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i127
 
 bits_priv_set_idx_be.exit.i127:                   ; preds = %383, %380, %375
-  %393 = phi i32 [ %377, %380 ], [ %392, %383 ], [ %377, %375 ]
-  %.val.i.i.i.i128 = phi i64 [ %376, %380 ], [ %390, %383 ], [ %376, %375 ]
+  %393 = phi i32 [ %392, %383 ], [ %377, %380 ], [ %377, %375 ]
+  %.val.i.i.i.i128 = phi i64 [ %390, %383 ], [ %376, %380 ], [ %376, %375 ]
   %394 = add nsw i32 %373, 64
   %395 = zext nneg i32 %394 to i64
   %396 = lshr i64 %.val.i.i.i.i128, %395
@@ -29052,8 +29052,8 @@ bits_read_vlc_be.exit132:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i135
 
 bits_peek_be.exit.i135:                           ; preds = %bits_read_vlc_be.exit132, %415, %412
-  %425 = phi i32 [ %410, %412 ], [ %424, %415 ], [ %410, %bits_read_vlc_be.exit132 ]
-  %426 = phi i64 [ %409, %412 ], [ %422, %415 ], [ %409, %bits_read_vlc_be.exit132 ]
+  %425 = phi i32 [ %424, %415 ], [ %410, %412 ], [ %410, %bits_read_vlc_be.exit132 ]
+  %426 = phi i64 [ %422, %415 ], [ %409, %412 ], [ %409, %bits_read_vlc_be.exit132 ]
   %427 = lshr i64 %426, 52
   %428 = getelementptr inbounds nuw %struct.VLCElem, ptr %36, i64 %427
   %429 = load i16, ptr %428, align 2, !tbaa !30
@@ -29095,8 +29095,8 @@ bits_peek_be.exit.i135:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i138
 
 bits_priv_set_idx_be.exit.i138:                   ; preds = %443, %440, %435
-  %453 = phi i32 [ %437, %440 ], [ %452, %443 ], [ %437, %435 ]
-  %.val.i.i.i.i139 = phi i64 [ %436, %440 ], [ %450, %443 ], [ %436, %435 ]
+  %453 = phi i32 [ %452, %443 ], [ %437, %440 ], [ %437, %435 ]
+  %.val.i.i.i.i139 = phi i64 [ %450, %443 ], [ %436, %440 ], [ %436, %435 ]
   %454 = add nsw i32 %433, 64
   %455 = zext nneg i32 %454 to i64
   %456 = lshr i64 %.val.i.i.i.i139, %455
@@ -29146,8 +29146,8 @@ bits_read_vlc_be.exit143:                         ; preds = %bits_peek_be.exit.i
   br label %bits_peek_be.exit.i146
 
 bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.exit143, %475, %472
-  %485 = phi i32 [ %470, %472 ], [ %484, %475 ], [ %470, %bits_read_vlc_be.exit143 ]
-  %486 = phi i64 [ %469, %472 ], [ %482, %475 ], [ %469, %bits_read_vlc_be.exit143 ]
+  %485 = phi i32 [ %484, %475 ], [ %470, %472 ], [ %470, %bits_read_vlc_be.exit143 ]
+  %486 = phi i64 [ %482, %475 ], [ %469, %472 ], [ %469, %bits_read_vlc_be.exit143 ]
   %487 = lshr i64 %486, 52
   %488 = getelementptr inbounds nuw %struct.VLCElem, ptr %35, i64 %487
   %489 = load i16, ptr %488, align 2, !tbaa !30
@@ -29189,8 +29189,8 @@ bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.ex
   br label %bits_priv_set_idx_be.exit.i149
 
 bits_priv_set_idx_be.exit.i149:                   ; preds = %503, %500, %495
-  %513 = phi i32 [ %497, %500 ], [ %512, %503 ], [ %497, %495 ]
-  %.val.i.i.i.i150 = phi i64 [ %496, %500 ], [ %510, %503 ], [ %496, %495 ]
+  %513 = phi i32 [ %512, %503 ], [ %497, %500 ], [ %497, %495 ]
+  %.val.i.i.i.i150 = phi i64 [ %510, %503 ], [ %496, %500 ], [ %496, %495 ]
   %514 = add nsw i32 %493, 64
   %515 = zext nneg i32 %514 to i64
   %516 = lshr i64 %.val.i.i.i.i150, %515
@@ -29247,8 +29247,8 @@ bits_read_vlc_be.exit154:                         ; preds = %bits_peek_be.exit.i
   br i1 %552, label %170, label %.loopexit, !llvm.loop !162
 
 .loopexit:                                        ; preds = %bits_read_nz_be.exit98, %bits_read_vlc_be.exit154, %.preheader, %.critedge.preheader
-  %.promoted164183 = phi i32 [ %528, %bits_read_vlc_be.exit154 ], [ %.promoted164, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %166, %bits_read_nz_be.exit98 ]
-  %553 = phi i32 [ %528, %bits_read_vlc_be.exit154 ], [ %33, %.critedge.preheader ], [ %.promoted, %.preheader ], [ %166, %bits_read_nz_be.exit98 ]
+  %.promoted164183 = phi i32 [ %.promoted, %.preheader ], [ %.promoted164, %.critedge.preheader ], [ %528, %bits_read_vlc_be.exit154 ], [ %166, %bits_read_nz_be.exit98 ]
+  %553 = phi i32 [ %.promoted, %.preheader ], [ %33, %.critedge.preheader ], [ %528, %bits_read_vlc_be.exit154 ], [ %166, %bits_read_nz_be.exit98 ]
   %554 = load i32, ptr %22, align 8, !tbaa !45
   %555 = sdiv i32 %554, 2
   %556 = sext i32 %555 to i64

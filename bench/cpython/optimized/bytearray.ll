@@ -174,7 +174,7 @@ define internal ptr @bytearray_asstring(ptr readnone captures(none) %0, ptr noun
   br label %17
 
 17:                                               ; preds = %10, %2, %14
-  %.0 = phi ptr [ null, %2 ], [ %16, %14 ], [ null, %10 ]
+  %.0 = phi ptr [ %16, %14 ], [ null, %2 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

@@ -209,7 +209,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; preds = %44, %43, %41
-  %45 = phi ptr [ %33, %41 ], [ %.pre, %44 ], [ %33, %43 ]
+  %45 = phi ptr [ %.pre, %44 ], [ %33, %43 ], [ %33, %41 ]
   store i64 %38, ptr %34, align 8, !tbaa !11, !noalias !31
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %38
   store i8 0, ptr %46, align 1, !tbaa !19, !noalias !31

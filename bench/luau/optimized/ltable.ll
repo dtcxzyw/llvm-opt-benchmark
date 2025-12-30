@@ -108,8 +108,8 @@ define hidden noundef range(i32 0, 2) i32 @_Z9luaH_nextP9lua_StateP8LuaTableP10l
   unreachable
 
 _ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit: ; preds = %._ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit_crit_edge, %15, %._crit_edge.i
-  %51 = phi i32 [ %40, %._crit_edge.i ], [ %14, %15 ], [ %.pre, %._ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit_crit_edge ]
-  %.023.i = phi i32 [ %41, %._crit_edge.i ], [ %16, %15 ], [ -1, %._ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit_crit_edge ]
+  %51 = phi i32 [ %14, %15 ], [ %40, %._crit_edge.i ], [ %.pre, %._ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit_crit_edge ]
+  %.023.i = phi i32 [ %16, %15 ], [ %41, %._crit_edge.i ], [ -1, %._ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit_crit_edge ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = sext i32 %.023.i to i64
   %54 = sext i32 %51 to i64
@@ -367,7 +367,7 @@ _Z11luaH_getnumP8LuaTablei.exit.us.us:            ; preds = %29, %33
   br label %_Z11luaH_getnumP8LuaTablei.exit.us
 
 _Z11luaH_getnumP8LuaTablei.exit.us:               ; preds = %70, %74, %80
-  %.015.i.us = phi ptr [ %82, %80 ], [ @luaO_nilobject_, %74 ], [ %.0.i.us, %70 ]
+  %.015.i.us = phi ptr [ %82, %80 ], [ %.0.i.us, %70 ], [ @luaO_nilobject_, %74 ]
   %83 = getelementptr inbounds nuw i8, ptr %.015.i.us, i64 12
   %84 = load i32, ptr %83, align 4, !tbaa !4
   %.not17.us = icmp eq i32 %84, 0
@@ -383,7 +383,7 @@ _Z11luaH_getnumP8LuaTablei.exit.us:               ; preds = %70, %74, %80
   br i1 %86, label %.critedge, label %.critedge2, !llvm.loop !27
 
 .critedge2:                                       ; preds = %.critedge, %_Z11luaH_getnumP8LuaTablei.exit.us, %_Z11luaH_getnumP8LuaTablei.exit.us.us
-  %.us-phi = phi i32 [ %42, %_Z11luaH_getnumP8LuaTablei.exit.us ], [ %31, %_Z11luaH_getnumP8LuaTablei.exit.us.us ], [ %.0, %.critedge ]
+  %.us-phi = phi i32 [ %31, %_Z11luaH_getnumP8LuaTablei.exit.us.us ], [ %42, %_Z11luaH_getnumP8LuaTablei.exit.us ], [ %.0, %.critedge ]
   ret i32 %.us-phi
 }
 
@@ -901,7 +901,7 @@ define hidden noundef ptr @_Z11luaH_getnumP8LuaTablei(ptr noundef readonly captu
   br label %37, !llvm.loop !28
 
 .loopexit:                                        ; preds = %42, %46, %12, %7
-  %.015 = phi ptr [ %11, %7 ], [ @luaO_nilobject_, %12 ], [ %.0, %42 ], [ @luaO_nilobject_, %46 ]
+  %.015 = phi ptr [ %11, %7 ], [ @luaO_nilobject_, %12 ], [ @luaO_nilobject_, %46 ], [ %.0, %42 ]
   ret ptr %.015
 }
 
@@ -1103,7 +1103,7 @@ _Z11luaH_getnumP8LuaTablei.exit.thread23:         ; preds = %33, %2
   br i1 %.not, label %.lr.ph, label %_Z11luaH_getstrP8LuaTableP7TString.exit, !llvm.loop !67
 
 _Z11luaH_getstrP8LuaTableP7TString.exit:          ; preds = %77, %81, %27, %23, %.lr.ph, %94, %_Z11luaH_getnumP8LuaTablei.exit.thread23, %43, %48, %2
-  %.019 = phi ptr [ @luaO_nilobject_, %2 ], [ %47, %43 ], [ %.0.i, %23 ], [ %87, %_Z11luaH_getnumP8LuaTablei.exit.thread23 ], [ @luaO_nilobject_, %48 ], [ %96, %94 ], [ @luaO_nilobject_, %.lr.ph ], [ @luaO_nilobject_, %27 ], [ %.0.i21, %77 ], [ @luaO_nilobject_, %81 ]
+  %.019 = phi ptr [ @luaO_nilobject_, %2 ], [ @luaO_nilobject_, %48 ], [ %47, %43 ], [ %87, %_Z11luaH_getnumP8LuaTablei.exit.thread23 ], [ @luaO_nilobject_, %.lr.ph ], [ %96, %94 ], [ @luaO_nilobject_, %27 ], [ %.0.i, %23 ], [ %.0.i21, %77 ], [ @luaO_nilobject_, %81 ]
   ret ptr %.019
 }
 
@@ -1587,7 +1587,7 @@ _ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit100: ; preds = %103, %
   br label %_ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit
 
 _ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit: ; preds = %64, %29, %140, %135, %131, %.loopexit
-  %.0 = phi ptr [ %.073, %.loopexit ], [ %33, %29 ], [ %.073, %140 ], [ %.073, %135 ], [ %.073, %131 ], [ %68, %64 ]
+  %.0 = phi ptr [ %.073, %140 ], [ %.073, %135 ], [ %.073, %131 ], [ %.073, %.loopexit ], [ %33, %29 ], [ %68, %64 ]
   ret ptr %.0
 }
 
@@ -1921,7 +1921,7 @@ _ZL15updateaboundaryP8LuaTablei.exit.sink.split:  ; preds = %101, %51, %70
   br label %_ZL15updateaboundaryP8LuaTablei.exit
 
 _ZL15updateaboundaryP8LuaTablei.exit:             ; preds = %_ZL15updateaboundaryP8LuaTablei.exit.sink.split, %6, %68, %49, %._crit_edge, %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, %_ZL15updateaboundaryP8LuaTablei.exit.thread, %32, %20
-  %.0 = phi i32 [ %12, %32 ], [ %11, %_ZL15updateaboundaryP8LuaTablei.exit.thread ], [ %11, %20 ], [ %99, %._crit_edge ], [ %8, %6 ], [ %11, %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread ], [ %54, %68 ], [ %37, %49 ], [ %.0.ph, %_ZL15updateaboundaryP8LuaTablei.exit.sink.split ]
+  %.0 = phi i32 [ %11, %20 ], [ %12, %32 ], [ %99, %._crit_edge ], [ %11, %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread ], [ %11, %_ZL15updateaboundaryP8LuaTablei.exit.thread ], [ %37, %49 ], [ %54, %68 ], [ %8, %6 ], [ %.0.ph, %_ZL15updateaboundaryP8LuaTablei.exit.sink.split ]
   ret i32 %.0
 }
 

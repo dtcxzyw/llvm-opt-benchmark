@@ -10293,7 +10293,7 @@ lean_nat_eq.exit.thread:                          ; preds = %119
 lean_dec.exit147:                                 ; preds = %137
   br i1 %132, label %202, label %139
 
-139:                                              ; preds = %135, %138, %lean_nat_eq.exit.thread, %lean_dec.exit147
+139:                                              ; preds = %138, %135, %lean_nat_eq.exit.thread, %lean_dec.exit147
   br i1 %.not290, label %140, label %lean_dec.exit146
 
 140:                                              ; preds = %139
@@ -10462,7 +10462,7 @@ lean_dec.exit140:                                 ; preds = %200, %199, %197, %l
   %201 = tail call ptr @lean_apply_1(ptr noundef %1, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br label %522
 
-202:                                              ; preds = %135, %138, %lean_nat_eq.exit.thread, %lean_dec.exit147
+202:                                              ; preds = %138, %135, %lean_nat_eq.exit.thread, %lean_dec.exit147
   %203 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %204 = load ptr, ptr %203, align 8, !tbaa !10
   %205 = ptrtoint ptr %204 to i64
@@ -14897,7 +14897,7 @@ lean_nat_eq.exit.thread:                          ; preds = %66
 lean_dec.exit231:                                 ; preds = %77
   br i1 %72, label %151, label %79
 
-79:                                               ; preds = %75, %78, %lean_nat_eq.exit.thread, %lean_dec.exit231
+79:                                               ; preds = %78, %75, %lean_nat_eq.exit.thread, %lean_dec.exit231
   br i1 %.not432, label %80, label %lean_dec.exit230
 
 80:                                               ; preds = %79
@@ -15091,7 +15091,7 @@ lean_dec.exit225:                                 ; preds = %149, %148, %146, %l
   %150 = tail call ptr @lean_apply_2(ptr noundef %134, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br label %740
 
-151:                                              ; preds = %75, %78, %lean_nat_eq.exit.thread, %lean_dec.exit231
+151:                                              ; preds = %78, %75, %lean_nat_eq.exit.thread, %lean_dec.exit231
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %153 = load ptr, ptr %152, align 8, !tbaa !10
   %154 = ptrtoint ptr %153 to i64
@@ -15143,7 +15143,7 @@ lean_nat_eq.exit349.thread:                       ; preds = %151
 lean_dec.exit224:                                 ; preds = %169
   br i1 %164, label %243, label %171
 
-171:                                              ; preds = %167, %170, %lean_nat_eq.exit349.thread, %lean_dec.exit224
+171:                                              ; preds = %170, %167, %lean_nat_eq.exit349.thread, %lean_dec.exit224
   br i1 %.not432, label %172, label %lean_dec.exit223
 
 172:                                              ; preds = %171
@@ -15337,7 +15337,7 @@ lean_dec.exit218:                                 ; preds = %241, %240, %238, %l
   %242 = tail call ptr @lean_apply_2(ptr noundef %226, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br label %740
 
-243:                                              ; preds = %167, %170, %lean_nat_eq.exit349.thread, %lean_dec.exit224
+243:                                              ; preds = %170, %167, %lean_nat_eq.exit349.thread, %lean_dec.exit224
   %244 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %245 = load ptr, ptr %244, align 8, !tbaa !10
   %246 = ptrtoint ptr %245 to i64
@@ -15389,7 +15389,7 @@ lean_nat_eq.exit352.thread:                       ; preds = %243
 lean_dec.exit217:                                 ; preds = %261
   br i1 %256, label %335, label %263
 
-263:                                              ; preds = %259, %262, %lean_nat_eq.exit352.thread, %lean_dec.exit217
+263:                                              ; preds = %262, %259, %lean_nat_eq.exit352.thread, %lean_dec.exit217
   br i1 %.not432, label %264, label %lean_dec.exit216
 
 264:                                              ; preds = %263
@@ -15583,7 +15583,7 @@ lean_dec.exit211:                                 ; preds = %333, %332, %330, %l
   %334 = tail call ptr @lean_apply_2(ptr noundef %318, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br label %740
 
-335:                                              ; preds = %259, %262, %lean_nat_eq.exit352.thread, %lean_dec.exit217
+335:                                              ; preds = %262, %259, %lean_nat_eq.exit352.thread, %lean_dec.exit217
   %336 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %337 = load ptr, ptr %336, align 8, !tbaa !10
   %338 = ptrtoint ptr %337 to i64

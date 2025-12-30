@@ -247,8 +247,8 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
   br label %114
 
 114:                                              ; preds = %._crit_edge.i, %.lr.ph32.i
-  %115 = phi i32 [ %92, %.lr.ph32.i ], [ %.pre.i, %._crit_edge.i ]
-  %.1.ph.i = phi i32 [ %.02730.i, %.lr.ph32.i ], [ %112, %._crit_edge.i ]
+  %115 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %92, %.lr.ph32.i ]
+  %.1.ph.i = phi i32 [ %112, %._crit_edge.i ], [ %.02730.i, %.lr.ph32.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next.i, %116
@@ -609,9 +609,9 @@ list_length.exit266:                              ; preds = %list_length.exit262
   unreachable
 
 list_length.exit262.thread:                       ; preds = %150, %.critedge248, %303, %list_length.exit266, %list_length.exit262
-  %.0.lcssa461 = phi i32 [ %.0325.lcssa, %list_length.exit262 ], [ %.0325.lcssa, %.critedge248 ], [ %.0325.lcssa, %303 ], [ %.0325.lcssa, %list_length.exit266 ], [ 0, %150 ]
-  %.0188.lcssa460 = phi ptr [ %.0188324.lcssa, %list_length.exit262 ], [ %.0188324.lcssa, %.critedge248 ], [ %.0188324.lcssa, %303 ], [ %.0188324.lcssa, %list_length.exit266 ], [ null, %150 ]
-  %310 = phi i32 [ %154, %list_length.exit262 ], [ %154, %.critedge248 ], [ %154, %303 ], [ %154, %list_length.exit266 ], [ 0, %150 ]
+  %.0.lcssa461 = phi i32 [ %.0325.lcssa, %.critedge248 ], [ %.0325.lcssa, %303 ], [ %.0325.lcssa, %list_length.exit266 ], [ %.0325.lcssa, %list_length.exit262 ], [ 0, %150 ]
+  %.0188.lcssa460 = phi ptr [ %.0188324.lcssa, %.critedge248 ], [ %.0188324.lcssa, %303 ], [ %.0188324.lcssa, %list_length.exit266 ], [ %.0188324.lcssa, %list_length.exit262 ], [ null, %150 ]
+  %310 = phi i32 [ %154, %.critedge248 ], [ %154, %303 ], [ %154, %list_length.exit266 ], [ %154, %list_length.exit262 ], [ 0, %150 ]
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %312 = load ptr, ptr %311, align 8
   %.not232 = icmp eq ptr %312, null
@@ -671,9 +671,9 @@ list_length.exit262.thread:                       ; preds = %150, %.critedge248,
   unreachable
 
 336:                                              ; preds = %330, %327, %318
-  %.1203 = phi i1 [ %.0202334357, %327 ], [ %.0202334357, %318 ], [ true, %330 ]
-  %.1200 = phi i1 [ true, %327 ], [ %.0199335356, %318 ], [ %.0199335356, %330 ]
-  %.1197 = phi i1 [ %.0196336355, %327 ], [ true, %318 ], [ %.0196336355, %330 ]
+  %.1203 = phi i1 [ %.0202334357, %318 ], [ %.0202334357, %327 ], [ true, %330 ]
+  %.1200 = phi i1 [ %.0199335356, %318 ], [ true, %327 ], [ %.0199335356, %330 ]
+  %.1197 = phi i1 [ true, %318 ], [ %.0196336355, %327 ], [ %.0196336355, %330 ]
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next419, %wide.trip.count
   br i1 %exitcond.not, label %.critedge250, label %318
@@ -1124,8 +1124,8 @@ define dso_local { i64, i32 } @AlterStatistics(ptr noundef readonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %9, %1, %20, %22, %18
-  %.043 = phi i1 [ false, %18 ], [ false, %22 ], [ false, %20 ], [ true, %1 ], [ true, %9 ]
-  %.1 = phi i32 [ %11, %18 ], [ 10000, %22 ], [ 10000, %20 ], [ 0, %1 ], [ 0, %9 ]
+  %.043 = phi i1 [ false, %22 ], [ false, %20 ], [ false, %18 ], [ true, %1 ], [ true, %9 ]
+  %.1 = phi i32 [ 10000, %22 ], [ 10000, %20 ], [ %11, %18 ], [ 0, %1 ], [ 0, %9 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -663,7 +663,7 @@ lean_alloc_ctor.exit1122:                         ; preds = %lean_dec.exit1044
   br label %173
 
 173:                                              ; preds = %lean_obj_tag.exit, %lean_alloc_ctor.exit1122, %148
-  %.0872 = phi ptr [ %45, %148 ], [ %168, %lean_alloc_ctor.exit1122 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.0872 = phi ptr [ %168, %lean_alloc_ctor.exit1122 ], [ %45, %148 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   %174 = ptrtoint ptr %.0872 to i64
   %175 = and i64 %174, 1
   %.not.i1123 = icmp eq i64 %175, 0
@@ -6764,7 +6764,7 @@ _init_l_Lean_Meta_Simp___aux__Lean__Meta__Tactic__Simp__RegisterCommand______mac
   br label %501
 
 501:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink57, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink57, %.sink.split ]
   ret ptr %.0
 }
 

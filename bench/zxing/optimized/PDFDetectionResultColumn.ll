@@ -703,7 +703,7 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorC
   br label %46
 
 46:                                               ; preds = %38, %26, %41, %45, %21
-  %.1 = phi i32 [ %.047, %21 ], [ %35, %41 ], [ %.047, %26 ], [ %.047, %45 ], [ %35, %38 ]
+  %.1 = phi i32 [ %.047, %21 ], [ %.047, %45 ], [ %35, %41 ], [ %.047, %26 ], [ %35, %38 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %47 = icmp slt i64 %indvars.iv.next, %20
   br i1 %47, label %21, label %.loopexit, !llvm.loop !46
@@ -798,7 +798,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn13getRowHeight
   br label %48
 
 48:                                               ; preds = %47, %44, %32, %27
-  %.1.i = phi i32 [ %.047.i, %27 ], [ %41, %44 ], [ %.047.i, %32 ], [ %.047.i, %47 ]
+  %.1.i = phi i32 [ %.047.i, %27 ], [ %.047.i, %47 ], [ %.047.i, %32 ], [ %41, %44 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %49 = icmp slt i64 %indvars.iv.next.i, %23
   br i1 %49, label %27, label %_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbersERKNS0_15BarcodeMetadataE.exit, !llvm.loop !46
@@ -1119,7 +1119,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %74
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %111, %98, %95, %85, %80, %75
-  %.1.ph = phi i1 [ true, %111 ], [ false, %80 ], [ false, %85 ], [ false, %95 ], [ false, %98 ], [ false, %75 ]
+  %.1.ph = phi i1 [ true, %111 ], [ false, %75 ], [ false, %80 ], [ false, %85 ], [ false, %95 ], [ false, %98 ]
   %.pr = load ptr, ptr %10, align 8, !tbaa !50
   br label %115
 
@@ -1491,7 +1491,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !47
   br label %41
 

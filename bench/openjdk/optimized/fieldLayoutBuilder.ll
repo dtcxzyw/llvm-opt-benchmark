@@ -1124,10 +1124,10 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   br label %47
 
 47:                                               ; preds = %19, %._crit_edge, %13
-  %.138 = phi i1 [ %.03748, %13 ], [ false, %19 ], [ %46, %._crit_edge ]
-  %.136 = phi i32 [ %.03549, %13 ], [ %.03549, %19 ], [ %21, %._crit_edge ]
-  %.134 = phi i32 [ %.03350, %13 ], [ %.03350, %19 ], [ %24, %._crit_edge ]
-  %.0 = phi ptr [ %17, %13 ], [ %17, %19 ], [ %spec.select41, %._crit_edge ]
+  %.138 = phi i1 [ %.03748, %13 ], [ %46, %._crit_edge ], [ false, %19 ]
+  %.136 = phi i32 [ %.03549, %13 ], [ %21, %._crit_edge ], [ %.03549, %19 ]
+  %.134 = phi i32 [ %.03350, %13 ], [ %24, %._crit_edge ], [ %.03350, %19 ]
+  %.0 = phi ptr [ %17, %13 ], [ %spec.select41, %._crit_edge ], [ %17, %19 ]
   %48 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %.0, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %1, align 4
@@ -2616,10 +2616,10 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   br label %91
 
 91:                                               ; preds = %._crit_edge.i, %63, %57
-  %.138.i = phi i1 [ %.03748.i, %57 ], [ false, %63 ], [ %90, %._crit_edge.i ]
-  %.136.i = phi i32 [ %.03549.i, %57 ], [ %.03549.i, %63 ], [ %65, %._crit_edge.i ]
-  %.134.i = phi i32 [ %.03350.i, %57 ], [ %.03350.i, %63 ], [ %68, %._crit_edge.i ]
-  %.0.i = phi ptr [ %61, %57 ], [ %61, %63 ], [ %spec.select41.i, %._crit_edge.i ]
+  %.138.i = phi i1 [ %.03748.i, %57 ], [ %90, %._crit_edge.i ], [ false, %63 ]
+  %.136.i = phi i32 [ %.03549.i, %57 ], [ %65, %._crit_edge.i ], [ %.03549.i, %63 ]
+  %.134.i = phi i32 [ %.03350.i, %57 ], [ %68, %._crit_edge.i ], [ %.03350.i, %63 ]
+  %.0.i = phi ptr [ %61, %57 ], [ %spec.select41.i, %._crit_edge.i ], [ %61, %63 ]
   %92 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef %.0.i, ptr noundef %60)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %93 = load i32, ptr %48, align 4
@@ -2729,10 +2729,10 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   br label %142
 
 142:                                              ; preds = %._crit_edge.i33, %114, %108
-  %.138.i17 = phi i1 [ %.03748.i15, %108 ], [ false, %114 ], [ %141, %._crit_edge.i33 ]
-  %.136.i18 = phi i32 [ %.03549.i14, %108 ], [ %.03549.i14, %114 ], [ %116, %._crit_edge.i33 ]
-  %.134.i19 = phi i32 [ %.03350.i13, %108 ], [ %.03350.i13, %114 ], [ %119, %._crit_edge.i33 ]
-  %.0.i20 = phi ptr [ %112, %108 ], [ %112, %114 ], [ %spec.select41.i35, %._crit_edge.i33 ]
+  %.138.i17 = phi i1 [ %.03748.i15, %108 ], [ %141, %._crit_edge.i33 ], [ false, %114 ]
+  %.136.i18 = phi i32 [ %.03549.i14, %108 ], [ %116, %._crit_edge.i33 ], [ %.03549.i14, %114 ]
+  %.134.i19 = phi i32 [ %.03350.i13, %108 ], [ %119, %._crit_edge.i33 ], [ %.03350.i13, %114 ]
+  %.0.i20 = phi ptr [ %112, %108 ], [ %spec.select41.i35, %._crit_edge.i33 ], [ %112, %114 ]
   %143 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef %.0.i20, ptr noundef %111)
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i12, 1
   %144 = load i32, ptr %99, align 4
@@ -2917,11 +2917,11 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   br label %234
 
 234:                                              ; preds = %._crit_edge, %._crit_edge.i64, %206
-  %235 = phi i32 [ %.pre159, %._crit_edge ], [ %.03350.i44, %206 ], [ %211, %._crit_edge.i64 ]
-  %.138.i48 = phi i1 [ %.03748.i46, %._crit_edge ], [ false, %206 ], [ %233, %._crit_edge.i64 ]
-  %.136.i49 = phi i32 [ %.03549.i45, %._crit_edge ], [ %.03549.i45, %206 ], [ %208, %._crit_edge.i64 ]
-  %.134.i50 = phi i32 [ %.03350.i44, %._crit_edge ], [ %.03350.i44, %206 ], [ %211, %._crit_edge.i64 ]
-  %.0.i51 = phi ptr [ %204, %._crit_edge ], [ %204, %206 ], [ %spec.select41.i66, %._crit_edge.i64 ]
+  %235 = phi i32 [ %.pre159, %._crit_edge ], [ %211, %._crit_edge.i64 ], [ %.03350.i44, %206 ]
+  %.138.i48 = phi i1 [ %.03748.i46, %._crit_edge ], [ %233, %._crit_edge.i64 ], [ false, %206 ]
+  %.136.i49 = phi i32 [ %.03549.i45, %._crit_edge ], [ %208, %._crit_edge.i64 ], [ %.03549.i45, %206 ]
+  %.134.i50 = phi i32 [ %.03350.i44, %._crit_edge ], [ %211, %._crit_edge.i64 ], [ %.03350.i44, %206 ]
+  %.0.i51 = phi ptr [ %204, %._crit_edge ], [ %spec.select41.i66, %._crit_edge.i64 ], [ %204, %206 ]
   %236 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 20
   %237 = load i32, ptr %236, align 4
   %238 = srem i32 %237, %235
@@ -3176,11 +3176,11 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   br label %355
 
 355:                                              ; preds = %._crit_edge161, %._crit_edge.i94, %327
-  %356 = phi i32 [ %.pre163, %._crit_edge161 ], [ %.03350.i74, %327 ], [ %332, %._crit_edge.i94 ]
-  %.138.i78 = phi i1 [ %.03748.i76, %._crit_edge161 ], [ false, %327 ], [ %354, %._crit_edge.i94 ]
-  %.136.i79 = phi i32 [ %.03549.i75, %._crit_edge161 ], [ %.03549.i75, %327 ], [ %329, %._crit_edge.i94 ]
-  %.134.i80 = phi i32 [ %.03350.i74, %._crit_edge161 ], [ %.03350.i74, %327 ], [ %332, %._crit_edge.i94 ]
-  %.0.i81 = phi ptr [ %325, %._crit_edge161 ], [ %325, %327 ], [ %spec.select41.i96, %._crit_edge.i94 ]
+  %356 = phi i32 [ %.pre163, %._crit_edge161 ], [ %332, %._crit_edge.i94 ], [ %.03350.i74, %327 ]
+  %.138.i78 = phi i1 [ %.03748.i76, %._crit_edge161 ], [ %354, %._crit_edge.i94 ], [ false, %327 ]
+  %.136.i79 = phi i32 [ %.03549.i75, %._crit_edge161 ], [ %329, %._crit_edge.i94 ], [ %.03549.i75, %327 ]
+  %.134.i80 = phi i32 [ %.03350.i74, %._crit_edge161 ], [ %332, %._crit_edge.i94 ], [ %.03350.i74, %327 ]
+  %.0.i81 = phi ptr [ %325, %._crit_edge161 ], [ %spec.select41.i96, %._crit_edge.i94 ], [ %325, %327 ]
   %357 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 20
   %358 = load i32, ptr %357, align 4
   %359 = srem i32 %358, %356
@@ -3594,10 +3594,10 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   br label %560
 
 560:                                              ; preds = %._crit_edge.i134, %532, %526
-  %.138.i118 = phi i1 [ %.03748.i116, %526 ], [ false, %532 ], [ %559, %._crit_edge.i134 ]
-  %.136.i119 = phi i32 [ %.03549.i115, %526 ], [ %.03549.i115, %532 ], [ %534, %._crit_edge.i134 ]
-  %.134.i120 = phi i32 [ %.03350.i114, %526 ], [ %.03350.i114, %532 ], [ %537, %._crit_edge.i134 ]
-  %.0.i121 = phi ptr [ %530, %526 ], [ %530, %532 ], [ %spec.select41.i136, %._crit_edge.i134 ]
+  %.138.i118 = phi i1 [ %.03748.i116, %526 ], [ %559, %._crit_edge.i134 ], [ false, %532 ]
+  %.136.i119 = phi i32 [ %.03549.i115, %526 ], [ %534, %._crit_edge.i134 ], [ %.03549.i115, %532 ]
+  %.134.i120 = phi i32 [ %.03350.i114, %526 ], [ %537, %._crit_edge.i134 ], [ %.03350.i114, %532 ]
+  %.0.i121 = phi ptr [ %530, %526 ], [ %spec.select41.i136, %._crit_edge.i134 ], [ %530, %532 ]
   %561 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %515, ptr noundef %.0.i121, ptr noundef %529)
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i113, 1
   %562 = load i32, ptr %517, align 4

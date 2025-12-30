@@ -263,8 +263,8 @@ Vec_StrGrow.exit.i37:                             ; preds = %92, %90
   br label %Vec_StrPush.exit
 
 Vec_StrPush.exit:                                 ; preds = %103, %Vec_StrGrow.exit.i37, %.Vec_StrGrow.exit10_crit_edge.i32, %83, %Vec_StrGrow.exit.i30, %.Vec_StrGrow.exit10_crit_edge.i25, %62, %Vec_StrGrow.exit.i23, %.Vec_StrGrow.exit10_crit_edge.i18, %42, %Vec_StrGrow.exit.i, %.Vec_StrGrow.exit10_crit_edge.i
-  %.sink84 = phi ptr [ %33, %Vec_StrGrow.exit.i ], [ %53, %Vec_StrGrow.exit.i23 ], [ %74, %Vec_StrGrow.exit.i30 ], [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %43, %42 ], [ %.pre.i20, %.Vec_StrGrow.exit10_crit_edge.i18 ], [ %63, %62 ], [ %.pre.i27, %.Vec_StrGrow.exit10_crit_edge.i25 ], [ %84, %83 ], [ %.pre.i34, %.Vec_StrGrow.exit10_crit_edge.i32 ], [ %104, %103 ], [ %94, %Vec_StrGrow.exit.i37 ]
-  %.sink = phi i8 [ 45, %Vec_StrGrow.exit.i ], [ 48, %Vec_StrGrow.exit.i23 ], [ 49, %Vec_StrGrow.exit.i30 ], [ 45, %.Vec_StrGrow.exit10_crit_edge.i ], [ 45, %42 ], [ 48, %.Vec_StrGrow.exit10_crit_edge.i18 ], [ 48, %62 ], [ 49, %.Vec_StrGrow.exit10_crit_edge.i25 ], [ 49, %83 ], [ 63, %.Vec_StrGrow.exit10_crit_edge.i32 ], [ 63, %103 ], [ 63, %Vec_StrGrow.exit.i37 ]
+  %.sink84 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %43, %42 ], [ %33, %Vec_StrGrow.exit.i ], [ %.pre.i20, %.Vec_StrGrow.exit10_crit_edge.i18 ], [ %63, %62 ], [ %53, %Vec_StrGrow.exit.i23 ], [ %.pre.i27, %.Vec_StrGrow.exit10_crit_edge.i25 ], [ %84, %83 ], [ %74, %Vec_StrGrow.exit.i30 ], [ %.pre.i34, %.Vec_StrGrow.exit10_crit_edge.i32 ], [ %104, %103 ], [ %94, %Vec_StrGrow.exit.i37 ]
+  %.sink = phi i8 [ 45, %.Vec_StrGrow.exit10_crit_edge.i ], [ 45, %42 ], [ 45, %Vec_StrGrow.exit.i ], [ 48, %.Vec_StrGrow.exit10_crit_edge.i18 ], [ 48, %62 ], [ 48, %Vec_StrGrow.exit.i23 ], [ 49, %.Vec_StrGrow.exit10_crit_edge.i25 ], [ 49, %83 ], [ 49, %Vec_StrGrow.exit.i30 ], [ 63, %.Vec_StrGrow.exit10_crit_edge.i32 ], [ 63, %103 ], [ 63, %Vec_StrGrow.exit.i37 ]
   %105 = load i32, ptr %8, align 4, !tbaa !7
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %8, align 4, !tbaa !7
@@ -587,8 +587,8 @@ define void @Min_CubeWrite(ptr noundef captures(none) %0, ptr noundef readonly c
   %16 = shl nuw i32 2, %13
   %17 = and i32 %12, %16
   %.not13 = icmp eq i32 %17, 0
-  %.20 = select i1 %.not13, i32 63, i32 49
   %. = select i1 %.not13, i32 48, i32 45
+  %.20 = select i1 %.not13, i32 63, i32 49
   %.sink = select i1 %.not, i32 %.20, i32 %.
   %fputc16 = tail call i32 @fputc(i32 %.sink, ptr %0)
   %18 = add nuw nsw i32 %.018, 1
@@ -636,8 +636,8 @@ define void @Min_CoverWrite(ptr noundef captures(none) %0, ptr noundef readonly 
   %16 = shl nuw i32 2, %13
   %17 = and i32 %16, %12
   %.not13.i = icmp eq i32 %17, 0
-  %.20.i = select i1 %.not13.i, i32 63, i32 49
   %..i = select i1 %.not13.i, i32 48, i32 45
+  %.20.i = select i1 %.not13.i, i32 63, i32 49
   %.sink.i = select i1 %.not.i, i32 %.20.i, i32 %..i
   %fputc16.i = tail call i32 @fputc(i32 %.sink.i, ptr %0)
   %18 = add nuw nsw i32 %.018.i, 1
@@ -720,8 +720,8 @@ define void @Min_CoverWriteStore(ptr noundef captures(none) %0, ptr noundef read
   %29 = shl nuw i32 2, %26
   %30 = and i32 %29, %25
   %.not13.i = icmp eq i32 %30, 0
-  %.20.i = select i1 %.not13.i, i32 63, i32 49
   %..i = select i1 %.not13.i, i32 48, i32 45
+  %.20.i = select i1 %.not13.i, i32 63, i32 49
   %.sink.i = select i1 %.not.i, i32 %.20.i, i32 %..i
   %fputc16.i = tail call i32 @fputc(i32 %.sink.i, ptr %0)
   %31 = add nuw nsw i32 %.018.i, 1
@@ -857,8 +857,8 @@ Min_CoverCountCubes.exit:                         ; preds = %.lr.ph.i, %Min_Cove
   %47 = shl nuw i32 2, %44
   %48 = and i32 %47, %43
   %.not13.i = icmp eq i32 %48, 0
-  %.20.i = select i1 %.not13.i, i32 63, i32 49
   %..i = select i1 %.not13.i, i32 48, i32 45
+  %.20.i = select i1 %.not13.i, i32 63, i32 49
   %.sink.i = select i1 %.not.i30, i32 %.20.i, i32 %..i
   %fputc16.i = tail call i32 @fputc(i32 %.sink.i, ptr %16)
   %49 = add nuw nsw i32 %.018.i, 1

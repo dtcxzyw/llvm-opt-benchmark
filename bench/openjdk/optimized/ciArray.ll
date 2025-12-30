@@ -328,9 +328,9 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
   br label %130
 
 130:                                              ; preds = %85, %94, %104, %113, %122, %59, %_ZNK7oopDesc5klassEv.exit, %7, %4, %77, %69, %60, %_ZN5ciEnv10get_objectEP7oopDesc.exit
-  %.sroa.10.sroa.10.0 = phi i32 [ undef, %85 ], [ -1, %4 ], [ %.sroa.10.sroa.10.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ -1, %_ZNK7oopDesc5klassEv.exit ], [ %68, %60 ], [ undef, %69 ], [ %.sroa.10.sroa.10.0.extract.trunc42, %77 ], [ -1, %59 ], [ -1, %7 ], [ undef, %122 ], [ undef, %113 ], [ undef, %104 ], [ undef, %94 ]
-  %.sroa.10.sroa.0.0 = phi i32 [ %93, %85 ], [ -1, %4 ], [ %.sroa.10.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ -1, %_ZNK7oopDesc5klassEv.exit ], [ %67, %60 ], [ %76, %69 ], [ %.sroa.10.sroa.0.0.extract.trunc40, %77 ], [ -1, %59 ], [ -1, %7 ], [ %129, %122 ], [ %121, %113 ], [ %112, %104 ], [ %103, %94 ]
-  %.sroa.0.0 = phi i8 [ 8, %85 ], [ 99, %4 ], [ %1, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ 99, %_ZNK7oopDesc5klassEv.exit ], [ 11, %60 ], [ 6, %69 ], [ 7, %77 ], [ 99, %59 ], [ 99, %7 ], [ 10, %122 ], [ 5, %113 ], [ 9, %104 ], [ 4, %94 ]
+  %.sroa.10.sroa.10.0 = phi i32 [ %.sroa.10.sroa.10.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %68, %60 ], [ undef, %69 ], [ %.sroa.10.sroa.10.0.extract.trunc42, %77 ], [ -1, %4 ], [ -1, %7 ], [ -1, %_ZNK7oopDesc5klassEv.exit ], [ -1, %59 ], [ undef, %122 ], [ undef, %113 ], [ undef, %104 ], [ undef, %94 ], [ undef, %85 ]
+  %.sroa.10.sroa.0.0 = phi i32 [ %.sroa.10.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %67, %60 ], [ %76, %69 ], [ %.sroa.10.sroa.0.0.extract.trunc40, %77 ], [ -1, %4 ], [ -1, %7 ], [ -1, %_ZNK7oopDesc5klassEv.exit ], [ -1, %59 ], [ %129, %122 ], [ %121, %113 ], [ %112, %104 ], [ %103, %94 ], [ %93, %85 ]
+  %.sroa.0.0 = phi i8 [ %1, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ 11, %60 ], [ 6, %69 ], [ 7, %77 ], [ 99, %4 ], [ 99, %7 ], [ 99, %_ZNK7oopDesc5klassEv.exit ], [ 99, %59 ], [ 10, %122 ], [ 5, %113 ], [ 9, %104 ], [ 4, %94 ], [ 8, %85 ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.0.0, 0
   %.sroa.10.sroa.10.0.insert.ext = zext i32 %.sroa.10.sroa.10.0 to i64
   %.sroa.10.sroa.10.0.insert.shift = shl nuw i64 %.sroa.10.sroa.10.0.insert.ext, 32
@@ -515,8 +515,8 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %16, %_ZN12ar
   br label %36
 
 36:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, %27, %31
-  %.sroa.3.0 = phi i64 [ %35, %31 ], [ -1, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ -1, %27 ]
-  %.sroa.0.0 = phi i8 [ %34, %31 ], [ 99, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ 99, %27 ]
+  %.sroa.3.0 = phi i64 [ %35, %31 ], [ -1, %27 ], [ -1, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ]
+  %.sroa.0.0 = phi i8 [ %34, %31 ], [ 99, %27 ], [ 99, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i8, i64 } %.fca.1.insert
@@ -843,7 +843,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -1020,7 +1020,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -1210,7 +1210,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 

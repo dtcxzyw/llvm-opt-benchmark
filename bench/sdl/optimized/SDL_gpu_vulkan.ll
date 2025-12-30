@@ -443,7 +443,7 @@ define internal noundef zeroext i1 @VULKAN_PrepareDriver(ptr noundef readonly ca
   br label %35
 
 35:                                               ; preds = %8, %4, %2, %34
-  %.020 = phi i1 [ false, %2 ], [ %.0, %34 ], [ false, %4 ], [ false, %8 ]
+  %.020 = phi i1 [ %.0, %34 ], [ false, %2 ], [ false, %4 ], [ false, %8 ]
   ret i1 %.020
 }
 
@@ -1556,7 +1556,7 @@ VULKAN_INTERNAL_CheckInstanceExtensions.exit:     ; preds = %45, %.lr.ph.i25.i, 
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126
-  %.0.i = phi ptr [ @.str.68, %126 ], [ @.str.67, %125 ], [ @.str.52, %110 ], [ @.str.53, %111 ], [ @.str.54, %112 ], [ @.str.55, %113 ], [ @.str.56, %114 ], [ @.str.57, %115 ], [ @.str.58, %116 ], [ @.str.59, %117 ], [ @.str.60, %118 ], [ @.str.61, %119 ], [ @.str.62, %120 ], [ @.str.63, %121 ], [ @.str.64, %122 ], [ @.str.65, %123 ], [ @.str.66, %124 ], [ @.str.51, %109 ]
+  %.0.i = phi ptr [ @.str.68, %126 ], [ @.str.52, %110 ], [ @.str.53, %111 ], [ @.str.54, %112 ], [ @.str.55, %113 ], [ @.str.56, %114 ], [ @.str.57, %115 ], [ @.str.58, %116 ], [ @.str.59, %117 ], [ @.str.60, %118 ], [ @.str.61, %119 ], [ @.str.62, %120 ], [ @.str.63, %121 ], [ @.str.64, %122 ], [ @.str.65, %123 ], [ @.str.66, %124 ], [ @.str.67, %125 ], [ @.str.51, %109 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.33, ptr noundef nonnull %.0.i) #12
   br label %127
 
@@ -1633,12 +1633,12 @@ VkErrorMessages.exit:                             ; preds = %109, %110, %111, %1
   br label %VkErrorMessages.exit32
 
 VkErrorMessages.exit32:                           ; preds = %127, %128, %129, %130, %131, %132, %133, %134, %135, %136, %137, %138, %139, %140, %141, %142, %143, %144
-  %.0.i31 = phi ptr [ @.str.68, %144 ], [ @.str.67, %143 ], [ @.str.52, %128 ], [ @.str.53, %129 ], [ @.str.54, %130 ], [ @.str.55, %131 ], [ @.str.56, %132 ], [ @.str.57, %133 ], [ @.str.58, %134 ], [ @.str.59, %135 ], [ @.str.60, %136 ], [ @.str.61, %137 ], [ @.str.62, %138 ], [ @.str.63, %139 ], [ @.str.64, %140 ], [ @.str.65, %141 ], [ @.str.66, %142 ], [ @.str.51, %127 ]
+  %.0.i31 = phi ptr [ @.str.68, %144 ], [ @.str.52, %128 ], [ @.str.53, %129 ], [ @.str.54, %130 ], [ @.str.55, %131 ], [ @.str.56, %132 ], [ @.str.57, %133 ], [ @.str.58, %134 ], [ @.str.59, %135 ], [ @.str.60, %136 ], [ @.str.61, %137 ], [ @.str.62, %138 ], [ @.str.63, %139 ], [ @.str.64, %140 ], [ @.str.65, %141 ], [ @.str.66, %142 ], [ @.str.67, %143 ], [ @.str.51, %127 ]
   %145 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.33, ptr noundef nonnull %.0.i31) #12
   br label %146
 
 146:                                              ; preds = %103, %VkErrorMessages.exit32, %54, %12
-  %.0 = phi i8 [ 0, %VkErrorMessages.exit32 ], [ 0, %12 ], [ 0, %54 ], [ 1, %103 ]
+  %.0 = phi i8 [ 0, %VkErrorMessages.exit32 ], [ 0, %54 ], [ 0, %12 ], [ 1, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1741,7 +1741,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @VULKAN_INTERNAL_DeterminePhysi
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
-  %.0.i = phi ptr [ @.str.68, %30 ], [ @.str.67, %29 ], [ @.str.52, %14 ], [ @.str.53, %15 ], [ @.str.54, %16 ], [ @.str.55, %17 ], [ @.str.56, %18 ], [ @.str.57, %19 ], [ @.str.58, %20 ], [ @.str.59, %21 ], [ @.str.60, %22 ], [ @.str.61, %23 ], [ @.str.62, %24 ], [ @.str.63, %25 ], [ @.str.64, %26 ], [ @.str.65, %27 ], [ @.str.66, %28 ], [ @.str.51, %13 ]
+  %.0.i = phi ptr [ @.str.68, %30 ], [ @.str.52, %14 ], [ @.str.53, %15 ], [ @.str.54, %16 ], [ @.str.55, %17 ], [ @.str.56, %18 ], [ @.str.57, %19 ], [ @.str.58, %20 ], [ @.str.59, %21 ], [ @.str.60, %22 ], [ @.str.61, %23 ], [ @.str.62, %24 ], [ @.str.63, %25 ], [ @.str.64, %26 ], [ @.str.65, %27 ], [ @.str.66, %28 ], [ @.str.67, %29 ], [ @.str.51, %13 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.11, ptr noundef nonnull %.0.i) #12
   br label %31
 
@@ -1818,7 +1818,7 @@ VkErrorMessages.exit:                             ; preds = %13, %14, %15, %16, 
   br label %VkErrorMessages.exit63
 
 VkErrorMessages.exit63:                           ; preds = %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48
-  %.0.i62 = phi ptr [ @.str.68, %48 ], [ @.str.67, %47 ], [ @.str.52, %32 ], [ @.str.53, %33 ], [ @.str.54, %34 ], [ @.str.55, %35 ], [ @.str.56, %36 ], [ @.str.57, %37 ], [ @.str.58, %38 ], [ @.str.59, %39 ], [ @.str.60, %40 ], [ @.str.61, %41 ], [ @.str.62, %42 ], [ @.str.63, %43 ], [ @.str.64, %44 ], [ @.str.65, %45 ], [ @.str.66, %46 ], [ @.str.51, %31 ]
+  %.0.i62 = phi ptr [ @.str.68, %48 ], [ @.str.52, %32 ], [ @.str.53, %33 ], [ @.str.54, %34 ], [ @.str.55, %35 ], [ @.str.56, %36 ], [ @.str.57, %37 ], [ @.str.58, %38 ], [ @.str.59, %39 ], [ @.str.60, %40 ], [ @.str.61, %41 ], [ @.str.62, %42 ], [ @.str.63, %43 ], [ @.str.64, %44 ], [ @.str.65, %45 ], [ @.str.66, %46 ], [ @.str.67, %47 ], [ @.str.51, %31 ]
   %49 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.11, ptr noundef nonnull %.0.i62) #12
   br label %._crit_edge.thread
 
@@ -1923,7 +1923,7 @@ VkErrorMessages.exit63:                           ; preds = %31, %32, %33, %34, 
   br label %VkErrorMessages.exit65
 
 VkErrorMessages.exit65:                           ; preds = %54, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80
-  %.0.i64 = phi ptr [ @.str.68, %80 ], [ @.str.67, %79 ], [ @.str.52, %64 ], [ @.str.53, %65 ], [ @.str.54, %66 ], [ @.str.55, %67 ], [ @.str.56, %68 ], [ @.str.57, %69 ], [ @.str.58, %70 ], [ @.str.59, %71 ], [ @.str.60, %72 ], [ @.str.61, %73 ], [ @.str.62, %74 ], [ @.str.63, %75 ], [ @.str.64, %76 ], [ @.str.65, %77 ], [ @.str.66, %78 ], [ @.str.51, %54 ]
+  %.0.i64 = phi ptr [ @.str.68, %80 ], [ @.str.52, %64 ], [ @.str.53, %65 ], [ @.str.54, %66 ], [ @.str.55, %67 ], [ @.str.56, %68 ], [ @.str.57, %69 ], [ @.str.58, %70 ], [ @.str.59, %71 ], [ @.str.60, %72 ], [ @.str.61, %73 ], [ @.str.62, %74 ], [ @.str.63, %75 ], [ @.str.64, %76 ], [ @.str.65, %77 ], [ @.str.66, %78 ], [ @.str.67, %79 ], [ @.str.51, %54 ]
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 9, ptr noundef nonnull @.str.71, ptr noundef nonnull %.0.i64) #12
   br label %._crit_edge.thread
 
@@ -2113,7 +2113,7 @@ define internal fastcc noundef nonnull ptr @VkErrorMessages(i32 noundef %0) unna
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.68, %18 ], [ @.str.67, %17 ], [ @.str.52, %2 ], [ @.str.53, %3 ], [ @.str.54, %4 ], [ @.str.55, %5 ], [ @.str.56, %6 ], [ @.str.57, %7 ], [ @.str.58, %8 ], [ @.str.59, %9 ], [ @.str.60, %10 ], [ @.str.61, %11 ], [ @.str.62, %12 ], [ @.str.63, %13 ], [ @.str.64, %14 ], [ @.str.65, %15 ], [ @.str.66, %16 ], [ @.str.51, %1 ]
+  %.0 = phi ptr [ @.str.68, %18 ], [ @.str.52, %2 ], [ @.str.53, %3 ], [ @.str.54, %4 ], [ @.str.55, %5 ], [ @.str.56, %6 ], [ @.str.57, %7 ], [ @.str.58, %8 ], [ @.str.59, %9 ], [ @.str.60, %10 ], [ @.str.61, %11 ], [ @.str.62, %12 ], [ @.str.63, %13 ], [ @.str.64, %14 ], [ @.str.65, %15 ], [ @.str.66, %16 ], [ @.str.67, %17 ], [ @.str.51, %1 ]
   ret ptr %.0
 }
 
@@ -2397,7 +2397,7 @@ VULKAN_INTERNAL_CheckDeviceExtensions.exit:       ; preds = %._crit_edge.i.i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %110, %._crit_edge.loopexit, %VULKAN_INTERNAL_CheckDeviceExtensions.exit.thread, %VULKAN_INTERNAL_CheckDeviceExtensions.exit, %32, %38, %44, %50, %56, %62, %68, %26
-  %.0 = phi i8 [ 0, %VULKAN_INTERNAL_CheckDeviceExtensions.exit.thread ], [ 0, %VULKAN_INTERNAL_CheckDeviceExtensions.exit ], [ 0, %32 ], [ 0, %26 ], [ 0, %68 ], [ 0, %62 ], [ 0, %56 ], [ 0, %50 ], [ 0, %44 ], [ 0, %38 ], [ %136, %._crit_edge.loopexit ], [ 0, %110 ]
+  %.0 = phi i8 [ 0, %26 ], [ 0, %68 ], [ 0, %62 ], [ 0, %56 ], [ 0, %50 ], [ 0, %44 ], [ 0, %38 ], [ 0, %32 ], [ 0, %VULKAN_INTERNAL_CheckDeviceExtensions.exit ], [ 0, %VULKAN_INTERNAL_CheckDeviceExtensions.exit.thread ], [ %136, %._crit_edge.loopexit ], [ 0, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2670,7 +2670,7 @@ CreateDeviceExtensionArray.exit:                  ; preds = %80, %81
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113
-  %.0.i295 = phi ptr [ @.str.68, %113 ], [ @.str.67, %112 ], [ @.str.52, %97 ], [ @.str.53, %98 ], [ @.str.54, %99 ], [ @.str.55, %100 ], [ @.str.56, %101 ], [ @.str.57, %102 ], [ @.str.58, %103 ], [ @.str.59, %104 ], [ @.str.60, %105 ], [ @.str.61, %106 ], [ @.str.62, %107 ], [ @.str.63, %108 ], [ @.str.64, %109 ], [ @.str.65, %110 ], [ @.str.66, %111 ], [ @.str.51, %96 ]
+  %.0.i295 = phi ptr [ @.str.68, %113 ], [ @.str.52, %97 ], [ @.str.53, %98 ], [ @.str.54, %99 ], [ @.str.55, %100 ], [ @.str.56, %101 ], [ @.str.57, %102 ], [ @.str.58, %103 ], [ @.str.59, %104 ], [ @.str.60, %105 ], [ @.str.61, %106 ], [ @.str.62, %107 ], [ @.str.63, %108 ], [ @.str.64, %109 ], [ @.str.65, %110 ], [ @.str.66, %111 ], [ @.str.67, %112 ], [ @.str.51, %96 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0.i295) #12
   br label %114
 
@@ -2747,7 +2747,7 @@ VkErrorMessages.exit:                             ; preds = %96, %97, %98, %99, 
   br label %VkErrorMessages.exit297
 
 VkErrorMessages.exit297:                          ; preds = %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %127, %128, %129, %130, %131
-  %.0.i296 = phi ptr [ @.str.68, %131 ], [ @.str.67, %130 ], [ @.str.52, %115 ], [ @.str.53, %116 ], [ @.str.54, %117 ], [ @.str.55, %118 ], [ @.str.56, %119 ], [ @.str.57, %120 ], [ @.str.58, %121 ], [ @.str.59, %122 ], [ @.str.60, %123 ], [ @.str.61, %124 ], [ @.str.62, %125 ], [ @.str.63, %126 ], [ @.str.64, %127 ], [ @.str.65, %128 ], [ @.str.66, %129 ], [ @.str.51, %114 ]
+  %.0.i296 = phi ptr [ @.str.68, %131 ], [ @.str.52, %115 ], [ @.str.53, %116 ], [ @.str.54, %117 ], [ @.str.55, %118 ], [ @.str.56, %119 ], [ @.str.57, %120 ], [ @.str.58, %121 ], [ @.str.59, %122 ], [ @.str.60, %123 ], [ @.str.61, %124 ], [ @.str.62, %125 ], [ @.str.63, %126 ], [ @.str.64, %127 ], [ @.str.65, %128 ], [ @.str.66, %129 ], [ @.str.67, %130 ], [ @.str.51, %114 ]
   %132 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0.i296) #12
   br label %495
 
@@ -3828,7 +3828,7 @@ VULKAN_INTERNAL_DeallocateMemory.exit:            ; preds = %._crit_edge.i104, %
   br i1 %exitcond.not.i110, label %.loopexit.i111, label %332, !llvm.loop !24
 
 .loopexit.i111:                                   ; preds = %344, %339, %336, %.lr.ph146
-  %345 = phi ptr [ %.pre.i113, %339 ], [ %327, %.lr.ph146 ], [ %327, %336 ], [ %327, %344 ]
+  %345 = phi ptr [ %327, %.lr.ph146 ], [ %327, %336 ], [ %.pre.i113, %339 ], [ %327, %344 ]
   %346 = getelementptr inbounds nuw i8, ptr %325, i64 16
   %347 = load i64, ptr %346, align 8
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 72
@@ -4065,7 +4065,7 @@ VULKAN_INTERNAL_IsValidShaderBytecode.exit.thread: ; preds = %21, %VULKAN_INTERN
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72
-  %.0.i52 = phi ptr [ @.str.68, %72 ], [ @.str.67, %71 ], [ @.str.52, %56 ], [ @.str.53, %57 ], [ @.str.54, %58 ], [ @.str.55, %59 ], [ @.str.56, %60 ], [ @.str.57, %61 ], [ @.str.58, %62 ], [ @.str.59, %63 ], [ @.str.60, %64 ], [ @.str.61, %65 ], [ @.str.62, %66 ], [ @.str.63, %67 ], [ @.str.64, %68 ], [ @.str.65, %69 ], [ @.str.66, %70 ], [ @.str.51, %55 ]
+  %.0.i52 = phi ptr [ @.str.68, %72 ], [ @.str.52, %56 ], [ @.str.53, %57 ], [ @.str.54, %58 ], [ @.str.55, %59 ], [ @.str.56, %60 ], [ @.str.57, %61 ], [ @.str.58, %62 ], [ @.str.59, %63 ], [ @.str.60, %64 ], [ @.str.61, %65 ], [ @.str.62, %66 ], [ @.str.63, %67 ], [ @.str.64, %68 ], [ @.str.65, %69 ], [ @.str.66, %70 ], [ @.str.67, %71 ], [ @.str.51, %55 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.140, ptr noundef nonnull %.0.i52) #12
   br label %73
 
@@ -4142,7 +4142,7 @@ VkErrorMessages.exit:                             ; preds = %55, %56, %57, %58, 
   br label %VkErrorMessages.exit54
 
 VkErrorMessages.exit54:                           ; preds = %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90
-  %.0.i53 = phi ptr [ @.str.68, %90 ], [ @.str.67, %89 ], [ @.str.52, %74 ], [ @.str.53, %75 ], [ @.str.54, %76 ], [ @.str.55, %77 ], [ @.str.56, %78 ], [ @.str.57, %79 ], [ @.str.58, %80 ], [ @.str.59, %81 ], [ @.str.60, %82 ], [ @.str.61, %83 ], [ @.str.62, %84 ], [ @.str.63, %85 ], [ @.str.64, %86 ], [ @.str.65, %87 ], [ @.str.66, %88 ], [ @.str.51, %73 ]
+  %.0.i53 = phi ptr [ @.str.68, %90 ], [ @.str.52, %74 ], [ @.str.53, %75 ], [ @.str.54, %76 ], [ @.str.55, %77 ], [ @.str.56, %78 ], [ @.str.57, %79 ], [ @.str.58, %80 ], [ @.str.59, %81 ], [ @.str.60, %82 ], [ @.str.61, %83 ], [ @.str.62, %84 ], [ @.str.63, %85 ], [ @.str.64, %86 ], [ @.str.65, %87 ], [ @.str.66, %88 ], [ @.str.67, %89 ], [ @.str.51, %73 ]
   %91 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.140, ptr noundef nonnull %.0.i53) #12
   br label %311
 
@@ -4361,7 +4361,7 @@ VULKAN_INTERNAL_DestroyComputePipelineResourceLayout.exit.i: ; preds = %175, %17
   br label %VkErrorMessages.exit.i
 
 VkErrorMessages.exit.i:                           ; preds = %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183
-  %.0.i.i = phi ptr [ @.str.68, %200 ], [ @.str.67, %199 ], [ @.str.52, %184 ], [ @.str.53, %185 ], [ @.str.54, %186 ], [ @.str.55, %187 ], [ @.str.56, %188 ], [ @.str.57, %189 ], [ @.str.58, %190 ], [ @.str.59, %191 ], [ @.str.60, %192 ], [ @.str.61, %193 ], [ @.str.62, %194 ], [ @.str.63, %195 ], [ @.str.64, %196 ], [ @.str.65, %197 ], [ @.str.66, %198 ], [ @.str.51, %183 ]
+  %.0.i.i = phi ptr [ @.str.68, %200 ], [ @.str.52, %184 ], [ @.str.53, %185 ], [ @.str.54, %186 ], [ @.str.55, %187 ], [ @.str.56, %188 ], [ @.str.57, %189 ], [ @.str.58, %190 ], [ @.str.59, %191 ], [ @.str.60, %192 ], [ @.str.61, %193 ], [ @.str.62, %194 ], [ @.str.63, %195 ], [ @.str.64, %196 ], [ @.str.65, %197 ], [ @.str.66, %198 ], [ @.str.67, %199 ], [ @.str.51, %183 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.136, ptr noundef nonnull %.0.i.i) #12
   br label %201
 
@@ -4438,7 +4438,7 @@ VkErrorMessages.exit.i:                           ; preds = %200, %199, %198, %1
   br label %VkErrorMessages.exit39.i
 
 VkErrorMessages.exit39.i:                         ; preds = %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201
-  %.0.i38.i = phi ptr [ @.str.68, %218 ], [ @.str.67, %217 ], [ @.str.52, %202 ], [ @.str.53, %203 ], [ @.str.54, %204 ], [ @.str.55, %205 ], [ @.str.56, %206 ], [ @.str.57, %207 ], [ @.str.58, %208 ], [ @.str.59, %209 ], [ @.str.60, %210 ], [ @.str.61, %211 ], [ @.str.62, %212 ], [ @.str.63, %213 ], [ @.str.64, %214 ], [ @.str.65, %215 ], [ @.str.66, %216 ], [ @.str.51, %201 ]
+  %.0.i38.i = phi ptr [ @.str.68, %218 ], [ @.str.52, %202 ], [ @.str.53, %203 ], [ @.str.54, %204 ], [ @.str.55, %205 ], [ @.str.56, %206 ], [ @.str.57, %207 ], [ @.str.58, %208 ], [ @.str.59, %209 ], [ @.str.60, %210 ], [ @.str.61, %211 ], [ @.str.62, %212 ], [ @.str.63, %213 ], [ @.str.64, %214 ], [ @.str.65, %215 ], [ @.str.66, %216 ], [ @.str.67, %217 ], [ @.str.51, %201 ]
   %219 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.136, ptr noundef nonnull %.0.i38.i) #12
   br label %227
 
@@ -4621,7 +4621,7 @@ VULKAN_INTERNAL_DestroyComputePipeline.exit:      ; preds = %254, %256
   br label %VkErrorMessages.exit58
 
 VkErrorMessages.exit58:                           ; preds = %265, %266, %267, %268, %269, %270, %271, %272, %273, %274, %275, %276, %277, %278, %279, %280, %281, %282
-  %.0.i57 = phi ptr [ @.str.68, %282 ], [ @.str.67, %281 ], [ @.str.52, %266 ], [ @.str.53, %267 ], [ @.str.54, %268 ], [ @.str.55, %269 ], [ @.str.56, %270 ], [ @.str.57, %271 ], [ @.str.58, %272 ], [ @.str.59, %273 ], [ @.str.60, %274 ], [ @.str.61, %275 ], [ @.str.62, %276 ], [ @.str.63, %277 ], [ @.str.64, %278 ], [ @.str.65, %279 ], [ @.str.66, %280 ], [ @.str.51, %265 ]
+  %.0.i57 = phi ptr [ @.str.68, %282 ], [ @.str.52, %266 ], [ @.str.53, %267 ], [ @.str.54, %268 ], [ @.str.55, %269 ], [ @.str.56, %270 ], [ @.str.57, %271 ], [ @.str.58, %272 ], [ @.str.59, %273 ], [ @.str.60, %274 ], [ @.str.61, %275 ], [ @.str.62, %276 ], [ @.str.63, %277 ], [ @.str.64, %278 ], [ @.str.65, %279 ], [ @.str.66, %280 ], [ @.str.67, %281 ], [ @.str.51, %265 ]
   %283 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.183, ptr noundef nonnull %.0.i57) #12
   br label %311
 
@@ -4937,7 +4937,7 @@ define internal ptr @VULKAN_CreateGraphicsPipeline(ptr noundef %0, ptr noundef r
   br label %VkErrorMessages.exit.i
 
 VkErrorMessages.exit.i:                           ; preds = %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107
-  %.0.i.i = phi ptr [ @.str.68, %124 ], [ @.str.67, %123 ], [ @.str.52, %108 ], [ @.str.53, %109 ], [ @.str.54, %110 ], [ @.str.55, %111 ], [ @.str.56, %112 ], [ @.str.57, %113 ], [ @.str.58, %114 ], [ @.str.59, %115 ], [ @.str.60, %116 ], [ @.str.61, %117 ], [ @.str.62, %118 ], [ @.str.63, %119 ], [ @.str.64, %120 ], [ @.str.65, %121 ], [ @.str.66, %122 ], [ @.str.51, %107 ]
+  %.0.i.i = phi ptr [ @.str.68, %124 ], [ @.str.52, %108 ], [ @.str.53, %109 ], [ @.str.54, %110 ], [ @.str.55, %111 ], [ @.str.56, %112 ], [ @.str.57, %113 ], [ @.str.58, %114 ], [ @.str.59, %115 ], [ @.str.60, %116 ], [ @.str.61, %117 ], [ @.str.62, %118 ], [ @.str.63, %119 ], [ @.str.64, %120 ], [ @.str.65, %121 ], [ @.str.66, %122 ], [ @.str.67, %123 ], [ @.str.51, %107 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.137, ptr noundef nonnull %.0.i.i) #12
   br label %125
 
@@ -5014,7 +5014,7 @@ VkErrorMessages.exit.i:                           ; preds = %124, %123, %122, %1
   br label %VkErrorMessages.exit42.i
 
 VkErrorMessages.exit42.i:                         ; preds = %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125
-  %.0.i41.i = phi ptr [ @.str.68, %142 ], [ @.str.67, %141 ], [ @.str.52, %126 ], [ @.str.53, %127 ], [ @.str.54, %128 ], [ @.str.55, %129 ], [ @.str.56, %130 ], [ @.str.57, %131 ], [ @.str.58, %132 ], [ @.str.59, %133 ], [ @.str.60, %134 ], [ @.str.61, %135 ], [ @.str.62, %136 ], [ @.str.63, %137 ], [ @.str.64, %138 ], [ @.str.65, %139 ], [ @.str.66, %140 ], [ @.str.51, %125 ]
+  %.0.i41.i = phi ptr [ @.str.68, %142 ], [ @.str.52, %126 ], [ @.str.53, %127 ], [ @.str.54, %128 ], [ @.str.55, %129 ], [ @.str.56, %130 ], [ @.str.57, %131 ], [ @.str.58, %132 ], [ @.str.59, %133 ], [ @.str.60, %134 ], [ @.str.61, %135 ], [ @.str.62, %136 ], [ @.str.63, %137 ], [ @.str.64, %138 ], [ @.str.65, %139 ], [ @.str.66, %140 ], [ @.str.67, %141 ], [ @.str.51, %125 ]
   %143 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.137, ptr noundef nonnull %.0.i41.i) #12
   br label %VULKAN_INTERNAL_CreateTransientRenderPass.exit
 
@@ -5274,7 +5274,7 @@ VULKAN_INTERNAL_CreateTransientRenderPass.exit:   ; preds = %VkErrorMessages.exi
   br label %SDLToVK_PolygonMode.exit
 
 SDLToVK_PolygonMode.exit:                         ; preds = %._crit_edge, %261, %266, %269
-  %.0.i = phi i32 [ 1, %261 ], [ 0, %._crit_edge ], [ 0, %269 ], [ 0, %266 ]
+  %.0.i = phi i32 [ 0, %._crit_edge ], [ 1, %261 ], [ 0, %269 ], [ 0, %266 ]
   %270 = getelementptr inbounds nuw i8, ptr %18, i64 28
   store i32 %.0.i, ptr %270, align 4
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5776,7 +5776,7 @@ VULKAN_INTERNAL_DestroyGraphicsPipelineResourceLayout.exit.i: ; preds = %530, %5
   br label %VkErrorMessages.exit.i175
 
 VkErrorMessages.exit.i175:                        ; preds = %554, %553, %552, %551, %550, %549, %548, %547, %546, %545, %544, %543, %542, %541, %540, %539, %538, %537
-  %.0.i.i176 = phi ptr [ @.str.68, %554 ], [ @.str.67, %553 ], [ @.str.52, %538 ], [ @.str.53, %539 ], [ @.str.54, %540 ], [ @.str.55, %541 ], [ @.str.56, %542 ], [ @.str.57, %543 ], [ @.str.58, %544 ], [ @.str.59, %545 ], [ @.str.60, %546 ], [ @.str.61, %547 ], [ @.str.62, %548 ], [ @.str.63, %549 ], [ @.str.64, %550 ], [ @.str.65, %551 ], [ @.str.66, %552 ], [ @.str.51, %537 ]
+  %.0.i.i176 = phi ptr [ @.str.68, %554 ], [ @.str.52, %538 ], [ @.str.53, %539 ], [ @.str.54, %540 ], [ @.str.55, %541 ], [ @.str.56, %542 ], [ @.str.57, %543 ], [ @.str.58, %544 ], [ @.str.59, %545 ], [ @.str.60, %546 ], [ @.str.61, %547 ], [ @.str.62, %548 ], [ @.str.63, %549 ], [ @.str.64, %550 ], [ @.str.65, %551 ], [ @.str.66, %552 ], [ @.str.67, %553 ], [ @.str.51, %537 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.136, ptr noundef nonnull %.0.i.i176) #12
   br label %555
 
@@ -5853,7 +5853,7 @@ VkErrorMessages.exit.i175:                        ; preds = %554, %553, %552, %5
   br label %VkErrorMessages.exit46.i
 
 VkErrorMessages.exit46.i:                         ; preds = %572, %571, %570, %569, %568, %567, %566, %565, %564, %563, %562, %561, %560, %559, %558, %557, %556, %555
-  %.0.i45.i = phi ptr [ @.str.68, %572 ], [ @.str.67, %571 ], [ @.str.52, %556 ], [ @.str.53, %557 ], [ @.str.54, %558 ], [ @.str.55, %559 ], [ @.str.56, %560 ], [ @.str.57, %561 ], [ @.str.58, %562 ], [ @.str.59, %563 ], [ @.str.60, %564 ], [ @.str.61, %565 ], [ @.str.62, %566 ], [ @.str.63, %567 ], [ @.str.64, %568 ], [ @.str.65, %569 ], [ @.str.66, %570 ], [ @.str.51, %555 ]
+  %.0.i45.i = phi ptr [ @.str.68, %572 ], [ @.str.52, %556 ], [ @.str.53, %557 ], [ @.str.54, %558 ], [ @.str.55, %559 ], [ @.str.56, %560 ], [ @.str.57, %561 ], [ @.str.58, %562 ], [ @.str.59, %563 ], [ @.str.60, %564 ], [ @.str.61, %565 ], [ @.str.62, %566 ], [ @.str.63, %567 ], [ @.str.64, %568 ], [ @.str.65, %569 ], [ @.str.66, %570 ], [ @.str.67, %571 ], [ @.str.51, %555 ]
   %573 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.136, ptr noundef nonnull %.0.i45.i) #12
   br label %581
 
@@ -6026,7 +6026,7 @@ VULKAN_INTERNAL_FetchGraphicsPipelineResourceLayout.exit: ; preds = %459, %581
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %620, %621, %622, %623, %624, %625, %626, %627, %628, %629, %630, %631, %632, %633, %634, %635, %636, %637
-  %.0.i177 = phi ptr [ @.str.68, %637 ], [ @.str.67, %636 ], [ @.str.52, %621 ], [ @.str.53, %622 ], [ @.str.54, %623 ], [ @.str.55, %624 ], [ @.str.56, %625 ], [ @.str.57, %626 ], [ @.str.58, %627 ], [ @.str.59, %628 ], [ @.str.60, %629 ], [ @.str.61, %630 ], [ @.str.62, %631 ], [ @.str.63, %632 ], [ @.str.64, %633 ], [ @.str.65, %634 ], [ @.str.66, %635 ], [ @.str.51, %620 ]
+  %.0.i177 = phi ptr [ @.str.68, %637 ], [ @.str.52, %621 ], [ @.str.53, %622 ], [ @.str.54, %623 ], [ @.str.55, %624 ], [ @.str.56, %625 ], [ @.str.57, %626 ], [ @.str.58, %627 ], [ @.str.59, %628 ], [ @.str.60, %629 ], [ @.str.61, %630 ], [ @.str.62, %631 ], [ @.str.63, %632 ], [ @.str.64, %633 ], [ @.str.65, %634 ], [ @.str.66, %635 ], [ @.str.67, %636 ], [ @.str.51, %620 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.132, ptr noundef nonnull %.0.i177) #12
   br label %638
 
@@ -6103,7 +6103,7 @@ VkErrorMessages.exit:                             ; preds = %620, %621, %622, %6
   br label %VkErrorMessages.exit179
 
 VkErrorMessages.exit179:                          ; preds = %638, %639, %640, %641, %642, %643, %644, %645, %646, %647, %648, %649, %650, %651, %652, %653, %654, %655
-  %.0.i178 = phi ptr [ @.str.68, %655 ], [ @.str.67, %654 ], [ @.str.52, %639 ], [ @.str.53, %640 ], [ @.str.54, %641 ], [ @.str.55, %642 ], [ @.str.56, %643 ], [ @.str.57, %644 ], [ @.str.58, %645 ], [ @.str.59, %646 ], [ @.str.60, %647 ], [ @.str.61, %648 ], [ @.str.62, %649 ], [ @.str.63, %650 ], [ @.str.64, %651 ], [ @.str.65, %652 ], [ @.str.66, %653 ], [ @.str.51, %638 ]
+  %.0.i178 = phi ptr [ @.str.68, %655 ], [ @.str.52, %639 ], [ @.str.53, %640 ], [ @.str.54, %641 ], [ @.str.55, %642 ], [ @.str.56, %643 ], [ @.str.57, %644 ], [ @.str.58, %645 ], [ @.str.59, %646 ], [ @.str.60, %647 ], [ @.str.61, %648 ], [ @.str.62, %649 ], [ @.str.63, %650 ], [ @.str.64, %651 ], [ @.str.65, %652 ], [ @.str.66, %653 ], [ @.str.67, %654 ], [ @.str.51, %638 ]
   %656 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.132, ptr noundef nonnull %.0.i178) #12
   br label %683
 
@@ -6341,7 +6341,7 @@ define internal ptr @VULKAN_CreateSampler(ptr noundef readonly captures(none) %0
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97
-  %.0.i = phi ptr [ @.str.68, %97 ], [ @.str.67, %96 ], [ @.str.52, %81 ], [ @.str.53, %82 ], [ @.str.54, %83 ], [ @.str.55, %84 ], [ @.str.56, %85 ], [ @.str.57, %86 ], [ @.str.58, %87 ], [ @.str.59, %88 ], [ @.str.60, %89 ], [ @.str.61, %90 ], [ @.str.62, %91 ], [ @.str.63, %92 ], [ @.str.64, %93 ], [ @.str.65, %94 ], [ @.str.66, %95 ], [ @.str.51, %80 ]
+  %.0.i = phi ptr [ @.str.68, %97 ], [ @.str.52, %81 ], [ @.str.53, %82 ], [ @.str.54, %83 ], [ @.str.55, %84 ], [ @.str.56, %85 ], [ @.str.57, %86 ], [ @.str.58, %87 ], [ @.str.59, %88 ], [ @.str.60, %89 ], [ @.str.61, %90 ], [ @.str.62, %91 ], [ @.str.63, %92 ], [ @.str.64, %93 ], [ @.str.65, %94 ], [ @.str.66, %95 ], [ @.str.67, %96 ], [ @.str.51, %80 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.138, ptr noundef nonnull %.0.i) #12
   br label %98
 
@@ -6418,7 +6418,7 @@ VkErrorMessages.exit:                             ; preds = %80, %81, %82, %83, 
   br label %VkErrorMessages.exit34
 
 VkErrorMessages.exit34:                           ; preds = %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115
-  %.0.i33 = phi ptr [ @.str.68, %115 ], [ @.str.67, %114 ], [ @.str.52, %99 ], [ @.str.53, %100 ], [ @.str.54, %101 ], [ @.str.55, %102 ], [ @.str.56, %103 ], [ @.str.57, %104 ], [ @.str.58, %105 ], [ @.str.59, %106 ], [ @.str.60, %107 ], [ @.str.61, %108 ], [ @.str.62, %109 ], [ @.str.63, %110 ], [ @.str.64, %111 ], [ @.str.65, %112 ], [ @.str.66, %113 ], [ @.str.51, %98 ]
+  %.0.i33 = phi ptr [ @.str.68, %115 ], [ @.str.52, %99 ], [ @.str.53, %100 ], [ @.str.54, %101 ], [ @.str.55, %102 ], [ @.str.56, %103 ], [ @.str.57, %104 ], [ @.str.58, %105 ], [ @.str.59, %106 ], [ @.str.60, %107 ], [ @.str.61, %108 ], [ @.str.62, %109 ], [ @.str.63, %110 ], [ @.str.64, %111 ], [ @.str.65, %112 ], [ @.str.66, %113 ], [ @.str.67, %114 ], [ @.str.51, %98 ]
   %116 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.138, ptr noundef nonnull %.0.i33) #12
   br label %144
 
@@ -6621,7 +6621,7 @@ VULKAN_INTERNAL_IsValidShaderBytecode.exit.thread: ; preds = %2, %VULKAN_INTERNA
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57
-  %.0.i39 = phi ptr [ @.str.68, %57 ], [ @.str.67, %56 ], [ @.str.52, %41 ], [ @.str.53, %42 ], [ @.str.54, %43 ], [ @.str.55, %44 ], [ @.str.56, %45 ], [ @.str.57, %46 ], [ @.str.58, %47 ], [ @.str.59, %48 ], [ @.str.60, %49 ], [ @.str.61, %50 ], [ @.str.62, %51 ], [ @.str.63, %52 ], [ @.str.64, %53 ], [ @.str.65, %54 ], [ @.str.66, %55 ], [ @.str.51, %40 ]
+  %.0.i39 = phi ptr [ @.str.68, %57 ], [ @.str.52, %41 ], [ @.str.53, %42 ], [ @.str.54, %43 ], [ @.str.55, %44 ], [ @.str.56, %45 ], [ @.str.57, %46 ], [ @.str.58, %47 ], [ @.str.59, %48 ], [ @.str.60, %49 ], [ @.str.61, %50 ], [ @.str.62, %51 ], [ @.str.63, %52 ], [ @.str.64, %53 ], [ @.str.65, %54 ], [ @.str.66, %55 ], [ @.str.67, %56 ], [ @.str.51, %40 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.140, ptr noundef nonnull %.0.i39) #12
   br label %58
 
@@ -6698,7 +6698,7 @@ VkErrorMessages.exit:                             ; preds = %40, %41, %42, %43, 
   br label %VkErrorMessages.exit41
 
 VkErrorMessages.exit41:                           ; preds = %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75
-  %.0.i40 = phi ptr [ @.str.68, %75 ], [ @.str.67, %74 ], [ @.str.52, %59 ], [ @.str.53, %60 ], [ @.str.54, %61 ], [ @.str.55, %62 ], [ @.str.56, %63 ], [ @.str.57, %64 ], [ @.str.58, %65 ], [ @.str.59, %66 ], [ @.str.60, %67 ], [ @.str.61, %68 ], [ @.str.62, %69 ], [ @.str.63, %70 ], [ @.str.64, %71 ], [ @.str.65, %72 ], [ @.str.66, %73 ], [ @.str.51, %58 ]
+  %.0.i40 = phi ptr [ @.str.68, %75 ], [ @.str.52, %59 ], [ @.str.53, %60 ], [ @.str.54, %61 ], [ @.str.55, %62 ], [ @.str.56, %63 ], [ @.str.57, %64 ], [ @.str.58, %65 ], [ @.str.59, %66 ], [ @.str.60, %67 ], [ @.str.61, %68 ], [ @.str.62, %69 ], [ @.str.63, %70 ], [ @.str.64, %71 ], [ @.str.65, %72 ], [ @.str.66, %73 ], [ @.str.67, %74 ], [ @.str.51, %58 ]
   %76 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.140, ptr noundef nonnull %.0.i40) #12
   br label %119
 
@@ -8100,7 +8100,7 @@ VULKAN_INTERNAL_TrackTexture.exit185:             ; preds = %155, %170
   br label %VkErrorMessages.exit.i
 
 VkErrorMessages.exit.i:                           ; preds = %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349
-  %.0.i.i = phi ptr [ @.str.68, %366 ], [ @.str.67, %365 ], [ @.str.52, %350 ], [ @.str.53, %351 ], [ @.str.54, %352 ], [ @.str.55, %353 ], [ @.str.56, %354 ], [ @.str.57, %355 ], [ @.str.58, %356 ], [ @.str.59, %357 ], [ @.str.60, %358 ], [ @.str.61, %359 ], [ @.str.62, %360 ], [ @.str.63, %361 ], [ @.str.64, %362 ], [ @.str.65, %363 ], [ @.str.66, %364 ], [ @.str.51, %349 ]
+  %.0.i.i = phi ptr [ @.str.68, %366 ], [ @.str.52, %350 ], [ @.str.53, %351 ], [ @.str.54, %352 ], [ @.str.55, %353 ], [ @.str.56, %354 ], [ @.str.57, %355 ], [ @.str.58, %356 ], [ @.str.59, %357 ], [ @.str.60, %358 ], [ @.str.61, %359 ], [ @.str.62, %360 ], [ @.str.63, %361 ], [ @.str.64, %362 ], [ @.str.65, %363 ], [ @.str.66, %364 ], [ @.str.67, %365 ], [ @.str.51, %349 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.130, ptr noundef nonnull %.0.i.i) #12
   br label %367
 
@@ -8177,7 +8177,7 @@ VkErrorMessages.exit.i:                           ; preds = %366, %365, %364, %3
   br label %VULKAN_INTERNAL_FetchFramebuffer.exit.thread
 
 VULKAN_INTERNAL_FetchFramebuffer.exit.thread:     ; preds = %367, %368, %369, %370, %371, %372, %373, %374, %375, %376, %377, %378, %379, %380, %381, %382, %383, %384
-  %.0.i109.i = phi ptr [ @.str.68, %384 ], [ @.str.67, %383 ], [ @.str.52, %368 ], [ @.str.53, %369 ], [ @.str.54, %370 ], [ @.str.55, %371 ], [ @.str.56, %372 ], [ @.str.57, %373 ], [ @.str.58, %374 ], [ @.str.59, %375 ], [ @.str.60, %376 ], [ @.str.61, %377 ], [ @.str.62, %378 ], [ @.str.63, %379 ], [ @.str.64, %380 ], [ @.str.65, %381 ], [ @.str.66, %382 ], [ @.str.51, %367 ]
+  %.0.i109.i = phi ptr [ @.str.68, %384 ], [ @.str.52, %368 ], [ @.str.53, %369 ], [ @.str.54, %370 ], [ @.str.55, %371 ], [ @.str.56, %372 ], [ @.str.57, %373 ], [ @.str.58, %374 ], [ @.str.59, %375 ], [ @.str.60, %376 ], [ @.str.61, %377 ], [ @.str.62, %378 ], [ @.str.63, %379 ], [ @.str.64, %380 ], [ @.str.65, %381 ], [ @.str.66, %382 ], [ @.str.67, %383 ], [ @.str.51, %367 ]
   %385 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.130, ptr noundef nonnull %.0.i109.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -9596,7 +9596,7 @@ define internal void @VULKAN_PushFragmentUniformData(ptr noundef captures(none) 
   br label %20
 
 20:                                               ; preds = %18, %4
-  %.0.i = phi ptr [ %16, %4 ], [ %19, %18 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %16, %4 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %12, 4096
@@ -9622,9 +9622,9 @@ define internal void @VULKAN_PushFragmentUniformData(ptr noundef captures(none) 
   br label %VULKAN_INTERNAL_PushUniformData.exit
 
 VULKAN_INTERNAL_PushUniformData.exit:             ; preds = %20, %29
-  %34 = phi ptr [ %26, %20 ], [ %.pre4, %29 ]
-  %35 = phi i32 [ %22, %20 ], [ %.pre, %29 ]
-  %.1.i = phi ptr [ %.0.i, %20 ], [ %30, %29 ]
+  %34 = phi ptr [ %.pre4, %29 ], [ %26, %20 ]
+  %35 = phi i32 [ %.pre, %29 ], [ %22, %20 ]
+  %.1.i = phi ptr [ %30, %29 ], [ %.0.i, %20 ]
   %36 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   %37 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store i32 %35, ptr %37, align 8
@@ -10120,8 +10120,8 @@ VULKAN_INTERNAL_PrepareBufferForWrite.exit:       ; preds = %69, %75, %80
   br label %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit
 
 VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit: ; preds = %VULKAN_INTERNAL_PrepareBufferForWrite.exit, %84, %86, %88, %90, %92, %94
-  %.sink.i.i = phi i32 [ 2, %84 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 1, %86 ], [ 32, %90 ], [ 32, %88 ], [ 4, %94 ], [ 96, %92 ]
-  %.022.i.i = phi i32 [ 4, %84 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 2, %86 ], [ 2048, %90 ], [ 136, %88 ], [ 4, %94 ], [ 2048, %92 ]
+  %.sink.i.i = phi i32 [ 4, %94 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 2, %84 ], [ 1, %86 ], [ 32, %88 ], [ 32, %90 ], [ 96, %92 ]
+  %.022.i.i = phi i32 [ 4, %94 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 4, %84 ], [ 2, %86 ], [ 136, %88 ], [ 2048, %90 ], [ 2048, %92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 44, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
@@ -10886,8 +10886,8 @@ define internal void @VULKAN_BindComputeStorageBuffers(ptr noundef captures(none
   br label %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit
 
 VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit: ; preds = %34, %38, %40, %42, %44, %46, %48
-  %.sink.i.i = phi i32 [ 2, %38 ], [ 4, %34 ], [ 1, %40 ], [ 32, %44 ], [ 32, %42 ], [ 4, %48 ], [ 96, %46 ]
-  %.022.i.i = phi i32 [ 4, %38 ], [ 4, %34 ], [ 2, %40 ], [ 2048, %44 ], [ 136, %42 ], [ 4, %48 ], [ 2048, %46 ]
+  %.sink.i.i = phi i32 [ 4, %48 ], [ 4, %34 ], [ 2, %38 ], [ 1, %40 ], [ 32, %42 ], [ 32, %44 ], [ 96, %46 ]
+  %.022.i.i = phi i32 [ 4, %48 ], [ 4, %34 ], [ 4, %38 ], [ 2, %40 ], [ 136, %42 ], [ 2048, %44 ], [ 2048, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 44, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -11615,8 +11615,8 @@ VULKAN_INTERNAL_PrepareBufferForWrite.exit:       ; preds = %4, %11, %16
   br label %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit
 
 VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit: ; preds = %VULKAN_INTERNAL_PrepareBufferForWrite.exit, %20, %22, %24, %26, %28, %30
-  %.sink.i.i = phi i32 [ 2, %20 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 1, %22 ], [ 32, %26 ], [ 32, %24 ], [ 4, %30 ], [ 96, %28 ]
-  %.022.i.i = phi i32 [ 4, %20 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 2, %22 ], [ 2048, %26 ], [ 136, %24 ], [ 4, %30 ], [ 2048, %28 ]
+  %.sink.i.i = phi i32 [ 4, %30 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 2, %20 ], [ 1, %22 ], [ 32, %24 ], [ 32, %26 ], [ 96, %28 ]
+  %.022.i.i = phi i32 [ 4, %30 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 4, %20 ], [ 2, %22 ], [ 136, %24 ], [ 2048, %26 ], [ 2048, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 44, ptr %5, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -12016,8 +12016,8 @@ define internal void @VULKAN_DownloadFromBuffer(ptr noundef captures(none) %0, p
   br label %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit
 
 VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit: ; preds = %3, %13, %15, %17, %19, %21, %23
-  %.sink.i.i = phi i32 [ 2, %13 ], [ 4, %3 ], [ 1, %15 ], [ 32, %19 ], [ 32, %17 ], [ 4, %23 ], [ 96, %21 ]
-  %.022.i.i = phi i32 [ 4, %13 ], [ 4, %3 ], [ 2, %15 ], [ 2048, %19 ], [ 136, %17 ], [ 4, %23 ], [ 2048, %21 ]
+  %.sink.i.i = phi i32 [ 4, %23 ], [ 4, %3 ], [ 2, %13 ], [ 1, %15 ], [ 32, %17 ], [ 32, %19 ], [ 96, %21 ]
+  %.022.i.i = phi i32 [ 4, %23 ], [ 4, %3 ], [ 4, %13 ], [ 2, %15 ], [ 136, %17 ], [ 2048, %19 ], [ 2048, %21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 44, ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -12445,8 +12445,8 @@ VULKAN_INTERNAL_PrepareBufferForWrite.exit:       ; preds = %5, %13, %18
   br label %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit40
 
 VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit40: ; preds = %VULKAN_INTERNAL_PrepareBufferForWrite.exit, %22, %24, %26, %28, %30, %32
-  %.sink.i.i33 = phi i32 [ 2, %22 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 1, %24 ], [ 32, %28 ], [ 32, %26 ], [ 4, %32 ], [ 96, %30 ]
-  %.022.i.i34 = phi i32 [ 4, %22 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 2, %24 ], [ 2048, %28 ], [ 136, %26 ], [ 4, %32 ], [ 2048, %30 ]
+  %.sink.i.i33 = phi i32 [ 4, %32 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 2, %22 ], [ 1, %24 ], [ 32, %26 ], [ 32, %28 ], [ 96, %30 ]
+  %.022.i.i34 = phi i32 [ 4, %32 ], [ 4, %VULKAN_INTERNAL_PrepareBufferForWrite.exit ], [ 4, %22 ], [ 2, %24 ], [ 136, %26 ], [ 2048, %28 ], [ 2048, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 44, ptr %6, align 8
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -12515,8 +12515,8 @@ VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit40: ; preds = %VULKAN_INTER
   br label %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit
 
 VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit: ; preds = %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit40, %54, %56, %58, %60, %62, %64
-  %.sink.i.i = phi i32 [ 2, %54 ], [ 4, %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit40 ], [ 1, %56 ], [ 32, %60 ], [ 32, %58 ], [ 4, %64 ], [ 96, %62 ]
-  %.022.i.i = phi i32 [ 4, %54 ], [ 4, %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit40 ], [ 2, %56 ], [ 2048, %60 ], [ 136, %58 ], [ 4, %64 ], [ 2048, %62 ]
+  %.sink.i.i = phi i32 [ 4, %64 ], [ 4, %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit40 ], [ 2, %54 ], [ 1, %56 ], [ 32, %58 ], [ 32, %60 ], [ 96, %62 ]
+  %.022.i.i = phi i32 [ 4, %64 ], [ 4, %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit40 ], [ 4, %54 ], [ 2, %56 ], [ 136, %58 ], [ 2048, %60 ], [ 2048, %62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 44, ptr %7, align 8
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -13676,7 +13676,7 @@ define internal noundef zeroext i1 @VULKAN_SupportsSwapchainComposition(ptr noun
   br i1 %exitcond.not.i25, label %VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit, label %.lr.ph.i22, !llvm.loop !73
 
 VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit:     ; preds = %42, %56, %52, %29
-  %.1.in = phi i1 [ false, %56 ], [ false, %29 ], [ true, %52 ], [ true, %42 ]
+  %.1.in = phi i1 [ false, %29 ], [ true, %52 ], [ false, %56 ], [ true, %42 ]
   call void @SDL_free_REAL(ptr noundef %36) #12
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %58 = load ptr, ptr %57, align 8
@@ -14086,7 +14086,7 @@ define internal zeroext i1 @VULKAN_SetSwapchainParameters(ptr noundef %0, ptr no
   br label %40
 
 40:                                               ; preds = %38, %33, %31, %22, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %22 ], [ false, %31 ], [ true, %38 ], [ %.not, %33 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %31 ], [ false, %22 ], [ %.not, %33 ], [ true, %38 ]
   ret i1 %.0
 }
 
@@ -14306,7 +14306,7 @@ define internal ptr @VULKAN_AcquireCommandBuffer(ptr noundef %0) #0 {
   br label %VkErrorMessages.exit.i.i
 
 VkErrorMessages.exit.i.i:                         ; preds = %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30
-  %.0.i.i.i = phi ptr [ @.str.68, %47 ], [ @.str.67, %46 ], [ @.str.52, %31 ], [ @.str.53, %32 ], [ @.str.54, %33 ], [ @.str.55, %34 ], [ @.str.56, %35 ], [ @.str.57, %36 ], [ @.str.58, %37 ], [ @.str.59, %38 ], [ @.str.60, %39 ], [ @.str.61, %40 ], [ @.str.62, %41 ], [ @.str.63, %42 ], [ @.str.64, %43 ], [ @.str.65, %44 ], [ @.str.66, %45 ], [ @.str.51, %30 ]
+  %.0.i.i.i = phi ptr [ @.str.68, %47 ], [ @.str.52, %31 ], [ @.str.53, %32 ], [ @.str.54, %33 ], [ @.str.55, %34 ], [ @.str.56, %35 ], [ @.str.57, %36 ], [ @.str.58, %37 ], [ @.str.59, %38 ], [ @.str.60, %39 ], [ @.str.61, %40 ], [ @.str.62, %41 ], [ @.str.63, %42 ], [ @.str.64, %43 ], [ @.str.65, %44 ], [ @.str.66, %45 ], [ @.str.67, %46 ], [ @.str.51, %30 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.126, ptr noundef nonnull %.0.i.i.i) #12
   br label %48
 
@@ -14383,7 +14383,7 @@ VkErrorMessages.exit.i.i:                         ; preds = %47, %46, %45, %44, 
   br label %VkErrorMessages.exit21.i.i
 
 VkErrorMessages.exit21.i.i:                       ; preds = %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48
-  %.0.i20.i.i = phi ptr [ @.str.68, %65 ], [ @.str.67, %64 ], [ @.str.52, %49 ], [ @.str.53, %50 ], [ @.str.54, %51 ], [ @.str.55, %52 ], [ @.str.56, %53 ], [ @.str.57, %54 ], [ @.str.58, %55 ], [ @.str.59, %56 ], [ @.str.60, %57 ], [ @.str.61, %58 ], [ @.str.62, %59 ], [ @.str.63, %60 ], [ @.str.64, %61 ], [ @.str.65, %62 ], [ @.str.66, %63 ], [ @.str.51, %48 ]
+  %.0.i20.i.i = phi ptr [ @.str.68, %65 ], [ @.str.52, %49 ], [ @.str.53, %50 ], [ @.str.54, %51 ], [ @.str.55, %52 ], [ @.str.56, %53 ], [ @.str.57, %54 ], [ @.str.58, %55 ], [ @.str.59, %56 ], [ @.str.60, %57 ], [ @.str.61, %58 ], [ @.str.62, %59 ], [ @.str.63, %60 ], [ @.str.64, %61 ], [ @.str.65, %62 ], [ @.str.66, %63 ], [ @.str.67, %64 ], [ @.str.51, %48 ]
   %66 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.126, ptr noundef nonnull %.0.i20.i.i) #12
   br label %VULKAN_INTERNAL_FetchCommandPool.exit.thread.i
 
@@ -14451,7 +14451,7 @@ VULKAN_INTERNAL_FetchCommandPool.exit.i:          ; preds = %74, %1
   br label %VULKAN_INTERNAL_GetInactiveCommandBufferFromPool.exit
 
 VULKAN_INTERNAL_GetInactiveCommandBufferFromPool.exit: ; preds = %VULKAN_INTERNAL_FetchCommandPool.exit.thread.i, %VULKAN_INTERNAL_FetchCommandPool.exit.i, %84, %86
-  %.0.i = phi ptr [ null, %VULKAN_INTERNAL_FetchCommandPool.exit.i ], [ %93, %86 ], [ null, %84 ], [ null, %VULKAN_INTERNAL_FetchCommandPool.exit.thread.i ]
+  %.0.i = phi ptr [ %93, %86 ], [ null, %VULKAN_INTERNAL_FetchCommandPool.exit.i ], [ null, %84 ], [ null, %VULKAN_INTERNAL_FetchCommandPool.exit.thread.i ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 0
@@ -14593,7 +14593,7 @@ VULKAN_INTERNAL_GetInactiveCommandBufferFromPool.exit: ; preds = %VULKAN_INTERNA
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %132, %133, %134, %135, %136, %137, %138, %139, %140, %141, %142, %143, %144, %145, %146, %147, %148, %149
-  %.0.i73 = phi ptr [ @.str.68, %149 ], [ @.str.67, %148 ], [ @.str.52, %133 ], [ @.str.53, %134 ], [ @.str.54, %135 ], [ @.str.55, %136 ], [ @.str.56, %137 ], [ @.str.57, %138 ], [ @.str.58, %139 ], [ @.str.59, %140 ], [ @.str.60, %141 ], [ @.str.61, %142 ], [ @.str.62, %143 ], [ @.str.63, %144 ], [ @.str.64, %145 ], [ @.str.65, %146 ], [ @.str.66, %147 ], [ @.str.51, %132 ]
+  %.0.i73 = phi ptr [ @.str.68, %149 ], [ @.str.52, %133 ], [ @.str.53, %134 ], [ @.str.54, %135 ], [ @.str.55, %136 ], [ @.str.56, %137 ], [ @.str.57, %138 ], [ @.str.58, %139 ], [ @.str.59, %140 ], [ @.str.60, %141 ], [ @.str.61, %142 ], [ @.str.62, %143 ], [ @.str.63, %144 ], [ @.str.64, %145 ], [ @.str.65, %146 ], [ @.str.66, %147 ], [ @.str.67, %148 ], [ @.str.51, %132 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.169, ptr noundef nonnull %.0.i73) #12
   br label %150
 
@@ -14670,7 +14670,7 @@ VkErrorMessages.exit:                             ; preds = %132, %133, %134, %1
   br label %VkErrorMessages.exit75
 
 VkErrorMessages.exit75:                           ; preds = %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167
-  %.0.i74 = phi ptr [ @.str.68, %167 ], [ @.str.67, %166 ], [ @.str.52, %151 ], [ @.str.53, %152 ], [ @.str.54, %153 ], [ @.str.55, %154 ], [ @.str.56, %155 ], [ @.str.57, %156 ], [ @.str.58, %157 ], [ @.str.59, %158 ], [ @.str.60, %159 ], [ @.str.61, %160 ], [ @.str.62, %161 ], [ @.str.63, %162 ], [ @.str.64, %163 ], [ @.str.65, %164 ], [ @.str.66, %165 ], [ @.str.51, %150 ]
+  %.0.i74 = phi ptr [ @.str.68, %167 ], [ @.str.52, %151 ], [ @.str.53, %152 ], [ @.str.54, %153 ], [ @.str.55, %154 ], [ @.str.56, %155 ], [ @.str.57, %156 ], [ @.str.58, %157 ], [ @.str.59, %158 ], [ @.str.60, %159 ], [ @.str.61, %160 ], [ @.str.62, %161 ], [ @.str.63, %162 ], [ @.str.64, %163 ], [ @.str.65, %164 ], [ @.str.66, %165 ], [ @.str.67, %166 ], [ @.str.51, %150 ]
   %168 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.169, ptr noundef nonnull %.0.i74) #12
   br label %217
 
@@ -14769,7 +14769,7 @@ VkErrorMessages.exit75:                           ; preds = %150, %151, %152, %1
   br label %VkErrorMessages.exit.i
 
 VkErrorMessages.exit.i:                           ; preds = %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180
-  %.0.i.i76 = phi ptr [ @.str.68, %197 ], [ @.str.67, %196 ], [ @.str.52, %181 ], [ @.str.53, %182 ], [ @.str.54, %183 ], [ @.str.55, %184 ], [ @.str.56, %185 ], [ @.str.57, %186 ], [ @.str.58, %187 ], [ @.str.59, %188 ], [ @.str.60, %189 ], [ @.str.61, %190 ], [ @.str.62, %191 ], [ @.str.63, %192 ], [ @.str.64, %193 ], [ @.str.65, %194 ], [ @.str.66, %195 ], [ @.str.51, %180 ]
+  %.0.i.i76 = phi ptr [ @.str.68, %197 ], [ @.str.52, %181 ], [ @.str.53, %182 ], [ @.str.54, %183 ], [ @.str.55, %184 ], [ @.str.56, %185 ], [ @.str.57, %186 ], [ @.str.58, %187 ], [ @.str.59, %188 ], [ @.str.60, %189 ], [ @.str.61, %190 ], [ @.str.62, %191 ], [ @.str.63, %192 ], [ @.str.64, %193 ], [ @.str.65, %194 ], [ @.str.66, %195 ], [ @.str.67, %196 ], [ @.str.51, %180 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.95, ptr noundef nonnull %.0.i.i76) #12
   br label %198
 
@@ -14846,7 +14846,7 @@ VkErrorMessages.exit.i:                           ; preds = %197, %196, %195, %1
   br label %VkErrorMessages.exit8.i
 
 VkErrorMessages.exit8.i:                          ; preds = %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198
-  %.0.i7.i = phi ptr [ @.str.68, %215 ], [ @.str.67, %214 ], [ @.str.52, %199 ], [ @.str.53, %200 ], [ @.str.54, %201 ], [ @.str.55, %202 ], [ @.str.56, %203 ], [ @.str.57, %204 ], [ @.str.58, %205 ], [ @.str.59, %206 ], [ @.str.60, %207 ], [ @.str.61, %208 ], [ @.str.62, %209 ], [ @.str.63, %210 ], [ @.str.64, %211 ], [ @.str.65, %212 ], [ @.str.66, %213 ], [ @.str.51, %198 ]
+  %.0.i7.i = phi ptr [ @.str.68, %215 ], [ @.str.52, %199 ], [ @.str.53, %200 ], [ @.str.54, %201 ], [ @.str.55, %202 ], [ @.str.56, %203 ], [ @.str.57, %204 ], [ @.str.58, %205 ], [ @.str.59, %206 ], [ @.str.60, %207 ], [ @.str.61, %208 ], [ @.str.62, %209 ], [ @.str.63, %210 ], [ @.str.64, %211 ], [ @.str.65, %212 ], [ @.str.66, %213 ], [ @.str.67, %214 ], [ @.str.51, %198 ]
   %216 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.95, ptr noundef nonnull %.0.i7.i) #12
   br label %VULKAN_INTERNAL_BeginCommandBuffer.exit
 
@@ -14856,7 +14856,7 @@ VULKAN_INTERNAL_BeginCommandBuffer.exit:          ; preds = %169, %VkErrorMessag
   br label %217
 
 217:                                              ; preds = %VULKAN_INTERNAL_BeginCommandBuffer.exit, %VkErrorMessages.exit75
-  %.0 = phi ptr [ %., %VULKAN_INTERNAL_BeginCommandBuffer.exit ], [ null, %VkErrorMessages.exit75 ]
+  %.0 = phi ptr [ null, %VkErrorMessages.exit75 ], [ %., %VULKAN_INTERNAL_BeginCommandBuffer.exit ]
   ret ptr %.0
 }
 
@@ -15189,8 +15189,8 @@ define internal noundef zeroext i1 @VULKAN_Submit(ptr noundef %0) #0 {
   br label %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit178
 
 VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit178: ; preds = %165, %168, %170, %172, %174, %176, %178
-  %.sink.i.i171 = phi i32 [ 2, %168 ], [ 4, %165 ], [ 1, %170 ], [ 32, %174 ], [ 32, %172 ], [ 4, %178 ], [ 96, %176 ]
-  %.022.i.i172 = phi i32 [ 4, %168 ], [ 4, %165 ], [ 2, %170 ], [ 2048, %174 ], [ 136, %172 ], [ 4, %178 ], [ 2048, %176 ]
+  %.sink.i.i171 = phi i32 [ 4, %178 ], [ 4, %165 ], [ 2, %168 ], [ 1, %170 ], [ 32, %172 ], [ 32, %174 ], [ 96, %176 ]
+  %.022.i.i172 = phi i32 [ 4, %178 ], [ 4, %165 ], [ 4, %168 ], [ 2, %170 ], [ 136, %172 ], [ 2048, %174 ], [ 2048, %176 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 44, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
@@ -15246,8 +15246,8 @@ VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit178: ; preds = %165, %168, 
   br label %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit
 
 VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit: ; preds = %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit178, %187, %189, %191, %193, %195, %197
-  %.sink.i.i = phi i32 [ 2, %187 ], [ 4, %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit178 ], [ 1, %189 ], [ 32, %193 ], [ 32, %191 ], [ 4, %197 ], [ 96, %195 ]
-  %.022.i.i = phi i32 [ 4, %187 ], [ 4, %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit178 ], [ 2, %189 ], [ 2048, %193 ], [ 136, %191 ], [ 4, %197 ], [ 2048, %195 ]
+  %.sink.i.i = phi i32 [ 4, %197 ], [ 4, %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit178 ], [ 2, %187 ], [ 1, %189 ], [ 32, %191 ], [ 32, %193 ], [ 96, %195 ]
+  %.022.i.i = phi i32 [ 4, %197 ], [ 4, %VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit178 ], [ 4, %187 ], [ 2, %189 ], [ 136, %191 ], [ 2048, %193 ], [ 2048, %195 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 44, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
@@ -15889,7 +15889,7 @@ VULKAN_INTERNAL_ReleaseBuffer.exit:               ; preds = %325, %153
   br label %VkErrorMessages.exit.i
 
 VkErrorMessages.exit.i:                           ; preds = %513, %512, %511, %510, %509, %508, %507, %506, %505, %504, %503, %502, %501, %500, %499, %498, %497, %496
-  %.0.i.i = phi ptr [ @.str.68, %513 ], [ @.str.67, %512 ], [ @.str.52, %497 ], [ @.str.53, %498 ], [ @.str.54, %499 ], [ @.str.55, %500 ], [ @.str.56, %501 ], [ @.str.57, %502 ], [ @.str.58, %503 ], [ @.str.59, %504 ], [ @.str.60, %505 ], [ @.str.61, %506 ], [ @.str.62, %507 ], [ @.str.63, %508 ], [ @.str.64, %509 ], [ @.str.65, %510 ], [ @.str.66, %511 ], [ @.str.51, %496 ]
+  %.0.i.i = phi ptr [ @.str.68, %513 ], [ @.str.52, %497 ], [ @.str.53, %498 ], [ @.str.54, %499 ], [ @.str.55, %500 ], [ @.str.56, %501 ], [ @.str.57, %502 ], [ @.str.58, %503 ], [ @.str.59, %504 ], [ @.str.60, %505 ], [ @.str.61, %506 ], [ @.str.62, %507 ], [ @.str.63, %508 ], [ @.str.64, %509 ], [ @.str.65, %510 ], [ @.str.66, %511 ], [ @.str.67, %512 ], [ @.str.51, %496 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.158, ptr noundef nonnull %.0.i.i) #12
   br label %514
 
@@ -15966,7 +15966,7 @@ VkErrorMessages.exit.i:                           ; preds = %513, %512, %511, %5
   br label %532
 
 532:                                              ; preds = %531, %530, %529, %528, %527, %526, %525, %524, %523, %522, %521, %520, %519, %518, %517, %516, %515, %514
-  %.0.i7.i = phi ptr [ @.str.68, %531 ], [ @.str.67, %530 ], [ @.str.52, %515 ], [ @.str.53, %516 ], [ @.str.54, %517 ], [ @.str.55, %518 ], [ @.str.56, %519 ], [ @.str.57, %520 ], [ @.str.58, %521 ], [ @.str.59, %522 ], [ @.str.60, %523 ], [ @.str.61, %524 ], [ @.str.62, %525 ], [ @.str.63, %526 ], [ @.str.64, %527 ], [ @.str.65, %528 ], [ @.str.66, %529 ], [ @.str.51, %514 ]
+  %.0.i7.i = phi ptr [ @.str.68, %531 ], [ @.str.52, %515 ], [ @.str.53, %516 ], [ @.str.54, %517 ], [ @.str.55, %518 ], [ @.str.56, %519 ], [ @.str.57, %520 ], [ @.str.58, %521 ], [ @.str.59, %522 ], [ @.str.60, %523 ], [ @.str.61, %524 ], [ @.str.62, %525 ], [ @.str.63, %526 ], [ @.str.64, %527 ], [ @.str.65, %528 ], [ @.str.66, %529 ], [ @.str.67, %530 ], [ @.str.51, %514 ]
   %533 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.158, ptr noundef nonnull %.0.i7.i) #12
   %534 = load ptr, ptr %22, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %534) #12
@@ -16073,7 +16073,7 @@ VkErrorMessages.exit.i:                           ; preds = %513, %512, %511, %5
   br label %VkErrorMessages.exit.i134
 
 VkErrorMessages.exit.i134:                        ; preds = %568, %567, %566, %565, %564, %563, %562, %561, %560, %559, %558, %557, %556, %555, %554, %553, %552, %551
-  %.0.i.i135 = phi ptr [ @.str.68, %568 ], [ @.str.67, %567 ], [ @.str.52, %552 ], [ @.str.53, %553 ], [ @.str.54, %554 ], [ @.str.55, %555 ], [ @.str.56, %556 ], [ @.str.57, %557 ], [ @.str.58, %558 ], [ @.str.59, %559 ], [ @.str.60, %560 ], [ @.str.61, %561 ], [ @.str.62, %562 ], [ @.str.63, %563 ], [ @.str.64, %564 ], [ @.str.65, %565 ], [ @.str.66, %566 ], [ @.str.51, %551 ]
+  %.0.i.i135 = phi ptr [ @.str.68, %568 ], [ @.str.52, %552 ], [ @.str.53, %553 ], [ @.str.54, %554 ], [ @.str.55, %555 ], [ @.str.56, %556 ], [ @.str.57, %557 ], [ @.str.58, %558 ], [ @.str.59, %559 ], [ @.str.60, %560 ], [ @.str.61, %561 ], [ @.str.62, %562 ], [ @.str.63, %563 ], [ @.str.64, %564 ], [ @.str.65, %565 ], [ @.str.66, %566 ], [ @.str.67, %567 ], [ @.str.51, %551 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.129, ptr noundef nonnull %.0.i.i135) #12
   br label %569
 
@@ -16150,7 +16150,7 @@ VkErrorMessages.exit.i134:                        ; preds = %568, %567, %566, %5
   br label %VkErrorMessages.exit27.i
 
 VkErrorMessages.exit27.i:                         ; preds = %586, %585, %584, %583, %582, %581, %580, %579, %578, %577, %576, %575, %574, %573, %572, %571, %570, %569
-  %.0.i26.i = phi ptr [ @.str.68, %586 ], [ @.str.67, %585 ], [ @.str.52, %570 ], [ @.str.53, %571 ], [ @.str.54, %572 ], [ @.str.55, %573 ], [ @.str.56, %574 ], [ @.str.57, %575 ], [ @.str.58, %576 ], [ @.str.59, %577 ], [ @.str.60, %578 ], [ @.str.61, %579 ], [ @.str.62, %580 ], [ @.str.63, %581 ], [ @.str.64, %582 ], [ @.str.65, %583 ], [ @.str.66, %584 ], [ @.str.51, %569 ]
+  %.0.i26.i = phi ptr [ @.str.68, %586 ], [ @.str.52, %570 ], [ @.str.53, %571 ], [ @.str.54, %572 ], [ @.str.55, %573 ], [ @.str.56, %574 ], [ @.str.57, %575 ], [ @.str.58, %576 ], [ @.str.59, %577 ], [ @.str.60, %578 ], [ @.str.61, %579 ], [ @.str.62, %580 ], [ @.str.63, %581 ], [ @.str.64, %582 ], [ @.str.65, %583 ], [ @.str.66, %584 ], [ @.str.67, %585 ], [ @.str.51, %569 ]
   %587 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.129, ptr noundef nonnull %.0.i26.i) #12
   br label %VULKAN_INTERNAL_AcquireFenceFromPool.exit.thread
 
@@ -16267,7 +16267,7 @@ VULKAN_INTERNAL_AcquireFenceFromPool.exit.thread180: ; preds = %539
   br label %VkErrorMessages.exit29.i
 
 VkErrorMessages.exit29.i:                         ; preds = %630, %629, %628, %627, %626, %625, %624, %623, %622, %621, %620, %619, %618, %617, %616, %615, %614, %613
-  %.0.i28.i = phi ptr [ @.str.68, %630 ], [ @.str.67, %629 ], [ @.str.52, %614 ], [ @.str.53, %615 ], [ @.str.54, %616 ], [ @.str.55, %617 ], [ @.str.56, %618 ], [ @.str.57, %619 ], [ @.str.58, %620 ], [ @.str.59, %621 ], [ @.str.60, %622 ], [ @.str.61, %623 ], [ @.str.62, %624 ], [ @.str.63, %625 ], [ @.str.64, %626 ], [ @.str.65, %627 ], [ @.str.66, %628 ], [ @.str.51, %613 ]
+  %.0.i28.i = phi ptr [ @.str.68, %630 ], [ @.str.52, %614 ], [ @.str.53, %615 ], [ @.str.54, %616 ], [ @.str.55, %617 ], [ @.str.56, %618 ], [ @.str.57, %619 ], [ @.str.58, %620 ], [ @.str.59, %621 ], [ @.str.60, %622 ], [ @.str.61, %623 ], [ @.str.62, %624 ], [ @.str.63, %625 ], [ @.str.64, %626 ], [ @.str.65, %627 ], [ @.str.66, %628 ], [ @.str.67, %629 ], [ @.str.51, %613 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.172, ptr noundef nonnull %.0.i28.i) #12
   br label %631
 
@@ -16344,7 +16344,7 @@ VkErrorMessages.exit29.i:                         ; preds = %630, %629, %628, %6
   br label %VkErrorMessages.exit31.i
 
 VkErrorMessages.exit31.i:                         ; preds = %648, %647, %646, %645, %644, %643, %642, %641, %640, %639, %638, %637, %636, %635, %634, %633, %632, %631
-  %.0.i30.i = phi ptr [ @.str.68, %648 ], [ @.str.67, %647 ], [ @.str.52, %632 ], [ @.str.53, %633 ], [ @.str.54, %634 ], [ @.str.55, %635 ], [ @.str.56, %636 ], [ @.str.57, %637 ], [ @.str.58, %638 ], [ @.str.59, %639 ], [ @.str.60, %640 ], [ @.str.61, %641 ], [ @.str.62, %642 ], [ @.str.63, %643 ], [ @.str.64, %644 ], [ @.str.65, %645 ], [ @.str.66, %646 ], [ @.str.51, %631 ]
+  %.0.i30.i = phi ptr [ @.str.68, %648 ], [ @.str.52, %632 ], [ @.str.53, %633 ], [ @.str.54, %634 ], [ @.str.55, %635 ], [ @.str.56, %636 ], [ @.str.57, %637 ], [ @.str.58, %638 ], [ @.str.59, %639 ], [ @.str.60, %640 ], [ @.str.61, %641 ], [ @.str.62, %642 ], [ @.str.63, %643 ], [ @.str.64, %644 ], [ @.str.65, %645 ], [ @.str.66, %646 ], [ @.str.67, %647 ], [ @.str.51, %631 ]
   %649 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.172, ptr noundef nonnull %.0.i30.i) #12
   br label %VULKAN_INTERNAL_AcquireFenceFromPool.exit.thread
 
@@ -16507,7 +16507,7 @@ VULKAN_INTERNAL_AcquireFenceFromPool.exit:        ; preds = %593
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %698, %699, %700, %701, %702, %703, %704, %705, %706, %707, %708, %709, %710, %711, %712, %713, %714, %715
-  %.0.i136 = phi ptr [ @.str.68, %715 ], [ @.str.67, %714 ], [ @.str.52, %699 ], [ @.str.53, %700 ], [ @.str.54, %701 ], [ @.str.55, %702 ], [ @.str.56, %703 ], [ @.str.57, %704 ], [ @.str.58, %705 ], [ @.str.59, %706 ], [ @.str.60, %707 ], [ @.str.61, %708 ], [ @.str.62, %709 ], [ @.str.63, %710 ], [ @.str.64, %711 ], [ @.str.65, %712 ], [ @.str.66, %713 ], [ @.str.51, %698 ]
+  %.0.i136 = phi ptr [ @.str.68, %715 ], [ @.str.52, %699 ], [ @.str.53, %700 ], [ @.str.54, %701 ], [ @.str.55, %702 ], [ @.str.56, %703 ], [ @.str.57, %704 ], [ @.str.58, %705 ], [ @.str.59, %706 ], [ @.str.60, %707 ], [ @.str.61, %708 ], [ @.str.62, %709 ], [ @.str.63, %710 ], [ @.str.64, %711 ], [ @.str.65, %712 ], [ @.str.66, %713 ], [ @.str.67, %714 ], [ @.str.51, %698 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.167, ptr noundef nonnull %.0.i136) #12
   br label %716
 
@@ -16584,7 +16584,7 @@ VkErrorMessages.exit:                             ; preds = %698, %699, %700, %7
   br label %VkErrorMessages.exit138
 
 VkErrorMessages.exit138:                          ; preds = %716, %717, %718, %719, %720, %721, %722, %723, %724, %725, %726, %727, %728, %729, %730, %731, %732, %733
-  %.0.i137 = phi ptr [ @.str.68, %733 ], [ @.str.67, %732 ], [ @.str.52, %717 ], [ @.str.53, %718 ], [ @.str.54, %719 ], [ @.str.55, %720 ], [ @.str.56, %721 ], [ @.str.57, %722 ], [ @.str.58, %723 ], [ @.str.59, %724 ], [ @.str.60, %725 ], [ @.str.61, %726 ], [ @.str.62, %727 ], [ @.str.63, %728 ], [ @.str.64, %729 ], [ @.str.65, %730 ], [ @.str.66, %731 ], [ @.str.51, %716 ]
+  %.0.i137 = phi ptr [ @.str.68, %733 ], [ @.str.52, %717 ], [ @.str.53, %718 ], [ @.str.54, %719 ], [ @.str.55, %720 ], [ @.str.56, %721 ], [ @.str.57, %722 ], [ @.str.58, %723 ], [ @.str.59, %724 ], [ @.str.60, %725 ], [ @.str.61, %726 ], [ @.str.62, %727 ], [ @.str.63, %728 ], [ @.str.64, %729 ], [ @.str.65, %730 ], [ @.str.66, %731 ], [ @.str.67, %732 ], [ @.str.51, %716 ]
   %734 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.167, ptr noundef nonnull %.0.i137) #12
   br label %890
 
@@ -16760,7 +16760,7 @@ VULKAN_INTERNAL_ReleaseCommandBuffer.exit:        ; preds = %._crit_edge.i, %770
   br label %VkErrorMessages.exit141
 
 VkErrorMessages.exit141:                          ; preds = %788, %789, %790, %791, %792, %793, %794, %795, %796, %797, %798, %799, %800, %801, %802, %803, %804, %805
-  %.0.i140 = phi ptr [ @.str.68, %805 ], [ @.str.67, %804 ], [ @.str.52, %789 ], [ @.str.53, %790 ], [ @.str.54, %791 ], [ @.str.55, %792 ], [ @.str.56, %793 ], [ @.str.57, %794 ], [ @.str.58, %795 ], [ @.str.59, %796 ], [ @.str.60, %797 ], [ @.str.61, %798 ], [ @.str.62, %799 ], [ @.str.63, %800 ], [ @.str.64, %801 ], [ @.str.65, %802 ], [ @.str.66, %803 ], [ @.str.51, %788 ]
+  %.0.i140 = phi ptr [ @.str.68, %805 ], [ @.str.52, %789 ], [ @.str.53, %790 ], [ @.str.54, %791 ], [ @.str.55, %792 ], [ @.str.56, %793 ], [ @.str.57, %794 ], [ @.str.58, %795 ], [ @.str.59, %796 ], [ @.str.60, %797 ], [ @.str.61, %798 ], [ @.str.62, %799 ], [ @.str.63, %800 ], [ @.str.64, %801 ], [ @.str.65, %802 ], [ @.str.66, %803 ], [ @.str.67, %804 ], [ @.str.51, %788 ]
   %806 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.179, ptr noundef nonnull %.0.i140) #12
   br label %890
 
@@ -17039,7 +17039,7 @@ define internal noundef zeroext i1 @VULKAN_Cancel(ptr noundef %0) #0 {
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
-  %.0.i = phi ptr [ @.str.68, %30 ], [ @.str.67, %29 ], [ @.str.52, %14 ], [ @.str.53, %15 ], [ @.str.54, %16 ], [ @.str.55, %17 ], [ @.str.56, %18 ], [ @.str.57, %19 ], [ @.str.58, %20 ], [ @.str.59, %21 ], [ @.str.60, %22 ], [ @.str.61, %23 ], [ @.str.62, %24 ], [ @.str.63, %25 ], [ @.str.64, %26 ], [ @.str.65, %27 ], [ @.str.66, %28 ], [ @.str.51, %13 ]
+  %.0.i = phi ptr [ @.str.68, %30 ], [ @.str.52, %14 ], [ @.str.53, %15 ], [ @.str.54, %16 ], [ @.str.55, %17 ], [ @.str.56, %18 ], [ @.str.57, %19 ], [ @.str.58, %20 ], [ @.str.59, %21 ], [ @.str.60, %22 ], [ @.str.61, %23 ], [ @.str.62, %24 ], [ @.str.63, %25 ], [ @.str.64, %26 ], [ @.str.65, %27 ], [ @.str.66, %28 ], [ @.str.67, %29 ], [ @.str.51, %13 ]
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.169, ptr noundef nonnull %.0.i) #12
   br label %31
 
@@ -17116,7 +17116,7 @@ VkErrorMessages.exit:                             ; preds = %13, %14, %15, %16, 
   br label %VkErrorMessages.exit15
 
 VkErrorMessages.exit15:                           ; preds = %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48
-  %.0.i14 = phi ptr [ @.str.68, %48 ], [ @.str.67, %47 ], [ @.str.52, %32 ], [ @.str.53, %33 ], [ @.str.54, %34 ], [ @.str.55, %35 ], [ @.str.56, %36 ], [ @.str.57, %37 ], [ @.str.58, %38 ], [ @.str.59, %39 ], [ @.str.60, %40 ], [ @.str.61, %41 ], [ @.str.62, %42 ], [ @.str.63, %43 ], [ @.str.64, %44 ], [ @.str.65, %45 ], [ @.str.66, %46 ], [ @.str.51, %31 ]
+  %.0.i14 = phi ptr [ @.str.68, %48 ], [ @.str.52, %32 ], [ @.str.53, %33 ], [ @.str.54, %34 ], [ @.str.55, %35 ], [ @.str.56, %36 ], [ @.str.57, %37 ], [ @.str.58, %38 ], [ @.str.59, %39 ], [ @.str.60, %40 ], [ @.str.61, %41 ], [ @.str.62, %42 ], [ @.str.63, %43 ], [ @.str.64, %44 ], [ @.str.65, %45 ], [ @.str.66, %46 ], [ @.str.67, %47 ], [ @.str.51, %31 ]
   %49 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.169, ptr noundef nonnull %.0.i14) #12
   br label %55
 
@@ -17224,7 +17224,7 @@ define internal noundef zeroext i1 @VULKAN_Wait(ptr noundef %0) #0 {
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28
-  %.0.i = phi ptr [ @.str.68, %28 ], [ @.str.67, %27 ], [ @.str.52, %12 ], [ @.str.53, %13 ], [ @.str.54, %14 ], [ @.str.55, %15 ], [ @.str.56, %16 ], [ @.str.57, %17 ], [ @.str.58, %18 ], [ @.str.59, %19 ], [ @.str.60, %20 ], [ @.str.61, %21 ], [ @.str.62, %22 ], [ @.str.63, %23 ], [ @.str.64, %24 ], [ @.str.65, %25 ], [ @.str.66, %26 ], [ @.str.51, %11 ]
+  %.0.i = phi ptr [ @.str.68, %28 ], [ @.str.52, %12 ], [ @.str.53, %13 ], [ @.str.54, %14 ], [ @.str.55, %15 ], [ @.str.56, %16 ], [ @.str.57, %17 ], [ @.str.58, %18 ], [ @.str.59, %19 ], [ @.str.60, %20 ], [ @.str.61, %21 ], [ @.str.62, %22 ], [ @.str.63, %23 ], [ @.str.64, %24 ], [ @.str.65, %25 ], [ @.str.66, %26 ], [ @.str.67, %27 ], [ @.str.51, %11 ]
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.157, ptr noundef nonnull %.0.i) #12
   br label %29
 
@@ -17301,7 +17301,7 @@ VkErrorMessages.exit:                             ; preds = %11, %12, %13, %14, 
   br label %VkErrorMessages.exit20
 
 VkErrorMessages.exit20:                           ; preds = %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46
-  %.0.i19 = phi ptr [ @.str.68, %46 ], [ @.str.67, %45 ], [ @.str.52, %30 ], [ @.str.53, %31 ], [ @.str.54, %32 ], [ @.str.55, %33 ], [ @.str.56, %34 ], [ @.str.57, %35 ], [ @.str.58, %36 ], [ @.str.59, %37 ], [ @.str.60, %38 ], [ @.str.61, %39 ], [ @.str.62, %40 ], [ @.str.63, %41 ], [ @.str.64, %42 ], [ @.str.65, %43 ], [ @.str.66, %44 ], [ @.str.51, %29 ]
+  %.0.i19 = phi ptr [ @.str.68, %46 ], [ @.str.52, %30 ], [ @.str.53, %31 ], [ @.str.54, %32 ], [ @.str.55, %33 ], [ @.str.56, %34 ], [ @.str.57, %35 ], [ @.str.58, %36 ], [ @.str.59, %37 ], [ @.str.60, %38 ], [ @.str.61, %39 ], [ @.str.62, %40 ], [ @.str.63, %41 ], [ @.str.64, %42 ], [ @.str.65, %43 ], [ @.str.66, %44 ], [ @.str.67, %45 ], [ @.str.51, %29 ]
   %47 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.157, ptr noundef nonnull %.0.i19) #12
   br label %61
 
@@ -17448,7 +17448,7 @@ define internal noundef zeroext i1 @VULKAN_WaitForFences(ptr noundef %0, i1 noun
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39
-  %.0.i = phi ptr [ @.str.68, %39 ], [ @.str.67, %38 ], [ @.str.52, %23 ], [ @.str.53, %24 ], [ @.str.54, %25 ], [ @.str.55, %26 ], [ @.str.56, %27 ], [ @.str.57, %28 ], [ @.str.58, %29 ], [ @.str.59, %30 ], [ @.str.60, %31 ], [ @.str.61, %32 ], [ @.str.62, %33 ], [ @.str.63, %34 ], [ @.str.64, %35 ], [ @.str.65, %36 ], [ @.str.66, %37 ], [ @.str.51, %22 ]
+  %.0.i = phi ptr [ @.str.68, %39 ], [ @.str.52, %23 ], [ @.str.53, %24 ], [ @.str.54, %25 ], [ @.str.55, %26 ], [ @.str.56, %27 ], [ @.str.57, %28 ], [ @.str.58, %29 ], [ @.str.59, %30 ], [ @.str.60, %31 ], [ @.str.61, %32 ], [ @.str.62, %33 ], [ @.str.63, %34 ], [ @.str.64, %35 ], [ @.str.65, %36 ], [ @.str.66, %37 ], [ @.str.67, %38 ], [ @.str.51, %22 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.175, ptr noundef nonnull %.0.i) #12
   br label %40
 
@@ -17525,7 +17525,7 @@ VkErrorMessages.exit:                             ; preds = %22, %23, %24, %25, 
   br label %VkErrorMessages.exit37
 
 VkErrorMessages.exit37:                           ; preds = %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57
-  %.0.i36 = phi ptr [ @.str.68, %57 ], [ @.str.67, %56 ], [ @.str.52, %41 ], [ @.str.53, %42 ], [ @.str.54, %43 ], [ @.str.55, %44 ], [ @.str.56, %45 ], [ @.str.57, %46 ], [ @.str.58, %47 ], [ @.str.59, %48 ], [ @.str.60, %49 ], [ @.str.61, %50 ], [ @.str.62, %51 ], [ @.str.63, %52 ], [ @.str.64, %53 ], [ @.str.65, %54 ], [ @.str.66, %55 ], [ @.str.51, %40 ]
+  %.0.i36 = phi ptr [ @.str.68, %57 ], [ @.str.52, %41 ], [ @.str.53, %42 ], [ @.str.54, %43 ], [ @.str.55, %44 ], [ @.str.56, %45 ], [ @.str.57, %46 ], [ @.str.58, %47 ], [ @.str.59, %48 ], [ @.str.60, %49 ], [ @.str.61, %50 ], [ @.str.62, %51 ], [ @.str.63, %52 ], [ @.str.64, %53 ], [ @.str.65, %54 ], [ @.str.66, %55 ], [ @.str.67, %56 ], [ @.str.51, %40 ]
   %58 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.175, ptr noundef nonnull %.0.i36) #12
   br label %86
 
@@ -17671,7 +17671,7 @@ define internal zeroext i1 @VULKAN_QueryFence(ptr noundef readonly captures(none
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31
-  %.0.i = phi ptr [ @.str.68, %31 ], [ @.str.67, %30 ], [ @.str.52, %15 ], [ @.str.53, %16 ], [ @.str.54, %17 ], [ @.str.55, %18 ], [ @.str.56, %19 ], [ @.str.57, %20 ], [ @.str.58, %21 ], [ @.str.59, %22 ], [ @.str.60, %23 ], [ @.str.61, %24 ], [ @.str.62, %25 ], [ @.str.63, %26 ], [ @.str.64, %27 ], [ @.str.65, %28 ], [ @.str.66, %29 ], [ @.str.51, %14 ]
+  %.0.i = phi ptr [ @.str.68, %31 ], [ @.str.52, %15 ], [ @.str.53, %16 ], [ @.str.54, %17 ], [ @.str.55, %18 ], [ @.str.56, %19 ], [ @.str.57, %20 ], [ @.str.58, %21 ], [ @.str.59, %22 ], [ @.str.60, %23 ], [ @.str.61, %24 ], [ @.str.62, %25 ], [ @.str.63, %26 ], [ @.str.64, %27 ], [ @.str.65, %28 ], [ @.str.66, %29 ], [ @.str.67, %30 ], [ @.str.51, %14 ]
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.231, ptr noundef nonnull %.0.i) #12
   br label %32
 
@@ -17748,7 +17748,7 @@ VkErrorMessages.exit:                             ; preds = %14, %15, %16, %17, 
   br label %VkErrorMessages.exit11
 
 VkErrorMessages.exit11:                           ; preds = %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49
-  %.0.i10 = phi ptr [ @.str.68, %49 ], [ @.str.67, %48 ], [ @.str.52, %33 ], [ @.str.53, %34 ], [ @.str.54, %35 ], [ @.str.55, %36 ], [ @.str.56, %37 ], [ @.str.57, %38 ], [ @.str.58, %39 ], [ @.str.59, %40 ], [ @.str.60, %41 ], [ @.str.61, %42 ], [ @.str.62, %43 ], [ @.str.63, %44 ], [ @.str.64, %45 ], [ @.str.65, %46 ], [ @.str.66, %47 ], [ @.str.51, %32 ]
+  %.0.i10 = phi ptr [ @.str.68, %49 ], [ @.str.52, %33 ], [ @.str.53, %34 ], [ @.str.54, %35 ], [ @.str.55, %36 ], [ @.str.56, %37 ], [ @.str.57, %38 ], [ @.str.58, %39 ], [ @.str.59, %40 ], [ @.str.60, %41 ], [ @.str.61, %42 ], [ @.str.62, %43 ], [ @.str.63, %44 ], [ @.str.64, %45 ], [ @.str.65, %46 ], [ @.str.66, %47 ], [ @.str.67, %48 ], [ @.str.51, %32 ]
   %50 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.231, ptr noundef nonnull %.0.i10) #12
   br label %51
 
@@ -18098,7 +18098,7 @@ define internal zeroext i1 @VULKAN_INTERNAL_RenderPassHashKeyMatch(ptr readnone 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %30, %35, %59, %54, %49, %44, %.critedge61, %13, %8, %3
-  %.045 = phi i1 [ false, %35 ], [ false, %3 ], [ false, %8 ], [ false, %13 ], [ false, %.critedge61 ], [ false, %44 ], [ false, %49 ], [ %.not59, %59 ], [ false, %54 ], [ false, %30 ], [ false, %25 ], [ false, %.lr.ph ]
+  %.045 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %13 ], [ false, %.critedge61 ], [ false, %44 ], [ false, %49 ], [ false, %54 ], [ %.not59, %59 ], [ false, %35 ], [ false, %30 ], [ false, %25 ], [ false, %.lr.ph ]
   ret i1 %.045
 }
 
@@ -18271,7 +18271,7 @@ define internal zeroext i1 @VULKAN_INTERNAL_FramebufferHashKeyMatch(ptr readnone
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %34, %29, %.critedge42, %8, %3
-  %.031 = phi i1 [ false, %20 ], [ false, %3 ], [ false, %8 ], [ false, %.critedge42 ], [ %.not40, %34 ], [ false, %29 ], [ false, %.lr.ph ]
+  %.031 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %.critedge42 ], [ false, %29 ], [ %.not40, %34 ], [ false, %20 ], [ false, %.lr.ph ]
   ret i1 %.031
 }
 
@@ -18551,7 +18551,7 @@ define internal fastcc void @VULKAN_INTERNAL_RemoveMemoryUsedRegion(ptr noundef 
   br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !24
 
 .loopexit:                                        ; preds = %22, %2, %14, %17
-  %23 = phi ptr [ %.pre, %17 ], [ %5, %2 ], [ %5, %14 ], [ %5, %22 ]
+  %23 = phi ptr [ %5, %2 ], [ %5, %14 ], [ %.pre, %17 ], [ %5, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 72
@@ -19344,7 +19344,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSetLayout(ptr noundef
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108
-  %.0.i = phi ptr [ @.str.68, %108 ], [ @.str.67, %107 ], [ @.str.52, %92 ], [ @.str.53, %93 ], [ @.str.54, %94 ], [ @.str.55, %95 ], [ @.str.56, %96 ], [ @.str.57, %97 ], [ @.str.58, %98 ], [ @.str.59, %99 ], [ @.str.60, %100 ], [ @.str.61, %101 ], [ @.str.62, %102 ], [ @.str.63, %103 ], [ @.str.64, %104 ], [ @.str.65, %105 ], [ @.str.66, %106 ], [ @.str.51, %91 ]
+  %.0.i = phi ptr [ @.str.68, %108 ], [ @.str.52, %92 ], [ @.str.53, %93 ], [ @.str.54, %94 ], [ @.str.55, %95 ], [ @.str.56, %96 ], [ @.str.57, %97 ], [ @.str.58, %98 ], [ @.str.59, %99 ], [ @.str.60, %100 ], [ @.str.61, %101 ], [ @.str.62, %102 ], [ @.str.63, %103 ], [ @.str.64, %104 ], [ @.str.65, %105 ], [ @.str.66, %106 ], [ @.str.67, %107 ], [ @.str.51, %91 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.128, ptr noundef nonnull %.0.i) #12
   br label %109
 
@@ -19421,7 +19421,7 @@ VkErrorMessages.exit:                             ; preds = %91, %92, %93, %94, 
   br label %VkErrorMessages.exit116
 
 VkErrorMessages.exit116:                          ; preds = %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126
-  %.0.i115 = phi ptr [ @.str.68, %126 ], [ @.str.67, %125 ], [ @.str.52, %110 ], [ @.str.53, %111 ], [ @.str.54, %112 ], [ @.str.55, %113 ], [ @.str.56, %114 ], [ @.str.57, %115 ], [ @.str.58, %116 ], [ @.str.59, %117 ], [ @.str.60, %118 ], [ @.str.61, %119 ], [ @.str.62, %120 ], [ @.str.63, %121 ], [ @.str.64, %122 ], [ @.str.65, %123 ], [ @.str.66, %124 ], [ @.str.51, %109 ]
+  %.0.i115 = phi ptr [ @.str.68, %126 ], [ @.str.52, %110 ], [ @.str.53, %111 ], [ @.str.54, %112 ], [ @.str.55, %113 ], [ @.str.56, %114 ], [ @.str.57, %115 ], [ @.str.58, %116 ], [ @.str.59, %117 ], [ @.str.60, %118 ], [ @.str.61, %119 ], [ @.str.62, %120 ], [ @.str.63, %121 ], [ @.str.64, %122 ], [ @.str.65, %123 ], [ @.str.66, %124 ], [ @.str.67, %125 ], [ @.str.51, %109 ]
   %127 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.128, ptr noundef nonnull %.0.i115) #12
   br label %147
 
@@ -19513,8 +19513,8 @@ define internal fastcc noundef ptr @VULKAN_INTERNAL_CreateTexture(ptr noundef %0
   br label %SwizzleForSDLFormat.exit
 
 SwizzleForSDLFormat.exit:                         ; preds = %3, %17, %18
-  %.sroa.4.0.i = phi i64 [ 0, %18 ], [ 12884901892, %17 ], [ 4294967297, %3 ]
-  %.sroa.11.0.i = phi i64 [ 0, %18 ], [ 21474836486, %17 ], [ 12884901889, %3 ]
+  %.sroa.4.0.i = phi i64 [ 12884901892, %17 ], [ 0, %18 ], [ 4294967297, %3 ]
+  %.sroa.11.0.i = phi i64 [ 21474836486, %17 ], [ 0, %18 ], [ 12884901889, %3 ]
   store i64 %.sroa.4.0.i, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 %.sroa.11.0.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19697,7 +19697,7 @@ switch.lookup:                                    ; preds = %SwizzleForSDLFormat
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94
-  %.0.i = phi ptr [ @.str.68, %94 ], [ @.str.67, %93 ], [ @.str.52, %78 ], [ @.str.53, %79 ], [ @.str.54, %80 ], [ @.str.55, %81 ], [ @.str.56, %82 ], [ @.str.57, %83 ], [ @.str.58, %84 ], [ @.str.59, %85 ], [ @.str.60, %86 ], [ @.str.61, %87 ], [ @.str.62, %88 ], [ @.str.63, %89 ], [ @.str.64, %90 ], [ @.str.65, %91 ], [ @.str.66, %92 ], [ @.str.51, %77 ]
+  %.0.i = phi ptr [ @.str.68, %94 ], [ @.str.52, %78 ], [ @.str.53, %79 ], [ @.str.54, %80 ], [ @.str.55, %81 ], [ @.str.56, %82 ], [ @.str.57, %83 ], [ @.str.58, %84 ], [ @.str.59, %85 ], [ @.str.60, %86 ], [ @.str.61, %87 ], [ @.str.62, %88 ], [ @.str.63, %89 ], [ @.str.64, %90 ], [ @.str.65, %91 ], [ @.str.66, %92 ], [ @.str.67, %93 ], [ @.str.51, %77 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.133, ptr noundef nonnull %.0.i) #12
   br label %95
 
@@ -19774,7 +19774,7 @@ VkErrorMessages.exit:                             ; preds = %77, %78, %79, %80, 
   br label %VkErrorMessages.exit232
 
 VkErrorMessages.exit232:                          ; preds = %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112
-  %.0.i231 = phi ptr [ @.str.68, %112 ], [ @.str.67, %111 ], [ @.str.52, %96 ], [ @.str.53, %97 ], [ @.str.54, %98 ], [ @.str.55, %99 ], [ @.str.56, %100 ], [ @.str.57, %101 ], [ @.str.58, %102 ], [ @.str.59, %103 ], [ @.str.60, %104 ], [ @.str.61, %105 ], [ @.str.62, %106 ], [ @.str.63, %107 ], [ @.str.64, %108 ], [ @.str.65, %109 ], [ @.str.66, %110 ], [ @.str.51, %95 ]
+  %.0.i231 = phi ptr [ @.str.68, %112 ], [ @.str.52, %96 ], [ @.str.53, %97 ], [ @.str.54, %98 ], [ @.str.55, %99 ], [ @.str.56, %100 ], [ @.str.57, %101 ], [ @.str.58, %102 ], [ @.str.59, %103 ], [ @.str.60, %104 ], [ @.str.61, %105 ], [ @.str.62, %106 ], [ @.str.63, %107 ], [ @.str.64, %108 ], [ @.str.65, %109 ], [ @.str.66, %110 ], [ @.str.67, %111 ], [ @.str.51, %95 ]
   %113 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.133, ptr noundef nonnull %.0.i231) #12
   br label %366
 
@@ -20003,7 +20003,7 @@ switch.lookup283:                                 ; preds = %157
   br label %VkErrorMessages.exit234
 
 VkErrorMessages.exit234:                          ; preds = %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207
-  %.0.i233 = phi ptr [ @.str.68, %207 ], [ @.str.67, %206 ], [ @.str.52, %191 ], [ @.str.53, %192 ], [ @.str.54, %193 ], [ @.str.55, %194 ], [ @.str.56, %195 ], [ @.str.57, %196 ], [ @.str.58, %197 ], [ @.str.59, %198 ], [ @.str.60, %199 ], [ @.str.61, %200 ], [ @.str.62, %201 ], [ @.str.63, %202 ], [ @.str.64, %203 ], [ @.str.65, %204 ], [ @.str.66, %205 ], [ @.str.51, %190 ]
+  %.0.i233 = phi ptr [ @.str.68, %207 ], [ @.str.52, %191 ], [ @.str.53, %192 ], [ @.str.54, %193 ], [ @.str.55, %194 ], [ @.str.56, %195 ], [ @.str.57, %196 ], [ @.str.58, %197 ], [ @.str.59, %198 ], [ @.str.60, %199 ], [ @.str.61, %200 ], [ @.str.62, %201 ], [ @.str.63, %202 ], [ @.str.64, %203 ], [ @.str.65, %204 ], [ @.str.66, %205 ], [ @.str.67, %206 ], [ @.str.51, %190 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.199, ptr noundef nonnull %.0.i233) #12
   br label %208
 
@@ -20080,7 +20080,7 @@ VkErrorMessages.exit234:                          ; preds = %190, %191, %192, %1
   br label %VkErrorMessages.exit236
 
 VkErrorMessages.exit236:                          ; preds = %208, %209, %210, %211, %212, %213, %214, %215, %216, %217, %218, %219, %220, %221, %222, %223, %224, %225
-  %.0.i235 = phi ptr [ @.str.68, %225 ], [ @.str.67, %224 ], [ @.str.52, %209 ], [ @.str.53, %210 ], [ @.str.54, %211 ], [ @.str.55, %212 ], [ @.str.56, %213 ], [ @.str.57, %214 ], [ @.str.58, %215 ], [ @.str.59, %216 ], [ @.str.60, %217 ], [ @.str.61, %218 ], [ @.str.62, %219 ], [ @.str.63, %220 ], [ @.str.64, %221 ], [ @.str.65, %222 ], [ @.str.66, %223 ], [ @.str.51, %208 ]
+  %.0.i235 = phi ptr [ @.str.68, %225 ], [ @.str.52, %209 ], [ @.str.53, %210 ], [ @.str.54, %211 ], [ @.str.55, %212 ], [ @.str.56, %213 ], [ @.str.57, %214 ], [ @.str.58, %215 ], [ @.str.59, %216 ], [ @.str.60, %217 ], [ @.str.61, %218 ], [ @.str.62, %219 ], [ @.str.63, %220 ], [ @.str.64, %221 ], [ @.str.65, %222 ], [ @.str.66, %223 ], [ @.str.67, %224 ], [ @.str.51, %208 ]
   %226 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.199, ptr noundef nonnull %.0.i235) #12
   br label %366
 
@@ -20364,7 +20364,7 @@ VULKAN_INTERNAL_TrackTexture.exit:                ; preds = %342, %357
   br label %366
 
 366:                                              ; preds = %262, %273, %281, %289, %326, %VULKAN_INTERNAL_TrackTexture.exit, %VkErrorMessages.exit236, %155, %VkErrorMessages.exit232
-  %.0 = phi ptr [ null, %VkErrorMessages.exit232 ], [ null, %155 ], [ null, %VkErrorMessages.exit236 ], [ %13, %326 ], [ %13, %VULKAN_INTERNAL_TrackTexture.exit ], [ null, %289 ], [ null, %281 ], [ null, %273 ], [ null, %262 ]
+  %.0 = phi ptr [ null, %VkErrorMessages.exit232 ], [ null, %155 ], [ null, %VkErrorMessages.exit236 ], [ %13, %VULKAN_INTERNAL_TrackTexture.exit ], [ %13, %326 ], [ null, %289 ], [ null, %281 ], [ null, %273 ], [ null, %262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -20692,7 +20692,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_INTERNAL_CreateRenderTargetVie
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45
-  %.0.i = phi ptr [ @.str.68, %45 ], [ @.str.67, %44 ], [ @.str.52, %29 ], [ @.str.53, %30 ], [ @.str.54, %31 ], [ @.str.55, %32 ], [ @.str.56, %33 ], [ @.str.57, %34 ], [ @.str.58, %35 ], [ @.str.59, %36 ], [ @.str.60, %37 ], [ @.str.61, %38 ], [ @.str.62, %39 ], [ @.str.63, %40 ], [ @.str.64, %41 ], [ @.str.65, %42 ], [ @.str.66, %43 ], [ @.str.51, %28 ]
+  %.0.i = phi ptr [ @.str.68, %45 ], [ @.str.52, %29 ], [ @.str.53, %30 ], [ @.str.54, %31 ], [ @.str.55, %32 ], [ @.str.56, %33 ], [ @.str.57, %34 ], [ @.str.58, %35 ], [ @.str.59, %36 ], [ @.str.60, %37 ], [ @.str.61, %38 ], [ @.str.62, %39 ], [ @.str.63, %40 ], [ @.str.64, %41 ], [ @.str.65, %42 ], [ @.str.66, %43 ], [ @.str.67, %44 ], [ @.str.51, %28 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.134, ptr noundef nonnull %.0.i) #12
   br label %46
 
@@ -20769,7 +20769,7 @@ VkErrorMessages.exit:                             ; preds = %28, %29, %30, %31, 
   br label %VkErrorMessages.exit16
 
 VkErrorMessages.exit16:                           ; preds = %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63
-  %.0.i15 = phi ptr [ @.str.68, %63 ], [ @.str.67, %62 ], [ @.str.52, %47 ], [ @.str.53, %48 ], [ @.str.54, %49 ], [ @.str.55, %50 ], [ @.str.56, %51 ], [ @.str.57, %52 ], [ @.str.58, %53 ], [ @.str.59, %54 ], [ @.str.60, %55 ], [ @.str.61, %56 ], [ @.str.62, %57 ], [ @.str.63, %58 ], [ @.str.64, %59 ], [ @.str.65, %60 ], [ @.str.66, %61 ], [ @.str.51, %46 ]
+  %.0.i15 = phi ptr [ @.str.68, %63 ], [ @.str.52, %47 ], [ @.str.53, %48 ], [ @.str.54, %49 ], [ @.str.55, %50 ], [ @.str.56, %51 ], [ @.str.57, %52 ], [ @.str.58, %53 ], [ @.str.59, %54 ], [ @.str.60, %55 ], [ @.str.61, %56 ], [ @.str.62, %57 ], [ @.str.63, %58 ], [ @.str.64, %59 ], [ @.str.65, %60 ], [ @.str.66, %61 ], [ @.str.67, %62 ], [ @.str.51, %46 ]
   %64 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.134, ptr noundef nonnull %.0.i15) #12
   br label %65
 
@@ -20898,7 +20898,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_INTERNAL_CreateSubresourceView
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49
-  %.0.i = phi ptr [ @.str.68, %49 ], [ @.str.67, %48 ], [ @.str.52, %33 ], [ @.str.53, %34 ], [ @.str.54, %35 ], [ @.str.55, %36 ], [ @.str.56, %37 ], [ @.str.57, %38 ], [ @.str.58, %39 ], [ @.str.59, %40 ], [ @.str.60, %41 ], [ @.str.61, %42 ], [ @.str.62, %43 ], [ @.str.63, %44 ], [ @.str.64, %45 ], [ @.str.65, %46 ], [ @.str.66, %47 ], [ @.str.51, %32 ]
+  %.0.i = phi ptr [ @.str.68, %49 ], [ @.str.52, %33 ], [ @.str.53, %34 ], [ @.str.54, %35 ], [ @.str.55, %36 ], [ @.str.56, %37 ], [ @.str.57, %38 ], [ @.str.58, %39 ], [ @.str.59, %40 ], [ @.str.60, %41 ], [ @.str.61, %42 ], [ @.str.62, %43 ], [ @.str.63, %44 ], [ @.str.64, %45 ], [ @.str.65, %46 ], [ @.str.66, %47 ], [ @.str.67, %48 ], [ @.str.51, %32 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.134, ptr noundef nonnull %.0.i) #12
   br label %50
 
@@ -20975,7 +20975,7 @@ VkErrorMessages.exit:                             ; preds = %32, %33, %34, %35, 
   br label %VkErrorMessages.exit17
 
 VkErrorMessages.exit17:                           ; preds = %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67
-  %.0.i16 = phi ptr [ @.str.68, %67 ], [ @.str.67, %66 ], [ @.str.52, %51 ], [ @.str.53, %52 ], [ @.str.54, %53 ], [ @.str.55, %54 ], [ @.str.56, %55 ], [ @.str.57, %56 ], [ @.str.58, %57 ], [ @.str.59, %58 ], [ @.str.60, %59 ], [ @.str.61, %60 ], [ @.str.62, %61 ], [ @.str.63, %62 ], [ @.str.64, %63 ], [ @.str.65, %64 ], [ @.str.66, %65 ], [ @.str.51, %50 ]
+  %.0.i16 = phi ptr [ @.str.68, %67 ], [ @.str.52, %51 ], [ @.str.53, %52 ], [ @.str.54, %53 ], [ @.str.55, %54 ], [ @.str.56, %55 ], [ @.str.57, %56 ], [ @.str.58, %57 ], [ @.str.59, %58 ], [ @.str.60, %59 ], [ @.str.61, %60 ], [ @.str.62, %61 ], [ @.str.63, %62 ], [ @.str.64, %63 ], [ @.str.65, %64 ], [ @.str.66, %65 ], [ @.str.67, %66 ], [ @.str.51, %50 ]
   %68 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.134, ptr noundef nonnull %.0.i16) #12
   br label %69
 
@@ -21132,7 +21132,7 @@ define internal noundef zeroext i1 @CheckOneFramebufferForRemoval(ptr noundef ca
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %._crit_edge, %36
-  %.1 = phi i1 [ true, %._crit_edge ], [ false, %28 ], [ true, %36 ]
+  %.1 = phi i1 [ true, %36 ], [ true, %._crit_edge ], [ false, %28 ]
   ret i1 %.1
 }
 
@@ -21376,7 +21376,7 @@ VULKAN_INTERNAL_NewMemoryUsedRegion.exit:         ; preds = %.split.us, %87
   br label %143
 
 143:                                              ; preds = %138, %25, %140
-  %.0119 = phi i64 [ %17, %25 ], [ %142, %140 ], [ 16777216, %138 ]
+  %.0119 = phi i64 [ %142, %140 ], [ %17, %25 ], [ 16777216, %138 ]
   %144 = load ptr, ptr %14, align 8
   %145 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %144, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -21544,7 +21544,7 @@ VULKAN_INTERNAL_NewMemoryUsedRegion.exit:         ; preds = %.split.us, %87
   br label %VkErrorMessages.exit.i
 
 VkErrorMessages.exit.i:                           ; preds = %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202
-  %.0.i.i = phi ptr [ @.str.68, %219 ], [ @.str.67, %218 ], [ @.str.52, %203 ], [ @.str.53, %204 ], [ @.str.54, %205 ], [ @.str.55, %206 ], [ @.str.56, %207 ], [ @.str.57, %208 ], [ @.str.58, %209 ], [ @.str.59, %210 ], [ @.str.60, %211 ], [ @.str.61, %212 ], [ @.str.62, %213 ], [ @.str.63, %214 ], [ @.str.64, %215 ], [ @.str.65, %216 ], [ @.str.66, %217 ], [ @.str.51, %202 ]
+  %.0.i.i = phi ptr [ @.str.68, %219 ], [ @.str.52, %203 ], [ @.str.53, %204 ], [ @.str.54, %205 ], [ @.str.55, %206 ], [ @.str.56, %207 ], [ @.str.57, %208 ], [ @.str.58, %209 ], [ @.str.59, %210 ], [ @.str.60, %211 ], [ @.str.61, %212 ], [ @.str.62, %213 ], [ @.str.63, %214 ], [ @.str.64, %215 ], [ @.str.65, %216 ], [ @.str.66, %217 ], [ @.str.67, %218 ], [ @.str.51, %202 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.166, ptr noundef nonnull %.0.i.i) #12
   br label %220
 
@@ -21621,7 +21621,7 @@ VkErrorMessages.exit.i:                           ; preds = %219, %218, %217, %2
   br label %VkErrorMessages.exit54.i
 
 VkErrorMessages.exit54.i:                         ; preds = %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220
-  %.0.i53.i = phi ptr [ @.str.68, %237 ], [ @.str.67, %236 ], [ @.str.52, %221 ], [ @.str.53, %222 ], [ @.str.54, %223 ], [ @.str.55, %224 ], [ @.str.56, %225 ], [ @.str.57, %226 ], [ @.str.58, %227 ], [ @.str.59, %228 ], [ @.str.60, %229 ], [ @.str.61, %230 ], [ @.str.62, %231 ], [ @.str.63, %232 ], [ @.str.64, %233 ], [ @.str.65, %234 ], [ @.str.66, %235 ], [ @.str.51, %220 ]
+  %.0.i53.i = phi ptr [ @.str.68, %237 ], [ @.str.52, %221 ], [ @.str.53, %222 ], [ @.str.54, %223 ], [ @.str.55, %224 ], [ @.str.56, %225 ], [ @.str.57, %226 ], [ @.str.58, %227 ], [ @.str.59, %228 ], [ @.str.60, %229 ], [ @.str.61, %230 ], [ @.str.62, %231 ], [ @.str.63, %232 ], [ @.str.64, %233 ], [ @.str.65, %234 ], [ @.str.66, %235 ], [ @.str.67, %236 ], [ @.str.51, %220 ]
   %238 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.166, ptr noundef nonnull %.0.i53.i) #12
   br label %241
 
@@ -21811,7 +21811,7 @@ define internal fastcc noalias ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noun
   br label %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit
 
 VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit:  ; preds = %.lr.ph.i, %17, %21, %.loopexit152
-  %.196 = phi i32 [ %34, %.loopexit152 ], [ %.095153, %17 ], [ %.095153, %21 ], [ %.095153, %.lr.ph.i ]
+  %.196 = phi i32 [ %34, %.loopexit152 ], [ %.095153, %21 ], [ %.095153, %17 ], [ %.095153, %.lr.ph.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph158, label %17, !llvm.loop !118
@@ -21871,7 +21871,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit:  ; preds = %.lr.ph.i, %17, %21,
   br label %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit125
 
 VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit125: ; preds = %.lr.ph.i119, %38, %42, %.loopexit150
-  %.398 = phi i32 [ %56, %.loopexit150 ], [ %.297156, %38 ], [ %.297156, %42 ], [ %.297156, %.lr.ph.i119 ]
+  %.398 = phi i32 [ %56, %.loopexit150 ], [ %.297156, %42 ], [ %.297156, %38 ], [ %.297156, %.lr.ph.i119 ]
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
   br i1 %exitcond177.not, label %.lr.ph162, label %38, !llvm.loop !119
@@ -21927,7 +21927,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit125: ; preds = %.lr.ph.i119, %38,
   br label %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit134
 
 VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit134: ; preds = %.lr.ph.i128, %59, %63, %.loopexit148
-  %.5 = phi i32 [ %74, %.loopexit148 ], [ %.4160, %59 ], [ %.4160, %63 ], [ %.4160, %.lr.ph.i128 ]
+  %.5 = phi i32 [ %74, %.loopexit148 ], [ %.4160, %63 ], [ %.4160, %59 ], [ %.4160, %.lr.ph.i128 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
   br i1 %exitcond182.not, label %.lr.ph166, label %59, !llvm.loop !120
@@ -21980,7 +21980,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit134: ; preds = %.lr.ph.i128, %59,
   br label %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit143
 
 VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit143: ; preds = %.lr.ph.i137, %75, %79, %.loopexit
-  %.7 = phi i32 [ %93, %.loopexit ], [ %.6164, %75 ], [ %.6164, %79 ], [ %.6164, %.lr.ph.i137 ]
+  %.7 = phi i32 [ %93, %.loopexit ], [ %.6164, %79 ], [ %.6164, %75 ], [ %.6164, %.lr.ph.i137 ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
   br i1 %exitcond187.not, label %._crit_edge, label %75, !llvm.loop !121
@@ -22091,7 +22091,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @VULKAN_INTERNAL_BindBufferMemo
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40
-  %.0.i = phi ptr [ @.str.68, %40 ], [ @.str.67, %39 ], [ @.str.52, %24 ], [ @.str.53, %25 ], [ @.str.54, %26 ], [ @.str.55, %27 ], [ @.str.56, %28 ], [ @.str.57, %29 ], [ @.str.58, %30 ], [ @.str.59, %31 ], [ @.str.60, %32 ], [ @.str.61, %33 ], [ @.str.62, %34 ], [ @.str.63, %35 ], [ @.str.64, %36 ], [ @.str.65, %37 ], [ @.str.66, %38 ], [ @.str.51, %23 ]
+  %.0.i = phi ptr [ @.str.68, %40 ], [ @.str.52, %24 ], [ @.str.53, %25 ], [ @.str.54, %26 ], [ @.str.55, %27 ], [ @.str.56, %28 ], [ @.str.57, %29 ], [ @.str.58, %30 ], [ @.str.59, %31 ], [ @.str.60, %32 ], [ @.str.61, %33 ], [ @.str.62, %34 ], [ @.str.63, %35 ], [ @.str.64, %36 ], [ @.str.65, %37 ], [ @.str.66, %38 ], [ @.str.67, %39 ], [ @.str.51, %23 ]
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.96, ptr noundef nonnull %.0.i) #12
   br label %41
 
@@ -22168,7 +22168,7 @@ VkErrorMessages.exit:                             ; preds = %23, %24, %25, %26, 
   br label %VkErrorMessages.exit13
 
 VkErrorMessages.exit13:                           ; preds = %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58
-  %.0.i12 = phi ptr [ @.str.68, %58 ], [ @.str.67, %57 ], [ @.str.52, %42 ], [ @.str.53, %43 ], [ @.str.54, %44 ], [ @.str.55, %45 ], [ @.str.56, %46 ], [ @.str.57, %47 ], [ @.str.58, %48 ], [ @.str.59, %49 ], [ @.str.60, %50 ], [ @.str.61, %51 ], [ @.str.62, %52 ], [ @.str.63, %53 ], [ @.str.64, %54 ], [ @.str.65, %55 ], [ @.str.66, %56 ], [ @.str.51, %41 ]
+  %.0.i12 = phi ptr [ @.str.68, %58 ], [ @.str.52, %42 ], [ @.str.53, %43 ], [ @.str.54, %44 ], [ @.str.55, %45 ], [ @.str.56, %46 ], [ @.str.57, %47 ], [ @.str.58, %48 ], [ @.str.59, %49 ], [ @.str.60, %50 ], [ @.str.61, %51 ], [ @.str.62, %52 ], [ @.str.63, %53 ], [ @.str.64, %54 ], [ @.str.65, %55 ], [ @.str.66, %56 ], [ @.str.67, %57 ], [ @.str.51, %41 ]
   %59 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.96, ptr noundef nonnull %.0.i12) #12
   br label %60
 
@@ -22277,7 +22277,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @VULKAN_INTERNAL_BindImageMemor
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40
-  %.0.i = phi ptr [ @.str.68, %40 ], [ @.str.67, %39 ], [ @.str.52, %24 ], [ @.str.53, %25 ], [ @.str.54, %26 ], [ @.str.55, %27 ], [ @.str.56, %28 ], [ @.str.57, %29 ], [ @.str.58, %30 ], [ @.str.59, %31 ], [ @.str.60, %32 ], [ @.str.61, %33 ], [ @.str.62, %34 ], [ @.str.63, %35 ], [ @.str.64, %36 ], [ @.str.65, %37 ], [ @.str.66, %38 ], [ @.str.51, %23 ]
+  %.0.i = phi ptr [ @.str.68, %40 ], [ @.str.52, %24 ], [ @.str.53, %25 ], [ @.str.54, %26 ], [ @.str.55, %27 ], [ @.str.56, %28 ], [ @.str.57, %29 ], [ @.str.58, %30 ], [ @.str.59, %31 ], [ @.str.60, %32 ], [ @.str.61, %33 ], [ @.str.62, %34 ], [ @.str.63, %35 ], [ @.str.64, %36 ], [ @.str.65, %37 ], [ @.str.66, %38 ], [ @.str.67, %39 ], [ @.str.51, %23 ]
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.97, ptr noundef nonnull %.0.i) #12
   br label %41
 
@@ -22354,7 +22354,7 @@ VkErrorMessages.exit:                             ; preds = %23, %24, %25, %26, 
   br label %VkErrorMessages.exit13
 
 VkErrorMessages.exit13:                           ; preds = %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58
-  %.0.i12 = phi ptr [ @.str.68, %58 ], [ @.str.67, %57 ], [ @.str.52, %42 ], [ @.str.53, %43 ], [ @.str.54, %44 ], [ @.str.55, %45 ], [ @.str.56, %46 ], [ @.str.57, %47 ], [ @.str.58, %48 ], [ @.str.59, %49 ], [ @.str.60, %50 ], [ @.str.61, %51 ], [ @.str.62, %52 ], [ @.str.63, %53 ], [ @.str.64, %54 ], [ @.str.65, %55 ], [ @.str.66, %56 ], [ @.str.51, %41 ]
+  %.0.i12 = phi ptr [ @.str.68, %58 ], [ @.str.52, %42 ], [ @.str.53, %43 ], [ @.str.54, %44 ], [ @.str.55, %45 ], [ @.str.56, %46 ], [ @.str.57, %47 ], [ @.str.58, %48 ], [ @.str.59, %49 ], [ @.str.60, %50 ], [ @.str.61, %51 ], [ @.str.62, %52 ], [ @.str.63, %53 ], [ @.str.64, %54 ], [ @.str.65, %55 ], [ @.str.66, %56 ], [ @.str.67, %57 ], [ @.str.51, %41 ]
   %59 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.97, ptr noundef nonnull %.0.i12) #12
   br label %60
 
@@ -22629,9 +22629,9 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit:     ; preds = %4, %9, %11, %13, %1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %45, %44, %43, %42, %41, %40, %39, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit
-  %.sink31.i = phi i32 [ 4096, %39 ], [ 32, %40 ], [ 32, %42 ], [ 256, %44 ], [ 1024, %45 ], [ 96, %43 ], [ 32, %41 ], [ 2048, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit ]
-  %.sink.ph.i = phi i32 [ 7, %39 ], [ 5, %40 ], [ 1, %42 ], [ 2, %44 ], [ 3, %45 ], [ 1, %43 ], [ 1, %41 ], [ 6, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit ]
-  %.025.ph.i = phi i32 [ 4096, %39 ], [ 136, %40 ], [ 2048, %42 ], [ 1024, %44 ], [ 768, %45 ], [ 2048, %43 ], [ 136, %41 ], [ 4096, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit ]
+  %.sink31.i = phi i32 [ 32, %40 ], [ 32, %42 ], [ 256, %44 ], [ 1024, %45 ], [ 96, %43 ], [ 32, %41 ], [ 4096, %39 ], [ 2048, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit ]
+  %.sink.ph.i = phi i32 [ 5, %40 ], [ 1, %42 ], [ 2, %44 ], [ 3, %45 ], [ 1, %43 ], [ 1, %41 ], [ 7, %39 ], [ 6, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit ]
+  %.025.ph.i = phi i32 [ 136, %40 ], [ 2048, %42 ], [ 1024, %44 ], [ 768, %45 ], [ 2048, %43 ], [ 136, %41 ], [ 4096, %39 ], [ 4096, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit ]
   store i32 %.sink31.i, ptr %22, align 8
   br label %switch.lookup
 
@@ -22797,7 +22797,7 @@ define internal fastcc noundef ptr @VULKAN_INTERNAL_CreateBuffer(ptr noundef %0,
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59
-  %.0.i = phi ptr [ @.str.68, %59 ], [ @.str.67, %58 ], [ @.str.52, %43 ], [ @.str.53, %44 ], [ @.str.54, %45 ], [ @.str.55, %46 ], [ @.str.56, %47 ], [ @.str.57, %48 ], [ @.str.58, %49 ], [ @.str.59, %50 ], [ @.str.60, %51 ], [ @.str.61, %52 ], [ @.str.62, %53 ], [ @.str.63, %54 ], [ @.str.64, %55 ], [ @.str.65, %56 ], [ @.str.66, %57 ], [ @.str.51, %42 ]
+  %.0.i = phi ptr [ @.str.68, %59 ], [ @.str.52, %43 ], [ @.str.53, %44 ], [ @.str.54, %45 ], [ @.str.55, %46 ], [ @.str.56, %47 ], [ @.str.57, %48 ], [ @.str.58, %49 ], [ @.str.59, %50 ], [ @.str.60, %51 ], [ @.str.61, %52 ], [ @.str.62, %53 ], [ @.str.63, %54 ], [ @.str.64, %55 ], [ @.str.65, %56 ], [ @.str.66, %57 ], [ @.str.67, %58 ], [ @.str.51, %42 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.125, ptr noundef nonnull %.0.i) #12
   br label %60
 
@@ -22874,7 +22874,7 @@ VkErrorMessages.exit:                             ; preds = %42, %43, %44, %45, 
   br label %VkErrorMessages.exit63
 
 VkErrorMessages.exit63:                           ; preds = %60, %61, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77
-  %.0.i62 = phi ptr [ @.str.68, %77 ], [ @.str.67, %76 ], [ @.str.52, %61 ], [ @.str.53, %62 ], [ @.str.54, %63 ], [ @.str.55, %64 ], [ @.str.56, %65 ], [ @.str.57, %66 ], [ @.str.58, %67 ], [ @.str.59, %68 ], [ @.str.60, %69 ], [ @.str.61, %70 ], [ @.str.62, %71 ], [ @.str.63, %72 ], [ @.str.64, %73 ], [ @.str.65, %74 ], [ @.str.66, %75 ], [ @.str.51, %60 ]
+  %.0.i62 = phi ptr [ @.str.68, %77 ], [ @.str.52, %61 ], [ @.str.53, %62 ], [ @.str.54, %63 ], [ @.str.55, %64 ], [ @.str.56, %65 ], [ @.str.57, %66 ], [ @.str.58, %67 ], [ @.str.59, %68 ], [ @.str.60, %69 ], [ @.str.61, %70 ], [ @.str.62, %71 ], [ @.str.63, %72 ], [ @.str.64, %73 ], [ @.str.65, %74 ], [ @.str.66, %75 ], [ @.str.67, %76 ], [ @.str.51, %60 ]
   %78 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.125, ptr noundef nonnull %.0.i62) #12
   br label %164
 
@@ -23746,7 +23746,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   br label %VkErrorMessages.exit.i
 
 VkErrorMessages.exit.i:                           ; preds = %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225
-  %.0.i.i = phi ptr [ @.str.68, %242 ], [ @.str.67, %241 ], [ @.str.52, %226 ], [ @.str.53, %227 ], [ @.str.54, %228 ], [ @.str.55, %229 ], [ @.str.56, %230 ], [ @.str.57, %231 ], [ @.str.58, %232 ], [ @.str.59, %233 ], [ @.str.60, %234 ], [ @.str.61, %235 ], [ @.str.62, %236 ], [ @.str.63, %237 ], [ @.str.64, %238 ], [ @.str.65, %239 ], [ @.str.66, %240 ], [ @.str.51, %225 ]
+  %.0.i.i = phi ptr [ @.str.68, %242 ], [ @.str.52, %226 ], [ @.str.53, %227 ], [ @.str.54, %228 ], [ @.str.55, %229 ], [ @.str.56, %230 ], [ @.str.57, %231 ], [ @.str.58, %232 ], [ @.str.59, %233 ], [ @.str.60, %234 ], [ @.str.61, %235 ], [ @.str.62, %236 ], [ @.str.63, %237 ], [ @.str.64, %238 ], [ @.str.65, %239 ], [ @.str.66, %240 ], [ @.str.67, %241 ], [ @.str.51, %225 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.137, ptr noundef nonnull %.0.i.i) #12
   br label %243
 
@@ -23823,7 +23823,7 @@ VkErrorMessages.exit.i:                           ; preds = %242, %241, %240, %2
   br label %VULKAN_INTERNAL_CreateRenderPass.exit.thread
 
 VULKAN_INTERNAL_CreateRenderPass.exit.thread:     ; preds = %243, %244, %245, %246, %247, %248, %249, %250, %251, %252, %253, %254, %255, %256, %257, %258, %259, %260
-  %.0.i85.i = phi ptr [ @.str.68, %260 ], [ @.str.67, %259 ], [ @.str.52, %244 ], [ @.str.53, %245 ], [ @.str.54, %246 ], [ @.str.55, %247 ], [ @.str.56, %248 ], [ @.str.57, %249 ], [ @.str.58, %250 ], [ @.str.59, %251 ], [ @.str.60, %252 ], [ @.str.61, %253 ], [ @.str.62, %254 ], [ @.str.63, %255 ], [ @.str.64, %256 ], [ @.str.65, %257 ], [ @.str.66, %258 ], [ @.str.51, %243 ]
+  %.0.i85.i = phi ptr [ @.str.68, %260 ], [ @.str.52, %244 ], [ @.str.53, %245 ], [ @.str.54, %246 ], [ @.str.55, %247 ], [ @.str.56, %248 ], [ @.str.57, %249 ], [ @.str.58, %250 ], [ @.str.59, %251 ], [ @.str.60, %252 ], [ @.str.61, %253 ], [ @.str.62, %254 ], [ @.str.63, %255 ], [ @.str.64, %256 ], [ @.str.65, %257 ], [ @.str.66, %258 ], [ @.str.67, %259 ], [ @.str.51, %243 ]
   %261 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.137, ptr noundef nonnull %.0.i85.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -25135,7 +25135,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
   br label %VkErrorMessages.exit.i
 
 VkErrorMessages.exit.i:                           ; preds = %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99
-  %.0.i.i = phi ptr [ @.str.68, %116 ], [ @.str.67, %115 ], [ @.str.52, %100 ], [ @.str.53, %101 ], [ @.str.54, %102 ], [ @.str.55, %103 ], [ @.str.56, %104 ], [ @.str.57, %105 ], [ @.str.58, %106 ], [ @.str.59, %107 ], [ @.str.60, %108 ], [ @.str.61, %109 ], [ @.str.62, %110 ], [ @.str.63, %111 ], [ @.str.64, %112 ], [ @.str.65, %113 ], [ @.str.66, %114 ], [ @.str.51, %99 ]
+  %.0.i.i = phi ptr [ @.str.68, %116 ], [ @.str.52, %100 ], [ @.str.53, %101 ], [ @.str.54, %102 ], [ @.str.55, %103 ], [ @.str.56, %104 ], [ @.str.57, %105 ], [ @.str.58, %106 ], [ @.str.59, %107 ], [ @.str.60, %108 ], [ @.str.61, %109 ], [ @.str.62, %110 ], [ @.str.63, %111 ], [ @.str.64, %112 ], [ @.str.65, %113 ], [ @.str.66, %114 ], [ @.str.67, %115 ], [ @.str.51, %99 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.127, ptr noundef nonnull %.0.i.i) #12
   br label %117
 
@@ -25212,7 +25212,7 @@ VkErrorMessages.exit.i:                           ; preds = %116, %115, %114, %1
   br label %VkErrorMessages.exit75.i
 
 VkErrorMessages.exit75.i:                         ; preds = %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117
-  %.0.i74.i = phi ptr [ @.str.68, %134 ], [ @.str.67, %133 ], [ @.str.52, %118 ], [ @.str.53, %119 ], [ @.str.54, %120 ], [ @.str.55, %121 ], [ @.str.56, %122 ], [ @.str.57, %123 ], [ @.str.58, %124 ], [ @.str.59, %125 ], [ @.str.60, %126 ], [ @.str.61, %127 ], [ @.str.62, %128 ], [ @.str.63, %129 ], [ @.str.64, %130 ], [ @.str.65, %131 ], [ @.str.66, %132 ], [ @.str.51, %117 ]
+  %.0.i74.i = phi ptr [ @.str.68, %134 ], [ @.str.52, %118 ], [ @.str.53, %119 ], [ @.str.54, %120 ], [ @.str.55, %121 ], [ @.str.56, %122 ], [ @.str.57, %123 ], [ @.str.58, %124 ], [ @.str.59, %125 ], [ @.str.60, %126 ], [ @.str.61, %127 ], [ @.str.62, %128 ], [ @.str.63, %129 ], [ @.str.64, %130 ], [ @.str.65, %131 ], [ @.str.66, %132 ], [ @.str.67, %133 ], [ @.str.51, %117 ]
   %135 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.127, ptr noundef nonnull %.0.i74.i) #12
   br label %VULKAN_INTERNAL_AllocateDescriptorsFromPool.exit.thread
 
@@ -25353,7 +25353,7 @@ VkErrorMessages.exit75.i:                         ; preds = %134, %133, %132, %1
   br label %VkErrorMessages.exit.i.i
 
 VkErrorMessages.exit.i.i:                         ; preds = %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176
-  %.0.i.i.i = phi ptr [ @.str.68, %193 ], [ @.str.67, %192 ], [ @.str.52, %177 ], [ @.str.53, %178 ], [ @.str.54, %179 ], [ @.str.55, %180 ], [ @.str.56, %181 ], [ @.str.57, %182 ], [ @.str.58, %183 ], [ @.str.59, %184 ], [ @.str.60, %185 ], [ @.str.61, %186 ], [ @.str.62, %187 ], [ @.str.63, %188 ], [ @.str.64, %189 ], [ @.str.65, %190 ], [ @.str.66, %191 ], [ @.str.51, %176 ]
+  %.0.i.i.i = phi ptr [ @.str.68, %193 ], [ @.str.52, %177 ], [ @.str.53, %178 ], [ @.str.54, %179 ], [ @.str.55, %180 ], [ @.str.56, %181 ], [ @.str.57, %182 ], [ @.str.58, %183 ], [ @.str.59, %184 ], [ @.str.60, %185 ], [ @.str.61, %186 ], [ @.str.62, %187 ], [ @.str.63, %188 ], [ @.str.64, %189 ], [ @.str.65, %190 ], [ @.str.66, %191 ], [ @.str.67, %192 ], [ @.str.51, %176 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.93, ptr noundef nonnull %.0.i.i.i) #12
   br label %194
 
@@ -25430,7 +25430,7 @@ VkErrorMessages.exit.i.i:                         ; preds = %193, %192, %191, %1
   br label %VULKAN_INTERNAL_AllocateDescriptorSets.exit.i
 
 VULKAN_INTERNAL_AllocateDescriptorSets.exit.i:    ; preds = %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194
-  %.0.i20.i.i = phi ptr [ @.str.68, %211 ], [ @.str.67, %210 ], [ @.str.52, %195 ], [ @.str.53, %196 ], [ @.str.54, %197 ], [ @.str.55, %198 ], [ @.str.56, %199 ], [ @.str.57, %200 ], [ @.str.58, %201 ], [ @.str.59, %202 ], [ @.str.60, %203 ], [ @.str.61, %204 ], [ @.str.62, %205 ], [ @.str.63, %206 ], [ @.str.64, %207 ], [ @.str.65, %208 ], [ @.str.66, %209 ], [ @.str.51, %194 ]
+  %.0.i20.i.i = phi ptr [ @.str.68, %211 ], [ @.str.52, %195 ], [ @.str.53, %196 ], [ @.str.54, %197 ], [ @.str.55, %198 ], [ @.str.56, %199 ], [ @.str.57, %200 ], [ @.str.58, %201 ], [ @.str.59, %202 ], [ @.str.60, %203 ], [ @.str.61, %204 ], [ @.str.62, %205 ], [ @.str.63, %206 ], [ @.str.64, %207 ], [ @.str.65, %208 ], [ @.str.66, %209 ], [ @.str.67, %210 ], [ @.str.51, %194 ]
   %212 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.93, ptr noundef nonnull %.0.i20.i.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -26266,7 +26266,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_INTERNAL_QuerySwapchainSupport
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46
-  %.0.i = phi ptr [ @.str.68, %46 ], [ @.str.67, %45 ], [ @.str.52, %30 ], [ @.str.53, %31 ], [ @.str.54, %32 ], [ @.str.55, %33 ], [ @.str.56, %34 ], [ @.str.57, %35 ], [ @.str.58, %36 ], [ @.str.59, %37 ], [ @.str.60, %38 ], [ @.str.61, %39 ], [ @.str.62, %40 ], [ @.str.63, %41 ], [ @.str.64, %42 ], [ @.str.65, %43 ], [ @.str.66, %44 ], [ @.str.51, %29 ]
+  %.0.i = phi ptr [ @.str.68, %46 ], [ @.str.52, %30 ], [ @.str.53, %31 ], [ @.str.54, %32 ], [ @.str.55, %33 ], [ @.str.56, %34 ], [ @.str.57, %35 ], [ @.str.58, %36 ], [ @.str.59, %37 ], [ @.str.60, %38 ], [ @.str.61, %39 ], [ @.str.62, %40 ], [ @.str.63, %41 ], [ @.str.64, %42 ], [ @.str.65, %43 ], [ @.str.66, %44 ], [ @.str.67, %45 ], [ @.str.51, %29 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.20, ptr noundef nonnull %.0.i) #12
   br label %47
 
@@ -26343,7 +26343,7 @@ VkErrorMessages.exit:                             ; preds = %29, %30, %31, %32, 
   br label %VkErrorMessages.exit86
 
 VkErrorMessages.exit86:                           ; preds = %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64
-  %.0.i85 = phi ptr [ @.str.68, %64 ], [ @.str.67, %63 ], [ @.str.52, %48 ], [ @.str.53, %49 ], [ @.str.54, %50 ], [ @.str.55, %51 ], [ @.str.56, %52 ], [ @.str.57, %53 ], [ @.str.58, %54 ], [ @.str.59, %55 ], [ @.str.60, %56 ], [ @.str.61, %57 ], [ @.str.62, %58 ], [ @.str.63, %59 ], [ @.str.64, %60 ], [ @.str.65, %61 ], [ @.str.66, %62 ], [ @.str.51, %47 ]
+  %.0.i85 = phi ptr [ @.str.68, %64 ], [ @.str.52, %48 ], [ @.str.53, %49 ], [ @.str.54, %50 ], [ @.str.55, %51 ], [ @.str.56, %52 ], [ @.str.57, %53 ], [ @.str.58, %54 ], [ @.str.59, %55 ], [ @.str.60, %56 ], [ @.str.61, %57 ], [ @.str.62, %58 ], [ @.str.63, %59 ], [ @.str.64, %60 ], [ @.str.65, %61 ], [ @.str.66, %62 ], [ @.str.67, %63 ], [ @.str.51, %47 ]
   %65 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.20, ptr noundef nonnull %.0.i85) #12
   br label %200
 
@@ -26444,7 +26444,7 @@ VkErrorMessages.exit86:                           ; preds = %47, %48, %49, %50, 
   br label %VkErrorMessages.exit88
 
 VkErrorMessages.exit88:                           ; preds = %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96
-  %.0.i87 = phi ptr [ @.str.68, %96 ], [ @.str.67, %95 ], [ @.str.52, %80 ], [ @.str.53, %81 ], [ @.str.54, %82 ], [ @.str.55, %83 ], [ @.str.56, %84 ], [ @.str.57, %85 ], [ @.str.58, %86 ], [ @.str.59, %87 ], [ @.str.60, %88 ], [ @.str.61, %89 ], [ @.str.62, %90 ], [ @.str.63, %91 ], [ @.str.64, %92 ], [ @.str.65, %93 ], [ @.str.66, %94 ], [ @.str.51, %79 ]
+  %.0.i87 = phi ptr [ @.str.68, %96 ], [ @.str.52, %80 ], [ @.str.53, %81 ], [ @.str.54, %82 ], [ @.str.55, %83 ], [ @.str.56, %84 ], [ @.str.57, %85 ], [ @.str.58, %86 ], [ @.str.59, %87 ], [ @.str.60, %88 ], [ @.str.61, %89 ], [ @.str.62, %90 ], [ @.str.63, %91 ], [ @.str.64, %92 ], [ @.str.65, %93 ], [ @.str.66, %94 ], [ @.str.67, %95 ], [ @.str.51, %79 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.21, ptr noundef nonnull %.0.i87) #12
   br label %97
 
@@ -26521,7 +26521,7 @@ VkErrorMessages.exit88:                           ; preds = %79, %80, %81, %82, 
   br label %VkErrorMessages.exit90
 
 VkErrorMessages.exit90:                           ; preds = %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114
-  %.0.i89 = phi ptr [ @.str.68, %114 ], [ @.str.67, %113 ], [ @.str.52, %98 ], [ @.str.53, %99 ], [ @.str.54, %100 ], [ @.str.55, %101 ], [ @.str.56, %102 ], [ @.str.57, %103 ], [ @.str.58, %104 ], [ @.str.59, %105 ], [ @.str.60, %106 ], [ @.str.61, %107 ], [ @.str.62, %108 ], [ @.str.63, %109 ], [ @.str.64, %110 ], [ @.str.65, %111 ], [ @.str.66, %112 ], [ @.str.51, %97 ]
+  %.0.i89 = phi ptr [ @.str.68, %114 ], [ @.str.52, %98 ], [ @.str.53, %99 ], [ @.str.54, %100 ], [ @.str.55, %101 ], [ @.str.56, %102 ], [ @.str.57, %103 ], [ @.str.58, %104 ], [ @.str.59, %105 ], [ @.str.60, %106 ], [ @.str.61, %107 ], [ @.str.62, %108 ], [ @.str.63, %109 ], [ @.str.64, %110 ], [ @.str.65, %111 ], [ @.str.66, %112 ], [ @.str.67, %113 ], [ @.str.51, %97 ]
   %115 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.21, ptr noundef nonnull %.0.i89) #12
   br label %200
 
@@ -26611,7 +26611,7 @@ VkErrorMessages.exit90:                           ; preds = %97, %98, %99, %100,
   br label %VkErrorMessages.exit92
 
 VkErrorMessages.exit92:                           ; preds = %124, %125, %126, %127, %128, %129, %130, %131, %132, %133, %134, %135, %136, %137, %138, %139, %140, %141
-  %.0.i91 = phi ptr [ @.str.68, %141 ], [ @.str.67, %140 ], [ @.str.52, %125 ], [ @.str.53, %126 ], [ @.str.54, %127 ], [ @.str.55, %128 ], [ @.str.56, %129 ], [ @.str.57, %130 ], [ @.str.58, %131 ], [ @.str.59, %132 ], [ @.str.60, %133 ], [ @.str.61, %134 ], [ @.str.62, %135 ], [ @.str.63, %136 ], [ @.str.64, %137 ], [ @.str.65, %138 ], [ @.str.66, %139 ], [ @.str.51, %124 ]
+  %.0.i91 = phi ptr [ @.str.68, %141 ], [ @.str.52, %125 ], [ @.str.53, %126 ], [ @.str.54, %127 ], [ @.str.55, %128 ], [ @.str.56, %129 ], [ @.str.57, %130 ], [ @.str.58, %131 ], [ @.str.59, %132 ], [ @.str.60, %133 ], [ @.str.61, %134 ], [ @.str.62, %135 ], [ @.str.63, %136 ], [ @.str.64, %137 ], [ @.str.65, %138 ], [ @.str.66, %139 ], [ @.str.67, %140 ], [ @.str.51, %124 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i91) #12
   br label %142
 
@@ -26688,7 +26688,7 @@ VkErrorMessages.exit92:                           ; preds = %124, %125, %126, %1
   br label %VkErrorMessages.exit94
 
 VkErrorMessages.exit94:                           ; preds = %142, %143, %144, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159
-  %.0.i93 = phi ptr [ @.str.68, %159 ], [ @.str.67, %158 ], [ @.str.52, %143 ], [ @.str.53, %144 ], [ @.str.54, %145 ], [ @.str.55, %146 ], [ @.str.56, %147 ], [ @.str.57, %148 ], [ @.str.58, %149 ], [ @.str.59, %150 ], [ @.str.60, %151 ], [ @.str.61, %152 ], [ @.str.62, %153 ], [ @.str.63, %154 ], [ @.str.64, %155 ], [ @.str.65, %156 ], [ @.str.66, %157 ], [ @.str.51, %142 ]
+  %.0.i93 = phi ptr [ @.str.68, %159 ], [ @.str.52, %143 ], [ @.str.53, %144 ], [ @.str.54, %145 ], [ @.str.55, %146 ], [ @.str.56, %147 ], [ @.str.57, %148 ], [ @.str.58, %149 ], [ @.str.59, %150 ], [ @.str.60, %151 ], [ @.str.61, %152 ], [ @.str.62, %153 ], [ @.str.63, %154 ], [ @.str.64, %155 ], [ @.str.65, %156 ], [ @.str.66, %157 ], [ @.str.67, %158 ], [ @.str.51, %142 ]
   %160 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i93) #12
   br label %200
 
@@ -26776,7 +26776,7 @@ VkErrorMessages.exit94:                           ; preds = %142, %143, %144, %1
   br label %200
 
 200:                                              ; preds = %179, %188, %164, %._crit_edge95, %186, %._crit_edge, %VkErrorMessages.exit94, %VkErrorMessages.exit90, %VkErrorMessages.exit86, %19
-  %.0 = phi i1 [ false, %VkErrorMessages.exit86 ], [ false, %VkErrorMessages.exit90 ], [ false, %VkErrorMessages.exit94 ], [ false, %._crit_edge ], [ false, %._crit_edge95 ], [ false, %164 ], [ false, %186 ], [ false, %19 ], [ true, %188 ], [ true, %179 ]
+  %.0 = phi i1 [ false, %VkErrorMessages.exit86 ], [ false, %VkErrorMessages.exit90 ], [ false, %VkErrorMessages.exit94 ], [ false, %._crit_edge ], [ false, %._crit_edge95 ], [ false, %186 ], [ false, %19 ], [ false, %164 ], [ true, %188 ], [ true, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -26924,8 +26924,8 @@ define internal fastcc range(i32 0, 3) i32 @VULKAN_INTERNAL_CreateSwapchain(ptr 
   br i1 %exitcond.not.i290, label %VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit, label %.lr.ph.i287, !llvm.loop !73
 
 VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit:     ; preds = %57, %71, %67, %.thread
-  %72 = phi i32 [ %63, %71 ], [ %53, %.thread ], [ %63, %67 ], [ %40, %57 ]
-  %.0246.in = phi i1 [ false, %71 ], [ false, %.thread ], [ true, %67 ], [ true, %57 ]
+  %72 = phi i32 [ %53, %.thread ], [ %63, %67 ], [ %63, %71 ], [ %40, %57 ]
+  %.0246.in = phi i1 [ false, %.thread ], [ false, %71 ], [ true, %67 ], [ true, %57 ]
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
@@ -27297,7 +27297,7 @@ VULKAN_INTERNAL_VerifySwapPresentMode.exit.thread: ; preds = %82, %VULKAN_INTERN
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %227, %228, %229, %230, %231, %232, %233, %234, %235, %236, %237, %238, %239, %240, %241, %242, %243, %244
-  %.0.i = phi ptr [ @.str.68, %244 ], [ @.str.67, %243 ], [ @.str.52, %228 ], [ @.str.53, %229 ], [ @.str.54, %230 ], [ @.str.55, %231 ], [ @.str.56, %232 ], [ @.str.57, %233 ], [ @.str.58, %234 ], [ @.str.59, %235 ], [ @.str.60, %236 ], [ @.str.61, %237 ], [ @.str.62, %238 ], [ @.str.63, %239 ], [ @.str.64, %240 ], [ @.str.65, %241 ], [ @.str.66, %242 ], [ @.str.51, %227 ]
+  %.0.i = phi ptr [ @.str.68, %244 ], [ @.str.52, %228 ], [ @.str.53, %229 ], [ @.str.54, %230 ], [ @.str.55, %231 ], [ @.str.56, %232 ], [ @.str.57, %233 ], [ @.str.58, %234 ], [ @.str.59, %235 ], [ @.str.60, %236 ], [ @.str.61, %237 ], [ @.str.62, %238 ], [ @.str.63, %239 ], [ @.str.64, %240 ], [ @.str.65, %241 ], [ @.str.66, %242 ], [ @.str.67, %243 ], [ @.str.51, %227 ]
   %245 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.177, ptr noundef nonnull %.0.i) #12
   br label %500
 
@@ -27699,7 +27699,7 @@ SwapchainCompositionToSDLFormat.exit:             ; preds = %.lr.ph, %315, %317,
   br label %500
 
 500:                                              ; preds = %VkErrorMessages.exit, %._crit_edge333, %266, %._crit_edge334, %432, %._crit_edge335, %._crit_edge336, %._crit_edge313, %128, %130, %105, %29, %32, %2, %111, %103
-  %.0239 = phi i32 [ 0, %105 ], [ 2, %128 ], [ 0, %29 ], [ 0, %111 ], [ 0, %103 ], [ 0, %2 ], [ 0, %32 ], [ 2, %130 ], [ 0, %VkErrorMessages.exit ], [ 0, %._crit_edge333 ], [ 0, %._crit_edge334 ], [ 0, %432 ], [ 0, %._crit_edge335 ], [ 0, %._crit_edge336 ], [ 1, %._crit_edge313 ], [ 0, %266 ]
+  %.0239 = phi i32 [ 0, %111 ], [ 0, %103 ], [ 0, %2 ], [ 0, %32 ], [ 0, %29 ], [ 0, %105 ], [ 2, %130 ], [ 2, %128 ], [ 0, %VkErrorMessages.exit ], [ 0, %._crit_edge333 ], [ 0, %._crit_edge334 ], [ 0, %432 ], [ 0, %._crit_edge335 ], [ 0, %._crit_edge336 ], [ 1, %._crit_edge313 ], [ 0, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -28121,7 +28121,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_INTERNAL_AllocateCommandBuffer
   br label %VkErrorMessages.exit
 
 VkErrorMessages.exit:                             ; preds = %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45
-  %.0.i = phi ptr [ @.str.68, %45 ], [ @.str.67, %44 ], [ @.str.52, %29 ], [ @.str.53, %30 ], [ @.str.54, %31 ], [ @.str.55, %32 ], [ @.str.56, %33 ], [ @.str.57, %34 ], [ @.str.58, %35 ], [ @.str.59, %36 ], [ @.str.60, %37 ], [ @.str.61, %38 ], [ @.str.62, %39 ], [ @.str.63, %40 ], [ @.str.64, %41 ], [ @.str.65, %42 ], [ @.str.66, %43 ], [ @.str.51, %28 ]
+  %.0.i = phi ptr [ @.str.68, %45 ], [ @.str.52, %29 ], [ @.str.53, %30 ], [ @.str.54, %31 ], [ @.str.55, %32 ], [ @.str.56, %33 ], [ @.str.57, %34 ], [ @.str.58, %35 ], [ @.str.59, %36 ], [ @.str.60, %37 ], [ @.str.61, %38 ], [ @.str.62, %39 ], [ @.str.63, %40 ], [ @.str.64, %41 ], [ @.str.65, %42 ], [ @.str.66, %43 ], [ @.str.67, %44 ], [ @.str.51, %28 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.92, ptr noundef nonnull %.0.i) #12
   br label %46
 
@@ -28198,7 +28198,7 @@ VkErrorMessages.exit:                             ; preds = %28, %29, %30, %31, 
   br label %VkErrorMessages.exit81
 
 VkErrorMessages.exit81:                           ; preds = %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63
-  %.0.i80 = phi ptr [ @.str.68, %63 ], [ @.str.67, %62 ], [ @.str.52, %47 ], [ @.str.53, %48 ], [ @.str.54, %49 ], [ @.str.55, %50 ], [ @.str.56, %51 ], [ @.str.57, %52 ], [ @.str.58, %53 ], [ @.str.59, %54 ], [ @.str.60, %55 ], [ @.str.61, %56 ], [ @.str.62, %57 ], [ @.str.63, %58 ], [ @.str.64, %59 ], [ @.str.65, %60 ], [ @.str.66, %61 ], [ @.str.51, %46 ]
+  %.0.i80 = phi ptr [ @.str.68, %63 ], [ @.str.52, %47 ], [ @.str.53, %48 ], [ @.str.54, %49 ], [ @.str.55, %50 ], [ @.str.56, %51 ], [ @.str.57, %52 ], [ @.str.58, %53 ], [ @.str.59, %54 ], [ @.str.60, %55 ], [ @.str.61, %56 ], [ @.str.62, %57 ], [ @.str.63, %58 ], [ @.str.64, %59 ], [ @.str.65, %60 ], [ @.str.66, %61 ], [ @.str.67, %62 ], [ @.str.51, %46 ]
   %64 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.92, ptr noundef nonnull %.0.i80) #12
   br label %122
 
@@ -28779,7 +28779,7 @@ VULKAN_ReleaseFence.exit121:                      ; preds = %87, %VULKAN_INTERNA
   br label %.thread
 
 .thread:                                          ; preds = %134, %.thread.loopexit, %31, %VULKAN_ReleaseFence.exit, %29, %85, %83, %218, %23
-  %.0 = phi i1 [ false, %23 ], [ true, %218 ], [ false, %29 ], [ true, %85 ], [ false, %83 ], [ true, %31 ], [ true, %VULKAN_ReleaseFence.exit ], [ false, %.thread.loopexit ], [ true, %134 ]
+  %.0 = phi i1 [ false, %23 ], [ true, %218 ], [ false, %83 ], [ true, %85 ], [ true, %31 ], [ true, %VULKAN_ReleaseFence.exit ], [ false, %29 ], [ false, %.thread.loopexit ], [ true, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }

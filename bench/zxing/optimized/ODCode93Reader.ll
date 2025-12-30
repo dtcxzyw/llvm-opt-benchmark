@@ -519,16 +519,16 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZN5ZXing11PatternV
   br i1 %197, label %_ZN5ZXing7IndexOfIA48_iiEEiRKT_RKT0_.exit.i, label %198
 
 198:                                              ; preds = %195
-  %.02946.i.i.i.i.add.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i, 8
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i
-  %199 = load i32, ptr %.ptr.i.i, align 8, !tbaa !27
+  %.02946.i.i.i.i.add7.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i, 8
+  %.ptr10.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i
+  %199 = load i32, ptr %.ptr10.i.i, align 8, !tbaa !27
   %200 = icmp eq i32 %199, %192
   br i1 %200, label %_ZN5ZXing7IndexOfIA48_iiEEiRKT_RKT0_.exit.i, label %201
 
 201:                                              ; preds = %198
-  %.02946.i.i.i.i.add7.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i, 12
-  %.ptr10.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i
-  %202 = load i32, ptr %.ptr10.i.i, align 4, !tbaa !27
+  %.02946.i.i.i.i.add.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i, 12
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i
+  %202 = load i32, ptr %.ptr.i.i, align 4, !tbaa !27
   %203 = icmp eq i32 %202, %192
   br i1 %203, label %_ZN5ZXing7IndexOfIA48_iiEEiRKT_RKT0_.exit.i, label %204
 
@@ -539,7 +539,7 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZN5ZXing11PatternV
   br i1 %206, label %.preheader, label %_ZN5ZXing4OneD9RowReader16LookupBitPatternIA48_iA49_cEEciRKT_RKT0_.exit, !llvm.loop !56
 
 _ZN5ZXing7IndexOfIA48_iiEEiRKT_RKT0_.exit.i:      ; preds = %201, %198, %195, %.preheader
-  %.028.i.i.i.i.idx15.i.i = phi i64 [ %.02946.i.i.i.i.idx.i.i, %.preheader ], [ %.02946.i.i.i.i.add8.i.i, %195 ], [ %.02946.i.i.i.i.add7.i.i, %201 ], [ %.02946.i.i.i.i.add.i.i, %198 ]
+  %.028.i.i.i.i.idx15.i.i = phi i64 [ %.02946.i.i.i.i.idx.i.i, %.preheader ], [ %.02946.i.i.i.i.add8.i.i, %195 ], [ %.02946.i.i.i.i.add7.i.i, %198 ], [ %.02946.i.i.i.i.add.i.i, %201 ]
   %207 = and i64 %.028.i.i.i.i.idx15.i.i, 17179869180
   %208 = icmp eq i64 %207, 17179869180
   br i1 %208, label %_ZN5ZXing4OneD9RowReader16LookupBitPatternIA48_iA49_cEEciRKT_RKT0_.exit, label %209
@@ -1107,7 +1107,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5ZXing5ErrorD2Ev.exit104
 
 _ZN5ZXing5ErrorD2Ev.exit104:                      ; preds = %436, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i102, %434, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88, %411, %352
-  %.pn33.pn = phi { ptr, i32 } [ %353, %352 ], [ %412, %411 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ %435, %434 ], [ %437, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i102 ], [ %437, %436 ]
+  %.pn33.pn = phi { ptr, i32 } [ %412, %411 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ %353, %352 ], [ %435, %434 ], [ %437, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i102 ], [ %437, %436 ]
   %443 = load ptr, ptr %11, align 8, !tbaa !55
   %444 = icmp eq ptr %443, %330
   br i1 %444, label %_ZN5ZXing5ErrorD2Ev.exit107, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i105

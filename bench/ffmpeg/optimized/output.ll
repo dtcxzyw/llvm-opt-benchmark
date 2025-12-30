@@ -243,7 +243,7 @@ isBE.exit363:                                     ; preds = %isBE.exit361
   tail call void @abort() #10
   unreachable
 
-isSemiPlanarYUV.exit.thread:                      ; preds = %46, %50, %38, %24, %17, %isPlanarYUV.exit405, %isSemiPlanarYUV.exit
+isSemiPlanarYUV.exit.thread:                      ; preds = %50, %46, %38, %24, %17, %isPlanarYUV.exit405, %isSemiPlanarYUV.exit
   %96 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %10) #9
   %.not.i343 = icmp eq ptr %96, null
   br i1 %.not.i343, label %97, label %98
@@ -1246,9 +1246,9 @@ isSemiPlanarYUV.exit348.thread:                   ; preds = %273, %266, %isPlana
   br label %.sink.split
 
 .sink.split:                                      ; preds = %348, %348, %348, %348, %376, %373, %387, %386, %385, %384, %383, %382, %381
-  %yuv2rgb16_1_c.sink = phi ptr [ %yuv2rgbx32_1_c.yuv2rgba32_1_c, %373 ], [ @yuv2rgb15_1_c, %381 ], [ @yuv2rgb12_1_c, %382 ], [ @yuv2rgb8_1_c, %383 ], [ @yuv2rgb4_1_c, %384 ], [ @yuv2rgb4b_1_c, %385 ], [ @yuv2x2rgb10_1_c, %386 ], [ @yuv2x2bgr10_1_c, %387 ], [ %yuv2rgbx32_1_1_c.yuv2rgba32_1_1_c, %376 ], [ @yuv2rgb16_1_c, %348 ], [ @yuv2rgb16_1_c, %348 ], [ @yuv2rgb16_1_c, %348 ], [ @yuv2rgb16_1_c, %348 ]
-  %yuv2rgb16_2_c.sink = phi ptr [ %yuv2rgbx32_2_c.yuv2rgba32_2_c, %373 ], [ @yuv2rgb15_2_c, %381 ], [ @yuv2rgb12_2_c, %382 ], [ @yuv2rgb8_2_c, %383 ], [ @yuv2rgb4_2_c, %384 ], [ @yuv2rgb4b_2_c, %385 ], [ @yuv2x2rgb10_2_c, %386 ], [ @yuv2x2bgr10_2_c, %387 ], [ %yuv2rgbx32_1_2_c.yuv2rgba32_1_2_c, %376 ], [ @yuv2rgb16_2_c, %348 ], [ @yuv2rgb16_2_c, %348 ], [ @yuv2rgb16_2_c, %348 ], [ @yuv2rgb16_2_c, %348 ]
-  %yuv2rgb16_X_c.sink = phi ptr [ %yuv2rgbx32_X_c.yuv2rgba32_X_c, %373 ], [ @yuv2rgb15_X_c, %381 ], [ @yuv2rgb12_X_c, %382 ], [ @yuv2rgb8_X_c, %383 ], [ @yuv2rgb4_X_c, %384 ], [ @yuv2rgb4b_X_c, %385 ], [ @yuv2x2rgb10_X_c, %386 ], [ @yuv2x2bgr10_X_c, %387 ], [ %yuv2rgbx32_1_X_c.yuv2rgba32_1_X_c, %376 ], [ @yuv2rgb16_X_c, %348 ], [ @yuv2rgb16_X_c, %348 ], [ @yuv2rgb16_X_c, %348 ], [ @yuv2rgb16_X_c, %348 ]
+  %yuv2rgb16_1_c.sink = phi ptr [ @yuv2rgb15_1_c, %381 ], [ @yuv2rgb12_1_c, %382 ], [ @yuv2rgb8_1_c, %383 ], [ @yuv2rgb4_1_c, %384 ], [ @yuv2rgb4b_1_c, %385 ], [ @yuv2x2rgb10_1_c, %386 ], [ @yuv2x2bgr10_1_c, %387 ], [ %yuv2rgbx32_1_c.yuv2rgba32_1_c, %373 ], [ %yuv2rgbx32_1_1_c.yuv2rgba32_1_1_c, %376 ], [ @yuv2rgb16_1_c, %348 ], [ @yuv2rgb16_1_c, %348 ], [ @yuv2rgb16_1_c, %348 ], [ @yuv2rgb16_1_c, %348 ]
+  %yuv2rgb16_2_c.sink = phi ptr [ @yuv2rgb15_2_c, %381 ], [ @yuv2rgb12_2_c, %382 ], [ @yuv2rgb8_2_c, %383 ], [ @yuv2rgb4_2_c, %384 ], [ @yuv2rgb4b_2_c, %385 ], [ @yuv2x2rgb10_2_c, %386 ], [ @yuv2x2bgr10_2_c, %387 ], [ %yuv2rgbx32_2_c.yuv2rgba32_2_c, %373 ], [ %yuv2rgbx32_1_2_c.yuv2rgba32_1_2_c, %376 ], [ @yuv2rgb16_2_c, %348 ], [ @yuv2rgb16_2_c, %348 ], [ @yuv2rgb16_2_c, %348 ], [ @yuv2rgb16_2_c, %348 ]
+  %yuv2rgb16_X_c.sink = phi ptr [ @yuv2rgb15_X_c, %381 ], [ @yuv2rgb12_X_c, %382 ], [ @yuv2rgb8_X_c, %383 ], [ @yuv2rgb4_X_c, %384 ], [ @yuv2rgb4b_X_c, %385 ], [ @yuv2x2rgb10_X_c, %386 ], [ @yuv2x2bgr10_X_c, %387 ], [ %yuv2rgbx32_X_c.yuv2rgba32_X_c, %373 ], [ %yuv2rgbx32_1_X_c.yuv2rgba32_1_X_c, %376 ], [ @yuv2rgb16_X_c, %348 ], [ @yuv2rgb16_X_c, %348 ], [ @yuv2rgb16_X_c, %348 ], [ @yuv2rgb16_X_c, %348 ]
   store ptr %yuv2rgb16_1_c.sink, ptr %4, align 8, !tbaa !36
   store ptr %yuv2rgb16_2_c.sink, ptr %5, align 8, !tbaa !36
   store ptr %yuv2rgb16_X_c.sink, ptr %6, align 8, !tbaa !36
@@ -1373,7 +1373,7 @@ isSemiPlanarYUV.exit348.thread:                   ; preds = %273, %266, %isPlana
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %388, %348, %389, %390, %391, %392, %393, %394, %395, %396, %397, %398, %399, %400, %401, %402, %403, %404, %405, %406, %407, %408, %409, %410, %369, %370, %371, %372, %379, %380, %353, %352, %358, %357, %363, %362, %368, %367
-  %yuv2bgra64be_X_c.sink = phi ptr [ @yuv2bgra64be_X_c, %367 ], [ @yuv2bgrx64be_X_c, %368 ], [ @yuv2bgra64le_X_c, %362 ], [ @yuv2bgrx64le_X_c, %363 ], [ @yuv2rgba64be_X_c, %357 ], [ @yuv2rgbx64be_X_c, %358 ], [ @yuv2rgba64le_X_c, %352 ], [ @yuv2rgbx64le_X_c, %353 ], [ @yuv2bgr24_X_c, %380 ], [ @yuv2rgb24_X_c, %379 ], [ @yuv2bgr48be_X_c, %372 ], [ @yuv2bgr48le_X_c, %371 ], [ @yuv2rgb48be_X_c, %370 ], [ @yuv2rgb48le_X_c, %369 ], [ @yuv2y216le_X_c, %410 ], [ @yuv2y212le_X_c, %409 ], [ @yuv2y210le_X_c, %408 ], [ @yuv2xv48be_X_c, %407 ], [ @yuv2xv48le_X_c, %406 ], [ @yuv2xv36be_X_c, %405 ], [ @yuv2xv36le_X_c, %404 ], [ @yuv2xv30le_X_c, %403 ], [ @yuv2uyva_X_c, %402 ], [ @yuv2vuyX_X_c, %401 ], [ @yuv2ayuv_X_c, %400 ], [ @yuv2ayuv64be_X_c, %399 ], [ @yuv2ayuv64le_X_c, %398 ], [ @yuv2monowhite_X_c, %389 ], [ @yuv2ya16be_X_c, %397 ], [ @yuv2ya16le_X_c, %396 ], [ @yuv2ya8_X_c, %395 ], [ @yuv2vyu444_X_c, %394 ], [ @yuv2uyvy422_X_c, %393 ], [ @yuv2yvyu422_X_c, %392 ], [ @yuv2yuyv422_X_c, %391 ], [ @yuv2monoblack_X_c, %390 ], [ @yuv2v30xle_X_c, %348 ], [ @yuv2v30xle_X_c, %388 ]
+  %yuv2bgra64be_X_c.sink = phi ptr [ @yuv2bgra64be_X_c, %367 ], [ @yuv2bgrx64be_X_c, %368 ], [ @yuv2bgra64le_X_c, %362 ], [ @yuv2bgrx64le_X_c, %363 ], [ @yuv2rgba64be_X_c, %357 ], [ @yuv2rgbx64be_X_c, %358 ], [ @yuv2rgba64le_X_c, %352 ], [ @yuv2rgbx64le_X_c, %353 ], [ @yuv2bgr24_X_c, %380 ], [ @yuv2rgb24_X_c, %379 ], [ @yuv2bgr48be_X_c, %372 ], [ @yuv2bgr48le_X_c, %371 ], [ @yuv2rgb48be_X_c, %370 ], [ @yuv2rgb48le_X_c, %369 ], [ @yuv2y216le_X_c, %410 ], [ @yuv2y212le_X_c, %409 ], [ @yuv2y210le_X_c, %408 ], [ @yuv2xv48be_X_c, %407 ], [ @yuv2xv48le_X_c, %406 ], [ @yuv2xv36be_X_c, %405 ], [ @yuv2xv36le_X_c, %404 ], [ @yuv2xv30le_X_c, %403 ], [ @yuv2uyva_X_c, %402 ], [ @yuv2vuyX_X_c, %401 ], [ @yuv2ayuv_X_c, %400 ], [ @yuv2ayuv64be_X_c, %399 ], [ @yuv2ayuv64le_X_c, %398 ], [ @yuv2ya16be_X_c, %397 ], [ @yuv2ya16le_X_c, %396 ], [ @yuv2ya8_X_c, %395 ], [ @yuv2vyu444_X_c, %394 ], [ @yuv2uyvy422_X_c, %393 ], [ @yuv2yvyu422_X_c, %392 ], [ @yuv2yuyv422_X_c, %391 ], [ @yuv2monoblack_X_c, %390 ], [ @yuv2monowhite_X_c, %389 ], [ @yuv2v30xle_X_c, %348 ], [ @yuv2v30xle_X_c, %388 ]
   store ptr %yuv2bgra64be_X_c.sink, ptr %6, align 8, !tbaa !36
   br label %.thread
 
@@ -4572,7 +4572,7 @@ define internal void @yuv2rgba32_full_1_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %94, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %155, %69, %81, %.preheader
-  %.183.i = phi i32 [ %6, %69 ], [ 0, %.preheader ], [ 0, %81 ], [ %6, %155 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %81 ], [ %6, %69 ], [ %6, %155 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %168 = load ptr, ptr %167, align 16, !tbaa !48
   %169 = zext nneg i32 %.183.i to i64
@@ -5073,7 +5073,7 @@ define internal void @yuv2rgbx32_full_1_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %85, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %138, %61, %72, %.preheader
-  %.183.i = phi i32 [ %6, %61 ], [ 0, %.preheader ], [ 0, %72 ], [ %6, %138 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %72 ], [ %6, %61 ], [ %6, %138 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %150 = load ptr, ptr %149, align 16, !tbaa !48
   %151 = zext nneg i32 %.183.i to i64
@@ -5658,7 +5658,7 @@ define internal void @yuv2argb32_full_1_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %94, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %155, %69, %81, %.preheader
-  %.183.i = phi i32 [ %6, %69 ], [ 0, %.preheader ], [ 0, %81 ], [ %6, %155 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %81 ], [ %6, %69 ], [ %6, %155 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %168 = load ptr, ptr %167, align 16, !tbaa !48
   %169 = zext nneg i32 %.183.i to i64
@@ -6159,7 +6159,7 @@ define internal void @yuv2xrgb32_full_1_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %85, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %138, %61, %72, %.preheader
-  %.183.i = phi i32 [ %6, %61 ], [ 0, %.preheader ], [ 0, %72 ], [ %6, %138 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %72 ], [ %6, %61 ], [ %6, %138 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %150 = load ptr, ptr %149, align 16, !tbaa !48
   %151 = zext nneg i32 %.183.i to i64
@@ -6744,7 +6744,7 @@ define internal void @yuv2bgra32_full_1_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %94, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %155, %69, %81, %.preheader
-  %.183.i = phi i32 [ %6, %69 ], [ 0, %.preheader ], [ 0, %81 ], [ %6, %155 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %81 ], [ %6, %69 ], [ %6, %155 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %168 = load ptr, ptr %167, align 16, !tbaa !48
   %169 = zext nneg i32 %.183.i to i64
@@ -7245,7 +7245,7 @@ define internal void @yuv2bgrx32_full_1_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %85, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %138, %61, %72, %.preheader
-  %.183.i = phi i32 [ %6, %61 ], [ 0, %.preheader ], [ 0, %72 ], [ %6, %138 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %72 ], [ %6, %61 ], [ %6, %138 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %150 = load ptr, ptr %149, align 16, !tbaa !48
   %151 = zext nneg i32 %.183.i to i64
@@ -7830,7 +7830,7 @@ define internal void @yuv2abgr32_full_1_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %94, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %155, %69, %81, %.preheader
-  %.183.i = phi i32 [ %6, %69 ], [ 0, %.preheader ], [ 0, %81 ], [ %6, %155 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %81 ], [ %6, %69 ], [ %6, %155 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %168 = load ptr, ptr %167, align 16, !tbaa !48
   %169 = zext nneg i32 %.183.i to i64
@@ -8331,7 +8331,7 @@ define internal void @yuv2xbgr32_full_1_c(ptr noundef readonly captures(none) %0
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %85, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %138, %61, %72, %.preheader
-  %.183.i = phi i32 [ %6, %61 ], [ 0, %.preheader ], [ 0, %72 ], [ %6, %138 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %72 ], [ %6, %61 ], [ %6, %138 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %150 = load ptr, ptr %149, align 16, !tbaa !48
   %151 = zext nneg i32 %.183.i to i64
@@ -12568,7 +12568,7 @@ define internal void @yuv2rgb24_full_1_c(ptr noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %84, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %137, %61, %71, %.preheader
-  %.183.i = phi i32 [ %6, %61 ], [ 0, %.preheader ], [ 0, %71 ], [ %6, %137 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %71 ], [ %6, %61 ], [ %6, %137 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %148 = load ptr, ptr %147, align 16, !tbaa !48
   %149 = zext nneg i32 %.183.i to i64
@@ -13061,7 +13061,7 @@ define internal void @yuv2bgr24_full_1_c(ptr noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %84, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %137, %61, %71, %.preheader
-  %.183.i = phi i32 [ %6, %61 ], [ 0, %.preheader ], [ 0, %71 ], [ %6, %137 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %71 ], [ %6, %61 ], [ %6, %137 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %148 = load ptr, ptr %147, align 16, !tbaa !48
   %149 = zext nneg i32 %.183.i to i64
@@ -15944,10 +15944,10 @@ define internal void @yuv2bgr4_byte_full_1_c(ptr noundef readonly captures(none)
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %221, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %398, %193, %200, %.preheader
-  %.sroa.8.4 = phi i32 [ %.sroa.8.3, %193 ], [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.8.1, %398 ]
-  %.sroa.15.4 = phi i32 [ %.sroa.15.3, %193 ], [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.15.1, %398 ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %193 ], [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.0.1, %398 ]
-  %.183.i = phi i32 [ %6, %193 ], [ 0, %.preheader ], [ 0, %200 ], [ %6, %398 ]
+  %.sroa.8.4 = phi i32 [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.8.3, %193 ], [ %.sroa.8.1, %398 ]
+  %.sroa.15.4 = phi i32 [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.15.3, %193 ], [ %.sroa.15.1, %398 ]
+  %.sroa.0.4 = phi i32 [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.0.3, %193 ], [ %.sroa.0.1, %398 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %200 ], [ %6, %193 ], [ %6, %398 ]
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %406 = load ptr, ptr %405, align 16, !tbaa !48
   %407 = zext nneg i32 %.183.i to i64
@@ -17138,10 +17138,10 @@ define internal void @yuv2rgb4_byte_full_1_c(ptr noundef readonly captures(none)
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %221, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %398, %193, %200, %.preheader
-  %.sroa.8.4 = phi i32 [ %.sroa.8.3, %193 ], [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.8.1, %398 ]
-  %.sroa.15.4 = phi i32 [ %.sroa.15.3, %193 ], [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.15.1, %398 ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %193 ], [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.0.1, %398 ]
-  %.183.i = phi i32 [ %6, %193 ], [ 0, %.preheader ], [ 0, %200 ], [ %6, %398 ]
+  %.sroa.8.4 = phi i32 [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.8.3, %193 ], [ %.sroa.8.1, %398 ]
+  %.sroa.15.4 = phi i32 [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.15.3, %193 ], [ %.sroa.15.1, %398 ]
+  %.sroa.0.4 = phi i32 [ 0, %.preheader ], [ 0, %200 ], [ %.sroa.0.3, %193 ], [ %.sroa.0.1, %398 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %200 ], [ %6, %193 ], [ %6, %398 ]
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %406 = load ptr, ptr %405, align 16, !tbaa !48
   %407 = zext nneg i32 %.183.i to i64
@@ -18324,10 +18324,10 @@ define internal void @yuv2bgr8_full_1_c(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %236, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %428, %208, %215, %.preheader
-  %.sroa.8.4 = phi i32 [ %.sroa.8.3, %208 ], [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.8.1, %428 ]
-  %.sroa.15.4 = phi i32 [ %.sroa.15.3, %208 ], [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.15.1, %428 ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %208 ], [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.0.1, %428 ]
-  %.183.i = phi i32 [ %6, %208 ], [ 0, %.preheader ], [ 0, %215 ], [ %6, %428 ]
+  %.sroa.8.4 = phi i32 [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.8.3, %208 ], [ %.sroa.8.1, %428 ]
+  %.sroa.15.4 = phi i32 [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.15.3, %208 ], [ %.sroa.15.1, %428 ]
+  %.sroa.0.4 = phi i32 [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.0.3, %208 ], [ %.sroa.0.1, %428 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %215 ], [ %6, %208 ], [ %6, %428 ]
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %436 = load ptr, ptr %435, align 16, !tbaa !48
   %437 = zext nneg i32 %.183.i to i64
@@ -19510,10 +19510,10 @@ define internal void @yuv2rgb8_full_1_c(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %236, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %428, %208, %215, %.preheader
-  %.sroa.8.4 = phi i32 [ %.sroa.8.3, %208 ], [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.8.1, %428 ]
-  %.sroa.15.4 = phi i32 [ %.sroa.15.3, %208 ], [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.15.1, %428 ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %208 ], [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.0.1, %428 ]
-  %.183.i = phi i32 [ %6, %208 ], [ 0, %.preheader ], [ 0, %215 ], [ %6, %428 ]
+  %.sroa.8.4 = phi i32 [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.8.3, %208 ], [ %.sroa.8.1, %428 ]
+  %.sroa.15.4 = phi i32 [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.15.3, %208 ], [ %.sroa.15.1, %428 ]
+  %.sroa.0.4 = phi i32 [ 0, %.preheader ], [ 0, %215 ], [ %.sroa.0.3, %208 ], [ %.sroa.0.1, %428 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %215 ], [ %6, %208 ], [ %6, %428 ]
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %436 = load ptr, ptr %435, align 16, !tbaa !48
   %437 = zext nneg i32 %.183.i to i64
@@ -19994,7 +19994,7 @@ define internal void @yuv2x2rgb10_full_1_c(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %83, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %136, %61, %70, %.preheader
-  %.183.i = phi i32 [ %6, %61 ], [ 0, %.preheader ], [ 0, %70 ], [ %6, %136 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %70 ], [ %6, %61 ], [ %6, %136 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %146 = load ptr, ptr %145, align 16, !tbaa !48
   %147 = zext nneg i32 %.183.i to i64
@@ -20475,7 +20475,7 @@ define internal void @yuv2x2bgr10_full_1_c(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %yuv2rgb_full_1_c_template.exit, label %83, !llvm.loop !86
 
 yuv2rgb_full_1_c_template.exit:                   ; preds = %136, %61, %70, %.preheader
-  %.183.i = phi i32 [ %6, %61 ], [ 0, %.preheader ], [ 0, %70 ], [ %6, %136 ]
+  %.183.i = phi i32 [ 0, %.preheader ], [ 0, %70 ], [ %6, %61 ], [ %6, %136 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40256
   %146 = load ptr, ptr %145, align 16, !tbaa !48
   %147 = zext nneg i32 %.183.i to i64
@@ -37389,7 +37389,7 @@ define internal void @yuv2monowhite_1_c(ptr noundef readonly captures(none) %0, 
   br label %96
 
 96:                                               ; preds = %93, %43
-  %.1.i = phi ptr [ %.0.i21, %43 ], [ %95, %93 ]
+  %.1.i = phi ptr [ %95, %93 ], [ %.0.i21, %43 ]
   %97 = icmp samesign ult i64 %indvars.iv.next27, %42
   br i1 %97, label %43, label %._crit_edge.loopexit, !llvm.loop !125
 
@@ -37625,7 +37625,7 @@ define internal void @yuv2monowhite_2_c(ptr noundef readonly captures(none) %0, 
   br label %111
 
 111:                                              ; preds = %108, %48
-  %.1.i = phi ptr [ %.0.i22, %48 ], [ %110, %108 ]
+  %.1.i = phi ptr [ %110, %108 ], [ %.0.i22, %48 ]
   %112 = icmp samesign ult i64 %indvars.iv.next28, %47
   br i1 %112, label %48, label %._crit_edge.loopexit, !llvm.loop !127
 
@@ -37931,7 +37931,7 @@ define internal void @yuv2monowhite_X_c(ptr noundef readonly captures(none) %0, 
   br label %112
 
 112:                                              ; preds = %108, %106
-  %.189.i = phi ptr [ %.088.i15, %106 ], [ %111, %108 ]
+  %.189.i = phi ptr [ %111, %108 ], [ %.088.i15, %106 ]
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 2
   %113 = icmp samesign ult i64 %indvars.iv.next28, %22
   br i1 %113, label %.preheader, label %._crit_edge19, !llvm.loop !130
@@ -40422,8 +40422,8 @@ define internal void @yuv2ya8_2_c(ptr readnone captures(none) %0, ptr noundef re
   br i1 %.not43, label %.thread42, label %.thread42.thread
 
 .thread42:                                        ; preds = %.thread, %16
-  %22 = phi ptr [ %13, %.thread ], [ %19, %16 ]
-  %23 = phi ptr [ %15, %.thread ], [ %21, %16 ]
+  %22 = phi ptr [ %19, %16 ], [ %13, %.thread ]
+  %23 = phi ptr [ %21, %16 ], [ %15, %.thread ]
   %24 = sub nsw i32 4096, %7
   %25 = icmp sgt i32 %6, 0
   br i1 %25, label %.lr.ph.split.preheader, label %._crit_edge
@@ -40757,8 +40757,8 @@ define internal void @yuv2ya16le_2_c(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not, label %.thread17, label %.thread17.thread
 
 .thread17:                                        ; preds = %.thread, %16
-  %22 = phi ptr [ %13, %.thread ], [ %19, %16 ]
-  %23 = phi ptr [ %15, %.thread ], [ %21, %16 ]
+  %22 = phi ptr [ %19, %16 ], [ %13, %.thread ]
+  %23 = phi ptr [ %21, %16 ], [ %15, %.thread ]
   %24 = sub nsw i32 4096, %7
   %25 = icmp sgt i32 %6, 0
   br i1 %25, label %.lr.ph.split.preheader, label %yuv2ya16_2_c_template.exit
@@ -41084,8 +41084,8 @@ define internal void @yuv2ya16be_2_c(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not, label %.thread17, label %.thread17.thread
 
 .thread17:                                        ; preds = %.thread, %16
-  %22 = phi ptr [ %13, %.thread ], [ %19, %16 ]
-  %23 = phi ptr [ %15, %.thread ], [ %21, %16 ]
+  %22 = phi ptr [ %19, %16 ], [ %13, %.thread ]
+  %23 = phi ptr [ %21, %16 ], [ %15, %.thread ]
   %24 = sub nsw i32 4096, %7
   %25 = icmp sgt i32 %6, 0
   br i1 %25, label %.lr.ph.split.preheader, label %yuv2ya16_2_c_template.exit

@@ -94,7 +94,7 @@ Vec_PtrAlloc.exit.thread:                         ; preds = %1
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %35, %Vec_PtrAlloc.exit
-  %38 = phi ptr [ %20, %Vec_PtrAlloc.exit ], [ %36, %35 ]
+  %38 = phi ptr [ %36, %35 ], [ %20, %Vec_PtrAlloc.exit ]
   %39 = icmp sgt i32 %13, 0
   br i1 %39, label %.lr.ph.i, label %Vec_PtrFill.exit
 

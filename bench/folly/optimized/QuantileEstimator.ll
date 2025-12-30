@@ -172,8 +172,8 @@ _ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   ret void
 
 56:                                               ; preds = %.loopexit, %.loopexit.split-lp
-  %57 = phi ptr [ %24, %.loopexit.split-lp ], [ %25, %.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %57 = phi ptr [ %25, %.loopexit ], [ %24, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i.i20 = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i20, label %_ZN5folly17QuantileEstimatesD2Ev.exit, label %58
 

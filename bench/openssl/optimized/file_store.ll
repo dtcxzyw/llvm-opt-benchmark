@@ -223,7 +223,7 @@ file_open_stream.exit:                            ; preds = %78
   br label %file_open_dir.exit
 
 file_open_dir.exit:                               ; preds = %file_open_stream.exit, %73, %70, %61, %60, %82, %49, %37, %24
-  %.0 = phi ptr [ null, %37 ], [ null, %49 ], [ null, %24 ], [ %79, %file_open_stream.exit ], [ null, %82 ], [ null, %60 ], [ null, %70 ], [ %58, %73 ], [ %58, %61 ]
+  %.0 = phi ptr [ null, %37 ], [ null, %49 ], [ null, %24 ], [ null, %82 ], [ %79, %file_open_stream.exit ], [ null, %60 ], [ null, %70 ], [ %58, %73 ], [ %58, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -372,14 +372,14 @@ ossl_param_is_empty.exit:                         ; preds = %2
 46:                                               ; preds = %39, %28
   br label %ossl_param_is_empty.exit.thread
 
-.critedge:                                        ; preds = %35, %33, %32
+.critedge:                                        ; preds = %33, %35, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %.critedge, %25, %19, %13, %ossl_param_is_empty.exit, %39, %46
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %46 ], [ 0, %39 ], [ 0, %19 ], [ 0, %13 ], [ 0, %25 ], [ 0, %.critedge ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %46 ], [ 0, %39 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %13 ], [ 0, %19 ], [ 0, %25 ], [ 0, %.critedge ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -571,7 +571,7 @@ file_setup_decoders.exit.i:                       ; preds = %.file_setup_decoder
   br label %file_load_file.exit
 
 file_load_file.exit:                              ; preds = %42, %19, %24, %31, %35, %.thread.i.i, %49, %54, %61, %78, %80
-  %.0.i = phi i32 [ %71, %78 ], [ %71, %80 ], [ 0, %19 ], [ 0, %24 ], [ 0, %61 ], [ 0, %54 ], [ 0, %31 ], [ 0, %35 ], [ 0, %49 ], [ 0, %.thread.i.i ], [ 0, %42 ]
+  %.0.i = phi i32 [ %71, %80 ], [ %71, %78 ], [ 0, %19 ], [ 0, %61 ], [ 0, %54 ], [ 0, %31 ], [ 0, %35 ], [ 0, %24 ], [ 0, %49 ], [ 0, %.thread.i.i ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %171
 
@@ -655,7 +655,7 @@ file_load_file.exit:                              ; preds = %42, %19, %24, %31, 
   br i1 %119, label %file_name_check.exit.thread.i, label %120
 
 120:                                              ; preds = %117, %114, %114
-  %.021.i.i = phi ptr [ %115, %114 ], [ %115, %114 ], [ %111, %117 ]
+  %.021.i.i = phi ptr [ %115, %114 ], [ %111, %117 ], [ %115, %114 ]
   %121 = tail call ptr @__ctype_b_loc() #9
   %122 = load ptr, ptr %121, align 8, !tbaa !33
   %123 = load i8, ptr %.021.i.i, align 1, !tbaa !10
@@ -724,7 +724,7 @@ file_name_to_uri.exit.i:                          ; preds = %ossl_ends_with_dirs
   br label %file_name_check.exit.thread.i
 
 file_name_check.exit.thread.i:                    ; preds = %file_name_to_uri.exit.i, %file_name_check.exit.i, %120, %117, %114, %107, %105, %103, %97
-  %.1.i = phi ptr [ %151, %file_name_to_uri.exit.i ], [ null, %file_name_check.exit.i ], [ null, %97 ], [ null, %114 ], [ null, %103 ], [ null, %105 ], [ null, %117 ], [ null, %107 ], [ null, %120 ]
+  %.1.i = phi ptr [ %151, %file_name_to_uri.exit.i ], [ null, %file_name_check.exit.i ], [ null, %97 ], [ null, %103 ], [ null, %107 ], [ null, %105 ], [ null, %114 ], [ null, %117 ], [ null, %120 ]
   %157 = load ptr, ptr %87, align 8, !tbaa !38
   %158 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %83, ptr noundef %157) #8
   store ptr %158, ptr %84, align 8, !tbaa !10
@@ -755,12 +755,12 @@ file_name_check.exit.thread.i:                    ; preds = %file_name_to_uri.ex
   br label %file_load_dir_entry.exit
 
 file_load_dir_entry.exit:                         ; preds = %ossl_ends_with_dirsep.exit.i.i, %93, %95, %166
-  %.0.i13 = phi i32 [ %170, %166 ], [ 0, %93 ], [ 0, %95 ], [ 0, %ossl_ends_with_dirsep.exit.i.i ]
+  %.0.i13 = phi i32 [ %170, %166 ], [ 0, %95 ], [ 0, %93 ], [ 0, %ossl_ends_with_dirsep.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %171
 
 171:                                              ; preds = %5, %file_load_dir_entry.exit, %file_load_file.exit
-  %.0 = phi i32 [ %.0.i13, %file_load_dir_entry.exit ], [ %.0.i, %file_load_file.exit ], [ 0, %5 ]
+  %.0 = phi i32 [ %.0.i, %file_load_file.exit ], [ %.0.i13, %file_load_dir_entry.exit ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -795,7 +795,7 @@ define internal i32 @file_eof(ptr noundef readonly captures(none) %0) #0 {
   br label %18
 
 18:                                               ; preds = %1, %7, %12, %4
-  %.0 = phi i32 [ %17, %12 ], [ %6, %4 ], [ 0, %7 ], [ 1, %1 ]
+  %.0 = phi i32 [ %6, %4 ], [ 0, %7 ], [ %17, %12 ], [ 1, %1 ]
   ret i32 %.0
 }
 

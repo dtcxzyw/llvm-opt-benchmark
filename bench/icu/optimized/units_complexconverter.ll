@@ -208,7 +208,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -681,7 +681,7 @@ define void @_ZN6icu_775units21ComplexUnitsConverter4initERKNS_15MeasureUnitImpl
   br i1 %or.cond.i.i20, label %_ZN6icu_7716MaybeStackVectorINS_5units14UnitsConverterELi8EE28emplaceBackAndCheckErrorCodeIJRKNS_15MeasureUnitImplERS5_RKNS1_15ConversionRatesER10UErrorCodeEEEPS2_SD_DpOT_.exit._crit_edge.sink.split, label %_ZN6icu_7716MaybeStackVectorINS_5units14UnitsConverterELi8EE28emplaceBackAndCheckErrorCodeIJRKNS_15MeasureUnitImplERS5_RKNS1_15ConversionRatesER10UErrorCodeEEEPS2_SD_DpOT_.exit
 
 _ZN6icu_7716MaybeStackVectorINS_5units14UnitsConverterELi8EE28emplaceBackAndCheckErrorCodeIJRKNS_15MeasureUnitImplERS5_RKNS1_15ConversionRatesER10UErrorCodeEEEPS2_SD_DpOT_.exit: ; preds = %26, %17
-  %38 = phi i32 [ %22, %17 ], [ %35, %26 ]
+  %38 = phi i32 [ %35, %26 ], [ %22, %17 ]
   %39 = icmp sgt i32 %38, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1952,7 +1952,7 @@ _ZN6icu_7715MaybeStackArrayIlLi5EED2Ev.exit:      ; preds = %255, %257
   ret void
 
 .body:                                            ; preds = %43, %.body118, %68, %56, %39
-  %.pn107.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %44, %43 ], [ %.pn101.pn.pn.pn.pn, %.body118 ], [ %69, %68 ], [ %57, %56 ]
+  %.pn107.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn101.pn.pn.pn.pn, %.body118 ], [ %44, %43 ], [ %69, %68 ], [ %57, %56 ]
   call void @_ZN6icu_7715MaybeStackArrayIlLi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7710MemoryPoolINS_7MeasureELi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #14

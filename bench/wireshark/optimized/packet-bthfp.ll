@@ -1085,7 +1085,7 @@ define internal i32 @dissect_bthfp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread314
 
 .thread314:                                       ; preds = %67, %.thread311, %.thread316
-  %156 = phi i32 [ %.pre, %.thread316 ], [ 1, %67 ], [ 2, %.thread311 ]
+  %156 = phi i32 [ 1, %67 ], [ 2, %.thread311 ], [ %.pre, %.thread316 ]
   %157 = load i32, ptr @hf_role, align 4
   %158 = call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %157, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %156)
   %.not.i = icmp eq ptr %158, null
@@ -1438,7 +1438,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   br i1 %345, label %.thread333.thread.sink.split, label %.thread333
 
 .thread333:                                       ; preds = %343, %340, %336, %332, %329
-  %or.cond3336 = phi i1 [ %or.cond3, %329 ], [ true, %343 ], [ true, %340 ], [ true, %336 ], [ true, %332 ]
+  %or.cond3336 = phi i1 [ true, %343 ], [ true, %340 ], [ true, %336 ], [ true, %332 ], [ %or.cond3, %329 ]
   %346 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond9 = and i1 %346, %or.cond3336
   br i1 %or.cond9, label %347, label %.thread333.thread
@@ -1494,7 +1494,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   br label %.thread326
 
 .thread326:                                       ; preds = %273, %275, %.thread329, %293, %297, %302, %307, %312, %.thread333.thread, %279
-  %.1263 = phi i32 [ %.2264332, %.thread333.thread ], [ %.2264332, %312 ], [ %.2264332, %307 ], [ %.2264332, %302 ], [ %.2264332, %297 ], [ %.2264332, %293 ], [ %.2264332, %.thread329 ], [ %.0262347, %279 ], [ %.0262347, %273 ], [ %.0262347, %275 ]
+  %.1263 = phi i32 [ %.2264332, %.thread333.thread ], [ %.2264332, %312 ], [ %.2264332, %307 ], [ %.2264332, %302 ], [ %.2264332, %297 ], [ %.2264332, %293 ], [ %.2264332, %.thread329 ], [ %.0262347, %279 ], [ %.0262347, %275 ], [ %.0262347, %273 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %272
   br i1 %exitcond.not, label %.loopexit340, label %273, !llvm.loop !10
@@ -2070,12 +2070,12 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %.thread433
 
 .thread433:                                       ; preds = %.thread, %.critedge, %73
-  %.0383 = phi ptr [ %89, %.critedge ], [ %62, %73 ], [ null, %.thread ]
-  %.0382 = phi ptr [ %91, %.critedge ], [ %64, %73 ], [ null, %.thread ]
-  %.1373 = phi i32 [ %96, %.critedge ], [ %76, %73 ], [ %3, %.thread ]
-  %.0371 = phi ptr [ %98, %.critedge ], [ %79, %73 ], [ %27, %.thread ]
-  %.0366 = phi i32 [ %.2369.lcssa.ph, %.critedge ], [ %77, %73 ], [ 0, %.thread ]
-  %.0365 = phi i32 [ %99, %.critedge ], [ %80, %73 ], [ %8, %.thread ]
+  %.0383 = phi ptr [ %62, %73 ], [ %89, %.critedge ], [ null, %.thread ]
+  %.0382 = phi ptr [ %64, %73 ], [ %91, %.critedge ], [ null, %.thread ]
+  %.1373 = phi i32 [ %76, %73 ], [ %96, %.critedge ], [ %3, %.thread ]
+  %.0371 = phi ptr [ %79, %73 ], [ %98, %.critedge ], [ %27, %.thread ]
+  %.0366 = phi i32 [ %77, %73 ], [ %.2369.lcssa.ph, %.critedge ], [ 0, %.thread ]
+  %.0365 = phi i32 [ %80, %73 ], [ %99, %.critedge ], [ %8, %.thread ]
   %.not412 = icmp eq ptr %.0371, null
   br i1 %.not412, label %.thread509, label %.preheader521
 
@@ -2151,8 +2151,8 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %124
 
 124:                                              ; preds = %115, %.thread448
-  %.1364538 = phi ptr [ %.1364539, %.thread448 ], [ %.1364561, %115 ]
-  %.0384 = phi ptr [ %123, %.thread448 ], [ %119, %115 ]
+  %.1364538 = phi ptr [ %.1364561, %115 ], [ %.1364539, %.thread448 ]
+  %.0384 = phi ptr [ %119, %115 ], [ %123, %.thread448 ]
   %.not421 = icmp eq ptr %.1364538, null
   br i1 %.not421, label %180, label %125
 
@@ -2262,10 +2262,10 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %181 = add i32 %.3370.lcssa, %.1373
   br label %189
 
-182:                                              ; preds = %151, %165, %.thread481.thread, %.thread481, %170, %135
-  %.2374.ph = phi i32 [ %136, %135 ], [ %136, %170 ], [ %136, %.thread481 ], [ %178, %.thread481.thread ], [ %168, %165 ], [ %154, %151 ]
-  %.4.ph = phi i32 [ %.3370.lcssa, %135 ], [ %.3370.lcssa, %170 ], [ %.3370.lcssa, %.thread481 ], [ %179, %.thread481.thread ], [ %169, %165 ], [ %155, %151 ]
-  %.0353.ph = phi i16 [ 0, %135 ], [ 0, %170 ], [ 0, %.thread481 ], [ %174, %.thread481.thread ], [ 3338, %165 ], [ 15679, %151 ]
+182:                                              ; preds = %151, %165, %.thread481.thread, %170, %135, %.thread481
+  %.2374.ph = phi i32 [ %136, %.thread481 ], [ %136, %135 ], [ %136, %170 ], [ %178, %.thread481.thread ], [ %168, %165 ], [ %154, %151 ]
+  %.4.ph = phi i32 [ %.3370.lcssa, %.thread481 ], [ %.3370.lcssa, %135 ], [ %.3370.lcssa, %170 ], [ %179, %.thread481.thread ], [ %169, %165 ], [ %155, %151 ]
+  %.0353.ph = phi i16 [ 0, %.thread481 ], [ 0, %135 ], [ 0, %170 ], [ %174, %.thread481.thread ], [ 3338, %165 ], [ 15679, %151 ]
   %183 = getelementptr inbounds nuw i8, ptr %.1364538, i64 16
   %184 = load ptr, ptr %183, align 8
   %.not423 = icmp eq ptr %184, null
@@ -2388,8 +2388,8 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %.critedge9
 
 .critedge9:                                       ; preds = %.outer, %219, %215, %208, %.critedge9.loopexit, %.preheader
-  %.1362529 = phi i32 [ 0, %.preheader ], [ %.1362563, %.critedge9.loopexit ], [ %.1362563, %208 ], [ %216, %215 ], [ %.1362563, %219 ], [ %226, %.outer ]
-  %.1 = phi i1 [ false, %.preheader ], [ false, %.critedge9.loopexit ], [ true, %208 ], [ false, %215 ], [ false, %219 ], [ false, %.outer ]
+  %.1362529 = phi i32 [ 0, %.preheader ], [ %.1362563, %208 ], [ %216, %215 ], [ %.1362563, %.critedge9.loopexit ], [ %226, %.outer ], [ %.1362563, %219 ]
+  %.1 = phi i1 [ false, %.preheader ], [ true, %208 ], [ false, %215 ], [ false, %.critedge9.loopexit ], [ false, %219 ], [ false, %.outer ]
   switch i16 %.0353507, label %.critedge432 [
     i16 61, label %230
     i16 58, label %230
@@ -2424,8 +2424,8 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %.critedge432
 
 .critedge432:                                     ; preds = %200, %230, %.critedge9, %239, %.thread508, %235
-  %.0361 = phi i32 [ %.1362529, %.thread508 ], [ %.1362529, %239 ], [ %.1362529, %230 ], [ %.1362529, %235 ], [ %.1362529, %.critedge9 ], [ 0, %200 ]
-  %.0348 = phi i1 [ %.1, %.thread508 ], [ %.1, %239 ], [ %.1, %230 ], [ %.1, %235 ], [ %.1, %.critedge9 ], [ false, %200 ]
+  %.0361 = phi i32 [ %.1362529, %.thread508 ], [ %.1362529, %239 ], [ %.1362529, %235 ], [ %.1362529, %.critedge9 ], [ %.1362529, %230 ], [ 0, %200 ]
+  %.0348 = phi i1 [ %.1, %.thread508 ], [ %.1, %239 ], [ %.1, %235 ], [ %.1, %.critedge9 ], [ %.1, %230 ], [ false, %200 ]
   switch i16 %.0353507, label %243 [
     i16 15679, label %245
     i16 3338, label %245
@@ -2487,8 +2487,8 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %.8 = phi i32 [ %268, %267 ], [ %246, %263 ]
   br i1 %.0348, label %..loopexit_crit_edge, label %198, !llvm.loop !34
 
-.thread509:                                       ; preds = %.thread433, %81, %58, %84
-  %.1373445 = phi i32 [ %.1373, %.thread433 ], [ %3, %81 ], [ %3, %58 ], [ %3, %84 ]
+.thread509:                                       ; preds = %.thread433, %58, %84, %81
+  %.1373445 = phi i32 [ %.1373, %.thread433 ], [ %3, %58 ], [ %3, %84 ], [ %3, %81 ]
   %271 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1373445)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %271, i32 0)
   %272 = add i32 %spec.store.select, %.1373445
@@ -2585,7 +2585,7 @@ define internal noundef zeroext i1 @check_xapl(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %7, %2
-  %.0 = phi i1 [ %switch.selectcmp, %7 ], [ true, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ true, %2 ], [ %switch.selectcmp, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -2686,7 +2686,7 @@ check_xapl.exit.thread:                           ; preds = %check_xapl.exit, %c
   br label %check_xapl.exit.thread40
 
 check_xapl.exit.thread40:                         ; preds = %check_xapl.exit, %13, %49, %16, %52, %67, %check_xapl.exit.thread
-  %.0 = phi i1 [ false, %check_xapl.exit.thread ], [ false, %check_xapl.exit ], [ true, %67 ], [ true, %52 ], [ true, %16 ], [ true, %49 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %check_xapl.exit ], [ false, %check_xapl.exit.thread ], [ true, %67 ], [ true, %52 ], [ true, %16 ], [ true, %49 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -2959,7 +2959,7 @@ define internal noundef zeroext i1 @dissect_biev_parameter(ptr noundef %0, ptr n
   br label %47
 
 47:                                               ; preds = %34, %30, %32, %28, %13, %10
-  %.0 = phi i1 [ false, %13 ], [ false, %10 ], [ true, %28 ], [ true, %32 ], [ true, %30 ], [ true, %34 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %13 ], [ true, %28 ], [ true, %32 ], [ true, %30 ], [ true, %34 ]
   ret i1 %.0
 }
 
@@ -2982,7 +2982,7 @@ define internal noundef zeroext i1 @check_bind(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
   ret i1 %.0
 }
 
@@ -3005,7 +3005,7 @@ define internal noundef zeroext i1 @dissect_bind_parameter(ptr noundef %0, ptr r
   br label %check_bind.exit
 
 check_bind.exit:                                  ; preds = %12, %12, %12, %13
-  %.0.i = phi i1 [ true, %12 ], [ %or.cond8.i, %13 ], [ true, %12 ], [ true, %12 ]
+  %.0.i = phi i1 [ true, %12 ], [ true, %12 ], [ true, %12 ], [ %or.cond8.i, %13 ]
   %16 = icmp ult i32 %7, 20
   %or.cond = and i1 %16, %.0.i
   br i1 %or.cond, label %17, label %30
@@ -3655,7 +3655,7 @@ define internal noundef zeroext i1 @dissect_binp_parameter(ptr noundef %0, ptr n
   br label %35
 
 35:                                               ; preds = %32, %17, %30, %.critedge, %13
-  %.0 = phi i1 [ false, %.critedge ], [ false, %13 ], [ true, %30 ], [ true, %17 ], [ true, %32 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %.critedge ], [ true, %30 ], [ true, %17 ], [ true, %32 ]
   ret i1 %.0
 }
 
@@ -3723,7 +3723,7 @@ define internal noundef zeroext i1 @check_ccwa(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
   ret i1 %.0
 }
 
@@ -3841,7 +3841,7 @@ default.unreachable:                              ; preds = %29, %18
   unreachable
 
 check_ccwa.exit.thread88:                         ; preds = %26, %23, %20, %12, %38, %33, %58, %54, %51, %47, %44, %40, %30, %16, %check_ccwa.exit
-  %.0 = phi i1 [ false, %check_ccwa.exit ], [ false, %16 ], [ false, %12 ], [ true, %20 ], [ true, %30 ], [ true, %40 ], [ true, %44 ], [ true, %47 ], [ true, %51 ], [ true, %54 ], [ true, %58 ], [ true, %33 ], [ true, %38 ], [ true, %23 ], [ true, %26 ]
+  %.0 = phi i1 [ false, %check_ccwa.exit ], [ false, %16 ], [ true, %30 ], [ true, %40 ], [ true, %44 ], [ true, %47 ], [ true, %51 ], [ true, %54 ], [ true, %58 ], [ true, %33 ], [ true, %38 ], [ true, %20 ], [ true, %23 ], [ true, %26 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -3863,7 +3863,7 @@ define internal noundef zeroext i1 @check_chld(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
   ret i1 %.0
 }
 
@@ -3983,7 +3983,7 @@ define internal noundef zeroext i1 @check_cind(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
   ret i1 %.0
 }
 
@@ -4005,7 +4005,7 @@ define internal noundef zeroext i1 @dissect_cind_parameter(ptr noundef %0, ptr r
   br label %check_cind.exit
 
 check_cind.exit:                                  ; preds = %12, %12, %13
-  %.0.i = phi i1 [ false, %12 ], [ %or.cond5.i.not, %13 ], [ false, %12 ]
+  %.0.i = phi i1 [ false, %12 ], [ false, %12 ], [ %or.cond5.i.not, %13 ]
   %16 = icmp ugt i32 %7, 19
   %or.cond = or i1 %16, %.0.i
   br i1 %or.cond, label %22, label %17
@@ -4040,7 +4040,7 @@ define internal noundef zeroext i1 @check_clcc(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
   ret i1 %.0
 }
 
@@ -4425,7 +4425,7 @@ define internal noundef zeroext i1 @check_clip(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
   ret i1 %.0
 }
 
@@ -4548,7 +4548,7 @@ check_clip.exit:                                  ; preds = %10
   br label %check_clip.exit.thread74
 
 check_clip.exit.thread74:                         ; preds = %12, %34, %21, %20, %55, %50, %67, %64, %60, %57, %47, %.thread83, %16, %check_clip.exit
-  %.0 = phi i1 [ false, %check_clip.exit ], [ false, %16 ], [ false, %12 ], [ true, %.thread83 ], [ true, %47 ], [ true, %57 ], [ true, %60 ], [ true, %64 ], [ true, %67 ], [ true, %50 ], [ true, %55 ], [ true, %20 ], [ true, %21 ], [ true, %34 ]
+  %.0 = phi i1 [ false, %check_clip.exit ], [ false, %16 ], [ true, %.thread83 ], [ true, %47 ], [ true, %57 ], [ true, %60 ], [ true, %64 ], [ true, %67 ], [ true, %50 ], [ true, %55 ], [ true, %20 ], [ true, %21 ], [ true, %34 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -4571,7 +4571,7 @@ define internal noundef zeroext i1 @check_cmer(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
   ret i1 %.0
 }
 
@@ -4748,7 +4748,7 @@ define internal noundef zeroext i1 @check_vts(i32 noundef %0, i16 noundef zeroex
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
   ret i1 %.0
 }
 

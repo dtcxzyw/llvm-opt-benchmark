@@ -1144,7 +1144,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   br i1 %136, label %.loopexit.us.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !43
 
 .loopexit.us.us.us.us:                            ; preds = %132, %129, %123
-  %137 = phi ptr [ %121, %123 ], [ %131, %129 ], [ %134, %132 ]
+  %137 = phi ptr [ %131, %129 ], [ %121, %123 ], [ %134, %132 ]
   %138 = icmp ugt ptr %137, inttoptr (i64 -4096 to ptr)
   br i1 %138, label %.thread47.us.us.us.us, label %.split72.us.us.split.us.us
 
@@ -1288,7 +1288,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   br i1 %224, label %.loopexit.us.us, label %.preheader.us.us, !llvm.loop !43
 
 .loopexit.us.us:                                  ; preds = %220, %217, %209
-  %225 = phi ptr [ %200, %209 ], [ %219, %217 ], [ %222, %220 ]
+  %225 = phi ptr [ %219, %217 ], [ %200, %209 ], [ %222, %220 ]
   %226 = icmp ugt ptr %225, inttoptr (i64 -4096 to ptr)
   br i1 %226, label %.thread47.us.us, label %.split72.us.us.split
 

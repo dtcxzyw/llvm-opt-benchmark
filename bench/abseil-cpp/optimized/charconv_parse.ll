@@ -148,8 +148,8 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi10EEENS
   br i1 %exitcond72.not.i, label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit, label %.lr.ph62.i, !llvm.loop !11
 
 _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.lr.ph62.i, %44, %.critedge2.i
-  %.1148 = phi i1 [ false, %.critedge2.i ], [ %.061.i, %.lr.ph62.i ], [ %spec.select.i, %44 ]
-  %.2.lcssa79.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %.260.i, %.lr.ph62.i ], [ %scevgep71.i, %44 ]
+  %.1148 = phi i1 [ false, %.critedge2.i ], [ %spec.select.i, %44 ], [ %.061.i, %.lr.ph62.i ]
+  %.2.lcssa79.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %scevgep71.i, %44 ], [ %.260.i, %.lr.ph62.i ]
   %47 = ptrtoint ptr %.2.lcssa79.i to i64
   %48 = sub i64 %47, %.pre-phi
   %49 = trunc i64 %48 to i32
@@ -308,8 +308,8 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
   br i1 %exitcond72.not.i130, label %.critedge4.i126, label %.lr.ph62.i123, !llvm.loop !11
 
 .critedge4.i126:                                  ; preds = %105, %.lr.ph62.i123
-  %.2.lcssa.i127 = phi ptr [ %scevgep71.i122, %105 ], [ %.260.i125, %.lr.ph62.i123 ]
-  %.0.lcssa.i128 = phi i1 [ %spec.select.i129, %105 ], [ %.061.i124, %.lr.ph62.i123 ]
+  %.2.lcssa.i127 = phi ptr [ %.260.i125, %.lr.ph62.i123 ], [ %scevgep71.i122, %105 ]
+  %.0.lcssa.i128 = phi i1 [ %.061.i124, %.lr.ph62.i123 ], [ %spec.select.i129, %105 ]
   %spec.select156 = select i1 %.0.lcssa.i128, i1 true, i1 %.1148
   br label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142
 
@@ -392,8 +392,8 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142: ; preds = 
   br label %.critedge104
 
 .critedge104:                                     ; preds = %143, %135, %141
-  %.080.not = phi i1 [ false, %141 ], [ true, %135 ], [ true, %143 ]
-  %.5 = phi ptr [ %142, %141 ], [ %136, %135 ], [ %spec.select, %143 ]
+  %.080.not = phi i1 [ false, %141 ], [ true, %143 ], [ true, %135 ]
+  %.5 = phi ptr [ %142, %141 ], [ %spec.select, %143 ], [ %136, %135 ]
   %146 = tail call fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef nonnull %.5, ptr noundef nonnull %2, ptr noundef nonnull %127)
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %.5, i64 %147
@@ -410,7 +410,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142: ; preds = 
 152:                                              ; preds = %.critedge104
   br i1 %.not158, label %.thread, label %154
 
-.thread:                                          ; preds = %131, %126, %152
+.thread:                                          ; preds = %126, %131, %152
   %153 = icmp eq i32 %128, 1
   br i1 %153, label %161, label %154
 
@@ -537,7 +537,7 @@ _ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread:   ; preds = %.lr.ph
   br label %.critedge40
 
 .critedge40:                                      ; preds = %_ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread, %37, %8, %29, %34, %48, %.critedge, %26, %20, %23, %10, %3
-  %.035 = phi i1 [ false, %26 ], [ true, %29 ], [ false, %3 ], [ false, %10 ], [ true, %20 ], [ true, %23 ], [ false, %8 ], [ true, %.critedge ], [ true, %48 ], [ true, %34 ], [ true, %37 ], [ true, %_ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread ]
+  %.035 = phi i1 [ false, %3 ], [ false, %10 ], [ true, %23 ], [ true, %20 ], [ false, %26 ], [ true, %.critedge ], [ true, %48 ], [ true, %34 ], [ true, %29 ], [ false, %8 ], [ true, %37 ], [ true, %_ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread ]
   ret i1 %.035
 }
 
@@ -781,8 +781,8 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
   br i1 %exitcond72.not.i, label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit, label %.lr.ph62.i, !llvm.loop !34
 
 _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.lr.ph62.i, %47, %.critedge2.i
-  %.1147 = phi i1 [ false, %.critedge2.i ], [ %.061.i, %.lr.ph62.i ], [ %spec.select.i, %47 ]
-  %.2.lcssa80.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %.260.i, %.lr.ph62.i ], [ %scevgep71.i, %47 ]
+  %.1147 = phi i1 [ false, %.critedge2.i ], [ %spec.select.i, %47 ], [ %.061.i, %.lr.ph62.i ]
+  %.2.lcssa80.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %scevgep71.i, %47 ], [ %.260.i, %.lr.ph62.i ]
   %50 = ptrtoint ptr %.2.lcssa80.i to i64
   %51 = sub i64 %50, %.pre-phi
   %52 = trunc i64 %51 to i32
@@ -944,8 +944,8 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
   br i1 %exitcond72.not.i128, label %.critedge4.i124, label %.lr.ph62.i121, !llvm.loop !34
 
 .critedge4.i124:                                  ; preds = %111, %.lr.ph62.i121
-  %.2.lcssa.i125 = phi ptr [ %scevgep71.i120, %111 ], [ %.260.i123, %.lr.ph62.i121 ]
-  %.0.lcssa.i126 = phi i1 [ %spec.select.i127, %111 ], [ %.061.i122, %.lr.ph62.i121 ]
+  %.2.lcssa.i125 = phi ptr [ %.260.i123, %.lr.ph62.i121 ], [ %scevgep71.i120, %111 ]
+  %.0.lcssa.i126 = phi i1 [ %.061.i122, %.lr.ph62.i121 ], [ %spec.select.i127, %111 ]
   %spec.select156 = select i1 %.0.lcssa.i126, i1 true, i1 %.1147
   br label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140
 
@@ -1021,8 +1021,8 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = 
   br label %.critedge102
 
 .critedge102:                                     ; preds = %147, %139, %145
-  %.078.not = phi i1 [ false, %145 ], [ true, %139 ], [ true, %147 ]
-  %.5 = phi ptr [ %146, %145 ], [ %140, %139 ], [ %spec.select, %147 ]
+  %.078.not = phi i1 [ false, %145 ], [ true, %147 ], [ true, %139 ]
+  %.5 = phi ptr [ %146, %145 ], [ %spec.select, %147 ], [ %140, %139 ]
   %150 = tail call fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef nonnull %.5, ptr noundef nonnull %2, ptr noundef nonnull %131)
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds i8, ptr %.5, i64 %151
@@ -1039,7 +1039,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = 
 156:                                              ; preds = %.critedge102
   br i1 %.not159, label %.thread, label %158
 
-.thread:                                          ; preds = %135, %129, %156
+.thread:                                          ; preds = %129, %135, %156
   %157 = icmp eq i32 %132, 1
   br i1 %157, label %166, label %158
 

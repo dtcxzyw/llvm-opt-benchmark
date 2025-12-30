@@ -655,7 +655,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.thr
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.thread
-  %47 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.thread ]
+  %47 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.thread ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   store i64 0, ptr %48, align 8, !tbaa !14
   store i8 0, ptr %47, align 1, !tbaa !4
@@ -746,7 +746,7 @@ _ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt
   br label %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit
 
 _ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit: ; preds = %.lr.ph87.split, %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i
-  %.sroa.064.1 = phi ptr [ %.sroa.064.085, %.lr.ph87.split ], [ %77, %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i ]
+  %.sroa.064.1 = phi ptr [ %77, %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i ], [ %.sroa.064.085, %.lr.ph87.split ]
   %78 = getelementptr inbounds nuw i8, ptr %.05186, i64 24
   %.not58 = icmp eq ptr %78, %4
   br i1 %.not58, label %._crit_edge88, label %.lr.ph87.split
@@ -785,7 +785,7 @@ define dso_local noundef zeroext i1 @_Z11cmStrToLongPKcPl(ptr noundef %0, ptr no
   br label %12
 
 12:                                               ; preds = %9, %2
-  %13 = phi i1 [ %11, %9 ], [ false, %2 ]
+  %13 = phi i1 [ false, %2 ], [ %11, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %13
 }
@@ -818,7 +818,7 @@ define dso_local noundef zeroext i1 @_Z11cmStrToLongRKNSt7__cxx1112basic_stringI
   br label %_Z11cmStrToLongPKcPl.exit
 
 _Z11cmStrToLongPKcPl.exit:                        ; preds = %2, %10
-  %13 = phi i1 [ %12, %10 ], [ false, %2 ]
+  %13 = phi i1 [ false, %2 ], [ %12, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %13
 }
@@ -860,7 +860,7 @@ define dso_local noundef zeroext i1 @_Z12cmStrToULongPKcPm(ptr noundef %0, ptr n
   br label %20
 
 20:                                               ; preds = %12, %17, %10
-  %.0 = phi i1 [ false, %10 ], [ %19, %17 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %12 ], [ %19, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -906,7 +906,7 @@ define dso_local noundef zeroext i1 @_Z12cmStrToULongRKNSt7__cxx1112basic_string
   br label %_Z12cmStrToULongPKcPm.exit
 
 _Z12cmStrToULongPKcPm.exit:                       ; preds = %11, %13, %18
-  %.0.i = phi i1 [ false, %11 ], [ %20, %18 ], [ false, %13 ]
+  %.0.i = phi i1 [ false, %11 ], [ false, %13 ], [ %20, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0.i
 }
@@ -932,7 +932,7 @@ define dso_local noundef zeroext i1 @_Z15cmStrToLongLongPKcPx(ptr noundef %0, pt
   br label %12
 
 12:                                               ; preds = %9, %2
-  %13 = phi i1 [ %11, %9 ], [ false, %2 ]
+  %13 = phi i1 [ false, %2 ], [ %11, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %13
 }
@@ -962,7 +962,7 @@ define dso_local noundef zeroext i1 @_Z15cmStrToLongLongRKNSt7__cxx1112basic_str
   br label %_Z15cmStrToLongLongPKcPx.exit
 
 _Z15cmStrToLongLongPKcPx.exit:                    ; preds = %2, %10
-  %13 = phi i1 [ %12, %10 ], [ false, %2 ]
+  %13 = phi i1 [ false, %2 ], [ %12, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %13
 }
@@ -1004,7 +1004,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongPKcPy(ptr noundef %0, p
   br label %20
 
 20:                                               ; preds = %12, %17, %10
-  %.0 = phi i1 [ false, %10 ], [ %19, %17 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %12 ], [ %19, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -1050,7 +1050,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongRKNSt7__cxx1112basic_st
   br label %_Z16cmStrToULongLongPKcPy.exit
 
 _Z16cmStrToULongLongPKcPy.exit:                   ; preds = %11, %13, %18
-  %.0.i = phi i1 [ false, %11 ], [ %20, %18 ], [ false, %13 ]
+  %.0.i = phi i1 [ false, %11 ], [ false, %13 ], [ %20, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0.i
 }

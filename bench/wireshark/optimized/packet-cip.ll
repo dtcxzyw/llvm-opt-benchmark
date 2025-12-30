@@ -4334,7 +4334,7 @@ define hidden ptr @cip_get_attribute(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %48, label %.loopexit, label %43
 
 .loopexit:                                        ; preds = %17, %32, %43, %.preheader, %3, %.split39.us
-  %.0 = phi ptr [ null, %.split39.us ], [ null, %3 ], [ %45, %.preheader ], [ %25, %32 ], [ null, %43 ], [ %10, %17 ]
+  %.0 = phi ptr [ null, %.split39.us ], [ null, %3 ], [ null, %43 ], [ %45, %.preheader ], [ %25, %32 ], [ %10, %17 ]
   ret ptr %.0
 }
 
@@ -5001,7 +5001,7 @@ proto_item_set_hidden.exit.sink.split.i:          ; preds = %155, %146
   br label %proto_item_set_hidden.exit.i
 
 proto_item_set_hidden.exit.i:                     ; preds = %proto_item_set_hidden.exit.sink.split.i, %155, %149, %146, %proto_item_set_generated.exit126.i
-  %.pre-phi.i = phi i32 [ %132, %146 ], [ %151, %155 ], [ %151, %149 ], [ %132, %proto_item_set_generated.exit126.i ], [ %.pre-phi.ph.i, %proto_item_set_hidden.exit.sink.split.i ]
+  %.pre-phi.i = phi i32 [ %151, %155 ], [ %151, %149 ], [ %132, %146 ], [ %132, %proto_item_set_generated.exit126.i ], [ %.pre-phi.ph.i, %proto_item_set_hidden.exit.sink.split.i ]
   %161 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.pre-phi.i)
   %162 = zext i8 %161 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.2844, i32 noundef %162)
@@ -6229,11 +6229,11 @@ dissect_segment_safety.exit.i:                    ; preds = %807, %806, %584, %5
   br label %proto_item_set_generated.exit71.i
 
 proto_item_set_generated.exit71.i:                ; preds = %809, %dissect_segment_safety.exit.i, %dissect_segment_network_extended.exit.i, %dissect_segment_network_production_inhibit_us.exit.i
-  %.0.i285 = phi i32 [ 0, %809 ], [ %808, %dissect_segment_safety.exit.i ], [ %493, %dissect_segment_network_production_inhibit_us.exit.i ], [ %.050.i.i, %dissect_segment_network_extended.exit.i ]
+  %.0.i285 = phi i32 [ 0, %809 ], [ %493, %dissect_segment_network_production_inhibit_us.exit.i ], [ %.050.i.i, %dissect_segment_network_extended.exit.i ], [ %808, %dissect_segment_safety.exit.i ]
   br i1 %5, label %.critedge257, label %proto_item_set_generated.exit71.thread90.i
 
 proto_item_set_generated.exit71.thread90.sink.split.i: ; preds = %449, %435, %421
-  %hf_cip_seg_schedule.sink.i = phi ptr [ @hf_cip_seg_fixed_tag, %435 ], [ @hf_cip_seg_schedule, %421 ], [ @hf_cip_seg_prod_inhibit_time, %449 ]
+  %hf_cip_seg_schedule.sink.i = phi ptr [ @hf_cip_seg_schedule, %421 ], [ @hf_cip_seg_fixed_tag, %435 ], [ @hf_cip_seg_prod_inhibit_time, %449 ]
   %811 = load i32, ptr %hf_cip_seg_schedule.sink.i, align 4
   %812 = add i32 %2, 1
   %813 = tail call ptr @proto_tree_add_item(ptr noundef %.0235, i32 noundef %811, ptr noundef %1, i32 noundef %812, i32 noundef 1, i32 noundef -2147483648)
@@ -6544,8 +6544,8 @@ proto_item_set_generated.exit144.i:               ; preds = %913, %909, %906, %9
   br label %proto_item_set_generated.exit147.i
 
 proto_item_set_generated.exit147.i:               ; preds = %960, %956, %953, %951, %945, %941, %938, %936, %929, %925, %922, %920
-  %.1121.i = phi i32 [ 4, %960 ], [ 1, %929 ], [ 1, %925 ], [ 2, %945 ], [ 2, %941 ], [ 1, %920 ], [ 1, %922 ], [ 2, %936 ], [ 2, %938 ], [ 4, %951 ], [ 4, %953 ], [ 4, %956 ]
-  %.0119.i = phi i32 [ %949, %960 ], [ %918, %929 ], [ %918, %925 ], [ %934, %945 ], [ %934, %941 ], [ %918, %920 ], [ %918, %922 ], [ %934, %936 ], [ %934, %938 ], [ %949, %951 ], [ %949, %953 ], [ %949, %956 ]
+  %.1121.i = phi i32 [ 1, %929 ], [ 2, %945 ], [ 4, %960 ], [ 1, %920 ], [ 1, %922 ], [ 1, %925 ], [ 2, %936 ], [ 2, %938 ], [ 2, %941 ], [ 4, %951 ], [ 4, %953 ], [ 4, %956 ]
+  %.0119.i = phi i32 [ %918, %929 ], [ %934, %945 ], [ %949, %960 ], [ %918, %920 ], [ %918, %922 ], [ %918, %925 ], [ %934, %936 ], [ %934, %938 ], [ %934, %941 ], [ %949, %951 ], [ %949, %953 ], [ %949, %956 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.2889, i32 noundef %.0119.i)
   br label %.critedge.i
 
@@ -6572,8 +6572,8 @@ dissect_segment_symbolic.exit.thread:             ; preds = %proto_item_set_gene
   %967 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %4, ptr noundef nonnull @ei_proto_seg_type)
   br label %.critedge257
 
-.critedge257:                                     ; preds = %254, %proto_item_set_generated.exit71.thread90.i, %proto_item_set_generated.exit71.i, %459, %456, %450, %445, %442, %436, %431, %428, %422, %401, %398, %246, %289, %291, %293, %270, %263, %.critedge, %245, %288, %179, %proto_item_set_generated.exit134.i, %173, %170, %165, %.critedge255, %.critedge253, %.critedge251, %dissect_segment_data_simple.exit, %965, %dissect_segment_symbolic.exit, %966, %dissect_segment_symbolic.exit.thread, %402, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %966 ], [ 0, %dissect_segment_symbolic.exit.thread ], [ %963, %dissect_segment_symbolic.exit ], [ 0, %402 ], [ 0, %.critedge255 ], [ %.1.i, %170 ], [ %321, %dissect_segment_data_simple.exit ], [ %261, %263 ], [ %.pre47.i, %401 ], [ %963, %965 ], [ %261, %254 ], [ 0, %.critedge251 ], [ %.1.i, %173 ], [ 0, %.critedge253 ], [ %.1.i, %proto_item_set_generated.exit134.i ], [ %.1.i, %179 ], [ %.1.i, %165 ], [ %216, %.critedge ], [ %236, %245 ], [ %253, %246 ], [ %297, %293 ], [ 2, %422 ], [ %279, %288 ], [ %290, %289 ], [ %292, %291 ], [ %261, %270 ], [ %.pre47.i, %398 ], [ %.0.i285, %proto_item_set_generated.exit71.i ], [ %.092.i, %proto_item_set_generated.exit71.thread90.i ], [ 2, %459 ], [ 2, %456 ], [ 2, %450 ], [ 2, %445 ], [ 2, %442 ], [ 2, %436 ], [ 2, %431 ], [ 2, %428 ]
+.critedge257:                                     ; preds = %254, %proto_item_set_generated.exit71.thread90.i, %proto_item_set_generated.exit71.i, %459, %456, %450, %445, %442, %436, %431, %428, %422, %401, %398, %246, %289, %291, %293, %270, %263, %.critedge, %245, %288, %179, %proto_item_set_generated.exit134.i, %173, %170, %165, %.critedge251, %.critedge253, %.critedge255, %dissect_segment_data_simple.exit, %965, %dissect_segment_symbolic.exit, %966, %dissect_segment_symbolic.exit.thread, %402, %22
+  %.0 = phi i32 [ 0, %22 ], [ 0, %966 ], [ 0, %402 ], [ 0, %dissect_segment_symbolic.exit.thread ], [ %321, %dissect_segment_data_simple.exit ], [ %963, %965 ], [ %963, %dissect_segment_symbolic.exit ], [ 0, %.critedge255 ], [ %261, %254 ], [ 0, %.critedge253 ], [ 0, %.critedge251 ], [ %.1.i, %165 ], [ %.1.i, %170 ], [ %.1.i, %173 ], [ %.1.i, %proto_item_set_generated.exit134.i ], [ %.1.i, %179 ], [ %216, %.critedge ], [ %236, %245 ], [ %253, %246 ], [ %279, %288 ], [ %290, %289 ], [ %292, %291 ], [ %297, %293 ], [ %261, %270 ], [ %261, %263 ], [ %.pre47.i, %398 ], [ %.pre47.i, %401 ], [ %.092.i, %proto_item_set_generated.exit71.thread90.i ], [ %.0.i285, %proto_item_set_generated.exit71.i ], [ 2, %459 ], [ 2, %456 ], [ 2, %450 ], [ 2, %445 ], [ 2, %442 ], [ 2, %436 ], [ 2, %431 ], [ 2, %428 ], [ 2, %422 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0
 }
@@ -6851,7 +6851,7 @@ default.unreachable:                              ; preds = %proto_item_set_gene
   br label %126
 
 124:                                              ; preds = %64, %120, %121, %92, %93
-  %.0135 = phi i32 [ %.2137, %121 ], [ %.2137, %120 ], [ %spec.select150, %64 ], [ %.1136, %93 ], [ %.1136, %92 ]
+  %.0135 = phi i32 [ %.1136, %93 ], [ %.1136, %92 ], [ %.2137, %121 ], [ %.2137, %120 ], [ %spec.select150, %64 ]
   br i1 %3, label %126, label %125
 
 125:                                              ; preds = %124
@@ -7518,7 +7518,7 @@ dissect_cip_date.exit:                            ; preds = %117, %119
   br label %dissect_cip_string_type.exit
 
 dissect_cip_string_type.exit:                     ; preds = %.lr.ph, %.lr.ph120, %.preheader116, %.preheader, %144, %142, %70, %68, %57, %55, %.thread115, %149, %147, %123, %dissect_cip_date.exit, %101, %93, %dissect_cip_date_and_time.exit, %47, %44, %31, %28, %25
-  %.0 = phi i32 [ 0, %25 ], [ 1, %28 ], [ 2, %31 ], [ %6, %149 ], [ %136, %142 ], [ 4, %44 ], [ 8, %47 ], [ %148, %147 ], [ %52, %55 ], [ %6, %.preheader ], [ %spec.select, %.thread115 ], [ 6, %dissect_cip_date_and_time.exit ], [ 8, %93 ], [ 8, %101 ], [ 2, %dissect_cip_date.exit ], [ 4, %123 ], [ %63, %68 ], [ %58, %57 ], [ %66, %70 ], [ %140, %144 ], [ %6, %.lr.ph120 ], [ 0, %.preheader116 ], [ %42, %.lr.ph ]
+  %.0 = phi i32 [ 0, %25 ], [ 1, %28 ], [ 2, %31 ], [ 4, %44 ], [ 8, %47 ], [ 6, %dissect_cip_date_and_time.exit ], [ 8, %93 ], [ 8, %101 ], [ 2, %dissect_cip_date.exit ], [ 4, %123 ], [ %148, %147 ], [ %6, %149 ], [ %spec.select, %.thread115 ], [ %52, %55 ], [ %58, %57 ], [ %63, %68 ], [ %66, %70 ], [ %136, %142 ], [ %140, %144 ], [ %6, %.preheader ], [ 0, %.preheader116 ], [ %6, %.lr.ph120 ], [ %42, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -7940,7 +7940,7 @@ cip_get_attribute.exit:                           ; preds = %.preheader.i, %49, 
   br label %cip_get_attribute.exit.thread
 
 cip_get_attribute.exit.thread:                    ; preds = %24, %cip_get_attribute.exit, %.split39.us.i, %26, %75, %12, %91
-  %.1 = phi i32 [ %86, %91 ], [ %33, %75 ], [ %17, %12 ], [ %33, %.split39.us.i ], [ %33, %cip_get_attribute.exit ], [ %86, %24 ], [ %33, %26 ]
+  %.1 = phi i32 [ %86, %91 ], [ %17, %12 ], [ %33, %75 ], [ %86, %24 ], [ %33, %cip_get_attribute.exit ], [ %33, %.split39.us.i ], [ %33, %26 ]
   %94 = load ptr, ptr %7, align 8
   %95 = sub i32 %.1, %17
   call void @proto_item_set_len(ptr noundef %94, i32 noundef %95)
@@ -8359,7 +8359,7 @@ cip_get_service_cip.exit.thread.i:                ; preds = %105, %cip_get_servi
   br label %cip_get_service.exit
 
 cip_get_service.exit:                             ; preds = %85, %90, %cip_get_service_cip.exit.i, %cip_get_service_cip.exit.thread.i
-  %.0.i = phi ptr [ null, %85 ], [ null, %90 ], [ %98, %cip_get_service_cip.exit.i ], [ %106, %cip_get_service_cip.exit.thread.i ]
+  %.0.i = phi ptr [ null, %90 ], [ null, %85 ], [ %98, %cip_get_service_cip.exit.i ], [ %106, %cip_get_service_cip.exit.thread.i ]
   %.not189 = icmp eq ptr %.0, null
   br i1 %.not189, label %111, label %107
 
@@ -8628,7 +8628,7 @@ cip_get_service_cip.exit.thread.i204:             ; preds = %227, %cip_get_servi
   br label %cip_get_service.exit208
 
 cip_get_service.exit208:                          ; preds = %208, %213, %cip_get_service_cip.exit.thread.i204
-  %.0.i205 = phi ptr [ null, %208 ], [ null, %213 ], [ %228, %cip_get_service_cip.exit.thread.i204 ]
+  %.0.i205 = phi ptr [ null, %213 ], [ null, %208 ], [ %228, %cip_get_service_cip.exit.thread.i204 ]
   %229 = load i32, ptr %12, align 4
   %230 = icmp slt i32 %229, 0
   %231 = icmp ne ptr %.0.i205, null
@@ -8796,7 +8796,7 @@ cip_get_service.exit208:                          ; preds = %208, %213, %cip_get
   br i1 %313, label %cip_get_attribute.exit.i, label %308
 
 cip_get_attribute.exit.i:                         ; preds = %282, %297, %.preheader.i.i
-  %.0.i.i = phi ptr [ %290, %297 ], [ %310, %.preheader.i.i ], [ %275, %282 ]
+  %.0.i.i = phi ptr [ %310, %.preheader.i.i ], [ %290, %297 ], [ %275, %282 ]
   %.not.i212 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i212, label %dissect_cip_set_attribute_single_req.exit, label %314
 
@@ -9575,7 +9575,7 @@ dissect_cip_get_attribute_list_rsp.exit:          ; preds = %41, %.thread73.i
   br i1 %201, label %cip_get_attribute.exit.i75, label %196
 
 cip_get_attribute.exit.i75:                       ; preds = %170, %185, %.preheader.i.i72
-  %.0.i.i76 = phi ptr [ %178, %185 ], [ %198, %.preheader.i.i72 ], [ %163, %170 ]
+  %.0.i.i76 = phi ptr [ %198, %.preheader.i.i72 ], [ %178, %185 ], [ %163, %170 ]
   %.not.i77 = icmp eq ptr %.0.i.i76, null
   br i1 %.not.i77, label %dissect_cip_get_attribute_single_rsp.exit, label %202
 
@@ -9633,7 +9633,7 @@ cip_get_attribute.exit.i75:                       ; preds = %170, %185, %.prehea
   br i1 %228, label %.lr.ph.i86, label %.loopexit.i, !llvm.loop !26
 
 .loopexit.i:                                      ; preds = %226, %224, %212
-  %229 = phi i32 [ %.pre23.i, %224 ], [ 0, %212 ], [ %.pre.i, %226 ]
+  %229 = phi i32 [ 0, %212 ], [ %.pre23.i, %224 ], [ %.pre.i, %226 ]
   %230 = shl i32 %229, 1
   %231 = or disjoint i32 %230, 1
   br label %dissect_cip_find_next_object_rsp.exit
@@ -9649,7 +9649,7 @@ dissect_cip_find_next_object_rsp.exit:            ; preds = %210, %.loopexit.i
   br label %dissect_cip_get_attribute_single_rsp.exit
 
 dissect_cip_get_attribute_single_rsp.exit:        ; preds = %196, %202, %cip_get_attribute.exit.i75, %.split39.us.i.i70, %148, %34, %232, %dissect_cip_find_next_object_rsp.exit, %145, %142, %139, %dissect_cip_get_attribute_list_rsp.exit, %35
-  %.060 = phi i32 [ 0, %34 ], [ %36, %35 ], [ %.0.i, %dissect_cip_get_attribute_list_rsp.exit ], [ %141, %139 ], [ 2, %142 ], [ %147, %145 ], [ 1, %232 ], [ %.020.i, %dissect_cip_find_next_object_rsp.exit ], [ %205, %202 ], [ 0, %cip_get_attribute.exit.i75 ], [ 0, %.split39.us.i.i70 ], [ 0, %148 ], [ 0, %196 ]
+  %.060 = phi i32 [ 0, %34 ], [ %36, %35 ], [ %.0.i, %dissect_cip_get_attribute_list_rsp.exit ], [ %141, %139 ], [ 2, %142 ], [ %147, %145 ], [ %.020.i, %dissect_cip_find_next_object_rsp.exit ], [ 1, %232 ], [ %205, %202 ], [ 0, %cip_get_attribute.exit.i75 ], [ 0, %.split39.us.i.i70 ], [ 0, %148 ], [ 0, %196 ]
   %235 = add i32 %.060, %14
   %236 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %235)
   %237 = icmp sgt i32 %236, 0
@@ -9915,7 +9915,7 @@ proto_item_set_hidden.exit.us.i:                  ; preds = %42, %39, %.lr.ph.sp
   br label %dissect_cip_string_type.exit.us.i
 
 dissect_cip_string_type.exit.us.i:                ; preds = %62, %59
-  %.0.i.us.i = phi i32 [ %57, %59 ], [ %54, %62 ]
+  %.0.i.us.i = phi i32 [ %54, %62 ], [ %57, %59 ]
   %64 = add i32 %.0.i.us.i, %.057.us65.i
   %65 = and i32 %64, 1
   %spec.select.us.i = add i32 %65, %64
@@ -9924,7 +9924,7 @@ dissect_cip_string_type.exit.us.i:                ; preds = %62, %59
   br i1 %exitcond.not.i, label %dissect_cip_cc_hop.exit, label %.lr.ph.split.us64.i, !llvm.loop !28
 
 dissect_cip_cc_hop.exit:                          ; preds = %dissect_cip_string_type.exit.us.i, %.lr.ph.split.us58.i, %proto_item_set_hidden.exit.us.i, %.lr.ph, %.lr.ph.i
-  %.0.lcssa.i = phi i32 [ 2, %.lr.ph ], [ %50, %.lr.ph.split.us58.i ], [ 2, %.lr.ph.i ], [ %wide.trip.count.i, %proto_item_set_hidden.exit.us.i ], [ %spec.select.us.i, %dissect_cip_string_type.exit.us.i ]
+  %.0.lcssa.i = phi i32 [ 2, %.lr.ph ], [ 2, %.lr.ph.i ], [ %wide.trip.count.i, %proto_item_set_hidden.exit.us.i ], [ %50, %.lr.ph.split.us58.i ], [ %spec.select.us.i, %dissect_cip_string_type.exit.us.i ]
   call void @proto_item_set_len(ptr noundef %17, i32 noundef %.0.lcssa.i)
   %67 = add i32 %.0.lcssa.i, %.01720
   %68 = load i32, ptr %5, align 4
@@ -10392,7 +10392,7 @@ define internal i32 @dissect_cip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %19
 
 19:                                               ; preds = %4, %12, %16
-  %.sink = phi ptr [ %14, %12 ], [ %18, %16 ], [ null, %4 ]
+  %.sink = phi ptr [ %18, %16 ], [ %14, %12 ], [ null, %4 ]
   tail call void @dissect_cip_data(ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %.sink, ptr noundef null, i1 noundef zeroext false)
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %20
@@ -10680,7 +10680,7 @@ cip_get_service_cip.exit.thread.i.i:              ; preds = %102, %cip_get_servi
   br label %cip_get_service.exit.i
 
 cip_get_service.exit.i:                           ; preds = %cip_get_service_cip.exit.thread.i.i, %cip_get_service_cip.exit.i.i, %88, %proto_item_set_generated.exit.i
-  %.0.i.i = phi ptr [ null, %proto_item_set_generated.exit.i ], [ null, %88 ], [ %95, %cip_get_service_cip.exit.i.i ], [ %103, %cip_get_service_cip.exit.thread.i.i ]
+  %.0.i.i = phi ptr [ null, %88 ], [ null, %proto_item_set_generated.exit.i ], [ %95, %cip_get_service_cip.exit.i.i ], [ %103, %cip_get_service_cip.exit.thread.i.i ]
   %104 = load ptr, ptr %64, align 8
   %.not319.i = icmp eq ptr %104, null
   br i1 %.not319.i, label %107, label %105
@@ -11439,7 +11439,7 @@ dissect_cip_cm_fwd_close_rsp_success.exit.i:      ; preds = %display_connection_
   br label %534
 
 534:                                              ; preds = %527, %.split.i, %499, %483, %dissect_cip_cm_fwd_close_rsp_success.exit.i, %dissect_cip_cm_fwd_open_rsp_success.exit.i, %209
-  %.0.i = phi i32 [ 2, %527 ], [ %.0.i325.i, %dissect_cip_cm_fwd_open_rsp_success.exit.i ], [ %.0.i335.i, %dissect_cip_cm_fwd_close_rsp_success.exit.i ], [ 12, %483 ], [ 0, %209 ], [ 10, %.split.i ], [ 0, %499 ]
+  %.0.i = phi i32 [ %.0.i325.i, %dissect_cip_cm_fwd_open_rsp_success.exit.i ], [ %.0.i335.i, %dissect_cip_cm_fwd_close_rsp_success.exit.i ], [ 12, %483 ], [ 10, %.split.i ], [ 2, %527 ], [ 0, %209 ], [ 0, %499 ]
   %535 = add nuw nsw i32 %.0.i, %205
   %536 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %535)
   %537 = icmp sgt i32 %536, 0
@@ -12904,8 +12904,8 @@ default.unreachable45:                            ; preds = %25
   %39 = tail call i32 @call_dissector(ptr noundef %38, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %21, %25, %33, %18, %4, %36, %9, %13
-  %.0 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %18 ], [ false, %33 ], [ true, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %18, %21, %25, %33, %4, %36, %9, %13
+  %.0 = phi i1 [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %33 ], [ false, %25 ], [ false, %21 ], [ false, %18 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -15126,7 +15126,7 @@ dissect_epath.exit:                               ; preds = %.lr.ph, %.lr.ph.i, 
   br label %dissect_cip_string_type.exit
 
 dissect_cip_string_type.exit:                     ; preds = %152, %154
-  %.0.i = phi i32 [ %150, %154 ], [ %146, %152 ]
+  %.0.i = phi i32 [ %146, %152 ], [ %150, %154 ]
   %157 = add nsw i32 %.0.i, %143
   %158 = add nsw i32 %157, %3
   %159 = add nsw i32 %158, 2

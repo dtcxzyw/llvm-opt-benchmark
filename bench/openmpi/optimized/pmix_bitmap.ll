@@ -100,7 +100,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef captures(address_is_n
   br label %pmix_bitmap_clear_all_bits.exit
 
 pmix_bitmap_clear_all_bits.exit:                  ; preds = %20, %2, %5
-  %.0 = phi i32 [ %spec.select, %20 ], [ -27, %2 ], [ -27, %5 ]
+  %.0 = phi i32 [ -27, %5 ], [ -27, %2 ], [ %spec.select, %20 ]
   ret i32 %.0
 }
 
@@ -192,7 +192,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_set_bit(ptr noundef captures(address_i
   br label %37
 
 37:                                               ; preds = %14, %2, %5, %29
-  %.026 = phi i32 [ 0, %29 ], [ -27, %2 ], [ -27, %5 ], [ -29, %14 ]
+  %.026 = phi i32 [ 0, %29 ], [ -27, %5 ], [ -27, %2 ], [ -29, %14 ]
   ret i32 %.026
 }
 
@@ -265,7 +265,7 @@ define zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef readonly captures(address_
   br label %20
 
 20:                                               ; preds = %9, %2, %5
-  %.0 = phi i1 [ false, %2 ], [ %.not12, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ %.not12, %9 ]
   ret i1 %.0
 }
 
@@ -415,7 +415,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr nound
   br label %pmix_bitmap_set_bit.exit
 
 pmix_bitmap_set_bit.exit:                         ; preds = %41, %26, %19, %.critedge.thread, %2, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -27, %2 ], [ 0, %41 ], [ -27, %.critedge.thread ], [ -27, %19 ], [ -29, %26 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -27, %2 ], [ 0, %41 ], [ -27, %19 ], [ -27, %.critedge.thread ], [ -29, %26 ]
   ret i32 %.0
 }
 
@@ -459,7 +459,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_and_inplace(ptr noundef readon
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !21
 
 .loopexit:                                        ; preds = %15, %.preheader, %5, %2
-  %.012 = phi i32 [ -27, %5 ], [ -27, %2 ], [ 0, %.preheader ], [ 0, %15 ]
+  %.012 = phi i32 [ -27, %2 ], [ -27, %5 ], [ 0, %.preheader ], [ 0, %15 ]
   ret i32 %.012
 }
 
@@ -503,7 +503,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_or_inplace(ptr noundef readonl
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !22
 
 .loopexit:                                        ; preds = %15, %.preheader, %5, %2
-  %.012 = phi i32 [ -27, %5 ], [ -27, %2 ], [ 0, %.preheader ], [ 0, %15 ]
+  %.012 = phi i32 [ -27, %2 ], [ -27, %5 ], [ 0, %.preheader ], [ 0, %15 ]
   ret i32 %.012
 }
 
@@ -547,7 +547,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_xor_inplace(ptr noundef readon
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !23
 
 .loopexit:                                        ; preds = %15, %.preheader, %5, %2
-  %.012 = phi i32 [ -27, %5 ], [ -27, %2 ], [ 0, %.preheader ], [ 0, %15 ]
+  %.012 = phi i32 [ -27, %2 ], [ -27, %5 ], [ 0, %.preheader ], [ 0, %15 ]
   ret i32 %.012
 }
 
@@ -591,7 +591,7 @@ define noundef zeroext i1 @pmix_bitmap_are_different(ptr noundef readonly captur
   br i1 %or.cond22, label %.loopexit, label %13, !llvm.loop !24
 
 .loopexit:                                        ; preds = %13, %.preheader, %5, %2
-  %.012 = phi i1 [ true, %5 ], [ true, %2 ], [ false, %.preheader ], [ %.not15.not, %13 ]
+  %.012 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %.preheader ], [ %.not15.not, %13 ]
   ret i1 %.012
 }
 
@@ -642,7 +642,7 @@ pmix_bitmap_is_set_bit.exit:                      ; preds = %pmix_bitmap_is_set_
   br i1 %exitcond.not, label %.loopexit, label %pmix_bitmap_is_set_bit.exit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %pmix_bitmap_is_set_bit.exit, %11, %3, %1
-  %.015 = phi ptr [ null, %3 ], [ null, %1 ], [ %9, %11 ], [ %9, %pmix_bitmap_is_set_bit.exit ]
+  %.015 = phi ptr [ null, %1 ], [ null, %3 ], [ %9, %11 ], [ %9, %pmix_bitmap_is_set_bit.exit ]
   ret ptr %.015
 }
 

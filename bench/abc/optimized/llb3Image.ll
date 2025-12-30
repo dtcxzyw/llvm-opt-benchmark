@@ -733,8 +733,8 @@ Vec_PtrPush.exit.i:                               ; preds = %148, %Vec_PtrGrow.e
   br label %Vec_PtrPushUnique.exit
 
 Vec_PtrPushUnique.exit:                           ; preds = %125, %Vec_IntRemove.exit, %Vec_PtrPush.exit.i, %70, %Llb_NonlinRemoveVar.exit
-  %155 = phi i32 [ %56, %Llb_NonlinRemoveVar.exit ], [ %56, %Vec_IntRemove.exit ], [ %150, %Vec_PtrPush.exit.i ], [ %56, %70 ], [ %56, %125 ]
-  %156 = phi i32 [ %57, %Llb_NonlinRemoveVar.exit ], [ %57, %Vec_IntRemove.exit ], [ %152, %Vec_PtrPush.exit.i ], [ %57, %70 ], [ %57, %125 ]
+  %155 = phi i32 [ %56, %Vec_IntRemove.exit ], [ %150, %Vec_PtrPush.exit.i ], [ %56, %70 ], [ %56, %Llb_NonlinRemoveVar.exit ], [ %56, %125 ]
+  %156 = phi i32 [ %57, %Vec_IntRemove.exit ], [ %152, %Vec_PtrPush.exit.i ], [ %57, %70 ], [ %57, %Llb_NonlinRemoveVar.exit ], [ %57, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %157 = load ptr, ptr %48, align 8, !tbaa !29
   %158 = getelementptr i8, ptr %157, i64 4
@@ -1060,7 +1060,7 @@ define range(i32 0, 2) i32 @Llb_NonlinQuantify2(ptr noundef captures(none) %0, p
   br label %Vec_IntRemove.exit
 
 Vec_IntRemove.exit:                               ; preds = %65, %._crit_edge.i, %._crit_edge30.i
-  %.val145 = phi i32 [ %.val145.pre, %._crit_edge30.i ], [ %.val145254, %._crit_edge.i ], [ %.val145254, %65 ]
+  %.val145 = phi i32 [ %.val145254, %._crit_edge.i ], [ %.val145.pre, %._crit_edge30.i ], [ %.val145254, %65 ]
   %82 = load i32, ptr %39, align 4, !tbaa !60
   %83 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !61
@@ -1148,7 +1148,7 @@ Vec_IntRemove.exit:                               ; preds = %65, %._crit_edge.i,
   br label %Vec_IntRemove.exit178
 
 Vec_IntRemove.exit178:                            ; preds = %106, %._crit_edge.i161, %._crit_edge30.i165
-  %.val144 = phi i32 [ %.val144.pre, %._crit_edge30.i165 ], [ %.val144256, %._crit_edge.i161 ], [ %.val144256, %106 ]
+  %.val144 = phi i32 [ %.val144256, %._crit_edge.i161 ], [ %.val144.pre, %._crit_edge30.i165 ], [ %.val144256, %106 ]
   %123 = load i32, ptr %46, align 4, !tbaa !60
   %124 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %125 = load i32, ptr %124, align 4, !tbaa !61
@@ -1514,8 +1514,8 @@ Vec_PtrPush.exit.i:                               ; preds = %294, %Vec_PtrGrow.e
   br label %Vec_PtrPushUnique.exit
 
 Vec_PtrPushUnique.exit:                           ; preds = %271, %242, %Vec_PtrPush.exit.i, %Llb_NonlinRemoveVar.exit
-  %301 = phi i32 [ %243, %Llb_NonlinRemoveVar.exit ], [ %243, %242 ], [ %296, %Vec_PtrPush.exit.i ], [ %243, %271 ]
-  %302 = phi i32 [ %244, %Llb_NonlinRemoveVar.exit ], [ %244, %242 ], [ %298, %Vec_PtrPush.exit.i ], [ %244, %271 ]
+  %301 = phi i32 [ %243, %242 ], [ %296, %Vec_PtrPush.exit.i ], [ %243, %Llb_NonlinRemoveVar.exit ], [ %243, %271 ]
+  %302 = phi i32 [ %244, %242 ], [ %298, %Vec_PtrPush.exit.i ], [ %244, %Llb_NonlinRemoveVar.exit ], [ %244, %271 ]
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %303 = load ptr, ptr %33, align 8, !tbaa !29
   %304 = getelementptr i8, ptr %303, i64 4
@@ -1661,8 +1661,8 @@ Vec_PtrPush.exit.i198:                            ; preds = %361, %Vec_PtrGrow.e
   br label %Vec_PtrPushUnique.exit208
 
 Vec_PtrPushUnique.exit208:                        ; preds = %338, %318, %Vec_PtrPush.exit.i198, %Llb_NonlinRemoveVar.exit193, %307
-  %368 = phi i32 [ %308, %307 ], [ %308, %318 ], [ %363, %Vec_PtrPush.exit.i198 ], [ %308, %Llb_NonlinRemoveVar.exit193 ], [ %308, %338 ]
-  %369 = phi i32 [ %309, %307 ], [ %309, %318 ], [ %365, %Vec_PtrPush.exit.i198 ], [ %309, %Llb_NonlinRemoveVar.exit193 ], [ %309, %338 ]
+  %368 = phi i32 [ %308, %318 ], [ %363, %Vec_PtrPush.exit.i198 ], [ %308, %Llb_NonlinRemoveVar.exit193 ], [ %308, %307 ], [ %308, %338 ]
+  %369 = phi i32 [ %309, %318 ], [ %365, %Vec_PtrPush.exit.i198 ], [ %309, %Llb_NonlinRemoveVar.exit193 ], [ %309, %307 ], [ %309, %338 ]
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %370 = load ptr, ptr %40, align 8, !tbaa !29
   %371 = getelementptr i8, ptr %370, i64 4
@@ -2278,7 +2278,7 @@ Vec_PtrFree.exit.sink.split:                      ; preds = %.critedge8, %.crite
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %Vec_PtrFree.exit.sink.split, %.critedge8, %.critedge4
-  %.076 = phi ptr [ %74, %.critedge8 ], [ null, %.critedge4 ], [ %.076.ph, %Vec_PtrFree.exit.sink.split ]
+  %.076 = phi ptr [ null, %.critedge4 ], [ %74, %.critedge8 ], [ %.076.ph, %Vec_PtrFree.exit.sink.split ]
   tail call void @free(ptr noundef nonnull %26) #21
   ret ptr %.076
 }
@@ -2689,8 +2689,8 @@ define range(i32 0, 2) i32 @Llb_NonlinNextPartitions(ptr noundef readonly captur
   br label %46
 
 46:                                               ; preds = %38, %._crit_edge, %36, %29
-  %.139 = phi ptr [ %.03850, %38 ], [ %34, %29 ], [ %..038, %._crit_edge ], [ %.03850, %36 ]
-  %.137 = phi ptr [ %.03651, %38 ], [ %.03651, %29 ], [ %.036., %._crit_edge ], [ %34, %36 ]
+  %.139 = phi ptr [ %34, %29 ], [ %.03850, %36 ], [ %..038, %._crit_edge ], [ %.03850, %38 ]
+  %.137 = phi ptr [ %.03651, %29 ], [ %34, %36 ], [ %.036., %._crit_edge ], [ %.03651, %38 ]
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
   br i1 %exitcond61.not, label %.critedge2, label %29, !llvm.loop !110
@@ -3442,7 +3442,7 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
   br label %154
 
 154:                                              ; preds = %147, %Llb_NonlinRecomputeScores.exit
-  br i1 %116, label %.lr.ph.i97.lr.ph, label %._crit_edge
+  br i1 %116, label %.lr.ph.i97.lr.ph, label %.critedge.i102._crit_edge
 
 .lr.ph.i97.lr.ph:                                 ; preds = %154
   %155 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3488,7 +3488,7 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
 
 .critedge.i102:                                   ; preds = %172
   %173 = icmp eq ptr %.142.i, null
-  br i1 %173, label %._crit_edge, label %.preheader.i103
+  br i1 %173, label %.critedge.i102._crit_edge, label %.preheader.i103
 
 .preheader.i103:                                  ; preds = %.critedge.i102
   %174 = getelementptr inbounds nuw i8, ptr %.142.i, i64 8
@@ -3540,8 +3540,8 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
   br label %196
 
 196:                                              ; preds = %._crit_edge.i, %188, %186, %179
-  %.139.i = phi ptr [ %.03850.i, %188 ], [ %184, %179 ], [ %..038.i, %._crit_edge.i ], [ %.03850.i, %186 ]
-  %.137.i = phi ptr [ %.03651.i, %188 ], [ %.03651.i, %179 ], [ %.036..i, %._crit_edge.i ], [ %184, %186 ]
+  %.139.i = phi ptr [ %184, %179 ], [ %.03850.i, %186 ], [ %..038.i, %._crit_edge.i ], [ %.03850.i, %188 ]
+  %.137.i = phi ptr [ %.03651.i, %179 ], [ %184, %186 ], [ %.036..i, %._crit_edge.i ], [ %.03651.i, %188 ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
   br i1 %exitcond61.not.i, label %Llb_NonlinNextPartitions.exit, label %179, !llvm.loop !110
@@ -3636,7 +3636,7 @@ Abc_Clock.exit111.Llb_NonlinRecomputeScores.exit134_crit_edge: ; preds = %Abc_Cl
 .critedge.preheader.i112:                         ; preds = %244, %230
   %234 = load i32, ptr %39, align 4, !tbaa !53
   %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %.lr.ph37.i114, label %._crit_edge
+  br i1 %235, label %.lr.ph37.i114, label %.critedge.i102._crit_edge
 
 .lr.ph37.i114:                                    ; preds = %.critedge.preheader.i112
   %.val30.i115 = load ptr, ptr %44, align 8, !tbaa !3
@@ -3711,10 +3711,10 @@ Abc_Clock.exit111.Llb_NonlinRecomputeScores.exit134_crit_edge: ; preds = %Abc_Cl
 Llb_NonlinRecomputeScores.exit134:                ; preds = %.critedge4.i119, %Abc_Clock.exit111.Llb_NonlinRecomputeScores.exit134_crit_edge
   %266 = phi i32 [ %.pre177, %Abc_Clock.exit111.Llb_NonlinRecomputeScores.exit134_crit_edge ], [ %234, %.critedge4.i119 ]
   %267 = icmp sgt i32 %266, 0
-  br i1 %267, label %.lr.ph.i97, label %._crit_edge, !llvm.loop !127
+  br i1 %267, label %.lr.ph.i97, label %.critedge.i102._crit_edge, !llvm.loop !127
 
-._crit_edge:                                      ; preds = %.critedge.preheader.i112, %.critedge.i102, %Llb_NonlinRecomputeScores.exit134, %154
-  %.062.in.lcssa = phi i64 [ %113, %154 ], [ %227, %.critedge.preheader.i112 ], [ %227, %Llb_NonlinRecomputeScores.exit134 ], [ %.062.in155, %.critedge.i102 ]
+.critedge.i102._crit_edge:                        ; preds = %.critedge.preheader.i112, %Llb_NonlinRecomputeScores.exit134, %.critedge.i102, %154
+  %.062.in.lcssa = phi i64 [ %113, %154 ], [ %227, %.critedge.preheader.i112 ], [ %.062.in155, %.critedge.i102 ], [ %227, %Llb_NonlinRecomputeScores.exit134 ]
   %268 = load ptr, ptr %36, align 8, !tbaa !30
   %269 = call ptr @Cudd_ReadOne(ptr noundef %268) #21
   call void @Cudd_Ref(ptr noundef %269) #21
@@ -3722,10 +3722,10 @@ Llb_NonlinRecomputeScores.exit134:                ; preds = %.critedge4.i119, %A
   %271 = icmp sgt i32 %270, 0
   br i1 %271, label %.lr.ph161, label %.critedge2
 
-.lr.ph161:                                        ; preds = %._crit_edge, %282
-  %272 = phi i32 [ %283, %282 ], [ %270, %._crit_edge ]
-  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %282 ], [ 0, %._crit_edge ]
-  %.064158 = phi ptr [ %.165, %282 ], [ %269, %._crit_edge ]
+.lr.ph161:                                        ; preds = %.critedge.i102._crit_edge, %282
+  %272 = phi i32 [ %283, %282 ], [ %270, %.critedge.i102._crit_edge ]
+  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %282 ], [ 0, %.critedge.i102._crit_edge ]
+  %.064158 = phi ptr [ %.165, %282 ], [ %269, %.critedge.i102._crit_edge ]
   %.val = load ptr, ptr %49, align 8, !tbaa !23
   %273 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv174
   %274 = load ptr, ptr %273, align 8, !tbaa !27
@@ -3751,8 +3751,8 @@ Llb_NonlinRecomputeScores.exit134:                ; preds = %.critedge4.i119, %A
   %285 = icmp slt i64 %indvars.iv.next175, %284
   br i1 %285, label %.lr.ph161, label %.critedge2, !llvm.loop !128
 
-.critedge2:                                       ; preds = %282, %._crit_edge
-  %.064.lcssa = phi ptr [ %269, %._crit_edge ], [ %.165, %282 ]
+.critedge2:                                       ; preds = %282, %.critedge.i102._crit_edge
+  %.064.lcssa = phi ptr [ %269, %.critedge.i102._crit_edge ], [ %.165, %282 ]
   %286 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %287 = load i32, ptr %286, align 8, !tbaa !78
   store i32 %287, ptr @nSuppMax, align 4, !tbaa !48
@@ -4030,7 +4030,7 @@ Llb_NonlinHasSingletonVars.exit:                  ; preds = %39
   br label %Llb_NonlinHasSingletonVars.exit.thread
 
 Llb_NonlinHasSingletonVars.exit.thread:           ; preds = %38, %31, %.lr.ph, %Llb_NonlinHasSingletonVars.exit
-  %50 = phi ptr [ %.pre, %Llb_NonlinHasSingletonVars.exit ], [ %26, %31 ], [ %26, %.lr.ph ], [ %26, %38 ]
+  %50 = phi ptr [ %26, %31 ], [ %26, %.lr.ph ], [ %.pre, %Llb_NonlinHasSingletonVars.exit ], [ %26, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load i32, ptr %51, align 8, !tbaa !54
@@ -4161,7 +4161,7 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 60
   %115 = load i32, ptr %114, align 4, !tbaa !53
   %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %.lr.ph.i47.lr.ph, label %._crit_edge
+  br i1 %116, label %.lr.ph.i47.lr.ph, label %.critedge.i._crit_edge
 
 .lr.ph.i47.lr.ph:                                 ; preds = %Llb_NonlinRecomputeScores.exit
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4209,7 +4209,7 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
 
 .critedge.i:                                      ; preds = %136
   %137 = icmp eq ptr %.142.i, null
-  br i1 %137, label %._crit_edge.loopexit, label %.preheader.i
+  br i1 %137, label %.critedge.i._crit_edge.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i
   %138 = getelementptr inbounds nuw i8, ptr %.142.i, i64 8
@@ -4262,8 +4262,8 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
   br label %161
 
 161:                                              ; preds = %._crit_edge.i, %153, %151, %144
-  %.139.i = phi ptr [ %.03850.i, %153 ], [ %149, %144 ], [ %..038.i, %._crit_edge.i ], [ %.03850.i, %151 ]
-  %.137.i = phi ptr [ %.03651.i, %153 ], [ %.03651.i, %144 ], [ %.036..i, %._crit_edge.i ], [ %149, %151 ]
+  %.139.i = phi ptr [ %149, %144 ], [ %.03850.i, %151 ], [ %..038.i, %._crit_edge.i ], [ %.03850.i, %153 ]
+  %.137.i = phi ptr [ %.03651.i, %144 ], [ %149, %151 ], [ %.036..i, %._crit_edge.i ], [ %.03651.i, %153 ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
   br i1 %exitcond61.not.i, label %Llb_NonlinNextPartitions.exit, label %144, !llvm.loop !110
@@ -4447,17 +4447,17 @@ Llb_NonlinRecomputeScores.exit82:                 ; preds = %.critedge4.i67, %.c
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 60
   %254 = load i32, ptr %253, align 4, !tbaa !53
   %255 = icmp sgt i32 %254, 0
-  br i1 %255, label %.lr.ph.i47, label %._crit_edge.loopexit, !llvm.loop !133
+  br i1 %255, label %.lr.ph.i47, label %.critedge.i._crit_edge.loopexit, !llvm.loop !133
 
-._crit_edge.loopexit:                             ; preds = %Llb_NonlinRecomputeScores.exit82, %.critedge.i
-  %.030.lcssa.ph = phi i32 [ %.030106, %.critedge.i ], [ %200, %Llb_NonlinRecomputeScores.exit82 ]
-  %.lcssa101.ph = phi ptr [ %121, %.critedge.i ], [ %252, %Llb_NonlinRecomputeScores.exit82 ]
+.critedge.i._crit_edge.loopexit:                  ; preds = %.critedge.i, %Llb_NonlinRecomputeScores.exit82
+  %.030.lcssa.ph = phi i32 [ %200, %Llb_NonlinRecomputeScores.exit82 ], [ %.030106, %.critedge.i ]
+  %.lcssa101.ph = phi ptr [ %252, %Llb_NonlinRecomputeScores.exit82 ], [ %121, %.critedge.i ]
   %256 = sext i32 %.030.lcssa.ph to i64
-  br label %._crit_edge
+  br label %.critedge.i._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Llb_NonlinRecomputeScores.exit
-  %.030.lcssa = phi i64 [ 0, %Llb_NonlinRecomputeScores.exit ], [ %256, %._crit_edge.loopexit ]
-  %.lcssa101 = phi ptr [ %113, %Llb_NonlinRecomputeScores.exit ], [ %.lcssa101.ph, %._crit_edge.loopexit ]
+.critedge.i._crit_edge:                           ; preds = %.critedge.i._crit_edge.loopexit, %Llb_NonlinRecomputeScores.exit
+  %.030.lcssa = phi i64 [ 0, %Llb_NonlinRecomputeScores.exit ], [ %256, %.critedge.i._crit_edge.loopexit ]
+  %.lcssa101 = phi ptr [ %113, %Llb_NonlinRecomputeScores.exit ], [ %.lcssa101.ph, %.critedge.i._crit_edge.loopexit ]
   %257 = getelementptr inbounds nuw i8, ptr %.lcssa101, i64 24
   %258 = load ptr, ptr %257, align 8, !tbaa !30
   %259 = call ptr @Cudd_ReadOne(ptr noundef %258) #21
@@ -4468,10 +4468,10 @@ Llb_NonlinRecomputeScores.exit82:                 ; preds = %.critedge4.i67, %.c
   %263 = icmp sgt i32 %262, 0
   br i1 %263, label %.lr.ph114, label %.critedge2
 
-.lr.ph114:                                        ; preds = %._crit_edge, %285
-  %264 = phi ptr [ %286, %285 ], [ %260, %._crit_edge ]
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %285 ], [ 0, %._crit_edge ]
-  %.031112 = phi ptr [ %.1, %285 ], [ %259, %._crit_edge ]
+.lr.ph114:                                        ; preds = %.critedge.i._crit_edge, %285
+  %264 = phi ptr [ %286, %285 ], [ %260, %.critedge.i._crit_edge ]
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %285 ], [ 0, %.critedge.i._crit_edge ]
+  %.031112 = phi ptr [ %.1, %285 ], [ %259, %.critedge.i._crit_edge ]
   %265 = getelementptr i8, ptr %264, i64 40
   %.val = load ptr, ptr %265, align 8, !tbaa !23
   %266 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv125
@@ -4516,9 +4516,9 @@ Llb_NonlinRecomputeScores.exit82:                 ; preds = %.critedge4.i67, %.c
   %290 = icmp slt i64 %indvars.iv.next126, %289
   br i1 %290, label %.lr.ph114, label %.critedge2, !llvm.loop !134
 
-.critedge2:                                       ; preds = %285, %._crit_edge
-  %.031.lcssa = phi ptr [ %259, %._crit_edge ], [ %.1, %285 ]
-  %.lcssa = phi ptr [ %260, %._crit_edge ], [ %286, %285 ]
+.critedge2:                                       ; preds = %285, %.critedge.i._crit_edge
+  %.031.lcssa = phi ptr [ %259, %.critedge.i._crit_edge ], [ %.1, %285 ]
+  %.lcssa = phi ptr [ %260, %.critedge.i._crit_edge ], [ %286, %285 ]
   %291 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 64
   %292 = load i32, ptr %291, align 8, !tbaa !78
   store i32 %292, ptr @nSuppMax, align 4, !tbaa !48

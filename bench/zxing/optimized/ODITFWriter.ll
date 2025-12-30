@@ -263,7 +263,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %91, %93
   br label %.body
 
 .body:                                            ; preds = %103, %101, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit61
-  %.pn.pn.pn = phi { ptr, i32 } [ %37, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit61 ], [ %.pn.pn, %103 ], [ %.pn.pn, %101 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit61 ], [ %.pn.pn, %101 ], [ %.pn.pn, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %111
 

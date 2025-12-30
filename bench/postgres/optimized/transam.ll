@@ -48,7 +48,7 @@ define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) local_unname
   br label %TransactionLogFetch.exit
 
 TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
-  %.0.i = phi i32 [ %6, %5 ], [ %11, %12 ], [ %11, %10 ], [ %11, %10 ]
+  %.0.i = phi i32 [ %6, %5 ], [ %11, %10 ], [ %11, %10 ], [ %11, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   switch i32 %.0.i, label %TransactionLogFetch.exit.thread [
     i32 1, label %TransactionLogFetch.exit.thread12
@@ -93,7 +93,7 @@ TransactionLogFetch.exit.thread:                  ; preds = %9, %TransactionLogF
   br label %TransactionLogFetch.exit.thread12
 
 TransactionLogFetch.exit.thread12:                ; preds = %9, %18, %28, %TransactionIdPrecedes.exit, %26, %24, %TransactionLogFetch.exit, %TransactionLogFetch.exit.thread
-  %.0 = phi i1 [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ false, %TransactionIdPrecedes.exit ], [ %29, %28 ], [ false, %26 ], [ false, %24 ], [ false, %18 ], [ true, %9 ]
+  %.0 = phi i1 [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ %29, %28 ], [ false, %TransactionIdPrecedes.exit ], [ false, %26 ], [ false, %24 ], [ false, %18 ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -162,7 +162,7 @@ define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) local_unnamed
   br label %TransactionLogFetch.exit
 
 TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
-  %.0.i = phi i32 [ %6, %5 ], [ %11, %12 ], [ %11, %10 ], [ %11, %10 ]
+  %.0.i = phi i32 [ %6, %5 ], [ %11, %10 ], [ %11, %10 ], [ %11, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   switch i32 %.0.i, label %TransactionLogFetch.exit.thread [
     i32 2, label %TransactionLogFetch.exit.thread12
@@ -207,7 +207,7 @@ TransactionLogFetch.exit.thread:                  ; preds = %9, %TransactionLogF
   br label %TransactionLogFetch.exit.thread12
 
 TransactionLogFetch.exit.thread12:                ; preds = %9, %18, %28, %TransactionIdPrecedes.exit, %26, %24, %TransactionLogFetch.exit, %TransactionLogFetch.exit.thread
-  %.0 = phi i1 [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ true, %TransactionIdPrecedes.exit ], [ %29, %28 ], [ true, %26 ], [ true, %24 ], [ true, %18 ], [ true, %9 ]
+  %.0 = phi i1 [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ %29, %28 ], [ true, %TransactionIdPrecedes.exit ], [ true, %26 ], [ true, %24 ], [ true, %18 ], [ true, %9 ]
   ret i1 %.0
 }
 

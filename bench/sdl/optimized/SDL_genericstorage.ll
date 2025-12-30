@@ -161,7 +161,7 @@ define hidden ptr @GENERIC_OpenFileStorage(ptr noundef %0) local_unnamed_addr #0
   br label %20
 
 20:                                               ; preds = %.critedge, %18, %10, %12
-  %.1 = phi ptr [ null, %10 ], [ null, %12 ], [ null, %18 ], [ %16, %.critedge ]
+  %.1 = phi ptr [ null, %12 ], [ null, %10 ], [ null, %18 ], [ %16, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.1
 }

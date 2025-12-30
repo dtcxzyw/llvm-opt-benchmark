@@ -1006,8 +1006,8 @@ define noalias noundef ptr @findNewDisjunctiveMonotone(ptr noundef readonly capt
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %61, %63, %53, %55
-  %.sink74 = phi ptr [ %56, %55 ], [ %54, %53 ], [ %62, %61 ], [ %64, %63 ]
-  %.sink = phi i32 [ 16, %55 ], [ 16, %53 ], [ %58, %61 ], [ %58, %63 ]
+  %.sink74 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %62, %61 ], [ %64, %63 ]
+  %.sink = phi i32 [ 16, %53 ], [ 16, %55 ], [ %58, %61 ], [ %58, %63 ]
   store ptr %.sink74, ptr %9, align 8, !tbaa !9
   store i32 %.sink, ptr %calloc, align 8, !tbaa !64
   br label %Vec_IntPush.exit
@@ -1033,7 +1033,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %72, label %32, label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %68, %.preheader, %._crit_edge
-  %73 = phi ptr [ null, %._crit_edge ], [ null, %.preheader ], [ %.pre.i68, %68 ]
+  %73 = phi ptr [ null, %.preheader ], [ null, %._crit_edge ], [ %.pre.i68, %68 ]
   %.val49 = load i32, ptr %10, align 8, !tbaa !52
   %74 = icmp sgt i32 %.val49, 0
   br i1 %74, label %.lr.ph56, label %._crit_edge57
@@ -1189,8 +1189,8 @@ Vec_IntFind.exit.thread:                          ; preds = %32, %.lr.ph
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %47, %49, %39, %41
-  %.sink27 = phi ptr [ %42, %41 ], [ %40, %39 ], [ %48, %47 ], [ %50, %49 ]
-  %.sink = phi i32 [ 16, %41 ], [ 16, %39 ], [ %44, %47 ], [ %44, %49 ]
+  %.sink27 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
+  %.sink = phi i32 [ 16, %39 ], [ 16, %41 ], [ %44, %47 ], [ %44, %49 ]
   store ptr %.sink27, ptr %12, align 8, !tbaa !9
   store i32 %.sink, ptr %calloc, align 8, !tbaa !64
   br label %Vec_IntPush.exit
@@ -1302,8 +1302,8 @@ Vec_IntFind.exit.thread:                          ; preds = %21, %10
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %36, %38, %28, %30
-  %.sink21 = phi ptr [ %31, %30 ], [ %29, %28 ], [ %37, %36 ], [ %39, %38 ]
-  %.sink = phi i32 [ 16, %30 ], [ 16, %28 ], [ %33, %36 ], [ %33, %38 ]
+  %.sink21 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %37, %36 ], [ %39, %38 ]
+  %.sink = phi i32 [ 16, %28 ], [ 16, %30 ], [ %33, %36 ], [ %33, %38 ]
   store ptr %.sink21, ptr %4, align 8, !tbaa !9
   store i32 %.sink, ptr %calloc, align 8, !tbaa !64
   br label %Vec_IntPush.exit
@@ -1549,8 +1549,8 @@ define noalias noundef ptr @findNextLevelDisjunctiveMonotone(ptr noundef readonl
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %47, %49, %39, %41
-  %.sink126 = phi ptr [ %42, %41 ], [ %40, %39 ], [ %48, %47 ], [ %50, %49 ]
-  %.sink = phi i32 [ 16, %41 ], [ 16, %39 ], [ %44, %47 ], [ %44, %49 ]
+  %.sink126 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
+  %.sink = phi i32 [ 16, %39 ], [ 16, %41 ], [ %44, %47 ], [ %44, %49 ]
   store ptr %.sink126, ptr %8, align 8, !tbaa !9
   store i32 %.sink, ptr %calloc125, align 8, !tbaa !64
   br label %Vec_IntPush.exit.i

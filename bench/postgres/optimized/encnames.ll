@@ -297,7 +297,7 @@ clean_encoding_name.exit:                         ; preds = %21
   br i1 %.not, label %.loopexit, label %26, !llvm.loop !6
 
 .loopexit:                                        ; preds = %43, %7, %1, %4, %40
-  %.0 = phi i32 [ -1, %7 ], [ -1, %1 ], [ %42, %40 ], [ -1, %4 ], [ -1, %43 ]
+  %.0 = phi i32 [ %42, %40 ], [ -1, %4 ], [ -1, %1 ], [ -1, %7 ], [ -1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

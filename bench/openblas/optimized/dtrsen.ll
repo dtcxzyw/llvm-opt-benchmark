@@ -144,15 +144,15 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not244, label %90, label %.sink.split
 
 .sink.split:                                      ; preds = %86, %82, %83, %81
-  %.sink341 = phi i32 [ 2, %82 ], [ 1, %81 ], [ 2, %83 ], [ 1, %86 ]
-  %.1230.ph = phi i32 [ 1, %82 ], [ 0, %81 ], [ 1, %83 ], [ 0, %86 ]
+  %.sink341 = phi i32 [ 1, %81 ], [ 2, %83 ], [ 2, %82 ], [ 1, %86 ]
+  %.1230.ph = phi i32 [ 0, %81 ], [ 1, %83 ], [ 1, %82 ], [ 0, %86 ]
   %89 = add nsw i32 %67, %.sink341
   store i32 %89, ptr %10, align 4, !tbaa !3
   br label %90
 
 90:                                               ; preds = %.sink.split, %.lr.ph, %86, %81, %83
-  %91 = phi i32 [ %67, %86 ], [ %67, %83 ], [ %67, %81 ], [ %67, %.lr.ph ], [ %89, %.sink.split ]
-  %.1230 = phi i32 [ 0, %86 ], [ 1, %83 ], [ 0, %81 ], [ 0, %.lr.ph ], [ %.1230.ph, %.sink.split ]
+  %91 = phi i32 [ %67, %81 ], [ %67, %83 ], [ %67, %86 ], [ %67, %.lr.ph ], [ %89, %.sink.split ]
+  %.1230 = phi i32 [ 0, %81 ], [ 1, %83 ], [ 0, %86 ], [ 0, %.lr.ph ], [ %.1230.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
@@ -226,7 +226,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not248, label %119, label %.thread278
 
 .thread278.sink.split:                            ; preds = %111, %108, %59, %56, %53, %49, %18
-  %.sink = phi i32 [ -1, %18 ], [ -4, %53 ], [ -8, %59 ], [ -15, %108 ], [ -6, %56 ], [ -2, %49 ], [ -17, %111 ]
+  %.sink = phi i32 [ -1, %18 ], [ -2, %49 ], [ -4, %53 ], [ -6, %56 ], [ -8, %59 ], [ -15, %108 ], [ -17, %111 ]
   store i32 %.sink, ptr %17, align 4, !tbaa !3
   br label %.thread278
 
@@ -307,9 +307,9 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %152
 
 152:                                              ; preds = %147, %139, %133
-  %.not255 = phi i1 [ true, %133 ], [ true, %139 ], [ false, %147 ]
-  %.3232 = phi i32 [ 0, %133 ], [ 0, %139 ], [ 1, %147 ]
-  %.0228 = phi i32 [ %135, %133 ], [ %135, %139 ], [ %151, %147 ]
+  %.not255 = phi i1 [ true, %139 ], [ true, %133 ], [ false, %147 ]
+  %.3232 = phi i32 [ 0, %139 ], [ 0, %133 ], [ 1, %147 ]
+  %.0228 = phi i32 [ %135, %139 ], [ %135, %133 ], [ %151, %147 ]
   %.not253 = icmp eq i32 %.0228, 0
   br i1 %.not253, label %166, label %.thread282
 
@@ -353,7 +353,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %166
 
 166:                                              ; preds = %.lr.ph303, %.thread, %163, %152
-  %.4 = phi i32 [ %.3232, %152 ], [ 1, %163 ], [ 0, %.thread ], [ 0, %.lr.ph303 ]
+  %.4 = phi i32 [ 1, %163 ], [ 0, %.thread ], [ %.3232, %152 ], [ 0, %.lr.ph303 ]
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %.not249.not = icmp samesign ult i64 %indvars.iv316, %132
   br i1 %.not249.not, label %.lr.ph303, label %._crit_edge304, !llvm.loop !11

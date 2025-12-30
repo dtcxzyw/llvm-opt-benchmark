@@ -1222,7 +1222,7 @@ common.resume.sink.split:                         ; preds = %lpad15, %lpad
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i12, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %19, %lpad3.i.i.i.i12 ], [ %11, %lpad3.i.i.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad3.i.i.i.i ], [ %19, %lpad3.i.i.i.i12 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -4717,7 +4717,7 @@ if.end144.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i104,
   br label %if.end144.sink.split
 
 if.end144.sink.split:                             ; preds = %if.end144.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i304, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i96
-  %.sink546 = phi ptr [ %232, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i304 ], [ %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i96 ], [ %.sink549, %if.end144.sink.split.sink.split ]
+  %.sink546 = phi ptr [ %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i96 ], [ %232, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i304 ], [ %.sink549, %if.end144.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i308 = load ptr, ptr %.sink546, align 8
   %vfn3.i.i.i.i.i.i309 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i308, i64 24
   %282 = load ptr, ptr %vfn3.i.i.i.i.i.i309, align 8
@@ -4729,7 +4729,7 @@ if.end144:                                        ; preds = %if.end144.sink.spli
   ret void
 
 ehcleanup145:                                     ; preds = %lpad29, %ehcleanup84, %lpad72, %lpad70, %lpad, %lpad3.i.i.i.i, %lpad130, %lpad104, %lpad22, %lpad17
-  %.pn20 = phi { ptr, i32 } [ %90, %lpad22 ], [ %254, %lpad130 ], [ %89, %lpad17 ], [ %39, %lpad3.i.i.i.i ], [ %250, %lpad104 ], [ %88, %lpad ], [ %.pn17, %ehcleanup84 ], [ %203, %lpad29 ], [ %242, %lpad72 ], [ %241, %lpad70 ]
+  %.pn20 = phi { ptr, i32 } [ %90, %lpad22 ], [ %89, %lpad17 ], [ %250, %lpad104 ], [ %254, %lpad130 ], [ %88, %lpad ], [ %39, %lpad3.i.i.i.i ], [ %.pn17, %ehcleanup84 ], [ %203, %lpad29 ], [ %242, %lpad72 ], [ %241, %lpad70 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type) #26
   resume { ptr, i32 } %.pn20
 
@@ -6064,7 +6064,7 @@ lpad15:                                           ; preds = %_ZN7openvdb5v11_013
   resume { ptr, i32 } %34
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i14, %invoke.cont16, %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %if.then, %if.else
-  %retval.0 = phi i1 [ false, %if.else ], [ %tobool.i, %if.end8.sink.split.i.i.i.i ], [ %tobool.i, %if.then ], [ %tobool.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %tobool.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %call17, %invoke.cont16 ], [ %call17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i14 ], [ %call17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i24 ], [ %call17, %if.end8.sink.split.i.i.i.i27 ]
+  %retval.0 = phi i1 [ false, %if.else ], [ %tobool.i, %if.then ], [ %tobool.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %tobool.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %tobool.i, %if.end8.sink.split.i.i.i.i ], [ %call17, %invoke.cont16 ], [ %call17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i14 ], [ %call17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i24 ], [ %call17, %if.end8.sink.split.i.i.i.i27 ]
   ret i1 %retval.0
 }
 
@@ -6331,7 +6331,7 @@ if.end.i15.i132:                                  ; preds = %land.rhs.i127
   br label %return
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i70, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i65, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i, %if.end.i15.i132, %land.rhs.i127, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i137, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i142, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit75, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit, %entry
-  %retval.0 = phi i1 [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit75 ], [ false, %entry ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ], [ true, %land.rhs.i127 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i137 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i142 ], [ %cmp11.i19.i136, %if.end.i15.i132 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i65 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i70 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit75 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i137 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i142 ], [ %cmp11.i19.i136, %if.end.i15.i132 ], [ true, %land.rhs.i127 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i65 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i70 ]
   ret i1 %retval.0
 }
 
@@ -8304,7 +8304,7 @@ if.end56.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i108,
   br label %if.end56.sink.split
 
 if.end56.sink.split:                              ; preds = %if.end56.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i318, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100
-  %.sink348 = phi ptr [ %159, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i318 ], [ %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %.sink351, %if.end56.sink.split.sink.split ]
+  %.sink348 = phi ptr [ %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %159, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i318 ], [ %.sink351, %if.end56.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i322 = load ptr, ptr %.sink348, align 8
   %vfn3.i.i.i.i.i.i323 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i322, i64 24
   %173 = load ptr, ptr %vfn3.i.i.i.i.i.i323, align 8
@@ -10327,7 +10327,7 @@ if.end56.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i108,
   br label %if.end56.sink.split
 
 if.end56.sink.split:                              ; preds = %if.end56.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i318, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100
-  %.sink348 = phi ptr [ %191, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i318 ], [ %95, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %.sink351, %if.end56.sink.split.sink.split ]
+  %.sink348 = phi ptr [ %95, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %191, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i318 ], [ %.sink351, %if.end56.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i322 = load ptr, ptr %.sink348, align 8
   %vfn3.i.i.i.i.i.i323 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i322, i64 24
   %205 = load ptr, ptr %vfn3.i.i.i.i.i.i323, align 8
@@ -11744,8 +11744,8 @@ return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i56, 
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i202, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48
-  %.sink319 = phi ptr [ %121, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i202 ], [ %156, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %51, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48 ], [ %.sink322, %return.sink.split.sink.split ]
-  %retval.0.ph = phi i1 [ %retval.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i202 ], [ %call56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %call15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48 ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
+  %.sink319 = phi ptr [ %51, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48 ], [ %121, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i202 ], [ %156, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %.sink322, %return.sink.split.sink.split ]
+  %retval.0.ph = phi i1 [ %call15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48 ], [ %retval.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i202 ], [ %call56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i290 = load ptr, ptr %.sink319, align 8
   %vfn3.i.i.i.i.i.i291 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i290, i64 24
   %167 = load ptr, ptr %vfn3.i.i.i.i.i.i291, align 8
@@ -11753,7 +11753,7 @@ return.sink.split:                                ; preds = %return.sink.split.s
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i276, %_ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit266, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i202, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i192, %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit182, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38, %_ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit
-  %retval.0 = phi i1 [ %call56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ %call15, %_ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit ], [ %call15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38 ], [ %call15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48 ], [ %retval.0.i, %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit182 ], [ %retval.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i192 ], [ %retval.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i202 ], [ %call56, %_ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit266 ], [ %call56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i276 ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ %call15, %_ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit ], [ %call15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38 ], [ %call15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48 ], [ %retval.0.i, %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit182 ], [ %retval.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i192 ], [ %retval.0.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i202 ], [ %call56, %_ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit266 ], [ %call56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i276 ], [ %call56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i286 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ], [ %retval.0.ph, %return.sink.split ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad54, %ehcleanup44, %lpad13, %lpad
@@ -13006,7 +13006,7 @@ lpad317:                                          ; preds = %invoke.cont316
   br label %ehcleanup321
 
 ehcleanup321:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad317, %ehcleanup311, %lpad108, %lpad94, %lpad84, %lpad61
-  %.pn28 = phi { ptr, i32 } [ %56, %lpad84 ], [ %111, %lpad94 ], [ %131, %lpad317 ], [ %55, %lpad61 ], [ %.pn26, %ehcleanup311 ], [ %112, %lpad108 ], [ %lpad.loopexit232, %lpad.loopexit ], [ %lpad.loopexit.split-lp233, %lpad.loopexit.split-lp ]
+  %.pn28 = phi { ptr, i32 } [ %56, %lpad84 ], [ %131, %lpad317 ], [ %55, %lpad61 ], [ %.pn26, %ehcleanup311 ], [ %112, %lpad108 ], [ %111, %lpad94 ], [ %lpad.loopexit232, %lpad.loopexit ], [ %lpad.loopexit.split-lp233, %lpad.loopexit.split-lp ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ostr) #26
   resume { ptr, i32 } %.pn28
 }
@@ -13479,8 +13479,8 @@ lpad15:                                           ; preds = %invoke.cont16, %inv
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad13, %lpad15, %lpad, %lpad3
-  %ref.tmp9.sink = phi ptr [ %ref.tmp1, %lpad ], [ %ref.tmp1, %lpad3 ], [ %ref.tmp9, %lpad15 ], [ %ref.tmp9, %lpad13 ]
-  %.pn5.pn = phi { ptr, i32 } [ %36, %lpad ], [ %37, %lpad3 ], [ %39, %lpad15 ], [ %38, %lpad13 ]
+  %ref.tmp9.sink = phi ptr [ %ref.tmp1, %lpad3 ], [ %ref.tmp1, %lpad ], [ %ref.tmp9, %lpad15 ], [ %ref.tmp9, %lpad13 ]
+  %.pn5.pn = phi { ptr, i32 } [ %37, %lpad3 ], [ %36, %lpad ], [ %39, %lpad15 ], [ %38, %lpad13 ]
   call void @_ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9.sink) #26
   resume { ptr, i32 } %.pn5.pn
 }
@@ -14419,7 +14419,7 @@ common.resume.sink.split:                         ; preds = %lpad14, %lpad
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i12, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %19, %lpad3.i.i.i.i12 ], [ %11, %lpad3.i.i.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad3.i.i.i.i ], [ %19, %lpad3.i.i.i.i12 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -17423,7 +17423,7 @@ common.resume.sink.split:                         ; preds = %lpad24, %lpad
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i18, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %lpad3.i.i.i.i18 ], [ %14, %lpad3.i.i.i.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %lpad3.i.i.i.i ], [ %22, %lpad3.i.i.i.i18 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -18815,7 +18815,7 @@ if.end.i15.i14:                                   ; preds = %land.rhs.i9
   br label %return
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i, %if.end.i15.i14, %land.rhs.i9, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i19, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i24, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit
-  %retval.0 = phi i1 [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ true, %land.rhs.i9 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i19 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i24 ], [ %cmp11.i19.i18, %if.end.i15.i14 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ]
+  %retval.0 = phi i1 [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i19 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i24 ], [ %cmp11.i19.i18, %if.end.i15.i14 ], [ true, %land.rhs.i9 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ]
   ret i1 %retval.0
 }
 
@@ -21988,7 +21988,7 @@ if.else381:                                       ; preds = %if.else93
   store double 1.000000e+00, ptr %arrayidx443, align 8
   br label %if.end457
 
-if.then448:                                       ; preds = %if.then189, %if.end, %if.then90
+if.then448:                                       ; preds = %if.end, %if.then189, %if.then90
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #26
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os)
           to label %invoke.cont unwind label %lpad
@@ -22038,7 +22038,7 @@ lpad455:                                          ; preds = %try.cont, %catch
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #26
   resume { ptr, i32 } %94
 
-if.end457:                                        ; preds = %if.else381, %if.else300, %if.then90
+if.end457:                                        ; preds = %if.else300, %if.else381, %if.then90
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -27175,7 +27175,7 @@ if.end34:                                         ; preds = %land.rhs.i156, %_ZN
   br label %return
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i171, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i166, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i99, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i94, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i, %if.end34, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit176, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit104, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end6 ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit104 ], [ %call41, %if.end34 ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit176 ], [ false, %if.end ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i99 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i94 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i166 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i171 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit104 ], [ false, %_ZNK7openvdb5v11_04math4Vec3IdE2eqERKS3_d.exit176 ], [ %call41, %if.end34 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i94 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i99 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i166 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i171 ]
   ret i1 %retval.0
 }
 
@@ -27300,7 +27300,7 @@ if.end.i15.i.i14:                                 ; preds = %land.rhs.i.i9
   br label %land.end
 
 land.end:                                         ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i, %if.end.i15.i.i14, %land.rhs.i.i9, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i19, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i24, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit
-  %36 = phi i1 [ false, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit ], [ true, %land.rhs.i.i9 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i19 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i24 ], [ %cmp11.i19.i.i18, %if.end.i15.i.i14 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i ]
+  %36 = phi i1 [ false, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i19 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i24 ], [ %cmp11.i19.i.i18, %if.end.i15.i.i14 ], [ true, %land.rhs.i.i9 ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i ], [ false, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i ]
   ret i1 %36
 }
 

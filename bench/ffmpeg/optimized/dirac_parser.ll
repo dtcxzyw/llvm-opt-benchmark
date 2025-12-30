@@ -58,8 +58,8 @@ define internal i32 @dirac_parse(ptr noundef captures(none) %0, ptr noundef capt
   br i1 %exitcond.not.i, label %find_frame_end.exit, label %.lr.ph.i, !llvm.loop !21
 
 .thread.i:                                        ; preds = %22, %11
-  %.046.i = phi i32 [ 0, %11 ], [ %23, %22 ]
-  %.03345.i = phi i32 [ %12, %11 ], [ -1, %22 ]
+  %.046.i = phi i32 [ %23, %22 ], [ 0, %11 ]
+  %.03345.i = phi i32 [ -1, %22 ], [ %12, %11 ]
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %26, align 8, !tbaa !23
   %27 = icmp slt i32 %.046.i, %5
@@ -454,7 +454,7 @@ dirac_combine_frame.exit.thread38:                ; preds = %6, %71, %dirac_comb
   store i32 %.031, ptr %3, align 4, !tbaa !14
   br label %dirac_combine_frame.exit.thread
 
-dirac_combine_frame.exit.thread:                  ; preds = %find_frame_end.exit, %183, %102, %82, %89, %unpack_parse_unit.exit.thread.i, %dirac_combine_frame.exit, %dirac_combine_frame.exit.thread38
+dirac_combine_frame.exit.thread:                  ; preds = %find_frame_end.exit, %unpack_parse_unit.exit.thread.i, %183, %102, %82, %89, %dirac_combine_frame.exit, %dirac_combine_frame.exit.thread38
   %.016 = phi i32 [ %.0, %dirac_combine_frame.exit.thread38 ], [ %5, %find_frame_end.exit ], [ %181, %dirac_combine_frame.exit ], [ %.036.i72, %183 ], [ %171, %unpack_parse_unit.exit.thread.i ], [ %5, %102 ], [ %5, %89 ], [ %5, %82 ]
   ret i32 %.016
 }

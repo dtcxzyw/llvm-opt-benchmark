@@ -2252,7 +2252,7 @@ define hidden void @_ZN11PhaseVector18expand_vunbox_nodeEP15VectorUnboxNode(ptr 
   br label %40
 
 40:                                               ; preds = %37, %8
-  %.064 = phi i8 [ %spec.select, %37 ], [ 4, %8 ]
+  %.064 = phi i8 [ 4, %8 ], [ %spec.select, %37 ]
   %41 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %42 = load ptr, ptr @_ZN5ciEnv27_vector_VectorPayload_klassE, align 8
   %43 = call noundef ptr @_ZN15ciObjectFactory12vm_symbol_atE10vmSymbolID(i32 noundef 41) #6
@@ -2624,14 +2624,14 @@ _ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect.exit: ; preds = %243, %253, %264
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4NodenwEm.exit74, %_ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect.exit, %_ZN4NodenwEm.exit70, %_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect.exit
-  %.0.i.i.i73.sink = phi ptr [ %.0.i.i.i69, %_ZN4NodenwEm.exit70 ], [ %.0.i.i.i69, %_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect.exit ], [ %.0.i.i.i73, %_ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect.exit ], [ %.0.i.i.i73, %_ZN4NodenwEm.exit74 ]
+  %.0.i.i.i73.sink = phi ptr [ %.0.i.i.i69, %_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect.exit ], [ %.0.i.i.i69, %_ZN4NodenwEm.exit70 ], [ %.0.i.i.i73, %_ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect.exit ], [ %.0.i.i.i73, %_ZN4NodenwEm.exit74 ]
   %270 = load ptr, ptr %10, align 8
   %271 = load ptr, ptr %270, align 8
   %272 = call noundef ptr %271(ptr noundef nonnull align 8 dereferenceable(2400) %10, ptr noundef %.0.i.i.i73.sink) #6
   br label %273
 
 273:                                              ; preds = %.sink.split, %216, %219
-  %.0 = phi ptr [ %154, %216 ], [ %154, %219 ], [ %272, %.sink.split ]
+  %.0 = phi ptr [ %154, %219 ], [ %154, %216 ], [ %272, %.sink.split ]
   %274 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %275 = load ptr, ptr %274, align 8
   %276 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %275, ptr noundef nonnull %1) #6
@@ -3345,7 +3345,7 @@ _ZN4Node7set_reqEjPS_.exit58:                     ; preds = %176, %165, %129
   br label %192
 
 192:                                              ; preds = %119, %38, %_ZN9VectorSet8test_setEj.exit, %._crit_edge, %._crit_edge65, %34
-  %.0 = phi ptr [ %1, %_ZN9VectorSet8test_setEj.exit ], [ %37, %34 ], [ %118, %._crit_edge65 ], [ %191, %._crit_edge ], [ %1, %119 ], [ %1, %38 ]
+  %.0 = phi ptr [ %37, %34 ], [ %118, %._crit_edge65 ], [ %191, %._crit_edge ], [ %1, %_ZN9VectorSet8test_setEj.exit ], [ %1, %38 ], [ %1, %119 ]
   ret ptr %.0
 }
 

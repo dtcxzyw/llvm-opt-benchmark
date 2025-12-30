@@ -96,7 +96,7 @@ define range(i32 0, -2147483648) i32 @udata_swapInvStringBlock_77(ptr noundef %0
   br label %38
 
 38:                                               ; preds = %35, %5, %7, %17
-  %.037 = phi i32 [ 0, %5 ], [ 0, %17 ], [ %., %35 ], [ 0, %7 ]
+  %.037 = phi i32 [ 0, %17 ], [ 0, %7 ], [ 0, %5 ], [ %., %35 ]
   ret i32 %.037
 }
 
@@ -281,7 +281,7 @@ define range(i32 0, 65536) i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noun
   br label %78
 
 78:                                               ; preds = %50, %.critedge, %5, %7, %47, %29, %17
-  %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %29 ], [ 0, %47 ], [ 0, %7 ], [ %46, %.critedge ], [ %46, %50 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %29 ], [ 0, %47 ], [ 0, %7 ], [ 0, %5 ], [ %46, %.critedge ], [ %46, %50 ]
   ret i32 %.0
 }
 
@@ -367,7 +367,7 @@ define noalias noundef ptr @udata_openSwapper_77(i8 noundef signext %0, i8 nound
   br label %43
 
 43:                                               ; preds = %38, %40, %5, %7, %16, %12
-  %.0 = phi ptr [ null, %5 ], [ null, %12 ], [ null, %16 ], [ null, %7 ], [ %14, %40 ], [ %14, %38 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %16 ], [ null, %7 ], [ null, %5 ], [ %14, %40 ], [ %14, %38 ]
   ret ptr %.0
 }
 
@@ -470,7 +470,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray16PK12
   br label %23
 
 23:                                               ; preds = %19, %21, %5, %7, %18
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %7 ], [ %2, %21 ], [ %2, %19 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ %2, %21 ], [ %2, %19 ]
   ret i32 %.0
 }
 
@@ -515,7 +515,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray32PK12
   br label %23
 
 23:                                               ; preds = %19, %21, %5, %7, %18
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %7 ], [ %2, %21 ], [ %2, %19 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ %2, %21 ], [ %2, %19 ]
   ret i32 %.0
 }
 
@@ -560,7 +560,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray64PK12
   br label %23
 
 23:                                               ; preds = %19, %21, %5, %7, %18
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %7 ], [ %2, %21 ], [ %2, %19 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ %2, %21 ], [ %2, %19 ]
   ret i32 %.0
 }
 
@@ -615,7 +615,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray16PK12
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %5, %7, %18
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %7 ], [ 0, %19 ], [ %2, %.lr.ph ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ 0, %19 ], [ %2, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -670,7 +670,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray32PK12
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %5, %7, %18
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %7 ], [ 0, %19 ], [ %2, %.lr.ph ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ 0, %19 ], [ %2, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -725,7 +725,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray64PK12
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %5, %7, %18
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %7 ], [ 0, %19 ], [ %2, %.lr.ph ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ 0, %19 ], [ %2, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -830,7 +830,7 @@ define noalias noundef ptr @udata_openSwapperForInputData_77(ptr noundef readonl
   br label %51
 
 51:                                               ; preds = %5, %7, %49, %48, %25, %14
-  %.0 = phi ptr [ %50, %49 ], [ null, %14 ], [ null, %25 ], [ null, %48 ], [ null, %7 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %25 ], [ null, %48 ], [ %50, %49 ], [ null, %7 ], [ null, %5 ]
   ret ptr %.0
 }
 

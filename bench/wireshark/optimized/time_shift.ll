@@ -215,7 +215,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   br label %97
 
 97:                                               ; preds = %88, %91, %84, %82, %75, %73, %70, %64, %59, %47, %55, %53, %50, %43, %41, %39, %36, %33, %30, %25, %8, %96
-  %.080 = phi ptr [ @.str, %8 ], [ @.str.1, %25 ], [ @.str.3, %30 ], [ @.str.4, %33 ], [ @.str.5, %36 ], [ @.str.6, %39 ], [ @.str.7, %41 ], [ null, %96 ], [ @.str.8, %43 ], [ @.str.10, %50 ], [ @.str.7, %53 ], [ @.str.8, %55 ], [ @.str, %59 ], [ @.str.1, %64 ], [ @.str.10, %70 ], [ @.str.7, %73 ], [ @.str.8, %75 ], [ @.str.7, %82 ], [ @.str.8, %84 ], [ @.str.8, %91 ], [ @.str.11, %47 ], [ @.str.14, %88 ]
+  %.080 = phi ptr [ null, %96 ], [ @.str, %8 ], [ @.str.1, %25 ], [ @.str.3, %30 ], [ @.str.4, %33 ], [ @.str.5, %36 ], [ @.str.6, %39 ], [ @.str.7, %41 ], [ @.str.8, %43 ], [ @.str.10, %50 ], [ @.str.7, %53 ], [ @.str.8, %55 ], [ @.str.11, %47 ], [ @.str, %59 ], [ @.str.1, %64 ], [ @.str.10, %70 ], [ @.str.7, %73 ], [ @.str.8, %75 ], [ @.str.7, %82 ], [ @.str.8, %84 ], [ @.str.8, %91 ], [ @.str.14, %88 ]
   ret ptr %.080
 }
 
@@ -332,7 +332,7 @@ modify_time_perform.exit:                         ; preds = %48, %.lr.ph.split
   br label %54
 
 54:                                               ; preds = %22, %12, %10, %2, %._crit_edge
-  %.0 = phi ptr [ @.str.15, %2 ], [ %11, %10 ], [ null, %._crit_edge ], [ @.str.16, %12 ], [ @.str.17, %22 ]
+  %.0 = phi ptr [ null, %._crit_edge ], [ @.str.15, %2 ], [ %11, %10 ], [ @.str.16, %12 ], [ @.str.17, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -432,7 +432,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_nu
   br label %38
 
 38:                                               ; preds = %24, %20, %15, %9, %11, %3, %._crit_edge
-  %.0 = phi ptr [ @.str.15, %3 ], [ @.str.18, %9 ], [ @.str.19, %15 ], [ null, %._crit_edge ], [ %23, %20 ], [ @.str.18, %11 ], [ @.str.17, %24 ]
+  %.0 = phi ptr [ null, %._crit_edge ], [ @.str.15, %3 ], [ @.str.18, %11 ], [ @.str.18, %9 ], [ @.str.19, %15 ], [ %23, %20 ], [ @.str.17, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -715,7 +715,7 @@ calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.prehe
   br label %88
 
 88:                                               ; preds = %42, %38, %34, %30, %25, %17, %19, %5, %._crit_edge
-  %.040 = phi ptr [ @.str.15, %5 ], [ @.str.18, %17 ], [ @.str.17, %25 ], [ %33, %30 ], [ @.str.17, %34 ], [ null, %._crit_edge ], [ %41, %38 ], [ @.str.18, %19 ], [ @.str.17, %42 ]
+  %.040 = phi ptr [ null, %._crit_edge ], [ @.str.15, %5 ], [ @.str.18, %19 ], [ @.str.18, %17 ], [ @.str.17, %25 ], [ %33, %30 ], [ @.str.17, %34 ], [ %41, %38 ], [ @.str.17, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

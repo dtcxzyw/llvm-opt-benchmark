@@ -301,7 +301,7 @@ define dso_local i32 @send_http_response(ptr noundef readonly captures(none) %0)
   br label %100
 
 100:                                              ; preds = %46, %96, %87, %71, %66, %58, %17, %99
-  %.0 = phi i32 [ %45, %46 ], [ %30, %17 ], [ %62, %58 ], [ %70, %66 ], [ %73, %71 ], [ 0, %99 ], [ %91, %87 ], [ %98, %96 ]
+  %.0 = phi i32 [ 0, %99 ], [ %45, %46 ], [ %30, %17 ], [ %62, %58 ], [ %70, %66 ], [ %73, %71 ], [ %91, %87 ], [ %98, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -741,7 +741,7 @@ define internal range(i32 0, 2) i32 @_on_url(ptr noundef readonly captures(none)
   br label %143
 
 143:                                              ; preds = %131, %134, %27, %29, %9
-  %.0 = phi i32 [ 1, %9 ], [ 1, %27 ], [ 1, %29 ], [ 0, %134 ], [ 0, %131 ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %29 ], [ 1, %27 ], [ 0, %134 ], [ 0, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1012,7 +1012,7 @@ define internal range(i32 0, 1004) i32 @_on_header_value(ptr noundef readonly ca
   br label %127
 
 127:                                              ; preds = %51, %53, %43, %47, %81, %116, %123, %106, %88, %.thread, %.thread77, %102, %70, %126, %122, %118, %9
-  %.0 = phi i32 [ 1003, %9 ], [ 1, %126 ], [ 1, %122 ], [ 1, %118 ], [ 1, %102 ], [ 1, %70 ], [ 0, %.thread77 ], [ 0, %.thread ], [ 0, %88 ], [ 0, %106 ], [ 0, %123 ], [ 0, %116 ], [ 0, %81 ], [ 0, %47 ], [ 0, %43 ], [ 0, %53 ], [ 0, %51 ]
+  %.0 = phi i32 [ 1, %126 ], [ 1, %122 ], [ 1, %118 ], [ 1, %102 ], [ 1, %70 ], [ 1003, %9 ], [ 0, %.thread77 ], [ 0, %.thread ], [ 0, %88 ], [ 0, %106 ], [ 0, %123 ], [ 0, %116 ], [ 0, %81 ], [ 0, %47 ], [ 0, %43 ], [ 0, %53 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -1282,7 +1282,7 @@ define internal range(i32 0, 2) i32 @_on_body(ptr noundef readonly captures(none
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.45, ptr noundef nonnull @__func__._on_body, ptr noundef %61, i64 noundef %2, i64 noundef %62, i64 noundef %64) #8
   br label %65
 
-.thread:                                          ; preds = %26, %17, %22, %37, %35, %41
+.thread:                                          ; preds = %26, %22, %17, %37, %35, %41
   tail call fastcc void @_send_reject(ptr noundef nonnull %0, i32 noundef 413)
   br label %65
 
@@ -1380,7 +1380,7 @@ define internal range(i32 0, 2) i32 @_on_message_complete(ptr noundef captures(n
   br label %132
 
 41:                                               ; preds = %21, %29, %28, %27, %26, %25, %24, %23
-  %.041 = phi i32 [ 8, %29 ], [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 1, %21 ]
+  %.041 = phi i32 [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 8, %29 ], [ 1, %21 ]
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %43 = load i64, ptr %42, align 8
   %.not46 = icmp eq i64 %43, 0
@@ -1478,7 +1478,7 @@ define internal range(i32 0, 2) i32 @_on_message_complete(ptr noundef captures(n
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.50, ptr noundef nonnull @__func__._on_message_complete_request, ptr noundef %97, ptr noundef %98) #8
   br label %_on_message_complete_request.exit.thread
 
-_on_message_complete_request.exit.thread:         ; preds = %87, %90, %93
+_on_message_complete_request.exit.thread:         ; preds = %90, %93, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %132
 
@@ -1544,7 +1544,7 @@ _on_message_complete_request.exit.thread:         ; preds = %87, %90, %93
   br label %132
 
 132:                                              ; preds = %_on_message_complete_request.exit.thread, %117, %124, %45, %30, %14, %10, %8
-  %.0 = phi i32 [ 1, %8 ], [ 1, %10 ], [ 1, %30 ], [ 1, %45 ], [ 1, %14 ], [ 1, %_on_message_complete_request.exit.thread ], [ 0, %124 ], [ 0, %117 ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %10 ], [ 1, %30 ], [ 1, %45 ], [ 1, %14 ], [ 0, %124 ], [ 0, %117 ], [ 1, %_on_message_complete_request.exit.thread ]
   ret i32 %.0
 }
 
@@ -1888,7 +1888,7 @@ define internal range(i32 0, 2) i32 @_http_header_find_key(ptr noundef readonly 
   br label %9
 
 9:                                                ; preds = %6, %2, %8
-  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 1, %6 ]
   ret i32 %.0
 }
 

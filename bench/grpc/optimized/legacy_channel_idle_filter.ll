@@ -906,7 +906,7 @@ _ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN
   br label %_ZN9grpc_coremlENS_8DurationEd.exit
 
 _ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %35, %37, %38, %40, %41, %47, %49
-  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %38 ], [ 9223372036854775807, %37 ], [ -9223372036854775808, %35 ], [ -9223372036854775808, %40 ], [ %50, %49 ], [ 9223372036854775807, %41 ], [ -9223372036854775808, %47 ]
+  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %37 ], [ -9223372036854775808, %40 ], [ -9223372036854775808, %35 ], [ 9223372036854775807, %38 ], [ %50, %49 ], [ 9223372036854775807, %41 ], [ -9223372036854775808, %47 ]
   store i64 %.sroa.04.0.i, ptr %0, align 8
   switch i64 %.sroa.0.0.i11, label %57 [
     i64 9223372036854775807, label %51
@@ -944,7 +944,7 @@ _ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %35, %37, %38, %40, 
   br label %_ZN9grpc_coremlENS_8DurationEd.exit15
 
 _ZN9grpc_coremlENS_8DurationEd.exit15:            ; preds = %51, %53, %54, %56, %57, %63, %65
-  %.sroa.04.0.i14 = phi i64 [ 9223372036854775807, %54 ], [ 9223372036854775807, %53 ], [ -9223372036854775808, %51 ], [ -9223372036854775808, %56 ], [ %66, %65 ], [ 9223372036854775807, %57 ], [ -9223372036854775808, %63 ]
+  %.sroa.04.0.i14 = phi i64 [ 9223372036854775807, %53 ], [ -9223372036854775808, %56 ], [ -9223372036854775808, %51 ], [ 9223372036854775807, %54 ], [ %66, %65 ], [ 9223372036854775807, %57 ], [ -9223372036854775808, %63 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = extractvalue { i64, i8 } %14, 1
   %69 = trunc nuw i8 %68 to i1
@@ -1251,7 +1251,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZTWN9grpc_core9Tim
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %118, %115, %112, %107, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %.0.i.i = phi i64 [ -9223372036854775808, %107 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %115 ], [ %119, %118 ], [ 9223372036854775807, %112 ]
+  %.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %107 ], [ %119, %118 ], [ 9223372036854775807, %112 ], [ -9223372036854775808, %115 ]
   invoke void @_ZN9grpc_core5SleepC1ENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 %.0.i.i)
           to label %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackEC2ERKS2_.exit unwind label %311
 
@@ -7309,7 +7309,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS0_9ImmediateIN4absl12lts_202407226S
   br label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i
 
 _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i: ; preds = %74, %62
-  %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %75, %74 ]
+  %.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %63, %62 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #36, !noalias !347
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !347
   br label %common.resume
@@ -7364,7 +7364,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %76, %_ZN9grpc_core1
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %95, %92, %89, %84, %.noexc44
-  %.0.i.i.i = phi i64 [ -9223372036854775808, %84 ], [ 9223372036854775807, %.noexc44 ], [ -9223372036854775808, %92 ], [ %96, %95 ], [ 9223372036854775807, %89 ]
+  %.0.i.i.i = phi i64 [ 9223372036854775807, %.noexc44 ], [ -9223372036854775808, %84 ], [ %96, %95 ], [ 9223372036854775807, %89 ], [ -9223372036854775808, %92 ]
   invoke void @_ZN9grpc_core5SleepC1ENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 %.0.i.i.i)
           to label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit32.i.thread unwind label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit31.i
 
@@ -7417,7 +7417,7 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit31.i: ; preds = %_ZN9gr
   br label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit.thread"
 
 common.resume:                                    ; preds = %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit31.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit24
-  %common.resume.op = phi { ptr, i32 } [ %.pn149, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit24 ], [ %.pn.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i ], [ %104, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit31.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn149, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit24 ], [ %104, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit31.i ], [ %.pn.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit.thread": ; preds = %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit32.i, %106
@@ -8976,7 +8976,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %64, %63
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %82, %79, %76, %71, %_ZN9grpc_core9Timestamp3NowEv.exit.i
-  %.0.i.i.i = phi i64 [ -9223372036854775808, %71 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %79 ], [ %83, %82 ], [ 9223372036854775807, %76 ]
+  %.0.i.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %71 ], [ %83, %82 ], [ 9223372036854775807, %76 ], [ -9223372036854775808, %79 ]
   call void @_ZN9grpc_core5SleepC1ENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %.0.i.i.i), !noalias !418
   %84 = load ptr, ptr %25, align 8, !tbaa !39, !noalias !418
   %85 = load ptr, ptr %26, align 8, !tbaa !45, !noalias !418
@@ -9429,7 +9429,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i93:           ; preds = %220, %"_ZN9grpc_cor
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i97
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i97: ; preds = %238, %235, %232, %227, %.noexc102
-  %.0.i.i.i98 = phi i64 [ -9223372036854775808, %227 ], [ 9223372036854775807, %.noexc102 ], [ -9223372036854775808, %235 ], [ %239, %238 ], [ 9223372036854775807, %232 ]
+  %.0.i.i.i98 = phi i64 [ 9223372036854775807, %.noexc102 ], [ -9223372036854775808, %227 ], [ %239, %238 ], [ 9223372036854775807, %232 ], [ -9223372036854775808, %235 ]
   invoke void @_ZN9grpc_core5SleepC1ENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %.0.i.i.i98)
           to label %.noexc103 unwind label %321
 
@@ -9670,9 +9670,9 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
   br i1 %323, label %345, label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i109: ; preds = %311, %312, %316
-  %.sroa.6157.3415 = phi i64 [ %.sroa.6157.2, %311 ], [ %.sroa.6157.3416, %316 ], [ %.sroa.6157.3416, %312 ]
-  %.sroa.0155.2412 = phi i8 [ %.sroa.0155.1, %311 ], [ %.sroa.0155.2413, %316 ], [ %.sroa.0155.2413, %312 ]
-  %324 = phi i1 [ true, %311 ], [ %313, %316 ], [ %313, %312 ]
+  %.sroa.6157.3415 = phi i64 [ %.sroa.6157.3416, %316 ], [ %.sroa.6157.3416, %312 ], [ %.sroa.6157.2, %311 ]
+  %.sroa.0155.2412 = phi i8 [ %.sroa.0155.2413, %316 ], [ %.sroa.0155.2413, %312 ], [ %.sroa.0155.1, %311 ]
+  %324 = phi i1 [ %313, %316 ], [ %313, %312 ], [ true, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !409
   %.pre256 = load i8, ptr %9, align 8, !tbaa !433, !range !143, !noalias !406
   %325 = trunc nuw i8 %.pre256 to i1

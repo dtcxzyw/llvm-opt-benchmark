@@ -257,7 +257,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_in(ptr noundef cap
   br label %61
 
 61:                                               ; preds = %22, %53, %55, %44, %46, %58, %26, %25, %.thread
-  %.0 = phi i64 [ 0, %.thread ], [ 0, %26 ], [ %60, %58 ], [ 0, %44 ], [ -2147483648, %25 ], [ 0, %53 ], [ 0, %46 ], [ 0, %55 ], [ 2147483647, %22 ]
+  %.0 = phi i64 [ 0, %.thread ], [ 0, %26 ], [ %60, %58 ], [ -2147483648, %25 ], [ 0, %46 ], [ 0, %44 ], [ 0, %55 ], [ 0, %53 ], [ 2147483647, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1121,7 +1121,7 @@ define dso_local noundef i64 @date2timestamp_opt_overflow(i32 noundef %0, ptr no
   br label %17
 
 17:                                               ; preds = %14, %5, %4, %9
-  %.010 = phi i64 [ 9223372036854775807, %9 ], [ %16, %14 ], [ 9223372036854775807, %5 ], [ -9223372036854775808, %4 ]
+  %.010 = phi i64 [ 9223372036854775807, %9 ], [ 9223372036854775807, %5 ], [ %16, %14 ], [ -9223372036854775808, %4 ]
   ret i64 %.010
 }
 
@@ -1208,7 +1208,7 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @date2
   unreachable
 
 39:                                               ; preds = %15, %33, %34, %6, %5, %10
-  %.0 = phi i64 [ 9223372036854775807, %10 ], [ 9223372036854775807, %34 ], [ 9223372036854775807, %6 ], [ %28, %15 ], [ -9223372036854775808, %33 ], [ -9223372036854775808, %5 ]
+  %.0 = phi i64 [ 9223372036854775807, %10 ], [ 9223372036854775807, %6 ], [ %28, %15 ], [ -9223372036854775808, %33 ], [ 9223372036854775807, %34 ], [ -9223372036854775808, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -1231,7 +1231,7 @@ define dso_local noundef double @date2timestamp_no_overflow(i32 noundef %0) loca
   br label %6
 
 6:                                                ; preds = %1, %2, %3
-  %.0 = phi double [ %5, %3 ], [ 0x7FEFFFFFFFFFFFFF, %2 ], [ 0xFFEFFFFFFFFFFFFF, %1 ]
+  %.0 = phi double [ 0x7FEFFFFFFFFFFFFF, %2 ], [ %5, %3 ], [ 0xFFEFFFFFFFFFFFFF, %1 ]
   ret double %.0
 }
 
@@ -1259,8 +1259,8 @@ date2timestamp_opt_overflow.exit:                 ; preds = %4
   %10 = select i1 %9, i32 -1, i32 1
   br label %13
 
-11:                                               ; preds = %3, %6, %2
-  %.010.i.ph = phi i64 [ 9223372036854775807, %3 ], [ %8, %6 ], [ -9223372036854775808, %2 ]
+11:                                               ; preds = %6, %2, %3
+  %.010.i.ph = phi i64 [ -9223372036854775808, %2 ], [ %8, %6 ], [ 9223372036854775807, %3 ]
   %12 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph, i64 noundef %1) #15
   br label %13
 
@@ -1297,7 +1297,7 @@ define dso_local range(i64 0, 2) i64 @date_eq_timestamp(ptr noundef readonly cap
   br label %13
 
 13:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   %15 = icmp eq i32 %14, 0
   %16 = zext i1 %15 to i64
@@ -1334,7 +1334,7 @@ define dso_local range(i64 0, 2) i64 @date_ne_timestamp(ptr noundef readonly cap
   br label %13
 
 13:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i64
@@ -1375,7 +1375,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 14:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   %16 = icmp slt i32 %15, 0
   br label %date_cmp_timestamp_internal.exit
@@ -1417,7 +1417,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 15:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   br label %date_cmp_timestamp_internal.exit
 
@@ -1458,7 +1458,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 14:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   %16 = icmp slt i32 %15, 1
   br label %date_cmp_timestamp_internal.exit
@@ -1500,7 +1500,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 15:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   br label %date_cmp_timestamp_internal.exit
 
@@ -1542,7 +1542,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 15:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   br label %date_cmp_timestamp_internal.exit
 
@@ -1606,8 +1606,8 @@ define dso_local i32 @date_cmp_timestamptz_internal(i32 noundef %0, i64 noundef 
   %29 = select i1 %28, i32 1, i32 -1
   br label %32
 
-30:                                               ; preds = %2, %7, %4
-  %.0.i.ph.ph = phi i64 [ -9223372036854775808, %2 ], [ 9223372036854775807, %4 ], [ %20, %7 ]
+30:                                               ; preds = %4, %2, %7
+  %.0.i.ph.ph = phi i64 [ 9223372036854775807, %4 ], [ %20, %7 ], [ -9223372036854775808, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph, i64 noundef %1) #15
   br label %32
@@ -1674,7 +1674,7 @@ define dso_local range(i64 0, 2) i64 @date_eq_timestamptz(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 30:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   %32 = icmp eq i32 %31, 0
@@ -1743,7 +1743,7 @@ define dso_local range(i64 0, 2) i64 @date_ne_timestamptz(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 30:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   %32 = icmp ne i32 %31, 0
@@ -1816,7 +1816,7 @@ define dso_local range(i64 0, 2) i64 @date_lt_timestamptz(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -1889,7 +1889,7 @@ define dso_local range(i64 0, 2) i64 @date_gt_timestamptz(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -1962,7 +1962,7 @@ define dso_local range(i64 0, 2) i64 @date_le_timestamptz(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -2035,7 +2035,7 @@ define dso_local range(i64 0, 2) i64 @date_ge_timestamptz(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -2108,7 +2108,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_cmp_timestamptz(pt
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -2145,7 +2145,7 @@ define dso_local range(i64 0, 2) i64 @timestamp_eq_date(ptr noundef readonly cap
   br label %13
 
 13:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   %15 = icmp eq i32 %14, 0
   %16 = zext i1 %15 to i64
@@ -2182,7 +2182,7 @@ define dso_local range(i64 0, 2) i64 @timestamp_ne_date(ptr noundef readonly cap
   br label %13
 
 13:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i64
@@ -2224,7 +2224,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 15:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   br label %date_cmp_timestamp_internal.exit
 
@@ -2265,7 +2265,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 14:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   %16 = icmp slt i32 %15, 0
   br label %date_cmp_timestamp_internal.exit
@@ -2307,7 +2307,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 15:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   br label %date_cmp_timestamp_internal.exit
 
@@ -2348,7 +2348,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 14:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   %16 = icmp slt i32 %15, 1
   br label %date_cmp_timestamp_internal.exit
@@ -2390,7 +2390,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
   br label %date_cmp_timestamp_internal.exit
 
 15:                                               ; preds = %10, %7, %1
-  %.010.i.ph.i = phi i64 [ 9223372036854775807, %7 ], [ %12, %10 ], [ -9223372036854775808, %1 ]
+  %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
   %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   br label %date_cmp_timestamp_internal.exit
 
@@ -2458,7 +2458,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_eq_date(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 30:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   %32 = icmp eq i32 %31, 0
@@ -2527,7 +2527,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_ne_date(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 30:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   %32 = icmp ne i32 %31, 0
@@ -2600,7 +2600,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_lt_date(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -2673,7 +2673,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_gt_date(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -2746,7 +2746,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_le_date(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -2819,7 +2819,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_ge_date(ptr noundef readonly c
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -2892,7 +2892,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamptz_cmp_date(pt
   br label %date_cmp_timestamptz_internal.exit
 
 34:                                               ; preds = %11, %8, %1
-  %.0.i.ph.ph.i = phi i64 [ -9223372036854775808, %1 ], [ 9223372036854775807, %8 ], [ %24, %11 ]
+  %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
@@ -2944,7 +2944,7 @@ define dso_local i64 @in_range_date_interval(ptr noundef readonly captures(none)
   br label %date2timestamp.exit
 
 date2timestamp.exit:                              ; preds = %1, %14, %21
-  %.010.i.i = phi i64 [ -9223372036854775808, %1 ], [ %23, %21 ], [ 9223372036854775807, %14 ]
+  %.010.i.i = phi i64 [ 9223372036854775807, %14 ], [ %23, %21 ], [ -9223372036854775808, %1 ]
   switch i32 %7, label %25 [
     i32 -2147483648, label %date2timestamp.exit12
     i32 2147483647, label %24
@@ -2971,7 +2971,7 @@ date2timestamp.exit:                              ; preds = %1, %14, %21
   br label %date2timestamp.exit12
 
 date2timestamp.exit12:                            ; preds = %date2timestamp.exit, %24, %31
-  %.010.i.i11 = phi i64 [ -9223372036854775808, %date2timestamp.exit ], [ %33, %31 ], [ 9223372036854775807, %24 ]
+  %.010.i.i11 = phi i64 [ 9223372036854775807, %24 ], [ %33, %31 ], [ -9223372036854775808, %date2timestamp.exit ]
   %34 = icmp ne i64 %13, 0
   %35 = icmp ne i64 %11, 0
   %36 = zext i1 %35 to i64
@@ -3297,7 +3297,7 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   unreachable
 
 171:                                              ; preds = %126, %134, %157, %117, %121, %107, %111, %98, %101, %90, %92, %140, %124, %81, %75, %72, %69
-  %.041 = phi i64 [ %71, %69 ], [ %74, %72 ], [ %80, %75 ], [ %86, %81 ], [ %91, %90 ], [ %94, %92 ], [ %100, %98 ], [ %103, %101 ], [ %110, %107 ], [ %113, %111 ], [ %120, %117 ], [ %123, %121 ], [ %125, %124 ], [ %160, %157 ], [ %spec.select, %126 ], [ %spec.store.select, %134 ], [ %149, %140 ]
+  %.041 = phi i64 [ %71, %69 ], [ %74, %72 ], [ %80, %75 ], [ %86, %81 ], [ %91, %90 ], [ %94, %92 ], [ %100, %98 ], [ %103, %101 ], [ %110, %107 ], [ %113, %111 ], [ %120, %117 ], [ %123, %121 ], [ %125, %124 ], [ %spec.store.select, %134 ], [ %149, %140 ], [ %160, %157 ], [ %spec.select, %126 ]
   %172 = call ptr @int64_to_numeric(i64 noundef %.041) #15
   %173 = ptrtoint ptr %172 to i64
   br label %174
@@ -3366,7 +3366,7 @@ define dso_local i64 @date_pl_interval(ptr noundef readonly captures(none) %0) l
   br label %date2timestamp.exit
 
 date2timestamp.exit:                              ; preds = %1, %7, %14
-  %.010.i.i = phi i64 [ -9223372036854775808, %1 ], [ %16, %14 ], [ 9223372036854775807, %7 ]
+  %.010.i.i = phi i64 [ 9223372036854775807, %7 ], [ %16, %14 ], [ -9223372036854775808, %1 ]
   %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timestamp_pl_interval, i32 noundef 0, i64 noundef %.010.i.i, i64 noundef %6) #15
   ret i64 %17
 }
@@ -3408,7 +3408,7 @@ define dso_local i64 @date_mi_interval(ptr noundef readonly captures(none) %0) l
   br label %date2timestamp.exit
 
 date2timestamp.exit:                              ; preds = %1, %7, %14
-  %.010.i.i = phi i64 [ -9223372036854775808, %1 ], [ %16, %14 ], [ 9223372036854775807, %7 ]
+  %.010.i.i = phi i64 [ 9223372036854775807, %7 ], [ %16, %14 ], [ -9223372036854775808, %1 ]
   %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timestamp_mi_interval, i32 noundef 0, i64 noundef %.010.i.i, i64 noundef %6) #15
   ret i64 %17
 }
@@ -3446,7 +3446,7 @@ define dso_local i64 @date_timestamp(ptr noundef readonly captures(none) %0) loc
   br label %date2timestamp.exit
 
 date2timestamp.exit:                              ; preds = %1, %5, %12
-  %.010.i.i = phi i64 [ -9223372036854775808, %1 ], [ %14, %12 ], [ 9223372036854775807, %5 ]
+  %.010.i.i = phi i64 [ 9223372036854775807, %5 ], [ %14, %12 ], [ -9223372036854775808, %1 ]
   ret i64 %.010.i.i
 }
 
@@ -3491,7 +3491,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamp_date(ptr noun
   br label %23
 
 23:                                               ; preds = %1, %6, %13
-  %.0 = phi i64 [ %22, %13 ], [ 2147483647, %6 ], [ -2147483648, %1 ]
+  %.0 = phi i64 [ 2147483647, %6 ], [ %22, %13 ], [ -2147483648, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
@@ -3551,7 +3551,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamptz_date(ptr no
   br label %24
 
 24:                                               ; preds = %1, %7, %14
-  %.0 = phi i64 [ %23, %14 ], [ 2147483647, %7 ], [ -2147483648, %1 ]
+  %.0 = phi i64 [ 2147483647, %7 ], [ %23, %14 ], [ -2147483648, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3720,7 +3720,7 @@ define dso_local zeroext i1 @float_time_overflows(i32 noundef %0, i32 noundef %1
   br label %20
 
 20:                                               ; preds = %11, %6, %3
-  %.0 = phi i1 [ true, %6 ], [ true, %3 ], [ %19, %11 ]
+  %.0 = phi i1 [ true, %3 ], [ true, %6 ], [ %19, %11 ]
   ret i1 %.0
 }
 
@@ -3951,7 +3951,7 @@ float_time_overflows.exit:                        ; preds = %12
   %24 = icmp sgt i64 %23, 86400000000
   br i1 %24, label %float_time_overflows.exit.thread, label %28
 
-float_time_overflows.exit.thread:                 ; preds = %1, %12, %float_time_overflows.exit
+float_time_overflows.exit.thread:                 ; preds = %12, %1, %float_time_overflows.exit
   %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   %26 = tail call i32 @errcode(i32 noundef 134217858) #15
   %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %4, i32 noundef %7, double noundef %9) #15
@@ -4171,9 +4171,9 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr noundef captures(none) %
   br label %25
 
 25:                                               ; preds = %24, %22, %23
-  %.051 = phi i8 [ 0, %24 ], [ 1, %23 ], [ 1, %22 ]
-  %.050 = phi i64 [ %spec.select, %24 ], [ %5, %23 ], [ %5, %22 ]
-  %.048 = phi i64 [ %spec.select54, %24 ], [ %3, %23 ], [ %5, %22 ]
+  %.051 = phi i8 [ 1, %23 ], [ 1, %22 ], [ 0, %24 ]
+  %.050 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
+  %.048 = phi i64 [ %3, %23 ], [ %5, %22 ], [ %spec.select54, %24 ]
   br i1 %18, label %26, label %27
 
 26:                                               ; preds = %25
@@ -4188,9 +4188,9 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr noundef captures(none) %
   br label %29
 
 29:                                               ; preds = %28, %26, %27
-  %.053 = phi i64 [ %spec.select55, %28 ], [ %9, %27 ], [ %9, %26 ]
-  %.052 = phi i64 [ %spec.select56, %28 ], [ %7, %27 ], [ %9, %26 ]
-  %.049 = phi i8 [ 0, %28 ], [ 1, %27 ], [ 1, %26 ]
+  %.053 = phi i64 [ %9, %27 ], [ %9, %26 ], [ %spec.select55, %28 ]
+  %.052 = phi i64 [ %7, %27 ], [ %9, %26 ], [ %spec.select56, %28 ]
+  %.049 = phi i8 [ 1, %27 ], [ 1, %26 ], [ 0, %28 ]
   %30 = icmp sgt i64 %.048, %.052
   br i1 %30, label %31, label %37
 
@@ -4233,7 +4233,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr noundef captures(none) %
   br label %48
 
 48:                                               ; preds = %.sink.split, %45, %43, %41, %35, %33
-  %.0 = phi i64 [ 1, %33 ], [ 1, %41 ], [ 0, %35 ], [ 0, %43 ], [ 1, %45 ], [ 0, %.sink.split ]
+  %.0 = phi i64 [ 1, %33 ], [ 0, %35 ], [ 1, %41 ], [ 0, %43 ], [ 1, %45 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 
@@ -4392,8 +4392,8 @@ date2timestamp.exit:                              ; preds = %8
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1998, ptr noundef nonnull @__func__.datetime_timestamp) #15
   unreachable
 
-date2timestamp.exit.thread:                       ; preds = %7, %1, %16, %date2timestamp.exit
-  %.0 = phi i64 [ -9223372036854775808, %date2timestamp.exit ], [ %17, %16 ], [ 9223372036854775807, %7 ], [ -9223372036854775808, %1 ]
+date2timestamp.exit.thread:                       ; preds = %1, %7, %16, %date2timestamp.exit
+  %.0 = phi i64 [ -9223372036854775808, %date2timestamp.exit ], [ %17, %16 ], [ -9223372036854775808, %1 ], [ 9223372036854775807, %7 ]
   ret i64 %.0
 }
 
@@ -4829,7 +4829,7 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   unreachable
 
 108:                                              ; preds = %40, %85, %52
-  %.140 = phi i64 [ %42, %85 ], [ %56, %52 ], [ %45, %40 ]
+  %.140 = phi i64 [ %56, %52 ], [ %42, %85 ], [ %45, %40 ]
   br i1 %1, label %109, label %112
 
 109:                                              ; preds = %108
@@ -4842,8 +4842,8 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   %114 = bitcast double %113 to i64
   br label %.thread
 
-.thread:                                          ; preds = %72, %65, %58, %79, %112, %109, %99, %96
-  %.1 = phi i64 [ %111, %109 ], [ %114, %112 ], [ %102, %99 ], [ %98, %96 ], [ %78, %72 ], [ %70, %65 ], [ %64, %58 ], [ %84, %79 ]
+.thread:                                          ; preds = %79, %72, %65, %58, %112, %109, %99, %96
+  %.1 = phi i64 [ %111, %109 ], [ %114, %112 ], [ %98, %96 ], [ %102, %99 ], [ %84, %79 ], [ %78, %72 ], [ %70, %65 ], [ %64, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.1
 }
@@ -5359,7 +5359,7 @@ define dso_local range(i64 0, 2) i64 @timetz_lt(ptr noundef readonly captures(no
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %1, %17, %19, %21
-  %.0.i = phi i64 [ 0, %19 ], [ 0, %1 ], [ 1, %17 ], [ %23, %21 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 1, %17 ], [ 0, %19 ], [ %23, %21 ]
   ret i64 %.0.i
 }
 
@@ -5396,7 +5396,7 @@ define dso_local range(i64 0, 2) i64 @timetz_le(ptr noundef readonly captures(no
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %19, %1, %17
-  %.0.i = phi i64 [ %spec.select, %19 ], [ 0, %1 ], [ 1, %17 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 1, %17 ], [ %spec.select, %19 ]
   ret i64 %.0.i
 }
 
@@ -5433,7 +5433,7 @@ define dso_local range(i64 0, 2) i64 @timetz_gt(ptr noundef readonly captures(no
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %19, %1, %17
-  %.0.i = phi i64 [ %spec.select, %19 ], [ 1, %1 ], [ 0, %17 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 0, %17 ], [ %spec.select, %19 ]
   ret i64 %.0.i
 }
 
@@ -5474,7 +5474,7 @@ define dso_local range(i64 0, 2) i64 @timetz_ge(ptr noundef readonly captures(no
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %1, %17, %19, %21
-  %.0.i = phi i64 [ 1, %19 ], [ 1, %1 ], [ 0, %17 ], [ %23, %21 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 0, %17 ], [ 1, %19 ], [ %23, %21 ]
   ret i64 %.0.i
 }
 
@@ -5515,7 +5515,7 @@ define dso_local range(i64 -1, 2) i64 @timetz_cmp(ptr noundef readonly captures(
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %1, %17, %19, %21
-  %.0.i = phi i64 [ 1, %19 ], [ 1, %1 ], [ -1, %17 ], [ %23, %21 ]
+  %.0.i = phi i64 [ 1, %1 ], [ -1, %17 ], [ 1, %19 ], [ %23, %21 ]
   ret i64 %.0.i
 }
 
@@ -5586,7 +5586,7 @@ define dso_local i64 @timetz_larger(ptr noundef readonly captures(none) %0) loca
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %19, %1, %17
-  %22 = phi i64 [ %3, %1 ], [ %6, %17 ], [ %21, %19 ]
+  %22 = phi i64 [ %6, %17 ], [ %3, %1 ], [ %21, %19 ]
   ret i64 %22
 }
 
@@ -5827,7 +5827,7 @@ define dso_local range(i64 0, 2) i64 @in_range_timetz_interval(ptr noundef reado
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %46, %42, %26, %45, %41
-  %.0.shrunk = phi i1 [ %spec.select36, %46 ], [ true, %45 ], [ %13, %26 ], [ false, %41 ], [ %spec.select, %42 ]
+  %.0.shrunk = phi i1 [ false, %41 ], [ true, %45 ], [ %13, %26 ], [ %spec.select, %42 ], [ %spec.select36, %46 ]
   %.0 = zext i1 %.0.shrunk to i64
   ret i64 %.0
 }
@@ -5870,9 +5870,9 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br label %26
 
 26:                                               ; preds = %24, %22, %23
-  %.051 = phi i8 [ 0, %24 ], [ 1, %23 ], [ 1, %22 ]
-  %.050 = phi i64 [ %spec.select, %24 ], [ %5, %23 ], [ %5, %22 ]
-  %.048 = phi i64 [ %spec.select54, %24 ], [ %3, %23 ], [ %5, %22 ]
+  %.051 = phi i8 [ 1, %23 ], [ 1, %22 ], [ 0, %24 ]
+  %.050 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
+  %.048 = phi i64 [ %3, %23 ], [ %5, %22 ], [ %spec.select54, %24 ]
   br i1 %18, label %27, label %28
 
 27:                                               ; preds = %26
@@ -5889,9 +5889,9 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br label %31
 
 31:                                               ; preds = %29, %27, %28
-  %.053 = phi i64 [ %spec.select55, %29 ], [ %9, %28 ], [ %9, %27 ]
-  %.052 = phi i64 [ %spec.select56, %29 ], [ %7, %28 ], [ %9, %27 ]
-  %.049 = phi i8 [ 0, %29 ], [ 1, %28 ], [ 1, %27 ]
+  %.053 = phi i64 [ %9, %28 ], [ %9, %27 ], [ %spec.select55, %29 ]
+  %.052 = phi i64 [ %7, %28 ], [ %9, %27 ], [ %spec.select56, %29 ]
+  %.049 = phi i8 [ 1, %28 ], [ 1, %27 ], [ 0, %29 ]
   %32 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %.048, i64 noundef %.052) #15
   %.not58 = icmp eq i64 %32, 0
   br i1 %.not58, label %39, label %33
@@ -5938,7 +5938,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br label %50
 
 50:                                               ; preds = %.sink.split, %47, %45, %43, %37, %35
-  %.0 = phi i64 [ 1, %35 ], [ 1, %43 ], [ 0, %37 ], [ 0, %45 ], [ 1, %47 ], [ 0, %.sink.split ]
+  %.0 = phi i64 [ 1, %35 ], [ 0, %37 ], [ 1, %43 ], [ 0, %45 ], [ 1, %47 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 
@@ -6100,7 +6100,7 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @datet
   unreachable
 
 30:                                               ; preds = %1, %8, %15
-  %.0 = phi i64 [ %24, %15 ], [ 9223372036854775807, %8 ], [ -9223372036854775808, %1 ]
+  %.0 = phi i64 [ 9223372036854775807, %8 ], [ %24, %15 ], [ -9223372036854775808, %1 ]
   ret i64 %.0
 }
 
@@ -6323,7 +6323,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   unreachable
 
 134:                                              ; preds = %41, %101, %68, %64, %59, %56
-  %.142.ph = phi i64 [ %44, %101 ], [ %58, %56 ], [ %72, %68 ], [ %67, %64 ], [ %63, %59 ], [ %47, %41 ]
+  %.142.ph = phi i64 [ %44, %101 ], [ %72, %68 ], [ %67, %64 ], [ %63, %59 ], [ %58, %56 ], [ %47, %41 ]
   br i1 %1, label %135, label %138
 
 135:                                              ; preds = %134
@@ -6337,7 +6337,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   br label %141
 
 141:                                              ; preds = %74, %81, %88, %95, %138, %135, %121, %113
-  %.1 = phi i64 [ %137, %135 ], [ %140, %138 ], [ %128, %121 ], [ %120, %113 ], [ %100, %95 ], [ %80, %74 ], [ %86, %81 ], [ %94, %88 ]
+  %.1 = phi i64 [ %137, %135 ], [ %140, %138 ], [ %120, %113 ], [ %128, %121 ], [ %80, %74 ], [ %86, %81 ], [ %94, %88 ], [ %100, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.1
 }

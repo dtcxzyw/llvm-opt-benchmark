@@ -482,7 +482,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %91, %93
   br label %.lr.ph91._crit_edge
 
 .lr.ph91._crit_edge:                              ; preds = %.lr.ph91, %_ZN22CompilationResourceObjnwEm.exit, %96, %72
-  %.075 = phi ptr [ %65, %72 ], [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i, %96 ], [ %65, %.lr.ph91 ]
+  %.075 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i, %96 ], [ %65, %72 ], [ %65, %.lr.ph91 ]
   %104 = getelementptr inbounds nuw ptr, ptr %7, i64 %.pre
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %.075, i64 24
@@ -673,7 +673,7 @@ _ZN22CompilationResourceObjnwEm.exit._crit_edge:  ; preds = %_ZN22CompilationRes
   br label %95
 
 95:                                               ; preds = %2, %90, %39, %43, %49
-  %.0 = phi ptr [ %22, %39 ], [ %22, %49 ], [ %22, %43 ], [ %1, %90 ], [ %1, %2 ]
+  %.0 = phi ptr [ %22, %49 ], [ %22, %43 ], [ %22, %39 ], [ %1, %90 ], [ %1, %2 ]
   ret ptr %.0
 }
 
@@ -889,7 +889,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit:     ; preds = %28, %31
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %21, %.lr.ph, %48
-  %.1 = phi ptr [ %.02025, %.lr.ph ], [ %.02025, %21 ], [ %.02025, %48 ], [ %.1.ph, %.critedge.sink.split ]
+  %.1 = phi ptr [ %.02025, %48 ], [ %.02025, %.lr.ph ], [ %.02025, %21 ], [ %.1.ph, %.critedge.sink.split ]
   %59 = getelementptr inbounds nuw i8, ptr %.02025, i64 24
   %.020 = load ptr, ptr %59, align 8
   %.not = icmp eq ptr %.020, null
@@ -1013,7 +1013,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit:     ; preds = %36, %39
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %30, %35, %.lr.ph, %56
-  %.1 = phi ptr [ %.02431, %35 ], [ %.02431, %30 ], [ %.02431, %56 ], [ %.02431, %.lr.ph ], [ %.1.ph, %.critedge.sink.split ]
+  %.1 = phi ptr [ %.02431, %56 ], [ %.02431, %.lr.ph ], [ %.02431, %35 ], [ %.02431, %30 ], [ %.1.ph, %.critedge.sink.split ]
   %67 = getelementptr inbounds nuw i8, ptr %.02431, i64 24
   %.024 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %.024, null
@@ -1457,7 +1457,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %84, %89
   br label %233
 
 233:                                              ; preds = %185, %114, %59, %122, %192, %214, %19
-  %.053 = phi i8 [ %24, %19 ], [ %186, %185 ], [ %70, %59 ], [ %139, %122 ], [ %115, %114 ], [ %209, %192 ], [ %232, %214 ]
+  %.053 = phi i8 [ %24, %19 ], [ %139, %122 ], [ %209, %192 ], [ %232, %214 ], [ %70, %59 ], [ %115, %114 ], [ %186, %185 ]
   %234 = trunc i8 %.053 to i1
   br i1 %234, label %235, label %.thread
 
@@ -2021,8 +2021,8 @@ _ZNK10BlockBegin14is_predecessorEPS_.exit.i:      ; preds = %149, %148, %138
   %167 = icmp samesign ugt i64 %indvars.iv.i29, 2
   br i1 %167, label %163, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, !llvm.loop !21
 
-_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit: ; preds = %19, %.loopexit, %32, %80, %163, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %._crit_edge, %107, %_ZN11Compilation12is_profilingEv.exit.i, %115, %159, %128, %_ZN11Compilation13is_optimisticEv.exit
-  %168 = phi i1 [ true, %163 ], [ false, %.loopexit ], [ false, %80 ], [ true, %_ZN11Compilation13is_optimisticEv.exit ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ true, %._crit_edge ], [ true, %107 ], [ true, %_ZN11Compilation12is_profilingEv.exit.i ], [ true, %115 ], [ true, %159 ], [ true, %128 ], [ false, %32 ], [ false, %19 ]
+_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit: ; preds = %19, %.loopexit, %32, %80, %163, %107, %._crit_edge, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %115, %_ZN11Compilation12is_profilingEv.exit.i, %159, %128, %_ZN11Compilation13is_optimisticEv.exit
+  %168 = phi i1 [ true, %107 ], [ true, %._crit_edge ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ true, %115 ], [ true, %_ZN11Compilation12is_profilingEv.exit.i ], [ true, %159 ], [ true, %128 ], [ true, %_ZN11Compilation13is_optimisticEv.exit ], [ true, %163 ], [ false, %80 ], [ false, %32 ], [ false, %.loopexit ], [ false, %19 ]
   ret i1 %168
 }
 
@@ -3710,7 +3710,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit.i.us.us: ; preds = %33, %30
   br label %.critedge.i.us.us
 
 .critedge.i.us.us:                                ; preds = %.critedge.sink.split.i.us.us, %45, %24, %.lr.ph.i.us.us
-  %.1.i.us.us = phi ptr [ %.02431.i.us.us, %24 ], [ %.02330.i.us.us, %.critedge.sink.split.i.us.us ], [ %.02431.i.us.us, %45 ], [ %.02431.i.us.us, %.lr.ph.i.us.us ]
+  %.1.i.us.us = phi ptr [ %.02431.i.us.us, %45 ], [ %.02431.i.us.us, %.lr.ph.i.us.us ], [ %.02431.i.us.us, %24 ], [ %.02330.i.us.us, %.critedge.sink.split.i.us.us ]
   %61 = getelementptr inbounds nuw i8, ptr %.02431.i.us.us, i64 24
   %.024.i.us.us = load ptr, ptr %61, align 8
   %.not.i.us.us = icmp eq ptr %.024.i.us.us, null
@@ -3809,7 +3809,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit.i:   ; preds = %85, %82
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %71, %.critedge.sink.split.i, %102, %77, %.lr.ph.i
-  %.1.i = phi ptr [ %.02330.i, %.critedge.sink.split.i ], [ %.02431.i, %77 ], [ %.02431.i, %102 ], [ %.02431.i, %.lr.ph.i ], [ %.02431.i, %71 ]
+  %.1.i = phi ptr [ %.02431.i, %102 ], [ %.02431.i, %.lr.ph.i ], [ %.02431.i, %77 ], [ %.02330.i, %.critedge.sink.split.i ], [ %.02431.i, %71 ]
   %113 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 24
   %.024.i = load ptr, ptr %113, align 8
   %.not.i = icmp eq ptr %.024.i, null
@@ -3922,7 +3922,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit.i:   ; preds = %33, %30
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.sink.split.i, %50, %23, %.lr.ph.i
-  %.1.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.02025.i, %23 ], [ %.02025.i, %50 ], [ %.01924.i, %.critedge.sink.split.i ]
+  %.1.i = phi ptr [ %.02025.i, %50 ], [ %.02025.i, %.lr.ph.i ], [ %.02025.i, %23 ], [ %.01924.i, %.critedge.sink.split.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.02025.i, i64 24
   %.020.i = load ptr, ptr %61, align 8
   %.not.i = icmp eq ptr %.020.i, null
@@ -4085,7 +4085,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit.i.us.us: ; preds = %35, %32
   br label %.critedge.i.us.us
 
 .critedge.i.us.us:                                ; preds = %.critedge.sink.split.i.us.us, %47, %26, %.lr.ph.i.us.us
-  %.1.i.us.us = phi ptr [ %.02431.i.us.us, %26 ], [ %.02330.i.us.us, %.critedge.sink.split.i.us.us ], [ %.02431.i.us.us, %47 ], [ %.02431.i.us.us, %.lr.ph.i.us.us ]
+  %.1.i.us.us = phi ptr [ %.02431.i.us.us, %47 ], [ %.02431.i.us.us, %.lr.ph.i.us.us ], [ %.02431.i.us.us, %26 ], [ %.02330.i.us.us, %.critedge.sink.split.i.us.us ]
   %63 = getelementptr inbounds nuw i8, ptr %.02431.i.us.us, i64 24
   %.024.i.us.us = load ptr, ptr %63, align 8
   %.not.i.us.us = icmp eq ptr %.024.i.us.us, null
@@ -4184,7 +4184,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit.i:   ; preds = %87, %84
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %73, %.critedge.sink.split.i, %104, %79, %.lr.ph.i
-  %.1.i = phi ptr [ %.02330.i, %.critedge.sink.split.i ], [ %.02431.i, %79 ], [ %.02431.i, %104 ], [ %.02431.i, %.lr.ph.i ], [ %.02431.i, %73 ]
+  %.1.i = phi ptr [ %.02431.i, %104 ], [ %.02431.i, %.lr.ph.i ], [ %.02431.i, %79 ], [ %.02330.i, %.critedge.sink.split.i ], [ %.02431.i, %73 ]
   %115 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 24
   %.024.i = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %.024.i, null
@@ -4316,7 +4316,7 @@ _ZN8ValueMap10kill_valueEP11Instruction.exit.i:   ; preds = %35, %32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.sink.split.i, %52, %25, %.lr.ph.i
-  %.1.i = phi ptr [ %.02025.i, %.lr.ph.i ], [ %.02025.i, %25 ], [ %.02025.i, %52 ], [ %.01924.i, %.critedge.sink.split.i ]
+  %.1.i = phi ptr [ %.02025.i, %52 ], [ %.02025.i, %.lr.ph.i ], [ %.02025.i, %25 ], [ %.01924.i, %.critedge.sink.split.i ]
   %63 = getelementptr inbounds nuw i8, ptr %.02025.i, i64 24
   %.020.i = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %.020.i, null

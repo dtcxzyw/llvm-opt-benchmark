@@ -67,7 +67,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
           to label %37 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %340, %294, %284, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17hff1ba1612795f56eE.exit61.i", %248, %354, %319, %303, %267
-  %.pn = phi { ptr, i32 } [ %320, %319 ], [ %eh.lpad-body88.ph, %303 ], [ %285, %284 ], [ %268, %267 ], [ %355, %354 ], [ %295, %294 ], [ %lpad.thr_comm.split-lp.i, %248 ], [ %341, %340 ], [ %.pn.pn.pn.i, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17hff1ba1612795f56eE.exit61.i" ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit157, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp158, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body88.ph, %303 ], [ %268, %267 ], [ %355, %354 ], [ %320, %319 ], [ %lpad.thr_comm.split-lp.i, %248 ], [ %.pn.pn.pn.i, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17hff1ba1612795f56eE.exit61.i" ], [ %285, %284 ], [ %295, %294 ], [ %341, %340 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit157, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp158, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Hir$GT$$GT$17h8d470e031b8631f3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #11
           to label %.body84 unwind label %304
 
@@ -383,7 +383,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
           to label %163 unwind label %161, !noalias !54
 
 "_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17hff1ba1612795f56eE.exit61.i": ; preds = %247, %243, %.body51.i, %161
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %220, %.body51.i ], [ %162, %161 ], [ %.pn.pn.ph.i, %247 ], [ %.pn.pn.ph.i, %243 ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %162, %161 ], [ %220, %.body51.i ], [ %.pn.pn.ph.i, %247 ], [ %.pn.pn.ph.i, %243 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$$RF$regex_syntax..hir..Hir$GT$$GT$17h8a12f0b579150353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #11
           to label %.body unwind label %231, !noalias !54
 
@@ -611,7 +611,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   unreachable
 
 .thread79.i:                                      ; preds = %207, %197, %193, %185
-  %.pn82.i = phi { ptr, i32 } [ %194, %197 ], [ %186, %185 ], [ %194, %193 ], [ %208, %207 ]
+  %.pn82.i = phi { ptr, i32 } [ %186, %185 ], [ %194, %193 ], [ %194, %197 ], [ %208, %207 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %233 = load ptr, ptr %19, align 8, !alias.scope !104, !noalias !28, !nonnull !9, !noundef !9

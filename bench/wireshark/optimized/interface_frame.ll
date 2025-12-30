@@ -1594,7 +1594,7 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %95, %_ZN17QArrayDat
   br label %101
 
 101:                                              ; preds = %77, %_ZN7QStringD2Ev.exit51, %85, %_ZN7QStringD2Ev.exit55, %_ZN7QStringD2Ev.exit59, %93, %_ZN7QStringD2Ev.exit29
-  %.pn.pn.pn = phi { ptr, i32 } [ %23, %_ZN7QStringD2Ev.exit29 ], [ %78, %77 ], [ %88, %_ZN7QStringD2Ev.exit55 ], [ %86, %85 ], [ %80, %_ZN7QStringD2Ev.exit51 ], [ %96, %_ZN7QStringD2Ev.exit59 ], [ %94, %93 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %23, %_ZN7QStringD2Ev.exit29 ], [ %88, %_ZN7QStringD2Ev.exit55 ], [ %86, %85 ], [ %80, %_ZN7QStringD2Ev.exit51 ], [ %78, %77 ], [ %96, %_ZN7QStringD2Ev.exit59 ], [ %94, %93 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -2580,7 +2580,7 @@ _ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_
   br label %110
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %37, %._ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread_crit_edge, %.lr.ph.split, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
-  %74 = phi ptr [ %.pre, %._ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread_crit_edge ], [ %29, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ %29, %.lr.ph.split ], [ %29, %37 ]
+  %74 = phi ptr [ %.pre, %._ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread_crit_edge ], [ %29, %.lr.ph.split ], [ %29, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ %29, %37 ]
   %75 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.067.083) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i39 = icmp eq ptr %74, null
@@ -2718,7 +2718,7 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %108, %_ZN17QArrayDa
   br label %110
 
 110:                                              ; preds = %100, %_ZN7QStringD2Ev.exit59, %73, %62
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %73 ], [ %.pn, %_ZN7QStringD2Ev.exit59 ], [ %63, %62 ], [ %101, %100 ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %73 ], [ %63, %62 ], [ %101, %100 ], [ %.pn, %_ZN7QStringD2Ev.exit59 ]
   %111 = load ptr, ptr %6, align 8
   %.not.i.i.i60 = icmp eq ptr %111, null
   br i1 %.not.i.i.i60, label %_ZN5QListIiED2Ev.exit63, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i61
@@ -4351,7 +4351,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ES
   br label %.thread
 
 .thread:                                          ; preds = %30, %34
-  %39 = phi i1 [ %38, %34 ], [ true, %30 ]
+  %39 = phi i1 [ true, %30 ], [ %38, %34 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %39, ptr noundef %7, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(32) %32) #28
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %41 = load i64, ptr %40, align 8
@@ -4600,8 +4600,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select
   br label %_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -6072,7 +6072,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i44.i.i.i: ; pred
   br label %_ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit27.i.i.i
 
 _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit27.i.i.i: ; preds = %138, %108, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i25.i.i.i, %106
-  %.pn9.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %139, %138 ], [ %.pn9.pn.i.i.i, %108 ], [ %.pn9.pn.i.i.i, %106 ], [ %.pn9.pn.i.i.i, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i25.i.i.i ]
+  %.pn9.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %139, %138 ], [ %.pn9.pn.i.i.i, %106 ], [ %.pn9.pn.i.i.i, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i25.i.i.i ], [ %.pn9.pn.i.i.i, %108 ]
   %140 = load ptr, ptr %7, align 8
   %.not.i.i.i46.i.i.i = icmp eq ptr %140, null
   br i1 %.not.i.i.i46.i.i.i, label %_ZN5QListI11QModelIndexED2Ev.exit49.i.i.i, label %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i47.i.i.i

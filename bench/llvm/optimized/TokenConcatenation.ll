@@ -172,7 +172,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   br label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit23
 
 _ZL14IsStringPrefixN4llvm9StringRefEb.exit23:     ; preds = %62, %68, %73, %74, %.thread.i17
-  %.0.i18 = phi i1 [ false, %.thread.i17 ], [ true, %62 ], [ true, %68 ], [ true, %73 ], [ true, %74 ]
+  %.0.i18 = phi i1 [ false, %.thread.i17 ], [ true, %62 ], [ true, %73 ], [ true, %74 ], [ true, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit
@@ -241,7 +241,7 @@ _ZL14IsStringPrefixN4llvm9StringRefEb.exit23:     ; preds = %62, %68, %73, %74, 
   br label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit30
 
 _ZL14IsStringPrefixN4llvm9StringRefEb.exit30:     ; preds = %91, %97, %102, %103, %.thread.i24
-  %.0.i25 = phi i1 [ false, %.thread.i24 ], [ true, %91 ], [ true, %97 ], [ true, %102 ], [ true, %103 ]
+  %.0.i25 = phi i1 [ false, %.thread.i24 ], [ true, %91 ], [ true, %102 ], [ true, %103 ], [ true, %97 ]
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %108 = icmp eq ptr %81, %107
   br i1 %108, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -262,7 +262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit
 
 _ZL14IsStringPrefixN4llvm9StringRefEb.exit:       ; preds = %.thread.i, %44, %43, %38, %32, %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZL14IsStringPrefixN4llvm9StringRefEb.exit23
-  %.0 = phi i1 [ %.0.i18, %_ZL14IsStringPrefixN4llvm9StringRefEb.exit23 ], [ %.0.i25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %14 ], [ true, %44 ], [ false, %.thread.i ], [ true, %32 ], [ true, %38 ], [ true, %43 ]
+  %.0 = phi i1 [ %.0.i18, %_ZL14IsStringPrefixN4llvm9StringRefEb.exit23 ], [ %.0.i25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %14 ], [ false, %.thread.i ], [ true, %32 ], [ true, %43 ], [ true, %44 ], [ true, %38 ]
   ret i1 %.0
 }
 
@@ -768,7 +768,7 @@ switch.lookup117:                                 ; preds = %152
   br label %switch.edge
 
 switch.edge:                                      ; preds = %152, %switch.lookup117, %132, %switch.lookup, %81, %81, %81, %81, %81, %81, %81, %81, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %switch.edge.fold.split, %54, %101, %47, %4, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88, %83, %91, %93, %120, %122, %124, %128, %134, %136, %138, %154, %163, %68, %_ZNK5clang5Token17getIdentifierInfoEv.exit90, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92, %111, %106, %143, %141, %57, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %11
-  %.070 = phi i1 [ true, %11 ], [ false, %4 ], [ false, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88 ], [ false, %57 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ true, %47 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ %171, %163 ], [ false, %68 ], [ %88, %83 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92 ], [ %92, %91 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit90 ], [ %162, %154 ], [ %spec.select82, %93 ], [ true, %81 ], [ %121, %120 ], [ %123, %122 ], [ %127, %124 ], [ %131, %128 ], [ %119, %111 ], [ %135, %134 ], [ %137, %136 ], [ %140, %138 ], [ %switch.masked, %switch.lookup ], [ %151, %143 ], [ true, %81 ], [ true, %106 ], [ true, %101 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %141 ], [ false, %switch.edge.fold.split ], [ %switch.masked121, %switch.lookup117 ], [ false, %132 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %81 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %81 ], [ %56, %54 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ false, %152 ]
+  %.070 = phi i1 [ true, %11 ], [ false, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ true, %47 ], [ false, %57 ], [ %171, %163 ], [ %88, %83 ], [ %92, %91 ], [ %spec.select82, %93 ], [ %121, %120 ], [ %123, %122 ], [ %127, %124 ], [ %131, %128 ], [ %135, %134 ], [ %137, %136 ], [ %140, %138 ], [ %162, %154 ], [ false, %68 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit90 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92 ], [ true, %106 ], [ %119, %111 ], [ true, %141 ], [ %151, %143 ], [ false, %4 ], [ %56, %54 ], [ true, %101 ], [ true, %81 ], [ true, %81 ], [ false, %switch.edge.fold.split ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ %switch.masked, %switch.lookup ], [ false, %132 ], [ %switch.masked121, %switch.lookup117 ], [ false, %152 ]
   ret i1 %.070
 }
 

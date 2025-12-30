@@ -400,7 +400,7 @@ define internal fastcc void @sema_trace_decl_liveness(ptr noundef captures(addre
   br i1 %16, label %tailrecurse.backedge, label %.lr.ph140
 
 tailrecurse.backedge:                             ; preds = %.backedge111, %.backedge108, %.preheader109, %.preheader106
-  %.064.lcssa.pn = phi ptr [ %.064.be, %.backedge108 ], [ %11, %.preheader106 ], [ %65, %.preheader109 ], [ %.0.i.be, %.backedge111 ]
+  %.064.lcssa.pn = phi ptr [ %11, %.preheader106 ], [ %65, %.preheader109 ], [ %.064.be, %.backedge108 ], [ %.0.i.be, %.backedge111 ]
   %.tr.be.in = getelementptr inbounds nuw i8, ptr %.064.lcssa.pn, i64 56
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   %.not130 = icmp eq ptr %.tr.be, null

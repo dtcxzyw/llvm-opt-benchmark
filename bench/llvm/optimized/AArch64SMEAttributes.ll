@@ -116,7 +116,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
-_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %12, %2, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
+_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %2, %12, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
   ret void
 }
 
@@ -192,13 +192,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit56:              ; preds = %3
   br i1 %14, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit64.thread111
 
 _ZN4llvmeqENS_9StringRefES0_.exit60:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit32.thread87, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %15 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 10, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread87 ]
+  %15 = phi i32 [ 10, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread87 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %bcmp.i59 = tail call i32 @bcmp(ptr nonnull %1, ptr nonnull @.str.8, i64 %2)
   %16 = icmp eq i32 %bcmp.i59, 0
   br i1 %16, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit64.thread111
 
 _ZN4llvmeqENS_9StringRefES0_.exit64:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit36, %_ZN4llvmeqENS_9StringRefES0_.exit36.thread
-  %17 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit36 ], [ 42, %_ZN4llvmeqENS_9StringRefES0_.exit36.thread ]
+  %17 = phi i32 [ 42, %_ZN4llvmeqENS_9StringRefES0_.exit36.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit36 ]
   %bcmp.i63 = tail call i32 @bcmp(ptr %1, ptr nonnull @.str.9, i64 %2)
   %18 = icmp eq i32 %bcmp.i63, 0
   br i1 %18, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit64.thread111
@@ -388,7 +388,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8SMEAttrs16requiresSMChangeERKS0_(
   br label %14
 
 14:                                               ; preds = %10, %5, %2
-  %.0 = phi i1 [ %or.cond7.not, %10 ], [ false, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ %or.cond7.not, %10 ]
   ret i1 %.0
 }
 

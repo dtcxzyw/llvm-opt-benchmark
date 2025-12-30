@@ -416,7 +416,7 @@ ar_atol10.exit.thread.i:                          ; preds = %64, %62, %ar_atol10
   br i1 %or.cond.i189.i, label %.lr.ph.i178.i, label %ar_atol10.exit190.i, !llvm.loop !35
 
 ar_atol10.exit190.i:                              ; preds = %114, %111, %109, %.lr.ph.i178.i, %.critedge.i170.i
-  %.127.i177.i = phi i64 [ 0, %.critedge.i170.i ], [ -1, %111 ], [ %117, %114 ], [ -1, %109 ], [ %.02635.i183.i, %.lr.ph.i178.i ]
+  %.127.i177.i = phi i64 [ 0, %.critedge.i170.i ], [ -1, %109 ], [ -1, %111 ], [ %117, %114 ], [ %.02635.i183.i, %.lr.ph.i178.i ]
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %122 = load ptr, ptr %121, align 8, !tbaa !36
   %123 = icmp eq ptr %122, null
@@ -579,7 +579,7 @@ ar_atol10.exit217.thread.i:                       ; preds = %145, %143, %ar_atol
   br label %175
 
 _ar_read_header.exit:                             ; preds = %85, %90, %163, %168, %169
-  %.0.i = phi i32 [ 0, %169 ], [ -30, %85 ], [ %92, %90 ], [ -30, %163 ], [ -30, %168 ]
+  %.0.i = phi i32 [ %92, %90 ], [ -30, %163 ], [ -30, %168 ], [ 0, %169 ], [ -30, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %177
 
@@ -677,7 +677,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_ar_read_data(ptr noun
   br label %.thread35
 
 .thread35:                                        ; preds = %.thread, %39, %38, %21, %23, %20
-  %.0 = phi i32 [ -30, %20 ], [ -30, %21 ], [ 0, %23 ], [ 1, %39 ], [ -30, %38 ], [ -30, %.thread ]
+  %.0 = phi i32 [ -30, %20 ], [ 0, %23 ], [ -30, %21 ], [ 1, %39 ], [ -30, %38 ], [ -30, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -808,7 +808,7 @@ define internal fastcc void @ar_parse_common_header(ptr noundef writeonly captur
   br i1 %or.cond.i, label %.lr.ph.i, label %ar_atol10.exit, !llvm.loop !35
 
 ar_atol10.exit:                                   ; preds = %.lr.ph.i, %14, %16, %19, %.critedge.i
-  %.127.i = phi i64 [ 0, %.critedge.i ], [ %.02635.i, %.lr.ph.i ], [ -1, %14 ], [ %22, %19 ], [ -1, %16 ]
+  %.127.i = phi i64 [ 0, %.critedge.i ], [ %.02635.i, %.lr.ph.i ], [ %22, %19 ], [ -1, %16 ], [ -1, %14 ]
   tail call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %.127.i, i64 noundef 0) #13
   %scevgep.i16 = getelementptr i8, ptr %2, i64 34
   br label %26
@@ -880,7 +880,7 @@ ar_atol10.exit:                                   ; preds = %.lr.ph.i, %14, %16,
   br i1 %or.cond.i41, label %.lr.ph.i30, label %ar_atol10.exit42.loopexit, !llvm.loop !35
 
 ar_atol10.exit42.loopexit:                        ; preds = %40, %37, %35, %.lr.ph.i30
-  %.127.i29.ph = phi i64 [ -1, %37 ], [ %43, %40 ], [ -1, %35 ], [ %.02635.i35, %.lr.ph.i30 ]
+  %.127.i29.ph = phi i64 [ -1, %35 ], [ -1, %37 ], [ %43, %40 ], [ %.02635.i35, %.lr.ph.i30 ]
   %47 = and i64 %.127.i29.ph, 4294967295
   br label %ar_atol10.exit42
 
@@ -957,7 +957,7 @@ ar_atol10.exit42:                                 ; preds = %ar_atol10.exit42.lo
   br i1 %or.cond.i68, label %.lr.ph.i57, label %ar_atol10.exit69.loopexit, !llvm.loop !35
 
 ar_atol10.exit69.loopexit:                        ; preds = %62, %59, %57, %.lr.ph.i57
-  %.127.i56.ph = phi i64 [ -1, %59 ], [ %65, %62 ], [ -1, %57 ], [ %.02635.i62, %.lr.ph.i57 ]
+  %.127.i56.ph = phi i64 [ -1, %57 ], [ -1, %59 ], [ %65, %62 ], [ %.02635.i62, %.lr.ph.i57 ]
   %69 = and i64 %.127.i56.ph, 4294967295
   br label %ar_atol10.exit69
 
@@ -1105,7 +1105,7 @@ ar_atol8.exit:                                    ; preds = %ar_atol8.exit.loope
   br i1 %or.cond.i107, label %.lr.ph.i96, label %ar_atol10.exit108, !llvm.loop !35
 
 ar_atol10.exit108:                                ; preds = %.lr.ph.i96, %98, %100, %103, %.critedge.i88
-  %.127.i95 = phi i64 [ 0, %.critedge.i88 ], [ %.02635.i101, %.lr.ph.i96 ], [ -1, %98 ], [ %106, %103 ], [ -1, %100 ]
+  %.127.i95 = phi i64 [ 0, %.critedge.i88 ], [ %.02635.i101, %.lr.ph.i96 ], [ %106, %103 ], [ -1, %100 ], [ -1, %98 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %110, align 8, !tbaa !42
   %111 = and i64 %.127.i95, 1

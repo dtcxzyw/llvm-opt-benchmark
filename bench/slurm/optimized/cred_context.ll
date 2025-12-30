@@ -781,7 +781,7 @@ define dso_local zeroext i1 @cred_revoked(ptr noundef readonly captures(none) %0
   br label %19
 
 19:                                               ; preds = %16, %6, %13
-  %.0 = phi i1 [ false, %6 ], [ %.not15, %16 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %6 ], [ %.not15, %16 ]
   %20 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cred_cache_mutex) #10
   %.not16 = icmp eq i32 %20, 0
   br i1 %.not16, label %23, label %21
@@ -1146,7 +1146,7 @@ _credential_revoked.exit:                         ; preds = %59, %49
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.cred_cache_valid) #12
   unreachable
 
-88:                                               ; preds = %_credential_revoked.exit, %67, %64
+88:                                               ; preds = %_credential_revoked.exit, %64, %67
   %.sink = phi i32 [ 4008, %67 ], [ 4008, %64 ], [ 4009, %_credential_revoked.exit ]
   %89 = tail call ptr @__errno_location() #11
   store i32 %.sink, ptr %89, align 4

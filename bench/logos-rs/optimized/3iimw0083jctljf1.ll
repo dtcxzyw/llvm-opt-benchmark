@@ -142,7 +142,7 @@ define hidden noundef zeroext i1 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20
   unreachable
 
 .loopexit:                                        ; preds = %88, %21, %12, %104, %72, %51
-  %.sroa.0.0 = phi i1 [ false, %12 ], [ true, %51 ], [ true, %72 ], [ false, %104 ], [ true, %21 ], [ true, %88 ]
+  %.sroa.0.0 = phi i1 [ true, %51 ], [ true, %72 ], [ false, %104 ], [ false, %12 ], [ true, %21 ], [ true, %88 ]
   ret i1 %.sroa.0.0
 
 67:                                               ; preds = %41

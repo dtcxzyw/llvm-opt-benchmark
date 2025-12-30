@@ -429,7 +429,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   br label %256
 
 256:                                              ; preds = %245, %242, %239
-  %257 = phi i8 [ %244, %242 ], [ %255, %245 ], [ %241, %239 ]
+  %257 = phi i8 [ %241, %239 ], [ %255, %245 ], [ %244, %242 ]
   %258 = and i8 %257, 63
   %.idx = mul nuw nsw i64 %227, 3
   %259 = getelementptr i8, ptr %171, i64 %.idx

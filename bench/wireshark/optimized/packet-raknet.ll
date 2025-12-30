@@ -1014,7 +1014,7 @@ test_raknet_heur.exit:                            ; preds = %7
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %test_raknet_heur.exit.thread, label %17
 
-test_raknet_heur.exit.thread:                     ; preds = %4, %7, %test_raknet_heur.exit
+test_raknet_heur.exit.thread:                     ; preds = %7, %4, %test_raknet_heur.exit
   %12 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %13 = load ptr, ptr @raknet_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef %12, ptr noundef %13)

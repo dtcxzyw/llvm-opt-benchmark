@@ -14422,8 +14422,8 @@ _ZN10async_task5utils14abort_on_panic17h9078251a6a128ec6E.exit: ; preds = %96, %
   br label %114
 
 114:                                              ; preds = %103, %107, %_ZN10async_task5utils14abort_on_panic17h9078251a6a128ec6E.exit
-  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9078251a6a128ec6E.exit ], [ %spec.select.i, %107 ], [ undef, %103 ]
-  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9078251a6a128ec6E.exit ], [ %109, %107 ], [ null, %103 ]
+  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9078251a6a128ec6E.exit ], [ undef, %103 ], [ %spec.select.i, %107 ]
+  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9078251a6a128ec6E.exit ], [ null, %103 ], [ %109, %107 ]
   %115 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %116 = and i64 %115, -240
   %or.cond.i = icmp eq i64 %116, 256
@@ -14510,7 +14510,7 @@ _ZN10async_task5utils14abort_on_panic17h5fd05d0d5587147bE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr850drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..symlink_metadata..symlink_metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..symlink_metadata..symlink_metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h957c5a363a2aeaf5E.exit": ; preds = %137, %97, %.body130, %133, %173, %177, %142, %.body175
-  %.pn96.pn.pn = phi { ptr, i32 } [ %167, %.body175 ], [ %167, %177 ], [ %eh.lpad-body, %142 ], [ %174, %173 ], [ %127, %.body130 ], [ %127, %137 ], [ %134, %133 ], [ %98, %97 ]
+  %.pn96.pn.pn = phi { ptr, i32 } [ %167, %.body175 ], [ %eh.lpad-body, %142 ], [ %167, %177 ], [ %174, %173 ], [ %127, %.body130 ], [ %98, %97 ], [ %127, %137 ], [ %134, %133 ]
   resume { ptr, i32 } %.pn96.pn.pn
 
 142:                                              ; preds = %.body.i, %70
@@ -14536,8 +14536,8 @@ _ZN10async_task5utils14abort_on_panic17h5fd05d0d5587147bE.exit: ; preds = %"_ZN1
   br label %154
 
 154:                                              ; preds = %143, %147, %_ZN10async_task5utils14abort_on_panic17hf7615f40749d125aE.exit
-  %.sroa.9.0222 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf7615f40749d125aE.exit ], [ %spec.select.i170, %147 ], [ undef, %143 ]
-  %.sroa.0.0220 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf7615f40749d125aE.exit ], [ %149, %147 ], [ null, %143 ]
+  %.sroa.9.0222 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf7615f40749d125aE.exit ], [ undef, %143 ], [ %spec.select.i170, %147 ]
+  %.sroa.0.0220 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf7615f40749d125aE.exit ], [ null, %143 ], [ %149, %147 ]
   %155 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %156 = and i64 %155, -240
   %or.cond.i172 = icmp eq i64 %156, 256
@@ -14686,7 +14686,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body145, %170, %.body.i114, %.body.i126, %215, %254, %.body118, %165, %161, %250, %.body163, %257, %293, %289, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %32, %.body.i ], [ %283, %.body163 ], [ %290, %289 ], [ %258, %257 ], [ %283, %293 ], [ %77, %170 ], [ %244, %254 ], [ %eh.lpad-body.i, %.body.i114 ], [ %216, %215 ], [ %244, %.body145 ], [ %162, %161 ], [ %184, %.body.i126 ], [ %251, %250 ], [ %155, %.body118 ], [ %155, %165 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %.body.i ], [ %283, %.body163 ], [ %258, %257 ], [ %283, %293 ], [ %290, %289 ], [ %77, %170 ], [ %244, %.body145 ], [ %eh.lpad-body.i, %.body.i114 ], [ %184, %.body.i126 ], [ %216, %215 ], [ %244, %254 ], [ %155, %.body118 ], [ %155, %165 ], [ %162, %161 ], [ %251, %250 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h7c44bbd97c630b88E.exit: ; preds = %22, %27, %31
@@ -14936,8 +14936,8 @@ _ZN10async_task5utils14abort_on_panic17hd68239f2c99d7207E.exit: ; preds = %115, 
   br label %142
 
 142:                                              ; preds = %131, %135, %_ZN10async_task5utils14abort_on_panic17hd68239f2c99d7207E.exit
-  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hd68239f2c99d7207E.exit ], [ %spec.select.i, %135 ], [ undef, %131 ]
-  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hd68239f2c99d7207E.exit ], [ %137, %135 ], [ null, %131 ]
+  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hd68239f2c99d7207E.exit ], [ undef, %131 ], [ %spec.select.i, %135 ]
+  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hd68239f2c99d7207E.exit ], [ null, %131 ], [ %137, %135 ]
   %143 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %144 = and i64 %143, -240
   %or.cond.i = icmp eq i64 %144, 256
@@ -15142,7 +15142,7 @@ _ZN10async_task5utils14abort_on_panic17hd68239f2c99d7207E.exit: ; preds = %115, 
   br label %_ZN10async_task5utils14abort_on_panic17hb70ebddedde8696aE.exit
 
 _ZN10async_task5utils14abort_on_panic17hb70ebddedde8696aE.exit: ; preds = %219, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h03f2ffc523be2719E.exit147", %248, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hae1786b1358fdbbcE.exit.i133", %203, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h03f2ffc523be2719E.exit", %159
-  %.sroa.0.0 = phi i1 [ true, %219 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hae1786b1358fdbbcE.exit.i133" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h03f2ffc523be2719E.exit" ], [ false, %159 ], [ false, %203 ], [ false, %248 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h03f2ffc523be2719E.exit147" ]
+  %.sroa.0.0 = phi i1 [ false, %159 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h03f2ffc523be2719E.exit" ], [ false, %203 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hae1786b1358fdbbcE.exit.i133" ], [ true, %219 ], [ false, %248 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h03f2ffc523be2719E.exit147" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h2d1ed20c403687d9E.exit
 
@@ -15164,8 +15164,8 @@ _ZN10async_task5utils14abort_on_panic17hb70ebddedde8696aE.exit: ; preds = %219, 
   br label %231
 
 231:                                              ; preds = %220, %224, %200
-  %.sroa.0186.0 = phi ptr [ null, %200 ], [ %226, %224 ], [ null, %220 ]
-  %.sroa.9188.0 = phi ptr [ undef, %200 ], [ %spec.select.i140, %224 ], [ undef, %220 ]
+  %.sroa.0186.0 = phi ptr [ null, %200 ], [ null, %220 ], [ %226, %224 ]
+  %.sroa.9188.0 = phi ptr [ undef, %200 ], [ undef, %220 ], [ %spec.select.i140, %224 ]
   %232 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %233 = and i64 %232, -240
   %or.cond.i142 = icmp eq i64 %233, 256
@@ -15268,8 +15268,8 @@ _ZN10async_task5utils14abort_on_panic17h2d1ed20c403687d9E.exit: ; preds = %"_ZN1
   br label %270
 
 270:                                              ; preds = %259, %263, %_ZN10async_task5utils14abort_on_panic17h7c44bbd97c630b88E.exit
-  %.sroa.9.0206 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7c44bbd97c630b88E.exit ], [ %spec.select.i158, %263 ], [ undef, %259 ]
-  %.sroa.0.0204 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7c44bbd97c630b88E.exit ], [ %265, %263 ], [ null, %259 ]
+  %.sroa.9.0206 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7c44bbd97c630b88E.exit ], [ undef, %259 ], [ %spec.select.i158, %263 ]
+  %.sroa.0.0204 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7c44bbd97c630b88E.exit ], [ null, %259 ], [ %265, %263 ]
   %271 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %272 = and i64 %271, -240
   %or.cond.i160 = icmp eq i64 %272, 256
@@ -15433,8 +15433,8 @@ _ZN10async_task5utils14abort_on_panic17haac05d4a8dc6e8e9E.exit: ; preds = %17, %
   br label %._crit_edge264
 
 ._crit_edge264:                                   ; preds = %33, %31, %41
-  %.sroa.13.0.ph = phi ptr [ %32, %31 ], [ %43, %41 ], [ %34, %33 ]
-  %.sroa.8.0.ph = phi ptr [ null, %31 ], [ %42, %41 ], [ null, %33 ]
+  %.sroa.13.0.ph = phi ptr [ %43, %41 ], [ %32, %31 ], [ %34, %33 ]
+  %.sroa.8.0.ph = phi ptr [ %42, %41 ], [ null, %31 ], [ null, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i8, ptr %45, align 8, !range !1583, !noundef !14
   %47 = icmp eq i8 %46, 0
@@ -15586,8 +15586,8 @@ _ZN10async_task5utils14abort_on_panic17h8fc026ab2ade4d0eE.exit: ; preds = %83, %
   br label %110
 
 110:                                              ; preds = %99, %103, %_ZN10async_task5utils14abort_on_panic17h8fc026ab2ade4d0eE.exit
-  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h8fc026ab2ade4d0eE.exit ], [ %spec.select.i, %103 ], [ undef, %99 ]
-  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h8fc026ab2ade4d0eE.exit ], [ %105, %103 ], [ null, %99 ]
+  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h8fc026ab2ade4d0eE.exit ], [ undef, %99 ], [ %spec.select.i, %103 ]
+  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h8fc026ab2ade4d0eE.exit ], [ null, %99 ], [ %105, %103 ]
   %111 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %112 = and i64 %111, -240
   %or.cond.i = icmp eq i64 %112, 256
@@ -15674,7 +15674,7 @@ _ZN10async_task5utils14abort_on_panic17h356556503dafeb9aE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr794drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..remove_file..remove_file$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..remove_file..remove_file$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hee4c5bc75f497b6bE.exit": ; preds = %133, %.body.i, %.body114, %129, %170, %174, %138, %.body158
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %164, %.body158 ], [ %171, %170 ], [ %139, %138 ], [ %164, %174 ], [ %123, %133 ], [ %123, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %130, %129 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %164, %.body158 ], [ %139, %138 ], [ %164, %174 ], [ %171, %170 ], [ %123, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %123, %133 ], [ %130, %129 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 138:                                              ; preds = %31
@@ -15701,8 +15701,8 @@ _ZN10async_task5utils14abort_on_panic17h356556503dafeb9aE.exit: ; preds = %"_ZN1
   br label %151
 
 151:                                              ; preds = %140, %144, %_ZN10async_task5utils14abort_on_panic17haac05d4a8dc6e8e9E.exit
-  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17haac05d4a8dc6e8e9E.exit ], [ %spec.select.i153, %144 ], [ undef, %140 ]
-  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17haac05d4a8dc6e8e9E.exit ], [ %146, %144 ], [ null, %140 ]
+  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17haac05d4a8dc6e8e9E.exit ], [ undef, %140 ], [ %spec.select.i153, %144 ]
+  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17haac05d4a8dc6e8e9E.exit ], [ null, %140 ], [ %146, %144 ]
   %152 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %153 = and i64 %152, -240
   %or.cond.i155 = icmp eq i64 %153, 256
@@ -16051,8 +16051,8 @@ _ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit: ; preds = %89, %
   br label %107
 
 107:                                              ; preds = %96, %100, %_ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit
-  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit ], [ %spec.select.i, %100 ], [ undef, %96 ]
-  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit ], [ %102, %100 ], [ null, %96 ]
+  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit ], [ undef, %96 ], [ %spec.select.i, %100 ]
+  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit ], [ null, %96 ], [ %102, %100 ]
   %108 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %109 = and i64 %108, -240
   %or.cond.i = icmp eq i64 %109, 256
@@ -16132,7 +16132,7 @@ _ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit: ; preds = %89, %
   unreachable
 
 .body138:                                         ; preds = %210, %214, %175, %147, %.body149
-  %.pn96 = phi { ptr, i32 } [ %204, %214 ], [ %176, %175 ], [ %204, %.body149 ], [ %148, %147 ], [ %211, %210 ]
+  %.pn96 = phi { ptr, i32 } [ %204, %.body149 ], [ %148, %147 ], [ %176, %175 ], [ %204, %214 ], [ %211, %210 ]
   %135 = load i64, ptr %5, align 8, !range !4286, !noundef !14
   %.not241 = icmp eq i64 %135, 4
   br i1 %.not241, label %"_ZN4core3ptr817drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_fs..metadata$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_fs..metadata$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hc38cf25b653acfc0E.exit", label %217
@@ -16249,7 +16249,7 @@ _ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit: ; preds = %89, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0d7484d8360c3193E.exit140" unwind label %147
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0d7484d8360c3193E.exit140": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0d7484d8360c3193E.exit", %124, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0d7484d8360c3193E.exit151", %208, %179, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6ae9544c9b24f98cE.exit.i137", %163
-  %.sroa.0.0 = phi i1 [ true, %179 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0d7484d8360c3193E.exit151" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6ae9544c9b24f98cE.exit.i137" ], [ false, %163 ], [ false, %208 ], [ false, %124 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0d7484d8360c3193E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %163 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6ae9544c9b24f98cE.exit.i137" ], [ true, %179 ], [ false, %208 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0d7484d8360c3193E.exit151" ], [ false, %124 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0d7484d8360c3193E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h113003daf3a79b96E.exit
 
@@ -16271,8 +16271,8 @@ _ZN10async_task5utils14abort_on_panic17hf3846ca269d78f89E.exit: ; preds = %89, %
   br label %191
 
 191:                                              ; preds = %180, %184, %160
-  %.sroa.9184.0 = phi ptr [ undef, %160 ], [ %spec.select.i144, %184 ], [ undef, %180 ]
-  %.sroa.0182.0 = phi ptr [ null, %160 ], [ %186, %184 ], [ null, %180 ]
+  %.sroa.9184.0 = phi ptr [ undef, %160 ], [ undef, %180 ], [ %spec.select.i144, %184 ]
+  %.sroa.0182.0 = phi ptr [ null, %160 ], [ null, %180 ], [ %186, %184 ]
   %192 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %193 = and i64 %192, -240
   %or.cond.i146 = icmp eq i64 %193, 256
@@ -16356,7 +16356,7 @@ _ZN10async_task5utils14abort_on_panic17h113003daf3a79b96E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr817drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_fs..metadata$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_fs..metadata$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hc38cf25b653acfc0E.exit" unwind label %133
 
 "_ZN4core3ptr817drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_fs..metadata$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_fs..metadata$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hc38cf25b653acfc0E.exit": ; preds = %130, %90, %.body125, %126, %250, %.body138, %217, %254, %218, %.body167
-  %.pn96.pn.pn = phi { ptr, i32 } [ %244, %.body167 ], [ %244, %254 ], [ %219, %218 ], [ %.pn96, %217 ], [ %.pn96, %.body138 ], [ %251, %250 ], [ %120, %130 ], [ %127, %126 ], [ %91, %90 ], [ %120, %.body125 ]
+  %.pn96.pn.pn = phi { ptr, i32 } [ %244, %.body167 ], [ %219, %218 ], [ %244, %254 ], [ %.pn96, %217 ], [ %.pn96, %.body138 ], [ %251, %250 ], [ %127, %126 ], [ %120, %130 ], [ %91, %90 ], [ %120, %.body125 ]
   resume { ptr, i32 } %.pn96.pn.pn
 
 218:                                              ; preds = %40
@@ -16383,8 +16383,8 @@ _ZN10async_task5utils14abort_on_panic17h113003daf3a79b96E.exit: ; preds = %"_ZN1
   br label %231
 
 231:                                              ; preds = %220, %224, %_ZN10async_task5utils14abort_on_panic17h5d200e2f843dd59eE.exit
-  %.sroa.9.0201 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5d200e2f843dd59eE.exit ], [ %spec.select.i162, %224 ], [ undef, %220 ]
-  %.sroa.0.0199 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5d200e2f843dd59eE.exit ], [ %226, %224 ], [ null, %220 ]
+  %.sroa.9.0201 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5d200e2f843dd59eE.exit ], [ undef, %220 ], [ %spec.select.i162, %224 ]
+  %.sroa.0.0199 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5d200e2f843dd59eE.exit ], [ null, %220 ], [ %226, %224 ]
   %232 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %233 = and i64 %232, -240
   %or.cond.i164 = icmp eq i64 %233, 256
@@ -16552,7 +16552,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body158, %188, %.body.i118, %.body.i133, %244, %266, %308, %.body122, %183, %179, %304, %.body177, %311, %351, %347, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %35, %.body.i ], [ %341, %.body177 ], [ %348, %347 ], [ %312, %311 ], [ %341, %351 ], [ %95, %188 ], [ %298, %308 ], [ %133, %.body.i118 ], [ %267, %266 ], [ %298, %.body158 ], [ %180, %179 ], [ %205, %.body.i133 ], [ %245, %244 ], [ %305, %304 ], [ %173, %.body122 ], [ %173, %183 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %.body.i ], [ %341, %.body177 ], [ %312, %311 ], [ %341, %351 ], [ %348, %347 ], [ %95, %188 ], [ %298, %.body158 ], [ %133, %.body.i118 ], [ %205, %.body.i133 ], [ %245, %244 ], [ %267, %266 ], [ %298, %308 ], [ %173, %.body122 ], [ %173, %183 ], [ %180, %179 ], [ %305, %304 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hb54a162c415b4900E.exit: ; preds = %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i.i.i.i.i.i"
@@ -16641,8 +16641,8 @@ _ZN10async_task5utils14abort_on_panic17hb54a162c415b4900E.exit: ; preds = %27, %
   br label %82
 
 82:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc4d7740749328a9E.exit", %80, %77
-  %.sroa.13.0.ph = phi ptr [ undef, %77 ], [ %75, %80 ], [ undef, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc4d7740749328a9E.exit" ]
-  %.sroa.8.1.ph = phi ptr [ null, %77 ], [ %74, %80 ], [ null, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc4d7740749328a9E.exit" ]
+  %.sroa.13.0.ph = phi ptr [ %75, %80 ], [ undef, %77 ], [ undef, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc4d7740749328a9E.exit" ]
+  %.sroa.8.1.ph = phi ptr [ %74, %80 ], [ null, %77 ], [ null, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc4d7740749328a9E.exit" ]
   %.val98.val = load ptr, ptr %7, align 8, !alias.scope !1855, !noundef !14
   call void @llvm.experimental.noalias.scope.decl(metadata !4497)
   call void @llvm.experimental.noalias.scope.decl(metadata !4500)
@@ -16806,8 +16806,8 @@ _ZN10async_task5utils14abort_on_panic17h19df162be9ec9ba8E.exit: ; preds = %131, 
   br label %156
 
 156:                                              ; preds = %145, %149, %_ZN10async_task5utils14abort_on_panic17h19df162be9ec9ba8E.exit
-  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h19df162be9ec9ba8E.exit ], [ %spec.select.i, %149 ], [ undef, %145 ]
-  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h19df162be9ec9ba8E.exit ], [ %151, %149 ], [ null, %145 ]
+  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h19df162be9ec9ba8E.exit ], [ undef, %145 ], [ %spec.select.i, %149 ]
+  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h19df162be9ec9ba8E.exit ], [ null, %145 ], [ %151, %149 ]
   %157 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %158 = and i64 %157, -240
   %or.cond.i = icmp eq i64 %158, 256
@@ -17099,7 +17099,7 @@ _ZN10async_task5utils14abort_on_panic17h19df162be9ec9ba8E.exit: ; preds = %131, 
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17h0bfda3b39d63d81aE.exit: ; preds = %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hff0d4c1acebdf9f0E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c84481005356507E.exit160", %302, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5d9af2976940d26fE.exit.i142", %228, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c84481005356507E.exit", %177
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hff0d4c1acebdf9f0E.exit.i" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5d9af2976940d26fE.exit.i142" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c84481005356507E.exit" ], [ false, %177 ], [ false, %228 ], [ false, %302 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c84481005356507E.exit160" ]
+  %.sroa.0.0 = phi i1 [ false, %177 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c84481005356507E.exit" ], [ false, %228 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5d9af2976940d26fE.exit.i142" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hff0d4c1acebdf9f0E.exit.i" ], [ false, %302 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c84481005356507E.exit160" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10async_task5utils14abort_on_panic17h79e6e8c0d0c96ed7E.exit
 
@@ -17121,8 +17121,8 @@ _ZN10async_task5utils14abort_on_panic17h0bfda3b39d63d81aE.exit: ; preds = %"_ZN6
   br label %281
 
 281:                                              ; preds = %270, %274, %225
-  %.sroa.9197.0 = phi ptr [ undef, %225 ], [ %spec.select.i152, %274 ], [ undef, %270 ]
-  %.sroa.0195.0 = phi ptr [ null, %225 ], [ %276, %274 ], [ null, %270 ]
+  %.sroa.9197.0 = phi ptr [ undef, %225 ], [ undef, %270 ], [ %spec.select.i152, %274 ]
+  %.sroa.0195.0 = phi ptr [ null, %225 ], [ null, %270 ], [ %276, %274 ]
   %282 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %283 = and i64 %282, -240
   %or.cond.i154 = icmp eq i64 %283, 256
@@ -17239,8 +17239,8 @@ _ZN10async_task5utils14abort_on_panic17h79e6e8c0d0c96ed7E.exit: ; preds = %"_ZN1
   br label %324
 
 324:                                              ; preds = %313, %317, %_ZN10async_task5utils14abort_on_panic17hb54a162c415b4900E.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb54a162c415b4900E.exit ], [ %spec.select.i171, %317 ], [ undef, %313 ]
-  %.sroa.0.0211 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb54a162c415b4900E.exit ], [ %319, %317 ], [ null, %313 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb54a162c415b4900E.exit ], [ undef, %313 ], [ %spec.select.i171, %317 ]
+  %.sroa.0.0211 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb54a162c415b4900E.exit ], [ null, %313 ], [ %319, %317 ]
   %325 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %326 = and i64 %325, -240
   %or.cond.i173 = icmp eq i64 %326, 256
@@ -17551,8 +17551,8 @@ _ZN3std2fs14remove_dir_all17h7f6905c5399ae06aE.exit.i.i.i.i.i.i: ; preds = %43
   br label %_ZN10async_task5utils14abort_on_panic17ha64b8d27c1bad278E.exit112
 
 _ZN10async_task5utils14abort_on_panic17ha64b8d27c1bad278E.exit112: ; preds = %60, %59, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110", %66, %61
-  %.sroa.8.0.ph275 = phi ptr [ %62, %61 ], [ %62, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %62, %66 ], [ null, %59 ], [ null, %60 ]
-  %.sroa.13.0.ph274 = phi ptr [ %63, %61 ], [ %63, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %63, %66 ], [ %35, %59 ], [ %44, %60 ]
+  %.sroa.8.0.ph275 = phi ptr [ %62, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %62, %66 ], [ %62, %61 ], [ null, %59 ], [ null, %60 ]
+  %.sroa.13.0.ph274 = phi ptr [ %63, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %63, %66 ], [ %63, %61 ], [ %35, %59 ], [ %44, %60 ]
   store ptr %.sroa.8.0.ph275, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.13.0.ph274, ptr %.sroa.2.0..sroa_idx, align 8
@@ -17687,8 +17687,8 @@ _ZN10async_task5utils14abort_on_panic17h7b850d8b9e27ca9dE.exit: ; preds = %101, 
   br label %128
 
 128:                                              ; preds = %117, %121, %_ZN10async_task5utils14abort_on_panic17h7b850d8b9e27ca9dE.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7b850d8b9e27ca9dE.exit ], [ %spec.select.i, %121 ], [ undef, %117 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7b850d8b9e27ca9dE.exit ], [ %123, %121 ], [ null, %117 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7b850d8b9e27ca9dE.exit ], [ undef, %117 ], [ %spec.select.i, %121 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7b850d8b9e27ca9dE.exit ], [ null, %117 ], [ %123, %121 ]
   %129 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %130 = and i64 %129, -240
   %or.cond.i = icmp eq i64 %130, 256
@@ -17775,7 +17775,7 @@ _ZN10async_task5utils14abort_on_panic17h6dab29a53214c58dE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr746drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h0b9d199da03a016aE.exit": ; preds = %151, %.body.i115, %.body118, %147, %187, %191, %156, %.body163
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %181, %.body163 ], [ %188, %187 ], [ %eh.lpad-body, %156 ], [ %181, %191 ], [ %141, %151 ], [ %141, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %148, %147 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %181, %.body163 ], [ %eh.lpad-body, %156 ], [ %181, %191 ], [ %188, %187 ], [ %141, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %141, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 156:                                              ; preds = %.body.i, %57
@@ -17801,8 +17801,8 @@ _ZN10async_task5utils14abort_on_panic17h6dab29a53214c58dE.exit: ; preds = %"_ZN1
   br label %168
 
 168:                                              ; preds = %157, %161, %_ZN10async_task5utils14abort_on_panic17ha64b8d27c1bad278E.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha64b8d27c1bad278E.exit ], [ %spec.select.i158, %161 ], [ undef, %157 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha64b8d27c1bad278E.exit ], [ %163, %161 ], [ null, %157 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha64b8d27c1bad278E.exit ], [ undef, %157 ], [ %spec.select.i158, %161 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha64b8d27c1bad278E.exit ], [ null, %157 ], [ %163, %161 ]
   %169 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %170 = and i64 %169, -240
   %or.cond.i160 = icmp eq i64 %170, 256
@@ -18167,8 +18167,8 @@ _ZN10async_task5utils14abort_on_panic17hc47abe6583fb86daE.exit: ; preds = %103, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17hc47abe6583fb86daE.exit
-  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc47abe6583fb86daE.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc47abe6583fb86daE.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc47abe6583fb86daE.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc47abe6583fb86daE.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -18354,7 +18354,7 @@ _ZN10async_task5utils14abort_on_panic17hc47abe6583fb86daE.exit: ; preds = %103, 
   br label %_ZN10async_task5utils14abort_on_panic17h43e74c2a21925309E.exit
 
 _ZN10async_task5utils14abort_on_panic17h43e74c2a21925309E.exit: ; preds = %200, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he98bde02972acbb8E.exit139", %229, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1d9790b48111a6c0E.exit.i125", %184, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he98bde02972acbb8E.exit", %147
-  %.sroa.0.0 = phi i1 [ true, %200 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1d9790b48111a6c0E.exit.i125" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he98bde02972acbb8E.exit" ], [ false, %147 ], [ false, %184 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he98bde02972acbb8E.exit139" ]
+  %.sroa.0.0 = phi i1 [ false, %147 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he98bde02972acbb8E.exit" ], [ false, %184 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1d9790b48111a6c0E.exit.i125" ], [ true, %200 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he98bde02972acbb8E.exit139" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h049b4aaacd069459E.exit
 
@@ -18376,8 +18376,8 @@ _ZN10async_task5utils14abort_on_panic17h43e74c2a21925309E.exit: ; preds = %200, 
   br label %212
 
 212:                                              ; preds = %201, %205, %181
-  %.sroa.0178.0 = phi ptr [ null, %181 ], [ %207, %205 ], [ null, %201 ]
-  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ %spec.select.i132, %205 ], [ undef, %201 ]
+  %.sroa.0178.0 = phi ptr [ null, %181 ], [ null, %201 ], [ %207, %205 ]
+  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ undef, %201 ], [ %spec.select.i132, %205 ]
   %213 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %214 = and i64 %213, -240
   %or.cond.i134 = icmp eq i64 %214, 256
@@ -18457,7 +18457,7 @@ _ZN10async_task5utils14abort_on_panic17h049b4aaacd069459E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr785drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17he2939c68c9c0d4a6E.exit" unwind label %156
 
 "_ZN4core3ptr785drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17he2939c68c9c0d4a6E.exit": ; preds = %.body137, %196, %235, %153, %.body.i, %.body113, %149, %231, %270, %274, %238, %.body155
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %271, %270 ], [ %239, %238 ], [ %264, %274 ], [ %225, %.body137 ], [ %225, %235 ], [ %197, %196 ], [ %232, %231 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %149 ], [ %143, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %239, %238 ], [ %264, %274 ], [ %271, %270 ], [ %225, %.body137 ], [ %197, %196 ], [ %225, %235 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %143, %153 ], [ %150, %149 ], [ %232, %231 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 238:                                              ; preds = %38
@@ -18484,8 +18484,8 @@ _ZN10async_task5utils14abort_on_panic17h049b4aaacd069459E.exit: ; preds = %"_ZN1
   br label %251
 
 251:                                              ; preds = %240, %244, %_ZN10async_task5utils14abort_on_panic17h8f741814629c5c9eE.exit
-  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h8f741814629c5c9eE.exit ], [ %spec.select.i150, %244 ], [ undef, %240 ]
-  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h8f741814629c5c9eE.exit ], [ %246, %244 ], [ null, %240 ]
+  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h8f741814629c5c9eE.exit ], [ undef, %240 ], [ %spec.select.i150, %244 ]
+  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h8f741814629c5c9eE.exit ], [ null, %240 ], [ %246, %244 ]
   %252 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %253 = and i64 %252, -240
   %or.cond.i152 = icmp eq i64 %253, 256
@@ -18898,8 +18898,8 @@ _ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit: ; preds = %93, %
   br label %111
 
 111:                                              ; preds = %100, %104, %_ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit
-  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit ], [ %spec.select.i, %104 ], [ undef, %100 ]
-  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit ], [ %106, %104 ], [ null, %100 ]
+  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit ], [ undef, %100 ], [ %spec.select.i, %104 ]
+  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit ], [ null, %100 ], [ %106, %104 ]
   %112 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %113 = and i64 %112, -240
   %or.cond.i = icmp eq i64 %113, 256
@@ -18979,7 +18979,7 @@ _ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit: ; preds = %93, %
   unreachable
 
 .body136:                                         ; preds = %214, %218, %179, %151, %.body147
-  %.pn90 = phi { ptr, i32 } [ %208, %218 ], [ %180, %179 ], [ %208, %.body147 ], [ %152, %151 ], [ %215, %214 ]
+  %.pn90 = phi { ptr, i32 } [ %208, %.body147 ], [ %152, %151 ], [ %180, %179 ], [ %208, %218 ], [ %215, %214 ]
   %139 = load i64, ptr %7, align 8, !range !4286, !noundef !14
   %.not266 = icmp eq i64 %139, 4
   br i1 %.not266, label %"_ZN4core3ptr811drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hf43f42af48114e44E.exit", label %221
@@ -19096,7 +19096,7 @@ _ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit: ; preds = %93, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2eb06bc4c1af4551E.exit138" unwind label %151
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2eb06bc4c1af4551E.exit138": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2eb06bc4c1af4551E.exit", %128, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2eb06bc4c1af4551E.exit149", %212, %183, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd7623bb4d91d0dcaE.exit.i135", %167
-  %.sroa.0.0 = phi i1 [ true, %183 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2eb06bc4c1af4551E.exit149" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd7623bb4d91d0dcaE.exit.i135" ], [ false, %167 ], [ false, %212 ], [ false, %128 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2eb06bc4c1af4551E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %167 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd7623bb4d91d0dcaE.exit.i135" ], [ true, %183 ], [ false, %212 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2eb06bc4c1af4551E.exit149" ], [ false, %128 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2eb06bc4c1af4551E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN10async_task5utils14abort_on_panic17h5c8d09fb748e575aE.exit
@@ -19119,8 +19119,8 @@ _ZN10async_task5utils14abort_on_panic17h370a89d52f5b2e4eE.exit: ; preds = %93, %
   br label %195
 
 195:                                              ; preds = %184, %188, %164
-  %.sroa.9189.0 = phi ptr [ undef, %164 ], [ %spec.select.i142, %188 ], [ undef, %184 ]
-  %.sroa.0187.0 = phi ptr [ null, %164 ], [ %190, %188 ], [ null, %184 ]
+  %.sroa.9189.0 = phi ptr [ undef, %164 ], [ undef, %184 ], [ %spec.select.i142, %188 ]
+  %.sroa.0187.0 = phi ptr [ null, %164 ], [ null, %184 ], [ %190, %188 ]
   %196 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %197 = and i64 %196, -240
   %or.cond.i144 = icmp eq i64 %197, 256
@@ -19201,8 +19201,8 @@ _ZN10async_task5utils14abort_on_panic17h5c8d09fb748e575aE.exit: ; preds = %"_ZN1
   invoke fastcc void @"_ZN4core3ptr191drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3edd7106505c4565E"(ptr noalias noundef align 8 dereferenceable(24) %7) #19
           to label %"_ZN4core3ptr811drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hf43f42af48114e44E.exit" unwind label %137
 
-"_ZN4core3ptr811drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hf43f42af48114e44E.exit": ; preds = %134, %130, %94, %.body122, %253, %.body136, %221, %257, %222, %.body165
-  %.pn90.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %247, %257 ], [ %eh.lpad-body, %222 ], [ %.pn90, %221 ], [ %.pn90, %.body136 ], [ %254, %253 ], [ %124, %134 ], [ %131, %130 ], [ %95, %94 ], [ %124, %.body122 ]
+"_ZN4core3ptr811drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hf43f42af48114e44E.exit": ; preds = %130, %134, %94, %.body122, %253, %.body136, %221, %257, %222, %.body165
+  %.pn90.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %eh.lpad-body, %222 ], [ %247, %257 ], [ %.pn90, %221 ], [ %.pn90, %.body136 ], [ %254, %253 ], [ %131, %130 ], [ %124, %134 ], [ %95, %94 ], [ %124, %.body122 ]
   resume { ptr, i32 } %.pn90.pn.pn
 
 222:                                              ; preds = %42, %60
@@ -19228,8 +19228,8 @@ _ZN10async_task5utils14abort_on_panic17h5c8d09fb748e575aE.exit: ; preds = %"_ZN1
   br label %234
 
 234:                                              ; preds = %223, %227, %_ZN10async_task5utils14abort_on_panic17h07f66a713543afbdE.exit
-  %.sroa.9.0212 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h07f66a713543afbdE.exit ], [ %spec.select.i160, %227 ], [ undef, %223 ]
-  %.sroa.0.0210 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h07f66a713543afbdE.exit ], [ %229, %227 ], [ null, %223 ]
+  %.sroa.9.0212 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h07f66a713543afbdE.exit ], [ undef, %223 ], [ %spec.select.i160, %227 ]
+  %.sroa.0.0210 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h07f66a713543afbdE.exit ], [ null, %223 ], [ %229, %227 ]
   %235 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %236 = and i64 %235, -240
   %or.cond.i162 = icmp eq i64 %236, 256
@@ -19625,8 +19625,8 @@ _ZN10async_task5utils14abort_on_panic17h509334b5b372f4d7E.exit: ; preds = %112, 
   br label %139
 
 139:                                              ; preds = %128, %132, %_ZN10async_task5utils14abort_on_panic17h509334b5b372f4d7E.exit
-  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h509334b5b372f4d7E.exit ], [ %spec.select.i, %132 ], [ undef, %128 ]
-  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h509334b5b372f4d7E.exit ], [ %134, %132 ], [ null, %128 ]
+  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h509334b5b372f4d7E.exit ], [ undef, %128 ], [ %spec.select.i, %132 ]
+  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h509334b5b372f4d7E.exit ], [ null, %128 ], [ %134, %132 ]
   %140 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %141 = and i64 %140, -240
   %or.cond.i = icmp eq i64 %141, 256
@@ -19827,7 +19827,7 @@ _ZN10async_task5utils14abort_on_panic17h509334b5b372f4d7E.exit: ; preds = %112, 
   br label %_ZN10async_task5utils14abort_on_panic17h8615a3c21fbb1bcbE.exit
 
 _ZN10async_task5utils14abort_on_panic17h8615a3c21fbb1bcbE.exit: ; preds = %214, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4f40fe67242adb43E.exit143", %243, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h74677642355f0dcfE.exit.i129", %198, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4f40fe67242adb43E.exit", %156
-  %.sroa.0.0 = phi i1 [ true, %214 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h74677642355f0dcfE.exit.i129" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4f40fe67242adb43E.exit" ], [ false, %156 ], [ false, %198 ], [ false, %243 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4f40fe67242adb43E.exit143" ]
+  %.sroa.0.0 = phi i1 [ false, %156 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4f40fe67242adb43E.exit" ], [ false, %198 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h74677642355f0dcfE.exit.i129" ], [ true, %214 ], [ false, %243 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4f40fe67242adb43E.exit143" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h5e4fdfd9db26a404E.exit
 
@@ -19849,8 +19849,8 @@ _ZN10async_task5utils14abort_on_panic17h8615a3c21fbb1bcbE.exit: ; preds = %214, 
   br label %226
 
 226:                                              ; preds = %215, %219, %195
-  %.sroa.0182.0 = phi ptr [ null, %195 ], [ %221, %219 ], [ null, %215 ]
-  %.sroa.9184.0 = phi ptr [ undef, %195 ], [ %spec.select.i136, %219 ], [ undef, %215 ]
+  %.sroa.0182.0 = phi ptr [ null, %195 ], [ null, %215 ], [ %221, %219 ]
+  %.sroa.9184.0 = phi ptr [ undef, %195 ], [ undef, %215 ], [ %spec.select.i136, %219 ]
   %227 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %228 = and i64 %227, -240
   %or.cond.i138 = icmp eq i64 %228, 256
@@ -19930,7 +19930,7 @@ _ZN10async_task5utils14abort_on_panic17h5e4fdfd9db26a404E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr819drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..write$LT$std..path..PathBuf$C$$u5b$u8$u3b$$u20$0$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..write$LT$std..path..PathBuf$C$$u5b$u8$u3b$$u20$0$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h796b830417de6ccdE.exit" unwind label %165
 
 "_ZN4core3ptr819drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..write$LT$std..path..PathBuf$C$$u5b$u8$u3b$$u20$0$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..write$LT$std..path..PathBuf$C$$u5b$u8$u3b$$u20$0$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h796b830417de6ccdE.exit": ; preds = %.body141, %210, %249, %162, %.body.i, %.body115, %158, %245, %284, %288, %252, %.body159
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %278, %.body159 ], [ %285, %284 ], [ %253, %252 ], [ %278, %288 ], [ %239, %.body141 ], [ %239, %249 ], [ %211, %210 ], [ %246, %245 ], [ %152, %.body115 ], [ %eh.lpad-body.i, %.body.i ], [ %159, %158 ], [ %152, %162 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %278, %.body159 ], [ %253, %252 ], [ %278, %288 ], [ %285, %284 ], [ %239, %.body141 ], [ %211, %210 ], [ %239, %249 ], [ %152, %.body115 ], [ %eh.lpad-body.i, %.body.i ], [ %152, %162 ], [ %159, %158 ], [ %246, %245 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 252:                                              ; preds = %43
@@ -19957,8 +19957,8 @@ _ZN10async_task5utils14abort_on_panic17h5e4fdfd9db26a404E.exit: ; preds = %"_ZN1
   br label %265
 
 265:                                              ; preds = %254, %258, %_ZN10async_task5utils14abort_on_panic17h5e62d7fee0f54f24E.exit
-  %.sroa.9.0202 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5e62d7fee0f54f24E.exit ], [ %spec.select.i154, %258 ], [ undef, %254 ]
-  %.sroa.0.0200 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5e62d7fee0f54f24E.exit ], [ %260, %258 ], [ null, %254 ]
+  %.sroa.9.0202 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5e62d7fee0f54f24E.exit ], [ undef, %254 ], [ %spec.select.i154, %258 ]
+  %.sroa.0.0200 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5e62d7fee0f54f24E.exit ], [ null, %254 ], [ %260, %258 ]
   %266 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %267 = and i64 %266, -240
   %or.cond.i156 = icmp eq i64 %267, 256
@@ -20323,8 +20323,8 @@ _ZN10async_task5utils14abort_on_panic17h029ffab117b2578cE.exit: ; preds = %103, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17h029ffab117b2578cE.exit
-  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h029ffab117b2578cE.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h029ffab117b2578cE.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h029ffab117b2578cE.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h029ffab117b2578cE.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -20510,7 +20510,7 @@ _ZN10async_task5utils14abort_on_panic17h029ffab117b2578cE.exit: ; preds = %103, 
   br label %_ZN10async_task5utils14abort_on_panic17hab2b7f4c6f871ec2E.exit
 
 _ZN10async_task5utils14abort_on_panic17hab2b7f4c6f871ec2E.exit: ; preds = %200, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he9a2e1eedc264cb0E.exit139", %229, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h4d77047327c84ebdE.exit.i125", %184, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he9a2e1eedc264cb0E.exit", %147
-  %.sroa.0.0 = phi i1 [ true, %200 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h4d77047327c84ebdE.exit.i125" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he9a2e1eedc264cb0E.exit" ], [ false, %147 ], [ false, %184 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he9a2e1eedc264cb0E.exit139" ]
+  %.sroa.0.0 = phi i1 [ false, %147 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he9a2e1eedc264cb0E.exit" ], [ false, %184 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h4d77047327c84ebdE.exit.i125" ], [ true, %200 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he9a2e1eedc264cb0E.exit139" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h6eeba5f43ffee975E.exit
 
@@ -20532,8 +20532,8 @@ _ZN10async_task5utils14abort_on_panic17hab2b7f4c6f871ec2E.exit: ; preds = %200, 
   br label %212
 
 212:                                              ; preds = %201, %205, %181
-  %.sroa.0178.0 = phi ptr [ null, %181 ], [ %207, %205 ], [ null, %201 ]
-  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ %spec.select.i132, %205 ], [ undef, %201 ]
+  %.sroa.0178.0 = phi ptr [ null, %181 ], [ null, %201 ], [ %207, %205 ]
+  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ undef, %201 ], [ %spec.select.i132, %205 ]
   %213 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %214 = and i64 %213, -240
   %or.cond.i134 = icmp eq i64 %214, 256
@@ -20613,7 +20613,7 @@ _ZN10async_task5utils14abort_on_panic17h6eeba5f43ffee975E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr793drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hb9a8f574f3a703d1E.exit" unwind label %156
 
 "_ZN4core3ptr793drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hb9a8f574f3a703d1E.exit": ; preds = %.body137, %196, %235, %153, %.body.i, %.body113, %149, %231, %270, %274, %238, %.body155
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %271, %270 ], [ %239, %238 ], [ %264, %274 ], [ %225, %.body137 ], [ %225, %235 ], [ %197, %196 ], [ %232, %231 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %149 ], [ %143, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %239, %238 ], [ %264, %274 ], [ %271, %270 ], [ %225, %.body137 ], [ %197, %196 ], [ %225, %235 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %143, %153 ], [ %150, %149 ], [ %232, %231 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 238:                                              ; preds = %38
@@ -20640,8 +20640,8 @@ _ZN10async_task5utils14abort_on_panic17h6eeba5f43ffee975E.exit: ; preds = %"_ZN1
   br label %251
 
 251:                                              ; preds = %240, %244, %_ZN10async_task5utils14abort_on_panic17h8ea39dfd3bb79673E.exit
-  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h8ea39dfd3bb79673E.exit ], [ %spec.select.i150, %244 ], [ undef, %240 ]
-  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h8ea39dfd3bb79673E.exit ], [ %246, %244 ], [ null, %240 ]
+  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h8ea39dfd3bb79673E.exit ], [ undef, %240 ], [ %spec.select.i150, %244 ]
+  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h8ea39dfd3bb79673E.exit ], [ null, %240 ], [ %246, %244 ]
   %252 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %253 = and i64 %252, -240
   %or.cond.i152 = icmp eq i64 %253, 256
@@ -20827,8 +20827,8 @@ _ZN10async_task5utils14abort_on_panic17h155bcb3ba865c0ddE.exit: ; preds = %17, %
   br label %._crit_edge268
 
 ._crit_edge268:                                   ; preds = %40, %38, %48
-  %.sroa.13.0.ph = phi ptr [ %39, %38 ], [ %50, %48 ], [ %41, %40 ]
-  %.sroa.8.0.ph = phi ptr [ null, %38 ], [ %49, %48 ], [ null, %40 ]
+  %.sroa.13.0.ph = phi ptr [ %50, %48 ], [ %39, %38 ], [ %41, %40 ]
+  %.sroa.8.0.ph = phi ptr [ %49, %48 ], [ null, %38 ], [ null, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load i8, ptr %52, align 8, !range !1583, !noundef !14
   %54 = icmp eq i8 %53, 0
@@ -21002,8 +21002,8 @@ _ZN10async_task5utils14abort_on_panic17h13a5a442a8036375E.exit: ; preds = %97, %
   br label %124
 
 124:                                              ; preds = %113, %117, %_ZN10async_task5utils14abort_on_panic17h13a5a442a8036375E.exit
-  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h13a5a442a8036375E.exit ], [ %spec.select.i, %117 ], [ undef, %113 ]
-  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h13a5a442a8036375E.exit ], [ %119, %117 ], [ null, %113 ]
+  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h13a5a442a8036375E.exit ], [ undef, %113 ], [ %spec.select.i, %117 ]
+  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h13a5a442a8036375E.exit ], [ null, %113 ], [ %119, %117 ]
   %125 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %126 = and i64 %125, -240
   %or.cond.i = icmp eq i64 %126, 256
@@ -21090,7 +21090,7 @@ _ZN10async_task5utils14abort_on_panic17h78dd2793d42d194aE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr772drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..write$LT$std..path..PathBuf$C$$u5b$u8$u3b$$u20$0$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..write$LT$std..path..PathBuf$C$$u5b$u8$u3b$$u20$0$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h32d0ac3cf3835d1dE.exit": ; preds = %147, %.body.i, %.body114, %143, %184, %188, %152, %.body158
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %178, %.body158 ], [ %185, %184 ], [ %153, %152 ], [ %178, %188 ], [ %137, %147 ], [ %137, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %144, %143 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %178, %.body158 ], [ %153, %152 ], [ %178, %188 ], [ %185, %184 ], [ %137, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %137, %147 ], [ %144, %143 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 152:                                              ; preds = %38
@@ -21117,8 +21117,8 @@ _ZN10async_task5utils14abort_on_panic17h78dd2793d42d194aE.exit: ; preds = %"_ZN1
   br label %165
 
 165:                                              ; preds = %154, %158, %_ZN10async_task5utils14abort_on_panic17h155bcb3ba865c0ddE.exit
-  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h155bcb3ba865c0ddE.exit ], [ %spec.select.i153, %158 ], [ undef, %154 ]
-  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h155bcb3ba865c0ddE.exit ], [ %160, %158 ], [ null, %154 ]
+  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h155bcb3ba865c0ddE.exit ], [ undef, %154 ], [ %spec.select.i153, %158 ]
+  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h155bcb3ba865c0ddE.exit ], [ null, %154 ], [ %160, %158 ]
   %166 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %167 = and i64 %166, -240
   %or.cond.i155 = icmp eq i64 %167, 256
@@ -21469,8 +21469,8 @@ _ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit: ; preds = %89, %
   br label %107
 
 107:                                              ; preds = %96, %100, %_ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit
-  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit ], [ %spec.select.i, %100 ], [ undef, %96 ]
-  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit ], [ %102, %100 ], [ null, %96 ]
+  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit ], [ undef, %96 ], [ %spec.select.i, %100 ]
+  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit ], [ null, %96 ], [ %102, %100 ]
   %108 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %109 = and i64 %108, -240
   %or.cond.i = icmp eq i64 %109, 256
@@ -21550,7 +21550,7 @@ _ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit: ; preds = %89, %
   unreachable
 
 .body138:                                         ; preds = %210, %214, %175, %147, %.body149
-  %.pn96 = phi { ptr, i32 } [ %204, %214 ], [ %176, %175 ], [ %204, %.body149 ], [ %148, %147 ], [ %211, %210 ]
+  %.pn96 = phi { ptr, i32 } [ %204, %.body149 ], [ %148, %147 ], [ %176, %175 ], [ %204, %214 ], [ %211, %210 ]
   %135 = load i64, ptr %5, align 8, !range !4286, !noundef !14
   %.not241 = icmp eq i64 %135, 4
   br i1 %.not241, label %"_ZN4core3ptr865drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..metadata..metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..metadata..metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hfd716b0b5083773dE.exit", label %217
@@ -21668,7 +21668,7 @@ _ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit: ; preds = %89, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he341dc161726a94cE.exit140" unwind label %147
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he341dc161726a94cE.exit140": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he341dc161726a94cE.exit", %124, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he341dc161726a94cE.exit151", %208, %179, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hbee08267fefc30c5E.exit.i137", %163
-  %.sroa.0.0 = phi i1 [ true, %179 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he341dc161726a94cE.exit151" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hbee08267fefc30c5E.exit.i137" ], [ false, %163 ], [ false, %208 ], [ false, %124 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he341dc161726a94cE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %163 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hbee08267fefc30c5E.exit.i137" ], [ true, %179 ], [ false, %208 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he341dc161726a94cE.exit151" ], [ false, %124 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he341dc161726a94cE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h09ed36dd2b2ef6deE.exit
 
@@ -21690,8 +21690,8 @@ _ZN10async_task5utils14abort_on_panic17ha26e71eb7dabb816E.exit: ; preds = %89, %
   br label %191
 
 191:                                              ; preds = %180, %184, %160
-  %.sroa.9184.0 = phi ptr [ undef, %160 ], [ %spec.select.i144, %184 ], [ undef, %180 ]
-  %.sroa.0182.0 = phi ptr [ null, %160 ], [ %186, %184 ], [ null, %180 ]
+  %.sroa.9184.0 = phi ptr [ undef, %160 ], [ undef, %180 ], [ %spec.select.i144, %184 ]
+  %.sroa.0182.0 = phi ptr [ null, %160 ], [ null, %180 ], [ %186, %184 ]
   %192 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %193 = and i64 %192, -240
   %or.cond.i146 = icmp eq i64 %193, 256
@@ -21775,7 +21775,7 @@ _ZN10async_task5utils14abort_on_panic17h09ed36dd2b2ef6deE.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr865drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..metadata..metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..metadata..metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hfd716b0b5083773dE.exit" unwind label %133
 
 "_ZN4core3ptr865drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..metadata..metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..metadata..metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hfd716b0b5083773dE.exit": ; preds = %130, %90, %.body125, %126, %250, %.body138, %217, %254, %218, %.body167
-  %.pn96.pn.pn = phi { ptr, i32 } [ %244, %.body167 ], [ %244, %254 ], [ %219, %218 ], [ %.pn96, %217 ], [ %.pn96, %.body138 ], [ %251, %250 ], [ %120, %130 ], [ %127, %126 ], [ %91, %90 ], [ %120, %.body125 ]
+  %.pn96.pn.pn = phi { ptr, i32 } [ %244, %.body167 ], [ %219, %218 ], [ %244, %254 ], [ %.pn96, %217 ], [ %.pn96, %.body138 ], [ %251, %250 ], [ %127, %126 ], [ %120, %130 ], [ %91, %90 ], [ %120, %.body125 ]
   resume { ptr, i32 } %.pn96.pn.pn
 
 218:                                              ; preds = %40
@@ -21802,8 +21802,8 @@ _ZN10async_task5utils14abort_on_panic17h09ed36dd2b2ef6deE.exit: ; preds = %"_ZN1
   br label %231
 
 231:                                              ; preds = %220, %224, %_ZN10async_task5utils14abort_on_panic17heeb6cc6309fb0990E.exit
-  %.sroa.9.0201 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17heeb6cc6309fb0990E.exit ], [ %spec.select.i162, %224 ], [ undef, %220 ]
-  %.sroa.0.0199 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17heeb6cc6309fb0990E.exit ], [ %226, %224 ], [ null, %220 ]
+  %.sroa.9.0201 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17heeb6cc6309fb0990E.exit ], [ undef, %220 ], [ %spec.select.i162, %224 ]
+  %.sroa.0.0199 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17heeb6cc6309fb0990E.exit ], [ null, %220 ], [ %226, %224 ]
   %232 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %233 = and i64 %232, -240
   %or.cond.i164 = icmp eq i64 %233, 256
@@ -21966,7 +21966,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body160, %183, %.body.i121, %.body.i135, %236, %258, %300, %.body125, %178, %174, %296, %.body179, %303, %343, %339, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %34, %.body.i ], [ %333, %.body179 ], [ %340, %339 ], [ %304, %303 ], [ %333, %343 ], [ %92, %183 ], [ %290, %300 ], [ %128, %.body.i121 ], [ %259, %258 ], [ %290, %.body160 ], [ %175, %174 ], [ %198, %.body.i135 ], [ %237, %236 ], [ %297, %296 ], [ %168, %.body125 ], [ %168, %178 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %.body.i ], [ %333, %.body179 ], [ %304, %303 ], [ %333, %343 ], [ %340, %339 ], [ %92, %183 ], [ %290, %.body160 ], [ %128, %.body.i121 ], [ %198, %.body.i135 ], [ %237, %236 ], [ %259, %258 ], [ %290, %300 ], [ %168, %.body125 ], [ %168, %178 ], [ %175, %174 ], [ %297, %296 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h19971cb4f09ea6bdE.exit: ; preds = %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i.i.i.i"
@@ -22051,8 +22051,8 @@ _ZN10async_task5utils14abort_on_panic17h19971cb4f09ea6bdE.exit: ; preds = %26, %
   br label %80
 
 80:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0f402868c0d14bbdE.exit", %78, %75
-  %.sroa.13.0.ph = phi ptr [ undef, %75 ], [ %71, %78 ], [ undef, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0f402868c0d14bbdE.exit" ]
-  %.sroa.8.1.ph = phi ptr [ null, %75 ], [ %70, %78 ], [ null, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0f402868c0d14bbdE.exit" ]
+  %.sroa.13.0.ph = phi ptr [ %71, %78 ], [ undef, %75 ], [ undef, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0f402868c0d14bbdE.exit" ]
+  %.sroa.8.1.ph = phi ptr [ %70, %78 ], [ null, %75 ], [ null, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0f402868c0d14bbdE.exit" ]
   %.val102.val = load ptr, ptr %7, align 8, !alias.scope !2044
   %81 = getelementptr i8, ptr %0, i64 72
   %.val102.val105 = load ptr, ptr %81, align 8, !alias.scope !2051, !nonnull !14, !align !29, !noundef !14
@@ -22209,8 +22209,8 @@ _ZN10async_task5utils14abort_on_panic17hc09159fd978ef0fcE.exit: ; preds = %126, 
   br label %151
 
 151:                                              ; preds = %140, %144, %_ZN10async_task5utils14abort_on_panic17hc09159fd978ef0fcE.exit
-  %.sroa.9196.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc09159fd978ef0fcE.exit ], [ %spec.select.i, %144 ], [ undef, %140 ]
-  %.sroa.0194.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc09159fd978ef0fcE.exit ], [ %146, %144 ], [ null, %140 ]
+  %.sroa.9196.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc09159fd978ef0fcE.exit ], [ undef, %140 ], [ %spec.select.i, %144 ]
+  %.sroa.0194.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc09159fd978ef0fcE.exit ], [ null, %140 ], [ %146, %144 ]
   %152 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %153 = and i64 %152, -240
   %or.cond.i = icmp eq i64 %153, 256
@@ -22492,7 +22492,7 @@ _ZN10async_task5utils14abort_on_panic17hc09159fd978ef0fcE.exit: ; preds = %126, 
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17h9d65032c8d6a0fd3E.exit: ; preds = %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hff0d4c1acebdf9f0E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf58a36d2294baf5E.exit162", %294, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc66edfe0c9161df6E.exit.i144", %220, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf58a36d2294baf5E.exit", %172
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hff0d4c1acebdf9f0E.exit.i" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc66edfe0c9161df6E.exit.i144" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf58a36d2294baf5E.exit" ], [ false, %172 ], [ false, %220 ], [ false, %294 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf58a36d2294baf5E.exit162" ]
+  %.sroa.0.0 = phi i1 [ false, %172 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf58a36d2294baf5E.exit" ], [ false, %220 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc66edfe0c9161df6E.exit.i144" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hff0d4c1acebdf9f0E.exit.i" ], [ false, %294 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf58a36d2294baf5E.exit162" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10async_task5utils14abort_on_panic17h38dd496f021af7a7E.exit
 
@@ -22514,8 +22514,8 @@ _ZN10async_task5utils14abort_on_panic17h9d65032c8d6a0fd3E.exit: ; preds = %"_ZN6
   br label %273
 
 273:                                              ; preds = %262, %266, %217
-  %.sroa.9199.0 = phi ptr [ undef, %217 ], [ %spec.select.i154, %266 ], [ undef, %262 ]
-  %.sroa.0197.0 = phi ptr [ null, %217 ], [ %268, %266 ], [ null, %262 ]
+  %.sroa.9199.0 = phi ptr [ undef, %217 ], [ undef, %262 ], [ %spec.select.i154, %266 ]
+  %.sroa.0197.0 = phi ptr [ null, %217 ], [ null, %262 ], [ %268, %266 ]
   %274 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %275 = and i64 %274, -240
   %or.cond.i156 = icmp eq i64 %275, 256
@@ -22632,8 +22632,8 @@ _ZN10async_task5utils14abort_on_panic17h38dd496f021af7a7E.exit: ; preds = %"_ZN1
   br label %316
 
 316:                                              ; preds = %305, %309, %_ZN10async_task5utils14abort_on_panic17h19971cb4f09ea6bdE.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h19971cb4f09ea6bdE.exit ], [ %spec.select.i173, %309 ], [ undef, %305 ]
-  %.sroa.0.0213 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h19971cb4f09ea6bdE.exit ], [ %311, %309 ], [ null, %305 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h19971cb4f09ea6bdE.exit ], [ undef, %305 ], [ %spec.select.i173, %309 ]
+  %.sroa.0.0213 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h19971cb4f09ea6bdE.exit ], [ null, %305 ], [ %311, %309 ]
   %317 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %318 = and i64 %317, -240
   %or.cond.i175 = icmp eq i64 %318, 256
@@ -22780,7 +22780,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body155, %194, %.body.i118, %.body.i131, %232, %252, %294, %.body122, %189, %185, %290, %.body174, %297, %337, %333, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %27, %.body.i ], [ %327, %.body174 ], [ %334, %333 ], [ %298, %297 ], [ %327, %337 ], [ %107, %194 ], [ %284, %294 ], [ %139, %.body.i118 ], [ %253, %252 ], [ %284, %.body155 ], [ %186, %185 ], [ %199, %.body.i131 ], [ %233, %232 ], [ %291, %290 ], [ %179, %.body122 ], [ %179, %189 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %.body.i ], [ %327, %.body174 ], [ %298, %297 ], [ %327, %337 ], [ %334, %333 ], [ %107, %194 ], [ %284, %.body155 ], [ %139, %.body.i118 ], [ %199, %.body.i131 ], [ %233, %232 ], [ %253, %252 ], [ %284, %294 ], [ %179, %.body122 ], [ %179, %189 ], [ %186, %185 ], [ %291, %290 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hafcad9014a335035E.exit: ; preds = %26
@@ -22987,8 +22987,8 @@ _ZN10async_task5utils14abort_on_panic17hafcad9014a335035E.exit: ; preds = %26
   br label %106
 
 106:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h24b6ece00edaf4d5E.exit", %104, %101
-  %.sroa.13.0.ph = phi ptr [ undef, %101 ], [ %99, %104 ], [ undef, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h24b6ece00edaf4d5E.exit" ]
-  %.sroa.8.1.ph = phi ptr [ null, %101 ], [ %98, %104 ], [ null, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h24b6ece00edaf4d5E.exit" ]
+  %.sroa.13.0.ph = phi ptr [ %99, %104 ], [ undef, %101 ], [ undef, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h24b6ece00edaf4d5E.exit" ]
+  %.sroa.8.1.ph = phi ptr [ %98, %104 ], [ null, %101 ], [ null, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h24b6ece00edaf4d5E.exit" ]
   %.val102.val = load ptr, ptr %11, align 8, !alias.scope !3282, !noundef !14
   invoke void @"_ZN111_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2664a18d3a17925fE.llvm.148755494358810581"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val102.val)
           to label %110 unwind label %.body.i113, !noalias !6219
@@ -23113,8 +23113,8 @@ _ZN10async_task5utils14abort_on_panic17h51ffaa519cc77737E.exit: ; preds = %137, 
   br label %162
 
 162:                                              ; preds = %151, %155, %_ZN10async_task5utils14abort_on_panic17h51ffaa519cc77737E.exit
-  %.sroa.9195.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h51ffaa519cc77737E.exit ], [ %spec.select.i, %155 ], [ undef, %151 ]
-  %.sroa.0193.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h51ffaa519cc77737E.exit ], [ %157, %155 ], [ null, %151 ]
+  %.sroa.9195.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h51ffaa519cc77737E.exit ], [ undef, %151 ], [ %spec.select.i, %155 ]
+  %.sroa.0193.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h51ffaa519cc77737E.exit ], [ null, %151 ], [ %157, %155 ]
   %163 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %164 = and i64 %163, -240
   %or.cond.i = icmp eq i64 %164, 256
@@ -23365,7 +23365,7 @@ _ZN10async_task5utils14abort_on_panic17h51ffaa519cc77737E.exit: ; preds = %137, 
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17h87609d7983fae18fE.exit: ; preds = %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h5a07101e5608130aE.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf0d2357213b5123E.exit157", %288, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hca78a71445cb2811E.exit.i139", %216, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf0d2357213b5123E.exit", %183
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h5a07101e5608130aE.exit.i" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hca78a71445cb2811E.exit.i139" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf0d2357213b5123E.exit" ], [ false, %183 ], [ false, %216 ], [ false, %288 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf0d2357213b5123E.exit157" ]
+  %.sroa.0.0 = phi i1 [ false, %183 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf0d2357213b5123E.exit" ], [ false, %216 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hca78a71445cb2811E.exit.i139" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h5a07101e5608130aE.exit.i" ], [ false, %288 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf0d2357213b5123E.exit157" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10async_task5utils14abort_on_panic17hcb19e14d059e0818E.exit
 
@@ -23387,8 +23387,8 @@ _ZN10async_task5utils14abort_on_panic17h87609d7983fae18fE.exit: ; preds = %"_ZN6
   br label %267
 
 267:                                              ; preds = %256, %260, %213
-  %.sroa.9198.0 = phi ptr [ undef, %213 ], [ %spec.select.i149, %260 ], [ undef, %256 ]
-  %.sroa.0196.0 = phi ptr [ null, %213 ], [ %262, %260 ], [ null, %256 ]
+  %.sroa.9198.0 = phi ptr [ undef, %213 ], [ undef, %256 ], [ %spec.select.i149, %260 ]
+  %.sroa.0196.0 = phi ptr [ null, %213 ], [ null, %256 ], [ %262, %260 ]
   %268 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %269 = and i64 %268, -240
   %or.cond.i151 = icmp eq i64 %269, 256
@@ -23505,8 +23505,8 @@ _ZN10async_task5utils14abort_on_panic17hcb19e14d059e0818E.exit: ; preds = %"_ZN1
   br label %310
 
 310:                                              ; preds = %299, %303, %_ZN10async_task5utils14abort_on_panic17hafcad9014a335035E.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hafcad9014a335035E.exit ], [ %spec.select.i168, %303 ], [ undef, %299 ]
-  %.sroa.0.0212 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hafcad9014a335035E.exit ], [ %305, %303 ], [ null, %299 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hafcad9014a335035E.exit ], [ undef, %299 ], [ %spec.select.i168, %303 ]
+  %.sroa.0.0212 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hafcad9014a335035E.exit ], [ null, %299 ], [ %305, %303 ]
   %311 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %312 = and i64 %311, -240
   %or.cond.i170 = icmp eq i64 %312, 256
@@ -23654,8 +23654,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %201, %.body117, %197, %.body.i113, %.body169, %314, %354, %312, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114", %208, %350, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %29, %.body.i ], [ %344, %.body169 ], [ %344, %354 ], [ %315, %314 ], [ %.pn75.pn, %312 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114" ], [ %114, %208 ], [ %351, %350 ], [ %191, %201 ], [ %191, %.body117 ], [ %198, %197 ], [ %eh.lpad-body.i, %.body.i113 ]
+common.resume:                                    ; preds = %197, %201, %.body117, %.body.i113, %.body169, %314, %354, %312, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114", %208, %350, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %29, %.body.i ], [ %344, %.body169 ], [ %315, %314 ], [ %344, %354 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114" ], [ %.pn75.pn, %312 ], [ %114, %208 ], [ %351, %350 ], [ %198, %197 ], [ %191, %201 ], [ %191, %.body117 ], [ %eh.lpad-body.i, %.body.i113 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hb2c9b7f754d31c3eE.exit: ; preds = %28
@@ -24009,8 +24009,8 @@ _ZN10async_task5utils14abort_on_panic17h45668ab0247d5ce0E.exit: ; preds = %147, 
   br label %174
 
 174:                                              ; preds = %163, %167, %_ZN10async_task5utils14abort_on_panic17h45668ab0247d5ce0E.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h45668ab0247d5ce0E.exit ], [ %spec.select.i, %167 ], [ undef, %163 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h45668ab0247d5ce0E.exit ], [ %169, %167 ], [ null, %163 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h45668ab0247d5ce0E.exit ], [ undef, %163 ], [ %spec.select.i, %167 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h45668ab0247d5ce0E.exit ], [ null, %163 ], [ %169, %167 ]
   %175 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %176 = and i64 %175, -240
   %or.cond.i = icmp eq i64 %176, 256
@@ -24108,7 +24108,7 @@ _ZN10async_task5utils14abort_on_panic17h97cee380f6361841E.exit: ; preds = %195, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114": ; preds = %305, %309, %267, %247, %.body.i126, %215, %.body150
-  %.pn75.pn = phi { ptr, i32 } [ %216, %215 ], [ %299, %309 ], [ %306, %305 ], [ %268, %267 ], [ %299, %.body150 ], [ %212, %.body.i126 ], [ %248, %247 ]
+  %.pn75.pn = phi { ptr, i32 } [ %299, %.body150 ], [ %212, %.body.i126 ], [ %216, %215 ], [ %248, %247 ], [ %268, %267 ], [ %299, %309 ], [ %306, %305 ]
   %206 = load i64, ptr %8, align 8, !range !6494, !noundef !14
   %207 = icmp eq i64 %206, 0
   br i1 %207, label %312, label %common.resume
@@ -24279,7 +24279,7 @@ _ZN10async_task5utils14abort_on_panic17h97cee380f6361841E.exit: ; preds = %195, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h998a53919442a130E.exit137": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h998a53919442a130E.exit152", %303, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h91353f22f6ef3433E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h849625b7200a49e3E.exit.i134", %231, %_ZN10async_task5utils14abort_on_panic17h97cee380f6361841E.exit
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h91353f22f6ef3433E.exit.i" ], [ false, %_ZN10async_task5utils14abort_on_panic17h97cee380f6361841E.exit ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h849625b7200a49e3E.exit.i134" ], [ false, %231 ], [ false, %303 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h998a53919442a130E.exit152" ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN10async_task5utils14abort_on_panic17h97cee380f6361841E.exit ], [ false, %231 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h849625b7200a49e3E.exit.i134" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h91353f22f6ef3433E.exit.i" ], [ false, %303 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h998a53919442a130E.exit152" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN10async_task5utils14abort_on_panic17h29502191a9accb07E.exit
@@ -24302,8 +24302,8 @@ _ZN10async_task5utils14abort_on_panic17h97cee380f6361841E.exit: ; preds = %195, 
   br label %282
 
 282:                                              ; preds = %271, %275, %228
-  %.sroa.9190.0 = phi ptr [ undef, %228 ], [ %spec.select.i144, %275 ], [ undef, %271 ]
-  %.sroa.0188.0 = phi ptr [ null, %228 ], [ %277, %275 ], [ null, %271 ]
+  %.sroa.9190.0 = phi ptr [ undef, %228 ], [ undef, %271 ], [ %spec.select.i144, %275 ]
+  %.sroa.0188.0 = phi ptr [ null, %228 ], [ null, %271 ], [ %277, %275 ]
   %283 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %284 = and i64 %283, -240
   %or.cond.i146 = icmp eq i64 %284, 256
@@ -24425,8 +24425,8 @@ _ZN10async_task5utils14abort_on_panic17h29502191a9accb07E.exit: ; preds = %"_ZN1
   br label %327
 
 327:                                              ; preds = %316, %320, %_ZN10async_task5utils14abort_on_panic17hb2c9b7f754d31c3eE.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb2c9b7f754d31c3eE.exit ], [ %spec.select.i163, %320 ], [ undef, %316 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb2c9b7f754d31c3eE.exit ], [ %322, %320 ], [ null, %316 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb2c9b7f754d31c3eE.exit ], [ undef, %316 ], [ %spec.select.i163, %320 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb2c9b7f754d31c3eE.exit ], [ null, %316 ], [ %322, %320 ]
   %328 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %329 = and i64 %328, -240
   %or.cond.i165 = icmp eq i64 %329, 256
@@ -24631,8 +24631,8 @@ _ZN10async_task5utils14abort_on_panic17h9b7d6e4348753625E.exit: ; preds = %17, %
   br label %._crit_edge268
 
 ._crit_edge268:                                   ; preds = %40, %38, %48
-  %.sroa.13.0.ph = phi ptr [ %39, %38 ], [ %50, %48 ], [ %41, %40 ]
-  %.sroa.8.0.ph = phi ptr [ null, %38 ], [ %49, %48 ], [ null, %40 ]
+  %.sroa.13.0.ph = phi ptr [ %50, %48 ], [ %39, %38 ], [ %41, %40 ]
+  %.sroa.8.0.ph = phi ptr [ %49, %48 ], [ null, %38 ], [ null, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load i8, ptr %52, align 8, !range !1583, !noundef !14
   %54 = icmp eq i8 %53, 0
@@ -24811,8 +24811,8 @@ _ZN10async_task5utils14abort_on_panic17h0e7be8eb6558cc08E.exit: ; preds = %97, %
   br label %124
 
 124:                                              ; preds = %113, %117, %_ZN10async_task5utils14abort_on_panic17h0e7be8eb6558cc08E.exit
-  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0e7be8eb6558cc08E.exit ], [ %spec.select.i, %117 ], [ undef, %113 ]
-  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0e7be8eb6558cc08E.exit ], [ %119, %117 ], [ null, %113 ]
+  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0e7be8eb6558cc08E.exit ], [ undef, %113 ], [ %spec.select.i, %117 ]
+  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0e7be8eb6558cc08E.exit ], [ null, %113 ], [ %119, %117 ]
   %125 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %126 = and i64 %125, -240
   %or.cond.i = icmp eq i64 %126, 256
@@ -24899,7 +24899,7 @@ _ZN10async_task5utils14abort_on_panic17h19608d950c59ed52E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr866drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..hard_link..hard_link$LT$$RF$async_std..path..pathbuf..PathBuf$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..hard_link..hard_link$LT$$RF$async_std..path..pathbuf..PathBuf$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h8d5199e6b25918dfE.exit": ; preds = %147, %.body.i, %.body114, %143, %184, %188, %152, %.body158
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %178, %.body158 ], [ %185, %184 ], [ %153, %152 ], [ %178, %188 ], [ %137, %147 ], [ %137, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %144, %143 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %178, %.body158 ], [ %153, %152 ], [ %178, %188 ], [ %185, %184 ], [ %137, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %137, %147 ], [ %144, %143 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 152:                                              ; preds = %38
@@ -24926,8 +24926,8 @@ _ZN10async_task5utils14abort_on_panic17h19608d950c59ed52E.exit: ; preds = %"_ZN1
   br label %165
 
 165:                                              ; preds = %154, %158, %_ZN10async_task5utils14abort_on_panic17h9b7d6e4348753625E.exit
-  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9b7d6e4348753625E.exit ], [ %spec.select.i153, %158 ], [ undef, %154 ]
-  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9b7d6e4348753625E.exit ], [ %160, %158 ], [ null, %154 ]
+  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9b7d6e4348753625E.exit ], [ undef, %154 ], [ %spec.select.i153, %158 ]
+  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9b7d6e4348753625E.exit ], [ null, %154 ], [ %160, %158 ]
   %166 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %167 = and i64 %166, -240
   %or.cond.i155 = icmp eq i64 %167, 256
@@ -25339,8 +25339,8 @@ _ZN10async_task5utils14abort_on_panic17h126b7c6f9b6f9921E.exit: ; preds = %96, %
   br label %114
 
 114:                                              ; preds = %103, %107, %_ZN10async_task5utils14abort_on_panic17h126b7c6f9b6f9921E.exit
-  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h126b7c6f9b6f9921E.exit ], [ %spec.select.i, %107 ], [ undef, %103 ]
-  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h126b7c6f9b6f9921E.exit ], [ %109, %107 ], [ null, %103 ]
+  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h126b7c6f9b6f9921E.exit ], [ undef, %103 ], [ %spec.select.i, %107 ]
+  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h126b7c6f9b6f9921E.exit ], [ null, %103 ], [ %109, %107 ]
   %115 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %116 = and i64 %115, -240
   %or.cond.i = icmp eq i64 %116, 256
@@ -25427,7 +25427,7 @@ _ZN10async_task5utils14abort_on_panic17h5e1316db5ae33409E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr818drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..metadata..metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..metadata..metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h004f51a756d5b18dE.exit": ; preds = %137, %97, %.body130, %133, %173, %177, %142, %.body175
-  %.pn96.pn.pn = phi { ptr, i32 } [ %167, %.body175 ], [ %167, %177 ], [ %eh.lpad-body, %142 ], [ %174, %173 ], [ %127, %.body130 ], [ %127, %137 ], [ %134, %133 ], [ %98, %97 ]
+  %.pn96.pn.pn = phi { ptr, i32 } [ %167, %.body175 ], [ %eh.lpad-body, %142 ], [ %167, %177 ], [ %174, %173 ], [ %127, %.body130 ], [ %98, %97 ], [ %127, %137 ], [ %134, %133 ]
   resume { ptr, i32 } %.pn96.pn.pn
 
 142:                                              ; preds = %.body.i, %70
@@ -25453,8 +25453,8 @@ _ZN10async_task5utils14abort_on_panic17h5e1316db5ae33409E.exit: ; preds = %"_ZN1
   br label %154
 
 154:                                              ; preds = %143, %147, %_ZN10async_task5utils14abort_on_panic17h7ddeecd7b8d67d38E.exit
-  %.sroa.9.0222 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7ddeecd7b8d67d38E.exit ], [ %spec.select.i170, %147 ], [ undef, %143 ]
-  %.sroa.0.0220 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7ddeecd7b8d67d38E.exit ], [ %149, %147 ], [ null, %143 ]
+  %.sroa.9.0222 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7ddeecd7b8d67d38E.exit ], [ undef, %143 ], [ %spec.select.i170, %147 ]
+  %.sroa.0.0220 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7ddeecd7b8d67d38E.exit ], [ null, %143 ], [ %149, %147 ]
   %155 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %156 = and i64 %155, -240
   %or.cond.i172 = icmp eq i64 %156, 256
@@ -25613,7 +25613,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %168, %.body.i114, %.body119, %163, %159, %.body165, %169, %205, %201, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %195, %.body165 ], [ %202, %201 ], [ %170, %169 ], [ %195, %205 ], [ %eh.lpad-body.i109, %168 ], [ %160, %159 ], [ %eh.lpad-body.i115, %.body.i114 ], [ %153, %163 ], [ %153, %.body119 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %195, %.body165 ], [ %170, %169 ], [ %195, %205 ], [ %202, %201 ], [ %eh.lpad-body.i109, %168 ], [ %eh.lpad-body.i115, %.body.i114 ], [ %153, %.body119 ], [ %153, %163 ], [ %160, %159 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h60b453f00fefaebdE.exit: ; preds = %17, %28, %32
@@ -25665,8 +25665,8 @@ _ZN10async_task5utils14abort_on_panic17h60b453f00fefaebdE.exit: ; preds = %17, %
   br label %._crit_edge291
 
 ._crit_edge291:                                   ; preds = %48, %46, %56
-  %.sroa.13.0.ph = phi ptr [ %47, %46 ], [ %58, %56 ], [ %49, %48 ]
-  %.sroa.8.0.ph = phi ptr [ null, %46 ], [ %57, %56 ], [ null, %48 ]
+  %.sroa.13.0.ph = phi ptr [ %58, %56 ], [ %47, %46 ], [ %49, %48 ]
+  %.sroa.8.0.ph = phi ptr [ %57, %56 ], [ null, %46 ], [ null, %48 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = load i8, ptr %60, align 8, !range !1583, !noundef !14
   %62 = icmp eq i8 %61, 0
@@ -25861,8 +25861,8 @@ _ZN10async_task5utils14abort_on_panic17h1ce3c53b35b9f2d7E.exit: ; preds = %113, 
   br label %140
 
 140:                                              ; preds = %129, %133, %_ZN10async_task5utils14abort_on_panic17h1ce3c53b35b9f2d7E.exit
-  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1ce3c53b35b9f2d7E.exit ], [ %spec.select.i, %133 ], [ undef, %129 ]
-  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1ce3c53b35b9f2d7E.exit ], [ %135, %133 ], [ null, %129 ]
+  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1ce3c53b35b9f2d7E.exit ], [ undef, %129 ], [ %spec.select.i, %133 ]
+  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1ce3c53b35b9f2d7E.exit ], [ null, %129 ], [ %135, %133 ]
   %141 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %142 = and i64 %141, -240
   %or.cond.i = icmp eq i64 %142, 256
@@ -25976,8 +25976,8 @@ _ZN10async_task5utils14abort_on_panic17h4d705a7629e134d2E.exit: ; preds = %"_ZN1
   br label %182
 
 182:                                              ; preds = %171, %175, %_ZN10async_task5utils14abort_on_panic17h60b453f00fefaebdE.exit
-  %.sroa.9.0207 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h60b453f00fefaebdE.exit ], [ %spec.select.i160, %175 ], [ undef, %171 ]
-  %.sroa.0.0205 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h60b453f00fefaebdE.exit ], [ %177, %175 ], [ null, %171 ]
+  %.sroa.9.0207 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h60b453f00fefaebdE.exit ], [ undef, %171 ], [ %spec.select.i160, %175 ]
+  %.sroa.0.0205 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h60b453f00fefaebdE.exit ], [ null, %171 ], [ %177, %175 ]
   %183 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %184 = and i64 %183, -240
   %or.cond.i162 = icmp eq i64 %184, 256
@@ -26109,8 +26109,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %205, %.body115, %201, %.body.i, %.body166, %318, %358, %316, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112", %212, %354, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %348, %.body166 ], [ %348, %358 ], [ %319, %318 ], [ %.pn75.pn, %316 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112" ], [ %116, %212 ], [ %355, %354 ], [ %195, %205 ], [ %195, %.body115 ], [ %202, %201 ], [ %eh.lpad-body.i, %.body.i ]
+common.resume:                                    ; preds = %201, %205, %.body115, %.body.i, %.body166, %318, %358, %316, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112", %212, %354, %29
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %348, %.body166 ], [ %319, %318 ], [ %348, %358 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112" ], [ %.pn75.pn, %316 ], [ %116, %212 ], [ %355, %354 ], [ %202, %201 ], [ %195, %205 ], [ %195, %.body115 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h64dbd6d7c7bb558dE.exit: ; preds = %28
@@ -26465,8 +26465,8 @@ _ZN10async_task5utils14abort_on_panic17hb58726a356ddbb93E.exit: ; preds = %151, 
   br label %178
 
 178:                                              ; preds = %167, %171, %_ZN10async_task5utils14abort_on_panic17hb58726a356ddbb93E.exit
-  %.sroa.9184.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb58726a356ddbb93E.exit ], [ %spec.select.i, %171 ], [ undef, %167 ]
-  %.sroa.0182.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb58726a356ddbb93E.exit ], [ %173, %171 ], [ null, %167 ]
+  %.sroa.9184.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb58726a356ddbb93E.exit ], [ undef, %167 ], [ %spec.select.i, %171 ]
+  %.sroa.0182.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb58726a356ddbb93E.exit ], [ null, %167 ], [ %173, %171 ]
   %179 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %180 = and i64 %179, -240
   %or.cond.i = icmp eq i64 %180, 256
@@ -26564,7 +26564,7 @@ _ZN10async_task5utils14abort_on_panic17he1d0965d67214be2E.exit: ; preds = %199, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112": ; preds = %309, %313, %271, %251, %216, %220, %.body147
-  %.pn75.pn = phi { ptr, i32 } [ %221, %220 ], [ %303, %313 ], [ %310, %309 ], [ %272, %271 ], [ %303, %.body147 ], [ %217, %216 ], [ %252, %251 ]
+  %.pn75.pn = phi { ptr, i32 } [ %303, %.body147 ], [ %217, %216 ], [ %221, %220 ], [ %252, %251 ], [ %272, %271 ], [ %303, %313 ], [ %310, %309 ]
   %210 = load i64, ptr %8, align 8, !range !6494, !noundef !14
   %211 = icmp eq i64 %210, 0
   br i1 %211, label %316, label %common.resume
@@ -26729,7 +26729,7 @@ _ZN10async_task5utils14abort_on_panic17he1d0965d67214be2E.exit: ; preds = %199, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2fd0a03f3bb5a7e0E.exit134": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2fd0a03f3bb5a7e0E.exit149", %307, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17ha9379002d4f74e57E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha95e2baec62b3140E.exit.i131", %235, %_ZN10async_task5utils14abort_on_panic17he1d0965d67214be2E.exit
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17ha9379002d4f74e57E.exit.i" ], [ false, %_ZN10async_task5utils14abort_on_panic17he1d0965d67214be2E.exit ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha95e2baec62b3140E.exit.i131" ], [ false, %235 ], [ false, %307 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2fd0a03f3bb5a7e0E.exit149" ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN10async_task5utils14abort_on_panic17he1d0965d67214be2E.exit ], [ false, %235 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha95e2baec62b3140E.exit.i131" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17ha9379002d4f74e57E.exit.i" ], [ false, %307 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2fd0a03f3bb5a7e0E.exit149" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN10async_task5utils14abort_on_panic17h780e739b235d3bf4E.exit
@@ -26752,8 +26752,8 @@ _ZN10async_task5utils14abort_on_panic17he1d0965d67214be2E.exit: ; preds = %199, 
   br label %286
 
 286:                                              ; preds = %275, %279, %232
-  %.sroa.9187.0 = phi ptr [ undef, %232 ], [ %spec.select.i141, %279 ], [ undef, %275 ]
-  %.sroa.0185.0 = phi ptr [ null, %232 ], [ %281, %279 ], [ null, %275 ]
+  %.sroa.9187.0 = phi ptr [ undef, %232 ], [ undef, %275 ], [ %spec.select.i141, %279 ]
+  %.sroa.0185.0 = phi ptr [ null, %232 ], [ null, %275 ], [ %281, %279 ]
   %287 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %288 = and i64 %287, -240
   %or.cond.i143 = icmp eq i64 %288, 256
@@ -26875,8 +26875,8 @@ _ZN10async_task5utils14abort_on_panic17h780e739b235d3bf4E.exit: ; preds = %"_ZN1
   br label %331
 
 331:                                              ; preds = %320, %324, %_ZN10async_task5utils14abort_on_panic17h64dbd6d7c7bb558dE.exit
-  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h64dbd6d7c7bb558dE.exit ], [ %spec.select.i160, %324 ], [ undef, %320 ]
-  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h64dbd6d7c7bb558dE.exit ], [ %326, %324 ], [ null, %320 ]
+  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h64dbd6d7c7bb558dE.exit ], [ undef, %320 ], [ %spec.select.i160, %324 ]
+  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h64dbd6d7c7bb558dE.exit ], [ null, %320 ], [ %326, %324 ]
   %332 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %333 = and i64 %332, -240
   %or.cond.i162 = icmp eq i64 %333, 256
@@ -27255,8 +27255,8 @@ _ZN10async_task5utils14abort_on_panic17h8cfc955986fbb336E.exit: ; preds = %103, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17h8cfc955986fbb336E.exit
-  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h8cfc955986fbb336E.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h8cfc955986fbb336E.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h8cfc955986fbb336E.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h8cfc955986fbb336E.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -27442,7 +27442,7 @@ _ZN10async_task5utils14abort_on_panic17h8cfc955986fbb336E.exit: ; preds = %103, 
   br label %_ZN10async_task5utils14abort_on_panic17h30036d2ad97d8d9eE.exit
 
 _ZN10async_task5utils14abort_on_panic17h30036d2ad97d8d9eE.exit: ; preds = %200, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hd3e7070c3c43b2e4E.exit139", %229, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h25b6838e4ea04a2bE.exit.i125", %184, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hd3e7070c3c43b2e4E.exit", %147
-  %.sroa.0.0 = phi i1 [ true, %200 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h25b6838e4ea04a2bE.exit.i125" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hd3e7070c3c43b2e4E.exit" ], [ false, %147 ], [ false, %184 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hd3e7070c3c43b2e4E.exit139" ]
+  %.sroa.0.0 = phi i1 [ false, %147 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hd3e7070c3c43b2e4E.exit" ], [ false, %184 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h25b6838e4ea04a2bE.exit.i125" ], [ true, %200 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hd3e7070c3c43b2e4E.exit139" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h4b2602a5ccfb17d1E.exit
 
@@ -27464,8 +27464,8 @@ _ZN10async_task5utils14abort_on_panic17h30036d2ad97d8d9eE.exit: ; preds = %200, 
   br label %212
 
 212:                                              ; preds = %201, %205, %181
-  %.sroa.0178.0 = phi ptr [ null, %181 ], [ %207, %205 ], [ null, %201 ]
-  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ %spec.select.i132, %205 ], [ undef, %201 ]
+  %.sroa.0178.0 = phi ptr [ null, %181 ], [ null, %201 ], [ %207, %205 ]
+  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ undef, %201 ], [ %spec.select.i132, %205 ]
   %213 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %214 = and i64 %213, -240
   %or.cond.i134 = icmp eq i64 %214, 256
@@ -27545,7 +27545,7 @@ _ZN10async_task5utils14abort_on_panic17h4b2602a5ccfb17d1E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr787drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_file$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_file$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h2b0e18ea2b948f59E.exit" unwind label %156
 
 "_ZN4core3ptr787drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_file$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_file$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h2b0e18ea2b948f59E.exit": ; preds = %.body137, %196, %235, %153, %.body.i, %.body113, %149, %231, %270, %274, %238, %.body155
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %271, %270 ], [ %239, %238 ], [ %264, %274 ], [ %225, %.body137 ], [ %225, %235 ], [ %197, %196 ], [ %232, %231 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %149 ], [ %143, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %239, %238 ], [ %264, %274 ], [ %271, %270 ], [ %225, %.body137 ], [ %197, %196 ], [ %225, %235 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %143, %153 ], [ %150, %149 ], [ %232, %231 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 238:                                              ; preds = %38
@@ -27572,8 +27572,8 @@ _ZN10async_task5utils14abort_on_panic17h4b2602a5ccfb17d1E.exit: ; preds = %"_ZN1
   br label %251
 
 251:                                              ; preds = %240, %244, %_ZN10async_task5utils14abort_on_panic17h9a39d273a5f92cadE.exit
-  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9a39d273a5f92cadE.exit ], [ %spec.select.i150, %244 ], [ undef, %240 ]
-  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9a39d273a5f92cadE.exit ], [ %246, %244 ], [ null, %240 ]
+  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9a39d273a5f92cadE.exit ], [ undef, %240 ], [ %spec.select.i150, %244 ]
+  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9a39d273a5f92cadE.exit ], [ null, %240 ], [ %246, %244 ]
   %252 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %253 = and i64 %252, -240
   %or.cond.i152 = icmp eq i64 %253, 256
@@ -28040,8 +28040,8 @@ _ZN10async_task5utils14abort_on_panic17h3e06314c48d11f9bE.exit: ; preds = %120, 
   br label %147
 
 147:                                              ; preds = %136, %140, %_ZN10async_task5utils14abort_on_panic17h3e06314c48d11f9bE.exit
-  %.sroa.9189.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3e06314c48d11f9bE.exit ], [ %spec.select.i, %140 ], [ undef, %136 ]
-  %.sroa.0187.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3e06314c48d11f9bE.exit ], [ %142, %140 ], [ null, %136 ]
+  %.sroa.9189.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3e06314c48d11f9bE.exit ], [ undef, %136 ], [ %spec.select.i, %140 ]
+  %.sroa.0187.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3e06314c48d11f9bE.exit ], [ null, %136 ], [ %142, %140 ]
   %148 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %149 = and i64 %148, -240
   %or.cond.i = icmp eq i64 %149, 256
@@ -28128,7 +28128,7 @@ _ZN10async_task5utils14abort_on_panic17hfab2d3f180068af6E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr913drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..hard_link..hard_link$LT$$RF$async_std..path..pathbuf..PathBuf$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..hard_link..hard_link$LT$$RF$async_std..path..pathbuf..PathBuf$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hf631caf708e59123E.exit": ; preds = %170, %.body.i, %.body118, %166, %206, %210, %175, %.body163
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %200, %.body163 ], [ %207, %206 ], [ %eh.lpad-body, %175 ], [ %200, %210 ], [ %167, %166 ], [ %160, %.body118 ], [ %160, %170 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %200, %.body163 ], [ %eh.lpad-body, %175 ], [ %200, %210 ], [ %207, %206 ], [ %160, %.body118 ], [ %eh.lpad-body.i, %.body.i ], [ %160, %170 ], [ %167, %166 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 175:                                              ; preds = %46, %65
@@ -28154,8 +28154,8 @@ _ZN10async_task5utils14abort_on_panic17hfab2d3f180068af6E.exit: ; preds = %"_ZN1
   br label %187
 
 187:                                              ; preds = %176, %180, %_ZN10async_task5utils14abort_on_panic17h60b16c15730f8324E.exit
-  %.sroa.9.0209 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h60b16c15730f8324E.exit ], [ %spec.select.i158, %180 ], [ undef, %176 ]
-  %.sroa.0.0207 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h60b16c15730f8324E.exit ], [ %182, %180 ], [ null, %176 ]
+  %.sroa.9.0209 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h60b16c15730f8324E.exit ], [ undef, %176 ], [ %spec.select.i158, %180 ]
+  %.sroa.0.0207 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h60b16c15730f8324E.exit ], [ null, %176 ], [ %182, %180 ]
   %188 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %189 = and i64 %188, -240
   %or.cond.i160 = icmp eq i64 %189, 256
@@ -28589,8 +28589,8 @@ _ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit: ; preds = %97, %
   br label %115
 
 115:                                              ; preds = %104, %108, %_ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit
-  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit ], [ %spec.select.i, %108 ], [ undef, %104 ]
-  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit ], [ %110, %108 ], [ null, %104 ]
+  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit ], [ undef, %104 ], [ %spec.select.i, %108 ]
+  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit ], [ null, %104 ], [ %110, %108 ]
   %116 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %117 = and i64 %116, -240
   %or.cond.i = icmp eq i64 %117, 256
@@ -28670,7 +28670,7 @@ _ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit: ; preds = %97, %
   unreachable
 
 .body136:                                         ; preds = %214, %218, %179, %152, %.body147
-  %.pn86 = phi { ptr, i32 } [ %208, %218 ], [ %180, %179 ], [ %208, %.body147 ], [ %153, %152 ], [ %215, %214 ]
+  %.pn86 = phi { ptr, i32 } [ %208, %.body147 ], [ %153, %152 ], [ %180, %179 ], [ %208, %218 ], [ %215, %214 ]
   %143 = load i64, ptr %8, align 8, !range !3848, !noundef !14
   %.not252 = icmp eq i64 %143, 2
   br i1 %.not252, label %"_ZN4core3ptr828drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h78281122135f8ddaE.exit", label %221
@@ -28773,7 +28773,7 @@ _ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit: ; preds = %97, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4220691956c4b853E.exit138" unwind label %152
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4220691956c4b853E.exit138": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4220691956c4b853E.exit", %132, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4220691956c4b853E.exit149", %212, %183, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h9d6aae0de5bdacccE.exit.i135", %167
-  %.sroa.0.0 = phi i1 [ true, %183 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4220691956c4b853E.exit149" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h9d6aae0de5bdacccE.exit.i135" ], [ false, %167 ], [ false, %212 ], [ false, %132 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4220691956c4b853E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %167 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h9d6aae0de5bdacccE.exit.i135" ], [ true, %183 ], [ false, %212 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4220691956c4b853E.exit149" ], [ false, %132 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h4220691956c4b853E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN10async_task5utils14abort_on_panic17ha080141fc0adaad5E.exit
@@ -28796,8 +28796,8 @@ _ZN10async_task5utils14abort_on_panic17hf8281f81527c45ffE.exit: ; preds = %97, %
   br label %195
 
 195:                                              ; preds = %184, %188, %164
-  %.sroa.9188.0 = phi ptr [ undef, %164 ], [ %spec.select.i142, %188 ], [ undef, %184 ]
-  %.sroa.0186.0 = phi ptr [ null, %164 ], [ %190, %188 ], [ null, %184 ]
+  %.sroa.9188.0 = phi ptr [ undef, %164 ], [ undef, %184 ], [ %spec.select.i142, %188 ]
+  %.sroa.0186.0 = phi ptr [ null, %164 ], [ null, %184 ], [ %190, %188 ]
   %196 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %197 = and i64 %196, -240
   %or.cond.i144 = icmp eq i64 %197, 256
@@ -28878,8 +28878,8 @@ _ZN10async_task5utils14abort_on_panic17ha080141fc0adaad5E.exit: ; preds = %"_ZN1
   invoke fastcc void @"_ZN4core3ptr187drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hafe26f3c38cb4c65E"(ptr noalias noundef align 8 dereferenceable(24) %8) #19
           to label %"_ZN4core3ptr828drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h78281122135f8ddaE.exit" unwind label %141
 
-"_ZN4core3ptr828drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h78281122135f8ddaE.exit": ; preds = %138, %134, %98, %.body120, %253, %.body136, %221, %257, %222, %.body165
-  %.pn86.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %247, %257 ], [ %eh.lpad-body, %222 ], [ %.pn86, %221 ], [ %.pn86, %.body136 ], [ %254, %253 ], [ %128, %138 ], [ %135, %134 ], [ %99, %98 ], [ %128, %.body120 ]
+"_ZN4core3ptr828drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h78281122135f8ddaE.exit": ; preds = %134, %138, %98, %.body120, %253, %.body136, %221, %257, %222, %.body165
+  %.pn86.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %eh.lpad-body, %222 ], [ %247, %257 ], [ %.pn86, %221 ], [ %.pn86, %.body136 ], [ %254, %253 ], [ %135, %134 ], [ %128, %138 ], [ %99, %98 ], [ %128, %.body120 ]
   resume { ptr, i32 } %.pn86.pn.pn
 
 222:                                              ; preds = %.body.i, %66
@@ -28905,8 +28905,8 @@ _ZN10async_task5utils14abort_on_panic17ha080141fc0adaad5E.exit: ; preds = %"_ZN1
   br label %234
 
 234:                                              ; preds = %223, %227, %_ZN10async_task5utils14abort_on_panic17hb040c2be10fa27deE.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb040c2be10fa27deE.exit ], [ %spec.select.i160, %227 ], [ undef, %223 ]
-  %.sroa.0.0207 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb040c2be10fa27deE.exit ], [ %229, %227 ], [ null, %223 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb040c2be10fa27deE.exit ], [ undef, %223 ], [ %spec.select.i160, %227 ]
+  %.sroa.0.0207 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb040c2be10fa27deE.exit ], [ null, %223 ], [ %229, %227 ]
   %235 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %236 = and i64 %235, -240
   %or.cond.i162 = icmp eq i64 %236, 256
@@ -29037,7 +29037,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %82, %.body128, %126, %122, %.body178, %227, %267, %226, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i125", %132, %263, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %257, %.body178 ], [ %257, %267 ], [ %228, %227 ], [ %.pn96, %226 ], [ %.pn96, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i125" ], [ %67, %132 ], [ %264, %263 ], [ %116, %126 ], [ %116, %.body128 ], [ %83, %82 ], [ %123, %122 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %257, %.body178 ], [ %228, %227 ], [ %257, %267 ], [ %.pn96, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i125" ], [ %.pn96, %226 ], [ %67, %132 ], [ %264, %263 ], [ %123, %122 ], [ %116, %126 ], [ %116, %.body128 ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h7e5c44381e53114dE.exit: ; preds = %25
@@ -29240,8 +29240,8 @@ _ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit: ; preds = %81, %
   br label %99
 
 99:                                               ; preds = %88, %92, %_ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit
-  %.sroa.9192.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit ], [ %spec.select.i, %92 ], [ undef, %88 ]
-  %.sroa.0190.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit ], [ %94, %92 ], [ null, %88 ]
+  %.sroa.9192.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit ], [ undef, %88 ], [ %spec.select.i, %92 ]
+  %.sroa.0190.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit ], [ null, %88 ], [ %94, %92 ]
   %100 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %101 = and i64 %100, -240
   %or.cond.i = icmp eq i64 %101, 256
@@ -29335,7 +29335,7 @@ _ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit: ; preds = %81, %
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i125": ; preds = %219, %223, %181, %171, %136, %140, %.body159
-  %.pn96 = phi { ptr, i32 } [ %141, %140 ], [ %182, %181 ], [ %213, %.body159 ], [ %220, %219 ], [ %213, %223 ], [ %137, %136 ], [ %172, %171 ]
+  %.pn96 = phi { ptr, i32 } [ %213, %.body159 ], [ %137, %136 ], [ %141, %140 ], [ %172, %171 ], [ %182, %181 ], [ %213, %223 ], [ %220, %219 ]
   %131 = load i64, ptr %5, align 8, !range !4286, !noundef !14
   %.not260 = icmp eq i64 %131, 4
   br i1 %.not260, label %common.resume, label %226
@@ -29487,7 +29487,7 @@ _ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit: ; preds = %81, %
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he0f4782614d65270E.exit146": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he0f4782614d65270E.exit", %120, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he0f4782614d65270E.exit161", %217, %180, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h33db3ce170a73bcaE.exit.i143", %155
-  %.sroa.0.0 = phi i1 [ true, %180 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he0f4782614d65270E.exit161" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h33db3ce170a73bcaE.exit.i143" ], [ false, %155 ], [ false, %217 ], [ false, %120 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he0f4782614d65270E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %155 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h33db3ce170a73bcaE.exit.i143" ], [ true, %180 ], [ false, %217 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he0f4782614d65270E.exit161" ], [ false, %120 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17he0f4782614d65270E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17hf0c6e1461612bd6cE.exit
 
@@ -29509,8 +29509,8 @@ _ZN10async_task5utils14abort_on_panic17ha86da7cd14d300f5E.exit: ; preds = %81, %
   br label %196
 
 196:                                              ; preds = %185, %189, %152
-  %.sroa.9195.0 = phi ptr [ undef, %152 ], [ %spec.select.i153, %189 ], [ undef, %185 ]
-  %.sroa.0193.0 = phi ptr [ null, %152 ], [ %191, %189 ], [ null, %185 ]
+  %.sroa.9195.0 = phi ptr [ undef, %152 ], [ undef, %185 ], [ %spec.select.i153, %189 ]
+  %.sroa.0193.0 = phi ptr [ null, %152 ], [ null, %185 ], [ %191, %189 ]
   %197 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %198 = and i64 %197, -240
   %or.cond.i155 = icmp eq i64 %198, 256
@@ -29631,8 +29631,8 @@ _ZN10async_task5utils14abort_on_panic17hf0c6e1461612bd6cE.exit: ; preds = %"_ZN1
   br label %240
 
 240:                                              ; preds = %229, %233, %_ZN10async_task5utils14abort_on_panic17h7e5c44381e53114dE.exit
-  %.sroa.9.0212 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7e5c44381e53114dE.exit ], [ %spec.select.i172, %233 ], [ undef, %229 ]
-  %.sroa.0.0210 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7e5c44381e53114dE.exit ], [ %235, %233 ], [ null, %229 ]
+  %.sroa.9.0212 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7e5c44381e53114dE.exit ], [ undef, %229 ], [ %spec.select.i172, %233 ]
+  %.sroa.0.0210 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7e5c44381e53114dE.exit ], [ null, %229 ], [ %235, %233 ]
   %241 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %242 = and i64 %241, -240
   %or.cond.i174 = icmp eq i64 %242, 256
@@ -29950,8 +29950,8 @@ _ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit: ; preds = %72, %
   br label %90
 
 90:                                               ; preds = %79, %83, %_ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit
-  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit ], [ %spec.select.i, %83 ], [ undef, %79 ]
-  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit ], [ %85, %83 ], [ null, %79 ]
+  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit ], [ undef, %79 ], [ %spec.select.i, %83 ]
+  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit ], [ null, %79 ], [ %85, %83 ]
   %91 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %92 = and i64 %91, -240
   %or.cond.i = icmp eq i64 %92, 256
@@ -30031,7 +30031,7 @@ _ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit: ; preds = %72, %
   unreachable
 
 .body136:                                         ; preds = %189, %193, %154, %127, %.body147
-  %.pn90 = phi { ptr, i32 } [ %183, %193 ], [ %155, %154 ], [ %183, %.body147 ], [ %128, %127 ], [ %190, %189 ]
+  %.pn90 = phi { ptr, i32 } [ %183, %.body147 ], [ %128, %127 ], [ %155, %154 ], [ %183, %193 ], [ %190, %189 ]
   %118 = load i64, ptr %5, align 8, !range !8051, !noundef !14
   %.not246 = icmp eq i64 %118, -9223372036854775806
   br i1 %.not246, label %"_ZN4core3ptr898drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h11f5d42d06228d8aE.exit", label %196
@@ -30134,7 +30134,7 @@ _ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit: ; preds = %72, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h29d75da8830d7834E.exit138" unwind label %127
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h29d75da8830d7834E.exit138": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h29d75da8830d7834E.exit", %107, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h29d75da8830d7834E.exit149", %187, %158, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hda379414b1695080E.exit.i135", %142
-  %.sroa.0.0 = phi i1 [ true, %158 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h29d75da8830d7834E.exit149" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hda379414b1695080E.exit.i135" ], [ false, %142 ], [ false, %187 ], [ false, %107 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h29d75da8830d7834E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %142 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hda379414b1695080E.exit.i135" ], [ true, %158 ], [ false, %187 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h29d75da8830d7834E.exit149" ], [ false, %107 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h29d75da8830d7834E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17hed7b72bfce77c52eE.exit
 
@@ -30156,8 +30156,8 @@ _ZN10async_task5utils14abort_on_panic17h2359ee2a4cb2363bE.exit: ; preds = %72, %
   br label %170
 
 170:                                              ; preds = %159, %163, %139
-  %.sroa.9182.0 = phi ptr [ undef, %139 ], [ %spec.select.i142, %163 ], [ undef, %159 ]
-  %.sroa.0180.0 = phi ptr [ null, %139 ], [ %165, %163 ], [ null, %159 ]
+  %.sroa.9182.0 = phi ptr [ undef, %139 ], [ undef, %159 ], [ %spec.select.i142, %163 ]
+  %.sroa.0180.0 = phi ptr [ null, %139 ], [ null, %159 ], [ %165, %163 ]
   %171 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %172 = and i64 %171, -240
   %or.cond.i144 = icmp eq i64 %172, 256
@@ -30238,8 +30238,8 @@ _ZN10async_task5utils14abort_on_panic17hed7b72bfce77c52eE.exit: ; preds = %"_ZN1
   invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h97ffb88133b4bd18E"(ptr noalias noundef align 8 dereferenceable(24) %5) #19
           to label %"_ZN4core3ptr898drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h11f5d42d06228d8aE.exit" unwind label %116
 
-"_ZN4core3ptr898drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h11f5d42d06228d8aE.exit": ; preds = %113, %109, %73, %.body121, %229, %.body136, %196, %233, %197, %.body165
-  %.pn90.pn.pn = phi { ptr, i32 } [ %223, %.body165 ], [ %223, %233 ], [ %198, %197 ], [ %.pn90, %196 ], [ %.pn90, %.body136 ], [ %230, %229 ], [ %103, %113 ], [ %110, %109 ], [ %74, %73 ], [ %103, %.body121 ]
+"_ZN4core3ptr898drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h11f5d42d06228d8aE.exit": ; preds = %109, %113, %73, %.body121, %229, %.body136, %196, %233, %197, %.body165
+  %.pn90.pn.pn = phi { ptr, i32 } [ %223, %.body165 ], [ %198, %197 ], [ %223, %233 ], [ %.pn90, %196 ], [ %.pn90, %.body136 ], [ %230, %229 ], [ %110, %109 ], [ %103, %113 ], [ %74, %73 ], [ %103, %.body121 ]
   resume { ptr, i32 } %.pn90.pn.pn
 
 197:                                              ; preds = %33
@@ -30266,8 +30266,8 @@ _ZN10async_task5utils14abort_on_panic17hed7b72bfce77c52eE.exit: ; preds = %"_ZN1
   br label %210
 
 210:                                              ; preds = %199, %203, %_ZN10async_task5utils14abort_on_panic17h5e25802b26e2007fE.exit
-  %.sroa.9.0196 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5e25802b26e2007fE.exit ], [ %spec.select.i160, %203 ], [ undef, %199 ]
-  %.sroa.0.0194 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5e25802b26e2007fE.exit ], [ %205, %203 ], [ null, %199 ]
+  %.sroa.9.0196 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5e25802b26e2007fE.exit ], [ undef, %199 ], [ %spec.select.i160, %203 ]
+  %.sroa.0.0194 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5e25802b26e2007fE.exit ], [ null, %199 ], [ %205, %203 ]
   %211 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %212 = and i64 %211, -240
   %or.cond.i162 = icmp eq i64 %212, 256
@@ -30419,7 +30419,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %132, %136, %.body119, %96, %.body164, %231, %267, %230, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i116", %142, %263, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %35, %.body.i ], [ %257, %.body164 ], [ %257, %267 ], [ %232, %231 ], [ %.pn86, %230 ], [ %.pn86, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i116" ], [ %264, %263 ], [ %78, %142 ], [ %133, %132 ], [ %126, %136 ], [ %126, %.body119 ], [ %97, %96 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %.body.i ], [ %257, %.body164 ], [ %232, %231 ], [ %257, %267 ], [ %.pn86, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i116" ], [ %.pn86, %230 ], [ %78, %142 ], [ %264, %263 ], [ %133, %132 ], [ %126, %136 ], [ %126, %.body119 ], [ %97, %96 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hfcd2f8592828daa8E.exit: ; preds = %25, %30, %34
@@ -30629,8 +30629,8 @@ _ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit: ; preds = %95, %
   br label %113
 
 113:                                              ; preds = %102, %106, %_ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit
-  %.sroa.9178.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit ], [ %spec.select.i, %106 ], [ undef, %102 ]
-  %.sroa.0176.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit ], [ %108, %106 ], [ null, %102 ]
+  %.sroa.9178.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit ], [ undef, %102 ], [ %spec.select.i, %106 ]
+  %.sroa.0176.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit ], [ null, %102 ], [ %108, %106 ]
   %114 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %115 = and i64 %114, -240
   %or.cond.i = icmp eq i64 %115, 256
@@ -30710,7 +30710,7 @@ _ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit: ; preds = %95, %
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i116": ; preds = %223, %227, %188, %.body.i127, %159, %.body146
-  %.pn86 = phi { ptr, i32 } [ %217, %227 ], [ %189, %188 ], [ %217, %.body146 ], [ %224, %223 ], [ %160, %159 ], [ %155, %.body.i127 ]
+  %.pn86 = phi { ptr, i32 } [ %217, %.body146 ], [ %160, %159 ], [ %155, %.body.i127 ], [ %189, %188 ], [ %217, %227 ], [ %224, %223 ]
   %141 = load i64, ptr %6, align 8, !range !3848, !noundef !14
   %.not246 = icmp eq i64 %141, 2
   br i1 %.not246, label %common.resume, label %230
@@ -30846,7 +30846,7 @@ _ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit: ; preds = %95, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf379c89f57ff5caE.exit137" unwind label %159
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf379c89f57ff5caE.exit137": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf379c89f57ff5caE.exit", %130, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf379c89f57ff5caE.exit148", %221, %192, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5a611415afcc2beeE.exit.i134", %176
-  %.sroa.0.0 = phi i1 [ true, %192 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf379c89f57ff5caE.exit148" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5a611415afcc2beeE.exit.i134" ], [ false, %176 ], [ false, %221 ], [ false, %130 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf379c89f57ff5caE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %176 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5a611415afcc2beeE.exit.i134" ], [ true, %192 ], [ false, %221 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf379c89f57ff5caE.exit148" ], [ false, %130 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbf379c89f57ff5caE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10async_task5utils14abort_on_panic17h4b599a3a3bd14243E.exit
@@ -30869,8 +30869,8 @@ _ZN10async_task5utils14abort_on_panic17hf7a18e0dedbd053bE.exit: ; preds = %95, %
   br label %204
 
 204:                                              ; preds = %193, %197, %173
-  %.sroa.9181.0 = phi ptr [ undef, %173 ], [ %spec.select.i141, %197 ], [ undef, %193 ]
-  %.sroa.0179.0 = phi ptr [ null, %173 ], [ %199, %197 ], [ null, %193 ]
+  %.sroa.9181.0 = phi ptr [ undef, %173 ], [ undef, %193 ], [ %spec.select.i141, %197 ]
+  %.sroa.0179.0 = phi ptr [ null, %173 ], [ null, %193 ], [ %199, %197 ]
   %205 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %206 = and i64 %205, -240
   %or.cond.i143 = icmp eq i64 %206, 256
@@ -30977,8 +30977,8 @@ _ZN10async_task5utils14abort_on_panic17h4b599a3a3bd14243E.exit: ; preds = %"_ZN1
   br label %244
 
 244:                                              ; preds = %233, %237, %_ZN10async_task5utils14abort_on_panic17hfcd2f8592828daa8E.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfcd2f8592828daa8E.exit ], [ %spec.select.i159, %237 ], [ undef, %233 ]
-  %.sroa.0.0195 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfcd2f8592828daa8E.exit ], [ %239, %237 ], [ null, %233 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfcd2f8592828daa8E.exit ], [ undef, %233 ], [ %spec.select.i159, %237 ]
+  %.sroa.0.0195 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfcd2f8592828daa8E.exit ], [ null, %233 ], [ %239, %237 ]
   %245 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %246 = and i64 %245, -240
   %or.cond.i161 = icmp eq i64 %246, 256
@@ -31296,9 +31296,9 @@ select.unfold:                                    ; preds = %"_ZN63_$LT$alloc..a
   br label %_ZN10async_task5utils14abort_on_panic17hba24d8a1fd5061e2E.exit119
 
 _ZN10async_task5utils14abort_on_panic17hba24d8a1fd5061e2E.exit119: ; preds = %64, %select.unfold, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117", %74, %.thread229
-  %.sroa.9.0271 = phi ptr [ %70, %.thread229 ], [ %70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ %70, %74 ], [ %66, %64 ], [ %68, %select.unfold ]
-  %.sroa.6.0270 = phi ptr [ %69, %.thread229 ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ %69, %74 ], [ %.sink1.i.i.i, %64 ], [ %.sink1.i.i.i.i.i.i.i, %select.unfold ]
-  %.sroa.0259.0269 = phi i64 [ 3, %.thread229 ], [ 3, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ 3, %74 ], [ %spec.select.i, %64 ], [ %spec.select, %select.unfold ]
+  %.sroa.9.0271 = phi ptr [ %70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ %70, %74 ], [ %70, %.thread229 ], [ %66, %64 ], [ %68, %select.unfold ]
+  %.sroa.6.0270 = phi ptr [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ %69, %74 ], [ %69, %.thread229 ], [ %.sink1.i.i.i, %64 ], [ %.sink1.i.i.i.i.i.i.i, %select.unfold ]
+  %.sroa.0259.0269 = phi i64 [ 3, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ 3, %74 ], [ 3, %.thread229 ], [ %spec.select.i, %64 ], [ %spec.select, %select.unfold ]
   store i64 %.sroa.0259.0269, ptr %6, align 8
   %.sroa.2263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.6.0270, ptr %.sroa.2263.0..sroa_idx, align 8
@@ -31364,8 +31364,8 @@ _ZN10async_task5utils14abort_on_panic17ha133ce4ba3c34aa7E.exit: ; preds = %88, %
   br label %106
 
 106:                                              ; preds = %95, %99, %_ZN10async_task5utils14abort_on_panic17ha133ce4ba3c34aa7E.exit
-  %.sroa.9188.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha133ce4ba3c34aa7E.exit ], [ %spec.select.i124, %99 ], [ undef, %95 ]
-  %.sroa.0186.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha133ce4ba3c34aa7E.exit ], [ %101, %99 ], [ null, %95 ]
+  %.sroa.9188.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha133ce4ba3c34aa7E.exit ], [ undef, %95 ], [ %spec.select.i124, %99 ]
+  %.sroa.0186.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha133ce4ba3c34aa7E.exit ], [ null, %95 ], [ %101, %99 ]
   %107 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %108 = and i64 %107, -240
   %or.cond.i = icmp eq i64 %108, 256
@@ -31452,7 +31452,7 @@ _ZN10async_task5utils14abort_on_panic17hc4c61e3dbe287e16E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr770drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h6ee3e935aeb929d9E.exit": ; preds = %129, %89, %.body125, %125, %165, %169, %134, %.body170
-  %.pn90.pn.pn = phi { ptr, i32 } [ %159, %.body170 ], [ %159, %169 ], [ %eh.lpad-body, %134 ], [ %166, %165 ], [ %119, %.body125 ], [ %119, %129 ], [ %126, %125 ], [ %90, %89 ]
+  %.pn90.pn.pn = phi { ptr, i32 } [ %159, %.body170 ], [ %eh.lpad-body, %134 ], [ %159, %169 ], [ %166, %165 ], [ %119, %.body125 ], [ %90, %89 ], [ %119, %129 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn90.pn.pn
 
 134:                                              ; preds = %.body.i, %62
@@ -31478,8 +31478,8 @@ _ZN10async_task5utils14abort_on_panic17hc4c61e3dbe287e16E.exit: ; preds = %"_ZN1
   br label %146
 
 146:                                              ; preds = %135, %139, %_ZN10async_task5utils14abort_on_panic17hba24d8a1fd5061e2E.exit
-  %.sroa.9.0218 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hba24d8a1fd5061e2E.exit ], [ %spec.select.i165, %139 ], [ undef, %135 ]
-  %.sroa.0.0216 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hba24d8a1fd5061e2E.exit ], [ %141, %139 ], [ null, %135 ]
+  %.sroa.9.0218 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hba24d8a1fd5061e2E.exit ], [ undef, %135 ], [ %spec.select.i165, %139 ]
+  %.sroa.0.0216 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hba24d8a1fd5061e2E.exit ], [ null, %135 ], [ %141, %139 ]
   %147 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %148 = and i64 %147, -240
   %or.cond.i167 = icmp eq i64 %148, 256
@@ -31649,8 +31649,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %158, %162, %.body127, %168, %118, %.body182, %293, %333, %292, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124", %329, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %38, %.body.i ], [ %323, %.body182 ], [ %323, %333 ], [ %294, %293 ], [ %.pn90, %292 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124" ], [ %330, %329 ], [ %159, %158 ], [ %152, %162 ], [ %152, %.body127 ], [ %96, %168 ], [ %119, %118 ]
+common.resume:                                    ; preds = %158, %162, %.body127, %118, %168, %.body182, %293, %333, %292, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124", %329, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %38, %.body.i ], [ %323, %.body182 ], [ %294, %293 ], [ %323, %333 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124" ], [ %.pn90, %292 ], [ %330, %329 ], [ %159, %158 ], [ %152, %162 ], [ %152, %.body127 ], [ %119, %118 ], [ %96, %168 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hbdbf0f7b3556ac6aE.exit: ; preds = %30, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i.i.i.i.i.i"
@@ -31895,8 +31895,8 @@ _ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit: ; preds = %117, 
   br label %135
 
 135:                                              ; preds = %124, %128, %_ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit
-  %.sroa.9196.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit ], [ %spec.select.i, %128 ], [ undef, %124 ]
-  %.sroa.0194.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit ], [ %130, %128 ], [ null, %124 ]
+  %.sroa.9196.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit ], [ undef, %124 ], [ %spec.select.i, %128 ]
+  %.sroa.0194.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit ], [ null, %124 ], [ %130, %128 ]
   %136 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %137 = and i64 %136, -240
   %or.cond.i = icmp eq i64 %137, 256
@@ -31990,7 +31990,7 @@ _ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit: ; preds = %117, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124": ; preds = %285, %289, %247, %225, %.body.i138, %193, %.body163
-  %.pn90 = phi { ptr, i32 } [ %194, %193 ], [ %248, %247 ], [ %279, %.body163 ], [ %286, %285 ], [ %279, %289 ], [ %184, %.body.i138 ], [ %226, %225 ]
+  %.pn90 = phi { ptr, i32 } [ %279, %.body163 ], [ %194, %193 ], [ %184, %.body.i138 ], [ %226, %225 ], [ %248, %247 ], [ %279, %289 ], [ %286, %285 ]
   %167 = load i64, ptr %5, align 8, !range !7999, !noundef !14
   %.not285 = icmp eq i64 %167, -9223372036854775807
   br i1 %.not285, label %common.resume, label %292
@@ -32202,7 +32202,7 @@ _ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit: ; preds = %117, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39011fbc8bbfe953E.exit150": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39011fbc8bbfe953E.exit", %156, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39011fbc8bbfe953E.exit165", %283, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hb37c18d6194c7790E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hdef069767e333685E.exit.i147", %209
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hb37c18d6194c7790E.exit.i" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39011fbc8bbfe953E.exit165" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hdef069767e333685E.exit.i147" ], [ false, %209 ], [ false, %283 ], [ false, %156 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39011fbc8bbfe953E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %209 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hdef069767e333685E.exit.i147" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hb37c18d6194c7790E.exit.i" ], [ false, %283 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39011fbc8bbfe953E.exit165" ], [ false, %156 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39011fbc8bbfe953E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h8ba8e0308d17d5b0E.exit
 
@@ -32224,8 +32224,8 @@ _ZN10async_task5utils14abort_on_panic17h2349d5fb95b20846E.exit: ; preds = %117, 
   br label %262
 
 262:                                              ; preds = %251, %255, %206
-  %.sroa.9199.0 = phi ptr [ undef, %206 ], [ %spec.select.i157, %255 ], [ undef, %251 ]
-  %.sroa.0197.0 = phi ptr [ null, %206 ], [ %257, %255 ], [ null, %251 ]
+  %.sroa.9199.0 = phi ptr [ undef, %206 ], [ undef, %251 ], [ %spec.select.i157, %255 ]
+  %.sroa.0197.0 = phi ptr [ null, %206 ], [ null, %251 ], [ %257, %255 ]
   %263 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %264 = and i64 %263, -240
   %or.cond.i159 = icmp eq i64 %264, 256
@@ -32346,8 +32346,8 @@ _ZN10async_task5utils14abort_on_panic17h8ba8e0308d17d5b0E.exit: ; preds = %"_ZN1
   br label %306
 
 306:                                              ; preds = %295, %299, %_ZN10async_task5utils14abort_on_panic17hbdbf0f7b3556ac6aE.exit
-  %.sroa.9.0214 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hbdbf0f7b3556ac6aE.exit ], [ %spec.select.i176, %299 ], [ undef, %295 ]
-  %.sroa.0.0212 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hbdbf0f7b3556ac6aE.exit ], [ %301, %299 ], [ null, %295 ]
+  %.sroa.9.0214 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hbdbf0f7b3556ac6aE.exit ], [ undef, %295 ], [ %spec.select.i176, %299 ]
+  %.sroa.0.0212 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hbdbf0f7b3556ac6aE.exit ], [ null, %295 ], [ %301, %299 ]
   %307 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %308 = and i64 %307, -240
   %or.cond.i178 = icmp eq i64 %308, 256
@@ -32492,7 +32492,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body153, %202, %.body.i, %207, %240, %260, %302, %.body121, %197, %193, %298, %.body172, %305, %345, %341, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %335, %.body172 ], [ %342, %341 ], [ %306, %305 ], [ %335, %345 ], [ %117, %202 ], [ %292, %302 ], [ %147, %.body.i ], [ %261, %260 ], [ %292, %.body153 ], [ %194, %193 ], [ %208, %207 ], [ %241, %240 ], [ %299, %298 ], [ %187, %.body121 ], [ %187, %197 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %335, %.body172 ], [ %306, %305 ], [ %335, %345 ], [ %342, %341 ], [ %117, %202 ], [ %292, %.body153 ], [ %147, %.body.i ], [ %208, %207 ], [ %241, %240 ], [ %261, %260 ], [ %292, %302 ], [ %187, %.body121 ], [ %187, %197 ], [ %194, %193 ], [ %299, %298 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hce8dbbd56a5732f7E.exit: ; preds = %26
@@ -32831,8 +32831,8 @@ _ZN10async_task5utils14abort_on_panic17h465eb1dd04d18437E.exit: ; preds = %145, 
   br label %170
 
 170:                                              ; preds = %159, %163, %_ZN10async_task5utils14abort_on_panic17h465eb1dd04d18437E.exit
-  %.sroa.9198.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h465eb1dd04d18437E.exit ], [ %spec.select.i, %163 ], [ undef, %159 ]
-  %.sroa.0196.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h465eb1dd04d18437E.exit ], [ %165, %163 ], [ null, %159 ]
+  %.sroa.9198.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h465eb1dd04d18437E.exit ], [ undef, %159 ], [ %spec.select.i, %163 ]
+  %.sroa.0196.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h465eb1dd04d18437E.exit ], [ null, %159 ], [ %165, %163 ]
   %171 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %172 = and i64 %171, -240
   %or.cond.i = icmp eq i64 %172, 256
@@ -33077,7 +33077,7 @@ _ZN10async_task5utils14abort_on_panic17h465eb1dd04d18437E.exit: ; preds = %145, 
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17h074b1b5b8f178ecaE.exit: ; preds = %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h476bdd258b454042E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb29ef6b1f8fb7ce4E.exit155", %296, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8c6794e3a8e48d18E.exit.i137", %224, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb29ef6b1f8fb7ce4E.exit", %191
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h476bdd258b454042E.exit.i" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8c6794e3a8e48d18E.exit.i137" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb29ef6b1f8fb7ce4E.exit" ], [ false, %191 ], [ false, %224 ], [ false, %296 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb29ef6b1f8fb7ce4E.exit155" ]
+  %.sroa.0.0 = phi i1 [ false, %191 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb29ef6b1f8fb7ce4E.exit" ], [ false, %224 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8c6794e3a8e48d18E.exit.i137" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h476bdd258b454042E.exit.i" ], [ false, %296 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb29ef6b1f8fb7ce4E.exit155" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10async_task5utils14abort_on_panic17h3dabad143bd45e3eE.exit
 
@@ -33099,8 +33099,8 @@ _ZN10async_task5utils14abort_on_panic17h074b1b5b8f178ecaE.exit: ; preds = %"_ZN6
   br label %275
 
 275:                                              ; preds = %264, %268, %221
-  %.sroa.0199.0 = phi ptr [ null, %221 ], [ %270, %268 ], [ null, %264 ]
-  %.sroa.9201.0 = phi ptr [ undef, %221 ], [ %spec.select.i147, %268 ], [ undef, %264 ]
+  %.sroa.0199.0 = phi ptr [ null, %221 ], [ null, %264 ], [ %270, %268 ]
+  %.sroa.9201.0 = phi ptr [ undef, %221 ], [ undef, %264 ], [ %spec.select.i147, %268 ]
   %276 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %277 = and i64 %276, -240
   %or.cond.i149 = icmp eq i64 %277, 256
@@ -33217,8 +33217,8 @@ _ZN10async_task5utils14abort_on_panic17h3dabad143bd45e3eE.exit: ; preds = %"_ZN1
   br label %318
 
 318:                                              ; preds = %307, %311, %_ZN10async_task5utils14abort_on_panic17hce8dbbd56a5732f7E.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hce8dbbd56a5732f7E.exit ], [ %spec.select.i166, %311 ], [ undef, %307 ]
-  %.sroa.0.0216 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hce8dbbd56a5732f7E.exit ], [ %313, %311 ], [ null, %307 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hce8dbbd56a5732f7E.exit ], [ undef, %307 ], [ %spec.select.i166, %311 ]
+  %.sroa.0.0216 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hce8dbbd56a5732f7E.exit ], [ null, %307 ], [ %313, %311 ]
   %319 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %320 = and i64 %319, -240
   %or.cond.i168 = icmp eq i64 %320, 256
@@ -33360,7 +33360,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body148, %154, %.body.i, %159, %192, %202, %244, %.body116, %149, %145, %240, %.body167, %247, %287, %283, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %277, %.body167 ], [ %284, %283 ], [ %248, %247 ], [ %277, %287 ], [ %60, %154 ], [ %234, %244 ], [ %eh.lpad-body.i, %.body.i ], [ %203, %202 ], [ %234, %.body148 ], [ %146, %145 ], [ %160, %159 ], [ %193, %192 ], [ %241, %240 ], [ %139, %.body116 ], [ %139, %149 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %277, %.body167 ], [ %248, %247 ], [ %277, %287 ], [ %284, %283 ], [ %60, %154 ], [ %234, %.body148 ], [ %eh.lpad-body.i, %.body.i ], [ %160, %159 ], [ %193, %192 ], [ %203, %202 ], [ %234, %244 ], [ %139, %.body116 ], [ %139, %149 ], [ %146, %145 ], [ %241, %240 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h0855ee0cd84c2f7dE.exit: ; preds = %23
@@ -33582,8 +33582,8 @@ _ZN10async_task5utils14abort_on_panic17h1b17036a21fc8693E.exit: ; preds = %95, %
   br label %122
 
 122:                                              ; preds = %111, %115, %_ZN10async_task5utils14abort_on_panic17h1b17036a21fc8693E.exit
-  %.sroa.9189.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1b17036a21fc8693E.exit ], [ %spec.select.i, %115 ], [ undef, %111 ]
-  %.sroa.0187.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1b17036a21fc8693E.exit ], [ %117, %115 ], [ null, %111 ]
+  %.sroa.9189.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1b17036a21fc8693E.exit ], [ undef, %111 ], [ %spec.select.i, %115 ]
+  %.sroa.0187.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1b17036a21fc8693E.exit ], [ null, %111 ], [ %117, %115 ]
   %123 = atomicrmw sub ptr %12, i64 256 acq_rel, align 8
   %124 = and i64 %123, -240
   %or.cond.i = icmp eq i64 %124, 256
@@ -33815,7 +33815,7 @@ _ZN10async_task5utils14abort_on_panic17h1b17036a21fc8693E.exit: ; preds = %95, %
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17h3076f0c4195f2ed5E.exit: ; preds = %201, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9c66dcc1aa935a54E.exit150", %238, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h46a4522ee77fea50E.exit.i131", %176, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9c66dcc1aa935a54E.exit", %143
-  %.sroa.0.0 = phi i1 [ true, %201 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h46a4522ee77fea50E.exit.i131" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9c66dcc1aa935a54E.exit" ], [ false, %143 ], [ false, %176 ], [ false, %238 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9c66dcc1aa935a54E.exit150" ]
+  %.sroa.0.0 = phi i1 [ false, %143 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9c66dcc1aa935a54E.exit" ], [ false, %176 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h46a4522ee77fea50E.exit.i131" ], [ true, %201 ], [ false, %238 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9c66dcc1aa935a54E.exit150" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17hb467b46369d19ef5E.exit
 
@@ -33837,8 +33837,8 @@ _ZN10async_task5utils14abort_on_panic17h3076f0c4195f2ed5E.exit: ; preds = %201, 
   br label %217
 
 217:                                              ; preds = %206, %210, %173
-  %.sroa.0190.0 = phi ptr [ null, %173 ], [ %212, %210 ], [ null, %206 ]
-  %.sroa.9192.0 = phi ptr [ undef, %173 ], [ %spec.select.i142, %210 ], [ undef, %206 ]
+  %.sroa.0190.0 = phi ptr [ null, %173 ], [ null, %206 ], [ %212, %210 ]
+  %.sroa.9192.0 = phi ptr [ undef, %173 ], [ undef, %206 ], [ %spec.select.i142, %210 ]
   %218 = atomicrmw sub ptr %12, i64 256 acq_rel, align 8
   %219 = and i64 %218, -240
   %or.cond.i144 = icmp eq i64 %219, 256
@@ -33955,8 +33955,8 @@ _ZN10async_task5utils14abort_on_panic17hb467b46369d19ef5E.exit: ; preds = %"_ZN1
   br label %260
 
 260:                                              ; preds = %249, %253, %_ZN10async_task5utils14abort_on_panic17h0855ee0cd84c2f7dE.exit
-  %.sroa.9.0210 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0855ee0cd84c2f7dE.exit ], [ %spec.select.i161, %253 ], [ undef, %249 ]
-  %.sroa.0.0208 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0855ee0cd84c2f7dE.exit ], [ %255, %253 ], [ null, %249 ]
+  %.sroa.9.0210 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0855ee0cd84c2f7dE.exit ], [ undef, %249 ], [ %spec.select.i161, %253 ]
+  %.sroa.0.0208 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0855ee0cd84c2f7dE.exit ], [ null, %249 ], [ %255, %253 ]
   %261 = atomicrmw sub ptr %12, i64 256 acq_rel, align 8
   %262 = and i64 %261, -240
   %or.cond.i163 = icmp eq i64 %262, 256
@@ -34399,8 +34399,8 @@ _ZN10async_task5utils14abort_on_panic17hb1738674c3882bfaE.exit: ; preds = %110, 
   br label %137
 
 137:                                              ; preds = %126, %130, %_ZN10async_task5utils14abort_on_panic17hb1738674c3882bfaE.exit
-  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb1738674c3882bfaE.exit ], [ %spec.select.i, %130 ], [ undef, %126 ]
-  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb1738674c3882bfaE.exit ], [ %132, %130 ], [ null, %126 ]
+  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb1738674c3882bfaE.exit ], [ undef, %126 ], [ %spec.select.i, %130 ]
+  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb1738674c3882bfaE.exit ], [ null, %126 ], [ %132, %130 ]
   %138 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %139 = and i64 %138, -240
   %or.cond.i = icmp eq i64 %139, 256
@@ -34487,7 +34487,7 @@ _ZN10async_task5utils14abort_on_panic17h0291f94b48b962dfE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr837drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..create_dir..create_dir$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..create_dir..create_dir$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h92335d13f7b66fafE.exit": ; preds = %160, %.body.i, %.body116, %156, %196, %200, %165, %.body159
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %190, %.body159 ], [ %197, %196 ], [ %eh.lpad-body, %165 ], [ %190, %200 ], [ %157, %156 ], [ %150, %.body116 ], [ %150, %160 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %190, %.body159 ], [ %eh.lpad-body, %165 ], [ %190, %200 ], [ %197, %196 ], [ %150, %.body116 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %160 ], [ %157, %156 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 165:                                              ; preds = %41, %60
@@ -34513,8 +34513,8 @@ _ZN10async_task5utils14abort_on_panic17h0291f94b48b962dfE.exit: ; preds = %"_ZN1
   br label %177
 
 177:                                              ; preds = %166, %170, %_ZN10async_task5utils14abort_on_panic17h9bf51456740bd5f5E.exit
-  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9bf51456740bd5f5E.exit ], [ %spec.select.i154, %170 ], [ undef, %166 ]
-  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9bf51456740bd5f5E.exit ], [ %172, %170 ], [ null, %166 ]
+  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9bf51456740bd5f5E.exit ], [ undef, %166 ], [ %spec.select.i154, %170 ]
+  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9bf51456740bd5f5E.exit ], [ null, %166 ], [ %172, %170 ]
   %178 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %179 = and i64 %178, -240
   %or.cond.i156 = icmp eq i64 %179, 256
@@ -34823,8 +34823,8 @@ default.unreachable:                              ; preds = %46, %35
   br label %_ZN10async_task5utils14abort_on_panic17he370cb3794af5796E.exit112
 
 _ZN10async_task5utils14abort_on_panic17he370cb3794af5796E.exit112: ; preds = %66, %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110", %72, %67
-  %.sroa.8.0.ph275 = phi ptr [ %68, %67 ], [ %68, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %68, %72 ], [ null, %65 ], [ null, %66 ]
-  %.sroa.13.0.ph274 = phi ptr [ %69, %67 ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %69, %72 ], [ %38, %65 ], [ %49, %66 ]
+  %.sroa.8.0.ph275 = phi ptr [ %68, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %68, %72 ], [ %68, %67 ], [ null, %65 ], [ null, %66 ]
+  %.sroa.13.0.ph274 = phi ptr [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %69, %72 ], [ %69, %67 ], [ %38, %65 ], [ %49, %66 ]
   store ptr %.sroa.8.0.ph275, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.13.0.ph274, ptr %.sroa.2.0..sroa_idx, align 8
@@ -34959,8 +34959,8 @@ _ZN10async_task5utils14abort_on_panic17hc4a4031df8351e78E.exit: ; preds = %107, 
   br label %134
 
 134:                                              ; preds = %123, %127, %_ZN10async_task5utils14abort_on_panic17hc4a4031df8351e78E.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc4a4031df8351e78E.exit ], [ %spec.select.i, %127 ], [ undef, %123 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc4a4031df8351e78E.exit ], [ %129, %127 ], [ null, %123 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc4a4031df8351e78E.exit ], [ undef, %123 ], [ %spec.select.i, %127 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc4a4031df8351e78E.exit ], [ null, %123 ], [ %129, %127 ]
   %135 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %136 = and i64 %135, -240
   %or.cond.i = icmp eq i64 %136, 256
@@ -35047,7 +35047,7 @@ _ZN10async_task5utils14abort_on_panic17h940bbf1636f0c4a3E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr738drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hbe658f651d0d3625E.exit": ; preds = %157, %.body.i115, %.body118, %153, %193, %197, %162, %.body163
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %187, %.body163 ], [ %194, %193 ], [ %eh.lpad-body, %162 ], [ %187, %197 ], [ %147, %157 ], [ %147, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %154, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %187, %.body163 ], [ %eh.lpad-body, %162 ], [ %187, %197 ], [ %194, %193 ], [ %147, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %147, %157 ], [ %154, %153 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 162:                                              ; preds = %.body.i, %63
@@ -35073,8 +35073,8 @@ _ZN10async_task5utils14abort_on_panic17h940bbf1636f0c4a3E.exit: ; preds = %"_ZN1
   br label %174
 
 174:                                              ; preds = %163, %167, %_ZN10async_task5utils14abort_on_panic17he370cb3794af5796E.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17he370cb3794af5796E.exit ], [ %spec.select.i158, %167 ], [ undef, %163 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17he370cb3794af5796E.exit ], [ %169, %167 ], [ null, %163 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17he370cb3794af5796E.exit ], [ undef, %163 ], [ %spec.select.i158, %167 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17he370cb3794af5796E.exit ], [ null, %163 ], [ %169, %167 ]
   %175 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %176 = and i64 %175, -240
   %or.cond.i160 = icmp eq i64 %176, 256
@@ -35439,8 +35439,8 @@ _ZN10async_task5utils14abort_on_panic17hdf68b4ed687536f1E.exit: ; preds = %103, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17hdf68b4ed687536f1E.exit
-  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hdf68b4ed687536f1E.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hdf68b4ed687536f1E.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hdf68b4ed687536f1E.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hdf68b4ed687536f1E.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -35626,7 +35626,7 @@ _ZN10async_task5utils14abort_on_panic17hdf68b4ed687536f1E.exit: ; preds = %103, 
   br label %_ZN10async_task5utils14abort_on_panic17h339c98e0165d5e0cE.exit
 
 _ZN10async_task5utils14abort_on_panic17h339c98e0165d5e0cE.exit: ; preds = %200, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf9ce4a289f9b3c38E.exit139", %229, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0e8ea73da5ad6d06E.exit.i125", %184, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf9ce4a289f9b3c38E.exit", %147
-  %.sroa.0.0 = phi i1 [ true, %200 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0e8ea73da5ad6d06E.exit.i125" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf9ce4a289f9b3c38E.exit" ], [ false, %147 ], [ false, %184 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf9ce4a289f9b3c38E.exit139" ]
+  %.sroa.0.0 = phi i1 [ false, %147 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf9ce4a289f9b3c38E.exit" ], [ false, %184 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0e8ea73da5ad6d06E.exit.i125" ], [ true, %200 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf9ce4a289f9b3c38E.exit139" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17haf74b315a8e73850E.exit
 
@@ -35648,8 +35648,8 @@ _ZN10async_task5utils14abort_on_panic17h339c98e0165d5e0cE.exit: ; preds = %200, 
   br label %212
 
 212:                                              ; preds = %201, %205, %181
-  %.sroa.0178.0 = phi ptr [ null, %181 ], [ %207, %205 ], [ null, %201 ]
-  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ %spec.select.i132, %205 ], [ undef, %201 ]
+  %.sroa.0178.0 = phi ptr [ null, %181 ], [ null, %201 ], [ %207, %205 ]
+  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ undef, %201 ], [ %spec.select.i132, %205 ]
   %213 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %214 = and i64 %213, -240
   %or.cond.i134 = icmp eq i64 %214, 256
@@ -35729,7 +35729,7 @@ _ZN10async_task5utils14abort_on_panic17haf74b315a8e73850E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr787drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h59d0368eb9b3071bE.exit" unwind label %156
 
 "_ZN4core3ptr787drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h59d0368eb9b3071bE.exit": ; preds = %.body137, %196, %235, %153, %.body.i, %.body113, %149, %231, %270, %274, %238, %.body155
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %271, %270 ], [ %239, %238 ], [ %264, %274 ], [ %225, %.body137 ], [ %225, %235 ], [ %197, %196 ], [ %232, %231 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %149 ], [ %143, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %239, %238 ], [ %264, %274 ], [ %271, %270 ], [ %225, %.body137 ], [ %197, %196 ], [ %225, %235 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %143, %153 ], [ %150, %149 ], [ %232, %231 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 238:                                              ; preds = %38
@@ -35756,8 +35756,8 @@ _ZN10async_task5utils14abort_on_panic17haf74b315a8e73850E.exit: ; preds = %"_ZN1
   br label %251
 
 251:                                              ; preds = %240, %244, %_ZN10async_task5utils14abort_on_panic17h85d10546bd734893E.exit
-  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h85d10546bd734893E.exit ], [ %spec.select.i150, %244 ], [ undef, %240 ]
-  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h85d10546bd734893E.exit ], [ %246, %244 ], [ null, %240 ]
+  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h85d10546bd734893E.exit ], [ undef, %240 ], [ %spec.select.i150, %244 ]
+  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h85d10546bd734893E.exit ], [ null, %240 ], [ %246, %244 ]
   %252 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %253 = and i64 %252, -240
   %or.cond.i152 = icmp eq i64 %253, 256
@@ -36186,8 +36186,8 @@ _ZN10async_task5utils14abort_on_panic17hc88a1885f8c027baE.exit: ; preds = %110, 
   br label %137
 
 137:                                              ; preds = %126, %130, %_ZN10async_task5utils14abort_on_panic17hc88a1885f8c027baE.exit
-  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc88a1885f8c027baE.exit ], [ %spec.select.i, %130 ], [ undef, %126 ]
-  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc88a1885f8c027baE.exit ], [ %132, %130 ], [ null, %126 ]
+  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc88a1885f8c027baE.exit ], [ undef, %126 ], [ %spec.select.i, %130 ]
+  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc88a1885f8c027baE.exit ], [ null, %126 ], [ %132, %130 ]
   %138 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %139 = and i64 %138, -240
   %or.cond.i = icmp eq i64 %139, 256
@@ -36274,7 +36274,7 @@ _ZN10async_task5utils14abort_on_panic17h81530895a22fae6eE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr861drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..create_dir_all..create_dir_all$LT$$RF$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..create_dir_all..create_dir_all$LT$$RF$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h9f966430180935e8E.exit": ; preds = %160, %.body.i, %.body116, %156, %196, %200, %165, %.body159
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %190, %.body159 ], [ %197, %196 ], [ %eh.lpad-body, %165 ], [ %190, %200 ], [ %157, %156 ], [ %150, %.body116 ], [ %150, %160 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %190, %.body159 ], [ %eh.lpad-body, %165 ], [ %190, %200 ], [ %197, %196 ], [ %150, %.body116 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %160 ], [ %157, %156 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 165:                                              ; preds = %41, %60
@@ -36300,8 +36300,8 @@ _ZN10async_task5utils14abort_on_panic17h81530895a22fae6eE.exit: ; preds = %"_ZN1
   br label %177
 
 177:                                              ; preds = %166, %170, %_ZN10async_task5utils14abort_on_panic17h5a1cc889f3cf5a59E.exit
-  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5a1cc889f3cf5a59E.exit ], [ %spec.select.i154, %170 ], [ undef, %166 ]
-  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5a1cc889f3cf5a59E.exit ], [ %172, %170 ], [ null, %166 ]
+  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5a1cc889f3cf5a59E.exit ], [ undef, %166 ], [ %spec.select.i154, %170 ]
+  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5a1cc889f3cf5a59E.exit ], [ null, %166 ], [ %172, %170 ]
   %178 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %179 = and i64 %178, -240
   %or.cond.i156 = icmp eq i64 %179, 256
@@ -36438,7 +36438,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %163, %167, %.body121, %127, %.body166, %259, %294, %258, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i118", %173, %290, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %284, %.body166 ], [ %284, %294 ], [ %eh.lpad-body, %259 ], [ %.pn86, %258 ], [ %.pn86, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i118" ], [ %291, %290 ], [ %112, %173 ], [ %164, %163 ], [ %157, %167 ], [ %157, %.body121 ], [ %128, %127 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %284, %.body166 ], [ %eh.lpad-body, %259 ], [ %284, %294 ], [ %.pn86, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i118" ], [ %.pn86, %258 ], [ %112, %173 ], [ %291, %290 ], [ %164, %163 ], [ %157, %167 ], [ %157, %.body121 ], [ %128, %127 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hfefb3df6013b52d7E.exit: ; preds = %22, %26, %30
@@ -36791,8 +36791,8 @@ _ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit: ; preds = %126, 
   br label %144
 
 144:                                              ; preds = %133, %137, %_ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit
-  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit ], [ %spec.select.i, %137 ], [ undef, %133 ]
-  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit ], [ %139, %137 ], [ null, %133 ]
+  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit ], [ undef, %133 ], [ %spec.select.i, %137 ]
+  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit ], [ null, %133 ], [ %139, %137 ]
   %145 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %146 = and i64 %145, -240
   %or.cond.i = icmp eq i64 %146, 256
@@ -36872,7 +36872,7 @@ _ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit: ; preds = %126, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i118": ; preds = %251, %255, %216, %185, %189, %.body148
-  %.pn86 = phi { ptr, i32 } [ %245, %255 ], [ %217, %216 ], [ %245, %.body148 ], [ %252, %251 ], [ %190, %189 ], [ %186, %185 ]
+  %.pn86 = phi { ptr, i32 } [ %245, %.body148 ], [ %190, %189 ], [ %186, %185 ], [ %217, %216 ], [ %245, %255 ], [ %252, %251 ]
   %172 = load i64, ptr %8, align 8, !range !3848, !noundef !14
   %.not263 = icmp eq i64 %172, 2
   br i1 %.not263, label %common.resume, label %258
@@ -36995,7 +36995,7 @@ _ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit: ; preds = %126, 
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17ha68296bab05fb7c1E.exit139" unwind label %189
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17ha68296bab05fb7c1E.exit139": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17ha68296bab05fb7c1E.exit", %161, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17ha68296bab05fb7c1E.exit150", %249, %220, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hff00afbe11c1911cE.exit.i136", %204
-  %.sroa.0.0 = phi i1 [ true, %220 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17ha68296bab05fb7c1E.exit150" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hff00afbe11c1911cE.exit.i136" ], [ false, %204 ], [ false, %249 ], [ false, %161 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17ha68296bab05fb7c1E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %204 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hff00afbe11c1911cE.exit.i136" ], [ true, %220 ], [ false, %249 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17ha68296bab05fb7c1E.exit150" ], [ false, %161 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17ha68296bab05fb7c1E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN10async_task5utils14abort_on_panic17h17d8edfd96ba0ee3E.exit
@@ -37018,8 +37018,8 @@ _ZN10async_task5utils14abort_on_panic17h30e435cbdfc7272bE.exit: ; preds = %126, 
   br label %232
 
 232:                                              ; preds = %221, %225, %201
-  %.sroa.9189.0 = phi ptr [ undef, %201 ], [ %spec.select.i143, %225 ], [ undef, %221 ]
-  %.sroa.0187.0 = phi ptr [ null, %201 ], [ %227, %225 ], [ null, %221 ]
+  %.sroa.9189.0 = phi ptr [ undef, %201 ], [ undef, %221 ], [ %spec.select.i143, %225 ]
+  %.sroa.0187.0 = phi ptr [ null, %201 ], [ null, %221 ], [ %227, %225 ]
   %233 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %234 = and i64 %233, -240
   %or.cond.i145 = icmp eq i64 %234, 256
@@ -37123,8 +37123,8 @@ _ZN10async_task5utils14abort_on_panic17h17d8edfd96ba0ee3E.exit: ; preds = %"_ZN1
   br label %271
 
 271:                                              ; preds = %260, %264, %_ZN10async_task5utils14abort_on_panic17hfefb3df6013b52d7E.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfefb3df6013b52d7E.exit ], [ %spec.select.i161, %264 ], [ undef, %260 ]
-  %.sroa.0.0208 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfefb3df6013b52d7E.exit ], [ %266, %264 ], [ null, %260 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfefb3df6013b52d7E.exit ], [ undef, %260 ], [ %spec.select.i161, %264 ]
+  %.sroa.0.0208 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfefb3df6013b52d7E.exit ], [ null, %260 ], [ %266, %264 ]
   %272 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %273 = and i64 %272, -240
   %or.cond.i163 = icmp eq i64 %273, 256
@@ -37253,8 +37253,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %113, %117, %.body122, %123, %73, %.body172, %218, %258, %217, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i119", %254, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %248, %.body172 ], [ %248, %258 ], [ %219, %218 ], [ %.pn90, %217 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i119" ], [ %255, %254 ], [ %114, %113 ], [ %107, %117 ], [ %107, %.body122 ], [ %58, %123 ], [ %74, %73 ]
+common.resume:                                    ; preds = %113, %117, %.body122, %73, %123, %.body172, %218, %258, %217, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i119", %254, %26
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %248, %.body172 ], [ %219, %218 ], [ %248, %258 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i119" ], [ %.pn90, %217 ], [ %255, %254 ], [ %114, %113 ], [ %107, %117 ], [ %107, %.body122 ], [ %74, %73 ], [ %58, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hc83a2d7b2407441dE.exit: ; preds = %25
@@ -37441,8 +37441,8 @@ _ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit: ; preds = %72, %
   br label %90
 
 90:                                               ; preds = %79, %83, %_ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit
-  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit ], [ %spec.select.i, %83 ], [ undef, %79 ]
-  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit ], [ %85, %83 ], [ null, %79 ]
+  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit ], [ undef, %79 ], [ %spec.select.i, %83 ]
+  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit ], [ null, %79 ], [ %85, %83 ]
   %91 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %92 = and i64 %91, -240
   %or.cond.i = icmp eq i64 %92, 256
@@ -37536,7 +37536,7 @@ _ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit: ; preds = %72, %
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i119": ; preds = %210, %214, %172, %162, %127, %131, %.body153
-  %.pn90 = phi { ptr, i32 } [ %132, %131 ], [ %173, %172 ], [ %204, %.body153 ], [ %211, %210 ], [ %204, %214 ], [ %128, %127 ], [ %163, %162 ]
+  %.pn90 = phi { ptr, i32 } [ %204, %.body153 ], [ %132, %131 ], [ %128, %127 ], [ %163, %162 ], [ %173, %172 ], [ %204, %214 ], [ %211, %210 ]
   %122 = load i64, ptr %5, align 8, !range !8051, !noundef !14
   %.not263 = icmp eq i64 %122, -9223372036854775806
   br i1 %.not263, label %common.resume, label %217
@@ -37688,7 +37688,7 @@ _ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit: ; preds = %72, %
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9f8cebf12a96d18bE.exit140": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9f8cebf12a96d18bE.exit", %111, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9f8cebf12a96d18bE.exit155", %208, %171, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hee64ddee3ff55d2eE.exit.i137", %146
-  %.sroa.0.0 = phi i1 [ true, %171 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9f8cebf12a96d18bE.exit155" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hee64ddee3ff55d2eE.exit.i137" ], [ false, %146 ], [ false, %208 ], [ false, %111 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9f8cebf12a96d18bE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %146 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hee64ddee3ff55d2eE.exit.i137" ], [ true, %171 ], [ false, %208 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9f8cebf12a96d18bE.exit155" ], [ false, %111 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h9f8cebf12a96d18bE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17hdf660a76b6984b0eE.exit
 
@@ -37710,8 +37710,8 @@ _ZN10async_task5utils14abort_on_panic17h0e0b21d9300fee68E.exit: ; preds = %72, %
   br label %187
 
 187:                                              ; preds = %176, %180, %143
-  %.sroa.9189.0 = phi ptr [ undef, %143 ], [ %spec.select.i147, %180 ], [ undef, %176 ]
-  %.sroa.0187.0 = phi ptr [ null, %143 ], [ %182, %180 ], [ null, %176 ]
+  %.sroa.9189.0 = phi ptr [ undef, %143 ], [ undef, %176 ], [ %spec.select.i147, %180 ]
+  %.sroa.0187.0 = phi ptr [ null, %143 ], [ null, %176 ], [ %182, %180 ]
   %188 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %189 = and i64 %188, -240
   %or.cond.i149 = icmp eq i64 %189, 256
@@ -37832,8 +37832,8 @@ _ZN10async_task5utils14abort_on_panic17hdf660a76b6984b0eE.exit: ; preds = %"_ZN1
   br label %231
 
 231:                                              ; preds = %220, %224, %_ZN10async_task5utils14abort_on_panic17hc83a2d7b2407441dE.exit
-  %.sroa.9.0204 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc83a2d7b2407441dE.exit ], [ %spec.select.i166, %224 ], [ undef, %220 ]
-  %.sroa.0.0202 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc83a2d7b2407441dE.exit ], [ %226, %224 ], [ null, %220 ]
+  %.sroa.9.0204 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc83a2d7b2407441dE.exit ], [ undef, %220 ], [ %spec.select.i166, %224 ]
+  %.sroa.0.0202 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc83a2d7b2407441dE.exit ], [ null, %220 ], [ %226, %224 ]
   %232 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %233 = and i64 %232, -240
   %or.cond.i168 = icmp eq i64 %233, 256
@@ -38214,8 +38214,8 @@ _ZN10async_task5utils14abort_on_panic17hd5594342edc341d1E.exit: ; preds = %103, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17hd5594342edc341d1E.exit
-  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hd5594342edc341d1E.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hd5594342edc341d1E.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hd5594342edc341d1E.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hd5594342edc341d1E.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -38402,7 +38402,7 @@ _ZN10async_task5utils14abort_on_panic17hd5594342edc341d1E.exit: ; preds = %103, 
   br label %_ZN10async_task5utils14abort_on_panic17he8a2075931330b9fE.exit
 
 _ZN10async_task5utils14abort_on_panic17he8a2075931330b9fE.exit: ; preds = %200, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h88ce59fbb64117b5E.exit139", %229, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2f625b6b36119ca9E.exit.i125", %184, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h88ce59fbb64117b5E.exit", %147
-  %.sroa.0.0 = phi i1 [ true, %200 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2f625b6b36119ca9E.exit.i125" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h88ce59fbb64117b5E.exit" ], [ false, %147 ], [ false, %184 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h88ce59fbb64117b5E.exit139" ]
+  %.sroa.0.0 = phi i1 [ false, %147 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h88ce59fbb64117b5E.exit" ], [ false, %184 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2f625b6b36119ca9E.exit.i125" ], [ true, %200 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h88ce59fbb64117b5E.exit139" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17ha20b470d1f0dd988E.exit
 
@@ -38424,8 +38424,8 @@ _ZN10async_task5utils14abort_on_panic17he8a2075931330b9fE.exit: ; preds = %200, 
   br label %212
 
 212:                                              ; preds = %201, %205, %181
-  %.sroa.0178.0 = phi ptr [ null, %181 ], [ %207, %205 ], [ null, %201 ]
-  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ %spec.select.i132, %205 ], [ undef, %201 ]
+  %.sroa.0178.0 = phi ptr [ null, %181 ], [ null, %201 ], [ %207, %205 ]
+  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ undef, %201 ], [ %spec.select.i132, %205 ]
   %213 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %214 = and i64 %213, -240
   %or.cond.i134 = icmp eq i64 %214, 256
@@ -38505,7 +38505,7 @@ _ZN10async_task5utils14abort_on_panic17ha20b470d1f0dd988E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr857drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..set_permissions..set_permissions$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..set_permissions..set_permissions$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h90fb9f572556b547E.exit" unwind label %156
 
 "_ZN4core3ptr857drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..set_permissions..set_permissions$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..set_permissions..set_permissions$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h90fb9f572556b547E.exit": ; preds = %.body137, %196, %235, %153, %.body.i, %.body113, %149, %231, %270, %274, %238, %.body155
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %271, %270 ], [ %239, %238 ], [ %264, %274 ], [ %225, %.body137 ], [ %225, %235 ], [ %197, %196 ], [ %232, %231 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %149 ], [ %143, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %239, %238 ], [ %264, %274 ], [ %271, %270 ], [ %225, %.body137 ], [ %197, %196 ], [ %225, %235 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %143, %153 ], [ %150, %149 ], [ %232, %231 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 238:                                              ; preds = %38
@@ -38532,8 +38532,8 @@ _ZN10async_task5utils14abort_on_panic17ha20b470d1f0dd988E.exit: ; preds = %"_ZN1
   br label %251
 
 251:                                              ; preds = %240, %244, %_ZN10async_task5utils14abort_on_panic17hcf4189f85f2b0883E.exit
-  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hcf4189f85f2b0883E.exit ], [ %spec.select.i150, %244 ], [ undef, %240 ]
-  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hcf4189f85f2b0883E.exit ], [ %246, %244 ], [ null, %240 ]
+  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hcf4189f85f2b0883E.exit ], [ undef, %240 ], [ %spec.select.i150, %244 ]
+  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hcf4189f85f2b0883E.exit ], [ null, %240 ], [ %246, %244 ]
   %252 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %253 = and i64 %252, -240
   %or.cond.i152 = icmp eq i64 %253, 256
@@ -38699,8 +38699,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %154, %158, %.body129, %164, %114, %.body183, %287, %327, %286, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126", %323, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %38, %.body.i ], [ %317, %.body183 ], [ %317, %327 ], [ %288, %287 ], [ %.pn90, %286 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126" ], [ %324, %323 ], [ %155, %154 ], [ %148, %158 ], [ %148, %.body129 ], [ %93, %164 ], [ %115, %114 ]
+common.resume:                                    ; preds = %154, %158, %.body129, %114, %164, %.body183, %287, %327, %286, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126", %323, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %38, %.body.i ], [ %317, %.body183 ], [ %288, %287 ], [ %317, %327 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126" ], [ %.pn90, %286 ], [ %324, %323 ], [ %155, %154 ], [ %148, %158 ], [ %148, %.body129 ], [ %115, %114 ], [ %93, %164 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hb30eef12b9b43620E.exit: ; preds = %30, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i.i.i.i"
@@ -38938,8 +38938,8 @@ _ZN10async_task5utils14abort_on_panic17hb9425d70da4a891aE.exit: ; preds = %113, 
   br label %131
 
 131:                                              ; preds = %120, %124, %_ZN10async_task5utils14abort_on_panic17hb9425d70da4a891aE.exit
-  %.sroa.9197.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb9425d70da4a891aE.exit ], [ %spec.select.i, %124 ], [ undef, %120 ]
-  %.sroa.0195.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb9425d70da4a891aE.exit ], [ %126, %124 ], [ null, %120 ]
+  %.sroa.9197.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb9425d70da4a891aE.exit ], [ undef, %120 ], [ %spec.select.i, %124 ]
+  %.sroa.0195.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb9425d70da4a891aE.exit ], [ null, %120 ], [ %126, %124 ]
   %132 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %133 = and i64 %132, -240
   %or.cond.i = icmp eq i64 %133, 256
@@ -39037,7 +39037,7 @@ _ZN10async_task5utils14abort_on_panic17h94ce0acaf570a3acE.exit: ; preds = %152, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126": ; preds = %279, %283, %241, %219, %.body.i139, %188, %.body164
-  %.pn90 = phi { ptr, i32 } [ %189, %188 ], [ %242, %241 ], [ %273, %.body164 ], [ %280, %279 ], [ %273, %283 ], [ %179, %.body.i139 ], [ %220, %219 ]
+  %.pn90 = phi { ptr, i32 } [ %273, %.body164 ], [ %189, %188 ], [ %179, %.body.i139 ], [ %220, %219 ], [ %242, %241 ], [ %273, %283 ], [ %280, %279 ]
   %163 = load i64, ptr %6, align 8, !range !8051, !noundef !14
   %.not283 = icmp eq i64 %163, -9223372036854775806
   br i1 %.not283, label %common.resume, label %286
@@ -39239,7 +39239,7 @@ _ZN10async_task5utils14abort_on_panic17h94ce0acaf570a3acE.exit: ; preds = %152, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h00fa9f4a684af245E.exit151": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h00fa9f4a684af245E.exit166", %277, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h82489904330eb8dfE.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hcfea5541315250beE.exit.i148", %203, %_ZN10async_task5utils14abort_on_panic17h94ce0acaf570a3acE.exit
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h82489904330eb8dfE.exit.i" ], [ false, %_ZN10async_task5utils14abort_on_panic17h94ce0acaf570a3acE.exit ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hcfea5541315250beE.exit.i148" ], [ false, %203 ], [ false, %277 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h00fa9f4a684af245E.exit166" ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN10async_task5utils14abort_on_panic17h94ce0acaf570a3acE.exit ], [ false, %203 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hcfea5541315250beE.exit.i148" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h82489904330eb8dfE.exit.i" ], [ false, %277 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h00fa9f4a684af245E.exit166" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10async_task5utils14abort_on_panic17hdf9b39ae4e843bf9E.exit
@@ -39262,8 +39262,8 @@ _ZN10async_task5utils14abort_on_panic17h94ce0acaf570a3acE.exit: ; preds = %152, 
   br label %256
 
 256:                                              ; preds = %245, %249, %200
-  %.sroa.9200.0 = phi ptr [ undef, %200 ], [ %spec.select.i158, %249 ], [ undef, %245 ]
-  %.sroa.0198.0 = phi ptr [ null, %200 ], [ %251, %249 ], [ null, %245 ]
+  %.sroa.9200.0 = phi ptr [ undef, %200 ], [ undef, %245 ], [ %spec.select.i158, %249 ]
+  %.sroa.0198.0 = phi ptr [ null, %200 ], [ null, %245 ], [ %251, %249 ]
   %257 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %258 = and i64 %257, -240
   %or.cond.i160 = icmp eq i64 %258, 256
@@ -39384,8 +39384,8 @@ _ZN10async_task5utils14abort_on_panic17hdf9b39ae4e843bf9E.exit: ; preds = %"_ZN1
   br label %300
 
 300:                                              ; preds = %289, %293, %_ZN10async_task5utils14abort_on_panic17hb30eef12b9b43620E.exit
-  %.sroa.9.0215 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb30eef12b9b43620E.exit ], [ %spec.select.i177, %293 ], [ undef, %289 ]
-  %.sroa.0.0213 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb30eef12b9b43620E.exit ], [ %295, %293 ], [ null, %289 ]
+  %.sroa.9.0215 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb30eef12b9b43620E.exit ], [ undef, %289 ], [ %spec.select.i177, %293 ]
+  %.sroa.0.0213 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb30eef12b9b43620E.exit ], [ null, %289 ], [ %295, %293 ]
   %301 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %302 = and i64 %301, -240
   %or.cond.i179 = icmp eq i64 %302, 256
@@ -39532,7 +39532,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %81, %.body129, %125, %121, %.body180, %226, %266, %225, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126", %131, %262, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %26, %.body.i ], [ %256, %.body180 ], [ %256, %266 ], [ %227, %226 ], [ %.pn96, %225 ], [ %.pn96, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126" ], [ %65, %131 ], [ %263, %262 ], [ %115, %125 ], [ %115, %.body129 ], [ %82, %81 ], [ %122, %121 ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %.body.i ], [ %256, %.body180 ], [ %227, %226 ], [ %256, %266 ], [ %.pn96, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126" ], [ %.pn96, %225 ], [ %65, %131 ], [ %263, %262 ], [ %122, %121 ], [ %115, %125 ], [ %115, %.body129 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17ha115390fc76be36dE.exit: ; preds = %25
@@ -39741,8 +39741,8 @@ _ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit: ; preds = %80, %
   br label %98
 
 98:                                               ; preds = %87, %91, %_ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit
-  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit ], [ %spec.select.i, %91 ], [ undef, %87 ]
-  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit ], [ %93, %91 ], [ null, %87 ]
+  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit ], [ undef, %87 ], [ %spec.select.i, %91 ]
+  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit ], [ null, %87 ], [ %93, %91 ]
   %99 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %100 = and i64 %99, -240
   %or.cond.i = icmp eq i64 %100, 256
@@ -39836,7 +39836,7 @@ _ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit: ; preds = %80, %
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126": ; preds = %218, %222, %180, %170, %.body.i137, %138, %.body161
-  %.pn96 = phi { ptr, i32 } [ %139, %138 ], [ %181, %180 ], [ %212, %.body161 ], [ %219, %218 ], [ %212, %222 ], [ %135, %.body.i137 ], [ %171, %170 ]
+  %.pn96 = phi { ptr, i32 } [ %212, %.body161 ], [ %135, %.body.i137 ], [ %139, %138 ], [ %171, %170 ], [ %181, %180 ], [ %212, %222 ], [ %219, %218 ]
   %130 = load i64, ptr %5, align 8, !range !4286, !noundef !14
   %.not262 = icmp eq i64 %130, 4
   br i1 %.not262, label %common.resume, label %225
@@ -39994,7 +39994,7 @@ _ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit: ; preds = %80, %
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h3059c76f08b04309E.exit148": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h3059c76f08b04309E.exit", %119, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h3059c76f08b04309E.exit163", %216, %179, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha3d987ca3fb9a8c6E.exit.i145", %154
-  %.sroa.0.0 = phi i1 [ true, %179 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h3059c76f08b04309E.exit163" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha3d987ca3fb9a8c6E.exit.i145" ], [ false, %154 ], [ false, %216 ], [ false, %119 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h3059c76f08b04309E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %154 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha3d987ca3fb9a8c6E.exit.i145" ], [ true, %179 ], [ false, %216 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h3059c76f08b04309E.exit163" ], [ false, %119 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h3059c76f08b04309E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h3fc805310985dfb6E.exit
 
@@ -40016,8 +40016,8 @@ _ZN10async_task5utils14abort_on_panic17h4093fa643eafb66fE.exit: ; preds = %80, %
   br label %195
 
 195:                                              ; preds = %184, %188, %151
-  %.sroa.9197.0 = phi ptr [ undef, %151 ], [ %spec.select.i155, %188 ], [ undef, %184 ]
-  %.sroa.0195.0 = phi ptr [ null, %151 ], [ %190, %188 ], [ null, %184 ]
+  %.sroa.9197.0 = phi ptr [ undef, %151 ], [ undef, %184 ], [ %spec.select.i155, %188 ]
+  %.sroa.0195.0 = phi ptr [ null, %151 ], [ null, %184 ], [ %190, %188 ]
   %196 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %197 = and i64 %196, -240
   %or.cond.i157 = icmp eq i64 %197, 256
@@ -40138,8 +40138,8 @@ _ZN10async_task5utils14abort_on_panic17h3fc805310985dfb6E.exit: ; preds = %"_ZN1
   br label %239
 
 239:                                              ; preds = %228, %232, %_ZN10async_task5utils14abort_on_panic17ha115390fc76be36dE.exit
-  %.sroa.9.0214 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha115390fc76be36dE.exit ], [ %spec.select.i174, %232 ], [ undef, %228 ]
-  %.sroa.0.0212 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha115390fc76be36dE.exit ], [ %234, %232 ], [ null, %228 ]
+  %.sroa.9.0214 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha115390fc76be36dE.exit ], [ undef, %228 ], [ %spec.select.i174, %232 ]
+  %.sroa.0.0212 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha115390fc76be36dE.exit ], [ null, %228 ], [ %234, %232 ]
   %240 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %241 = and i64 %240, -240
   %or.cond.i176 = icmp eq i64 %241, 256
@@ -40518,8 +40518,8 @@ _ZN10async_task5utils14abort_on_panic17hbe1a07ff646a7386E.exit: ; preds = %103, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17hbe1a07ff646a7386E.exit
-  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hbe1a07ff646a7386E.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hbe1a07ff646a7386E.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hbe1a07ff646a7386E.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hbe1a07ff646a7386E.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -40705,7 +40705,7 @@ _ZN10async_task5utils14abort_on_panic17hbe1a07ff646a7386E.exit: ; preds = %103, 
   br label %_ZN10async_task5utils14abort_on_panic17hb1ba059c20d0dd41E.exit
 
 _ZN10async_task5utils14abort_on_panic17hb1ba059c20d0dd41E.exit: ; preds = %200, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec1dc8cffbde648bE.exit139", %229, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h720b480c472125a0E.exit.i125", %184, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec1dc8cffbde648bE.exit", %147
-  %.sroa.0.0 = phi i1 [ true, %200 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h720b480c472125a0E.exit.i125" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec1dc8cffbde648bE.exit" ], [ false, %147 ], [ false, %184 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec1dc8cffbde648bE.exit139" ]
+  %.sroa.0.0 = phi i1 [ false, %147 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec1dc8cffbde648bE.exit" ], [ false, %184 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h720b480c472125a0E.exit.i125" ], [ true, %200 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec1dc8cffbde648bE.exit139" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h32ae2afa1d649c25E.exit
 
@@ -40727,8 +40727,8 @@ _ZN10async_task5utils14abort_on_panic17hb1ba059c20d0dd41E.exit: ; preds = %200, 
   br label %212
 
 212:                                              ; preds = %201, %205, %181
-  %.sroa.0178.0 = phi ptr [ null, %181 ], [ %207, %205 ], [ null, %201 ]
-  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ %spec.select.i132, %205 ], [ undef, %201 ]
+  %.sroa.0178.0 = phi ptr [ null, %181 ], [ null, %201 ], [ %207, %205 ]
+  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ undef, %201 ], [ %spec.select.i132, %205 ]
   %213 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %214 = and i64 %213, -240
   %or.cond.i134 = icmp eq i64 %214, 256
@@ -40808,7 +40808,7 @@ _ZN10async_task5utils14abort_on_panic17h32ae2afa1d649c25E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr793drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h2c20375ef2951e75E.exit" unwind label %156
 
 "_ZN4core3ptr793drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h2c20375ef2951e75E.exit": ; preds = %.body137, %196, %235, %153, %.body.i, %.body113, %149, %231, %270, %274, %238, %.body155
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %271, %270 ], [ %239, %238 ], [ %264, %274 ], [ %225, %.body137 ], [ %225, %235 ], [ %197, %196 ], [ %232, %231 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %149 ], [ %143, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %239, %238 ], [ %264, %274 ], [ %271, %270 ], [ %225, %.body137 ], [ %197, %196 ], [ %225, %235 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %143, %153 ], [ %150, %149 ], [ %232, %231 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 238:                                              ; preds = %38
@@ -40835,8 +40835,8 @@ _ZN10async_task5utils14abort_on_panic17h32ae2afa1d649c25E.exit: ; preds = %"_ZN1
   br label %251
 
 251:                                              ; preds = %240, %244, %_ZN10async_task5utils14abort_on_panic17h6365555df60896e0E.exit
-  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6365555df60896e0E.exit ], [ %spec.select.i150, %244 ], [ undef, %240 ]
-  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6365555df60896e0E.exit ], [ %246, %244 ], [ null, %240 ]
+  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6365555df60896e0E.exit ], [ undef, %240 ], [ %spec.select.i150, %244 ]
+  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6365555df60896e0E.exit ], [ null, %240 ], [ %246, %244 ]
   %252 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %253 = and i64 %252, -240
   %or.cond.i152 = icmp eq i64 %253, 256
@@ -41133,8 +41133,8 @@ _ZN3std2fs11remove_file17h87364c50e13e361eE.exit.i.i.i.i.i.i: ; preds = %43
   br label %_ZN10async_task5utils14abort_on_panic17h1b75ee31ee7c200eE.exit112
 
 _ZN10async_task5utils14abort_on_panic17h1b75ee31ee7c200eE.exit112: ; preds = %60, %59, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110", %66, %61
-  %.sroa.8.0.ph275 = phi ptr [ %62, %61 ], [ %62, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %62, %66 ], [ null, %59 ], [ null, %60 ]
-  %.sroa.13.0.ph274 = phi ptr [ %63, %61 ], [ %63, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %63, %66 ], [ %35, %59 ], [ %44, %60 ]
+  %.sroa.8.0.ph275 = phi ptr [ %62, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %62, %66 ], [ %62, %61 ], [ null, %59 ], [ null, %60 ]
+  %.sroa.13.0.ph274 = phi ptr [ %63, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %63, %66 ], [ %63, %61 ], [ %35, %59 ], [ %44, %60 ]
   store ptr %.sroa.8.0.ph275, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.13.0.ph274, ptr %.sroa.2.0..sroa_idx, align 8
@@ -41269,8 +41269,8 @@ _ZN10async_task5utils14abort_on_panic17h9a62e9700379adb7E.exit: ; preds = %101, 
   br label %128
 
 128:                                              ; preds = %117, %121, %_ZN10async_task5utils14abort_on_panic17h9a62e9700379adb7E.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9a62e9700379adb7E.exit ], [ %spec.select.i, %121 ], [ undef, %117 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9a62e9700379adb7E.exit ], [ %123, %121 ], [ null, %117 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h9a62e9700379adb7E.exit ], [ undef, %117 ], [ %spec.select.i, %121 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h9a62e9700379adb7E.exit ], [ null, %117 ], [ %123, %121 ]
   %129 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %130 = and i64 %129, -240
   %or.cond.i = icmp eq i64 %130, 256
@@ -41357,7 +41357,7 @@ _ZN10async_task5utils14abort_on_panic17h5f846b7c5bf23255E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr740drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_file$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..remove_file$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hca9dede6b75cce2bE.exit": ; preds = %151, %.body.i115, %.body118, %147, %187, %191, %156, %.body163
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %181, %.body163 ], [ %188, %187 ], [ %eh.lpad-body, %156 ], [ %181, %191 ], [ %141, %151 ], [ %141, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %148, %147 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %181, %.body163 ], [ %eh.lpad-body, %156 ], [ %181, %191 ], [ %188, %187 ], [ %141, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %141, %151 ], [ %148, %147 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 156:                                              ; preds = %.body.i, %57
@@ -41383,8 +41383,8 @@ _ZN10async_task5utils14abort_on_panic17h5f846b7c5bf23255E.exit: ; preds = %"_ZN1
   br label %168
 
 168:                                              ; preds = %157, %161, %_ZN10async_task5utils14abort_on_panic17h1b75ee31ee7c200eE.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1b75ee31ee7c200eE.exit ], [ %spec.select.i158, %161 ], [ undef, %157 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1b75ee31ee7c200eE.exit ], [ %163, %161 ], [ null, %157 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1b75ee31ee7c200eE.exit ], [ undef, %157 ], [ %spec.select.i158, %161 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1b75ee31ee7c200eE.exit ], [ null, %157 ], [ %163, %161 ]
   %169 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %170 = and i64 %169, -240
   %or.cond.i160 = icmp eq i64 %170, 256
@@ -41517,7 +41517,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %198, %.body.i115, %.body120, %193, %189, %.body165, %199, %234, %230, %28
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %224, %.body165 ], [ %231, %230 ], [ %eh.lpad-body, %199 ], [ %224, %234 ], [ %108, %198 ], [ %190, %189 ], [ %eh.lpad-body.i116, %.body.i115 ], [ %183, %193 ], [ %183, %.body120 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %224, %.body165 ], [ %eh.lpad-body, %199 ], [ %224, %234 ], [ %231, %230 ], [ %108, %198 ], [ %eh.lpad-body.i116, %.body.i115 ], [ %183, %.body120 ], [ %183, %193 ], [ %190, %189 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit: ; preds = %19, %23, %27
@@ -41761,8 +41761,8 @@ _ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit112.sink.split: ; 
   br label %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit112
 
 _ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit112: ; preds = %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit112.sink.split, %106, %102, %97
-  %.sroa.8.0.ph297 = phi ptr [ %98, %97 ], [ %98, %106 ], [ %98, %102 ], [ null, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit112.sink.split ]
-  %.sroa.13.0.ph296 = phi ptr [ %99, %97 ], [ %99, %106 ], [ %99, %102 ], [ %.sroa.13.0.ph296.ph, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit112.sink.split ]
+  %.sroa.8.0.ph297 = phi ptr [ %98, %106 ], [ %98, %102 ], [ %98, %97 ], [ null, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit112.sink.split ]
+  %.sroa.13.0.ph296 = phi ptr [ %99, %106 ], [ %99, %102 ], [ %99, %97 ], [ %.sroa.13.0.ph296.ph, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit112.sink.split ]
   store ptr %.sroa.8.0.ph297, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.13.0.ph296, ptr %.sroa.2.0..sroa_idx, align 8
@@ -41897,8 +41897,8 @@ _ZN10async_task5utils14abort_on_panic17h19e915f7e10b2d9aE.exit: ; preds = %143, 
   br label %170
 
 170:                                              ; preds = %159, %163, %_ZN10async_task5utils14abort_on_panic17h19e915f7e10b2d9aE.exit
-  %.sroa.9189.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h19e915f7e10b2d9aE.exit ], [ %spec.select.i, %163 ], [ undef, %159 ]
-  %.sroa.0187.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h19e915f7e10b2d9aE.exit ], [ %165, %163 ], [ null, %159 ]
+  %.sroa.9189.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h19e915f7e10b2d9aE.exit ], [ undef, %159 ], [ %spec.select.i, %163 ]
+  %.sroa.0187.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h19e915f7e10b2d9aE.exit ], [ null, %159 ], [ %165, %163 ]
   %171 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %172 = and i64 %171, -240
   %or.cond.i = icmp eq i64 %172, 256
@@ -42011,8 +42011,8 @@ _ZN10async_task5utils14abort_on_panic17hb315fef6db975179E.exit: ; preds = %"_ZN1
   br label %211
 
 211:                                              ; preds = %200, %204, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit
-  %.sroa.9.0210 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit ], [ %spec.select.i160, %204 ], [ undef, %200 ]
-  %.sroa.0.0208 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit ], [ %206, %204 ], [ null, %200 ]
+  %.sroa.9.0210 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit ], [ undef, %200 ], [ %spec.select.i160, %204 ]
+  %.sroa.0.0208 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha4d177c54f6a5068E.exit ], [ null, %200 ], [ %206, %204 ]
   %212 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %213 = and i64 %212, -240
   %or.cond.i162 = icmp eq i64 %213, 256
@@ -42183,8 +42183,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %159, %163, %.body127, %169, %119, %.body182, %294, %334, %293, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124", %330, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %39, %.body.i ], [ %324, %.body182 ], [ %324, %334 ], [ %295, %294 ], [ %.pn90, %293 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124" ], [ %331, %330 ], [ %160, %159 ], [ %153, %163 ], [ %153, %.body127 ], [ %97, %169 ], [ %120, %119 ]
+common.resume:                                    ; preds = %159, %163, %.body127, %119, %169, %.body182, %294, %334, %293, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124", %330, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %39, %.body.i ], [ %324, %.body182 ], [ %295, %294 ], [ %324, %334 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124" ], [ %.pn90, %293 ], [ %331, %330 ], [ %160, %159 ], [ %153, %163 ], [ %153, %.body127 ], [ %120, %119 ], [ %97, %169 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h3d7ba903192f8fb0E.exit: ; preds = %31, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i.i.i.i.i.i"
@@ -42432,8 +42432,8 @@ _ZN10async_task5utils14abort_on_panic17h924586943651dc65E.exit: ; preds = %118, 
   br label %136
 
 136:                                              ; preds = %125, %129, %_ZN10async_task5utils14abort_on_panic17h924586943651dc65E.exit
-  %.sroa.9196.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h924586943651dc65E.exit ], [ %spec.select.i, %129 ], [ undef, %125 ]
-  %.sroa.0194.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h924586943651dc65E.exit ], [ %131, %129 ], [ null, %125 ]
+  %.sroa.9196.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h924586943651dc65E.exit ], [ undef, %125 ], [ %spec.select.i, %129 ]
+  %.sroa.0194.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h924586943651dc65E.exit ], [ null, %125 ], [ %131, %129 ]
   %137 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %138 = and i64 %137, -240
   %or.cond.i = icmp eq i64 %138, 256
@@ -42531,7 +42531,7 @@ _ZN10async_task5utils14abort_on_panic17hb2a70bf57240abf8E.exit: ; preds = %157, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i124": ; preds = %286, %290, %248, %226, %.body.i138, %194, %.body163
-  %.pn90 = phi { ptr, i32 } [ %195, %194 ], [ %249, %248 ], [ %280, %.body163 ], [ %287, %286 ], [ %280, %290 ], [ %185, %.body.i138 ], [ %227, %226 ]
+  %.pn90 = phi { ptr, i32 } [ %280, %.body163 ], [ %195, %194 ], [ %185, %.body.i138 ], [ %227, %226 ], [ %249, %248 ], [ %280, %290 ], [ %287, %286 ]
   %168 = load i64, ptr %6, align 8, !range !8051, !noundef !14
   %.not285 = icmp eq i64 %168, -9223372036854775806
   br i1 %.not285, label %common.resume, label %293
@@ -42743,7 +42743,7 @@ _ZN10async_task5utils14abort_on_panic17hb2a70bf57240abf8E.exit: ; preds = %157, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf801f1ae82033feE.exit150": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf801f1ae82033feE.exit165", %284, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h82489904330eb8dfE.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hac2b913391c0eb11E.exit.i147", %210, %_ZN10async_task5utils14abort_on_panic17hb2a70bf57240abf8E.exit
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h82489904330eb8dfE.exit.i" ], [ false, %_ZN10async_task5utils14abort_on_panic17hb2a70bf57240abf8E.exit ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hac2b913391c0eb11E.exit.i147" ], [ false, %210 ], [ false, %284 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf801f1ae82033feE.exit165" ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN10async_task5utils14abort_on_panic17hb2a70bf57240abf8E.exit ], [ false, %210 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hac2b913391c0eb11E.exit.i147" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h82489904330eb8dfE.exit.i" ], [ false, %284 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hdf801f1ae82033feE.exit165" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10async_task5utils14abort_on_panic17hbdc694366ccb7e3bE.exit
@@ -42766,8 +42766,8 @@ _ZN10async_task5utils14abort_on_panic17hb2a70bf57240abf8E.exit: ; preds = %157, 
   br label %263
 
 263:                                              ; preds = %252, %256, %207
-  %.sroa.9199.0 = phi ptr [ undef, %207 ], [ %spec.select.i157, %256 ], [ undef, %252 ]
-  %.sroa.0197.0 = phi ptr [ null, %207 ], [ %258, %256 ], [ null, %252 ]
+  %.sroa.9199.0 = phi ptr [ undef, %207 ], [ undef, %252 ], [ %spec.select.i157, %256 ]
+  %.sroa.0197.0 = phi ptr [ null, %207 ], [ null, %252 ], [ %258, %256 ]
   %264 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %265 = and i64 %264, -240
   %or.cond.i159 = icmp eq i64 %265, 256
@@ -42888,8 +42888,8 @@ _ZN10async_task5utils14abort_on_panic17hbdc694366ccb7e3bE.exit: ; preds = %"_ZN1
   br label %307
 
 307:                                              ; preds = %296, %300, %_ZN10async_task5utils14abort_on_panic17h3d7ba903192f8fb0E.exit
-  %.sroa.9.0214 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3d7ba903192f8fb0E.exit ], [ %spec.select.i176, %300 ], [ undef, %296 ]
-  %.sroa.0.0212 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3d7ba903192f8fb0E.exit ], [ %302, %300 ], [ null, %296 ]
+  %.sroa.9.0214 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3d7ba903192f8fb0E.exit ], [ undef, %296 ], [ %spec.select.i176, %300 ]
+  %.sroa.0.0212 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3d7ba903192f8fb0E.exit ], [ null, %296 ], [ %302, %300 ]
   %308 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %309 = and i64 %308, -240
   %or.cond.i178 = icmp eq i64 %309, 256
@@ -43332,8 +43332,8 @@ _ZN10async_task5utils14abort_on_panic17h6a2614fc4c3fccb8E.exit: ; preds = %110, 
   br label %137
 
 137:                                              ; preds = %126, %130, %_ZN10async_task5utils14abort_on_panic17h6a2614fc4c3fccb8E.exit
-  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6a2614fc4c3fccb8E.exit ], [ %spec.select.i, %130 ], [ undef, %126 ]
-  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6a2614fc4c3fccb8E.exit ], [ %132, %130 ], [ null, %126 ]
+  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6a2614fc4c3fccb8E.exit ], [ undef, %126 ], [ %spec.select.i, %130 ]
+  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6a2614fc4c3fccb8E.exit ], [ null, %126 ], [ %132, %130 ]
   %138 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %139 = and i64 %138, -240
   %or.cond.i = icmp eq i64 %139, 256
@@ -43420,7 +43420,7 @@ _ZN10async_task5utils14abort_on_panic17hcc39e3e35c652e69E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr841drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..remove_file..remove_file$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..remove_file..remove_file$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h83b7c1b906a75a17E.exit": ; preds = %160, %.body.i, %.body116, %156, %196, %200, %165, %.body159
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %190, %.body159 ], [ %197, %196 ], [ %eh.lpad-body, %165 ], [ %190, %200 ], [ %157, %156 ], [ %150, %.body116 ], [ %150, %160 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %190, %.body159 ], [ %eh.lpad-body, %165 ], [ %190, %200 ], [ %197, %196 ], [ %150, %.body116 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %160 ], [ %157, %156 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 165:                                              ; preds = %41, %60
@@ -43446,8 +43446,8 @@ _ZN10async_task5utils14abort_on_panic17hcc39e3e35c652e69E.exit: ; preds = %"_ZN1
   br label %177
 
 177:                                              ; preds = %166, %170, %_ZN10async_task5utils14abort_on_panic17h689a018fa1092286E.exit
-  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h689a018fa1092286E.exit ], [ %spec.select.i154, %170 ], [ undef, %166 ]
-  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h689a018fa1092286E.exit ], [ %172, %170 ], [ null, %166 ]
+  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h689a018fa1092286E.exit ], [ undef, %166 ], [ %spec.select.i154, %170 ]
+  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h689a018fa1092286E.exit ], [ null, %166 ], [ %172, %170 ]
   %178 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %179 = and i64 %178, -240
   %or.cond.i156 = icmp eq i64 %179, 256
@@ -43611,8 +43611,8 @@ _ZN10async_task5utils14abort_on_panic17h2872e68229abadbeE.exit: ; preds = %17, %
   br label %._crit_edge264
 
 ._crit_edge264:                                   ; preds = %33, %31, %41
-  %.sroa.13.0.ph = phi ptr [ %32, %31 ], [ %43, %41 ], [ %34, %33 ]
-  %.sroa.8.0.ph = phi ptr [ null, %31 ], [ %42, %41 ], [ null, %33 ]
+  %.sroa.13.0.ph = phi ptr [ %43, %41 ], [ %32, %31 ], [ %34, %33 ]
+  %.sroa.8.0.ph = phi ptr [ %42, %41 ], [ null, %31 ], [ null, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i8, ptr %45, align 8, !range !1583, !noundef !14
   %47 = icmp eq i8 %46, 0
@@ -43764,8 +43764,8 @@ _ZN10async_task5utils14abort_on_panic17h6f7555d622470163E.exit: ; preds = %83, %
   br label %110
 
 110:                                              ; preds = %99, %103, %_ZN10async_task5utils14abort_on_panic17h6f7555d622470163E.exit
-  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6f7555d622470163E.exit ], [ %spec.select.i, %103 ], [ undef, %99 ]
-  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6f7555d622470163E.exit ], [ %105, %103 ], [ null, %99 ]
+  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6f7555d622470163E.exit ], [ undef, %99 ], [ %spec.select.i, %103 ]
+  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6f7555d622470163E.exit ], [ null, %99 ], [ %105, %103 ]
   %111 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %112 = and i64 %111, -240
   %or.cond.i = icmp eq i64 %112, 256
@@ -43852,7 +43852,7 @@ _ZN10async_task5utils14abort_on_panic17h11fef033c26a1186E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr814drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..create_dir_all..create_dir_all$LT$$RF$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..create_dir_all..create_dir_all$LT$$RF$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h520b703e844c2710E.exit": ; preds = %133, %.body.i, %.body114, %129, %170, %174, %138, %.body158
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %164, %.body158 ], [ %171, %170 ], [ %139, %138 ], [ %164, %174 ], [ %123, %133 ], [ %123, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %130, %129 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %164, %.body158 ], [ %139, %138 ], [ %164, %174 ], [ %171, %170 ], [ %123, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %123, %133 ], [ %130, %129 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 138:                                              ; preds = %31
@@ -43879,8 +43879,8 @@ _ZN10async_task5utils14abort_on_panic17h11fef033c26a1186E.exit: ; preds = %"_ZN1
   br label %151
 
 151:                                              ; preds = %140, %144, %_ZN10async_task5utils14abort_on_panic17h2872e68229abadbeE.exit
-  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2872e68229abadbeE.exit ], [ %spec.select.i153, %144 ], [ undef, %140 ]
-  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2872e68229abadbeE.exit ], [ %146, %144 ], [ null, %140 ]
+  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2872e68229abadbeE.exit ], [ undef, %140 ], [ %spec.select.i153, %144 ]
+  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2872e68229abadbeE.exit ], [ null, %140 ], [ %146, %144 ]
   %152 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %153 = and i64 %152, -240
   %or.cond.i155 = icmp eq i64 %153, 256
@@ -44044,8 +44044,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %190, %.body120, %186, %.body.i116, %.body174, %321, %361, %319, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i117", %197, %357, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %36, %.body.i ], [ %351, %.body174 ], [ %351, %361 ], [ %322, %321 ], [ %.pn75.pn, %319 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i117" ], [ %98, %197 ], [ %358, %357 ], [ %180, %190 ], [ %180, %.body120 ], [ %187, %186 ], [ %eh.lpad-body.i, %.body.i116 ]
+common.resume:                                    ; preds = %186, %190, %.body120, %.body.i116, %.body174, %321, %361, %319, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i117", %197, %357, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %36, %.body.i ], [ %351, %.body174 ], [ %322, %321 ], [ %351, %361 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i117" ], [ %.pn75.pn, %319 ], [ %98, %197 ], [ %358, %357 ], [ %187, %186 ], [ %180, %190 ], [ %180, %.body120 ], [ %eh.lpad-body.i, %.body.i116 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17he80f82c05b8fe6afE.exit: ; preds = %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i.i.i.i"
@@ -44310,8 +44310,8 @@ _ZN10async_task5utils14abort_on_panic17h20ac13e683907ac4E.exit: ; preds = %136, 
   br label %163
 
 163:                                              ; preds = %152, %156, %_ZN10async_task5utils14abort_on_panic17h20ac13e683907ac4E.exit
-  %.sroa.9188.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h20ac13e683907ac4E.exit ], [ %spec.select.i, %156 ], [ undef, %152 ]
-  %.sroa.0186.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h20ac13e683907ac4E.exit ], [ %158, %156 ], [ null, %152 ]
+  %.sroa.9188.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h20ac13e683907ac4E.exit ], [ undef, %152 ], [ %spec.select.i, %156 ]
+  %.sroa.0186.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h20ac13e683907ac4E.exit ], [ null, %152 ], [ %158, %156 ]
   %164 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %165 = and i64 %164, -240
   %or.cond.i = icmp eq i64 %165, 256
@@ -44409,7 +44409,7 @@ _ZN10async_task5utils14abort_on_panic17h955d27cc0c2be385E.exit: ; preds = %184, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i117": ; preds = %312, %316, %274, %252, %.body.i130, %221, %.body155
-  %.pn75.pn = phi { ptr, i32 } [ %222, %221 ], [ %306, %316 ], [ %313, %312 ], [ %275, %274 ], [ %306, %.body155 ], [ %212, %.body.i130 ], [ %253, %252 ]
+  %.pn75.pn = phi { ptr, i32 } [ %306, %.body155 ], [ %212, %.body.i130 ], [ %222, %221 ], [ %253, %252 ], [ %275, %274 ], [ %306, %316 ], [ %313, %312 ]
   %195 = load i64, ptr %4, align 8, !range !6494, !noundef !14
   %196 = icmp eq i64 %195, 0
   br i1 %196, label %319, label %common.resume
@@ -44611,7 +44611,7 @@ _ZN10async_task5utils14abort_on_panic17h955d27cc0c2be385E.exit: ; preds = %184, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h519779ede93783cfE.exit142": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h519779ede93783cfE.exit157", %310, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h3483cb9a1803157dE.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha48ab7e323b0fba2E.exit.i139", %236, %_ZN10async_task5utils14abort_on_panic17h955d27cc0c2be385E.exit
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h3483cb9a1803157dE.exit.i" ], [ false, %_ZN10async_task5utils14abort_on_panic17h955d27cc0c2be385E.exit ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha48ab7e323b0fba2E.exit.i139" ], [ false, %236 ], [ false, %310 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h519779ede93783cfE.exit157" ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN10async_task5utils14abort_on_panic17h955d27cc0c2be385E.exit ], [ false, %236 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha48ab7e323b0fba2E.exit.i139" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h3483cb9a1803157dE.exit.i" ], [ false, %310 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h519779ede93783cfE.exit157" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10async_task5utils14abort_on_panic17hef36a01821411020E.exit
@@ -44634,8 +44634,8 @@ _ZN10async_task5utils14abort_on_panic17h955d27cc0c2be385E.exit: ; preds = %184, 
   br label %289
 
 289:                                              ; preds = %278, %282, %233
-  %.sroa.9191.0 = phi ptr [ undef, %233 ], [ %spec.select.i149, %282 ], [ undef, %278 ]
-  %.sroa.0189.0 = phi ptr [ null, %233 ], [ %284, %282 ], [ null, %278 ]
+  %.sroa.9191.0 = phi ptr [ undef, %233 ], [ undef, %278 ], [ %spec.select.i149, %282 ]
+  %.sroa.0189.0 = phi ptr [ null, %233 ], [ null, %278 ], [ %284, %282 ]
   %290 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %291 = and i64 %290, -240
   %or.cond.i151 = icmp eq i64 %291, 256
@@ -44757,8 +44757,8 @@ _ZN10async_task5utils14abort_on_panic17hef36a01821411020E.exit: ; preds = %"_ZN1
   br label %334
 
 334:                                              ; preds = %323, %327, %_ZN10async_task5utils14abort_on_panic17he80f82c05b8fe6afE.exit
-  %.sroa.9.0209 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17he80f82c05b8fe6afE.exit ], [ %spec.select.i168, %327 ], [ undef, %323 ]
-  %.sroa.0.0207 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17he80f82c05b8fe6afE.exit ], [ %329, %327 ], [ null, %323 ]
+  %.sroa.9.0209 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17he80f82c05b8fe6afE.exit ], [ undef, %323 ], [ %spec.select.i168, %327 ]
+  %.sroa.0.0207 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17he80f82c05b8fe6afE.exit ], [ null, %323 ], [ %329, %327 ]
   %335 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %336 = and i64 %335, -240
   %or.cond.i170 = icmp eq i64 %336, 256
@@ -45097,8 +45097,8 @@ _ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit: ; preds = %82, %
   br label %100
 
 100:                                              ; preds = %89, %93, %_ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit
-  %.sroa.9171.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit ], [ %spec.select.i, %93 ], [ undef, %89 ]
-  %.sroa.0169.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit ], [ %95, %93 ], [ null, %89 ]
+  %.sroa.9171.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit ], [ undef, %89 ], [ %spec.select.i, %93 ]
+  %.sroa.0169.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit ], [ null, %89 ], [ %95, %93 ]
   %101 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %102 = and i64 %101, -240
   %or.cond.i = icmp eq i64 %102, 256
@@ -45178,7 +45178,7 @@ _ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit: ; preds = %82, %
   unreachable
 
 .body128:                                         ; preds = %203, %207, %168, %140, %.body139
-  %.pn86 = phi { ptr, i32 } [ %197, %207 ], [ %169, %168 ], [ %197, %.body139 ], [ %141, %140 ], [ %204, %203 ]
+  %.pn86 = phi { ptr, i32 } [ %197, %.body139 ], [ %141, %140 ], [ %169, %168 ], [ %197, %207 ], [ %204, %203 ]
   %128 = load i64, ptr %5, align 8, !range !3848, !noundef !14
   %.not232 = icmp eq i64 %128, 2
   br i1 %.not232, label %"_ZN4core3ptr809drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h13098996f5398496E.exit", label %210
@@ -45295,7 +45295,7 @@ _ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit: ; preds = %82, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcc9d9262af52ce7eE.exit130" unwind label %140
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcc9d9262af52ce7eE.exit130": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcc9d9262af52ce7eE.exit", %117, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcc9d9262af52ce7eE.exit141", %201, %172, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0c073ef58955f97eE.exit.i127", %156
-  %.sroa.0.0 = phi i1 [ true, %172 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcc9d9262af52ce7eE.exit141" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0c073ef58955f97eE.exit.i127" ], [ false, %156 ], [ false, %201 ], [ false, %117 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcc9d9262af52ce7eE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %156 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0c073ef58955f97eE.exit.i127" ], [ true, %172 ], [ false, %201 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcc9d9262af52ce7eE.exit141" ], [ false, %117 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcc9d9262af52ce7eE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h87f3c91bae1f2a53E.exit
 
@@ -45317,8 +45317,8 @@ _ZN10async_task5utils14abort_on_panic17h6085deab490c4fa7E.exit: ; preds = %82, %
   br label %184
 
 184:                                              ; preds = %173, %177, %153
-  %.sroa.9174.0 = phi ptr [ undef, %153 ], [ %spec.select.i134, %177 ], [ undef, %173 ]
-  %.sroa.0172.0 = phi ptr [ null, %153 ], [ %179, %177 ], [ null, %173 ]
+  %.sroa.9174.0 = phi ptr [ undef, %153 ], [ undef, %173 ], [ %spec.select.i134, %177 ]
+  %.sroa.0172.0 = phi ptr [ null, %153 ], [ null, %173 ], [ %179, %177 ]
   %185 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %186 = and i64 %185, -240
   %or.cond.i136 = icmp eq i64 %186, 256
@@ -45401,8 +45401,8 @@ _ZN10async_task5utils14abort_on_panic17h87f3c91bae1f2a53E.exit: ; preds = %"_ZN1
   invoke fastcc void @"_ZN4core3ptr187drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hafe26f3c38cb4c65E"(ptr noalias noundef align 8 dereferenceable(24) %5) #19
           to label %"_ZN4core3ptr809drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h13098996f5398496E.exit" unwind label %126
 
-"_ZN4core3ptr809drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h13098996f5398496E.exit": ; preds = %123, %119, %83, %.body115, %243, %.body128, %210, %247, %211, %.body157
-  %.pn86.pn.pn = phi { ptr, i32 } [ %237, %.body157 ], [ %237, %247 ], [ %212, %211 ], [ %.pn86, %210 ], [ %.pn86, %.body128 ], [ %244, %243 ], [ %113, %123 ], [ %120, %119 ], [ %84, %83 ], [ %113, %.body115 ]
+"_ZN4core3ptr809drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h13098996f5398496E.exit": ; preds = %119, %123, %83, %.body115, %243, %.body128, %210, %247, %211, %.body157
+  %.pn86.pn.pn = phi { ptr, i32 } [ %237, %.body157 ], [ %212, %211 ], [ %237, %247 ], [ %.pn86, %210 ], [ %.pn86, %.body128 ], [ %244, %243 ], [ %120, %119 ], [ %113, %123 ], [ %84, %83 ], [ %113, %.body115 ]
   resume { ptr, i32 } %.pn86.pn.pn
 
 211:                                              ; preds = %40
@@ -45429,8 +45429,8 @@ _ZN10async_task5utils14abort_on_panic17h87f3c91bae1f2a53E.exit: ; preds = %"_ZN1
   br label %224
 
 224:                                              ; preds = %213, %217, %_ZN10async_task5utils14abort_on_panic17hfde941f9310fd79dE.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfde941f9310fd79dE.exit ], [ %spec.select.i152, %217 ], [ undef, %213 ]
-  %.sroa.0.0188 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfde941f9310fd79dE.exit ], [ %219, %217 ], [ null, %213 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfde941f9310fd79dE.exit ], [ undef, %213 ], [ %spec.select.i152, %217 ]
+  %.sroa.0.0188 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfde941f9310fd79dE.exit ], [ null, %213 ], [ %219, %217 ]
   %225 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %226 = and i64 %225, -240
   %or.cond.i154 = icmp eq i64 %226, 256
@@ -45739,8 +45739,8 @@ default.unreachable:                              ; preds = %46, %35
   br label %_ZN10async_task5utils14abort_on_panic17h2e4f6fc2fab96090E.exit112
 
 _ZN10async_task5utils14abort_on_panic17h2e4f6fc2fab96090E.exit112: ; preds = %66, %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110", %72, %67
-  %.sroa.8.0.ph275 = phi ptr [ %68, %67 ], [ %68, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %68, %72 ], [ null, %65 ], [ null, %66 ]
-  %.sroa.13.0.ph274 = phi ptr [ %69, %67 ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %69, %72 ], [ %38, %65 ], [ %49, %66 ]
+  %.sroa.8.0.ph275 = phi ptr [ %68, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %68, %72 ], [ %68, %67 ], [ null, %65 ], [ null, %66 ]
+  %.sroa.13.0.ph274 = phi ptr [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %69, %72 ], [ %69, %67 ], [ %38, %65 ], [ %49, %66 ]
   store ptr %.sroa.8.0.ph275, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.13.0.ph274, ptr %.sroa.2.0..sroa_idx, align 8
@@ -45875,8 +45875,8 @@ _ZN10async_task5utils14abort_on_panic17hb0475e6fa3511bfeE.exit: ; preds = %107, 
   br label %134
 
 134:                                              ; preds = %123, %127, %_ZN10async_task5utils14abort_on_panic17hb0475e6fa3511bfeE.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb0475e6fa3511bfeE.exit ], [ %spec.select.i, %127 ], [ undef, %123 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb0475e6fa3511bfeE.exit ], [ %129, %127 ], [ null, %123 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb0475e6fa3511bfeE.exit ], [ undef, %123 ], [ %spec.select.i, %127 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb0475e6fa3511bfeE.exit ], [ null, %123 ], [ %129, %127 ]
   %135 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %136 = and i64 %135, -240
   %or.cond.i = icmp eq i64 %136, 256
@@ -45963,7 +45963,7 @@ _ZN10async_task5utils14abort_on_panic17h16494ad19e4d67bbE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr746drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hb80b3ca155e2f91bE.exit": ; preds = %157, %.body.i115, %.body118, %153, %193, %197, %162, %.body163
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %187, %.body163 ], [ %194, %193 ], [ %eh.lpad-body, %162 ], [ %187, %197 ], [ %147, %157 ], [ %147, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %154, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %187, %.body163 ], [ %eh.lpad-body, %162 ], [ %187, %197 ], [ %194, %193 ], [ %147, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %147, %157 ], [ %154, %153 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 162:                                              ; preds = %.body.i, %63
@@ -45989,8 +45989,8 @@ _ZN10async_task5utils14abort_on_panic17h16494ad19e4d67bbE.exit: ; preds = %"_ZN1
   br label %174
 
 174:                                              ; preds = %163, %167, %_ZN10async_task5utils14abort_on_panic17h2e4f6fc2fab96090E.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2e4f6fc2fab96090E.exit ], [ %spec.select.i158, %167 ], [ undef, %163 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2e4f6fc2fab96090E.exit ], [ %169, %167 ], [ null, %163 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2e4f6fc2fab96090E.exit ], [ undef, %163 ], [ %spec.select.i158, %167 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2e4f6fc2fab96090E.exit ], [ null, %163 ], [ %169, %167 ]
   %175 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %176 = and i64 %175, -240
   %or.cond.i160 = icmp eq i64 %176, 256
@@ -46299,8 +46299,8 @@ default.unreachable:                              ; preds = %46, %35
   br label %_ZN10async_task5utils14abort_on_panic17h463620dd97b35f3dE.exit112
 
 _ZN10async_task5utils14abort_on_panic17h463620dd97b35f3dE.exit112: ; preds = %66, %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110", %72, %67
-  %.sroa.8.0.ph275 = phi ptr [ %68, %67 ], [ %68, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %68, %72 ], [ null, %65 ], [ null, %66 ]
-  %.sroa.13.0.ph274 = phi ptr [ %69, %67 ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %69, %72 ], [ %38, %65 ], [ %49, %66 ]
+  %.sroa.8.0.ph275 = phi ptr [ %68, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %68, %72 ], [ %68, %67 ], [ null, %65 ], [ null, %66 ]
+  %.sroa.13.0.ph274 = phi ptr [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %69, %72 ], [ %69, %67 ], [ %38, %65 ], [ %49, %66 ]
   store ptr %.sroa.8.0.ph275, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.13.0.ph274, ptr %.sroa.2.0..sroa_idx, align 8
@@ -46435,8 +46435,8 @@ _ZN10async_task5utils14abort_on_panic17h83dcc877538f0f93E.exit: ; preds = %107, 
   br label %134
 
 134:                                              ; preds = %123, %127, %_ZN10async_task5utils14abort_on_panic17h83dcc877538f0f93E.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h83dcc877538f0f93E.exit ], [ %spec.select.i, %127 ], [ undef, %123 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h83dcc877538f0f93E.exit ], [ %129, %127 ], [ null, %123 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h83dcc877538f0f93E.exit ], [ undef, %123 ], [ %spec.select.i, %127 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h83dcc877538f0f93E.exit ], [ null, %123 ], [ %129, %127 ]
   %135 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %136 = and i64 %135, -240
   %or.cond.i = icmp eq i64 %136, 256
@@ -46523,7 +46523,7 @@ _ZN10async_task5utils14abort_on_panic17h1aee0b9f1322df26E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr740drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hb6ae8d31f16eedc0E.exit": ; preds = %157, %.body.i115, %.body118, %153, %193, %197, %162, %.body163
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %187, %.body163 ], [ %194, %193 ], [ %eh.lpad-body, %162 ], [ %187, %197 ], [ %147, %157 ], [ %147, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %154, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %187, %.body163 ], [ %eh.lpad-body, %162 ], [ %187, %197 ], [ %194, %193 ], [ %147, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %147, %157 ], [ %154, %153 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 162:                                              ; preds = %.body.i, %63
@@ -46549,8 +46549,8 @@ _ZN10async_task5utils14abort_on_panic17h1aee0b9f1322df26E.exit: ; preds = %"_ZN1
   br label %174
 
 174:                                              ; preds = %163, %167, %_ZN10async_task5utils14abort_on_panic17h463620dd97b35f3dE.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h463620dd97b35f3dE.exit ], [ %spec.select.i158, %167 ], [ undef, %163 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h463620dd97b35f3dE.exit ], [ %169, %167 ], [ null, %163 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h463620dd97b35f3dE.exit ], [ undef, %163 ], [ %spec.select.i158, %167 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h463620dd97b35f3dE.exit ], [ null, %163 ], [ %169, %167 ]
   %175 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %176 = and i64 %175, -240
   %or.cond.i160 = icmp eq i64 %176, 256
@@ -46715,8 +46715,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %153, %157, %.body129, %163, %113, %.body183, %286, %326, %285, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126", %322, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %37, %.body.i ], [ %316, %.body183 ], [ %316, %326 ], [ %287, %286 ], [ %.pn90, %285 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126" ], [ %323, %322 ], [ %154, %153 ], [ %147, %157 ], [ %147, %.body129 ], [ %92, %163 ], [ %114, %113 ]
+common.resume:                                    ; preds = %153, %157, %.body129, %113, %163, %.body183, %286, %326, %285, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126", %322, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %37, %.body.i ], [ %316, %.body183 ], [ %287, %286 ], [ %316, %326 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126" ], [ %.pn90, %285 ], [ %323, %322 ], [ %154, %153 ], [ %147, %157 ], [ %147, %.body129 ], [ %114, %113 ], [ %92, %163 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h3af4f03559e031b0E.exit: ; preds = %29, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i.i.i.i"
@@ -46951,8 +46951,8 @@ _ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit: ; preds = %112, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit
-  %.sroa.9197.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0195.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9197.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0195.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -47046,7 +47046,7 @@ _ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit: ; preds = %112, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i126": ; preds = %278, %282, %240, %218, %.body.i139, %187, %.body164
-  %.pn90 = phi { ptr, i32 } [ %188, %187 ], [ %241, %240 ], [ %272, %.body164 ], [ %279, %278 ], [ %272, %282 ], [ %178, %.body.i139 ], [ %219, %218 ]
+  %.pn90 = phi { ptr, i32 } [ %272, %.body164 ], [ %188, %187 ], [ %178, %.body.i139 ], [ %219, %218 ], [ %241, %240 ], [ %272, %282 ], [ %279, %278 ]
   %162 = load i64, ptr %5, align 8, !range !7999, !noundef !14
   %.not283 = icmp eq i64 %162, -9223372036854775807
   br i1 %.not283, label %common.resume, label %285
@@ -47248,7 +47248,7 @@ _ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit: ; preds = %112, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h6acb6e55f5c7f3e3E.exit151": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h6acb6e55f5c7f3e3E.exit", %151, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h6acb6e55f5c7f3e3E.exit166", %276, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hb37c18d6194c7790E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc64724d6d0af8306E.exit.i148", %202
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hb37c18d6194c7790E.exit.i" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h6acb6e55f5c7f3e3E.exit166" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc64724d6d0af8306E.exit.i148" ], [ false, %202 ], [ false, %276 ], [ false, %151 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h6acb6e55f5c7f3e3E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %202 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc64724d6d0af8306E.exit.i148" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17hb37c18d6194c7790E.exit.i" ], [ false, %276 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h6acb6e55f5c7f3e3E.exit166" ], [ false, %151 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h6acb6e55f5c7f3e3E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17hb41320bc3b52e36fE.exit
 
@@ -47270,8 +47270,8 @@ _ZN10async_task5utils14abort_on_panic17h3169abf2eb3e1bc5E.exit: ; preds = %112, 
   br label %255
 
 255:                                              ; preds = %244, %248, %199
-  %.sroa.9200.0 = phi ptr [ undef, %199 ], [ %spec.select.i158, %248 ], [ undef, %244 ]
-  %.sroa.0198.0 = phi ptr [ null, %199 ], [ %250, %248 ], [ null, %244 ]
+  %.sroa.9200.0 = phi ptr [ undef, %199 ], [ undef, %244 ], [ %spec.select.i158, %248 ]
+  %.sroa.0198.0 = phi ptr [ null, %199 ], [ null, %244 ], [ %250, %248 ]
   %256 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %257 = and i64 %256, -240
   %or.cond.i160 = icmp eq i64 %257, 256
@@ -47392,8 +47392,8 @@ _ZN10async_task5utils14abort_on_panic17hb41320bc3b52e36fE.exit: ; preds = %"_ZN1
   br label %299
 
 299:                                              ; preds = %288, %292, %_ZN10async_task5utils14abort_on_panic17h3af4f03559e031b0E.exit
-  %.sroa.9.0215 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3af4f03559e031b0E.exit ], [ %spec.select.i177, %292 ], [ undef, %288 ]
-  %.sroa.0.0213 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3af4f03559e031b0E.exit ], [ %294, %292 ], [ null, %288 ]
+  %.sroa.9.0215 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3af4f03559e031b0E.exit ], [ undef, %288 ], [ %spec.select.i177, %292 ]
+  %.sroa.0.0213 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3af4f03559e031b0E.exit ], [ null, %288 ], [ %294, %292 ]
   %300 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %301 = and i64 %300, -240
   %or.cond.i179 = icmp eq i64 %301, 256
@@ -47772,8 +47772,8 @@ _ZN10async_task5utils14abort_on_panic17h3114055bbe5410e2E.exit: ; preds = %103, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17h3114055bbe5410e2E.exit
-  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3114055bbe5410e2E.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3114055bbe5410e2E.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9177.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3114055bbe5410e2E.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0175.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3114055bbe5410e2E.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -47959,7 +47959,7 @@ _ZN10async_task5utils14abort_on_panic17h3114055bbe5410e2E.exit: ; preds = %103, 
   br label %_ZN10async_task5utils14abort_on_panic17h3a3e60eeb557d17bE.exit
 
 _ZN10async_task5utils14abort_on_panic17h3a3e60eeb557d17bE.exit: ; preds = %200, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h5e916ab7b45620d0E.exit139", %229, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hdb154bfc85ae7b71E.exit.i125", %184, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h5e916ab7b45620d0E.exit", %147
-  %.sroa.0.0 = phi i1 [ true, %200 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hdb154bfc85ae7b71E.exit.i125" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h5e916ab7b45620d0E.exit" ], [ false, %147 ], [ false, %184 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h5e916ab7b45620d0E.exit139" ]
+  %.sroa.0.0 = phi i1 [ false, %147 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h5e916ab7b45620d0E.exit" ], [ false, %184 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hdb154bfc85ae7b71E.exit.i125" ], [ true, %200 ], [ false, %229 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h5e916ab7b45620d0E.exit139" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h40644bc830dad1efE.exit
 
@@ -47981,8 +47981,8 @@ _ZN10async_task5utils14abort_on_panic17h3a3e60eeb557d17bE.exit: ; preds = %200, 
   br label %212
 
 212:                                              ; preds = %201, %205, %181
-  %.sroa.0178.0 = phi ptr [ null, %181 ], [ %207, %205 ], [ null, %201 ]
-  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ %spec.select.i132, %205 ], [ undef, %201 ]
+  %.sroa.0178.0 = phi ptr [ null, %181 ], [ null, %201 ], [ %207, %205 ]
+  %.sroa.9180.0 = phi ptr [ undef, %181 ], [ undef, %201 ], [ %spec.select.i132, %205 ]
   %213 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %214 = and i64 %213, -240
   %or.cond.i134 = icmp eq i64 %214, 256
@@ -48062,7 +48062,7 @@ _ZN10async_task5utils14abort_on_panic17h40644bc830dad1efE.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr777drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h7e5c0b5d52c0385cE.exit" unwind label %156
 
 "_ZN4core3ptr777drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h7e5c0b5d52c0385cE.exit": ; preds = %.body137, %196, %235, %153, %.body.i, %.body113, %149, %231, %270, %274, %238, %.body155
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %271, %270 ], [ %239, %238 ], [ %264, %274 ], [ %225, %.body137 ], [ %225, %235 ], [ %197, %196 ], [ %232, %231 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %150, %149 ], [ %143, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %264, %.body155 ], [ %239, %238 ], [ %264, %274 ], [ %271, %270 ], [ %225, %.body137 ], [ %197, %196 ], [ %225, %235 ], [ %143, %.body113 ], [ %eh.lpad-body.i, %.body.i ], [ %143, %153 ], [ %150, %149 ], [ %232, %231 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 238:                                              ; preds = %38
@@ -48089,8 +48089,8 @@ _ZN10async_task5utils14abort_on_panic17h40644bc830dad1efE.exit: ; preds = %"_ZN1
   br label %251
 
 251:                                              ; preds = %240, %244, %_ZN10async_task5utils14abort_on_panic17hbbe5a7e746e0d0d4E.exit
-  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hbbe5a7e746e0d0d4E.exit ], [ %spec.select.i150, %244 ], [ undef, %240 ]
-  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hbbe5a7e746e0d0d4E.exit ], [ %246, %244 ], [ null, %240 ]
+  %.sroa.9.0198 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hbbe5a7e746e0d0d4E.exit ], [ undef, %240 ], [ %spec.select.i150, %244 ]
+  %.sroa.0.0196 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hbbe5a7e746e0d0d4E.exit ], [ null, %240 ], [ %246, %244 ]
   %252 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %253 = and i64 %252, -240
   %or.cond.i152 = icmp eq i64 %253, 256
@@ -48544,8 +48544,8 @@ _ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit: ; preds = %97, %
   br label %115
 
 115:                                              ; preds = %104, %108, %_ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit
-  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit ], [ %spec.select.i, %108 ], [ undef, %104 ]
-  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit ], [ %110, %108 ], [ null, %104 ]
+  %.sroa.9185.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit ], [ undef, %104 ], [ %spec.select.i, %108 ]
+  %.sroa.0183.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit ], [ null, %104 ], [ %110, %108 ]
   %116 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %117 = and i64 %116, -240
   %or.cond.i = icmp eq i64 %117, 256
@@ -48625,7 +48625,7 @@ _ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit: ; preds = %97, %
   unreachable
 
 .body136:                                         ; preds = %214, %218, %179, %152, %.body147
-  %.pn86 = phi { ptr, i32 } [ %208, %218 ], [ %180, %179 ], [ %208, %.body147 ], [ %153, %152 ], [ %215, %214 ]
+  %.pn86 = phi { ptr, i32 } [ %208, %.body147 ], [ %153, %152 ], [ %180, %179 ], [ %208, %218 ], [ %215, %214 ]
   %143 = load i64, ptr %8, align 8, !range !3848, !noundef !14
   %.not252 = icmp eq i64 %143, 2
   br i1 %.not252, label %"_ZN4core3ptr762drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h2e87970e25379370E.exit", label %221
@@ -48728,7 +48728,7 @@ _ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit: ; preds = %97, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h19491ba2379a878fE.exit138" unwind label %152
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h19491ba2379a878fE.exit138": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h19491ba2379a878fE.exit", %132, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h19491ba2379a878fE.exit149", %212, %183, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8256ea2fa42e8465E.exit.i135", %167
-  %.sroa.0.0 = phi i1 [ true, %183 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h19491ba2379a878fE.exit149" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8256ea2fa42e8465E.exit.i135" ], [ false, %167 ], [ false, %212 ], [ false, %132 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h19491ba2379a878fE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %167 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8256ea2fa42e8465E.exit.i135" ], [ true, %183 ], [ false, %212 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h19491ba2379a878fE.exit149" ], [ false, %132 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h19491ba2379a878fE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN10async_task5utils14abort_on_panic17h97b4fa24bd5e573bE.exit
@@ -48751,8 +48751,8 @@ _ZN10async_task5utils14abort_on_panic17hf1d12cfe8dd062e0E.exit: ; preds = %97, %
   br label %195
 
 195:                                              ; preds = %184, %188, %164
-  %.sroa.9188.0 = phi ptr [ undef, %164 ], [ %spec.select.i142, %188 ], [ undef, %184 ]
-  %.sroa.0186.0 = phi ptr [ null, %164 ], [ %190, %188 ], [ null, %184 ]
+  %.sroa.9188.0 = phi ptr [ undef, %164 ], [ undef, %184 ], [ %spec.select.i142, %188 ]
+  %.sroa.0186.0 = phi ptr [ null, %164 ], [ null, %184 ], [ %190, %188 ]
   %196 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %197 = and i64 %196, -240
   %or.cond.i144 = icmp eq i64 %197, 256
@@ -48833,8 +48833,8 @@ _ZN10async_task5utils14abort_on_panic17h97b4fa24bd5e573bE.exit: ; preds = %"_ZN1
   invoke fastcc void @"_ZN4core3ptr187drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hafe26f3c38cb4c65E"(ptr noalias noundef align 8 dereferenceable(24) %8) #19
           to label %"_ZN4core3ptr762drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h2e87970e25379370E.exit" unwind label %141
 
-"_ZN4core3ptr762drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h2e87970e25379370E.exit": ; preds = %138, %134, %98, %.body120, %253, %.body136, %221, %257, %222, %.body165
-  %.pn86.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %247, %257 ], [ %eh.lpad-body, %222 ], [ %.pn86, %221 ], [ %.pn86, %.body136 ], [ %254, %253 ], [ %128, %138 ], [ %135, %134 ], [ %99, %98 ], [ %128, %.body120 ]
+"_ZN4core3ptr762drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_fs..File..create$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h2e87970e25379370E.exit": ; preds = %134, %138, %98, %.body120, %253, %.body136, %221, %257, %222, %.body165
+  %.pn86.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %eh.lpad-body, %222 ], [ %247, %257 ], [ %.pn86, %221 ], [ %.pn86, %.body136 ], [ %254, %253 ], [ %135, %134 ], [ %128, %138 ], [ %99, %98 ], [ %128, %.body120 ]
   resume { ptr, i32 } %.pn86.pn.pn
 
 222:                                              ; preds = %.body.i, %66
@@ -48860,8 +48860,8 @@ _ZN10async_task5utils14abort_on_panic17h97b4fa24bd5e573bE.exit: ; preds = %"_ZN1
   br label %234
 
 234:                                              ; preds = %223, %227, %_ZN10async_task5utils14abort_on_panic17hadaff42e10c61e5dE.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hadaff42e10c61e5dE.exit ], [ %spec.select.i160, %227 ], [ undef, %223 ]
-  %.sroa.0.0207 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hadaff42e10c61e5dE.exit ], [ %229, %227 ], [ null, %223 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hadaff42e10c61e5dE.exit ], [ undef, %223 ], [ %spec.select.i160, %227 ]
+  %.sroa.0.0207 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hadaff42e10c61e5dE.exit ], [ null, %223 ], [ %229, %227 ]
   %235 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %236 = and i64 %235, -240
   %or.cond.i162 = icmp eq i64 %236, 256
@@ -49170,8 +49170,8 @@ default.unreachable:                              ; preds = %46, %35
   br label %_ZN10async_task5utils14abort_on_panic17hb6574604a9b1c3b0E.exit112
 
 _ZN10async_task5utils14abort_on_panic17hb6574604a9b1c3b0E.exit112: ; preds = %66, %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110", %72, %67
-  %.sroa.8.0.ph275 = phi ptr [ %68, %67 ], [ %68, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %68, %72 ], [ null, %65 ], [ null, %66 ]
-  %.sroa.13.0.ph274 = phi ptr [ %69, %67 ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %69, %72 ], [ %38, %65 ], [ %49, %66 ]
+  %.sroa.8.0.ph275 = phi ptr [ %68, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %68, %72 ], [ %68, %67 ], [ null, %65 ], [ null, %66 ]
+  %.sroa.13.0.ph274 = phi ptr [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i110" ], [ %69, %72 ], [ %69, %67 ], [ %38, %65 ], [ %49, %66 ]
   store ptr %.sroa.8.0.ph275, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.13.0.ph274, ptr %.sroa.2.0..sroa_idx, align 8
@@ -49306,8 +49306,8 @@ _ZN10async_task5utils14abort_on_panic17h6f163ee5c0ad0118E.exit: ; preds = %107, 
   br label %134
 
 134:                                              ; preds = %123, %127, %_ZN10async_task5utils14abort_on_panic17h6f163ee5c0ad0118E.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6f163ee5c0ad0118E.exit ], [ %spec.select.i, %127 ], [ undef, %123 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6f163ee5c0ad0118E.exit ], [ %129, %127 ], [ null, %123 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h6f163ee5c0ad0118E.exit ], [ undef, %123 ], [ %spec.select.i, %127 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h6f163ee5c0ad0118E.exit ], [ null, %123 ], [ %129, %127 ]
   %135 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %136 = and i64 %135, -240
   %or.cond.i = icmp eq i64 %136, 256
@@ -49394,7 +49394,7 @@ _ZN10async_task5utils14abort_on_panic17h6d7a4841a57e6dc4E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr730drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hb11281c120205d1aE.exit": ; preds = %157, %.body.i115, %.body118, %153, %193, %197, %162, %.body163
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %187, %.body163 ], [ %194, %193 ], [ %eh.lpad-body, %162 ], [ %187, %197 ], [ %147, %157 ], [ %147, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %154, %153 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %187, %.body163 ], [ %eh.lpad-body, %162 ], [ %187, %197 ], [ %194, %193 ], [ %147, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %147, %157 ], [ %154, %153 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 162:                                              ; preds = %.body.i, %63
@@ -49420,8 +49420,8 @@ _ZN10async_task5utils14abort_on_panic17h6d7a4841a57e6dc4E.exit: ; preds = %"_ZN1
   br label %174
 
 174:                                              ; preds = %163, %167, %_ZN10async_task5utils14abort_on_panic17hb6574604a9b1c3b0E.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb6574604a9b1c3b0E.exit ], [ %spec.select.i158, %167 ], [ undef, %163 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb6574604a9b1c3b0E.exit ], [ %169, %167 ], [ null, %163 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb6574604a9b1c3b0E.exit ], [ undef, %163 ], [ %spec.select.i158, %167 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb6574604a9b1c3b0E.exit ], [ null, %163 ], [ %169, %167 ]
   %175 = atomicrmw sub ptr %8, i64 256 acq_rel, align 8
   %176 = and i64 %175, -240
   %or.cond.i160 = icmp eq i64 %176, 256
@@ -49552,7 +49552,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body152, %195, %.body.i, %200, %233, %253, %295, %.body120, %190, %186, %291, %.body171, %298, %338, %334, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %328, %.body171 ], [ %335, %334 ], [ %299, %298 ], [ %328, %338 ], [ %109, %195 ], [ %285, %295 ], [ %140, %.body.i ], [ %254, %253 ], [ %285, %.body152 ], [ %187, %186 ], [ %201, %200 ], [ %234, %233 ], [ %292, %291 ], [ %180, %.body120 ], [ %180, %190 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %328, %.body171 ], [ %299, %298 ], [ %328, %338 ], [ %335, %334 ], [ %109, %195 ], [ %285, %.body152 ], [ %140, %.body.i ], [ %201, %200 ], [ %234, %233 ], [ %254, %253 ], [ %285, %295 ], [ %180, %.body120 ], [ %180, %190 ], [ %187, %186 ], [ %292, %291 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17he5db0986faea0afdE.exit: ; preds = %26
@@ -49755,8 +49755,8 @@ _ZN10async_task5utils14abort_on_panic17he5db0986faea0afdE.exit: ; preds = %26
   br label %107
 
 107:                                              ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h967dc64ee3ef8ea1E.exit", %105, %102
-  %.sroa.13.0.ph = phi ptr [ undef, %102 ], [ %100, %105 ], [ undef, %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h967dc64ee3ef8ea1E.exit" ]
-  %.sroa.8.1.ph = phi ptr [ null, %102 ], [ %99, %105 ], [ null, %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h967dc64ee3ef8ea1E.exit" ]
+  %.sroa.13.0.ph = phi ptr [ %100, %105 ], [ undef, %102 ], [ undef, %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h967dc64ee3ef8ea1E.exit" ]
+  %.sroa.8.1.ph = phi ptr [ %99, %105 ], [ null, %102 ], [ null, %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h967dc64ee3ef8ea1E.exit" ]
   invoke void @"_ZN111_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2664a18d3a17925fE.llvm.148755494358810581"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %_ZN10async_task5utils14abort_on_panic17he5db0986faea0afdE.exit114 unwind label %108
 
@@ -49878,8 +49878,8 @@ _ZN10async_task5utils14abort_on_panic17hd46a72abdc890730E.exit: ; preds = %138, 
   br label %163
 
 163:                                              ; preds = %152, %156, %_ZN10async_task5utils14abort_on_panic17hd46a72abdc890730E.exit
-  %.sroa.9192.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hd46a72abdc890730E.exit ], [ %spec.select.i, %156 ], [ undef, %152 ]
-  %.sroa.0190.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hd46a72abdc890730E.exit ], [ %158, %156 ], [ null, %152 ]
+  %.sroa.9192.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hd46a72abdc890730E.exit ], [ undef, %152 ], [ %spec.select.i, %156 ]
+  %.sroa.0190.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hd46a72abdc890730E.exit ], [ null, %152 ], [ %158, %156 ]
   %164 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %165 = and i64 %164, -240
   %or.cond.i = icmp eq i64 %165, 256
@@ -50124,7 +50124,7 @@ _ZN10async_task5utils14abort_on_panic17hd46a72abdc890730E.exit: ; preds = %138, 
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17hc311545070e2abe5E.exit: ; preds = %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h5a07101e5608130aE.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0e62e299df3954ddE.exit154", %289, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hccda082b36b4111eE.exit.i136", %217, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0e62e299df3954ddE.exit", %184
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h5a07101e5608130aE.exit.i" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hccda082b36b4111eE.exit.i136" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0e62e299df3954ddE.exit" ], [ false, %184 ], [ false, %217 ], [ false, %289 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0e62e299df3954ddE.exit154" ]
+  %.sroa.0.0 = phi i1 [ false, %184 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0e62e299df3954ddE.exit" ], [ false, %217 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hccda082b36b4111eE.exit.i136" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h5a07101e5608130aE.exit.i" ], [ false, %289 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h0e62e299df3954ddE.exit154" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10async_task5utils14abort_on_panic17h789c6419dda22cecE.exit
 
@@ -50146,8 +50146,8 @@ _ZN10async_task5utils14abort_on_panic17hc311545070e2abe5E.exit: ; preds = %"_ZN6
   br label %268
 
 268:                                              ; preds = %257, %261, %214
-  %.sroa.9195.0 = phi ptr [ undef, %214 ], [ %spec.select.i146, %261 ], [ undef, %257 ]
-  %.sroa.0193.0 = phi ptr [ null, %214 ], [ %263, %261 ], [ null, %257 ]
+  %.sroa.9195.0 = phi ptr [ undef, %214 ], [ undef, %257 ], [ %spec.select.i146, %261 ]
+  %.sroa.0193.0 = phi ptr [ null, %214 ], [ null, %257 ], [ %263, %261 ]
   %269 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %270 = and i64 %269, -240
   %or.cond.i148 = icmp eq i64 %270, 256
@@ -50264,8 +50264,8 @@ _ZN10async_task5utils14abort_on_panic17h789c6419dda22cecE.exit: ; preds = %"_ZN1
   br label %311
 
 311:                                              ; preds = %300, %304, %_ZN10async_task5utils14abort_on_panic17he5db0986faea0afdE.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17he5db0986faea0afdE.exit ], [ %spec.select.i165, %304 ], [ undef, %300 ]
-  %.sroa.0.0209 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17he5db0986faea0afdE.exit ], [ %306, %304 ], [ null, %300 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17he5db0986faea0afdE.exit ], [ undef, %300 ], [ %spec.select.i165, %304 ]
+  %.sroa.0.0209 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17he5db0986faea0afdE.exit ], [ null, %300 ], [ %306, %304 ]
   %312 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %313 = and i64 %312, -240
   %or.cond.i167 = icmp eq i64 %313, 256
@@ -50413,8 +50413,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %204, %.body117, %200, %.body.i113, %.body169, %317, %357, %315, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114", %211, %353, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %29, %.body.i ], [ %347, %.body169 ], [ %347, %357 ], [ %318, %317 ], [ %.pn75.pn, %315 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114" ], [ %114, %211 ], [ %354, %353 ], [ %194, %204 ], [ %194, %.body117 ], [ %201, %200 ], [ %eh.lpad-body.i, %.body.i113 ]
+common.resume:                                    ; preds = %200, %204, %.body117, %.body.i113, %.body169, %317, %357, %315, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114", %211, %353, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %29, %.body.i ], [ %347, %.body169 ], [ %318, %317 ], [ %347, %357 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114" ], [ %.pn75.pn, %315 ], [ %114, %211 ], [ %354, %353 ], [ %201, %200 ], [ %194, %204 ], [ %194, %.body117 ], [ %eh.lpad-body.i, %.body.i113 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h3107e6c995b02a74E.exit: ; preds = %28
@@ -50776,8 +50776,8 @@ _ZN10async_task5utils14abort_on_panic17hbe444ebda670bf32E.exit: ; preds = %150, 
   br label %177
 
 177:                                              ; preds = %166, %170, %_ZN10async_task5utils14abort_on_panic17hbe444ebda670bf32E.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hbe444ebda670bf32E.exit ], [ %spec.select.i, %170 ], [ undef, %166 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hbe444ebda670bf32E.exit ], [ %172, %170 ], [ null, %166 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hbe444ebda670bf32E.exit ], [ undef, %166 ], [ %spec.select.i, %170 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hbe444ebda670bf32E.exit ], [ null, %166 ], [ %172, %170 ]
   %178 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %179 = and i64 %178, -240
   %or.cond.i = icmp eq i64 %179, 256
@@ -50875,7 +50875,7 @@ _ZN10async_task5utils14abort_on_panic17hf76fbf9abcb508b6E.exit: ; preds = %198, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114": ; preds = %308, %312, %270, %250, %.body.i126, %218, %.body150
-  %.pn75.pn = phi { ptr, i32 } [ %219, %218 ], [ %302, %312 ], [ %309, %308 ], [ %271, %270 ], [ %302, %.body150 ], [ %215, %.body.i126 ], [ %251, %250 ]
+  %.pn75.pn = phi { ptr, i32 } [ %302, %.body150 ], [ %215, %.body.i126 ], [ %219, %218 ], [ %251, %250 ], [ %271, %270 ], [ %302, %312 ], [ %309, %308 ]
   %209 = load i64, ptr %8, align 8, !range !6494, !noundef !14
   %210 = icmp eq i64 %209, 0
   br i1 %210, label %315, label %common.resume
@@ -51046,7 +51046,7 @@ _ZN10async_task5utils14abort_on_panic17hf76fbf9abcb508b6E.exit: ; preds = %198, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h53ac6cbc0e0fff09E.exit137": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h53ac6cbc0e0fff09E.exit152", %306, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17ha9379002d4f74e57E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he87e72d0f81c7f4fE.exit.i134", %234, %_ZN10async_task5utils14abort_on_panic17hf76fbf9abcb508b6E.exit
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17ha9379002d4f74e57E.exit.i" ], [ false, %_ZN10async_task5utils14abort_on_panic17hf76fbf9abcb508b6E.exit ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he87e72d0f81c7f4fE.exit.i134" ], [ false, %234 ], [ false, %306 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h53ac6cbc0e0fff09E.exit152" ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN10async_task5utils14abort_on_panic17hf76fbf9abcb508b6E.exit ], [ false, %234 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he87e72d0f81c7f4fE.exit.i134" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17ha9379002d4f74e57E.exit.i" ], [ false, %306 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h53ac6cbc0e0fff09E.exit152" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN10async_task5utils14abort_on_panic17h798da16cbed10facE.exit
@@ -51069,8 +51069,8 @@ _ZN10async_task5utils14abort_on_panic17hf76fbf9abcb508b6E.exit: ; preds = %198, 
   br label %285
 
 285:                                              ; preds = %274, %278, %231
-  %.sroa.9190.0 = phi ptr [ undef, %231 ], [ %spec.select.i144, %278 ], [ undef, %274 ]
-  %.sroa.0188.0 = phi ptr [ null, %231 ], [ %280, %278 ], [ null, %274 ]
+  %.sroa.9190.0 = phi ptr [ undef, %231 ], [ undef, %274 ], [ %spec.select.i144, %278 ]
+  %.sroa.0188.0 = phi ptr [ null, %231 ], [ null, %274 ], [ %280, %278 ]
   %286 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %287 = and i64 %286, -240
   %or.cond.i146 = icmp eq i64 %287, 256
@@ -51192,8 +51192,8 @@ _ZN10async_task5utils14abort_on_panic17h798da16cbed10facE.exit: ; preds = %"_ZN1
   br label %330
 
 330:                                              ; preds = %319, %323, %_ZN10async_task5utils14abort_on_panic17h3107e6c995b02a74E.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3107e6c995b02a74E.exit ], [ %spec.select.i163, %323 ], [ undef, %319 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3107e6c995b02a74E.exit ], [ %325, %323 ], [ null, %319 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h3107e6c995b02a74E.exit ], [ undef, %319 ], [ %spec.select.i163, %323 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h3107e6c995b02a74E.exit ], [ null, %319 ], [ %325, %323 ]
   %331 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %332 = and i64 %331, -240
   %or.cond.i165 = icmp eq i64 %332, 256
@@ -51340,7 +51340,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body156, %201, %.body.i119, %.body.i132, %239, %259, %301, %.body123, %196, %192, %297, %.body175, %304, %344, %340, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %27, %.body.i ], [ %334, %.body175 ], [ %341, %340 ], [ %305, %304 ], [ %334, %344 ], [ %115, %201 ], [ %291, %301 ], [ %146, %.body.i119 ], [ %260, %259 ], [ %291, %.body156 ], [ %193, %192 ], [ %206, %.body.i132 ], [ %240, %239 ], [ %298, %297 ], [ %186, %.body123 ], [ %186, %196 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %.body.i ], [ %334, %.body175 ], [ %305, %304 ], [ %334, %344 ], [ %341, %340 ], [ %115, %201 ], [ %291, %.body156 ], [ %146, %.body.i119 ], [ %206, %.body.i132 ], [ %240, %239 ], [ %260, %259 ], [ %291, %301 ], [ %186, %.body123 ], [ %186, %196 ], [ %193, %192 ], [ %298, %297 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hfd4393c5276fe635E.exit: ; preds = %26
@@ -51686,8 +51686,8 @@ _ZN10async_task5utils14abort_on_panic17h2414882d0cf72140E.exit: ; preds = %144, 
   br label %169
 
 169:                                              ; preds = %158, %162, %_ZN10async_task5utils14abort_on_panic17h2414882d0cf72140E.exit
-  %.sroa.9201.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2414882d0cf72140E.exit ], [ %spec.select.i, %162 ], [ undef, %158 ]
-  %.sroa.0199.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2414882d0cf72140E.exit ], [ %164, %162 ], [ null, %158 ]
+  %.sroa.9201.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2414882d0cf72140E.exit ], [ undef, %158 ], [ %spec.select.i, %162 ]
+  %.sroa.0199.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2414882d0cf72140E.exit ], [ null, %158 ], [ %164, %162 ]
   %170 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %171 = and i64 %170, -240
   %or.cond.i = icmp eq i64 %171, 256
@@ -51938,7 +51938,7 @@ _ZN10async_task5utils14abort_on_panic17h2414882d0cf72140E.exit: ; preds = %144, 
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17hdaf4ba5d3eb2046aE.exit: ; preds = %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h476bdd258b454042E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h12f478eec51cb625E.exit158", %295, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb0f55378b65f0840E.exit.i140", %223, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h12f478eec51cb625E.exit", %190
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h476bdd258b454042E.exit.i" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb0f55378b65f0840E.exit.i140" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h12f478eec51cb625E.exit" ], [ false, %190 ], [ false, %223 ], [ false, %295 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h12f478eec51cb625E.exit158" ]
+  %.sroa.0.0 = phi i1 [ false, %190 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h12f478eec51cb625E.exit" ], [ false, %223 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb0f55378b65f0840E.exit.i140" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h476bdd258b454042E.exit.i" ], [ false, %295 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h12f478eec51cb625E.exit158" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10async_task5utils14abort_on_panic17hcfbd97cd1f0e6843E.exit
 
@@ -51960,8 +51960,8 @@ _ZN10async_task5utils14abort_on_panic17hdaf4ba5d3eb2046aE.exit: ; preds = %"_ZN6
   br label %274
 
 274:                                              ; preds = %263, %267, %220
-  %.sroa.0202.0 = phi ptr [ null, %220 ], [ %269, %267 ], [ null, %263 ]
-  %.sroa.9204.0 = phi ptr [ undef, %220 ], [ %spec.select.i150, %267 ], [ undef, %263 ]
+  %.sroa.0202.0 = phi ptr [ null, %220 ], [ null, %263 ], [ %269, %267 ]
+  %.sroa.9204.0 = phi ptr [ undef, %220 ], [ undef, %263 ], [ %spec.select.i150, %267 ]
   %275 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %276 = and i64 %275, -240
   %or.cond.i152 = icmp eq i64 %276, 256
@@ -52078,8 +52078,8 @@ _ZN10async_task5utils14abort_on_panic17hcfbd97cd1f0e6843E.exit: ; preds = %"_ZN1
   br label %317
 
 317:                                              ; preds = %306, %310, %_ZN10async_task5utils14abort_on_panic17hfd4393c5276fe635E.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfd4393c5276fe635E.exit ], [ %spec.select.i169, %310 ], [ undef, %306 ]
-  %.sroa.0.0219 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfd4393c5276fe635E.exit ], [ %312, %310 ], [ null, %306 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfd4393c5276fe635E.exit ], [ undef, %306 ], [ %spec.select.i169, %310 ]
+  %.sroa.0.0219 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfd4393c5276fe635E.exit ], [ null, %306 ], [ %312, %310 ]
   %318 = atomicrmw sub ptr %15, i64 256 acq_rel, align 8
   %319 = and i64 %318, -240
   %or.cond.i171 = icmp eq i64 %319, 256
@@ -52499,8 +52499,8 @@ _ZN10async_task5utils14abort_on_panic17h60678a066ac57ccfE.exit: ; preds = %112, 
   br label %139
 
 139:                                              ; preds = %128, %132, %_ZN10async_task5utils14abort_on_panic17h60678a066ac57ccfE.exit
-  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h60678a066ac57ccfE.exit ], [ %spec.select.i, %132 ], [ undef, %128 ]
-  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h60678a066ac57ccfE.exit ], [ %134, %132 ], [ null, %128 ]
+  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h60678a066ac57ccfE.exit ], [ undef, %128 ], [ %spec.select.i, %132 ]
+  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h60678a066ac57ccfE.exit ], [ null, %128 ], [ %134, %132 ]
   %140 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %141 = and i64 %140, -240
   %or.cond.i = icmp eq i64 %141, 256
@@ -52706,7 +52706,7 @@ _ZN10async_task5utils14abort_on_panic17h60678a066ac57ccfE.exit: ; preds = %112, 
   br label %_ZN10async_task5utils14abort_on_panic17h753c26e521a6a44fE.exit
 
 _ZN10async_task5utils14abort_on_panic17h753c26e521a6a44fE.exit: ; preds = %214, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h34088e3f692df9c5E.exit143", %243, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h43ccc7678d10b4f3E.exit.i129", %198, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h34088e3f692df9c5E.exit", %156
-  %.sroa.0.0 = phi i1 [ true, %214 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h43ccc7678d10b4f3E.exit.i129" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h34088e3f692df9c5E.exit" ], [ false, %156 ], [ false, %198 ], [ false, %243 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h34088e3f692df9c5E.exit143" ]
+  %.sroa.0.0 = phi i1 [ false, %156 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h34088e3f692df9c5E.exit" ], [ false, %198 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h43ccc7678d10b4f3E.exit.i129" ], [ true, %214 ], [ false, %243 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h34088e3f692df9c5E.exit143" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h7b72f24e6570e343E.exit
 
@@ -52728,8 +52728,8 @@ _ZN10async_task5utils14abort_on_panic17h753c26e521a6a44fE.exit: ; preds = %214, 
   br label %226
 
 226:                                              ; preds = %215, %219, %195
-  %.sroa.0182.0 = phi ptr [ null, %195 ], [ %221, %219 ], [ null, %215 ]
-  %.sroa.9184.0 = phi ptr [ undef, %195 ], [ %spec.select.i136, %219 ], [ undef, %215 ]
+  %.sroa.0182.0 = phi ptr [ null, %195 ], [ null, %215 ], [ %221, %219 ]
+  %.sroa.9184.0 = phi ptr [ undef, %195 ], [ undef, %215 ], [ %spec.select.i136, %219 ]
   %227 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %228 = and i64 %227, -240
   %or.cond.i138 = icmp eq i64 %228, 256
@@ -52809,7 +52809,7 @@ _ZN10async_task5utils14abort_on_panic17h7b72f24e6570e343E.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr895drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..os..unix..fs..symlink$LT$$RF$async_std..path..path..Path$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..os..unix..fs..symlink$LT$$RF$async_std..path..path..Path$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h63bc88762489ca84E.exit" unwind label %165
 
 "_ZN4core3ptr895drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..os..unix..fs..symlink$LT$$RF$async_std..path..path..Path$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..os..unix..fs..symlink$LT$$RF$async_std..path..path..Path$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h63bc88762489ca84E.exit": ; preds = %.body141, %210, %249, %162, %.body.i, %.body115, %158, %245, %284, %288, %252, %.body159
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %278, %.body159 ], [ %285, %284 ], [ %253, %252 ], [ %278, %288 ], [ %239, %.body141 ], [ %239, %249 ], [ %211, %210 ], [ %246, %245 ], [ %152, %.body115 ], [ %eh.lpad-body.i, %.body.i ], [ %159, %158 ], [ %152, %162 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %278, %.body159 ], [ %253, %252 ], [ %278, %288 ], [ %285, %284 ], [ %239, %.body141 ], [ %211, %210 ], [ %239, %249 ], [ %152, %.body115 ], [ %eh.lpad-body.i, %.body.i ], [ %152, %162 ], [ %159, %158 ], [ %246, %245 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 252:                                              ; preds = %43
@@ -52836,8 +52836,8 @@ _ZN10async_task5utils14abort_on_panic17h7b72f24e6570e343E.exit: ; preds = %"_ZN1
   br label %265
 
 265:                                              ; preds = %254, %258, %_ZN10async_task5utils14abort_on_panic17h2b4c56096df23415E.exit
-  %.sroa.9.0202 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2b4c56096df23415E.exit ], [ %spec.select.i154, %258 ], [ undef, %254 ]
-  %.sroa.0.0200 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2b4c56096df23415E.exit ], [ %260, %258 ], [ null, %254 ]
+  %.sroa.9.0202 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2b4c56096df23415E.exit ], [ undef, %254 ], [ %spec.select.i154, %258 ]
+  %.sroa.0.0200 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2b4c56096df23415E.exit ], [ null, %254 ], [ %260, %258 ]
   %266 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %267 = and i64 %266, -240
   %or.cond.i156 = icmp eq i64 %267, 256
@@ -52969,8 +52969,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %202, %.body115, %198, %.body.i, %.body166, %315, %355, %313, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112", %209, %351, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %345, %.body166 ], [ %345, %355 ], [ %316, %315 ], [ %.pn75.pn, %313 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112" ], [ %116, %209 ], [ %352, %351 ], [ %192, %202 ], [ %192, %.body115 ], [ %199, %198 ], [ %eh.lpad-body.i, %.body.i ]
+common.resume:                                    ; preds = %198, %202, %.body115, %.body.i, %.body166, %315, %355, %313, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112", %209, %351, %29
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %345, %.body166 ], [ %316, %315 ], [ %345, %355 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112" ], [ %.pn75.pn, %313 ], [ %116, %209 ], [ %352, %351 ], [ %199, %198 ], [ %192, %202 ], [ %192, %.body115 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17haada9d17268b825eE.exit: ; preds = %28
@@ -53317,8 +53317,8 @@ _ZN10async_task5utils14abort_on_panic17h1dac361aa229af79E.exit: ; preds = %148, 
   br label %175
 
 175:                                              ; preds = %164, %168, %_ZN10async_task5utils14abort_on_panic17h1dac361aa229af79E.exit
-  %.sroa.9184.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1dac361aa229af79E.exit ], [ %spec.select.i, %168 ], [ undef, %164 ]
-  %.sroa.0182.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1dac361aa229af79E.exit ], [ %170, %168 ], [ null, %164 ]
+  %.sroa.9184.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1dac361aa229af79E.exit ], [ undef, %164 ], [ %spec.select.i, %168 ]
+  %.sroa.0182.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1dac361aa229af79E.exit ], [ null, %164 ], [ %170, %168 ]
   %176 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %177 = and i64 %176, -240
   %or.cond.i = icmp eq i64 %177, 256
@@ -53416,7 +53416,7 @@ _ZN10async_task5utils14abort_on_panic17h7b9aca04af0fdd08E.exit: ; preds = %196, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i112": ; preds = %306, %310, %268, %248, %213, %217, %.body147
-  %.pn75.pn = phi { ptr, i32 } [ %218, %217 ], [ %300, %310 ], [ %307, %306 ], [ %269, %268 ], [ %300, %.body147 ], [ %214, %213 ], [ %249, %248 ]
+  %.pn75.pn = phi { ptr, i32 } [ %300, %.body147 ], [ %214, %213 ], [ %218, %217 ], [ %249, %248 ], [ %269, %268 ], [ %300, %310 ], [ %307, %306 ]
   %207 = load i64, ptr %8, align 8, !range !6494, !noundef !14
   %208 = icmp eq i64 %207, 0
   br i1 %208, label %313, label %common.resume
@@ -53581,7 +53581,7 @@ _ZN10async_task5utils14abort_on_panic17h7b9aca04af0fdd08E.exit: ; preds = %196, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39099ea768d6d5deE.exit134": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39099ea768d6d5deE.exit149", %304, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h91353f22f6ef3433E.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h92a6d6b8c6152011E.exit.i131", %232, %_ZN10async_task5utils14abort_on_panic17h7b9aca04af0fdd08E.exit
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h91353f22f6ef3433E.exit.i" ], [ false, %_ZN10async_task5utils14abort_on_panic17h7b9aca04af0fdd08E.exit ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h92a6d6b8c6152011E.exit.i131" ], [ false, %232 ], [ false, %304 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39099ea768d6d5deE.exit149" ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN10async_task5utils14abort_on_panic17h7b9aca04af0fdd08E.exit ], [ false, %232 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h92a6d6b8c6152011E.exit.i131" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h91353f22f6ef3433E.exit.i" ], [ false, %304 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h39099ea768d6d5deE.exit149" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN10async_task5utils14abort_on_panic17hf8ad8c16c78922b5E.exit
@@ -53604,8 +53604,8 @@ _ZN10async_task5utils14abort_on_panic17h7b9aca04af0fdd08E.exit: ; preds = %196, 
   br label %283
 
 283:                                              ; preds = %272, %276, %229
-  %.sroa.9187.0 = phi ptr [ undef, %229 ], [ %spec.select.i141, %276 ], [ undef, %272 ]
-  %.sroa.0185.0 = phi ptr [ null, %229 ], [ %278, %276 ], [ null, %272 ]
+  %.sroa.9187.0 = phi ptr [ undef, %229 ], [ undef, %272 ], [ %spec.select.i141, %276 ]
+  %.sroa.0185.0 = phi ptr [ null, %229 ], [ null, %272 ], [ %278, %276 ]
   %284 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %285 = and i64 %284, -240
   %or.cond.i143 = icmp eq i64 %285, 256
@@ -53727,8 +53727,8 @@ _ZN10async_task5utils14abort_on_panic17hf8ad8c16c78922b5E.exit: ; preds = %"_ZN1
   br label %328
 
 328:                                              ; preds = %317, %321, %_ZN10async_task5utils14abort_on_panic17haada9d17268b825eE.exit
-  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17haada9d17268b825eE.exit ], [ %spec.select.i160, %321 ], [ undef, %317 ]
-  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17haada9d17268b825eE.exit ], [ %323, %321 ], [ null, %317 ]
+  %.sroa.9.0205 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17haada9d17268b825eE.exit ], [ undef, %317 ], [ %spec.select.i160, %321 ]
+  %.sroa.0.0203 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17haada9d17268b825eE.exit ], [ null, %317 ], [ %323, %321 ]
   %329 = atomicrmw sub ptr %17, i64 256 acq_rel, align 8
   %330 = and i64 %329, -240
   %or.cond.i162 = icmp eq i64 %330, 256
@@ -53873,8 +53873,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %112, %116, %.body123, %122, %72, %.body174, %217, %257, %216, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i120", %253, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %26, %.body.i ], [ %247, %.body174 ], [ %247, %257 ], [ %218, %217 ], [ %.pn90, %216 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i120" ], [ %254, %253 ], [ %113, %112 ], [ %106, %116 ], [ %106, %.body123 ], [ %56, %122 ], [ %73, %72 ]
+common.resume:                                    ; preds = %112, %116, %.body123, %72, %122, %.body174, %217, %257, %216, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i120", %253, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %26, %.body.i ], [ %247, %.body174 ], [ %218, %217 ], [ %247, %257 ], [ %.pn90, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i120" ], [ %.pn90, %216 ], [ %254, %253 ], [ %113, %112 ], [ %106, %116 ], [ %106, %.body123 ], [ %73, %72 ], [ %56, %122 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h7963b521961cde8eE.exit: ; preds = %25
@@ -54067,8 +54067,8 @@ _ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit: ; preds = %71, %
   br label %89
 
 89:                                               ; preds = %78, %82, %_ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit
-  %.sroa.9188.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit ], [ %spec.select.i, %82 ], [ undef, %78 ]
-  %.sroa.0186.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit ], [ %84, %82 ], [ null, %78 ]
+  %.sroa.9188.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit ], [ undef, %78 ], [ %spec.select.i, %82 ]
+  %.sroa.0186.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit ], [ null, %78 ], [ %84, %82 ]
   %90 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %91 = and i64 %90, -240
   %or.cond.i = icmp eq i64 %91, 256
@@ -54162,7 +54162,7 @@ _ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit: ; preds = %71, %
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i120": ; preds = %209, %213, %171, %161, %.body.i131, %129, %.body155
-  %.pn90 = phi { ptr, i32 } [ %130, %129 ], [ %172, %171 ], [ %203, %.body155 ], [ %210, %209 ], [ %203, %213 ], [ %126, %.body.i131 ], [ %162, %161 ]
+  %.pn90 = phi { ptr, i32 } [ %203, %.body155 ], [ %130, %129 ], [ %126, %.body.i131 ], [ %162, %161 ], [ %172, %171 ], [ %203, %213 ], [ %210, %209 ]
   %121 = load i64, ptr %5, align 8, !range !8051, !noundef !14
   %.not265 = icmp eq i64 %121, -9223372036854775806
   br i1 %.not265, label %common.resume, label %216
@@ -54320,7 +54320,7 @@ _ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit: ; preds = %71, %
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec7eb90e0aec8339E.exit142": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec7eb90e0aec8339E.exit", %110, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec7eb90e0aec8339E.exit157", %207, %170, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h39e24a8954cea363E.exit.i139", %145
-  %.sroa.0.0 = phi i1 [ true, %170 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec7eb90e0aec8339E.exit157" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h39e24a8954cea363E.exit.i139" ], [ false, %145 ], [ false, %207 ], [ false, %110 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec7eb90e0aec8339E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %145 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h39e24a8954cea363E.exit.i139" ], [ true, %170 ], [ false, %207 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec7eb90e0aec8339E.exit157" ], [ false, %110 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hec7eb90e0aec8339E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17hbb0f634c70cb4e98E.exit
 
@@ -54342,8 +54342,8 @@ _ZN10async_task5utils14abort_on_panic17haa6c5223f9b200c7E.exit: ; preds = %71, %
   br label %186
 
 186:                                              ; preds = %175, %179, %142
-  %.sroa.9191.0 = phi ptr [ undef, %142 ], [ %spec.select.i149, %179 ], [ undef, %175 ]
-  %.sroa.0189.0 = phi ptr [ null, %142 ], [ %181, %179 ], [ null, %175 ]
+  %.sroa.9191.0 = phi ptr [ undef, %142 ], [ undef, %175 ], [ %spec.select.i149, %179 ]
+  %.sroa.0189.0 = phi ptr [ null, %142 ], [ null, %175 ], [ %181, %179 ]
   %187 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %188 = and i64 %187, -240
   %or.cond.i151 = icmp eq i64 %188, 256
@@ -54464,8 +54464,8 @@ _ZN10async_task5utils14abort_on_panic17hbb0f634c70cb4e98E.exit: ; preds = %"_ZN1
   br label %230
 
 230:                                              ; preds = %219, %223, %_ZN10async_task5utils14abort_on_panic17h7963b521961cde8eE.exit
-  %.sroa.9.0206 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7963b521961cde8eE.exit ], [ %spec.select.i168, %223 ], [ undef, %219 ]
-  %.sroa.0.0204 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7963b521961cde8eE.exit ], [ %225, %223 ], [ null, %219 ]
+  %.sroa.9.0206 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h7963b521961cde8eE.exit ], [ undef, %219 ], [ %spec.select.i168, %223 ]
+  %.sroa.0.0204 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h7963b521961cde8eE.exit ], [ null, %219 ], [ %225, %223 ]
   %231 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %232 = and i64 %231, -240
   %or.cond.i170 = icmp eq i64 %232, 256
@@ -54893,8 +54893,8 @@ _ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit: ; preds = %93, %
   br label %111
 
 111:                                              ; preds = %100, %104, %_ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit
-  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit ], [ %spec.select.i, %104 ], [ undef, %100 ]
-  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit ], [ %106, %104 ], [ null, %100 ]
+  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit ], [ undef, %100 ], [ %spec.select.i, %104 ]
+  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit ], [ null, %100 ], [ %106, %104 ]
   %112 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %113 = and i64 %112, -240
   %or.cond.i = icmp eq i64 %113, 256
@@ -54974,7 +54974,7 @@ _ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit: ; preds = %93, %
   unreachable
 
 .body136:                                         ; preds = %214, %218, %179, %151, %.body147
-  %.pn90 = phi { ptr, i32 } [ %208, %218 ], [ %180, %179 ], [ %208, %.body147 ], [ %152, %151 ], [ %215, %214 ]
+  %.pn90 = phi { ptr, i32 } [ %208, %.body147 ], [ %152, %151 ], [ %180, %179 ], [ %208, %218 ], [ %215, %214 ]
   %139 = load i64, ptr %7, align 8, !range !8051, !noundef !14
   %.not266 = icmp eq i64 %139, -9223372036854775806
   br i1 %.not266, label %"_ZN4core3ptr945drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h70e190ca58c32125E.exit", label %221
@@ -55092,7 +55092,7 @@ _ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit: ; preds = %93, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hab96ee8b0f0bcc29E.exit138" unwind label %151
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hab96ee8b0f0bcc29E.exit138": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hab96ee8b0f0bcc29E.exit", %128, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hab96ee8b0f0bcc29E.exit149", %212, %183, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h87e781d0fe56d6d0E.exit.i135", %167
-  %.sroa.0.0 = phi i1 [ true, %183 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hab96ee8b0f0bcc29E.exit149" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h87e781d0fe56d6d0E.exit.i135" ], [ false, %167 ], [ false, %212 ], [ false, %128 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hab96ee8b0f0bcc29E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %167 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h87e781d0fe56d6d0E.exit.i135" ], [ true, %183 ], [ false, %212 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hab96ee8b0f0bcc29E.exit149" ], [ false, %128 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hab96ee8b0f0bcc29E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN10async_task5utils14abort_on_panic17hb0082140512b580eE.exit
 
@@ -55114,8 +55114,8 @@ _ZN10async_task5utils14abort_on_panic17h54885aee5c117aaeE.exit: ; preds = %93, %
   br label %195
 
 195:                                              ; preds = %184, %188, %164
-  %.sroa.9189.0 = phi ptr [ undef, %164 ], [ %spec.select.i142, %188 ], [ undef, %184 ]
-  %.sroa.0187.0 = phi ptr [ null, %164 ], [ %190, %188 ], [ null, %184 ]
+  %.sroa.9189.0 = phi ptr [ undef, %164 ], [ undef, %184 ], [ %spec.select.i142, %188 ]
+  %.sroa.0187.0 = phi ptr [ null, %164 ], [ null, %184 ], [ %190, %188 ]
   %196 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %197 = and i64 %196, -240
   %or.cond.i144 = icmp eq i64 %197, 256
@@ -55196,8 +55196,8 @@ _ZN10async_task5utils14abort_on_panic17hb0082140512b580eE.exit: ; preds = %"_ZN1
   invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h97ffb88133b4bd18E"(ptr noalias noundef align 8 dereferenceable(24) %7) #19
           to label %"_ZN4core3ptr945drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h70e190ca58c32125E.exit" unwind label %137
 
-"_ZN4core3ptr945drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h70e190ca58c32125E.exit": ; preds = %134, %130, %94, %.body122, %253, %.body136, %221, %257, %222, %.body165
-  %.pn90.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %247, %257 ], [ %eh.lpad-body, %222 ], [ %.pn90, %221 ], [ %.pn90, %.body136 ], [ %254, %253 ], [ %124, %134 ], [ %131, %130 ], [ %95, %94 ], [ %124, %.body122 ]
+"_ZN4core3ptr945drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$C$async_std..fs..canonicalize..canonicalize$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h70e190ca58c32125E.exit": ; preds = %130, %134, %94, %.body122, %253, %.body136, %221, %257, %222, %.body165
+  %.pn90.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %eh.lpad-body, %222 ], [ %247, %257 ], [ %.pn90, %221 ], [ %.pn90, %.body136 ], [ %254, %253 ], [ %131, %130 ], [ %124, %134 ], [ %95, %94 ], [ %124, %.body122 ]
   resume { ptr, i32 } %.pn90.pn.pn
 
 222:                                              ; preds = %42, %60
@@ -55223,8 +55223,8 @@ _ZN10async_task5utils14abort_on_panic17hb0082140512b580eE.exit: ; preds = %"_ZN1
   br label %234
 
 234:                                              ; preds = %223, %227, %_ZN10async_task5utils14abort_on_panic17h89af9da142ad7bb2E.exit
-  %.sroa.9.0212 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h89af9da142ad7bb2E.exit ], [ %spec.select.i160, %227 ], [ undef, %223 ]
-  %.sroa.0.0210 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h89af9da142ad7bb2E.exit ], [ %229, %227 ], [ null, %223 ]
+  %.sroa.9.0212 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h89af9da142ad7bb2E.exit ], [ undef, %223 ], [ %spec.select.i160, %227 ]
+  %.sroa.0.0210 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h89af9da142ad7bb2E.exit ], [ null, %223 ], [ %229, %227 ]
   %235 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %236 = and i64 %235, -240
   %or.cond.i162 = icmp eq i64 %236, 256
@@ -55542,9 +55542,9 @@ select.unfold:                                    ; preds = %"_ZN63_$LT$alloc..a
   br label %_ZN10async_task5utils14abort_on_panic17hdd0b4f2f7cb7c0c6E.exit119
 
 _ZN10async_task5utils14abort_on_panic17hdd0b4f2f7cb7c0c6E.exit119: ; preds = %64, %select.unfold, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117", %74, %.thread229
-  %.sroa.9.0271 = phi ptr [ %70, %.thread229 ], [ %70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ %70, %74 ], [ %66, %64 ], [ %68, %select.unfold ]
-  %.sroa.6.0270 = phi ptr [ %69, %.thread229 ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ %69, %74 ], [ %.sink1.i.i.i, %64 ], [ %.sink1.i.i.i.i.i.i.i, %select.unfold ]
-  %.sroa.0259.0269 = phi i64 [ 3, %.thread229 ], [ 3, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ 3, %74 ], [ %spec.select.i, %64 ], [ %spec.select, %select.unfold ]
+  %.sroa.9.0271 = phi ptr [ %70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ %70, %74 ], [ %70, %.thread229 ], [ %66, %64 ], [ %68, %select.unfold ]
+  %.sroa.6.0270 = phi ptr [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ %69, %74 ], [ %69, %.thread229 ], [ %.sink1.i.i.i, %64 ], [ %.sink1.i.i.i.i.i.i.i, %select.unfold ]
+  %.sroa.0259.0269 = phi i64 [ 3, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i117" ], [ 3, %74 ], [ 3, %.thread229 ], [ %spec.select.i, %64 ], [ %spec.select, %select.unfold ]
   store i64 %.sroa.0259.0269, ptr %6, align 8
   %.sroa.2263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.6.0270, ptr %.sroa.2263.0..sroa_idx, align 8
@@ -55610,8 +55610,8 @@ _ZN10async_task5utils14abort_on_panic17hb0be4a09353a08c8E.exit: ; preds = %88, %
   br label %106
 
 106:                                              ; preds = %95, %99, %_ZN10async_task5utils14abort_on_panic17hb0be4a09353a08c8E.exit
-  %.sroa.9188.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb0be4a09353a08c8E.exit ], [ %spec.select.i124, %99 ], [ undef, %95 ]
-  %.sroa.0186.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb0be4a09353a08c8E.exit ], [ %101, %99 ], [ null, %95 ]
+  %.sroa.9188.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb0be4a09353a08c8E.exit ], [ undef, %95 ], [ %spec.select.i124, %99 ]
+  %.sroa.0186.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb0be4a09353a08c8E.exit ], [ null, %95 ], [ %101, %99 ]
   %107 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %108 = and i64 %107, -240
   %or.cond.i = icmp eq i64 %108, 256
@@ -55698,7 +55698,7 @@ _ZN10async_task5utils14abort_on_panic17heb95d17fb9e7bd94E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr764drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h675ac119efea4769E.exit": ; preds = %129, %89, %.body125, %125, %165, %169, %134, %.body170
-  %.pn90.pn.pn = phi { ptr, i32 } [ %159, %.body170 ], [ %159, %169 ], [ %eh.lpad-body, %134 ], [ %166, %165 ], [ %119, %.body125 ], [ %119, %129 ], [ %126, %125 ], [ %90, %89 ]
+  %.pn90.pn.pn = phi { ptr, i32 } [ %159, %.body170 ], [ %eh.lpad-body, %134 ], [ %159, %169 ], [ %166, %165 ], [ %119, %.body125 ], [ %90, %89 ], [ %119, %129 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn90.pn.pn
 
 134:                                              ; preds = %.body.i, %62
@@ -55724,8 +55724,8 @@ _ZN10async_task5utils14abort_on_panic17heb95d17fb9e7bd94E.exit: ; preds = %"_ZN1
   br label %146
 
 146:                                              ; preds = %135, %139, %_ZN10async_task5utils14abort_on_panic17hdd0b4f2f7cb7c0c6E.exit
-  %.sroa.9.0218 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hdd0b4f2f7cb7c0c6E.exit ], [ %spec.select.i165, %139 ], [ undef, %135 ]
-  %.sroa.0.0216 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hdd0b4f2f7cb7c0c6E.exit ], [ %141, %139 ], [ null, %135 ]
+  %.sroa.9.0218 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hdd0b4f2f7cb7c0c6E.exit ], [ undef, %135 ], [ %spec.select.i165, %139 ]
+  %.sroa.0.0216 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hdd0b4f2f7cb7c0c6E.exit ], [ null, %135 ], [ %141, %139 ]
   %147 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %148 = and i64 %147, -240
   %or.cond.i167 = icmp eq i64 %148, 256
@@ -56026,8 +56026,8 @@ default.unreachable:                              ; preds = %43, %33
   br label %_ZN10async_task5utils14abort_on_panic17h389dece36adb6a80E.exit112
 
 _ZN10async_task5utils14abort_on_panic17h389dece36adb6a80E.exit112: ; preds = %62, %61, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i.i110", %68, %63
-  %.sroa.8.0.ph275 = phi ptr [ %64, %63 ], [ %64, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i.i110" ], [ %64, %68 ], [ null, %61 ], [ null, %62 ]
-  %.sroa.13.0.ph274 = phi ptr [ %65, %63 ], [ %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i.i110" ], [ %65, %68 ], [ %35, %61 ], [ %45, %62 ]
+  %.sroa.8.0.ph275 = phi ptr [ %64, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i.i110" ], [ %64, %68 ], [ %64, %63 ], [ null, %61 ], [ null, %62 ]
+  %.sroa.13.0.ph274 = phi ptr [ %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i.i.i.i.i.i.i.i110" ], [ %65, %68 ], [ %65, %63 ], [ %35, %61 ], [ %45, %62 ]
   store ptr %.sroa.8.0.ph275, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.13.0.ph274, ptr %.sroa.2.0..sroa_idx, align 8
@@ -56162,8 +56162,8 @@ _ZN10async_task5utils14abort_on_panic17h87f9516663086577E.exit: ; preds = %103, 
   br label %130
 
 130:                                              ; preds = %119, %123, %_ZN10async_task5utils14abort_on_panic17h87f9516663086577E.exit
-  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h87f9516663086577E.exit ], [ %spec.select.i, %123 ], [ undef, %119 ]
-  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h87f9516663086577E.exit ], [ %125, %123 ], [ null, %119 ]
+  %.sroa.9187.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h87f9516663086577E.exit ], [ undef, %119 ], [ %spec.select.i, %123 ]
+  %.sroa.0185.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h87f9516663086577E.exit ], [ null, %119 ], [ %125, %123 ]
   %131 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %132 = and i64 %131, -240
   %or.cond.i = icmp eq i64 %132, 256
@@ -56250,7 +56250,7 @@ _ZN10async_task5utils14abort_on_panic17hab74f0616aa7916eE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr810drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..set_permissions..set_permissions$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..set_permissions..set_permissions$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h42e74d85d0cc25aeE.exit": ; preds = %153, %.body.i115, %.body118, %149, %189, %193, %158, %.body163
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %183, %.body163 ], [ %190, %189 ], [ %eh.lpad-body, %158 ], [ %183, %193 ], [ %143, %153 ], [ %143, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %150, %149 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %183, %.body163 ], [ %eh.lpad-body, %158 ], [ %183, %193 ], [ %190, %189 ], [ %143, %.body118 ], [ %eh.lpad-body.i, %.body.i115 ], [ %143, %153 ], [ %150, %149 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 158:                                              ; preds = %.body.i, %59
@@ -56276,8 +56276,8 @@ _ZN10async_task5utils14abort_on_panic17hab74f0616aa7916eE.exit: ; preds = %"_ZN1
   br label %170
 
 170:                                              ; preds = %159, %163, %_ZN10async_task5utils14abort_on_panic17h389dece36adb6a80E.exit
-  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h389dece36adb6a80E.exit ], [ %spec.select.i158, %163 ], [ undef, %159 ]
-  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h389dece36adb6a80E.exit ], [ %165, %163 ], [ null, %159 ]
+  %.sroa.9.0208 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h389dece36adb6a80E.exit ], [ undef, %159 ], [ %spec.select.i158, %163 ]
+  %.sroa.0.0206 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h389dece36adb6a80E.exit ], [ null, %159 ], [ %165, %163 ]
   %171 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %172 = and i64 %171, -240
   %or.cond.i160 = icmp eq i64 %172, 256
@@ -56404,7 +56404,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body142, %148, %.body.i, %153, %182, %221, %.body116, %143, %139, %217, %.body160, %224, %260, %256, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %250, %.body160 ], [ %257, %256 ], [ %225, %224 ], [ %250, %260 ], [ %58, %148 ], [ %211, %221 ], [ %eh.lpad-body.i, %.body.i ], [ %183, %182 ], [ %211, %.body142 ], [ %140, %139 ], [ %154, %153 ], [ %218, %217 ], [ %133, %.body116 ], [ %133, %143 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %250, %.body160 ], [ %225, %224 ], [ %250, %260 ], [ %257, %256 ], [ %58, %148 ], [ %211, %.body142 ], [ %eh.lpad-body.i, %.body.i ], [ %154, %153 ], [ %183, %182 ], [ %211, %221 ], [ %133, %.body116 ], [ %133, %143 ], [ %140, %139 ], [ %218, %217 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17hb12c2c3744c43e2aE.exit: ; preds = %22
@@ -56627,8 +56627,8 @@ _ZN10async_task5utils14abort_on_panic17h92b82f2b433859c6E.exit: ; preds = %93, %
   br label %120
 
 120:                                              ; preds = %109, %113, %_ZN10async_task5utils14abort_on_panic17h92b82f2b433859c6E.exit
-  %.sroa.9182.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h92b82f2b433859c6E.exit ], [ %spec.select.i, %113 ], [ undef, %109 ]
-  %.sroa.0180.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h92b82f2b433859c6E.exit ], [ %115, %113 ], [ null, %109 ]
+  %.sroa.9182.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h92b82f2b433859c6E.exit ], [ undef, %109 ], [ %spec.select.i, %113 ]
+  %.sroa.0180.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h92b82f2b433859c6E.exit ], [ null, %109 ], [ %115, %113 ]
   %121 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %122 = and i64 %121, -240
   %or.cond.i = icmp eq i64 %122, 256
@@ -56805,7 +56805,7 @@ _ZN10async_task5utils14abort_on_panic17h92b82f2b433859c6E.exit: ; preds = %93, %
   br label %_ZN10async_task5utils14abort_on_panic17h38a1364e615841b8E.exit
 
 _ZN10async_task5utils14abort_on_panic17h38a1364e615841b8E.exit: ; preds = %186, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbd0e0d7fefd948b2E.exit144", %215, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1b3b848814dd8a71E.exit.i130", %170, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbd0e0d7fefd948b2E.exit", %137
-  %.sroa.0.0 = phi i1 [ true, %186 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1b3b848814dd8a71E.exit.i130" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbd0e0d7fefd948b2E.exit" ], [ false, %137 ], [ false, %170 ], [ false, %215 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbd0e0d7fefd948b2E.exit144" ]
+  %.sroa.0.0 = phi i1 [ false, %137 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbd0e0d7fefd948b2E.exit" ], [ false, %170 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1b3b848814dd8a71E.exit.i130" ], [ true, %186 ], [ false, %215 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hbd0e0d7fefd948b2E.exit144" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17h26ec98cb2e005fe0E.exit
 
@@ -56827,8 +56827,8 @@ _ZN10async_task5utils14abort_on_panic17h38a1364e615841b8E.exit: ; preds = %186, 
   br label %198
 
 198:                                              ; preds = %187, %191, %167
-  %.sroa.0183.0 = phi ptr [ null, %167 ], [ %193, %191 ], [ null, %187 ]
-  %.sroa.9185.0 = phi ptr [ undef, %167 ], [ %spec.select.i137, %191 ], [ undef, %187 ]
+  %.sroa.0183.0 = phi ptr [ null, %167 ], [ null, %187 ], [ %193, %191 ]
+  %.sroa.9185.0 = phi ptr [ undef, %167 ], [ undef, %187 ], [ %spec.select.i137, %191 ]
   %199 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %200 = and i64 %199, -240
   %or.cond.i139 = icmp eq i64 %200, 256
@@ -56931,8 +56931,8 @@ _ZN10async_task5utils14abort_on_panic17h26ec98cb2e005fe0E.exit: ; preds = %"_ZN1
   br label %237
 
 237:                                              ; preds = %226, %230, %_ZN10async_task5utils14abort_on_panic17hb12c2c3744c43e2aE.exit
-  %.sroa.9.0203 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb12c2c3744c43e2aE.exit ], [ %spec.select.i155, %230 ], [ undef, %226 ]
-  %.sroa.0.0201 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb12c2c3744c43e2aE.exit ], [ %232, %230 ], [ null, %226 ]
+  %.sroa.9.0203 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hb12c2c3744c43e2aE.exit ], [ undef, %226 ], [ %spec.select.i155, %230 ]
+  %.sroa.0.0201 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hb12c2c3744c43e2aE.exit ], [ null, %226 ], [ %232, %230 ]
   %238 = atomicrmw sub ptr %11, i64 256 acq_rel, align 8
   %239 = and i64 %238, -240
   %or.cond.i157 = icmp eq i64 %239, 256
@@ -57101,8 +57101,8 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %195, %.body117, %191, %.body.i113, %.body172, %328, %368, %326, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114", %202, %364, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %37, %.body.i ], [ %358, %.body172 ], [ %358, %368 ], [ %329, %328 ], [ %.pn75.pn, %326 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114" ], [ %102, %202 ], [ %365, %364 ], [ %185, %195 ], [ %185, %.body117 ], [ %192, %191 ], [ %eh.lpad-body.i, %.body.i113 ]
+common.resume:                                    ; preds = %191, %195, %.body117, %.body.i113, %.body172, %328, %368, %326, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114", %202, %364, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %37, %.body.i ], [ %358, %.body172 ], [ %329, %328 ], [ %358, %368 ], [ %.pn75.pn, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114" ], [ %.pn75.pn, %326 ], [ %102, %202 ], [ %365, %364 ], [ %192, %191 ], [ %185, %195 ], [ %185, %.body117 ], [ %eh.lpad-body.i, %.body.i113 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h317d7110cb48b55fE.exit: ; preds = %29, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i.i.i.i.i.i"
@@ -57377,8 +57377,8 @@ _ZN10async_task5utils14abort_on_panic17h03e7d5017498bef2E.exit: ; preds = %141, 
   br label %168
 
 168:                                              ; preds = %157, %161, %_ZN10async_task5utils14abort_on_panic17h03e7d5017498bef2E.exit
-  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h03e7d5017498bef2E.exit ], [ %spec.select.i, %161 ], [ undef, %157 ]
-  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h03e7d5017498bef2E.exit ], [ %163, %161 ], [ null, %157 ]
+  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h03e7d5017498bef2E.exit ], [ undef, %157 ], [ %spec.select.i, %161 ]
+  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h03e7d5017498bef2E.exit ], [ null, %157 ], [ %163, %161 ]
   %169 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %170 = and i64 %169, -240
   %or.cond.i = icmp eq i64 %170, 256
@@ -57476,7 +57476,7 @@ _ZN10async_task5utils14abort_on_panic17hbcdf9f586bc517bcE.exit: ; preds = %189, 
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i114": ; preds = %319, %323, %281, %259, %.body.i128, %227, %.body153
-  %.pn75.pn = phi { ptr, i32 } [ %228, %227 ], [ %313, %323 ], [ %320, %319 ], [ %282, %281 ], [ %313, %.body153 ], [ %218, %.body.i128 ], [ %260, %259 ]
+  %.pn75.pn = phi { ptr, i32 } [ %313, %.body153 ], [ %218, %.body.i128 ], [ %228, %227 ], [ %260, %259 ], [ %282, %281 ], [ %313, %323 ], [ %320, %319 ]
   %200 = load i64, ptr %4, align 8, !range !6494, !noundef !14
   %201 = icmp eq i64 %200, 0
   br i1 %201, label %326, label %common.resume
@@ -57688,7 +57688,7 @@ _ZN10async_task5utils14abort_on_panic17hbcdf9f586bc517bcE.exit: ; preds = %189, 
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c70eda6d1b28b06E.exit140": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c70eda6d1b28b06E.exit155", %317, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h3483cb9a1803157dE.exit.i", %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf4183f75f5dcc67eE.exit.i137", %243, %_ZN10async_task5utils14abort_on_panic17hbcdf9f586bc517bcE.exit
-  %.sroa.0.0 = phi i1 [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h3483cb9a1803157dE.exit.i" ], [ false, %_ZN10async_task5utils14abort_on_panic17hbcdf9f586bc517bcE.exit ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf4183f75f5dcc67eE.exit.i137" ], [ false, %243 ], [ false, %317 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c70eda6d1b28b06E.exit155" ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN10async_task5utils14abort_on_panic17hbcdf9f586bc517bcE.exit ], [ false, %243 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf4183f75f5dcc67eE.exit.i137" ], [ true, %"_ZN61_$LT$F$u20$as$u20$async_task..runnable..Schedule$LT$M$GT$$GT$8schedule17h3483cb9a1803157dE.exit.i" ], [ false, %317 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8c70eda6d1b28b06E.exit155" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10async_task5utils14abort_on_panic17h67461dcd447c39f9E.exit
@@ -57711,8 +57711,8 @@ _ZN10async_task5utils14abort_on_panic17hbcdf9f586bc517bcE.exit: ; preds = %189, 
   br label %296
 
 296:                                              ; preds = %285, %289, %240
-  %.sroa.9189.0 = phi ptr [ undef, %240 ], [ %spec.select.i147, %289 ], [ undef, %285 ]
-  %.sroa.0187.0 = phi ptr [ null, %240 ], [ %291, %289 ], [ null, %285 ]
+  %.sroa.9189.0 = phi ptr [ undef, %240 ], [ undef, %285 ], [ %spec.select.i147, %289 ]
+  %.sroa.0187.0 = phi ptr [ null, %240 ], [ null, %285 ], [ %291, %289 ]
   %297 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %298 = and i64 %297, -240
   %or.cond.i149 = icmp eq i64 %298, 256
@@ -57834,8 +57834,8 @@ _ZN10async_task5utils14abort_on_panic17h67461dcd447c39f9E.exit: ; preds = %"_ZN1
   br label %341
 
 341:                                              ; preds = %330, %334, %_ZN10async_task5utils14abort_on_panic17h317d7110cb48b55fE.exit
-  %.sroa.9.0207 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h317d7110cb48b55fE.exit ], [ %spec.select.i166, %334 ], [ undef, %330 ]
-  %.sroa.0.0205 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h317d7110cb48b55fE.exit ], [ %336, %334 ], [ null, %330 ]
+  %.sroa.9.0207 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h317d7110cb48b55fE.exit ], [ undef, %330 ], [ %spec.select.i166, %334 ]
+  %.sroa.0.0205 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h317d7110cb48b55fE.exit ], [ null, %330 ], [ %336, %334 ]
   %342 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %343 = and i64 %342, -240
   %or.cond.i168 = icmp eq i64 %343, 256
@@ -58261,8 +58261,8 @@ _ZN10async_task5utils14abort_on_panic17h0b7d97b90a36dbacE.exit: ; preds = %96, %
   br label %114
 
 114:                                              ; preds = %103, %107, %_ZN10async_task5utils14abort_on_panic17h0b7d97b90a36dbacE.exit
-  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0b7d97b90a36dbacE.exit ], [ %spec.select.i, %107 ], [ undef, %103 ]
-  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0b7d97b90a36dbacE.exit ], [ %109, %107 ], [ null, %103 ]
+  %.sroa.9194.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0b7d97b90a36dbacE.exit ], [ undef, %103 ], [ %spec.select.i, %107 ]
+  %.sroa.0192.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0b7d97b90a36dbacE.exit ], [ null, %103 ], [ %109, %107 ]
   %115 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %116 = and i64 %115, -240
   %or.cond.i = icmp eq i64 %116, 256
@@ -58349,7 +58349,7 @@ _ZN10async_task5utils14abort_on_panic17h8a4b68959b3d549cE.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr770drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_fs..metadata$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_fs..metadata$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hc5f57c9cccaaf8bcE.exit": ; preds = %137, %97, %.body130, %133, %173, %177, %142, %.body175
-  %.pn96.pn.pn = phi { ptr, i32 } [ %167, %.body175 ], [ %167, %177 ], [ %eh.lpad-body, %142 ], [ %174, %173 ], [ %127, %.body130 ], [ %127, %137 ], [ %134, %133 ], [ %98, %97 ]
+  %.pn96.pn.pn = phi { ptr, i32 } [ %167, %.body175 ], [ %eh.lpad-body, %142 ], [ %167, %177 ], [ %174, %173 ], [ %127, %.body130 ], [ %98, %97 ], [ %127, %137 ], [ %134, %133 ]
   resume { ptr, i32 } %.pn96.pn.pn
 
 142:                                              ; preds = %.body.i, %70
@@ -58375,8 +58375,8 @@ _ZN10async_task5utils14abort_on_panic17h8a4b68959b3d549cE.exit: ; preds = %"_ZN1
   br label %154
 
 154:                                              ; preds = %143, %147, %_ZN10async_task5utils14abort_on_panic17he4aa417b6a4c01aeE.exit
-  %.sroa.9.0222 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17he4aa417b6a4c01aeE.exit ], [ %spec.select.i170, %147 ], [ undef, %143 ]
-  %.sroa.0.0220 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17he4aa417b6a4c01aeE.exit ], [ %149, %147 ], [ null, %143 ]
+  %.sroa.9.0222 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17he4aa417b6a4c01aeE.exit ], [ undef, %143 ], [ %spec.select.i170, %147 ]
+  %.sroa.0.0220 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17he4aa417b6a4c01aeE.exit ], [ null, %143 ], [ %149, %147 ]
   %155 = atomicrmw sub ptr %7, i64 256 acq_rel, align 8
   %156 = and i64 %155, -240
   %or.cond.i172 = icmp eq i64 %156, 256
@@ -58506,7 +58506,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %.body151, %152, %.body.i114, %.body.i126, %190, %200, %242, %.body118, %147, %143, %238, %.body170, %245, %285, %281, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %24, %.body.i ], [ %275, %.body170 ], [ %282, %281 ], [ %246, %245 ], [ %275, %285 ], [ %57, %152 ], [ %232, %242 ], [ %eh.lpad-body.i, %.body.i114 ], [ %201, %200 ], [ %232, %.body151 ], [ %144, %143 ], [ %157, %.body.i126 ], [ %191, %190 ], [ %239, %238 ], [ %137, %.body118 ], [ %137, %147 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %.body.i ], [ %275, %.body170 ], [ %246, %245 ], [ %275, %285 ], [ %282, %281 ], [ %57, %152 ], [ %232, %.body151 ], [ %eh.lpad-body.i, %.body.i114 ], [ %157, %.body.i126 ], [ %191, %190 ], [ %201, %200 ], [ %232, %242 ], [ %137, %.body118 ], [ %137, %147 ], [ %144, %143 ], [ %239, %238 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h018e84d7091c6085E.exit: ; preds = %23
@@ -58733,8 +58733,8 @@ _ZN10async_task5utils14abort_on_panic17ha7799af1a8cd118aE.exit: ; preds = %93, %
   br label %120
 
 120:                                              ; preds = %109, %113, %_ZN10async_task5utils14abort_on_panic17ha7799af1a8cd118aE.exit
-  %.sroa.9192.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha7799af1a8cd118aE.exit ], [ %spec.select.i, %113 ], [ undef, %109 ]
-  %.sroa.0190.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha7799af1a8cd118aE.exit ], [ %115, %113 ], [ null, %109 ]
+  %.sroa.9192.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha7799af1a8cd118aE.exit ], [ undef, %109 ], [ %spec.select.i, %113 ]
+  %.sroa.0190.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha7799af1a8cd118aE.exit ], [ null, %109 ], [ %115, %113 ]
   %121 = atomicrmw sub ptr %12, i64 256 acq_rel, align 8
   %122 = and i64 %121, -240
   %or.cond.i = icmp eq i64 %122, 256
@@ -58972,7 +58972,7 @@ _ZN10async_task5utils14abort_on_panic17ha7799af1a8cd118aE.exit: ; preds = %93, %
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17h4a8645e1fc25df62E.exit: ; preds = %199, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2f27e8554fef6955E.exit153", %236, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd4f090cc0eb9a3d6E.exit.i134", %174, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2f27e8554fef6955E.exit", %141
-  %.sroa.0.0 = phi i1 [ true, %199 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd4f090cc0eb9a3d6E.exit.i134" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2f27e8554fef6955E.exit" ], [ false, %141 ], [ false, %174 ], [ false, %236 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2f27e8554fef6955E.exit153" ]
+  %.sroa.0.0 = phi i1 [ false, %141 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2f27e8554fef6955E.exit" ], [ false, %174 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd4f090cc0eb9a3d6E.exit.i134" ], [ true, %199 ], [ false, %236 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h2f27e8554fef6955E.exit153" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10async_task5utils14abort_on_panic17hdad4faaff931ec9fE.exit
 
@@ -58994,8 +58994,8 @@ _ZN10async_task5utils14abort_on_panic17h4a8645e1fc25df62E.exit: ; preds = %199, 
   br label %215
 
 215:                                              ; preds = %204, %208, %171
-  %.sroa.0193.0 = phi ptr [ null, %171 ], [ %210, %208 ], [ null, %204 ]
-  %.sroa.9195.0 = phi ptr [ undef, %171 ], [ %spec.select.i145, %208 ], [ undef, %204 ]
+  %.sroa.0193.0 = phi ptr [ null, %171 ], [ null, %204 ], [ %210, %208 ]
+  %.sroa.9195.0 = phi ptr [ undef, %171 ], [ undef, %204 ], [ %spec.select.i145, %208 ]
   %216 = atomicrmw sub ptr %12, i64 256 acq_rel, align 8
   %217 = and i64 %216, -240
   %or.cond.i147 = icmp eq i64 %217, 256
@@ -59112,8 +59112,8 @@ _ZN10async_task5utils14abort_on_panic17hdad4faaff931ec9fE.exit: ; preds = %"_ZN1
   br label %258
 
 258:                                              ; preds = %247, %251, %_ZN10async_task5utils14abort_on_panic17h018e84d7091c6085E.exit
-  %.sroa.9.0213 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h018e84d7091c6085E.exit ], [ %spec.select.i164, %251 ], [ undef, %247 ]
-  %.sroa.0.0211 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h018e84d7091c6085E.exit ], [ %253, %251 ], [ null, %247 ]
+  %.sroa.9.0213 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h018e84d7091c6085E.exit ], [ undef, %247 ], [ %spec.select.i164, %251 ]
+  %.sroa.0.0211 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h018e84d7091c6085E.exit ], [ null, %247 ], [ %253, %251 ]
   %259 = atomicrmw sub ptr %12, i64 256 acq_rel, align 8
   %260 = and i64 %259, -240
   %or.cond.i166 = icmp eq i64 %260, 256
@@ -59454,8 +59454,8 @@ _ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit: ; preds = %82, %
   br label %100
 
 100:                                              ; preds = %89, %93, %_ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit
-  %.sroa.9171.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit ], [ %spec.select.i, %93 ], [ undef, %89 ]
-  %.sroa.0169.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit ], [ %95, %93 ], [ null, %89 ]
+  %.sroa.9171.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit ], [ undef, %89 ], [ %spec.select.i, %93 ]
+  %.sroa.0169.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit ], [ null, %89 ], [ %95, %93 ]
   %101 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %102 = and i64 %101, -240
   %or.cond.i = icmp eq i64 %102, 256
@@ -59535,7 +59535,7 @@ _ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit: ; preds = %82, %
   unreachable
 
 .body128:                                         ; preds = %203, %207, %168, %140, %.body139
-  %.pn86 = phi { ptr, i32 } [ %197, %207 ], [ %169, %168 ], [ %197, %.body139 ], [ %141, %140 ], [ %204, %203 ]
+  %.pn86 = phi { ptr, i32 } [ %197, %.body139 ], [ %141, %140 ], [ %169, %168 ], [ %197, %207 ], [ %204, %203 ]
   %128 = load i64, ptr %5, align 8, !range !3848, !noundef !14
   %.not232 = icmp eq i64 %128, 2
   br i1 %.not232, label %"_ZN4core3ptr875drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h93b64f698827585dE.exit", label %210
@@ -59653,7 +59653,7 @@ _ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit: ; preds = %82, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf6d04f5cd5990d4aE.exit130" unwind label %140
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf6d04f5cd5990d4aE.exit130": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf6d04f5cd5990d4aE.exit", %117, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf6d04f5cd5990d4aE.exit141", %201, %172, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h23f117d411a4c523E.exit.i127", %156
-  %.sroa.0.0 = phi i1 [ true, %172 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf6d04f5cd5990d4aE.exit141" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h23f117d411a4c523E.exit.i127" ], [ false, %156 ], [ false, %201 ], [ false, %117 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf6d04f5cd5990d4aE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %156 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h23f117d411a4c523E.exit.i127" ], [ true, %172 ], [ false, %201 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf6d04f5cd5990d4aE.exit141" ], [ false, %117 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf6d04f5cd5990d4aE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h55b233e089db7527E.exit
 
@@ -59675,8 +59675,8 @@ _ZN10async_task5utils14abort_on_panic17h1374b9d324ea25f3E.exit: ; preds = %82, %
   br label %184
 
 184:                                              ; preds = %173, %177, %153
-  %.sroa.9174.0 = phi ptr [ undef, %153 ], [ %spec.select.i134, %177 ], [ undef, %173 ]
-  %.sroa.0172.0 = phi ptr [ null, %153 ], [ %179, %177 ], [ null, %173 ]
+  %.sroa.9174.0 = phi ptr [ undef, %153 ], [ undef, %173 ], [ %spec.select.i134, %177 ]
+  %.sroa.0172.0 = phi ptr [ null, %153 ], [ null, %173 ], [ %179, %177 ]
   %185 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %186 = and i64 %185, -240
   %or.cond.i136 = icmp eq i64 %186, 256
@@ -59759,8 +59759,8 @@ _ZN10async_task5utils14abort_on_panic17h55b233e089db7527E.exit: ; preds = %"_ZN1
   invoke fastcc void @"_ZN4core3ptr187drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hafe26f3c38cb4c65E"(ptr noalias noundef align 8 dereferenceable(24) %5) #19
           to label %"_ZN4core3ptr875drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h93b64f698827585dE.exit" unwind label %126
 
-"_ZN4core3ptr875drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h93b64f698827585dE.exit": ; preds = %123, %119, %83, %.body115, %243, %.body128, %210, %247, %211, %.body157
-  %.pn86.pn.pn = phi { ptr, i32 } [ %237, %.body157 ], [ %237, %247 ], [ %212, %211 ], [ %.pn86, %210 ], [ %.pn86, %.body128 ], [ %244, %243 ], [ %113, %123 ], [ %120, %119 ], [ %84, %83 ], [ %113, %.body115 ]
+"_ZN4core3ptr875drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$C$async_std..fs..open_options..OpenOptions..open$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h93b64f698827585dE.exit": ; preds = %119, %123, %83, %.body115, %243, %.body128, %210, %247, %211, %.body157
+  %.pn86.pn.pn = phi { ptr, i32 } [ %237, %.body157 ], [ %212, %211 ], [ %237, %247 ], [ %.pn86, %210 ], [ %.pn86, %.body128 ], [ %244, %243 ], [ %120, %119 ], [ %113, %123 ], [ %84, %83 ], [ %113, %.body115 ]
   resume { ptr, i32 } %.pn86.pn.pn
 
 211:                                              ; preds = %40
@@ -59787,8 +59787,8 @@ _ZN10async_task5utils14abort_on_panic17h55b233e089db7527E.exit: ; preds = %"_ZN1
   br label %224
 
 224:                                              ; preds = %213, %217, %_ZN10async_task5utils14abort_on_panic17hcc4c914af66e1863E.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hcc4c914af66e1863E.exit ], [ %spec.select.i152, %217 ], [ undef, %213 ]
-  %.sroa.0.0188 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hcc4c914af66e1863E.exit ], [ %219, %217 ], [ null, %213 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hcc4c914af66e1863E.exit ], [ undef, %213 ], [ %spec.select.i152, %217 ]
+  %.sroa.0.0188 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hcc4c914af66e1863E.exit ], [ null, %213 ], [ %219, %217 ]
   %225 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %226 = and i64 %225, -240
   %or.cond.i154 = icmp eq i64 %226, 256
@@ -59918,7 +59918,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %115, %119, %.body118, %75, %.body168, %220, %260, %219, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i115", %125, %256, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %250, %.body168 ], [ %250, %260 ], [ %221, %220 ], [ %.pn86, %219 ], [ %.pn86, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i115" ], [ %257, %256 ], [ %60, %125 ], [ %116, %115 ], [ %109, %119 ], [ %109, %.body118 ], [ %76, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %250, %.body168 ], [ %221, %220 ], [ %250, %260 ], [ %.pn86, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i115" ], [ %.pn86, %219 ], [ %60, %125 ], [ %257, %256 ], [ %116, %115 ], [ %109, %119 ], [ %109, %.body118 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17ha32627135f67a14fE.exit: ; preds = %25
@@ -60098,8 +60098,8 @@ _ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit: ; preds = %74, %
   br label %92
 
 92:                                               ; preds = %81, %85, %_ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit
-  %.sroa.9182.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit ], [ %spec.select.i, %85 ], [ undef, %81 ]
-  %.sroa.0180.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit ], [ %87, %85 ], [ null, %81 ]
+  %.sroa.9182.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit ], [ undef, %81 ], [ %spec.select.i, %85 ]
+  %.sroa.0180.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit ], [ null, %81 ], [ %87, %85 ]
   %93 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %94 = and i64 %93, -240
   %or.cond.i = icmp eq i64 %94, 256
@@ -60193,7 +60193,7 @@ _ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit: ; preds = %74, %
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i115": ; preds = %212, %216, %174, %164, %129, %133, %.body149
-  %.pn86 = phi { ptr, i32 } [ %206, %216 ], [ %175, %174 ], [ %206, %.body149 ], [ %213, %212 ], [ %130, %129 ], [ %165, %164 ], [ %134, %133 ]
+  %.pn86 = phi { ptr, i32 } [ %206, %.body149 ], [ %134, %133 ], [ %130, %129 ], [ %165, %164 ], [ %175, %174 ], [ %206, %216 ], [ %213, %212 ]
   %124 = load i64, ptr %5, align 8, !range !3848, !noundef !14
   %.not250 = icmp eq i64 %124, 2
   br i1 %.not250, label %common.resume, label %219
@@ -60345,7 +60345,7 @@ _ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit: ; preds = %74, %
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcf4bf89fff4dea7eE.exit136": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcf4bf89fff4dea7eE.exit", %113, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcf4bf89fff4dea7eE.exit151", %210, %173, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h066aba9d3e358927E.exit.i133", %148
-  %.sroa.0.0 = phi i1 [ true, %173 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcf4bf89fff4dea7eE.exit151" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h066aba9d3e358927E.exit.i133" ], [ false, %148 ], [ false, %210 ], [ false, %113 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcf4bf89fff4dea7eE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %148 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h066aba9d3e358927E.exit.i133" ], [ true, %173 ], [ false, %210 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcf4bf89fff4dea7eE.exit151" ], [ false, %113 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hcf4bf89fff4dea7eE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h84ed6b079dd86a57E.exit
 
@@ -60367,8 +60367,8 @@ _ZN10async_task5utils14abort_on_panic17h5cc410d0fcd3e357E.exit: ; preds = %74, %
   br label %189
 
 189:                                              ; preds = %178, %182, %145
-  %.sroa.9185.0 = phi ptr [ undef, %145 ], [ %spec.select.i143, %182 ], [ undef, %178 ]
-  %.sroa.0183.0 = phi ptr [ null, %145 ], [ %184, %182 ], [ null, %178 ]
+  %.sroa.9185.0 = phi ptr [ undef, %145 ], [ undef, %178 ], [ %spec.select.i143, %182 ]
+  %.sroa.0183.0 = phi ptr [ null, %145 ], [ null, %178 ], [ %184, %182 ]
   %190 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %191 = and i64 %190, -240
   %or.cond.i145 = icmp eq i64 %191, 256
@@ -60489,8 +60489,8 @@ _ZN10async_task5utils14abort_on_panic17h84ed6b079dd86a57E.exit: ; preds = %"_ZN1
   br label %233
 
 233:                                              ; preds = %222, %226, %_ZN10async_task5utils14abort_on_panic17ha32627135f67a14fE.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha32627135f67a14fE.exit ], [ %spec.select.i162, %226 ], [ undef, %222 ]
-  %.sroa.0.0199 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha32627135f67a14fE.exit ], [ %228, %226 ], [ null, %222 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha32627135f67a14fE.exit ], [ undef, %222 ], [ %spec.select.i162, %226 ]
+  %.sroa.0.0199 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha32627135f67a14fE.exit ], [ null, %222 ], [ %228, %226 ]
   %234 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %235 = and i64 %234, -240
   %or.cond.i164 = icmp eq i64 %235, 256
@@ -60668,8 +60668,8 @@ _ZN10async_task5utils14abort_on_panic17h304916a3b1b59b14E.exit: ; preds = %17, %
   br label %._crit_edge264
 
 ._crit_edge264:                                   ; preds = %33, %31, %41
-  %.sroa.13.0.ph = phi ptr [ %32, %31 ], [ %43, %41 ], [ %34, %33 ]
-  %.sroa.8.0.ph = phi ptr [ null, %31 ], [ %42, %41 ], [ null, %33 ]
+  %.sroa.13.0.ph = phi ptr [ %43, %41 ], [ %32, %31 ], [ %34, %33 ]
+  %.sroa.8.0.ph = phi ptr [ %42, %41 ], [ null, %31 ], [ null, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i8, ptr %45, align 8, !range !1583, !noundef !14
   %47 = icmp eq i8 %46, 0
@@ -60821,8 +60821,8 @@ _ZN10async_task5utils14abort_on_panic17h0e91b7720f0546b5E.exit: ; preds = %83, %
   br label %110
 
 110:                                              ; preds = %99, %103, %_ZN10async_task5utils14abort_on_panic17h0e91b7720f0546b5E.exit
-  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0e91b7720f0546b5E.exit ], [ %spec.select.i, %103 ], [ undef, %99 ]
-  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0e91b7720f0546b5E.exit ], [ %105, %103 ], [ null, %99 ]
+  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h0e91b7720f0546b5E.exit ], [ undef, %99 ], [ %spec.select.i, %103 ]
+  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h0e91b7720f0546b5E.exit ], [ null, %99 ], [ %105, %103 ]
   %111 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %112 = and i64 %111, -240
   %or.cond.i = icmp eq i64 %112, 256
@@ -60909,7 +60909,7 @@ _ZN10async_task5utils14abort_on_panic17h64a3e015aac2c270E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr790drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..create_dir..create_dir$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..fs..create_dir..create_dir$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hfeaf44804d7dff8bE.exit": ; preds = %133, %.body.i, %.body114, %129, %170, %174, %138, %.body158
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %164, %.body158 ], [ %171, %170 ], [ %139, %138 ], [ %164, %174 ], [ %123, %133 ], [ %123, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %130, %129 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %164, %.body158 ], [ %139, %138 ], [ %164, %174 ], [ %171, %170 ], [ %123, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %123, %133 ], [ %130, %129 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 138:                                              ; preds = %31
@@ -60936,8 +60936,8 @@ _ZN10async_task5utils14abort_on_panic17h64a3e015aac2c270E.exit: ; preds = %"_ZN1
   br label %151
 
 151:                                              ; preds = %140, %144, %_ZN10async_task5utils14abort_on_panic17h304916a3b1b59b14E.exit
-  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h304916a3b1b59b14E.exit ], [ %spec.select.i153, %144 ], [ undef, %140 ]
-  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h304916a3b1b59b14E.exit ], [ %146, %144 ], [ null, %140 ]
+  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h304916a3b1b59b14E.exit ], [ undef, %140 ], [ %spec.select.i153, %144 ]
+  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h304916a3b1b59b14E.exit ], [ null, %140 ], [ %146, %144 ]
   %152 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %153 = and i64 %152, -240
   %or.cond.i155 = icmp eq i64 %153, 256
@@ -61288,8 +61288,8 @@ _ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit: ; preds = %89, %
   br label %107
 
 107:                                              ; preds = %96, %100, %_ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit
-  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit ], [ %spec.select.i, %100 ], [ undef, %96 ]
-  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit ], [ %102, %100 ], [ null, %96 ]
+  %.sroa.9181.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit ], [ undef, %96 ], [ %spec.select.i, %100 ]
+  %.sroa.0179.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit ], [ null, %96 ], [ %102, %100 ]
   %108 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %109 = and i64 %108, -240
   %or.cond.i = icmp eq i64 %109, 256
@@ -61369,7 +61369,7 @@ _ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit: ; preds = %89, %
   unreachable
 
 .body138:                                         ; preds = %210, %214, %175, %147, %.body149
-  %.pn96 = phi { ptr, i32 } [ %204, %214 ], [ %176, %175 ], [ %204, %.body149 ], [ %148, %147 ], [ %211, %210 ]
+  %.pn96 = phi { ptr, i32 } [ %204, %.body149 ], [ %148, %147 ], [ %176, %175 ], [ %204, %214 ], [ %211, %210 ]
   %135 = load i64, ptr %5, align 8, !range !4286, !noundef !14
   %.not241 = icmp eq i64 %135, 4
   br i1 %.not241, label %"_ZN4core3ptr897drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..symlink_metadata..symlink_metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..symlink_metadata..symlink_metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h4d6998cacc2bb559E.exit", label %217
@@ -61487,7 +61487,7 @@ _ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit: ; preds = %89, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hae00459c149516b0E.exit140" unwind label %147
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hae00459c149516b0E.exit140": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hae00459c149516b0E.exit", %124, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hae00459c149516b0E.exit151", %208, %179, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8b10471c505036efE.exit.i137", %163
-  %.sroa.0.0 = phi i1 [ true, %179 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hae00459c149516b0E.exit151" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8b10471c505036efE.exit.i137" ], [ false, %163 ], [ false, %208 ], [ false, %124 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hae00459c149516b0E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %163 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8b10471c505036efE.exit.i137" ], [ true, %179 ], [ false, %208 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hae00459c149516b0E.exit151" ], [ false, %124 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hae00459c149516b0E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h8e118249a227d94fE.exit
 
@@ -61509,8 +61509,8 @@ _ZN10async_task5utils14abort_on_panic17ha4971de3ba30f0e2E.exit: ; preds = %89, %
   br label %191
 
 191:                                              ; preds = %180, %184, %160
-  %.sroa.9184.0 = phi ptr [ undef, %160 ], [ %spec.select.i144, %184 ], [ undef, %180 ]
-  %.sroa.0182.0 = phi ptr [ null, %160 ], [ %186, %184 ], [ null, %180 ]
+  %.sroa.9184.0 = phi ptr [ undef, %160 ], [ undef, %180 ], [ %spec.select.i144, %184 ]
+  %.sroa.0182.0 = phi ptr [ null, %160 ], [ null, %180 ], [ %186, %184 ]
   %192 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %193 = and i64 %192, -240
   %or.cond.i146 = icmp eq i64 %193, 256
@@ -61594,7 +61594,7 @@ _ZN10async_task5utils14abort_on_panic17h8e118249a227d94fE.exit: ; preds = %"_ZN1
           to label %"_ZN4core3ptr897drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..symlink_metadata..symlink_metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..symlink_metadata..symlink_metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h4d6998cacc2bb559E.exit" unwind label %133
 
 "_ZN4core3ptr897drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..symlink_metadata..symlink_metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$C$async_std..fs..symlink_metadata..symlink_metadata$LT$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17h4d6998cacc2bb559E.exit": ; preds = %130, %90, %.body125, %126, %250, %.body138, %217, %254, %218, %.body167
-  %.pn96.pn.pn = phi { ptr, i32 } [ %244, %.body167 ], [ %244, %254 ], [ %219, %218 ], [ %.pn96, %217 ], [ %.pn96, %.body138 ], [ %251, %250 ], [ %120, %130 ], [ %127, %126 ], [ %91, %90 ], [ %120, %.body125 ]
+  %.pn96.pn.pn = phi { ptr, i32 } [ %244, %.body167 ], [ %219, %218 ], [ %244, %254 ], [ %.pn96, %217 ], [ %.pn96, %.body138 ], [ %251, %250 ], [ %127, %126 ], [ %120, %130 ], [ %91, %90 ], [ %120, %.body125 ]
   resume { ptr, i32 } %.pn96.pn.pn
 
 218:                                              ; preds = %40
@@ -61621,8 +61621,8 @@ _ZN10async_task5utils14abort_on_panic17h8e118249a227d94fE.exit: ; preds = %"_ZN1
   br label %231
 
 231:                                              ; preds = %220, %224, %_ZN10async_task5utils14abort_on_panic17h285a04f90943ede8E.exit
-  %.sroa.9.0201 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h285a04f90943ede8E.exit ], [ %spec.select.i162, %224 ], [ undef, %220 ]
-  %.sroa.0.0199 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h285a04f90943ede8E.exit ], [ %226, %224 ], [ null, %220 ]
+  %.sroa.9.0201 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h285a04f90943ede8E.exit ], [ undef, %220 ], [ %spec.select.i162, %224 ]
+  %.sroa.0.0199 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h285a04f90943ede8E.exit ], [ null, %220 ], [ %226, %224 ]
   %232 = atomicrmw sub ptr %13, i64 256 acq_rel, align 8
   %233 = and i64 %232, -240
   %or.cond.i164 = icmp eq i64 %233, 256
@@ -61813,8 +61813,8 @@ _ZN10async_task5utils14abort_on_panic17h424ff7cc804b1075E.exit: ; preds = %17, %
   br label %._crit_edge268
 
 ._crit_edge268:                                   ; preds = %40, %38, %48
-  %.sroa.13.0.ph = phi ptr [ %39, %38 ], [ %50, %48 ], [ %41, %40 ]
-  %.sroa.8.0.ph = phi ptr [ null, %38 ], [ %49, %48 ], [ null, %40 ]
+  %.sroa.13.0.ph = phi ptr [ %50, %48 ], [ %39, %38 ], [ %41, %40 ]
+  %.sroa.8.0.ph = phi ptr [ %49, %48 ], [ null, %38 ], [ null, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load i8, ptr %52, align 8, !range !1583, !noundef !14
   %54 = icmp eq i8 %53, 0
@@ -61993,8 +61993,8 @@ _ZN10async_task5utils14abort_on_panic17hfd72dec77db7acd9E.exit: ; preds = %97, %
   br label %124
 
 124:                                              ; preds = %113, %117, %_ZN10async_task5utils14abort_on_panic17hfd72dec77db7acd9E.exit
-  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfd72dec77db7acd9E.exit ], [ %spec.select.i, %117 ], [ undef, %113 ]
-  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfd72dec77db7acd9E.exit ], [ %119, %117 ], [ null, %113 ]
+  %.sroa.9179.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hfd72dec77db7acd9E.exit ], [ undef, %113 ], [ %spec.select.i, %117 ]
+  %.sroa.0177.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hfd72dec77db7acd9E.exit ], [ null, %113 ], [ %119, %117 ]
   %125 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %126 = and i64 %125, -240
   %or.cond.i = icmp eq i64 %126, 256
@@ -62081,7 +62081,7 @@ _ZN10async_task5utils14abort_on_panic17h087690379b2b5f42E.exit: ; preds = %"_ZN1
   ret i1 false
 
 "_ZN4core3ptr848drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..os..unix..fs..symlink$LT$$RF$async_std..path..path..Path$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_std..os..unix..fs..symlink$LT$$RF$async_std..path..path..Path$C$$RF$async_std..path..path..Path$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hd339be82badb3c66E.exit": ; preds = %147, %.body.i, %.body114, %143, %184, %188, %152, %.body158
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %178, %.body158 ], [ %185, %184 ], [ %153, %152 ], [ %178, %188 ], [ %137, %147 ], [ %137, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %144, %143 ]
+  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %178, %.body158 ], [ %153, %152 ], [ %178, %188 ], [ %185, %184 ], [ %137, %.body114 ], [ %eh.lpad-body.i, %.body.i ], [ %137, %147 ], [ %144, %143 ]
   resume { ptr, i32 } %.pn75.pn.pn.pn
 
 152:                                              ; preds = %38
@@ -62108,8 +62108,8 @@ _ZN10async_task5utils14abort_on_panic17h087690379b2b5f42E.exit: ; preds = %"_ZN1
   br label %165
 
 165:                                              ; preds = %154, %158, %_ZN10async_task5utils14abort_on_panic17h424ff7cc804b1075E.exit
-  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h424ff7cc804b1075E.exit ], [ %spec.select.i153, %158 ], [ undef, %154 ]
-  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h424ff7cc804b1075E.exit ], [ %160, %158 ], [ null, %154 ]
+  %.sroa.9.0200 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h424ff7cc804b1075E.exit ], [ undef, %154 ], [ %spec.select.i153, %158 ]
+  %.sroa.0.0198 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h424ff7cc804b1075E.exit ], [ null, %154 ], [ %160, %158 ]
   %166 = atomicrmw sub ptr %6, i64 256 acq_rel, align 8
   %167 = and i64 %166, -240
   %or.cond.i155 = icmp eq i64 %167, 256
@@ -62241,7 +62241,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
   unreachable
 
 common.resume:                                    ; preds = %114, %118, %.body119, %74, %.body170, %219, %259, %218, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i116", %124, %255, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %26, %.body.i ], [ %249, %.body170 ], [ %249, %259 ], [ %220, %219 ], [ %.pn86, %218 ], [ %.pn86, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i116" ], [ %256, %255 ], [ %58, %124 ], [ %115, %114 ], [ %108, %118 ], [ %108, %.body119 ], [ %75, %74 ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %.body.i ], [ %249, %.body170 ], [ %220, %219 ], [ %249, %259 ], [ %.pn86, %"_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i116" ], [ %.pn86, %218 ], [ %58, %124 ], [ %256, %255 ], [ %115, %114 ], [ %108, %118 ], [ %108, %.body119 ], [ %75, %74 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10async_task5utils14abort_on_panic17h5535eefa87266a2dE.exit: ; preds = %25
@@ -62427,8 +62427,8 @@ _ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit: ; preds = %73, %
   br label %91
 
 91:                                               ; preds = %80, %84, %_ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit
-  %.sroa.9184.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit ], [ %spec.select.i, %84 ], [ undef, %80 ]
-  %.sroa.0182.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit ], [ %86, %84 ], [ null, %80 ]
+  %.sroa.9184.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit ], [ undef, %80 ], [ %spec.select.i, %84 ]
+  %.sroa.0182.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit ], [ null, %80 ], [ %86, %84 ]
   %92 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %93 = and i64 %92, -240
   %or.cond.i = icmp eq i64 %93, 256
@@ -62522,7 +62522,7 @@ _ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit: ; preds = %73, %
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17he7ca6ad22ca33f28E.exit.i116": ; preds = %211, %215, %173, %163, %.body.i127, %131, %.body151
-  %.pn86 = phi { ptr, i32 } [ %205, %215 ], [ %174, %173 ], [ %205, %.body151 ], [ %212, %211 ], [ %128, %.body.i127 ], [ %164, %163 ], [ %132, %131 ]
+  %.pn86 = phi { ptr, i32 } [ %205, %.body151 ], [ %132, %131 ], [ %128, %.body.i127 ], [ %164, %163 ], [ %174, %173 ], [ %205, %215 ], [ %212, %211 ]
   %123 = load i64, ptr %5, align 8, !range !3848, !noundef !14
   %.not252 = icmp eq i64 %123, 2
   br i1 %.not252, label %common.resume, label %218
@@ -62680,7 +62680,7 @@ _ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit: ; preds = %73, %
   unreachable
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf4c0d78405ad9eeaE.exit138": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf4c0d78405ad9eeaE.exit", %112, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf4c0d78405ad9eeaE.exit153", %209, %172, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h63191cbb4d327338E.exit.i135", %147
-  %.sroa.0.0 = phi i1 [ true, %172 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf4c0d78405ad9eeaE.exit153" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h63191cbb4d327338E.exit.i135" ], [ false, %147 ], [ false, %209 ], [ false, %112 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf4c0d78405ad9eeaE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %147 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h63191cbb4d327338E.exit.i135" ], [ true, %172 ], [ false, %209 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf4c0d78405ad9eeaE.exit153" ], [ false, %112 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hf4c0d78405ad9eeaE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN10async_task5utils14abort_on_panic17h6e2232a4d309e7d1E.exit
 
@@ -62702,8 +62702,8 @@ _ZN10async_task5utils14abort_on_panic17h605fa5c6a12e88d3E.exit: ; preds = %73, %
   br label %188
 
 188:                                              ; preds = %177, %181, %144
-  %.sroa.9187.0 = phi ptr [ undef, %144 ], [ %spec.select.i145, %181 ], [ undef, %177 ]
-  %.sroa.0185.0 = phi ptr [ null, %144 ], [ %183, %181 ], [ null, %177 ]
+  %.sroa.9187.0 = phi ptr [ undef, %144 ], [ undef, %177 ], [ %spec.select.i145, %181 ]
+  %.sroa.0185.0 = phi ptr [ null, %144 ], [ null, %177 ], [ %183, %181 ]
   %189 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %190 = and i64 %189, -240
   %or.cond.i147 = icmp eq i64 %190, 256
@@ -62824,8 +62824,8 @@ _ZN10async_task5utils14abort_on_panic17h6e2232a4d309e7d1E.exit: ; preds = %"_ZN1
   br label %232
 
 232:                                              ; preds = %221, %225, %_ZN10async_task5utils14abort_on_panic17h5535eefa87266a2dE.exit
-  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5535eefa87266a2dE.exit ], [ %spec.select.i164, %225 ], [ undef, %221 ]
-  %.sroa.0.0201 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5535eefa87266a2dE.exit ], [ %227, %225 ], [ null, %221 ]
+  %.sroa.9.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h5535eefa87266a2dE.exit ], [ undef, %221 ], [ %spec.select.i164, %225 ]
+  %.sroa.0.0201 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h5535eefa87266a2dE.exit ], [ null, %221 ], [ %227, %225 ]
   %233 = atomicrmw sub ptr %14, i64 256 acq_rel, align 8
   %234 = and i64 %233, -240
   %or.cond.i166 = icmp eq i64 %234, 256
@@ -63252,8 +63252,8 @@ _ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit: ; preds = %93, %
   br label %111
 
 111:                                              ; preds = %100, %104, %_ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit
-  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit ], [ %spec.select.i, %104 ], [ undef, %100 ]
-  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit ], [ %106, %104 ], [ null, %100 ]
+  %.sroa.9186.0 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit ], [ undef, %100 ], [ %spec.select.i, %104 ]
+  %.sroa.0184.0 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit ], [ null, %100 ], [ %106, %104 ]
   %112 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %113 = and i64 %112, -240
   %or.cond.i = icmp eq i64 %113, 256
@@ -63333,7 +63333,7 @@ _ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit: ; preds = %93, %
   unreachable
 
 .body136:                                         ; preds = %214, %218, %179, %151, %.body147
-  %.pn90 = phi { ptr, i32 } [ %208, %218 ], [ %180, %179 ], [ %208, %.body147 ], [ %152, %151 ], [ %215, %214 ]
+  %.pn90 = phi { ptr, i32 } [ %208, %.body147 ], [ %152, %151 ], [ %180, %179 ], [ %208, %218 ], [ %215, %214 ]
   %139 = load i64, ptr %7, align 8, !range !4286, !noundef !14
   %.not266 = icmp eq i64 %139, 4
   br i1 %.not266, label %"_ZN4core3ptr817drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hc7281fb9445a82e7E.exit", label %221
@@ -63450,7 +63450,7 @@ _ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit: ; preds = %93, %
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8b4495a5b454bf2dE.exit138" unwind label %151
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8b4495a5b454bf2dE.exit138": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8b4495a5b454bf2dE.exit", %128, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8b4495a5b454bf2dE.exit149", %212, %183, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hef79dcabb1db89c5E.exit.i135", %167
-  %.sroa.0.0 = phi i1 [ true, %183 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8b4495a5b454bf2dE.exit149" ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hef79dcabb1db89c5E.exit.i135" ], [ false, %167 ], [ false, %212 ], [ false, %128 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8b4495a5b454bf2dE.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %167 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hef79dcabb1db89c5E.exit.i135" ], [ true, %183 ], [ false, %212 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8b4495a5b454bf2dE.exit149" ], [ false, %128 ], [ false, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17h8b4495a5b454bf2dE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN10async_task5utils14abort_on_panic17ha034570036f2dd4aE.exit
@@ -63473,8 +63473,8 @@ _ZN10async_task5utils14abort_on_panic17h2d84bb8554c3cdb7E.exit: ; preds = %93, %
   br label %195
 
 195:                                              ; preds = %184, %188, %164
-  %.sroa.9189.0 = phi ptr [ undef, %164 ], [ %spec.select.i142, %188 ], [ undef, %184 ]
-  %.sroa.0187.0 = phi ptr [ null, %164 ], [ %190, %188 ], [ null, %184 ]
+  %.sroa.9189.0 = phi ptr [ undef, %164 ], [ undef, %184 ], [ %spec.select.i142, %188 ]
+  %.sroa.0187.0 = phi ptr [ null, %164 ], [ null, %184 ], [ %190, %188 ]
   %196 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %197 = and i64 %196, -240
   %or.cond.i144 = icmp eq i64 %197, 256
@@ -63555,8 +63555,8 @@ _ZN10async_task5utils14abort_on_panic17ha034570036f2dd4aE.exit: ; preds = %"_ZN1
   invoke fastcc void @"_ZN4core3ptr191drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3edd7106505c4565E"(ptr noalias noundef align 8 dereferenceable(24) %7) #19
           to label %"_ZN4core3ptr817drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hc7281fb9445a82e7E.exit" unwind label %137
 
-"_ZN4core3ptr817drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hc7281fb9445a82e7E.exit": ; preds = %134, %130, %94, %.body122, %253, %.body136, %221, %257, %222, %.body165
-  %.pn90.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %247, %257 ], [ %eh.lpad-body, %222 ], [ %.pn90, %221 ], [ %.pn90, %.body136 ], [ %254, %253 ], [ %124, %134 ], [ %131, %130 ], [ %95, %94 ], [ %124, %.body122 ]
+"_ZN4core3ptr817drop_in_place$LT$async_task..raw..RawTask$LT$F$C$T$C$S$C$M$GT$..run..Guard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..Executor..spawn$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$async_fs..read_dir$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$$GT$17hc7281fb9445a82e7E.exit": ; preds = %130, %134, %94, %.body122, %253, %.body136, %221, %257, %222, %.body165
+  %.pn90.pn.pn = phi { ptr, i32 } [ %247, %.body165 ], [ %eh.lpad-body, %222 ], [ %247, %257 ], [ %.pn90, %221 ], [ %.pn90, %.body136 ], [ %254, %253 ], [ %131, %130 ], [ %124, %134 ], [ %95, %94 ], [ %124, %.body122 ]
   resume { ptr, i32 } %.pn90.pn.pn
 
 222:                                              ; preds = %42, %60
@@ -63582,8 +63582,8 @@ _ZN10async_task5utils14abort_on_panic17ha034570036f2dd4aE.exit: ; preds = %"_ZN1
   br label %234
 
 234:                                              ; preds = %223, %227, %_ZN10async_task5utils14abort_on_panic17hc6d894c7d25eaf5aE.exit
-  %.sroa.9.0212 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc6d894c7d25eaf5aE.exit ], [ %spec.select.i160, %227 ], [ undef, %223 ]
-  %.sroa.0.0210 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc6d894c7d25eaf5aE.exit ], [ %229, %227 ], [ null, %223 ]
+  %.sroa.9.0212 = phi ptr [ undef, %_ZN10async_task5utils14abort_on_panic17hc6d894c7d25eaf5aE.exit ], [ undef, %223 ], [ %spec.select.i160, %227 ]
+  %.sroa.0.0210 = phi ptr [ null, %_ZN10async_task5utils14abort_on_panic17hc6d894c7d25eaf5aE.exit ], [ null, %223 ], [ %229, %227 ]
   %235 = atomicrmw sub ptr %10, i64 256 acq_rel, align 8
   %236 = and i64 %235, -240
   %or.cond.i162 = icmp eq i64 %236, 256
@@ -63720,7 +63720,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5a611415afcc2beeE.exit.i": ; preds = %19, %15
@@ -63923,7 +63923,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc2fd2c17df81da08E.exit.i": ; preds = %19, %15
@@ -64126,7 +64126,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hbee08267fefc30c5E.exit.i": ; preds = %19, %15
@@ -64329,7 +64329,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h63b2587d566b9ab2E.exit.i": ; preds = %19, %15
@@ -64532,7 +64532,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1d9790b48111a6c0E.exit.i": ; preds = %19, %15
@@ -64735,7 +64735,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h87e781d0fe56d6d0E.exit.i": ; preds = %19, %15
@@ -64938,7 +64938,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h277ef5c2e9af5f1cE.exit.i": ; preds = %19, %15
@@ -65198,7 +65198,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17haac3cb8fde14694bE.exit.i": ; preds = %19, %15
@@ -65401,7 +65401,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h60468c170096222dE.exit.i": ; preds = %19, %15
@@ -65604,7 +65604,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h05c9717a9a11bebdE.exit.i": ; preds = %19, %15
@@ -65807,7 +65807,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6ae9544c9b24f98cE.exit.i": ; preds = %19, %15
@@ -66010,7 +66010,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h720b480c472125a0E.exit.i": ; preds = %19, %15
@@ -66342,7 +66342,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h84e6be02f1924249E.exit.i": ; preds = %19, %15
@@ -66687,7 +66687,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h4d77047327c84ebdE.exit.i": ; preds = %19, %15
@@ -66890,7 +66890,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h05d3d85d9a69853cE.exit.i": ; preds = %19, %15
@@ -67093,7 +67093,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8ec1a84fc90e5614E.exit.i": ; preds = %19, %15
@@ -67296,7 +67296,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8256ea2fa42e8465E.exit.i": ; preds = %19, %15
@@ -67499,7 +67499,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h25b6838e4ea04a2bE.exit.i": ; preds = %19, %15
@@ -67702,7 +67702,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h43ccc7678d10b4f3E.exit.i": ; preds = %19, %15
@@ -67905,7 +67905,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h843b657556c444efE.exit.i": ; preds = %19, %15
@@ -68108,7 +68108,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hdb154bfc85ae7b71E.exit.i": ; preds = %19, %15
@@ -68311,7 +68311,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8771614f87565f09E.exit.i": ; preds = %19, %15
@@ -68514,7 +68514,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h9d6aae0de5bdacccE.exit.i": ; preds = %19, %15
@@ -68717,7 +68717,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h4301963ddcd5595bE.exit.i": ; preds = %19, %15
@@ -68977,7 +68977,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0e8ea73da5ad6d06E.exit.i": ; preds = %19, %15
@@ -69180,7 +69180,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h3617265486f0be00E.exit.i": ; preds = %19, %15
@@ -69383,7 +69383,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h74677642355f0dcfE.exit.i": ; preds = %19, %15
@@ -69586,7 +69586,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hfbadb6be8a6db2d9E.exit.i": ; preds = %19, %15
@@ -69789,7 +69789,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hff00afbe11c1911cE.exit.i": ; preds = %19, %15
@@ -70333,7 +70333,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h405262d170c2c641E.exit.i": ; preds = %19, %15
@@ -70593,7 +70593,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h23145a49af5839ecE.exit.i": ; preds = %19, %15
@@ -70938,7 +70938,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h35531c704f647c5aE.exit.i": ; preds = %19, %15
@@ -71198,7 +71198,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hef79dcabb1db89c5E.exit.i": ; preds = %19, %15
@@ -71401,7 +71401,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6d78f1770698191bE.exit.i": ; preds = %19, %15
@@ -71604,7 +71604,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h23f117d411a4c523E.exit.i": ; preds = %19, %15
@@ -71879,7 +71879,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hda379414b1695080E.exit.i": ; preds = %19, %15
@@ -72154,7 +72154,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hdb8b6186ec608ae5E.exit.i": ; preds = %19, %15
@@ -72486,7 +72486,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hae1786b1358fdbbcE.exit.i": ; preds = %19, %15
@@ -72689,7 +72689,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h3ce1ea7eacf0562bE.exit.i": ; preds = %19, %15
@@ -73032,7 +73032,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2c1b3f05bd1d1a84E.exit.i": ; preds = %19, %15
@@ -73432,7 +73432,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h43f4304b8f4cc970E.exit.i": ; preds = %19, %15
@@ -73635,7 +73635,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2f625b6b36119ca9E.exit.i": ; preds = %19, %15
@@ -73838,7 +73838,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd7623bb4d91d0dcaE.exit.i": ; preds = %19, %15
@@ -74041,7 +74041,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1b3b848814dd8a71E.exit.i": ; preds = %19, %15
@@ -74244,7 +74244,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h720ad2a5f6d75f58E.exit.i": ; preds = %19, %15
@@ -74447,7 +74447,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h8b10471c505036efE.exit.i": ; preds = %19, %15
@@ -74650,7 +74650,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0c073ef58955f97eE.exit.i": ; preds = %19, %15
@@ -74853,7 +74853,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$4wake17h
   unreachable
 
 common.resume:                                    ; preds = %78, %55, %24
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %25, %24 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %56, %55 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h18a3e2a3a9e3aeecE.exit.i": ; preds = %19, %15
@@ -79744,7 +79744,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha08fc2fdf548f798E.exit._ZN4core3ops8fun
   unreachable
 
 .body.i:                                          ; preds = %44, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %45, %44 ], [ %26, %25 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %45, %44 ]
   invoke void @"_ZN81_$LT$async_task..utils..abort_on_panic..Bomb$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdea2779ad5a81e54E"(ptr noalias noundef nonnull align 1 %6)
           to label %.critedge unwind label %48
 
@@ -80921,7 +80921,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha08fc2fdf548f798E.exit._ZN4core3ops8fun
   unreachable
 
 .body.i:                                          ; preds = %44, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %45, %44 ], [ %26, %25 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %45, %44 ]
   invoke void @"_ZN81_$LT$async_task..utils..abort_on_panic..Bomb$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdea2779ad5a81e54E"(ptr noalias noundef nonnull align 1 %6)
           to label %.critedge unwind label %48
 
@@ -81353,7 +81353,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha08fc2fdf548f798E.exit._ZN4core3ops8fun
   unreachable
 
 .body.i:                                          ; preds = %44, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %45, %44 ], [ %26, %25 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %45, %44 ]
   invoke void @"_ZN81_$LT$async_task..utils..abort_on_panic..Bomb$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdea2779ad5a81e54E"(ptr noalias noundef nonnull align 1 %6)
           to label %.critedge unwind label %48
 
@@ -83872,7 +83872,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha08fc2fdf548f798E.exit._ZN4core3ops8fun
   unreachable
 
 .body.i:                                          ; preds = %44, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %45, %44 ], [ %26, %25 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %45, %44 ]
   invoke void @"_ZN81_$LT$async_task..utils..abort_on_panic..Bomb$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdea2779ad5a81e54E"(ptr noalias noundef nonnull align 1 %6)
           to label %.critedge unwind label %48
 
@@ -89450,7 +89450,7 @@ default.unreachable15:                            ; preds = %3
   unreachable
 
 .body10:                                          ; preds = %56, %49, %44, %.body
-  %.pn4 = phi { ptr, i32 } [ %45, %44 ], [ %.pn2, %.body ], [ %57, %56 ], [ %45, %49 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %.body ], [ %57, %56 ], [ %45, %49 ], [ %45, %44 ]
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn4
 
@@ -89655,7 +89655,7 @@ default.unreachable15:                            ; preds = %3
   unreachable
 
 .body10:                                          ; preds = %56, %49, %44, %.body
-  %.pn4 = phi { ptr, i32 } [ %45, %44 ], [ %.pn2, %.body ], [ %57, %56 ], [ %45, %49 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %.body ], [ %57, %56 ], [ %45, %49 ], [ %45, %44 ]
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn4
 
@@ -89857,7 +89857,7 @@ default.unreachable14:                            ; preds = %2
   unreachable
 
 .body:                                            ; preds = %54, %47, %42, %36
-  %.pn8 = phi { ptr, i32 } [ %43, %42 ], [ %.pn6, %36 ], [ %55, %54 ], [ %43, %47 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %36 ], [ %55, %54 ], [ %43, %47 ], [ %43, %42 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn8
 
@@ -90035,7 +90035,7 @@ default.unreachable12:                            ; preds = %3
   unreachable
 
 .body:                                            ; preds = %53, %46, %41, %35
-  %.pn4 = phi { ptr, i32 } [ %42, %41 ], [ %.pn2, %35 ], [ %54, %53 ], [ %42, %46 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %35 ], [ %54, %53 ], [ %42, %46 ], [ %42, %41 ]
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn4
 
@@ -92387,7 +92387,7 @@ common.ret:                                       ; preds = %41, %"_ZN77_$LT$asy
   unreachable
 
 common.resume:                                    ; preds = %32, %37, %17, %.body, %22
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %23, %22 ], [ %eh.lpad-body, %.body ], [ %33, %37 ], [ %33, %32 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %18, %17 ], [ %eh.lpad-body, %.body ], [ %33, %37 ], [ %33, %32 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr167drop_in_place$LT$async_std..task..builder..SupportTaskLocals$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$$GT$17h83edf53e2fd9578cE.exit4": ; preds = %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$async_executor..State$GT$$GT$17hd34533f1c5e70261E.exit"
@@ -92725,7 +92725,7 @@ common.ret:                                       ; preds = %41, %"_ZN77_$LT$asy
   unreachable
 
 common.resume:                                    ; preds = %32, %37, %17, %.body, %22
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %23, %22 ], [ %eh.lpad-body, %.body ], [ %33, %37 ], [ %33, %32 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %18, %17 ], [ %eh.lpad-body, %.body ], [ %33, %37 ], [ %33, %32 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr187drop_in_place$LT$async_std..task..builder..SupportTaskLocals$LT$async_task..task..Task$LT$core..result..Result$LT$async_std..path..pathbuf..PathBuf$C$std..io..error..Error$GT$$GT$$GT$$GT$17h127da384b30c4ee4E.exit4": ; preds = %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$async_executor..State$GT$$GT$17hd34533f1c5e70261E.exit"
@@ -94863,7 +94863,7 @@ default.unreachable1:                             ; preds = %1
   br label %.body
 
 .body:                                            ; preds = %14, %17, %22, %32
-  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %18, %17 ], [ %18, %22 ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %18, %22 ], [ %18, %17 ], [ %15, %14 ]
   store i8 2, ptr %3, align 8
   resume { ptr, i32 } %eh.lpad-body
 

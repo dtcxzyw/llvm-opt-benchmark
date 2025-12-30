@@ -5991,7 +5991,7 @@ define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, 
   br label %36
 
 36:                                               ; preds = %34, %31, %29, %25, %.lr.ph
-  %.036 = phi i64 [ %switch.select43, %34 ], [ 8, %.lr.ph ], [ 2, %25 ], [ 3, %29 ], [ 4, %31 ]
+  %.036 = phi i64 [ 8, %.lr.ph ], [ 2, %25 ], [ 3, %29 ], [ 4, %31 ], [ %switch.select43, %34 ]
   %37 = load ptr, ptr %6, align 8
   %38 = getelementptr ptr, ptr @dissect_r3_upstreammfgfield_checkpointlog.resets, i64 %.036
   %39 = load ptr, ptr %38, align 8
@@ -6671,7 +6671,7 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   br label %.loopexit
 
 90:                                               ; preds = %45, %._crit_edge82, %42, %64, %85, %21, %20
-  %.2 = phi i32 [ %17, %20 ], [ %88, %85 ], [ %43, %42 ], [ %17, %21 ], [ %65, %64 ], [ %.pre, %._crit_edge82 ], [ %49, %45 ]
+  %.2 = phi i32 [ %43, %42 ], [ %65, %64 ], [ %88, %85 ], [ %17, %21 ], [ %17, %20 ], [ %.pre, %._crit_edge82 ], [ %49, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %91 = add i32 %.2, 3
   %92 = icmp slt i32 %91, %10
@@ -7857,7 +7857,7 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   br label %.loopexit
 
 116:                                              ; preds = %24, %28, %32, %36, %40, %51, %62, %73, %83, %93
-  %.2 = phi i32 [ %114, %93 ], [ %.0120121, %24 ], [ %.0120121, %28 ], [ %.0120121, %32 ], [ %.0120121, %36 ], [ %50, %40 ], [ %61, %51 ], [ %72, %62 ], [ %82, %73 ], [ %92, %83 ]
+  %.2 = phi i32 [ %.0120121, %24 ], [ %.0120121, %28 ], [ %.0120121, %32 ], [ %.0120121, %36 ], [ %50, %40 ], [ %61, %51 ], [ %72, %62 ], [ %82, %73 ], [ %92, %83 ], [ %114, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %117 = add i32 %.2, 3
   %118 = icmp slt i32 %117, %13

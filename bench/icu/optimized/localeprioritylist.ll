@@ -155,7 +155,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -971,7 +971,7 @@ _ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit: ; preds = %.lr.ph.i, %10, %2
   br label %44
 
 44:                                               ; preds = %.critedge, %22, %16, %_ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit, %13
-  %.034 = phi i32 [ -1, %_ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit ], [ -1, %13 ], [ %43, %.critedge ], [ %19, %22 ], [ %19, %16 ]
+  %.034 = phi i32 [ -1, %13 ], [ -1, %_ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit ], [ %43, %.critedge ], [ %19, %22 ], [ %19, %16 ]
   ret i32 %.034
 }
 
@@ -1170,8 +1170,8 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
   br label %88
 
 85:                                               ; preds = %33, %43
-  %86 = phi i1 [ false, %43 ], [ true, %33 ]
-  %.sroa.0.3 = phi ptr [ %37, %43 ], [ %27, %33 ]
+  %86 = phi i1 [ true, %33 ], [ false, %43 ]
+  %.sroa.0.3 = phi ptr [ %27, %33 ], [ %37, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = icmp eq ptr %.sroa.0.3, null
   br i1 %87, label %_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit, label %88
@@ -1211,7 +1211,7 @@ _ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit46: ; preds = %93, %95
   resume { ptr, i32 } %.pn85
 
 _ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit:   ; preds = %.thread78, %88, %85, %.thread, %14, %12, %4
-  %.0 = phi i1 [ false, %14 ], [ false, %4 ], [ true, %12 ], [ true, %.thread ], [ %86, %85 ], [ %89, %88 ], [ true, %.thread78 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %12 ], [ false, %14 ], [ true, %.thread ], [ %86, %85 ], [ %89, %88 ], [ true, %.thread78 ]
   ret i1 %.0
 }
 

@@ -1495,10 +1495,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv6legacy8tracking4impl14Trac
   br label %_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit
 
 _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %37, %3, %33, %45, %._crit_edge.i.i, %53
-  %.sroa.0.sroa.0.0.i = phi i32 [ %40, %._crit_edge.i.i ], [ 0, %3 ], [ 0, %53 ], [ 0, %33 ], [ 0, %45 ], [ 0, %37 ]
-  %.sroa.0.sroa.9.0.i = phi i32 [ %47, %._crit_edge.i.i ], [ 0, %3 ], [ 0, %53 ], [ 0, %33 ], [ 0, %45 ], [ 0, %37 ]
-  %.sroa.14.sroa.0.0.i = phi i32 [ %.sroa.speculated53.i.i, %._crit_edge.i.i ], [ 0, %3 ], [ 0, %53 ], [ 0, %33 ], [ 0, %45 ], [ 0, %37 ]
-  %.sroa.14.sroa.12.0.i = phi i32 [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ 0, %3 ], [ 0, %53 ], [ 0, %33 ], [ 0, %45 ], [ 0, %37 ]
+  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %53 ], [ %40, %._crit_edge.i.i ], [ 0, %33 ], [ 0, %3 ], [ 0, %45 ], [ 0, %37 ]
+  %.sroa.0.sroa.9.0.i = phi i32 [ 0, %53 ], [ %47, %._crit_edge.i.i ], [ 0, %33 ], [ 0, %3 ], [ 0, %45 ], [ 0, %37 ]
+  %.sroa.14.sroa.0.0.i = phi i32 [ 0, %53 ], [ %.sroa.speculated53.i.i, %._crit_edge.i.i ], [ 0, %33 ], [ 0, %3 ], [ 0, %45 ], [ 0, %37 ]
+  %.sroa.14.sroa.12.0.i = phi i32 [ 0, %53 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ 0, %33 ], [ 0, %3 ], [ 0, %45 ], [ 0, %37 ]
   %.sroa.0.sroa.9.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.9.0.i to i64
   %.sroa.0.sroa.9.0.insert.shift.i = shl nuw nsw i64 %.sroa.0.sroa.9.0.insert.ext.i, 32
   %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.0.0.i to i64

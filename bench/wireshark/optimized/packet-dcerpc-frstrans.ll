@@ -1025,7 +1025,7 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterGeneric(ptr noundef %0, i
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %33, label %29
 
@@ -1232,7 +1232,7 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
   br label %30
 
 30:                                               ; preds = %25, %27, %20, %22
-  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %29, %27 ], [ %1, %25 ]
+  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %1, %25 ], [ %29, %27 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %35, label %31
 
@@ -1298,7 +1298,7 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
   br label %61
 
 61:                                               ; preds = %58, %56, %53, %51
-  %.0.i.i = phi i32 [ %43, %51 ], [ %55, %53 ], [ %60, %58 ], [ %43, %56 ]
+  %.0.i.i = phi i32 [ %43, %51 ], [ %55, %53 ], [ %43, %56 ], [ %60, %58 ]
   %62 = load i32, ptr %10, align 4
   switch i32 %62, label %frstrans_dissect_element_RdcParameters_u.exit [
     i32 0, label %63

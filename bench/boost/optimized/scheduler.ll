@@ -1306,10 +1306,10 @@ _ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7m
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit: ; preds = %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, %216, %193, %192, %190
-  %.013.i.i.i.i54 = phi ptr [ %.013.i.i.i.i55, %216 ], [ %.013.i.i.i.i55, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.05.i.i.i.i.i, %190 ], [ %.05.i.i.i.i.i, %192 ], [ %.05.i.i.i.i.i, %193 ]
-  %.096.i = phi ptr [ %.097.i, %216 ], [ %.097.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.05.i.i, %190 ], [ %.05.i.i, %192 ], [ %.05.i.i, %193 ]
-  %.06294.i = phi ptr [ %.06295.i, %216 ], [ %.06295.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %179, %190 ], [ %179, %192 ], [ %179, %193 ]
-  %.1.i13 = phi ptr [ %199, %216 ], [ %199, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.063.i, %190 ], [ %.063.i, %192 ], [ %.063.i, %193 ]
+  %.013.i.i.i.i54 = phi ptr [ %.013.i.i.i.i55, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.013.i.i.i.i55, %216 ], [ %.05.i.i.i.i.i, %190 ], [ %.05.i.i.i.i.i, %192 ], [ %.05.i.i.i.i.i, %193 ]
+  %.096.i = phi ptr [ %.097.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.097.i, %216 ], [ %.05.i.i, %190 ], [ %.05.i.i, %192 ], [ %.05.i.i, %193 ]
+  %.06294.i = phi ptr [ %.06295.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.06295.i, %216 ], [ %179, %190 ], [ %179, %192 ], [ %179, %193 ]
+  %.1.i13 = phi ptr [ %199, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %199, %216 ], [ %.063.i, %190 ], [ %.063.i, %192 ], [ %.063.i, %193 ]
   %.not.i.i3.i.i = icmp eq ptr %.096.i, %.sroa.05.012.i
   br i1 %.not.i.i3.i.i, label %226, label %221
 
@@ -2304,9 +2304,9 @@ _ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7m
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit: ; preds = %29, %28, %26, %52, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit
-  %.096 = phi ptr [ %.097, %52 ], [ %.097, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit ], [ %.05.i, %26 ], [ %.05.i, %28 ], [ %.05.i, %29 ]
-  %.06294 = phi ptr [ %.06295, %52 ], [ %.06295, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit ], [ %15, %26 ], [ %15, %28 ], [ %15, %29 ]
-  %.1 = phi ptr [ %34, %52 ], [ %34, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit ], [ %.063, %26 ], [ %.063, %28 ], [ %.063, %29 ]
+  %.096 = phi ptr [ %.097, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit ], [ %.097, %52 ], [ %.05.i, %26 ], [ %.05.i, %28 ], [ %.05.i, %29 ]
+  %.06294 = phi ptr [ %.06295, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit ], [ %.06295, %52 ], [ %15, %26 ], [ %15, %28 ], [ %15, %29 ]
+  %.1 = phi ptr [ %34, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit ], [ %34, %52 ], [ %.063, %26 ], [ %.063, %28 ], [ %.063, %29 ]
   store ptr %.06294, ptr %2, align 8, !tbaa !40
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.096, ptr %58, align 8, !tbaa !37
@@ -2725,7 +2725,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE26rotat
   br label %.thread142
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit121: ; preds = %120, %119, %42, %41
-  %.091.sink = phi ptr [ %.091, %42 ], [ %.091, %41 ], [ %.093, %119 ], [ %.093, %120 ]
+  %.091.sink = phi ptr [ %.091, %41 ], [ %.091, %42 ], [ %.093, %119 ], [ %.093, %120 ]
   %170 = getelementptr inbounds nuw i8, ptr %.091.sink, i64 24
   store i32 0, ptr %170, align 8, !tbaa !39
   %.288 = load ptr, ptr %.086199, align 8, !tbaa !35
@@ -2733,7 +2733,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE11rotat
   br i1 %171, label %.thread146, label %.lr.ph
 
 .thread142:                                       ; preds = %3, %168, %167, %165, %90, %89, %87
-  %.0161 = phi ptr [ %.0200, %87 ], [ %.0200, %168 ], [ %.0200, %167 ], [ %.0200, %165 ], [ %.0200, %90 ], [ %.0200, %89 ], [ %1, %3 ]
+  %.0161 = phi ptr [ %.0200, %168 ], [ %.0200, %167 ], [ %.0200, %165 ], [ %.0200, %90 ], [ %.0200, %89 ], [ %.0200, %87 ], [ %1, %3 ]
   %.not117 = icmp eq ptr %.0161, null
   br i1 %.not117, label %173, label %.thread146
 
@@ -2918,7 +2918,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rotat
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit: ; preds = %69, %68, %66, %49, %48, %46
-  %.142 = phi ptr [ %.041, %49 ], [ %.041, %46 ], [ %.041, %48 ], [ %.243, %66 ], [ %.243, %68 ], [ %.243, %69 ]
+  %.142 = phi ptr [ %.041, %46 ], [ %.041, %48 ], [ %.041, %49 ], [ %.243, %66 ], [ %.243, %68 ], [ %.243, %69 ]
   %71 = getelementptr inbounds nuw i8, ptr %.142, i64 24
   store i32 1, ptr %71, align 8, !tbaa !39
   br label %.loopexit
@@ -2930,7 +2930,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotat
   %74 = icmp eq ptr %73, %0
   br i1 %74, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %72, %2, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit
+.loopexit:                                        ; preds = %72, %.lr.ph, %2, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_11rbtree_nodeIS3_EES8_S8_S8_.exit
   %75 = load ptr, ptr %0, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store i32 1, ptr %76, align 8, !tbaa !39

@@ -1183,7 +1183,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_pmu_add(ptr noundef %0, i32
   br label %iommu_pmu_start.exit
 
 iommu_pmu_start.exit:                             ; preds = %34, %2, %146, %145, %37, %138
-  %162 = phi i32 [ 0, %138 ], [ 0, %146 ], [ -22, %37 ], [ 0, %145 ], [ -22, %2 ], [ -22, %34 ]
+  %162 = phi i32 [ 0, %138 ], [ -22, %37 ], [ 0, %145 ], [ 0, %146 ], [ -22, %2 ], [ -22, %34 ]
   ret i32 %162
 }
 

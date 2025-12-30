@@ -206,7 +206,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17
           to label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$cfg..cfg_expr..CfgExpr$GT$$GT$17h87828e6339a06dc9E.llvm.12438884439326516104.exit" unwind label %8, !noalias !58
 
 common.resume:                                    ; preds = %31, %35, %16, %20, %8
-  %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %17, %16 ], [ %17, %20 ], [ %32, %35 ], [ %32, %31 ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %17, %20 ], [ %17, %16 ], [ %32, %35 ], [ %32, %31 ]
   resume { ptr, i32 } %common.resume.op
 
 8:                                                ; preds = %6

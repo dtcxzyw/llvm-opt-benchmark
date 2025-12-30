@@ -475,7 +475,7 @@ _ZN3smt10theory_opt10is_numeralER10arith_utilP4expr.exit47: ; preds = %_ZNK17ari
           to label %.backedge.sink.split.sink.split unwind label %.loopexit.split-lp
 
 .critedge:                                        ; preds = %36, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %_ZN3smt10theory_opt10is_numeralER10arith_utilP4expr.exit47, %.backedge, %116, %_ZN3smt10theory_opt10is_numeralER10arith_utilP4expr.exit.thread, %48, %.lr.ph.i39, %.critedge.i46
-  %193 = phi i1 [ false, %.lr.ph.i39 ], [ false, %.critedge.i46 ], [ false, %48 ], [ true, %.backedge ], [ false, %36 ], [ true, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ false, %_ZN3smt10theory_opt10is_numeralER10arith_utilP4expr.exit47 ], [ false, %116 ], [ false, %_ZN3smt10theory_opt10is_numeralER10arith_utilP4expr.exit.thread ]
+  %193 = phi i1 [ false, %.critedge.i46 ], [ false, %.lr.ph.i39 ], [ false, %36 ], [ true, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ false, %_ZN3smt10theory_opt10is_numeralER10arith_utilP4expr.exit47 ], [ true, %.backedge ], [ false, %116 ], [ false, %_ZN3smt10theory_opt10is_numeralER10arith_utilP4expr.exit.thread ], [ false, %48 ]
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8ast_mark, i64 16), ptr %8, align 8, !tbaa !10
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %195 = load ptr, ptr %194, align 8, !tbaa !44
@@ -534,7 +534,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN8ast_markD2Ev.ex
   ret i1 %193
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %33, %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %31
-  %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %34, %33 ], [ %103, %102 ], [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %34, %33 ], [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %103, %102 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19

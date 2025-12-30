@@ -475,7 +475,7 @@ _ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %_ZNSt14_Function_ba
   br label %198
 
 .body:                                            ; preds = %95, %92, %124, %127
-  %eh.lpad-body = phi { ptr, i32 } [ %125, %124 ], [ %125, %127 ], [ %93, %92 ], [ %93, %95 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %93, %95 ], [ %93, %92 ], [ %125, %127 ], [ %125, %124 ]
   %166 = load ptr, ptr %60, align 8, !tbaa !76
   %.not.i31 = icmp eq ptr %166, null
   br i1 %.not.i31, label %_ZNSt14_Function_baseD2Ev.exit32, label %167
@@ -1474,7 +1474,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   br label %28
 
 28:                                               ; preds = %23, %21
-  %.1 = phi i32 [ %.029, %21 ], [ %25, %23 ]
+  %.1 = phi i32 [ %25, %23 ], [ %.029, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %.02028, i64 8
   %.not = icmp eq ptr %29, %16
   br i1 %.not, label %.critedge24.loopexit, label %.lr.ph

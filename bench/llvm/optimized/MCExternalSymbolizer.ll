@@ -396,7 +396,7 @@ _ZN4llvm9StringRefC2EPKc.exit93:                  ; preds = %139
   br label %188
 
 188:                                              ; preds = %183, %178, %173, %172, %179, %184
-  %.149 = phi ptr [ %187, %184 ], [ %182, %179 ], [ %.047, %172 ], [ %.051, %178 ], [ %176, %173 ], [ %.050, %183 ]
+  %.149 = phi ptr [ %182, %179 ], [ %187, %184 ], [ %176, %173 ], [ %.047, %172 ], [ %.051, %178 ], [ %.050, %183 ]
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %190 = load ptr, ptr %189, align 8, !tbaa !44
   %191 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -441,7 +441,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %198, %204
   br label %214
 
 214:                                              ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, %188, %22, %_ZN4llvm11raw_ostreamlsEPKc.exit82
-  %.0 = phi i1 [ false, %22 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit82 ], [ false, %188 ], [ true, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ]
+  %.0 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit82 ], [ false, %22 ], [ false, %188 ], [ true, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
 }

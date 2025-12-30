@@ -68,7 +68,7 @@ _PyIndex_Check.exit.thread:                       ; preds = %4, %_PyIndex_Check.
   br label %20
 
 20:                                               ; preds = %13, %2, %19, %_PyIndex_Check.exit.thread
-  %.0 = phi i32 [ 0, %_PyIndex_Check.exit.thread ], [ 1, %2 ], [ 1, %19 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %_PyIndex_Check.exit.thread ], [ 1, %2 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -385,7 +385,7 @@ Py_DECREF.exit.i:                                 ; preds = %45, %42, %.lr.ph.i
   br label %48
 
 48:                                               ; preds = %.loopexit, %47, %.loopexit27, %19, %13, %10
-  %.0 = phi ptr [ null, %10 ], [ %0, %13 ], [ null, %19 ], [ %.022, %.loopexit27 ], [ null, %47 ], [ null, %.loopexit ]
+  %.0 = phi ptr [ null, %10 ], [ %0, %13 ], [ %.022, %.loopexit27 ], [ null, %19 ], [ null, %47 ], [ null, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -441,8 +441,8 @@ define internal fastcc i64 @countformat(ptr noundef readonly captures(none) %0, 
   br label %14
 
 14:                                               ; preds = %11, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %9, %5
-  %.2 = phi i64 [ %.01226, %.critedge ], [ %spec.select16, %11 ], [ %spec.select, %5 ], [ %.01226, %9 ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ]
-  %.1 = phi i32 [ %.027, %.critedge ], [ %.027, %11 ], [ %8, %5 ], [ %10, %9 ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ]
+  %.2 = phi i64 [ %spec.select, %5 ], [ %.01226, %9 ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %spec.select16, %11 ]
+  %.1 = phi i32 [ %8, %5 ], [ %10, %9 ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %11 ]
   %15 = getelementptr i8, ptr %.01525, i64 1
   %16 = icmp slt i32 %.1, 1
   %.pr = load i8, ptr %15, align 1, !tbaa !29
@@ -511,7 +511,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %3, %PyObject_TypeCh
   br label %21
 
 21:                                               ; preds = %15, %19, %8, %10, %6
-  %.0 = phi i32 [ -1, %8 ], [ -1, %6 ], [ -1, %10 ], [ -1, %15 ], [ %20, %19 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %8 ], [ -1, %15 ], [ %20, %19 ]
   ret i32 %.0
 }
 
@@ -1672,7 +1672,7 @@ Py_DECREF.exit51.i:                               ; preds = %89, %86, %Py_DECREF
   br label %do_mklist.exit
 
 do_mklist.exit:                                   ; preds = %28, %25, %21, %499, %496, %439, %432, %429, %389, %382, %379, %261, %258, %._crit_edge, %49, %44, %39, %59, %56, %52, %78, %75, %Py_DECREF.exit57.i, %98, %95, %93, %._crit_edge170, %18, %11, %38, %35, %33, %492, %503, %501, %.thread138, %.thread130, %267, %505, %471, %338, %320, %300, %283, %217, %200, %183, %166, %148, %130, %112, %8
-  %.0 = phi ptr [ null, %505 ], [ %10, %8 ], [ @_Py_NoneStruct, %432 ], [ null, %33 ], [ %116, %112 ], [ %134, %130 ], [ %152, %148 ], [ %169, %166 ], [ %186, %183 ], [ %203, %200 ], [ %220, %217 ], [ %441, %.thread138 ], [ %286, %283 ], [ %306, %300 ], [ %324, %320 ], [ %341, %338 ], [ %268, %267 ], [ %391, %.thread130 ], [ %477, %471 ], [ null, %93 ], [ null, %389 ], [ @_Py_NoneStruct, %261 ], [ null, %439 ], [ @_Py_NoneStruct, %382 ], [ null, %501 ], [ null, %503 ], [ %491, %492 ], [ %15, %._crit_edge170 ], [ null, %18 ], [ %491, %499 ], [ null, %11 ], [ null, %38 ], [ null, %35 ], [ null, %Py_DECREF.exit57.i ], [ null, %44 ], [ null, %49 ], [ %47, %._crit_edge ], [ null, %39 ], [ null, %52 ], [ null, %59 ], [ null, %56 ], [ null, %78 ], [ null, %75 ], [ null, %98 ], [ null, %95 ], [ @_Py_NoneStruct, %258 ], [ @_Py_NoneStruct, %379 ], [ @_Py_NoneStruct, %429 ], [ %491, %496 ], [ null, %21 ], [ null, %25 ], [ null, %28 ]
+  %.0 = phi ptr [ null, %505 ], [ %10, %8 ], [ %116, %112 ], [ %134, %130 ], [ %152, %148 ], [ %169, %166 ], [ %186, %183 ], [ %203, %200 ], [ %220, %217 ], [ %286, %283 ], [ %306, %300 ], [ %324, %320 ], [ %341, %338 ], [ %477, %471 ], [ %268, %267 ], [ null, %389 ], [ %391, %.thread130 ], [ null, %439 ], [ %441, %.thread138 ], [ null, %501 ], [ null, %503 ], [ %491, %492 ], [ null, %18 ], [ null, %11 ], [ %15, %._crit_edge170 ], [ null, %38 ], [ null, %35 ], [ null, %33 ], [ null, %44 ], [ null, %49 ], [ null, %39 ], [ %47, %._crit_edge ], [ null, %59 ], [ null, %56 ], [ null, %52 ], [ null, %78 ], [ null, %75 ], [ null, %Py_DECREF.exit57.i ], [ null, %98 ], [ null, %95 ], [ null, %93 ], [ @_Py_NoneStruct, %258 ], [ @_Py_NoneStruct, %261 ], [ @_Py_NoneStruct, %379 ], [ @_Py_NoneStruct, %382 ], [ @_Py_NoneStruct, %429 ], [ @_Py_NoneStruct, %432 ], [ %491, %496 ], [ %491, %499 ], [ null, %21 ], [ null, %25 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -1777,7 +1777,7 @@ check_end.exit:                                   ; preds = %27, %._crit_edge
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %13, %17, %20, %36, %33, %30, %check_end.exit, %4, %10
-  %.0 = phi ptr [ %7, %check_end.exit ], [ null, %10 ], [ null, %36 ], [ null, %4 ], [ null, %30 ], [ null, %33 ], [ null, %20 ], [ null, %17 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %4 ], [ %7, %check_end.exit ], [ null, %30 ], [ null, %33 ], [ null, %36 ], [ null, %20 ], [ null, %17 ], [ null, %13 ]
   ret ptr %.0
 }
 

@@ -2540,7 +2540,7 @@ zstream_reset_input.exit.i:                       ; preds = %62, %60
   unreachable
 
 zstream_sync.exit:                                ; preds = %35, %46, %51, %66, %68, %74, %82, %87
-  %.0.i = phi i64 [ 0, %68 ], [ 20, %51 ], [ 0, %66 ], [ 20, %35 ], [ 20, %46 ], [ 20, %74 ], [ 20, %82 ], [ 20, %87 ]
+  %.0.i = phi i64 [ 0, %66 ], [ 0, %68 ], [ 20, %35 ], [ 20, %46 ], [ 20, %51 ], [ 20, %74 ], [ 20, %82 ], [ 20, %87 ]
   ret i64 %.0.i
 }
 
@@ -3189,7 +3189,7 @@ get_gzfile.exit.preheader:                        ; preds = %1
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %12, %22, %.critedge
-  %28 = phi i64 [ 20, %.critedge ], [ %27, %22 ], [ 0, %12 ]
+  %28 = phi i64 [ %27, %22 ], [ 20, %.critedge ], [ 0, %12 ]
   ret i64 %28
 }
 
@@ -3997,7 +3997,7 @@ rb_num2long_inline.exit:                          ; preds = %36, %38
   br label %rb_gzreader_unused.exit
 
 rb_gzreader_unused.exit:                          ; preds = %rb_num2long_inline.exit, %47, %54, %58
-  %.0.i.i = phi i64 [ 4, %54 ], [ %59, %58 ], [ 4, %rb_num2long_inline.exit ], [ 4, %47 ]
+  %.0.i.i = phi i64 [ %59, %58 ], [ 4, %rb_num2long_inline.exit ], [ 4, %47 ], [ 4, %54 ]
   %60 = tail call ptr @rb_check_typeddata(i64 noundef %9, ptr noundef nonnull @gzfile_data_type) #18
   %61 = load i64, ptr %60, align 8, !tbaa !113
   %62 = and i64 %61, 1
@@ -4157,7 +4157,7 @@ rb_scan_args_n_opt.exit:
   br i1 %17, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread22, %12
-  %.0.i16 = phi i32 [ 0, %12 ], [ %.0.i26, %.thread22 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i16 = phi i32 [ %.0.i26, %.thread22 ], [ 0, %12 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i16, i32 noundef 1, i32 noundef 1) #19
   unreachable
 
@@ -4390,7 +4390,7 @@ define internal i64 @rb_gzreader_unused(i64 noundef %0) #0 {
   br label %gzfile_reader_get_unused.exit
 
 gzfile_reader_get_unused.exit:                    ; preds = %1, %9, %16, %20
-  %.0.i = phi i64 [ 4, %16 ], [ %21, %20 ], [ 4, %1 ], [ 4, %9 ]
+  %.0.i = phi i64 [ %21, %20 ], [ 4, %1 ], [ 4, %9 ], [ 4, %16 ]
   ret i64 %.0.i
 }
 
@@ -4957,7 +4957,7 @@ RSTRING_END.exit.i:                               ; preds = %104, %99
   br label %gzfile_getc.exit
 
 gzfile_getc.exit:                                 ; preds = %.critedge45.i, %37, %gzfile_calc_crc.exit.i, %RSTRING_END.exit.i, %114, %121, %125
-  %.0.i = phi i64 [ 4, %RSTRING_END.exit.i ], [ %47, %gzfile_calc_crc.exit.i ], [ 4, %.critedge45.i ], [ 4, %37 ], [ %122, %121 ], [ %131, %125 ], [ %109, %114 ]
+  %.0.i = phi i64 [ %47, %gzfile_calc_crc.exit.i ], [ 4, %37 ], [ 4, %.critedge45.i ], [ 4, %RSTRING_END.exit.i ], [ %122, %121 ], [ %131, %125 ], [ %109, %114 ]
   ret i64 %.0.i
 }
 
@@ -5466,7 +5466,7 @@ define internal i64 @zlib_s_gzip(i32 noundef %0, ptr noundef readonly captures(n
   br i1 %28, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %3, %.thread40, %17
-  %.02334 = phi i32 [ 0, %17 ], [ %.02344, %.thread40 ], [ %0, %3 ]
+  %.02334 = phi i32 [ %.02344, %.thread40 ], [ 0, %17 ], [ %0, %3 ]
   call void @rb_error_arity(i32 noundef %.02334, i32 noundef 1, i32 noundef 1) #19
   unreachable
 
@@ -6321,7 +6321,7 @@ zstream_run_func.exit.thread77:                   ; preds = %85, %zstream_run_fu
   br label %.thread
 
 .thread:                                          ; preds = %zstream_run_func.exit.thread77.thread, %zstream_run_func.exit.thread, %139, %137, %zstream_run_func.exit.thread77
-  %.1.i7481 = phi i32 [ %78, %zstream_run_func.exit.thread77 ], [ -5, %139 ], [ -5, %137 ], [ 0, %zstream_run_func.exit.thread ], [ 1, %zstream_run_func.exit.thread77.thread ]
+  %.1.i7481 = phi i32 [ -5, %139 ], [ -5, %137 ], [ %78, %zstream_run_func.exit.thread77 ], [ 0, %zstream_run_func.exit.thread ], [ 1, %zstream_run_func.exit.thread77.thread ]
   %142 = load i64, ptr %17, align 8, !tbaa !49
   %143 = icmp eq i64 %142, 4
   br i1 %143, label %151, label %144
@@ -7270,7 +7270,7 @@ define internal i64 @rb_inflate_inflate_body(i64 noundef %0) #0 {
   br label %.sink.split
 
 .thread:                                          ; preds = %1, %11, %.thread55, %23
-  %.03852 = phi i32 [ %19, %.thread55 ], [ %19, %23 ], [ %7, %11 ], [ %7, %1 ]
+  %.03852 = phi i32 [ %19, %23 ], [ %19, %.thread55 ], [ %7, %11 ], [ %7, %1 ]
   %43 = load i64, ptr %5, align 8, !tbaa !40
   %44 = and i64 %43, 32
   %.not43 = icmp eq i64 %44, 0
@@ -9476,7 +9476,7 @@ gzfile_fill.exit:                                 ; preds = %15, %25
   %33 = icmp slt i64 %32, 0
   br i1 %33, label %gzfile_fill.exit.thread, label %42
 
-gzfile_fill.exit.thread:                          ; preds = %31, %.critedge27.i, %gzfile_fill.exit
+gzfile_fill.exit.thread:                          ; preds = %.critedge27.i, %31, %gzfile_fill.exit
   %34 = icmp eq i64 %2, 4
   br i1 %34, label %64, label %35
 
@@ -9543,7 +9543,7 @@ gzfile_calc_crc.exit:                             ; preds = %51, %RSTRING_PTR.ex
   br label %64
 
 64:                                               ; preds = %42, %gzfile_calc_crc.exit, %gzfile_fill.exit.thread, %35, %40, %38
-  %.0 = phi i64 [ 4, %gzfile_fill.exit.thread ], [ %39, %38 ], [ %2, %40 ], [ 4, %35 ], [ %43, %gzfile_calc_crc.exit ], [ 4, %42 ]
+  %.0 = phi i64 [ %39, %38 ], [ %2, %40 ], [ 4, %35 ], [ 4, %gzfile_fill.exit.thread ], [ %43, %gzfile_calc_crc.exit ], [ 4, %42 ]
   ret i64 %.0
 }
 
@@ -10445,8 +10445,8 @@ rscheck.exit:                                     ; preds = %210, %RSTRING_PTR.e
   %287 = call i64 @rb_str_conv_enc_opts(i64 noundef %260, ptr noundef nonnull %268, ptr noundef %282, i32 noundef %284, i64 noundef %286) #18
   br label %gzfile_newstr.exit168
 
-gzfile_newstr.exit168:                            ; preds = %78, %.critedge27.i, %281, %277, %269, %41, %256, %.critedge, %gzfile_fill.exit, %.thread179, %.critedge136, %gzfile_newstr.exit
-  %.1 = phi i64 [ %42, %41 ], [ %.0108, %gzfile_newstr.exit ], [ 4, %.thread179 ], [ 4, %gzfile_fill.exit ], [ %168, %.critedge136 ], [ 4, %.critedge ], [ %260, %269 ], [ 4, %256 ], [ %278, %277 ], [ %287, %281 ], [ 4, %.critedge27.i ], [ 4, %78 ]
+gzfile_newstr.exit168:                            ; preds = %.critedge27.i, %78, %281, %277, %269, %41, %256, %.critedge, %gzfile_fill.exit, %.thread179, %.critedge136, %gzfile_newstr.exit
+  %.1 = phi i64 [ %.0108, %gzfile_newstr.exit ], [ %168, %.critedge136 ], [ %42, %41 ], [ 4, %.thread179 ], [ 4, %gzfile_fill.exit ], [ 4, %.critedge ], [ 4, %256 ], [ %278, %277 ], [ %287, %281 ], [ %260, %269 ], [ 4, %78 ], [ 4, %.critedge27.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.1
 }
@@ -10579,8 +10579,8 @@ gzfile_fill.exit:                                 ; preds = %43, %52
   %65 = add nsw i64 %24, %64
   br label %gzfile_fill.exit.thread
 
-gzfile_fill.exit.thread:                          ; preds = %gzfile_fill.exit, %63, %58, %37, %.critedge27.i, %14, %61
-  %.1 = phi i64 [ %1, %58 ], [ %1, %14 ], [ %1, %61 ], [ %spec.select, %gzfile_fill.exit ], [ %1, %.critedge27.i ], [ %1, %37 ], [ %65, %63 ]
+gzfile_fill.exit.thread:                          ; preds = %gzfile_fill.exit, %63, %.critedge27.i, %58, %37, %14, %61
+  %.1 = phi i64 [ %1, %61 ], [ %1, %14 ], [ %1, %37 ], [ %1, %58 ], [ %1, %.critedge27.i ], [ %65, %63 ], [ %spec.select, %gzfile_fill.exit ]
   ret i64 %.1
 }
 

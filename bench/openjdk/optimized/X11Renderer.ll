@@ -532,8 +532,8 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %33, %.thread, %25
-  %.0105 = phi i32 [ %9, %25 ], [ %spec.select, %33 ], [ %32, %.thread ]
-  %.0104.shrunk = phi i1 [ false, %25 ], [ %37, %33 ], [ true, %.thread ]
+  %.0105 = phi i32 [ %9, %25 ], [ %32, %.thread ], [ %spec.select, %33 ]
+  %.0104.shrunk = phi i1 [ false, %25 ], [ true, %.thread ], [ %37, %33 ]
   %40 = icmp sgt i32 %.0105, 64
   br i1 %40, label %41, label %.thread124
 
@@ -651,7 +651,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   br label %91
 
 91:                                               ; preds = %8, %84, %21
-  %.0 = phi ptr [ %.097128, %84 ], [ null, %21 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %21 ], [ %.097128, %84 ], [ null, %8 ]
   ret ptr %.0
 }
 

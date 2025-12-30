@@ -363,7 +363,7 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL17rsa_check_contextP
   br label %50
 
 50:                                               ; preds = %.thread, %46, %38, %42, %31, %17, %21, %24, %28, %10, %13, %2, %7, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ -16512, %2 ], [ -16512, %10 ], [ -16512, %17 ], [ -16512, %31 ], [ -16512, %38 ], [ -16512, %7 ], [ -16512, %13 ], [ -16512, %28 ], [ -16512, %24 ], [ -16512, %21 ], [ -16512, %42 ], [ -16512, %46 ], [ -16512, %.thread ]
+  %.0 = phi i32 [ 0, %.critedge ], [ -16512, %7 ], [ -16512, %2 ], [ -16512, %13 ], [ -16512, %10 ], [ -16512, %28 ], [ -16512, %24 ], [ -16512, %21 ], [ -16512, %17 ], [ -16512, %31 ], [ -16512, %42 ], [ -16512, %38 ], [ -16512, %46 ], [ -16512, %.thread ]
   ret i32 %.0
 }
 
@@ -555,7 +555,7 @@ define hidden i32 @mbedtls_rsa_export(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %44
 
 44:                                               ; preds = %25, %28, %32, %36, %40, %.critedge, %43
-  %.0 = phi i32 [ -16512, %.critedge ], [ 0, %43 ], [ %26, %25 ], [ %30, %28 ], [ %34, %32 ], [ %38, %36 ], [ %42, %40 ]
+  %.0 = phi i32 [ 0, %43 ], [ -16512, %.critedge ], [ %26, %25 ], [ %30, %28 ], [ %34, %32 ], [ %38, %36 ], [ %42, %40 ]
   ret i32 %.0
 }
 
@@ -626,7 +626,7 @@ define hidden range(i32 -2147483648, 2147467136) i32 @mbedtls_rsa_export_crt(ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %10, %7, %4, %27, %28, %16, %31
-  %.0 = phi i32 [ %32, %31 ], [ -16512, %16 ], [ 0, %27 ], [ 0, %28 ], [ -16512, %4 ], [ -16512, %7 ], [ -16512, %10 ], [ -16512, %13 ]
+  %.0 = phi i32 [ %32, %31 ], [ -16512, %16 ], [ 0, %28 ], [ 0, %27 ], [ -16512, %4 ], [ -16512, %7 ], [ -16512, %10 ], [ -16512, %13 ]
   ret i32 %.0
 }
 
@@ -716,8 +716,8 @@ _ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit: ; preds = %15
   %spec.select = select i1 %.inv, i32 0, i32 -16896
   br label %_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit.thread
 
-_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit.thread: ; preds = %12, %15, %6, %9, %1, %27, %21, %24, %_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit
-  %.0 = phi i32 [ -16896, %21 ], [ -16896, %24 ], [ -16896, %_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit ], [ %spec.select, %27 ], [ -16896, %1 ], [ -16896, %9 ], [ -16896, %6 ], [ -16896, %15 ], [ -16896, %12 ]
+_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit.thread: ; preds = %15, %9, %12, %1, %6, %27, %21, %24, %_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit
+  %.0 = phi i32 [ -16896, %_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit ], [ -16896, %24 ], [ -16896, %21 ], [ %spec.select, %27 ], [ -16896, %6 ], [ -16896, %1 ], [ -16896, %12 ], [ -16896, %9 ], [ -16896, %15 ]
   ret i32 %.0
 }
 
@@ -758,7 +758,7 @@ define hidden range(i32 -16896, 1) i32 @mbedtls_rsa_check_privkey(ptr noundef %0
   br label %17
 
 17:                                               ; preds = %12, %5, %1, %3
-  %.0 = phi i32 [ -16896, %5 ], [ -16896, %1 ], [ %., %12 ], [ -16896, %3 ]
+  %.0 = phi i32 [ -16896, %3 ], [ -16896, %1 ], [ -16896, %5 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -813,8 +813,8 @@ mbedtls_rsa_check_privkey.exit:                   ; preds = %15
   %spec.select = select i1 %.not8, i32 0, i32 -16896
   br label %mbedtls_rsa_check_privkey.exit.thread
 
-mbedtls_rsa_check_privkey.exit.thread:            ; preds = %6, %15, %4, %8, %22, %mbedtls_rsa_check_privkey.exit, %2
-  %.0 = phi i32 [ -16896, %mbedtls_rsa_check_privkey.exit ], [ -16896, %2 ], [ %spec.select, %22 ], [ -16896, %8 ], [ -16896, %4 ], [ -16896, %15 ], [ -16896, %6 ]
+mbedtls_rsa_check_privkey.exit.thread:            ; preds = %15, %8, %4, %6, %22, %mbedtls_rsa_check_privkey.exit, %2
+  %.0 = phi i32 [ -16896, %2 ], [ -16896, %mbedtls_rsa_check_privkey.exit ], [ %spec.select, %22 ], [ -16896, %6 ], [ -16896, %4 ], [ -16896, %8 ], [ -16896, %15 ]
   ret i32 %.0
 }
 
@@ -885,8 +885,8 @@ _ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit: ; preds = %18
   %34 = add nsw i32 %.01222, -17024
   br label %_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit.thread
 
-_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit.thread: ; preds = %15, %18, %9, %12, %3, %31, %33
-  %.0 = phi i32 [ 0, %31 ], [ %34, %33 ], [ -16512, %3 ], [ -16512, %12 ], [ -16512, %9 ], [ -16512, %18 ], [ -16512, %15 ]
+_ZL17rsa_check_contextPK19mbedtls_rsa_contextii.exit.thread: ; preds = %18, %12, %15, %3, %9, %31, %33
+  %.0 = phi i32 [ %34, %33 ], [ 0, %31 ], [ -16512, %9 ], [ -16512, %3 ], [ -16512, %15 ], [ -16512, %12 ], [ -16512, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1082,7 +1082,7 @@ define hidden range(i32 -2147483648, 2147466496) i32 @mbedtls_rsa_private(ptr no
   br label %87
 
 87:                                               ; preds = %82, %23, %84, %78, %76, %73, %71, %69, %67, %64, %62, %59, %56, %53, %51, %49, %46, %44, %42, %39, %36, %34, %31, %29, %27, %19
-  %.042 = phi i32 [ %22, %19 ], [ %86, %84 ], [ %28, %27 ], [ %30, %29 ], [ %33, %31 ], [ %35, %34 ], [ %38, %36 ], [ %41, %39 ], [ %43, %42 ], [ %45, %44 ], [ %48, %46 ], [ %50, %49 ], [ %52, %51 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %63, %62 ], [ %66, %64 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %75, %73 ], [ %77, %76 ], [ %81, %78 ], [ -4, %23 ], [ -17280, %82 ]
+  %.042 = phi i32 [ %22, %19 ], [ %28, %27 ], [ %30, %29 ], [ %33, %31 ], [ %35, %34 ], [ %38, %36 ], [ %41, %39 ], [ %43, %42 ], [ %45, %44 ], [ %48, %46 ], [ %50, %49 ], [ %52, %51 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %63, %62 ], [ %66, %64 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %75, %73 ], [ %77, %76 ], [ %81, %78 ], [ %86, %84 ], [ -4, %23 ], [ -17280, %82 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %7)
   call void @mbedtls_mpi_free(ptr noundef nonnull %8)
   call void @mbedtls_mpi_free(ptr noundef nonnull %9)
@@ -1101,7 +1101,7 @@ define hidden range(i32 -2147483648, 2147466496) i32 @mbedtls_rsa_private(ptr no
   br label %91
 
 91:                                               ; preds = %87, %17, %5
-  %.0 = phi i32 [ -16512, %17 ], [ -16512, %5 ], [ %spec.select, %87 ]
+  %.0 = phi i32 [ -16512, %5 ], [ -16512, %17 ], [ %spec.select, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1207,7 +1207,7 @@ define internal fastcc noundef i32 @_ZL20rsa_prepare_blindingP19mbedtls_rsa_cont
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %21, %33, %31, %27, %23, %41, %19, %39, %37, %17, %14, %11
-  %.043 = phi i32 [ %13, %11 ], [ %16, %14 ], [ %18, %17 ], [ %20, %19 ], [ %44, %41 ], [ %40, %39 ], [ %38, %37 ], [ -17536, %21 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %27 ], [ %26, %23 ]
+  %.043 = phi i32 [ %13, %11 ], [ %16, %14 ], [ %18, %17 ], [ %20, %19 ], [ %38, %37 ], [ %40, %39 ], [ %44, %41 ], [ -17536, %21 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %27 ], [ %26, %23 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.043
@@ -1302,7 +1302,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
   br label %37
 
 37:                                               ; preds = %.thread, %12, %6, %35
-  %.037 = phi i32 [ %36, %35 ], [ -16512, %6 ], [ %29, %.thread ], [ -16512, %12 ]
+  %.037 = phi i32 [ %36, %35 ], [ -16512, %6 ], [ -16512, %12 ], [ %29, %.thread ]
   ret i32 %.037
 }
 
@@ -1394,7 +1394,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_pkcs1_encrypt(
   br label %mbedtls_rsa_rsaes_pkcs1_v15_encrypt.exit
 
 mbedtls_rsa_rsaes_pkcs1_v15_encrypt.exit:         ; preds = %38, %.thread.i, %15, %9, %6
-  %.0 = phi i32 [ -16640, %6 ], [ %39, %38 ], [ -16512, %9 ], [ %32, %.thread.i ], [ -16512, %15 ]
+  %.0 = phi i32 [ -16640, %6 ], [ %39, %38 ], [ -16512, %9 ], [ -16512, %15 ], [ %32, %.thread.i ]
   ret i32 %.0
 }
 
@@ -1543,7 +1543,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsassa_pkcs1_v
   br label %36
 
 36:                                               ; preds = %31, %34, %14, %10, %7, %21
-  %.036 = phi i32 [ -16, %14 ], [ -16512, %7 ], [ %13, %10 ], [ -16, %21 ], [ %.0, %34 ], [ 0, %31 ]
+  %.036 = phi i32 [ -16, %21 ], [ -16512, %7 ], [ %13, %10 ], [ -16, %14 ], [ %.0, %34 ], [ 0, %31 ]
   ret i32 %.036
 }
 
@@ -1661,8 +1661,8 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %8, %11, %13, %16, %22, %42, %31, %28, %64, %40
-  %.1 = phi i32 [ -16512, %28 ], [ 0, %40 ], [ -16512, %64 ], [ -16512, %31 ], [ 0, %42 ], [ -16512, %8 ], [ -16512, %22 ], [ -16512, %16 ], [ -16512, %13 ], [ -16512, %11 ]
+.critedge:                                        ; preds = %8, %11, %13, %22, %16, %42, %31, %28, %64, %40
+  %.1 = phi i32 [ 0, %40 ], [ -16512, %64 ], [ -16512, %28 ], [ -16512, %31 ], [ 0, %42 ], [ -16512, %16 ], [ -16512, %22 ], [ -16512, %13 ], [ -16512, %11 ], [ -16512, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
@@ -1722,7 +1722,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsassa_pkcs1_v
   br label %19
 
 19:                                               ; preds = %13, %15, %17, %10
-  %.023.ph = phi i32 [ -16, %10 ], [ %16, %15 ], [ %14, %13 ], [ %spec.store.select, %17 ]
+  %.023.ph = phi i32 [ -16, %10 ], [ %spec.store.select, %17 ], [ %16, %15 ], [ %14, %13 ]
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef %7)
   tail call void @free(ptr noundef nonnull %8) #10
   br i1 %12, label %.thread40, label %20
@@ -1733,7 +1733,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsassa_pkcs1_v
   br label %.thread40
 
 .thread40:                                        ; preds = %5, %20, %19
-  %.0233744 = phi i32 [ %.023.ph, %19 ], [ %.023.ph, %20 ], [ -16, %5 ]
+  %.0233744 = phi i32 [ %.023.ph, %20 ], [ %.023.ph, %19 ], [ -16, %5 ]
   ret i32 %.0233744
 }
 

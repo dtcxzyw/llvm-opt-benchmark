@@ -284,7 +284,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_init_node(ptr noundef in
   br i1 %42, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %35, %21, %.thread3, %.thread, %15
-  %43 = phi i32 [ -12, %15 ], [ -12, %.thread3 ], [ -12, %.thread ], [ 0, %21 ], [ 0, %35 ]
+  %43 = phi i32 [ -12, %15 ], [ -12, %.thread ], [ -12, %.thread3 ], [ 0, %21 ], [ 0, %35 ]
   ret i32 %43
 }
 

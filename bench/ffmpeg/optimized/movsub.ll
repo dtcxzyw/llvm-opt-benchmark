@@ -57,8 +57,8 @@ define internal i32 @text2movsub(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %31, i64 %34, i1 false)
   br label %36
 
-35:                                               ; preds = %6, %15, %11
-  %.0.ph = phi i32 [ -12, %11 ], [ %17, %15 ], [ -1094995529, %6 ]
+35:                                               ; preds = %15, %6, %11
+  %.0.ph = phi i32 [ -12, %11 ], [ -1094995529, %6 ], [ %17, %15 ]
   call void @av_packet_unref(ptr noundef %1) #5
   br label %36
 
@@ -103,7 +103,7 @@ define internal range(i32 -2147483648, 1) i32 @mov2textsub(ptr noundef %0, ptr n
   br label %18
 
 18:                                               ; preds = %2, %10, %9
-  %.0 = phi i32 [ 0, %10 ], [ -1094995529, %9 ], [ %3, %2 ]
+  %.0 = phi i32 [ -1094995529, %9 ], [ 0, %10 ], [ %3, %2 ]
   ret i32 %.0
 }
 

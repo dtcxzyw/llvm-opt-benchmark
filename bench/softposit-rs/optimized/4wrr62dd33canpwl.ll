@@ -171,7 +171,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br label %74
 
 74:                                               ; preds = %50, %62, %69
-  %.153 = phi i16 [ %68, %62 ], [ %., %50 ], [ %73, %69 ]
+  %.153 = phi i16 [ %73, %69 ], [ %68, %62 ], [ %., %50 ]
   %75 = sub i16 0, %.153
   %.0.i = select i1 %.not65, i16 %.153, i16 %75
   br label %5

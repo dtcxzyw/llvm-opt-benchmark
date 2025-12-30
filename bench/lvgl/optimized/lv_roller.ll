@@ -404,7 +404,7 @@ get_selected_label_width.exit:                    ; preds = %13, %17
   br label %lv_roller_set_selected.exit.i
 
 lv_roller_set_selected.exit.i:                    ; preds = %169, %148, %142
-  %.037.i.i = phi i32 [ %143, %148 ], [ %170, %169 ], [ %143, %142 ]
+  %.037.i.i = phi i32 [ %170, %169 ], [ %143, %148 ], [ %143, %142 ]
   %171 = icmp ult i32 %.037.i.i, %147
   %172 = add i32 %147, -1
   %173 = select i1 %171, i32 %.037.i.i, i32 %172
@@ -995,7 +995,7 @@ define void @lv_roller_set_selected(ptr noundef %0, i32 noundef %1, i1 noundef z
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %11, %32
-  %.037 = phi i32 [ %1, %11 ], [ %33, %32 ], [ %1, %4 ]
+  %.037 = phi i32 [ %33, %32 ], [ %1, %11 ], [ %1, %4 ]
   %34 = icmp ult i32 %.037, %10
   %35 = add i32 %10, -1
   %36 = select i1 %34, i32 %.037, i32 %35
@@ -1036,7 +1036,7 @@ define internal fastcc void @refr_position(ptr noundef %0, i1 noundef zeroext %1
   br label %18
 
 18:                                               ; preds = %6, %14, %9
-  %.0 = phi i32 [ 0, %6 ], [ %13, %9 ], [ %17, %14 ]
+  %.0 = phi i32 [ %13, %9 ], [ %17, %14 ], [ 0, %6 ]
   tail call void @lv_obj_set_x(ptr noundef nonnull %4, i32 noundef %.0) #7
   %19 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 90) #7
   %20 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 92) #7
@@ -1172,7 +1172,7 @@ lv_roller_get_options.exit:                       ; preds = %3
   br label %lv_roller_set_selected.exit
 
 lv_roller_set_selected.exit:                      ; preds = %15, %22, %43
-  %.037.i = phi i32 [ %.01825, %22 ], [ %44, %43 ], [ %.01825, %15 ]
+  %.037.i = phi i32 [ %44, %43 ], [ %.01825, %22 ], [ %.01825, %15 ]
   %45 = icmp ult i32 %.037.i, %21
   %46 = add i32 %21, -1
   %47 = select i1 %45, i32 %.037.i, i32 %46
@@ -1372,7 +1372,7 @@ define void @lv_roller_get_selected_str(ptr noundef %0, ptr noundef writeonly ca
   br i1 %41, label %.lr.ph46.split, label %.critedge2.loopexit54, !llvm.loop !62
 
 .critedge2.loopexit54:                            ; preds = %37, %.lr.ph46.split
-  %.0.lcssa.ph55.in = phi i64 [ %indvars.iv.next, %37 ], [ %indvars.iv, %.lr.ph46.split ]
+  %.0.lcssa.ph55.in = phi i64 [ %indvars.iv, %.lr.ph46.split ], [ %indvars.iv.next, %37 ]
   %.0.lcssa.ph55 = trunc i64 %.0.lcssa.ph55.in to i32
   br label %.critedge2
 

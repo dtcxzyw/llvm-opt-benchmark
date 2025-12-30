@@ -68,12 +68,12 @@ define dso_local ptr @slurm_fetch_token(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not12, label %.sink.split, label %25
 
 .sink.split:                                      ; preds = %20, %14, %18, %2
-  %.str.1.sink = phi ptr [ @.str, %2 ], [ @.str.1, %14 ], [ @.str.1, %18 ], [ @.str.2, %20 ]
+  %.str.1.sink = phi ptr [ @.str, %2 ], [ @.str.1, %18 ], [ @.str.1, %14 ], [ @.str.2, %20 ]
   %24 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.1.sink, ptr noundef nonnull @__func__.slurm_fetch_token) #4
   br label %25
 
 25:                                               ; preds = %.sink.split, %11, %20
-  %.0 = phi ptr [ %23, %20 ], [ null, %11 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ %23, %20 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -306,7 +306,7 @@ _ZNSt6threadD2Ev.exit19:                          ; preds = %_ZNSt6threadD2Ev.ex
   unreachable
 
 .body14:                                          ; preds = %56, %54, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i9, %41
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %55, %54 ], [ %42, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i9 ], [ %57, %56 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %42, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i9 ], [ %42, %41 ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.0.0.copyload.i.i23 = load i64, ptr %9, align 8, !tbaa !36
   %.not.i24 = icmp eq i64 %.sroa.0.0.copyload.i.i23, 0
@@ -317,7 +317,7 @@ _ZNSt6threadD2Ev.exit19:                          ; preds = %_ZNSt6threadD2Ev.ex
   unreachable
 
 .body:                                            ; preds = %.body14, %52, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i, %23
-  %.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %53, %52 ], [ %24, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i ], [ %.pn, %.body14 ]
+  %.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %24, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i ], [ %24, %23 ], [ %.pn, %.body14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl12NotificationD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %7) #19

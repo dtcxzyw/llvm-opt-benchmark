@@ -248,7 +248,7 @@ lean_nat_abs.exit36:                              ; preds = %62, %lean_int_neg.e
   br label %lean_dec.exit17
 
 lean_dec.exit17:                                  ; preds = %89, %87, %99, %98, %96
-  %.1.i38 = phi ptr [ %93, %99 ], [ %93, %96 ], [ %93, %98 ], [ inttoptr (i64 1 to ptr), %87 ], [ %91, %89 ]
+  %.1.i38 = phi ptr [ %93, %96 ], [ %93, %98 ], [ %93, %99 ], [ inttoptr (i64 1 to ptr), %87 ], [ %91, %89 ]
   %100 = tail call ptr @lean_apply_1(ptr noundef %2, ptr noundef %.1.i38) #3
   br label %101
 
@@ -457,7 +457,7 @@ lean_dec_ref.exit21:                              ; preds = %44, %46, %47
   br label %54
 
 54:                                               ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink41, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink41, %.sink.split ]
   ret ptr %.0
 }
 

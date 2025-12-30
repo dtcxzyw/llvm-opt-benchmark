@@ -188,7 +188,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not975, label %109, label %.thread
 
 .thread.sink.split:                               ; preds = %102, %98, %94, %91, %88, %83, %80, %77, %74, %68
-  %.sink = phi i32 [ -1, %68 ], [ -2, %74 ], [ -4, %80 ], [ -7, %88 ], [ -11, %94 ], [ -13, %98 ], [ -9, %91 ], [ -5, %83 ], [ -3, %77 ], [ -15, %102 ]
+  %.sink = phi i32 [ -1, %68 ], [ -2, %74 ], [ -3, %77 ], [ -4, %80 ], [ -5, %83 ], [ -7, %88 ], [ -9, %91 ], [ -11, %94 ], [ -13, %98 ], [ -15, %102 ]
   store i32 %.sink, ptr %15, align 4, !tbaa !3
   br label %.thread
 
@@ -285,8 +285,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %153
 
 153:                                              ; preds = %143, %134, %151, %140, %129
-  %.0960 = phi i32 [ %146, %151 ], [ %130, %129 ], [ %130, %140 ], [ %130, %134 ], [ %146, %143 ]
-  %.0925 = phi i32 [ %152, %151 ], [ %52, %129 ], [ %52, %140 ], [ %52, %134 ], [ 1, %143 ]
+  %.0960 = phi i32 [ %146, %151 ], [ %130, %140 ], [ %130, %134 ], [ %130, %129 ], [ %146, %143 ]
+  %.0925 = phi i32 [ %152, %151 ], [ %52, %140 ], [ %52, %134 ], [ %52, %129 ], [ 1, %143 ]
   %154 = icmp sge i32 %.0925, %.0960
   %155 = load i32, ptr %35, align 4
   %.not979 = icmp slt i32 %.0925, %155
@@ -1182,7 +1182,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.in1005, label %.lr.ph1161, label %.loopexit1039, !llvm.loop !28
 
 .loopexit1039:                                    ; preds = %._crit_edge1156, %._crit_edge1138, %.loopexit1040
-  %578 = phi i32 [ %443, %.loopexit1040 ], [ %504, %._crit_edge1138 ], [ %564, %._crit_edge1156 ]
+  %578 = phi i32 [ %504, %._crit_edge1138 ], [ %443, %.loopexit1040 ], [ %564, %._crit_edge1156 ]
   %579 = load i32, ptr %19, align 4, !tbaa !3
   %580 = sext i32 %579 to i64
   %.not982.not = icmp slt i64 %indvars.iv1393, %580
@@ -2012,7 +2012,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %1006
 
 1006:                                             ; preds = %.sink.split, %1005, %.loopexit1045
-  %1007 = phi i32 [ %173, %.loopexit1045 ], [ %173, %1005 ], [ %.ph1572, %.sink.split ]
+  %1007 = phi i32 [ %173, %1005 ], [ %173, %.loopexit1045 ], [ %.ph1572, %.sink.split ]
   %1008 = load i32, ptr %4, align 4, !tbaa !3
   %1009 = icmp slt i32 %1007, %1008
   br i1 %1009, label %1010, label %1011

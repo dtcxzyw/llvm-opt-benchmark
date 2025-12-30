@@ -469,7 +469,7 @@ switch.early.test:                                ; preds = %32
   br label %84
 
 84:                                               ; preds = %82, %75
-  %.090 = phi ptr [ %83, %82 ], [ %76, %75 ]
+  %.090 = phi ptr [ %76, %75 ], [ %83, %82 ]
   %85 = icmp eq ptr %.090, null
   br i1 %85, label %.thread126, label %.thread123
 
@@ -493,8 +493,8 @@ switch.early.test:                                ; preds = %32
   br label %102
 
 .sink.split:                                      ; preds = %53, %51, %switch.early.test, %18
-  %.sink177 = phi i32 [ 616, %switch.early.test ], [ 644, %51 ], [ 608, %18 ], [ 653, %53 ]
-  %.sink = phi i32 [ 104, %switch.early.test ], [ 158, %51 ], [ 150, %18 ], [ 133, %53 ]
+  %.sink177 = phi i32 [ 608, %18 ], [ 616, %switch.early.test ], [ 644, %51 ], [ 653, %53 ]
+  %.sink = phi i32 [ 150, %18 ], [ 104, %switch.early.test ], [ 158, %51 ], [ 133, %53 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink177, ptr noundef nonnull @__func__.OSSL_CMP_SRV_process_request) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #3
@@ -768,7 +768,7 @@ define internal fastcc ptr @process_pollReq(ptr noundef nonnull %0, ptr noundef 
   br label %35
 
 35:                                               ; preds = %26, %34, %29, %17, %2, %16, %9
-  %.017 = phi ptr [ null, %16 ], [ null, %17 ], [ null, %2 ], [ null, %9 ], [ %27, %26 ], [ null, %34 ], [ %32, %29 ]
+  %.017 = phi ptr [ null, %16 ], [ null, %9 ], [ null, %2 ], [ null, %17 ], [ %27, %26 ], [ null, %34 ], [ %32, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.017
@@ -826,7 +826,7 @@ define internal fastcc ptr @delayed_delivery(ptr noundef nonnull %0, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %15, %7, %4, %18
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ %22, %18 ], [ null, %15 ], [ null, %2 ]
+  %.0 = phi ptr [ %22, %18 ], [ null, %4 ], [ null, %7 ], [ null, %15 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1035,9 +1035,9 @@ switch.lookup:                                    ; preds = %22
   br label %.thread.i
 
 .thread.i:                                        ; preds = %86, %83, %81, %..thread_crit_edge.i
-  %89 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %.pre85.i, %83 ], [ %.pre85.i, %86 ], [ %.pre85.i, %81 ]
-  %.061.i = phi ptr [ null, %..thread_crit_edge.i ], [ null, %83 ], [ %88, %86 ], [ null, %81 ]
-  %.053.i = phi ptr [ %56, %..thread_crit_edge.i ], [ %61, %83 ], [ %61, %86 ], [ %61, %81 ]
+  %89 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %.pre85.i, %86 ], [ %.pre85.i, %81 ], [ %.pre85.i, %83 ]
+  %.061.i = phi ptr [ null, %..thread_crit_edge.i ], [ %88, %86 ], [ null, %81 ], [ null, %83 ]
+  %.053.i = phi ptr [ %56, %..thread_crit_edge.i ], [ %61, %86 ], [ %61, %81 ], [ %61, %83 ]
   %90 = load ptr, ptr %4, align 8, !tbaa !69
   %91 = load ptr, ptr %5, align 8, !tbaa !70
   %92 = load ptr, ptr %6, align 8, !tbaa !70
@@ -1068,7 +1068,7 @@ switch.lookup:                                    ; preds = %22
   br label %process_cert_request.exit
 
 process_cert_request.exit:                        ; preds = %20, %25, %34, %38, %41, %42, %53, %98
-  %.0.i = phi ptr [ null, %25 ], [ null, %20 ], [ null, %53 ], [ %.050.i, %98 ], [ null, %42 ], [ null, %41 ], [ null, %38 ], [ null, %34 ]
+  %.0.i = phi ptr [ null, %25 ], [ %.050.i, %98 ], [ null, %20 ], [ null, %42 ], [ null, %53 ], [ null, %41 ], [ null, %38 ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1332,8 +1332,8 @@ process_genm.exit:                                ; preds = %150, %152, %157
   br i1 %232, label %.critedge.sink.split.i, label %.critedge
 
 .critedge.sink.split.i:                           ; preds = %230, %208, %196, %189
-  %.sink57.i = phi i32 [ 415, %189 ], [ 433, %208 ], [ 415, %196 ], [ 451, %230 ]
-  %.sink.i = phi i32 [ 160, %189 ], [ 108, %208 ], [ 160, %196 ], [ 122, %230 ]
+  %.sink57.i = phi i32 [ 415, %196 ], [ 415, %189 ], [ 433, %208 ], [ 451, %230 ]
+  %.sink.i = phi i32 [ 160, %196 ], [ 160, %189 ], [ 108, %208 ], [ 122, %230 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink57.i, ptr noundef nonnull @__func__.process_certConf) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink.i, ptr noundef null) #3
@@ -1352,7 +1352,7 @@ process_genm.exit:                                ; preds = %150, %152, %157
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split.i, %230, %216, %187, %181, %169, %167, %144, %130, %123, %116, %109, %2, %233, %234, %process_cert_request.exit, %19, %108, %process_genm.exit, %149, %166, %186, %10
-  %.023 = phi ptr [ null, %10 ], [ null, %233 ], [ null, %234 ], [ null, %19 ], [ %.0.i, %process_cert_request.exit ], [ null, %108 ], [ null, %2 ], [ null, %149 ], [ %.0.i29, %process_genm.exit ], [ null, %166 ], [ null, %130 ], [ null, %186 ], [ %179, %169 ], [ null, %116 ], [ null, %123 ], [ null, %109 ], [ %.027.i, %144 ], [ null, %167 ], [ null, %181 ], [ null, %216 ], [ null, %187 ], [ %231, %230 ], [ null, %.critedge.sink.split.i ]
+  %.023 = phi ptr [ null, %10 ], [ null, %234 ], [ null, %19 ], [ %.0.i, %process_cert_request.exit ], [ null, %108 ], [ null, %149 ], [ %.0.i29, %process_genm.exit ], [ null, %166 ], [ null, %186 ], [ null, %233 ], [ null, %2 ], [ null, %116 ], [ null, %123 ], [ %.027.i, %144 ], [ null, %109 ], [ null, %130 ], [ null, %167 ], [ null, %181 ], [ %179, %169 ], [ null, %187 ], [ %231, %230 ], [ null, %216 ], [ null, %.critedge.sink.split.i ]
   ret ptr %.023
 }
 

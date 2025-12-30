@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %0, ptr
   br label %33
 
 33:                                               ; preds = %27, %31, %29, %20, %24, %22
-  %.0 = phi i64 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %32, %31 ], [ %28, %27 ], [ %30, %29 ]
+  %.0 = phi i64 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
   %34 = icmp eq i64 %.0, 0
   br i1 %34, label %.thread, label %35
 
@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %26, %19, %33, %11, %6
-  %.043 = phi i32 [ 0, %19 ], [ 0, %6 ], [ 0, %26 ], [ 0, %33 ], [ 0, %11 ], [ 1, %.thread.sink.split ]
+  %.043 = phi i32 [ 0, %6 ], [ 0, %11 ], [ 0, %33 ], [ 0, %19 ], [ 0, %26 ], [ 1, %.thread.sink.split ]
   ret i32 %.043
 }
 
@@ -251,7 +251,7 @@ define internal fastcc i64 @cts128_cs2_encrypt(ptr noundef %0, ptr noundef %1, p
   br label %cts128_cs3_encrypt.exit
 
 cts128_cs3_encrypt.exit:                          ; preds = %16, %23, %30
-  %.0.i = phi i64 [ %..i, %30 ], [ %22, %16 ], [ 0, %23 ]
+  %.0.i = phi i64 [ %22, %16 ], [ 0, %23 ], [ %..i, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
@@ -308,7 +308,7 @@ define internal fastcc i64 @cts128_cs3_encrypt(ptr noundef %0, ptr noundef %1, p
   br label %33
 
 33:                                               ; preds = %23, %14, %7
-  %.0 = phi i64 [ %., %23 ], [ %13, %7 ], [ 0, %14 ]
+  %.0 = phi i64 [ %13, %7 ], [ 0, %14 ], [ %., %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
@@ -409,7 +409,7 @@ do_xor.exit:                                      ; preds = %.lr.ph.i
   br label %54
 
 54:                                               ; preds = %do_xor.exit, %29, %20, %11, %53
-  %.0 = phi i64 [ 0, %20 ], [ %., %11 ], [ %3, %53 ], [ 0, %29 ], [ 0, %do_xor.exit ]
+  %.0 = phi i64 [ %3, %53 ], [ %., %11 ], [ 0, %20 ], [ 0, %29 ], [ 0, %do_xor.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -560,7 +560,7 @@ do_xor.exit:                                      ; preds = %.lr.ph.i54, %.lr.ph
   br label %64
 
 64:                                               ; preds = %do_xor.exit, %31, %22, %63, %10
-  %.044 = phi i64 [ 0, %22 ], [ %16, %10 ], [ %3, %63 ], [ 0, %31 ], [ 0, %do_xor.exit ]
+  %.044 = phi i64 [ %16, %10 ], [ %3, %63 ], [ 0, %22 ], [ 0, %31 ], [ 0, %do_xor.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

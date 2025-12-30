@@ -534,7 +534,7 @@ define dso_local i32 @devm_mipi_dsi_attach(ptr noundef %0, ptr noundef %1) #0 al
   br label %.thread
 
 .thread:                                          ; preds = %10, %2, %7, %30, %26, %24, %23, %13
-  %33 = phi i32 [ 0, %13 ], [ %15, %30 ], [ %15, %26 ], [ %15, %24 ], [ %15, %23 ], [ %11, %10 ], [ -38, %2 ], [ -38, %7 ]
+  %33 = phi i32 [ %15, %30 ], [ %15, %26 ], [ %15, %24 ], [ %15, %23 ], [ 0, %13 ], [ %11, %10 ], [ -38, %2 ], [ -38, %7 ]
   ret i32 %33
 }
 
@@ -1549,7 +1549,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_power_mode(ptr noundef readonly c
   br label %34
 
 34:                                               ; preds = %31, %.thread3, %28
-  %35 = phi i32 [ %spec.select, %31 ], [ -38, %.thread3 ], [ -61, %28 ]
+  %35 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
   ret i32 %35
 }
 
@@ -1619,7 +1619,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_pixel_format(ptr noundef readonly
   br label %34
 
 34:                                               ; preds = %31, %.thread3, %28
-  %35 = phi i32 [ %spec.select, %31 ], [ -38, %.thread3 ], [ -61, %28 ]
+  %35 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
   ret i32 %35
 }
 
@@ -2369,7 +2369,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness(ptr noundef re
   br label %34
 
 34:                                               ; preds = %31, %.thread3, %28
-  %35 = phi i32 [ %spec.select, %31 ], [ -38, %.thread3 ], [ -61, %28 ]
+  %35 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
   ret i32 %35
 }
 

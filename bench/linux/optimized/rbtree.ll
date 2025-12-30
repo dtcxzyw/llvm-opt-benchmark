@@ -1278,7 +1278,7 @@ define dso_local ptr @rb_next(ptr noundef %0) #2 align 16 {
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader1, %18, %.preheader, %1
-  %22 = phi ptr [ null, %1 ], [ %16, %18 ], [ %16, %.preheader ], [ %9, %.preheader1 ]
+  %22 = phi ptr [ null, %1 ], [ %16, %.preheader ], [ %16, %18 ], [ %9, %.preheader1 ]
   ret ptr %22
 }
 
@@ -1317,7 +1317,7 @@ define dso_local ptr @rb_prev(ptr noundef %0) #2 align 16 {
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader1, %18, %.preheader, %1
-  %22 = phi ptr [ null, %1 ], [ %16, %18 ], [ %16, %.preheader ], [ %9, %.preheader1 ]
+  %22 = phi ptr [ null, %1 ], [ %16, %.preheader ], [ %16, %18 ], [ %9, %.preheader1 ]
   ret ptr %22
 }
 
@@ -1469,7 +1469,7 @@ define dso_local ptr @rb_next_postorder(ptr noundef readonly captures(address) %
   br i1 %23, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %20, %.preheader
-  %.be = phi ptr [ %22, %20 ], [ %18, %.preheader ]
+  %.be = phi ptr [ %18, %.preheader ], [ %22, %20 ]
   br label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %20, %12, %8, %3, %1
@@ -1497,7 +1497,7 @@ define dso_local ptr @rb_first_postorder(ptr noundef readonly captures(none) %0)
   br i1 %11, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %8, %.preheader
-  %.be = phi ptr [ %10, %8 ], [ %6, %.preheader ]
+  %.be = phi ptr [ %6, %.preheader ], [ %10, %8 ]
   br label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %8, %1

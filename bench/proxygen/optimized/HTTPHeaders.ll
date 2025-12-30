@@ -205,7 +205,7 @@ cleanup.action37:                                 ; preds = %cond.true13
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad23, %ehcleanup, %cleanup.action37
-  %4 = phi { ptr, i32 } [ %3, %cleanup.action37 ], [ %2, %ehcleanup ], [ %2, %lpad23 ]
+  %4 = phi { ptr, i32 } [ %2, %ehcleanup ], [ %3, %cleanup.action37 ], [ %2, %lpad23 ]
   resume { ptr, i32 } %4
 }
 
@@ -570,7 +570,7 @@ if.end18:                                         ; preds = %_ZNK5folly20AsciiCa
   br i1 %cmp8, label %return, label %if.end, !llvm.loop !10
 
 return:                                           ; preds = %if.end18, %for.inc.i.i, %while.body.us, %if.end.us, %while.body.preheader, %if.else, %while.body.lr.ph.split.us.split, %land.rhs.i, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %cmp4.i, %land.rhs.i ], [ true, %for.inc.i.i ], [ %cmp.not.i18.us, %while.body.us ], [ false, %if.else ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.preheader ], [ %cmp.not.i18.us, %if.end.us ], [ false, %if.end18 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ %cmp4.i, %land.rhs.i ], [ false, %if.else ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.preheader ], [ %cmp.not.i18.us, %if.end.us ], [ %cmp.not.i18.us, %while.body.us ], [ true, %for.inc.i.i ], [ false, %if.end18 ]
   ret i1 %retval.0
 }
 
@@ -832,7 +832,7 @@ if.end26.i:                                       ; preds = %_ZNK5folly20AsciiCa
   br i1 %cmp9.i, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_17getNumberOfValuesEN5folly5RangeIPKcEEE3$_0EEbS6_T_.exit", label %if.end.i
 
 "_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_17getNumberOfValuesEN5folly5RangeIPKcEEE3$_0EEbS6_T_.exit": ; preds = %if.end.i.i, %if.end26.i, %if.end26.us.i, %if.then.i, %while.body.preheader.i.i, %if.else.i, %while.body.lr.ph.split.us.split.i, %while.body.lr.ph.split.split.i
-  %count.5 = phi i64 [ 0, %if.else.i ], [ 0, %while.body.lr.ph.split.us.split.i ], [ %count.4, %if.end26.us.i ], [ 0, %while.body.lr.ph.split.split.i ], [ %count.2, %if.end26.i ], [ 0, %if.then.i ], [ 0, %while.body.preheader.i.i ], [ %inc.i.i.i, %if.end.i.i ]
+  %count.5 = phi i64 [ 0, %if.else.i ], [ 0, %while.body.lr.ph.split.us.split.i ], [ 0, %while.body.lr.ph.split.split.i ], [ 0, %if.then.i ], [ 0, %while.body.preheader.i.i ], [ %count.4, %if.end26.us.i ], [ %count.2, %if.end26.i ], [ %inc.i.i.i, %if.end.i.i ]
   ret i64 %count.5
 }
 
@@ -1074,7 +1074,7 @@ if.end22:                                         ; preds = %if.end.i.i.i, %_ZNK
   br i1 %cmp8, label %return, label %if.end
 
 return:                                           ; preds = %if.end.i, %if.end22, %if.end22.us, %while.body.lr.ph.i, %if.else, %while.body.lr.ph.split.split, %while.body.lr.ph.split.us.split, %if.then
-  %retval.0 = phi i1 [ %removed.1, %if.end22 ], [ false, %if.then ], [ false, %if.else ], [ %removed.1.us, %if.end22.us ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %while.body.lr.ph.i ], [ true, %if.end.i ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.else ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %while.body.lr.ph.i ], [ %removed.1.us, %if.end22.us ], [ %removed.1, %if.end22 ], [ true, %if.end.i ]
   ret i1 %retval.0
 }
 
@@ -1391,7 +1391,7 @@ if.end20:                                         ; preds = %if.end.i.i.i.i, %_Z
   br i1 %cmp5, label %while.end, label %if.end7
 
 while.end:                                        ; preds = %if.end20, %if.end20.us, %if.then, %while.body.lr.ph.split.us.split, %while.body.lr.ph.split.split, %if.end
-  %removed.1.lcssa = phi i1 [ %cmp.not, %if.end ], [ %removed.2.us, %if.end20.us ], [ %removed.091, %while.body.lr.ph.split.us.split ], [ %removed.091, %while.body.lr.ph.split.split ], [ false, %if.then ], [ %removed.2, %if.end20 ]
+  %removed.1.lcssa = phi i1 [ %cmp.not, %if.end ], [ %removed.091, %while.body.lr.ph.split.us.split ], [ %removed.091, %while.body.lr.ph.split.split ], [ false, %if.then ], [ %removed.2.us, %if.end20.us ], [ %removed.2, %if.end20 ]
   ret i1 %removed.1.lcssa
 }
 
@@ -1666,7 +1666,7 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %5 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %5 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -2212,7 +2212,7 @@ if.end39:                                         ; preds = %while.body28.lr.ph,
   br i1 %cmp37, label %if.end55, label %if.end39
 
 if.end55:                                         ; preds = %if.end39, %if.end23, %if.end23.us, %while.body28.lr.ph, %if.else, %if.then, %while.body.lr.ph.split.split, %while.body.lr.ph.split.us.split
-  %transferred.2 = phi i1 [ %transferred.1, %if.end23 ], [ false, %if.then ], [ false, %while.body28.lr.ph ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %if.else ], [ %transferred.1.us, %if.end23.us ], [ true, %if.end39 ]
+  %transferred.2 = phi i1 [ false, %if.then ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %if.else ], [ false, %while.body28.lr.ph ], [ %transferred.1.us, %if.end23.us ], [ %transferred.1, %if.end23 ], [ true, %if.end39 ]
   ret i1 %transferred.2
 }
 
@@ -2693,7 +2693,7 @@ lpad35:                                           ; preds = %invoke.cont38, %inv
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp34) #21
   br label %common.resume
 
-for.inc:                                          ; preds = %lor.rhs, %land.rhs, %cond.true, %land.lhs.true13, %cond.end, %if.else, %if.end19, %cleanup.action
+for.inc:                                          ; preds = %land.rhs, %lor.rhs, %cond.true, %land.lhs.true13, %cond.end, %if.else, %if.end19, %cleanup.action
   %inc51 = add nuw i64 %i.061, 1
   %46 = load i64, ptr %length_, align 8
   %cmp = icmp ult i64 %inc51, %46
@@ -2781,7 +2781,7 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %7 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %7 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %hdrs, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -2939,8 +2939,8 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %.pre8 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end22.loopexit.i.i ]
-  %4 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %.pre8 = phi i64 [ %3, %if.end22.loopexit.i.i ], [ 0, %if.end.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -3086,8 +3086,8 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %.pre9 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end22.loopexit.i.i ]
-  %4 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %.pre9 = phi i64 [ %3, %if.end22.loopexit.i.i ], [ 0, %if.end.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -3221,8 +3221,8 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %.pre9 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end22.loopexit.i.i ]
-  %4 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %.pre9 = phi i64 [ %3, %if.end22.loopexit.i.i ], [ 0, %if.end.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -3400,8 +3400,8 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %.pre8 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end22.loopexit.i.i ]
-  %4 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %.pre8 = phi i64 [ %3, %if.end22.loopexit.i.i ], [ 0, %if.end.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -3541,8 +3541,8 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %.pre9 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end22.loopexit.i.i ]
-  %4 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %.pre9 = phi i64 [ %3, %if.end22.loopexit.i.i ], [ 0, %if.end.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i

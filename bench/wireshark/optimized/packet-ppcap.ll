@@ -251,7 +251,7 @@ define internal i32 @dissect_ppcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_ppcap_payload_type.exit
 
 dissect_ppcap_payload_type.exit:                  ; preds = %70, %39, %49, %52, %55, %58, %61, %64, %67
-  %.2 = phi i32 [ %spec.select, %70 ], [ 1, %39 ], [ 3, %52 ], [ 5, %58 ], [ 7, %64 ], [ 8, %67 ], [ 6, %61 ], [ 4, %55 ], [ 2, %49 ]
+  %.2 = phi i32 [ 1, %39 ], [ 2, %49 ], [ 3, %52 ], [ 4, %55 ], [ 5, %58 ], [ 6, %61 ], [ 7, %64 ], [ 8, %67 ], [ %spec.select, %70 ]
   %73 = load i32, ptr @hf_ppcap_payload_type, align 4
   %74 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %73, ptr noundef %0, i32 noundef %43, i32 noundef %45, i32 noundef 2)
   %75 = and i32 %45, 3

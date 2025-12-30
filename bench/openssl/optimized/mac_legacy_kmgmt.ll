@@ -42,7 +42,7 @@ define noalias ptr @ossl_mac_key_new(ptr noundef %0, i32 noundef %1) local_unnam
   br label %10
 
 10:                                               ; preds = %4, %2, %7
-  %.0 = phi ptr [ null, %2 ], [ %5, %7 ], [ null, %4 ]
+  %.0 = phi ptr [ %5, %7 ], [ null, %2 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -130,7 +130,7 @@ define internal noalias ptr @mac_new(ptr noundef %0) #0 {
   br label %ossl_mac_key_new.exit
 
 ossl_mac_key_new.exit:                            ; preds = %1, %4, %7
-  %.0.i = phi ptr [ null, %1 ], [ %5, %7 ], [ null, %4 ]
+  %.0.i = phi ptr [ %5, %7 ], [ null, %1 ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -197,7 +197,7 @@ define internal range(i32 0, 2) i32 @mac_set_params(ptr noundef %0, ptr noundef 
   br label %8
 
 8:                                                ; preds = %4, %2, %6
-  %.0 = phi i32 [ 0, %2 ], [ %7, %6 ], [ 1, %4 ]
+  %.0 = phi i32 [ %7, %6 ], [ 0, %2 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -294,7 +294,7 @@ define internal range(i32 0, 2) i32 @mac_match(ptr noundef readonly captures(non
   br label %32
 
 32:                                               ; preds = %28, %13, %14, %.thread, %26, %27
-  %.1 = phi i32 [ 0, %13 ], [ 0, %27 ], [ 0, %26 ], [ 0, %.thread ], [ 0, %14 ], [ %31, %28 ]
+  %.1 = phi i32 [ 0, %27 ], [ 0, %26 ], [ 0, %.thread ], [ 0, %14 ], [ 0, %13 ], [ %31, %28 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !21
   %.not32 = icmp eq ptr %34, null
@@ -319,7 +319,7 @@ define internal range(i32 0, 2) i32 @mac_match(ptr noundef readonly captures(non
   br label %.thread35
 
 .thread35:                                        ; preds = %.thread34, %5, %32, %.thread39, %35, %3
-  %.023 = phi i32 [ 0, %3 ], [ 1, %5 ], [ %.1, %32 ], [ 0, %35 ], [ %41, %.thread39 ], [ 1, %.thread34 ]
+  %.023 = phi i32 [ 0, %3 ], [ %.1, %32 ], [ 1, %5 ], [ 0, %35 ], [ %41, %.thread39 ], [ 1, %.thread34 ]
   ret i32 %.023
 }
 
@@ -443,8 +443,8 @@ define internal ptr @mac_gen_init(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store i64 %24, ptr %25, align 8, !tbaa !30
   br label %mac_gen_set_params.exit
 
-26:                                               ; preds = %16, %15
-  %27 = phi ptr [ null, %16 ], [ %.pre, %15 ]
+26:                                               ; preds = %15, %16
+  %27 = phi ptr [ %.pre, %15 ], [ null, %16 ]
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !30
   tail call void @CRYPTO_secure_clear_free(ptr noundef %27, i64 noundef %29, ptr noundef nonnull @.str, i32 noundef 522) #6
@@ -454,7 +454,7 @@ define internal ptr @mac_gen_init(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %mac_gen_set_params.exit
 
 mac_gen_set_params.exit:                          ; preds = %6, %3, %21, %8, %26
-  %.0 = phi ptr [ %7, %21 ], [ null, %26 ], [ %7, %8 ], [ null, %3 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %26 ], [ %7, %8 ], [ %7, %21 ], [ null, %3 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -499,7 +499,7 @@ define internal range(i32 0, 2) i32 @mac_gen_set_params(ptr noundef writeonly ca
   br label %21
 
 21:                                               ; preds = %4, %16, %10, %2, %9
-  %.0 = phi i32 [ 0, %10 ], [ 0, %9 ], [ 0, %2 ], [ 1, %16 ], [ 1, %4 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %2 ], [ 0, %10 ], [ 1, %16 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -633,7 +633,7 @@ ossl_mac_key_free.exit24:                         ; preds = %CRYPTO_DOWN_REF.exi
   br label %ossl_mac_key_free.exit
 
 ossl_mac_key_free.exit:                           ; preds = %29, %CRYPTO_DOWN_REF.exit.i, %14, %3, %52, %ossl_mac_key_free.exit24, %13
-  %.0 = phi ptr [ null, %ossl_mac_key_free.exit24 ], [ null, %13 ], [ null, %3 ], [ %11, %14 ], [ %11, %52 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %29 ]
+  %.0 = phi ptr [ null, %13 ], [ %11, %52 ], [ null, %ossl_mac_key_free.exit24 ], [ null, %3 ], [ %11, %14 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %29 ]
   ret ptr %.0
 }
 
@@ -671,7 +671,7 @@ define internal noalias ptr @mac_new_cmac(ptr noundef %0) #0 {
   br label %ossl_mac_key_new.exit
 
 ossl_mac_key_new.exit:                            ; preds = %1, %4, %7
-  %.0.i = phi ptr [ null, %1 ], [ %5, %7 ], [ null, %4 ]
+  %.0.i = phi ptr [ %5, %7 ], [ null, %1 ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -779,7 +779,7 @@ mac_gen_set_params.exit.thread.sink.split:        ; preds = %24, %9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524550, ptr noundef null) #6
   br label %mac_gen_set_params.exit.thread
 
-mac_gen_set_params.exit.thread:                   ; preds = %mac_gen_set_params.exit.thread.sink.split, %2, %10, %mac_gen_set_params.exit
+mac_gen_set_params.exit.thread:                   ; preds = %mac_gen_set_params.exit.thread.sink.split, %10, %2, %mac_gen_set_params.exit
   %.0 = phi i32 [ 1, %mac_gen_set_params.exit ], [ 0, %2 ], [ 0, %10 ], [ 0, %mac_gen_set_params.exit.thread.sink.split ]
   ret i32 %.0
 }
@@ -837,7 +837,7 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef readonly c
   br label %25
 
 25:                                               ; preds = %21, %15, %8, %3, %24
-  %.0 = phi i32 [ 0, %3 ], [ 1, %24 ], [ 0, %15 ], [ 0, %8 ], [ 0, %21 ]
+  %.0 = phi i32 [ 1, %24 ], [ 0, %3 ], [ 0, %8 ], [ 0, %15 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -946,7 +946,7 @@ define internal fastcc range(i32 0, 2) i32 @mac_key_fromdata(ptr noundef nonnull
   br label %45
 
 45:                                               ; preds = %42, %27, %8, %41, %26, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %41 ], [ 0, %26 ], [ 0, %8 ], [ %., %42 ], [ 0, %27 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %26 ], [ 0, %41 ], [ 0, %8 ], [ 0, %27 ], [ %., %42 ]
   ret i32 %.0
 }
 

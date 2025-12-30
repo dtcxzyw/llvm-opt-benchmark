@@ -162,7 +162,7 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
   unreachable
 
 .thread:                                          ; preds = %25, %39
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn, %25 ], [ %40, %39 ]
+  %.pn.pn22 = phi { ptr, i32 } [ %40, %39 ], [ %.pn, %25 ]
   resume { ptr, i32 } %.pn.pn22
 
 39:                                               ; preds = %5

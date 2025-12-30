@@ -371,7 +371,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i19:         ; preds = %_ZN4llvm17MCRegUnit
   br label %_ZN4llvm17InterferenceCache5Entry10revalidateEPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoE.exit
 
 _ZN4llvm17InterferenceCache5Entry10revalidateEPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoE.exit: ; preds = %86, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i19, %90, %_ZN4llvm17InterferenceCache5Entry5validEPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoE.exit.thread, %_ZN4llvm17InterferenceCache5Entry5validEPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoE.exit
-  %.0 = phi ptr [ %83, %90 ], [ %12, %_ZN4llvm17InterferenceCache5Entry5validEPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoE.exit ], [ %12, %_ZN4llvm17InterferenceCache5Entry5validEPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoE.exit.thread ], [ %12, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i19 ], [ %83, %86 ]
+  %.0 = phi ptr [ %12, %_ZN4llvm17InterferenceCache5Entry5validEPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoE.exit ], [ %12, %_ZN4llvm17InterferenceCache5Entry5validEPNS_17LiveIntervalUnionEPKNS_18TargetRegisterInfoE.exit.thread ], [ %83, %90 ], [ %12, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i19 ], [ %83, %86 ]
   ret ptr %.0
 }
 
@@ -1198,7 +1198,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   br i1 %.not176, label %._crit_edge, label %199
 
 ._crit_edge351:                                   ; preds = %304, %178, %._crit_edge
-  %.0.copyload.i.i.i.i199 = phi i64 [ 0, %178 ], [ %.0.copyload.i.i.i.i192391, %._crit_edge ], [ %.0.copyload.i.i.i.i201395, %304 ]
+  %.0.copyload.i.i.i.i199 = phi i64 [ %.0.copyload.i.i.i.i192391, %._crit_edge ], [ 0, %178 ], [ %.0.copyload.i.i.i.i201395, %304 ]
   %243 = load ptr, ptr %177, align 8, !tbaa !53
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 344
   %245 = zext i32 %.0 to i64

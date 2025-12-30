@@ -109,7 +109,7 @@ define void @RC2_cfb64_encrypt(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not107, label %.loopexit, label %36, !llvm.loop !12
 
 .loopexit:                                        ; preds = %26, %48, %.preheader109, %.preheader
-  %.1101 = phi i32 [ %57, %48 ], [ %9, %.preheader ], [ %9, %.preheader109 ], [ %35, %26 ]
+  %.1101 = phi i32 [ %9, %.preheader ], [ %9, %.preheader109 ], [ %57, %48 ], [ %35, %26 ]
   store i32 %.1101, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void

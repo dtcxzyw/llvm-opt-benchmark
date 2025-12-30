@@ -817,7 +817,7 @@ define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) loc
   br label %.thread15
 
 .thread15:                                        ; preds = %108, %104, %1, %202, %197, %167, %124, %._crit_edge
-  %204 = phi i32 [ 0, %167 ], [ 0, %124 ], [ 0, %._crit_edge ], [ 0, %197 ], [ 0, %202 ], [ %63, %108 ], [ %63, %104 ], [ %13, %1 ]
+  %204 = phi i32 [ 0, %124 ], [ 0, %._crit_edge ], [ 0, %197 ], [ 0, %202 ], [ 0, %167 ], [ %63, %108 ], [ %63, %104 ], [ %13, %1 ]
   ret i32 %204
 }
 
@@ -2063,8 +2063,8 @@ define internal void @gen8_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.thread, label %.sink.split
 
-.thread:                                          ; preds = %62, %77, %74, %40, %.loopexit18
-  %44 = phi ptr [ %30, %40 ], [ %30, %.loopexit18 ], [ %58, %74 ], [ %58, %77 ], [ %58, %62 ]
+.thread:                                          ; preds = %62, %74, %77, %.loopexit18, %40
+  %44 = phi ptr [ %30, %40 ], [ %30, %.loopexit18 ], [ %58, %77 ], [ %58, %74 ], [ %58, %62 ]
   %45 = icmp ult ptr %44, %35
   br i1 %45, label %46, label %.loopexit
 
@@ -2114,7 +2114,7 @@ define internal void @gen8_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   br label %74
 
 74:                                               ; preds = %71, %66
-  %75 = phi ptr [ %67, %66 ], [ %73, %71 ]
+  %75 = phi ptr [ %73, %71 ], [ %67, %66 ]
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.thread, label %77
 
@@ -2778,10 +2778,10 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef reado
   br label %68
 
 68:                                               ; preds = %62, %58, %55, %53
-  %69 = phi ptr [ null, %53 ], [ null, %55 ], [ %56, %62 ], [ null, %58 ]
-  %70 = phi i64 [ 0, %53 ], [ 0, %55 ], [ %66, %62 ], [ 0, %58 ]
-  %71 = phi i32 [ 0, %53 ], [ 0, %55 ], [ %64, %62 ], [ 0, %58 ]
-  %72 = phi i32 [ 0, %53 ], [ 0, %55 ], [ %67, %62 ], [ 0, %58 ]
+  %69 = phi ptr [ null, %53 ], [ %56, %62 ], [ null, %58 ], [ null, %55 ]
+  %70 = phi i64 [ 0, %53 ], [ %66, %62 ], [ 0, %58 ], [ 0, %55 ]
+  %71 = phi i32 [ 0, %53 ], [ %64, %62 ], [ 0, %58 ], [ 0, %55 ]
+  %72 = phi i32 [ 0, %53 ], [ %67, %62 ], [ 0, %58 ], [ 0, %55 ]
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %74 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 400
@@ -2962,7 +2962,7 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef reado
   br label %185
 
 185:                                              ; preds = %182, %177
-  %186 = phi ptr [ %178, %177 ], [ %184, %182 ]
+  %186 = phi ptr [ %184, %182 ], [ %178, %177 ]
   %187 = icmp eq ptr %186, null
   br i1 %187, label %.thread42, label %188
 
@@ -2988,12 +2988,12 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef reado
   %203 = icmp eq i32 %170, %85
   br i1 %203, label %.thread42.thread, label %.preheader, !llvm.loop !86
 
-.thread42:                                        ; preds = %173, %188, %185, %158
-  %204 = phi i64 [ %83, %158 ], [ 0, %185 ], [ 0, %188 ], [ 0, %173 ]
-  %205 = phi i32 [ %82, %158 ], [ 0, %185 ], [ 0, %188 ], [ 0, %173 ]
-  %206 = phi i32 [ %81, %158 ], [ 0, %185 ], [ 0, %188 ], [ 0, %173 ]
-  %207 = phi ptr [ %157, %158 ], [ %169, %185 ], [ %169, %188 ], [ %169, %173 ]
-  %208 = phi i32 [ 0, %158 ], [ %170, %185 ], [ %170, %188 ], [ %170, %173 ]
+.thread42:                                        ; preds = %173, %185, %188, %158
+  %204 = phi i64 [ %83, %158 ], [ 0, %188 ], [ 0, %185 ], [ 0, %173 ]
+  %205 = phi i32 [ %82, %158 ], [ 0, %188 ], [ 0, %185 ], [ 0, %173 ]
+  %206 = phi i32 [ %81, %158 ], [ 0, %188 ], [ 0, %185 ], [ 0, %173 ]
+  %207 = phi ptr [ %157, %158 ], [ %169, %188 ], [ %169, %185 ], [ %169, %173 ]
+  %208 = phi i32 [ 0, %158 ], [ %170, %188 ], [ %170, %185 ], [ %170, %173 ]
   %209 = icmp ult i32 %208, %85
   br i1 %209, label %210, label %.thread42.thread
 
@@ -3096,7 +3096,7 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef reado
   br label %.thread46
 
 .thread46:                                        ; preds = %78, %.thread44, %257, %259, %141, %260, %252
-  %261 = phi i1 [ false, %252 ], [ false, %257 ], [ false, %259 ], [ false, %141 ], [ false, %260 ], [ %89, %.thread44 ], [ %89, %78 ]
+  %261 = phi i1 [ false, %257 ], [ false, %259 ], [ false, %141 ], [ false, %260 ], [ false, %252 ], [ %89, %.thread44 ], [ %89, %78 ]
   %262 = load ptr, ptr %36, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 352
   %264 = call i32 @__SCT__might_resched() #10
@@ -3153,7 +3153,7 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef reado
   br label %gen8_ggtt_bind_put_ce.exit
 
 gen8_ggtt_bind_put_ce.exit:                       ; preds = %32, %.lr.ph8.i, %18, %12, %._crit_edge9.i, %.loopexit54, %5
-  %292 = phi i1 [ true, %5 ], [ false, %.loopexit54 ], [ %261, %._crit_edge9.i ], [ false, %18 ], [ false, %12 ], [ %261, %.lr.ph8.i ], [ false, %32 ]
+  %292 = phi i1 [ true, %5 ], [ false, %.loopexit54 ], [ %261, %._crit_edge9.i ], [ false, %12 ], [ false, %18 ], [ %261, %.lr.ph8.i ], [ false, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %292
 }
@@ -3361,8 +3361,8 @@ define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   %.ph35 = load i64, ptr %.ph35.in, align 8, !noalias !39
   br label %51
 
-.thread:                                          ; preds = %62, %77, %74, %38, %.loopexit18
-  %47 = phi ptr [ %28, %38 ], [ %28, %.loopexit18 ], [ %59, %74 ], [ %59, %77 ], [ %59, %62 ]
+.thread:                                          ; preds = %62, %74, %77, %.loopexit18, %38
+  %47 = phi ptr [ %28, %38 ], [ %28, %.loopexit18 ], [ %59, %77 ], [ %59, %74 ], [ %59, %62 ]
   %48 = icmp ult ptr %47, %33
   br i1 %48, label %49, label %.loopexit
 
@@ -3403,7 +3403,7 @@ define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   br label %74
 
 74:                                               ; preds = %71, %66
-  %75 = phi ptr [ %67, %66 ], [ %73, %71 ]
+  %75 = phi ptr [ %73, %71 ], [ %67, %66 ]
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.thread, label %77
 

@@ -460,7 +460,7 @@ define internal i32 @dissect_gdsdb(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %14, %17, %34, %7, %4
-  %.0 = phi i32 [ %36, %34 ], [ 0, %4 ], [ 0, %7 ], [ %.036, %14 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %36, %34 ], [ %.036, %14 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -623,7 +623,7 @@ add_uint_string.exit79:                           ; preds = %add_uint_string.exi
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %add_uint_string.exit79, %12, %7, %4
-  %.0 = phi i32 [ -1, %12 ], [ -1, %4 ], [ -1, %7 ], [ %.0.i78, %add_uint_string.exit79 ], [ %79, %.lr.ph ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %7 ], [ -1, %12 ], [ %.0.i78, %add_uint_string.exit79 ], [ %79, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -759,7 +759,7 @@ define internal noundef i32 @gdsdb_response(ptr noundef %0, ptr readnone capture
   br label %add_uint_string.exit.i
 
 add_uint_string.exit.i:                           ; preds = %65, %56, %53, %44, %40, %36
-  %.2.i = phi i32 [ %39, %36 ], [ %49, %44 ], [ %43, %40 ], [ %55, %53 ], [ %67, %65 ], [ %61, %56 ]
+  %.2.i = phi i32 [ %39, %36 ], [ %43, %40 ], [ %55, %53 ], [ %49, %44 ], [ %67, %65 ], [ %61, %56 ]
   %68 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i)
   %69 = icmp sgt i32 %68, 3
   br i1 %69, label %.lr.ph.i, label %gdsdb_status_vector.exit, !llvm.loop !8
@@ -849,7 +849,7 @@ add_uint_string.exit:                             ; preds = %19, %37
   br label %add_uint_string.exit40
 
 add_uint_string.exit40:                           ; preds = %48, %add_uint_string.exit, %12, %7, %4
-  %.0 = phi i32 [ -1, %12 ], [ -1, %4 ], [ -1, %7 ], [ %50, %48 ], [ %44, %add_uint_string.exit ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %7 ], [ -1, %12 ], [ %50, %48 ], [ %44, %add_uint_string.exit ]
   ret i32 %.0
 }
 
@@ -906,7 +906,7 @@ define internal i32 @gdsdb_compile(ptr noundef %0, ptr readnone captures(none) %
   br label %add_uint_string.exit
 
 add_uint_string.exit:                             ; preds = %23, %12, %7, %4
-  %.0 = phi i32 [ -1, %7 ], [ -1, %4 ], [ %25, %23 ], [ %19, %12 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %7 ], [ %25, %23 ], [ %19, %12 ]
   ret i32 %.0
 }
 

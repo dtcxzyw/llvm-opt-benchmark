@@ -5926,7 +5926,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %99 = fadd double %98, %96
   br label %234
 
-_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %3, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
+_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %3, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %101 = load <2 x i64>, ptr %100, align 16, !tbaa !14, !noalias !414
   %102 = xor <2 x i64> %101, splat (i64 -9223372036854775808)
@@ -7112,9 +7112,9 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i17.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %108
-  %.pre-phi173 = phi i64 [ %.pre172, %108 ], [ %77, %._crit_edge.i.i.i.i.i.i ], [ %77, %.lr.ph.i17.i.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre, %108 ], [ %76, %._crit_edge.i.i.i.i.i.i ], [ %76, %.lr.ph.i17.i.i.i.i.i.i ]
-  %.1 = phi i64 [ %spec.select54, %108 ], [ %.0171, %._crit_edge.i.i.i.i.i.i ], [ %.0171, %.lr.ph.i17.i.i.i.i.i.i ]
+  %.pre-phi173 = phi i64 [ %77, %._crit_edge.i.i.i.i.i.i ], [ %.pre172, %108 ], [ %77, %.lr.ph.i17.i.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %76, %._crit_edge.i.i.i.i.i.i ], [ %.pre, %108 ], [ %76, %.lr.ph.i17.i.i.i.i.i.i ]
+  %.1 = phi i64 [ %.0171, %._crit_edge.i.i.i.i.i.i ], [ %spec.select54, %108 ], [ %.0171, %.lr.ph.i17.i.i.i.i.i.i ]
   %110 = load ptr, ptr %0, align 8, !tbaa !190, !noalias !520
   %111 = load i64, ptr %9, align 8, !tbaa !193, !noalias !520
   %112 = mul nuw nsw i64 %111, %.052170
@@ -7543,7 +7543,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !284
   br label %41
 
@@ -9187,9 +9187,9 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i17.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %123
-  %.pre-phi173 = phi i64 [ %.pre172, %123 ], [ %92, %._crit_edge.i.i.i.i.i.i ], [ %92, %.lr.ph.i17.i.i.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre, %123 ], [ %91, %._crit_edge.i.i.i.i.i.i ], [ %91, %.lr.ph.i17.i.i.i.i.i.i ]
-  %.1 = phi i64 [ %spec.select54, %123 ], [ %.0171, %._crit_edge.i.i.i.i.i.i ], [ %.0171, %.lr.ph.i17.i.i.i.i.i.i ]
+  %.pre-phi173 = phi i64 [ %92, %._crit_edge.i.i.i.i.i.i ], [ %.pre172, %123 ], [ %92, %.lr.ph.i17.i.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %91, %._crit_edge.i.i.i.i.i.i ], [ %.pre, %123 ], [ %91, %.lr.ph.i17.i.i.i.i.i.i ]
+  %.1 = phi i64 [ %.0171, %._crit_edge.i.i.i.i.i.i ], [ %spec.select54, %123 ], [ %.0171, %.lr.ph.i17.i.i.i.i.i.i ]
   %125 = load ptr, ptr %0, align 8, !tbaa !269, !noalias !641
   %126 = load i64, ptr %9, align 8, !tbaa !193, !noalias !641
   %127 = mul nsw i64 %126, %.052170
@@ -11258,7 +11258,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm7ESaIdEE4fillERKd.exit: ; preds = %57
   ret void
 
 83:                                               ; preds = %80, %19
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %20, %19 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %81, %80 ]
   %84 = load i64, ptr %9, align 8, !tbaa !13
   %85 = icmp ult i64 %84, 8
   br i1 %85, label %_ZN3g2o5ceres8internal10FixedArrayIdLm7ESaIdEED2Ev.exit32, label %86
@@ -11440,7 +11440,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm7ESaIdEE4fillERKd.exit: ; preds = %58
   ret void
 
 84:                                               ; preds = %81, %20
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %21, %20 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %82, %81 ]
   %85 = load i64, ptr %10, align 8, !tbaa !13
   %86 = icmp ult i64 %85, 8
   br i1 %86, label %_ZN3g2o5ceres8internal10FixedArrayIdLm7ESaIdEED2Ev.exit32, label %87
@@ -12378,7 +12378,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %58
   ret void
 
 77:                                               ; preds = %20, %74
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %75, %74 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %21, %20 ]
   %78 = load i64, ptr %10, align 8, !tbaa !13
   %79 = icmp ult i64 %78, 4
   br i1 %79, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32, label %80
@@ -12557,7 +12557,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm7ESaIdEE4fillERKd.exit: ; preds = %59
   ret void
 
 78:                                               ; preds = %21, %75
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %76, %75 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %22, %21 ]
   %79 = load i64, ptr %11, align 8, !tbaa !13
   %80 = icmp ult i64 %79, 8
   br i1 %80, label %_ZN3g2o5ceres8internal10FixedArrayIdLm7ESaIdEED2Ev.exit32, label %81

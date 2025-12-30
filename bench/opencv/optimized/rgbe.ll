@@ -2181,7 +2181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100: ; preds = %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %104, %121
-  %.3 = phi ptr [ %106, %104 ], [ %122, %121 ], [ %97, %.lr.ph ]
+  %.3 = phi ptr [ %122, %121 ], [ %106, %104 ], [ %97, %.lr.ph ]
   %123 = icmp ult ptr %.3, %70
   br i1 %123, label %73, label %.loopexit105, !llvm.loop !43
 

@@ -1981,14 +1981,14 @@ gv_calloc.exit:                                   ; preds = %660
   br label %.loopexit111.i
 
 .loopexit111.i:                                   ; preds = %.lr.ph.i121, %703, %684, %679
-  %.not.i120138 = phi i1 [ true, %703 ], [ false, %679 ], [ false, %684 ], [ false, %.lr.ph.i121 ]
-  %713 = phi i1 [ %704, %703 ], [ %678, %679 ], [ %678, %684 ], [ %678, %.lr.ph.i121 ]
-  %.087136 = phi ptr [ %.087137, %703 ], [ %.087.ph, %679 ], [ %.087.ph, %684 ], [ %.087.ph, %.lr.ph.i121 ]
-  %.091.i = phi i32 [ 1, %703 ], [ 0, %679 ], [ 0, %684 ], [ 0, %.lr.ph.i121 ]
-  %.sroa.049.1.i = phi double [ 0.000000e+00, %703 ], [ %.sroa.049.0.copyload.i, %679 ], [ %685, %684 ], [ %698, %.lr.ph.i121 ]
-  %.sroa.14.1.i = phi double [ 0.000000e+00, %703 ], [ %.sroa.14.0.copyload.i, %679 ], [ %686, %684 ], [ %699, %.lr.ph.i121 ]
-  %.sroa.22.1.i = phi double [ %710, %703 ], [ %.sroa.22.0.copyload.i, %679 ], [ %687, %684 ], [ %700, %.lr.ph.i121 ]
-  %.sroa.33.1.i = phi double [ %712, %703 ], [ %.sroa.33.0.copyload.i, %679 ], [ %688, %684 ], [ %701, %.lr.ph.i121 ]
+  %.not.i120138 = phi i1 [ false, %679 ], [ true, %703 ], [ false, %684 ], [ false, %.lr.ph.i121 ]
+  %713 = phi i1 [ %678, %679 ], [ %704, %703 ], [ %678, %684 ], [ %678, %.lr.ph.i121 ]
+  %.087136 = phi ptr [ %.087.ph, %679 ], [ %.087137, %703 ], [ %.087.ph, %684 ], [ %.087.ph, %.lr.ph.i121 ]
+  %.091.i = phi i32 [ 0, %679 ], [ 1, %703 ], [ 0, %684 ], [ 0, %.lr.ph.i121 ]
+  %.sroa.049.1.i = phi double [ %.sroa.049.0.copyload.i, %679 ], [ 0.000000e+00, %703 ], [ %685, %684 ], [ %698, %.lr.ph.i121 ]
+  %.sroa.14.1.i = phi double [ %.sroa.14.0.copyload.i, %679 ], [ 0.000000e+00, %703 ], [ %686, %684 ], [ %699, %.lr.ph.i121 ]
+  %.sroa.22.1.i = phi double [ %.sroa.22.0.copyload.i, %679 ], [ %710, %703 ], [ %687, %684 ], [ %700, %.lr.ph.i121 ]
+  %.sroa.33.1.i = phi double [ %.sroa.33.0.copyload.i, %679 ], [ %712, %703 ], [ %688, %684 ], [ %701, %.lr.ph.i121 ]
   %714 = load ptr, ptr %49, align 8, !tbaa !10
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 24
   %716 = load ptr, ptr %715, align 8, !tbaa !148
@@ -2277,7 +2277,7 @@ freeDerivedGraph.exit:                            ; preds = %._crit_edge35.i, %8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %expandCluster.exit, %freeDerivedGraph.exit, %863
-  %.6 = phi i32 [ 0, %freeDerivedGraph.exit ], [ 0, %863 ], [ -1, %expandCluster.exit ]
+  %.6 = phi i32 [ 0, %863 ], [ 0, %freeDerivedGraph.exit ], [ -1, %expandCluster.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %867
 
@@ -2649,7 +2649,7 @@ define internal range(i32 -1, 2) i32 @ecmp(ptr noundef readonly captures(none) %
   br label %18
 
 18:                                               ; preds = %16, %10, %8, %2
-  %.0 = phi i32 [ 1, %10 ], [ 1, %2 ], [ -1, %8 ], [ %., %16 ]
+  %.0 = phi i32 [ 1, %2 ], [ -1, %8 ], [ 1, %10 ], [ %., %16 ]
   ret i32 %.0
 }
 

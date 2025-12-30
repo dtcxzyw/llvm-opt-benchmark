@@ -391,12 +391,12 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %.not136 = icmp eq i32 %172, 0
   br i1 %.not136, label %.thread, label %173
 
-.thread:                                          ; preds = %114, %83, %124, %.lr.ph164.split, %101, %._crit_edge.us, %110, %162, %149, %.lr.ph167, %167, %76, %66, %41, %44, %47, %54, %28, %31, %36, %18, %10, %13
+.thread:                                          ; preds = %114, %83, %.lr.ph164.split, %124, %101, %._crit_edge.us, %110, %162, %149, %.lr.ph167, %167, %76, %66, %41, %44, %47, %54, %28, %31, %36, %18, %10, %13
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str, i32 noundef 240) #2
   br label %173
 
 173:                                              ; preds = %165, %167, %.thread
-  %.0 = phi i32 [ 1, %165 ], [ 0, %.thread ], [ 1, %167 ]
+  %.0 = phi i32 [ 0, %.thread ], [ 1, %167 ], [ 1, %165 ]
   ret i32 %.0
 }
 

@@ -116,7 +116,7 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
   unreachable
 
 57:                                               ; preds = %67, %63, %59
-  %.pn43 = phi { ptr, i32 } [ %64, %63 ], [ %60, %59 ], [ %68, %67 ]
+  %.pn43 = phi { ptr, i32 } [ %60, %59 ], [ %68, %67 ], [ %64, %63 ]
   %58 = load ptr, ptr %36, align 8, !noundef !4
   %.not63 = icmp eq ptr %58, null
   br i1 %.not63, label %.thread49, label %73
@@ -171,7 +171,7 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
   br label %72
 
 72:                                               ; preds = %.sink.split, %52, %71, %111, %134, %103
-  %.sink = phi ptr [ %26, %103 ], [ %26, %111 ], [ %35, %71 ], [ %26, %134 ], [ %35, %52 ], [ %.sink.ph, %.sink.split ]
+  %.sink = phi ptr [ %26, %103 ], [ %26, %134 ], [ %26, %111 ], [ %35, %71 ], [ %35, %52 ], [ %.sink.ph, %.sink.split ]
   call void @"_ZN4core3ptr34drop_in_place$LT$witx..ast..Id$GT$17h0c1897d7731b00c3E"(ptr nonnull align 8 %.sink)
   ret void
 

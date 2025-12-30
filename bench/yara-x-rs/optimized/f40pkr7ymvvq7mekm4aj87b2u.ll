@@ -478,8 +478,8 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   br i1 %11, label %16, label %13
 
 13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
+  %.sroa.9.0 = phi ptr [ %spec.select, %40 ], [ %4, %1 ], [ %10, %7 ], [ %19, %16 ], [ %25, %22 ], [ %31, %28 ], [ %37, %34 ]
+  %.sroa.0.0 = phi i64 [ %spec.select33, %40 ], [ 0, %1 ], [ 1, %7 ], [ 2, %16 ], [ 3, %22 ], [ 4, %28 ], [ 5, %34 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
   ret { i64, ptr } %15
@@ -550,8 +550,8 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   br i1 %11, label %16, label %13
 
 13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
+  %.sroa.9.0 = phi ptr [ %spec.select, %40 ], [ %4, %1 ], [ %10, %7 ], [ %19, %16 ], [ %25, %22 ], [ %31, %28 ], [ %37, %34 ]
+  %.sroa.0.0 = phi i64 [ %spec.select33, %40 ], [ 0, %1 ], [ 1, %7 ], [ 2, %16 ], [ 3, %22 ], [ 4, %28 ], [ 5, %34 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
   ret { i64, ptr } %15
@@ -622,8 +622,8 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   br i1 %11, label %16, label %13
 
 13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
+  %.sroa.9.0 = phi ptr [ %spec.select, %40 ], [ %4, %1 ], [ %10, %7 ], [ %19, %16 ], [ %25, %22 ], [ %31, %28 ], [ %37, %34 ]
+  %.sroa.0.0 = phi i64 [ %spec.select33, %40 ], [ 0, %1 ], [ 1, %7 ], [ 2, %16 ], [ 3, %22 ], [ 4, %28 ], [ 5, %34 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
   ret { i64, ptr } %15

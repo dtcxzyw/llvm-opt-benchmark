@@ -171,7 +171,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -756,7 +756,7 @@ define void @_ZN6icu_7719TransliterationRuleC2ERKNS_13UnicodeStringEiiS3_iiPPNS_
   ret void
 
 157:                                              ; preds = %142, %154, %110, %93, %20
-  %.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %111, %110 ], [ %21, %20 ], [ %155, %154 ], [ %143, %142 ]
+  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %94, %93 ], [ %21, %20 ], [ %155, %154 ], [ %143, %142 ]
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #14
   resume { ptr, i32 } %.pn.pn
 }
@@ -1164,7 +1164,7 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit:  ; preds = %26, %.sink.split.i.
   br label %70
 
 70:                                               ; preds = %58, %61, %62, %67, %47, %56, %54
-  %.0 = phi i8 [ %.lobit, %56 ], [ %69, %67 ], [ 1, %47 ], [ 0, %54 ], [ 0, %62 ], [ 0, %61 ], [ 0, %58 ]
+  %.0 = phi i8 [ 1, %47 ], [ 0, %54 ], [ %.lobit, %56 ], [ 0, %62 ], [ 0, %61 ], [ 0, %58 ], [ %69, %67 ]
   ret i8 %.0
 }
 

@@ -542,7 +542,7 @@ switch.early.test:                                ; preds = %switch.early.test16
   br i1 %exitcond192.not, label %.loopexit, label %.lr.ph177, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph177, %.lr.ph181, %.preheader171, %.preheader169, %.preheader, %80, %94, %108, %114, %68, %65
-  %.1157 = phi i32 [ %117, %114 ], [ %132, %.lr.ph177 ], [ %44, %.lr.ph181 ], [ %67, %65 ], [ %72, %68 ], [ %82, %80 ], [ %96, %94 ], [ %110, %108 ], [ 0, %.preheader ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ %60, %.lr.ph ]
+  %.1157 = phi i32 [ %67, %65 ], [ %72, %68 ], [ %82, %80 ], [ %96, %94 ], [ %110, %108 ], [ %117, %114 ], [ 0, %.preheader ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ %44, %.lr.ph181 ], [ %132, %.lr.ph177 ], [ %60, %.lr.ph ]
   store ptr %8, ptr %9, align 8, !tbaa !23
   store i32 0, ptr %6, align 4, !tbaa !3
   %133 = sext i32 %.1157 to i64
@@ -557,7 +557,7 @@ switch.early.test:                                ; preds = %switch.early.test16
   br i1 %139, label %140, label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit, %25, %20, %switch.early.test, %switch.early.test, %switch.early.test168, %switch.early.test168, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18
-  %.sink208 = phi i32 [ %28, %25 ], [ 0, %20 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %switch.early.test168 ], [ 0, %switch.early.test168 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ %138, %.loopexit ]
+  %.sink208 = phi i32 [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %switch.early.test168 ], [ 0, %switch.early.test168 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %20 ], [ %28, %25 ], [ %138, %.loopexit ]
   store i32 %.sink208, ptr %6, align 4, !tbaa !3
   br label %140
 
@@ -803,7 +803,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph72, %.lr.ph76, %.lr.ph84, %.loopexit.loopexit86, %.preheader66, %.preheader64, %.preheader62, %.preheader60, %.preheader
-  %.155 = phi i32 [ %79, %.loopexit.loopexit86 ], [ %23, %.lr.ph84 ], [ %39, %.lr.ph76 ], [ %55, %.lr.ph72 ], [ 0, %.preheader ], [ 0, %.preheader60 ], [ 0, %.preheader62 ], [ 0, %.preheader64 ], [ 0, %.preheader66 ], [ %69, %.lr.ph ]
+  %.155 = phi i32 [ 0, %.preheader ], [ 0, %.preheader60 ], [ 0, %.preheader62 ], [ 0, %.preheader64 ], [ 0, %.preheader66 ], [ %79, %.loopexit.loopexit86 ], [ %23, %.lr.ph84 ], [ %39, %.lr.ph76 ], [ %55, %.lr.ph72 ], [ %69, %.lr.ph ]
   store i32 0, ptr %5, align 4, !tbaa !3
   call void @ucnv_cbToUWriteUChars_77(ptr noundef %1, ptr noundef nonnull %7, i32 noundef %.155, i32 noundef 0, ptr noundef nonnull %5)
   br label %80

@@ -325,7 +325,7 @@ update.exit30.i:                                  ; preds = %64
   br label %_md5_md5_impl.exit
 
 _md5_md5_impl.exit:                               ; preds = %30, %34, %36, %43, %48, %49, %Py_DECREF.exit.i, %62, %63, %84
-  %.0.i = phi ptr [ null, %30 ], [ null, %34 ], [ null, %43 ], [ null, %36 ], [ null, %Py_DECREF.exit.i ], [ null, %48 ], [ null, %49 ], [ null, %62 ], [ %47, %84 ], [ %47, %63 ]
+  %.0.i = phi ptr [ null, %30 ], [ null, %43 ], [ null, %34 ], [ null, %36 ], [ null, %49 ], [ null, %48 ], [ null, %62 ], [ null, %Py_DECREF.exit.i ], [ %47, %84 ], [ %47, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
@@ -754,7 +754,7 @@ update.exit23:                                    ; preds = %.lr.ph.i20, %51
   br label %63
 
 63:                                               ; preds = %13, %62, %20, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

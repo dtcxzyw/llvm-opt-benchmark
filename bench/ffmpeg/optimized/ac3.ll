@@ -144,7 +144,7 @@ calc_lowcomp1.exit:                               ; preds = %15
   br label %calc_lowcomp1.exit215
 
 calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit, %41, %43
-  %.0.i214 = phi i32 [ %spec.select, %41 ], [ %44, %43 ], [ 384, %calc_lowcomp1.exit ]
+  %.0.i214 = phi i32 [ %44, %43 ], [ %spec.select, %41 ], [ 384, %calc_lowcomp1.exit ]
   %45 = add i32 %.0.i214, %4
   %46 = trunc i32 %45 to i16
   %47 = sub i16 %29, %46
@@ -195,7 +195,7 @@ calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit,
   br label %.loopexit295
 
 76:                                               ; preds = %64, %62, %53
-  %.2182.ph = phi i32 [ 384, %53 ], [ %66, %64 ], [ %.0180224, %62 ]
+  %.2182.ph = phi i32 [ 384, %53 ], [ %.0180224, %62 ], [ %66, %64 ]
   %77 = sub nsw i32 %56, %4
   %78 = load i32, ptr %50, align 4, !tbaa !13
   %79 = sub nsw i32 %77, %.2182.ph
@@ -503,8 +503,8 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
   br i1 %exitcond277.not, label %.critedge, label %.lr.ph247, !llvm.loop !28
 
-.critedge:                                        ; preds = %._crit_edge243, %202, %.lr.ph247, %.preheader, %194, %._crit_edge, %12
-  %.0171 = phi i32 [ 0, %._crit_edge ], [ -1094995529, %12 ], [ -1, %194 ], [ 0, %.preheader ], [ -1, %202 ], [ 0, %._crit_edge243 ], [ -1, %.lr.ph247 ]
+.critedge:                                        ; preds = %._crit_edge243, %.lr.ph247, %202, %.preheader, %194, %._crit_edge, %12
+  %.0171 = phi i32 [ -1094995529, %12 ], [ 0, %._crit_edge ], [ -1, %194 ], [ 0, %.preheader ], [ 0, %._crit_edge243 ], [ -1, %.lr.ph247 ], [ -1, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0171
 }

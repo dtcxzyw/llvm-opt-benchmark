@@ -333,7 +333,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br label %146
 
 146:                                              ; preds = %143, %137, %109
-  %.097.i.i = phi i32 [ 0, %109 ], [ %spec.select.i.i, %143 ], [ 0, %137 ]
+  %.097.i.i = phi i32 [ 0, %137 ], [ 0, %109 ], [ %spec.select.i.i, %143 ]
   %147 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv.i
   %148 = load i8, ptr %147, align 1, !tbaa !35
   %149 = zext i8 %148 to i32
@@ -366,7 +366,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br label %166
 
 166:                                              ; preds = %162, %156, %146
-  %.1.i.i = phi i32 [ %.097.i.i, %146 ], [ %spec.select124.i.i, %162 ], [ %.097.i.i, %156 ]
+  %.1.i.i = phi i32 [ %.097.i.i, %156 ], [ %.097.i.i, %146 ], [ %spec.select124.i.i, %162 ]
   %167 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv.next.i
   %168 = load i8, ptr %167, align 1, !tbaa !35
   %169 = zext i8 %168 to i32
@@ -399,7 +399,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br label %186
 
 186:                                              ; preds = %182, %176, %166
-  %.2.i.i = phi i32 [ %.1.i.i, %166 ], [ %spec.select126.i.i, %182 ], [ %.1.i.i, %176 ]
+  %.2.i.i = phi i32 [ %.1.i.i, %176 ], [ %.1.i.i, %166 ], [ %spec.select126.i.i, %182 ]
   %187 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv.next.i
   %188 = load i8, ptr %187, align 1, !tbaa !35
   %189 = zext i8 %188 to i32
@@ -432,7 +432,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br label %206
 
 206:                                              ; preds = %202, %196, %186
-  %.3.i.i = phi i32 [ %.2.i.i, %186 ], [ %spec.select128.i.i, %202 ], [ %.2.i.i, %196 ]
+  %.3.i.i = phi i32 [ %.2.i.i, %196 ], [ %.2.i.i, %186 ], [ %spec.select128.i.i, %202 ]
   %207 = icmp samesign ult i32 %.3.i.i, 2
   %208 = load ptr, ptr %83, align 8, !tbaa !31
   %209 = load ptr, ptr %84, align 8, !tbaa !32

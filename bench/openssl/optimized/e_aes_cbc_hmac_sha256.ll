@@ -121,8 +121,8 @@ define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha256_cipher(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %22, %17
-  %.0380 = phi i64 [ %spec.select, %22 ], [ 0, %17 ]
-  %.0378 = phi i64 [ %8, %22 ], [ %3, %17 ]
+  %.0380 = phi i64 [ 0, %17 ], [ %spec.select, %22 ]
+  %.0378 = phi i64 [ %3, %17 ], [ %8, %22 ]
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4, !tbaa !3
   %28 = and i32 %27, 536870912
   %.not419 = icmp eq i32 %28, 0
@@ -963,7 +963,7 @@ sha256_update.exit479:                            ; preds = %481
   br label %535
 
 535:                                              ; preds = %150, %._crit_edge, %sha256_update.exit479.thread, %sha256_update.exit479, %sha256_update.exit479.thread496, %19, %4
-  %.0 = phi i32 [ %534, %sha256_update.exit479 ], [ 0, %sha256_update.exit479.thread496 ], [ 0, %4 ], [ 0, %19 ], [ 1, %sha256_update.exit479.thread ], [ 1, %._crit_edge ], [ 1, %150 ]
+  %.0 = phi i32 [ %534, %sha256_update.exit479 ], [ 0, %4 ], [ 0, %19 ], [ 0, %sha256_update.exit479.thread496 ], [ 1, %sha256_update.exit479.thread ], [ 1, %._crit_edge ], [ 1, %150 ]
   ret i32 %.0
 }
 
@@ -1362,8 +1362,8 @@ sha256_update.exit157:                            ; preds = %154, %.thread174
   br label %212
 
 212:                                              ; preds = %199, %197, %208
-  %.0111 = phi i32 [ %205, %208 ], [ %spec.select, %199 ], [ 1, %197 ]
-  %.0106 = phi i32 [ %211, %208 ], [ %181, %199 ], [ %181, %197 ]
+  %.0111 = phi i32 [ 1, %197 ], [ %205, %208 ], [ %spec.select, %199 ]
+  %.0106 = phi i32 [ %181, %197 ], [ %211, %208 ], [ %181, %199 ]
   %213 = getelementptr inbounds nuw i8, ptr %11, i64 468
   %214 = getelementptr inbounds nuw i8, ptr %11, i64 244
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %213, ptr noundef nonnull align 4 dereferenceable(112) %214, i64 112, i1 false), !tbaa.struct !7
@@ -1947,7 +1947,7 @@ tls1_1_multi_block_encrypt.exit:                  ; preds = %239, %._crit_edge40
   br label %551
 
 551:                                              ; preds = %4, %231, %170, %183, %195, %202, %171, %sha256_update.exit157, %164, %118, %142, %tls1_1_multi_block_encrypt.exit, %167, %117
-  %.1 = phi i32 [ -1, %171 ], [ %.0, %117 ], [ %.0.i, %tls1_1_multi_block_encrypt.exit ], [ %169, %167 ], [ 0, %142 ], [ 32, %164 ], [ -1, %118 ], [ %163, %sha256_update.exit157 ], [ -1, %202 ], [ -1, %170 ], [ -1, %4 ], [ -1, %183 ], [ %237, %231 ], [ 0, %195 ]
+  %.1 = phi i32 [ %.0, %117 ], [ %169, %167 ], [ %.0.i, %tls1_1_multi_block_encrypt.exit ], [ %163, %sha256_update.exit157 ], [ 32, %164 ], [ -1, %118 ], [ 0, %142 ], [ %237, %231 ], [ -1, %170 ], [ -1, %183 ], [ 0, %195 ], [ -1, %202 ], [ -1, %171 ], [ -1, %4 ]
   ret i32 %.1
 }
 

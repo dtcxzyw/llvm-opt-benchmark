@@ -176,7 +176,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %58, label %41, label %.critedge2.i.us, !llvm.loop !48
 
 .critedge2.i.us:                                  ; preds = %57, %56, %.critedge2.loopexit.split.loop.exit112.i.us, %.critedge.i.us
-  %.2.lcssa.i.us = phi i32 [ %46, %.critedge.i.us ], [ %11, %56 ], [ %55, %.critedge2.loopexit.split.loop.exit112.i.us ], [ %smax.i.us, %57 ]
+  %.2.lcssa.i.us = phi i32 [ %46, %.critedge.i.us ], [ %55, %.critedge2.loopexit.split.loop.exit112.i.us ], [ %11, %56 ], [ %smax.i.us, %57 ]
   %59 = add i32 %.2.lcssa.i.us, %.neg.i.us
   %spec.select.i.us = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
   %60 = add nsw i32 %spec.select.i.us, %.pre24

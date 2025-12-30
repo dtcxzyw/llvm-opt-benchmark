@@ -284,7 +284,7 @@ define internal ptr @dir_open_for_write(ptr noundef initializes((24, 36)) %0, pt
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %57, %84, %91, %74, %76, %40, %32, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %32 ], [ null, %40 ], [ %79, %84 ], [ null, %74 ], [ null, %76 ], [ %79, %91 ], [ null, %57 ], [ null, %51 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %32 ], [ null, %40 ], [ null, %76 ], [ null, %74 ], [ %79, %91 ], [ %79, %84 ], [ null, %57 ], [ null, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -429,12 +429,12 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
   br label %96
 
 96:                                               ; preds = %59, %93, %64
-  %.1 = phi i32 [ %60, %59 ], [ %82, %64 ], [ %95, %93 ]
+  %.1 = phi i32 [ %82, %64 ], [ %95, %93 ], [ %60, %59 ]
   %.not42 = icmp eq i32 %.1, 0
   br i1 %.not42, label %.thread49, label %.thread
 
-.thread:                                          ; preds = %63, %88, %22, %96
-  %.146 = phi i32 [ %.1, %96 ], [ -1, %63 ], [ %91, %88 ], [ %.0, %22 ]
+.thread:                                          ; preds = %63, %22, %88, %96
+  %.146 = phi i32 [ %.1, %96 ], [ -1, %63 ], [ %.0, %22 ], [ %91, %88 ]
   %97 = tail call ptr @__errno_location() #14
   %98 = load i32, ptr %97, align 4
   %99 = load ptr, ptr %0, align 8
@@ -442,8 +442,8 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %98, ptr %100, align 8
   br label %.thread49
 
-.thread49:                                        ; preds = %83, %61, %.thread, %96
-  %.147 = phi i32 [ %.146, %.thread ], [ 0, %96 ], [ 0, %61 ], [ 0, %83 ]
+.thread49:                                        ; preds = %61, %83, %.thread, %96
+  %.147 = phi i32 [ %.146, %.thread ], [ 0, %96 ], [ 0, %83 ], [ 0, %61 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load ptr, ptr %101, align 8
   call void @pg_free(ptr noundef %102) #12
@@ -573,7 +573,7 @@ define internal i64 @dir_write(ptr noundef captures(none) %0, ptr noundef %1, i6
   br label %26
 
 26:                                               ; preds = %.sink.split, %19, %13
-  %.0 = phi i64 [ %2, %19 ], [ %2, %13 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i64 [ %2, %13 ], [ %2, %19 ], [ %.0.ph, %.sink.split ]
   %27 = icmp sgt i64 %.0, 0
   br i1 %27, label %28, label %32
 
@@ -632,7 +632,7 @@ define internal i32 @dir_sync(ptr noundef readonly captures(none) %0) #0 {
   br label %27
 
 27:                                               ; preds = %.sink.split, %18, %1
-  %.0 = phi i32 [ %21, %18 ], [ 0, %1 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ %21, %18 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -963,7 +963,7 @@ define internal ptr @tar_open_for_write(ptr noundef initializes((24, 36)) %0, pt
   br label %134
 
 134:                                              ; preds = %113, %93, %62, %132, %127, %103, %90, %78, %68, %56, %46, %41, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %41 ], [ null, %46 ], [ null, %56 ], [ null, %68 ], [ null, %78 ], [ null, %90 ], [ null, %127 ], [ %133, %132 ], [ null, %93 ], [ null, %103 ], [ null, %62 ], [ null, %113 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %41 ], [ null, %46 ], [ null, %56 ], [ null, %68 ], [ null, %78 ], [ null, %90 ], [ null, %127 ], [ %133, %132 ], [ null, %103 ], [ null, %62 ], [ null, %93 ], [ null, %113 ]
   ret ptr %.0
 }
 
@@ -1258,7 +1258,7 @@ tar_write_padding_data.exit:                      ; preds = %45
   br label %162
 
 162:                                              ; preds = %tar_write_padding_data.exit, %109, %65, %57, %158, %127, %120, %106, %98, %85, %27, %22, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %22 ], [ 0, %27 ], [ -1, %85 ], [ -1, %98 ], [ -1, %127 ], [ 0, %158 ], [ -1, %106 ], [ -1, %120 ], [ -1, %65 ], [ -1, %tar_write_padding_data.exit ], [ -1, %57 ], [ -1, %109 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %22 ], [ 0, %27 ], [ -1, %85 ], [ -1, %98 ], [ -1, %127 ], [ 0, %158 ], [ -1, %106 ], [ -1, %120 ], [ -1, %57 ], [ -1, %tar_write_padding_data.exit ], [ -1, %65 ], [ -1, %109 ]
   ret i32 %.0
 }
 
@@ -1683,7 +1683,7 @@ split:                                            ; preds = %.split.i, %._crit_e
   br label %tar_write_compressed_data.exit
 
 tar_write_compressed_data.exit:                   ; preds = %72, %59, %.split40.us.i, %.split38.us.i, %97, %104, %7, %107, %94, %87, %78, %17
-  %.0 = phi i1 [ false, %7 ], [ false, %17 ], [ false, %87 ], [ false, %94 ], [ false, %107 ], [ true, %97 ], [ false, %.split40.us.i ], [ false, %78 ], [ true, %104 ], [ false, %.split38.us.i ], [ false, %59 ], [ false, %72 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %87 ], [ false, %94 ], [ false, %107 ], [ false, %78 ], [ false, %7 ], [ true, %104 ], [ true, %97 ], [ false, %.split38.us.i ], [ false, %.split40.us.i ], [ false, %59 ], [ false, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
@@ -1841,7 +1841,7 @@ define internal fastcc noundef zeroext i1 @tar_write_compressed_data(ptr noundef
   br label %.thread33
 
 .thread33:                                        ; preds = %.split40.us, %.split38.us, %.thread35, %63, %66
-  %.4 = phi i1 [ true, %.thread35 ], [ false, %66 ], [ true, %63 ], [ false, %.split38.us ], [ false, %.split40.us ]
+  %.4 = phi i1 [ false, %66 ], [ true, %63 ], [ true, %.thread35 ], [ false, %.split38.us ], [ false, %.split40.us ]
   ret i1 %.4
 }
 

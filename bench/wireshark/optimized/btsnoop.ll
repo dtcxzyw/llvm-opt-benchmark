@@ -109,7 +109,7 @@ define hidden range(i32 -1, 2) i32 @btsnoop_open(ptr noundef %0, ptr noundef %1,
   br label %41
 
 33:                                               ; preds = %19, %28, %23
-  %.041 = phi i32 [ 159, %28 ], [ 99, %23 ], [ 102, %19 ]
+  %.041 = phi i32 [ 99, %23 ], [ 159, %28 ], [ 102, %19 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @btsnoop_read, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -127,7 +127,7 @@ define hidden range(i32 -1, 2) i32 @btsnoop_open(ptr noundef %0, ptr noundef %1,
   br label %41
 
 41:                                               ; preds = %11, %10, %8, %33, %31, %29, %26, %24, %17
-  %.0 = phi i32 [ %., %8 ], [ -1, %17 ], [ -1, %31 ], [ 1, %33 ], [ -1, %24 ], [ -1, %26 ], [ -1, %29 ], [ 0, %10 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %31 ], [ 1, %33 ], [ -1, %24 ], [ -1, %26 ], [ -1, %29 ], [ %., %8 ], [ 0, %10 ], [ -1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -364,7 +364,7 @@ define internal zeroext i1 @btsnoop_dump_open(ptr noundef initializes((64, 72)) 
   br label %19
 
 13:                                               ; preds = %3, %9, %8
-  %.026 = phi i32 [ 2001, %9 ], [ 1002, %8 ], [ 1001, %3 ]
+  %.026 = phi i32 [ 1002, %8 ], [ 2001, %9 ], [ 1001, %3 ]
   %14 = tail call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef 8, ptr noundef %1)
   br i1 %14, label %15, label %19
 
@@ -511,7 +511,7 @@ define internal zeroext i1 @btsnoop_dump(ptr noundef %0, ptr noundef readonly ca
   br label %84
 
 64:                                               ; preds = %53, %51, %46, %30, %35, %40, %49
-  %.088 = phi i32 [ %60, %53 ], [ 2, %30 ], [ %not.106, %40 ], [ 3, %35 ], [ %52, %51 ], [ %not., %49 ], [ %not., %46 ]
+  %.088 = phi i32 [ %52, %51 ], [ %not., %46 ], [ %60, %53 ], [ 2, %30 ], [ 3, %35 ], [ %not.106, %40 ], [ %not., %49 ]
   %65 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.088) #5, !srcloc !17
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %65, ptr %66, align 8
@@ -539,7 +539,7 @@ define internal zeroext i1 @btsnoop_dump(ptr noundef %0, ptr noundef readonly ca
   br label %84
 
 84:                                               ; preds = %80, %64, %61, %43, %38, %33, %20, %16, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %16 ], [ false, %20 ], [ false, %61 ], [ false, %43 ], [ false, %64 ], [ %83, %80 ], [ false, %38 ], [ false, %33 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %16 ], [ false, %20 ], [ false, %61 ], [ false, %43 ], [ false, %33 ], [ false, %38 ], [ false, %64 ], [ %83, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

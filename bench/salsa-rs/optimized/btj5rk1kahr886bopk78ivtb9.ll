@@ -598,7 +598,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %51
 
 51:                                               ; preds = %40, %44
-  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.19.i.i, %40 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %40 ], [ %50, %44 ]
   %52 = load i64, ptr %5, align 8, !range !85, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %53 = load ptr, ptr %0, align 8, !alias.scope !86, !noalias !89, !nonnull !3, !noundef !3
@@ -744,7 +744,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   br label %50
 
 50:                                               ; preds = %39, %43
-  %.sroa.3.0.i.ph.i = phi i64 [ %49, %43 ], [ %.sroa.6.19.i.i, %39 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.19.i.i, %39 ], [ %49, %43 ]
   %51 = load i64, ptr %4, align 8, !range !85, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %52 = load ptr, ptr %0, align 8, !alias.scope !103, !nonnull !3, !noundef !3

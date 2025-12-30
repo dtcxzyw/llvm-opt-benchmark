@@ -308,7 +308,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %43
 
 43:                                               ; preds = %14, %40, %17, %42, %37, %35, %23
-  %.1 = phi i32 [ %36, %35 ], [ 0, %37 ], [ 0, %42 ], [ %20, %17 ], [ 0, %14 ], [ %25, %23 ], [ -1497649742, %40 ]
+  %.1 = phi i32 [ %36, %35 ], [ 0, %37 ], [ 0, %42 ], [ %25, %23 ], [ 0, %14 ], [ %20, %17 ], [ -1497649742, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -580,7 +580,7 @@ switch.lookup:                                    ; preds = %1
   br i1 %.not140, label %.loopexit, label %69
 
 .loopexit:                                        ; preds = %.critedge, %143, %141, %139, %137, %135, %133, %.lr.ph, %69, %.preheader, %52, %switch.lookup, %46, %48, %50
-  %.0 = phi i32 [ -12, %52 ], [ -12, %46 ], [ -12, %switch.lookup ], [ -12, %50 ], [ -12, %48 ], [ 0, %.preheader ], [ -12, %.lr.ph ], [ -12, %133 ], [ -12, %135 ], [ -12, %137 ], [ -12, %139 ], [ -12, %141 ], [ -12, %143 ], [ -12, %.critedge ], [ 0, %69 ]
+  %.0 = phi i32 [ -12, %50 ], [ -12, %48 ], [ -12, %46 ], [ -12, %switch.lookup ], [ -12, %52 ], [ 0, %.preheader ], [ -12, %.critedge ], [ -12, %143 ], [ -12, %141 ], [ -12, %139 ], [ -12, %137 ], [ -12, %135 ], [ -12, %133 ], [ -12, %.lr.ph ], [ 0, %69 ]
   ret i32 %.0
 }
 
@@ -1509,7 +1509,7 @@ measure_absmean.exit217:                          ; preds = %measure_absmean.exi
   br i1 %exitcond328.not, label %.lr.ph303, label %486, !llvm.loop !118
 
 ._crit_edge304:                                   ; preds = %denoise_level.exit, %.preheader, %.preheader275, %.loopexit
-  %524 = phi i32 [ %406, %.preheader275 ], [ %446, %.preheader ], [ %.pr, %.loopexit ], [ %.pr, %denoise_level.exit ]
+  %524 = phi i32 [ %.pr, %.loopexit ], [ %446, %.preheader ], [ %406, %.preheader275 ], [ %.pr, %denoise_level.exit ]
   %525 = load ptr, ptr %112, align 8, !tbaa !75
   %526 = load ptr, ptr %114, align 8, !tbaa !77
   %527 = getelementptr inbounds nuw i8, ptr %9, i64 112
@@ -2424,8 +2424,8 @@ denoise_level.exit:                               ; preds = %.lr.ph.i246, %1000
   %exitcond333.not = icmp eq i64 %indvars.iv.next330, %wide.trip.count332
   br i1 %exitcond333.not, label %._crit_edge304, label %977, !llvm.loop !128
 
-inverse.exit:                                     ; preds = %84, %132, %100, %278, %164, %204, %._crit_edge.i223, %._crit_edge329.i, %563, %670
-  %.0 = phi i32 [ -12, %670 ], [ 0, %._crit_edge329.i ], [ 0, %._crit_edge.i223 ], [ -12, %563 ], [ -12, %204 ], [ -12, %164 ], [ -12, %278 ], [ -12, %132 ], [ -12, %100 ], [ -12, %84 ]
+inverse.exit:                                     ; preds = %84, %132, %100, %278, %164, %204, %._crit_edge.i223, %._crit_edge329.i, %670, %563
+  %.0 = phi i32 [ 0, %._crit_edge.i223 ], [ 0, %._crit_edge329.i ], [ -12, %670 ], [ -12, %563 ], [ -12, %204 ], [ -12, %164 ], [ -12, %278 ], [ -12, %100 ], [ -12, %132 ], [ -12, %84 ]
   ret i32 %.0
 }
 
@@ -2917,7 +2917,7 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1) unnamed
   br label %171
 
 171:                                              ; preds = %95, %.thread92, %98, %168, %100, %19
-  %.0 = phi i32 [ 0, %100 ], [ -12, %19 ], [ 0, %95 ], [ %170, %168 ], [ -12, %.thread92 ], [ 0, %98 ]
+  %.0 = phi i32 [ 0, %100 ], [ 0, %95 ], [ %170, %168 ], [ -12, %19 ], [ 0, %98 ], [ -12, %.thread92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

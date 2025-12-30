@@ -465,7 +465,7 @@ define internal range(i32 0, 6) i32 @dissect_scte35_time_signal(ptr noundef %0, 
   br label %25
 
 25:                                               ; preds = %10, %22, %7, %4
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 5, %22 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 5, %22 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -677,7 +677,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   br i1 %75, label %dissect_component.exit, label %76
 
 76:                                               ; preds = %74, %72
-  %.0.i.us = phi i32 [ 2, %72 ], [ 6, %74 ]
+  %.0.i.us = phi i32 [ 6, %74 ], [ 2, %72 ]
   %77 = call zeroext i8 @tvb_get_uint8(ptr noundef %69, i32 noundef 0)
   %78 = zext i8 %77 to i32
   %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %69, i32 noundef 0, i32 noundef %.0.i.us, i32 noundef range(i32 -2147483648, 255) %.0127147.us, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef range(i32 -2147483648, 255) %.0127147.us, i32 noundef %78)
@@ -699,7 +699,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   br label %93
 
 93:                                               ; preds = %89, %76
-  %.034.i.ph.us = phi i32 [ 6, %89 ], [ 2, %76 ]
+  %.034.i.ph.us = phi i32 [ 2, %76 ], [ 6, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = add i32 %.034.i.ph.us, %.4148.us
   %95 = add nuw nsw i32 %.0127147.us, 1
@@ -729,13 +729,13 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !6
 
 dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.ph.split.us, %74
-  %.us-phi = phi i32 [ %.4148.us, %.lr.ph.split.us ], [ %.4148.us, %74 ], [ %.4148, %.lr.ph.split ]
+  %.us-phi = phi i32 [ %.4148.us, %74 ], [ %.4148.us, %.lr.ph.split.us ], [ %.4148, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %128
 
 .thread:                                          ; preds = %.critedge.i, %93, %.preheader, %52, %38, %56
-  %.3126 = phi i32 [ 6, %56 ], [ 11, %52 ], [ 7, %38 ], [ 7, %.preheader ], [ %94, %93 ], [ %105, %.critedge.i ]
-  %.3 = phi i32 [ %.0122, %56 ], [ %50, %52 ], [ %39, %38 ], [ %66, %.preheader ], [ %66, %93 ], [ %66, %.critedge.i ]
+  %.3126 = phi i32 [ 6, %56 ], [ 7, %38 ], [ 11, %52 ], [ 7, %.preheader ], [ %94, %93 ], [ %105, %.critedge.i ]
+  %.3 = phi i32 [ %.0122, %56 ], [ %39, %38 ], [ %50, %52 ], [ %66, %.preheader ], [ %66, %93 ], [ %66, %.critedge.i ]
   %.not141 = icmp eq i8 %32, 0
   br i1 %.not141, label %118, label %107
 
@@ -768,7 +768,7 @@ dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.
   br label %128
 
 128:                                              ; preds = %dissect_component.exit, %14, %118, %107, %58, %57, %49, %37, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.3126, %107 ], [ %.us-phi, %dissect_component.exit ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ 0, %12 ], [ 6, %37 ], [ 5, %14 ], [ %127, %118 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 6, %37 ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ %.us-phi, %dissect_component.exit ], [ %.3126, %107 ], [ 5, %14 ], [ %127, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -975,7 +975,7 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   br i1 %exitcond183.not, label %.loopexit165, label %.lr.ph171, !llvm.loop !9
 
 .loopexit165:                                     ; preds = %53, %56, %69, %89, %100, %13, %9, %4
-  %.0 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 1, %13 ], [ %.2150, %89 ], [ %52, %53 ], [ %60, %56 ], [ %73, %69 ], [ %109, %100 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %13 ], [ %52, %53 ], [ %60, %56 ], [ %73, %69 ], [ %.2150, %89 ], [ %109, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1252,13 +1252,13 @@ dissect_scte35_splice_descriptor.exit.thread:     ; preds = %72, %79, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-dissect_scte35_splice_descriptor.exit.thread112:  ; preds = %88, %76, %98
-  %.ph = phi i32 [ 11, %98 ], [ 10, %76 ], [ %97, %88 ]
+dissect_scte35_splice_descriptor.exit.thread112:  ; preds = %98, %88, %76
+  %.ph = phi i32 [ 10, %76 ], [ %97, %88 ], [ 11, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %175
 
 dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
-  %.036.i = phi i32 [ %171, %162 ], [ %70, %.lr.ph ]
+  %.036.i = phi i32 [ %70, %.lr.ph ], [ %171, %162 ]
   %172 = icmp slt i32 %.036.i, 1
   %173 = add nuw i32 %.036.i, 6
   %spec.select.i = select i1 %172, i32 %.036.i, i32 %173

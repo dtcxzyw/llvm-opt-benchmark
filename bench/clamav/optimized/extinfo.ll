@@ -618,7 +618,7 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %27, %.preheader, %13, %21, %.thread39
-  %32 = phi i32 [ %.033, %.preheader ], [ %spec.select, %27 ], [ %26, %.thread39 ], [ %.033, %21 ], [ %.033, %13 ]
+  %32 = phi i32 [ %26, %.thread39 ], [ %.033, %21 ], [ %.033, %13 ], [ %.033, %.preheader ], [ %spec.select, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %34 = add nuw nsw i32 %.035, 1
   br label %.preheader, !llvm.loop !93
@@ -711,7 +711,7 @@ _ZL10LinkInPathPKw.exit:                          ; preds = %55, %38
   br i1 %67, label %65, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %65, %60, %56
-  %.030 = phi ptr [ %2, %56 ], [ %2, %60 ], [ %.131, %65 ]
+  %.030 = phi ptr [ %2, %60 ], [ %2, %56 ], [ %.131, %65 ]
   %69 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %.030)
   %70 = icmp sge i32 %57, %.033
   %71 = icmp sge i32 %69, %.033
@@ -719,7 +719,7 @@ _ZL10LinkInPathPKw.exit:                          ; preds = %55, %38
   br label %73
 
 73:                                               ; preds = %_ZL10LinkInPathPKw.exit.thread, %.loopexit, %4, %8
-  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ %72, %.loopexit ], [ false, %_ZL10LinkInPathPKw.exit.thread ]
+  %.0 = phi i1 [ false, %8 ], [ false, %4 ], [ %72, %.loopexit ], [ false, %_ZL10LinkInPathPKw.exit.thread ]
   ret i1 %.0
 }
 
@@ -808,7 +808,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
   br label %37
 
 37:                                               ; preds = %36, %.thread25, %.critedge, %8, %5, %.lr.ph
-  %.1 = phi i32 [ %.01928, %8 ], [ %.01928, %.lr.ph ], [ %.01928, %5 ], [ %35, %.critedge ], [ %spec.select, %36 ], [ %29, %.thread25 ]
+  %.1 = phi i32 [ %.01928, %8 ], [ %.01928, %5 ], [ %.01928, %.lr.ph ], [ %35, %.critedge ], [ %29, %.thread25 ], [ %spec.select, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !80
   %.not = icmp eq i32 %39, 0
@@ -984,7 +984,7 @@ _ZL14SafeCharToWidePKcPwm.exit.thread.i:          ; preds = %70, %67, %65, %_ZL1
   br label %_ZL17ExtractUnixLink30P11CommandDataR11ComprDataIOR7ArchivePKwRb.exit
 
 _ZL17ExtractUnixLink30P11CommandDataR11ComprDataIOR7ArchivePKwRb.exit: ; preds = %20, %24, %28, %31, %_ZL14SafeCharToWidePKcPwm.exit.thread.i
-  %.2.i = phi i1 [ true, %31 ], [ false, %28 ], [ false, %24 ], [ %.1.i, %_ZL14SafeCharToWidePKcPwm.exit.thread.i ], [ false, %20 ]
+  %.2.i = phi i1 [ %.1.i, %_ZL14SafeCharToWidePKcPwm.exit.thread.i ], [ false, %24 ], [ false, %28 ], [ true, %31 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %112
 

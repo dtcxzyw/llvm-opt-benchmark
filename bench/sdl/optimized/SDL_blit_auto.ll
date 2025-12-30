@@ -238,9 +238,9 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend(ptr noundef captures(none
   br label %78
 
 78:                                               ; preds = %74, %58, %42, %.split.us, %.split.us
-  %.079.us = phi i32 [ %57, %42 ], [ %73, %58 ], [ %35, %.split.us ], [ %spec.store.select1.us, %74 ], [ %35, %.split.us ]
-  %.078.us = phi i32 [ %52, %42 ], [ %68, %58 ], [ %34, %.split.us ], [ %spec.store.select2.us, %74 ], [ %34, %.split.us ]
-  %.0.us = phi i32 [ %47, %42 ], [ %63, %58 ], [ %32, %.split.us ], [ %spec.store.select.us, %74 ], [ %32, %.split.us ]
+  %.079.us = phi i32 [ %spec.store.select1.us, %74 ], [ %73, %58 ], [ %57, %42 ], [ %35, %.split.us ], [ %35, %.split.us ]
+  %.078.us = phi i32 [ %spec.store.select2.us, %74 ], [ %68, %58 ], [ %52, %42 ], [ %34, %.split.us ], [ %34, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %74 ], [ %63, %58 ], [ %47, %42 ], [ %32, %.split.us ], [ %32, %.split.us ]
   %79 = shl nuw nsw i32 %.0.us, 16
   %80 = shl nuw nsw i32 %.078.us, 8
   %81 = add nuw nsw i32 %79, %80
@@ -428,9 +428,9 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %97
 
 97:                                               ; preds = %93, %77, %61, %.split.us, %.split.us
-  %.091.us = phi i32 [ %76, %61 ], [ %92, %77 ], [ %54, %.split.us ], [ %spec.store.select1.us, %93 ], [ %54, %.split.us ]
-  %.090.us = phi i32 [ %71, %61 ], [ %87, %77 ], [ %53, %.split.us ], [ %spec.store.select2.us, %93 ], [ %53, %.split.us ]
-  %.0.us = phi i32 [ %66, %61 ], [ %82, %77 ], [ %51, %.split.us ], [ %spec.store.select.us, %93 ], [ %51, %.split.us ]
+  %.091.us = phi i32 [ %spec.store.select1.us, %93 ], [ %92, %77 ], [ %76, %61 ], [ %54, %.split.us ], [ %54, %.split.us ]
+  %.090.us = phi i32 [ %spec.store.select2.us, %93 ], [ %87, %77 ], [ %71, %61 ], [ %53, %.split.us ], [ %53, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %93 ], [ %82, %77 ], [ %66, %61 ], [ %51, %.split.us ], [ %51, %.split.us ]
   %98 = shl nuw nsw i32 %.0.us, 16
   %99 = shl nuw nsw i32 %.090.us, 8
   %100 = add nuw nsw i32 %98, %99
@@ -1029,9 +1029,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 187:                                              ; preds = %114, %94, %153, %137, %133, %95
-  %.0208 = phi i32 [ %60, %94 ], [ %113, %95 ], [ %spec.store.select4, %114 ], [ %spec.store.select1, %133 ], [ %152, %137 ], [ %spec.store.select7, %153 ]
-  %.0207 = phi i32 [ %59, %94 ], [ %107, %95 ], [ %spec.store.select8, %114 ], [ %spec.store.select5, %133 ], [ %147, %137 ], [ %spec.store.select9, %153 ]
-  %.0206 = phi i32 [ %57, %94 ], [ %101, %95 ], [ %spec.store.select3, %114 ], [ %spec.store.select, %133 ], [ %142, %137 ], [ %spec.store.select6, %153 ]
+  %.0208 = phi i32 [ %113, %95 ], [ %spec.store.select4, %114 ], [ %spec.store.select1, %133 ], [ %152, %137 ], [ %spec.store.select7, %153 ], [ %60, %94 ]
+  %.0207 = phi i32 [ %107, %95 ], [ %spec.store.select8, %114 ], [ %spec.store.select5, %133 ], [ %147, %137 ], [ %spec.store.select9, %153 ], [ %59, %94 ]
+  %.0206 = phi i32 [ %101, %95 ], [ %spec.store.select3, %114 ], [ %spec.store.select, %133 ], [ %142, %137 ], [ %spec.store.select6, %153 ], [ %57, %94 ]
   %188 = shl nuw nsw i32 %.0206, 16
   %189 = shl nuw nsw i32 %.0207, 8
   %190 = or i32 %189, %.0208
@@ -1354,9 +1354,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 206:                                              ; preds = %133, %113, %172, %156, %152, %114
-  %.0220 = phi i32 [ %79, %113 ], [ %132, %114 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %152 ], [ %171, %156 ], [ %spec.store.select7, %172 ]
-  %.0219 = phi i32 [ %78, %113 ], [ %126, %114 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %152 ], [ %166, %156 ], [ %spec.store.select9, %172 ]
-  %.0218 = phi i32 [ %76, %113 ], [ %120, %114 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %152 ], [ %161, %156 ], [ %spec.store.select6, %172 ]
+  %.0220 = phi i32 [ %132, %114 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %152 ], [ %171, %156 ], [ %spec.store.select7, %172 ], [ %79, %113 ]
+  %.0219 = phi i32 [ %126, %114 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %152 ], [ %166, %156 ], [ %spec.store.select9, %172 ], [ %78, %113 ]
+  %.0218 = phi i32 [ %120, %114 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %152 ], [ %161, %156 ], [ %spec.store.select6, %172 ], [ %76, %113 ]
   %207 = shl nuw nsw i32 %.0218, 16
   %208 = shl nuw nsw i32 %.0219, 8
   %209 = or i32 %208, %.0220
@@ -1627,9 +1627,9 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend(ptr noundef captures(none
   br label %78
 
 78:                                               ; preds = %74, %58, %42, %.split.us, %.split.us
-  %.079.us = phi i32 [ %57, %42 ], [ %73, %58 ], [ %35, %.split.us ], [ %spec.store.select1.us, %74 ], [ %35, %.split.us ]
-  %.078.us = phi i32 [ %52, %42 ], [ %68, %58 ], [ %34, %.split.us ], [ %spec.store.select2.us, %74 ], [ %34, %.split.us ]
-  %.0.us = phi i32 [ %47, %42 ], [ %63, %58 ], [ %32, %.split.us ], [ %spec.store.select.us, %74 ], [ %32, %.split.us ]
+  %.079.us = phi i32 [ %spec.store.select1.us, %74 ], [ %73, %58 ], [ %57, %42 ], [ %35, %.split.us ], [ %35, %.split.us ]
+  %.078.us = phi i32 [ %spec.store.select2.us, %74 ], [ %68, %58 ], [ %52, %42 ], [ %34, %.split.us ], [ %34, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %74 ], [ %63, %58 ], [ %47, %42 ], [ %32, %.split.us ], [ %32, %.split.us ]
   %79 = shl nuw nsw i32 %.079.us, 16
   %80 = shl nuw nsw i32 %.078.us, 8
   %81 = add nuw nsw i32 %80, %79
@@ -1817,9 +1817,9 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %97
 
 97:                                               ; preds = %93, %77, %61, %.split.us, %.split.us
-  %.091.us = phi i32 [ %76, %61 ], [ %92, %77 ], [ %54, %.split.us ], [ %spec.store.select1.us, %93 ], [ %54, %.split.us ]
-  %.090.us = phi i32 [ %71, %61 ], [ %87, %77 ], [ %53, %.split.us ], [ %spec.store.select2.us, %93 ], [ %53, %.split.us ]
-  %.0.us = phi i32 [ %66, %61 ], [ %82, %77 ], [ %51, %.split.us ], [ %spec.store.select.us, %93 ], [ %51, %.split.us ]
+  %.091.us = phi i32 [ %spec.store.select1.us, %93 ], [ %92, %77 ], [ %76, %61 ], [ %54, %.split.us ], [ %54, %.split.us ]
+  %.090.us = phi i32 [ %spec.store.select2.us, %93 ], [ %87, %77 ], [ %71, %61 ], [ %53, %.split.us ], [ %53, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %93 ], [ %82, %77 ], [ %66, %61 ], [ %51, %.split.us ], [ %51, %.split.us ]
   %98 = shl nuw nsw i32 %.091.us, 16
   %99 = shl nuw nsw i32 %.090.us, 8
   %100 = add nuw nsw i32 %99, %98
@@ -2430,9 +2430,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 187:                                              ; preds = %114, %94, %153, %137, %133, %95
-  %.0208 = phi i32 [ %57, %94 ], [ %113, %95 ], [ %spec.store.select4, %114 ], [ %spec.store.select1, %133 ], [ %152, %137 ], [ %spec.store.select7, %153 ]
-  %.0207 = phi i32 [ %59, %94 ], [ %107, %95 ], [ %spec.store.select8, %114 ], [ %spec.store.select5, %133 ], [ %147, %137 ], [ %spec.store.select9, %153 ]
-  %.0206 = phi i32 [ %60, %94 ], [ %101, %95 ], [ %spec.store.select3, %114 ], [ %spec.store.select, %133 ], [ %142, %137 ], [ %spec.store.select6, %153 ]
+  %.0208 = phi i32 [ %113, %95 ], [ %spec.store.select4, %114 ], [ %spec.store.select1, %133 ], [ %152, %137 ], [ %spec.store.select7, %153 ], [ %57, %94 ]
+  %.0207 = phi i32 [ %107, %95 ], [ %spec.store.select8, %114 ], [ %spec.store.select5, %133 ], [ %147, %137 ], [ %spec.store.select9, %153 ], [ %59, %94 ]
+  %.0206 = phi i32 [ %101, %95 ], [ %spec.store.select3, %114 ], [ %spec.store.select, %133 ], [ %142, %137 ], [ %spec.store.select6, %153 ], [ %60, %94 ]
   %188 = shl nuw nsw i32 %.0208, 16
   %189 = shl nuw nsw i32 %.0207, 8
   %190 = or i32 %189, %188
@@ -2755,9 +2755,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 206:                                              ; preds = %133, %113, %172, %156, %152, %114
-  %.0220 = phi i32 [ %76, %113 ], [ %132, %114 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %152 ], [ %171, %156 ], [ %spec.store.select7, %172 ]
-  %.0219 = phi i32 [ %78, %113 ], [ %126, %114 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %152 ], [ %166, %156 ], [ %spec.store.select9, %172 ]
-  %.0218 = phi i32 [ %79, %113 ], [ %120, %114 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %152 ], [ %161, %156 ], [ %spec.store.select6, %172 ]
+  %.0220 = phi i32 [ %132, %114 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %152 ], [ %171, %156 ], [ %spec.store.select7, %172 ], [ %76, %113 ]
+  %.0219 = phi i32 [ %126, %114 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %152 ], [ %166, %156 ], [ %spec.store.select9, %172 ], [ %78, %113 ]
+  %.0218 = phi i32 [ %120, %114 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %152 ], [ %161, %156 ], [ %spec.store.select6, %172 ], [ %79, %113 ]
   %207 = shl nuw nsw i32 %.0220, 16
   %208 = shl nuw nsw i32 %.0219, 8
   %209 = or i32 %208, %207
@@ -3022,10 +3022,10 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend(ptr noundef captures(none
   br label %79
 
 79:                                               ; preds = %75, %59, %43, %.split.us, %.split.us
-  %.082.us = phi i32 [ %42, %43 ], [ %42, %59 ], [ 255, %.split.us ], [ %42, %75 ], [ 255, %.split.us ]
-  %.081.us = phi i32 [ %58, %43 ], [ %74, %59 ], [ %35, %.split.us ], [ %spec.store.select1.us, %75 ], [ %35, %.split.us ]
-  %.080.us = phi i32 [ %53, %43 ], [ %69, %59 ], [ %34, %.split.us ], [ %spec.store.select2.us, %75 ], [ %34, %.split.us ]
-  %.0.us = phi i32 [ %48, %43 ], [ %64, %59 ], [ %32, %.split.us ], [ %spec.store.select.us, %75 ], [ %32, %.split.us ]
+  %.082.us = phi i32 [ %42, %75 ], [ %42, %59 ], [ %42, %43 ], [ 255, %.split.us ], [ 255, %.split.us ]
+  %.081.us = phi i32 [ %spec.store.select1.us, %75 ], [ %74, %59 ], [ %58, %43 ], [ %35, %.split.us ], [ %35, %.split.us ]
+  %.080.us = phi i32 [ %spec.store.select2.us, %75 ], [ %69, %59 ], [ %53, %43 ], [ %34, %.split.us ], [ %34, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %75 ], [ %64, %59 ], [ %48, %43 ], [ %32, %.split.us ], [ %32, %.split.us ]
   %80 = shl nuw i32 %.082.us, 24
   %81 = shl nuw nsw i32 %.0.us, 16
   %82 = add nuw nsw i32 %81, %80
@@ -3045,9 +3045,9 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend(ptr noundef captures(none
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph92.split, %._crit_edge.loopexit
-  %88 = phi i32 [ %26, %.lr.ph92.split ], [ %.pre105, %._crit_edge.loopexit ]
-  %89 = phi ptr [ %27, %.lr.ph92.split ], [ %.pre104, %._crit_edge.loopexit ]
-  %90 = phi ptr [ %28, %.lr.ph92.split ], [ %.pre103, %._crit_edge.loopexit ]
+  %88 = phi i32 [ %.pre105, %._crit_edge.loopexit ], [ %26, %.lr.ph92.split ]
+  %89 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %27, %.lr.ph92.split ]
+  %90 = phi ptr [ %.pre103, %._crit_edge.loopexit ], [ %28, %.lr.ph92.split ]
   %91 = load i32, ptr %14, align 8
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %90, i64 %92
@@ -3209,10 +3209,10 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %98
 
 98:                                               ; preds = %94, %78, %62, %.split.us, %.split.us
-  %.094.us = phi i32 [ %61, %62 ], [ %61, %78 ], [ 255, %.split.us ], [ %61, %94 ], [ 255, %.split.us ]
-  %.093.us = phi i32 [ %77, %62 ], [ %93, %78 ], [ %54, %.split.us ], [ %spec.store.select1.us, %94 ], [ %54, %.split.us ]
-  %.092.us = phi i32 [ %72, %62 ], [ %88, %78 ], [ %53, %.split.us ], [ %spec.store.select2.us, %94 ], [ %53, %.split.us ]
-  %.0.us = phi i32 [ %67, %62 ], [ %83, %78 ], [ %51, %.split.us ], [ %spec.store.select.us, %94 ], [ %51, %.split.us ]
+  %.094.us = phi i32 [ %61, %94 ], [ %61, %78 ], [ %61, %62 ], [ 255, %.split.us ], [ 255, %.split.us ]
+  %.093.us = phi i32 [ %spec.store.select1.us, %94 ], [ %93, %78 ], [ %77, %62 ], [ %54, %.split.us ], [ %54, %.split.us ]
+  %.092.us = phi i32 [ %spec.store.select2.us, %94 ], [ %88, %78 ], [ %72, %62 ], [ %53, %.split.us ], [ %53, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %94 ], [ %83, %78 ], [ %67, %62 ], [ %51, %.split.us ], [ %51, %.split.us ]
   %99 = shl nuw i32 %.094.us, 24
   %100 = shl nuw nsw i32 %.0.us, 16
   %101 = add nuw nsw i32 %100, %99
@@ -3231,8 +3231,8 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph106.split, %._crit_edge.loopexit
-  %107 = phi i32 [ %36, %.lr.ph106.split ], [ %.pre113, %._crit_edge.loopexit ]
-  %108 = phi ptr [ %37, %.lr.ph106.split ], [ %.pre112, %._crit_edge.loopexit ]
+  %107 = phi i32 [ %.pre113, %._crit_edge.loopexit ], [ %36, %.lr.ph106.split ]
+  %108 = phi ptr [ %.pre112, %._crit_edge.loopexit ], [ %37, %.lr.ph106.split ]
   %109 = add i64 %.095104, %11
   %110 = load i32, ptr %29, align 8
   %111 = sext i32 %110 to i64
@@ -3838,10 +3838,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 200:                                              ; preds = %121, %95, %166, %150, %146, %96
-  %.0229 = phi i32 [ %61, %95 ], [ %120, %96 ], [ %spec.store.select10, %121 ], [ %61, %146 ], [ %61, %150 ], [ %61, %166 ]
-  %.0228 = phi i32 [ %60, %95 ], [ %114, %96 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
-  %.0227 = phi i32 [ %59, %95 ], [ %108, %96 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
-  %.0226 = phi i32 [ %57, %95 ], [ %102, %96 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
+  %.0229 = phi i32 [ %120, %96 ], [ %spec.store.select10, %121 ], [ %61, %146 ], [ %61, %150 ], [ %61, %166 ], [ %61, %95 ]
+  %.0228 = phi i32 [ %114, %96 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ], [ %60, %95 ]
+  %.0227 = phi i32 [ %108, %96 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ], [ %59, %95 ]
+  %.0226 = phi i32 [ %102, %96 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ], [ %57, %95 ]
   %201 = shl i32 %.0229, 24
   %202 = shl nuw nsw i32 %.0226, 16
   %203 = shl nuw nsw i32 %.0227, 8
@@ -4180,10 +4180,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 219:                                              ; preds = %140, %114, %185, %169, %165, %115
-  %.0241 = phi i32 [ %80, %114 ], [ %139, %115 ], [ %spec.store.select10, %140 ], [ %80, %165 ], [ %80, %169 ], [ %80, %185 ]
-  %.0240 = phi i32 [ %79, %114 ], [ %133, %115 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
-  %.0239 = phi i32 [ %78, %114 ], [ %127, %115 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
-  %.0238 = phi i32 [ %76, %114 ], [ %121, %115 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
+  %.0241 = phi i32 [ %139, %115 ], [ %spec.store.select10, %140 ], [ %80, %165 ], [ %80, %169 ], [ %80, %185 ], [ %80, %114 ]
+  %.0240 = phi i32 [ %133, %115 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ], [ %79, %114 ]
+  %.0239 = phi i32 [ %127, %115 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ], [ %78, %114 ]
+  %.0238 = phi i32 [ %121, %115 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ], [ %76, %114 ]
   %220 = shl i32 %.0241, 24
   %221 = shl nuw nsw i32 %.0238, 16
   %222 = shl nuw nsw i32 %.0239, 8
@@ -4456,10 +4456,10 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend(ptr noundef captures(none
   br label %79
 
 79:                                               ; preds = %75, %59, %43, %.split.us, %.split.us
-  %.082.us = phi i32 [ %42, %43 ], [ %42, %59 ], [ 255, %.split.us ], [ %42, %75 ], [ 255, %.split.us ]
-  %.081.us = phi i32 [ %58, %43 ], [ %74, %59 ], [ %35, %.split.us ], [ %spec.store.select1.us, %75 ], [ %35, %.split.us ]
-  %.080.us = phi i32 [ %53, %43 ], [ %69, %59 ], [ %34, %.split.us ], [ %spec.store.select2.us, %75 ], [ %34, %.split.us ]
-  %.0.us = phi i32 [ %48, %43 ], [ %64, %59 ], [ %32, %.split.us ], [ %spec.store.select.us, %75 ], [ %32, %.split.us ]
+  %.082.us = phi i32 [ %42, %75 ], [ %42, %59 ], [ %42, %43 ], [ 255, %.split.us ], [ 255, %.split.us ]
+  %.081.us = phi i32 [ %spec.store.select1.us, %75 ], [ %74, %59 ], [ %58, %43 ], [ %35, %.split.us ], [ %35, %.split.us ]
+  %.080.us = phi i32 [ %spec.store.select2.us, %75 ], [ %69, %59 ], [ %53, %43 ], [ %34, %.split.us ], [ %34, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %75 ], [ %64, %59 ], [ %48, %43 ], [ %32, %.split.us ], [ %32, %.split.us ]
   %80 = shl nuw i32 %.082.us, 24
   %81 = shl nuw nsw i32 %.081.us, 16
   %82 = add nuw nsw i32 %81, %80
@@ -4479,9 +4479,9 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend(ptr noundef captures(none
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph92.split, %._crit_edge.loopexit
-  %88 = phi i32 [ %26, %.lr.ph92.split ], [ %.pre105, %._crit_edge.loopexit ]
-  %89 = phi ptr [ %27, %.lr.ph92.split ], [ %.pre104, %._crit_edge.loopexit ]
-  %90 = phi ptr [ %28, %.lr.ph92.split ], [ %.pre103, %._crit_edge.loopexit ]
+  %88 = phi i32 [ %.pre105, %._crit_edge.loopexit ], [ %26, %.lr.ph92.split ]
+  %89 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %27, %.lr.ph92.split ]
+  %90 = phi ptr [ %.pre103, %._crit_edge.loopexit ], [ %28, %.lr.ph92.split ]
   %91 = load i32, ptr %14, align 8
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %90, i64 %92
@@ -4643,10 +4643,10 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %98
 
 98:                                               ; preds = %94, %78, %62, %.split.us, %.split.us
-  %.094.us = phi i32 [ %61, %62 ], [ %61, %78 ], [ 255, %.split.us ], [ %61, %94 ], [ 255, %.split.us ]
-  %.093.us = phi i32 [ %77, %62 ], [ %93, %78 ], [ %54, %.split.us ], [ %spec.store.select1.us, %94 ], [ %54, %.split.us ]
-  %.092.us = phi i32 [ %72, %62 ], [ %88, %78 ], [ %53, %.split.us ], [ %spec.store.select2.us, %94 ], [ %53, %.split.us ]
-  %.0.us = phi i32 [ %67, %62 ], [ %83, %78 ], [ %51, %.split.us ], [ %spec.store.select.us, %94 ], [ %51, %.split.us ]
+  %.094.us = phi i32 [ %61, %94 ], [ %61, %78 ], [ %61, %62 ], [ 255, %.split.us ], [ 255, %.split.us ]
+  %.093.us = phi i32 [ %spec.store.select1.us, %94 ], [ %93, %78 ], [ %77, %62 ], [ %54, %.split.us ], [ %54, %.split.us ]
+  %.092.us = phi i32 [ %spec.store.select2.us, %94 ], [ %88, %78 ], [ %72, %62 ], [ %53, %.split.us ], [ %53, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %94 ], [ %83, %78 ], [ %67, %62 ], [ %51, %.split.us ], [ %51, %.split.us ]
   %99 = shl nuw i32 %.094.us, 24
   %100 = shl nuw nsw i32 %.093.us, 16
   %101 = add nuw nsw i32 %100, %99
@@ -4665,8 +4665,8 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph106.split, %._crit_edge.loopexit
-  %107 = phi i32 [ %36, %.lr.ph106.split ], [ %.pre113, %._crit_edge.loopexit ]
-  %108 = phi ptr [ %37, %.lr.ph106.split ], [ %.pre112, %._crit_edge.loopexit ]
+  %107 = phi i32 [ %.pre113, %._crit_edge.loopexit ], [ %36, %.lr.ph106.split ]
+  %108 = phi ptr [ %.pre112, %._crit_edge.loopexit ], [ %37, %.lr.ph106.split ]
   %109 = add i64 %.095104, %11
   %110 = load i32, ptr %29, align 8
   %111 = sext i32 %110 to i64
@@ -5284,10 +5284,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 200:                                              ; preds = %121, %95, %166, %150, %146, %96
-  %.0229 = phi i32 [ %61, %95 ], [ %120, %96 ], [ %spec.store.select10, %121 ], [ %61, %146 ], [ %61, %150 ], [ %61, %166 ]
-  %.0228 = phi i32 [ %57, %95 ], [ %114, %96 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
-  %.0227 = phi i32 [ %59, %95 ], [ %108, %96 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
-  %.0226 = phi i32 [ %60, %95 ], [ %102, %96 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
+  %.0229 = phi i32 [ %120, %96 ], [ %spec.store.select10, %121 ], [ %61, %146 ], [ %61, %150 ], [ %61, %166 ], [ %61, %95 ]
+  %.0228 = phi i32 [ %114, %96 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ], [ %57, %95 ]
+  %.0227 = phi i32 [ %108, %96 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ], [ %59, %95 ]
+  %.0226 = phi i32 [ %102, %96 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ], [ %60, %95 ]
   %201 = shl i32 %.0229, 24
   %202 = shl nuw nsw i32 %.0228, 16
   %203 = or i32 %202, %201
@@ -5626,10 +5626,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 219:                                              ; preds = %140, %114, %185, %169, %165, %115
-  %.0241 = phi i32 [ %80, %114 ], [ %139, %115 ], [ %spec.store.select10, %140 ], [ %80, %165 ], [ %80, %169 ], [ %80, %185 ]
-  %.0240 = phi i32 [ %76, %114 ], [ %133, %115 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
-  %.0239 = phi i32 [ %78, %114 ], [ %127, %115 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
-  %.0238 = phi i32 [ %79, %114 ], [ %121, %115 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
+  %.0241 = phi i32 [ %139, %115 ], [ %spec.store.select10, %140 ], [ %80, %165 ], [ %80, %169 ], [ %80, %185 ], [ %80, %114 ]
+  %.0240 = phi i32 [ %133, %115 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ], [ %76, %114 ]
+  %.0239 = phi i32 [ %127, %115 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ], [ %78, %114 ]
+  %.0238 = phi i32 [ %121, %115 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ], [ %79, %114 ]
   %220 = shl i32 %.0241, 24
   %221 = shl nuw nsw i32 %.0240, 16
   %222 = or i32 %221, %220
@@ -5902,9 +5902,9 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend(ptr noundef captures(none
   br label %78
 
 78:                                               ; preds = %74, %58, %42, %.split.us, %.split.us
-  %.079.us = phi i32 [ %57, %42 ], [ %73, %58 ], [ %32, %.split.us ], [ %spec.store.select1.us, %74 ], [ %32, %.split.us ]
-  %.078.us = phi i32 [ %52, %42 ], [ %68, %58 ], [ %34, %.split.us ], [ %spec.store.select2.us, %74 ], [ %34, %.split.us ]
-  %.0.us = phi i32 [ %47, %42 ], [ %63, %58 ], [ %35, %.split.us ], [ %spec.store.select.us, %74 ], [ %35, %.split.us ]
+  %.079.us = phi i32 [ %spec.store.select1.us, %74 ], [ %73, %58 ], [ %57, %42 ], [ %32, %.split.us ], [ %32, %.split.us ]
+  %.078.us = phi i32 [ %spec.store.select2.us, %74 ], [ %68, %58 ], [ %52, %42 ], [ %34, %.split.us ], [ %34, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %74 ], [ %63, %58 ], [ %47, %42 ], [ %35, %.split.us ], [ %35, %.split.us ]
   %79 = shl nuw nsw i32 %.0.us, 16
   %80 = shl nuw nsw i32 %.078.us, 8
   %81 = add nuw nsw i32 %79, %80
@@ -6092,9 +6092,9 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %97
 
 97:                                               ; preds = %93, %77, %61, %.split.us, %.split.us
-  %.091.us = phi i32 [ %76, %61 ], [ %92, %77 ], [ %51, %.split.us ], [ %spec.store.select1.us, %93 ], [ %51, %.split.us ]
-  %.090.us = phi i32 [ %71, %61 ], [ %87, %77 ], [ %53, %.split.us ], [ %spec.store.select2.us, %93 ], [ %53, %.split.us ]
-  %.0.us = phi i32 [ %66, %61 ], [ %82, %77 ], [ %54, %.split.us ], [ %spec.store.select.us, %93 ], [ %54, %.split.us ]
+  %.091.us = phi i32 [ %spec.store.select1.us, %93 ], [ %92, %77 ], [ %76, %61 ], [ %51, %.split.us ], [ %51, %.split.us ]
+  %.090.us = phi i32 [ %spec.store.select2.us, %93 ], [ %87, %77 ], [ %71, %61 ], [ %53, %.split.us ], [ %53, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %93 ], [ %82, %77 ], [ %66, %61 ], [ %54, %.split.us ], [ %54, %.split.us ]
   %98 = shl nuw nsw i32 %.0.us, 16
   %99 = shl nuw nsw i32 %.090.us, 8
   %100 = add nuw nsw i32 %98, %99
@@ -6705,9 +6705,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 187:                                              ; preds = %114, %94, %153, %137, %133, %95
-  %.0208 = phi i32 [ %60, %94 ], [ %113, %95 ], [ %spec.store.select4, %114 ], [ %spec.store.select1, %133 ], [ %152, %137 ], [ %spec.store.select7, %153 ]
-  %.0207 = phi i32 [ %59, %94 ], [ %107, %95 ], [ %spec.store.select8, %114 ], [ %spec.store.select5, %133 ], [ %147, %137 ], [ %spec.store.select9, %153 ]
-  %.0206 = phi i32 [ %57, %94 ], [ %101, %95 ], [ %spec.store.select3, %114 ], [ %spec.store.select, %133 ], [ %142, %137 ], [ %spec.store.select6, %153 ]
+  %.0208 = phi i32 [ %113, %95 ], [ %spec.store.select4, %114 ], [ %spec.store.select1, %133 ], [ %152, %137 ], [ %spec.store.select7, %153 ], [ %60, %94 ]
+  %.0207 = phi i32 [ %107, %95 ], [ %spec.store.select8, %114 ], [ %spec.store.select5, %133 ], [ %147, %137 ], [ %spec.store.select9, %153 ], [ %59, %94 ]
+  %.0206 = phi i32 [ %101, %95 ], [ %spec.store.select3, %114 ], [ %spec.store.select, %133 ], [ %142, %137 ], [ %spec.store.select6, %153 ], [ %57, %94 ]
   %188 = shl nuw nsw i32 %.0206, 16
   %189 = shl nuw nsw i32 %.0207, 8
   %190 = or i32 %189, %.0208
@@ -7030,9 +7030,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 206:                                              ; preds = %133, %113, %172, %156, %152, %114
-  %.0220 = phi i32 [ %79, %113 ], [ %132, %114 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %152 ], [ %171, %156 ], [ %spec.store.select7, %172 ]
-  %.0219 = phi i32 [ %78, %113 ], [ %126, %114 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %152 ], [ %166, %156 ], [ %spec.store.select9, %172 ]
-  %.0218 = phi i32 [ %76, %113 ], [ %120, %114 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %152 ], [ %161, %156 ], [ %spec.store.select6, %172 ]
+  %.0220 = phi i32 [ %132, %114 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %152 ], [ %171, %156 ], [ %spec.store.select7, %172 ], [ %79, %113 ]
+  %.0219 = phi i32 [ %126, %114 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %152 ], [ %166, %156 ], [ %spec.store.select9, %172 ], [ %78, %113 ]
+  %.0218 = phi i32 [ %120, %114 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %152 ], [ %161, %156 ], [ %spec.store.select6, %172 ], [ %76, %113 ]
   %207 = shl nuw nsw i32 %.0218, 16
   %208 = shl nuw nsw i32 %.0219, 8
   %209 = or i32 %208, %.0220
@@ -7296,9 +7296,9 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend(ptr noundef captures(none
   br label %78
 
 78:                                               ; preds = %74, %58, %42, %.split.us, %.split.us
-  %.079.us = phi i32 [ %57, %42 ], [ %73, %58 ], [ %32, %.split.us ], [ %spec.store.select1.us, %74 ], [ %32, %.split.us ]
-  %.078.us = phi i32 [ %52, %42 ], [ %68, %58 ], [ %34, %.split.us ], [ %spec.store.select2.us, %74 ], [ %34, %.split.us ]
-  %.0.us = phi i32 [ %47, %42 ], [ %63, %58 ], [ %35, %.split.us ], [ %spec.store.select.us, %74 ], [ %35, %.split.us ]
+  %.079.us = phi i32 [ %spec.store.select1.us, %74 ], [ %73, %58 ], [ %57, %42 ], [ %32, %.split.us ], [ %32, %.split.us ]
+  %.078.us = phi i32 [ %spec.store.select2.us, %74 ], [ %68, %58 ], [ %52, %42 ], [ %34, %.split.us ], [ %34, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %74 ], [ %63, %58 ], [ %47, %42 ], [ %35, %.split.us ], [ %35, %.split.us ]
   %79 = shl nuw nsw i32 %.079.us, 16
   %80 = shl nuw nsw i32 %.078.us, 8
   %81 = add nuw nsw i32 %80, %79
@@ -7486,9 +7486,9 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %97
 
 97:                                               ; preds = %93, %77, %61, %.split.us, %.split.us
-  %.091.us = phi i32 [ %76, %61 ], [ %92, %77 ], [ %51, %.split.us ], [ %spec.store.select1.us, %93 ], [ %51, %.split.us ]
-  %.090.us = phi i32 [ %71, %61 ], [ %87, %77 ], [ %53, %.split.us ], [ %spec.store.select2.us, %93 ], [ %53, %.split.us ]
-  %.0.us = phi i32 [ %66, %61 ], [ %82, %77 ], [ %54, %.split.us ], [ %spec.store.select.us, %93 ], [ %54, %.split.us ]
+  %.091.us = phi i32 [ %spec.store.select1.us, %93 ], [ %92, %77 ], [ %76, %61 ], [ %51, %.split.us ], [ %51, %.split.us ]
+  %.090.us = phi i32 [ %spec.store.select2.us, %93 ], [ %87, %77 ], [ %71, %61 ], [ %53, %.split.us ], [ %53, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %93 ], [ %82, %77 ], [ %66, %61 ], [ %54, %.split.us ], [ %54, %.split.us ]
   %98 = shl nuw nsw i32 %.091.us, 16
   %99 = shl nuw nsw i32 %.090.us, 8
   %100 = add nuw nsw i32 %99, %98
@@ -8087,9 +8087,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 187:                                              ; preds = %114, %94, %153, %137, %133, %95
-  %.0208 = phi i32 [ %57, %94 ], [ %113, %95 ], [ %spec.store.select4, %114 ], [ %spec.store.select1, %133 ], [ %152, %137 ], [ %spec.store.select7, %153 ]
-  %.0207 = phi i32 [ %59, %94 ], [ %107, %95 ], [ %spec.store.select8, %114 ], [ %spec.store.select5, %133 ], [ %147, %137 ], [ %spec.store.select9, %153 ]
-  %.0206 = phi i32 [ %60, %94 ], [ %101, %95 ], [ %spec.store.select3, %114 ], [ %spec.store.select, %133 ], [ %142, %137 ], [ %spec.store.select6, %153 ]
+  %.0208 = phi i32 [ %113, %95 ], [ %spec.store.select4, %114 ], [ %spec.store.select1, %133 ], [ %152, %137 ], [ %spec.store.select7, %153 ], [ %57, %94 ]
+  %.0207 = phi i32 [ %107, %95 ], [ %spec.store.select8, %114 ], [ %spec.store.select5, %133 ], [ %147, %137 ], [ %spec.store.select9, %153 ], [ %59, %94 ]
+  %.0206 = phi i32 [ %101, %95 ], [ %spec.store.select3, %114 ], [ %spec.store.select, %133 ], [ %142, %137 ], [ %spec.store.select6, %153 ], [ %60, %94 ]
   %188 = shl nuw nsw i32 %.0208, 16
   %189 = shl nuw nsw i32 %.0207, 8
   %190 = or i32 %189, %188
@@ -8412,9 +8412,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 206:                                              ; preds = %133, %113, %172, %156, %152, %114
-  %.0220 = phi i32 [ %76, %113 ], [ %132, %114 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %152 ], [ %171, %156 ], [ %spec.store.select7, %172 ]
-  %.0219 = phi i32 [ %78, %113 ], [ %126, %114 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %152 ], [ %166, %156 ], [ %spec.store.select9, %172 ]
-  %.0218 = phi i32 [ %79, %113 ], [ %120, %114 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %152 ], [ %161, %156 ], [ %spec.store.select6, %172 ]
+  %.0220 = phi i32 [ %132, %114 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %152 ], [ %171, %156 ], [ %spec.store.select7, %172 ], [ %76, %113 ]
+  %.0219 = phi i32 [ %126, %114 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %152 ], [ %166, %156 ], [ %spec.store.select9, %172 ], [ %78, %113 ]
+  %.0218 = phi i32 [ %120, %114 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %152 ], [ %161, %156 ], [ %spec.store.select6, %172 ], [ %79, %113 ]
   %207 = shl nuw nsw i32 %.0220, 16
   %208 = shl nuw nsw i32 %.0219, 8
   %209 = or i32 %208, %207
@@ -8685,10 +8685,10 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend(ptr noundef captures(none
   br label %79
 
 79:                                               ; preds = %75, %59, %43, %.split.us, %.split.us
-  %.082.us = phi i32 [ %42, %43 ], [ %42, %59 ], [ 255, %.split.us ], [ %42, %75 ], [ 255, %.split.us ]
-  %.081.us = phi i32 [ %58, %43 ], [ %74, %59 ], [ %32, %.split.us ], [ %spec.store.select1.us, %75 ], [ %32, %.split.us ]
-  %.080.us = phi i32 [ %53, %43 ], [ %69, %59 ], [ %34, %.split.us ], [ %spec.store.select2.us, %75 ], [ %34, %.split.us ]
-  %.0.us = phi i32 [ %48, %43 ], [ %64, %59 ], [ %35, %.split.us ], [ %spec.store.select.us, %75 ], [ %35, %.split.us ]
+  %.082.us = phi i32 [ %42, %75 ], [ %42, %59 ], [ %42, %43 ], [ 255, %.split.us ], [ 255, %.split.us ]
+  %.081.us = phi i32 [ %spec.store.select1.us, %75 ], [ %74, %59 ], [ %58, %43 ], [ %32, %.split.us ], [ %32, %.split.us ]
+  %.080.us = phi i32 [ %spec.store.select2.us, %75 ], [ %69, %59 ], [ %53, %43 ], [ %34, %.split.us ], [ %34, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %75 ], [ %64, %59 ], [ %48, %43 ], [ %35, %.split.us ], [ %35, %.split.us ]
   %80 = shl nuw i32 %.082.us, 24
   %81 = shl nuw nsw i32 %.0.us, 16
   %82 = add nuw nsw i32 %81, %80
@@ -8708,9 +8708,9 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend(ptr noundef captures(none
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph92.split, %._crit_edge.loopexit
-  %88 = phi i32 [ %26, %.lr.ph92.split ], [ %.pre105, %._crit_edge.loopexit ]
-  %89 = phi ptr [ %27, %.lr.ph92.split ], [ %.pre104, %._crit_edge.loopexit ]
-  %90 = phi ptr [ %28, %.lr.ph92.split ], [ %.pre103, %._crit_edge.loopexit ]
+  %88 = phi i32 [ %.pre105, %._crit_edge.loopexit ], [ %26, %.lr.ph92.split ]
+  %89 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %27, %.lr.ph92.split ]
+  %90 = phi ptr [ %.pre103, %._crit_edge.loopexit ], [ %28, %.lr.ph92.split ]
   %91 = load i32, ptr %14, align 8
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %90, i64 %92
@@ -8872,10 +8872,10 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %98
 
 98:                                               ; preds = %94, %78, %62, %.split.us, %.split.us
-  %.094.us = phi i32 [ %61, %62 ], [ %61, %78 ], [ 255, %.split.us ], [ %61, %94 ], [ 255, %.split.us ]
-  %.093.us = phi i32 [ %77, %62 ], [ %93, %78 ], [ %51, %.split.us ], [ %spec.store.select1.us, %94 ], [ %51, %.split.us ]
-  %.092.us = phi i32 [ %72, %62 ], [ %88, %78 ], [ %53, %.split.us ], [ %spec.store.select2.us, %94 ], [ %53, %.split.us ]
-  %.0.us = phi i32 [ %67, %62 ], [ %83, %78 ], [ %54, %.split.us ], [ %spec.store.select.us, %94 ], [ %54, %.split.us ]
+  %.094.us = phi i32 [ %61, %94 ], [ %61, %78 ], [ %61, %62 ], [ 255, %.split.us ], [ 255, %.split.us ]
+  %.093.us = phi i32 [ %spec.store.select1.us, %94 ], [ %93, %78 ], [ %77, %62 ], [ %51, %.split.us ], [ %51, %.split.us ]
+  %.092.us = phi i32 [ %spec.store.select2.us, %94 ], [ %88, %78 ], [ %72, %62 ], [ %53, %.split.us ], [ %53, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %94 ], [ %83, %78 ], [ %67, %62 ], [ %54, %.split.us ], [ %54, %.split.us ]
   %99 = shl nuw i32 %.094.us, 24
   %100 = shl nuw nsw i32 %.0.us, 16
   %101 = add nuw nsw i32 %100, %99
@@ -8894,8 +8894,8 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph106.split, %._crit_edge.loopexit
-  %107 = phi i32 [ %36, %.lr.ph106.split ], [ %.pre113, %._crit_edge.loopexit ]
-  %108 = phi ptr [ %37, %.lr.ph106.split ], [ %.pre112, %._crit_edge.loopexit ]
+  %107 = phi i32 [ %.pre113, %._crit_edge.loopexit ], [ %36, %.lr.ph106.split ]
+  %108 = phi ptr [ %.pre112, %._crit_edge.loopexit ], [ %37, %.lr.ph106.split ]
   %109 = add i64 %.095104, %11
   %110 = load i32, ptr %29, align 8
   %111 = sext i32 %110 to i64
@@ -9513,10 +9513,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 200:                                              ; preds = %121, %95, %166, %150, %146, %96
-  %.0229 = phi i32 [ %61, %95 ], [ %120, %96 ], [ %spec.store.select10, %121 ], [ %61, %146 ], [ %61, %150 ], [ %61, %166 ]
-  %.0228 = phi i32 [ %60, %95 ], [ %114, %96 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
-  %.0227 = phi i32 [ %59, %95 ], [ %108, %96 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
-  %.0226 = phi i32 [ %57, %95 ], [ %102, %96 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
+  %.0229 = phi i32 [ %120, %96 ], [ %spec.store.select10, %121 ], [ %61, %146 ], [ %61, %150 ], [ %61, %166 ], [ %61, %95 ]
+  %.0228 = phi i32 [ %114, %96 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ], [ %60, %95 ]
+  %.0227 = phi i32 [ %108, %96 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ], [ %59, %95 ]
+  %.0226 = phi i32 [ %102, %96 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ], [ %57, %95 ]
   %201 = shl i32 %.0229, 24
   %202 = shl nuw nsw i32 %.0226, 16
   %203 = shl nuw nsw i32 %.0227, 8
@@ -9855,10 +9855,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 219:                                              ; preds = %140, %114, %185, %169, %165, %115
-  %.0241 = phi i32 [ %80, %114 ], [ %139, %115 ], [ %spec.store.select10, %140 ], [ %80, %165 ], [ %80, %169 ], [ %80, %185 ]
-  %.0240 = phi i32 [ %79, %114 ], [ %133, %115 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
-  %.0239 = phi i32 [ %78, %114 ], [ %127, %115 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
-  %.0238 = phi i32 [ %76, %114 ], [ %121, %115 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
+  %.0241 = phi i32 [ %139, %115 ], [ %spec.store.select10, %140 ], [ %80, %165 ], [ %80, %169 ], [ %80, %185 ], [ %80, %114 ]
+  %.0240 = phi i32 [ %133, %115 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ], [ %79, %114 ]
+  %.0239 = phi i32 [ %127, %115 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ], [ %78, %114 ]
+  %.0238 = phi i32 [ %121, %115 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ], [ %76, %114 ]
   %220 = shl i32 %.0241, 24
   %221 = shl nuw nsw i32 %.0238, 16
   %222 = shl nuw nsw i32 %.0239, 8
@@ -10125,10 +10125,10 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend(ptr noundef captures(none
   br label %79
 
 79:                                               ; preds = %75, %59, %43, %.split.us, %.split.us
-  %.082.us = phi i32 [ %42, %43 ], [ %42, %59 ], [ 255, %.split.us ], [ %42, %75 ], [ 255, %.split.us ]
-  %.081.us = phi i32 [ %58, %43 ], [ %74, %59 ], [ %32, %.split.us ], [ %spec.store.select1.us, %75 ], [ %32, %.split.us ]
-  %.080.us = phi i32 [ %53, %43 ], [ %69, %59 ], [ %34, %.split.us ], [ %spec.store.select2.us, %75 ], [ %34, %.split.us ]
-  %.0.us = phi i32 [ %48, %43 ], [ %64, %59 ], [ %35, %.split.us ], [ %spec.store.select.us, %75 ], [ %35, %.split.us ]
+  %.082.us = phi i32 [ %42, %75 ], [ %42, %59 ], [ %42, %43 ], [ 255, %.split.us ], [ 255, %.split.us ]
+  %.081.us = phi i32 [ %spec.store.select1.us, %75 ], [ %74, %59 ], [ %58, %43 ], [ %32, %.split.us ], [ %32, %.split.us ]
+  %.080.us = phi i32 [ %spec.store.select2.us, %75 ], [ %69, %59 ], [ %53, %43 ], [ %34, %.split.us ], [ %34, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %75 ], [ %64, %59 ], [ %48, %43 ], [ %35, %.split.us ], [ %35, %.split.us ]
   %80 = shl nuw i32 %.082.us, 24
   %81 = shl nuw nsw i32 %.081.us, 16
   %82 = add nuw nsw i32 %81, %80
@@ -10148,9 +10148,9 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend(ptr noundef captures(none
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph92.split, %._crit_edge.loopexit
-  %88 = phi i32 [ %26, %.lr.ph92.split ], [ %.pre105, %._crit_edge.loopexit ]
-  %89 = phi ptr [ %27, %.lr.ph92.split ], [ %.pre104, %._crit_edge.loopexit ]
-  %90 = phi ptr [ %28, %.lr.ph92.split ], [ %.pre103, %._crit_edge.loopexit ]
+  %88 = phi i32 [ %.pre105, %._crit_edge.loopexit ], [ %26, %.lr.ph92.split ]
+  %89 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %27, %.lr.ph92.split ]
+  %90 = phi ptr [ %.pre103, %._crit_edge.loopexit ], [ %28, %.lr.ph92.split ]
   %91 = load i32, ptr %14, align 8
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %90, i64 %92
@@ -10312,10 +10312,10 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %98
 
 98:                                               ; preds = %94, %78, %62, %.split.us, %.split.us
-  %.094.us = phi i32 [ %61, %62 ], [ %61, %78 ], [ 255, %.split.us ], [ %61, %94 ], [ 255, %.split.us ]
-  %.093.us = phi i32 [ %77, %62 ], [ %93, %78 ], [ %51, %.split.us ], [ %spec.store.select1.us, %94 ], [ %51, %.split.us ]
-  %.092.us = phi i32 [ %72, %62 ], [ %88, %78 ], [ %53, %.split.us ], [ %spec.store.select2.us, %94 ], [ %53, %.split.us ]
-  %.0.us = phi i32 [ %67, %62 ], [ %83, %78 ], [ %54, %.split.us ], [ %spec.store.select.us, %94 ], [ %54, %.split.us ]
+  %.094.us = phi i32 [ %61, %94 ], [ %61, %78 ], [ %61, %62 ], [ 255, %.split.us ], [ 255, %.split.us ]
+  %.093.us = phi i32 [ %spec.store.select1.us, %94 ], [ %93, %78 ], [ %77, %62 ], [ %51, %.split.us ], [ %51, %.split.us ]
+  %.092.us = phi i32 [ %spec.store.select2.us, %94 ], [ %88, %78 ], [ %72, %62 ], [ %53, %.split.us ], [ %53, %.split.us ]
+  %.0.us = phi i32 [ %spec.store.select.us, %94 ], [ %83, %78 ], [ %67, %62 ], [ %54, %.split.us ], [ %54, %.split.us ]
   %99 = shl nuw i32 %.094.us, 24
   %100 = shl nuw nsw i32 %.093.us, 16
   %101 = add nuw nsw i32 %100, %99
@@ -10334,8 +10334,8 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph106.split, %._crit_edge.loopexit
-  %107 = phi i32 [ %36, %.lr.ph106.split ], [ %.pre113, %._crit_edge.loopexit ]
-  %108 = phi ptr [ %37, %.lr.ph106.split ], [ %.pre112, %._crit_edge.loopexit ]
+  %107 = phi i32 [ %.pre113, %._crit_edge.loopexit ], [ %36, %.lr.ph106.split ]
+  %108 = phi ptr [ %.pre112, %._crit_edge.loopexit ], [ %37, %.lr.ph106.split ]
   %109 = add i64 %.095104, %11
   %110 = load i32, ptr %29, align 8
   %111 = sext i32 %110 to i64
@@ -10941,10 +10941,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 200:                                              ; preds = %121, %95, %166, %150, %146, %96
-  %.0229 = phi i32 [ %61, %95 ], [ %120, %96 ], [ %spec.store.select10, %121 ], [ %61, %146 ], [ %61, %150 ], [ %61, %166 ]
-  %.0228 = phi i32 [ %57, %95 ], [ %114, %96 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
-  %.0227 = phi i32 [ %59, %95 ], [ %108, %96 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
-  %.0226 = phi i32 [ %60, %95 ], [ %102, %96 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
+  %.0229 = phi i32 [ %120, %96 ], [ %spec.store.select10, %121 ], [ %61, %146 ], [ %61, %150 ], [ %61, %166 ], [ %61, %95 ]
+  %.0228 = phi i32 [ %114, %96 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ], [ %57, %95 ]
+  %.0227 = phi i32 [ %108, %96 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ], [ %59, %95 ]
+  %.0226 = phi i32 [ %102, %96 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ], [ %60, %95 ]
   %201 = shl i32 %.0229, 24
   %202 = shl nuw nsw i32 %.0228, 16
   %203 = or i32 %202, %201
@@ -11283,10 +11283,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 219:                                              ; preds = %140, %114, %185, %169, %165, %115
-  %.0241 = phi i32 [ %80, %114 ], [ %139, %115 ], [ %spec.store.select10, %140 ], [ %80, %165 ], [ %80, %169 ], [ %80, %185 ]
-  %.0240 = phi i32 [ %76, %114 ], [ %133, %115 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
-  %.0239 = phi i32 [ %78, %114 ], [ %127, %115 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
-  %.0238 = phi i32 [ %79, %114 ], [ %121, %115 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
+  %.0241 = phi i32 [ %139, %115 ], [ %spec.store.select10, %140 ], [ %80, %165 ], [ %80, %169 ], [ %80, %185 ], [ %80, %114 ]
+  %.0240 = phi i32 [ %133, %115 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ], [ %76, %114 ]
+  %.0239 = phi i32 [ %127, %115 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ], [ %78, %114 ]
+  %.0238 = phi i32 [ %121, %115 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ], [ %79, %114 ]
   %220 = shl i32 %.0241, 24
   %221 = shl nuw nsw i32 %.0240, 16
   %222 = or i32 %221, %220
@@ -11655,9 +11655,9 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend(ptr noundef captures(none
   br label %157
 
 157:                                              ; preds = %137, %117, %113, %97, %62
-  %.0182.us = phi i32 [ %spec.store.select7.us, %62 ], [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ]
-  %.0181.us = phi i32 [ %spec.store.select9.us, %62 ], [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ]
-  %.0180.us = phi i32 [ %spec.store.select6.us, %62 ], [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ]
+  %.0182.us = phi i32 [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ], [ %spec.store.select7.us, %62 ]
+  %.0181.us = phi i32 [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ], [ %spec.store.select9.us, %62 ]
+  %.0180.us = phi i32 [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ], [ %spec.store.select6.us, %62 ]
   %158 = shl nuw nsw i32 %.0180.us, 16
   %159 = shl nuw nsw i32 %.0181.us, 8
   %160 = or i32 %159, %.0182.us
@@ -11960,9 +11960,9 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %176
 
 176:                                              ; preds = %156, %136, %132, %116, %81
-  %.0194.us = phi i32 [ %spec.store.select7.us, %81 ], [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ]
-  %.0193.us = phi i32 [ %spec.store.select9.us, %81 ], [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ]
-  %.0192.us = phi i32 [ %spec.store.select6.us, %81 ], [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ]
+  %.0194.us = phi i32 [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ], [ %spec.store.select7.us, %81 ]
+  %.0193.us = phi i32 [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ], [ %spec.store.select9.us, %81 ]
+  %.0192.us = phi i32 [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ], [ %spec.store.select6.us, %81 ]
   %177 = shl nuw nsw i32 %.0192.us, 16
   %178 = shl nuw nsw i32 %.0193.us, 8
   %179 = or i32 %178, %.0194.us
@@ -12578,9 +12578,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 196:                                              ; preds = %121, %100, %161, %145, %141, %101
-  %.0215 = phi i32 [ %58, %100 ], [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ]
-  %.0214 = phi i32 [ %57, %100 ], [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ]
-  %.0213 = phi i32 [ %55, %100 ], [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ]
+  %.0215 = phi i32 [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ], [ %58, %100 ]
+  %.0214 = phi i32 [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ], [ %57, %100 ]
+  %.0213 = phi i32 [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ], [ %55, %100 ]
   %197 = shl nuw nsw i32 %.0213, 16
   %198 = shl nuw nsw i32 %.0214, 8
   %199 = or i32 %198, %.0215
@@ -12917,9 +12917,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 215:                                              ; preds = %140, %119, %180, %164, %160, %120
-  %.0227 = phi i32 [ %77, %119 ], [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ]
-  %.0226 = phi i32 [ %76, %119 ], [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ]
-  %.0225 = phi i32 [ %74, %119 ], [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ]
+  %.0227 = phi i32 [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ], [ %77, %119 ]
+  %.0226 = phi i32 [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ], [ %76, %119 ]
+  %.0225 = phi i32 [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ], [ %74, %119 ]
   %216 = shl nuw nsw i32 %.0225, 16
   %217 = shl nuw nsw i32 %.0226, 8
   %218 = or i32 %217, %.0227
@@ -13292,9 +13292,9 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend(ptr noundef captures(none
   br label %157
 
 157:                                              ; preds = %137, %117, %113, %97, %62
-  %.0182.us = phi i32 [ %spec.store.select7.us, %62 ], [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ]
-  %.0181.us = phi i32 [ %spec.store.select9.us, %62 ], [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ]
-  %.0180.us = phi i32 [ %spec.store.select6.us, %62 ], [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ]
+  %.0182.us = phi i32 [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ], [ %spec.store.select7.us, %62 ]
+  %.0181.us = phi i32 [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ], [ %spec.store.select9.us, %62 ]
+  %.0180.us = phi i32 [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ], [ %spec.store.select6.us, %62 ]
   %158 = shl nuw nsw i32 %.0182.us, 16
   %159 = shl nuw nsw i32 %.0181.us, 8
   %160 = or i32 %159, %158
@@ -13597,9 +13597,9 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %176
 
 176:                                              ; preds = %156, %136, %132, %116, %81
-  %.0194.us = phi i32 [ %spec.store.select7.us, %81 ], [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ]
-  %.0193.us = phi i32 [ %spec.store.select9.us, %81 ], [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ]
-  %.0192.us = phi i32 [ %spec.store.select6.us, %81 ], [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ]
+  %.0194.us = phi i32 [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ], [ %spec.store.select7.us, %81 ]
+  %.0193.us = phi i32 [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ], [ %spec.store.select9.us, %81 ]
+  %.0192.us = phi i32 [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ], [ %spec.store.select6.us, %81 ]
   %177 = shl nuw nsw i32 %.0194.us, 16
   %178 = shl nuw nsw i32 %.0193.us, 8
   %179 = or i32 %178, %177
@@ -14227,9 +14227,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 196:                                              ; preds = %121, %100, %161, %145, %141, %101
-  %.0215 = phi i32 [ %55, %100 ], [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ]
-  %.0214 = phi i32 [ %57, %100 ], [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ]
-  %.0213 = phi i32 [ %58, %100 ], [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ]
+  %.0215 = phi i32 [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ], [ %55, %100 ]
+  %.0214 = phi i32 [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ], [ %57, %100 ]
+  %.0213 = phi i32 [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ], [ %58, %100 ]
   %197 = shl nuw nsw i32 %.0215, 16
   %198 = shl nuw nsw i32 %.0214, 8
   %199 = or i32 %198, %197
@@ -14566,9 +14566,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 215:                                              ; preds = %140, %119, %180, %164, %160, %120
-  %.0227 = phi i32 [ %74, %119 ], [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ]
-  %.0226 = phi i32 [ %76, %119 ], [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ]
-  %.0225 = phi i32 [ %77, %119 ], [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ]
+  %.0227 = phi i32 [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ], [ %74, %119 ]
+  %.0226 = phi i32 [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ], [ %76, %119 ]
+  %.0225 = phi i32 [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ], [ %77, %119 ]
   %216 = shl nuw nsw i32 %.0227, 16
   %217 = shl nuw nsw i32 %.0226, 8
   %218 = or i32 %217, %216
@@ -14945,10 +14945,10 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %142, %116, %112, %96, %61
-  %.0203.us = phi i32 [ %43, %61 ], [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ]
-  %.0202.us = phi i32 [ %spec.store.select7.us, %61 ], [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ]
-  %.0201.us = phi i32 [ %spec.store.select9.us, %61 ], [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ]
-  %.0200.us = phi i32 [ %spec.store.select6.us, %61 ], [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ]
+  %.0203.us = phi i32 [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ], [ %43, %61 ]
+  %.0202.us = phi i32 [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ], [ %spec.store.select7.us, %61 ]
+  %.0201.us = phi i32 [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ], [ %spec.store.select9.us, %61 ]
+  %.0200.us = phi i32 [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ], [ %spec.store.select6.us, %61 ]
   %169 = shl i32 %.0203.us, 24
   %170 = shl nuw nsw i32 %.0200.us, 16
   %171 = shl nuw nsw i32 %.0201.us, 8
@@ -14971,9 +14971,9 @@ default.unreachable:                              ; preds = %.split.us
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph218.split, %._crit_edge.loopexit
-  %177 = phi i32 [ %28, %.lr.ph218.split ], [ %.pre233, %._crit_edge.loopexit ]
-  %178 = phi ptr [ %.pre232, %.lr.ph218.split ], [ %.pre231, %._crit_edge.loopexit ]
-  %179 = phi ptr [ %.pre230, %.lr.ph218.split ], [ %.pre, %._crit_edge.loopexit ]
+  %177 = phi i32 [ %.pre233, %._crit_edge.loopexit ], [ %28, %.lr.ph218.split ]
+  %178 = phi ptr [ %.pre231, %._crit_edge.loopexit ], [ %.pre232, %.lr.ph218.split ]
+  %179 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre230, %.lr.ph218.split ]
   %180 = load i32, ptr %16, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %179, i64 %181
@@ -15252,10 +15252,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 190:                                              ; preds = %109, %82, %155, %139, %135, %83
-  %.0215 = phi i32 [ %64, %82 ], [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ]
-  %.0214 = phi i32 [ %63, %82 ], [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ]
-  %.0213 = phi i32 [ %62, %82 ], [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ]
-  %.0212 = phi i32 [ %60, %82 ], [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ]
+  %.0215 = phi i32 [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ], [ %64, %82 ]
+  %.0214 = phi i32 [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ], [ %63, %82 ]
+  %.0213 = phi i32 [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ], [ %62, %82 ]
+  %.0212 = phi i32 [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ], [ %60, %82 ]
   %191 = shl i32 %.0215, 24
   %192 = shl nuw nsw i32 %.0212, 16
   %193 = shl nuw nsw i32 %.0213, 8
@@ -15960,10 +15960,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 209:                                              ; preds = %128, %101, %174, %158, %154, %102
-  %.0236 = phi i32 [ %59, %101 ], [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ]
-  %.0235 = phi i32 [ %58, %101 ], [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
-  %.0234 = phi i32 [ %57, %101 ], [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
-  %.0233 = phi i32 [ %55, %101 ], [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
+  %.0236 = phi i32 [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ], [ %59, %101 ]
+  %.0235 = phi i32 [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ], [ %58, %101 ]
+  %.0234 = phi i32 [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ], [ %57, %101 ]
+  %.0233 = phi i32 [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ], [ %55, %101 ]
   %210 = shl i32 %.0236, 24
   %211 = shl nuw nsw i32 %.0233, 16
   %212 = shl nuw nsw i32 %.0234, 8
@@ -16316,10 +16316,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 228:                                              ; preds = %147, %120, %193, %177, %173, %121
-  %.0248 = phi i32 [ %78, %120 ], [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ]
-  %.0247 = phi i32 [ %77, %120 ], [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
-  %.0246 = phi i32 [ %76, %120 ], [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
-  %.0245 = phi i32 [ %74, %120 ], [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
+  %.0248 = phi i32 [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ], [ %78, %120 ]
+  %.0247 = phi i32 [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ], [ %77, %120 ]
+  %.0246 = phi i32 [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ], [ %76, %120 ]
+  %.0245 = phi i32 [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ], [ %74, %120 ]
   %229 = shl i32 %.0248, 24
   %230 = shl nuw nsw i32 %.0245, 16
   %231 = shl nuw nsw i32 %.0246, 8
@@ -16705,10 +16705,10 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %142, %116, %112, %96, %61
-  %.0203.us = phi i32 [ %43, %61 ], [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ]
-  %.0202.us = phi i32 [ %spec.store.select7.us, %61 ], [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ]
-  %.0201.us = phi i32 [ %spec.store.select9.us, %61 ], [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ]
-  %.0200.us = phi i32 [ %spec.store.select6.us, %61 ], [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ]
+  %.0203.us = phi i32 [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ], [ %43, %61 ]
+  %.0202.us = phi i32 [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ], [ %spec.store.select7.us, %61 ]
+  %.0201.us = phi i32 [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ], [ %spec.store.select9.us, %61 ]
+  %.0200.us = phi i32 [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ], [ %spec.store.select6.us, %61 ]
   %169 = shl i32 %.0203.us, 24
   %170 = shl nuw nsw i32 %.0202.us, 16
   %171 = or i32 %170, %169
@@ -16731,9 +16731,9 @@ default.unreachable:                              ; preds = %.split.us
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph218.split, %._crit_edge.loopexit
-  %177 = phi i32 [ %28, %.lr.ph218.split ], [ %.pre233, %._crit_edge.loopexit ]
-  %178 = phi ptr [ %.pre232, %.lr.ph218.split ], [ %.pre231, %._crit_edge.loopexit ]
-  %179 = phi ptr [ %.pre230, %.lr.ph218.split ], [ %.pre, %._crit_edge.loopexit ]
+  %177 = phi i32 [ %.pre233, %._crit_edge.loopexit ], [ %28, %.lr.ph218.split ]
+  %178 = phi ptr [ %.pre231, %._crit_edge.loopexit ], [ %.pre232, %.lr.ph218.split ]
+  %179 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre230, %.lr.ph218.split ]
   %180 = load i32, ptr %16, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %179, i64 %181
@@ -17012,10 +17012,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 190:                                              ; preds = %109, %82, %155, %139, %135, %83
-  %.0215 = phi i32 [ %64, %82 ], [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ]
-  %.0214 = phi i32 [ %60, %82 ], [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ]
-  %.0213 = phi i32 [ %62, %82 ], [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ]
-  %.0212 = phi i32 [ %63, %82 ], [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ]
+  %.0215 = phi i32 [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ], [ %64, %82 ]
+  %.0214 = phi i32 [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ], [ %60, %82 ]
+  %.0213 = phi i32 [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ], [ %62, %82 ]
+  %.0212 = phi i32 [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ], [ %63, %82 ]
   %191 = shl i32 %.0215, 24
   %192 = shl nuw nsw i32 %.0214, 16
   %193 = or i32 %192, %191
@@ -17739,10 +17739,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 209:                                              ; preds = %128, %101, %174, %158, %154, %102
-  %.0236 = phi i32 [ %59, %101 ], [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ]
-  %.0235 = phi i32 [ %55, %101 ], [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
-  %.0234 = phi i32 [ %57, %101 ], [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
-  %.0233 = phi i32 [ %58, %101 ], [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
+  %.0236 = phi i32 [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ], [ %59, %101 ]
+  %.0235 = phi i32 [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ], [ %55, %101 ]
+  %.0234 = phi i32 [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ], [ %57, %101 ]
+  %.0233 = phi i32 [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ], [ %58, %101 ]
   %210 = shl i32 %.0236, 24
   %211 = shl nuw nsw i32 %.0235, 16
   %212 = or i32 %211, %210
@@ -18095,10 +18095,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 228:                                              ; preds = %147, %120, %193, %177, %173, %121
-  %.0248 = phi i32 [ %78, %120 ], [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ]
-  %.0247 = phi i32 [ %74, %120 ], [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
-  %.0246 = phi i32 [ %76, %120 ], [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
-  %.0245 = phi i32 [ %77, %120 ], [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
+  %.0248 = phi i32 [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ], [ %78, %120 ]
+  %.0247 = phi i32 [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ], [ %74, %120 ]
+  %.0246 = phi i32 [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ], [ %76, %120 ]
+  %.0245 = phi i32 [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ], [ %77, %120 ]
   %229 = shl i32 %.0248, 24
   %230 = shl nuw nsw i32 %.0247, 16
   %231 = or i32 %230, %229
@@ -18467,9 +18467,9 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend(ptr noundef captures(none
   br label %157
 
 157:                                              ; preds = %137, %117, %113, %97, %62
-  %.0182.us = phi i32 [ %spec.store.select7.us, %62 ], [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ]
-  %.0181.us = phi i32 [ %spec.store.select9.us, %62 ], [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ]
-  %.0180.us = phi i32 [ %spec.store.select6.us, %62 ], [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ]
+  %.0182.us = phi i32 [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ], [ %spec.store.select7.us, %62 ]
+  %.0181.us = phi i32 [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ], [ %spec.store.select9.us, %62 ]
+  %.0180.us = phi i32 [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ], [ %spec.store.select6.us, %62 ]
   %158 = shl nuw nsw i32 %.0180.us, 16
   %159 = shl nuw nsw i32 %.0181.us, 8
   %160 = or i32 %159, %.0182.us
@@ -18772,9 +18772,9 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %176
 
 176:                                              ; preds = %156, %136, %132, %116, %81
-  %.0194.us = phi i32 [ %spec.store.select7.us, %81 ], [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ]
-  %.0193.us = phi i32 [ %spec.store.select9.us, %81 ], [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ]
-  %.0192.us = phi i32 [ %spec.store.select6.us, %81 ], [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ]
+  %.0194.us = phi i32 [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ], [ %spec.store.select7.us, %81 ]
+  %.0193.us = phi i32 [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ], [ %spec.store.select9.us, %81 ]
+  %.0192.us = phi i32 [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ], [ %spec.store.select6.us, %81 ]
   %177 = shl nuw nsw i32 %.0192.us, 16
   %178 = shl nuw nsw i32 %.0193.us, 8
   %179 = or i32 %178, %.0194.us
@@ -19390,9 +19390,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 196:                                              ; preds = %121, %100, %161, %145, %141, %101
-  %.0215 = phi i32 [ %58, %100 ], [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ]
-  %.0214 = phi i32 [ %57, %100 ], [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ]
-  %.0213 = phi i32 [ %55, %100 ], [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ]
+  %.0215 = phi i32 [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ], [ %58, %100 ]
+  %.0214 = phi i32 [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ], [ %57, %100 ]
+  %.0213 = phi i32 [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ], [ %55, %100 ]
   %197 = shl nuw nsw i32 %.0213, 16
   %198 = shl nuw nsw i32 %.0214, 8
   %199 = or i32 %198, %.0215
@@ -19729,9 +19729,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 215:                                              ; preds = %140, %119, %180, %164, %160, %120
-  %.0227 = phi i32 [ %77, %119 ], [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ]
-  %.0226 = phi i32 [ %76, %119 ], [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ]
-  %.0225 = phi i32 [ %74, %119 ], [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ]
+  %.0227 = phi i32 [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ], [ %77, %119 ]
+  %.0226 = phi i32 [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ], [ %76, %119 ]
+  %.0225 = phi i32 [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ], [ %74, %119 ]
   %216 = shl nuw nsw i32 %.0225, 16
   %217 = shl nuw nsw i32 %.0226, 8
   %218 = or i32 %217, %.0227
@@ -20104,9 +20104,9 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend(ptr noundef captures(none
   br label %157
 
 157:                                              ; preds = %137, %117, %113, %97, %62
-  %.0182.us = phi i32 [ %spec.store.select7.us, %62 ], [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ]
-  %.0181.us = phi i32 [ %spec.store.select9.us, %62 ], [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ]
-  %.0180.us = phi i32 [ %spec.store.select6.us, %62 ], [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ]
+  %.0182.us = phi i32 [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ], [ %spec.store.select7.us, %62 ]
+  %.0181.us = phi i32 [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ], [ %spec.store.select9.us, %62 ]
+  %.0180.us = phi i32 [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ], [ %spec.store.select6.us, %62 ]
   %158 = shl nuw nsw i32 %.0182.us, 16
   %159 = shl nuw nsw i32 %.0181.us, 8
   %160 = or i32 %159, %158
@@ -20409,9 +20409,9 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %176
 
 176:                                              ; preds = %156, %136, %132, %116, %81
-  %.0194.us = phi i32 [ %spec.store.select7.us, %81 ], [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ]
-  %.0193.us = phi i32 [ %spec.store.select9.us, %81 ], [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ]
-  %.0192.us = phi i32 [ %spec.store.select6.us, %81 ], [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ]
+  %.0194.us = phi i32 [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ], [ %spec.store.select7.us, %81 ]
+  %.0193.us = phi i32 [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ], [ %spec.store.select9.us, %81 ]
+  %.0192.us = phi i32 [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ], [ %spec.store.select6.us, %81 ]
   %177 = shl nuw nsw i32 %.0194.us, 16
   %178 = shl nuw nsw i32 %.0193.us, 8
   %179 = or i32 %178, %177
@@ -21039,9 +21039,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 196:                                              ; preds = %121, %100, %161, %145, %141, %101
-  %.0215 = phi i32 [ %55, %100 ], [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ]
-  %.0214 = phi i32 [ %57, %100 ], [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ]
-  %.0213 = phi i32 [ %58, %100 ], [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ]
+  %.0215 = phi i32 [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ], [ %55, %100 ]
+  %.0214 = phi i32 [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ], [ %57, %100 ]
+  %.0213 = phi i32 [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ], [ %58, %100 ]
   %197 = shl nuw nsw i32 %.0215, 16
   %198 = shl nuw nsw i32 %.0214, 8
   %199 = or i32 %198, %197
@@ -21378,9 +21378,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 215:                                              ; preds = %140, %119, %180, %164, %160, %120
-  %.0227 = phi i32 [ %74, %119 ], [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ]
-  %.0226 = phi i32 [ %76, %119 ], [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ]
-  %.0225 = phi i32 [ %77, %119 ], [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ]
+  %.0227 = phi i32 [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ], [ %74, %119 ]
+  %.0226 = phi i32 [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ], [ %76, %119 ]
+  %.0225 = phi i32 [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ], [ %77, %119 ]
   %216 = shl nuw nsw i32 %.0227, 16
   %217 = shl nuw nsw i32 %.0226, 8
   %218 = or i32 %217, %216
@@ -21758,10 +21758,10 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %142, %116, %112, %96, %61
-  %.0203.us = phi i32 [ %43, %61 ], [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ]
-  %.0202.us = phi i32 [ %spec.store.select7.us, %61 ], [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ]
-  %.0201.us = phi i32 [ %spec.store.select9.us, %61 ], [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ]
-  %.0200.us = phi i32 [ %spec.store.select6.us, %61 ], [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ]
+  %.0203.us = phi i32 [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ], [ %43, %61 ]
+  %.0202.us = phi i32 [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ], [ %spec.store.select7.us, %61 ]
+  %.0201.us = phi i32 [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ], [ %spec.store.select9.us, %61 ]
+  %.0200.us = phi i32 [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ], [ %spec.store.select6.us, %61 ]
   %169 = shl i32 %.0203.us, 24
   %170 = shl nuw nsw i32 %.0200.us, 16
   %171 = shl nuw nsw i32 %.0201.us, 8
@@ -21784,9 +21784,9 @@ default.unreachable:                              ; preds = %.split.us
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph218.split, %._crit_edge.loopexit
-  %177 = phi i32 [ %28, %.lr.ph218.split ], [ %.pre233, %._crit_edge.loopexit ]
-  %178 = phi ptr [ %.pre232, %.lr.ph218.split ], [ %.pre231, %._crit_edge.loopexit ]
-  %179 = phi ptr [ %.pre230, %.lr.ph218.split ], [ %.pre, %._crit_edge.loopexit ]
+  %177 = phi i32 [ %.pre233, %._crit_edge.loopexit ], [ %28, %.lr.ph218.split ]
+  %178 = phi ptr [ %.pre231, %._crit_edge.loopexit ], [ %.pre232, %.lr.ph218.split ]
+  %179 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre230, %.lr.ph218.split ]
   %180 = load i32, ptr %16, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %179, i64 %181
@@ -22065,10 +22065,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 190:                                              ; preds = %109, %82, %155, %139, %135, %83
-  %.0215 = phi i32 [ %64, %82 ], [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ]
-  %.0214 = phi i32 [ %63, %82 ], [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ]
-  %.0213 = phi i32 [ %62, %82 ], [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ]
-  %.0212 = phi i32 [ %60, %82 ], [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ]
+  %.0215 = phi i32 [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ], [ %64, %82 ]
+  %.0214 = phi i32 [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ], [ %63, %82 ]
+  %.0213 = phi i32 [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ], [ %62, %82 ]
+  %.0212 = phi i32 [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ], [ %60, %82 ]
   %191 = shl i32 %.0215, 24
   %192 = shl nuw nsw i32 %.0212, 16
   %193 = shl nuw nsw i32 %.0213, 8
@@ -22772,10 +22772,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 209:                                              ; preds = %128, %101, %174, %158, %154, %102
-  %.0236 = phi i32 [ %59, %101 ], [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ]
-  %.0235 = phi i32 [ %58, %101 ], [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
-  %.0234 = phi i32 [ %57, %101 ], [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
-  %.0233 = phi i32 [ %55, %101 ], [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
+  %.0236 = phi i32 [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ], [ %59, %101 ]
+  %.0235 = phi i32 [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ], [ %58, %101 ]
+  %.0234 = phi i32 [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ], [ %57, %101 ]
+  %.0233 = phi i32 [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ], [ %55, %101 ]
   %210 = shl i32 %.0236, 24
   %211 = shl nuw nsw i32 %.0233, 16
   %212 = shl nuw nsw i32 %.0234, 8
@@ -23128,10 +23128,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 228:                                              ; preds = %147, %120, %193, %177, %173, %121
-  %.0248 = phi i32 [ %78, %120 ], [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ]
-  %.0247 = phi i32 [ %77, %120 ], [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
-  %.0246 = phi i32 [ %76, %120 ], [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
-  %.0245 = phi i32 [ %74, %120 ], [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
+  %.0248 = phi i32 [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ], [ %78, %120 ]
+  %.0247 = phi i32 [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ], [ %77, %120 ]
+  %.0246 = phi i32 [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ], [ %76, %120 ]
+  %.0245 = phi i32 [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ], [ %74, %120 ]
   %229 = shl i32 %.0248, 24
   %230 = shl nuw nsw i32 %.0245, 16
   %231 = shl nuw nsw i32 %.0246, 8
@@ -23511,10 +23511,10 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %142, %116, %112, %96, %61
-  %.0203.us = phi i32 [ %43, %61 ], [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ]
-  %.0202.us = phi i32 [ %spec.store.select7.us, %61 ], [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ]
-  %.0201.us = phi i32 [ %spec.store.select9.us, %61 ], [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ]
-  %.0200.us = phi i32 [ %spec.store.select6.us, %61 ], [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ]
+  %.0203.us = phi i32 [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ], [ %43, %61 ]
+  %.0202.us = phi i32 [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ], [ %spec.store.select7.us, %61 ]
+  %.0201.us = phi i32 [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ], [ %spec.store.select9.us, %61 ]
+  %.0200.us = phi i32 [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ], [ %spec.store.select6.us, %61 ]
   %169 = shl i32 %.0203.us, 24
   %170 = shl nuw nsw i32 %.0202.us, 16
   %171 = or i32 %170, %169
@@ -23537,9 +23537,9 @@ default.unreachable:                              ; preds = %.split.us
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph218.split, %._crit_edge.loopexit
-  %177 = phi i32 [ %28, %.lr.ph218.split ], [ %.pre233, %._crit_edge.loopexit ]
-  %178 = phi ptr [ %.pre232, %.lr.ph218.split ], [ %.pre231, %._crit_edge.loopexit ]
-  %179 = phi ptr [ %.pre230, %.lr.ph218.split ], [ %.pre, %._crit_edge.loopexit ]
+  %177 = phi i32 [ %.pre233, %._crit_edge.loopexit ], [ %28, %.lr.ph218.split ]
+  %178 = phi ptr [ %.pre231, %._crit_edge.loopexit ], [ %.pre232, %.lr.ph218.split ]
+  %179 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre230, %.lr.ph218.split ]
   %180 = load i32, ptr %16, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %179, i64 %181
@@ -23818,10 +23818,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 190:                                              ; preds = %109, %82, %155, %139, %135, %83
-  %.0215 = phi i32 [ %64, %82 ], [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ]
-  %.0214 = phi i32 [ %60, %82 ], [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ]
-  %.0213 = phi i32 [ %62, %82 ], [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ]
-  %.0212 = phi i32 [ %63, %82 ], [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ]
+  %.0215 = phi i32 [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ], [ %64, %82 ]
+  %.0214 = phi i32 [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ], [ %60, %82 ]
+  %.0213 = phi i32 [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ], [ %62, %82 ]
+  %.0212 = phi i32 [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ], [ %63, %82 ]
   %191 = shl i32 %.0215, 24
   %192 = shl nuw nsw i32 %.0214, 16
   %193 = or i32 %192, %191
@@ -24539,10 +24539,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 209:                                              ; preds = %128, %101, %174, %158, %154, %102
-  %.0236 = phi i32 [ %59, %101 ], [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ]
-  %.0235 = phi i32 [ %55, %101 ], [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
-  %.0234 = phi i32 [ %57, %101 ], [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
-  %.0233 = phi i32 [ %58, %101 ], [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
+  %.0236 = phi i32 [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ], [ %59, %101 ]
+  %.0235 = phi i32 [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ], [ %55, %101 ]
+  %.0234 = phi i32 [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ], [ %57, %101 ]
+  %.0233 = phi i32 [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ], [ %58, %101 ]
   %210 = shl i32 %.0236, 24
   %211 = shl nuw nsw i32 %.0235, 16
   %212 = or i32 %211, %210
@@ -24895,10 +24895,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 228:                                              ; preds = %147, %120, %193, %177, %173, %121
-  %.0248 = phi i32 [ %78, %120 ], [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ]
-  %.0247 = phi i32 [ %74, %120 ], [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
-  %.0246 = phi i32 [ %76, %120 ], [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
-  %.0245 = phi i32 [ %77, %120 ], [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
+  %.0248 = phi i32 [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ], [ %78, %120 ]
+  %.0247 = phi i32 [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ], [ %74, %120 ]
+  %.0246 = phi i32 [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ], [ %76, %120 ]
+  %.0245 = phi i32 [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ], [ %77, %120 ]
   %229 = shl i32 %.0248, 24
   %230 = shl nuw nsw i32 %.0247, 16
   %231 = or i32 %230, %229
@@ -25273,9 +25273,9 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend(ptr noundef captures(none
   br label %157
 
 157:                                              ; preds = %137, %117, %113, %97, %62
-  %.0182.us = phi i32 [ %spec.store.select7.us, %62 ], [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ]
-  %.0181.us = phi i32 [ %spec.store.select9.us, %62 ], [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ]
-  %.0180.us = phi i32 [ %spec.store.select6.us, %62 ], [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ]
+  %.0182.us = phi i32 [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ], [ %spec.store.select7.us, %62 ]
+  %.0181.us = phi i32 [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ], [ %spec.store.select9.us, %62 ]
+  %.0180.us = phi i32 [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ], [ %spec.store.select6.us, %62 ]
   %158 = shl nuw nsw i32 %.0180.us, 16
   %159 = shl nuw nsw i32 %.0181.us, 8
   %160 = or i32 %159, %.0182.us
@@ -25578,9 +25578,9 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %176
 
 176:                                              ; preds = %156, %136, %132, %116, %81
-  %.0194.us = phi i32 [ %spec.store.select7.us, %81 ], [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ]
-  %.0193.us = phi i32 [ %spec.store.select9.us, %81 ], [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ]
-  %.0192.us = phi i32 [ %spec.store.select6.us, %81 ], [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ]
+  %.0194.us = phi i32 [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ], [ %spec.store.select7.us, %81 ]
+  %.0193.us = phi i32 [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ], [ %spec.store.select9.us, %81 ]
+  %.0192.us = phi i32 [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ], [ %spec.store.select6.us, %81 ]
   %177 = shl nuw nsw i32 %.0192.us, 16
   %178 = shl nuw nsw i32 %.0193.us, 8
   %179 = or i32 %178, %.0194.us
@@ -26208,9 +26208,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 196:                                              ; preds = %121, %100, %161, %145, %141, %101
-  %.0215 = phi i32 [ %58, %100 ], [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ]
-  %.0214 = phi i32 [ %57, %100 ], [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ]
-  %.0213 = phi i32 [ %55, %100 ], [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ]
+  %.0215 = phi i32 [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ], [ %58, %100 ]
+  %.0214 = phi i32 [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ], [ %57, %100 ]
+  %.0213 = phi i32 [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ], [ %55, %100 ]
   %197 = shl nuw nsw i32 %.0213, 16
   %198 = shl nuw nsw i32 %.0214, 8
   %199 = or i32 %198, %.0215
@@ -26547,9 +26547,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 215:                                              ; preds = %140, %119, %180, %164, %160, %120
-  %.0227 = phi i32 [ %77, %119 ], [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ]
-  %.0226 = phi i32 [ %76, %119 ], [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ]
-  %.0225 = phi i32 [ %74, %119 ], [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ]
+  %.0227 = phi i32 [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ], [ %77, %119 ]
+  %.0226 = phi i32 [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ], [ %76, %119 ]
+  %.0225 = phi i32 [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ], [ %74, %119 ]
   %216 = shl nuw nsw i32 %.0225, 16
   %217 = shl nuw nsw i32 %.0226, 8
   %218 = or i32 %217, %.0227
@@ -26916,9 +26916,9 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend(ptr noundef captures(none
   br label %157
 
 157:                                              ; preds = %137, %117, %113, %97, %62
-  %.0182.us = phi i32 [ %spec.store.select7.us, %62 ], [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ]
-  %.0181.us = phi i32 [ %spec.store.select9.us, %62 ], [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ]
-  %.0180.us = phi i32 [ %spec.store.select6.us, %62 ], [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ]
+  %.0182.us = phi i32 [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ], [ %spec.store.select7.us, %62 ]
+  %.0181.us = phi i32 [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ], [ %spec.store.select9.us, %62 ]
+  %.0180.us = phi i32 [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ], [ %spec.store.select6.us, %62 ]
   %158 = shl nuw nsw i32 %.0182.us, 16
   %159 = shl nuw nsw i32 %.0181.us, 8
   %160 = or i32 %159, %158
@@ -27221,9 +27221,9 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %176
 
 176:                                              ; preds = %156, %136, %132, %116, %81
-  %.0194.us = phi i32 [ %spec.store.select7.us, %81 ], [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ]
-  %.0193.us = phi i32 [ %spec.store.select9.us, %81 ], [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ]
-  %.0192.us = phi i32 [ %spec.store.select6.us, %81 ], [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ]
+  %.0194.us = phi i32 [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ], [ %spec.store.select7.us, %81 ]
+  %.0193.us = phi i32 [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ], [ %spec.store.select9.us, %81 ]
+  %.0192.us = phi i32 [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ], [ %spec.store.select6.us, %81 ]
   %177 = shl nuw nsw i32 %.0194.us, 16
   %178 = shl nuw nsw i32 %.0193.us, 8
   %179 = or i32 %178, %177
@@ -27839,9 +27839,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 196:                                              ; preds = %121, %100, %161, %145, %141, %101
-  %.0215 = phi i32 [ %55, %100 ], [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ]
-  %.0214 = phi i32 [ %57, %100 ], [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ]
-  %.0213 = phi i32 [ %58, %100 ], [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ]
+  %.0215 = phi i32 [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ], [ %55, %100 ]
+  %.0214 = phi i32 [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ], [ %57, %100 ]
+  %.0213 = phi i32 [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ], [ %58, %100 ]
   %197 = shl nuw nsw i32 %.0215, 16
   %198 = shl nuw nsw i32 %.0214, 8
   %199 = or i32 %198, %197
@@ -28178,9 +28178,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 215:                                              ; preds = %140, %119, %180, %164, %160, %120
-  %.0227 = phi i32 [ %74, %119 ], [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ]
-  %.0226 = phi i32 [ %76, %119 ], [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ]
-  %.0225 = phi i32 [ %77, %119 ], [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ]
+  %.0227 = phi i32 [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ], [ %74, %119 ]
+  %.0226 = phi i32 [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ], [ %76, %119 ]
+  %.0225 = phi i32 [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ], [ %77, %119 ]
   %216 = shl nuw nsw i32 %.0227, 16
   %217 = shl nuw nsw i32 %.0226, 8
   %218 = or i32 %217, %216
@@ -28564,10 +28564,10 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %142, %116, %112, %96, %61
-  %.0203.us = phi i32 [ %43, %61 ], [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ]
-  %.0202.us = phi i32 [ %spec.store.select7.us, %61 ], [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ]
-  %.0201.us = phi i32 [ %spec.store.select9.us, %61 ], [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ]
-  %.0200.us = phi i32 [ %spec.store.select6.us, %61 ], [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ]
+  %.0203.us = phi i32 [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ], [ %43, %61 ]
+  %.0202.us = phi i32 [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ], [ %spec.store.select7.us, %61 ]
+  %.0201.us = phi i32 [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ], [ %spec.store.select9.us, %61 ]
+  %.0200.us = phi i32 [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ], [ %spec.store.select6.us, %61 ]
   %169 = shl i32 %.0203.us, 24
   %170 = shl nuw nsw i32 %.0200.us, 16
   %171 = shl nuw nsw i32 %.0201.us, 8
@@ -28590,9 +28590,9 @@ default.unreachable:                              ; preds = %.split.us
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph218.split, %._crit_edge.loopexit
-  %177 = phi i32 [ %28, %.lr.ph218.split ], [ %.pre233, %._crit_edge.loopexit ]
-  %178 = phi ptr [ %.pre232, %.lr.ph218.split ], [ %.pre231, %._crit_edge.loopexit ]
-  %179 = phi ptr [ %.pre230, %.lr.ph218.split ], [ %.pre, %._crit_edge.loopexit ]
+  %177 = phi i32 [ %.pre233, %._crit_edge.loopexit ], [ %28, %.lr.ph218.split ]
+  %178 = phi ptr [ %.pre231, %._crit_edge.loopexit ], [ %.pre232, %.lr.ph218.split ]
+  %179 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre230, %.lr.ph218.split ]
   %180 = load i32, ptr %16, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %179, i64 %181
@@ -28871,10 +28871,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 190:                                              ; preds = %109, %82, %155, %139, %135, %83
-  %.0215 = phi i32 [ %64, %82 ], [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ]
-  %.0214 = phi i32 [ %63, %82 ], [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ]
-  %.0213 = phi i32 [ %62, %82 ], [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ]
-  %.0212 = phi i32 [ %60, %82 ], [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ]
+  %.0215 = phi i32 [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ], [ %64, %82 ]
+  %.0214 = phi i32 [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ], [ %63, %82 ]
+  %.0213 = phi i32 [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ], [ %62, %82 ]
+  %.0212 = phi i32 [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ], [ %60, %82 ]
   %191 = shl i32 %.0215, 24
   %192 = shl nuw nsw i32 %.0212, 16
   %193 = shl nuw nsw i32 %.0213, 8
@@ -29598,10 +29598,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 209:                                              ; preds = %128, %101, %174, %158, %154, %102
-  %.0236 = phi i32 [ %59, %101 ], [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ]
-  %.0235 = phi i32 [ %58, %101 ], [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
-  %.0234 = phi i32 [ %57, %101 ], [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
-  %.0233 = phi i32 [ %55, %101 ], [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
+  %.0236 = phi i32 [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ], [ %59, %101 ]
+  %.0235 = phi i32 [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ], [ %58, %101 ]
+  %.0234 = phi i32 [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ], [ %57, %101 ]
+  %.0233 = phi i32 [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ], [ %55, %101 ]
   %210 = shl i32 %.0236, 24
   %211 = shl nuw nsw i32 %.0233, 16
   %212 = shl nuw nsw i32 %.0234, 8
@@ -29954,10 +29954,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 228:                                              ; preds = %147, %120, %193, %177, %173, %121
-  %.0248 = phi i32 [ %78, %120 ], [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ]
-  %.0247 = phi i32 [ %77, %120 ], [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
-  %.0246 = phi i32 [ %76, %120 ], [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
-  %.0245 = phi i32 [ %74, %120 ], [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
+  %.0248 = phi i32 [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ], [ %78, %120 ]
+  %.0247 = phi i32 [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ], [ %77, %120 ]
+  %.0246 = phi i32 [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ], [ %76, %120 ]
+  %.0245 = phi i32 [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ], [ %74, %120 ]
   %229 = shl i32 %.0248, 24
   %230 = shl nuw nsw i32 %.0245, 16
   %231 = shl nuw nsw i32 %.0246, 8
@@ -30336,10 +30336,10 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %142, %116, %112, %96, %61
-  %.0203.us = phi i32 [ %43, %61 ], [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ]
-  %.0202.us = phi i32 [ %spec.store.select7.us, %61 ], [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ]
-  %.0201.us = phi i32 [ %spec.store.select9.us, %61 ], [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ]
-  %.0200.us = phi i32 [ %spec.store.select6.us, %61 ], [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ]
+  %.0203.us = phi i32 [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ], [ %43, %61 ]
+  %.0202.us = phi i32 [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ], [ %spec.store.select7.us, %61 ]
+  %.0201.us = phi i32 [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ], [ %spec.store.select9.us, %61 ]
+  %.0200.us = phi i32 [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ], [ %spec.store.select6.us, %61 ]
   %169 = shl i32 %.0203.us, 24
   %170 = shl nuw nsw i32 %.0202.us, 16
   %171 = or i32 %170, %169
@@ -30362,9 +30362,9 @@ default.unreachable:                              ; preds = %.split.us
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph218.split, %._crit_edge.loopexit
-  %177 = phi i32 [ %28, %.lr.ph218.split ], [ %.pre233, %._crit_edge.loopexit ]
-  %178 = phi ptr [ %.pre232, %.lr.ph218.split ], [ %.pre231, %._crit_edge.loopexit ]
-  %179 = phi ptr [ %.pre230, %.lr.ph218.split ], [ %.pre, %._crit_edge.loopexit ]
+  %177 = phi i32 [ %.pre233, %._crit_edge.loopexit ], [ %28, %.lr.ph218.split ]
+  %178 = phi ptr [ %.pre231, %._crit_edge.loopexit ], [ %.pre232, %.lr.ph218.split ]
+  %179 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre230, %.lr.ph218.split ]
   %180 = load i32, ptr %16, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %179, i64 %181
@@ -30643,10 +30643,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 190:                                              ; preds = %109, %82, %155, %139, %135, %83
-  %.0215 = phi i32 [ %64, %82 ], [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ]
-  %.0214 = phi i32 [ %60, %82 ], [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ]
-  %.0213 = phi i32 [ %62, %82 ], [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ]
-  %.0212 = phi i32 [ %63, %82 ], [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ]
+  %.0215 = phi i32 [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ], [ %64, %82 ]
+  %.0214 = phi i32 [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ], [ %60, %82 ]
+  %.0213 = phi i32 [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ], [ %62, %82 ]
+  %.0212 = phi i32 [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ], [ %63, %82 ]
   %191 = shl i32 %.0215, 24
   %192 = shl nuw nsw i32 %.0214, 16
   %193 = or i32 %192, %191
@@ -31351,10 +31351,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 209:                                              ; preds = %128, %101, %174, %158, %154, %102
-  %.0236 = phi i32 [ %59, %101 ], [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ]
-  %.0235 = phi i32 [ %55, %101 ], [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
-  %.0234 = phi i32 [ %57, %101 ], [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
-  %.0233 = phi i32 [ %58, %101 ], [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
+  %.0236 = phi i32 [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ], [ %59, %101 ]
+  %.0235 = phi i32 [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ], [ %55, %101 ]
+  %.0234 = phi i32 [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ], [ %57, %101 ]
+  %.0233 = phi i32 [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ], [ %58, %101 ]
   %210 = shl i32 %.0236, 24
   %211 = shl nuw nsw i32 %.0235, 16
   %212 = or i32 %211, %210
@@ -31707,10 +31707,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 228:                                              ; preds = %147, %120, %193, %177, %173, %121
-  %.0248 = phi i32 [ %78, %120 ], [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ]
-  %.0247 = phi i32 [ %74, %120 ], [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
-  %.0246 = phi i32 [ %76, %120 ], [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
-  %.0245 = phi i32 [ %77, %120 ], [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
+  %.0248 = phi i32 [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ], [ %78, %120 ]
+  %.0247 = phi i32 [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ], [ %74, %120 ]
+  %.0246 = phi i32 [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ], [ %76, %120 ]
+  %.0245 = phi i32 [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ], [ %77, %120 ]
   %229 = shl i32 %.0248, 24
   %230 = shl nuw nsw i32 %.0247, 16
   %231 = or i32 %230, %229
@@ -32085,9 +32085,9 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend(ptr noundef captures(none
   br label %157
 
 157:                                              ; preds = %137, %117, %113, %97, %62
-  %.0182.us = phi i32 [ %spec.store.select7.us, %62 ], [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ]
-  %.0181.us = phi i32 [ %spec.store.select9.us, %62 ], [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ]
-  %.0180.us = phi i32 [ %spec.store.select6.us, %62 ], [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ]
+  %.0182.us = phi i32 [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ], [ %spec.store.select7.us, %62 ]
+  %.0181.us = phi i32 [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ], [ %spec.store.select9.us, %62 ]
+  %.0180.us = phi i32 [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ], [ %spec.store.select6.us, %62 ]
   %158 = shl nuw nsw i32 %.0180.us, 16
   %159 = shl nuw nsw i32 %.0181.us, 8
   %160 = or i32 %159, %.0182.us
@@ -32390,9 +32390,9 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %176
 
 176:                                              ; preds = %156, %136, %132, %116, %81
-  %.0194.us = phi i32 [ %spec.store.select7.us, %81 ], [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ]
-  %.0193.us = phi i32 [ %spec.store.select9.us, %81 ], [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ]
-  %.0192.us = phi i32 [ %spec.store.select6.us, %81 ], [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ]
+  %.0194.us = phi i32 [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ], [ %spec.store.select7.us, %81 ]
+  %.0193.us = phi i32 [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ], [ %spec.store.select9.us, %81 ]
+  %.0192.us = phi i32 [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ], [ %spec.store.select6.us, %81 ]
   %177 = shl nuw nsw i32 %.0192.us, 16
   %178 = shl nuw nsw i32 %.0193.us, 8
   %179 = or i32 %178, %.0194.us
@@ -33020,9 +33020,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 196:                                              ; preds = %121, %100, %161, %145, %141, %101
-  %.0215 = phi i32 [ %58, %100 ], [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ]
-  %.0214 = phi i32 [ %57, %100 ], [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ]
-  %.0213 = phi i32 [ %55, %100 ], [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ]
+  %.0215 = phi i32 [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ], [ %58, %100 ]
+  %.0214 = phi i32 [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ], [ %57, %100 ]
+  %.0213 = phi i32 [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ], [ %55, %100 ]
   %197 = shl nuw nsw i32 %.0213, 16
   %198 = shl nuw nsw i32 %.0214, 8
   %199 = or i32 %198, %.0215
@@ -33359,9 +33359,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 215:                                              ; preds = %140, %119, %180, %164, %160, %120
-  %.0227 = phi i32 [ %77, %119 ], [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ]
-  %.0226 = phi i32 [ %76, %119 ], [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ]
-  %.0225 = phi i32 [ %74, %119 ], [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ]
+  %.0227 = phi i32 [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ], [ %77, %119 ]
+  %.0226 = phi i32 [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ], [ %76, %119 ]
+  %.0225 = phi i32 [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ], [ %74, %119 ]
   %216 = shl nuw nsw i32 %.0225, 16
   %217 = shl nuw nsw i32 %.0226, 8
   %218 = or i32 %217, %.0227
@@ -33728,9 +33728,9 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend(ptr noundef captures(none
   br label %157
 
 157:                                              ; preds = %137, %117, %113, %97, %62
-  %.0182.us = phi i32 [ %spec.store.select7.us, %62 ], [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ]
-  %.0181.us = phi i32 [ %spec.store.select9.us, %62 ], [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ]
-  %.0180.us = phi i32 [ %spec.store.select6.us, %62 ], [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ]
+  %.0182.us = phi i32 [ %156, %137 ], [ %spec.store.select4.us, %117 ], [ %spec.store.select1.us, %113 ], [ %112, %97 ], [ %spec.store.select7.us, %62 ]
+  %.0181.us = phi i32 [ %150, %137 ], [ %spec.store.select8.us, %117 ], [ %spec.store.select5.us, %113 ], [ %107, %97 ], [ %spec.store.select9.us, %62 ]
+  %.0180.us = phi i32 [ %144, %137 ], [ %spec.store.select3.us, %117 ], [ %spec.store.select.us, %113 ], [ %102, %97 ], [ %spec.store.select6.us, %62 ]
   %158 = shl nuw nsw i32 %.0182.us, 16
   %159 = shl nuw nsw i32 %.0181.us, 8
   %160 = or i32 %159, %158
@@ -34033,9 +34033,9 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %176
 
 176:                                              ; preds = %156, %136, %132, %116, %81
-  %.0194.us = phi i32 [ %spec.store.select7.us, %81 ], [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ]
-  %.0193.us = phi i32 [ %spec.store.select9.us, %81 ], [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ]
-  %.0192.us = phi i32 [ %spec.store.select6.us, %81 ], [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ]
+  %.0194.us = phi i32 [ %175, %156 ], [ %spec.store.select4.us, %136 ], [ %spec.store.select1.us, %132 ], [ %131, %116 ], [ %spec.store.select7.us, %81 ]
+  %.0193.us = phi i32 [ %169, %156 ], [ %spec.store.select8.us, %136 ], [ %spec.store.select5.us, %132 ], [ %126, %116 ], [ %spec.store.select9.us, %81 ]
+  %.0192.us = phi i32 [ %163, %156 ], [ %spec.store.select3.us, %136 ], [ %spec.store.select.us, %132 ], [ %121, %116 ], [ %spec.store.select6.us, %81 ]
   %177 = shl nuw nsw i32 %.0194.us, 16
   %178 = shl nuw nsw i32 %.0193.us, 8
   %179 = or i32 %178, %177
@@ -34651,9 +34651,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 196:                                              ; preds = %121, %100, %161, %145, %141, %101
-  %.0215 = phi i32 [ %55, %100 ], [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ]
-  %.0214 = phi i32 [ %57, %100 ], [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ]
-  %.0213 = phi i32 [ %58, %100 ], [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ]
+  %.0215 = phi i32 [ %120, %101 ], [ %spec.store.select4, %121 ], [ %spec.store.select1, %141 ], [ %160, %145 ], [ %spec.store.select7, %161 ], [ %55, %100 ]
+  %.0214 = phi i32 [ %114, %101 ], [ %spec.store.select8, %121 ], [ %spec.store.select5, %141 ], [ %155, %145 ], [ %spec.store.select9, %161 ], [ %57, %100 ]
+  %.0213 = phi i32 [ %108, %101 ], [ %spec.store.select3, %121 ], [ %spec.store.select, %141 ], [ %150, %145 ], [ %spec.store.select6, %161 ], [ %58, %100 ]
   %197 = shl nuw nsw i32 %.0215, 16
   %198 = shl nuw nsw i32 %.0214, 8
   %199 = or i32 %198, %197
@@ -34990,9 +34990,9 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 215:                                              ; preds = %140, %119, %180, %164, %160, %120
-  %.0227 = phi i32 [ %74, %119 ], [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ]
-  %.0226 = phi i32 [ %76, %119 ], [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ]
-  %.0225 = phi i32 [ %77, %119 ], [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ]
+  %.0227 = phi i32 [ %139, %120 ], [ %spec.store.select4, %140 ], [ %spec.store.select1, %160 ], [ %179, %164 ], [ %spec.store.select7, %180 ], [ %74, %119 ]
+  %.0226 = phi i32 [ %133, %120 ], [ %spec.store.select8, %140 ], [ %spec.store.select5, %160 ], [ %174, %164 ], [ %spec.store.select9, %180 ], [ %76, %119 ]
+  %.0225 = phi i32 [ %127, %120 ], [ %spec.store.select3, %140 ], [ %spec.store.select, %160 ], [ %169, %164 ], [ %spec.store.select6, %180 ], [ %77, %119 ]
   %216 = shl nuw nsw i32 %.0227, 16
   %217 = shl nuw nsw i32 %.0226, 8
   %218 = or i32 %217, %216
@@ -35370,10 +35370,10 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %142, %116, %112, %96, %61
-  %.0203.us = phi i32 [ %43, %61 ], [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ]
-  %.0202.us = phi i32 [ %spec.store.select7.us, %61 ], [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ]
-  %.0201.us = phi i32 [ %spec.store.select9.us, %61 ], [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ]
-  %.0200.us = phi i32 [ %spec.store.select6.us, %61 ], [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ]
+  %.0203.us = phi i32 [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ], [ %43, %61 ]
+  %.0202.us = phi i32 [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ], [ %spec.store.select7.us, %61 ]
+  %.0201.us = phi i32 [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ], [ %spec.store.select9.us, %61 ]
+  %.0200.us = phi i32 [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ], [ %spec.store.select6.us, %61 ]
   %169 = shl i32 %.0203.us, 24
   %170 = shl nuw nsw i32 %.0200.us, 16
   %171 = shl nuw nsw i32 %.0201.us, 8
@@ -35396,9 +35396,9 @@ default.unreachable:                              ; preds = %.split.us
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph218.split, %._crit_edge.loopexit
-  %177 = phi i32 [ %28, %.lr.ph218.split ], [ %.pre233, %._crit_edge.loopexit ]
-  %178 = phi ptr [ %.pre232, %.lr.ph218.split ], [ %.pre231, %._crit_edge.loopexit ]
-  %179 = phi ptr [ %.pre230, %.lr.ph218.split ], [ %.pre, %._crit_edge.loopexit ]
+  %177 = phi i32 [ %.pre233, %._crit_edge.loopexit ], [ %28, %.lr.ph218.split ]
+  %178 = phi ptr [ %.pre231, %._crit_edge.loopexit ], [ %.pre232, %.lr.ph218.split ]
+  %179 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre230, %.lr.ph218.split ]
   %180 = load i32, ptr %16, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %179, i64 %181
@@ -35677,10 +35677,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 190:                                              ; preds = %109, %82, %155, %139, %135, %83
-  %.0215 = phi i32 [ %64, %82 ], [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ]
-  %.0214 = phi i32 [ %63, %82 ], [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ]
-  %.0213 = phi i32 [ %62, %82 ], [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ]
-  %.0212 = phi i32 [ %60, %82 ], [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ]
+  %.0215 = phi i32 [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ], [ %64, %82 ]
+  %.0214 = phi i32 [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ], [ %63, %82 ]
+  %.0213 = phi i32 [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ], [ %62, %82 ]
+  %.0212 = phi i32 [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ], [ %60, %82 ]
   %191 = shl i32 %.0215, 24
   %192 = shl nuw nsw i32 %.0212, 16
   %193 = shl nuw nsw i32 %.0213, 8
@@ -36398,10 +36398,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 209:                                              ; preds = %128, %101, %174, %158, %154, %102
-  %.0236 = phi i32 [ %59, %101 ], [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ]
-  %.0235 = phi i32 [ %58, %101 ], [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
-  %.0234 = phi i32 [ %57, %101 ], [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
-  %.0233 = phi i32 [ %55, %101 ], [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
+  %.0236 = phi i32 [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ], [ %59, %101 ]
+  %.0235 = phi i32 [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ], [ %58, %101 ]
+  %.0234 = phi i32 [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ], [ %57, %101 ]
+  %.0233 = phi i32 [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ], [ %55, %101 ]
   %210 = shl i32 %.0236, 24
   %211 = shl nuw nsw i32 %.0233, 16
   %212 = shl nuw nsw i32 %.0234, 8
@@ -36754,10 +36754,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 228:                                              ; preds = %147, %120, %193, %177, %173, %121
-  %.0248 = phi i32 [ %78, %120 ], [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ]
-  %.0247 = phi i32 [ %77, %120 ], [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
-  %.0246 = phi i32 [ %76, %120 ], [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
-  %.0245 = phi i32 [ %74, %120 ], [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
+  %.0248 = phi i32 [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ], [ %78, %120 ]
+  %.0247 = phi i32 [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ], [ %77, %120 ]
+  %.0246 = phi i32 [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ], [ %76, %120 ]
+  %.0245 = phi i32 [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ], [ %74, %120 ]
   %229 = shl i32 %.0248, 24
   %230 = shl nuw nsw i32 %.0245, 16
   %231 = shl nuw nsw i32 %.0246, 8
@@ -37137,10 +37137,10 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %142, %116, %112, %96, %61
-  %.0203.us = phi i32 [ %43, %61 ], [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ]
-  %.0202.us = phi i32 [ %spec.store.select7.us, %61 ], [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ]
-  %.0201.us = phi i32 [ %spec.store.select9.us, %61 ], [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ]
-  %.0200.us = phi i32 [ %spec.store.select6.us, %61 ], [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ]
+  %.0203.us = phi i32 [ %167, %142 ], [ %spec.store.select10.us, %116 ], [ %43, %112 ], [ %43, %96 ], [ %43, %61 ]
+  %.0202.us = phi i32 [ %161, %142 ], [ %spec.store.select4.us, %116 ], [ %spec.store.select1.us, %112 ], [ %111, %96 ], [ %spec.store.select7.us, %61 ]
+  %.0201.us = phi i32 [ %155, %142 ], [ %spec.store.select8.us, %116 ], [ %spec.store.select5.us, %112 ], [ %106, %96 ], [ %spec.store.select9.us, %61 ]
+  %.0200.us = phi i32 [ %149, %142 ], [ %spec.store.select3.us, %116 ], [ %spec.store.select.us, %112 ], [ %101, %96 ], [ %spec.store.select6.us, %61 ]
   %169 = shl i32 %.0203.us, 24
   %170 = shl nuw nsw i32 %.0202.us, 16
   %171 = or i32 %170, %169
@@ -37163,9 +37163,9 @@ default.unreachable:                              ; preds = %.split.us
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph218.split, %._crit_edge.loopexit
-  %177 = phi i32 [ %28, %.lr.ph218.split ], [ %.pre233, %._crit_edge.loopexit ]
-  %178 = phi ptr [ %.pre232, %.lr.ph218.split ], [ %.pre231, %._crit_edge.loopexit ]
-  %179 = phi ptr [ %.pre230, %.lr.ph218.split ], [ %.pre, %._crit_edge.loopexit ]
+  %177 = phi i32 [ %.pre233, %._crit_edge.loopexit ], [ %28, %.lr.ph218.split ]
+  %178 = phi ptr [ %.pre231, %._crit_edge.loopexit ], [ %.pre232, %.lr.ph218.split ]
+  %179 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre230, %.lr.ph218.split ]
   %180 = load i32, ptr %16, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %179, i64 %181
@@ -37444,10 +37444,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 190:                                              ; preds = %109, %82, %155, %139, %135, %83
-  %.0215 = phi i32 [ %64, %82 ], [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ]
-  %.0214 = phi i32 [ %60, %82 ], [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ]
-  %.0213 = phi i32 [ %62, %82 ], [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ]
-  %.0212 = phi i32 [ %63, %82 ], [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ]
+  %.0215 = phi i32 [ %108, %83 ], [ %spec.store.select10, %109 ], [ %64, %135 ], [ %64, %139 ], [ %64, %155 ], [ %64, %82 ]
+  %.0214 = phi i32 [ %102, %83 ], [ %spec.store.select4, %109 ], [ %spec.store.select1, %135 ], [ %154, %139 ], [ %spec.store.select7, %155 ], [ %60, %82 ]
+  %.0213 = phi i32 [ %96, %83 ], [ %spec.store.select8, %109 ], [ %spec.store.select5, %135 ], [ %149, %139 ], [ %spec.store.select9, %155 ], [ %62, %82 ]
+  %.0212 = phi i32 [ %90, %83 ], [ %spec.store.select3, %109 ], [ %spec.store.select, %135 ], [ %144, %139 ], [ %spec.store.select6, %155 ], [ %63, %82 ]
   %191 = shl i32 %.0215, 24
   %192 = shl nuw nsw i32 %.0214, 16
   %193 = or i32 %192, %191
@@ -38151,10 +38151,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 209:                                              ; preds = %128, %101, %174, %158, %154, %102
-  %.0236 = phi i32 [ %59, %101 ], [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ]
-  %.0235 = phi i32 [ %55, %101 ], [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
-  %.0234 = phi i32 [ %57, %101 ], [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
-  %.0233 = phi i32 [ %58, %101 ], [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
+  %.0236 = phi i32 [ %127, %102 ], [ %spec.store.select10, %128 ], [ %59, %154 ], [ %59, %158 ], [ %59, %174 ], [ %59, %101 ]
+  %.0235 = phi i32 [ %121, %102 ], [ %spec.store.select4, %128 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ], [ %55, %101 ]
+  %.0234 = phi i32 [ %115, %102 ], [ %spec.store.select8, %128 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ], [ %57, %101 ]
+  %.0233 = phi i32 [ %109, %102 ], [ %spec.store.select3, %128 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ], [ %58, %101 ]
   %210 = shl i32 %.0236, 24
   %211 = shl nuw nsw i32 %.0235, 16
   %212 = or i32 %211, %210
@@ -38507,10 +38507,10 @@ default.unreachable:                              ; preds = %.split
   unreachable
 
 228:                                              ; preds = %147, %120, %193, %177, %173, %121
-  %.0248 = phi i32 [ %78, %120 ], [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ]
-  %.0247 = phi i32 [ %74, %120 ], [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
-  %.0246 = phi i32 [ %76, %120 ], [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
-  %.0245 = phi i32 [ %77, %120 ], [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
+  %.0248 = phi i32 [ %146, %121 ], [ %spec.store.select10, %147 ], [ %78, %173 ], [ %78, %177 ], [ %78, %193 ], [ %78, %120 ]
+  %.0247 = phi i32 [ %140, %121 ], [ %spec.store.select4, %147 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ], [ %74, %120 ]
+  %.0246 = phi i32 [ %134, %121 ], [ %spec.store.select8, %147 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ], [ %76, %120 ]
+  %.0245 = phi i32 [ %128, %121 ], [ %spec.store.select3, %147 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ], [ %77, %120 ]
   %229 = shl i32 %.0248, 24
   %230 = shl nuw nsw i32 %.0247, 16
   %231 = or i32 %230, %229

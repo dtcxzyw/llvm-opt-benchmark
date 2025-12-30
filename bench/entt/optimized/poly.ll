@@ -12235,7 +12235,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit.thread: ; preds = %642
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit: ; preds = %644, %647
-  %652 = phi ptr [ %646, %644 ], [ %648, %647 ]
+  %652 = phi ptr [ %648, %647 ], [ %646, %644 ]
   store ptr %652, ptr %36, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %2, ptr %37, align 8, !tbaa !284
@@ -13047,7 +13047,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit670.thread: ; preds = %901
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit670: ; preds = %903, %905
-  %910 = phi ptr [ %904, %903 ], [ %906, %905 ]
+  %910 = phi ptr [ %906, %905 ], [ %904, %903 ]
   store ptr %910, ptr %56, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store ptr null, ptr %57, align 8, !tbaa !289
@@ -15485,7 +15485,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EED2Ev.exit884: ; preds = %_ZN4entt10basic_
   br label %1661
 
 1661:                                             ; preds = %1660, %1591, %_ZN7testing7MessageD2Ev.exit844, %_ZN7testing7MessageD2Ev.exit832, %1468
-  %.pn341.pn.pn.pn = phi { ptr, i32 } [ %.pn341.pn.pn, %1660 ], [ %.pn323.pn.pn, %_ZN7testing7MessageD2Ev.exit832 ], [ %1469, %1468 ], [ %.pn333.pn.pn, %1591 ], [ %.pn327.pn.pn, %_ZN7testing7MessageD2Ev.exit844 ]
+  %.pn341.pn.pn.pn = phi { ptr, i32 } [ %.pn341.pn.pn, %1660 ], [ %1469, %1468 ], [ %.pn333.pn.pn, %1591 ], [ %.pn327.pn.pn, %_ZN7testing7MessageD2Ev.exit844 ], [ %.pn323.pn.pn, %_ZN7testing7MessageD2Ev.exit832 ]
   call void @_ZN4entt10basic_polyI7DeducedLm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %126) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %1662
@@ -20941,7 +20941,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit.thread: ; preds = %642
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit: ; preds = %644, %647
-  %652 = phi ptr [ %646, %644 ], [ %648, %647 ]
+  %652 = phi ptr [ %648, %647 ], [ %646, %644 ]
   store ptr %652, ptr %36, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %2, ptr %37, align 8, !tbaa !284
@@ -21753,7 +21753,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit670.thread: ; preds = %901
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit670: ; preds = %903, %905
-  %910 = phi ptr [ %904, %903 ], [ %906, %905 ]
+  %910 = phi ptr [ %906, %905 ], [ %904, %903 ]
   store ptr %910, ptr %56, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store ptr null, ptr %57, align 8, !tbaa !289
@@ -24191,7 +24191,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EED2Ev.exit884: ; preds = %_ZN4entt10basic_
   br label %1661
 
 1661:                                             ; preds = %1660, %1591, %_ZN7testing7MessageD2Ev.exit844, %_ZN7testing7MessageD2Ev.exit832, %1468
-  %.pn341.pn.pn.pn = phi { ptr, i32 } [ %.pn341.pn.pn, %1660 ], [ %.pn323.pn.pn, %_ZN7testing7MessageD2Ev.exit832 ], [ %1469, %1468 ], [ %.pn333.pn.pn, %1591 ], [ %.pn327.pn.pn, %_ZN7testing7MessageD2Ev.exit844 ]
+  %.pn341.pn.pn.pn = phi { ptr, i32 } [ %.pn341.pn.pn, %1660 ], [ %1469, %1468 ], [ %.pn333.pn.pn, %1591 ], [ %.pn327.pn.pn, %_ZN7testing7MessageD2Ev.exit844 ], [ %.pn323.pn.pn, %_ZN7testing7MessageD2Ev.exit832 ]
   call void @_ZN4entt10basic_polyI7DefinedLm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %126) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %1662
@@ -26346,7 +26346,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit159.thread: ; preds = %124
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit159: ; preds = %126, %128
-  %133 = phi ptr [ %127, %126 ], [ %129, %128 ]
+  %133 = phi ptr [ %129, %128 ], [ %127, %126 ]
   store ptr %133, ptr %8, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !289
@@ -28522,7 +28522,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit159.thread: ; preds = %124
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit159: ; preds = %126, %128
-  %133 = phi ptr [ %127, %126 ], [ %129, %128 ]
+  %133 = phi ptr [ %129, %128 ], [ %127, %126 ]
   store ptr %133, ptr %8, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !289
@@ -31366,7 +31366,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit.thread: ; preds = %115
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit: ; preds = %117, %119
-  %124 = phi ptr [ %118, %117 ], [ %120, %119 ]
+  %124 = phi ptr [ %120, %119 ], [ %118, %117 ]
   store ptr %124, ptr %9, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !289
@@ -33523,7 +33523,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit.thread: ; preds = %115
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit: ; preds = %117, %119
-  %124 = phi ptr [ %118, %117 ], [ %120, %119 ]
+  %124 = phi ptr [ %120, %119 ], [ %118, %117 ]
   store ptr %124, ptr %9, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !289
@@ -36369,7 +36369,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit.thread: ; preds = %115
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit: ; preds = %117, %119
-  %124 = phi ptr [ %118, %117 ], [ %120, %119 ]
+  %124 = phi ptr [ %120, %119 ], [ %118, %117 ]
   store ptr %124, ptr %9, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !289
@@ -38581,7 +38581,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit.thread: ; preds = %115
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit: ; preds = %117, %119
-  %124 = phi ptr [ %118, %117 ], [ %120, %119 ]
+  %124 = phi ptr [ %120, %119 ], [ %118, %117 ]
   store ptr %124, ptr %9, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !289
@@ -42092,45 +42092,45 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN7t
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread: ; preds = %9, %.noexc.i
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
 
 .body:                                            ; preds = %19
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = load ptr, ptr %4, align 8, !tbaa !12
   %71 = icmp eq ptr %70, %7
-  br i1 %71, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread: ; preds = %.body
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25: ; preds = %.body
   %72 = load i64, ptr %7, align 8, !tbaa !14
   %73 = add i64 %72, 1
   call void @_ZdlPvm(ptr noundef %70, i64 noundef %73) #30
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
 
 .body.thread:                                     ; preds = %30
   %74 = load ptr, ptr %4, align 8, !tbaa !12
   %75 = icmp eq ptr %74, %7
-  br i1 %75, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
+  br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23: ; preds = %.body.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread: ; preds = %.body.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9: ; preds = %.body.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body.thread
   %76 = load i64, ptr %7, align 8, !tbaa !14
   %77 = add i64 %76, 1
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %77) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
-  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread ], [ %69, %.body ]
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
+  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25 ], [ %69, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 144) #30
   br label %78
 
-78:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
-  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23 ], [ %.pn16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9 ]
+78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %.pn16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread ]
   resume { ptr, i32 } %.pn15
 }
 
@@ -44677,7 +44677,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit.thread: ; preds = %_ZNK4entt
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit: ; preds = %129, %131
-  %136 = phi ptr [ %130, %129 ], [ %132, %131 ]
+  %136 = phi ptr [ %132, %131 ], [ %130, %129 ]
   store ptr %136, ptr %6, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !289
@@ -44862,7 +44862,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit164.thread: ; preds = %182
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit164: ; preds = %184, %187
-  %192 = phi ptr [ %186, %184 ], [ %188, %187 ]
+  %192 = phi ptr [ %188, %187 ], [ %186, %184 ]
   store ptr %192, ptr %11, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !289
@@ -45052,7 +45052,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit187.thread: ; preds = %239
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit187: ; preds = %241, %244
-  %249 = phi ptr [ %243, %241 ], [ %245, %244 ]
+  %249 = phi ptr [ %245, %244 ], [ %243, %241 ]
   store ptr %249, ptr %16, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !289
@@ -45425,7 +45425,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit229.thread: ; preds = %355
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit229: ; preds = %357, %360
-  %365 = phi ptr [ %359, %357 ], [ %361, %360 ]
+  %365 = phi ptr [ %361, %360 ], [ %359, %357 ]
   store ptr %365, ptr %26, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr null, ptr %27, align 8, !tbaa !289
@@ -45797,7 +45797,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit274.thread: ; preds = %471
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit274: ; preds = %473, %476
-  %481 = phi ptr [ %475, %473 ], [ %477, %476 ]
+  %481 = phi ptr [ %477, %476 ], [ %475, %473 ]
   store ptr %481, ptr %36, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr null, ptr %37, align 8, !tbaa !289
@@ -46210,7 +46210,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit305.thread: ; preds = %_ZN4en
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit305: ; preds = %616, %619
-  %624 = phi ptr [ %618, %616 ], [ %620, %619 ]
+  %624 = phi ptr [ %620, %619 ], [ %618, %616 ]
   store ptr %624, ptr %43, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr null, ptr %44, align 8, !tbaa !289
@@ -46582,7 +46582,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit350.thread: ; preds = %730
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit350: ; preds = %732, %735
-  %740 = phi ptr [ %734, %732 ], [ %736, %735 ]
+  %740 = phi ptr [ %736, %735 ], [ %734, %732 ]
   store ptr %740, ptr %53, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store ptr null, ptr %54, align 8, !tbaa !289
@@ -47186,7 +47186,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit405.thread: ; preds = %_ZN4en
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit405: ; preds = %930, %933
-  %938 = phi ptr [ %932, %930 ], [ %934, %933 ]
+  %938 = phi ptr [ %934, %933 ], [ %932, %930 ]
   store ptr %938, ptr %65, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store ptr null, ptr %66, align 8, !tbaa !289
@@ -47376,7 +47376,7 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit428.thread: ; preds = %985
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit428: ; preds = %987, %990
-  %995 = phi ptr [ %989, %987 ], [ %991, %990 ]
+  %995 = phi ptr [ %991, %990 ], [ %989, %987 ]
   store ptr %995, ptr %70, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store ptr null, ptr %71, align 8, !tbaa !289
@@ -47983,7 +47983,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit.thread: ; preds = %_ZNK4entt
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit: ; preds = %129, %131
-  %136 = phi ptr [ %130, %129 ], [ %132, %131 ]
+  %136 = phi ptr [ %132, %131 ], [ %130, %129 ]
   store ptr %136, ptr %6, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !289
@@ -48168,7 +48168,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit164.thread: ; preds = %182
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit164: ; preds = %184, %187
-  %192 = phi ptr [ %186, %184 ], [ %188, %187 ]
+  %192 = phi ptr [ %188, %187 ], [ %186, %184 ]
   store ptr %192, ptr %11, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !289
@@ -48358,7 +48358,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit187.thread: ; preds = %239
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit187: ; preds = %241, %244
-  %249 = phi ptr [ %243, %241 ], [ %245, %244 ]
+  %249 = phi ptr [ %245, %244 ], [ %243, %241 ]
   store ptr %249, ptr %16, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !289
@@ -48731,7 +48731,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit229.thread: ; preds = %355
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit229: ; preds = %357, %360
-  %365 = phi ptr [ %359, %357 ], [ %361, %360 ]
+  %365 = phi ptr [ %361, %360 ], [ %359, %357 ]
   store ptr %365, ptr %26, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr null, ptr %27, align 8, !tbaa !289
@@ -49103,7 +49103,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit274.thread: ; preds = %471
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit274: ; preds = %473, %476
-  %481 = phi ptr [ %475, %473 ], [ %477, %476 ]
+  %481 = phi ptr [ %477, %476 ], [ %475, %473 ]
   store ptr %481, ptr %36, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr null, ptr %37, align 8, !tbaa !289
@@ -49516,7 +49516,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit305.thread: ; preds = %_ZN4en
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit305: ; preds = %616, %619
-  %624 = phi ptr [ %618, %616 ], [ %620, %619 ]
+  %624 = phi ptr [ %620, %619 ], [ %618, %616 ]
   store ptr %624, ptr %43, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr null, ptr %44, align 8, !tbaa !289
@@ -49888,7 +49888,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit350.thread: ; preds = %730
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit350: ; preds = %732, %735
-  %740 = phi ptr [ %734, %732 ], [ %736, %735 ]
+  %740 = phi ptr [ %736, %735 ], [ %734, %732 ]
   store ptr %740, ptr %53, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store ptr null, ptr %54, align 8, !tbaa !289
@@ -50492,7 +50492,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit405.thread: ; preds = %_ZN4en
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit405: ; preds = %930, %933
-  %938 = phi ptr [ %932, %930 ], [ %934, %933 ]
+  %938 = phi ptr [ %934, %933 ], [ %932, %930 ]
   store ptr %938, ptr %65, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store ptr null, ptr %66, align 8, !tbaa !289
@@ -50682,7 +50682,7 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit428.thread: ; preds = %985
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit428: ; preds = %987, %990
-  %995 = phi ptr [ %989, %987 ], [ %991, %990 ]
+  %995 = phi ptr [ %991, %990 ], [ %989, %987 ]
   store ptr %995, ptr %70, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store ptr null, ptr %71, align 8, !tbaa !289
@@ -51850,8 +51850,8 @@ _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit.thread: ; preds = %_ZN4entt1
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit: ; preds = %._ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit_crit_edge, %47
-  %52 = phi i8 [ %.pre, %._ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit_crit_edge ], [ %38, %47 ]
-  %53 = phi ptr [ %46, %._ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit_crit_edge ], [ %48, %47 ]
+  %52 = phi i8 [ %38, %47 ], [ %.pre, %._ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit_crit_edge ]
+  %53 = phi ptr [ %48, %47 ], [ %46, %._ZN4entt10basic_polyI7DeducedLm16ELm8EE4dataEv.exit_crit_edge ]
   store ptr %53, ptr %3, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !14
@@ -52144,8 +52144,8 @@ _ZN4entt10basic_polyI7DeducedLm0ELm8EE4dataEv.exit.thread: ; preds = %_ZN4entt10
   unreachable
 
 _ZN4entt10basic_polyI7DeducedLm0ELm8EE4dataEv.exit: ; preds = %._ZN4entt10basic_polyI7DeducedLm0ELm8EE4dataEv.exit_crit_edge, %148
-  %153 = phi i8 [ %.pre96, %._ZN4entt10basic_polyI7DeducedLm0ELm8EE4dataEv.exit_crit_edge ], [ %136, %148 ]
-  %154 = phi ptr [ %147, %._ZN4entt10basic_polyI7DeducedLm0ELm8EE4dataEv.exit_crit_edge ], [ %149, %148 ]
+  %153 = phi i8 [ %136, %148 ], [ %.pre96, %._ZN4entt10basic_polyI7DeducedLm0ELm8EE4dataEv.exit_crit_edge ]
+  %154 = phi ptr [ %149, %148 ], [ %147, %._ZN4entt10basic_polyI7DeducedLm0ELm8EE4dataEv.exit_crit_edge ]
   store ptr %154, ptr %11, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !14
@@ -53457,7 +53457,7 @@ _ZN4entt9basic_anyILm0ELm8EE10initializeI4implJRKS3_EEEvDpOT0_.exit: ; preds = %
   br label %27
 
 27:                                               ; preds = %3, %_ZN4entt9basic_anyILm0ELm8EE10initializeI4implJRKS3_EEEvDpOT0_.exit, %11, %9, %12, %7, %5
-  %.0 = phi ptr [ %14, %12 ], [ %2, %5 ], [ %2, %7 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm0ELm8EE10initializeI4implJRKS3_EEEvDpOT0_.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %2, %5 ], [ %2, %7 ], [ %14, %12 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm0ELm8EE10initializeI4implJRKS3_EEEvDpOT0_.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -53924,8 +53924,8 @@ _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit.thread: ; preds = %_ZN4entt1
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit: ; preds = %._ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit_crit_edge, %47
-  %52 = phi i8 [ %.pre, %._ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit_crit_edge ], [ %38, %47 ]
-  %53 = phi ptr [ %46, %._ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit_crit_edge ], [ %48, %47 ]
+  %52 = phi i8 [ %38, %47 ], [ %.pre, %._ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit_crit_edge ]
+  %53 = phi ptr [ %48, %47 ], [ %46, %._ZN4entt10basic_polyI7DefinedLm16ELm8EE4dataEv.exit_crit_edge ]
   store ptr %53, ptr %3, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !14
@@ -54218,8 +54218,8 @@ _ZN4entt10basic_polyI7DefinedLm0ELm8EE4dataEv.exit.thread: ; preds = %_ZN4entt10
   unreachable
 
 _ZN4entt10basic_polyI7DefinedLm0ELm8EE4dataEv.exit: ; preds = %._ZN4entt10basic_polyI7DefinedLm0ELm8EE4dataEv.exit_crit_edge, %148
-  %153 = phi i8 [ %.pre96, %._ZN4entt10basic_polyI7DefinedLm0ELm8EE4dataEv.exit_crit_edge ], [ %136, %148 ]
-  %154 = phi ptr [ %147, %._ZN4entt10basic_polyI7DefinedLm0ELm8EE4dataEv.exit_crit_edge ], [ %149, %148 ]
+  %153 = phi i8 [ %136, %148 ], [ %.pre96, %._ZN4entt10basic_polyI7DefinedLm0ELm8EE4dataEv.exit_crit_edge ]
+  %154 = phi ptr [ %149, %148 ], [ %147, %._ZN4entt10basic_polyI7DefinedLm0ELm8EE4dataEv.exit_crit_edge ]
   store ptr %154, ptr %11, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !14
@@ -61469,7 +61469,7 @@ _ZN4entt9basic_anyILm64ELm8EE10initializeI12over_alignedJRKS3_EEEvDpOT0_.exit: ;
   br label %26
 
 26:                                               ; preds = %3, %_ZN4entt9basic_anyILm64ELm8EE10initializeI12over_alignedJRKS3_EEEvDpOT0_.exit, %11, %9, %12, %7, %5
-  %.0 = phi ptr [ %14, %12 ], [ %2, %5 ], [ %2, %7 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm64ELm8EE10initializeI12over_alignedJRKS3_EEEvDpOT0_.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %2, %5 ], [ %2, %7 ], [ %14, %12 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm64ELm8EE10initializeI12over_alignedJRKS3_EEEvDpOT0_.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -64293,7 +64293,7 @@ _ZN4entt10basic_polyI15DeducedEmbeddedLm16ELm8EE4dataEv.exit76.thread: ; preds =
   unreachable
 
 _ZN4entt10basic_polyI15DeducedEmbeddedLm16ELm8EE4dataEv.exit76: ; preds = %100, %102
-  %107 = phi ptr [ %101, %100 ], [ %103, %102 ]
+  %107 = phi ptr [ %103, %102 ], [ %101, %100 ]
   store ptr %107, ptr %8, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !289
@@ -65440,7 +65440,7 @@ _ZN4entt10basic_polyI15DefinedEmbeddedLm16ELm8EE4dataEv.exit76.thread: ; preds =
   unreachable
 
 _ZN4entt10basic_polyI15DefinedEmbeddedLm16ELm8EE4dataEv.exit76: ; preds = %100, %102
-  %107 = phi ptr [ %101, %100 ], [ %103, %102 ]
+  %107 = phi ptr [ %103, %102 ], [ %101, %100 ]
   store ptr %107, ptr %8, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !289

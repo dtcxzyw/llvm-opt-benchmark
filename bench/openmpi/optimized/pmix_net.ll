@@ -324,7 +324,7 @@ define zeroext i1 @pmix_net_samenetwork(ptr noundef readonly captures(none) %0, 
   br label %20
 
 20:                                               ; preds = %15, %3, %19, %6
-  %.0 = phi i1 [ false, %3 ], [ false, %19 ], [ %14, %6 ], [ %or.cond40, %15 ]
+  %.0 = phi i1 [ false, %19 ], [ %14, %6 ], [ false, %3 ], [ %or.cond40, %15 ]
   ret i1 %.0
 }
 

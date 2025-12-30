@@ -528,7 +528,7 @@ ddSymmSummary.exit.loopexit:                      ; preds = %.loopexit.i
   br label %ddSymmSummary.exit
 
 ddSymmSummary.exit:                               ; preds = %.thread118, %87, %ddSymmSummary.exit.loopexit, %.thread81, %.thread
-  %.0 = phi i32 [ 0, %.thread81 ], [ 0, %.thread ], [ 0, %.thread118 ], [ 1, %87 ], [ %101, %ddSymmSummary.exit.loopexit ]
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %.thread81 ], [ 1, %87 ], [ %101, %ddSymmSummary.exit.loopexit ], [ 0, %.thread118 ]
   ret i32 %.0
 }
 
@@ -995,8 +995,8 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %.not333, label %240, label %225
 
 225:                                              ; preds = %111, %224, %168
-  %.2288 = phi ptr [ %.3289, %224 ], [ %92, %111 ], [ %136, %168 ]
-  %.1280 = phi ptr [ %190, %224 ], [ %.2281, %111 ], [ %.3282, %168 ]
+  %.2288 = phi ptr [ %92, %111 ], [ %136, %168 ], [ %.3289, %224 ]
+  %.1280 = phi ptr [ %.2281, %111 ], [ %.3282, %168 ], [ %190, %224 ]
   %.not340387 = icmp eq ptr %.1280, null
   br i1 %.not340387, label %.preheader351, label %.lr.ph390
 
@@ -1046,8 +1046,8 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %.not341, label %..loopexit352_crit_edge, label %234, !llvm.loop !81
 
 240:                                              ; preds = %.loopexit356, %224, %168, %111, %81
-  %.0286 = phi ptr [ inttoptr (i64 1 to ptr), %.loopexit356 ], [ %.1287, %81 ], [ %136, %168 ], [ %92, %111 ], [ %.3289, %224 ]
-  %.0279 = phi ptr [ %117, %.loopexit356 ], [ %60, %81 ], [ %.3282, %168 ], [ %.2281, %111 ], [ %190, %224 ]
+  %.0286 = phi ptr [ %.1287, %81 ], [ %92, %111 ], [ inttoptr (i64 1 to ptr), %.loopexit356 ], [ %136, %168 ], [ %.3289, %224 ]
+  %.0279 = phi ptr [ %60, %81 ], [ %.2281, %111 ], [ %117, %.loopexit356 ], [ %.3282, %168 ], [ %190, %224 ]
   %241 = icmp ult ptr %.0279, inttoptr (i64 2 to ptr)
   br i1 %241, label %.thread424, label %.preheader349
 
@@ -1076,7 +1076,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br label %.loopexit352
 
 .thread424:                                       ; preds = %.loopexit362, %.loopexit350, %240
-  %.0286427 = phi ptr [ %.0286, %240 ], [ %.0286, %.loopexit350 ], [ %174, %.loopexit362 ]
+  %.0286427 = phi ptr [ %.0286, %.loopexit350 ], [ %.0286, %240 ], [ %174, %.loopexit362 ]
   %249 = icmp ult ptr %.0286427, inttoptr (i64 2 to ptr)
   br i1 %249, label %.loopexit352, label %.preheader
 
@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br label %.loopexit352
 
 .loopexit352:                                     ; preds = %.thread424.thread, %.preheader351, %..loopexit352_crit_edge, %.loopexit, %.thread424, %91, %85, %59, %57
-  %.0293 = phi i32 [ 1, %85 ], [ 0, %.loopexit ], [ 1, %57 ], [ 1, %91 ], [ 1, %59 ], [ 0, %.thread424 ], [ 1, %..loopexit352_crit_edge ], [ 1, %.preheader351 ], [ 0, %.thread424.thread ]
+  %.0293 = phi i32 [ 1, %57 ], [ 1, %59 ], [ 1, %85 ], [ 1, %91 ], [ 0, %.thread424 ], [ 0, %.loopexit ], [ 1, %..loopexit352_crit_edge ], [ 1, %.preheader351 ], [ 0, %.thread424.thread ]
   ret i32 %.0293
 }
 
@@ -1707,8 +1707,8 @@ define range(i32 -2147483646, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br i1 %.not288.i, label %313, label %300
 
 300:                                              ; preds = %299, %244, %188
-  %.2247.i = phi ptr [ %.3248.i, %299 ], [ %169, %188 ], [ %213, %244 ]
-  %.1239.i = phi ptr [ %266, %299 ], [ %.2240.i, %188 ], [ %.3241.i, %244 ]
+  %.2247.i = phi ptr [ %169, %188 ], [ %213, %244 ], [ %.3248.i, %299 ]
+  %.1239.i = phi ptr [ %.2240.i, %188 ], [ %.3241.i, %244 ], [ %266, %299 ]
   %.not295328.i = icmp eq ptr %.1239.i, null
   br i1 %.not295328.i, label %.preheader306.i, label %.lr.ph331.i
 
@@ -1756,8 +1756,8 @@ define range(i32 -2147483646, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br i1 %.not296.i, label %..loopexit307_crit_edge.i, label %307, !llvm.loop !97
 
 313:                                              ; preds = %299, %244, %.loopexit312.i, %188, %155
-  %.0245.i = phi ptr [ inttoptr (i64 1 to ptr), %.loopexit312.i ], [ %.1246.i, %155 ], [ %213, %244 ], [ %169, %188 ], [ %.3248.i, %299 ]
-  %.0238.i = phi ptr [ %194, %.loopexit312.i ], [ %133, %155 ], [ %.3241.i, %244 ], [ %.2240.i, %188 ], [ %266, %299 ]
+  %.0245.i = phi ptr [ %.1246.i, %155 ], [ %169, %188 ], [ inttoptr (i64 1 to ptr), %.loopexit312.i ], [ %213, %244 ], [ %.3248.i, %299 ]
+  %.0238.i = phi ptr [ %133, %155 ], [ %.2240.i, %188 ], [ %194, %.loopexit312.i ], [ %.3241.i, %244 ], [ %266, %299 ]
   %314 = icmp ult ptr %.0238.i, inttoptr (i64 2 to ptr)
   br i1 %314, label %.thread356.i, label %.preheader304.i
 
@@ -1782,7 +1782,7 @@ define range(i32 -2147483646, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br label %.thread356.i
 
 .thread356.i:                                     ; preds = %.loopexit318.i, %.loopexit305.i, %313
-  %.0245359.i = phi ptr [ %.0245.i, %313 ], [ %.0245.i, %.loopexit305.i ], [ %250, %.loopexit318.i ]
+  %.0245359.i = phi ptr [ %.0245.i, %.loopexit305.i ], [ %.0245.i, %313 ], [ %250, %.loopexit318.i ]
   %321 = icmp ult ptr %.0245359.i, inttoptr (i64 2 to ptr)
   br i1 %321, label %ddSymmSiftingConvAux.exit, label %.preheader.i
 
@@ -1810,7 +1810,7 @@ define range(i32 -2147483646, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   store ptr %.5250334.i, ptr %88, align 8, !tbaa !73
   br label %ddSymmSiftingConvAux.exit.thread
 
-ddSymmSiftingConvAux.exit.thread:                 ; preds = %.preheader306.i, %..loopexit307_crit_edge.i, %131, %168, %166, %114
+ddSymmSiftingConvAux.exit.thread:                 ; preds = %.preheader306.i, %..loopexit307_crit_edge.i, %168, %166, %131, %114
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %328 = load i32, ptr %40, align 8, !tbaa !49
   %.0104. = tail call i32 @llvm.smin.i32(i32 %.0104.lcssa, i32 %328)
@@ -1895,7 +1895,7 @@ ddSymmSiftingConvAux.exit:                        ; preds = %72, %131, %168, %19
   br label %354
 
 354:                                              ; preds = %350, %ddSymmSummary.exit, %.thread, %352, %353
-  %.0106 = phi i32 [ 0, %.thread ], [ 0, %353 ], [ 0, %352 ], [ %.019.lcssa.i, %ddSymmSummary.exit ], [ %.019.lcssa.i, %350 ]
+  %.0106 = phi i32 [ 0, %353 ], [ 0, %352 ], [ 0, %.thread ], [ %.019.lcssa.i, %ddSymmSummary.exit ], [ %.019.lcssa.i, %350 ]
   ret i32 %.0106
 }
 
@@ -2231,7 +2231,7 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   br label %.loopexit183
 
 .loopexit183:                                     ; preds = %98, %170, %..loopexit_crit_edge, %._crit_edge, %.critedge.loopexit, %138
-  %.0139 = phi ptr [ inttoptr (i64 1 to ptr), %170 ], [ null, %._crit_edge ], [ %139, %138 ], [ %.pre, %.critedge.loopexit ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %96, %98 ]
+  %.0139 = phi ptr [ %139, %138 ], [ %.pre, %.critedge.loopexit ], [ null, %._crit_edge ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ inttoptr (i64 1 to ptr), %170 ], [ %96, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0139
 }
@@ -2326,7 +2326,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingBackward(ptr noundef %0
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit91.i, %.preheader68.lr.ph.i
-  %.pre.i = phi ptr [ %14, %.preheader68.lr.ph.i ], [ %.pre.pre.i, %.preheader.loopexit91.i ]
+  %.pre.i = phi ptr [ %.pre.pre.i, %.preheader.loopexit91.i ], [ %14, %.preheader68.lr.ph.i ]
   %.not.i = icmp eq i32 %.055.i, %22
   br i1 %.not.i, label %._crit_edge83.i, label %.lr.ph.i
 
@@ -2414,7 +2414,7 @@ ddSymmGroupMoveBackward.exit:                     ; preds = %23
   br i1 %.not31, label %ddSymmGroupMoveBackward.exit.thread, label %9, !llvm.loop !115
 
 ddSymmGroupMoveBackward.exit.thread:              ; preds = %9, %ddSymmGroupMoveBackward.exit, %74, %46, %3
-  %.027 = phi i32 [ 0, %46 ], [ 1, %3 ], [ 0, %ddSymmGroupMoveBackward.exit ], [ 1, %9 ], [ 1, %74 ]
+  %.027 = phi i32 [ 1, %3 ], [ 0, %46 ], [ 1, %9 ], [ 0, %ddSymmGroupMoveBackward.exit ], [ 1, %74 ]
   ret i32 %.027
 }
 
@@ -2707,7 +2707,7 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   br label %.loopexit147
 
 .loopexit147:                                     ; preds = %145, %105, %152, %158, %..loopexit_crit_edge, %._crit_edge
-  %.0120 = phi ptr [ inttoptr (i64 1 to ptr), %158 ], [ null, %._crit_edge ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ %103, %105 ], [ %.pr.pre, %145 ], [ %153, %152 ]
+  %.0120 = phi ptr [ null, %._crit_edge ], [ inttoptr (i64 1 to ptr), %..loopexit_crit_edge ], [ inttoptr (i64 1 to ptr), %158 ], [ %.pr.pre, %145 ], [ %103, %105 ], [ %153, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0120
 }
@@ -2767,10 +2767,10 @@ define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader86.lr.ph, %.preheader.loopexit121
-  %.pre = phi ptr [ %6, %.preheader86.lr.ph ], [ %.pre.pre, %.preheader.loopexit121 ]
-  %.076.lcssa = phi i32 [ -1, %.preheader86.lr.ph ], [ %25, %.preheader.loopexit121 ]
-  %.067.lcssa = phi i32 [ -1, %.preheader86.lr.ph ], [ %.17196, %.preheader.loopexit121 ]
-  %.0.lcssa = phi i32 [ -1, %.preheader86.lr.ph ], [ %.17495, %.preheader.loopexit121 ]
+  %.pre = phi ptr [ %.pre.pre, %.preheader.loopexit121 ], [ %6, %.preheader86.lr.ph ]
+  %.076.lcssa = phi i32 [ %25, %.preheader.loopexit121 ], [ -1, %.preheader86.lr.ph ]
+  %.067.lcssa = phi i32 [ %.17196, %.preheader.loopexit121 ], [ -1, %.preheader86.lr.ph ]
+  %.0.lcssa = phi i32 [ %.17495, %.preheader.loopexit121 ], [ -1, %.preheader86.lr.ph ]
   %.not = icmp eq i32 %.072, %2
   br i1 %.not, label %._crit_edge113, label %.lr.ph
 

@@ -866,7 +866,7 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
   br label %.thread57
 
 .thread57:                                        ; preds = %.thread56, %.thread17, %.thread, %182, %.loopexit, %44
-  %184 = phi i32 [ -22, %182 ], [ 0, %.loopexit ], [ %25, %44 ], [ -14, %.thread17 ], [ -22, %.thread ], [ -22, %.thread56 ]
+  %184 = phi i32 [ -22, %182 ], [ 0, %.loopexit ], [ %25, %44 ], [ -22, %.thread ], [ -14, %.thread17 ], [ -22, %.thread56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %185
 

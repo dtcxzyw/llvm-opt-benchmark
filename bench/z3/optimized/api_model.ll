@@ -630,7 +630,7 @@ define ptr @Z3_model_get_const_interp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %49, %46
-  %.137.i.i.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i.i.i, %49 ]
+  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %49 ], [ %48, %46 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !188
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %30, %41
@@ -910,7 +910,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10model_core18has_interpretat
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %35, %32
-  %.137.i.i.i.be = phi ptr [ %34, %32 ], [ %.old.i.i.i, %35 ]
+  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %35 ], [ %34, %32 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !188
 
 .loopexit:                                        ; preds = %21, %32, %35, %.preheader.i.i.i
@@ -982,11 +982,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10model_core18has_interpretat
   br i1 %.not27.old.i.i.i16, label %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE8containsEPS0_.exit, label %.lr.ph38.i.i.i12.backedge
 
 .lr.ph38.i.i.i12.backedge:                        ; preds = %66, %63
-  %.137.i.i.i13.be = phi ptr [ %65, %63 ], [ %.old.i.i.i15, %66 ]
+  %.137.i.i.i13.be = phi ptr [ %.old.i.i.i15, %66 ], [ %65, %63 ]
   br label %.lr.ph38.i.i.i12, !llvm.loop !199
 
 _ZNK7obj_mapI9func_declSt4pairIjP4exprEE8containsEPS0_.exit: ; preds = %16, %27, %52, %47, %66, %63, %58, %.preheader.i.i.i10
-  %67 = phi i1 [ %.not.i7.not.not, %52 ], [ true, %27 ], [ false, %.preheader.i.i.i10 ], [ true, %58 ], [ false, %66 ], [ false, %63 ], [ %.not.i7.not.not, %47 ], [ true, %16 ]
+  %67 = phi i1 [ false, %.preheader.i.i.i10 ], [ true, %58 ], [ false, %66 ], [ false, %63 ], [ %.not.i7.not.not, %47 ], [ %.not.i7.not.not, %52 ], [ true, %27 ], [ true, %16 ]
   ret i1 %67
 }
 
@@ -1089,7 +1089,7 @@ define noundef ptr @Z3_model_get_func_interp(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %49, %46
-  %.137.i.i.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i.i.i, %49 ]
+  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %49 ], [ %48, %46 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !199
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %30, %41
@@ -2241,7 +2241,7 @@ define noundef ptr @Z3_model_get_sort(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %37
 
 36:                                               ; preds = %31, %7
-  %.pn25 = phi { ptr, i32 } [ %32, %31 ], [ %8, %7 ]
+  %.pn25 = phi { ptr, i32 } [ %8, %7 ], [ %32, %31 ]
   %.020 = extractvalue { ptr, i32 } %.pn25, 1
   br i1 %5, label %37, label %_ZN10z3_log_ctxD2Ev.exit27, !prof !232
 
@@ -2469,7 +2469,7 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   br label %76
 
 75:                                               ; preds = %43, %69, %45, %7
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %8, %7 ], [ %70, %69 ], [ %44, %43 ], [ %46, %45 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %8, %7 ], [ %44, %43 ], [ %46, %45 ], [ %70, %69 ]
   %.033 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   br i1 %5, label %76, label %_ZN10z3_log_ctxD2Ev.exit43, !prof !237
 
@@ -2657,7 +2657,7 @@ define noundef ptr @Z3_model_translate(ptr noundef %0, ptr noundef %1, ptr nound
   br label %53
 
 53:                                               ; preds = %41, %52
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn, %52 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %52 ], [ %42, %41 ]
   %.021 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit30, !prof !175
 
@@ -3261,7 +3261,7 @@ define void @Z3_add_const_interp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %15, %20
-  %.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
+  %.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %21, %20 ]
   %.018 = extractvalue { ptr, i32 } %.pn.pn, 1
   br i1 %6, label %25, label %_ZN10z3_log_ctxD2Ev.exit25, !prof !175
 
@@ -4134,7 +4134,7 @@ _ZNK15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   br label %28
 
 28:                                               ; preds = %21, %26
-  %.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %22, %21 ]
+  %.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %27, %26 ]
   %.018 = extractvalue { ptr, i32 } %.pn.pn, 1
   br i1 %6, label %29, label %_ZN10z3_log_ctxD2Ev.exit23, !prof !175
 
@@ -4615,7 +4615,7 @@ define ptr @Z3_func_entry_get_arg(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %.thread35
 
 39:                                               ; preds = %27, %30
-  %.0 = phi ptr [ %36, %30 ], [ null, %27 ]
+  %.0 = phi ptr [ null, %27 ], [ %36, %30 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit
 

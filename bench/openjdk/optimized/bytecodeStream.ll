@@ -61,7 +61,7 @@ define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4
   br label %37
 
 37:                                               ; preds = %31, %2, %18, %23, %27, %33
-  %.0 = phi i32 [ %1, %27 ], [ -1, %2 ], [ %36, %33 ], [ -1, %23 ], [ -1, %18 ], [ -1, %31 ]
+  %.0 = phi i32 [ %36, %33 ], [ %1, %27 ], [ -1, %23 ], [ -1, %18 ], [ -1, %2 ], [ -1, %31 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.0, ptr %38, align 4
   ret i32 %.0

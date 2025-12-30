@@ -2863,7 +2863,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMapp
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %304, %.body66, %215, %.body27, %204, %.body12, %10, %183, %89, %308, %219, %208
-  %.pn = phi { ptr, i32 } [ %309, %308 ], [ %eh.lpad-body28, %215 ], [ %184, %183 ], [ %220, %219 ], [ %eh.lpad-body13, %204 ], [ %209, %208 ], [ %11, %10 ], [ %90, %89 ], [ %eh.lpad-body67, %304 ], [ %eh.lpad-body13, %.body12 ], [ %eh.lpad-body28, %.body27 ], [ %eh.lpad-body67, %.body66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %309, %308 ], [ %220, %219 ], [ %209, %208 ], [ %11, %10 ], [ %90, %89 ], [ %184, %183 ], [ %eh.lpad-body13, %.body12 ], [ %eh.lpad-body13, %204 ], [ %eh.lpad-body28, %.body27 ], [ %eh.lpad-body28, %215 ], [ %eh.lpad-body67, %.body66 ], [ %eh.lpad-body67, %304 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   resume { ptr, i32 } %.pn
 }

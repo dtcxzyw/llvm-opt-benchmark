@@ -248,8 +248,8 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %20, %Saig_ObjIsLo.e
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %43, %45, %35, %37
-  %.sink152 = phi ptr [ %38, %37 ], [ %36, %35 ], [ %44, %43 ], [ %46, %45 ]
-  %.sink = phi i32 [ 16, %37 ], [ 16, %35 ], [ %40, %43 ], [ %40, %45 ]
+  %.sink152 = phi ptr [ %36, %35 ], [ %38, %37 ], [ %44, %43 ], [ %46, %45 ]
+  %.sink = phi i32 [ 16, %35 ], [ 16, %37 ], [ %40, %43 ], [ %40, %45 ]
   store ptr %.sink152, ptr %7, align 8, !tbaa !37
   store i32 %.sink, ptr %4, align 8, !tbaa !36
   br label %Vec_IntPush.exit
@@ -447,8 +447,8 @@ Saig_ObjIsLo.exit91.thread:                       ; preds = %99, %Saig_ObjIsLo.e
   br label %Vec_IntPush.exit99.sink.split
 
 Vec_IntPush.exit99.sink.split:                    ; preds = %125, %127, %117, %119
-  %.sink154 = phi ptr [ %120, %119 ], [ %118, %117 ], [ %126, %125 ], [ %128, %127 ]
-  %.sink153 = phi i32 [ 16, %119 ], [ 16, %117 ], [ %122, %125 ], [ %122, %127 ]
+  %.sink154 = phi ptr [ %118, %117 ], [ %120, %119 ], [ %126, %125 ], [ %128, %127 ]
+  %.sink153 = phi i32 [ 16, %117 ], [ 16, %119 ], [ %122, %125 ], [ %122, %127 ]
   store ptr %.sink154, ptr %64, align 8, !tbaa !37
   store i32 %.sink153, ptr %61, align 8, !tbaa !36
   br label %Vec_IntPush.exit99
@@ -617,7 +617,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %59, label %50, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %53, %50, %Vec_IntStartFull.exit, %.preheader, %.critedge
-  %.2 = phi i32 [ %42, %.preheader ], [ -1, %.critedge ], [ 1, %50 ], [ -1, %Vec_IntStartFull.exit ], [ %58, %53 ], [ %42, %37 ]
+  %.2 = phi i32 [ -1, %.critedge ], [ %42, %.preheader ], [ -1, %Vec_IntStartFull.exit ], [ %58, %53 ], [ 1, %50 ], [ %42, %37 ]
   %60 = load ptr, ptr %5, align 8, !tbaa !46
   %.not34 = icmp eq ptr %60, null
   br i1 %.not34, label %67, label %61

@@ -1742,7 +1742,7 @@ define hidden void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$11coordinates17h4c9
   br label %46
 
 46:                                               ; preds = %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit17", %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit", %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit18", %35
-  %.sink = phi i8 [ 2, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit18" ], [ 0, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit" ], [ 3, %35 ], [ 1, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit17" ]
+  %.sink = phi i8 [ 2, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit18" ], [ 3, %35 ], [ 0, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit" ], [ 1, %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h439cde5c70814e77E.exit17" ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -2564,7 +2564,7 @@ common.ret:                                       ; preds = %53, %8
   br label %36
 
 .body17:                                          ; preds = %54, %49, %41, %27
-  %.pn12 = phi { ptr, i32 } [ %50, %49 ], [ %42, %41 ], [ %28, %27 ], [ %55, %54 ]
+  %.pn12 = phi { ptr, i32 } [ %42, %41 ], [ %28, %27 ], [ %55, %54 ], [ %50, %49 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn12
 
@@ -2737,8 +2737,8 @@ common.ret:                                       ; preds = %105, %62, %"_ZN4cor
   ret void
 
 "_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E.exit": ; preds = %39, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i", %"_ZN4core3ptr133drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h6754ed6c912224ceE.exit", %84
-  %.sroa.0119.0 = phi i64 [ 2, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ 2, %84 ], [ %.sroa.0126.0.copyload, %"_ZN4core3ptr133drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h6754ed6c912224ceE.exit" ], [ 2, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ 2, %39 ]
-  %.sroa.6121.0 = phi ptr [ %.sroa.3104.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ %.sroa.3.0.copyload, %84 ], [ %.sroa.4127.0.copyload, %"_ZN4core3ptr133drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h6754ed6c912224ceE.exit" ], [ %.sroa.3104.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ %40, %39 ]
+  %.sroa.0119.0 = phi i64 [ 2, %84 ], [ %.sroa.0126.0.copyload, %"_ZN4core3ptr133drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h6754ed6c912224ceE.exit" ], [ 2, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ 2, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ 2, %39 ]
+  %.sroa.6121.0 = phi ptr [ %.sroa.3.0.copyload, %84 ], [ %.sroa.4127.0.copyload, %"_ZN4core3ptr133drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h6754ed6c912224ceE.exit" ], [ %.sroa.3104.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ %.sroa.3104.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ %40, %39 ]
   store i64 %.sroa.0119.0, ptr %0, align 8
   %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6121.0, ptr %.sroa.6121.0..sroa_idx, align 8
@@ -2796,7 +2796,7 @@ common.ret:                                       ; preds = %105, %62, %"_ZN4cor
   br label %.body
 
 .body:                                            ; preds = %50, %32, %58, %63, %41, %204, %.body58
-  %.pn42.pn = phi { ptr, i32 } [ %42, %41 ], [ %205, %204 ], [ %.pn37.pn, %.body58 ], [ %59, %58 ], [ %51, %50 ], [ %33, %32 ], [ %64, %63 ]
+  %.pn42.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn37.pn, %.body58 ], [ %205, %204 ], [ %51, %50 ], [ %33, %32 ], [ %64, %63 ], [ %59, %58 ]
   store i8 2, ptr %11, align 1
   resume { ptr, i32 } %.pn42.pn
 
@@ -3178,7 +3178,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
           to label %"_ZN4core3ptr133drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h6754ed6c912224ceE.exit" unwind label %177
 
 .body66:                                          ; preds = %130, %125, %.body71, %177
-  %.pn37 = phi { ptr, i32 } [ %178, %177 ], [ %.pn34, %.body71 ], [ %131, %130 ], [ %126, %125 ]
+  %.pn37 = phi { ptr, i32 } [ %178, %177 ], [ %.pn34, %.body71 ], [ %126, %125 ], [ %131, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.body58
 
@@ -3196,7 +3196,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
   br label %"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E.exit"
 
 .body58:                                          ; preds = %93, %79, %101, %106, %.body66
-  %.pn37.pn = phi { ptr, i32 } [ %.pn37, %.body66 ], [ %102, %101 ], [ %94, %93 ], [ %107, %106 ], [ %80, %79 ]
+  %.pn37.pn = phi { ptr, i32 } [ %.pn37, %.body66 ], [ %94, %93 ], [ %80, %79 ], [ %107, %106 ], [ %102, %101 ]
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef align 8 dereferenceable(32) %179) #25
           to label %.body unwind label %86
@@ -3434,9 +3434,9 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   br i1 %57, label %.loopexit, label %42
 
 .loopexit:                                        ; preds = %56, %51, %55, %33
-  %.sroa.8.0 = phi <32 x i8> [ %.sroa.04.0.copyload.i.i, %51 ], [ undef, %33 ], [ %.sroa.04.0.copyload.i.i, %55 ], [ undef, %56 ]
-  %.not.i = phi i1 [ false, %51 ], [ true, %33 ], [ false, %55 ], [ true, %56 ]
-  %.sroa.0.0 = phi i8 [ 0, %51 ], [ 2, %33 ], [ 1, %55 ], [ 2, %56 ]
+  %.sroa.8.0 = phi <32 x i8> [ undef, %33 ], [ %.sroa.04.0.copyload.i.i, %55 ], [ %.sroa.04.0.copyload.i.i, %51 ], [ undef, %56 ]
+  %.not.i = phi i1 [ true, %33 ], [ false, %55 ], [ false, %51 ], [ true, %56 ]
+  %.sroa.0.0 = phi i8 [ 2, %33 ], [ 1, %55 ], [ 0, %51 ], [ 2, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 12, ptr %7, align 8
   %58 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17hd2d8c5bd490784eaE(i8 noundef 13, i8 noundef 14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fb60ad9b4e811ac5b3a9c6868ed6715f.40)
@@ -3529,12 +3529,12 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   resume { ptr, i32 } %.pn14
 
 .body23:                                          ; preds = %64, %59
-  %.pn11 = phi { ptr, i32 } [ %65, %64 ], [ %60, %59 ]
+  %.pn11 = phi { ptr, i32 } [ %60, %59 ], [ %65, %64 ]
   invoke void @"_ZN4core3ptr132drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h8d000e95e940287fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #25
           to label %.body20 unwind label %75
 
 .body20:                                          ; preds = %23, %28, %.body23
-  %.pn11.pn = phi { ptr, i32 } [ %.pn11, %.body23 ], [ %29, %28 ], [ %24, %23 ]
+  %.pn11.pn = phi { ptr, i32 } [ %.pn11, %.body23 ], [ %24, %23 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %77
 
@@ -3617,7 +3617,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
           to label %26 unwind label %24
 
 .body:                                            ; preds = %29, %24
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %25, %24 ]
+  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %81
 
@@ -3809,7 +3809,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   unreachable
 
 78:                                               ; preds = %65, %60, %79
-  %.pn11.pn = phi { ptr, i32 } [ %80, %79 ], [ %66, %65 ], [ %61, %60 ]
+  %.pn11.pn = phi { ptr, i32 } [ %80, %79 ], [ %61, %60 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @"_ZN4core3ptr132drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h8d000e95e940287fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #25
           to label %81 unwind label %76
@@ -4276,7 +4276,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
           to label %"_ZN4core3ptr133drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h6754ed6c912224ceE.exit" unwind label %150
 
 .body53:                                          ; preds = %120, %115, %.body55, %150
-  %.pn34 = phi { ptr, i32 } [ %151, %150 ], [ %.pn32, %.body55 ], [ %121, %120 ], [ %116, %115 ]
+  %.pn34 = phi { ptr, i32 } [ %151, %150 ], [ %.pn32, %.body55 ], [ %116, %115 ], [ %121, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.body45
 
@@ -4295,9 +4295,9 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
   br label %46
 
 "_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i", %19
-  %.sroa.082.0 = phi i8 [ 1, %19 ], [ 0, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ 0, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ 1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ 1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
-  %.sroa.383.0 = phi i8 [ undef, %19 ], [ %.sroa.383.1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ %.sroa.383.1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
-  %.sroa.584.0 = phi ptr [ %.sroa.378.0.copyload, %19 ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ %.sroa.378.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ %.sroa.378.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
+  %.sroa.082.0 = phi i8 [ 1, %19 ], [ 0, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ 0, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ 1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ 1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
+  %.sroa.383.0 = phi i8 [ undef, %19 ], [ %.sroa.383.1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ %.sroa.383.1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
+  %.sroa.584.0 = phi ptr [ %.sroa.378.0.copyload, %19 ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ %.sroa.378.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ %.sroa.378.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
   store i8 %.sroa.082.0, ptr %0, align 8
   %.sroa.383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.383.0, ptr %.sroa.383.0..sroa_idx, align 1
@@ -4306,7 +4306,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
   br label %common.ret
 
 .body55:                                          ; preds = %136, %133
-  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %133 ], [ %137, %136 ]
+  %.pn32 = phi { ptr, i32 } [ %137, %136 ], [ %lpad.thr_comm.i.i, %133 ]
   invoke void @"_ZN4core3ptr133drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h6754ed6c912224ceE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #25
           to label %.body53 unwind label %154
 
@@ -4317,7 +4317,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
   unreachable
 
 .body45:                                          ; preds = %70, %65, %57, %39, %.body53
-  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %.body53 ], [ %66, %65 ], [ %58, %57 ], [ %71, %70 ], [ %40, %39 ]
+  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %.body53 ], [ %58, %57 ], [ %40, %39 ], [ %71, %70 ], [ %66, %65 ]
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef align 8 dereferenceable(32) %156) #25
           to label %46 unwind label %154

@@ -328,15 +328,15 @@ getivgen.exit:                                    ; preds = %93
   br i1 %.not, label %getivgen.exit.thread, label %13, !llvm.loop !35
 
 getivgen.exit.thread.sink.split:                  ; preds = %64, %54, %58, %61, %51, %48, %41, %35, %28, %22, %19, %16
-  %.sink95 = phi i32 [ 166, %19 ], [ 224, %54 ], [ 213, %51 ], [ 206, %48 ], [ 201, %41 ], [ 192, %35 ], [ 187, %28 ], [ 177, %22 ], [ 159, %16 ], [ 224, %61 ], [ 224, %58 ], [ 228, %64 ]
-  %.sink = phi i32 [ 104, %19 ], [ 110, %54 ], [ 104, %51 ], [ 104, %48 ], [ 109, %41 ], [ 104, %35 ], [ 109, %28 ], [ 104, %22 ], [ 104, %16 ], [ 110, %61 ], [ 110, %58 ], [ 104, %64 ]
+  %.sink95 = phi i32 [ 159, %16 ], [ 166, %19 ], [ 177, %22 ], [ 187, %28 ], [ 192, %35 ], [ 201, %41 ], [ 206, %48 ], [ 213, %51 ], [ 224, %61 ], [ 224, %58 ], [ 224, %54 ], [ 228, %64 ]
+  %.sink = phi i32 [ 104, %16 ], [ 104, %19 ], [ 104, %22 ], [ 109, %28 ], [ 104, %35 ], [ 109, %41 ], [ 104, %48 ], [ 104, %51 ], [ 110, %61 ], [ 110, %58 ], [ 110, %54 ], [ 104, %64 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink95, ptr noundef nonnull @__func__.ossl_gcm_get_ctx_params) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %getivgen.exit.thread
 
 getivgen.exit.thread:                             ; preds = %25, %38, %70, %66, %98, %.critedge, %78, %73, %getivgen.exit.thread.sink.split, %2
-  %.1 = phi i32 [ 0, %getivgen.exit.thread.sink.split ], [ 1, %2 ], [ 0, %73 ], [ 0, %78 ], [ 1, %.critedge ], [ 0, %38 ], [ 0, %98 ], [ 0, %70 ], [ 0, %25 ], [ 0, %66 ]
+  %.1 = phi i32 [ 1, %2 ], [ 0, %getivgen.exit.thread.sink.split ], [ 0, %25 ], [ 0, %38 ], [ 0, %70 ], [ 0, %66 ], [ 0, %98 ], [ 1, %.critedge ], [ 0, %78 ], [ 0, %73 ]
   ret i32 %.1
 }
 
@@ -491,7 +491,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %68 = add nsw i64 %59, -24
   br label %70
 
-69:                                               ; preds = %53, %45, %65
+69:                                               ; preds = %45, %53, %65
   store i64 0, ptr %3, align 8, !tbaa !37
   br label %ossl_param_is_empty.exit.thread.sink.split
 
@@ -609,16 +609,16 @@ setivinv.exit:                                    ; preds = %115
   %.not37 = icmp eq ptr %.pr, null
   br i1 %.not37, label %ossl_param_is_empty.exit.thread, label %19, !llvm.loop !38
 
-ossl_param_is_empty.exit.thread.sink.split:       ; preds = %86, %96, %88, %74, %42, %33, %31, %24, %27, %22, %69
-  %.sink63 = phi i32 [ 301, %69 ], [ 309, %74 ], [ 296, %42 ], [ 283, %33 ], [ 279, %31 ], [ 271, %24 ], [ 267, %22 ], [ 271, %27 ], [ 313, %88 ], [ 313, %96 ], [ 313, %86 ]
-  %.sink = phi i32 [ 108, %69 ], [ 103, %74 ], [ 103, %42 ], [ 109, %33 ], [ 103, %31 ], [ 110, %24 ], [ 103, %22 ], [ 110, %27 ], [ 103, %88 ], [ 103, %96 ], [ 103, %86 ]
+ossl_param_is_empty.exit.thread.sink.split:       ; preds = %96, %86, %88, %74, %42, %33, %31, %24, %27, %22, %69
+  %.sink63 = phi i32 [ 301, %69 ], [ 267, %22 ], [ 271, %27 ], [ 271, %24 ], [ 279, %31 ], [ 283, %33 ], [ 296, %42 ], [ 309, %74 ], [ 313, %88 ], [ 313, %86 ], [ 313, %96 ]
+  %.sink = phi i32 [ 108, %69 ], [ 103, %22 ], [ 110, %27 ], [ 110, %24 ], [ 103, %31 ], [ 109, %33 ], [ 103, %42 ], [ 103, %74 ], [ 103, %88 ], [ 103, %86 ], [ 103, %96 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink63, ptr noundef nonnull @__func__.ossl_gcm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %115, %112, %127, %105, %109, %ossl_param_is_empty.exit.thread.sink.split, %2, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ], [ 0, %109 ], [ 0, %105 ], [ 0, %115 ], [ 0, %112 ], [ 1, %127 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ], [ 0, %115 ], [ 0, %112 ], [ 1, %127 ], [ 0, %105 ], [ 0, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -805,8 +805,8 @@ getivgen.exit.i:                                  ; preds = %45, %52
   br label %gcm_tls_cipher.exit
 
 gcm_tls_cipher.exit:                              ; preds = %10, %12, %16, %26, %27, %29, %50, %52, %78, %79, %80
-  %.040.i = phi i32 [ 0, %16 ], [ 0, %26 ], [ 1, %80 ], [ 0, %78 ], [ 0, %79 ], [ 0, %10 ], [ 0, %27 ], [ 0, %12 ], [ 0, %29 ], [ 0, %50 ], [ 0, %52 ]
-  %.0.i = phi i64 [ 0, %16 ], [ 0, %26 ], [ %..i, %80 ], [ 0, %78 ], [ 0, %79 ], [ 0, %10 ], [ 0, %27 ], [ 0, %12 ], [ 0, %29 ], [ 0, %50 ], [ 0, %52 ]
+  %.040.i = phi i32 [ 0, %16 ], [ 0, %26 ], [ 1, %80 ], [ 0, %78 ], [ 0, %79 ], [ 0, %12 ], [ 0, %10 ], [ 0, %29 ], [ 0, %27 ], [ 0, %50 ], [ 0, %52 ]
+  %.0.i = phi i64 [ 0, %16 ], [ 0, %26 ], [ %..i, %80 ], [ 0, %78 ], [ 0, %79 ], [ 0, %12 ], [ 0, %10 ], [ 0, %29 ], [ 0, %27 ], [ 0, %50 ], [ 0, %52 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 3, ptr %81, align 8, !tbaa !20
   store i64 -1, ptr %8, align 8, !tbaa !15
@@ -923,8 +923,8 @@ gcm_tls_cipher.exit:                              ; preds = %10, %12, %16, %26, 
   br label %gcm_iv_generate.exit.thread
 
 gcm_iv_generate.exit.thread:                      ; preds = %138, %82, %89, %106, %117, %121, %128, %132, %91, %97, %86, %gcm_tls_cipher.exit
-  %storemerge = phi i64 [ %.0.i, %gcm_tls_cipher.exit ], [ 0, %86 ], [ %.1, %138 ], [ 0, %117 ], [ 0, %121 ], [ 0, %132 ], [ 0, %128 ], [ 0, %106 ], [ 0, %82 ], [ 0, %89 ], [ 0, %91 ], [ 0, %97 ]
-  %.0 = phi i32 [ %.040.i, %gcm_tls_cipher.exit ], [ 0, %86 ], [ 1, %138 ], [ 0, %117 ], [ 0, %121 ], [ 0, %132 ], [ 0, %128 ], [ 0, %106 ], [ 0, %82 ], [ 0, %89 ], [ 0, %91 ], [ 0, %97 ]
+  %storemerge = phi i64 [ %.0.i, %gcm_tls_cipher.exit ], [ 0, %86 ], [ %.1, %138 ], [ 0, %117 ], [ 0, %121 ], [ 0, %132 ], [ 0, %128 ], [ 0, %106 ], [ 0, %89 ], [ 0, %82 ], [ 0, %91 ], [ 0, %97 ]
+  %.0 = phi i32 [ %.040.i, %gcm_tls_cipher.exit ], [ 0, %86 ], [ 1, %138 ], [ 0, %117 ], [ 0, %121 ], [ 0, %132 ], [ 0, %128 ], [ 0, %106 ], [ 0, %89 ], [ 0, %82 ], [ 0, %91 ], [ 0, %97 ]
   store i64 %storemerge, ptr %2, align 8, !tbaa !37
   ret i32 %.0
 }
@@ -945,7 +945,7 @@ define range(i32 0, 2) i32 @ossl_gcm_stream_final(ptr noundef %0, ptr noundef %1
   br label %9
 
 9:                                                ; preds = %6, %4, %8
-  %.0 = phi i32 [ 0, %4 ], [ 1, %8 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %4 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -977,7 +977,7 @@ define range(i32 0, 2) i32 @ossl_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   br label %14
 
 14:                                               ; preds = %11, %6, %13, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %6 ], [ 1, %13 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %13 ], [ 0, %6 ], [ 0, %11 ]
   ret i32 %.0
 }
 

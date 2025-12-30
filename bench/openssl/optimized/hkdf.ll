@@ -334,7 +334,7 @@ kdf_hkdf_set_ctx_params.exit.thread:              ; preds = %9, %ossl_param_is_e
   br label %HKDF.exit
 
 HKDF.exit:                                        ; preds = %32, %45, %48
-  %.0.i39 = phi i32 [ 0, %32 ], [ %49, %48 ], [ 0, %45 ]
+  %.0.i39 = phi i32 [ %49, %48 ], [ 0, %32 ], [ 0, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %kdf_hkdf_set_ctx_params.exit.thread42
 
@@ -392,7 +392,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %7, %5, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ %., %7 ], [ 0, %5 ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %5 ], [ %., %7 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -416,7 +416,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %5, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ %6, %5 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ %6, %5 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -523,7 +523,7 @@ define internal range(i32 0, 2) i32 @kdf_tls1_3_derive(ptr noundef %0, ptr nound
   br label %prov_tls13_hkdf_generate_secret.exit
 
 prov_tls13_hkdf_generate_secret.exit:             ; preds = %18, %.thread.i, %.critedge.i, %53, %55
-  %.0.i = phi i32 [ 0, %53 ], [ 0, %.critedge.i ], [ 0, %18 ], [ %56, %55 ], [ %43, %.thread.i ]
+  %.0.i = phi i32 [ 0, %53 ], [ 0, %18 ], [ 0, %.critedge.i ], [ %56, %55 ], [ %43, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
@@ -548,7 +548,7 @@ prov_tls13_hkdf_generate_secret.exit:             ; preds = %18, %.thread.i, %.c
   br label %75
 
 75:                                               ; preds = %15, %4, %8, %57, %prov_tls13_hkdf_generate_secret.exit, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %4 ], [ %.0.i, %prov_tls13_hkdf_generate_secret.exit ], [ %74, %57 ], [ 0, %8 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %14 ], [ %.0.i, %prov_tls13_hkdf_generate_secret.exit ], [ %74, %57 ], [ 0, %8 ], [ 0, %4 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -634,7 +634,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %32, %21, %14, %5, %ossl_param_is_empty.exit, %34, %11
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %11 ], [ 1, %34 ], [ 0, %21 ], [ 0, %14 ], [ 0, %5 ], [ 0, %32 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %34 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %5 ], [ 0, %14 ], [ 0, %21 ], [ 0, %32 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -658,7 +658,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %5, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ %6, %5 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ %6, %5 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -716,7 +716,7 @@ define internal fastcc range(i32 0, 2) i32 @HKDF_Extract(ptr noundef %0, ptr nou
   br label %21
 
 21:                                               ; preds = %8, %14, %13
-  %.0 = phi i32 [ %20, %14 ], [ 0, %13 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %13 ], [ %20, %14 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -790,7 +790,7 @@ define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef nonnull %0, 
   %.not56 = icmp eq i32 %36, 0
   br i1 %.not56, label %.thread, label %37
 
-.thread:                                          ; preds = %33, %31, %29, %27, %35
+.thread:                                          ; preds = %27, %29, %31, %33, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
@@ -807,7 +807,7 @@ define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef nonnull %0, 
   br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %37, %.preheader, %.thread, %22
-  %.044 = phi i32 [ 0, %.thread ], [ 0, %22 ], [ 1, %.preheader ], [ 1, %37 ]
+  %.044 = phi i32 [ 0, %22 ], [ 0, %.thread ], [ 1, %.preheader ], [ 1, %37 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 64) #7
   call void @HMAC_CTX_free(ptr noundef nonnull %20) #7
   br label %44
@@ -935,7 +935,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %.critedge
 
 .sink.split:                                      ; preds = %39, %32, %28, %23
-  %.sink = phi i32 [ 2, %32 ], [ 0, %23 ], [ 1, %28 ], [ %40, %39 ]
+  %.sink = phi i32 [ 0, %23 ], [ 1, %28 ], [ 2, %32 ], [ %40, %39 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %43, align 8, !tbaa !26
   br label %44
@@ -987,7 +987,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %16, %10, %60, %46, %ossl_param_is_empty.exit, %65, %42, %41, %36
-  %.037 = phi i32 [ 0, %60 ], [ 1, %65 ], [ 0, %46 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %36 ], [ 0, %41 ], [ 0, %42 ], [ 0, %10 ], [ 0, %16 ], [ 1, %2 ]
+  %.037 = phi i32 [ 1, %65 ], [ 0, %36 ], [ 0, %41 ], [ 0, %42 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %46 ], [ 0, %60 ], [ 0, %10 ], [ 0, %16 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.037
 }
@@ -1082,7 +1082,7 @@ kdf_hkdf_size.exit.thread26:                      ; preds = %7, %kdf_hkdf_size.e
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %kdf_hkdf_size.exit.thread, %kdf_hkdf_size.exit, %29, %ossl_param_is_empty.exit, %kdf_hkdf_size.exit.thread26, %31
-  %.0 = phi i32 [ 0, %kdf_hkdf_size.exit.thread26 ], [ 1, %31 ], [ 0, %29 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %kdf_hkdf_size.exit ], [ 0, %kdf_hkdf_size.exit.thread ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %31 ], [ 0, %kdf_hkdf_size.exit.thread26 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %29 ], [ 0, %kdf_hkdf_size.exit ], [ 0, %kdf_hkdf_size.exit.thread ], [ 1, %2 ]
   ret i32 %.0
 }
 

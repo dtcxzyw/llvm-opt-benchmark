@@ -445,8 +445,8 @@ _ZN8rawspeed14getAsCFAColorsENS_10BayerPhaseE.exit.i: ; preds = %.preheader.i.i.
   br label %.lr.ph.i.i.i.i.i.i36
 
 .lr.ph.i.i.i.i.i.i36:                             ; preds = %.lr.ph.i.i.i.i.i.i36, %_ZN8rawspeed14getAsCFAColorsENS_10BayerPhaseE.exit.i
-  %.011.i.i.i.i.i.i37 = phi ptr [ %145, %.lr.ph.i.i.i.i.i.i36 ], [ %6, %_ZN8rawspeed14getAsCFAColorsENS_10BayerPhaseE.exit.i ]
-  %.0810.i.i.i.i.idx.i.i38 = phi i64 [ %.0810.i.i.i.i.add.i.i40, %.lr.ph.i.i.i.i.i.i36 ], [ 0, %_ZN8rawspeed14getAsCFAColorsENS_10BayerPhaseE.exit.i ]
+  %.011.i.i.i.i.i.i37 = phi ptr [ %6, %_ZN8rawspeed14getAsCFAColorsENS_10BayerPhaseE.exit.i ], [ %145, %.lr.ph.i.i.i.i.i.i36 ]
+  %.0810.i.i.i.i.idx.i.i38 = phi i64 [ 0, %_ZN8rawspeed14getAsCFAColorsENS_10BayerPhaseE.exit.i ], [ %.0810.i.i.i.i.add.i.i40, %.lr.ph.i.i.i.i.i.i36 ]
   %.0810.i.i.i.i.ptr.i.i39 = getelementptr inbounds nuw i8, ptr %7, i64 %.0810.i.i.i.i.idx.i.i38
   %142 = load i8, ptr %.0810.i.i.i.i.ptr.i.i39, align 1, !tbaa !111
   %143 = load i8, ptr %.011.i.i.i.i.i.i37, align 1, !tbaa !111
@@ -501,7 +501,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   unreachable
 
 .invoke:                                          ; preds = %3, %23, %26, %106, %52, %37, %33
-  %152 = phi ptr [ @.str.3, %52 ], [ @.str.2, %37 ], [ @.str.1, %33 ], [ @.str.8, %106 ], [ @.str, %26 ], [ @.str, %23 ], [ @.str, %3 ]
+  %152 = phi ptr [ @.str.1, %33 ], [ @.str.2, %37 ], [ @.str.3, %52 ], [ @.str.8, %106 ], [ @.str, %26 ], [ @.str, %23 ], [ @.str, %3 ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %152, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStreamE) #17
           to label %.cont unwind label %29
 
@@ -651,8 +651,8 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %192
   br label %.thread190
 
 ._crit_edge.thread:                               ; preds = %153, %_ZN8rawspeed10ByteStream9skipBytesEj.exit, %._crit_edge
-  %.sroa.18.2183189 = phi ptr [ %162, %._crit_edge ], [ %162, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ null, %153 ]
-  %.sroa.077.2184188 = phi ptr [ %158, %._crit_edge ], [ %158, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ null, %153 ]
+  %.sroa.18.2183189 = phi ptr [ %162, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %162, %._crit_edge ], [ null, %153 ]
+  %.sroa.077.2184188 = phi ptr [ %158, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %158, %._crit_edge ], [ null, %153 ]
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %211 = load ptr, ptr %210, align 8, !tbaa !134
   %212 = load ptr, ptr %19, align 8, !tbaa !135
@@ -840,16 +840,16 @@ _ZNSt6vectorIN8rawspeed10Array1DRefIKhEESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.
   br label %283
 
 283:                                              ; preds = %.loopexit, %.loopexit.split-lp, %181
-  %.sroa.18.1 = phi ptr [ %.sroa.18.2183189, %.loopexit.split-lp ], [ %.sroa.18.0, %181 ], [ %.sroa.18.2183189, %.loopexit ]
-  %.sroa.077.1 = phi ptr [ %.sroa.077.2184188, %.loopexit.split-lp ], [ %.sroa.077.0, %181 ], [ %.sroa.077.2184188, %.loopexit ]
-  %.pn24 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %182, %181 ], [ %lpad.loopexit, %.loopexit ]
+  %.sroa.18.1 = phi ptr [ %.sroa.18.0, %181 ], [ %.sroa.18.2183189, %.loopexit.split-lp ], [ %.sroa.18.2183189, %.loopexit ]
+  %.sroa.077.1 = phi ptr [ %.sroa.077.0, %181 ], [ %.sroa.077.2184188, %.loopexit.split-lp ], [ %.sroa.077.2184188, %.loopexit ]
+  %.pn24 = phi { ptr, i32 } [ %182, %181 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i56 = icmp eq ptr %.sroa.077.1, null
   br i1 %.not.i.i.i56, label %_ZNSt6vectorIjSaIjEED2Ev.exit57, label %.thread190
 
-.thread190:                                       ; preds = %208, %190, %283
-  %.pn24197 = phi { ptr, i32 } [ %.pn24, %283 ], [ %209, %208 ], [ %191, %190 ]
-  %.sroa.077.1196 = phi ptr [ %.sroa.077.1, %283 ], [ %158, %208 ], [ %158, %190 ]
-  %.sroa.18.1195 = phi ptr [ %.sroa.18.1, %283 ], [ %162, %208 ], [ %162, %190 ]
+.thread190:                                       ; preds = %190, %208, %283
+  %.pn24197 = phi { ptr, i32 } [ %.pn24, %283 ], [ %191, %190 ], [ %209, %208 ]
+  %.sroa.077.1196 = phi ptr [ %.sroa.077.1, %283 ], [ %158, %190 ], [ %158, %208 ]
+  %.sroa.18.1195 = phi ptr [ %.sroa.18.1, %283 ], [ %162, %190 ], [ %162, %208 ]
   %284 = ptrtoint ptr %.sroa.18.1195 to i64
   %285 = ptrtoint ptr %.sroa.077.1196 to i64
   %286 = sub i64 %284, %285
@@ -857,7 +857,7 @@ _ZNSt6vectorIN8rawspeed10Array1DRefIKhEESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit57
 
 _ZNSt6vectorIjSaIjEED2Ev.exit57:                  ; preds = %.loopexit139, %.loopexit.split-lp140, %.loopexit134, %.loopexit.split-lp135, %.thread190, %283, %35, %29
-  %.pn28 = phi { ptr, i32 } [ %30, %29 ], [ %36, %35 ], [ %.pn24, %283 ], [ %.pn24197, %.thread190 ], [ %lpad.loopexit.split-lp137, %.loopexit.split-lp135 ], [ %lpad.loopexit136, %.loopexit134 ], [ %lpad.loopexit141, %.loopexit139 ], [ %lpad.loopexit.split-lp142, %.loopexit.split-lp140 ]
+  %.pn28 = phi { ptr, i32 } [ %30, %29 ], [ %36, %35 ], [ %.pn24, %283 ], [ %.pn24197, %.thread190 ], [ %lpad.loopexit136, %.loopexit134 ], [ %lpad.loopexit.split-lp137, %.loopexit.split-lp135 ], [ %lpad.loopexit141, %.loopexit139 ], [ %lpad.loopexit.split-lp142, %.loopexit.split-lp140 ]
   %287 = load ptr, ptr %19, align 8, !tbaa !135
   %.not.i.i.i58 = icmp eq ptr %287, null
   br i1 %.not.i.i.i58, label %_ZNSt6vectorIN8rawspeed10Array1DRefIKhEESaIS3_EED2Ev.exit, label %288
@@ -1003,7 +1003,7 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit:        ; preds = %30
   br label %47
 
 47:                                               ; preds = %43, %40, %36, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit, %30, %21, %17, %11, %5, %1
-  %48 = phi i1 [ false, %40 ], [ false, %21 ], [ false, %17 ], [ false, %36 ], [ false, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit ], [ false, %5 ], [ %spec.select, %43 ], [ false, %30 ], [ false, %11 ], [ false, %1 ]
+  %48 = phi i1 [ false, %36 ], [ false, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit ], [ false, %30 ], [ false, %21 ], [ false, %17 ], [ false, %11 ], [ false, %5 ], [ false, %1 ], [ false, %40 ], [ %spec.select, %43 ]
   ret i1 %48
 }
 
@@ -3773,7 +3773,7 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; pr
   unreachable
 
 1412:                                             ; preds = %1410, %1409, %1405
-  %.0.i.i.i.i.i13 = phi i32 [ %1389, %1410 ], [ %1402, %1409 ], [ %1390, %1405 ]
+  %.0.i.i.i.i.i13 = phi i32 [ %1402, %1409 ], [ %1389, %1410 ], [ %1390, %1405 ]
   %.tr.i.i.i.i.i = trunc i64 %1406 to i32
   %1413 = shl i32 %.tr.i.i.i.i.i, 1
   %1414 = udiv i32 %1413, 3
@@ -3943,7 +3943,7 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i: ;
   unreachable
 
 1495:                                             ; preds = %1493, %1492, %1489
-  %.0.i.i153.i.i.i = phi i32 [ %1466, %1493 ], [ %1486, %1492 ], [ %1469, %1489 ]
+  %.0.i.i153.i.i.i = phi i32 [ %1486, %1492 ], [ %1466, %1493 ], [ %1469, %1489 ]
   call void @llvm.assume(i1 %1477)
   call void @llvm.assume(i1 %1478)
   call void @llvm.assume(i1 %1479)

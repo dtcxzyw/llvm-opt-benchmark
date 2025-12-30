@@ -335,7 +335,7 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   br i1 %175, label %71, label %.preheader.loopexit
 
 176:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
-  %.0 = phi ptr [ null, %3 ], [ %31, %.preheader ], [ null, %23 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %25 ]
+  %.0 = phi ptr [ %31, %.preheader ], [ null, %23 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -645,7 +645,7 @@ default.unreachable:                              ; preds = %127
   br i1 %187, label %95, label %.loopexit
 
 .loopexit:                                        ; preds = %185, %90, %84, %13, %76, %79, %82, %4, %8
-  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ null, %84 ], [ null, %8 ], [ null, %82 ], [ null, %79 ], [ null, %76 ], [ %89, %90 ], [ %89, %185 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %82 ], [ null, %79 ], [ null, %76 ], [ null, %13 ], [ null, %84 ], [ %89, %90 ], [ %89, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

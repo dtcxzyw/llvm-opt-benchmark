@@ -110,9 +110,9 @@ define hidden range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr no
   br label %47
 
 47:                                               ; preds = %45, %39, %33, %28
-  %.141.i = phi ptr [ %.04062.i, %45 ], [ %spec.select55.i, %33 ], [ %spec.select.i, %28 ], [ %spec.select57.i, %39 ]
-  %.139.i = phi ptr [ %.03863.i, %45 ], [ %spec.select56.i, %33 ], [ %spec.select54.i, %28 ], [ %spec.select58.i, %39 ]
-  %.1.i = phi i32 [ %46, %45 ], [ %.064.i, %33 ], [ %.064.i, %28 ], [ %.064.i, %39 ]
+  %.141.i = phi ptr [ %.04062.i, %45 ], [ %spec.select.i, %28 ], [ %spec.select55.i, %33 ], [ %spec.select57.i, %39 ]
+  %.139.i = phi ptr [ %.03863.i, %45 ], [ %spec.select54.i, %28 ], [ %spec.select56.i, %33 ], [ %spec.select58.i, %39 ]
+  %.1.i = phi i32 [ %46, %45 ], [ %.064.i, %28 ], [ %.064.i, %33 ], [ %.064.i, %39 ]
   %48 = tail call i32 @BN_is_zero(ptr noundef %.139.i) #3
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
@@ -127,14 +127,14 @@ define hidden range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not44.i, label %euclid.exit.thread, label %euclid.exit.thread31
 
 euclid.exit.thread31:                             ; preds = %._crit_edge.i, %49, %15
-  %.042.i33 = phi ptr [ %.141.i, %49 ], [ %spec.select, %15 ], [ %.141.i, %._crit_edge.i ]
+  %.042.i33 = phi ptr [ %spec.select, %15 ], [ %.141.i, %49 ], [ %.141.i, %._crit_edge.i ]
   %51 = tail call ptr @BN_copy(ptr noundef %0, ptr noundef nonnull %.042.i33) #3
   %52 = icmp ne ptr %51, null
   %spec.select29 = zext i1 %52 to i32
   br label %euclid.exit.thread
 
 euclid.exit.thread:                               ; preds = %43, %42, %38, %31, %26, %24, %49, %euclid.exit.thread31, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %49 ], [ %spec.select29, %euclid.exit.thread31 ], [ 0, %24 ], [ 0, %26 ], [ 0, %31 ], [ 0, %38 ], [ 0, %42 ], [ 0, %43 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %spec.select29, %euclid.exit.thread31 ], [ 0, %49 ], [ 0, %24 ], [ 0, %26 ], [ 0, %31 ], [ 0, %38 ], [ 0, %42 ], [ 0, %43 ]
   tail call void @BN_CTX_end(ptr noundef %3) #3
   ret i32 %.0
 }
@@ -304,7 +304,7 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captu
   br label %.thread105.i
 
 .thread105.i:                                     ; preds = %50, %48, %.lr.ph.i, %69, %67, %65, %._crit_edge.thread.i, %43, %33, %30, %.thread.i, %15
-  %.081.i = phi ptr [ null, %15 ], [ %.182103.i, %._crit_edge.thread.i ], [ %.182103.i, %30 ], [ %.182103.i, %33 ], [ %.182103.i, %43 ], [ %.182103.i, %.thread.i ], [ %.182103.i, %67 ], [ %.182103.i, %65 ], [ %.182103.i, %69 ], [ %.182103.i, %.lr.ph.i ], [ %.182103.i, %48 ], [ %.182103.i, %50 ]
+  %.081.i = phi ptr [ null, %15 ], [ %.182103.i, %30 ], [ %.182103.i, %33 ], [ %.182103.i, %67 ], [ %.182103.i, %65 ], [ %.182103.i, %69 ], [ %.182103.i, %._crit_edge.thread.i ], [ %.182103.i, %43 ], [ %.182103.i, %.thread.i ], [ %.182103.i, %.lr.ph.i ], [ %.182103.i, %48 ], [ %.182103.i, %50 ]
   %70 = icmp eq ptr %0, null
   br i1 %70, label %.thread105.thread.i, label %BN_mod_inverse_no_branch.exit
 
@@ -314,7 +314,7 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captu
   br label %BN_mod_inverse_no_branch.exit
 
 BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread105.i, %.thread105.thread.i
-  %.076117.i = phi ptr [ null, %.thread105.i ], [ null, %.thread105.thread.i ], [ %.182103.i, %65 ], [ %.182103.i, %67 ]
+  %.076117.i = phi ptr [ null, %.thread105.thread.i ], [ null, %.thread105.i ], [ %.182103.i, %65 ], [ %.182103.i, %67 ]
   call void @BN_CTX_end(ptr noundef %4) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -691,8 +691,8 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
   tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str, i32 noundef 529) #3
   br label %.thread242
 
-.thread242:                                       ; preds = %135, %137, %128, %133, %116, %139, %113, %111, %125, %123, %206, %152, %166, %168, %175, %177, %170, %159, %164, %179, %150, %200, %193, %198, %189, %185, %204, %181, %223, %221, %.thread253, %99, %.thread, %86, %89, %71, %225
-  %.0171 = phi ptr [ null, %71 ], [ %.1172240, %125 ], [ %.1172240, %86 ], [ %.1172240, %89 ], [ %.1172240, %.thread ], [ %.1172240, %223 ], [ %.1172240, %221 ], [ %.1172240, %225 ], [ %.1172240, %.thread253 ], [ %.1172240, %99 ], [ %.1172240, %206 ], [ %.1172240, %181 ], [ %.1172240, %204 ], [ %.1172240, %185 ], [ %.1172240, %189 ], [ %.1172240, %198 ], [ %.1172240, %193 ], [ %.1172240, %200 ], [ %.1172240, %150 ], [ %.1172240, %179 ], [ %.1172240, %164 ], [ %.1172240, %159 ], [ %.1172240, %170 ], [ %.1172240, %177 ], [ %.1172240, %175 ], [ %.1172240, %168 ], [ %.1172240, %166 ], [ %.1172240, %152 ], [ %.1172240, %123 ], [ %.1172240, %111 ], [ %.1172240, %113 ], [ %.1172240, %139 ], [ %.1172240, %116 ], [ %.1172240, %133 ], [ %.1172240, %128 ], [ %.1172240, %137 ], [ %.1172240, %135 ]
+.thread242:                                       ; preds = %139, %137, %135, %133, %128, %116, %113, %111, %125, %123, %206, %204, %200, %198, %193, %189, %185, %181, %179, %177, %175, %170, %168, %166, %164, %159, %152, %150, %223, %221, %.thread253, %99, %.thread, %86, %89, %71, %225
+  %.0171 = phi ptr [ null, %71 ], [ %.1172240, %86 ], [ %.1172240, %89 ], [ %.1172240, %223 ], [ %.1172240, %221 ], [ %.1172240, %225 ], [ %.1172240, %.thread253 ], [ %.1172240, %99 ], [ %.1172240, %.thread ], [ %.1172240, %150 ], [ %.1172240, %152 ], [ %.1172240, %159 ], [ %.1172240, %164 ], [ %.1172240, %166 ], [ %.1172240, %168 ], [ %.1172240, %170 ], [ %.1172240, %175 ], [ %.1172240, %177 ], [ %.1172240, %179 ], [ %.1172240, %181 ], [ %.1172240, %185 ], [ %.1172240, %189 ], [ %.1172240, %193 ], [ %.1172240, %198 ], [ %.1172240, %200 ], [ %.1172240, %204 ], [ %.1172240, %206 ], [ %.1172240, %123 ], [ %.1172240, %125 ], [ %.1172240, %111 ], [ %.1172240, %113 ], [ %.1172240, %116 ], [ %.1172240, %128 ], [ %.1172240, %133 ], [ %.1172240, %135 ], [ %.1172240, %137 ], [ %.1172240, %139 ]
   %226 = icmp eq ptr %0, null
   br i1 %226, label %.thread242.thread, label %.thread261
 
@@ -702,7 +702,7 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
   br label %.thread261
 
 .thread261:                                       ; preds = %221, %223, %.thread242.thread, %.thread242
-  %.0170265 = phi ptr [ null, %.thread242 ], [ null, %.thread242.thread ], [ %.1172240, %221 ], [ %.1172240, %223 ]
+  %.0170265 = phi ptr [ null, %.thread242.thread ], [ null, %.thread242 ], [ %.1172240, %221 ], [ %.1172240, %223 ]
   tail call void @BN_CTX_end(ptr noundef %4) #3
   br label %227
 

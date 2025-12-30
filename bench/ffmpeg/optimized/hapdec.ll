@@ -559,11 +559,11 @@ bytestream2_get_le32.exit89.i:                    ; preds = %182, %181
   br i1 %191, label %176, label %.loopexit.i, !llvm.loop !67
 
 .loopexit.i:                                      ; preds = %bytestream2_get_le32.exit89.i, %bytestream2_get_le32.exit.i, %bytestream2_get_byte.exit.i, %.preheader105.i, %.preheader103.i, %.preheader102.i, %113
-  %192 = phi i32 [ %149, %bytestream2_get_le32.exit.i ], [ %149, %.preheader103.i ], [ %125, %.preheader102.i ], [ %171, %.preheader105.i ], [ %.pre.i100, %113 ], [ %143, %bytestream2_get_byte.exit.i ], [ %188, %bytestream2_get_le32.exit89.i ]
-  %.274.i = phi i32 [ 0, %bytestream2_get_le32.exit.i ], [ 0, %.preheader103.i ], [ 0, %.preheader102.i ], [ 0, %.preheader105.i ], [ %.072120.i, %113 ], [ 0, %bytestream2_get_byte.exit.i ], [ 0, %bytestream2_get_le32.exit89.i ]
-  %.271.i = phi i32 [ %.069121.i, %bytestream2_get_le32.exit.i ], [ %.069121.i, %.preheader103.i ], [ %.069121.i, %.preheader102.i ], [ 1, %.preheader105.i ], [ %.069121.i, %113 ], [ %.069121.i, %bytestream2_get_byte.exit.i ], [ 1, %bytestream2_get_le32.exit89.i ]
-  %.268.i = phi i32 [ %.066122.i, %bytestream2_get_le32.exit.i ], [ %.066122.i, %.preheader103.i ], [ 1, %.preheader102.i ], [ %.066122.i, %.preheader105.i ], [ %.066122.i, %113 ], [ 1, %bytestream2_get_byte.exit.i ], [ %.066122.i, %bytestream2_get_le32.exit89.i ]
-  %.265.i = phi i32 [ 1, %bytestream2_get_le32.exit.i ], [ 1, %.preheader103.i ], [ %.063123.i, %.preheader102.i ], [ %.063123.i, %.preheader105.i ], [ %.063123.i, %113 ], [ %.063123.i, %bytestream2_get_byte.exit.i ], [ %.063123.i, %bytestream2_get_le32.exit89.i ]
+  %192 = phi i32 [ %125, %.preheader102.i ], [ %149, %.preheader103.i ], [ %171, %.preheader105.i ], [ %.pre.i100, %113 ], [ %143, %bytestream2_get_byte.exit.i ], [ %149, %bytestream2_get_le32.exit.i ], [ %188, %bytestream2_get_le32.exit89.i ]
+  %.274.i = phi i32 [ 0, %.preheader102.i ], [ 0, %.preheader103.i ], [ 0, %.preheader105.i ], [ %.072120.i, %113 ], [ 0, %bytestream2_get_byte.exit.i ], [ 0, %bytestream2_get_le32.exit.i ], [ 0, %bytestream2_get_le32.exit89.i ]
+  %.271.i = phi i32 [ %.069121.i, %.preheader102.i ], [ %.069121.i, %.preheader103.i ], [ 1, %.preheader105.i ], [ %.069121.i, %113 ], [ %.069121.i, %bytestream2_get_byte.exit.i ], [ %.069121.i, %bytestream2_get_le32.exit.i ], [ 1, %bytestream2_get_le32.exit89.i ]
+  %.268.i = phi i32 [ 1, %.preheader102.i ], [ %.066122.i, %.preheader103.i ], [ %.066122.i, %.preheader105.i ], [ %.066122.i, %113 ], [ 1, %bytestream2_get_byte.exit.i ], [ %.066122.i, %bytestream2_get_le32.exit.i ], [ %.066122.i, %bytestream2_get_le32.exit89.i ]
+  %.265.i = phi i32 [ %.063123.i, %.preheader102.i ], [ 1, %.preheader103.i ], [ %.063123.i, %.preheader105.i ], [ %.063123.i, %113 ], [ %.063123.i, %bytestream2_get_byte.exit.i ], [ 1, %bytestream2_get_le32.exit.i ], [ %.063123.i, %bytestream2_get_le32.exit89.i ]
   %.neg.i = add i32 %.075119.i, %.neg100.i
   %193 = add i32 %.neg.i, %121
   %194 = sub i32 %193, %192
@@ -610,14 +610,14 @@ bytestream2_get_le32.exit89.i:                    ; preds = %182, %181
   br i1 %exitcond149.not.i, label %hap_parse_decode_instructions.exit, label %202, !llvm.loop !70
 
 hap_parse_decode_instructions.exit:               ; preds = %109, %123, %146, %168, %202, %210, %104, %._crit_edge.i101, %.preheader.i
-  %.2.i = phi i32 [ -1094995529, %202 ], [ %.mux.i, %._crit_edge.i101 ], [ 0, %.preheader.i ], [ -1094995529, %104 ], [ 0, %210 ], [ %170, %168 ], [ %124, %123 ], [ %112, %109 ], [ %148, %146 ]
+  %.2.i = phi i32 [ %.mux.i, %._crit_edge.i101 ], [ 0, %.preheader.i ], [ -1094995529, %104 ], [ -1094995529, %202 ], [ 0, %210 ], [ %170, %168 ], [ %148, %146 ], [ %124, %123 ], [ %112, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %212
 
 212:                                              ; preds = %hap_parse_decode_instructions.exit, %95
-  %.059.i = phi i32 [ %.2.i, %hap_parse_decode_instructions.exit ], [ %84, %95 ]
-  %.056.i = phi ptr [ @.str.18, %hap_parse_decode_instructions.exit ], [ %.str.16..str.17.i, %95 ]
+  %.059.i = phi i32 [ %84, %95 ], [ %.2.i, %hap_parse_decode_instructions.exit ]
+  %.056.i = phi ptr [ %.str.16..str.17.i, %95 ], [ @.str.18, %hap_parse_decode_instructions.exit ]
   %.not73.i = icmp eq i32 %.059.i, 0
   br i1 %.not73.i, label %213, label %hap_parse_frame_header.exit
 
@@ -730,7 +730,7 @@ hap_parse_frame_header.exit.thread:               ; preds = %.thread77.i, %220, 
   br label %.loopexit
 
 hap_parse_frame_header.exit:                      ; preds = %53, %98, %212, %252
-  %.0.i = phi i32 [ %.059.i, %212 ], [ %253, %252 ], [ %66, %53 ], [ %spec.store.select.i, %98 ]
+  %.0.i = phi i32 [ %66, %53 ], [ %.059.i, %212 ], [ %spec.store.select.i, %98 ], [ %253, %252 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %263 = icmp slt i32 %.0.i, 0
@@ -880,7 +880,7 @@ hap_can_use_tex_in_place.exit:                    ; preds = %291, %277
   br label %.loopexit
 
 .loopexit:                                        ; preds = %309, %hap_parse_frame_header.exit, %323, %hap_parse_frame_header.exit.thread, %308, %34, %28, %._crit_edge126, %276, %33
-  %.0 = phi i32 [ %341, %._crit_edge126 ], [ -1094995529, %33 ], [ %29, %28 ], [ %35, %34 ], [ -1094995529, %276 ], [ -1094995529, %308 ], [ -1094995529, %hap_parse_frame_header.exit.thread ], [ %325, %323 ], [ %310, %309 ], [ %.0.i, %hap_parse_frame_header.exit ]
+  %.0 = phi i32 [ -1094995529, %33 ], [ -1094995529, %276 ], [ -1094995529, %308 ], [ %341, %._crit_edge126 ], [ %29, %28 ], [ %35, %34 ], [ -1094995529, %hap_parse_frame_header.exit.thread ], [ %325, %323 ], [ %310, %309 ], [ %.0.i, %hap_parse_frame_header.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

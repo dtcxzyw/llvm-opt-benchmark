@@ -693,7 +693,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
   br i1 %.not.i.i.i.i34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i.i.i30.i.i, !llvm.loop !80
 
 ._crit_edge.i.i:                                  ; preds = %.critedge2.i.i.i.i32.i.i, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit58.i.i, %68
-  %.2.lcssa.i.i = phi i32 [ %.3.i.i, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit58.i.i ], [ %.184.i.i, %68 ], [ %.184.i.i, %.critedge2.i.i.i.i32.i.i ]
+  %.2.lcssa.i.i = phi i32 [ %.184.i.i, %68 ], [ %.3.i.i, %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit58.i.i ], [ %.184.i.i, %.critedge2.i.i.i.i32.i.i ]
   %82 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.085.i.i) #17
   %83 = icmp ne ptr %82, null
   %84 = icmp ne i32 %.2.lcssa.i.i, 0

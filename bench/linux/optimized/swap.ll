@@ -821,8 +821,8 @@ define internal void @lru_move_tail_fn(ptr noundef %0, ptr noundef %1) #1 align 
   br label %.thread
 
 .thread:                                          ; preds = %6, %10
-  %26 = phi i64 [ %7, %6 ], [ %.pre, %10 ]
-  %27 = phi i32 [ 4, %6 ], [ %20, %10 ]
+  %26 = phi i64 [ %.pre, %10 ], [ %7, %6 ]
+  %27 = phi i32 [ %20, %10 ], [ 4, %6 ]
   %28 = lshr i64 %26, 56
   %29 = and i64 %28, 3
   %30 = load volatile i64, ptr %1, align 8
@@ -845,7 +845,7 @@ define internal void @lru_move_tail_fn(ptr noundef %0, ptr noundef %1) #1 align 
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %39, %33
-  %40 = phi i64 [ %37, %33 ], [ %37, %39 ], [ -1, %.thread ]
+  %40 = phi i64 [ %37, %39 ], [ %37, %33 ], [ -1, %.thread ]
   %41 = getelementptr i8, ptr %0, i64 -13440
   %42 = shl i64 %40, 32
   %43 = ashr exact i64 %42, 32
@@ -895,7 +895,7 @@ define internal void @lru_move_tail_fn(ptr noundef %0, ptr noundef %1) #1 align 
   br label %.thread2
 
 .thread2:                                         ; preds = %61, %72, %68
-  %.shrunk = phi i32 [ %70, %68 ], [ %70, %72 ], [ 1, %61 ]
+  %.shrunk = phi i32 [ %70, %72 ], [ %70, %68 ], [ 1, %61 ]
   %73 = zext i32 %.shrunk to i64
   %74 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %41, i32 noundef %62, i64 noundef %74) #12
@@ -1127,8 +1127,8 @@ define internal void @folio_activate_fn(ptr noundef %0, ptr noundef %1) #1 align
   br label %.thread
 
 .thread:                                          ; preds = %18, %23
-  %39 = phi i64 [ %20, %18 ], [ %.pre, %23 ]
-  %40 = phi i32 [ 4, %18 ], [ %33, %23 ]
+  %39 = phi i64 [ %.pre, %23 ], [ %20, %18 ]
+  %40 = phi i32 [ %33, %23 ], [ 4, %18 ]
   %41 = lshr i64 %39, 56
   %42 = and i64 %41, 3
   %43 = load volatile i64, ptr %1, align 8
@@ -1151,7 +1151,7 @@ define internal void @folio_activate_fn(ptr noundef %0, ptr noundef %1) #1 align
   br label %.thread2
 
 .thread2:                                         ; preds = %.thread, %52, %46
-  %53 = phi i64 [ %50, %46 ], [ %50, %52 ], [ -1, %.thread ]
+  %53 = phi i64 [ %50, %52 ], [ %50, %46 ], [ -1, %.thread ]
   %54 = getelementptr i8, ptr %0, i64 -13440
   %55 = shl i64 %53, 32
   %56 = ashr exact i64 %55, 32
@@ -1201,7 +1201,7 @@ define internal void @folio_activate_fn(ptr noundef %0, ptr noundef %1) #1 align
   br label %.thread3
 
 .thread3:                                         ; preds = %74, %85, %81
-  %.shrunk = phi i32 [ %83, %81 ], [ %83, %85 ], [ 1, %74 ]
+  %.shrunk = phi i32 [ %83, %85 ], [ %83, %81 ], [ 1, %74 ]
   %86 = zext i32 %.shrunk to i64
   %87 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %54, i32 noundef %75, i64 noundef %87) #12
@@ -1519,7 +1519,7 @@ define internal void @lru_add_fn(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %49, %60, %56
-  %.shrunk = phi i32 [ %58, %56 ], [ %58, %60 ], [ 1, %49 ]
+  %.shrunk = phi i32 [ %58, %60 ], [ %58, %56 ], [ 1, %49 ]
   %61 = zext i32 %.shrunk to i64
   %62 = getelementptr i8, ptr %0, i64 -13440
   %63 = sext i32 %.shrunk to i64
@@ -1946,8 +1946,8 @@ define internal void @lru_deactivate_file_fn(ptr noundef %0, ptr noundef %1) #1 
   br label %.thread
 
 .thread:                                          ; preds = %31, %35
-  %51 = phi i64 [ %32, %31 ], [ %.pre, %35 ]
-  %52 = phi i32 [ 4, %31 ], [ %45, %35 ]
+  %51 = phi i64 [ %.pre, %35 ], [ %32, %31 ]
+  %52 = phi i32 [ %45, %35 ], [ 4, %31 ]
   %53 = lshr i64 %51, 56
   %54 = and i64 %53, 3
   %55 = load volatile i64, ptr %1, align 8
@@ -1970,7 +1970,7 @@ define internal void @lru_deactivate_file_fn(ptr noundef %0, ptr noundef %1) #1 
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %64, %58
-  %65 = phi i64 [ %62, %58 ], [ %62, %64 ], [ -1, %.thread ]
+  %65 = phi i64 [ %62, %64 ], [ %62, %58 ], [ -1, %.thread ]
   %66 = getelementptr i8, ptr %0, i64 -13440
   %67 = shl i64 %65, 32
   %68 = ashr exact i64 %67, 32
@@ -2033,7 +2033,7 @@ define internal void @lru_deactivate_file_fn(ptr noundef %0, ptr noundef %1) #1 
   br label %.thread2
 
 .thread2:                                         ; preds = %94, %105, %101
-  %.shrunk = phi i32 [ %103, %101 ], [ %103, %105 ], [ 1, %94 ]
+  %.shrunk = phi i32 [ %103, %105 ], [ %103, %101 ], [ 1, %94 ]
   %106 = zext i32 %.shrunk to i64
   %107 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %66, i32 noundef %95, i64 noundef %107) #12
@@ -2102,7 +2102,7 @@ define internal void @lru_deactivate_file_fn(ptr noundef %0, ptr noundef %1) #1 
   br label %.thread3
 
 .thread3:                                         ; preds = %135, %146, %142
-  %.shrunk4 = phi i32 [ %144, %142 ], [ %144, %146 ], [ 1, %135 ]
+  %.shrunk4 = phi i32 [ %144, %146 ], [ %144, %142 ], [ 1, %135 ]
   %147 = zext i32 %.shrunk4 to i64
   %148 = sext i32 %.shrunk4 to i64
   tail call void @__mod_node_page_state(ptr noundef %66, i32 noundef %136, i64 noundef %148) #12
@@ -2189,8 +2189,8 @@ define internal void @lru_deactivate_fn(ptr noundef %0, ptr noundef %1) #1 align
   br label %.thread
 
 .thread:                                          ; preds = %18, %23
-  %39 = phi i64 [ %20, %18 ], [ %.pre, %23 ]
-  %40 = phi i32 [ 4, %18 ], [ %33, %23 ]
+  %39 = phi i64 [ %.pre, %23 ], [ %20, %18 ]
+  %40 = phi i32 [ %33, %23 ], [ 4, %18 ]
   %41 = lshr i64 %39, 56
   %42 = and i64 %41, 3
   %43 = load volatile i64, ptr %1, align 8
@@ -2213,7 +2213,7 @@ define internal void @lru_deactivate_fn(ptr noundef %0, ptr noundef %1) #1 align
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %52, %46
-  %53 = phi i64 [ %50, %46 ], [ %50, %52 ], [ -1, %.thread ]
+  %53 = phi i64 [ %50, %52 ], [ %50, %46 ], [ -1, %.thread ]
   %54 = getelementptr i8, ptr %0, i64 -13440
   %55 = shl i64 %53, 32
   %56 = ashr exact i64 %55, 32
@@ -2264,7 +2264,7 @@ define internal void @lru_deactivate_fn(ptr noundef %0, ptr noundef %1) #1 align
   br label %.thread2
 
 .thread2:                                         ; preds = %74, %85, %81
-  %.shrunk = phi i32 [ %83, %81 ], [ %83, %85 ], [ 1, %74 ]
+  %.shrunk = phi i32 [ %83, %85 ], [ %83, %81 ], [ 1, %74 ]
   %86 = zext i32 %.shrunk to i64
   %87 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %54, i32 noundef %75, i64 noundef %87) #12
@@ -2371,8 +2371,8 @@ define internal void @lru_lazyfree_fn(ptr noundef %0, ptr noundef %1) #1 align 1
   br label %.thread
 
 .thread:                                          ; preds = %32, %37
-  %53 = phi i64 [ %34, %32 ], [ %.pre, %37 ]
-  %54 = phi i32 [ 4, %32 ], [ %47, %37 ]
+  %53 = phi i64 [ %.pre, %37 ], [ %34, %32 ]
+  %54 = phi i32 [ %47, %37 ], [ 4, %32 ]
   %55 = lshr i64 %53, 56
   %56 = and i64 %55, 3
   %57 = load volatile i64, ptr %1, align 8
@@ -2395,7 +2395,7 @@ define internal void @lru_lazyfree_fn(ptr noundef %0, ptr noundef %1) #1 align 1
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %66, %60
-  %67 = phi i64 [ %64, %60 ], [ %64, %66 ], [ -1, %.thread ]
+  %67 = phi i64 [ %64, %66 ], [ %64, %60 ], [ -1, %.thread ]
   %68 = getelementptr i8, ptr %0, i64 -13440
   %69 = shl i64 %67, 32
   %70 = ashr exact i64 %69, 32
@@ -2448,7 +2448,7 @@ define internal void @lru_lazyfree_fn(ptr noundef %0, ptr noundef %1) #1 align 1
   br label %.thread2
 
 .thread2:                                         ; preds = %89, %100, %96
-  %.shrunk = phi i32 [ %98, %96 ], [ %98, %100 ], [ 1, %89 ]
+  %.shrunk = phi i32 [ %98, %100 ], [ %98, %96 ], [ 1, %89 ]
   %101 = zext i32 %.shrunk to i64
   %102 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %68, i32 noundef %90, i64 noundef %102) #12
@@ -3119,8 +3119,8 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %95, %103
-  %119 = phi i64 [ %100, %95 ], [ %.pre11, %103 ]
-  %120 = phi i32 [ 4, %95 ], [ %113, %103 ]
+  %119 = phi i64 [ %.pre11, %103 ], [ %100, %95 ]
+  %120 = phi i32 [ %113, %103 ], [ 4, %95 ]
   %121 = lshr i64 %119, 56
   %122 = and i64 %121, 3
   %123 = load volatile i64, ptr %41, align 8
@@ -3143,7 +3143,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
   br label %.thread7
 
 .thread7:                                         ; preds = %.thread, %132, %126
-  %133 = phi i64 [ %130, %126 ], [ %130, %132 ], [ -1, %.thread ]
+  %133 = phi i64 [ %130, %132 ], [ %130, %126 ], [ -1, %.thread ]
   %134 = getelementptr i8, ptr %97, i64 -13440
   %135 = shl i64 %133, 32
   %136 = ashr exact i64 %135, 32
@@ -3490,8 +3490,8 @@ define internal fastcc void @__page_cache_release(ptr noundef %0) unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %5, %14
-  %30 = phi i64 [ %11, %5 ], [ %.pre, %14 ]
-  %31 = phi i32 [ 4, %5 ], [ %24, %14 ]
+  %30 = phi i64 [ %.pre, %14 ], [ %11, %5 ]
+  %31 = phi i32 [ %24, %14 ], [ 4, %5 ]
   %32 = lshr i64 %30, 56
   %33 = and i64 %32, 3
   %34 = load volatile i64, ptr %0, align 8
@@ -3514,7 +3514,7 @@ define internal fastcc void @__page_cache_release(ptr noundef %0) unnamed_addr #
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %43, %37
-  %44 = phi i64 [ %41, %37 ], [ %41, %43 ], [ -1, %.thread ]
+  %44 = phi i64 [ %41, %43 ], [ %41, %37 ], [ -1, %.thread ]
   %45 = shl i64 %44, 32
   %46 = ashr exact i64 %45, 32
   tail call void @__mod_node_page_state(ptr noundef %8, i32 noundef %31, i64 noundef %46) #12

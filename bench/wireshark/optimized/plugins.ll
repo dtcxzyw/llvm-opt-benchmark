@@ -195,7 +195,7 @@ switch.lookup:                                    ; preds = %3
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.19, ptr noundef nonnull %14, i32 noundef %36, i32 noundef %41)
   br label %45
 
-45:                                               ; preds = %44, %33, %38
+45:                                               ; preds = %44, %38, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = call i32 @g_module_close(ptr noundef nonnull %22)
   call void @g_free(ptr noundef %21)
@@ -403,7 +403,7 @@ define internal void @print_plugin_description(ptr noundef %0, ptr noundef %1, i
   br label %flags_to_str.exit
 
 flags_to_str.exit:                                ; preds = %5, %8, %10, %12, %14, %16
-  %.0.i = phi ptr [ @.str.24, %14 ], [ @.str.21, %5 ], [ @.str.22, %8 ], [ @.str.23, %10 ], [ @.str.10, %12 ], [ %.str.26..str.25.i, %16 ]
+  %.0.i = phi ptr [ @.str.21, %5 ], [ @.str.22, %8 ], [ @.str.23, %10 ], [ @.str.10, %12 ], [ @.str.24, %14 ], [ %.str.26..str.25.i, %16 ]
   %18 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef %3)
   ret void
 }

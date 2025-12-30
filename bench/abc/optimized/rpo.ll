@@ -276,7 +276,7 @@ select.unfold.i34:                                ; preds = %select.unfold.i34.p
   br i1 %.not.i37, label %select.unfold.i34, label %Kit_TruthIsConst0.exit38, !llvm.loop !16
 
 Kit_TruthIsConst0.exit38:                         ; preds = %42, %select.unfold.i34
-  %.0 = phi i32 [ 1, %select.unfold.i34 ], [ 0, %42 ]
+  %.0 = phi i32 [ 0, %42 ], [ 1, %select.unfold.i34 ]
   %.not22 = icmp eq ptr %10, null
   br i1 %.not22, label %46, label %Kit_TruthIsConst0.exit38.thread
 
@@ -368,9 +368,9 @@ define i32 @Rpo_computeMinEdgeCost(ptr noundef readonly captures(none) %0, i32 n
   br label %24
 
 24:                                               ; preds = %21, %9, %.lr.ph
-  %.130 = phi i32 [ %.02936, %.lr.ph ], [ %.02936, %21 ], [ %17, %9 ]
-  %.128 = phi i32 [ %.02737, %.lr.ph ], [ %spec.select, %21 ], [ %18, %9 ]
-  %.1 = phi i32 [ %.02638, %.lr.ph ], [ %spec.select44, %21 ], [ %20, %9 ]
+  %.130 = phi i32 [ %.02936, %.lr.ph ], [ %17, %9 ], [ %.02936, %21 ]
+  %.128 = phi i32 [ %.02737, %.lr.ph ], [ %18, %9 ], [ %spec.select, %21 ]
+  %.1 = phi i32 [ %.02638, %.lr.ph ], [ %20, %9 ], [ %spec.select44, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -1199,7 +1199,7 @@ select.unfold.i34.i:                              ; preds = %select.unfold.i34.i
   br i1 %.not.i37.i, label %select.unfold.i34.i, label %Kit_TruthIsConst0.exit38.i, !llvm.loop !16
 
 Kit_TruthIsConst0.exit38.i:                       ; preds = %139, %select.unfold.i34.i
-  %.0.i = phi i32 [ 1, %select.unfold.i34.i ], [ 0, %139 ]
+  %.0.i = phi i32 [ 0, %139 ], [ 1, %select.unfold.i34.i ]
   %.not22.i = icmp eq ptr %109, null
   br i1 %.not22.i, label %143, label %Kit_TruthIsConst0.exit38.thread.i
 
@@ -1376,9 +1376,9 @@ Rpo_CheckORGroup.exit:                            ; preds = %143, %144
   br label %218
 
 218:                                              ; preds = %215, %203, %.lr.ph.i
-  %.130.i = phi i32 [ %.02936.i, %.lr.ph.i ], [ %.02936.i, %215 ], [ %211, %203 ]
-  %.128.i = phi i32 [ %.02737.i, %.lr.ph.i ], [ %spec.select.i192, %215 ], [ %212, %203 ]
-  %.1.i = phi i32 [ %.02638.i, %.lr.ph.i ], [ %spec.select44.i, %215 ], [ %214, %203 ]
+  %.130.i = phi i32 [ %.02936.i, %.lr.ph.i ], [ %211, %203 ], [ %.02936.i, %215 ]
+  %.128.i = phi i32 [ %.02737.i, %.lr.ph.i ], [ %212, %203 ], [ %spec.select.i192, %215 ]
+  %.1.i = phi i32 [ %.02638.i, %.lr.ph.i ], [ %214, %203 ], [ %spec.select44.i, %215 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i190, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Rpo_computeMinEdgeCost.exit, label %.lr.ph.i.backedge
@@ -1504,7 +1504,7 @@ Kit_TruthAnd.exit.i201:                           ; preds = %Vec_StrAlloc.exit.i
   br i1 %194, label %select.unfold.preheader.i38.i, label %Kit_TruthOr.exit42.i
 
 select.unfold.preheader.i38.i:                    ; preds = %select.unfold.i34.i194, %select.unfold.i.i198, %Kit_TruthAnd.exit.i201
-  %.079.i = phi i8 [ 42, %select.unfold.i.i198 ], [ 37, %Kit_TruthAnd.exit.i201 ], [ 43, %select.unfold.i34.i194 ]
+  %.079.i = phi i8 [ 37, %Kit_TruthAnd.exit.i201 ], [ 42, %select.unfold.i.i198 ], [ 43, %select.unfold.i34.i194 ]
   %286 = load ptr, ptr %235, align 8, !tbaa !14
   %287 = load ptr, ptr %238, align 8, !tbaa !14
   br label %select.unfold.i39.i
@@ -2005,7 +2005,7 @@ Lit_Free.exit:                                    ; preds = %464, %468
   br label %478
 
 478:                                              ; preds = %._crit_edge233.thread, %._crit_edge233, %._crit_edge237, %71, %Lit_Copy.exit, %70, %8
-  %.0 = phi ptr [ null, %._crit_edge237 ], [ null, %8 ], [ %37, %Lit_Copy.exit ], [ %37, %70 ], [ null, %71 ], [ %.1152, %._crit_edge233 ], [ %.1152, %._crit_edge233.thread ]
+  %.0 = phi ptr [ null, %8 ], [ %37, %70 ], [ %37, %Lit_Copy.exit ], [ null, %71 ], [ null, %._crit_edge237 ], [ %.1152, %._crit_edge233 ], [ %.1152, %._crit_edge233.thread ]
   ret ptr %.0
 }
 

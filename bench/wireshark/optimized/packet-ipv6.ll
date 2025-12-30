@@ -2215,8 +2215,8 @@ switch.early.test:                                ; preds = %84
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %80, %77, %72, %switch.early.test, %switch.early.test, %84, %88
-  %.0263 = phi i32 [ 0, %switch.early.test ], [ 0, %88 ], [ 0, %switch.early.test ], [ %85, %84 ], [ %74, %72 ], [ %74, %77 ], [ %74, %80 ]
-  %.0262 = phi ptr [ %87, %switch.early.test ], [ %87, %88 ], [ %87, %switch.early.test ], [ %87, %84 ], [ null, %72 ], [ null, %77 ], [ null, %80 ]
+  %.0263 = phi i32 [ 0, %88 ], [ 0, %switch.early.test ], [ %85, %84 ], [ 0, %switch.early.test ], [ %74, %72 ], [ %74, %77 ], [ %74, %80 ]
+  %.0262 = phi ptr [ %87, %88 ], [ %87, %switch.early.test ], [ %87, %84 ], [ %87, %switch.early.test ], [ null, %72 ], [ null, %77 ], [ null, %80 ]
   %90 = load i32, ptr @hf_ipv6_nxt, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %90, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %92 = load i32, ptr @hf_ipv6_hlim, align 4
@@ -2477,7 +2477,7 @@ ipv6_get_jumbo_plen.exit:                         ; preds = %208
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0262, ptr noundef nonnull @.str.879)
   br label %217
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.backedge.i, %208, %192
+.loopexit:                                        ; preds = %.lr.ph.i, %.backedge.i, %192, %208
   %215 = load ptr, ptr %14, align 8
   call void @col_set_str(ptr noundef %215, i32 noundef 25, ptr noundef nonnull @.str.880)
   %216 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0262, ptr noundef nonnull @ei_ipv6_opt_jumbo_missing)
@@ -3293,7 +3293,7 @@ p_ipv6_pinfo_add_len.exit.thread:                 ; preds = %p_ipv6_pinfo_select
   %.not.i56 = icmp eq ptr %75, null
   br i1 %.not.i56, label %76, label %80
 
-76:                                               ; preds = %73, %69, %71
+76:                                               ; preds = %73, %71, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %77 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8)
   %78 = call i32 @call_data_dissector(ptr noundef %77, ptr noundef %1, ptr noundef %2)
@@ -4525,7 +4525,7 @@ proto_item_set_generated.exit192.i:               ; preds = %161, %158, %156
   br i1 %.not5.i194.i, label %proto_item_set_generated.exit171.i, label %proto_item_set_generated.exit171.sink.split.i
 
 proto_item_set_generated.exit171.sink.split.i:    ; preds = %167, %153, %132, %111, %90
-  %.sink291.i = phi ptr [ %155, %153 ], [ %134, %132 ], [ %113, %111 ], [ %92, %90 ], [ %169, %167 ]
+  %.sink291.i = phi ptr [ %92, %90 ], [ %113, %111 ], [ %134, %132 ], [ %155, %153 ], [ %169, %167 ]
   %170 = getelementptr inbounds nuw i8, ptr %.sink291.i, i64 28
   %171 = load i32, ptr %170, align 4
   %172 = or i32 %171, 2
@@ -5160,7 +5160,7 @@ proto_item_set_hidden.exit42.sink.split:          ; preds = %56, %49
   br label %proto_item_set_hidden.exit42
 
 proto_item_set_hidden.exit42:                     ; preds = %proto_item_set_hidden.exit42.sink.split, %46, %56, %.critedge, %49, %proto_item_set_hidden.exit
-  %.not53 = phi i1 [ false, %46 ], [ false, %proto_item_set_hidden.exit ], [ false, %49 ], [ true, %.critedge ], [ true, %56 ], [ %.not53.ph, %proto_item_set_hidden.exit42.sink.split ]
+  %.not53 = phi i1 [ false, %proto_item_set_hidden.exit ], [ false, %49 ], [ true, %.critedge ], [ true, %56 ], [ false, %46 ], [ %.not53.ph, %proto_item_set_hidden.exit42.sink.split ]
   %62 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
   %63 = load i32, ptr %62, align 4
   %64 = tail call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %63, ptr noundef %1, i32 noundef %13, i32 noundef 4, i32 noundef %15)
@@ -7265,8 +7265,8 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %517, %516
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %546, %545, %524
-  %.0130.be.i.i = phi i16 [ %525, %524 ], [ %542, %545 ], [ %550, %546 ]
-  %.1123.be.i.i = phi i32 [ %.21.i.i.i, %524 ], [ %541, %545 ], [ %551, %546 ]
+  %.0130.be.i.i = phi i16 [ %525, %524 ], [ %550, %546 ], [ %542, %545 ]
+  %.1123.be.i.i = phi i32 [ %.21.i.i.i, %524 ], [ %551, %546 ], [ %541, %545 ]
   %552 = zext i16 %.0130.be.i.i to i32
   %553 = icmp ne i16 %.0130.be.i.i, 0
   %554 = icmp samesign ule i32 %363, %552
@@ -7284,7 +7284,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %517, %516
   br label %dissect_opt_ioam_trace.exit.i
 
 dissect_opt_ioam_trace.exit.i:                    ; preds = %556, %._crit_edge.i.i, %.thread154.i.i, %528, %522, %352, %350
-  %.0.i.i = phi i32 [ %347, %350 ], [ %347, %352 ], [ %541, %.thread154.i.i ], [ %.1123.lcssa.i.i, %556 ], [ %.1123.lcssa.i.i, %._crit_edge.i.i ], [ %.21.i.i.i, %528 ], [ %.1123169.i.i, %522 ]
+  %.0.i.i = phi i32 [ %347, %350 ], [ %347, %352 ], [ %.1123.lcssa.i.i, %556 ], [ %.1123.lcssa.i.i, %._crit_edge.i.i ], [ %541, %.thread154.i.i ], [ %.21.i.i.i, %528 ], [ %.1123169.i.i, %522 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_opt_ioam.exit
 
@@ -7583,7 +7583,7 @@ dissect_opt_dff.exit:                             ; preds = %717, %718
   br label %dissect_opt_apn6.exit
 
 dissect_opt_apn6.exit:                            ; preds = %715, %710, %645, %643, %625, %243, %233, %224, %217, %737, %733, %727, %dissect_opt_dff.exit, %dissect_opt_lio.exit, %679, %dissect_opt_home_address.exit, %dissect_opt_pdm.exit, %dissect_opt_calipso.exit, %dissect_opt_tpf.exit, %dissect_opt_ioam.exit, %dissect_opt_quickstart.exit, %dissect_opt_pmtu.exit, %dissect_opt_rtalert.exit, %dissect_opt_tel.exit, %dissect_opt_rpl.exit, %dissect_opt_jumbo.exit
-  %.1 = phi i32 [ %741, %737 ], [ %159, %dissect_opt_jumbo.exit ], [ %173, %dissect_opt_rpl.exit ], [ %179, %dissect_opt_tel.exit ], [ %185, %dissect_opt_rtalert.exit ], [ %202, %dissect_opt_pmtu.exit ], [ %736, %733 ], [ %.0.i257, %dissect_opt_quickstart.exit ], [ %.0.i258, %dissect_opt_ioam.exit ], [ %597, %dissect_opt_tpf.exit ], [ %620, %dissect_opt_calipso.exit ], [ %223, %217 ], [ %669, %dissect_opt_pdm.exit ], [ %678, %dissect_opt_home_address.exit ], [ %682, %679 ], [ %696, %dissect_opt_lio.exit ], [ %.039.i, %643 ], [ %726, %dissect_opt_dff.exit ], [ %731, %727 ], [ %249, %243 ], [ %236, %233 ], [ %227, %224 ], [ %628, %625 ], [ %648, %645 ], [ %714, %710 ], [ %709, %715 ]
+  %.1 = phi i32 [ %741, %737 ], [ %159, %dissect_opt_jumbo.exit ], [ %173, %dissect_opt_rpl.exit ], [ %179, %dissect_opt_tel.exit ], [ %185, %dissect_opt_rtalert.exit ], [ %202, %dissect_opt_pmtu.exit ], [ %.0.i257, %dissect_opt_quickstart.exit ], [ %.0.i258, %dissect_opt_ioam.exit ], [ %597, %dissect_opt_tpf.exit ], [ %620, %dissect_opt_calipso.exit ], [ %669, %dissect_opt_pdm.exit ], [ %678, %dissect_opt_home_address.exit ], [ %682, %679 ], [ %696, %dissect_opt_lio.exit ], [ %726, %dissect_opt_dff.exit ], [ %731, %727 ], [ %736, %733 ], [ %249, %243 ], [ %236, %233 ], [ %227, %224 ], [ %223, %217 ], [ %628, %625 ], [ %648, %645 ], [ %.039.i, %643 ], [ %714, %710 ], [ %709, %715 ]
   %742 = and i32 %134, 255
   %743 = add nuw nsw i32 %742, %94
   %744 = icmp slt i32 %.1, %743

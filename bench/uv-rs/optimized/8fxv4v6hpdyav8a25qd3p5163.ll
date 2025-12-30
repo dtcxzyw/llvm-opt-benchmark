@@ -208,7 +208,7 @@ define hidden noundef range(i8 0, 5) i8 @_ZN21uv_distribution_types10dist_error1
   br i1 %switch, label %13, label %12
 
 12:                                               ; preds = %9, %13, %7, %2
-  %.sroa.0.0 = phi i8 [ 3, %2 ], [ %., %7 ], [ 2, %9 ], [ %.1, %13 ]
+  %.sroa.0.0 = phi i8 [ 3, %2 ], [ %., %7 ], [ %.1, %13 ], [ 2, %9 ]
   ret i8 %.sroa.0.0
 
 13:                                               ; preds = %9

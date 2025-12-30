@@ -1161,13 +1161,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit150:                 ; preds = %.thread234, %252, %
   br i1 %exitcond306.not, label %138, label %141, !llvm.loop !61
 
 257:                                              ; preds = %134, %136, %_ZNSt6vectorIiSaIiEED2Ev.exit150
-  %.pn132.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn123.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit150 ], [ %137, %136 ]
+  %.pn132.pn = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ], [ %.pn123.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit150 ]
   call void @free(ptr noundef %.sroa.0175.0215) #21
   br label %.body
 
 .body:                                            ; preds = %257, %21
-  %.sroa.0188.0199 = phi ptr [ %14, %21 ], [ %.sroa.0188.0198207214, %257 ]
-  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %.pn132.pn, %257 ]
+  %.sroa.0188.0199 = phi ptr [ %.sroa.0188.0198207214, %257 ], [ %14, %21 ]
+  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn, %257 ], [ %22, %21 ]
   call void @free(ptr noundef %.sroa.0188.0199) #21
   resume { ptr, i32 } %.pn132.pn.pn.pn
 }
@@ -1892,13 +1892,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit150:                 ; preds = %.thread233, %250, %
   br i1 %exitcond304.not, label %136, label %139, !llvm.loop !75
 
 255:                                              ; preds = %132, %134, %_ZNSt6vectorIiSaIiEED2Ev.exit150
-  %.pn132.pn = phi { ptr, i32 } [ %133, %132 ], [ %.pn123.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit150 ], [ %135, %134 ]
+  %.pn132.pn = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ], [ %.pn123.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit150 ]
   call void @free(ptr noundef %.sroa.0175.0214) #21
   br label %.body
 
 .body:                                            ; preds = %255, %21
-  %.sroa.0188.0198 = phi ptr [ %14, %21 ], [ %.sroa.0188.0197206213, %255 ]
-  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %.pn132.pn, %255 ]
+  %.sroa.0188.0198 = phi ptr [ %.sroa.0188.0197206213, %255 ], [ %14, %21 ]
+  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn, %255 ], [ %22, %21 ]
   call void @free(ptr noundef %.sroa.0188.0198) #21
   resume { ptr, i32 } %.pn132.pn.pn.pn
 }
@@ -3017,13 +3017,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit150:                 ; preds = %.thread234, %252, %
   br i1 %exitcond306.not, label %138, label %141, !llvm.loop !127
 
 257:                                              ; preds = %134, %136, %_ZNSt6vectorIiSaIiEED2Ev.exit150
-  %.pn132.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn123.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit150 ], [ %137, %136 ]
+  %.pn132.pn = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ], [ %.pn123.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit150 ]
   call void @free(ptr noundef %.sroa.0175.0215) #21
   br label %.body
 
 .body:                                            ; preds = %257, %21
-  %.sroa.0188.0199 = phi ptr [ %14, %21 ], [ %.sroa.0188.0198207214, %257 ]
-  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %.pn132.pn, %257 ]
+  %.sroa.0188.0199 = phi ptr [ %.sroa.0188.0198207214, %257 ], [ %14, %21 ]
+  %.pn132.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn, %257 ], [ %22, %21 ]
   call void @free(ptr noundef %.sroa.0188.0199) #21
   resume { ptr, i32 } %.pn132.pn.pn.pn
 }

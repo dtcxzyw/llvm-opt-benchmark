@@ -244,7 +244,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br label %69
 
 69:                                               ; preds = %67, %66, %64, %63, %61, %60, %58, %57, %55, %54, %51, %._crit_edge
-  %.073 = phi ptr [ @query_formats.out16le_pixfmts, %66 ], [ @query_formats.out8_pixfmts, %._crit_edge ], [ @query_formats.out9le_pixfmts, %51 ], [ @query_formats.out9be_pixfmts, %54 ], [ @query_formats.out10le_pixfmts, %55 ], [ @query_formats.out10be_pixfmts, %57 ], [ @query_formats.out12le_pixfmts, %58 ], [ @query_formats.out12be_pixfmts, %60 ], [ @query_formats.out14le_pixfmts, %61 ], [ @query_formats.out14be_pixfmts, %63 ], [ @query_formats.out16be_pixfmts, %64 ], [ %query_formats.out32be_pixfmts.query_formats.out32le_pixfmts, %67 ]
+  %.073 = phi ptr [ @query_formats.out8_pixfmts, %._crit_edge ], [ @query_formats.out9le_pixfmts, %51 ], [ @query_formats.out9be_pixfmts, %54 ], [ @query_formats.out10le_pixfmts, %55 ], [ @query_formats.out10be_pixfmts, %57 ], [ @query_formats.out12le_pixfmts, %58 ], [ @query_formats.out12be_pixfmts, %60 ], [ @query_formats.out14le_pixfmts, %61 ], [ @query_formats.out14be_pixfmts, %63 ], [ @query_formats.out16be_pixfmts, %64 ], [ @query_formats.out16le_pixfmts, %66 ], [ %query_formats.out32be_pixfmts.query_formats.out32le_pixfmts, %67 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %71 = load i32, ptr %70, align 8, !tbaa !22
   %.not89 = icmp eq i32 %71, 0
@@ -273,7 +273,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br i1 %84, label %.loopexit, label %73
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %77, %73, %69, %25, %1, %7
-  %.071 = phi i32 [ %30, %25 ], [ -11, %7 ], [ 0, %69 ], [ -11, %1 ], [ 0, %73 ], [ %83, %77 ], [ -11, %45 ], [ -11, %.lr.ph ]
+  %.071 = phi i32 [ -11, %7 ], [ -11, %1 ], [ %30, %25 ], [ 0, %69 ], [ %83, %77 ], [ 0, %73 ], [ -11, %45 ], [ -11, %.lr.ph ]
   ret i32 %.071
 }
 
@@ -665,7 +665,7 @@ extract_plane.exit:                               ; preds = %..loopexit64_crit_e
   br i1 %.not70, label %170, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph94, %166, %181, %.preheader78, %.preheader76, %.preheader, %180, %.thread, %.critedge73
-  %.3 = phi i32 [ 0, %180 ], [ %26, %.critedge73 ], [ %.157.ph, %.thread ], [ 0, %.preheader ], [ -1497649742, %.preheader76 ], [ -1497649742, %181 ], [ 0, %.preheader78 ], [ 0, %166 ], [ 0, %.lr.ph94 ]
+  %.3 = phi i32 [ %26, %.critedge73 ], [ %.157.ph, %.thread ], [ 0, %180 ], [ 0, %.preheader ], [ -1497649742, %.preheader76 ], [ 0, %.preheader78 ], [ -1497649742, %181 ], [ 0, %166 ], [ 0, %.lr.ph94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

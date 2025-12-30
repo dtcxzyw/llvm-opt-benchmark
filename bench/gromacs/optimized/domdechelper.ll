@@ -444,7 +444,7 @@ define void @_ZN3gmx12DomDecHelper3runEld(ptr noundef nonnull readonly align 8 c
   br label %.thread
 
 .thread:                                          ; preds = %35, %44, %39
-  %.015 = phi i1 [ false, %39 ], [ true, %44 ], [ false, %35 ]
+  %.015 = phi i1 [ true, %44 ], [ false, %39 ], [ false, %35 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %50 = load ptr, ptr %49, align 8, !tbaa !60
   tail call void @_ZN3gmx12DomDecHelper15partitionSystemEbbP13gmx_wallcycleP7t_stateS4_(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext %37, i1 noundef zeroext %.015, ptr noundef %50, ptr noundef %19, ptr noundef %21)

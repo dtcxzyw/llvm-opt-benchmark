@@ -115,7 +115,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli25BrotliEncoderSetParamete
   br label %32
 
 32:                                               ; preds = %6, %27, %14, %3, %29, %25, %23, %20, %17, %15, %12, %10, %8, %7
-  %.0 = phi i32 [ 1, %29 ], [ 0, %27 ], [ 1, %7 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 0, %3 ], [ 1, %15 ], [ 1, %17 ], [ 1, %20 ], [ 1, %23 ], [ 1, %25 ], [ 0, %14 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 1, %15 ], [ 1, %17 ], [ 1, %20 ], [ 1, %23 ], [ 1, %25 ], [ 1, %29 ], [ 0, %3 ], [ 0, %14 ], [ 0, %27 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -528,7 +528,7 @@ _ZL22MakeUncompressedStreamPKhmPh.exit:           ; preds = %101
   br label %_ZN13duckdb_brotli27BrotliEncoderCreateInstanceEPFPvS0_mEPFvS0_S0_ES0_.exit.thread
 
 _ZN13duckdb_brotli27BrotliEncoderCreateInstanceEPFPvS0_mEPFvS0_S0_ES0_.exit.thread: ; preds = %25, %_ZN13duckdb_brotli30BrotliEncoderMaxCompressedSizeEm.exit.thread, %70, %.critedge, %_ZN13duckdb_brotli30BrotliEncoderMaxCompressedSizeEm.exit, %_ZL22MakeUncompressedStreamPKhmPh.exit, %24
-  %.041 = phi i32 [ 0, %_ZN13duckdb_brotli30BrotliEncoderMaxCompressedSizeEm.exit ], [ 1, %24 ], [ 1, %_ZL22MakeUncompressedStreamPKhmPh.exit ], [ 0, %70 ], [ 0, %_ZN13duckdb_brotli30BrotliEncoderMaxCompressedSizeEm.exit.thread ], [ 1, %.critedge ], [ 0, %25 ]
+  %.041 = phi i32 [ 1, %24 ], [ 1, %_ZL22MakeUncompressedStreamPKhmPh.exit ], [ 0, %_ZN13duckdb_brotli30BrotliEncoderMaxCompressedSizeEm.exit ], [ 1, %.critedge ], [ 0, %70 ], [ 0, %_ZN13duckdb_brotli30BrotliEncoderMaxCompressedSizeEm.exit.thread ], [ 0, %25 ]
   ret i32 %.041
 }
 
@@ -618,7 +618,7 @@ _ZL14ComputeLgBlockPK19BrotliEncoderParams.exit.i: ; preds = %36, %_ZL14Sanitize
   br label %_ZL20ChooseDistanceParamsP19BrotliEncoderParams.exit.i
 
 48:                                               ; preds = %45, %43, %40
-  %.0.i.ph.i = phi i32 [ 16, %40 ], [ %47, %45 ], [ %44, %43 ]
+  %.0.i.ph.i = phi i32 [ %47, %45 ], [ 16, %40 ], [ %44, %43 ]
   store i32 %.0.i.ph.i, ptr %34, align 4, !tbaa !40
   %49 = load i32, ptr %0, align 8, !tbaa !47
   %50 = icmp eq i32 %49, 2
@@ -735,8 +735,8 @@ _ZL20ChooseDistanceParamsP19BrotliEncoderParams.exit.i: ; preds = %63, %59, %_ZL
   br label %_ZL16EncodeWindowBitsiiPtPh.exit.i
 
 _ZL16EncodeWindowBitsiiPtPh.exit.i:               ; preds = %103, %100, %97, %96, %92
-  %.sink18.i.i = phi i16 [ %95, %92 ], [ %102, %100 ], [ %105, %103 ], [ 1, %97 ], [ 0, %96 ]
-  %.sink.i.i = phi i8 [ 14, %92 ], [ 4, %100 ], [ 7, %103 ], [ 7, %97 ], [ 1, %96 ]
+  %.sink18.i.i = phi i16 [ %102, %100 ], [ %105, %103 ], [ 1, %97 ], [ %95, %92 ], [ 0, %96 ]
+  %.sink.i.i = phi i8 [ 4, %100 ], [ 7, %103 ], [ 7, %97 ], [ 14, %92 ], [ 1, %96 ]
   store i16 %.sink18.i.i, ptr %14, align 2, !tbaa !82
   store i8 %.sink.i.i, ptr %13, align 2, !tbaa !72
   br label %111
@@ -1214,10 +1214,10 @@ _ZL19WriteMetadataHeaderPN13duckdb_brotli24BrotliEncoderStateStructEmPh.exit.i: 
   br label %.thread139.i
 
 .thread139.i:                                     ; preds = %.thread141.i, %358, %.thread.i121, %._crit_edge.i, %340
-  %.0114.i = phi ptr [ null, %358 ], [ null, %340 ], [ %361, %.thread141.i ], [ %356, %.thread.i121 ], [ %.pre.i, %._crit_edge.i ]
-  %.0113.i = phi ptr [ null, %358 ], [ null, %340 ], [ %361, %.thread141.i ], [ null, %.thread.i121 ], [ null, %._crit_edge.i ]
-  %.0110.i = phi ptr [ null, %358 ], [ null, %340 ], [ %360, %.thread141.i ], [ %.pr.i122, %.thread.i121 ], [ %351, %._crit_edge.i ]
-  %.0109.i = phi ptr [ null, %358 ], [ null, %340 ], [ %360, %.thread141.i ], [ null, %.thread.i121 ], [ null, %._crit_edge.i ]
+  %.0114.i = phi ptr [ null, %340 ], [ %361, %.thread141.i ], [ null, %358 ], [ %356, %.thread.i121 ], [ %.pre.i, %._crit_edge.i ]
+  %.0113.i = phi ptr [ null, %340 ], [ %361, %.thread141.i ], [ null, %358 ], [ null, %.thread.i121 ], [ null, %._crit_edge.i ]
+  %.0110.i = phi ptr [ null, %340 ], [ %360, %.thread141.i ], [ null, %358 ], [ %.pr.i122, %.thread.i121 ], [ %351, %._crit_edge.i ]
+  %.0109.i = phi ptr [ null, %340 ], [ %360, %.thread141.i ], [ null, %358 ], [ null, %.thread.i121 ], [ null, %._crit_edge.i ]
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 1610
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 6920
@@ -1443,7 +1443,7 @@ _ZL13HashTableSizemm.exit.i.i:                    ; preds = %466
   br label %_ZL12GetHashTablePN13duckdb_brotli24BrotliEncoderStateStructEimPm.exit.i
 
 _ZL12GetHashTablePN13duckdb_brotli24BrotliEncoderStateStructEimPm.exit.i: ; preds = %475, %._crit_edge.i128.i, %_ZL13HashTableSizemm.exit.i.i
-  %.0.i131.i = phi ptr [ %478, %475 ], [ %.pre.i130.i, %._crit_edge.i128.i ], [ %373, %_ZL13HashTableSizemm.exit.i.i ]
+  %.0.i131.i = phi ptr [ %.pre.i130.i, %._crit_edge.i128.i ], [ %478, %475 ], [ %373, %_ZL13HashTableSizemm.exit.i.i ]
   %479 = shl i64 %.025.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %.0.i131.i, i8 0, i64 %479, i1 false)
   %480 = load i32, ptr %315, align 4, !tbaa !38
@@ -2009,7 +2009,7 @@ _ZL14UpdateSizeHintPN13duckdb_brotli24BrotliEncoderStateStructEm.exit138: ; pred
   br label %_ZL15ProcessMetadataPN13duckdb_brotli24BrotliEncoderStateStructEPmPPKhS2_PPhS2_.exit
 
 _ZL15ProcessMetadataPN13duckdb_brotli24BrotliEncoderStateStructEPmPPKhS2_PPhS2_.exit: ; preds = %743, %.thread207, %_ZL14UpdateSizeHintPN13duckdb_brotli24BrotliEncoderStateStructEm.exit138, %714, %210, %190, %763, %520, %517, %.thread158.i, %276, %145, %_ZL14UpdateSizeHintPN13duckdb_brotli24BrotliEncoderStateStructEm.exit, %312, %309, %309, %125
-  %.0 = phi i32 [ 1, %520 ], [ 0, %125 ], [ 0, %309 ], [ 0, %312 ], [ 0, %309 ], [ 1, %763 ], [ 1, %517 ], [ 1, %276 ], [ 0, %_ZL14UpdateSizeHintPN13duckdb_brotli24BrotliEncoderStateStructEm.exit ], [ 0, %145 ], [ 0, %210 ], [ 1, %.thread158.i ], [ 1, %190 ], [ 1, %743 ], [ 1, %.thread207 ], [ 1, %714 ], [ 0, %_ZL14UpdateSizeHintPN13duckdb_brotli24BrotliEncoderStateStructEm.exit138 ]
+  %.0 = phi i32 [ 0, %125 ], [ 0, %309 ], [ 0, %309 ], [ 0, %312 ], [ 0, %_ZL14UpdateSizeHintPN13duckdb_brotli24BrotliEncoderStateStructEm.exit ], [ 0, %145 ], [ 1, %276 ], [ 1, %.thread158.i ], [ 1, %517 ], [ 1, %520 ], [ 1, %763 ], [ 0, %210 ], [ 1, %190 ], [ 1, %714 ], [ 1, %743 ], [ 1, %.thread207 ], [ 0, %_ZL14UpdateSizeHintPN13duckdb_brotli24BrotliEncoderStateStructEm.exit138 ]
   ret i32 %.0
 }
 
@@ -4926,7 +4926,7 @@ _ZL22UpdateLastProcessedPosPN13duckdb_brotli24BrotliEncoderStateStructE.exit394:
   br label %1645
 
 1645:                                             ; preds = %.critedge, %68, %63, %59, %.thread432, %1427, %_ZL12WrapPositionm.exit.i, %58, %53, %39
-  %.0 = phi i32 [ 1, %53 ], [ 0, %59 ], [ 0, %63 ], [ 1, %_ZL12WrapPositionm.exit.i ], [ 1, %.thread432 ], [ 1, %1427 ], [ 1, %.critedge ], [ 1, %58 ], [ 1, %39 ], [ 0, %68 ]
+  %.0 = phi i32 [ 1, %_ZL12WrapPositionm.exit.i ], [ 1, %.thread432 ], [ 1, %1427 ], [ 1, %58 ], [ 1, %39 ], [ 1, %53 ], [ 0, %59 ], [ 0, %63 ], [ 0, %68 ], [ 1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
@@ -5009,7 +5009,7 @@ define noundef ptr @_ZN13duckdb_brotli30BrotliEncoderPrepareDictionaryENS_26Brot
   br label %18
 
 18:                                               ; preds = %12, %9, %7, %17
-  %.0 = phi ptr [ null, %7 ], [ null, %17 ], [ null, %9 ], [ %10, %12 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %7 ], [ null, %9 ], [ %10, %12 ]
   ret ptr %.0
 }
 
@@ -5272,7 +5272,7 @@ _ZL14ComputeLgBlockPK19BrotliEncoderParams.exit.thread: ; preds = %_ZL14Sanitize
   br label %33
 
 _ZL14ComputeLgBlockPK19BrotliEncoderParams.exit:  ; preds = %23, %25, %27
-  %.0.i = phi i32 [ 16, %23 ], [ %29, %27 ], [ %26, %25 ]
+  %.0.i = phi i32 [ %26, %25 ], [ 16, %23 ], [ %29, %27 ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %32 = icmp samesign ugt i32 %0, 9
   br i1 %32, label %58, label %33
@@ -5336,10 +5336,10 @@ _ZL12ChooseHasherPK19BrotliEncoderParamsP18BrotliHasherParams.exit.thread: ; pre
   br label %58
 
 58:                                               ; preds = %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit, %54, %52, %.thread, %38
-  %59 = phi i32 [ 5, %54 ], [ 6, %52 ], [ 54, %38 ], [ %11, %.thread ], [ 10, %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit ]
-  %60 = phi i1 [ false, %54 ], [ false, %52 ], [ false, %38 ], [ false, %.thread ], [ true, %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit ]
-  %61 = phi ptr [ %34, %54 ], [ %34, %52 ], [ %34, %38 ], [ %34, %.thread ], [ %31, %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit ]
-  %.0.i77 = phi i32 [ %.0.i78, %54 ], [ %.0.i78, %52 ], [ %.0.i78, %38 ], [ %.0.i78, %.thread ], [ %.0.i, %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit ]
+  %59 = phi i32 [ 5, %54 ], [ 6, %52 ], [ %11, %.thread ], [ 54, %38 ], [ 10, %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit ]
+  %60 = phi i1 [ false, %54 ], [ false, %52 ], [ false, %.thread ], [ false, %38 ], [ true, %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit ]
+  %61 = phi ptr [ %34, %54 ], [ %34, %52 ], [ %34, %.thread ], [ %34, %38 ], [ %31, %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit ]
+  %.0.i77 = phi i32 [ %.0.i78, %54 ], [ %.0.i78, %52 ], [ %.0.i78, %.thread ], [ %.0.i78, %38 ], [ %.0.i, %_ZL14ComputeLgBlockPK19BrotliEncoderParams.exit ]
   %62 = icmp samesign ugt i32 %15, 24
   br i1 %62, label %63, label %_ZL12ChooseHasherPK19BrotliEncoderParamsP18BrotliHasherParams.exit
 
@@ -5500,9 +5500,9 @@ _ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit: ; 
   br label %_ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit
 
 _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit: ; preds = %85, %105, %106, %107, %117, %127, %128, %129, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit, %139
-  %.sroa.0.0 = phi i64 [ 0, %85 ], [ 262144, %105 ], [ 524288, %139 ], [ 524288, %106 ], [ %114, %107 ], [ %124, %117 ], [ 262144, %127 ], [ %136, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 262144, %128 ], [ 4194304, %129 ], [ 262144, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 4194304, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ]
-  %.sroa.17.0 = phi i64 [ 0, %85 ], [ 0, %105 ], [ %142, %139 ], [ 0, %106 ], [ %116, %107 ], [ %126, %117 ], [ 262144, %127 ], [ %138, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 1048576, %128 ], [ 0, %129 ], [ 0, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 0, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ]
-  %.sroa.27.0 = phi i64 [ 0, %85 ], [ 0, %105 ], [ 0, %139 ], [ 0, %106 ], [ 0, %107 ], [ 0, %117 ], [ 0, %127 ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 0, %128 ], [ 0, %129 ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ]
+  %.sroa.0.0 = phi i64 [ 0, %85 ], [ 262144, %105 ], [ 524288, %106 ], [ %114, %107 ], [ %124, %117 ], [ 262144, %127 ], [ 262144, %128 ], [ 4194304, %129 ], [ 262144, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 4194304, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ %136, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 524288, %139 ]
+  %.sroa.17.0 = phi i64 [ 0, %85 ], [ 0, %105 ], [ 0, %106 ], [ %116, %107 ], [ %126, %117 ], [ 262144, %127 ], [ 1048576, %128 ], [ 0, %129 ], [ 0, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 0, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ %138, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ %142, %139 ]
+  %.sroa.27.0 = phi i64 [ 0, %85 ], [ 0, %105 ], [ 0, %106 ], [ 0, %107 ], [ 0, %117 ], [ 0, %127 ], [ 0, %128 ], [ 0, %129 ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 0, %139 ]
   %143 = icmp samesign ult i32 %0, 4
   br i1 %143, label %144, label %148
 
@@ -5529,7 +5529,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit: ; preds = %85,
   br label %155
 
 155:                                              ; preds = %148, %149, %151
-  %.043 = phi i64 [ 0, %149 ], [ %154, %151 ], [ 209715200, %148 ]
+  %.043 = phi i64 [ %154, %151 ], [ 0, %149 ], [ 209715200, %148 ]
   %156 = add i64 %95, 503
   %157 = add i64 %156, %102
   %158 = add i64 %157, %.sroa.0.0

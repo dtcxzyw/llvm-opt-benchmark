@@ -187,9 +187,9 @@ define internal i32 @dissect_pcap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %29, label %30, label %172
 
 30:                                               ; preds = %27, %24, %21, %4
-  %.sink143 = phi i32 [ 0, %4 ], [ 0, %24 ], [ -2147483648, %21 ], [ -2147483648, %27 ]
-  %.sink = phi i32 [ 1000, %4 ], [ 1, %24 ], [ 1000, %21 ], [ 1, %27 ]
-  %.0 = phi ptr [ @.str.46, %4 ], [ @.str.48, %24 ], [ @.str.47, %21 ], [ @.str.49, %27 ]
+  %.sink143 = phi i32 [ 0, %4 ], [ -2147483648, %21 ], [ 0, %24 ], [ -2147483648, %27 ]
+  %.sink = phi i32 [ 1000, %4 ], [ 1000, %21 ], [ 1, %24 ], [ 1, %27 ]
+  %.0 = phi ptr [ @.str.46, %4 ], [ @.str.47, %21 ], [ @.str.48, %24 ], [ @.str.49, %27 ]
   store volatile i32 %.sink143, ptr %7, align 4
   store volatile i32 %.sink, ptr %8, align 4
   %31 = load i32, ptr @proto_pcap, align 4

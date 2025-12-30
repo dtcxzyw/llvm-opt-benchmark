@@ -1368,7 +1368,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i22:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN6vectorIjLb0EjE6resizeEj.exit26
 
 _ZN6vectorIjLb0EjE6resizeEj.exit26:               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit12.thread, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i24, %43, %51, %.lr.ph.preheader.i21
-  %58 = phi ptr [ %46, %.lr.ph.preheader.i21 ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i24 ], [ %44, %43 ], [ %46, %51 ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit12.thread ]
+  %58 = phi ptr [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i24 ], [ %44, %43 ], [ %46, %51 ], [ %46, %.lr.ph.preheader.i21 ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit12.thread ]
   %59 = load ptr, ptr %3, align 8, !tbaa !21
   %60 = icmp eq ptr %59, null
   %.pre54 = load ptr, ptr %4, align 8, !tbaa !21
@@ -1573,7 +1573,7 @@ _ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit.thread.i.i.i: ; preds = %_Z
   invoke void @_ZN6vectorIPN2dd6solver8equationELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %71)
           to label %_ZN2dd6solver14scoped_processD2Ev.exit.sink.split.sink.split unwind label %.loopexit.split-lp
 
-83:                                               ; preds = %55, %_ZNK2dd3pdd6is_valEv.exit.i.i
+83:                                               ; preds = %_ZNK2dd3pdd6is_valEv.exit.i.i, %55
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 0, ptr %84, align 8, !tbaa !100
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1845,7 +1845,7 @@ _ZN2dd6solver8canceledEv.exit.thread4.i33:        ; preds = %_ZN2dd6solver8cance
           to label %_ZN2dd6solver6retireEPNS0_8equationE.exit unwind label %.loopexit.split-lp
 
 _ZN2dd6solver6retireEPNS0_8equationE.exit:        ; preds = %190, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit3.i27, %182, %_ZN2dd6solver8canceledEv.exit.i31, %_ZN2dd6solver8canceledEv.exit.thread4.i33, %128, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit3.i, %117, %_ZN2dd6solver8canceledEv.exit.i, %_ZN2dd6solver8canceledEv.exit.thread4.i, %_ZN2dd6solver8equationD2Ev.exit.i.i, %202, %205
-  %.1.ph = phi i1 [ false, %128 ], [ false, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit3.i27 ], [ true, %_ZN2dd6solver8equationD2Ev.exit.i.i ], [ true, %205 ], [ false, %190 ], [ true, %202 ], [ false, %_ZN2dd6solver8canceledEv.exit.thread4.i ], [ false, %_ZN2dd6solver8canceledEv.exit.i ], [ false, %117 ], [ false, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit3.i ], [ false, %_ZN2dd6solver8canceledEv.exit.thread4.i33 ], [ false, %_ZN2dd6solver8canceledEv.exit.i31 ], [ false, %182 ]
+  %.1.ph = phi i1 [ true, %_ZN2dd6solver8equationD2Ev.exit.i.i ], [ true, %202 ], [ true, %205 ], [ false, %_ZN2dd6solver8canceledEv.exit.thread4.i ], [ false, %_ZN2dd6solver8canceledEv.exit.i ], [ false, %117 ], [ false, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit3.i ], [ false, %128 ], [ false, %_ZN2dd6solver8canceledEv.exit.thread4.i33 ], [ false, %_ZN2dd6solver8canceledEv.exit.i31 ], [ false, %182 ], [ false, %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit3.i27 ], [ false, %190 ]
   %.pr = load ptr, ptr %38, align 8, !tbaa !89
   %.not.i35 = icmp eq ptr %.pr, null
   br i1 %.not.i35, label %_ZN2dd6solver14scoped_processD2Ev.exit, label %206
@@ -2435,7 +2435,7 @@ _ZNK2dd3pdd6is_valEv.exit:                        ; preds = %38
   br i1 %.not.old, label %_ZN2dd6solver8canceledEv.exit.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.critedge31, %_ZNK2dd3pdd6is_valEv.exit
-  %.02856.be = phi ptr [ %44, %_ZNK2dd3pdd6is_valEv.exit ], [ %.old, %.critedge31 ]
+  %.02856.be = phi ptr [ %.old, %.critedge31 ], [ %44, %_ZNK2dd3pdd6is_valEv.exit ]
   br label %.lr.ph
 
 _ZN2dd6solver8canceledEv.exit.thread:             ; preds = %.critedge31, %_ZN2dd6solver8canceledEv.exit, %_ZNK2dd3pdd6is_valEv.exit, %23, %38
@@ -2824,7 +2824,7 @@ _ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit: ; preds =
   br label %116
 
 116:                                              ; preds = %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit, %33, %_ZNK2dd6solver14is_too_complexERKNS_3pddE.exit.thread
-  %.1 = phi i1 [ false, %33 ], [ false, %_ZNK2dd6solver14is_too_complexERKNS_3pddE.exit.thread ], [ true, %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit ]
+  %.1 = phi i1 [ false, %_ZNK2dd6solver14is_too_complexERKNS_3pddE.exit.thread ], [ false, %33 ], [ true, %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit ]
   %117 = load ptr, ptr %37, align 8, !tbaa !32
   %118 = load i32, ptr %6, align 8, !tbaa !34
   %119 = load ptr, ptr %117, align 8, !tbaa !35
@@ -2920,7 +2920,7 @@ define hidden noundef zeroext i1 @_ZN2dd6solver8canceledEv(ptr noundef nonnull r
   br label %_ZN8reslimit11is_canceledEv.exit
 
 _ZN8reslimit11is_canceledEv.exit:                 ; preds = %1, %7, %10
-  %15 = phi i1 [ false, %1 ], [ %.not.i.i, %10 ], [ true, %7 ]
+  %15 = phi i1 [ false, %1 ], [ true, %7 ], [ %.not.i.i, %10 ]
   ret i1 %15
 }
 
@@ -3047,7 +3047,7 @@ _ZNK2dd3pdd2hiEv.exit:                            ; preds = %41, %29
   br label %.critedge20
 
 .critedge20:                                      ; preds = %13, %71, %66, %_ZNK2dd3pdd6is_valEv.exit
-  %76 = phi i1 [ false, %_ZNK2dd3pdd6is_valEv.exit ], [ %.ph54, %71 ], [ %.ph54, %66 ], [ false, %13 ]
+  %76 = phi i1 [ false, %_ZNK2dd3pdd6is_valEv.exit ], [ %.ph54, %66 ], [ %.ph54, %71 ], [ false, %13 ]
   ret i1 %76
 }
 
@@ -3115,7 +3115,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZltRK8rationali(ptr noundef nonn
           to label %_ZltRK8rationalS1_.exit unwind label %43
 
 _ZltRK8rationalS1_.exit:                          ; preds = %.noexc, %30, %37
-  %.0.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
+  %.0.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
   %39 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !139
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %40
@@ -3491,7 +3491,7 @@ _ZN2dd6solver14check_conflictERNS0_8equationE.exit: ; preds = %96, %.noexc23
   store i32 %109, ptr %106, align 4, !tbaa !31
   br label %_ZN2dd6solver6retireEPNS0_8equationE.exit
 
-.critedge:                                        ; preds = %81, %_ZNK2dd3pdd6is_valEv.exit.i.i
+.critedge:                                        ; preds = %_ZNK2dd3pdd6is_valEv.exit.i.i, %81
   %110 = load i8, ptr %4, align 1, !range !77
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %.critedge.thread
@@ -3600,7 +3600,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %139
   br label %_ZN2dd6solver6retireEPNS0_8equationE.exit
 
 _ZN2dd6solver6retireEPNS0_8equationE.exit:        ; preds = %139, %_ZN2dd6solver14check_conflictERNS0_8equationE.exit, %_ZN2dd6solver8equationD2Ev.exit.i.i, %.critedge.thread, %_ZNK6vectorIjLb0EjE5emptyEv.exit, %145
-  %.sroa.18.1 = phi i32 [ %168, %.critedge.thread ], [ %.sroa.18.061, %_ZN2dd6solver14check_conflictERNS0_8equationE.exit ], [ %.sroa.18.2, %_ZNK6vectorIjLb0EjE5emptyEv.exit ], [ %.sroa.18.2, %145 ], [ %.sroa.18.061, %_ZN2dd6solver8equationD2Ev.exit.i.i ], [ %.sroa.18.2, %139 ]
+  %.sroa.18.1 = phi i32 [ %.sroa.18.061, %_ZN2dd6solver14check_conflictERNS0_8equationE.exit ], [ %.sroa.18.2, %_ZNK6vectorIjLb0EjE5emptyEv.exit ], [ %.sroa.18.2, %145 ], [ %168, %.critedge.thread ], [ %.sroa.18.061, %_ZN2dd6solver8equationD2Ev.exit.i.i ], [ %.sroa.18.2, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4478,7 +4478,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %_ZN6vectorIPN2dd6
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit, %_ZN6vectorIPN2dd6solver8equationELb0EjE5resetEv.exit, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit
-  %14 = phi ptr [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE5resetEv.exit ], [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ], [ %33, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit ]
+  %14 = phi ptr [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ], [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE5resetEv.exit ], [ %33, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = icmp eq ptr %16, null
@@ -4529,7 +4529,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit: ; preds = %26, %32
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge42:                                    ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit30, %._crit_edge, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit24
-  %40 = phi ptr [ %14, %._crit_edge ], [ %14, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit24 ], [ %59, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit30 ]
+  %40 = phi ptr [ %14, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit24 ], [ %14, %._crit_edge ], [ %59, %_ZN6vectorIPN2dd6solver8equationELb0EjE9push_backERKS3_.exit30 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %42 = load ptr, ptr %41, align 8, !tbaa !24
   %43 = icmp eq ptr %42, null
@@ -6624,7 +6624,7 @@ _ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit.i.i.i: ; p
   br label %89
 
 89:                                               ; preds = %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit.i.i.i, %_ZNK2dd6solver14is_too_complexERKNS_3pddE.exit.thread.i.i.i, %3
-  %.0.i.i.i = phi i1 [ false, %3 ], [ false, %_ZNK2dd6solver14is_too_complexERKNS_3pddE.exit.thread.i.i.i ], [ true, %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %_ZNK2dd6solver14is_too_complexERKNS_3pddE.exit.thread.i.i.i ], [ false, %3 ], [ true, %_ZN2dd6solver32update_stats_max_degree_and_sizeERKNS0_8equationE.exit.i.i.i ]
   %90 = load ptr, ptr %15, align 8, !tbaa !32
   %91 = load i32, ptr %4, align 8, !tbaa !34
   %92 = load ptr, ptr %90, align 8, !tbaa !35

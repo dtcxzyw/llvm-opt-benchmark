@@ -160,7 +160,7 @@ hwloc_libxml2_cleanup.exit:                       ; preds = %4, %8
   br label %13
 
 13:                                               ; preds = %hwloc_libxml2_cleanup.exit, %10, %12
-  %.0 = phi i32 [ %7, %10 ], [ %7, %12 ], [ 0, %hwloc_libxml2_cleanup.exit ]
+  %.0 = phi i32 [ %7, %12 ], [ %7, %10 ], [ 0, %hwloc_libxml2_cleanup.exit ]
   ret i32 %.0
 }
 
@@ -435,7 +435,7 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br label %hwloc_libxml2_cleanup.exit
 
 hwloc_libxml2_cleanup.exit:                       ; preds = %105, %104, %103, %102, %30, %29
-  %.045 = phi i32 [ -1, %30 ], [ %97, %103 ], [ -1, %29 ], [ %97, %102 ], [ -1, %104 ], [ -1, %105 ]
+  %.045 = phi i32 [ -1, %29 ], [ -1, %30 ], [ %97, %102 ], [ %97, %103 ], [ -1, %104 ], [ -1, %105 ]
   ret i32 %.045
 }
 
@@ -467,7 +467,7 @@ hwloc_libxml2_cleanup.exit:                       ; preds = %3, %7
   br label %12
 
 12:                                               ; preds = %hwloc_libxml2_cleanup.exit, %9, %11
-  %.0 = phi i32 [ %6, %9 ], [ %6, %11 ], [ 0, %hwloc_libxml2_cleanup.exit ]
+  %.0 = phi i32 [ %6, %11 ], [ %6, %9 ], [ 0, %hwloc_libxml2_cleanup.exit ]
   ret i32 %.0
 }
 

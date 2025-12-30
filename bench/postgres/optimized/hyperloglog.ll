@@ -52,7 +52,7 @@ define dso_local void @initHyperLogLog(ptr noundef captures(none) %0, i8 noundef
   br label %23
 
 23:                                               ; preds = %7, %18, %17, %16
-  %.0 = phi double [ %22, %18 ], [ 7.090000e-01, %17 ], [ 6.970000e-01, %16 ], [ 6.730000e-01, %7 ]
+  %.0 = phi double [ %22, %18 ], [ 6.970000e-01, %16 ], [ 7.090000e-01, %17 ], [ 6.730000e-01, %7 ]
   %24 = uitofp i64 %15 to double
   %25 = fmul double %.0, %24
   %26 = fmul double %25, %24
@@ -134,7 +134,7 @@ define dso_local void @initHyperLogLogError(ptr noundef captures(none) %0, doubl
   br label %initHyperLogLog.exit
 
 initHyperLogLog.exit:                             ; preds = %.thread, %23, %24, %25
-  %.0.i = phi double [ %29, %25 ], [ 7.090000e-01, %24 ], [ 6.970000e-01, %23 ], [ 6.730000e-01, %.thread ]
+  %.0.i = phi double [ %29, %25 ], [ 6.970000e-01, %23 ], [ 7.090000e-01, %24 ], [ 6.730000e-01, %.thread ]
   %30 = uitofp i64 %22 to double
   %31 = fmul double %.0.i, %30
   %32 = fmul double %31, %30

@@ -109,7 +109,7 @@ define hidden noundef zeroext i1 @_ZN16MethodComparator12methods_EMCPEP6MethodS1
   %.not7.i = icmp eq i16 %27, %29
   br i1 %.not7.i, label %78, label %30
 
-30:                                               ; preds = %20, %15, %25
+30:                                               ; preds = %15, %20, %25
   %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_85ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not41 = icmp eq ptr %31, null
   br i1 %.not41, label %_ZN12ResourceMarkD2Ev.exit, label %32
@@ -168,7 +168,7 @@ define hidden noundef zeroext i1 @_ZN16MethodComparator12methods_EMCPEP6MethodS1
   br label %_ZN16MethodComparator27check_stack_and_locals_sizeEP6MethodS1_.exit28
 
 _ZN16MethodComparator27check_stack_and_locals_sizeEP6MethodS1_.exit28: ; preds = %46, %62, %67
-  %.0.i24 = phi i32 [ 2, %62 ], [ 1, %46 ], [ %..i27, %67 ]
+  %.0.i24 = phi i32 [ 1, %46 ], [ 2, %62 ], [ %..i27, %67 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_85ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str, ptr noundef %55, i32 noundef %.0.i24)
   br label %72
 
@@ -330,7 +330,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN16MethodComparator27check_stack_an
   br label %21
 
 21:                                               ; preds = %16, %11, %2
-  %.0 = phi i32 [ 2, %11 ], [ 1, %2 ], [ %., %16 ]
+  %.0 = phi i32 [ 1, %2 ], [ 2, %11 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -453,8 +453,8 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes10leng
   br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 _ZN9Bytecodes9length_atEP6MethodPh.exit.thread22: ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, %49, %1, %56, %52
-  %.015 = phi i32 [ %22, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
-  %.014 = phi i32 [ %19, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.014, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1369,7 +1369,7 @@ _ZNK18BaseBytecodeStream8bytecodeEv.exit251:      ; preds = %_ZNK18BaseBytecodeS
   br label %.loopexit264
 
 .loopexit264:                                     ; preds = %.lr.ph, %390, %584, %573, %_ZNK18BaseBytecodeStream8bytecodeEv.exit251, %545, %544, %517, %_ZNK18BaseBytecodeStream8bytecodeEv.exit237, %_ZNK14BytecodeStream9get_indexEv.exit231, %419, %416, %395, %375, %_ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219, %289, %255, %231, %252, %_ZNK14BytecodeStream12get_index_u4Ev.exit217, %228, %_ZNK14BytecodeStream12get_index_u2Ev.exit213, %181, %196, %_ZNK14BytecodeStream12get_index_u2Ev.exit203, %118, %133, %56, %_ZNK14BytecodeStream12get_index_u2Ev.exit193, %.loopexit
-  %.0 = phi i1 [ true, %.loopexit ], [ false, %573 ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit193 ], [ false, %56 ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit203 ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit213 ], [ false, %_ZNK14BytecodeStream12get_index_u4Ev.exit217 ], [ false, %255 ], [ false, %289 ], [ false, %231 ], [ false, %584 ], [ false, %_ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219 ], [ false, %375 ], [ false, %390 ], [ false, %252 ], [ false, %395 ], [ false, %416 ], [ false, %419 ], [ false, %_ZNK14BytecodeStream9get_indexEv.exit231 ], [ false, %_ZNK18BaseBytecodeStream8bytecodeEv.exit237 ], [ false, %544 ], [ false, %517 ], [ false, %545 ], [ false, %_ZNK18BaseBytecodeStream8bytecodeEv.exit251 ], [ false, %133 ], [ false, %118 ], [ false, %196 ], [ false, %181 ], [ false, %228 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %.loopexit ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit193 ], [ false, %56 ], [ false, %133 ], [ false, %118 ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit203 ], [ false, %196 ], [ false, %181 ], [ false, %_ZNK14BytecodeStream12get_index_u2Ev.exit213 ], [ false, %228 ], [ false, %_ZNK14BytecodeStream12get_index_u4Ev.exit217 ], [ false, %252 ], [ false, %231 ], [ false, %255 ], [ false, %289 ], [ false, %_ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit219 ], [ false, %375 ], [ false, %395 ], [ false, %416 ], [ false, %419 ], [ false, %_ZNK14BytecodeStream9get_indexEv.exit231 ], [ false, %_ZNK18BaseBytecodeStream8bytecodeEv.exit237 ], [ false, %517 ], [ false, %544 ], [ false, %545 ], [ false, %_ZNK18BaseBytecodeStream8bytecodeEv.exit251 ], [ false, %573 ], [ false, %584 ], [ false, %390 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1596,7 +1596,7 @@ define hidden noundef zeroext i1 @_ZN16MethodComparator19pool_constants_sameEiiP
   br label %.thread78
 
 .thread78:                                        ; preds = %32, %4, %38, %42, %.thread, %57, %68, %73, %76, %59, %44, %39, %34, %25, %18, %17, %79
-  %.0 = phi i1 [ false, %68 ], [ false, %17 ], [ true, %79 ], [ false, %18 ], [ false, %25 ], [ false, %38 ], [ false, %34 ], [ false, %39 ], [ false, %44 ], [ false, %59 ], [ false, %76 ], [ false, %73 ], [ false, %57 ], [ false, %4 ], [ false, %.thread ], [ false, %42 ], [ false, %32 ]
+  %.0 = phi i1 [ true, %79 ], [ false, %17 ], [ false, %18 ], [ false, %25 ], [ false, %34 ], [ false, %39 ], [ false, %44 ], [ false, %59 ], [ false, %76 ], [ false, %73 ], [ false, %68 ], [ false, %57 ], [ false, %.thread ], [ false, %42 ], [ false, %38 ], [ false, %4 ], [ false, %32 ]
   ret i1 %.0
 }
 

@@ -592,7 +592,7 @@ _ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit.i: ; 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %95, %94, %87
-  %.sink.i = phi i8 [ %98, %95 ], [ 1, %94 ], [ 0, %87 ]
+  %.sink.i = phi i8 [ 1, %94 ], [ %98, %95 ], [ 0, %87 ]
   store i8 %.sink.i, ptr %65, align 1, !tbaa !294
   br label %_ZNSt10unique_ptrIN4llvm21formatted_raw_ostreamESt14default_deleteIS1_EED2Ev.exit
 
@@ -1096,8 +1096,8 @@ define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer18addExplicitCommentERKN4l
   br label %_ZNK4llvm5Twine18getSingleStringRefEv.exit
 
 _ZNK4llvm5Twine18getSingleStringRefEv.exit:       ; preds = %2, %15, %17, %19, %24
-  %.sroa.0.0.i = phi ptr [ %25, %24 ], [ null, %2 ], [ %21, %19 ], [ null, %15 ], [ %16, %17 ]
-  %.sroa.6.0.i = phi i64 [ %27, %24 ], [ 0, %2 ], [ %23, %19 ], [ 0, %15 ], [ %18, %17 ]
+  %.sroa.0.0.i = phi ptr [ %21, %19 ], [ %25, %24 ], [ null, %2 ], [ null, %15 ], [ %16, %17 ]
+  %.sroa.6.0.i = phi i64 [ %23, %19 ], [ %27, %24 ], [ 0, %2 ], [ 0, %15 ], [ %18, %17 ]
   store ptr %.sroa.0.0.i, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.6.0.i, ptr %28, align 8
@@ -3804,7 +3804,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %382, %380, %366, %3
   br label %389
 
 389:                                              ; preds = %.sink.split, %3, %3, %171, %4
-  %.0 = phi i1 [ false, %3 ], [ false, %4 ], [ false, %3 ], [ false, %171 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %4 ], [ false, %171 ], [ false, %3 ], [ false, %3 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -5392,9 +5392,9 @@ define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer16emitLOHDirectiveEN4llvm9
   br label %_ZN4llvmL13MCLOHIdToNameENS_9MCLOHTypeE.exit
 
 _ZN4llvmL13MCLOHIdToNameENS_9MCLOHTypeE.exit:     ; preds = %3, %4, %5, %6, %7, %8, %9, %10, %11
-  %.sroa.0.0.i = phi ptr [ @.str.104, %11 ], [ @.str.97, %4 ], [ @.str.98, %5 ], [ @.str.99, %6 ], [ @.str.100, %7 ], [ @.str.101, %8 ], [ @.str.102, %9 ], [ @.str.103, %10 ], [ null, %3 ]
-  %.not.i17 = phi i1 [ false, %11 ], [ false, %4 ], [ false, %5 ], [ false, %6 ], [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ true, %3 ]
-  %.sroa.11.0.i = phi i64 [ 10, %11 ], [ 8, %4 ], [ 7, %5 ], [ 10, %6 ], [ 13, %7 ], [ 10, %8 ], [ 13, %9 ], [ 7, %10 ], [ 0, %3 ]
+  %.sroa.0.0.i = phi ptr [ @.str.97, %4 ], [ @.str.98, %5 ], [ @.str.99, %6 ], [ @.str.100, %7 ], [ @.str.101, %8 ], [ @.str.102, %9 ], [ @.str.103, %10 ], [ @.str.104, %11 ], [ null, %3 ]
+  %.not.i17 = phi i1 [ false, %4 ], [ false, %5 ], [ false, %6 ], [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ true, %3 ]
+  %.sroa.11.0.i = phi i64 [ 8, %4 ], [ 7, %5 ], [ 10, %6 ], [ 13, %7 ], [ 10, %8 ], [ 13, %9 ], [ 7, %10 ], [ 10, %11 ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %13 = load ptr, ptr %12, align 8, !tbaa !295
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -14148,8 +14148,8 @@ define internal noundef ptr @_ZN12_GLOBAL__N_113MCAsmStreamer19emitDwarfUnitLeng
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %10, %15, %16
-  %.sink7 = phi i8 [ %.014.i.i, %16 ], [ 3, %15 ], [ %14, %10 ]
-  %.sink = phi i8 [ 3, %16 ], [ 1, %15 ], [ 1, %10 ]
+  %.sink7 = phi i8 [ 3, %15 ], [ %.014.i.i, %16 ], [ %14, %10 ]
+  %.sink = phi i8 [ 1, %15 ], [ 3, %16 ], [ 1, %10 ]
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 %.sink7, ptr %21, align 8, !tbaa !535
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 33
@@ -16393,7 +16393,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt1
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_node9_M_insertES0_IPSt18_Rb_tree_node_baseSD_E.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_node9_M_insertES0_IPSt18_Rb_tree_node_baseSD_E.exit: ; preds = %35, %38
-  %43 = phi i1 [ %42, %38 ], [ true, %35 ]
+  %43 = phi i1 [ true, %35 ], [ %42, %38 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef nonnull %8, ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %36) #24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !491
@@ -16614,8 +16614,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineT
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

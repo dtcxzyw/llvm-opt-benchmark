@@ -347,7 +347,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -834,7 +834,7 @@ define noundef double @uprv_fmax_77(double noundef %0, double noundef %1) local_
   br label %17
 
 17:                                               ; preds = %2, %6, %13, %14
-  %.0 = phi double [ %1, %13 ], [ %16, %14 ], [ 0x7FF8000000000000, %6 ], [ 0x7FF8000000000000, %2 ]
+  %.0 = phi double [ %16, %14 ], [ %1, %13 ], [ 0x7FF8000000000000, %6 ], [ 0x7FF8000000000000, %2 ]
   ret double %.0
 }
 
@@ -867,7 +867,7 @@ define noundef double @uprv_fmin_77(double noundef %0, double noundef %1) local_
   br label %17
 
 17:                                               ; preds = %2, %6, %13, %14
-  %.0 = phi double [ %1, %13 ], [ %16, %14 ], [ 0x7FF8000000000000, %6 ], [ 0x7FF8000000000000, %2 ]
+  %.0 = phi double [ %16, %14 ], [ %1, %13 ], [ 0x7FF8000000000000, %6 ], [ 0x7FF8000000000000, %2 ]
   ret double %.0
 }
 
@@ -919,7 +919,7 @@ define noundef double @uprv_trunc_77(double noundef %0) local_unnamed_addr #11 {
   br label %13
 
 13:                                               ; preds = %5, %1, %11, %9
-  %.0 = phi double [ %12, %11 ], [ 0x7FF8000000000000, %1 ], [ %10, %9 ], [ 0x7FF0000000000000, %5 ]
+  %.0 = phi double [ %10, %9 ], [ %12, %11 ], [ 0x7FF8000000000000, %1 ], [ 0x7FF0000000000000, %5 ]
   ret double %.0
 }
 
@@ -1178,7 +1178,7 @@ _ZL18remapShortTimeZonePKcS0_ii.exit:             ; preds = %89
   br label %_ZL16skipZoneIDPrefixPPKc.exit
 
 _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %_ZL18remapShortTimeZonePKcS0_ii.exit, %62, %46, %15, %12, %17, %_ZL18remapShortTimeZonePKcS0_ii.exit.thread
-  %.026 = phi ptr [ %18, %17 ], [ %97, %_ZL18remapShortTimeZonePKcS0_ii.exit.thread ], [ %99, %_ZL18remapShortTimeZonePKcS0_ii.exit ], [ %spec.select, %12 ], [ %16, %15 ], [ %61, %62 ], [ %.161, %46 ]
+  %.026 = phi ptr [ %97, %_ZL18remapShortTimeZonePKcS0_ii.exit.thread ], [ %99, %_ZL18remapShortTimeZonePKcS0_ii.exit ], [ %18, %17 ], [ %16, %15 ], [ %spec.select, %12 ], [ %.161, %46 ], [ %61, %62 ]
   ret ptr %.026
 }
 
@@ -1565,7 +1565,7 @@ _ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit: ; preds = %.noexc
   %123 = icmp sgt i64 %121, 0
   br i1 %123, label %.lr.ph.i, label %.loopexit, !llvm.loop !44
 
-.thread69:                                        ; preds = %.lr.ph.i, %96, %87
+.thread69:                                        ; preds = %.lr.ph.i, %87, %96
   %124 = call i32 @fclose(ptr noundef nonnull %86)
   br label %.thread66
 
@@ -1643,7 +1643,7 @@ _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %131, %134
   br label %.thread73
 
 .thread73:                                        ; preds = %14, %_ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit, %.thread79
-  %.03477 = phi ptr [ null, %14 ], [ %.03483, %.thread79 ], [ null, %_ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit ]
+  %.03477 = phi ptr [ %.03483, %.thread79 ], [ null, %_ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit ], [ null, %14 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1787,7 +1787,7 @@ define signext range(i8 0, 2) i8 @uprv_pathIsAbsolute_77(ptr noundef readonly ca
   br label %4
 
 4:                                                ; preds = %2, %1
-  %.0 = phi i8 [ %spec.select, %2 ], [ 0, %1 ]
+  %.0 = phi i8 [ 0, %1 ], [ %spec.select, %2 ]
   ret i8 %.0
 }
 
@@ -1840,7 +1840,7 @@ define ptr @u_getDataDirectory_77() local_unnamed_addr #1 {
   br label %.thread.i
 
 .thread.i:                                        ; preds = %22, %20, %18, %7
-  %.0.i5.i = phi ptr [ %16, %18 ], [ %16, %22 ], [ %16, %20 ], [ @.str.5, %7 ]
+  %.0.i5.i = phi ptr [ %16, %22 ], [ %16, %20 ], [ %16, %18 ], [ @.str.5, %7 ]
   store ptr %.0.i5.i, ptr @_ZL14gDataDirectory, align 8, !tbaa !20
   tail call void @ucln_common_registerCleanup_77(i32 noundef 24, ptr noundef nonnull @_ZL13putil_cleanupv)
   br label %_ZL19dataDirectoryInitFnv.exit

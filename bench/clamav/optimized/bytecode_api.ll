@@ -237,7 +237,7 @@ fmap_readn.exit:                                  ; preds = %24
   br label %38
 
 fmap_readn.exit.thread:                           ; preds = %24, %22, %14
-  %.0.i28 = phi i32 [ 0, %14 ], [ -1, %24 ], [ -1, %22 ]
+  %.0.i28 = phi i32 [ -1, %24 ], [ -1, %22 ], [ 0, %14 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %2) #28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %37 = load ptr, ptr %36, align 8, !tbaa !34
@@ -553,7 +553,7 @@ define i32 @cli_bcapi_write(ptr noundef captures(none) %0, ptr noundef %1, i32 n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %50, %55, %46, %38, %30, %23, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %30 ], [ -1, %23 ], [ -1, %38 ], [ %52, %50 ], [ -1, %55 ], [ 0, %46 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %30 ], [ -1, %23 ], [ -1, %38 ], [ -1, %55 ], [ %52, %50 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -969,7 +969,7 @@ define i32 @cli_bcapi_file_find_limit(ptr noundef readonly captures(none) %0, pt
   br label %fmap_readn.exit.us
 
 fmap_readn.exit.us:                               ; preds = %47, %37
-  %.0.i.us = phi i64 [ 0, %37 ], [ %49, %47 ]
+  %.0.i.us = phi i64 [ %49, %47 ], [ 0, %37 ]
   %50 = icmp ult i64 %.0.i.us, %9
   %51 = icmp eq i64 %.0.i.us, -1
   %or.cond8.us = or i1 %50, %51
@@ -1023,7 +1023,7 @@ fmap_readn.exit.us:                               ; preds = %47, %37
   br label %fmap_readn.exit.us78
 
 fmap_readn.exit.us78:                             ; preds = %72, %62
-  %.0.i.us79 = phi i64 [ 0, %62 ], [ %74, %72 ]
+  %.0.i.us79 = phi i64 [ %74, %72 ], [ 0, %62 ]
   %75 = icmp ult i64 %.0.i.us79, %9
   %76 = icmp eq i64 %.0.i.us79, -1
   %or.cond8.us80 = or i1 %75, %76
@@ -1080,7 +1080,7 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
   br label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %89, %99
-  %.0.i = phi i64 [ 0, %89 ], [ %101, %99 ]
+  %.0.i = phi i64 [ %101, %99 ], [ 0, %89 ]
   %102 = icmp ult i64 %.0.i, %9
   %103 = icmp eq i64 %.0.i, -1
   %or.cond8 = or i1 %102, %103
@@ -1132,7 +1132,7 @@ cli_memmem.exit.thread.loopexit:                  ; preds = %107, %113
   br label %.split.split
 
 .thread:                                          ; preds = %95, %93, %fmap_readn.exit, %85, %58, %66, %68, %fmap_readn.exit.us78, %fmap_readn.exit.us, %43, %41, %33, %cli_memmem.exit.thread61, %13
-  %.043 = phi i32 [ -1, %13 ], [ %122, %cli_memmem.exit.thread61 ], [ -1, %fmap_readn.exit.us ], [ -1, %58 ], [ -1, %33 ], [ -1, %41 ], [ -1, %43 ], [ -1, %fmap_readn.exit.us78 ], [ -1, %68 ], [ -1, %66 ], [ -1, %85 ], [ -1, %fmap_readn.exit ], [ -1, %93 ], [ -1, %95 ]
+  %.043 = phi i32 [ -1, %13 ], [ %122, %cli_memmem.exit.thread61 ], [ -1, %33 ], [ -1, %41 ], [ -1, %43 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us78 ], [ -1, %68 ], [ -1, %66 ], [ -1, %58 ], [ -1, %85 ], [ -1, %fmap_readn.exit ], [ -1, %93 ], [ -1, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.043
 }
@@ -1496,7 +1496,7 @@ define i32 @cli_bcapi_extract_new(ptr noundef captures(none) %0, i32 noundef %1)
   br label %61
 
 61:                                               ; preds = %11, %2, %60, %19
-  %.032 = phi i32 [ 0, %2 ], [ 13, %19 ], [ %.046, %60 ], [ -1, %11 ]
+  %.032 = phi i32 [ 13, %19 ], [ %.046, %60 ], [ 0, %2 ], [ -1, %11 ]
   ret i32 %.032
 }
 
@@ -1610,8 +1610,8 @@ define i32 @cli_bcapi_read_number(ptr noundef captures(none) %0, i32 noundef %1)
   br i1 %exitcond.not, label %.split54, label %32
 
 .split.us:                                        ; preds = %32, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %19
-  %.us-phi = phi i64 [ %indvars.iv73, %23 ], [ %indvars.iv73, %19 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv, %32 ]
-  %.us-phi51 = phi ptr [ %18, %23 ], [ %18, %19 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %31, %32 ]
+  %.us-phi = phi i64 [ %indvars.iv73, %19 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv, %32 ]
+  %.us-phi51 = phi ptr [ %18, %19 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %31, %32 ]
   %37 = getelementptr inbounds nuw i8, ptr %.us-phi51, i64 %.us-phi
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = load ptr, ptr %5, align 8, !tbaa !3
@@ -1659,7 +1659,7 @@ define i32 @cli_bcapi_read_number(ptr noundef captures(none) %0, i32 noundef %1)
   br i1 %.not40, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.split54, %.split54.us.us, %7, %4, %2, %58
-  %.0 = phi i32 [ -1, %4 ], [ %.1, %58 ], [ -1, %2 ], [ -1, %7 ], [ -1, %.split54.us.us ], [ -1, %.split54 ]
+  %.0 = phi i32 [ %.1, %58 ], [ -1, %2 ], [ -1, %4 ], [ -1, %7 ], [ -1, %.split54.us.us ], [ -1, %.split54 ]
   ret i32 %.0
 }
 
@@ -1906,7 +1906,7 @@ get_hashset.exit:                                 ; preds = %7
   br label %24
 
 24:                                               ; preds = %get_hashset.exit.thread, %get_hashset.exit, %20, %23, %19
-  %.0 = phi i32 [ -1, %get_hashset.exit.thread ], [ 0, %19 ], [ 0, %23 ], [ 0, %20 ], [ 0, %get_hashset.exit ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %23 ], [ 0, %20 ], [ 0, %get_hashset.exit ], [ -1, %get_hashset.exit.thread ]
   ret i32 %.0
 }
 
@@ -1990,7 +1990,7 @@ define i32 @cli_bcapi_buffer_pipe_new_fromfile(ptr noundef captures(none) %0, i3
   br label %20
 
 20:                                               ; preds = %8, %2, %14
-  %.0 = phi i32 [ -1, %2 ], [ %4, %14 ], [ -1, %8 ]
+  %.0 = phi i32 [ %4, %14 ], [ -1, %2 ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -2050,7 +2050,7 @@ get_buffer.exit:                                  ; preds = %7
   br label %29
 
 29:                                               ; preds = %get_buffer.exit.thread, %26, %13, %18, %21
-  %.0 = phi i32 [ 0, %get_buffer.exit.thread ], [ 0, %21 ], [ %spec.select25, %26 ], [ 0, %18 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %18 ], [ %spec.select, %13 ], [ %spec.select25, %26 ], [ 0, %get_buffer.exit.thread ]
   ret i32 %.0
 }
 
@@ -2129,7 +2129,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread28:   ; preds = %get_buffer.exit.i
   br label %cli_bcapi_buffer_pipe_read_avail.exit.thread
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread:     ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread28, %14, %17, %get_buffer.exit.thread, %cli_bcapi_buffer_pipe_read_avail.exit, %32, %.thread
-  %.0 = phi ptr [ %31, %.thread ], [ %39, %32 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit ], [ null, %14 ], [ null, %get_buffer.exit.thread ], [ null, %17 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28 ]
+  %.0 = phi ptr [ %31, %.thread ], [ %39, %32 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit ], [ null, %get_buffer.exit.thread ], [ null, %17 ], [ null, %14 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28 ]
   ret ptr %.0
 }
 
@@ -2189,7 +2189,7 @@ get_buffer.exit:                                  ; preds = %8
   br label %28
 
 28:                                               ; preds = %get_buffer.exit.thread, %19, %23, %14, %24
-  %.0 = phi i32 [ 0, %19 ], [ -1, %14 ], [ 0, %24 ], [ 0, %23 ], [ -1, %get_buffer.exit.thread ]
+  %.0 = phi i32 [ 0, %24 ], [ -1, %14 ], [ 0, %23 ], [ 0, %19 ], [ -1, %get_buffer.exit.thread ]
   ret i32 %.0
 }
 
@@ -2274,7 +2274,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.i
   br label %cli_bcapi_buffer_pipe_write_avail.exit.thread
 
 cli_bcapi_buffer_pipe_write_avail.exit.thread:    ; preds = %get_buffer.exit.i, %get_buffer.exit.thread, %cli_bcapi_buffer_pipe_write_avail.exit, %19
-  %.0 = phi ptr [ %21, %19 ], [ null, %get_buffer.exit.i ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit ], [ null, %get_buffer.exit.thread ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit ], [ null, %get_buffer.exit.thread ], [ null, %get_buffer.exit.i ]
   ret ptr %.0
 }
 
@@ -2376,7 +2376,7 @@ get_buffer.exit:                                  ; preds = %12
   br i1 %or.cond, label %get_buffer.exit31, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %get_buffer.exit, %12, %4
-  %.sink = phi i32 [ %1, %12 ], [ %1, %4 ], [ %2, %get_buffer.exit ]
+  %.sink = phi i32 [ %1, %4 ], [ %1, %12 ], [ %2, %get_buffer.exit ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.135, i32 noundef %.sink) #28
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.49) #28
   br label %32
@@ -2427,7 +2427,7 @@ get_buffer.exit31:                                ; preds = %get_buffer.exit
   br label %32
 
 32:                                               ; preds = %21, %get_buffer.exit31, %31, %30, %29, %28, %get_buffer.exit.thread
-  %.0 = phi i32 [ -1, %31 ], [ -1, %28 ], [ -1, %29 ], [ -1, %30 ], [ -1, %get_buffer.exit31 ], [ -1, %get_buffer.exit.thread ], [ %6, %21 ]
+  %.0 = phi i32 [ -1, %31 ], [ -1, %28 ], [ -1, %29 ], [ -1, %30 ], [ -1, %get_buffer.exit.thread ], [ -1, %get_buffer.exit31 ], [ %6, %21 ]
   ret i32 %.0
 }
 
@@ -2524,9 +2524,9 @@ get_buffer.exit.i:                                ; preds = %24
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thread.i, %30, %35, %38, %43
-  %46 = phi ptr [ %.pre96, %get_buffer.exit.thread.i ], [ %21, %38 ], [ %21, %43 ], [ %21, %35 ], [ %21, %30 ]
-  %47 = phi i32 [ %.pre, %get_buffer.exit.thread.i ], [ %13, %38 ], [ %13, %43 ], [ %13, %35 ], [ %13, %30 ]
-  %.0.i63 = phi i32 [ 0, %get_buffer.exit.thread.i ], [ 0, %38 ], [ %spec.select25.i, %43 ], [ 0, %35 ], [ %spec.select.i, %30 ]
+  %46 = phi ptr [ %21, %38 ], [ %21, %35 ], [ %21, %30 ], [ %21, %43 ], [ %.pre96, %get_buffer.exit.thread.i ]
+  %47 = phi i32 [ %13, %38 ], [ %13, %35 ], [ %13, %30 ], [ %13, %43 ], [ %.pre, %get_buffer.exit.thread.i ]
+  %.0.i63 = phi i32 [ 0, %38 ], [ 0, %35 ], [ %spec.select.i, %30 ], [ %spec.select25.i, %43 ], [ 0, %get_buffer.exit.thread.i ]
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %.0.i63, ptr %48, align 8, !tbaa !121
   %49 = icmp eq ptr %46, null
@@ -2598,7 +2598,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread28.i: ; preds = %get_buffer.exit.i.i
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i66, %57, %60, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i, %.thread.i, %73
-  %.0.i67 = phi ptr [ %80, %.thread.i ], [ %78, %73 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %57 ], [ null, %get_buffer.exit.thread.i66 ], [ null, %60 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
+  %.0.i67 = phi ptr [ %80, %.thread.i ], [ %78, %73 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i66 ], [ null, %60 ], [ null, %57 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
   store ptr %.0.i67, ptr %11, align 8, !tbaa !122
   %81 = load i32, ptr %16, align 4, !tbaa !119
   %82 = load ptr, ptr %20, align 8, !tbaa !107
@@ -2678,7 +2678,7 @@ cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i
   br label %cli_bcapi_buffer_pipe_write_get.exit
 
 cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thread.i76, %get_buffer.exit.i.i78, %cli_bcapi_buffer_pipe_write_avail.exit.i, %112
-  %.0.i77 = phi ptr [ %114, %112 ], [ null, %get_buffer.exit.i.i78 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i76 ]
+  %.0.i77 = phi ptr [ %114, %112 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i76 ], [ null, %get_buffer.exit.i.i78 ]
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %.0.i77, ptr %115, align 8, !tbaa !124
   %116 = load i32, ptr %48, align 8, !tbaa !121
@@ -2848,7 +2848,7 @@ cli_bcapi_buffer_pipe_write_stopped.exit:         ; preds = %get_buffer.exit.thr
   br label %get_inflate.exit.thread
 
 get_inflate.exit.thread:                          ; preds = %2, %4, %7, %181, %183, %cli_bcapi_buffer_pipe_write_stopped.exit, %cli_bcapi_buffer_pipe_write_get.exit, %117, %119, %get_inflate.exit, %15, %179
-  %.0 = phi i32 [ -1, %2 ], [ -4, %179 ], [ -1, %cli_bcapi_buffer_pipe_write_get.exit ], [ -1, %15 ], [ -1, %get_inflate.exit ], [ -1, %119 ], [ -1, %117 ], [ %.2, %cli_bcapi_buffer_pipe_write_stopped.exit ], [ -5, %183 ], [ 1, %181 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ -4, %179 ], [ -1, %15 ], [ -1, %get_inflate.exit ], [ -1, %119 ], [ -1, %117 ], [ -1, %cli_bcapi_buffer_pipe_write_get.exit ], [ %.2, %cli_bcapi_buffer_pipe_write_stopped.exit ], [ -5, %183 ], [ 1, %181 ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -2904,7 +2904,7 @@ get_inflate.exit:                                 ; preds = %7
   br label %get_inflate.exit.thread
 
 get_inflate.exit.thread:                          ; preds = %2, %4, %7, %get_inflate.exit, %15, %25
-  %.0 = phi i32 [ %20, %25 ], [ -1, %15 ], [ -1, %get_inflate.exit ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ %20, %25 ], [ -1, %15 ], [ -1, %get_inflate.exit ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -2935,7 +2935,7 @@ get_buffer.exit:                                  ; preds = %11
   br i1 %or.cond, label %get_buffer.exit.i, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %get_buffer.exit, %11, %3
-  %.sink = phi i32 [ %1, %11 ], [ %1, %3 ], [ %2, %get_buffer.exit ]
+  %.sink = phi i32 [ %1, %3 ], [ %1, %11 ], [ %2, %get_buffer.exit ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.135, i32 noundef %.sink) #28
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #28
   br label %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -3072,7 +3072,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread28.i: ; preds = %get_buffer.exit.i.i
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i53, %53, %56, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i, %.thread.i, %69
-  %.0.i54 = phi ptr [ %75, %.thread.i ], [ %73, %69 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %53 ], [ null, %get_buffer.exit.thread.i53 ], [ null, %56 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
+  %.0.i54 = phi ptr [ %75, %.thread.i ], [ %73, %69 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i53 ], [ null, %56 ], [ null, %53 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
   %76 = getelementptr inbounds nuw i8, ptr %42, i64 168
   store ptr %.0.i54, ptr %76, align 8, !tbaa !136
   %77 = tail call i32 @cli_LzmaInit(ptr noundef nonnull %42, i64 noundef 0) #28
@@ -3193,7 +3193,7 @@ get_buffer.exit.i65:                              ; preds = %113
   br label %cli_bcapi_buffer_pipe_read_stopped.exit
 
 cli_bcapi_buffer_pipe_read_stopped.exit:          ; preds = %128, %127, %123, %118, %get_buffer.exit.thread.i63, %101, %100, %96, %91, %get_buffer.exit.thread.i58, %cli_bcapi_buffer_pipe_read_avail.exit.thread76, %cli_bcapi_buffer_pipe_read_avail.exit.thread, %get_buffer.exit.thread
-  %.0 = phi i32 [ -1, %cli_bcapi_buffer_pipe_read_avail.exit.thread ], [ -1, %cli_bcapi_buffer_pipe_read_avail.exit.thread76 ], [ %77, %101 ], [ -1, %get_buffer.exit.thread ], [ %77, %get_buffer.exit.thread.i58 ], [ %77, %91 ], [ %77, %96 ], [ %77, %100 ], [ %5, %get_buffer.exit.thread.i63 ], [ %5, %118 ], [ %5, %123 ], [ %5, %127 ], [ %5, %128 ]
+  %.0 = phi i32 [ -1, %cli_bcapi_buffer_pipe_read_avail.exit.thread ], [ -1, %get_buffer.exit.thread ], [ -1, %cli_bcapi_buffer_pipe_read_avail.exit.thread76 ], [ %77, %get_buffer.exit.thread.i58 ], [ %77, %91 ], [ %77, %96 ], [ %77, %100 ], [ %77, %101 ], [ %5, %get_buffer.exit.thread.i63 ], [ %5, %118 ], [ %5, %123 ], [ %5, %127 ], [ %5, %128 ]
   ret i32 %.0
 }
 
@@ -3287,9 +3287,9 @@ get_buffer.exit.i:                                ; preds = %24
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thread.i, %30, %35, %38, %43
-  %46 = phi ptr [ %.pre79, %get_buffer.exit.thread.i ], [ %21, %38 ], [ %21, %43 ], [ %21, %35 ], [ %21, %30 ]
-  %47 = phi i32 [ %.pre, %get_buffer.exit.thread.i ], [ %13, %38 ], [ %13, %43 ], [ %13, %35 ], [ %13, %30 ]
-  %.0.i46 = phi i32 [ 0, %get_buffer.exit.thread.i ], [ 0, %38 ], [ %spec.select25.i, %43 ], [ 0, %35 ], [ %spec.select.i, %30 ]
+  %46 = phi ptr [ %21, %38 ], [ %21, %35 ], [ %21, %30 ], [ %21, %43 ], [ %.pre79, %get_buffer.exit.thread.i ]
+  %47 = phi i32 [ %13, %38 ], [ %13, %35 ], [ %13, %30 ], [ %13, %43 ], [ %.pre, %get_buffer.exit.thread.i ]
+  %.0.i46 = phi i32 [ 0, %38 ], [ 0, %35 ], [ %spec.select.i, %30 ], [ %spec.select25.i, %43 ], [ 0, %get_buffer.exit.thread.i ]
   %48 = zext i32 %.0.i46 to i64
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 184
   store i64 %48, ptr %49, align 8, !tbaa !135
@@ -3361,7 +3361,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread28.i: ; preds = %get_buffer.exit.i.i
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i49, %58, %61, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i, %.thread.i, %74
-  %.0.i50 = phi ptr [ %80, %.thread.i ], [ %78, %74 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %58 ], [ null, %get_buffer.exit.thread.i49 ], [ null, %61 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
+  %.0.i50 = phi ptr [ %80, %.thread.i ], [ %78, %74 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i49 ], [ null, %61 ], [ null, %58 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store ptr %.0.i50, ptr %81, align 8, !tbaa !136
   %82 = load i32, ptr %16, align 4, !tbaa !134
@@ -3443,7 +3443,7 @@ cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i
   br label %cli_bcapi_buffer_pipe_write_get.exit
 
 cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thread.i59, %get_buffer.exit.i.i61, %cli_bcapi_buffer_pipe_write_avail.exit.i, %114
-  %.0.i60 = phi ptr [ %116, %114 ], [ null, %get_buffer.exit.i.i61 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i59 ]
+  %.0.i60 = phi ptr [ %116, %114 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i59 ], [ null, %get_buffer.exit.i.i61 ]
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 176
   store ptr %.0.i60, ptr %117, align 8, !tbaa !138
   %118 = load i64, ptr %49, align 8, !tbaa !135
@@ -3595,7 +3595,7 @@ get_lzma.exit.i:                                  ; preds = %174
   br label %cli_bcapi_lzma_done.exit
 
 cli_bcapi_lzma_done.exit:                         ; preds = %2, %4, %7, %184, %180, %get_lzma.exit.i, %174, %172, %cli_bcapi_buffer_pipe_write_stopped.exit, %cli_bcapi_buffer_pipe_write_get.exit, %119, %121, %get_lzma.exit, %15
-  %.0 = phi i32 [ -1, %2 ], [ -1, %cli_bcapi_buffer_pipe_write_get.exit ], [ -1, %15 ], [ -1, %get_lzma.exit ], [ -1, %121 ], [ -1, %119 ], [ %124, %184 ], [ %124, %cli_bcapi_buffer_pipe_write_stopped.exit ], [ %124, %172 ], [ %124, %174 ], [ %124, %get_lzma.exit.i ], [ %124, %180 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %get_lzma.exit ], [ -1, %121 ], [ -1, %119 ], [ -1, %cli_bcapi_buffer_pipe_write_get.exit ], [ %124, %cli_bcapi_buffer_pipe_write_stopped.exit ], [ %124, %172 ], [ %124, %174 ], [ %124, %get_lzma.exit.i ], [ %124, %180 ], [ %124, %184 ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -3639,7 +3639,7 @@ get_lzma.exit:                                    ; preds = %7
   br label %get_lzma.exit.thread
 
 get_lzma.exit.thread:                             ; preds = %2, %4, %7, %get_lzma.exit, %15, %19
-  %.0 = phi i32 [ 0, %19 ], [ -1, %15 ], [ -1, %get_lzma.exit ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %19 ], [ -1, %15 ], [ -1, %get_lzma.exit ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -3670,7 +3670,7 @@ get_buffer.exit:                                  ; preds = %11
   br i1 %or.cond, label %get_buffer.exit29, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %get_buffer.exit, %11, %3
-  %.sink = phi i32 [ %1, %11 ], [ %1, %3 ], [ %2, %get_buffer.exit ]
+  %.sink = phi i32 [ %1, %3 ], [ %1, %11 ], [ %2, %get_buffer.exit ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.135, i32 noundef %.sink) #28
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.64) #28
   br label %30
@@ -3719,7 +3719,7 @@ get_buffer.exit29:                                ; preds = %get_buffer.exit
   br label %30
 
 30:                                               ; preds = %20, %get_buffer.exit29, %29, %28, %27, %26, %get_buffer.exit.thread
-  %.0 = phi i32 [ -1, %29 ], [ -1, %26 ], [ -1, %27 ], [ -1, %28 ], [ -1, %get_buffer.exit29 ], [ -1, %get_buffer.exit.thread ], [ %5, %20 ]
+  %.0 = phi i32 [ -1, %29 ], [ -1, %26 ], [ -1, %27 ], [ -1, %28 ], [ -1, %get_buffer.exit.thread ], [ -1, %get_buffer.exit29 ], [ %5, %20 ]
   ret i32 %.0
 }
 
@@ -3813,9 +3813,9 @@ get_buffer.exit.i:                                ; preds = %24
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thread.i, %30, %35, %38, %43
-  %46 = phi ptr [ %.pre74, %get_buffer.exit.thread.i ], [ %21, %38 ], [ %21, %43 ], [ %21, %35 ], [ %21, %30 ]
-  %47 = phi i32 [ %.pre, %get_buffer.exit.thread.i ], [ %13, %38 ], [ %13, %43 ], [ %13, %35 ], [ %13, %30 ]
-  %.0.i43 = phi i32 [ 0, %get_buffer.exit.thread.i ], [ 0, %38 ], [ %spec.select25.i, %43 ], [ 0, %35 ], [ %spec.select.i, %30 ]
+  %46 = phi ptr [ %21, %38 ], [ %21, %35 ], [ %21, %30 ], [ %21, %43 ], [ %.pre74, %get_buffer.exit.thread.i ]
+  %47 = phi i32 [ %13, %38 ], [ %13, %35 ], [ %13, %30 ], [ %13, %43 ], [ %.pre, %get_buffer.exit.thread.i ]
+  %.0.i43 = phi i32 [ 0, %38 ], [ 0, %35 ], [ %spec.select.i, %30 ], [ %spec.select25.i, %43 ], [ 0, %get_buffer.exit.thread.i ]
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %.0.i43, ptr %48, align 8, !tbaa !145
   %49 = icmp eq ptr %46, null
@@ -3887,7 +3887,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread28.i: ; preds = %get_buffer.exit.i.i
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i46, %57, %60, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i, %.thread.i, %73
-  %.0.i47 = phi ptr [ %80, %.thread.i ], [ %78, %73 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %57 ], [ null, %get_buffer.exit.thread.i46 ], [ null, %60 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
+  %.0.i47 = phi ptr [ %80, %.thread.i ], [ %78, %73 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i46 ], [ null, %60 ], [ null, %57 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
   store ptr %.0.i47, ptr %11, align 8, !tbaa !146
   %81 = load i32, ptr %16, align 4, !tbaa !144
   %82 = load ptr, ptr %20, align 8, !tbaa !107
@@ -3967,7 +3967,7 @@ cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i
   br label %cli_bcapi_buffer_pipe_write_get.exit
 
 cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thread.i56, %get_buffer.exit.i.i58, %cli_bcapi_buffer_pipe_write_avail.exit.i, %112
-  %.0.i57 = phi ptr [ %114, %112 ], [ null, %get_buffer.exit.i.i58 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i56 ]
+  %.0.i57 = phi ptr [ %114, %112 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i56 ], [ null, %get_buffer.exit.i.i58 ]
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %.0.i57, ptr %115, align 8, !tbaa !148
   %116 = load i32, ptr %48, align 8, !tbaa !145
@@ -4095,7 +4095,7 @@ cli_bcapi_buffer_pipe_write_stopped.exit:         ; preds = %get_buffer.exit.thr
   br label %get_bzip2.exit.thread
 
 get_bzip2.exit.thread:                            ; preds = %2, %4, %7, %cli_bcapi_buffer_pipe_write_stopped.exit, %167, %170, %cli_bcapi_buffer_pipe_write_get.exit, %117, %119, %get_bzip2.exit, %15
-  %.0 = phi i32 [ -1, %2 ], [ -1, %cli_bcapi_buffer_pipe_write_get.exit ], [ -1, %15 ], [ -1, %get_bzip2.exit ], [ -1, %119 ], [ -1, %117 ], [ %122, %170 ], [ %122, %167 ], [ 0, %cli_bcapi_buffer_pipe_write_stopped.exit ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %get_bzip2.exit ], [ -1, %119 ], [ -1, %117 ], [ -1, %cli_bcapi_buffer_pipe_write_get.exit ], [ %122, %170 ], [ %122, %167 ], [ 0, %cli_bcapi_buffer_pipe_write_stopped.exit ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -4141,7 +4141,7 @@ get_bzip2.exit:                                   ; preds = %7
   br label %get_bzip2.exit.thread
 
 get_bzip2.exit.thread:                            ; preds = %2, %4, %7, %get_bzip2.exit, %15, %19
-  %.0 = phi i32 [ 0, %19 ], [ -1, %15 ], [ -1, %get_bzip2.exit ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %19 ], [ -1, %15 ], [ -1, %get_bzip2.exit ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -4242,7 +4242,7 @@ get_buffer.exit:                                  ; preds = %10
   br label %42
 
 42:                                               ; preds = %21, %35, %38, %.critedge, %get_buffer.exit, %20, %get_buffer.exit.thread
-  %.0 = phi i32 [ -1, %get_buffer.exit ], [ 18, %.critedge ], [ -1, %20 ], [ -1, %get_buffer.exit.thread ], [ %4, %38 ], [ %4, %35 ], [ %4, %21 ]
+  %.0 = phi i32 [ -1, %20 ], [ -1, %get_buffer.exit.thread ], [ -1, %get_buffer.exit ], [ 18, %.critedge ], [ %4, %38 ], [ %4, %35 ], [ %4, %21 ]
   ret i32 %.0
 }
 
@@ -4342,9 +4342,9 @@ get_buffer.exit.i:                                ; preds = %24
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thread.i, %30, %35, %38, %43
-  %46 = phi ptr [ %.pre46, %get_buffer.exit.thread.i ], [ %21, %38 ], [ %21, %43 ], [ %21, %35 ], [ %21, %30 ]
-  %47 = phi i32 [ %.pre, %get_buffer.exit.thread.i ], [ %15, %38 ], [ %15, %43 ], [ %15, %35 ], [ %15, %30 ]
-  %.0.i32 = phi i32 [ 0, %get_buffer.exit.thread.i ], [ 0, %38 ], [ %spec.select25.i, %43 ], [ 0, %35 ], [ %spec.select.i, %30 ]
+  %46 = phi ptr [ %21, %38 ], [ %21, %35 ], [ %21, %30 ], [ %21, %43 ], [ %.pre46, %get_buffer.exit.thread.i ]
+  %47 = phi i32 [ %15, %38 ], [ %15, %35 ], [ %15, %30 ], [ %15, %43 ], [ %.pre, %get_buffer.exit.thread.i ]
+  %.0.i32 = phi i32 [ 0, %38 ], [ 0, %35 ], [ %spec.select.i, %30 ], [ %spec.select25.i, %43 ], [ 0, %get_buffer.exit.thread.i ]
   %48 = icmp eq ptr %46, null
   %49 = icmp slt i32 %47, 0
   %or.cond.i.i33 = or i1 %49, %48
@@ -4490,8 +4490,8 @@ cli_bcapi_buffer_pipe_read_stopped.exit:          ; preds = %get_buffer.exit.thr
   tail call void @cli_js_process_buffer(ptr noundef %111, ptr noundef nonnull %.0.i36, i64 noundef %112) #28
   br label %get_jsnorm.exit.thread
 
-get_jsnorm.exit.thread:                           ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i, %59, %get_buffer.exit.thread.i35, %56, %cli_bcapi_buffer_pipe_read_avail.exit.i, %2, %6, %9, %81, %cli_bcapi_buffer_pipe_read_get.exit, %get_jsnorm.exit, %17, %cli_bcapi_buffer_pipe_read_stopped.exit
-  %.0 = phi i32 [ -1, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ], [ -1, %cli_bcapi_buffer_pipe_read_get.exit ], [ 0, %cli_bcapi_buffer_pipe_read_stopped.exit ], [ -1, %17 ], [ -1, %get_jsnorm.exit ], [ -1, %81 ], [ -1, %2 ], [ -1, %9 ], [ -1, %6 ], [ -1, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ -1, %56 ], [ -1, %get_buffer.exit.thread.i35 ], [ -1, %59 ]
+get_jsnorm.exit.thread:                           ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i, %56, %59, %get_buffer.exit.thread.i35, %cli_bcapi_buffer_pipe_read_avail.exit.i, %2, %6, %9, %81, %cli_bcapi_buffer_pipe_read_get.exit, %get_jsnorm.exit, %17, %cli_bcapi_buffer_pipe_read_stopped.exit
+  %.0 = phi i32 [ 0, %cli_bcapi_buffer_pipe_read_stopped.exit ], [ -1, %17 ], [ -1, %get_jsnorm.exit ], [ -1, %cli_bcapi_buffer_pipe_read_get.exit ], [ -1, %81 ], [ -1, %9 ], [ -1, %6 ], [ -1, %2 ], [ -1, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ -1, %get_buffer.exit.thread.i35 ], [ -1, %59 ], [ -1, %56 ], [ -1, %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i ]
   ret i32 %.0
 }
 
@@ -4551,7 +4551,7 @@ get_jsnorm.exit:                                  ; preds = %7
   br label %get_jsnorm.exit.thread
 
 get_jsnorm.exit.thread:                           ; preds = %2, %4, %7, %18, %get_jsnorm.exit, %23
-  %.0 = phi i32 [ 0, %23 ], [ -1, %2 ], [ -1, %get_jsnorm.exit ], [ -1, %18 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %23 ], [ -1, %get_jsnorm.exit ], [ -1, %18 ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -4807,7 +4807,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr noundef readnone captures(none) 
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader, %26, %23, %20, %18
-  %.0 = phi i32 [ -1, %23 ], [ -1, %18 ], [ -1, %20 ], [ -1, %26 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %20 ], [ -1, %23 ], [ -1, %26 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -4853,7 +4853,7 @@ define noundef i32 @cli_bcapi_debug_print_str_nonl(ptr noundef readnone captures
   br label %13
 
 13:                                               ; preds = %6, %3, %8
-  %.0 = phi i32 [ -1, %3 ], [ %12, %8 ], [ 0, %6 ]
+  %.0 = phi i32 [ %12, %8 ], [ -1, %3 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -4986,7 +4986,7 @@ get_hashtab.exit:                                 ; preds = %9
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %4, %6, %9, %get_hashtab.exit
-  %.0 = phi i32 [ -1, %4 ], [ %switch.select9, %get_hashtab.exit ], [ -1, %9 ], [ -1, %6 ]
+  %.0 = phi i32 [ %switch.select9, %get_hashtab.exit ], [ -1, %9 ], [ -1, %6 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -5018,7 +5018,7 @@ get_hashtab.exit:                                 ; preds = %9
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %4, %6, %9, %get_hashtab.exit
-  %.0 = phi i32 [ %16, %get_hashtab.exit ], [ -1, %4 ], [ -1, %9 ], [ -1, %6 ]
+  %.0 = phi i32 [ %16, %get_hashtab.exit ], [ -1, %9 ], [ -1, %6 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -5052,7 +5052,7 @@ get_hashtab.exit:                                 ; preds = %9
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %4, %6, %9, %get_hashtab.exit
-  %.0 = phi i32 [ -1, %4 ], [ %switch.select9, %get_hashtab.exit ], [ -1, %9 ], [ -1, %6 ]
+  %.0 = phi i32 [ %switch.select9, %get_hashtab.exit ], [ -1, %9 ], [ -1, %6 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -5086,7 +5086,7 @@ get_hashtab.exit:                                 ; preds = %9
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %4, %6, %9, %get_hashtab.exit
-  %.0 = phi i32 [ -1, %4 ], [ %switch.select9, %get_hashtab.exit ], [ -1, %9 ], [ -1, %6 ]
+  %.0 = phi i32 [ %switch.select9, %get_hashtab.exit ], [ -1, %9 ], [ -1, %6 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -5116,7 +5116,7 @@ get_hashtab.exit:                                 ; preds = %7
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %2, %4, %7, %get_hashtab.exit
-  %.0 = phi i32 [ %12, %get_hashtab.exit ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ %12, %get_hashtab.exit ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -5151,7 +5151,7 @@ get_hashtab.exit:                                 ; preds = %8
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %3, %5, %8, %get_hashtab.exit, %14
-  %.0 = phi ptr [ null, %3 ], [ %15, %14 ], [ null, %get_hashtab.exit ], [ null, %8 ], [ null, %5 ]
+  %.0 = phi ptr [ %15, %14 ], [ null, %get_hashtab.exit ], [ null, %8 ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -5205,7 +5205,7 @@ get_hashtab.exit.thread.sink.split:               ; preds = %18, %17
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %get_hashtab.exit.thread.sink.split, %2, %4, %7, %get_hashtab.exit, %18
-  %.0 = phi i32 [ -1, %2 ], [ -1, %7 ], [ -1, %4 ], [ 0, %18 ], [ 0, %get_hashtab.exit ], [ 0, %get_hashtab.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %get_hashtab.exit ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ], [ 0, %get_hashtab.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -5849,7 +5849,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_input_switch(ptr noundef %0, i32 noundef 
   br label %32
 
 32:                                               ; preds = %18, %16, %6, %27, %24, %8
-  %.0 = phi i32 [ -1, %24 ], [ 0, %8 ], [ 0, %6 ], [ 0, %16 ], [ 0, %27 ], [ -1, %18 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %27 ], [ -1, %24 ], [ 0, %6 ], [ 0, %16 ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -6293,7 +6293,7 @@ define range(i32 0, 2) i32 @cli_bcapi_check_platform(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %21, %30, %37, %42, %49, %58, %65, %72, %77, %84, %91, %103, %98
-  %104 = phi i32 [ 0, %98 ], [ 1, %103 ], [ 0, %91 ], [ 0, %84 ], [ 0, %77 ], [ 0, %72 ], [ 0, %65 ], [ 0, %58 ], [ 0, %49 ], [ 0, %42 ], [ 0, %37 ], [ 0, %30 ], [ 0, %21 ], [ 0, %12 ], [ 0, %4 ]
+  %104 = phi i32 [ 1, %103 ], [ 0, %98 ], [ 0, %91 ], [ 0, %84 ], [ 0, %77 ], [ 0, %72 ], [ 0, %65 ], [ 0, %58 ], [ 0, %49 ], [ 0, %42 ], [ 0, %37 ], [ 0, %30 ], [ 0, %21 ], [ 0, %12 ], [ 0, %4 ]
   ret i32 %104
 }
 
@@ -6439,7 +6439,7 @@ define i32 @cli_bcapi_pdf_getobjsize(ptr noundef readonly captures(none) %0, i32
   br label %35
 
 35:                                               ; preds = %2, %5, %22, %12
-  %.0 = phi i32 [ %34, %22 ], [ %21, %12 ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ %21, %12 ], [ %34, %22 ], [ 0, %5 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -6491,7 +6491,7 @@ define ptr @cli_bcapi_pdf_getobj(ptr noundef readonly captures(none) %0, i32 nou
   br label %cli_bcapi_pdf_getobjsize.exit
 
 cli_bcapi_pdf_getobjsize.exit:                    ; preds = %3, %6, %13, %23
-  %.0.i = phi i32 [ %35, %23 ], [ %22, %13 ], [ 0, %6 ], [ 0, %3 ]
+  %.0.i = phi i32 [ %22, %13 ], [ %35, %23 ], [ 0, %6 ], [ 0, %3 ]
   %36 = icmp ugt i32 %2, %.0.i
   br i1 %36, label %51, label %37
 
@@ -6812,7 +6812,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %16
   br label %56
 
 56:                                               ; preds = %cli_bcapi_json_objs_init.exit, %35, %30, %4, %52, %49, %44, %29, %25
-  %.0 = phi i32 [ -1, %4 ], [ -1, %25 ], [ -1, %29 ], [ %21, %52 ], [ -1, %49 ], [ 0, %44 ], [ -1, %30 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ -1, %35 ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %29 ], [ %21, %52 ], [ -1, %49 ], [ 0, %44 ], [ -1, %4 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ -1, %30 ], [ -1, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -6884,7 +6884,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %22, %cli_bcapi_json_objs_init.exit, %2, %28, %21
-  %.0 = phi i32 [ -1, %2 ], [ -1, %21 ], [ -1, %28 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ %26, %22 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %28 ], [ -1, %2 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ %26, %22 ]
   ret i32 %.0
 }
 
@@ -6952,7 +6952,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
   br label %31
 
 31:                                               ; preds = %cli_bcapi_json_objs_init.exit, %22, %2, %27, %21
-  %.0 = phi i32 [ -1, %2 ], [ -1, %21 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ %30, %27 ], [ -2, %22 ]
+  %.0 = phi i32 [ -1, %21 ], [ %30, %27 ], [ -1, %2 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ -2, %22 ]
   ret i32 %.0
 }
 
@@ -7057,7 +7057,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %14
   br label %50
 
 50:                                               ; preds = %cli_bcapi_json_objs_init.exit, %30, %35, %28, %24, %3, %47, %44, %23
-  %.0 = phi i32 [ -1, %3 ], [ -1, %23 ], [ -1, %24 ], [ %36, %47 ], [ -1, %44 ], [ -2, %28 ], [ 0, %35 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ 0, %30 ]
+  %.0 = phi i32 [ -1, %23 ], [ %36, %47 ], [ -1, %44 ], [ -1, %3 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ -1, %24 ], [ -2, %28 ], [ 0, %35 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -7129,7 +7129,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
   br label %32
 
 32:                                               ; preds = %cli_bcapi_json_objs_init.exit, %26, %22, %2, %28, %21
-  %.0 = phi i32 [ -1, %2 ], [ -1, %21 ], [ -1, %22 ], [ %31, %28 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ -2, %26 ]
+  %.0 = phi i32 [ -1, %21 ], [ %31, %28 ], [ -1, %2 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ -1, %22 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -7219,7 +7219,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %15
   br label %43
 
 43:                                               ; preds = %cli_bcapi_json_objs_init.exit, %28, %24, %4, %39, %34, %23
-  %.0 = phi i32 [ -1, %4 ], [ -1, %23 ], [ -1, %24 ], [ %2, %34 ], [ %40, %39 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ -2, %28 ]
+  %.0 = phi i32 [ -1, %23 ], [ %2, %34 ], [ %40, %39 ], [ -1, %4 ], [ -1, %cli_bcapi_json_objs_init.exit ], [ -1, %24 ], [ -2, %28 ]
   ret i32 %.0
 }
 
@@ -7278,7 +7278,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
   br label %27
 
 27:                                               ; preds = %cli_bcapi_json_objs_init.exit, %2, %22, %21
-  %.0 = phi i32 [ -1, %2 ], [ -1, %21 ], [ %26, %22 ], [ -1, %cli_bcapi_json_objs_init.exit ]
+  %.0 = phi i32 [ -1, %21 ], [ %26, %22 ], [ -1, %2 ], [ -1, %cli_bcapi_json_objs_init.exit ]
   ret i32 %.0
 }
 
@@ -7339,7 +7339,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
   br label %27
 
 27:                                               ; preds = %cli_bcapi_json_objs_init.exit, %2, %22, %21
-  %.0 = phi i32 [ -1, %2 ], [ -1, %21 ], [ %26, %22 ], [ -1, %cli_bcapi_json_objs_init.exit ]
+  %.0 = phi i32 [ -1, %21 ], [ %26, %22 ], [ -1, %2 ], [ -1, %cli_bcapi_json_objs_init.exit ]
   ret i32 %.0
 }
 

@@ -1044,8 +1044,8 @@ Amap_ParseGateWithSamePins.exit:                  ; preds = %231, %211
   br label %Vec_PtrPush.exit181.sink.split
 
 Vec_PtrPush.exit181.sink.split:                   ; preds = %262, %264, %254, %256
-  %.sink252 = phi ptr [ %257, %256 ], [ %255, %254 ], [ %263, %262 ], [ %265, %264 ]
-  %.sink251 = phi i32 [ 16, %256 ], [ 16, %254 ], [ %259, %262 ], [ %259, %264 ]
+  %.sink252 = phi ptr [ %255, %254 ], [ %257, %256 ], [ %263, %262 ], [ %265, %264 ]
+  %.sink251 = phi i32 [ 16, %254 ], [ 16, %256 ], [ %259, %262 ], [ %259, %264 ]
   store ptr %.sink252, ptr %244, align 8, !tbaa !15
   store i32 %.sink251, ptr %243, align 8, !tbaa !14
   br label %Vec_PtrPush.exit181
@@ -1061,7 +1061,7 @@ Vec_PtrPush.exit181:                              ; preds = %Vec_PtrPush.exit181
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %sub_0, %Amap_ParseStrsav.exit170, %Vec_PtrPush.exit181, %.tail, %._crit_edge
-  %.1125.lcssa237 = phi i32 [ %.011.lcssa.i, %Amap_ParseStrsav.exit170 ], [ %204, %Vec_PtrPush.exit181 ], [ %204, %.tail ], [ %204, %._crit_edge ], [ %204, %sub_0 ]
+  %.1125.lcssa237 = phi i32 [ %204, %Vec_PtrPush.exit181 ], [ %204, %.tail ], [ %204, %._crit_edge ], [ %.011.lcssa.i, %Amap_ParseStrsav.exit170 ], [ %204, %sub_0 ]
   %271 = add nsw i32 %.1125.lcssa237, 1
   %.val143 = load ptr, ptr %5, align 8, !tbaa !15
   %272 = sext i32 %.1125.lcssa237 to i64
@@ -1198,7 +1198,7 @@ define ptr @Amap_LibReadBuffer(ptr noundef %0, i32 %1) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %.sink.split, %.thread.i, %11, %3, %9, %6
-  %.131.idx54.i = phi i64 [ %.030.idx.i, %3 ], [ 0, %6 ], [ %.131.idx5360.i, %9 ], [ %.131.idx5360.i, %11 ], [ %.131.idx5360.i, %.thread.i ], [ %.131.idx5360.i, %.sink.split ]
+  %.131.idx54.i = phi i64 [ %.131.idx5360.i, %9 ], [ 0, %6 ], [ %.131.idx5360.i, %11 ], [ %.131.idx5360.i, %.thread.i ], [ %.030.idx.i, %3 ], [ %.131.idx5360.i, %.sink.split ]
   %.131.add.i = add nuw nsw i64 %.131.idx54.i, 1
   br label %3, !llvm.loop !8
 

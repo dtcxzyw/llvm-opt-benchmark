@@ -58,7 +58,7 @@ define noundef range(i32 1, 7) i32 @_ZN4lean13get_utf8_sizeEh(i8 noundef zeroext
   br label %19
 
 19:                                               ; preds = %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ 5, %13 ], [ 1, %1 ], [ 2, %4 ], [ 3, %7 ], [ 4, %10 ], [ %., %16 ]
+  %.0 = phi i32 [ 1, %1 ], [ 2, %4 ], [ 3, %7 ], [ 4, %10 ], [ 5, %13 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -103,7 +103,7 @@ define i64 @lean_utf8_strlen(ptr noundef readonly captures(none) %0) local_unnam
   br label %_ZN4lean13get_utf8_sizeEh.exit
 
 _ZN4lean13get_utf8_sizeEh.exit:                   ; preds = %.lr.ph, %6, %9, %12, %15, %18
-  %.0.i = phi i64 [ 5, %15 ], [ 1, %.lr.ph ], [ 2, %6 ], [ 3, %9 ], [ 4, %12 ], [ %..i, %18 ]
+  %.0.i = phi i64 [ 1, %.lr.ph ], [ 2, %6 ], [ 3, %9 ], [ 4, %12 ], [ 5, %15 ], [ %..i, %18 ]
   %21 = add i64 %.057, 1
   %22 = getelementptr inbounds nuw i8, ptr %.08, i64 %.0.i
   %23 = load i8, ptr %22, align 1, !tbaa !3
@@ -156,7 +156,7 @@ define noundef i64 @_ZN4lean11utf8_strlenEPKc(ptr noundef readonly captures(none
   br label %_ZN4lean13get_utf8_sizeEh.exit.i
 
 _ZN4lean13get_utf8_sizeEh.exit.i:                 ; preds = %18, %15, %12, %9, %6, %.lr.ph.i
-  %.0.i.i = phi i64 [ 5, %15 ], [ 1, %.lr.ph.i ], [ 2, %6 ], [ 3, %9 ], [ 4, %12 ], [ %..i.i, %18 ]
+  %.0.i.i = phi i64 [ 1, %.lr.ph.i ], [ 2, %6 ], [ 3, %9 ], [ 4, %12 ], [ 5, %15 ], [ %..i.i, %18 ]
   %21 = add i64 %.057.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i, i64 %.0.i.i
   %23 = load i8, ptr %22, align 1, !tbaa !3
@@ -209,7 +209,7 @@ define i64 @lean_utf8_n_strlen(ptr noundef readonly captures(none) %0, i64 nound
   br label %_ZN4lean13get_utf8_sizeEh.exit
 
 _ZN4lean13get_utf8_sizeEh.exit:                   ; preds = %.lr.ph, %7, %10, %13, %16, %19
-  %.0.i = phi i64 [ 5, %16 ], [ 1, %.lr.ph ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ %..i, %19 ]
+  %.0.i = phi i64 [ 1, %.lr.ph ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ 5, %16 ], [ %..i, %19 ]
   %22 = add i64 %.09, 1
   %23 = add i64 %.0.i, %.078
   %24 = icmp ult i64 %23, %1
@@ -261,7 +261,7 @@ define noundef i64 @_ZN4lean11utf8_strlenEPKcm(ptr noundef readonly captures(non
   br label %_ZN4lean13get_utf8_sizeEh.exit.i
 
 _ZN4lean13get_utf8_sizeEh.exit.i:                 ; preds = %19, %16, %13, %10, %7, %.lr.ph.i
-  %.0.i.i = phi i64 [ 5, %16 ], [ 1, %.lr.ph.i ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ %..i.i, %19 ]
+  %.0.i.i = phi i64 [ 1, %.lr.ph.i ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ 5, %16 ], [ %..i.i, %19 ]
   %22 = add i64 %.09.i, 1
   %23 = add i64 %.0.i.i, %.078.i
   %24 = icmp ult i64 %23, %1
@@ -316,7 +316,7 @@ define noundef i64 @_ZN4lean11utf8_strlenERKNSt7__cxx1112basic_stringIcSt11char_
   br label %_ZN4lean13get_utf8_sizeEh.exit.i.i
 
 _ZN4lean13get_utf8_sizeEh.exit.i.i:               ; preds = %21, %18, %15, %12, %9, %.lr.ph.i.i
-  %.0.i.i.i = phi i64 [ 5, %18 ], [ 1, %.lr.ph.i.i ], [ 2, %9 ], [ 3, %12 ], [ 4, %15 ], [ %..i.i.i, %21 ]
+  %.0.i.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ 2, %9 ], [ 3, %12 ], [ 4, %15 ], [ 5, %18 ], [ %..i.i.i, %21 ]
   %24 = add i64 %.09.i.i, 1
   %25 = add i64 %.0.i.i.i, %.078.i.i
   %26 = icmp ult i64 %25, %4
@@ -380,7 +380,7 @@ define void @_ZN4lean13utf8_char_posEPKcm(ptr dead_on_unwind noalias writable wr
   br label %_ZN4lean13get_utf8_sizeEh.exit
 
 _ZN4lean13get_utf8_sizeEh.exit:                   ; preds = %9, %13, %16, %19, %22, %25
-  %.0.i = phi i64 [ 5, %22 ], [ 1, %9 ], [ 2, %13 ], [ 3, %16 ], [ 4, %19 ], [ %..i, %25 ]
+  %.0.i = phi i64 [ 1, %9 ], [ 2, %13 ], [ 3, %16 ], [ 4, %19 ], [ 5, %22 ], [ %..i, %25 ]
   %28 = add i64 %.0.i, %.0811
   %29 = getelementptr inbounds nuw i8, ptr %.013, i64 %.0.i
   %30 = load i8, ptr %29, align 1, !tbaa !3
@@ -434,7 +434,7 @@ define noundef ptr @_ZN4lean18get_utf8_last_charEPKc(ptr noundef readonly captur
   br label %_ZN4lean13get_utf8_sizeEh.exit
 
 _ZN4lean13get_utf8_sizeEh.exit:                   ; preds = %2, %6, %9, %12, %15, %18
-  %.0.i = phi i64 [ 5, %15 ], [ 1, %2 ], [ 2, %6 ], [ 3, %9 ], [ 4, %12 ], [ %..i, %18 ]
+  %.0.i = phi i64 [ 1, %2 ], [ 2, %6 ], [ 3, %9 ], [ 4, %12 ], [ 5, %15 ], [ %..i, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 %.0.i
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %.not = icmp eq i8 %22, 0
@@ -509,7 +509,7 @@ define void @_ZN4lean9utf8_trimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %_ZN4lean13get_utf8_sizeEh.exit
 
 _ZN4lean13get_utf8_sizeEh.exit:                   ; preds = %9, %18, %21, %24, %27, %30
-  %.0.i = phi i32 [ 5, %27 ], [ 1, %9 ], [ 2, %18 ], [ 3, %21 ], [ 4, %24 ], [ %..i, %30 ]
+  %.0.i = phi i32 [ 1, %9 ], [ 2, %18 ], [ 3, %21 ], [ 4, %24 ], [ 5, %27 ], [ %..i, %30 ]
   %33 = add i32 %.0.i, %.025
   %34 = zext i32 %33 to i64
   %35 = icmp ugt i64 %5, %34
@@ -786,8 +786,8 @@ define noundef range(i32 0, 1114112) i32 @_ZN4lean9next_utf8EPKcmRm(ptr noundef 
   br label %.thread67
 
 .thread67:                                        ; preds = %.thread, %50, %53, %40, %3, %63, %19
-  %.sink74 = phi i64 [ 4, %63 ], [ 1, %3 ], [ 2, %19 ], [ 3, %40 ], [ 1, %53 ], [ 1, %50 ], [ 1, %.thread ]
-  %.0 = phi i32 [ %74, %63 ], [ %7, %3 ], [ %24, %19 ], [ %45, %40 ], [ %7, %53 ], [ %7, %50 ], [ %7, %.thread ]
+  %.sink74 = phi i64 [ 4, %63 ], [ 2, %19 ], [ 1, %3 ], [ 3, %40 ], [ 1, %53 ], [ 1, %50 ], [ 1, %.thread ]
+  %.0 = phi i32 [ %74, %63 ], [ %24, %19 ], [ %7, %3 ], [ %45, %40 ], [ %7, %53 ], [ %7, %50 ], [ %7, %.thread ]
   %75 = add i64 %4, %.sink74
   store i64 %75, ptr %2, align 8, !tbaa !22
   ret i32 %.0
@@ -1005,13 +1005,13 @@ define noundef zeroext i1 @_ZN4lean17validate_utf8_oneEPKhmRm(ptr noundef readon
   br i1 %or.cond5, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %57, %39, %14, %3
-  %.sink90 = phi i64 [ 3, %39 ], [ 2, %14 ], [ 1, %3 ], [ 4, %57 ]
+  %.sink90 = phi i64 [ 1, %3 ], [ 2, %14 ], [ 3, %39 ], [ 4, %57 ]
   %64 = add i64 %4, %.sink90
   store i64 %64, ptr %2, align 8, !tbaa !22
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %57, %47, %52, %24, %29, %39, %32, %14, %42, %45, %22, %12
-  %.0 = phi i1 [ false, %29 ], [ false, %47 ], [ false, %57 ], [ false, %14 ], [ false, %39 ], [ false, %22 ], [ false, %52 ], [ false, %12 ], [ false, %42 ], [ false, %45 ], [ false, %24 ], [ false, %32 ], [ true, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %57, %52, %47, %29, %24, %39, %32, %14, %42, %45, %22, %12
+  %.0 = phi i1 [ false, %12 ], [ false, %22 ], [ false, %45 ], [ false, %42 ], [ false, %14 ], [ false, %32 ], [ false, %39 ], [ false, %24 ], [ false, %29 ], [ false, %47 ], [ false, %52 ], [ false, %57 ], [ true, %.critedge.sink.split ]
   ret i1 %.0
 }
 

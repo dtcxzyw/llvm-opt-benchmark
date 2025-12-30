@@ -639,7 +639,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   unreachable
 
 21:                                               ; preds = %17, %5, %16, %15, %14, %13
-  %.str.12.sink = phi ptr [ %.str.12..str.13, %17 ], [ @.str.7, %5 ], [ @.str.11, %16 ], [ @.str.10, %15 ], [ @.str.9, %14 ], [ @.str.8, %13 ]
+  %.str.12.sink = phi ptr [ @.str.11, %16 ], [ @.str.10, %15 ], [ @.str.9, %14 ], [ @.str.8, %13 ], [ @.str.7, %5 ], [ %.str.12..str.13, %17 ]
   store volatile ptr %.str.12.sink, ptr %6, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %24, label %22
@@ -691,7 +691,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %38, %38, %38, %38, %40
-  %.sink106 = phi ptr [ null, %38 ], [ null, %38 ], [ null, %38 ], [ %41, %40 ], [ null, %38 ], [ null, %38 ]
+  %.sink106 = phi ptr [ %41, %40 ], [ null, %38 ], [ null, %38 ], [ null, %38 ], [ null, %38 ], [ null, %38 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %.sink106, ptr %42, align 8
   br label %43
@@ -2897,7 +2897,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   br label %find_dissector_table.exit.thread
 
 find_dissector_table.exit.thread:                 ; preds = %find_uint_dtbl_entry.exit, %5, %8, %19
-  %.1 = phi ptr [ %20, %19 ], [ null, %5 ], [ null, %8 ], [ null, %find_uint_dtbl_entry.exit ]
+  %.1 = phi ptr [ %20, %19 ], [ null, %8 ], [ null, %5 ], [ null, %find_uint_dtbl_entry.exit ]
   ret ptr %.1
 }
 
@@ -3318,7 +3318,7 @@ find_string_dtbl_entry.exit:                      ; preds = %16, %18
   br label %30
 
 30:                                               ; preds = %find_string_dtbl_entry.exit, %22, %7, %26
-  %.0 = phi i32 [ 0, %7 ], [ %29, %26 ], [ 0, %22 ], [ 0, %find_string_dtbl_entry.exit ]
+  %.0 = phi i32 [ %29, %26 ], [ 0, %7 ], [ 0, %22 ], [ 0, %find_string_dtbl_entry.exit ]
   ret i32 %.0
 }
 
@@ -3442,7 +3442,7 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
   br label %find_dissector_table.exit.thread
 
 find_dissector_table.exit.thread:                 ; preds = %find_string_dtbl_entry.exit, %6, %9, %26, %2
-  %.0 = phi ptr [ null, %2 ], [ %27, %26 ], [ null, %6 ], [ null, %9 ], [ null, %find_string_dtbl_entry.exit ]
+  %.0 = phi ptr [ %27, %26 ], [ null, %2 ], [ null, %9 ], [ null, %6 ], [ null, %find_string_dtbl_entry.exit ]
   ret ptr %.0
 }
 
@@ -3549,7 +3549,7 @@ define i32 @dissector_try_guid_with_data(ptr noundef readonly captures(none) %0,
   br label %16
 
 16:                                               ; preds = %7, %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ %15, %14 ], [ 0, %7 ]
+  %.0 = phi i32 [ %15, %14 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -5055,7 +5055,7 @@ remove_last_layer.exit:                           ; preds = %.critedge, %112
   br i1 %.not75.not, label %.loopexit86, label %36, !llvm.loop !24
 
 .loopexit86:                                      ; preds = %.loopexit.thread111, %28, %.thread85, %125
-  %.not7588 = phi i1 [ true, %125 ], [ true, %.thread85 ], [ false, %28 ], [ false, %.loopexit.thread111 ]
+  %.not7588 = phi i1 [ true, %.thread85 ], [ true, %125 ], [ false, %28 ], [ false, %.loopexit.thread111 ]
   store ptr %19, ptr %2, align 8
   store ptr %21, ptr %20, align 8
   store i16 %15, ptr %14, align 8

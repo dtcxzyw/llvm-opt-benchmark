@@ -100,7 +100,7 @@ define internal range(i32 -400, 4) i32 @code_to_mbclen(i32 noundef %0) #3 {
   br label %22
 
 22:                                               ; preds = %3, %16, %7, %1, %21
-  %.0 = phi i32 [ 2, %7 ], [ 1, %1 ], [ -400, %21 ], [ 3, %3 ], [ 1, %16 ]
+  %.0 = phi i32 [ -400, %21 ], [ 1, %1 ], [ 2, %7 ], [ 1, %16 ], [ 3, %3 ]
   ret i32 %.0
 }
 
@@ -305,7 +305,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   br label %code_to_mbclen.exit
 
 code_to_mbclen.exit:                              ; preds = %35, %30, %21, %17, %13, %36, %39, %6
-  %.0 = phi i32 [ %12, %6 ], [ 0, %13 ], [ -6, %36 ], [ %43, %39 ], [ 1, %21 ], [ 0, %30 ], [ 0, %35 ], [ 1, %17 ]
+  %.0 = phi i32 [ %12, %6 ], [ %43, %39 ], [ -6, %36 ], [ 0, %13 ], [ 0, %35 ], [ 1, %21 ], [ 0, %30 ], [ 1, %17 ]
   ret i32 %.0
 }
 
@@ -449,13 +449,13 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %or.cond47, label %._crit_edge, label %31
 
 31:                                               ; preds = %28, %18, %12, %.lr.ph
-  %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %18 ], [ 2, %12 ], [ 3, %28 ]
+  %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %12 ], [ 2, %18 ], [ 3, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %.03148, i64 %.sink
   %33 = icmp ult ptr %32, %1
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %8, %10, %12, %16, %18, %21, %23, %26, %28, %15, %31, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %31 ], [ 0, %10 ], [ 0, %12 ], [ 0, %16 ], [ 0, %18 ], [ 0, %21 ], [ 0, %23 ], [ 0, %26 ], [ 0, %28 ], [ 0, %15 ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %31 ], [ 0, %15 ], [ 0, %28 ], [ 0, %26 ], [ 0, %23 ], [ 0, %21 ], [ 0, %18 ], [ 0, %16 ], [ 0, %12 ], [ 0, %10 ], [ 0, %8 ]
   ret i32 %.0
 }
 

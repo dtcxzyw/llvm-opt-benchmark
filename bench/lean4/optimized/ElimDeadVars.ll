@@ -428,8 +428,8 @@ lean_dec.exit77:                                  ; preds = %151, %150, %148, %.
   br label %163
 
 lean_dec.exit72:                                  ; preds = %112, %116, %118, %119, %63, %67, %69, %70, %lean_inc.exit71, %lean_inc.exit68, %lean_inc.exit70
-  %.463 = phi ptr [ %.059134, %112 ], [ %141, %lean_inc.exit71 ], [ %83, %lean_inc.exit68 ], [ %132, %lean_inc.exit70 ], [ %.059134, %63 ], [ %.059134, %70 ], [ %.059134, %69 ], [ %.059134, %67 ], [ %.059134, %119 ], [ %.059134, %118 ], [ %.059134, %116 ]
-  %.458 = phi ptr [ %.054135, %112 ], [ %142, %lean_inc.exit71 ], [ %84, %lean_inc.exit68 ], [ %133, %lean_inc.exit70 ], [ %.054135, %63 ], [ %.054135, %70 ], [ %.054135, %69 ], [ %.054135, %67 ], [ %.054135, %119 ], [ %.054135, %118 ], [ %.054135, %116 ]
+  %.463 = phi ptr [ %141, %lean_inc.exit71 ], [ %83, %lean_inc.exit68 ], [ %132, %lean_inc.exit70 ], [ %.059134, %70 ], [ %.059134, %69 ], [ %.059134, %67 ], [ %.059134, %63 ], [ %.059134, %119 ], [ %.059134, %118 ], [ %.059134, %116 ], [ %.059134, %112 ]
+  %.458 = phi ptr [ %142, %lean_inc.exit71 ], [ %84, %lean_inc.exit68 ], [ %133, %lean_inc.exit70 ], [ %.054135, %70 ], [ %.054135, %69 ], [ %.054135, %67 ], [ %.054135, %63 ], [ %.054135, %119 ], [ %.054135, %118 ], [ %.054135, %116 ], [ %.054135, %112 ]
   %161 = tail call zeroext i8 @l_Array_isEmpty___rarg(ptr noundef nonnull %.0.i.i) #3
   %162 = icmp eq i8 %161, 0
   br i1 %162, label %.lr.ph, label %._crit_edge
@@ -856,7 +856,7 @@ lean_array_uset.exit97:                           ; preds = %lean_ensure_exclusi
   br label %147
 
 147:                                              ; preds = %lean_array_uset.exit97, %lean_array_uset.exit91, %lean_array_uset.exit74
-  %.155 = phi ptr [ %.0.i.i88, %lean_array_uset.exit91 ], [ %.0.i.i94, %lean_array_uset.exit97 ], [ %.0.i.i71, %lean_array_uset.exit74 ]
+  %.155 = phi ptr [ %.0.i.i94, %lean_array_uset.exit97 ], [ %.0.i.i71, %lean_array_uset.exit74 ], [ %.0.i.i88, %lean_array_uset.exit91 ]
   %exitcond.not = icmp eq i64 %30, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -1165,7 +1165,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %l_Lean_IR_reshapeWithoutDead.exit
 
 l_Lean_IR_reshapeWithoutDead.exit:                ; preds = %114, %113, %111, %lean_obj_tag.exit.thread, %lean_alloc_ctor.exit, %50, %49, %47, %40
-  %.sink100 = phi ptr [ %101, %lean_alloc_ctor.exit ], [ %14, %50 ], [ %14, %40 ], [ %14, %47 ], [ %14, %49 ], [ %14, %114 ], [ %14, %lean_obj_tag.exit.thread ], [ %14, %111 ], [ %14, %113 ]
+  %.sink100 = phi ptr [ %14, %40 ], [ %14, %47 ], [ %14, %49 ], [ %14, %50 ], [ %101, %lean_alloc_ctor.exit ], [ %14, %lean_obj_tag.exit.thread ], [ %14, %111 ], [ %14, %113 ], [ %14, %114 ]
   %115 = tail call ptr @l_Lean_IR_FnBody_freeIndices(ptr noundef %.sink100) #3
   %116 = tail call ptr @l_Lean_IR_reshapeWithoutDead_reshape(ptr noundef %33, ptr noundef %.sink100, ptr noundef %115)
   ret ptr %116
@@ -1596,7 +1596,7 @@ lean_array_uset.exit115:                          ; preds = %lean_ensure_exclusi
   br label %166
 
 166:                                              ; preds = %lean_array_uset.exit99, %lean_array_uset.exit88, %lean_array_uset.exit115, %lean_array_uset.exit105
-  %.164 = phi ptr [ %.0.i.i112, %lean_array_uset.exit115 ], [ %.0.i.i96, %lean_array_uset.exit99 ], [ %.0.i.i85, %lean_array_uset.exit88 ], [ %.0.i.i102, %lean_array_uset.exit105 ]
+  %.164 = phi ptr [ %.0.i.i85, %lean_array_uset.exit88 ], [ %.0.i.i96, %lean_array_uset.exit99 ], [ %.0.i.i102, %lean_array_uset.exit105 ], [ %.0.i.i112, %lean_array_uset.exit115 ]
   %exitcond.not = icmp eq i64 %30, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 

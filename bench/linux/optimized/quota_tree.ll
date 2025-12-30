@@ -1546,7 +1546,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   br label %308
 
 308:                                              ; preds = %.thread, %305, %301, %271, %268, %.loopexit36, %38, %14
-  %309 = phi i32 [ %15, %14 ], [ %270, %268 ], [ %226, %271 ], [ -5, %.loopexit36 ], [ -117, %.thread ], [ %36, %38 ], [ %226, %301 ], [ %226, %305 ]
+  %309 = phi i32 [ %15, %14 ], [ %270, %268 ], [ %226, %271 ], [ -5, %.loopexit36 ], [ %36, %38 ], [ %226, %301 ], [ %226, %305 ], [ -117, %.thread ]
   tail call void @kfree(ptr noundef nonnull %9) #7
   br label %310
 
@@ -1690,8 +1690,8 @@ check_dquot_block_header.exit:                    ; preds = %41
   tail call void @mark_info_dirty(ptr noundef %89, i32 noundef %91) #7
   br label %check_dquot_block_header.exit.thread
 
-check_dquot_block_header.exit.thread:             ; preds = %54, %.thread6.i, %.thread.i, %87, %80, %11
-  %92 = phi i32 [ %27, %11 ], [ %82, %80 ], [ %88, %87 ], [ -117, %.thread.i ], [ -117, %.thread6.i ], [ -117, %54 ]
+check_dquot_block_header.exit.thread:             ; preds = %.thread6.i, %.thread.i, %54, %87, %80, %11
+  %92 = phi i32 [ %27, %11 ], [ %88, %87 ], [ %82, %80 ], [ -117, %54 ], [ -117, %.thread.i ], [ -117, %.thread6.i ]
   tail call void @kfree(ptr noundef nonnull %5) #7
   br label %93
 
@@ -1801,7 +1801,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(
   br label %30
 
 30:                                               ; preds = %.thread6, %.thread, %28, %14
-  %31 = phi i32 [ -117, %.thread ], [ -117, %.thread6 ], [ -117, %28 ], [ 0, %14 ]
+  %31 = phi i32 [ -117, %28 ], [ 0, %14 ], [ -117, %.thread ], [ -117, %.thread6 ]
   ret i32 %31
 }
 
@@ -2193,7 +2193,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   br label %133
 
 133:                                              ; preds = %.thread, %131, %65, %62, %.loopexit10, %27
-  %134 = phi i64 [ %25, %27 ], [ -117, %.thread ], [ %64, %62 ], [ 0, %.loopexit10 ], [ %132, %131 ], [ -12, %65 ]
+  %134 = phi i64 [ %25, %27 ], [ %64, %62 ], [ 0, %.loopexit10 ], [ %132, %131 ], [ -12, %65 ], [ -117, %.thread ]
   tail call void @kfree(ptr noundef nonnull %8) #7
   br label %135
 

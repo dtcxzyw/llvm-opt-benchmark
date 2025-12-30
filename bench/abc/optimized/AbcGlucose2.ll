@@ -929,7 +929,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %34, %._ZN6Gluco23ve
   br label %74
 
 74:                                               ; preds = %._crit_edge, %71, %7
-  %.0 = phi i32 [ %10, %7 ], [ %23, %._crit_edge ], [ %73, %71 ]
+  %.0 = phi i32 [ %10, %7 ], [ %73, %71 ], [ %23, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -975,7 +975,7 @@ define range(i32 0, 2) i32 @bmcg2_sat_solver_add_and(ptr noundef %0, i32 noundef
   br label %28
 
 28:                                               ; preds = %20, %16, %7
-  %.0 = phi i32 [ 0, %16 ], [ %27, %20 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %16 ], [ %27, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1508,7 +1508,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
   br label %_ZN6Gluco23vecINS_3LitEE5clearEb.exit54
 
 _ZN6Gluco23vecINS_3LitEE5clearEb.exit54:          ; preds = %.preheader.i53, %_ZN6Gluco210SimpSolver6addVarEi.exit, %25, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %.2 = phi i32 [ %36, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ %.0, %25 ], [ %.0, %_ZN6Gluco210SimpSolver6addVarEi.exit ], [ %.0, %.preheader.i53 ]
+  %.2 = phi i32 [ %.0, %25 ], [ %36, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ %.0, %_ZN6Gluco210SimpSolver6addVarEi.exit ], [ %.0, %.preheader.i53 ]
   br label %61
 
 61:                                               ; preds = %61, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit54
@@ -2083,7 +2083,7 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.thread:     ; preds = %_ZL12Vec_StrAlloci.
   br label %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i
 
 _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i:            ; preds = %36, %_ZL12Vec_StrAlloci.exit
-  %39 = phi ptr [ %25, %_ZL12Vec_StrAlloci.exit ], [ %37, %36 ]
+  %39 = phi ptr [ %37, %36 ], [ %25, %_ZL12Vec_StrAlloci.exit ]
   store i32 %.val, ptr %22, align 4, !tbaa !158
   %40 = icmp sgt i32 %.val, 0
   br i1 %40, label %.lr.ph.i.preheader, label %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit
@@ -2970,8 +2970,8 @@ _ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split
 
 _ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split:   ; preds = %153, %155, %145, %147
-  %.sink119 = phi ptr [ %148, %147 ], [ %146, %145 ], [ %154, %153 ], [ %156, %155 ]
-  %.sink = phi i32 [ 16, %147 ], [ 16, %145 ], [ %150, %153 ], [ %150, %155 ]
+  %.sink119 = phi ptr [ %146, %145 ], [ %148, %147 ], [ %154, %153 ], [ %156, %155 ]
+  %.sink = phi i32 [ 16, %145 ], [ 16, %147 ], [ %150, %153 ], [ %150, %155 ]
   store ptr %.sink119, ptr %122, align 8, !tbaa !151
   store i32 %.sink, ptr %119, align 8, !tbaa !150
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
@@ -3496,7 +3496,7 @@ define noundef i32 @_Z26bmcg2_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Ve
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %51, %48
-  %.0.ph = phi i32 [ %52, %51 ], [ %.lobit, %48 ], [ %.0.ph.ph, %.sink.split.sink.split ]
+  %.0.ph = phi i32 [ %.lobit, %48 ], [ %52, %51 ], [ %.0.ph.ph, %.sink.split.sink.split ]
   call void @free(ptr noundef nonnull %9) #30
   call void @Gia_ManStop(ptr noundef nonnull %.074.lcssa) #30
   br label %54

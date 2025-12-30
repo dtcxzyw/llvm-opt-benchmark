@@ -572,7 +572,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$typst..foundations.
           to label %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i.i.i.i" unwind label %42
 
 common.resume:                                    ; preds = %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i.i.i.i", %68, %82
-  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %69, %68 ], [ %37, %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %83, %82 ], [ %37, %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %38
@@ -3786,7 +3786,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 .thread:                                          ; preds = %40, %44
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %21, %24
+.loopexit:                                        ; preds = %24, %21
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -11631,7 +11631,7 @@ define hidden noundef range(i32 0, 2147483647) i32 @_ZN9typst_pdf7outline13write
           to label %31 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core3ptr51drop_in_place$LT$pdf_writer..structure..Outline$GT$17h685392192e90dc0aE.exit": ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %147, %68
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp107, %.loopexit.split-lp.loopexit.split-lp ], [ %69, %68 ], [ %148, %147 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit106, %.loopexit.split-lp.loopexit ]
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %148, %147 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit106, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp107, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09546f17f6af0409E.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
           to label %"_ZN4core3ptr82drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..content..Content$GT$$GT$17hd883c4dc10868240E.exit" unwind label %94
 
@@ -12049,7 +12049,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit48: ; preds = %_ZN10pdf_w
   %35 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer9structure11OutlineItem6parent17hb4521bc4410c3ff7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %2)
           to label %36 unwind label %.thread67
 
-.thread67:                                        ; preds = %112, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit48, %139, %137, %135, %133, %127, %113, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit54", %109, %85, %49, %81, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51, %75, %68, %40, %37
+.thread67:                                        ; preds = %112, %139, %137, %135, %133, %127, %113, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit54", %85, %49, %81, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51, %68, %40, %37, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit48, %75, %109
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -12315,7 +12315,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51: ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit"
 
-164:                                              ; preds = %159, %154, %150
+164:                                              ; preds = %154, %150, %159
   %lpad.thr_comm73 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..Destination$GT$17h80558cc9d0d13b58E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #28
@@ -12353,7 +12353,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51: ; preds = %70
   resume { ptr, i32 } %.pn65
 
 .thread:                                          ; preds = %153, %.thread70, %86, %90, %167, %164, %.thread67
-  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread67 ], [ %lpad.thr_comm73, %164 ], [ %148, %.thread70 ], [ %168, %167 ], [ %lpad.thr_comm.split-lp74, %153 ], [ %87, %90 ], [ %87, %86 ]
+  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread67 ], [ %168, %167 ], [ %lpad.thr_comm.split-lp74, %153 ], [ %lpad.thr_comm73, %164 ], [ %87, %90 ], [ %87, %86 ], [ %148, %.thread70 ]
   invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
           to label %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit61" unwind label %165
 }

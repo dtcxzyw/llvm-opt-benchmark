@@ -59,7 +59,7 @@ define hidden range(i32 -1, 2) i32 @mplog_open(ptr noundef %0, ptr noundef %1, p
   br label %23
 
 23:                                               ; preds = %10, %9, %7, %22
-  %.0 = phi i32 [ %., %7 ], [ 0, %9 ], [ 1, %22 ], [ -1, %10 ]
+  %.0 = phi i32 [ 1, %22 ], [ %., %7 ], [ 0, %9 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -100,7 +100,7 @@ define internal noundef zeroext i1 @mplog_seek_read(ptr noundef readonly capture
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -220,9 +220,9 @@ define internal fastcc noundef zeroext i1 @mplog_read_packet(ptr noundef %0, ptr
   br i1 %49, label %14, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %48, %16, %20, %17, %46, %40
-  %.181 = phi i32 [ %.080, %40 ], [ 0, %16 ], [ %.080, %46 ], [ %.080, %20 ], [ %.080, %17 ], [ %.282, %48 ]
-  %.178 = phi i8 [ %23, %40 ], [ %.077, %16 ], [ %.279, %46 ], [ %.077, %20 ], [ %.077, %17 ], [ %.279, %48 ]
-  %.1 = phi i64 [ %.2, %40 ], [ %.0, %16 ], [ %.2, %46 ], [ %.0, %20 ], [ %.0, %17 ], [ %.2, %48 ]
+  %.181 = phi i32 [ %.080, %40 ], [ %.080, %46 ], [ %.080, %20 ], [ %.080, %17 ], [ 0, %16 ], [ %.282, %48 ]
+  %.178 = phi i8 [ %23, %40 ], [ %.279, %46 ], [ %.077, %20 ], [ %.077, %17 ], [ %.077, %16 ], [ %.279, %48 ]
+  %.1 = phi i64 [ %.2, %40 ], [ %.2, %46 ], [ %.0, %20 ], [ %.0, %17 ], [ %.0, %16 ], [ %.2, %48 ]
   %50 = icmp ne i8 %.178, -1
   br i1 %50, label %51, label %72
 

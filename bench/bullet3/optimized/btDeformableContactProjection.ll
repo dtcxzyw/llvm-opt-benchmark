@@ -2282,7 +2282,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206: ; preds = %397,
           to label %410 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %408, %255, %177
-  %.pn = phi { ptr, i32 } [ %409, %408 ], [ %178, %177 ], [ %256, %255 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %256, %255 ], [ %409, %408 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #23
   resume { ptr, i32 } %.pn
 
@@ -3974,7 +3974,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %330, %.preheader, %
   br i1 %341, label %17, label %._crit_edge, !llvm.loop !238
 
 342:                                              ; preds = %206, %336, %273, %100
-  %.pn62.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn59, %206 ], [ %.pn57, %273 ], [ %.pn, %336 ]
+  %.pn62.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn57, %273 ], [ %.pn, %336 ], [ %.pn59, %206 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn62.pn
@@ -5796,7 +5796,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %529, %.preheader484
   br i1 %723, label %98, label %._crit_edge, !llvm.loop !270
 
 724:                                              ; preds = %204, %159, %307, %262, %505, %416, %462, %371, %717, %628, %674, %583, %96, %94, %92
-  %.pn144.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %97, %96 ], [ %95, %94 ], [ %417, %416 ], [ %629, %628 ], [ %.pn122, %674 ], [ %506, %505 ], [ %160, %159 ], [ %718, %717 ], [ %205, %204 ], [ %263, %262 ], [ %.pn131, %462 ], [ %308, %307 ], [ %372, %371 ], [ %584, %583 ]
+  %.pn144.pn.pn = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %160, %159 ], [ %205, %204 ], [ %263, %262 ], [ %308, %307 ], [ %372, %371 ], [ %.pn131, %462 ], [ %417, %416 ], [ %506, %505 ], [ %584, %583 ], [ %.pn122, %674 ], [ %629, %628 ], [ %718, %717 ]
   %725 = load ptr, ptr %13, align 8, !tbaa !29
   %.not.i.i.i443 = icmp ne ptr %725, null
   %726 = load i8, ptr %12, align 8, !range !32

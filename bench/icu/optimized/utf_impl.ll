@@ -210,8 +210,8 @@ define i32 @utf8_nextCharSafeBody_77(ptr noundef readonly captures(none) %0, ptr
   %134 = or disjoint i32 %133, %130
   br label %141
 
-.thread:                                          ; preds = %123, %76, %78, %67, %11, %24, %26, %33, %35, %121, %5
-  %.0106 = phi i32 [ %6, %5 ], [ %6, %67 ], [ %6, %11 ], [ %6, %121 ], [ %77, %78 ], [ %2, %24 ], [ %25, %26 ], [ %2, %33 ], [ %34, %35 ], [ %6, %123 ], [ %2, %76 ]
+.thread:                                          ; preds = %123, %67, %76, %78, %11, %24, %26, %33, %35, %121, %5
+  %.0106 = phi i32 [ %6, %5 ], [ %6, %121 ], [ %6, %11 ], [ %2, %24 ], [ %25, %26 ], [ %2, %33 ], [ %34, %35 ], [ %6, %67 ], [ %2, %76 ], [ %77, %78 ], [ %6, %123 ]
   %135 = icmp sgt i8 %4, -1
   br i1 %135, label %.thread.thread, label %.thread158
 
@@ -426,7 +426,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
   br label %124
 
 124:                                              ; preds = %71, %122, %72, %49, %29, %10
-  %.0 = phi i32 [ %19, %10 ], [ %68, %49 ], [ %43, %29 ], [ %1, %71 ], [ %123, %122 ], [ %1, %72 ]
+  %.0 = phi i32 [ %19, %10 ], [ %43, %29 ], [ %68, %49 ], [ %1, %71 ], [ %123, %122 ], [ %1, %72 ]
   ret i32 %.0
 }
 
@@ -664,8 +664,8 @@ _ZL10errorValueia.exit.thread147:                 ; preds = %82, %_ZL10errorValu
   %..i142 = select i1 %143, i32 65533, i32 -1
   br label %_ZL10errorValueia.exit144
 
-_ZL10errorValueia.exit144:                        ; preds = %78, %138, %125, %_ZL10errorValueia.exit141, %102, %86, %69, %104, %42, %44, %20, %_ZL10errorValueia.exit.thread147, %_ZL10errorValueia.exit
-  %.5 = phi i32 [ 21, %_ZL10errorValueia.exit ], [ %..i142, %_ZL10errorValueia.exit.thread147 ], [ %133, %138 ], [ %133, %125 ], [ 1114111, %_ZL10errorValueia.exit141 ], [ %..i136, %104 ], [ %spec.select, %78 ], [ %92, %86 ], [ %75, %69 ], [ 65535, %102 ], [ %24, %20 ], [ %..i, %44 ], [ 159, %42 ]
+_ZL10errorValueia.exit144:                        ; preds = %78, %125, %138, %_ZL10errorValueia.exit141, %104, %102, %69, %86, %44, %42, %20, %_ZL10errorValueia.exit.thread147, %_ZL10errorValueia.exit
+  %.5 = phi i32 [ %..i142, %_ZL10errorValueia.exit.thread147 ], [ 21, %_ZL10errorValueia.exit ], [ %133, %125 ], [ %133, %138 ], [ 1114111, %_ZL10errorValueia.exit141 ], [ 65535, %102 ], [ %..i136, %104 ], [ %75, %69 ], [ %92, %86 ], [ 159, %42 ], [ %..i, %44 ], [ %24, %20 ], [ %spec.select, %78 ]
   ret i32 %.5
 }
 
@@ -786,11 +786,11 @@ define i32 @utf8_back1SafeBody_77(ptr noundef readonly captures(none) %0, i32 no
   br i1 %.not, label %.thread, label %.thread72
 
 .thread72:                                        ; preds = %45, %32, %17, %66
-  %.0.ph = phi i32 [ %39, %45 ], [ %10, %17 ], [ %10, %32 ], [ %61, %66 ]
+  %.0.ph = phi i32 [ %10, %17 ], [ %10, %32 ], [ %39, %45 ], [ %61, %66 ]
   br label %.thread
 
 .thread:                                          ; preds = %60, %66, %57, %3, %32, %45, %35, %.thread72
-  %.5 = phi i32 [ %.0.ph, %.thread72 ], [ %2, %3 ], [ %2, %35 ], [ %2, %45 ], [ %2, %32 ], [ %2, %57 ], [ %2, %66 ], [ %2, %60 ]
+  %.5 = phi i32 [ %.0.ph, %.thread72 ], [ %2, %35 ], [ %2, %45 ], [ %2, %32 ], [ %2, %3 ], [ %2, %57 ], [ %2, %66 ], [ %2, %60 ]
   ret i32 %.5
 }
 

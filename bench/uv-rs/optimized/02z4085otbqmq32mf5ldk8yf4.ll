@@ -99,7 +99,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN77_$LT$uv_distribution_types..id..VersionId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7c534760642e6ff7E.llvm.16539403835048581065.exit"
 
 "_ZN77_$LT$uv_distribution_types..id..VersionId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7c534760642e6ff7E.llvm.16539403835048581065.exit": ; preds = %2, %15, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i", %23, %25, %35, %38
-  %.sroa.0.0.shrunk.i = phi i1 [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i" ], [ false, %2 ], [ false, %23 ], [ %37, %35 ], [ %41, %38 ], [ %28, %25 ], [ false, %15 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ false, %2 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i" ], [ %37, %35 ], [ %41, %38 ], [ %28, %25 ], [ false, %23 ], [ false, %15 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -118,7 +118,7 @@ define hidden noundef zeroext i1 @"_ZN77_$LT$uv_distribution_types..id..VersionI
   br i1 %4, label %23, label %10
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h25ab8ed627173f2eE.exit": ; preds = %15, %25, %23, %35, %38, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit" ], [ false, %2 ], [ false, %23 ], [ %37, %35 ], [ %41, %38 ], [ %28, %25 ], [ false, %15 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit" ], [ %37, %35 ], [ %41, %38 ], [ %28, %25 ], [ false, %23 ], [ false, %15 ]
   ret i1 %.sroa.0.0.shrunk
 
 10:                                               ; preds = %8
@@ -215,7 +215,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$uv_distribution_types..id..Distribu
   ]
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h25ab8ed627173f2eE.exit": ; preds = %108, %130, %127, %123, %118, %114, %104, %101, %22, %19, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h25ab8ed627173f2eE.exit31", %95, %2, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h555273ac619614c0E.exit"
-  %.sroa.0.0.shrunk = phi i1 [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h25ab8ed627173f2eE.exit31" ], [ %.sroa.0.0.i.i23, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h555273ac619614c0E.exit" ], [ false, %127 ], [ false, %2 ], [ false, %19 ], [ false, %118 ], [ false, %95 ], [ %25, %22 ], [ %107, %104 ], [ false, %101 ], [ true, %114 ], [ %126, %123 ], [ %133, %130 ], [ false, %108 ]
+  %.sroa.0.0.shrunk = phi i1 [ %.sroa.0.0.i.i23, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h555273ac619614c0E.exit" ], [ false, %2 ], [ false, %95 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h25ab8ed627173f2eE.exit31" ], [ %25, %22 ], [ false, %19 ], [ %107, %104 ], [ false, %101 ], [ true, %114 ], [ %126, %123 ], [ false, %118 ], [ %133, %130 ], [ false, %127 ], [ false, %108 ]
   ret i1 %.sroa.0.0.shrunk
 
 18:                                               ; preds = %17

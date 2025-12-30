@@ -564,7 +564,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   br i1 %exitcond.not, label %.loopexit, label %102, !llvm.loop !4
 
 .loopexit:                                        ; preds = %254, %203, %77, %86, %94
-  %.0 = phi i1 [ false, %77 ], [ false, %94 ], [ false, %86 ], [ %224, %203 ], [ %224, %254 ]
+  %.0 = phi i1 [ false, %94 ], [ false, %86 ], [ false, %77 ], [ %224, %203 ], [ %224, %254 ]
   ret i1 %.0
 }
 
@@ -783,9 +783,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfVec3dES2_(pt
   br label %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit: ; preds = %38, %64, %75
-  %.sroa.9.0 = phi double [ %73, %64 ], [ %79, %75 ], [ 0.000000e+00, %38 ]
-  %.sroa.5.0 = phi double [ %72, %64 ], [ %78, %75 ], [ 0.000000e+00, %38 ]
-  %.sroa.067.0 = phi double [ %71, %64 ], [ %77, %75 ], [ 0.000000e+00, %38 ]
+  %.sroa.9.0 = phi double [ %79, %75 ], [ %73, %64 ], [ 0.000000e+00, %38 ]
+  %.sroa.5.0 = phi double [ %78, %75 ], [ %72, %64 ], [ 0.000000e+00, %38 ]
+  %.sroa.067.0 = phi double [ %77, %75 ], [ %71, %64 ], [ 0.000000e+00, %38 ]
   %80 = fmul double %1, 0x400921FB54442D18
   %81 = tail call double @cos(double noundef %80) #17
   %82 = fmul double %5, %81

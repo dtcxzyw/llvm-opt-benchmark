@@ -1520,7 +1520,7 @@ _zend_dfg_add_use_def_op.exit:                    ; preds = %468, %.thread, %.lr
   br i1 %exitcond.not.i, label %594, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %.lr.ph205, %506, %zend_bitset_union_with_difference.exit, %575, %zend_bitset_last.exit
-  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %506 ], [ 0, %zend_bitset_last.exit ], [ 0, %zend_bitset_union_with_difference.exit ], [ 0, %575 ], [ 0, %.lr.ph205 ]
+  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %506 ], [ 0, %zend_bitset_union_with_difference.exit ], [ 0, %575 ], [ 0, %zend_bitset_last.exit ], [ 0, %.lr.ph205 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader.lr.ph

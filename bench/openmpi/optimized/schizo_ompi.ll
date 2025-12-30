@@ -388,7 +388,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.tail
 
 .tail:                                            ; preds = %sub_1, %sub_2
-  %30 = phi i32 [ %29, %sub_2 ], [ %25, %sub_1 ]
+  %30 = phi i32 [ %25, %sub_1 ], [ %29, %sub_2 ]
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.tail._crit_edge, label %32
 
@@ -459,8 +459,8 @@ mcaoption.exit:                                   ; preds = %44
   br label %.thread
 
 .thread:                                          ; preds = %sub_0, %32, %55, %66, %53
-  %.1152 = phi i32 [ %.0151198, %32 ], [ %.0151198, %53 ], [ %.2153, %66 ], [ %.0151198, %55 ], [ %.0151198, %sub_0 ]
-  %.2 = phi i32 [ %.1199, %32 ], [ %54, %53 ], [ %.1199, %66 ], [ %.1199, %55 ], [ %.1199, %sub_0 ]
+  %.1152 = phi i32 [ %.0151198, %53 ], [ %.2153, %66 ], [ %.0151198, %55 ], [ %.0151198, %32 ], [ %.0151198, %sub_0 ]
+  %.2 = phi i32 [ %54, %53 ], [ %.1199, %66 ], [ %.1199, %55 ], [ %.1199, %32 ], [ %.1199, %sub_0 ]
   %67 = add nsw i32 %.2, 1
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds ptr, ptr %6, i64 %68
@@ -469,7 +469,7 @@ mcaoption.exit:                                   ; preds = %44
   br i1 %.not170, label %.tail._crit_edge, label %sub_0, !llvm.loop !14
 
 .tail._crit_edge:                                 ; preds = %.thread, %.tail, %._crit_edge284
-  %.0151.lcssa = phi i32 [ 0, %._crit_edge284 ], [ %.1152, %.thread ], [ %.0151198, %.tail ]
+  %.0151.lcssa = phi i32 [ 0, %._crit_edge284 ], [ %.0151198, %.tail ], [ %.1152, %.thread ]
   %71 = tail call ptr @getenv(ptr noundef nonnull @.str.19) #18
   %72 = tail call ptr @getenv(ptr noundef nonnull @.str.20) #18
   %73 = icmp ne ptr %71, null
@@ -783,7 +783,7 @@ mcaoption.exit:                                   ; preds = %44
   br label %.loopexit
 
 .loopexit:                                        ; preds = %173, %.preheader, %._crit_edge238, %180, %128, %78, %84
-  %.0 = phi i32 [ %129, %128 ], [ %85, %84 ], [ -72, %78 ], [ 0, %._crit_edge238 ], [ 0, %180 ], [ 0, %.preheader ], [ 0, %173 ]
+  %.0 = phi i32 [ %85, %84 ], [ -72, %78 ], [ %129, %128 ], [ 0, %180 ], [ 0, %._crit_edge238 ], [ 0, %.preheader ], [ 0, %173 ]
   ret i32 %.0
 }
 
@@ -1247,8 +1247,8 @@ sub_0207.i:                                       ; preds = %132
   br label %process_envar.exit.i
 
 process_envar.exit.i:                             ; preds = %.lr.ph.i.i, %184, %.critedge.i.i, %190, %180, %168, %159
-  %.sink.i.i = phi ptr [ %177, %180 ], [ %157, %184 ], [ %157, %159 ], [ %157, %168 ], [ %157, %.critedge.i.i ], [ %157, %190 ], [ %157, %.lr.ph.i.i ]
-  %.052.i.i = phi i32 [ -5, %180 ], [ %.2.i.i, %184 ], [ %161, %159 ], [ 0, %168 ], [ -13, %.critedge.i.i ], [ %191, %190 ], [ 0, %.lr.ph.i.i ]
+  %.sink.i.i = phi ptr [ %177, %180 ], [ %157, %168 ], [ %157, %.critedge.i.i ], [ %157, %190 ], [ %157, %159 ], [ %157, %184 ], [ %157, %.lr.ph.i.i ]
+  %.052.i.i = phi i32 [ -5, %180 ], [ 0, %168 ], [ -13, %.critedge.i.i ], [ %191, %190 ], [ %161, %159 ], [ %.2.i.i, %184 ], [ 0, %.lr.ph.i.i ]
   call void @free(ptr noundef nonnull %.sink.i.i) #18
   call void @free(ptr noundef %156) #18
   %.not182.i = icmp eq i32 %.052.i.i, 0
@@ -1469,7 +1469,7 @@ process_env_list.exit196.thread199.i:             ; preds = %281, %.preheader.i1
   br label %process_tune_files.exit.thread
 
 process_env_list.exit196.thread.i:                ; preds = %284, %process_env_list.exit196.thread199.i, %271, %process_env_list.exit.i, %208
-  %.2.i = phi i32 [ %209, %208 ], [ %.0147272.i, %284 ], [ %.0147272.i, %271 ], [ %217, %process_env_list.exit.i ], [ %.0147272.i, %process_env_list.exit196.thread199.i ]
+  %.2.i = phi i32 [ %209, %208 ], [ %.0147272.i, %284 ], [ %217, %process_env_list.exit.i ], [ %.0147272.i, %process_env_list.exit196.thread199.i ], [ %.0147272.i, %271 ]
   %294 = add nsw i32 %.2.i, 1
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds ptr, ptr %99, i64 %295
@@ -1587,7 +1587,7 @@ process_tune_files.exit.thread:                   ; preds = %87, %79, %102, %124
   call void @free(ptr noundef %63) #18
   br label %669
 
-process_tune_files.exit.thread375:                ; preds = %pmix_cmd_line_get_param.exit, %324, %._crit_edge290.i
+process_tune_files.exit.thread375:                ; preds = %pmix_cmd_line_get_param.exit, %._crit_edge290.i, %324
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1816,7 +1816,7 @@ pmix_cmd_line_get_param.exit301:                  ; preds = %.lr.ph.i295
   br label %pmix_cmd_line_get_param.exit301.thread
 
 pmix_cmd_line_get_param.exit301.thread:           ; preds = %396, %pmix_cmd_line_is_taken.exit292, %411
-  %.09.i302 = phi ptr [ %.09.i302.pre, %411 ], [ %.09.i293, %pmix_cmd_line_is_taken.exit292 ], [ %.09.i293, %396 ]
+  %.09.i302 = phi ptr [ %.09.i293, %pmix_cmd_line_is_taken.exit292 ], [ %.09.i302.pre, %411 ], [ %.09.i293, %396 ]
   %.not10.i303 = icmp eq ptr %.09.i302, %53
   br i1 %.not10.i303, label %pmix_cmd_line_get_param.exit310.thread, label %.lr.ph.i304
 
@@ -1884,7 +1884,7 @@ pmix_cmd_line_get_param.exit310.thread.loopexit:  ; preds = %pmix_cmd_line_get_p
   br label %pmix_cmd_line_get_param.exit310.thread
 
 pmix_cmd_line_get_param.exit310.thread:           ; preds = %422, %pmix_cmd_line_get_param.exit310.thread.loopexit, %pmix_cmd_line_get_param.exit310.preheader, %pmix_cmd_line_get_param.exit301.thread
-  %.09.i311 = phi ptr [ %.09.i302, %pmix_cmd_line_get_param.exit301.thread ], [ %.09.i311.pre, %pmix_cmd_line_get_param.exit310.thread.loopexit ], [ %.09.i302, %pmix_cmd_line_get_param.exit310.preheader ], [ %.09.i302, %422 ]
+  %.09.i311 = phi ptr [ %.09.i311.pre, %pmix_cmd_line_get_param.exit310.thread.loopexit ], [ %.09.i302, %pmix_cmd_line_get_param.exit310.preheader ], [ %.09.i302, %pmix_cmd_line_get_param.exit301.thread ], [ %.09.i302, %422 ]
   %.not10.i312 = icmp eq ptr %.09.i311, %53
   br i1 %.not10.i312, label %pmix_cmd_line_get_param.exit319.thread, label %.lr.ph.i313
 
@@ -1952,7 +1952,7 @@ pmix_cmd_line_get_param.exit319.thread.loopexit:  ; preds = %pmix_cmd_line_get_p
   br label %pmix_cmd_line_get_param.exit319.thread
 
 pmix_cmd_line_get_param.exit319.thread:           ; preds = %449, %pmix_cmd_line_get_param.exit319.thread.loopexit, %pmix_cmd_line_get_param.exit319.preheader, %pmix_cmd_line_get_param.exit310.thread
-  %.09.i320 = phi ptr [ %.09.i311, %pmix_cmd_line_get_param.exit310.thread ], [ %.09.i320.pre, %pmix_cmd_line_get_param.exit319.thread.loopexit ], [ %.09.i311, %pmix_cmd_line_get_param.exit319.preheader ], [ %.09.i311, %449 ]
+  %.09.i320 = phi ptr [ %.09.i320.pre, %pmix_cmd_line_get_param.exit319.thread.loopexit ], [ %.09.i311, %pmix_cmd_line_get_param.exit319.preheader ], [ %.09.i311, %pmix_cmd_line_get_param.exit310.thread ], [ %.09.i311, %449 ]
   %.not10.i321 = icmp eq ptr %.09.i320, %53
   br i1 %.not10.i321, label %pmix_cmd_line_get_param.exit328.thread, label %.lr.ph.i322
 
@@ -2062,7 +2062,7 @@ pmix_cmd_line_get_param.exit328.thread.loopexit:  ; preds = %check_generic.exit.
   br label %pmix_cmd_line_get_param.exit328.thread
 
 pmix_cmd_line_get_param.exit328.thread:           ; preds = %476, %pmix_cmd_line_get_param.exit328.thread.loopexit, %pmix_cmd_line_get_param.exit328.preheader, %pmix_cmd_line_get_param.exit319.thread
-  %.09.i334 = phi ptr [ %.09.i320, %pmix_cmd_line_get_param.exit319.thread ], [ %.09.i334.pre, %pmix_cmd_line_get_param.exit328.thread.loopexit ], [ %.09.i320, %pmix_cmd_line_get_param.exit328.preheader ], [ %.09.i320, %476 ]
+  %.09.i334 = phi ptr [ %.09.i334.pre, %pmix_cmd_line_get_param.exit328.thread.loopexit ], [ %.09.i320, %pmix_cmd_line_get_param.exit328.preheader ], [ %.09.i320, %pmix_cmd_line_get_param.exit319.thread ], [ %.09.i320, %476 ]
   %.not10.i335 = icmp eq ptr %.09.i334, %53
   br i1 %.not10.i335, label %pmix_cmd_line_get_param.exit342.thread, label %.lr.ph.i336
 
@@ -2267,7 +2267,7 @@ pmix_cmd_line_get_param.exit342.thread:           ; preds = %519, %check_generic
   br i1 %.not215, label %.loopexit415, label %.lr.ph527, !llvm.loop !65
 
 .loopexit415:                                     ; preds = %._crit_edge524, %.preheader414, %pmix_cmd_line_get_param.exit342.thread
-  %594 = phi ptr [ null, %pmix_cmd_line_get_param.exit342.thread ], [ %555, %.preheader414 ], [ %591, %._crit_edge524 ]
+  %594 = phi ptr [ %555, %.preheader414 ], [ null, %pmix_cmd_line_get_param.exit342.thread ], [ %591, %._crit_edge524 ]
   call void @PMIx_Argv_free(ptr noundef %594) #18
   %595 = call fastcc ptr @pmix_cmd_line_get_param(ptr noundef nonnull %2, ptr noundef nonnull @.str.75)
   %.not216 = icmp eq ptr %595, null
@@ -2402,7 +2402,7 @@ pmix_cmd_line_get_param.exit342.thread:           ; preds = %519, %check_generic
   br i1 %.not219, label %.loopexit, label %.lr.ph533, !llvm.loop !68
 
 .loopexit:                                        ; preds = %648, %.preheader410, %.loopexit413
-  %652 = phi ptr [ null, %.loopexit413 ], [ %631, %.preheader410 ], [ %649, %648 ]
+  %652 = phi ptr [ %631, %.preheader410 ], [ null, %.loopexit413 ], [ %649, %648 ]
   call void @PMIx_Argv_free(ptr noundef %652) #18
   %653 = load ptr, ptr %12, align 8, !tbaa !38
   call void @PMIx_Argv_free(ptr noundef %653) #18
@@ -2445,7 +2445,7 @@ pmix_cmd_line_get_param.exit342.thread:           ; preds = %519, %check_generic
   br label %669
 
 669:                                              ; preds = %process_tune_files.exit.thread, %process_tune_files.exit, %25, %665, %619, %584, %575, %548, %505, %463, %436, %364, %351, %process_env_list.exit
-  %.0 = phi i32 [ 0, %665 ], [ %34, %process_env_list.exit ], [ 0, %25 ], [ %350, %351 ], [ %363, %364 ], [ %435, %436 ], [ %462, %463 ], [ %504, %505 ], [ %547, %548 ], [ %.0154, %575 ], [ %583, %584 ], [ -5, %619 ], [ %277, %process_tune_files.exit ], [ %.0151.i.ph, %process_tune_files.exit.thread ]
+  %.0 = phi i32 [ %34, %process_env_list.exit ], [ %350, %351 ], [ %363, %364 ], [ %435, %436 ], [ %462, %463 ], [ %504, %505 ], [ %547, %548 ], [ %.0154, %575 ], [ %583, %584 ], [ -5, %619 ], [ 0, %665 ], [ 0, %25 ], [ %277, %process_tune_files.exit ], [ %.0151.i.ph, %process_tune_files.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -3346,7 +3346,7 @@ set_classpath_jar_file.exit85:                    ; preds = %115, %109, %102
   br label %158
 
 158:                                              ; preds = %set_classpath_jar_file.exit85, %set_classpath_jar_file.exit, %22, %154, %1, %15
-  %.062 = phi i32 [ 0, %set_classpath_jar_file.exit ], [ -16, %15 ], [ 0, %1 ], [ 0, %set_classpath_jar_file.exit85 ], [ 0, %154 ], [ -5, %22 ]
+  %.062 = phi i32 [ -16, %15 ], [ 0, %1 ], [ 0, %set_classpath_jar_file.exit85 ], [ 0, %154 ], [ 0, %set_classpath_jar_file.exit ], [ -5, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062
 }
@@ -6420,7 +6420,7 @@ pmix_obj_run_destructors.exit836:                 ; preds = %.lr.ph.i833, %1523
   br label %1537
 
 1537:                                             ; preds = %pmix_obj_update.exit632, %1536, %1534, %pmix_obj_update.exit631, %1301, %1299, %pmix_obj_update.exit630, %1264, %1262, %pmix_obj_update.exit629, %1229, %1227, %pmix_obj_update.exit628, %1194, %1192, %pmix_obj_update.exit627, %1153, %1151, %pmix_obj_update.exit626, %1118, %1116, %pmix_obj_update.exit625, %1072, %1070, %pmix_obj_update.exit624, %1037, %1035, %pmix_obj_update.exit623, %1002, %1000, %pmix_obj_update.exit622, %967, %965, %pmix_obj_update.exit621, %926, %924, %pmix_obj_update.exit620, %885, %883, %pmix_obj_update.exit619, %850, %848, %pmix_obj_update.exit618, %815, %813, %pmix_obj_update.exit617, %775, %773, %pmix_obj_update.exit616, %732, %730, %pmix_obj_update.exit615, %686, %684, %pmix_obj_update.exit614, %645, %643, %pmix_obj_update.exit613, %610, %608, %pmix_obj_update.exit612, %570, %568, %pmix_obj_update.exit611, %529, %527, %pmix_obj_update.exit610, %485, %483, %pmix_obj_update.exit609, %450, %448, %pmix_obj_update.exit608, %415, %413, %pmix_obj_update.exit607, %380, %378, %pmix_obj_update.exit606, %345, %343, %pmix_obj_update.exit605, %310, %308, %pmix_obj_update.exit604, %266, %264, %pmix_obj_update.exit603, %231, %229, %pmix_obj_update.exit601, %156, %154, %pmix_obj_update.exit600, %121, %119, %pmix_obj_update.exit599, %86, %84, %pmix_obj_update.exit, %52, %50, %195, %1338, %1370, %1333, %1438, %1410, %1443, %1374, %1402
-  %.2 = phi i32 [ %.0547903, %1443 ], [ %22, %pmix_obj_update.exit ], [ %56, %pmix_obj_update.exit599 ], [ %91, %pmix_obj_update.exit600 ], [ %161, %195 ], [ %126, %pmix_obj_update.exit601 ], [ %201, %pmix_obj_update.exit603 ], [ %236, %pmix_obj_update.exit604 ], [ %279, %pmix_obj_update.exit605 ], [ %315, %pmix_obj_update.exit606 ], [ %350, %pmix_obj_update.exit607 ], [ %385, %pmix_obj_update.exit608 ], [ %420, %pmix_obj_update.exit609 ], [ %455, %pmix_obj_update.exit610 ], [ %498, %pmix_obj_update.exit611 ], [ %539, %pmix_obj_update.exit612 ], [ %579, %pmix_obj_update.exit613 ], [ %615, %pmix_obj_update.exit614 ], [ %655, %pmix_obj_update.exit615 ], [ %701, %pmix_obj_update.exit616 ], [ %745, %pmix_obj_update.exit617 ], [ %784, %pmix_obj_update.exit618 ], [ %820, %pmix_obj_update.exit619 ], [ %855, %pmix_obj_update.exit620 ], [ %895, %pmix_obj_update.exit621 ], [ %936, %pmix_obj_update.exit622 ], [ %972, %pmix_obj_update.exit623 ], [ %1007, %pmix_obj_update.exit624 ], [ %1042, %pmix_obj_update.exit625 ], [ %1087, %pmix_obj_update.exit626 ], [ %1123, %pmix_obj_update.exit627 ], [ %1163, %pmix_obj_update.exit628 ], [ %1199, %pmix_obj_update.exit629 ], [ %1234, %pmix_obj_update.exit630 ], [ %.0547903, %1333 ], [ %.0547903, %1370 ], [ %.0547903, %1338 ], [ %.0547903, %1402 ], [ %.0547903, %1374 ], [ %.0547903, %1438 ], [ %.0547903, %1410 ], [ %.0547903, %pmix_obj_update.exit631 ], [ %22, %50 ], [ %22, %52 ], [ %56, %84 ], [ %56, %86 ], [ %91, %119 ], [ %91, %121 ], [ %126, %154 ], [ %126, %156 ], [ %201, %229 ], [ %201, %231 ], [ %236, %264 ], [ %236, %266 ], [ %279, %308 ], [ %279, %310 ], [ %315, %343 ], [ %315, %345 ], [ %350, %378 ], [ %350, %380 ], [ %385, %413 ], [ %385, %415 ], [ %420, %448 ], [ %420, %450 ], [ %455, %483 ], [ %455, %485 ], [ %498, %527 ], [ %498, %529 ], [ %539, %568 ], [ %539, %570 ], [ %579, %608 ], [ %579, %610 ], [ %615, %643 ], [ %615, %645 ], [ %655, %684 ], [ %655, %686 ], [ %701, %730 ], [ %701, %732 ], [ %745, %773 ], [ %745, %775 ], [ %784, %813 ], [ %784, %815 ], [ %820, %848 ], [ %820, %850 ], [ %855, %883 ], [ %855, %885 ], [ %895, %924 ], [ %895, %926 ], [ %936, %965 ], [ %936, %967 ], [ %972, %1000 ], [ %972, %1002 ], [ %1007, %1035 ], [ %1007, %1037 ], [ %1042, %1070 ], [ %1042, %1072 ], [ %1087, %1116 ], [ %1087, %1118 ], [ %1123, %1151 ], [ %1123, %1153 ], [ %1163, %1192 ], [ %1163, %1194 ], [ %1199, %1227 ], [ %1199, %1229 ], [ %1234, %1262 ], [ %1234, %1264 ], [ %.0547903, %1299 ], [ %.0547903, %1301 ], [ %.1, %1534 ], [ %.1, %1536 ], [ %.1, %pmix_obj_update.exit632 ]
+  %.2 = phi i32 [ %161, %195 ], [ %.0547903, %1333 ], [ %.0547903, %1370 ], [ %.0547903, %1338 ], [ %.0547903, %1402 ], [ %.0547903, %1374 ], [ %.0547903, %1438 ], [ %.0547903, %1410 ], [ %.0547903, %1443 ], [ %22, %50 ], [ %22, %52 ], [ %22, %pmix_obj_update.exit ], [ %56, %84 ], [ %56, %86 ], [ %56, %pmix_obj_update.exit599 ], [ %91, %119 ], [ %91, %121 ], [ %91, %pmix_obj_update.exit600 ], [ %126, %154 ], [ %126, %156 ], [ %126, %pmix_obj_update.exit601 ], [ %201, %229 ], [ %201, %231 ], [ %201, %pmix_obj_update.exit603 ], [ %236, %264 ], [ %236, %266 ], [ %236, %pmix_obj_update.exit604 ], [ %279, %308 ], [ %279, %310 ], [ %279, %pmix_obj_update.exit605 ], [ %315, %343 ], [ %315, %345 ], [ %315, %pmix_obj_update.exit606 ], [ %350, %378 ], [ %350, %380 ], [ %350, %pmix_obj_update.exit607 ], [ %385, %413 ], [ %385, %415 ], [ %385, %pmix_obj_update.exit608 ], [ %420, %448 ], [ %420, %450 ], [ %420, %pmix_obj_update.exit609 ], [ %455, %483 ], [ %455, %485 ], [ %455, %pmix_obj_update.exit610 ], [ %498, %527 ], [ %498, %529 ], [ %498, %pmix_obj_update.exit611 ], [ %539, %568 ], [ %539, %570 ], [ %539, %pmix_obj_update.exit612 ], [ %579, %608 ], [ %579, %610 ], [ %579, %pmix_obj_update.exit613 ], [ %615, %643 ], [ %615, %645 ], [ %615, %pmix_obj_update.exit614 ], [ %655, %684 ], [ %655, %686 ], [ %655, %pmix_obj_update.exit615 ], [ %701, %730 ], [ %701, %732 ], [ %701, %pmix_obj_update.exit616 ], [ %745, %773 ], [ %745, %775 ], [ %745, %pmix_obj_update.exit617 ], [ %784, %813 ], [ %784, %815 ], [ %784, %pmix_obj_update.exit618 ], [ %820, %848 ], [ %820, %850 ], [ %820, %pmix_obj_update.exit619 ], [ %855, %883 ], [ %855, %885 ], [ %855, %pmix_obj_update.exit620 ], [ %895, %924 ], [ %895, %926 ], [ %895, %pmix_obj_update.exit621 ], [ %936, %965 ], [ %936, %967 ], [ %936, %pmix_obj_update.exit622 ], [ %972, %1000 ], [ %972, %1002 ], [ %972, %pmix_obj_update.exit623 ], [ %1007, %1035 ], [ %1007, %1037 ], [ %1007, %pmix_obj_update.exit624 ], [ %1042, %1070 ], [ %1042, %1072 ], [ %1042, %pmix_obj_update.exit625 ], [ %1087, %1116 ], [ %1087, %1118 ], [ %1087, %pmix_obj_update.exit626 ], [ %1123, %1151 ], [ %1123, %1153 ], [ %1123, %pmix_obj_update.exit627 ], [ %1163, %1192 ], [ %1163, %1194 ], [ %1163, %pmix_obj_update.exit628 ], [ %1199, %1227 ], [ %1199, %1229 ], [ %1199, %pmix_obj_update.exit629 ], [ %1234, %1262 ], [ %1234, %1264 ], [ %1234, %pmix_obj_update.exit630 ], [ %.0547903, %1299 ], [ %.0547903, %1301 ], [ %.0547903, %pmix_obj_update.exit631 ], [ %.1, %1534 ], [ %.1, %1536 ], [ %.1, %pmix_obj_update.exit632 ]
   %.not = icmp eq ptr %.0549905, %8
   br i1 %.not, label %.loopexit, label %sub_0, !llvm.loop !116
 
@@ -6596,7 +6596,7 @@ define internal fastcc range(i32 -13, 1) i32 @process_token(ptr noundef nonnull 
   br label %23
 
 23:                                               ; preds = %19, %20, %9, %6
-  %.022 = phi i32 [ -2, %9 ], [ -13, %6 ], [ %.0, %19 ], [ %22, %20 ]
+  %.022 = phi i32 [ -13, %6 ], [ -2, %9 ], [ %.0, %19 ], [ %22, %20 ]
   ret i32 %.022
 }
 

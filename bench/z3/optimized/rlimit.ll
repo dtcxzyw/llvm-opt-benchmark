@@ -113,7 +113,7 @@ define hidden noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8
   br label %_ZN8reslimit12not_canceledEv.exit
 
 _ZN8reslimit12not_canceledEv.exit:                ; preds = %1, %8, %11
-  %15 = phi i1 [ true, %1 ], [ %.not.i, %11 ], [ false, %8 ]
+  %15 = phi i1 [ true, %1 ], [ false, %8 ], [ %.not.i, %11 ]
   ret i1 %15
 }
 
@@ -142,7 +142,7 @@ define hidden noundef zeroext i1 @_ZN8reslimit3incEj(ptr noundef nonnull align 8
   br label %_ZN8reslimit12not_canceledEv.exit
 
 _ZN8reslimit12not_canceledEv.exit:                ; preds = %2, %10, %13
-  %17 = phi i1 [ true, %2 ], [ %.not.i, %13 ], [ false, %10 ]
+  %17 = phi i1 [ true, %2 ], [ false, %10 ], [ %.not.i, %13 ]
   ret i1 %17
 }
 

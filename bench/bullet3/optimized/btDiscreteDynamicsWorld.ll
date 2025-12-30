@@ -1023,7 +1023,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld14debugDrawWorldEv(ptr nounde
   ret void
 
 112:                                              ; preds = %.loopexit27, %.loopexit.split-lp, %23, %25, %44, %33, %21
-  %.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ], [ %34, %33 ], [ %24, %23 ], [ %45, %44 ], [ %lpad.loopexit, %.loopexit27 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %45, %44 ], [ %34, %33 ], [ %lpad.loopexit, %.loopexit27 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn
@@ -2452,7 +2452,7 @@ _ZN11btRigidBody13wantsSleepingEv.exit.thread30:  ; preds = %56, %_ZN11btRigidBo
   br label %.thread32
 
 .thread.invoke:                                   ; preds = %_ZN11btRigidBody13wantsSleepingEv.exit.thread30, %50, %_ZN11btRigidBody13wantsSleepingEv.exit
-  %78 = phi i32 [ 1, %50 ], [ 1, %_ZN11btRigidBody13wantsSleepingEv.exit ], [ 2, %_ZN11btRigidBody13wantsSleepingEv.exit.thread30 ]
+  %78 = phi i32 [ 1, %_ZN11btRigidBody13wantsSleepingEv.exit ], [ 1, %50 ], [ 2, %_ZN11btRigidBody13wantsSleepingEv.exit.thread30 ]
   invoke void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372) %11, i32 noundef %78)
           to label %.thread32 unwind label %64
 
@@ -4021,7 +4021,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   br label %259
 
 259:                                              ; preds = %255, %257
-  %.pn.pn = phi { ptr, i32 } [ %256, %255 ], [ %258, %257 ]
+  %.pn.pn = phi { ptr, i32 } [ %258, %257 ], [ %256, %255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %261
 
@@ -7965,7 +7965,7 @@ _ZNK16btCollisionWorld20ConvexResultCallback14needsCollisionEP17btBroadphaseProx
   br label %_ZNK16btCollisionWorld20ConvexResultCallback14needsCollisionEP17btBroadphaseProxy.exit.thread
 
 _ZNK16btCollisionWorld20ConvexResultCallback14needsCollisionEP17btBroadphaseProxy.exit.thread: ; preds = %7, %25, %34, %43, %_ZNK16btCollisionWorld20ConvexResultCallback14needsCollisionEP17btBroadphaseProxy.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK16btCollisionWorld20ConvexResultCallback14needsCollisionEP17btBroadphaseProxy.exit ], [ false, %25 ], [ %49, %43 ], [ false, %34 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %2 ], [ false, %_ZNK16btCollisionWorld20ConvexResultCallback14needsCollisionEP17btBroadphaseProxy.exit ], [ false, %34 ], [ %49, %43 ], [ false, %7 ]
   ret i1 %.0
 }
 

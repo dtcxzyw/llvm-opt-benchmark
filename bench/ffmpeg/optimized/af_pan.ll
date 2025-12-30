@@ -364,12 +364,12 @@ are_gains_pure.exit:                              ; preds = %.critedge.i, %117
   br label %125
 
 125:                                              ; preds = %.thread65, %25, %are_gains_pure.exit, %36, %24
-  %.037 = phi i32 [ %28, %25 ], [ -1163346256, %36 ], [ -22, %.thread65 ], [ 0, %are_gains_pure.exit ], [ -22, %24 ]
+  %.037 = phi i32 [ %28, %25 ], [ -1163346256, %36 ], [ 0, %are_gains_pure.exit ], [ -22, %24 ], [ -22, %.thread65 ]
   call void @av_free(ptr noundef nonnull %18) #8
   br label %126
 
 126:                                              ; preds = %21, %125, %20
-  %.039 = phi i32 [ %.037, %125 ], [ -12, %21 ], [ -22, %20 ]
+  %.039 = phi i32 [ %.037, %125 ], [ -22, %20 ], [ -12, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -696,7 +696,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
   br i1 %exitcond189.not, label %.loopexit, label %87, !llvm.loop !68
 
 .loopexit:                                        ; preds = %87, %.preheader128, %84, %86, %69
-  %91 = phi i32 [ %70, %.preheader128 ], [ %70, %69 ], [ %70, %84 ], [ %.pre, %86 ], [ %70, %87 ]
+  %91 = phi i32 [ %70, %84 ], [ %.pre, %86 ], [ %70, %69 ], [ %70, %.preheader128 ], [ %70, %87 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next191, %92
@@ -806,7 +806,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
   br label %142
 
 142:                                              ; preds = %._crit_edge162, %97, %35, %._crit_edge166, %34
-  %.0111 = phi i32 [ -1163346256, %34 ], [ %99, %97 ], [ -12, %35 ], [ 0, %._crit_edge166 ], [ 0, %._crit_edge162 ]
+  %.0111 = phi i32 [ -1163346256, %34 ], [ 0, %._crit_edge166 ], [ -12, %35 ], [ %99, %97 ], [ 0, %._crit_edge162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0111
 }

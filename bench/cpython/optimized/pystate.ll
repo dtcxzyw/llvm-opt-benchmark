@@ -1577,9 +1577,9 @@ _PyMutex_Unlock.exit:                             ; preds = %49, %52
   br label %62
 
 init_interpreter.exit:                            ; preds = %.split, %26, %23
-  %.sroa.9.0 = phi ptr [ @__func__._PyInterpreterState_New, %26 ], [ @__func__._PyInterpreterState_New, %23 ], [ @__func__.init_interpreter, %.split ]
-  %.sroa.11.0 = phi ptr [ @.str.4, %26 ], [ @.str.1, %23 ], [ @.str.160, %.split ]
-  %.1 = phi ptr [ %24, %26 ], [ null, %23 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89072), %.split ]
+  %.sroa.9.0 = phi ptr [ @__func__._PyInterpreterState_New, %23 ], [ @__func__._PyInterpreterState_New, %26 ], [ @__func__.init_interpreter, %.split ]
+  %.sroa.11.0 = phi ptr [ @.str.1, %23 ], [ @.str.4, %26 ], [ @.str.160, %.split ]
+  %.1 = phi ptr [ null, %23 ], [ %24, %26 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89072), %.split ]
   %53 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), i8 1, i8 0 seq_cst seq_cst, align 1
   %54 = extractvalue { i8, i1 } %53, 1
   br i1 %54, label %_PyMutex_Unlock.exit56, label %55
@@ -2770,7 +2770,7 @@ _PyIndex_Check.exit.thread:                       ; preds = %1, %_PyIndex_Check.
   br label %19
 
 19:                                               ; preds = %.thread, %13, %15, %_PyIndex_Check.exit.thread
-  %.0 = phi i64 [ -1, %_PyIndex_Check.exit.thread ], [ -1, %13 ], [ -1, %.thread ], [ %11, %15 ]
+  %.0 = phi i64 [ -1, %_PyIndex_Check.exit.thread ], [ -1, %.thread ], [ -1, %13 ], [ %11, %15 ]
   ret i64 %.0
 }
 
@@ -3057,7 +3057,7 @@ PyInterpreterState_GetID.exit.i:                  ; preds = %PyMutex_LockFlags.e
   br i1 %.not.i, label %interp_look_up_id.exit, label %PyInterpreterState_GetID.exit.i, !llvm.loop !254
 
 interp_look_up_id.exit:                           ; preds = %PyInterpreterState_GetID.exit.i, %11, %13, %PyMutex_LockFlags.exit
-  %.2.i = phi ptr [ null, %PyMutex_LockFlags.exit ], [ null, %13 ], [ %.0106.i, %11 ], [ null, %PyInterpreterState_GetID.exit.i ]
+  %.2.i = phi ptr [ null, %PyMutex_LockFlags.exit ], [ null, %13 ], [ null, %PyInterpreterState_GetID.exit.i ], [ %.0106.i, %11 ]
   %15 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), i8 1, i8 0 seq_cst seq_cst, align 1
   %16 = extractvalue { i8, i1 } %15, 1
   br i1 %16, label %_PyMutex_Unlock.exit, label %17
@@ -3158,7 +3158,7 @@ PyInterpreterState_GetID.exit.i.i:                ; preds = %PyMutex_LockFlags.e
   br i1 %.not.i.i4, label %interp_look_up_id.exit.i, label %PyInterpreterState_GetID.exit.i.i, !llvm.loop !254
 
 interp_look_up_id.exit.i:                         ; preds = %28, %26, %PyInterpreterState_GetID.exit.i.i, %PyMutex_LockFlags.exit.i
-  %.2.i.i = phi ptr [ null, %PyMutex_LockFlags.exit.i ], [ null, %PyInterpreterState_GetID.exit.i.i ], [ %.0106.i.i, %26 ], [ null, %28 ]
+  %.2.i.i = phi ptr [ null, %PyMutex_LockFlags.exit.i ], [ %.0106.i.i, %26 ], [ null, %PyInterpreterState_GetID.exit.i.i ], [ null, %28 ]
   %30 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), i8 1, i8 0 seq_cst seq_cst, align 1
   %31 = extractvalue { i8, i1 } %30, 1
   br i1 %31, label %_PyMutex_Unlock.exit.i, label %32
@@ -3181,8 +3181,8 @@ _PyMutex_Unlock.exit.thread.i:                    ; preds = %_PyMutex_Unlock.exi
   %37 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.18, i64 noundef %11) #16
   br label %_PyInterpreterState_LookUpID.exit
 
-_PyInterpreterState_LookUpID.exit:                ; preds = %.thread.i, %13, %_PyIndex_Check.exit.thread.i, %35, %_PyMutex_Unlock.exit.thread.i, %_PyMutex_Unlock.exit.i
-  %.0 = phi ptr [ %.2.i.i, %_PyMutex_Unlock.exit.i ], [ null, %35 ], [ null, %_PyMutex_Unlock.exit.thread.i ], [ null, %_PyIndex_Check.exit.thread.i ], [ null, %13 ], [ null, %.thread.i ]
+_PyInterpreterState_LookUpID.exit:                ; preds = %13, %.thread.i, %_PyIndex_Check.exit.thread.i, %35, %_PyMutex_Unlock.exit.thread.i, %_PyMutex_Unlock.exit.i
+  %.0 = phi ptr [ null, %35 ], [ null, %_PyMutex_Unlock.exit.thread.i ], [ %.2.i.i, %_PyMutex_Unlock.exit.i ], [ null, %_PyIndex_Check.exit.thread.i ], [ null, %.thread.i ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -3319,7 +3319,7 @@ add_threadstate.exit:                             ; preds = %init_threadstate.ex
   br label %_PyMutex_Unlock.exit
 
 _PyMutex_Unlock.exit:                             ; preds = %6, %63, %add_threadstate.exit
-  %.0 = phi ptr [ %.06.i20, %63 ], [ null, %6 ], [ %.06.i20, %add_threadstate.exit ]
+  %.0 = phi ptr [ %.06.i20, %add_threadstate.exit ], [ %.06.i20, %63 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -4246,7 +4246,7 @@ _PyFrame_GetFrameObject.exit:                     ; preds = %_PyThreadState_GetF
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %_PyFrame_IsIncomplete.exit.thread.i.i, %1, %24, %.split, %.split7
-  %.0 = phi ptr [ %.0.i13, %24 ], [ null, %.split7 ], [ %.0.i13, %.split ], [ null, %1 ], [ null, %_PyFrame_IsIncomplete.exit.thread.i.i ]
+  %.0 = phi ptr [ null, %.split7 ], [ %.0.i13, %.split ], [ %.0.i13, %24 ], [ null, %1 ], [ null, %_PyFrame_IsIncomplete.exit.thread.i.i ]
   ret ptr %.0
 }
 
@@ -4365,7 +4365,7 @@ PyMutex_LockFlags.exit:                           ; preds = %1, %4
   br label %15
 
 15:                                               ; preds = %8, %PyMutex_LockFlags.exit
-  %.0 = phi ptr [ %spec.select, %8 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10408), %PyMutex_LockFlags.exit ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10408), %PyMutex_LockFlags.exit ], [ %spec.select, %8 ]
   %16 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), i8 1, i8 0 seq_cst seq_cst, align 1
   %17 = extractvalue { i8, i1 } %16, 1
   br i1 %17, label %_PyMutex_Unlock.exit, label %18
@@ -4880,7 +4880,7 @@ select.unfold:                                    ; preds = %Py_DECREF.exit45, %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %._crit_edge, %PyMutex_LockFlags.exit, %59, %56, %select.unfold
-  %.037 = phi ptr [ null, %59 ], [ null, %select.unfold ], [ null, %56 ], [ %6, %PyMutex_LockFlags.exit ], [ %6, %._crit_edge ]
+  %.037 = phi ptr [ null, %select.unfold ], [ null, %56 ], [ null, %59 ], [ %6, %PyMutex_LockFlags.exit ], [ %6, %._crit_edge ]
   %60 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), i8 1, i8 0 seq_cst seq_cst, align 1
   %61 = extractvalue { i8, i1 } %60, 1
   br i1 %61, label %_PyMutex_Unlock.exit, label %62
@@ -5004,7 +5004,7 @@ select.unfold:                                    ; preds = %Py_DECREF.exit43, %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %._crit_edge, %PyMutex_LockFlags.exit, %41, %38, %select.unfold
-  %.036 = phi ptr [ null, %41 ], [ null, %select.unfold ], [ null, %38 ], [ %8, %PyMutex_LockFlags.exit ], [ %8, %._crit_edge ]
+  %.036 = phi ptr [ null, %select.unfold ], [ null, %38 ], [ null, %41 ], [ %8, %PyMutex_LockFlags.exit ], [ %8, %._crit_edge ]
   %42 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 696), i8 1, i8 0 seq_cst seq_cst, align 1
   %43 = extractvalue { i8, i1 } %42, 1
   br i1 %43, label %_PyMutex_Unlock.exit, label %44
@@ -5106,7 +5106,7 @@ define dso_local range(i32 0, 2) i32 @PyGILState_Check() local_unnamed_addr #1 {
   br label %12
 
 12:                                               ; preds = %8, %4, %2, %0
-  %.0 = phi i32 [ 1, %2 ], [ 1, %0 ], [ %11, %8 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %0 ], [ 1, %2 ], [ %11, %8 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -5503,7 +5503,7 @@ define hidden range(i32 0, 2) i32 @_PyThreadState_MustExit(ptr noundef readonly 
   br label %18
 
 18:                                               ; preds = %15, %12
-  %.08 = phi i32 [ %., %15 ], [ 0, %12 ]
+  %.08 = phi i32 [ 0, %12 ], [ %., %15 ]
   ret i32 %.08
 }
 

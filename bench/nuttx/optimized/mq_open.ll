@@ -225,13 +225,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
   br label %up_irq_restore.exit
 
 112:                                              ; preds = %80, %74, %92
-  %113 = phi ptr [ %75, %74 ], [ %.pre, %92 ], [ %75, %80 ]
-  %.1 = phi i32 [ -6, %74 ], [ %93, %92 ], [ -17, %80 ]
+  %113 = phi ptr [ %.pre, %92 ], [ %75, %74 ], [ %75, %80 ]
+  %.1 = phi i32 [ %93, %92 ], [ -6, %74 ], [ -17, %80 ]
   call void @inode_release(ptr noundef %113) #8
   br label %114
 
 114:                                              ; preds = %85, %112, %86, %89
-  %.2 = phi i32 [ %.1, %112 ], [ %90, %89 ], [ %87, %86 ], [ -2, %85 ]
+  %.2 = phi i32 [ %.1, %112 ], [ %87, %86 ], [ %90, %89 ], [ -2, %85 ]
   %115 = load ptr, ptr %71, align 8
   %.not60 = icmp eq ptr %115, null
   br i1 %.not60, label %117, label %116
@@ -251,7 +251,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %119, %117, %111, %109, %14, %6, %17, %56, %53
-  %.040 = phi i32 [ -22, %53 ], [ 0, %111 ], [ -22, %6 ], [ -36, %17 ], [ -22, %14 ], [ -22, %56 ], [ 0, %109 ], [ %.2, %117 ], [ %.2, %119 ]
+  %.040 = phi i32 [ -22, %14 ], [ -22, %6 ], [ -36, %17 ], [ -22, %56 ], [ -22, %53 ], [ 0, %109 ], [ 0, %111 ], [ %.2, %117 ], [ %.2, %119 ]
   ret i32 %.040
 }
 

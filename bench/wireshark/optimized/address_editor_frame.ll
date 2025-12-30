@@ -731,7 +731,7 @@ _ZN7QStringD2Ev.exit99:                           ; preds = %207, %_ZN17QArrayDa
   br label %213
 
 213:                                              ; preds = %205, %_ZN7QStringD2Ev.exit99, %_ZN7QStringD2Ev.exit95, %197, %_ZN7QStringD2Ev.exit91, %189, %_ZN7QStringD2Ev.exit87, %181, %_ZN7QStringD2Ev.exit83, %173, %_ZN7QStringD2Ev.exit79, %165, %_ZN7QStringD2Ev.exit75, %157, %_ZN7QStringD2Ev.exit29
-  %.pn.pn = phi { ptr, i32 } [ %27, %_ZN7QStringD2Ev.exit29 ], [ %200, %_ZN7QStringD2Ev.exit95 ], [ %198, %197 ], [ %192, %_ZN7QStringD2Ev.exit91 ], [ %190, %189 ], [ %206, %205 ], [ %184, %_ZN7QStringD2Ev.exit87 ], [ %182, %181 ], [ %176, %_ZN7QStringD2Ev.exit83 ], [ %174, %173 ], [ %208, %_ZN7QStringD2Ev.exit99 ], [ %168, %_ZN7QStringD2Ev.exit79 ], [ %166, %165 ], [ %160, %_ZN7QStringD2Ev.exit75 ], [ %158, %157 ]
+  %.pn.pn = phi { ptr, i32 } [ %200, %_ZN7QStringD2Ev.exit95 ], [ %198, %197 ], [ %192, %_ZN7QStringD2Ev.exit91 ], [ %190, %189 ], [ %184, %_ZN7QStringD2Ev.exit87 ], [ %182, %181 ], [ %176, %_ZN7QStringD2Ev.exit83 ], [ %174, %173 ], [ %168, %_ZN7QStringD2Ev.exit79 ], [ %166, %165 ], [ %160, %_ZN7QStringD2Ev.exit75 ], [ %158, %157 ], [ %27, %_ZN7QStringD2Ev.exit29 ], [ %208, %_ZN7QStringD2Ev.exit99 ], [ %206, %205 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -939,9 +939,9 @@ _ZN7QStringD2Ev.exit14:                           ; preds = %_ZN16FieldInformati
           to label %_ZN7QStringD2Ev.exit22 unwind label %70
 
 _ZN7QStringD2Ev.exit22:                           ; preds = %65, %_ZN7QStringD2Ev.exit14, %67, %46, %_ZN7QStringD2Ev.exit, %48, %_ZN16FieldInformation10HeaderInfoD2Ev.exit
-  %.sroa.033.3 = phi ptr [ %38, %46 ], [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %38, %48 ], [ %38, %_ZN7QStringD2Ev.exit ], [ %57, %67 ], [ %57, %_ZN7QStringD2Ev.exit14 ], [ %57, %65 ]
-  %.sroa.16.0 = phi ptr [ %40, %46 ], [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %40, %48 ], [ %40, %_ZN7QStringD2Ev.exit ], [ %59, %67 ], [ %59, %_ZN7QStringD2Ev.exit14 ], [ %59, %65 ]
-  %.sroa.24.0 = phi i64 [ %42, %46 ], [ 0, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %42, %48 ], [ %42, %_ZN7QStringD2Ev.exit ], [ %61, %67 ], [ %61, %_ZN7QStringD2Ev.exit14 ], [ %61, %65 ]
+  %.sroa.033.3 = phi ptr [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %38, %48 ], [ %38, %_ZN7QStringD2Ev.exit ], [ %38, %46 ], [ %57, %67 ], [ %57, %_ZN7QStringD2Ev.exit14 ], [ %57, %65 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %40, %48 ], [ %40, %_ZN7QStringD2Ev.exit ], [ %40, %46 ], [ %59, %67 ], [ %59, %_ZN7QStringD2Ev.exit14 ], [ %59, %65 ]
+  %.sroa.24.0 = phi i64 [ 0, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %42, %48 ], [ %42, %_ZN7QStringD2Ev.exit ], [ %42, %46 ], [ %61, %67 ], [ %61, %_ZN7QStringD2Ev.exit14 ], [ %61, %65 ]
   store ptr %.sroa.033.3, ptr %0, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.16.0, ptr %68, align 8
@@ -1135,7 +1135,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %39, %_ZN17QArrayDat
   ret void
 
 44:                                               ; preds = %.loopexit, %.loopexit.split-lp, %38, %33
-  %.pn13 = phi { ptr, i32 } [ %.pn, %33 ], [ %.pn11, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn13 = phi { ptr, i32 } [ %.pn11, %38 ], [ %.pn, %33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
@@ -1648,7 +1648,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 .body:                                            ; preds = %151, %144, %131, %107, %101
-  %.pn18 = phi { ptr, i32 } [ %.pn, %107 ], [ %102, %101 ], [ %.pn15, %131 ], [ %152, %151 ], [ %145, %144 ]
+  %.pn18 = phi { ptr, i32 } [ %102, %101 ], [ %.pn15, %131 ], [ %.pn, %107 ], [ %152, %151 ], [ %145, %144 ]
   %185 = load ptr, ptr %8, align 8
   %.not.i.i.i36 = icmp eq ptr %185, null
   br i1 %.not.i.i.i36, label %_ZN7QStringD2Ev.exit39, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37
@@ -1768,7 +1768,7 @@ define noundef zeroext i1 @_ZN18AddressEditorFrame15isAddressColumnEP16epan_colu
   br label %23
 
 23:                                               ; preds = %20, %15, %3, %6, %.thread
-  %.0 = phi i1 [ false, %.thread ], [ false, %3 ], [ true, %15 ], [ false, %6 ], [ true, %20 ]
+  %.0 = phi i1 [ false, %.thread ], [ false, %6 ], [ false, %3 ], [ true, %15 ], [ true, %20 ]
   ret i1 %.0
 }
 

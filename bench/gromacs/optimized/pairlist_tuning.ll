@@ -335,7 +335,7 @@ _ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit: ; preds
   %41 = fcmp ogt float %40, 0.000000e+00
   br i1 %41, label %43, label %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread
 
-_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread: ; preds = %29, %33, %35, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit
+_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread: ; preds = %33, %29, %35, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %23) #28
   %.pre = load i32, ptr %22, align 8, !tbaa !110
   br label %43
@@ -478,7 +478,7 @@ _ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203: ; pr
   %.old = fcmp ogt float %72, 0.000000e+00
   br i1 %.old, label %104, label %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203.thread
 
-_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203.thread: ; preds = %94, %98, %99, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203
+_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203.thread: ; preds = %98, %94, %99, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx15increaseNstlistEP8_IO_FILEP9t_commrecP10t_inputreciPK10gmx_mtop_tPA3_KffbRKNS_7CpuInfoEENK3$_0clEv", ptr noundef nonnull @.str.14, i32 noundef 264) #27
   unreachable
 
@@ -1970,8 +1970,8 @@ _ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.s
   %227 = trunc nuw i8 %158 to i1
   br label %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread
 
-_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread: ; preds = %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.sink.split, %35, %50, %53, %60, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit
-  %228 = phi i1 [ false, %35 ], [ false, %50 ], [ false, %53 ], [ false, %60 ], [ false, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit ], [ %227, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.sink.split ]
+_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread: ; preds = %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.sink.split, %50, %35, %53, %60, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit
+  %228 = phi i1 [ false, %50 ], [ false, %35 ], [ false, %53 ], [ false, %60 ], [ false, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit ], [ %227, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %229 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %229, ptr %13, align 8, !tbaa !4
@@ -2892,7 +2892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit301: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %624
 
-_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit231.thread: ; preds = %406, %409, %412, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit231, %591, %419
+_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit231.thread: ; preds = %409, %406, %412, %_ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit231, %591, %419
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %594 = load ptr, ptr %593, align 8, !tbaa !199
   %595 = icmp eq ptr %594, null
@@ -2980,7 +2980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit311: ; preds = %61
   ret void
 
 624:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit308, %443, %592, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit200, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188
-  %.pn150.pn.pn = phi { ptr, i32 } [ %444, %443 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224 ], [ %.pn131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit200 ], [ %.pn128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194 ], [ %.pn126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188 ], [ %.pn123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %.pn144.pn.pn.pn, %592 ], [ %614, %_ZN3gmx14LogEntryWriterD2Ev.exit308 ]
+  %.pn150.pn.pn = phi { ptr, i32 } [ %.pn131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit200 ], [ %.pn128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194 ], [ %.pn126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188 ], [ %.pn123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224 ], [ %.pn144.pn.pn.pn, %592 ], [ %444, %443 ], [ %614, %_ZN3gmx14LogEntryWriterD2Ev.exit308 ]
   %625 = load ptr, ptr %13, align 8, !tbaa !12
   %626 = icmp eq ptr %625, %229
   br i1 %626, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i312
@@ -3150,7 +3150,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %.body
 
 .body:                                            ; preds = %58, %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36, %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn = phi { ptr, i32 } [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36 ], [ %57, %56 ], [ %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %40, %39 ], [ %59, %58 ]
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36 ], [ %40, %39 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %202
 

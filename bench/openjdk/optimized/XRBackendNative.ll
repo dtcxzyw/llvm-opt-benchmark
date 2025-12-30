@@ -248,14 +248,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
   br label %.critedge4.i
 
 .critedge4.i:                                     ; preds = %101, %.lr.ph70.i, %.critedge4.sink.split.i, %96, %92, %78, %.preheader.i
-  %105 = phi i1 [ false, %.preheader.i ], [ true, %92 ], [ true, %.critedge4.sink.split.i ], [ true, %96 ], [ false, %78 ], [ false, %.lr.ph70.i ], [ false, %101 ]
-  %.1.i = phi i8 [ 1, %.preheader.i ], [ 0, %92 ], [ %.1.ph.i, %.critedge4.sink.split.i ], [ 1, %96 ], [ 1, %78 ], [ 1, %.lr.ph70.i ], [ 1, %101 ]
+  %105 = phi i1 [ true, %92 ], [ true, %96 ], [ false, %78 ], [ false, %.preheader.i ], [ true, %.critedge4.sink.split.i ], [ false, %.lr.ph70.i ], [ false, %101 ]
+  %.1.i = phi i8 [ 0, %92 ], [ 1, %96 ], [ 1, %78 ], [ 1, %.preheader.i ], [ %.1.ph.i, %.critedge4.sink.split.i ], [ 1, %.lr.ph70.i ], [ 1, %101 ]
   %106 = call i32 @fclose(ptr noundef nonnull %69)
   br label %.critedge63.i
 
 .critedge63.i:                                    ; preds = %54, %.critedge4.i, %68, %63, %57, %.critedge.i, %50, %45
-  %.044.i = phi i1 [ %105, %.critedge4.i ], [ false, %68 ], [ false, %63 ], [ false, %57 ], [ false, %45 ], [ false, %.critedge.i ], [ false, %50 ], [ false, %54 ]
-  %.043.i = phi i8 [ %.1.i, %.critedge4.i ], [ 1, %68 ], [ 1, %63 ], [ 1, %57 ], [ 1, %45 ], [ 1, %.critedge.i ], [ 1, %50 ], [ 1, %54 ]
+  %.044.i = phi i1 [ %105, %.critedge4.i ], [ false, %68 ], [ false, %63 ], [ false, %57 ], [ false, %.critedge.i ], [ false, %45 ], [ false, %50 ], [ false, %54 ]
+  %.043.i = phi i8 [ %.1.i, %.critedge4.i ], [ 1, %68 ], [ 1, %63 ], [ 1, %57 ], [ 1, %.critedge.i ], [ 1, %45 ], [ 1, %50 ], [ 1, %54 ]
   %107 = icmp eq i8 %2, 0
   %or.cond8.i = or i1 %107, %.044.i
   br i1 %or.cond8.i, label %111, label %108
@@ -302,7 +302,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
   br label %IsXRenderAvailable.exit
 
 IsXRenderAvailable.exit:                          ; preds = %42, %111, %114, %121, %125, %126
-  %.0.i = phi i8 [ 0, %42 ], [ %.043.i, %126 ], [ %.mux.i, %125 ], [ %.043.i, %111 ], [ %.043.i, %121 ], [ %.043.i, %114 ]
+  %.0.i = phi i8 [ 0, %42 ], [ %.043.i, %126 ], [ %.043.i, %121 ], [ %.043.i, %114 ], [ %.043.i, %111 ], [ %.mux.i, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -847,7 +847,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
   br label %81
 
 81:                                               ; preds = %14, %10, %79, %45, %26
-  %.0 = phi i32 [ %80, %79 ], [ -1, %10 ], [ -1, %26 ], [ -1, %45 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %26 ], [ -1, %45 ], [ %80, %79 ], [ -1, %10 ], [ -1, %14 ]
   ret i32 %.0
 }
 
@@ -989,7 +989,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
   br label %83
 
 83:                                               ; preds = %._crit_edge, %80, %14, %10, %47, %26
-  %.0 = phi i32 [ -1, %14 ], [ -1, %10 ], [ -1, %26 ], [ -1, %47 ], [ %73, %80 ], [ %73, %._crit_edge ]
+  %.0 = phi i32 [ -1, %26 ], [ -1, %47 ], [ -1, %10 ], [ -1, %14 ], [ %73, %80 ], [ %73, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1585,7 +1585,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   br i1 %.not97, label %90, label %.sink.split
 
 .sink.split:                                      ; preds = %89, %57, %45, %36
-  %.084.sink = phi ptr [ %.084, %45 ], [ %.085, %36 ], [ %.084, %57 ], [ %.084, %89 ]
+  %.084.sink = phi ptr [ %.085, %36 ], [ %.084, %45 ], [ %.084, %57 ], [ %.084, %89 ]
   call void @free(ptr noundef nonnull %.084.sink) #14
   br label %90
 
